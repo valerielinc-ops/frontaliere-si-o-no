@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * process-stop-replies.mjs — auto-suppress employer-outreach recipients who reply
  * "STOP" / "UNSUBSCRIBE" to a cold email (follow-up #2620, item 2).
@@ -43,6 +45,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { FieldValue } from 'firebase-admin/firestore';
 import { isStopReply, isAutoReplySubject, extractSenderEmail } from './lib/stop-reply-detect.mjs';
 import {
   resolveCompanyKeyByEmail,
@@ -207,10 +210,8 @@ async function run() {
       console.warn('↷ Firestore: GOOGLE_APPLICATION_CREDENTIALS non impostato — suppression scritta solo nel send-log locale.');
     } else {
       const { getFirestoreDb } = await import('./lib/firestore-admin.mjs');
-      const adminMod = await import('firebase-admin');
-      const admin = adminMod.default || adminMod;
       db = await getFirestoreDb();
-      serverTimestamp = admin.firestore.FieldValue.serverTimestamp();
+      serverTimestamp = FieldValue.serverTimestamp();
     }
   } catch (err) {
     console.warn(`↷ Firestore non disponibile (${err.message}) — suppression scritta solo nel send-log locale.`);
@@ -238,6 +239,6 @@ async function run() {
   }
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   run().catch((err) => { console.error(err); process.exitCode = 1; });
 }

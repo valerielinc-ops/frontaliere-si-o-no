@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { directRules, matchBlock } from './helpers/firestoreRulesBlock';
+import { ASSISTED_APPLICATION_CONSENT_VERSIONS, hasAssistedApplicationConsent } from '../functions/src/assistedApplicationConstants.js';
 
 const repoRoot = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const uploadSource = readFileSync(resolve(repoRoot, 'components/community/AssistedApplicationUpload.tsx'), 'utf8');
@@ -25,10 +26,16 @@ describe('assisted application post-payment upload', () => {
     expect(uploadSource).toContain('Math.min(pollDelayMs * 2, MAX_PAYMENT_POLL_INTERVAL_MS)');
     expect(uploadSource).not.toContain('MAX_PAYMENT_POLLS');
     expect(uploadSource).toContain('consentPersisted');
-    expect(uploadSource).toContain('disabled={consentPersisted || consentSaving || uploading || submitBusy}');
+    expect(uploadSource).toContain('disabled={consentSaving || uploading || submitBusy}');
     expect(uploadSource).toContain('cvUploadedAt: firestoreModule.serverTimestamp()');
     expect(uploadSource).toContain('await updateOrder({');
-    expect(uploadSource).toContain('disabled={!consent || Boolean(cvStorageKey)');
+    expect(uploadSource).toContain('<details');
+    expect(uploadSource).toContain('disabled={!consentPersisted || Boolean(cvStorageKey)');
+  });
+
+  it('does not attribute legacy orders with no stored copy arm to the control arm', () => {
+    expect(uploadSource).toContain('const copyVariant = normalizeAssistedApplicationCopyVariant(order?.copyVariant);');
+    expect(uploadSource).toContain('...(copyVariant ? { copy_variant: copyVariant } : {}),');
   });
 
   it('allows only the server to create/pay an order and freezes payment identity for clients', () => {
@@ -44,7 +51,7 @@ describe('assisted application post-payment upload', () => {
     expect(block).toContain("'cvUploadedAt'");
     expect(block).toContain('request.resource.data.cvUploadedAt is timestamp');
     expect(block).toContain('request.resource.data.cvStorageKey == resource.data.cvStorageKey');
-    expect(block).toContain("request.resource.data.consentVersion == 'assisted-application-v1'");
+    expect(block).toContain("request.resource.data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']");
     expect(block).toContain('allow delete: if false;');
   });
 
@@ -53,10 +60,21 @@ describe('assisted application post-payment upload', () => {
 
     expect(block).toContain('request.auth != null');
     expect(block).toContain(".data.paymentStatus == 'paid'");
-    expect(block).toContain(".data.consentVersion == 'assisted-application-v1'");
+    expect(block).toContain(".data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']");
     expect(block).toContain('.data.consentedAt is timestamp');
     expect(block).toContain('allow read: if false;');
     expect(block).toContain('allow update, delete: if false;');
     expect(block).toContain('request.resource.contentType.matches');
+  });
+
+  // Review of #10633: an order consented under v1 must not be asked again (the rules forbid rewriting the version).
+  it('honours every mandate version the rules accept, and only those', () => {
+    const versions = `[${ASSISTED_APPLICATION_CONSENT_VERSIONS.map((version) => `'${version}'`).join(', ')}]`;
+    expect(firestoreRules).toContain(`request.resource.data.consentVersion in ${versions}`);
+    expect(storageRules).toContain(`.data.consentVersion in ${versions}`);
+    expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v1', consentedAt: { seconds: 1 } })).toBe(true);
+    expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 } })).toBe(true);
+    expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v2', consentedAt: null })).toBe(false);
+    expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v0', consentedAt: { seconds: 1 } })).toBe(false);
   });
 });

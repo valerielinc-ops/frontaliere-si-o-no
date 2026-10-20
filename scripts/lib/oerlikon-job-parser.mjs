@@ -33,8 +33,11 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { decodeHtmlEntitiesOnce, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -62,6 +65,17 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/** Build the SuccessFactors detail URL from the API title with one entity pass. */
+export function buildOerlikonJobUrl(urlTitle = '', id = '') {
+  const reqId = String(id || '').trim();
+  if (!reqId) return '';
+  const title = String(urlTitle || '');
+  const rawUrl = title
+    ? `https://${CAREER_HOST}/job/${title}/${reqId}-${LOCALE}`
+    : `https://${CAREER_HOST}/job/${reqId}-${LOCALE}`;
+  return decodeHtmlEntitiesOnce(rawUrl);
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -133,19 +147,6 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/**
- * Parse a US-style "M/D/YY" posting-date string (e.g. "6/1/26", "4/10/26")
- * as returned by the search API's `unifiedStandardStart` field.
- */
-function parsePostedDate(raw = '') {
-  const m = String(raw || '').trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/);
-  if (!m) return '';
-  const [, mo, day, yy] = m;
-  const year = 2000 + Number(yy);
-  const d = new Date(Date.UTC(year, Number(mo) - 1, Number(day)));
-  return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
-}
-
 /* ── Search API + detail page ─────────────────────────────── */
 
 /**
@@ -183,8 +184,11 @@ async function listSwissJobs() {
     try {
       result = await fetchSearchPage(page);
     } catch (err) {
-      if (page === 0) console.warn(`⚠️ Failed to fetch Oerlikon search API: ${err.message}`);
-      break;
+      console.warn(`⚠️ Failed to fetch Oerlikon search API (page ${page}): ${err.message}`);
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
     if (page === 0) expectedTotal = result.total;
     if (result.rows.length === 0) break;
@@ -221,7 +225,13 @@ async function fetchJobDetail(detailUrl) {
   }
   const descriptionHtml = parts.join('\n');
 
-  return { descriptionHtml };
+  // unifiedStandardStart has no verified publication semantics for this tenant.
+  const microdata = html.match(/itemprop=["']datePosted["'][^>]*content=["']([^"']+)["']/i)?.[1]
+    || html.match(/itemprop=["']datePosted["'][^>]*>([^<]*)</i)?.[1];
+  const fields = successFactorsPostingDateFields(extractJobPostingField(html, 'datePosted'));
+  return { descriptionHtml, ...mergeSourcePostingDates(
+    fields, successFactorsPostingDateFields(microdata),
+  ) };
 }
 
 /**
@@ -245,7 +255,7 @@ export async function fetchAllOerlikonJobs() {
     const id = listing.id || '';
     if (!title || !id) continue;
 
-    const publicUrl = `https://${CAREER_HOST}/job/${urlTitle}/${id}-${LOCALE}`;
+    const publicUrl = buildOerlikonJobUrl(urlTitle, id);
     console.log(`  📄 Fetching detail: ${title}`);
     const detail = await fetchJobDetail(publicUrl);
 
@@ -296,7 +306,7 @@ export async function fetchAllOerlikonJobs() {
       sector: 'Tecnologia / Ingegneria di superficie',
       currency: 'CHF',
       featured: false,
-      postedDate: parsePostedDate(listing.unifiedStandardStart) || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail || {}),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

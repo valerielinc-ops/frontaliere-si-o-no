@@ -46,7 +46,14 @@
 # the locale shards):
 #   SHARD_<SECTION>_<LOCALE>_DEPLOY_KEY  — e.g. SHARD_TICINO_IT_DEPLOY_KEY. The
 #                              write deploy key for frontaliere-<section>-<loc>.
-#                              Read via indirect expansion. Missing → skip (exit 0).
+#                              Read via indirect expansion. Missing → use
+#                              an owner-aware PAT fallback for a complete full
+#                              publish; if no matching token is available, fail
+#                              closed.
+#   SHARD_PUSH_PAT/GITHUB_PAT  — HTTPS fallback token. For shards owned by
+#                                nanakokyobashi-rgb, GITHUB_PAT_NANAKO is
+#                                selected instead (all are hydrated from
+#                                Remote Config in the deploy workflow).
 # Optional env:
 #   RUNNER_TEMP / SHARD_HISTORY_CAP / GITHUB_SHA / GITHUB_RUN_ID — as the locale shard.
 #   SHARD_PUSH_MODE — `full` (default, current byte-identical path) or `delta`.
@@ -62,8 +69,9 @@
 #                  completed in background — see scripts/lib/shard-cdn-rewrite.sh.
 #
 # On success writes $RUNNER_TEMP/shard-ok-<section>-<locale> (consumed by the
-# strip step) and exits 0. SKIP (no key / subtree absent) exits 0 without the
-# marker. Real failure exits non-zero (the caller is continue-on-error).
+# strip step) and exits 0. A missing deploy key uses the HTTPS fallback when it
+# is available; only an absent subtree remains a clean skip. Real failure exits
+# non-zero (the caller is continue-on-error).
 #
 # Also writes $RUNNER_TEMP/shard-srcn-<section>-<locale> right after staging,
 # holding the staged subtree's file count at THIS moment (issue #6283): the
@@ -98,6 +106,7 @@ verify_tool="$repo_root/scripts/ci/shard-push-verify.mjs"
 # compact-article-shard-history.sh (issue #4881, AGENTS.md #6).
 source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/shard-cdn-rewrite.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"
 offload_script="$repo_root/scripts/offload-generated-images-cdn.mjs"
 
 # Canonical section path per locale, from the shared single source of truth.
@@ -114,6 +123,23 @@ case "$loc" in
   en|de|fr) sub="$loc/$slug" ;;
   *) echo "::error::unsupported locale '$loc' (expected it|de|en|fr)" >&2; exit 1 ;;
 esac
+
+# The Ticino section has enough first-level entries for its Git tree object to
+# exceed GitHub's hard 50 MiB limit. Delta mode cannot describe the physical
+# _tree fan-out, so always use the full overlay for this section. The source
+# build and all integrity/shrink guards remain unchanged.
+if [ "$section" = ticino ] && [ "$SHARD_PUSH_MODE" != full ]; then
+  echo "::notice::ticino-$loc shard: forcing full overlay because the physical _tree fan-out is not delta-addressable"
+  SHARD_PUSH_MODE=full
+fi
+if [ "$section" = ticino ] && [ "${SHARD_PUSH_VERIFY:-}" = 1 ]; then
+  # SHARD_PUSH_VERIFY is advisory delta-vs-full comparison plumbing. Its plan
+  # is path-based and cannot represent the physical fan-out without materializing
+  # the entire no-checkout verifier index; the real full push still runs all
+  # source-count, shrink, integrity and remote-push guards below.
+  echo "::notice::ticino-$loc shard: skipping advisory delta verifier because the physical _tree fan-out is not delta-addressable"
+  SHARD_PUSH_VERIFY=0
+fi
 
 SECTION_UPPER="$(echo "$section" | tr a-z A-Z)"
 ORIGIN_HOST="origin-$section-$loc.frontaliereticino.ch"
@@ -157,17 +183,47 @@ offload_delta_stage() {
   ( cd "$stage_src" && CDN_BASE="$CDN_BASE_FIXED" node "$offload_script" --files-from "$list" )
 }
 
+# Per-phase wall clock of one (section, locale) push. The fan-out only reports
+# a total per section ([shard-timing]); for ticino that total is ~42 min and the
+# log could not say whether it goes to the CDN rewrite, the clone of the
+# previous shard, the overlay, `git add` or the push itself (run 37728960699:
+# ~22 min before the overlay line, ~20 min from there to "pushed"). One line
+# per phase, prefixed with the shard name because sections run in parallel:
+#   [shard-phase] ticino-fr git-add 512s
+# Measurement only: always returns 0, so it cannot trip the `set -e` subshell.
+_shard_phase_t="$SECONDS"
+shard_phase() {
+  local now="$SECONDS"
+  echo "[shard-phase] $section-$loc $1 $((now - _shard_phase_t))s" || true
+  _shard_phase_t="$now"
+  return 0
+}
+
 push_section_shard() {
-  local key_var key_val stage stage_src keyfile src_n prev_n rc
+  local key_var key_val stage stage_src keyfile src_n prev_n rc missing_deploy_key fallback_token
+  _shard_phase_t="$SECONDS"
+  SHARD_PUSH_FAIL_REASON_FILE="${RUNNER_TEMP:-/tmp}/shard-fail-reason-$section-$loc"
+  : > "$SHARD_PUSH_FAIL_REASON_FILE" 2>/dev/null || true
   LOC_UPPER="$(echo "$loc" | tr a-z A-Z)"
   # Per-section-per-locale deploy key via indirect expansion (mirrors push-locale-shard.sh).
   key_var="SHARD_${SECTION_UPPER}_${LOC_UPPER}_DEPLOY_KEY"
   key_val="${!key_var:-}"
+  missing_deploy_key=0
   if [ -z "$key_val" ]; then
-    echo "no $key_var secret — skipping $loc $section shard push (split disabled)"; return 0
+    fallback_token="$(shard_push_token_for_repo "$SHARD_REPO")"
+    if [ -z "$fallback_token" ]; then
+      echo "::error::no $key_var secret and no PAT for $SHARD_REPO — cannot publish $loc $section shard" >&2
+      return 1
+    fi
+    missing_deploy_key=1
+    echo "::warning::no $key_var secret — publishing $loc $section shard with the PAT fallback; provision or rotate the deploy key"
   fi
   if [ ! -d "$dist_dir/$sub" ]; then
     echo "$dist_dir/$sub absent — skipping $loc $section shard push"; return 0
+  fi
+
+  if [ "$section" = ticino ] && ! ticino_tree_require_worker_layout "$sub"; then
+    return 1
   fi
 
   # ── Stage subtree + offload (CDN refs) on the STAGED copy ────────────────
@@ -182,6 +238,7 @@ push_section_shard() {
   if [ "$loc" = "it" ] && [ -f "$dist_dir/404.html" ]; then
     cp "$dist_dir/404.html" "$stage_src/dist/404.html"
   fi
+  shard_phase stage-source
   # SHARD_DELTA_CDN_REWRITE=changed (delta mode only): defer the rewrite until
   # the delta plan says which staged files the push will actually read.
   rm -f "$RUNNER_TEMP/shard-cdn-partial-$section-$loc" "$RUNNER_TEMP/shard-cdn-done-$section-$loc"
@@ -192,16 +249,25 @@ push_section_shard() {
   else
     offload_full_stage
   fi
+  shard_phase cdn-rewrite
 
   src_n="$(shard_count_files "$stage_src/dist/$sub")"
   printf '%s' "$src_n" > "$RUNNER_TEMP/shard-srcn-$section-$loc"
+  shard_phase count-source
 
   stage="$RUNNER_TEMP/shard-$section-$loc"
   keyfile="$RUNNER_TEMP/shard_${section}_${loc}_key"
-  printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
-  # Keep long section pushes alive while GitHub is processing multi-GB packs;
-  # the PAT fallback still handles a remote that closes the transport.
-  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
+  if [ "$missing_deploy_key" = 0 ]; then
+    printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
+    # Keep long section pushes alive while GitHub is processing multi-GB packs;
+    # the PAT fallback still handles a remote that closes the transport.
+    export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
+  else
+    # There is no SSH credential to use for the clone or push. The full path
+    # below reads the public shard over HTTPS and publishes the complete,
+    # freshly-built subtree with the PAT.
+    unset GIT_SSH_COMMAND
+  fi
 
   # Guarded build+push in ONE `set -e` subshell (see push-locale-shard.sh for
   # the full rationale: standalone subshell + captured $?; explicit full/delta
@@ -247,6 +313,7 @@ push_section_shard() {
         && verify_dcount="$SHARD_VERIFY_DCOUNT" \
         && shard_delta_add_text "$verify_stage" .shard-filecount "$verify_n" 0 \
         && shard_delta_add_text "$verify_stage" .shard-deploys "$((verify_dcount + 1))" 0 \
+        && shard_delta_add_text "$verify_stage" .shard-source "$(shard_source_stamp)" 0 \
         && verify_base_tree="$SHARD_VERIFY_BASE_TREE" \
         && verify_plan_tree="$(git -C "$verify_stage" write-tree --missing-ok)"; then
         verify_plan_seconds="$((SECONDS - verify_started))"
@@ -255,9 +322,10 @@ push_section_shard() {
       else
         echo "::warning::[shard-push-verify] $section-$loc plan unavailable: ${SHARD_VERIFY_REASON:-advisory preparation failure}"
       fi
+      shard_phase verify-plan
     fi
 
-    if [ "$SHARD_PUSH_MODE" = delta ]; then
+    if [ "$missing_deploy_key" != 1 ] && [ "$SHARD_PUSH_MODE" = delta ]; then
       delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
       current_manifest="$manifest_dir/$loc.jsonl"
       if shard_manifest_snapshot "$current_manifest" "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output"; then
@@ -327,6 +395,7 @@ push_section_shard() {
             incremental=1
             if ! shard_delta_add_text "$stage" .shard-filecount "$n" 0; then delta_apply_ok=0; fi
             if ! shard_delta_add_text "$stage" .shard-deploys "$((dcount + 1))" 0; then delta_apply_ok=0; fi
+            if ! shard_delta_add_text "$stage" .shard-source "$(shard_source_stamp)" 1; then delta_apply_ok=0; fi
           fi
           if [ "$delta_apply_ok" != 1 ] && [ -z "$delta_fallback_reason" ]; then
             delta_fallback_reason='delta index update failed'
@@ -344,6 +413,7 @@ push_section_shard() {
       if [ "$delta_applied" != 1 ]; then
         echo "::warning::$section-$loc shard: delta fallback: fallback reason=$delta_fallback_reason — using full overlay"
       fi
+      shard_phase delta-plan
     fi
 
     if [ "$delta_applied" != 1 ]; then
@@ -357,9 +427,18 @@ push_section_shard() {
         offload_full_stage
         cdn_rewrite_deferred=0
         cdn_rewrite_partial=0
+        shard_phase cdn-rewrite-after-fallback
+      fi
+      clone_repo="$SHARD_REPO"
+      if [ "$missing_deploy_key" = 1 ]; then
+        if ! clone_repo="$(shard_https_push_url "$SHARD_REPO")"; then
+          echo "::error::$section-$loc shard: deploy key missing and no HTTPS GitHub URL can be derived from '$SHARD_REPO' — refusing the fallback push" >&2
+          exit 1
+        fi
+        echo "$section-$loc shard: deploy key missing — reading the current tree over HTTPS before the PAT fallback"
       fi
       if git clone -q --depth 1 --filter=blob:none --no-checkout \
-           "$SHARD_REPO" "$stage" 2>/dev/null \
+           "$clone_repo" "$stage" 2>/dev/null \
          && [ -d "$stage/.git" ]; then
         # git-plumbing reads (git show HEAD:<path>), NOT working-tree file
         # checks — --no-checkout NEVER materializes a working-tree file, so a
@@ -370,6 +449,15 @@ push_section_shard() {
         # lazy-fetch cannot bypass SHARD_HISTORY_CAP.
         if ! dcount="$(shard_read_counter "$stage" .shard-deploys)" \
           || ! prev_n="$(shard_read_counter "$stage" .shard-filecount)"; then
+          # With a missing deploy key, an existing HEAD is the only
+          # trustworthy proof that this is not a first publish. Never turn an
+          # unreadable remote baseline into an orphan seed: the PAT fallback
+          # must fail closed before it can bypass the shrink guard.
+          if [ "$missing_deploy_key" = 1 ] \
+            && git -C "$stage" rev-parse -q --verify HEAD >/dev/null 2>&1; then
+            echo "::error::$section-$loc shard: remote HEAD has an unreadable bookkeeping marker — refusing PAT fallback without the remote shrink baseline" >&2
+            exit 1
+          fi
           echo "::warning::$section-$loc shard: marker lazy-fetch failed — flattening before full overlay"
           rm -rf "$stage"; mkdir -p "$stage"
           shard_orphan_init "$stage"
@@ -385,9 +473,14 @@ push_section_shard() {
           incremental=1
         fi
       else
+        if [ "$missing_deploy_key" = 1 ]; then
+          echo "::error::$section-$loc shard: HTTPS read failed while the deploy key is missing — refusing to publish without the remote shrink baseline" >&2
+          exit 1
+        fi
         echo "$section-$loc shard: no prior clone (first push / transient) — full orphan push"
         shard_orphan_init "$stage"
       fi
+      shard_phase clone-previous
 
       : > "$stage/.nojekyll"
       printf '%s' "$ORIGIN_HOST" > "$stage/CNAME"
@@ -396,6 +489,12 @@ push_section_shard() {
       # Copy the offloaded subtree at its canonical path (hardlink when same-fs).
       mkdir -p "$stage/$(dirname "$sub")"
       cp -al "$stage_src/dist/$sub" "$stage/$sub" 2>/dev/null || cp -r "$stage_src/dist/$sub" "$stage/$sub"
+      shard_phase overlay-copy
+      if ! ticino_tree_fanout_stage "$section" "$stage/$sub"; then
+        echo "::error::$section-$loc shard: unable to fan out the physical Ticino tree" >&2
+        exit 1
+      fi
+      shard_phase tree-fanout
       if { [ "$SHARD_PUSH_MODE" = delta ] || [ "$verify_ready" = 1 ]; } \
          && [ -n "$delta_snapshot" ] && [ -s "$delta_snapshot" ]; then
         mkdir -p "$stage/$(dirname "$delta_sidecar")"
@@ -448,7 +547,10 @@ push_section_shard() {
     fi
     printf '%s' "$n" > "$stage/.shard-filecount"
     printf '%s' "$((dcount + 1))" > "$stage/.shard-deploys"
+    shard_source_stamp > "$stage/.shard-source"
+    shard_phase count-and-guards
     echo "$section-$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files (src $src_n, prev $prev_n, incremental=$incremental, deploys-since-flatten=$((dcount + 1)))"
+    shard_phase disk-usage
     fi
 
     if [ "$delta_applied" = 1 ] && [ "$cdn_rewrite_partial" = 1 ]; then
@@ -467,25 +569,42 @@ push_section_shard() {
         _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
         _delta_tree="$(git write-tree --missing-ok)"
         _delta_commit="$(git commit-tree "$_delta_tree" -p HEAD -m "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local}) [delta]")"
+        shard_phase git-commit
         _push_ok=0
-        if shard_push_with_retry "$stage" "$SHARD_REPO" "$_delta_commit:main" "$section-$loc shard"; then
-          _push_ok=1
+        _push_rc=0
+        _push_attempted=0
+        _tree_rc=0
+        shard_report_largest_tree "$stage" "$_delta_commit" "$section-$loc shard" || _tree_rc=$?
+        shard_phase largest-tree
+        if [ "$_tree_rc" -eq 0 ]; then
+          _push_attempted=1
+          if shard_push_with_retry "$stage" "$SHARD_REPO" "$_delta_commit:main" "$section-$loc shard"; then
+            _push_ok=1
+          else
+            _push_rc=$?
+          fi
+        else
+          _push_rc="$_tree_rc"
         fi
-        if [ "$_push_ok" != 1 ] && [ "$incremental" = 1 ]; then
+        shard_phase git-push
+        if [ "$_push_ok" != 1 ] && [ "$_push_attempted" = 1 ] && [ "$incremental" = 1 ] && [ "$_push_rc" -ne 3 ]; then
           echo "::warning::$section-$loc shard: delta self-heal required after 3 push attempts — flattening to a fresh orphan commit and retrying"
           if git -C "$stage" checkout-index -a; then
             if shard_orphan_flatten_and_push "$stage" "$SHARD_REPO" "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$section-$loc shard flatten"; then
               _push_ok=1
+            else
+              _push_rc=$?
             fi
           fi
         fi
-        [ "$_push_ok" = 1 ] || { echo "::error::$section-$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
+        [ "$_push_ok" = 1 ] || { echo "::error::$section-$loc shard push failed (rc=$_push_rc)"; exit "$_push_rc"; }
       fi
     else
       cd "$stage"
       git config user.email "valerielinc@gmail.com"
       git config user.name "Valerie Linc"
       git add -A
+      shard_phase git-add
       _skip_content_push=0
       if [ "$incremental" = 1 ]; then
         _content_diff_status=0
@@ -495,16 +614,37 @@ push_section_shard() {
         elif [ "$_content_diff_status" -gt 1 ]; then
           echo "::warning::$section-$loc shard: staged content diff failed — publishing conservatively"
         fi
+        shard_phase content-diff
       fi
       if [ "$_skip_content_push" -eq 1 ]; then
         echo "$section-$loc shard: no content changes vs remote — skipping push (already current)"
       else
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
       git commit -qm "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local})"
+      shard_phase git-commit
       _push_ok=0
-      if shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$section-$loc shard"; then
-        _push_ok=1
+      _push_rc=0
+      _push_attempted=0
+      _tree_rc=0
+      shard_report_largest_tree "$stage" HEAD "$section-$loc shard" || _tree_rc=$?
+      shard_phase largest-tree
+      if [ "$_tree_rc" -eq 0 ]; then
+        _push_attempted=1
+        if [ "$missing_deploy_key" = 1 ]; then
+          if shard_pat_push "$stage" "$SHARD_REPO" "main" "$section-$loc shard" 1 "deploy-key missing"; then
+            _push_ok=1
+          else
+            _push_rc=$?
+          fi
+        elif shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$section-$loc shard"; then
+          _push_ok=1
+        else
+          _push_rc=$?
+        fi
+      else
+        _push_rc="$_tree_rc"
       fi
+      shard_phase git-push
       # Self-heal: 3 retries on the SAME incremental base never recover from a
       # corrupted/diverged remote-tracking clone (the "not our ref" / "bad tree
       # object" / "early EOF" failure mode — incident 2026-07-24, run
@@ -514,13 +654,16 @@ push_section_shard() {
       # base (incremental=1, not already a fresh orphan), drop the corrupted
       # local history and retry as a brand-new orphan commit — a full pack that
       # doesn't negotiate against the broken remote graph — before giving up.
-      if [ "$_push_ok" != 1 ] && [ "$incremental" = 1 ]; then
+      if [ "$_push_ok" != 1 ] && [ "$_push_attempted" = 1 ] && [ "$incremental" = 1 ] && [ "$_push_rc" -ne 3 ]; then
         echo "::warning::$section-$loc shard: 3 incremental push attempts failed — flattening to a fresh orphan commit and retrying"
         if shard_orphan_flatten_and_push "$stage" "$SHARD_REPO" "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$section-$loc shard flatten"; then
           _push_ok=1
+        else
+          _push_rc=$?
         fi
+        shard_phase self-heal-flatten
       fi
-      [ "$_push_ok" = 1 ] || { echo "::error::$section-$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
+      [ "$_push_ok" = 1 ] || { echo "::error::$section-$loc shard push failed (rc=$_push_rc)"; exit "$_push_rc"; }
       if [ "$verify_ready" = 1 ]; then
         if actual_tree="$(git -C "$stage" rev-parse 'HEAD^{tree}' 2>/dev/null)"; then
           shard_delta_verify_report \

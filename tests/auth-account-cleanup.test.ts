@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const authState: { current: Record<string, unknown> | null } = { current: null };
 
 vi.mock('firebase-admin', () => ({
   default: {
@@ -33,8 +34,35 @@ vi.mock('firebase-admin', () => ({
   },
 }));
 
+// newsletterSubscriptionManagement imports sentinels from the ESM submodule,
+// not from admin.firestore. Keep both entry points on the same deterministic
+// fake values so the in-memory Firestore assertions do not depend on the
+// installed firebase-admin implementation.
+vi.mock('firebase-admin/firestore', () => ({
+  FieldValue: {
+    serverTimestamp: () => '__server_ts__',
+    delete: () => '__delete__',
+    increment: (n: number) => n,
+  },
+  Timestamp: {
+    fromMillis: (value: number) => `__timestamp_${value}__`,
+  },
+}));
+
 vi.mock('firebase-admin/remote-config', () => ({
   getRemoteConfig: () => ({ getTemplate: async () => ({ parameters: {} }) }),
+}));
+
+vi.mock('firebase-admin/auth', () => ({
+  getAuth: () => authState.current,
+}));
+
+vi.mock('firebase-admin/firestore', () => ({
+  FieldValue: {
+    serverTimestamp: () => '__server_ts__',
+    delete: () => '__delete__',
+    increment: (n: number) => n,
+  },
 }));
 
 vi.mock('../functions/src/newsletterResendWebhookCore.js', () => ({
@@ -45,6 +73,7 @@ vi.mock('../functions/src/newsletterResendWebhookCore.js', () => ({
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
   getNewsletterTokenPolicyConfig: async () => ({}),
+  getNewsletterConfirmationCopyConfig: async () => ({ NEWSLETTER_CONFIRMATION_COPY_ROLLOUT: '0' }),
 }));
 
 vi.mock('../functions/src/emailCascade.js', () => ({
@@ -81,6 +110,27 @@ function createFakeDb(seed: Record<string, Record<string, unknown>> = {}) {
     add: async (data: Record<string, unknown>) => {
       store[`${colPath}/auto-${++autoId}`] = data;
     },
+    where: (field: string, operator: string, value: unknown) => ({
+      get: async () => {
+        if (operator !== '==') throw new Error(`unsupported fake query operator: ${operator}`);
+        const prefix = `${colPath}/`;
+        const depth = colPath.split('/').length + 1;
+        const ids = Object.keys(store).filter(
+          (key) => key.startsWith(prefix)
+            && key.split('/').length === depth
+            && store[key]?.[field] === value,
+        );
+        return {
+          empty: ids.length === 0,
+          size: ids.length,
+          docs: ids.map((key) => ({
+            id: key.split('/').pop(),
+            ref: makeDoc(key),
+            data: () => store[key],
+          })),
+        };
+      },
+    }),
     orderBy: () => ({
       limit: () => ({
         get: async () => ({ docs: [] }),
@@ -107,9 +157,37 @@ function createFakeDb(seed: Record<string, Record<string, unknown>> = {}) {
     }),
   });
 
+  const makeCollectionGroup = (collectionId: string): any => {
+    const getDocs = (field?: string, value?: unknown) => {
+      const docs = Object.keys(store)
+        .filter((key) => {
+          const parts = key.split('/');
+          return parts.length >= 2
+            && parts[parts.length - 2] === collectionId
+            && (!field || store[key]?.[field] === value);
+        })
+        .map((key) => ({
+          id: key.split('/').pop(),
+          ref: makeDoc(key),
+          data: () => store[key],
+        }));
+      return { empty: docs.length === 0, size: docs.length, docs };
+    };
+    return {
+      where: (field: string, operator: string, value: unknown) => ({
+        get: async () => {
+          if (operator !== '==') throw new Error(`unsupported fake query operator: ${operator}`);
+          return getDocs(field, value);
+        },
+      }),
+      get: async () => getDocs(),
+    };
+  };
+
   return {
     store,
     collection: (name: string) => makeCollection(name),
+    collectionGroup: (name: string) => makeCollectionGroup(name),
     batch() {
       const ops: Array<() => void> = [];
       return {
@@ -147,6 +225,10 @@ function seedDeletedUser(extra: Record<string, Record<string, unknown>> = {}) {
     [`users/${UID}/savedJobs/job-a`]: { jobId: 'job-a' },
     [`users/${UID}/savedJobs/job-b`]: { jobId: 'job-b' },
     [`newsletter_subscribers/${EMAIL}`]: { status: 'pending', isActive: false, email: EMAIL },
+    [`newsletter_subscribers/${EMAIL}/private/personalization`]: {
+      applicationIntentAuthUid: UID,
+      applicationIntent: { intents: [{ jobKey: 'acme:old-role' }] },
+    },
     [`job_alert_subscribers/${EMAIL}`]: { status: 'active', isActive: true, email: EMAIL },
     ...extra,
   });
@@ -170,10 +252,31 @@ describe('cleanupUserDataForDeletedAccount', () => {
     const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
       '../functions/src/authAccountCleanup.js'
     );
+    const { isApplicationIntentAccountDeleted } = await import(
+      '../functions/src/applicationIntentPrivacy.js'
+    );
     const db = seedDeletedUser({
       [`petition_signatures/${UID}`]: {
         petitionId: 'stabio-dosso',
         uid: UID,
+      },
+      [`application_intents/intent-1`]: {
+        userId: UID,
+        email: EMAIL,
+        ip_anonymized: '198.51.100.0',
+        user_agent: 'browser-details-that-must-not-survive',
+        occurred_at: new Date(Date.now() - 6 * 86400000).toISOString(),
+      },
+      [`application_intents/intent-canonical`]: {
+        identifierType: 'firebase_uid',
+        identifier: UID,
+        email: EMAIL,
+        user_agent: 'canonical-user-agent-that-must-not-survive',
+      },
+      [`users/${UID}/application_intents/intent-nested-legacy`]: {
+        email: EMAIL,
+        ip_anonymized: '198.51.100.0',
+        user_agent: 'nested-user-agent-that-must-not-survive',
       },
     });
 
@@ -183,10 +286,13 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(result.tombstonedNewsletter).toBe(true);
     expect(result.tombstonedJobAlert).toBe(true);
     expect(result.deletedPetitionSignature).toBe(true);
+    expect(result.tombstonedApplicationIntents).toBe(3);
+    expect(result.tombstonedApplicationIntentAccount).toBe(true);
     expect(db.store[`petition_signatures/${UID}`]).toBeUndefined();
     expect(db.store[`users/${UID}`]).toBeUndefined();
     expect(db.store[`users/${UID}/savedJobs/job-a`]).toBeUndefined();
     expect(db.store[`users/${UID}/savedJobs/job-b`]).toBeUndefined();
+    expect(db.store[`newsletter_subscribers/${EMAIL}/private/personalization`]).toBeUndefined();
 
     const newsletter = db.store[`newsletter_subscribers/${EMAIL}`];
     expect(isAccountDeletedTombstone(newsletter)).toBe(true);
@@ -198,6 +304,19 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(isAccountDeletedTombstone(jobAlert)).toBe(true);
     expect(jobAlert.status).toBe('inactive');
     expect(jobAlert.isActive).toBe(false);
+
+    expect(await isApplicationIntentAccountDeleted(db as never, UID)).toBe(true);
+    expect(db.store[`application_intents/intent-1`]).toEqual(expect.objectContaining({
+      userId: UID,
+      status: 'account_deleted',
+    }));
+    expect(db.store[`application_intents/intent-1`]).not.toHaveProperty('email');
+    expect(db.store[`application_intents/intent-1`]).not.toHaveProperty('ip_anonymized');
+    expect(db.store[`application_intents/intent-1`]).not.toHaveProperty('user_agent');
+    expect(db.store[`application_intents/intent-canonical`]).toMatchObject({ status: 'account_deleted' });
+    expect(db.store[`application_intents/intent-canonical`]).not.toHaveProperty('email');
+    expect(db.store[`users/${UID}/application_intents/intent-nested-legacy`]).toMatchObject({ status: 'account_deleted' });
+    expect(db.store[`users/${UID}/application_intents/intent-nested-legacy`]).not.toHaveProperty('email');
   });
 
   it('writes a tombstone even when no subscriber docs existed, so a later create is an update', async () => {
@@ -212,6 +331,37 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(isAccountDeletedTombstone(db.store[`job_alert_subscribers/${EMAIL}`])).toBe(true);
   });
 
+  it('finds and cleans subscriber/private projections from a historical email', async () => {
+    const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
+      '../functions/src/authAccountCleanup.js'
+    );
+    const oldEmail = 'old-address@example.com';
+    const db = seedDeletedUser({
+      [`newsletter_subscribers/${oldEmail}`]: {
+        email: oldEmail,
+        user_id: UID,
+        status: 'confirmed',
+        isActive: true,
+      },
+      [`newsletter_subscribers/${oldEmail}/private/personalization`]: {
+        applicationIntentAuthUid: UID,
+        applicationIntent: { intents: [{ jobKey: 'acme:old-address-role' }] },
+      },
+      [`job_alert_subscribers/${oldEmail}`]: {
+        email: oldEmail,
+        userId: UID,
+        status: 'active',
+        isActive: true,
+      },
+    });
+
+    await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
+
+    expect(isAccountDeletedTombstone(db.store[`newsletter_subscribers/${oldEmail}`])).toBe(true);
+    expect(isAccountDeletedTombstone(db.store[`job_alert_subscribers/${oldEmail}`])).toBe(true);
+    expect(db.store[`newsletter_subscribers/${oldEmail}/private/personalization`]).toBeUndefined();
+  });
+
   it('still wipes saved jobs when the Auth user has no email', async () => {
     const { cleanupUserDataForDeletedAccount } = await import(
       '../functions/src/authAccountCleanup.js'
@@ -221,8 +371,8 @@ describe('cleanupUserDataForDeletedAccount', () => {
     const result = await cleanupUserDataForDeletedAccount({ uid: UID, email: null }, db as never);
 
     expect(result.deletedSavedJobs).toBe(2);
-    expect(result.tombstonedNewsletter).toBe(false);
-    expect(db.store[`newsletter_subscribers/${EMAIL}`].status).toBe('pending');
+    expect(result.tombstonedNewsletter).toBe(true);
+    expect(db.store[`newsletter_subscribers/${EMAIL}`].status).toBe('unsubscribed');
   });
 
   it('keeps the tombstones when saved-job cleanup fails, so retries remain safe', async () => {
@@ -472,15 +622,14 @@ describe('all supported registration methods after account-delete', () => {
     await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
     const env = { NEWSLETTER_AC_SCHEME: 'v1', NEWSLETTER_AC_TTL_DAYS: '30' };
     const token = mintAutologinCode(EMAIL, { secret: SECRET, env, now: Date.now() });
-    const admin = (await import('firebase-admin')).default as any;
-    const originalAuth = admin.auth;
-    admin.auth = () => ({
+    const originalAuth = authState.current;
+    authState.current = {
       getUserByEmail: vi.fn(async () => {
         throw Object.assign(new Error('not found'), { code: 'auth/user-not-found' });
       }),
       createUser: vi.fn(async () => ({ uid: 'new-autologin-user' })),
       createCustomToken: vi.fn(async () => 'custom-auth-token'),
-    });
+    };
 
     try {
       const result = await handleSubscriptionManagement({
@@ -500,7 +649,7 @@ describe('all supported registration methods after account-delete', () => {
       expect(after.isActive).toBe(false);
       expect(after.account_deleted_at).toBeTruthy();
     } finally {
-      admin.auth = originalAuth;
+      authState.current = originalAuth;
     }
   });
 });
@@ -527,7 +676,7 @@ describe('profile delete path no longer pretends client newsletter delete is the
   });
 
   it('onDelete passes the Auth user email into the shared cleanup', () => {
-    expect(indexSrc).toMatch(/cleanupUserDataForDeletedAccount\(\{\s*uid:\s*user\.uid,\s*email:\s*user\.email\s*\}\)/);
+    expect(indexSrc).toMatch(/cleanupUserDataForDeletedAccount\(\s*\{\s*uid:\s*user\.uid,\s*email:\s*user\.email\s*\}/);
   });
 
   it('configures retries for both tombstone triggers before rethrowing failures', () => {

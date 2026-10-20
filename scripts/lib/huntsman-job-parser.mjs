@@ -10,12 +10,14 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
-import { workdayPrimaryLocationState } from './ats-clients/workday-client.mjs';
+import { workdayPrimaryLocationState, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -324,6 +326,7 @@ export async function fetchAllHuntsmanJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) {
       console.log(`  ⏭️  Skipped — empty title`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
@@ -333,10 +336,17 @@ export async function fetchAllHuntsmanJobs() {
     // description: Huntsman's boilerplate names "a major production site in
     // Monthey (Valais), Switzerland" in EVERY description, so that rescue
     // corroborated the company, never the vacancy.
-    const city = resolveHuntsmanPublishCity(detail);
-    const canton = city ? inferCanton(city) : '';
+    const publishCity = resolveHuntsmanPublishCity(detail);
+    const publishCanton = publishCity ? inferCanton(publishCity) : '';
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country (workday-swiss-job-parser-common).
+    const recovered = publishCanton ? null : recoverWorkdayPrimarySwissPlace(info);
+    const city = recovered ? recovered.location : publishCity;
+    const canton = recovered ? recovered.canton : publishCanton;
     if (!city || !canton) {
       console.log(`  ⏭️  Skipped (no Swiss primary location): ${title}`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
     const descriptionHtml = info.jobDescription || '';
@@ -379,7 +389,7 @@ export async function fetchAllHuntsmanJobs() {
       sector: 'Chimica',
       currency: 'CHF',
       featured: false,
-      postedDate: info.startDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(workdayPostingDateFields(listing), workdayPostingDateFields(detail)),
       url: publicUrl,
       applyUrl: publicUrl,
       source: 'Huntsman Corporation Dedicated Parser',

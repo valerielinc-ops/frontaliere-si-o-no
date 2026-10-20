@@ -71,12 +71,14 @@
  * Plus parseLocation(), exported for direct unit testing of the
  * jobLocationShort parsing contract (see tests/breitling-crawler.test.ts).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { jobUrlHost } from './job-url-host.mjs';
 import { fetchHtml, decodeEntities, normalizeSpace as normalizeSpaceRaw } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const BREITLING_KEY = 'breitling';
 export const BREITLING_COMPANY_NAME = 'Breitling';
@@ -111,8 +113,6 @@ const CANTON_CITY_FALLBACK = {
   NE: 'La Chaux-de-Fonds',
   LU: 'Luzern',
 };
-
-const MIN_DESCRIPTION_WORDS = 30;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -260,12 +260,7 @@ function resolveAddress({ city, canton, postalCode }) {
   };
 }
 
-function parseStandardStartDate(raw = '') {
-  const m = String(raw || '').match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-  if (!m) return new Date().toISOString().split('T')[0];
-  const [, dd, mm, yyyy] = m;
-  return `${yyyy}-${mm}-${dd}`;
-}
+
 
 /* ── HTTP: search API (POST + retry) ──────────────────────────
  * Mirrors the retry-wrapped POST pattern used by geberit-job-parser.mjs
@@ -378,6 +373,7 @@ export async function fetchAllBreitlingJobs() {
 
   const jobs = [];
   const seenUrls = new Set();
+  let withoutBody = 0;
 
   for (const r of listings) {
     const id = String(r.id || '').trim();
@@ -399,16 +395,22 @@ export async function fetchAllBreitlingJobs() {
     if (seenUrls.has(publicUrl)) continue;
     seenUrls.add(publicUrl);
 
-    let descriptionText = await fetchJobDescription(publicUrl);
-    const wordCount = descriptionText ? descriptionText.split(/\s+/).filter(Boolean).length : 0;
-    if (wordCount < MIN_DESCRIPTION_WORDS) {
-      const fallback = `${title} presso ${BREITLING_COMPANY_NAME} a ${location}. Manifattura orologiera svizzera di lusso, sede storica a Grenchen dal 1884. Candidature tramite il portale carriere ufficiale.`;
-      descriptionText = descriptionText ? `${descriptionText}\n\n${fallback}` : fallback;
+    // Only the posting's own text is published (issue 5253): a body under
+    // 30 words used to get an invented Italian summary appended ("{title}
+    // presso Breitling a {city}. Manifattura orologiera svizzera …"), and a
+    // missing body was replaced by it. A posting whose body is under the
+    // shared 50-word floor (source-body-floor.mjs) is not published.
+    const descriptionText = await fetchJobDescription(publicUrl);
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.log(`   ⏭️ no vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      continue;
     }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const employmentType = detectEmploymentType(title);
-    const postedDate = parseStandardStartDate(r.unifiedStandardStart);
+    // The search API's unifiedStandardStart has no verified publication semantics.
+    const publicationDate = sourcePostingDateFields('');
     const currency = Array.isArray(r.currency) && r.currency[0] ? r.currency[0] : 'CHF';
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} breitling ${location}`);
@@ -446,7 +448,7 @@ export async function fetchAllBreitlingJobs() {
       sector: SECTOR,
       currency,
       featured: false,
-      postedDate,
+      ...publicationDate,
       applyUrl: publicUrl,
       jobReqId: id,
       requirements: [],
@@ -456,6 +458,9 @@ export async function fetchAllBreitlingJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`   ⏭️ ${withoutBody} posting(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total ${BREITLING_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

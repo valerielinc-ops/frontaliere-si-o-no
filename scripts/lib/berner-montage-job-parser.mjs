@@ -42,11 +42,14 @@ import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDetail,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
   getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const BERNER_MONTAGE_KEY = 'berner-montage';
@@ -250,13 +253,14 @@ async function fetchJobListings() {
         title: id.title,
         location: cityFromLocationText(posting.locationsText || ''),
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
       });
     }
   } catch (err) {
+    // fetch-failure-empty-ok: WorkdayAuthError anti-bot branch: the pipeline soft-exits only connection-level/antiBotExhausted errors, so a throw would open a Crawler Failure on every blocked run
     if (err instanceof WorkdayAuthError) {
       console.error(`❌ Workday anti-bot block (${BERNER_MONTAGE_COMPANY_NAME}): ${err.message}`);
       return [];
@@ -275,7 +279,7 @@ async function fetchJobListings() {
         title: id.title,
         location: cityFromLocationText(posting.locationsText || ''),
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -306,6 +310,7 @@ export async function fetchAllBernerMontageJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   const seen = new Set();
 
   for (const listing of listings) {
@@ -337,15 +342,19 @@ export async function fetchAllBernerMontageJobs() {
     // their own `/job/<Segment>/` — so this is a LATENT fix that leaves those
     // 10 verdicts unchanged.
     const rawLocation = resolveBernerPrimaryLocation(info);
-    if (!rawLocation) {
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country.
+    const recovered = rawLocation ? null : recoverWorkdayPrimarySwissPlace(info);
+    if (!rawLocation && !recovered) {
       console.log(`  ⏭️ Skipped non-Swiss/unresolved primary location: ${String(info?.location || listing.location || 'unknown')} — ${title}`);
       continue;
     }
 
-    const resolvedCity = cityFromLocationText(rawLocation);
+    const resolvedCity = recovered ? recovered.location : cityFromLocationText(rawLocation);
     const { city, postalCode, streetAddress } = resolveAddress(resolvedCity);
     const location = resolvedCity;
-    const canton = inferSwissTargetCanton(location);
+    const canton = recovered ? recovered.canton : inferSwissTargetCanton(location);
     if (!canton) {
       console.warn(`  ⚠️ Skipping unresolvable primary location "${location}" — ${title}`);
       continue;
@@ -359,24 +368,25 @@ export async function fetchAllBernerMontageJobs() {
             .replace(/[ \t]*\n[ \t]*/g, '\n')
             .replace(/\n{3,}/g, '\n\n')
             .trim(),
-        ).slice(0, 4000)
+        )
       : '';
 
-    const fallbackDescription = [
-      `${title} — ${BERNER_MONTAGE_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Standort: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Arbeitgeber: Montagetechnik Berner AG',
-      '• Bewerbung über: Berner Group Karriereportal (Workday)',
-    ].join('\n');
-    const description = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const description = detailDescription;
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} berner-montage ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
-    const postedDate = listing.postedAt || new Date().toISOString().split('T')[0];
+    // The CXS listing row carries no `timeType`; the detail does.
+    const employmentType = detectEmploymentType(listing.timeType || info.timeType || '', title);
 
     const job = {
       // ── Required fields ──
@@ -415,7 +425,7 @@ export async function fetchAllBernerMontageJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: info })),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],
@@ -425,6 +435,9 @@ export async function fetchAllBernerMontageJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${BERNER_MONTAGE_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

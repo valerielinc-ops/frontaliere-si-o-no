@@ -1,7 +1,8 @@
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 
 import { assertSubscriberData, isNewsletterOptOutBinding } from './newsletterOptOut.js';
 import { isAccountDeletedTombstone } from '../authAccountCleanup.js';
+import { isSavedJobsDigestAnchorOnly } from './subscriberConsent.js';
 
 /**
  * Suppression recovery — the single decision point shared by every
@@ -195,7 +196,6 @@ export function positiveEventRecoveryFields({ currentStatus, bounceSeverity, eve
   if (!MACHINE_INFERRED_SUPPRESSIONS.has(status)) return {};
   if (isTerminalSuppression(status, bounceSeverity)) return {};
 
-  const FieldValue = admin.firestore.FieldValue;
   const fields = {
     status: 'active',
     isActive: true,
@@ -206,6 +206,14 @@ export function positiveEventRecoveryFields({ currentStatus, bounceSeverity, eve
     winback_sent_at: FieldValue.delete(),
     winback_pending: FieldValue.delete(),
   };
+  // The saved-jobs digest record (owner decision 2026-10-03) is not a
+  // subscription: the recovered `status` resumes the digest, whose stop reads
+  // the status and never these booleans, while `true` here would only make the
+  // admin panel and the signup monitor count it as a subscriber.
+  if (isSavedJobsDigestAnchorOnly(subscriber)) {
+    delete fields.isActive;
+    delete fields.active;
+  }
   // Only written when the caller told us what arrived — never a null field.
   if (eventType) fields.recovered_by_event = eventType;
   if (status === 'bounced') {
@@ -289,6 +297,17 @@ export function protectAccountDeletedSubscriberUpdate(update, subscriber) {
  * open/click or bounce event. `transactionDb` is optional for existing callers
  * and tests: Admin document references expose `.firestore`, while lightweight
  * doubles often expose `runTransaction` on the database itself.
+ *
+ * A provider event never CREATES the subscriber record: when the document does
+ * not exist nothing is written and the function returns `null`, and the caller
+ * must stop there (see UNKNOWN_RECIPIENT). Delivery telemetry can enrich a
+ * relationship; it cannot create one — the rule services/newsletterSubscribers.ts
+ * applies to the SPA's own delivery writers and inboundBounceReport.js to
+ * bounce reports. Before, a transactional email to an address with no
+ * document (a calculator PDF, which deliberately does not create one) came
+ * back as a merge that created a record holding only counters, with no
+ * consent basis — and `syncNewsletterSubscriberAuth` then gave it a shadow
+ * Auth account (5 such records measured on 2026-09-25, the last on 2026-09-07).
  */
 export async function mergeAccountDeletedSubscriberUpdate(
   subscriberRef,
@@ -303,7 +322,8 @@ export async function mergeAccountDeletedSubscriberUpdate(
 
   return firestore.runTransaction(async (tx) => {
     const snapshot = await tx.get(subscriberRef);
-    const current = snapshot?.exists ? (snapshot.data() || {}) : {};
+    if (!snapshot?.exists) return null;
+    const current = snapshot.data() || {};
     const update = { ...(baseUpdate || {}) };
     if (typeof buildDynamicUpdate === 'function') {
       Object.assign(update, buildDynamicUpdate(current));
@@ -313,6 +333,17 @@ export async function mergeAccountDeletedSubscriberUpdate(
     return safeUpdate;
   });
 }
+
+/**
+ * The skip reason every webhook core returns when the recipient has no
+ * subscriber document — the same word inboundBounceReport.js already uses.
+ * Nothing is recorded for that event: not the counters, not the delivery row,
+ * not the event log, whose subcollection writes would otherwise hang under a
+ * document that does not exist. The provider keeps its own log and its own
+ * suppression list for that address; a record of ours would be data about a
+ * person who never subscribed.
+ */
+export const UNKNOWN_RECIPIENT = 'unknown_recipient';
 
 /**
  * Narrow newsletter-sunset reactivation (issue #2852 item 2): the "only an

@@ -220,6 +220,51 @@ describe('Kantonale Verwaltung Basel-Landschaft crawler parser', () => {
       expect(jobs[0].postalCode).toBe('4410');
     });
 
+    // Two listings of the captured feed (medium 1571, 2026-09-25), trimmed to
+    // their location fields, plus an ordinary Liestal one (issue 9844).
+    it('keeps the BL homonym Oberwil and drops the Swiss-school posting in Chile', async () => {
+      const listing = (id: string, title: string, szas: Record<string, string>) => ({
+        id,
+        links: { directlink: `https://jobs.baselland.ch/offene-stellen/${id}` },
+        szas: { sza_title: title, ...szas },
+      });
+      globalThis.fetch = vi.fn(async (url: any) => {
+        if (!String(url).startsWith(API_URL)) return new Response('', { status: 404 });
+        return new Response(JSON.stringify({
+          total: 3,
+          jobs: [
+            listing('oberwil', 'Praktikantin/Praktikant Kindergarten', {
+              sza_location: 'Sägestrasse 15, Oberwil, Schweiz',
+              'sza_location.city': 'Oberwil',
+              'sza_location.street': 'Sägestrasse 15',
+              'sza_location.zip': '4104',
+              'sza_location.region': 'Basel-Landschaft',
+              'sza_location.country': 'Schweiz',
+            }),
+            listing('santiago', 'Lehrperson - Zyklus 2, Primarstufe | 100', {
+              sza_location: 'Santiago de Chile, Chile',
+              'sza_location.city': 'Santiago de Chile, Chile',
+              'sza_location.zip': '2206',
+              'sza_location.region': 'Región Metropolitana de Santiago',
+              'sza_location.country': 'Chile',
+            }),
+            listing('liestal', 'HR Beraterin/HR Berater', { 'sza_workplace.city': 'Liestal' }),
+          ],
+        }), { status: 200, headers: { 'content-type': 'application/json' } });
+      }) as any;
+
+      const jobs = await fetchAllKantonBaselLandschaftJobs();
+      expect(jobs.map((job: any) => ({
+        location: job.location,
+        canton: job.canton,
+        postalCode: job.postalCode,
+        streetAddress: job.streetAddress,
+      }))).toEqual([
+        { location: 'Oberwil', canton: 'BL', postalCode: '4104', streetAddress: 'Sägestrasse 15' },
+        { location: 'Liestal', canton: 'BL', postalCode: '4410', streetAddress: '' },
+      ]);
+    });
+
     it('returns [] (no throw) when the Prospective API errors mid-pagination', async () => {
       globalThis.fetch = vi.fn(async () => {
         return new Response('', { status: 503 });

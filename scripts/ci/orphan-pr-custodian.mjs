@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Custode delle PR orfane (zero-Claude, deterministico).
  *
@@ -67,10 +68,11 @@
  * del marker 🔴 arrivano da `scripts/ci/lib/constants.mjs` di ciascun lato.
  */
 import { execFileSync } from 'node:child_process';
-import { resolve } from 'node:path';
+
 import { pathToFileURL } from 'node:url';
 import { isReviewerBot, REDFLAG_IMPORTANT_RE, VITEST_CHECK_NAME } from './lib/constants.mjs';
 import {
+  isTerminalReviewState,
   normalizeReviewBody,
   reviewBodyIsApproving,
 } from './lib/pr-review-admission.mjs';
@@ -90,6 +92,7 @@ export const ORPHANED_LABEL = 'orphaned';
 export const AUTOFIX_LABEL = 'agent:autofix';
 export const NEEDS_HUMAN_LABEL = 'needs-human';
 export const OUT_OF_SCOPE_MARKER = '<!-- REDFLAG_OUT_OF_SCOPE -->';
+export const CONFLICT_LABEL = 'has-conflicts';
 export const CODEX_FALLBACK_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 
 const SHA_RE = /^[0-9a-f]{40}$/i;
@@ -151,8 +154,10 @@ export function isAutonomousPr(pr) {
 
 function isManagedReview(review) {
   if (!review || typeof review !== 'object') return false;
-  const state = String(review.state || '').toUpperCase();
-  if (state === 'PENDING' || state === 'DISMISSED') return false;
+  // Allowlist fail-closed (#9791): solo APPROVED/CHANGES_REQUESTED/COMMENTED.
+  // Escludere PENDING e DISMISSED lasciava passare come gestita una review
+  // con stato vuoto o sconosciuto.
+  if (!isTerminalReviewState(review.state)) return false;
   // Stessa allowlist dei gate (constants.mjs di ciascun repo); il marker Codex
   // resta locale perche' solo il corpus lo esporta.
   if (isReviewerBot(review.user)) return true;
@@ -341,6 +346,29 @@ export function classifyOrphan({
       } e nessun push da oltre 2h`,
     };
   }
+
+  // (d) `adopt-conflict`: una PR fuori scope IN CONFLITTO senza review. La
+  // label `has-conflicts` non e' una prova: puo' essere stale dopo che la PR e'
+  // tornata pulita, e `unknown` non dice nulla. Il custode usa solo il valore
+  // letto dalla rilettura fresca di `/pulls/<n>`; senza `dirty` resta fail-closed
+  // (un'eventuale conferma merge-tree richiederebbe il probe del codice che la
+  // ospita, non una seconda inferenza da label).
+  const hasConflictLabel = (pr.labels || []).includes(CONFLICT_LABEL);
+  const mergeableState = String(pr.mergeableState || '').trim().toLowerCase();
+  const conflicted = mergeableState === 'dirty';
+  if (conflicted) {
+    if (isAutonomousPr(pr)) return none('PR gia autonoma: il conflitto lo passa a issue-fix pr-autorebase');
+    if (pr.headRepo && pr.baseRepo && pr.headRepo !== pr.baseRepo) return none('head da fork: non adottabile');
+    if ((pr.labels || []).includes(NEEDS_HUMAN_LABEL)) return none('needs-human: veto terminale');
+    if (alreadyDone('adopt-conflict')) return none('adozione del conflitto gia eseguita su questa HEAD');
+    return {
+      action: 'adopt-conflict',
+      reason: 'PR in conflitto con main (mergeable_state=dirty letto ora), fuori dallo scope autonomo e senza push da oltre 2h: resta nel percorso umano',
+    };
+  }
+  if (hasConflictLabel) {
+    return none(`label ${CONFLICT_LABEL} ignorata: conflitto non confermato da mergeable_state=${mergeableState || 'unknown'} nella rilettura fresca`);
+  }
   return none('nessuno stato orfano noto');
 }
 
@@ -368,6 +396,24 @@ function ghPages(path) {
   return pages;
 }
 
+function errorSummary(error) {
+  const output = error?.stderr || error?.message || error;
+  return String(output).split(/\r?\n/).map((line) => line.trim()).find(Boolean)
+    || 'errore non specificato';
+}
+
+export function inventoryWarning(error) {
+  return `::warning::Inventario PR non leggibile (${errorSummary(error)}) — nessuna azione; il prossimo tick ritenta.`;
+}
+
+export function readOpenPulls(repo, fetchPages = ghPages) {
+  try {
+    return { pulls: fetchPages(`repos/${repo}/pulls?state=open&per_page=100`).flat(), warning: null };
+  } catch (error) {
+    return { pulls: null, warning: inventoryWarning(error) };
+  }
+}
+
 function commentBody(action, reason, detail) {
   return [
     `🧭 **orphan-pr-custodian** (auto): ${reason}.`,
@@ -385,7 +431,17 @@ function main() {
   const dispatchInput = process.env.REDFLAG_FIXER_DISPATCH_INPUT || '';
   const nowS = Math.floor(Date.now() / 1000);
 
-  const pulls = ghPages(`repos/${repo}/pulls?state=open&per_page=100`).flat();
+  // L'inventario iniziale è osservativo: se GitHub risponde con un rate-limit o
+  // un altro errore transitorio, non c'è nessuna PR sicura da mutare in questo
+  // tick. Il prossimo cron deve poter ritentare senza trasformare l'assenza di
+  // dati in un nuovo "Workflow Failure".
+  const inventory = readOpenPulls(repo);
+  if (!inventory.pulls) {
+    console.log(inventory.warning);
+    console.log('orphan-pr-custodian: inventario PR non disponibile, 0 azioni.');
+    return;
+  }
+  const pulls = inventory.pulls;
   let acted = 0;
   for (const raw of pulls) {
     const pr = {
@@ -479,6 +535,24 @@ function main() {
         '- il job `post-review (auto-merge opt-in + autorebase)` della run `tests` sulla HEAD: se lo step di opt-in ha stampato un motivo e poi e\' uscito `success`, il gate nativo ha DECLINATO — `retry-native-automerge.yml` rivaluta lo stesso predicato ogni 20 min e declinera\' identicamente;',
         '- il body della review: `native-automerge-gate.mjs` pretende un conteggio dichiarato (`Important: 0`) dentro la sezione `## Findings`, mentre il review gate conta i finding reali. Una review che chiude in prosa («nessun finding azionabile») e\' approvante per il primo gate e non per il secondo.',
       ].join('\n');
+    } else if (decision.action === 'adopt-conflict') {
+      // Opzione (b): segnala l'orfanita' a una persona, senza trasformare la
+      // PR in autonoma. `stale-pr-rescuer` e `recycle-stale-prs` la salteranno
+      // perche' non c'e' ne' branch del ciclo ne' hand-off a issue-fix.
+      try {
+        gh(['label', 'create', ORPHANED_LABEL, '--repo', repo, '--color', 'B60205',
+          '--description', 'PR senza agente vivo: conflitto segnalato dal custode per intervento umano']);
+      } catch {
+        // Esiste gia': e' il caso normale.
+      }
+      try {
+        gh(['pr', 'edit', String(pr.number), '--repo', repo,
+          '--add-label', ORPHANED_LABEL]);
+      } catch (error) {
+        ok = false;
+        console.log(`::warning::PR #${pr.number}: label di segnalazione non applicata (${error.message.split('\n')[0]}).`);
+      }
+      detail = `Etichettata solo \`${ORPHANED_LABEL}\`: nessun \`agent:autofix\` e nessun hand-off automatico; la PR resta nel percorso umano sulla HEAD \`${pr.headSha.slice(0, 7)}\`.`;
     } else {
       try {
         gh(['label', 'create', ORPHANED_LABEL, '--repo', repo, '--color', 'B60205',
@@ -531,7 +605,7 @@ function main() {
 
 const isDirectRun = (() => {
   try {
-    return import.meta.url === pathToFileURL(resolve(process.argv[1] || '')).href;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

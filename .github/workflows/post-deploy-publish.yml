@@ -71,7 +71,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout promotion gate
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           sparse-checkout: |
             /scripts/ci/production-promotion-gate.mjs
@@ -108,7 +108,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout promotion gate
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           sparse-checkout: |
             /scripts/ci/production-promotion-gate.mjs
@@ -137,7 +137,7 @@ jobs:
       actions: read
     steps:
       - name: Checkout promotion gate
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           sparse-checkout: |
             /scripts/ci/production-promotion-gate.mjs
@@ -190,18 +190,18 @@ jobs:
       issues: write     # for github-issue-creator on publish failure
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: ${{ env.EFFECTIVE_DEPLOY_REF }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -231,7 +231,7 @@ jobs:
       # `deploy_run_id` (the BUILD run); run-id + token makes the fetch work both
       # same-run (legacy caller) and cross-run (deploy-publish.yml workflow_run).
       - name: Download pre-deploy sitemap snapshot (optional)
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         continue-on-error: true
         with:
           name: pre-deploy-snapshot-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
@@ -240,7 +240,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download previous-slug winners (optional)
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         continue-on-error: true
         with:
           name: winners-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
@@ -249,7 +249,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download sitemaps bundle (pre-deploy + new + build-id)
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         continue-on-error: true
         with:
           name: sitemaps-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
@@ -259,15 +259,15 @@ jobs:
 
       # Master jobs.json (titleByLocale/slugByLocale) is GITIGNORED and
       # stripped from the Pages artifact (jobsJsonDistCleanupPlugin, PR #712),
-      # so it is NOT present in this checkout. The Google Indexing API job
-      # submitter (submit-google-indexing-jobs.js) reads public/data/jobs.json
-      # to build per-job board URLs — without this it logs "Unable to read
-      # jobs.json" and silently skips submission on every deploy. Restore it
-      # from the same dedicated artifact post-deploy-validate-dist uses.
-      # continue-on-error: profile_sequential builds don't upload it, and the
-      # submitter already exits 0 gracefully when jobs.json is absent.
+      # so it is NOT present in this checkout. The coverage monitor and the
+      # Google Indexing API submitter both need a real corpus: letting either
+      # one continue with no artifact silently turns an evidence check into a
+      # no-op. The deploy build's master artifact is the canonical snapshot;
+      # the committed crawler slices are the trusted assemble fallback used by
+      # profile_sequential builds that do not upload jobs-master.
       - name: Download master jobs.json (for indexing API)
-        uses: actions/download-artifact@v7
+        id: jobs_master_download
+        uses: actions/download-artifact@v8
         continue-on-error: true
         with:
           name: jobs-master-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
@@ -285,21 +285,63 @@ jobs:
           if [ -f /tmp/winners/previous-slug-winners.json ]; then
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
           fi
-          # Expose master jobs.json to the indexing API submitter, which
-          # reads public/data/jobs.json (same staging as post-deploy-validate-dist).
-          if [ -f /tmp/jobs-master/jobs.json ]; then
-            mkdir -p public/data
-            cp -f /tmp/jobs-master/jobs.json public/data/jobs.json
-            echo "[jobs-master] staged public/data/jobs.json ($(wc -c < public/data/jobs.json) bytes)"
-          else
-            echo "[jobs-master] artifact not present — indexing API job submit will skip"
+          # Materialize one trusted snapshot for every consumer. Prefer the
+          # exact build artifact; profile_sequential has no jobs-master, so
+          # assemble the checked-in per-crawler slices at this build SHA.
+          # Both locations are intentional: the indexing submitter reads
+          # public/data/jobs.json while the sector monitor's aggregators read
+          # data/jobs.json through their scratch root.
+          # continue-on-error above is only here so this step can distinguish a
+          # genuinely absent artifact from a failed download. Never turn an
+          # auth/API/transport failure into the trusted slice fallback.
+          if [ "${{ steps.jobs_master_download.outcome }}" != "success" ]; then
+            echo "::error::[jobs-master] download failed (outcome=${{ steps.jobs_master_download.outcome }}); refusing to assemble a replacement corpus"
+            exit 1
           fi
+          if [ -s /tmp/jobs-master/jobs.json ]; then
+            mkdir -p data public/data
+            cp -f /tmp/jobs-master/jobs.json data/jobs.json
+            cp -f data/jobs.json public/data/jobs.json
+            echo "[jobs-master] staged trusted data/jobs.json + public/data/jobs.json ($(wc -c < data/jobs.json) bytes)"
+          else
+            echo "[jobs-master] artifact not present — assembling trusted corpus from committed slices"
+            node scripts/assemble-jobs-dataset.mjs --no-summaries
+            test -s data/jobs.json
+            mkdir -p public/data
+            cp -f data/jobs.json public/data/jobs.json
+            echo "[jobs-master] assembled trusted data/jobs.json + public/data/jobs.json ($(wc -c < data/jobs.json) bytes)"
+          fi
+          test -s data/jobs.json
+          test -s public/data/jobs.json
+          cmp -s data/jobs.json public/data/jobs.json
+
+      # validate-live may have passed for this source before a newer Pages
+      # deploy acquired the upload lock and became live. Re-read the marker
+      # immediately before the first irreversible side-effect step. This must
+      # be an exact match: the propagation gate's "newer is acceptable" rule is
+      # correct for readiness, but a newer live build makes this publisher
+      # stale. Missing/malformed data fails closed and keeps every side-effect
+      # step below under its explicit identity-match gate. A newer live build
+      # is the expected serialized-publisher race: the checker reports a
+      # successful `stale` no-op, and every irreversible step remains skipped.
+      - name: Verify live build identity before post-deploy side effects
+        id: live_identity
+        env:
+          EXPECTED_BUILD_ID_FILE: /tmp/sitemaps-bundle/build-id.txt
+          LIVE_BUILD_ID_URL: https://frontaliereticino.ch/build-id.txt
+          SOURCE_DEPLOY_REF: ${{ env.EFFECTIVE_DEPLOY_REF }}
+        run: |
+          node scripts/ci/verify-live-build-identity.mjs \
+            --expected-file="$EXPECTED_BUILD_ID_FILE" \
+            --live-url="$LIVE_BUILD_ID_URL" \
+            --source-ref="$SOURCE_DEPLOY_REF" \
+            --stale-policy=skip
 
       - name: Sync previous-slug winners registry
         # The build in deploy.yml may update data/previous-slug-winners.json.
         # The updated file is downloaded from the winners artifact above.
         # If it changed relative to HEAD, commit and push it here.
-        if: success()
+        if: success() && steps.live_identity.outputs.status == 'match'
         # continue-on-error: matches every sibling step in this job. Without
         # it, a genuine stash-pop conflict (see the `exit 1` path below) would
         # hard-fail this step and skip the downstream success()-gated steps
@@ -362,6 +404,7 @@ jobs:
       - name: Wait for live article metadata
         if: |
           success() &&
+          steps.live_identity.outputs.status == 'match' &&
           env.EFFECTIVE_DEPLOY_EVENT_NAME == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl != null
         id: wait_live_meta
@@ -387,6 +430,7 @@ jobs:
       - name: Post to LinkedIn Company Page
         if: |
           success() &&
+          steps.live_identity.outputs.status == 'match' &&
           env.EFFECTIVE_DEPLOY_EVENT_NAME == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
           steps.wait_live_meta.outcome == 'success'
@@ -408,6 +452,7 @@ jobs:
       - name: Post to Reddit Communities
         if: |
           success() &&
+          steps.live_identity.outputs.status == 'match' &&
           env.EFFECTIVE_DEPLOY_EVENT_NAME == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
           steps.wait_live_meta.outcome == 'success'
@@ -428,7 +473,8 @@ jobs:
 
       - name: Restore indexing API daily tracker
         id: indexing-cache
-        uses: actions/cache@v5
+        if: success() && steps.live_identity.outputs.status == 'match'
+        uses: actions/cache@v6
         with:
           path: /tmp/indexing-api-submitted-today.json
           key: indexing-api-${{ github.run_id }}
@@ -436,7 +482,7 @@ jobs:
             indexing-api-
 
       - name: Post-deploy indexing (parallel)
-        if: success()
+        if: success() && steps.live_identity.outputs.status == 'match'
         continue-on-error: true
         timeout-minutes: 5
         env:
@@ -478,7 +524,7 @@ jobs:
       # fails. That's intentional: a deploy that survived dist+live
       # gates is "good enough" to roll back to even if FB/LI API hiccups.
       - name: Mark this deploy as last_known_good
-        if: success()
+        if: success() && steps.live_identity.outputs.status == 'match'
         env:
           # Register the BUILD run and its SHA (the artefacts that were
           # published), not the orchestrating deploy-publish run: a rollback

@@ -1,13 +1,33 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   BREFISPERSONAL_KEY,
   BREFISPERSONAL_COMPANY_NAME,
   isBrefispersonalJob,
   isTrustedDomain,
+  resolveBrefispersonalGeography,
 } from '../scripts/lib/brefispersonal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 describe('brefis personal ag crawler parser', () => {
+  describe('promoted prospector spec', () => {
+    // Legge la spec VIVA in data/prospector/crawlers/, che il bot prospector
+    // riscrive: fuori dal gate delle PR, nel monitor post-merge (replay del
+    // 2026-09-30: l'esito cambia con i dati di 7 e 14 giorni fa).
+    it.skipIf(SKIP_LIVE_DATA)('uses the vacancy index and variable detail template', () => {
+      const brefispersonalSpec = JSON.parse(
+        readFileSync(new URL('../data/prospector/crawlers/brefispersonal.json', import.meta.url), 'utf8'),
+      );
+      expect(brefispersonalSpec.companyHost).toBe('brefis.ch');
+      expect(brefispersonalSpec.seedUrls).toEqual(['https://brefis.ch/Vacancyboard/']);
+      expect(brefispersonalSpec.mode).toBe('template');
+      expect(brefispersonalSpec.detailTemplate).toBe('/Vacancyboard/Detail/#');
+      expect(brefispersonalSpec.detailEnrichment).toBe(true);
+      expect(brefispersonalSpec.sampleVacancyCount).toBeGreaterThan(1);
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(BREFISPERSONAL_KEY).toBe('brefispersonal');
@@ -25,6 +45,7 @@ describe('brefis personal ag crawler parser', () => {
     });
 
     it('matches by URL domain', () => {
+      expect(isBrefispersonalJob({ url: 'https://brefis.ch/Vacancyboard/Detail/46980' })).toBe(true);
       expect(isBrefispersonalJob({ url: 'https://brefispersonal.ch/jobs/123' })).toBe(true);
     });
 
@@ -42,11 +63,12 @@ describe('brefis personal ag crawler parser', () => {
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
     it('trusts primary domain', () => {
-      expect(isTrustedDomain('https://brefispersonal.ch/careers/job-123')).toBe(true);
+      expect(isTrustedDomain('https://brefis.ch/Vacancyboard/Detail/46980')).toBe(true);
     });
 
     it('trusts subdomains', () => {
-      expect(isTrustedDomain('https://careers.brefispersonal.ch/job/456')).toBe(true);
+      expect(isTrustedDomain('https://careers.brefis.ch/Vacancyboard/Detail/46980')).toBe(true);
+      expect(isTrustedDomain('https://brefispersonal.ch/jobs/123')).toBe(true);
     });
 
     it('rejects other domains', () => {
@@ -56,6 +78,43 @@ describe('brefis personal ag crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('source-backed geography', () => {
+    const cantonOnlyListing = {
+      location: 'ZH',
+      addressLocality: 'ZH',
+      addressRegion: 'ZH',
+      addressCountry: 'CH',
+    };
+
+    it('uses a city from the same description when structured locality is canton-only', () => {
+      expect(resolveBrefispersonalGeography(
+        cantonOnlyListing,
+        'Arbeitsort: Zürich. Die Bauunternehmung möchte sich durch eine fleissige Persönlichkeit verstärken.',
+      )).toMatchObject({ location: 'Zürich', canton: 'ZH', addressCountry: 'CH' });
+    });
+
+    it('prefers the workplace over an earlier employer headquarters mention', () => {
+      expect(resolveBrefispersonalGeography(
+        cantonOnlyListing,
+        'Unser Hauptsitz befindet sich in Zürich. Der Einsatzort ist Winterthur.',
+      )).toMatchObject({ location: 'Winterthur', canton: 'ZH' });
+    });
+
+    it('keeps canton-only source evidence when no city is published', () => {
+      expect(resolveBrefispersonalGeography(
+        cantonOnlyListing,
+        'Eine zuverlässige Persönlichkeit für Einsätze im Kanton ZH.',
+      )).toMatchObject({ location: 'ZH', canton: 'ZH', addressCountry: 'CH' });
+    });
+
+    it('does not rescue a city when the structured listing has no canton signal', () => {
+      expect(resolveBrefispersonalGeography(
+        { location: '', addressLocality: 'QQ', addressRegion: '', addressCountry: 'CH' },
+        'Arbeitsort: Zürich.',
+      )).toBeNull();
     });
   });
 
@@ -95,7 +154,7 @@ describe('brefis personal ag crawler parser', () => {
       descriptionByLocale: { de: 'A test job description for validation.' },
       location: 'Lugano',
       canton: 'TI',
-      url: 'https://brefispersonal.ch/jobs/test',
+      url: 'https://brefis.ch/Vacancyboard/Detail/46980',
       source: 'brefis personal ag Dedicated Parser',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),

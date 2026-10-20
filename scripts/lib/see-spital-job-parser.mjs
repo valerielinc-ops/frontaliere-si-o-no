@@ -29,14 +29,65 @@
  *   - isTrustedDomain()       — Validate URLs belong to Umantis tenant
  *   - SEE_SPITAL_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
-import { fetchUmantisDetailContentResult } from './umantis-detail-helpers.mjs';
+import {
+  extractUmantisDetailContent,
+  fetchUmantisDetailResult,
+  stripUmantisNonContent,
+} from './umantis-detail-helpers.mjs';
+
+/* ── Detail body ───────────────────────────────────────────── */
+
+function textBlock(fragment = '') {
+  // Source newlines are markup whitespace (the templates hard-wrap long list
+  // items); structure comes from the tags `stripHtml` turns into line breaks.
+  return normalizeDescriptionSpace(stripHtml(String(fragment).replace(/\s*[\r\n]+\s*/g, ' ')))
+    .replace(/\n{2,}(?=• )/g, '\n');
+}
+
+/**
+ * The whole See-Spital ad from a tenant-2939 detail page.
+ *
+ * The expander sections (Aufgabengebiet / Profil / Was wir Ihnen bieten /
+ * Unterlagen) are what `extractUmantisDetailContent` reads. Around them the
+ * page also carries the lead sentence with the title block, and a «Benefits»
+ * article (employment terms, training, discounts, insurance, work-life
+ * balance) that is part of every ad; both were missing from the published
+ * description (issue 5253). Contacts, apply button and location map are not
+ * read.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function extractSeeSpitalDetailDescription(html = '') {
+  const sections = extractUmantisDetailContent(html);
+  if (!sections) return '';
+  const page = stripUmantisNonContent(html);
+  const intro = textBlock([
+    page.match(/<p\b[^>]*class="intro-text"[^>]*>([\s\S]*?)<\/p\s*>/i)?.[1] || '',
+    page.match(/<section\b[^>]*class="main"[^>]*>[\s\S]*?<h1\b[^>]*>([\s\S]*?)<\/h1\s*>/i)?.[1] || '',
+  ].join('\n'));
+  let benefits = '';
+  const benefitsStart = page.search(/<h2\b[^>]*>\s*Benefits\s*<\/h2\s*>/i);
+  if (benefitsStart >= 0) {
+    const articleEnd = page.indexOf('</article>', benefitsStart);
+    benefits = textBlock(page.slice(benefitsStart, articleEnd >= 0 ? articleEnd : undefined)
+      // «Mehr anzeigen» toggles are page furniture.
+      .replace(/<(?:a|button)\b[^>]*>[\s\S]*?<\/(?:a|button)\s*>/gi, ' '));
+  }
+  return normalizeDescriptionBullets([intro, sections, benefits].filter(Boolean).join('\n\n'));
+}
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const SEE_SPITAL_KEY = 'see-spital';
+/** Pause between detail requests (same as the shared Umantis helper). */
+const DETAIL_DELAY_MS = 250;
 export const SEE_SPITAL_COMPANY_NAME = 'See-Spital';
 export const SEE_SPITAL_COMPANY_DOMAIN = 'see-spital.ch';
 
@@ -306,7 +357,7 @@ export async function fetchAllSeeSpitalJobs() {
         pageHtml = await fetchPage(pageUrl, cookieJar);
       } catch (err) {
         console.warn(`  ⚠️ Page ${pageNum} fetch failed: ${err?.message}`);
-        break;
+        throw err;
       }
       const pageListings = parseSeeSpitalListingPage(pageHtml);
       let added = 0;
@@ -341,10 +392,14 @@ export async function fetchAllSeeSpitalJobs() {
     // (Aufgaben / Profil / Wir bieten). Fetch + extract; fall back to the
     // listing snippet only on network failure or unexpected layout.
     let detailContent = '';
+    let postingDates = sourcePostingDateFields('');
     let deadDetail = false;
     try {
-      ({ content: detailContent, deadDetail } =
-        await fetchUmantisDetailContentResult(BASE_URL, listing.vacancyId, { lang: 'ger' }));
+      const detail = await fetchUmantisDetailResult(BASE_URL, listing.vacancyId, { lang: 'ger' });
+      deadDetail = detail.deadDetail;
+      postingDates = sourcePostingDateFields(deadDetail ? undefined : extractJobPostingField(detail.html, 'datePosted'));
+      detailContent = deadDetail ? '' : extractSeeSpitalDetailDescription(detail.html);
+      await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     } catch (err) {
       detailContent = '';
       deadDetail = false;
@@ -360,8 +415,13 @@ export async function fetchAllSeeSpitalJobs() {
     }
     if (detailContent && detailContent.length > 200) detailHits += 1;
 
-    const fallbackDesc = `${title} — ${SEE_SPITAL_COMPANY_NAME}, ${location}`;
-    const descriptionText = detailContent || listing.snippet || fallbackDesc;
+    // Only the posting's own text (issue 5253): the detail body, or the
+    // listing snippet when the detail was not read — never a "<title> —
+    // See-Spital, <place>" line in place of both. A body under the common
+    // 50-word floor gives no description (the shared pipeline's thin-source
+    // path).
+    const sourceBody = detailContent || listing.snippet || '';
+    const descriptionText = meetsSourceBodyFloor(sourceBody) ? sourceBody : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} ${SEE_SPITAL_KEY} ch`);
@@ -408,7 +468,7 @@ export async function fetchAllSeeSpitalJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...postingDates,
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

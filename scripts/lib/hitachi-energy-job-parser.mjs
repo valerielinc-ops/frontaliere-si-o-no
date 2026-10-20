@@ -18,6 +18,10 @@ import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mj
 import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { markRetryExhaustedError } from './transient-fetch.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 const PAGE_SIZE = 20;
 
@@ -84,8 +88,8 @@ export function parseHitachiEnergyListingJson(json) {
       experience: normalizeSpace(item.experience || ''),
       jobFunction: normalizeSpace(item.jobFunction || ''),
       publicationDate: item.publicationDate
-        ? String(item.publicationDate).slice(0, 10)
-        : new Date().toISOString().slice(0, 10),
+        ? String(item.publicationDate)
+        : '',
     });
   }
 
@@ -134,41 +138,157 @@ export function hasMorePages(json, { fetchedCount } = {}) {
 }
 
 /**
+ * Walk the listing pages and return every unique listing.
+ *
+ * Why (issue #12802): on 2026-10-11 page 1 returned 20 jobs, then page 2 came
+ * back with HTTP 200 and no new listing, and the loop read that as the end of
+ * the board. The slice would have gone 70 → 19; only the shrink guard stopped
+ * the write. Every page states `totalNumber`, so a later page that adds
+ * nothing before that total is reached is a degraded response, not the end of
+ * the list. Such a page is fetched again up to `emptyPageRetries` times; if it
+ * stays empty the run throws a retry-exhausted error, which
+ * `exitCrawlerOnError` turns into a named soft exit that keeps the stored
+ * slice. A fetch failure after page 1 also throws. A page-1 fetch failure
+ * still returns `[]` (the caller's "no listings" exit).
+ *
+ * @param {object} options
+ * @param {(offset: number) => Promise<object>} options.fetchPage Fetches one listing payload.
+ * @param {(ms: number) => Promise<void>} [options.sleep]
+ * @param {number} [options.maxPages]
+ * @param {number} [options.emptyPageRetries]
+ * @param {number} [options.retryDelayMs]
+ * @returns {Promise<object[]>}
+ */
+export async function collectHitachiEnergyListings({
+  fetchPage,
+  sleep = async () => {},
+  maxPages = Infinity,
+  emptyPageRetries = 2,
+  retryDelayMs = 3000,
+}) {
+  const allItems = [];
+  const seenIds = new Set();
+  let declaredTotal = 0;
+  const recordDeclaredTotal = (json) => {
+    const pageTotal = Number(json?.totalNumber);
+    if (Number.isFinite(pageTotal) && pageTotal > declaredTotal) declaredTotal = pageTotal;
+  };
+  const unseen = (json) => parseHitachiEnergyListingJson(json).filter((item) => !seenIds.has(item.jobId));
+
+  for (let page = 0; page < maxPages; page++) {
+    const offset = page * PAGE_SIZE;
+    let json;
+    try {
+      json = await fetchPage(offset);
+    } catch (err) {
+      if (page > 0) throw err;
+      // fetch-failure-empty-ok: page 1 only — the caller logs "no listings" and keeps the stored slice; later pages rethrow
+      console.log(`  ⚠️ API page 1 fetch failed: ${err.message}`);
+      break;
+    }
+
+    recordDeclaredTotal(json);
+    let newItems = unseen(json);
+    for (let retry = 1; newItems.length === 0 && allItems.length < declaredTotal; retry++) {
+      const reason = `page ${page + 1} returned no new listings at ${allItems.length} of totalNumber=${declaredTotal}`;
+      if (retry > emptyPageRetries) {
+        throw markRetryExhaustedError(new Error(`Hitachi Energy listing ${reason} after ${emptyPageRetries} retries`));
+      }
+      console.warn(`  🔁 Listing ${reason} — retry ${retry}/${emptyPageRetries}`);
+      await sleep(retryDelayMs * retry);
+      json = await fetchPage(offset);
+      recordDeclaredTotal(json);
+      newItems = unseen(json);
+    }
+    if (newItems.length === 0) break;
+
+    for (const item of newItems) {
+      seenIds.add(item.jobId);
+      allItems.push(item);
+    }
+    console.log(`     Found ${newItems.length} new jobs (total: ${allItems.length})`);
+
+    // `fetchedCount` lets hasMorePages() fall back to the payload's own
+    // `totalNumber` when `loadMore` is absent — never to the page-length
+    // heuristic that truncated the crawl at a short first page (#4993).
+    if (!hasMorePages(json, { fetchedCount: allItems.length })) break;
+    await sleep(800);
+  }
+
+  if (declaredTotal > 0 && allItems.length < declaredTotal) {
+    // Loud, non-fatal: the source's last page arrived before its own declared
+    // count (e.g. `loadMore: false` early). The shrink guard is still the
+    // thing that refuses a bad write (#4993).
+    console.warn(
+      `  ⚠️ Pagination ended at ${allItems.length} listings but the API declares totalNumber=${declaredTotal} — treating this run as truncated.`,
+    );
+  }
+
+  return allItems;
+}
+
+/**
+ * Inner HTML of the rendered vacancy body,
+ * `<div class="cmp-job-details__description-block">`, read to its own
+ * closing tag (depth walk, so a nested `<div>` cannot cut it short).
+ */
+function descriptionBlockHtml(html = '') {
+  const open = /<div\b[^>]*class="[^"]*\bcmp-job-details__description-block\b[^"]*"[^>]*>/i.exec(html);
+  if (!open) return '';
+  const tagRe = /<(\/?)div\b[^>]*>/gi;
+  tagRe.lastIndex = open.index + open[0].length;
+  let depth = 1;
+  let m;
+  while ((m = tagRe.exec(html)) !== null) {
+    depth += m[1] ? -1 : 1;
+    if (depth === 0) return html.slice(open.index + open[0].length, m.index);
+  }
+  return '';
+}
+
+/**
  * Extract job description from a detail page HTML.
- * Sources: dataLayer.description > JSON-LD > meta description
+ * Sources: rendered description block > dataLayer.description > JSON-LD >
+ * meta description.
+ *
+ * The rendered block comes first because it is the only source that keeps
+ * the vacancy's structure: the dataLayer string is the same text with every
+ * tag already removed, so the "How you'll make an impact" and "Your
+ * background" lists reached the site as run-on prose. No length cap: the
+ * former 4000-character cut chopped the tail of every long posting (audit run
+ * 36528331656: 4000 published against ~4500 on the source page).
  */
 export function parseHitachiEnergyDetailPage(html = '') {
   let description = '';
 
-  // 1. Try extracting from window.dataLayer push
-  const dataLayerMatch = html.match(/"description"\s*:\s*"((?:[^"\\]|\\.)*)"/);
-  if (dataLayerMatch) {
-    let raw = dataLayerMatch[1];
-    // Unescape JS string escapes
-    raw = raw
-      .replace(/\\x26/g, '&')
-      .replace(/\\u002D/g, '-')
-      .replace(/\\"/g, '"')
-      .replace(/\\n/g, '\n')
-      .replace(/\\t/g, ' ')
-      .replace(/\\r/g, '');
-    description = stripHtml(raw);
-  }
+  // 1. Rendered description block (headings, paragraphs and lists).
+  const blockHtml = descriptionBlockHtml(html);
+  if (blockHtml) description = stripHtml(blockHtml);
 
-  // 2. Fallback: JSON-LD JobPosting description
+  // 2. Fallback: window.dataLayer push (flattened text)
   if (!description) {
-    const jsonLdMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-    if (jsonLdMatch) {
-      try {
-        const data = JSON.parse(jsonLdMatch[1]);
-        if (data?.['@type'] === 'JobPosting' && data.description) {
-          description = stripHtml(data.description);
-        }
-      } catch { /* ignore */ }
+    const dataLayerMatch = html.match(/"description"\s*:\s*"((?:[^"\\]|\\.)*)"/);
+    if (dataLayerMatch) {
+      let raw = dataLayerMatch[1];
+      // Unescape JS string escapes
+      raw = raw
+        .replace(/\\x26/g, '&')
+        .replace(/\\u002D/g, '-')
+        .replace(/\\"/g, '"')
+        .replace(/\\n/g, '\n')
+        .replace(/\\t/g, ' ')
+        .replace(/\\r/g, '');
+      description = stripHtml(raw);
     }
   }
 
-  // 3. Fallback: meta description
+  // 3. Fallback: JSON-LD JobPosting description
+  if (!description) {
+    const posting = extractJobPostingNodes(html)[0];
+    if (posting?.description) description = stripHtml(posting.description);
+  }
+
+  // 4. Fallback: meta description
   if (!description) {
     const metaRaw = extractMetaDescriptionRaw(html);
     if (metaRaw !== null) {
@@ -176,7 +296,23 @@ export function parseHitachiEnergyDetailPage(html = '') {
     }
   }
 
-  return normalizeDescriptionSpace(description).slice(0, 4000);
+  return normalizeDescriptionSpace(description);
+}
+
+/**
+ * Rows that carry the posting's own text, at least the shared 50-word floor
+ * (source-body-floor.mjs). Only that text is published
+ * (issue 5253): a listing whose detail page yielded no body used to go out
+ * with an invented four-language blurb ("Hitachi Energy is hiring for the
+ * {title} role based in {city}. … Apply through the official Hitachi Energy
+ * careers page."); it is not published any more.
+ *
+ * @param {object[]} rows enriched listings (`description` from the detail page)
+ * @returns {{ rows: object[], withoutBody: number }}
+ */
+export function publishableHitachiEnergyRows(rows = []) {
+  const kept = rows.filter((row) => meetsSourceBodyFloor(String(row?.description || '')));
+  return { rows: kept, withoutBody: rows.length - kept.length };
 }
 
 /**
@@ -186,21 +322,16 @@ export function buildHitachiEnergyLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.primaryLocation || job.location || '').trim() || 'Switzerland';
   const description = String(job.description || '').trim();
-  const jobFunction = String(job.jobFunction || '').trim();
-  const jobType = String(job.jobType || '').trim();
-
-  const itDesc = description
-    || `Hitachi Energy cerca un/a ${title} con sede a ${location}. ${jobFunction ? `Settore: ${jobFunction}.` : ''} ${jobType ? `Tipo: ${jobType}.` : ''} Candidati tramite il sito ufficiale Hitachi Energy.`;
-  const enDesc = description
-    || `Hitachi Energy is hiring for the ${title} role based in ${location}. ${jobFunction ? `Function: ${jobFunction}.` : ''} ${jobType ? `Type: ${jobType}.` : ''} Apply through the official Hitachi Energy careers page.`;
-  const deDesc = description
-    || `Hitachi Energy sucht derzeit für die Position ${title} am Standort ${location}. ${jobFunction ? `Bereich: ${jobFunction}.` : ''} ${jobType ? `Art: ${jobType}.` : ''} Bewirb dich über die offizielle Karriereseite von Hitachi Energy.`;
-  const frDesc = description
-    || `Hitachi Energy recrute actuellement pour le poste ${title} basé à ${location}. ${jobFunction ? `Domaine: ${jobFunction}.` : ''} ${jobType ? `Type: ${jobType}.` : ''} Postulez via la page carrière officielle de Hitachi Energy.`;
+  // The body goes in the slot of the language it is written in (read from
+  // the body: 53 English and 16 German postings on 2026-09-29), not copied
+  // into all four slots (#5253). Title copies and slugs stay as they were:
+  // translate-pending retranslates source-copy titles.
+  const sourceLang = sourceLangOfBody(description, 'en');
 
   return {
+    sourceLang,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: { [sourceLang]: description },
     slugByLocale: {
       it: slugify(`${title} hitachi-energy ${location}`),
       en: slugify(`${title} hitachi-energy ${location}`),

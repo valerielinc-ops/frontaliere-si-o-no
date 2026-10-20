@@ -205,23 +205,23 @@ describe('Amstein + Walthert AG crawler parser', () => {
       delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
     });
 
-    it('returns [] (no throw) on total network failure', async () => {
+    // A fetch failure is not an empty listing: it propagates so the crawler
+    // pipeline records its cause (issue 11077 class).
+    it('propagates a total network failure instead of returning []', async () => {
       globalThis.fetch = vi.fn(async () => {
         throw new Error('ENOTFOUND amstein-walthert.ch');
       }) as any;
 
-      const jobs = await fetchAllAmsteinWalthertJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllAmsteinWalthertJobs()).rejects.toThrow(/ENOTFOUND/);
     });
 
-    it('returns [] (no throw) when the listing JSON endpoint errors', async () => {
+    it('propagates a listing JSON endpoint error instead of returning []', async () => {
       globalThis.fetch = vi.fn(async () => new Response('', { status: 503 })) as any;
 
-      const jobs = await fetchAllAmsteinWalthertJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllAmsteinWalthertJobs()).rejects.toThrow();
     });
 
-    it('returns [] (no throw) when the listing JSON is malformed', async () => {
+    it('propagates a malformed listing JSON instead of returning []', async () => {
       globalThis.fetch = vi.fn(async (url: any) => {
         if (String(url).startsWith(JSON_ENDPOINT)) {
           return new Response('not json', { status: 200 });
@@ -229,8 +229,7 @@ describe('Amstein + Walthert AG crawler parser', () => {
         return new Response('', { status: 404 });
       }) as any;
 
-      const jobs = await fetchAllAmsteinWalthertJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllAmsteinWalthertJobs()).rejects.toThrow();
     });
 
     it('degrades gracefully (keeps the listing) when a single detail-page fetch fails', async () => {
@@ -242,8 +241,10 @@ describe('Amstein + Walthert AG crawler parser', () => {
 
       const jobs = await fetchAllAmsteinWalthertJobs();
       expect(jobs).toHaveLength(1);
-      // Falls back to the safe-default description + office directory instead of dropping the job.
-      expect(jobs[0].description.length).toBeGreaterThan(0);
+      // The listing remains available, but a failed detail page must not
+      // fabricate crawler-owned source text.
+      expect(jobs[0].description).toBe('');
+      expect(jobs[0].descriptionByLocale).toEqual({ [jobs[0].sourceLang]: '' });
       expect(jobs[0].postalCode).toBe('8050');
       expect(jobs[0].canton).toBe('ZH');
     });
@@ -291,7 +292,7 @@ describe('Amstein + Walthert AG crawler parser', () => {
       expect(words).toBeGreaterThanOrEqual(50);
     });
 
-    it('description clears the 50-word floor even via the safe-default fallback', async () => {
+    it('writes no text of its own when the detail has no body (issue 5253)', async () => {
       globalThis.fetch = vi.fn(async (url: any) => {
         const u = String(url);
         if (u.startsWith(JSON_ENDPOINT)) return listingJsonResponse();
@@ -299,9 +300,12 @@ describe('Amstein + Walthert AG crawler parser', () => {
         return new Response('<html><body><p>n/a</p></body></html>', { status: 200 });
       }) as any;
 
+      // The posting is still emitted (same slug), with no description: the
+      // shared pipeline keeps the stored source body or quarantines it.
       const jobs = await fetchAllAmsteinWalthertJobs();
-      const words = String(jobs[0].description || '').split(/\s+/).filter(Boolean).length;
-      expect(words).toBeGreaterThanOrEqual(50);
+      expect(jobs[0].description).toBe('');
+      expect(jobs[0].descriptionByLocale).toEqual({ [jobs[0].sourceLang]: '' });
+      expect(jobs[0].slug).toMatch(/amstein-walthert/);
     });
   });
 });

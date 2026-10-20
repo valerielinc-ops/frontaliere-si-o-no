@@ -49,18 +49,41 @@
  * `fetchAllJobs()` call.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   decodeEntities,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
   fetchHtml,
+  htmlToText,
 } from './hospital-custom-html-helpers.mjs';
 
 const DETAIL_DELAY_MS = 300;
+const REFLINE_EMPTY_RESULT_TEXT_RE = /(?:\b(?:zurzeit|derzeit|aktuell)\s+haben\s+wir\s+keine\s+(?:vakanzen|offenen?\s+stellen)\b|\b(?:there\s+are\s+)?(?:currently\s+)?no\s+(?:open\s+)?(?:jobs?|positions?|vacancies?)\b|\baucun(?:e)?\s+(?:offre|poste|vacance)s?\b|\bnessun[ao]?\s+(?:offert[ae]|posizion[ei]|post[oi])\b|\bnon\s+ci\s+sono\s+(?:posizioni|offerte)\s+aperte\b)/i;
+
+/**
+ * A Refline listing can expose a real, source-backed zero in a dedicated
+ * no-results container. Keep the proof scoped to that container and to known
+ * empty-state wording: a bare parser miss must remain fail-closed.
+ */
+function reflineEmptyListingEvidence(html = '') {
+  const candidateRe = /<([a-z][\w:-]*)\b[^>]*?\sclass\s*=\s*(["'])([^"']*)\2[^>]*>([\s\S]*?)<\/\1>/gi;
+  let match;
+  while ((match = candidateRe.exec(String(html || ''))) !== null) {
+    if (!/(?:^|\s)searchPageNoResult(?:\s|$)/i.test(match[3])) continue;
+    const text = normalizeSpace(stripHtml(decodeEntities(match[4])));
+    if (!text || !REFLINE_EMPTY_RESULT_TEXT_RE.test(text)) continue;
+    return text;
+  }
+  return null;
+}
 
 function normalize(s = '') {
   return String(s || '').trim().toLowerCase();
@@ -184,7 +207,18 @@ export function parseReflineListing(html = '', opts = {}) {
   // Table-row template wins when present (more structured); fall back to anchors.
   const table = parseReflineTableListing(html, opts);
   if (table.length) return table;
-  return parseReflineAnchorListing(html, opts);
+  const anchors = parseReflineAnchorListing(html, opts);
+  if (anchors.length) return anchors;
+
+  const emptyText = reflineEmptyListingEvidence(html);
+  if (!emptyText) return anchors;
+  const host = String(opts.listingHost || 'Refline');
+  const tenant = String(opts.tenant || '').trim();
+  const source = tenant ? `${host}/${tenant}` : host;
+  return markAuthoritativeEmptySnapshot(
+    anchors,
+    `${source} rendered the explicit no-results state: "${emptyText}"`,
+  );
 }
 
 /**
@@ -239,7 +273,51 @@ export function parseReflineDetail(html = '') {
       parts.push(tag === 'li' ? `• ${text}` : text);
     }
   }
-  return { title, description: parts.join('\n') };
+  return { title, description: preferRicherReflineBody(html, parts.join('\n')) };
+}
+
+/**
+ * The richer of a paragraph-scan reading and the page's JobPosting body.
+ *
+ * The paragraph scan only sees `<p>`/`<li>`/`<h3>`/`<h4>`. The standard
+ * Refline template ships the body as bare text inside
+ * `<div id="bIntro|bDescription|bDuty|bRequirement|bBenefit" class="smartEditable">`
+ * (line breaks as `<br>`), so on those postings the scan returned the four
+ * `<h3>` headings and nothing else: below the word floor, every caller then
+ * published its invented fallback text instead of the ad (Privatklinik
+ * Hohenegg 0057: 591 published chars against a 2,242-char posting; PUK Zürich
+ * 2117: 306 against 2,436). The same page always carries the full body in its
+ * JobPosting JSON-LD `description`, so the richer of the two readings wins.
+ * Shared with the tenant parsers that keep their own scan (Caritas, Pigna,
+ * Spital Limmattal), so a posting written in bare text cannot fall back there
+ * either.
+ *
+ * @param {string} html Refline detail page
+ * @param {string} scanned the caller's paragraph-scan text
+ * @returns {string}
+ */
+export function preferRicherReflineBody(html = '', scanned = '') {
+  const structured = reflineJsonLdDescriptionText(parseReflineJobPostingJsonLd(html));
+  return countWords(structured) > countWords(scanned) ? structured : scanned;
+}
+
+function countWords(text = '') {
+  return String(text || '').split(/\s+/).filter(Boolean).length;
+}
+
+/**
+ * The JobPosting `description` of a Refline page as plain text: lists keep
+ * their `• ` bullets and `<br>`/block ends keep their line breaks. The `<h1>`
+ * inside it repeats the vacancy title, which the job already carries.
+ */
+export function reflineJsonLdDescriptionText(posting) {
+  const html = String(posting?.description || '');
+  if (!html) return '';
+  const lines = htmlToText(html.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi, '\n'))
+    .split('\n')
+    .map((line) => normalizeDescriptionSpace(line))
+    .filter(Boolean);
+  return lines.join('\n');
 }
 
 /**
@@ -254,25 +332,10 @@ export function parseReflineDetail(html = '') {
  */
 export function parseReflineJobPostingJsonLd(html = '') {
   if (!html) return null;
-  // Scan EVERY ld+json block: a tenant may ship breadcrumb/Organization
-  // blocks ahead of the JobPosting one — first-block-only would miss it.
-  // First JobPosting in document order wins: the main posting precedes any
-  // hypothetical related-jobs widget (live tenant pages checked 2026-07 emit
-  // at most one), and the heading fallback still covers a total mismatch.
-  const blockRe = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let match;
-  while ((match = blockRe.exec(html)) !== null) {
-    try {
-      const data = JSON.parse(match[1]);
-      const candidates = Array.isArray(data) ? data : [data];
-      for (const entry of candidates) {
-        if (entry && entry['@type'] === 'JobPosting') return entry;
-      }
-    } catch {
-      // malformed block — keep scanning the remaining ones
-    }
-  }
-  return null;
+  // Scan every JSON-LD block: a tenant may ship breadcrumb/Organization
+  // blocks ahead of the JobPosting one. The shared traversal also handles
+  // graph-wrapped and multi-type records without tenant-specific drift.
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**
@@ -352,6 +415,13 @@ function extractPensum(text = '') {
  *             behaviour: infer canton from workplace text using
  *             inferSwissTargetCanton(); fall back to defaultCity/Canton/Postal.
  */
+/**
+ * A fragment only the factory's former stand-in description wrote
+ * ("<company> bietet eine sinnstiftende Tätigkeit in einem engagierten
+ * Team."), for `dropFabricatedDescriptions` on the stored jobs (issue 5253).
+ */
+export const REFLINE_FABRICATED_DESCRIPTION_RE = / bietet eine sinnstiftende Tätigkeit in einem engagierten Team\.\n• Vielfältige Aus- und Weiterbildungsmöglichkeiten/;
+
 export function createReflineParser(config) {
   const {
     reflineTenant,
@@ -368,6 +438,10 @@ export function createReflineParser(config) {
     sector = 'Sanità / Ospedali',
     sourceLabel,
     locationHintsFor,
+    // Legacy Refline crawlers intentionally degrade an unreadable listing to
+    // an empty result. New sources can opt into propagating the error so the
+    // standard crawler pipeline can classify the failed source explicitly.
+    throwOnListingFetchFailure = false,
     // Optional override for the free-text `company` field check inside
     // isCompanyJob(): receives the already-normalized (trimmed+lowercased)
     // company string, returns true/false. Default behaviour (substring of the
@@ -431,17 +505,6 @@ export function createReflineParser(config) {
 
   const pickHints = typeof locationHintsFor === 'function' ? locationHintsFor : defaultLocationHints;
 
-  function buildFallbackDescription(title, workplace) {
-    return [
-      `${title} bei ${companyName}${workplace ? ` in ${workplace}` : ` in ${defaultCity}`}.`,
-      '',
-      `${companyName} bietet eine sinnstiftende Tätigkeit in einem engagierten Team.`,
-      '• Vielfältige Aus- und Weiterbildungsmöglichkeiten',
-      '• Faire Anstellungsbedingungen',
-      '• Moderne Arbeitsumgebung',
-    ].join('\n');
-  }
-
   async function fetchAllJobs() {
     const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
     console.log(`🏥 Fetching ${companyName} jobs`);
@@ -451,24 +514,35 @@ export function createReflineParser(config) {
     try {
       listingHtml = await fetchHtml(listingUrl, { timeoutMs });
     } catch (err) {
+      if (throwOnListingFetchFailure) throw err;
+      // Preserve the legacy soft-fail behavior for existing sources: returning
+      // [] triggers the standard no-jobs-parsed guard and preserves the old
+      // slice without treating an unread listing as an authoritative empty
+      // source.
       console.warn(`⚠️ Refline listing fetch failed: ${err?.message || err}`);
       return [];
     }
 
     const listings = parseReflineListing(listingHtml, { listingHost, tenant: tenantStr });
     console.log(`  📋 Found ${listings.length} positions on Refline listing\n`);
-    if (!listings.length) return [];
+    // Preserve a parser-stamped authoritative zero. Returning a fresh `[]`
+    // here would discard the source proof and turn an explicit no-results page
+    // back into the generic no-jobs-parsed exit-guard path.
+    if (!listings.length) return listings;
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
+    let withoutBody = 0;
 
     for (const listing of listings) {
       let detail = { title: '', description: '' };
       const listingWorkplace = String(listing.workplace || '').trim();
       let structuredLocation = null;
+      let postingDates = sourcePostingDateFields('');
       try {
         const detailHtml = await fetchHtml(listing.url, { timeoutMs });
         detail = parseReflineDetail(detailHtml);
+        // Only the employer's publication field is evidence; entryDate is an employment start.
+        postingDates = sourcePostingDateFields(parseReflineJobPostingJsonLd(detailHtml)?.datePosted);
         if (!listingWorkplace) structuredLocation = extractReflineJobPostingLocation(detailHtml);
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
@@ -480,9 +554,18 @@ export function createReflineParser(config) {
       const canton = hints.canton;
       const postalCode = hints.postal || defaultPostalCode;
 
-      const description = detail.description && detail.description.split(/\s+/).length >= 40
-        ? detail.description
-        : buildFallbackDescription(title, listing.workplace);
+      // Only the posting's own text is published (issue 5253): a detail page
+      // that could not be read, or whose body is under the shared 50-word
+      // floor (source-body-floor.mjs), used to go out as "{title} bei
+      // {company} in {workplace}." plus three generic benefits the ad never
+      // listed. Such a listing is not published any more.
+      const description = detail.description || '';
+      if (!meetsSourceBodyFloor(description)) {
+        console.log(`  ⏭️ no vacancy text on the detail page, not published: ${title.substring(0, 70)} (${listing.posId})`);
+        withoutBody += 1;
+        await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+        continue;
+      }
 
       const haystack = `${title} ${description}`;
       const sourceLang = detectLang(description || title, defaultSourceLang);
@@ -526,7 +609,7 @@ export function createReflineParser(config) {
         sector,
         currency: 'CHF',
         featured: false,
-        postedDate: todayIso,
+        ...postingDates,
         applyUrl: listing.url,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
@@ -544,6 +627,9 @@ export function createReflineParser(config) {
       await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     }
 
+    if (withoutBody > 0) {
+      console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+    }
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
     return jobs;
   }

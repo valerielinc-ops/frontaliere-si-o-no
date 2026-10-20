@@ -1,3 +1,5 @@
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { decode as decodeHTML } from 'html-entities';
 /**
  * Città di Locarno — job listing parser
  *
@@ -71,42 +73,21 @@ function normalizeSpace(value = '') {
 }
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/(?:p|li|h[1-6]|div|ul|ol)>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ''), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
 
 export function decodeHtmlEntities(value = '') {
-  return String(value || '')
-    .replace(/&#0*38;|&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#0*39;|&apos;/gi, "'")
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&agrave;/gi, 'à')
-    .replace(/&egrave;/gi, 'è')
-    .replace(/&igrave;/gi, 'ì')
-    .replace(/&ograve;/gi, 'ò')
-    .replace(/&ugrave;/gi, 'ù')
-    .replace(/&rsquo;/gi, '\u2019')
-    .replace(/&lsquo;/gi, '\u2018')
-    .replace(/&nbsp;/gi, ' ')
-    .trim();
+  return decodeHTML(String(value || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ').trim();
 }
 
 export function slugify(value = '', suffix = '') {
@@ -163,9 +144,9 @@ export function isTitleTooGeneric(title = '') {
  */
 export function parseLocarnoDate(dateStr = '') {
   const s = dateStr.trim();
-  const m = s.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
-  if (!m) return new Date().toISOString().split('T')[0];
-  return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+  const m = s.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+  if (!m) return '';
+  return sourcePostingDateFields(`${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`).postedDate;
 }
 
 /**
@@ -195,7 +176,7 @@ export function parseLocarnoListingHtml(html) {
     if (!pdfLinkMatch) continue;
 
     const pdfHref = pdfLinkMatch[1];
-    const rawTitle = normalizeSpace(decodeHtmlEntities(stripHtml(pdfLinkMatch[2])));
+    const rawTitle = normalizeSpace(stripHtml(pdfLinkMatch[2]));
 
     // Skip download size links (e.g., "0.2 MB") and image-only links
     if (!rawTitle || rawTitle.length < 5) continue;
@@ -250,7 +231,10 @@ export async function fetchLocarnoJobs(timeoutMs = 15000) {
     return parseLocarnoListingHtml(html);
   } catch (err) {
     console.warn(`\u26a0\ufe0f Failed to fetch Locarno careers page: ${err.message}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   } finally {
     clearTimeout(timer);
   }
@@ -274,3 +258,13 @@ export function inferEmploymentType(title = '', description = '', percentage = '
   }
   return 'FULL_TIME';
 }
+
+/**
+ * Fragments only the runner's former wrapper around the bando wrote (a
+ * "## <titolo>" header, "Città di Locarno — concorso pubblico a Locarno (TI),
+ * Svizzera.", "Settore"/"Sede" footers, a link to the PDF, and a
+ * "Concorso pubblico presso la Città di Locarno…" sentence when the PDF had no
+ * text). Used to clean jobs stored before the runner published the bando alone.
+ */
+export const CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE =
+  /— concorso pubblico a Locarno \(TI\), Svizzera\.|\*\*Sede:\*\* Piazza Grande 18, 6600 Locarno|Consultare il bando di concorso allegato per requisiti e modalità di candidatura\./;

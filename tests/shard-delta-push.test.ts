@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
 import {
+  chmodSync,
   mkdtempSync,
   mkdirSync,
   readFileSync,
@@ -11,6 +12,9 @@ import {
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { MANIFEST_VERSION } from '../build-plugins/shared/incrementalManifest.mjs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
+import { ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 const ROOT = process.cwd();
 const PUSH_LOCALE = join(ROOT, 'scripts/lib/push-locale-shard.sh');
@@ -62,6 +66,11 @@ function pagePath(page: string, prefix = 'en'): string {
   return page ? `${prefix}/${page}/` : `${prefix}/`;
 }
 
+// Production manifests carry the build-time jobs emitter fingerprint whenever
+// they exist (jobsSeoPagesPlugin sets it under INCREMENTAL_MANIFEST or
+// JOBS_SEO_REUSE). Without it the delta re-evaluates every page by design.
+const RENDER_V1 = { 'active-job': 'active-job-render-v1' };
+
 function writeManifest(
   scenario: Scenario,
   pages: string[],
@@ -69,6 +78,10 @@ function writeManifest(
   prefix = 'en',
   includeRoot = false,
   omitCountKinds: string[] = [],
+  { locale = 'en', emitterFingerprint = RENDER_V1 }: {
+    locale?: string;
+    emitterFingerprint?: Record<string, string> | null;
+  } = {},
 ): void {
   mkdirSync(scenario.manifestDir, { recursive: true });
   const manifestPages = includeRoot ? ['', ...pages] : pages;
@@ -76,7 +89,7 @@ function writeManifest(
   counts['active-job'] = manifestPages.length;
   for (const kind of omitCountKinds) delete counts[kind];
   const lines = [
-    JSON.stringify({ type: 'header', manifestVersion: MANIFEST_VERSION, format: 'jsonl', locale: 'en' }),
+    JSON.stringify({ type: 'header', manifestVersion: MANIFEST_VERSION, format: 'jsonl', locale }),
     JSON.stringify({
       type: 'kind',
       kind: 'active-job',
@@ -88,9 +101,13 @@ function writeManifest(
       path: pagePath(page, prefix),
       hash: hash(`${version}:${page}`),
     })),
-    JSON.stringify({ type: 'footer', counts: { total: manifestPages.length, byKind: counts } }),
+    JSON.stringify({
+      type: 'footer',
+      counts: { total: manifestPages.length, byKind: counts },
+      ...(emitterFingerprint ? { jobsSeoEmitterFingerprint: emitterFingerprint } : {}),
+    }),
   ];
-  writeFileSync(join(scenario.manifestDir, 'en.jsonl'), `${lines.join('\n')}\n`);
+  writeFileSync(join(scenario.manifestDir, `${locale}.jsonl`), `${lines.join('\n')}\n`);
 }
 
 function writePayload(scenario: Scenario, files: Record<string, string>): void {
@@ -122,11 +139,23 @@ function writeManyPayload(scenario: Scenario, count: number, changedIndex = -1):
   }
 }
 
-function writeSectionPayload(scenario: Scenario, files: Record<string, string>): void {
-  const sectionRoot = join(scenario.dist, 'en', 'find-jobs-ticino');
+function writeSectionPayload(scenario: Scenario, files: Record<string, string>, sectionSlug = 'find-jobs-ticino'): void {
+  const sectionRoot = join(scenario.dist, 'en', sectionSlug);
   rmSync(scenario.dist, { recursive: true, force: true });
   mkdirSync(sectionRoot, { recursive: true });
   writeFileSync(join(sectionRoot, 'index.html'), '<html>section-root</html>');
+  for (const [page, content] of Object.entries(files)) {
+    const pageDir = join(sectionRoot, page);
+    mkdirSync(pageDir, { recursive: true });
+    writeFileSync(join(pageDir, 'index.html'), content);
+  }
+}
+
+function writeSectionItPayload(scenario: Scenario, sectionSlug: string, files: Record<string, string>): void {
+  const sectionRoot = join(scenario.dist, sectionSlug);
+  rmSync(scenario.dist, { recursive: true, force: true });
+  mkdirSync(sectionRoot, { recursive: true });
+  writeFileSync(join(sectionRoot, 'index.html'), `<html>${sectionSlug}-root</html>`);
   for (const [page, content] of Object.entries(files)) {
     const pageDir = join(sectionRoot, page);
     mkdirSync(pageDir, { recursive: true });
@@ -156,6 +185,50 @@ function treeFiles(remote: string): string[] {
   return output ? output.split('\n') : [];
 }
 
+function ticinoPhysicalPath(publicPath: string): string {
+  const prefix = publicPath.startsWith('en/find-jobs-ticino/')
+    ? 'en/find-jobs-ticino'
+    : 'cerca-lavoro-ticino';
+  const rest = publicPath.slice(`${prefix}/`.length);
+  const separator = rest.indexOf('/');
+  const entry = separator === -1 ? rest : rest.slice(0, separator);
+  const suffix = separator === -1 ? '' : rest.slice(separator);
+  return `${prefix}/_tree/${ticinoTreeBucket(entry)}/${entry}${suffix}`;
+}
+
+function makeRemoteMarkerUnreadable(scenario: Scenario, marker = '.shard-deploys'): string {
+  const head = git(['-C', scenario.remote, 'rev-parse', 'main']);
+  const entries = git(['-C', scenario.remote, 'ls-tree', head])
+    .split('\n')
+    .filter(Boolean)
+    .map((entry) => {
+      if (!entry.endsWith(`\t${marker}`)) return entry;
+      return entry.replace(/\b[0-9a-f]{40}\t/, `${'0'.repeat(40)}\t`);
+    })
+    .join('\n');
+  expect(entries).toContain(`\t${marker}`);
+  const tree = execFileSync('git', ['-C', scenario.remote, 'mktree', '--missing'], {
+    input: `${entries}\n`,
+    encoding: 'utf8',
+  }).trim();
+  const corruptHead = execFileSync(
+    'git',
+    ['-C', scenario.remote, 'commit-tree', tree, '-p', head, '-m', `corrupt ${marker}`],
+    {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        GIT_AUTHOR_NAME: 'shard-delta test',
+        GIT_AUTHOR_EMAIL: 'shard-delta-test@example.invalid',
+        GIT_COMMITTER_NAME: 'shard-delta test',
+        GIT_COMMITTER_EMAIL: 'shard-delta-test@example.invalid',
+      },
+    },
+  ).trim();
+  git(['-C', scenario.remote, 'update-ref', 'refs/heads/main', corruptHead]);
+  return corruptHead;
+}
+
 function blobSha(remote: string, path: string): string {
   const line = git(['-C', remote, 'ls-tree', '-r', 'main', '--', path]);
   return line.split(/\s+/)[2] || '';
@@ -176,6 +249,18 @@ function runBloblessMeasurement(remote: string): number {
   }
 }
 
+function configureUrlRewrite(scenario: Scenario, sshRepo: string): string {
+  const httpsRepo = sshRepo.replace(/^git@github\.com:/, 'https://github.com/');
+  const config = join(scenario.root, 'gitconfig');
+  writeFileSync(
+    config,
+    `[url "${scenario.remote}"]\n`
+      + `\tinsteadOf = ${sshRepo}\n`
+      + `\tinsteadOf = ${httpsRepo}\n`,
+  );
+  return config;
+}
+
 function runPush(
   scenario: Scenario,
   mode: 'delta' | 'full' | undefined,
@@ -193,9 +278,30 @@ function runPush(
   },
 ): { status: number; output: string; elapsedMs: number } {
   const runnerTemp = mkdtempSync(join(scenario.root, 'runner-'));
+  const binDir = join(runnerTemp, 'bin');
+  mkdirSync(binDir);
+  const curlStub = join(binDir, 'curl');
+  const realCurl = execFileSync('sh', ['-c', 'command -v curl'], { encoding: 'utf8' }).trim();
+  writeFileSync(
+    curlStub,
+    [
+      '#!/bin/sh',
+      'case "$*" in',
+      '  *__frontaliere_ticino_tree_layout=hash-v1*)',
+      '    printf "HTTP/2 204\\nx-frontaliere-ticino-tree-layout: %s\\n" "${TICINO_TEST_TREE_LAYOUT:-hash-v1}"',
+      '    ;;',
+      '  *)',
+      `    exec ${JSON.stringify(realCurl)} "$@"`,
+      '    ;;',
+      'esac',
+      '',
+    ].join('\n'),
+  );
+  chmodSync(curlStub, 0o755);
   const before = objectStats(scenario.remote);
   const env: NodeJS.ProcessEnv = {
     ...process.env,
+    PATH: `${binDir}:${process.env.PATH}`,
     [target.deployKey]: 'test-deploy-key',
     SHARD_REPO_OVERRIDE: scenario.remote,
     SHARD_INCREMENTAL_MANIFEST_DIR: scenario.manifestDir,
@@ -561,7 +667,7 @@ describe('delta push degli shard', () => {
     }
   });
 
-  it('applica lo stesso delta alla entrypoint dei section shard', () => {
+  it('mantiene il full overlay e il fan-out fisico alla entrypoint dei section shard', () => {
     const scenario = createScenario('section-lifecycle');
     const sectionTarget = {
       script: PUSH_SECTION,
@@ -576,7 +682,7 @@ describe('delta push degli shard', () => {
       });
       writeManifest(scenario, ['pages/a', 'pages/b'], 'v1', 'en/find-jobs-ticino');
       expect(runPush(scenario, 'delta', {}, sectionTarget).status).toBe(0);
-      expect(treeFiles(scenario.remote)).toContain('en/find-jobs-ticino/pages/a/index.html');
+      expect(treeFiles(scenario.remote)).toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/a/index.html'));
 
       writeSectionPayload(scenario, {
         'pages/a': '<html>A</html>',
@@ -585,12 +691,202 @@ describe('delta push degli shard', () => {
       writeManifest(scenario, ['pages/a', 'pages/c'], 'v2', 'en/find-jobs-ticino');
       const result = runPush(scenario, 'delta', {}, sectionTarget);
       expect(result.status).toBe(0);
-      expect(result.output).toContain('delta indexed tree');
-      expect(treeFiles(scenario.remote)).toContain('en/find-jobs-ticino/pages/c/index.html');
-      expect(treeFiles(scenario.remote)).not.toContain('en/find-jobs-ticino/pages/b/index.html');
-      assertContent(scenario.remote, 'en/find-jobs-ticino/pages/a/index.html', '<html>A</html>');
+      expect(result.output).toContain('forcing full overlay');
+      expect(treeFiles(scenario.remote)).toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/c/index.html'));
+      expect(treeFiles(scenario.remote)).not.toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/b/index.html'));
+      assertContent(scenario.remote, ticinoPhysicalPath('en/find-jobs-ticino/pages/a/index.html'), '<html>A</html>');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  // This case performs eight isolated Git shard publishes; keep the bound
+  // finite while allowing slower CI runners to complete the unchanged checks.
+  it('pubblica la provenienza anche quando il payload servito resta identico', () => {
+    const sourceV1 = 'a'.repeat(40);
+    const sourceV2 = 'b'.repeat(40);
+    const cases = [
+      {
+        name: 'locale',
+        target: {
+          script: PUSH_LOCALE,
+          args: (current: Scenario) => ['en', current.dist],
+          deployKey: 'SHARD_EN_DEPLOY_KEY',
+          label: 'locale',
+        },
+        write: (scenario: Scenario) => {
+          writePayload(scenario, { 'pages/stable': '<html>stable</html>' });
+          writeManifest(scenario, ['pages/stable'], 'stable');
+        },
+      },
+      {
+        name: 'section',
+        target: {
+          script: PUSH_SECTION,
+          args: (current: Scenario) => ['ticino', 'en', current.dist],
+          deployKey: 'SHARD_TICINO_EN_DEPLOY_KEY',
+          label: 'section',
+        },
+        write: (scenario: Scenario) => {
+          writeSectionPayload(scenario, { 'pages/stable': '<html>stable</html>' });
+          writeManifest(scenario, ['pages/stable'], 'stable', 'en/find-jobs-ticino');
+        },
+      },
+    ];
+
+    for (const testCase of cases) {
+      for (const mode of ['full', 'delta'] as const) {
+        const scenario = createScenario(`source-stamp-${testCase.name}-${mode}`);
+        try {
+          testCase.write(scenario);
+          expect(runPush(scenario, mode, { GITHUB_SHA: sourceV1 }, testCase.target).status).toBe(0);
+          const firstHead = git(['-C', scenario.remote, 'rev-parse', 'main']);
+
+          // The second build has identical served bytes but a new apex source
+          // SHA. It must still leave a commit the audit can match.
+          testCase.write(scenario);
+          const result = runPush(scenario, mode, { GITHUB_SHA: sourceV2 }, testCase.target);
+          expect(result.status).toBe(0);
+          expect(result.output).not.toContain('no content changes vs remote');
+          expect(git(['-C', scenario.remote, 'rev-parse', 'main'])).not.toBe(firstHead);
+          expect(git(['-C', scenario.remote, 'show', 'main:.shard-source'])).toBe(sourceV2);
+          expect(git(['-C', scenario.remote, 'log', '-1', '--format=%s'])).toContain(sourceV2.slice(0, 8));
+        } finally {
+          rmSync(scenario.root, { recursive: true, force: true });
+        }
+      }
+    }
+  }, 30_000);
+
+  it('usa il PAT per pubblicare quando manca la deploy key, senza saltare lo shard', () => {
+    const cases = [
+      {
+        name: 'locale-missing-key',
+        fakeRepo: 'git@github.com:valerielinc-ops/frontaliere-en.git',
+        target: {
+          script: PUSH_LOCALE,
+          args: (current: Scenario) => ['en', current.dist],
+          deployKey: 'SHARD_EN_DEPLOY_KEY',
+          label: 'locale',
+        },
+        seed: (scenario: Scenario) => writePayload(scenario, {
+          'pages/a': '<html>locale stale</html>',
+        }),
+        write: (scenario: Scenario) => writePayload(scenario, {
+          'pages/a': '<html>locale recovered</html>',
+        }),
+        path: 'en/pages/a/index.html',
+        content: '<html>locale recovered</html>',
+      },
+      {
+        name: 'section-missing-key',
+        fakeRepo: 'git@github.com:valerielinc-ops/frontaliere-ticino-en.git',
+        target: {
+          script: PUSH_SECTION,
+          args: (current: Scenario) => ['ticino', 'en', current.dist],
+          deployKey: 'SHARD_TICINO_EN_DEPLOY_KEY',
+          label: 'section',
+        },
+        seed: (scenario: Scenario) => writeSectionPayload(scenario, {
+          'pages/a': '<html>section stale</html>',
+        }),
+        write: (scenario: Scenario) => writeSectionPayload(scenario, {
+          'pages/a': '<html>section recovered</html>',
+        }),
+        path: ticinoPhysicalPath('en/find-jobs-ticino/pages/a/index.html'),
+        content: '<html>section recovered</html>',
+      },
+    ];
+
+    for (const testCase of cases) {
+      const scenario = createScenario(testCase.name);
+      try {
+        testCase.seed(scenario);
+        expect(runPush(scenario, 'full', {}, testCase.target).status).toBe(0);
+        testCase.write(scenario);
+        const result = runPush(
+          scenario,
+          'full',
+          {
+            [testCase.target.deployKey]: '',
+            GITHUB_PAT: 'test-pat',
+            SHARD_REPO_OVERRIDE: testCase.fakeRepo,
+            GIT_CONFIG_GLOBAL: configureUrlRewrite(scenario, testCase.fakeRepo),
+          },
+          testCase.target,
+        );
+        expect(result.status).toBe(0);
+        expect(result.output).toContain('deploy key missing — reading the current tree over HTTPS before the PAT fallback');
+        expect(result.output).toContain('pushed via the PAT fallback after deploy-key missing');
+        expect(treeFiles(scenario.remote)).toContain(testCase.path);
+        assertContent(scenario.remote, testCase.path, testCase.content);
+      } finally {
+        rmSync(scenario.root, { recursive: true, force: true });
+      }
+    }
+  });
+
+  it('rifiuta il PAT se un remote HEAD esistente ha un marker illeggibile', () => {
+    const cases = [
+      {
+        name: 'locale-unreadable-marker',
+        fakeRepo: 'git@github.com:valerielinc-ops/frontaliere-en.git',
+        target: {
+          script: PUSH_LOCALE,
+          args: (current: Scenario) => ['en', current.dist],
+          deployKey: 'SHARD_EN_DEPLOY_KEY',
+          label: 'locale',
+        },
+        seed: (scenario: Scenario) => writePayload(scenario, {
+          'pages/a': '<html>locale baseline</html>',
+        }),
+        write: (scenario: Scenario) => writePayload(scenario, {
+          'pages/a': '<html>locale must not overwrite</html>',
+        }),
+      },
+      {
+        name: 'section-unreadable-marker',
+        fakeRepo: 'git@github.com:valerielinc-ops/frontaliere-ticino-en.git',
+        target: {
+          script: PUSH_SECTION,
+          args: (current: Scenario) => ['ticino', 'en', current.dist],
+          deployKey: 'SHARD_TICINO_EN_DEPLOY_KEY',
+          label: 'section',
+        },
+        seed: (scenario: Scenario) => writeSectionPayload(scenario, {
+          'pages/a': '<html>section baseline</html>',
+        }),
+        write: (scenario: Scenario) => writeSectionPayload(scenario, {
+          'pages/a': '<html>section must not overwrite</html>',
+        }),
+      },
+    ];
+
+    for (const testCase of cases) {
+      const scenario = createScenario(testCase.name);
+      try {
+        testCase.seed(scenario);
+        expect(runPush(scenario, 'full', {}, testCase.target).status).toBe(0);
+        const corruptHead = makeRemoteMarkerUnreadable(scenario);
+        testCase.write(scenario);
+        const result = runPush(
+          scenario,
+          'full',
+          {
+            [testCase.target.deployKey]: '',
+            GITHUB_PAT: 'test-pat',
+            SHARD_REPO_OVERRIDE: testCase.fakeRepo,
+            GIT_CONFIG_GLOBAL: configureUrlRewrite(scenario, testCase.fakeRepo),
+          },
+          testCase.target,
+        );
+        expect(result.status).not.toBe(0);
+        expect(result.output).toContain('remote HEAD has an unreadable bookkeeping marker');
+        expect(result.output).not.toContain('pushed via the PAT fallback');
+        expect(git(['-C', scenario.remote, 'rev-parse', 'main'])).toBe(corruptHead);
+      } finally {
+        rmSync(scenario.root, { recursive: true, force: true });
+      }
     }
   });
 
@@ -646,22 +942,22 @@ describe('delta push degli shard', () => {
     const scenario = createScenario('section-full-verify');
     const sectionTarget = {
       script: PUSH_SECTION,
-      args: (current: Scenario) => ['ticino', 'en', current.dist],
-      deployKey: 'SHARD_TICINO_EN_DEPLOY_KEY',
+      args: (current: Scenario) => ['svizzera', 'en', current.dist],
+      deployKey: 'SHARD_SVIZZERA_EN_DEPLOY_KEY',
       label: 'section',
     };
     try {
-      writeSectionPayload(scenario, { 'pages/a': '<html>A v1</html>', 'pages/b': '<html>B</html>' });
-      writeManifest(scenario, ['pages/a', 'pages/b'], 'v1', 'en/find-jobs-ticino');
+      writeSectionPayload(scenario, { 'pages/a': '<html>A v1</html>', 'pages/b': '<html>B</html>' }, 'find-jobs-switzerland');
+      writeManifest(scenario, ['pages/a', 'pages/b'], 'v1', 'en/find-jobs-switzerland');
       expect(runPush(scenario, 'full', {}, sectionTarget).status).toBe(0);
 
-      writeSectionPayload(scenario, { 'pages/a': '<html>A v2</html>', 'pages/c': '<html>C</html>' });
-      writeManifest(scenario, ['pages/a', 'pages/c'], 'v2', 'en/find-jobs-ticino');
+      writeSectionPayload(scenario, { 'pages/a': '<html>A v2</html>', 'pages/c': '<html>C</html>' }, 'find-jobs-switzerland');
+      writeManifest(scenario, ['pages/a', 'pages/c'], 'v2', 'en/find-jobs-switzerland');
       const result = runPush(scenario, 'full', { SHARD_PUSH_VERIFY: '1' }, sectionTarget);
       expect(result.status).toBe(0);
       expect(result.output).toMatch(/\[shard-push-verify\] shard=.* mode=full plan=delta .*mismatches=0 wall_plan=\d+s/);
       expect(treeFiles(scenario.remote)).toContain('.deploy-manifest/v1/en.jsonl');
-      expect(treeFiles(scenario.remote)).not.toContain('en/find-jobs-ticino/pages/b/index.html');
+      expect(treeFiles(scenario.remote)).not.toContain('en/find-jobs-switzerland/pages/b/index.html');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
@@ -762,6 +1058,95 @@ describe('delta push degli shard', () => {
       expect(result.output).toMatch(/changed=1, unmanifested-overlay=3001, reused=3001/);
       expect(result.elapsedMs).toBeLessThan(15000);
       assertContent(scenario.remote, 'en/assets/asset-1777.txt', 'asset-1777-v2\n');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  }, 30000);
+});
+
+describe('#9788: snippet OFFERWALL stale su uno section shard dopo un cambio del solo renderer', () => {
+  const sectionIt = {
+    script: PUSH_SECTION,
+    args: (current: Scenario) => ['svizzera', 'it', current.dist],
+    deployKey: 'SHARD_SVIZZERA_IT_DEPLOY_KEY',
+    label: 'section-svizzera-it',
+  };
+  const JOB = 'stagista-52-settimane-supsi-dti-manno';
+  const SAME = 'impiegato-contabile-lugano';
+  const OLD_JOB = '<html><script>offerwall-fc@before-9788</script>job</html>';
+  const NEW_JOB = '<html><script>offerwall-fc@9788</script>job</html>';
+  const SAME_BYTES = '<html>job without the offerwall entrypoint</html>';
+  const RENDER_9788 = { 'active-job': 'active-job-render-9788' };
+  const writeIt = (scenario: Scenario, fingerprint: Record<string, string>) => writeManifest(
+    scenario,
+    [JOB, SAME],
+    'v1',
+    'cerca-lavoro-svizzera',
+    false,
+    [],
+    { locale: 'it', emitterFingerprint: fingerprint },
+  );
+
+  it('ripubblica le pagine con input invariato quando cambia il fingerprint del renderer', () => {
+    const scenario = createScenario('9788-render-change');
+    try {
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', { [JOB]: OLD_JOB, [SAME]: SAME_BYTES });
+      writeIt(scenario, RENDER_V1);
+      expect(runPush(scenario, 'delta', {}, sectionIt).status).toBe(0);
+      const sameBlob = blobSha(scenario.remote, `cerca-lavoro-svizzera/${SAME}/index.html`);
+
+      // #9788: build-plugins/constants.ts changed, the page input did not.
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', { [JOB]: NEW_JOB, [SAME]: SAME_BYTES });
+      writeIt(scenario, RENDER_9788);
+      const changed = runPush(scenario, 'delta', {}, sectionIt);
+      expect(changed.status).toBe(0);
+      expect(changed.output).toContain('render-stale=active-job:2');
+      expect(changed.output).not.toContain('delta fallback:');
+      // Both pages are re-evaluated; only the one whose bytes moved is written
+      // (changed = that page + the sidecar; reused = the other page + root).
+      expect(changed.output).toMatch(/delta indexed tree.*changed=2, unmanifested-overlay=1, reused=2,/);
+      assertContent(scenario.remote, `cerca-lavoro-svizzera/${JOB}/index.html`, NEW_JOB);
+      expect(blobSha(scenario.remote, `cerca-lavoro-svizzera/${SAME}/index.html`)).toBe(sameBlob);
+
+      // A deploy without renderer changes goes back to the input-hash delta.
+      const steady = runPush(scenario, 'delta', {}, sectionIt);
+      expect(steady.status).toBe(0);
+      expect(steady.output).toMatch(/mode=delta .* changed=0 unchanged=2 .* render-stale=none/);
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('ripara uno shard già stale: sidecar pre-fix col fingerprint nuovo e i byte vecchi', () => {
+    const scenario = createScenario('9788-stale-sidecar');
+    try {
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', { [JOB]: OLD_JOB, [SAME]: SAME_BYTES });
+      writeIt(scenario, RENDER_V1);
+      expect(runPush(scenario, 'delta', {}, sectionIt).status).toBe(0);
+
+      // The live state after deploy 36112880009: the pre-fix delta kept the
+      // old bytes but wrote a sidecar that already names the new renderer.
+      const live = join(scenario.root, 'live-shard');
+      git(['clone', '-q', scenario.remote, live]);
+      git(['config', 'user.email', 'test@example.com'], live);
+      git(['config', 'user.name', 'Test User'], live);
+      const sidecar = join(live, '.deploy-manifest/v1/it.jsonl');
+      const records = readFileSync(sidecar, 'utf8').trim().split('\n').map((line) => JSON.parse(line));
+      const footer = records[records.length - 1];
+      delete footer.renderFingerprint;
+      footer.jobsSeoEmitterFingerprint = RENDER_9788;
+      writeFileSync(sidecar, `${records.map((record) => JSON.stringify(record)).join('\n')}\n`);
+      git(['commit', '-qam', 'pre-fix delta: new renderer named, old bytes kept'], live);
+      git(['push', '-q', 'origin', 'main'], live);
+      assertContent(scenario.remote, `cerca-lavoro-svizzera/${JOB}/index.html`, OLD_JOB);
+
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', { [JOB]: NEW_JOB, [SAME]: SAME_BYTES });
+      writeIt(scenario, RENDER_9788);
+      const repaired = runPush(scenario, 'delta', {}, sectionIt);
+      expect(repaired.status).toBe(0);
+      expect(repaired.output).toContain('render-stale=active-job:2');
+      assertContent(scenario.remote, `cerca-lavoro-svizzera/${JOB}/index.html`, NEW_JOB);
+      assertContent(scenario.remote, `cerca-lavoro-svizzera/${SAME}/index.html`, SAME_BYTES);
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }

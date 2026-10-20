@@ -13,13 +13,17 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { normalizeDescriptionSpace, slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { splitJobLocation } from './job-location-display.mjs';
+import { stripLocationRegionMarkers } from './job-location-plausibility.mjs';
 import {
   fetchSuccessFactorsJobs,
   SuccessFactorsAuthError,
 } from './ats-clients/successfactors-client.mjs';
+import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -30,6 +34,14 @@ export const NESTLE_COMPANY_DOMAIN = 'nestle.com';
 const SUCCESSFACTORS_HOST = 'jobdetails.nestle.com';
 const SUCCESSFACTORS_SEARCH_URL = `https://${SUCCESSFACTORS_HOST}/search/?createNewAlert=false&q=&locationsearch=Switzerland&optionsFacetsDD_country=CH&locale=en_US`;
 const CAREER_URL = SUCCESSFACTORS_SEARCH_URL;
+
+// Nestlé Swiss sites whose locality name the federal register shares with
+// another canton: Romont is a municipality in Fribourg AND in Bern, so the
+// gazetteer (correctly) refuses to pick one. The Nestlé site there is the
+// Nespresso production centre in Romont FR; the Vevey HQ used to fill the gap
+// and published those vacancies as Vaud ones. A lookup of the locality the
+// SOURCE published, never a substitute for a missing one (issue 9842).
+const NESTLE_SWISS_SITE_CANTONS = new Map([['romont', 'FR']]);
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -43,10 +55,6 @@ function normalizeSpace(s = '') {
 
 function isSwissLocation(location = '') {
   return /(?:^|,\s*)CH(?:\s|$)/i.test(String(location || ''));
-}
-
-function wordCount(text = '') {
-  return String(text || '').split(/\s+/).filter(Boolean).length;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -145,7 +153,7 @@ async function fetchJobListings() {
         title: posting.title,
         location: posting.location,
         url: posting.applyUrl,
-        postedAt: posting.postedAt,
+        ...mergeSourcePostingDates({}, posting),
         jobReqId: posting.jobReqId,
       });
     }
@@ -159,11 +167,11 @@ async function fetchJobListings() {
   return out.filter((job) => isSwissLocation(job.location));
 }
 
-export async function fetchJobDescriptionText(
+async function fetchNestleDetail(
   listingUrl,
   { timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000 } = {},
 ) {
-  if (!listingUrl) return '';
+  if (!listingUrl) return { description: '', ...sourcePostingDateFields('') };
   try {
     const res = await fetch(listingUrl, {
       headers: {
@@ -173,20 +181,40 @@ export async function fetchJobDescriptionText(
       redirect: 'follow',
       signal: AbortSignal.timeout(timeoutMs),
     });
-    if (!res.ok) return '';
+    if (!res.ok) return { description: '', ...sourcePostingDateFields('') };
     // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
     const html = await rescueHtmlIfChallenged(await res.text(), listingUrl, {});
-    const match = html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>/i);
-    if (!match) return '';
-    return stripHtml(match[1])
-      .replace(/[ \t]+/g, ' ')
-      .replace(/[ \t]*\n[ \t]*/g, '\n')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim()
-      .slice(0, 4000);
+    const detail = parseCsbDetailPage(html);
+    return { description: normalizeNestleDescription(detail), ...mergeSourcePostingDates({}, detail) };
   } catch {
-    return '';
+    return { description: '', ...sourcePostingDateFields('') };
   }
+}
+
+export async function fetchJobDescriptionText(listingUrl, options = {}) {
+  return (await fetchNestleDetail(listingUrl, options)).description;
+}
+
+function normalizeNestleDescription(detail) {
+  return normalizeDescriptionSpace(String(detail?.descriptionText || '').replace(/\u00a0/g, ' ').replace(/\r\n?/g, '\n'));
+}
+
+/**
+ * Read the full vacancy body from a jobdetails.nestle.com (SuccessFactors
+ * jobs2web) detail page.
+ *
+ * The body sits in `<span data-careersite-propertyid="description">` and is
+ * full of nested `<span style=...>` section headings. The former non-greedy
+ * `<span class="jobdescription">([\s\S]*?)</span>` stopped at the FIRST inner
+ * `</span>` — on the Basel "Anlagenführer/in Abfüllung" page that is right
+ * after the "Positions Übersicht" heading, so the parser kept 2 words, fell
+ * under the 50-word floor and published the synthetic "Key details" stub
+ * instead of the ~3000-character vacancy (audit run 36528331656). The shared
+ * CSB reader walks the balanced element and keeps `<li>` items as bullets; no
+ * length cap, the whole posting is the description.
+ */
+export function parseNestleDetailDescription(html = '') {
+  return normalizeNestleDescription(parseCsbDetailPage(html));
 }
 
 /**
@@ -209,14 +237,25 @@ export async function fetchAllNestleJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     // TODO: Extract fields from each listing.
     // Adapt these field names to match the actual API response.
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.location || 'Vevey';
-    const canton = inferSwissTargetCanton(rawLocation) || 'VD';
+    // The listing is filtered to `…, CH` rows above; a location that still
+    // resolves to no canton is dropped rather than filed under the Vevey HQ
+    // (issue 9842: no HQ fallback on unknown geography).
+    const rawLocation = normalizeSpace(listing.location || '');
+    const canton = rawLocation
+      ? (NESTLE_SWISS_SITE_CANTONS.get(normalize(rawLocation.split(',')[0]))
+        || inferSwissTargetCanton(rawLocation))
+      : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
+      continue;
+    }
     // Nestlé's feed appends the country to every city ("Konolfingen, CH"), and
     // that string was stored verbatim as `location`/`addressLocality`. Every
     // consumer then added the canton on top of it: the `• Location:` line below
@@ -228,20 +267,24 @@ export async function fetchAllNestleJobs() {
     const location = splitJobLocation(rawLocation, canton).city || rawLocation;
     const publicUrl = listing.url || CAREER_URL;
 
-    const detailDescription = await fetchJobDescriptionText(publicUrl);
+    const detail = await fetchNestleDetail(publicUrl);
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${NESTLE_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, ${canton} canton` : ''}, Switzerland`,
-      '• Employer: Nestlé — world\'s largest food and beverage company',
-      '• Apply on: Nestlé careers portal',
-      '',
-      'This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.',
-    ].join('\n');
-    const descriptionText = wordCount(detailDescription) >= 50 ? detailDescription : fallbackDescription;
+    // The SuccessFactors detail can repeat the feed's country/canton marker in
+    // its location line (for example "Konolfingen, CH, Kanton BE"). Remove
+    // only that audit-detectable marker; the rest of the employer's prose is
+    // source content and must remain untouched.
+    const descriptionText = stripLocationRegionMarkers(detail.description, location, canton);
+
+    // Only the posting's own text is published (issue 5253). A detail page
+    // without a vacancy body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); such a listing is
+    // not published any more.
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.log(`  ⏭️  No vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} nestle ch`);
@@ -262,7 +305,7 @@ export async function fetchAllNestleJobs() {
       location,
       canton,
       url: publicUrl,
-      source: 'Nestlé Switzerland Dedicated Parser (Workday)',
+      source: 'Nestlé Switzerland Dedicated Parser (SuccessFactors)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
@@ -277,7 +320,7 @@ export async function fetchAllNestleJobs() {
       sector: 'Food / Beverage',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, detail),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -286,6 +329,9 @@ export async function fetchAllNestleJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+  }
   console.log(`\n📋 Total Nestlé jobs discovered: ${jobs.length}`);
   return jobs;
 }

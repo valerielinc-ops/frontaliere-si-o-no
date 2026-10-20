@@ -1,10 +1,21 @@
 {
   "esc": "a &amp; b &lt; c &gt; d &quot; e ' f",
   "escEmpty": "",
-  "stripLiteralMarkdown": "Onkologie Ärzte ~~x~~ ==y==",
+  "stripLiteralMarkdown": "Onkologie Ärzte guida",
+  "stripLiteralMarkdownArithmetic": "Calcolo: 8 * 5 * 4",
+  "stripLiteralMarkdownBalancedLink": "Età",
+  "stripLiteralMarkdownNestedLink": "A B",
+  "stripLiteralMarkdownEvenEscapedLink": "\\\\Età",
+  "stripLiteralMarkdownReferenceLink": "Età",
+  "stripLiteralMarkdownWhitespaceReferenceLink": "x",
+  "stripLiteralMarkdownQuotedLink": "x",
+  "stripLiteralMarkdownAngleLink": "x",
+  "stripLiteralMarkdownMarkupBoundaries": "Titolo",
+  "stripLiteralMarkdownPunctuation": "Titolo:term—nota Strong",
   "clampMetaDescription": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
-  "clampMetaDescriptionShort": "breve",
+  "clampMetaDescriptionShort": "breve Scopri guide pratiche, dati aggiornati e strumenti utili per vivere e lavorare tra Italia e Svizzera, con informazioni",
   "truncateHeadline": "Un titolo molto…",
+  "truncateHeadlineToMeasuredBudget": "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN…",
   "buildTitleWithBrand": "Titolo | Frontaliere Ticino",
   "truncateCodeUnits": "abcd",
   "inlineScriptJson": "{\"a\":1,\"b\":\"\\u003c/script>\",\"c\":[\"x\"]}",
@@ -41,6 +52,7 @@
     "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
     "creator": {
       "@type": "Organization",
+      "@id": "https://frontaliereticino.ch/#organization",
       "name": "Frontaliere Ticino",
       "url": "https://frontaliereticino.ch/"
     },
@@ -49,23 +61,19 @@
     "width": 1200
   },
   "getAuthorBySlugKnown": {
+    "kind": "editorial-profile",
     "slug": "marco-ferrari",
     "name": "Marco Ferrari",
-    "role": "Esperto fiscalità frontaliera",
-    "bio": "Marco Ferrari è specializzato in fiscalità transfrontaliera tra Italia e Svizzera, con particolare attenzione alla disciplina applicabile ai lavoratori frontalieri del Canton Ticino. Si occupa quotidianamente di dichiarazione dei redditi modello 730 e Redditi PF, di imposta alla fonte cantonale e federale, di ristorni IRPEF e di applicazione pratica del nuovo accordo Italia-Svizzera del 2026 sui frontalieri. Segue le novità dell'Agenzia delle Entrate, dell'AFC ticinese e dei comunicati congiunti del Ministero dell'Economia. Su Frontaliere Ticino cura le guide operative su acconti, scadenze, doppia imposizione e calcolo dell'imposta netta in CHF ed EUR. Pubblica analisi sulle implicazioni della soglia di 20 km dal confine, sulla figura del «nuovo frontaliere» e sui regimi transitori per chi ha iniziato a lavorare in Svizzera prima e dopo il 17 luglio 2023. Risponde a quesiti dei lettori sui casi limite della residenza fiscale italiana.",
-    "photoPath": "/images/authors/marco-ferrari.jpg",
-    "email": "marco.ferrari@frontaliereticino.ch",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/"
-    },
+    "role": "Profilo editoriale — fiscalità frontaliera",
+    "bio": "Questo profilo editoriale raccoglie guide sulla fiscalità transfrontaliera tra Italia e Svizzera, con attenzione ai lavoratori frontalieri del Canton Ticino. Copre dichiarazioni dei redditi 730 e Redditi PF, imposta alla fonte cantonale e federale, ristorni IRPEF e applicazione pratica dell’accordo Italia-Svizzera. La redazione segue le comunicazioni dell’Agenzia delle Entrate, dell’AFC ticinese e del Ministero dell’Economia e pubblica analisi su acconti, scadenze, doppia imposizione, calcolo dell’imposta netta in CHF ed EUR, soglia dei 20 km, nuovi frontalieri e regimi transitori.",
+    "photoPath": "/images/authors/marco-ferrari.webp",
     "expertise": [
       "fiscalità frontaliera",
       "730",
       "dichiarazione redditi",
       "imposta alla fonte",
-      "accordo Italia-Svizzera 2026"
-    ],
-    "joinedAt": "2024-09-01"
+      "accordo Italia-Svizzera"
+    ]
   },
   "getAuthorBySlugUnknown": null
 }

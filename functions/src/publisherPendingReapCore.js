@@ -15,14 +15,14 @@
  * payment or archive is never clobbered. Idempotent.
  */
 
-import admin from 'firebase-admin';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 
 /** Reap pending_payment ads older than this. Stripe sessions expire at ~24h;
  *  48h leaves comfortable margin so a slow-but-real payment is never reaped. */
 export const REAP_AFTER_MS = 48 * 60 * 60 * 1000;
 
 function db() {
-  return admin.firestore();
+  return getFirestore();
 }
 
 /**
@@ -47,8 +47,8 @@ export async function revertPendingJobsToDraft(jobIds) {
           ref,
           {
             status: 'draft',
-            pendingPaymentAt: admin.firestore.FieldValue.delete(),
-            updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+            pendingPaymentAt: FieldValue.delete(),
+            updatedAt: FieldValue.serverTimestamp(),
           },
           { merge: true },
         );

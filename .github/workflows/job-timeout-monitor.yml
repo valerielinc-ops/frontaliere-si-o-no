@@ -20,7 +20,10 @@ name: job-timeout-monitor
 
 on:
   schedule:
-    - cron: '10 * * * *' # hourly; script's 75m lookback covers cron jitter/downtime
+    # Hourly on paper; GitHub skips most slots (5.4 runs/day measured up to
+    # 2026-09-28). The script's window reaches back to the previous successful
+    # scan, so a skipped slot delays a report instead of losing it.
+    - cron: '10 * * * *'
   workflow_dispatch:
 
 concurrency:
@@ -65,7 +68,7 @@ jobs:
     timeout-minutes: 23
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -75,7 +78,6 @@ jobs:
             !/data/jobs/
             !/data/seo-404-compat/
             !/data/translation-cache/
-            !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
             !/docs/
@@ -94,7 +96,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           # No `npm ci` — script only uses Node stdlib + local modules.
@@ -102,7 +104,29 @@ jobs:
       - name: Scan for job timeouts and host-kills
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # La query Actions filtra per created, non updated: 3 giorni sono un
+          # budget realtime esplicito. I deep scan retention-complete usano
+          # l'override 35d senza questo opt-in.
+          TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON: 'true'
         run: node scripts/ci/scan-job-timeouts.mjs
+
+      # La meta' di CHIUSURA delle issue che lo scan apre fuori da `main`
+      # (`CI Failure (<evento>): <workflow>`): il reconciler centrale le lascia
+      # stare per costruzione e senza questo passo restavano aperte finche' una
+      # persona non le chiudeva (issue 10809). Chiude quando le ultime tre run
+      # della stessa popolazione, create dopo l'apertura, sono senza timeout;
+      # fail-closed su tutto il resto. Non tocca `CI Failure (deploy|build):`.
+      # `continue-on-error`: un errore qui non deve far passare per rotto lo scan
+      # ne' aprire la issue di crash del monitor qui sotto. `!cancelled()` e non
+      # il `success()` implicito: la decisione legge le run da se', non dipende
+      # dall'esito dello scan, e uno scan che crolla per giorni non deve rendere
+      # di nuovo immortale la famiglia.
+      - name: Resolve recovered non-main timeout issues
+        if: ${{ !cancelled() }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/scan-job-timeouts.mjs --resolve
 
       - name: Report unexpected scan failure to GitHub Issues
         if: failure()

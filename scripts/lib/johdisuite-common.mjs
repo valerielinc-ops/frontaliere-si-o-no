@@ -27,6 +27,7 @@
  *   - Hôpital du Jura (H-JU) → ats.johdisuite.ch (flow=web, locale=fr)
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -112,7 +113,6 @@ async function fetchJson(url, { timeoutMs } = {}) {
  * @param {string} config.defaultCity     Fallback city.
  * @param {string} [config.defaultPostalCode]
  * @param {string} [config.sourceLabel]
- * @param {string} [config.fallbackBrandBlurb]
  */
 export function createJohdiSuiteParser(config) {
   const {
@@ -127,7 +127,6 @@ export function createJohdiSuiteParser(config) {
     defaultCity,
     defaultPostalCode = '',
     sourceLabel,
-    fallbackBrandBlurb = '',
   } = config;
 
   if (!companyKey || !companyName || !companyHashKey || !defaultCanton) {
@@ -177,7 +176,10 @@ export function createJohdiSuiteParser(config) {
       listing = await fetchJson(listingUrl);
     } catch (err) {
       console.warn(`⚠️ Listing fetch failed (${listingUrl}): ${err?.message || err}`);
-      return [];
+      // A fetch failure is not an empty listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a cause-less no-jobs-parsed abort.
+      throw err;
     }
     if (!Array.isArray(listing) || !listing.length) {
       console.warn(`⚠️ Empty / unexpected listing payload for ${companyName}`);
@@ -185,7 +187,6 @@ export function createJohdiSuiteParser(config) {
     }
     console.log(`  ✓ ${listing.length} openings in listing JSON`);
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let failed = 0;
     for (let i = 0; i < listing.length; i += 1) {
@@ -215,15 +216,11 @@ export function createJohdiSuiteParser(config) {
       const introHtml = String(detail?.introduction || item.introduction || '');
       const descHtml = String(detail?.description || '');
       const richHtml = [introHtml, descHtml].filter(Boolean).join('\n\n');
-      let descriptionRaw = htmlToText(richHtml);
-      const uniqueWords = new Set(
-        descriptionRaw.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-      );
-      if (uniqueWords.size < 30) {
-        descriptionRaw = fallbackBrandBlurb
-          ? `${title} chez ${companyName} à ${detail?.work_place || item.work_place || defaultCity}.\n\n${fallbackBrandBlurb}`
-          : `${title} chez ${companyName} à ${detail?.work_place || item.work_place || defaultCity}.`;
-      }
+      // The posting's own text, whatever its length. Under 30 distinct words
+      // the parser used to replace it with "<titre> chez <entreprise> à
+      // <lieu>." and the tenant's brand paragraph; a posting without text now
+      // gets no description and takes the pipeline's thin-source path.
+      const descriptionRaw = htmlToText(richHtml);
 
       const city = String(detail?.city || item.city || detail?.work_place || item.work_place || defaultCity).trim();
       const cantonInferred = inferSwissTargetCanton(`${city} ${detail?.canton || item.canton || ''}`) || defaultCanton;
@@ -235,14 +232,12 @@ export function createJohdiSuiteParser(config) {
       const activityText = actMin === actMax ? `${actMin}%` : `${actMin}% - ${actMax}%`;
       const employmentType = detectHealthcareEmploymentType(`${title} ${activityText}`);
 
-      // Publication date
-      const pubRaw = detail?.publication_date || item.publication_date || '';
-      const postedDate = pubRaw
-        ? (() => {
-            const d = new Date(pubRaw);
-            return Number.isNaN(d.getTime()) ? todayIso : d.toISOString().slice(0, 10);
-          })()
-        : todayIso;
+      // Both API endpoints label original publication explicitly. Validate
+      // independently so an invalid detail does not mask a valid listing.
+      const publication = mergeSourcePostingDates(
+        sourcePostingDateFields(item.publication_date),
+        sourcePostingDateFields(detail?.publication_date),
+      );
 
       const detailLang = detectLang(descriptionRaw || title, sourceLang);
       const publicUrl = buildPublicUrl({ ...item, ...detail, slug: detail?.slug || item.slug });
@@ -279,7 +274,7 @@ export function createJohdiSuiteParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...publication,
         applyUrl: publicUrl,
         requirements: [],
         requirementsByLocale: { [detailLang]: [] },

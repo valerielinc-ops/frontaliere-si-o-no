@@ -1,3 +1,4 @@
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
  * JobBridgeView — view for job pages where the URL has changed (bridge pages).
  *
@@ -24,8 +25,10 @@ import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { Analytics } from '@/services/analytics';
+import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseUnit from '@/components/shared/AdSenseUnit';
+import { AD_SLOTS } from '@/services/adsenseSlots';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 
@@ -40,6 +43,8 @@ interface RelatedJob {
  location?: string;
  canton?: string;
  contract?: string;
+ datePosted?: string;
+ postingDateSource?: string;
  postedDate?: string;
  crawledAt?: string;
  salaryMin?: number;
@@ -221,6 +226,34 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
  }, []);
 
+ // ── Analytics ──
+ // The bridge gate had no event at all. Same contract as the expired/orphan
+ // siblings: `job_auth_funnel` gate_view on mount, a visible-gate
+ // `job_auth_gate.bridge.unknown.view` impression, and the email success
+ // `job_auth_gate.bridge.email.success` in handleEmailSubmit.
+ useEffect(() => {
+ if (alreadySignedIn) return;
+ Analytics.trackJobAuthFunnel('gate_view', {
+  company: jobData?.company,
+  jobTitle: localizedTitle,
+  location: jobData?.location,
+  surface: 'bridge',
+ });
+ }, [targetSlug, alreadySignedIn]);
+
+ const gateImpressionRef = useCaptureImpression({
+  page: 'job_auth_gate',
+  section: 'bridge',
+  variant: 'view',
+  ctaId: 'job_auth_gate.bridge.unknown.view',
+  enabled: !alreadySignedIn,
+  emit: () => Analytics.trackJobAuthGate('view', {
+   surface: 'bridge',
+   authState: 'anonymous',
+   jobSlug: targetSlug,
+  }),
+ });
+
  const redirectCopy = (REDIRECT_COPY[locale] ?? REDIRECT_COPY.it).replace('{n}', String(countdown));
 
  // Bridge views route the company link through SPA in-app navigation (a
@@ -269,6 +302,22 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  registrationMethod: 'email',
  locationInterest: newsletterJobContext.location,
  sectorInterest: newsletterJobContext.category,
+ });
+ Analytics.trackJobAuthGate('success', {
+  surface: 'bridge',
+  method: 'email',
+  authState: 'pending_email',
+  jobSlug: targetSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_success', {
+  method: 'email',
+  emailDomain: email.split('@')[1] || 'unknown',
+  company: jobData?.company,
+  jobTitle: localizedTitle,
+  location: jobData?.location,
+  surface: 'bridge',
+  authState: 'pending_email',
+  jobSlug: targetSlug,
  });
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.href = targetPath;
@@ -343,7 +392,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
 
  {/* Sign-in block — hidden when user is already authenticated */}
  {!alreadySignedIn && (
- <div role="region" aria-label={SIGNUP_COPY[locale] ?? SIGNUP_COPY.it} className="rounded-stripe border border-accent-border bg-accent-subtle p-5 space-y-3">
+ <div ref={gateImpressionRef} role="region" aria-label={SIGNUP_COPY[locale] ?? SIGNUP_COPY.it} className="rounded-stripe border border-accent-border bg-accent-subtle p-5 space-y-3">
  <p className="text-sm font-semibold text-strong">
  {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
  </p>
@@ -408,7 +457,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  />
  {emailError && <p className="text-sm text-danger">{emailError}</p>}
  </div>
- )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" />
+ )} {/* AdSense */} <AdSenseUnit slot={AD_SLOTS.JOBBRIDGE_MULTIPLEX.slot} format={AD_SLOTS.JOBBRIDGE_MULTIPLEX.format} className="my-2" />
 
  {/* Company banner */}
  {/*
@@ -495,7 +544,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));
  const rjSalary = formatRelatedSalary(rj);
  const rjContract = formatContractLabel(rj.contract, locale);
- const rjPosted = formatDaysAgo(rj.postedDate ?? rj.crawledAt, locale);
+ const rjPosted = formatDaysAgo(resolveReportedPostingDate(rj) ?? undefined, locale);
  return (
  <article
  key={rjSlug}

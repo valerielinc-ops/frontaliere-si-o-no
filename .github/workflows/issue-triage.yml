@@ -1,4 +1,8 @@
 name: Issue triage (deterministic classify + route)
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Issue triage (deterministic classify + route) [loop-clock {0}]', inputs.loop_clock) || github.event.issue.title || 'Issue triage (deterministic classify + route)' }}
 
 on:
   issues:
@@ -22,6 +26,11 @@ on:
         required: false
         type: boolean
         default: false
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        type: string
+        default: ''
 
 # Anti-storm: una run triage alla volta. I monitor (post-deploy validate,
 # crawler-health) aprono issue in burst; serializzare evita race sul routing.
@@ -67,7 +76,7 @@ jobs:
     timeout-minutes: 6
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -80,7 +89,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
@@ -124,7 +132,7 @@ jobs:
       # triggeri issue-fix e passi il gate (vedi nota nello step di routing). node
       # + npm ci servono a load-rc-env.mjs (firebase-admin).
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: 'npm'
@@ -301,7 +309,7 @@ jobs:
     timeout-minutes: 12
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -314,7 +322,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
@@ -351,7 +358,7 @@ jobs:
         timeout-minutes: 8
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: 'npm'

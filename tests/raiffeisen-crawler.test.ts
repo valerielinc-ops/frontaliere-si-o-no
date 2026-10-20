@@ -133,7 +133,7 @@ describe('Raiffeisen (national) crawler parser', () => {
     });
   });
 
-  describe('fetchAllRaiffeisenJobs — declared-total and postal fallback contract', () => {
+  describe('fetchAllRaiffeisenJobs — declared-total and source locality contract', () => {
     const realFetch = globalThis.fetch;
 
     afterEach(() => {
@@ -141,7 +141,7 @@ describe('Raiffeisen (national) crawler parser', () => {
       delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
     });
 
-    it('keeps the source location and uses a canton-level postal fallback', async () => {
+    it('keeps source location and street, and derives the ZIP from the official locality directory', async () => {
       process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
       globalThis.fetch = vi.fn(async () => new Response(JSON.stringify({
         total: 1,
@@ -149,8 +149,10 @@ describe('Raiffeisen (national) crawler parser', () => {
           title: 'Kundenberater/in',
           szas: {
             sza_title: 'Kundenberater/in',
-            'sza_location.city': 'Zürich',
+            'sza_location.city': 'Reiden',
+            'sza_location.zip': '6500',
             'sza_location.country': 'Schweiz',
+            'sza_location.street': 'Dorfstrasse 7',
             sza_introduction: 'Beratung und Betreuung von Kundinnen und Kunden in einem regionalen Raiffeisen-Team.',
           },
           links: { directlink: 'https://jobs.raiffeisen.ch/careercenter/1950/job/test' },
@@ -160,12 +162,37 @@ describe('Raiffeisen (national) crawler parser', () => {
       const jobs = await fetchAllRaiffeisenJobs();
       expect(jobs).toHaveLength(1);
       expect(jobs[0]).toMatchObject({
-        location: 'Zürich',
-        addressLocality: 'Zürich',
-        canton: 'ZH',
-        addressRegion: 'ZH',
-        postalCode: '8000',
+        location: 'Reiden',
+        addressLocality: 'Reiden',
+        canton: 'LU',
+        addressRegion: 'LU',
+        postalCode: '6500',
+        streetAddress: 'Dorfstrasse 7',
       });
+    });
+
+    it('uses a verified canton representative when the official directory has no exact locality', async () => {
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      globalThis.fetch = vi.fn(async () => new Response(JSON.stringify({
+        total: 1,
+        jobs: [{
+          title: 'Apprenti-e employé-e de commerce',
+          szas: {
+            sza_title: 'Apprenti-e employé-e de commerce',
+            'sza_location.city': 'Neuchâtel et Vallées',
+            'sza_location.country': 'Schweiz',
+            sza_introduction: 'Ausbildung und Mitarbeit in einem regionalen Raiffeisen-Team mit vielseitigen Aufgaben.',
+          },
+          links: { directlink: 'https://jobs.raiffeisen.ch/careercenter/1950/job/unknown-locality' },
+        }],
+      }), { status: 200 })) as any;
+
+      const jobs = await fetchAllRaiffeisenJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].location).toBe('Neuchâtel et Vallées');
+      expect(jobs[0].canton).toBe('NE');
+      expect(jobs[0].postalCode).toBe('2000');
+      expect(jobs[0].streetAddress).toBe('Neuchâtel et Vallées');
     });
 
     it('fails loudly when the API total is not fully read', async () => {

@@ -30,6 +30,8 @@ export const DEFAULT_ZONE_NAME = 'frontaliereticino.ch';
 // Stay safely under the free-plan 1-day-per-query cap (clock skew once tripped
 // "1d96ms > 1d").
 export const MAX_HOURS = 23.9;
+/** Cloudflare's maximum result rows for one httpRequestsAdaptiveGroups query. */
+export const CF_ANALYTICS_MAX_ROWS = 10_000;
 
 /**
  * POST a GraphQL query; return `data` or throw with the CF error message.
@@ -130,7 +132,7 @@ export async function fetchErrorPaths(token, zoneId, opts = {}) {
   const fetchImpl = opts.fetchImpl ?? fetch;
   const hours = Math.min(opts.hours ?? MAX_HOURS, MAX_HOURS);
   const minStatus = opts.minStatus ?? 404;
-  const limit = opts.limit ?? 10000;
+  const limit = opts.limit ?? CF_ANALYTICS_MAX_ROWS;
   const until = opts.until ? new Date(opts.until) : new Date();
   const sinceISO = new Date(until.getTime() - hours * 3600 * 1000).toISOString();
   const requestSource = opts.requestSource === undefined ? 'eyeball' : opts.requestSource;
@@ -197,7 +199,11 @@ export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
   };
   if (requestSource) filter.requestSource = requestSource;
 
-  const data = await cfGraphQL(token, ERROR_DIAGNOSTICS_QUERY, { zone: zoneId, limit: 10000, filter }, fetchImpl);
+  const data = await cfGraphQL(token, ERROR_DIAGNOSTICS_QUERY, {
+    zone: zoneId,
+    limit: CF_ANALYTICS_MAX_ROWS,
+    filter,
+  }, fetchImpl);
   const rows = data.viewer.zones[0]?.httpRequestsAdaptiveGroups || [];
   return rows.map((r) => ({
     hour: r.dimensions.datetimeHour,
@@ -265,7 +271,7 @@ export async function sweepErrorPathsWindowed(token, zoneId, opts = {}) {
         minStatus: opts.minStatus ?? 404,
         maxStatus: opts.maxStatus,
         host: opts.host,
-        limit: 10000,
+        limit: CF_ANALYTICS_MAX_ROWS,
         until: windowUntil,
         fetchImpl,
       });
@@ -275,7 +281,7 @@ export async function sweepErrorPathsWindowed(token, zoneId, opts = {}) {
       continue;
     }
     windowsOk++;
-    if (windowRows.length >= 10000) {
+    if (windowRows.length >= CF_ANALYTICS_MAX_ROWS) {
       const windowLabel = `${windowUntil.toISOString().slice(0, 13)}h (window ${i})`;
       console.warn(
         `[cf-sweep] window saturated: ${windowLabel} hit 10k cap — sub-window split may be needed`,

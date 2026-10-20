@@ -6,12 +6,24 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/sta-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  loadSpec,
+  normalizeSpecPagination,
+  readDeclaredListingTotal,
+} from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('STA Personal AG crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(STA_KEY).toBe('sta');
     expect(STA_COMPANY_NAME).toBe('STA Personal AG');
+  });
+
+  it('proves the paginated source total before accepting a snapshot', () => {
+    const spec = loadSpec(STA_KEY);
+    const pagination = normalizeSpecPagination(spec);
+
+    expect(readDeclaredListingTotal('<span>1’822</span> Resultate', pagination, spec)).toBe(1822);
   });
 
   // ── isCompanyJob ──

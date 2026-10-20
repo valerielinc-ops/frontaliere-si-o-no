@@ -104,14 +104,15 @@ async function fetchFromFirestore() {
   const creds = process.env.GOOGLE_APPLICATION_CREDENTIALS;
   if (!creds || !fs.existsSync(creds)) return null;
   try {
-    const { default: admin } = await import('firebase-admin');
-    if (admin.apps.length === 0) {
-      admin.initializeApp({
-        credential: admin.credential.applicationDefault(),
+    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+    const { getFirestore } = await import('firebase-admin/firestore');
+    if (getApps().length === 0) {
+      initializeApp({
+        credential: applicationDefault(),
         projectId: process.env.GCLOUD_PROJECT || 'frontaliere-ticino',
       });
     }
-    const db = admin.firestore();
+    const db = getFirestore();
     const histDoc = await db.collection('exchangeHistory').doc('chf-eur-1y').get();
     const raw = histDoc.exists ? histDoc.data() : null;
     const points = [];

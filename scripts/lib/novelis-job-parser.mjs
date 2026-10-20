@@ -27,6 +27,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -164,12 +166,26 @@ function parseListingPage(html = '') {
 
 /**
  * Parse a "CC-RR-City" or "CC-City" location code into { city, canton }.
- * Only Swiss ("CH-...") codes are expected here since the listing page is
- * already filtered to the Switzerland facet, but we stay defensive.
+ * Only Swiss ("CH-...") entries are read: the listing page is already
+ * filtered to the Switzerland facet, and an entry for another country is
+ * never a Swiss workplace.
+ *
+ * Una vacancy multi-sede elenca i codici separati da `|`
+ * (`DE-Göttingen | DE-RP-Koblenz | CH-ZH-Küsnacht | …`): si legge la voce
+ * svizzera, quella per cui il facet l'ha restituita. Spezzare l'intera stringa
+ * sui `-` pubblicava `Küsnacht | DE-Göttingen | …` come città, che l'assembler
+ * riduceva poi all'etichetta del cantone `Zurigo` (audit-parser-quality,
+ * issue 5253).
+ *
+ * Senza una voce `CH-` il risultato è vuoto (issue 9840): ripiegare sulla
+ * prima voce estera pubblicava `DE-Göttingen | …` come Göttingen e
+ * `DE-RP-Koblenz` come Koblenz/AG, il comune argoviese omonimo.
  */
-function parseLocationCode(rawLocation = '') {
-  const parts = String(rawLocation).split('-').map((p) => p.trim()).filter(Boolean);
-  if (parts.length === 0) return { city: '', canton: '' };
+export function parseLocationCode(rawLocation = '') {
+  const entries = String(rawLocation).split('|').map((entry) => entry.trim()).filter(Boolean);
+  const entry = entries.find((value) => /^CH-/i.test(value)) || '';
+  const parts = entry.split('-').map((p) => p.trim()).filter(Boolean);
+  if (parts.length < 2) return { city: '', canton: '' };
   if (parts.length >= 3 && /^[a-z]{2}$/i.test(parts[1])) {
     // "CH-VS-Sierre" (region code present) — validate against the real
     // canton registry before trusting it; a shape-only check would let a
@@ -179,22 +195,29 @@ function parseLocationCode(rawLocation = '') {
     return { city, canton };
   }
   // "CH-City" (no region code) — infer canton from the city name.
-  const city = parts.slice(1).join('-') || parts[0];
+  const city = parts.slice(1).join('-');
   return { city, canton: inferAnyCanton(city) || '' };
 }
 
 /**
  * Fetch and parse a single job's detail page for its full description.
  */
-async function fetchJobDescription(detailUrl) {
+async function fetchJobDescription(detailUrl, expectedTitle) {
   try {
     const html = await fetchHtml(detailUrl, { timeoutMs: 20000 });
-    const { document } = new JSDOM(html).window;
-    const container = document.querySelector('.iCIMS_JobContent');
-    return stripHtml(container?.innerHTML || '');
+    const dom = new JSDOM(html);
+    try {
+      const container = dom.window.document.querySelector('.iCIMS_JobContent');
+      return {
+        description: stripHtml(container?.innerHTML || ''),
+        ...identifiedPostingPublication(html, detailUrl, expectedTitle),
+      };
+    } finally {
+      dom.window.close();
+    }
   } catch (err) {
     console.warn(`  ⚠️ Failed to fetch job detail ${detailUrl}: ${err.message}`);
-    return '';
+    return { description: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -225,12 +248,18 @@ export async function fetchAllNovelisJobs() {
 
   const jobs = [];
   for (const listing of listings) {
-    const { city, canton: parsedCanton } = parseLocationCode(listing.rawLocation);
-    const canton = parsedCanton || HQ?.canton || 'VS';
-    const location = city || HQ?.city || 'Sierre';
+    // Fail-closed (issue 9840): nessun ripiego sulla sede di Sierre. Una
+    // vacancy senza una voce svizzera, o con un cantone che non si risolve,
+    // non ha un luogo di lavoro pubblicabile e si scarta.
+    const { city: location, canton } = parseLocationCode(listing.rawLocation);
+    if (!location || !canton) {
+      console.log(`  ⏭️  Skipped listing without a Swiss location: "${listing.rawLocation}" — ${listing.title}`);
+      continue;
+    }
 
     console.log(`  📄 Fetching detail: ${listing.title}`);
-    const descriptionText = await fetchJobDescription(listing.url);
+    const detail = await fetchJobDescription(listing.url, listing.title);
+    const descriptionText = detail.description;
 
     const descText = descriptionText
       ? `${descriptionText}\n\nNovelis is the world leader in aluminium rolling and recycling, with a major production facility in Sierre (Valais), Switzerland. The company produces flat-rolled aluminium products for the automotive, beverage can, and specialty markets.`.trim()
@@ -268,7 +297,7 @@ export async function fetchAllNovelisJobs() {
       sector: 'Metallurgia / Alluminio',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       url: listing.url,
       applyUrl: listing.url,
       source: 'Novelis Dedicated Parser (iCIMS)',

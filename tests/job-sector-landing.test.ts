@@ -252,6 +252,44 @@ describe('jobSectorLanding — sector match regex', () => {
     }
   });
 
+  it('include i sistemi di sicurezza fisica senza inglobare il lessico cyber (#9938)', () => {
+    for (const title of [
+      'Capo Progetto Sistemi di Sicurezza 80–100%',
+      'Systemtechniker:in für Sicherheitstechnik und Zutrittskontrollsysteme',
+      'Physical Security coordinator',
+      'Chef de projet systèmes de sécurité',
+    ]) {
+      expect(jobMatchesSector({ title }, 'sicurezza'), `fisica: ${title}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `non cyber: ${title}`).toBe(false);
+    }
+
+    for (const title of [
+      'Cloud Security Architect',
+      'IT Security Engineer - Cloud and Data Loss Prevention',
+      'Network Security Systems Engineer',
+    ]) {
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `cyber: ${title}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'sicurezza'), `non fisica: ${title}`).toBe(false);
+    }
+  });
+
+  it('vieta i qualificatori cyber e di sicurezza sul lavoro nei sistemi fisici (#9954)', () => {
+    for (const title of [
+      'Sistemi di sicurezza informatica',
+      'Sistemi di sicurezza sul lavoro',
+      'IT-Sicherheitstechnik',
+      'Arbeits-Sicherheitstechnik',
+      'Sicherheitstechnik für Arbeitssicherheit',
+      'systèmes de sécurité informatique',
+      'Systèmes de sécurité au travail',
+    ]) {
+      expect(jobMatchesSector({ title }, 'sicurezza'), `non fisica: ${title}`).toBe(false);
+    }
+
+    expect(jobMatchesSector({ title: 'Sistemi di sicurezza informatica' }, 'cybersecurity')).toBe(true);
+    expect(jobMatchesSector({ title: 'Sistemi di sicurezza fisica' }, 'sicurezza')).toBe(true);
+  });
+
   // ── Il separatore non e' sempre uno spazio singolo (follow-up di #7496) ──
   //
   // Il lookbehind di `sicurezza` esiste per impedire che UNO stesso annuncio
@@ -493,6 +531,19 @@ describe('jobSectorLanding — sector match regex', () => {
     }
   });
 
+  it('covers the observed TI legal and civil-drafting titles without broadening technical drafting (#9938)', () => {
+    expect(jobMatchesSector(
+      { title: 'Junior Legal – Banca del Sempione (Lugano)', category: 'legal' },
+      'avvocati',
+    )).toBe(true);
+    expect(jobMatchesSector({ title: 'Legal Senior Specialist' }, 'avvocati')).toBe(true);
+    expect(jobMatchesSector(
+      { title: 'Disegnatore di ingegneria civile (M/F/X) - Ticino', category: 'drafting' },
+      'architetti',
+    )).toBe(true);
+    expect(jobMatchesSector({ title: 'Disegnatore tecnico – settore elettrico' }, 'architetti')).toBe(false);
+  });
+
   // Il veto NON puo' essere sull'intera stringa: `jobMatchesSectorCanonical`
   // concatena title + category + tags con `' \n '`, e una parola del lessico
   // tecnico in un altro campo scarterebbe un architetto edile vero.
@@ -729,6 +780,46 @@ describe('jobSectorLanding — counts and filtering', () => {
     expect(counts.it.educatori).toBe(1);
   });
 
+  it('keeps the observed TI zero-sector aliases visible to the coverage metric (#9938)', () => {
+    const jobs = [
+      {
+        title: 'Junior Legal – Banca del Sempione (Lugano)',
+        category: 'legal',
+        description: baseDesc,
+      },
+      {
+        title: 'Disegnatore di ingegneria civile (M/F/X) - Ticino',
+        category: 'drafting',
+        description: baseDesc,
+      },
+    ];
+    const counts = countSectorJobsByLocale(jobs);
+    expect(counts.it.avvocati).toBe(1);
+    expect(counts.it.architetti).toBe(1);
+  });
+
+  it('uses source-backed sector metadata for generic roles at energy employers (#9938)', () => {
+    const dxtJob = {
+      title: 'Junior Accountant',
+      category: 'general',
+      sector: 'Energia / Trading materie prime',
+      description: baseDesc,
+    };
+
+    expect(jobMatchesSector({ ...dxtJob, sector: undefined }, 'energia')).toBe(false);
+    expect(jobMatchesSector(dxtJob, 'energia')).toBe(true);
+    expect(countSectorJobsByLocale([dxtJob]).it.energia).toBe(1);
+
+    expect(jobMatchesSector({
+      title: 'Capo Progetto Sistemi di Sicurezza 80–100%',
+      sector: 'Industria e tecnologia (automazione, energia, infrastrutture digitali)',
+    }, 'energia')).toBe(false);
+
+    // Body prose remains excluded: only the crawler's bounded metadata fixes
+    // the gap, not a broad description scan that could create false matches.
+    expect(jobMatchesSector({ title: 'Junior Accountant', description: 'energy '.repeat(60) }, 'energia')).toBe(false);
+  });
+
   it('per-locale needsRetranslation excludes from that locale only', () => {
     const jobs = [
       {
@@ -782,10 +873,10 @@ describe('jobSectorLanding — counts and filtering', () => {
 
   it('filterSectorJobs sorts by datePosted desc and caps at maxJobs', () => {
     const jobs = [
-      { title: 'Infermiere A', description: baseDesc, datePosted: '2026-04-15' },
-      { title: 'Infermiere B', description: baseDesc, datePosted: '2026-04-18' },
-      { title: 'Infermiere C', description: baseDesc, datePosted: '2026-04-10' },
-      { title: 'Software Engineer', description: baseDesc, datePosted: '2026-04-19' },
+      { title: 'Infermiere A', description: baseDesc, postingDateSource: 'reported', datePosted: new Date(Date.now() - 4 * 86400000).toISOString() },
+      { title: 'Infermiere B', description: baseDesc, postingDateSource: 'reported', datePosted: new Date(Date.now() - 86400000).toISOString() },
+      { title: 'Infermiere C', description: baseDesc, postingDateSource: 'reported', datePosted: new Date(Date.now() - 9 * 86400000).toISOString() },
+      { title: 'Software Engineer', description: baseDesc, postingDateSource: 'reported', datePosted: new Date().toISOString() },
     ];
     const filtered = filterSectorJobs(jobs, 'infermieri', 'it', 50);
     expect(filtered).toHaveLength(3);

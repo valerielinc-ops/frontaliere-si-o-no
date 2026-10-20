@@ -14,7 +14,8 @@
  * ------
  * Derived from the committed `data/liechtensteinMunicipalities.ts` (see that
  * file's header for full sourcing: Amt für Statistik Liechtenstein for
- * population, Wikidata for coordinates). Re-run after that file changes:
+ * population/area/elevation/density, Wikidata for coordinates). Re-run after
+ * that file changes:
  *
  *   node scripts/build-liechtenstein-municipalities.mjs            # writes the JSON
  *   node scripts/build-liechtenstein-municipalities.mjs --stats    # print counts only
@@ -66,7 +67,7 @@ export const MIN_POPULATION = 2000;
 export const EXPECTED_MUNICIPALITY_COUNT = 11;
 
 const SOURCE_LABEL =
-  'Amt für Statistik Liechtenstein, "Statistisches Jahrbuch Liechtensteins 2025", tab. T_2.1_01 "Bevölkerung nach Wohngemeinde, 1960-2023", p. 75 (dato 31.12.2023) + Wikidata (wdt:P31 wd:Q203300, wdt:P625) per le coordinate; vedi data/liechtensteinMunicipalities.ts per dettaglio fonte-per-fonte.';
+  'Amt für Statistik Liechtenstein, "Statistisches Jahrbuch Liechtensteins 2025", tab. T_2.1_01 "Bevölkerung nach Wohngemeinde, 1960-2023", p. 75 (dato 31.12.2023); Amt für Bau und Infrastruktur/Amt für Statistik, "Liechtenstein in Zahlen 2022", tavole comunali con area, quota e densità 2020; Wikidata (wdt:P31 wd:Q203300, wdt:P625) per le coordinate. Vedi data/liechtensteinMunicipalities.ts per dettaglio fonte-per-fonte.';
 const SOURCE_YEAR = 2023;
 
 export const NATIONAL_POPULATION = {
@@ -142,6 +143,10 @@ export function parseLiechtensteinMunicipalities(tsSource) {
       lng: num('lng'),
       population: num('population'),
       populationYear: num('populationYear'),
+      areaKm2: num('areaKm2'),
+      elevationM: num('elevationM'),
+      populationDensity2020: num('populationDensity2020'),
+      region: str('region'),
     });
   }
   return out;
@@ -155,10 +160,14 @@ export function buildDataset(all) {
       Number.isFinite(m.lng) &&
       Number.isFinite(m.population) &&
       Number.isFinite(m.populationYear) &&
+      Number.isFinite(m.areaKm2) &&
+      Number.isFinite(m.elevationM) &&
+      Number.isFinite(m.populationDensity2020) &&
       typeof m.name === 'string' &&
       m.name.length > 0 &&
       typeof m.wikidataId === 'string' &&
-      m.wikidataId.length > 0,
+      m.wikidataId.length > 0 &&
+      (m.region === 'Oberland' || m.region === 'Unterland'),
   );
   for (const m of valid) {
     assertPlausibleMunicipality(m, { sourceLabel: 'liechtenstein-municipalities' });
@@ -172,6 +181,10 @@ export function buildDataset(all) {
     lng: m.lng,
     population: m.population,
     populationYear: m.populationYear,
+    areaKm2: m.areaKm2,
+    elevationM: m.elevationM,
+    populationDensity2020: m.populationDensity2020,
+    region: m.region,
   });
 
   const isAboveFloor = (m) => m.population >= MIN_POPULATION;

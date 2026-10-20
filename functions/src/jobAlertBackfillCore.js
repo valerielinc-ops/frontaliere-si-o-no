@@ -40,7 +40,7 @@
  * (open/click tracking) a no-op.
  *
  * Signal tiers, cheapest-first:
- *  1. `job_category`/`job_location`/`sector_interest` — explicit job-search
+ *  1. `job_category`/`job_location`/`sector_interest` — job-search context
  *     intent, whether captured with job-page context (job_gate unlock,
  *     JobBoard social sign-in with a job in progress) or from a standalone
  *     sector pick with no job in progress (e.g. a newsletter-signup sector
@@ -94,6 +94,7 @@
 
 import { isCrossChannelStop, isNewsletterExcluded } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
+import { hasSubscriptionBasis, isSavedJobsDigestAnchorOnly } from './lib/subscriberConsent.js';
 import { derivePersonalizationPatch } from './lib/subscriberPersonalization.js';
 import { deriveCantonFromJobBoardUrl } from './lib/jobBoardUrlCanton.js';
 import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
@@ -145,11 +146,19 @@ export function signalTierChanged(beforeData, afterData) {
  * consent-proof check: legacy subscriber rows may have no proof fields at
  * all, while a bare profile sync must not manufacture an alert relationship.
  *
+ * Nor may the saved-jobs digest record: the row the digest sender creates for
+ * an account that has no central row (`isSavedJobsDigestAnchorOnly`) carries
+ * no subscription, and a `status` a webhook or the suppression decay writes
+ * on it later does not make it one. Without this check a recovered
+ * `active`/`pending` on that row, followed by a browsing sync, would make
+ * `backfillJobAlertOnPersonalizationSync` create a job alert nobody asked for.
+ *
  * @param {Record<string, unknown>|null|undefined} data
  * @returns {boolean}
  */
 export function hasNewsletterSubscriberRecord(data) {
   if (!data || typeof data !== 'object') return false;
+  if (isSavedJobsDigestAnchorOnly(data)) return false;
   return Boolean(
     (typeof data.status === 'string' && data.status.trim())
     || typeof data.isActive === 'boolean'
@@ -380,21 +389,36 @@ export function hasStoredJobAlertConsent(data) {
 /**
  * Sender-side authorization for one alert. Each sender still applies its
  * shared cross-channel and channel-local suppression predicates separately.
- * Registration terms establish the base relationship; this helper only
- * prevents delivery after an explicit global/address-level stop and labels
- * the alert's provenance for diagnostics.
+ * Registration terms establish the base relationship; this helper prevents
+ * delivery after an explicit global/address-level stop, refuses an alert
+ * manufactured from a relationship that does not exist, and labels the
+ * alert's provenance for diagnostics.
  */
 export function evaluateJobAlertConsent({ alert, subscriber }) {
   // The registration terms establish the base relationship. This function is
-  // no longer a consent gate: it only protects the sender from an explicit
+  // not a proof gate: it protects the sender from an explicit
   // global/address-level stop when the subscriber document is available.
   if (subscriber && isCrossChannelStop(subscriber)) {
     return { allowed: false, reason: 'cross-channel-stop' };
   }
-  return {
-    allowed: true,
-    reason: isBackfilledJobAlert(alert) ? 'backfill-newsletter-registration' : 'explicit-alert',
-  };
+  if (!isBackfilledJobAlert(alert)) {
+    // Created by an act on the alert itself (the alert form, "Segui questa
+    // azienda" — `company_follow_activation`): that act is its basis.
+    return { allowed: true, reason: 'explicit-alert' };
+  }
+  // A backfilled alert was MANUFACTURED from the newsletter document
+  // (`backfilled_from: newsletter_subscribers:*`), so it has exactly the
+  // relationship that document has — the floor #9734 put under the newsletter
+  // senders, applied to the channel it spawned. Measured 2026-09-25: 226 such
+  // alerts sat on the 235 profile-only documents, and 108 of those documents
+  // received job alerts after 17/09 while the newsletter already skipped them.
+  // An alert that an explicit act upgraded carries its own proof and keeps it.
+  // A MISSING document is not a profile-only one and is not read as one here:
+  // this function answers for the data the sender holds.
+  if (subscriber && !hasSubscriptionBasis(subscriber) && !hasStoredJobAlertConsent(alert)) {
+    return { allowed: false, reason: 'no-subscription-basis' };
+  }
+  return { allowed: true, reason: 'backfill-newsletter-registration' };
 }
 
 /**
@@ -461,6 +485,15 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   const isJobBoardRegistration = String(channel).toLowerCase() === 'job_gate'
     || String(channel).toLowerCase().includes('job_board')
     || hasJobContext;
+  // `backfill-newsletter-job-context.mjs` recovers a missing job context by
+  // putting the source offer's title in `job_search_query`. That is source-job
+  // intent, not a query the subscriber typed. Keep it available to the soft
+  // profile below, but do not turn the expired offer's full title into a hard
+  // keyword for every future alert.
+  const recoveredSourceJobContext = Boolean(
+    String(data?.job_context_backfill_source || '').trim()
+      || String(data?.job_context_backfill_slug || '').trim(),
+  );
   const legacyContextKeywords = isJobBoardRegistration
     ? [...new Set([
       data?.job_search_query,
@@ -468,12 +501,17 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
       data?.job_title,
     ].map((value) => String(value || '').trim()).filter(Boolean))]
     : [];
-  const contextKeywords = legacyContextKeywords.filter(
-    (value) => String(value).trim().toLowerCase() !== String(data?.job_category || '').trim().toLowerCase()
-      || String(value).trim().toLowerCase() === String(data?.job_search_query || '').trim().toLowerCase()
-      || String(value).trim().toLowerCase() === String(data?.job_title || '').trim().toLowerCase(),
-  );
-  const contextLocations = isJobBoardRegistration && data?.job_location
+  const explicitSearchQuery = recoveredSourceJobContext ? null : data?.job_search_query;
+  const contextKeywords = isJobBoardRegistration
+    ? [...new Set([explicitSearchQuery].map((value) => String(value || '').trim()).filter(Boolean))]
+    : [];
+  // `job_location` is the location of the source offer captured at signup,
+  // not a location the subscriber explicitly selected for the alert. Keep it
+  // in the linked subscriber profile as a soft signal. The old writer put it
+  // into `alert.locations`, which the matcher correctly treats as a HARD
+  // filter; retain this value only long enough to migrate an untouched legacy
+  // payload below.
+  const legacyContextLocations = isJobBoardRegistration && data?.job_location
     ? [String(data.job_location).trim()]
     : [];
   const contextSectors = isJobBoardRegistration
@@ -486,13 +524,32 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   const existingLocations = Array.isArray(existingBackfill?.locations) ? existingBackfill.locations : [];
   const existingSectors = Array.isArray(existingBackfill?.sectors) ? existingBackfill.sectors : [];
   const normalizeCriteria = (values) => values.map((value) => String(value || '').trim().toLowerCase());
+  const legacyWriterKeywords = legacyContextKeywords.filter(
+    (value) => String(value).trim().toLowerCase() !== String(data?.job_category || '').trim().toLowerCase()
+      || String(value).trim().toLowerCase() === String(data?.job_search_query || '').trim().toLowerCase()
+      || String(value).trim().toLowerCase() === String(data?.job_title || '').trim().toLowerCase(),
+  );
+  const generatedKeywordForms = [legacyContextKeywords, legacyWriterKeywords, contextKeywords]
+    .filter((values) => values.length > 0)
+    .map(normalizeCriteria);
   // Only rewrite an untouched legacy payload whose full keyword array still
   // equals the exact values this writer used to generate. Any extra, removed or
   // reordered criterion proves user editing and is preserved byte-for-byte.
   const existingWasGenerated = existingKeywords.length > 0
-    && JSON.stringify(normalizeCriteria(existingKeywords))
-      === JSON.stringify(normalizeCriteria(legacyContextKeywords));
+    && generatedKeywordForms.some((generated) =>
+      JSON.stringify(normalizeCriteria(existingKeywords)) === JSON.stringify(generated));
   const preservedExistingKeywords = existingWasGenerated ? contextKeywords : existingKeywords;
+  const generatedLocationForms = legacyContextLocations.length > 0
+    ? [legacyContextLocations]
+    : [];
+  // Migrate only the exact location array emitted by the old writer. Any
+  // extra, removed or reordered criterion proves that the subscriber edited
+  // the alert and must be preserved byte-for-byte. Unlike keyword matching,
+  // whitespace and casing are part of the user's location value here.
+  const existingLocationWasGenerated = existingLocations.length > 0
+    && generatedLocationForms.some((generated) =>
+      JSON.stringify(existingLocations) === JSON.stringify(generated));
+  const preservedExistingLocations = existingLocationWasGenerated ? [] : existingLocations;
   const tierSuffix =
     tier === 'location-fallback' || tier === 'personalization-fallback' || tier === 'url-fallback'
       ? `:${tier}`
@@ -500,11 +557,13 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   return {
     email,
     userId: data?.user_id || null,
-    // A job-board registration starts from the exact job/search context that
-    // opened the gate. Newsletter registrations intentionally stay broad and
-    // use the evolving profile/personalization signals instead.
+    // A typed job-board search remains a hard criterion. The clicked/source
+    // offer title, source-offer location and recovered historical context stay
+    // in the soft profile so the alert can continue finding related roles after
+    // that offer expires. Only locations explicitly edited on the alert remain
+    // a hard geo scope.
     keywords: preservedExistingKeywords.length > 0 ? preservedExistingKeywords : contextKeywords,
-    locations: existingLocations.length > 0 ? existingLocations : contextLocations,
+    locations: preservedExistingLocations,
     contractTypes: [],
     sectors: existingSectors.length > 0 ? existingSectors : contextSectors,
     cantonFilter: null,
@@ -514,7 +573,7 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
     locale: resolveSubscriberLocale(data),
     sourceJobSlug: data?.job_slug || null,
     sourceJobUrl: null,
-    sourceJobTitle: data?.job_title || null,
+    sourceJobTitle: data?.job_title || (recoveredSourceJobContext ? data?.job_search_query : null),
     specificJobId: null,
     specificCompanyKey: null,
     active: existingBackfill ? existingBackfill.active !== false : true,

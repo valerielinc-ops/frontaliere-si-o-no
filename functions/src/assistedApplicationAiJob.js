@@ -1,0 +1,519 @@
+/**
+ * The job posting behind an assisted-application order, as the AI draft sees it.
+ *
+ * The order only stores jobId/jobUrl/company/title. The full posting is the
+ * published per-job detail file (`/data/job-detail/{id}.json`, the same file
+ * the SPA lazy-loads), read over HTTP like every other site consumer; the
+ * employer page is a fallback for postings that left the dataset.
+ *
+ * `classifyApplicationChannel` tells the operator HOW the application goes
+ * out: an e-mail address the posting itself publishes, or the ATS portal
+ * behind the apply link (Workday, SuccessFactors, Umantis…), which decides
+ * whether the form needs an account and which quirks to expect.
+ */
+
+import { lookup } from 'node:dns/promises';
+import { isIP } from 'node:net';
+import { ACTIVE_JOB_IDS_FILE_NAME, JOB_ID_RE } from './assistedApplicationActiveJobIndex.js';
+
+export const JOB_DATA_BASE = 'https://cdn.frontaliereticino.ch/data';
+export const JOB_DETAIL_BASE = `${JOB_DATA_BASE}/job-detail`;
+export const JOB_ACTIVE_IDS_URL = `${JOB_DATA_BASE}/${ACTIVE_JOB_IDS_FILE_NAME}`;
+const FETCH_TIMEOUT_MS = 12_000;
+const MAX_POSTING_CHARS = 14_000;
+const MAX_PAGE_BYTES = 1_500_000;
+const MAX_REDIRECTS = 3;
+
+function clean(value, max = 500) {
+  return String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, max);
+}
+
+/** Only public https hosts: the fallback must never reach internal addresses. */
+export function isFetchablePublicUrl(value) {
+  let url;
+  try {
+    url = new URL(String(value || ''));
+  } catch {
+    return false;
+  }
+  if (url.protocol !== 'https:' || url.username || url.password) return false;
+  const host = url.hostname.toLowerCase().replace(/^\[|\]$/g, '');
+  if (!host.includes('.') || isIP(host)) return false;
+  return !/(^|\.)(localhost|local|internal|intranet|lan|home|corp)$/.test(host)
+    && !host.endsWith('.goog')
+    && host !== 'metadata.google.internal';
+}
+
+/** True for loopback, private, link-local, CGNAT and unique-local addresses. */
+export function isPrivateAddress(address) {
+  const value = String(address || '').toLowerCase();
+  if (isIP(value) === 4) {
+    const [a, b] = value.split('.').map(Number);
+    return a === 0 || a === 10 || a === 127 || (a === 169 && b === 254) || (a === 172 && b >= 16 && b <= 31)
+      || (a === 192 && b === 168) || (a === 100 && b >= 64 && b <= 127) || a >= 224;
+  }
+  if (isIP(value) === 6) {
+    if (value === '::' || value === '::1') return true;
+    if (value.startsWith('::ffff:')) return isPrivateAddress(value.slice(7));
+    return /^(fc|fd|fe8|fe9|fea|feb|ff)/.test(value);
+  }
+  return true;
+}
+
+/** The URL is public https AND every address its host resolves to is public. */
+export async function resolvesToPublicHost(value, resolve = lookup) {
+  if (!isFetchablePublicUrl(value)) return false;
+  try {
+    const addresses = await resolve(new URL(value).hostname, { all: true });
+    return addresses.length > 0 && addresses.every((entry) => !isPrivateAddress(entry.address));
+  } catch {
+    return false;
+  }
+}
+
+export function htmlToText(html) {
+  return String(html || '')
+    .replace(/<(script|style|noscript|svg|template)\b[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(p|div|ul|ol|h[1-6]|tr|section|article)>/gi, '\n')
+    .replace(/<li\b[^>]*>/gi, '\n- ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/[ \t]+/g, ' ')
+    .replace(/ *\n */g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+async function fetchWithTimeout(fetchImpl, url, init = {}) {
+  return fetchImpl(url, {
+    redirect: 'follow',
+    ...init,
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    headers: { 'User-Agent': 'FrontaliereTicino-AssistedApplication/1.0', ...(init.headers || {}) },
+  });
+}
+
+/**
+ * GET an employer page (the order's jobUrl comes from the browser at
+ * checkout): redirects are followed by hand and every hop is re-validated.
+ */
+export async function fetchPublicPage(fetchImpl, startUrl, resolve = lookup, { accept = 'text/html' } = {}) {
+  let url = startUrl;
+  for (let hop = 0; hop <= MAX_REDIRECTS; hop += 1) {
+    if (!(await resolvesToPublicHost(url, resolve))) return null;
+    const response = await fetchWithTimeout(fetchImpl, url, { redirect: 'manual', headers: { Accept: accept } });
+    const location = response.headers?.get?.('location');
+    if (response.status >= 300 && response.status < 400 && location) {
+      url = new URL(location, url).toString();
+      continue;
+    }
+    return response;
+  }
+  return null;
+}
+
+// ── Workday ────────────────────────────────────────────────────────────────
+
+// The tenant as the first label of the host, on either of Workday's two domains (the channel's own pattern,
+// PORTALS, admits both), with or without the data centre («wd3»).
+const WORKDAY_TENANT_HOST_RE = /^([a-z0-9-]+)\.(?:wd\d+\.)?(?:myworkdayjobs|myworkdaysite)\.com$/;
+const WORKDAY_SITE_HOST_RE = /^wd\d+\.myworkdaysite\.com$/;
+const WORKDAY_LOCALE_RE = /^[a-z]{2}[-_][a-z]{2}$/i;
+const WORKDAY_TENANT_RE = /^[a-z0-9_-]+$/i;
+
+/**
+ * The JSON address of a Workday posting, the one its career site reads itself.
+ * Workday serves a career site under two names (both read on 2026-10-07):
+ *   https://{tenant}.wdN.myworkdayjobs.com/[{locale}/]{site}/job/{…}
+ *   https://wdN.myworkdaysite.com/[{locale}/]recruiting/{tenant}/{site}/job/{…}
+ * and the JSON of both at https://{host}/wday/cxs/{tenant}/{site}/job/{…}.
+ * A host that names the tenant on myworkdaysite.com is read like the first
+ * (review of #12225): an address Workday does not serve answers nothing
+ * fetchWorkdayPosting reads, and the page is then read as before.
+ * '' for any other address.
+ */
+export function workdayPostingApiUrl(value) {
+  let url;
+  try {
+    url = new URL(String(value || ''));
+  } catch {
+    return '';
+  }
+  if (url.protocol !== 'https:') return '';
+  const host = url.hostname.toLowerCase();
+  const parts = url.pathname.split('/').filter(Boolean);
+  if (WORKDAY_LOCALE_RE.test(parts[0] || '')) parts.shift();
+  let tenant = '';
+  if (WORKDAY_SITE_HOST_RE.test(host)) {
+    // wdN.myworkdaysite.com names the tenant in the path, after «recruiting».
+    if (parts[0] !== 'recruiting' || !WORKDAY_TENANT_RE.test(parts[1] || '')) return '';
+    tenant = parts[1];
+    parts.splice(0, 2);
+  } else {
+    tenant = WORKDAY_TENANT_HOST_RE.exec(host)?.[1] || '';
+  }
+  if (!tenant) return '';
+  // The apply steps of a posting («…/apply», «…/apply/applyManually») are not part of its address.
+  const apply = parts.indexOf('apply', 3);
+  const posting = apply === -1 ? parts : parts.slice(0, apply);
+  if (posting.length < 3 || posting[1] !== 'job') return '';
+  return `${url.origin}/wday/cxs/${tenant}/${posting[0]}/${posting.slice(1).join('/')}`;
+}
+
+/**
+ * What Workday itself says of a posting. Its page is an empty shell filled by
+ * script: no text, no apply control, and HTTP 200 even for a posting that is
+ * gone, so the page alone tells nothing (a real order, 2026-10-07: an open
+ * posting read «expired, insufficient content»). The JSON does:
+ *   - `{gone: false, info}`: the posting (`jobPostingInfo`: jobDescription,
+ *     canApply, posted, startDate, location…);
+ *   - `{gone: true, info: null}`: Workday answers that it does not exist (HTTP
+ *     404, its error «not found: Job_Posting_Anchor_ID»), or refuses it (HTTP
+ *     403) while the tenant's own search lists the requisition no more
+ *     (workdayPostingUnlisted);
+ *   - null: not a Workday posting, or an answer this cannot read. The caller
+ *     then knows nothing more than before.
+ */
+export async function fetchWorkdayPosting(fetchImpl, postingUrl, resolve = lookup) {
+  const api = workdayPostingApiUrl(postingUrl);
+  if (!api) return null;
+  const response = await fetchPublicPage(fetchImpl, api, resolve, { accept: 'application/json' });
+  if (!response) return null;
+  const body = await response.json().catch(() => null);
+  if (response.status === 200 && body?.jobPostingInfo && typeof body.jobPostingInfo === 'object') {
+    // `organization`: the employer as Workday names it for this posting (its legal entity), where the page shows a brand.
+    return { gone: false, info: body.jobPostingInfo, organization: clean(body.hiringOrganization?.name, 200) };
+  }
+  if (response.status === 404 && /Job_Posting_Anchor_ID/.test(String(body?.message || ''))) return { gone: true, info: null };
+  if (response.status === 403 && (await workdayPostingUnlisted(fetchImpl, api, resolve).catch(() => false))) return { gone: true, info: null };
+  return null;
+}
+
+/**
+ * A posting Workday took off its career site: its JSON answers 403 «permission denied» (a real order,
+ * 2026-10-08: an apprenticeship withdrawn while the candidate was awaited). The 403 alone could be a tenant
+ * refusing this client, so the tenant's own search settles it: it answers this client, and lists the
+ * requisition under no address. A requisition published again under another address is not withdrawn.
+ * @returns {Promise<boolean>} true: withdrawn. false: still listed, or the search did not answer (nothing known)
+ */
+async function workdayPostingUnlisted(fetchImpl, api, resolve) {
+  const url = new URL(api);
+  const segment = decodeURIComponent(url.pathname.split('/').filter(Boolean).pop() || '');
+  // «…--a-_JR06989»: the requisition closes the address, after its last underscore.
+  const token = segment.includes('_') ? segment.slice(segment.lastIndexOf('_') + 1).toLowerCase() : '';
+  if (!/\d{3,}/.test(token)) return false;
+  // «JR04622-1» is the same requisition published a second time: the search indexes «JR04622».
+  const requisition = token.replace(/-\d{1,2}$/, '');
+  const searchUrl = `${url.origin}${url.pathname.replace(/\/job\/.*$/, '/jobs')}`;
+  if (!(await resolvesToPublicHost(searchUrl, resolve))) return false;
+  for (const searchText of new Set([token, requisition])) {
+    const response = await fetchWithTimeout(fetchImpl, searchUrl, {
+      method: 'POST',
+      redirect: 'manual',
+      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ appliedFacets: {}, limit: 20, offset: 0, searchText }),
+    });
+    const body = response.status === 200 ? await response.json().catch(() => null) : null;
+    if (!Array.isArray(body?.jobPostings)) return false;
+    const listed = body.jobPostings.some((job) => {
+      const path = String(job?.externalPath || '').toLowerCase();
+      const ids = (Array.isArray(job?.bulletFields) ? job.bulletFields : []).map((id) => String(id).toLowerCase());
+      return ids.includes(requisition) || path.endsWith(`_${token}`) || path.endsWith(`_${requisition}`) || path.includes(`_${requisition}-`);
+    });
+    if (listed) return false;
+  }
+  return true;
+}
+
+// ── Apply redirect ─────────────────────────────────────────────────────────
+
+// Prospective.ch career pages (Coop's jobs.coopjobs.ch, 2026-10-02) send
+// «Jetzt bewerben» through a redirect to the employer's ATS (SAP SuccessFactors).
+// Jobs2Web pages (ORIOR, 2026-10-14) expose the same ATS route in their boot
+// configuration when the public apply endpoint falls back to the home page.
+const ATS_REDIRECT_RE = /^https:\/\/ohws\.prospective\.ch\/public\/v1\/redirect\/[0-9a-f-]{36}\/ats\/?$/i;
+const ATS_REDIRECT_LINK_RE = /<a\b[^>]*\bhref=["'](https:\/\/ohws\.prospective\.ch\/public\/v1\/redirect\/([0-9a-f-]{36})\/ats\/?)["'][^>]*>([\s\S]*?)<\/a>/gi;
+const UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi;
+const SUCCESSFACTORS_HOST_RE = /(^|\.)(?:successfactors\.(?:com|eu)|sapsf\.(?:com|eu))$/i;
+const APPLY_LABEL_RE = /(bewerben|\bapply\b|candidat|postuler|postulez)/i;
+const APPLY_LATER_LABEL_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
+
+function javascriptConfigValue(html, key) {
+  const escaped = String(key).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return String(html || '').match(new RegExp(`(?:["']${escaped}["']|\\b${escaped})\\s*:\\s*["']([^"']+)["']`, 'i'))?.[1] || '';
+}
+
+/**
+ * Jobs2Web pages hosted by an employer can expose a valid SuccessFactors
+ * application while their public "Apply" endpoint redirects back to the
+ * employer home page. The page's own boot configuration contains the ATS
+ * tenant, requisition and locale; use that exact data to open the normal
+ * account/application route. Empty or untrusted configuration is ignored.
+ *
+ * @returns {string} a public SuccessFactors application URL, or ''
+ */
+export function successFactorsApplyUrlFromPosting(html) {
+  const ssoUrl = javascriptConfigValue(html, 'ssoUrl');
+  const company = javascriptConfigValue(html, 'ssoCompanyId');
+  const internalId = javascriptConfigValue(html, 'internalId');
+  const configuredLocale = javascriptConfigValue(html, 'locale');
+  if (!ssoUrl || !company || !internalId) return '';
+  let host;
+  try {
+    const url = new URL(ssoUrl);
+    if (url.protocol !== 'https:' || !SUCCESSFACTORS_HOST_RE.test(url.hostname)) return '';
+    host = url.origin;
+  } catch {
+    return '';
+  }
+  // Jobs2Web writes «<requisition>-<locale>», for example «2190-it_IT».
+  const match = /^([0-9]+)-([a-z]{2}(?:[_-][A-Z]{2})?)$/i.exec(internalId.trim());
+  if (!match) return '';
+  const locale = (configuredLocale || match[2]).replace('-', '_');
+  const params = new URLSearchParams({
+    company: company.trim(),
+    career_job_req_id: match[1],
+    lang: locale,
+    career_ns: 'job_application',
+  });
+  return `${host}/career?${params.toString()}`;
+}
+
+/**
+ * The posting's own redirect, never another job's (a "similar jobs" list):
+ * the one carrying the posting's id (Prospective uses the same UUID in both),
+ * else the only one labelled as the apply button. '' when it is not clear.
+ * Never the first redirect anywhere in the page (review of #10980): an
+ * unrelated first redirect and the posting's link second → the second
+ * (tests/assisted-application-ai-core.test.ts).
+ */
+export function postingAtsRedirect(postingUrl, html) {
+  const links = [...String(html || '').matchAll(ATS_REDIRECT_LINK_RE)]
+    .map((match) => ({ href: match[1], id: match[2].toLowerCase(), text: htmlToText(match[3]) }));
+  const own = String(postingUrl || '').match(UUID_RE)?.pop()?.toLowerCase();
+  if (own) return links.find((link) => link.id === own)?.href || '';
+  const apply = [...new Set(links.filter((link) => APPLY_LABEL_RE.test(link.text) && !APPLY_LATER_LABEL_RE.test(link.text)).map((link) => link.href))];
+  return apply.length === 1 ? apply[0] : '';
+}
+
+/** Where a redirect ends, each hop re-validated like fetchPublicPage; '' when it does not end. */
+async function redirectTarget(fetchImpl, startUrl, resolve) {
+  let url = startUrl;
+  for (let hop = 0; hop <= MAX_REDIRECTS; hop += 1) {
+    if (!(await resolvesToPublicHost(url, resolve))) return '';
+    // An ATS reached: its page is not needed, only its address.
+    if (hop > 0 && portalOf(url)) return url;
+    const response = await fetchWithTimeout(fetchImpl, url, { method: 'HEAD', redirect: 'manual' });
+    const location = response.headers?.get?.('location');
+    if (!(response.status >= 300 && response.status < 400 && location)) return hop > 0 && response.ok ? url : '';
+    url = new URL(location, url).toString();
+  }
+  return '';
+}
+
+/**
+ * The address «Apply» really leads to when the posting page sends it through
+ * a known ATS redirect or exposes a validated Jobs2Web SuccessFactors route:
+ * the channel is then the ATS's (its account, its quirks), not "Sito del
+ * datore". Any problem keeps the posting's address.
+ * @returns {Promise<{applyUrl:string, via:string}>} `via` is '' when nothing changed
+ */
+export async function resolveApplyUrl(applyUrl, { fetchImpl = fetch, resolve = lookup } = {}) {
+  const url = String(applyUrl || '').trim();
+  const kept = { applyUrl: url, via: '' };
+  if (!isFetchablePublicUrl(url) || portalOf(url)) return kept;
+  try {
+    let redirect = ATS_REDIRECT_RE.test(url) ? url : '';
+    if (!redirect) {
+      const response = await fetchPublicPage(fetchImpl, url, resolve);
+      if (!response?.ok || !String(response.headers?.get?.('content-type') || '').includes('html')) return kept;
+      const html = (await response.text()).slice(0, MAX_PAGE_BYTES);
+      redirect = postingAtsRedirect(url, html);
+      if (!redirect) {
+        const successFactors = successFactorsApplyUrlFromPosting(html);
+        if (successFactors && await resolvesToPublicHost(successFactors, resolve)) {
+          return { applyUrl: successFactors, via: 'successfactors' };
+        }
+      }
+    }
+    if (!redirect) return kept;
+    const target = await redirectTarget(fetchImpl, redirect, resolve);
+    return target ? { applyUrl: target, via: 'prospective' } : kept;
+  } catch (error) {
+    console.warn('[assistedApplicationAi] apply redirect not resolved', error instanceof Error ? error.message : String(error));
+    return kept;
+  }
+}
+
+function salaryText(baseSalary) {
+  const value = baseSalary?.value;
+  if (!value || typeof value !== 'object') return '';
+  const min = Number(value.minValue);
+  const max = Number(value.maxValue);
+  const unit = clean(value.unitText, 20);
+  const currency = clean(baseSalary.currency, 5);
+  if (Number.isFinite(min) && Number.isFinite(max)) return `${currency} ${min}–${max} / ${unit}`.trim();
+  if (Number.isFinite(min)) return `${currency} ${min} / ${unit}`.trim();
+  return '';
+}
+
+function postingFromDetail(detail) {
+  const description = String(detail?.description || '').trim();
+  const requirements = Array.isArray(detail?.requirements) ? detail.requirements.map((item) => clean(item, 400)).filter(Boolean) : [];
+  const text = [description, requirements.length ? requirements.map((item) => `- ${item}`).join('\n') : '']
+    .filter(Boolean)
+    .join('\n\n')
+    .slice(0, MAX_POSTING_CHARS);
+  return {
+    text,
+    applyUrl: clean(detail?.applyUrl, 1000),
+    titles: detail?.titleByLocale && typeof detail.titleByLocale === 'object' ? detail.titleByLocale : {},
+    location: clean([detail?.addressLocality, detail?.addressRegion].filter(Boolean).join(', '), 200),
+    postalCode: clean(detail?.postalCode, 20),
+    streetAddress: clean(detail?.streetAddress, 200),
+    contactPerson: clean(detail?.contactPerson, 200),
+    contactPhone: clean(detail?.contactPhone, 60),
+    salary: salaryText(detail?.baseSalary),
+    employmentType: clean(detail?.employmentType, 40),
+    // Preserve publication provenance; collection history remains separate.
+    datePosted: clean(detail?.datePosted, 40),
+    postedDate: clean(detail?.postedDate, 40),
+    postingDateSource: detail?.postingDateSource === 'reported' ? 'reported' : 'unknown',
+    firstSeenAt: clean(detail?.firstSeenAt, 40),
+    validThrough: clean(detail?.validThrough || detail?.applicationDeadline, 40),
+  };
+}
+
+/**
+ * @returns {Promise<{source:'job_detail'|'job_page'|'none', text:string, applyUrl:string, titles:object,
+ *   location:string, postalCode:string, streetAddress:string, contactPerson:string, contactPhone:string,
+ *   salary:string, employmentType:string, datePosted:string, postedDate:string, postingDateSource:string, firstSeenAt:string, validThrough:string}>}
+ */
+export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = lookup } = {}) {
+  const empty = {
+    source: 'none', text: '', applyUrl: clean(order?.jobUrl, 1000), titles: {}, location: '', postalCode: '',
+    streetAddress: '', contactPerson: '', contactPhone: '', salary: '', employmentType: '', datePosted: '', postedDate: '', postingDateSource: 'unknown', firstSeenAt: '', validThrough: '',
+  };
+  const jobId = String(order?.jobId || '');
+  if (JOB_ID_RE.test(jobId)) {
+    try {
+      const response = await fetchWithTimeout(fetchImpl, `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`);
+      if (response.ok) {
+        const posting = postingFromDetail(await response.json());
+        if (posting.text) {
+          return { ...empty, ...posting, applyUrl: posting.applyUrl || empty.applyUrl, source: 'job_detail' };
+        }
+      }
+    } catch (error) {
+      console.warn('[assistedApplicationAi] job detail fetch failed', jobId, error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  if (isFetchablePublicUrl(order?.jobUrl)) {
+    try {
+      // A Workday page has no text of its own: the posting is in Workday's JSON.
+      const workday = await fetchWorkdayPosting(fetchImpl, order.jobUrl, resolve);
+      const description = workday?.info ? htmlToText(workday.info.jobDescription).slice(0, MAX_POSTING_CHARS) : '';
+      if (description.length > 200) {
+        const startDate = clean(workday.info.startDate, 40);
+        return {
+          ...empty, text: description, source: 'job_page', location: clean(workday.info.location, 200),
+          datePosted: startDate, postingDateSource: startDate ? 'reported' : 'unknown',
+        };
+      }
+      const response = await fetchPublicPage(fetchImpl, order.jobUrl, resolve);
+      const contentType = String(response?.headers?.get?.('content-type') || '');
+      if (response?.ok && contentType.includes('html')) {
+        const html = (await response.text()).slice(0, MAX_PAGE_BYTES);
+        const text = htmlToText(html).slice(0, MAX_POSTING_CHARS);
+        if (text.length > 200) return { ...empty, text, source: 'job_page' };
+      }
+    } catch (error) {
+      console.warn('[assistedApplicationAi] job page fetch failed', error instanceof Error ? error.message : String(error));
+    }
+  }
+  return empty;
+}
+
+// ── Channel ────────────────────────────────────────────────────────────────
+
+const PORTALS = [
+  { id: 'workday', label: 'Workday', re: /(^|\.)(myworkdayjobs\.com|myworkdaysite\.com|workday\.com)$/, account: true },
+  { id: 'successfactors', label: 'SAP SuccessFactors', re: /(^|\.)(successfactors\.(com|eu)|sapsf\.(com|eu)|jobs\.sap\.com)$/, account: true },
+  { id: 'umantis', label: 'Abacus Umantis', re: /(^|\.)umantis\.com$/, account: false },
+  { id: 'refline', label: 'Refline', re: /(^|\.)refline\.ch$/, account: false },
+  { id: 'smartrecruiters', label: 'SmartRecruiters', re: /(^|\.)smartrecruiters\.com$/, account: false },
+  { id: 'lever', label: 'Lever', re: /(^|\.)lever\.co$/, account: false },
+  { id: 'greenhouse', label: 'Greenhouse', re: /(^|\.)greenhouse\.io$/, account: false },
+  { id: 'personio', label: 'Personio', re: /(^|\.)personio\.(de|com)$/, account: false },
+  { id: 'softgarden', label: 'softgarden', re: /(^|\.)softgarden\.(io|de)$/, account: false },
+  { id: 'jobs_ch', label: 'jobs.ch / jobup.ch', re: /(^|\.)(jobs\.ch|jobup\.ch)$/, account: false },
+  { id: 'linkedin', label: 'LinkedIn', re: /(^|\.)linkedin\.com$/, account: true },
+  // Coop's apprenticeships (2026-10-02): «Jetzt bewerben» opens a WhatsApp
+  // chat (QR code), from the candidate's own phone. No browser can send it.
+  { id: 'pastahr', label: 'PastaHR (WhatsApp)', re: /(^|\.)pastahr\.com$/, account: false },
+];
+
+// The employers' own application portals (not job boards): used even when the
+// posting also names an e-mail address. PastaHR is not among them: a WhatsApp
+// chat cannot be sent for the candidate, an address the posting gives can.
+const APPLICANT_TRACKING_SYSTEMS = new Set(['workday', 'successfactors', 'umantis', 'refline', 'smartrecruiters', 'lever', 'greenhouse', 'personio', 'softgarden']);
+
+/** The known portal an address is on, or null. */
+function portalOf(url) {
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return PORTALS.find((candidate) => candidate.re.test(host)) || null;
+  } catch {
+    return null;
+  }
+}
+
+const EMAIL_ONLY_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+export function isPlausibleEmail(value) {
+  return EMAIL_ONLY_RE.test(String(value || '').trim()) && String(value).length <= 254;
+}
+
+/**
+ * @param {{applyUrl?:string, postingText?:string, applicationEmail?:string}} input
+ *   `applicationEmail` must already be verified to appear in the posting text.
+ */
+export function classifyApplicationChannel({ applyUrl = '', postingText = '', applicationEmail = '' } = {}) {
+  const url = String(applyUrl || '').trim();
+  if (/^mailto:/i.test(url)) {
+    const address = decodeURIComponent(url.replace(/^mailto:/i, '').split('?')[0]).trim();
+    if (isPlausibleEmail(address)) return { type: 'email', label: 'E-mail', email: address.toLowerCase(), applyUrl: '', host: '', requiresAccount: false };
+  }
+  const email = isPlausibleEmail(applicationEmail) && String(postingText).toLowerCase().includes(applicationEmail.toLowerCase())
+    ? applicationEmail.trim().toLowerCase()
+    : '';
+  let host = '';
+  try {
+    host = new URL(url).hostname.toLowerCase();
+  } catch {
+    host = '';
+  }
+  const portal = host ? PORTALS.find((candidate) => candidate.re.test(host)) : null;
+  // Owner decision 2026-09-30: the employer's application portal comes first;
+  // e-mail only when the posting offers none (just its own page, a job board
+  // or LinkedIn, where no employer form can be relied on).
+  if (portal && APPLICANT_TRACKING_SYSTEMS.has(portal.id)) {
+    return { type: portal.id, label: portal.label, email: '', applyUrl: url, host, requiresAccount: portal.account };
+  }
+  if (email) {
+    return {
+      type: 'email', label: 'E-mail', email, applyUrl: url, host,
+      requiresAccount: false, portal: portal ? portal.id : null,
+    };
+  }
+  if (portal) return { type: portal.id, label: portal.label, email: '', applyUrl: url, host, requiresAccount: portal.account };
+  if (host) return { type: 'employer_site', label: 'Sito del datore', email: '', applyUrl: url, host, requiresAccount: false };
+  return { type: 'unknown', label: 'Sconosciuto', email: '', applyUrl: '', host: '', requiresAccount: false };
+}

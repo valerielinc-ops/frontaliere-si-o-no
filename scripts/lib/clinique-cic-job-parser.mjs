@@ -1,29 +1,19 @@
 #!/usr/bin/env node
 /**
  * Clinique CIC — private surgical group operating two Romandie clinics:
- *   - Clinique CIC Saxon (1907 Saxon, VS) — flagship hospitalised surgery
- *   - Clinique CIC Clarens (1815 Clarens, Montreux, VD) — ambulatory surgery
+ *   - Clinique CIC Saxon (1907 Saxon, VS)
+ *   - Clinique CIC Clarens (1815 Clarens, VD)
  *
- * Public corporate site: https://www.cliniquecic-saxon.ch/fr/emplois
- *   The careers page embeds a jobup.ch "company mask" iframe:
- *     https://www.jobup.ch/masks/clinique-cic/list_clinique-cic.asp
+ * The corporate careers page now embeds the JobCloud Company Page at
+ * company.jobcloud.ch. The listing and detail pages are server-rendered HTML;
+ * the former jobup.ch company-mask endpoint is kept out of the discovery path
+ * because it no longer reflects the live source.
  *
- * The mask returns server-rendered HTML (charset = iso-8859-1, no JSON
- * variant) where each row is structured as:
- *
- *   <div class=job_offer>
- *     <a href="https://www.jobup.ch/fr/emplois/detail/{uuid}/"
- *        title="{TITLE} - {ZIP} {CITY} [/ {ZIP2} {CITY2}]" target=_blank>{TITLE_UC}</a>
- *   </div>
- *   <div class=job_location …>Clinique CIC {Site}</div>
- *   <div class=job_lvlmin …>{CONTRACT} / {OCCUPATION}%</div>
- *
- * The full job detail lives on the public jobup.ch page (we keep that as
- * the canonical `url`). We DROP "Offres spontanées" placeholders because
- * they are not real openings.
- *
- * Polite delay: 250 ms between detail-page fetches.
+ * JobCloud also publishes one "Offres spontanées" page per clinic. Those are
+ * application invitations, not vacancies, and are discarded after fetching the
+ * detail page so a real vacancy cannot be confused with a placeholder.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -35,213 +25,293 @@ import {
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
+  parseSwissShortDate,
 } from './hospital-custom-html-helpers.mjs';
-import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 export const CIC_KEY = 'clinique-cic';
 export const CIC_COMPANY_NAME = 'Clinique CIC (Saxon & Clarens)';
 export const CIC_COMPANY_DOMAIN = 'cliniquecic-saxon.ch';
 
-const MASK_URL = 'https://www.jobup.ch/masks/clinique-cic/list_clinique-cic.asp';
+const ATS_HOST = 'company.jobcloud.ch';
+const LISTING_SLUG = 'clinique-cic-suisse';
+// locale-segment-ok: fixed external JobCloud Company Page seed; /fr/ is the portal's source route, not this site's locale path. extractListingLinks() follows the detail links returned by that seed.
+const LISTING_URL = `https://${ATS_HOST}/fr/job-list/${LISTING_SLUG}`;
 const PUBLIC_CAREER_URL = 'https://www.cliniquecic-saxon.ch/fr/emplois';
 const DETAIL_DELAY_MS = 250;
 
+const JOB_DETAIL_PATH_RE = new RegExp(
+  `^/[a-z]{2}/jobs/(?:${LISTING_SLUG}/)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/?$`,
+  'i',
+);
+const JOBCLOUD_EMPTY_INITIAL_JOBS_RE = /\\?"initialJobs\\?"\s*:\s*\[\s*\]/;
+const JOBCLOUD_NON_EMPTY_INITIAL_JOBS_RE = /\\?"initialJobs\\?"\s*:\s*\[\s*[^\]\s]/;
+const JOBCLOUD_NO_POSITIONS_TEXT_RE = /Aucun poste ouvert|Aucune offre d'emploi|No open positions|Keine offenen Stellen/i;
+
+function decodeNumericEntities(value = '') {
+  return String(value || '')
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number(dec)));
+}
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
 export function isCicJob(job) {
-  const url = String(job?.url || '').toLowerCase();
-  if (job?.companyKey === CIC_KEY) return true;
+  const key = normalize(job?.companyKey);
+  const company = normalize(job?.company);
+  const url = normalize(job?.url);
+  if (key === CIC_KEY) return true;
+  if (/clinique\s+cic/.test(company)) return true;
   if (url.includes('cliniquecic-saxon.ch') || url.includes('cliniquecic.ch')) return true;
-  if (url.includes('jobup.ch') && /clinique[\s-]?cic/i.test(String(job?.company || ''))) return true;
+  if (url.includes(ATS_HOST) && url.includes(`/jobs/${LISTING_SLUG}/`)) return true;
+  if (url.includes('jobup.ch') && /clinique[\s-]?cic/i.test(company)) return true;
   return false;
 }
 
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    if (host === 'cliniquecic-saxon.ch' || host.endsWith('.cliniquecic-saxon.ch')) return true;
-    if (host === 'cliniquecic.ch' || host.endsWith('.cliniquecic.ch')) return true;
-    if (host === 'jobup.ch' || host === 'www.jobup.ch') return true;
-    return false;
+    return host === ATS_HOST
+      || host === 'cliniquecic-saxon.ch'
+      || host.endsWith('.cliniquecic-saxon.ch')
+      || host === 'cliniquecic.ch'
+      || host.endsWith('.cliniquecic.ch')
+      || host === 'jobup.ch'
+      || host === 'www.jobup.ch';
   } catch {
     return false;
   }
 }
 
-async function fetchMaskHtml(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  let directErr;
-  try {
-    const res = await fetch(url, {
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,*/*',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT
-          || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (res.ok) {
-      // The mask returns iso-8859-1 — decode explicitly so accented chars
-      // (è, é, à, …) render correctly downstream.
-      const buf = await res.arrayBuffer();
-      return new TextDecoder('iso-8859-1').decode(buf);
+/**
+ * Extract the JobCloud detail links belonging to this company's listing.
+ * The current source includes the company slug before the UUID; the optional
+ * short form keeps the parser compatible with the earlier JobCloud URL shape.
+ */
+export function extractListingLinks(html = '') {
+  const source = String(html || '');
+  const hrefRe = /href\s*=\s*(["'])((?:https?:\/\/company\.jobcloud\.ch)?\/[a-z]{2}\/jobs\/(?:clinique-cic-suisse\/)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/?(?:[?#][^"']*)?)\1/gi;
+  const seen = new Set();
+  let match;
+  while ((match = hrefRe.exec(source)) !== null) {
+    const rawHref = decodeNumericEntities(decodeEntities(match[2])).replace(/&amp;/g, '&');
+    try {
+      const parsed = new URL(rawHref, `https://${ATS_HOST}`);
+      if (parsed.hostname.toLowerCase() !== ATS_HOST || !JOB_DETAIL_PATH_RE.test(parsed.pathname)) continue;
+      const pathname = parsed.pathname.endsWith('/') ? parsed.pathname : `${parsed.pathname}/`;
+      seen.add(`https://${ATS_HOST}${pathname}`);
+    } catch {
+      // Ignore malformed links and keep scanning the source page.
     }
-    directErr = new Error(`HTTP ${res.status} from ${url}`);
-  } catch (err) {
-    clearTimeout(timer);
-    directErr = err;
   }
-  // jobup.ch serves HTTP 403 to the GitHub Actions datacenter egress IP — an
-  // IP-reputation WAF block (not a real auth failure: a clean/residential IP
-  // gets 200). Re-fetch through Jina's clean IP pool so the data IS collected.
-  // The mask is iso-8859-1 on the wire; Jina normalises to a correct JS string.
-  const viaJina = await fetchHtmlViaJinaWithRetry(url, { timeoutMs });
-  if (viaJina != null) return viaJina;
-  throw directErr;
+  return [...seen];
 }
 
 /**
- * Parse the jobup mask HTML into a list of rows. Each row is one offer
- * with its jobup.ch detail URL, title, originating CIC site, contract and
- * occupation rate.
+ * A zero is authoritative only when JobCloud itself renders its explicit
+ * empty state. An unreadable or redesigned page remains a fail-closed zero.
  */
-export function parseMaskHtml(html) {
-  const out = [];
-  const seen = new Set();
-  // Each offer is a sequence of three sibling <div>s. Match the anchor in
-  // div.job_offer plus the next two info divs (location + lvlmin).
-  const re = /<div\s+class=job_offer>\s*<a[^>]*href="([^"]+)"[^>]*title="([^"]+)"[^>]*>([^<]+)<\/a>\s*<\/div>\s*<div\s+class=job_location[^>]*>([^<]+)<\/div>\s*<div\s+class=job_lvlmin[^>]*>([^<]+)<\/div>/gi;
-  let m;
-  while ((m = re.exec(html))) {
-    const url = normalizeSpace(decodeEntities(m[1]));
-    const titleFull = normalizeSpace(decodeEntities(m[2]));
-    const titleUc = normalizeSpace(decodeEntities(m[3]));
-    const site = normalizeSpace(decodeEntities(m[4]));
-    const lvl = normalizeSpace(decodeEntities(m[5]));
-    if (!url || !titleFull || seen.has(url)) continue;
-    // Drop spontaneous-application placeholders
-    if (/offres?\s+spontan/i.test(titleFull)) continue;
-    seen.add(url);
-    // Title before " - " is the real job name (the suffix is "1907 Saxon" or
-    // "1815 Clarens / 1907 Saxon"); keep proper case from `titleFull`.
-    const titleClean = titleFull.split(/\s+-\s+\d{4}/)[0].trim() || titleUc;
-    out.push({ url, title: titleClean, site, contract: lvl });
-  }
-  return out;
+export function isJobCloudListingProvenEmpty(html = '') {
+  const source = String(html || '');
+  if (!source) return false;
+  return JOBCLOUD_EMPTY_INITIAL_JOBS_RE.test(source)
+    && !JOBCLOUD_NON_EMPTY_INITIAL_JOBS_RE.test(source)
+    && JOBCLOUD_NO_POSITIONS_TEXT_RE.test(htmlToText(source))
+    && extractListingLinks(source).length === 0;
 }
 
-function inferLocalityFromSite(site = '', titleFull = '') {
-  const s = `${site} ${titleFull}`.toLowerCase();
-  if (/clarens|montreux|1815/.test(s)) return { city: 'Clarens', postalCode: '1815', canton: 'VD' };
-  if (/saxon|1907/.test(s)) return { city: 'Saxon', postalCode: '1907', canton: 'VS' };
+function inferLocalityFromSite(site = '', title = '') {
+  const text = `${site} ${title}`.toLowerCase();
+  if (/clarens|montreux|1815/.test(text)) return { city: 'Clarens', postalCode: '1815', canton: 'VD' };
+  if (/saxon|1907/.test(text)) return { city: 'Saxon', postalCode: '1907', canton: 'VS' };
   return { city: 'Saxon', postalCode: '1907', canton: 'VS' };
 }
 
-async function fetchDetailDescription(detailUrl) {
-  try {
-    const html = await fetchHtml(detailUrl);
-    if (!html) return '';
-    // jobup.ch detail pages render the description inside a JSON-LD
-    // schema.org/JobPosting block — prefer that for clean text. Fall back
-    // to a generic main-content extraction.
-    const ldMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-    if (ldMatch) {
+function extractKeyInfoValue(html, labelPattern) {
+  const re = new RegExp(
+    `<div[^>]*>\\s*(?:${labelPattern}):?\\s*</div>\\s*<div[^>]*class=["'][^"']*\\btext-size-small\\b[^"']*["'][^>]*>([\\s\\S]*?)</div>`,
+    'i',
+  );
+  const match = String(html || '').match(re);
+  return match ? normalizeSpace(htmlToText(match[1])) : '';
+}
+
+function extractRichTextBlock(html = '') {
+  const startMatch = String(html || '').match(/class\s*=\s*(["'])[^"']*\b(?:text-rich-text[^"']*\bw-richtext|w-richtext[^"']*\btext-rich-text)[^"']*\1[^>]*>/i);
+  if (!startMatch) return '';
+  const contentStart = startMatch.index + startMatch[0].length;
+  const endMatch = String(html).slice(contentStart).match(/<[^>]*\bjob_details_content-right\b[^>]*>/i);
+  const endIdx = endMatch ? contentStart + endMatch.index : -1;
+  return String(html).slice(contentStart, endIdx === -1 ? undefined : endIdx);
+}
+
+function extractApplyUrl(html = '', detailUrl = LISTING_URL) {
+  const tags = String(html || '').match(/<a\b[^>]*>/gi) || [];
+  for (const tag of tags) {
+    if (!/\bid\s*=\s*(["'])job-ad-apply-btn\1/i.test(tag)) continue;
+    const href = tag.match(/\bhref\s*=\s*(["'])([^"']+)\1/i);
+    if (href) {
+      const value = decodeNumericEntities(decodeEntities(href[2])).replace(/&amp;/g, '&');
       try {
-        const data = JSON.parse(ldMatch[1]);
-        const desc = Array.isArray(data) ? data.find((d) => d['@type'] === 'JobPosting')?.description : data.description;
-        if (desc && typeof desc === 'string') {
-          return normalizeSpace(htmlToText(desc)).slice(0, 6000);
-        }
-      } catch { /* swallow JSON parse */ }
+        return new URL(value, detailUrl).toString();
+      } catch {
+        return '';
+      }
     }
-    const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-    if (mainMatch) return normalizeSpace(htmlToText(mainMatch[1])).slice(0, 6000);
-    return '';
-  } catch (err) {
-    console.warn(`  ⚠️ Detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return '';
   }
+  return '';
+}
+
+const MONTHS = new Map([
+  ['january', 1], ['janvier', 1], ['januar', 1], ['jan', 1],
+  ['february', 2], ['fevrier', 2], ['februar', 2], ['feb', 2],
+  ['march', 3], ['mars', 3], ['marz', 3], ['maerz', 3], ['mar', 3],
+  ['april', 4], ['avril', 4], ['apr', 4],
+  ['may', 5], ['mai', 5],
+  ['june', 6], ['juin', 6], ['juni', 6], ['jun', 6],
+  ['july', 7], ['juillet', 7], ['juli', 7], ['jul', 7],
+  ['august', 8], ['aout', 8], ['aug', 8],
+  ['september', 9], ['septembre', 9], ['sep', 9], ['sept', 9],
+  ['october', 10], ['octobre', 10], ['oktober', 10], ['oct', 10],
+  ['november', 11], ['novembre', 11], ['nov', 11],
+  ['december', 12], ['decembre', 12], ['dezember', 12], ['dec', 12],
+]);
+
+function normalizePostedDate(rawDate = '') {
+  const value = normalizeSpace(decodeNumericEntities(rawDate));
+  const shortDate = parseSwissShortDate(value);
+  if (shortDate) return shortDate;
+  const match = value.match(/^(\d{1,2})\.\s*([\p{L}.]+)\s+(\d{4})$/u);
+  if (!match) return '';
+  const monthName = match[2]
+    .replace(/\.$/, '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+  const month = MONTHS.get(monthName);
+  if (!month) return '';
+  const iso = `${match[3]}-${String(month).padStart(2, '0')}-${match[1].padStart(2, '0')}`;
+  return sourcePostingDateFields(iso).postedDate;
+}
+
+async function fetchDetailData(detailUrl) {
+  const html = await fetchHtml(detailUrl);
+  const titleMatch = String(html).match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = titleMatch ? normalizeSpace(htmlToText(titleMatch[1])) : '';
+  const description = normalizeSpace(htmlToText(extractRichTextBlock(html)));
+  const datePosted = normalizePostedDate(extractKeyInfoValue(html, 'Date de publication|Publication date|Veröffentlichungsdatum'));
+  const occupationRange = extractKeyInfoValue(html, "Taux d[’']activité|Taux d[’']occupation|Workload|Pensum");
+  const contractTypeRaw = extractKeyInfoValue(html, 'Type de contrat|Contract type|Vertragsart');
+  const lieuDeTravail = extractKeyInfoValue(html, 'Lieu de travail|Work location|Arbeitsort');
+  const applyUrl = extractApplyUrl(html, detailUrl);
+  return { title, description, datePosted, occupationRange, contractTypeRaw, lieuDeTravail, applyUrl };
 }
 
 export async function fetchAllCicJobs() {
   console.log(`🏥 Fetching ${CIC_COMPANY_NAME} jobs`);
-  console.log(`   Mask: ${MASK_URL}`);
+  console.log(`   Listing: ${LISTING_URL}`);
   console.log(`   Public: ${PUBLIC_CAREER_URL}\n`);
 
-  let html;
-  try {
-    html = await fetchMaskHtml(MASK_URL);
-  } catch (err) {
-    console.warn(`⚠️ Mask fetch failed: ${err?.message || err}`);
+  const listingHtml = await fetchHtml(LISTING_URL);
+  const links = extractListingLinks(listingHtml);
+  if (!links.length) {
+    if (isJobCloudListingProvenEmpty(listingHtml)) {
+      console.log('  ✅ JobCloud explicitly reports no open positions.');
+      return markAuthoritativeEmptySnapshot([], 'JobCloud company page initialJobs=[] with an explicit no-open-positions message');
+    }
+    console.warn('⚠️ JobCloud listing exposed no recognisable job links; preserving the previous slice.');
     return [];
   }
-  const rows = parseMaskHtml(html);
-  console.log(`  ✓ ${rows.length} real openings (spontaneous-application rows dropped)`);
-  if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
+  console.log(`  ✓ ${links.length} JobCloud detail link(s) found`);
   const jobs = [];
-  for (let i = 0; i < rows.length; i += 1) {
-    const r = rows[i];
-    if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
-    const description = await fetchDetailDescription(r.url);
-    const loc = inferLocalityFromSite(r.site, r.title);
-    const fallback = `${r.title} chez ${r.site || CIC_COMPANY_NAME}, ${loc.city} (${loc.canton}). Contrat: ${r.contract || 'permanent'}.`;
-    const safeDescription = description && description.split(/\s+/).length >= 30
-      ? description
-      : [fallback, description].filter(Boolean).join('\n\n');
+  let placeholderCount = 0;
+  let detailFailures = 0;
+  let firstDetailError = null;
 
-    const sourceLang = detectLang(safeDescription || r.title, 'fr');
-    const jobSlug = slugify(`${r.title} ${CIC_KEY} ${loc.city}`);
-    const urlHash = createHash('sha1').update(r.url).digest('hex').slice(0, 12);
+  for (let i = 0; i < links.length; i += 1) {
+    const detailUrl = links[i];
+    if (i > 0) await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+    let detail;
+    try {
+      detail = await fetchDetailData(detailUrl);
+    } catch (error) {
+      detailFailures += 1;
+      firstDetailError ??= error;
+      console.warn(`  ⚠️ Detail fetch failed (${detailUrl}): ${error?.message || error}`);
+      continue;
+    }
+
+    if (/offres?\s+spontan/i.test(detail.title)) {
+      placeholderCount += 1;
+      continue;
+    }
+    if (!detail.title || detail.title.length < 3) {
+      throw new Error(`JobCloud detail has no usable title: ${detailUrl}`);
+    }
+
+    const loc = inferLocalityFromSite(detail.lieuDeTravail, detail.title);
+    if (!meetsSourceBodyFloor(detail.description)) {
+      throw new Error(`JobCloud detail has no source body meeting the minimum: ${detailUrl}`);
+    }
+    const description = detail.description;
+    const sourceLang = detectLang(description || detail.title, 'fr');
+    const jobSlug = slugify(`${detail.title} ${CIC_KEY} ${loc.city}`);
+    const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
+    const publication = sourcePostingDateFields(detail.datePosted);
 
     jobs.push({
       id: `${CIC_KEY}-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
-      company: r.site || CIC_COMPANY_NAME,
+      company: CIC_COMPANY_NAME,
       companyKey: CIC_KEY,
       companyDomain: CIC_COMPANY_DOMAIN,
-      title: r.title,
-      titleByLocale: { [sourceLang]: r.title },
-      description: safeDescription,
-      descriptionByLocale: { [sourceLang]: safeDescription },
-      // Newly-discovered jobs ship with source-locale-only fields. The shared
-      // AI-localization step clears this flag when it fills the remaining 3
-      // locales; if it can't (cache miss + AI quota), the flag stays and
-      // `translate-pending.yml` picks the job up out-of-band.
+      title: detail.title,
+      titleByLocale: { [sourceLang]: detail.title },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       needsRetranslation: true,
       location: loc.city,
       canton: loc.canton,
-      url: r.url,
-      source: `${CIC_COMPANY_NAME} Dedicated Parser (jobup.ch mask)`,
+      url: detailUrl,
+      source: `${CIC_COMPANY_NAME} Dedicated Parser (JobCloud Company Page)`,
       sourceLang,
       crawledAt: new Date().toISOString(),
 
       addressLocality: loc.city,
       addressRegion: loc.canton,
+      streetAddress: '',
       addressCountry: 'CH',
       country: 'CH',
       postalCode: loc.postalCode,
-      category: detectHealthcareCategory(`${r.title} ${safeDescription.slice(0, 500)}`),
-      contract: /\b\d{2,3}\s*-\s*\d{2,3}\s*%\b/.test(r.contract)
+      hiringOrganization: { name: CIC_COMPANY_NAME },
+      category: detectHealthcareCategory(`${detail.title} ${description.slice(0, 500)}`),
+      contract: /\b\d{2,3}\s*[–-]\s*\d{2,3}\s*%\b/.test(detail.occupationRange)
         ? 'part-time'
-        : (/\b100\s*%/.test(r.contract) ? 'full-time' : 'full-time'),
-      employmentType: detectHealthcareEmploymentType(`${r.title} ${r.contract}`),
-      experienceLevel: detectHealthcareExperienceLevel(r.title),
+        : (/\b100\s*%\b/.test(detail.occupationRange) ? 'full-time' : 'full-time'),
+      employmentType: detectHealthcareEmploymentType(`${detail.title} ${detail.occupationRange}`),
+      experienceLevel: detectHealthcareExperienceLevel(detail.title),
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
-      applyUrl: r.url,
+      ...publication,
+      applyUrl: detail.applyUrl || detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     });
+  }
+
+  if (detailFailures > 0) throw firstDetailError;
+  if (!jobs.length && detailFailures === 0 && placeholderCount === links.length) {
+    return markAuthoritativeEmptySnapshot([], 'JobCloud listing contained only explicit Offres spontanées placeholder pages');
   }
 
   console.log(`📋 Total ${CIC_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }
 
-export { MASK_URL, PUBLIC_CAREER_URL };
+export { LISTING_URL, PUBLIC_CAREER_URL, slugify };

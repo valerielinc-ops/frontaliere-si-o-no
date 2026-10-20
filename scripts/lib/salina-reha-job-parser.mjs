@@ -22,8 +22,11 @@
  * Ostendis detail page, and parse the schema.org `JobPosting` JSON-LD.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import {
   createBrowser,
   createPoliteContext,
@@ -199,19 +202,14 @@ async function fetchSalinaDetail(context, url) {
 
     for (const raw of jsonLdRaw) {
       try {
-        const parsed = JSON.parse(raw);
-        const arr = Array.isArray(parsed) ? parsed : [parsed];
-        for (const node of arr) {
-          if (!node || typeof node !== 'object') continue;
-          const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
-          if (types.includes('JobPosting')) {
-            title = title || String(node.title || '').trim();
-            descriptionHtml = descriptionHtml || String(node.description || '');
-            postedAt = postedAt || node.datePosted || null;
-            if (!city) {
-              const addr = node.jobLocation?.address || node.jobLocation;
-              if (addr?.addressLocality) city = String(addr.addressLocality);
-            }
+        const postings = extractJobPostingNodesFromJson(JSON.parse(raw));
+        for (const node of postings) {
+          title = title || String(node.title || '').trim();
+          descriptionHtml = descriptionHtml || String(node.description || '');
+          postedAt = postedAt || node.datePosted || null;
+          if (!city) {
+            const addr = node.jobLocation?.address || node.jobLocation;
+            if (addr?.addressLocality) city = String(addr.addressLocality);
           }
         }
       } catch {
@@ -244,18 +242,11 @@ function buildParsedJob({ title, descriptionHtml, postedAt, publicUrl, city }) {
   const jobSlug = slugify(`${cleanTitle} salina rheinfelden`);
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-  const fallbackDesc =
-    `${cleanTitle} — Stelle in der Salina Rehaklinik / Reha Rheinfelden in ${resolvedCity} (AG), Schweiz. ` +
-    'Die Salina Rehaklinik ist ein Betrieb der Reha Rheinfelden — eines der führenden ' +
-    'Rehabilitationszentren der Region mit Schwerpunkten in Neurologie, Pädiatrie und Orthopädie.';
-  const desc = descriptionText.length >= 80 ? descriptionText : fallbackDesc;
-
-  const postedDate = (() => {
-    if (!postedAt) return new Date().toISOString().slice(0, 10);
-    const d = new Date(postedAt);
-    if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  })();
+  // Only the posting's own text (issue 5253): no "<title> — Stelle in der
+  // Salina Rehaklinik …" line and clinic summary in place of a short body. A
+  // body under the common 50-word floor gives no description (the shared
+  // pipeline's thin-source path).
+  const desc = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
   return {
     id: `salina-reha-${urlHash}`,
@@ -286,7 +277,7 @@ function buildParsedJob({ title, descriptionHtml, postedAt, publicUrl, city }) {
     sector: 'Sanità',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...sourcePostingDateFields(postedAt),
     applyUrl: publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },

@@ -234,6 +234,40 @@ describe('prospector location and identity contract', () => {
     }
   });
 
+  it('does not collapse URL-less inline JobPosting rows from one listing page', async () => {
+    const inlinePosting = (title: string, datePosted: string) => ({
+      '@type': 'JobPosting',
+      title,
+      description: 'Eine ausreichend lange Stellenbeschreibung mit mehreren Worten und konkreten Aufgaben für die ausgeschriebene Position.',
+      datePosted,
+      jobLocation: { address: { addressLocality: 'Chur', addressCountry: 'CH' } },
+    });
+    const listing = [
+      inlinePosting('CAD-Zeichner', '2026-09-10'),
+      inlinePosting('Bauführer', '2026-09-11'),
+    ].map((node) => `<script type="application/ld+json">${JSON.stringify(node)}</script>`).join('');
+    politeFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      body: listing,
+      url: SEED_URL,
+      host: new URL(SEED_URL).hostname,
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'inline-listing',
+      companyName: 'Inline Listing',
+      mode: 'jsonld',
+      detailEnrichment: false,
+      seedUrls: [SEED_URL],
+    } as any);
+
+    expect(rows).toHaveLength(2);
+    expect(new Set(rows.map((row) => row.url)).size).toBe(2);
+    expect(rows.every((row) => row.sourceUrl === SEED_URL)).toBe(true);
+    expect(rows.every((row) => row.canton === 'GR')).toBe(true);
+  });
+
   it('replays one complete growing pagination snapshot without identity churn', async () => {
     const listingCalls = new Map<number, number>();
     const listingPage = (page: number) => {
@@ -290,6 +324,54 @@ describe('prospector location and identity contract', () => {
       postalCode: '4133',
       streetAddress: 'Grüssenweg 1',
     });
+  });
+
+  it('keeps the listing title when a detail JobPosting exposes generic header text', async () => {
+    const seed = 'https://physioswiss.ch/stelleninserate/';
+    const detailUrl = 'https://physioswiss.ch/stelleninserate/157790/dipl-physiotherapeut-in-40-100/';
+    const title = 'Dipl. Physiotherapeut/-in (40-100%)';
+    const detailHtml = `<main><h1>${title}</h1>`
+      + '<div class="job-location">9000 St. Gallen</div>'
+      + '<div class="vacancy-description"><p>Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team.</p></div>'
+      + `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Header',
+        description: 'Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team.',
+        url: detailUrl,
+      })}</script></main>`;
+    politeFetch.mockImplementation(async (url: string) => ({
+      ok: true,
+      status: 200,
+      body: url === seed
+        ? `<script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          title,
+          url: detailUrl,
+          jobLocation: { address: { addressLocality: 'St. Gallen', addressRegion: 'SG', addressCountry: 'CH' } },
+        })}</script><a href="${detailUrl}">${title}</a>`
+        : detailHtml,
+      url,
+      host: new URL(url).hostname,
+    }));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'physioswiss',
+      companyName: 'Physio swiss',
+      companyHost: 'physioswiss.ch',
+      mode: 'template',
+      seedUrls: [seed],
+      detailTemplate: '/stelleninserate/*/*/',
+      sourceLang: 'de',
+    } as any, {
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title,
+      location: 'St. Gallen, SG',
+      canton: 'SG',
+    })]);
   });
 
   it('drops unverifiable geography with an explicit inventory signal', async () => {
@@ -504,6 +586,57 @@ describe('prospector location and identity contract', () => {
     expect(politeFetch).not.toHaveBeenCalled();
   });
 
+  it('does not infer an ATS platform from a direct career URL with unknown ownership', async () => {
+    const seed = 'https://jobs.vendor.example/openings';
+    const listing = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Platform Engineer',
+      url: `${seed}/platform-engineer`,
+      description: DESCRIPTION,
+      jobLocation: { address: { addressLocality: 'Zürich', addressCountry: 'CH' } },
+    })}</script>`;
+    politeFetch.mockResolvedValue({ ok: true, status: 200, body: listing, url: seed });
+
+    const { spec } = await synthesizeSpec({
+      careersUrl: seed,
+      domain: 'employer.example',
+      name: 'Employer',
+      selfHosted: null,
+    });
+
+    expect(spec).toMatchObject({ companyHost: 'jobs.vendor.example', platform: '' });
+  });
+
+  it('applies reviewed Umantis listing canton overrides during synthesis validation', async () => {
+    const seed = 'https://recruitingapp-1154.umantis.com/Jobs/1';
+    const vacancyUrl = 'https://recruitingapp-1154.umantis.com/Vacancies/1/Description/1';
+    fetchHtml.mockResolvedValue(`<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Strategischer Workforce Manager',
+      url: vacancyUrl,
+      description: 'A sufficiently descriptive listing for the synthesis validator.',
+    })}</script><table><tr><td><a href="${vacancyUrl}">Strategischer Workforce Manager</a></td>
+      <td><span class="column-value" id="column_value_location">9000 St. Gallen</span></td></tr></table>`);
+
+    const result = await runSpec({
+      companyKey: 'recruitingapp-1154',
+      companyName: 'SGKB Bewerbermanagement Stellen',
+      companyHost: 'recruitingapp-1154.umantis.com',
+      platform: 'umantis.com',
+      mode: 'template',
+      seedUrls: [seed],
+      umantisListingCantonOverrides: [{ postalCode: '9000', locality: 'St. Gallen', canton: 'SG' }],
+      sourceLang: 'de',
+    } as any, { lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }] });
+
+    expect(result.errors).toEqual([]);
+    expect(result.vacancies).toEqual([expect.objectContaining({
+      addressLocality: 'St. Gallen',
+      addressRegion: 'SG',
+      postalCode: '9000',
+    })]);
+  });
+
   it('rejects a path-compatible structured URL on a host outside the spec allowlist', async () => {
     const spec = {
       companyKey: 'example',
@@ -618,6 +751,122 @@ describe('prospector location and identity contract', () => {
 
     expect(job).toMatchObject({ location: 'Genève', canton: 'GE', url: applyUrl });
     expect(job.id).toBe(`proton-${createHash('sha1').update(applyUrl).digest('hex').slice(0, 12)}`);
+  });
+
+  it('keeps only one source-backed Swiss office from explicit mixed Greenhouse locations', async () => {
+    fetchGreenhouseJobs.mockResolvedValue([
+      {
+        title: 'Swiss office with foreign office',
+        location: 'Geneva, Switzerland, Paris, France',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/4',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Swiss office with UK office',
+        location: 'London UK, Geneva CH',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/5',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Ambiguous Swiss offices',
+        location: 'Geneva, Switzerland, Zürich, Switzerland, Paris, France',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/6',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Foreign offices only',
+        location: 'Paris, France, London, England',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/7',
+        descriptionHtml: DESCRIPTION,
+      },
+    ]);
+
+    const jobs = await fetchAllProtonJobs();
+
+    expect(jobs).toHaveLength(2);
+    expect(jobs.map(({ location, addressLocality, canton }) => ({
+      location,
+      addressLocality,
+      canton,
+    }))).toEqual([
+      { location: 'Geneva', addressLocality: 'Geneva', canton: 'GE' },
+      { location: 'Geneva', addressLocality: 'Geneva', canton: 'GE' },
+    ]);
+  });
+
+  it('classifies every Proton composite before accepting its Swiss office', async () => {
+    fetchGreenhouseJobs.mockResolvedValue([
+      {
+        title: 'Terminal ISO foreign office',
+        location: 'Geneva, Switzerland, Berlin, DE',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/8',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Two Swiss offices',
+        location: 'Geneva, Switzerland, Lausanne, Switzerland',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/9',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Unqualified foreign office',
+        location: 'Geneva, Switzerland, Belgrade',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/10',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Named country foreign office',
+        location: 'Geneva, Switzerland, Berlin, Germany',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/11',
+        descriptionHtml: DESCRIPTION,
+      },
+    ]);
+
+    await expect(fetchAllProtonJobs()).resolves.toMatchObject([
+      { title: 'Terminal ISO foreign office', location: 'Geneva', canton: 'GE' },
+      { title: 'Named country foreign office', location: 'Geneva', canton: 'GE' },
+    ]);
+  });
+
+  it('accepts only reviewed Proton foreign office names in unlabeled Greenhouse composites', async () => {
+    fetchGreenhouseJobs.mockResolvedValue([
+      {
+        title: 'Geneva Barcelona Vilnius offices',
+        location: 'Geneva; Barcelona; Vilnius',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/13',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Taipei Geneva Skopje offices',
+        location: 'Taipei; Geneva; Skopje',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/14',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Unknown remote office',
+        location: 'Geneva, Switzerland, Unknown Satellite Office',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/15',
+        descriptionHtml: DESCRIPTION,
+      },
+    ]);
+
+    await expect(fetchAllProtonJobs()).resolves.toMatchObject([
+      { title: 'Geneva Barcelona Vilnius offices', location: 'Geneva', canton: 'GE' },
+      { title: 'Taipei Geneva Skopje offices', location: 'Geneva', canton: 'GE' },
+    ]);
+  });
+
+  it('drops repeated Swiss offices instead of deduplicating them', async () => {
+    fetchGreenhouseJobs.mockResolvedValue([
+      {
+        title: 'Repeated Swiss office',
+        location: 'Geneva, Switzerland, Geneva, Switzerland',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/12',
+        descriptionHtml: DESCRIPTION,
+      },
+    ]);
+
+    await expect(fetchAllProtonJobs()).resolves.toEqual([]);
   });
 
   it('drops Mabetex rows instead of substituting its Lugano headquarters', async () => {

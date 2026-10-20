@@ -1,6 +1,8 @@
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
- * Vite build plugin that emits static HTML for the 3 sector-based job hubs
- * (Infermieri / Case Anziani / Educatori) in all 4 locales — 12 pages total.
+ * Vite build plugin that emits static HTML for every registered sector-based
+ * job hub in all 4 locales.
  *
  * Filters `data/jobs.json` to canton TI (via `resolveJobCanton`), then by
  * sector keyword pattern (title/description/category/tags), and emits a
@@ -34,7 +36,7 @@ import {
   robotsMetaEnhancedForContent,
 } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
-import { GPT_BOOTSTRAP_TAG } from './jobBoardGpt';
+import { jobBoardHeadTags } from './jobBoardGpt';
 import {
   HERO_EYEBROW_STYLE,
   H1_STYLE,
@@ -67,7 +69,6 @@ import {
   type SectorCountableJob,
   type SectorHubKey,
 } from './jobSectorLanding';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { resolveSectorPagesFlushed } from './shared/buildSignals';
@@ -324,7 +325,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
       company: String(job.company || '').replace(/\s+/g, ' ').trim(),
       location: String(job.location || '').replace(/\s+/g, ' ').trim(),
       href,
-      datePosted: job.datePosted || job.postedDate || undefined,
+      datePosted: resolveRolloutPostingDate(job, () => job.datePosted || job.postedDate || null) || undefined,
     };
   });
 
@@ -387,7 +388,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   </details>`;
 
   // Sibling-sector rail — links this hub to its 3-5 nearest siblings so the
-  // 49 sector hubs are mutually reachable in the BFS graph (the orphan fix).
+  // Registered sector hubs are mutually reachable in the BFS graph (the orphan fix).
   // Empty string for unmapped long-tail sectors.
   const siblingRailHtml = renderSiblingSectorRail(locale, sector, opts.siblingCounts);
 
@@ -433,9 +434,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     description: seo.desc,
     inLanguage: locale,
     isPartOf: sectionRootUrl,
-    // Day-granularity, not a full build timestamp — see
-    // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
-    dateModified: buildDayStampIso(),
+
   });
 
   const faqLd = seo.faq.length > 0
@@ -527,12 +526,12 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}${FAVICON_LINKS}
     <title>${esc(seo.title)}</title>
-    <meta name="description" content="${esc(clampMetaDescription(seo.desc))}">${sectorRobotsTag}
+    <meta name="description" content="${esc(clampMetaDescription(seo.desc, undefined, locale))}">${sectorRobotsTag}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
     <meta property="og:title" content="${esc(seo.ogT)}">
-    <meta property="og:description" content="${esc(clampMetaDescription(seo.ogD))}">
+    <meta property="og:description" content="${esc(clampMetaDescription(seo.ogD, undefined, locale))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -548,7 +547,7 @@ ${alternates}
     ${GTAG_SNIPPET}
     ${ADSENSE_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}
-    ${GPT_BOOTSTRAP_TAG}
+    ${jobBoardHeadTags(canonicalUrl)}
   </head>
   <body>
     ${rootShell(hasSpaBundle)}
@@ -670,9 +669,8 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           // still counts.
           const freshMax = freshStamp + 24 * 60 * 60 * 1000;
           const freshCount = allMatching.filter((j) => {
-            // First PARSEABLE date, not first truthy: a malformed postedDate must
-            // not collapse the timestamp to 0 and undercount the fresh tile.
-            const t = firstParsableMs(j.datePosted, j.postedDate);
+            // Only source-verified publication dates contribute to the fresh tile.
+            const t = firstParsableMs(resolveReportedPostingDate(j));
             return t >= freshCutoff && t <= freshMax;
           }).length;
 
@@ -731,7 +729,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           // locale this <url> block itself represents.
           const itUrl = `${BASE_URL}${buildSectorHubPath('it', sector)}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>`,
+            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>`,
           );
         }
       }

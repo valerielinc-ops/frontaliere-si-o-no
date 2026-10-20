@@ -286,9 +286,11 @@ describe('the historical backfill is report-only by default and writes only with
 
   it('does not write in report mode', async () => {
     const writes: unknown[] = [];
+    // A captured subscription (every capture writes a status): the batch now
+    // applies the live trigger's hasNewsletterSubscriberRecord gate first.
     const docs = [{
       id: 'a@b.ch',
-      data: () => ({ source_channel: 'newsletter_page' }),
+      data: () => ({ source_channel: 'newsletter_page', status: 'pending' }),
     }];
     const db = {
       collection: (name: string) => {
@@ -310,6 +312,24 @@ describe('the historical backfill is report-only by default and writes only with
     expect(result.counts.written).toBe(0);
     expect(writes).toEqual([]);
     expect(logs.join('\n')).toMatch(/report only/i);
+  });
+
+  it('skips a row that is not a subscription, as the live trigger does', async () => {
+    // A profile-only sign-in row: the trigger's hasNewsletterSubscriberRecord
+    // gate refuses it, so the batch must not manufacture the alert either.
+    const docs = [{
+      id: 'profile-only@example.invalid',
+      data: () => ({ auth_uid: 'uid-1', name: 'A', lastLoginAt: new Date(Date.now() - 86400000).toISOString() }),
+    }];
+    const db = {
+      collection: () => ({
+        get: async () => ({ size: docs.length, docs }),
+        doc: () => ({ collection: () => ({ doc: () => ({ get: async () => ({ exists: false }) }) }) }),
+      }),
+    };
+    const result = await runBackfill({ db: db as any, write: false, log: () => {} });
+    expect(result.counts['no-subscriber-record']).toBe(1);
+    expect(result.counts.wouldWrite).toBe(0);
   });
 });
 
@@ -411,6 +431,91 @@ describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
 
     expect(payload.keywords).toEqual(['fisioterapista']);
     expect(payload.sectors).toEqual(['health']);
+  });
+
+  it('keeps source-offer title and location soft instead of making them hard criteria', () => {
+    const payload = buildAlertPayload(
+      'a@b.ch',
+      {
+        job_title: 'Senior Fisioterapista',
+        job_category: 'health',
+        job_location: 'Lugano',
+        source_channel: 'job_gate',
+      },
+      null,
+    );
+
+    expect(payload.keywords).toEqual([]);
+    expect(payload.sourceJobTitle).toBe('Senior Fisioterapista');
+    expect(payload.locations).toEqual([]);
+    expect(payload.sectors).toEqual(['health']);
+  });
+
+  it('migrates an untouched legacy source location but preserves edited alert locations', () => {
+    const source = {
+      job_category: 'health',
+      job_location: 'Lugano',
+      source_channel: 'job_gate',
+    };
+
+    expect(buildAlertPayload(
+      'a@b.ch',
+      source,
+      { locations: ['Lugano'] },
+    ).locations).toEqual([]);
+    expect(buildAlertPayload(
+      'a@b.ch',
+      source,
+      { locations: ['Lugano', 'Bellinzona'] },
+    ).locations).toEqual(['Lugano', 'Bellinzona']);
+  });
+
+  it('preserves a legacy location edited by whitespace or casing', () => {
+    const payload = buildAlertPayload(
+      'a@b.ch',
+      {
+        job_location: 'Lugano',
+        source_channel: 'job_gate',
+      },
+      { locations: [' Lugano '] },
+    );
+
+    expect(payload.locations).toEqual([' Lugano ']);
+  });
+
+  it('does not promote a recovered source title to a hard keyword', () => {
+    const payload = buildAlertPayload(
+      'a@b.ch',
+      {
+        job_search_query: 'Senior Fisioterapista',
+        job_category: 'health',
+        job_context_backfill_source: 'active_job_exact',
+        source_channel: 'job_gate',
+      },
+      null,
+    );
+
+    expect(payload.keywords).toEqual([]);
+    expect(payload.sourceJobTitle).toBe('Senior Fisioterapista');
+  });
+
+  it('migrates an untouched recovered-title keyword array but preserves edited criteria', () => {
+    const source = {
+      job_search_query: 'Senior Fisioterapista',
+      job_category: 'health',
+      job_context_backfill_source: 'active_job_exact',
+      source_channel: 'job_gate',
+    };
+    expect(buildAlertPayload(
+      'a@b.ch',
+      source,
+      { keywords: ['Senior Fisioterapista', 'health'] },
+    ).keywords).toEqual([]);
+    expect(buildAlertPayload(
+      'a@b.ch',
+      source,
+      { keywords: ['Senior Fisioterapista', 'riabilitazione'] },
+    ).keywords).toEqual(['Senior Fisioterapista', 'riabilitazione']);
   });
 
   it('removes generated taxonomy keywords from an untouched legacy backfill', () => {

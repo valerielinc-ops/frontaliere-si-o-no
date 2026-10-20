@@ -41,6 +41,7 @@ import {
 import {
   buildCityWeeklyStats,
   generateWeeklyEmployerPages,
+  renderTopHubPage,
   jobMatchesCity,
   renderWeeklyEmployersPage,
   type JobsSnapshot,
@@ -50,6 +51,23 @@ import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
+
+function extractOrganizationItems(html: string): Array<Record<string, unknown>> {
+  const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map((match) => JSON.parse(match[1]) as Record<string, unknown>);
+  const itemList = scripts.find((script) => {
+    if (script['@type'] !== 'ItemList') return false;
+    const items = script.itemListElement;
+    return Array.isArray(items)
+      && items.length > 0
+      && (items[0] as Record<string, unknown>)?.item
+      && ((items[0] as Record<string, unknown>).item as Record<string, unknown>)['@type'] === 'Organization';
+  });
+  if (!itemList || !Array.isArray(itemList.itemListElement)) return [];
+  return itemList.itemListElement.map((entry) =>
+    (entry as Record<string, unknown>).item as Record<string, unknown>,
+  );
+}
 
 // ── Constants / slug tables ──────────────────────────────────
 
@@ -453,6 +471,127 @@ describe('renderWeeklyEmployersPage', () => {
     expect(html).not.toMatch(/<strong>Zzqx Newcomer GmbH/);
   });
 
+  it('does not merge unknown employers into the page Organization identity', () => {
+    const unknown = {
+      employer: 'Zzqx Unknown GmbH',
+      employerKey: 'zzqx-unknown',
+      active: 4,
+      delta: 1,
+    };
+    const knownBrand = {
+      employer: 'EOC — Ente Ospedaliero Cantonale',
+      employerKey: 'eoc-ente-ospedaliero-cantonale',
+      active: 3,
+      delta: 0,
+    };
+    const knownEmployerProfileSlugs = new Set<string>();
+    const expectedBrandUrl =
+      'https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/';
+
+    const topHubHtml = renderTopHubPage({
+      locale: 'it',
+      today: new Date('2026-04-20T12:00:00Z'),
+      jobsCount: 7,
+      companiesCount: 2,
+      topCompanies: [unknown, knownBrand],
+      knownEmployerProfileSlugs,
+      hasHistoricalDelta: true,
+    });
+    const topHubOrganizations = extractOrganizationItems(topHubHtml);
+    expect(topHubOrganizations).toHaveLength(2);
+    // #12204 deliberately keeps employers without a verified profile anonymous.
+    expect(topHubOrganizations[0]).toMatchObject({ '@type': 'Organization', name: unknown.employer });
+    expect(topHubOrganizations[0]).not.toHaveProperty('@id');
+    expect(topHubOrganizations[0]).not.toHaveProperty('url');
+    expect(topHubHtml).not.toContain(
+      'https://frontaliereticino.ch/aziende-che-assumono/ticino/settimana-corrente/#organization',
+    );
+    expect(topHubOrganizations[1]).toMatchObject({
+      '@id': `${expectedBrandUrl}#organization`,
+      url: expectedBrandUrl,
+    });
+
+    const cityHtml = renderWeeklyEmployersPage({
+      locale: 'it',
+      city: 'lugano',
+      variant: 'current',
+      weekNum: 17,
+      year: 2026,
+      stats: {
+        city: 'lugano',
+        activeJobsCount: 7,
+        topCompanies: [unknown, knownBrand],
+        newcomers: [],
+        topRoles: [],
+      },
+      hasHistoricalDelta: true,
+      canonicalPath: buildCurrentWeekPath('it', 'lugano'),
+      today: new Date('2026-04-20T12:00:00Z'),
+      indexable: true,
+      knownEmployerProfileSlugs,
+    });
+    const cityOrganizations = extractOrganizationItems(cityHtml);
+    expect(cityOrganizations).toHaveLength(2);
+    expect(cityOrganizations[0]).toMatchObject({ '@type': 'Organization', name: unknown.employer });
+    expect(cityOrganizations[0]).not.toHaveProperty('@id');
+    expect(cityOrganizations[0]).not.toHaveProperty('url');
+    expect(cityHtml).not.toContain(
+      'https://frontaliereticino.ch/aziende-che-assumono/lugano/settimana-corrente/#organization',
+    );
+    expect(cityOrganizations[1]).toMatchObject({
+      '@id': `${expectedBrandUrl}#organization`,
+      url: expectedBrandUrl,
+    });
+  });
+
+  it('requires an exact employer identity for a weekly Organization @id', () => {
+    const nearMatch = {
+      // Invented name: it shares only the prefix with the exact profile below.
+      employer: 'Northstar Atelier Group',
+      employerKey: 'northstar-atelier-group',
+      active: 4,
+      delta: 0,
+    };
+    const recognized = {
+      employer: 'Northstar Atelier SA',
+      employerKey: 'northstar-atelier-sa',
+      active: 3,
+      delta: 1,
+    };
+    const knownSlugs = new Set(['northstar-atelier-sa']);
+    const knownEmployerProfileSlugs = new Set(['northstar-atelier-sa']);
+
+    const html = renderWeeklyEmployersPage({
+      locale: 'it',
+      city: 'lugano',
+      variant: 'current',
+      weekNum: 17,
+      year: 2026,
+      stats: {
+        city: 'lugano',
+        activeJobsCount: 7,
+        topCompanies: [nearMatch, recognized],
+        newcomers: [],
+        topRoles: [],
+      },
+      hasHistoricalDelta: true,
+      canonicalPath: buildCurrentWeekPath('it', 'lugano'),
+      today: new Date('2026-04-20T12:00:00Z'),
+      indexable: true,
+      knownSlugs,
+      knownEmployerProfileSlugs,
+    });
+    const organizations = extractOrganizationItems(html);
+
+    expect(organizations[0]).toMatchObject({ '@type': 'Organization', name: nearMatch.employer });
+    expect(organizations[0]).not.toHaveProperty('@id');
+    expect(organizations[0]).not.toHaveProperty('url');
+    expect(organizations[1]).toMatchObject({
+      '@id': 'https://frontaliereticino.ch/aziende/northstar-atelier-sa/#organization',
+      url: 'https://frontaliereticino.ch/aziende/northstar-atelier-sa/',
+    });
+  });
+
   it('uses cold-start copy when no historical delta is available', () => {
     const stats = {
       city: 'stabio' as WeeklyEmployersCity,
@@ -499,6 +638,7 @@ describe('renderWeeklyEmployersPage', () => {
       indexable: false,
     });
     expect(html).toContain('noindex,follow');
+    expect(html).toContain('WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX');
   });
 
   it('does NOT contain any dark: tailwind prefixes', () => {
@@ -656,12 +796,14 @@ describe('services/locales/*-weekly-employers.ts — locale completeness', () =>
   });
 
   function extractKeys(src: string): Set<string> {
-    // 'key': … matches both 'key': 'value' and 'key': "value" shapes.
-    const re = /'([^']+)':/g;
+    // 'key': … matches both 'key': 'value' and 'key': "value" shapes; a
+    // double-quoted key ("key": …) is recognised only at the start of a line,
+    // same contract as LOCALE_KEY_RE in tests/i18n-completeness.test.ts.
+    const re = /'([^']+)':|^[ \t]*"([^"\n]+)":/gm;
     const keys = new Set<string>();
     let m: RegExpExecArray | null;
     while ((m = re.exec(src)) !== null) {
-      keys.add(m[1]);
+      keys.add(m[1] ?? m[2]);
     }
     return keys;
   }

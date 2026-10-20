@@ -27,7 +27,10 @@ const RUNNER = path.join(ROOT, 'scripts/ci/run-related-tests.mjs');
 function runFromMissingCheckout(args = [], extraEnv = {}) {
   const checkout = fs.mkdtempSync(path.join(os.tmpdir(), 'run-related-tests-'));
   try {
-    fs.writeFileSync(path.join(checkout, 'changed-paths.txt'), 'README.md\n');
+    // Un path senza candidati per il grafo e fuori dal perimetro di ogni lint
+    // dell'albero dei sorgenti (`public/` è escluso anche dal gate dei segreti):
+    // è la diff che non seleziona niente, il caso che questi test esercitano.
+    fs.writeFileSync(path.join(checkout, 'changed-paths.txt'), 'public/robots.txt\n');
     const env = { ...process.env };
     delete env.GITHUB_ACTIONS;
     delete env.VITEST_RELATED_DRY_RUN;
@@ -82,6 +85,15 @@ describe('run-related-tests — il selettore sopravvive a un worktree sparse', (
 
   it('blocca una run reale anche quando la diff non produce candidati', () => {
     const result = runFromMissingCheckout();
+
+    expect(result.status).toBe(2);
+    expect(result.stderr).toContain('BLOCKED: related-test verdict requires a full checkout');
+    expect(result.stderr).toContain('data/blog-articles-data.ts');
+    expect(result.stdout).not.toContain('No existing source/test files in the diff');
+  });
+
+  it('blocca anche il probe CI --select-only senza checkout completo', () => {
+    const result = runFromMissingCheckout(['--select-only'], { GITHUB_ACTIONS: 'true' });
 
     expect(result.status).toBe(2);
     expect(result.stderr).toContain('BLOCKED: related-test verdict requires a full checkout');

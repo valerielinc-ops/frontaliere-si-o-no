@@ -18,7 +18,9 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'data/loop-fleet/ledger/**'
       - 'scripts/ci/loop-fleet-status.mjs'
+      - 'scripts/ci/overlay-durable-loop-fleet-ledger.sh'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-ledger-files.mjs'
       - '.github/workflows/loop-fleet-status.yml'
 
 permissions:
@@ -35,34 +37,31 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout status contract
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
             /data/loop-fleet/loop-registry.json
-            /data/loop-fleet/ledger/
+            /data/loop-fleet/ledger/loop-health-history*.jsonl
+            /data/loop-fleet/ledger/lifecycle-events*.jsonl
             /scripts/ci/loop-fleet-status.mjs
+            /scripts/ci/overlay-durable-loop-fleet-ledger.sh
+            /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-ledger-files.mjs
             /.github/workflows/loop-fleet-status.yml
           sparse-checkout-cone-mode: false
-      - name: Overlay durable ledger branch
+      - name: Overlay bounded status ledger
+        id: overlay_durable_ledger
         env:
           LEDGER_BRANCH: ledger/loop-fleet
-        run: |
-          set -euo pipefail
-          if ! git ls-remote --exit-code --heads origin "refs/heads/$LEDGER_BRANCH" >/dev/null 2>&1; then
-            echo "::notice::durable ledger branch $LEDGER_BRANCH does not exist yet; using the in-tree ledger."
-            exit 0
-          fi
-          git fetch --depth 1 origin "$LEDGER_BRANCH"
-          mkdir -p data/loop-fleet/ledger
-          git checkout FETCH_HEAD -- data/loop-fleet/ledger
-          echo "::notice::overlaid data/loop-fleet/ledger from $LEDGER_BRANCH"
+        run: bash scripts/ci/overlay-durable-loop-fleet-ledger.sh status
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Build read-only fleet status
+        if: ${{ steps.overlay_durable_ledger.outputs.overlay_status == 'ready' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -70,7 +69,7 @@ jobs:
         run: node scripts/ci/loop-fleet-status.mjs --registry data/loop-fleet/loop-registry.json --ledger-dir data/loop-fleet/ledger --out-dir "$REPORT_DIR" ${{ inputs.strict && '--strict' || '' }}
       - name: Upload fleet status
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: loop-fleet-status-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-status/

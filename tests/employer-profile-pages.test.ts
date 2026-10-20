@@ -2,30 +2,37 @@ import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { employerProfilePagesPlugin } from '../build-plugins/employerProfilePagesPlugin';
+import {
+  employerProfileLogoSrc,
+  employerProfilePagesPlugin,
+  type EmployerProfile,
+} from '../build-plugins/employerProfilePagesPlugin';
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
 import { releaseJobsJson } from '../build-plugins/shared/loadJobsJson';
+import {
+  EMPLOYER_PROFILE_MID_AD_CONTROL_VARIANT,
+  EMPLOYER_PROFILE_MID_AD_EOC_VARIANT,
+  EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID,
+  EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY,
+} from '../services/employerProfileAdExperiment';
 import committedDataset from '../data/employer-profiles.json';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
  * Full-pipeline test for the /aziende/<slug>/ employer-profile plugin (#4462).
  * Runs the real closeBundle() against a temp dist and asserts:
- *  - above-floor company → indexable page with COMPLETE JobPosting JSON-LD
+ *  - above-floor company → indexable page with linked ItemList JSON-LD
  *    (Non-Negotiable #3), the publisher CTA and stat facts,
- *  - below-floor company → noindex,follow bridge at the SAME URL (no 404),
+ *  - exactly-floor company → full indexable profile, while a below-floor
+ *    company still gets a noindex,follow bridge at the SAME URL (no 404),
  *  - sitemap lists the indexable IT canonical only,
  *  - all 4 locales emitted with trailing-slash paths.
  */
 
-const MANDATORY_JOBPOSTING_KEYS = [
-  'title', 'description', 'datePosted', 'employmentType',
-  'hiringOrganization', 'jobLocation', 'baseSalary', 'url',
-];
-
 let root: string;
+let eocTreatmentHtml = '';
 
 function job(i: number) {
   return {
@@ -40,9 +47,31 @@ function job(i: number) {
     datePosted: '2026-07-10',
     employmentType: 'FULL_TIME',
     contract: 'full-time',
+    salarySource: 'reported',
+    currency: 'CHF',
     salaryMin: 80000 + i * 1000,
     salaryMax: 120000 + i * 1000,
     url: `https://acme.example/job/${i}`,
+  };
+}
+
+function eocJob(i: number) {
+  return {
+    ...job(i),
+    slug: `infermiere-${i}-eoc-ente-ospedaliero-cantonale-lugano`,
+    company: 'EOC – Ente Ospedaliero Cantonale',
+    companyKey: 'eoc-ente-ospedaliero-cantonale',
+    title: `Infermiere EOC ${i}`,
+  };
+}
+
+function smallCompanyJob(i: number) {
+  return {
+    ...job(i),
+    slug: `tecnico-${i}-small-co-lugano`,
+    company: 'Small Co',
+    companyKey: 'small-co',
+    title: `Tecnico Small Co ${i}`,
   };
 }
 
@@ -60,7 +89,7 @@ beforeAll(async () => {
   fs.writeFileSync(
     path.join(root, 'data', 'employer-profiles.json'),
     JSON.stringify({
-      _meta: { floor: 5 },
+      _meta: { floor: 3 },
       profiles: [
         {
           slug: 'acme-corp',
@@ -74,9 +103,33 @@ beforeAll(async () => {
           salarySamples: 6,
           trend: { added: 4, removed: 1, net: 3, windowDays: 28 },
         },
+        {
+          slug: 'eoc-ente-ospedaliero-cantonale',
+          name: 'EOC – Ente Ospedaliero Cantonale',
+          companyKey: 'eoc-ente-ospedaliero-cantonale',
+          sector: 'Sanità',
+          activeJobs: 6,
+          cantons: [{ name: 'TI', count: 6 }],
+          cities: [{ name: 'Lugano', count: 6 }],
+          salaryMedianChf: 92000,
+          salarySamples: 6,
+          trend: { added: 3, removed: 1, net: 2, windowDays: 28 },
+        },
+        {
+          slug: 'small-co',
+          name: 'Small Co',
+          companyKey: 'small-co',
+          sector: 'Altro',
+          activeJobs: 3,
+          cantons: [{ name: 'TI', count: 3 }],
+          cities: [{ name: 'Lugano', count: 3 }],
+          salaryMedianChf: 90000,
+          salarySamples: 3,
+          trend: { added: 2, removed: 0, net: 2, windowDays: 28 },
+        },
       ],
       belowFloor: [
-        { slug: 'small-co', name: 'Small Co', activeJobs: 3, sector: 'Altro', canton: 'TI' },
+        { slug: 'tiny-co', name: 'Tiny Co', activeJobs: 2, sector: 'Altro', canton: 'TI' },
         // 54-char legal name: BOTH title candidates overflow TITLE_MAX_CHARS
         // (66), so this exercises composePlaceTitle's truncateHeadline
         // fallback on the bridge — which had no length budget at all before
@@ -94,7 +147,9 @@ beforeAll(async () => {
   fs.writeFileSync(
     path.join(root, 'data', 'jobs.json'),
     JSON.stringify([
-      ...Array.from({ length: 6 }, (_, i) => job(i + 1)),
+      ...Array.from({ length: 14 }, (_, i) => job(i + 1)),
+      ...Array.from({ length: 6 }, (_, i) => eocJob(i + 1)),
+      ...Array.from({ length: 3 }, (_, i) => smallCompanyJob(i + 1)),
       // Slugless job: must be skipped by BOTH the card renderer and the
       // ItemList JSON-LD (no JobPosting pointing at the bare homepage).
       { ...job(7), slug: '' },
@@ -104,7 +159,24 @@ beforeAll(async () => {
   const plugin = employerProfilePagesPlugin(root) as unknown as {
     closeBundle: () => Promise<void>;
   };
-  await plugin.closeBundle();
+  const previousMidAdVariant = process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY];
+  process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY] = EMPLOYER_PROFILE_MID_AD_EOC_VARIANT;
+  try {
+    await plugin.closeBundle();
+    eocTreatmentHtml = fs.readFileSync(
+      path.join(root, 'dist', 'aziende/eoc-ente-ospedaliero-cantonale/index.html'),
+      'utf-8',
+    );
+
+    // Re-run the same SSG with the control input. This is the acceptance
+    // boundary for the experiment: changing RC only affects a new build, and
+    // the next artifact must not retain the treatment marker.
+    process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY] = EMPLOYER_PROFILE_MID_AD_CONTROL_VARIANT;
+    await plugin.closeBundle();
+  } finally {
+    if (previousMidAdVariant === undefined) delete process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY];
+    else process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY] = previousMidAdVariant;
+  }
 });
 
 afterAll(() => {
@@ -132,8 +204,15 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('name=robots content="index, follow');
     expect(html).toContain('max-image-preview:large');
     expect(html).toContain('Offerte di lavoro Acme Corp');
-    expect(html).toContain('6'); // active jobs
-    expect(html).toContain("CHF 100"); // median salary formatted
+    expect(html).toContain('15'); // live active jobs, including the slugless fixture
+    expect(html).toContain("CHF 107"); // median of the fifteen reported range midpoints
+  });
+
+  it('indexes a complete profile with exactly three live offers', () => {
+    const html = read('aziende/small-co/index.html');
+    expect(html).toContain('name=robots content="index, follow');
+    expect(html).toContain('Offerte di lavoro Small Co');
+    expect(html).toContain('3');
   });
 
   // Search-intent title/H1 (2026-08-07). GSC 90 d on data/evidence-index.json:
@@ -178,6 +257,19 @@ describe('employerProfilePagesPlugin', () => {
     }
   });
 
+  it('gives the employer a prominent hero logo and keeps logos on listed jobs', () => {
+    const html = read('aziende/acme-corp/index.html');
+    const main = html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? '';
+    expect(main).toMatch(/<img[^>]*alt=["']Logo Acme Corp["'][^>]*width=["']?80/);
+    expect(main.match(/\bjc-logoimg\b/g) ?? []).toHaveLength(14);
+  });
+
+  it('has a renderable logo source for every committed employer profile', () => {
+    const profiles = (committedDataset as { profiles: EmployerProfile[] }).profiles;
+    const missing = profiles.filter((profile) => !employerProfileLogoSrc(profile));
+    expect(missing).toEqual([]);
+  });
+
   it('keeps BreadcrumbList + ItemList naming in step with the visible H1', () => {
     // Structured data must not advertise a heading the page does not show.
     const html = read('aziende/acme-corp/index.html');
@@ -187,6 +279,20 @@ describe('employerProfilePagesPlugin', () => {
     expect(crumb.itemListElement[1].name).toBe('Offerte di lavoro Acme Corp');
     const itemList = scripts.find((s) => s['@type'] === 'ItemList');
     expect(itemList.name).toBe('Offerte di lavoro Acme Corp');
+    const organization = scripts.find((s) => s['@type'] === 'Organization');
+    expect(organization).toMatchObject({
+      '@id': 'https://frontaliereticino.ch/aziende/acme-corp/#organization',
+      name: 'Acme Corp',
+      url: 'https://frontaliereticino.ch/aziende/acme-corp/',
+    });
+    for (const locale of ['en/', 'de/', 'fr/']) {
+      const localizedScripts = [...read(`${locale}aziende/acme-corp/index.html`).matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+        .map((m) => JSON.parse(m[1]));
+      expect(localizedScripts.find((s) => s['@type'] === 'Organization')).toMatchObject({
+        '@id': 'https://frontaliereticino.ch/aziende/acme-corp/#organization',
+        url: 'https://frontaliereticino.ch/aziende/acme-corp/',
+      });
+    }
   });
 
   // text-html-ratio follow-up (validate-dist run 29794187475, PR #4611
@@ -194,59 +300,84 @@ describe('employerProfilePagesPlugin', () => {
   // set (not just the ≤8 cards shown), genuinely new visible text.
   it('adds a real contract-mix and salary-range sentence from the full active-job set', () => {
     const html = read('aziende/acme-corp/index.html');
-    // All 7 seeded jobs are 'full-time' → unanimous contract-mix sentence.
+    // All 15 seeded jobs are 'full-time' → unanimous contract-mix sentence.
     expect(html).toContain('Tutte le posizioni attive sono a tempo pieno.');
-    // salaryMin/salaryMax vary 81'000..127'000 across the 7 jobs — a real
+    // salaryMin/salaryMax vary 81'000..134'000 across the 15 jobs — a real
     // range distinct from the single CHF 100'000 median stat tile.
     expect(html).toContain('CHF 81');
-    expect(html).toContain('CHF 127');
-    expect(html).toContain('I conteggi riflettono gli annunci attivi disponibili al momento della compilazione');
+    expect(html).toContain('CHF 134');
+    expect(html).toContain('I conteggi riflettono gli annunci attivi al momento della compilazione');
   });
 
-  it('renders the complete active list and uses the shared in-feed cadence', () => {
+  it('renders the active-job preview with the shared every-three cadence', () => {
     const html = read('aziende/acme-corp/index.html');
     // buildSeoPageHtml minifies simple class attributes without quotes in the
     // test output; assert on the semantic class token instead of serialization.
-    const cardCount = (html.match(/<article\b[^>]*\bjc-card\b/g) ?? []).length;
+    const cardMatches = [...html.matchAll(/<article\b[^>]*\bjc-card\b/g)];
+    const cardCount = cardMatches.length;
+    const cardPositions = cardMatches.map((match) => match.index ?? -1);
     const infeedAdCount = (html.match(/\bft-infeed-ad\b/g) ?? []).length;
     const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
       .map((m) => JSON.parse(m[1]));
     const itemList = scripts.find((s) => s['@type'] === 'ItemList');
 
-    // Six valid detail slugs are emitted; the seventh fixture is intentionally
-    // slugless and must stay excluded from both the card list and ItemList.
-    expect(cardCount).toBe(6);
-    expect(infeedAdCount).toBe(1); // after card 3, never after the last card
-    const cardPositions = [...html.matchAll(/\bjc-card\b/g)].map((m) => m.index ?? -1);
-    const adPosition = html.indexOf('ft-infeed-ad');
-    expect(adPosition).toBeGreaterThan(cardPositions[2]);
-    expect(adPosition).toBeLessThan(cardPositions[3]);
+    // Fourteen valid detail slugs are emitted; the fifteenth fixture is
+    // intentionally slugless and stays excluded from both the card list and
+    // ItemList. The shared cadence places an ad after positions 3, 6, 9 and
+    // 12, but not after the final card.
+    expect(cardCount).toBe(14);
+    expect(infeedAdCount).toBe(4);
+    expect(html.indexOf('ft-infeed-ad')).toBeGreaterThan(cardPositions[2]);
+    expect(html.indexOf('ft-infeed-ad')).toBeLessThan(cardPositions[3]);
+    expect(html).toContain('company-profile-page');
+    expect(html.indexOf('company-profile-openings')).toBeLessThan(html.indexOf('data-company-follow-mount'));
     expect(itemList.numberOfItems).toBe(cardCount);
     expect(itemList.itemListElement).toHaveLength(cardCount);
+  });
+
+  it('adds the opt-in mid unit only to the EOC treatment profile', () => {
+    const eoc = eocTreatmentHtml;
+    const acme = read('aziende/acme-corp/index.html');
+    expect(eoc).toMatch(new RegExp(`data-ad-experiment=["']?${EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID}`));
+    expect(eoc).toMatch(new RegExp(`data-ad-variant=["']?${EMPLOYER_PROFILE_MID_AD_EOC_VARIANT}`));
+    expect(eoc).toMatch(/data-ad-slot=["']?1982411173/);
+    expect(acme).not.toContain(EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID);
+
+    const ad = eoc.indexOf(EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID);
+    const follow = eoc.indexOf('data-company-follow-mount');
+    expect(ad).toBeGreaterThan(eoc.indexOf('</header>'));
+    expect(follow).toBeGreaterThan(ad);
+  });
+
+  it('emits no EOC treatment marker when the next build uses control', () => {
+    const eoc = read('aziende/eoc-ente-ospedaliero-cantonale/index.html');
+    expect(eoc).not.toContain(EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID);
+    expect(eoc).not.toContain('data-ad-variant="eoc_mid"');
   });
 
   it('keeps the repeated profile payload bounded while exposing the live total', () => {
     const source = fs.readFileSync(path.resolve(__dirname, '../build-plugins/employerProfilePagesPlugin.ts'), 'utf8');
     expect(source).toContain('const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;');
     expect(source).toContain('const listed = group.slice(0, MAX_JOBS_LISTED);');
-    expect(source).toContain('${esc(JOBS_HEADING[locale])} (${profile.activeJobs})');
+    expect(source).toContain('${esc(JOBS_HEADING[locale](name, profile.activeJobs))}');
   });
 
-  it('embeds COMPLETE JobPosting structured data (Non-Negotiable #3)', () => {
+  it('links each visible position without emitting JobPosting on an employer list', () => {
+    for (const locale of ['', 'en/', 'de/', 'fr/']) {
+      expect(read(`${locale}aziende/acme-corp/index.html`)).not.toContain('"@type":"JobPosting"');
+    }
+  });
+
+  it('keeps employer ItemList entries linked to job detail pages', () => {
     const html = read('aziende/acme-corp/index.html');
     const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
       .map((m) => JSON.parse(m[1]));
     const itemList = scripts.find((s) => s['@type'] === 'ItemList');
-    expect(itemList, 'ItemList JSON-LD present').toBeTruthy();
     expect(itemList.itemListElement.length).toBeGreaterThan(0);
     const posting = itemList.itemListElement[0].item;
-    for (const key of MANDATORY_JOBPOSTING_KEYS) {
-      expect(posting[key], `JobPosting.${key}`).toBeTruthy();
-    }
-    expect(posting.jobLocation.address.postalCode).toBeTruthy();
-    expect(posting.jobLocation.address.streetAddress).toBeTruthy();
-    expect(posting.hiringOrganization.name).toBe('Acme Corp');
-    expect(posting.baseSalary.value.minValue).toBeGreaterThan(0);
+    expect(posting['@type']).toBe('WebPage');
+    expect(posting.name).toBeTruthy();
+    expect(posting.url).toMatch(/\/cerca-lavoro-ticino\/.+\/$/);
     // Slugless job guard: no ListItem may point at the bare homepage, and
     // positions stay contiguous 1..N after the skip (reviewer 🔴, PR #4511).
     const urls = itemList.itemListElement.map((el: { item: { url: string } }) => el.item.url);
@@ -282,7 +413,7 @@ describe('employerProfilePagesPlugin', () => {
   it('emits the placeholder on the below-floor bridge too', () => {
     // The bridge is noindex but reachable, and a company just under the floor is
     // exactly one worth following: the next ad it posts is the reason to return.
-    const html = read('aziende/small-co/index.html');
+    const html = read('aziende/tiny-co/index.html');
     expect(html).toContain('data-company-follow-mount');
     expect(html).toMatch(/data-surface=["']?employer_below_floor["']?/);
   });
@@ -310,13 +441,13 @@ describe('employerProfilePagesPlugin', () => {
   });
 
   it('emits a noindex,follow bridge (not a 404) for the below-floor company', () => {
-    const html = read('aziende/small-co/index.html');
+    const html = read('aziende/tiny-co/index.html');
     expect(html).toContain('name=robots content=noindex,follow');
-    expect(html).toContain('Small Co');
+    expect(html).toContain('Tiny Co');
     // The bridge shares the full page's brand-first title shape, and its <h1>
     // is the bare company name, so the two can never collide.
     const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
-    expect(title).toContain('Small Co: offerte di lavoro');
+    expect(title).toContain('Tiny Co: offerte di lavoro');
     expect(title).not.toContain('Lavorare in');
   });
 
@@ -335,7 +466,8 @@ describe('employerProfilePagesPlugin', () => {
   it('writes a sitemap listing the indexable IT canonical only', () => {
     const xml = read('sitemap-employer-profiles.xml');
     expect(xml).toContain('https://frontaliereticino.ch/aziende/acme-corp/');
-    expect(xml).not.toContain('/aziende/small-co/'); // bridge is noindex → excluded
+    expect(xml).toContain('/aziende/small-co/');
+    expect(xml).not.toContain('/aziende/tiny-co/'); // bridge is noindex → excluded
   });
 
   it('folds declared brand aliases into the canonical slug (no SERP cannibalization)', () => {

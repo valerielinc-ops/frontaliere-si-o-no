@@ -1,0 +1,1300 @@
+#!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
+
+/**
+ * Deterministic, Bing-compatible sitemap/tree crawler.
+ *
+ * Bing Site Explorer's UI counters are useful but its private browser endpoints
+ * are not a stable CI API. This script owns the reproducible contract: fetch
+ * the complete sitemap graph, partition every URL deterministically, probe every
+ * partition, and classify HTTP/SEO findings for reconciliation with Bing.
+ */
+
+import { createHash } from 'node:crypto';
+import {
+  closeSync, mkdirSync, openSync, readFileSync, readdirSync, writeSync,
+} from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { JOB_BOARD_COMPANY_HUB_PATH_RX, getJobBoardSectionPrefix } from '../lib/jobBoardSections.mjs';
+import { loadCantonUrlSlugs } from '../lib/canton-url-slugs.mjs';
+import { cancelReaderWithDeadline } from '../lib/bounded-response-body.mjs';
+import { parseAttributes } from '../lib/meta-description-extract.mjs';
+import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
+import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
+import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
+import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
+import { SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonResolvers.mjs';
+import {
+  WEEKLY_EMPLOYERS_CITIES,
+  WEEKLY_EMPLOYERS_ROUTE_CONFIG,
+} from '../../build-plugins/shared/weeklyEmployersRoutes.mjs';
+import {
+  BING_FRONTIER_CANONICAL_DRIFT,
+  BING_FRONTIER_CANONICAL_EXPECTED,
+  BING_FRONTIER_HTTP_ERROR,
+  BING_FRONTIER_NOINDEX,
+  BING_FRONTIER_NOINDEX_BRIDGE,
+  BING_FRONTIER_REDIRECT,
+  BING_META_DESCRIPTION_TOO_SHORT,
+  BING_TITLE_TOO_LONG,
+} from './bing-finding-codes.mjs';
+import { BING_TEMPLATE_TABLE, templateIndexFor } from './bing-template-inventory.mjs';
+
+export const CRAWLER_SCHEMA_VERSION = 2;
+export const SITEMAP_SCOPE = 'sitemap';
+export const FRONTIER_SCOPE = 'discovered-frontier';
+export const DEFAULT_BASE_URL = 'https://frontaliereticino.ch';
+export const DEFAULT_SITEMAP_URL = `${DEFAULT_BASE_URL}/sitemap.xml`;
+export const CRAWLER_USER_AGENT = 'frontaliere-bing-tree-crawler/1.0 (+https://frontaliereticino.ch/)';
+export const DEFAULT_PARTITIONS = 24;
+export const DEFAULT_CONCURRENCY = 8;
+export const DEFAULT_TIMEOUT_MS = 30_000;
+// Pages sits behind an edge that can answer a small fraction of concurrent
+// requests with a transient 5xx. Five total attempts keep the full-tree report
+// focused on persistent failures without changing deterministic URL ownership.
+export const DEFAULT_RETRIES = 4;
+// A partition can still finish with a handful of transient 5xx responses when
+// its normal workers hit the edge at the same time. Recheck only those URLs
+// after the partition drains, at low concurrency, so a burst is not promoted
+// to a backlog finding. Persistent failures remain findings after this rescue.
+export const DEFAULT_RESCUE_CONCURRENCY = 2;
+export const DEFAULT_RESCUE_RETRIES = 4;
+export const DEFAULT_RESCUE_DELAY_MS = 3_000;
+export const DEFAULT_MAX_BODY_BYTES = 256 * 1024;
+export const DEFAULT_MAX_SITEMAP_BYTES = 64 * 1024 * 1024;
+export const DISCOVERY_SAMPLE_LIMIT = 100;
+export const REFERRER_REF_LIMIT = 3;
+export const TITLE_MAX_CHARS = 66;
+export const META_DESCRIPTION_MIN_CHARS = 120;
+const MALFORMED_NAVIGATION_TOKEN_RE = /^<\s*nav\s*:[^>]+>\s*$/i;
+const WEEKLY_EMPLOYERS_CITY_SET = new Set(WEEKLY_EMPLOYERS_CITIES);
+const WEEKLY_EMPLOYERS_ARCHIVE_ROUTES = WEEKLY_EMPLOYERS_ROUTE_CONFIG;
+const WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE = /^(0[1-9]|[1-4]\d|5[0-3])-(\d{4})$/;
+const JOB_BOARD_DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
+
+function pathnameAndOrigin(value) {
+  try {
+    const parsed = new URL(String(value ?? ''), DEFAULT_BASE_URL);
+    const pathname = parsed.pathname.replace(/\/+/g, '/') || '/';
+    return {
+      origin: parsed.origin,
+      pathname: pathname.length > 1 && !pathname.endsWith('/') ? `${pathname}/` : pathname,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function localeForJobBoardSection(section) {
+  if (section.startsWith('/en/')) return 'en';
+  if (section.startsWith('/de/')) return 'de';
+  if (section.startsWith('/fr/')) return 'fr';
+  if (section.startsWith('/cerca-lavoro-')) return 'it';
+  return null;
+}
+
+function searchPrefixForJobBoardSection(section) {
+  const locale = localeForJobBoardSection(section);
+  if (locale === 'en') return 'search-';
+  if (locale === 'de') return 'suche-';
+  if (locale === 'fr') return 'recherche-';
+  if (locale === 'it') return 'ricerca-';
+  return null;
+}
+
+const EDITORIAL_BRIDGE_SLUGS_BY_SECTION = (() => {
+  const data = loadCantonUrlSlugs();
+  const routes = new Map();
+  const careBases = {
+    it: ['cliniche', 'case-anziani', 'oss', 'educatori'],
+    en: ['clinics', 'care-homes', 'healthcare-assistants', 'educators'],
+    de: ['kliniken', 'altersheime', 'pflegeassistenz', 'paedagogen'],
+    fr: ['cliniques', 'maisons-retraite', 'oss', 'educateurs'],
+  };
+  const intentSlugs = {
+    it: ['lavoro-tedesco-ticino', 'lavoro-senza-esperienza-ticino'],
+    en: ['german-speaking-jobs-ticino', 'jobs-without-experience-ticino'],
+    de: ['deutschsprachige-jobs-tessin', 'jobs-ohne-erfahrung-tessin'],
+    fr: ['emplois-germanophones-tessin', 'emplois-sans-experience-tessin'],
+  };
+  const locales = ['it', 'en', 'de', 'fr'];
+  const localePrefix = { it: '', en: '/en', de: '/de', fr: '/fr' };
+  const sectionPrefix = { it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-in', fr: 'trouver-emploi' };
+
+  for (const [canton, slugs] of Object.entries(data.cantons || {})) {
+    for (const locale of locales) {
+      const cantonSlug = slugs?.[locale];
+      if (!cantonSlug) continue;
+      const sectionSegment = canton === 'TI'
+        ? SECTION_LEGACY_TI[locale]
+        : locale === 'de' && slugs.dePrefix
+          ? `${slugs.dePrefix}${cantonSlug}`
+          : `${sectionPrefix[locale]}-${cantonSlug}`;
+      const section = `${localePrefix[locale]}/${sectionSegment}/`;
+      const nurseDePreposition = canton === 'TI' || canton === 'VS' ? 'im' : 'in';
+      const nurseFrPreposition = canton === 'TI' ? 'au' : canton === 'GR' ? 'aux' : canton === 'VS' ? 'en' : 'a';
+      const slugsForRoute = new Set({
+        it: [
+          `offerte-di-lavoro-${cantonSlug}-oggi`,
+          `infermieri-in-${cantonSlug}`,
+          `lavoro-part-time-${cantonSlug}`,
+          ...careBases.it.map((base) => `${base}-${cantonSlug}`),
+        ],
+        en: [
+          `${cantonSlug}-jobs-today`,
+          `nurses-in-${cantonSlug}`,
+          `part-time-jobs-${cantonSlug}`,
+          ...careBases.en.map((base) => `${base}-${cantonSlug}-jobs`),
+        ],
+        de: [
+          `jobs-${cantonSlug}-heute`,
+          `pflege-jobs-${nurseDePreposition}-${cantonSlug}`,
+          `teilzeit-jobs-${cantonSlug}`,
+          ...careBases.de.map((base) => `${base}-${cantonSlug}-jobs`),
+        ],
+        fr: [
+          `offres-emploi-${cantonSlug}-aujourdhui`,
+          `infirmiers-${nurseFrPreposition}-${cantonSlug}`,
+          `emploi-temps-partiel-${cantonSlug}`,
+          ...careBases.fr.map((base) => `${base}-${cantonSlug}`),
+        ],
+      }[locale]);
+      if (canton === 'TI') for (const slug of intentSlugs[locale]) slugsForRoute.add(slug);
+      routes.set(section, slugsForRoute);
+    }
+  }
+  return routes;
+})();
+
+/**
+ * Recognise only the editorial below-floor bridges emitted by
+ * emitEditorialBelowFloorBridge.  The explicit marker is necessary but not
+ * sufficient: the route must also be one of the module-load enumerated
+ * editorial slugs for that exact canton section and must canonicalize to the
+ * section root.  This keeps category/cross-canton drift actionable.
+ */
+function isDeclaredEditorialBridge({ url, canonical, html }) {
+  if (!String(html || '').includes(JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER)) return false;
+  const source = pathnameAndOrigin(url);
+  const target = pathnameAndOrigin(canonical);
+  if (!source || !target || source.origin !== target.origin) return false;
+
+  const sourceSection = getJobBoardSectionPrefix(source.pathname);
+  const targetSection = getJobBoardSectionPrefix(target.pathname);
+  if (!sourceSection || sourceSection !== targetSection || target.pathname !== targetSection) return false;
+
+  const suffix = source.pathname.slice(sourceSection.length).replace(/\/+$/, '');
+  if (!suffix || suffix.includes('/')) return false;
+  return EDITORIAL_BRIDGE_SLUGS_BY_SECTION.get(sourceSection)?.has(suffix) ?? false;
+}
+
+/**
+ * Recognise the deliberate below-floor search bridge emitted by the job
+ * search generators. This is intentionally narrower than the historical
+ * SEARCH_COMBO_SEGMENT_PATTERN used by the GSC compatibility resolver: the
+ * crawl must prove both the emitted route shape and the bridge document, not
+ * infer intent from a substring in an arbitrary URL.
+ *
+ * The caller additionally requires frontier scope, noindex/follow and a
+ * canonical mismatch. Sitemap copies therefore remain actionable even when a
+ * bridge-shaped URL is accidentally advertised there.
+ */
+function isDeclaredSearchBridge({ url, canonical, html }) {
+  if (!String(html || '').includes(REDIRECT_STUB_MARKER)) return false;
+  const source = pathnameAndOrigin(url);
+  const target = pathnameAndOrigin(canonical);
+  if (!source || !target || source.origin !== target.origin) return false;
+
+  const sourceSection = getJobBoardSectionPrefix(source.pathname);
+  const targetSection = getJobBoardSectionPrefix(target.pathname);
+  if (!sourceSection || !targetSection) return false;
+  if (targetSection !== sourceSection) return false;
+
+  const sourceLocale = localeForJobBoardSection(sourceSection);
+  if (!sourceLocale || sourceLocale !== localeForJobBoardSection(targetSection)) return false;
+  if (target.pathname !== targetSection) return false;
+
+  const searchPrefix = searchPrefixForJobBoardSection(sourceSection);
+  const suffix = source.pathname.slice(sourceSection.length).replace(/\/+$/, '');
+  return Boolean(searchPrefix)
+    && suffix.length > searchPrefix.length
+    && suffix.startsWith(searchPrefix)
+    && !suffix.includes('/');
+}
+
+/**
+ * Recognise the self-canonical below-floor company/canton bridge emitted by
+ * jobsSeoPagesPlugin.  The explicit marker is the primary declaration; the
+ * exact two-segment company-hub route and self-canonical check keep an
+ * accidental marker, nested route, or canonical drift actionable.
+ */
+function isDeclaredCompanyCantonBridge({ url, canonical, html }) {
+  if (!String(html || '').includes(COMPANY_CANTON_NOINDEX_BRIDGE_MARKER)) return false;
+  if (!canonical || normalizeUrl(canonical) !== normalizeUrl(url)) return false;
+
+  let parsed;
+  try {
+    parsed = new URL(String(url || ''), DEFAULT_BASE_URL);
+  } catch {
+    return false;
+  }
+  if (parsed.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
+  const pathname = parsed.pathname.replace(/\/+/g, '/') || '/';
+  if (!JOB_BOARD_COMPANY_HUB_PATH_RX.test(pathname)) return false;
+
+  const segments = pathname.split('/').filter(Boolean);
+  const localeOffset = ['en', 'de', 'fr'].includes(segments[0]) ? 1 : 0;
+  return segments.length === localeOffset + 2;
+}
+
+/**
+ * Recognise the intentional noindex window for historical weekly-employers
+ * city hubs. The marker alone is insufficient: the crawler also proves the
+ * exact localized route, valid ISO-week slug and self-canonical response so a
+ * copied marker or a nearby company/archive route remains actionable.
+ */
+function isDeclaredWeeklyEmployersArchive({ url, canonical, html }) {
+  if (!String(html || '').includes(WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER)) return false;
+  if (!canonical || normalizeUrl(canonical) !== normalizeUrl(url)) return false;
+
+  const source = pathnameAndOrigin(url);
+  if (!source || source.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
+
+  const segments = source.pathname.split('/').filter(Boolean);
+  const localePrefix = ['en', 'de', 'fr'].includes(segments[0]) ? segments[0] : '';
+  const route = WEEKLY_EMPLOYERS_ARCHIVE_ROUTES.find((candidate) => candidate.localePrefix === localePrefix);
+  if (!route) return false;
+
+  const sectionIndex = localePrefix ? 1 : 0;
+  if (segments.length !== sectionIndex + 3) return false;
+  if (segments[sectionIndex] !== route.section) return false;
+  if (!WEEKLY_EMPLOYERS_CITY_SET.has(segments[sectionIndex + 1])) return false;
+
+  const archiveSlug = segments[sectionIndex + 2];
+  if (!archiveSlug.startsWith(`${route.archivePrefix}-`)) return false;
+  return WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE.test(archiveSlug.slice(route.archivePrefix.length + 1));
+}
+
+/**
+ * Match only a single job-detail/bridge segment below a job-board section.
+ * Section roots, search landings and nested routes are intentionally outside
+ * this contract; the emitter marker is required separately below.
+ */
+export function isJobBoardDetailPath(value) {
+  const source = pathnameAndOrigin(value);
+  if (!source || source.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
+  const section = getJobBoardSectionPrefix(source.pathname);
+  if (!section) return false;
+  const suffix = source.pathname.slice(section.length).split('/').filter(Boolean);
+  return suffix.length === 1 && JOB_BOARD_DETAIL_SLUG_RE.test(suffix[0]);
+}
+
+/**
+ * Recognise the explicit noindex contract emitted by jobsSeoPagesPlugin for
+ * an active job detail, an expired job detail, or one of their bridges.
+ * Route shape and marker are both required: a generic noindex page or a
+ * nearby job-board route remains an actionable frontier finding.
+ */
+export function isDeclaredJobBoardTarget({ url, html }) {
+  return String(html || '').includes(JOB_BOARD_NOINDEX_TARGET_MARKER)
+    && isJobBoardDetailPath(url);
+}
+
+export function scopeForManifest(manifest) {
+  return manifest?.kind === FRONTIER_SCOPE ? FRONTIER_SCOPE : SITEMAP_SCOPE;
+}
+
+export function rememberReferrerPair(refs, pair) {
+  if (!Array.isArray(pair) || pair.length < 2) return;
+  const sourceIndex = Number(pair[0]);
+  const templateIndex = Number(pair[1]);
+  if (!Number.isInteger(sourceIndex) || !Number.isInteger(templateIndex)) return;
+  refs.set(`${sourceIndex}:${templateIndex}`, [sourceIndex, templateIndex]);
+  const compact = [...refs.values()]
+    .sort((a, b) => a[0] - b[0] || a[1] - b[1])
+    .slice(0, REFERRER_REF_LIMIT);
+  refs.clear();
+  for (const value of compact) refs.set(`${value[0]}:${value[1]}`, value);
+}
+
+function decodeXmlEntities(value) {
+  return String(value || '')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&apos;|&#39;/gi, "'")
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>');
+}
+
+function extractLocs(xml, tagName) {
+  const values = [];
+  const rx = new RegExp(`<${tagName}\\b[\\s\\S]*?<loc>([\\s\\S]*?)</loc>[\\s\\S]*?</${tagName}>`, 'gi');
+  let match;
+  while ((match = rx.exec(String(xml || ''))) !== null) {
+    const value = decodeXmlEntities(match[1]).trim();
+    if (value) values.push(value);
+  }
+  return values;
+}
+
+/** Keep slash conventions for pages without turning explicit files into dirs. */
+export function normalizeUrl(value, baseUrl = DEFAULT_BASE_URL) {
+  try {
+    const raw = String(value ?? '').trim();
+    if (!raw) return null;
+    const url = new URL(raw, baseUrl);
+    if (!['http:', 'https:'].includes(url.protocol)) return null;
+    url.hash = '';
+    url.pathname = url.pathname.replace(/\/+/g, '/') || '/';
+    const last = url.pathname.split('/').filter(Boolean).at(-1) || '';
+    if (url.pathname !== '/' && !url.pathname.endsWith('/') && !last.includes('.')) url.pathname += '/';
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
+function originFor(value) {
+  return new URL(value).origin;
+}
+
+function isSameOrigin(value, baseUrl) {
+  try { return originFor(value) === originFor(baseUrl); } catch { return false; }
+}
+
+/** Parse either a sitemap index or a urlset. */
+export function parseSitemapDocument(xml, baseUrl = DEFAULT_BASE_URL) {
+  const sitemapUrls = extractLocs(xml, 'sitemap')
+    .map((value) => normalizeUrl(value, baseUrl))
+    .filter((value) => value && isSameOrigin(value, baseUrl));
+  const pageUrls = extractLocs(xml, 'url')
+    .map((value) => normalizeUrl(value, baseUrl))
+    .filter((value) => value && isSameOrigin(value, baseUrl));
+  return {
+    kind: sitemapUrls.length > 0 && pageUrls.length === 0 ? 'sitemapindex' : 'urlset',
+    sitemapUrls: [...new Set(sitemapUrls)],
+    pageUrls: [...new Set(pageUrls)],
+  };
+}
+
+export function folderFor(value) {
+  const first = new URL(value).pathname.split('/').filter(Boolean)[0];
+  return first ? `/${first}/` : '/';
+}
+
+/** Stable partitioning: changing concurrency never changes URL ownership. */
+export function partitionFor(value, partitions = DEFAULT_PARTITIONS) {
+  const count = Number(partitions);
+  if (!Number.isInteger(count) || count < 1) throw new Error(`partitions non valido: ${partitions}`);
+  const digest = createHash('sha256').update(String(value)).digest();
+  return digest.readUInt32BE(0) % count;
+}
+
+function parseArgs(argv) {
+  const args = {};
+  for (let i = 0; i < argv.length; i += 1) {
+    const item = argv[i];
+    if (!item.startsWith('--')) continue;
+    const equal = item.indexOf('=');
+    if (equal >= 0) args[item.slice(2, equal)] = item.slice(equal + 1);
+    else args[item.slice(2)] = argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[++i] : true;
+  }
+  return args;
+}
+
+function intArg(args, name, fallback) {
+  const raw = args[name];
+  if (raw === undefined || raw === true) return fallback;
+  const value = Number(raw);
+  return Number.isFinite(value) ? value : fallback;
+}
+
+function stringArg(args, name, fallback) {
+  return args[name] === undefined || args[name] === true ? fallback : String(args[name]);
+}
+
+function ensureParent(filePath) {
+  mkdirSync(dirname(resolve(filePath)), { recursive: true });
+}
+
+function header(response, name) {
+  return response?.headers?.get?.(name) || response?.headers?.[name] || '';
+}
+
+function sleep(ms) {
+  return new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
+}
+
+async function fetchWithTimeout(url, options = {}, fetchImpl = globalThis.fetch) {
+  const timeoutMs = Number(options.timeoutMs || DEFAULT_TIMEOUT_MS);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const { timeoutMs: _ignored, ...fetchOptions } = options;
+  try {
+    return await fetchImpl(url, { ...fetchOptions, signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * The bytes of a stream chunk. A chunk that is not bytes is a read error, not
+ * an empty chunk: `new Uint8Array(value.buffer, …)` over a value with no
+ * `buffer` builds an EMPTY view without throwing, so the chunk would vanish,
+ * `total` would never grow, and a stream that keeps producing such chunks
+ * would never reach the byte cap. The `toString` tag covers a bare
+ * ArrayBuffer from another realm, which fails `instanceof`.
+ *
+ * A typed array comes back as a byte view, which the caller copies with
+ * `slice`. A bare ArrayBuffer comes back as a copy already: a Uint8Array built
+ * directly on it would be a view on the producer's memory, which a reader may
+ * reuse on the next read (#7483).
+ */
+function byteViewOfChunk(value) {
+  if (ArrayBuffer.isView(value)) return new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+  if (value instanceof ArrayBuffer || Object.prototype.toString.call(value) === '[object ArrayBuffer]') {
+    return new Uint8Array(value.slice(0));
+  }
+  throw new TypeError('limited_body_chunk_not_bytes');
+}
+
+async function readLimitedBody(response, maxBytes = DEFAULT_MAX_BODY_BYTES) {
+  if (!response?.body?.getReader) {
+    const text = await response.text();
+    return { text: String(text || '').slice(0, maxBytes), truncated: String(text || '').length > maxBytes };
+  }
+  const reader = response.body.getReader();
+  const chunks = [];
+  let total = 0;
+  let truncated = false;
+  const truncation = new Error('limited_body_truncated');
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      // A byte view (copied below by `slice`): a typed array other than
+      // Uint8Array would otherwise be read element by element.
+      const chunk = byteViewOfChunk(value);
+      const remaining = maxBytes - total;
+      if (remaining <= 0) {
+        truncated = true;
+        throw truncation;
+      }
+      const prefix = chunk.slice(0, remaining);
+      chunks.push(prefix);
+      total += prefix.byteLength;
+      if (chunk.byteLength > remaining) {
+        truncated = true;
+        throw truncation;
+      }
+    }
+  } catch (error) {
+    await cancelReaderWithDeadline(reader);
+    if (error !== truncation) throw error;
+  } finally {
+    try { reader.releaseLock?.(); } catch { /* the read verdict stays authoritative */ }
+  }
+  const merged = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    merged.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return { text: new TextDecoder().decode(merged), truncated };
+}
+
+async function fetchSitemap(url, { fetchImpl = globalThis.fetch, timeoutMs = DEFAULT_TIMEOUT_MS } = {}) {
+  const response = await fetchWithTimeout(url, {
+    method: 'GET',
+    redirect: 'follow',
+    headers: { 'user-agent': CRAWLER_USER_AGENT, accept: 'application/xml,text/xml,text/plain;q=0.8' },
+    timeoutMs,
+  }, fetchImpl);
+  if (!response.ok) throw new Error(`sitemap ${response.status} ${url}`);
+  const body = await readLimitedBody(response, DEFAULT_MAX_SITEMAP_BYTES);
+  if (body.truncated) throw new Error(`sitemap oltre ${DEFAULT_MAX_SITEMAP_BYTES} byte: ${url}`);
+  return body.text;
+}
+
+/** Fetch the complete sitemap graph and return one canonical URL manifest. */
+export async function collectSitemapInventory({
+  sitemapUrl = DEFAULT_SITEMAP_URL,
+  baseUrl = DEFAULT_BASE_URL,
+  fetchImpl = globalThis.fetch,
+  timeoutMs = DEFAULT_TIMEOUT_MS,
+  maxSitemaps = 2_000,
+} = {}) {
+  const root = normalizeUrl(sitemapUrl, baseUrl);
+  if (!root || !isSameOrigin(root, baseUrl)) throw new Error(`sitemap fuori origine: ${sitemapUrl}`);
+  const pending = [root];
+  const visited = new Set();
+  const sitemapUrls = [];
+  const pageUrls = new Set();
+  const errors = [];
+  while (pending.length > 0) {
+    const current = pending.shift();
+    if (visited.has(current)) continue;
+    visited.add(current);
+    if (visited.size > maxSitemaps) throw new Error(`troppi sitemap: oltre ${maxSitemaps}`);
+    try {
+      const xml = await fetchSitemap(current, { fetchImpl, timeoutMs });
+      const parsed = parseSitemapDocument(xml, baseUrl);
+      if (parsed.sitemapUrls.length === 0 && parsed.pageUrls.length === 0) {
+        throw new Error(`sitemap vuoto o formato non supportato: ${current}`);
+      }
+      sitemapUrls.push(current);
+      for (const nested of parsed.sitemapUrls) if (!visited.has(nested)) pending.push(nested);
+      for (const page of parsed.pageUrls) pageUrls.add(page);
+    } catch (error) {
+      errors.push({ url: current, error: error?.message || String(error) });
+    }
+  }
+  const urls = [...pageUrls].sort();
+  const folders = {};
+  const partitions = {};
+  for (const url of urls) {
+    const folder = folderFor(url);
+    folders[folder] = (folders[folder] || 0) + 1;
+    const partition = partitionFor(url);
+    partitions[partition] = (partitions[partition] || 0) + 1;
+  }
+  return {
+    schemaVersion: CRAWLER_SCHEMA_VERSION,
+    kind: SITEMAP_SCOPE,
+    generatedAt: new Date().toISOString(),
+    baseUrl: originFor(baseUrl),
+    sitemap: root,
+    sitemapCount: sitemapUrls.length,
+    sitemapUrls,
+    manifestCount: urls.length,
+    urls,
+    folders,
+    partitions,
+    errors,
+  };
+}
+
+function decodedPath(value) {
+  try { return decodeURIComponent(new URL(value).pathname); } catch { return new URL(value).pathname; }
+}
+
+function isMalformedNavigationToken(value) {
+  return MALFORMED_NAVIGATION_TOKEN_RE.test(decodeXmlEntities(String(value || '')).trim());
+}
+
+/**
+ * Decide whether a same-site link is an HTML route worth crawling as part of
+ * the SEO tree. Query-string links are deliberately kept as evidence but not
+ * expanded into the crawl frontier: calculators, filters and tracking URLs
+ * can create an unbounded parameter space and are not sitemap documents.
+ */
+export function classifyDiscoveredUrl(value, baseUrl = DEFAULT_BASE_URL) {
+  const raw = decodeXmlEntities(String(value ?? '')).trim();
+  if (isMalformedNavigationToken(raw)) return { url: raw, reason: 'malformed-route' };
+  const normalized = normalizeUrl(value, baseUrl);
+  if (!normalized || !isSameOrigin(normalized, baseUrl)) return { url: normalized || String(value || ''), reason: 'outside-origin' };
+  const parsed = new URL(normalized);
+  if (parsed.search) return { url: normalized, reason: 'dynamic-query' };
+  if (!isCrawlableLink(normalized)) return { url: normalized, reason: 'non-html-or-private' };
+  // Broken editor tokens such as <nav:calculator> are useful findings, not
+  // valid routes to expand. Keep them in the evidence ledger separately.
+  if (/<\s*nav\s*:/i.test(decodedPath(normalized))) return { url: normalized, reason: 'malformed-route' };
+  return { url: normalized, reason: 'crawl' };
+}
+
+/**
+ * Build the next deterministic frontier from links found during the sitemap
+ * crawl. This is intentionally a separate manifest: the first pass remains
+ * the authoritative sitemap coverage, while the second pass verifies real
+ * HTML routes that are linked internally but omitted from XML sitemaps.
+ */
+export function collectDiscoveredInventory({
+  reports = [],
+  manifest,
+  baseUrl = manifest?.baseUrl || DEFAULT_BASE_URL,
+  partitions = DEFAULT_PARTITIONS,
+} = {}) {
+  if (!manifest || !Array.isArray(manifest.urls)) throw new Error('manifest.urls mancante');
+  const manifestSet = new Set(manifest.urls);
+  const discovered = new Map();
+  const rememberReferrers = (target, refs) => {
+    const current = discovered.get(target) || new Map();
+    for (const pair of refs || []) rememberReferrerPair(current, pair);
+    discovered.set(target, current);
+  };
+  for (const report of reports) {
+    const links = report?.discoveredOutOfSitemap || [];
+    const referrerRefs = report?.discoveredReferrers || [];
+    for (let index = 0; index < links.length; index += 1) {
+      const url = links[index];
+      if (!manifestSet.has(url)) rememberReferrers(url, referrerRefs[index]);
+    }
+  }
+  const urls = [];
+  const excludedByReason = {};
+  const excludedSamplesByReason = {};
+  const frontierFindings = [];
+  for (const value of [...discovered.keys()].sort()) {
+    const classified = classifyDiscoveredUrl(value, baseUrl);
+    if (classified.reason === 'crawl') {
+      urls.push(classified.url);
+      continue;
+    }
+    increment(excludedByReason, classified.reason);
+    const samples = excludedSamplesByReason[classified.reason] || (excludedSamplesByReason[classified.reason] = []);
+    if (samples.length < DISCOVERY_SAMPLE_LIMIT) samples.push(classified.url);
+    if (classified.reason === 'malformed-route') {
+      const normalized = normalizeUrl(classified.url, baseUrl);
+      frontierFindings.push({
+        code: 'internal-link-malformed',
+        url: classified.url,
+        detail: 'Link interno verso un token di navigazione/editor non valido.',
+        root: normalized ? folderFor(normalized) : '/',
+      });
+    }
+  }
+  const uniqueUrls = [...new Set(urls)].sort();
+  const folders = {};
+  const partitionCounts = {};
+  for (const url of uniqueUrls) {
+    const folder = folderFor(url);
+    increment(folders, folder);
+    const partition = partitionFor(url, partitions);
+    increment(partitionCounts, partition);
+  }
+  return {
+    schemaVersion: CRAWLER_SCHEMA_VERSION,
+    kind: 'discovered-frontier',
+    generatedAt: new Date().toISOString(),
+    baseUrl: originFor(baseUrl),
+    parentManifestCount: manifest.urls.length,
+    sourceReportCount: reports.length,
+    sourceDiscoveredCount: discovered.size,
+    manifestCount: uniqueUrls.length,
+    urls: uniqueUrls,
+    // Aligned with `urls`; every pair is [parent sitemap URL index, template
+    // table index]. The source URL is recovered from the immutable sitemap
+    // manifest, so the frontier manifest does not repeat it 904k times.
+    referrerRefs: uniqueUrls.map((url) => [...(discovered.get(url)?.values() || [])]
+      .sort((a, b) => a[0] - b[0] || a[1] - b[1])),
+    templateTable: BING_TEMPLATE_TABLE,
+    folders,
+    partitions: partitionCounts,
+    excludedByReason,
+    excludedSamplesByReason,
+    findings: frontierFindings,
+    errors: [],
+  };
+}
+
+function attr(attributes, name) {
+  const parsed = parseAttributes(attributes);
+  return decodeXmlEntities(parsed[String(name || '').toLowerCase()] ?? '');
+}
+
+function stripTags(value) {
+  return decodeXmlEntities(String(value || '').replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();
+}
+
+function findMetaRobots(html) {
+  const values = [];
+  for (const match of String(html || '').matchAll(/<meta\b([^>]*)>/gi)) {
+    const name = attr(match[1], 'name').toLowerCase();
+    if (name === 'robots' || name === 'bingbot' || name === 'googlebot') {
+      const content = attr(match[1], 'content').toLowerCase();
+      if (content) values.push(content);
+    }
+  }
+  return values;
+}
+
+function findCanonical(html, pageUrl) {
+  for (const match of String(html || '').matchAll(/<link\b([^>]*)>/gi)) {
+    if (!attr(match[1], 'rel').toLowerCase().split(/\s+/).includes('canonical')) continue;
+    return normalizeUrl(attr(match[1], 'href'), pageUrl);
+  }
+  return '';
+}
+
+function findTitle(html) {
+  return stripTags(String(html || '').match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
+}
+
+function normalizeMetadataText(value) {
+  return decodeXmlEntities(stripTags(String(value || ''))).replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Google News headlines are intentionally allowed to exceed the generic SERP
+ * title budget when the emitted `<title>` is byte-identical to the
+ * NewsArticle headline. Capping only one of the two fields would break the
+ * eligibility contract; this is an explicit, machine-checked exemption.
+ */
+function hasNewsArticleTitleInvariant(html, title) {
+  const expected = normalizeMetadataText(title);
+  if (!expected) return false;
+  const scripts = String(html || '').matchAll(
+    /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
+  );
+  for (const match of scripts) {
+    try {
+      const stack = [JSON.parse(match[1])];
+      while (stack.length) {
+        const node = stack.pop();
+        if (!node || typeof node !== 'object') continue;
+        const type = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
+        if (type.includes('NewsArticle') && normalizeMetadataText(node.headline) === expected) return true;
+        for (const value of Object.values(node)) {
+          if (value && typeof value === 'object') stack.push(value);
+        }
+      }
+    } catch {
+      // One malformed JSON-LD block must not hide a valid NewsArticle block.
+    }
+  }
+  return false;
+}
+
+function findMetaDescription(html) {
+  for (const match of String(html || '').matchAll(/<meta\b([^>]*)>/gi)) {
+    if (attr(match[1], 'name').toLowerCase() !== 'description') continue;
+    return attr(match[1], 'content').replace(/\s+/g, ' ').trim();
+  }
+  return '';
+}
+
+function isSoft404(html, title) {
+  const heading = String(html || '').match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '';
+  const signal = `${title} ${stripTags(heading)}`.trim();
+  return /^(?:404\b|pagina non trovata\b|page not found\b|seite nicht gefunden\b|page introuvable\b)/i.test(signal);
+}
+
+function isCrawlableLink(value) {
+  try {
+    const url = new URL(value);
+    if (!['http:', 'https:'].includes(url.protocol)) return false;
+    if (/\.(?:css|csv|gif|ico|jpe?g|js|json|map|pdf|png|svg|webp|woff2?|xml|zip)$/i.test(url.pathname)) return false;
+    return !url.pathname.startsWith('/api/');
+  } catch {
+    return false;
+  }
+}
+
+export function extractInternalLinks(html, pageUrl, baseUrl = DEFAULT_BASE_URL) {
+  const links = new Set();
+  // Keep quoted hrefs intact even when an invalid editor token contains `>`.
+  // A plain `[^>]*` tag matcher would stop at that character and lose the
+  // token before the evidence classifier gets a chance to see it.
+  for (const match of String(html || '').matchAll(/<a\b((?:(?:[^"'<>]|"[^"]*"|'[^']*'|<(?!\/a\b)))*)>/gi)) {
+    const href = attr(match[1], 'href');
+    if (!href || href.startsWith('#')) continue;
+    const rawHref = decodeXmlEntities(href).trim();
+    // Preserve broken editor/navigation tokens as evidence. They are not
+    // crawlable routes, but dropping the raw href here would make the second
+    // frontier unable to report the internal link that produced the defect.
+    if (isMalformedNavigationToken(rawHref)) {
+      links.add(rawHref);
+      continue;
+    }
+    const normalized = normalizeUrl(href, pageUrl);
+    if (!normalized || !isSameOrigin(normalized, baseUrl)) continue;
+    links.add(normalized);
+  }
+  return [...links].sort();
+}
+
+function finding(code, url, detail, extra = {}) {
+  return { code, url, detail, ...extra };
+}
+
+/** Pure classification used by the crawler and its unit tests. */
+export function classifyDocument({
+  url,
+  status,
+  finalUrl = url,
+  headers = {},
+  contentType = '',
+  html = '',
+  scope = SITEMAP_SCOPE,
+}) {
+  const documentScope = scope === FRONTIER_SCOPE ? FRONTIER_SCOPE : SITEMAP_SCOPE;
+  const isFrontier = documentScope === FRONTIER_SCOPE;
+  const scopeLabel = isFrontier ? 'nella frontiera interna' : 'in sitemap';
+  const findings = [];
+  const statusNumber = Number(status) || 0;
+  const xRobots = typeof headers.get === 'function' ? headers.get('x-robots-tag') || '' : headers['x-robots-tag'] || '';
+  if (statusNumber === 0) {
+    findings.push(finding('fetch-error', url, 'La richiesta non ha prodotto una risposta HTTP.'));
+    return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
+  }
+  if (statusNumber >= 300 && statusNumber < 400) {
+    findings.push(finding(isFrontier ? BING_FRONTIER_REDIRECT : 'redirect', url, `HTTP ${statusNumber} verso ${finalUrl}.`, { status: statusNumber }));
+    return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
+  }
+  if (statusNumber < 200 || statusNumber >= 400) {
+    findings.push(finding(isFrontier ? BING_FRONTIER_HTTP_ERROR : 'http-error', url, `HTTP ${statusNumber}.`, { status: statusNumber }));
+    return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
+  }
+  const normalizedContentType = String(contentType || '').toLowerCase();
+  const headerNoindex = /\bnoindex\b/i.test(xRobots);
+  if (normalizedContentType && !/(?:text\/html|application\/xhtml\+xml)\b/i.test(normalizedContentType)) {
+    if (headerNoindex) findings.push(finding(
+      isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap',
+      url,
+      isFrontier ? 'La risorsa raggiunta da un link interno dichiara noindex.' : 'La risorsa pubblicata in sitemap dichiara noindex.',
+    ));
+    return { findings, title: '', description: '', canonical: '', noindex: headerNoindex, soft404: false };
+  }
+  const title = findTitle(html);
+  const description = findMetaDescription(html);
+  const canonical = findCanonical(html, url);
+  const metaRobots = findMetaRobots(html).join(',');
+  const robots = `${xRobots},${metaRobots}`;
+  const noindex = /\bnoindex\b/i.test(robots);
+  const followableNoindex = noindex && !/\bnofollow\b/i.test(robots);
+  const soft404 = isSoft404(html, title);
+  if (!title) findings.push(finding('title-missing', url, `La pagina ${scopeLabel} non contiene un <title>.`));
+  else if (title.length > TITLE_MAX_CHARS && !hasNewsArticleTitleInvariant(html, title)) {
+    findings.push(finding(
+      BING_TITLE_TOO_LONG,
+      url,
+      `<title> misura ${title.length} caratteri; limite ${TITLE_MAX_CHARS}.`,
+    ));
+  }
+  if (!description) {
+    findings.push(finding('meta-description-missing', url, `La pagina ${scopeLabel} non contiene una meta description.`));
+  } else if (description.length < META_DESCRIPTION_MIN_CHARS) {
+    findings.push(finding(
+      BING_META_DESCRIPTION_TOO_SHORT,
+      url,
+      `La meta description misura ${description.length} caratteri; minimo ${META_DESCRIPTION_MIN_CHARS}.`,
+    ));
+  }
+  const canonicalMismatch = canonical && normalizeUrl(canonical) !== normalizeUrl(finalUrl || url);
+  const exemption = canonicalMismatch
+    ? classifyCanonicalMismatch({ url: finalUrl || url, canonical, html })
+    : null;
+  const searchBridgeExemption = isFrontier
+    && noindex
+    && followableNoindex
+    && canonicalMismatch
+    && isDeclaredSearchBridge({ url: finalUrl || url, canonical, html })
+    ? 'search-bridge'
+    : null;
+  const companyCantonBridgeExemption = isFrontier
+    && noindex
+    && followableNoindex
+    && isDeclaredCompanyCantonBridge({ url: finalUrl || url, canonical, html })
+    ? 'company-canton-bridge'
+    : null;
+  const declaredJobBoardTarget = isFrontier
+    && noindex
+    && followableNoindex
+    && isDeclaredJobBoardTarget({ url: finalUrl || url, html })
+    ? 'job-board-target'
+    : null;
+  const weeklyEmployersArchiveExemption = isFrontier
+    && noindex
+    && followableNoindex
+    && isDeclaredWeeklyEmployersArchive({ url: finalUrl || url, canonical, html })
+    ? 'weekly-employers-archive'
+    : null;
+  const editorialBridgeExemption = isFrontier
+    && noindex
+    && followableNoindex
+    && canonicalMismatch
+    && isDeclaredEditorialBridge({ url: finalUrl || url, canonical, html })
+    ? 'editorial-bridge'
+    : null;
+  const canonicalExemption = exemption
+    || searchBridgeExemption
+    || companyCantonBridgeExemption
+    || weeklyEmployersArchiveExemption
+    || editorialBridgeExemption;
+  if (noindex) {
+    const isDeclaredBridge = isFrontier && followableNoindex && (canonicalExemption || declaredJobBoardTarget);
+    const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
+    const detail = isDeclaredBridge
+      ? declaredJobBoardTarget && !canonicalExemption
+        ? `Pagina nella frontiera interna dichiarata target job board: noindex/follow sulla route job-detail (${canonical || 'canonical assente'}).`
+        : `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${canonicalExemption}).`
+      : isFrontier
+        ? 'La pagina raggiunta da un link interno dichiara noindex senza un bridge canonical riconosciuto.'
+        : 'La pagina pubblicata in sitemap dichiara noindex.';
+    findings.push(finding(noindexCode, url, detail));
+  }
+  if (!canonical) findings.push(finding('canonical-missing', url, 'Manca il canonical nella risposta HTML.'));
+  else if (canonicalMismatch) {
+    if (canonicalExemption) {
+      findings.push(finding(
+        isFrontier ? BING_FRONTIER_CANONICAL_EXPECTED : 'canonical-expected',
+        url,
+        `Canonical ${canonical} consolidato correttamente (${canonicalExemption}).`,
+        { exemption: canonicalExemption },
+      ));
+    } else {
+      findings.push(finding(
+        isFrontier ? BING_FRONTIER_CANONICAL_DRIFT : 'canonical-drift',
+        url,
+        `Canonical ${canonical} diverso dalla URL finale ${finalUrl || url}.`,
+      ));
+    }
+  }
+  if (soft404) findings.push(finding('soft-404', url, 'La risposta è 200 ma il titolo/H1 identifica una pagina non trovata.'));
+  return { findings, title, description, canonical, noindex, soft404 };
+}
+
+async function probeOnce(url, {
+  fetchImpl = globalThis.fetch,
+  timeoutMs = DEFAULT_TIMEOUT_MS,
+  maxBodyBytes = DEFAULT_MAX_BODY_BYTES,
+  scope = SITEMAP_SCOPE,
+} = {}) {
+  let response;
+  try {
+    response = await fetchWithTimeout(url, {
+      method: 'GET',
+      redirect: 'manual',
+      headers: { 'user-agent': CRAWLER_USER_AGENT, accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.1' },
+      timeoutMs,
+    }, fetchImpl);
+  } catch (error) {
+    return { url, status: 0, finalUrl: url, findings: [finding('fetch-error', url, error?.message || String(error))], links: [] };
+  }
+  const location = header(response, 'location');
+  const finalUrl = location ? normalizeUrl(location, url) || location : url;
+  const contentType = header(response, 'content-type').toLowerCase();
+  const body = response.status >= 200 && response.status < 400 && (contentType.includes('html') || !contentType)
+    ? await readLimitedBody(response, maxBodyBytes)
+    : { text: '', truncated: false };
+  const classified = classifyDocument({
+    url,
+    status: response.status,
+    finalUrl,
+    headers: response.headers,
+    contentType,
+    html: body.text,
+    scope,
+  });
+  return {
+    url,
+    status: response.status,
+    finalUrl,
+    title: classified.title,
+    description: classified.description,
+    canonical: classified.canonical,
+    noindex: classified.noindex,
+    soft404: classified.soft404,
+    truncated: body.truncated,
+    findings: classified.findings,
+    links: response.status === 200 && body.text ? extractInternalLinks(body.text, url) : [],
+  };
+}
+
+export async function probeWithRetries(url, options = {}) {
+  const retries = Number(options.retries ?? DEFAULT_RETRIES);
+  const configuredTimeoutMs = Number(options.timeoutMs ?? DEFAULT_TIMEOUT_MS);
+  const timeoutBudgetMs = Number.isFinite(configuredTimeoutMs) && configuredTimeoutMs > 0
+    ? configuredTimeoutMs
+    : DEFAULT_TIMEOUT_MS;
+  const configuredDeadlineAt = Number(options.deadlineAt);
+  const deadlineAt = Number.isFinite(configuredDeadlineAt) ? configuredDeadlineAt : Number.POSITIVE_INFINITY;
+  let result;
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    if (Date.now() >= deadlineAt) {
+      return result || {
+        url,
+        status: 0,
+        finalUrl: url,
+        findings: [finding('fetch-error', url, 'Il budget temporale della verifica è scaduto.')],
+        links: [],
+      };
+    }
+    const remainingBudgetMs = Math.max(1, deadlineAt - Date.now());
+    result = await probeOnce(url, { ...options, timeoutMs: Math.min(timeoutBudgetMs, remainingBudgetMs) });
+    const retryable = result.status === 0 || result.status === 429 || result.status >= 500;
+    if (!retryable || attempt === retries) return result;
+    const backoffMs = Math.min(8_000, 500 * (2 ** attempt));
+    if (Date.now() + backoffMs >= deadlineAt) return result;
+    await sleep(backoffMs);
+  }
+  return result;
+}
+
+function isTransientResult(result) {
+  const status = Number(result?.status) || 0;
+  return status === 0 || status === 429 || status >= 500;
+}
+
+function increment(map, key, amount = 1) {
+  map[key] = (map[key] || 0) + amount;
+}
+
+export async function crawlPartition({
+  manifest,
+  partition = 0,
+  partitions = DEFAULT_PARTITIONS,
+  concurrency = DEFAULT_CONCURRENCY,
+  timeoutMs = DEFAULT_TIMEOUT_MS,
+  retries = DEFAULT_RETRIES,
+  rescueConcurrency = DEFAULT_RESCUE_CONCURRENCY,
+  rescueRetries = DEFAULT_RESCUE_RETRIES,
+  rescueDelayMs = DEFAULT_RESCUE_DELAY_MS,
+  maxBodyBytes = DEFAULT_MAX_BODY_BYTES,
+  fetchImpl = globalThis.fetch,
+} = {}) {
+  if (!manifest || !Array.isArray(manifest.urls)) throw new Error('manifest.urls mancante');
+  const part = Number(partition);
+  const totalPartitions = Number(partitions);
+  if (!Number.isInteger(part) || part < 0 || part >= totalPartitions) throw new Error(`partition non valida: ${partition}/${partitions}`);
+  const scope = scopeForManifest(manifest);
+  const selected = manifest.urls.filter((url) => partitionFor(url, totalPartitions) === part);
+  const manifestSet = new Set(manifest.urls);
+  const manifestIndexes = new Map(manifest.urls.map((url, index) => [url, index]));
+  const entries = selected.map((url, index) => ({ url, index }));
+  const results = new Array(selected.length);
+
+  const probeEntries = async (items, poolConcurrency, attemptRetries) => {
+    let cursor = 0;
+    const worker = async () => {
+      while (true) {
+        const index = cursor++;
+        if (index >= items.length) return;
+        const entry = items[index];
+        results[entry.index] = await probeWithRetries(entry.url, {
+          fetchImpl,
+          timeoutMs,
+          retries: attemptRetries,
+          maxBodyBytes,
+          scope,
+        });
+      }
+    };
+    await Promise.all(
+      Array.from(
+        { length: Math.min(Math.max(1, Number(poolConcurrency) || 1), items.length) },
+        () => worker(),
+      ),
+    );
+  };
+
+  await probeEntries(entries, concurrency, retries);
+
+  // Recheck only edge/transient failures after all normal workers have drained.
+  // Keeping this pool separate from the main pass is important: lowering the
+  // global concurrency would make the full crawl unnecessarily slow, while
+  // rescuing every URL would hide real persistent failures behind extra load.
+  const transientEntries = entries.filter((entry) => isTransientResult(results[entry.index]));
+  if (transientEntries.length > 0) {
+    const delay = Math.max(0, Number(rescueDelayMs) || 0);
+    if (delay > 0) await sleep(delay);
+    await probeEntries(transientEntries, rescueConcurrency, rescueRetries);
+  }
+
+  const findings = [];
+  const statusCounts = {};
+  const codeCounts = {};
+  const folderStats = {};
+  const discovered = new Map();
+  for (let index = 0; index < selected.length; index += 1) {
+    const url = selected[index];
+    const result = results[index] || {
+      url,
+      status: 0,
+      findings: [finding('fetch-error', url, 'La richiesta non ha prodotto una risposta HTTP.')],
+      links: [],
+    };
+    const folder = folderFor(url);
+    const stats = folderStats[folder] || (folderStats[folder] = { checked: 0, statuses: {}, findings: {} });
+    stats.checked += 1;
+    increment(statusCounts, String(result.status));
+    increment(stats.statuses, String(result.status));
+    for (const item of result.findings || []) {
+      findings.push({ ...item, root: folder, status: result.status });
+      increment(codeCounts, item.code);
+      increment(stats.findings, item.code);
+    }
+    const links = result.links || [];
+    if (links.length > 0) {
+      const sourceIndex = manifestIndexes.get(url);
+      const templateIndex = templateIndexFor(url);
+      for (const link of links) {
+        if (manifestSet.has(link)) continue;
+        const refs = discovered.get(link) || new Map();
+        if (Number.isInteger(sourceIndex) && Number.isInteger(templateIndex)) {
+          rememberReferrerPair(refs, [sourceIndex, templateIndex]);
+        }
+        discovered.set(link, refs);
+      }
+    }
+  }
+  const discoveredUrls = [...discovered.keys()].sort();
+  return {
+    schemaVersion: CRAWLER_SCHEMA_VERSION,
+    scope,
+    checkedAt: new Date().toISOString(),
+    baseUrl: manifest.baseUrl,
+    manifestCount: manifest.urls.length,
+    partition: part,
+    partitions: totalPartitions,
+    partitionTotal: selected.length,
+    checkedCount: selected.length,
+    statusCounts,
+    codeCounts,
+    folderStats,
+    findings,
+    discoveredOutOfSitemap: discoveredUrls,
+    discoveredReferrers: discoveredUrls.map((url) => [...(discovered.get(url)?.values() || [])]
+      .sort((a, b) => a[0] - b[0] || a[1] - b[1])),
+  };
+}
+
+// The full-tree artifacts embed every URL of the sitemap or of the internal
+// frontier: the report summary outgrew V8's maximum string length and
+// `JSON.stringify(summary, null, 2)` threw `RangeError: Invalid string length`
+// before the issue body was written (run 36996732377). The discovered-frontier
+// manifest and the partition reports grow with the same frontier, so every
+// writer of this crawler and of the report goes through here: each top-level
+// array is emitted one element per line through a buffer flushed about every
+// `chunkChars` characters, and no single string ever holds the whole
+// document. Non-array top-level values are small counters/maps and keep the
+// indented form. Values JSON cannot represent (undefined, functions, symbols)
+// follow JSON.stringify: dropped as top-level keys, `null` inside arrays.
+function isJsonOmitted(item) {
+  return item === undefined || typeof item === 'function' || typeof item === 'symbol';
+}
+
+export function writeJsonStreaming(filePath, value, { chunkChars = 4_000_000, onChunk } = {}) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new TypeError('writeJsonStreaming expects a plain object');
+  }
+  ensureParent(filePath);
+  const fd = openSync(resolve(filePath), 'w');
+  let pending = '';
+  const flush = () => {
+    if (!pending) return;
+    writeSync(fd, pending);
+    if (onChunk) onChunk(pending.length);
+    pending = '';
+  };
+  const emit = (piece) => {
+    if (pending && pending.length + piece.length > chunkChars) flush();
+    pending += piece;
+    if (pending.length >= chunkChars) flush();
+  };
+  try {
+    const entries = Object.entries(value).filter(([, item]) => !isJsonOmitted(item));
+    emit('{');
+    entries.forEach(([key, item], index) => {
+      emit(`${index === 0 ? '' : ','}\n  ${JSON.stringify(key)}: `);
+      if (Array.isArray(item)) {
+        if (item.length === 0) {
+          emit('[]');
+          return;
+        }
+        emit('[');
+        for (let i = 0; i < item.length; i += 1) {
+          const element = isJsonOmitted(item[i]) ? null : item[i];
+          emit(`${i === 0 ? '' : ','}\n    ${JSON.stringify(element)}`);
+        }
+        emit('\n  ]');
+      } else {
+        emit(JSON.stringify(item, null, 2).replace(/\n/g, '\n  '));
+      }
+    });
+    emit(entries.length === 0 ? '}\n' : '\n}\n');
+    flush();
+  } finally {
+    closeSync(fd);
+  }
+}
+
+async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const baseUrl = stringArg(args, 'base-url', DEFAULT_BASE_URL);
+  const sitemapUrl = stringArg(args, 'sitemap', `${baseUrl.replace(/\/$/, '')}/sitemap.xml`);
+  const out = stringArg(args, 'out', 'bing-site-tree-report.json');
+  if (args['inventory-only']) {
+    try {
+      const inventory = await collectSitemapInventory({ baseUrl, sitemapUrl, timeoutMs: intArg(args, 'timeout-ms', DEFAULT_TIMEOUT_MS) });
+      writeJsonStreaming(out, inventory);
+      console.log(JSON.stringify({ mode: 'inventory', manifestCount: inventory.manifestCount, sitemapCount: inventory.sitemapCount, errors: inventory.errors.length, out }, null, 2));
+      if (inventory.errors.length > 0) process.exitCode = 1;
+    } catch (error) {
+      // Preserve a machine-readable, fail-closed manifest even when the root
+      // sitemap itself is invalid or unreachable. The workflow can then upload
+      // it and open the backlog issue with the exact coverage failure instead
+      // of disappearing before the reporter gets a chance to run.
+      const fallback = {
+        schemaVersion: CRAWLER_SCHEMA_VERSION,
+        kind: SITEMAP_SCOPE,
+        generatedAt: new Date().toISOString(),
+        baseUrl,
+        sitemap: sitemapUrl,
+        sitemapCount: 0,
+        sitemapUrls: [],
+        manifestCount: 0,
+        urls: [],
+        folders: {},
+        partitions: {},
+        errors: [{ url: sitemapUrl, error: error?.message || String(error) }],
+      };
+      writeJsonStreaming(out, fallback);
+      console.error(error?.stack || error);
+      process.exitCode = 1;
+    }
+    return;
+  }
+  if (args['discovered-inventory']) {
+    const manifestFile = stringArg(args, 'base-manifest-file', '');
+    const reportsDir = stringArg(args, 'reports-dir', 'bing-site-tree-reports');
+    if (!manifestFile) throw new Error('specificare --base-manifest-file con --discovered-inventory');
+    const manifest = JSON.parse(readFileSync(resolve(manifestFile), 'utf8'));
+    const reports = readdirSync(resolve(reportsDir))
+      .filter((name) => /^partition-\d+\.json$/.test(name))
+      .sort()
+      .map((name) => JSON.parse(readFileSync(resolve(reportsDir, name), 'utf8')));
+    const inventory = collectDiscoveredInventory({
+      manifest,
+      reports,
+      baseUrl,
+      partitions: intArg(args, 'partitions', DEFAULT_PARTITIONS),
+    });
+    writeJsonStreaming(out, inventory);
+    console.log(JSON.stringify({
+      mode: 'discovered-frontier',
+      sourceDiscoveredCount: inventory.sourceDiscoveredCount,
+      manifestCount: inventory.manifestCount,
+      excludedByReason: inventory.excludedByReason,
+      out,
+    }, null, 2));
+    return;
+  }
+  const manifestFile = stringArg(args, 'manifest-file', '');
+  if (!manifestFile) throw new Error('specificare --inventory-only oppure --manifest-file');
+  const manifest = JSON.parse(readFileSync(resolve(manifestFile), 'utf8'));
+  const report = await crawlPartition({
+    manifest,
+    partition: intArg(args, 'partition', 0),
+    partitions: intArg(args, 'partitions', DEFAULT_PARTITIONS),
+    concurrency: intArg(args, 'concurrency', DEFAULT_CONCURRENCY),
+    timeoutMs: intArg(args, 'timeout-ms', DEFAULT_TIMEOUT_MS),
+    retries: intArg(args, 'retries', DEFAULT_RETRIES),
+    rescueConcurrency: intArg(args, 'rescue-concurrency', DEFAULT_RESCUE_CONCURRENCY),
+    rescueRetries: intArg(args, 'rescue-retries', DEFAULT_RESCUE_RETRIES),
+    rescueDelayMs: intArg(args, 'rescue-delay-ms', DEFAULT_RESCUE_DELAY_MS),
+    maxBodyBytes: intArg(args, 'max-body-bytes', DEFAULT_MAX_BODY_BYTES),
+  });
+  writeJsonStreaming(out, report);
+  console.log(JSON.stringify({ mode: 'partition', partition: report.partition, partitions: report.partitions, manifestCount: report.manifestCount, checkedCount: report.checkedCount, findings: report.findings.length, out }, null, 2));
+}
+
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
+if (invokedDirectly) {
+  try { await main(); }
+  catch (error) { console.error(error?.stack || error); process.exitCode = 1; }
+}

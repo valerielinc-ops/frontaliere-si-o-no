@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   IPERSONAL_KEY,
@@ -12,6 +14,11 @@ import {
   getVerifiedIpersonalGeography,
   runIpersonalSpecInProduction,
 } from '../scripts/lib/ipersonal-spec-runtime.mjs';
+
+const REAL_IPERSONAL_LISTING_FIXTURE = readFileSync(
+  resolve(import.meta.dirname, 'fixtures/ipersonal-live-listing-20261001.html'),
+  'utf8',
+);
 
 describe('MediPersonal crawler parser', () => {
   describe('shared Simple Job Board detail boundary', () => {
@@ -147,6 +154,314 @@ describe('MediPersonal crawler parser', () => {
       expect(first[0].description).toContain('\n• Patientinnen kompetent betreuen');
       expect(acceptedEncodings.length).toBeGreaterThan(0);
       expect(acceptedEncodings.every((value) => value === 'identity')).toBe(true);
+    });
+
+    it('sends direct requests through the fetch paired with the policy dispatcher', async () => {
+      // No fetchImpl: the production transport. Only a fetch that accepts the
+      // policy's npm-undici dispatcher reaches its connection-time DNS guard,
+      // which refuses the loopback answer before any socket is opened. Node's
+      // bundled fetch rejects that dispatcher under undici 8: every direct
+      // request became "fetch failed" and silently fell back to Jina.
+      const jinaCalls: string[] = [];
+      await expect(runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
+        seedUrls: ['https://med-ipersonal.ch/'], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        jinaFetchImpl: (async (input: string | URL | Request) => {
+          jinaCalls.push(String(input));
+          throw new TypeError('fetch failed');
+        }) as typeof fetch,
+        lookupImpl: async () => [{ address: '127.0.0.1', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+        jinaRetries: 0,
+        jinaRetryBaseMs: 0,
+      })).rejects.toThrow(/unsafe prospector DNS target/);
+      expect(jinaCalls).toEqual([]);
+    });
+
+    it('keeps source JSON-LD geography when the listing uses a richer H1 title', async () => {
+      const seedUrl = 'https://ipersonal-title-variant.example/';
+      const detailUrl = `${seedUrl}jobs/elektroplaner-mels/`;
+      const listingTitle = 'Elektroplaner 100% in der Region Mels – Direkte Festanstellung';
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und koordiniert Termine zuverlässig.';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) return new Response(`<a href="${detailUrl}">${listingTitle}</a>`, { status: 200 });
+        return new Response(`
+          <h1>${listingTitle}</h1>
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: 'Elektroplaner – Region Mels',
+            url: detailUrl,
+            description,
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Mels',
+                postalCode: '8887',
+                addressRegion: 'St. Gallen',
+                addressCountry: 'CH',
+              },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Elektroprojekte zuverlässig planen und dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'med-ipersonal', companyName: 'iPersonal AG', platform: 'ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        title: 'Elektroplaner – Region Mels',
+        location: 'Mels, St. Gallen',
+        canton: 'SG',
+      });
+      expect(jobs[0].description).toContain('\n• Elektroprojekte zuverlässig planen');
+    });
+
+    it('matches the detail URL before ignoring the marketing-rich title', async () => {
+      const seedUrl = 'https://ipersonal-multiple-records.example/';
+      const detailUrl = `${seedUrl}jobs/elektroplaner-mels/`;
+      const relatedUrl = `${seedUrl}jobs/related-zurich/`;
+      const listingTitle = 'Elektroplaner 100% in der Region Mels – Direkte Festanstellung';
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und koordiniert Termine zuverlässig.';
+      const record = (title: string, url: string, locality: string, region: string) => ({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting', title, url, description,
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: locality,
+            addressRegion: region,
+            addressCountry: 'CH',
+          },
+        },
+      });
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) return new Response(`<a href="${detailUrl}">${listingTitle}</a>`, { status: 200 });
+        return new Response(`
+          <h1>${listingTitle}</h1>
+          <script type="application/ld+json">${JSON.stringify([
+            record('Related role Zürich', relatedUrl, 'Zürich', 'Zürich'),
+            record('Elektroplaner – Region Mels', detailUrl, 'Mels', 'St. Gallen'),
+          ])}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Elektroprojekte zuverlässig planen und dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'med-ipersonal', companyName: 'iPersonal AG', platform: 'ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        title: 'Elektroplaner – Region Mels',
+        location: 'Mels, St. Gallen',
+        canton: 'SG',
+      });
+      expect(jobs[0].location).not.toContain('Zürich');
+    });
+
+    it('accounts for Jina-rescued seed and detail pages in the complete snapshot', async () => {
+      const seedUrl = 'https://ipersonal-proxy-fixture.example/';
+      const detailUrl = `${seedUrl}jobs/proxy-role/`;
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+      const detailHtml = `<script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Proxy role',
+        url: detailUrl,
+        description,
+        jobLocation: {
+          '@type': 'Place',
+          address: { '@type': 'PostalAddress', addressLocality: 'Bern', addressRegion: 'BE', addressCountry: 'CH' },
+        },
+      })}</script><section class="job-profile-section"><div id="Jobdetails"><p>${description}</p><h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul></div></section>${' '.repeat(120)}`;
+      const seedHtml = `<html><head><title>iPersonal</title></head><body><a href="${detailUrl}">Proxy role</a><p>${'Open vacancies and current opportunities '.repeat(8)}</p></body></html>`;
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url.startsWith('https://r.jina.ai/')) {
+          const targetUrl = url.slice('https://r.jina.ai/'.length);
+          return new Response(targetUrl === seedUrl ? seedHtml : detailHtml, { status: 200 });
+        }
+        throw new TypeError('fetch failed');
+      };
+
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'med-ipersonal', companyName: 'iPersonal AG', platform: 'ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        jinaFetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+        jinaRetries: 0,
+        jinaRetryBaseMs: 0,
+      });
+      expect(jobs).toHaveLength(1);
+      expect((jobs as any).loadedSeedCount).toBe(1);
+      expect((jobs as any).discoveredCount).toBe(1);
+      expect((jobs as any).resolvedDetailCount).toBe(1);
+      expect((jobs as any).parsedDetailCount).toBe(1);
+      expect((jobs as any).detailFailureCount).toBe(0);
+      expect((jobs as any).sourceIdentityCollisionCount).toBe(0);
+      expect((jobs as any).unaccountedReturnedCount).toBe(0);
+    });
+
+    it('replaces a direct 200 challenge with rescue evidence keyed by the requested URL', async () => {
+      const seedUrl = 'https://ipersonal-challenge-fixture.example/';
+      const detailUrl = `${seedUrl}jobs/rescued-role/`;
+      const resolvedDetailUrl = `${seedUrl}jobs/resolved-role/`;
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+      const challenge = '<html><head><title>Challenge Validation</title></head>'
+        + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+        + `${' blocked'.repeat(30)}</body></html>`;
+      const rescueHtml = `<script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Rescued role',
+        url: resolvedDetailUrl,
+        description,
+        jobLocation: {
+          '@type': 'Place',
+          address: { '@type': 'PostalAddress', addressLocality: 'Bern', addressRegion: 'BE', addressCountry: 'CH' },
+        },
+      })}</script><section class="job-profile-section"><div id="Jobdetails"><p>${description}</p><h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul></div></section>`;
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(`<a href="${detailUrl}">Rescued role</a><p>${'Open vacancies and current opportunities '.repeat(8)}</p>`, {
+            status: 200,
+          });
+        }
+        if (url === detailUrl) {
+          const response = new Response(challenge, { status: 200 });
+          Object.defineProperty(response, 'url', { value: resolvedDetailUrl });
+          return response;
+        }
+        throw new Error(`unexpected direct URL ${url}`);
+      };
+      const jinaFetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url === `https://r.jina.ai/${detailUrl}`) return new Response(rescueHtml, { status: 200 });
+        throw new Error(`unexpected Jina URL ${url}`);
+      };
+
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        jinaFetchImpl: jinaFetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+        jinaRetries: 0,
+        jinaRetryBaseMs: 0,
+      });
+      const evidence = jobs as typeof jobs & {
+        qualityDroppedCount: number;
+        resolvedDetailCount: number;
+        parsedDetailCount: number;
+        unaccountedReturnedCount: number;
+      };
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].description).toContain(description);
+      expect(evidence.qualityDroppedCount).toBe(0);
+      expect(evidence.resolvedDetailCount).toBe(1);
+      expect(evidence.parsedDetailCount).toBe(1);
+      expect(evidence.unaccountedReturnedCount).toBe(0);
+    });
+
+    it('counts the real listing fixture when the seed is served by clean-IP rescue', async () => {
+      const seedUrl = 'https://www.ipersonal.ch/';
+      const detailUrls = [...REAL_IPERSONAL_LISTING_FIXTURE.matchAll(
+        /href="([^"]+\/jobs\/[^"?]+)"/g,
+      )].map(([, url]) => url);
+      const rescueCalls: string[] = [];
+      const description = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig.';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) return new Response('Forbidden for runner egress', { status: 403 });
+        const detailUrl = detailUrls.find((candidate) => candidate === url);
+        if (!detailUrl) return new Response('Not found', { status: 404 });
+        const title = detailUrl.split('/jobs/')[1].replace(/\/$/, '').replace(/-/g, ' ');
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title,
+            url: detailUrl,
+            description,
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH',
+              },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Aufgaben sorgfältig bearbeiten</li></ul>
+          </div></section>`, { status: 200, headers: { 'Content-Type': 'text/html' } });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        jinaFetchImpl: async (input: string | URL | Request) => {
+          rescueCalls.push(String(typeof input === 'string' || input instanceof URL ? input : input.url));
+          return new Response(REAL_IPERSONAL_LISTING_FIXTURE, { status: 200 });
+        },
+        jinaRetries: 0,
+        jinaSleepImpl: async () => undefined,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+      const evidence = jobs as typeof jobs & {
+        discoveredCount: number;
+        expectedSeedCount: number;
+        loadedSeedCount: number;
+      };
+
+      expect(rescueCalls).toHaveLength(1);
+      expect(detailUrls).toHaveLength(12);
+      expect(jobs).toHaveLength(12);
+      expect(evidence.discoveredCount).toBe(12);
+      expect(evidence.expectedSeedCount).toBe(1);
+      expect(evidence.loadedSeedCount).toBe(1);
     });
 
     it('pubblica la riga il cui corpo ricco lo vede solo il confine iPersonal', async () => {
@@ -444,6 +759,58 @@ describe('MediPersonal crawler parser', () => {
             <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul>
           </div></section>`, { status: 200 });
       };
+      await expect(runIpersonalSpecInProduction({
+        companyKey: 'ipersonal',
+        companyName: 'MediPersonal',
+        platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl],
+        mode: 'template',
+        detailTemplate: '/jobs/*/',
+        detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      })).rejects.toThrow(/detail failure\/reuse policy rejected 1\/2/);
+    });
+
+    it('reuses only the matching rich previous detail after a bounded failure', async () => {
+      const seedUrl = 'https://ipersonal-previous-detail.example/';
+      const acceptedUrls = Array.from(
+        { length: 6 },
+        (_, index) => `${seedUrl}jobs/accepted-${index + 1}/`,
+      );
+      const failedUrl = `${seedUrl}jobs/temporarily-blocked/`;
+      const previousDescription = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.\n• Ergebnisse zuverlässig dokumentieren';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(
+            acceptedUrls.map((detailUrl) => `<a href="${detailUrl}">Fachperson Zürich</a>`).join('')
+              + `<a href="${failedUrl}">Temporarily blocked role</a>`,
+            { status: 200 },
+          );
+        }
+        if (url === failedUrl) return new Response('temporary upstream outage', { status: 500 });
+        const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: 'Fachperson Zürich',
+            url,
+            description,
+            jobLocation: {
+              '@type': 'Place',
+              address: { '@type': 'PostalAddress', addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails"><p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
       const jobs = await runIpersonalSpecInProduction({
         companyKey: 'ipersonal',
         companyName: 'MediPersonal',
@@ -457,19 +824,35 @@ describe('MediPersonal crawler parser', () => {
         lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
         sleepImpl: async () => undefined,
         retries: 0,
+        previousJobs: [{
+          url: failedUrl,
+          title: 'Temporarily blocked role',
+          description: previousDescription,
+          descriptionByLocale: { de: previousDescription },
+          sourceLang: 'de',
+          location: 'Zürich',
+          canton: 'ZH',
+          addressLocality: 'Zürich',
+          addressRegion: 'ZH',
+          addressCountry: 'CH',
+          company: 'MediPersonal',
+        }],
       });
       const evidence = jobs as typeof jobs & {
-        discoveredCount: number;
-        qualityDroppedCount: number;
         detailFailureCount: number;
+        detailFailureUrls: string[];
+        reusedDetailCount: number;
+        reusedDetailUrls: string[];
+        previousSnapshotIdentityCollisionCount: number;
       };
-      expect(jobs).toHaveLength(1);
-      expect(evidence.discoveredCount).toBe(2);
-      expect(evidence.qualityDroppedCount).toBe(0);
+
+      expect(jobs).toHaveLength(7);
+      expect(jobs.find((job) => job.url === failedUrl)?.description).toBe(previousDescription);
       expect(evidence.detailFailureCount).toBe(1);
-      expect(() => assertCompleteIpersonalSnapshot(evidence)).toThrow(
-        /detail fetch\/parse failure/,
-      );
+      expect(evidence.detailFailureUrls).toEqual([failedUrl.replace(/\/$/, '')]);
+      expect(evidence.reusedDetailCount).toBe(1);
+      expect(evidence.reusedDetailUrls).toEqual(evidence.detailFailureUrls);
+      expect(evidence.previousSnapshotIdentityCollisionCount).toBe(0);
     });
 
     it('surfaces two detail aliases resolving to one response identity', async () => {

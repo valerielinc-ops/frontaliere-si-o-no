@@ -94,6 +94,28 @@ describe('job localization pipeline', () => {
     expect(stats.providerHits.libretranslate).toBe(1);
   });
 
+  it('falls back when NLLB loops (pkb-private-bank «Risk-Lights-Lights-…»)', async () => {
+    const source = 'Per la nostra sede di Lugano ricerchiamo un Risk Officer con esperienza di almeno 5 anni, con sviluppate competenze negli ambiti della sorveglianza dei rischi relativi alle attività della gestione patrimoniale.';
+    const looping = `For our headquarters in Lugano we receive a Risk-${'Lights-'.repeat(40)}Lights officer.`;
+    const clean = 'For our Lugano headquarters we are looking for a Risk Officer with at least 5 years of experience and well-developed skills in monitoring the risks of wealth management activities.';
+    const fetchMock = vi.fn(async (url: string) => ({
+      ok: true,
+      json: async () => ({ translatedText: String(url).includes(':9001') ? looping : clean }),
+    }));
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    const translated = await translateTextWithLocalPipeline({
+      text: source,
+      sourceLang: 'it',
+      targetLang: 'en',
+      kind: 'description',
+      minChars: 120,
+    });
+
+    expect(translated).toBe(clean);
+    expect(getJobLocalizationPipelineStats().providerFailures.nllb).toBe(1);
+  });
+
   it('falls back when NLLB echoes a source sentinel in a mangled form', async () => {
     const fetchMock = vi.fn(async (url: string) => {
       if (String(url).includes(':9001')) {
@@ -182,6 +204,39 @@ describe('job localization pipeline', () => {
     expect(result?.de?.title).toBe('Entwickler Software');
     expect(result?.en?.requirements).toEqual(['Knowledge of REST APIs']);
     expect(result?.de?.requirements).toEqual(['Kenntnisse von REST-APIs']);
+  });
+
+  it('rejects a candidate that keeps one list item and drops the other source items', async () => {
+    const source = [
+      'This job description contains enough translated prose to exercise the local quality gate.',
+      '- First source item with detailed responsibilities, coordination work and operational context.',
+      '- Second source item with detailed responsibilities, coordination work and operational context.',
+      '- Third source item with detailed responsibilities, coordination work and operational context.',
+    ].join('\n');
+    const incomplete = [
+      'This candidate contains enough translated prose to clear the length-ratio threshold.',
+      '- Only one translated item remains with detailed responsibilities, coordination work and operational context.',
+    ].join('\n');
+    const fetchMock = vi.fn(async () => ({
+      ok: true,
+      json: async () => ({ translatedText: incomplete }),
+    }));
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    const translated = await translateTextWithLocalPipeline({
+      text: source,
+      sourceLang: 'en',
+      targetLang: 'it',
+      kind: 'description',
+      minChars: 120,
+    });
+
+    expect(source.length).toBeGreaterThanOrEqual(180);
+    expect(incomplete.length).toBeGreaterThanOrEqual(source.length * 0.45);
+    expect(translated).toBe('');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(getJobLocalizationPipelineStats().providerFailures.nllb).toBe(1);
+    expect(getJobLocalizationPipelineStats().providerFailures.libretranslate).toBe(1);
   });
 
   it('merges a sibling crawler process\'s concurrent write instead of clobbering it on persist', async () => {

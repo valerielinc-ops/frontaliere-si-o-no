@@ -10,6 +10,7 @@
  * 5. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -42,6 +43,8 @@ import {
   parseLombardiDetailPage,
   isLombardiLocalJob,
   buildLombardiLocalizedContent,
+  lombardiHasSourceBody,
+  scrubLombardiLegacyLocaleCopies,
   titleOverlap,
 } from './lib/lombardi-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
@@ -149,16 +152,18 @@ function buildLombardiJob(raw, detail) {
   // Use full structured markdown from detail page
   const detailMarkdown = detail?.markdown || '';
 
+  // Source-language content only; null without a detail body (see mergeJobs:
+  // an earlier source body is kept, otherwise the job is not published).
   const localized = buildLombardiLocalizedContent({
     title,
     city,
-    occupancy,
     detailMarkdown,
   });
+  const sourceLang = localized?.sourceLang || detectLang(title, 'it');
 
   const job = {
-    title: localized.titleByLocale.it,
-    slug: localized.slugByLocale.it,
+    title,
+    slug: localized?.slugByLocale[sourceLang] || '',
     url: `${DETAIL_BASE}${raw.annuncioId}`,
     applyUrl: `${DETAIL_BASE}${raw.annuncioId}`,
     company: COMPANY_NAME,
@@ -173,20 +178,23 @@ function buildLombardiJob(raw, detail) {
     category: inferCategory(title),
     sector: 'Ingegneria civile',
     source: 'lombardi-dedicated-crawler',
-    sourceLang: detailMarkdown ? detectLang(detailMarkdown, 'it') : detectLang(title, 'it'),
-    postedDate: new Date().toISOString().slice(0, 10),
+    sourceLang,
+    ...sourcePostingDateFields(),
     employmentType: occupancy.includes('100%') ? 'full-time' : 'part-time',
     contractType: 'permanent',
     validThrough: '',
-    description: detailMarkdown || localized.descriptionByLocale.it,
-    titleByLocale: localized.titleByLocale,
-    descriptionByLocale: localized.descriptionByLocale,
-    slugByLocale: localized.slugByLocale,
+    description: localized ? detailMarkdown : '',
+    titleByLocale: localized?.titleByLocale || {},
+    descriptionByLocale: localized?.descriptionByLocale || {},
+    slugByLocale: localized?.slugByLocale || {},
   };
 
-  // Mark as enriched from detail page for stale translation cleanup
-  if (detailMarkdown.length > 100) {
+  // Mark as enriched from detail page for stale translation cleanup; without
+  // a body the job carries no text of its own (see mergeJobs).
+  if (localized) {
     job._enrichedFromDetail = true;
+  } else {
+    job._noSourceBody = true;
   }
 
   return job;
@@ -205,13 +213,28 @@ function mergeJobs(discoveredJobs) {
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
+  let withoutSourceBody = 0;
+  const mergedTarget = [];
+  for (const job of discoveredJobs) {
     const prev = existingByKey.get(jobMatchKey(job));
+    if (job._noSourceBody) {
+      // Detail page unavailable this run: keep the body read from the source
+      // on an earlier run, or leave the job out — never a made-up text.
+      if (prev && lombardiHasSourceBody(prev)) {
+        updated += 1;
+        mergedTarget.push(scrubLombardiLegacyLocaleCopies({ ...prev, ...mergeSourcePostingDates(prev, job) }));
+      } else {
+        withoutSourceBody += 1;
+        console.log(`  ⏭️ ${job.title} — detail body unavailable, not published this run`);
+      }
+      continue;
+    }
     if (!prev) {
       added += 1;
       const clean = { ...job };
       delete clean._enrichedFromDetail;
-      return clean;
+      mergedTarget.push(clean);
+      continue;
     }
     updated += 1;
     // When description was enriched from detail page, clear stale locale translations
@@ -221,6 +244,7 @@ function mergeJobs(discoveredJobs) {
     const clean = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, srcLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, { ...prevDesc, ...(job.descriptionByLocale || {}) }, 30, srcLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3, srcLang),
@@ -228,8 +252,13 @@ function mergeJobs(discoveredJobs) {
     };
     captureLostSlugs(clean, prev.slugByLocale, prev.slug, 20);
     delete clean._enrichedFromDetail;
-    return clean;
-  });
+    // The invented `it` blurb and the verbatim title copies of earlier runs
+    // survive the merge above (non-source slots keep `prev`): drop them here.
+    mergedTarget.push(scrubLombardiLegacyLocaleCopies(clean));
+  }
+  if (withoutSourceBody > 0) {
+    console.log(`⏭️ ${withoutSourceBody} Lombardi job(s) without a source body left out of this run.`);
+  }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
@@ -251,7 +280,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

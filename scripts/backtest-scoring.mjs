@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 // scripts/backtest-scoring.mjs
 //
 // Phase 2 backtest harness — replays historical headlines through the
@@ -225,14 +227,17 @@ async function main() {
     writeFileSync(args.output, json + '\n');
     console.error(`backtest: report → ${args.output}`);
   } else {
-    process.stdout.write(json + '\n');
+    // Exit only once the pipe took the whole report: process.exit() right
+    // after write() keeps the first 65536 bytes of a piped stdout.
+    process.stdout.write(json + '\n', () => process.exit(0));
+    return;
   }
   process.exit(0);
 }
 
 const isDirect = (() => {
   try {
-    return resolve(process.argv[1] || '') === resolve(new URL(import.meta.url).pathname);
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

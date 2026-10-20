@@ -1,8 +1,9 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertForJob } from '@/services/jobAlertService';
+import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
 export type JobDetailJobAlertButtonStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -23,8 +24,12 @@ export interface JobDetailJobAlertButtonProps {
   sourceJobTitle?: string | null;
   /** Called on a successful create (analytics / gating side-effects). */
   onSubscribed?: () => void;
+  /** Called once on a direct one-tap action, before the create request starts. */
+  onAccepted?: () => void;
   /** Called when subscribe throws. */
   onErrored?: (error: unknown) => void;
+  /** Fired once when the direct detail CTA becomes visible. */
+  onImpression?: () => void;
   /** Optional override for the subscribe call (used by tests). */
   subscribe?: typeof subscribeJobAlertForJob;
 }
@@ -38,15 +43,32 @@ export default function JobDetailJobAlertButton({
   sourceJobUrl,
   sourceJobTitle,
   onSubscribed,
+  onAccepted,
   onErrored,
+  onImpression,
   subscribe = subscribeJobAlertForJob,
 }: JobDetailJobAlertButtonProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<JobDetailJobAlertButtonStatus>('idle');
+  const submissionStartedRef = useRef(false);
+  const impressionTrackedRef = useRef(false);
+  const reportImpression = useCallback(() => {
+    if (impressionTrackedRef.current) return;
+    impressionTrackedRef.current = true;
+    onImpression?.();
+  }, [onImpression]);
+  const impressionRef = useImpressionTracker(reportImpression);
   const handleClick = useCallback(async () => {
     if (!jobId) return;
+    if (submissionStartedRef.current) return;
+    submissionStartedRef.current = true;
+    // A click proves the CTA was visible even if the observer callback has not
+    // run yet; emit the denominator before the create can succeed.
+    reportImpression();
     setStatus('submitting');
     try {
+      // Telemetry must not prevent the requested alert from being created.
+      try { onAccepted?.(); } catch { /* best-effort analytics */ }
       await subscribe(userId, email, jobId, locale, {
         slug: sourceJobSlug ?? null,
         url: sourceJobUrl ?? null,
@@ -69,22 +91,25 @@ export default function JobDetailJobAlertButton({
       // never present a successful subscription as a failure.
       if (onSubscribed) onSubscribed();
     } catch (error: unknown) {
+      submissionStartedRef.current = false;
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [email, jobId, locale, onErrored, onSubscribed, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
+  }, [email, jobId, locale, onAccepted, onErrored, onSubscribed, reportImpression, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
 
   if (status === 'success') {
     return (
-      <p className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-success">
-        <Check className="w-4 h-4" aria-hidden="true" />
-        {t('jobAlert.jobDetailButton.success', 'Ti avviseremo su questo annuncio ✓')}
-      </p>
+      <div ref={impressionRef} className="mt-3">
+        <p className="inline-flex items-center gap-2 text-sm font-semibold text-success">
+          <Check className="w-4 h-4" aria-hidden="true" />
+          {t('jobAlert.jobDetailButton.success', 'Ti avviseremo su questo annuncio ✓')}
+        </p>
+      </div>
     );
   }
 
   return (
-    <div className="mt-3">
+    <div ref={impressionRef} className="mt-3">
       <button
         type="button"
         onClick={handleClick}

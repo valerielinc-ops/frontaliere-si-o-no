@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Append a translation stats snapshot to data/translation-stats-history.json.
  * Called by translate-pending.yml after each run to build a monitoring history.
@@ -65,7 +67,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { fileURLToPath } from 'node:url';
+
 import { isIncomplete as isIncompleteCanonical } from './relocalize-pending-jobs.mjs';
 import {
   titleOffence,
@@ -73,9 +75,17 @@ import {
   genderFormOffence,
   genderFormTargetResidual,
 } from './mark-mistranslated-jobs.mjs';
-import { QUEUE_AGE_BUCKET_KEYS, summarizeQueueAge } from './lib/job-traffic-priority.mjs';
+import { QUEUE_AGE_BUCKET_KEYS, jobQueuedAtMs, summarizeQueueAge } from './lib/job-traffic-priority.mjs';
+import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
+import { currentPredicateVersion } from './lib/incomplete-predicate-version.mjs';
+import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
-import { normalizeJobLocale } from './lib/job-locale-utils.mjs';
+import {
+  isDescriptionSourceCopy,
+  normalizeJobLocale,
+  sourceLocaleTextCandidates,
+} from './lib/job-locale-utils.mjs';
+import { readCodexReserveReports, summarizeCodexReserve } from './lib/codex-reserve-report.mjs';
 
 /**
  * Root of the tree being measured. The normal invocation leaves this empty
@@ -220,6 +230,130 @@ export function buildGenderFormRepairReport({
   };
 }
 
+/**
+ * ── The cross-run window (#7991 item 3, «misura del dopo») ────────────────
+ * The per-run report above is `measured` only when all 120 sampled jobs leave
+ * the queue between the `before` and the `after` pass of ONE run. With ~11k
+ * queued candidates and ~10 sample members served per run that never happens
+ * (98 `after` rows, 0 `measured`, 2026-10-03), and the sidecar that would let
+ * a later run continue the same cohort dies with the runner. So the per-run
+ * guard was honest but the measurement it guards could not exist.
+ *
+ * The window collects the SAME 120-job sample across runs: the last
+ * GENDER_FORM_SAMPLE_SIZE DISTINCT sample members that left the queue, each
+ * with its own residual outcome. It is not a cumulative series total — that
+ * sums different samples without deduplication and dilutes the recent rate
+ * into the whole history. A job already in the window replaces its own entry
+ * (moved to the tail with the new outcome), and the oldest entries fall out,
+ * so `residualRate` follows the last 120 jobs. `measured` is true only when
+ * the window is full; the per-run `measured`/`status` above are unchanged.
+ *
+ * State: `members`, one `"<16 hex of sha256(id)>:<0|1>"` string per job,
+ * oldest first. It lives on exactly ONE history row — the newest `after` row
+ * — and is stripped from every older row when a new one is written, so the
+ * tracked file does not grow. `before` rows never carry or touch it: their
+ * write stays a pure append, which keeps the slice commit's history diff
+ * mergeable against a concurrent run.
+ */
+const WINDOW_MEMBER_RE = /^([0-9a-f]{16}):([01])$/;
+
+function windowMemberHash(id) {
+  return sha256(id).slice(0, 16);
+}
+
+/** @returns {{ members: string[], runs: number }} the newest window state in `history`. */
+export function readGenderFormWindowState(history) {
+  const rows = Array.isArray(history) ? history : [];
+  for (let index = rows.length - 1; index >= 0; index--) {
+    const window = rows[index]?.genderFormRepair?.window;
+    if (!window || typeof window !== 'object' || !Array.isArray(window.members)) continue;
+    const members = window.members.filter((member) =>
+      typeof member === 'string' && WINDOW_MEMBER_RE.test(member));
+    const runs = Number.isInteger(window.runs) && window.runs >= 0 ? window.runs : 0;
+    return { members, runs };
+  }
+  return { members: [], runs: 0 };
+}
+
+/**
+ * Fold this run's sample outcomes into the previous window. Pure.
+ *
+ * @param {{ members?: string[], runs?: number }} previous
+ * @param {Array<{ id: string, residual: boolean }>} outcomes
+ * @param {{ size?: number, queueCandidates?: number|null }} [options]
+ */
+export function updateGenderFormWindow(
+  previous,
+  outcomes,
+  { size = GENDER_FORM_SAMPLE_SIZE, queueCandidates = null } = {},
+) {
+  const limit = Number.isInteger(size) && size > 0 ? size : GENDER_FORM_SAMPLE_SIZE;
+  // Map iteration order is insertion order: delete + set moves a re-processed
+  // job to the tail, which is what makes the oldest entries the ones to drop.
+  const byHash = new Map();
+  for (const member of Array.isArray(previous?.members) ? previous.members : []) {
+    const match = typeof member === 'string' ? WINDOW_MEMBER_RE.exec(member) : null;
+    if (!match) continue;
+    byHash.delete(match[1]);
+    byHash.set(match[1], match[2]);
+  }
+  let contributed = false;
+  for (const outcome of Array.isArray(outcomes) ? outcomes : []) {
+    const id = typeof outcome?.id === 'string' ? outcome.id.trim() : '';
+    if (!id) continue;
+    const hash = windowMemberHash(id);
+    byHash.delete(hash);
+    byHash.set(hash, outcome.residual ? '1' : '0');
+    contributed = true;
+  }
+  const members = [...byHash].map(([hash, residual]) => `${hash}:${residual}`).slice(-limit);
+  const processed = members.length;
+  const residual = members.filter((member) => member.endsWith(':1')).length;
+  const previousRuns = Number.isInteger(previous?.runs) && previous.runs >= 0 ? previous.runs : 0;
+  return {
+    size: limit,
+    processed,
+    residual,
+    residualRate: processed > 0 ? residual / processed : null,
+    runs: previousRuns + (contributed ? 1 : 0),
+    measured: processed >= limit,
+    queueCandidates: Number.isInteger(queueCandidates) && queueCandidates >= 0 ? queueCandidates : null,
+    members,
+  };
+}
+
+/**
+ * Append `entry` to `history` (in place) and keep the last 200 rows. An
+ * `after` row also gets `genderFormRepair.window`, built from the newest
+ * window in the history plus `genderFormOutcomes`; `members` is then removed
+ * from every older row so exactly one row carries it.
+ *
+ * @returns {object[]} history
+ */
+export function appendHistoryEntry(history, entry, { genderFormOutcomes = [] } = {}) {
+  const rows = Array.isArray(history) ? history : [];
+  if (entry?.label === 'after' && entry.genderFormRepair) {
+    const previous = readGenderFormWindowState(rows);
+    entry.genderFormRepair.window = updateGenderFormWindow(previous, genderFormOutcomes, {
+      queueCandidates: entry.genderFormRepair.queuedCandidates,
+    });
+    for (const row of rows) {
+      const window = row?.genderFormRepair?.window;
+      if (window && typeof window === 'object' && 'members' in window) delete window.members;
+    }
+  }
+  rows.push(entry);
+  // Keep last 200 entries
+  if (rows.length > 200) rows.splice(0, rows.length - 200);
+  return rows;
+}
+
+/** The committed history at `statsFile`, or `[]` when absent or malformed. */
+export function readHistory(statsFile) {
+  const raw = readJson(statsFile);
+  return Array.isArray(raw) ? raw : [];
+}
+
 function readJson(p) {
   try { return JSON.parse(fs.readFileSync(p, 'utf-8')); } catch { return null; }
 }
@@ -273,7 +407,7 @@ export function formatGenderFormRate(residual, processed) {
 export function classifyJob(job) {
   const tbl = job.titleByLocale || {};
   const sourceTitle = (job.title || '').trim().toLowerCase();
-  const sourceLang = job.sourceLang || 'it';
+  const sourceLang = normalizeJobLocale(job.sourceLang) || 'it';
   const incomplete = isIncompleteCanonical(job);
 
   let sourceCopyExcused = false;
@@ -385,8 +519,29 @@ export function emptyCounters() {
     genderFormCohortCandidates: [],
     genderFormSampleProcessed: 0,
     genderFormSampleResidual: 0,
+    // Per-id outcome of every sample member counted in `genderFormSampleProcessed`
+    // (`after` pass only): at most GENDER_FORM_SAMPLE_SIZE entries per run. It
+    // feeds the cross-run window (`appendHistoryEntry` → `updateGenderFormWindow`),
+    // which needs to know WHICH jobs were processed so the same job is never
+    // counted twice.
+    genderFormSampleOutcomes: [],
+    // Agency admission threshold (owner decision 2026-10-03): jobs kept out of
+    // publication until their titles are translated. Before/after of one run
+    // is the translation capacity spent on admissions.
+    publicationHeld: 0,
+    publicationHeldByCrawler: {},
+    // The 24-48 h cohort (first seen between one and two days before `now`):
+    // the map's second condition asks for every locale within 24 h, so a job
+    // aged 24-48 h that is still incomplete has missed it. Counted here so the
+    // coverage monitor reads it from the history instead of re-scanning the
+    // corpus; before 2026-10-04 it was only measurable with a replay.
+    freshCohortTotal: 0,
+    freshCohortComplete: 0,
   };
 }
+
+/** Lower and upper age bound, in ms, of the cohort `freshCohort` counts. */
+export const FRESH_COHORT_WINDOW_MS = Object.freeze([24 * 3600 * 1000, 48 * 3600 * 1000]);
 
 /**
  * Stable-enough identity for the before/after cohort diff.
@@ -425,6 +580,7 @@ export function summarizeJobs(
     previouslyIncomplete = null,
     collectGenderFormCohort = false,
     previouslyGenderFormSample = null,
+    now = Date.now(),
   } = {},
 ) {
   const c = emptyCounters();
@@ -467,7 +623,9 @@ export function summarizeJobs(
         sourceLang === 'de';
       if (sampleRecord && sameSourceTitle && sameGermanSource && !incomplete && !flagged) {
         c.genderFormSampleProcessed++;
-        if (genderFormTargetResidual(job)) c.genderFormSampleResidual++;
+        const residual = genderFormTargetResidual(job);
+        if (residual) c.genderFormSampleResidual++;
+        c.genderFormSampleOutcomes.push({ id, residual });
       }
     }
 
@@ -485,6 +643,11 @@ export function summarizeJobs(
     // count into a (still upper-bound) translation count.
     if (flagged && !incomplete) c.flaggedAmongSlotsPresent++;
     if (job.localeMismatchSuppressed) c.suppressed++;
+    if (isHeldFromPublication(job)) {
+      c.publicationHeld++;
+      const heldKey = String(job.companyKey || '').trim().toLowerCase();
+      c.publicationHeldByCrawler[heldKey] = (c.publicationHeldByCrawler[heldKey] || 0) + 1;
+    }
     if (sourceCopyExcused) c.sourceCopyExcused++;
     // Observational, and deliberately OUTSIDE the `incomplete` branch below:
     // this pair is measured for every job and steers nothing.
@@ -506,19 +669,27 @@ export function summarizeJobs(
         });
       }
     }
+    const queuedAt = jobQueuedAtMs(job);
+    if (Number.isFinite(queuedAt)) {
+      const age = now - queuedAt;
+      if (age >= FRESH_COHORT_WINDOW_MS[0] && age < FRESH_COHORT_WINDOW_MS[1]) {
+        c.freshCohortTotal++;
+        if (!incomplete) c.freshCohortComplete++;
+      }
+    }
     if (incomplete) {
       c.incomplete++;
       if (collectIncompleteIds) {
         const id = jobCohortId(job);
         if (id) c.incompleteIds.push(id);
       }
-      const sourceDesc = (job.description || '').trim().toLowerCase();
-      const sourceLang = job.sourceLang || 'it';
+      const sourceLang = normalizeJobLocale(job.sourceLang) || 'it';
+      const sourceDescriptions = sourceLocaleTextCandidates(job, 'description');
       for (const loc of LOCALES) {
         const title = (job.titleByLocale?.[loc] || '').trim();
         const desc = (job.descriptionByLocale?.[loc] || '').trim();
         if (title.length < MIN_TITLE || desc.length < MIN_DESC ||
-            (desc.toLowerCase() === sourceDesc && loc !== sourceLang)) {
+            (loc !== sourceLang && sourceDescriptions.some((source) => isDescriptionSourceCopy(desc, source)))) {
           c.byLocale[loc]++;
         }
       }
@@ -541,11 +712,21 @@ export function mergeCounters(dst, src) {
   dst.genderFormQueuedCandidates += src.genderFormQueuedCandidates;
   dst.genderFormSampleProcessed += src.genderFormSampleProcessed;
   dst.genderFormSampleResidual += src.genderFormSampleResidual;
+  dst.publicationHeld += src.publicationHeld || 0;
+  dst.freshCohortTotal += src.freshCohortTotal || 0;
+  dst.freshCohortComplete += src.freshCohortComplete || 0;
+  for (const [key, count] of Object.entries(src.publicationHeldByCrawler || {})) {
+    dst.publicationHeldByCrawler[key] = (dst.publicationHeldByCrawler[key] || 0) + count;
+  }
   for (const loc of LOCALES) dst.byLocale[loc] += src.byLocale[loc];
   if (src.queuedSamples?.length) dst.queuedSamples.push(...src.queuedSamples);
   if (src.incompleteIds?.length) dst.incompleteIds.push(...src.incompleteIds);
   if (src.genderFormCohortCandidates?.length) {
     dst.genderFormCohortCandidates.push(...src.genderFormCohortCandidates);
+  }
+  if (src.genderFormSampleOutcomes?.length) {
+    if (!Array.isArray(dst.genderFormSampleOutcomes)) dst.genderFormSampleOutcomes = [];
+    dst.genderFormSampleOutcomes.push(...src.genderFormSampleOutcomes);
   }
   // An EMPTY array still promotes `dst` out of `null`: a slice that was diffed
   // and completed nothing is a measurement, and merging it must not read as
@@ -572,6 +753,8 @@ export function finalizeEntry(
     timestamp = new Date().toISOString(),
     now = Date.now(),
     genderFormRepair = undefined,
+    predicateVersion = null,
+    codexReserve = undefined,
   } = {},
 ) {
   const complete = counters.total - counters.incomplete;
@@ -633,7 +816,31 @@ export function finalizeEntry(
     // everywhere else, including on the 200 rows written before #17.
     completionAge,
     genderFormRepair: buildGenderFormRepairReport(genderFormRepair),
+    // Absent on rows written before the admission threshold: not measured.
+    publicationHold: {
+      held: counters.publicationHeld || 0,
+      byCrawler: { ...(counters.publicationHeldByCrawler || {}) },
+    },
+    // Which `isIncomplete()` counted this row (16 hex of sha256 of its sources,
+    // scripts/lib/incomplete-predicate-version.mjs). Two rows with different
+    // versions are not comparable without a recount: on 2026-09-30 a stricter
+    // predicate moved `complete` by -11.8 points in one commit, and without
+    // this field that step was indistinguishable from a data regression.
+    // `null` = not computed (rows before 2026-10-04, or the hash failed).
+    predicateVersion,
+    // Absent on rows written before 2026-10-04: not measured.
+    freshCohort: {
+      window: '24-48h',
+      total: counters.freshCohortTotal || 0,
+      complete: counters.freshCohortComplete || 0,
+    },
     topPending,
+    // Codex Luna Max reserve of this run (owner decision H7, 2026-10-05):
+    // translations it made and answers the admission gates refused, summed
+    // over the phases that wrote a report (scripts/lib/codex-reserve-report.mjs).
+    // Only on `after` rows: absent before 2026-10-05 and on `before` rows,
+    // `null` when the run left no report (not measured).
+    ...(codexReserve === undefined ? {} : { codexReserve }),
   };
 }
 
@@ -667,8 +874,28 @@ export function formatReport(entry) {
   row('Source-copy titles excused:', entry.sourceCopyExcused,
       '(byte-copy of the source title, waved through by the "others differ" rule)');
   row('Suppressed (gave up):', entry.suppressed);
+  row('Held for translation:', entry.publicationHold ? entry.publicationHold.held : 'not measured',
+      '(agency jobs kept out of publication until every title is translated)');
   const bl = entry.missingByLocale;
   row('Missing by locale:', `IT=${bl.it} EN=${bl.en} DE=${bl.de} FR=${bl.fr}`);
+  const fc = entry.freshCohort;
+  row('Complete, first seen 24-48h:', fc ? formatCompleteRatio(fc.complete, fc.total) : 'not measured',
+      '(the map asks for every locale within 24h)');
+  row('Predicate version:', entry.predicateVersion ?? 'not computed',
+      '(rows with different versions are not comparable without a recount)');
+  if (entry.codexReserve !== undefined) {
+    const cr = entry.codexReserve;
+    const codexUsage = cr ? [
+      `${cr.calls} calls`,
+      `${cr.textsSent} texts sent`,
+      Number.isFinite(Number(cr.charsSent)) ? `${cr.charsSent} chars` : '',
+      Number.isFinite(Number(cr.avgTextsPerCall)) ? `${Number(cr.avgTextsPerCall).toFixed(1)} texts/call` : '',
+      Number.isFinite(Number(cr.avgCharsPerCall)) ? `${Math.round(Number(cr.avgCharsPerCall))} chars/call` : '',
+      `verdict ${cr.verdict}`,
+    ].filter(Boolean).join(', ') : '(no phase wrote a report)';
+    row('Codex reserve:', cr ? `${cr.translated} translated, ${cr.rejected} rejected` : 'not measured',
+        cr ? `(${codexUsage})` : codexUsage);
+  }
 
   // Queue AGE. Printed unconditionally, including the `n/a` case, so a run that
   // stopped producing the metric is visible in the log instead of looking like
@@ -717,6 +944,16 @@ export function formatReport(entry) {
       ? `complete sample ${gf.sampled}/${gf.requested} · seed ${gf.seed}`
       : `${gf.processed}/${gf.sampled} processed · ${gf.status} · seed ${gf.seed}`;
     row('Gender-form after:', `${gf.residual}/${gf.processed} (${rate})`, note);
+  }
+  // Its own line, never folded into the one above: the window is measured
+  // across runs, the row above is this run's cohort. The queue size is printed
+  // next to the rate because #7991 judges the two together.
+  const gw = gf?.window;
+  if (gw) {
+    row('Gender-form window:',
+        `${gw.residual}/${gw.processed} (${formatGenderFormRate(gw.residual, gw.processed)})`,
+        `coda ${gw.queueCandidates ?? 'n/a'} · ${gw.runs} run dall'avvio · `
+          + `${gw.measured ? 'measured' : `accumulating ${gw.processed}/${gw.size}`}`);
   }
 
   // COMPLETE is reserved for the exact case: nothing missing and nothing
@@ -782,6 +1019,29 @@ function readCohortState() {
       records,
     },
   };
+}
+
+let cachedPredicateVersion;
+
+/**
+ * The fingerprint of the predicate that is counting, or `null` with a warning.
+ * Fail-open like the cohort sidecar: a missing fingerprint makes the coverage
+ * monitor say «predicato ignoto», it must never cost the translation run.
+ * Computed once per process: the code cannot change under a running process,
+ * and lib/translation-observability.mjs asks for it once per snapshot.
+ */
+export function predicateVersionOrNull() {
+  if (cachedPredicateVersion !== undefined) return cachedPredicateVersion;
+  try {
+    cachedPredicateVersion = currentPredicateVersion({
+      isIncomplete: isIncompleteCanonical,
+      helpers: { normalizeForLengthComparison },
+    });
+  } catch (err) {
+    console.warn(`::warning::[translation-stats] predicateVersion not computed: ${err.message}`);
+    cachedPredicateVersion = null;
+  }
+  return cachedPredicateVersion;
 }
 
 export function beforeCohortWarning(label, cohort) {
@@ -854,14 +1114,16 @@ function main() {
     label,
     topPending: topCompanies.slice(0, 10),
     genderFormRepair,
+    predicateVersion: predicateVersionOrNull(),
+    ...(isAfter ? { codexReserve: summarizeCodexReserve(readCodexReserveReports()) } : {}),
   });
 
+  // The history is read BEFORE printing: the `after` row's cross-run window
+  // is computed from it, and the report prints that window.
+  const history = appendHistoryEntry(readHistory(STATS_FILE), entry, {
+    genderFormOutcomes: counters.genderFormSampleOutcomes,
+  });
   for (const line of formatReport(entry)) console.log(line);
-
-  const history = readJson(STATS_FILE) || [];
-  history.push(entry);
-  // Keep last 200 entries
-  if (history.length > 200) history.splice(0, history.length - 200);
   fs.writeFileSync(STATS_FILE, JSON.stringify(history, null, 2) + '\n', 'utf-8');
   console.log(`   Saved to ${STATS_FILE} (${history.length} entries total)\n`);
 
@@ -902,5 +1164,5 @@ function main() {
 // tests that import this module red in a sparse worktree missing data/,
 // green in CI and in any full checkout — not a regression introduced here.
 const isMainModule = process.argv[1] &&
-  path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+  (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMainModule) main();

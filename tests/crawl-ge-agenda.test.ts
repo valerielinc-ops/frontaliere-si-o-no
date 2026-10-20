@@ -4,10 +4,64 @@
  * trimmed real markup captured from https://www.geneve.ch/agenda?page=0
  * (2026-07-06) so the DOM selectors are exercised against the real shape.
  */
-import { describe, it, expect } from 'vitest';
-import { parseGeneveDateFr, parseGeneveAgendaHtml } from '../scripts/crawl-ge-agenda.mjs';
+import { describe, it, expect, vi } from 'vitest';
+import { parseGeneveDateFr, parseGeneveAgendaHtml, extractGeneveEventPrice, enrichGeneveEvent } from '../scripts/crawl-ge-agenda.mjs';
+import { parseEventPriceText } from '../scripts/lib/event-metadata.mjs';
 
 const NOW = new Date('2026-07-06T00:00:00Z');
+
+describe('Geneva event admission metadata', () => {
+  const eventUrl = 'https://www.geneve.ch/agenda/chocolate-workshop';
+  const event = { id: 'ge-agenda:workshop', url: eventUrl };
+
+  it.each([
+    'Dès 12 ans, entrée gratuite',
+    'À partir de 12 ans, entrée gratuite',
+    'Dai 12 anni, entrata gratuita',
+    'From 12 years, free entry',
+    'Ab 12 Jahren, Eintritt frei',
+  ])('excludes supported locale age limits from the tariff: %s', (tariff) => {
+    expect(parseEventPriceText(tariff)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
+  it('reads the event tariff and ticket URL without taking prices from related events', () => {
+    const html = `<div class="field--name-field-rates-and-conditions">CHF 50.-</div>
+      <div class="field--name-field-oa-reservation-link"><a href="/tickets/workshop">Book</a></div>
+      <article class="event">Entrée gratuite</article>`;
+    expect(extractGeneveEventPrice(html, eventUrl)).toEqual({
+      amount: 50, currency: 'CHF', isFree: false, url: 'https://www.geneve.ch/tickets/workshop',
+    });
+  });
+
+  it('preserves a free tariff with a numeric registration phone', () => {
+    expect(extractGeneveEventPrice('<div class="field--name-field-rates-and-conditions">Gratuit, sur inscription au 0800 44 77 00.</div>', eventUrl))
+      .toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
+  it('does not turn an absent tariff or a related free event into a free admission', () => {
+    expect(extractGeneveEventPrice('<article class="event">Entrée gratuite</article>', eventUrl)).toBeUndefined();
+  });
+
+  it('keeps a verified booking URL when the event does not publish a tariff', async () => {
+    const html = '<div class="field--name-field-oa-reservation-link"><a href="/book">Book</a></div>';
+    expect(extractGeneveEventPrice(html, eventUrl)).toEqual({ url: 'https://www.geneve.ch/book' });
+    expect((await enrichGeneveEvent(event, async () => html)).price).toEqual({ url: 'https://www.geneve.ch/book' });
+  });
+
+  it('retains an ambiguous tariff and ignores non-HTTP booking links', () => {
+    const html = `<div class="field--name-field-rates-and-conditions">Sur demande</div>
+      <div class="field--name-field-oa-reservation-link"><a href="javascript:alert(1)">Book</a></div>`;
+    expect(extractGeneveEventPrice(html, eventUrl)).toEqual({ amount: null, currency: 'CHF', isFree: false });
+  });
+
+  it('enriches a record and keeps the original on a failed detail fetch', async () => {
+    expect(await enrichGeneveEvent(event, async () => '<div class="field--name-field-rates-and-conditions">CHF 50.-</div>'))
+      .toEqual({ ...event, price: { amount: 50, currency: 'CHF', isFree: false } });
+    const failed = await enrichGeneveEvent(event, async () => null);
+    expect(failed).toEqual(event);
+    expect((failed as any).detailFetchFailed).toBe(true);
+  });
+});
 
 describe('parseGeneveDateFr', () => {
   it('parses a single weekday+day+month+time (no year)', () => {
@@ -141,6 +195,93 @@ describe('parseGeneveAgendaHtml', () => {
   // start date + grace window of these very fixtures).
   const FIXED_NOW = new Date('2026-07-08T12:00:00Z');
 
+  it('does not publish a stale yearless range as an unconfirmed distant next-year event', () => {
+    const year = new Date().getUTCFullYear();
+    const now = new Date(Date.UTC(year, 9, 18, 12));
+    // A dated programme must not gain a new year solely because it is old.
+    const old = cardHtml({ date: '4 et 11 juillet', title: 'Tournée estivale des Communes - Samedis du Vélo 11 juillet' });
+    expect(parseGeneveAgendaHtml(old, 0, now)).toEqual([]);
+  });
+
+  it('keeps the neighbouring supported event instead of letting an inferred distant year enter the paging horizon', () => {
+    const year = new Date().getUTCFullYear();
+    const now = new Date(Date.UTC(year, 9, 18, 12));
+    const old = cardHtml({ href: '/agenda/stale-edition', date: '4 et 11 juillet' });
+    const current = cardHtml({ href: '/agenda/current-edition', date: '20 octobre', title: 'Current source programme' });
+    const events = parseGeneveAgendaHtml(`${old}${current}`, 0, now);
+    expect(events.map((event) => event.id)).toEqual(['ge-agenda:current-edition']);
+    expect(events[0].startDate).toBe(`${year}-10-20`);
+  });
+
+  it('does not disguise an old yearless until-date as an ongoing event through next year', () => {
+    const year = new Date().getUTCFullYear();
+    const now = new Date(Date.UTC(year, 9, 18, 12));
+    expect(parseGeneveAgendaHtml(cardHtml({ date: "jusqu'au 2 août" }), 0, now)).toEqual([]);
+  });
+
+  it('keeps supported ongoing yearless intervals and explicit until-dates', () => {
+    const year = new Date().getUTCFullYear();
+    const now = new Date(Date.UTC(year, 9, 18, 12));
+    const ongoing = parseGeneveAgendaHtml(cardHtml({ date: 'Du 1 au 20 octobre' }), 0, now);
+    expect(ongoing[0].startDate).toBe(`${year}-10-01`);
+    expect(ongoing[0].endDate).toBe(`${year}-10-20`);
+    const explicit = parseGeneveAgendaHtml(cardHtml({ date: `jusqu'au 2 août ${year + 1}` }), 0, now);
+    expect(explicit[0].endDate).toBe(`${year + 1}-08-02`);
+  });
+
+  it('preserves an explicitly published next year even outside the paging horizon', () => {
+    const year = new Date().getUTCFullYear();
+    const now = new Date(Date.UTC(year, 9, 18, 12));
+    const events = parseGeneveAgendaHtml(cardHtml({ date: `5 janvier ${year + 1}` }), 0, now);
+    expect(events).toHaveLength(1);
+    expect(events[0].startDate).toBe(`${year + 1}-01-05`);
+  });
+
+  it('preserves nearby year rollover for both individual dates and intervals', () => {
+    const year = new Date().getUTCFullYear();
+    const near = parseGeneveAgendaHtml(cardHtml({ date: '5 janvier' }), 0, new Date(Date.UTC(year, 11, 27, 12)));
+    expect(near[0].startDate).toBe(`${year + 1}-01-05`);
+    const interval = parseGeneveAgendaHtml(cardHtml({ date: '31 décembre et 1 janvier' }), 0, new Date(Date.UTC(year, 11, 27, 12)));
+    expect(interval[0].startDate).toBe(`${year}-12-31`);
+    expect(interval[0].endDate).toBe(`${year + 1}-01-01`);
+  });
+
+  it('rejects a distant inferred next-year range end even when its start is in the current year', () => {
+    const year = new Date().getUTCFullYear();
+    const now = new Date(Date.UTC(year, 9, 18, 12));
+    expect(parseGeneveAgendaHtml(cardHtml({ date: '31 décembre et 1 janvier' }), 0, now)).toEqual([]);
+    const explicit = parseGeneveAgendaHtml(cardHtml({ date: `31 décembre ${year} et 1 janvier` }), 0, now);
+    expect(explicit[0].startDate).toBe(`${year}-12-31`);
+    expect(explicit[0].endDate).toBe(`${year + 1}-01-01`);
+  });
+
+  it('keeps identical event output and rejection warnings without changing the parser process status', () => {
+    const year = new Date().getUTCFullYear();
+    const now = new Date(Date.UTC(year, 9, 18, 12));
+    const html = cardHtml({ href: '/agenda/stale-edition', date: '4 et 11 juillet' })
+      + cardHtml({ href: '/agenda/current-edition', date: '20 octobre' });
+    const exitCode = process.exitCode;
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const first = parseGeneveAgendaHtml(html, 0, now);
+      const second = parseGeneveAgendaHtml(html, 0, now);
+      expect(second).toEqual(first);
+      expect(first.map(event => event.id)).toEqual(['ge-agenda:current-edition']);
+      expect(warn).toHaveBeenCalledTimes(2);
+      expect(warn.mock.calls[0]).toEqual(warn.mock.calls[1]);
+      expect(warn.mock.calls[0][0]).toContain('unconfirmed year');
+      expect(process.exitCode).toBe(exitCode);
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
+  it('does not impose the paging horizon on a supported current-year future date', () => {
+    const year = new Date().getUTCFullYear();
+    const events = parseGeneveAgendaHtml(cardHtml({ date: '15 décembre' }), 0, new Date(Date.UTC(year, 9, 18, 12)));
+    expect(events[0].startDate).toBe(`${year}-12-15`);
+  });
+
   it('parses a real card into the canonical event shape (region-fallback comune)', () => {
     const html = `<div>${cardHtml()}</div>`;
     const events = parseGeneveAgendaHtml(html, 0, FIXED_NOW);
@@ -155,9 +296,8 @@ describe('parseGeneveAgendaHtml', () => {
       comuneMatch: 'region',
       canton: 'GE',
       url: 'https://www.geneve.ch/agenda/atelier-initiation-ecriture-braille-7-grand-juillet-gratuit-0',
-      imageUrl:
-        'https://www.geneve.ch/sites/default/files/styles/1_48_445x300/public/openagenda/oa-48925009.jpg.webp?itok=6fZquLMj',
     });
+    expect(events[0]).not.toHaveProperty('imageUrl');
     expect(events[0].endDate).toBeUndefined();
   });
 
@@ -177,7 +317,7 @@ describe('parseGeneveAgendaHtml', () => {
       title: 'Spectacle en plein air',
       description: 'Un spectacle familial au parc de Vernier, entrée libre',
     })}</div>`;
-    const events = parseGeneveAgendaHtml(html, 0);
+    const events = parseGeneveAgendaHtml(html, 0, FIXED_NOW);
     expect(events[0].comune).toBe('Vernier');
     expect(events[0].comuneMatch).toBe('exact');
   });
@@ -201,7 +341,7 @@ describe('parseGeneveAgendaHtml', () => {
       title: 'Event B',
       date: '2 et 3 août',
     })}</div>`;
-    const events = parseGeneveAgendaHtml(html, 0);
+    const events = parseGeneveAgendaHtml(html, 0, FIXED_NOW);
     expect(events).toHaveLength(2);
     expect(events.map((e) => e.title)).toEqual(['Event A', 'Event B']);
   });

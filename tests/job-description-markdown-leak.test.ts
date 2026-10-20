@@ -79,29 +79,20 @@ describe('stripMarkdownMarkers — what must SURVIVE', () => {
 });
 
 describe('the surfaces that print a description verbatim use the shared rule', () => {
-  it('the gate teaser strips markdown BEFORE it strips HTML', () => {
-    // JobBoard is not mountable in a test (10k lines, network, i18n, router),
-    // so this asserts on the source — the same technique the neighbouring
-    // job-detail guards use. Order matters and is the reason this is pinned:
-    // the HTML strip below removes `<[^>]+>`, which would already have eaten
-    // the `(url)` half of a markdown link and stranded its brackets.
-    const src = read('components/community/JobBoard.tsx');
-    expect(src).toContain("from '@/services/jobs/plainTextMarkdown'");
-    const teaser = src.slice(src.indexOf('const descriptionPreview'));
-    const call = teaser.indexOf('stripMarkdownMarkers(');
-    const htmlStrip = teaser.indexOf('.replace(/<br');
-    expect(call, 'the teaser must call stripMarkdownMarkers').toBeGreaterThan(-1);
-    expect(call).toBeLessThan(htmlStrip);
+  it('active and expired anonymous descriptions share the bounded preview', () => {
+    const active = read('components/community/JobBoard.tsx');
+    const gate = active.slice(active.indexOf(' if (!hasAccess) {'), active.indexOf(' const normalizeDescriptionForCanonicalParser'));
+    expect(gate).toContain('jobDescriptionPreview(publicDescription)');
+    expect(gate).not.toContain('renderFormattedDescription(publicDescription)');
+    expect(gate).not.toContain('publicRequirements');
+    expect(read('components/community/JobExpiredView.tsx')).toContain('jobDescriptionPreview(description)');
   });
 
-  it('the expired-job teaser, a byte-identical twin, strips markdown too', () => {
-    // JobExpiredView carried the same `.replace` chain as the gate teaser,
-    // copied literally. The sibling gate surfaced it; fixing one and not the
-    // other is how the two would have drifted.
-    const src = read('components/community/JobExpiredView.tsx');
-    expect(src).toContain("from '@/services/jobs/plainTextMarkdown'");
-    const chain = src.slice(src.indexOf('const descriptionPlain'));
-    expect(chain.indexOf('stripMarkdownMarkers(')).toBeLessThan(chain.indexOf('.replace(/<br'));
+  it('keeps the empty-description slot reserved after enrichment finishes', () => {
+    const src = read('components/community/JobBoard.tsx');
+    const empty = src.slice(src.indexOf('{descriptionPreview ?'), src.indexOf('/* Auth gate — embedded inline'));
+    expect(empty.indexOf('className="min-h-[160px]"')).toBeGreaterThan(0);
+    expect(empty).toContain("t('jobBoard.gate.descriptionUnavailable')");
   });
 
   it('no file retypes the chunk heading literal', () => {

@@ -59,6 +59,20 @@ describe('pickWinner', () => {
     expect(r.pValue).toBeLessThan(0.05);
   });
 
+  it('corrects the best-vs-runner p-value for a multi-arm test', () => {
+    const r = pickWinner({
+      concreto: { sends: 1000, opens: 360 },
+      curioso: { sends: 1000, opens: 200 },
+      pratico: { sends: 1000, opens: 190 },
+      novita: { sends: 1000, opens: 180 },
+    });
+    expect(r.winner).toBe('concreto');
+    expect(r.comparisonCount).toBe(3);
+    expect(r.correction).toBe('bonferroni');
+    expect(r.adjustedPValue).toBeGreaterThanOrEqual(r.pValue!);
+    expect(r.adjustedPValue).toBeLessThan(0.05);
+  });
+
   it('honors custom gates', () => {
     const tight = pickWinner({ a: { sends: 100, opens: 40 }, b: { sends: 100, opens: 20 } }, { minSendsPerArm: 500 });
     expect(tight.winner).toBeNull(); // 100 < 500
@@ -118,8 +132,9 @@ describe('assignSubjectVariant epsilon-greedy promotion', () => {
       const v = assignSubjectVariant(`b${i}@x.com`, 'weekly_2026-06-15');
       counts[v] = (counts[v] || 0) + 1;
     }
-    expect(counts[promoted] / N).toBeGreaterThan(0.4);
-    expect(counts[promoted] / N).toBeLessThan(0.6);
+    const target = 1 / ids.length;
+    expect(counts[promoted] / N).toBeGreaterThan(target - 0.10);
+    expect(counts[promoted] / N).toBeLessThan(target + 0.10);
   });
 
   it('biases toward the promoted variant (~1-epsilon+epsilon/k) but still explores', () => {
@@ -129,12 +144,13 @@ describe('assignSubjectVariant epsilon-greedy promotion', () => {
       counts[v] = (counts[v] || 0) + 1;
     }
     const share = counts[promoted] / N;
-    const expected = (1 - DEFAULT_EPSILON) + DEFAULT_EPSILON / ids.length; // k=2 → 0.9
+    const expected = (1 - DEFAULT_EPSILON) + DEFAULT_EPSILON / ids.length;
     expect(share).toBeGreaterThan(expected - 0.05);
     expect(share).toBeLessThan(expected + 0.05);
     // the losing arm still gets meaningful traffic (test stays live)
-    const loser = ids.find((x) => x !== promoted)!;
-    expect(counts[loser] / N).toBeGreaterThan(0.04);
+    for (const loser of ids.filter((x) => x !== promoted)) {
+      expect(counts[loser] / N).toBeGreaterThan(0.02);
+    }
   });
 
   it('is deterministic with promotion (stable per subscriber within a campaign)', () => {
@@ -149,8 +165,9 @@ describe('assignSubjectVariant epsilon-greedy promotion', () => {
       const v = assignSubjectVariant(`u${i}@x.com`, 'weekly_2026-06-15', { promotedVariant: 'nope' });
       counts[v] = (counts[v] || 0) + 1;
     }
-    expect(counts[promoted] / N).toBeGreaterThan(0.4);
-    expect(counts[promoted] / N).toBeLessThan(0.6);
+    const target = 1 / ids.length;
+    expect(counts[promoted] / N).toBeGreaterThan(target - 0.10);
+    expect(counts[promoted] / N).toBeLessThan(target + 0.10);
   });
 
   it('epsilon=0 promotes the winner to (almost) everyone', () => {

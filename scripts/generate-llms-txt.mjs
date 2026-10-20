@@ -9,7 +9,7 @@
  * Shared logic: scripts/lib/llms-txt-generator.mjs (generateLlmsTxtFamily).
  *
  * Usage:
- *   npx -y tsx@4 scripts/generate-llms-txt.mjs --root <repoRoot> --out <scratchDir>
+ *   npx -y tsx@4.23.15 scripts/generate-llms-txt.mjs --root <repoRoot> --out <scratchDir>
  *
  * --out is created if missing and PRE-SEEDED with a fresh copy of
  * public/llms.txt + public/llms-full.txt before the shared generator runs —

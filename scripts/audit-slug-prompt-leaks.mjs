@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * audit-slug-prompt-leaks.mjs
  *
@@ -136,7 +138,12 @@ export const KNOWN_LEGACY_LEAKS = Object.freeze(new Set([
   'slug-terzo-pilastro-3a-switzerland',
   'slug-terzo-pilastro-3a-schweiz',
   'slug-terzo-pilastro-3a-suisse',
-  'slug-terzo-pilastro-3a-vantaggi-2026-basilea',
+  // ── Reconciled 2026-10-10 (#12670) ────────────────────────────────────────
+  // The Swiss registry now has `slug-terzo-pilastro-3a-vantaggi-2026-basel`
+  // and `slug-terzo-pilastro-3a-vantaggi-2026-bale` as its leaking locale
+  // values; the old `...-basilea` exception is no longer present. Do not
+  // replace it with either current spelling: both are fresh leaks tracked by
+  // #12665 and must stay visible to the detector.
 ]));
 
 /**
@@ -328,6 +335,6 @@ function main() {
 // and the two extractors from this file so it cannot drift from the audit;
 // importing must not also run the audit and call process.exit() inside the test
 // worker.
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

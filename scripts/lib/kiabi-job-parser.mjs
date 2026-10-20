@@ -73,12 +73,15 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import {
   fetchSmartRecruitersJobs,
+  isCompleteSmartRecruitersSourceRead,
+  provesSmartRecruitersFilteredEmpty,
   SmartRecruitersApiError,
 } from './ats-clients/smartrecruiters-client.mjs';
 
@@ -219,26 +222,28 @@ export function resolveAddress(rawLoc = {}) {
 /**
  * Fetch the Switzerland-only Kiabi postings from the SmartRecruiters API
  * (tenant "KIABI", country=ch). Returns an array of raw listing objects
- * {title, location, url, postedAt, description, jobReqId, rawLocation}.
+ * {title, location, url, datePosted, postedDate, postingDateSource, description, jobReqId, rawLocation}.
  */
 async function fetchJobListings() {
   console.log(`   Fetching SmartRecruiters tenant "${SR_TENANT}" (country=ch)`);
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
   const listings = [];
+  let sourceReadProof = null;
   try {
     for await (const job of fetchSmartRecruitersJobs(SR_TENANT, {
       company: KIABI_COMPANY_NAME,
       locationCountryCodes: ['ch'],
       fetchDetail: true,
       timeoutMs,
+      onComplete: (proof) => { sourceReadProof = proof; },
     })) {
       const raw = job.rawPosting || {};
       listings.push({
         title: job.title,
         location: job.location,
         url: job.applyUrl,
-        postedAt: job.postedAt,
+        ...mergeSourcePostingDates({}, job),
         description: job.descriptionHtml || '',
         jobReqId: job.jobReqId || raw.id || '',
         rawLocation: raw.location || {},
@@ -250,7 +255,23 @@ async function fetchJobListings() {
     throw err;
   }
 
-  return listings;
+  if (!isCompleteSmartRecruitersSourceRead(sourceReadProof)) {
+    throw new Error('SmartRecruiters postings walk was incomplete; keeping the existing Kiabi slice.');
+  }
+  // The group-wide tenant always carries live postings in other countries
+  // (192 on 2026-10-02, none Swiss). A tenant-wide zero is the envelope
+  // SmartRecruiters returns for an unknown or renamed company identifier, so
+  // it cannot certify that Kiabi Suisse has no openings: fail loudly instead
+  // of retiring the slice on a source that may no longer be Kiabi's board.
+  if (listings.length === 0 && !provesSmartRecruitersFilteredEmpty(sourceReadProof)) {
+    throw new Error(
+      `SmartRecruiters tenant "${SR_TENANT}" declared no postings at all (totalFound=${sourceReadProof.totalFound}); `
+      + 'an unknown or renamed tenant answers the same way, so this is not a proven Swiss zero. '
+      + 'Keeping the existing Kiabi slice.',
+    );
+  }
+
+  return { listings, sourceReadProof };
 }
 
 /**
@@ -267,15 +288,18 @@ export async function fetchAllKiabiJobs() {
   console.log(`🔍 Fetching ${KIABI_COMPANY_NAME} jobs`);
   console.log(`   Source: ${CAREER_URL} (SmartRecruiters tenant "${SR_TENANT}")\n`);
 
-  const listings = await fetchJobListings();
+  const { listings, sourceReadProof } = await fetchJobListings();
+  const jobs = [];
+  Object.defineProperty(jobs, 'authoritativeEmptySnapshot', {
+    value: listings.length === 0 && provesSmartRecruitersFilteredEmpty(sourceReadProof),
+  });
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
-    return [];
+    console.warn('⚠️ SmartRecruiters source walk completed with no Swiss job listings.');
+    return jobs;
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
-  const jobs = [];
   const seen = new Set();
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
@@ -311,8 +335,6 @@ export async function fetchAllKiabiJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(listing.employmentLabel || title);
     const contract = normalizeContract(listing.employmentLabel || '', title, description);
-    const postedDate = (listing.postedAt && String(listing.postedAt).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -347,7 +369,7 @@ export async function fetchAllKiabiJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],

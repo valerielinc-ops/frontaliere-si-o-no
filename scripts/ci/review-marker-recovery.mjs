@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 /**
  * Deterministic post-model marker admission.
  *
- * The reviewer prompt asks for REVIEW_INPUT_REVISION, but a prompt is not an
- * integrity mechanism. This helper validates the API payload after the model
+ * The host bridge stamps REVIEW_INPUT_REVISION, but a producer boundary is
+ * not the validator. This helper validates the API payload after the model
  * or the tests-only writer and before the review gate. Missing, malformed,
  * duplicate, or stale markers stop the required job. A narrowly-scoped
  * `repair` command can add the Codex marker to one otherwise-valid, approving
@@ -12,7 +13,6 @@
  * finding-bearing/stale review.
  */
 import { readFileSync } from 'node:fs';
-import { pathToFileURL } from 'node:url';
 import {
   normalizeReviewInputRevision,
   reviewHasInputRevision,
@@ -185,7 +185,7 @@ export function markerCli(argv = process.argv, stdinText = '') {
 }
 
 const isDirectRun = (() => {
-  try { return import.meta.url === pathToFileURL(process.argv[1]).href; } catch { return false; }
+  try { return isInvokedDirectly(import.meta.url); } catch { return false; }
 })();
 
 if (isDirectRun) process.exitCode = markerCli(process.argv, readFileSync(0, 'utf8'));

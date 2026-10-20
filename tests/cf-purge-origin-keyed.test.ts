@@ -3,7 +3,8 @@
  *
  * ─── The defect this encodes ─────────────────────────────────────────────────
  * locale-router.js's serveShard() rewrites the upstream Host to a shard origin
- * and fetches it with `cf: { cacheEverything: true, cacheTtl: 7200 }`. For every
+ * and fetches it with `cf: { cacheEverything: true, cacheTtlByStatus: ... }`,
+ * with a 7200-second positive-status TTL. For every
  * path on a Cloudflare Worker route the entry a visitor is served is therefore
  * keyed on `origin-<shard>.frontaliereticino.ch/<path>`, and a
  * `files: ['https://frontaliereticino.ch/<path>']` purge answers 200, prints a
@@ -60,7 +61,7 @@ import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const read = (rel: string) => readFileSync(resolve(ROOT, rel), 'utf-8');
-const DEPLOY = read('.github/workflows/deploy.yml');
+const DEPLOY = `${read('.github/workflows/deploy.yml')}\n${read('.github/workflows/deploy-publish.yml')}`;
 
 describe('the Worker route table is readable, and says what is apex-keyed', () => {
   const patterns = readWorkerRoutePatterns();
@@ -73,19 +74,20 @@ describe('the Worker route table is readable, and says what is apex-keyed', () =
     expect(patterns.every((p) => p.startsWith(`${APEX_HOST}/`))).toBe(true);
   });
 
-  it('claims the shard paths and leaves the IT passthrough alone', () => {
+  it('claims the apex for filtering while the router still selects shard paths in code', () => {
     const routed = (u: string) => workerRouteForUrl(new URL(u), patterns) !== null;
-    // Worker-routed → the served entry is origin-keyed, an apex purge is blind.
+    // The broad route admits every apex path to the Worker; shard selection is
+    // a separate in-code decision, and only those shard/R2 paths need a
+    // non-apex purge companion.
     expect(routed('https://frontaliereticino.ch/de/')).toBe(true);
     expect(routed('https://frontaliereticino.ch/de')).toBe(true);
     expect(routed('https://frontaliereticino.ch/cerca-lavoro-ticino/pagina/')).toBe(true);
-    // Passthrough → apex-keyed, and a per-URL purge there is the real one
-    // (measured: `/` at age 153 against the 300s apex TTL).
-    expect(routed('https://frontaliereticino.ch/')).toBe(false);
-    expect(routed('https://frontaliereticino.ch/blog/qualcosa/')).toBe(false);
-    expect(routed('https://frontaliereticino.ch/aziende/qualcuno/')).toBe(false);
-    // Look-alikes must not be swept in by the locale routes.
-    expect(routed('https://frontaliereticino.ch/enterprise/')).toBe(false);
+    expect(routed('https://frontaliereticino.ch/')).toBe(true);
+    expect(routed('https://frontaliereticino.ch/blog/qualcosa/')).toBe(true);
+    expect(routed('https://frontaliereticino.ch/aziende/qualcuno/')).toBe(true);
+    // Look-alikes reach the Worker but are rejected by the in-code section and
+    // locale matchers, so they remain apex passthroughs rather than shards.
+    expect(routed('https://frontaliereticino.ch/enterprise/')).toBe(true);
   });
 
   it('a route without a trailing star does not match a query string (#2611)', () => {
@@ -123,13 +125,20 @@ describe('the origin a Worker-routed apex path is keyed on', () => {
     expect(shardOriginForApexUrl(new URL('https://frontaliereticino.ch/rss.xml'))).toBeNull();
     expect(shardOriginForApexUrl(new URL('https://frontaliereticino.ch/blog/x/'))).toBeNull();
   });
+
+  it('keeps query variants of the legacy locale HTML aliases on the apex', () => {
+    expect(shardOriginForApexUrl(new URL('https://frontaliereticino.ch/en.html'))).toBe(
+      'origin-en.frontaliereticino.ch',
+    );
+    expect(shardOriginForApexUrl(new URL('https://frontaliereticino.ch/en.html?cb=1'))).toBeNull();
+  });
 });
 
 describe('apexPurgeBlindSpots flags exactly the purges that change nothing', () => {
   it('flags an apex-only purge of a Worker-routed path', () => {
     const gaps = apexPurgeBlindSpots(['https://frontaliereticino.ch/de/']);
     expect(gaps).toHaveLength(1);
-    expect(gaps[0].pattern).toBe('frontaliereticino.ch/de/*');
+    expect(gaps[0].pattern).toBe('frontaliereticino.ch/*');
     expect(gaps[0].expectedOrigin).toBe('origin-de.frontaliereticino.ch');
   });
 
@@ -155,6 +164,24 @@ describe('apexPurgeBlindSpots flags exactly the purges that change nothing', () 
   it('is silent for apex passthrough paths, where the apex purge IS the fix', () => {
     expect(
       apexPurgeBlindSpots(['https://frontaliereticino.ch/', 'https://frontaliereticino.ch/blog/x/']),
+    ).toEqual([]);
+  });
+
+  it('flags corpus R2 sitemaps but ignores the apex-passthrough HTML query exception', () => {
+    const urls = [
+      'https://frontaliereticino.ch/sitemap-cantons.xml',
+      'https://frontaliereticino.ch/en.html?cb=1',
+    ];
+    const gaps = apexPurgeBlindSpots(urls);
+    expect(gaps).toHaveLength(1);
+    expect(gaps[0].url).toBe(urls[0]);
+    expect(gaps[0].expectedCorpusFile).toBe('sitemap-cantons.xml');
+
+    expect(
+      apexPurgeBlindSpots([
+        urls[0],
+        'https://cdn.frontaliereticino.ch/edge/sections/_releases/abcdef1/sitemap-cantons.xml',
+      ]),
     ).toEqual([]);
   });
 });

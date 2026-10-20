@@ -10,6 +10,7 @@ import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { Euro, ChevronDown, ChevronUp, Info, TrendingUp, TrendingDown, Minus, ArrowLeftRight, RefreshCw } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
+import { AC_SALARY_CAP_CHF, DEFAULT_TECH_PARAMS } from '@/constants';
 import { calculateProgressiveWorkDeduction, calculateIrpefGross, getTicinoTaxRate } from '@/services/calculationService';
 
 // ─── Italian INPS Contribution Rates 2026 ────────────────────────────────
@@ -22,8 +23,8 @@ const ADDIZIONALE_COMUNALE_AVG = 0.008; // ~0.8% media
 
 // ─── Swiss Rates (same as calculationService) ────────────────────────────
 
-const AVS_RATE = 0.053;
-const AC_RATE = 0.011;
+const AVS_RATE = DEFAULT_TECH_PARAMS.avsRate;
+const AC_RATE = DEFAULT_TECH_PARAMS.acRate;
 const LAA_RATE = 0.007;
 const IJM_RATE = 0.008;
 const LPP_RATES: Record<string, number> = {
@@ -113,7 +114,7 @@ interface SwissResult {
 
 function calculateSwissNet(grossCHF: number, ageGroup: string, maritalStatus: string, healthInsurance: number): SwissResult {
  const avs = grossCHF * AVS_RATE;
- const ac = Math.min(grossCHF, 148200) * AC_RATE;
+ const ac = Math.min(grossCHF, AC_SALARY_CAP_CHF) * AC_RATE;
  const laa = grossCHF * LAA_RATE;
  const ijm = grossCHF * IJM_RATE;
  const lpp = grossCHF * (LPP_RATES[ageGroup] || 0.05);

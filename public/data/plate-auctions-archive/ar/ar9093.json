@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ar-1779",
+      "sourceKey": "AR",
+      "sourceRecordId": "1779",
+      "canton": "Appenzello Esterno",
+      "platePrefix": "AR",
+      "plateNumber": "9093",
+      "normalizedPlate": "AR9093",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 800,
+      "startingPriceChf": 750,
+      "bidCount": 2,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-10-04T16:00:00.000Z",
+      "closedAt": "2026-10-04T16:00:00.000Z",
+      "officialAuctionUrl": "https://eauktion.ar.ch/ecari-auction/ui/app/init",
+      "officialDetailUrl": "https://eauktion.ar.ch/ecari-auction/ui/app/details/app?id=1779",
+      "sourceFetchedAt": "2026-10-04T12:25:43.047Z",
+      "lastVerifiedAt": "2026-10-04T12:25:43.047Z",
+      "firstSeenAt": "2026-09-21T12:52:39.520Z",
+      "lastSeenAt": "2026-10-04T12:25:43.047Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "f76142e69b65"
+    }
+  ]
+}

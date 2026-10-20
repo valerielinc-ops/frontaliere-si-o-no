@@ -36,6 +36,8 @@
  *   - isSuvaJob()        — Match jobs belonging to this company
  *   - isTrustedDomain()  — Validate URLs belong to this company
  */
+import { JSDOM } from 'jsdom';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, buildJobSlug, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -323,6 +325,12 @@ export async function fetchAllSuvaJobs() {
     try {
       const html = await fetchHtml(jobUrl);
       const parsed = parseDetailPage(html);
+      const dom = new JSDOM(html);
+      let publication;
+      try {
+        const node = dom.window.document.querySelector('[itemprop="datePosted"]');
+        publication = successFactorsPostingDateFields(node?.getAttribute('content') || node?.textContent || '');
+      } finally { dom.window.close(); }
       if (!parsed) {
         console.warn(` ⚠️ Could not parse detail page: ${jobUrl}`);
         continue;
@@ -339,7 +347,9 @@ export async function fetchAllSuvaJobs() {
       const postalCode = urlPostalCode || officeAddress?.postalCode || '';
       const streetAddress = officeAddress?.streetAddress || '';
 
-      const description = parsed.description || `${parsed.title} — ${SUVA_COMPANY_NAME}`;
+      // The detail's own text only: without it the job gets no description
+      // (thin-source path) instead of "<Titel> — Suva" written by the crawler.
+      const description = parsed.description || '';
       const sourceLang = detectLang(description || parsed.title, 'de');
       const jobSlug = buildJobSlug(parsed.title, `suva ${primaryCity}`);
       const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
@@ -377,7 +387,7 @@ export async function fetchAllSuvaJobs() {
         sector: 'Assicurazioni',
         currency: 'CHF',
         featured: false,
-        postedDate: new Date().toISOString().split('T')[0],
+        ...publication,
         applyUrl: jobUrl,
         ...(pensum ? { pensum } : {}),
       };

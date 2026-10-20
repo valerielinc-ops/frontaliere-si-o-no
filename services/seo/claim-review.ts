@@ -62,7 +62,7 @@ export interface ClaimReviewInput {
   sourceName: string;
   /** Who originally made the claim (default: page URL itself). */
   claimAuthor?: string;
-  /** When the claim was originally made (ISO, default: datePublished). */
+  /** Verified publication date of the original claim (ISO). Omit when unknown; review/effective dates are not substitutes. */
   claimDatePublished?: string;
   /** Optional summary / rationale body (<= 2 sentences). */
   reviewBody?: string;
@@ -75,6 +75,7 @@ export interface ClaimReviewSchema {
   claimReviewed: string;
   author: {
     '@type': 'Organization';
+    '@id': string;
     name: 'Frontaliere Ticino';
     url: string;
   };
@@ -89,7 +90,7 @@ export interface ClaimReviewSchema {
   itemReviewed: {
     '@type': 'Claim';
     author: { '@type': 'Organization'; name: string };
-    datePublished: string;
+    datePublished?: string;
     appearance: {
       '@type': 'CreativeWork';
       url: string;
@@ -112,7 +113,7 @@ export function buildClaimReview(input: Readonly<ClaimReviewInput>): ClaimReview
   }
 
   const claimAuthor = input.claimAuthor ?? input.pageUrl;
-  const claimDatePublished = input.claimDatePublished ?? input.datePublished;
+  const claimDatePublished = input.claimDatePublished?.trim();
 
   const schema: ClaimReviewSchema = {
     '@context': 'https://schema.org',
@@ -121,6 +122,7 @@ export function buildClaimReview(input: Readonly<ClaimReviewInput>): ClaimReview
     claimReviewed: input.claimReviewed,
     author: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
@@ -135,7 +137,7 @@ export function buildClaimReview(input: Readonly<ClaimReviewInput>): ClaimReview
     itemReviewed: {
       '@type': 'Claim',
       author: { '@type': 'Organization', name: claimAuthor },
-      datePublished: claimDatePublished,
+      ...(claimDatePublished ? { datePublished: claimDatePublished } : {}),
       appearance: {
         '@type': 'CreativeWork',
         url: input.sourceUrl,

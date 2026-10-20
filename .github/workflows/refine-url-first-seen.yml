@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # Nessun uso della git history: il job legge solo il working tree
           # (`git diff --quiet data/url-first-seen.json`), poi `checkout -b`
@@ -48,7 +48,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
@@ -63,7 +62,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
@@ -72,7 +71,7 @@ jobs:
         run: npm ci
 
       - name: Install google-auth-library (script-only dep)
-        run: npm i google-auth-library --no-save
+        run: npm i google-auth-library@11.1.0 --no-save
 
       - name: Materialize SA JSON
         env:
@@ -153,7 +152,7 @@ jobs:
           # RC, NOT an Actions secret — `secrets.GH_PAT` does not exist). Used
           # for BOTH the branch push and `gh pr create`: a PR created with
           # secrets.GITHUB_TOKEN is blocked by anti-recursion (issue #1114).
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           if git diff --quiet data/url-first-seen.json; then
             echo "No diff in data/url-first-seen.json — nothing to PR."

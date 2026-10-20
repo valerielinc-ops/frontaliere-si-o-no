@@ -3,8 +3,8 @@
  *
  * Generates 4 hub families × 4 locales of paginated index pages:
  *   - JobsHub      → all known job slugs (28k+) → ~284 pages × 4 locales
- *   - SectorsHub   → curated 50-sector list   → 1 page × 4 locales
- *   - CompaniesHub → known-company-slugs.json → ~2 pages × 4 locales
+ *   - SectorsHub   → curated sectors + qualified automatic hubs → paginated × 4 locales
+ *   - CompaniesHub → known-company-slugs.json → paginated directory × 4 locales
  *   - ArticlesHub  → blog-meta-{lang}.ts      → ~9 pages × 4 locales
  *
  * Each page is fully static HTML with canonical, hreflang alternates,
@@ -25,10 +25,11 @@ import type fsT from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
 import type npT from 'node:path';
-import { ADSENSE_SNIPPET, BASE_URL, buildCanonicalBridgePage, CDN_PRECONNECT_HINT, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
+import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT, FAVICON_LINKS, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
+import { WEBSITE_ID } from '../services/seo/organizationLd';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { GPT_BOOTSTRAP_TAG, isJobBoardPageUrl } from './jobBoardGpt';
+import { jobBoardHeadTags } from './jobBoardGpt';
 import {
   ARTICLES_PAGE_SIZE,
   COMPANIES_PAGE_SIZE,
@@ -61,6 +62,7 @@ import {
 } from '../packages/articles/engine/articleHubPagesPlugin';
 import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
 import { readArticleExcerpts, readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
+import { parseArticleRegistryEntries } from './shared/articleRegistryEntries';
 import { WriteCollector } from './batchWrite';
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -73,14 +75,18 @@ import {
   STAT_TILE_SUCCESS,
   STAT_TILE_BASE,
 } from './shared/seoContentTokens';
-import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
-import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
-import { isCantonNoindex } from './shared/cantonNoindexRegistry';
+import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, legacyTiSectionRoot } from './shared/cantonSection';
+import { readJobsData, cantonArchivePageCount, type CantonJobEntry } from './shared/cantonArchivePlan';
+import { localeOfDistPath, shouldEmitLocale } from './shared/localeEmitFilter';
+import { cantonCompanyHubs } from './shared/cantonCompanyHubRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
+import { logoUrlForRenderedOutput } from '../services/jobDataNormalization';
+import { readAutoSectorHubInventory, countAutoSectorHubEmployers } from './shared/autoSectorHubPublicationData';
+import { isIndexableSectorHubPublication } from '../data/sector-hub-publications';
+import { buildAutoSectorHubPath } from './shared/autoSectorHubPaths';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_CH',
@@ -125,25 +131,25 @@ const HUB_TITLES: Record<HubLocale, { jobs: string; sectors: string; companies: 
 
 const HUB_DESCRIPTIONS: Record<HubLocale, { jobs: string; sectors: string; companies: string; articles: string }> = {
   it: {
-    jobs: 'Indice completo di tutte le offerte di lavoro indicizzate per i frontalieri in Ticino. Aggiornato quotidianamente con migliaia di posizioni aperte.',
+    jobs: 'Archivio degli annunci pubblicati, incluse le offerte scadute. Per candidarti consulta le posizioni attive e verifica lo stato della scheda.',
     sectors: 'Esplora le offerte per settore: sanitario, ingegneria, banca, ristorazione, edilizia e oltre 40 categorie professionali.',
     companies: 'Indice alfabetico di oltre 200 aziende che assumono frontalieri in Ticino, con offerte attive per locale e settore.',
     articles: 'Archivio completo di guide, analisi fiscali e aggiornamenti dedicati ai lavoratori frontalieri italo-svizzeri.',
   },
   en: {
-    jobs: 'Complete index of every indexed job posting for cross-border workers in Ticino. Updated daily with thousands of openings.',
+    jobs: 'Archive of published listings, including expired vacancies. To apply, browse the active job board and check the status shown on each listing.',
     sectors: 'Explore jobs by sector: healthcare, engineering, banking, hospitality, construction and 40+ professional categories.',
     companies: 'Alphabetical index of 200+ companies hiring cross-border workers in Ticino, with active openings per location and sector.',
     articles: 'Full archive of guides, tax analysis and updates for Italian-Swiss cross-border workers.',
   },
   de: {
-    jobs: 'Vollständiger Index aller indizierten Stellenangebote für Grenzgänger im Tessin. Täglich aktualisiert mit tausenden offenen Stellen.',
+    jobs: 'Archiv veröffentlichter Stellenanzeigen einschließlich abgelaufener Angebote. Prüfen Sie den Status und nutzen Sie die Jobbörse für offene Stellen.',
     sectors: 'Stellenangebote nach Branche: Gesundheit, Ingenieurwesen, Bank, Gastronomie, Bau und über 40 Berufsgruppen.',
     companies: 'Alphabetisches Verzeichnis von 200+ Firmen, die Grenzgänger im Tessin einstellen.',
     articles: 'Vollständiges Archiv von Leitfäden, Steueranalysen und Updates für italienisch-schweizerische Grenzgänger.',
   },
   fr: {
-    jobs: 'Index complet de toutes les offres d’emploi indexées pour les frontaliers au Tessin. Mis à jour quotidiennement.',
+    jobs: 'Archives des annonces publiées, y compris les offres expirées. Consultez les postes actifs et vérifiez le statut de chaque annonce avant de postuler.',
     sectors: 'Offres d’emploi par secteur : santé, ingénierie, banque, restauration, construction et plus de 40 catégories.',
     companies: 'Index alphabétique de plus de 200 entreprises qui recrutent des frontaliers au Tessin.',
     articles: 'Archive complète de guides, analyses fiscales et actualités pour les frontaliers italo-suisses.',
@@ -238,118 +244,16 @@ function absItemUrl(href: string): string {
     : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
 }
 
-function slugifyEmployer(value: string): string {
-  return String(value || '').toLowerCase().normalize('NFD')
-    .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-}
-
-/**
- * Reads the latest jobs snapshot and returns:
- * - `counts`: employerKey → active job count (for "N offerte attive" labels)
- * - `urlToKey`: company URL slug → employerKey (for logo lookup)
- *
- * The company URL slug is derived by slugifying `job.employer` (full name),
- * which mirrors how `jobsSeoPagesPlugin` builds `companyMap` keys. The reverse
- * map lets us resolve logos from `company-logos-manifest.json` (keyed by short
- * `employerKey`) when given the long URL slug from `known-company-slugs.json`.
- */
-interface CantonJobEntry {
-  readonly slug: string;
-  readonly role: string;
-  readonly employer: string;
-  readonly employerKey: string;
-  readonly city: string;
-  /** ISO YYYY-MM-DD when the job was first posted by the source ATS — drives
-   *  the recency landings ("offerte da ieri", "ultimi 3 giorni", "ultima
-   *  settimana"). Optional because pre-2026-04 snapshots omit it. */
-  readonly postedAt?: string;
-}
-
-function readJobsData(
-  fs: typeof fsT,
-  np: typeof npT,
-  rootDir: string,
-): {
-  counts: Map<string, number>;
-  urlToKey: Map<string, string>;
-  cantonJobCounts: Map<string, number>;
-  cantonJobs: Map<string, CantonJobEntry[]>;
-  cantonEmployerCounts: Map<string, Map<string, number>>;
-} {
-  const counts = new Map<string, number>();
-  const urlToKey = new Map<string, string>();
-  const cantonJobCounts = new Map<string, number>();
-  const cantonJobs = new Map<string, CantonJobEntry[]>();
-  const cantonEmployerCounts = new Map<string, Map<string, number>>();
-  const historyDir = np.resolve(rootDir, 'data', 'jobs-snapshots-history');
-  try {
-    if (!fs.existsSync(historyDir)) {
-      return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
-    }
-    const files = fs.readdirSync(historyDir)
-      .filter((f) => f.endsWith('.json'))
-      .sort()
-      .reverse();
-    if (files.length === 0) {
-      return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
-    }
-    const raw = JSON.parse(fs.readFileSync(np.join(historyDir, files[0]), 'utf-8'));
-    for (const job of Array.isArray(raw?.jobs) ? raw.jobs : []) {
-      if (typeof job?.employerKey === 'string' && job.employerKey) {
-        counts.set(job.employerKey, (counts.get(job.employerKey) ?? 0) + 1);
-        if (typeof job.employer === 'string' && job.employer) {
-          const urlSlug = slugifyEmployer(job.employer);
-          if (urlSlug && !urlToKey.has(urlSlug)) urlToKey.set(urlSlug, job.employerKey);
-        }
-      }
-      // Canton resolution: use explicit `job.canton` when present, else fall
-      // back to the city → canton mapping in `resolveJobCanton`.
-      const cantonInput = {
-        canton: typeof job?.canton === 'string' ? job.canton : undefined,
-        location: typeof job?.city === 'string' ? job.city : undefined,
-      };
-      const canton = resolveJobCanton(cantonInput);
-      cantonJobCounts.set(canton, (cantonJobCounts.get(canton) ?? 0) + 1);
-      if (typeof job?.slug === 'string' && job.slug) {
-        // BFS-depth closure (2026-05-12): removed the prior 200-job cap. The
-        // cathedral expansion added per-canton `tutti/page-N/` archive
-        // pagination, which needs every job slug in the canton so the
-        // archive ladder reaches every leaf at depth ≤ 4 from `/`. Max
-        // canton (GR/VS/ZH) carries ~1800 jobs; aggregate across 26 cantons
-        // is ~15k entries × ~200 bytes ≈ 3 MB — well within build memory.
-        const arr = cantonJobs.get(canton) ?? [];
-        arr.push({
-          slug: job.slug,
-          role: typeof job?.role === 'string' ? job.role : job.slug,
-          employer: typeof job?.employer === 'string' ? job.employer : '',
-          employerKey: typeof job?.employerKey === 'string' ? job.employerKey : '',
-          city: typeof job?.city === 'string' ? job.city : '',
-          postedAt: typeof job?.postedAt === 'string' ? job.postedAt : undefined,
-        });
-        cantonJobs.set(canton, arr);
-      }
-      if (typeof job?.employerKey === 'string' && job.employerKey) {
-        const empMap = cantonEmployerCounts.get(canton) ?? new Map<string, number>();
-        empMap.set(job.employerKey, (empMap.get(job.employerKey) ?? 0) + 1);
-        cantonEmployerCounts.set(canton, empMap);
-      }
-    }
-  } catch (err) {
-    console.warn('[seo-hubs] failed to read job snapshot', err);
-  }
-  return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
-}
-
 /**
  * Per-hub-kind label for the headline stat tile shown on each global hub
  * page-1 (rule #17). Italian copy aligned with the section title so the
  * tile reads naturally next to the H1.
  */
 const HUB_KEY_TILE_LABELS: Record<HubLocale, Record<'jobs' | 'sectors' | 'companies' | 'articles', string>> = {
-  it: { jobs: 'Offerte attive', sectors: 'Settori curati', companies: 'Datori in indice', articles: 'Guide pubblicate' },
-  en: { jobs: 'Active openings', sectors: 'Curated sectors', companies: 'Indexed employers', articles: 'Published guides' },
-  de: { jobs: 'Aktive Stellen', sectors: 'Kuratierte Branchen', companies: 'Indexierte Arbeitgeber', articles: 'Veröffentlichte Ratgeber' },
-  fr: { jobs: 'Offres actives', sectors: 'Secteurs curés', companies: 'Employeurs indexés', articles: 'Guides publiés' },
+  it: { jobs: 'Annunci in archivio', sectors: 'Settori curati', companies: 'Datori in indice', articles: 'Guide pubblicate' },
+  en: { jobs: 'Archived listings', sectors: 'Curated sectors', companies: 'Indexed employers', articles: 'Published guides' },
+  de: { jobs: 'Archivierte Anzeigen', sectors: 'Kuratierte Branchen', companies: 'Indexierte Arbeitgeber', articles: 'Veröffentlichte Ratgeber' },
+  fr: { jobs: 'Annonces archivées', sectors: 'Secteurs curés', companies: 'Employeurs indexés', articles: 'Guides publiés' },
 };
 
 function jobsActiveLabel(locale: HubLocale, n: number): string {
@@ -410,7 +314,7 @@ function buildHubMethodologyHtml(locale: HubLocale, hubKey: HubKeyName): string 
   const PARAS: Record<HubLocale, Record<HubKeyName, [string, string]>> = {
     it: {
       jobs: [
-        `Come è costruito questo indice. Le offerte mostrate sono il sotto-insieme di annunci attivi sul nostro job-board che hanno superato la deduplicazione cross-crawler (40+ ATS aziendali, portali ufficiali, API pubbliche): ogni offerta ha una pagina dettaglio con descrizione completa, retribuzione (quando dichiarata), tipo di contratto, sede e link diretto al canale di candidatura del datore. La paginazione preserva l'ordine alfabetico per slug canonico, così frontalieri che cercano un ruolo specifico ritrovano la stessa posizione settimana dopo settimana, e i motori di ricerca possono crawlare l'intero archivio in modo deterministico.`,
+        `Questo archivio conserva gli annunci pubblicati, comprese le offerte scadute. Una voce in questo elenco non indica che la posizione sia ancora aperta. Nella scheda trovi i dettagli conservati e lo stato della posizione; per le candidature attuali usa la bacheca delle offerte attive. Le informazioni storiche non costituiscono una nuova offerta del datore di lavoro.`,
         `Come usarlo da frontaliere. Per ottimizzare la ricerca di lavoro come frontaliere combina questa lista con tre filtri concettuali: distanza dalla tua provincia di residenza al lavoro (puntare ai valichi più scorrevoli — Brogeda per Mendrisiotto/Luganese, Stabio per chi parte da Varese, Gaggiolo per il Mendrisiotto da sud), settore (alcune categorie come sanità, ingegneria e finanza hanno tassi di assunzione di frontalieri >60 %, mentre pubblica amministrazione e settori regolamentati hanno restrizioni di residenza più strette) e fascia salariale (vai sulla pagina settoriale per vedere il minimo–mediana–massimo della tua categoria). Il <a class="s-IjpSYt" href="/calcola-stipendio/">simulatore stipendio</a> trasforma il lordo in netto inclusivo di Permesso G + Nuovo Accordo fiscale 2024.`,
       ],
       sectors: [
@@ -428,7 +332,7 @@ function buildHubMethodologyHtml(locale: HubLocale, hubKey: HubKeyName): string 
     },
     en: {
       jobs: [
-        `How this index is built. The listings shown are the subset of openings on our job board that have cleared cross-crawler deduplication (40+ company ATS, official portals, public APIs): each opening has a detail page with full description, salary (when disclosed), contract type, location and a direct link to the employer's application channel. Pagination preserves the canonical-slug alphabetical order so cross-border workers searching for a specific role find it in the same place week after week, and crawlers can fetch the entire archive deterministically.`,
+        `This archive retains published listings, including expired vacancies. An entry here does not mean the position is still open. The detail page shows the retained information and vacancy status; use the active job board for current applications. Historical information does not constitute a new offer by the employer.`,
         `How to use it as a cross-border worker. To make the most of this list as a frontaliere, combine it with three conceptual filters: distance from your province of residence to the work address (target the smoothest crossings — Brogeda for the Mendrisiotto/Luganese, Stabio for those starting from Varese, Gaggiolo for the southern Mendrisiotto), sector (categories like healthcare, engineering and finance regularly hire 60 %+ cross-border, while public administration and regulated industries enforce stricter residence rules) and salary band (hop to the sector page for min/median/max in your category). The <a class="s-IjpSYt" href="/en/calculate-salary/">salary simulator</a> turns gross into net inclusive of the G permit + 2024 Italy-Switzerland agreement.`,
       ],
       sectors: [
@@ -446,7 +350,7 @@ function buildHubMethodologyHtml(locale: HubLocale, hubKey: HubKeyName): string 
     },
     de: {
       jobs: [
-        `Wie dieser Index aufgebaut ist. Die angezeigten Stellen sind die Teilmenge der Inserate auf unserem Job-Board, die die crawler-übergreifende Deduplikation bestanden haben (40+ Unternehmens-ATS, offizielle Portale, öffentliche APIs): jede Stelle hat eine Detailseite mit voller Beschreibung, Lohn (sofern angegeben), Vertragsart, Arbeitsort und Direktlink zum Bewerbungskanal. Die Paginierung erhält die alphabetische Reihenfolge nach kanonischem Slug, sodass Grenzgänger, die einen bestimmten Job suchen, ihn von Woche zu Woche an derselben Stelle wiederfinden, und Suchmaschinen das gesamte Archiv deterministisch crawlen können.`,
+        `Dieses Archiv enthält veröffentlichte Stellenanzeigen einschließlich abgelaufener Angebote. Ein Eintrag bedeutet nicht, dass die Stelle noch offen ist. Die Detailseite zeigt die gespeicherten Angaben und den Status. Für aktuelle Bewerbungen nutzen Sie die Jobbörse mit offenen Stellen. Historische Angaben sind kein neues Angebot des Arbeitgebers.`,
         `Wie Grenzgänger ihn nutzen. Um die Stellensuche als Grenzgänger zu optimieren, kombinieren Sie diese Liste mit drei begrifflichen Filtern: Distanz von der Wohnprovinz zum Arbeitsort (zielen Sie auf die fliessendsten Übergänge — Brogeda für das Mendrisiotto/Luganese, Stabio für Anreise aus Varese, Gaggiolo für das südliche Mendrisiotto), Branche (Gesundheit, Ingenieurwesen und Finance stellen regelmässig zu mehr als 60 % Grenzgänger ein, während die öffentliche Verwaltung und regulierte Branchen striktere Wohnsitzregeln haben) und Lohnband (öffnen Sie die Branchenseite für Min/Median/Max Ihrer Kategorie). Der <a class="s-IjpSYt" href="/de/gehalt-berechnen/">Lohnsimulator</a> verwandelt Brutto in Netto inklusive G-Bewilligung + neuem Steuerabkommen 2024.`,
       ],
       sectors: [
@@ -464,7 +368,7 @@ function buildHubMethodologyHtml(locale: HubLocale, hubKey: HubKeyName): string 
     },
     fr: {
       jobs: [
-        `Comment cet index est construit. Les annonces affichées sont le sous-ensemble d'offres sur notre tableau d'offres ayant passé la déduplication multi-crawlers (40+ ATS d'entreprise, portails officiels, API publiques) : chaque offre a une page de détail avec description complète, rémunération (lorsqu'elle est divulguée), type de contrat, lieu et lien direct vers le canal de candidature de l'employeur. La pagination préserve l'ordre alphabétique du slug canonique pour que les frontaliers cherchant un rôle précis le retrouvent au même endroit semaine après semaine, et que les moteurs de recherche puissent crawler l'archive entière de manière déterministe.`,
+        `Ces archives conservent les annonces publiées, y compris les postes expirés. Une entrée ne signifie pas que le poste est toujours ouvert. La fiche indique les informations conservées et le statut du poste. Pour les candidatures actuelles, consultez les offres actives. Les informations historiques ne constituent pas une nouvelle offre de l’employeur.`,
         `Comment l'utiliser en tant que frontalier. Pour optimiser la recherche d'emploi en tant que frontalier, combinez cette liste avec trois filtres conceptuels : distance de votre province de résidence au lieu de travail (visez les passages les plus fluides — Brogeda pour le Mendrisiotto/Luganese, Stabio pour les arrivées de Varèse, Gaggiolo pour le sud du Mendrisiotto), secteur (santé, ingénierie et finance recrutent régulièrement 60 % et plus de frontaliers, alors que l'administration publique et les secteurs réglementés appliquent des règles de résidence plus strictes) et fourchette salariale (rendez-vous sur la page sectorielle pour le min/médiane/max de votre catégorie). Le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire</a> traduit le brut en net incluant le permis G + le nouvel accord fiscal 2024.`,
       ],
       sectors: [
@@ -603,8 +507,8 @@ function buildHubFooterHtml(locale: HubLocale, hubKey: HubKeyName): string {
  * Returns a `<section>` with 5 Q/A pairs (locale-aware boilerplate;
  * Google ignores low-grade boilerplate for ranking but the audit counts
  * every word of visible text). Same content per page is fine — these
- * pages are noindex-safe paginated archives, the canonical SEO value is
- * page-1 + the per-job detail pages.
+ * pages are paginated archives; the primary SEO value remains page-1 plus
+ * the per-job detail pages.
  */
 function buildHubFaqHtml(locale: HubLocale, hubKey: HubKeyName): string {
   const FAQ: Record<HubLocale, Record<HubKeyName, Array<[string, string]>>> = {
@@ -920,6 +824,102 @@ function readJobSlugsMap(
 }
 
 /**
+ * The slug registry is intentionally historical and monotonic. Only link a
+ * job from an archive hub when its detail page is present in this build's
+ * output; otherwise the deployed locale router can send that stale edge to
+ * the section root (and turn every archive page into a redirect frontier).
+ *
+ * Locale shards cannot inspect pages owned by another shard. Preserve those
+ * cross-shard links and let the owning shard validate its own output; an
+ * all-locale build validates every destination here.
+ */
+function hasEmittedJobDetailPage(
+  fs: typeof fsT,
+  np: typeof npT,
+  distDir: string,
+  href: string,
+): boolean {
+  try {
+    const target = new URL(href, `${BASE_URL}/`);
+    if (target.origin !== new URL(BASE_URL).origin || target.search || target.hash) return false;
+    const relativePath = decodeURIComponent(target.pathname).replace(/^\/+|\/+$/g, '');
+    if (!relativePath || relativePath.split('/').some((segment) => !segment || segment === '.' || segment === '..')) return false;
+
+    const distRoot = np.resolve(distDir);
+    const pageFile = np.resolve(distRoot, relativePath, 'index.html');
+    if (!pageFile.startsWith(`${distRoot}${np.sep}`)) return false;
+    // The output for a sibling locale is produced by its own matrix build.
+    if (!shouldEmitLocale(localeOfDistPath(pageFile, distRoot))) return true;
+    return fs.existsSync(pageFile);
+  } catch {
+    return false;
+  }
+}
+
+function emittedJobArchiveItems(
+  fs: typeof fsT,
+  np: typeof npT,
+  distDir: string,
+  jobSlugs: readonly string[],
+  jobPerLocale: Record<HubLocale, Record<string, string>>,
+  locale: HubLocale,
+): Array<{ slug: string; href: string }> {
+  const localeMap = jobPerLocale[locale];
+  const itMap = jobPerLocale.it;
+  const emitted: Array<{ slug: string; href: string }> = [];
+  for (const slug of jobSlugs) {
+    const href = localeMap[slug] || itMap[slug];
+    if (!href || !hasEmittedJobDetailPage(fs, np, distDir, href)) continue;
+    emitted.push({ slug, href });
+  }
+  return emitted;
+}
+
+/**
+ * Count archive pages from the same emitted-detail inventory used by the hub
+ * renderer. The canonical slug registry is historical and monotonic, so its
+ * raw size can advertise a tail of page-index links whose targets were not
+ * emitted in the current build.
+ */
+export function countEmittedJobArchivePages(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  distDir: string,
+  locale: HubLocale = 'it',
+): number {
+  const { slugs, perLocale } = readJobSlugsMap(rootDir);
+  return countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale);
+}
+
+/** Count the rendered archive pages from one shared registry read, per locale. */
+export function countEmittedJobArchivePagesByLocale(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  distDir: string,
+): Record<HubLocale, number> {
+  const { slugs, perLocale } = readJobSlugsMap(rootDir);
+  const counts = {} as Record<HubLocale, number>;
+  for (const locale of HUB_LOCALES) {
+    counts[locale] = countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale);
+  }
+  return counts;
+}
+
+function countEmittedJobArchivePagesForLocale(
+  fs: typeof fsT,
+  np: typeof npT,
+  distDir: string,
+  slugs: readonly string[],
+  perLocale: Record<HubLocale, Record<string, string>>,
+  locale: HubLocale,
+): number {
+  const itemCount = emittedJobArchiveItems(fs, np, distDir, slugs, perLocale, locale).length;
+  return Math.max(1, Math.ceil(itemCount / JOBS_PAGE_SIZE));
+}
+
+/**
  * Parse CRAWLED_COMPANY_LOGOS from services/jobDataNormalization.ts source.
  * Returns slug → URL map for use as fallback when the local manifest has no
  * entry. Only self-hosted paths and direct http(s) URLs are surfaced:
@@ -1047,7 +1047,6 @@ function buildHtml(args: BuildHtmlArgs): string {
   const pageTitle = baseTitle.length + brandSuffix.length <= 60 ? `${baseTitle}${brandSuffix}` : baseTitle;
   const canonicalPath = paginatedPath(basePath, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const dateStamp = new Date().toISOString().slice(0, 10);
 
   // hreflang: only emit alternates for page-1 (paginated pages share lang)
   const hreflangs = page === 1
@@ -1107,9 +1106,6 @@ function buildHtml(args: BuildHtmlArgs): string {
     url: canonicalUrl,
     description,
     inLanguage: locale,
-    // Day-granularity, not a full build timestamp — see
-    // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
-    dateModified: buildDayStampIso(),
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: displayCount,
@@ -1124,7 +1120,7 @@ function buildHtml(args: BuildHtmlArgs): string {
       })),
     },
   });
-  const jobBoardGptTag = isJobBoardPageUrl(canonicalUrl) ? `\n    ${GPT_BOOTSTRAP_TAG}` : '';
+  const jobBoardHeadTag = jobBoardHeadTags(canonicalUrl);
 
   // Pagination chrome: prev / page-numbers / next
   const pagination = totalPages > 1
@@ -1170,15 +1166,15 @@ function buildHtml(args: BuildHtmlArgs): string {
           .join('')}</ul>`;
 
   // Stat tiles + primary CTA — universal across hub kinds. Tiles surface the
-  // total, the current page position, and the last-updated date so users get
+  // total and the current page position so users get
   // immediate context above the data area (rule #17).
   const tileLabelsGlobal = {
-    it: { count: HUB_KEY_TILE_LABELS.it[hubKey], pagina: 'Pagina', aggiornato: 'Aggiornato' },
-    en: { count: HUB_KEY_TILE_LABELS.en[hubKey], pagina: 'Page', aggiornato: 'Updated' },
-    de: { count: HUB_KEY_TILE_LABELS.de[hubKey], pagina: 'Seite', aggiornato: 'Aktualisiert' },
-    fr: { count: HUB_KEY_TILE_LABELS.fr[hubKey], pagina: 'Page', aggiornato: 'Mis à jour' },
+    it: { count: HUB_KEY_TILE_LABELS.it[hubKey], pagina: 'Pagina' },
+    en: { count: HUB_KEY_TILE_LABELS.en[hubKey], pagina: 'Page' },
+    de: { count: HUB_KEY_TILE_LABELS.de[hubKey], pagina: 'Seite' },
+    fr: { count: HUB_KEY_TILE_LABELS.fr[hubKey], pagina: 'Page' },
   }[locale];
-  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div class="s-tacc"><div class="s-tlbl">${esc(tileLabelsGlobal.count)}</div><div class="s-tval">${esc(displayCount.toLocaleString(locale))}</div></div><div class="s-tok"><div class="s-tlbl">${esc(tileLabelsGlobal.pagina)}</div><div class="s-tval">${esc(`${page} / ${totalPages}`)}</div></div><div class="s-tbase"><div class="s-tlbl">${esc(tileLabelsGlobal.aggiornato)}</div><div class="s-tval" style="font-size:18px">${esc(dateStamp)}</div></div></section>`;
+  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div class="s-tacc"><div class="s-tlbl">${esc(tileLabelsGlobal.count)}</div><div class="s-tval">${esc(displayCount.toLocaleString(locale))}</div></div><div class="s-tok"><div class="s-tlbl">${esc(tileLabelsGlobal.pagina)}</div><div class="s-tval">${esc(`${page} / ${totalPages}`)}</div></div></section>`;
 
   const ctaPathGlobal = locale === 'it' ? '/calcola-stipendio/'
     : locale === 'de' ? '/de/gehalt-berechnen/'
@@ -1212,14 +1208,15 @@ function buildHtml(args: BuildHtmlArgs): string {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
-    <meta name="description" content="${esc(clampMetaDescription(description))}">
+    <meta name="description" content="${esc(clampMetaDescription(description, undefined, locale))}">
     <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
     <meta property="og:title" content="${esc(pageTitle)}">
-    <meta property="og:description" content="${esc(clampMetaDescription(description))}">
+    <meta property="og:description" content="${esc(clampMetaDescription(description, undefined, locale))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:alt" content="${esc(pageTitle)}">
@@ -1229,8 +1226,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${collectionLd}</script>
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${ADSENSE_SNIPPET}
-    ${PARTNERIZE_TAG_SNIPPET}
-    ${jobBoardGptTag}
+    ${PARTNERIZE_TAG_SNIPPET}${jobBoardHeadTag}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     ${rootShell(hasSpaBundle)}
@@ -1244,7 +1240,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
       <header class="s-S1RSUf">
         <h1 class="s-e3gkVi">${esc(sectionOverride ? (page > 1 ? `${sectionOverride.h1} — ${pageLabel(locale, page)}` : sectionOverride.h1) : buildHubH1(locale, hubKey, displayCount, page))}</h1>
         <p class="s-OPPwy-">${esc(description)}</p>
-        <p class="s-Sn0UIv">${esc(countLabel(locale, displayCount))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
+        <p class="s-Sn0UIv">${esc(countLabel(locale, displayCount))}</p>
       </header>
       ${statTilesHtml}
       ${ctaHtmlGlobal}
@@ -1270,9 +1266,6 @@ function emptyLabel(locale: HubLocale): string {
 }
 function countLabel(locale: HubLocale, n: number): string {
   return { it: `${n.toLocaleString('it')} risorse`, en: `${n.toLocaleString('en')} entries`, de: `${n.toLocaleString('de')} Einträge`, fr: `${n.toLocaleString('fr')} entrées` }[locale];
-}
-function updatedLabel(locale: HubLocale): string {
-  return { it: 'Aggiornato', en: 'Updated', de: 'Aktualisiert', fr: 'Mis à jour' }[locale];
 }
 
 interface PaginationRenderOptions {
@@ -1418,6 +1411,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
   const copy = {
     it: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} dell'archivio — ${archiveTitle}`,
       intro: `Questo indice raccoglie i collegamenti alle pagine ${range.start}–${range.end} dell'archivio, su ${totalPages} pagine complessive e ${totalItems.toLocaleString('it')} contenuti aggiornati. Apri una pagina per consultare le offerte, i settori o le aziende della fascia corrispondente senza scorrere un elenco unico troppo pesante.`,
       listHeading: 'Pagine incluse in questo indice',
       indexHeading: "Altri indici dell'archivio",
@@ -1427,6 +1421,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
     },
     en: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} in the archive — ${archiveTitle}`,
       intro: `This index links to archive pages ${range.start}–${range.end}, within ${totalPages} pages and ${totalItems.toLocaleString('en')} updated entries in total. Open a page to browse the matching jobs, sectors, or companies without loading one oversized list of every archive page.`,
       listHeading: 'Pages in this index',
       indexHeading: 'Other archive indexes',
@@ -1436,6 +1431,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
     },
     de: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} im Archiv — ${archiveTitle}`,
       intro: `Dieser Index verlinkt die Archivseiten ${range.start}–${range.end} innerhalb von insgesamt ${totalPages} Seiten und ${totalItems.toLocaleString('de')} aktualisierten Einträgen. Öffnen Sie eine Seite, um die passenden Stellen, Branchen oder Unternehmen zu sehen, ohne eine übergroße Gesamtliste zu laden.`,
       listHeading: 'Seiten in diesem Index',
       indexHeading: 'Weitere Archivindizes',
@@ -1445,6 +1441,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
     },
     fr: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} de l’archive — ${archiveTitle}`,
       intro: `Cet index relie les pages d’archive ${range.start}–${range.end}, parmi ${totalPages} pages et ${totalItems.toLocaleString('fr')} contenus mis à jour au total. Ouvrez une page pour consulter les offres, secteurs ou entreprises correspondants sans charger une liste unique trop lourde.`,
       listHeading: 'Pages incluses dans cet index',
       indexHeading: 'Autres index de l’archive',
@@ -1530,9 +1527,9 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
       <span>${esc(rangeLabel)}</span>
     </nav>
     <header class="s-S1RSUf">
-      <h1 class="s-e3gkVi">${esc(copy.title)}</h1>
+      <h1 class="s-e3gkVi">${esc(copy.h1)}</h1>
       <p class="s-OPPwy-">${esc(copy.intro)}</p>
-      <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${esc(dateStamp)}</p>
+      <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))}</p>
     </header>
     <section>
       <h2 class="s-o3IET6">${esc(copy.listHeading)}</h2>
@@ -1874,7 +1871,7 @@ export function buildThinCantonHubHtml(args: {
   // distinct.
   const canonicalPath = page === 1 ? basePath : paginatedPath(basePath, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const jobBoardGptTag = isJobBoardPageUrl(canonicalUrl) ? `\n    ${GPT_BOOTSTRAP_TAG}` : '';
+  const jobBoardHeadTag = jobBoardHeadTags(canonicalUrl);
   const pageSuffix = totalPages > 1 && page > 1
     ? (locale === 'de' ? ` — Seite ${page}` : locale === 'fr' ? ` — Page ${page}` : ` — Pagina ${page}`)
     : '';
@@ -2005,7 +2002,7 @@ export function buildThinCantonHubHtml(args: {
     ? `<div class="s-USY9TF"><a href="${esc(cta.href)}" class="s-cta">${esc(cta.label)}</a></div>`
     : '';
 
-  const homeLabel = { it: 'Home', en: 'Home', de: 'Start', fr: 'Accueil' }[locale];
+  const homeLabel = { it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' }[locale];
 
   const hubCrumbName = `${cantonLabel} · ${CANTON_HUB_LABELS[locale][hub]}`;
   const breadcrumbLd = inlineScriptJson({
@@ -2047,7 +2044,7 @@ export function buildThinCantonHubHtml(args: {
         description: intro,
         url: canonicalUrl,
         inLanguage: locale,
-        isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+        isPartOf: { '@type': 'WebSite', '@id': WEBSITE_ID, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
         mainEntity: {
           '@type': 'ItemList',
           numberOfItems: totalItems,
@@ -2068,14 +2065,15 @@ export function buildThinCantonHubHtml(args: {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
-    <meta name="description" content="${esc(clampMetaDescription(intro))}">
+    <meta name="description" content="${esc(clampMetaDescription(intro, undefined, locale))}">
     <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
     <meta property="og:title" content="${esc(pageTitle)}">
-    <meta property="og:description" content="${esc(clampMetaDescription(intro))}">
+    <meta property="og:description" content="${esc(clampMetaDescription(intro, undefined, locale))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:alt" content="${esc(pageTitle)}">
@@ -2084,7 +2082,7 @@ export function buildThinCantonHubHtml(args: {
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${ADSENSE_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}
-    ${jobBoardGptTag}
+    ${jobBoardHeadTag}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     ${rootShell(hasSpaBundle)}
@@ -2098,7 +2096,7 @@ export function buildThinCantonHubHtml(args: {
       <header class="s-S1RSUf">
         <h1 class="s-e3gkVi">${esc(h1)}</h1>
         <p class="s-OPPwy-">${esc(intro)}</p>
-        <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
+        <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))}</p>
       </header>
       ${statTilesHtml}
       ${adviceHtml}
@@ -2197,91 +2195,14 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
           jobPerLocale, entryJs, entryCss, hasSpaBundle, onPageEmitted } = args;
 
 
-  // Below-floor / noindex-parent bridge: when a canton's `tutti`/`settori`/
-  // `aziende` sub-hubs are skipped (job-count floor drop, or the canton
-  // landing itself went noindex — see cantonNoindexRegistry.ts), a URL that
-  // may already be indexed (via a prior build's sitemap) would otherwise
-  // hard-404 on GitHub Pages. Emit a noindex canonical-bridge page instead,
-  // pointing at the always-live canton section root
-  // (`resolveCantonSection` — same target jobsSeoPagesPlugin's own
-  // below-floor bridges use). Never added to the sitemap: this is a soft
-  // landing spot for stale inbound/crawled links, not new indexable content.
-  let thinCantonHubBelowFloorBridges = 0;
-  const emitCantonHubBelowFloorBridge = (canton: string): void => {
-    for (const locale of HUB_LOCALES) {
-      const section = resolveCantonSection(locale, canton);
-      const localePrefix = locale === 'it' ? '' : `/${locale}`;
-      const targetPath = `${localePrefix}/${section}/`;
-      for (const hub of ['tutti', 'settori', 'aziende'] as const) {
-        const canonicalPath = hubSlugFor(canton, locale, hub);
-        const html = buildCanonicalBridgePage({
-          canonicalUrl: `${BASE_URL}${targetPath}`,
-          pathLabel: canonicalPath,
-          lang: locale,
-          noindex: true,
-        });
-        qw(np.join(distDir, canonicalPath.slice(1), 'index.html'), html);
-        thinCantonHubBelowFloorBridges++;
-      }
-    }
-  };
-
   for (const canton of ALL_CANTON_CODES) {
     if (canton === 'TI') continue; // TI already emitted with full body above
     const total = cantonJobCounts.get(canton) ?? 0;
-    if (total < MIN_JOBS_FOR_CANTON_PAGE) {
-      emitCantonHubBelowFloorBridge(canton);
-      continue;
-    }
-
     const jobs = cantonJobs.get(canton) ?? [];
-    // Tighter gate: cantonJobCounts increments on every job (line 212), but
-    // cantonJobs only appends when `job.slug` is present (line 217). When
-    // counts ≥ MIN but jobs array is empty (rare — usually the smallest
-    // cantons whose snapshot has slug-less rows), the hub HTML emits with an
-    // empty items list AND the sitemap entry below gets pushed, producing
-    // unreachable URLs (no inbound link from BFS-reachable nav). Bumped the
-    // gate to require ≥ MIN actual slug-bearing jobs to avoid that. Audit:
-    // `sitemap-seo-hubs.xml` BFS regression 2026-05-18 (cerca-lavoro-
-    // appenzello/{tutti,settori,aziende}/ +3 unreachable).
-    if (jobs.length < MIN_JOBS_FOR_CANTON_PAGE) {
-      emitCantonHubBelowFloorBridge(canton);
-      continue;
-    }
-
-    // Authoritative noindex check (2026-05-21 follow-up): the local dedup
-    // heuristic below could not access `job.id` (snapshot-history rows carry
-    // only `role`/`employerKey`), so it disagreed with jobsSeoPagesPlugin's
-    // id-aware dedup for cantons where a single vacancy is posted across
-    // multiple cities (e.g. HFR Fribourg: 1 job × N locations). When the two
-    // disagree, the canton landing ships `noindex,follow` (jobsSeoPagesPlugin
-    // wins) while seoHubsPlugin still emits `/tutti/`, `/settori/`, `/aziende/`
-    // — and `audit-bfs-depth.mjs` flags them as orphans because BFS stops at
-    // noindex parents. The cross-plugin registry (populated by
-    // jobsSeoPagesPlugin earlier in the same closeBundle pass) is the source
-    // of truth. Audit: sitemap-seo-hubs.xml BFS regression 2026-05-21
-    // (appenzello/sciaffusa/uri × 3 facets = 9 orphans).
-    if (isCantonNoindex(canton)) {
-      emitCantonHubBelowFloorBridge(canton);
-      continue;
-    }
-
-    // Local dedup fallback gate kept as a defense-in-depth check: covers the
-    // case where the registry was never populated (e.g. jobsSeoPagesPlugin
-    // disabled via FAST_BUILD). Mirrors jobsSeoPagesPlugin's MIN gate on the
-    // best-effort signal available here (role+employerKey).
-    {
-      const dedupKeys = new Set<string>();
-      for (const j of jobs) {
-        const role = String(j.role || '').toLowerCase().replace(/\s+/g, ' ').trim();
-        const empKey = String(j.employerKey || j.employer || '').toLowerCase().replace(/\s+/g, ' ').trim();
-        dedupKeys.add(`tc|${role}|${empKey}`);
-      }
-      if (dedupKeys.size < MIN_JOBS_FOR_CANTON_PAGE) {
-        emitCantonHubBelowFloorBridge(canton);
-        continue;
-      }
-    }
+    // Use the same snapshot plan as the parent landing's archive navigator.
+    // Its visible listing count may be a newer inventory, and a zero/short
+    // snapshot still gets one complete page rather than a noindex bridge.
+    const archivePages = cantonArchivePageCount(total, jobs, true);
 
     const empCounts = cantonEmployerCounts.get(canton) ?? new Map<string, number>();
 
@@ -2314,7 +2235,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
       {
         const basePath = hubSlugFor(canton, locale, 'tutti');
         const tuttiPageSize = JOBS_PAGE_SIZE; // 100
-        const tuttiTotalPages = Math.max(1, Math.ceil(jobs.length / tuttiPageSize));
+        const tuttiTotalPages = archivePages;
         const localeUrlMap = jobPerLocale[locale] ?? {};
         const itUrlMap = jobPerLocale.it ?? {};
         for (let pageNum = 1; pageNum <= tuttiTotalPages; pageNum++) {
@@ -2379,13 +2300,13 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
             `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${paginationIndexPath(archiveBases[alt], indexPage)}" />`,
           ).join('\n');
           sitemapEntries.push(
-            `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.4</priority>\n  </url>`,
+            `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>0.4</priority>\n  </url>`,
           );
         }
         if (locale === 'it') {
           const url = `${BASE_URL}${basePath}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+            `  <url>\n    <loc>${url}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
           );
         }
       }
@@ -2450,7 +2371,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         if (locale === 'it') {
           const url = `${BASE_URL}${basePath}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
+            `  <url>\n    <loc>${url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
           );
         }
       }
@@ -2458,13 +2379,27 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
       // ── aziende (companies) — list employers with ≥1 active opening in this canton ──
       {
         const basePath = hubSlugFor(canton, locale, 'aziende');
-        const items = empArraySorted.map(([empKey, n]) => {
+        // Link the per-canton company hubs jobsSeoPagesPlugin actually emitted
+        // (build-plugins/shared/cantonCompanyHubRegistry.ts), under their own
+        // slug and this locale's route prefix. The snapshot employerKey list
+        // below is only the fallback for a build that skipped that phase: on
+        // build f3659686 it pointed 28 of Zurich's 100 links at noindex
+        // bridges and 26 at pages that do not exist.
+        const emittedHubs = cantonCompanyHubs(canton).slice(0, 100);
+        const items = emittedHubs.length > 0 ? emittedHubs.map((hub) => ({
+          href: `${sectionRoot}/${COMPANY_ROUTE_PREFIX[locale]}-${hub.slug}/`,
+          label: hub.name,
+          sub: jobsActiveLabel(locale, hub.jobs),
+          logo: logoUrlForRenderedOutput(resolveBrandLogoUrl(rootDir, hub.logoKey) ?? crawledLogos[hub.logoKey] ?? null) ?? null,
+          metric: hub.jobs.toString(),
+          metricTone: 'accent' as const,
+        })) : empArraySorted.map(([empKey, n]) => {
           // Resolve a logo: try the (manifest|crawled) keyed lookup. Keys are
           // short employer keys (e.g. "unispital-basel"); the same key is used
           // for the URL slug here, so no separate lookup is needed.
-          const logoUrl = resolveBrandLogoUrl(rootDir, empKey)
+          const logoUrl = logoUrlForRenderedOutput(resolveBrandLogoUrl(rootDir, empKey)
             ?? crawledLogos[empKey]
-            ?? null;
+            ?? null) ?? null;
           return {
             href: `${sectionRoot}/azienda-${empKey}/`,
             label: humanizeSlug(empKey),
@@ -2495,14 +2430,11 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         if (locale === 'it') {
           const url = `${BASE_URL}${basePath}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
+            `  <url>\n    <loc>${url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
           );
         }
       }
     }
-  }
-  if (thinCantonHubBelowFloorBridges > 0) {
-    console.log(`\x1b[36m[seo-hubs]\x1b[0m below-floor/noindex canton hub bridges: ${thinCantonHubBelowFloorBridges}`);
   }
 }
 
@@ -2595,9 +2527,12 @@ function readArticleDates(
   const out = new Map<string, string>();
   try {
     const src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
-    const rx = /\{\s*id:\s*'([^']+)',\s*category:\s*'[^']*',\s*date:\s*'([^']+)'/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) out.set(m[1], m[2]);
+    // Same field-order-independent parser as the package's reader: the regex
+    // here required `category` right after `id`, so an entry with `updatedAt`
+    // first had no date. `date: ''` (unknown) stays out of the map.
+    for (const entry of parseArticleRegistryEntries(src)) {
+      if (entry.date) out.set(entry.id, entry.date);
+    }
   } catch { /* registry absent — keep insertion order */ }
   return out;
 }
@@ -2746,7 +2681,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       const url = `${BASE_URL}${canonicalPath}`;
       const priority = page === 1 ? '0.7' : '0.5';
       sitemapEntries.push(
-        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
       );
     }
 
@@ -2792,6 +2727,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     cantonEmployerCounts,
   } = readJobsData(fs, np, rootDir);
   const crawledLogos = readCrawledCompanyLogos(fs, np, rootDir);
+  const autoSectorInventory = readAutoSectorHubInventory(rootDir);
 
   const ensuredDirs = new Set<string>();
   function writeFile(canonicalPath: string, html: string): void {
@@ -2816,15 +2752,10 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       // is identical per locale — keeps hreflang alternates consistent. When a
       // locale-specific translated path is missing, fall back to the IT canonical
       // path (item is still browseable; user lands on the IT detail).
-      const localeMap = jobPerLocale[locale];
-      const itMap = jobPerLocale.it;
-      for (const slug of jobSlugs) {
-        const localePath = localeMap[slug] || itMap[slug];
-        if (!localePath) continue;
-        items.push({ href: localePath, label: humanizeSlug(slug) });
+      for (const { slug, href } of emittedJobArchiveItems(fs, np, distDir, jobSlugs, jobPerLocale, locale)) {
+        items.push({ href, label: humanizeSlug(slug) });
       }
     } else if (hubKey === 'sectors') {
-      pageSize = HUB_SECTORS.length;
       const sectionRoot = legacyTiSectionRoot(locale);
       // Sectors with a curated static hub get the canonical URL; the rest fall
       // back to the TI job-board root. NEVER `?q=`: robots.txt disallows
@@ -2839,6 +2770,21 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
           : `${sectionRoot}/`;
         items.push({ href, label: sector[locale], emoji: sectorEmojiFor(sector.key) });
       }
+      for (const publication of autoSectorInventory.registry.hubs) {
+        const jobs = autoSectorInventory.jobsBySlug.get(publication.slug) || [];
+        const label = publication.labelByLocale[locale];
+        if (!label || !isIndexableSectorHubPublication(
+          publication, jobs.length, countAutoSectorHubEmployers(jobs), locale,
+        )) continue;
+        items.push({
+          href: buildAutoSectorHubPath(locale, publication.slug, publication.routeKind),
+          label,
+          emoji: '🔎',
+        });
+      }
+      // Keep the single-page index for the current curated set, then paginate
+      // dynamic growth at 100 items and emit those pages in all locales.
+      pageSize = Math.max(HUB_SECTORS.length, Math.min(100, items.length));
     } else {
       pageSize = COMPANIES_PAGE_SIZE;
       const sectionRoot = legacyTiSectionRoot(locale);
@@ -2849,11 +2795,11 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
         // (e.g. "bps-banca-popolare-di-sondrio-suisse"). The urlToKey reverse
         // map bridges this gap.
         const key = companyUrlToKey.get(slug) ?? slug;
-        const logoUrl = resolveBrandLogoUrl(rootDir, key)
+        const logoUrl = logoUrlForRenderedOutput(resolveBrandLogoUrl(rootDir, key)
           ?? resolveBrandLogoUrl(rootDir, slug)
           ?? crawledLogos[key]
           ?? crawledLogos[slug]
-          ?? null;
+          ?? null) ?? null;
         items.push({
           href: `${sectionRoot}/azienda-${slug}/`,
           label: humanizeSlug(slug),
@@ -2865,30 +2811,13 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
 
     const total = items.length;
     const totalPages = Math.max(1, Math.ceil(total / pageSize));
-    // Cap non-IT page-N>1 emission (2026-05-13): the master jobs hub has
-    // ~400 pages × 4 locales = ~1600 thin paginated HTML files at ~150 KB
-    // each = ~240 MB of dist — the dominant source of the deploy artifact
-    // crossing the 1 GB Pages cap + the text-html-ratio regression (471 →
-    // 1917 offenders, all `find-jobs-ticino/all/page-N` family). IT keeps
-    // every page-N as static HTML (canonical for search). Non-IT locales
-    // emit only page-1 — page-N>1 routes via the SPA shell.
-    //
-    // Hreflang impact: buildHtml only emits hreflang alternates on page-1
-    // (see line 661), so dropping non-IT page-N HTML doesn't break per-page
-    // hreflang signals. The sitemap entry for IT page-N>1 also drops its
-    // `xhtml:link` alternates (would 404 otherwise) — page-1 keeps the
-    // full 4-locale alternate set.
-    const emitNonItPageN = false;
-    // Pagination chrome (compact nav + bounded index links + <link rel="next">) is
-    // built from this value, NOT from `totalPages` above — passing the real
-    // ~400-page count to non-IT locales rendered dead `page-2..page-N`
-    // anchors on their own (never-emitted-beyond-1) page-1, which crawlers
-    // followed straight into the `JOB_BOARD_PAGINATION_PATTERN` catch-all in
-    // searchConsoleCompat.ts (redirects ANY `.../alle/page-N/` to the section
-    // root): every one of those links 301'd by construction, since the target
-    // page never existed. Capped to `1` for non-IT locales (matches what is
-    // actually emitted) removes the pagination chrome entirely there instead
-    // of advertising pages that don't exist (#6394).
+    // Keep the large non-IT job archive cap. Company directories are a
+    // separate inventory: truncating them to page 1 made valid company
+    // page-N URLs 404 and hid their remaining records. Emit their real
+    // pages in every locale; navigation must use the same emission policy.
+    // Page-1 hreflang remains reciprocal; page-N entries self-reference
+    // their actual locale (buildHtml emits no page-N head alternates).
+    const emitNonItPageN = hubKey === 'companies' || hubKey === 'sectors';
     const renderTotalPages = locale === 'it' || emitNonItPageN ? totalPages : 1;
     for (let page = 1; page <= totalPages; page++) {
       if (page > 1 && locale !== 'it' && !emitNonItPageN) continue;
@@ -2900,15 +2829,14 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const canonicalPath = paginatedPath(basePath, page);
       writeFile(canonicalPath, html);
 
-      // Sitemap: one entry per (hub, locale, page) tuple. Non-IT locales only
-      // ever reach page 1 (the `continue` above skips page>1 for them), so
+      // Sitemap: one entry per emitted (hub, locale, page) tuple. All locales
+      // reach page 1 and company directories also reach subsequent pages, so
       // each locale gets its own reciprocal <loc> here — required for the
       // 4-locale alternate group below to pass sanitizeSitemapHreflangReciprocity
       // (every href must resolve to a real <loc> elsewhere in the sitemap).
       //
       // Hreflang alternates: page-1 ships the full 4-locale set; page-N>1
-      // ships IT-only (non-IT page-N HTML is no longer emitted, so listing
-      // those URLs as alternates would advertise 404s).
+      // self-references the owning locale, without advertising unbuilt peers.
       const altLinks = page === 1
         ? HUB_LOCALES.map((alt) => {
             const altBase = alt === 'it' ? HUB_SLUGS.it[
@@ -2918,18 +2846,17 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
             ];
             return `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altBase}" />`;
           }).join('\n')
-        : `    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}${canonicalPath}" />`;
+        : `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${canonicalPath}" />`;
       const url = `${BASE_URL}${canonicalPath}`;
       const priority = page === 1 ? '0.7' : '0.5';
       sitemapEntries.push(
-        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
       );
     }
 
-    // Long non-article hubs keep all their archive pages static for IT, so
-    // emit the matching page-range indexes after the archive pages. Article
-    // archives use a separate core and never reach this function.
-    if (locale === 'it' && totalPages > PAGINATION_INDEX_THRESHOLD) {
+    // Emit matching range indexes wherever this family emits archive pages.
+    // Article archives use a separate core and never reach this function.
+    if ((locale === 'it' || emitNonItPageN) && totalPages > PAGINATION_INDEX_THRESHOLD) {
       const parentPath = basePath.replace(/[^/]+\/$/, '');
       const parentLabel = hubKey === 'companies'
         ? SECTION_LABEL[locale].companies
@@ -2949,7 +2876,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       });
       for (const { canonicalPath } of indexPages) {
         sitemapEntries.push(
-          `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${hubKey === 'jobs' ? 'daily' : 'weekly'}</changefreq>\n    <priority>0.4</priority>\n  </url>`,
+          `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n    <changefreq>${hubKey === 'jobs' ? 'daily' : 'weekly'}</changefreq>\n    <priority>0.4</priority>\n  </url>`,
         );
       }
     }
@@ -3002,17 +2929,15 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     });
   }
 
-  // ── Phase 7.2 — Canton-aware THIN hub pages ──
-  // For every non-TI canton with ≥ MIN_JOBS_FOR_CANTON_PAGE jobs, emit a
-  // thin per-canton landing for `tutti` (all jobs), `settori` (sectors) and
-  // `aziende` (companies) across all 4 locales. These pages close the
-  // canton URL graph (Semrush orphan-pages gate) without rebuilding the
-  // full TI body. Articles are NOT canton-scoped — they remain TI-only.
+  // ── Phase 7.2 — Canton-aware hub pages ──
+  // For every non-TI canton, emit a complete per-canton landing for `tutti`
+  // (all jobs), `settori` (sectors) and `aziende` (companies) across all four
+  // locales. A small or empty snapshot still receives the same geographic
+  // prose, navigation and fallback template; it is never replaced by a
+  // noindex bridge. Articles are NOT canton-scoped — they remain TI-only.
   //
-  // Conservative gate: skip cantons under the job-count threshold so we
-  // never emit thin-content placeholders. The TI hubs are already emitted
-  // above with the full paginated body — we explicitly skip TI here to
-  // preserve byte-identical TI invariance.
+  // The TI hubs are already emitted above with the full paginated body — we
+  // explicitly skip TI here to preserve byte-identical TI invariance.
   emitThinCantonHubs({
     fs,
     np,
@@ -3114,9 +3039,9 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const customDesc = `Indice delle offerte di lavoro nel cantone Ticino pubblicate ${r.descLabel}. ${recentJobs.length} posizioni aperte aggiornate quotidianamente.`;
       const patched = html
         .replace(/<title>[^<]*<\/title>/, `<title>${esc(customTitle)}</title>`)
-        .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(clampMetaDescription(customDesc))}">`)
+        .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(clampMetaDescription(customDesc, undefined, 'it'))}">`)
         .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(customTitle)}">`)
-        .replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(clampMetaDescription(customDesc))}">`)
+        .replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(clampMetaDescription(customDesc, undefined, 'it'))}">`)
         .replace(/<h1 [^>]*>[^<]*<\/h1>/, (match) => match.replace(/>[^<]*</, `>${esc(customH1)}<`))
         // The regex pattern matches the ORIGINAL inline-styled <p> emitted by
         // earlier passes (font-size:16px... preserved as inline because this
@@ -3130,7 +3055,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       pagesEmitted++;
       const url = `${BASE_URL}${basePath}`;
       sitemapEntries.push(
-        `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+        `  <url>\n    <loc>${url}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
       );
     }
   }

@@ -1,5 +1,5 @@
 import {
-  validatePharmacyDutyList,
+  validatePharmacyDuty,
   type PharmacyDuty,
   type PharmacyDutyStatus,
 } from './types';
@@ -140,17 +140,28 @@ function validateGenevaDutyRows(
   catalogue: unknown,
   source: GenevaDutySource | null,
 ): string[] {
-  const errors = validatePharmacyDutyList(rows, now, { checkTemporalState: false });
+  // Geneva's source can explicitly publish Pharma24 as a 24/7 service while
+  // adding another pharmacy for a dated window. Those are concurrent verified
+  // services, not a silent rotation conflict. Keep the per-row schema checks
+  // and identity checks, but do not apply the generic single-coverage overlap
+  // rule used by the Ticino weekly model.
+  const errors: string[] = [];
+  const seenIds = new Set<string>();
   const records = Array.isArray(catalogue)
     ? catalogue.filter(isRecord)
     : [];
   const knownIds = aliasIds(source);
 
   rows.forEach((row, index) => {
+    errors.push(...validatePharmacyDuty(index, row, now, { checkTemporalState: false }));
     if (!isRecord(row)) return;
     if (row.coverageType !== 'canton') errors.push(`duty[${index}]: Geneva duty must use canton coverage`);
     if (row.coverageName !== GENEVA_DUTY_RELEASE_COVERAGE_NAME) errors.push(`duty[${index}]: coverageName must be Genève`);
-    if (row.status !== 'verified') errors.push(`duty[${index}]: Geneva release rows must be verified`);
+    if (row.status !== 'verified' && row.status !== 'expired') errors.push(`duty[${index}]: Geneva release rows must be verified or expired`);
+    if (typeof row.id === 'string' && row.id.trim() !== '') {
+      if (seenIds.has(row.id)) errors.push(`duty[${index}]: duplicate id "${row.id}"`);
+      seenIds.add(row.id);
+    }
     if (row.sourceUrl !== GENEVA_DUTY_RELEASE_SOURCE_URL) errors.push(`duty[${index}]: sourceUrl does not match the allowlisted Pharma Genève source`);
     if (row.sourceType !== 'association') errors.push(`duty[${index}]: sourceType must be association`);
     if (typeof row.pharmacyId !== 'string' || !knownIds.has(row.pharmacyId)) {

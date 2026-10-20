@@ -58,7 +58,8 @@
 import type fsT from 'node:fs';
 import type npT from 'node:path';
 import { getSiteShell, type ArticleLocale } from './siteShell';
-import { ARTICLE_SECTIONS, type ArticleSection } from '../articleSections';
+import { ARTICLE_SECTIONS, activeArticleSection, type ArticleSection, type ArticleSectionKind } from '../articleSections';
+import { articleSectionKind, twinOf } from './shared/articleSectionCore.mjs';
 import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
 import {
   readArticleDates,
@@ -74,6 +75,13 @@ import {
   TOPIC_INDEX_TITLE,
 } from './topicTaxonomy';
 import { assignArticlesToTopics, type TopicAssignment } from './topicClusters';
+import {
+  cantonArchiveCopy,
+  cantonSectionMethodology,
+  cantonTopicHubLabel,
+  cantonTopicHubPath,
+} from './shared/cantonSectionCopy.mjs';
+import { CANTON_HUB_TOPIC_KEYS } from './shared/cantonArticleSectionCore.generated.mjs';
 
 /** Alias kept so the extracted bodies below read exactly as they did upstream. */
 type HubLocale = ArticleLocale;
@@ -91,18 +99,31 @@ const ARCHIVE_ALL_SLUG: Record<HubLocale, string> = {
 };
 
 /**
- * Base paths for the svizzera (Switzerland-wide) article archive. Derived from
- * `ARTICLE_SECTIONS.svizzera.indexSlug` so the slug table stays in one place.
- * Carried verbatim from `seoHubsData.svizzeraArticlesArchiveBasePaths()`.
+ * Base paths for a section's `/tutti/` archive derived from its own
+ * `indexSlug`, so the slug table stays in one place. For svizzera this is,
+ * value for value, the former `svizzeraArticlesArchiveBasePaths()` (itself
+ * carried verbatim from `seoHubsData.svizzeraArticlesArchiveBasePaths()`).
  */
-function svizzeraArticlesArchiveBasePaths(): Record<HubLocale, string> {
-  const cfg = ARTICLE_SECTIONS.svizzera.indexSlug;
+function derivedArticlesArchiveBasePaths(section: ArticleSection): Record<HubLocale, string> {
+  const cfg = activeArticleSection(section).indexSlug;
   const out = {} as Record<HubLocale, string>;
   for (const loc of getSiteShell().hubLocales) {
     const prefix = loc === 'it' ? '' : `/${loc}`;
     out[loc] = `${prefix}/${cfg[loc]}/${ARCHIVE_ALL_SLUG[loc]}/`;
   }
   return out;
+}
+
+/**
+ * Archive base paths of any active section, looked up by kind. The
+ * frontaliere section keeps reading the site shell's `articlesAllPaths` (the
+ * `HUB_SLUGS[locale].articlesAll` map it always used); every other kind
+ * derives them from its own `indexSlug`.
+ */
+function articlesArchiveBasePaths(section: ArticleSection): Record<HubLocale, string> {
+  return articleSectionKind(section) === 'frontaliere'
+    ? { ...getSiteShell().articlesAllPaths }
+    : derivedArticlesArchiveBasePaths(section);
 }
 
 /** Path-based pagination helper. Carried verbatim from `seoHubsData.ts`. */
@@ -112,7 +133,7 @@ function paginatedPath(basePath: string, page: number): string {
   return `${trimmed}/page-${page}/`;
 }
 
-const LOCALE_OG: Record<HubLocale, string> = {
+export const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_CH',
   en: 'en_US',
   de: 'de_CH',
@@ -564,11 +585,11 @@ const TWIN_SEE_ALSO_LABEL: Record<HubLocale, string> = {
  * `SECTION_LABEL`/`SVIZZERA_ARTICLES_COPY` already use for those pages' own
  * breadcrumbs, so the anchor text matches the destination's identity.
  */
-const TWIN_ARCHIVE_LINK_LABEL: Record<HubLocale, Record<ArticleSection, string>> = {
-  it: { frontaliere: 'Articoli per frontalieri', svizzera: 'Articoli Svizzera' },
-  en: { frontaliere: 'Cross-border articles', svizzera: 'Switzerland Articles' },
-  de: { frontaliere: 'Grenzgänger-Artikel', svizzera: 'Schweiz-Artikel' },
-  fr: { frontaliere: 'Articles pour frontaliers', svizzera: 'Articles Suisse' },
+const TWIN_ARCHIVE_LINK_LABEL: Record<HubLocale, Record<Exclude<ArticleSectionKind, 'canton'>, string>> = {
+  it: { frontaliere: 'Articoli per frontalieri', national: 'Articoli Svizzera' },
+  en: { frontaliere: 'Cross-border articles', national: 'Switzerland Articles' },
+  de: { frontaliere: 'Grenzgänger-Artikel', national: 'Schweiz-Artikel' },
+  fr: { frontaliere: 'Articles pour frontaliers', national: 'Articles Suisse' },
 };
 
 /**
@@ -718,8 +739,10 @@ export function buildArchiveTopicsNavHtml(args: {
   const indexLink = links.length > 0
     ? `<p class="s-Sn0UIv"><a class="s-7DS5hj" href="${archiveTopicIndexPath(section, locale)}">${esc(TOPIC_INDEX_TITLE[locale])}</a></p>`
     : '';
-  const twinSection: ArticleSection = section === 'frontaliere' ? 'svizzera' : 'frontaliere';
-  const twinLink = `<p class="s-Sn0UIv">${esc(TWIN_SEE_ALSO_LABEL[locale])} <a class="s-7DS5hj" href="${twinArchivePath}">${esc(TWIN_ARCHIVE_LINK_LABEL[locale][twinSection])}</a></p>`;
+  // The twin is always one of the two historical sections (`twinOf`), whose
+  // kinds are the keys of TWIN_ARCHIVE_LINK_LABEL.
+  const twinKind = articleSectionKind(twinOf(section)) as Exclude<ArticleSectionKind, 'canton'>;
+  const twinLink = `<p class="s-Sn0UIv">${esc(TWIN_SEE_ALSO_LABEL[locale])} <a class="s-7DS5hj" href="${twinArchivePath}">${esc(TWIN_ARCHIVE_LINK_LABEL[locale][twinKind])}</a></p>`;
   return `<nav class="s-4nYHgH" aria-label="${label}">${topicsBlock}${indexLink}${twinLink}</nav>`;
 }
 
@@ -769,6 +792,13 @@ interface ArticleSectionOverride {
   readonly sectionLabel: string;
   readonly h1: string;
   readonly hreflangBases: Record<HubLocale, string>;
+  /**
+   * Replaces the long-prose accordion. Set only for canton sections: the
+   * default methodology/FAQ copy speaks of the Italian cross-border worker in
+   * Ticino, which is wrong on `/articoli-zurigo/tutti/`. Absent → the
+   * historical accordion, byte for byte.
+   */
+  readonly proseAccordionHtml?: string;
 }
 
 function buildHtml(args: BuildHtmlArgs): string {
@@ -787,7 +817,6 @@ function buildHtml(args: BuildHtmlArgs): string {
     asyncCssHeadBlock,
     rootShell,
     railGutters,
-    buildDayStampIso,
     stripLiteralMarkdown,
     hubLocales: HUB_LOCALES,
     articlesAllPaths,
@@ -814,7 +843,6 @@ function buildHtml(args: BuildHtmlArgs): string {
   const pageTitle = baseTitle.length + brandSuffix.length <= 60 ? `${baseTitle}${brandSuffix}` : baseTitle;
   const canonicalPath = paginatedPath(basePath, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const dateStamp = new Date().toISOString().slice(0, 10);
 
   // hreflang: only emit alternates for page-1 (paginated pages share lang)
   const hreflangs = page === 1
@@ -861,9 +889,6 @@ function buildHtml(args: BuildHtmlArgs): string {
     url: canonicalUrl,
     description,
     inLanguage: locale,
-    // Day-granularity, not a full build timestamp — see
-    // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
-    dateModified: buildDayStampIso(),
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: displayCount,
@@ -908,15 +933,15 @@ function buildHtml(args: BuildHtmlArgs): string {
           .join('')}</ul>`;
 
   // Stat tiles + primary CTA — universal across hub kinds. Tiles surface the
-  // total, the current page position, and the last-updated date so users get
+  // total and the current page position so users get
   // immediate context above the data area (rule #17).
   const tileLabelsGlobal = {
-    it: { count: HUB_KEY_TILE_LABELS.it[hubKey], pagina: 'Pagina', aggiornato: 'Aggiornato' },
-    en: { count: HUB_KEY_TILE_LABELS.en[hubKey], pagina: 'Page', aggiornato: 'Updated' },
-    de: { count: HUB_KEY_TILE_LABELS.de[hubKey], pagina: 'Seite', aggiornato: 'Aktualisiert' },
-    fr: { count: HUB_KEY_TILE_LABELS.fr[hubKey], pagina: 'Page', aggiornato: 'Mis à jour' },
+    it: { count: HUB_KEY_TILE_LABELS.it[hubKey], pagina: 'Pagina' },
+    en: { count: HUB_KEY_TILE_LABELS.en[hubKey], pagina: 'Page' },
+    de: { count: HUB_KEY_TILE_LABELS.de[hubKey], pagina: 'Seite' },
+    fr: { count: HUB_KEY_TILE_LABELS.fr[hubKey], pagina: 'Page' },
   }[locale];
-  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div class="s-tacc"><div class="s-tlbl">${esc(tileLabelsGlobal.count)}</div><div class="s-tval">${esc(displayCount.toLocaleString(locale))}</div></div><div class="s-tok"><div class="s-tlbl">${esc(tileLabelsGlobal.pagina)}</div><div class="s-tval">${esc(`${page} / ${totalPages}`)}</div></div><div class="s-tbase"><div class="s-tlbl">${esc(tileLabelsGlobal.aggiornato)}</div><div class="s-tval" style="font-size:18px">${esc(dateStamp)}</div></div></section>`;
+  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div class="s-tacc"><div class="s-tlbl">${esc(tileLabelsGlobal.count)}</div><div class="s-tval">${esc(displayCount.toLocaleString(locale))}</div></div><div class="s-tok"><div class="s-tlbl">${esc(tileLabelsGlobal.pagina)}</div><div class="s-tval">${esc(`${page} / ${totalPages}`)}</div></div></section>`;
 
   const ctaPathGlobal = locale === 'it' ? '/calcola-stipendio/'
     : locale === 'de' ? '/de/gehalt-berechnen/'
@@ -941,7 +966,8 @@ function buildHtml(args: BuildHtmlArgs): string {
     de: 'Mehr erfahren · Methodik, Grenzgänger-Kontext und FAQ',
     fr: 'En savoir plus · méthodologie, contexte frontalier et FAQ',
   }[locale];
-  const proseAccordionHtml = `<details class="s-HieO_5"><summary class="s--3WWBp">${esc(proseSummaryLabel)} <span class="s-FxywTT" aria-hidden="true"> ▾</span></summary><div class="s-2Hpb5V">${buildHubMethodologyHtml(locale, hubKey)}${buildHubFooterHtml(locale, hubKey)}${buildHubFaqHtml(locale, hubKey)}${buildHubClosingHtml(locale)}</div></details>`;
+  const proseAccordionHtml = sectionOverride?.proseAccordionHtml
+    ?? `<details class="s-HieO_5"><summary class="s--3WWBp">${esc(proseSummaryLabel)} <span class="s-FxywTT" aria-hidden="true"> ▾</span></summary><div class="s-2Hpb5V">${buildHubMethodologyHtml(locale, hubKey)}${buildHubFooterHtml(locale, hubKey)}${buildHubFaqHtml(locale, hubKey)}${buildHubClosingHtml(locale)}</div></details>`;
 
   return `<!doctype html>
 <html lang="${locale}">
@@ -949,13 +975,13 @@ function buildHtml(args: BuildHtmlArgs): string {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
-    <meta name="description" content="${esc(clampMetaDescription(description))}">
+    <meta name="description" content="${esc(clampMetaDescription(description, undefined, locale))}">
     <meta name="robots" content="${ARTICLE_ROBOTS_INDEX_ENHANCED}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
     <meta property="og:title" content="${esc(pageTitle)}">
-    <meta property="og:description" content="${esc(clampMetaDescription(description))}">
+    <meta property="og:description" content="${esc(clampMetaDescription(description, undefined, locale))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:alt" content="${esc(pageTitle)}">
@@ -979,7 +1005,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
       <header class="s-S1RSUf">
         <h1 class="s-e3gkVi">${esc(sectionOverride ? (page > 1 ? `${sectionOverride.h1} — ${pageLabel(locale, page)}` : sectionOverride.h1) : buildHubH1(locale, hubKey, displayCount, page))}</h1>
         <p class="s-OPPwy-">${esc(description)}</p>
-        <p class="s-Sn0UIv">${esc(countLabel(locale, displayCount))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
+        <p class="s-Sn0UIv">${esc(countLabel(locale, displayCount))}</p>
       </header>
       ${statTilesHtml}
       ${ctaHtmlGlobal}
@@ -1009,9 +1035,6 @@ function countLabel(locale: HubLocale, n: number): string {
   return { it: `${n.toLocaleString('it')} risorse`, en: `${n.toLocaleString('en')} entries`, de: `${n.toLocaleString('de')} Einträge`, fr: `${n.toLocaleString('fr')} entrées` }[locale];
 }
 
-function updatedLabel(locale: HubLocale): string {
-  return { it: 'Aggiornato', en: 'Updated', de: 'Aktualisiert', fr: 'Mis à jour' }[locale];
-}
 
 export function renderPagination(locale: HubLocale, basePath: string, current: number, total: number): string {
   // Compact pagination (visible): prev, 1, current-1, current, current+1, last, next.
@@ -1201,31 +1224,118 @@ interface RenderArticleHubCoreArgs {
 // above `emitSeoHubs`'s export block for why those two cores are deliberately
 // separate.
 
+/**
+ * The `buildHtml` override for a section's archive, by kind. Frontaliere
+ * renders through `buildHtml`'s DEFAULT codepath (no override — byte-identical
+ * to the pre-#4881 inline branch); the national section uses
+ * SVIZZERA_ARTICLES_COPY; a canton section uses its own copy, derived from
+ * the core and the canton display name (`shared/cantonSectionCopy.mjs`), and
+ * replaces the frontaliere methodology accordion with the section's own.
+ */
+function archiveSectionOverride(
+  section: ArticleSection,
+  kind: ArticleSectionKind,
+  locale: HubLocale,
+  archiveBases: Record<HubLocale, string>,
+): ArticleSectionOverride | undefined {
+  switch (kind) {
+    case 'frontaliere':
+      return undefined;
+    case 'national': {
+      const copy = SVIZZERA_ARTICLES_COPY[locale];
+      return {
+        title: copy.title,
+        description: copy.description,
+        sectionLabel: copy.sectionLabel,
+        h1: copy.h1,
+        hreflangBases: archiveBases,
+      };
+    }
+    case 'canton': {
+      const copy = cantonArchiveCopy(section, locale);
+      return {
+        title: copy.title,
+        description: copy.description,
+        sectionLabel: copy.sectionLabel,
+        h1: copy.h1,
+        hreflangBases: archiveBases,
+        proseAccordionHtml: cantonMethodologyAccordionHtml(section, locale),
+      };
+    }
+    default:
+      throw new Error(`[article-hubs] nessuna copy d'archivio per la sezione "${section}" (tipo ${kind})`);
+  }
+}
+
+/**
+ * The methodology accordion of a canton section page (archive and landing):
+ * same collapsed `<details>` chrome as the historical accordion, the
+ * section's own prose inside.
+ */
+export function cantonMethodologyAccordionHtml(section: ArticleSection, locale: HubLocale): string {
+  const { summary, paragraphs } = cantonSectionMethodology(section, locale);
+  return `<details class="s-HieO_5"><summary class="s--3WWBp">${esc(summary)} <span class="s-FxywTT" aria-hidden="true"> ▾</span></summary><div class="s-2Hpb5V">${paragraphs.map((p) => `<p>${esc(p)}</p>`).join('')}</div></details>`;
+}
+
+/**
+ * The 6 topic hubs of a canton section (D2) in canonical theme order, as
+ * root-relative hrefs + localized labels — the canton counterpart of
+ * {@link archiveTopicHubLinks}. A canton section has no
+ * `/<section>/argomenti/<topic>/` hubs: its themes are direct children of the
+ * section (`/articoli-ticino/carburanti/`).
+ */
+export function cantonTopicHubLinks(
+  section: ArticleSection,
+  locale: HubLocale,
+): ReadonlyArray<{ topic: string; href: string; label: string }> {
+  return CANTON_HUB_TOPIC_KEYS.map((topic) => ({
+    topic,
+    href: cantonTopicHubPath(section, topic, locale),
+    label: cantonTopicHubLabel(section, topic, locale),
+  }));
+}
+
+/**
+ * Archive nav of a canton section: its 6 topic hubs + the cross-link to the
+ * twin (svizzera) archive, in the same chrome as {@link buildArchiveTopicsNavHtml}.
+ * Every hub is always linked: the owner's decision (2026-10-05) keeps every
+ * canton hub indexable, so there is no eligibility floor to apply here.
+ */
+function buildCantonArchiveNavHtml(locale: HubLocale, section: ArticleSection, twinArchivePath: string): string {
+  const links = cantonTopicHubLinks(section, locale);
+  const label = TOPICS_NAV_LABEL[locale];
+  const topicsBlock = `<details class="s-Ery2Xe"><summary class="s-goeAUL">${label} (${links.length})</summary><div class="s-6_t7LY">${links
+    .map((l) => `<a href="${l.href}" class="hp">${esc(l.label)}</a>`)
+    .join('')}</div></details>`;
+  const twinKind = articleSectionKind(twinOf(section)) as Exclude<ArticleSectionKind, 'canton'>;
+  const twinLink = `<p class="s-Sn0UIv">${esc(TWIN_SEE_ALSO_LABEL[locale])} <a class="s-7DS5hj" href="${twinArchivePath}">${esc(TWIN_ARCHIVE_LINK_LABEL[locale][twinKind])}</a></p>`;
+  return `<nav class="s-4nYHgH" aria-label="${label}">${topicsBlock}${twinLink}</nav>`;
+}
+
 function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   const {
     baseUrl: BASE_URL,
     hubLocales: HUB_LOCALES,
     articlesPageSize: ARTICLES_PAGE_SIZE,
-    articlesAllPaths,
   } = getSiteShell();
   const { fs, np, rootDir, distDir, section, qw, sitemapEntries, dateStamp, entryJs, entryCss, hasSpaBundle, onPageEmitted, locales } = args;
   const cfg = ARTICLE_SECTIONS[section];
-  const isSvizzera = section === 'svizzera';
-  const archiveBases: Record<HubLocale, string> = isSvizzera
-    ? svizzeraArticlesArchiveBasePaths()
-    : { ...articlesAllPaths };
+  const kind = articleSectionKind(section);
+  const archiveBases: Record<HubLocale, string> = articlesArchiveBasePaths(section);
   // The OTHER section's archive bases — the cross-link target (#5414). For
   // frontaliere pages that is svizzera's derived bases; for svizzera pages it
   // is the shell's own frontaliere `/tutti/` map (identical to what the site
-  // build's `HUB_SLUGS[locale].articlesAll` resolves to).
-  const twinArchiveBases: Record<HubLocale, string> = isSvizzera
-    ? { ...articlesAllPaths }
-    : svizzeraArticlesArchiveBasePaths();
+  // build's `HUB_SLUGS[locale].articlesAll` resolves to). `twinOf` holds the
+  // pairing; a canton section points at svizzera.
+  const twinArchiveBases: Record<HubLocale, string> = articlesArchiveBasePaths(twinOf(section));
   // One membership pass per section render, shared by all locales — the
   // eligible set is locale-independent by construction (membership is
   // computed once, on the Italian corpus; see topicClusters.ts).
-  const eligibleTopicKeys = args.eligibleTopicKeys
-    ?? computeEligibleTopicKeys(fs, np, rootDir, section);
+  // A canton section links its 6 own hubs instead (buildCantonArchiveNavHtml),
+  // so the 14-topic membership pass is not computed for it.
+  const eligibleTopicKeys = kind === 'canton'
+    ? new Set<string>()
+    : args.eligibleTopicKeys ?? computeEligibleTopicKeys(fs, np, rootDir, section);
   const pageSize = ARTICLES_PAGE_SIZE;
   // Canonical union slug set, computed once via the SHARED helper that
   // `staticPagesPlugin.ts`'s page-N navigator also uses — so the emitted
@@ -1237,12 +1347,14 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
     const basePath = archiveBases[locale];
     const prefix = locale === 'it' ? '' : `/${locale}`;
     const blogSection = cfg.indexSlug[locale];
-    const topicsNavHtml = buildArchiveTopicsNavHtml({
-      locale,
-      section,
-      eligibleTopicKeys,
-      twinArchivePath: twinArchiveBases[locale],
-    });
+    const topicsNavHtml = kind === 'canton'
+      ? buildCantonArchiveNavHtml(locale, section, twinArchiveBases[locale])
+      : buildArchiveTopicsNavHtml({
+        locale,
+        section,
+        eligibleTopicKeys,
+        twinArchivePath: twinArchiveBases[locale],
+      });
 
     // Master list = UNION of `{metaPrefix}-it.ts` slugs and `{slugConst}`
     // keys — same orphan-avoidance contract for both sections.
@@ -1299,18 +1411,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
     // two reads agree, but routing through one source of truth means the
     // navigator (staticPagesPlugin.ts) and this emitter cannot disagree on N.
     const totalPages = Math.max(1, Math.ceil(unionSlugs.size / pageSize));
-    const sectionOverride: ArticleSectionOverride | undefined = isSvizzera
-      ? (() => {
-          const copy = SVIZZERA_ARTICLES_COPY[locale];
-          return {
-            title: copy.title,
-            description: copy.description,
-            sectionLabel: copy.sectionLabel,
-            h1: copy.h1,
-            hreflangBases: archiveBases,
-          };
-        })()
-      : undefined;
+    const sectionOverride = archiveSectionOverride(section, kind, locale, archiveBases);
 
     // Every locale now emits every page-N as static HTML.
     //
@@ -1352,7 +1453,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       const url = `${BASE_URL}${canonicalPath}`;
       const priority = page === 1 ? '0.7' : '0.5';
       sitemapEntries.push(
-        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
       );
     }
   }

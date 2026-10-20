@@ -41,6 +41,9 @@ async function runCleanup(slicePath: string, expiredDir: string): Promise<RunRes
         JOBS_SKIP_URL_VALIDATION: '1',
         JOBS_STALE_DAYS: '60',
         JOBS_EXPIRED_SLICES_DIR: expiredDir,
+        GITHUB_SHA: 'test-housekeeping-sha',
+        GITHUB_RUN_ID: 'test-housekeeping-run',
+        GITHUB_RUN_ATTEMPT: '1',
       },
     });
 
@@ -85,7 +88,7 @@ describe('cleanup-jobs slice slug dedup audit logging', () => {
           id: 'job-1-old',
           slug: 'engineer-lugano',
           // Empty url → URL validation returns valid:true with no network call
-          url: '',
+          url: 'https://example.test/jobs/987654321',
           title: 'Engineer Lugano (older)',
           company: 'TestCo',
           location: 'Lugano',
@@ -94,7 +97,7 @@ describe('cleanup-jobs slice slug dedup audit logging', () => {
         {
           id: 'job-2-newest',
           slug: 'engineer-lugano',
-          url: '',
+          url: 'https://example.test/jobs/987654321',
           title: 'Engineer Lugano (newest)',
           company: 'TestCo',
           location: 'Lugano',
@@ -103,7 +106,7 @@ describe('cleanup-jobs slice slug dedup audit logging', () => {
         {
           id: 'job-3-mid',
           slug: 'engineer-lugano',
-          url: '',
+          url: 'https://example.test/jobs/987654321',
           title: 'Engineer Lugano (middle)',
           company: 'TestCo',
           location: 'Lugano',
@@ -129,7 +132,8 @@ describe('cleanup-jobs slice slug dedup audit logging', () => {
     expect(result.code, output).toBe(0);
     // Audit log line: a clear summary count. The architectural fix renamed
     // "Removed" to "Archived" because losers are now preserved in expired/.
-    expect(output).toContain('Archived 2 within-slice duplicate-slug jobs from slice');
+    expect(output).toContain('Archived 2 within-slice same-identity duplicate-slug jobs from slice');
+    expect(output).toContain('winner identity differs: 0');
 
     // Resulting slice has exactly 2 jobs (1 unique + 1 winner)
     const parsed = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));

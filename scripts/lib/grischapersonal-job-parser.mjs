@@ -11,11 +11,16 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { textFragmentUrl } from './text-fragment-url.mjs';
+import {
+  resolveDetailOrListingSwissGeography,
+  resolveSourceBackedSwissGeography,
+} from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -104,6 +109,51 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+/* ── Public URL ────────────────────────────────────────────── */
+
+/**
+ * The address of one posting on https://grischapersonal.ch/stellen/.
+ *
+ * The page lists every vacancy as a table row with the title in an `<h1>` and
+ * an inline JobPosting without `url`; there is no page, and no element id, per
+ * vacancy. The listing identity the extractor gives such a row,
+ * `/stellen/#job-<digest of the JobPosting>`, names no element of the page, so
+ * published as the job URL it led to the top of a list of 38 postings
+ * (parser-quality run 36571839273: source-detail-anchor-missing 2/2).
+ *
+ * - `#:~:text=<title>`: the text fragment of the row's title is where the
+ *   browser scrolls (measured in Chromium on the live page) and where the
+ *   audit reads the posting (the section under that heading). Titles on the
+ *   page are unique (38/38 on 2026-09-29).
+ * - `?jobid=<digest>`: the posting's identity for the URL-keyed layers
+ *   (`extractJobIdentityFromUrl`, the slug registry), which drop the fragment.
+ *   Without it every posting would read as `grischapersonal.ch/stellen`. The
+ *   site ignores the query (same page, canonical `/stellen/`).
+ *
+ * @param {{ url?: string, sourceUrl?: string }} listing
+ * @param {string} title
+ * @returns {string}
+ */
+export function grischapersonalPublicUrl(listing = {}, title = '') {
+  const identity = String(listing.url || '');
+  const page = String(listing.sourceUrl || identity || CAREER_URL).split('#')[0].split('?')[0];
+  const digest = /#job-([0-9a-f]{6,})$/i.exec(identity)?.[1]
+    || createHash('sha1').update(identity || title).digest('hex').slice(0, 12);
+  return textFragmentUrl(`${page}?jobid=${digest}`, title);
+}
+
+/**
+ * Merge key of a Grischa Personal record: its id, which is derived from the
+ * listing identity and not from the public URL — so the records stored with
+ * `#job-<hash>` URLs match the same postings published with text fragments.
+ *
+ * @param {{ id?: string, url?: string }} job
+ * @returns {string}
+ */
+export function grischapersonalMatchKey(job = {}) {
+  return String(job?.id || job?.url || '');
+}
+
 /* ── Fetcher guidato dalla spec ───────────────────────────────
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
@@ -139,7 +189,13 @@ export async function fetchAllGrischapersonalJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing);
+    // The runtime resolver also understands a canton-only source locality
+    // such as "Graubünden". Keep the generated-parser contract's direct
+    // source-backed fallback for legacy rows, but prefer the canonical folded
+    // listing decision so structured canton evidence is not rejected as a
+    // missing municipality.
+    const geography = resolveDetailOrListingSwissGeography({}, listing).geography
+      || resolveSourceBackedSwissGeography(listing);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
@@ -150,12 +206,16 @@ export async function fetchAllGrischapersonalJobs() {
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
-    const publicUrl = listing.url;
+    const publicUrl = grischapersonalPublicUrl(listing, title);
     const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} ${location} grischapersonal ch`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    // The id stays the digest of the listing identity (`/stellen/#job-<hash>`
+    // of the inline JobPosting), as before the public URL changed: it is the
+    // merge key (see grischapersonalMatchKey), so stored records keep their
+    // translations, slugs and first-seen dates.
+    const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
 
     const job = {
       // ── Required fields ──
@@ -194,9 +254,8 @@ export async function fetchAllGrischapersonalJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      // Preserve the source date; the shared merge assigns a stable first-seen
-      // date when the source does not publish one.
-      postedDate: listing.postedAt || null,
+      // Publication evidence is distinct from the collection timestamp.
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

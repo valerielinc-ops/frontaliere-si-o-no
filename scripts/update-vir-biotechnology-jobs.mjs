@@ -15,6 +15,7 @@
  *   5. Run base crawler for AI localization
  *   6. Post-process and validate
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -23,13 +24,23 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmploymentType } from './lib/vir-biotechnology-job-parser.mjs';
+import {
+  classifyGreenhouseFetchError,
+  classifyGreenhouseResponse,
+  slugify,
+  GREENHOUSE_API,
+  inferEmploymentType,
+  buildVirDescriptionFields,
+  dropVirFabricatedText,
+} from './lib/vir-biotechnology-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -83,7 +94,7 @@ function detectExperienceLevel(title = '') {
   return 'MID';
 }
 
-async function fetchGreenhouseJobs() {
+async function fetchGreenhouseJobs(counts) {
   console.log(`🔍 Fetching Vir Biotechnology jobs from Greenhouse API`);
   console.log(`   API: ${GREENHOUSE_API}`);
   const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '20000', 10);
@@ -97,12 +108,34 @@ async function fetchGreenhouseJobs() {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for Greenhouse API`); return []; }
+    if (!res.ok) {
+      const error = new Error(`Greenhouse API returned HTTP ${res.status}`);
+      error.status = res.status;
+      throw error;
+    }
     const data = await res.json();
-    const swissJobs = parseGreenhouseJobs(data);
-    console.log(`  📋 Swiss jobs found: ${swissJobs.length} (of ${data?.jobs?.length || 0} total)`);
-    return swissJobs;
+    const classified = classifyGreenhouseResponse(data);
+    Object.assign(counts, {
+      discovered: classified.discovered,
+      parsed: classified.parsed,
+      lastFetchOutcome: classified.lastFetchOutcome,
+      abortKind: classified.abortKind,
+      authoritativeEmptySnapshot: classified.authoritativeEmptySnapshot,
+      authoritativeSnapshotVerified: classified.authoritativeSnapshotVerified,
+    });
+    console.log(`  📋 Swiss jobs found: ${classified.parsed} (of ${classified.discovered} source jobs)`);
+    return classified.jobs;
   } catch (err) {
+    // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
+    const classified = classifyGreenhouseFetchError(err);
+    Object.assign(counts, {
+      discovered: 0,
+      parsed: 0,
+      lastFetchOutcome: classified.lastFetchOutcome,
+      abortKind: classified.abortKind,
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+    });
     console.warn(`⚠️ Greenhouse API fetch failed: ${err.message}`);
     return [];
   } finally {
@@ -112,8 +145,8 @@ async function fetchGreenhouseJobs() {
 
 function buildJobFromGreenhouse(parsed) {
   const slug = slugify(parsed.title, 'vir-biotechnology');
-  const descEn = parsed.description || `${parsed.title} position at Vir Biotechnology (Humabs BioMed) in ${parsed.city}, Switzerland.`;
-  const descIt = `Posizione aperta presso Vir Biotechnology (Humabs BioMed) a ${parsed.city}.\nRuolo: ${parsed.title}.\n\nVir Biotechnology è un'azienda biotecnologica globale. Humabs BioMed SA ha attività di ricerca in Svizzera, tra cui la sede di Bellinzona, Ticino.`;
+  // Only the posting's own text, keyed by its language (no fabricated `it`).
+  const { description: descEn, descriptionByLocale, sourceLang } = buildVirDescriptionFields(parsed);
 
   return {
     url: parsed.url,
@@ -130,18 +163,19 @@ function buildJobFromGreenhouse(parsed) {
     postalCode: HQ.postalCode,
     streetAddress: 'Via Mirasole 1',
     description: descEn,
-    descriptionByLocale: { en: descEn, it: descIt },
-    titleByLocale: { en: parsed.title },
+    descriptionByLocale,
+    // Title and slug in the body's source slot, not a fixed `en`/`it`.
+    ...sourceSlotTitleAndSlug(parsed.title, slug, sourceLang),
     slug,
-    slugByLocale: { en: slug, it: slugify(parsed.title, 'vir-biotechnology') },
     category: detectCategory(parsed.title),
-    datePosted: parsed.datePosted || new Date().toISOString().split('T')[0],
+    ...sourcePostingDateFields(parsed.datePosted),
+    crawledAt: new Date().toISOString(),
     source: 'vir-greenhouse-crawler',
     employmentType: inferEmploymentType(parsed.title, parsed.description),
     experienceLevel: detectExperienceLevel(parsed.title),
     sector: 'Biotecnologia / Farmaceutica',
     _targetScope: { canton: parsed.canton || HQ.canton, location: parsed.city || 'Bellinzona' },
-    sourceLang: detectLang(descEn || parsed.title, 'en'),
+    sourceLang,
   };
 }
 
@@ -150,6 +184,15 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isVirJob(j));
   const existingCompanyJobs = allJobs.filter(isVirJob);
+  const fossils = existingCompanyJobs.filter((job) => dropVirFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the fabricated Italian blurb from ${fossils} stored job(s); they will be retranslated`);
+  // Under the shared word floor the builder emits no body: keep the stored
+  // source body (fossils already dropped above), or omit the job this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingCompanyJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
@@ -168,6 +211,9 @@ async function mergeJobs(discoveredJobs) {
     companyKey: COMPANY_KEY,
     source: 'vir-greenhouse-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -207,18 +253,56 @@ function postProcess() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'Vir Biotechnology');
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    authoritativeEmptySnapshot: false,
+    authoritativeSnapshotVerified: false,
+  };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Vir Biotechnology', summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Vir Biotechnology (Humabs BioMed) — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
 
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isVirJob))
 
-  const swissJobs = await fetchGreenhouseJobs();
+  const swissJobs = await fetchGreenhouseJobs(summaryCounts);
   const discoveredJobs = swissJobs.map(buildJobFromGreenhouse);
 
   if (discoveredJobs.length === 0) {
-    console.log('\n⚠️ No Swiss Vir Biotechnology jobs found. Keeping existing.');
+    if (summaryCounts.abortKind === null && summaryCounts.lastFetchOutcome) {
+      const durationMs = getCrawlerElapsedMs();
+      console.log('\n⚠️ No Swiss Vir Biotechnology jobs found. Keeping existing.');
+      writeSummaryCrawlerSlice({
+        key: COMPANY_KEY,
+        label: 'Vir Biotechnology',
+        generatedAt: new Date().toISOString(),
+        total: 0,
+        discovered: summaryCounts.discovered ?? 0,
+        parsed: summaryCounts.parsed ?? 0,
+        written: 0,
+        lastFetchOutcome: summaryCounts.lastFetchOutcome,
+        abortKind: null,
+        authoritativeEmptySnapshot: summaryCounts.authoritativeEmptySnapshot,
+        authoritativeSnapshotVerified: summaryCounts.authoritativeSnapshotVerified,
+        newCount: 0,
+        updatedCount: 0,
+        removedCount: 0,
+        unchangedCount: 0,
+        durationMs,
+        avgDurationMs: durationMs,
+        durationHistory: [durationMs],
+        newJobs: [],
+        updatedJobs: [],
+        removedJobs: [],
+        unchangedJobs: [],
+      });
+      return;
+    }
+    summaryCounts.abortKind ||= 'no-jobs-parsed';
+    console.log('\n⚠️ Vir Biotechnology produced no publishable Swiss jobs; keeping existing slice for diagnosis.');
     const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isVirJob)) : new Map();
     const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
     printCrawlChangeSummary(crawlDiff, 'Vir Biotechnology');
@@ -246,7 +330,7 @@ async function main() {
 
   const _durationMs = getCrawlerElapsedMs();
   writeJobsCrawlerSlice(COMPANY_KEY, companyJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Vir Biotechnology', generatedAt: new Date().toISOString(), total: companyJobs.length, newCount: crawlDiff.newJobs.length, updatedCount: crawlDiff.updatedJobs.length, removedCount: crawlDiff.removedJobs.length, unchangedCount: crawlDiff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedJobs: companyJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Vir Biotechnology', generatedAt: new Date().toISOString(), total: companyJobs.length, newCount: crawlDiff.newJobs.length, updatedCount: crawlDiff.updatedJobs.length, removedCount: crawlDiff.removedJobs.length, unchangedCount: crawlDiff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
 }
 

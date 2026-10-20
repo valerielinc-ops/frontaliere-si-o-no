@@ -2,6 +2,12 @@
 
 | Data | Decisione | Fonte |
 |---|---|---|
+| 2026-10-05 | Eventi: MySwitzerland: UA da browser autorizzato SOLO per i dettagli (eccezione alla regola dello UA identificativo dei crawler; 1 req/s, stop a 403/429/challenge) (D1); fonti a consenso tenute (D2); classicAscona solo fatti e prezzi H5 da OpenAgenda gratuit, Eventfrog lowestTicketPrice, classicAscona offers (D3/D4); Eventfrog con pagine effimere, testi non tradotti, dati fuori dai repo pubblici (D5) | 05-10 |
+| 2026-10-05 | Traduzioni lavori: Codex Luna Max di riserva se falliscono le chiavi, tetto per run (H7); copie sorgente marcate tenute (I2) | 05-10 |
+| 2026-10-05 | Monitor: GA4 invece di PostHog (H9); CTR senza query promo/operatori, soglia invariata (I5); argomenti harvester solo nel report (I3); GA4 non si archivia (H4) | 05-10 |
+| 2026-10-05 | Item bloccato solo dalla guardia locale: done con CI required verde (I4); prezzi eventi senza fonte nascosti (H5); dato senza fonte ammessa: chiuso non ottenibile (#8705) | 05-10 |
+| 2026-10-04 | Gate CLS post-deploy: regressione → issue, nessun blocco del deploy | sessione 04-10 |
+| 2026-09-29, conferma 2026-10-04 | #6408 antivirus dei CV: **NO, nessuna scansione**. CV in coda admin col badge «non scansionato»; restano magic bytes (`cvFileCheck`) e `storage.rules`. Motivo: nessun provider AV approvato e integrarlo manda CV reali a un terzo (secret, egress, retention). #6408 chiusa `not planned` | sessione 29-09 (PR #10287), conferma 04-10 |
 | 2026-09-24 | **Nessun veto sul ciclo autonomo**: F1/F7, control-plane, path/categorie ignoti e `needs-human` sono evidenza, mai deny (policy f1-f7-v4). Supersede il veto del contratto VISION | istruzione diretta, sessione 24-09 |
 | 2026-09-24 | **Scelte interne sempre autonome**, mai una riga del proprietario. Direttiva: non perdere pagine SEO, revenue o utenti; default conservativo documentato nella PR | istruzione diretta, sessione 24-09 |
 | 2026-09-24 | **Job alert: SÌ, procedi**, nessun congelamento di famiglia. Blocca un invio solo l'unsubscribe dell'utente da quel canale | sessione 24-09 (#9573, #9575, #9576, #9577, #9060, #9314, #5705, #5823) |
@@ -13,9 +19,7 @@
 | 2026-09-24 | #9559: **SÌ, procedi** — il click su “Candidati” è consenso esplicito per il segnale `application_intent` (distinto dalla candidatura completata). Il record Firebase salva timestamp, versione e testo mostrati, origine, identificatore, IP anonimizzato e user-agent troncato; testo/terms accanto al CTA prima del click; reminder e ranking entro retention, opt-out e cancellazione | istruzione diretta, sessione 24-09 |
 | 2026-09-24 | #1715 corpus: **SÌ, procedi** — stessa decisione applicata al handoff dal corpus al sito; il click su “Candidati” è un consenso esplicito per registrare l’intento e alimentare reminder/ranking secondo il contratto Firebase del sito | istruzione diretta, sessione 24-09 |
 | 2026-09-24 | #1626 corpus: **SÌ, procedi** — mantenere il contratto attuale: il fast publisher aggiorna solo `.shard-filecount`; `.shard-deploys` resta riservato ai full/locale push e al cap di flatten della cronologia | istruzione diretta, sessione 24-09 |
-| 2026-09-23 → superseded 2026-09-24 | Deny tecnico, capability mancante, timeout e root-cause non convergente vanno in `automation-deferred`; `needs-human` non è più un canale di attesa | istruzione diretta, sessione 23-09 |
 | 2026-07-05 | Auto-route su OGNI categoria; supervisione = gate `## LGTM`, non esclusione a monte | AGENTS.md → Issue automation |
-| 2026-09-03 → superseded 2026-09-16 | Modello unificato Claude Opus a `--effort medium` per i tier del fixer; decisione storica, sostituita dal lane Codex | issue-fix.yml → Tier |
 | 2026-09-16 | Workflow agentici e lane articolo unificati su Codex Luna Max (`gpt-5.6-luna`, reasoning effort `max`); nessun fallback Claude nei workflow | issue-fix.yml, tests.yml, setup Codex lane |
 | 2026-09-23 | Quando una PR è `MERGED` e il run post-fix è verde, è autorizzata la chiusura manuale dell'issue anche se la riapertura punta soltanto a un run storico; la verifica deve restare nel ledger | istruzione diretta, sessione 23-09 |
 | 2026-09-23 | Un crawler apparentemente morto non si ritira per prima cosa: si triangolano sorgente ufficiale, fonti secondarie, raggiungibilità, selettori e recenza. Ritiro solo dopo evidenza, decisa dall'agente con l'evidenza nella PR (2026-09-24) | istruzione diretta, sessione 23-09 |
@@ -23,7 +27,7 @@
 | 2026-09-23 | Per ogni uso AI, inclusi workflow remoti, usare Codex Luna Max (secret: vedi riga 2026-09-24) | istruzione diretta, sessione 23-09 |
 | 2026-09-23 | `fachkraft`: se il totale dichiarato varia tra le pagine, si tollera il drift, si percorre tutta la paginazione e si pubblica il massimo snapshot osservato quando l'accounting dei dettagli è completo; cicli, pagine non leggibili e mismatch stabile restano fail-closed | istruzione diretta, sessione 23-09 |
 | 2026-09-23 | `hugo-boss`: dopo retry bounded su una pagina duplicata, il contratto è pubblicare il massimo snapshot deduplicato osservato, marcandolo `coverage: max-observed`; DDO invalido, identità mancanti e letture vuote non provate restano failure | istruzione diretta, sessione 23-09 |
-| 2026-09-23 | `tsmg`: i record con paese non-CH si scartano e il crawler continua, anche se la località testuale sembra svizzera; valori paese sconosciuti o record strutturalmente degradati restano failure | istruzione diretta, sessione 23-09 |
+| 2026-09-23 → raffinata 2026-09-24 | `tsmg`: record con paese non-CH scartati, il crawler continua; paese assente o località CH non risolvibile: quarantena loggata solo se non può essere target né è già pubblicato, altrimenti failure; valori paese sconosciuti e snapshot degradati restano failure | istruzione diretta, sessioni 23-09 e 24-09 |
 | 2026-09-23 | Gli articoli vecchi non si cancellano: si preservano per SEO e traffico monetizzato (default refresh: riga 2026-09-24) | istruzione diretta, sessione 23-09 |
 | 2026-09-23 | Issue e fix in repository diversi: si crea o migra l'issue nel repository corretto, si collegano le schede e si chiude l'errata solo con evidenza. I workflow aprono le issue nel repository proprietario del problema | istruzione diretta, sessione 23-09 |
 | 2026-09-23 | Tracker permanenti non si chiudono artificialmente per un obiettivo numerico; lo stato operativo va nel ledger `.agents/issue-orchestration-ledger-YYYYMMDD.md` | istruzione diretta, sessione 23-09 |
@@ -31,17 +35,12 @@
 | 2026-06-24 | Moratorium SEO landing RIMOSSO; posizione GSC solo informativa | AGENTS.md → Static SEO Pages |
 | 2026-08-12 | Re-permission consensi: NON si fa, per ora | #5681 (commento 12-08) |
 | 2026-08-13 | Avvisi di lavoro: cadenza a decadenza + soffitto 7 giorni; non spegnere in blocco | #5705 (commento 13-08 07:12) |
-| 2026-08-14 → superseded 2026-09-24 | Congelamento job-alert revocato: vedi riga 2026-09-24 | sessione 14-08 |
-| 2026-08-13 | Publisher doppio sulla stessa coda: spento lo schedule del sito | #5794 → PR #5822 |
-| 2026-08-13 | Quattro scelte LPD registrate | #5764 (commenti 13-08) |
 | 2026-08-18 | Rotazione credenziali declinata (PAT e Gemini key restano) | sessione 18-08 |
 | 2026-08-20 | Eccezione delimitata: i gate sul corpus RIASSEMBLATO misurano il tasso, non la perfezione storica | AGENTS.md #1 |
 | 2026-08-24 | **Uso dei secret dal ciclo autonomo: AUTORIZZATO in modo permanente.** Non va più chiesto caso per caso. `blocked-secrets` non è un limite di capacità: è un verdetto da usare solo quando la variabile è davvero vuota, e allora è un difetto della mappa `RC_TO_ENV` | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | **«Sempre umano» RIMOSSA in blocco**: LPD, denaro, invii massivi, ritiro editoriale, espansione di scope, infrastruttura irreversibile non richiedono più un'approvazione prima di procedere. Resta il gate `## LGTM` del reviewer su ogni PR | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | #6280 (candidatura assistita 0,99€, A/B 60/40): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
-| 2026-08-24 | #6173 (verticale farmacie svizzere): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | #4854 (verticale aste targhe cantonali): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
-| 2026-08-24 | #6227 (bande salariali stimate): **opzione A** — scrivere `salarySource`, far comparire l'etichetta "(stima)" dove il codice già la prevede, dato sempre incluso in `baseSalary` per Google — **+ fix del mapping settore IT→EN** (bug indipendente dalla decisione: 70,1% degli annunci ripiega su Logistics per mancata traduzione delle categorie) | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | #5926 (CMP unificata ads+comunicazioni): **SÌ**, con vincolo esplicito: l'implementazione deve preservare la compatibilità della frase di consenso col parser publisher-blast (vedi issue → rischio di azzerare l'audience) e mantenere la prova di consenso per la CMP. Requisito tecnico, non approvazione preventiva | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | #5928 (regole Firestore fase 3, consenso dietro callable con prova di possesso): **SÌ, e i futuri deploy di regole/indici Firebase su produzione sono autonomi da ora** — non solo per questa issue | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | #5995 (repo weight): leve **1** (batch commit bot), **3** (cache derivate fuori git), **4** (file append-only partizionati per shard) autorizzate. Leve **2** (snapshot fuori git) e **5** (immagini→CDN, tentativo precedente ritirato) restano BACKLOG, non autorizzate: non aprire lavoro su quelle finché non arriva una decisione dedicata | istruzione diretta, sessione 24-08 |
@@ -52,3 +51,4 @@
 | 2026-09-05 | #339: la proprietà segue i consumer; `free-translate.mjs` e `translation-glossary.mjs` sono `identical`, non corpus-only; il glossary è mirrorabile, mentre `free-translate.mjs` resta `both-moved`, `blocked: riconciliazione manuale` in nanako#671 | istruzione diretta, sessione 05-09 |
 | 2026-09-05 | **Le issue ferme in attesa di «numeri da run reali» si STRUMENTANO, non si parcheggiano** (corpus #621, #625, #787, #804, #832): si emette il dato quando l'evento accade, da un punto condiviso, poi la issue si chiude | istruzione diretta, sessione 05-09 |
 | 2026-09-04 | **Gate sibling sul pre-push: ADVISORY.** Il pre-push elenca i candidati senza bloccare; l'enforcement resta su `sibling-check-gate.mjs` (su `gh pr create`) e sul 🔴 del reviewer | istruzione diretta, sessione 04-09 |
+| 2026-09-28 | #7972: **opzione B** — il confronto/tuning del costo di traduzione si dichiara pronto solo dopo 5 finestre consecutive con schema corrente, `starved=false` e rapporto `windowMs` max/min ≤1,2; le finestre legacy, incomplete o fuori budget restano evidenza ma spezzano la sequenza | decisione autonoma secondo VISION D1/D2/D5, sweep 28-09 |

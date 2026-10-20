@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Klinik Adelheid (ZG) job parser — bespoke CMS (MODX-based, no public ATS).
  *
@@ -28,9 +30,22 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const KLINIK_ADELHEID_KEY = 'klinik-adelheid';
 export const KLINIK_ADELHEID_COMPANY_NAME = 'Klinik Adelheid';
+
+// Complete lines only: the old fallback wrote the title/company line, the
+// listing's "Bereich" line and this exact clinic paragraph.
+export const KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE = /^(?:[^\r\n]+ — Klinik Adelheid, Unterägeri \(ZG\)\.|Bereich: [^\r\n]+\.|Die Klinik Adelheid ist eine 140-Betten Rehabilitationsklinik der Zentralschweiz mit Spezialisierung in muskuloskelettaler, neurologischer, internistisch-onkologischer und geriatrischer Rehabilitation\.)[ \t]*\r?$/m;
+const KLINIK_ADELHEID_FABRICATED_LINE_RE = /^(?:[^\r\n]+ — Klinik Adelheid, Unterägeri \(ZG\)\.|Bereich: [^\r\n]+\.|Die Klinik Adelheid ist eine 140-Betten Rehabilitationsklinik der Zentralschweiz mit Spezialisierung in muskuloskelettaler, neurologischer, internistisch-onkologischer und geriatrischer Rehabilitation\.)[ \t]*\r?\n?/gm;
+
+export function stripKlinikAdelheidFabricatedDescription(text = '') {
+  return String(text)
+    .replace(KLINIK_ADELHEID_FABRICATED_LINE_RE, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
 export const KLINIK_ADELHEID_COMPANY_DOMAIN = 'klinik-adelheid.ch';
 
 const PUBLIC_CAREER_URL = 'https://www.klinik-adelheid.ch/jobs-und-karriere/offene-stellen/';
@@ -115,31 +130,28 @@ export async function fetchAllKlinikAdelheidJobs() {
   console.log(`  ✓ ${rows.length} jobs from listing`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
 
   for (const row of rows) {
     const detailUrl = `${SITE_BASE}${row.path}`;
     let description = '';
+    let publication = sourcePostingDateFields('');
     try {
       const detailHtml = await fetchHtml(detailUrl);
       description = extractAdelheidDetail(detailHtml);
+      publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
       if (description) detailHits++;
     } catch (err) {
       console.log(`     ⚠ detail fetch failed for ${row.path}: ${err.message}`);
     }
     await new Promise((r) => setTimeout(r, 200));
 
-    if (!description) {
-      description = [
-        `${row.title} — ${KLINIK_ADELHEID_COMPANY_NAME}, Unterägeri (ZG).`,
-        row.bereich ? `Bereich: ${row.bereich}.` : '',
-        'Die Klinik Adelheid ist eine 140-Betten Rehabilitationsklinik der Zentralschweiz mit Spezialisierung in muskuloskelettaler, neurologischer, internistisch-onkologischer und geriatrischer Rehabilitation.',
-      ].filter(Boolean).join('\n\n');
-    } else if (row.bereich) {
-      description = `Bereich: ${row.bereich}.\n\n${description}`;
-    }
+    // Only the posting's own text (issue 5253): no "Bereich: X." line in front
+    // of it, and a body under the common 50-word floor gives no description
+    // (the shared pipeline's thin-source path) instead of a title/clinic
+    // paragraph written by the crawler.
+    if (!meetsSourceBodyFloor(description)) description = '';
 
     const sourceLang = detectLang(description || row.title, 'de');
     const jobSlug = slugify(`${row.title} ${KLINIK_ADELHEID_KEY} unteraegeri`);
@@ -181,7 +193,7 @@ export async function fetchAllKlinikAdelheidJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

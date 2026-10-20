@@ -42,6 +42,7 @@
 import { JSDOM } from 'jsdom';
 import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { crawledAtFromObservation } from './source-crawl-observation.mjs';
 export { titleOverlap, MIN_TITLE_OVERLAP };
 
 /** Minimum plain-text description length to accept (characters). */
@@ -133,11 +134,13 @@ export function findLuganoAccordionIds(html) {
  *
  * @param {string} html            - Page HTML (or accordion group HTML)
  * @param {string} accordionGroupId - Numeric group ID (e.g. "20897")
- * @returns {{ panelId: string, title: string, descriptionText: string }[]}
+ * @param {Date} [observedAt]      - Capture time of the successful source fetch
+ * @returns {{ panelId: string, title: string, descriptionText: string, crawledAt?: string }[]}
  */
-export function parseWpsmAccordionPanels(html, accordionGroupId) {
+export function parseWpsmAccordionPanels(html, accordionGroupId, observedAt) {
   const jobs = [];
   if (!html || !accordionGroupId) return jobs;
+  const crawledAt = crawledAtFromObservation(observedAt);
 
   const document = new JSDOM(html).window.document;
 
@@ -224,7 +227,7 @@ export function parseWpsmAccordionPanels(html, accordionGroupId) {
     const panelIdMatch = panel.id.match(/offset_(\d+_\d+)$/);
     const panelId = panelIdMatch ? panelIdMatch[1] : panel.id.replace(/^offset_/, '');
 
-    jobs.push({ panelId, title, descriptionText });
+    jobs.push({ panelId, title, descriptionText, ...(crawledAt ? { crawledAt } : {}) });
   }
 
   return jobs;

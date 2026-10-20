@@ -14,8 +14,8 @@
  * lives in the caller-supplied `baseUrl`/`parseDayHtml`, not here.
  *
  * `crawl-tio-agenda.mjs` itself is NOT refactored onto this factory — it has
- * extra per-event enrichment (price, geocoding, title translation) this pilot
- * doesn't need, and re-plumbing a crawler that commits straight to `main`
+ * extra per-event enrichment (geocoding, title translation). Re-plumbing a
+ * crawler that commits straight to `main`
  * daily is a bigger, separate risk than this issue's stated scope (one pilot
  * canton). New agenda sources should use this factory; nothing here
  * duplicates it (there was no factory before this file).
@@ -59,13 +59,15 @@
  *     terminate early.
  *   `iterations` remains a hard safety ceiling in all cases.
  *
- * No-hotlink policy: every event's `imageUrl` is mirrored via the shared
- * `mirrorEventImage` (events-utils.mjs) before the slice is written — the
- * same convention every existing events crawler already follows.
+ * Image policy: every event's `imageUrl` is passed through the shared
+ * `mirrorEventImage` gate before the slice is written. Only an explicitly
+ * allowlisted open-licence source can be mirrored; all other source images
+ * become absent rather than remaining as raw URLs.
  */
-import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { EVENT_SOURCES, EVENTS_SLICE_DIR, mirrorEventImage } from './events-utils.mjs';
+import { EVENT_SOURCES, EVENTS_SLICE_DIR, mirrorEventImage, isEventImageSourceAllowed } from './events-utils.mjs';
+import { fillEventPeopleDefaults } from './event-metadata.mjs';
+import { mergeEventsIntoSlice } from './crawl-checkpoint.mjs';
 
 const DEFAULT_USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const DEFAULT_FETCH_TIMEOUT_MS = 20000;
@@ -81,6 +83,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @property {string} sourceKey - must have a matching `EVENT_SOURCES` entry.
  * @property {(i: number) => string} baseUrl
  * @property {(html: string, i: number) => Array<object> | Promise<Array<object>>} parseDayHtml
+ * @property {(event: object, fetchHtml: Function) => Promise<object>} [enrichEvent] - source detail metadata, before mirroring/writing.
  * @property {number} [iterations] - default loop count / hard safety ceiling.
  * @property {number} [horizonDays] - stop once furthest-seen startDate reaches today+N.
  * @property {boolean} [stopOnEmptyPage] - stop after 2 consecutive empty-but-ok pages (once >=1 event seen).
@@ -90,6 +93,9 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @property {number} [imageMirrorDelayMs]
  * @property {boolean} [mirrorImages] - default true (no-hotlink policy).
  * @property {typeof fetch} [fetchImpl] - injectable for tests.
+ * @property {string} [sliceDir] - where the per-source slice is merged;
+ *   default EVENTS_SLICE_DIR (data/events/by-source). Tests pass a tmpdir so
+ *   they never create files inside the checkout.
  */
 
 /** @param {AgendaCrawlerConfig} config */
@@ -98,6 +104,7 @@ export function createAgendaCrawler(config) {
     sourceKey,
     baseUrl,
     parseDayHtml,
+    enrichEvent,
     iterations: defaultIterations = DEFAULT_ITERATIONS,
     horizonDays,
     stopOnEmptyPage = false,
@@ -107,6 +114,7 @@ export function createAgendaCrawler(config) {
     imageMirrorDelayMs = DEFAULT_IMAGE_MIRROR_DELAY_MS,
     mirrorImages = true,
     fetchImpl = fetch,
+    sliceDir = EVENTS_SLICE_DIR,
   } = config || {};
 
   if (!sourceKey || typeof sourceKey !== 'string') {
@@ -146,9 +154,12 @@ export function createAgendaCrawler(config) {
         out.push(ev);
         continue;
       }
-      const mirrored = await mirrorEventImage(ev.imageUrl, ev.id);
-      out.push({ ...ev, imageUrl: mirrored || undefined });
-      await sleep(imageMirrorDelayMs);
+      const mirrored = isEventImageSourceAllowed(sourceKey)
+        ? await mirrorEventImage(ev.imageUrl, ev.id, sourceKey)
+        : null;
+      const { imageUrl: _sourceImageUrl, ...withoutSourceImage } = ev;
+      out.push(mirrored ? { ...withoutSourceImage, imageUrl: mirrored } : withoutSourceImage);
+      if (isEventImageSourceAllowed(sourceKey)) await sleep(imageMirrorDelayMs);
     }
     return out;
   }
@@ -170,6 +181,7 @@ export function createAgendaCrawler(config) {
     let pagesFail = 0;
     let emptyStreak = 0;
     let maxSeenDate = '';
+    const detailFailureIds = [];
 
     for (let i = 0; i < iterations; i += 1) {
       const html = await fetchHtml(baseUrl(i));
@@ -228,30 +240,72 @@ export function createAgendaCrawler(config) {
         );
         process.exitCode = 1;
       }
-      return { events: [], pagesOk, pagesFail, written: false };
+      return {
+        events: [], pagesOk, pagesFail, written: false,
+        detailFailureIds, detailAttemptCount: 0,
+      };
     }
 
-    const mirroredEvents = await mirrorImagesForEvents(events);
+    const enrichedEvents = [];
+    for (const event of events) {
+      let enriched = event;
+      if (enrichEvent) {
+        try {
+          const detailResult = await enrichEvent(event, fetchHtml);
+          if (!detailResult
+            || typeof detailResult !== 'object'
+            || detailResult.detailFetchFailed === true) {
+            detailFailureIds.push(event.id);
+          }
+          enriched = {
+            ...event,
+            ...(detailResult && typeof detailResult === 'object' ? detailResult : {}),
+          };
+        } catch (err) {
+          console.warn(`[${sourceKey}] detail enrichment failed for ${event.id}: ${err?.message || err}`);
+          detailFailureIds.push(event.id);
+        }
+        await sleep(politeDelayMs);
+      }
+      enrichedEvents.push(enriched);
+    }
+    const normalizedEvents = enrichedEvents.map((event) => fillEventPeopleDefaults(event, source));
+    const mirroredEvents = await mirrorImagesForEvents(normalizedEvents);
     const sorted = [...mirroredEvents].sort((a, b) => (a.startDate || '').localeCompare(b.startDate || ''));
 
     if (dryRun) {
       console.log(`[${sourceKey}] dry-run — slice not written`);
-      return { events: sorted, pagesOk, pagesFail, written: false };
+      return {
+        events: sorted,
+        pagesOk,
+        pagesFail,
+        written: false,
+        detailFailureIds,
+        detailAttemptCount: events.length,
+      };
     }
 
-    mkdirSync(EVENTS_SLICE_DIR, { recursive: true });
-    const slicePath = path.join(EVENTS_SLICE_DIR, `${source.key}.json`);
-    const slice = {
-      schemaVersion: 1,
+    const slicePath = path.join(sliceDir, `${source.key}.json`);
+    const total = mergeEventsIntoSlice({
+      slicePath,
       sourceKey: source.key,
       sourceName: source.label,
       canton: source.canton,
-      assembledAt: crawledAt,
+      freshEvents: sorted,
+      goneIds: [],
+      crawledAt,
+      detailFailureIds,
+      detailAttemptCount: events.length,
+    });
+    console.log(`[${sourceKey}] merged ${sorted.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
+    return {
       events: sorted,
+      pagesOk,
+      pagesFail,
+      written: true,
+      detailFailureIds,
+      detailAttemptCount: events.length,
     };
-    writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`, 'utf-8');
-    console.log(`[${sourceKey}] wrote ${sorted.length} events → ${path.relative(process.cwd(), slicePath)}`);
-    return { events: sorted, pagesOk, pagesFail, written: true };
   }
 
   return { fetchHtml, crawl };

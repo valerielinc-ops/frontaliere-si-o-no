@@ -124,7 +124,7 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
         "Oui. Le réseau tessinois de parcs-relais offre 12 sites principaux à Mendrisio, Chiasso, Balerna, Bellinzone et Lugano [source : TI.ch mobilité]. Abonnement annuel CHF 480 à Mendrisio CFF, CHF 720 à Lugano Cornaredo. Plateforme officielle de covoiturage : Hitchhiker.ch (gratuit) et BlaBlaCar sur Como-Lugano et Varese-Lugano. L'employeur peut organiser des navettes (CSCS Manno, AlpTransit Bodio) et bénéficier d'incitations fiscales cantonales. Dès 2026 la « Carte mobilité frontalière » offre 30 % de rabais sur les abonnements Arcobaleno (plan Mobilité 2030).",
     },
     sources: [
-      'https://www4.ti.ch/dt/dstm/mobilita/',
+      'https://www4.ti.ch/dt/dstm/divisione/',
     ],
   },
   {
@@ -225,7 +225,7 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
         "Oui, avec douane. Voiture achetée en Suisse et ramenée en Italie : importation avec TVA italienne 22 %, éventuel droit 10 % (règl. UE 952/2013) et nouvelle immatriculation [source : Agenzia Dogane, véhicules étrangers]. Voiture neuve (<6 mois ou <6 000 km) : TVA italienne due même si TVA suisse payée. Voiture d'occasion UE : exonération TVA si TVA déjà payée. Plaque italienne (PRA), CoC, contrôle technique, taxe IPT (régionale, ~150-800 EUR). Le frontalier peut importer comme bien personnel, exonéré, s'il transfère la résidence (permis C → AIRE + déménagement).",
     },
     sources: [
-      'https://www.adm.gov.it/portale/cittadini/automobili-e-veicoli',
+      'https://www.adm.gov.it/portale/carta-doganale-viaggiatore',
     ],
   },
   {
@@ -256,10 +256,10 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
     relatedLinks: [
       {
         href: {
-          it: '/guida-frontaliere/tempi-attesa-dogana/',
-          en: '/en/cross-border-guide/border-waiting-times/',
-          de: '/de/grenzgaenger-ratgeber/wartezeiten-grenze/',
-          fr: '/fr/guide-frontalier/temps-attente-douane/',
+          it: '/traffico-dogane/',
+          en: '/en/border-wait/',
+          de: '/de/wartezeit-grenze/',
+          fr: '/fr/temps-attente-douane/',
         },
         label: {
           it: 'Tempi di attesa ai valichi',

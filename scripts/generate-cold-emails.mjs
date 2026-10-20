@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Cold-email DRAFT generator — sistema di outreach per convertire le aziende
  * crawlate in inserzionisti sponsorizzati.
@@ -40,10 +42,11 @@ import { classifySector } from './lib/employer-sectors.mjs';
 // outreach metric selector from this file.
 import {
   buildSequence,
-  OPTOUT_EMAIL,
   OUTREACH_METRIC_LABELS,
   formatItalianPeriodLabel,
 } from './lib/cold-email-sequence.mjs';
+
+import { OUTREACH_OPTOUT_EMAIL as OPTOUT_EMAIL } from './lib/outreachIdentity.mjs';
 
 export { buildSequence, OPTOUT_EMAIL, OUTREACH_METRIC_LABELS };
 
@@ -145,6 +148,7 @@ function run() {
       periodLabel: periodWindow,
       contactName: c.contactName,
       topRole: c.topRole,
+      optOutEmail: OPTOUT_EMAIL,
     });
     const slug = e.key || e.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const lines = [
@@ -179,4 +183,4 @@ function run() {
 }
 
 // Esegui solo se invocato direttamente (così buildSequence è importabile senza side-effect).
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) run();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) run();

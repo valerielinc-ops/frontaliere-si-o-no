@@ -8,6 +8,7 @@
  */
 
 const STATUS_ALIASES = new Map([
+  ['estimated', 'estimated'],
   ['pending', 'pending'],
   ['awaiting', 'pending'],
   ['approved', 'approved'],
@@ -19,7 +20,7 @@ const STATUS_ALIASES = new Map([
   ['voided', 'reversed'],
 ]);
 
-const STATUS_PRIORITY = { pending: 1, approved: 2, reversed: 3 };
+const STATUS_PRIORITY = { estimated: 0, pending: 1, approved: 2, reversed: 3 };
 const GROUPED_THOUSANDS_RE = /^-?(?:[1-9]\d{0,2})([,.]\d{3})+$/;
 const AMBIGUOUS_AMOUNT = Symbol('ambiguous amount');
 
@@ -27,12 +28,13 @@ const FIELD_ALIASES = {
   transactionId: ['transactionId', 'transaction_id', 'id', 'commissionId', 'commission_id'],
   network: ['network', 'program', 'source'],
   partnerId: ['partnerId', 'partner_id', 'partner', 'publisherReferencePartner'],
+  surface: ['surface', 'channel'],
   status: ['status', 'commissionStatus', 'commission_status', 'state'],
   currency: ['currency', 'currencyCode', 'currency_code'],
   amount: ['amount', 'commission', 'commissionAmount', 'commission_amount', 'revenue'],
   occurredAt: ['occurredAt', 'occurred_at', 'transactionDate', 'transaction_date', 'date'],
   updatedAt: ['updatedAt', 'updated_at', 'modifiedAt', 'modified_at'],
-  pubref: ['pubref', 'publisherReference', 'publisher_reference', 'subId', 'sub_id'],
+  pubref: ['pubref', 'publisherReference', 'publisher_reference', 'subId', 'sub_id', 'attribution_id'],
 };
 
 function firstValue(row, keys) {
@@ -147,6 +149,8 @@ export function normalizeAffiliateTransaction(row, { amountFormat = null } = {})
       occurredAt,
       updatedAt,
       pubref: String(firstValue(row, FIELD_ALIASES.pubref) || '').trim() || null,
+      surface: ['web', 'email', 'newsletter'].includes(firstValue(row, FIELD_ALIASES.surface))
+        ? (firstValue(row, FIELD_ALIASES.surface) === 'newsletter' ? 'email' : firstValue(row, FIELD_ALIASES.surface)) : null,
     },
   };
 }
@@ -165,8 +169,17 @@ function inPeriod(iso, from, to) {
   return (!from || date >= from) && (!to || date <= to);
 }
 
-function addMoney(bucket, currency, amount) {
-  bucket[currency] = Number(((bucket[currency] || 0) + amount).toFixed(2));
+function revenueBucket() {
+ return { estimated: 0, pending: 0, approved: 0, reversed: 0,
+  estimatedConversions: 0, pendingConversions: 0, approvedConversions: 0, reversedConversions: 0,
+  approvedBySurface: { web: 0, email: 0, unattributed: 0 },
+  approvedPer1000Exposures: { web: null, email: null } };
+}
+
+function exposureCount(raw) {
+ if (raw === null || raw === undefined || raw === '' || typeof raw === 'boolean') return null;
+ const value = Number(raw);
+ return Number.isFinite(value) && value >= 0 ? value : null;
 }
 
 function ratePerThousand(amount, denominator) {
@@ -179,7 +192,7 @@ function ratePerThousand(amount, denominator) {
  * `exposures.web` and `exposures.email` are deliberately independent. The
  * caller must provide the denominator; absent data stays null/unmeasurable.
  * @param {{ rows?: object[], from?: string|null, to?: string|null,
- *   exposures?: { web?: number|null, email?: number|null }, amountFormat?: string|null }} [args]
+ *   exposures?: { web?: number|null, email?: number|null, byAttribution?: Record<string, number|null> }, amountFormat?: string|null }} [args]
  * @returns {object}
  */
 export function reconcileAffiliateTransactions({ rows, from = null, to = null, exposures = {}, amountFormat = null } = {}) {
@@ -212,31 +225,41 @@ export function reconcileAffiliateTransactions({ rows, from = null, to = null, e
   }
 
   const byCurrency = {};
+  const byAttribution = {};
   let conversions = 0;
   for (const value of revisions.values()) {
-    const bucket = byCurrency[value.currency] || (byCurrency[value.currency] = {
-      pending: 0,
-      approved: 0,
-      reversed: 0,
-      pendingConversions: 0,
-      approvedConversions: 0,
-      reversedConversions: 0,
-      approvedPer1000Exposures: { web: null, email: null },
-    });
+    const bucket = byCurrency[value.currency] || (byCurrency[value.currency] = revenueBucket());
     bucket[value.status] = Number((bucket[value.status] + value.amount).toFixed(2));
     bucket[`${value.status}Conversions`] += 1;
-    conversions += 1;
+    if (value.status !== 'estimated') conversions += 1;
+    if (value.status === 'approved') {
+     // A GA4 placement join proves web origin; otherwise require the network's explicit channel.
+     const surface = value.surface || (value.pubref && Object.hasOwn(exposures.byAttribution || {}, value.pubref) ? 'web' : 'unattributed');
+     bucket.approvedBySurface[surface] = Number((bucket.approvedBySurface[surface] + value.amount).toFixed(2));
+    }
+    // Preserve the exact network reference. Never infer a person or an unhashed placement.
+    const key = JSON.stringify([value.partnerId, value.pubref]);
+    const attribution = byAttribution[key] || (byAttribution[key] = {
+      partnerId: value.partnerId, attributionId: value.pubref, byCurrency: {},
+    });
+    const attributed = attribution.byCurrency[value.currency] || (attribution.byCurrency[value.currency] = revenueBucket());
+    attributed[value.status] = Number((attributed[value.status] + value.amount).toFixed(2));
+    attributed[`${value.status}Conversions`] += 1;
   }
 
-  const webExposures = Number.isFinite(Number(exposures.web)) && Number(exposures.web) >= 0
-    ? Number(exposures.web)
-    : null;
-  const emailExposures = Number.isFinite(Number(exposures.email)) && Number(exposures.email) >= 0
-    ? Number(exposures.email)
-    : null;
+  const webExposures = exposureCount(exposures.web);
+  const emailExposures = exposureCount(exposures.email);
   for (const bucket of Object.values(byCurrency)) {
-    bucket.approvedPer1000Exposures.web = ratePerThousand(bucket.approved, webExposures);
-    bucket.approvedPer1000Exposures.email = ratePerThousand(bucket.approved, emailExposures);
+    bucket.approvedPer1000Exposures.web = bucket.approvedBySurface.unattributed ? null : ratePerThousand(bucket.approvedBySurface.web, webExposures);
+    bucket.approvedPer1000Exposures.email = bucket.approvedBySurface.unattributed ? null : ratePerThousand(bucket.approvedBySurface.email, emailExposures);
+  }
+
+  for (const attribution of Object.values(byAttribution)) {
+   const impressions = exposureCount(exposures.byAttribution?.[attribution.attributionId]);
+   attribution.impressions = impressions;
+   for (const bucket of Object.values(attribution.byCurrency)) {
+    bucket.approvedPer1000Impressions = ratePerThousand(bucket.approved, impressions);
+   }
   }
 
   const hasDenominator = webExposures !== null || emailExposures !== null;
@@ -255,6 +278,7 @@ export function reconcileAffiliateTransactions({ rows, from = null, to = null, e
     conversions,
     exposures: { web: webExposures, email: emailExposures },
     byCurrency,
+    byAttribution: Object.values(byAttribution),
   };
 }
 
@@ -295,6 +319,7 @@ export function parseAffiliateExport(raw, { webExposures = null, emailExposures 
       exposures: {
         web: raw.exposures?.web ?? webExposures,
         email: raw.exposures?.email ?? emailExposures,
+        byAttribution: raw.exposures?.byAttribution,
       },
       amountFormat: raw.amountFormat ?? amountFormat,
     };

@@ -5,6 +5,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, AreaChart } from 'recharts';
 import { Analytics } from '@/services/analytics';
+import { PENSION_PARAMETERS_YEAR, PILLAR_3A_MAX_WITH_LPP_CHF, PILLAR_3A_MAX_WITHOUT_LPP_CHF } from '@/services/pensionParameters';
 import { useTranslation } from '@/services/i18n';
 import { CHART_DATA_COLORS } from '@/hooks/useChartColors';
 import ChartWrapper from '@/components/shared/ChartWrapper';
@@ -19,14 +20,15 @@ interface Pillar3Inputs {
  age: number;
 }
 
-const MAX_3A_2026 = 7258; // Max per dipendenti con 2° pilastro
-const MAX_3A_NO_LPP = 36288; // Max per autonomi senza 2° pilastro
+// Massimali 3a dal dataset ufficiale (services/pensionParameters.ts).
+const MAX_3A_2026 = PILLAR_3A_MAX_WITH_LPP_CHF; // Max per dipendenti con 2° pilastro
+const MAX_3A_NO_LPP = PILLAR_3A_MAX_WITHOUT_LPP_CHF; // Max per autonomi senza 2° pilastro
 
 const Pillar3Simulator: React.FC = () => {
  const { t } = useTranslation();
  const [inputs, setInputs] = useState<Pillar3Inputs>({
  type: '3a',
- annualContribution: 7258,
+ annualContribution: PILLAR_3A_MAX_WITH_LPP_CHF,
  currentCapital: 0,
  expectedReturn: 2.0,
  projectionYears: 20,
@@ -149,7 +151,7 @@ const Pillar3Simulator: React.FC = () => {
  onChange={(e) => handleChange('annualContribution', Math.min(Number(e.target.value), inputs.type === '3a' ? MAX_3A_2026 : 100000))}
  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
  max={inputs.type === '3a' ? MAX_3A_2026 : 100000} min={0} step={100} />
- {inputs.type === '3a' && <p className="text-xs text-info mt-1">Max 2026: CHF {MAX_3A_2026.toLocaleString('it-IT')}</p>}
+ {inputs.type === '3a' && <p className="text-xs text-info mt-1">Max {PENSION_PARAMETERS_YEAR}: CHF {MAX_3A_2026.toLocaleString('it-IT')}</p>}
  </div>
 
  <div>

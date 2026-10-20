@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated Debiopharm crawler runner.
  *
@@ -17,6 +19,7 @@
  *   5. Run scoped localization for the Debiopharm company key
  *   6. Validate locale coverage in strict mode
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -47,6 +50,7 @@ import {
   mergeLocaleTextMap,
   LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfPosting } from './lib/source-locale-slots.mjs';
 import {
   DEBIOPHARM_WORKABLE_ACCOUNT_SLUG,
   DEBIOPHARM_CAREERS_URL,
@@ -113,10 +117,7 @@ function readJson(filePath, fallback) {
 
 function toIsoDate(value = '') {
   const raw = String(value || '').trim();
-  if (!raw) return new Date().toISOString().slice(0, 10);
-  const parsed = new Date(raw);
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
+  return sourcePostingDateFields(raw).postedDate;
 }
 
 function inferCategory({ title = '', department = [] } = {}) {
@@ -283,6 +284,9 @@ export function buildDebiopharmJob(listing, detail) {
   const detailUrl = buildDebiopharmDetailUrl(listing.shortcode);
   const applyUrl = buildDebiopharmApplyUrl(listing.shortcode);
   const publishedDate = toIsoDate(parsed.publishedDate);
+  // The posting's language read from its body, with the language Workable
+  // declares as the fallback (as in update-guess-jobs.mjs).
+  const sourceLang = sourceLangOfPosting(parsed.description, parsed.sourceLanguage, 'en');
   // The parser derives this canton from the validated source location; do not
   // replace it with an employer-wide default at the publication boundary.
   return {
@@ -309,15 +313,15 @@ export function buildDebiopharmJob(listing, detail) {
     category: inferCategory({ title, department: parsed.department }),
     sector: 'Pharma & Biotech',
     source: 'debiopharm-dedicated-crawler',
-    sourceLang: parsed.sourceLanguage || 'en',
-    postedDate: publishedDate,
+    sourceLang,
+    ...sourcePostingDateFields(publishedDate),
     validThrough: '',
     description: parsed.description,
-    titleByLocale: { [parsed.sourceLanguage || 'en']: title },
-    descriptionByLocale: { [parsed.sourceLanguage || 'en']: parsed.description },
-    slugByLocale: { [parsed.sourceLanguage || 'en']: slug },
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: parsed.description },
+    slugByLocale: { [sourceLang]: slug },
     requirements: parsed.requirements,
-    requirementsByLocale: parsed.requirements.length ? { [parsed.sourceLanguage || 'en']: parsed.requirements } : {},
+    requirementsByLocale: parsed.requirements.length ? { [sourceLang]: parsed.requirements } : {},
     benefits: parsed.benefits,
     needsRetranslation: true,
   };
@@ -357,17 +361,21 @@ async function mergeJobs(discoveredJobs) {
     const key = jobMatchKey(discovered);
     const existingJob = existingByKey.get(key);
     if (existingJob) {
-      merged.push({
+      const job = {
         ...existingJob,
         ...discovered,
-        titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
+        ...mergeSourcePostingDates(existingJob, discovered),
+        // Fresh text wins in the SOURCE slot only; translations are kept.
+        titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3, discovered.sourceLang),
         descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
         // cap explicit (issue #3630): flat previousSlugs is the same field
         // dedicated-crawler-common.mjs manages elsewhere with LEGACY_PREV_SLUGS_CAP;
         // the module default of 20 would re-collapse it on this crawler's next run.
         previousSlugs: mergePreviousSlugsCapped(existingJob.previousSlugs, discovered.previousSlugs, { jobId: existingJob.id || discovered.id, source: 'update-debiopharm-jobs.mjs', cap: LEGACY_PREV_SLUGS_CAP }),
-      });
+      };
+      dropStaleLocaleDescriptions(job);
+      merged.push(job);
       updated += 1;
     } else {
       merged.push(discovered);
@@ -408,7 +416,7 @@ function updateAdapterConfig(discoveredJobs) {
         location: job.location,
         canton: inferAnyCanton(job.location) || '',
         company: COMPANY_NAME,
-        postedDate: job.postedDate || '',
+        ...mergeSourcePostingDates({}, job),
       },
     ])
   );
@@ -664,6 +672,6 @@ async function main() {
 // Guard top-level execution so the module can be imported by tests (e.g.
 // buildDebiopharmJob's skip-guard wiring test) without triggering a live
 // crawl. Run only when invoked directly via `node scripts/update-debiopharm-jobs.mjs`.
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => exitCrawlerOnError(err, 'Debiopharm'));
 }

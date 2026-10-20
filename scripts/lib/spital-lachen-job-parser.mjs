@@ -16,6 +16,8 @@
  * Zurich (canton SZ, postal 8853). ~27 open positions at parser creation,
  * majority nursing/medical, all German-language.
  */
+import { wordpressPublicationDateFields } from './wordpress-publication-date.mjs';
+import { withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
@@ -33,7 +35,7 @@ export const SPITAL_LACHEN_COMPANY_NAME = 'Spital Lachen';
 export const SPITAL_LACHEN_COMPANY_DOMAIN = 'spital-lachen.ch';
 
 const LISTING_PAGE_CAP = 100;
-const REST_LISTING_URL = `https://spital-lachen.ch/wp-json/wp/v2/dcwi_jobs?per_page=${LISTING_PAGE_CAP}&_fields=id,slug,link,title,date,modified,unternehmensbereich`;
+const REST_LISTING_URL = `https://spital-lachen.ch/wp-json/wp/v2/dcwi_jobs?per_page=${LISTING_PAGE_CAP}&_fields=id,slug,link,title,date,date_gmt,unternehmensbereich`;
 const PUBLIC_CAREER_URL = 'https://spital-lachen.ch/jobs-karriere/offene-stellen/';
 
 // Listing fetch uses the shared fetchJson() (crawler-template.mjs): retries
@@ -93,6 +95,27 @@ export function extractAccordionSections(html = '') {
 }
 
 /**
+ * The offer section ("Ihre Vorteile") is not an accordion: the page renders it
+ * as a `dcwi-cards-grid` widget — a `cards-grid__header` heading followed by
+ * one `card-box__text` per benefit (holidays, training, discounts, …). Read it
+ * as a labelled bullet list so the published posting keeps what the hospital
+ * offers alongside tasks and profile.
+ */
+export function extractBenefitCards(html = '') {
+  const start = String(html || '').search(/<section\s+class="cards-grid\b/);
+  if (start < 0) return null;
+  const end = html.indexOf('</section>', start);
+  const grid = html.slice(start, end > start ? end : undefined);
+  const header = grid.match(/<div\s+class="cards-grid__header[^"]*"[^>]*>\s*<h\d[^>]*>([\s\S]*?)<\/h\d>/);
+  const label = header ? normalizeSpace(decodeEntities(header[1].replace(/<[^>]+>/g, ' '))) : '';
+  const items = [...grid.matchAll(/<div\s+class="card-box__text[^"]*"[^>]*>([\s\S]*?)<\/div>/g)]
+    .map((m) => normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' '))))
+    .filter((text) => text.length >= 3);
+  if (!label || !items.length) return null;
+  return { label, text: items.map((text) => `• ${text}`).join('\n') };
+}
+
+/**
  * Fetch one detail page and build the job description string.
  */
 async function fetchDetail(link) {
@@ -104,6 +127,8 @@ async function fetchDetail(link) {
     return { description: '', tagline: '' };
   }
   const sections = extractAccordionSections(html);
+  const benefits = extractBenefitCards(html);
+  if (benefits) sections.push(benefits);
   // Tagline = `hero__description` short text (e.g. "Tagesklinik").
   const tag = html.match(/<p\s+class="hero__description[^"]*"[^>]*>([\s\S]*?)<\/p>/);
   const tagline = tag ? normalizeSpace(decodeEntities(tag[1].replace(/<[^>]+>/g, ' '))) : '';
@@ -125,7 +150,6 @@ export async function fetchAllSpitalLachenJobs() {
   warnIfListingAtCap({ label: 'Spital Lachen WP REST listing', count: data.length, cap: LISTING_PAGE_CAP });
   if (!data.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
 
@@ -146,11 +170,7 @@ export async function fetchAllSpitalLachenJobs() {
     const jobSlug = slugify(`${title} ${SPITAL_LACHEN_KEY} lachen`);
     const urlHash = createHash('sha1').update(link).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const raw = item?.date || item?.modified || '';
-      const d = new Date(String(raw));
-      return Number.isFinite(d.getTime()) ? d.toISOString().slice(0, 10) : todayIso;
-    })();
+    const publication = wordpressPublicationDateFields(item);
 
     jobs.push({
       id: `${SPITAL_LACHEN_KEY}-${urlHash}`,
@@ -188,7 +208,7 @@ export async function fetchAllSpitalLachenJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(publication),
       applyUrl: link,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -16,6 +16,7 @@ import {
   CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR as PORTABLE_GENERATION_TOKEN_EXPR,
   CRAWLER_GENERATION_TOKEN_EXPR as GENERATION_TOKEN_EXPR,
   assertCrawlerLogicParity,
+  crawlerGroupBatchCommitRun,
   crawlerGenerationLedgerPersistenceRun,
   checkGeneratedArtifacts,
   generate,
@@ -36,6 +37,32 @@ function stepByName(steps: any[], name: string) {
   const matches = steps.filter((step) => step?.name === name);
   expect(matches, `${name}: expected exactly one step`).toHaveLength(1);
   return matches[0];
+}
+
+function runLedgerPersistenceWithStubs(validationExit: number) {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-ledger-persistence-'));
+  const validatorPath = path.join(tmp, 'validate-workflow-data-stub.sh');
+  const commitPath = path.join(tmp, 'git-commit-data-stub.sh');
+  const summaryPath = path.join(tmp, 'summary.md');
+  const commitTracePath = path.join(tmp, 'commit-trace');
+  fs.writeFileSync(validatorPath, `#!/usr/bin/env bash\nexit ${validationExit}\n`, { mode: 0o755 });
+  fs.writeFileSync(commitPath, '#!/usr/bin/env bash\nprintf committed > "$COMMIT_TRACE"\n', { mode: 0o755 });
+
+  const validateCommand = 'node scripts/ci/validate-workflow-data.mjs --kind crawler-generation-ledger --file data/crawler-generation-ledger.jsonl';
+  const commitCommand = 'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl';
+  const run = crawlerGenerationLedgerPersistenceRun()
+    .replace(validateCommand, `bash "${validatorPath}"`)
+    .replace(commitCommand, `bash "${commitPath}"`);
+  const result = spawnSync('bash', ['-c', run], {
+    cwd: ROOT,
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      COMMIT_TRACE: commitTracePath,
+      GITHUB_STEP_SUMMARY: summaryPath,
+    },
+  });
+  return { tmp, result, summaryPath, commitTracePath };
 }
 
 function benchmarkReceipt(crawlerId: string, primarySlice: string) {
@@ -62,6 +89,28 @@ function benchmarkReceipt(crawlerId: string, primarySlice: string) {
 }
 
 describe('crawler generation barrier wiring from the crawler SSOT', () => {
+  it('stops ledger persistence before commit when generated validation fails', () => {
+    const { tmp, result, summaryPath, commitTracePath } = runLedgerPersistenceWithStubs(1);
+    try {
+      expect(result.status).not.toBe(0);
+      expect(result.stdout).toContain('::error::crawler generation ledger');
+      expect(fs.readFileSync(summaryPath, 'utf8')).toContain('crawler generation ledger');
+      expect(fs.existsSync(commitTracePath)).toBe(false);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
+
+  it('commits the ledger when generated validation succeeds', () => {
+    const { tmp, result, commitTracePath } = runLedgerPersistenceWithStubs(0);
+    try {
+      expect(result.status).toBe(0);
+      expect(fs.readFileSync(commitTracePath, 'utf8')).toBe('committed');
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
+
   it('validates the complete receipt roster before replacing any generated workflow', () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-render-all-'));
     try {
@@ -213,23 +262,8 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       });
       expect(stepByName(job.steps, 'Commit crawler group data atomically')).toEqual({
         name: 'Commit crawler group data atomically',
-        if: "always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
-        run: [
-          'set +e',
-          `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${group} jobs"`,
-          'git_commit_exit=$?',
-          'if [ "$git_commit_exit" -eq 42 ]; then',
-          '  echo "::warning::group commit: push lost the ref race after all retries (contention) on the final aggregated commit. Cycle lost, self-heals next scheduled run — group not failed (systemic class)."',
-          '  echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"',
-          '  exit 0',
-          'fi',
-          'if [ "$git_commit_exit" -eq 44 ]; then',
-          '  echo "::warning::group commit: global data-pipeline lease is busy (exit 44); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."',
-          '  echo "⚠️ group commit: global data-pipeline lease busy (exit 44) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"',
-          '  exit 0',
-          'fi',
-          'exit "$git_commit_exit"',
-        ].join('\n'),
+        if: "always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
+        run: crawlerGroupBatchCommitRun(Number(group)),
       });
       const jobWithFutureTail = structuredClone(job);
       jobWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
@@ -247,12 +281,12 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       );
       const persist = stepByName(job.steps, 'Persist crawler generation ledger');
       expect(persist.if).toBe("always() && steps.crawler-generation-finalizer.outcome == 'success'");
-      expect(persist['continue-on-error']).toBe(true);
+      expect(persist['continue-on-error']).toBeUndefined();
       expect(persist.run).toBe(crawlerGenerationLedgerPersistenceRun());
       expect(persist.run).toContain('--extra-only');
       expect(persist.run).toContain('data/crawler-generation-ledger.jsonl');
       expect(persist.run).toContain('git_commit_exit=$?');
-      expect(persist.run).toContain('eq 42');
+      expect(persist.run).toContain('ne 42');
       expect(persist.run).toContain('eq 43');
       expect(persist.run).toContain('exit "$git_commit_exit"');
       const finalizerFailure = stepByName(job.steps, 'Report crawler generation finalizer failure');
@@ -278,14 +312,15 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       const portable = YAML.parse(portableText);
       expect(PORTABLE_GENERATION_TOKEN_EXPR).toBe(GENERATION_TOKEN_EXPR);
       expect(portable['run-name']).toBe(`crawler-generation-${PORTABLE_GENERATION_TOKEN_EXPR}-group-${group}`);
+      // A manual dispatch may leave the token empty and gets the run's own
+      // coordinates; a malformed explicit value stops in the preflight.
       expect(portable.on.workflow_dispatch.inputs.generation_token)
-        .toMatchObject({ required: true, type: 'string' });
+        .toMatchObject({ required: false, default: '', type: 'string' });
       const portableJob = Object.values(portable.jobs)[0] as any;
       expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(PORTABLE_GENERATION_TOKEN_EXPR);
       // #7083 invariant, restated per transport mode: producers and finalizer
-      // must read ONE value. The reusable site logic keeps its coordinate
-      // fallback for diagnostics only; the commit gate accepts only the
-      // explicit input, which the portable caller requires.
+      // must read ONE value: the job-level token (explicit input, or the
+      // run's coordinates), validated by the preflight before any crawl.
       const logicWithFutureTail = structuredClone(jobFrom(logic));
       logicWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
       expect(stepByName(logicWithFutureTail.steps, 'Finalize crawler generation manifest (shadow)').env.CRAWLER_GENERATION_TOKEN)
@@ -299,10 +334,12 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         step.id?.startsWith('crawler-launch-') || step.name === 'Commit crawler group data atomically');
       expect(portableProducers).toHaveLength(results.generationRoster.groups[group].length + 1);
       expect(stepByName(portableJob.steps, 'Commit crawler group data atomically').if)
-        .toBe("always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'");
+        .toBe("always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'");
       expect(portableProducers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
-      expect(portableJob.steps.at(-1).name).toBe('Release cross-entry crawler live-run lease');
+      expect(portableJob.steps.at(-1).name).toBe(
+        group === '23' ? 'Cleanup crawler generation state' : 'Release cross-entry crawler live-run lease',
+      );
       expect(stepByName(portableJob.steps, 'Upload crawler generation manifest (shadow)').with['retention-days'])
         .toBe(14);
     }

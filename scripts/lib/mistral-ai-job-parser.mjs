@@ -17,6 +17,7 @@
  *   - isMistralAiJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()        — Validate URLs belong to this company
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -300,8 +301,15 @@ export async function fetchAllMistralAiJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Zurich';
-    const canton = inferSwissTargetCanton(location) || 'ZH';
+    // The listing is filtered to Swiss vacancies above; a location that still
+    // resolves to no canton is dropped rather than filed under the Zurich HQ
+    // (issue 9842: no HQ fallback on unknown geography).
+    const location = normalizeSpace(listing.location || '');
+    const canton = location ? inferSwissTargetCanton(location) : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${location || '(none)'} — ${title}`);
+      continue;
+    }
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
@@ -340,9 +348,7 @@ export async function fetchAllMistralAiJobs() {
       sector: 'Intelligenza Artificiale / Ricerca',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt
-        ? new Date(listing.postedAt).toISOString().split('T')[0]
-        : new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(listing.postedAt),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

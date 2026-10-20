@@ -17,6 +17,8 @@ import { stubNoEmailProviders } from './helpers/ambientEmailEnv';
 // Firebase app is initialized in this test process).
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
+  getNewsletterTokenPolicyConfig: vi.fn(async () => ({})),
+  getNewsletterConfirmationCopyConfig: vi.fn(async () => ({ NEWSLETTER_CONFIRMATION_COPY_ROLLOUT: '0' })),
 }));
 
 // ── Server-side tests (mocked) ─────────────────────────────

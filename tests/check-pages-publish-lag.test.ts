@@ -4,7 +4,7 @@
  *
  * No network and no IO for parsePathsIgnore/globToRegExp/isIgnoredPath/
  * filterUnignored: exercised through injected fixtures. The parsePathsIgnore
- * test also reads the REAL deploy.yml so the two never drift apart silently.
+ * test also reads the REAL deploy-request.yml so the two never drift apart silently.
  */
 
 import fs from 'node:fs';
@@ -38,9 +38,9 @@ describe('parsePathsIgnore', () => {
     expect(parsePathsIgnore('on:\n  push:\n    branches:\n      - main\n')).toEqual([]);
   });
 
-  it('reads the real deploy.yml and includes the known-ignored paths', () => {
-    const deployYmlPath = path.resolve(__dirname, '../.github/workflows/deploy.yml');
-    const globs = parsePathsIgnore(fs.readFileSync(deployYmlPath, 'utf8'));
+  it('reads the real deploy-request.yml and includes the known-ignored paths', () => {
+    const requestYmlPath = path.resolve(__dirname, '../.github/workflows/deploy-request.yml');
+    const globs = parsePathsIgnore(fs.readFileSync(requestYmlPath, 'utf8'));
     expect(globs).toEqual(
       expect.arrayContaining([
         'data/weather-snapshot.json',
@@ -55,8 +55,8 @@ describe('parsePathsIgnore', () => {
   });
 
   it('keeps health evidence writes out of the dist deploy trigger', () => {
-    const deployYmlPath = path.resolve(__dirname, '../.github/workflows/deploy.yml');
-    const globs = parsePathsIgnore(fs.readFileSync(deployYmlPath, 'utf8'));
+    const requestYmlPath = path.resolve(__dirname, '../.github/workflows/deploy-request.yml');
+    const globs = parsePathsIgnore(fs.readFileSync(requestYmlPath, 'utf8'));
     expect(isIgnoredPath('data/seo-health-state.json', globs)).toBe(true);
     expect(isIgnoredPath('data/seo-health/history.jsonl', globs)).toBe(true);
     expect(isIgnoredPath('data/seo-404-compat/it.json', globs)).toBe(false);

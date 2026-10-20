@@ -3,9 +3,10 @@
 //
 // WHY THIS FILE EXISTS
 // ────────────────────
-// Steps 6 / 6b / 7 of scripts/publish-article-fast.mjs (render the section's
-// `/tutti/` archive → render its `/…/argomenti/<topic>/` hubs → run the CDN
-// offload over everything just written) were reachable ONLY by publishing an
+// Steps 6 / 6b / 7 of scripts/publish-article-fast.mjs (refresh the section's
+// root landing → render the `/tutti/` archive → render the
+// `/…/argomenti/<topic>/` hubs → run the CDN offload over everything just
+// written) were reachable ONLY by publishing an
 // article. That made hub-page freshness a side effect of the editorial
 // cadence: a section that does not publish keeps serving whatever renderer was
 // current the last time it did, and a change to the RENDERER ITSELF has no way
@@ -25,7 +26,7 @@
 //
 // THE ORDER IS THE CONTRACT (issue #5270)
 // ───────────────────────────────────────
-// archive → topic hubs → CDN offload. Never any other order.
+// root landing → archive → topic hubs → CDN offload. Never any other order.
 //
 // Both hub families emit `src="/assets/${entryJs}"` and the matching CSS/link
 // refs as PLAIN TEXT (articleHubPagesPlugin.ts builds them by string
@@ -49,6 +50,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { spawnSync } from 'node:child_process';
+import { CDN_ASSET_ORIGIN } from '../../build-plugins/shared/cdnAssetOffloadRx.mjs';
+import { refreshArticleHubLandings } from './refresh-article-hub-landings.mjs';
 
 /**
  * The CDN origin every article-surface renderer and the offload script agree
@@ -59,7 +62,7 @@ import { spawnSync } from 'node:child_process';
  * value for every real deploy build, so matching it is a byte-identity
  * requirement, not configuration.
  */
-export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
+export const CDN_BASE = CDN_ASSET_ORIGIN;
 
 /**
  * Set the two process-level knobs the hub renderers inherit from the deploy
@@ -85,14 +88,17 @@ export function pinRenderEnv() {
 }
 
 /**
- * Steps 6 + 6b — the two hub families of one article section, into `distDir`.
+ * Steps 6 + 6b — the root landing and two hub families of one article
+ * section, into `distDir`.
  *
- * Step 6, the `/tutti/` archive + its pagination, calls the SAME
+ * Step 6, the root landing, preserves the live editorial shell and replaces
+ * its data-dependent article grid. Step 6b, the `/tutti/` archive + its
+ * pagination, calls the SAME
  * `renderArticleHubPagesCore` the full build's `emitSeoHubs` uses, so the
  * bytes are identical to a full build by construction (proven in
  * tests/render-article-hub-pages-narrow-vs-full.test.ts).
  *
- * Step 6b, the editorial topic hubs, calls the SAME `renderTopicHubSectionCore`
+ * Step 6c, the editorial topic hubs, calls the SAME `renderTopicHubSectionCore`
  * the full build's plugin calls. It re-renders the WHOLE section rather than
  * one topic: one more article shifts the TF-IDF model, so a borderline article
  * can change topic, and a topic crossing the floor rewrites the sibling-topic
@@ -111,11 +117,20 @@ export function pinRenderEnv() {
 export async function renderSectionHubs(opts) {
   const { rootDir, distDir, section, locales, logPrefix = '[render-hubs]' } = opts;
 
-  // ── Step 6: article-hub archive pages (issue #4881 Fase 1) ──
+  // ── Step 6: root article-hub landing pages ──
+  const landingResult = await refreshArticleHubLandings({
+    rootDir,
+    distDir,
+    section,
+    locales,
+    logPrefix,
+  });
+
+  // ── Step 6b: article-hub archive pages (issue #4881 Fase 1) ──
   const { renderArticleHubPages } = await import('../../build-plugins/seoHubsPlugin.ts');
   const hubResult = await renderArticleHubPages({ rootDir, distDir, section, locales });
 
-  // ── Step 6b: topic-cluster hubs (issue #5001 follow-up) ──
+  // ── Step 6c: topic-cluster hubs (issue #5001 follow-up) ──
   let topicHubResult = { written: 0, pathsByLocale: {}, sitemapPath: null, announcedUrlPaths: [] };
   try {
     const { renderTopicClusterHubPages } = await import(
@@ -136,7 +151,7 @@ export async function renderSectionHubs(opts) {
     );
   }
 
-  return { hubResult, topicHubResult };
+  return { landingResult, hubResult, topicHubResult };
 }
 
 /**
@@ -180,7 +195,7 @@ export function offloadGeneratedImagesCdn(opts) {
 }
 
 /**
- * Steps 6 → 6b → 7 in the one order that is correct (issue #5270).
+ * Steps 6 → 6b → 6c → 7 in the one order that is correct (issue #5270).
  *
  * Callers get the composition, never the pieces in an order of their choosing.
  * The offload is a WHOLE-DIST pass, so calling this after per-article
@@ -188,11 +203,11 @@ export function offloadGeneratedImagesCdn(opts) {
  * too — which is exactly what the per-article caller needs and why the offload
  * belongs at the tail rather than inside `renderSectionHubs`.
  *
- * @returns {Promise<{hubResult: object, topicHubResult: object}>}
+ * @returns {Promise<{landingResult: object, hubResult: object, topicHubResult: object}>}
  */
 export async function renderHubsAndOffload(opts) {
   const { rootDir, distDir, section, locales, cdnBase, logPrefix } = opts;
-  const { hubResult, topicHubResult } = await renderSectionHubs({
+  const { landingResult, hubResult, topicHubResult } = await renderSectionHubs({
     rootDir,
     distDir,
     section,
@@ -200,7 +215,7 @@ export async function renderHubsAndOffload(opts) {
     logPrefix,
   });
   offloadGeneratedImagesCdn({ rootDir, distDir, cdnBase, logPrefix });
-  return { hubResult, topicHubResult };
+  return { landingResult, hubResult, topicHubResult };
 }
 
 /**
@@ -213,10 +228,11 @@ export async function renderHubsAndOffload(opts) {
  * new shard, key or push leg is involved. The topic list is spread defensively
  * because it is empty when step 6b failed.
  */
-export function hubPathsByLocale({ hubResult, topicHubResult }, locales) {
+export function hubPathsByLocale({ landingResult, hubResult, topicHubResult }, locales) {
   const out = {};
   for (const locale of locales) {
     out[locale] = [
+      ...(landingResult?.pathsByLocale?.[locale] ?? []),
       ...(hubResult.pathsByLocale?.[locale] ?? []),
       ...(topicHubResult?.pathsByLocale?.[locale] ?? []),
     ];

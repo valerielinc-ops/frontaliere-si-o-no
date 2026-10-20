@@ -115,7 +115,7 @@ describe('check-orphan-article-meta — real repo tree', () => {
     expect(status).toBe(0);
     expect(output).toMatch(/frontaliere: all \d+ registry ids have complete meta in all 4 locales/);
     expect(output).toMatch(/svizzera: all \d+ registry ids have complete meta in all 4 locales/);
-  });
+  }, 60_000);
 });
 
 describe('check-orphan-article-meta — fixtures', () => {

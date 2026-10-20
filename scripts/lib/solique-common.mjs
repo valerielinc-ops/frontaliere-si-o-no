@@ -75,6 +75,8 @@
  *     `scripts/lib/ottos-job-parser.mjs`.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeSpace, stripHtml, classAttrRx, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -347,17 +349,23 @@ function extractBalancedSectionById(html, idValue) {
 }
 
 /**
- * Return the inner HTML of the first `<div>` whose `class` attribute is
- * exactly `className` (no other tokens), balancing nested `<div>` tags —
+ * Return the inner HTML of the first `<div>` whose `class` attribute contains
+ * the complete `className` token, balancing nested `<div>` tags —
  * same rationale as `extractBalancedSectionById` above, but for tenants
  * whose detail page has NO `<section>` tags at all (OTTO'S AG), where the
  * job body instead lives inside a balanced `<div class="…-wrapper">`
  * container. Returns '' when no matching open tag is found.
  * @param {string} html
- * @param {string} className exact class value to match (e.g. `tasks-profile-wrapper`)
+ * @param {string} className complete class token to match (e.g. `tasks-profile-wrapper`)
  */
 function extractBalancedDivByClass(html, className) {
-  const open = new RegExp(`<div\\s+[^>]*class=["']?${className}["']?[^>]*>`, 'i').exec(html);
+  const openTagRx = /<div\b[^>]*>/gi;
+  let open;
+  while ((open = openTagRx.exec(html))) {
+    const classAttr = /\bclass\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/i.exec(open[0]);
+    const classValue = classAttr?.[1] ?? classAttr?.[2] ?? classAttr?.[3] ?? '';
+    if (classValue.split(/\s+/).includes(className)) break;
+  }
   if (!open) return '';
   const start = open.index + open[0].length;
   const tagRx = /<(\/?)div\b[^>]*>/gi;
@@ -369,6 +377,82 @@ function extractBalancedDivByClass(html, className) {
     if (depth === 0) return html.slice(start, m.index);
   }
   return html.slice(start);
+}
+
+/** Plain text of a detail-page fragment, list items as `• ` lines. */
+function soliqueBlockText(fragment = '') {
+  let body = String(fragment)
+    .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<\/li\s*>/gi, '')
+    .replace(/<br\s*\/?>(?!\s*<)/gi, ' ')
+    .replace(/<[^>]+>/g, ' ');
+  body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
+  return body.trim();
+}
+
+/**
+ * Template (vii), opt-in per tenant (`tasksProfileBoard`): the board used by
+ * Spital Muri (2026-09). The whole ad sits in plain class blocks:
+ * `div.introduction` (lead paragraph), `div.tasks` / `div.profile` (an `<h3>`
+ * and a `<ul>` each), `div.offer` (`<h3>` + prose) and `div.benefits-wrapper`
+ * (an `<h3>` and one `div.benefit-box` per perk, its text in a hidden
+ * `tippy-content` tooltip). Templates (v)/(vi) expect `<h4 class=
+ * "sub-subtitle">` / `<h3 class="subtitle">` and never fire here, while (ii)
+ * and the `introduction` rule do: without this template the published
+ * description was the lead paragraph and «Ihre Chance» only, with tasks,
+ * profile and perks missing (issue 5253).
+ *
+ * @param {string} cleaned  detail HTML with scripts/styles/comments removed
+ * @returns {string} '' when the layout is not there
+ */
+function extractTasksProfileBoard(cleaned) {
+  // Whole class TOKEN, not a prefix: `tasks` must not match the enclosing
+  // `tasks-profile-wrapper`, which also holds the profile block.
+  const block = (token) => {
+    const open = new RegExp(`<div\\b[^>]*\\bclass=["'](?:[^"']*\\s)?${token}(?:\\s[^"']*)?["'][^>]*>`, 'i').exec(cleaned);
+    if (!open) return '';
+    const start = open.index + open[0].length;
+    const tagRx = /<(\/?)div\b[^>]*>/gi;
+    tagRx.lastIndex = start;
+    let depth = 1;
+    let m;
+    while ((m = tagRx.exec(cleaned))) {
+      depth += m[1] ? -1 : 1;
+      if (depth === 0) return cleaned.slice(start, m.index);
+    }
+    return cleaned.slice(start);
+  };
+  const sections = [];
+  const headed = (inner) => {
+    const heading = sanitizeField(normalizeSpace(decodeEntities(stripHtml(inner.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1] || ''))));
+    const body = soliqueBlockText(inner.replace(/<h3[^>]*>[\s\S]*?<\/h3>/i, ' '));
+    if (!body) return '';
+    return heading ? `${heading}\n${body}` : body;
+  };
+  const intro = soliqueBlockText(block('introduction'));
+  const tasks = headed(block('tasks'));
+  const profile = headed(block('profile'));
+  if (!tasks && !profile) return '';
+  if (intro) sections.push(intro);
+  if (tasks) sections.push(tasks);
+  if (profile) sections.push(profile);
+  const offer = headed(block('offer'));
+  if (offer) sections.push(offer);
+  const benefitsInner = block('benefits-wrapper');
+  if (benefitsInner) {
+    const heading = sanitizeField(normalizeSpace(decodeEntities(stripHtml(benefitsInner.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1] || ''))));
+    const perks = [];
+    const boxRx = /<div\s+class="benefit-box[^"]*"[^>]*>([\s\S]*?)<div\s+class="tippy-content"[^>]*>([\s\S]*?)<\/div>/gi;
+    let bm;
+    while ((bm = boxRx.exec(benefitsInner))) {
+      const name = normalizeSpace(decodeEntities(stripHtml((bm[1].match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1] || '').replace(/-\s*<br\s*\/?>\s*/gi, ''))));
+      const text = soliqueBlockText(bm[2]);
+      if (name && text) perks.push(`• ${name}: ${text}`);
+      else if (text) perks.push(`• ${text}`);
+    }
+    if (perks.length) sections.push(heading ? `${heading}\n${perks.join('\n')}` : perks.join('\n'));
+  }
+  return sections.join('\n\n');
 }
 
 /**
@@ -498,6 +582,10 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
   // `content` class on the shared HTML, it is opt-in per tenant via
   // `opts.migratedBoard` (set only by adullam + ipw configs). Default off → the
   // established tenants' extraction is byte-identical to before.
+  if (opts.tasksProfileBoard) {
+    const viiDescription = extractTasksProfileBoard(cleaned);
+    if (viiDescription) return viiDescription;
+  }
   if (opts.migratedBoard) {
     const ivSections = [];
     // Stop at the NEXT intro/content block or page chrome. The intro/content
@@ -528,28 +616,35 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
   // is nested in a balanced `<div class="tasks-profile-wrapper">` container
   // (`<div class="tasks-wrapper">` + `<div class="profile-wrapper">`, each
   // opened by an `<h3 class="subtitle">` heading + `<ul>` body), so this
-  // template scopes the capture to that balanced container FIRST — bounded by
-  // real DOM nesting rather than a lookahead — before any classAttrRx scan can
-  // run unbounded. Checked BEFORE (v) (both gated on `sections.length === 0`)
-  // so OTTO'S never reaches (v)'s unbounded scan; established tenants have no
-  // `tasks-profile-wrapper` container, so `extractBalancedDivByClass` returns
-  // '' for them and this block is a no-op — extraction stays byte-identical.
-  if (sections.length === 0) {
-    const wrapperInner = extractBalancedDivByClass(cleaned, 'tasks-profile-wrapper');
-    if (wrapperInner) {
-      const subtitleRx = /<h3[^>]*class="subtitle"[^>]*>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3[^>]*class="subtitle"|$)/g;
-      let sm;
-      while ((sm = subtitleRx.exec(wrapperInner))) {
-        const title = sanitizeField(normalizeSpace(decodeEntities(stripHtml(sm[1]))));
-        if (!title) continue;
-        let body = sm[2]
-          .replace(/<li[^>]*>/gi, '\n• ')
-          .replace(/<\/li\s*>/gi, '')
-          .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
-          .replace(/<[^>]+>/g, ' ');
-        body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
-        if (body && body.length > 5) sections.push(`${title}\n${body}`);
-      }
+  // template scopes the capture to that balanced container — bounded by real
+  // DOM nesting rather than a lookahead — before any classAttrRx scan can run
+  // unbounded. The wrapper itself is the structural gate: OTTO'S also emits a
+  // sibling `.introduction`, so requiring an empty `sections` array here would
+  // discard every task/profile/benefit list as soon as that lead was captured.
+  // The current board splits the same body across sibling
+  // `tasks-benefits-wrapper` and `profile-gallery-wrapper` containers. Use
+  // those only when the historical combined wrapper is gone, so nested
+  // variants cannot duplicate sections. Established tenants have none of
+  // these containers, therefore their extraction stays byte-identical.
+  const combinedWrapper = extractBalancedDivByClass(cleaned, 'tasks-profile-wrapper');
+  const wrapperInners = combinedWrapper
+    ? [combinedWrapper]
+    : ['tasks-benefits-wrapper', 'profile-gallery-wrapper']
+      .map((className) => extractBalancedDivByClass(cleaned, className))
+      .filter(Boolean);
+  for (const wrapperInner of wrapperInners) {
+    const subtitleRx = /<h3[^>]*class="subtitle"[^>]*>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3[^>]*class="subtitle"|$)/g;
+    let sm;
+    while ((sm = subtitleRx.exec(wrapperInner))) {
+      const title = sanitizeField(normalizeSpace(decodeEntities(stripHtml(sm[1]))));
+      if (!title) continue;
+      let body = sm[2]
+        .replace(/<li[^>]*>/gi, '\n• ')
+        .replace(/<\/li\s*>/gi, '')
+        .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
+        .replace(/<[^>]+>/g, ' ');
+      body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
+      if (body && body.length > 5) sections.push(`${title}\n${body}`);
     }
   }
 
@@ -636,6 +731,8 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
  * @param {function(string):string} [config.categoryFn]  Overridable category
  *   classifier, defaults to `detectHealthcareCategory` (whose catch-all
  *   default is also "Sanità / Ospedali") — same rationale as `sector`.
+ * @param {boolean} [config.tasksProfileBoard=false]  Opt-in detail Template
+ *   (vii) — see `extractTasksProfileBoard`.
  * @param {boolean} [config.paginate=false]  Opt-in: follow `?page=N` SSR
  *   pagination (see `parseSoliqueCounterTotal`) when the tenant's job-counter
  *   badge reports more jobs than fit on page 1. Established tenants' whole
@@ -670,6 +767,10 @@ export function createSoliqueParser(config) {
     categoryFn = detectHealthcareCategory,
     // Opt-in SSR pagination — see JSDoc above. Off by default.
     paginate = false,
+    // Opt-in detail Template (vii) — `introduction` + `tasks`/`profile`/`offer`
+    // + `benefits-wrapper` blocks (Spital Muri board). Off for every other
+    // tenant, whose extraction stays byte-identical.
+    tasksProfileBoard = false,
   } = config;
 
   if (!soliqueTenant || !companyKey || !companyName || !defaultCanton) {
@@ -722,7 +823,10 @@ export function createSoliqueParser(config) {
       listingRaw = await fetchHtml(listingUrl);
     } catch (err) {
       console.warn(`⚠️ Solique listing fetch failed: ${err?.message || err}`);
-      return [];
+      // A fetch failure is not an empty listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a cause-less no-jobs-parsed abort.
+      throw err;
     }
     let tiles;
     if (mode === 'api') {
@@ -755,7 +859,10 @@ export function createSoliqueParser(config) {
               pageRaw = await fetchHtml(`${listingUrl}?page=${page}`);
             } catch (err) {
               console.warn(`⚠️ Solique pagination fetch failed for ${soliqueTenant} (page ${page}): ${err?.message || err}`);
-              break;
+              // A fetch failure is not the end of the listing: let the crawler pipeline
+              // classify it (connection-level soft exit or HTTP error) instead of
+              // publishing a partial or cause-less empty result.
+              throw err;
             }
             const pageTiles = parseSoliqueListing(pageRaw).filter((t) => !seenIds.has(t.id));
             if (!pageTiles.length) break;
@@ -773,7 +880,6 @@ export function createSoliqueParser(config) {
     }
     console.log(`  ✓ ${tiles.length} jobs from Solique listing (${mode})`);
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let detailHits = 0;
     let failed = 0;
@@ -782,9 +888,12 @@ export function createSoliqueParser(config) {
       const tile = tiles[i];
       const detailUrl = tile.detailUrl || `${detailUrlPrefix}${tile.id}`;
       let detailContent = '';
+      let postingDates = sourcePostingDateFields('');
       try {
         const detailHtml = await fetchHtml(detailUrl);
-        detailContent = extractSoliqueDetailContent(detailHtml, { migratedBoard });
+        // Eintritt/startDate describes employment start, never publication.
+        postingDates = sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted'));
+        detailContent = extractSoliqueDetailContent(detailHtml, { migratedBoard, tasksProfileBoard });
         if (detailContent) detailHits += 1;
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed (${detailUrl}): ${err?.message || err}`);
@@ -861,7 +970,7 @@ export function createSoliqueParser(config) {
         sector,
         currency: 'CHF',
         featured: false,
-        postedDate: todayIso,
+        ...postingDates,
         applyUrl: detailUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

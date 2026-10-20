@@ -8,7 +8,9 @@ import {
   isTrustedDomain,
   VITREA_GESUNDHEIT_KEY,
   VITREA_GESUNDHEIT_COMPANY_NAME,
+  VITREA_GESUNDHEIT_FABRICATED_DESCRIPTION_RE,
 } from './lib/vitrea-gesundheit-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 runStandardCrawlerPipeline({
@@ -25,4 +27,5 @@ runStandardCrawlerPipeline({
   // translations on re-crawl. Key on the stable `/job/{hash}` token instead.
   matchKey: (j) => (String(j?.url || '').match(/\/job\/([a-z0-9-]+)/i)?.[1] || j?.url || ''),
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, VITREA_GESUNDHEIT_FABRICATED_DESCRIPTION_RE, VITREA_GESUNDHEIT_COMPANY_NAME),
 }).catch((err) => { console.error(`❌ Vitrea Gesundheit crawler failed: ${err?.message || err}`); process.exit(1); });

@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Lombardi Group — careers page parser
@@ -18,7 +19,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { fetchHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 
 const LISTING_URL = 'https://lombardi.group/eng/careers/open-positions';
 const DETAIL_URL = 'https://lombardi.group/eng/careers/job?id=';
@@ -38,7 +40,7 @@ function slugify(value = '') {
 }
 
 function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -46,12 +48,8 @@ function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&#\d+;/g, '')
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -79,22 +77,14 @@ export function extractLombardiJobsFromHtml(html) {
  * Fetch and parse the listing page to extract the embedded _jobs JSON.
  */
 export async function parseLombardiListingPage(timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(LISTING_URL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const html = await res.text();
-    return extractLombardiJobsFromHtml(html);
-  } finally {
-    clearTimeout(timer);
-  }
+  const html = await fetchHtml(LISTING_URL, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html',
+      'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    },
+  });
+  return extractLombardiJobsFromHtml(html);
 }
 
 /**
@@ -144,36 +134,30 @@ const SKIP_HEADINGS = /Contact|Contatti|Kontakt|Apply now|Candidati ora|Jetzt be
 export function parseLombardiDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
-  // Decode HTML entities (script/style stripped first: heading regexes below
-  // must only see rendered DOM)
-  const decoded = stripScriptsAndStyles(html)
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&apos;/g, "'")
-    .replace(/&ndash;/gi, '–')
-    .replace(/&mdash;/gi, '—')
-    .replace(/&nbsp;/gi, ' ');
+  // Parse actual markup before decoding captured text, so escaped tags stay text.
+  const pageHtml = stripScriptsAndStyles(html);
 
   // Extract title from <h2 class="h1 intro__subtitle">
-  const titleMatch = decoded.match(/<h2[^>]*class="[^"]*intro__subtitle[^"]*"[^>]*>([\s\S]*?)<\/h2>/i);
+  const titleMatch = pageHtml.match(/<h2[^>]*class="[^"]*intro__subtitle[^"]*"[^>]*>([\s\S]*?)<\/h2>/i);
   const detailTitle = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
   // Extract occupancy and city: "80%–100% | Giubiasco"
-  const locMatch = decoded.match(/(\d+%\s*[–-]\s*\d+%)\s*\|\s*([^<]+)/);
+  // Separators may themselves be entities, so inspect each decoded text node.
+  let locMatch = null;
+  for (const [, textNode] of pageHtml.matchAll(/>([^<>]+)</g)) {
+    locMatch = stripHtml(textNode).match(/(\d+%\s*[–-]\s*\d+%)\s*\|\s*([^\n]+)/);
+    if (locMatch) break;
+  }
   const city = locMatch ? normalizeSpace(locMatch[2]) : '';
   const occupancy = locMatch ? normalizeSpace(locMatch[1]) : '';
 
   // Extract intro text from <div class="intro__rich-text">
-  const introMatch = decoded.match(/<div[^>]*class="[^"]*intro__rich-text[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  const introMatch = pageHtml.match(/<div[^>]*class="[^"]*intro__rich-text[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
   const introText = introMatch ? normalizeDescriptionSpace(stripHtml(introMatch[1])) : '';
 
   // Extract main content area (between <!-- Title END--> and the contact/form section)
-  const mainMatch = decoded.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-  const mainHtml = mainMatch ? mainMatch[1] : decoded;
+  const mainMatch = pageHtml.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+  const mainHtml = mainMatch ? mainMatch[1] : pageHtml;
 
   // Parse all h3 sections and their content
   const sections = [];
@@ -232,23 +216,17 @@ export function parseLombardiDetailHtml(html) {
  */
 export async function parseLombardiDetailPage(annuncioId, timeoutMs = 15000) {
   const url = `${DETAIL_URL}${annuncioId}`;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+    const html = await fetchHtml(url, {
+      timeoutMs,
       headers: {
         Accept: 'text/html',
         'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    if (!res.ok) return null;
-    const html = await res.text();
     return parseLombardiDetailHtml(html);
   } catch {
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 
@@ -262,40 +240,74 @@ export function isLombardiLocalJob(job = {}) {
 }
 
 /**
- * Company boilerplate fallback for descriptions when detail page is unavailable.
- */
-function lombardiBoilerplate(title, city, occupancy) {
-  const occLabel = occupancy ? ` (${occupancy})` : '';
-  return `Lombardi Group, studio di ingegneria con sede a ${city}, cerca un profilo ${title}${occLabel}. Lombardi è specializzata nella progettazione di grandi infrastrutture: tunnel, dighe, ponti e impianti idroelettrici in Svizzera e nel mondo. Lo studio, con sede locale a Giubiasco, opera nei settori dell'ingegneria civile, idraulica e geotecnica. Candidati tramite il portale ufficiale.`;
-}
-
-/**
- * Build localized content for a Lombardi job.
- * Uses full structured markdown from detail page when available.
+ * Build the source-language content of a Lombardi job from its detail page.
+ *
+ * Only the posting's own language is filled — title, description, slug — and
+ * the translation step fills the other locales. The builder used to stamp an
+ * invented Italian blurb ("Lombardi Group, studio di ingegneria con sede a …
+ * Candidati tramite il portale ufficiale.") into the `it` slot of every job and
+ * copy the source title into all four locales: an English posting showed the
+ * blurb on the Italian page, and the title copies kept the translation step
+ * from ever translating the title.
+ *
+ * Without a detail body — or with one under the shared word floor
+ * (source-body-floor.mjs) — there is nothing from the source to publish:
+ * returns null and the caller keeps an earlier source body or leaves the job
+ * out.
+ *
+ * @returns {{ sourceLang: string, titleByLocale: object, descriptionByLocale: object, slugByLocale: object } | null}
  */
 export function buildLombardiLocalizedContent(job = {}) {
   const title = normalizeSpace(job.title);
   const city = normalizeSpace(job.city) || 'Giubiasco';
-  const occupancy = job.occupancy || '';
-  const detailDesc = job.detailMarkdown && job.detailMarkdown.length > 100
-    ? job.detailMarkdown
-    : '';
-  const itBoilerplate = lombardiBoilerplate(title, city, occupancy);
-  const sourceLang = detailDesc ? detectLang(detailDesc, 'it') : 'it';
-  const descriptionByLocale = { it: itBoilerplate };
-
-  if (detailDesc) {
-    descriptionByLocale[sourceLang] = detailDesc;
-  }
-
+  const detailDesc = String(job.detailMarkdown || '');
+  if (!meetsSourceBodyFloor(detailDesc)) return null;
+  const sourceLang = detectLang(detailDesc, 'it');
   return {
-    titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale,
-    slugByLocale: {
-      it: slugify(`${title} lombardi ${city}`),
-      en: slugify(`${title} lombardi ${city}`),
-      de: slugify(`${title} lombardi ${city}`),
-      fr: slugify(`${title} lombardi ${city}`),
-    },
+    sourceLang,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: detailDesc },
+    slugByLocale: { [sourceLang]: slugify(`${title} lombardi ${city}`) },
   };
+}
+
+// The invented blurb the old builder wrote into the `it` slot. Pinned only to
+// recognise and remove it from stored records.
+const LEGACY_BLURB_RE = /^Lombardi Group, studio di ingegneria con sede a [\s\S]*Candidati tramite il portale ufficiale\.$/;
+
+export function isLombardiLegacyBlurb(text = '') {
+  return LEGACY_BLURB_RE.test(String(text || '').trim());
+}
+
+/**
+ * True when the stored record carries a body read from the detail page (so it
+ * can stay published on a run whose detail fetch failed).
+ */
+export function lombardiHasSourceBody(job = {}) {
+  const body = String(job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '').trim();
+  return meetsSourceBodyFloor(body) && !isLombardiLegacyBlurb(body);
+}
+
+/**
+ * Remove what the old builder left in a stored record: the invented blurb in
+ * any description slot (and as base description), and in every non-source
+ * locale that was never translated, the source title copied verbatim. The
+ * translation step refills the emptied slots from the source text; a real
+ * translation (description present in that locale) keeps its title.
+ */
+export function scrubLombardiLegacyLocaleCopies(job = {}) {
+  const sourceLang = job.sourceLang;
+  const descriptionByLocale = { ...(job.descriptionByLocale || {}) };
+  for (const [locale, value] of Object.entries(descriptionByLocale)) {
+    if (isLombardiLegacyBlurb(value)) delete descriptionByLocale[locale];
+  }
+  const sourceTitle = String(job.titleByLocale?.[sourceLang] || job.title || '').trim();
+  const titleByLocale = { ...(job.titleByLocale || {}) };
+  for (const [locale, value] of Object.entries(titleByLocale)) {
+    if (locale === sourceLang) continue;
+    if (String(value || '').trim() === sourceTitle && !descriptionByLocale[locale]) delete titleByLocale[locale];
+  }
+  const out = { ...job, titleByLocale, descriptionByLocale };
+  if (isLombardiLegacyBlurb(out.description)) out.description = descriptionByLocale[sourceLang] || '';
+  return out;
 }

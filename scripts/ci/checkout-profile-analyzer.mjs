@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Per ogni JOB di ogni workflow: quali foglie pesanti del checkout tocca davvero.
  *
@@ -59,8 +61,8 @@ export const BASELINE_MB = TABLE.baselineMb;
  *     checkout risultante   effetto reale
  *     < 300 MB              0,11x   (9x piu' veloce)
  *     300-800 MB            0,22x
- *     0,8-1,5 GB            0,79x
- *     1,5-3,5 GB            1,49x   ← PERDITA
+ *     0,8-1,0 GB            0,79x
+ *     1,0-3,5 GB            1,49x   ← PERDITA
  *     3,5-6,8 GB            2,12x   ← PERDITA
  *
  * La causa e' il meccanismo stesso: `sparse-checkout` implica `filter:blob:none`,
@@ -68,8 +70,14 @@ export const BASELINE_MB = TABLE.baselineMb;
  * arrivano con una SECONDA richiesta pigra. Quando ne servono pochi si vince
  * molto; quando ne serve gran parte, quella seconda richiesta costa piu' del
  * pack unico che si sarebbe scaricato in un colpo solo.
+ *
+ * Ricalibrato a 1.000 MB il 2026-10-05: i profili da 1.062–1.304 MB hanno
+ * impiegato 215–322 s nei run 37306401253, 37197962007 e 37347923091, mentre
+ * il checkout pieno senza filtro era a 110–127 s nei run 36707589442 e
+ * 36734404012. La soglia precedente lasciava quindi sparse proprio i job che
+ * stavano pagando la fetch pigra.
  */
-export const CROSSOVER_MB = 1500;
+export const CROSSOVER_MB = 1000;
 export const TREE_MB = TABLE.treeMb;
 
 /**
@@ -120,7 +128,7 @@ const OPAQUE_RULES = [
   // Opaco per costruzione, come `dynamic-npm-run`: non e' un path che si puo'
   // dedurre meglio, e' una catena che l'analisi statica non vede.
   //
-  // Il pattern nomina l'entry point SCRITTO NEL PASSO — `npx -y tsx@4
+  // Il pattern nomina l'entry point SCRITTO NEL PASSO — `npx -y tsx@4.23.15
   // scripts/audit-article-corpus-drift.mjs` — e non gli anelli successivi della
   // catena. `textOfSteps` passa per il parser YAML, quindi i commenti non
   // esistono per questa analisi: `check-article-byte-identity.mjs` nel workflow
@@ -181,6 +189,25 @@ const isFile = (abs) => {
   STAT_CACHE.set(abs, v);
   return v;
 };
+/**
+ * A resolvable module path: a file, or a symlink — even a DANGLING one, whose
+ * target this checkout did not materialize. `statSync` follows the link and
+ * fails on it, which used to drop the link from the closure exactly in the
+ * sparse checkouts where it breaks.
+ */
+const LINK_CACHE = new Map();
+const isFileOrLink = (abs) => {
+  if (isFile(abs)) return true;
+  if (LINK_CACHE.has(abs)) return LINK_CACHE.get(abs);
+  let v = false;
+  try { v = fs.lstatSync(abs).isSymbolicLink(); } catch { v = false; }
+  // A link to a materialized DIRECTORY is not a module file (`./dir` must
+  // still resolve to `./dir/index.mjs`); a dangling link cannot be told apart
+  // and is kept, which is the case this helper exists for.
+  if (v) { try { v = !fs.statSync(abs).isDirectory(); } catch { /* dangling */ } }
+  LINK_CACHE.set(abs, v);
+  return v;
+};
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const parentOf = (id) => { const s = id.replace(/\/$/, '').split('/'); return s.length > 1 ? s.slice(0, -1).join('/') : null; };
 
@@ -220,13 +247,57 @@ function textOfSteps(steps, seen = new Set()) {
 export function checkoutEntryPoints(text, npmScripts, depth = 0) {
   const out = new Set();
   const push = (p) => { if (p && !p.startsWith('-')) out.add(p.replace(/^\.\//, '')); };
-  for (const m of text.matchAll(/\b(?:node|tsx|bash|sh|python3?)\s+((?:--?\S+\s+)*)([\w./@-]+\.(?:mjs|cjs|js|ts|mts|sh|py))/g)) push(m[2]);
+  // A checkout allow-list is also present in the step text. Without the
+  // left-side guard, the `.sh` suffix of one allow-list path becomes the
+  // `sh` command and the next path on the following line becomes a false
+  // entry point (for example `.sh\n/scripts/ci/check.mjs`).
+  for (const m of text.matchAll(/(?<![\w./-])(?:node|tsx|bash|sh|python3?)\s+((?:--?\S+\s+)*)([\w./@-]+\.(?:mjs|cjs|js|ts|mts|sh|py))/g)) push(m[2]);
   for (const m of text.matchAll(/\bnpx\s+(?:-y\s+)?(?:tsx@?\S*|ts-node)\s+((?:--?\S+\s+)*)([\w./@-]+\.(?:ts|mts|mjs|js))/g)) push(m[2]);
   if (depth < 3 && npmScripts) for (const m of text.matchAll(/\bnpm\s+run\s+([\w:.-]+)/g)) {
     const b = npmScripts[m[1]];
     if (b) for (const e of checkoutEntryPoints(b, npmScripts, depth + 1)) out.add(e);
   }
   return [...out];
+}
+
+/**
+ * Repo modules an INLINE module statically imports: a `node --input-type=module
+ * <<'NODE'` heredoc or a `node -e "…"` body naming `./scripts/x.mjs` in an
+ * `import … from` declaration. The step runs from the repo root, so the
+ * `./`-relative specifier is a repo path. Dynamic `import('./…')` is left out
+ * on purpose, like in the static closure below.
+ *
+ * Kept OUT of checkoutEntryPoints (and so out of the bucket analysis): there a
+ * wider closure changes which buckets a job "needs", and a heredoc that only
+ * calls a pure helper of a module whose other code paths name `public/data/`
+ * would start demanding a bucket it never reads (measured on
+ * traffic-data-freshness.yml). The allow-list check wants exactly the modules
+ * that load, nothing more.
+ */
+export function inlineModuleEntryPoints(text) {
+  const out = new Set();
+  for (const m of String(text).matchAll(/\bfrom\s*['"`]\.\/([\w./@-]+\.(?:mjs|cjs|js|ts|mts))['"`]/g)) out.add(m[1]);
+  return [...out];
+}
+
+/**
+ * Root-relative CLI modules executed by a driver through child processes.
+ *
+ * Static imports are not the only way a workflow loads code: a bounded driver
+ * may spawn an existing CLI in a fresh process to isolate its output files and
+ * environment. The driver can opt into the checkout closure with
+ * `CHECKOUT_CHILD_ENTRYPOINTS = Object.freeze(['scripts/foo.mjs'])`; keeping
+ * this declaration explicit avoids guessing arbitrary shell/Node spawns while
+ * preventing a sparse checkout from hiding a real runtime dependency.
+ */
+function checkoutChildEntryPoints(source) {
+  const out = [];
+  const declaration = /\bCHECKOUT_CHILD_ENTRYPOINTS\s*=\s*(?:Object\.freeze\(\s*)?\[([\s\S]*?)\]/g;
+  const pathLiteral = /['"]([\w./@-]+\.(?:mjs|cjs|js|ts|mts|sh|py))['"]/g;
+  for (const block of String(source ?? '').matchAll(declaration)) {
+    for (const match of block[1].matchAll(pathLiteral)) out.push(match[1]);
+  }
+  return out;
 }
 
 /**
@@ -255,30 +326,76 @@ function resolveNpmRunBodies(text, npmScripts, depth = 0, seen = new Set()) {
   return out;
 }
 
-export function transitiveClosure(entries) {
+/**
+ * Transitive closure of the code a job loads, by relative specifier.
+ *
+ * SYMLINKED MODULES (#9835). A tracked symlink is part of the closure TWICE:
+ * as the link the importer names, and as its target — a checkout that
+ * materializes the link but not the target ships a dangling link, which Node
+ * reports as `ERR_MODULE_NOT_FOUND` on a path that exists in git
+ * (`build-plugins/shared/articleSectionCore.mjs` →
+ * `packages/articles/engine/shared/articleSectionCore.mjs`). Both are listed
+ * whether or not the target is materialized HERE (the target is read off the
+ * link, see symlinkTargetAbs), and the target's own imports are resolved from
+ * the TARGET's directory, as Node's ESM loader does (it resolves the realpath).
+ */
+export function transitiveClosure(entries, { staticOnly = false } = {}) {
   const seen = new Set(); const queue = [...entries]; const resolved = [];
+  const required = new Set(); // symlink targets: listed even when not materialized here
   const cands = (b) => [b, b + '.mjs', b + '.js', b + '.ts', b + '.mts', b + '.cjs',
                         path.join(b, 'index.mjs'), path.join(b, 'index.ts'), path.join(b, 'index.js')];
   while (queue.length) {
     const rel = queue.shift();
     if (!rel || seen.has(rel) || rel.startsWith('..')) continue;
     seen.add(rel);
-    const src = readSafe(path.join(ROOT, rel));
-    if (src === null) continue;
+    const abs = path.join(ROOT, rel);
+    const linkTarget = repoSymlinkTarget(abs);
+    const src = readSafe(abs);
+    if (linkTarget !== null) {
+      resolved.push({ rel, src: src ?? '' });
+      required.add(linkTarget);
+      queue.push(linkTarget);
+      continue;
+    }
+    if (src === null) {
+      if (required.has(rel)) resolved.push({ rel, src: '' });
+      continue;
+    }
     resolved.push({ rel, src });
     const dir = path.dirname(rel);
     const specs = new Set();
-    for (const re of [/\bfrom\s+['"](\.[^'"]+)['"]/g, /\bimport\s*\(\s*['"](\.[^'"]+)['"]/g, /\brequire\s*\(\s*['"](\.[^'"]+)['"]/g]) {
+    // staticOnly: only declarations Node links BEFORE running a line of the
+    // module (`import … from`, `export … from`, bare `import '…'`). A lazy
+    // `import()`/`require()` on a code path the job never takes (e.g.
+    // export-loop-outcomes.mjs loading functions/src/ only for L4) cannot
+    // break it at load time, and an allow-list check that demanded it would
+    // be noise.
+    const specRes = staticOnly
+      ? [/\bfrom\s*['"](\.[^'"]+)['"]/g, /\bimport\s*['"](\.[^'"]+)['"]/g]
+      : [/\bfrom\s+['"](\.[^'"]+)['"]/g, /\bimport\s*\(\s*['"](\.[^'"]+)['"]/g, /\brequire\s*\(\s*['"](\.[^'"]+)['"]/g];
+    for (const re of specRes) {
       for (const m of src.matchAll(re)) specs.add(m[1]);
     }
+    for (const child of checkoutChildEntryPoints(src)) queue.push(child);
     for (const s of specs) {
       const base = path.normalize(path.join(dir, s));
       for (const t of cands(base)) {
-        if (isFile(path.join(ROOT, t))) { queue.push(t); break; }
+        if (isFileOrLink(path.join(ROOT, t))) { queue.push(t); break; }
       }
     }
   }
   return resolved;
+}
+
+/**
+ * Repo-relative target of a symlink inside the repo, or null (not a link,
+ * unreadable, or pointing outside the repo). Reads the link, never follows it.
+ */
+function repoSymlinkTarget(abs) {
+  const target = symlinkTargetAbs(abs);
+  if (target === null) return null;
+  const rel = path.relative(ROOT, target);
+  return rel && !rel.startsWith('..') && !path.isAbsolute(rel) ? rel.split(path.sep).join('/') : null;
 }
 
 /**
@@ -401,6 +518,13 @@ export function bucketsReferencedBy(text) {
   return hit;
 }
 
+// `git-commit-data.sh` contains the legacy shared-data path as well as the
+// isolated `--extra-only` path. A monitor that passes `--extra-only` owns only
+// its explicit extra path; counting the helper's dormant legacy branches as
+// runtime reads would keep the checkout full and recreate the timeout that
+// this mode is meant to avoid.
+const EXTRA_ONLY_DATA_COMMIT = /\b(?:bash|sh)\s+scripts\/lib\/git-commit-data\.sh\s+(?:\\\s+)*--extra-only\b/;
+
 /** Analizza un singolo job. */
 function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   const exec = textOfSteps(job?.steps) + '\n' + workflowEnvText + '\n' +
@@ -408,8 +532,13 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   const opaqueText = exec + resolveNpmRunBodies(exec, npmScripts);
   const opaqueBy = [...new Set(OPAQUE_RULES.filter(([, r]) => r.test(opaqueText)).map(([k]) => k))];
   const entries = checkoutEntryPoints(exec, npmScripts);
+  const inlineEntries = inlineModuleEntryPoints(exec);
   const resolved = transitiveClosure(entries);
-  const corpus = exec + '\n' + resolved.map((r) => r.src).join('\n');
+  const extraOnlyDataCommit = EXTRA_ONLY_DATA_COMMIT.test(exec);
+  const bucketResolved = extraOnlyDataCommit
+    ? resolved.filter((r) => r.rel !== 'scripts/lib/git-commit-data.sh')
+    : resolved;
+  const corpus = exec + '\n' + bucketResolved.map((r) => r.src).join('\n');
   const needs = opaqueBy.length ? new Set(BUCKETS.map((b) => b.id)) : bucketsReferencedBy(corpus);
   if (needs.has('public/images/')) needs.add('public/data/');
   const exclude = BUCKETS.filter((b) => !needs.has(b.id));
@@ -419,15 +548,17 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   if (residual > CROSSOVER_MB) {
     return {
       jobId, hasCheckout: (job?.steps ?? []).some((st) => typeof st?.uses === 'string' && st.uses.startsWith('actions/checkout@')),
-      opaqueBy, entries, filesFollowed: resolved.length, closure: resolved.map((r) => r.rel),
+      opaqueBy, entries, inlineEntries, filesFollowed: resolved.length, closure: resolved.map((r) => r.rel),
+      extraOnlyDataCommit,
       needs: [...needs].sort(), exclude: [], aboveCrossover: true,
       savedMb: 0, savedFiles: 0, checkoutMb: TREE_MB,
     };
   }
   const hasCheckout = (job?.steps ?? []).some((s) => typeof s?.uses === 'string' && s.uses.startsWith('actions/checkout@'));
   return {
-    jobId, hasCheckout, opaqueBy, entries, filesFollowed: resolved.length,
+    jobId, hasCheckout, opaqueBy, entries, inlineEntries, filesFollowed: resolved.length,
     closure: resolved.map((r) => r.rel),
+    extraOnlyDataCommit,
     needs: [...needs].sort(),
     exclude: exclude.map((b) => b.id),
     aboveCrossover: false,
@@ -469,7 +600,7 @@ export function analyzeAll() {
     .map((f) => analyzeWorkflow(path.join(WF_DIR, f), pkg.scripts));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const all = analyzeAll();
   const jobs = all.flatMap((w) => w.jobs.filter((j) => j.hasCheckout).map((j) => ({ ...j, file: w.file })));
   const avg = jobs.reduce((a, j) => a + j.checkoutMb, 0) / jobs.length;

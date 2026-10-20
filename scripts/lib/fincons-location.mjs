@@ -1,5 +1,9 @@
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isTargetSwissLocation,
+  isWorkModeLocationLabel,
+} from './target-swiss-locations.mjs';
 
 const SWISS_COUNTRY_TOKENS = new Set(['ch', 'switzerland', 'svizzera', 'schweiz', 'suisse']);
 
@@ -19,6 +23,16 @@ export function classifyFinconsLocation(location = '', country = '') {
   // (e.g. "Zurich, Germany"). Otherwise the generic helper's Swiss-name
   // safeguard can make the address look Swiss and pair the wrong canton.
   if (isLocationExplicitlyForeign(normalizedLocation)) return 'foreign';
+  // Work-mode labels are explicit non-place signals, not a parser failure.
+  // Keep them out of the Swiss target set without allowing a stale listing
+  // fallback to stamp a remote/global posting with a Swiss canton.
+  if (isWorkModeLocationLabel(normalizedLocation)) return 'foreign';
+  // A country-only row is a complete, explicit source signal but it has no
+  // locality from which to derive a canton. Keep it out of the publishable
+  // Swiss target set without failing the whole source snapshot; the detail
+  // page may still provide a concrete city, while a genuinely remote/global
+  // posting is safely skipped by resolveFinconsLocation().
+  if (SWISS_COUNTRY_TOKENS.has(normalizeCountry(normalizedLocation))) return 'country-only';
   if (!isTargetSwissLocation(normalizedLocation, { includeBorderProximity: false })) {
     return 'unresolved';
   }

@@ -1,3 +1,5 @@
+import { decode as decodeHTML } from 'html-entities';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * EMS-Chemie AG — job parser
@@ -19,6 +21,9 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { crawledAtFromObservation } from './source-crawl-observation.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Text helpers ──────────────────────────────────────────── */
 
@@ -27,7 +32,7 @@ export function normalizeSpace(value = '') {
 }
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -35,15 +40,8 @@ export function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -140,11 +138,22 @@ export function parseListingPage(html) {
     const contextStart = Math.max(0, match.index - 500);
     const contextEnd = Math.min(html.length, match.index + match[0].length + 500);
     const context = html.slice(contextStart, contextEnd);
+    // The careercenter card carries the workplace in its own desktop cell,
+    // e.g. `<div class="width-15 desktop"><span>Groß-Umstadt, DEU</span>` or
+    // `<span>Domat/Ems </span>`. Keep it: without it every card defaulted to
+    // the Domat/Ems seat, and the German Groß-Umstadt vacancies were
+    // published as Swiss ones (audit run 36528331656).
+    const cardLocation = parsePortalCardLocation(match[2]);
 
     jobs.push({
       title: linkText,
       url: fullUrl,
-      location: inferLocation(linkText, stripHtml(context)),
+      location: cardLocation.city
+        ? (cardLocation.countryCode && cardLocation.countryCode !== 'CHE'
+          ? cardLocation.city
+          : inferLocation(cardLocation.city, ''))
+        : inferLocation(linkText, stripHtml(context)),
+      countryCode: cardLocation.countryCode,
       datePosted: '',
     });
   }
@@ -232,6 +241,132 @@ export function parseListingPage(html) {
   return jobs;
 }
 
+/**
+ * Read the workplace cell of a jobs.ems-group.com careercenter card.
+ * Returns `{ city, countryCode }`; `countryCode` is the ISO-3 suffix the
+ * portal appends to foreign sites ("Groß-Umstadt, DEU") and '' when the card
+ * names a Swiss site without a country ("Domat/Ems ").
+ *
+ * @param {string} cardHtml Inner HTML of the card anchor.
+ */
+export function parsePortalCardLocation(cardHtml = '') {
+  const cell = String(cardHtml || '').match(/<div[^>]*class="[^"]*\bdesktop\b[^"]*"[^>]*>\s*<span[^>]*>([\s\S]*?)<\/span>/i);
+  const raw = cell ? normalizeSpace(stripHtml(cell[1])) : '';
+  if (!raw) return { city: '', countryCode: '' };
+  const withCountry = raw.match(/^(.*?),\s*([A-Z]{3})$/);
+  const city = normalizeSpace((withCountry ? withCountry[1] : raw).replace(/,\s*$/, '')).replace(/\s*\/\s*/g, '/');
+  return { city, countryCode: withCountry ? withCountry[2] : '' };
+}
+
+/**
+ * A careercenter listing is out of scope when its card names a non-Swiss
+ * country. The portal publishes EMS's German sites next to the Swiss ones.
+ */
+export function isForeignPortalListing(listing = {}) {
+  const code = String(listing?.countryCode || '').toUpperCase();
+  return Boolean(code) && code !== 'CHE';
+}
+
+// Attribute-aware opening tag: the portal puts markup inside attribute values
+// (`<section aria-label="<b>Über uns</b>" class="about">`), so `[^>]*` would
+// stop inside the aria-label and miss the class.
+const ATTRS = `(?:"[^"]*"|'[^']*'|[^'">])*`;
+
+function openTagRe(tag, attrPattern) {
+  return new RegExp(`<${tag}\\b${ATTRS}?${attrPattern}${ATTRS}>`, 'i');
+}
+
+function readBalancedElement(html, contentStart, tagName) {
+  const tagRe = new RegExp(`<(/?)${tagName}\\b${ATTRS}>`, 'gi');
+  tagRe.lastIndex = contentStart;
+  let depth = 1;
+  let m;
+  while ((m = tagRe.exec(html)) !== null) {
+    if (m[1] === '/') depth -= 1;
+    else if (!/\/>$/.test(m[0])) depth += 1;
+    if (depth === 0) return html.slice(contentStart, m.index);
+  }
+  return '';
+}
+
+function portalBlock(html, tag, attrPattern) {
+  const m = openTagRe(tag, attrPattern).exec(html);
+  if (!m) return '';
+  return readBalancedElement(html, m.index + m[0].length, tag);
+}
+
+function portalBlockText(blockHtml = '') {
+  const cleaned = String(blockHtml || '')
+    .replace(/<a[^>]*class="[^"]*\breadmore\b[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '')
+    .replace(/<\/h[1-6]>/gi, '\n')
+    .replace(/<h[1-6][^>]*>/gi, '\n');
+  return stripHtml(cleaned)
+    .split('\n')
+    .map((line) => line.trim())
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+function portalJsonLdPosting(html = '') {
+  return extractJobPostingNodes(html)[0] || null;
+}
+
+/**
+ * Parse a jobs.ems-group.com vacancy page (Prospective "directlink" posting
+ * template): tasks, profile, benefits and the "Über uns" paragraph, in page
+ * order, with list items kept as bullets. The contact block (phone numbers,
+ * recruiter e-mail), the send-to-me form and the privacy footer are outside
+ * the returned body by construction. Returns null for any other layout.
+ *
+ * @param {string} html
+ */
+export function parsePortalDetailPage(html = '') {
+  if (!html || !/<section[^>]*\bid="AufgabenProfil"/i.test(html)) return null;
+  const titleBlock = portalBlock(html, 'section', 'class="[^"]*\\bjob-title\\b[^"]*"');
+  const h1 = titleBlock.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = h1 ? normalizeSpace(stripHtml(h1[1])) : '';
+  const subtitle = normalizeSpace(stripHtml((titleBlock.match(/<div[^>]*class="[^"]*\bjob-subtitle\b[^"]*"[^>]*>([\s\S]*?)<\/div>/i) || [])[1] || ''));
+
+  const sections = [
+    portalBlock(html, 'section', 'id="Einleitung"'),
+    portalBlock(html, 'section', 'id="AufgabenProfil"'),
+    portalBlock(html, 'section', 'class="[^"]*\\bbenefits\\b[^"]*"'),
+    portalBlock(html, 'div', 'class="[^"]*\\baboutText\\b[^"]*"'),
+  ].map(portalBlockText).filter(Boolean);
+  const description = sections.join('\n\n');
+
+  const posting = portalJsonLdPosting(html);
+  const address = posting?.jobLocation?.address || {};
+  const locality = normalizeSpace(String(address.addressLocality || '').replace(/,\s*$/, ''));
+  const country = normalizeSpace(address.addressCountry || '');
+  const postalCode = normalizeSpace(address.postalCode || '');
+  const subtitleLocation = subtitle.split('|').map((part) => part.trim()).filter(Boolean).pop() || '';
+
+  return {
+    title,
+    description,
+    locality: locality || subtitleLocation.replace(/,\s*[A-Z]{3}$/, ''),
+    country,
+    postalCode,
+    subtitle,
+    employmentType: normalizeSpace(posting?.employmentType || ''),
+    datePosted: normalizeSpace(posting?.datePosted || ''),
+  };
+}
+
+/**
+ * True when the portal page itself places the vacancy outside Switzerland
+ * (`addressCountry: "Deutschland"` in the JobPosting, or the ", DEU" suffix
+ * of the subtitle location).
+ */
+export function isForeignPortalDetail(detail = {}) {
+  const country = String(detail?.country || '').trim();
+  if (country && !/^(schweiz|switzerland|suisse|svizzera|ch|che)$/i.test(country)) return true;
+  const code = String(detail?.subtitle || '').match(/,\s*([A-Z]{3})\s*$/);
+  return Boolean(code && code[1] !== 'CHE');
+}
+
 /* ── Detail page parser ────────────────────────────────────── */
 
 /**
@@ -297,13 +432,23 @@ export function parseDetailPage(html) {
 
 export function buildJob(raw) {
   if (!raw || !raw.title) return null;
+  const crawledAt = crawledAtFromObservation(raw.crawlObservedAt);
+  if (!crawledAt) return null;
 
   const title = stripEmsChemieTitleSuffix(normalizeSpace(raw.title));
   if (!title || title.length < 3) return null;
 
   const location = raw.location || 'Domat/Ems';
   const canton = location === 'Romanshorn' ? 'TG' : 'GR';
-  const description = raw.description || `${title} presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: ${location}.`;
+  // Only the posting's own text is published (issue 5253): without the
+  // careercenter body a listing used to go out with an invented Italian
+  // blurb about the Domat/Ems seat; no job is built from it any more.
+  const description = String(raw.description || '').trim();
+  if (!meetsSourceBodyFloor(description)) return null;
+  // The vacancy body is German on the careercenter portal. Declare the
+  // language of the text actually stored instead of leaving it to a
+  // downstream default.
+  const sourceLang = raw.sourceLang || 'de';
 
   return {
     title,
@@ -321,7 +466,10 @@ export function buildJob(raw) {
     employmentType: raw.employmentType || 'FULL_TIME',
     category: detectCategory(title, description),
     description,
-    postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
+    descriptionByLocale: { [sourceLang]: description },
+    sourceLang,
+    ...sourcePostingDateFields(raw.datePosted),
+    crawledAt,
     source: 'company-website',
     slug: slugify(`${title}-ems-chemie-${location}`),
     slugByLocale: {

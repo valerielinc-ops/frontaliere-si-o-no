@@ -57,10 +57,13 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchWithRetry, RETRYABLE_STATUS } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -316,6 +319,27 @@ function extractVacancyRows(html = '') {
   return rows;
 }
 
+/**
+ * Prove that the fRecruit listing was rendered and explicitly reports zero
+ * vacancies. A bare zero is intentionally not enough: a selector miss or an
+ * incomplete response must keep the previous slice live and visible to the
+ * health monitor.
+ */
+function extractAuthoritativeEmptyListingEvidence(html = '', rows = []) {
+  if (rows.length !== 0 || /vacancyNo=VN\d+/i.test(html)) return null;
+
+  const visibleText = normalizeSpace(stripHtml(html)).toLowerCase();
+  const hasCompleteEmptyState = [
+    /current vacancies/.test(visibleText),
+    /for the vacancies listed below/.test(visibleText),
+    /\bpage\s+1\s+of\s+0\b/.test(visibleText),
+    /\bnone\s+found\b/.test(visibleText),
+  ].every(Boolean);
+
+  if (!hasCompleteEmptyState) return null;
+  return 'Gavi fRecruit listing reports Current Vacancies, Page 1 of 0 and None found with no vacancy links';
+}
+
 async function fetchListingPages() {
   const cookieJar = { value: '' };
   const rowsByVacancy = new Map();
@@ -355,7 +379,12 @@ async function fetchListingPages() {
     page += 1;
   }
 
-  return { rows: [...rowsByVacancy.values()], cookieJar };
+  const rows = [...rowsByVacancy.values()];
+  return {
+    rows,
+    cookieJar,
+    authoritativeEmptyEvidence: extractAuthoritativeEmptyListingEvidence(html, rows),
+  };
 }
 
 /* ── Fetch: detail page (JSON-LD datePosted + label/value table) ─────── */
@@ -369,16 +398,15 @@ async function fetchListingPages() {
  * `datePosted` from JSON-LD only, and takes everything else (location,
  * description, contract type) from the label/value table like Sygnum does.
  */
-function extractJsonLdDatePosted(html = '') {
-  const rx = /<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/i;
-  const m = rx.exec(html);
-  if (!m) return '';
-  try {
-    const ld = JSON.parse(m[1]);
-    return ld?.datePosted ? String(ld.datePosted).slice(0, 10) : '';
-  } catch {
-    return '';
-  }
+function extractPublication(html, expectedUrl) {
+  const posting = extractJobPostingLd(html);
+  const identities = [posting?.url, posting?.sameAs].flat().filter((value) => value != null);
+  const sameVacancy = identities.length > 0 && identities.every((value) => {
+    if (typeof value !== 'string' || !value.trim()) return false;
+    try { return new URL(value, expectedUrl).href === new URL(expectedUrl).href; }
+    catch { return false; }
+  });
+  return sourcePostingDateFields(sameVacancy ? posting?.datePosted : '');
 }
 
 function extractLabelFields(html = '') {
@@ -414,7 +442,7 @@ async function fetchDetailPage(vacancyNo, cookieJar) {
   }
 
   return {
-    datePosted: extractJsonLdDatePosted(html),
+    ...extractPublication(html, DETAIL_URL(vacancyNo)),
     contractRaw: extractContractLine(jobDescriptionHtml),
     location: labelFields['Location'] ? stripHtml(labelFields['Location']) : '',
     description: normalizeSpace(descriptionParts.join(' ')),
@@ -439,14 +467,19 @@ export async function fetchAllGaviJobs() {
 
   let rows = [];
   let cookieJar = { value: '' };
+  let authoritativeEmptyEvidence = null;
   try {
-    ({ rows, cookieJar } = await fetchListingPages());
+    ({ rows, cookieJar, authoritativeEmptyEvidence } = await fetchListingPages());
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
     throw err;
   }
 
   if (!rows || rows.length === 0) {
+    if (authoritativeEmptyEvidence) {
+      console.log(`  🧩 Source-proven zero: ${authoritativeEmptyEvidence}`);
+      return markAuthoritativeEmptySnapshot([], authoritativeEmptyEvidence);
+    }
     console.warn('⚠️ No job listings returned.');
     return [];
   }
@@ -489,7 +522,7 @@ export async function fetchAllGaviJobs() {
     const jobSlug = slugify(`${title} gavi ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = mapEmploymentType(detail.contractRaw, title);
-    const postedDate = detail.datePosted || new Date().toISOString().split('T')[0];
+    const publication = mergeSourcePostingDates({}, detail);
 
     const job = {
       // ── Required fields ──
@@ -524,7 +557,7 @@ export async function fetchAllGaviJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(publication),
       applyUrl: publicUrl,
       jobReqId: row.vacancyNo || null,
       requirements: [],

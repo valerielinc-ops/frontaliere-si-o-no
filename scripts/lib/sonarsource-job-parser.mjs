@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
 /**
  * SonarSource (Sonar) job parser — Fetcher and job builder.
  *
@@ -132,7 +133,7 @@ async function fetchJobListings() {
     title: j.title,
     location: j.location,
     url: j.applyUrl,
-    postedAt: j.postedAt,
+    ...sourcePostingDateFields(j.postedAt),
     description: j.descriptionHtml || '',
     jobReqId: j.jobReqId,
   }));
@@ -164,8 +165,15 @@ export async function fetchAllSonarsourceJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Vernier';
-    const canton = inferSwissTargetCanton(location) || 'GE';
+    // The listing is filtered to Swiss vacancies above; a location that still
+    // resolves to no canton is dropped rather than filed under the Vernier HQ
+    // (issue 9842: no HQ fallback on unknown geography).
+    const location = normalizeSpace(listing.location || '');
+    const canton = location ? inferSwissTargetCanton(location) : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${location || '(none)'} — ${title}`);
+      continue;
+    }
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
@@ -204,7 +212,7 @@ export async function fetchAllSonarsourceJobs() {
       sector: 'Software / Dev Tools',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

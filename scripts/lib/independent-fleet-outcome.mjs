@@ -15,6 +15,8 @@ import { buildOutcome } from './loop-fleet-contract.mjs';
 // runs. Keep the independent denominator aligned with that contract while
 // retaining the excluded count in the reconciliation metrics.
 const EXCLUDED_CONCLUSIONS = new Set(['skipped', 'cancelled']);
+const UNKNOWN_CONTEXT = 'unknown';
+const DEFAULT_TOP_ERROR_CLASSES = 10;
 
 function object(value) {
   return Boolean(value && typeof value === 'object' && !Array.isArray(value));
@@ -50,6 +52,42 @@ function runAt(run) {
 function withinWindow(stamp, startMs, endMs) {
   const time = Date.parse(stamp || '');
   return Number.isFinite(time) && time >= startMs && time <= endMs;
+}
+
+function keyPart(value) {
+  return (text(value) || UNKNOWN_CONTEXT).replace(/\|/gu, '/');
+}
+
+function runContext(run) {
+  return {
+    workflow: run?.workflowFile ?? run?.workflowName,
+    event: run?.event,
+  };
+}
+
+function healthContext(row) {
+  return {
+    workflow: row?.execution?.workflow,
+    event: row?.execution?.event,
+  };
+}
+
+/**
+ * Class key of one reconciliation error: the message with every number
+ * replaced by `<id>`, plus the workflow and event it belongs to. Run ids never
+ * reach the key, so the same cause recurring on many runs folds into one
+ * counter that a log line can name.
+ */
+export function reconciliationErrorClassKey(message, { workflow, event } = {}) {
+  const normalized = String(message).replace(/\d+/gu, '<id>');
+  return `${normalized}|${keyPart(workflow)}|${keyPart(event)}`;
+}
+
+/** The `limit` most frequent classes, by count then key, as a plain object. */
+export function topReconciliationErrorClasses(classes, limit = DEFAULT_TOP_ERROR_CLASSES) {
+  return Object.fromEntries(Object.entries(object(classes) ? classes : {})
+    .sort(([leftKey, left], [rightKey, right]) => right - left || leftKey.localeCompare(rightKey))
+    .slice(0, limit));
 }
 
 function normalizeWindow(now, windowHours) {
@@ -118,25 +156,31 @@ export function buildIndependentFleetControlOutcome({
   const health = Array.isArray(healthRecords) ? healthRecords.filter((row) => withinWindow(healthAt(row), startMs, endMs)) : [];
   const runs = Array.isArray(githubRuns) ? githubRuns.filter((run) => withinWindow(runAt(run), startMs, endMs)) : [];
   const reconciliationErrors = [];
+  const reconciliationErrorClasses = {};
+  const reject = (message, context) => {
+    reconciliationErrors.push(message);
+    const key = reconciliationErrorClassKey(message, context);
+    reconciliationErrorClasses[key] = (reconciliationErrorClasses[key] || 0) + 1;
+  };
 
   if (health.length > maxRecords || runs.length > maxRecords) {
-    reconciliationErrors.push(`source exceeds bounded reconciliation window (${Math.max(health.length, runs.length)} > ${maxRecords})`);
+    reject(`source exceeds bounded reconciliation window (${Math.max(health.length, runs.length)} > ${maxRecords})`);
   }
 
   const healthByRun = new Map();
   for (const [index, row] of health.entries()) {
     const id = healthRunId(row);
     if (!object(row) || row.recordType !== 'health' || !object(row.execution) || !id || !text(row.loopId)) {
-      reconciliationErrors.push(`health[${index}] has no canonical execution identity`);
+      reject(`health[${index}] has no canonical execution identity`, healthContext(row));
       continue;
     }
-    if (healthByRun.has(id)) reconciliationErrors.push(`health execution ${id} appears more than once`);
+    if (healthByRun.has(id)) reject(`health execution ${id} appears more than once`, healthContext(row));
     else healthByRun.set(id, row);
     if (!text(row.execution.sha) || !/^[0-9a-f]{40}$/iu.test(String(row.execution.sha))) {
-      reconciliationErrors.push(`health execution ${id} has no full commit SHA`);
+      reject(`health execution ${id} has no full commit SHA`, healthContext(row));
     }
-    if (typeof row.ok !== 'boolean') reconciliationErrors.push(`health execution ${id} has no boolean ok result`);
-    if (row.gateBypass !== false) reconciliationErrors.push(`health execution ${id} has gateBypass other than false`);
+    if (typeof row.ok !== 'boolean') reject(`health execution ${id} has no boolean ok result`, healthContext(row));
+    if (row.gateBypass !== false) reject(`health execution ${id} has gateBypass other than false`, healthContext(row));
   }
 
   const runById = new Map();
@@ -144,13 +188,13 @@ export function buildIndependentFleetControlOutcome({
     const id = runId(run);
     const conclusion = text(run?.conclusion);
     if (!id || !object(run)) {
-      reconciliationErrors.push(`githubRuns[${index}] has no run identity`);
+      reject(`githubRuns[${index}] has no run identity`, runContext(run));
       continue;
     }
-    if (runById.has(id)) reconciliationErrors.push(`GitHub run ${id} appears more than once`);
+    if (runById.has(id)) reject(`GitHub run ${id} appears more than once`, runContext(run));
     else runById.set(id, run);
     if (run.status !== 'completed' || !conclusion) {
-      reconciliationErrors.push(`GitHub run ${id} is not a completed run with a conclusion`);
+      reject(`GitHub run ${id} is not a completed run with a conclusion`, runContext(run));
     }
   }
 
@@ -162,16 +206,16 @@ export function buildIndependentFleetControlOutcome({
     const run = runById.get(id);
     const row = healthByRun.get(id);
     if (!row) {
-      reconciliationErrors.push(`GitHub run ${id} has no canonical health row`);
+      reject(`GitHub run ${id} has no canonical health row`, runContext(run));
       continue;
     }
     if (run.headSha && row.execution?.sha && String(run.headSha).toLowerCase() !== String(row.execution.sha).toLowerCase()) {
-      reconciliationErrors.push(`GitHub run ${id} SHA does not match canonical health execution`);
+      reject(`GitHub run ${id} SHA does not match canonical health execution`, runContext(run));
     }
   }
-  for (const id of healthByRun.keys()) {
+  for (const [id, row] of healthByRun) {
     if (excludedIds.has(id)) continue;
-    if (!eligibleIds.has(id)) reconciliationErrors.push(`canonical health execution ${id} has no eligible GitHub run in the window`);
+    if (!eligibleIds.has(id)) reject(`canonical health execution ${id} has no eligible GitHub run in the window`, healthContext(row));
   }
 
   const joined = eligibleRuns
@@ -219,6 +263,7 @@ export function buildIndependentFleetControlOutcome({
       githubRuns: runs.length,
       sourceErrors: errors.length,
       reconciliationErrors: reconciliationErrors.length,
+      reconciliationErrorClasses,
     },
     reconciliation: {
       complete: allSourcesComplete,

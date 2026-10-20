@@ -1,4 +1,10 @@
-import admin from 'firebase-admin';
+import {
+ applicationDefault,
+ getApp,
+ getApps,
+ initializeApp,
+} from 'firebase-admin/app';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { Resend } from 'resend';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
@@ -11,9 +17,13 @@ import {
   mergeAccountDeletedSubscriberUpdate,
   HUMAN_DECLARED_SUPPRESSIONS,
   MACHINE_INFERRED_SUPPRESSIONS,
+  UNKNOWN_RECIPIENT,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { eraseJobEmailAffinityProfile, isAffinityErasingEvent } from './lib/jobEmailAffinityStore.js';
+import { parseAssistedCampaign, recordAssistedEmailEvent } from './assistedApplicationEmailEvents.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 function sanitizeString(value) {
  const normalized = String(value || '').trim();
@@ -21,14 +31,15 @@ function sanitizeString(value) {
 }
 
 export function ensureAdminApp() {
- if (!admin.apps.length) {
- admin.initializeApp({ credential: admin.credential.applicationDefault() });
+ if (!getApps().length) {
+ initializeApp({ credential: applicationDefault() });
  }
- return admin;
+ return getApp();
 }
 
 export function getAdminDb() {
- return ensureAdminApp().firestore();
+ ensureAdminApp();
+ return getFirestore();
 }
 
 function getHeader(headers, key) {
@@ -132,33 +143,32 @@ const NON_PROMOTABLE_STATUSES = new Set([
 ]);
 
 function buildSubscriberUpdate(eventType, data, currentStatus) {
- const FieldValue = admin.firestore.FieldValue;
  const update = {
  email: normalizeEmailAddress(data.email),
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
+ updatedAt: FieldValue.serverTimestamp(),
  };
 
  if (eventType === 'send') {
- update.last_sent_at = admin.firestore.FieldValue.serverTimestamp();
- update.lastSentAt = admin.firestore.FieldValue.serverTimestamp();
+ update.last_sent_at = FieldValue.serverTimestamp();
+ update.lastSentAt = FieldValue.serverTimestamp();
  update.send_count = FieldValue.increment(1);
  update.sendCount = FieldValue.increment(1);
  }
  if (eventType === 'delivered') {
- update.last_delivered_at = admin.firestore.FieldValue.serverTimestamp();
+ update.last_delivered_at = FieldValue.serverTimestamp();
  Object.assign(update, softBounceRecoveryFields());
  }
  if (eventType === 'open') {
- update.last_open_at = admin.firestore.FieldValue.serverTimestamp();
- update.lastOpenAt = admin.firestore.FieldValue.serverTimestamp();
+ update.last_open_at = FieldValue.serverTimestamp();
+ update.lastOpenAt = FieldValue.serverTimestamp();
  update.open_count = FieldValue.increment(1);
  update.openCount = FieldValue.increment(1);
  Object.assign(update, softBounceRecoveryFields());
  }
  if (eventType === 'click') {
- update.last_click_at = admin.firestore.FieldValue.serverTimestamp();
- update.lastClickAt = admin.firestore.FieldValue.serverTimestamp();
+ update.last_click_at = FieldValue.serverTimestamp();
+ update.lastClickAt = FieldValue.serverTimestamp();
  update.click_count = FieldValue.increment(1);
  update.clickCount = FieldValue.increment(1);
  update.last_clicked_url = sanitizeString(data.link_url || data.target_url);
@@ -169,7 +179,7 @@ function buildSubscriberUpdate(eventType, data, currentStatus) {
  // provider bounce payload, which this constructed `data` object doesn't
  // carry) — see the `type === 'bounce'` block right after this call.
  if (eventType === 'complaint') {
- update.last_complained_at = admin.firestore.FieldValue.serverTimestamp();
+ update.last_complained_at = FieldValue.serverTimestamp();
  update.status = 'complained';
  update.isActive = false;
  update.active = false;
@@ -180,11 +190,11 @@ function buildSubscriberUpdate(eventType, data, currentStatus) {
  update.active = false;
  }
  if (eventType === 'failed') {
- update.last_failed_at = admin.firestore.FieldValue.serverTimestamp();
+ update.last_failed_at = FieldValue.serverTimestamp();
  update.fail_count = FieldValue.increment(1);
  }
  if (eventType === 'delivery_delayed') {
- update.last_delay_at = admin.firestore.FieldValue.serverTimestamp();
+ update.last_delay_at = FieldValue.serverTimestamp();
  update.delay_count = FieldValue.increment(1);
  }
  // Only promote to confirmed if the subscriber already has a non-pending status.
@@ -224,12 +234,23 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  return { handled: false, reason: 'missing_recipient' };
  }
 
+ if (await isDeletedEmailAccount(db, email)) {
+ return { handled: false, reason: 'account_deleted' };
+ }
+
  const emailType = sanitizeString(tags.type) || 'newsletter';
  const messageId = sanitizeString(data.email_id || data.id || data.message_id);
  const linkUrl = sanitizeString(data.click?.link || data.link || data.url);
  const linkLabel = sanitizeString(data.link_label || data.click?.link_label);
  const sectionId = sanitizeString(data.section_id || data.click?.section_id);
  const occurredAt = sanitizeString(data.created_at) || new Date().toISOString();
+
+ // Candidate e-mails of an assisted application: recorded on the order, never
+ // as newsletter engagement or a job ranking click.
+ if (parseAssistedCampaign(tags.campaign_id)) {
+ const result = await recordAssistedEmailEvent(db, { campaign: tags.campaign_id, type, provider: 'resend', messageId, occurredAt, url: linkUrl });
+ return { handled: true, email, type, collection: 'assisted_applications', ...result };
+ }
 
  // Job ranking links carry their own surface/job attribution. Persisting this
  // before routing keeps newsletter and job-alert clicks on one idempotent path.
@@ -243,10 +264,17 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  });
  }
 
+ // Complaint/unsubscribe = stop su ogni canale: il profilo di affinita' degli
+ // annunci va cancellato subito, come promette la privacy policy.
+ if (isAffinityErasingEvent(type)) {
+   await eraseJobEmailAffinityProfile(db, email);
+ }
+
  // ── Route job-alert emails to job_alert_subscribers/{email} ──
  if (emailType === 'job-alert' || emailType === 'job-alert-retry') {
  const alertId = sanitizeString(tags.alert_id) || uniqueUnknownFallback(messageId, occurredAt);
- await applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent });
+ const jobAlertResult = await applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent });
+ if (jobAlertResult?.handled === false) return jobAlertResult;
  return { handled: true, email, type, collection: 'job_alert_subscribers', alertId };
  }
 
@@ -272,7 +300,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  // between this read and this write) can't be clobbered by a promotion
  // decision made from a stale read.
  const subscriberRef = db.collection('newsletter_subscribers').doc(email);
- await subscriberRef.firestore.runTransaction(async (tx) => {
+ const subscriberKnown = await subscriberRef.firestore.runTransaction(async (tx) => {
  // Read current subscriber status to avoid promoting pending users, plus
  // `bounce_severity` — the suppression-recovery decision below needs both
  // (a 'bounced' doc is recoverable only when the bounce was NOT hard) — plus
@@ -284,11 +312,12 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  let currentStatus = null;
  let currentBounceSeverity = null;
  const subscriberDoc = await tx.get(subscriberRef);
- if (subscriberDoc.exists) {
+ // A provider event never creates the subscriber record (see
+ // mergeAccountDeletedSubscriberUpdate in lib/subscriberReactivation.js).
+ if (!subscriberDoc.exists) return false;
  currentData = subscriberDoc.data() || null;
  currentStatus = currentData?.status || null;
  currentBounceSeverity = currentData?.bounce_severity || null;
- }
 
  const subscriberUpdate = buildSubscriberUpdate(type, {
  email,
@@ -333,7 +362,9 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  protectAccountDeletedSubscriberUpdate(subscriberUpdate, currentData),
  { merge: true },
  );
+ return true;
  });
+ if (!subscriberKnown) return { handled: false, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -343,7 +374,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  if (type === 'open' || type === 'click' || type === 'send') {
  await refreshEngagementScore(
  db.collection('newsletter_subscribers').doc(email),
- admin.firestore.FieldValue,
+ FieldValue,
  );
  }
 
@@ -355,25 +386,25 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  variant,
  locale,
  source_channel: sourceChannel,
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- ...(type === 'send' ? { sent_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'delivered' ? { delivered_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'open' ? { opened_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
+ updated_at: FieldValue.serverTimestamp(),
+ ...(type === 'send' ? { sent_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'delivered' ? { delivered_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'open' ? { opened_at: FieldValue.serverTimestamp() } : {}),
  ...(type === 'click'
  ? {
- clicked_at: admin.firestore.FieldValue.serverTimestamp(),
+ clicked_at: FieldValue.serverTimestamp(),
  last_clicked_url: linkUrl,
  last_clicked_label: linkLabel,
  last_clicked_section: sectionId,
- clicked_links: admin.firestore.FieldValue.increment(1),
+ clicked_links: FieldValue.increment(1),
  }
  : {}),
- ...(type === 'bounce' ? { bounced_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'complaint' ? { complained_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'suppressed' ? { suppressed_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'failed' ? { failed_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'delivery_delayed' ? { delayed_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'scheduled' ? { scheduled_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
+ ...(type === 'bounce' ? { bounced_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'complaint' ? { complained_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'suppressed' ? { suppressed_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'failed' ? { failed_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'delivery_delayed' ? { delayed_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'scheduled' ? { scheduled_at: FieldValue.serverTimestamp() } : {}),
  }, { merge: true });
 
  await db.collection('newsletter_subscribers').doc(email).collection('events').add({
@@ -390,7 +421,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  link_label: linkLabel,
  target_url: linkUrl,
  metadata: rawEvent,
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: occurredAt,
  });
 
@@ -402,7 +433,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  if (type === 'open' || type === 'click') {
  await refreshPreferredSendHour(
  db.collection('newsletter_subscribers').doc(email),
- admin.firestore.FieldValue,
+ FieldValue,
  );
  }
 
@@ -415,7 +446,6 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  * alert_deliveries/{alertId} subcollection, events/{auto-id} subcollection.
  */
 async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent }) {
- const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
  const data = rawEvent?.data || {};
 
@@ -466,7 +496,7 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
  // which would overwrite 'complained' — a human's spam complaint — with a
  // machine's inference, and equally resurrect a proven-permanent hard bounce.
- await mergeAccountDeletedSubscriberUpdate(
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  topUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -479,6 +509,7 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  : null,
  db,
  );
+ if (merged === null) return { handled: false, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);

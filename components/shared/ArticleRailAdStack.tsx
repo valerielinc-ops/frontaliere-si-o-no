@@ -10,8 +10,10 @@
  *
  * How it works:
  *  - The outer `flex-1` div claims the full gutter height (so the cluster has
- *    room to travel and layout/CLS is reserved); the inner `sticky top-6` div
- *    holds the panels and pins to the viewport top as the column scrolls.
+ *    room to travel and layout/CLS is reserved); the inner `sticky top-24` div
+ *    holds the panels and pins just below the sticky site nav (`md:h-20` + 1px
+ *    border = 81px) as the column scrolls. A smaller offset slid the top of the
+ *    half-page creative under the nav (z-50) for the whole scroll.
  *  - Trade-off: on short pages (gutter height < ~2 × PANEL_PX) the cluster is
  *    shorter than the outer div, leaving a blank band below the sticky cluster.
  *    This is an accepted design constraint: shrinking the outer div to cluster
@@ -32,15 +34,17 @@
  * `overflow-x: clip` (NOT `overflow: hidden`, which would make it a scroll
  * container and silently break this) — see App.tsx app-shell-col.
  *
- * The whole track only materialises at the widened (≥1400px / `xlw`) rail,
- * matching ArticleRailAd's own CSS gate.
+ * Article reading-page rails use the 300px track at ≥1400px and a 160px track
+ * on the intermediate desktop tier (1200–1399px). Static reading rails use
+ * `desktopRail`; SPA tool rails keep their existing ≥1400px gate and pass
+ * `narrow` explicitly.
  *
  * Renders multiple GPT slots of the same /23355151813/article-rail-{side} unit;
  * each GptAdSlot mints a unique div id, so multi-slot serving is fine. Same
  * kill-switch as ArticleRailAd (it owns the Remote Config gate).
  */
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ArticleRailAd from '@/components/shared/ArticleRailAd';
 
 export interface ArticleRailAdStackProps {
@@ -50,12 +54,13 @@ export interface ArticleRailAdStackProps {
   /**
    * Reports the rail's aggregate fill verdict so the caller can collapse the
    * reserved gutter when nothing fills. Fires `true` only once EVERY mounted
-   * panel reports empty (no creative, no AdSense backfill); fires `false` as
+   * panel can safely collapse after terminal no-fill/error offscreen; fires `false` as
    * soon as any panel fills. Lets the SPA grid drop the reserved gutter
    * (160px on App.tsx's narrow rail; 300px `xlw` tier via
-   * `useRailGridCollapse` on JobBoard / JobOrphanView / JobExpiredView /
-   * BlogArticles, issue 4830) to zero on an all-empty rail instead of leaving
-   * a tall blank column. The static/blog SSG portals collapse their
+   * `useRailGridCollapse` on JobBoard / JobOrphanView / JobExpiredView,
+   * issue 4830) to zero on an all-empty rail instead of leaving a tall blank
+   * column. BlogArticles doesn't wire it: its gutters also carry the TOC and
+   * partner cards, so they keep their width. The static/blog SSG portals collapse their
    * build-time `.ft-rail-grid` gutter separately (App.tsx `useEffect` +
    * direct DOM mutation, PR #4829) and don't wire this callback.
    */
@@ -70,9 +75,17 @@ export interface ArticleRailAdStackProps {
   /**
    * Narrow (160px) gutter — the SPA tool-page rail. Forwarded to ArticleRailAd
    * so it requests only 160-wide creatives (no overflow). Reading-page rails
-   * (300px) omit this.
+   * (300px) omit this. The article compact tier uses the same 160px creative
+   * set through `compact`.
    */
   narrow?: boolean;
+  /** Article reading-page compact tier (1200–1399px). */
+  compact?: boolean;
+  /**
+   * Static SEO reading-page rail. Unlike SPA tool rails, this is visible from
+   * 1200px upward; ArticleRailAd switches to 160px creatives below 1400px.
+   */
+  desktopRail?: boolean;
 }
 
 // Approx height of one half-page rail panel (600px creative + flex gap).
@@ -83,81 +96,58 @@ const MIN_FILL_PX = 600;
 // Bound the number of same-unit requests (ceiling; the real count is the lower
 // of "panels that cover the viewport" and "panels the gutter holds").
 const MAX_PANELS = 6;
-// Grace before collapsing a rail that has painted no creative. Genuine fills
-// land within ~1-2s; this leaves slow auctions room while keeping a blank
-// gutter short. Mirrors AdSenseBanner's fill-timeout intent.
-const FILL_GRACE_MS = 6000;
-
-const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false, onEmptyResolved }) => {
+const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false, compact = false, desktopRail = false, onEmptyResolved }) => {
   const ref = useRef<HTMLDivElement>(null);
-  // Per-panel GPT verdict, keyed by panel index (true = reported empty).
-  const emptyByIndex = useRef<Map<number, boolean>>(new Map());
+  const gutterHeight = useRef(0);
   // Start at 0 — measurement sets the correct count after mount, avoiding a
   // premature 600px CLS reservation on pages whose gutter is below MIN_FILL_PX.
   const [panels, setPanels] = useState(0);
+  // Each measured panel count is a new generation. An object identity is used
+  // instead of the count itself so a 3 → 1 → 3 cycle cannot reuse the first
+  // generation's verdicts when the count happens to come back.
+  const panelGeneration = useMemo(() => ({}), [panels]);
+  const [panelVerdicts, setPanelVerdicts] = useState<{
+    generation: object;
+    values: Partial<Record<number, boolean>>;
+  }>(() => ({ generation: panelGeneration, values: {} }));
   const maxPanels = Math.max(1, count ?? MAX_PANELS);
 
-  // Aggregate per-panel GPT verdicts into one rail-level verdict. Collapse
-  // (`true`) only once every mounted panel has reported empty; un-collapse
-  // (`false`) the moment any panel fills, so a paying creative never sits in a
-  // zero-width gutter.
   const handlePanelEmpty = useCallback((index: number, isEmpty: boolean) => {
-    emptyByIndex.current.set(index, isEmpty);
-    let reported = 0;
-    let anyFilled = false;
-    for (let i = 0; i < panels; i++) {
-      const v = emptyByIndex.current.get(i);
-      if (v === undefined) continue;
-      reported++;
-      if (v === false) anyFilled = true;
-    }
-    // Fast-path collapse ONLY on a clean all-empty GPT verdict. We deliberately
-    // do NOT report `false` from the render flag: GPT often resolves these
-    // narrow rails "non-empty" yet paints no creative (zero-height / house /
-    // pending fills), so EXPANSION is decided by actual iframe paint in the
-    // effect below — not by the unreliable render flag. App owns dedup.
-    if (anyFilled === false && panels > 0 && reported >= panels) onEmptyResolved?.(true);
-  }, [panels, onEmptyResolved]);
+    setPanelVerdicts((current) => {
+      const values = current.generation === panelGeneration ? current.values : {};
+      if (current.generation === panelGeneration && values[index] === isEmpty) return current;
+      return { generation: panelGeneration, values: { ...values, [index]: isEmpty } };
+    });
+  }, [panelGeneration]);
 
-  // Authoritative fill signal: collapse from what ACTUALLY renders, not GPT's
-  // render flags. Confirmed live that these rails define their slots but paint
-  // no creative and never fire a clean empty verdict — leaving a blank 160px
-  // column. Here we watch the rail for a real painted ad iframe: expand the
-  // moment one appears, and if none has by FILL_GRACE_MS collapse the gutter so
-  // it never stays blank (no-demand / ad-block / pending). A late paint still
-  // re-expands via the observer.
+  const activeVerdicts = panelVerdicts.generation === panelGeneration ? panelVerdicts.values : {};
+  let reported = 0;
+  let anyFilled = false;
+  for (let i = 0; i < panels; i++) {
+    const verdict = activeVerdicts[i];
+    if (verdict === undefined) continue;
+    reported++;
+    if (verdict === false) anyFilled = true;
+  }
+
+  // GPT owns waiting/no-fill/offscreen decisions. A missing iframe after a
+  // wall-clock deadline is not a terminal verdict and cannot shrink a gutter.
+  // `anyFilled` and `reported` are explicit dependencies: late child verdicts
+  // must update the caller even when the rail count stays unchanged.
   useEffect(() => {
-    if (panels <= 0) return;
-    const el = ref.current;
-    if (!el) return;
-    let last: boolean | null = null;
-    const filled = () => {
-      const frames = el.querySelectorAll<HTMLIFrameElement>('iframe');
-      for (let i = 0; i < frames.length; i++) {
-        if (frames[i].getBoundingClientRect().height > 1) return true;
-      }
-      return false;
-    };
-    const apply = (isFilled: boolean) => {
-      const collapse = !isFilled;
-      if (collapse === last) return;
-      last = collapse;
-      onEmptyResolved?.(collapse);
-    };
-    const mo = typeof MutationObserver !== 'undefined' ? new MutationObserver(() => { if (filled()) apply(true); }) : null;
-    mo?.observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
-    const grace = setTimeout(() => apply(filled()), FILL_GRACE_MS);
-    return () => {
-      mo?.disconnect();
-      clearTimeout(grace);
-    };
-  }, [panels, onEmptyResolved]);
+    // A count change creates a new generation. Wait for a child callback from
+    // that generation before resolving, so stale empty verdicts cannot cause
+    // a one-render collapse while ResizeObserver is shrinking the rail.
+    if (panelVerdicts.generation !== panelGeneration) return;
+    if (anyFilled) onEmptyResolved?.(false);
+    else if (panels > 0 && reported >= panels) onEmptyResolved?.(true);
+  }, [panels, panelVerdicts, panelGeneration, anyFilled, reported, onEmptyResolved]);
 
   useEffect(() => {
     const el = ref.current;
     if (!el || typeof ResizeObserver === 'undefined') return;
-    const measure = () => {
-      const gutter = el.getBoundingClientRect().height;
+    const updatePanels = () => {
+      const gutter = gutterHeight.current;
       // Below MIN_FILL_PX there is no room for even one 600px creative: skip all
       // panels so no CLS slot is reserved on ultra-short tool pages.
       if (gutter < MIN_FILL_PX) {
@@ -172,34 +162,50 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
       const next = Math.max(1, Math.min(maxPanels, byViewport, byGutter));
       setPanels((prev) => (prev === next ? prev : next));
     };
-    measure();
-    const ro = new ResizeObserver(measure);
+    // ResizeObserver supplies layout results without forcing synchronous layout.
+    // Reuse the last delivery when the caller changes its panel ceiling.
+    updatePanels();
+    const ro = new ResizeObserver((entries) => {
+      const entry = entries.find((item) => item.target === el);
+      if (!entry) return;
+      // The root has no padding/borders, so contentRect is an equivalent fallback.
+      gutterHeight.current = entry.borderBoxSize?.[0]?.blockSize ?? entry.contentRect.height;
+      updatePanels();
+    });
     ro.observe(el);
     // Viewport height changes (window resize) don't always change the gutter el,
-    // so re-measure on resize too.
-    window.addEventListener('resize', measure);
+    // so recalculate against the cached gutter height on resize too.
+    window.addEventListener('resize', updatePanels);
     return () => {
       ro.disconnect();
-      window.removeEventListener('resize', measure);
+      window.removeEventListener('resize', updatePanels);
     };
   }, [maxPanels]);
 
+  const visibilityClass = compact
+    ? 'hidden xlc:flex xlc:flex-col xlc:flex-1 xlc:min-h-0 xlw:hidden'
+    : desktopRail
+      ? 'ft-static-rail-stack'
+      : 'hidden xlw:flex xlw:flex-col xlw:flex-1 xlw:min-h-0';
+
   return (
     // Outer `flex-1` claims the full gutter height so the sticky cluster has room
-    // to travel and the layout/CLS slot is reserved. Only the widened rail
-    // (`xlw`, ≥1400px) hosts the chain — the narrow xl tier (1280–1399) shows no
-    // rail ads, exactly as before.
-    <div ref={ref} className="hidden xlw:flex xlw:flex-col xlw:flex-1 xlw:min-h-0">
+    // to travel and the layout/CLS slot is reserved. The compact article tier
+    // uses 160px creatives from 1200–1399px; static reading pages use the
+    // 1200px desktop tier; SPA tool rails retain the existing xlw gate.
+    <div ref={ref} className={visibilityClass}>
       {/* Inner cluster pins to the viewport top and rides the whole scroll, so a
           tall article's gutter never goes blank below the physical ads. */}
-      <div className="sticky top-6 flex flex-col gap-2">
+      <div className="sticky top-24 flex flex-col gap-2">
         {Array.from({ length: panels }, (_, i) => (
           <ArticleRailAd
             key={i}
             side={side}
             enabled={enabled}
             reserve={i === 0}
-            narrow={narrow}
+            narrow={narrow || compact}
+            compact={compact}
+            desktopRail={desktopRail}
             onEmptyChange={(isEmpty) => handlePanelEmpty(i, isEmpty)}
           />
         ))}

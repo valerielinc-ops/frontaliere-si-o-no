@@ -64,7 +64,7 @@ const fmt = (d) => d.toISOString().slice(0, 10);
 
 const token = await getToken();
 const today = new Date();
-const start = utcDaysBefore(today, 9);
+const start = utcDaysBefore(today, 8);
 const end   = utcDaysBefore(today, 2);
 
 const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`;

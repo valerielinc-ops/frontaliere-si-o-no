@@ -20,7 +20,8 @@
  *
  * LE SOGLIE SONO I VALORI MISURATI, NON NUMERI SCELTI
  * ---------------------------------------------------------------------------
- * Ogni soglia è il valore misurato il 2026-08-24 meno un margine di 1 punto.
+ * Le soglie storiche sono il valore misurato il 2026-08-24 meno un margine di
+ * 1 punto; la soglia francese è stata ricalcolata il 2026-09-25 dopo #6444.
  * Il margine c'è perché la mediana di una famiglia si muove quando il dataset
  * cambia (un comune above-floor in più sposta i vicini di qualcuno), non per
  * lasciare spazio a una regressione: 1 punto è meno del contributo di UNA
@@ -178,7 +179,11 @@ const renderProfessionCantonFamily = (): Rendered[] => {
 const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[] }> = [
   {
     name: 'tasse-frontalieri-comune',
-    minMedian: 8, // misurato 9,1 % (era 0,0 %)
+    // Issue #11432: the target cohort `it:/tasse-frontalieri-comune/~79b3fa`
+    // now measures 42,37 %. `measure()` selects that 47-page cohort as the
+    // family cohort; the two smaller structural cohorts remain separately
+    // observable and are not hidden by this assertion.
+    minMedian: 40,
     render: () =>
       FISCAL_ABOVE_FLOOR.map((m) =>
         renderFiscal({ municipality: m, locale: 'it', dateStamp: '2026-08-24', distDir: DIST } as never),
@@ -186,7 +191,9 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
   },
   {
     name: 'comuni-di-frontiera',
-    minMedian: 14, // misurato 15,6 % (era 11,5-15,4 %)
+    // Issue #11873 target: the local peer-ranked prose turns the existing
+    // municipal figures into page-specific facts instead of masked cells.
+    minMedian: 40,
     render: () =>
       MUNICIPALITIES.filter((m) => TICINO_VITA_CORRIDOR_PROVINCES.has(m.province))
         .slice(0, 40)
@@ -202,7 +209,7 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
   },
   {
     name: 'vivere-in-germania',
-    minMedian: 10, // misurato 11,1 % (era 5,1 %)
+    minMedian: 40, // misurato 41,7 % dopo il profilo numerico e i gruppi di confronto
     render: () =>
       GERMAN_ABOVE_FLOOR.map((m) =>
         renderGerman({ municipality: m, locale: 'it', dateStamp: '2026-08-24', distDir: DIST } as never),
@@ -210,7 +217,10 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
   },
   {
     name: 'vivere-in-liechtenstein',
-    minMedian: 5, // misurato 6,1 % (era 0,0 %)
+    // The issue target is 40 %. The renderer now carries sourced municipal
+    // dimensions, removes the duplicated detail FAQ and adds numeric peer
+    // prose; this observer keeps that target fail-closed in the source tests.
+    minMedian: 40,
     render: () =>
       LIECHTENSTEIN_ABOVE_FLOOR.map((m) =>
         renderLiechtenstein({ municipality: m, locale: 'it', dateStamp: '2026-08-24', distDir: DIST } as never),
@@ -218,7 +228,11 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
   },
   {
     name: 'vivere-in-francia',
-    minMedian: 4.5, // misurato 5,6 % (era 0,0 %)
+    // Measured 40,6 % after full-corridor, department and crossing peer
+    // summaries (the previous rent/population window measured 22,1 %).
+    // The live scan remains the source of truth for the 40 % opportunity
+    // target; this observer keeps the same target fail-closed pre-merge.
+    minMedian: 40,
     render: () =>
       FRENCH_ABOVE_FLOOR.map((m) =>
         renderFrench({ municipality: m, locale: 'it', dateStamp: '2026-08-24', distDir: DIST } as never),

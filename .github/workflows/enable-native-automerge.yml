@@ -77,7 +77,7 @@ jobs:
       # or executed. A missing helper fails this run closed; retry workflow
       # ticks keep recovery automatic when the source is transiently absent.
       - name: Checkout trusted native auto-merge source
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: ${{ github.repository }}
           ref: main
@@ -96,6 +96,7 @@ jobs:
             /scripts/ci/lib/constants.mjs
             /scripts/ci/lib/pr-review-admission.mjs
             /scripts/ci/lib/review-input-revision.mjs
+            /scripts/lib/gh-exec-buffer.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /data/loop-fleet/loop-registry.json
           sparse-checkout-cone-mode: false
@@ -104,9 +105,13 @@ jobs:
       - name: Validate trusted native auto-merge source
         env:
           NATIVE_AUTOMERGE_SOURCE_ROOT: ${{ github.workspace }}/native-automerge-main
-        run: node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/ci/native-automerge-source.mjs"
+        run: |
+          set -euo pipefail
+          node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/ci/native-automerge-source.mjs"
+          echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=true" >> "$GITHUB_ENV"
 
       - name: Prepare Firebase credentials
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -118,9 +123,11 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load PAT from Remote Config
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         run: node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/load-rc-env.mjs"
 
       - name: Enable GitHub auto-merge after verified verdict
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
           PR_NUMBER: ${{ inputs.pr_number }}
           REPOSITORY: ${{ github.repository }}

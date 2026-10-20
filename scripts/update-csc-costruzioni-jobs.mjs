@@ -3,7 +3,7 @@
  * Dedicated CSC Costruzioni crawler runner.
  *
  * CSC Costruzioni SA is a construction company headquartered in Lugano (TI).
- * Their careers page is at https://csc-sa.ch/lavoro-carriera-edilizia (Drupal CMS).
+ * Their careers page is at https://csc-sa.ch/lavoro-carriera-edilizia/ (Drupal CMS).
  *
  * This script:
  *   1. Scrapes the careers page to discover all job detail URLs.
@@ -46,6 +46,14 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { launchChromium } from './lib/ensure-chromium.mjs';
+// NCore's listing/detail markup is shared with the Sintetica runner. Keep the
+// platform parser in one place while CSC-specific discovery and trust rules
+// remain local to this adapter.
+import {
+  parseListingPage as parseNcoreListingPage,
+  parseDetailPage as parseNcoreDetailPage,
+} from './lib/sintetica-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -70,7 +78,17 @@ const DATA_JOBS = crawlerScratchPathFor(CSC_KEY);
 const CSC_LIVE_STRUCTURE_SNAPSHOT = crawlerScratchPathFor(`${CSC_KEY}-live-structure`);
 const CSC_COMPANY_NAME = 'CSC Costruzioni SA';
 const CSC_HOST = 'csc-sa.ch';
-const CSC_CAREERS_URL = 'https://csc-sa.ch/lavoro-carriera-edilizia';
+const CSC_CAREERS_URL = 'https://csc-sa.ch/lavoro-carriera-edilizia/';
+const CSC_NCORE_HOST = 'app.ncoreplat.com';
+// NCore's canonical CSC routes are intentionally slashless. Unlike the site's
+// own routes, the platform returns 404 for the trailing-slash board URL.
+const CSC_NCORE_BOARD_URL = 'https://app.ncoreplat.com/jobboard/filters/4321/csc-costruzioni-sa';
+// NCore serves the board as a client-rendered filter view. Keep the browser
+// UA for direct responses and use the same UA for the bounded DOM-rendering
+// fallback below when the initial shell exposes no positions.
+const CSC_NCORE_BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+const CSC_NCORE_DETAIL_ROUTE_RE = /\/jobposition\/[1-9]\d*\//i;
+const CSC_NCORE_EMPTY_BOARD_RE = /\b(?:non ci sono|nessun[ao]?|non sono presenti)\b.{0,100}\b(?:offert[ae]|posizion[ei]|lavor[oi])\b|\b(?:there are no|no)\b.{0,100}\b(?:open )?(?:jobs?|positions?|vacancies)\b/i;
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -104,11 +122,70 @@ function decodeHref(value) {
 }
 
 /**
- * CSC emits three Drupal detail route families. Keep this allowlist local to
- * the adapter: broadening the shared classifier would make unrelated Drupal
- * nodes look like vacancies for every crawler.
+ * CSC emits several Drupal detail route families and now also an NCore tenant
+ * route. Keep both allowlists local to the adapter: broadening the shared
+ * classifier would make unrelated CMS/ATS nodes look like vacancies for
+ * every crawler.
  */
+function canonicalCscNcoreBoardUrl(value) {
+  let url;
+  try {
+    url = new URL(decodeHref(value), CSC_CAREERS_URL);
+  } catch {
+    return null;
+  }
+  if (
+    url.protocol !== 'https:'
+    || url.hostname.toLowerCase() !== CSC_NCORE_HOST
+    || url.port
+    || url.username
+    || url.password
+    || url.search
+    || url.hash
+  ) return null;
+  let pathname;
+  try {
+    pathname = decodeURIComponent(url.pathname).replace(/\/+$/, '');
+  } catch {
+    return null;
+  }
+  if (pathname.toLowerCase() !== '/jobboard/filters/4321/csc-costruzioni-sa') return null;
+  url.pathname = pathname;
+  return url.href;
+}
+
+function canonicalCscNcoreDetailUrl(value) {
+  let url;
+  try {
+    url = new URL(decodeHref(value), CSC_NCORE_BOARD_URL);
+  } catch {
+    return null;
+  }
+  if (
+    url.protocol !== 'https:'
+    || url.hostname.toLowerCase() !== CSC_NCORE_HOST
+    || url.port
+    || url.username
+    || url.password
+    || url.search
+    || url.hash
+  ) return null;
+
+  let pathname;
+  try {
+    pathname = decodeURIComponent(url.pathname);
+  } catch {
+    return null;
+  }
+  if (!/^\/jobposition\/[1-9]\d*\/[^/]+\/csc-costruzioni-sa\/?$/i.test(pathname)) return null;
+  url.pathname = pathname.replace(/\/+$/, '');
+  return url.href;
+}
+
 export function canonicalCscDetailUrl(value) {
+  const ncore = canonicalCscNcoreDetailUrl(value);
+  if (ncore) return ncore;
+
   let url;
   try {
     url = new URL(decodeHref(value), CSC_CAREERS_URL);
@@ -187,6 +264,132 @@ export function parseCscCareersPage(html) {
   }
 
   return { urls: [...urls], authoritativeEmpty: empty };
+}
+
+/**
+ * Parse the NCore board linked by the current CSC careers page. The generic
+ * NCore parser finds all jobposition links; this adapter accepts only the CSC
+ * tenant route, so unrelated NCore positions cannot enter the CSC slice.
+ */
+export function parseCscNcoreBoardPage(html) {
+  const listings = parseNcoreListingPage(String(html || ''));
+  const urls = [];
+  const seen = new Set();
+  for (const listing of listings) {
+    const canonical = canonicalCscNcoreDetailUrl(listing?.url);
+    if (!canonical || seen.has(canonical)) continue;
+    seen.add(canonical);
+    urls.push(canonical);
+  }
+
+  const plain = cscPlainText(html);
+  const authoritativeEmpty = urls.length === 0 && CSC_NCORE_EMPTY_BOARD_RE.test(plain);
+  if (!authoritativeEmpty && urls.length === 0) {
+    throw new Error('CSC discovery degraded: NCore job board exposed no verified CSC detail URLs.');
+  }
+  return { urls, authoritativeEmpty };
+}
+
+/**
+ * Render the NCore filter board when its initial response is only the SPA
+ * shell. The browser path is deliberately kept behind the no-URL failure:
+ * normal HTML/embedded-state parsing remains the cheap and deterministic
+ * first path, while a browser cannot turn an unverified response into a
+ * trusted seed without the same parser and detail verification below.
+ */
+export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = {}) {
+  const browser = await launchChromium({ headless: true });
+  try {
+    const context = await browser.newContext({
+      userAgent: CSC_NCORE_BROWSER_UA,
+      viewport: { width: 1280, height: 720 },
+    });
+    const page = await context.newPage();
+    const response = await page.goto(boardUrl, {
+      waitUntil: 'domcontentloaded',
+      timeout: timeoutMs,
+    });
+    if (!response?.ok()) {
+      throw new Error(`${boardUrl} returned HTTP ${response?.status() ?? 'unknown'}`);
+    }
+
+    // Wait for the data-backed portion of the filter view, not an arbitrary
+    // delay. If the board is genuinely empty, the authoritative marker lets
+    // the parser finish immediately; an unknown shell remains fail-closed.
+    try {
+      await page.waitForFunction(
+        ({ detailPattern, emptyPattern }) => {
+          const source = document.documentElement?.outerHTML || '';
+          const text = document.body?.innerText || '';
+          return new RegExp(detailPattern, 'i').test(source)
+            || new RegExp(emptyPattern, 'i').test(text);
+        },
+        {
+          detailPattern: CSC_NCORE_DETAIL_ROUTE_RE.source,
+          emptyPattern: CSC_NCORE_EMPTY_BOARD_RE.source,
+        },
+        { timeout: timeoutMs },
+      );
+    } catch (error) {
+      // A timeout is handled by parseCscNcoreBoardPage below so the final
+      // failure still names the missing verified source. Navigation/runtime
+      // errors must remain failures.
+      if (error?.name !== 'TimeoutError') throw error;
+    }
+
+    return {
+      html: await page.content(),
+      responseUrl: page.url().trim(),
+    };
+  } finally {
+    await browser.close();
+  }
+}
+
+/**
+ * Render an NCore detail page when the initial response is only its client
+ * rendered shell. The resulting HTML is still passed through
+ * parseCscNcoreJobDetail and the final URL is checked by the caller, so a
+ * browser response alone never promotes an unverified seed.
+ */
+export async function renderCscNcoreDetailPage(detailUrl, { timeoutMs = 12000 } = {}) {
+  const browser = await launchChromium({ headless: true });
+  try {
+    const context = await browser.newContext({
+      userAgent: CSC_NCORE_BROWSER_UA,
+      viewport: { width: 1280, height: 720 },
+    });
+    const page = await context.newPage();
+    const response = await page.goto(detailUrl, {
+      waitUntil: 'domcontentloaded',
+      timeout: timeoutMs,
+    });
+    if (!response?.ok()) {
+      throw new Error(`${detailUrl} returned HTTP ${response?.status() ?? 'unknown'}`);
+    }
+
+    // Wait for the NCore posting body, not merely for the SPA shell. A timeout
+    // is handled by the parser below so short/unknown pages remain fail-closed.
+    try {
+      await page.waitForFunction(
+        ({ selector, minTextLength }) => {
+          const detail = document.querySelector(selector);
+          return Boolean(detail && (detail.textContent || '').trim().length >= minTextLength);
+        },
+        { selector: '.singlePosition', minTextLength: 180 },
+        { timeout: timeoutMs },
+      );
+    } catch (error) {
+      if (error?.name !== 'TimeoutError') throw error;
+    }
+
+    return {
+      html: await page.content(),
+      responseUrl: page.url().trim(),
+    };
+  } finally {
+    await browser.close();
+  }
 }
 
 function readQuotedHtmlAttr(attrs, name) {
@@ -433,21 +636,43 @@ export function parseCscPrimaryJobDetail(html) {
   return { identity, nodeId: /^\d+$/.test(nodeId) ? nodeId : '', hasJobPosting: Boolean(jobPosting) };
 }
 
-export function isCscJobDetailHtml(html) {
+export function isCscJobDetailHtml(html, candidateUrl = '') {
   try {
-    return Boolean(parseCscPrimaryJobDetail(html));
+    return Boolean(
+      parseCscPrimaryJobDetail(html)
+      || (candidateUrl && parseCscNcoreJobDetail(html, candidateUrl)),
+    );
   } catch {
     return false;
   }
+}
+
+function parseCscNcoreJobDetail(html, candidateUrl) {
+  const canonical = canonicalCscNcoreDetailUrl(candidateUrl);
+  if (!canonical) return null;
+  const parsed = parseNcoreDetailPage(String(html || ''));
+  const title = String(parsed?.title || '').trim();
+  const body = String(parsed?.body || '').trim();
+  if (parsed?.closed || title.length < 6 || body.length < 180) return null;
+  const id = canonical.match(/\/jobposition\/([1-9]\d*)\//i)?.[1] || '';
+  if (!id) return null;
+  return { identity: `ncore-job:${id}`, nodeId: '', hasJobPosting: false };
 }
 
 async function fetchCscHtml(url, { fetchImpl, timeoutMs }) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
+    const isNcore = (() => {
+      try { return new URL(url).hostname.toLowerCase() === CSC_NCORE_HOST; } catch { return false; }
+    })();
     const res = await fetchImpl(url, {
       signal: controller.signal,
-      headers: { Accept: 'text/html', 'User-Agent': UA },
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
+        'User-Agent': isNcore ? CSC_NCORE_BROWSER_UA : UA,
+      },
     });
     if (!res?.ok) throw new Error(`${url} returned HTTP ${res?.status ?? 'unknown'}`);
     const contentType = res.headers?.get?.('content-type');
@@ -485,8 +710,13 @@ function cscResponseMatchesCandidate(responseUrl, candidate) {
   return canonicalCscDetailUrl(url.href) === candidate;
 }
 
+function cscResponseMatchesBoard(responseUrl, candidate) {
+  return canonicalCscNcoreBoardUrl(responseUrl) === candidate;
+}
+
 export async function verifyCscDetailUrls(urls, options = {}) {
   const fetchImpl = options.fetchImpl || fetch;
+  const renderDetailPage = options.renderDetailPage || renderCscNcoreDetailPage;
   const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const candidates = [...new Set((urls || []).map(canonicalCscDetailUrl).filter(Boolean))];
   if (candidates.length !== (urls || []).length) {
@@ -500,7 +730,29 @@ export async function verifyCscDetailUrls(urls, options = {}) {
     if (!cscResponseMatchesCandidate(responseUrl, candidate)) {
       throw new Error(`CSC detail invariant failed: ${candidate} redirected outside its exact detail contract to ${responseUrl}.`);
     }
-    const detail = parseCscPrimaryJobDetail(html);
+    const isNcoreDetail = Boolean(canonicalCscNcoreDetailUrl(candidate));
+    let detail = isNcoreDetail
+      ? parseCscNcoreJobDetail(html, candidate)
+      : parseCscPrimaryJobDetail(html);
+    if (!detail && isNcoreDetail) {
+      console.log(`🖥️ NCore detail shell exposed no verified posting; rendering ${candidate} in Chromium.`);
+      let renderedDetail;
+      try {
+        renderedDetail = await renderDetailPage(candidate, { timeoutMs });
+      } catch (renderError) {
+        throw new Error(
+          `CSC detail invariant failed: NCore browser-rendered detail unavailable: ${renderError?.message || renderError}`,
+          { cause: renderError },
+        );
+      }
+      if (!renderedDetail || typeof renderedDetail.html !== 'string' || !renderedDetail.responseUrl) {
+        throw new Error('CSC detail invariant failed: NCore browser renderer returned an incomplete detail response.');
+      }
+      if (!cscResponseMatchesCandidate(renderedDetail.responseUrl, candidate)) {
+        throw new Error(`CSC detail invariant failed: rendered detail redirected outside its exact detail contract to ${renderedDetail.responseUrl}.`);
+      }
+      detail = parseCscNcoreJobDetail(renderedDetail.html, candidate);
+    }
     if (!detail) {
       throw new Error(`CSC detail invariant failed: ${candidate} did not return a canonical work-position page.`);
     }
@@ -526,6 +778,8 @@ export async function verifyCscDetailUrls(urls, options = {}) {
 
 export async function fetchCscJobUrls(options = {}) {
   const fetchImpl = options.fetchImpl || fetch;
+  const renderBoardPage = options.renderBoardPage || renderCscNcoreBoardPage;
+  const renderDetailPage = options.renderDetailPage || renderCscNcoreDetailPage;
   const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   console.log(`🔍 Fetching CSC careers page: ${CSC_CAREERS_URL}`);
 
@@ -533,7 +787,56 @@ export async function fetchCscJobUrls(options = {}) {
   if (responseUrl !== CSC_CAREERS_URL) {
     throw new Error(`CSC discovery degraded: careers page redirected to ${responseUrl}.`);
   }
-  const discovery = parseCscCareersPage(html);
+  let discovery;
+  const hasDrupalWorkPositionView = /id=["']block-views-block-work-positions-work-positions-list["']/i.test(html);
+  if (hasDrupalWorkPositionView) {
+    discovery = parseCscCareersPage(html);
+  } else {
+    const boardUrl = (() => {
+      const hrefPattern = /\bhref\s*=\s*(["'])(.*?)\1/gi;
+      let match;
+      while ((match = hrefPattern.exec(html)) !== null) {
+        const canonical = canonicalCscNcoreBoardUrl(match[2]);
+        if (canonical) return canonical;
+      }
+      return null;
+    })();
+    if (!boardUrl) {
+      // Preserve the original, precise failure for a page that is neither the
+      // known Drupal source nor the linked NCore migration.
+      parseCscCareersPage(html);
+    }
+    console.log(`🔗 CSC careers source moved to NCore board: ${boardUrl}`);
+    const boardResponse = await fetchCscHtml(boardUrl, { fetchImpl, timeoutMs });
+    if (!cscResponseMatchesBoard(boardResponse.responseUrl, boardUrl)) {
+      throw new Error(`CSC discovery degraded: NCore board redirected to ${boardResponse.responseUrl}.`);
+    }
+    try {
+      discovery = parseCscNcoreBoardPage(boardResponse.html);
+    } catch (error) {
+      if (error?.message !== 'CSC discovery degraded: NCore job board exposed no verified CSC detail URLs.') {
+        throw error;
+      }
+
+      console.log('🖥️ NCore board shell exposed no positions; rendering the board in Chromium.');
+      let renderedBoard;
+      try {
+        renderedBoard = await renderBoardPage(boardUrl, { timeoutMs });
+      } catch (renderError) {
+        throw new Error(
+          `CSC discovery degraded: NCore browser-rendered board unavailable: ${renderError?.message || renderError}`,
+          { cause: renderError },
+        );
+      }
+      if (!renderedBoard || typeof renderedBoard.html !== 'string' || !renderedBoard.responseUrl) {
+        throw new Error('CSC discovery degraded: NCore browser renderer returned an incomplete board response.');
+      }
+      if (!cscResponseMatchesBoard(renderedBoard.responseUrl, boardUrl)) {
+        throw new Error(`CSC discovery degraded: rendered NCore board redirected to ${renderedBoard.responseUrl}.`);
+      }
+      discovery = parseCscNcoreBoardPage(renderedBoard.html);
+    }
+  }
   if (discovery.authoritativeEmpty) {
     console.log('ℹ️ CSC careers page explicitly reports zero open positions.');
     return discovery;
@@ -541,6 +844,7 @@ export async function fetchCscJobUrls(options = {}) {
 
   const urls = await verifyCscDetailUrls(discovery.urls, {
     fetchImpl,
+    renderDetailPage,
     timeoutMs,
     structureSnapshotPath: options.structureSnapshotPath,
   });
@@ -572,6 +876,36 @@ function ensureAdapterSeedUrls(seedUrls) {
   const adapter = buildCscAdapterConfig(existingAdapter, seedUrls);
   writeJsonAtomic(adapterPath, adapter);
   console.log(`📝 Adapter ${CSC_KEY} updated with ${seedUrls.length} explicit detail seed URLs.`);
+}
+
+/**
+ * Build the summary for a careers page that positively reports no openings.
+ * The process-exit guard is intentionally fail-closed, so this branch must
+ * write its own proof before returning; otherwise a valid empty source is
+ * recorded as an unobserved early exit by check-crawler-health.
+ */
+export function buildCscAuthoritativeEmptySummary(generatedAt, durationMs) {
+  return {
+    key: CSC_KEY,
+    label: CSC_COMPANY_NAME,
+    generatedAt,
+    total: 0,
+    discovered: 0,
+    parsed: 0,
+    written: 0,
+    authoritativeEmptySnapshot: true,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: 0,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: [],
+  };
 }
 
 /* ── Base Crawler ──────────────────────────────────────────── */
@@ -653,6 +987,8 @@ async function main() {
     // an empty detail allowlist (never the listing URL) but do not run the base
     // crawler or touch the published/expired job slices.
     ensureAdapterSeedUrls([]);
+    const durationMs = getCrawlerElapsedMs();
+    writeSummaryCrawlerSlice(buildCscAuthoritativeEmptySummary(new Date().toISOString(), durationMs));
     console.log('ℹ️ CSC authoritative source is empty; published identities remain untouched.');
     printCrawlChangeSummary({ newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedCount: 0 }, 'CSC Costruzioni');
     return;

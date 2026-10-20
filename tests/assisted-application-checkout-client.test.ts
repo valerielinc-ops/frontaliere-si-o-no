@@ -1,5 +1,8 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { createAssistedApplicationCheckout } from '../services/assistedApplicationCheckout';
+import {
+  createAssistedApplicationCheckout,
+  getAssistedApplicationCheckoutErrorCode,
+} from '../services/assistedApplicationCheckout';
 
 const fetchMock = vi.fn(async () => ({
   ok: true,
@@ -56,6 +59,27 @@ describe('assisted application checkout client idempotency', () => {
     expect(requestBodyAt(0).requestKey).not.toBe(requestBodyAt(1).requestKey);
   });
 
+  it('accepts an embedded SumUp widget checkout response', async () => {
+    fetchMock.mockImplementationOnce(async () => ({
+      ok: true,
+      json: async () => ({
+        ok: true,
+        paymentProvider: 'sumup',
+        checkoutId: 'sumup_checkout_client',
+        orderId: 'order-client-sumup',
+      }),
+    }));
+
+    await expect(createAssistedApplicationCheckout(input, {
+      uid: 'user-client-sumup',
+      getIdToken: vi.fn(async () => 'good-token'),
+    })).resolves.toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      checkoutId: 'sumup_checkout_client',
+      orderId: 'order-client-sumup',
+    }));
+  });
+
   it('keeps the request key stable when locale and return path change', async () => {
     const user = { uid: 'user-client-locale', getIdToken: vi.fn(async () => 'good-token') };
 
@@ -68,5 +92,39 @@ describe('assisted application checkout client idempotency', () => {
     }, user);
 
     expect(requestBodyAt(1).requestKey).toBe(requestBodyAt(0).requestKey);
+  });
+
+  it('keeps the request key stable when only the copy arm changes', async () => {
+    const user = { uid: 'user-client-copy', getIdToken: vi.fn(async () => 'good-token') };
+
+    await createAssistedApplicationCheckout({ ...input, copyVariant: 'control' }, user);
+    await createAssistedApplicationCheckout({ ...input, copyVariant: 'time_saved' }, user);
+
+    expect(requestBodyAt(1).requestKey).toBe(requestBodyAt(0).requestKey);
+  });
+
+  it('keeps function and HTTP diagnostics bounded without exposing response text', async () => {
+    fetchMock.mockImplementationOnce(async () => ({
+      ok: false,
+      status: 409,
+      json: async () => ({
+        ok: false,
+        error: 'assisted_application_request_conflict',
+        message: 'free text with sensitive content should never be tracked',
+      }),
+    }));
+
+    const pending = createAssistedApplicationCheckout(input, {
+      uid: 'user-client-error',
+      getIdToken: vi.fn(async () => 'good-token'),
+    });
+    await expect(pending).rejects.toMatchObject({
+      code: 'assisted_application_request_conflict',
+      status: 409,
+    });
+    await expect(pending).rejects.not.toHaveProperty('message', expect.stringContaining('sensitive content'));
+    expect(getAssistedApplicationCheckoutErrorCode({ message: 'free text with sensitive content' })).toBe('unknown');
+    expect(getAssistedApplicationCheckoutErrorCode({ code: 'auth/network-request-failed' })).toBe('auth/network-request-failed');
+    expect(getAssistedApplicationCheckoutErrorCode({ status: 503 })).toBe('http_503');
   });
 });

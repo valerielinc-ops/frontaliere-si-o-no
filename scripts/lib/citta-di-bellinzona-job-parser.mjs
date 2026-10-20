@@ -1,3 +1,5 @@
+import { decode as decodeHTML } from 'html-entities';
+import { JSDOM } from 'jsdom';
 /**
  * Città di Bellinzona — job listing parser
  *
@@ -17,53 +19,48 @@
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { isHttpsUrl } from './https-url.mjs';
 
 const HQ = getCompanyDefaults('citta-di-bellinzona');
 
 const CAREERS_URL = 'https://www.bellinzona.ch/assunzioni';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
+function verifiedApplicationPortalUrl(value) {
+  const href = decodeHtmlEntities(value || '');
+  if (!isHttpsUrl(href)) return null;
+  try {
+    const url = new URL(href);
+    return url.hostname.toLowerCase() === 'bellinz.pi-asp.de'
+      && !url.port
+      && url.pathname.startsWith('/bewerber-web/')
+      ? url.href
+      : null;
+  } catch {
+    return null;
+  }
+}
+
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/(?:p|li|h[1-6]|div|ul|ol|tr|td)>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ''), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
 
 export function decodeHtmlEntities(value = '') {
-  return String(value || '')
-    .replace(/&#0*38;|&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#0*39;|&apos;/gi, "'")
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&agrave;/gi, 'à')
-    .replace(/&egrave;/gi, 'è')
-    .replace(/&igrave;/gi, 'ì')
-    .replace(/&ograve;/gi, 'ò')
-    .replace(/&ugrave;/gi, 'ù')
-    .replace(/&rsquo;/gi, '\u2019')
-    .replace(/&lsquo;/gi, '\u2018')
-    .replace(/&nbsp;/gi, ' ')
-    .trim();
+  return decodeHTML(String(value || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ').trim();
 }
 
 export function slugify(value = '', suffix = '') {
@@ -124,13 +121,37 @@ export function isTitleTooGeneric(title = '') {
 export function parseBellinzonaDate(dateStr = '') {
   const s = dateStr.trim();
   // Format: dd.mm.yy or dd.mm.yyyy
-  const m = s.match(/(\d{1,2})\.(\d{1,2})\.(\d{2,4})/);
-  if (!m) return new Date().toISOString().split('T')[0];
+  const m = s.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4}|\d{2})$/);
+  if (!m) return '';
   const day = m[1].padStart(2, '0');
   const month = m[2].padStart(2, '0');
   let year = m[3];
   if (year.length === 2) year = `20${year}`;
-  return `${year}-${month}-${day}`;
+  const iso = `${year}-${month}-${day}`;
+  const calendar = new Date(`${iso}T00:00:00Z`);
+  if (!Number.isFinite(calendar.getTime()) || calendar.toISOString().slice(0, 10) !== iso) return '';
+  return iso;
+}
+
+function publicationDateFromContext(html) {
+  const dom = new JSDOM(html);
+  try {
+    // The official page labels the first cell "Pubbl." and puts the complete
+    // source value in the next cell. Never salvage a numeric date prefix.
+    const values = [];
+    for (const row of dom.window.document.querySelectorAll('tr')) {
+      const cells = [...row.children].filter((cell) => cell.tagName === 'TD');
+      if (cells.length === 2 && /^Pubbl\.?$/i.test(normalizeSpace(cells[0].textContent))) {
+        values.push(normalizeSpace(cells[1].textContent));
+      }
+    }
+    if (values.length) return values.length === 1 ? parseBellinzonaDate(values[0]) : '';
+    const lines = stripHtml(html).split('\n');
+    const labelled = lines.map((line) => line.match(/^\s*Pubbl\.?\s+(.+)$/i)).filter(Boolean);
+    return labelled.length === 1 ? parseBellinzonaDate(labelled[0][1]) : '';
+  } finally {
+    dom.window.close();
+  }
 }
 
 /**
@@ -149,7 +170,7 @@ export function parseBellinzonaListingHtml(html) {
 
   while ((match = h3Re.exec(html)) !== null) {
     h3Positions.push({
-      rawTitle: normalizeSpace(decodeHtmlEntities(stripHtml(match[1]))),
+      rawTitle: normalizeSpace(stripHtml(match[1])),
       index: match.index,
       endIndex: match.index + match[0].length,
     });
@@ -167,22 +188,44 @@ export function parseBellinzonaListingHtml(html) {
     const contextBlock = html.slice(endIndex, Math.min(nextStart, endIndex + 2000));
 
     // Extract publication date
-    const pubDateMatch = contextBlock.match(/Pubbl\.?\s*(\d{1,2}\.\d{1,2}\.\d{2,4})/i);
-    const datePosted = pubDateMatch ? parseBellinzonaDate(pubDateMatch[1]) : new Date().toISOString().split('T')[0];
+    const datePosted = publicationDateFromContext(contextBlock);
 
     // Extract deadline
-    const deadlineMatch = contextBlock.match(/Termine\s+(\d{1,2}\.\d{1,2}\.\d{2,4})/i);
+    const deadlineMatch = contextBlock.match(/Termine\s+(\d{1,2}\.\d{1,2}\.(?:\d{4}|\d{2}))(?![\d.])/i);
     const deadline = deadlineMatch ? parseBellinzonaDate(deadlineMatch[1]) : null;
 
-    // Extract PDF link (Bando di concorso)
+    // Extract PDF link (Bando di concorso). The site now serves the bando
+    // from an extension-less document URL ("<titolo>-<id>", Content-Disposition
+    // …pdf) linked as "Scarica il documento" under the "Bando di concorso"
+    // label: take the first link after that label that is not the pi-asp
+    // application form.
     const pdfMatch = contextBlock.match(/href="([^"]*\.pdf[^"]*)"/i)
       || contextBlock.match(/href="([^"]*[Bb]ando[^"]*)"/i)
-      || contextBlock.match(/href="([^"]*[Ss]carica[^"]*)"/i);
+      || contextBlock.match(/href="([^"]*[Ss]carica[^"]*)"/i)
+      || contextBlock.match(/Bando di concorso[\s\S]*?<a\s+href="((?![^"]*pi-asp)[^"#]+)"/i);
     const pdfUrl = pdfMatch ? new URL(pdfMatch[1], 'https://www.bellinzona.ch').href : null;
 
-    // Extract apply URL (pi-asp.de)
-    const applyMatch = contextBlock.match(/href="(https?:\/\/bellinz[^"]*pi-asp[^"]+)"/i);
-    const applyUrl = applyMatch ? decodeHtmlEntities(applyMatch[1]) : null;
+    // Only the official HTTPS application portal is a proven handoff. A PDF,
+    // the careers page, HTTP, and lookalike hosts are not application URLs.
+    const applyMatch = contextBlock.match(
+      /<a\b[^>]*href=["'](https:\/\/bellinz\.pi-asp\.de\/bewerber-web\/[^"']*)["'][^>]*>([\s\S]*?)<\/a>/i,
+    );
+    const readApplyAttribute = (name) => {
+      const attribute = applyMatch?.[0].match(
+        new RegExp(`\\b${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)')`, 'i'),
+      );
+      return decodeHtmlEntities(attribute?.[1] ?? attribute?.[2] ?? '');
+    };
+    const applyLabel = applyMatch
+      ? normalizeSpace([
+        stripHtml(applyMatch[2]),
+        readApplyAttribute('aria-label'),
+        readApplyAttribute('title'),
+      ].filter(Boolean).join(' '))
+      : '';
+    const applyUrl = /candidatur|application|bewerb|\bapply\b/i.test(applyLabel)
+      ? verifiedApplicationPortalUrl(applyMatch[1])
+      : null;
 
     const slug = slugify(title, 'bellinzona');
     const id = `citta-di-bellinzona-${slug}`;
@@ -222,7 +265,7 @@ export async function fetchBellinzonaJobs(timeoutMs = 15000) {
     return parseBellinzonaListingHtml(html);
   } catch (err) {
     console.warn(`\u26a0\ufe0f Failed to fetch Bellinzona careers page: ${err.message}`);
-    return [];
+    throw err;
   } finally {
     clearTimeout(timer);
   }
@@ -246,3 +289,13 @@ export function inferEmploymentType(title = '', description = '', percentage = '
   }
   return 'FULL_TIME';
 }
+
+/**
+ * Fragments only the runner's former wrapper around the bando wrote (a
+ * "## <titolo>" header, "Città di Bellinzona — concorso pubblico a Bellinzona (TI),
+ * Svizzera.", "Settore"/"Sede" footers, a link to the PDF, and a
+ * "Concorso pubblico presso la Città di Bellinzona…" sentence when the PDF had no
+ * text). Used to clean jobs stored before the runner published the bando alone.
+ */
+export const CITTA_DI_BELLINZONA_FABRICATED_DESCRIPTION_RE =
+  /— concorso pubblico a Bellinzona \(TI\), Svizzera\.|\*\*Sede:\*\* Piazza Nosetto, 6500 Bellinzona|Consultare il bando di concorso per i requisiti completi\./;

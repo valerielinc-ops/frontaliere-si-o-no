@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * seed-job-alert-cadence.mjs — give every job-alert recipient a starting
  * cadence tier, read off the engagement history the ESP webhooks already wrote
@@ -32,9 +34,6 @@
  * Env: GOOGLE_APPLICATION_CREDENTIALS (Firebase SA).
  */
 
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { isJobAlertExcluded } from '../services/emailSuppression.mjs';
 import {
   JOB_ALERT_CADENCE_CEILING_DAYS,
@@ -47,20 +46,14 @@ import {
 } from './lib/jobAlertCadence.mjs';
 import { JOB_ALERT_CLICK_EVIDENCE, jobAlertClickEvidence } from './lib/jobAlertEngagementTier.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const BATCH_SIZE = 400;
 const LOOKUP_CHUNK_SIZE = 200;
 
 async function getFirestoreAdmin() {
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    initializeApp({ credential: cert(JSON.parse(fs.readFileSync(credPath, 'utf-8'))) });
-  }
-  return getFirestore();
+  return getFirestoreDb();
 }
 
 /**
@@ -209,7 +202,7 @@ async function main() {
   console.log(`✅ seeded ${plan.writes.length} recipients.`);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error('❌ seed-job-alert-cadence.mjs failed:', error);
     process.exitCode = 1;

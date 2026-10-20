@@ -136,6 +136,26 @@ describe('EVAM Vaud crawler parser', () => {
       }));
     }
 
+    it.each([
+      ['2026-09-23T15:16:37+02:00', '2026-09-23T15:16:37+02:00'],
+      ['', ''], ['2026-02-30T15:16:37+02:00', ''], ['2026-10-03T23:00:00+02:00', ''],
+    ])('preserves a complete source timestamp %j or marks it unknown', async (raw, expected) => {
+      vi.useFakeTimers(); vi.setSystemTime(new Date('2026-10-03T12:00:00Z'));
+      try {
+        mockFeed([{ title: 'Assistant social', url: 'https://emploi.evam.ch/jobs/8018137-assistant-social',
+          _jobposting: { datePosted: raw, description: '<p>Source vacancy description.</p>' } }]);
+        const jobs = await fetchAllEvamVaudJobs();
+        expect(jobs).toHaveLength(1);
+        expect(jobs[0]).toMatchObject({ datePosted: expected, postedDate: expected, postingDateSource: expected ? 'reported' : 'unknown' });
+      } finally { vi.useRealTimers(); }
+    });
+    it('keeps the original JSONFeed publication when structured publication is absent', async () => {
+      mockFeed([{ title: 'Assistant social', url: 'https://emploi.evam.ch/jobs/8018137-assistant-social',
+        date_published: '2026-09-23T15:16:37+02:00', date_modified: '2026-09-24T15:16:37+02:00',
+        content_html: '<p>Source vacancy description.</p>' }]);
+      expect((await fetchAllEvamVaudJobs())[0]).toMatchObject({ datePosted: '2026-09-23T15:16:37+02:00', postedDate: '2026-09-23T15:16:37+02:00', postingDateSource: 'reported' });
+    });
+
     it('builds a job from a well-formed JSONFeed item with real jobLocation', async () => {
       mockFeed([{
         id: 'abc',

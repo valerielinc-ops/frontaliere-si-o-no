@@ -13,7 +13,18 @@
  * - only the explicitly listed collection/subcollection contracts are
  *   traversed; an unexpected subcollection fails closed;
  * - apply returns only after a fresh, explicit zero-residual verification.
+ *
+ * The click-affinity profile (`job_email_affinity/{pseudonym}`, see
+ * functions/src/lib/jobEmailAffinity.js) carries no email: its id is an HMAC
+ * of the address with NEWSLETTER_SECRET. Without the secret the profile
+ * cannot be located, so the inventory fails closed instead of reporting a
+ * clean erase that missed it (load it with scripts/load-rc-env.mjs).
  */
+
+import {
+  JOB_EMAIL_AFFINITY_COLLECTION,
+  affinityDocId,
+} from '../../functions/src/lib/jobEmailAffinity.js';
 
 export const DELETE_PAGE_SIZE = 450;
 
@@ -379,10 +390,32 @@ async function lookupAuthUser(auth, email) {
   });
 }
 
-export async function inventorySubscriberData(db, email, auth) {
+function affinityRef(db, email, opts) {
+  const secret = opts?.newsletterSecret ?? process.env.NEWSLETTER_SECRET;
+  const id = affinityDocId(email, secret);
+  if (!id) {
+    throw new EraseSubscriberDataError(
+      'NEWSLETTER_SECRET mancante: impossibile individuare il profilo '
+      + JOB_EMAIL_AFFINITY_COLLECTION + ' (carica Remote Config con scripts/load-rc-env.mjs)',
+      { phase: 'input' },
+    );
+  }
+  return db.collection(JOB_EMAIL_AFFINITY_COLLECTION).doc(id);
+}
+
+async function inventoryAffinity(db, email, opts) {
+  const ref = affinityRef(db, email, opts);
+  const snapshot = await readDocument(ref, JOB_EMAIL_AFFINITY_COLLECTION + '/(pseudonimo)');
+  return { exists: snapshot.exists === true };
+}
+
+export async function inventorySubscriberData(db, email, auth, opts = {}) {
   assertDb(db);
   assertAuth(auth);
   const normalized = assertSafeEmail(email);
+  // Before any other read: a missing secret must stop the run, not end it
+  // with a report that silently skipped the profile.
+  affinityRef(db, normalized, opts);
   const authUser = await lookupAuthUser(auth, normalized);
 
   const newsletter = await inventoryKeyedTree(
@@ -438,12 +471,15 @@ export async function inventorySubscriberData(db, email, auth) {
     );
   }
 
+  const affinity = await inventoryAffinity(db, normalized, opts);
+
   return {
     email: normalized,
     newsletter,
     jobAlert,
     users,
     extra,
+    affinity,
     authUser,
   };
 }
@@ -519,6 +555,7 @@ function emptyDeletedReport() {
     extraJobAlertDocs: [],
     users: [],
     extra: {},
+    affinity: null,
     auth: null,
   };
 }
@@ -548,6 +585,7 @@ function inventoryResiduals(inventory) {
   for (const [collection, hits] of Object.entries(inventory.extra || {})) {
     if (hits.some(treeHasData)) residuals.push(collection);
   }
+  if (inventory.affinity?.exists) residuals.push('job email affinity profile');
   if (inventory.authUser?.found) residuals.push('Auth user');
   return residuals;
 }
@@ -612,7 +650,7 @@ export async function eraseSubscriberData(db, email, auth, opts = {}) {
   }
   const apply = opts?.apply === true;
   const dryRun = !apply;
-  const before = await inventorySubscriberData(db, email, auth);
+  const before = await inventorySubscriberData(db, email, auth, opts);
   const deleted = emptyDeletedReport();
 
   if (apply) {
@@ -679,6 +717,15 @@ export async function eraseSubscriberData(db, email, auth, opts = {}) {
         deleted.extra[store.collection] = rows;
       }
 
+      if (before.affinity.exists) {
+        await phase(
+          'delete ' + JOB_EMAIL_AFFINITY_COLLECTION + '/(pseudonimo)',
+          () => affinityRef(db, before.email, opts).delete(),
+          true,
+        );
+      }
+      deleted.affinity = { deleted: before.affinity.exists === true };
+
       if (before.authUser.found) {
         await phase(
           'Auth deleteUser ' + before.authUser.uid,
@@ -698,7 +745,7 @@ export async function eraseSubscriberData(db, email, auth, opts = {}) {
     }
   }
 
-  const after = await inventorySubscriberData(db, email, auth);
+  const after = await inventorySubscriberData(db, email, auth, opts);
   if (apply) {
     const residuals = [
       ...inventoryResiduals(after),
@@ -753,6 +800,10 @@ export function formatEraseReport(result) {
       + summarizeHits(result.before.extra[store.collection]),
     );
   }
+  lines.push(
+    'BEFORE ' + JOB_EMAIL_AFFINITY_COLLECTION + '='
+    + (result.before.affinity?.exists ? 'exists' : 'not found'),
+  );
   if (result.apply) {
     lines.push('DELETED newsletter=' + JSON.stringify(result.deleted.newsletter));
     lines.push(
@@ -764,6 +815,7 @@ export function formatEraseReport(result) {
     );
     lines.push('DELETED users=' + JSON.stringify(result.deleted.users));
     lines.push('DELETED extra=' + JSON.stringify(result.deleted.extra));
+    lines.push('DELETED affinity=' + JSON.stringify(result.deleted.affinity));
     lines.push('DELETED auth=' + JSON.stringify(result.deleted.auth));
     lines.push('AFTER_VERIFICATION residuals=0');
   } else {

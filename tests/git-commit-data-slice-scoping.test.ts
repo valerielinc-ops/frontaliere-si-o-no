@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { basename, join, resolve } from 'node:path';
 
@@ -21,6 +21,29 @@ const REGISTERED_SLICE_FILE = basename(REGISTERED_SLICE_PATH);
 // as the default `/bin/bash` for licensing reasons — prefer a Homebrew bash
 // if present so this test also runs for real on a macOS dev machine.
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
+
+function installHistoryApiStub(): string {
+  const binDir = mkdtempSync(join(tmpdir(), 'git-commit-data-gh-stub-'));
+  const ghPath = join(binDir, 'gh');
+  writeFileSync(
+    ghPath,
+    '#!/bin/sh\n'
+      + '[ "$1" = "api" ] || exit 64\n'
+      + 'if [ -n "${GH_HISTORY_LOOKUP_EXPECTED_SHA:-}" ]; then\n'
+      + '  matched=0\n'
+      + '  for arg do\n'
+      + '    case "$arg" in\n'
+      + '      sha=*) [ "${arg#sha=}" = "$GH_HISTORY_LOOKUP_EXPECTED_SHA" ] && matched=1 ;;\n'
+      + '    esac\n'
+      + '  done\n'
+      + '  [ "$matched" -eq 1 ] || { echo "unexpected history lookup SHA" >&2; exit 65; }\n'
+      + 'fi\n'
+      + 'if [ "${GH_HISTORY_LOOKUP_EXIT:-0}" -ne 0 ]; then exit "$GH_HISTORY_LOOKUP_EXIT"; fi\n'
+      + 'printf "%s\\n" "${GH_HISTORY_LOOKUP_RESULT:-0}"\n',
+  );
+  chmodSync(ghPath, 0o755);
+  return binDir;
+}
 
 // Regression coverage for cross-crawler commit misattribution: crawler-group
 // workflows (post-#3701) run ~25 sibling crawlers concurrently against ONE
@@ -441,6 +464,8 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     // the tree level. Only reachable git history disambiguates them.
     const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
+    const shallowDir = mkdtempSync(join(tmpdir(), 'git-commit-data-shallow-'));
+    const ghBinDir = installHistoryApiStub();
     const NEW_UNREGISTERED_SLICE_PATH = 'data/jobs/by-crawler/unregistered-new.json';
 
     try {
@@ -461,11 +486,17 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
       execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
 
+      execFileSync('git', ['clone', '-q', '--depth', '1', `file://${originDir}`, shallowDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: shallowDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: shallowDir });
+      expect(execFileSync('git', ['rev-parse', '--is-shallow-repository'], { cwd: shallowDir, encoding: 'utf8' }).trim())
+        .toBe('true');
+
       // NEW_UNREGISTERED_SLICE_PATH never appears in the seed commit, so it
       // has no base_blob AND no reachable history — a genuine first-run
       // create for a crawler the roster doesn't know about yet.
       writeFileSync(
-        join(repoDir, NEW_UNREGISTERED_SLICE_PATH),
+        join(shallowDir, NEW_UNREGISTERED_SLICE_PATH),
         '[{"id":"unregistered-new-1"}]\n',
       );
 
@@ -473,17 +504,21 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
         BASH_BIN,
         [SCRIPT_PATH, '--slice-only', 'unregistered first-run create'],
         {
-          cwd: repoDir,
+          cwd: shallowDir,
           env: {
             ...process.env,
             JOBS_SLICE_FILE: '',
             SKIP_AI_TRANSLATION: '1',
-            SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
-            GH_TOKEN: '',
+            SLUG_HISTORY_SUMMARY_FILE: join(shallowDir, 'no-such-slug-history-summary.txt'),
+            GH_TOKEN: 'test-token',
             GITHUB_TOKEN: '',
             GITHUB_RUN_ID: '',
             GITHUB_REPOSITORY: '',
             GITHUB_OUTPUT: '',
+            GH_REPO: 'owner/repo',
+            GH_HISTORY_LOOKUP_RESULT: '0',
+            GH_HISTORY_LOOKUP_EXIT: '0',
+            PATH: `${ghBinDir}:${process.env.PATH ?? ''}`,
           },
         },
       );
@@ -491,11 +526,13 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       expect(execFileSync(
         'git',
         ['show', `origin/main:${NEW_UNREGISTERED_SLICE_PATH}`],
-        { cwd: repoDir, encoding: 'utf8' },
+        { cwd: shallowDir, encoding: 'utf8' },
       )).toContain('unregistered-new-1');
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
+      rmSync(shallowDir, { recursive: true, force: true });
+      rmSync(ghBinDir, { recursive: true, force: true });
     }
   });
 
@@ -509,6 +546,7 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
     const shallowDir = mkdtempSync(join(tmpdir(), 'git-commit-data-shallow-'));
+    const ghBinDir = installHistoryApiStub();
     const UNREGISTERED_RETIRED_PATH = 'data/jobs/by-crawler/shallow-retired.json';
 
     try {
@@ -547,6 +585,11 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       execFileSync('git', ['config', 'user.name', 'Test'], { cwd: shallowDir });
       expect(execFileSync('git', ['rev-parse', '--is-shallow-repository'], { cwd: shallowDir, encoding: 'utf8' }).trim())
         .toBe('true');
+      const capturedRemoteSha = execFileSync(
+        'git',
+        ['rev-parse', 'origin/main'],
+        { cwd: shallowDir, encoding: 'utf8' },
+      ).trim();
       expect(execFileSync(
         'git',
         ['log', '-1', '--format=%H', '--', UNREGISTERED_RETIRED_PATH],
@@ -567,11 +610,16 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
             JOBS_SLICE_FILE: '',
             SKIP_AI_TRANSLATION: '1',
             SLUG_HISTORY_SUMMARY_FILE: join(shallowDir, 'no-such-slug-history-summary.txt'),
-            GH_TOKEN: '',
+            GH_TOKEN: 'test-token',
             GITHUB_TOKEN: '',
             GITHUB_RUN_ID: '',
             GITHUB_REPOSITORY: '',
             GITHUB_OUTPUT: '',
+            GH_REPO: 'owner/repo',
+            GH_HISTORY_LOOKUP_EXPECTED_SHA: capturedRemoteSha,
+            GH_HISTORY_LOOKUP_RESULT: '1',
+            GH_HISTORY_LOOKUP_EXIT: '0',
+            PATH: `${ghBinDir}:${process.env.PATH ?? ''}`,
           },
         },
       );
@@ -585,6 +633,118 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
       rmSync(shallowDir, { recursive: true, force: true });
+      rmSync(ghBinDir, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed when the shallow-history API proof is unavailable', () => {
+    const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
+    const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
+    const shallowDir = mkdtempSync(join(tmpdir(), 'git-commit-data-shallow-'));
+    const ghBinDir = installHistoryApiStub();
+    const RETIRED_PATH = 'data/jobs/by-crawler/api-unavailable-retired.json';
+
+    try {
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
+      execFileSync('git', ['clone', '-q', originDir, repoDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: repoDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
+
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/jobs/expired/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/translation-cache'), { recursive: true });
+      writeFileSync(join(repoDir, RETIRED_PATH), '[{"id":"api-unavailable-retired-1"}]\n');
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/keep.json'), '[]\n');
+      writeFileSync(join(repoDir, 'data/jobs/expired/by-crawler/.gitkeep'), '');
+      writeFileSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler/.gitkeep'), '');
+      writeFileSync(join(repoDir, 'data/translation-cache/.gitkeep'), '');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed with unregistered slice'], { cwd: repoDir });
+      execFileSync('git', ['rm', '-q', RETIRED_PATH], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'retire unregistered slice'], { cwd: repoDir });
+      writeFileSync(join(repoDir, 'data/translation-cache/filler.json'), '{}\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'filler after retirement'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      execFileSync('git', ['clone', '-q', '--depth', '1', `file://${originDir}`, shallowDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: shallowDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: shallowDir });
+      writeFileSync(join(shallowDir, RETIRED_PATH), '[{"id":"must-not-resurrect"}]\n');
+
+      let output = '';
+      try {
+        execFileSync(
+          BASH_BIN,
+          [SCRIPT_PATH, '--slice-only', 'unavailable history proof'],
+          {
+            cwd: shallowDir,
+            env: {
+              ...process.env,
+              JOBS_SLICE_FILE: '',
+              SKIP_AI_TRANSLATION: '1',
+              SLUG_HISTORY_SUMMARY_FILE: join(shallowDir, 'no-such-slug-history-summary.txt'),
+              GH_TOKEN: 'test-token',
+              GITHUB_TOKEN: '',
+              GITHUB_RUN_ID: '',
+              GITHUB_REPOSITORY: '',
+              GITHUB_OUTPUT: '',
+              GH_REPO: 'owner/repo',
+              GH_HISTORY_LOOKUP_RESULT: '0',
+              GH_HISTORY_LOOKUP_EXIT: '1',
+              PATH: `${ghBinDir}:${process.env.PATH ?? ''}`,
+            },
+            stdio: 'pipe',
+          },
+        );
+      } catch (error) {
+        const failure = error as { stdout?: Buffer; stderr?: Buffer };
+        output = `${failure.stdout?.toString() ?? ''}${failure.stderr?.toString() ?? ''}`;
+      }
+
+      expect(output).toContain('GitHub history lookup failed');
+      expect(() => execFileSync(
+        'git',
+        ['cat-file', '-e', `origin/main:${RETIRED_PATH}`],
+        { cwd: shallowDir, stdio: 'pipe' },
+      )).toThrow();
+
+      let malformedOutput = '';
+      try {
+        execFileSync(
+          BASH_BIN,
+          [SCRIPT_PATH, '--slice-only', 'malformed history proof'],
+          {
+            cwd: shallowDir,
+            env: {
+              ...process.env,
+              JOBS_SLICE_FILE: '',
+              SKIP_AI_TRANSLATION: '1',
+              SLUG_HISTORY_SUMMARY_FILE: join(shallowDir, 'no-such-slug-history-summary.txt'),
+              GH_TOKEN: 'test-token',
+              GITHUB_TOKEN: '',
+              GITHUB_RUN_ID: '',
+              GITHUB_REPOSITORY: '',
+              GITHUB_OUTPUT: '',
+              GH_REPO: 'owner/repo',
+              GH_HISTORY_LOOKUP_RESULT: '{"message":"upstream"}',
+              GH_HISTORY_LOOKUP_EXIT: '0',
+              PATH: `${ghBinDir}:${process.env.PATH ?? ''}`,
+            },
+            stdio: 'pipe',
+          },
+        );
+      } catch (error) {
+        const failure = error as { stdout?: Buffer; stderr?: Buffer };
+        malformedOutput = `${failure.stdout?.toString() ?? ''}${failure.stderr?.toString() ?? ''}`;
+      }
+      expect(malformedOutput).toContain('invalid result');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(shallowDir, { recursive: true, force: true });
+      rmSync(ghBinDir, { recursive: true, force: true });
     }
   });
 

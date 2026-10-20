@@ -5,8 +5,10 @@ import path from 'node:path';
 
 import {
   readCompatPaths,
+  readCompatPathsStrict,
   writeCompatPaths,
   compatShardFile,
+  compatManifestFile,
   COMPAT_SHARD_COUNT,
 } from '../scripts/lib/compat-paths-store.mjs';
 
@@ -77,5 +79,29 @@ describe('writeCompatPaths — shard write minimization', () => {
     // error here, masking a real disk condition as "shard doesn't exist yet".
     fs.mkdirSync(compatShardFile(0, rootDir), { recursive: true });
     expect(() => writeCompatPaths({ paths: ['/a/'] }, rootDir)).toThrow();
+  });
+
+  it('refuses a destructive read when any shard is missing', () => {
+    writeCompatPaths({ paths: ['/a/', '/b/'] }, rootDir);
+    fs.rmSync(compatShardFile(0, rootDir));
+
+    expect(() => readCompatPathsStrict(rootDir)).toThrow(/incomplete shard set/);
+  });
+
+  it('refuses a destructive read when any shard is corrupt', () => {
+    writeCompatPaths({ paths: ['/a/', '/b/'] }, rootDir);
+    fs.writeFileSync(compatShardFile(0, rootDir), '{');
+
+    expect(() => readCompatPathsStrict(rootDir)).toThrow(/cannot read part-00\.json/);
+  });
+
+  it('refuses a destructive read when shard contents disagree with the manifest', () => {
+    writeCompatPaths({ paths: ['/a/', '/b/'] }, rootDir);
+    const manifestFile = compatManifestFile(rootDir);
+    const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf-8'));
+    manifest.totalPaths += 1;
+    fs.writeFileSync(manifestFile, JSON.stringify(manifest));
+
+    expect(() => readCompatPathsStrict(rootDir)).toThrow(/manifest declares 3 paths/);
   });
 });

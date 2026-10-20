@@ -1,0 +1,23 @@
+{
+  "companyKey": "persona-ch",
+  "companyName": "persona service GmbH",
+  "companyHost": "persona-ch.onlyfy.jobs",
+  "platform": "onlyfy.jobs",
+  "mode": "template",
+  "seedUrls": [
+    "https://persona-ch.onlyfy.jobs/it"
+  ],
+  "detailTemplate": "/it/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Studentenjob: Telefonische Marktrecherche (a) 50% Basilea | Dipendente part-time | 01.10.2026 </",
+    "Montagemechaniker (a) Maschinen- und Anlagenbau Dottikon | Dipendente a tempo pieno | 01.10.2026</div",
+    "Produktionsmechaniker (a) Wellenfertigung / Instandhaltung Basilea | Dipendente a tempo pieno | 01.10",
+    "Polymechaniker (a) Schleifen Hölstein | Dipendente a tempo pieno | 01.10.2026 <div class=\"",
+    "WIG-Schweisser (a) Bremgarten | Dipendente a tempo pieno | 01.10.2026 <div class=\"hidden"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-10-06T12:21:28.827Z"
+}

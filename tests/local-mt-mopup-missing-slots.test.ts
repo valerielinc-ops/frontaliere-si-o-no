@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   buildMopupRequest,
-  classifyMopupWrite,
+  classifyMopupStructure,
   missingSlots,
   negativeMopupCacheKey,
   opusMtRescueEnabled,
@@ -79,6 +79,60 @@ describe('local-mt-mopup missingSlots()', () => {
 
     expect(missingSlots(job)).toEqual([]);
   });
+
+  it('flags a whitespace-only description copy from the source locale even when the legacy source differs', () => {
+    const source = 'Als Fachperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Qualitätssicherung unserer täglichen Aufgaben im Team. '.repeat(3);
+    const wrapped = source.replace(/ /g, '\n  ');
+    const job = {
+      sourceLang: 'de',
+      description: 'A stale legacy source representation that is not the source-locale slot.',
+      descriptionByLocale: {
+        de: source,
+        it: wrapped,
+        en: 'This is a translated English description with enough operational detail for the job posting. '.repeat(3),
+        fr: 'Voici une description française traduite avec suffisamment de détails opérationnels pour le poste. '.repeat(3),
+      },
+    };
+
+    expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'description' });
+  });
+
+  it('rejects a provider echo of the source-locale description before writing it', () => {
+    const source = 'Als Fachperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Qualitätssicherung unserer täglichen Aufgaben im Team. '.repeat(3);
+    const job = {
+      sourceLang: 'de',
+      description: 'A stale legacy source representation that is not the source-locale slot.',
+      descriptionByLocale: { de: source, it: '' },
+    };
+    const result = classifyMopupStructure({
+      job,
+      locale: 'it',
+      field: 'description',
+      rawText: source.replace(/ /g, '\n  '),
+    });
+
+    expect(result.decision).toBe('skip:source-copy');
+  });
+
+  it('falls back to a long legacy source when the source-locale slot is below the floor', () => {
+    const source = 'The authoritative legacy description contains enough detail for translation and quality checks in this posting. '.repeat(3);
+    const job = {
+      sourceLang: 'en',
+      description: source,
+      descriptionByLocale: {
+        en: 'Short source slot.',
+        it: source.replace(/ /g, '\n  '),
+      },
+    };
+
+    expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'description' });
+    expect(classifyMopupStructure({
+      job,
+      locale: 'it',
+      field: 'description',
+      rawText: source.replace(/ /g, '\n  '),
+    }).decision).toBe('skip:source-copy');
+  });
 });
 
 function auditTitleTarget({ id, sourceLang, locale, sourceText, existing, company }) {
@@ -116,7 +170,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
     const opusRaw = 'Globale MSAT-Drogenproduktqualifizierung und Validierungsblei 80-100% ZQX0XQZ';
 
     expect(target.request.text).toContain('ZQX0XQZ');
-    expect(classifyMopupWrite({ ...target, rawText: argosRaw }).decision)
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision)
       .toBe('skip:candidate-untranslated');
 
     const calls = [];
@@ -136,7 +190,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
     expect(rescue.recovered).toBe(1);
     expect(rescue.writes.get(id).rawText).toBe(opusRaw);
 
-    const final = classifyMopupWrite({ ...target, rawText: opusRaw });
+    const final = classifyMopupStructure({ ...target, rawText: opusRaw });
     expect(final.decision).toBe('write');
     expect(final.incoming).toBe('Globale MSAT-Drogenproduktqualifizierung und Validierungsblei 80-100% (m/w/d)');
   });
@@ -154,7 +208,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
     const argosRaw = 'Business Continuity Manager';
     const opusRaw = 'Gestore della continuità aziendale';
 
-    expect(classifyMopupWrite({ ...target, rawText: argosRaw }).decision).toBe('skip:source-copy');
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision).toBe('skip:source-copy');
     const rescue = await rescueMopupRejects({
       targets: new Map([[id, target]]),
       results: new Map([[id, argosRaw]]),
@@ -164,7 +218,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
 
     expect(rescue.recovered).toBe(1);
     expect(rescue.writes.get(id).rawText).toBe(opusRaw);
-    expect(classifyMopupWrite({ ...target, rawText: opusRaw })).toMatchObject({ decision: 'write' });
+    expect(classifyMopupStructure({ ...target, rawText: opusRaw })).toMatchObject({ decision: 'write' });
   });
 
   it('rejects a source echo whose protected sentinel is mangled before finalization', () => {
@@ -176,7 +230,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
       sourceText: 'Tecnico laboratorio (m/w/d)',
       existing: '',
     });
-    const result = classifyMopupWrite({
+    const result = classifyMopupStructure({
       ...target,
       rawText: 'Tecnico laboratorio ZQ ①000%',
     });
@@ -198,7 +252,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
     const argosRaw = 'Dettaglio manopolafrau:mann EFZ "Scopri di esperienze di shopping"';
     const opusRaw = 'Specialista del commercio al dettaglio:mann EFZ "Progettare esperienze di shopping"';
 
-    expect(classifyMopupWrite({ ...target, rawText: argosRaw }).decision)
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision)
       .toBe('skip:candidate-untranslated');
     const rescue = await rescueMopupRejects({
       targets: new Map([[id, target]]),
@@ -225,11 +279,11 @@ describe('local-mt-mopup OpusMT rescue', () => {
     const argosRaw = 'Metzger Aushilfe 60-100%';
     const opusRaw = 'Macellaio 60-100%';
 
-    expect(classifyMopupWrite({ ...target, rawText: argosRaw })).toMatchObject({
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw })).toMatchObject({
       decision: 'skip:candidate-untranslated',
       languageDriven: true,
     });
-    expect(classifyMopupWrite({ ...target, rawText: opusRaw })).toMatchObject({
+    expect(classifyMopupStructure({ ...target, rawText: opusRaw })).toMatchObject({
       decision: 'write',
       languageDriven: true,
     });
@@ -278,7 +332,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
     expect(target.job).toEqual(before);
     expect(rescue).toMatchObject({ attempted: 0, recovered: 0, deferred: 0 });
     expect(rescue.writes.size).toBe(0);
-    expect(classifyMopupWrite({ ...target, rawText: argosRaw }).decision).toBe('skip:source-copy');
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision).toBe('skip:source-copy');
   });
 
   it('defers every eligible slot when the elapsed-aware budget is exhausted', async () => {

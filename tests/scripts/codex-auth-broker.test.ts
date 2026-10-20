@@ -80,6 +80,27 @@ function writeFakeCodex(root: string, version = '0.153.4') {
   return fake;
 }
 
+function writeImageOnlyCodex(root: string, version = '0.153.4') {
+  const fake = path.join(root, 'image-only-codex.mjs');
+  fs.writeFileSync(fake, `#!/usr/bin/env node
+    import fs from 'node:fs';
+    import path from 'node:path';
+    if (process.argv.includes('--version')) {
+      console.log('OpenAI Codex v${version}');
+      process.exit(0);
+    }
+    process.stdin.resume();
+    process.stdin.on('end', () => {
+      const imageDir = path.join(process.env.CODEX_HOME, 'generated_images', 'thread');
+      fs.mkdirSync(imageDir, { recursive: true, mode: 0o700 });
+      fs.writeFileSync(path.join(imageDir, 'generated.png'), 'image-only-result');
+      process.exit(0);
+    });
+  `);
+  fs.chmodSync(fake, 0o700);
+  return fake;
+}
+
 function writeHangingCodex(root: string, { descendant = false } = {}) {
   const fake = path.join(root, 'hanging-codex.mjs');
   fs.writeFileSync(fake, `#!/usr/bin/env node
@@ -187,7 +208,6 @@ enabled = false
 ":root" = "deny"
 ":minimal" = "read"
 ":tmpdir" = "deny"
-":slash_tmp" = "deny"
 
 [permissions.codex-luna-max.filesystem.":workspace_roots"]
 "." = "read"
@@ -358,6 +378,217 @@ describe('Codex auth broker runtime contract', () => {
     ]);
     expect(fs.existsSync(socketPath)).toBe(false);
     expect(fs.existsSync(root)).toBe(false);
+  });
+
+  it('returns an image-only Codex result when last-message.txt is empty', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const outputRoot = fs.realpathSync(fs.mkdtempSync(path.join(process.cwd(), '.codex-broker-image-test-')));
+    roots.push(outputRoot);
+    const outputPath = path.join(outputRoot, 'generated.png');
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeImageOnlyCodex(prefix);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"image-only-test"}');
+    await waitForSocket(socketPath, child);
+
+    const response = await request(socketPath, {
+      op: 'exec',
+      prompt: 'return only an image',
+      timeoutMs: 1000,
+      schema: null,
+      imageGeneration: true,
+      imageOutputPath: outputPath,
+    });
+    expect(response, JSON.stringify(response)).toEqual({ ok: true, result: '' });
+    expect(fs.readFileSync(outputPath, 'utf8')).toBe('image-only-result');
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
+  });
+
+  // A job where a slow request must finish (the assisted application at effort
+  // max) raises the per-request cap; every other job keeps the 10 minutes.
+  it('caps a request at 10 minutes unless the job passes --max-timeout-ms', async () => {
+    const startBroker = async (extra: string[]) => {
+      const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+      fs.chmodSync(root, 0o700);
+      roots.push(root);
+      const socketPath = path.join(root, 'auth.sock');
+      const prefix = codexPrefix(root);
+      const fakeCodex = writeFakeCodex(prefix);
+      const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...extra, ...codexAttestationArgs(fakeCodex, prefix)], {
+        stdio: ['pipe', 'ignore', 'pipe'],
+        env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+      });
+      children.push(child);
+      child.stdin.end('{"access_token":"runtime-only-secret"}');
+      await waitForSocket(socketPath, child);
+      return socketPath;
+    };
+    const standard = await startBroker([]);
+    await expect(request(standard, { op: 'exec', prompt: 'slow', timeoutMs: 600_001, schema: null }))
+      .resolves.toEqual({ ok: false, error: 'invalid timeout' });
+
+    const patient = await startBroker(['--max-timeout-ms', '1800000']);
+    const response = await request(patient, { op: 'exec', prompt: 'slow', timeoutMs: 1_800_000, schema: null });
+    expect(response.ok, JSON.stringify(response)).toBe(true);
+    await expect(request(patient, { op: 'exec', prompt: 'slow', timeoutMs: 1_800_001, schema: null }))
+      .resolves.toEqual({ ok: false, error: 'invalid timeout' });
+
+    // Out of bounds: the default applies.
+    const bounded = await startBroker(['--max-timeout-ms', '99999999']);
+    await expect(request(bounded, { op: 'exec', prompt: 'slow', timeoutMs: 600_001, schema: null }))
+      .resolves.toEqual({ ok: false, error: 'invalid timeout' });
+  });
+
+  // The socket file appears at bind(), a moment before listen(): a client that
+  // waits for the path to exist could connect in between and get ECONNREFUSED
+  // (corpus twin, PR 1773, run 36038787680). The broker listens on a temporary
+  // name in the same 0700 directory and renames it into place once it accepts
+  // connections, so the path existing means the broker is ready.
+  it('publishes the socket path only once it accepts connections', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeFakeCodex(prefix);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"ready-test"}');
+    await waitForSocket(socketPath, child);
+    expect(fs.lstatSync(socketPath).mode & 0o777).toBe(0o600);
+    expect(fs.readdirSync(root).filter((name) => name.endsWith('.listening'))).toEqual([]);
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
+    await Promise.race([
+      once(child, 'exit'),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit')), 2000)),
+    ]);
+    expect(fs.existsSync(socketPath)).toBe(false);
+  });
+
+  // The profile used to deny ":slash_tmp" while the broker builds workspace,
+  // CODEX_HOME and TMPDIR under /tmp, so the deny covered the workspace and
+  // every real Codex call exited 1 before reaching the model. The fake binary
+  // reports where the broker launches it and which profile it writes, so the
+  // contract is checked on the real paths rather than on the source text.
+  it('never denies the workspace the broker launches Codex in', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = path.join(prefix, 'profile-codex.mjs');
+    fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
+      import fs from 'node:fs';
+      import path from 'node:path';
+      if (process.argv.includes('--version')) {
+        console.log('OpenAI Codex v0.153.4');
+        process.exit(0);
+      }
+      const args = process.argv.slice(2);
+      const output = args[args.indexOf('--output-last-message') + 1];
+      fs.writeFileSync(output, JSON.stringify({
+        cwd: process.cwd(),
+        cd: args[args.indexOf('--cd') + 1],
+        tmpdir: process.env.TMPDIR,
+        codexHome: process.env.CODEX_HOME,
+        config: fs.readFileSync(path.join(process.env.CODEX_HOME, 'config.toml'), 'utf8'),
+      }));
+    `);
+    fs.chmodSync(fakeCodex, 0o700);
+    // Like the setup action: `env -i PATH=...`, so no inherited TMPDIR.
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"profile-test"}');
+    await waitForSocket(socketPath, child);
+
+    const response = await request(socketPath, { op: 'exec', prompt: 'profile', timeoutMs: 1000, schema: null });
+    expect(response.ok, JSON.stringify(response)).toBe(true);
+    const seen = JSON.parse(String(response.result));
+    expect(seen.cwd).toBe(seen.cd);
+
+    const filesystem: Record<string, string> = {};
+    let inFilesystem = false;
+    for (const line of String(seen.config).split('\n')) {
+      const header = line.match(/^\[(.+)\]\s*$/);
+      if (header) {
+        inFilesystem = /^permissions\.[^.]+\.filesystem$/.test(header[1]);
+        continue;
+      }
+      const entry = inFilesystem ? line.match(/^"([^"]+)"\s*=\s*"([^"]+)"\s*$/) : null;
+      if (entry) filesystem[entry[1]] = entry[2];
+    }
+    // ":root" is the wall that hides auth.json; the workspace root overrides
+    // it by construction, no other deny may cover the workspace.
+    expect(filesystem[':root']).toBe('deny');
+    const special: Record<string, string> = { ':slash_tmp': '/tmp', ':tmpdir': String(seen.tmpdir) };
+    const real = (target: string) => {
+      try { return fs.realpathSync(target); } catch { return path.resolve(target); }
+    };
+    const workspace = real(String(seen.cwd));
+    for (const [rule, access] of Object.entries(filesystem)) {
+      if (access !== 'deny' || rule === ':root') continue;
+      const target = special[rule] ?? (path.isAbsolute(rule) ? rule : '');
+      expect(target, `deny rule not resolvable by this test: ${rule}`).not.toBe('');
+      const relative = path.relative(real(target), workspace);
+      const coversWorkspace = relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative));
+      expect(coversWorkspace, `${rule} = "deny" covers the workspace ${workspace}`).toBe(false);
+    }
+    const homeInWorkspace = path.relative(workspace, real(String(seen.codexHome)));
+    expect(homeInWorkspace.startsWith('..') || path.isAbsolute(homeInWorkspace)).toBe(true);
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
+  });
+
+  it('returns the redacted cause when Codex exits with an error', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = path.join(prefix, 'failing-codex.mjs');
+    const token = `eyJ${'a'.repeat(40)}.${'b'.repeat(40)}.${'c'.repeat(40)}`;
+    fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
+      if (process.argv.includes('--version')) {
+        console.log('OpenAI Codex v0.153.4');
+        process.exit(0);
+      }
+      process.stdin.resume();
+      process.stdin.on('end', () => {
+        process.stderr.write('\\x1b[31m2026-09-24T13:59:26Z ERROR codex_models_manager: 401 with ${token}\\x1b[0m\\n');
+        process.stderr.write('Error: thread/start failed: ' + 'error creating thread: '.repeat(15) + 'session ${token}: bwrap: Can\\'t mkdir parents for /tmp/w/tmp: Read-only file system (code -32603)\\n');
+        process.exit(1);
+      });
+    `);
+    fs.chmodSync(fakeCodex, 0o700);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"failure-test"}');
+    await waitForSocket(socketPath, child);
+
+    const response = await request(socketPath, { op: 'exec', prompt: 'fail', timeoutMs: 1000, schema: null });
+    expect(response.ok).toBe(false);
+    const error = String(response.error);
+    expect(error).toMatch(/^Codex CLI exited with code 1: …/);
+    expect(error).toMatch(/bwrap: Can't mkdir parents for \/tmp\/w\/tmp: Read-only file system \(code -32603\)$/);
+    expect(error.length).toBeLessThanOrEqual(300);
+    expect(error).toContain('[redacted]');
+    expect(error).not.toMatch(/eyJ|[abc]{32,}|\x1b/);
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
   });
 
   it('kills Codex and removes its private auth runtime when the client disconnects', async () => {
@@ -547,5 +778,511 @@ describe('Codex auth broker runtime contract', () => {
       new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit after explicit cleanup')), 2000)),
     ]);
     expect(fs.existsSync(socketPath)).toBe(false);
+  });
+
+  // Il profilo negava ":slash_tmp", ma il broker costruisce workspace,
+  // CODEX_HOME e TMPDIR sotto os.tmpdir(), cioe' /tmp: il deny copriva il
+  // workspace stesso e ogni chiamata Codex usciva con code 1 prima del modello
+  // (gemello del corpus, run 36001495484). Il Codex finto registra dove il
+  // broker lo lancia e quale profilo gli scrive, cosi' il contratto si verifica
+  // sui percorsi reali e non sul testo.
+  it('never denies the workspace it launches Codex in, while :root still hides auth', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = path.join(prefix, 'profile-codex.mjs');
+    fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
+      import fs from 'node:fs';
+      import path from 'node:path';
+      const args = process.argv.slice(2);
+      if (args.includes('--version')) {
+        console.log('OpenAI Codex v0.153.4');
+        process.exit(0);
+      }
+      const output = args[args.indexOf('--output-last-message') + 1];
+      process.stdin.resume();
+      process.stdin.on('end', () => fs.writeFileSync(output, JSON.stringify({
+        cwd: process.cwd(),
+        cd: args[args.indexOf('--cd') + 1],
+        tmpdir: process.env.TMPDIR,
+        codexHome: process.env.CODEX_HOME,
+        config: fs.readFileSync(path.join(process.env.CODEX_HOME, 'config.toml'), 'utf8'),
+      })));
+    `);
+    fs.chmodSync(fakeCodex, 0o700);
+    // Come la setup action: `env -i PATH=...`, quindi nessun TMPDIR ereditato.
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"profile-check"}');
+    await waitForSocket(socketPath, child);
+
+    const response = await request(socketPath, { op: 'exec', prompt: 'profile', timeoutMs: 5000, schema: null });
+    expect(response.ok, JSON.stringify(response)).toBe(true);
+    const seen = JSON.parse(String(response.result));
+    expect(seen.cwd).toBe(seen.cd);
+
+    const filesystem: Record<string, string> = {};
+    let inFilesystem = false;
+    for (const line of String(seen.config).split('\n')) {
+      const header = line.match(/^\[(.+)\]\s*$/);
+      if (header) {
+        inFilesystem = /^permissions\.[^.]+\.filesystem$/.test(header[1]);
+        continue;
+      }
+      const entry = inFilesystem ? line.match(/^"([^"]+)"\s*=\s*"([^"]+)"\s*$/) : null;
+      if (entry) filesystem[entry[1]] = entry[2];
+    }
+    // ":root" resta il muro che nasconde auth.json: il workspace lo scavalca
+    // per costruzione, ogni altro deny no.
+    expect(filesystem[':root']).toBe('deny');
+    const real = (target: string) => {
+      try { return fs.realpathSync(target); } catch { return path.resolve(target); }
+    };
+    const special: Record<string, string> = { ':slash_tmp': '/tmp', ':tmpdir': String(seen.tmpdir) };
+    const workspace = real(String(seen.cwd));
+    for (const [rule, access] of Object.entries(filesystem)) {
+      if (access !== 'deny' || rule === ':root') continue;
+      const target = special[rule] ?? (path.isAbsolute(rule) ? rule : null);
+      expect(target, `deny rule the test cannot resolve: ${rule}`).toBeTruthy();
+      const relative = path.relative(real(String(target)), workspace);
+      const coversWorkspace = relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative));
+      expect(coversWorkspace, `${rule} = "deny" covers the workspace ${workspace}`).toBe(false);
+    }
+    const homeInWorkspace = path.relative(workspace, real(String(seen.codexHome)));
+    expect(homeInWorkspace.startsWith('..') || path.isAbsolute(homeInWorkspace)).toBe(true);
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
+  });
+
+  it('returns the last Codex error line on a failed exit, redacted and bounded', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const token = `eyJ${'a'.repeat(40)}.${'b'.repeat(40)}.${'c'.repeat(40)}`;
+    const fakeCodex = path.join(prefix, 'failing-codex.mjs');
+    fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
+      if (process.argv.includes('--version')) {
+        console.log('OpenAI Codex v0.153.4');
+        process.exit(0);
+      }
+      process.stdin.resume();
+      process.stdin.on('end', () => {
+        process.stderr.write('\\x1b[31m2026-09-24T13:59:26Z ERROR codex_models_manager: 401 with ${token}\\x1b[0m\\n');
+        process.stderr.write('Error: thread/start failed: ' + 'error creating thread: '.repeat(15) + 'session ${token}: bwrap: Can\\'t mkdir parents for /tmp/w/tmp: Read-only file system (code -32603)\\n');
+        process.exit(1);
+      });
+    `);
+    fs.chmodSync(fakeCodex, 0o700);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"failure-reason"}');
+    await waitForSocket(socketPath, child);
+
+    const response = await request(socketPath, { op: 'exec', prompt: 'fail', timeoutMs: 5000, schema: null });
+    expect(response.ok).toBe(false);
+    const error = String(response.error);
+    expect(error).toMatch(/^Codex CLI exited with code 1: …/);
+    expect(error).toMatch(/bwrap: Can't mkdir parents for \/tmp\/w\/tmp: Read-only file system \(code -32603\)$/);
+    expect(error.length).toBeLessThanOrEqual(300);
+    expect(error).toContain('[redacted]');
+    expect(error).not.toMatch(/eyJ|[abc]{32,}|\x1b/);
+  });
+
+  // Il refresh token del login ChatGPT e' monouso e Codex riscrive il login
+  // rinnovato in CODEX_HOME/auth.json. Con una home nuova per richiesta quella
+  // scrittura si perdeva e ogni chiamata successiva rigiocava il token speso
+  // («refresh token already used»). Il Codex finto qui fa il refresh a ogni
+  // chiamata: la successiva deve partire dal login rinnovato, dalla stessa home.
+  it('keeps one private CODEX_HOME per job so a refreshed login is reused by the next request', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = path.join(prefix, 'refreshing-codex.mjs');
+    fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
+      import fs from 'node:fs';
+      import path from 'node:path';
+      const args = process.argv.slice(2);
+      if (args.includes('--version')) {
+        console.log('OpenAI Codex v0.153.4');
+        process.exit(0);
+      }
+      const output = args[args.indexOf('--output-last-message') + 1];
+      const workspace = args[args.indexOf('--cd') + 1];
+      let prompt = '';
+      process.stdin.setEncoding('utf8');
+      process.stdin.on('data', (chunk) => { prompt += chunk; });
+      process.stdin.on('end', () => {
+        const authPath = path.join(process.env.CODEX_HOME, 'auth.json');
+        const seen = fs.readFileSync(authPath, 'utf8');
+        const login = JSON.parse(seen);
+        if (prompt.includes('corrupt')) {
+          fs.writeFileSync(authPath, '{"refresh_token":');
+        } else {
+          fs.writeFileSync(authPath, JSON.stringify({ ...login, refresh_token: 'rt-' + (login.generation + 1), generation: login.generation + 1 }));
+        }
+        fs.writeFileSync(output, JSON.stringify({
+          seen: JSON.parse(seen),
+          home: process.env.CODEX_HOME,
+          homeMode: fs.statSync(process.env.CODEX_HOME).mode & 0o777,
+          authMode: fs.statSync(authPath).mode & 0o777,
+          workspace,
+        }));
+      });
+    `);
+    fs.chmodSync(fakeCodex, 0o700);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '60000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"refresh_token":"rt-0","generation":0}');
+    await waitForSocket(socketPath, child);
+
+    const exec = async (prompt: string) => {
+      const response = await request(socketPath, { op: 'exec', prompt, timeoutMs: 5000, schema: null });
+      expect(response.ok, JSON.stringify(response)).toBe(true);
+      return JSON.parse(String(response.result));
+    };
+    const first = await exec('first');
+    const second = await exec('second');
+    expect(first.seen).toEqual({ refresh_token: 'rt-0', generation: 0 });
+    expect(second.seen).toEqual({ refresh_token: 'rt-1', generation: 1 });
+    expect(second.home).toBe(first.home);
+    expect(first.homeMode).toBe(0o700);
+    expect(first.authMode).toBe(0o600);
+    const relative = path.relative(path.resolve(first.workspace), path.resolve(first.home));
+    expect(relative.startsWith('..') || path.isAbsolute(relative)).toBe(true);
+    expect(fs.existsSync(first.workspace)).toBe(false);
+
+    // Un Codex ucciso a meta' riscrittura lascia auth.json illeggibile: la
+    // richiesta dopo riparte dall'ultimo login buono, non dal secret iniziale.
+    const corrupting = await exec('corrupt');
+    expect(corrupting.seen).toEqual({ refresh_token: 'rt-2', generation: 2 });
+    const afterCorruption = await exec('after');
+    expect(afterCorruption.seen).toEqual({ refresh_token: 'rt-2', generation: 2 });
+
+    expect(fs.existsSync(first.home)).toBe(true);
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
+    await Promise.race([
+      once(child, 'exit'),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit after cleanup')), 2000)),
+    ]);
+    expect(fs.existsSync(first.home)).toBe(false);
+  });
+
+  it('removes the per-job CODEX_HOME on SIGTERM', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = path.join(prefix, 'home-codex.mjs');
+    fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
+      import fs from 'node:fs';
+      if (process.argv.includes('--version')) {
+        console.log('OpenAI Codex v0.153.4');
+        process.exit(0);
+      }
+      const output = process.argv[process.argv.indexOf('--output-last-message') + 1];
+      process.stdin.resume();
+      process.stdin.on('end', () => fs.writeFileSync(output, process.env.CODEX_HOME));
+    `);
+    fs.chmodSync(fakeCodex, 0o700);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '60000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"refresh_token":"sigterm"}');
+    await waitForSocket(socketPath, child);
+    const response = await request(socketPath, { op: 'exec', prompt: 'home', timeoutMs: 5000, schema: null });
+    expect(response.ok, JSON.stringify(response)).toBe(true);
+    const home = String(response.result);
+    expect(fs.existsSync(path.join(home, 'auth.json'))).toBe(true);
+    const exited = once(child, 'exit');
+    child.kill('SIGTERM');
+    await Promise.race([
+      exited,
+      new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit after SIGTERM')), 2000)),
+    ]);
+    expect(fs.existsSync(home)).toBe(false);
+  });
+});
+
+function writeSleepingCodex(root: string) {
+  const fake = path.join(root, 'sleeping-codex.mjs');
+  fs.writeFileSync(fake, `#!/usr/bin/env node
+    import fs from 'node:fs';
+    if (process.argv.includes('--version')) {
+      console.log('OpenAI Codex v0.153.4');
+      process.exit(0);
+    }
+    const output = process.argv[process.argv.indexOf('--output-last-message') + 1];
+    let prompt = '';
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', (chunk) => { prompt += chunk; });
+    process.stdin.on('end', () => {
+      const delay = Number(prompt.match(/sleep:(\\d+)/)?.[1] || 0);
+      setTimeout(() => fs.writeFileSync(output, JSON.stringify({ prompt: prompt.trim() })), delay);
+    });
+  `);
+  fs.chmodSync(fake, 0o700);
+  return fake;
+}
+
+/** Raw exchange with timestamps, so tests can see the control bytes before the JSON line. */
+function rawRequest(socketPath: string, payload: unknown) {
+  return new Promise<{ raw: string; chunks: Array<{ at: number; data: string }> }>((resolve, reject) => {
+    const client = net.createConnection(socketPath);
+    const chunks: Array<{ at: number; data: string }> = [];
+    client.setEncoding('utf8');
+    client.setTimeout(10_000, () => reject(new Error('broker request timed out')));
+    client.on('error', reject);
+    client.on('data', (chunk) => chunks.push({ at: Date.now(), data: String(chunk) }));
+    client.on('end', () => resolve({ raw: chunks.map((c) => c.data).join(''), chunks }));
+    client.on('connect', () => client.end(`${JSON.stringify(payload)}\n`));
+  });
+}
+
+function jsonLine(raw: string) {
+  return JSON.parse(raw.replace(/^[\0\x01]+/, ''));
+}
+
+/**
+ * Un login ChatGPT finto con le sole date che il broker legge: `last_refresh`
+ * e l'`exp` dell'access token. La firma non conta, il broker non la verifica.
+ */
+function chatgptLogin({ lastRefreshAgoMs = 60_000, accessTtlMs = 10 * 24 * 60 * 60 * 1000 } = {}) {
+  const segment = (value: unknown) => Buffer.from(JSON.stringify(value)).toString('base64url');
+  const now = Date.now();
+  const accessToken = `${segment({ alg: 'none' })}.${segment({ exp: Math.floor((now + accessTtlMs) / 1000) })}.fixture`;
+  return JSON.stringify({
+    auth_mode: 'chatgpt',
+    OPENAI_API_KEY: null,
+    tokens: { id_token: 'fixture', access_token: accessToken, refresh_token: 'fixture-refresh', account_id: 'fixture' },
+    last_refresh: new Date(now - lastRefreshAgoMs).toISOString(),
+  });
+}
+
+function writeArgvCodex(root: string) {
+  const fake = path.join(root, 'argv-codex.mjs');
+  fs.writeFileSync(fake, `#!/usr/bin/env node
+    import fs from 'node:fs';
+    if (process.argv.includes('--version')) {
+      console.log('OpenAI Codex v0.153.4');
+      process.exit(0);
+    }
+    const argv = process.argv.slice(2);
+    const output = argv[argv.indexOf('--output-last-message') + 1];
+    const override = argv.find((arg) => arg.startsWith('model_instructions_file='));
+    const instructionsPath = override ? JSON.parse(override.slice('model_instructions_file='.length)) : '';
+    const instructions = instructionsPath ? fs.readFileSync(instructionsPath, 'utf8') : '';
+    process.stdin.resume();
+    process.stdin.on('end', () => fs.writeFileSync(output, JSON.stringify({ argv, instructions })));
+  `);
+  fs.chmodSync(fake, 0o700);
+  return fake;
+}
+
+describe('Codex auth broker request profiles', () => {
+  const children: ReturnType<typeof spawn>[] = [];
+  const roots: string[] = [];
+
+  afterEach(() => {
+    for (const child of children.splice(0)) if (child.exitCode === null) child.kill('SIGTERM');
+    for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
+  });
+
+  async function startArgvBroker() {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-profile-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeArgvCodex(prefix);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"profile-test"}');
+    await waitForSocket(socketPath, child);
+    return socketPath;
+  }
+
+  it('runs a function-profile request without the agent prompt and tools, same model and effort', async () => {
+    const socketPath = await startArgvBroker();
+    const response = await request(socketPath, { op: 'exec', prompt: 'translate', timeoutMs: 5000, schema: null, profile: 'function' });
+    expect(response).toMatchObject({ ok: true });
+    const { argv, instructions } = JSON.parse(String(response.result));
+    expect(argv).toEqual(expect.arrayContaining([
+      'model_reasoning_effort=max',
+      'include_permissions_instructions=false',
+      'include_environment_context=false',
+      'web_search="disabled"',
+    ]));
+    for (const feature of ['shell_tool', 'unified_exec', 'multi_agent', 'apps', 'plugins']) {
+      expect(argv[argv.indexOf(feature) - 1]).toBe('--disable');
+    }
+    expect(instructions).toMatch(/stateless text-processing function/);
+  });
+
+  it('keeps the agent prompt for a request without a profile', async () => {
+    const socketPath = await startArgvBroker();
+    const response = await request(socketPath, { op: 'exec', prompt: 'review', timeoutMs: 5000, schema: null });
+    const { argv, instructions } = JSON.parse(String(response.result));
+    expect(argv).toContain('model_reasoning_effort=max');
+    expect(argv.some((arg: string) => arg.startsWith('model_instructions_file='))).toBe(false);
+    expect(argv).not.toContain('--disable');
+    expect(instructions).toBe('');
+  });
+
+  it('rejects an unknown profile without running Codex', async () => {
+    const socketPath = await startArgvBroker();
+    const response = await request(socketPath, { op: 'exec', prompt: 'x', timeoutMs: 5000, schema: null, profile: 'root' });
+    expect(response).toEqual({ ok: false, error: 'invalid profile' });
+  });
+});
+
+function firstAt(chunks: Array<{ at: number; data: string }>, predicate: (data: string) => boolean) {
+  return chunks.find((chunk) => predicate(chunk.data))?.at ?? Number.NaN;
+}
+
+describe('Codex auth broker queue and lifetime', () => {
+  const children: ReturnType<typeof spawn>[] = [];
+  const roots: string[] = [];
+
+  afterEach(async () => {
+    for (const child of children) {
+      if (child.exitCode === null) child.kill('SIGTERM');
+      if (child.exitCode === null) {
+        await Promise.race([
+          once(child, 'exit'),
+          new Promise((resolve) => setTimeout(resolve, 1000)),
+        ]);
+      }
+    }
+    children.splice(0);
+    for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
+  });
+
+  async function startBroker(extraArgs: string[], credential = '{"access_token":"queue-test"}') {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeSleepingCodex(prefix);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, ...extraArgs, ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end(credential);
+    await waitForSocket(socketPath, child);
+    return { child, socketPath };
+  }
+
+  /** Inizio (segnale \x01) e fine (riga JSON) di una richiesta, in ms. */
+  function span(exchange: { chunks: Array<{ at: number; data: string }> }) {
+    return {
+      start: firstAt(exchange.chunks, (data) => data.includes('\x01')),
+      end: firstAt(exchange.chunks, (data) => data.includes('{')),
+    };
+  }
+
+  it('opens parallel lanes after the first request, while the login cannot refresh', async () => {
+    const { socketPath } = await startBroker(['--ttl-ms', '10000', '--max-concurrency', '3'], chatgptLogin());
+    const first = rawRequest(socketPath, { op: 'exec', prompt: 'sleep:300', timeoutMs: 5000, schema: null, notifyStart: true });
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    const queued = [1, 2, 3].map(() => rawRequest(socketPath, { op: 'exec', prompt: 'sleep:700', timeoutMs: 5000, schema: null, notifyStart: true }));
+    const [a, ...rest] = await Promise.all([first, ...queued]);
+    for (const exchange of [a, ...rest]) expect(jsonLine(exchange.raw)).toMatchObject({ ok: true });
+
+    // La prima richiesta corre da sola: e' quella che rinnoverebbe un login vecchio.
+    const firstAnswered = span(a).end;
+    const spans = rest.map(span);
+    for (const s of spans) expect(s.start).toBeGreaterThanOrEqual(firstAnswered);
+    // Poi le tre in coda partono insieme: ognuna parte prima che una qualsiasi risponda.
+    expect(Math.max(...spans.map((s) => s.start))).toBeLessThan(Math.min(...spans.map((s) => s.end)));
+  });
+
+  it.each([
+    ['a login refreshed more than 7 days ago', { lastRefreshAgoMs: 8 * 24 * 60 * 60 * 1000 }],
+    ['an access token close to expiry', { accessTtlMs: 20 * 60 * 1000 }],
+    ['a login without dates', { raw: '{"access_token":"queue-test"}' }],
+  ])('keeps one request at a time with %s', async (_label, login) => {
+    const credential = 'raw' in login ? login.raw : chatgptLogin(login);
+    const { socketPath } = await startBroker(['--ttl-ms', '10000', '--max-concurrency', '3'], credential);
+    expect(jsonLine((await rawRequest(socketPath, { op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null })).raw)).toMatchObject({ ok: true });
+    const pair = await Promise.all([1, 2].map(() => rawRequest(socketPath, { op: 'exec', prompt: 'sleep:300', timeoutMs: 5000, schema: null, notifyStart: true })));
+    const [earlier, later] = pair.map(span).sort((x, y) => x.start - y.start);
+    expect(later.start).toBeGreaterThanOrEqual(earlier.end);
+  });
+
+  // Il TTL partiva al listen() e non si rinnovava: a 30 minuti dall'avvio il
+  // broker chiudeva anche una richiesta in corso (send-newsletter run
+  // 36116142119). Qui una richiesta piu' lunga del TTL deve completare, e il
+  // broker deve chiudersi solo dopo un TTL intero senza lavoro.
+  it('treats the TTL as idle time and never expires while a request runs', async () => {
+    const { child, socketPath } = await startBroker(['--ttl-ms', '700']);
+    const long = await rawRequest(socketPath, { op: 'exec', prompt: 'sleep:1500', timeoutMs: 5000, schema: null });
+    expect(jsonLine(long.raw)).toMatchObject({ ok: true });
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    const next = await rawRequest(socketPath, { op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null });
+    expect(jsonLine(next.raw)).toMatchObject({ ok: true });
+    await Promise.race([
+      once(child, 'exit'),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not expire after an idle TTL')), 3000)),
+    ]);
+    expect(fs.existsSync(socketPath)).toBe(false);
+  });
+
+  it('signals the start of Codex only when the request leaves the queue, and only on request', async () => {
+    const { socketPath } = await startBroker(['--ttl-ms', '10000']);
+    const first = rawRequest(socketPath, { op: 'exec', prompt: 'sleep:700', timeoutMs: 5000, schema: null, notifyStart: true });
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const queued = rawRequest(socketPath, { op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null, notifyStart: true });
+    const legacy = rawRequest(socketPath, { op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null });
+    const [a, b, c] = await Promise.all([first, queued, legacy]);
+
+    expect(a.raw.startsWith('\x01') || a.raw.startsWith('\0\x01')).toBe(true);
+    expect(jsonLine(a.raw)).toMatchObject({ ok: true });
+    expect(jsonLine(b.raw)).toMatchObject({ ok: true });
+    expect(b.raw).toContain('\x01');
+    // Il secondo parte quando il primo ha risposto, non alla connect().
+    const firstAnswered = firstAt(a.chunks, (data) => data.includes('{'));
+    const queuedStarted = firstAt(b.chunks, (data) => data.includes('\x01'));
+    expect(queuedStarted).toBeGreaterThanOrEqual(firstAnswered);
+    // Un client che non lo chiede riceve lo stesso protocollo di prima.
+    expect(c.raw).not.toContain('\x01');
+    expect(jsonLine(c.raw)).toMatchObject({ ok: true });
+  });
+
+  it('returns the request slot of a queued request whose client left before it started', async () => {
+    const { socketPath } = await startBroker(['--ttl-ms', '10000', '--max-requests', '2']);
+    const running = rawRequest(socketPath, { op: 'exec', prompt: 'sleep:600', timeoutMs: 5000, schema: null });
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const leaving = net.createConnection(socketPath);
+    leaving.on('error', () => {});
+    await once(leaving, 'connect');
+    leaving.write(`${JSON.stringify({ op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null })}\n`);
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    leaving.destroy();
+    expect(jsonLine((await running).raw)).toMatchObject({ ok: true });
+
+    const after = await rawRequest(socketPath, { op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null });
+    expect(jsonLine(after.raw)).toMatchObject({ ok: true });
   });
 });

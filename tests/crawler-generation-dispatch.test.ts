@@ -20,6 +20,7 @@ import {
   evaluateCrawlerGenerationPreflight,
   reapStaleCrawlerGenerationDispatchRefs,
   runPreflight,
+  formatPreflightStepOutputs,
   runCrawlerGenerationDispatchCli,
   runCrawlerGenerationDispatchWave,
 } from '../scripts/crawler-generation-dispatch.mjs';
@@ -1506,6 +1507,221 @@ describe('generation checkpoint and preflight', () => {
     }]);
   });
 
+  it('falls back to the latest verified site commit whose contract matches the corpus', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-site-fallback-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const artifacts = groupArtifactFixture();
+    const localContract = {
+      ...preflightFixture(observer, artifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'd'.repeat(64),
+    };
+    const compatibleSiteCodeCommit = 'c'.repeat(40);
+    const remoteContract = {
+      ...localContract,
+      sourceCommit: 'b'.repeat(40),
+      generatorSha256: 'c'.repeat(64),
+    };
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(localContract));
+    fs.writeFileSync(observerPath, observer);
+    const request = vi.fn(async (input: any) => {
+      if (input.path.includes('/repos/valerielinc-ops/frontaliere-si-o-no/commits?path=')) {
+        return { status: 200, body: [{ sha: compatibleSiteCodeCommit }] };
+      }
+      if (input.path.includes('/repos/valerielinc-ops/frontaliere-si-o-no/contents/.github/corpus-workflows/contract.json?')) {
+        return {
+          status: 200,
+          body: {
+            encoding: 'base64',
+            content: Buffer.from(JSON.stringify(remoteContract)).toString('base64'),
+          },
+        };
+      }
+      return preflightResponse(input, remoteContract, observer, artifacts);
+    });
+
+    await expect(runPreflight({ request, contractPath, observerPath, sleep: async () => {} })).resolves.toMatchObject({
+      ready: true,
+      dispatchMode: 'shadow',
+      corpusCodeCommit,
+      siteCodeCommit: compatibleSiteCodeCommit,
+      reasons: [],
+      warnings: ['site_contract_compatibility_fallback'],
+    });
+    expect(request).toHaveBeenCalledWith(expect.objectContaining({
+      path: expect.stringContaining(`?ref=${compatibleSiteCodeCommit}`),
+    }));
+  });
+
+  // Cronologia del contratto sul sito, dal più recente: C3 (in testa a main,
+  // non ancora sul corpus), C2 (quello del corpus), C1. `commits?path=` elenca
+  // solo i commit che hanno CAMBIATO il contratto, quindi C2 è il più vecchio
+  // commit con quel contratto: l'ultimo è il genitore di C3.
+  function contractHistoryFixture({
+    parentContract,
+    parentStatus = 200,
+    parents,
+    corpusAt = 'C2',
+  }: {
+    parentContract?: 'C1' | 'C2' | 'C3';
+    parentStatus?: number;
+    parents?: Array<{ sha: string }>;
+    corpusAt?: 'C2' | 'C3';
+  } = {}) {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-site-history-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const artifacts = groupArtifactFixture();
+    const base = {
+      ...preflightFixture(observer, artifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+    };
+    const contracts = {
+      C3: { ...base, generatorSha256: '3'.repeat(64) },
+      C2: { ...base, generatorSha256: '2'.repeat(64) },
+      C1: { ...base, generatorSha256: '1'.repeat(64) },
+    };
+    const commits = { C3: 'c3'.repeat(20), C2: 'c2'.repeat(20), C1: 'c1'.repeat(20) };
+    const parentOfC3 = 'a3'.repeat(20);
+    const siteMainCommit = 'f0'.repeat(20);
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    // Il checkout dell'orchestratore è sempre in testa a main, cioè a C3.
+    fs.writeFileSync(contractPath, JSON.stringify(contracts.C3));
+    fs.writeFileSync(observerPath, observer);
+    const encode = (contract: unknown) => ({
+      status: 200,
+      body: { encoding: 'base64', content: Buffer.from(JSON.stringify(contract)).toString('base64') },
+    });
+    const request = vi.fn(async (input: any) => {
+      if (input.path.includes('/repos/valerielinc-ops/frontaliere-si-o-no/commits?path=')) {
+        return {
+          status: 200,
+          body: [
+            { sha: commits.C3, parents: parents ?? [{ sha: parentOfC3 }] },
+            { sha: commits.C2, parents: [{ sha: 'a2'.repeat(20) }] },
+            { sha: commits.C1, parents: [{ sha: 'a1'.repeat(20) }] },
+          ],
+        };
+      }
+      if (input.path.includes('/repos/valerielinc-ops/frontaliere-si-o-no/compare/')) {
+        return { status: 200, body: { ahead_by: 7 } };
+      }
+      const ref = /\/repos\/valerielinc-ops\/frontaliere-si-o-no\/contents\/\.github\/corpus-workflows\/contract\.json\?ref=([0-9a-f]+)/
+        .exec(input.path)?.[1];
+      if (ref === parentOfC3) {
+        return parentStatus === 200 ? encode(contracts[parentContract ?? 'C2']) : { status: parentStatus, body: null };
+      }
+      const label = (Object.keys(commits) as Array<keyof typeof commits>).find((key) => commits[key] === ref);
+      if (label) return encode(contracts[label]);
+      return preflightResponse(input, contracts[corpusAt], observer, artifacts);
+    });
+    return { request, contractPath, observerPath, commits, parentOfC3, siteMainCommit };
+  }
+
+  it('sceglie il genitore del cambio di contratto successivo, non il commit che ha introdotto il contratto', async () => {
+    const { request, contractPath, observerPath, commits, parentOfC3, siteMainCommit } = contractHistoryFixture();
+
+    const result = await runPreflight({ request, contractPath, observerPath, siteMainCommit, sleep: async () => {} });
+
+    expect(result).toMatchObject({
+      ready: true,
+      siteCodeCommit: parentOfC3,
+      warnings: ['site_contract_compatibility_fallback'],
+      siteCodeFallback: {
+        strategy: 'latest_compatible_main_commit',
+        reason: 'parent_of_superseding_contract_change',
+        contractIntroducedBy: commits.C2,
+        supersededBy: commits.C3,
+        stale: false,
+        siteMainCommit,
+        commitsBehindMain: 7,
+      },
+    });
+    expect(result.siteCodeCommit).not.toBe(commits.C2);
+    expect(request).toHaveBeenCalledWith(expect.objectContaining({
+      path: expect.stringContaining(`/compare/${parentOfC3}...${siteMainCommit}`),
+    }));
+  });
+
+  it.each([
+    ['il contratto del genitore non coincide (storia non lineare)', { parentContract: 'C1' as const }, 'superseding_parent_contract_mismatch'],
+    ['la lettura del genitore fallisce', { parentStatus: 404 }, 'superseding_parent_contract_unreadable'],
+    ['la cronologia non espone il genitore', { parents: [] }, 'superseding_parent_unavailable'],
+  ])('ripiega sul commit introduttivo e lo segnala arretrato quando %s', async (_label, options, reason) => {
+    const { request, contractPath, observerPath, commits, siteMainCommit } = contractHistoryFixture(options);
+
+    await expect(runPreflight({ request, contractPath, observerPath, siteMainCommit, sleep: async () => {} }))
+      .resolves.toMatchObject({
+        ready: true,
+        siteCodeCommit: commits.C2,
+        warnings: ['site_contract_compatibility_fallback'],
+        siteCodeFallback: {
+          strategy: 'contract_introducing_commit',
+          reason,
+          contractIntroducedBy: commits.C2,
+          supersededBy: commits.C3,
+          stale: true,
+        },
+      });
+  });
+
+  it('non usa alcun fallback quando il corpus è allineato all ultimo contratto del sito', async () => {
+    const { request, contractPath, observerPath } = contractHistoryFixture({ corpusAt: 'C3' });
+
+    const result = await runPreflight({ request, contractPath, observerPath, sleep: async () => {} });
+
+    expect(result).toEqual({
+      ready: true, dispatchMode: 'shadow', corpusCodeCommit, reasons: [], warnings: [],
+    });
+    expect(request).not.toHaveBeenCalledWith(expect.objectContaining({
+      path: expect.stringContaining('/commits?path='),
+    }));
+  });
+
+  it('lascia il ritardo a null quando il confronto con main non risponde, senza cambiare la scelta', async () => {
+    const { request, contractPath, observerPath, parentOfC3 } = contractHistoryFixture();
+    const answered = request.getMockImplementation()!;
+    request.mockImplementation(async (input: any) => (
+      input.path.includes('/compare/') ? { status: 404, body: null } : answered(input)
+    ));
+
+    await expect(runPreflight({ request, contractPath, observerPath, sleep: async () => {} }))
+      .resolves.toMatchObject({
+        siteCodeCommit: parentOfC3,
+        siteCodeFallback: { stale: false, siteMainCommit: null, commitsBehindMain: null },
+      });
+  });
+
+  it('espone allo step dell orchestratore se l ondata gira su codice arretrato', async () => {
+    const staleFixture = contractHistoryFixture({ parentStatus: 404 });
+    const stale = await runPreflight({ ...staleFixture, sleep: async () => {} });
+    expect(formatPreflightStepOutputs(stale).split('\n')).toEqual(expect.arrayContaining([
+      'ready=true',
+      `site_code_commit=${staleFixture.commits.C2}`,
+      'site_code_fallback_stale=true',
+      'site_code_fallback_reason=superseding_parent_contract_unreadable',
+      `site_code_fallback_superseded_by=${staleFixture.commits.C3}`,
+      'site_code_commits_behind_main=7',
+    ]));
+
+    const expectedFixture = contractHistoryFixture();
+    const expected = await runPreflight({ ...expectedFixture, sleep: async () => {} });
+    expect(formatPreflightStepOutputs(expected)).toContain('\nsite_code_fallback_stale=false\n');
+
+    // Un preflight bloccato non dichiara mai un'ondata arretrata: non c'è ondata.
+    expect(formatPreflightStepOutputs({
+      ready: false, dispatchMode: 'blocked', corpusCodeCommit: null, reasons: ['contract_mismatch'],
+    })).toBe(
+      'ready=false\ndispatch_mode=blocked\ncorpus_commit=\nsite_code_commit=\nreasons=contract_mismatch'
+      + '\nsite_code_fallback_stale=false\nsite_code_fallback_reason=\nsite_code_fallback_superseded_by='
+      + '\nsite_code_commits_behind_main=\n',
+    );
+  });
+
   it('keeps a persistent same-source skew blocked after the bounded reconciliation window', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-lineage-exhausted-'));
     tempRoots.push(root);
@@ -1538,6 +1754,126 @@ describe('generation checkpoint and preflight', () => {
       ready: false,
       dispatchMode: 'blocked',
       reasons: ['contract_mismatch'],
+      reconciliation: {
+        status: 'exhausted',
+        attempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+        maxAttempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+      },
+    });
+    expect(sleeps).toEqual(PREFLIGHT_ALIGNMENT_BACKOFF_MS);
+  });
+
+  it('reconciles transient pinned workflow-byte skew before deciding the crawler wave', async () => {
+    // Dopo un aggiornamento del generatore il corpus può avere, per qualche
+    // minuto, un contratto e byte di workflow coerenti ma precedenti.
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-artifact-lineage-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const localArtifacts = groupArtifactFixture();
+    const remoteArtifacts = {
+      ...localArtifacts,
+      'crawler-group-24.yml': Buffer.from('name: crawler-group-24 (historical)\n'),
+    };
+    const localContract = {
+      ...preflightFixture(observer, localArtifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      sourceCommit: '48207b409aef44cded1e4b04510aaadad0549df0',
+      generatorSha256: 'ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4',
+    };
+    const staleRemoteContract = {
+      ...preflightFixture(observer, remoteArtifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      sourceCommit: '12a413d1f42a9958cc7e0b0d142423f18d169878',
+      generatorSha256: '9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5',
+    };
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(localContract));
+    fs.writeFileSync(observerPath, observer);
+    const sleeps: number[] = [];
+    const notices: any[] = [];
+    let contractReads = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.path.includes('/generator/data/crawler-cross-repo-contract.json?')) {
+        const contract = contractReads++ === 0 ? staleRemoteContract : localContract;
+        return {
+          status: 200,
+          body: {
+            encoding: 'base64',
+            content: Buffer.from(JSON.stringify(contract)).toString('base64'),
+          },
+        };
+      }
+      const artifacts = contractReads === 1 ? remoteArtifacts : localArtifacts;
+      return preflightResponse(input, localContract, observer, artifacts);
+    });
+
+    await expect(runPreflight({
+      request,
+      contractPath,
+      observerPath,
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+      onTransientMismatch: (notice) => { notices.push(notice); },
+    })).resolves.toMatchObject({
+      ready: true,
+      dispatchMode: 'shadow',
+      corpusCodeCommit,
+      reasons: [],
+      warnings: [],
+      reconciliation: {
+        status: 'aligned_after_retry',
+        attempts: 2,
+        maxAttempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+      },
+    });
+    expect(sleeps).toEqual([PREFLIGHT_ALIGNMENT_BACKOFF_MS[0]]);
+    expect(contractReads).toBe(2);
+    expect(notices).toMatchObject([{
+      attempt: 1,
+      nextAttempt: 2,
+      maxAttempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+      reasons: ['contract_mismatch', 'crawler_artifact_lineage_mismatch'],
+    }]);
+  });
+
+  it('keeps persistent pinned workflow-byte skew blocked after bounded reconciliation', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-artifact-lineage-exhausted-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const localArtifacts = groupArtifactFixture();
+    const remoteArtifacts = {
+      ...localArtifacts,
+      'crawler-group-24.yml': Buffer.from('name: crawler-group-24 (historical)\n'),
+    };
+    const localContract = {
+      ...preflightFixture(observer, localArtifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'd'.repeat(64),
+    };
+    const staleRemoteContract = {
+      ...preflightFixture(observer, remoteArtifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'c'.repeat(64),
+    };
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(localContract));
+    fs.writeFileSync(observerPath, observer);
+    const sleeps: number[] = [];
+    const request = vi.fn(async (input: any) => (
+      preflightResponse(input, staleRemoteContract, observer, remoteArtifacts)
+    ));
+
+    await expect(runPreflight({
+      request,
+      contractPath,
+      observerPath,
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+    })).resolves.toMatchObject({
+      ready: false,
+      dispatchMode: 'blocked',
+      corpusCodeCommit: null,
+      reasons: ['contract_mismatch', 'crawler_artifact_lineage_mismatch'],
       reconciliation: {
         status: 'exhausted',
         attempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
@@ -1709,13 +2045,16 @@ describe('generation checkpoint and preflight', () => {
       ready: false,
       dispatchMode: 'blocked',
       corpusCodeCommit: null,
-      reasons: ['contract_mismatch'],
+      reasons: ['contract_mismatch', 'crawler_artifact_lineage_mismatch'],
       warnings: [],
     });
     expect(evaluateCrawlerGenerationPreflight({
       ...input,
       localContract: { ...input.localContract, generatorSha256: 'c'.repeat(64), sourceRepository: 'someone-else/fork' },
-    })).toMatchObject({ ready: false, reasons: ['contract_mismatch'] });
+    })).toMatchObject({
+      ready: false,
+      reasons: ['contract_mismatch', 'crawler_artifact_lineage_mismatch'],
+    });
   });
 
   it('blocks a lockstep skew whose pinned corpus tree is not self-consistent', () => {

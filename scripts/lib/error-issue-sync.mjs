@@ -15,6 +15,7 @@
 
 import { createGithubIssue } from './github-issue-creator.mjs';
 import { DEFAULT_LIVE_CHECK_USER_AGENT } from './live-link-check.mjs';
+import { reconcileMonitorIssues } from './monitor-issue-reconcile.mjs';
 
 /**
  * Error messages tracked in telemetry ($exception / app_error) for dashboard
@@ -75,6 +76,11 @@ export const ISSUE_DENY_PATTERNS = [
   // the monitor re-filing issues from residual pre-deploy events still inside
   // its trailing query window. Same anchored shape as the benign pattern.
   /^(?:Error: )?Script error\.?$/i,
+  // Microsoft Office / Outlook in-app browser postMessage bridge noise. The
+  // client and PostHog filters already drop it, but residual GA4/PostHog
+  // events must not become backlog issues after the client-side fix (issue
+  // 13628). Keep this byte-for-byte aligned with UNIVERSAL_BENIGN_PATTERNS.
+  /Object Not Found Matching Id:\d+, MethodName:update, ParamCount:4/i,
   // Bare-URL <script>/<link> load failure during the CDN propagation window
   // (#4151 CSS-only fix, generalized to JS by #4592). The inline bootstrap
   // recovery snippet catches error events on ANY /assets/*.js|.css tag
@@ -122,6 +128,18 @@ export const ISSUE_DENY_PATTERNS = [
   // MUST mirror UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts
   // — parity-pinned by tests/error-issue-sync.test.ts ("deny-list parity").
   /Firebase:.*auth\/network-request-failed/i,
+  // IndexedDB lifecycle noise — the browser may lose an app-owned connection
+  // while a tab is suspended or site data is cleared. The client has a
+  // recovery/fallback path and the PostHog filter already drops this family;
+  // keep residual GA4 events in the trailing report window from reopening a
+  // resolved issue (notably #9466). MUST mirror the six IDB patterns in
+  // services/benignErrorPatterns.ts byte-for-byte.
+  /Connection to Indexed Database server lost/i,
+  /Failed to execute 'transaction' on 'IDBDatabase'/i,
+  /InvalidStateError.*IDBDatabase/i,
+  /Object store cannot be found in the database/i,
+  /UnknownError.*IDBDatabase/i,
+  /Database deleted by request of the user/i,
   // Unsupported-browser parse failure (#4172): a browser too old to parse
   // optional-chaining `?.` / nullish `??` throws "Unexpected token '?'" on a
   // modern chunk. Below our Vite `build.target: 'modules'` baseline → an
@@ -139,10 +157,16 @@ export const ISSUE_DENY_PATTERNS = [
 ];
 
 /**
- * True when `message` matches the shared deny-list above and therefore must
- * not open/recur a GitHub backlog issue (telemetry capture is unaffected).
+ * True when the telemetry message or its semantic type is already known to be
+ * non-actionable for the GitHub backlog. `cross_origin_script` is assigned
+ * only after the client proves that every stack frame belongs to an opaque
+ * cross-origin script, so it remains useful in GA4/PostHog dashboards but no
+ * code change in this repository can repair it. Keep that decision type-aware:
+ * a generic message such as a RangeError can still be a real first-party bug
+ * when its type is `unhandled_error` or `error_boundary`.
  */
-export function isIssueDenied(message) {
+export function isIssueDenied(message, type = '') {
+  if (String(type || '').trim().toLowerCase() === 'cross_origin_script') return true;
   return ISSUE_DENY_PATTERNS.some((p) => p.test(message || ''));
 }
 
@@ -306,6 +330,10 @@ export async function isSelfHealedPage404(entry, { fetchImpl = fetch, origin = P
  * @param {string[]} [opts.labels]        Extra labels beyond the priority label.
  * @param {string} [opts.source]          Human label for the "Workflow:" line in the issue body.
  * @param {boolean} [opts.dryRun]         Stampa titolo e corpo invece di coniare.
+ * @param {object} [opts.reconcile]       Fase «riconcilia» (scripts/lib/monitor-issue-reconcile.mjs):
+ *   `{ family, labels, titlePrefix, verdictFor(issue), confirmations? }`. Assente → nessuna
+ *   chiusura, comportamento identico a prima. Riceve la lista COMPLETA dei titoli misurati
+ *   sopra soglia, non solo le prime `maxIssues`: «assente dalle prime N» non è «sotto soglia».
  * @returns {Promise<Array<object|null>>}
  */
 export async function syncErrorIssues({
@@ -317,6 +345,7 @@ export async function syncErrorIssues({
   labels = [],
   source,
   dryRun = false,
+  reconcile = null,
 }) {
   const results = [];
   for (const entry of entries.slice(0, maxIssues)) {
@@ -341,6 +370,20 @@ export async function syncErrorIssues({
       workflow: source,
     });
     results.push(res);
+  }
+  if (reconcile) {
+    const minted = entries.slice(0, maxIssues).map(titleFor).filter(Boolean);
+    const runUrl = process.env.GITHUB_RUN_ID
+      ? `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
+      : undefined;
+    await reconcileMonitorIssues({
+      ...reconcile,
+      measuredTitles: new Set(entries.map(titleFor).filter(Boolean)),
+      reconfirmedTitles: new Set(minted),
+      dryRun,
+      workflow: source,
+      runUrl,
+    });
   }
   return results;
 }

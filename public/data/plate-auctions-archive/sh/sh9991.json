@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "sh-69462",
+      "sourceKey": "SH",
+      "sourceRecordId": "69462",
+      "canton": "Sciaffusa",
+      "platePrefix": "SH",
+      "plateNumber": "9991",
+      "normalizedPlate": "SH9991",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 100,
+      "bidCount": 0,
+      "endsAt": "2026-09-16T20:00:00.000Z",
+      "closedAt": "2026-09-16T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69462",
+      "sourceFetchedAt": "2026-09-15T06:58:53.829Z",
+      "lastVerifiedAt": "2026-09-15T06:58:53.829Z",
+      "firstSeenAt": "2026-09-14T20:51:09.759Z",
+      "lastSeenAt": "2026-09-15T06:58:53.829Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "bb470f133960"
+    }
+  ]
+}

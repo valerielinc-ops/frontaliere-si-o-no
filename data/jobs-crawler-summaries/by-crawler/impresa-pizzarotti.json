@@ -1,21 +1,26 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-09-24T00:09:20.983Z",
+  "generatedAt": "2026-10-19T21:37:20.930Z",
   "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": null,
-  "abortKind": null,
+  "discovered": 7,
+  "parsed": 0,
   "written": 0,
+  "lastFetchOutcome": "filtered_empty",
+  "authoritativeEmptySnapshot": true,
+  "authoritativeSnapshotVerified": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 2357,
+  "avgDurationMs": 2357,
+  "durationHistory": [
+    2357
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

@@ -102,6 +102,38 @@ describe('fiscal above-floor page render (#4484)', () => {
     expect(html).toContain('Tasse frontaliere Como');
     expect(html).not.toContain('vivere da frontaliere e lavorare in Ticino');
   });
+
+  it('renders the data-backed profile rankings in every locale', () => {
+    const labels = {
+      it: 'Per popolazione, questo comune è al posto',
+      en: 'By population, this town ranks',
+      de: 'Nach Einwohnerzahl liegt diese Gemeinde auf Rang',
+      fr: 'Par population, cette commune est',
+    } as const;
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const { html } = renderAboveFloorPage({
+        municipality: como,
+        locale,
+        dateStamp: '2026-07-19',
+        distDir: DIST,
+      });
+      expect(html).toContain('data-nearest-comparison');
+      expect(html).toContain(labels[locale]);
+    }
+  });
+  it('uses a data-cell corner before the scenario row headers', () => {
+    const { html } = renderAboveFloorPage({
+      municipality: como,
+      locale: 'it',
+      dateStamp: '2026-07-19',
+      distDir: DIST,
+    });
+    // The first column contains row headers (<th scope="row">). Its empty
+    // corner therefore belongs to the data grid and must not be another
+    // orphaned column header.
+    expect(html).toContain('<td class="py-2 pr-3 text-left"></td>');
+    expect(html).not.toContain('<th scope="col" class="py-2 pr-3 text-left"></th>');
+  });
 });
 
 describe('fiscal page "vivere a" cross-link is gated on the Ticino corridor (issue #4893)', () => {

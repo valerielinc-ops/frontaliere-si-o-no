@@ -32,6 +32,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
+import { NURSING_LANDING_SLUGS } from './lib/nursing-landing-path.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -41,6 +42,7 @@ const JSON_OUT = args.includes('--json');
 const SUGGEST = args.includes('--suggest');
 
 const ADSENSE_API = 'https://adsense.googleapis.com/v2';
+const NURSING_IT_PATH_PREFIXES = Object.values(NURSING_LANDING_SLUGS.it);
 
 async function getAccessToken() {
   const cid = process.env.ADSENSE_CLIENT_ID || process.env.GSC_CLIENT_ID;
@@ -93,8 +95,7 @@ const KNOWN_PATH_PREFIXES = [
   'compara-servizi',
   'fisco',
   'guida-frontaliere',
-  'lavoro-oss-svizzera',
-  'lavoro-infermieri-svizzera',
+  ...NURSING_IT_PATH_PREFIXES,
   'mercato-lavoro-ticino',
   'premi-cassa-malati',
   'prezzi-benzina',

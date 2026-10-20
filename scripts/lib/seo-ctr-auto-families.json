@@ -14,5 +14,37 @@
     "note": "Auto-registrata da discovery template job-board (cantonCode=BE), scoperta via /trouver-emploi-berne/.",
     "impressions90d": 54585,
     "measuredOn": "2026-09-06"
+  },
+  {
+    "pathContains": "/cerca-lavoro-ginevra/",
+    "pathAliases": [
+      "/find-jobs-geneva/",
+      "/jobs-in-genf/",
+      "/trouver-emploi-geneve/"
+    ],
+    "id": "cerca-lavoro-ginevra",
+    "label": "Cerca lavoro Ginevra",
+    "kind": "template",
+    "targetCtr": 0.03,
+    "monitored": true,
+    "note": "Auto-registrata da discovery template job-board (cantonCode=GE), scoperta via /trouver-emploi-geneve/.",
+    "impressions90d": 52627,
+    "measuredOn": "2026-09-27"
+  },
+  {
+    "pathContains": "/cerca-lavoro-vaud/",
+    "pathAliases": [
+      "/find-jobs-vaud/",
+      "/jobs-in-der-waadt/",
+      "/trouver-emploi-vaud/"
+    ],
+    "id": "cerca-lavoro-vaud",
+    "label": "Cerca lavoro Vaud",
+    "kind": "template",
+    "targetCtr": 0.03,
+    "monitored": true,
+    "note": "Auto-registrata da discovery template job-board (cantonCode=VD), scoperta via /trouver-emploi-vaud/.",
+    "impressions90d": 51522,
+    "measuredOn": "2026-09-27"
   }
 ]

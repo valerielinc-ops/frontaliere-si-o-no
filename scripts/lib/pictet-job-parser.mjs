@@ -13,9 +13,12 @@
  *   shared client extracts `{title, reqId, area, country}` via
  *   `parseHtmlCareerDetail`.
  *
- * Pictet HQ: Geneva (GE) — default canton when SuccessFactors location
- * extraction fails. The downstream canton-quorum-gate re-classifies based
- * on title/body/locality 2-of-3.
+ * The career5 board is Pictet's global one (Geneva, Zurich, Lausanne, but also
+ * London, Luxembourg, Singapore, Hong Kong, Paris, Turin, Frankfurt). Only a
+ * vacancy whose own location resolves to a Swiss canton is published: a
+ * foreign, missing or unresolved location drops the vacancy instead of
+ * falling back to the Geneva HQ (issue 9842: 11 of 18 slice rows were foreign
+ * vacancies stamped `GE`).
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllPictetJobs()  — Fetch and parse all jobs
@@ -23,10 +26,11 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import {
   buildSuccessFactorsApiUrl,
   detectSuccessFactorsKind,
@@ -203,9 +207,20 @@ function buildParsedJobFromSf(normalized) {
   const title = normalizeSpace(normalized?.title || '');
   if (!title || title.length < 3) return null;
 
-  const locationText = normalizeSpace(normalized?.location || '') || 'Genève';
+  const locationText = normalizeSpace(normalized?.location || '');
+  // `location` is a dedicated field from the SuccessFactors detail parser,
+  // not free-form prose. Preserve that source-field boundary when passing it
+  // to the conservative geography resolver: bare scalar values intentionally
+  // remain fail-closed for callers that have no structured source context.
+  const geography = locationText && !isLocationExplicitlyForeign(locationText)
+    ? resolveSourceBackedSwissGeography({ location: locationText })
+    : null;
+  if (!geography) {
+    console.log(`  ⏭️  Skipped non-Swiss or unresolved location: ${locationText || '(none)'} — ${title}`);
+    return null;
+  }
+  const { canton } = geography;
   const city = locationText.split(',')[0].trim();
-  const canton = inferSwissTargetCanton(locationText) || inferSwissTargetCanton(city) || 'GE';
 
   const descriptionRaw = typeof normalized?.descriptionHtml === 'string' ? normalized.descriptionHtml : '';
   const descriptionText = stripHtml(descriptionRaw);
@@ -220,13 +235,6 @@ function buildParsedJobFromSf(normalized) {
   const jobSlug = slugify(`${title} pictet ${city || 'geneva'}`);
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-  const postedDate = (() => {
-    const raw = normalized?.postedAt || '';
-    if (!raw) return new Date().toISOString().slice(0, 10);
-    const d = new Date(raw);
-    if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  })();
 
   return {
     // ── Required fields ──
@@ -259,7 +267,7 @@ function buildParsedJobFromSf(normalized) {
     sector: 'Finanza / Banca privata',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...mergeSourcePostingDates({}, normalized),
     applyUrl: publicUrl,
     jobReqId: normalized?.jobReqId || null,
     requirements: [],
@@ -390,3 +398,6 @@ export async function fetchAllPictetJobs() {
   console.log(`\n📋 Total Pictet jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+// Internal export for test injection — not part of the public crawler contract.
+export const __testables = { buildParsedJobFromSf };

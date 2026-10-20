@@ -6,6 +6,8 @@
  * already store about a subscriber — not just the keywords they typed:
  *
  *   1. Explicit alert keywords      → HARD filter (legacy contract preserved).
+ *      A keyword is also allowed to match an exact structured category/sector
+ *      value, because board sector filters are persisted in this same field.
  *   2. Source-job intent            → tokens from `sourceJobTitle` / `sourceJobSlug`,
  *                                      i.e. the job the user was viewing when they
  *                                      one-tap-subscribed. Stored since FRO-333 but
@@ -34,11 +36,21 @@
 
 import { extractKeywords } from './newsletter-content.mjs';
 import {
+  expandKeywordsWithSynonymPhrases,
+  professionSynonymText,
+} from './professionSynonymsCore.mjs';
+import {
   canonicalCompanyProfileSlug,
   companyDisplayIdentityKeys,
 } from '../build-plugins/shared/companyProfileSlug.mjs';
-import { locTokenHit } from './locToken.mjs';
+import { companyFollowGroupKey } from '../build-plugins/shared/companyFollowGroups.mjs';
+import { locationTokenVariants, normalizeLocToken } from './locToken.mjs';
 import { municipalityToCantons } from './provinceCantonAffinity.ts';
+import {
+ activeApplicationIntentJobKeys,
+ buildApplicationIntentJobKey,
+ ALERT_APPLICATION_INTENT_BOOST,
+} from './applicationIntentRanking.mjs';
 
 /** @typedef {Set<string>} TokenSet */
 
@@ -58,6 +70,178 @@ const SWISS_CANTONS = new Set([
   'zh', 'be', 'lu', 'ur', 'sz', 'ow', 'nw', 'gl', 'zg', 'fr', 'so', 'bs', 'bl',
   'sh', 'ar', 'ai', 'sg', 'gr', 'ag', 'tg', 'ti', 'vd', 'vs', 'ne', 'ge', 'ju',
 ]);
+
+/**
+ * One-tap board/category alerts predate a structured category field and store
+ * the localized board label in `keywords` (for example, "Tecnologia"). Keep
+ * recognizing those persisted labels instead of treating them as literal job
+ * text. The keys are deliberately limited to the labels emitted by the four
+ * supported board locales. Raw sector labels are handled separately by the
+ * exact structured-value fallback in the scorer.
+ */
+const ALERT_CATEGORY_LABELS = new Map([
+  ['technology', 'tech'],
+  ['tecnologia', 'tech'],
+  ['technologie', 'tech'],
+  ['tech', 'tech'],
+  ['it', 'tech'],
+  ['software', 'tech'],
+  ['informatik', 'tech'],
+  ['informatique', 'tech'],
+  ['finance', 'finance'],
+  ['finanza', 'finance'],
+  ['finanzen', 'finance'],
+  ['healthcare', 'health'],
+  ['health', 'health'],
+  ['sanita', 'health'],
+  ['gesundheit', 'health'],
+  ['sante', 'health'],
+  ['medical', 'health'],
+  ['engineering', 'engineering'],
+  ['production', 'engineering'],
+  ['manufacturing', 'engineering'],
+  ['maintenance', 'engineering'],
+  ['ingegneria', 'engineering'],
+  ['ingenieurwesen', 'engineering'],
+  ['ingenierie', 'engineering'],
+  ['administration', 'admin'],
+  ['amministrazione', 'admin'],
+  ['verwaltung', 'admin'],
+  ['hospitality', 'hospitality'],
+  ['ristorazione', 'hospitality'],
+  ['gastronomie', 'hospitality'],
+  ['ospitalita', 'hospitality'],
+  ['gastgewerbe', 'hospitality'],
+  ['hotellerie', 'hospitality'],
+  ['sales marketing', 'sales'],
+  ['sales', 'sales'],
+  ['marketing', 'sales'],
+  ['vendite marketing', 'sales'],
+  ['vertrieb marketing', 'sales'],
+  ['ventes marketing', 'sales'],
+  ['other', 'other'],
+  ['altro', 'other'],
+  ['sonstiges', 'other'],
+  ['autre', 'other'],
+]);
+
+/**
+ * The crawler corpus carries both canonical categories and publisher/source
+ * labels. These aliases are only used on the structured `category`/`sector`
+ * side of the comparison; they never turn a free-form alert keyword into a
+ * category intent.
+ */
+const JOB_CATEGORY_VALUES = new Map([
+  ['tech', 'tech'],
+  ['it', 'tech'],
+  ['software', 'tech'],
+  ['technology', 'tech'],
+  ['tecnologia', 'tech'],
+  ['technologie', 'tech'],
+  ['informatica', 'tech'],
+  ['informatik', 'tech'],
+  ['informatique', 'tech'],
+  ['information technology', 'tech'],
+  ['finance', 'finance'],
+  ['finanza', 'finance'],
+  ['finanzen', 'finance'],
+  ['financial', 'finance'],
+  ['banking', 'finance'],
+  ['bank', 'finance'],
+  ['contabilita', 'finance'],
+  ['health', 'health'],
+  ['healthcare', 'health'],
+  ['sanita', 'health'],
+  ['gesundheit', 'health'],
+  ['sante', 'health'],
+  ['medical', 'health'],
+  ['medical affairs', 'health'],
+  ['regulatory', 'health'],
+  ['care', 'health'],
+  ['cura', 'health'],
+  ['soins', 'health'],
+  ['pflege', 'health'],
+  ['fisioterapia', 'health'],
+  ['nursing', 'health'],
+  ['infermieristica', 'health'],
+  ['pharma', 'health'],
+  ['pharmacy', 'health'],
+  ['engineering', 'engineering'],
+  ['ingegneria', 'engineering'],
+  ['ingenieurwesen', 'engineering'],
+  ['ingenierie', 'engineering'],
+  ['quality assurance', 'engineering'],
+  ['quality', 'engineering'],
+  ['operations', 'engineering'],
+  ['production', 'engineering'],
+  ['produzione', 'engineering'],
+  ['manufacturing', 'engineering'],
+  ['maintenance', 'engineering'],
+  ['admin', 'admin'],
+  ['administration', 'admin'],
+  ['amministrazione', 'admin'],
+  ['verwaltung', 'admin'],
+  ['hr', 'admin'],
+  ['human resources', 'admin'],
+  ['general services', 'admin'],
+  ['servizi generali', 'admin'],
+  ['office', 'admin'],
+  ['hospitality', 'hospitality'],
+  ['ospitalita', 'hospitality'],
+  ['gastgewerbe', 'hospitality'],
+  ['hotellerie', 'hospitality'],
+  ['ristorazione', 'hospitality'],
+  ['restaurant', 'hospitality'],
+  ['hotel', 'hospitality'],
+  ['tourism', 'hospitality'],
+  ['gastronomie', 'hospitality'],
+  ['sales', 'sales'],
+  ['marketing', 'sales'],
+  ['sales marketing', 'sales'],
+  ['vendite marketing', 'sales'],
+  ['vertrieb marketing', 'sales'],
+  ['ventes marketing', 'sales'],
+  ['commercial', 'sales'],
+  ['commerce', 'sales'],
+  ['other', 'other'],
+  ['altro', 'other'],
+  ['sonstiges', 'other'],
+  ['autre', 'other'],
+]);
+
+function normalizeCategoryValue(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function alertCategoryKey(value) {
+  return ALERT_CATEGORY_LABELS.get(normalizeCategoryValue(value)) || null;
+}
+
+function jobCategoryKey(value) {
+  return JOB_CATEGORY_VALUES.get(normalizeCategoryValue(value)) || null;
+}
+
+function jobCategoryKeys(job) {
+  return new Set(
+    [job?.category, job?.sector]
+      .map(jobCategoryKey)
+      .filter(Boolean),
+  );
+}
+
+function jobTaxonomyValues(job) {
+  return new Set(
+    [job?.category, job?.sector]
+      .map(normalizeCategoryValue)
+      .filter(Boolean),
+  );
+}
 
 /**
  * Minimum number of in-area matches required before {@link partitionByGeoPreference}
@@ -108,6 +292,12 @@ export function freshnessBoost(job, nowMs) {
 /**
  * @typedef {object} AlertProfile
  * @property {TokenSet}  hardKeywords  Explicit user keywords (hard filter when non-empty).
+ * @property {Set<string>} hardCategoryKeys  Board taxonomy labels persisted as
+ *                                           keywords, matched against structured
+ *                                           job category/sector fields.
+ * @property {Set<string>} hardTaxonomyValues  Normalized explicit values checked
+ *                                             for exact equality against raw
+ *                                             structured job category/sector fields.
  * @property {TokenSet}  softTokens    Intent tokens from source job + newsletter profile.
  * @property {string}    company       Normalized company affinity token ('' when none).
  * @property {string[]}  locations     Lowercased location signals (soft — ranking only).
@@ -126,6 +316,79 @@ export function freshnessBoost(job, nowMs) {
  */
 
 const uniq = (arr) => [...new Set(arr.filter(Boolean))];
+
+function normalizedCriteria(values) {
+  return (values || []).map((value) => String(value || '').trim().toLowerCase());
+}
+
+function sameCriteriaOrder(left, right) {
+  const a = normalizedCriteria(left);
+  const b = normalizedCriteria(right);
+  return a.length === b.length && a.every((value, index) => value === b[index]);
+}
+
+/**
+ * Remove only the source-context criteria that the newsletter backfill writer
+ * generated before it learned to keep a recovered offer title soft. Explicit
+ * or edited alert criteria remain hard: an extra, removed, or reordered value
+ * means the array no longer matches one of the writer's exact legacy forms.
+ *
+ * `backfill-newsletter-job-context.mjs` uses `job_search_query` for a recovered
+ * offer title. When that marker is present, even that one value is source-job
+ * intent rather than a typed query. The writer's earlier forms are retained
+ * here so existing alerts self-heal at read time without a destructive data
+ * migration.
+ */
+function hardKeywordValuesForAlert(alert, subscriber) {
+  const values = Array.isArray(alert?.keywords) ? alert.keywords : [];
+  const marker = String(alert?.backfilled_from || alert?.backfilledFrom || '').trim();
+  if (!marker.startsWith('newsletter_subscribers:') || values.length === 0) return values;
+
+  const sub = subscriber || {};
+  const query = String(sub.job_search_query || '').trim();
+  const category = String(sub.job_category || '').trim();
+  const title = String(sub.job_title || alert?.sourceJobTitle || '').trim();
+  const recoveredSourceJobContext = Boolean(
+    String(sub.job_context_backfill_source || '').trim()
+      || String(sub.job_context_backfill_slug || '').trim(),
+  );
+  const legacyContext = uniq([query, category, title]);
+  const legacyWriterContext = legacyContext.filter((value) => {
+    const normalized = value.toLowerCase();
+    return normalized !== category.toLowerCase()
+      || normalized === query.toLowerCase()
+      || normalized === title.toLowerCase();
+  });
+  const generatedForms = [legacyContext, legacyWriterContext, uniq([query])]
+    .filter((form) => form.length > 0);
+  if (!generatedForms.some((form) => sameCriteriaOrder(values, form))) return values;
+
+  const generatedValues = new Set(normalizedCriteria([query, category, title]));
+  const explicitQuery = recoveredSourceJobContext ? '' : query.toLowerCase();
+  return values.filter((value) => {
+    const normalized = String(value || '').trim().toLowerCase();
+    return normalized === explicitQuery || !generatedValues.has(normalized);
+  });
+}
+
+/**
+ * Remove only the source-offer location that the newsletter backfill writer
+ * placed in the alert before it learned to keep that context soft. Explicit
+ * or edited alert locations remain hard: the raw array must be exactly the
+ * single value generated from `job_location`, including casing and whitespace.
+ * This mirrors buildAlertPayload's write-time migration for existing alerts
+ * that have not received another subscriber write yet.
+ */
+function hardLocationValuesForAlert(alert, subscriber) {
+  const values = Array.isArray(alert?.locations) ? alert.locations : [];
+  const marker = String(alert?.backfilled_from || alert?.backfilledFrom || '').trim();
+  if (!marker.startsWith('newsletter_subscribers:') || values.length === 0) return values;
+
+  const sourceLocation = String(subscriber?.job_location || '').trim();
+  if (!sourceLocation) return values;
+  const generated = [sourceLocation];
+  return JSON.stringify(values) === JSON.stringify(generated) ? [] : values;
+}
 
 /**
  * Normalize a company display name / key into a compact, canonical token:
@@ -146,14 +409,17 @@ function normalizeCompanyToken(value) {
 
 /**
  * Company token for the PINNED-employer comparison, with declared brand aliases
- * folded onto their canonical employer key. Both sides are compared by exact
- * equality; crawler keys are intentionally not an identity fallback.
+ * folded onto their canonical employer key and follow-group members
+ * (build-plugins/shared/companyFollowGroups.mjs: «Coop» and «Coop
+ * Genossenschaft») folded onto their group key. Both sides are compared by
+ * exact equality; crawler keys are intentionally not an identity fallback.
  *
  * @param {string} value
  * @returns {string}
  */
 function canonicalCompanyToken(value) {
-  return normalizeCompanyToken(value);
+  const t = companyFollowGroupKey(canonicalCompanyProfileSlug(value, value)).replace(/-/g, '');
+  return t.length >= 3 ? t : '';
 }
 
 /**
@@ -223,6 +489,9 @@ function preferenceCities(preferences) {
  * @property {Record<string,string>|Map<string,string>} [cityToCanton] Lowercased
  *   city → canton index (built from the full jobs dataset) used to resolve the
  *   preferred cities to their cantons for the geo-preference split.
+ * @property {Record<string,unknown>|null} [applicationIntent] Bounded private
+ *   exact-job intent projection; opted-out or expired entries score zero.
+ * @property {number} [now] Fixed epoch for deterministic retention checks/tests.
  */
 
 /**
@@ -241,11 +510,23 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   const ex = extras || {};
 
   // 1. Explicit user keywords — hard requirement when present (legacy contract).
-  const hardKeywords = new Set();
-  for (const kw of a.keywords || []) {
+  const hardKeywordInputs = [];
+  for (const kw of hardKeywordValuesForAlert(a, sub)) {
     const t = String(kw || '').toLowerCase().trim();
-    if (t) hardKeywords.add(t);
+    if (t) hardKeywordInputs.push(t);
   }
+  // The alert's hard-filter contract stays intact (at least one profession
+  // keyword must match), but cross-locale aliases now count as the same
+  // profession. Without this, an English "nurse" alert could never match an
+  // Italian "infermiere" listing even though the shared job-search taxonomy
+  // already knows both terms.
+  const hardKeywords = new Set(expandKeywordsWithSynonymPhrases(hardKeywordInputs));
+  const hardCategoryKeys = new Set(
+    hardKeywordInputs.map(alertCategoryKey).filter(Boolean),
+  );
+  const hardTaxonomyValues = new Set(
+    hardKeywordInputs.map(normalizeCategoryValue).filter(Boolean),
+  );
 
   // 2. Soft intent tokens — boost relevance and, for keyword-less alerts, act as
   //    the matching filter. Sourced from the job the user engaged with plus the
@@ -254,6 +535,11 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   const addTokens = (text) => {
     if (!text) return;
     for (const t of extractKeywords(text)) softTokens.add(t);
+    // Source-job titles and profile queries are also cross-locale intent. Add
+    // the aliases for the complete phrase so multi-word professions (for
+    // example "chef de partie") expand before token scoring.
+    const aliases = professionSynonymText(text);
+    for (const t of extractKeywords(aliases)) softTokens.add(t);
   };
   addTokens(a.sourceJobTitle);
   addTokens(a.sourceJobSlug);
@@ -278,7 +564,8 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   //    soft profile-derived signals (newsletter geo/interest + pref cities),
   //    used only for the +2 ranking boost so a profile city never silently
   //    constrains an alert the user scoped differently.
-  const alertLocations = uniq((a.locations || []).map((l) => String(l || '').toLowerCase()));
+  const alertLocations = uniq(hardLocationValuesForAlert(a, sub)
+    .map((l) => String(l || '').toLowerCase()));
   const locations = uniq([
     ...alertLocations,
     String(sub.location_interest || '').toLowerCase(),
@@ -337,8 +624,11 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
     // A raw 2-letter canton code (from a source/clicked job's geography) resolves
     // to itself; a city is mapped through the jobs-derived city→canton index.
     if (t.length === 2 && SWISS_CANTONS.has(t)) return t;
-    const mapped = cityToCanton instanceof Map ? cityToCanton.get(t) : cityToCanton[t];
-    return mapped ? String(mapped).toLowerCase() : '';
+    for (const candidate of [t, ...locationTokenVariants(t)]) {
+      const mapped = cityToCanton instanceof Map ? cityToCanton.get(candidate) : cityToCanton[candidate];
+      if (mapped) return String(mapped).toLowerCase();
+    }
+    return '';
   };
   const preferredCantons = uniq([
     ...preferredLocations.map(lookupCanton),
@@ -362,8 +652,9 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   );
 
   return {
-    hardKeywords, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
+    hardKeywords, hardCategoryKeys, hardTaxonomyValues, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
     specificJobIds, specificCompanyKey, preferredLocations: preferredLocationNames, preferredCantons,
+    applicationIntentJobKeys: activeApplicationIntentJobKeys(ex.applicationIntent, ex.now),
   };
 }
 
@@ -404,13 +695,18 @@ export function partitionByGeoPreference(jobs, profile, { minLocal = GEO_PREFERE
   const prefCanton = profile.preferredCantons || [];
   if (prefLoc.length === 0 && prefCanton.length === 0) return list;
 
+  // `locTokenHit(jobLoc, l)` for every preferred location, with the needles
+  // normalized once per call and the job side once per job (#9314).
+  const prefLocNeedles = paddedLocNeedles(prefLoc);
   const inArea = [];
   const rest = [];
   for (const job of list) {
     const jobCanton = String(job?.canton || '').toLowerCase();
-    const jobLoc = `${job?.location || ''} ${job?.addressLocality || ''} ${job?.addressRegion || ''} ${job?.canton || ''}`.toLowerCase();
     const hit = (prefCanton.length > 0 && jobCanton && prefCanton.includes(jobCanton))
-      || prefLoc.some((l) => locTokenHit(jobLoc, l));
+      || (prefLocNeedles.length > 0 && includesAny(
+        paddedLocHaystack(`${job?.location || ''} ${job?.addressLocality || ''} ${job?.addressRegion || ''} ${job?.canton || ''}`),
+        prefLocNeedles,
+      ));
     (hit ? inArea : rest).push(job);
   }
   return inArea.length >= minLocal ? inArea : inArea.concat(rest);
@@ -444,8 +740,135 @@ export function jobMatchFeatures(job, locale) {
     jobLoc: `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase(),
     jobCanton: String(job.canton || '').toLowerCase(),
     jobSector: `${job.sector || ''} ${job.category || ''}`.toLowerCase(),
+    jobCategoryKeys: jobCategoryKeys(job),
+    jobTaxonomyValues: jobTaxonomyValues(job),
     jobContract: String(job.contract || '').toLowerCase(),
   };
+}
+
+/**
+ * Location haystack in the exact shape `locTokenHit` compares against:
+ * normalized and space-padded, so `padded.includes(' needle ')` answers
+ * `locTokenHit(jobLoc, needle)` without normalizing the job side again.
+ * An empty normalization pads to two spaces, which no padded needle (at least
+ * three characters) can be found in — the same `false` locTokenHit returns.
+ *
+ * @param {string} jobLoc
+ * @returns {string}
+ */
+function paddedLocHaystack(jobLoc) {
+  return ` ${normalizeLocToken(jobLoc)} `;
+}
+
+/**
+ * The profile side of `locTokenHit`, normalized once per alert instead of once
+ * per job: empty normalizations are dropped (locTokenHit answers `false` for
+ * them), the rest are space-padded for {@link paddedLocHaystack}.
+ *
+ * @param {string[]} needles
+ * @returns {string[]}
+ */
+function paddedLocNeedles(needles) {
+  const out = [];
+  const seen = new Set();
+  for (const needle of needles || []) {
+    for (const variant of locationTokenVariants(needle)) {
+      const padded = ` ${variant} `;
+      if (!seen.has(padded)) {
+        seen.add(padded);
+        out.push(padded);
+      }
+    }
+  }
+  return out;
+}
+
+/**
+ * Whether `haystack` contains any of the padded `needles`
+ * ({@link paddedLocHaystack} / {@link paddedLocNeedles}).
+ *
+ * @param {string} haystack
+ * @param {string[]} needles
+ * @returns {boolean}
+ */
+function includesAny(haystack, needles) {
+  for (let i = 0; i < needles.length; i++) if (haystack.includes(needles[i])) return true;
+  return false;
+}
+
+/**
+ * Two bitmaps over an index space: `known` says the answer was computed, `hit`
+ * holds it. Grown on demand, so the memo never needs to know the pool size up
+ * front.
+ */
+function createSubstringMemo() {
+  return { known: new Uint32Array(64), hit: new Uint32Array(64) };
+}
+
+/** @returns {-1|0|1} unknown, miss, hit */
+function memoRead(memo, index) {
+  const word = index >>> 5;
+  if (word >= memo.known.length) return -1;
+  const bit = 1 << (index & 31);
+  if ((memo.known[word] & bit) === 0) return -1;
+  return (memo.hit[word] & bit) !== 0 ? 1 : 0;
+}
+
+function memoWrite(memo, index, found) {
+  const word = index >>> 5;
+  if (word >= memo.known.length) {
+    let size = memo.known.length;
+    while (size <= word) size *= 2;
+    const known = new Uint32Array(size);
+    known.set(memo.known);
+    const hit = new Uint32Array(size);
+    hit.set(memo.hit);
+    memo.known = known;
+    memo.hit = hit;
+  }
+  const bit = 1 << (index & 31);
+  memo.known[word] |= bit;
+  if (found) memo.hit[word] |= bit;
+}
+
+/**
+ * `features.fullText.includes(keyword)` for one cache entry, answered at most
+ * once per (locale, keyword, job) — and the description scan at most once per
+ * (keyword, job) across locales.
+ *
+ * `fullText` is `titleText + ' ' + description`, and only `titleText` depends
+ * on the locale. An occurrence of the keyword therefore lies inside the title,
+ * inside the description, or across the joining space; the three checks below
+ * cover exactly those cases, so the answer is the plain `includes` answer.
+ *
+ * @param {{features: {titleText: string, fullText: string}, index: number, jobIndex: number}} entry
+ * @param {ReturnType<typeof createSubstringMemo>} localeMemo (locale, keyword) memo over entry indexes
+ * @param {ReturnType<typeof createSubstringMemo>} descriptionMemo keyword memo over job indexes
+ * @param {string} keyword
+ * @returns {boolean}
+ */
+function memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword) {
+  const known = memoRead(localeMemo, entry.index);
+  if (known !== -1) return known === 1;
+  const { titleText, fullText } = entry.features;
+  const join = titleText.length; // fullText[join] is the joining space
+  let found = titleText.includes(keyword);
+  if (!found) {
+    const inDescription = memoRead(descriptionMemo, entry.jobIndex);
+    if (inDescription !== -1) {
+      found = inDescription === 1;
+    } else {
+      found = fullText.includes(keyword, join + 1);
+      memoWrite(descriptionMemo, entry.jobIndex, found);
+    }
+  }
+  if (!found) {
+    found = fullText
+      .slice(Math.max(0, join - keyword.length + 1), join + keyword.length)
+      .includes(keyword);
+  }
+  memoWrite(localeMemo, entry.index, found);
+  return found;
 }
 
 /**
@@ -453,24 +876,277 @@ export function jobMatchFeatures(job, locale) {
  * pool (keyed by object identity, then locale). Opt-in via the 4th argument of
  * {@link scoreJobForAlert}: a caller that mutates a job between two scores must
  * not pass one, and the default (no cache) recomputes exactly as before.
+ *
+ * Besides the features it memoises, per job/locale, the other answers that
+ * depend only on the job and never on the alert (#9314): the normalized
+ * location haystack, the pinned-company identity keys, and — per locale and
+ * hard keyword — whether `fullText` contains that keyword. Since #9471 every
+ * alert is scored against the recipient's whole catch-up window (~19K rows in
+ * production), and #9695 expands each profession keyword into its 8-27
+ * cross-locale aliases: the same `fullText.includes(alias)` scan over a ~2.4 KB
+ * description was repeated for every alert that shares the alias. The memo is
+ * a pair of bitmaps per (locale, keyword) plus one per keyword for the
+ * locale-independent description, a few KB each.
  */
 export function createJobFeatureCache() {
   const byJob = new WeakMap();
+  const pinnedKeysByJob = new WeakMap();
+  const jobIndexByJob = new WeakMap();
+  let jobCount = 0;
+  /** @type {Map<string, ReturnType<typeof createSubstringMemo>>} */
+  const descriptionMemos = new Map();
+  /** @type {Map<string, {size: number, keywordMemos: Map<string, ReturnType<typeof createSubstringMemo>>}>} */
+  const spaces = new Map();
+  const spaceFor = (key) => {
+    let space = spaces.get(key);
+    if (!space) {
+      space = { size: 0, keywordMemos: new Map() };
+      spaces.set(key, space);
+    }
+    return space;
+  };
+  const entry = (job, locale) => {
+    let byLocale = byJob.get(job);
+    if (!byLocale) {
+      byLocale = new Map();
+      byJob.set(job, byLocale);
+    }
+    const key = locale || '';
+    let found = byLocale.get(key);
+    if (!found) {
+      let jobIndex = jobIndexByJob.get(job);
+      if (jobIndex === undefined) {
+        jobIndex = jobCount++;
+        jobIndexByJob.set(job, jobIndex);
+      }
+      const features = jobMatchFeatures(job, locale);
+      found = { features, index: spaceFor(key).size++, jobIndex, locHaystack: null };
+      byLocale.set(key, found);
+    }
+    return found;
+  };
   return {
     get(job, locale) {
-      let byLocale = byJob.get(job);
-      if (!byLocale) {
-        byLocale = new Map();
-        byJob.set(job, byLocale);
-      }
-      const key = locale || '';
-      let features = byLocale.get(key);
-      if (!features) {
-        features = jobMatchFeatures(job, locale);
-        byLocale.set(key, features);
-      }
-      return features;
+      return entry(job, locale).features;
     },
+    /**
+     * Internal to {@link createAlertScorer}: the cache entry of `job` in
+     * `locale` — its features, its index in that locale's keyword bitmaps and
+     * its lazily normalized location haystack.
+     */
+    entry,
+    /**
+     * Internal to {@link createAlertScorer}: `(entry) => fullText.includes(keyword)`
+     * for `locale`, memoised as described on {@link memoKeywordInFullText}.
+     */
+    keywordTest(locale, keyword) {
+      const space = spaceFor(locale || '');
+      let localeMemo = space.keywordMemos.get(keyword);
+      if (!localeMemo) {
+        localeMemo = createSubstringMemo();
+        space.keywordMemos.set(keyword, localeMemo);
+      }
+      let descriptionMemo = descriptionMemos.get(keyword);
+      if (!descriptionMemo) {
+        descriptionMemo = createSubstringMemo();
+        descriptionMemos.set(keyword, descriptionMemo);
+      }
+      return (entry) => memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword);
+    },
+    /** Internal to {@link createAlertScorer}: {@link pinnedCompanyIdentityKeys}, once per job. */
+    pinnedKeys(job) {
+      let keys = pinnedKeysByJob.get(job);
+      if (!keys) {
+        keys = pinnedCompanyIdentityKeys(job);
+        pinnedKeysByJob.set(job, keys);
+      }
+      return keys;
+    },
+  };
+}
+
+/**
+ * Compile the per-alert half of {@link scoreJobForAlert} once, so the send
+ * loop can score a whole candidate window with it (#9314). Returns
+ * `(job) => score` with exactly the result of
+ * `scoreJobForAlert(job, profile, locale, featureCache)`; the latter is now a
+ * one-shot call of this function, so there is one implementation only.
+ *
+ * What moves out of the per-job path, without changing any answer:
+ *   - the profile's location needles are normalized once per alert, the job's
+ *     location once per job/locale (cache) — `locTokenHit` normalized both
+ *     sides on every call;
+ *   - with a cache, each hard-keyword `fullText.includes` is answered at most
+ *     once per (locale, keyword, job) for the whole run;
+ *   - the hard geo filter runs before the hard keyword filter. Both are
+ *     necessary conditions that return 0, the checks are pure, so the order
+ *     changes only how cheaply a non-matching job is rejected (a location
+ *     string of ~30 chars instead of a ~2.4 KB description).
+ *
+ * @param {AlertProfile|null|undefined} profile Output of {@link buildAlertProfile}.
+ * @param {string} [locale] See {@link scoreJobForAlert}.
+ * @param {ReturnType<typeof createJobFeatureCache>|null} [featureCache] See {@link scoreJobForAlert}.
+ * @returns {(job: object) => number}
+ */
+export function createAlertScorer(profile, locale, featureCache = null, options = {}) {
+  if (!profile) return () => 0;
+  const applicationIntentEnabled = options.applicationIntentRankingEnabled === true;
+  const applicationIntentJobKeys = applicationIntentEnabled
+    ? profile.applicationIntentJobKeys || new Set()
+    : new Set();
+  const applicationIntentBoost = (job) => (
+    applicationIntentJobKeys.size > 0
+      && applicationIntentJobKeys.has(buildApplicationIntentJobKey(job))
+      ? ALERT_APPLICATION_INTENT_BOOST
+      : 0
+  );
+
+  // Job-specific scope: a pinned alert ("notify me about THIS job/company")
+  // surfaces ONLY the pinned job(s) / company, bypassing keyword/intent scoring.
+  const pinnedJobs = profile.specificJobIds || [];
+  const pinnedCompany = profile.specificCompanyKey || '';
+  if (pinnedJobs.length > 0 || pinnedCompany) {
+    return (job) => {
+      if (!job) return 0;
+      // `companyKey` identifies the crawler and can cover several employer labels
+      // (the Migros crawler also publishes Galaxus jobs). The display name is the
+      // employer identity used by the public profile and the writer. Use the
+      // shared canonical resolver on that display name only; never let a crawler
+      // key, substring, or missing display name broaden a company follow.
+      const jobCompanyKeys = featureCache ? featureCache.pinnedKeys(job) : pinnedCompanyIdentityKeys(job);
+      const idHit = pinnedJobs.includes(String(job.id || ''))
+        || pinnedJobs.includes(String(job.publisherJobId || ''));
+      const companyHit = Boolean(pinnedCompany && jobCompanyKeys.includes(pinnedCompany));
+      return (idHit || companyHit) ? 10 + applicationIntentBoost(job) : 0;
+    };
+  }
+
+  const {
+    hardKeywords,
+    hardCategoryKeys = new Set(),
+    hardTaxonomyValues = new Set(),
+    softTokens,
+    cantons,
+    sectors,
+    contractTypes,
+  } = profile;
+  const hardList = [...hardKeywords];
+  const keywordTests = featureCache ? hardList.map((kw) => featureCache.keywordTest(locale, kw)) : null;
+  const alertLocationNeedles = paddedLocNeedles(profile.alertLocations);
+  const locationNeedles = paddedLocNeedles(profile.locations);
+  const needsLocation = alertLocationNeedles.length > 0 || locationNeedles.length > 0;
+  const hasGeoScope = profile.alertLocations.length > 0 || cantons.length > 0;
+  const hasIntentProfile = softTokens.size > 0 || Boolean(profile.company);
+  // A profile without a single signal scores every job 0 (nothing can add to
+  // the score, and the no-keyword/no-intent policy then drops score 0): answer
+  // that without touching the job — 588 of 5.157 alerts in run 36097910375.
+  const neverMatches = hardList.length === 0 && !hasGeoScope && !hasIntentProfile
+    && locationNeedles.length === 0 && sectors.length === 0 && contractTypes.length === 0;
+
+  return (job) => {
+    if (!job || neverMatches) return 0;
+    const cached = featureCache ? featureCache.entry(job, locale) : null;
+    const {
+      titleText, fullText, jobTokens, jobCategoryKeys: jobCategories,
+      jobTaxonomyValues: jobTaxonomy = new Set(),
+      jobCompany, jobLoc, jobCanton, jobSector, jobContract,
+    } = cached ? cached.features : jobMatchFeatures(job, locale);
+    let locHaystack = '';
+    if (needsLocation) {
+      if (cached) {
+        if (cached.locHaystack === null) cached.locHaystack = paddedLocHaystack(jobLoc);
+        locHaystack = cached.locHaystack;
+      } else {
+        locHaystack = paddedLocHaystack(jobLoc);
+      }
+    }
+
+    // HARD geo filter: when the user scoped the alert to explicit locations and/or
+    // cantons, a job OUTSIDE that geography is dropped — even when keywords or
+    // company/sector match. Without this the location was only a +2 ranking nudge,
+    // so a "Lugano, Mendrisio, Bellinzona" alert still surfaced Basel/Lausanne jobs
+    // whose title matched the keyword. Only the alert's OWN locations/cantons are
+    // hard; soft profile-derived locations (geo_city, pref cities) still only rank.
+    if (hasGeoScope) {
+      const geoHit = includesAny(locHaystack, alertLocationNeedles)
+        || (cantons.length > 0 && jobCanton && cantons.includes(jobCanton));
+      if (!geoHit) return 0;
+    }
+
+    let score = 0;
+
+    // 1. HARD keyword filter — preserve the legacy contract: when the user typed
+    //    keywords, at least one MUST appear in the job text or exactly equal a
+    //    structured category/sector value. Board sector filters are persisted in
+    //    this same field, so an exact taxonomy comparison is necessary; never use
+    //    a substring match against structured values.
+    if (hardList.length > 0) {
+      let hit = false;
+      for (let k = 0; k < hardList.length; k++) {
+        const found = keywordTests ? keywordTests[k](cached) : fullText.includes(hardList[k]);
+        if (found) { hit = true; break; }
+      }
+      if (!hit && hardCategoryKeys.size > 0) {
+        for (const category of hardCategoryKeys) {
+          if (jobCategories.has(category)) {
+            hit = true;
+            break;
+          }
+        }
+      }
+      if (!hit && hardTaxonomyValues.size > 0) {
+        for (const taxonomyValue of hardTaxonomyValues) {
+          if (jobTaxonomy.has(taxonomyValue)) {
+            hit = true;
+            break;
+          }
+        }
+      }
+      if (!hit) return 0;
+      score += 3;
+      // Tokenized overlap bonus: jobs matching MORE keyword tokens rank higher.
+      let overlap = 0;
+      for (const kw of hardList) if (jobTokens.has(kw)) overlap++;
+      score += Math.min(3, overlap);
+    }
+
+    // Company affinity (strong signal — same employer).
+    const companyMatch = Boolean(profile.company && jobCompany && jobCompany === profile.company);
+    if (companyMatch) score += 4;
+
+    // Soft keyword overlap (tokenized, proportional, capped).
+    let softOverlap = 0;
+    for (const t of softTokens) if (jobTokens.has(t)) softOverlap++;
+    if (softOverlap > 0) score += Math.min(5, softOverlap * 2);
+
+    // Location (jobLoc: see jobMatchFeatures).
+    const locationMatch = includesAny(locHaystack, locationNeedles);
+    if (locationMatch) score += 2;
+    const cantonMatch = cantons.length > 0 && cantons.includes(jobCanton);
+    if (cantonMatch) score += 1;
+
+    // Sector (match against sector/category AND title — sectors often surface in titles).
+    const sectorMatch = sectors.some((s) => jobSector.includes(s) || titleText.includes(s));
+    if (sectorMatch) score += 2;
+
+    // Contract type.
+    const contractMatch = contractTypes.some((c) => jobContract.includes(c));
+    if (contractMatch) score += 1;
+
+    // 2. Filtering policy when there are NO explicit keywords.
+    if (hardList.length === 0) {
+      if (hasIntentProfile) {
+        // One-tap / onboarding subscriber: require at least ONE targeted signal,
+        // otherwise we'd surface every recent job (the legacy noise this fixes).
+        if (softOverlap === 0 && !companyMatch && !sectorMatch && !locationMatch) return 0;
+      } else if (score === 0) {
+        // Pure location/sector alert with no intent profile (legacy behavior):
+        // location / sector / contract sufficient; nothing matched → exclude.
+        return 0;
+      }
+    }
+
+    return Math.max(score, 1) + applicationIntentBoost(job);
   };
 }
 
@@ -478,6 +1154,8 @@ export function createJobFeatureCache() {
  * Score one job against a pre-built alert profile.
  * Returns 0 when the job should NOT be surfaced; a positive integer otherwise
  * (higher = more relevant). The send loop sorts by this score, then recency.
+ * A caller scoring many jobs against the same alert should compile it once
+ * with {@link createAlertScorer} (same answer, per-alert work done once).
  *
  * @param {object} job          Job from data/jobs.json.
  * @param {AlertProfile} profile Output of {@link buildAlertProfile}.
@@ -492,99 +1170,7 @@ export function createJobFeatureCache() {
  *   many alerts. Omitted: computed per call, as before.
  * @returns {number}
  */
-export function scoreJobForAlert(job, profile, locale, featureCache = null) {
+export function scoreJobForAlert(job, profile, locale, featureCache = null, options = {}) {
   if (!job || !profile) return 0;
-
-  // Job-specific scope: a pinned alert ("notify me about THIS job/company")
-  // surfaces ONLY the pinned job(s) / company, bypassing keyword/intent scoring.
-  const pinnedJobs = profile.specificJobIds || [];
-  const pinnedCompany = profile.specificCompanyKey || '';
-  if (pinnedJobs.length > 0 || pinnedCompany) {
-    // `companyKey` identifies the crawler and can cover several employer labels
-    // (the Migros crawler also publishes Galaxus jobs). The display name is the
-    // employer identity used by the public profile and the writer. Use the
-    // shared canonical resolver on that display name only; never let a crawler
-    // key, substring, or missing display name broaden a company follow.
-    const jobCompanyKeys = pinnedCompanyIdentityKeys(job);
-    const idHit = pinnedJobs.includes(String(job.id || ''))
-      || pinnedJobs.includes(String(job.publisherJobId || ''));
-    const companyHit = Boolean(pinnedCompany && jobCompanyKeys.includes(pinnedCompany));
-    return (idHit || companyHit) ? 10 : 0;
-  }
-
-  const {
-    titleText, fullText, jobTokens, jobCompany, jobLoc, jobCanton, jobSector, jobContract,
-  } = featureCache ? featureCache.get(job, locale) : jobMatchFeatures(job, locale);
-
-  let score = 0;
-
-  // 1. HARD keyword filter — preserve the legacy contract: when the user typed
-  //    keywords, at least one MUST appear in the job text or the job is dropped.
-  const { hardKeywords } = profile;
-  if (hardKeywords.size > 0) {
-    let hit = false;
-    for (const kw of hardKeywords) {
-      if (fullText.includes(kw)) { hit = true; break; }
-    }
-    if (!hit) return 0;
-    score += 3;
-    // Tokenized overlap bonus: jobs matching MORE keyword tokens rank higher.
-    let overlap = 0;
-    for (const kw of hardKeywords) if (jobTokens.has(kw)) overlap++;
-    score += Math.min(3, overlap);
-  }
-
-  // Company affinity (strong signal — same employer).
-  const companyMatch = Boolean(profile.company && jobCompany && jobCompany === profile.company);
-  if (companyMatch) score += 4;
-
-  // Soft keyword overlap (tokenized, proportional, capped).
-  let softOverlap = 0;
-  for (const t of profile.softTokens) if (jobTokens.has(t)) softOverlap++;
-  if (softOverlap > 0) score += Math.min(5, softOverlap * 2);
-
-  // Location (jobLoc: see jobMatchFeatures).
-
-  // HARD geo filter: when the user scoped the alert to explicit locations and/or
-  // cantons, a job OUTSIDE that geography is dropped — even when keywords or
-  // company/sector match. Without this the location was only a +2 ranking nudge,
-  // so a "Lugano, Mendrisio, Bellinzona" alert still surfaced Basel/Lausanne jobs
-  // whose title matched the keyword. Only the alert's OWN locations/cantons are
-  // hard; soft profile-derived locations (geo_city, pref cities) still only rank.
-  const hasGeoScope = profile.alertLocations.length > 0 || profile.cantons.length > 0;
-  if (hasGeoScope) {
-    const geoHit =
-      profile.alertLocations.some((l) => locTokenHit(jobLoc, l)) ||
-      (profile.cantons.length > 0 && jobCanton && profile.cantons.includes(jobCanton));
-    if (!geoHit) return 0;
-  }
-
-  const locationMatch = profile.locations.some((l) => locTokenHit(jobLoc, l));
-  if (locationMatch) score += 2;
-  const cantonMatch = profile.cantons.length > 0 && profile.cantons.includes(jobCanton);
-  if (cantonMatch) score += 1;
-
-  // Sector (match against sector/category AND title — sectors often surface in titles).
-  const sectorMatch = profile.sectors.some((s) => jobSector.includes(s) || titleText.includes(s));
-  if (sectorMatch) score += 2;
-
-  // Contract type.
-  const contractMatch = profile.contractTypes.some((c) => jobContract.includes(c));
-  if (contractMatch) score += 1;
-
-  // 2. Filtering policy when there are NO explicit keywords.
-  if (hardKeywords.size === 0) {
-    const hasIntentProfile = profile.softTokens.size > 0 || Boolean(profile.company);
-    if (hasIntentProfile) {
-      // One-tap / onboarding subscriber: require at least ONE targeted signal,
-      // otherwise we'd surface every recent job (the legacy noise this fixes).
-      if (softOverlap === 0 && !companyMatch && !sectorMatch && !locationMatch) return 0;
-    } else if (score === 0) {
-      // Pure location/sector alert with no intent profile (legacy behavior):
-      // location / sector / contract sufficient; nothing matched → exclude.
-      return 0;
-    }
-  }
-
-  return Math.max(score, 1);
+  return createAlertScorer(profile, locale, featureCache, options)(job);
 }

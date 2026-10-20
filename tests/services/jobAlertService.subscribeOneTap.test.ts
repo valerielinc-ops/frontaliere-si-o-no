@@ -124,6 +124,15 @@ describe('findMatchingAlertForCategory', () => {
     expect(findMatchingAlertForCategory([a], 'Sanità')).toBeNull();
   });
 
+  it('keeps alerts relevant to the requested canton and respects a paused existing alert', () => {
+    const ticino = { ...alert('ti', ['Sanità']), cantonFilter: ['TI'] };
+    const zurich = { ...alert('zh', ['Sanità']), cantonFilter: ['ZH'] };
+    expect(findMatchingAlertForCategory([ticino, zurich], 'Sanità', 'ZH')).toBe(zurich);
+    expect(findMatchingAlertForCategory([ticino], 'Sanità', 'ZH')).toBeNull();
+    expect(findMatchingAlertForCategory([{ ...zurich, paused: true }], 'Sanità', 'ZH')?.id).toBe('zh');
+    expect(findMatchingAlertForCategory([alert('national', ['Sanità'])], 'Sanità', 'ZH')?.id).toBe('national');
+  });
+
   it('returns null when no keyword matches', () => {
     const a = alert('a', ['Finanza', 'IT']);
     expect(findMatchingAlertForCategory([a], 'Sanità')).toBeNull();
@@ -189,6 +198,32 @@ describe('subscribeJobAlertOneTap', () => {
       expect.anything(),
       expect.objectContaining({ email: 'foo@example.com', userId: 'user-1' }),
     );
+  });
+
+  it('persists supported board filters in the one-tap alert config', async () => {
+    await subscribeJobAlertOneTap(
+      'user-1',
+      'a@b.com',
+      'Tecnologia',
+      'it',
+      undefined,
+      'TI',
+      TEST_EMAIL_CONSENT,
+      {
+        locations: ['lugano'],
+        contractTypes: ['part-time'],
+        sectors: ['healthcare'],
+      },
+    );
+
+    const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1];
+    expect(alertPayload).toMatchObject({
+      keywords: ['Tecnologia'],
+      locations: ['lugano'],
+      contractTypes: ['part-time'],
+      sectors: ['healthcare'],
+      cantonFilter: ['TI'],
+    });
   });
 
   it('creates the base relationship and alert without a second explicit consent', async () => {

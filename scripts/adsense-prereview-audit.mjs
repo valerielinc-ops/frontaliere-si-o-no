@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * adsense-prereview-audit.mjs — AdSense pre-review checklist.
  *
@@ -93,7 +95,12 @@ import path from 'node:path';
 import { isJobBoardSectionPath } from './lib/jobBoardSections.mjs';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { flatString } from './lib/flat-string.mjs';
-import { ADSENSE_THIN_WORDS } from './adsense-prereview-thresholds.mjs';
+import {
+  ADSENSE_MIN_CHARS_PER_AD_SLOT,
+  ADSENSE_THIN_WORDS,
+  countStaticAdSlots,
+  normalizeVisibleHtmlText,
+} from './adsense-prereview-thresholds.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.resolve(ROOT, 'dist');
@@ -139,13 +146,6 @@ for (let i = 0; i < args.length; i += 1) {
 const RE = {
   loc: /<loc>(.*?)<\/loc>/gi,
   sitemapIndex: /<sitemapindex[\s>]/i,
-  stripScript: /<script[\s\S]*?<\/script>/gi,
-  stripStyle: /<style[\s\S]*?<\/style>/gi,
-  stripNoScript: /<noscript[\s\S]*?<\/noscript>/gi,
-  stripSvg: /<svg[\s\S]*?<\/svg>/gi,
-  stripTags: /<[^>]+>/g,
-  ws: /\s+/g,
-  adInsSlot: /<ins[^>]*\badsbygoogle\b[^>]*>/gi,
   adClientTag: /data-ad-client=/gi,
   adSenseMeta: /google-adsense-account/gi,
   adSenseScript: /pagead2\.googlesyndication\.com/gi,
@@ -162,7 +162,7 @@ const RE = {
 const THIN_TEXT_CHARS = 900;
 const THIN_WORDS = ADSENSE_THIN_WORDS;
 const LOW_RICHNESS_BLOCKS = 3;
-const MIN_CHARS_PER_AD_SLOT = 500;
+const MIN_CHARS_PER_AD_SLOT = ADSENSE_MIN_CHARS_PER_AD_SLOT;
 /**
  * AGENTS.md non-negotiable #4: "Mai accettare thin content indicizzato <50
  * parole." Below this an indexed page carrying ads is a hard violation, not a
@@ -239,18 +239,7 @@ function walkHtmlFiles(dir, out = []) {
 }
 
 function normalizeTextFromHtml(html) {
-  return String(html || '')
-    .replace(RE.stripScript, ' ')
-    .replace(RE.stripStyle, ' ')
-    .replace(RE.stripNoScript, ' ')
-    .replace(RE.stripSvg, ' ')
-    .replace(RE.stripTags, ' ')
-    .replace(/&nbsp;|&#160;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;/gi, "'")
-    .replace(RE.ws, ' ')
-    .trim();
+  return normalizeVisibleHtmlText(html);
 }
 
 /**
@@ -452,7 +441,7 @@ export function stratifiedSample(entries, total, offset) {
  * signal present on most of the programmatic surface.
  */
 export function adDelivery(html) {
-  const staticSlots = countRegex(RE.adInsSlot, html);
+  const staticSlots = countStaticAdSlots(html);
   const clientTags = countRegex(RE.adClientTag, html);
   const meta = countRegex(RE.adSenseMeta, html);
   const loader = countRegex(RE.adSenseScript, html);
@@ -925,7 +914,7 @@ async function main() {
 }
 
 // Allow the pure helpers above to be imported by tests without running the audit.
-const invokedDirectly = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error(`❌ audit crashed: ${err?.stack || err}`);

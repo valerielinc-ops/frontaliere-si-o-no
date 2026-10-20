@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * Build a live, read-only status table for the loop fleet.
@@ -12,14 +13,17 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { createdSinceFilter, newestFirst } from './lib/run-listing-window.mjs';
 import {
   LIFECYCLE_EVENT_TYPES,
   summarizeLifecycleEvents as summarizeLifecycleEventsContract,
   validateActionClassAgainstPolicy,
+  validateHistoricalLifecycleEvent,
+  validateHistoricalOutcomeAgainstPolicy,
   validateLifecycleEvent,
   validateLoopRegistry,
-  validateOutcomeAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
+import { listLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 const DEFAULT_LEDGER_DIR = path.join('data', 'loop-fleet', 'ledger');
@@ -212,10 +216,17 @@ function ghRaw(args, { allowFailure = false } = {}) {
   }
 }
 
+// La cadenza piu' lenta fra i loop e' settimanale (L7, L9): 21 giorni coprono
+// tre giri. Senza finestra `created` un elenco per `branch` puo' tornare fermo
+// a settimane prima (scripts/ci/lib/run-listing-window.mjs) e `--limit 1`
+// consegnerebbe come «ultima run» la prima riga di quell'elenco: la piu'
+// recente si sceglie quindi in locale su `createdAt`.
+const LATEST_RUN_WINDOW_DAYS = 21;
+
 function latestRun(workflow) {
-  const runs = gh(['run', 'list', '--workflow', workflow, '--branch', 'main', '--status', 'completed', '--limit', '1', '--json', 'databaseId,conclusion,status,createdAt,updatedAt,url,headSha'], { allowFailure: true });
+  const runs = gh(['run', 'list', '--workflow', workflow, '--branch', 'main', '--status', 'completed', '--created', createdSinceFilter(LATEST_RUN_WINDOW_DAYS), '--limit', '20', '--json', 'databaseId,conclusion,status,createdAt,updatedAt,url,headSha'], { allowFailure: true });
   if (!Array.isArray(runs)) return { run: null, error: 'GitHub Actions API is unreadable' };
-  return { run: runs[0] || null, error: runs.length ? null : 'no completed run found' };
+  return { run: newestFirst(runs)[0] || null, error: runs.length ? null : 'no completed run found' };
 }
 
 function workflowForPolicy(policy) {
@@ -254,32 +265,34 @@ function readLastJsonl(file) {
 }
 
 function readDurableHealth(ledgerDir, registry) {
-  const file = path.resolve(ledgerDir, 'loop-health-history.jsonl');
-  if (!fs.existsSync(file)) return { byLoop: {}, error: null };
+  const files = listLoopFleetLedgerFiles(ledgerDir, 'loop-health-history.jsonl');
+  if (!files.length) return { byLoop: {}, error: null };
   try {
     const byLoop = {};
-    const lines = fs.readFileSync(file, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean);
-    for (const [index, line] of lines.entries()) {
-      let health;
-      try {
-        health = JSON.parse(line);
-      } catch (error) {
-        throw new Error(`line ${index + 1} is invalid JSON: ${error.message}`);
+    for (const file of files) {
+      const lines = fs.readFileSync(file, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean);
+      for (const [index, line] of lines.entries()) {
+        let health;
+        try {
+          health = JSON.parse(line);
+        } catch (error) {
+          throw new Error(`${path.basename(file)} line ${index + 1} is invalid JSON: ${error.message}`);
+        }
+        if (!health || health.recordType !== 'health' || !text(health.loopId)) {
+          throw new Error(`${path.basename(file)} line ${index + 1} is not a health record`);
+        }
+        validateActionClassAgainstPolicy(registry, health.loopId, health.actionClass);
+        validateHistoricalOutcomeAgainstPolicy(registry, health.loopId, health.outcome);
+        if (!health.execution?.runId || !/^[0-9a-f]{40}$/iu.test(String(health.execution.sha))) {
+          throw new Error(`${path.basename(file)} line ${index + 1} has no durable execution identity`);
+        }
+        const previous = byLoop[health.loopId];
+        const currentTime = Date.parse(health.recordedAt || health.execution.recordedAt || '');
+        const previousTime = previous
+          ? Date.parse(previous.recordedAt || previous.execution?.recordedAt || '')
+          : -Infinity;
+        if (!previous || (Number.isFinite(currentTime) && currentTime >= previousTime)) byLoop[health.loopId] = health;
       }
-      if (!health || health.recordType !== 'health' || !text(health.loopId)) {
-        throw new Error(`line ${index + 1} is not a health record`);
-      }
-      validateActionClassAgainstPolicy(registry, health.loopId, health.actionClass);
-      validateOutcomeAgainstPolicy(registry, health.loopId, health.outcome);
-      if (!health.execution?.runId || !/^[0-9a-f]{40}$/iu.test(String(health.execution.sha))) {
-        throw new Error(`line ${index + 1} has no durable execution identity`);
-      }
-      const previous = byLoop[health.loopId];
-      const currentTime = Date.parse(health.recordedAt || health.execution.recordedAt || '');
-      const previousTime = previous
-        ? Date.parse(previous.recordedAt || previous.execution?.recordedAt || '')
-        : -Infinity;
-      if (!previous || (Number.isFinite(currentTime) && currentTime >= previousTime)) byLoop[health.loopId] = health;
     }
     return { byLoop, error: null };
   } catch (error) {
@@ -291,31 +304,33 @@ export const summarizeLifecycleEvents = summarizeLifecycleEventsContract;
 export const summarizeLifecycleDetails = lifecycleSummary;
 
 function readDurableLifecycle(ledgerDir, registry, now = new Date()) {
-  const file = path.resolve(ledgerDir, 'lifecycle-events.jsonl');
-  if (!fs.existsSync(file)) return { byLoop: {}, error: null, available: false };
+  const files = listLoopFleetLedgerFiles(ledgerDir, 'lifecycle-events.jsonl');
+  if (!files.length) return { byLoop: {}, error: null, available: false };
   try {
     const byLoop = {};
     const byId = new Map();
-    const lines = fs.readFileSync(file, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean);
-    for (const [index, line] of lines.entries()) {
-      let event;
-      try {
-        event = JSON.parse(line);
-      } catch (error) {
-        throw new Error(`line ${index + 1} is invalid JSON: ${error.message}`);
+    for (const file of files) {
+      const lines = fs.readFileSync(file, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean);
+      for (const [index, line] of lines.entries()) {
+        let event;
+        try {
+          event = JSON.parse(line);
+        } catch (error) {
+          throw new Error(`${path.basename(file)} line ${index + 1} is invalid JSON: ${error.message}`);
+        }
+        validateHistoricalLifecycleEvent(registry, event.loopId, event);
+        if (!object(event.execution) || !text(event.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(event.execution.sha || ''))) {
+          throw new Error(`${path.basename(file)} line ${index + 1} has no durable execution identity`);
+        }
+        const previous = byId.get(event.recordId);
+        if (previous && JSON.stringify(previous) !== JSON.stringify(event)) {
+          throw new Error(`line ${index + 1} conflicts with duplicate ${event.recordId}`);
+        }
+        if (previous) continue;
+        byId.set(event.recordId, event);
+        if (!byLoop[event.loopId]) byLoop[event.loopId] = [];
+        byLoop[event.loopId].push(event);
       }
-      validateLifecycleEvent(registry, event.loopId, event);
-      if (!object(event.execution) || !text(event.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(event.execution.sha || ''))) {
-        throw new Error(`line ${index + 1} has no durable execution identity`);
-      }
-      const previous = byId.get(event.recordId);
-      if (previous && JSON.stringify(previous) !== JSON.stringify(event)) {
-        throw new Error(`line ${index + 1} conflicts with duplicate ${event.recordId}`);
-      }
-      if (previous) continue;
-      byId.set(event.recordId, event);
-      if (!byLoop[event.loopId]) byLoop[event.loopId] = [];
-      byLoop[event.loopId].push(event);
     }
     return {
       byLoop: Object.fromEntries(Object.entries(byLoop).map(([loopId, events]) => [loopId, lifecycleSummary(events, now)])),
@@ -735,7 +750,7 @@ export function main({ argv = process.argv.slice(2), logger = console } = {}) {
   return report;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

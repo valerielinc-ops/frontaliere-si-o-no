@@ -105,7 +105,7 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'components/shared/RelatedTools.tsx': 1,
   'components/tabs/CalcolatoreTabContent.tsx': 2,
   'functions/src/lib/newsletterUrlPaths.js': 5,
-  'infra/cloudflare-worker/locale-router.js': 4,
+  'infra/cloudflare-worker/locale-router.js': 0,
   'scripts/adsense-format-ab-report.mjs': 2,
   'scripts/analytics-report.mjs': 2,
   'scripts/audit-404-risk.mjs': 1,
@@ -120,18 +120,25 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'scripts/lib/seo-ctr-curve.mjs': 4,
   'scripts/lib/telegram-templates.mjs': 1,
   'scripts/monitor-cls-posthog.mjs': 4,
-  'scripts/monitor-sector-coverage.mjs': 2,
+  'scripts/monitor-sector-coverage.mjs': 0,
   'scripts/newsletter-qa.mjs': 1,
   'scripts/newsletter-template.mjs': 4,
   'scripts/reconcile-job-slugs.mjs': 2,
   'scripts/refresh-noslash-keep.mjs': 1,
-  'scripts/send-saved-jobs-digest.mjs': 3,
+  'scripts/send-saved-jobs-digest.mjs': 0,
   'scripts/seo-audit-employer-slugs.mjs': 8,
   'scripts/seo-audit-visual.mjs': 5,
   'scripts/validate-spa-render.mjs': 5,
   'scripts/verify-post-deploy-seo.mjs': 4,
   'services/analyticsPageContext.ts': 4,
-  'services/seo/seo-pages.ts': 9,
+  // 9 → 10 con #11769: l'`@id` del nodo WebSite della job board deve
+  // coincidere con la `url` TI della riga accanto. Qui il marker inline NON e'
+  // esprimibile: `staticPagesPlugin` legge questo file via regex (jsToJson) e
+  // un commento `//` dentro `structuredData` fa cadere in silenzio l'intero
+  // array JSON-LD della voce (vedi tests/static-pages-seo-entry-lookup.test.ts).
+  // Nemmeno `SECTION_LEGACY_TI_PATH` lo e': un binding importato non viene
+  // risolto da quel parser. Il numero resta un ratchet: puo' solo scendere.
+  'services/seo/seo-pages.ts': 10,
   'services/seoService.ts': 1,
 };
 

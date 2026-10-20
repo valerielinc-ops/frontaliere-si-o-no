@@ -10,9 +10,18 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, stripScriptsAndStyles } from './crawler-template.mjs';
+import { extractDetailFields, extractJsonLd, extractMicrodata } from './prospector/extract.mjs';
+import {
+  fetchHtml as sharedFetchHtml,
+  normalizeDescriptionSpace,
+  slugify,
+  stripHtml,
+} from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -22,6 +31,12 @@ export const BMS_BUILDING_COMPANY_NAME = 'BMS Building Materials';
 export const BMS_BUILDING_COMPANY_DOMAIN = 'bmsuisse.ch';
 
 const CAREER_URL = 'https://jobs.bmsuisse.ch/';
+const BMS_DETAIL_SELECTOR = '.tx-webx-jobs > .details';
+
+// The old parser started at the document body, so every saved description
+// began with this exact menu rendering. Keep the whole sequence anchored: a
+// shorter match would risk deleting source prose that merely mentions BMS.
+export const BMS_NAVIGATION_PREFIX_RE = /^\s*•\s*X\s+Arbeiten\s+bei\s+BMS\s+Arbeiten\s+bei\s+BMS\s+Unsere\s+Werte\s+Deine\s+Benefits\s+Health\s*&\s*Safety\s+Jobs\s+Jobs\s+Offene\s+Stellen\s+Lehrstellen\s+DE\s+FR\s+IT\s+DE\s+/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -68,6 +83,74 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
+/**
+ * Remove the complete BMS navigation prefix from a stored source body.
+ *
+ * This deliberately does not recognise an isolated menu word or a partial
+ * language switcher: only the full, anchored sequence emitted by the old
+ * document-level fallback is historical chrome.
+ */
+export function stripBmsNavigationPrefix(value = '') {
+  return String(value || '').replace(BMS_NAVIGATION_PREFIX_RE, '').trim();
+}
+
+/**
+ * Repair stored BMS bodies before locale-preserving merge.
+ *
+ * The source slot is kept (with its chrome removed); every non-source
+ * description slot is dropped because it was translated from the dirty body.
+ * The title/slug maps are intentionally untouched so published URLs remain
+ * stable while the localization step rebuilds the descriptions.
+ */
+export function prepareBmsBuildingExistingJobs(jobs = []) {
+  const list = Array.isArray(jobs) ? jobs : [];
+  let repaired = 0;
+
+  for (const job of list) {
+    if (!job || typeof job !== 'object') continue;
+    const byLocale = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+      ? job.descriptionByLocale
+      : {};
+    const sourceLang = String(job.sourceLang || 'de');
+    const sourceValues = [job.description, byLocale[sourceLang]];
+    const hasDirtySource = sourceValues.some((value) => BMS_NAVIGATION_PREFIX_RE.test(String(value || '')));
+    if (!hasDirtySource) continue;
+
+    let changed = false;
+    if (typeof job.description === 'string') {
+      const cleaned = stripBmsNavigationPrefix(job.description);
+      if (cleaned !== job.description) {
+        job.description = cleaned;
+        changed = true;
+      }
+    }
+    if (typeof byLocale[sourceLang] === 'string') {
+      const cleaned = stripBmsNavigationPrefix(byLocale[sourceLang]);
+      if (cleaned !== byLocale[sourceLang]) {
+        byLocale[sourceLang] = cleaned;
+        changed = true;
+      }
+    }
+
+    let droppedLocalizedSlots = 0;
+    for (const locale of Object.keys(byLocale)) {
+      if (locale === sourceLang) continue;
+      delete byLocale[locale];
+      droppedLocalizedSlots += 1;
+    }
+    if (droppedLocalizedSlots > 0) job.needsRetranslation = true;
+    if (changed || droppedLocalizedSlots > 0) repaired += 1;
+  }
+
+  if (repaired > 0) {
+    console.log(
+      `  🧹 ${BMS_BUILDING_COMPANY_NAME}: removed the complete navigation prefix from `
+      + `${repaired} stored job(s); localized slots will be retranslated`,
+    );
+  }
+  return list;
+}
+
 /* ── Category Detection ────────────────────────────────────── */
 
 function detectCategory(title = '') {
@@ -112,24 +195,14 @@ const JOB_BASE = 'https://jobs.bmsuisse.ch';
  */
 async function fetchHtml(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,*/*',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return sharedFetchHtml(url, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml,*/*',
+      'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    },
+  });
 }
 
 /**
@@ -187,67 +260,62 @@ function parseListingPage(html = '') {
 }
 
 /**
- * Parse a BMS detail page to extract the full job description.
- * Tries multiple extraction strategies since the page structure varies.
+ * Extract only the BMS announcement container from a detail page.
+ *
+ * The page has no JobPosting wrapper that the generic extractor can safely
+ * select. The real announcement is the direct `.details` child of the jobs
+ * component; the navigation and site footer live outside it. The generic
+ * extractor is still used for structured fields and future markup variants,
+ * while the description is fail-closed when this source-specific container is
+ * absent.
  */
-function parseDetailPage(html = '') {
+export function extractBmsBuildingDetailFields(html = '', pageUrl = '', opts = {}) {
+  const source = String(html || '');
+  const base = extractDetailFields(source, pageUrl, opts);
+  if (!source) return { ...base, description: '' };
+
+  const dom = new JSDOM(source);
+  try {
+    const details = dom.window.document.querySelector(BMS_DETAIL_SELECTOR);
+    if (!details) return { ...base, ...mergeSourcePostingDates({}, {}), description: '' };
+
+    const content = details.cloneNode(true);
+    content.querySelectorAll('header, footer, nav, .footer-frame, .job-title').forEach((node) => node.remove());
+    const description = normalizeDescriptionSpace(
+      stripHtml(content.innerHTML).replace(/^[ \t]*•[ \t]+/gm, '- '),
+    );
+    const renderedTitle = normalizeSpace(details.querySelector('.job-title')?.textContent || '');
+    const title = renderedTitle || base.title || '';
+    const records = [...extractJsonLd(source, pageUrl), ...extractMicrodata(source, pageUrl)];
+    const sameIdentity = Boolean(renderedTitle) && records.length > 0 && records.every((record) => {
+      if (normalizeSpace(record.title).toLowerCase() !== title.toLowerCase()) return false;
+      if (!record.urlExplicit) return true;
+      try {
+        const actual = new URL(record.url);
+        const expected = new URL(opts.recordUrl || pageUrl);
+        return actual.origin === expected.origin
+          && actual.pathname.replace(/\/$/, '') === expected.pathname.replace(/\/$/, '')
+          && actual.search === expected.search && actual.hash === expected.hash;
+      } catch { return false; }
+    });
+    return {
+      ...base,
+      ...mergeSourcePostingDates({}, sameIdentity ? base : {}),
+      title,
+      description: meetsSourceBodyFloor(description) ? description : '',
+    };
+  } finally {
+    dom.window.close();
+  }
+}
+
+/**
+ * Parse a BMS detail page to extract the announcement and application URL.
+ */
+function parseDetailPage(html = '', pageUrl = '') {
   if (!html) return null;
 
-  // Title from <h1>
-  const titleSource = stripScriptsAndStyles(html);
-  const h1Match = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  const title = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
-
-  // Try multiple extraction patterns for the job description content
-  let description = '';
-
-  // Strategy 1: Look for job-specific content sections
-  const jobDescMatch = html.match(/<div[^>]*class="[^"]*(?:job[_-]?desc|job[_-]?content|job[_-]?detail|stellenbeschreibung|beschreibung)[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-  if (jobDescMatch) description = stripHtml(jobDescMatch[1]).trim();
-
-  // Strategy 2: Extract body content between common landmarks
-  if (!description || description.length < 30) {
-    const bodyMatch = html.match(/<div[^>]*class="[^"]*(?:entry[_-]?content|page[_-]?content|main[_-]?content|post[_-]?content|text[_-]?content)[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-    if (bodyMatch) {
-      const text = stripHtml(bodyMatch[1]).trim();
-      if (text.length > description.length) description = text;
-    }
-  }
-
-  // Strategy 3: <main> or <article> content
-  if (!description || description.length < 30) {
-    const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-      || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-    if (mainMatch) {
-      const text = stripHtml(mainMatch[1]).trim();
-      if (text.length > description.length) description = text;
-    }
-  }
-
-  // Strategy 4: Collect all paragraphs and list items from the page body
-  if (!description || description.length < 30) {
-    const paragraphs = [...html.matchAll(/<(?:p|li)[^>]*>([\s\S]*?)<\/(?:p|li)>/gi)]
-      .map((m) => stripHtml(m[1]).trim())
-      .filter((s) => s.length > 10);
-    if (paragraphs.length > 0) {
-      const combined = paragraphs.join('\n');
-      if (combined.length > description.length) description = combined;
-    }
-  }
-
-  // Strategy 5: JSON-LD structured data
-  if (!description || description.length < 30) {
-    const ldMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-    if (ldMatch) {
-      try {
-        const ld = JSON.parse(ldMatch[1]);
-        const ldDesc = ld?.description || ld?.['@graph']?.[0]?.description || '';
-        if (ldDesc && ldDesc.length > description.length) {
-          description = stripHtml(ldDesc).trim();
-        }
-      } catch { /* ignore JSON parse errors */ }
-    }
-  }
+  const detail = extractBmsBuildingDetailFields(html, pageUrl, { recordUrl: pageUrl });
 
   // Extract apply URL (Onlyfy pattern or generic apply link)
   const applyMatch = html.match(/href="(https:\/\/bmsuisse\.onlyfy\.jobs\/[^"]+)"/i)
@@ -262,7 +330,7 @@ function parseDetailPage(html = '') {
         .filter((s) => s.length > 3)
     : [];
 
-  return { title, description, applyUrl, requirements };
+  return { ...detail, applyUrl, requirements };
 }
 
 /**
@@ -301,16 +369,15 @@ export async function fetchAllBmsBuildingJobs() {
   for (const entry of swissEntries) {
     try {
       const detailHtml = await fetchHtml(entry.url);
-      const detail = parseDetailPage(detailHtml);
+      const detail = parseDetailPage(detailHtml, entry.url);
 
       const title = detail?.title || entry.title;
       const location = entry.city || '';
       const canton = inferAnyCanton(location) || '';
-      // Ensure description has meaningful content (>30 chars) for SEO
+      // Publish source text only. The standard pipeline quarantines a missing
+      // or thin body instead of allowing a fabricated title/location fallback.
       const rawDesc = detail?.description || '';
-      const descriptionText = rawDesc.length >= 30
-        ? rawDesc
-        : `${title} — BMS Building Materials, ${location} (${canton}). ${rawDesc}`.trim();
+      const descriptionText = rawDesc.trim();
 
       const sourceLang = detectLang(descriptionText || title, 'de');
       const jobSlug = slugify(`${title} bms-building ch`);
@@ -347,7 +414,7 @@ export async function fetchAllBmsBuildingJobs() {
         sector: 'Edilizia / Materiali da costruzione',
         currency: 'CHF',
         featured: false,
-        postedDate: new Date().toISOString().split('T')[0],
+        ...mergeSourcePostingDates({}, detail || {}),
         applyUrl: detail?.applyUrl || entry.url,
         requirements: detail?.requirements || [],
         requirementsByLocale: { [sourceLang]: detail?.requirements || [] },

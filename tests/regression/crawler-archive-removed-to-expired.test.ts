@@ -143,6 +143,25 @@ describe('archiveRemovedJobsToSlice', () => {
     expect(fs.existsSync(path.join(dir, 'upd.json'))).toBe(false);
   });
 
+  it('repairs an existing archive when removedJobs is empty', () => {
+    const dir = makeTmpDir();
+    const leakedTitle = `Interpr${String.fromCharCode(92)}u00e8te communautaire`;
+    fs.writeFileSync(
+      path.join(dir, 'upd.json'),
+      JSON.stringify([{
+        slug: 'legacy-title',
+        title: leakedTitle,
+        titleByLocale: { fr: leakedTitle },
+        expiredAt: '2026-05-01T00:00:00.000Z',
+      }]) + '\n',
+    );
+
+    expect(archiveRemovedJobsToSlice([], 'upd', { dir })).toBe(0);
+    const [repaired] = readSlice(dir, 'upd') as Array<Record<string, unknown>>;
+    expect(repaired.title).toBe('Interprète communautaire');
+    expect(repaired.titleByLocale).toEqual({ fr: 'Interprète communautaire' });
+  });
+
   it('refuses to run without a crawlerKey', () => {
     const dir = makeTmpDir();
     expect(archiveRemovedJobsToSlice([removedUpdJob], '', { dir })).toBe(0);

@@ -29,6 +29,33 @@ describe('shared career-board ownership', () => {
     expect(isDedicatedPostBrand('Die Schweizerische Post')).toBe(false);
   });
 
+  it('resolves Swiss Post ownership from every brand and the posting URL', () => {
+    expect(isDedicatedPostBrand({
+      company: 'Die Schweizerische Post',
+      url: '/PostFinance/job/finance-role/123',
+    })).toBe(true);
+    expect(isDedicatedPostBrand({
+      company: 'Die Schweizerische Post',
+      cust_brandCompanyJobSearch: ['Die Schweizerische Post', 'PostAuto'],
+    })).toBe(true);
+    expect(isDedicatedPostBrand({
+      company: 'Die Schweizerische Post',
+      url: '/PostCH/job/post-role/123',
+    })).toBe(false);
+  });
+
+  it('classifies Swiss Post ownership from every supported job field', () => {
+    const company = 'Die Schweizerische Post';
+    expect(dedicatedPostOwner({ company, companyKey: 'postauto' })).toBe('postauto');
+    expect(dedicatedPostOwner({ company, url: '/PostFinance/job/finance-role/123' })).toBe('postfinance');
+    expect(dedicatedPostOwner({ company, applyUrl: '/PostAuto/job/driver-role/123' })).toBe('postauto');
+    expect(dedicatedPostOwner({ company, brandUrl: '/PostFinance/' })).toBe('postfinance');
+    expect(dedicatedPostOwner({
+      company,
+      cust_brandCompanyJobSearch: ['Die Schweizerische Post', 'PostAuto'],
+    })).toBe('postauto');
+  });
+
   it('separates RFSM/FNPG and HFR from the Fribourg administration', () => {
     expect(dedicatedFribourgOwner({ title: 'Infirmier-ère HES/ES, RFSM Marsens' })).toBe('rfsm-fribourg');
     expect(dedicatedFribourgOwner({ title: 'Pflegefachperson FNPG' })).toBe('rfsm-fribourg');

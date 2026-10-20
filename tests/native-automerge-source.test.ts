@@ -54,7 +54,7 @@ describe('native auto-merge source-loading contract', () => {
   it.each(WORKFLOW_FILES)('uses the same trusted main sparse checkout in %s', (relativePath) => {
     const source = readWorkflow(relativePath);
     const steps = workflowSteps(source);
-    const checkout = steps.find((step) => step.uses === 'actions/checkout@v5');
+    const checkout = steps.find((step) => step.uses === 'actions/checkout@v7');
     const validation = steps.find((step) => String(step.name).includes('Validate trusted native auto-merge source'));
     const gate = steps.find((step) => String(step.name).match(/(?:Enable|Retry) GitHub auto-merge|Retry bounded native auto-merge opt-in/u));
 
@@ -79,15 +79,15 @@ describe('native auto-merge source-loading contract', () => {
     expect(validation?.run).not.toContain('gh api');
     expect(source).toContain('$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/load-rc-env.mjs');
     expect(gate?.run).toContain('cd "$NATIVE_AUTOMERGE_SOURCE_ROOT"');
-    expect(source).not.toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY');
-    expect(source).not.toMatch(/if:\s+env\.NATIVE_AUTOMERGE_/u);
+    expect(validation?.run).toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY=true');
+    expect(gate?.if).toBe("env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'");
     expect(source).not.toMatch(/contents\/.*\?ref=main/u);
     expect(source).not.toContain('needs-human');
     expect(source).not.toMatch(/human approval/iu);
   });
 
   it('covers the transitive runtime graph, including REST fallback, gate, and registry', () => {
-    expect(NATIVE_AUTOMERGE_HELPER_FILES).toHaveLength(9);
+    expect(NATIVE_AUTOMERGE_HELPER_FILES).toHaveLength(10);
     const loader = readSourceFile('scripts/load-rc-env.mjs');
     const gate = readSourceFile('scripts/ci/native-automerge-gate.mjs');
     const policy = readSourceFile('scripts/ci/review-test-policy.mjs');
@@ -115,8 +115,8 @@ describe('native auto-merge source-loading contract', () => {
     }
   });
 
-  it('keeps the nine gate helpers explicit and validates the live source tree', () => {
-    expect(NATIVE_AUTOMERGE_HELPER_FILES).toHaveLength(9);
+  it('keeps the gate helpers explicit and validates the live source tree', () => {
+    expect(NATIVE_AUTOMERGE_HELPER_FILES).toHaveLength(10);
     const validated = validateNativeAutoMergeSource(REPOSITORY_ROOT);
     expect(validated.files).toEqual(NATIVE_AUTOMERGE_SOURCE_FILES);
     expect(validated.helperDir).toMatch(/scripts\/ci$/u);

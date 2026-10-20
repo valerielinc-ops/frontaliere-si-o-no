@@ -1,4 +1,5 @@
 import { getSiteShell } from './siteShell';
+import { articleSectionKind } from './shared/articleSectionCore.mjs';
 import {
  markdownFenceCloses,
  markdownFenceFor,
@@ -8,7 +9,7 @@ import {
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
-type ArticleSection = 'frontaliere' | 'svizzera';
+type ArticleSection = 'frontaliere' | 'svizzera' | `canton-${string}`;
 
 type SeoSection = {
  heading: string;
@@ -61,10 +62,11 @@ const SECTION_LABELS: Record<Locale, { intro: string; why: string; checks: strin
  },
 };
 
-// Switzerland-resident framing overrides for the "svizzera" section. Only the
-// `impact` heading label and the intro-paragraph residence clause differ from
-// the default (frontaliere) copy; everything else is shared. Frontaliere output
-// stays byte-identical because these are applied only when section==='svizzera'.
+// Switzerland-resident framing overrides for the national ("svizzera")
+// section. Only the `impact` heading label and the intro-paragraph residence
+// clause differ from the default (frontaliere) copy; everything else is
+// shared. Frontaliere output stays byte-identical because these are applied
+// only to the kinds in SWISS_RESIDENT_FRAMING_KINDS.
 const SVIZZERA_IMPACT_LABEL: Record<Locale, string> = {
  it: 'Impatto pratico per chi vive in Svizzera',
  en: 'Practical impact for people living in Switzerland',
@@ -72,17 +74,229 @@ const SVIZZERA_IMPACT_LABEL: Record<Locale, string> = {
  fr: 'Impact concret pour les residents en Suisse',
 };
 
-// Renders inline markdown (links, bold, italic, code) to safe HTML. Escapes the raw text
-// first, then layers markup on top — none of the markdown syntax characters (*[]()`) are
-// HTML-special, so this can't reopen an escaped entity.
-const renderInlineMarkup = (line: string): string => {
+// Section kinds whose readers live in Switzerland, looked up from the section
+// core instead of comparing the name (`section === 'svizzera'`). A canton
+// section addresses residents of that canton, so it takes the Swiss-resident
+// framing rather than the frontaliere one (Italy-resident, Ticino-employed).
+const SWISS_RESIDENT_FRAMING_KINDS: ReadonlySet<string> = new Set(['national', 'canton']);
+
+const LEGACY_HTML_ANCHOR_RX = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+const HTML_HREF_ATTR_RX = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/i;
+const INLINE_MARKDOWN_LINK_RX = /\[([^\]]+)\]\(([^)]+)\)/g;
+const INLINE_LINK_TOKEN_RX = /\u0000inline-link-(\d+)\u0000/g;
+
+// A small set of archived bodies used angle-bracket pseudo-links instead of
+// the supported `[label](nav:action)` marker. These are the three actions
+// observed in the malformed Bing frontier: keep the domain explicit so an
+// unknown or ambiguous angle token is not silently reinterpreted.
+const LEGACY_ANGLE_NAV_ACTIONS = new Set(['calculator', 'cost-of-living', 'health']);
+const ANGLE_NAV_LINK_RX = /\[([^\]]+)\]\(\s*<nav:([a-z0-9-]+)>\s*\)/gi;
+const ANGLE_NAV_TAG_PAIR_RX = /<nav:([a-z0-9-]+)>\s*([^<]*?)\s*<\/nav:\1>/gi;
+const ANGLE_NAV_PAREN_TOKEN_RX = /\s*\(\s*<nav:([a-z0-9-]+)>\s*\)/gi;
+const ANGLE_NAV_TOKEN_RX = /<\/?nav:([a-z0-9-]+)>/gi;
+const INLINE_HTML_ENTITY_MAP: Record<string, string> = {
+ amp: '&',
+ lt: '<',
+ gt: '>',
+ quot: '"',
+ '#39': "'",
+ apos: "'",
+};
+
+type AngleNavToken = {
+ start: number;
+ end: number;
+ action: string;
+ closing: boolean;
+};
+
+const protectMismatchedAngleNavSequences = (line: string): {
+ normalized: string;
+ protectedSequences: string[];
+} => {
+ const tokens: AngleNavToken[] = Array.from(line.matchAll(ANGLE_NAV_TOKEN_RX), (match) => {
+  const start = match.index ?? 0;
+  const raw = match[0];
+  return {
+   start,
+   end: start + raw.length,
+   action: match[1],
+   closing: raw.startsWith('</'),
+  };
+ });
+ const mismatchedRanges: Array<[number, number]> = [];
+ const stack: AngleNavToken[] = [];
+
+ for (const token of tokens) {
+  if (!token.closing) {
+   stack.push(token);
+   continue;
+  }
+
+  const opening = stack.at(-1);
+  if (!opening) continue;
+  if (opening.action.toLowerCase() === token.action.toLowerCase()) {
+   stack.pop();
+   continue;
+  }
+
+  // A mismatched close makes the whole open-to-close region ambiguous. Keep
+  // it intact so the cleanup below cannot silently rewrite indexed copy.
+  mismatchedRanges.push([stack[0]!.start, token.end]);
+  stack.length = 0;
+ }
+
+ if (!mismatchedRanges.length) return { normalized: line, protectedSequences: [] };
+
+ const protectedSequences: string[] = [];
+ let normalized = line;
+ for (let i = mismatchedRanges.length - 1; i >= 0; i--) {
+  const [start, end] = mismatchedRanges[i];
+  const token = `\u0000legacy-angle-nav-sequence-${protectedSequences.length}\u0000`;
+  protectedSequences.push(line.slice(start, end));
+  normalized = normalized.slice(0, start) + token + normalized.slice(end);
+ }
+
+ return { normalized, protectedSequences };
+};
+
+const canonicalLegacyAngleNavAction = (action: string): string | null => {
+ const normalized = action.toLowerCase();
+ return LEGACY_ANGLE_NAV_ACTIONS.has(normalized) ? normalized : null;
+};
+
+// An unmatched opening marker is removable only when it is a complete,
+// content-free token. If text or another tag follows it, it may be an opening
+// tag whose closing marker was lost; preserving that sequence avoids changing
+// indexed article copy. Closing markers are never standalone cleanup tokens.
+const isStandaloneLegacyAngleNavOpening = (line: string, start: number, end: number): boolean => {
+ const previous = line[start - 1];
+ if (previous && !(/[\s]/u.test(previous) || '([{\"\'`'.includes(previous))) return false;
+
+ const nextContent = line.slice(end).match(/\S/u)?.[0];
+ return !nextContent || /[.,!?;:)\]}]/u.test(nextContent);
+};
+
+/** Convert only the observed legacy angle aliases to the supported nav marker. */
+const normalizeLegacyAngleNavMarkers = (line: string): string => {
+ const protectedResult = protectMismatchedAngleNavSequences(line);
+ const { protectedSequences } = protectedResult;
+ let normalized = protectedResult.normalized;
+
+ normalized = normalized.replace(ANGLE_NAV_TAG_PAIR_RX, (whole, action: string, label: string) => {
+  const canonicalAction = canonicalLegacyAngleNavAction(action);
+  if (!canonicalAction) return whole;
+  const visibleLabel = label.trim();
+  return visibleLabel ? '[' + visibleLabel + '](nav:' + canonicalAction + ')' : '';
+ });
+
+ normalized = normalized.replace(ANGLE_NAV_LINK_RX, (whole, label: string, action: string) => {
+  const canonicalAction = canonicalLegacyAngleNavAction(action);
+  return canonicalAction ? '[' + label + '](nav:' + canonicalAction + ')' : whole;
+ });
+
+ normalized = normalized.replace(
+  ANGLE_NAV_PAREN_TOKEN_RX,
+  (whole, action: string, offset: number, source: string) => {
+   if (!canonicalLegacyAngleNavAction(action)) return whole;
+   const parenthesisStart = offset + whole.indexOf('(');
+   if (isStandaloneLegacyAngleNavOpening(source, parenthesisStart, offset + whole.length)) return '';
+   // Keep an ambiguous parenthesized token out of the generic token cleanup
+   // below; otherwise that second pass would still remove its inner marker.
+   const protectedToken = `\u0000legacy-angle-nav-sequence-${protectedSequences.length}\u0000`;
+   protectedSequences.push(whole);
+   return protectedToken;
+  },
+ );
+
+ // Only a content-free opening token is safe to remove. An unmatched opening
+ // before prose (or any closing token) is ambiguous and must remain verbatim.
+ normalized = normalized.replace(ANGLE_NAV_TOKEN_RX, (whole, action: string, offset: number, source: string) => {
+  if (!canonicalLegacyAngleNavAction(action) || whole.startsWith('</')) return whole;
+  return isStandaloneLegacyAngleNavOpening(source, offset, offset + whole.length) ? '' : whole;
+ });
+
+ return normalized.replace(/\u0000legacy-angle-nav-sequence-(\d+)\u0000/g, (_, index: string) => (
+  protectedSequences[Number(index)] ?? _
+ ));
+};
+
+/** Decode only the entities that can occur in legacy article HTML attributes/text. */
+const decodeInlineHtmlEntities = (value: string): string => value.replace(
+ /&(amp|lt|gt|quot|#39|apos);/gi,
+ (_, entity: string) => INLINE_HTML_ENTITY_MAP[entity.toLowerCase()] ?? _,
+);
+
+/** Keep article links useful without allowing a source URL to become script. */
+const safeInlineHref = (value: string): string | null => {
+ const href = decodeInlineHtmlEntities(value).trim().replace(/^(["'])|(["'])$/g, '');
+ if (!href || /[\u0000-\u001f\u007f\\]/.test(href) || href.startsWith('//')) return null;
+ if (/^https?:\/\//i.test(href)) {
+  try { return new URL(href).hostname ? href : null; } catch { return null; }
+ }
+ if (/^mailto:/i.test(href)) return href;
+ if (href.startsWith('/') || href.startsWith('#')) return href;
+ if (/^\.{1,2}\//.test(href) || href.startsWith('?')) return href;
+ // Reject unsupported schemes, not ordinary relative references. Bare web
+ // hosts and the legacy calculator action are malformed source links: keep
+ // their labels without guessing a scheme or a destination. File names and
+ // relative article paths still resolve against the declared document URL.
+ if (/^[a-z][a-z0-9+.-]*:/i.test(href)) return null;
+ if (/^calculator(?:[?#].*)?$/i.test(href)) return null;
+ if (/^(?:www\.|(?:[a-z0-9-]+\.)+(?:ch|it|com|org|net|gov|edu|eu|io)(?:[/?#]|$))/i.test(href)) return null;
+ return href;
+};
+
+/**
+ * Renders inline markdown and the legacy literal `<a>` markup found in some
+ * archived corpus entries to safe HTML. The old implementation escaped the
+ * whole line first, so a source anchor became visible `&lt;a ...&gt;` text.
+ * Links are tokenized before escaping and restored only after all text has been
+ * escaped, preserving the complete archived wording without reopening HTML.
+ */
+export const renderArticleInlineMarkup = (line: string): string => {
  const { esc } = getSiteShell();
- return esc(line)
- .replace(/\[([^\]]+)\]\(nav:[^)]+\)/g, '$1')
- .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
- .replace(/`([^`]+)`/g, '<code>$1</code>')
- .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
- .replace(/\*(.*?)\*/g, '<em>$1</em>');
+ const links: string[] = [];
+ const renderEscapedInlineText = (value: string): string => esc(value)
+  .replace(/`([^`]+)`/g, '<code>$1</code>')
+  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+  .replace(/\*(.*?)\*/g, '<em>$1</em>')
+  // A few archived bodies use underscore emphasis (`_Fonte: ..._`), which is
+  // valid Markdown but used to survive as literal punctuation in the static
+  // article HTML. Restrict delimiters to whitespace/punctuation boundaries so
+  // identifiers such as `MOPS_DanceSyndrome` remain intact.
+  .replace(/(^|[\s([>{\"'“‘])(_{1,3})(?=\S)([^\n]*?\S)\2(?=$|[\s)\]}.,!?;:'\"”’<])/g, '$1<em>$3</em>');
+ const stashLink = (label: string, href: string): string => {
+  const safeHref = safeInlineHref(href);
+  if (!safeHref) return label;
+  const token = `\u0000inline-link-${links.length}\u0000`;
+  // Markdown link labels can themselves contain emphasis, for example
+  // `[**Riforma disoccupazione frontalieri**](https://...)`. Escape the
+  // label first and then render only its inline formatting; restoring the
+  // complete anchor after that keeps both the label and href safe.
+  links.push(`<a href="${esc(safeHref)}">${renderEscapedInlineText(decodeInlineHtmlEntities(label))}</a>`);
+  return token;
+ };
+
+ // Normalize literal HTML anchors before the general text escape. Attributes
+ // such as target/rel are intentionally discarded: the static article shell
+ // controls link policy, while href and visible label are retained verbatim.
+ let normalized = normalizeLegacyAngleNavMarkers(line).replace(LEGACY_HTML_ANCHOR_RX, (whole, attrs: string, label: string) => {
+  const hrefMatch = HTML_HREF_ATTR_RX.exec(attrs);
+  if (!hrefMatch) return label;
+  return stashLink(label, hrefMatch[1] ?? hrefMatch[2] ?? hrefMatch[3] ?? '');
+ });
+
+ // `nav:` links are SPA navigation markers, not public URLs. Preserve their
+ // visible label exactly as the previous renderer did; ordinary markdown links
+ // become safe anchors through the same token path as legacy HTML anchors.
+ normalized = normalized.replace(INLINE_MARKDOWN_LINK_RX, (whole, label: string, href: string) => {
+  if (href.trim().startsWith('nav:')) return label;
+  return stashLink(label, href);
+ });
+
+ return renderEscapedInlineText(normalized)
+  .replace(INLINE_LINK_TOKEN_RX, (_, index: string) => links[Number(index)] ?? '');
 };
 
 const LIST_LINE_RX = /^[-*]\s+/;
@@ -104,25 +318,39 @@ const TABLE_SEPARATOR_RX = /^\|(\s*:?-{2,}:?\s*\|)+\s*$/;
 const parseTableCells = (line: string): string[] =>
  line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((cell) => cell.trim());
 
-const renderTableBlock = (headerLine: string, bodyLines: string[]): string => {
- const head = parseTableCells(headerLine).map((cell) => `<th>${renderInlineMarkup(cell)}</th>`).join('');
- const body = bodyLines
- .map((row) => `<tr>${parseTableCells(row).map((cell) => `<td>${renderInlineMarkup(cell)}</td>`).join('')}</tr>`)
- .join('');
- return `<table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+const renderTableBlock = (headerLine: string, bodyLines: string[], tableNumber: number): string => {
+ const { esc } = getSiteShell();
+ const headerCells = parseTableCells(headerLine);
+ const caption = headerCells.find((cell) => cell.trim()) ?? 'Table';
+ const accessibleCaption = `Table ${tableNumber}: ${caption}`;
+ const head = headerCells.map((cell) => `<th scope="col">${renderArticleInlineMarkup(cell)}</th>`).join('');
+ const body = bodyLines.length > 0
+  ? bodyLines
+   .map((row) => {
+    const cells = parseTableCells(row);
+    // Keep every data row aligned with the header row. Archived markdown
+    // occasionally omits a trailing cell; padding it avoids leaving a
+    // column header without an associated data cell for screen readers.
+    const normalizedCells = headerCells.map((_header, index) => cells[index] ?? '—');
+    return `<tr>${normalizedCells.map((cell) => `<td>${renderArticleInlineMarkup(cell)}</td>`).join('')}</tr>`;
+   })
+   .join('')
+  : `<tr><td colspan="${Math.max(headerCells.length, 1)}">—</td></tr>`;
+ return `<table aria-label="${esc(accessibleCaption)}"><caption class="sr-only">${renderArticleInlineMarkup(accessibleCaption)}</caption><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
 };
 
 // Splits article body markdown (headings, bullet lists, blockquotes, bold/italic/links)
 // into an ordered list of self-contained HTML blocks (one per heading/paragraph/list/quote).
-const buildArticleBodyBlocks = (text: string): string[] => {
+const buildArticleBodyBlocks = (text: string, tableNumberOffset = 0): string[] => {
  const lines = normalizeArticleMarkdown(text).split('\n');
  const out: string[] = [];
  let paragraphBuf: string[] = [];
  let fence: MarkdownFence | null = null;
+ let tablesRendered = 0;
 
  const flushParagraph = () => {
  if (paragraphBuf.length) {
- out.push(`<p>${renderInlineMarkup(paragraphBuf.join(' '))}</p>`);
+ out.push(`<p>${renderArticleInlineMarkup(paragraphBuf.join(' '))}</p>`);
  paragraphBuf = [];
  }
  };
@@ -161,7 +389,10 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  // Single `#` is rare in body markdown and would collide with the section's own <h2> wrapper
  // (see articleBodyHtml in ogPagesPlugin.ts), so clamp # and ## to the same h3 level.
  const level = Math.min(Math.max(heading[1].length, 2) + 1, 4);
- out.push(`<h${level}>${renderInlineMarkup(heading[2])}</h${level}>`);
+ const sourceLevelAttr = heading[1].length >= 3
+  ? ` data-source-heading-level="${heading[1].length}"`
+  : '';
+ out.push(`<h${level}${sourceLevelAttr}>${renderArticleInlineMarkup(heading[2])}</h${level}>`);
  i++;
  continue;
  }
@@ -179,7 +410,8 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  if (!TABLE_SEPARATOR_RX.test(lines[i].trim())) bodyLines.push(lines[i].trim());
  i++;
  }
- out.push(renderTableBlock(headerLine, bodyLines));
+ tablesRendered += 1;
+ out.push(renderTableBlock(headerLine, bodyLines, tableNumberOffset + tablesRendered));
  continue;
  }
 
@@ -187,7 +419,7 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  flushParagraph();
  const items: string[] = [];
  while (i < lines.length && LIST_LINE_RX.test(lines[i].trim())) {
- items.push(`<li>${renderInlineMarkup(lines[i].trim().replace(LIST_LINE_RX, ''))}</li>`);
+ items.push(`<li>${renderArticleInlineMarkup(lines[i].trim().replace(LIST_LINE_RX, ''))}</li>`);
  i++;
  }
  out.push(`<ul>${items.join('')}</ul>`);
@@ -201,7 +433,7 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  quoteLines.push(lines[i].trim().replace(QUOTE_LINE_RX, ''));
  i++;
  }
- out.push(`<blockquote><p>${renderInlineMarkup(quoteLines.join(' '))}</p></blockquote>`);
+ out.push(`<blockquote><p>${renderArticleInlineMarkup(quoteLines.join(' '))}</p></blockquote>`);
  continue;
  }
 
@@ -216,7 +448,8 @@ const buildArticleBodyBlocks = (text: string): string[] => {
 // summaries have their own explicit budgets in ogPagesPlugin.ts; applying one of
 // those budgets here would publish a page that visibly ends with an ellipsis and
 // under-report the article's actual word count to search engines.
-const renderArticleBodyHtml = (text: string): string => buildArticleBodyBlocks(text).join('');
+const renderArticleBodyHtml = (text: string, tableNumberOffset = 0): string =>
+ buildArticleBodyBlocks(text, tableNumberOffset).join('');
 
 const tokenizeTopic = (value: string): string[] =>
  value
@@ -258,7 +491,7 @@ const formatTopicList = (locale: Locale, topics: string[]): string => {
 };
 
 export function buildArticleSeoSections(locale: Locale, title: string, desc: string, keywords: string, section: ArticleSection = 'frontaliere'): SeoSection[] {
- const isSvizzera = section === 'svizzera';
+ const isSvizzera = SWISS_RESIDENT_FRAMING_KINDS.has(articleSectionKind(section));
  const labels = isSvizzera
    ? { ...SECTION_LABELS[locale], impact: SVIZZERA_IMPACT_LABEL[locale] }
    : SECTION_LABELS[locale];
@@ -431,9 +664,14 @@ export type ArticleBodySectionRendered = { key: string; html: string };
 // through both filter passes below, so a caller pairing a heading to `key`
 // never shifts onto the wrong body when an intermediate section is empty.
 export function cleanupArticleBodySections(sections: ArticleBodySectionInput[]): ArticleBodySectionRendered[] {
+ let tableNumberOffset = 0;
  return sections
  .filter((section): section is { key: string; text: string } => !!section.text)
- .map((section) => ({ key: section.key, html: renderArticleBodyHtml(section.text) }))
+ .map((section) => {
+  const html = renderArticleBodyHtml(section.text, tableNumberOffset);
+  tableNumberOffset += (html.match(/<table\b/g) ?? []).length;
+  return { key: section.key, html };
+ })
  .filter((section) => !!section.html);
 }
 
@@ -461,6 +699,22 @@ export function articleBodySectionLabel(locale: string, n: number): string {
 export type ArticleDerivedSection = { heading: string; html: string };
 
 /**
+ * Body markdown headings are rendered one level below their section wrapper.
+ * A body can still start at `###`, though, which otherwise produces `<h4>`
+ * immediately after the wrapper's `<h2>`. Clamp skipped levels in the final
+ * static markup while keeping the section content and styling unchanged.
+ */
+function normalizeHeadingOrder(html: string): string {
+ let previousLevel = 1;
+ return html.replace(/<h([2-6])([^>]*)>([\s\S]*?)<\/h\1>/g, (_match, rawLevel, attrs, body) => {
+ const requestedLevel = Number(rawLevel);
+ const level = Math.min(requestedLevel, previousLevel + 1);
+ previousLevel = level;
+ return `<h${level}${attrs}>${body}</h${level}>`;
+ });
+}
+
+/**
  * Renders derived article sections, emitting each distinct heading as an <h2>
  * only on its FIRST occurrence. bodyN sections with n >= 3 all share the same
  * generic positional label, so long articles repeated `<h2>Punti chiave</h2>`
@@ -478,7 +732,7 @@ export function renderArticleDerivedSectionsHtml(
  const sectionCls = opts.sectionClass ? ` class="${opts.sectionClass}"` : '';
  const headingCls = opts.headingClass ? ` class="${opts.headingClass}"` : '';
  const seen = new Set<string>();
- return sections
+ const html = sections
  .map((section) => {
  if (seen.has(section.heading)) {
  return `<section${sectionCls} aria-label="${esc(section.heading)}">${section.html}</section>`;
@@ -487,4 +741,5 @@ export function renderArticleDerivedSectionsHtml(
  return `<section${sectionCls}><h2${headingCls}>${esc(section.heading)}</h2>${section.html}</section>`;
  })
  .join('');
+ return normalizeHeadingOrder(html);
 }

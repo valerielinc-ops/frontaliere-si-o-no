@@ -1,0 +1,325 @@
+/**
+ * A run that finds no job keeps the stored slice. The text a crawler once
+ * wrote into its stored jobs is removed in the merge, so without this cleanup
+ * at the zero-job exit it would survive for as long as the source stays empty
+ * (#5253, lot L 3). `rewritePreparedStoredJobs` rewrites the slice only when
+ * the cleanup changed something, and nothing else.
+ *
+ * Fixture: minimized stored rows of the main slices (2026-09-29), shared with
+ * tests/pdf-backed-description-source-only-runners.test.ts.
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import ts from 'typescript';
+import { describe, it, expect, vi } from 'vitest';
+import { rewritePreparedStoredJobs } from '../scripts/lib/stored-jobs-soft-exit.mjs';
+import { dropFabricatedDescriptions } from '../scripts/lib/drop-fabricated-description.mjs';
+import { FART_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/fart-job-parser.mjs';
+
+const FIXTURE = JSON.parse(fs.readFileSync(
+  path.join(__dirname, 'fixtures/crawler-fabricated-descriptions/pdf-backed-runner-crawlers.json'),
+  'utf8',
+));
+
+describe('stored-job cleanup exit observer', () => {
+  it('allows summary reporting between awaited cleanup and return', () => {
+    expect(countCleanedExitBlocks('async function main() { if (empty) { await cleanStoredJobsOnSoftExit(); reportSummary(); return; } }')).toBe(1);
+  });
+
+  it.each([
+    'async function main() { if (empty) { cleanStoredJobsOnSoftExit(); return; } }',
+    'async function main() { if (empty) { if (other) { await cleanStoredJobsOnSoftExit(); } return; } }',
+    'async function main() { if (empty) { return; await cleanStoredJobsOnSoftExit(); } }',
+  ])('rejects an exit without unconditional awaited cleanup: %s', (source) => {
+    expect(countCleanedExitBlocks(source)).toBe(0);
+  });
+});
+
+function storedFartJob(index = 0) {
+  const row = FIXTURE.fart;
+  return {
+    id: `fart-${index}`,
+    slug: `fart-concorso-${index}`,
+    url: `https://www.fartiamo.ch/concorsi/${index}/`,
+    companyKey: 'fart',
+    sourceLang: row.sourceLang,
+    postedDate: POSTED,
+    description: row.source,
+    descriptionByLocale: { [row.sourceLang]: row.source, ...(row.translation || {}) },
+  };
+}
+
+const POSTED = new Date(Date.now() - 5 * 86_400_000).toISOString().slice(0, 10);
+
+const prepare = (jobs: object[]) => dropFabricatedDescriptions(jobs, FART_FABRICATED_DESCRIPTION_RE, 'FART');
+
+describe('rewritePreparedStoredJobs (zero-job soft exit)', () => {
+  it('rewrites the slice with the stored jobs cleaned, and nothing else', async () => {
+    const write = vi.fn();
+    const stored = [storedFartJob()];
+    const rewritten = await rewritePreparedStoredJobs({
+      prepare, storedJobs: stored, companyKey: 'fart', companyLabel: 'FART', write,
+    });
+    expect(rewritten).toBe(true);
+    expect(write).toHaveBeenCalledTimes(1);
+    const [jobs, options] = write.mock.calls[0];
+    expect(jobs).toEqual([]);
+    expect(options).toEqual({
+      housekeepingProof: [{
+        job: expect.objectContaining({
+          url: 'https://www.fartiamo.ch/concorsi/0/',
+          slug: 'fart-concorso-0',
+        }),
+        reason: 'thin-source-quarantine',
+        definitive: true,
+      }],
+    });
+  });
+
+  it('quarantines a stored job that has no source body even without a fabricated marker', async () => {
+    const write = vi.fn();
+    const job = { ...storedFartJob(), description: 'CONCORSO PUBBLICO', descriptionByLocale: { it: 'CONCORSO PUBBLICO' } };
+    const rewritten = await rewritePreparedStoredJobs({
+      prepare, storedJobs: [job], companyKey: 'fart', companyLabel: 'FART', write,
+    });
+    expect(rewritten).toBe(true);
+    expect(write).toHaveBeenCalledWith([], {
+      housekeepingProof: [{
+        job: expect.objectContaining({ slug: 'fart-concorso-0' }),
+        reason: 'thin-source-quarantine',
+        definitive: true,
+      }],
+    });
+  });
+
+  it('records a failed PDF separately from thin-source quarantine', async () => {
+    const write = vi.fn();
+    const job = { ...storedFartJob(), description: '', descriptionByLocale: { it: '' } };
+    const rewritten = await rewritePreparedStoredJobs({
+      prepare: (jobs) => jobs,
+      storedJobs: [job],
+      sourceBodyFailureJobs: [{ url: job.url, sourceBodyFailureReason: 'pdf-extraction-failed' }],
+      companyKey: 'fart',
+      companyLabel: 'FART',
+      write,
+    });
+
+    expect(rewritten).toBe(true);
+    expect(write).toHaveBeenCalledWith([], {
+      housekeepingProof: [{
+        job: expect.objectContaining({ url: job.url }),
+        reason: 'pdf-extraction-failed',
+        definitive: true,
+      }],
+    });
+  });
+
+  it('keeps a real source body while removing only a fabricated translation', async () => {
+    const write = vi.fn();
+    const source = Array(60).fill('source').join(' ');
+    const job = {
+      ...storedFartJob(),
+      description: source,
+      descriptionByLocale: {
+        it: source,
+        en: 'Consultare il bando PDF ufficiale per dettagli completi',
+      },
+    };
+    const rewritten = await rewritePreparedStoredJobs({
+      prepare, storedJobs: [job], companyKey: 'fart', companyLabel: 'FART', write,
+    });
+    expect(rewritten).toBe(true);
+    expect(write).toHaveBeenCalledTimes(1);
+    expect(write.mock.calls[0][0][0]).toMatchObject({
+      description: source,
+      descriptionByLocale: { it: source },
+    });
+    expect(write.mock.calls[0][1]).toEqual({});
+  });
+
+  it('writes nothing without a cleanup or without stored jobs', async () => {
+    const write = vi.fn();
+    expect(await rewritePreparedStoredJobs({
+      storedJobs: [storedFartJob()], companyKey: 'fart', companyLabel: 'FART', write,
+    })).toBe(false);
+    expect(await rewritePreparedStoredJobs({
+      prepare, storedJobs: [], companyKey: 'fart', companyLabel: 'FART', write,
+    })).toBe(false);
+    expect(write).not.toHaveBeenCalled();
+  });
+
+  it('does not let an all-thin quarantine trip the systemic boilerplate guard', async () => {
+    const write = vi.fn();
+    const stored = Array.from({ length: 10 }, (_, i) => storedFartJob(i));
+    const rewritten = await rewritePreparedStoredJobs({
+      prepare, storedJobs: stored, companyKey: 'fart', companyLabel: 'FART', write,
+    });
+    expect(rewritten).toBe(true);
+    expect(write).toHaveBeenCalledWith([], {
+      housekeepingProof: expect.arrayContaining([
+        expect.objectContaining({
+          job: expect.objectContaining({ slug: 'fart-concorso-0' }),
+          definitive: true,
+        }),
+      ]),
+    });
+  });
+
+  it('stays soft when the write fails', async () => {
+    const write = vi.fn(() => { throw new Error('shrink guard'); });
+    await expect(rewritePreparedStoredJobs({
+      prepare, storedJobs: [storedFartJob()], companyKey: 'fart', companyLabel: 'FART', write,
+    })).resolves.toBe(false);
+  });
+});
+
+// Runners with their own merge: the zero-job exit runs the same cleanup as
+// the merge (same pattern) and writes with the runner's slice writer.
+describe('own-runner crawlers clean their stored jobs at the zero-job exit', () => {
+  const RUNNERS = [
+    'update-cerbios-pharma-jobs.mjs',
+    'update-citta-di-bellinzona-jobs.mjs',
+    'update-citta-di-locarno-jobs.mjs',
+    'update-citta-di-lugano-jobs.mjs',
+    'update-fart-jobs.mjs',
+    'update-mendrisio-jobs.mjs',
+    'update-oscam-jobs.mjs',
+  ];
+
+  for (const runner of RUNNERS) {
+    it(runner, () => {
+      const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', runner), 'utf8');
+      const mergePattern = source.match(/dropFabricatedDescriptions\(\s*\n\s*[^\n]+\n\s*([A-Z_]+_FABRICATED_DESCRIPTION_RE),/)?.[1];
+      expect(mergePattern).toBeTruthy();
+      const exit = source.slice(source.indexOf('await rewritePreparedStoredJobs({'));
+      expect(exit.length).toBeGreaterThan(0);
+      const call = exit.slice(0, exit.indexOf('});') + 3);
+      expect(call).toContain(`prepare: (jobs) => dropFabricatedDescriptions(jobs, ${mergePattern},`);
+      expect(call).toMatch(/write: \(jobs, options\) => writeJobsCrawlerSliceVerified\([A-Z_]+, jobs, options\)/);
+      expect(call).toContain('assemble: () => assembleJobsDataset(),');
+      // The call sits in the zero-job exit, before its `return`.
+      expect(exit.slice(call.length).trimStart()).toMatch(/^(return;|const _cdResult = logStats)/);
+    });
+  }
+
+  it('update-convit-jobs.mjs (per-job cleanup of its merge)', () => {
+    const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'update-convit-jobs.mjs'), 'utf8');
+    expect(source).toContain('targetExisting.filter((job) => dropConvitFabricatedText(job))');
+    const exit = source.slice(source.indexOf('await rewritePreparedStoredJobs({'));
+    const call = exit.slice(0, exit.indexOf('});') + 3);
+    // Returns nothing: the helper keeps the whole stored array, repaired in place.
+    expect(call).toContain('prepare: (jobs) => { jobs.forEach(dropConvitFabricatedText); },');
+    expect(call).toContain('write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, { isTargetJob, ...options }),');
+    expect(call).toContain('assemble: () => assembleJobsDataset(),');
+    expect(exit.slice(call.length).trimStart()).toMatch(/^return;/);
+  });
+});
+
+// Inspect statement structure, not whitespace adjacency: a legitimate summary
+// write may sit between cleanup and return (BPS, main change #11150).
+function countCleanedExitBlocks(source: string): number {
+  const tree = ts.createSourceFile('runner.mjs', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
+  const coveredReturns = new Set<ts.ReturnStatement>();
+  function visit(node: ts.Node) {
+    if (ts.isBlock(node)) {
+      for (let i = 0; i < node.statements.length; i++) {
+        const statement = node.statements[i];
+        if (ts.isReturnStatement(statement) || ts.isThrowStatement(statement)) break;
+        if (!ts.isExpressionStatement(statement) || !ts.isAwaitExpression(statement.expression)) continue;
+        const call = statement.expression.expression;
+        if (!ts.isCallExpression(call) || !ts.isIdentifier(call.expression)
+            || call.expression.text !== 'cleanStoredJobsOnSoftExit' || call.arguments.length !== 0) continue;
+        // The return must be in this same branch, reached after the awaited
+        // cleanup. Only straight-line declarations/expressions may intervene.
+        for (const next of node.statements.slice(i + 1)) {
+          if (ts.isReturnStatement(next)) { coveredReturns.add(next); break; }
+          if (!ts.isVariableStatement(next) && !ts.isExpressionStatement(next)) break;
+        }
+      }
+      for (const statement of node.statements) {
+        visit(statement);
+        if (ts.isReturnStatement(statement) || ts.isThrowStatement(statement)) break;
+      }
+      return;
+    }
+    ts.forEachChild(node, visit);
+  }
+  visit(tree);
+  return coveredReturns.size;
+}
+
+describe('stored-job cleanup exit statement detection', () => {
+  it('permits summary writes and declarations after awaited cleanup in the same branch', () => {
+    expect(countCleanedExitBlocks(`async function main() {
+      if (jobs.length === 0) {
+        await cleanStoredJobsOnSoftExit();
+        const duration = getElapsed();
+        writeSummaryCrawlerSlice({ duration });
+        return;
+      }
+    }`)).toBe(1);
+  });
+  it('counts distinct covered exits rather than multiple calls before one return', () => {
+    expect(countCleanedExitBlocks(`async function main() {
+      if (a) { await cleanStoredJobsOnSoftExit(); await cleanStoredJobsOnSoftExit(); return; }
+      if (b) { return; }
+    }`)).toBe(1);
+  });
+  it.each([
+    'if (jobs.length === 0) { writeSummaryCrawlerSlice({}); return; }',
+    'if (jobs.length === 0) { cleanStoredJobsOnSoftExit(); return; }',
+    'if (jobs.length === 0) { await cleanStoredJobsOnSoftExit(); } else { return; }',
+    'if (jobs.length === 0) { return; await cleanStoredJobsOnSoftExit(); }',
+    'if (jobs.length === 0) { return; await cleanStoredJobsOnSoftExit(); return; }',
+    'if (jobs.length === 0) { throw new Error(); await cleanStoredJobsOnSoftExit(); return; }',
+    'if (jobs.length === 0) { await cleanStoredJobsOnSoftExit(); if (skip) return; }',
+  ])('rejects absent, unawaited, unreachable or different-branch cleanup: %s', (body) => {
+    expect(countCleanedExitBlocks(`async function main() { ${body} }`)).toBe(0);
+  });
+});
+
+// Runners of lots H and K with their own per-job cleanup in the merge
+// (`drop<Name>FabricatedText`): a local `cleanStoredJobsOnSoftExit` runs the
+// same cleanup, and every zero-job exit calls it before returning. swisscom,
+// ail and usi also have a second exit when the crawl ends with 0 jobs.
+describe('lot H/K runners clean their stored jobs at every zero-job exit', () => {
+  const RUNNERS: Array<[string, number]> = [
+    ['update-afry-jobs.mjs', 1],
+    ['update-agie-charmilles-jobs.mjs', 1],
+    ['update-ail-jobs.mjs', 2],
+    ['update-artificialy-jobs.mjs', 1],
+    ['update-baronie-jobs.mjs', 2],
+    ['update-bps-suisse-jobs.mjs', 1],
+    ['update-casale-jobs.mjs', 1],
+    ['update-hoval-jobs.mjs', 1],
+    ['update-julius-baer-jobs.mjs', 1],
+    ['update-knowledge-lab-jobs.mjs', 2],
+    ['update-mtic-jobs.mjs', 2],
+    ['update-pkb-private-bank-jobs.mjs', 1],
+    ['update-prada-jobs.mjs', 1],
+    ['update-relewant-jobs.mjs', 1],
+    ['update-sintetica-jobs.mjs', 1],
+    ['update-swiss-medical-network-jobs.mjs', 2],
+    ['update-swisscom-jobs.mjs', 2],
+    ['update-tarchini-group-jobs.mjs', 1],
+    ['update-usi-jobs.mjs', 2],
+  ];
+
+  for (const [runner, exits] of RUNNERS) {
+    it(`${runner} (${exits} exit${exits > 1 ? 's' : ''})`, () => {
+      const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', runner), 'utf8');
+      // The merge's cleanup: `<stored>.filter((job) => dropXFabricatedText(job))`.
+      const mergeDrop = source.match(/\.filter\(\(job\) => (drop[A-Za-z]+FabricatedText)\(job\)\)/)?.[1];
+      expect(mergeDrop).toBeTruthy();
+      const fnStart = source.indexOf('function cleanStoredJobsOnSoftExit() {');
+      expect(fnStart).toBeGreaterThan(-1);
+      const fn = source.slice(fnStart, source.indexOf('\n}\n', fnStart));
+      expect(fn).toContain(`prepare: (jobs) => { for (const job of jobs) ${mergeDrop}(job); },`);
+      expect(fn).toMatch(/storedJobs: readExistingCrawlerJobs\([A-Z_]+, DATA_JOBS\)\.filter\([A-Za-z]+\),/);
+      expect(fn).toMatch(/write: \(jobs, options\) => writeJobsCrawlerSlice(?:Verified)?\([A-Z_]+, jobs, options\),/);
+      // Cleanup must be awaited before return in the same straight-line branch.
+      expect(countCleanedExitBlocks(source)).toBe(exits);
+      expect(source.split('await cleanStoredJobsOnSoftExit();').length - 1).toBe(exits);
+    });
+  }
+});

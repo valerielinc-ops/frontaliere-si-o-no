@@ -27,11 +27,15 @@ on:
 permissions:
   contents: read
   issues: write
+  # Prova CI degli item bloccati solo dalla guardia risorse locale (decisione
+  # I4 del 2026-10-05): PR, run e job di `tests.yml`, report e log di vitest.
+  actions: read
+  pull-requests: read
 
 concurrency:
-  # Deve coincidere con post-merge-followup.yml: il reconciler e il gate di
-  # sealing possono scrivere lo stesso bucket daily. Il drainer ha un mutex
-  # dedicato e non deve essere accodato dietro a questo batch.
+  # Deve coincidere con post-merge-followup.yml e con il job `drain` di
+  # followup-drainer.yml: il reconciler, il gate di sealing e il drainer
+  # possono toccare lo stesso bucket daily.
   group: followup-daily-${{ github.repository }}
   cancel-in-progress: false
 
@@ -41,7 +45,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -51,7 +55,6 @@ jobs:
             !/data/jobs/
             !/data/seo-404-compat/
             !/data/translation-cache/
-            !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
             !/docs/
@@ -70,7 +73,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 

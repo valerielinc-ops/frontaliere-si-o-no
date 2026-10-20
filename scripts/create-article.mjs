@@ -1,6 +1,7 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
- * create-article.mjs — Generate a complete blog article using Gemini AI.
+ * create-article.mjs — Generate a complete blog article using the site AI stack.
  *
  * Usage:
  *   node scripts/create-article.mjs                 # auto-scan Ticino news sources
@@ -12,12 +13,13 @@
  *   3. Checks against existing articles to avoid duplicates
  *   4. Generates full article in 4 languages + image
  *
- * Requires: GH_MODELS_PAT env var (text), GEMINI_API_KEY env var (images)
+ * Requires: GH_MODELS_PAT env var (text), Codex image broker/OAuth (images);
+ * Gemini 3.1 is the engine's reserve when GEMINI_API_KEY is configured.
  *
  * What it does:
  *   1. Fetches the web page content at the given URL
  *   2. Calls Gemini 2.0 Flash to generate article data in 4 languages
- *   3. Generates a contextual article image using Gemini native image generation
+ *   3. Generates a contextual article image through the governed image engine
  *   4. Validates CTA presence and enforces internal links to site tools
  *   5. Programmatically detects duplicates (Jaccard similarity on titles + ID/slug checks)
  *   6. Modifies 9 source files to register the new article
@@ -34,10 +36,10 @@
  *    Evitare pattern tipici dell'AI (frasi filler, strutture ripetitive).
  *
  * 2. IMMAGINE CONTESTUALE: Generare un'immagine contestuale all'articolo
- *    tramite Gemini native image generation (modello gemini-3-pro-image-preview
- *    con fallback gemini-2.5-flash-image).
+ *    tramite il motore governato (Codex OAuth, poi Gemini 3.1).
  *    Fallback: immagine del Ticino dal catalogo AVAILABLE_IMAGES.
- *    Le immagini generate vanno in public/images/blog/{article-id}.{png|jpg}.
+ *    Le immagini generate vanno in public/images/generated/ e hanno un record
+ *    obbligatorio in data/generated-image-registry.json.
  *
  * 3. SEO IMMAGINI: Ogni immagine deve avere ALT tag descrittivi e parlanti,
  *    con informazioni necessarie per l'indicizzazione su Google e Bing.
@@ -94,7 +96,7 @@ import { hasUsableContentText, hasUsableTranslatedText } from './lib/usable-cont
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord, STOP_WORDS_IT } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
-import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
+import { JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics, repairLlmJson } from './lib/llm-json-repair.mjs';
 import { describePayloadRejection } from './lib/llm-payload-diagnostics.mjs';
 import {
   factCheckFingerprint,
@@ -102,7 +104,7 @@ import {
   MAJOR_BLOCK_WEIGHT_THRESHOLD,
   dropSourceContradictedIssues,
 } from './lib/fact-check-consensus.mjs';
-import { runFactualityGates, formatIssues, formatRemediation, buildSourceContract, FACT_CHECK_CATEGORIES, assertNoFabricatedNormAcronyms } from './lib/article-factuality-gates.mjs';
+import { runFactualityGates, formatIssues, formatRemediation, buildSourceContract, FACT_CHECK_CATEGORIES, assertNoFabricatedNormAcronyms, mentionsWrongConventionDate, CONVENTION_DATE_IT } from './lib/article-factuality-gates.mjs';
 import { loadDefectMemory, learnedDenylist, learnedSuspects } from './lib/article-defect-memory.mjs';
 import { unescapeTsString } from './lib/unescape-ts-string.mjs';
 import {
@@ -111,7 +113,7 @@ import {
   stripFabricatedExamples,
 } from './lib/article-sanitizers.mjs';
 import { decodeHtmlEntities } from './lib/decode-html-entities.mjs';
-import { readAttr } from './lib/html-attr.mjs';
+import { readAttr, scanHtmlTags } from './lib/html-attr.mjs';
 import {
   PERFORMANCE_PATH as ARTICLE_PERF_PATH,
   CONSUMED_PATH as CONSUMED_TRACKER_PATH,
@@ -135,10 +137,12 @@ import {
   rankAndSelectHeadlines as _rankAndSelectHeadlines,
   loadEvergreenRejectedTracker as _loadEvergreenRejectedTracker,
   isEvergreenRejected as _isEvergreenRejected,
+  computeEvergreenPoolEpoch as _computeEvergreenPoolEpoch,
+  EVERGREEN_POOL_NAME as _EVERGREEN_POOL_NAME,
   appendEvergreenRejected as _appendEvergreenRejected,
   strikeEvergreenKeyword as _strikeEvergreenKeyword,
   EVERGREEN_STRIKE_LIMIT as _EVERGREEN_STRIKE_LIMIT,
-  persistEvergreenRejectedTracker as _persistEvergreenRejectedTracker,
+  persistEvergreenRejectedTrackerAtomically as _persistEvergreenRejectedTrackerAt,
 } from './lib/article-topic-selector.mjs';
 
 // ── Phase 3 — Discovery pool + quota controller ──────────────────
@@ -163,7 +167,8 @@ import { checkSemanticNearDuplicate } from './lib/scoring/semanticDedup.mjs';
 import { computeAdaptiveEvergreenThresholds } from './lib/scoring/constants.mjs';
 import { detectBodyRepetition, dedupeRepeatedParagraphs, stripDuplicateTitleFromBody } from './lib/article-body-repetition.mjs';
 import { loadEmbeddingStore, loadEmbeddingMeta } from './lib/scoring/embeddingMatcher.mjs';
-import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
+import { generateImageFromSpec } from './lib/generated-image-engine.mjs';
+import { GENERATED_IMAGE_DEFAULT_FORMAT } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/shared/clauseTail.mjs';
 import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
@@ -644,10 +649,9 @@ async function applyPreSpendTopicGate(headlines, opts = {}) {
 }
 
 // ── Config ──────────────────────────────────────────────────
-// Gemini — image generation (text calls now go through centralized ai-models.mjs)
-const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
-const IMAGE_MODEL_PRO = 'gemini-3-pro-image-preview';
-const IMAGE_MODEL_FLASH = 'gemini-2.5-flash-image';
+// Image generation goes through the governed engine: Codex OAuth first,
+// Gemini 3.1 Flash Image as the bounded reserve. A successful call always
+// returns a registry record before this generator stages the article.
 const BASE_URL = 'https://frontaliereticino.ch';
 
 // Model aliases for callLLM opts (used by callers that pass opts.model)
@@ -856,16 +860,16 @@ function findBestFallbackImage(data) {
 
 const CATEGORIES = ['fiscale', 'pratico', 'novita', 'pensione'];
 
-// ── Author registry (mirror of data/authors.ts for byline + Person JSON-LD) ──
-// Keep slug/name/expertise/linkedin in sync with data/authors.ts. The TS file
+// ── Author registry (mirror of data/authors.ts for byline + JSON-LD) ──
+// Keep slug/name/expertise/kind in sync with data/authors.ts. The TS file
 // is the source of truth for the React app + author pages; this inline copy is
 // used because create-article.mjs is a Node ESM script that cannot import .ts.
 // Spec: docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4 — FASE 1, A2.
 const AUTHORS = Object.freeze([
   Object.freeze({
+    kind: 'editorial-profile',
     slug: 'marco-ferrari',
     name: 'Marco Ferrari',
-    linkedinUrl: 'https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/',
     expertise: Object.freeze([
       'fiscalità frontaliera',
       '730',
@@ -880,9 +884,9 @@ const AUTHORS = Object.freeze([
     ]),
   }),
   Object.freeze({
+    kind: 'editorial-profile',
     slug: 'laura-bianchi',
     name: 'Laura Bianchi',
-    linkedinUrl: 'https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/',
     expertise: Object.freeze([
       'avs',
       'lpp',
@@ -899,6 +903,7 @@ const AUTHORS = Object.freeze([
     ]),
   }),
   Object.freeze({
+    kind: 'editorial-profile',
     slug: 'redazione',
     name: 'Redazione Frontaliere Ticino',
     linkedinUrl: 'https://www.linkedin.com/company/frontaliere-ticino/',
@@ -918,6 +923,7 @@ const AUTHORS = Object.freeze([
   // the Italia-Svizzera cross-border tax treaty (their specialty) kept
   // falling through to marco-ferrari/round-robin instead.
   Object.freeze({
+    kind: 'real-author',
     slug: 'samuele-valente',
     name: 'Samuele Valente',
     uid: 'rAaDN0AvhkUjvRxN2TJijgYodm22',
@@ -954,8 +960,19 @@ let _authorRoundRobinIdx = 0;
  *      always gets the same author across re-runs, while still spreading
  *      bylines across the team for generic content.
  *
- * Returns `{ slug, name, linkedinUrl }` — never `null`.
+ * Returns the stable byline identity, including `kind` and only the permitted
+ * public identity fields for that kind — never `null`.
  */
+function authorSummary(author) {
+  return {
+    kind: author.kind,
+    slug: author.slug,
+    name: author.name,
+    ...(author.uid ? { uid: author.uid } : {}),
+    ...(author.linkedinUrl ? { linkedinUrl: author.linkedinUrl } : {}),
+  };
+}
+
 function pickAuthorForTopic(articleSection, articleId) {
   const haystack = String(articleSection || '').toLowerCase();
   const scored = AUTHORS.map((author) => {
@@ -969,21 +986,21 @@ function pickAuthorForTopic(articleSection, articleId) {
     const winners = scored.filter((s) => s.score === maxScore).map((s) => s.author);
     if (winners.length === 1) {
       const a = winners[0];
-      return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+      return authorSummary(a);
     }
     // Tied — pick deterministically by articleId hash if provided, else round-robin.
     const idx = articleId
       ? Math.abs(_hashString(String(articleId))) % winners.length
       : _authorRoundRobinIdx++ % winners.length;
     const a = winners[idx];
-    return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+    return authorSummary(a);
   }
   // No keyword match — deterministic round-robin keyed by articleId.
   const idx = articleId
     ? Math.abs(_hashString(String(articleId))) % AUTHORS.length
     : _authorRoundRobinIdx++ % AUTHORS.length;
   const a = AUTHORS[idx];
-  return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+  return authorSummary(a);
 }
 
 /**
@@ -996,7 +1013,7 @@ function pickAuthorForTopic(articleSection, articleId) {
 function getAuthorByUid(uid) {
   if (!uid) return undefined;
   const a = AUTHORS.find((author) => author.uid === uid);
-  return a ? { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl } : undefined;
+  return a ? authorSummary(a) : undefined;
 }
 
 /** Tiny FNV-1a-ish hash for stable author bucketing. Not cryptographic. */
@@ -1844,6 +1861,7 @@ export const ARTICLE_SECTION_CONFIGS = {
     hubSlug: ARTICLE_SECTION_CORE.frontaliere.indexSlug,
     // Registry / slug-data / meta / body / seo write targets
     registryFile: ARTICLE_SECTION_CORE.frontaliere.registryFile,
+    registryRawArrayName: 'RAW_ARTICLES',
     registryArrayName: 'ARTICLES',
     slugDataFile: ARTICLE_SECTION_CORE.frontaliere.slugDataFile,
     slugsConstName: ARTICLE_SECTION_CORE.frontaliere.slugConst,
@@ -1870,6 +1888,7 @@ export const ARTICLE_SECTION_CONFIGS = {
     rssFallbackMap: NEWS_SOURCES_SVIZZERA_FALLBACK_MAP,
     hubSlug: ARTICLE_SECTION_CORE.svizzera.indexSlug,
     registryFile: ARTICLE_SECTION_CORE.svizzera.registryFile,
+    registryRawArrayName: 'RAW_SWISS_ARTICLES',
     registryArrayName: 'SWISS_ARTICLES',
     slugDataFile: ARTICLE_SECTION_CORE.svizzera.slugDataFile,
     slugsConstName: ARTICLE_SECTION_CORE.svizzera.slugConst,
@@ -1908,6 +1927,11 @@ function parseSectionArg(argv) {
 const SECTION_NAME = parseSectionArg(process.argv.slice(2));
 const SECTION = ARTICLE_SECTION_CONFIGS[SECTION_NAME];
 const IS_FRONTALIERE = SECTION_NAME === 'frontaliere';
+
+function _persistEvergreenRejectedTracker(update) {
+  return _persistEvergreenRejectedTrackerAt(update);
+}
+
 // Stamped here rather than in the RUN_REPORT literal because SECTION_NAME is
 // parsed from argv ~700 lines later than the report is declared.
 RUN_REPORT.section = SECTION_NAME;
@@ -3416,9 +3440,10 @@ function assertNoFabricatedReferences(contentIt) {
     }
   }
 
-  // Check for commonly hallucinated convention date
-  if (/convenzione.*9\s+marzo\s+1976/i.test(articleText) || /9\s+marzo\s+1976.*convenzione/i.test(articleText)) {
-    issues.push('Convenzione italo-svizzera: 9 dicembre 1976, non 9 marzo');
+  // Wrong convention date (it is 9 March 1976, RS 0.672.945.41 — see
+  // mentionsWrongConventionDate for the sources and the run that lost to it).
+  if (mentionsWrongConventionDate(articleText)) {
+    issues.push(`Convenzione italo-svizzera: ${CONVENTION_DATE_IT}, non 9 dicembre`);
   }
 
   // Check for fabricated "secondo uno studio/sondaggio" with suspiciously precise percentages
@@ -3503,6 +3528,48 @@ function assertNoFabricatedLaborOfficeCrossLocale(data) {
   }
 }
 
+/**
+ * Run the deterministic article factuality gates on each completed translation
+ * against its Italian source. The source-only call in generateAndValidateArticle
+ * cannot see false friends or scaffolding introduced by translation; this gate
+ * runs at each admission path before any article files are written.
+ */
+export function assertTranslationsPassFactualityGates(data) {
+  const sectionsOf = (content) => ({
+    title: typeof content?.title === 'string' ? content.title : '',
+    body1: typeof content?.body1 === 'string' ? content.body1 : '',
+    body2: typeof content?.body2 === 'string' ? content.body2 : '',
+    body3: typeof content?.body3 === 'string' ? content.body3 : '',
+  });
+  const it = data?.content?.it;
+  const italianCandidate = it ? sectionsOf(it) : null;
+  const italianSections = italianCandidate
+    && Object.values(italianCandidate).some((section) => section.trim())
+    ? italianCandidate
+    : null;
+
+  const blocking = [];
+  for (const locale of ['en', 'de', 'fr']) {
+    const sections = sectionsOf(data?.content?.[locale]);
+    const result = runFactualityGates({ sections, locale, italianSections });
+    if (result.issues.length > 0) {
+      console.error(
+        `  🔍 Gate fattualità [${locale}]: ${result.issues.length} rilievi, `
+        + `${result.blocking.length} bloccanti`,
+      );
+      console.error(formatIssues(result.issues));
+    }
+    blocking.push(...result.blocking);
+  }
+
+  if (blocking.length === 0) return;
+  const err = new Error(
+    `Articolo rigettato — ${blocking.length} rilievi bloccanti nei body tradotti:\n${formatIssues(blocking)}`,
+  );
+  err.qualityReject = true;
+  throw err;
+}
+
 // ── Reference sheet of verified domain facts ──
 // Fed into the LLM fact-check prompt so the model cross-checks against known-good data
 // instead of relying solely on training data.
@@ -3510,7 +3577,7 @@ const VERIFIED_DOMAIN_FACTS = `
 FATTI VERIFICATI DI RIFERIMENTO — usa come ground truth:
 
 CONVENZIONI E ACCORDI:
-- Convenzione italo-svizzera contro le doppie imposizioni: firmata 9 DICEMBRE 1976 (NON marzo, NON 1974)
+- Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 MARZO 1976 (NON dicembre, NON 1974)
 - Nuovo Accordo Frontalieri: firmato 23 DICEMBRE 2020, in vigore dal 1° GENNAIO 2024
 - Periodo transitorio: dal 2024 al 2033 (10 anni) per chi era già frontaliere prima del 17/7/2023
 - Ratifica italiana: Legge 83 del 13 GIUGNO 2023
@@ -3595,7 +3662,7 @@ const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checke
 - Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri (MAI "in entrambi i paesi"). L'Italia evita la doppia imposizione con il credito d'imposta (quadro CE del 730).
 - Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO 2024 (NON 2026). Ratifica IT: Legge 83 del 13/6/2023.
 - Vecchi frontalieri (già tali prima del 17/7/2023): esenzione €7'500, regime transitorio 2024–2033. Nuovi frontalieri: franchigia €10'000.
-- Convenzione doppie imposizioni Italia-Svizzera: firmata il 9 DICEMBRE 1976. La Svizzera NON è membro UE/SEE.
+- Convenzione doppie imposizioni Italia-Svizzera: firmata il 9 MARZO 1976 (NON dicembre). La Svizzera NON è membro UE/SEE.
 - Aliquote/contributi svizzeri: AVS/AI/IPG 5.3% dipendente, AD/AC 1.1% (cap CHF 148'200), LAINF 0.7–1.5%, LPP 7–18% per fascia età (dal 25 anni). IRPEF italiana: 23% fino €28'000, 35% €28'001–50'000, 43% oltre €50'000.
 - Acronimi/enti VALIDI (non inventarne altri): SECO, SEM, USTAT, UFSP/BAG, SUVA, INPS, Agenzia delle Entrate, MEF, BFS (Ufficio Federale di Statistica), AFC/ESTV (Amministrazione Federale delle Contribuzioni).
 - Le aliquote fiscali (imposta alla fonte, aliquote federali/cantonali) sono stabilite da leggi federali/cantonali e amministrate da AFC/ESTV a livello federale e dalle amministrazioni cantonali delle contribuzioni — MAI da UFAS (previdenza sociale, AVS/AI) né da BFS (statistica: rileva dati, non fissa aliquote).
@@ -3699,7 +3766,7 @@ VERIFICA SISTEMATICA — controlla OGNI categoria:
 
 4. **STATISTICHE E PERCENTUALI**: Percentuali precise con decimali (es. "il 73,2% dei frontalieri") DEVONO provenire da studi reali citati per nome E ISTITUTO. Senza attribuzione precisa = probabile invenzione. ECCEZIONE: arrotondamenti a numeri interi da fonti note (es. "circa il 30% della forza lavoro" da USTAT) sono accettabili. Non segnalare aliquote esplicitamente elencate nei fatti verificati (AVS=5.3%, AC=1.1%, IRPEF 23%/35%/43%, franchigia 10.000 euro) come issue se sono riportate correttamente.
 
-5. **DATE E EVENTI**: Confronta con le date verificate: Convenzione 9/12/1976, Nuovo Accordo 23/12/2020, vigenza dal 1/1/2024, Legge 83/2023. ${isEvergreen ? '' : 'Date presenti nell\'articolo ma ASSENTI dalla fonte = altamente sospette.'}
+5. **DATE E EVENTI**: Confronta con le date verificate: Convenzione 9/3/1976, Nuovo Accordo 23/12/2020, vigenza dal 1/1/2024, Legge 83/2023. ${isEvergreen ? '' : 'Date presenti nell\'articolo ma ASSENTI dalla fonte = altamente sospette.'}
 
 6. **COERENZA CON LA FONTE**: ${isEvergreen ? 'N/A per evergreen.' : "Confronta ogni affermazione dell'articolo con la fonte originale. DISTINGUI tra: (a) arricchimento contestuale con fatti di dominio CORRETTI e verificabili (contesto frontaliere, aliquote note, geografia ticinese) = 'minor', (b) fatti specifici inventati (leggi/decreti inesistenti, statistiche precise senza fonte, istituzioni inventate, eventi mai avvenuti) NON presenti nella fonte = 'critical', (c) informazione che CONTRADDICE la fonte o i fatti verificati = 'critical'."}
 
@@ -4120,39 +4187,6 @@ async function _runSingleFactCheck(model, prompt, opts = {}) {
 // The LLM understands context ("73,2% dei frontalieri" is likely fabricated vs
 // "5,3% AVS" is a real rate) far better than regex pattern matching.
 
-// ── LLM JSON repair (handles common LLM output quirks) ────────────────
-// Why: GitHub Models / Groq / Mistral occasionally emit markdown bold
-// markers (`**` / `***`) between JSON properties instead of commas, or
-// wrap the payload in ```json fences, or stick a preamble before the
-// opening `{`, or echo a quoted phrase from the source text unescaped
-// (e.g. a title like `..."tassa sulla salute"...`) which desyncs naive
-// quote-toggle string tracking into `Unterminated string in JSON`. The
-// string-repair walk (preserve asterisks INSIDE quoted strings — markdown
-// bold in body1/body2 is load-bearing — replace stray `*` OUTSIDE strings
-// with a comma, escape unescaped inner quotes) lives in
-// ./lib/llm-json-repair.mjs, shared with batch-add-faq-to-articles.mjs's
-// repairJsonArray. Truncated payloads still throw — callers detect that
-// via `parseErr.message` and retry with a larger `maxTokens`.
-function repairLlmJson(raw) {
-  let c = stripCodeFences(raw);
-  const start = c.indexOf('{');
-  if (start !== -1) {
-    // Bracket-balanced extraction (mirrors repairJsonArray in batch-add-faq-to-articles.mjs)
-    // so trailing LLM prose or a foreign '}' from an interior nested object does not
-    // pull in the wrong boundary via lastIndexOf. Falls back to lastIndexOf when
-    // findMatchingClose returns -1 (e.g. raw truncated inside a string literal).
-    const closeIdx = findMatchingClose(c, start, true);
-    if (closeIdx !== -1) {
-      c = c.slice(start, closeIdx + 1);
-    } else {
-      const end = c.lastIndexOf('}');
-      if (end > start) c = c.slice(start, end + 1);
-    }
-  }
-  const out = fixJsonStringBody(c, { fixAsterisks: true });
-  return out.replace(/,(\s*,)+/g, ',').replace(/,(\s*[}\]])/g, '$1');
-}
-
 // ── LLM call with body2 validation (model fallback via centralized ai-models.mjs) ──
 async function callLLM(messages, opts = {}) {
   const maxBody2Retries = 5;
@@ -4183,6 +4217,10 @@ async function callLLM(messages, opts = {}) {
     // attempt consumed nearly all of it). ...opts still wins if a caller passes
     // its own deadlineMs (or explicit null to opt out of the cap entirely).
     const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 90_000, deadlineMs: RUN_START_MS + RUN_WALL_BUDGET_MS, ...opts, modelUsedRef });
+    // `modelUsedRef` del chiamante: il wrapper usa il suo per la validazione e
+    // gli copia sopra il modello servito, cosi' chi valida a valle una risposta
+    // (la selezione headline) puo' dire a QUALE modello attribuire il rigetto.
+    if (opts.modelUsedRef && typeof opts.modelUsedRef === 'object') opts.modelUsedRef.model = modelUsedRef.model;
     if (modelUsedRef.model === AI_MODELS.LOCAL_FALLBACK) _localFallbackUsedThisHeadline = true;
     if (isBody2Check) {
       let itContent = null;
@@ -4314,15 +4352,15 @@ function idToSlugKey(id) {
 // live, so the editorial team automatically publishes a Ticino frontalieri
 // trend article every ~3 months in the same voice as the rest of the blog.
 async function buildStatsBfsPromptContent(quarter) {
-  const adminMod = await import('firebase-admin');
-  const admin = adminMod.default || adminMod;
-  if (!admin.apps.length) {
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
+  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+  const { getFirestore } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  const db = admin.firestore();
+  const db = getFirestore();
   const snap = await db.collection('config').doc('bfs_stats').get();
   if (!snap.exists) {
     throw new Error('config/bfs_stats Firestore doc missing — refresh-bfs-stats has not run yet.');
@@ -4572,26 +4610,59 @@ function isWithinDays(date, days) {
 export function extractHeadlines(html, baseUrl) {
   const results = [];
   const htmlDateMap = extractDatesFromHtml(html, baseUrl);
-  // Match <a href="...">text</a> — capture href and inner text
-  const linkRe = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
-  let m;
-  while ((m = linkRe.exec(html)) !== null) {
-    let href = readAttr(m[1], 'href');
-    if (!href) continue;
-    const text = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  // Match anchors with the quote-aware scanner. A `>` inside an attribute is
+  // data, not the end of the opening tag; a malformed quote is abandoned at
+  // the next `<` so it cannot borrow the href of the following anchor.
+  const tags = scanHtmlTags(html);
+  for (let index = 0; index < tags.length; index += 1) {
+    const opening = tags[index];
+    if (opening.closing || opening.name !== 'a' || opening.selfClosing) continue;
+    let closingIndex = -1;
+    let nestedAnchor = false;
+    for (let candidateIndex = index + 1; candidateIndex < tags.length; candidateIndex += 1) {
+      const candidate = tags[candidateIndex];
+      if (candidate.name === 'a' && !candidate.closing) {
+        nestedAnchor = true;
+        break;
+      }
+      if (candidate.name === 'a' && candidate.closing) {
+        closingIndex = candidateIndex;
+        break;
+      }
+    }
+    if (nestedAnchor || closingIndex < 0) continue;
+
+    let href = readAttr(opening.raw, 'href');
+    if (!href) {
+      index = closingIndex;
+      continue;
+    }
+    const text = html.slice(opening.end, tags[closingIndex].index)
+      .replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     // Only keep links with meaningful text (likely headlines)
-    if (text.length < 15 || text.length > 300) continue;
+    if (text.length < 15 || text.length > 300) {
+      index = closingIndex;
+      continue;
+    }
     // Resolve relative URLs
-    try {
-      href = new URL(href, baseUrl).href;
-    } catch { continue; }
+    try { href = new URL(href, baseUrl).href; } catch {
+      index = closingIndex;
+      continue;
+    }
     // Skip anchor links, javascript, mailto, etc.
-    if (!href.startsWith('http')) continue;
+    if (!href.startsWith('http')) {
+      index = closingIndex;
+      continue;
+    }
     // Skip non-article links (categories, tags, pagination, login, etc.)
-    if (/\/(tag|categor|page|login|registr|cookie|privacy|contatt|archiv|abonn)/i.test(href)) continue;
+    if (/\/(tag|categor|page|login|registr|cookie|privacy|contatt|archiv|abonn)/i.test(href)) {
+      index = closingIndex;
+      continue;
+    }
     // Extract date from URL path or from nearby <time> elements
     const date = extractDateFromUrl(href) || htmlDateMap.get(href) || null;
     results.push({ url: href, headline: text, date });
+    index = closingIndex;
   }
   // Deduplicate by URL
   const seen = new Set();
@@ -4972,15 +5043,33 @@ const HEADLINE_SELECTION_MAX_ATTEMPTS_FINAL = 3;
 
 async function requestHeadlineSelection(basePrompt, candidateCount, label, maxAttempts) {
   let last = null;
+  // I modelli la cui risposta HTTP 200 il protocollo ha RIGETTATO in questa
+  // selezione. Per la cascata quella era una chiamata riuscita (+2): nel
+  // gemello del corpus (frontaliere-articles run 36010807545)
+  // nvidia/nemotron-3-super ha risposto con prosa di ragionamento («We need to
+  // pick…») a OGNI tentativo, il suo tasso di successo storico lo rimetteva
+  // primo, e ogni giro chiudeva con 0 finalisti. Il rigetto conta ora come
+  // fallimento di contenuto (recordModelContentFailure: penalita', e al
+  // secondo di fila il modello e' escluso per la run) e il tentativo successivo
+  // di QUESTA selezione non torna sullo stesso modello (`excludeModels`).
+  const rejectedModels = [];
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     const prompt = attempt === 1
       ? basePrompt
       : `${basePrompt}\n\n${selectionCorrectionNote(last?.rejection, candidateCount)}`;
     let rawText;
+    const modelUsedRef = { model: null };
     try {
       rawText = await callLLM(
         [{ role: 'user', content: prompt }],
-        { model: GH_MODEL_LIGHT, temperature: 0.3, maxTokens: 512, jsonMode: true },
+        {
+          model: GH_MODEL_LIGHT,
+          temperature: 0.3,
+          maxTokens: 512,
+          jsonMode: true,
+          modelUsedRef,
+          ...(rejectedModels.length ? { excludeModels: [...rejectedModels] } : {}),
+        },
       );
     } catch (err) {
       // La cascata modelli esaurita (issue #5849) non e' un errore da assorbire
@@ -5003,7 +5092,14 @@ async function requestHeadlineSelection(basePrompt, candidateCount, label, maxAt
       continue;
     }
     const parsed = parseHeadlineSelection(rawText, candidateCount);
-    if (parsed.ok) return { ...parsed, attempts: attempt };
+    if (parsed.ok) {
+      recordModelContentSuccess(modelUsedRef.model);
+      return { ...parsed, attempts: attempt };
+    }
+    // Una risposta arrivata e rigettata dal protocollo e' un fallimento di
+    // CONTENUTO del modello che l'ha data, non un successo di trasporto.
+    recordModelContentFailure(modelUsedRef.model);
+    if (modelUsedRef.model && !rejectedModels.includes(modelUsedRef.model)) rejectedModels.push(modelUsedRef.model);
     last = parsed;
     console.error(
       `  ⚠️  ${label}: risposta RIGETTATA (${parsed.rejection}: ${parsed.detail}) — tentativo ${attempt}/${maxAttempts}`,
@@ -5803,7 +5899,7 @@ LEGGI E DECRETI:
 - Cita riferimenti normativi SOLO se appaiono LETTERALMENTE nella fonte.
 - Se la fonte dice "la nuova normativa" senza specificare il numero, scrivi "la nuova normativa" — NON inventare "D.Lgs XXX/YYYY".
 - Leggi verificate (usabili SOLO se pertinenti e nella fonte): DPR 917/1986 (TUIR), D.Lgs 147/2015, DL 167/2024, L. 207/2024 (Bilancio 2025), D.Lgs 241/1997, DL 78/2010.
-- La Convenzione italo-svizzera è del 9 DICEMBRE 1976. Il Nuovo Accordo Frontalieri è stato firmato il 23 DICEMBRE 2020.
+- La Convenzione italo-svizzera è del 9 MARZO 1976 (NON dicembre). Il Nuovo Accordo Frontalieri è stato firmato il 23 DICEMBRE 2020.
 
 ISTITUZIONI:
 - NON inventare acronimi. Enti reali: SECO, USTAT, UFSP/BAG, SUVA, DFE, DSS, SEM, INPS, Agenzia Entrate, MEF.
@@ -6155,8 +6251,12 @@ Rispondi SOLO con JSON valido, senza markdown.` },
 
   let itRaw;
   if (useGeminiDirect) {
-    itRaw = await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
-    console.error(`  ↪ Completato con Gemini ${AI_MODELS.GEMINI_FLASH}`);
+    // Lo slot `gemini` della rotazione (tentativo 3) e' un modello di
+    // partenza come gli altri: passa dalla stessa preferenza del ramo sotto,
+    // o quel tentativo salta Codex e parte dalla sola cascata free
+    // (review di frontaliere-articles#1751).
+    itRaw = await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, prefer: PREFERRED_GENERATION_MODELS, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
+    console.error(`  ↪ Completato (slot Gemini ${AI_MODELS.GEMINI_FLASH})`);
   } else {
     itRaw = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, prefer: PREFERRED_GENERATION_MODELS, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
   }
@@ -6184,7 +6284,7 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     console.error(`  🔄 Retry IT con maxTokens=${retryTokens}${isTruncation ? ' (troncamento rilevato)' : ''}...`);
     try {
       const itRaw2 = useGeminiDirect
-        ? await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema })
+        ? await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, prefer: PREFERRED_GENERATION_MODELS, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema })
         : await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, prefer: PREFERRED_GENERATION_MODELS, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema });
       itData = JSON.parse(repairLlmJson(itRaw2));
       console.error(`  ✅ Retry IT riuscito`);
@@ -8353,531 +8453,70 @@ function _buildWikimediaQueries(data) {
   return queries;
 }
 
-/** Load previously used Wikimedia image URLs to avoid repeats */
-function _loadUsedImageUrls() {
-  const trackingFile = path.join(process.cwd(), 'data', 'blog-images-used.json');
+async function persistGeneratedArticleRecord(record) {
+  const registryPath = resolve('data/generated-image-registry.json');
+  let registry = {
+    schema: 1,
+    libraryVersion: new Date().toISOString().slice(0, 10),
+    cdnPrefix: '/images/generated/',
+    assetCount: 0,
+    generatedAt: new Date().toISOString(),
+    assets: [],
+  };
   try {
-    const raw = readFileSync(trackingFile, 'utf8');
-    const entries = JSON.parse(raw);
-    return new Set(Object.values(entries));
-  } catch {
-    return new Set();
+    if (existsSync(registryPath)) {
+      const parsed = JSON.parse(readFileSync(registryPath, 'utf8'));
+      if (parsed && Array.isArray(parsed.assets)) registry = { ...registry, ...parsed };
+    }
+  } catch (error) {
+    throw new Error(`generated-image-registry.json is unreadable: ${error.message}`);
   }
-}
-
-/** Save a used Wikimedia image URL for dedup tracking */
-function _saveUsedImageUrl(articleId, imageUrl) {
-  const trackingFile = path.join(process.cwd(), 'data', 'blog-images-used.json');
-  let entries = {};
-  try {
-    entries = JSON.parse(readFileSync(trackingFile, 'utf8'));
-  } catch { /* first use */ }
-  entries[articleId] = imageUrl;
-  writeFileSync(trackingFile, JSON.stringify(entries, null, 2) + '\n');
+  const assets = [...registry.assets.filter((asset) => asset?.assetId !== record.assetId), record]
+    .sort((a, b) => String(a.assetId).localeCompare(String(b.assetId)));
+  writeFileSync(registryPath, JSON.stringify({
+    ...registry,
+    assetCount: assets.length,
+    generatedAt: new Date().toISOString(),
+    assets,
+  }, null, 2) + '\n');
 }
 
 async function generateArticleImage(data) {
-  // Derive concrete English subject clause from TOPIC_SEARCH_MAP so the generator
-  // doesn't default to generic "people in a street" when the title says "frontalieri".
-  const subjectTitle = _articleTitleLower(data);
-  let topicSubject = null;
-  for (const entry of TOPIC_SEARCH_MAP) {
-    if (entry.keywords.some(k => subjectTitle.includes(k))) { topicSubject = entry.queries[0]; break; }
-  }
-  const subjectLine = topicSubject ? `\n\nMAIN SUBJECT: ${topicSubject}. This must be the dominant element in the frame.` : '';
-  const fallbackImagePrompt = IS_FRONTALIERE
-    ? `Professional editorial photo for a news article about cross-border workers in Ticino, Switzerland. Lake Lugano, warm lighting.`
-    : `Professional editorial photo for a Swiss national news article. A recognizable Swiss national or cantonal scene appropriate to the topic, natural warm lighting.`;
-  const prompt = (data.imagePrompt || fallbackImagePrompt)
-    + subjectLine
-    + '\n\nIMPORTANT: Generate ONLY the image, do NOT include any text, watermarks, labels, or captions on the image.'
-    + '\n\nSTYLE: Photorealistic editorial photograph indistinguishable from a real DSLR/mirrorless camera shot. Include natural lens characteristics: shallow depth of field, subtle chromatic aberration, realistic bokeh on out-of-focus areas, natural film grain, slight vignetting. Lighting must be natural and ambient — avoid flat, evenly-lit AI look. Include micro-imperfections: slight motion blur on peripheral elements, natural color temperature shifts, realistic shadow falloff. Absolutely NO AI artifacts, NO unnaturally smooth textures, NO perfect symmetry, NO CGI plastic look, NO HDR over-processing.';
+  const title = String(data.content?.it?.title || data.content?.title || data.id || '').trim();
+  const topic = String(data.imagePrompt || '').trim();
+  const subject = [title, topic].filter(Boolean).join(' — ')
+    || 'Swiss border-region editorial article';
+  const area = IS_FRONTALIERE
+    ? 'Ticino and the Italian-Swiss border'
+    : 'Switzerland and its cantons';
+  const assetId = `article-${data.id}`;
 
-  const imgDir = resolve('public/images/blog');
-  mkdirSync(imgDir, { recursive: true });
-  const imgPath = resolve(`public/images/blog/${data.id}.webp`);
-
-  // ── Helper: save raw image buffer, optimize, return path or null ──
-  async function _saveAndOptimize(rawBuffer, providerLabel, contentType = 'image/jpeg') {
-    if (rawBuffer.length < 5000) {
-      console.error(`  ⚠️ Immagine troppo piccola (${rawBuffer.length} bytes) da ${providerLabel}`);
-      return null;
-    }
-    const sourceExt = (contentType || '').includes('png') ? 'png'
-      : (contentType || '').includes('webp') ? 'webp'
-      : (contentType || '').includes('gif') ? 'gif'
-      : (contentType || '').includes('avif') ? 'avif'
-      : 'jpg';
-    const tempPath = resolve(`public/images/blog/${data.id}.source.${sourceExt}`);
-    writeFileSync(tempPath, rawBuffer);
-    const rawKB = (rawBuffer.length / 1024).toFixed(0);
-    const result = await optimizeImageToWebp(tempPath, imgPath);
-    if (existsSync(tempPath)) unlinkSync(tempPath);
-
-    if (result.ok) {
-      const finalKb = (result.after / 1024).toFixed(0);
-      const beforeKb = (result.before / 1024).toFixed(0);
-      const overTarget = result.after > BLOG_IMAGE_HARD_MAX_BYTES ? ' ⚠️ sopra hard cap' : '';
-      console.error(`  ✅ Immagine generata e ottimizzata: public/images/blog/${data.id}.webp (${beforeKb} KB → ${finalKb} KB, ${providerLabel})${overTarget}`);
-    } else {
-      if (rawBuffer.length > BLOG_IMAGE_HARD_MAX_BYTES) {
-        console.error(`  ⚠️ Immagine raw troppo pesante (${rawKB} KB) e optimizer non disponibile. Provo provider successivo...`);
-        return null;
-      }
-      writeFileSync(imgPath, rawBuffer);
-      console.error(`  ✅ Immagine generata (raw fallback): public/images/blog/${data.id}.webp (${rawKB} KB, ${providerLabel})`);
-    }
-
-    // ── Post-save width enforcement ──
-    // Google News, Discover, and Open Graph require ≥1200px wide images.
-    // If the optimizer (sharp or system binaries) wasn't available, or if the
-    // AI provider returned an undersized image, the saved file may be < 1200px.
-    // Force-upscale to 1200px wide to guarantee visibility on all Google surfaces.
-    try {
-      const sharpMod = await import('sharp');
-      const shp = sharpMod.default || sharpMod;
-      const meta = await shp(imgPath).metadata();
-      if (meta.width && (meta.width < 1200 || meta.height < 675)) {
-        const buf = await shp(imgPath)
-          .resize({ width: 1200, height: 675, fit: 'cover', position: 'attention' })
-          .webp({ quality: 75, effort: 4 })
-          .toBuffer();
-        writeFileSync(imgPath, buf);
-        console.error(`  📐 Resized ${meta.width}×${meta.height} → 1200×675 (Google Discover minimum)`);
-      }
-    } catch {
-      // sharp not available — image stays as-is (acceptable in rare CI edge cases)
-    }
-
-    const generatedPath = `/images/blog/${data.id}.webp`;
-    appendCatalogEntry(generatedPath);
-    return generatedPath;
-  }
-
-  // ── Strategy 1: Gemini native image generation (free tier) ──
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (apiKey) {
-    const modelsToTry = [IMAGE_MODEL_FLASH, IMAGE_MODEL_PRO];
-    let geminiQuotaExhausted = false;
-    for (const model of modelsToTry) {
-      if (geminiQuotaExhausted) break;
-      try {
-        const isPro = model === IMAGE_MODEL_PRO;
-        console.error(`🎨 Generazione immagine con ${isPro ? 'Gemini 3 Pro Image' : 'Gemini 2.5 Flash Image'}...`);
-
-        const endpoint = `${GEMINI_API_BASE}/${model}:generateContent?key=${apiKey}`;
-        // Note: imageSize:'1K' removed — it causes Gemini to output 1024x1024 squares.
-        // aspectRatio:'16:9' alone produces proper landscape output.
-        const generationConfig = isPro
-          ? { responseModalities: ['TEXT', 'IMAGE'], imageConfig: { aspectRatio: '16:9' } }
-          : { responseModalities: ['IMAGE'], imageConfig: { aspectRatio: '16:9' } };
-
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig,
-          }),
-          signal: AbortSignal.timeout(120000),
-        });
-
-        if (!res.ok) {
-          // 429 = quota exceeded — account-wide, skip all remaining Gemini models
-          if (res.status === 429) {
-            geminiQuotaExhausted = true;
-            throw new Error('quota Gemini esaurita (429)');
-          }
-          const errText = await res.text().catch(() => '');
-          throw new Error(`HTTP ${res.status}: ${errText.slice(0, 120)}`);
-        }
-
-        const json = await res.json();
-        const parts = json.candidates?.[0]?.content?.parts || [];
-        const imagePart = parts.find(p => p.inlineData?.data && !p.thought);
-        if (!imagePart) throw new Error('Nessuna immagine nella risposta Gemini');
-
-        const base64 = imagePart.inlineData.data;
-        const mimeType = imagePart.inlineData.mimeType || 'image/jpeg';
-        const rawBuffer = Buffer.from(base64, 'base64');
-        const saved = await _saveAndOptimize(rawBuffer, `Gemini/${model}`, mimeType);
-        if (saved) return saved;
-      } catch (e) {
-        console.error(`  ⚠️  Gemini fallito: ${e.message}`);
-      }
-    }
-  }
-
-  // ── Strategy 2: Pollinations.ai (free, no API key) ──
-  // https://gen.pollinations.ai — free AI image generation, no auth needed
-  // Migrated from image.pollinations.ai/prompt/ → gen.pollinations.ai/image/ (2025)
-  // Only try 2 models with 1 retry; if origin is down (530/502/503) skip all.
-  const pollinationsModels = ['flux', 'flux-realism'];
-  let pollinationsOriginDown = false;
-  for (const pModel of pollinationsModels) {
-    if (pollinationsOriginDown) break;
-    for (let attempt = 0; attempt < 2; attempt++) {
-      try {
-        if (attempt > 0) {
-          console.error(`  🔄 Retry Pollinations/${pModel} dopo 10s...`);
-          await new Promise(r => setTimeout(r, 10000));
-        }
-        console.error(`🎨 Generazione immagine con Pollinations.ai (${pModel})...`);
-        const encodedPrompt = encodeURIComponent(
-          prompt.replace(/\n/g, ' ').slice(0, 800)
-        );
-        const pollinationsUrl = `https://gen.pollinations.ai/image/${encodedPrompt}?width=1280&height=720&model=${pModel}&nologo=true&seed=${Date.now()}`;
-
-        const res = await fetch(pollinationsUrl, {
-          signal: AbortSignal.timeout(120000),
-          redirect: 'follow',
-        });
-
-        if (!res.ok) {
-          if ((res.status === 530 || res.status === 502 || res.status === 503) && attempt < 1) {
-            throw new Error(`HTTP ${res.status} (retry)`);
-          }
-          // Origin-level errors mean all models are down
-          if (res.status === 530 || res.status === 502 || res.status === 503) {
-            pollinationsOriginDown = true;
-          }
-          throw new Error(`HTTP ${res.status}`);
-        }
-
-        const contentType = res.headers.get('content-type') || '';
-        if (!contentType.startsWith('image/')) {
-          throw new Error(`Risposta non è un'immagine: ${contentType}`);
-        }
-
-        const arrayBuf = await res.arrayBuffer();
-        const rawBuffer = Buffer.from(arrayBuf);
-        const saved = await _saveAndOptimize(rawBuffer, `Pollinations/${pModel}`, contentType);
-        if (saved) return saved;
-        break;
-      } catch (e) {
-        console.error(`  ⚠️  Pollinations/${pModel} fallito: ${e.message}`);
-        if (e.message.includes('(retry)')) continue;
-        break;
-      }
-    }
-  }
-  if (pollinationsOriginDown) console.error('  ⚠️  Pollinations.ai non raggiungibile — origin down');
-
-  // ── Strategy 2b: Together.ai (FLUX.1-schnell-Free, free tier with key) ──
-  // https://www.together.ai — free model, needs TOGETHER_API_KEY secret in GH
-  const togetherKey = process.env.TOGETHER_API_KEY;
-  if (togetherKey) {
-    try {
-      console.error('🎨 Generazione immagine con Together.ai (FLUX.1-schnell-Free)...');
-      const togetherRes = await fetch('https://api.together.xyz/v1/images/generations', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${togetherKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: 'black-forest-labs/FLUX.1-schnell-Free',
-          prompt: prompt.replace(/\n/g, ' ').slice(0, 800),
-          width: 1280,
-          height: 720,
-          steps: 4,
-          n: 1,
-          response_format: 'b64_json',
-        }),
-        signal: AbortSignal.timeout(90000),
-      });
-      if (!togetherRes.ok) {
-        const errText = await togetherRes.text().catch(() => '');
-        throw new Error(`HTTP ${togetherRes.status}: ${errText.slice(0, 200)}`);
-      }
-      const togetherJson = await togetherRes.json();
-      const b64 = togetherJson.data?.[0]?.b64_json;
-      if (!b64) throw new Error('Nessuna immagine nella risposta Together.ai');
-      const rawBuffer = Buffer.from(b64, 'base64');
-      const saved = await _saveAndOptimize(rawBuffer, 'Together.ai/FLUX-schnell', 'image/jpeg');
-      if (saved) return saved;
-    } catch (e) {
-      console.error(`  ⚠️  Together.ai fallito: ${e.message}`);
-    }
-  }
-
-  // ── Strategy 2c: Fal.ai (FLUX schnell, needs FAL_KEY secret in GH) ──
-  // https://fal.ai — pay-per-use with free credits, very fast FLUX inference
-  const falKey = process.env.FAL_KEY;
-  if (falKey) {
-    try {
-      console.error('🎨 Generazione immagine con Fal.ai (FLUX schnell)...');
-      const falRes = await fetch('https://fal.run/fal-ai/flux/schnell', {
-        method: 'POST',
-        headers: {
-          Authorization: `Key ${falKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          prompt: prompt.replace(/\n/g, ' ').slice(0, 800),
-          image_size: 'landscape_16_9',
-          num_inference_steps: 4,
-          num_images: 1,
-        }),
-        signal: AbortSignal.timeout(90000),
-      });
-      if (!falRes.ok) {
-        const errText = await falRes.text().catch(() => '');
-        throw new Error(`HTTP ${falRes.status}: ${errText.slice(0, 200)}`);
-      }
-      const falJson = await falRes.json();
-      const falImgUrl = falJson.images?.[0]?.url;
-      if (!falImgUrl) throw new Error('Nessuna immagine nella risposta Fal.ai');
-      const falImgRes = await fetch(falImgUrl, { signal: AbortSignal.timeout(30000) });
-      if (!falImgRes.ok) throw new Error(`Download HTTP ${falImgRes.status}`);
-      const falBuf = Buffer.from(await falImgRes.arrayBuffer());
-      const falContentType = falImgRes.headers.get('content-type') || 'image/jpeg';
-      const saved = await _saveAndOptimize(falBuf, 'Fal.ai/FLUX-schnell', falContentType);
-      if (saved) return saved;
-    } catch (e) {
-      console.error(`  ⚠️  Fal.ai fallito: ${e.message}`);
-    }
-  }
-
-  // ── Strategy 3: HuggingFace Inference API (free, FLUX-schnell) ──
-  // https://huggingface.co/docs/api-inference — free tier with HF_TOKEN
-  // FLUX-1-schnell is one of the fastest open-source text-to-image models
-  // NOTE: HF migrated from api-inference.huggingface.co → router.huggingface.co (2025)
-  const hfToken = process.env.HF_TOKEN || process.env.HUGGINGFACE_TOKEN;
-  if (hfToken) {
-    const hfModels = [
-      'black-forest-labs/FLUX.1-schnell',
-      'stabilityai/stable-diffusion-xl-base-1.0',
-    ];
-    for (const hfModel of hfModels) {
-      try {
-        const shortName = hfModel.split('/').pop();
-        console.error(`🎨 Generazione immagine con HuggingFace/${shortName}...`);
-        const hfRes = await fetch(`https://router.huggingface.co/hf-inference/v2/models/${hfModel}`, {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${hfToken}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            inputs: prompt.replace(/\n/g, ' ').slice(0, 800),
-            parameters: { width: 1280, height: 720 },
-          }),
-          signal: AbortSignal.timeout(120000),
-        });
-
-        if (!hfRes.ok) {
-          const errText = await hfRes.text().catch(() => '');
-          throw new Error(`HTTP ${hfRes.status}: ${errText.slice(0, 200)}`);
-        }
-
-        const contentType = hfRes.headers.get('content-type') || '';
-        if (!contentType.startsWith('image/')) {
-          throw new Error(`Risposta non è un'immagine: ${contentType}`);
-        }
-
-        const rawBuffer = Buffer.from(await hfRes.arrayBuffer());
-        const saved = await _saveAndOptimize(rawBuffer, `HuggingFace/${shortName}`, contentType);
-        if (saved) return saved;
-      } catch (e) {
-        console.error(`  ⚠️  HuggingFace/${hfModel.split('/').pop()} fallito: ${e.message}`);
-      }
-    }
-  }
-
-  // ── Strategy 4: Wikimedia Commons (free, no API key, keyword search) ──
-  // Searches Creative Commons licensed photos from Wikimedia. Very reliable.
-  // Uses article-specific topic keywords + image URL dedup to avoid repeats.
-  {
-    const searchQueries = _buildWikimediaQueries(data);
-    const usedUrls = _loadUsedImageUrls();
-
-    for (const query of searchQueries) {
-      try {
-        console.error(`🖼️ Ricerca immagine da Wikimedia Commons ("${query}")...`);
-        const wikiUrl = `https://commons.wikimedia.org/w/api.php?action=query&generator=search` +
-          `&gsrsearch=${encodeURIComponent(query)}&gsrnamespace=6&gsrlimit=12` +
-          `&prop=imageinfo&iiprop=url|size|mime&iiurlwidth=1280&format=json`;
-        const res = await fetch(wikiUrl, {
-          signal: AbortSignal.timeout(15000),
-          headers: { 'User-Agent': 'FrontaliereBot/1.0 (https://frontaliereticino.ch; blog image)' },
-        });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const json = await res.json();
-        const pages = json.query?.pages || {};
-        // Filter to JPEG/PNG images with a thumbnail URL, exclude already-used URLs
-        const candidates = Object.values(pages)
-          .filter(p => {
-            const info = p.imageinfo?.[0];
-            if (!info?.thumburl) return false;
-            const mime = (info.mime || '').toLowerCase();
-            if (!mime.startsWith('image/jpeg') && !mime.startsWith('image/png')) return false;
-            // Dedup: skip images already used by other articles
-            if (usedUrls.has(info.thumburl) || usedUrls.has(info.url)) return false;
-            return true;
-          })
-          .sort((a, b) => {
-            // Prefer landscape orientation and reasonable sizes
-            const aInfo = a.imageinfo[0];
-            const bInfo = b.imageinfo[0];
-            const aRatio = (aInfo.width || 1) / (aInfo.height || 1);
-            const bRatio = (bInfo.width || 1) / (bInfo.height || 1);
-            // Score: prefer ratio > 1.3 (landscape) and larger images
-            const aScore = (aRatio > 1.3 ? 10 : 0) + Math.min(aInfo.width || 0, 2000) / 200;
-            const bScore = (bRatio > 1.3 ? 10 : 0) + Math.min(bInfo.width || 0, 2000) / 200;
-            return bScore - aScore;
-          });
-
-        if (candidates.length === 0) {
-          console.error(`  ⚠️  Wikimedia "${query}": nessun risultato (o tutti già usati)`);
-          continue;
-        }
-
-        // Pick from top 5 candidates for variety (was top 3)
-        const pick = candidates[Math.floor(Math.random() * Math.min(5, candidates.length))];
-        const imgUrl = pick.imageinfo[0].thumburl;
-        console.error(`  📥 Download: ${imgUrl.slice(0, 80)}...`);
-
-        const imgRes = await fetch(imgUrl, {
-          signal: AbortSignal.timeout(20000),
-          headers: { 'User-Agent': 'FrontaliereBot/1.0' },
-        });
-        if (!imgRes.ok) throw new Error(`Download HTTP ${imgRes.status}`);
-        const buf = Buffer.from(await imgRes.arrayBuffer());
-        const saved = await _saveAndOptimize(buf, `Wikimedia/${query}`, imgRes.headers.get('content-type'));
-        if (saved) {
-          _saveUsedImageUrl(data.id, imgUrl);
-          return saved;
-        }
-      } catch (e) {
-        console.error(`  ⚠️  Wikimedia "${query}" fallito: ${e.message}`);
-      }
-    }
-  }
-
-  // ── Strategy 5: Pixabay API (free, 100 req/min, needs key) ──
-  // Uses article-specific keyword search for relevant stock photos.
-  const pixabayKey = process.env.PIXABAY_API_KEY;
-  if (pixabayKey) {
-    const pixabayQueries = _buildWikimediaQueries(data).slice(0, 2).map(q => q.replace(/\bcommons\b/gi, '').trim());
-    if (pixabayQueries.length === 0) pixabayQueries.push('ticino switzerland');
-    pixabayQueries.push('swiss landscape lake');
-    const pxCategory = _inferPixabayCategory(data);
-    const categoryParam = pxCategory ? `&category=${encodeURIComponent(pxCategory)}` : '';
-
-    for (const pxQuery of pixabayQueries) {
-      try {
-        console.error(`🖼️ Ricerca immagine stock da Pixabay ("${pxQuery}"${pxCategory ? `, cat=${pxCategory}` : ''})...`);
-        const q = encodeURIComponent(pxQuery);
-        const res = await fetch(
-          `https://pixabay.com/api/?key=${pixabayKey}&q=${q}${categoryParam}&image_type=photo&orientation=horizontal&per_page=20&min_width=1280&safesearch=true`,
-          { signal: AbortSignal.timeout(15000) },
-        );
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const json = await res.json();
-        const hits = json.hits || [];
-        if (hits.length === 0) {
-          console.error(`  ⚠️  Pixabay "${pxQuery}": nessun risultato`);
-          continue;
-        }
-        // Filter hits by tag relevance to reject off-topic images (e.g. pasta on a highway article)
-        const relevant = hits.filter(h => _isImageRelevant(h.tags, data));
-        if (relevant.length === 0) {
-          console.error(`  ⚠️  Pixabay "${pxQuery}": tutti i risultati respinti dal filtro rilevanza (tags off-topic)`);
-          continue;
-        }
-        const pick = relevant[Math.floor(Math.random() * Math.min(5, relevant.length))];
-        const imgUrl = pick.largeImageURL || pick.webformatURL;
-        if (imgUrl) {
-          const imgRes = await fetch(imgUrl, { signal: AbortSignal.timeout(20000) });
-          if (imgRes.ok) {
-            const buf = Buffer.from(await imgRes.arrayBuffer());
-            const saved = await _saveAndOptimize(buf, `Pixabay/${pxQuery}`, imgRes.headers.get('content-type'));
-            if (saved) return saved;
-          }
-        }
-      } catch (e) {
-        console.error(`  ⚠️  Pixabay "${pxQuery}" fallito: ${e.message}`);
-      }
-    }
-  }
-
-  // ── Strategy 5b: Pexels API (stock foto CC0, needs PEXELS_API_KEY secret in GH) ──
-  // https://www.pexels.com/api/ — free tier 200 req/hour, landscape orientation, high quality
-  const pexelsKey = process.env.PEXELS_API_KEY;
-  if (pexelsKey) {
-    const pexelsQueries = _buildWikimediaQueries(data).slice(0, 2).map(q => q.replace(/\bcommons\b/gi, '').trim());
-    if (pexelsQueries.length === 0) pexelsQueries.push('ticino switzerland');
-    pexelsQueries.push('swiss landscape lake');
-
-    for (const pxQuery of pexelsQueries) {
-      try {
-        console.error(`🖼️ Ricerca immagine stock da Pexels ("${pxQuery}")...`);
-        const q = encodeURIComponent(pxQuery);
-        const res = await fetch(
-          `https://api.pexels.com/v1/search?query=${q}&orientation=landscape&size=large&per_page=20`,
-          {
-            headers: { Authorization: pexelsKey },
-            signal: AbortSignal.timeout(15000),
-          },
-        );
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const json = await res.json();
-        const photos = json.photos || [];
-        if (photos.length === 0) {
-          console.error(`  ⚠️  Pexels "${pxQuery}": nessun risultato`);
-          continue;
-        }
-        // Pexels exposes `alt` (descriptive text). Reuse the same tag filter by
-        // tokenizing alt words.
-        const relevant = photos.filter(p => _isImageRelevant((p.alt || '').replace(/\s+/g, ','), data));
-        if (relevant.length === 0) {
-          console.error(`  ⚠️  Pexels "${pxQuery}": tutti i risultati respinti dal filtro rilevanza (alt off-topic)`);
-          continue;
-        }
-        const pick = relevant[Math.floor(Math.random() * Math.min(5, relevant.length))];
-        const imgUrl = pick.src?.large2x || pick.src?.large || pick.src?.original;
-        if (imgUrl) {
-          const imgRes = await fetch(imgUrl, { signal: AbortSignal.timeout(20000) });
-          if (imgRes.ok) {
-            const buf = Buffer.from(await imgRes.arrayBuffer());
-            const saved = await _saveAndOptimize(buf, `Pexels/${pxQuery}`, imgRes.headers.get('content-type'));
-            if (saved) return saved;
-          }
-        }
-      } catch (e) {
-        console.error(`  ⚠️  Pexels "${pxQuery}" fallito: ${e.message}`);
-      }
-    }
-  }
-
-  // ── Strategy 6: Lorem Picsum (always works, random professional photo) ──
-  // https://picsum.photos — Reliable service serving random stock photos.
-  // Not topic-relevant, but always returns a valid image — last resort before fallback.
   try {
-    console.error('🖼️ Immagine stock da Lorem Picsum (random)...');
-    // Use article ID hash as seed for deterministic-per-article randomness
-    const seed = (data.id || 'default').split('').reduce((h, c) => ((h << 5) - h + c.charCodeAt(0)) | 0, 0);
-    const absSeed = Math.abs(seed) % 10000;
-    const res = await fetch(`https://picsum.photos/seed/${absSeed}/1280/720`, {
-      signal: AbortSignal.timeout(20000),
-      redirect: 'follow',
+    const result = await generateImageFromSpec({
+      scope: 'article-hero',
+      subject,
+      area,
+      season: 'all season',
+      category: data.category,
+      assetId,
+      format: GENERATED_IMAGE_DEFAULT_FORMAT,
+    }, {
+      outputDir: resolve('public/images/generated'),
+      assetId,
+      maxAttempts: 3,
+      onProviderAttempt: ({ provider, attempt }) => {
+        console.error(`🎨 Image engine attempt ${attempt}/3: ${provider}`);
+      },
     });
-    if (res.ok) {
-      const contentType = res.headers.get('content-type') || '';
-      if (contentType.startsWith('image/')) {
-        const buf = Buffer.from(await res.arrayBuffer());
-        const saved = await _saveAndOptimize(buf, 'Picsum', contentType);
-        if (saved) return saved;
-      }
-    }
-  } catch (e) {
-    console.error(`  ⚠️  Lorem Picsum fallito: ${e.message}`);
+    await persistGeneratedArticleRecord(result.record);
+    console.error(
+      `  ✅ Governed article image: ${result.record.imageUrl} (${result.record.provider}; record persisted)`,
+    );
+    return result.record.imageUrl;
+  } catch (error) {
+    console.error(`  ⚠️  Governed article image unavailable: ${error.message}`);
+    return null;
   }
-
-  console.error('  ❌ Tutti i provider di image generation hanno fallito.');
-  console.error('     Uso immagine di fallback dal catalogo Ticino.');
-  return null; // fallback to AVAILABLE_IMAGES in modifyBlogArticlesTsx
 }
 
 // ── Step 4: Modify source files ─────────────────────────────
@@ -9099,21 +8738,20 @@ function modifyBlogArticlesTsx(data) {
   entryLines.push(`${objIndent}},`);
   const newEntry = entryLines.join('\n');
 
-  // Insert before the array terminator. Anchors to the closing `},` that
-  // immediately precedes `] satisfies Article[];` or `];` — robust to any
-  // set of trailing properties (authorSlug, authorName, etc.) on the last entry.
+  // Insert into the raw aggregate, after any generated chunks. Anchoring to
+  // the declaration name keeps new articles out of the first chunk, so a
+  // later sync can preserve the chunk-size invariant.
   const before = src;
-  src = src.replace(
-    /([ \t]*},\n)(\](?:[ \t]+satisfies[ \t]+Article\[\])?;)/,
-    `$1${newEntry}\n$2`
-  );
-  if (src === before) {
-    // Empty array (first article in the section) — no preceding `},`. Insert
-    // between the opening `[` and the closing `]`. Matches `= [\n]` and `= []`.
-    src = src.replace(
-      new RegExp(`(export const ${SECTION.registryArrayName}\\s*:[^=]*=\\s*\\[)(\\s*)(\\])`),
-      `$1\n${newEntry}\n$3`,
-    );
+  const rawArrayStart = new RegExp(
+    `const\\s+${escapeRegex(SECTION.registryRawArrayName)}\\s*(?::[^=]+)?\\s*=\\s*\\[`,
+  ).exec(src);
+  if (rawArrayStart) {
+    const arrayBodyStart = rawArrayStart.index + rawArrayStart[0].length;
+    const closer = src.slice(arrayBodyStart).match(/\](?:[ \t]+satisfies[ \t]+Article\[\])?;/);
+    if (closer) {
+      const insertAt = arrayBodyStart + closer.index;
+      src = src.slice(0, insertAt) + `${newEntry}\n` + src.slice(insertAt);
+    }
   }
   if (src === before) {
     throw new Error(`modifyBlogArticlesTsx: regex did not match — cannot insert article entry in ${file}`);
@@ -9278,6 +8916,42 @@ function decodeSeoEntities(data) {
   }
 }
 
+function buildArticleAuthorStructuredData(author) {
+  const slug = author?.slug;
+  if (!slug) {
+    return {
+      '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
+      name: 'Frontaliere Ticino',
+      url: `${BASE_URL}/chi-siamo/`,
+    };
+  }
+  const url = `${BASE_URL}/autori/${slug}/`;
+  const isRealAuthor = author.kind === 'real-author' || (!author.kind && Boolean(author.uid));
+  if (isRealAuthor) {
+    return {
+      '@type': 'Person',
+      '@id': `${url}#person`,
+      name: author.name,
+      url,
+      ...(author.linkedinUrl ? { sameAs: [author.linkedinUrl] } : {}),
+    };
+  }
+  return {
+    '@type': 'Organization',
+    '@id': `${url}#profile`,
+    name: author.name,
+    url,
+    ...(author.linkedinUrl ? { sameAs: [author.linkedinUrl] } : {}),
+    parentOrganization: {
+      '@type': 'Organization',
+      '@id': `${BASE_URL}/chi-siamo/#team`,
+      name: 'Redazione Frontaliere Ticino',
+      url: `${BASE_URL}/chi-siamo/`,
+    },
+  };
+}
+
 function modifySeoService(data) {
   decodeSeoEntities(data);
   const publishedAt = toIsoWithTz(new Date())
@@ -9295,6 +8969,7 @@ function modifySeoService(data) {
   const blogSeoFile = SECTION.seoFile;
   let blogSrc = read(blogSeoFile);
   const itHub = SECTION.hubSlug.it;
+  const authorStructuredData = JSON.stringify(buildArticleAuthorStructuredData(data.author));
   // frontaliere canonicalPath has historically had NO trailing slash; keep it
   // byte-identical. svizzera uses a trailing slash (per seo-blog-ch.ts contract).
   const itHubPath = IS_FRONTALIERE ? `/${itHub}/${data.slugs.it}` : `/${itHub}/${data.slugs.it}/`;
@@ -9317,7 +8992,7 @@ function modifySeoService(data) {
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
         "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
         "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
         "creditText": "Frontaliere Ticino",
         "url": \`\${BASE_URL}/${imagePath}\`,
         "width": ${data._generatedImagePath ? 1200 : 1200},
@@ -9327,12 +9002,7 @@ function modifySeoService(data) {
       "datePublished": "${publishedAt}",
       "dateModified": "${modifiedAt}",
       "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "${BASE_URL}/autori/${data.author?.slug || 'redazione'}/#person",
-        "name": "${String(data.author?.name || 'Redazione Frontaliere Ticino').replace(/"/g, '\\"')}",
-        "url": "${BASE_URL}/autori/${data.author?.slug || 'redazione'}/"
-      },
+      "author": ${authorStructuredData},
       "publisher": {"@id": "${BASE_URL}/#organization"},
       "mainEntityOfPage": \`\${BASE_URL}${itHubPath.endsWith('/') ? itHubPath : `${itHubPath}/`}\`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
@@ -9432,6 +9102,8 @@ function validateStructuredData(data) {
   const cp = block.match(/canonicalPath:\s*'([^']+)'/)?.[1] ?? '';
   const datePub = block.match(/"datePublished":\s*"([^"]+)"/)?.[1] ?? '';
   const dateMod = block.match(/"dateModified":\s*"([^"]+)"/)?.[1] ?? '';
+  const siteOrganizationId = 'https://frontaliereticino.ch/#organization';
+  const imageCreator = block.match(/"image"\s*:\s*\{[\s\S]*?"creator"\s*:\s*\{\s*"@type"\s*:\s*"([^"]+)"\s*,\s*"@id"\s*:\s*"([^"]+)"/);
 
   // 3. Verify we got meaningful values
   if (!title) throw new Error(`[validate-ld] Empty title for ${entryKey}`);
@@ -9439,6 +9111,11 @@ function validateStructuredData(data) {
   if (!ogT) throw new Error(`[validate-ld] Empty ogTitle for ${entryKey}`);
   if (!ogD) throw new Error(`[validate-ld] Empty ogDescription for ${entryKey}`);
   if (!cp) throw new Error(`[validate-ld] Empty canonicalPath for ${entryKey}`);
+  // Same check as the corpus generator: an anonymous site Organization as
+  // image creator is a second "Frontaliere Ticino" entity beside #organization.
+  if (imageCreator?.[1] !== 'Organization' || imageCreator?.[2] !== siteOrganizationId) {
+    throw new Error(`[validate-ld] image.creator must reference ${siteOrganizationId} as Organization for ${entryKey}`);
+  }
 
   // 4. Build the same JSON-LD object ogPagesPlugin builds and verify JSON.stringify works
   const BASE = 'https://frontaliereticino.ch';
@@ -9450,18 +9127,18 @@ function validateStructuredData(data) {
     image: `${BASE}${data._generatedImagePath || `/images/places/${data.image}`}`,
     url: `${BASE}${cp}`,
     publisher: {
-      '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE,
+      '@type': 'Organization', '@id': siteOrganizationId, name: 'Frontaliere Ticino', url: BASE,
       logo: {
         '@type': 'ImageObject',
         acquireLicensePage: 'https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini',
         copyrightNotice: '© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.',
         license: 'https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini',
-        creator: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE },
+        creator: { '@type': 'Organization', '@id': siteOrganizationId, name: 'Frontaliere Ticino', url: BASE },
         creditText: 'Frontaliere Ticino',
         url: `${BASE}/icons/icon-512x512.png`,
       },
     },
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE },
+    author: buildArticleAuthorStructuredData(data.author),
     mainEntityOfPage: `${BASE}${cp}`,
   };
   if (datePub) ldObj.datePublished = datePub;
@@ -9665,14 +9342,18 @@ function gitAddAll(data) {
   if (existsSync(resolve(CONSUMED_TRACKER_PATH))) {
     files.push(CONSUMED_TRACKER_PATH);
   }
-  // Include generated blog hero image (web path → filesystem path under public/).
-  // WebP-only: optimizeImageToWebp emits a single file; no JPG sidecar.
+  // Include the governed generated hero (web path → filesystem path under
+  // public/) and its registry. A generated byte without its record is never
+  // staged for publication.
   if (data?._generatedImagePath) {
     const webPath = data._generatedImagePath.replace(/^\//, '');
     const fsPath = `public/${webPath}`;
     if (existsSync(resolve(fsPath))) {
       files.push(fsPath);
     }
+  }
+  if (existsSync(resolve('data/generated-image-registry.json'))) {
+    files.push('data/generated-image-registry.json');
   }
   execSync(`git add ${resolveGitAddPaths(PROJECT_ROOT, files).join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
   console.error('  ✅ Tutti i file modificati aggiunti a git');
@@ -9801,6 +9482,26 @@ const LOCAL_MIN_VIABLE_MS = 11 * 60_000;
 const MIN_VIABLE_ATTEMPT_MS = 2 * 60_000;
 
 /**
+ * Turn a fail-closed verifier outage into a typed run-level error. The
+ * `unverified` result must not enter the content-remediation loop: retrying
+ * the whole article only repeats the same unavailable checker cascade.
+ */
+function createFactCheckUnavailableError(result, stage) {
+  const rawReason = Array.isArray(result?.issues) ? result.issues[0]?.reason : '';
+  const reason = String(rawReason || 'nessun verificatore ha prodotto un verdetto')
+    .replace(/\s+/g, ' ')
+    .slice(0, 300);
+  const error = new Error(`Fact-check unavailable (${stage}): ${reason}`);
+  error.factCheckUnavailable = true;
+  error.unverified = true;
+  return error;
+}
+
+function isFactCheckUnavailableError(e) {
+  return e?.factCheckUnavailable === true;
+}
+
+/**
  * True when the error is a CONTENT/QUALITY rejection (fact-check block,
  * topic-gate REGOLA #0 abort, fabrication, or a non-conformant headline that
  * survived its retry budget) rather than an infrastructure bug.
@@ -9821,6 +9522,7 @@ const MIN_VIABLE_ATTEMPT_MS = 2 * 60_000;
  */
 function isQualityRejectError(e) {
   if (!e) return false;
+  if (isFactCheckUnavailableError(e)) return false;
   if (e.qualityReject === true || e.topicGateAbort === true) return true;
   // `troppo corto` covers the whole thin-content class (too-short IT body
   // after the retry+expand ladder, too-short char count, too-short locale
@@ -10621,6 +10323,11 @@ async function main() {
       const weekNum = Math.floor((Date.now() - new Date('2025-01-06').getTime()) / (7 * 24 * 60 * 60 * 1000));
       const baseIndex = weekNum % topicPool.length;
       const totalTopics = topicPool.length;
+      const evergreenLedgerContext = {
+        section: SECTION_NAME,
+        pool: _EVERGREEN_POOL_NAME,
+        poolEpoch: _computeEvergreenPoolEpoch(topicPool, SECTION_NAME),
+      };
 
       // Cross-run duplicate memory (#3138, 2026-07-02): keywords already
       // confirmed duplicate post-generation in a PREVIOUS cron run. Without
@@ -10628,6 +10335,20 @@ async function main() {
       // doomed neighborhood re-attempted every 30-min run forever, since
       // each run otherwise starts with zero memory of prior failures.
       let evergreenRejectedTracker = _loadEvergreenRejectedTracker();
+
+      // Legacy entries are revalidated by the normal duplicate preflight. A
+      // confirmed duplicate is written back with current provenance, so a
+      // changed pool epoch can reopen the keyword safely.
+      const rememberConfirmedEvergreenDuplicate = (keyword, reason = 'duplicate') => {
+        const now = Date.now();
+        evergreenRejectedTracker = _persistEvergreenRejectedTracker(
+          (tracker) => _appendEvergreenRejected(
+            tracker,
+            keyword,
+            { context: evergreenLedgerContext, now, reason },
+          ),
+        );
+      };
 
       // Pre-flight check — find first keyword that doesn't conflict with existing articles
       let selectedTopic = null;
@@ -10637,12 +10358,13 @@ async function main() {
       for (let offset = 0; offset < totalTopics; offset++) {
         const idx = (baseIndex + offset) % totalTopics;
         const candidate = topicPool[idx];
-        if (_isEvergreenRejected(evergreenRejectedTracker, candidate.keyword)) {
+        if (_isEvergreenRejected(evergreenRejectedTracker, candidate.keyword, evergreenLedgerContext)) {
           console.error(`   ⏭️  [${idx}] "${candidate.keyword}" → già rigettato come duplicato in run precedente — skip`);
           continue;
         }
         const check = preFlightEvergreenCheck(candidate);
         if (check.duplicate) {
+          rememberConfirmedEvergreenDuplicate(candidate.keyword);
           console.error(`   ⏭️  [${idx}] "${candidate.keyword}" → simile a "${check.existingTitle}" [${check.existingId}] (${(check.sim * 100).toFixed(0)}%) — skip`);
         } else {
           console.error(`   ✅ [${idx}] "${candidate.keyword}" → nessun conflitto — selezionato\n`);
@@ -10733,8 +10455,10 @@ async function main() {
             // Persisting avoids wasting ~60-90s per doomed attempt.
             // Quality-rejects (too-short/thin) intentionally excluded: LLM
             // variance makes them transient; blocking permanently is too aggressive.
-            evergreenRejectedTracker = _appendEvergreenRejected(evergreenRejectedTracker, selectedTopic.keyword);
-            try { _persistEvergreenRejectedTracker(evergreenRejectedTracker); } catch { /* ignore */ }
+            rememberConfirmedEvergreenDuplicate(
+              selectedTopic.keyword,
+              isTopicGateAbort ? 'topic-gate' : 'duplicate',
+            );
           } else if (isQualityReject && selectedTopic) {
             // A STRIKE, not a ban — the reasoning above is right that one bad
             // draft is variance, but "never record it" was the wrong conclusion:
@@ -10744,10 +10468,21 @@ async function main() {
             // 2026-08-03. Retired only at EVERGREEN_STRIKE_LIMIT.
             // Persisted immediately, same reason as the ban path: a later
             // wall-budget break or hard kill must not lose the count.
-            evergreenRejectedTracker = _strikeEvergreenKeyword(evergreenRejectedTracker, selectedTopic.keyword);
-            const n = evergreenRejectedTracker.strikes?.[selectedTopic.keyword] || 0;
+            const now = Date.now();
+            evergreenRejectedTracker = _persistEvergreenRejectedTracker(
+              (tracker) => _strikeEvergreenKeyword(
+                tracker,
+                selectedTopic.keyword,
+                { context: evergreenLedgerContext, now },
+              ),
+            );
+            const strike = evergreenRejectedTracker.strikes
+              ?.find((entry) => entry.keyword === selectedTopic.keyword
+                && entry.section === evergreenLedgerContext.section
+                && entry.pool === evergreenLedgerContext.pool
+                && entry.poolEpoch === evergreenLedgerContext.poolEpoch);
+            const n = strike?.count || 0;
             console.error(`   ⚠️  "${selectedTopic.keyword}": strike ${n}/${_EVERGREEN_STRIKE_LIMIT} (quality reject)`);
-            try { _persistEvergreenRejectedTracker(evergreenRejectedTracker); } catch { /* ignore */ }
           }
 
           if (isTopicGateAbort) {
@@ -10765,7 +10500,7 @@ async function main() {
             if (triedOffsets.has(realOffset)) continue;
             const idx = (baseIndex + realOffset) % totalTopics;
             const candidate = topicPool[idx];
-            if (_isEvergreenRejected(evergreenRejectedTracker, candidate.keyword)) {
+            if (_isEvergreenRejected(evergreenRejectedTracker, candidate.keyword, evergreenLedgerContext)) {
               triedOffsets.add(realOffset);
               continue;
             }
@@ -10777,6 +10512,7 @@ async function main() {
               console.error(`   ✅ [${idx}] "${candidate.keyword}" → prossimo tentativo\n`);
               break;
             }
+            rememberConfirmedEvergreenDuplicate(candidate.keyword);
           }
 
           if (!selectedTopic) {
@@ -11279,6 +11015,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     // Step 3a.0c: LLM fact verification — PRIMARY BLOCKING GATE
     try {
       const factResult = await llmFactCheck(data.content.it, pageContent, url);
+      if (factResult.unverified === true) {
+        throw createFactCheckUnavailableError(factResult, 'article');
+      }
       if (!factResult.passed) {
         // Ledger only. These categories never reach the defect memory and can
         // never promote anything: they are the verifier's opinion, and the
@@ -11326,6 +11065,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       // path instead (see the `🚫` log in llmFactCheck).
     } catch (fcErr) {
       // Both fact-check rejections AND all-models-failed errors retry
+      if (isFactCheckUnavailableError(fcErr)) throw fcErr;
       if (attempt < maxAttempts) {
         console.error(`  🔄 Rigenero per fact-check: ${fcErr.message.slice(0, 120)} (${attempt}/${maxAttempts})...`);
         continue;
@@ -11546,7 +11286,14 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     throw e;
   }
 
-  // Step 3b: Generate article image via Gemini native image generation
+  // This is the final body state after translation, link/CTA enrichment and
+  // source-citation insertion. Reject cross-locale factuality defects before
+  // image generation or any article-file write.
+  assertTranslationsPassFactualityGates(data);
+
+  // Step 3b: Generate article image through the governed engine. If the
+  // engine cannot return a verified record, the existing site-owned fallback
+  // is used and no new unrecorded bytes are staged.
   console.error('🎨 Generazione immagine articolo:');
   const imagePath = await generateArticleImage(data);
   if (imagePath) {
@@ -11855,6 +11602,9 @@ export async function registerArticleFiles(data, opts = {}) {
   // `clampSeoDescriptions`: troncare a 160 caratteri un campo che E' il
   // segnaposto lo renderebbe solo un segnaposto piu' corto, non lo toglierebbe.
   sanitizePromptPlaceholders(data);
+  // Secondary producers (including journalist publishing) bypass main(); keep
+  // the same translated-body admission gate on the shared writer path.
+  assertTranslationsPassFactualityGates(data);
   clampSeoDescriptions(data);
   const slugs = deriveAndSanitizeArticleSlugs(data);
   modifyRouterTs(data);
@@ -11920,7 +11670,7 @@ export { normalizeItalianContentFromPayload, validateItalianPayload };
 // this module (to reuse registerArticleFiles/buildBodyFile) must NOT execute it.
 const invokedDirectly = (() => {
   try {
-    return import.meta.url === pathToFileURL(process.argv[1] || '').href;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }
@@ -11954,6 +11704,16 @@ if (invokedDirectly) {
   // `flushScoresBeforeExit()` e' limitato nel tempo e non lancia, quindi non
   // puo' appendere ne' dirottare l'uscita.
   await flushScoresBeforeExit();
+  // A verifier outage is not a content rejection: retrying every headline
+  // would spend the whole run on the same unavailable checker. The article
+  // remains unpublished and the next scheduled run retries the verification.
+  if (isFactCheckUnavailableError(e)) {
+    finalizeRunReport('deferred', {
+      notes: [...RUN_REPORT.notes, `Deferred (fact-check unavailable; article not published): ${e.message}`],
+    });
+    console.error(`\n⚠️  Differito: fact-check non disponibile, articolo non pubblicato. Riprovo al prossimo run. ${e.message}`);
+    process.exit(0);
+  }
   // Transient free-model pool exhaustion (every model in the fallback chain hit
   // its daily quota / rate limit) is NOT a code bug — free-tier daily limits
   // reset at 00:00 UTC, so the next scheduled run normally succeeds. Treat it as
@@ -12004,7 +11764,7 @@ if (invokedDirectly) {
       + ` contro un cap massimo di ${maxSkippedReqLimit} (oltre di ~${over}).`
       + ` NON e' un esaurimento di quota: nessuna finestra oraria rimpicciolisce un prompt, quindi differire qui e' un ciclo infinito`
       + ` (issue #313: 60+ run 'success' consecutive senza un articolo). Accorciare il prompt di almeno ${over} token,`
-      + ` oppure rendere raggiungibile un modello con contesto adeguato (claude-cli/haiku).`,
+      + ` oppure rendere raggiungibile un modello con contesto adeguato (codex-cli, lane CODEX_AUTH_JSON).`,
     );
     console.error(`::error::roster-cannot-serve-prompt: est=${estimatedRequestTokens} best_cap=${maxSkippedReqLimit} over=${over} refusals=${refusals}`);
     process.exit(EXIT_ROSTER_CANNOT_SERVE_PROMPT);

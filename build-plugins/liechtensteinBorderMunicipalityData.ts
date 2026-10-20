@@ -60,6 +60,10 @@ export interface LiechtensteinBorderMunicipality {
   lng: number;
   population: number;
   populationYear: number;
+  areaKm2: number;
+  elevationM: number;
+  populationDensity2020: number;
+  region: 'Oberland' | 'Unterland';
 }
 
 interface LiechtensteinCommutingContext {

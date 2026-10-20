@@ -11,8 +11,7 @@
  * Both live at the SAME URL, so the searchConsoleCompat self-map
  * (isHealthFacilityPath) always points at a real 200 target. Full pages carry
  * the complete active job inventory in visible cards, plus a bounded first-six
- * JobPosting projection (all 9 mandatory fields per CLAUDE.md Non-Negotiable
- * #3, in every locale) via the canonical buildJobPostingSchema builder.
+ * ItemList projection linking to canonical single-job detail pages.
  *
  * Contract: apply:'build', enforce:'post', emit in closeBundle, pass distDir
  * through buildSeoPageHtml. Sitemap covers indexable pages only (bridges are
@@ -21,6 +20,7 @@
  * landings to them.
  */
 
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import * as fs from 'node:fs';
 import * as np from 'node:path';
 import type { Plugin } from 'vite';
@@ -28,7 +28,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
@@ -47,7 +47,7 @@ import {
   renderJobCardListHtml,
   type JobCardJob,
 } from './shared/jobCardHtml';
-import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
+import { buildJobListEntry } from './shared/jobListEntry';
 import {
   HEALTH_FACILITIES,
   HEALTH_FACILITY_LOCALES,
@@ -57,6 +57,11 @@ import {
   type HealthFacilityLocale,
   type HealthFacilityRecord,
 } from './healthFacilitiesData';
+import {
+  stableTitleToken,
+  TITLE_MAX_CHARS,
+  truncateHeadlineToMeasuredBudget,
+} from './shared/titleSuffix';
 import {
   aggregateHealthFacilityJobs,
   type FacilitySnapshot,
@@ -78,6 +83,38 @@ import {
 import { resolveHealthFacilitiesFlushed, type EmittedFacility } from './shared/buildSignals';
 
 const SITEMAP_FILE = 'sitemap-health-facilities.xml';
+
+/**
+ * Keep facility identity in the SERP title without changing the full H1 or
+ * page copy. Long registry names often include a parenthetical legal name;
+ * removing that suffix is preferable to cutting the facility name mid-word.
+ */
+function compactFacilityTitle(
+  name: string,
+  locale: HealthFacilityLocale,
+  generatedTitle: string,
+  facilityKey: string,
+): string {
+  const headline = String(generatedTitle || '').trim();
+  const escapedLength = (value: string): number => esc(value).length;
+  if (headline.length <= TITLE_MAX_CHARS && escapedLength(headline) <= TITLE_MAX_CHARS) return headline;
+  const shortName = String(name || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const suffix = {
+    it: ': offerte sanitarie',
+    en: ' jobs',
+    de: ' Jobs',
+    fr: ' emplois',
+  }[locale];
+  const compact = `${shortName}${suffix}`.trim();
+  const token = ` · ${stableTitleToken(facilityKey || name)}`;
+  const base = compact.length + token.length <= TITLE_MAX_CHARS ? compact : shortName;
+  const cappedBase = truncateHeadlineToMeasuredBudget(
+    base,
+    TITLE_MAX_CHARS,
+    (candidate) => escapedLength(`${candidate}${token}`),
+  );
+  return `${cappedBase}${token}`;
+}
 
 /** Italian province code → display name (from commuterOrigins). */
 const PROVINCE_NAME: Record<string, string> = {
@@ -168,38 +205,12 @@ function toJobCard(job: FacilityFeaturedJob): JobCardJob {
     contract: job.contract ?? undefined,
     salaryMin: job.salaryMin,
     salaryMax: job.salaryMax,
+    salarySource: job.salarySource ?? undefined,
+    currency: job.currency ?? undefined,
+    postingDateSource: job.postingDateSource,
+    datePosted: job.datePosted ?? undefined,
     postedDate: job.postedDate ?? undefined,
     url: job.url ?? undefined,
-  };
-}
-
-function toJobPostingInput(job: FacilityFeaturedJob): JobInput {
-  return {
-    id: job.id,
-    slug: job.slug,
-    title: job.title,
-    titleByLocale: job.titleByLocale,
-    description: job.description,
-    descriptionByLocale: job.descriptionByLocale,
-    company: job.company,
-    companyKey: job.companyKey,
-    companyDomain: job.companyDomain,
-    addressLocality: job.addressLocality,
-    canton: job.canton,
-    streetAddress: job.streetAddress,
-    postalCode: job.postalCode,
-    postedDate: job.postedDate,
-    datePosted: job.datePosted,
-    crawledAt: job.crawledAt,
-    validThrough: job.validThrough,
-    contract: job.contract,
-    employmentType: job.employmentType,
-    salaryMin: job.salaryMin,
-    salaryMax: job.salaryMax,
-    salaryCurrency: job.currency,
-    sector: job.sector,
-    category: job.category,
-    url: job.url,
   };
 }
 
@@ -248,7 +259,7 @@ export function renderFacilityPage(
   ]);
 
   // Complete live inventory. `snapshot.featured` remains intentionally bounded
-  // below for JobPosting JSON-LD; the visible list must not hide the long tail.
+  // below for ItemList JSON-LD; the visible list must not hide the long tail.
   const cardItems = snapshot.jobs.map((j) => ({ job: toJobCard(j), href: featuredJobPath(j, locale) }));
   const emptyHtml = `<p class="s-card" style="color:var(--color-subtle);font-size:14px;margin:0">${esc(copy.featuredEmpty)}</p>`;
   const listHtml = renderJobCardListHtml(cardItems, { locale, emptyStateHtml: emptyHtml });
@@ -301,21 +312,25 @@ export function renderFacilityPage(
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)}</p>
     <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(copy.lede)}</p>
-    <p class="text-sm font-medium mt-1" style="color:var(--color-accent)">${esc(updatedLabel(locale))} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium mt-1" style="color:var(--color-accent)">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
   </header>`;
 
-  const body = `<div class="max-w-3xl mx-auto px-4 py-6">
+  const bodyContent = `<div class="max-w-3xl mx-auto px-4 py-6">
     ${breadcrumb}
     ${header}
     ${tiles}
+    ${reportedSalaryNote(locale, snapshot.reportedSalary)}
     ${jobsSection}
     ${rolesSection}
     ${infoSection}
     ${funnelSection}
     ${proseSection}
     ${faqSection}
-    ${endOfContentMultiplexHtml({ indexable: true })}
   </div>`;
+  const body = bodyContent.replace(
+    /<\/div>$/,
+    `${endOfContentMultiplexHtml({ indexable: true, contentHtml: bodyContent })}</div>`,
+  );
 
   // ── JSON-LD ──
   const breadcrumbLd = {
@@ -344,24 +359,27 @@ export function renderFacilityPage(
     description: guardArticleJsonLdDescription(copy.metaDesc),
     inLanguage: locale,
     url: canonicalUrl,
-    dateModified: dateStamp,
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),
     },
   };
-  // Non-Negotiable #3: full JobPosting per featured live job, every locale.
-  const jobPostingLds = snapshot.featured.map((j) =>
-    JSON.stringify(
-      buildJobPostingSchema(toJobPostingInput(j), {
+  const jobListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: snapshot.featured.map((job, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: buildJobListEntry(job, {
         locale,
-        url: `${BASE_URL}${featuredJobPath(j, locale)}`,
+        url: `${BASE_URL}${featuredJobPath(job, locale)}`,
         baseUrl: BASE_URL,
       }),
-    ),
-  );
+    })),
+  };
 
   const hreflangPaths: HreflangPaths = {
     it: buildHealthFacilityPath('it', facility.slug),
@@ -372,7 +390,7 @@ export function renderFacilityPage(
 
   const html = buildSeoPageHtml({
     locale,
-    title: copy.metaTitle,
+    title: compactFacilityTitle(facility.name, locale, copy.metaTitle, facility.slug),
     description: copy.metaDesc,
     canonicalUrl,
     hreflangHtml: renderHreflangTags(hreflangPaths),
@@ -381,7 +399,7 @@ export function renderFacilityPage(
       inlineScriptJson(breadcrumbLd),
       inlineScriptJson(faqLd),
       inlineScriptJson(articleLd),
-      ...jobPostingLds,
+      inlineScriptJson(jobListLd),
     ],
     robots: 'index,follow',
     distDir,
@@ -428,7 +446,7 @@ function renderBelowFloorBridge(
 
   return buildSeoPageHtml({
     locale,
-    title: copy.metaTitle,
+    title: compactFacilityTitle(facility.name, locale, copy.metaTitle, facility.slug),
     description: copy.metaDesc,
     canonicalUrl,
     hreflangHtml: renderHreflangTags(hreflangPaths),
@@ -443,9 +461,6 @@ function renderBelowFloorBridge(
 function headingStyle(): string {
   return 'font-size:20px;font-weight:800;color:var(--color-heading);margin:0 0 4px';
 }
-function updatedLabel(locale: HealthFacilityLocale): string {
-  return { it: 'Aggiornato il', en: 'Updated', de: 'Aktualisiert am', fr: 'Mis à jour le' }[locale];
-}
 function CATEGORY(locale: HealthFacilityLocale, f: HealthFacilityRecord): string {
   return CATEGORY_LABEL[locale][f.category];
 }
@@ -458,7 +473,7 @@ function cleanSite(site: string): string {
 // ── Sitemap ──
 function buildSitemap(paths: readonly string[], dateStamp: string): string {
   const urls = paths
-    .map((p) => `  <url><loc>${BASE_URL}${p}</loc><lastmod>${dateStamp}</lastmod><changefreq>daily</changefreq></url>`)
+    .map((p) => `  <url><loc>${BASE_URL}${p}</loc><changefreq>daily</changefreq></url>`)
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }

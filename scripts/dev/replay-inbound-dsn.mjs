@@ -32,7 +32,8 @@
 
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, extname } from 'node:path';
-import admin from 'firebase-admin';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 // @ts-expect-error — Cloudflare Worker module, no types
 import { isDeliveryStatusReport, parseDeliveryStatusReport } from '../../infra/cloudflare-email-worker/stop-reply-handler.js';
 import { handleInboundBounceReport } from '../../functions/src/inboundBounceReport.js';
@@ -85,13 +86,13 @@ async function main() {
 
   let db = null;
   if (APPLY) {
-    if (!admin.apps?.length) {
-      admin.initializeApp({
-        credential: admin.credential.applicationDefault(),
+    if (!getApps().length) {
+      initializeApp({
+        credential: applicationDefault(),
         projectId: process.env.GCLOUD_PROJECT || 'frontaliere-ticino',
       });
     }
-    db = admin.firestore();
+    db = getFirestore();
   }
 
   const tally = { notReport: 0, unparseable: 0, applied: 0, ignored: 0, wouldApply: 0 };

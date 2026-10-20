@@ -4,7 +4,11 @@ import { fileURLToPath } from 'node:url';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { evaluateAuthoritativeSnapshot } from '../scripts/lib/crawler-template.mjs';
-import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
   collectJobsChVacancyUrls,
@@ -25,6 +29,11 @@ import {
   fetchAllVisionapartmentsJobs,
   VISIONAPARTMENTS_COMPANY_NAME,
 } from '../scripts/lib/visionapartments-job-parser.mjs';
+import {
+  isKenjoCareerSiteEmpty,
+  provesKenjoCareerSiteEmpty,
+  resolveKenjoPositionPath,
+} from '../scripts/lib/kenjo-career-site.mjs';
 import {
   fetchAllFondationDomusJobs,
   parseVacancyBoardEvidence,
@@ -161,7 +170,7 @@ const domusCard = (title: string) => `<div class="job"><div class="title"><h3>${
   <a href="https://www.jobup.ch/fr/emplois/detail/1/">&gt; Voir cette offre d’emploi</a></div>`;
 const domusBoard = (cards: string) => `<div id="mod-xml-loader" class="jobs">${cards}</div>`;
 
-describe('authoritative empty zero — jobs.ch family, umantis and fondation-domus', () => {
+describe('authoritative empty zero — source-validated crawler runners', () => {
   beforeEach(() => clearPoliteFetchStateForTests());
 
   /* ── 1. The wiring the runners must keep ───────────────────────────── */
@@ -178,6 +187,8 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
     ['scripts/update-jsafrasarasin-jobs.mjs'],
     ['scripts/update-apleona-schweiz-ag-jobs.mjs'],
     ['scripts/update-hofweissbad-jobs.mjs'],
+    ['scripts/update-giardino-jobs.mjs'],
+    ['scripts/update-faulhaber-jobs.mjs'],
   ])('%s asks the pipeline for a source-proven zero', (runner) => {
     const source = readRepoFile(runner);
     // recruitingapp-2677 proves a complete foreign snapshot before allowing
@@ -190,15 +201,123 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
     expect(source).toContain("authoritativeSnapshotScope: 'empty-only'");
   });
 
+  it.each([
+    ['scripts/update-linnea-jobs.mjs'],
+    ['scripts/update-tpl-lugano-jobs.mjs'],
+  ])('%s emits the canonical health proof for its explicit empty branch', (runner) => {
+    const source = readRepoFile(runner);
+    expect(source).toContain('authoritativeEmptySnapshot: true');
+    expect(source).not.toContain('sourceProvenEmpty: true');
+  });
+
+  it('Kiabi opts into empty-only snapshots after a strict SmartRecruiters source walk', () => {
+    const parser = readRepoFile('scripts/lib/kiabi-job-parser.mjs');
+    const runner = readRepoFile('scripts/update-kiabi-jobs.mjs');
+
+    expect(parser).toContain('onComplete: (proof) => { sourceReadProof = proof; }');
+    // Completeness and the filtered-zero proof come from the shared client, so
+    // every SmartRecruiters consumer applies the same live-tenant requirement.
+    expect(parser).toContain('if (!isCompleteSmartRecruitersSourceRead(sourceReadProof)) {');
+    expect(parser).toContain('value: listings.length === 0 && provesSmartRecruitersFilteredEmpty(sourceReadProof)');
+    expect(runner).toContain('validateAuthoritativeSnapshot: (jobs) => jobs?.authoritativeEmptySnapshot === true');
+    expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
+    expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
+  });
+
+  it('publishes Tinext zero only after a validated Kenjo empty-source proof', () => {
+    const source = readRepoFile('scripts/update-tinext-jobs.mjs');
+    const discovery = source.slice(
+      source.indexOf('async function discoverListings()'),
+      source.indexOf('/* ── Build job objects ─────────────────────────────────────── */'),
+    );
+    const provenEmptyBranch = source.slice(
+      source.indexOf('if (positions.length === 0) {'),
+      source.indexOf('// 2. Fetch detail pages and build job objects'),
+    );
+    const helper = source.slice(
+      source.indexOf('async function publishAuthoritativeEmptySnapshot()'),
+      source.indexOf('/* ── Main ──────────────────────────────────────────────────── */'),
+    );
+    const unbuiltListingsBranch = source.slice(
+      source.indexOf('if (jobs.length === 0) {'),
+      source.indexOf('// 3. Merge into jobs.json'),
+    );
+
+    expect(discovery).toContain("keys: ['activePositions', 'positions']");
+    expect(discovery).toContain('if (envelopeDrifted)');
+    expect(discovery).toContain('throw new Error(`Unexpected Kenjo API response shape');
+    expect(provenEmptyBranch).toContain('if (await confirmCareerSiteEmpty(listing)) {');
+    expect(provenEmptyBranch).toContain('await publishAuthoritativeEmptySnapshot()');
+    expect(provenEmptyBranch).toContain("summaryCounts.abortKind = 'no-jobs-parsed'");
+    expect(provenEmptyBranch).toContain('preserving existing data');
+    expect(helper).toContain('updateAdapterConfig([])');
+    expect(helper).toContain('archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY)');
+    expect(helper).toContain('writeJobsCrawlerSlice(COMPANY_KEY, [], { skipShrinkGuard: true })');
+    expect(helper).toContain('authoritativeEmptySnapshot: true');
+    expect(helper).toContain('await assembleJobsDataset()');
+    // A non-empty API list whose details all fail is never a proven zero: the
+    // API itself contradicts any empty page, so the slice is preserved.
+    expect(unbuiltListingsBranch).toContain('return;');
+    expect(unbuiltListingsBranch).toContain("summaryCounts.abortKind = 'no-jobs-parsed'");
+    expect(unbuiltListingsBranch).not.toContain('authoritativeEmptySnapshot: true');
+    expect(unbuiltListingsBranch).not.toContain('publishAuthoritativeEmptySnapshot');
+    expect(source).toContain("registerCrawlerSummaryGuard(COMPANY_KEY, 'tinext', summaryCounts)");
+    expect(source).toContain("summaryCounts.abortKind = 'no-jobs-parsed'");
+    expect(source).toContain('provesKenjoCareerSiteEmpty({ listing, careerPageHtml: html })');
+  });
+
+  it('proves the Tinext zero only when the active-site API and the rendered page agree', () => {
+    // Fixtures: the live Kenjo listing envelope (sanitized to the fields the
+    // proof reads) and the server-rendered empty-state block of the career
+    // page, both captured on 2026-10-02.
+    const listing = JSON.parse(readRepoFile('tests/fixtures/kenjo/tinext-positions-empty.json'));
+    const careerPageHtml = readRepoFile('tests/fixtures/kenjo/tinext-career-site-empty.html');
+
+    expect(provesKenjoCareerSiteEmpty({ listing, careerPageHtml })).toBe(true);
+    // A deactivated or flag-less career site is not evidence of zero openings.
+    expect(provesKenjoCareerSiteEmpty({ listing: { ...listing, active: false }, careerPageHtml })).toBe(false);
+    const { active: _active, ...withoutActive } = listing;
+    expect(provesKenjoCareerSiteEmpty({ listing: withoutActive, careerPageHtml })).toBe(false);
+    // The API still listing a position contradicts the page: not a zero.
+    expect(provesKenjoCareerSiteEmpty({
+      listing: { ...listing, activePositions: [{ jobTitle: 'Security & Network Engineer', customUrl: 'secnetsys' }] },
+      careerPageHtml,
+    })).toBe(false);
+    // A drifted envelope, or a page without its visible empty state, is not a zero.
+    const { activePositions: _positions, ...drifted } = listing;
+    expect(provesKenjoCareerSiteEmpty({ listing: drifted, careerPageHtml })).toBe(false);
+    expect(provesKenjoCareerSiteEmpty({ listing, careerPageHtml: '<html><body><orgos-root></orgos-root></body></html>' })).toBe(false);
+    expect(provesKenjoCareerSiteEmpty({ listing: null, careerPageHtml })).toBe(false);
+  });
+
+  it('recognizes Kenjo URL variants without accepting foreign or API URLs', () => {
+    expect(resolveKenjoPositionPath({ customUrl: 'secnetsys' })).toBe('secnetsys');
+    expect(resolveKenjoPositionPath({ customJobUrl: '/security-network-engineer/' })).toBe('security-network-engineer');
+    expect(resolveKenjoPositionPath({ url: 'https://tinext.kenjo.io/security-network-engineer/?lang=en' })).toBe('security-network-engineer');
+    expect(resolveKenjoPositionPath({ url: 'https://evil.example/jobs/security-network-engineer/' })).toBe('');
+    expect(resolveKenjoPositionPath({ url: 'https://tinext.kenjo.io/api/controller/career-site/public/tinext/positions/1' })).toBe('');
+  });
+
+  it('requires Kenjo’s explicit public empty-state text before publishing a zero', () => {
+    expect(isKenjoCareerSiteEmpty('<div class="empty-state">No job openings are available at this moment.</div>')).toBe(true);
+    expect(isKenjoCareerSiteEmpty('<div class="jobs">Security & Network Engineer</div>')).toBe(false);
+  });
+
+  it('ignores hidden/template Kenjo copy when active job markup is present', () => {
+    expect(isKenjoCareerSiteEmpty(
+      '<div hidden>No job openings are available at this moment</div><article>Active job</article>',
+    )).toBe(false);
+    expect(isKenjoCareerSiteEmpty(
+      '<template><div>No job openings are available at this moment</div></template><article>Active job</article>',
+    )).toBe(false);
+  });
+
   it('never masks these three with an EMPTY_OK_CRAWLERS entry', () => {
     // The allowlist silences a slug even after the source dies: it converts a
     // noisy defect into a silent one. The whole point of the proof above is to
     // make that shortcut unnecessary, so its absence is part of the contract.
-    const monitor = readRepoFile('scripts/check-crawler-health.mjs');
-    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
-    expect(allowlist, 'EMPTY_OK_CRAWLERS declaration not found in check-crawler-health.mjs').toBeTruthy();
     for (const slug of ['gim-architekten', 'recruitingapp-2563', 'fondation-domus']) {
-      expect(allowlist![1]).not.toContain(slug);
+      expect(EMPTY_OK_CRAWLERS.has(slug)).toBe(false);
     }
   });
 
@@ -432,9 +551,13 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
   it('fondation-domus refuses the proof when the board rendered but the feed produced no card', async () => {
     // A dead XML-feed loader renders the container with nothing inside it —
     // indistinguishable from a real zero without the standing card, so it is
-    // deliberately not accepted as evidence.
-    const jobs = await fetchAllFondationDomusJobs({ fetchPage: async () => domusPage(domusBoard('')) });
-    expect(publishesProvenZero(jobs, FONDATION_DOMUS_COMPANY_NAME)).toBe(false);
+    // deliberately not accepted as evidence. It surfaces as the soft-exit
+    // feed-unavailable class (2026-09-23 wave: `rendered=true, cards=0`), so
+    // the slice is kept instead of reading as a crawler break every run.
+    const failure = await fetchAllFondationDomusJobs({ fetchPage: async () => domusPage(domusBoard('')) })
+      .then(() => null, (err) => err);
+    expect(failure).toMatchObject({ feedEndpointUnavailable: true });
+    expect(failure.message).toMatch(/XML feed loader is unavailable/);
   });
 
   /* ── 4. A bare [] is never authoritative, whoever produced it ───────── */
@@ -443,6 +566,15 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
     expect(isAuthoritativeEmptySnapshot([])).toBe(false);
     expect(publishesProvenZero([], 'anything')).toBe(false);
   });
+
+  /* ── 4b. The stamp is the proof: no runner wiring needed ─────────────── */
+
+  it('a runner that wires nothing still publishes a stamped zero, and only a stamped one', () => {
+    const unwired = (jobs: any) => evaluateAuthoritativeSnapshot(jobs, { companyLabel: 'unwired' });
+    expect(unwired(markAuthoritativeEmptySnapshot([], 'board renders Jobs (0)')).authoritativeEmptySnapshot).toBe(true);
+    expect(unwired([]).authoritativeEmptySnapshot).toBe(false);
+  });
+
   /* ── 5. The same proof, on the jobs.ch siblings that shared the loop ──── */
 
   it('strabag never mistakes its paginated board for an empty one', async () => {

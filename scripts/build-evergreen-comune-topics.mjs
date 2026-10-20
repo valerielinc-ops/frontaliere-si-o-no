@@ -3,7 +3,7 @@
  * Precompute the per-comune evergreen topics and publish them as data.
  *
  * The article generator needs a few hundred long-tail keywords of the shape
- * "vivere a X e lavorare in Y da frontaliere" (446 as of 2026-08-18; it was 85
+ * "vivere a X e lavorare in Y da frontaliere" (466 with the 35 km reserve; it was 85
  * until the per-canton count cap became a commute-distance cap). Deriving them takes four site datasets —
  * municipalities, border crossings, the crossing slugs and the wait averages —
  * because the canton is assigned by geographic proximity. Those datasets have
@@ -33,16 +33,19 @@ const OUT = path.join(ROOT, 'public', 'evergreen-comune-topics.json');
 // (extensionless relative specifiers, .ts data), so they are loaded through tsx
 // in a child process rather than imported here. Keeps this file plain Node.
 const LOADER = `
-import { buildComuneEvergreenTopics } from ${JSON.stringify(path.join(ROOT, 'scripts/lib/evergreen-topic-generator.mjs'))};
+import { buildComuneEvergreenTopics, MIN_PUBLISHED_COMUNE_TOPICS } from ${JSON.stringify(path.join(ROOT, 'scripts/lib/evergreen-topic-generator.mjs'))};
 import { MUNICIPALITIES } from ${JSON.stringify(path.join(ROOT, 'data/municipalities'))};
-process.stdout.write(JSON.stringify(buildComuneEvergreenTopics(MUNICIPALITIES)));
+process.stdout.write(JSON.stringify({
+  topics: buildComuneEvergreenTopics(MUNICIPALITIES),
+  minPublishedComuneTopics: MIN_PUBLISHED_COMUNE_TOPICS,
+}));
 `;
 
 function computeTopics() {
   const tmp = path.join(ROOT, `.evergreen-topics-${process.pid}.mts`);
   fs.writeFileSync(tmp, LOADER);
   try {
-    const raw = execFileSync('npx', ['-y', 'tsx@4', tmp], {
+    const raw = execFileSync('npx', ['-y', 'tsx@4.23.15', tmp], {
       cwd: ROOT,
       encoding: 'utf-8',
       maxBuffer: 32 * 1024 * 1024,
@@ -55,18 +58,19 @@ function computeTopics() {
 
 function main() {
   const check = process.argv.includes('--check');
-  const topics = computeTopics();
+  const computed = computeTopics();
+  const topics = computed?.topics;
+  const minPublishedComuneTopics = computed?.minPublishedComuneTopics;
 
   // A collapse here would silently strip the generator's evergreen pool, and
   // an empty pool is not a visible failure — it just quietly narrows what gets
   // written. Refuse rather than publish it.
   //
-  // Floor raised 50 -> 300 on 2026-08-18, with the reader's twin in
-  // scripts/lib/evergreen-topic-generator.mjs: 50 was ~59% of the 85 topics
-  // this produced when it was written, and only 11% of the 437 it produces
-  // now. A floor that covers 11% is not a tripwire.
-  if (!Array.isArray(topics) || topics.length < 300) {
-    console.error(`::error::expected at least 300 comune topics, got ${topics?.length ?? 0} — refusing to write`);
+  // Keep the writer's floor in lockstep with the reader's reserve guard in
+  // scripts/lib/evergreen-topic-generator.mjs. It rejects the old 437-topic
+  // asset while allowing small source-data drift below the current 466.
+  if (!Array.isArray(topics) || !Number.isInteger(minPublishedComuneTopics) || topics.length < minPublishedComuneTopics) {
+    console.error(`::error::expected at least ${minPublishedComuneTopics ?? 'the configured floor'} comune topics, got ${topics?.length ?? 0} — refusing to write`);
     process.exit(1);
   }
 

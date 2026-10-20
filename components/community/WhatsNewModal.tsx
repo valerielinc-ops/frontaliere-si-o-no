@@ -3,6 +3,7 @@ import { Bell, X, Sparkles, Zap, Bug, ChevronRight, PartyPopper, Trophy, Flame, 
 import { useTranslation, useLocale } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { buildPath, type AppRoute } from '@/services/router';
+import { buildPharmacyPath, parsePharmacyRoute } from '@/services/pharmacies/routePaths';
 import {
  ACHIEVEMENTS,
  LEVEL_TITLES,
@@ -34,6 +35,177 @@ interface Release {
 // Add new releases at the TOP of this array (newest first).
 
 export const RELEASES: Release[] = [
+  {
+    version: '3.99.1',
+    date: '2026-10-19',
+    titleKey: 'whatsNew.v3991.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3991.conciergeProximity.title', descKey: 'whatsNew.v3991.conciergeProximity.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.99.0',
+    date: '2026-10-19',
+    titleKey: 'whatsNew.v3990.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3990.conciergeCheckout.title', descKey: 'whatsNew.v3990.conciergeCheckout.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.98.10',
+    date: '2026-10-18',
+    titleKey: 'whatsNew.v39810.title',
+    items: [
+      { type: 'fix', titleKey: 'whatsNew.v39810.municipalArchives.title', descKey: 'whatsNew.v39810.municipalArchives.desc' },
+    ],
+  },
+  {
+    version: '3.98.9',
+    date: '2026-10-18',
+    titleKey: 'whatsNew.v3989.title',
+    items: [
+      { type: 'fix', titleKey: 'whatsNew.v3989.pharmacyArchive.title', descKey: 'whatsNew.v3989.pharmacyArchive.desc', href: '/farmacie-di-turno/settimana/2026-09-14/' },
+    ],
+  },
+  {
+    version: '3.98.8',
+    date: '2026-10-14',
+    titleKey: 'whatsNew.v3988.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3988.contextualLinks.title', descKey: 'whatsNew.v3988.contextualLinks.desc', link: { tab: 'blog' } },
+    ],
+  },
+  {
+    version: '3.98.7',
+    date: '2026-10-07',
+    titleKey: 'whatsNew.v3987.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v3987.cantonArticles.title', descKey: 'whatsNew.v3987.cantonArticles.desc', link: { tab: 'blog' } },
+    ],
+  },
+  {
+    version: '3.98.6',
+    date: '2026-10-05',
+    titleKey: 'whatsNew.v3986.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v3986.classicAscona.title', descKey: 'whatsNew.v3986.classicAscona.desc', href: '/eventi/ticino/' },
+    ],
+  },
+  {
+    version: '3.98.5',
+    date: '2026-10-04',
+    titleKey: 'whatsNew.v3985.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v3985.keptDocuments.title', descKey: 'whatsNew.v3985.keptDocuments.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.98.4',
+    date: '2026-10-04',
+    titleKey: 'whatsNew.v3984.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3984.personalData.title', descKey: 'whatsNew.v3984.personalData.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.98.3',
+    date: '2026-10-04',
+    titleKey: 'whatsNew.v3983.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3983.coverCredits.title', descKey: 'whatsNew.v3983.coverCredits.desc', link: { tab: 'blog' } },
+    ],
+  },
+  {
+    version: '3.98.1',
+    date: '2026-10-03',
+    titleKey: 'whatsNew.v3981.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3981.fitNotice.title', descKey: 'whatsNew.v3981.fitNotice.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.98.0',
+    date: '2026-10-02',
+    titleKey: 'whatsNew.v3980.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v3980.cvReview.title', descKey: 'whatsNew.v3980.cvReview.desc', link: { tab: 'job-board' } },
+      { type: 'improvement', titleKey: 'whatsNew.v3980.swissDocuments.title', descKey: 'whatsNew.v3980.swissDocuments.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.97.3',
+    date: '2026-10-02',
+    titleKey: 'whatsNew.v3973.title',
+    items: [
+      { type: 'fix', titleKey: 'whatsNew.v3973.jobPreview.title', descKey: 'whatsNew.v3973.jobPreview.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.97.2',
+    date: '2026-10-02',
+    titleKey: 'whatsNew.v3972.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v3972.assistedDocuments.title', descKey: 'whatsNew.v3972.assistedDocuments.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.97.1',
+    date: '2026-10-01',
+    titleKey: 'whatsNew.v3971.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3971.readableJobs.title', descKey: 'whatsNew.v3971.readableJobs.desc', link: { tab: 'job-board' } },
+      { type: 'improvement', titleKey: 'whatsNew.v3971.tools.title', descKey: 'whatsNew.v3971.tools.desc' },
+    ],
+  },
+  {
+    version: '3.97.0',
+    date: '2026-10-01',
+    titleKey: 'whatsNew.v3970.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3970.assistedAutomation.title',
+        descKey: 'whatsNew.v3970.assistedAutomation.desc',
+        link: { tab: 'job-board' },
+      },
+    ],
+  },
+  {
+    version: '3.96.9',
+    date: '2026-09-29',
+    titleKey: 'whatsNew.v3969.title',
+    items: [
+      {
+        type: 'improvement',
+        titleKey: 'whatsNew.v3969.assistedConcierge.title',
+        descKey: 'whatsNew.v3969.assistedConcierge.desc',
+        link: { tab: 'job-board' },
+      },
+    ],
+  },
+  {
+    version: '3.96.8',
+    date: '2026-09-26',
+    titleKey: 'whatsNew.v3968.title',
+    items: [
+      {
+        type: 'improvement',
+        titleKey: 'whatsNew.v3968.applicationIntent.title',
+        descKey: 'whatsNew.v3968.applicationIntent.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3968.applicationIntentPrivacy.title',
+        descKey: 'whatsNew.v3968.applicationIntentPrivacy.desc',
+      },
+      {
+        type: 'improvement',
+        titleKey: 'whatsNew.v3968.applicationIntentDigest.title',
+        descKey: 'whatsNew.v3968.applicationIntentDigest.desc',
+      },
+    ],
+  },
   {
     version: '3.96.7',
     date: '2026-09-22',
@@ -2807,7 +2979,8 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  const cfg = TYPE_CONFIG[item.type];
  const Icon = cfg.icon;
  const route = item.link ? releaseLinkToRoute(item.link) : null;
- const href = item.href ? item.href : route ? buildPath(route, locale as any) : '';
+ const pharmacyPath = item.href ? parsePharmacyRoute(item.href) : null;
+ const href = pharmacyPath ? buildPharmacyPath(pharmacyPath, locale) : item.href ? item.href : route ? buildPath(route, locale as any) : '';
  const isClickable = !!item.link || !!item.href;
  const cardContent = (
  <>

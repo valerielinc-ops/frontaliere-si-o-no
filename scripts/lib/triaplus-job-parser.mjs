@@ -31,6 +31,7 @@
  * Modelled on `scripts/lib/uroviva-job-parser.mjs` (multi-site Dualoo) and
  * `scripts/lib/spital-affoltern-job-parser.mjs` (multi-portal listing).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -240,7 +241,6 @@ export async function fetchAllTriaplusJobs() {
 
   console.log(`  📄 Fetching ${detailUrls.length} job detail pages...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   const seenIds = new Set();
@@ -317,7 +317,7 @@ export async function fetchAllTriaplusJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

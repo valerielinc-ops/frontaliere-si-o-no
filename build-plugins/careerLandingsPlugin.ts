@@ -36,6 +36,7 @@
  * (`npm run build:ci`) always exercises this plugin — exit 0 required.
  */
 
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
@@ -43,7 +44,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
@@ -259,6 +260,10 @@ function renderFeaturedJobs(
       contract: j.contract ?? undefined,
       salaryMin: j.salaryMin,
       salaryMax: j.salaryMax,
+      salarySource: j.salarySource,
+      currency: j.currency,
+      postingDateSource: j.postingDateSource,
+      datePosted: j.datePosted ?? undefined,
       postedDate: j.postedDate,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
@@ -277,7 +282,7 @@ function renderFeaturedJobs(
     <h2 class="s-8dKmAe">${esc(title)}</h2>
     ${subtitleHtml}
     ${listHtml}
-    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
+    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-flex;align-items:center;min-height:44px;padding:8px 0;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
   </section>`;
 }
 
@@ -390,6 +395,116 @@ function renderSources(sources: CareerLandingCopy['sources'], label: string): st
   return `<section class="s-KZc0LQ"><h2 style="${H2_STYLE}">${esc(label)}</h2><ul class="s-T1AdGR">${items}</ul></section>`;
 }
 
+const COMPETITION_SNAPSHOT_SECTION_TITLE: Record<CareerLocale, string> = {
+  it: 'I concorsi attualmente aperti (snapshot ufficiale)',
+  en: 'Currently open competitions (official snapshot)',
+  de: 'Aktuell offene Concorsi (offizielle Momentaufnahme)',
+  fr: 'Concorsi actuellement ouverts (instantané officiel)',
+};
+
+const COMPETITION_NOTICE_COPY: Record<CareerLocale, {
+  intro: string;
+  reference: string;
+  deadline: string;
+  noNotices: string;
+  verify: string;
+}> = {
+  it: {
+    intro: 'Nello snapshot ufficiale risultano questi bandi attivi',
+    reference: 'riferimento',
+    deadline: 'scadenza',
+    noNotices: 'Lo snapshot ufficiale non contiene al momento bandi con scadenza futura; verifica la fonte prima di candidarti.',
+    verify: 'Le informazioni sono uno snapshot: verifica sempre la scheda originale prima di candidarti.',
+  },
+  en: {
+    intro: 'The official snapshot currently contains these open notices',
+    reference: 'reference',
+    deadline: 'deadline',
+    noNotices: 'The official snapshot currently contains no notices with a future deadline; check the source before applying.',
+    verify: 'This is a snapshot: always check the original notice before applying.',
+  },
+  de: {
+    intro: 'Der offizielle Snapshot enthält derzeit diese offenen Ausschreibungen',
+    reference: 'Referenz',
+    deadline: 'Frist',
+    noNotices: 'Der offizielle Snapshot enthält derzeit keine Ausschreibung mit künftiger Frist; bitte vor der Bewerbung die Quelle prüfen.',
+    verify: 'Die Angaben sind ein Snapshot: Bitte vor der Bewerbung immer die Originalausschreibung prüfen.',
+  },
+  fr: {
+    intro: "L'instantané officiel contient actuellement ces avis ouverts",
+    reference: 'référence',
+    deadline: 'échéance',
+    noNotices: "L'instantané officiel ne contient actuellement aucun avis avec une échéance future ; vérifiez la source avant de postuler.",
+    verify: "Ces données sont un instantané : vérifiez toujours l'avis original avant de postuler.",
+  },
+};
+
+function formatCompetitionDeadline(deadline: string | null | undefined, locale: CareerLocale): string | null {
+  if (!deadline) return null;
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(deadline);
+  if (!match) return deadline;
+  const [, year, month, day] = match;
+  return locale === 'en' ? `${month}/${day}/${year}` : `${day}.${month}.${year}`;
+}
+
+/**
+ * Build the editorial competition sentence from the same notice records used
+ * by the table below it. Keeping refs and deadlines out of hand-written locale
+ * copy prevents a removed source record from surviving in one locale.
+ */
+export function buildCompetitionNoticeNarrative(
+  locale: CareerLocale,
+  notices: readonly NonNullable<CareerJobsSnapshot['competitionNotices']>[number][],
+): string {
+  const labels = COMPETITION_NOTICE_COPY[locale];
+  if (notices.length === 0) return labels.noNotices;
+
+  const entries = notices.map((notice) => {
+    const reference = notice.ref ? `${labels.reference} ${notice.ref}` : null;
+    const title = notice.title?.trim() || '—';
+    const context = [notice.organization, notice.location]
+      .map((value) => value?.trim())
+      .filter((value): value is string => Boolean(value))
+      .join(', ');
+    const deadline = formatCompetitionDeadline(notice.deadline, locale);
+    const details = [
+      reference,
+      title,
+      context ? `(${context})` : null,
+      deadline ? `${labels.deadline} ${deadline}` : null,
+    ].filter((value): value is string => Boolean(value));
+    return details.join(' — ');
+  });
+
+  return `${labels.intro}: ${entries.join('; ')}. ${labels.verify}`;
+}
+
+/** Copy and original notices are tied to the same snapshot as the live cards. */
+export function buildCompetitionSummary(locale: CareerLocale, snapshot: CareerJobsSnapshot) {
+  const labels = {
+    it: { title: `Concorsi Lugano e Ticino: ${snapshot.liveCount} annunci pubblici`, lede: `${snapshot.liveCount} annunci di enti pubblici a Lugano e in Ticino; requisiti e scadenze nelle fonti ufficiali.`, entities: 'Enti nel campione', dates: 'Scadenze nei bandi ufficiali', fetched: 'Dati acquisiti', unknown: 'data non disponibile', notice: 'Bandi cantonali nello snapshot della fonte', role: 'Posizione', employer: 'Ente', deadline: 'Scadenza riportata', verify: 'Verifica il bando: lo snapshot non conferma che la posizione sia ancora aperta.', source: 'Fonte ufficiale' },
+    en: { title: `Lugano and Ticino: ${snapshot.liveCount} public-sector jobs`, lede: `${snapshot.liveCount} public-sector listings in Lugano and Ticino; requirements and deadlines in official notices.`, entities: 'Sampled employers', dates: 'Deadlines in official notices', fetched: 'Data collected', unknown: 'date unavailable', notice: 'Cantonal notices in the source snapshot', role: 'Position', employer: 'Employer', deadline: 'Reported deadline', verify: 'Check the notice: the snapshot does not confirm the position is still open.', source: 'Official source' },
+    de: { title: `Lugano und Tessin: ${snapshot.liveCount} öffentliche Stellen`, lede: `${snapshot.liveCount} öffentliche Stellen in Lugano und im Tessin; Anforderungen und Fristen in den offiziellen Ausschreibungen.`, entities: 'Erfasste Arbeitgeber', dates: 'Fristen in offiziellen Ausschreibungen', fetched: 'Daten abgerufen', unknown: 'Datum unbekannt', notice: 'Kantonale Ausschreibungen im Quellen-Snapshot', role: 'Stelle', employer: 'Arbeitgeber', deadline: 'Gemeldete Frist', verify: 'Ausschreibung prüfen: Der Snapshot bestätigt keine weiterhin offene Stelle.', source: 'Offizielle Quelle' },
+    fr: { title: `Lugano et Tessin : ${snapshot.liveCount} emplois publics`, lede: `${snapshot.liveCount} annonces publiques à Lugano et au Tessin ; conditions et échéances dans les avis officiels.`, entities: 'Employeurs observés', dates: 'Échéances dans les avis officiels', fetched: 'Données acquises', unknown: 'date indisponible', notice: 'Avis cantonaux dans l’instantané source', role: 'Poste', employer: 'Employeur', deadline: 'Échéance indiquée', verify: 'Vérifiez l’avis : l’instantané ne confirme pas que le poste soit encore ouvert.', source: 'Source officielle' },
+  }[locale];
+  const entities = snapshot.topEmployers.slice(0, 2).map((employer) => employer.name).join(', ');
+  const stamp = snapshot.dataCollectedAt || labels.unknown;
+  const nextDeadline = (snapshot.competitionNotices ?? []).map((notice) => notice.deadline)
+    .filter((date): date is string => typeof date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(date)).sort()[0];
+  const shortEmployer = snapshot.topEmployers.find((employer) => employer.name.length <= 35)?.name;
+  const employerSnippet = shortEmployer ? `${shortEmployer}. ` : '';
+  const description = ({
+    it: `${snapshot.liveCount} annunci pubblici a Lugano e in Ticino. ${employerSnippet}${nextDeadline ? `Scadenza riportata: ${nextDeadline}; verifica il bando ufficiale.` : 'Scadenze e requisiti nei bandi ufficiali.'}`,
+    en: `${snapshot.liveCount} public-sector jobs in Lugano and Ticino. ${employerSnippet}${nextDeadline ? `Reported deadline: ${nextDeadline}; check the official notice.` : 'Deadlines and requirements in official notices.'}`,
+    de: `${snapshot.liveCount} öffentliche Stellen in Lugano und im Tessin. ${employerSnippet}${nextDeadline ? `Gemeldete Frist: ${nextDeadline}; offizielle Ausschreibung prüfen.` : 'Fristen und Anforderungen in offiziellen Ausschreibungen.'}`,
+    fr: `${snapshot.liveCount} emplois publics à Lugano et au Tessin. ${employerSnippet}${nextDeadline ? `Échéance indiquée : ${nextDeadline} ; vérifiez l’avis officiel.` : 'Échéances et conditions dans les avis officiels.'}`,
+  })[locale];
+  const rows = (snapshot.competitionNotices ?? []).map((notice) => `<tr><td>${esc(notice.title || '—')}</td><td>${esc(notice.organization || '—')}</td><td>${esc(notice.deadline || '—')}</td><td>${notice.url && /^https:\/\//.test(notice.url) ? `<a href="${esc(notice.url)}" target="_blank" rel="noopener noreferrer">${esc(labels.source)}</a>` : '—'}</td></tr>`).join('');
+  const html = `<p class="text-sm text-muted">${esc(labels.fetched)}: ${esc(stamp)}${entities ? ` · ${esc(labels.entities)}: ${esc(entities)}` : ''}</p>
+    ${rows ? `<section class="s-KZc0LQ"><h2 style="${H2_STYLE}">${esc(labels.notice)}</h2><p>${esc(labels.fetched)}: ${esc(snapshot.competitionFetchedAt || labels.unknown)}. ${esc(labels.verify)}</p><div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr><th>${esc(labels.role)}</th><th>${esc(labels.employer)}</th><th>${esc(labels.deadline)}</th><th>${esc(labels.source)}</th></tr></thead><tbody>${rows}</tbody></table></div></section>` : ''}`;
+  return { title: labels.title, description, lede: labels.lede, html };
+}
+
 // ── Page assembly ────────────────────────────────────────────────────────────
 
 function renderPage(opts: {
@@ -413,7 +528,7 @@ function renderPage(opts: {
 }): RenderResult {
   const { locale, id, dateStamp, distDir, snapshot, agencyCount, concorsiCount } = opts;
   const eligibleLocales = opts.eligibleLocales ?? new Set<string>();
-  const copy = CAREER_LANDING_COPY[locale][id];
+  const copy = { ...CAREER_LANDING_COPY[locale][id] };
   const shell = getCareerTemplateBShell(locale);
   const templateB = buildCareerTemplateBCopy(locale, id, {
     liveCount: snapshot.liveCount,
@@ -422,8 +537,27 @@ function renderPage(opts: {
     agencyCount,
     concorsiCount,
   });
+  const competitionSummary = id === 'concorsi-pubblici-lugano' ? buildCompetitionSummary(locale, snapshot) : null;
+  if (competitionSummary) {
+    const snapshotSectionTitle = COMPETITION_SNAPSHOT_SECTION_TITLE[locale];
+    const noticeNarrative = buildCompetitionNoticeNarrative(locale, snapshot.competitionNotices ?? []);
+    copy.sections = copy.sections.map((section) => section.title === snapshotSectionTitle
+      ? { ...section, paragraphs: [noticeNarrative, ...section.paragraphs.slice(1)] }
+      : section);
+    copy.title = competitionSummary.title;
+    copy.h1 = ({ it: 'Concorsi pubblici a Lugano e in Ticino', en: 'Public-sector jobs in Lugano and Ticino', de: 'Öffentliche Stellen in Lugano und im Tessin', fr: 'Emplois publics à Lugano et au Tessin' })[locale];
+    copy.description = competitionSummary.description;
+    copy.lede = competitionSummary.lede;
+    templateB.denseLede = competitionSummary.lede;
+  }
   const urlPath = buildCareerLandingPath(locale, id);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
+  // The competition snapshot is the source for Article.dateModified. Use the
+  // same timestamp in the visible page date so readers see the date attached
+  // to the data they are evaluating, rather than only the build timestamp.
+  const visibleDateStamp = id === 'concorsi-pubblici-lugano' && snapshot.dataCollectedAt
+    ? snapshot.dataCollectedAt.slice(0, 10)
+    : dateStamp;
 
   // Hreflang (4 locales + x-default), emitted only when every locale's page
   // for this landing id is actually written this build — otherwise nothing,
@@ -465,17 +599,18 @@ function renderPage(opts: {
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    ...(id === 'concorsi-pubblici-lugano' && snapshot.dataCollectedAt
+      ? { dateModified: snapshot.dataCollectedAt } : {}),
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -523,15 +658,17 @@ function renderPage(opts: {
     ${id in HERO_BADGES
       ? renderLandingHero(id, locale, {
           openings: snapshot.liveCount,
-          medianSalary: snapshot.medianSalaryChf ?? undefined,
+          // Salary provenance is explained alongside the sample statistic below.
         }, copy.h1, templateB.denseLede)
       : `<header class="s-YcUNX5">
       <p style="${HERO_EYEBROW_STYLE}">${esc(templateB.eyebrow ?? '')}</p>
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(templateB.denseLede)}</p>
     </header>`}
-    <p class="text-sm font-medium text-accent mt-1">${esc(shell.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(visibleDateStamp, locale))}</p>
+    ${competitionSummary ? competitionSummary.html : ''}
     ${statTilesHtml}
+    ${id === 'stage-lugano' || id === 'contratti-lavoro-frontalieri' ? reportedSalaryNote(locale, snapshot.reportedSalary) : ''}
     ${primaryCtaHtml}
     ${featuredHtml}
     ${employerHtml}
@@ -552,7 +689,10 @@ function renderPage(opts: {
     </section>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-xzWvwM cl-fun">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  // buildSeoPageHtml supplies the single crawler-facing
+  // `<main class="seo-static-content">`; keep the layout class on a neutral
+  // wrapper so career landings do not nest a second main landmark.
+  const bodyHtml = `<div class="s-xzWvwM cl-fun">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,
@@ -586,7 +726,7 @@ function buildSitemapXml(
             `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`,
         )
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
@@ -786,3 +926,6 @@ export function renderCareerFeaturedJobsForTest(
   });
   return renderFeaturedJobs(id, locale, snapshot, templateB);
 }
+
+/** Public renderer seam used to verify visible statistics and provenance. */
+export { renderPage as renderCareerPageForTest };

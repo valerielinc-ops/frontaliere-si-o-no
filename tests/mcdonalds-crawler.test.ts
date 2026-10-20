@@ -15,6 +15,9 @@ import {
   listingPageUrl,
   discoverMcdoJobUrls,
   fetchMcdoJobs,
+  isMcdoFallbackBlurb,
+  resolveMcdoJobBodies,
+  stripMcdoFallbackSlots,
 } from '../scripts/lib/mcdonalds-job-parser.mjs';
 
 const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
@@ -254,14 +257,15 @@ describe("McDonald's Switzerland crawler parser", () => {
     it('extracts JSON-LD JobPosting fields from the live detail page', () => {
       const parsed = parseMcdoDetailPage(
         detailHtml,
-        'https://jobs.mcdonalds.ch/fr-ch/agent-e-de-maintenance/job/P8-317484-1'
+        'https://jobs.mcdonalds.ch/fr-ch/agent-e-de-maintenance/job/P8-317484-1',
+        'Agent·e de Maintenance'
       )!;
       expect(parsed).not.toBeNull();
       expect(parsed.title).toBe('Agent·e de Maintenance');
       expect(parsed.city).toBe('KREUZLINGEN');
       expect(parsed.canton).toBe('TG');
       expect(parsed.jobReqId).toBe('P8-317484-1');
-      expect(parsed.datePosted).toBe('2026-07-10');
+      expect(parsed.datePosted).toBe('2026-07-10T08:12:10.733560+00:00');
     });
 
     it('falls back cleanly when employmentType/validThrough are absent, as on the live portal today', () => {
@@ -349,20 +353,18 @@ describe("McDonald's Switzerland crawler parser", () => {
   });
 
   describe('buildMcdoJob', () => {
-    const parsed = parseMcdoDetailPage(detailHtml)!;
+    const parsed = parseMcdoDetailPage(detailHtml,
+      'https://jobs.mcdonalds.ch/fr-ch/agent-e-de-maintenance/job/P8-317484-1', 'Agent·e de Maintenance')!;
 
-    it('emits the canonical postedDate field (never datePosted)', () => {
+    it('preserves both publication aliases with source provenance and full precision', () => {
       const job = buildMcdoJob(parsed)!;
-      // #3843 item 5: the pipeline/consumers (JobBoard, sitemap, newsletter,
-      // assemble-jobs-dataset churn guard) read `postedDate`; the schema.org
-      // name `datePosted` must not leak into the built job object.
-      expect(job.postedDate).toBe('2026-07-10');
-      expect(job).not.toHaveProperty('datePosted');
+      expect(job).toMatchObject({ datePosted: '2026-07-10T08:12:10.733560+00:00',
+        postedDate: '2026-07-10', postingDateSource: 'reported' });
     });
 
-    it('falls back to today for postedDate when the source has no date', () => {
-      const job = buildMcdoJob({ ...parsed, datePosted: '' })!;
-      expect(job.postedDate).toBe(new Date().toISOString().split('T')[0]);
+    it('keeps publication unknown when the source has no date', () => {
+      const job = buildMcdoJob({ ...parsed, datePosted: '', postedDate: '', postingDateSource: 'unknown' })!;
+      expect(job).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
     });
 
     it('builds a stable slug and company identity', () => {
@@ -383,9 +385,10 @@ describe("McDonald's Switzerland crawler parser", () => {
         'https://jobs.mcdonalds.ch/fr-ch/assistant-e-manager-de-restaurant/job/P8-310079-1'
       );
       expect(job.sector).toBe('Ristorazione / Fast Food');
-      // Listing-only build has no enrichment yet, so it falls back to the
-      // synthesized description rather than a scraped one.
-      expect(job.description.length).toBeGreaterThan(20);
+      // Listing-only build has no detail body: nothing is invented here —
+      // resolveMcdoJobBodies() decides between the previous source text and
+      // withholding the row (issue 5253).
+      expect(job.description).toBe('');
     });
 
     it('keeps mandatory address fields coherent when source address data is absent', () => {
@@ -407,9 +410,99 @@ describe("McDonald's Switzerland crawler parser", () => {
       expect(job.streetAddress).not.toBe(job.location);
     });
 
+    it('never publishes the canton capital for a restaurant without a source address', () => {
+      // Gemello di nord-anglia/swiss-life (issue 5253): il ripiego pubblicava
+      // `Bern` per un ristorante di Heimberg. La località resta quella del
+      // ristorante; senza via coerente l'annuncio resta fuori.
+      const job = buildMcdoJob({
+        ...parsed,
+        city: 'Heimberg',
+        canton: 'BE',
+        sourceLocation: 'Heimberg, BE',
+        postalCode: '',
+        streetAddress: '',
+      });
+      expect(job?.location).not.toBe('Bern');
+      expect(job === null || job.location === 'Heimberg').toBe(true);
+    });
+
     it('returns null for empty parse results', () => {
       expect(buildMcdoJob(null)).toBeNull();
       expect(buildMcdoJob({ title: '' } as never)).toBeNull();
+    });
+  });
+
+  describe('source-body continuity (audit-parser-quality issue 5253)', () => {
+    // Pinned from the 2026-09-29 slice: `it` still carries the blurb a failed
+    // detail run invented, en/de its machine translations, fr the real body.
+    const staleRecords = JSON.parse(
+      readFileSync(path.join(FIXTURES, 'mcdonalds-stale-fallback-records.json'), 'utf8'),
+    ).records as Array<Record<string, any>>;
+    const [schaffhausen, allschwil] = staleRecords;
+    const listingOnly = () => {
+      const [, , , lugano] = extractListingJobs(listingHtml).jobs;
+      return buildMcdoJob(listingEntryToParsed(lugano))!;
+    };
+
+    it('recognises the invented blurb in its plain and enrichment-restructured forms only', () => {
+      expect(isMcdoFallbackBlurb(schaffhausen.descriptionByLocale.it)).toBe(true);
+      expect(isMcdoFallbackBlurb(allschwil.descriptionByLocale.it)).toBe(true);
+      expect(isMcdoFallbackBlurb(
+        "## Descrizione\n- Posizione aperta presso un ristorante McDonald's a BASEL (BS), Svizzera\n- Candidati tramite il portale ufficiale McDonald's Switzerland",
+      )).toBe(true);
+      expect(isMcdoFallbackBlurb(schaffhausen.descriptionByLocale.fr)).toBe(false);
+      expect(isMcdoFallbackBlurb(
+        `${schaffhausen.descriptionByLocale.fr}\n\nCandidati tramite il portale ufficiale McDonald's Switzerland.`,
+      )).toBe(false);
+    });
+
+    it('keeps the text a previous run read from the same vacancy when the detail page fails', () => {
+      const fresh = { ...listingOnly(), url: schaffhausen.url };
+      const { jobs, carried, withheld } = resolveMcdoJobBodies([fresh], [schaffhausen]);
+
+      expect(carried).toEqual([schaffhausen.url]);
+      expect(withheld).toEqual([]);
+      expect(jobs[0]).toMatchObject({ description: schaffhausen.descriptionByLocale.fr, sourceLang: 'fr' });
+    });
+
+    it('withholds a row that has no body read from the source, instead of inventing one', () => {
+      const neverRead = listingOnly();
+      const blurbOnly = {
+        url: neverRead.url,
+        sourceLang: 'it',
+        description: schaffhausen.descriptionByLocale.it,
+        descriptionByLocale: { it: schaffhausen.descriptionByLocale.it },
+      };
+
+      expect(resolveMcdoJobBodies([neverRead], [])).toEqual({ jobs: [], carried: [], withheld: [neverRead.url] });
+      expect(resolveMcdoJobBodies([neverRead], [blurbOnly]).withheld).toEqual([neverRead.url]);
+    });
+
+    it('passes a job with its own detail body through untouched', () => {
+      const parsed = parseMcdoDetailPage(detailHtml)!;
+      const job = buildMcdoJob(parsed)!;
+      const { jobs, carried, withheld } = resolveMcdoJobBodies([job], [schaffhausen]);
+      expect(jobs).toEqual([job]);
+      expect(carried).toEqual([]);
+      expect(withheld).toEqual([]);
+    });
+
+    it('drops the stored blurb and its translations, keeping only the real source slot', () => {
+      for (const record of staleRecords) {
+        const cleaned = stripMcdoFallbackSlots(record);
+        expect(cleaned.descriptionByLocale).toEqual({ fr: record.descriptionByLocale.fr });
+        expect(cleaned.needsRetranslation).toBe(true);
+        expect(cleaned.description).toBe(record.description);
+      }
+      const clean = { ...schaffhausen, descriptionByLocale: { fr: schaffhausen.descriptionByLocale.fr, it: 'Presentazione aziendale' } };
+      expect(stripMcdoFallbackSlots(clean)).toBe(clean);
+    });
+
+    it('wires both steps into the runner and keys the source text by its own language', () => {
+      expect(runnerSource).toContain('resolveMcdoJobBodies(builtJobs, previousJobs)');
+      expect(runnerSource).toContain('.map(stripMcdoFallbackSlots)');
+      expect(runnerSource).toContain('descriptionByLocale: { [sourceLang]: job.description }');
+      expect(runnerSource).not.toMatch(/Posizione aperta presso un ristorante/);
     });
   });
 

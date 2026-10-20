@@ -12,6 +12,7 @@ import {
   fetchAllGrischapersonalJobs,
   isGrischapersonalJob,
   isTrustedDomain,
+  grischapersonalMatchKey,
   GRISCHAPERSONAL_KEY,
   GRISCHAPERSONAL_COMPANY_NAME,
 } from './lib/grischapersonal-job-parser.mjs';
@@ -26,6 +27,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllGrischapersonalJobs,
   isCompanyJob: isGrischapersonalJob,
   isTrustedDomain,
+  matchKey: grischapersonalMatchKey,
   defaultSourceLang: 'de',
 }).catch((err) => {
   console.error(`❌ Grischa Personal AG crawler failed: ${err?.message || err}`);

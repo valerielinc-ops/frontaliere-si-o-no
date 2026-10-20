@@ -13,9 +13,11 @@
  * per-channel).
  *
  * ── TikTok Content Posting API — what's DIFFERENT from Instagram ──────────
- * 1. Photo/carousel posts use a dedicated JSON endpoint (not the same media
- *    endpoint as video), and only accept JPEG/WEBP — never PNG. See
- *    scripts/lib/social-carousel-image.mjs (already renders JPEG).
+ * 1. Photo/carousel posts on the existing API path use a dedicated JSON
+ *    endpoint (not the same media endpoint as video), and only accept
+ *    JPEG/WEBP — never PNG. See scripts/lib/social-carousel-image.mjs.
+ *    The Playwright queue path additionally prepares an MP4 from those same
+ *    JPEG slides because TikTok's web upload accepts video only.
  * 2. The image URLs' DOMAIN must be verified in the TikTok developer console
  *    (DNS or .well-known file) before PULL_FROM_URL works at all — a
  *    one-time setup step, not something this script can do.
@@ -63,6 +65,9 @@
  *   TIKTOK_REFRESH_TOKEN   + TIKTOK_CLIENT_KEY + TIKTOK_CLIENT_SECRET →
  *                           auto-refresh before each run (see point 5 above)
  *   TIKTOK_PRIVACY_LEVEL   optional, defaults to SELF_ONLY (see point 4 above)
+ *   SOCIAL_ROBOT_MODE      off | dry (default) | live — API or the
+ *                          Playwright robot's queue (data/tiktok-queue.json);
+ *                          see scripts/lib/social-publish-queue.mjs
  *   GA4_PROPERTY_ID        defaults to properties/524485296
  *   R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY / R2_S3_ENDPOINT / R2_BUCKET
  *                           required to host the carousel images — missing
@@ -80,7 +85,8 @@ import {
   loadJobSections,
   loadJobIndex,
   formatDayIt,
-  buildCarouselCaption,
+  buildTikTokCaption,
+  buildCarouselSlideCopy,
 } from './lib/social-post-utils.mjs';
 import {
   tiktokUrl,
@@ -95,12 +101,30 @@ import {
 } from './lib/daily-top-content.mjs';
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 import { renderCarouselSlides } from './lib/social-carousel-image.mjs';
-import { uploadCarouselSlides } from './lib/social-carousel-upload.mjs';
+import { uploadCarouselSlides, uploadCarouselVideo } from './lib/social-carousel-upload.mjs';
+import { renderCarouselVideo, renderMotionGraphicVideo } from './lib/social-carousel-video.mjs';
+import {
+  TIKTOK_VIDEO_CREATIVE_VARIANTS,
+  resolveTikTokVideoCreativeVariant,
+  tiktokVideoCreativeLedgerFields,
+  tiktokVideoCreativeLabel,
+} from './lib/tiktok-video-creative.mjs';
+import {
+  buildQueueEntry,
+  deliverSocialPost,
+  dequeuePosts,
+  enqueuePost,
+  queuePathFor,
+  resolveSocialRobotMode,
+  socialPublishRoute,
+  isPublishedForKindDay,
+} from './lib/social-publish-queue.mjs';
 import { TIKTOK_API, publishCarousel } from './lib/tiktok-publish.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const LEDGER_PATH = path.join(ROOT, 'data', 'tiktok-posted.json');
+const QUEUE_PATH = queuePathFor(ROOT, 'tiktok');
 const POSTED_TRIM_LIMIT = 1000;
 
 const DEDUP_WINDOW_DAYS = 30;
@@ -155,11 +179,77 @@ async function getAccessToken() {
 // async flow against mocked payloads — this file calls main() at module scope
 // and cannot be imported from a test. See that lib's header.
 
+// ─────────────────────────── delivery ───────────────────────────
+//
+// API or the Playwright robot's queue, chosen by the Remote Config switch
+// SOCIAL_ROBOT_MODE — see scripts/lib/social-publish-queue.mjs. The ledger is
+// written here only for an API publish; a queued post reaches the ledger once
+// the robot has seen TikTok's confirmation (scripts/social-robot/confirm.mjs).
+
+async function deliver({ route, kind, day, caption, urls, video, ledgerEntries, publish }) {
+  const queueLedgerEntries = video?.creativeVariant
+    ? ledgerEntries.map((entry) => ({ ...entry, ...tiktokVideoCreativeLedgerFields(video.creativeVariant) }))
+    : ledgerEntries;
+  await deliverSocialPost({
+    route,
+    label: 'TikTok',
+    publish,
+    recordPublished: (res) => {
+      console.log(`✅ posted — ${res.postId}`);
+      const ts = new Date().toISOString();
+      appendLedger(
+        LEDGER_PATH,
+        ledgerEntries.map((e) => ({ ...e, ts, tiktokPostId: res.postId })),
+        POSTED_TRIM_LIMIT,
+      );
+    },
+    enqueue: () => {
+      enqueuePost(
+        QUEUE_PATH,
+        buildQueueEntry({ channel: 'tiktok', kind, day, caption, imageUrls: urls, video, ledgerEntries: queueLedgerEntries }),
+      );
+    },
+    // The API covered this kind: an older queued post of it must not reach the robot.
+    dequeue: () => dequeuePosts(QUEUE_PATH, { channel: 'tiktok', kind }),
+  });
+}
+
+function prepareTikTokVideo(slides, keyPrefix, queueId) {
+  try {
+    const creativeVariant = resolveTikTokVideoCreativeVariant({ queueId });
+    const render = creativeVariant === TIKTOK_VIDEO_CREATIVE_VARIANTS.TREATMENT
+      ? renderMotionGraphicVideo
+      : renderCarouselVideo;
+    const rendered = render(slides);
+    const url = uploadCarouselVideo(rendered.buffer, { channel: 'tiktok', keyPrefix });
+    if (!url) return null;
+    console.log(`🎬 TikTok video: ${tiktokVideoCreativeLabel(creativeVariant)} (${creativeVariant})`);
+    return {
+      url,
+      bytes: rendered.bytes,
+      sha256: rendered.sha256,
+      durationMs: rendered.durationMs,
+      width: rendered.width,
+      height: rendered.height,
+      creativeVariant,
+    };
+  } catch (err) {
+    console.warn(`⚠️  TikTok video unavailable: ${err.message}`);
+    return null;
+  }
+}
+
 // ─────────────────────────── job/article (daily) ───────────────────────────
 
-async function postGa4Carousel({ kind, day, dryRun, accessToken }) {
+async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
   const campaign = kind === 'job' ? TIKTOK_CAMPAIGN_JOB : TIKTOK_CAMPAIGN_ARTICLE;
   const ledger = loadLedger(LEDGER_PATH);
+  if (!dryRun && isPublishedForKindDay(ledger, { kind, day })) {
+    const queueId = `${kind}-${day}`;
+    dequeuePosts(QUEUE_PATH, { channel: 'tiktok', kind, queueId });
+    console.log(`ℹ️  ${kind}: post TikTok ${queueId} già pubblicato — nessun replay e coda stale ripulita`);
+    return;
+  }
   const cutoff = Date.now() - DEDUP_WINDOW_DAYS * 86400000;
   const recent = new Set(
     ledger.posted
@@ -205,24 +295,21 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken }) {
     return { title, statLabel: 'Visualizzazioni', statValue: String(p.views), footerNote: job?.location || '' };
   });
   const captionPicks = picks.map((p, i) => ({ title: slideItems[i].title, statValue: `${p.views} visualizzazioni` }));
-  const caption = buildCarouselCaption({ kind, dayLabel: formatDayIt(day), picks: captionPicks });
+  const dayLabel = formatDayIt(day);
+  const caption = buildTikTokCaption({ kind, dayLabel, picks: captionPicks });
 
   console.log(`\n─── ${kind} carousel (${picks.length} slides) ───`);
   console.log(caption);
   console.log('───');
 
   if (dryRun) return;
-  if (!accessToken) {
+  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken) });
+  if (!route.render) {
     console.log('⚠️  no TIKTOK_ACCESS_TOKEN — skipping (soft)');
     return;
   }
 
-  const slides = await renderCarouselSlides({
-    kicker: kind === 'job' ? 'LAVORI PIÙ CLICCATI' : 'ARTICOLI PIÙ LETTI',
-    title: kind === 'job' ? 'I lavori più cliccati' : 'Gli articoli più letti',
-    subtitle: formatDayIt(day),
-    items: slideItems,
-  });
+  const slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind, dayLabel, items: slideItems }));
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
     return;
@@ -232,31 +319,38 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken }) {
     console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
     return;
   }
-
-  const res = await publishCarousel({ accessToken, imageUrls: urls, caption });
-  if (!res.ok) {
-    console.error(`⚠️  TikTok publish failed: ${res.reason}`);
-    return;
+  const queueId = `${kind}-${day}`;
+  const video = route.enqueue ? prepareTikTokVideo(slides, queueId, queueId) : null;
+  if (route.enqueue && !video) {
+    if (!route.api) {
+      console.log('⚠️  TikTok robot transport needs an MP4 — skipping this post');
+      return;
+    }
+    console.log('⚠️  TikTok MP4 unavailable — preserving the API path without queue fallback');
   }
-  console.log(`✅ posted — ${res.postId}`);
-  appendLedger(
-    LEDGER_PATH,
-    picks.map((p) => ({
-      id: p.slug,
-      kind,
-      url: tiktokUrl(`${SITE_URL}${p.path}/`, campaign, p.slug),
-      day,
-      views: p.views,
-      ts: new Date().toISOString(),
-      tiktokPostId: res.postId,
-    })),
-    POSTED_TRIM_LIMIT,
-  );
+
+  const ledgerEntries = picks.map((p) => ({
+    id: p.slug,
+    kind,
+    url: tiktokUrl(`${SITE_URL}${p.path}/`, campaign, p.slug),
+    day,
+    views: p.views,
+  }));
+  await deliver({
+    route: video ? route : { ...route, enqueue: false },
+    kind,
+    day,
+    caption,
+    urls,
+    video,
+    ledgerEntries,
+    publish: () => publishCarousel({ accessToken, imageUrls: urls, caption }),
+  });
 }
 
 // ─────────────────────────── border (weekly) ───────────────────────────
 
-async function postBorderCarousel({ dryRun, accessToken }) {
+async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
   const { computeRanking, computeWeekWindow } = await import('./lib/border-wait-ranking.mjs');
   const { BORDER_WAIT_CROSSINGS, BORDER_CROSSING_DISPLAY, isTicinoCrossing, buildOggiPath } = await import(
     '../build-plugins/borderWaitData.ts'
@@ -288,7 +382,7 @@ async function postBorderCarousel({ dryRun, accessToken }) {
     statValue: fmtMinutes(r.avgMinutes),
   }));
   const dayLabel = `${weekStart} – ${weekEnd}`;
-  const caption = buildCarouselCaption({
+  const caption = buildTikTokCaption({
     kind: 'border',
     dayLabel,
     picks: fastest.map((r, i) => ({ title: slideItems[i].title, statValue: fmtMinutes(r.avgMinutes) })),
@@ -299,17 +393,13 @@ async function postBorderCarousel({ dryRun, accessToken }) {
   console.log('───');
 
   if (dryRun) return;
-  if (!accessToken) {
+  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken) });
+  if (!route.render) {
     console.log('⚠️  no TIKTOK_ACCESS_TOKEN — skipping (soft)');
     return;
   }
 
-  const slides = await renderCarouselSlides({
-    kicker: 'CLASSIFICA DOGANE',
-    title: 'Le dogane più veloci',
-    subtitle: dayLabel,
-    items: slideItems,
-  });
+  const slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind: 'border', dayLabel, items: slideItems }));
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
     return;
@@ -319,27 +409,34 @@ async function postBorderCarousel({ dryRun, accessToken }) {
     console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
     return;
   }
-
-  const res = await publishCarousel({ accessToken, imageUrls: urls, caption });
-  if (!res.ok) {
-    console.error(`⚠️  TikTok publish failed: ${res.reason}`);
-    return;
+  const queueId = `border-${weekStart}`;
+  const video = route.enqueue ? prepareTikTokVideo(slides, queueId, queueId) : null;
+  if (route.enqueue && !video) {
+    if (!route.api) {
+      console.log('⚠️  TikTok robot transport needs an MP4 — skipping this post');
+      return;
+    }
+    console.log('⚠️  TikTok MP4 unavailable — preserving the API path without queue fallback');
   }
-  console.log(`✅ posted — ${res.postId}`);
-  appendLedger(
-    LEDGER_PATH,
-    [
-      {
-        id: weekStart,
-        kind: 'border',
-        url: tiktokUrl(buildOggiPath('it', fastest[0].slug), TIKTOK_CAMPAIGN_BORDER, weekStart),
-        day: weekStart,
-        ts: new Date().toISOString(),
-        tiktokPostId: res.postId,
-      },
-    ],
-    POSTED_TRIM_LIMIT,
-  );
+
+  const ledgerEntries = [
+    {
+      id: weekStart,
+      kind: 'border',
+      url: tiktokUrl(buildOggiPath('it', fastest[0].slug), TIKTOK_CAMPAIGN_BORDER, weekStart),
+      day: weekStart,
+    },
+  ];
+  await deliver({
+    route: video ? route : { ...route, enqueue: false },
+    kind: 'border',
+    day: weekStart,
+    caption,
+    urls,
+    video,
+    ledgerEntries,
+    publish: () => publishCarousel({ accessToken, imageUrls: urls, caption }),
+  });
 }
 
 // ─────────────────────────── main ───────────────────────────
@@ -354,6 +451,9 @@ async function main() {
 
   console.log(`─── TikTok daily/weekly — day ${day}${dryRun ? ' (dry run)' : ''} ───`);
 
+  const robotMode = resolveSocialRobotMode();
+  console.log(`ℹ️  SOCIAL_ROBOT_MODE=${robotMode} (Remote Config; see scripts/lib/social-publish-queue.mjs)`);
+
   const accessToken = dryRun ? null : await getAccessToken();
 
   // border is weekly and never runs implicitly — only when explicitly asked
@@ -362,9 +462,9 @@ async function main() {
 
   for (const kind of kinds) {
     if (kind === 'border') {
-      await postBorderCarousel({ dryRun, accessToken });
+      await postBorderCarousel({ dryRun, accessToken, robotMode });
     } else if (kind === 'job' || kind === 'article') {
-      await postGa4Carousel({ kind, day, dryRun, accessToken });
+      await postGa4Carousel({ kind, day, dryRun, accessToken, robotMode });
     } else {
       console.warn(`⚠️  unknown --only=${kind} — expected job, article or border`);
     }

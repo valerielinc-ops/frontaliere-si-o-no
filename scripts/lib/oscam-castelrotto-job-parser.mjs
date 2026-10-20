@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 /**
  * Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi), Castelrotto (TI).
  *
@@ -21,15 +22,16 @@
  *  - Each `<h3>` inside that slice is a concorso.
  *  - The associated PDF is the LAST anchor inside the next `<h4>…Apri il…</h4>` block
  *    (skipping the static document-icon anchor that points to a placeholder).
- *  - Title body uses the h3 text + boilerplate fallback (the page itself doesn't
- *    expose body content; details live inside the PDF).
+ *  - The description is the text of the PDF bando only (the page itself doesn't
+ *    expose body content); a bando without readable text gets none.
  *
  * Inventory note: 3 concorsi at probe time. OSCAM serves Malcantone (Castelrotto,
- * postal 6989) — TI audience priority for the frontaliere job-board.
+ * postal 6980) — TI audience priority for the frontaliere job-board.
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { textFragmentUrl } from './text-fragment-url.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -46,11 +48,19 @@ export const OSCAM_CASTELROTTO_KEY = 'oscam-castelrotto';
 export const OSCAM_CASTELROTTO_COMPANY_NAME =
   'Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)';
 export const OSCAM_CASTELROTTO_COMPANY_DOMAIN = 'oscam.ch';
+export const OSCAM_CASTELROTTO_ADDRESS = Object.freeze({
+  streetAddress: 'Nucleo 30',
+  addressLocality: 'Castelrotto',
+  addressRegion: 'TI',
+  postalCode: '6980',
+  addressCountry: 'CH',
+});
 
 const PUBLIC_CAREER_URL = 'https://www.oscam.ch/lavoraconnoi/';
 const DEFAULT_CITY = 'Castelrotto';
 const DEFAULT_CANTON = 'TI';
-const DEFAULT_POSTAL = '6989';
+const DEFAULT_STREET = OSCAM_CASTELROTTO_ADDRESS.streetAddress;
+const DEFAULT_POSTAL = OSCAM_CASTELROTTO_ADDRESS.postalCode;
 
 // Stale placeholder PDF that lives inside every h4 wrapper (icon anchor).
 const STATIC_PLACEHOLDER_RE = /\/Concorso_generale_medici_assistenti_01\.pdf$/i;
@@ -87,6 +97,23 @@ export function isTrustedDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+/**
+ * Merge key for an OSCAM record: its listing id, not its URL.
+ *
+ * The source changed from an invented page anchor to the bando PDF. The
+ * parser's persisted id includes a URL digest, so strip only that final
+ * digest before matching the old anchor record with the fresh PDF record.
+ * This keeps mergePreserveLocaleData's existing-id/slug preservation path.
+ *
+ * @param {{ id?: string, url?: string }} job
+ * @returns {string}
+ */
+export function oscamCastelrottoMatchKey(job = {}) {
+  const id = String(job?.id || '').trim();
+  if (id) return id.replace(/-[0-9a-f]{12}$/i, '');
+  return String(job?.url || '').trim();
 }
 
 /* ── Parser ────────────────────────────────────────────────── */
@@ -155,19 +182,29 @@ export function parseOscamCastelrottoListing(html = '') {
   return out;
 }
 
-/* ── Description fallback ──────────────────────────────────── */
+/* ── Description ───────────────────────────────────────────── */
 
-function buildDescription(title, pdfUrl, pdfText = '') {
-  return buildPdfBackedDescription({
-    introLines: [
-      `${title} presso l'Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi), Castelrotto (Malcantone, Canton Ticino).`,
-      "L'OSCAM è un ospedale di cure acute con sede a Castelrotto che serve la regione del Malcantone. La fondazione Giuseppe Rossi gestisce reparti di medicina interna, chirurgia, psichiatria, ostetricia-ginecologia e cure palliative, oltre a un pronto soccorso e a servizi ambulatoriali per la popolazione del distretto di Lugano-Malcantone.",
-    ],
-    pdfText,
-    fallbackText: "Il concorso è pubblicato come bando ufficiale. Il dettaglio completo (requisiti, profilo professionale, modalità di candidatura, termine di presentazione, contatti del personale di riferimento) è disponibile nel documento PDF allegato. Le candidature avvengono via posta o e-mail alla direzione amministrativa dell'OSCAM secondo le istruzioni del bando.",
-    footerLines: pdfUrl ? [`Bando completo (PDF): ${pdfUrl}`] : [],
-  });
+/**
+ * The description of one concorso is the text of its PDF bando and nothing
+ * else. The parser used to put two lines of its own before it ("<titolo>
+ * presso l'Ospedale Malcantonese OSCAM …" and a paragraph on the hospital),
+ * the PDF link after it, and to write "Il concorso è pubblicato come bando
+ * ufficiale…" when the PDF had no text; a bando without readable text now gets
+ * no description and takes the pipeline's thin-source path.
+ */
+export function buildDescription(pdfText = '') {
+  return buildPdfBackedDescription({ pdfText });
 }
+
+/**
+ * The former wrapper as it opened every description: "<titolo> presso
+ * l'Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi), Castelrotto
+ * (Malcantone, Canton Ticino)." followed by the parser's whole paragraph on the
+ * hospital. Anchored at the start of the text: a bando that quotes either line
+ * further down is never taken for it.
+ */
+export const OSCAM_CASTELROTTO_FABRICATED_DESCRIPTION_RE =
+  /^[^\n]{3,300} presso l'Ospedale Malcantonese OSCAM \(Fondazione Giuseppe Rossi\), Castelrotto \(Malcantone, Canton Ticino\)\.\n\nL'OSCAM è un ospedale di cure acute con sede a Castelrotto che serve la regione del Malcantone\. La fondazione Giuseppe Rossi gestisce reparti di medicina interna, chirurgia, psichiatria, ostetricia-ginecologia e cure palliative, oltre a un pronto soccorso e a servizi ambulatoriali per la popolazione del distretto di Lugano-Malcantone\.(?:\n\n|\s*$)/;
 
 /* ── Main fetch ────────────────────────────────────────────── */
 
@@ -191,7 +228,6 @@ export async function fetchAllOscamCastelrottoJobs() {
     return [];
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (const listing of listings) {
@@ -205,10 +241,16 @@ export async function fetchAllOscamCastelrottoJobs() {
       if (pdf.warning) console.warn(`     ⚠️ ${pdf.warning}`);
       pdfText = pdf.thin ? '' : (pdf.rawText || pdf.text || '');
     }
-    const description = buildDescription(title, listing.pdfUrl, pdfText);
+    const description = buildDescription(pdfText);
     const haystack = `${title} ${description}`;
 
-    const url = `${PUBLIC_CAREER_URL}#${listing.id}`;
+    // The bando PDF IS the advertisement: it is the posting's URL. Without a
+    // PDF the concorso is addressed by its heading on the page (text
+    // fragment), never by an invented `#<slug>` anchor the page does not
+    // have (issue 5253).
+    const url = listing.pdfUrl
+      ? listing.pdfUrl.replace(/^http:\/\//i, 'https://')
+      : textFragmentUrl(PUBLIC_CAREER_URL, title);
     const jobSlug = slugify(`${title} ${OSCAM_CASTELROTTO_KEY} ${DEFAULT_CITY}`);
     const urlHash = createHash('sha1')
       .update(`${url}|${listing.id}`)
@@ -240,6 +282,7 @@ export async function fetchAllOscamCastelrottoJobs() {
 
       addressLocality: DEFAULT_CITY,
       addressRegion: DEFAULT_CANTON,
+      streetAddress: DEFAULT_STREET,
       addressCountry: 'CH',
       country: 'CH',
       postalCode: DEFAULT_POSTAL,
@@ -250,7 +293,7 @@ export async function fetchAllOscamCastelrottoJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: listing.pdfUrl || url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -259,8 +302,8 @@ export async function fetchAllOscamCastelrottoJobs() {
     console.log(`  ✅ ${title.substring(0, 70)} (${listing.id})`);
   }
 
-  // Force source-lang detection consistency even when the helper would prefer
-  // another language (the boilerplate footer is Italian).
+  // Force source-lang detection consistency: the slot is the language of the
+  // bando's text (the title when there is none).
   for (const j of jobs) {
     const detected = detectLang(j.description || j.title, 'it');
     if (detected !== j.sourceLang) {

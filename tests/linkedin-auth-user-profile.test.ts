@@ -30,8 +30,8 @@ describe('LinkedIn auth Cloud Function — subscriber profile enrichment', () =>
   });
 
   it('always updates lastLoginAt and updatedAt on login', () => {
-    expect(source).toContain('lastLoginAt: admin.firestore.FieldValue.serverTimestamp()');
-    expect(source).toContain('updatedAt: admin.firestore.FieldValue.serverTimestamp()');
+    expect(source).toContain('lastLoginAt: FieldValue.serverTimestamp()');
+    expect(source).toContain('updatedAt: FieldValue.serverTimestamp()');
   });
 
   it('creates the base terms relationship when the subscriber document is missing', () => {
@@ -91,8 +91,8 @@ describe('LinkedIn auth Cloud Function — subscriber profile enrichment', () =>
   it('passes the same fail-closed emailVerified to createUser and enrichSubscriberProfile', () => {
     const handlerFn = source.slice(source.indexOf('export async function handleLinkedInCallback'));
     const createUserCall = handlerFn.slice(
-      handlerFn.indexOf('admin.auth().createUser({'),
-      handlerFn.indexOf('});', handlerFn.indexOf('admin.auth().createUser({'))
+      handlerFn.indexOf('getAuth().createUser({'),
+      handlerFn.indexOf('});', handlerFn.indexOf('getAuth().createUser({'))
     );
     expect(createUserCall).toContain('emailVerified,');
     const enrichCall = handlerFn.slice(
@@ -175,9 +175,12 @@ describe('Firestore rules — newsletter_subscribers collection', () => {
   it('keeps anonymous subscribe working: get and non-consent writes stay public', () => {
     const own = directRules(subBlock);
     expect(own).toContain('allow get: if true');
-    expect(own).toContain('allow create: if isPendingNewsletterCreate()');
+    // Both clauses are prefixed by the server-owned snapshot guard
+    // (`confirmation_job_context`, see tests/newsletter-confirmation-job-snapshot.test.ts);
+    // what they admit after it is unchanged.
+    expect(own).toMatch(/allow create: if !request\.resource\.data\.keys\(\)\.hasAny\(\['confirmation_job_context'\]\)\s*&& \(isPendingNewsletterCreate\(\)/);
     expect(own).toContain('|| isVerifiedConfirmedCreate(email)');
-    expect(own).toContain('allow update: if (');
+    expect(own).toMatch(/allow update: if !confirmationJobSnapshotTouched\(request\.resource\.data, resource\.data\)\s*&& \(\(/);
     expect(own).toContain('!consentFieldsTouched(request.resource.data, resource.data)');
   });
 
@@ -186,13 +189,15 @@ describe('Firestore rules — newsletter_subscribers collection', () => {
    * has to be the same identity the SPA gates that panel with — otherwise the
    * dashboard reads zero and nobody finds out until someone looks.
    */
-  it('scopes the admin exception to the SPA admin allowlist', () => {
+  it('scopes the admin exception to the same stable UID the SPA uses', () => {
     const fn = matchBlock(rules, 'function isSiteAdmin()');
     expect(fn).toContain('request.auth != null');
     expect(fn).toContain('request.auth.token.email_verified == true');
-    expect(fn).toContain("request.auth.token.email.lower() == 'valerielinc@gmail.com'");
+    expect(fn).toContain("request.auth.uid == 'aAqGpXr2mUQNQlio3gCxut4bBzH3'");
     const app = readFileSync(resolve(root, 'App.tsx'), 'utf8');
-    expect(app).toContain("ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com']");
+    expect(app).toContain('isSiteAdminUid(authUser?.uid)');
+    expect(readFileSync(resolve(root, 'services/adminIdentity.ts'), 'utf8'))
+      .toContain("'aAqGpXr2mUQNQlio3gCxut4bBzH3'");
   });
 
   /**
@@ -561,7 +566,8 @@ describe('Frontend App.tsx — LinkedIn profile saving', () => {
       source.indexOf("'auth', 'linkedin', 'login', user ? 'success' : 'no-user'"),
       source.indexOf("if (cancelled) return;", source.indexOf("'auth', 'linkedin', 'login', user ? 'success' : 'no-user'"))
     );
-    expect(linkedinSection).toContain("saveUserProfileToFirestore(user, 'linkedin')");
+    // The job and surface contexts that started the login travel with it.
+    expect(linkedinSection).toContain("saveUserProfileToFirestore(user, 'linkedin', savedJobCtx, linkedInAttribution)");
   });
 });
 

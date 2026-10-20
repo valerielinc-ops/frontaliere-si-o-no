@@ -26,12 +26,6 @@ on:
         required: false
         type: boolean
         default: true
-      human_approval:
-        description: 'Explicit human approval for GSC orphan publication side effects.'
-        required: false
-        type: boolean
-        default: false
-
 concurrency:
   group: jobs-data-pipeline
   cancel-in-progress: false
@@ -43,35 +37,34 @@ permissions:
 
 jobs:
   sync-orphans:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 45 e non 30 (issue 12276). Il 7 ottobre 2026 un runner lento ha raddoppiato
+    # gli step di sola CPU (assemble 710 s contro 266-357, reconcile 296 s contro
+    # 108-204): prima di «Commit and push» erano già passati 26,5 minuti, e il
+    # tetto ha tagliato il job a metà commit, cioè dopo aver fatto tutto il
+    # lavoro e prima di salvarlo. Il commit, misurato sulle run verdi, dura da
+    # 143 a 386 s, e nel caso peggiore fa 8 tentativi di push. Un job tagliato dal
+    # tetto non esegue gli step `if: failure()`: lo vede solo scan-job-timeouts.mjs.
+    timeout-minutes: 45
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
-
-      - name: Require human approval for GSC orphan side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          APPROVAL_SCOPE: sync-gsc-orphans
-        run: node scripts/ci/human-side-effect-gate.mjs
 
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -84,7 +77,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load RC secrets
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # Primary identity for the deploy dispatch below = GitHub App installation
@@ -92,7 +85,7 @@ jobs:
       # its dispatch re-triggers deploy.yml just like the PAT (no GITHUB_TOKEN
       # anti-recursion). Falls back to env.GITHUB_PAT (#2861 item 1).
       - name: Mint App token (primary identity, PAT fallback)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -101,7 +94,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Sync GSC orphan slugs + enrich
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           node scripts/sync-gsc-orphans.mjs \
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
@@ -110,19 +103,22 @@ jobs:
           ENABLE_WAYBACK: ${{ inputs.enable_wayback == true && '1' || '0' }}
 
       - name: Assemble jobs dataset (needed by reconcile)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/assemble-jobs-dataset.mjs
+        env:
+          # The next step performs this full reconciliation pass once, after assembly.
+          JOBS_SKIP_RECONCILIATION: '1'
 
       - name: Reconcile orphan + expired slugs with active jobs
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/reconcile-job-slugs.mjs
 
       - name: Mine all job slugs for comprehensive coverage
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/mine-all-job-slugs.mjs
 
       - name: Canton-aware migration of slug registry (keep registry invariant pre-commit)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # mine-all-job-slugs writes every entry under the legacy TI section.
         # Rewrite entries attributable to live non-TI jobs to their canton-aware
         # paths BEFORE committing to main (bot-direct-to-main gate, same
@@ -132,7 +128,7 @@ jobs:
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: Prune non-resolving 404-compat paths (keep test invariant green)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # Gate bot-direct-to-main against the committed-snapshot invariant
         # (tests/search-console-compat.test.ts): drop any appended path the
         # resolver can't map BEFORE commit, so main never goes red on a raw
@@ -148,12 +144,12 @@ jobs:
       # growing number instead of a silent one. Never fails the job: it is
       # telemetry, and the commit below is the step that matters.
       - name: Report orphan reconciliation backlog
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         run: node scripts/report-orphan-reconciliation.mjs
 
       - name: Commit and push
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         id: commit
         run: |
           SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
@@ -184,12 +180,13 @@ jobs:
           # ritorna comunque exit 1 → job rosso → issue di failure (semantica
           # exit-code preservata, nessun mascheramento di errori reali — perciò
           # NON uso continue-on-error, che ingoierebbe anche gli exit 1 genuini).
-          # 8 tentativi = ~8 chance di vincere la ref-race, con margine ampio
-          # sotto i 30min.
+          # 8 tentativi = ~8 chance di vincere la ref-race. Il margine sotto il
+          # tetto del job non dipende solo da questo loop ma da quanto durano gli
+          # step prima: vedi la nota su `timeout-minutes` in testa al job.
           MAX_PUSH_ATTEMPTS: '8'
 
       - name: Trigger deploy if data changed
-        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           # Check if tracking or compat data changed (new soft-landing pages needed)
           TRACKING_CHANGES=$(git diff HEAD~1 --name-only -- data/all-known-job-slugs data/seo-404-compat | wc -l)

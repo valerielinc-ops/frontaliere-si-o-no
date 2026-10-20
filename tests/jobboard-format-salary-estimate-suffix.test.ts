@@ -19,8 +19,9 @@ describe('formatSalary — salarySource estimate suffix (#6403)', () => {
     expect(formatSalary({ ...base, salarySource: 'reported' }, 'it')).toBe('CHF 91k – 118k');
   });
 
-  it('renders no suffix when salarySource is absent (legacy records)', () => {
-    expect(formatSalary({ ...base }, 'it')).toBe('CHF 91k – 118k');
+  it('marks unverified provenance when salarySource is absent (legacy records)', () => {
+    expect(formatSalary({ ...base }, 'it')).toBe('CHF 91k – 118k (fonte non verificata)');
+    expect(formatSalary({ ...base, salarySource: 'existing' }, 'en')).toBe('CHF 91k – 118k (source unverified)');
   });
 
   it('returns null when there is no usable salary data', () => {

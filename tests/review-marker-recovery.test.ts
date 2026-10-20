@@ -6,7 +6,8 @@ import {
   reviewMarkerDecision,
   reviewMarkerRepair,
 } from '../scripts/ci/review-marker-recovery.mjs';
-import { reviewInputMarker } from '../scripts/ci/lib/review-input-revision.mjs';
+import { stampReviewInputRevision } from '../.github/actions/claude-codex-fallback/gh-bridge-server.mjs';
+import { reviewInputMarker, reviewInputRevisions } from '../scripts/ci/lib/review-input-revision.mjs';
 import { CODEX_FALLBACK_REVIEW_MARKER } from '../scripts/ci/lib/pr-review-admission.mjs';
 
 const HEAD = 'a'.repeat(40);
@@ -37,6 +38,19 @@ describe('deterministic review input marker recovery', () => {
     expect(parseReviewPages(JSON.stringify(pages))).toEqual(pages);
     expect(reviewMarkerDecision({ reviews: pages, headSha: HEAD, reviewRevision: REVISION }))
       .toMatchObject({ ok: true });
+  });
+
+  it('accetta il body timbrato dal bridge tramite lettore e validatore reali', () => {
+    const stamped = stampReviewInputRevision(
+      `<!-- REVIEW_INPUT_REVISION: body:${'a'.repeat(63)} -->\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
+      REVISION,
+    );
+    expect(reviewInputRevisions(stamped)).toEqual([REVISION]);
+    expect(reviewMarkerDecision({
+      reviews: [[review(stamped)]],
+      headSha: HEAD,
+      reviewRevision: REVISION,
+    })).toMatchObject({ ok: true });
   });
 
   it('ignores an older same-HEAD marker as history when the latest review is current', () => {

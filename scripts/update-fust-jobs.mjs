@@ -29,6 +29,7 @@
  * Detail pages live at jobs.fust.ch and contain the authoritative JSON-LD
  * JobPosting payload used for description and work location.
  */
+import { sourcePostingDateCandidatesFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -73,7 +74,13 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
-import { enrichCoopSourceBackedJobs, validateCoopDescription } from './lib/coop-job-parser.mjs';
+import {
+  collapseRepublishedCoopVacancies,
+  enrichCoopSourceBackedJobs,
+  extractCoopFamilyWorkplace,
+  normalizeCoopFamilyWorkplace,
+  validateCoopDescription,
+} from './lib/coop-job-parser.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { preferLocationEncodedCanton } from './lib/job-location-display.mjs';
 
@@ -242,12 +249,6 @@ function cantonLabel(canton = '') {
   return canton || '';
 }
 
-function dateOnly(raw = '') {
-  const dt = new Date(raw || Date.now());
-  if (Number.isNaN(dt.getTime())) return new Date().toISOString().slice(0, 10);
-  return dt.toISOString().slice(0, 10);
-}
-
 function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
   const apiCity = String(job?.location || job?.place || job?.city || job?.address?.city || '').trim();
@@ -269,67 +270,22 @@ function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
     sourceId: String(job?.id || '').trim(),
     ...(company ? { company } : {}),
     ...(contract ? { contract } : {}),
-    ...(job?.date || job?.datePosted
-      ? { postedDate: dateOnly(job?.date || job?.datePosted) }
-      : {}),
+    ...sourcePostingDateCandidatesFields([job?.date, job?.datePosted]),
   };
 }
 
-function decodeCodePoint(raw, radix) {
-  const codePoint = Number.parseInt(raw, radix);
-  if (!Number.isFinite(codePoint) || codePoint < 0 || codePoint > 0x10ffff) return '';
-  try {
-    return String.fromCodePoint(codePoint);
-  } catch {
-    return '';
-  }
-}
-
-function decodeHtmlEntities(value = '') {
-  return String(value)
-    .replace(/&#(\d+);/g, (_match, code) => decodeCodePoint(code, 10))
-    .replace(/&#x([0-9a-f]+);/gi, (_match, code) => decodeCodePoint(code, 16))
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;|&#39;/gi, "'")
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>');
-}
-
-function normalizeFustWorkplace(value = '') {
-  return decodeHtmlEntities(value)
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/\\u([0-9a-f]{4})/gi, (_match, code) => String.fromCodePoint(Number.parseInt(code, 16)))
-    .replace(/\\x([0-9a-f]{2})/gi, (_match, code) => String.fromCodePoint(Number.parseInt(code, 16)))
-    .replace(/\\([\\'"/])/g, '$1')
-    .replace(/\\[nrt]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
+const normalizeFustWorkplace = normalizeCoopFamilyWorkplace;
 
 /**
  * Prospective's JSON-LD always stamps Fust's Oberbüren headquarters as the
  * job location. The visible detail page carries the real workplace in the
  * `job_arbeitsort` analytics field (and in a localized workplace section).
+ * The reader lives in `coop-job-parser.mjs` because detail enrichment
+ * (`applyCoopSourceDetailToJob`) must read the same field: it used to let the
+ * JSON-LD head office overwrite the workplace found here.
  */
 export function extractFustWorkplaceFromHtml(html = '') {
-  const source = String(html || '');
-  const singleQuoted = source.match(/\bjob_arbeitsort\s*:\s*'((?:\\.|[^'\\])*)'/i);
-  const doubleQuoted = source.match(/\bjob_arbeitsort\s*:\s*"((?:\\.|[^"\\])*)"/i);
-  const analyticsValue = singleQuoted?.[1] || doubleQuoted?.[1] || '';
-  const analyticsWorkplace = normalizeFustWorkplace(analyticsValue);
-  if (analyticsWorkplace && analyticsWorkplace.toLowerCase() !== 'fust') return analyticsWorkplace;
-
-  const section = source.match(
-    /<h4[^>]*>\s*(?:<b[^>]*>)?\s*(?:arbeitsort|lieu\s+de\s+travail|luogo\s+di\s+lavoro)\s*(?:<\/b>)?\s*<\/h4>\s*<p[^>]*>([\s\S]{0,500}?)<\/p>/i
-  );
-  const addressLines = String(section?.[1] || '')
-    .split(/<br\s*\/?\s*>/i)
-    .map((line) => normalizeFustWorkplace(line))
-    .filter((line) => line && line.toLowerCase() !== 'fust');
-  const workplaceLine = addressLines.at(-1) || '';
-  return normalizeFustWorkplace(workplaceLine.replace(/^\d{4}\s+/, ''));
+  return extractCoopFamilyWorkplace(html);
 }
 
 /**
@@ -502,18 +458,34 @@ export async function fetchFustJobUrls(options = {}) {
 
     let jobs;
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    // AbortSignal is advisory: a custom fetch implementation can ignore it and
+    // leave the await pending until Node exits naturally. Reject the operation
+    // as well, so an unfinished discovery cannot be recorded as a clean exit.
+    let rejectTimeout;
+    const timeoutError = new Error(`Fust API request timed out at offset ${offset} after ${timeoutMs}ms.`);
+    timeoutError.name = 'TimeoutError';
+    const timeoutPromise = new Promise((_, reject) => {
+      rejectTimeout = reject;
+    });
+    const timer = setTimeout(() => {
+      controller.abort();
+      rejectTimeout(timeoutError);
+    }, timeoutMs);
 
     try {
-      const res = await fetchImpl(apiUrl, {
-        signal: controller.signal,
-        headers: { Accept: 'application/json', 'User-Agent': UA },
-      });
-      if (!res.ok) {
-        throw new Error(`Fust discovery failed at offset ${offset}: API returned HTTP ${res.status}.`);
-      }
-
-      const data = await res.json();
+      const data = await Promise.race([
+        (async () => {
+          const res = await fetchImpl(apiUrl, {
+            signal: controller.signal,
+            headers: { Accept: 'application/json', 'User-Agent': UA },
+          });
+          if (!res.ok) {
+            throw new Error(`Fust discovery failed at offset ${offset}: API returned HTTP ${res.status}.`);
+          }
+          return res.json();
+        })(),
+        timeoutPromise,
+      ]);
       jobs = assertJsonListShape(data, { key: 'jobs', source: 'fust', lang: `offset:${offset}` });
       if (!Number.isSafeInteger(data?.total) || data.total < 0) {
         throw new Error(`Fust discovery invariant failed: API response at offset ${offset} did not expose a non-negative safe integer total.`);
@@ -527,6 +499,7 @@ export async function fetchFustJobUrls(options = {}) {
       }
     } catch (err) {
       if (/Fust discovery invariant failed/.test(String(err?.message || err))) throw err;
+      if (err?.name === 'TimeoutError') throw err;
       throw new Error(`Fust discovery failed at offset ${offset}: ${err?.message || err}`, { cause: err });
     } finally {
       clearTimeout(timer);
@@ -848,8 +821,11 @@ export function reconcileFustJobsWithDiscovery(jobs, discovery, priorJobs = [], 
     const meta = source.meta || {};
     const location = String(job.location || '').trim();
     const canton = String(job.canton || '').trim().toUpperCase();
+    // One floor for a published source body: the shared word floor, which
+    // `validateCoopDescription` applies (the separate whitespace-split count
+    // it duplicated also counted markdown markers as words).
     const detailDescription = validateCoopDescription(job.description || '', 0);
-    if (!location || !canton || !detailDescription.ok || String(job.description || '').trim().split(/\s+/).length < 50) {
+    if (!location || !canton || !detailDescription.ok) {
       throw new Error(`Fust source-detail invariant failed for ${source.url}`);
     }
     const title = String(job.title || meta.title || '').trim();
@@ -985,9 +961,14 @@ function readScratchJobs() {
   return Array.isArray(parsed) ? parsed : [];
 }
 
+// Republished duplicates collapsed by the source refresh stay out of the
+// authoritative set for the rest of the run: the post-translation pass
+// (`refreshSource: false`) reads a scratch that no longer contains them.
+const fustCollapsedUrls = new Set();
+
 async function writeReconciledFustScratch(discovery, priorJobs, { refreshSource = true } = {}) {
   const scratchJobs = readScratchJobs();
-  const goneUrls = [];
+  const goneUrls = [...fustCollapsedUrls];
   const sourceBackedJobs = refreshSource && scratchJobs.length > 0
     ? await enrichCoopSourceBackedJobs(scratchJobs, {
         allowedHosts: ['jobs.fust.ch'],
@@ -1003,7 +984,17 @@ async function writeReconciledFustScratch(discovery, priorJobs, { refreshSource 
         onRejected: (urls) => goneUrls.push(...urls),
       })
     : scratchJobs;
-  const reconciled = reconcileFustJobsWithDiscovery(sourceBackedJobs, discovery, priorJobs, { goneUrls });
+  // The same ad published twice under two UUIDs (same store address, same body
+  // and facts) is one vacancy. The collapsed URL leaves the authoritative set
+  // like a withdrawn one, so the completeness check does not count it as a
+  // parse failure.
+  const { kept: distinctJobs, collapsed } = collapseRepublishedCoopVacancies(sourceBackedJobs);
+  for (const { url, keptUrl } of collapsed) {
+    fustCollapsedUrls.add(url);
+    goneUrls.push(url);
+    console.log(`  ↪️ Republished Fust vacancy ${url} collapsed into ${keptUrl}`);
+  }
+  const reconciled = reconcileFustJobsWithDiscovery(distinctJobs, discovery, priorJobs, { goneUrls });
   const stable = ensureUniqueFustSlugs(reconciled, priorJobs);
   writeJsonAtomic(DATA_JOBS, stable);
   console.log(`🧭 Fust authoritative reconciliation: ${scratchJobs.length} parsed/retained → ${stable.length} canonical identities, stable slugs enforced.`);

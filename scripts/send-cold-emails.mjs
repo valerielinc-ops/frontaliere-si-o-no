@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Invio cold-email outreach — passo #3 del piano.
  *
@@ -39,7 +41,6 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   buildSequence,
-  OPTOUT_EMAIL,
   compareOutreachTargets,
   selectOutreachMetric,
 } from './generate-cold-emails.mjs';
@@ -47,6 +48,7 @@ import { bodyToHtml, formatItalianPeriodLabel } from './lib/cold-email-sequence.
 import { classifySector } from './lib/employer-sectors.mjs';
 import { buildUnsubUrl } from './lib/outreach-unsubscribe-token.mjs';
 import { buildInsightsUrl } from './lib/employer-insights-token.mjs';
+import { OUTREACH_OPTOUT_EMAIL } from './lib/outreachIdentity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -397,6 +399,7 @@ async function run() {
       periodLabel: periodWindow,
       contactName: c.contactName,
       topRole: c.topRole,
+      optOutEmail: OUTREACH_OPTOUT_EMAIL,
     });
     const m = seq.find((x) => x.touch === touch) || seq[0];
     return { company: e.name, key: e.key, sector: c.sector || classifySector(e.name),
@@ -481,7 +484,7 @@ async function run() {
         html,
         text,
         headers: {
-          'List-Unsubscribe': `<${unsubUrl}>, <mailto:${OPTOUT_EMAIL}?subject=unsubscribe%20${unsubKey}>`,
+          'List-Unsubscribe': `<${unsubUrl}>, <mailto:${OUTREACH_OPTOUT_EMAIL}?subject=unsubscribe%20${unsubKey}>`,
           'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
         },
         // campaign_id NAMED explicitly (not just `type`): the Resend webhook
@@ -543,6 +546,6 @@ async function run() {
   });
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   run().catch((err) => { console.error(err); process.exitCode = 1; });
 }

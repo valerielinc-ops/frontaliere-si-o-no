@@ -1,5 +1,36 @@
 [
   {
+    "slug": "carenza-di-personale-qualificato-albergo-gardenia-ch",
+    "title": "Carenza di personale qualificato",
+    "titleByLocale": {
+      "it": "Carenza di personale qualificato",
+      "en": "Qualified personnel",
+      "de": "Qualifiziertes Personal",
+      "fr": "Personnel qualifié"
+    },
+    "company": "Albergo Gardenia",
+    "companyKey": "albergo-gardenia",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "it": "Carenza di personale qualificato — Albergo Gardenia"
+    },
+    "slugByLocale": {
+      "it": "carenza-di-personale-qualificato-albergo-gardenia-ch",
+      "en": "qualified-personnel-albergo-gardenia-lugano",
+      "de": "qualifiziertes-personal-albergo-gardenia-lugano",
+      "fr": "personnel-qualifie-albergo-gardenia-lugano"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-01T12:15:41.292Z",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/carenza-di-personale-qualificato",
+    "firstSeenAt": "2026-08-24T10:32:28.227Z"
+  },
+  {
     "slug": "formazione-professionale-albergo-gardenia-ch",
     "title": "Formazione professionale",
     "titleByLocale": {
@@ -26,7 +57,9 @@
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/formazione-professionale",
+    "firstSeenAt": "2026-08-31T17:35:14.217Z"
   },
   {
     "slug": "previsione-per-la-vecchia-albergo-gardenia-lugano",
@@ -67,35 +100,8 @@
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "carenza-di-personale-qualificato-albergo-gardenia-ch",
-    "title": "Carenza di personale qualificato",
-    "titleByLocale": {
-      "it": "Carenza di personale qualificato",
-      "en": "Qualified personnel",
-      "de": "Qualifiziertes Personal",
-      "fr": "Personnel qualifié"
-    },
-    "company": "Albergo Gardenia",
-    "companyKey": "albergo-gardenia",
-    "location": "Lugano",
-    "addressLocality": "Lugano",
-    "descriptionByLocale": {
-      "it": "Carenza di personale qualificato — Albergo Gardenia"
-    },
-    "slugByLocale": {
-      "it": "carenza-di-personale-qualificato-albergo-gardenia-ch",
-      "en": "qualified-personnel-albergo-gardenia-lugano",
-      "de": "qualifiziertes-personal-albergo-gardenia-lugano",
-      "fr": "personnel-qualifie-albergo-gardenia-lugano"
-    },
-    "sector": "Altro",
-    "expiredAt": "2026-09-01T12:15:41.292Z",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/previdenza-per-la-vecchiaia",
+    "firstSeenAt": "2026-08-24T10:32:28.546Z"
   }
 ]

@@ -67,23 +67,31 @@ export const POPULATION_SOURCE =
  * `expectedSlots` is the mean of the two 2026-08-11 measurements (91,297 and
  * 90,528), which sit 0.8% apart across a full crawl wave.
  *
+ * RE-DERIVED 2026-09-29 (issue #9102): the assembled corpus measured 115,907
+ * slots. The served wrong-locale rate was 36 / 115,907 = 0.031%; the 0.30%
+ * quality cap remains unchanged, so this is a denominator re-baseline and not
+ * a loosened gate.
+ *
  * TOLERANCE 15%. Sized to make the historical failure impossible rather than
- * to a round number: the same population read from the SLICES is 107,808 slots
- * (+18.6%), so the slice/assembled swap that caused this gate's first red now
- * fails as a population change with its own message instead of as a fake
- * quality regression. Daily drift is 0.8%, so the band is ~19x observed
- * movement and will not flicker. When genuine corpus growth crosses it the
- * gate says so in one line and asks for a deliberate re-derivation — which is
- * the intended cost, not a defect.
+ * to a round number: the old assembled baseline's slice reading was 107,808
+ * slots (+18.6% over 90,900), so the slice/assembled swap that caused this
+ * gate's first red had its own population-change message instead of a fake
+ * quality regression. After the 2026-09-29 re-baseline that historical figure
+ * is inside the new band; `tests/job-locale-population-guard.test.ts` therefore
+ * keeps the same +18.6% swap as an explicit synthetic out-of-band fixture.
+ * Daily drift is 0.8%, so the band is ~19x observed movement and will not
+ * flicker. When genuine corpus growth crosses it the gate says so in one line
+ * and asks for a deliberate re-derivation — which is the intended cost, not a
+ * defect.
  * @type {PopulationSpec}
  */
 export const DESCRIPTION_POPULATION = {
   id: 'descriptions-wrong-locale',
   source: POPULATION_SOURCE,
   filter: 'descriptionByLocale[it|en|de|fr] with >= 120 trimmed chars, for every job, independent of needsRetranslation',
-  expectedSlots: 90900,
+  expectedSlots: 115907,
   tolerance: 0.15,
-  measuredOn: '2026-08-11',
+  measuredOn: '2026-09-29',
 };
 
 /**
@@ -94,13 +102,11 @@ export const DESCRIPTION_POPULATION = {
  * the assembled artefact — 68,587 / 68,306 / 67,987 / 67,844 — a 1.1% spread
  * across the day.
  *
- * RE-DERIVED 2026-08-25 (issue #6510): organic corpus growth (more jobs
- * crawled, not a regression) moved the population past the ±15% band on its
- * own. Measured on two commits of PR #6484: 78,731 and 78,725 slots — stable
- * around 78.7k, +15.4% over the 2026-08-11 baseline. `expectedSlots` is
- * re-pinned to 78,725 (the more recent of the two measurements);
- * `tolerance` is UNCHANGED at 0.15 — this re-bases a measured denominator,
- * it does not loosen the gate.
+ * RE-DERIVED 2026-09-30 (issue #9102): organic corpus growth (more jobs
+ * crawled, not a regression) moved the population past the ±15% band again.
+ * The assembled artefact measured 90,712 slots, so `expectedSlots` is
+ * re-pinned to that measured denominator; `tolerance` is UNCHANGED at 0.15 —
+ * this re-bases a measured denominator, it does not loosen the gate.
  *
  * TOLERANCE 15%, same construction: the same population read from the SLICES
  * is 80,978 slots (+18.7%), and the docstring's own historical slice figure was
@@ -113,9 +119,9 @@ export const TITLE_POPULATION = {
   id: 'titles-wrong-locale',
   source: POPULATION_SOURCE,
   filter: 'non-empty titleByLocale[locale] for every locale !== sourceLang, for every job, independent of needsRetranslation',
-  expectedSlots: 78725,
+  expectedSlots: 90712,
   tolerance: 0.15,
-  measuredOn: '2026-08-25',
+  measuredOn: '2026-09-30',
 };
 
 /**
@@ -256,4 +262,52 @@ export function measureTitleLocales(jobs, looksUntranslated, locales, maxOffende
     }
   }
   return { slots, flagged, offenders };
+}
+
+/**
+ * Population slots of a set of jobs under the SAME filters as the two
+ * ratchets: the `slots` that measureTitleLocales / measureDescriptionLocales
+ * return, without running a detector.
+ *
+ * WHY. Agency jobs held out of publication until their titles are translated
+ * (owner decision 2026-10-03, scripts/lib/translation-publication-hold.mjs)
+ * stay in the corpus but are not in the assembled `data/jobs.json` the
+ * ratchets read. Both `expectedSlots` were measured when every one of those
+ * jobs was published, so a measured population without them is a different
+ * set from the baseline. The assembler counts the held jobs' slots with this
+ * function and writes them to `data/jobs-meta.json`; the population guard adds
+ * them back. The RATE is still measured on what the site serves.
+ *
+ * @param {Array<object>} jobs
+ * @param {readonly string[]} [locales]
+ * @returns {{ titles: number, descriptions: number }}
+ */
+export function countPopulationSlots(jobs, locales = ['it', 'en', 'de', 'fr']) {
+  return {
+    titles: measureTitleLocales(jobs, () => ({ untranslated: false }), locales, 0).slots,
+    descriptions: measureDescriptionLocales(jobs, (_text, locale) => ({ lang: locale, confidence: 0 }), locales).slots,
+  };
+}
+
+/**
+ * Held-for-translation population slots recorded by the assembly that produced
+ * the measured `data/jobs.json`, or null when they cannot be trusted: field
+ * missing (assembler before the threshold) or invalid, or a meta that is not
+ * from the same assembly (`totalJobs` counts the published jobs, so it must
+ * equal the length of the measured dataset — a projection that already
+ * includes held jobs does not match, and nothing is added twice). Null means
+ * the guard compares the measured slots alone, exactly as before.
+ *
+ * @param {object|null} meta              parsed data/jobs-meta.json
+ * @param {number} publishedJobCount      length of the measured data/jobs.json
+ * @returns {{ titles: number, descriptions: number } | null}
+ */
+export function heldPopulationSlots(meta, publishedJobCount) {
+  if (!meta || meta.totalJobs !== publishedJobCount) return null;
+  const slots = meta.translationHold?.populationSlots;
+  const titles = slots?.titles;
+  const descriptions = slots?.descriptions;
+  if (!Number.isInteger(titles) || titles < 0) return null;
+  if (!Number.isInteger(descriptions) || descriptions < 0) return null;
+  return { titles, descriptions };
 }

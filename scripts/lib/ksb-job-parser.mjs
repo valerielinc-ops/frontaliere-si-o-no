@@ -24,18 +24,21 @@
  *   - isTrustedDomain() — Validate URLs belong to KSB / Workday tenant
  *   - KSB_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
-  parseWorkdayPostedDate,
+  fetchWorkdayJobDetailParts,
+  fetchWorkdaySidebarText,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -147,7 +150,7 @@ async function fetchJobListings() {
         title: id.title,
         location: id.location,
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -175,34 +178,59 @@ export async function fetchAllKsbJobs() {
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
+  // KSB's career site shows an "About us" sidebar next to every posting, and
+  // Workday folds it into each posting's JSON-LD description. The CXS job
+  // payload never carries it, so KSB's short postings (a two-line
+  // "Spontanbewerbung", a 445-character OP-technician apprenticeship) were
+  // published at 13-35 % of what the source page states (audit run
+  // 36528331656). Read it once per run and append it to each posting body.
+  const aboutText = await fetchWorkdaySidebarText(WORKDAY_API_BASE, stripHtml);
+
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Baden';
-    const canton = inferSwissTargetCanton(location) || 'AG';
+    // `listing.location` is '' for an "N Locations" roll-up: only the req's own
+    // primary workplace (Baden, Muri, ...) may place it, never the Baden main
+    // site (issue 9842: no HQ fallback on unknown geography).
+    const location = normalizeSpace(listing.location || '')
+      || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = location ? await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location) : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${listing.location || '(roll-up without Swiss primary)'} — ${title}`);
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
 
     // Workday listing endpoint NEVER returns the job body — see workday-client.mjs.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
+    // One detail request: the body, and the `timeType` the CXS listing row
+    // never carries.
+    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
     );
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || title);
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${KSB_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Arbeitgeber: Kantonsspital Baden — Akutspital im Kanton Aargau',
-      '• Bewerbung über: KSB-Karriereportal',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253). A req whose
+    // detail has no body used to go out as a synthetic "Key details" stub
+    // (location, employer, "apply on the portal"); it is not published any
+    // more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const bodyText = detailDescription;
+    const descriptionText = aboutText ? `${bodyText}\n\n${aboutText}` : bodyText;
 
-    const sourceLang = detectLang(descriptionText || title, 'de');
+    // Language of the POSTING, not of the site-level sidebar: the "About us"
+    // block is English on a German-language site and would otherwise outvote
+    // a two-line German body.
+    const sourceLang = detectLang(bodyText || title, 'de');
     const jobSlug = slugify(`${title} ${KSB_KEY} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -234,13 +262,13 @@ export async function fetchAllKsbJobs() {
       country: 'CH',
       postalCode: '5404',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: detailInfo })),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -249,6 +277,9 @@ export async function fetchAllKsbJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${KSB_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

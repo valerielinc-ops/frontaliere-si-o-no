@@ -37,7 +37,7 @@ describe('buildWelcomeEmail — all 20 segment x locale combinations', () => {
   for (const segment of SEGMENTS) {
     for (const locale of LOCALES) {
       it(`renders a valid email for ${segment}/${locale}`, () => {
-        const { subject, preheader, html } = buildWelcomeEmail({
+        const { subject, preheader, html, text } = buildWelcomeEmail({
           segment,
           locale,
           unsubscribeUrl: UNSUB_URL,
@@ -48,6 +48,10 @@ describe('buildWelcomeEmail — all 20 segment x locale combinations', () => {
         expect(preheader).toBeTruthy();
         expect(html.startsWith('<!DOCTYPE html>')).toBe(true);
         expect(html).toContain('action=unsubscribe');
+        expect(text).toBeTruthy();
+        expect(text).toContain('https://frontaliereticino.ch');
+        expect(text).not.toMatch(/<\/?[a-z][^>]*>/i);
+        expect(text).not.toContain('&amp;');
 
         // never AdSense in a transactional email
         expect(html).not.toMatch(/adsbygoogle|googlesyndication|adsense/i);

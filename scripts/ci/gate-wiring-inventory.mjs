@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * gate-wiring-inventory.mjs — quali cancelli sono AGGANCIATI a qualcosa che gira.
  *
@@ -271,7 +273,7 @@ export function unsetTestSwitches(root = REPO_ROOT) {
     .sort((a, b) => a.env.localeCompare(b.env));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const report = {
     declaredGates: declaredGates().length,
     orphanGateFiles: orphanGateFiles(),

@@ -17,10 +17,13 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd as extractPostingRecords } from './prospector/extract.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -50,6 +53,24 @@ const ORG_LABELS = {
   swistxt: 'SwisTXT',
 };
 
+const PUBLISHED_LOCALES = ['de', 'it', 'fr', 'en'];
+const ROMANSH_LEXICAL_MARKERS = [
+  'emprendissadi',
+  'fufragnadi',
+  'infurmaziun',
+  'pussaivlad',
+  'spetgas',
+  'cuntanschain',
+  'cun',
+  'nus',
+  'vus',
+];
+const ROMANSH_IDENTITY_MARKERS = ['rumantsch'];
+const ROMANSH_WEAK_MARKERS = ['dal'];
+const ROMANSH_ARTICLE_NOUN_SUFFIX = /(?:ad|ads|ans|as|ats|ers|ins|iuns|aziuns|ezzas|assas|azzas)$/;
+const ROMANSH_STRONG_ENDING = /(?:aziun|aziuns|iun|iuns)$/;
+const ROMANSH_WEAK_ENDING = /(?:ment|ments)$/;
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -58,6 +79,68 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function bodyTokens(value = '') {
+  return String(value || '').toLowerCase().normalize('NFC').match(/\p{L}+/gu) || [];
+}
+
+function hasRomanshMarker(tokens, marker) {
+  return tokens.some((token) => token === marker || token.startsWith(marker));
+}
+
+function hasRomanshArticleNoun(tokens) {
+  for (let index = 0; index < tokens.length - 1; index += 1) {
+    if ((tokens[index] === 'ils' || tokens[index] === 'las')
+        && ROMANSH_ARTICLE_NOUN_SUFFIX.test(tokens[index + 1])) return true;
+  }
+  return false;
+}
+
+function hasTokenSequence(tokens, sequence) {
+  for (let index = 0; index <= tokens.length - sequence.length; index += 1) {
+    if (sequence.every((token, offset) => tokens[index + offset] === token)) return true;
+  }
+  return false;
+}
+
+/**
+ * Detect Romansh from the posting body only. Titles such as «Praticanta /
+ * praticant» are too short and too close to Italian to be evidence. Require a
+ * distinctive lexical/structural marker plus an independent confirmation:
+ * identity words and generic function words never classify a body by
+ * themselves.
+ */
+export function detectSrgSsrBodyLanguage(description = '', fallback = 'de') {
+  const tokens = bodyTokens(description);
+  const distinctiveHits = [
+    ROMANSH_LEXICAL_MARKERS.some((marker) => hasRomanshMarker(tokens, marker)),
+    hasRomanshArticleNoun(tokens),
+    hasTokenSequence(tokens, ['la', 'finala']),
+    tokens.some((token) => ROMANSH_STRONG_ENDING.test(token)
+      && !ROMANSH_LEXICAL_MARKERS.some((marker) => token === marker || token.startsWith(marker))),
+  ].filter(Boolean).length;
+  const identityHits = ROMANSH_IDENTITY_MARKERS.filter((marker) => hasRomanshMarker(tokens, marker)).length;
+  const weakConfirmationHits = [
+    identityHits > 0,
+    ROMANSH_WEAK_MARKERS.some((marker) => tokens.includes(marker)),
+    tokens.some((token) => ROMANSH_WEAK_ENDING.test(token)),
+  ].filter(Boolean).length;
+  if (distinctiveHits >= 2 || (distinctiveHits >= 1 && weakConfirmationHits >= 1)) return 'rm';
+  return detectLang(description, fallback);
+}
+
+/**
+ * Prefer a same-ID localized body when the source exposed one. The current
+ * RTR pages do not expose such a sibling (the `lang` query parameter changes
+ * neither the body nor the JSON-LD), so an unpaired Romansh body remains an
+ * explicitly declared `rm` source and is queued for LLM translation.
+ */
+export function resolveSrgSsrSourceLang({ description = '', localizedDescriptions = {}, fallback = 'de' } = {}) {
+  for (const locale of PUBLISHED_LOCALES) {
+    if (String(localizedDescriptions?.[locale] || '').trim()) return locale;
+  }
+  return detectSrgSsrBodyLanguage(description, fallback);
 }
 
 /**
@@ -127,6 +210,69 @@ export function isTrustedDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+export function isRtrJob(job) {
+  return normalize(job?.url || '').includes('jobs.srgssr.ch/rtr/')
+    || normalize(job?._srgMeta?.org || '') === 'rtr';
+}
+
+function normalizeComparableText(value = '') {
+  return normalizeSpace(value).toLowerCase();
+}
+
+/**
+ * Repair historical RTR rows whose Romansh body was stored as Italian/French.
+ * Text slots that are still the source body are removed; translated slots are
+ * retained for the LLM repair queue. Slugs are deliberately untouched.
+ */
+export function prepareSrgSsrExistingJobs(jobs) {
+  if (!Array.isArray(jobs)) return jobs;
+  return jobs.map((job) => {
+    if (!job || !isRtrJob(job)) return job;
+    const descriptions = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+      ? job.descriptionByLocale
+      : {};
+    const sourceBody = [job.description, ...Object.values(descriptions)]
+      .map((value) => String(value || '').trim())
+      .find((value) => detectSrgSsrBodyLanguage(value, 'de') === 'rm');
+    if (!sourceBody) return job;
+
+    const title = String(job.title || '').trim();
+    const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
+      ? { ...job.titleByLocale }
+      : {};
+    for (const locale of PUBLISHED_LOCALES) {
+      if (normalizeComparableText(titleByLocale[locale]) === normalizeComparableText(title)) {
+        delete titleByLocale[locale];
+      }
+    }
+    if (title) titleByLocale.rm = title;
+
+    const descriptionByLocale = { ...descriptions };
+    for (const locale of PUBLISHED_LOCALES) {
+      const value = String(descriptionByLocale[locale] || '').trim();
+      if (value && detectSrgSsrBodyLanguage(value, 'de') === 'rm') delete descriptionByLocale[locale];
+    }
+    descriptionByLocale.rm = sourceBody;
+
+    const slugByLocale = job.slugByLocale && typeof job.slugByLocale === 'object'
+      ? { ...job.slugByLocale }
+      : {};
+    const sourceSlug = String(slugByLocale.rm || job.slug || slugByLocale.it || '').trim();
+    if (sourceSlug) slugByLocale.rm = sourceSlug;
+
+    return {
+      ...job,
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      description: sourceBody,
+      titleByLocale,
+      descriptionByLocale,
+      slugByLocale,
+      needsRetranslation: true,
+    };
+  });
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -258,15 +404,85 @@ function parseListingHtml(html = '') {
  * Extract the JobPosting JSON-LD from a detail page's HTML.
  */
 function extractJsonLd(html = '') {
-  const pattern = /<script[^>]+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-  let match;
-  while ((match = pattern.exec(html)) !== null) {
-    try {
-      const payload = JSON.parse(match[1]);
-      if (payload && payload['@type'] === 'JobPosting') return payload;
-    } catch { /* skip malformed JSON-LD */ }
+  return extractJobPostingNodes(html)[0] || null;
+}
+
+/**
+ * Inner HTML of the detail template's `<section id="…">`, or ''. The
+ * Prospective template does not nest sections, so the first closing tag ends it.
+ */
+function templateSectionHtml(html = '', id = '') {
+  const match = new RegExp(`<section\\b[^>]*\\bid=["']${id}["'][^>]*>([\\s\\S]*?)<\\/section>`, 'i').exec(html);
+  return match ? match[1] : '';
+}
+
+/**
+ * The vacancy as the detail page renders it: `#introduction` (the unit's
+ * paragraph) and `#specifications` (tasks, profile, and the `.enthusiasm`
+ * block), headings kept as `##` lines and `<li>`/`<br>` as line breaks.
+ *
+ * The JSON-LD `description` is not the whole ad on every unit: on RTR it
+ * carries only tasks + profile + a contact stub, and misses the introduction
+ * and the «Per infurmaziun» block the page shows
+ * (…/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-…:
+ * 476 published characters, issue 5253). The offer block `#benefits`
+ * («Unser Versprechen» / «Nossa purschida»: teaser + the four benefits) is
+ * part of the ad too and closes it (see srgSsrBenefitsText). Contact,
+ * employee quote (`#slogan`) and «similar jobs» stay out.
+ *
+ * @param {string} html
+ * @returns {string} '' when the template sections are absent
+ */
+export function extractSrgSsrRenderedDescription(html = '') {
+  const parts = ['introduction', 'specifications']
+    .map((id) => templateSectionHtml(html, id))
+    .filter(Boolean)
+    .map((section) => decodeEntities(stripHtml(
+      section.replace(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi, (_, heading) => {
+        const text = normalizeSpace(heading.replace(/<[^>]+>/g, ' '));
+        return text ? `\n\n## ${text}\n` : '';
+      }),
+    )))
+    .map((text) => text.split('\n').map((line) => line.replace(/[ \t]+/g, ' ').trim()).join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim())
+    .filter(Boolean);
+  const benefits = srgSsrBenefitsText(html);
+  if (benefits) parts.push(benefits);
+  if (!parts.length) return '';
+  return parts.join('\n\n').trim();
+}
+
+/**
+ * The offer block of the detail template, `<section id="benefits">`: its
+ * heading, the teaser, and each benefit as `- <title>: <text>`. Each text is
+ * read once from its `p.benefit-N.content`; the same text is repeated as the
+ * tooltip `<title>` of the benefit's SVG icon, which is not page text.
+ *
+ * @param {string} html
+ * @returns {string} '' when the section or its benefits are absent
+ */
+export function srgSsrBenefitsText(html = '') {
+  const section = templateSectionHtml(html, 'benefits').replace(/<svg\b[\s\S]*?<\/svg>/gi, ' ');
+  if (!section) return '';
+  const text = (fragment = '') => normalizeSpace(decodeEntities(stripHtml(fragment)));
+  const heading = text(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/i.exec(section)?.[1] || '');
+  const teaser = text(/<div\b[^>]*\bclass=["'][^"']*\bteaser\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i.exec(section)?.[1] || '');
+  const titles = new Map();
+  for (const m of section.matchAll(/<a\b[^>]*\bclass=["'][^"']*\bbenefit\b[^"']*["'][^>]*>/gi)) {
+    const n = /\bdata-benefit=["'](\d+)["']/i.exec(m[0])?.[1];
+    const title = /\btitle=["']([^"']*)["']/i.exec(m[0])?.[1];
+    if (n && title) titles.set(n, text(title));
   }
-  return null;
+  const items = [];
+  for (const m of section.matchAll(/<p\b[^>]*\bclass=["'][^"']*\bbenefit-(\d+)\b[^"']*["'][^>]*>([\s\S]*?)<\/p>/gi)) {
+    const body = text(m[2]);
+    if (!body) continue;
+    const title = titles.get(m[1]);
+    items.push(`- ${title ? `${title}: ` : ''}${body}`);
+  }
+  if (!teaser && !items.length) return '';
+  return [heading ? `## ${heading}` : '', teaser, items.join('\n')].filter(Boolean).join('\n');
 }
 
 /**
@@ -359,8 +575,11 @@ export async function fetchAllSrgSsrJobs() {
       const postalCode = String(jlAddress.postalCode || '').trim() || '';
       const streetAddress = normalizeSpace(jlAddress.streetAddress || '');
 
-      // Description from JSON-LD
-      const description = buildDescription(jsonLd || {}) || listing.snippet || `${title} — SRG SSR`;
+      // Description: the rendered ad (introduction + specifications); the
+      // JSON-LD body only when the template sections are missing.
+      const rendered = extractSrgSsrRenderedDescription(detailHtml);
+      const description = (rendered.split(/\s+/).length >= 30 ? rendered : '')
+        || buildDescription(jsonLd || {}) || listing.snippet || `${title} — SRG SSR`;
 
       // Employment type from JSON-LD or percentage parsing
       const pct = parseEmploymentPct(listing.infoLine);
@@ -368,11 +587,20 @@ export async function fetchAllSrgSsrJobs() {
       const employmentType = employmentTypeRaw || deriveEmploymentType(pct);
 
       // Source language detection
-      const sourceLang = detectLang(description || title, 'de');
+      const sourceLang = resolveSrgSsrSourceLang({ description });
+      const sourceLocaleFields = sourceLang === 'rm'
+        ? { sourceLangOriginal: 'rm', needsRetranslation: true }
+        : {};
 
       // Posting date from JSON-LD
-      const datePosted = String(jsonLd?.datePosted || '').trim() ||
-        new Date().toISOString().slice(0, 10);
+      const records = extractPostingRecords(detailHtml, listing.url);
+      const explicitPublicationUrl = jsonLd?.url || jsonLd?.sameAs;
+      let matchingPublication = Boolean(jsonLd) && (Boolean(explicitPublicationUrl) || records.length === 1);
+      if (listing.title && normalizeSpace(jsonLd?.title || '').toLowerCase() !== normalizeSpace(listing.title).toLowerCase()) matchingPublication = false;
+      if (explicitPublicationUrl) {
+        try { matchingPublication &&= new URL(explicitPublicationUrl, listing.url).href === new URL(listing.url).href; } catch { matchingPublication = false; }
+      }
+      const publication = sourcePostingDateFields(matchingPublication ? jsonLd?.datePosted : '');
 
       // Slug and ID
       const jobSlug = slugify(`${title} srg-ssr ${location}`);
@@ -401,6 +629,7 @@ export async function fetchAllSrgSsrJobs() {
         url: listing.url,
         source: 'SRG SSR Dedicated Parser',
         sourceLang,
+        ...sourceLocaleFields,
         crawledAt: new Date().toISOString(),
 
         // ── Recommended fields ──
@@ -416,7 +645,7 @@ export async function fetchAllSrgSsrJobs() {
         sector: 'Media / Broadcasting',
         currency: 'CHF',
         featured: false,
-        postedDate: datePosted,
+        ...publication,
         applyUrl: listing.url,
         requirements,
         requirementsByLocale: { [sourceLang]: requirements },

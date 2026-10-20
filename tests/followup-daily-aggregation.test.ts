@@ -1,5 +1,4 @@
 import { describe, it, expect, afterEach } from 'vitest';
-import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
@@ -21,6 +20,7 @@ import {
   hasStableItemIdsForDailyKey,
   hasUnterminatedMarkdownFence,
   parseFollowupItems,
+  dailyBucketScopeDecision,
   selectFirstOpenItem,
   updateFollowupItemState,
 } from '../scripts/ci/followup-resolution-match.mjs';
@@ -30,11 +30,18 @@ import {
   decideMintGate,
   mergeDailyBucketBodies,
   parseOpenFollowupPages,
+  resolveSourcePrTriage,
   retitleDailyBucket,
 } from '../scripts/ci/gate-minted-followups.mjs';
-import { dailyBucketCloseGate, reconcileDailyItems } from '../scripts/ci/reconcile-followups.mjs';
+import { bornSatisfiedItemIds, dailyBucketCloseGate, reconcileDailyItems } from '../scripts/ci/reconcile-followups.mjs';
+import { itemBornSatisfiedMarker, parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
+import { isTrustedAuthor } from '../scripts/ci/route-already-fixed.mjs';
 import { dailyBucketQueueDecision, dailyMutexDecision, flattenPaginatedOpenPrs, openPrForDailyItem } from '../scripts/ci/followup-drainer.mjs';
-import { triageDailyKey } from '../scripts/ci/collect-followup-batch.mjs';
+import {
+  triageDailyKey,
+  triageMarkerPersistenceExpectation,
+  verifyTriageMarkerPersistence,
+} from '../scripts/ci/collect-followup-batch.mjs';
 
 const DAY = '2026-09-09';
 const DAILY_MUTEX_GROUP = 'followup-daily-${{ github.repository }}';
@@ -55,6 +62,7 @@ function dailyWorkflow(name: string) {
   const path = fileURLToPath(new URL(`../.github/workflows/${name}`, import.meta.url));
   return YAML.parse(readFileSync(path, 'utf8')) as {
     concurrency?: { group?: string; 'cancel-in-progress'?: boolean };
+    jobs: Record<string, { if?: string; concurrency?: { group?: string; 'cancel-in-progress'?: boolean } }>;
   };
 }
 
@@ -69,54 +77,50 @@ describe('daily writer concurrency contract', () => {
   });
 
   it('il drainer acquisisce lo stesso lock daily prima di leggere la coda', () => {
+    // Stesso group dei writer, ma sul job `drain`: GitHub condivide il mutex fra
+    // group job-level e workflow-level con lo stesso nome, e un job saltato dal
+    // suo `if:` non entra nel gruppo (non sostituisce la pending utile).
     const workflow = dailyWorkflow(DRAINER_WORKFLOW);
-    expect(workflow.concurrency?.group).toBe(DAILY_MUTEX_GROUP);
-    expect(workflow.concurrency?.['cancel-in-progress']).toBe(false);
+    expect(workflow.concurrency).toBeUndefined();
+    expect(workflow.jobs.drain.concurrency?.group).toBe(DAILY_MUTEX_GROUP);
+    expect(workflow.jobs.drain.concurrency?.['cancel-in-progress']).toBe(false);
   });
 });
 
 describe('post-merge triage marker contract', () => {
+  // Lo step di verifica dello YAML non riscrive piu' il predicato in bash: invoca
+  // `collect-followup-batch.mjs --verify-persistence`. I contratti restano gli
+  // stessi e si esercitano direttamente sul predicato unico.
   it('treats an explicit zero-candidate marker naming an unchanged bucket as empty', () => {
-    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
-    // L'invariante non cambia: quel marker va classificato come VUOTO e non deve
-    // mai produrre `persistence_ok=false`. Il discriminante e' il CONTEGGIO sulla
-    // riga di claim, e la grammatica vive in `claim_head` (una sola sorgente nel
-    // bash, allineata al gemello JS e case-insensitive).
-    const head = workflow.match(/claim_head='([^']+)'/)?.[1];
-    expect(head).toBeTruthy();
-
     const marker = '## Post-merge follow-up triage\n\nCreated/updated: 0 issue — nessun item nuovo aggiunto al daily bucket #8248.';
-    const claimLines = execFileSync('grep', ['-Ei', head!], { input: marker, encoding: 'utf8' });
-    expect(claimLines.trim()).not.toBe('');
-    // `grep -Eqvi` esce 1 quando NESSUNA riga viola il pattern del claim a zero:
-    // e' la condizione con cui lo YAML imposta `zero_claim=true`.
-    expect(() => execFileSync('grep', ['-Eqvi', `${head}[[:space:]]*0([^0-9.]|$)`], { input: claimLines })).toThrow();
-
-    const zeroResultBranch = workflow
-      .split('elif [ -z "$bucket_refs" ]')[0]
-      .split('if [ "$zero_claim" = true ]')
-      .at(-1);
-    expect(zeroResultBranch).toBeTruthy();
-    expect(zeroResultBranch).not.toContain('persistence_ok=false');
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [], requiresBucket: false });
+    expect(verifyTriageMarkerPersistence(marker, 8101, () => {
+      throw new Error('un claim a zero non deve leggere nessun bucket');
+    })).toBe(true);
   });
 
   it('keeps the #9286 unchanged-bucket prose on the zero-result path', () => {
-    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
     const marker = '## Post-merge follow-up triage\n\nCreated/updated: nessun item per questa PR; bucket giornaliero #9508 non modificato da questa PR.';
-    const claimLine = marker.split('\n').find((line) => line.startsWith('Created/updated:'))!;
-    expect(claimLine).toMatch(/nessun\s+item\s+per\s+questa\s+PR/i);
-    expect(claimLine).toMatch(/bucket[^#]*#9508[^\n]*non\s+modificato\s+da\s+questa\s+PR/i);
-    expect(workflow).toContain('unchanged_bucket_zero=false');
-    expect(workflow).toMatch(/\[ "\$zero_claim" = true \] \|\| \[ "\$unchanged_bucket_zero" = true \]/);
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [], requiresBucket: false });
   });
 
   it('reads positive persistence only from the explicit creation/update line', () => {
-    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
     // I riferimenti al bucket si leggono SOLO dalle righe di claim: una prosa
     // che cita un bucket storico per contesto non e' una promessa di persistenza.
-    const bucketLine = workflow.split('\n').find((line) => line.includes('bucket_refs=$(printf'));
-    expect(bucketLine).toContain('$claim_lines');
-    expect(bucketLine).toMatch(/bucket\[\[:space:\]\]\*:\?\[\[:space:\]\]\*#\[0-9\]\+/);
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: 1 item nel bucket: #9102',
+      '',
+      'Contesto: il bucket #8000 era gia\' sigillato.',
+    ].join('\n');
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [9102], requiresBucket: true });
+  });
+
+  it('the workflow verifier delegates to the collector predicate', () => {
+    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+    expect(workflow).toContain('node scripts/ci/collect-followup-batch.mjs --verify-persistence "$csv"');
+    expect(workflow).not.toContain('claim_head=');
   });
 });
 
@@ -264,6 +268,38 @@ describe('daily follow-up identity and dedup', () => {
     })).toMatchObject({ eligible: false, reason: 'bucket-not-collecting' });
   });
 
+  it('risolve una Source cross-repository nel gemello solo quando non e una PR qui', () => {
+    const marker = JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\n\nCreated/updated: 0 item.' }] });
+    const noMarker = JSON.stringify({ comments: [] });
+    const calls: string[] = [];
+    const lookup = (repo: string, answers: Record<number, unknown>) => ({
+      repo,
+      read: (n: number) => {
+        calls.push(`${repo}#${n}`);
+        return answers[n] ?? { ok: false, notPr: true };
+      },
+    });
+    const site = lookup('site/repo', {
+      9153: { ok: true, comments: marker },
+      9262: { ok: true, comments: noMarker },
+      7777: { ok: false, notPr: false },
+    });
+    const corpus = lookup('corpus/repo', { 1590: { ok: true, comments: marker } });
+    // PR del sito: decide il sito, il gemello non viene interrogato.
+    expect(resolveSourcePrTriage(9153, [site, corpus])).toMatchObject({ status: 'triaged', repo: 'site/repo', fallback: false });
+    expect(resolveSourcePrTriage(9262, [site, corpus])).toMatchObject({ status: 'untriaged', repo: 'site/repo' });
+    // #1590 nel sito e' una issue: si risolve nel corpus (bucket #9443).
+    expect(resolveSourcePrTriage(1590, [site, corpus])).toMatchObject({ status: 'triaged', repo: 'corpus/repo', fallback: true });
+    // Un guasto non e' «non e' una PR»: fail-closed, nessun tentativo altrove.
+    expect(resolveSourcePrTriage(7777, [site, corpus])).toMatchObject({ status: 'unavailable', repo: 'site/repo' });
+    // Non e' una PR da nessuna parte: non verificabile.
+    expect(resolveSourcePrTriage(4242, [site, corpus])).toMatchObject({ status: 'unavailable', notPrAnywhere: true });
+    expect(calls).toEqual([
+      'site/repo#9153', 'site/repo#9262', 'site/repo#1590', 'corpus/repo#1590',
+      'site/repo#7777', 'site/repo#4242', 'corpus/repo#4242',
+    ]);
+  });
+
   it('legge Sources e Daily key solo fuori da fence/quote', () => {
     const source = body(item(`FU-${DAY}-001`))
       .replace('- Sources: PR #8101; reviewer 🟡', '- Sources: PR #8101; reviewer 🟡\n```md\n- Sources: PR #9999\n```\n> - Sources: PR #8888');
@@ -310,6 +346,29 @@ describe('daily follow-up identity and dedup', () => {
 });
 
 describe('daily item parsing and lifecycle', () => {
+  it('separa bucket valido, item in-progress e stato non riconosciuto', () => {
+    const title = dailyBucketTitle(DAY, 'owner/repo', 1);
+    const sealed = (state: string) => body(item(`FU-${DAY}-001`, state)).replace('- State: collecting', '- State: sealed');
+    expect(dailyBucketScopeDecision(title, sealed('open'))).toMatchObject({
+      isDaily: true,
+      valid: true,
+      terminal: false,
+      item: { id: `FU-${DAY}-001` },
+    });
+    expect(dailyBucketScopeDecision(title, sealed('in-progress'))).toMatchObject({
+      isDaily: true,
+      valid: true,
+      terminal: false,
+      reason: 'item-in-progress',
+      item: null,
+    });
+    expect(dailyBucketScopeDecision(title, sealed('mystery'))).toMatchObject({
+      isDaily: true,
+      valid: false,
+      reason: 'invalid-item-state',
+    });
+  });
+
   it('recupera il formato shorthand del triage e apre gli item senza State', () => {
     const shorthand = [
       'State: collecting',
@@ -381,6 +440,30 @@ describe('daily item parsing and lifecycle', () => {
     expect(updated).toContain(`### FU-${DAY}-001 — Proteggi il comportamento\n- State: done`);
   });
 
+  it('accepts stable FU headings at H2 while keeping numbered legacy items at H3', () => {
+    const firstH2 = item(`FU-${DAY}-001`).replace(
+      `### FU-${DAY}-001`,
+      `## FU-${DAY}-001`,
+    );
+    const source = body(firstH2, item(`FU-${DAY}-002`));
+    const parsed = parseFollowupItems(source);
+    expect(parsed.map((entry) => entry.id)).toEqual([
+      `FU-${DAY}-001`,
+      `FU-${DAY}-002`,
+    ]);
+    expect(hasStableItemIds(source)).toBe(true);
+
+    const updated = updateFollowupItemState(source, `FU-${DAY}-001`, 'done');
+    expect(updated).toContain(`## FU-${DAY}-001 — Proteggi il comportamento\n- State: done`);
+    expect(parseFollowupItems(updated)[0]?.state).toBe('done');
+
+    const numberedH2 = body(item(`FU-${DAY}-001`).replace(
+      `### FU-${DAY}-001 — Proteggi il comportamento`,
+      '## 1. Legacy item',
+    ));
+    expect(parseFollowupItems(numberedH2)).toEqual([]);
+  });
+
   it('rifiuta State duplicati/conflicting live ma ignora esempi in fence e quote', () => {
     const valid = body(item(`FU-${DAY}-001`)).replace(
       '- Suggested action: aggiungi `firstGuard()` e `secondGuard()` in `scripts/example.mjs`',
@@ -398,9 +481,13 @@ describe('daily item parsing and lifecycle', () => {
   });
 
   it('close e reconcile ignorano headings/campi annidati in fence e quote', () => {
-    const nested = body(item(`FU-${DAY}-001`)).replace(
+    const rootH2 = item(`FU-${DAY}-001`).replace(
+      `### FU-${DAY}-001`,
+      `## FU-${DAY}-001`,
+    );
+    const nested = body(rootH2).replace(
       '- Original text:\n  > il controllo non è sempre applicato',
-      '- Original text:\n```md\n### FU-2020-01-01-999 — item finto\n- State: done\n- Suggested action: aggiungi `ghost()` in `scripts/example.mjs`\n```\n> ### FU-2020-01-01-998 — item citato\n> - State: done\n  > il controllo non è sempre applicato',
+      '- Original text:\n```md\n## FU-2020-01-01-999 — item finto\n- State: done\n- Suggested action: aggiungi `ghost()` in `scripts/example.mjs`\n```\n> ## FU-2020-01-01-998 — item citato\n> - State: done\n  > il controllo non è sempre applicato',
     ).replace('- State: collecting', '- State: sealed');
     expect(parseFollowupItems(nested).map((entry) => entry.id)).toEqual([`FU-${DAY}-001`]);
     const reconciled = reconcileDailyItems(nested, resolvedIo, DAY);
@@ -491,7 +578,7 @@ describe('daily mint gate and reconciliation', () => {
       title: dailyBucketTitle(DAY, 'owner/repo', 2),
       body: source,
     });
-    expect(queueBefore).toEqual({ eligible: false, reason: 'bucket-collecting', item: null });
+    expect(queueBefore).toEqual({ eligible: false, reason: 'bucket-not-sealed', item: null });
 
     const decision = decideDailyMintGate({
       title: dailyBucketTitle(DAY, 'owner/repo', 2),
@@ -639,6 +726,21 @@ describe('daily drainer item mutex', () => {
     });
   });
 
+  it('treats the shared issue branch as a mutex even when its marker names another item', () => {
+    const id = `FU-${DAY}-001`;
+    const pr = {
+      number: 43,
+      title: 'fix another item',
+      body: `Addresses #9\nFollow-up item: FU-${DAY}-002`,
+      headRefName: 'fix/issue-9',
+      head: {
+        ref: 'fix/issue-9',
+        repo: { full_name: 'valerielinc-ops/frontaliere-si-o-no' },
+      },
+    };
+    expect(openPrForDailyItem(id, [pr], 9, 'valerielinc-ops/frontaliere-si-o-no')).toEqual(pr);
+  });
+
   it('distingue una scansione open-PR fallita da una lista vuota e pagina tutte le risposte', () => {
     const id = `FU-${DAY}-001`;
     expect(dailyMutexDecision(id, { ok: false, prs: [] })).toMatchObject({
@@ -659,5 +761,66 @@ describe('collect batch daily key', () => {
   it('allows the workflow retry to keep an explicit successful-run key', () => {
     process.env.TRIAGE_DAILY_KEY = '2026-09-08';
     expect(triageDailyKey(Date.parse('2026-09-09T12:00:00Z'))).toBe('2026-09-08');
+  });
+});
+
+describe('daily reconcile — un token nato vero al conio non è una prova (FU_ITEM_BORN_SATISFIED)', () => {
+  const ID = `FU-${DAY}-001`;
+  const OTHER = `FU-${DAY}-002`;
+  const sealed = (...items: string[]) => body(...items).replace('- State: collecting', '- State: sealed');
+  const bornComment = (id: string, author: { login: string }, authorAssociation = 'NONE') => ({
+    author,
+    authorAssociation,
+    createdAt: '2026-09-09T08:00:00Z',
+    body: `${itemBornSatisfiedMarker({ item: id })}\nIl token \`firstGuard()\` era già presente al conio.`,
+  });
+  const bornFrom = (comments: object[]) => bornSatisfiedItemIds(parseItemMarkers(comments, { isTrusted: isTrustedAuthor }));
+
+  it('un item open col token presente e marker fidato NON passa a done', () => {
+    const born = bornFrom([bornComment(ID, { login: 'github-actions' })]);
+    expect([...born]).toEqual([ID]);
+    const reconciled = reconcileDailyItems(sealed(item(ID), distinctItem(OTHER)), resolvedIo, DAY, 'owner/repo', 2, born);
+    expect(reconciled.changes.map((change) => change.id)).toEqual([OTHER]);
+    expect(reconciled.bornSatisfied).toEqual([ID]);
+    expect(reconciled.body).toContain(`### ${ID} — Proteggi il comportamento\n- State: open`);
+  });
+
+  it('senza marker l’item col token presente passa a done come oggi', () => {
+    const reconciled = reconcileDailyItems(sealed(item(ID)), resolvedIo, DAY, 'owner/repo', 1, new Set());
+    expect(reconciled.changes.map((change) => change.id)).toEqual([ID]);
+    expect(reconciled.body).toContain(`### ${ID} — Proteggi il comportamento\n- State: done`);
+    expect(dailyBucketCloseGate(reconciled.body, resolvedIo, DAY, 'owner/repo', 1, new Set()).blocks).toBe(false);
+  });
+
+  it('un marker di autore non fidato è ignorato (comportamento attuale)', () => {
+    const born = bornFrom([bornComment(ID, { login: 'drive-by-user' })]);
+    expect(born.size).toBe(0);
+    const reconciled = reconcileDailyItems(sealed(item(ID)), resolvedIo, DAY, 'owner/repo', 1, born);
+    expect(reconciled.changes.map((change) => change.id)).toEqual([ID]);
+  });
+
+  it('bucket con tutti gli item done di cui uno marcato: il gate blocca con born-satisfied-token a ogni giro', () => {
+    const allDone = sealed(item(ID, 'done'), distinctItem(OTHER, 'done'));
+    // Senza marker il bucket sarebbe chiudibile: il blocco viene solo dal marker.
+    expect(dailyBucketCloseGate(allDone, resolvedIo, DAY, 'owner/repo', 2).blocks).toBe(false);
+    const born = bornFrom([bornComment(OTHER, { login: 'frontaliere-automation[bot]' })]);
+    for (const round of ['primo giro', 'secondo giro']) {
+      const gate = dailyBucketCloseGate(allDone, resolvedIo, DAY, 'owner/repo', 2, born);
+      expect({ round, blocks: gate.blocks, reason: gate.reason }).toEqual({ round, blocks: true, reason: 'born-satisfied-token' });
+      expect(gate.unresolvedItems.map((entry: { id: string }) => entry.id)).toEqual([OTHER]);
+    }
+  });
+
+  it('un item ancora aperto prevale nel motivo, ma l’item nato vero resta elencato', () => {
+    const gate = dailyBucketCloseGate(
+      sealed(item(ID, 'blocked'), distinctItem(OTHER, 'done')),
+      resolvedIo,
+      DAY,
+      'owner/repo',
+      2,
+      new Set([OTHER]),
+    );
+    expect(gate).toMatchObject({ blocks: true, reason: 'valid-item-unconfirmed' });
+    expect(gate.bornSatisfiedItems.map((entry: { id: string }) => entry.id)).toEqual([OTHER]);
   });
 });

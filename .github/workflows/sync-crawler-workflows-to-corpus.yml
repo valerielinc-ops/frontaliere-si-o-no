@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/corpus-workflows/**'
       - 'scripts/ci/prepare-crawler-workflow-corpus-sync.mjs'
+      - 'scripts/ci/translate-watchdog-pin.mjs'
       - 'scripts/ci/sync-crawler-workflows-to-corpus.sh'
       - 'scripts/lib/crawler-generation-group-ids.mjs'
       - '.github/workflows/sync-crawler-workflows-to-corpus.yml'
@@ -25,12 +26,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
             /.github/corpus-workflows/
             /scripts/ci/prepare-crawler-workflow-corpus-sync.mjs
+            /scripts/ci/translate-watchdog-pin.mjs
             /scripts/lib/crawler-generation-group-ids.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/false-positive-declaration.mjs

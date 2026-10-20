@@ -36,6 +36,8 @@ import type { AppRoute, BlogArticleId } from '@/services/router';
 import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
 import { ARTICLE_SECTION_DESCRIPTORS } from '@/build-plugins/shared/articleSectionDescriptors';
 import { GLOSSARY_TERM_DEFINITIONS, GLOSSARY_PLACEHOLDER_DESCRIPTION_RX } from '@/services/seo/glossaryTermDefinitions';
+import { BORDER_WAIT_ROUTES, buildOggiPath, type BorderCrossingSlug } from '@/build-plugins/borderWaitData';
+import { BORDER_WAIT_LEGACY_REDIRECTS } from '@/build-plugins/shared/borderWaitLegacyRedirects';
 
 // Preload blog data so buildPath can resolve blog slugs (both sections)
 await preloadBlogData();
@@ -110,7 +112,7 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
   // Standalone pages
   const standalones: AppRoute['activeTab'][] = [
     'feedback', 'forum', 'contact', 'partners', 'consulting',
-    'job-board', 'profile', 'morning', 'gamification',
+    'job-board', 'profile', 'morning', 'gamification', 'for-employers',
     'privacy', 'terms', 'data-deletion', 'api-status', 'glossario', 'faq', 'sitemap',
     'dialetto',
     'email-confirmed',
@@ -122,6 +124,15 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
   ];
   for (const tab of standalones) {
     routes.push({ route: { activeTab: tab }, label: tab });
+  }
+
+  // The public application-concierge landing uses the job-board shell, but
+  // has locale-specific SEO entries and canonical paths of its own.
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+    routes.push({
+      route: { activeTab: 'job-board', applicationConciergeLocale: locale },
+      label: `application-concierge/${locale}`,
+    });
   }
 
   // SEO landings (long-tail)
@@ -185,6 +196,32 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const ALL_ROUTES = getAllRoutes();
+
+type SitemapLocale = 'it' | 'en' | 'de' | 'fr';
+
+/** Normalize the route-builder output to the key shape used by the redirect registry. */
+function normalizeSitemapPath(path: string): string {
+  const pathWithoutHash = path.split('#', 1)[0];
+  return `${pathWithoutHash.replace(/\/+$/, '')}/`;
+}
+
+/** Resolve a route's legacy bridge from the same registry used by the build plugin. */
+function getBorderWaitBridgeTarget(route: AppRoute, locale: SitemapLocale): string | undefined {
+  return BORDER_WAIT_LEGACY_REDIRECTS.get(normalizeSitemapPath(buildPath(route, locale)));
+}
+
+// `sitemap-border-wait.xml` is emitted at build time, so it is not a committed
+// public/ input for this live-data test. BORDER_WAIT_ROUTES is the route set
+// consumed by that emitter; post-build sitemap tests validate the physical XML.
+const BORDER_WAIT_CANONICAL_SITEMAP_PATHS = new Set(BORDER_WAIT_ROUTES);
+
+/** Border crossing leaves are emitted by borderWaitPagesPlugin into its own sitemap. */
+function isGeneratedBorderWaitRoute(route: AppRoute): boolean {
+  const candidate = route as AppRoute & { guidaSubTab?: string; borderCrossing?: string };
+  return candidate.activeTab === 'guida'
+    && candidate.guidaSubTab === 'border'
+    && typeof candidate.borderCrossing === 'string';
+}
 // sitemap.xml is now a sitemap index — read all sub-sitemaps for URL checking
 const sitemapContent = ['public/sitemap-pages.xml', 'public/sitemap-blog.xml', 'public/sitemap-blog-ch.xml', 'public/sitemap-glossario.xml']
   .map(f => { try { return readProjectFile(f); } catch { return ''; } }).join('\n');
@@ -249,7 +286,7 @@ const VALID_SCHEMA_TYPES = new Set([
   'WebSite', 'WebPage', 'WebApplication', 'SoftwareApplication',
   'Article', 'BlogPosting', 'NewsArticle', 'HowTo', 'FAQPage', 'Dataset', 'Quiz',
   'CollectionPage', 'ContactPage', 'ItemList', 'AboutPage',
-  'Service', 'DiscussionForum', 'BreadcrumbList',
+  'Service', 'BreadcrumbList',
   'Organization', 'NewsMediaOrganization', 'FinancialService', 'DefinedTermSet', 'DefinedTerm',
   'Product', 'Offer', 'Event', 'Review', 'AggregateRating',
   // ClaimReview: fact-check markup emitted by services/seo/claim-review.ts on pillar pages
@@ -480,6 +517,13 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
       'petitionEn',
       'petitionDe',
       'petitionFr',
+      // The employers page has one locale-agnostic SPA route key; these
+      // localized metadata entries are consumed by staticPagesPlugin for the
+      // three localized static HTML variants and are not returned by
+      // getSeoSection(route).
+      'for-employers-en',
+      'for-employers-de',
+      'for-employers-fr',
     ]);
 
     for (const key of Object.keys(SEO_METADATA)) {
@@ -504,6 +548,7 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
+    if (getBorderWaitBridgeTarget(route, 'it')) continue;
 
     it(`${label} → sitemap has ${buildPath(route, 'it')}`, () => {
       const itPath = buildPath(route, 'it');
@@ -514,7 +559,7 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
       // when BORDER_WAIT_CROSSINGS grew (#4952) — the failure was caught here,
       // but told nobody there is a script that fixes it.
       const remedy = activeTab === 'border'
-        ? '\n  Fix: node scripts/sync-border-wait-static-sitemap.mjs (regenerates the crossing block from BORDER_WAIT_CROSSINGS).'
+        ? '\n  Border leaves are emitted by borderWaitPagesPlugin into sitemap-border-wait.xml.'
         : '\n  Fix: add the URL to the matching public/sitemap-*.xml, or to the generator that emits it.';
       expect(
         sitemapContent.includes(fullUrl),
@@ -588,6 +633,7 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES_INDEXNOW.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
+    if (getBorderWaitBridgeTarget(route, 'it')) continue;
 
     it(`${label} → sitemap contains ${buildPath(route, 'it')} (indexed via IndexNow)`, () => {
       const itPath = buildPath(route, 'it');
@@ -633,7 +679,7 @@ describe('llms.txt — content-rich pages are listed for AI crawlers', () => {
 // ── Sitemap ↔ Router consistency ─────────────────────────────────────────────
 
 describe('Sitemap URLs match router buildPath for all locales', () => {
-  const locales = ['it', 'en', 'de', 'fr'] as const;
+  const locales: readonly SitemapLocale[] = ['it', 'en', 'de', 'fr'];
 
   // Utility/legal pages intentionally excluded from sitemap (noindex — thin content by design).
   // Removed from sitemap to fix Bing "insufficient content" audit warnings.
@@ -643,8 +689,23 @@ describe('Sitemap URLs match router buildPath for all locales', () => {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
-
     for (const locale of locales) {
+      const bridgeTarget = getBorderWaitBridgeTarget(route, locale);
+      if (isGeneratedBorderWaitRoute(route)) {
+        it(`${label} [${locale}] → uses the data-driven border-wait path`, () => {
+          expect(bridgeTarget, `${label} [${locale}] is missing from the legacy bridge registry`).toBeTruthy();
+          expect(bridgeTarget).toBe(
+            buildOggiPath(locale, (route as { borderCrossing: string }).borderCrossing as BorderCrossingSlug),
+          );
+          expect(bridgeTarget)
+            .toMatch(locale === 'it'
+              ? /^\/traffico-dogane\/.+\/oggi\/$/
+              : new RegExp(`^\\/${locale}\\/[^/]+\\/.+\\/$`));
+        });
+        continue;
+      }
+      if (bridgeTarget) continue;
+
       it(`${label} [${locale}] → sitemap hreflang URL matches buildPath`, () => {
         const path = buildPath(route, locale);
         const fullUrl = `${BASE_URL}${path}`;
@@ -655,6 +716,17 @@ describe('Sitemap URLs match router buildPath for all locales', () => {
       });
     }
   }
+});
+
+describe('Sitemap — legacy border-wait bridges target canonical generated pages', () => {
+  it('every registry bridge points to a page emitted in the canonical border-wait sitemap', () => {
+    for (const [legacyPath, canonicalPath] of BORDER_WAIT_LEGACY_REDIRECTS) {
+      expect(
+        BORDER_WAIT_CANONICAL_SITEMAP_PATHS.has(canonicalPath),
+        `${legacyPath} redirects to ${canonicalPath}, which is not in BORDER_WAIT_ROUTES`,
+      ).toBe(true);
+    }
+  });
 });
 
 // ── Structured Data Compliance Summary ───────────────────────────────────────

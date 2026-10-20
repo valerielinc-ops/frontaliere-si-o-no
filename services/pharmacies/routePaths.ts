@@ -1,4 +1,5 @@
 import type { Locale } from '../i18n';
+import { resolvePharmacyDutyCityAlias } from '../../scripts/lib/pharmacySections.mjs';
 import { PHARMACY_DUTY_HUB_PATH, type PharmacyCountry } from './types';
 
 export type PharmacyPageKind = 'hub' | 'canton' | 'city' | 'duty-hub' | 'duty-city' | 'duty-week' | 'italy-duty-hub' | 'italy-duty-week' | 'country' | 'area' | 'pharmacy';
@@ -108,7 +109,8 @@ function parseItalianRoute(path: string, locale: Locale, bases: (typeof LOCALE_B
  * validate names/records after their route-specific lazy chunk loads.
  */
 export function parsePharmacyRoute(pathname: string): PharmacyPath | null {
-  const path = normalized(pathname);
+  const requestedPath = normalized(pathname);
+  const path = resolvePharmacyDutyCityAlias(requestedPath) || requestedPath;
   for (const locale of ['it', 'en', 'de', 'fr'] as Locale[]) {
     const bases = LOCALE_BASES[locale];
     if (path === bases.hub) return { kind: 'hub', locale };

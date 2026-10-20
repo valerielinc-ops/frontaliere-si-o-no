@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 /**
@@ -23,6 +24,7 @@ import { firstLocationSegment } from './ats-clients/workday-client.mjs';
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 export const WORKDAY_API_BASE = 'https://otis.wd504.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway';
 export const WORKDAY_PUBLIC_BASE = 'https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway';
@@ -36,23 +38,20 @@ export function normalizeSpace(value = '') {
 
 export function stripHtml(html = '') {
   if (!html) return '';
-  return String(html)
+  return decodeHTML(String(html)
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
+    // Otis' template leaves the metadata values outside any element
+    // (`<p><b>Date Posted:</b></p>2026-09-16<p><b>Country: </b></p>Switzerland`):
+    // an opening block tag also starts a line, or value and next label merge
+    // into "2026-09-16Country:" in every locale.
+    .replace(/<(?:p|div|h[1-6])(?:\s[^>]*)?>/gi, '\n')
     .replace(/<\/(?:p|li|h[1-6]|div|ul|ol)>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
-    .replace(/\u00a0/g, ' ')
+    .replace(/<[^>]+>/g, ''), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
@@ -172,8 +171,10 @@ export function parseOtisWorkdayListings(apiResponse) {
     if (seen.has(externalPath)) continue;
     seen.add(externalPath);
 
-    // Filter for Swiss locations
-    if (!isSwissLocation(locationsText)) continue;
+    // Filter for Swiss locations. A row named after a Swiss locality outside
+    // the commune gazetteer is kept for its detail, whose structured country
+    // decides (shared Workday recovery).
+    if (!isSwissLocation(locationsText) && !isWorkdaySwissPlaceCandidate(locationsText)) continue;
 
     // Extract jobId from bulletFields (typically last element) or externalPath
     const bulletFields = posting.bulletFields || [];
@@ -204,6 +205,40 @@ export function parseOtisWorkdayListings(apiResponse) {
 }
 
 /**
+ * The branch address the ad prints in its header ("Location:" followed by
+ * "Nenzlingerweg 2, 4153 Reinach", "Route de Moncor 12, CP 1136, 1701
+ * Fribourg", "Bahnhofstrasse 3, Postfach 371, Dietlikon / ZH"). Post-office
+ * boxes are skipped; a part missing from the line stays empty, never guessed.
+ *
+ * @param {string} descriptionText
+ * @returns {{ streetAddress: string, postalCode: string, locality: string } | null}
+ */
+export function parseOtisSiteAddress(descriptionText = '') {
+  const match = /(?:^|\n)[ \t]*Location:[ \t]*\n?[ \t]*([^\n]+)/.exec(String(descriptionText || ''));
+  if (!match) return null;
+  const parts = match[1].split(',').map((part) => normalizeSpace(part)).filter(Boolean);
+  let streetAddress = '';
+  let postalCode = '';
+  let locality = '';
+  for (let i = 0; i < parts.length; i += 1) {
+    const part = parts[i];
+    if (/^(?:Postfach|CP|Case postale|PO Box)\b/i.test(part)) continue;
+    const postalAndLocality = /^(\d{4})\s+(.+)$/.exec(part);
+    if (postalAndLocality) {
+      [, postalCode, locality] = postalAndLocality;
+    } else if (/^\d{4}$/.test(part)) {
+      postalCode = part;
+    } else if (!streetAddress && !postalCode && i === 0) {
+      streetAddress = part;
+    } else if (!locality) {
+      locality = part;
+    }
+  }
+  locality = locality.replace(/\s*\/\s*[A-Z]{2}$/, '').trim();
+  return { streetAddress, postalCode, locality };
+}
+
+/**
  * Parse a single Workday job detail response.
  *
  * @param {object} detail - Parsed JSON from Workday job detail endpoint
@@ -218,20 +253,26 @@ export function parseOtisWorkdayDetail(detail, externalPath = '') {
   if (!title || title.length < 3) return null;
 
   const locationRaw = info.location || '';
-  const city = parseWorkdayCity(locationRaw);
+  const parsedCity = parseWorkdayCity(locationRaw);
+  // A primary the commune gazetteer cannot place (a locality, an address) gets
+  // the shared Workday recovery: official directory or postal code, only on
+  // the req's structured Swiss country (workday-swiss-job-parser-common).
+  const recovered = inferAnyCanton(parsedCity) ? null : recoverWorkdayPrimarySwissPlace(info);
+  const city = recovered ? recovered.location : parsedCity;
   const descriptionHtml = info.jobDescription || '';
   const descriptionText = stripHtml(descriptionHtml);
   const publicUrl = buildPublicUrl(externalPath);
   const timeType = info.timeType || '';
   const jobReqId = info.jobReqId || '';
-  const startDate = info.startDate || new Date().toISOString().split('T')[0];
+  const startDate = info.startDate || '';
 
   return {
     title,
     description: descriptionText,
     url: publicUrl,
     city,
-    canton: inferAnyCanton(city) || '',
+    siteAddress: parseOtisSiteAddress(descriptionText),
+    canton: recovered ? recovered.canton : (inferAnyCanton(city) || ''),
     employmentType: inferEmploymentType(title, descriptionText, timeType),
     datePosted: startDate,
     jobReqId,
@@ -289,7 +330,10 @@ export async function fetchOtisJobUrls(timeoutMs = 15000) {
     return allJobs;
   } catch (err) {
     console.warn(`\u26a0\ufe0f Failed to fetch Otis Workday listings: ${err.message}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   } finally {
     clearTimeout(timer);
   }

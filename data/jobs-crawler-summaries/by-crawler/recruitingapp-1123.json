@@ -1,24 +1,29 @@
 {
   "key": "recruitingapp-1123",
   "label": "BIG & ARE Stellen",
-  "generatedAt": "2026-09-24T14:28:50.334Z",
+  "generatedAt": "2026-10-19T21:33:42.844Z",
   "total": 0,
   "discovered": 10,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 0,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13162,
-  "avgDurationMs": 13162,
+  "durationMs": 13175,
+  "avgDurationMs": 13175,
   "durationHistory": [
-    13162
+    13175
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

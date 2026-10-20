@@ -23,17 +23,10 @@
 import { writeJobsCrawlerSlice } from './assemble-jobs-dataset.mjs';
 import { publisherJobsToSlice, PUBLISHER_SOURCE_KEY } from './lib/publisherJobProjection.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 async function initDb() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return a.firestore();
+  return getFirestoreDb();
 }
 
 async function main() {
@@ -57,8 +50,7 @@ async function main() {
   // up by this sync) from "Online" (projected into the slice + deploy triggered)
   // and link to the live page. Best-effort — never fail the slice write over it.
   try {
-    const adminMod = await import('firebase-admin');
-    const FieldValue = (adminMod.default || adminMod).firestore.FieldValue;
+    const { FieldValue } = await import('firebase-admin/firestore');
     const firstUrlByAd = new Map();
     for (const r of records) {
       if (r.publisherJobId && !firstUrlByAd.has(r.publisherJobId)) {

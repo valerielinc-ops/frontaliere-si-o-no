@@ -4,6 +4,7 @@
  * Tests parseListingPage(), parseDetailPage(), buildJob(),
  * stripHtml(), normalizeSpace() using HTML fixtures from e-lavoro.ch.
  */
+import fs from 'node:fs';
 import { describe, it, expect } from 'vitest';
 
 import {
@@ -13,6 +14,8 @@ import {
   stripHtml,
   normalizeSpace,
 } from '@/scripts/lib/cerbios-pharma-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
+import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs';
 
 // ─── Fixture: e-lavoro.ch listing with jobs ────────────────
 const LISTING_WITH_JOBS = `
@@ -55,7 +58,7 @@ const LISTING_NO_JOBS = `
 <body>
 <main>
   <h1>I nostri annunci</h1>
-  <div class="view-content">
+  <div class="view-empty">
     <p>Purtroppo non ci sono offerte di lavoro, torna a trovarci!</p>
   </div>
 </main>
@@ -117,6 +120,13 @@ describe('parseListingPage', () => {
     expect(titles[1]).toBe('Quality Control Analyst');
   });
 
+  it('decodes accented listing titles before generating the published title and slug', () => {
+    const [listing] = parseListingPage('<div class="views-row"><h2><a href="/node/1234">Tecnico controllo qualit&agrave; &amp; ricerca</a></h2></div>');
+    const job = buildJob(listing);
+    expect(job!.title).toBe('Tecnico controllo qualità & ricerca');
+    expect(job!.slug).toBe('tecnico-controllo-qualita-ricerca-cerbios-pharma-barbengo');
+  });
+
   it('generates valid e-lavoro.ch URLs', () => {
     const jobs = parseListingPage(LISTING_WITH_JOBS);
     expect((jobs[0] as { url: string }).url).toContain('e-lavoro.ch');
@@ -132,11 +142,35 @@ describe('parseListingPage', () => {
   it('returns empty array when no jobs available', () => {
     const jobs = parseListingPage(LISTING_NO_JOBS);
     expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
+  it('does not treat an unrecognised empty page as an authoritative zero', () => {
+    const jobs = parseListingPage('<main><h1>I nostri annunci</h1><div class="view-content"></div></main>');
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('does not treat no-job copy inside a live row as an authoritative zero', () => {
+    const jobs = parseListingPage('<div class="views-row"><h2>Lab Technician</h2><a href="/node/123">Lab Technician</a><p>No job experience required</p></div>');
+    expect(jobs).toHaveLength(1);
+    expect(Object.hasOwn(jobs, 'authoritativeEmptyState')).toBe(false);
   });
 
   it('returns empty array for empty input', () => {
     expect(parseListingPage('')).toHaveLength(0);
     expect(parseListingPage(null as unknown as string)).toHaveLength(0);
+  });
+});
+
+describe('authoritative empty snapshot wiring', () => {
+  it('publishes the proven zero and does not rely on the health allowlist', () => {
+    const runner = fs.readFileSync(new URL('../scripts/update-cerbios-pharma-jobs.mjs', import.meta.url), 'utf8');
+    expect(runner).toContain('authoritativeEmptySnapshot: true');
+    expect(runner).toContain('skipShrinkGuard: true');
+    expect(runner).toContain('archiveRemovedJobsToSlice(priorJobs, COMPANY_KEY)');
+
+    expect(EMPTY_OK_CRAWLERS.has('cerbios-pharma')).toBe(false);
   });
 });
 
@@ -149,6 +183,11 @@ describe('parseDetailPage', () => {
     const result = parseDetailPage(DETAIL_HTML);
     expect(result).not.toBeNull();
     expect(result!.title).toBe('Operatore di produzione farmaceutica');
+  });
+
+  it('decodes named and numeric entities in the detail title without removing encoded text', () => {
+    const result = parseDetailPage('<main><h1>Tecnico: caff&egrave; &lt;ricerca&gt; &#x1F52C;</h1></main>');
+    expect(result!.title).toBe('Tecnico: caffè <ricerca> 🔬');
   });
 
   it('extracts description with pharma content', () => {
@@ -197,10 +236,21 @@ describe('buildJob', () => {
     expect(job!.slug).toContain('cerbios-pharma');
   });
 
-  it('sets default pharma description', () => {
+  it('writes no description of its own when the listing has none', () => {
     const job = buildJob({ title: 'Chimico di processo' });
-    expect(job!.description).toContain('CDMO');
-    expect(job!.description).toContain('Barbengo');
+    expect(job!.description).toBe('');
+    expect(job!.description).not.toContain('CDMO');
+  });
+
+  it('keys the listing text, title and slug by the source language only', () => {
+    const job = buildJob({
+      title: 'Chimico di processo',
+      description: 'Cerchiamo un chimico di processo per il reparto di produzione di principi attivi a Barbengo.',
+    });
+    expect(job!.sourceLang).toBe('it');
+    expect(job!.descriptionByLocale).toEqual({ it: job!.description });
+    expect(job!.titleByLocale).toEqual({ it: 'Chimico di processo' });
+    expect(Object.keys(job!.slugByLocale)).toEqual(['it']);
   });
 
   it('returns null for empty title', () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
 
@@ -20,6 +20,7 @@ import YAML from 'yaml';
 const ROOT = resolve(import.meta.dirname, '..');
 const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml'), 'utf-8');
 const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
+const DEPLOY_REQUEST_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-request.yml'), 'utf-8');
 const DEPLOY_PUBLISH_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
 // Every workflow that uploads dist/audit-reports/** as an artifact — the
 // directory scripts/lib/auditReport.mjs writes to (discover-eligibility.json
@@ -45,6 +46,18 @@ const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
 const AUDIT_ALL_REGISTRY_SRC = readFileSync(resolve(ROOT, 'scripts/audit-all.mjs'), 'utf-8');
 const BUILD_LOCALE_ENV = (YAML.parse(DEPLOY_YML) as any).jobs['build-locale'].env as Record<string, unknown>;
+
+// Direct Pages-artifact extractors must release the source tar before shard
+// rehydration. Keeping both copies is enough to exhaust the hosted runner.
+const PAGES_ARTIFACT_EXTRACTION_WORKFLOWS = [
+  '.github/workflows/post-deploy-validate-dist.yml',
+  '.github/workflows/revalidate-dist-from-run.yml',
+  '.github/workflows/matrix-equivalence-check.yml',
+  '.github/workflows/seed-title-baselines.yml',
+  '.github/workflows/seed-text-html-ratio-baseline.yml',
+  '.github/workflows/seed-bfs-depth-baseline.yml',
+  '.github/workflows/seed-orphan-pages-baseline.yml',
+] as const;
 
 // `audit:title-uniqueness` was moved to a separate weekly workflow because it
 // OOM-killed the parallel block. All remaining gates must stay in parallel.
@@ -72,6 +85,8 @@ function parseAuditAllRegistry(src: string): Set<string> {
 }
 
 const AUDIT_ALL_WRAPS = parseAuditAllRegistry(AUDIT_ALL_REGISTRY_SRC);
+const POSTBUILD_VALIDATIONS_STEP = (YAML.parse(VALIDATION_YML) as any).jobs['validate-dist-postbuild'].steps
+  .find((step: any) => step.id === 'postbuild_validations');
 
 /**
  * Returns true if the workflow invokes the audit either directly via
@@ -111,9 +126,28 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     ).toContain('spawn_capped()');
   });
 
+  it('runs the strict JobPosting completeness validator as a blocking serialized full-dist gate', () => {
+    const run = POSTBUILD_VALIDATIONS_STEP?.run as string;
+    expect(PACKAGE_JSON.scripts['validate:jobposting-schema']).toBe('node scripts/validate-jobposting-schema.mjs');
+    const jobPostingInvocation = 'spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema';
+    const poolStart = run.indexOf('# LIGHT POOL');
+    const poolEnd = run.indexOf('wait "$DIST_MULTI_PID" || true');
+    const jobPostingIndex = run.indexOf(jobPostingInvocation);
+    expect(poolStart).toBeGreaterThanOrEqual(0);
+    expect(poolEnd).toBeGreaterThan(poolStart);
+    expect(jobPostingIndex).toBeGreaterThan(poolEnd);
+    expect(run.slice(poolStart, poolEnd)).not.toContain(jobPostingInvocation);
+    expect(run.slice(jobPostingIndex)).toContain(`${jobPostingInvocation}\nwait`);
+    expect(POSTBUILD_VALIDATIONS_STEP?.['continue-on-error']).not.toBe(true);
+    expect(run).toContain('echo "$name $logfile" >> /tmp/post-build-failures.txt');
+    expect(run).toContain('[ $FAIL -eq 0 ] || exit 1');
+  });
+
   it('dist validation rehydrates once behind one timeout ceiling', () => {
     const workflow = YAML.parse(VALIDATION_YML) as any;
-    expect(workflow.jobs['validate-dist-postbuild']?.['timeout-minutes']).toBe(300);
+    // 350, not 300: on a slow runner the gates alone need ~320 min (run
+    // 37754770528 was cut mid-gate at 300 and `publish` was skipped).
+    expect(workflow.jobs['validate-dist-postbuild']?.['timeout-minutes']).toBe(350);
     expect(workflow.jobs['validate-dist-source']).toBeUndefined();
     expect(workflow.jobs['validate-dist-postbuild-bfs']).toBeUndefined();
     expect(VALIDATION_YML.match(/- name: Rehydrate locale then section shards into dist\//g)).toHaveLength(1);
@@ -229,6 +263,85 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
   });
 });
 
+describe('Pages artifact extraction disk lifetime', () => {
+  it('removes the source tar in every direct extractor before shard rehydration', () => {
+    for (const workflowPath of PAGES_ARTIFACT_EXTRACTION_WORKFLOWS) {
+      const workflow = YAML.parse(readFileSync(resolve(ROOT, workflowPath), 'utf-8')) as any;
+      const extractionSteps = Object.values(workflow.jobs ?? {}).flatMap((job: any) => (
+        Array.isArray(job?.steps)
+          ? job.steps.filter((step: any) => (
+            typeof step?.run === 'string'
+            && /\btar -xf\b/.test(step.run)
+            && /(artifact\.tar|TAR_PATH|tar-path)/.test(step.run)
+          ))
+          : []
+      ));
+
+      expect(extractionSteps, `${workflowPath} must have one direct Pages-artifact extractor`).toHaveLength(1);
+      const run = (extractionSteps[0] as any).run as string;
+      const extractIndex = run.indexOf('tar -xf');
+      const cleanupIndex = run.indexOf('rm -f', extractIndex);
+      expect(cleanupIndex, `${workflowPath} must remove the source tar after extraction`).toBeGreaterThan(extractIndex);
+      expect(run.slice(cleanupIndex, cleanupIndex + 160)).toMatch(/(artifact\.tar|TAR_PATH|tar-path)/);
+    }
+  });
+
+  // deploy-publish run 36810296662 and cathedral-seo-gates-check run
+  // 36810296254 (2026-10-01) died with "No space left on device" inside the
+  // rehydrate: the logical dist now ends at 134 of the runner's 145 GB. The
+  // disk cleanup that keeps it inside existed in nine inline copies that had
+  // drifted (cathedral's had 6 paths and no docker prune, the others 9), so
+  // the class is "a job that rehydrates the logical dist without THE cleanup".
+  // Every such job — found by what it runs, not by a hand-kept list — must call
+  // the one shared script after its checkout and before the rehydrate.
+  it('every job that rehydrates section shards frees disk through the one shared script first', () => {
+    const workflowsDir = resolve(ROOT, '.github/workflows');
+    const rehydrating: string[] = [];
+    for (const file of readdirSync(workflowsDir).filter((f) => /\.ya?ml$/.test(f)).sort()) {
+      const workflow = YAML.parse(readFileSync(resolve(workflowsDir, file), 'utf-8')) as any;
+      for (const [jobName, job] of Object.entries<any>(workflow?.jobs ?? {})) {
+        const steps: any[] = Array.isArray(job?.steps) ? job.steps : [];
+        const runOf = (step: any) => (typeof step?.run === 'string' ? step.run : '');
+        const rehydrateIdx = steps.findIndex((step) => /rehydrate-section-shards\.sh/.test(runOf(step)));
+        if (rehydrateIdx === -1) continue;
+        const where = `${file} → ${jobName}`;
+        rehydrating.push(where);
+        const cleanupIdx = steps.findIndex((step) => /(^|\s)bash (tooling\/)?scripts\/ci\/free-runner-disk\.sh\b/.test(runOf(step)));
+        const checkoutIdx = steps.findIndex((step) => /^actions\/checkout@/.test(String(step?.uses ?? '')));
+        expect(cleanupIdx, `${where}: no step runs scripts/ci/free-runner-disk.sh`).toBeGreaterThan(-1);
+        expect(cleanupIdx, `${where}: the cleanup must run before the rehydrate`).toBeLessThan(rehydrateIdx);
+        expect(cleanupIdx, `${where}: the cleanup script lives in the repo, so it runs after a checkout`).toBeGreaterThan(checkoutIdx);
+        // A second, inline list next to the shared one is how the copies drifted.
+        for (const step of steps) {
+          expect(runOf(step), `${where}: inline toolchain cleanup — use the shared script`).not.toMatch(/rm -rf[^\n]*\/usr\/share\/dotnet/);
+        }
+      }
+    }
+    // The two reds of 2026-10-01 plus the replays that rebuild the same dist.
+    expect(rehydrating).toEqual(expect.arrayContaining([
+      'cathedral-seo-gates-check.yml → check',
+      'post-deploy-validate-dist.yml → validate-dist-postbuild',
+    ]));
+    expect(rehydrating.length).toBeGreaterThanOrEqual(9);
+  });
+
+  it('the shared cleanup reports blocks AND inodes before and after, and keeps node in the tool cache', () => {
+    const script = readFileSync(resolve(ROOT, 'scripts/ci/free-runner-disk.sh'), 'utf-8');
+    const live = script.split('\n').filter((line) => !/^\s*#/.test(line)).join('\n');
+    // One directory per job page: inode exhaustion reads exactly like a full
+    // disk ("No space left on device"), so both counters are printed.
+    expect(live).toMatch(/report\(\) \{\s*df -h \/\s*df -i \/\s*\}/);
+    expect(live.match(/^report$/gm)?.length, 'df before AND after the cleanup').toBe(2);
+    // setup-node reuses /opt/hostedtoolcache/node; deleting it would only
+    // force a re-download, never free the space the rehydrate needs.
+    expect(live).toContain('[ "$(basename "$p")" = node ] && continue');
+    // Best-effort like the inline copies it replaced: an image refresh that
+    // already dropped a path must not fail the job.
+    expect(live).not.toMatch(/^\s*set\s+-\S*e\S*\b/m);
+    expect(live.trimEnd().endsWith('exit 0')).toBe(true);
+  });
+});
+
 /**
  * Guard for issue #6208 item 2: `audit:discover-eligibility` and
  * `seo/meta-description-audit` are report-only (rc=0 cabled) and, since
@@ -308,8 +421,8 @@ describe('build-plugins/batchWrite.ts — flush concurrency', () => {
  */
 describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast path (#2761)', () => {
   it('every "Pack ... shard dist (tar)" step in deploy.yml self-verifies packed vs source file count', () => {
-    const packSteps = DEPLOY_YML.match(/- name: Pack [^\n]*shard dist \(tar\)[^\n]*\n(?:.*\n)*?(?=\n {6}- name:|\n {4}- name:)/g) || [];
-    expect(packSteps.length, 'expected at least the IT/non-IT Ticino + locale pack steps').toBeGreaterThanOrEqual(3);
+    const packSteps = `${DEPLOY_YML}\n${DEPLOY_PUBLISH_YML}`.match(/- name: Pack [^\n]*shard dist \(tar\)[^\n]*\n(?:.*\n)*?(?=\n {6}- name:|\n {4}- name:)/g) || [];
+    expect(packSteps.length, 'expected the IT build pack and deferred non-IT tail pack steps').toBeGreaterThanOrEqual(3);
     for (const step of packSteps) {
       expect(step, `pack step missing tar -cvf output count:\n${step}`).toMatch(/if ! packed_n=\$\(tar -C [^\n]* -cvf [^\n]*\| awk '!\/\\\/\$\/ \{ n\+\+ \} END \{ print n \+ 0 \}'\); then[\s\S]*rm -f "\$RUNNER_TEMP\/[^\"]+\.tar"[\s\S]*(?:return|exit) 0/);
       expect(step, `pack step missing packed-vs-source file count comparison:\n${step}`).toMatch(/if \[ "\$packed_n" -ne "\$(?:live_src_n|src_n)" \]/);
@@ -337,18 +450,25 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
     // and section rehydrate into scripts/lib/rehydrate-section-shards.sh
     // (section shared with the 4 seed-baseline workflows too, AGENTS.md #6
     // dedupe) — the guarded invariant is unchanged, only its file moved.
-    const sources = [
-      { label: 'locale-dist-\\$loc', text: REHYDRATE_LOCALE_SCRIPT },
-      { label: '\\$section-dist-\\$loc', text: REHYDRATE_SECTION_SCRIPT },
-    ];
-    for (const { label, text } of sources) {
-      const re = new RegExp(
-        `expected_n=\\$\\(tar -tf "\\$dl/${label}\\.tar" 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
-        `tar -C dist -xf "\\$dl/${label}\\.tar" \\|\\| true[\\s\\S]*?` +
-        `if \\[ -d "dist/\\$(?:loc|sub)" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
-      );
-      expect(text, `rehydrate loop for "${label}" missing completeness gate (expected_n/actual_n)`).toMatch(re);
-    }
+    const localeRe = new RegExp(
+      `expected_n=\\$\\(tar -tf "\\$dl/locale-dist-\\$loc\\.tar" 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
+      `tar -C dist -xf "\\$dl/locale-dist-\\$loc\\.tar" \\|\\| true[\\s\\S]*?` +
+      `if \\[ -d "dist/\\$loc" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
+    );
+    expect(REHYDRATE_LOCALE_SCRIPT, 'locale rehydrate loop missing completeness gate (expected_n/actual_n)').toMatch(localeRe);
+    // The section loop no longer has a tar FILE (2026-10-01, deploy-publish
+    // run 36810296662 out of disk): both passes stream `$section-dist-$loc.tar`
+    // out of the batch zip. Same gate — listing first, exact count after —
+    // plus unzip's CRC verdict, which the two passes cannot replace: a corrupt
+    // stream is listed and extracted identically, so only the CRC tells.
+    const sectionRe = new RegExp(
+      `member="\\$section-dist-\\$loc\\.tar"[\\s\\S]*?` +
+      `expected_n=\\$\\(unzip -p "\\$dl/\\$BATCH_ZIP" "\\$member" 2>/dev/null \\| tar -tf - 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
+      `unzip -p "\\$dl/\\$BATCH_ZIP" "\\$member" \\| tar -C dist -xf -\\n[\\s\\S]*?` +
+      `unzip_rc="\\$\\{PIPESTATUS\\[0\\]\\}"[\\s\\S]*?` +
+      `if \\[ "\\\$\\{unzip_rc:-2\\}" -le 1 \\] && \\[ -d "dist/\\$sub" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
+    );
+    expect(REHYDRATE_SECTION_SCRIPT, 'section rehydrate loop missing completeness gate (expected_n/actual_n/unzip_rc)').toMatch(sectionRe);
     // The bare `if [ -d dist/$loc ]; then ... continue; fi` (no count check)
     // pattern from before the fix must not remain anywhere in the tar
     // extraction branches, in either file.
@@ -376,9 +496,12 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
   // 294 righe gia' committate non avranno mai le chiavi nuove.
   const BUILD_LOCALE_STEPS: Array<Record<string, any>> =
     (YAML.parse(DEPLOY_YML) as any).jobs['build-locale'].steps;
+  const NONIT_TAIL_STEPS: Array<Record<string, any>> =
+    (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['publish-nonit-shards'].steps;
+  const ALL_PHASE_STEPS = [...BUILD_LOCALE_STEPS, ...NONIT_TAIL_STEPS];
   const stepById = (id: string) => {
-    const step = BUILD_LOCALE_STEPS.find((s) => s.id === id);
-    expect(step, `deploy.yml: nessuno step con id "${id}" nel job build-locale`).toBeDefined();
+    const step = ALL_PHASE_STEPS.find((s) => s.id === id);
+    expect(step, `nessuno step con id "${id}" nei workflow build/deferred-tail`).toBeDefined();
     return step!;
   };
   // Tutte le fasi post-build del job, non solo le due nominate dalla issue:
@@ -409,7 +532,7 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     const env: Record<string, string> = step!.env ?? {};
     // Ogni step di fase dev'essere cablato: senza, la sua colonna resta a null
     // per sempre e il buco e' invisibile (lo step ha continue-on-error).
-    for (const id of PHASE_STEP_IDS) {
+    for (const id of ['push-section-shards-it', 'pack-section-shards-it', 'pack-locale-source']) {
       expect(
         Object.values(env),
         `"Append post-build phase timings row": nessuna env legge steps.${id}.outputs.wall_seconds`,
@@ -422,18 +545,21 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     for (const key of [
       'push_shards_seconds',
       'pack_tar_seconds',
-      'push_locale_shard_seconds',
-      'pack_locale_tar_seconds',
+      'pack_locale_source_seconds',
     ]) {
       expect(step!.run, `la riga appesa non porta la chiave "${key}"`).toContain(key);
     }
+    const tailTiming = NONIT_TAIL_STEPS.find((s) => s.name === 'Record non-IT tail timing');
+    expect(tailTiming?.if).toBe('always()');
+    expect(tailTiming?.run).toContain('section push');
+    expect(tailTiming?.run).toContain('section pack');
+    expect(tailTiming?.run).toContain('locale push');
   });
 
-  it('tutti i produttori di righe passano dallo stesso script di append+push', () => {
-    // Il retry-con-rebase (5 tentativi, backoff 5/10/15/25/40s) ha un solo
-    // posto in cui cambiare: 4 leg concorrenti + gli altri produttori su main
-    // out-race regolarmente una finestra piu' corta, e due copie divergenti
-    // sarebbero una di quelle finestre corte in attesa di succedere.
+  it('tutti i produttori di righe passano dallo stesso script di staging', () => {
+    // La validazione della riga ha un solo posto in cui cambiare; il commit
+    // e il push li fa il job build-history-commit (#9247), vedi
+    // tests/build-history-single-writer.test.ts.
     const producers = BUILD_LOCALE_STEPS.filter((s) =>
       typeof s.run === 'string' && s.run.includes('scripts/lib/append-build-history-row.sh'),
     );
@@ -446,15 +572,11 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
       'Append incremental manifest history row',
     ]);
     for (const s of producers) {
-      expect(s.run, `"${s.name}": commit message non passato allo script condiviso`).toContain(
-        'HISTORY_COMMIT_MSG=',
+      expect(s.env?.HISTORY_STAGE_DIR, `"${s.name}": nessuna cartella di staging`).toBe(
+        '${{ runner.temp }}/build-history-rows',
       );
-    }
-    // Nessuno dei due deve essersi riportato in casa il loop di retry.
-    for (const s of producers) {
-      expect(s.run, `"${s.name}": loop di retry duplicato invece di delegato`).not.toContain(
-        'git push origin HEAD:main',
-      );
+      expect(s.run, `"${s.name}": la gamba non deve piu' committare`).not.toContain('HISTORY_COMMIT_MSG=');
+      expect(s.run, `"${s.name}": push dentro la gamba`).not.toMatch(/\bgit\s+push\b/);
     }
   });
 
@@ -467,14 +589,49 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     expect(step!.run).toMatch(/\/\^\\\[phase-timing/);
   });
 
+  it('#9247 — osserva ogni fase e apre un allarme advisory oltre il +30%', () => {
+    const observe = BUILD_LOCALE_STEPS.find((s) => s.name === 'Observe phase timing per locale');
+    expect(observe, 'deploy.yml: manca l osservatore delle fasi').toBeDefined();
+    expect(observe!.if).toBe('always()');
+    expect(observe!['continue-on-error']).toBe(true);
+    expect(observe!.run).toContain('scripts/ci/phase-timing-observer.mjs');
+    expect(observe!.run).toContain('$GITHUB_STEP_SUMMARY');
+    expect(observe!.env?.PHASE_TIMING_HISTORY).toBe('data/build-history/memory-peaks.jsonl');
+    expect(observe!.env?.PHASE_TIMING_LOCALE).toContain('matrix.locale');
+
+    const report = BUILD_LOCALE_STEPS.find((s) => s.name === 'Report build phase timing regression to GitHub Issues');
+    expect(report, 'deploy.yml: manca il report dell allarme fasi').toBeDefined();
+    expect(report!.if).toContain("steps.phase_timing.outputs.alert == 'true'");
+    expect(report!['continue-on-error']).toBe(true);
+    expect(report!.with?.title).toBe('Build phase timing regression (+30% median)');
+
+    const history = (YAML.parse(DEPLOY_YML) as any).jobs['build-history-commit'];
+    expect(history.permissions?.issues).toBe('write');
+    const resolver = history.steps.find((s: any) => s.name === 'Resolve build phase timing regression issue on green');
+    expect(resolver, 'deploy.yml: manca la chiusura dell allarme sul verde').toBeDefined();
+    expect(resolver!.if).toContain("needs.build-locale.result == 'success'");
+    expect(resolver!.run).toContain('--resolve');
+    expect(resolver!.run).toContain('Build phase timing regression (+30% median)');
+    expect(resolver!.run).toContain('gh run list');
+    expect(resolver!.run).toContain('--recovery-ready');
+    expect(resolver!.env?.PHASE_TIMING_RUNS_FILE).toContain('phase-timing-runs.json');
+    expect(resolver!.env?.PHASE_TIMING_RECOVERY_RUNS).toBe('3');
+    const historyCheckout = history.steps.find((s: any) => s.name === 'Checkout build-history writer');
+    expect(historyCheckout?.with?.['sparse-checkout']).toContain('/scripts/ci/phase-timing-observer.mjs');
+
+    const profileAppend = BUILD_LOCALE_STEPS.find((s) => s.name === 'Append post-build phase timings row');
+    expect(profileAppend?.env?.ROW_BUILD_STATUS).toBe("${{ job.status }}");
+    expect(profileAppend?.run).toContain('build_status: process.env.ROW_BUILD_STATUS || null');
+  });
+
   it('#7548 — gli append di build-history non riattivano un deploy completo', () => {
-    const workflow = YAML.parse(DEPLOY_YML) as any;
+    const workflow = YAML.parse(DEPLOY_REQUEST_YML) as any;
     const ignored = workflow.on?.push?.['paths-ignore'] ?? [];
     expect(ignored).toContain('data/build-history/**');
   });
 
   it('ignora solo i commit di telemetria che non alimentano il dist', () => {
-    const workflow = YAML.parse(DEPLOY_YML) as any;
+    const workflow = YAML.parse(DEPLOY_REQUEST_YML) as any;
     const ignored = workflow.on?.push?.['paths-ignore'] ?? [];
     expect(ignored).toEqual(expect.arrayContaining([
       'data/loop-fleet/**',
@@ -507,7 +664,7 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
     const buildIndex = steps.indexOf(stepByName('Build (BUILD_LOCALE=${{ matrix.locale }})'));
     const restoreIndex = steps.indexOf(restore);
     const stashIndex = steps.indexOf(stash);
-    expect(restore.uses).toBe('actions/cache/restore@v5');
+    expect(restore.uses).toBe('actions/cache/restore@v6');
     expect(restore.with).toMatchObject({
       path: '.cache/incremental-manifest',
       key: 'incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}',
@@ -519,7 +676,7 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
     expect(stashIndex).toBeLessThan(buildIndex);
 
     const save = stepByName('Save incremental manifest cache');
-    expect(save.uses).toBe('actions/cache/save@v5');
+    expect(save.uses).toBe('actions/cache/save@v6');
     expect(save.if).toContain('always()');
     expect(save.with).toMatchObject({
       path: '.cache/incremental-manifest',
@@ -550,13 +707,17 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
     expect(history.run).toContain('by_kind');
     expect(history.run).toContain('scripts/lib/append-build-history-row.sh');
     expect(history.run).toContain('HISTORY_LABEL=build-history-manifest');
-    expect(history.run).toContain('HISTORY_COMMIT_MSG=');
+    expect(history.env?.HISTORY_STAGE_DIR).toBe('${{ runner.temp }}/build-history-rows');
   });
 });
 
 describe('deploy.yml — shard push mode and advisory delta verification', () => {
   const workflow = YAML.parse(DEPLOY_YML) as any;
-  const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
+  const publishWorkflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+  const steps: Array<Record<string, any>> = [
+    ...workflow.jobs['build-locale'].steps,
+    ...publishWorkflow.jobs['publish-nonit-shards'].steps,
+  ];
   const pushStep = (name: string) => {
     const step = steps.find((candidate) => candidate.name === name);
     expect(step, `deploy.yml: manca lo step "${name}" nel job build-locale`).toBeDefined();
@@ -592,6 +753,40 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
   });
 });
 
+describe('deploy.yml — every checkout has an explicit CA bundle (#9681)', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const checkoutSteps = Object.entries(workflow.jobs).flatMap(([jobName, job]: [string, any]) => {
+    const steps: Array<Record<string, any>> = Array.isArray(job.steps) ? job.steps : [];
+    return steps.flatMap((step, index) =>
+      step.uses === 'actions/checkout@v7' ? [{ jobName, steps, index }] : [],
+    );
+  });
+
+  it('repairs a missing bundle and exports explicit trust paths before every checkout', () => {
+    expect(checkoutSteps.length).toBeGreaterThan(0);
+
+    for (const { jobName, steps, index } of checkoutSteps) {
+      const caStep = steps[index - 1];
+      expect(caStep?.name, `${jobName}: checkout must follow the CA preflight`).toBe(
+        'Restore runner CA trust before checkout (#9681)',
+      );
+      expect(caStep.run).toContain('sudo update-ca-certificates --fresh');
+      expect(caStep.run).toContain('test -s "$ca_file"');
+      expect(caStep.run).toContain('GIT_SSL_CAINFO=$ca_file');
+      expect(caStep.run).toContain('GIT_SSL_CAPATH=/etc/ssl/certs');
+    }
+  });
+
+  it('does not weaken TLS verification while handling the runner defect', () => {
+    for (const { jobName, steps, index } of checkoutSteps) {
+      const caStep = steps[index - 1];
+      expect(caStep.run, `${jobName}: CA preflight must keep TLS verification enabled`).not.toMatch(
+        /GIT_SSL_NO_VERIFY|sslVerify\s+false/i,
+      );
+    }
+  });
+});
+
 describe('deploy.yml — benchmark-only controls never enter production', () => {
   it('does not set the experiment stop, sample, or benchmark guard', () => {
     expect(DEPLOY_YML).not.toContain('BUILD_STOP_AFTER');
@@ -613,6 +808,15 @@ describe('deploy.yml — closeBundle serializzati in produzione (OOM run 3510058
     expect(sequentialProfile).toContain("github.event_name == 'workflow_dispatch'");
     expect(sequentialProfile).toContain("github.event.inputs.parallel_plugins == 'true'");
     expect(sequentialProfile).not.toContain('profile_sequential');
+  });
+});
+
+describe('deploy.yml — canonical fallback stays inline on the 16 GiB runner', () => {
+  it('caps the jobs SEO fallback pre-pass at one worker', () => {
+    // `JOBS_SEO_FALLBACK_WORKERS=1` selects the plugin's inline path: it keeps
+    // the output unchanged while avoiding one structured clone per worker of
+    // the full canonical tuple set.
+    expect(BUILD_LOCALE_ENV.JOBS_SEO_FALLBACK_WORKERS).toBe('1');
   });
 });
 

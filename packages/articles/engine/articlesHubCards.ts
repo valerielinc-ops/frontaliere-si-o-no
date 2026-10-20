@@ -24,10 +24,15 @@
  * `resolveMeta`), because the site has its SEO map and the corpus has its
  * `blog-meta-<locale>` chunks.
  *
- * Pure by construction — no imports at all, so it stays inside the
- * `packages/articles` confinement boundary
+ * The renderer also flattens the small markdown subset that can arrive in a
+ * corpus excerpt. The card is a plain-text preview, so headings and emphasis
+ * must not be escaped into visible text as literal syntax. Both helpers stay
+ * inside the `packages/articles` confinement boundary
  * (`tests/packages-articles-confinement.test.ts`).
  */
+
+import { articleSourceDate } from './shared/sourceDates';
+import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 
 export type HubCardLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -93,6 +98,24 @@ function esc(s: string): string {
 }
 
 /**
+ * Card previews are plain text, even when the source excerpt is markdown.
+ *
+ * `refresh-hub-landing` flattens escaped newlines in meta fields to spaces
+ * before it calls this shared renderer. Add a line boundary before heading
+ * markers so the shared plain-text stripper can remove both the normal
+ * multiline form and the flattened `... ## Heading` form. The replacement is
+ * deliberately local to markdown heading markers; ordinary hash text stays
+ * untouched.
+ */
+function stripHubMarkdown(value: string): string {
+  const withHeadingBoundaries = String(value ?? '').replace(
+    /(^|\s)(#{1,6})(?=\s)/g,
+    '$1\n$2',
+  );
+  return stripMarkdownPlain(withHeadingBoundaries);
+}
+
+/**
  * The inner HTML of `<div class="ssg-article-grid">` — cards only, no wrapper.
  *
  * The per-card styles are CSS classes rather than inline style attributes:
@@ -119,11 +142,13 @@ export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
       : `/${sectionSlug}/${artSlug}/`;
     const meta = resolveMeta(art.id, artPath);
     const title = meta
-      ? esc(meta.title)
+      ? esc(stripHubMarkdown(meta.title))
       : art.id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-    // Truncate BEFORE escaping. The other way round cuts inside an entity when
-    // a `&` lands near the limit — `…&am`, rendered literally.
-    const desc = meta ? esc(meta.desc.substring(0, 150)) : '';
+    // Strip source markdown before truncating and escaping. Escaping first can
+    // cut inside an entity when a `&` lands near the limit (`…&am`), while
+    // truncating before the strip can leave a visible heading marker behind.
+    const descText = meta ? stripHubMarkdown(meta.desc) : '';
+    const desc = meta ? esc(descText.substring(0, 150)) : '';
     const catColor = CATEGORY_COLORS[art.category] ?? CATEGORY_COLORS.fiscale;
     const catLabel = CATEGORY_LABELS[art.category]?.[locale] ?? art.category;
     // timeZone pinned: 17 registry entries are bare `YYYY-MM-DD`, parsed as
@@ -131,15 +156,25 @@ export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
     // runner's zone — `2026-06-30` renders "29 giu 2026" under TZ=America/*.
     // Dormant on GitHub runners (UTC) and exactly the drift to avoid now that
     // two different machines emit this same markup.
-    const dateStr = new Date(art.date).toLocaleDateString(
-      locale === 'it' ? 'it-IT' : locale,
-      { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' },
-    );
+    //
+    // `date: ''` is the corpus saying the publication date is UNKNOWN (corpus
+    // PR 2082): no date span at all, never `new Date('')` → "Invalid Date".
+    const sourceDate = articleSourceDate(art.date);
+    const dateHtml = sourceDate
+      ? `<span class="ssg-art-date">${new Date(sourceDate).toLocaleDateString(
+        locale === 'it' ? 'it-IT' : locale,
+        { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' },
+      )}</span>`
+      : '';
     // First two cards are above-the-fold on the hub — mark them
     // fetchpriority="high" (eager load, but flagged to the browser as LCP
     // candidates) so `audit-page-weight` sees the required loading signal.
     const imgLoadingAttrs = idx < 2 ? ' fetchpriority="high"' : ' loading="lazy"';
-    return `<a href="${artPath}" aria-label="${title}" class="ssg-art-card"><img src="${art.image}" alt="${title}" width="400" height="200" class="ssg-art-img"${imgLoadingAttrs}><div class="ssg-art-body"><span class="ssg-art-cat" style="${catColor}">${esc(catLabel)}</span><span class="ssg-art-date">${dateStr}</span><h3 class="ssg-art-title">${title}</h3>${desc ? `<p class="ssg-art-desc">${desc}</p>` : ''}</div></a>`;
+    // The visible label includes category, date, title, and description. A
+    // title-only aria-label would override that text as the accessible name
+    // and fail WCAG 2.5.3 (Label in Name). Let visible descendants provide
+    // the anchor's name instead.
+    return `<a href="${artPath}" class="ssg-art-card"><img src="${art.image}" alt="${title}" width="400" height="200" class="ssg-art-img"${imgLoadingAttrs}><div class="ssg-art-body"><span class="ssg-art-cat" style="${catColor}">${esc(catLabel)}</span>${dateHtml}<h3 class="ssg-art-title">${title}</h3>${desc ? `<p class="ssg-art-desc">${desc}</p>` : ''}</div></a>`;
   }).join('');
 }
 

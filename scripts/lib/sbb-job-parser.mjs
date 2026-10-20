@@ -16,6 +16,8 @@
  *   — fix: extract structured HTML sections and prefer them when longer.
  */
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { readVacancySummaryLocation } from './html-attr.mjs';
+import { canonicalSwissCityName, isKnownSwissCity } from './target-swiss-locations.mjs';
 
 /** Minimum accepted description length (characters). */
 export const MIN_SBB_DESC_LENGTH = 400;
@@ -217,12 +219,23 @@ export function extractSbbBodyLocation(html = '') {
 
   for (const line of lines) {
     const datedPrefix = line.match(/^([^,]{2,80}),\s*\d{1,2}\.\d{1,2}\.\d{4}\s*,\s*\d{1,3}%/);
-    if (datedPrefix?.[1]) return datedPrefix[1].trim();
+    if (datedPrefix?.[1]) {
+      const locality = canonicalSbbLocality(datedPrefix[1]);
+      if (locality) return locality;
+    }
     const percentPrefix = line.match(/^([^,]{2,80}),\s*\d{1,3}(?:-\d{1,3})?%/);
-    if (percentPrefix?.[1]) return percentPrefix[1].trim();
+    if (percentPrefix?.[1]) {
+      const locality = canonicalSbbLocality(percentPrefix[1]);
+      if (locality) return locality;
+    }
   }
 
-  return '';
+  return canonicalSbbLocality(readVacancySummaryLocation(html));
+}
+
+function canonicalSbbLocality(value = '') {
+  const candidate = decodeHtmlEntities(value).trim();
+  return isKnownSwissCity(candidate) ? canonicalSwissCityName(candidate) : '';
 }
 
 // ─── Main parser ───────────────────────────────────────────────────────────────

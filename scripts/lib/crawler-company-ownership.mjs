@@ -30,15 +30,26 @@ export function dedicatedMigrosOwner(jobOrUrl = {}) {
   return null;
 }
 
-/** Return the dedicated crawler that owns a shared Swiss Post record. */
+/**
+ * Return the dedicated crawler that owns a shared Swiss Post record.
+ * @param {string | string[] | Record<string, unknown>} value
+ */
 export function dedicatedPostOwner(value = '') {
-  const text = normalized(value);
-  if (/\b(postauto|carpostal|postbus|autopostale)\b/.test(text)) return 'postauto';
-  if (/\bpostfinance\b/.test(text)) return 'postfinance';
+  const candidates = Array.isArray(value)
+    ? value
+    : value && typeof value === 'object'
+      ? [value.company, value.companyKey, value.url, value.applyUrl, value.brandUrl, value.cust_brandCompanyJobSearch]
+      : [value];
+  for (const candidate of candidates) {
+    const text = normalized(candidate);
+    if (/\b(postauto|carpostal|postbus|autopostale)\b/.test(text)) return 'postauto';
+    if (/\bpostfinance\b/.test(text)) return 'postfinance';
+  }
   return null;
 }
 
 /** Swiss Post's board also publishes PostAuto and PostFinance vacancies. */
+/** @param {string | string[] | Record<string, unknown>} value */
 export function isDedicatedPostBrand(value = '') {
   return dedicatedPostOwner(value) !== null;
 }

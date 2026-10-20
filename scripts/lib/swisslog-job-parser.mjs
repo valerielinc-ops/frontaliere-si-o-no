@@ -58,12 +58,14 @@
  *   - isTrustedDomain()      — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -251,20 +253,9 @@ function resolveAddress(rawLoc = {}) {
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-const LD_JSON_RX = /<script type="application\/ld\+json">\s*(\[[\s\S]*?\])\s*<\/script>/;
-
-/** Extract the JobPosting object from a detail page's ld+json array. */
+/** Extract the JobPosting object from a detail page's ld+json blocks. */
 function extractJobPosting(html = '') {
-  const m = html.match(LD_JSON_RX);
-  if (!m) return null;
-  let arr;
-  try {
-    arr = JSON.parse(m[1]);
-  } catch {
-    return null;
-  }
-  if (!Array.isArray(arr)) return null;
-  return arr.find((entry) => entry && entry['@type'] === 'JobPosting') || null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 // Matches each `<div class="mod mod-text" ...><div class="row">...
@@ -423,8 +414,7 @@ export async function fetchAllSwisslogJobs() {
     const jobSlug = slugify(`${title} swisslog ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = normalizeEmploymentType(listing.employmentType, title);
-    const postedDate = (listing.datePosted && String(listing.datePosted).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
+    const postingDates = sourcePostingDateFields(listing.datePosted);
 
     const jobReqIdMatch = publicUrl.match(/-(\d+)\/?$/);
     const jobReqId = jobReqIdMatch ? jobReqIdMatch[1] : (listing.jobReqId || null);
@@ -462,7 +452,7 @@ export async function fetchAllSwisslogJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: publicUrl,
       jobReqId,
       requirements: [],

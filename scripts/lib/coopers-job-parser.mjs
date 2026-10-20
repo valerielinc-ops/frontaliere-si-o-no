@@ -11,9 +11,17 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchHtml as fetchHtmlShared } from './crawler-template.mjs';
+import {
+  slugify,
+  stripHtml,
+  normalizeDescriptionSpace,
+  fetchHtml as fetchHtmlShared,
+} from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { decode as decodeEntities } from 'html-entities';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -142,17 +150,8 @@ async function fetchHtml(url) {
 }
 
 /**
- * Parse DD.MM.YYYY date format → YYYY-MM-DD.
- */
-function parseEuDate(raw = '') {
-  const m = String(raw).trim().match(/(\d{2})\.(\d{2})\.(\d{4})/);
-  return m ? `${m[3]}-${m[2]}-${m[1]}` : '';
-}
-
-
-/**
  * Parse the Coopers listing page HTML to extract job cards.
- * Each job card has: title, location, contractType, hours, refCode, date, url.
+ * Each job card has: title, location, contractType, hours, refCode, url.
  */
 function parseListingPage(html) {
   const listings = [];
@@ -188,22 +187,91 @@ function parseListingPage(html) {
     const hoursMatch = metaText.match(/\b(Full\s*Time|Part\s*Time|\d+\s*%)\b/i);
     const hours = hoursMatch ? hoursMatch[1] : 'Full Time';
 
-    // Posted date
-    const dateMatch = metaText.match(/(\d{2}\.\d{2}\.\d{4})/);
-    const dateRaw = dateMatch ? dateMatch[1] : '';
-
     listings.push({
       title,
       location,
       contractType,
       hours,
       refCode,
-      postedDate: parseEuDate(dateRaw),
       url: `${COOPERS_BASE}${detailPath}`,
     });
   }
 
   return listings;
+}
+
+/**
+ * Inner HTML of the first element `<tag class="…">` whose class list satisfies
+ * `classTest`, read to its matching close tag (nested same-name tags counted).
+ */
+function readFirstElementByClass(html, tag, classTest, fromIndex = 0) {
+  const openings = new RegExp(`<${tag}\\b[^>]*\\bclass\\s*=\\s*["']([^"']*)["'][^>]*>`, 'gi');
+  openings.lastIndex = fromIndex;
+  let opening;
+  while ((opening = openings.exec(html))) {
+    if (!classTest(opening[1].split(/\s+/))) continue;
+    const tags = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
+    tags.lastIndex = openings.lastIndex;
+    let depth = 1;
+    let match;
+    while ((match = tags.exec(html))) {
+      if (match[0][1] === '/') {
+        depth -= 1;
+        if (depth === 0) return { content: html.slice(openings.lastIndex, match.index), end: tags.lastIndex };
+      } else if (!/\/\s*>$/.test(match[0])) {
+        depth += 1;
+      }
+    }
+    return { content: html.slice(openings.lastIndex), end: html.length };
+  }
+  return null;
+}
+
+// coopers.ch writes umlauts as named entities (`F&uuml;r`) and wraps every
+// `<li>` body in a `<p>`: decode the full entity set and keep each bullet on
+// one line.
+function htmlBlockToText(html = '') {
+  return normalizeDescriptionSpace(decodeEntities(stripHtml(html)))
+    .replace(/•[ \t]*\n+[ \t]*/g, '• ')
+    .replace(/\n{2,}(?=• )/g, '\n');
+}
+
+function listItems(ulHtml = '') {
+  return [...String(ulHtml).matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)]
+    .map((match) => normalizeSpace(decodeEntities(stripHtml(match[1]))))
+    .filter(Boolean);
+}
+
+/**
+ * Vacancy body of a coopers.ch detail page, in page order:
+ *   - the `div.lead` intro (client and role context),
+ *   - the first `div.sx-wysiwyg-style` (tasks + profile, the JSON-LD body),
+ *   - the "Job profile" facts (field, region, contract, workload, skills),
+ *   - the "Job benefits" list.
+ * The application boilerplate ("Das klingt nach einer spannenden Position?"),
+ * the recruiter contact card, share buttons and the "Similar jobs"/blog rails
+ * are page chrome and stay out. The former whole-page strip cut the text at
+ * the first "Position" — which on German postings is the application blurb
+ * AFTER the tasks — so the published description kept only that blurb (#5253).
+ */
+export function parseCoopersDetailDescription(html = '') {
+  const source = String(html || '');
+  const sections = [];
+  const lead = readFirstElementByClass(source, 'div', (classes) => classes.includes('lead'));
+  if (lead) sections.push(htmlBlockToText(lead.content));
+  const body = readFirstElementByClass(source, 'div', (classes) => classes.includes('sx-wysiwyg-style'));
+  if (body) sections.push(htmlBlockToText(body.content));
+  if (!body) return '';
+
+  // The "Job profile" box is rendered twice (mobile + desktop copy): read one.
+  const profile = /<h5\b[^>]*>\s*Job profile[^<]*<\/h5>\s*<ul\b[^>]*>([\s\S]*?)<\/ul>/i.exec(source);
+  const profileItems = profile ? listItems(profile[1]) : [];
+  if (profileItems.length) sections.push(['Job profile', ...profileItems.map((item) => `• ${item}`)].join('\n'));
+  const benefits = /<h5\b[^>]*>\s*Job benefits\s*<\/h5>\s*<ul\b[^>]*>([\s\S]*?)<\/ul>/i.exec(source);
+  const benefitItems = benefits ? listItems(benefits[1]) : [];
+  if (benefitItems.length) sections.push(['Job benefits', ...benefitItems.map((item) => `• ${item}`)].join('\n'));
+
+  return normalizeDescriptionSpace(sections.filter(Boolean).join('\n\n'));
 }
 
 /**
@@ -214,11 +282,16 @@ async function fetchJobDetail(detailUrl) {
     const html = await fetchHtml(detailUrl);
     if (!html) return { description: '', requirements: [] };
 
-    // Extract main content area
-    const descriptionText = stripHtml(html)
-      .replace(/^[\s\S]*?(?=About the role|Your role|The Role|Your tasks|Position|For our client)/i, '')
-      .replace(/(?:Apply now|Jetzt bewerben|Postuler)[\s\S]*$/i, '')
-      .trim();
+    const descriptionText = parseCoopersDetailDescription(html);
+    const posting = extractJobPostingLd(html);
+    const identities = [posting?.url, posting?.sameAs].flat().filter((value) => value != null);
+    // The provider's refCode query identifies the vacancy; never ignore it.
+    const sameVacancy = identities.length > 0 && identities.every((value) => {
+      if (typeof value !== 'string' || !value.trim()) return false;
+      try { return new URL(value, detailUrl).href === new URL(detailUrl).href; }
+      catch { return false; }
+    });
+    const publication = sourcePostingDateFields(sameVacancy ? posting?.datePosted : '');
 
     // Extract requirements from list items
     const requirements = [];
@@ -235,6 +308,7 @@ async function fetchJobDetail(detailUrl) {
     return {
       description: descriptionText || '',
       requirements,
+      ...publication,
     };
   } catch (err) {
     console.warn(`  ⚠️ Error fetching detail: ${err.message}`);
@@ -337,7 +411,7 @@ export async function fetchAllCoopersJobs() {
       sector: 'Farmaceutica / Life Sciences',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       applyUrl: listing.url,
 
       // ── Requirements ──

@@ -6,6 +6,7 @@ import {
   isTrustedDomain,
   fetchAllGaviJobs,
 } from '../scripts/lib/gavi-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 const PORTAL_HOST = 'fs-2662.my.salesforce-sites.com';
@@ -27,12 +28,22 @@ function listingHtml(rows: Array<{ vacancyNo: string; title: string; location: s
   return `<html><body><table class="list jobListPanel">${trs}</table></body></html>`;
 }
 
+function emptyListingHtml() {
+  return `<html><body>
+    <h1>Current Vacancies</h1>
+    <p>For the vacancies listed below, we invite you to apply on-line by clicking on the job title.</p>
+    <div>First Previous Page <span>1</span> of <span>0</span> Next Last</div>
+    <table class="list jobListPanel"><tbody><tr><td>None found</td></tr></tbody></table>
+  </body></html>`;
+}
+
 function detailHtml({
   title,
   location,
   team = 'Some Team',
   contractLine = '5 year contract defined duration',
   datePosted = '2026-06-30',
+  sourceUrl,
   aboutRole = 'The role sits within the department and reports administratively to the CEO, working closely with the Board, Executive Leadership Team, staff, Legal, Internal Audit and relevant external counterparts to advance the mission.',
   keyResponsibilities = 'Advise senior leadership as principal counsel, supervise drafting and negotiation of agreements, provide strategic advice on risks, and manage a high-performing team aligned to organisational values.',
 }: {
@@ -41,6 +52,7 @@ function detailHtml({
   team?: string;
   contractLine?: string;
   datePosted?: string;
+  sourceUrl?: string;
   aboutRole?: string;
   keyResponsibilities?: string;
 }) {
@@ -52,6 +64,7 @@ function detailHtml({
     '@type': 'JobPosting',
     title,
     datePosted,
+    ...(sourceUrl ? { url: sourceUrl } : {}),
     jobLocation: {
       '@type': 'Place',
       address: {
@@ -217,14 +230,29 @@ describe('Gavi crawler parser', () => {
       expect(job.country).toBe('CH');
       expect(job.url).toBe(DETAIL_URL('VN2507'));
       expect(job.employmentType).toBe('FULL_TIME');
-      expect(job.postedDate).toBe('2026-06-30');
+      // This historical fixture has no explicit JobPosting URL identity.
+      expect(job).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
       expect(job.description.length).toBeGreaterThanOrEqual(50);
       expect(job.postalCode).toBe('1218');
       expect(job.streetAddress).toBe('Chemin du Pommier 40');
       expect(job.slugByLocale[job.sourceLang]).toBe(job.slug);
     });
 
-    it('returns an empty array when the feed has no listings', async () => {
+    it('marks the portal-declared empty listing as an authoritative empty snapshot', async () => {
+      fetchSpy.mockImplementation(async (url: any) => {
+        const u = String(url);
+        if (u === LISTING_URL) {
+          return mockResponse(emptyListingHtml()) as any;
+        }
+        throw new Error(`Unexpected fetch: ${u}`);
+      });
+
+      const jobs = await fetchAllGaviJobs();
+      expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    });
+
+    it('keeps an unrecognised empty response fail-closed', async () => {
       fetchSpy.mockImplementation(async (url: any) => {
         const u = String(url);
         if (u === LISTING_URL) {
@@ -235,6 +263,7 @@ describe('Gavi crawler parser', () => {
 
       const jobs = await fetchAllGaviJobs();
       expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
     });
 
     it('filters out non-Swiss postings (e.g. the Washington DC liaison office)', async () => {
@@ -331,7 +360,7 @@ describe('Gavi crawler parser', () => {
           return mockResponse(listingHtml([{ vacancyNo: 'VN0004', title: 'Structured Data Role', location: 'Geneva' }])) as any;
         }
         if (u === DETAIL_URL('VN0004')) {
-          return mockResponse(detailHtml({ title: 'Structured Data Role', location: 'Geneva' })) as any;
+          return mockResponse(detailHtml({ title: 'Structured Data Role', location: 'Geneva', sourceUrl: DETAIL_URL('VN0004') })) as any;
         }
         throw new Error(`Unexpected fetch: ${u}`);
       });

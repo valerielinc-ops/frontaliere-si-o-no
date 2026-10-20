@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 // scripts/quality-alerts.mjs
 //
 // Phase 5 — quality-alerts daily runner. Loads evidence, quota state, the
@@ -258,7 +259,7 @@ async function main() {
   process.exit(result.exitCode === 1 ? ALERT_SIGNAL_EXIT : result.exitCode);
 }
 
-const invokedDirectly = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
+const invokedDirectly = isInvokedDirectly(import.meta.url);
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('quality-alerts crashed:', err);

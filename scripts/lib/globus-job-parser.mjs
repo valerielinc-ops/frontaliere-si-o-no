@@ -10,10 +10,12 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -143,21 +145,7 @@ function extractDetailUrls(html = '') {
 
 /** Parse the first JobPosting JSON-LD block from a detail page's HTML. */
 function extractJobPosting(html = '') {
-  const re = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    let data;
-    try {
-      data = JSON.parse(m[1]);
-    } catch {
-      continue;
-    }
-    const items = Array.isArray(data) ? data : data?.['@graph'] || [data];
-    for (const item of items) {
-      if (item?.['@type'] === 'JobPosting') return item;
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 async function fetchJobListings() {
@@ -168,7 +156,10 @@ async function fetchJobListings() {
     listingHtml = await fetchHtml(CAREER_URL, { headers: { 'User-Agent': UA } });
   } catch (err) {
     console.warn(`  ⚠️ Failed to fetch listing: ${err.message}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   const detailUrls = extractDetailUrls(listingHtml);
@@ -181,11 +172,15 @@ async function fetchJobListings() {
       detailHtml = await fetchHtml(url, { headers: { 'User-Agent': UA } });
     } catch (err) {
       console.warn(`  ⚠️ Failed to fetch ${url}: ${err.message}`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
     const posting = extractJobPosting(detailHtml);
-    if (!posting?.title) continue;
+    if (!posting?.title) {
+      await new Promise((r) => setTimeout(r, 300));
+      continue;
+    }
 
     const address = posting.jobLocation?.address || {};
     const locality = address.addressLocality || '';
@@ -194,7 +189,7 @@ async function fetchJobListings() {
       url,
       location: locality || HQ.city,
       description: posting.description || '',
-      postedAt: posting.datePosted || '',
+      ...sourcePostingDateFields(posting.datePosted),
       employmentType: posting.employmentType || '',
       streetAddress: address.streetAddress || '',
       postalCode: address.postalCode || '',
@@ -286,7 +281,7 @@ export async function fetchAllGlobusJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

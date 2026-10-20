@@ -9,7 +9,7 @@ import {
   isTrustedDomain,
   fetchAllStadtspitalZuerichJobs,
 } from '../scripts/lib/stadtspital-zuerich-job-parser.mjs';
-import { parseListingTiles } from '../scripts/lib/stadt-zuerich-job-parser.mjs';
+import { fetchOfficialAdTexts, parseListingTiles } from '../scripts/lib/stadt-zuerich-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -22,6 +22,23 @@ const FIXTURE = readFileSync(
   join(__dirname, '__fixtures__', 'stadtspital-zuerich-listing.html'),
   'utf8',
 );
+
+// The vacancy text comes from the city's official ad pages (issue 5253): the
+// pinned stadt-zuerich ad fixture, re-keyed to each tile's Referenz-Nr., and
+// an index entry per ad as the portal's search component lists it.
+const OFFICIAL_AD = readFileSync(
+  join(__dirname, 'fixtures', 'stadt-zuerich-official-ad-gaertner.html'),
+  'utf8',
+);
+const officialAdFor = (ref: string) => OFFICIAL_AD.replace(/51726/g, ref);
+const officialIndex = (entries: Array<{ id: string; unit: string }>) => JSON.stringify({
+  results: entries.map(({ id, unit }) => ({
+    tag: 'Job',
+    href: `/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/job-detailseite.${id}.html`,
+    heading: `Ad ${id}`,
+    meta: [unit, '20. September 2026'],
+  })),
+});
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -112,10 +129,37 @@ describe('Stadtspital Zürich crawler parser', () => {
 
   // ── fetchAllStadtspitalZuerichJobs (mocked fetch on live fixture) ──
   describe('fetchAllStadtspitalZuerichJobs', () => {
-    function stubFetchWith(html: string) {
+    // Official ads for both Stadtspital tiles (49951, 17521) plus one of
+    // another Dienstabteilung, which the unit filter must not fetch.
+    const ADS: Record<string, string> = { '70001': '49951', '70002': '17521', '70003': '49867' };
+    const INDEX = officialIndex([
+      { id: '70001', unit: 'Stadtspital Zürich' },
+      { id: '70002', unit: 'Stadtspital Zürich' },
+      { id: '70003', unit: 'Verkehrsbetriebe' },
+    ]);
+
+    function stubFetchWith(html: string, {
+      index = INDEX,
+      ads = ADS,
+      adBodies = {},
+    }: {
+      index?: string | null;
+      ads?: Record<string, string>;
+      adBodies?: Record<string, string>;
+    } = {}) {
       const fetchMock = vi.fn(async (url: string) => {
-        // First page returns the fixture; further pages are empty.
-        const body = String(url).includes('startrow=0') ? html : '<ul></ul>';
+        const u = String(url);
+        let body: string;
+        if (u.includes('/stzh/jobsearch')) {
+          if (index === null) return { ok: false, status: 503, text: async () => '' } as unknown as Response;
+          body = index;
+        } else if (u.includes('job-detailseite.')) {
+          const id = u.match(/job-detailseite\.(\d+)\.html/)?.[1] || '';
+          body = adBodies[id] || (ads[id] ? officialAdFor(ads[id]) : '');
+        } else {
+          // First listing page returns the fixture; further pages are empty.
+          body = u.includes('startrow=0') ? html : '<ul></ul>';
+        }
         return {
           ok: true,
           status: 200,
@@ -125,6 +169,23 @@ describe('Stadtspital Zürich crawler parser', () => {
       vi.stubGlobal('fetch', fetchMock);
       return fetchMock;
     }
+
+    it('reads the requested source text through fetchOfficialAdTexts', async () => {
+      const fetchMock = stubFetchWith(FIXTURE);
+      const texts = await fetchOfficialAdTexts(
+        new Set(['49951']),
+        0,
+        { unit: /stadtspital/i },
+      );
+
+      expect(texts.get('49951')).toContain('Aufgaben');
+      expect(texts.has('17521')).toBe(false);
+      const adCalls = fetchMock.mock.calls
+        .map((call) => String(call[0]))
+        .filter((url) => url.includes('job-detailseite.'));
+      expect(adCalls.some((url) => url.includes('70001'))).toBe(true);
+      expect(adCalls.some((url) => url.includes('70003'))).toBe(false);
+    });
 
     it('requests the Dienstabteilung facet filter for Stadtspital Zürich', async () => {
       const fetchMock = stubFetchWith(FIXTURE);
@@ -165,6 +226,51 @@ describe('Stadtspital Zürich crawler parser', () => {
       expect(isStadtspitalZuerichJob(job)).toBe(true);
     });
 
+    // The ad texts are read by `fetchOfficialAdTexts()`, shared with the
+    // stadt-zuerich parser (bucket 10677, item FU-2026-10-01-056).
+    it('publishes the official ad text, never a synthetic tile summary', async () => {
+      const fetchMock = stubFetchWith(FIXTURE);
+      const jobs = await fetchAllStadtspitalZuerichJobs();
+      for (const job of jobs) {
+        expect(job.description).toContain('Aufgaben');
+        expect(job.description).not.toMatch(/im Stadtspital Zürich.*Das Stadtspital Zürich ist mit den Standorten/s);
+      }
+      // Only the hospital's own ad pages are read, not the whole city index.
+      const adCalls = fetchMock.mock.calls.map((call) => String(call[0])).filter((u) => u.includes('job-detailseite.'));
+      expect(adCalls.some((u) => u.includes('70003'))).toBe(false);
+    });
+
+    it('does not publish a tile whose Referenz-Nr. has no official ad', async () => {
+      stubFetchWith(FIXTURE, { ads: { '70001': '49951' } });
+      const jobs = await fetchAllStadtspitalZuerichJobs();
+      expect(jobs.map((j: any) => j.referenceNumber)).toEqual(['49951']);
+    });
+
+    it('does not publish an official ad below the source floor', async () => {
+      const shortAd = `
+        <div>Referenz-Nr. 17521</div>
+        <stzh-pagecontent>
+          <stzh-richtext><p>Nur ein kurzer Eintrag.</p></stzh-richtext>
+        </stzh-pagecontent>
+      `;
+      stubFetchWith(FIXTURE, {
+        adBodies: {
+          '70001': officialAdFor('49951'),
+          '70002': shortAd,
+        },
+      });
+      const jobs = await fetchAllStadtspitalZuerichJobs();
+
+      expect(jobs.map((j: any) => j.referenceNumber)).toEqual(['49951']);
+      expect(jobs[0].description).toContain('Aufgaben');
+      expect(jobs[0].description).not.toContain('Nur ein kurzer Eintrag');
+    });
+
+    it('fails the run when the official ad index cannot be read', async () => {
+      stubFetchWith(FIXTURE, { index: null });
+      await expect(fetchAllStadtspitalZuerichJobs()).rejects.toThrow(/official ad index unavailable/);
+    });
+
     it('produces required fields, safe structured-data defaults and 50+ word descriptions', async () => {
       stubFetchWith(FIXTURE);
       const jobs = await fetchAllStadtspitalZuerichJobs();
@@ -192,22 +298,20 @@ describe('Stadtspital Zürich crawler parser', () => {
       expect(new Set(jobs.map((j: any) => j.slug)).size).toBe(jobs.length);
     });
 
-    it('returns [] (no throw) when the portal is unreachable', async () => {
+    it('propagates an unreachable portal instead of returning []', async () => {
       vi.stubGlobal('fetch', vi.fn(async () => {
         throw new Error('connect ETIMEDOUT');
       }));
-      const jobs = await fetchAllStadtspitalZuerichJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllStadtspitalZuerichJobs()).rejects.toThrow(/ETIMEDOUT/);
     });
 
-    it('returns [] (no throw) on HTTP error status', async () => {
+    it('propagates an HTTP error status instead of returning []', async () => {
       vi.stubGlobal('fetch', vi.fn(async () => ({
         ok: false,
         status: 503,
         text: async () => '',
       } as unknown as Response)));
-      const jobs = await fetchAllStadtspitalZuerichJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllStadtspitalZuerichJobs()).rejects.toThrow();
     });
   });
 

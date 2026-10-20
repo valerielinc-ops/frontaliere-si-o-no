@@ -20,6 +20,9 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
+import { legacyTicinoTreeBucket, ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT = readFileSync(resolve(ROOT, 'scripts/audit-404-risk.mjs'), 'utf-8');
@@ -51,24 +54,49 @@ function loadHelpers(env: Record<string, string> = {}) {
   const slugs = JSON.parse(readFileSync(resolve(ROOT, 'scripts/lib/section-shard-slugs.json'), 'utf-8'));
   const src = `
     const SECTION_SLUGS = ${JSON.stringify(slugs)};
+    const utf8Encoder = new TextEncoder();
+    ${ticinoTreeBucket.toString()}
+    ${legacyTicinoTreeBucket.toString()}
     const process = { env: ${JSON.stringify(env)} };
+    const flatString = (value) => value;
+    const slugifyCompanyName = (name) => String(name || '').toLowerCase()
+      .normalize('NFD').replace(/[\\u0300-\\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
     ${pick('localeOf')}
+    ${pick('normPath')}
+    ${pick('treeEntryToRoute')}
+    ${pick('extractAlternateHrefs')}
     ${constBlock('SECTION_BY_ROUTE_PREFIX')}
     ${pick('shardOwnerOf')}
     ${pick('ownerGeneration')}
     ${pick('classifyOffender')}
     ${pick('splitByGeneration')}
+    ${pick('sourceAssembledAtForCompany')}
+    ${pick('isSourceSnapshotNewer')}
+    ${pick('isUnservedHubLink')}
+    ${pick('splitHubOffenders')}
     ${constBlock('SHARD_MAX_AGE_H')}
     ${pick('generationSummary')}
-    return { shardOwnerOf, classifyOffender, splitByGeneration, generationSummary };
+    return { treeEntryToRoute, extractAlternateHrefs, shardOwnerOf, classifyOffender, splitByGeneration, isUnservedHubLink, splitHubOffenders, generationSummary };
   `;
   // eslint-disable-next-line no-new-func
   return new Function(src)() as {
+    extractAlternateHrefs: (xml: string) => string[];
+    treeEntryToRoute: (entry: string, section?: string | null, loc?: string | null) => string;
     shardOwnerOf: (p: string) => { kind: string; section?: string; loc: string };
     classifyOffender: (p: string, gen: unknown) => string;
     splitByGeneration: (paths: string[], gen: unknown) => { unserved: string[]; skew: string[] };
+    isUnservedHubLink: (builderUrl: string, expectedUrl: string, resolves: (path: string) => boolean) => boolean;
+    splitHubOffenders: (
+      offenders: Array<Record<string, unknown>>,
+      deployedSitemapPaths: Set<string>,
+      sourceAssembledAtByCompany: Map<string, string>,
+      deployedAt: string | null,
+      generation: unknown,
+    ) => { unserved: Array<Record<string, unknown>>; publishSkew: Array<Record<string, unknown>>; sourceSkew: Array<Record<string, unknown>> };
     generationSummary: (gen: unknown, now?: number) => {
       apexSha: string | null;
+      apexAt: string | null;
       shardsTotal: number;
       shardsSameGeneration: number;
       offGeneration: Array<{ shard: string }>;
@@ -78,6 +106,68 @@ function loadHelpers(env: Record<string, string> = {}) {
 }
 
 const APEX = 'b4ece24cbb661929f597d667fe3a507a5aa1c8ee';
+
+describe('deployed sitemap inventory — locale alternates are part of the set', () => {
+  it('extracts xhtml alternate hrefs without changing the <loc> coverage count', () => {
+    const { extractAlternateHrefs } = loadHelpers();
+    expect(extractAlternateHrefs(`
+      <url><loc>https://frontaliereticino.ch/cerca-lavoro-ticino/</loc>
+      <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/jobs-im-tessin/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/trouver-emploi-tessin/" /></url>
+    `)).toEqual([
+      'https://frontaliereticino.ch/de/jobs-im-tessin/',
+      'https://frontaliereticino.ch/fr/trouver-emploi-tessin/',
+    ]);
+  });
+});
+
+describe('treeEntryToRoute — Ticino physical fan-out maps to public routes', () => {
+  const { treeEntryToRoute } = loadHelpers();
+  const wrongMuratoreBucket = ticinoTreeBucket('muratore') === '00' ? '01' : '00';
+
+  it('removes the storage bucket for Italian and localized Ticino section shards', () => {
+    expect(treeEntryToRoute(
+      `cerca-lavoro-ticino/_tree/${ticinoTreeBucket('muratore')}/muratore/index.html`,
+      'ticino',
+      'it',
+    )).toBe('/cerca-lavoro-ticino/muratore');
+    expect(treeEntryToRoute(
+      `en/find-jobs-ticino/_tree/${ticinoTreeBucket('muller-amp-8211-bautischler')}/muller-amp-8211-bautischler/index.html`,
+      'ticino',
+      'en',
+    )).toBe('/en/find-jobs-ticino/muller-amp-8211-bautischler');
+    expect(treeEntryToRoute(
+      `de/jobs-im-tessin/_tree/${ticinoTreeBucket('Ir-Job-123')}/Ir-Job-123/index.html`,
+      'ticino',
+      'de',
+    )).toBe('/de/jobs-im-tessin/Ir-Job-123');
+    expect(treeEntryToRoute(
+      `de/jobs-im-tessin/_tree/${ticinoTreeBucket('direct-page.html')}/direct-page.html`,
+      'ticino',
+      'de',
+    )).toBe('/de/jobs-im-tessin/direct-page');
+    expect(treeEntryToRoute(
+      'en/find-jobs-ticino/_tree/fo/foo/index.html',
+      'ticino',
+      'en',
+    )).toBe('/en/find-jobs-ticino/foo');
+  });
+
+  it('leaves section roots and non-Ticino trees unchanged', () => {
+    expect(treeEntryToRoute('fr/trouver-emploi-tessin/index.html', 'ticino', 'fr'))
+      .toBe('/fr/trouver-emploi-tessin');
+    expect(treeEntryToRoute(
+      'en/find-jobs-ticino/_tree/mu/example/index.html',
+      'argovia',
+      'en',
+    )).toBe('/en/find-jobs-ticino/_tree/mu/example');
+    expect(treeEntryToRoute(
+      `cerca-lavoro-ticino/_tree/${wrongMuratoreBucket}/muratore/index.html`,
+      'ticino',
+      'it',
+    )).toBe(`/cerca-lavoro-ticino/_tree/${wrongMuratoreBucket}/muratore`);
+  });
+});
 
 describe('shardOwnerOf — which repo actually serves a path', () => {
   const { shardOwnerOf } = loadHelpers();
@@ -143,6 +233,131 @@ describe('classifyOffender — sound verdict vs snapshot skew', () => {
     expect(unserved).toEqual(['/en/find-jobs-ticino/a', '/fr/c']);
     expect(skew).toEqual(['/de/jobs-im-tessin/b', '/de/border-wait/x/2026-07']);
     expect(unserved.length + skew.length).toBe(paths.length);
+  });
+});
+
+describe('splitHubOffenders — current crawler data vs deployed pages', () => {
+  const generation = {
+    apexSha: APEX,
+    shards: {},
+    sectionShards: { ticino: { de: { sha: 'b4ece24c', at: '2026-10-02T08:00:00Z' } } },
+  };
+
+  it('defers a canonical hub absent from the live sitemap only when its source is newer', () => {
+    const { splitHubOffenders } = loadHelpers();
+    const result = splitHubOffenders(
+      [{
+        company: 'Città di Locarno',
+        locale: 'de',
+        builderUrl: '/de/jobs-im-tessin/unternehmen-citta-di-locarno',
+        expectedUrl: '/de/jobs-im-tessin/unternehmen-citta-di-locarno',
+      }],
+      new Set(),
+      new Map([['Città di Locarno', '2026-10-02T09:10:46Z']]),
+      '2026-10-02T08:00:00Z',
+      generation,
+    );
+    expect(result.sourceSkew).toHaveLength(1);
+    expect(result.unserved).toHaveLength(0);
+    expect(result.publishSkew).toHaveLength(0);
+  });
+
+  it('matches source skew when crawler punctuation differs from the hub sentinel', () => {
+    const { splitHubOffenders } = loadHelpers();
+    const result = splitHubOffenders(
+      [{
+        company: 'EOC Ente Ospedaliero Cantonale',
+        locale: 'en',
+        builderUrl: '/en/find-jobs-ticino/company-eoc-ente-ospedaliero-cantonale',
+        expectedUrl: '/en/find-jobs-ticino/company-eoc-ente-ospedaliero-cantonale',
+      }],
+      new Set(),
+      new Map([['EOC – Ente Ospedaliero Cantonale', '2026-10-04T09:29:07Z']]),
+      '2026-10-03T16:59:50Z',
+      generation,
+    );
+    expect(result.sourceSkew).toHaveLength(1);
+    expect(result.unserved).toHaveLength(0);
+    expect(result.publishSkew).toHaveLength(0);
+  });
+
+  it('keeps old or ambiguous missing hubs as failures', () => {
+    const { splitHubOffenders } = loadHelpers();
+    const base = {
+      company: 'Old Company',
+      locale: 'de',
+      builderUrl: '/de/jobs-im-tessin/unternehmen-old-company',
+      expectedUrl: '/de/jobs-im-tessin/unternehmen-old-company',
+    };
+    const result = splitHubOffenders(
+      [base, { ...base, company: 'Unknown Company', builderUrl: '/de/jobs-im-tessin/unternehmen-unknown-company', expectedUrl: '/de/jobs-im-tessin/unternehmen-unknown-company' }],
+      new Set(),
+      new Map([['Old Company', '2026-10-01T08:00:00Z']]),
+      '2026-10-02T08:00:00Z',
+      generation,
+    );
+    expect(result.unserved.map((o) => o.company)).toEqual(['Old Company', 'Unknown Company']);
+    expect(result.sourceSkew).toHaveLength(0);
+  });
+
+  it('never defers a wrong locale prefix as source skew', () => {
+    const { splitHubOffenders } = loadHelpers();
+    const offGeneration = {
+      ...generation,
+      sectionShards: { ticino: { de: { sha: 'aaaaaaaa', at: '2026-10-02T08:30:00Z' } } },
+    };
+    const result = splitHubOffenders(
+      [{
+        company: 'Città di Locarno',
+        locale: 'de',
+        builderUrl: '/de/jobs-im-tessin/azienda-citta-di-locarno',
+        expectedUrl: '/de/jobs-im-tessin/unternehmen-citta-di-locarno',
+      }],
+      new Set(),
+      new Map([['Città di Locarno', '2026-10-02T09:10:46Z']]),
+      '2026-10-02T08:00:00Z',
+      offGeneration,
+    );
+    expect(result.unserved).toHaveLength(1);
+    expect(result.publishSkew).toHaveLength(0);
+    expect(result.sourceSkew).toHaveLength(0);
+  });
+});
+
+describe('newsletter hub 404 predicate', () => {
+  const { isUnservedHubLink } = loadHelpers();
+  const route = '/fr/trouver-emploi-tessin/entreprise-board-international';
+
+  it('does not call a served bridge URL a 404 just because it is intentionally absent from the sitemap', () => {
+    const deployedSitemapPaths = new Set<string>();
+    const servedPaths = new Set([route]);
+
+    expect(deployedSitemapPaths.has(route)).toBe(false);
+    expect(isUnservedHubLink(route, route, (path) => servedPaths.has(path))).toBe(false);
+    expect(SCRIPT).toMatch(/if\s*\(!isUnservedHubLink\(url, expected, resolves\)\) continue;/);
+    expect(SCRIPT).not.toMatch(/absentFromDeployedSitemap\s*\|\|\s*!resolves\(url\)/);
+  });
+
+  it('still flags a missing served route and a wrong builder URL', () => {
+    expect(isUnservedHubLink(route, route, () => false)).toBe(true);
+    expect(isUnservedHubLink(
+      '/fr/trouver-emploi-tessin/company-board-international',
+      route,
+      () => true,
+    )).toBe(true);
+  });
+});
+
+describe('sitemap inventory completeness', () => {
+  it('fails before newsletter hub classification when a child fetch fails', () => {
+    const childFailure = SCRIPT.indexOf('failedSitemapChildren.push(child)');
+    const guard = SCRIPT.indexOf('if (failedSitemapChildren.length > 0)');
+    const newsletterCheck = SCRIPT.indexOf('// ── (B) NEWSLETTER HUB-LINK CORRECTNESS');
+
+    expect(childFailure).toBeGreaterThan(-1);
+    expect(guard).toBeGreaterThan(childFailure);
+    expect(guard).toBeLessThan(newsletterCheck);
+    expect(SCRIPT.slice(guard, newsletterCheck)).toContain('process.exit(2)');
   });
 });
 

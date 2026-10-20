@@ -5,6 +5,9 @@
  */
 
 export type Locale = 'it' | 'en' | 'de' | 'fr';
+import type { ArticleSection, HistoricalArticleSection } from './articleSections';
+import { articlesApiBase } from './articlesApiBase';
+import { isArticleBodyPlaceholder } from './articleBodyRecovery';
 
 type TranslationKey = string;
 type Translations = Record<TranslationKey, string>;
@@ -105,6 +108,30 @@ export function mergeArticleMetaOverlay(locale: Locale, translations: Translatio
   return added;
 }
 
+/** Recover absent/placeholder body keys only; valid prose and metadata stay authoritative. */
+export function mergeRecoveredArticleBody(locale: Locale, id: string, parts: readonly string[]): number {
+  const target = loadedLocales[locale] ?? (loadedLocales[locale] = {});
+  const prefix = `blog.article.${id}.body`;
+  const existing = Object.keys(target).filter((key) => key.startsWith(prefix) && /^\d+$/.test(key.slice(prefix.length)));
+  // Static recovery returns an array, not named fields. A compacted or partial
+  // body must not be assigned to different existing bodyN positions.
+  if (existing.length > 0 && (existing.length !== parts.length
+    || parts.some((_, index) => !existing.includes(`${prefix}${index + 1}`)))) return 0;
+  let changed = 0;
+  parts.forEach((part, index) => {
+    const key = `${prefix}${index + 1}`;
+    if (!isArticleBodyPlaceholder(part) && (target[key] === undefined || isArticleBodyPlaceholder(target[key]))) {
+      target[key] = part;
+      changed++;
+    }
+  });
+  if (changed > 0) {
+    localeTick++;
+    listeners.forEach((fn) => fn(currentLocale));
+  }
+  return changed;
+}
+
 // Background preloads can be interrupted during test worker teardown.
 // We intentionally swallow those rejections to avoid unhandled promise noise.
 function swallowBackgroundLoadError(_err: unknown): void {
@@ -114,9 +141,16 @@ function swallowBackgroundLoadError(_err: unknown): void {
 // ─── Blog Translations (2-tier: meta + per-article body) ─────
 
 // Tier 1: Blog meta (titles, excerpts, imageAlt) — per article section
-type ArticleSectionName = 'frontaliere' | 'svizzera';
+type ArticleSectionName = ArticleSection;
 
-const blogMetaLoaders: Record<ArticleSectionName, Record<Locale, () => Promise<{ default: Translations }>>> = {
+// Keep this leaf predicate local. i18n is imported by a few Vite build-plugin
+// type graphs; pulling the runtime registry into that graph would make the
+// build config try to resolve browser-only aliases before Vite is configured.
+function isCantonSection(section: ArticleSectionName): boolean {
+ return section.startsWith('canton-');
+}
+
+const blogMetaLoaders: Record<HistoricalArticleSection, Record<Locale, () => Promise<{ default: Translations }>>> = {
  frontaliere: {
  it: () => import('./locales/blog-meta-it'),
  en: () => import('./locales/blog-meta-en'),
@@ -135,7 +169,27 @@ const blogMetaLoaders: Record<ArticleSectionName, Record<Locale, () => Promise<{
 const blogMetaLoaded = new Set<string>();
 const blogMetaLoadingPromises = new Map<string, Promise<void>>();
 
-// Tier 2: Per-article body (body1, body2, body3) — loaded on demand
+const cantonMetaPromises = new Map<Locale, Promise<Translations>>();
+
+async function loadCantonMeta(locale: Locale): Promise<Translations> {
+ const cached = cantonMetaPromises.get(locale);
+ if (cached) return cached;
+ const promise = fetch(`${articlesApiBase()}/meta-canton-${locale}.json`)
+   .then(async response => {
+    if (!response.ok) return {};
+    const raw = await response.json() as unknown;
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+    return Object.fromEntries(
+      Object.entries(raw as Record<string, unknown>)
+        .filter(([, value]) => typeof value === 'string'),
+    ) as Translations;
+   })
+   .catch(() => ({} as Translations));
+ cantonMetaPromises.set(locale, promise);
+ return promise;
+}
+
+// Tier 2: Per-article body (bodyN) — loaded on demand
 const loadedArticleBodies = new Set<string>(); // "locale:articleId"
 const articleBodyPromises = new Map<string, Promise<void>>();
 
@@ -145,7 +199,32 @@ const articleBodyPromises = new Map<string, Promise<void>>();
  * Safe to call multiple times — subsequent calls are no-ops.
  */
 export async function loadBlogMeta(section: ArticleSectionName = 'frontaliere'): Promise<void> {
- const loaders = blogMetaLoaders[section];
+ if (isCantonSection(section)) {
+  const key = `${section}:${currentLocale}`;
+  if (blogMetaLoaded.has(key)) return;
+  const existing = blogMetaLoadingPromises.get(key);
+  if (existing) {
+   await existing;
+   return;
+  }
+  const promise = (async () => {
+   const itMeta = await loadCantonMeta('it');
+   mergeLocaleTranslations('it', itMeta);
+   blogMetaLoaded.add(`${section}:it`);
+   if (currentLocale !== 'it') {
+    const localeMeta = await loadCantonMeta(currentLocale);
+    mergeLocaleTranslations(currentLocale, localeMeta);
+    blogMetaLoaded.add(key);
+   }
+   localeTick++;
+   listeners.forEach(fn => fn(currentLocale));
+  })();
+  blogMetaLoadingPromises.set(key, promise);
+  await promise;
+  return;
+ }
+ const loaders = blogMetaLoaders[section as HistoricalArticleSection];
+ if (!loaders) return;
  const key = `${section}:${currentLocale}`;
  if (blogMetaLoaded.has(key)) return;
  const existing = blogMetaLoadingPromises.get(key);
@@ -175,6 +254,12 @@ export async function loadBlogMeta(section: ArticleSectionName = 'frontaliere'):
  * Called when the user opens a specific article. ~3-7 KB per article.
  */
 export async function loadArticleBody(articleId: string, section: ArticleSectionName = 'frontaliere'): Promise<void> {
+ if (isCantonSection(section)) {
+  // Canton bodies are intentionally recovered from the corpus-owned static
+  // article HTML by runtimeArticleResolution. They are not bundled in the
+  // site, so importing a guessed Vite chunk would create a false empty body.
+  return;
+ }
  const locale = currentLocale;
  const key = `${section}:${locale}:${articleId}`;
  const itKey = `${section}:it:${articleId}`;
@@ -212,19 +297,51 @@ export async function loadArticleBody(articleId: string, section: ArticleSection
  listeners.forEach(fn => fn(currentLocale));
 }
 
+/**
+ * Return every bodyN translation currently available to the active locale.
+ *
+ * The article loader merges arbitrary bodyN fields into the locale stores, so
+ * callers that need the complete article body must enumerate those stores
+ * instead of assuming the historical body1/body2/body3 shape. The merge order
+ * mirrors t(): the active locale wins, then the Italian fallback is used.
+ */
+export function getLoadedArticleBody(articleId: string): Readonly<Record<string, string>> {
+ const prefix = `blog.article.${articleId}.`;
+ const bodyKey = /^body\d+$/;
+ const result: Record<string, string> = {};
+ const merge = (translations?: Translations): void => {
+  for (const [key, value] of Object.entries(translations ?? {})) {
+   if (!key.startsWith(prefix)) continue;
+   const field = key.slice(prefix.length);
+   if (bodyKey.test(field) && value) result[field] = value;
+  }
+ };
+
+ merge(loadedLocales.it);
+ merge(itTranslations);
+ if (currentLocale !== 'it') merge(loadedLocales[currentLocale]);
+ return result;
+}
+
 /** @deprecated Use loadBlogMeta() + loadArticleBody(id) instead */
 export async function loadBlogTranslations(): Promise<void> {
  await loadBlogMeta();
+}
+
+async function refreshLoadedBlogSections(): Promise<void> {
+ const sections = new Set<ArticleSection>();
+ for (const marker of blogMetaLoaded) {
+  const section = marker.split(':')[0] as ArticleSection;
+  sections.add(section);
+ }
+ await Promise.all([...sections].map(section => loadBlogMeta(section)));
 }
 
 export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
  if (locale === 'it') {
  // IT translations are loaded eagerly via itReady; wait for them
  await itReady;
- if (blogMetaLoaded.size > 0 && !loadedLocales['it']?.['blog.article.stipendio-netto-2026.title']) {
- const itMeta = await blogMetaLoaders.frontaliere['it']();
- loadedLocales['it'] = { ...loadedLocales['it'], ...itMeta.default };
- }
+ if (blogMetaLoaded.size > 0) await refreshLoadedBlogSections();
  return;
  }
 
@@ -234,10 +351,7 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
 
  // If core+calculator already loaded, just wait for any in-flight loading
  if (loadedLocaleChunks[locale].has('core')) {
- if (blogMetaLoaded.size > 0 && !loadedLocales[locale]?.['blog.article.stipendio-netto-2026.title']) {
- const localeMeta = await blogMetaLoaders.frontaliere[locale]();
- mergeLocaleTranslations(locale, localeMeta.default);
- }
+ if (blogMetaLoaded.size > 0) await refreshLoadedBlogSections();
  return;
  }
 
@@ -269,15 +383,7 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
  loadedLocaleChunks[locale].add('seo-links');
 
  // If blog meta was already loaded, merge meta keys for this locale too
- if (blogMetaLoaded.size > 0) {
- const localeMeta = await blogMetaLoaders.frontaliere[locale]();
- mergeLocaleTranslations(locale, localeMeta.default);
- // Also top up svizzera meta for this locale if that section was loaded.
- if (blogMetaLoaded.has(`svizzera:${locale}`) || blogMetaLoaded.has('svizzera:it')) {
- const chMeta = await blogMetaLoaders.svizzera[locale]();
- mergeLocaleTranslations(locale, chMeta.default);
- }
- }
+ if (blogMetaLoaded.size > 0) await refreshLoadedBlogSections();
 
  // Background-load remaining page chunks
  const loadRemaining = () => {
@@ -553,6 +659,9 @@ export const itReady: Promise<void> = Promise.all([
  setTimeout(loadRemaining, 100);
  }
 });
+// Module-level promise: a chunk failure here must not escape as an unhandled
+// rejection when no caller awaits it. Callers still see the rejection.
+itReady.catch(swallowBackgroundLoadError);
 
 /** Load translations for a specific tab — no-op if already loaded. */
 export async function loadTabTranslations(tab: string): Promise<void> {
@@ -566,16 +675,20 @@ export async function loadTabTranslations(tab: string): Promise<void> {
  listeners.forEach(fn => fn(currentLocale));
 }
 
-/** Load ALL translation chunks (IT + current locale). Used by site search. */
+/**
+ * Load ALL translation chunks (IT + current locale). Used by site search.
+ * Never rejects: a chunk that fails to load stays unmarked, so t() falls back
+ * to Italian for its keys and the next call retries it.
+ */
 export async function loadAllTranslations(): Promise<void> {
- await itReady;
+ await itReady.catch(swallowBackgroundLoadError);
  const promises: Promise<void>[] = [];
  for (const [page, loader] of Object.entries(itPageLoaders)) {
  if (!loadedItPages.has(page)) {
  promises.push(loader().then(m => {
  mergeItTranslations(m.default);
  loadedItPages.add(page);
- }));
+ }).catch(swallowBackgroundLoadError));
  }
  }
  if (currentLocale !== 'it') {
@@ -586,7 +699,7 @@ export async function loadAllTranslations(): Promise<void> {
  promises.push(loader().then(m => {
  mergeLocaleTranslations(currentLocale, m.default);
  loadedLocaleChunks[currentLocale].add(page);
- }));
+ }).catch(swallowBackgroundLoadError));
  }
  }
  }
@@ -595,6 +708,37 @@ export async function loadAllTranslations(): Promise<void> {
  await Promise.all(promises);
  localeTick++;
  listeners.forEach(fn => fn(currentLocale));
+ }
+}
+
+/**
+ * Load ONE page chunk of an EN/DE/FR locale now, instead of waiting for the
+ * idle background loader, and return that chunk's own strings.
+ *
+ * The chunk is merged and announced exactly like the background loader does
+ * (so a component that rendered with the Italian fallback re-renders, and the
+ * background loader then skips it). The return value is the chunk itself, not
+ * `t()`: a caller that needs the LOCALE string — the SPA head of a glossary
+ * term, `services/seoService.ts` — must not get the Italian fallback `t()`
+ * hands out for a missing key. Never rejects: IT, an unknown chunk or a failed
+ * load return null and the caller keeps its own fallback.
+ */
+export async function loadLocalePageChunk(locale: Locale, page: string): Promise<Readonly<Translations> | null> {
+ if (locale === 'it') return null;
+ const loader = localeChunkLoaders[locale]?.[page];
+ if (!loader) return null;
+ try {
+ const m = await loader();
+ if (!loadedLocaleChunks[locale].has(page)) {
+ mergeLocaleTranslations(locale, m.default);
+ loadedLocaleChunks[locale].add(page);
+ localeTick++;
+ listeners.forEach(fn => fn(currentLocale));
+ }
+ return m.default;
+ } catch (err) {
+ swallowBackgroundLoadError(err);
+ return null;
  }
 }
 

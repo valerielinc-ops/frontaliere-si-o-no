@@ -25,6 +25,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { shouldRearmCancelledFetchAttempt } from '@/services/jobBoardSearchPipeline';
 
 const SRC = fs.readFileSync(
   path.resolve(__dirname, '../components/community/JobBoard.tsx'),
@@ -43,7 +44,30 @@ function effectBodyAfter(anchor: string): string {
 }
 
 describe('search-index gating of the lazy corpus-fetch tiers', () => {
+  it('re-arms an in-flight latch after cancellation but keeps a settled attempt terminal', () => {
+    let attempted = true;
+    let cancelled = false;
+    let attemptSettled = false;
+
+    cancelled = true;
+    if (shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)) attempted = false;
+
+    expect(attempted).toBe(false);
+
+    attempted = true;
+    cancelled = true;
+    attemptSettled = true;
+    if (shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)) attempted = false;
+
+    expect(attempted).toBe(true);
+    expect(SRC).toContain('shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)');
+  });
+
   it('derives one shared pending flag from an active query + a stale index', () => {
+    const currentDecl = SRC.match(/const searchIndexCurrent = [\s\S]{0,200}?;/);
+    expect(currentDecl, 'searchIndexCurrent must be declared').not.toBeNull();
+    expect(currentDecl![0]).toContain('searchIndex.jobs === sortedJobs');
+    expect(currentDecl![0]).toContain('searchIndex.locale === locale');
     const decl = SRC.match(/const searchIndexPending = [\s\S]{0,200}?;/);
     expect(decl, 'searchIndexPending must be declared').not.toBeNull();
     const text = decl![0];
@@ -53,8 +77,7 @@ describe('search-index gating of the lazy corpus-fetch tiers', () => {
     // replaced by one of the same length (job-detail enrichment re-creates one
     // job) or a locale switch leaves every key stale while `size` still
     // matches: a size check calls that "complete" and lets the tiers fire.
-    expect(text).toContain('searchIndex.jobs !== sortedJobs');
-    expect(text).toContain('searchIndex.locale !== locale');
+    expect(text).toContain('!searchIndexCurrent');
     expect(text).not.toContain('searchIndex.size');
     // Exactly one definition: the skeleton and the fetch tiers must not drift.
     expect(SRC.match(/const searchIndexPending =/g)).toHaveLength(1);
@@ -62,8 +85,14 @@ describe('search-index gating of the lazy corpus-fetch tiers', () => {
 
   it('commits the index together with the (jobs, locale) pair it describes', () => {
     // One state value, so the map and the pair it describes cannot diverge.
-    expect(SRC).toContain('setSearchIndex({ map, jobs: sortedJobs, locale })');
+    expect(SRC).toContain('setSearchIndex({ map, jobs: sortedJobs, locale, ids, locationTokens })');
     expect(SRC.match(/setSearchIndex\(/g)).toHaveLength(1);
+  });
+
+  it('reuses the bounded index pass for scoped ids and location vocabulary', () => {
+    expect(SRC).toContain('ids.add(job.id)');
+    expect(SRC).toContain('addJobSearchLocationTokens(locationTokens, job)');
+    expect(SRC).not.toContain('const scopedSearchLocationTokens = useMemo');
   });
 
   it('gates the cross-locale tier (DE/FR/EN slim indexes) on it', () => {
@@ -72,8 +101,43 @@ describe('search-index gating of the lazy corpus-fetch tiers', () => {
     expect(body).toContain('searchIndexPending,');
   });
 
+  it('lets a canton-scoped search finish its same-locale broaden before Tier 4', () => {
+    const body = effectBodyAfter('if (crossLocaleFetchAttempted.current) return;');
+    expect(body).toContain('const cantonScopedSearch');
+    expect(body).toContain('!searchBroadenSettledQueries.has(searchBroadenKey)');
+    expect(body).toContain('searchBroadenSettledQueries,');
+  });
+
+  it('re-arms the cross-locale fallback when navigation cancels its in-flight fetch', () => {
+    const body = effectBodyAfter('if (crossLocaleFetchAttempted.current) return;');
+    expect(body).toContain('crossLocaleFetchAttempted.current = true;');
+    expect(body).toContain('shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)');
+    expect(body).toContain('crossLocaleFetchAttempted.current = false;');
+    expect(body).toContain('attemptSettled = true;');
+    expect(body).toContain('if (!cancelled) {');
+  });
+
+  it('re-arms the company fallback when its in-flight fetch is cancelled', () => {
+    const body = effectBodyAfter('if (companyBroadenFetchAttempted.current) return;');
+    expect(body).toContain('companyBroadenFetchAttempted.current = true;');
+    expect(body).toContain('shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)');
+    expect(body).toContain('companyBroadenFetchAttempted.current = false;');
+    expect(body).toContain('attemptSettled = true;');
+    expect(body).toContain('if (!cancelled) {');
+  });
+
+  it('tracks same-locale broaden completion per query and shares its pool request', () => {
+    const body = effectBodyAfter('const queryKey = makeSearchBroadenKey(locale, query);');
+    expect(body).toContain('searchBroadenAttemptedQueries.current.has(queryKey)');
+    expect(body).toContain('searchBroadenAttemptedQueries.current.add(queryKey)');
+    expect(body).toContain('searchBroadenPoolPromiseRef.current');
+    expect(body).toContain('setSearchBroadenSettledQueries');
+    expect(body).toContain('previous.has(queryKey)');
+    expect(body).toContain('currentRequest.promise !== promise');
+  });
+
   it('gates the same-locale cross-canton broaden on it', () => {
-    const body = effectBodyAfter('if (searchBroadenFetchAttempted.current) return;');
+    const body = effectBodyAfter('if (searchIndexPending) return;\n if (companySlugFilter) return; // company path owns its loader');
     expect(body).toContain('if (searchIndexPending) return;');
     // Anchored to the neighbouring dep: a bare `searchIndexPending` substring
     // is already satisfied by the early return above, so it would pass with the

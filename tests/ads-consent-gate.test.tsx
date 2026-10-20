@@ -189,14 +189,32 @@ describe('ads-consent gate — no ad-serving script before consent', () => {
     expect(document.querySelector(FC_SELECTOR)).not.toBeNull();
   });
 
-  it('static page loader serves NO ads when consent is explicitly denied', () => {
+  it('loads the CMP even when the ad-serving bot gate matches', () => {
+    const previous = Object.getOwnPropertyDescriptor(window.navigator, 'webdriver');
+    Object.defineProperty(window.navigator, 'webdriver', { value: true, configurable: true });
+
+    try {
+      runStaticLoader();
+      expect(document.querySelector(FC_SELECTOR)).not.toBeNull();
+      // The bot gate still protects Auto Ads and every other ad-serving path.
+      expect(injectedAdServingScripts()).toEqual([]);
+    } finally {
+      if (previous) Object.defineProperty(window.navigator, 'webdriver', previous);
+      else delete (window.navigator as Navigator & { webdriver?: boolean }).webdriver;
+    }
+  });
+
+  it('static page loader loads only AdSense, for Limited Ads, when consent is explicitly denied', () => {
+    // Without Purpose 1 consent Google serves Limited Ads from the TC string
+    // (owner request 28-09): AdSense loads, nothing else ad-serving does.
     localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_DENIED);
     runStaticLoader();
-    expect(injectedAdServingScripts()).toEqual([]);
+    expect(document.querySelector(ADSENSE_SELECTOR)).not.toBeNull();
+    expect(injectedAdServingScripts().filter((src) => !src.includes('adsbygoogle.js'))).toEqual([]);
   });
 
   it('static page loader serves NO ads for a corrupted/unknown stored value', () => {
-    // Fails closed: anything that is not the literal 'granted' blocks.
+    // Fails closed: anything that is not a literal 'granted' or 'denied' blocks.
     localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'true');
     runStaticLoader();
     expect(injectedAdServingScripts()).toEqual([]);
@@ -250,6 +268,24 @@ describe('ads-consent gate — no ad-serving script before consent', () => {
     const { default: AdSenseBanner } = await import('@/components/shared/AdSenseBanner');
     render(<AdSenseBanner adSlot="1234567890" adFormat="auto" />);
     expect(document.querySelector(ADSENSE_SELECTOR)).toBeNull();
+  });
+
+  it('SPA <AdSenseBanner> loads adsbygoogle.js for Limited Ads when consent is denied', async () => {
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_DENIED);
+    const { default: AdSenseBanner } = await import('@/components/shared/AdSenseBanner');
+    render(<AdSenseBanner adSlot="1234567890" adFormat="auto" />);
+    expect(document.querySelector(ADSENSE_SELECTOR)).not.toBeNull();
+  });
+
+  it('Prebid and <GptAdSlot> stay closed when consent is denied: Limited Ads are AdSense only', async () => {
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_DENIED);
+    const { __testing } = await import('@/services/headerBidding');
+    __testing.resetForTests();
+    __testing.ensurePrebidScript();
+    expect(document.querySelector('script[src="/assets/prebid.js"]')).toBeNull();
+    const { default: GptAdSlot } = await import('@/components/shared/GptAdSlot');
+    render(<GptAdSlot adUnitPath="/123/rail" sizes={[[300, 600]]} />);
+    expect(document.querySelector(GPT_SELECTOR)).toBeNull();
   });
 
   it('SPA <AdSenseBanner> injects NOTHING when no decision has been made', async () => {
@@ -369,7 +405,7 @@ describe('ads-consent gate — CMP → gate bridge', () => {
     expect(document.querySelector(ADSENSE_SELECTOR)).not.toBeNull();
   });
 
-  it('a TCF refusal (purpose 1 withheld on useractioncomplete) records denied and serves nothing', () => {
+  it('a TCF refusal (purpose 1 withheld on useractioncomplete) records denied; the bridge alone serves nothing', () => {
     runBridge();
     installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: false } } });
     drainFcCallbackQueue();
@@ -483,6 +519,7 @@ describe('ads-consent gate — storage contract', () => {
     // shells disagreeing about which key/value means consent.
     expect(ADSENSE_LOADER_CONTENT).toContain(ADS_CONSENT_STORAGE_KEY);
     expect(ADSENSE_LOADER_CONTENT).toContain(`==='${ADS_CONSENT_GRANTED}'`);
+    expect(ADSENSE_LOADER_CONTENT).toContain(`==='${ADS_CONSENT_DENIED}'`);
     expect(ADSENSE_LOADER_CONTENT).toContain(ADS_CONSENT_CHANGE_EVENT);
     // And the bridge ships inside the static loader, so every static page both
     // renders the CMP and records its outcome.

@@ -825,5 +825,34 @@
     "sector": "Trasporti pubblici / Ferrovia",
     "hasDedicatedCrawler": true,
     "discoveredBy": "manual"
+  },
+  {
+    "name": "Protectas SA",
+    "key": "protectas",
+    "website": "https://www.protectas.com",
+    "careersUrl": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/",
+    "city": "Lugano",
+    "canton": "TI",
+    "country": "CH",
+    "sector": "Sicurezza fisica / Vigilanza",
+    "hasDedicatedCrawler": true,
+    "discoveredBy": "manual"
+  },
+  {
+    "name": "ZAUGG AG",
+    "key": "zaugg",
+    "website": "https://www.zaugg.swiss",
+    "careersUrl": "https://www.zaugg.swiss/stellen",
+    "city": "Eggiwil",
+    "address": "Holzmatt 651 b, CH-3537 Eggiwil",
+    "postalCode": "3537",
+    "canton": "BE",
+    "country": "CH",
+    "coordinates": [46.8844566, 7.7853832],
+    "employees": 170,
+    "sector": "Macchinari e tecnica comunale",
+    "description": "Produttore svizzero di macchine per sgombero neve e tecnica comunale, con sede a Eggiwil (BE).",
+    "hasDedicatedCrawler": true,
+    "discoveredBy": "manual"
   }
 ]

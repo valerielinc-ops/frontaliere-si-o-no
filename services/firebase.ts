@@ -12,10 +12,10 @@ import type { FirebaseApp } from "firebase/app";
 import type { Analytics as FirebaseAnalytics } from "firebase/analytics";
 import type { FirebasePerformance, PerformanceTrace } from "firebase/performance";
 import type { AppCheck } from "firebase/app-check";
-import { reportCaughtError } from '@/services/errorReporter';
-import { isIndexedDbError } from '@/services/benignErrorPatterns';
-import { isRecaptchaClientReady, type RecaptchaLikeWindow } from '@/services/recaptchaReady';
-import { setFirebaseApiKey } from '@/services/firebaseAuthPersistence';
+import { reportCaughtError } from './errorReporter';
+import { isIndexedDbError } from './benignErrorPatterns';
+import { isRecaptchaClientReady, type RecaptchaLikeWindow } from './recaptchaReady';
+import { setFirebaseApiKey } from './firebaseAuthPersistence';
 import { openIndexedDbWithSchema } from './indexedDbSchema';
 
 const firebaseConfig = {
@@ -38,13 +38,42 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // allowlisted getPublicConfig endpoint. `auto` preserves the deterministic
  // assisted-application split when no global arm is forced.
  ASSISTED_APPLICATION_EXPERIMENT_VARIANT: 'auto',
+ // Copy-only test for the assisted-application offer. The safe default keeps
+ // the current message until Remote Config explicitly enables `auto`.
+ ASSISTED_APPLICATION_COPY_VARIANT: 'control',
+ // Candidate answer AI check: disabled locally and until the Remote Config
+ // rollout is explicitly activated. The server applies the same fail-closed
+ // gate; this value only describes the allowlisted client activation state.
+ ASSISTED_APPLICATION_ANSWER_AI_ENABLED: 'false',
+ // 1,99 € assisted-application offer shown when the job-board Offerwall and
+ // its GPT fallback fail to load (services/assistedApplicationExperiment.ts).
+ // Default 'false' keeps today's direct redirect; flip to 'true' in Remote
+ // Config (the key is allowlisted in functions/src/publicConfigKeys.js).
+ ASSISTED_APPLICATION_OFFERWALL_FALLBACK: 'false',
  AUTHGATE_HEADLINE_VARIANT: 'control',
- ADBLOCK_GATE_EXPERIMENT_ENABLED: 'true',
+ // Legacy v4 keys remain available for cached clients, which Remote Config
+ // pins to the promoted Spotlight treatment while they age out.
+ JOBGATE_EXPERIMENT_ENABLED: 'false',
+ JOBGATE_EXPERIMENT_ARMS: '{"control":100}',
+ JOBGATE_EXPERIMENT_FORCE: '',
+ // The promoted Spotlight is the safe visual default even when v5 is disabled
+ // or public config fails. Enrollment stays off until explicitly enabled.
+ JOBGATE_V5_EXPERIMENT_ENABLED: 'false',
+ JOBGATE_V5_EXPERIMENT_ARMS: '{"spotlight":100}',
+ JOBGATE_V5_EXPERIMENT_FORCE: '',
+ // The custom anti-adblock overlay is retired in favour of Google's Funding
+ // Choices recovery message. Keep the old flag fail-closed for any legacy
+ // caller that still imports AdBlockGate directly.
+ ADBLOCK_GATE_EXPERIMENT_ENABLED: 'false',
  ADBLOCK_GATE_TEST_SHARE: '0.30',
  GOOGLE_MAPS_API_KEY: '',
  GA_MEASUREMENT_ID: '',
  RECAPTCHA_SITE_KEY: '',
  GOOGLE_OAUTH_CLIENT_ID: '',
+ // Public Google Pay merchant identifier used by the SumUp card widget.
+ // Keep it configurable in Remote Config so test and production merchant
+ // registrations never require a source change.
+ SUMUP_GOOGLE_PAY_MERCHANT_ID: '',
  RESEND_API_KEY: '',
  NEWSLETTER_SECRET: '',
  // SEO SERP experiment: enabled by default as safe fallback when
@@ -67,6 +96,8 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  ENABLE_JOB_ALERTS: 'false',
  // Personalization: personalized job sorting based on behavior + profile data
  ENABLE_JOB_PERSONALIZATION: 'false',
+ // Exact-job application-intent ranking; off on missing RC and fetch failure.
+ APPLICATION_INTENT_RANKING_ENABLED: 'false',
  // E2: Calculator paywall modal (soft paywall — PDF report capture after
  // 3+ simulations or 2+ visits). Default off for gradual rollout.
  ENABLE_CALCULATOR_PAYWALL: 'false',
@@ -136,6 +167,15 @@ let _analytics: FirebaseAnalytics | null = null;
 let _analyticsLoading: Promise<FirebaseAnalytics | null> | null = null;
 let _analyticsBlocked = false;
 
+// The ONE options object for every Firebase Analytics initialization. The
+// SDK's `gtag('config', …)` sends an automatic page_view — with no
+// `emission_id` — unless `send_page_view` is false, and `getAnalytics(app)` on
+// a not-yet-initialized app initializes with the DEFAULT config. Reusing the
+// same object also keeps `initializeAnalytics` idempotent: the SDK mutates
+// `config` in place and compares options with `deepEqual`, which is true by
+// identity. Guarded by tests/page-view-producer-inventory.test.ts.
+const FIREBASE_ANALYTICS_SETTINGS = { config: { send_page_view: false } };
+
 // Firebase Installations is a dependency of Analytics. Its SDK opens this
 // database at version 1 and only creates the store during oldVersion === 0;
 // an existing version-1 database with a lost store otherwise rejects later
@@ -164,6 +204,71 @@ async function prepareFirebaseInstallationsStore(): Promise<boolean> {
  } catch {
   // Disable optional Analytics if the schema preflight itself is inconclusive.
   return false;
+ }
+}
+
+type FirebaseInstallationsError = {
+ code?: unknown;
+ customData?: { serverCode?: unknown };
+ message?: unknown;
+};
+
+/**
+ * Firebase Analytics and Performance both start asynchronous Installations
+ * work during their otherwise synchronous factory call. A permanent 403
+ * from the Installations API therefore rejects an SDK-internal promise after
+ * the caller's try/catch has already completed.
+ */
+function isFirebaseInstallationsPermissionDenied(error: unknown): boolean {
+ const candidate = (error && typeof error === 'object')
+  ? error as FirebaseInstallationsError
+  : null;
+ const serverCode = candidate?.customData?.serverCode;
+ if (candidate?.code === 'installations/request-failed' && Number(serverCode) === 403) {
+  return true;
+ }
+
+ const message = typeof candidate?.message === 'string'
+  ? candidate.message
+  : String(error ?? '');
+ return /Installations:\s*Create Installation request failed with error ["']?403\s+PERMISSION_DENIED\b/i.test(message);
+}
+
+let _telemetryInstallationsBlocked = false;
+let _telemetryInstallationsCheck: Promise<boolean> | null = null;
+
+/**
+ * Complete the Installation registration before starting optional telemetry.
+ * `getId()` deliberately returns a FID before registration finishes, so it
+ * cannot be used as a readiness check. `getToken()` waits for registration and
+ * lets us stop Analytics/Performance before their SDK-internal promises can
+ * surface the same permanent permission error as an unhandled rejection.
+ * Transient/offline failures remain eligible for the SDK's normal retry path.
+ */
+async function ensureTelemetryInstallationsReady(app: FirebaseApp): Promise<boolean> {
+ if (typeof window === 'undefined') return true;
+ if (_telemetryInstallationsBlocked) return false;
+ if (_telemetryInstallationsCheck) return _telemetryInstallationsCheck;
+
+ _telemetryInstallationsCheck = (async () => {
+  try {
+   const { getInstallations, getToken } = await import('firebase/installations');
+   await getToken(getInstallations(app));
+   return true;
+  } catch (error) {
+   if (isFirebaseInstallationsPermissionDenied(error)) {
+    _telemetryInstallationsBlocked = true;
+    firebaseWarn('[Firebase] Installations permission denied; optional telemetry disabled for this page');
+    return false;
+   }
+   return true;
+  }
+ })();
+
+ try {
+  return await _telemetryInstallationsCheck;
+ } finally {
+  _telemetryInstallationsCheck = null;
  }
 }
 
@@ -246,13 +351,17 @@ async function getAnalyticsInstance(): Promise<FirebaseAnalytics | null> {
   _analyticsBlocked = true;
   _analytics = null;
  } else {
- const { initializeAnalytics } = await import("firebase/analytics");
- // Use initializeAnalytics instead of getAnalytics to pass config:
- // - send_page_view: false — App.tsx tracks SPA page views manually
- // to avoid duplicate page_view events that inflate pagesPerSession.
- _analytics = initializeAnalytics(await getAppInstance(), {
- config: { send_page_view: false },
- });
+  const app = await getAppInstance();
+  if (!await ensureTelemetryInstallationsReady(app)) {
+   _analyticsBlocked = true;
+   _analytics = null;
+  } else {
+   const { initializeAnalytics } = await import("firebase/analytics");
+   // Use initializeAnalytics instead of getAnalytics to pass config:
+   // - send_page_view: false — App.tsx tracks SPA page views manually
+   // to avoid duplicate page_view events that inflate pagesPerSession.
+   _analytics = initializeAnalytics(app, FIREBASE_ANALYTICS_SETTINGS);
+  }
  }
  } catch (error) {
  // An IndexedDB lifecycle failure is recoverable: leave the retry gate open
@@ -277,8 +386,8 @@ export function isAnalyticsBlocked(): boolean {
  * Re-create the Analytics instance after an IndexedDB connection loss on iOS Safari.
  * Firebase Analytics internally uses IndexedDB for event persistence; when iOS suspends
  * the page the WebKit networking process may crash, leaving the IDB connection dead
- * (WebKit bug 273827 / 277615). Re-calling getAnalytics() forces Firebase to open a
- * fresh connection.
+ * (WebKit bug 273827 / 277615). This re-acquires the Analytics instance through
+ * initializeAnalytics() with the shared settings (formerly a bare getAnalytics()).
  *
  * Returns the new Analytics instance, or null if recovery fails (in which case we
  * mark analytics as blocked to stop infinite retry loops).
@@ -296,10 +405,18 @@ export async function resetAnalytics(): Promise<FirebaseAnalytics | null> {
   _analytics = null;
   return null;
  }
- const { getAnalytics: ga } = await import("firebase/analytics");
- // Discard the stale instance so Firebase creates a fresh one.
+ const app = await getAppInstance();
+ if (!await ensureTelemetryInstallationsReady(app)) {
+  _analyticsBlocked = true;
+  _analytics = null;
+  return null;
+ }
+ const { initializeAnalytics } = await import("firebase/analytics");
+ // Discard the stale instance so Firebase creates a fresh one. Same settings
+ // object as the first init: an initialized app gets its instance back, an
+ // uninitialized one is configured without the automatic page_view.
  _analytics = null;
- _analytics = ga(await getAppInstance());
+ _analytics = initializeAnalytics(app, FIREBASE_ANALYTICS_SETTINGS);
  firebaseWarn('[Firebase] Analytics recovered after IndexedDB loss');
  } catch (error) {
  firebaseWarn('[Firebase] Analytics recovery failed');
@@ -327,7 +444,9 @@ const app: FirebaseApp = new Proxy({} as FirebaseApp, {
  if (!_app) {
  // If someone accesses `app` before async init completed, trigger it.
  // This is a fallback — callers should prefer `await getApp()`.
- getAppInstance();
+ void getAppInstance().catch((error) => {
+ reportCaughtError(error, 'firebase.legacyAppProxy');
+ });
  if (!_app) return undefined;
  }
  return Reflect.get(_app, prop, receiver);
@@ -366,9 +485,12 @@ let _perf: FirebasePerformance | null = null;
 async function initPerformance(): Promise<FirebasePerformance | null> {
  if (_perf) return _perf;
  if (import.meta.env.MODE === 'test') return null;
+ if (_telemetryInstallationsBlocked) return null;
  try {
+ const app = await getAppInstance();
+ if (!await ensureTelemetryInstallationsReady(app)) return null;
  const { getPerformance } = await import("firebase/performance");
- _perf = getPerformance(await getAppInstance());
+ _perf = getPerformance(app);
  } catch (e) {
  // Ad blocker or environment where perf monitoring is unsupported
  firebaseWarn('[Firebase] Performance Monitoring unavailable:', e);
@@ -555,7 +677,7 @@ async function initAppCheck(): Promise<void> {
  console.log('✅ reCAPTCHA pronto');
 
  // Passa la site key al recaptchaService per la verifica nelle API
- const { recaptchaService } = await import('@/services/recaptchaService');
+ const { recaptchaService } = await import('./recaptchaService');
  recaptchaService.setSiteKey(recaptchaSiteKey);
  
  const appCheckModule = await import("firebase/app-check");

@@ -1,5 +1,9 @@
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { repairJobTranslationSemanticsInPlace } from './job-title-semantic-repair.mjs';
+import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
+import { stripHtmlTags, hasHtmlTags, countHtmlTags } from '../../packages/articles/engine/shared/htmlMarkup.mjs';
 import path from 'node:path';
 
 import { detectLanguage, detectLanguageWithConfidence } from './detect-language.mjs';
@@ -16,7 +20,9 @@ import {
   inferAnyCanton,
   isKnownSwissMunicipality,
   isKnownSwissMunicipalityInCanton,
+  isKnownSwissCity,
 } from './target-swiss-locations.mjs';
+import { officialPostalCodeForLocation } from './swiss-locality-directory.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
@@ -26,7 +32,11 @@ import {
   detectJobTitleLocaleDetails,
   detectTextLocale,
   holdSourceLang,
+  isDescriptionSourceCopy,
+  normalizeJobLocale,
   pinnedTitleSourceLang,
+  sourceLocaleTextCandidates,
+  sourceLocaleTextForTranslation,
   titleLooksUntranslated,
   titleLooksUntranslatedFromSource,
 } from './job-locale-utils.mjs';
@@ -50,8 +60,10 @@ import {
   hasConcatenatedWords,
   MIN_TITLE_CHARS,
   hasUsableTitle,
+  isModelMetaAnswer,
   isStructureFlattenedCopy,
 } from './translation-quality.mjs';
+import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { normalizeGermanGenderForms } from './translation-glossary.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
@@ -59,8 +71,47 @@ import { intFromEnv } from './int-from-env.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
+import { buildStableJobIdentity } from './job-identity.mjs';
+import { createAwaitingAdmissionCheck } from './translation-publication-hold.mjs';
+import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
+import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
+import {
+  getRetranslationBaseline,
+  getRetranslationBaselineEntry,
+  recordRetranslationBaseline,
+  retranslationSourceHash,
+} from './crawler-retranslation-baseline.mjs';
+import { recordPreviousRunSlice } from './crawler-previous-run-slice.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
+
+export function isUnsupportedSourceLang(sourceLang) {
+  const normalized = String(sourceLang || '').trim().toLowerCase();
+  return Boolean(normalized) && !DEFAULT_LOCALES.includes(normalized);
+}
+
+// A source language outside the four published locales cannot be copied into
+// an indexed slot when translation is unavailable. Keep the deploy gate green
+// with an honest, locale-specific generic label and leave the record flagged
+// for the translation queue. These labels are deliberately not the source
+// title, so an unmapped Romansh title never becomes a published source-copy.
+const UNSUPPORTED_SOURCE_TITLE_FALLBACKS = Object.freeze({
+  it: 'Posizione',
+  en: 'Job opening',
+  de: 'Stellenangebot',
+  fr: "Offre d'emploi",
+});
+
+export function safeUnsupportedSourceTitle(locale) {
+  const normalized = String(locale || '').trim().toLowerCase();
+  return UNSUPPORTED_SOURCE_TITLE_FALLBACKS[normalized] || 'Job opening';
+}
+
+function sourceLanguageLabel(sourceLang) {
+  return String(sourceLang || '').trim().toLowerCase() === 'rm'
+    ? 'Romansh (Rumantsch)'
+    : String(sourceLang || '').trim();
+}
 
 function translationOutcome(ctx) {
   return typeof ctx?.recordTranslationAttribution === 'function'
@@ -92,6 +143,18 @@ async function translateJobFieldWithFallback({
   context = {},
   minChars = 0,
 }) {
+  if (isUnsupportedSourceLang(sourceLang)) {
+    if (kind === 'title') {
+      return aiTranslateJobTitleDCC({ title: text, locale: targetLang, sourceLang }, context);
+    }
+    return aiTranslateJobDescriptionDCC({
+      description: text,
+      locale: targetLang,
+      sourceLang,
+      minChars,
+    }, context);
+  }
+
   const local = await translateTextWithLocalPipeline({
     text,
     sourceLang,
@@ -340,6 +403,12 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
 
   const dictionaries = {
     it: [
+      // Romansh SRG/RTR role titles → Italian. These deterministic entries are
+      // a deploy-safe fallback when the unsupported-source LLM rung is empty;
+      // unknown Romansh titles remain queued for a real translation.
+      [/\bRedactura\s*\/\s*Redactur\b/gi, 'Redattrice / Redattore'],
+      [/\bRedactura\b/gi, 'Redattrice'],
+      [/\bRedactur\b/gi, 'Redattore'],
       [/\bWissenschaftlich-technische\/r Mitarbeiter\/in\b/gi, 'Collaboratore/trice scientifico-tecnico/a'],
       [/\bDetailhandelsfachfrau\/-mann\b/gi, 'Impiegato/a del commercio al dettaglio'],
       [/\bDetailhandelsfachmann\/-frau\b/gi, 'Addetto/a al commercio al dettaglio'],
@@ -475,6 +544,10 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bApprenticeship\b/gi, 'Apprendistato'],
     ],
     de: [
+      // Romansh SRG/RTR role titles → German (see the Italian dictionary above).
+      [/\bRedactura\s*\/\s*Redactur\b/gi, 'Redaktorin / Redaktor'],
+      [/\bRedactura\b/gi, 'Redaktorin'],
+      [/\bRedactur\b/gi, 'Redaktor'],
       // Italian job titles → German
       [/\bFresatore\b/gi, 'Fräser'],
       [/\bTornitore\b/gi, 'Dreher'],
@@ -536,6 +609,10 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bApprenticeship\b/gi, 'Ausbildung'],
     ],
     en: [
+      // Romansh SRG/RTR role titles → English (see the Italian dictionary above).
+      [/\bRedactura\s*\/\s*Redactur\b/gi, 'Editor'],
+      [/\bRedactura\b/gi, 'Editor'],
+      [/\bRedactur\b/gi, 'Editor'],
       // Italian job titles → English
       [/\bFresatore\b/gi, 'Milling Operator'],
       [/\bTornitore\b/gi, 'Lathe Operator'],
@@ -582,6 +659,10 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bCDD d'avril à mai\b/gi, 'fixed-term contract from April to May'],
     ],
     fr: [
+      // Romansh SRG/RTR role titles → French (see the Italian dictionary above).
+      [/\bRedactura\s*\/\s*Redactur\b/gi, 'Rédactrice / Rédacteur'],
+      [/\bRedactura\b/gi, 'Rédactrice'],
+      [/\bRedactur\b/gi, 'Rédacteur'],
       // Guard against common mistranslations
       [/\bTechnical Lead\b/gi, 'Responsable technique'],
       [/\bTech Lead\b/gi, 'Responsable technique'],
@@ -678,6 +759,52 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
 }
 
 /**
+ * Fill missing published title slots when the source language is not one of
+ * the four site locales. The local MT lane has no Romansh model, while the
+ * title repair lane historically admitted only non-empty slots; a source-only
+ * record could therefore pass through both lanes without a writer ever seeing
+ * its empty targets.
+ *
+ * Only explicit, quality-reviewed heuristic mappings are accepted here. An
+ * unknown unsupported-source title stays empty and remains blocking rather than
+ * receiving a generic or source-language placeholder.
+ *
+ * @param {object} job mutates the passed job in place
+ * @param {string[]} [locales] published locale keys to fill
+ * @returns {{ changed: boolean, filled: number }}
+ */
+export function fillUnsupportedSourceTitleSlots(job, locales = DEFAULT_LOCALES) {
+  const sourceLang = normalizeJobLocale(job?.sourceLang);
+  if (!isUnsupportedSourceLang(sourceLang)) return { changed: false, filled: 0 };
+
+  const sourceTitle = sourceLocaleTextForTranslation(
+    { ...job, sourceLang },
+    'title',
+    MIN_TITLE_CHARS,
+  );
+  if (!hasUsableTitle(sourceTitle)) return { changed: false, filled: 0 };
+
+  const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
+    ? job.titleByLocale
+    : (job.titleByLocale = {});
+  let filled = 0;
+  for (const locale of locales) {
+    if (locale === sourceLang) continue;
+    const existing = String(titleByLocale[locale] || '').trim();
+    if (hasUsableTitle(existing)) continue;
+
+    const translated = heuristicTranslateJobTitle(sourceTitle, locale);
+    if (!hasUsableTitle(translated)
+      || translated.toLowerCase() === sourceTitle.toLowerCase()
+      || isLowQualityLocalizedTitle(translated)) continue;
+
+    titleByLocale[locale] = translated;
+    filled += 1;
+  }
+  return { changed: filled > 0, filled };
+}
+
+/**
  * Detect if a description contains code/script artifacts instead of real content.
  * Returns { isCode: boolean, reason: string } if code detected.
  */
@@ -716,6 +843,12 @@ export function detectLang(text = '', fallback = 'it') {
   return detectLanguage(text, fallback);
 }
 
+// Company paragraphs this module used to append to thin postings — written by
+// us, never published by the employer. Nothing adds them any more (issue
+// 5253: a posting publishes only its source text; one without text takes the
+// thin-source path of validateDedicatedLocaleCoverage). The table stays only
+// so that dropCompanyBoilerplateFossils can remove them, with their
+// "## title / **company** — place" header, from jobs stored before that.
 const COMPANY_BOILERPLATE_IT = {
   'PEMSA': `PEMSA è da oltre 30 anni un punto di riferimento nel mercato svizzero per il reclutamento e la gestione di professionisti qualificati nei settori della costruzione, impiantistica, elettrotecnica e meccanica industriale. Offriamo contratti fissi e temporanei, con la sicurezza di un partner stabile e la flessibilità che cerchi.\n\nVantaggi: consulenza personalizzata, accesso a cantieri di prestigio in tutta la Svizzera, supporto amministrativo completo, retribuzione competitiva e opportunità di formazione continua.`,
   'ReleWant': `ReleWant è una società di consulenza IT con sede in Ticino, specializzata in soluzioni informatiche innovative per il settore bancario e finanziario. Offriamo servizi di consulenza, sviluppo software e gestione di progetti IT complessi per le principali istituzioni finanziarie in Svizzera.\n\nOffriamo un ambiente di lavoro stimolante, progetti sfidanti nel settore fintech, formazione continua, flessibilità lavorativa e condizioni d'impiego competitive.`,
@@ -740,9 +873,13 @@ const COMPANY_BOILERPLATE_IT = {
 };
 
 /**
- * Find and return IT boilerplate for a company, or null.
+ * The legacy IT company paragraph for a company, or null. Used only to
+ * recognise the stored fossils (see COMPANY_BOILERPLATE_IT).
  */
 export function getCompanyBoilerplateIT(company = '') {
+  company = String(company || '').trim();
+  // An empty name is contained in every key: it must match none of them.
+  if (!company) return null;
   for (const [key, text] of Object.entries(COMPANY_BOILERPLATE_IT)) {
     if (company === key || company.includes(key) || key.includes(company)) return text;
   }
@@ -788,69 +925,152 @@ export function isPlaceholderDescription(text = '') {
   return PLACEHOLDER_PATTERNS.some(re => re.test(clean));
 }
 
-/**
- * Enrich thin IT descriptions with company boilerplate. Mutates jobs in-place.
- * Returns count of enriched jobs.
- */
-export function enrichThinDescriptions(jobs, threshold = 300) {
-  let count = 0;
-  for (const j of jobs) {
-    const itDesc = String(j.descriptionByLocale?.it || j.description || '');
-    if (itDesc.length >= threshold) continue;
-    const bp = getCompanyBoilerplateIT(j.company);
-    if (!bp) continue;
-    const title = j.titleByLocale?.it || j.title || '';
-    const loc = j.location || '';
-    const canton = j.canton || j.addressRegion || '';
-    const enriched = itDesc.includes('##')
-      ? `${itDesc}\n\n${bp}`
-      : `## ${title}\n\n**${j.company}** — ${loc}${canton ? ` (${canton})` : ''}\n\n${itDesc}\n\n${bp}`;
-    if (!j.descriptionByLocale) j.descriptionByLocale = {};
-    j.descriptionByLocale.it = enriched;
-    count++;
+// Whitespace of a stored fossil: later passes re-flowed some of them into
+// bullets ("…industriale. \n• Offriamo contratti…"), so a run of spaces,
+// newlines and bullet markers all count as one gap.
+const FOSSIL_GAP_RE_SOURCE = String.raw`(?:[\s•·▪◦]|-(?=\s))+`;
+
+const COMPANY_BOILERPLATE_FOSSIL_RES = Object.values(COMPANY_BOILERPLATE_IT).map((text) => new RegExp(
+  text
+    .trim()
+    .split(/\s+/)
+    .map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/'/g, "['’]"))
+    .join(FOSSIL_GAP_RE_SOURCE),
+  'g',
+));
+
+// "## <title>\n\n**<company>** — <place> (<canton>)" — the header the same
+// enrichment put above the posting text.
+const COMPANY_BOILERPLATE_HEADER_RE = /^##[^\n]*\n\s*\*\*([^*\n]+)\*\*[ \t]*—[^\n]*(?:\n+|$)/;
+
+function hasCompanyBoilerplateParagraph(value) {
+  if (typeof value !== 'string') return false;
+  return COMPANY_BOILERPLATE_FOSSIL_RES.some((re) => {
+    re.lastIndex = 0;
+    return re.test(value);
+  });
+}
+
+function stripCompanyBoilerplateFossil(value) {
+  let text = String(value);
+  let paragraph = false;
+  for (const re of COMPANY_BOILERPLATE_FOSSIL_RES) {
+    re.lastIndex = 0;
+    if (!re.test(text)) continue;
+    re.lastIndex = 0;
+    text = text.replace(re, '\n\n');
+    paragraph = true;
   }
-  return count;
+  let header = false;
+  const headerMatch = text.trimStart().match(COMPANY_BOILERPLATE_HEADER_RE);
+  if (headerMatch && getCompanyBoilerplateIT(headerMatch[1])) {
+    text = text.trimStart().slice(headerMatch[0].length);
+    header = true;
+  }
+  if (!paragraph && !header) return null;
+  return {
+    text: text.replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim(),
+    paragraph,
+    header,
+  };
 }
 
 /**
- * Ensure every job's base `description` field has >= minWords words.
- * First syncs from descriptionByLocale.it if richer; then appends
- * company boilerplate when still below threshold.  Mutates in-place.
- * Returns count of jobs that were patched.
+ * Remove, from a stored job, the company paragraph and the
+ * "## title / **company** — place" header that hardenJobLocaleFields (below
+ * 300 characters of Italian text) and ensureMinimumDescriptionWordCount
+ * (below 50 words) used to add (issue 5253). The
+ * locale-preserving merge keeps a stored slot across crawls, so without this
+ * the text we wrote would outlive the code that wrote it.
+ *
+ * Only a job that still carries one of the paragraphs somewhere is touched:
+ * a header of the same shape without it is another runner's own format
+ * (relewant writes one), not this fossil.
+ *
+ * - `description` and every slot lose the paragraph and the header; what the
+ *   source published stays.
+ * - A slot left empty is dropped.
+ * - A non-Italian slot that carries the header but not the Italian paragraph
+ *   is a translation of the padded text: dropped, the job re-translates.
+ * - When the source-language slot itself was padded, every other slot was
+ *   translated from the padded text: those are dropped too.
+ * - A slot that is only a copy of a source in another language keeps the copy
+ *   as a placeholder and flags the job for retranslation (the same rule as
+ *   the rest of hardenJobLocaleFields).
+ *
+ * Mutates the job; returns true when it changed.
  */
-export function ensureMinimumDescriptionWordCount(jobs, minWords = 50) {
-  let patched = 0;
-  for (const j of jobs) {
-    const wordCount = (str) => String(str || '').replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+export function dropCompanyBoilerplateFossils(job) {
+  if (!job || typeof job !== 'object') return false;
+  const slots = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? Object.values(job.descriptionByLocale)
+    : [];
+  if (![job.description, ...slots].some(hasCompanyBoilerplateParagraph)) return false;
+  let changed = false;
+  const descriptionFossil = typeof job.description === 'string'
+    ? stripCompanyBoilerplateFossil(job.description)
+    : null;
+  if (descriptionFossil) {
+    job.description = descriptionFossil.text;
+    changed = true;
+  }
+  const byLocale = job.descriptionByLocale;
+  if (!byLocale || typeof byLocale !== 'object') return changed;
 
-    // Step 1: sync from descriptionByLocale.it if it has more words
+  const sourceLang = String(job.sourceLang || '').trim();
+  let sourceSlotPadded = false;
+  for (const locale of Object.keys(byLocale)) {
+    if (typeof byLocale[locale] !== 'string') continue;
+    const fossil = stripCompanyBoilerplateFossil(byLocale[locale]);
+    if (!fossil) continue;
+    changed = true;
+    if (locale === sourceLang && fossil.paragraph) sourceSlotPadded = true;
+    const translatedFossil = fossil.header && !fossil.paragraph && locale !== 'it';
+    if (translatedFossil || !fossil.text) {
+      delete byLocale[locale];
+      if (locale !== sourceLang) job.needsRetranslation = true;
+      continue;
+    }
+    byLocale[locale] = fossil.text;
+  }
+
+  if (sourceSlotPadded) {
+    for (const locale of Object.keys(byLocale)) {
+      if (locale === sourceLang) continue;
+      delete byLocale[locale];
+      job.needsRetranslation = true;
+    }
+  }
+
+  if (changed && sourceLang) {
+    const sourceText = normalizeSpace(byLocale[sourceLang] || job.description || '');
+    for (const [locale, value] of Object.entries(byLocale)) {
+      if (locale === sourceLang || typeof value !== 'string') continue;
+      if (sourceText && isDescriptionSourceCopy(value, sourceText)) job.needsRetranslation = true;
+    }
+  }
+  return changed;
+}
+
+/**
+ * Copy the Italian slot into the legacy `description` field when it has more
+ * words. It no longer pads anything: below `_minWords` it used to append a
+ * company paragraph the source never published (issue 5253); a posting
+ * without enough text now takes the thin-source path of
+ * validateDedicatedLocaleCoverage. Name, signature and return value stay for
+ * the runners that still call it: the return value was the number of padded
+ * jobs, which gated their write of the stored file, and is now always 0 so
+ * that the copy above never becomes a new write path. Mutates in place.
+ */
+export function ensureMinimumDescriptionWordCount(jobs, _minWords = 50) {
+  const wordCount = (str) => String(str || '').replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+  for (const j of jobs) {
     const itDesc = String(j.descriptionByLocale?.it || '').trim();
     if (itDesc && wordCount(itDesc) > wordCount(j.description)) {
       j.description = itDesc;
     }
-
-    // Check if already sufficient
-    if (wordCount(j.description) >= minWords) continue;
-
-    // Step 2: try enriching with company boilerplate
-    const bp = getCompanyBoilerplateIT(j.company);
-    if (bp) {
-      const title = j.titleByLocale?.it || j.title || '';
-      const loc = j.location || '';
-      const canton = j.canton || j.addressRegion || '';
-      const existing = String(j.description || '').trim();
-      const enriched = existing
-        ? `## ${title}\n\n**${j.company}** — ${loc}${canton ? ` (${canton})` : ''}\n\n${existing}\n\n${bp}`
-        : `## ${title}\n\n**${j.company}** — ${loc}${canton ? ` (${canton})` : ''}\n\n${bp}`;
-      j.description = enriched;
-      if (!j.descriptionByLocale) j.descriptionByLocale = {};
-      if (wordCount(j.descriptionByLocale.it) < wordCount(enriched)) {
-        j.descriptionByLocale.it = enriched;
-      }
-      patched++;
-    }
   }
-  return patched;
+  return 0;
 }
 
 export function deriveLocalizedSlug(job, locale) {
@@ -954,7 +1174,7 @@ async function runSharedCrawlerInProcess({ root, env }) {
   try {
     // Dynamic import to avoid loading 7k-line module at parse time
     const { runSharedCrawlerPipeline } = await import('./shared-jobs-crawler.mjs');
-    await runSharedCrawlerPipeline();
+    return await runSharedCrawlerPipeline();
   } finally {
     // Restore original env values
     for (const [key, value] of Object.entries(originals)) {
@@ -1243,7 +1463,21 @@ export function resetHardenCache() {
   _hardenResultCache.clear();
 }
 
-export function hardenJobLocaleFields({ dataJobsPath }) {
+/**
+ * @param {object} opts
+ * @param {string} opts.dataJobsPath
+ * @param {boolean} [opts.fillEmptyWithSourceCopy=true] — when false, an empty
+ *   non-source title/description slot stays empty (flagged
+ *   `needsRetranslation`) instead of receiving a copy of the source text.
+ *   The copy only exists to satisfy the publish gate on the BUILD-TIME dataset
+ *   (deploy.yml `prep` re-hardens the assembled data/jobs.json); a caller that
+ *   writes the per-crawler slices back to git must pass false, otherwise the
+ *   committed slot looks filled, the "empty slot = to translate" convention of
+ *   the crawlers is lost and the description audit counts the copy as a
+ *   stale translation (issue 6109: housekeeping commit of 2026-10-04 turned
+ *   161 empty Coop jobs into source copies).
+ */
+export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = true }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, repaired: 0, total: 0 };
   }
@@ -1302,6 +1536,11 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       }
     }
 
+    // Company paragraph + "## title / **company** — place" header we used to
+    // pad thin postings with (issue 5253): out of `description` and the slots
+    // before anything below reads or copies them.
+    if (dropCompanyBoilerplateFossils(job)) jobChanged = true;
+
     // Decode HTML entities (handles double-encoded cases like &amp;#8211; → – )
     const cleanText = (s) => decodeNumericEntities(decodeHtmlEntities(String(s || '').trim()));
     const baseTitle = decodeUnicodeEscapeLeaks(cleanText(job.title));
@@ -1335,6 +1574,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     if (!pinnedLang && baseTitle && titleSourceLang === 'it' && sourceLang !== 'it' && needsItalianTitleRepair(baseTitle)) {
       titleSourceLang = sourceLang;
     }
+    const sourceLocaleIsPublished = DEFAULT_LOCALES.includes(sourceLang);
 
     if (!job.titleByLocale || typeof job.titleByLocale !== 'object') {
       job.titleByLocale = {};
@@ -1369,7 +1609,15 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       jobChanged = true;
     }
 
-    if (baseTitle && normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle)) {
+    // A 1-2 char `job.title` never overwrites a usable title already in the
+    // source slot: otherwise every pass resets the slot to the short value and
+    // the fallback below re-fills it from whichever slot comes first, so the
+    // hardening is not idempotent (tests/job-locale-slot-gate-contract.test.ts).
+    if (
+      baseTitle &&
+      normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle) &&
+      (hasUsableTitle(baseTitle) || !hasUsableTitle(job.titleByLocale[titleSourceLang]))
+    ) {
       job.titleByLocale[titleSourceLang] = baseTitle;
       jobChanged = true;
     }
@@ -1392,7 +1640,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       // when base contains indentation/blank lines that normalizeSpace stripped.
       // Guard: if the base is raw HTML (>10 tags), it's unparsed page chrome — the
       // locale copy is the actual clean content, so never overwrite with HTML garbage.
-      const baseHasHtmlGarbage = (baseDesc.match(/<[^>]+>/g) || []).length > 10;
+      const baseHasHtmlGarbage = countHtmlTags(baseDesc) > 10;
       const normBase = normalizeForLengthComparison(baseDesc);
       const normSource = normalizeForLengthComparison(currentSourceDesc);
       const contentRatio = normSource ? normSource.length / Math.max(1, normBase.length) : 0;
@@ -1479,34 +1727,51 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         job.needsRetranslation = true;
         jobChanged = true;
       }
-      // Fallback: if title is still empty or too short (< 3 chars) after all hardening,
-      // copy source title as placeholder. Covers jobs never translated or where a bad
-      // 1-char artifact (e.g. '_') was stored. The translate pipeline will retranslate.
-      //
-      // S2 — why this wrong-language write is still here (2026-08-10).
-      // It contradicts FRO-263 below (:1570-1590), which refuses the same copy
-      // for the same reason and leaves the slot empty; this one runs first and
-      // wins. The contradiction is real but it is NOT safe to resolve in favour
-      // of FRO-263 yet, and the check is mechanical:
-      // `validate-translation-completeness.mjs` `collectBlockingIssues()` still
-      // pushes `missing/short title` for `title.length < 3` and `main()` still
-      // `process.exit(1)` on it. That exit code is read by
-      // translate-pending.yml ("Trigger deploy", ~line 395) and by
-      // post-deploy-validate-dist.yml (~line 501) — an empty slot therefore
-      // stops the deploy trigger outright. The 2026-08-10 honesty pass (#5557)
-      // deliberately left that blocking rule byte-identical ("Anything added
-      // here tightens the deploy gate — do not"), so it did NOT unblock this.
-      // Precondition for deleting the copy: the ≥3-char rule must stop being a
-      // blocking issue for non-source locales (or the writer must guarantee a
-      // real translation), and only then does FRO-263 become the single policy.
-      // Until then the copy stays, and the `needsRetranslation` it raises is what
-      // routes the slot to a real translation.
-      if (String(job.titleByLocale[locale] || '').trim().length < 3 && baseTitle) {
+      // Fallback: if title is still empty or too short (< 3 chars) after all
+      // hardening, use a known deterministic translation for unsupported source
+      // languages. Unknown titles receive a locale-safe generic label for the
+      // deploy gate and stay flagged for the LLM queue; never copy an
+      // unsupported source verbatim.
+      if (String(job.titleByLocale[locale] || '').trim().length < 3) {
         const placeholder = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
-        if (placeholder) {
-          job.titleByLocale[locale] = placeholder;
+        const deterministicFallback = isUnsupportedSourceLang(titleSourceLang)
+          ? heuristicTranslateJobTitle(placeholder, locale)
+          : '';
+        if (deterministicFallback && hasUsableTitle(deterministicFallback) &&
+            deterministicFallback.toLowerCase() !== placeholder.toLowerCase() &&
+            !isLowQualityLocalizedTitle(deterministicFallback)) {
+          job.titleByLocale[locale] = deterministicFallback;
           job.needsRetranslation = true;
           jobChanged = true;
+        } else if (isUnsupportedSourceLang(titleSourceLang)) {
+          const safeTitle = safeUnsupportedSourceTitle(locale);
+          if (String(job.titleByLocale[locale] || '').trim() !== safeTitle) {
+            job.titleByLocale[locale] = safeTitle;
+            job.needsRetranslation = true;
+            jobChanged = true;
+          }
+        } else if (DEFAULT_LOCALES.includes(titleSourceLang)) {
+          // With no `job.title` and no description there is nothing to detect
+          // from: titleSourceLang falls back to 'it' and its slot can be empty
+          // while the record's only title sits in another published slot
+          // (e.g. `titleByLocale: { de }`). Copy that title instead of leaving
+          // the slot blocking the publish gate; the record stays flagged.
+          // Prefer the first USABLE candidate: a 1-2 char `job.title` or source
+          // slot must not shadow a usable title in another published slot. The
+          // short placeholder is copied only when nothing usable exists (the
+          // record then stays blocking, as before).
+          const sourceCopy = [
+            placeholder,
+            ...DEFAULT_LOCALES.map((l) => String(job.titleByLocale[l] || '').trim()),
+          ].find(hasUsableTitle) || placeholder;
+          if (sourceCopy && fillEmptyWithSourceCopy) {
+            job.titleByLocale[locale] = sourceCopy;
+            job.needsRetranslation = true;
+            jobChanged = true;
+          } else if (sourceCopy && !job.needsRetranslation) {
+            job.needsRetranslation = true;
+            jobChanged = true;
+          }
         }
       }
       {
@@ -1515,8 +1780,8 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         // Apply source description fallback before continuing so the locale isn't left empty.
         if (isPlaceholderDescription(descValue)) {
           delete job.descriptionByLocale[locale];
-          if (baseDesc && baseDesc.length >= 120) {
-            job.descriptionByLocale[locale] = baseDesc;
+          if (baseDesc && baseDesc.length >= 120 && sourceLocaleIsPublished) {
+            if (fillEmptyWithSourceCopy) job.descriptionByLocale[locale] = baseDesc;
             job.needsRetranslation = true;
           }
           jobChanged = true;
@@ -1546,9 +1811,12 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           job.needsRetranslation = true;
           jobChanged = true;
         }
-        // Fallback: if description is still empty, copy source description as placeholder.
-        if (!String(job.descriptionByLocale[locale] || '').trim() && baseDesc && baseDesc.length >= 120) {
-          job.descriptionByLocale[locale] = baseDesc;
+        // Fallback: if description is still empty, copy source description as
+        // placeholder — build-time only. With fillEmptyWithSourceCopy=false the
+        // slot stays empty ("to translate") and only the flag is set.
+        if (!String(job.descriptionByLocale[locale] || '').trim() && baseDesc && baseDesc.length >= 120 && sourceLocaleIsPublished
+            && (fillEmptyWithSourceCopy || !job.needsRetranslation)) {
+          if (fillEmptyWithSourceCopy) job.descriptionByLocale[locale] = baseDesc;
           job.needsRetranslation = true;
           jobChanged = true;
         }
@@ -1668,6 +1936,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     // is the same instrument every gate downstream uses; a slot it calls clean
     // is left alone. The other three triggers are unchanged.
     for (const locale of DEFAULT_LOCALES) {
+      if (!DEFAULT_LOCALES.includes(titleSourceLang)) continue;
       if (locale === titleSourceLang) continue;
       const currentTitle = String(job.titleByLocale[locale] || '').trim();
       const shouldRepairTitle =
@@ -1837,13 +2106,6 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     }
   }
 
-  // Enrich thin IT descriptions with company boilerplate
-  const enriched = enrichThinDescriptions(raw);
-  if (enriched > 0) {
-    changed = true;
-    console.log(`📝 Enriched ${enriched} thin IT descriptions with company boilerplate.`);
-  }
-
   if (!changed) {
     const result = { changed: false, repaired: 0, total: raw.length };
     _hardenResultCache.set(resolvedPath, result);
@@ -1949,7 +2211,7 @@ function applyTranslationCache(job, cacheEntry) {
       applied = true;
     }
   }
-  return applied;
+  return repairJobTranslationSemanticsInPlace(job) > 0 || applied;
 }
 
 function buildCacheEntry(job, hash) {
@@ -1989,10 +2251,9 @@ const MAX_DESC_CHARS = 12000;
  */
 export function stripHtmlBasic(s) {
   return normalize(
-    String(s || '')
-      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<[^>]+>/g, ' ')
+    stripHtmlTags(String(s || '')
+      .replace(/<script(?=[\s/>])[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style(?=[\s/>])[\s\S]*?<\/style>/gi, ' '))
       .replace(/&nbsp;/g, ' ')
       .replace(/&amp;/g, '&')
       .replace(/&lt;/g, '<')
@@ -2111,16 +2372,15 @@ export function extractRequirementsFromText(description) {
 export function htmlToStructuredTextDCC(html, cleanFn) {
   if (!html) return '';
   const clean = cleanFn || cleanDescriptionDCC;
-  let text = String(html)
-    .replace(/<p[^>]*>\s*<strong[^>]*>([\s\S]*?)<\/strong>\s*<\/p>/gi, '\n## $1\n')
-    .replace(/<h[1-6][^>]*>/gi, '\n## ')
+  let text = stripHtmlTags(String(html)
+    .replace(/<p(?=[\s/>])[^>]*>\s*<strong(?=[\s/>])[^>]*>([\s\S]*?)<\/strong>\s*<\/p>/gi, '\n## $1\n')
+    .replace(/<h[1-6](?=[\s/>])[^>]*>/gi, '\n## ')
     .replace(/<\/h[1-6]>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<li(?=[\s/>])[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<p[^>]*>/gi, '\n')
-    .replace(/<\/p>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ');
+    .replace(/<p(?=[\s/>])[^>]*>/gi, '\n')
+    .replace(/<\/p>/gi, '\n'));
   return clean(text);
 }
 
@@ -2162,6 +2422,25 @@ export function shouldForceLocalizationForJob(job = {}, ctx = {}) {
   return false;
 }
 
+/**
+ * Decide whether SKIP_AI_TRANSLATION must enqueue a job that reached the
+ * localization branch. Complete locale maps are not work by themselves: only
+ * a pre-existing flag or changed/new source keeps them queued. Missing
+ * baseline evidence deliberately fails closed, as do genuinely incomplete
+ * maps, so this never hides new jobs or translation defects.
+ */
+export function shouldMarkSkipAiRetranslation(job, {
+  crawlerKey = job?.companyKey,
+  sourceLang = job?.sourceLang || null,
+  minDescriptionChars = 120,
+} = {}) {
+  if (job?.needsRetranslation === true) return true;
+  if (!hasCompleteLocaleTextCoverage(job, { sourceLang, minDescriptionChars })) return true;
+  const previous = getRetranslationBaselineEntry(crawlerKey, job);
+  if (!previous || previous.flagged) return true;
+  return previous.hash !== retranslationSourceHash(job);
+}
+
 export function isLocalizationAllowedForJob(job = {}, ctx = {}) {
   const { LOCALIZE_ONLY_COMPANY_KEYS, normalizeCompanyKey: nck, normalizeHost: nh, hostOf: ho } = ctx;
   if (!(LOCALIZE_ONLY_COMPANY_KEYS instanceof Set) || LOCALIZE_ONLY_COMPANY_KEYS.size === 0) return true;
@@ -2175,9 +2454,11 @@ export function isLocalizationAllowedForJob(job = {}, ctx = {}) {
 export function hasUntranslatedLocaleDescriptions(job = {}, ctx = {}) {
   const clean = ctx.cleanDescription || cleanDescriptionDCC;
   const LOCALES = ctx.LOCALES || DEFAULT_LOCALES;
-  const sourceDesc = clean(job?.description || '');
+  const sourceDescCandidates = sourceLocaleTextCandidates(job, 'description');
+  const sourceDescText = sourceLocaleTextForTranslation(job, 'description', 120);
+  const sourceDesc = clean(sourceDescText);
   if (!sourceDesc) return false;
-  const sourceLang = detectLanguage(sourceDesc, 'en');
+  const sourceLang = normalizeJobLocale(job?.sourceLang) || detectLanguage(sourceDesc, 'en');
   // Use the source-locale description as length reference (richer than base after harden)
   const srcLocaleDesc = normalizeForLengthComparison(
     String(job?.descriptionByLocale?.[sourceLang] || sourceDesc)
@@ -2187,7 +2468,7 @@ export function hasUntranslatedLocaleDescriptions(job = {}, ctx = {}) {
     if (locale === sourceLang) continue;
     const localized = clean(job?.descriptionByLocale?.[locale] || '');
     if (!localized) return true;
-    if (localized.toLowerCase() === sourceDesc.toLowerCase()) return true;
+    if (sourceDescCandidates.some((source) => isDescriptionSourceCopy(localized, source))) return true;
     // Thin translation check: if source is substantial and locale is <70%, needs work
     if (srcLen >= 500) {
       const normLocale = normalizeForLengthComparison(localized);
@@ -2224,21 +2505,73 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   const cleanDesc = (clean || cleanDescriptionDCC)(description || '');
   if (!cleanDesc || cleanDesc.length < floor) return '';
   if (locale === sourceLang) return cleanDesc;
+  // Not a translation, whatever its length: an answer carrying the model's
+  // reasoning, or one stuck in a repetition loop («Risk-Lights-Lights-…»)
+  // compared with this source (ai-output-fidelity.mjs). Applied to every
+  // candidate this function can return or cache, and to what the cache returns.
+  const unusable = (text) => Boolean(detectAiReasoningLeak(text)
+    || detectDegenerateRepetition(text, { references: [cleanDesc] }));
+  const acceptableDescription = (text) => typeof text === 'string'
+    && text.length >= floor
+    && text.toLowerCase() !== cleanDesc.toLowerCase()
+    && !unusable(text)
+    && isAcceptableTranslation(cleanDesc, text);
+
+  // Argos/Opus/NLLB and the free cascade only support the site's four
+  // published locales. Keep an unsupported source (currently Romansh) out of
+  // those paths: a passthrough or heuristic result would publish the source
+  // text under it/fr/de/en. The cloud LLM is the only translation provider
+  // allowed to handle this source; when it is unavailable the empty result
+  // deliberately leaves the job queued with needsRetranslation.
+  if (isUnsupportedSourceLang(sourceLang)) {
+    const cacheKey = buildAiCacheKey
+      ? buildAiCacheKey('translate-desc-unsupported-source-v1', [cleanDesc, locale, sourceLang])
+      : null;
+    if (cacheKey && getCachedAiResponse) {
+      const cached = getCachedAiResponse(cacheKey);
+      if (acceptableDescription(cached)) return cached;
+    }
+    if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') return '';
+    const prompt = [
+      `Translate this job description from ${sourceLanguageLabel(sourceLang)} to ${locale}.`,
+      'Rules:',
+      '- Keep company names, product names, acronyms, and proper nouns unchanged.',
+      '- Do not invent or add facts.',
+      '- Preserve every paragraph, section, bullet, and detail without summarizing.',
+      '- Return only the translated text, without markdown fences or commentary.',
+      '',
+      cleanDesc,
+    ].join('\n');
+    try {
+      const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 8192, jsonMode: false });
+      const translated = (clean || cleanDescriptionDCC)((scfj || stripCodeFenceJson)(sanitizeAiOutput(String(text || ''))));
+      if (acceptableDescription(translated)) {
+        if (cacheKey && setCachedAiResponse) setCachedAiResponse(cacheKey, translated);
+        return translated;
+      }
+    } catch { /* leave the job queued for the next LLM attempt */ }
+    return '';
+  }
 
   // Local pipeline first
   const localPipeline = await translateTextWithLocalPipeline({
     text: cleanDesc, sourceLang, targetLang: locale, kind: 'description', minChars: floor,
   });
-  if (localPipeline && localPipeline.toLowerCase() !== cleanDesc.toLowerCase()) return localPipeline;
+  if (acceptableDescription(localPipeline)) return localPipeline;
 
   // AI cache check
   if (buildAiCacheKey && getCachedAiResponse) {
     const cacheKey = buildAiCacheKey('translate-desc-v2', [cleanDesc, locale, sourceLang]);
     const fromCache = getCachedAiResponse(cacheKey);
-    if (typeof fromCache === 'string') {
+    // A stored answer that leaks or loops is dropped and recomputed, never
+    // replayed.
+    const cachedUnusable = typeof fromCache === 'string' && fromCache !== AI_CACHE_RAW_SENTINEL
+      && !acceptableDescription(fromCache);
+    if (cachedUnusable && ctx.deleteCachedAiResponse) ctx.deleteCachedAiResponse(cacheKey);
+    if (typeof fromCache === 'string' && !cachedUnusable) {
       if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
       const sentinelFallback = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-      if (sentinelFallback && sentinelFallback.length >= floor && sentinelFallback.toLowerCase() !== cleanDesc.toLowerCase()) {
+      if (acceptableDescription(sentinelFallback)) {
         setCachedAiResponse(cacheKey, sentinelFallback);
         return sentinelFallback;
       }
@@ -2246,7 +2579,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
     }
     // DeepL first
     const { text: deepl, passthrough: deeplPassthrough } = await freeTranslateObservedDetailed(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-    if (deepl && deepl.length >= floor) {
+    if (acceptableDescription(deepl)) {
       setCachedAiResponse(cacheKey, deepl);
       return deepl;
     }
@@ -2292,14 +2625,14 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 8192, jsonMode: false });
         const translated = (clean || cleanDescriptionDCC)((scfj || stripCodeFenceJson)(sanitizeAiOutput(String(text || ''))));
-        if (translated.length >= floor && translated.toLowerCase() !== cleanDesc.toLowerCase()) {
+        if (acceptableDescription(translated)) {
           setCachedAiResponse(cacheKey, translated);
           return translated;
         }
       } catch { /* fallback below */ }
     }
     const fallback = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-    if (fallback && fallback.length >= floor && fallback.toLowerCase() !== cleanDesc.toLowerCase()) {
+    if (acceptableDescription(fallback)) {
       setCachedAiResponse(cacheKey, fallback);
       return fallback;
     }
@@ -2309,7 +2642,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
 
   // No cache — simple free-translate fallback
   const simple = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-  return (simple && simple.length >= floor) ? simple : '';
+  return acceptableDescription(simple) ? simple : '';
 }
 
 // ── Protected brand names ───────────────────────────────────────────────────
@@ -2403,17 +2736,74 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   if (locale === sourceLang) return cleanTitle;
   // Brand-name guard: restore any protected brand that a translator accidentally translated.
   const _rb = (t) => restoreProtectedBrands(cleanTitle, t);
+  // A model answer ABOUT the request is never a title: «Sorry, I can't help
+  // with that.», «I need to see the actual job title you want translated…»
+  // (the retry prompt below, answered by an agentic transport), «Let me check
+  // the translation cache files…». Rejected on every rung, and on a cache hit
+  // too: `translate-title-v2` stored such answers and replayed them.
+  const isMetaAnswer = (t) => isModelMetaAnswer(t, cleanTitle);
+  const deterministicFallback = () => {
+    const fallback = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
+    if (hasUsableTitle(fallback) && fallback.toLowerCase() !== cleanTitle.toLowerCase()
+        && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(fallback))) {
+      return fallback;
+    }
+    return '';
+  };
+
+  // The local/free translation engines do not support an unsupported source
+  // such as Romansh. Use the cloud LLM directly; if it is unavailable, use
+  // only a known deterministic role-title translation. Unknown source titles
+  // still return empty and remain queued instead of being copied verbatim.
+  if (isUnsupportedSourceLang(sourceLang)) {
+    const cacheKey = buildAiCacheKey
+      ? buildAiCacheKey('translate-title-unsupported-source-v1', [cleanTitle, locale, sourceLang])
+      : null;
+    if (cacheKey && getCachedAiResponse) {
+      const cached = getCachedAiResponse(cacheKey);
+      if (cached && cached !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(cached)
+          && cached.toLowerCase() !== cleanTitle.toLowerCase() && !isMetaAnswer(cached)) return _rb(cached);
+    }
+    if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') {
+      const fallback = deterministicFallback();
+      if (fallback && cacheKey && setCachedAiResponse) setCachedAiResponse(cacheKey, fallback);
+      return fallback;
+    }
+    const prompt = [
+      `Translate this job title from ${sourceLanguageLabel(sourceLang)} to ${locale}.`,
+      '- Translate the role naturally and completely.',
+      '- Keep brand names, company names, acronyms, and proper nouns unchanged.',
+      '- Return only the translated title, without quotes or commentary.',
+      `Title: ${cleanTitle}`,
+    ].join('\n');
+    try {
+      const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 80, jsonMode: false });
+      const translated = _rb((ns || normalize)(sanitizeAiOutput(String(text || '')).replace(/^["']|["']$/g, '')));
+      if (hasUsableTitle(translated) && translated.toLowerCase() !== cleanTitle.toLowerCase()
+          && !isMetaAnswer(translated)
+          && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(translated))) {
+        if (cacheKey && setCachedAiResponse) setCachedAiResponse(cacheKey, translated);
+        return translated;
+      }
+    } catch { /* use the deterministic fallback below */ }
+    const fallback = deterministicFallback();
+    if (fallback && cacheKey && setCachedAiResponse) setCachedAiResponse(cacheKey, fallback);
+    return fallback;
+  }
 
   // Local pipeline first
   const localPipeline = await translateTextWithLocalPipeline({
     text: cleanTitle, sourceLang, targetLang: locale, kind: 'title', context: { title: cleanTitle }, minChars: MIN_TITLE_CHARS,
   });
-  if (hasUsableTitle(localPipeline) && localPipeline.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(localPipeline);
+  if (hasUsableTitle(localPipeline) && localPipeline.toLowerCase() !== cleanTitle.toLowerCase()
+      && !isMetaAnswer(localPipeline)) return _rb(localPipeline);
 
   if (buildAiCacheKey && getCachedAiResponse) {
     const cacheKey = buildAiCacheKey('translate-title-v2', [cleanTitle, locale, sourceLang]);
     const fromCache = getCachedAiResponse(cacheKey);
-    if (typeof fromCache === 'string') {
+    // A stored meta-answer is a cache MISS, not a sentinel: translate afresh
+    // and let the result overwrite the entry.
+    if (typeof fromCache === 'string' && !isMetaAnswer(fromCache)) {
       if (fromCache !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(fromCache) &&
           fromCache.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(fromCache);
       const sentinelFallback = await freeTranslateObserved(ctx, { text: cleanTitle, sourceLang, targetLang: locale });
@@ -2451,6 +2841,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 80, jsonMode: false });
         let translated = (ns || normalize)(sanitizeAiOutput(String(text || '')).replace(/^["']|["']$/g, ''));
+        if (isMetaAnswer(translated)) translated = '';
         // Post-check: if result still has Italian words in a non-IT locale, or
         // still reads as sourceLang for any other locale pair, retry with explicit instruction
         const stillHasItalianWords = titleHasItalianWords(translated, locale);
@@ -2472,6 +2863,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
             const retry = await callLLM([{ role: 'user', content: retryPrompt }], { temperature: 0.2, maxTokens: 80, jsonMode: false });
             const retryClean = (ns || normalize)(sanitizeAiOutput(String(retry || '')).replace(/^["']|["']$/g, ''));
             if (hasUsableTitle(retryClean) &&
+                !isMetaAnswer(retryClean) &&
                 !titleHasItalianWords(retryClean, locale) &&
                 !titleLooksUntranslatedFromSource(retryClean, sourceLang, locale) &&
                 retryClean.toLowerCase() !== cleanTitle.toLowerCase()) {
@@ -2493,9 +2885,8 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       setCachedAiResponse(cacheKey, restoredFallback);
       return restoredFallback;
     }
-    const heuristic = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
-    if (hasUsableTitle(heuristic) && heuristic.toLowerCase() !== cleanTitle.toLowerCase() &&
-        !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(heuristic))) {
+    const heuristic = deterministicFallback();
+    if (heuristic) {
       setCachedAiResponse(cacheKey, heuristic);
       return heuristic;
     }
@@ -2506,9 +2897,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   // No cache — simple fallback
   const simple = await freeTranslateObserved(ctx, { text: cleanTitle, sourceLang, targetLang: locale });
   if (hasUsableTitle(simple) && simple.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(simple);
-  const heuristic = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
-  if (hasUsableTitle(heuristic) && heuristic.toLowerCase() !== cleanTitle.toLowerCase()) return heuristic;
-  return '';
+  return deterministicFallback();
 }
 
 export async function aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, maxLocales = 4, minChars = 120 }, ctx = {}) {
@@ -2527,16 +2916,19 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
   const floor = Math.max(minChars, 40);
   if (!description || description.length < Math.max(floor, 180)) return null;
   const targetLocales = locales.slice(0, maxLocales).filter((l) => l !== sourceLang);
+  const unsupportedSource = isUnsupportedSourceLang(sourceLang);
 
   // Local pipeline first
-  const localPipeline = await localizeJobContentWithPipeline({
-    title, company, location, description, requirements, sourceLang, targetLocales,
-  });
+  const localPipeline = unsupportedSource
+    ? null
+    : await localizeJobContentWithPipeline({
+        title, company, location, description, requirements, sourceLang, targetLocales,
+      });
   if (localPipeline) return localPipeline;
 
   if (!buildAiCacheKey || !getCachedAiResponse) return null;
 
-  const cacheKey = buildAiCacheKey('localize-job-v2', [
+  const cacheKey = buildAiCacheKey(unsupportedSource ? 'localize-job-unsupported-source-v1' : 'localize-job-v2', [
     nsFn(title || ''), nsFn(company || ''), nsFn(location || ''),
     sourceLang || 'en', targetLocales.join(','),
     JSON.stringify((requirements || []).map((x) => nsFn(String(x))).filter(Boolean).slice(0, 16)),
@@ -2544,6 +2936,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
   ]);
   const fromCache = getCachedAiResponse(cacheKey);
   if (fromCache === AI_CACHE_RAW_SENTINEL) {
+    if (unsupportedSource) return null;
     const cleanedSource = cleanFn(description || '');
     if (cleanedSource.length < floor) return null;
     const sentinelOut = {
@@ -2581,6 +2974,12 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     const hasBadLocale = targetLocales.some((locale) => {
       const localeData = fromCache[locale];
       if (!localeData?.description) return true; // missing = bad
+      // A stored refusal/clarification as the title busts the entry too.
+      if (isModelMetaAnswer(nsFn(localeData.title || ''), title || '')) return true;
+      if (unsupportedSource) {
+        const cachedTitle = nsFn(localeData.title || '');
+        if (!hasUsableTitle(cachedTitle) || cachedTitle.toLowerCase() === nsFn(title || '').toLowerCase()) return true;
+      }
       const cleanLocale = cleanFn(localeData.description);
       // Exact copy check
       if (cleanLocale.toLowerCase() === cleanSourceLower) return true;
@@ -2605,6 +3004,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
   }
 
   if (!hasLiveTranslationModel(ctx)) {
+    if (unsupportedSource) return null;
     const cleanedSource = cleanFn(description || '');
     if (cleanedSource.length < floor) return null;
     const out = {
@@ -2628,7 +3028,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
 
   const prompt = [
     'You are a multilingual job content editor for SEO.',
-    `Translate this job posting into these locales: ${targetLocales.join(', ')}. Do NOT include the source locale (${sourceLang}) — it will be kept as-is.`,
+    `Translate this job posting into these locales: ${targetLocales.join(', ')}. Do NOT include the source locale (${sourceLanguageLabel(sourceLang)}) — it will be kept as-is.`,
     'CRITICAL: preserve the COMPLETE original content — every section, paragraph, bullet point, and detail MUST appear in each translation. Do NOT omit, condense, or truncate any part of the description.',
     'Keep company, role, location and requirements consistent with source.',
     `Return STRICT JSON only with keys: ${targetLocales.join(',')}.`,
@@ -2640,7 +3040,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     `title: ${title}`,
     `company: ${company}`,
     `location: ${location}`,
-    `sourceLanguage: ${sourceLang}`,
+    `sourceLanguage: ${sourceLanguageLabel(sourceLang)}`,
     `requirements: ${JSON.stringify((requirements || []).slice(0, 8))}`,
     `description: ${description}`,
   ].join('\n');
@@ -2660,15 +3060,23 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     for (const locale of targetLocales) {
       const item = parsed?.[locale];
       if (!item || typeof item !== 'object') continue;
-      const localizedTitle = nsFn(sanitizeAiOutput(item.title || ''));
+      // A refusal or a request for the input is not a title: dropped here, the
+      // source title stands in and the repair selector re-queues the slot.
+      const answeredTitle = nsFn(sanitizeAiOutput(item.title || ''));
+      const localizedTitle = isModelMetaAnswer(answeredTitle, title || '') ? '' : answeredTitle;
       const desc = cleanFn(sanitizeAiOutput(item.description || ''));
       const req = Array.isArray(item.requirements)
         ? item.requirements.map((x) => nsFn(String(x))).filter(Boolean).slice(0, 8)
         : [];
-      if (desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) out[locale] = { title: localizedTitle || title, description: desc, requirements: req };
+      const titleIsUsable = hasUsableTitle(localizedTitle)
+        && (!unsupportedSource || localizedTitle.toLowerCase() !== nsFn(title || '').toLowerCase());
+      if (desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)
+          && (!unsupportedSource || titleIsUsable)) {
+        out[locale] = { title: localizedTitle || title, description: desc, requirements: req };
+      }
     }
     const missingLocales = targetLocales.filter((l) => !out[l]);
-    if (missingLocales.length > 0 && cleanedSource.length >= floor) {
+    if (!unsupportedSource && missingLocales.length > 0 && cleanedSource.length >= floor) {
       for (const locale of missingLocales) {
         // eslint-disable-next-line no-await-in-loop
         const desc = await freeTranslateObserved(ctx, { text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
@@ -2684,6 +3092,10 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       return out;
     }
   } catch {
+    if (unsupportedSource) {
+      setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
+      return null;
+    }
     const cleanedFallback = cleanFn(description || '');
     if (cleanedFallback.length >= floor) {
       const fallbackOut = {
@@ -2732,16 +3144,33 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const exReqFn = exReq || extractRequirementsFromText;
   const h2stFn = h2st || htmlToStructuredTextDCC;
 
-  const out = { ...job };
+  const out = { ...job, titleByLocale: { ...job.titleByLocale }, descriptionByLocale: { ...job.descriptionByLocale } };
+  repairJobTranslationSemanticsInPlace(out);
   const titleByLocale = (out.titleByLocale && typeof out.titleByLocale === 'object') ? { ...out.titleByLocale } : {};
   const currentByLocale = (out.descriptionByLocale && typeof out.descriptionByLocale === 'object') ? { ...out.descriptionByLocale } : {};
+  const localeDescFloor = crawlerConfig?.minDescriptionChars || 120;
+  const flatSourceDescription = String(out.description || '').trim();
   // Publisher-authored records pin their declared source language (see
   // pinnedTitleSourceLang) — AI localization must never treat the employer's
   // own copy as a "wrong language" slot to overwrite.
   const pinnedLang = pinnedTitleSourceLang(out);
-  const sourceLang = pinnedLang || detectLanguage(out.description || '', 'en');
+  const declaredSourceLang = normalizeJobLocale(out.sourceLang);
+  const sourceLang = normalizeJobLocale(pinnedLang) || declaredSourceLang || detectLanguage(out.description || '', 'en');
+  const sourceRecord = { ...out, sourceLang };
+  let resolvedSourceDescription = sourceLocaleTextForTranslation(
+    sourceRecord,
+    'description',
+    localeDescFloor,
+  );
+  if (resolvedSourceDescription) {
+    // Keep the crawled flat field intact: the post-translation structure gate
+    // needs it to detect a localized slot that flattened away source bullets.
+    // Only fill it when the legacy field is genuinely absent.
+    if (!flatSourceDescription) out.description = resolvedSourceDescription;
+    currentByLocale[sourceLang] = resolvedSourceDescription;
+  }
   const forceLocalization = shouldForceLocalizationForJob(out, ctx);
-  const titleSourceLang = pinnedLang || detectJobTitleLang(out.title || '', sourceLang);
+  const titleSourceLang = normalizeJobLocale(pinnedLang) || detectJobTitleLang(out.title || '', sourceLang);
   const sourceTitle = nsFn(titleByLocale[titleSourceLang] || out.title || '');
   if (sourceTitle) titleByLocale[titleSourceLang] = sourceTitle;
 
@@ -2771,6 +3200,16 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     if (!out.needsRetranslation) return false;
     const value = nsFn(text || '');
     if (!value) return false;
+    // Generic labels are deploy-safe placeholders emitted for unmapped
+    // unsupported-source titles. Treat the exact placeholder as queued work,
+    // otherwise a valid-looking label would permanently bypass title repair.
+    if (isUnsupportedSourceLang(titleSourceLang) &&
+        value.toLowerCase() === safeUnsupportedSourceTitle(locale).toLowerCase()) {
+      return true;
+    }
+    // A refusal or a request for the input reads as a fine English title to
+    // the language verdict below; the repair selector queued it for this.
+    if (isModelMetaAnswer(value, sourceTitle)) return true;
     return titleVerdictFor(locale, value).untranslated;
   };
 
@@ -2801,13 +3240,13 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       return sourceTitle ? titleVerdictFor(locale, localizedTitle).reason === 'source-copy' : false;
     });
 
-  const localeDescFloor = crawlerConfig?.minDescriptionChars || 120;
   // Count locale coverage: a locale is "covered" if it has an adequate description
   // that is NOT an untranslated copy of the source. Italian copies in EN/DE/FR slots
   // should NOT count as translated content. Thin translations (AI stubs) also don't count.
-  const cleanSourceDesc = cleanFn(out.description || '');
-  const sourceDescLower = cleanSourceDesc.toLowerCase();
-  const srcDescForThinCheck = nsFn(currentByLocale[sourceLang] || out.description || '');
+  const sourceDescriptionCandidates = sourceLocaleTextCandidates(out, 'description');
+  const sourceDescription = resolvedSourceDescription;
+  const cleanSourceDesc = cleanFn(sourceDescription);
+  const srcDescForThinCheck = nsFn(sourceDescription);
   const coverage = locales.filter((l) => {
     const text = nsFn(currentByLocale[l] || '');
     if (text.length < localeDescFloor) return false;
@@ -2815,7 +3254,8 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     if (l === sourceLang) return true;
     // Check if the locale description is just a copy of the source (untranslated)
     const cleanLocale = cleanFn(currentByLocale[l] || '');
-    if (cleanLocale.toLowerCase() === sourceDescLower) return false;
+    if (sourceDescriptionCandidates.some((source) =>
+      source.length >= localeDescFloor && isDescriptionSourceCopy(cleanLocale, source))) return false;
     // Thin translation check: if translation is < 45% of source length, it's likely
     // a boilerplate stub ("Company X is hiring for Y role..."), not a real translation.
     if (srcDescForThinCheck.length >= 500 && text.length < srcDescForThinCheck.length * 0.45) return false;
@@ -2831,7 +3271,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
 
   const shouldRunDescriptionLocalization =
     localizationEnabled && hasBudget && (coverage < locales.length || forceLocalization) &&
-    (out.description || '').length >= Math.max(localeDescFloor, 80) && (canUseAi || forceLocalization);
+    resolvedSourceDescription.length >= Math.max(localeDescFloor, 80) && (canUseAi || forceLocalization);
 
   const shouldRunTitleLocalization =
     localizationEnabled && sourceTitle.length >= 3 && (titleNeedsLocalization || forceLocalization);
@@ -2854,7 +3294,13 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   if (process.env.SKIP_AI_TRANSLATION === '1') {
     out.titleByLocale = titleByLocale;
     out.descriptionByLocale = currentByLocale;
-    out.needsRetranslation = true;
+    if (shouldMarkSkipAiRetranslation(out, {
+      crawlerKey: crawlerConfig?.crawlerKey || crawlerConfig?.companyKey || out.companyKey,
+      sourceLang,
+      minDescriptionChars: localeDescFloor,
+    })) {
+      out.needsRetranslation = true;
+    }
     return out;
   }
 
@@ -2872,11 +3318,11 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       nsFn(out.title || ''), nsFn(out.company || ''), nsFn(out.location || ''),
       sourceLang || 'en', targetLocales.join(','),
       JSON.stringify((out.requirements || []).map((x) => nsFn(String(x))).filter(Boolean).slice(0, 16)),
-      cleanFn(out.description || ''),
+      cleanFn(resolvedSourceDescription),
     ]);
     delCache(mainKey);
     // Bust per-locale description + title caches
-    const cleanDesc = cleanFn(out.description || '');
+    const cleanDesc = cleanFn(resolvedSourceDescription);
     const cleanTitle = nsFn(out.title || '').replace(/(\w):in(nen)?\b/gi, '$1/in$2');
     for (const locale of targetLocales) {
       delCache(bck('translate-desc-v2', [cleanDesc, locale, sourceLang]));
@@ -2885,35 +3331,38 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   }
 
   // Structure flat descriptions before AI localization
-  const rawDesc = out.description || '';
+  const rawDesc = resolvedSourceDescription;
   const hasMarkdownStructure = /^## /m.test(rawDesc) && ((rawDesc.match(/\n/g) || []).length >= 3);
   if (shouldRunDescriptionLocalization && rawDesc.length >= 100 && !hasMarkdownStructure) {
-    const hasHtml = /<[^>]+>/.test(rawDesc);
+    const hasHtml = hasHtmlTags(rawDesc);
     if (hasHtml) {
       const structuredFromHtml = h2stFn(rawDesc);
       if (structuredFromHtml && structuredFromHtml.length >= 120) {
-        out.description = structuredFromHtml;
+        resolvedSourceDescription = structuredFromHtml;
+        out.description = resolvedSourceDescription;
         currentByLocale[sourceLang] = structuredFromHtml;
       }
     } else if (strDesc) {
       const structured = await strDesc(rawDesc, sourceLang);
       if (structured !== rawDesc) {
-        out.description = structured;
+        resolvedSourceDescription = structured;
+        out.description = resolvedSourceDescription;
         currentByLocale[sourceLang] = structured;
       }
     }
   }
 
   // Centralized thin-description enrichment
-  const currentDesc = nsFn(out.description || '');
+  const currentDesc = nsFn(resolvedSourceDescription);
   const hasExtractedData =
     (Array.isArray(out._migrosResponsibilities) && out._migrosResponsibilities.length > 0) ||
     (Array.isArray(out._migrosBenefits) && out._migrosBenefits.length > 0) ||
     (Array.isArray(out.requirements) && out.requirements.length > 0);
   if (shouldRunDescriptionLocalization && currentDesc.length < 500 && hasExtractedData && canUseAi && enrichThin) {
-    const enrichedDesc = await enrichThin(out, sourceLang);
-    if (enrichedDesc && enrichedDesc !== out.description && enrichedDesc.length > currentDesc.length) {
-      out.description = enrichedDesc;
+    const enrichedDesc = await enrichThin({ ...out, description: resolvedSourceDescription }, sourceLang);
+    if (enrichedDesc && enrichedDesc !== resolvedSourceDescription && enrichedDesc.length > currentDesc.length) {
+      resolvedSourceDescription = enrichedDesc;
+      out.description = resolvedSourceDescription;
       currentByLocale[sourceLang] = enrichedDesc;
     }
   }
@@ -2921,7 +3370,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const aiLocalized = shouldRunDescriptionLocalization && canUseAi
     ? await aiLocalizeJobContentDCC({
         title: out.title, company: out.company, location: out.location,
-        description: out.description, requirements: out.requirements || [],
+        description: resolvedSourceDescription, requirements: out.requirements || [],
         sourceLang, minChars: localeDescFloor,
       }, ctx)
     : null;
@@ -2939,7 +3388,8 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
           && locale !== titleSourceLang) {
         titleByLocale[locale] = localized.title;
       }
-      if (localized.description && localized.description.length >= localeDescFloor) {
+      if (localized.description && localized.description.length >= localeDescFloor
+          && isAcceptableTranslation(cleanFn(resolvedSourceDescription), cleanFn(localized.description))) {
         currentByLocale[locale] = localized.description;
       }
       const mergedReq = mrFn(reqByLocale[locale] || [], localized.requirements || []);
@@ -2966,6 +3416,9 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(forced))) {
           return { locale, title: forced };
         }
+        // The heuristic contains only explicit, quality-reviewed title mappings;
+        // it is safe for unsupported sources because an unmapped title is
+        // returned unchanged and therefore rejected below.
         const fallback = heuristicTranslateJobTitle(sourceTitle, locale);
         if (hasUsableTitle(fallback) && fallback.toLowerCase() !== sourceTitle.toLowerCase() &&
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(fallback))) {
@@ -2981,9 +3434,18 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     }
   }
 
+  const currentSourceDescriptionCandidates = [...new Set(
+    [currentByLocale[sourceLang], ...sourceLocaleTextCandidates(out, 'description')]
+      .map((value) => String(value ?? '').trim())
+      .filter((value) => Boolean(value) && !detectAiReasoningLeak(value)),
+  )];
+  const currentSourceDescription = currentSourceDescriptionCandidates.find(
+    (value) => value.length >= localeDescFloor,
+  ) || currentSourceDescriptionCandidates[0] || '';
+
   // Strict fallback for forced companies — parallelize per-locale
   if (forceLocalization) {
-    const sourceDesc = cleanFn(currentByLocale[sourceLang] || out.description || '');
+    const sourceDesc = cleanFn(currentSourceDescription);
     const forceJobs = locales
       .filter((locale) => locale !== sourceLang)
       .map(async (locale) => {
@@ -2994,13 +3456,16 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
         // locales — the existing content may be in the wrong language (e.g. Italian in EN slot).
         // Structure parity (#3721/#3836): also retranslate fossil translations that
         // flattened away the source's bulleted list (pre-fix cascade/merge output).
-        const needsDesc = !curDesc || curDesc.length < localeDescFloor || curDesc.toLowerCase() === sourceDesc.toLowerCase() || isThinStub || out.needsRetranslation ||
+        const needsDesc = !curDesc || curDesc.length < localeDescFloor
+          || currentSourceDescriptionCandidates.some((source) =>
+            source.length >= localeDescFloor && isDescriptionSourceCopy(curDesc, source))
+          || isThinStub || out.needsRetranslation ||
           isStructureFlattenedCopy(sourceDesc, curDesc);
         let desc = null;
         if (needsDesc) {
           // Use source locale description as translation input (clean text)
           desc = await aiTranslateJobDescriptionDCC({
-            description: currentByLocale[sourceLang] || out.description || '', locale, sourceLang, minChars: localeDescFloor,
+            description: currentSourceDescription, locale, sourceLang, minChars: localeDescFloor,
           }, ctx);
         }
         const currentTitle = nsFn(titleByLocale[locale] || '');
@@ -3024,7 +3489,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     for (const result of forceResults) {
       if (result.status !== 'fulfilled' || !result.value) continue;
       const { locale, desc, title } = result.value;
-      if (desc) {
+      if (desc && isAcceptableTranslation(sourceDesc, cleanFn(desc)) && cleanFn(desc).length >= localeDescFloor) {
         currentByLocale[locale] = desc;
         const mergedReq = mrFn(reqByLocale[locale] || [], exReqFn(desc));
         if (mergedReq.length > 0) reqByLocale[locale] = mergedReq;
@@ -3036,7 +3501,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   // Inline truncation detection — use source LOCALE description (not raw base description)
   // because base description can contain unparsed HTML boilerplate (e.g. SuccessFactors nav)
   const TRUNCATION_RATIO = 0.40;
-  const sourceDescForTrunc = cleanFn(currentByLocale[sourceLang] || out.description || '');
+  const sourceDescForTrunc = cleanFn(currentSourceDescription);
   const sourceDescLenForTrunc = sourceDescForTrunc.length;
   if (sourceDescLenForTrunc >= 200) {
     for (const locale of locales) {
@@ -3045,7 +3510,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       if (localized.length > 0 && localized.length < sourceDescLenForTrunc * TRUNCATION_RATIO) {
         // eslint-disable-next-line no-await-in-loop
         const retranslated = await aiTranslateJobDescriptionDCC({
-          description: currentByLocale[sourceLang] || out.description || '', locale, sourceLang, minChars: localeDescFloor,
+          description: currentSourceDescription, locale, sourceLang, minChars: localeDescFloor,
         }, ctx);
         if (retranslated && cleanFn(retranslated).length > localized.length) {
           currentByLocale[locale] = retranslated;
@@ -3055,17 +3520,19 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   }
 
   // Cross-locale copy detection
-  const sourceDescNorm = cleanFn(out.description || '').toLowerCase();
+  const sourceDescNorm = cleanFn(currentSourceDescription);
   if (sourceDescNorm.length >= localeDescFloor) {
     for (const locale of locales) {
       if (locale === sourceLang) continue;
       const localizedNorm = cleanFn(currentByLocale[locale] || '').toLowerCase();
-      if (localizedNorm && localizedNorm === sourceDescNorm) {
+      if (localizedNorm && currentSourceDescriptionCandidates.some((source) =>
+        source.length >= localeDescFloor && isDescriptionSourceCopy(localizedNorm, source))) {
         // eslint-disable-next-line no-await-in-loop
         const translated = await aiTranslateJobDescriptionDCC({
-          description: out.description || '', locale, sourceLang, minChars: localeDescFloor,
+          description: currentSourceDescription, locale, sourceLang, minChars: localeDescFloor,
         }, ctx);
-        if (translated && cleanFn(translated).toLowerCase() !== sourceDescNorm) {
+        if (translated && !currentSourceDescriptionCandidates.some((source) =>
+          source.length >= localeDescFloor && isDescriptionSourceCopy(translated, source))) {
           currentByLocale[locale] = translated;
         }
       }
@@ -3074,6 +3541,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
 
   out.titleByLocale = titleByLocale;
   out.descriptionByLocale = currentByLocale;
+  repairJobTranslationSemanticsInPlace(out);
   out.requirementsByLocale = reqByLocale;
 
   // Post-translation quality gate: if any translated title still contains leftover
@@ -3087,6 +3555,12 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       out.needsRetranslation = true;
       break;
     }
+  }
+
+  const sourceStructureDesc = cleanFn(out.description) || cleanFn(currentByLocale[sourceLang] || '');
+  if (sourceStructureDesc && locales.some((locale) => locale !== sourceLang
+      && isStructureFlattenedCopy(sourceStructureDesc, cleanFn(currentByLocale[locale] || '')))) {
+    out.needsRetranslation = true;
   }
 
   return out;
@@ -3244,7 +3718,11 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
             const t = String(job.titleByLocale[l] || '').trim().toLowerCase();
             return t && t !== srcTitleLower;
           });
-        if (titlesComplete && someNonSourceTranslated) {
+        const completeTextCoverage = hasCompleteLocaleTextCoverage(job, {
+          sourceLang: descLang || titleLang,
+          minDescriptionChars,
+        });
+        if (titlesComplete && someNonSourceTranslated && completeTextCoverage) {
           // Translations complete — update cache so next run gets a hit
           translationCache[jobCacheKey] = buildCacheEntry(job, contentHash);
           cacheUpdated = true;
@@ -3276,7 +3754,13 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
       if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') job.descriptionByLocale = {};
 
-      if (baseTitle && normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle)) {
+      // Same guard as hardenJobLocaleFields: a 1-2 char `job.title` never
+      // overwrites a usable title already in the source slot.
+      if (
+        baseTitle &&
+        normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle) &&
+        (hasUsableTitle(baseTitle) || !hasUsableTitle(job.titleByLocale[titleSourceLang]))
+      ) {
         job.titleByLocale[titleSourceLang] = baseTitle;
       }
       const currentSourceDesc = String(job.descriptionByLocale[sourceLang] || '').trim();
@@ -3284,7 +3768,7 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       // or has lost significant content vs the authoritative base (threshold: 85%).
       // Compare NORMALIZED lengths to avoid false positives from whitespace differences.
       // Guard: never overwrite clean locale content with raw HTML garbage base.
-      const baseHasHtmlGarbage = (baseDesc.match(/<[^>]+>/g) || []).length > 10;
+      const baseHasHtmlGarbage = countHtmlTags(baseDesc) > 10;
       const normBaseDesc = normalizeForLengthComparison(baseDesc);
       const normCurrentSource = normalizeForLengthComparison(currentSourceDesc);
       const sourceContentRatio = normCurrentSource.length / Math.max(1, normBaseDesc.length);
@@ -3428,8 +3912,6 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
           if (hasUsableTitle(translatedTitle)) {
             job.titleByLocale[locale] = String(translatedTitle).trim();
             jobTranslated = true;
-            // FRO-327: clear retranslation flag on success
-            if (job.needsRetranslation) delete job.needsRetranslation;
           } else if (!String(job.titleByLocale[locale] || '').trim()) {
             // AI translation failed — leave locale empty (not source copy) so the deploy
             // gate catches it. Mark for retranslation on next run with fresh quota.
@@ -3475,6 +3957,24 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
             jobTranslated = true;
           }
         }
+      }
+
+      // A successful title must not drain a job whose descriptions are still
+      // missing, source-copied, or below the localization floor. The previous
+      // per-title deletion above caused partial Argos/AI runs to erase the
+      // queue marker before the description pass had completed.
+      const completeTextCoverage = hasCompleteLocaleTextCoverage(job, {
+        sourceLang,
+        minDescriptionChars,
+      });
+      if (completeTextCoverage) {
+        if (job.needsRetranslation) {
+          delete job.needsRetranslation;
+          changed = true;
+        }
+      } else if (!(job.localeMismatchSuppressed && !sourceChangedSinceSuppression(job, baseDesc))) {
+        if (!job.needsRetranslation) changed = true;
+        job.needsRetranslation = true;
       }
 
       // ── Update translation cache (FRO-324) ──
@@ -3607,7 +4107,8 @@ export const COMPANY_DEFAULTS = {
   'has-healthcare':                       { streetAddress: 'Via Motta 4',              postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
   'la-fonte':                             { streetAddress: 'Via Lavizzari 2',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
   'manor':                                { streetAddress: 'Piazza Dante',             postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
-  'oscam':                                { streetAddress: 'Via Industria 10',         postalCode: '6807', addressLocality: 'Taverne',           addressRegion: 'TI', addressCountry: 'CH' },
+  'oscam':                                { streetAddress: 'Nucleo 30',                postalCode: '6980', addressLocality: 'Castelrotto',         addressRegion: 'TI', addressCountry: 'CH' },
+  'oscam-castelrotto':                    { streetAddress: 'Nucleo 30',                postalCode: '6980', addressLocality: 'Castelrotto',         addressRegion: 'TI', addressCountry: 'CH' },
   'schindler':                            { streetAddress: 'Via Industria 11',         postalCode: '6934', addressLocality: 'Bioggio',           addressRegion: 'TI', addressCountry: 'CH' },
   'tarchini-group':                       { streetAddress: 'Via Cantonale 12',         postalCode: '6533', addressLocality: 'Lumino',            addressRegion: 'TI', addressCountry: 'CH' },
   'axpo-group':                           { streetAddress: 'Viale Stazione 31',        postalCode: '6500', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
@@ -3826,9 +4327,14 @@ export function healTruncatedStLocalities(jobs) {
   const isBare = (j) => TRUNCATED_ST_LOCALITY_RE.test(String(j.addressLocality || j.location || '').trim());
 
   const applyCity = (job, city) => {
+    const sourceLocation = String(job.location || '').trim();
     job.location = city;
     job.addressLocality = city;
-    const cant = inferAnyCanton(city);
+    const cant = inferCantonFromJobEvidence({
+      cityText: city,
+      locationText: sourceLocation || city,
+      crawlerCanton: job.canton,
+    });
     if (cant) { job.addressRegion = cant; job.canton = cant; }
     // Heal a postalCode that was stamped via the canton-capital fallback (the
     // recovered locality was absent from swiss-postal-codes.json) so it matches
@@ -3903,6 +4409,24 @@ export function sameLocalityAsHq(city, hqLocality) {
     || cityNorm.includes(` ${hqNorm}`);
 }
 
+/**
+ * Postal code a crawler may fall back to when the source exposes none for a
+ * vacancy: the company-HQ one (`hqPostalCode`), which describes the HQ, not
+ * the vacancy (#9841: Helsana's 8600 Dübendorf on every Chur or Lausanne
+ * job). Kept for a vacancy in the HQ locality or without a city of its own
+ * (`sameLocalityAsHq`); '' for a vacancy in another known Swiss city, whose
+ * CAP the assembler derives from the city itself. An ambiguous or unknown
+ * locality ("Biel", "Wil", a clinic name) keeps it: the assembler's
+ * Swiss-municipality whitelist accepts such a locality only with a Swiss CAP
+ * on record, and the job pages never print a CAP next to a locality it does
+ * not belong to (`postalCodeBelongsToLocality`).
+ */
+export function hqPostalCodeForLocality(city, hqLocality, hqPostalCode) {
+  if (!hqPostalCode) return hqPostalCode;
+  if (sameLocalityAsHq(city, hqLocality)) return hqPostalCode;
+  return isKnownSwissCity(city) ? '' : hqPostalCode;
+}
+
 export function applyCompanyDefaults(job, companySlug) {
   const slug = companySlug || job?.companyKey || '';
   const defaults = COMPANY_DEFAULTS[slug];
@@ -3913,7 +4437,13 @@ export function applyCompanyDefaults(job, companySlug) {
     // the real per-job city; in that case derive the region from the city and
     // leave street/CAP empty for the PLZ/city fallback to resolve.
     const cityForCanton = String(job.addressLocality || job.location || '').trim();
-    const cityCanton = cityForCanton ? inferAnyCanton(cityForCanton) : '';
+    const cityCanton = cityForCanton
+      ? inferCantonFromJobEvidence({
+        cityText: cityForCanton,
+        locationText: job.location,
+        crawlerCanton: job.canton,
+      })
+      : '';
     const sameCanton = !cityCanton || cityCanton === defaults.addressRegion;
 
     // #3513: street+CAP are CITY-anchored — same canton is not enough. An
@@ -3993,7 +4523,11 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     // If applyCompanyDefaults healed the locality away from the HQ default,
     // re-infer canton from the now-correct locality so it matches reality.
     if (aLBefore !== aLAfter && aLAfter) {
-      const inferred = inferAnyCanton(aLAfter);
+      const inferred = inferCantonFromJobEvidence({
+        cityText: aLAfter,
+        locationText: job.location,
+        crawlerCanton: job.canton,
+      });
       if (inferred && inferred !== job.canton) {
         job.canton = inferred;
         job.addressRegion = inferred;
@@ -4044,37 +4578,48 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     console.log(`  🧭 Cross-canton/locality heal: stripped HQ address from ${crossCantonHealed} jobs outside the HQ city (CAP/street re-derived from city).`);
   }
 
-  // ── PostalCode enrichment from swiss-postal-codes.json ──
+  // ── PostalCode enrichment ──
+  // Resolve a named locality from the official Swiss directory first. The
+  // canton-capital fallback remains for legacy/free-text locations, but must
+  // never overwrite a known locality with an unrelated town's CAP.
   let postalFilled = 0;
   const plzPath = path.join(path.dirname(dataJobsPath), 'swiss-postal-codes.json');
-  if (fs.existsSync(plzPath)) {
-    const plz = JSON.parse(fs.readFileSync(plzPath, 'utf-8'));
-    const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000', GE: '1204', VD: '1003', BS: '4001', SO: '4500', ZG: '6300', TG: '8500', SH: '8200', FR: '1700', NE: '2000' };
-    for (const job of hardened) {
-      if (job.postalCode) continue;
-      const loc = (job.addressLocality || job.location || '').trim();
-      if (!loc) continue;
-      // Direct match
-      if (plz[loc]) { job.postalCode = plz[loc]; postalFilled++; continue; }
-      // First segment (e.g. "Chur, Graubünden" → "Chur")
-      const parts = loc.split(/[,·\-/]/).map(s => s.trim()).filter(Boolean);
-      let found = false;
-      for (const part of parts) {
-        if (plz[part]) { job.postalCode = plz[part]; postalFilled++; found = true; break; }
+  const plz = fs.existsSync(plzPath)
+    ? JSON.parse(fs.readFileSync(plzPath, 'utf-8'))
+    : {};
+  const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000', GE: '1204', VD: '1003', BS: '4001', SO: '4500', ZG: '6300', TG: '8500', SH: '8200', FR: '1700', NE: '2000' };
+  for (const job of hardened) {
+    const loc = (job.addressLocality || job.location || '').trim();
+    if (!loc) continue;
+    const official = officialPostalCodeForLocation(loc, job.canton);
+    if (official.postalCode) {
+      if (job.postalCode !== official.postalCode) {
+        job.postalCode = official.postalCode;
+        postalFilled++;
       }
-      if (found) continue;
-      // Extract 4-digit PLZ from location string
-      const plzMatch = loc.match(/\b(\d{4})\b/);
-      // Skip years (2020-2039) that look like postal codes
-      if (plzMatch && Number(plzMatch[1]) >= 2020 && Number(plzMatch[1]) <= 2039) plzMatch[1] = '';
-      if (plzMatch) { job.postalCode = plzMatch[1]; postalFilled++; continue; }
-      // Canton capital fallback
-      const canton = (job.canton || '').toUpperCase();
-      if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
+      continue;
     }
-    if (postalFilled > 0) {
-      console.log(`  📮 PostalCode enrichment: filled ${postalFilled} jobs from swiss-postal-codes.json`);
+    if (official.known || job.postalCode) continue;
+    // Direct match
+    if (plz[loc]) { job.postalCode = plz[loc]; postalFilled++; continue; }
+    // First segment (e.g. "Chur, Graubünden" → "Chur")
+    const parts = loc.split(/[,·\-/]/).map(s => s.trim()).filter(Boolean);
+    let found = false;
+    for (const part of parts) {
+      if (plz[part]) { job.postalCode = plz[part]; postalFilled++; found = true; break; }
     }
+    if (found) continue;
+    // Extract 4-digit PLZ from location string
+    const plzMatch = loc.match(/\b(\d{4})\b/);
+    // Skip years (2020-2039) that look like postal codes
+    if (plzMatch && Number(plzMatch[1]) >= 2020 && Number(plzMatch[1]) <= 2039) plzMatch[1] = '';
+    if (plzMatch) { job.postalCode = plzMatch[1]; postalFilled++; continue; }
+    // Canton capital fallback only applies to an unknown free-text locality.
+    const canton = (job.canton || '').toUpperCase();
+    if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
+  }
+  if (postalFilled > 0) {
+    console.log(`  📮 PostalCode enrichment: corrected/filled ${postalFilled} jobs from official Swiss locality data and legacy fallbacks`);
   }
 
   // ── Canton inference: fill missing canton from location/addressLocality ──
@@ -4200,7 +4745,24 @@ export async function runDedicatedBaseCrawler({
   // lafonte, … and the standard template) is covered without per-script seeds.
   seedCrawlerSlicesFromDataJobs(root, scopedCompanyKeys, resolvedDataJobsPath);
 
-  await runSharedCrawlerInProcess({ root, env });
+  return runSharedCrawlerInProcess({ root, env });
+}
+
+/**
+ * The jobs of a slice file as committed by the previous run, for the
+ * retranslation baseline. A missing slice is a valid empty baseline; an
+ * unreadable or wrong-shaped slice has no baseline, so the crawler's flags
+ * on those records are then kept as they are.
+ */
+function readSliceJobsForBaseline(slicePath) {
+  try {
+    if (!fs.existsSync(slicePath)) return [];
+    const data = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    if (Array.isArray(data)) return data;
+    return Array.isArray(data?.jobs) ? data.jobs : null;
+  } catch {
+    return null;
+  }
 }
 
 /**
@@ -4232,7 +4794,20 @@ export function seedCrawlerSlicesFromDataJobs(root, companyKeys, dataJobsPath) {
       byKey.get(key).push(job);
     }
     for (const [key, jobs] of byKey) {
-      writeJson(path.join(sliceDir, `${key}.json`), { jobs });
+      const slicePath = path.join(sliceDir, `${key}.json`);
+      // The slice is about to stop being the previous run's: keep its
+      // translation baseline first (crawler-retranslation-baseline.mjs), or
+      // every source change of this run would compare against itself.
+      if (!getRetranslationBaseline(key)) {
+        const baselineJobs = readSliceJobsForBaseline(slicePath);
+        if (Array.isArray(baselineJobs)) {
+          recordRetranslationBaseline(key, baselineJobs);
+        }
+      }
+      // Same for the checks that compare this run with the previous one: the
+      // admission threshold and the summary partition (crawler-previous-run-slice.mjs).
+      recordPreviousRunSlice(slicePath);
+      writeJson(slicePath, { jobs });
     }
     // A scoped key that matches zero jobs in the merged data/jobs.json is NOT
     // reseeded above (it never enters byKey), so its on-disk slice is left
@@ -4405,7 +4980,7 @@ export function validateDedicatedLocaleCoverage({
     // A job carrying an active crawlerMissStreak (mergePreserveLocaleData's
     // grace-period retention, dedicated-crawler-common.mjs) was NOT matched
     // by this run's fresh fetch — it's a carry-over already scheduled to be
-    // dropped after GRACE_PERIOD_MAX_MISSES, not new/verified data. Hard-
+    // dropped after CRAWLER_GRACE_PERIOD_MAX_MISSES, not new/verified data. Hard-
     // failing on its (possibly now-untrusted) URL creates a deadlock for any
     // crawler that migrates its source ATS to a new domain: the commit step
     // only runs on crawler_exit==0, so a validation failure here means the
@@ -4994,7 +5569,7 @@ export function evaluateJobQuality(job, { minQualityScore, minDescriptionChars }
 
 const HTML_RESIDUE_RE = /<\/?[a-z][\s\S]*?>/i;
 const ENCODED_ENTITY_RE = /&(?:amp|lt|gt|quot|#\d{2,5}|#x[0-9a-f]{2,4});/i;
-const SCRIPT_TAG_RE = /<script[\s\S]*?<\/script>/i;
+const SCRIPT_TAG_RE = /<script(?=[\s/>])[\s\S]*?<\/script>/i;
 
 /**
  * Compute a detailed quality score for a single job.
@@ -5186,8 +5761,33 @@ export function isLikelyGenericCareerTitle(title = '') {
 export function isLikelyJobDetailUrl(rawUrl = '') {
   const url = String(rawUrl || '').toLowerCase();
   if (!url) return false;
+  let parsedUrl = null;
   let host = '';
-  try { host = new URL(url).hostname.toLowerCase(); } catch {}
+  try {
+    parsedUrl = new URL(url);
+    host = parsedUrl.hostname.toLowerCase();
+  } catch {}
+  // The Swiss Timing central board keeps the listing path
+  // (`/company/job-offers`) for detail pages and identifies the vacancy with
+  // `?company=<id>&job=<id>`. The path alone is still a listing; only the
+  // numeric detail query makes it a job page. Company 81 is Swiss Timing LTD
+  // in Corgémont; company 138 is the German subsidiary in Leipzig and must
+  // not consume the slow detail-fetch budget of this Swiss-only crawler.
+  const isSwissTimingDetail =
+    (host === 'swisstiming.com' || host.endsWith('.swisstiming.com')) &&
+    /^\/company\/job-offers\/?$/.test(parsedUrl?.pathname || '') &&
+    parsedUrl?.searchParams.get('company') === '81' &&
+    /^\d+$/.test(parsedUrl?.searchParams.get('job') || '');
+  if (isSwissTimingDetail) return true;
+  // Galenica's Solique SPA keeps the localized listing path and identifies a
+  // single vacancy in its hash route. Accept only the exact host, supported
+  // /<locale>/jobs path, and numeric job.id fragment; a generic hash or a
+  // listing URL is not evidence of a vacancy detail.
+  const isGalenicaDetail =
+    host === 'jobs.galenica.com' &&
+    /^\/(?:it|de|fr|en)\/jobs\/?$/.test(parsedUrl?.pathname || '') &&
+    /^#job\.id=\d+(?:\.\d+)?$/i.test(parsedUrl?.hash || '');
+  if (isGalenicaDetail) return true;
   if (/\/job\b/.test(url) && /[?&]id=\d/.test(url)) return true;
   if (/\/vacanc(?:y|ies)\/?(?:[?#]|$)/.test(url)) return false;
   if (/\/(jobs?|careers?|karriere|offene-stellen|open-positions?)\/?(?:[?#]|$)/.test(url)) return false;
@@ -5202,9 +5802,12 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
     /\/jobs\/[^/?#]+/.test(url) ||
     /\/vacanc/.test(url) ||
     /\/offene-stellen\/[^/?#]+/.test(url) ||
+    /\/stelle\/[^/?#]+/.test(url) ||
+    /\/stellenangebote\/[^/?#]+_j_\d+(?:[/?#]|$)/.test(url) ||
     /\/posti-vacanti\/[^/?#]+/.test(url) ||
     /\/open-positions?\/[^/?#]+/.test(url) ||
     /\/offres?-emploi\/[^/?#]+/.test(url) ||
+    /\/work\/\d+\/[^/?#]+/.test(url) ||
     /\/careers?\/job/.test(url) ||
     /[?&](jobid|jobid=|gh_jid|lever-source|wdjobid|job_id|yid)=/.test(url) ||
     /\/position\//.test(url)
@@ -5217,35 +5820,35 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
 
 // ── HTML entity decoders ─────────────────────────────────────
 
-const HTML_NAMED_ENTITIES = {
-  amp: '&', quot: '"', apos: "'", lt: '<', gt: '>',
-  nbsp: '\u00A0', shy: '\u00AD',
-  ndash: '–', mdash: '—', hellip: '…', bull: '•', middot: '·',
-  lsquo: '\u2018', rsquo: '\u2019', ldquo: '\u201C', rdquo: '\u201D',
-  laquo: '«', raquo: '»', times: '×', divide: '÷', minus: '−',
-  agrave: 'à', aacute: 'á', acirc: 'â', atilde: 'ã', auml: 'ä',
-  egrave: 'è', eacute: 'é', ecirc: 'ê', euml: 'ë',
-  igrave: 'ì', iacute: 'í', icirc: 'î', iuml: 'ï',
-  ograve: 'ò', oacute: 'ó', ocirc: 'ô', otilde: 'õ', ouml: 'ö',
-  ugrave: 'ù', uacute: 'ú', ucirc: 'û', uuml: 'ü',
-  Agrave: 'À', Aacute: 'Á', Eacute: 'É', Egrave: 'È',
-  Igrave: 'Ì', Ograve: 'Ò', Uacute: 'Ú', Uuml: 'Ü',
-  ntilde: 'ñ', ccedil: 'ç', szlig: 'ß',
-  euro: '€', pound: '£', yen: '¥', cent: '¢',
-  copy: '©', reg: '®', trade: '™', deg: '°',
-  frac12: '½', frac14: '¼', frac34: '¾',
-};
+// URL-bearing API fields need one pass over the original string. In
+// particular, `&amp;amp;` must become `&amp;`, not `&`, and percent-encoded
+// octets must remain untouched for the URL parser to interpret them later.
+const HTML_ENTITY_ONCE_RE = /&(?:#(?:x[0-9a-f]+|[0-9]+)|[a-z][a-z0-9]+);/gi;
+
+export function decodeHtmlEntitiesOnce(value = '') {
+  return String(value || '').replace(
+    HTML_ENTITY_ONCE_RE,
+    (entity) => decodeHTML(entity, { scope: 'strict' }),
+  );
+}
 
 export function decodeHtmlEntities(value = '') {
   return String(value || '')
-    .replace(/&([a-zA-Z]+);/g, (match, name) => HTML_NAMED_ENTITIES[name] ?? match)
-    .replace(/&nbsp;/gi, ' '); // normalize NBSP to regular space for job text
+    .replace(/&[a-z][a-z0-9]+;/gi, (entity) => decodeHTML(entity, { scope: 'strict' }))
+    .replaceAll('\u00a0', ' ');
 }
 
 export function decodeNumericEntities(value = '') {
-  return String(value || '')
-    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)));
+  return String(value || '').replace(/&#(x[0-9a-f]+|[0-9]+);/gi, (entity, reference) => {
+    const code = /^x/i.test(reference) ? parseInt(reference.slice(1), 16) : Number(reference);
+    // Numeric references are Unicode scalar values, not UTF-16 code units.
+    if (!Number.isInteger(code) || code <= 0 || code > 0x10ffff || (code >= 0xd800 && code <= 0xdfff)) {
+      return '\ufffd';
+    }
+    // html-entities supplies the HTML5 C1 mappings (e.g. &#128; → €).
+    // Its current release rejects the maximum valid scalar, handled here.
+    return code === 0x10ffff ? String.fromCodePoint(code) : decodeHTML(entity, { scope: 'strict' });
+  });
 }
 
 // Literal JavaScript escape sequences ("für") leak into job TITLES when
@@ -5324,6 +5927,12 @@ export function registrableDomain(host) {
   return parts.slice(-2).join('.');
 }
 
+const NOISY_JOB_URL_PARAMS = Object.freeze([
+  'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+  'gclid', 'fbclid', 'mc_cid', 'mc_eid', '_ga', '_gl', 'trk', 'tracking',
+  'source', 'medium', 'campaign',
+]);
+
 export function canonicalizeJobUrl(rawUrl = '') {
   let u;
   try {
@@ -5331,12 +5940,7 @@ export function canonicalizeJobUrl(rawUrl = '') {
   } catch {
     return '';
   }
-  const noisyParams = [
-    'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
-    'gclid', 'fbclid', 'mc_cid', 'mc_eid', '_ga', '_gl', 'trk', 'tracking',
-    'source', 'medium', 'campaign',
-  ];
-  for (const key of noisyParams) u.searchParams.delete(key);
+  for (const key of NOISY_JOB_URL_PARAMS) u.searchParams.delete(key);
   u.hash = '';
   const pathClean = u.pathname.replace(/\/+$/, '');
   return `${u.origin}${pathClean}${u.search ? `?${u.searchParams.toString()}` : ''}`.toLowerCase();
@@ -5346,6 +5950,34 @@ function extractUuidLikeId(raw = '') {
   const text = String(raw || '');
   const uuidMatch = text.match(/\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b/i);
   return uuidMatch?.[0] ? uuidMatch[0].toLowerCase() : '';
+}
+
+/**
+ * The start text of the text directive of a URL fragment (`…:~:text=<start>`,
+ * with optional `prefix-,` / `,end` / `,-suffix` parts), decoded, lowercased
+ * and whitespace-collapsed; '' when the fragment carries none.
+ *
+ * @param {string} fragment URL fragment without the leading `#`
+ * @returns {string}
+ */
+function textFragmentIdentity(fragment = '') {
+  const at = String(fragment || '').indexOf(':~:');
+  if (at < 0) return '';
+  const textParam = fragment.slice(at + 3).split('&').find((part) => part.startsWith('text='));
+  if (!textParam) return '';
+  const parts = textParam.slice('text='.length).split(',');
+  const first = parts[0] || '';
+  // A terminal hyphen is a prefix marker only when the directive actually
+  // contains a second component; otherwise it belongs to the text start.
+  const hasExplicitPrefix = parts.length > 1 && first.endsWith('-');
+  const start = hasExplicitPrefix ? (parts[1] || '') : first;
+  let text = '';
+  try {
+    text = decodeURIComponent(start);
+  } catch {
+    text = start;
+  }
+  return normalizeSpace(text).toLowerCase();
 }
 
 export function extractJobIdentityFromUrl(rawUrl = '') {
@@ -5489,6 +6121,23 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
   }
   const hashRaw = normalizeSpace(u.hash.replace(/^#/, ''));
   if (hashRaw) {
+    // A text fragment (`#:~:text=<title>`) is how a page that lists every ad
+    // under its own heading, with no id and no page per ad, addresses one of
+    // them (klinik-seeschau since #10334, oscam's concorsi without a PDF).
+    // Every other rule below reads `text=…` as nothing, so all the ads of such
+    // a page fell back to the hash-stripped canonicalizeJobUrl and shared ONE
+    // fingerprint — one slug-registry entry for several postings. The text is
+    // the posting's identity there. Tracking parameters do not identify the
+    // document, so remove them before deciding whether the query is meaningful;
+    // a real query still keeps its current key (la-fonte `?role=…#:~:text=…`,
+    // grischapersonal and leukerbad `?jobid=…`).
+    const queryWithoutTracking = new URL(u);
+    for (const key of NOISY_JOB_URL_PARAMS) queryWithoutTracking.searchParams.delete(key);
+    const textDirective = queryWithoutTracking.search ? '' : textFragmentIdentity(hashRaw);
+    if (textDirective) {
+      const pathKey = (u.pathname.replace(/\/+$/, '') || '/').toLowerCase();
+      return `${registrableDomain(host)}|${pathKey}#text=${textDirective}`;
+    }
     const keyedMatch = hashRaw.match(/(?:job[._-]?id|id)=(\w+)/i);
     if (keyedMatch?.[1]) return `${registrableDomain(host)}|${keyedMatch[1].toLowerCase()}`;
     if (hashRaw.length > 3 && /^[\w-]+$/.test(hashRaw)) {
@@ -5547,6 +6196,10 @@ export function isLowQualityLocalizedTitle(value = '') {
   if (t.length < 3) return true;
   if (/^(h|he|her|here|here is|title|job title)\b/i.test(t)) return true;
   if (/^[\W_]+$/.test(t)) return true;
+  // A model's answer about the request («Sorry, I can't help with that.», «I
+  // need to see the actual job title…», «<think>…»): every title writer and
+  // the "already translated?" filters below ask this predicate.
+  if (isModelMetaAnswer(t)) return true;
   return false;
 }
 
@@ -5591,6 +6244,54 @@ export function fingerprintJob(job) {
   const domain = registrableDomain(hostOf(job.url || '')) || normalizeSpace(job.company).toLowerCase();
   const key = `${normalizeSpace(job.title).toLowerCase()}|${normalizeSpace(job.location).toLowerCase()}|${domain}`;
   return `tl|${key.replace(/\s+/g, ' ')}`;
+}
+
+const EOC_UMANTIS_HOST = 'recruitingapp-2761.umantis.com';
+const EOC_COMPANY_KEY = 'eoc-ente-ospedaliero-cantonale';
+
+function normalizeContinuityPart(value = '') {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Continuity key for EOC's Umantis records.
+ *
+ * Umantis has replaced live vacancy numbers while keeping the source slug,
+ * title, and location unchanged (for example 2670 → 2696). The numeric URL
+ * identity is still the canonical identity for every other purpose; this
+ * key is an opt-in bridge used only when the shared merge sees exactly one
+ * old and one fresh EOC record with the same source-facing shape.
+ *
+ * Empty/ambiguous keys deliberately return an empty string. A semantic bridge
+ * must never merge two same-title openings merely because they share a weak
+ * heuristic.
+ */
+export function eocContinuityKey(job = {}) {
+  let host = '';
+  try {
+    host = normalizeHost(hostOf(job?.url || ''));
+  } catch {
+    host = '';
+  }
+  const companyKey = normalizeCompanyKey(job?.companyKey || '');
+  if (host !== EOC_UMANTIS_HOST || companyKey !== EOC_COMPANY_KEY) return '';
+
+  const sourceLang = normalizeContinuityPart(job?.sourceLang || 'it') || 'it';
+  const sourceSlug = job?.slugByLocale?.[sourceLang]
+    || job?.slugByLocale?.it
+    || job?.slug
+    || '';
+  const slug = normalizeContinuityPart(sourceSlug);
+  const title = normalizeContinuityPart(job?.title || '');
+  const location = normalizeContinuityPart(job?.location || '');
+  if (slug.length < 12 || !title || !location) return '';
+
+  return `eoc:${slug}|${title}|${location}`;
 }
 
 export function dedupHeuristicKey(job) {
@@ -6169,6 +6870,52 @@ export function isJobPortalRelevant(job = {}) {
   return hasSeedMetaTargetScope(job);
 }
 
+// Toponym lists are matched as WHOLE WORDS with Unicode boundaries, never as
+// substrings: "berlin" sits inside Oberlindach (BE), where a Tertianum home
+// was dropped as a Berlin posting (#9846), and "roma" inside Romanshorn. A
+// hyphen or a space is a boundary, so "Berlin-Mitte" and "Wien 1010" still
+// match. Compiled once per list, on first use.
+const wholeWordMarkerReCache = new Map();
+function hasWholeWordMarker(lower, cacheKey, markers) {
+  let re = wholeWordMarkerReCache.get(cacheKey);
+  if (!re) {
+    const alternation = markers
+      .map((marker) => marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+'))
+      .join('|');
+    re = new RegExp(`(?<![\\p{L}\\p{N}])(?:${alternation})(?![\\p{L}\\p{N}])`, 'iu');
+    wholeWordMarkerReCache.set(cacheKey, re);
+  }
+  return re.test(lower);
+}
+
+// These distinctive Italian localities are returned as bare location fields
+// by the Pizzarotti InRecruiting feed. Keep them in the shared foreign-place
+// vocabulary so a complete board can prove that its Swiss-filtered slice is
+// empty without treating an unknown location as foreign.
+const KNOWN_ITALIAN_LOCATION_MARKERS = [
+  'parma',
+  'ponte taro',
+  'baragiano',
+  'campomorone',
+];
+
+// Overseas territories can arrive as a regional label instead of the parent
+// country. Keep their country-like names separate from city markers: the
+// former is explicit foreign evidence, while the latter is only a known
+// foreign locality. Both lists feed the shared classifiers below so a
+// complete filtered board does not mistake a known overseas vacancy for an
+// unknown location.
+const KNOWN_FRENCH_GUIANA_TERRITORY_MARKERS = [
+  'french guiana',
+  'guyane française',
+  'guyane francaise',
+  'guyana francese',
+];
+const KNOWN_FRENCH_GUIANA_CITY_MARKERS = [
+  'cayenne',
+  'saint-laurent-du-maroni',
+];
+
 export function isExplicitlyOutsideTarget(text) {
   const lower = String(text || '').toLowerCase();
   const outsideMarkers = [
@@ -6196,6 +6943,9 @@ export function isExplicitlyOutsideTarget(text) {
     'venezia', 'venice', 'verona', 'padova', 'trieste', 'brescia', 'modena',
     'forte dei marmi', 'toscana', 'lazio', 'lombardia', 'piemonte', 'campania',
     'puglia', 'sicilia', 'sardegna', 'calabria', 'emilia-romagna', 'umbria',
+    ...KNOWN_ITALIAN_LOCATION_MARKERS,
+    ...KNOWN_FRENCH_GUIANA_TERRITORY_MARKERS,
+    ...KNOWN_FRENCH_GUIANA_CITY_MARKERS,
     'usa', 'united states', 'new york', 'los angeles', 'san francisco', 'chicago',
     'canada', 'toronto', 'montreal', 'vancouver',
     'brazil', 'brasile', 'são paulo', 'rio de janeiro',
@@ -6217,7 +6967,7 @@ export function isExplicitlyOutsideTarget(text) {
     'australia', 'sydney', 'melbourne',
     'south africa', 'johannesburg', 'cape town',
   ];
-  const hitOutside = outsideMarkers.some((k) => lower.includes(k));
+  const hitOutside = hasWholeWordMarker(lower, 'outside-target', outsideMarkers);
   if (!hitOutside) return false;
   // Safeguard: if text also mentions any target Swiss location, it's not outside.
   // Word-boundary aware (via isTargetSwissLocation) — NOT a substring scan, which
@@ -6244,6 +6994,18 @@ const EXPLICIT_FOREIGN_COUNTRY_MARKERS = [
   'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
   'poland', 'czech republic', 'hungary', 'romania', 'greece',
   'russia', 'ukraine', 'turkey', 'bermuda',
+  // #9846: named in location fields of the 2026-09-25 slices and not
+  // recognised, so "Santiago de Chile, Chile" reached the Swiss whitelist and
+  // was kept on the strength of its Chilean postcode 2206.
+  'chile', 'costa rica', 'kazakhstan', 'ireland',
+  'argentina', 'colombia', 'peru', 'ecuador', 'uruguay', 'panama', 'guatemala',
+  'puerto rico', 'dominican republic', 'israel', 'egypt', 'morocco', 'tunisia',
+  'nigeria', 'kenya', 'pakistan', 'new zealand', 'bulgaria', 'croatia',
+  'serbia', 'slovakia', 'slovenia', 'estonia', 'latvia', 'lithuania',
+  ...KNOWN_FRENCH_GUIANA_TERRITORY_MARKERS,
+  // The German state whose name starts with the Aargau town Baden: explicit
+  // foreign geography whatever canton the record carries (#9846 review).
+  'württemberg', 'wuerttemberg', 'wurttemberg', 'wurtemberg',
 ];
 const EXPLICIT_FOREIGN_COUNTRY_RE = new RegExp(
   `(?:^|[^\\p{L}])(?:${EXPLICIT_FOREIGN_COUNTRY_MARKERS
@@ -6292,6 +7054,31 @@ const FOREIGN_ONLY_COUNTRY_CODES = new Set(
   FOREIGN_COUNTRY_CODES.filter((code) => !SWISS_LOCATION_CODES.has(code)),
 );
 
+// Lever's TSMG feed has exposed US locations as `City, ST` while omitting the
+// structured country. These are state abbreviations, not ISO country codes;
+// keep only the abbreviations that cannot also be Swiss canton codes so a
+// genuine `Bern, BE` / `Appenzell, AR` location remains ambiguous and safe.
+const US_STATE_CODES = new Set(`
+  AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT
+  NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY
+`.trim().split(/\s+/));
+const US_STATE_SUFFIX_RE = /(?:^|[,;])\s*([a-z]{2})\s*$/iu;
+
+function hasExplicitUsStateSuffix(lower) {
+  const match = String(lower || '').match(US_STATE_SUFFIX_RE);
+  if (!match) return false;
+  const code = String(match[1] || '').toUpperCase();
+  if (!US_STATE_CODES.has(code) || SWISS_LOCATION_CODES.has(code)) return false;
+
+  const locality = String(lower).slice(0, match.index).replace(/[,;]\s*$/, '').trim();
+  if (!locality) return false;
+  // A Swiss locality elsewhere in the field wins over an ambiguous suffix.
+  // This mirrors the existing country-code guards and prevents a department
+  // or free-text label from becoming a foreign verdict.
+  if (isTargetSwissLocation(locality, { includeBorderProximity: false })) return false;
+  return true;
+}
+
 // Region-prefixed ATS location fields put the country code in the MIDDLE,
 // where an end-of-field anchor cannot see it. This is not hypothetical: the
 // three tenants that reached production with a wrong published city all
@@ -6326,6 +7113,7 @@ function segmentNamesForeignCountry(lower) {
 }
 
 function hasExplicitForeignCountryCode(lower) {
+  if (hasExplicitUsStateSuffix(lower)) return true;
   // A labelled field is authoritative even when its two-letter value also
   // names a Swiss canton (for example, country: FR).
   if (EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE.test(lower)) return true;
@@ -6392,8 +7180,14 @@ export function isLocationExplicitlyForeign(locationField) {
     'kuala lumpur', 'milano', 'milan', 'roma', 'rome', 'firenze', 'florence',
     'napoli', 'naples', 'torino', 'turin', 'bologna', 'genova', 'palermo',
     'venezia', 'venice', 'forte dei marmi', 'toscana', 'lombardia',
+    ...KNOWN_ITALIAN_LOCATION_MARKERS,
+    ...KNOWN_FRENCH_GUIANA_CITY_MARKERS,
     // Western Europe
     'paris', 'lyon', 'marseille', 'london', 'birmingham', 'sutton coldfield',
+    // French/Italian forms of cities in this list, as translated descriptions
+    // write them (#9846: "bureaux à Genève, Zurich, Barcelone, Londres").
+    'londres', 'londra', 'parigi', 'barcelone', 'barcellona', 'lisbonne', 'lisbona',
+    'varsovie', 'varsavia', 'francoforte', 'monaco di baviera', 'amburgo',
     'berlin', 'munich', 'münchen',
     'frankfurt', 'hamburg', 'köln', 'koeln', 'cologne', 'vienna', 'wien', 'madrid', 'barcelona',
     'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
@@ -6414,11 +7208,26 @@ export function isLocationExplicitlyForeign(locationField) {
     'dallas', 'west hartford', 'durham', 'warren', 'miami',
     // Oceania & Africa
     'sydney', 'melbourne', 'cape town', 'johannesburg',
+    'windeck', // German municipality observed in TSMG rows with country=null
     // Liechtenstein & micro-states
     'ruggell', 'barberà del vallès', 'barbera del valles',
     'montecarlo', 'monte carlo', 'monte-carlo', 'monaco-ville',
   ];
-  return foreignCities.some((k) => lower.includes(k));
+  return hasWholeWordMarker(lower, 'foreign-cities', foreignCities);
+}
+
+/**
+ * Check for an explicit foreign-country signal without treating a known
+ * foreign city name as sufficient evidence on its own. Composite office
+ * lists need this stricter distinction: a bare city can be an ambiguous
+ * unclassified component, while a country label/code proves that component
+ * is foreign.
+ */
+export function hasExplicitForeignCountrySignal(locationField) {
+  const lower = String(locationField || '').toLowerCase();
+  const bareCode = lower.trim().toUpperCase();
+  if (FOREIGN_COUNTRY_CODES.includes(bareCode)) return true;
+  return EXPLICIT_FOREIGN_COUNTRY_RE.test(lower) || hasExplicitForeignCountryCode(lower);
 }
 
 // A SuccessFactors / SAP "career site" job page (used by Swatch Group, Omega,
@@ -6639,6 +7448,46 @@ export function hasFullLocaleCoverage(job, { minTitleChars = 3, minSlugChars = 3
 }
 
 /**
+ * Translation coverage for the indexed text fields, independent of slugs.
+ *
+ * A source-language copy in a non-source slot is not a completed translation:
+ * locale hardening deliberately keeps that copy visible so deploy can render
+ * the job, but the job must remain in the repair queue. This is the shared
+ * guard used by the crawler merge and the translation writer; neither path may
+ * clear `needsRetranslation` while one of the four title/description pairs is
+ * still only a source copy or below its minimum length.
+ */
+export function hasCompleteLocaleTextCoverage(job, {
+  sourceLang = job?.sourceLang || null,
+  minTitleChars = 3,
+  minDescriptionChars = 120,
+} = {}) {
+  const titles = job?.titleByLocale || {};
+  const descriptions = job?.descriptionByLocale || {};
+  if (localeTextCoverage(titles, minTitleChars) < LOCALES.length) return false;
+  if (localeTextCoverage(descriptions, minDescriptionChars) < LOCALES.length) return false;
+
+  const normalizedSourceLocale = normalizeJobLocale(sourceLang);
+  const sourceLocale = LOCALES.includes(sourceLang)
+    ? sourceLang
+    : (LOCALES.includes(normalizedSourceLocale) ? normalizedSourceLocale : null);
+  if (!sourceLocale) return true;
+  const sourceTitle = normalizeSpace(String(titles[sourceLocale] || job?.title || '')).toLowerCase();
+  const sourceDescriptionCandidates = [...new Set(
+    [descriptions[sourceLocale], ...sourceLocaleTextCandidates(job, 'description')]
+      .map((value) => String(value ?? '').trim())
+      .filter(Boolean),
+  )];
+  for (const locale of LOCALES) {
+    if (locale === sourceLocale) continue;
+    if (sourceTitle && normalizeSpace(String(titles[locale] || '')).toLowerCase() === sourceTitle) return false;
+    if (sourceDescriptionCandidates.some((source) =>
+      source.length >= minDescriptionChars && isDescriptionSourceCopy(descriptions[locale], source))) return false;
+  }
+  return true;
+}
+
+/**
  * Like hasFullLocaleCoverage, but also rejects locale-MISlabeled content:
  * presence alone (all 4 slots non-empty) says nothing about whether a
  * non-source slot still holds source-language text (issue #4788 — a DE
@@ -6797,8 +7646,20 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
     // contaminate a fresh job record with stale, unrelated content.
     const aSourceText = normalizeLocaleTextKeepLines(String(a?.[sourceLocale] || ''));
     const bSourceText = normalizeLocaleTextKeepLines(String(b?.[sourceLocale] || ''));
+    // Compare the WHOLE source text. `slugify` truncates at 140 characters by
+    // default, so for a description only its opening was compared: staffing
+    // agencies (sta.jobs, Stellentreff, Stellenpartner, Fachkraft) serve the
+    // same paragraphs in a different order on every visit, the opening
+    // changed, and every crawl dropped the translations as if the posting
+    // were a different job. Measured on the group-10 commit d373228c378
+    // (2026-10-13, stellentreff.json): 773 descriptions changed only in
+    // paragraph order, 596 of them lost their translations here; 0 with the
+    // full-text comparison.
     const sourceDrifted = aSourceText.length >= minChars && bSourceText.length >= minChars
-      && slugJaccard(slugify(aSourceText), slugify(bSourceText)) < SOURCE_DRIFT_JACCARD_FLOOR;
+      && slugJaccard(
+        slugify(aSourceText, Number.MAX_SAFE_INTEGER),
+        slugify(bSourceText, Number.MAX_SAFE_INTEGER),
+      ) < SOURCE_DRIFT_JACCARD_FLOOR;
 
     for (const locale of LOCALES) {
       const av = normalizeLocaleTextKeepLines(String(a?.[locale] || ''));
@@ -6822,6 +7683,12 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
         }
       }
       if (out[locale] === undefined) delete out[locale];
+    }
+    if (!LOCALES.includes(sourceLocale)) {
+      const av = normalizeLocaleTextKeepLines(String(a?.[sourceLocale] || ''));
+      const bv = normalizeLocaleTextKeepLines(String(b?.[sourceLocale] || ''));
+      const sourceValue = bv.length >= minChars ? bv : (av.length >= minChars ? av : '');
+      if (sourceValue) out[sourceLocale] = sourceValue;
     }
     return out;
   }
@@ -6887,7 +7754,7 @@ export function repairRelabeledSourceLocale(map = {}, { prevLang, nextLang, sour
   return { map: out, removedMislabeledCopy };
 }
 
-export function mergeLocaleRequirementsMap(a = {}, b = {}) {
+export function mergeLocaleRequirementsMap(a = {}, b = {}, sourceLocale = null) {
   const out = {};
   for (const locale of LOCALES) {
     const merged = mergeRequirements(
@@ -6896,7 +7763,104 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}) {
     );
     if (merged.length > 0) out[locale] = merged;
   }
+  if (sourceLocale && !LOCALES.includes(sourceLocale)) {
+    const merged = mergeRequirements(
+      Array.isArray(a?.[sourceLocale]) ? a[sourceLocale] : [],
+      Array.isArray(b?.[sourceLocale]) ? b[sourceLocale] : [],
+    );
+    if (merged.length > 0) out[sourceLocale] = merged;
+  }
   return out;
+}
+
+function sourceTitleBridgeSignature(job) {
+  const title = normalizeSpace(String(job?.title || '')).toLowerCase();
+  if (title.length < 3) return '';
+  const company = String(job?.companyKey || job?.company || '').trim().toLowerCase();
+  const locality = normalizeSpace(String(job?.addressLocality || job?.location || '')).toLowerCase();
+  return `${company}|${locality}|${title}`;
+}
+
+/**
+ * Pairs a fresh job that matches no existing record by key with the existing
+ * record that no fresh job matched, when both carry the SAME source title for
+ * the same company and locality.
+ *
+ * Why. `mergePreserveLocaleData` keeps translations only through `matchKey`.
+ * When the key changes while the posting does not, the fresh job is treated
+ * as new, its non-source locales are source copies, and the translations of
+ * the old record are lost (it is retained under the miss grace, or dropped by
+ * an authoritative snapshot). Two causes measured on the crawl of 2026-10-01:
+ *   · repost under a new source id: abraxas "Abacus Berater:in BPE, REST &
+ *     AbaReport 80–100 %", URL suffix -2411 → -4304 (crawler group 13, run
+ *     36841309578): it/en/fr went from translations to the German title;
+ *   · key scheme change: liebherrMatchKey moved to
+ *     `liebherr:source-job:<id>` once the parser stored sourceLocale, so no
+ *     stored Liebherr record (URL key) matched its fresh twin.
+ * A translation depends only on its source text: with the title unchanged the
+ * old title translations are still right, and description translations go
+ * through the same source-drift guard as a key match (mergeLocaleTextMap).
+ *
+ * Only unambiguous pairs: exactly one unmatched existing and one unmatched
+ * fresh job per signature, never a job whose key is ambiguous (the collision
+ * policy above stays as it is), never across source languages. Identity (id,
+ * slugs, previous slugs, dates) is NOT carried: the posting may be new.
+ *
+ * @returns {Map<object, object>} fresh job → existing job
+ */
+export function buildSourceTitleBridge(existingJobs, freshJobs, matchKey, ambiguousKeys = new Set()) {
+  const existingKeys = new Set();
+  for (const job of existingJobs) {
+    const k = matchKey(job);
+    if (k && !ambiguousKeys.has(k)) existingKeys.add(k);
+  }
+  const keyMatchedByFresh = new Set();
+  for (const job of freshJobs) {
+    const k = matchKey(job);
+    if (k && !ambiguousKeys.has(k) && existingKeys.has(k)) keyMatchedByFresh.add(k);
+  }
+  const unambiguousUnmatched = (jobs, isMatched) => {
+    const bySignature = new Map();
+    for (const job of jobs) {
+      const k = matchKey(job);
+      if (k && ambiguousKeys.has(k)) continue;
+      if (isMatched(k)) continue;
+      const signature = sourceTitleBridgeSignature(job);
+      if (!signature) continue;
+      bySignature.set(signature, bySignature.has(signature) ? null : job);
+    }
+    return bySignature;
+  };
+  const existingBySignature = unambiguousUnmatched(existingJobs, (k) => Boolean(k && keyMatchedByFresh.has(k)));
+  const freshBySignature = unambiguousUnmatched(freshJobs, (k) => Boolean(k && existingKeys.has(k)));
+
+  const bridge = new Map();
+  for (const [signature, fresh] of freshBySignature) {
+    const previous = existingBySignature.get(signature);
+    if (!fresh || !previous) continue;
+    const freshLang = String(fresh.sourceLang || '').trim();
+    const previousLang = String(previous.sourceLang || '').trim();
+    if (freshLang && previousLang && freshLang !== previousLang) continue;
+    bridge.set(fresh, previous);
+  }
+  return bridge;
+}
+
+/**
+ * The locale-text half of a key match (same merge calls, same minimum
+ * lengths): non-source title/description/requirement slots come from the
+ * previous record, the source slot from the fresh crawl.
+ */
+function carryLocaleTextFromSameSourceTitle(fresh, previous) {
+  const srcLang = fresh.sourceLang || previous.sourceLang || null;
+  fresh.titleByLocale = mergeLocaleTextMap(previous.titleByLocale, fresh.titleByLocale || {}, 3, srcLang);
+  fresh.descriptionByLocale = mergeLocaleTextMap(previous.descriptionByLocale, fresh.descriptionByLocale || {}, 30, srcLang);
+  if (previous.requirementsByLocale && !fresh.requirementsByLocale) {
+    fresh.requirementsByLocale = previous.requirementsByLocale;
+  } else if (previous.requirementsByLocale && fresh.requirementsByLocale) {
+    fresh.requirementsByLocale = mergeLocaleRequirementsMap(previous.requirementsByLocale, fresh.requirementsByLocale, srcLang);
+  }
+  if (!fresh.sourceLang && previous.sourceLang) fresh.sourceLang = previous.sourceLang;
 }
 
 /**
@@ -6993,12 +7957,36 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     const k = matchKey(job);
     if (k && !ambiguousKeys.has(k)) existingByKey.set(k, job);
   }
+  const sourceTitleBridge = buildSourceTitleBridge(existingJobs, freshJobs, matchKey, ambiguousKeys);
   const matchedExistingKeys = new Set();
+  const markIncompleteLocaleText = (job, sourceLang) => {
+    const hasText = [
+      job?.title,
+      job?.description,
+      ...Object.values(job?.titleByLocale || {}),
+      ...Object.values(job?.descriptionByLocale || {}),
+    ].some((value) => String(value || '').trim().length > 0);
+    if (!hasText) return job;
+    if (job.localeMismatchSuppressed && !sourceChangedSinceSuppression(job)) return job;
+    if (!hasCompleteLocaleTextCoverage(job, { sourceLang })) {
+      job.needsRetranslation = true;
+    }
+    return job;
+  };
 
+  let sourceTitleBridged = 0;
   const mergedFresh = freshJobs.map((fresh) => {
     const k = matchKey(fresh);
     const old = (k && !ambiguousKeys.has(k)) ? existingByKey.get(k) : null;
-    if (!old) return fresh;
+    Object.assign(fresh, mergeSourcePostingDates(old || {}, fresh));
+    if (!old) {
+      const previous = sourceTitleBridge.get(fresh);
+      if (previous) {
+        carryLocaleTextFromSameSourceTitle(fresh, previous);
+        sourceTitleBridged += 1;
+      }
+      return markIncompleteLocaleText(fresh, fresh.sourceLang || null);
+    }
     matchedExistingKeys.add(k);
 
     // Preserve stable ID from existing job
@@ -7085,7 +8073,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.requirementsByLocale = old.requirementsByLocale;
     } else if (old.requirementsByLocale && fresh.requirementsByLocale) {
       fresh.requirementsByLocale = mergeLocaleRequirementsMap(
-        old.requirementsByLocale, fresh.requirementsByLocale
+        old.requirementsByLocale, fresh.requirementsByLocale, srcLang
       );
     }
 
@@ -7193,6 +8181,16 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     if (old.sourceLang && !fresh.sourceLang) {
       fresh.sourceLang = old.sourceLang;
     }
+    if (old.sourceLangOriginal && !fresh.sourceLangOriginal) {
+      fresh.sourceLangOriginal = old.sourceLangOriginal;
+    }
+
+    // Preserve an authoritative source reference when a later listing row
+    // omits it; a missing metadata field must not erase proof already stored
+    // for the same stable job identity.
+    if (old.sourceReference && !fresh.sourceReference) {
+      fresh.sourceReference = old.sourceReference;
+    }
 
     // Preserve slugDisambiguator — crawler sets it once, pipeline carries it forward
     if (old.slugDisambiguator && !fresh.slugDisambiguator) {
@@ -7204,34 +8202,12 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.firstSeenAt = old.firstSeenAt;
     }
 
-    // Preserve postedDate / datePosted — the original posting date is
-    // immutable. ~30 dedicated crawlers set `postedDate: new Date()` on
-    // every run, which used to mark every job in the dataset as "posted
-    // today" after each re-crawl (data audit Apr-2026 found 32 % of all
-    // jobs reporting postedDate within the last 1-3 days while only 4 %
-    // were actually first seen by us in that window — most of the
-    // dataset was 2-4 weeks old). Always keep the OLDER of the two
-    // dates: it's the closest proxy to the true employer posting date
-    // when the crawler can't read it from the page. Only let `fresh`
-    // win when it's actually older (rare; the crawler probably learned
-    // to read the real posting timestamp).
-    const preserveOlder = (key) => {
-      if (!old[key]) return;
-      if (!fresh[key]) { fresh[key] = old[key]; return; }
-      const oldD = new Date(old[key]);
-      const newD = new Date(fresh[key]);
-      if (
-        !Number.isNaN(oldD.getTime())
-        && (Number.isNaN(newD.getTime()) || oldD.getTime() < newD.getTime())
-      ) {
-        fresh[key] = old[key];
-      }
-    };
-    preserveOlder('postedDate');
-    preserveOlder('datePosted');
 
-    return fresh;
+    return markIncompleteLocaleText(fresh, fresh.sourceLang || srcLang || null);
   });
+  if (sourceTitleBridged > 0) {
+    console.log(`  🔁 mergePreserveLocaleData: kept the translations of ${sourceTitleBridged} job(s) whose match key changed but whose source title did not.`);
+  }
 
   // A crawler may bypass the miss grace only after its own source-specific
   // completeness validator has proved this run is an authoritative snapshot.
@@ -7247,18 +8223,17 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // pattern for whole-crawl failures) so a single bad run doesn't
   // silently archive a still-open job; only let it drop — and flow
   // into computeCrawlDiff's removedJobs / archive path — once it has
-  // been missing for GRACE_PERIOD_MAX_MISSES consecutive runs in a row.
+  // been missing for CRAWLER_GRACE_PERIOD_MAX_MISSES consecutive runs in a row.
   // Independently, crawledAt older than ACTIVE_JOB_RETIREMENT_DAYS leaves
   // the active slice even on miss 1: miss-streak grace never advanced for
   // EOC/JYSK rows that stayed "known" without a recrawl heartbeat.
-  const GRACE_PERIOD_MAX_MISSES = 2;
   const retainedJobs = [];
   for (const [key, old] of existingByKey) {
     if (matchedExistingKeys.has(key)) continue;
     if (isActiveJobPastRetirement(old, nowMs)) continue;
     const missStreak = (Number(old.crawlerMissStreak) || 0) + 1;
-    if (missStreak > GRACE_PERIOD_MAX_MISSES) continue;
-    retainedJobs.push({ ...old, crawlerMissStreak: missStreak });
+    if (missStreak > CRAWLER_GRACE_PERIOD_MAX_MISSES) continue;
+    retainedJobs.push({ ...old, ...mergeSourcePostingDates({}, old), crawlerMissStreak: missStreak });
   }
 
   return retainedJobs.length ? [...mergedFresh, ...retainedJobs] : mergedFresh;
@@ -7591,6 +8566,31 @@ export function getAllPreviousSlugs(job) {
 }
 
 /**
+ * Would `cleanPreviousSlugsPerLocale()` drop this previous slug from `job`?
+ *
+ * A locale-attributed entry is dropped when it equals that locale's active
+ * slug or the master slug; an unattributed (flat-only) entry when it equals
+ * the master slug or any active locale slug. Writers that carry bridges
+ * forward must ask this before adding one: a bridge the cleaner removes on
+ * the next pass can never be persisted, so treating it as missing makes the
+ * writer non-idempotent (translate-pending run 37723588903: 1065 such
+ * bridges kept the scatter parity gate red).
+ *
+ * @param {object} job job whose ACTIVE slugs decide the verdict
+ * @param {string|null} locale bucket the slug is attributed to, null = flat
+ * @param {string} slug candidate previous slug
+ * @returns {boolean}
+ */
+export function isSelfCanonicalPreviousSlug(job, locale, slug) {
+  const norm = normalizeSpace(String(slug || ''));
+  if (!norm || !job || typeof job !== 'object') return false;
+  if (norm === normalizeSpace(job.slug || '')) return true;
+  const active = job.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {};
+  if (locale) return norm === normalizeSpace(active[locale] || '');
+  return Object.values(active).some((value) => value && norm === normalizeSpace(String(value)));
+}
+
+/**
  * Per-locale safety net: for each locale, strip previousSlugsByLocale entries
  * that match ONLY that same locale's active slug. Cross-locale matches are
  * preserved (e.g. old FR slug that matches current DE slug → keep for FR bridge).
@@ -7802,12 +8802,9 @@ function mergeDuplicateJobPreservingSlugHistory(a, b) {
   else delete chosen.previousSlugs;
   if (mergedPreviousSlugsByLocale) chosen.previousSlugsByLocale = mergedPreviousSlugsByLocale;
   else delete chosen.previousSlugsByLocale;
-  // Posting date is immutable (#3843 item 3): the two colliding records are
-  // the SAME posting, so whichever side loses preferJob() must not take the
-  // older/sourced date down with it — and legacy records may carry it only on
-  // `datePosted`. Same older-wins rule as mergeAndDeduplicate's merge below.
-  const mergedPostedDate = pickMergedPostedDate(a, b);
-  if (mergedPostedDate) chosen.postedDate = mergedPostedDate;
+  // A duplicate cannot turn an unverified legacy date into employer evidence.
+  // Keep the oldest validated reported tuple independently of quality scoring.
+  Object.assign(chosen, mergeSourcePostingDates(a, b));
   // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt below):
   // the two colliding records are the SAME posting, so whichever side loses
   // preferJob() must not take the fresher "seen live" proof down with it —
@@ -7895,29 +8892,10 @@ export function isForeignAtsUrlLocation(rawUrl = '') {
   return isLocationExplicitlyForeign(locationPrefix);
 }
 
-// Pick the sourced posting date for a merged duplicate pair (#3843 item 3).
-// ~30 legacy crawlers emit ONLY `datePosted` (never `postedDate`), so a
-// postedDate-only fallback chain never sees the true source posting date and
-// fabricates "today" instead. Each side falls back postedDate → datePosted,
-// then the two sides are combined with the same "posting date is immutable —
-// keep the OLDER" rule as mergePreserveLocaleData's preserveOlder(): a crawler
-// that stamps `new Date()` on every run must not churn the date forward, and
-// `next` only wins when it is actually older (it probably learned to read the
-// real posting timestamp from the page).
+// Only explicitly reported, validated publication evidence survives a merge.
+// A legacy timestamp or a crawl heartbeat does not establish publication.
 export function pickMergedPostedDate(prev = {}, next = {}) {
-  const prevVal = prev.postedDate || prev.datePosted || '';
-  const nextVal = next.postedDate || next.datePosted || '';
-  if (!prevVal) return nextVal;
-  if (!nextVal) return prevVal;
-  const prevD = new Date(prevVal);
-  const nextD = new Date(nextVal);
-  if (
-    !Number.isNaN(prevD.getTime())
-    && (Number.isNaN(nextD.getTime()) || prevD.getTime() < nextD.getTime())
-  ) {
-    return prevVal;
-  }
-  return nextVal;
+  return mergeSourcePostingDates(prev, next).postedDate;
 }
 
 // Pick the merged crawledAt for a duplicate pair. Semantics contract:
@@ -7947,7 +8925,6 @@ export function pickMergedCrawledAt(prev = {}, next = {}) {
 }
 
 export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, options = {}) {
-  const nowIsoDate = dateOnly(Date.now());
   const nowIsoTs = new Date().toISOString();
   const map = new Map();
   const resolveCompanyKey = typeof options.resolveCompanyKey === 'function'
@@ -7971,6 +8948,9 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     (job) => fingerprintJob(job),
     (base) => base.startsWith('id|eta.ch|'),
   );
+  const continuityKey = typeof options.continuityKey === 'function'
+    ? options.continuityKey
+    : null;
   let duplicateExisting = 0;
 
   for (const job of existingJobs) {
@@ -7984,6 +8964,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (!fp) continue;
     const normalized = {
       ...job,
+      ...mergeSourcePostingDates({}, job),
       ...(job?.companyKey ? { companyKey: resolveJobCompanyKey(job) } : {}),
       crawledAt: normalizeSpace(job.crawledAt || ''),
     };
@@ -7994,6 +8975,39 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     }
     duplicateExisting += 1;
     map.set(fp, mergeDuplicateJobPreservingSlugHistory(prev, normalized));
+  }
+
+  // A source may rotate a vacancy URL while leaving the source-facing job
+  // unchanged. Build a bridge only for an injective one-to-one pair: any
+  // collision on either side is left alone so distinct openings cannot inherit
+  // one another's id, translations, or firstSeenAt.
+  const continuityBridgeByIncomingFingerprint = new Map();
+  if (continuityKey) {
+    const existingByContinuity = new Map();
+    const incomingByContinuity = new Map();
+    const collect = (index, jobs) => {
+      for (const job of jobs) {
+        const key = continuityKey(job);
+        if (!key) continue;
+        const group = index.get(key) || [];
+        group.push(job);
+        index.set(key, group);
+      }
+    };
+    collect(existingByContinuity, existingJobs);
+    collect(incomingByContinuity, incomingJobs);
+
+    for (const [key, existingGroup] of existingByContinuity) {
+      const incomingGroup = incomingByContinuity.get(key) || [];
+      if (existingGroup.length !== 1 || incomingGroup.length !== 1) continue;
+
+      const oldFingerprint = mergeFingerprint(existingGroup[0]);
+      const incomingFingerprint = mergeFingerprint(incomingGroup[0]);
+      if (!oldFingerprint || !incomingFingerprint || oldFingerprint === incomingFingerprint) continue;
+      if (!map.has(oldFingerprint) || map.has(incomingFingerprint)) continue;
+
+      continuityBridgeByIncomingFingerprint.set(incomingFingerprint, oldFingerprint);
+    }
   }
 
   let inserted = 0;
@@ -8011,16 +9025,28 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (seenIncoming.has(fp)) {
       duplicateIncoming += 1;
       duplicateByCompany[raw.company] = (duplicateByCompany[raw.company] || 0) + 1;
+      const retained = map.get(fp);
+      if (retained) Object.assign(retained, mergeSourcePostingDates(retained, raw));
       continue;
     }
     seenIncoming.add(fp);
     const next = {
       ...raw,
+      ...mergeSourcePostingDates({}, raw),
       ...(raw?.companyKey ? { companyKey: resolveJobCompanyKey(raw) } : {}),
       id: raw.id || buildStableId(raw),
       crawledAt: nowIsoTs,
     };
-    const prev = map.get(fp);
+    let bridgedFromFingerprint = null;
+    let prev = map.get(fp);
+    if (!prev) {
+      const bridgeFingerprint = continuityBridgeByIncomingFingerprint.get(fp);
+      if (bridgeFingerprint && map.has(bridgeFingerprint)) {
+        bridgedFromFingerprint = bridgeFingerprint;
+        prev = map.get(bridgeFingerprint);
+        map.delete(bridgeFingerprint);
+      }
+    }
     if (!prev) {
       map.set(fp, { ...next, firstSeenAt: next.firstSeenAt || nowIsoTs });
       inserted += 1;
@@ -8044,7 +9070,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       ...prev,
       ...next,
       id: prev.id || next.id,
-      postedDate: pickMergedPostedDate(prev, next) || nowIsoDate,
+      ...mergeSourcePostingDates(prev, next),
       // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt):
       // `next` was scraped THIS run (stamped nowIsoTs above), which proves
       // the posting is still up. The old `prev.crawledAt || …` order froze
@@ -8059,11 +9085,52 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
         : prev.source,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale || {}, next.titleByLocale || {}, 3, next.sourceLang || prev.sourceLang || null),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, next.descriptionByLocale || {}, 120, next.sourceLang || prev.sourceLang || null),
-      requirementsByLocale: mergeLocaleRequirementsMap(prev.requirementsByLocale || {}, next.requirementsByLocale || {}),
+      requirementsByLocale: mergeLocaleRequirementsMap(
+        prev.requirementsByLocale || {}, next.requirementsByLocale || {},
+        next.sourceLang || prev.sourceLang || null,
+      ),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale || {}, next.slugByLocale || {}, 3, next.sourceLang || prev.sourceLang || null),
       previousSlugs: mergedPreviousSlugsCapped,
       previousSlugsByLocale: mergePreviousSlugsByLocale(prev.previousSlugsByLocale, next.previousSlugsByLocale, mergeJobId, 'mergeAndDeduplicate'),
     };
+    if (bridgedFromFingerprint) {
+      const currentIdentity = buildStableJobIdentity(next) || next.sourceIdentity || '';
+      if (currentIdentity) {
+        const historyByIdentity = new Map();
+        const addHistory = (identity, firstSeenAt, title) => {
+          if (!identity || identity === currentIdentity || historyByIdentity.has(identity)) return;
+          historyByIdentity.set(identity, {
+            sourceIdentity: identity,
+            ...(firstSeenAt ? { firstSeenAt } : {}),
+            ...(title ? { title } : {}),
+          });
+        };
+        for (const record of [prev, next]) {
+          addHistory(
+            record?.sourceIdentity || buildStableJobIdentity(record),
+            record?.firstSeenAt,
+            record?.title,
+          );
+          for (const history of Array.isArray(record?.sourceIdentityHistory)
+            ? record.sourceIdentityHistory
+            : []) {
+            addHistory(
+              history?.sourceIdentity,
+              history?.firstSeenAt || record?.firstSeenAt,
+              history?.title || record?.title,
+            );
+          }
+        }
+        best.sourceIdentity = currentIdentity;
+        const sourceIdentityHistory = [...historyByIdentity.values()]
+          .sort((a, b) => a.sourceIdentity.localeCompare(b.sourceIdentity));
+        if (sourceIdentityHistory.length > 0) {
+          best.sourceIdentityHistory = sourceIdentityHistory;
+        } else {
+          delete best.sourceIdentityHistory;
+        }
+      }
+    }
     if (shouldReusePreviousLocalization(prev, next, options.contentReuse || {})) {
       best.titleByLocale = { ...(prev.titleByLocale || {}) };
       best.descriptionByLocale = { ...(prev.descriptionByLocale || {}) };
@@ -8075,13 +9142,34 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     // a source-language copy to overwrite a shorter real translation in another locale.
     // Language-agnostic: works for EN, IT, DE, or FR source. The source locale is naturally
     // skipped because prev's value for that locale equals the source text.
-    const sourceDescNorm = normalizeSpace(next.description || prev.description || '');
+    // Locale-map keys are canonical even when a source declares a regional
+    // language tag such as it-CH.
+    const mergeSourceLang = normalizeJobLocale(next.sourceLang)
+      || normalizeJobLocale(prev.sourceLang)
+      || null;
+    const sourceDescCandidates = [...new Set(
+      [
+        mergeSourceLang && best.descriptionByLocale?.[mergeSourceLang],
+        mergeSourceLang && next.descriptionByLocale?.[mergeSourceLang],
+        mergeSourceLang && prev.descriptionByLocale?.[mergeSourceLang],
+        best.description,
+        next.description,
+        prev.description,
+      ]
+        .map((value) => String(value ?? '').trim())
+        .filter(Boolean),
+    )];
+    const sourceDescText = sourceDescCandidates.find((value) => value.length >= 120)
+      || sourceDescCandidates[0] || '';
+    const sourceDescNorm = normalizeSpace(sourceDescText);
     if (sourceDescNorm.length >= 120) {
       for (const locale of LOCALES) {
         const mergedDesc = normalizeSpace(best.descriptionByLocale?.[locale] || '');
         const prevLocaleDesc = (prev.descriptionByLocale || {})[locale] || '';
         const prevDescNorm = normalizeSpace(prevLocaleDesc);
-        if (mergedDesc === sourceDescNorm && prevDescNorm.length >= 120 && prevDescNorm !== sourceDescNorm) {
+        if (sourceDescCandidates.some((source) => isDescriptionSourceCopy(mergedDesc, source))
+            && prevDescNorm.length >= 120
+            && !sourceDescCandidates.some((source) => isDescriptionSourceCopy(prevLocaleDesc, source))) {
           best.descriptionByLocale[locale] = prevLocaleDesc;
         }
       }
@@ -8128,13 +9216,8 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     chosen.previousSlugs = mergedPreviousSlugsCapped;
     if (best.previousSlugsByLocale) chosen.previousSlugsByLocale = best.previousSlugsByLocale;
     else delete chosen.previousSlugsByLocale;
-    // Same bare-preferJob() discard pattern for the posting date (#3843
-    // item 3): `best.postedDate` already holds the sourced, older-wins date
-    // (including the legacy `datePosted` fallback ~30 crawlers emit). If
-    // preferJob returned `prev` wholesale, prev's missing/fabricated
-    // postedDate would silently win — force the merged date onto whichever
-    // side was picked.
-    chosen.postedDate = best.postedDate;
+    // Quality selection must not resurrect a legacy date or split its marker.
+    Object.assign(chosen, mergeSourcePostingDates({}, best));
     // Same bare-preferJob() discard pattern for crawledAt: `best.crawledAt`
     // already holds the newest-wins last-seen-live timestamp; if preferJob
     // returned `prev` wholesale (e.g. higher quality score), prev's stale
@@ -8142,6 +9225,14 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     // every crawledAt-based freshness window — force the merged timestamp
     // onto whichever side was picked.
     chosen.crawledAt = best.crawledAt;
+    if (bridgedFromFingerprint && best.sourceIdentity) {
+      chosen.sourceIdentity = best.sourceIdentity;
+      if (best.sourceIdentityHistory?.length) {
+        chosen.sourceIdentityHistory = best.sourceIdentityHistory;
+      } else {
+        delete chosen.sourceIdentityHistory;
+      }
+    }
     // Preserve lost slugs: applied after preferJob so it works regardless of which
     // object was picked. Uses shared captureLostSlugs function.
     captureLostSlugs(chosen, prev.slugByLocale || {}, prev.slug || '');
@@ -8245,6 +9336,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   }
 
   const slugRegistry = loadSlugRegistry();
+  // Agency admission threshold: the registry holds only admitted jobs. Judged
+  // against the agency slice on disk, not against this merge's inputs: in the
+  // crawler's localization pass (crawler-template Step 5) `existingJobs` is a
+  // scratch copy and a new arrival is not stamped until writeJobsCrawlerSlice.
+  const awaitingAdmission = createAwaitingAdmissionCheck(
+    options.translationHoldSlicesDir ? { slicesDir: options.translationHoldSlicesDir } : {},
+  );
   let registryHits = 0;
   let registryNewEntries = 0;
   let registryDemotions = 0;
@@ -8302,7 +9400,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       // only the source-locale slug, so the other locales never get pinned and
       // churn every crawl → old per-locale URL stranded. Persisting the current
       // real translation makes the registry immutable per-locale going forward.
-      registryBackfills += backfillRegistryLocaleSlugs(registered, job, srcLang);
+      if (!awaitingAdmission(job)) registryBackfills += backfillRegistryLocaleSlugs(registered, job, srcLang);
       const lost = captureLostSlugs(job, prevSlugByLocale, prevSlug);
       if (lost.length > 0) registryDemotions += lost.length;
       usedSlugs.add(job.slug);
@@ -8319,6 +9417,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     }
     job.slug = candidate;
     usedSlugs.add(candidate);
+    // A job held out of publication for translation, or a new agency arrival
+    // the slice writer is about to hold, has no public URL yet: pinning its
+    // source-language slug would freeze it before the translated title exists,
+    // and mine-all-job-slugs would turn the registry entry into an expired
+    // soft-landing for a route nobody was ever served — even after the job has
+    // left its slice. It is registered on the first pass after release.
+    if (awaitingAdmission(job)) continue;
     const sizeBefore = Object.keys(slugRegistry).length;
     registerJobSlug(job, slugRegistry);
     if (Object.keys(slugRegistry).length > sizeBefore) registryNewEntries += 1;

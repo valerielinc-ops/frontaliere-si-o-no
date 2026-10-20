@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Reconcile the HERE transaction budget counter with HERE's *real* billed usage.
  *
@@ -36,7 +38,8 @@
  *
  * Common flags:
  *   --dry-run          compute + print, do not write Firestore
- *   --budget <N>       override HERE_MONTHLY_BUDGET for the alert threshold
+ *   --budget <N>       override the alert threshold; values above the free-tier
+ *                      ceiling are clamped
  *   --alert            open a GitHub issue if reconciled usage exceeds the budget
  *
  * Firestore auth: GOOGLE_APPLICATION_CREDENTIALS (same as collect-traffic.mjs).
@@ -44,6 +47,7 @@
 
 import crypto from 'node:crypto';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { HERE_MONTHLY_FREE_TIER_BUDGET } from '../functions/src/lib/hereBudget.js';
 
 const HERE_TOKEN_URL = 'https://account.api.here.com/oauth2/token';
 const HERE_USAGE_HOST = 'https://usage.bam.api.here.com';
@@ -52,7 +56,7 @@ const HERE_USAGE_HOST = 'https://usage.bam.api.here.com';
 const ROUTING_SERVICE_MATCHERS = ['routing', 'time aware'];
 
 // ─── arg parsing ───────────────────────────────────────────────
-function parseArgs(argv) {
+export function parseArgs(argv) {
   const args = { dryRun: false, alert: false, set: null, budget: null };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -92,6 +96,21 @@ export function monthBounds(monthKey) {
   const start = new Date(nominalUtcMidnight.getTime() - romeOffsetMs).toISOString().slice(0, 19);
   const end = new Date().toISOString().slice(0, 19);
   return { start, end };
+}
+
+/**
+ * Resolve the alert/seed threshold without allowing Remote Config to raise
+ * the application's free-tier safety ceiling.
+ */
+export function hereReconciliationBudget(env = process.env, warn = console.warn) {
+  const configured = intFromEnv('HERE_MONTHLY_BUDGET', HERE_MONTHLY_FREE_TIER_BUDGET, { env, warn });
+  if (configured > HERE_MONTHLY_FREE_TIER_BUDGET) {
+    warn(
+      `::warning::[here-budget] HERE_MONTHLY_BUDGET=${configured} exceeds the hard `
+      + `free-tier ceiling ${HERE_MONTHLY_FREE_TIER_BUDGET}; using ${HERE_MONTHLY_FREE_TIER_BUDGET}`,
+    );
+  }
+  return Math.min(configured, HERE_MONTHLY_FREE_TIER_BUDGET);
 }
 
 // ─── HERE OAuth 1.0a-signed token request ──────────────────────
@@ -208,16 +227,16 @@ async function fetchHereMonthToDateUsage({ token, realmId, monthKey }) {
 // firebase-admin is imported lazily so the pure helpers above (and their unit
 // tests) load without the dependency / without needing Firestore credentials.
 async function ensureAdminApp() {
-  const { default: admin } = await import('firebase-admin');
-  if (!admin.apps.length) {
-    admin.initializeApp({ credential: admin.credential.applicationDefault() });
+  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+  const { getFirestore, Timestamp } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({ credential: applicationDefault() });
   }
-  return admin;
+  return { db: getFirestore(), Timestamp };
 }
 
 async function seedCounter({ monthKey, realBilled, source, dryRun }) {
-  const adm = await ensureAdminApp();
-  const db = adm.firestore();
+  const { db, Timestamp } = await ensureAdminApp();
   const ref = db.collection('meta').doc('hereTransactionBudget');
   return db.runTransaction(async (tx) => {
     const snap = await tx.get(ref);
@@ -232,7 +251,7 @@ async function seedCounter({ monthKey, realBilled, source, dryRun }) {
           month: monthKey,
           count: reconciled,
           reconciledBilled: realBilled,
-          reconciledAt: adm.firestore.Timestamp.now(),
+          reconciledAt: Timestamp.now(),
           source,
         },
         { merge: true },
@@ -246,7 +265,9 @@ async function seedCounter({ monthKey, realBilled, source, dryRun }) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const monthKey = currentMonthKey();
-  const budget = args.budget ?? intFromEnv('HERE_MONTHLY_BUDGET', 4000);
+  const budget = args.budget == null
+    ? hereReconciliationBudget()
+    : Math.min(args.budget, HERE_MONTHLY_FREE_TIER_BUDGET);
 
   let realBilled;
   let source;
@@ -296,7 +317,7 @@ async function main() {
       const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
       await createGithubIssue({
         // Stable title prefix → dedupes onto one canonical issue per month.
-        title: `HERE usage over free-tier budget (${monthKey})`,
+        title: hereOverBudgetTitle(monthKey),
         description:
           `Reconciled HERE usage for ${monthKey} is **${reconciled}/${budget}** ` +
           `(real billed ${realBilled}). Routing runs are being skipped to avoid charges.`,
@@ -314,10 +335,60 @@ async function main() {
       console.warn(`⚠️ alert issue failed: ${e.message}`);
     }
   }
+
+  await resolveRecoveredHereUsageIssues({ args, monthKey, reconciled, budget });
+}
+
+/** Title of the monthly over-budget alert, stable per month. */
+export function hereOverBudgetTitle(monthKey) {
+  return `HERE usage over free-tier budget (${monthKey})`;
+}
+
+/** 'YYYY-MM' of the month before `monthKey`. Pure. */
+export function previousMonthKey(monthKey) {
+  const [y, m] = String(monthKey).split('-').map(Number);
+  const d = new Date(Date.UTC(y, m - 2, 1));
+  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
+}
+
+/**
+ * Alerts to close: the budget resets every month, so an over-budget issue of
+ * the previous month never recovered by itself and stayed open (same
+ * opener-without-closer class as issue 11547). Under budget now → close this
+ * month's and last month's titles. Pure.
+ */
+export function recoveredHereUsageTitles({ monthKey, reconciled, budget }) {
+  if (!(Number.isFinite(reconciled) && Number.isFinite(budget)) || reconciled > budget) return [];
+  return [hereOverBudgetTitle(monthKey), hereOverBudgetTitle(previousMonthKey(monthKey))];
+}
+
+async function defaultResolveIssue(title) {
+  const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+  return resolveGithubIssue(title, { exactTitle: true, workflow: 'Reconcile HERE Usage Budget' });
+}
+
+export async function resolveRecoveredHereUsageIssues({
+  args,
+  monthKey,
+  reconciled,
+  budget,
+  env = process.env,
+  resolveIssueImpl = defaultResolveIssue,
+}) {
+  if (!(args.alert && !args.dryRun && env.GH_TOKEN)) return;
+  const recovered = recoveredHereUsageTitles({ monthKey, reconciled, budget });
+  if (!recovered.length) return;
+  for (const title of recovered) {
+    try {
+      await resolveIssueImpl(title);
+    } catch (e) {
+      console.warn(`⚠️ could not close «${title}»: ${e.message}`);
+    }
+  }
 }
 
 // Only run when invoked directly (allow importing pure helpers in tests).
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`❌ reconcile-here-usage failed: ${err.message}`);
     process.exit(1);

@@ -10,6 +10,7 @@
  * 5. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -25,6 +26,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -40,8 +42,11 @@ import {
 import {
   parseMticListingPage,
   parseMticDetailPage,
+  isMticDetailPublishable,
   buildMticLocalizedContent,
   isMticSwissSubsidiaryJob,
+  isMticTrustedUrl,
+  dropMticFabricatedText,
 } from './lib/mtic-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -50,6 +55,9 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { MIN_SOURCE_BODY_WORDS } from './lib/source-body-floor.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -118,19 +126,6 @@ function isTargetJob(job = {}) {
     company.includes('sps intercert') ||
     url.includes('mtic-group.org')
   );
-}
-
-function isTrustedDomain(rawUrl = '') {
-  try {
-    const host = new URL(rawUrl).hostname.toLowerCase();
-    return (
-      host === 'www.mtic-group.org' ||
-      host === 'mtic-group.org' ||
-      host.endsWith('.mtic-group.org')
-    );
-  } catch {
-    return false;
-  }
 }
 
 function inferCategory(title = '', description = '') {
@@ -203,7 +198,7 @@ async function fetchAllListings(counts = null) {
   return allItems;
 }
 
-async function enrichWithDetails(listings) {
+export async function enrichWithDetails(listings) {
   const enriched = [];
   const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'MTIC');
 
@@ -214,24 +209,22 @@ async function enrichWithDetails(listings) {
     try {
       const html = await fetchText(item.detailUrl);
       const detail = parseMticDetailPage(html, item.title);
-      enriched.push({
-        ...item,
-        title: detail.title || item.title,
-        location: detail.location || item.subsidiaryLocation || '',
-        description: detail.description || '',
-        datePosted: detail.datePosted,
-      });
-      if ((i + 1) % 5 === 0) {
-        console.log(`  ✅ ${i + 1}/${toFetch.length} detail pages fetched`);
+      if (!isMticDetailPublishable(detail)) {
+        console.log(`  ⏭️ Detail skipped for ${item.detailUrl}: source body is below the ${MIN_SOURCE_BODY_WORDS}-word floor`);
+      } else {
+        enriched.push({
+          ...item,
+          title: detail.title || item.title,
+          location: detail.location || item.subsidiaryLocation || '',
+          description: detail.description || '',
+          datePosted: detail.datePosted,
+        });
+        if ((i + 1) % 5 === 0) {
+          console.log(`  ✅ ${i + 1}/${toFetch.length} detail pages fetched`);
+        }
       }
     } catch (err) {
       console.log(`  ⚠️ Detail fetch failed for ${item.detailUrl}: ${err.message}`);
-      enriched.push({
-        ...item,
-        location: item.subsidiaryLocation || '',
-        description: '',
-        datePosted: new Date().toISOString().slice(0, 10),
-      });
     }
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
@@ -247,7 +240,8 @@ async function enrichWithDetails(listings) {
 }
 
 function buildMticJob(row) {
-  const localized = buildMticLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, 'it');
+  const localized = buildMticLocalizedContent({ ...row, sourceLang });
   const location = row.location || row.subsidiaryLocation || 'Lugano Paradiso';
 
   return {
@@ -267,12 +261,13 @@ function buildMticJob(row) {
     category: inferCategory(row.title, row.description),
     sector: 'Certificazione e Ispezioni',
     source: 'mtic-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
-    postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
+    sourceLang,
+    ...sourcePostingDateFields(row.datePosted),
+    crawledAt: new Date().toISOString(),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -287,6 +282,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fabricatedFossils = targetExisting.filter((job) => dropMticFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored MTIC Group job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -302,6 +299,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -330,7 +328,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -387,11 +385,23 @@ function validateLocales() {
     dataJobsPath: DATA_JOBS,
     isTargetJob,
     locales: LOCALES,
-    isTrustedDomain,
+    isTrustedDomain: isMticTrustedUrl,
     untrustedDomainReason: 'url_not_mtic_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No MTIC Group Lugano jobs found — SPS InterCert may have no current openings.',
     detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
+  });
+}
+
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropMticFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
   });
 }
 
@@ -412,6 +422,7 @@ async function main() {
     counts.lastFetchOutcome = 'selector_miss';
     console.log('⚠️ No listings found on MTIC careers page — skipping without changing the published slice.');
     writeMticSummary({ counts });
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
@@ -436,6 +447,7 @@ async function main() {
   if (deduplicated.length === 0) {
     console.log('⚠️ No Lugano-Paradiso jobs found after filtering — keeping the published slice unchanged.');
     writeMticSummary({ counts });
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
@@ -467,4 +479,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'MTIC Group'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'MTIC Group'));
+}

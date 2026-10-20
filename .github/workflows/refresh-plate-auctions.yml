@@ -8,16 +8,10 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        description: 'Keep the run preview-only unless explicitly disabled.'
         required: false
         default: true
         type: boolean
-      human_approval:
-        description: 'Explicit human approval for plate-auction publication writes.'
-        required: false
-        default: false
-        type: boolean
-
 concurrency:
   group: refresh-plate-auctions
   cancel-in-progress: false
@@ -31,44 +25,105 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      # The SZ host rejects GitHub Actions egress intermittently. The
-      # connector may use the fresh Cloud Function API snapshot only after
-      # the official fetch fails and its source health/age checks pass.
+      # The SZ host rejects GitHub Actions egress intermittently, and FR/TI
+      # are geo-fenced to Swiss IPs (measured 2026-09-25). Their connectors
+      # (connectors/api-relay.mjs) may use the fresh Cloud Function API
+      # snapshot, collected in europe-west6, only after the official fetch
+      # fails and the source health/age checks pass.
       PLATE_AUCTION_ENABLE_API_RELAY: "1"
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
 
-      - name: Require human approval for plate-auction side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          # The 6-hourly cron is this workflow's only producing principal: it
-          # is what refreshes public/data/plate-auctions.json. Unarmed since
-          # #8889 the gate denied every scheduled run, so the refresh was
-          # skipped and the snapshot froze at 2026-09-15T06:58:44.350Z while
-          # the job kept reporting success four times a day.
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          APPROVAL_SCOPE: refresh-plate-auctions
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci --ignore-scripts
 
+      - name: Probe blocked source readiness
+        id: readiness
+        # A read-only watch that never changes the registry. JU/NE are probed
+        # through their official canton pages, never through Ricardo, and a new
+        # data/feed link there asks for a look; GE is validated by running its
+        # real connector (ready only when the newest OCV list yields plates for
+        # a session that has not ended); ZG waits for the canton to stop saying
+        # auctions are suspended. ge.ch has no feed, so a list with a new slug
+        # is looked up in its ~9.5 MB sitemap — like the alert below, only on
+        # the first run of the UTC day or a manual dispatch: lists appear weeks
+        # before their session, and three more sitemap reads a day would only
+        # load the canton's server.
+        continue-on-error: true
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          DAILY=0
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] || [ "$(date -u +%-H)" -lt 6 ]; then DAILY=1; fi
+          ARGS="--blocked-only"
+          if [ "$DAILY" = "1" ]; then ARGS="$ARGS --ge-sitemap"; fi
+          node scripts/plate-auctions/discover-sources.mjs $ARGS > "$RUNNER_TEMP/plate-readiness.json"
+          {
+            echo '## Blocked plate-auction source readiness'
+            echo
+            echo '| Source | HTTP | Recommendation |'
+            echo '|---|---|---|'
+            jq -r '.results[] | "| \(.key | ascii_upcase) | \(.httpStatus) | \(.recommendation) |"' "$RUNNER_TEMP/plate-readiness.json"
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "ready=$(jq -r '(.readyKeys // []) | join(" ")' "$RUNNER_TEMP/plate-readiness.json")" >> "$GITHUB_OUTPUT"
+          echo "daily=$DAILY" >> "$GITHUB_OUTPUT"
+
+      # One issue per source that became ready, deduplicated on a stable title
+      # that starts with the plate code (scripts/lib/github-issue-creator.mjs),
+      # so the evidence reaches the fix queue instead of the step summary.
+      - name: Alert on blocked sources that became ready (dedup, zero-Claude)
+        if: steps.readiness.outcome == 'success' && steps.readiness.outputs.daily == '1' && steps.readiness.outputs.ready != '' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/plate-auctions/alert-ready-sources.mjs \
+            --from "$RUNNER_TEMP/plate-readiness.json" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      # Watcher of the watcher: if the probe itself breaks, a source becoming
+      # ready would no longer be detected. A healthy daily probe resolves it.
+      - name: Self-alert on readiness probe crash (dedup, zero-Claude)
+        if: steps.readiness.outcome == 'failure' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Plate-auction readiness probe crashed: blocked sources unwatched" \
+            --description "scripts/plate-auctions/discover-sources.mjs failed before producing a verdict in refresh-plate-auctions.yml, so a GE list, a ZG reopening or a JU/NE feed would no longer be detected. Re-run it locally with: node scripts/plate-auctions/discover-sources.mjs --blocked-only --ge-sitemap" \
+            --priority 3 \
+            --workflow "Refresh Plate Auctions" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Resolve the probe self-alert when the daily probe is healthy
+        if: steps.readiness.outcome == 'success' && steps.readiness.outputs.daily == '1' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Plate-auction readiness probe crashed: blocked sources unwatched" \
+            --workflow "Refresh Plate Auctions" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -79,20 +134,16 @@ jobs:
 
       - name: Refresh every active public catalogue
         id: refresh
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/plate-auctions/ingest.mjs
 
       - name: Fail a scheduled run whose refresh never executed
-        # A run is alive only if the producer actually ran. When the gate
-        # denies a schedule every producing step is skipped, and the drift
-        # check below still passes because it re-validates the COMMITTED
-        # snapshot rather than a fresh fetch — so the job reports success
-        # having refreshed nothing. Conclusions cannot see that; only this
-        # step-level assertion can. Manual dry-run dispatches are denied by
-        # design and stay green.
+        # A run is alive only if the producer actually ran. The drift check
+        # below re-validates the COMMITTED snapshot rather than a fresh fetch,
+        # so this step catches an unexpectedly skipped producer explicitly.
         if: ${{ always() && github.event_name == 'schedule' && steps.refresh.outcome == 'skipped' }}
         run: |
-          echo "::error::Scheduled refresh did not execute (side-effect gate reason: ${{ steps.side_effect_gate.outputs.approval_reason }}). The published snapshot is unchanged and its age is whatever the last real refresh left."
+          echo "::error::Scheduled refresh did not execute. The published snapshot is unchanged and its age is whatever the last real refresh left."
           exit 1
 
       - name: Fail closed on source health or snapshot drift
@@ -104,12 +155,16 @@ jobs:
         # baseline. A degraded source is a fact about that source; it is not a
         # reason to stop the other twenty-five from advancing.
         continue-on-error: true
+        env:
+          # The per-source issue steps below read the degraded/healthy sources
+          # from this file (written even when the check exits 1).
+          PLATE_AUCTION_HEALTH_REPORT: ${{ runner.temp }}/plate-health.json
         run: node scripts/plate-auctions/check-health.mjs
 
       - name: Stop before publishing a structurally unusable snapshot
         # Phrased against `!= 'false'` on purpose: `true` and a MISSING output
         # (check-health threw before writing it) must both stop the publication.
-        # Testing for `== 'true'` would let a crashed gate through.
+        # Testing for `== 'true'` would let a crashed health check through.
         if: steps.health.outputs.blocking != 'false'
         run: |
           echo "::error::check-health did not clear the snapshot for publication (blocking=${{ steps.health.outputs.blocking }}). The snapshot is self-inconsistent or unreadable, so nothing is committed."
@@ -120,6 +175,8 @@ jobs:
           npx vitest run
           tests/plate-auction-quality-checks.test.ts
           tests/plate-auction-connectors.test.ts
+          tests/plate-auction-api-relay.test.ts
+          tests/plate-auction-discovery.test.ts
           tests/plate-auction-registry.test.ts
           tests/plate-auction-functions-registry-parity.test.ts
           tests/plate-auction-public-snapshot.test.ts
@@ -130,30 +187,30 @@ jobs:
         run: git diff --check
 
       - name: Load push credentials from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Commit and push static snapshot
         id: commit
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f public/data/plate-auctions.json
+          git add -f public/data/plate-auctions.json public/data/plate-auctions-archive/
           if git diff --cached --quiet; then
             echo "No plate-auction snapshot changes detected."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "🚘 Refresh Swiss plate-auction snapshot"
             bash scripts/lib/git-push-with-retry.sh \
-              --regenerate-cmd 'node scripts/plate-auctions/ingest.mjs && node scripts/plate-auctions/check-health.mjs --blocking-only && git add -f public/data/plate-auctions.json'
+              --regenerate-cmd 'node scripts/plate-auctions/ingest.mjs && node scripts/plate-auctions/check-health.mjs --blocking-only && git add -f public/data/plate-auctions.json public/data/plate-auctions-archive/'
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
             echo "expected_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Trigger static deploy and sitemap rebuild
         id: deploy
-        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           EXPECTED_SHA: ${{ steps.commit.outputs.expected_sha }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -175,21 +232,118 @@ jobs:
             exit 1
           fi
 
-      - name: Fail the run on the source-health verdict
-        # The verdict has to be the LAST thing that decides the exit code, and
-        # it has to sit ABOVE the issue reporter: `failure()` below only sees a
-        # job that has already failed, so moving this after it would mean a
-        # health-only red run never opened an issue. Narrow on purpose —
-        # `steps.health.outcome == 'failure'` fires only when check-health
-        # actually reported errors, so a cancelled or skipped run is not
-        # relabelled as a health failure.
-        if: ${{ !cancelled() && steps.health.outcome == 'failure' }}
+      # The source-health verdict below is OWNED by one issue per degraded
+      # source, `Plate auction source degraded: <plate code>`: opened (or given
+      # a recurrence) on the FIRST red run of that source, resolved on its first
+      # healthy run by the step after this one. Until 2026-10 the only owner was
+      # the generic `Workflow Failure: Refresh Plate Auctions` thread (issue
+      # 8670), which names no source: the fixer twice concluded "by
+      # construction" and the thread could never close. Not continue-on-error:
+      # if the owner cannot be written (no readable report, a failed health check
+      # that names no source), the job fails here and the generic reporter takes
+      # the run instead.
+      - name: Open one issue per degraded plate-auction source (dedup, zero-Claude)
+        id: source_issues
+        if: ${{ !cancelled() && steps.health.outcome == 'failure' && inputs.dry_run != true && inputs.dry_run != 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          HEALTH_REPORT: ${{ runner.temp }}/plate-health.json
         run: |
-          echo "::error::Plate-auction source health reported errors (see the 'Fail closed on source health or snapshot drift' step for the list). The snapshot was still committed if it was structurally sound, so the baseline advanced; this step keeps the run red so the degraded sources stay visible, including after a push-retry regeneration."
-          exit 1
+          set -euo pipefail
+          if ! jq -e '(.degradedSources | type) == "array"' "$HEALTH_REPORT" > /dev/null 2>&1; then
+            echo "::error::check-health left no readable report at $HEALTH_REPORT: the degraded sources are unknown, so no source issue can own this verdict."
+            exit 1
+          fi
+          count=$(jq '.degradedSources | length' "$HEALTH_REPORT")
+          if [ "$count" -eq 0 ]; then
+            if [ "$(jq -r '.blocking' "$HEALTH_REPORT")" = "true" ]; then
+              echo "Structural errors only, no degraded source: the publication gate failed and the generic failure reporter owns this run."
+              exit 0
+            fi
+            echo "::error::check-health failed with neither a structural error nor a degraded source: nothing can own this verdict."
+            exit 1
+          fi
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          for i in $(seq 0 $((count - 1))); do
+            code=$(jq -r ".degradedSources[$i].plateCode" "$HEALTH_REPORT")
+            canton=$(jq -r ".degradedSources[$i].canton // \"\"" "$HEALTH_REPORT")
+            official=$(jq -r ".degradedSources[$i].officialUrl // \"\"" "$HEALTH_REPORT")
+            errors=$(jq -r ".degradedSources[$i].errors[] | \"- \" + ." "$HEALTH_REPORT")
+            # One issue per source: the plate code is the discriminant, at the
+            # end of a title well inside the 60-character dedup prefix. The
+            # resolve step below rebuilds this exact literal from the code.
+            title="Plate auction source degraded: ${code}"
+            body="$(printf '%s\n' \
+              "check-health reported the plate-auction source **${code}** (${canton}) as degraded in this run." \
+              "" \
+              "$errors" \
+              "" \
+              "- Official source: ${official}" \
+              "- Run: ${run_url}" \
+              "- Check: node scripts/plate-auctions/check-health.mjs (reads public/data/plate-auctions.json)" \
+              "" \
+              "The snapshot was still committed: a degraded source does not freeze the other cantons. The run stays red through the step 'Fail the run on the source-health verdict'." \
+              "This issue is resolved automatically by refresh-plate-auctions.yml on the first run in which ${code} is healthy again.")"
+            node scripts/lib/github-issue-creator.mjs \
+              --title "$title" \
+              --description "$body" \
+              --priority 3 \
+              --label Bug \
+              --workflow "$GITHUB_WORKFLOW" \
+              --require-persisted
+          done
 
+      # Closer of the issues above. Only on a publishable snapshot
+      # (`blocking=false`): a structurally broken file is not evidence that any
+      # source recovered, and check-health lists no healthy source for it.
+      - name: Resolve issues of plate-auction sources that are healthy again
+        if: ${{ !cancelled() && (steps.health.outcome == 'success' || steps.health.outcome == 'failure') && steps.health.outputs.blocking == 'false' && inputs.dry_run != true && inputs.dry_run != 'true' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          HEALTH_REPORT: ${{ runner.temp }}/plate-health.json
+        run: |
+          set -uo pipefail
+          if ! jq -e '(.healthySources | type) == "array"' "$HEALTH_REPORT" > /dev/null 2>&1; then
+            echo "::warning::check-health left no readable report at $HEALTH_REPORT; no source issue resolved."
+            exit 0
+          fi
+          healthy="$(jq -r '.healthySources[].plateCode' "$HEALTH_REPORT")"
+          open_issues="$RUNNER_TEMP/plate-source-issues.json"
+          # Filtered server-side so the ceiling cannot hide an old source issue
+          # behind unrelated open issues; the exact prefix is re-checked below.
+          if ! gh issue list --state open --search 'in:title "Plate auction source degraded"' --limit 500 --json number,title > "$open_issues"; then
+            echo "::warning::could not list the open issues; no source issue resolved."
+            exit 0
+          fi
+          jq -r '.[] | select(.title | startswith("Plate auction source degraded: ")) | .title' "$open_issues" \
+            | sort -u > "$RUNNER_TEMP/plate-source-titles.txt"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          # Titles on fd 9: the `node` resolver below must not read the list.
+          while IFS= read -r -u 9 open_title; do
+            code="${open_title#Plate auction source degraded: }"
+            if ! printf '%s\n' "$healthy" | grep -qxF -- "$code"; then
+              echo "Keeping \"$open_title\": ${code} is not healthy in this run."
+              continue
+            fi
+            title="Plate auction source degraded: ${code}"
+            node scripts/lib/github-issue-creator.mjs --resolve \
+              --title "$title" \
+              --workflow "$GITHUB_WORKFLOW" \
+              --run-url "$run_url"
+          done 9< "$RUNNER_TEMP/plate-source-titles.txt"
+
+      # Sits BEFORE the verdict on purpose: at this point `failure()` sees only
+      # what is NOT the verdict (a crash, a structural snapshot error, the
+      # commit, the deploy, an owner step that could not write its issue), so a
+      # run that is red for the source-health verdict alone, already carried by
+      # the per-source issues, does not also comment on `Workflow Failure:`.
+      # The second clause keeps a verdict whose owner step did not run (a
+      # dry-run dispatch) reported here, as before.
       - name: Report failure to GitHub Issues
-        if: failure()
+        if: ${{ !cancelled() && (failure() || (steps.health.outcome == 'failure' && steps.source_issues.outcome != 'success')) }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -203,3 +357,19 @@ jobs:
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+      - name: Fail the run on the source-health verdict
+        id: verdict
+        # The verdict has to be the LAST thing that decides the exit code.
+        # Its issues are opened above, one per degraded source, so the run
+        # stays red without a second thread: the generic reporter runs before
+        # this step and never sees it. Registered as a verdict step in
+        # VERDICT_STEPS (scripts/ci/close-recovered-failure-issues.mjs), so the
+        # central scanner and closer do not count a verdict-only red either.
+        # Narrow on purpose — `steps.health.outcome == 'failure'` fires only
+        # when check-health actually reported errors, so a cancelled or skipped
+        # run is not relabelled as a health failure.
+        if: ${{ !cancelled() && steps.health.outcome == 'failure' }}
+        run: |
+          echo "::error::Plate-auction source health reported errors (see the 'Fail closed on source health or snapshot drift' step for the list). The snapshot was still committed if it was structurally sound, so the baseline advanced; this step keeps the run red so the degraded sources stay visible, including after a push-retry regeneration."
+          exit 1

@@ -37,7 +37,9 @@ import {
 
 const execFile = promisify(execFileCallback);
 
-export const DEFAULT_TRANSLATION_STATE_REF_V2 = 'refs/heads/translation-state-v2';
+export const TRANSLATION_STATE_REMOTE_V2 = 'origin';
+export const TRANSLATION_STATE_REF_V2 = 'refs/heads/translation-state-v2';
+export const DEFAULT_TRANSLATION_STATE_REF_V2 = TRANSLATION_STATE_REF_V2;
 export const MAX_TRANSLATION_STATE_BATCH_V2 = 250;
 export const MAX_TRANSLATION_STATE_CAS_ATTEMPTS_V2 = 8;
 export const MAX_TRANSLATION_STATE_ARTIFACT_BYTES_V2 = 1024 * 1024;
@@ -133,6 +135,15 @@ function validateStateRef(value) {
     throw new TypeError('translation state ref must be a dedicated refs/heads/* ref other than main');
   }
   return value;
+}
+
+export function assertTranslationStateTargetV2({ remote, ref }) {
+  if (remote !== TRANSLATION_STATE_REMOTE_V2 || ref !== TRANSLATION_STATE_REF_V2) {
+    throw new TypeError(
+      `translation state writes must target ${TRANSLATION_STATE_REMOTE_V2}/${TRANSLATION_STATE_REF_V2}`,
+    );
+  }
+  return true;
 }
 
 function validateSha(value, label, { nullable = false } = {}) {
@@ -810,7 +821,10 @@ async function writeCommit(git, tip, changes, message, { deterministicRoot = fal
       const blob = await checked(git, ['hash-object', '-w', '--', artifactPath]);
       await checked(git, ['update-index', '--add', '--cacheinfo', `100644,${blob},${change.path}`], { env });
     }
-    const tree = await checked(git, ['write-tree'], { env });
+    // `--missing-ok`: every entry is either in the tip's tree or a blob written
+    // in the loop above; on a partial clone a plain `write-tree` would fetch
+    // the ones the checkout does not have before writing anything.
+    const tree = await checked(git, ['write-tree', '--missing-ok'], { env });
     const args = ['commit-tree', tree, '-m', message];
     if (tip !== null) args.splice(2, 0, '-p', tip);
     // The identity is unconditional; only the DATES are pinned, and only for the
@@ -914,11 +928,12 @@ export function createTranslationStateStoreV2(options) {
   if (typeof repository !== 'string' || repository.length === 0) {
     throw new TypeError('translation state store repository is required');
   }
-  const remote = options.remote ?? 'origin';
+  const remote = options.remote ?? TRANSLATION_STATE_REMOTE_V2;
   if (typeof remote !== 'string' || !/^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$/.test(remote)) {
     throw new TypeError('translation state store remote is invalid');
   }
-  const ref = validateStateRef(options.ref ?? DEFAULT_TRANSLATION_STATE_REF_V2);
+  const ref = validateStateRef(options.ref ?? TRANSLATION_STATE_REF_V2);
+  assertTranslationStateTargetV2({ remote, ref });
   const maxCasAttempts = options.maxCasAttempts ?? MAX_TRANSLATION_STATE_CAS_ATTEMPTS_V2;
   if (!Number.isSafeInteger(maxCasAttempts) || maxCasAttempts < 1 || maxCasAttempts > 32) {
     throw new TypeError('translation state CAS attempts must be between 1 and 32');
@@ -971,6 +986,7 @@ export function createTranslationStateStoreV2(options) {
       if (changes.length === 0) return { commit: tip, retries: attempt - 1, changed: false };
       const commit = await writeCommit(git, tip, changes, message, { deterministicRoot: tip === null });
       await onStage('beforeStatePush', { attempt, commit, message, tip });
+      assertTranslationStateTargetV2({ remote, ref });
       const pushed = await git(['push', remote, `${commit}:${ref}`]);
       if (pushed.code === 0) {
         validatedStateTips.add(commit);
@@ -1715,6 +1731,7 @@ export function createTranslationStateStoreV2(options) {
   }
 
   return Object.freeze({
+    remote,
     ref,
     initialize,
     readSchedulerScope,

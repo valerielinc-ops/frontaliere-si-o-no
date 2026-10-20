@@ -9,33 +9,31 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        description: 'Keep the run preview-only unless explicitly disabled.'
         required: false
         default: true
         type: boolean
-      human_approval:
-        description: 'Explicit human approval for fuel-price writes and publication.'
-        required: false
-        default: false
-        type: boolean
-
 concurrency:
   group: fuel-prices
   cancel-in-progress: true
 
 permissions:
   contents: write
+  pull-requests: write
   issues: write
 
 jobs:
   update-fuel-prices:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Leave room for the daily cache push to outlast concurrent main writers
+    # instead of cancelling after the 10-minute cap (#10542).
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
+          persist-credentials: false
           fetch-depth: 1
         # Tetto sullo step: senza, un Checkout impantanato consuma l'intero
         # budget del job e questo muore `cancelled` — stato invisibile agli
@@ -51,21 +49,12 @@ jobs:
         timeout-minutes: 6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
 
-      - name: Require human approval for fuel-price side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          APPROVAL_SCOPE: update-fuel-prices
-        run: node scripts/ci/human-side-effect-gate.mjs
-
-      - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+      - name: Prepare Firebase credentials for PR publishing
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -74,13 +63,24 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
 
-      - name: Load push credentials from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+      - name: Load publishing credentials from Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
+      # The App identity re-triggers pull-request checks. If the installation
+      # is unavailable, the long-lived PAT loaded above remains the fallback.
+      - name: Mint App token (primary PR identity, PAT fallback)
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Install firebase-admin
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
-        run: npm install --no-save firebase-admin
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: npm install --no-save firebase-admin@14.5.0
 
       - name: Detect daily run
         id: schedule
@@ -96,53 +96,104 @@ jobs:
           fi
 
       - name: Generate and upload fuel prices to Firestore
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           if [ "${{ steps.schedule.outputs.daily }}" = "true" ]; then
-            node scripts/generate-fuel-prices-dataset.mjs --save-local
+            node scripts/generate-fuel-prices-dataset.mjs --save-local --cantons-input-out "$RUNNER_TEMP/fuel-cantons-input.json"
           else
             node scripts/generate-fuel-prices-dataset.mjs
           fi
 
       - name: Persist daily snapshot of raw fuel prices JSON
-        if: steps.schedule.outputs.daily == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.schedule.outputs.daily == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           mkdir -p data/fuel-prices-history
           cp public/data/fuel-prices.json "data/fuel-prices-history/$(date -u +%F).json"
 
       - name: Snapshot fuel history for SEO pages (F6)
-        if: steps.schedule.outputs.daily == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.schedule.outputs.daily == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/snapshot-fuel-history.mjs
 
-      # Daily: commit repo cache + trigger deploy (with rebase-retry for concurrent pushes)
-      - name: Commit repo cache (daily only)
-        id: commit
-        if: steps.schedule.outputs.daily == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+      # P9b: one official BFS/UST national CH average per URL canton group,
+      # plus FR/AT/IT and the optional DE Tankerkönig overlay. The Italian
+      # hand-off above is useful when present but no longer gates the Swiss
+      # baseline. Foreign-source failures, including a missing/rejected DE
+      # key, are failure-isolated and emitted as a warning by the builder; a
+      # genuinely invalid dataset writes nothing and the published file stays.
+      - name: Build cantonal fuel dataset (P9b)
+        id: fuel_cantons
+        if: steps.schedule.outputs.daily == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        run: node scripts/build-fuel-cantons-dataset.mjs --input "$RUNNER_TEMP/fuel-cantons-input.json"
+
+      # Daily: publish the cache through a PR so the required Vitest check
+      # validates generated data before it reaches main. This removes the
+      # retry convoy that used to spend the whole ten-minute job cap pushing
+      # directly to the protected main ref (#10542).
+      - name: Open PR with fuel price cache
+        if: steps.schedule.outputs.daily == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ env.GITHUB_PAT }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f data/fuel-prices.json public/data/fuel-prices.json data/fuel-prices-history/
-          if git diff --cached --quiet; then
-            echo "No fuel price changes detected."
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-          else
-            git commit -m "⛽ Daily fuel prices cache update"
-            # Centralized rebase-retry helper handles concurrent pushes from
-            # other workflows. Fuel cache files are deterministic outputs of
-            # generate-fuel-prices-dataset.mjs; on rebase conflict re-fetch
-            # and re-snapshot before retrying.
-            bash scripts/lib/git-push-with-retry.sh \
-              --regenerate-cmd 'node scripts/generate-fuel-prices-dataset.mjs --save-local && mkdir -p data/fuel-prices-history && cp public/data/fuel-prices.json data/fuel-prices-history/$(date -u +%F).json && node scripts/snapshot-fuel-history.mjs && git add -f data/fuel-prices.json public/data/fuel-prices.json data/fuel-prices-history/'
-            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          body="$RUNNER_TEMP/fuel-prices-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
+
+          ## Implementato
+          - Pubblica il cache giornaliero dei prezzi carburante tramite una PR stabile, così il required check \`vitest (unit + integration)\` valida i dati prima dell'ingresso su \`main\`.
+
+          ## Non implementato (ancora)
+          Nessuno — il dataset generato e la sua cronologia vengono pubblicati atomically through the refresh PR (insieme a \`fuel-prices-cantons.json\` quando la build per cantone è passata).
+          EOF
+          # The canton dataset joins the same PR once it exists: before its
+          # first successful build the path is untracked and absent, and
+          # `git add` would reject the pathspec.
+          cantons_paths=()
+          if [ -f data/fuel-prices-cantons.json ] && [ -f public/data/fuel-prices-cantons.json ]; then
+            cantons_paths=(--path data/fuel-prices-cantons.json --path public/data/fuel-prices-cantons.json)
           fi
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --force \
+            --path data/fuel-prices.json \
+            --path public/data/fuel-prices.json \
+            --path data/fuel-prices-history/ \
+            --path data/fuel-prices-archive/ \
+            "${cantons_paths[@]}" \
+            --branch chore/refresh-fuel-prices \
+            --commit-message "chore(data): refresh fuel prices" \
+            --title "chore(data): refresh fuel prices" \
+            --body-file "$body"
 
-      - name: Load secrets from Remote Config
-        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+      - name: Report cantonal fuel dataset failure
+        if: steps.fuel_cantons.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Dataset carburanti per cantone rifiutato (update-fuel-prices)" \
+            --description "## Dataset carburanti per cantone rifiutato o fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Lo step \`Build cantonal fuel dataset (P9b)\` è fallito: il file pubblicato \`data/fuel-prices-cantons.json\` resta quello precedente. Il log dello step elenca lo stato di ogni fonte e la copertura dei cantoni attesi." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
 
-      - name: Trigger deploy workflow
-        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
-        run: bash scripts/lib/trigger-deploy.sh || true
+      # Recovery mirror: the title above is custom, so neither
+      # close-recovered-failure-issues.mjs nor the generic report closes it;
+      # the next accepted canton build does (model: rpm-canary.yml). Gated on
+      # the script's own `built` output, not on the step outcome: a run whose
+      # generator hand-off was missing exits 0 without building anything.
+      - name: Resolve cantonal fuel dataset issue on accepted build
+        if: steps.fuel_cantons.outputs.built == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Dataset carburanti per cantone rifiutato (update-fuel-prices)" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Report failure to GitHub Issues
         if: failure()

@@ -1,4 +1,5 @@
 import type { Locale } from '../i18n';
+import { resolvePharmacyDutyCityAlias } from '../../scripts/lib/pharmacySections.mjs';
 import {
   ITALY_CITY_BY_PROVINCE_AND_SLUG,
   ITALY_PROVINCE_BY_SLUG,
@@ -131,7 +132,8 @@ function parseItalianPath(path: string, locale: Locale, bases: (typeof LOCALE_BA
 }
 
 export function parsePharmacyPath(pathname: string): PharmacyPath | null {
-  const path = normalized(pathname);
+  const requestedPath = normalized(pathname);
+  const path = resolvePharmacyDutyCityAlias(requestedPath) || requestedPath;
   for (const locale of ['it', 'en', 'de', 'fr'] as Locale[]) {
     const bases = LOCALE_BASES[locale];
     if (path === bases.hub) return { kind: 'hub', locale };

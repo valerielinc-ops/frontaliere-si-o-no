@@ -28,6 +28,12 @@ const parser = createWorkdaySwissParser({
   defaultPostalCode: '1196',
   sector: 'Software / Fintech',
   defaultSourceLang: 'en',
+  // `locationMainGroup` is a nested display group, not an applied country
+  // facet. The standard key is rejected on this tenant, so the factory falls
+  // back to the complete global board and proves a zero only when every
+  // posting's own structured primary country is foreign.
+  proveSwissAbsentFromLiveBoard: true,
+  proveForeignOnlyBoardEmpty: true,
 });
 
 export const fetchAllTemenosJobs = parser.fetchAllJobs;

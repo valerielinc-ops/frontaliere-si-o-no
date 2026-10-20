@@ -134,7 +134,7 @@ describe('handleRedazioneAdmin', () => {
     const written = mockDb._collections.author_profiles.writes.at(-1)!.data;
     expect(written.bio).toBe('Nuova bio');
     expect(written.role).toBe('Redattore capo');
-    expect(written.social).toEqual({ linkedin: 'https://linkedin.com/in/x' });
+    expect(written.social).toBeUndefined();
     expect(written.updatedBy).toBe(ADMIN_EMAIL);
   });
 

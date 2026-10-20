@@ -13,8 +13,13 @@ import { saveIntent, consumeIntent, clearIntent } from '@/services/pendingIntent
 
 const KEY = 'pending_salary_alert';
 
-export function savePendingSalaryAlert(config: JobAlertConfig): void {
-  saveIntent(KEY, config);
+/**
+ * Returns whether the intent is readable back after the auth round-trip
+ * (issue 9575, same class as pendingJobAlert.ts): `false` means private mode /
+ * quota / a storage shim, and the caller must keep its own recovery path.
+ */
+export function savePendingSalaryAlert(config: JobAlertConfig): boolean {
+  return saveIntent(KEY, config);
 }
 
 /** Read and clear a still-valid calculator alert intent. */

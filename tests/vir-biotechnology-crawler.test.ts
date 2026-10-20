@@ -7,12 +7,16 @@
 import { describe, it, expect } from 'vitest';
 import {
   parseGreenhouseJobs,
+  classifyGreenhouseResponse,
+  classifyGreenhouseFetchError,
   isSwissLocation,
   inferCanton,
   parseCity,
   htmlToText,
   slugify,
   normalizeSpace,
+  buildVirDescriptionFields,
+  dropVirFabricatedText,
 } from '@/scripts/lib/vir-biotechnology-job-parser.mjs';
 
 // ─── Mock Greenhouse API response ─────────────────────────────────────────────
@@ -120,7 +124,7 @@ describe('parseGreenhouseJobs — Swiss location filtering', () => {
 
   it('extracts datePosted from first_published', () => {
     const jobs = parseGreenhouseJobs(MOCK_GREENHOUSE_RESPONSE);
-    expect(jobs[0].datePosted).toBe('2026-03-01');
+    expect(jobs[0].datePosted).toBe(MOCK_GREENHOUSE_RESPONSE.jobs[0].first_published);
   });
 
   it('extracts department', () => {
@@ -139,6 +143,86 @@ describe('parseGreenhouseJobs — Swiss location filtering', () => {
   it('handles null/undefined input', () => {
     expect(parseGreenhouseJobs(null as any)).toHaveLength(0);
     expect(parseGreenhouseJobs(undefined as any)).toHaveLength(0);
+  });
+});
+
+describe('classifyGreenhouseResponse — zero-job evidence', () => {
+  it('records a reachable empty payload as observed and non-aborted', () => {
+    expect(classifyGreenhouseResponse(MOCK_EMPTY_RESPONSE)).toMatchObject({
+      discovered: 0,
+      parsed: 0,
+      lastFetchOutcome: 'ok',
+      abortKind: null,
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
+    });
+  });
+
+  it('records a valid non-Swiss feed as filtered-empty, not an early exit', () => {
+    const result = classifyGreenhouseResponse({
+      jobs: [{
+        id: 200001,
+        title: 'Data Analyst',
+        location: { name: 'San Francisco, California, United States' },
+        offices: [{ name: 'San Francisco, CA' }],
+      }],
+    });
+
+    expect(result).toMatchObject({
+      discovered: 1,
+      parsed: 0,
+      lastFetchOutcome: 'filtered_empty',
+      abortKind: null,
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
+    });
+    expect(result.jobs).toEqual([]);
+  });
+
+  it('keeps a changed record shape fail-closed as a selector miss', () => {
+    expect(classifyGreenhouseResponse({
+      jobs: [{ id: 200002, title: 'Data Analyst', locationData: 'San Francisco, CA' }],
+    })).toMatchObject({
+      discovered: 1,
+      parsed: 0,
+      lastFetchOutcome: 'selector_miss',
+      abortKind: 'no-jobs-parsed',
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+    });
+  });
+
+  it('rejects a changed offices container even when location text remains present', () => {
+    expect(classifyGreenhouseResponse({
+      jobs: [{
+        id: 200003,
+        title: 'Scientist',
+        location: { name: 'Remote' },
+        offices: { name: 'Bellinzona, Switzerland' },
+      }],
+    })).toMatchObject({
+      discovered: 1,
+      parsed: 0,
+      lastFetchOutcome: 'selector_miss',
+      abortKind: 'no-jobs-parsed',
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+    });
+  });
+
+  it('distinguishes transport and endpoint failures from source zero', () => {
+    expect(classifyGreenhouseFetchError(new TypeError('fetch failed'))).toEqual({
+      lastFetchOutcome: 'connection_error',
+      abortKind: 'connection-level-fetch',
+    });
+    expect(classifyGreenhouseFetchError(Object.assign(new Error('HTTP 403'), { status: 403 }))).toEqual({
+      lastFetchOutcome: 'anti_bot_block',
+      abortKind: 'connection-level-fetch',
+    });
+    expect(classifyGreenhouseFetchError(new SyntaxError('Unexpected token'))).toEqual({
+      lastFetchOutcome: 'feed_endpoint_unavailable',
+      abortKind: 'no-jobs-parsed',
+    });
   });
 });
 
@@ -184,5 +268,46 @@ describe('parseCity', () => {
 
   it('extracts city from "City, State, Country"', () => {
     expect(parseCity('San Francisco, California, United States')).toBe('San Francisco');
+  });
+});
+
+// ─── Source-locale description, no fabricated Italian blurb ────────────────────
+
+describe('buildVirDescriptionFields', () => {
+  it('publishes only the posting text, keyed by its language', () => {
+    const [first] = parseGreenhouseJobs(MOCK_GREENHOUSE_RESPONSE);
+    // Over the shared 50-word floor, as the live Greenhouse postings are.
+    const parsed = { ...first, description: Array(4).fill(first.description).join(' ') };
+    const fields = buildVirDescriptionFields(parsed);
+    expect(fields.sourceLang).toBe('en');
+    expect(Object.keys(fields.descriptionByLocale)).toEqual(['en']);
+    expect(fields.description).toContain('Senior Scientist to join our antibody discovery team');
+    expect(fields.description).not.toMatch(/Posizione aperta/);
+  });
+
+  it('emits no body without posting text or under the word floor', () => {
+    expect(buildVirDescriptionFields({ title: 'Research Associate', city: 'Bellinzona', description: '' }).description).toBe('');
+    const [first] = parseGreenhouseJobs(MOCK_GREENHOUSE_RESPONSE);
+    expect(buildVirDescriptionFields(first).description).toBe('');
+  });
+});
+
+describe('dropVirFabricatedText', () => {
+  it('removes the stored Italian blurb and asks for a real translation', () => {
+    const job: any = {
+      descriptionByLocale: {
+        en: 'We are seeking a Senior Scientist…',
+        it: "Posizione aperta presso Vir Biotechnology (Humabs BioMed) a Bellinzona.\nRuolo: Senior Scientist.\n\nVir Biotechnology è un'azienda biotecnologica globale. Humabs BioMed SA ha attività di ricerca in Svizzera.",
+      },
+    };
+    expect(dropVirFabricatedText(job)).toBe(true);
+    expect(job.descriptionByLocale).toEqual({ en: 'We are seeking a Senior Scientist…' });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('keeps a real Italian translation', () => {
+    const job: any = { descriptionByLocale: { en: 'x', it: 'Cerchiamo un Senior Scientist per il team di scoperta degli anticorpi.' } };
+    expect(dropVirFabricatedText(job)).toBe(false);
+    expect(job.needsRetranslation).toBeUndefined();
   });
 });

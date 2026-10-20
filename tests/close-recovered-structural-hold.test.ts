@@ -286,17 +286,31 @@ describe('the decision is actually WIRED into the close path', () => {
     'utf-8',
   );
   const mainBody = SRC.slice(SRC.indexOf('function main()'));
+  // LC-20: the decision moved out of main() into the exported, pure
+  // decideFailureIssueClose(). The wiring is now two hops — main() → the decision →
+  // decideStructuralHold — and each hop is pinned here, so the chain cannot be cut in
+  // the middle without a red test.
+  const decisionBody = SRC.slice(
+    SRC.indexOf('export function decideFailureIssueClose('),
+    SRC.indexOf('export function verdictRecord('),
+  );
+  const HOLD_BRANCH = "if (verdict.action === 'structural-hold')";
 
-  it('main() consults decideStructuralHold before resolveGithubIssue', () => {
-    const decide = mainBody.indexOf('decideStructuralHold(');
+  it('main() consults the decision, and the decision decideStructuralHold, before resolveGithubIssue', () => {
+    const decide = mainBody.indexOf('decideFailureIssueClose(');
     const resolve = mainBody.indexOf('resolveGithubIssue(');
     expect(decide).toBeGreaterThan(-1);
     expect(resolve).toBeGreaterThan(-1);
     expect(decide).toBeLessThan(resolve);
+    expect(decisionBody).toContain('decideStructuralHold(comments,');
+    expect(decisionBody).toMatch(/if \(structural\.hold\) \{\s*return \{\s*action: 'structural-hold'/);
   });
 
   it('a hold short-circuits the close instead of falling through to it', () => {
-    expect(mainBody).toMatch(/if \(decision\.hold\)[\s\S]{0,900}continue;/);
+    const at = mainBody.indexOf(HOLD_BRANCH);
+    expect(at).toBeGreaterThan(-1);
+    expect(at).toBeLessThan(mainBody.indexOf('resolveGithubIssue('));
+    expect(mainBody.slice(at, at + 900)).toMatch(/continue;/);
   });
 
   it('a failed comment fetch stays null — it must not degrade to an empty list', () => {
@@ -321,19 +335,23 @@ describe('the decision is actually WIRED into the close path', () => {
     // `closed=0 held=1` e l'issue veniva chiusa lo stesso. Le asserzioni per
     // indice e la regex `if (decision.hold)[\s\S]{0,900}continue;` reggevano
     // entrambe: prendevano «manca il continue», non «chiude comunque».
-    const at = mainBody.indexOf('if (decision.hold)');
+    const at = mainBody.indexOf(HOLD_BRANCH);
     expect(at).toBeGreaterThan(-1);
     const branch = mainBody.slice(at, mainBody.indexOf('continue;', at));
     expect(branch).not.toContain('resolveGithubIssue(');
   });
 
-  it('comments are fetched lazily, inside the green branch only', () => {
+  it('comments are fetched lazily, for branch evidence or the recovered decision', () => {
     // Fetching for all 300 open issues on every pass would be the same reconciler with a
-    // 300x API bill. The call must sit after the green/afterFailure gate.
-    const greenGate = mainBody.indexOf('if (green && afterFailure)');
-    const fetchAt = mainBody.indexOf('fetchIssueComments(');
-    expect(greenGate).toBeGreaterThan(-1);
-    expect(fetchAt).toBeGreaterThan(greenGate);
+    // 300x API bill. The two legitimate reads are the branch/PR fallback (which needs the
+    // failure scope) and the recovered decision (which needs the structural/chronic gates).
+    // Neither read runs on a normal red or pre-issue-green path; behaviour is pinned with
+    // a fake `gh` in tests/close-recovered-decision.test.ts.
+    const classify = mainBody.indexOf('classifyDecidingRun(');
+    const fetch = mainBody.indexOf('fetchIssueComments(');
+    expect(classify).toBeGreaterThan(-1);
+    expect(fetch).toBeGreaterThan(-1);
+    expect(mainBody.split('fetchIssueComments(').length - 1).toBe(2);
   });
 });
 

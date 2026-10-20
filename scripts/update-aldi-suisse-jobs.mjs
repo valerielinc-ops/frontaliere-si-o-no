@@ -44,6 +44,8 @@ import {
   normalizeKey,
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import {
   inferEmploymentType,
   parseAldiSearchResults,
@@ -51,12 +53,13 @@ import {
   ALDI_SEARCH_API,
 } from './lib/aldi-suisse-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -124,6 +127,10 @@ function mergeCompanyJobs(parsedJobs) {
   }
   const deduped = [...byUrl.values()];
   const merged = mergePreserveLocaleData(companyExisting, deduped);
+  // Stored jobs written by the old fixed-`it` builder still carry the German
+  // or French source text in their Italian slot: drop such slots and queue a
+  // retranslation.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
   return clean;
@@ -153,6 +160,7 @@ async function fetchAldiListings() {
     console.log(`\u2705 Discovered ${listings.length} ALDI Suisse jobs`);
     return listings;
   } catch (err) {
+    // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
     console.warn(`\u26a0\ufe0f Failed to fetch ALDI search API: ${err.message}`);
     return [];
   } finally {
@@ -166,14 +174,22 @@ export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date()
 
   // REST row holds the canonical structured fields; the detail page only
   // supplies the prose body + bullet requirements.
-  let description = parsed.body || '';
-  if (description.length > 8000) description = description.slice(0, 8000);
+  // Only the posting's own text is published. A detail page that parsed to
+  // no body (expired vacancy, template drift), or to one under the shared
+  // 50-word floor (source-body-floor.mjs), yields no job rather than the old
+  // invented "Posizione aperta presso ALDI SUISSE. {title}." filler.
+  const description = parsed.body || '';
+  if (!meetsSourceBodyFloor(description)) return null;
   const requirements = Array.isArray(parsed.requirements) ? parsed.requirements : [];
   const location = listing.city || parsed.location || '';
   const workPct = String(listing.workload || parsed.percentage || '').replace(/\s+/g, '');
 
   const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${rawTitle}-aldi-suisse`);
+  // Every field is keyed by the language the ad is written in (read from the
+  // body: 49 German, 10 French, 1 Italian on 2026-09-29), not a fixed `it`
+  // that showed German on the Italian page (#5253). Slug formula unchanged.
+  const sourceLang = sourceLangOfBody(description, 'de');
   const canton = inferAnyCanton(location);
   if (!canton) return null;
   const postalCode = listing.zip || '';
@@ -182,16 +198,16 @@ export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date()
   return {
     id: `aldi-suisse-${urlHash}`,
     slug: jobSlug,
-    slugByLocale: { it: jobSlug },
+    slugByLocale: { [sourceLang]: jobSlug },
     company: ALDI_COMPANY_NAME,
     companyKey: ALDI_KEY,
     companyDomain: 'aldi.ch',
     title: rawTitle,
-    titleByLocale: { it: rawTitle },
-    description: description || `Posizione aperta presso ${ALDI_COMPANY_NAME}. ${rawTitle}.`,
-    descriptionByLocale: { it: description || `Posizione aperta presso ${ALDI_COMPANY_NAME}. ${rawTitle}.` },
+    titleByLocale: { [sourceLang]: rawTitle },
+    description,
+    descriptionByLocale: { [sourceLang]: description },
     requirements: requirements.slice(0, 20),
-    requirementsByLocale: { it: requirements.slice(0, 20) },
+    requirementsByLocale: { [sourceLang]: requirements.slice(0, 20) },
     location,
     postalCode,
     canton,
@@ -205,13 +221,13 @@ export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date()
     workPercentage: workPct,
     currency: 'CHF',
     featured: false,
-    postedDate: timestamp.slice(0, 10),
+    ...sourcePostingDateFields(parsed.datePosted),
     url: listing.url,
     // The TYPO3 detail page is the canonical navigable application handoff;
     // L3 still keeps this distinct from a submitted application event.
     applyUrl: listing.url,
     source: 'ALDI Suisse Dedicated Parser',
-    sourceLang: detectLang(description || rawTitle, 'de'),
+    sourceLang,
     crawledAt: timestamp,
   };
 }
@@ -227,21 +243,14 @@ async function fetchAndParseDetailPages(listings) {
     const batch = listings.slice(i, i + concurrency);
     const results = await Promise.allSettled(
       batch.map(async (listing) => {
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeoutMs);
         try {
-          const res = await fetch(listing.url, {
-            signal: controller.signal,
+          const html = await fetchHtml(listing.url, {
+            timeoutMs,
             headers: { Accept: 'text/html', 'User-Agent': UA },
-            redirect: 'follow',
           });
-          if (!res.ok) return null;
-          const html = await res.text();
           return { listing, html };
         } catch {
           return null;
-        } finally {
-          clearTimeout(timer);
         }
       })
     );
@@ -250,7 +259,7 @@ async function fetchAndParseDetailPages(listings) {
       if (r.status !== 'fulfilled' || !r.value) continue;
       const { listing, html } = r.value;
 
-      const parsed = parseAldiDetailPage(html) || {};
+      const parsed = parseAldiDetailPage(html, listing.url) || {};
       const rawTitle = listing.title || parsed.title || '';
       if (!rawTitle || rawTitle.length < 3) continue;
 
@@ -267,7 +276,7 @@ async function fetchAndParseDetailPages(listings) {
   }
 
   if (droppedNoCanton > 0) {
-    console.log(`   ↪︎ Dropped ${droppedNoCanton} job(s) with an unresolvable canton (no fixed-canton default)`);
+    console.log(`   ↪︎ Dropped ${droppedNoCanton} job(s) with an unresolvable canton (no fixed-canton default) or no posting body`);
   }
 
   return jobs;

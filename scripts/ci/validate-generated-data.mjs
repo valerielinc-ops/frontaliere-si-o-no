@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Validate JSON artifacts immediately before a workflow commits them.
@@ -500,4 +502,4 @@ function main() {
   console.log(`✅ ${file}: validazione ${kind} superata`);
 }
 
-if (process.argv[1] && process.argv[1].endsWith('validate-generated-data.mjs')) main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

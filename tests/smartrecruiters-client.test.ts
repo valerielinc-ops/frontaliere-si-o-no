@@ -1,11 +1,133 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { fetchSmartRecruitersJobs } from '../scripts/lib/ats-clients/smartrecruiters-client.mjs';
+import {
+  fetchSmartRecruitersJobs,
+  isCompleteSmartRecruitersSourceRead,
+  provesSmartRecruitersFilteredEmpty,
+  smartRecruitersPostingUrls,
+  normalizeSmartRecruitersJob,
+} from '../scripts/lib/ats-clients/smartrecruiters-client.mjs';
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.useRealTimers();
+});
+
+describe('SmartRecruiters publication provenance', () => {
+  it('does not promote creation, impossible dates or a future timestamp into publication', () => {
+    const year = new Date().getUTCFullYear();
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(`${year}-06-15T12:00:00Z`));
+    for (const releasedDate of [undefined, '', 'invalid', `${year}-02-30T10:00:00Z`, `${year}-06-15T23:00:00Z`]) {
+      expect(normalizeSmartRecruitersJob({ id: 'fixture', name: 'Engineer', releasedDate, createdOn: `${year}-01-01T00:00:00Z` })).toMatchObject({
+        datePosted: '', postedDate: '', postedAt: null, postingDateSource: 'unknown',
+      });
+    }
+  });
+  it('preserves a valid release offset and its evidence in all aliases', () => {
+    const releasedDate = new Date(Date.now() - 3 * 86400000).toISOString().replace('Z', '+00:00');
+    const raw = { id: 'fixture', name: 'Engineer', releasedDate, createdOn: 'not-publication' };
+    expect(normalizeSmartRecruitersJob(raw)).toMatchObject({
+      datePosted: releasedDate, postedDate: releasedDate, postedAt: releasedDate, postingDateSource: 'reported', rawPosting: raw,
+    });
+  });
+  it('carries release evidence through the real listing and partial-detail generator', async () => {
+    const releasedDate = new Date(Date.now() - 4 * 86400000).toISOString();
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const list = new URL(String(input)).searchParams.has('limit');
+      return new Response(JSON.stringify(list
+        ? { totalFound: 1, content: [{ id: 'fixture', name: 'Engineer', releasedDate, createdOn: 'ignored' }] }
+        : { id: 'fixture', jobAd: { sections: { jobDescription: { text: 'Source description' } } } }), { status: 200 });
+    }));
+    const rows = [];
+    for await (const row of fetchSmartRecruitersJobs('Fixture', { fetchDetail: true, minDelayMs: 0, detailDelayMs: 0 })) rows.push(row);
+    expect(rows).toHaveLength(1);
+    expect(rows[0]).toMatchObject({ datePosted: releasedDate, postedDate: releasedDate, postedAt: releasedDate, postingDateSource: 'reported' });
+  });
 });
 
 describe('SmartRecruiters strict source pagination', () => {
+  it('keeps list identity when a detail response is partial', async () => {
+    const requestedUrls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = new URL(String(input));
+      requestedUrls.push(url.toString());
+      if (url.searchParams.has('limit')) {
+        return new Response(JSON.stringify({
+          totalFound: 1,
+          content: [{
+            id: 'posting-a',
+            name: 'Role A',
+            applyUrl: 'https://jobs.smartrecruiters.com/Avaloq1/posting-a-role-a',
+            location: { city: 'Lugano', country: { code: 'CH' } },
+            typeOfEmployment: { id: 'FULL_TIME', label: 'Full-time' },
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        id: 'posting-a',
+        location: { city: 'Lugano', country: null },
+        typeOfEmployment: { id: 'FULL_TIME' },
+        jobAd: { sections: { jobDescription: { text: '<p>Role A details.</p>' } } },
+      }), { status: 200 });
+    }));
+
+    const rows = [];
+    for await (const row of fetchSmartRecruitersJobs('Avaloq1', {
+      fetchDetail: true,
+      minDelayMs: 0,
+    })) {
+      rows.push(row);
+    }
+
+    expect(rows).toHaveLength(1);
+    expect(rows[0]).toMatchObject({
+      jobReqId: 'posting-a',
+      title: 'Role A',
+      location: 'Lugano',
+      applyUrl: 'https://jobs.smartrecruiters.com/Avaloq1/posting-a-role-a',
+      descriptionHtml: '<p>Role A details.</p>',
+    });
+    expect(rows[0].rawPosting).toMatchObject({
+      location: { city: 'Lugano', country: { code: 'CH' } },
+      typeOfEmployment: { id: 'FULL_TIME', label: 'Full-time' },
+    });
+    expect(requestedUrls).toHaveLength(2);
+  });
+
+  it('keeps the listing location when detail returns an invalid array shape', async () => {
+    const listingLocation = { city: 'Lugano', country: { code: 'CH' } };
+    const requestedUrls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = new URL(String(input));
+      requestedUrls.push(url.toString());
+      if (url.searchParams.has('limit')) {
+        return new Response(JSON.stringify({
+          totalFound: 1,
+          content: [{ id: 'posting-a', name: 'Role A', location: listingLocation }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        id: 'posting-a',
+        location: [],
+        jobAd: { sections: { jobDescription: { text: '<p>Role A details.</p>' } } },
+      }), { status: 200 });
+    }));
+
+    const rows = [];
+    for await (const row of fetchSmartRecruitersJobs('Avaloq1', {
+      fetchDetail: true,
+      minDelayMs: 0,
+    })) {
+      rows.push(row);
+    }
+
+    expect(rows).toHaveLength(1);
+    expect(rows[0].rawPosting.location).toEqual(listingLocation);
+    expect(requestedUrls).toHaveLength(2);
+  });
+
   it('does not prove a complete source when a repeated page reaches totalFound by raw count', async () => {
     const firstPage = [
       { id: 'posting-a', name: 'Role A', location: { city: 'Zürich', country: { code: 'CH' } } },
@@ -247,5 +369,81 @@ describe('SmartRecruiters strict source pagination', () => {
       paginationIntegrityProven: true,
       totalFound: null,
     });
+  });
+});
+
+// The postings endpoint answers `200 {"totalFound":0,"content":[]}` for a
+// company identifier it does not know (fixture = the live response for a
+// made-up identifier). A complete walk over that envelope is complete, but it
+// is not evidence that a live employer board filtered down to zero.
+describe('SmartRecruiters filtered-empty proof', () => {
+  async function walkProof(tenant: string, fixture: string, locationCountryCodes: string[]) {
+    const body = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures', 'smartrecruiters', fixture), 'utf8'));
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify(body), { status: 200 })));
+    let proof: Record<string, unknown> | undefined;
+    const rows = [];
+    for await (const row of fetchSmartRecruitersJobs(tenant, {
+      locationCountryCodes,
+      minDelayMs: 0,
+      onComplete: (info) => { proof = info; },
+    })) {
+      rows.push(row);
+    }
+    return { rows, proof };
+  }
+
+  it('does not treat the unknown-tenant envelope as a proven filtered zero', async () => {
+    const { rows, proof } = await walkProof('KIABI', 'unknown-tenant-postings.json', ['ch']);
+    expect(rows).toEqual([]);
+    expect(isCompleteSmartRecruitersSourceRead(proof)).toBe(true);
+    expect(provesSmartRecruitersFilteredEmpty(proof)).toBe(false);
+  });
+
+  it('proves a filtered zero when the complete walk saw the tenant’s live postings elsewhere', async () => {
+    const { rows, proof } = await walkProof('KIABI', 'kiabi-group-tenant-no-swiss-postings.json', ['ch']);
+    expect(rows).toEqual([]);
+    expect(proof).toMatchObject({ totalFound: 4, recordsSeen: 4, terminationProven: true });
+    expect(provesSmartRecruitersFilteredEmpty(proof)).toBe(true);
+  });
+
+  it('rejects missing, partial or contradictory proofs', () => {
+    const complete = {
+      terminationProven: true,
+      paginationIntegrityProven: true,
+      totalFound: 4,
+      recordsSeen: 4,
+      rawRecordsSeen: 4,
+    };
+    expect(provesSmartRecruitersFilteredEmpty(complete)).toBe(true);
+    expect(provesSmartRecruitersFilteredEmpty(null)).toBe(false);
+    expect(provesSmartRecruitersFilteredEmpty({ ...complete, terminationProven: false })).toBe(false);
+    expect(provesSmartRecruitersFilteredEmpty({ ...complete, paginationIntegrityProven: false })).toBe(false);
+    expect(provesSmartRecruitersFilteredEmpty({ ...complete, totalFound: null })).toBe(false);
+    expect(provesSmartRecruitersFilteredEmpty({ ...complete, recordsSeen: 3 })).toBe(false);
+    expect(provesSmartRecruitersFilteredEmpty({ ...complete, rawRecordsSeen: 5 })).toBe(false);
+  });
+});
+
+// ── #5253: the vacancy URL is the ad page, not the `?oga=true` apply flow ──
+describe('smartRecruitersPostingUrls', () => {
+  const posting = {
+    id: '744000149266409',
+    postingUrl: 'https://jobs.smartrecruiters.com/Ardentis1/744000149266409-charge-e-de-relation-patient-80-vevey',
+    applyUrl: 'https://jobs.smartrecruiters.com/Ardentis1/744000149266409-charge-e-de-relation-patient-80-vevey?oga=true',
+  };
+
+  it('returns postingUrl as the page and keeps applyUrl as the apply link', () => {
+    expect(smartRecruitersPostingUrls(posting, 'Ardentis1')).toEqual({
+      pageUrl: posting.postingUrl,
+      applyUrl: posting.applyUrl,
+    });
+  });
+
+  it('falls back to the id-based public page, then to applyUrl, never to nothing when either exists', () => {
+    expect(smartRecruitersPostingUrls({ id: '744000149266409', applyUrl: posting.applyUrl }, 'Ardentis1').pageUrl)
+      .toBe('https://jobs.smartrecruiters.com/Ardentis1/744000149266409');
+    expect(smartRecruitersPostingUrls({ applyUrl: posting.applyUrl }).pageUrl).toBe(posting.applyUrl);
+    expect(smartRecruitersPostingUrls({ postingUrl: posting.postingUrl }).applyUrl).toBe(posting.postingUrl);
+    expect(smartRecruitersPostingUrls(null)).toEqual({ pageUrl: '', applyUrl: '' });
   });
 });

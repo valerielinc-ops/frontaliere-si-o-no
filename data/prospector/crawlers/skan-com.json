@@ -1,0 +1,24 @@
+{
+  "companyKey": "skan-com",
+  "companyName": "SKAN AG",
+  "companyHost": "jobs.skan.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.skan.com/go/Jobs-in-Allschwil-%28Switzerland%29/9780357/"
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Team Lead ICT Engineering & Operations",
+    "Initiative Application for Bachelor- or Masterthesis",
+    "Head Service and Sales Pure Solutions Switzerland (m/w/d)",
+    "Production Associate, Bioindicators",
+    "Apprenticeship in 2027: Developer digital business EFZ"
+  ],
+  "canton": "BL",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-15T09:55:59.152Z"
+}

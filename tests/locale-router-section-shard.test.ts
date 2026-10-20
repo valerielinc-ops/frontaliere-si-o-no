@@ -24,6 +24,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
 import worker, { SECTION_ROUTES } from '../infra/cloudflare-worker/locale-router.js';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
+import { legacyTicinoTreeBucket, ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
@@ -49,11 +52,17 @@ const SECTION_ORIGIN = {
   },
 };
 
-/** Capture the upstream host the Worker fetches for a given public path. */
+/** Capture the upstream request the Worker fetches for a given public path. */
 let lastUpstreamHost: string | null;
+let lastUpstreamPath: string | null;
+let upstreamPathHistory: string[];
+let upstreamHandler: (url: URL) => Response;
 
 beforeEach(() => {
   lastUpstreamHost = null;
+  lastUpstreamPath = null;
+  upstreamPathHistory = [];
+  upstreamHandler = () => new Response('<html>page</html>', { status: 200 });
   const cacheStore = new Map<string, Response>();
   const cache = {
     match: vi.fn(async (req: Request) => {
@@ -70,8 +79,11 @@ beforeEach(() => {
 
   vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
     const reqUrl = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
-    lastUpstreamHost = new URL(reqUrl).hostname;
-    return new Response('<html>page</html>', { status: 200 });
+    const upstreamUrl = new URL(reqUrl);
+    lastUpstreamHost = upstreamUrl.hostname;
+    lastUpstreamPath = upstreamUrl.pathname;
+    upstreamPathHistory.push(upstreamUrl.pathname);
+    return upstreamHandler(upstreamUrl);
   });
 });
 
@@ -91,9 +103,27 @@ describe('locale-router Ticino-section shard routing', () => {
     expect(lastUpstreamHost).toBe(SECTION_ORIGIN.ticino.it);
   });
 
+  it('fans out a Ticino page below its shared hash bucket', async () => {
+    await worker.fetch(
+      new Request(`${APEX}/cerca-lavoro-ticino/consulente-vendita/`),
+      {},
+      ctx,
+    );
+    expect(lastUpstreamHost).toBe(SECTION_ORIGIN.ticino.it);
+    expect(lastUpstreamPath).toBe(
+      `/cerca-lavoro-ticino/_tree/${ticinoTreeBucket('consulente-vendita')}/consulente-vendita/`,
+    );
+  });
+
   it('routes the IT Ticino section root to origin-ticino-it', async () => {
     await worker.fetch(new Request(`${APEX}/cerca-lavoro-ticino/`), {}, ctx);
     expect(lastUpstreamHost).toBe(SECTION_ORIGIN.ticino.it);
+    expect(lastUpstreamPath).toBe('/cerca-lavoro-ticino/');
+  });
+
+  it('keeps the physical root index at its canonical path', async () => {
+    await worker.fetch(new Request(`${APEX}/cerca-lavoro-ticino/index.html`), {}, ctx);
+    expect(lastUpstreamPath).toBe('/cerca-lavoro-ticino/index.html');
   });
 
   it('routes /en/find-jobs-ticino to origin-ticino-en, not origin-en', async () => {
@@ -109,6 +139,74 @@ describe('locale-router Ticino-section shard routing', () => {
   it('routes /fr/trouver-emploi-tessin to origin-ticino-fr', async () => {
     await worker.fetch(new Request(`${APEX}/fr/trouver-emploi-tessin/un-emploi/`), {}, ctx);
     expect(lastUpstreamHost).toBe(SECTION_ORIGIN.ticino.fr);
+    expect(lastUpstreamPath).toBe(
+      `/fr/trouver-emploi-tessin/_tree/${ticinoTreeBucket('un-emploi')}/un-emploi/`,
+    );
+  });
+
+  it('proves hash-v1 support through a no-store HTTP probe', async () => {
+    const response = await worker.fetch(
+      new Request(`${APEX}/de/jobs-im-tessin/?__frontaliere_ticino_tree_layout=hash-v1`, { method: 'HEAD' }),
+      {},
+      ctx,
+    );
+    expect(response.status).toBe(204);
+    expect(response.headers.get('x-frontaliere-ticino-tree-layout')).toBe('hash-v1');
+    expect(response.headers.get('cache-control')).toBe('no-store');
+    expect(upstreamPathHistory).toEqual([]);
+  });
+
+  it('reads the old first-two-character physical layout during migration', async () => {
+    const slug = 'irgendein-job';
+    const hashed = `/de/jobs-im-tessin/_tree/${ticinoTreeBucket(slug)}/${slug}/`;
+    const legacy = `/de/jobs-im-tessin/_tree/${legacyTicinoTreeBucket(slug)}/${slug}/`;
+    upstreamHandler = (url) => url.pathname === hashed
+      ? new Response(null, { status: 404 })
+      : url.pathname === legacy
+        ? new Response('<html>legacy bucket</html>', { status: 200 })
+        : new Response(null, { status: 404 });
+
+    const response = await worker.fetch(new Request(`${APEX}/de/jobs-im-tessin/${slug}/`), {}, ctx);
+    expect(response.status).toBe(200);
+    expect(await response.text()).toContain('legacy bucket');
+    expect(upstreamPathHistory).toEqual([hashed, legacy]);
+  });
+
+  it('retries the canonical path after both physical layouts miss', async () => {
+    upstreamHandler = (url) => url.pathname.includes('/_tree/')
+      ? new Response(null, { status: 404 })
+      : new Response('<html>legacy</html>', { status: 200 });
+
+    const response = await worker.fetch(
+      new Request(`${APEX}/de/jobs-im-tessin/irgendein-job/`),
+      {},
+      ctx,
+    );
+    expect(response.status).toBe(200);
+    expect(upstreamPathHistory).toEqual([
+      `/de/jobs-im-tessin/_tree/${ticinoTreeBucket('irgendein-job')}/irgendein-job/`,
+      `/de/jobs-im-tessin/_tree/${legacyTicinoTreeBucket('irgendein-job')}/irgendein-job/`,
+      '/de/jobs-im-tessin/irgendein-job/',
+    ]);
+  });
+
+  it('rewrites physical origin redirects back to the public path', async () => {
+    upstreamHandler = () => new Response(null, {
+      status: 302,
+      headers: {
+        location: `https://${SECTION_ORIGIN.ticino.it}/cerca-lavoro-ticino/_tree/co/consulente-vendita/`,
+      },
+    });
+
+    const response = await worker.fetch(
+      new Request(`${APEX}/cerca-lavoro-ticino/consulente-vendita/`),
+      {},
+      ctx,
+    );
+    expect(response.status).toBe(302);
+    expect(response.headers.get('location')).toBe(
+      `${APEX}/cerca-lavoro-ticino/consulente-vendita/`,
+    );
   });
 });
 

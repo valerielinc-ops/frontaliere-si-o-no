@@ -35,12 +35,13 @@
  *      brief's "small companies sometimes ONLY post on third-party job
  *      boards" case — the crawl target is jobs.ch's public company-profile
  *      page, not the employer's own domain.
- *   4. jobs.ch's company-profile page (`/de/firmen/{id}-{slug}/`) is a
+ *   4. jobs.ch's company-profile page (`/en/companies/{id}-{slug}/`) is a
  *      server-rendered React/Next app (heavy atomic-CSS class soup,
- *      unstable class names) BUT each vacancy card is a plain anchor
- *      `href="/de/stellenangebote/detail/{uuid}/"` — that URL shape is
- *      stable, so listing extraction keys on it via regex rather than on
- *      any class name. Each DETAIL page embeds a full schema.org
+ *      unstable class names) and its vacancy cards are plain anchors such as
+ *      `href="/en/vacancies/detail/{uuid}/"`. The shared jobs.ch reader owns
+ *      that URL shape and the employer-scoped `Jobs (N)` empty proof, so this
+ *      parser cannot mistake an unrecognised page for an empty employer.
+ *      Each DETAIL page embeds a full schema.org
  *      `JobPosting` JSON-LD block (title, description, datePosted,
  *      employmentType, jobLocation address, hiringOrganization) — parsing
  *      that structured block is far more robust than scraping the
@@ -73,8 +74,8 @@
  * CHE-100.379.852. All three agree exactly on street/postal/city.
  *
  * Source URLs:
- *   Listing: https://www.jobs.ch/de/firmen/33612-josef-mueller-gemuese-ag/
- *   Detail:  https://www.jobs.ch/de/stellenangebote/detail/{uuid}/
+ *   Listing: https://www.jobs.ch/en/companies/33612-josef-mueller-gemuese-ag/
+ *   Detail:  https://www.jobs.ch/en/vacancies/detail/{uuid}/
  *
  * Exports the 4 conventional functions for the crawler template:
  *   - fetchAllJosefMuellerJobs() — Fetch + parse all current postings
@@ -82,10 +83,18 @@
  *   - isTrustedDomain()          — Validate URLs belong to a trusted host
  *   - resolveAddress()           — City-gated HQ address fallback
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { fetchHtml, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
+import {
+  collectJobsChVacancyUrls,
+  fetchJobsChVacancyInOriginalLanguage,
+  parseVacancyLinks,
+} from './jobs-ch-company-pages.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -94,8 +103,12 @@ export const JOSEF_MUELLER_KEY = 'josef-mueller';
 export const JOSEF_MUELLER_COMPANY_NAME = 'Josef Müller Gemüse AG';
 export const JOSEF_MUELLER_COMPANY_DOMAIN = 'muellergemuese.ch';
 
-const LISTING_URL = 'https://www.jobs.ch/de/firmen/33612-josef-mueller-gemuese-ag/';
-const DETAIL_ORIGIN = 'https://www.jobs.ch';
+const COMPANY_TARGETS = [
+  {
+    path: '33612-josef-mueller-gemuese-ag',
+    label: JOSEF_MUELLER_COMPANY_NAME,
+  },
+];
 
 const SECTOR = 'Agricoltura / Industria alimentare';
 
@@ -198,35 +211,9 @@ export function isTrustedDomain(rawUrl = '') {
 
 /* ── Listing parse ─────────────────────────────────────────── */
 
-/**
- * Parse the jobs.ch company-profile page into a list of unique vacancy
- * detail-page paths.
- *
- * Markup (per card, generated atomic-CSS class names — NOT relied on):
- *   <a href="/de/stellenangebote/detail/{uuid}/" data-discover="true">
- *     <div data-cy="vacancy-serp-item">…</div>
- *   </a>
- *
- * Only the href SHAPE is stable, so extraction keys on the URL pattern
- * (`/de/stellenangebote/detail/{uuid}/`) rather than any class name.
- *
- * @param {string} html
- * @returns {string[]} unique detail-page paths (relative, leading slash)
- */
-export function parseJosefMuellerListing(html = '') {
-  if (!html || typeof html !== 'string') return [];
-  const rx = /href="(\/[a-z]{2}\/(?:stellenangebote|vacancies|offres-emplois)\/detail\/[0-9a-f-]{20,}\/)"/gi;
-  const out = [];
-  const seen = new Set();
-  let m;
-  while ((m = rx.exec(html))) {
-    const href = m[1];
-    if (seen.has(href)) continue;
-    seen.add(href);
-    out.push(href);
-  }
-  return out;
-}
+// Keep the legacy export for the focused parser tests, but use the shared
+// jobs.ch reader as the single owner of this selector across all consumers.
+export { parseVacancyLinks as parseJosefMuellerListing };
 
 /* ── Detail page: JobPosting JSON-LD ──────────────────────────── */
 
@@ -242,21 +229,7 @@ export function parseJosefMuellerListing(html = '') {
  */
 export function extractJosefMuellerJobPosting(html = '') {
   if (!html || typeof html !== 'string') return null;
-  const rx = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = rx.exec(html))) {
-    let parsed;
-    try {
-      parsed = JSON.parse(m[1]);
-    } catch {
-      continue;
-    }
-    const candidates = Array.isArray(parsed) ? parsed : [parsed];
-    for (const candidate of candidates) {
-      if (candidate && candidate['@type'] === 'JobPosting') return candidate;
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**
@@ -291,7 +264,7 @@ export function parseJosefMuellerDetail(html = '') {
   return {
     title,
     description,
-    datePosted: normalizeSpace(String(posting.datePosted || '')),
+    datePosted: typeof posting.datePosted === 'string' ? posting.datePosted : '',
     employmentTypeRaw: normalizeSpace(String(posting.employmentType || '')),
     city: cityRaw,
     postalCode,
@@ -329,45 +302,48 @@ export function mapEmploymentType(raw = '', title = '', description = '') {
  * IMPORTANT: Only set source-locale fields. Other locales are filled by the
  * AI localization step and translate-pending pipeline.
  */
-export async function fetchAllJosefMuellerJobs() {
+export async function fetchAllJosefMuellerJobs({ fetchPage = fetchHtml } = {}) {
   console.log(`🔍 Fetching ${JOSEF_MUELLER_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${LISTING_URL} (jobs.ch company profile)\n`);
+  console.log('   Source: jobs.ch company profile\n');
 
-  let listingHtml;
-  try {
-    listingHtml = await fetchHtml(LISTING_URL);
-  } catch (err) {
-    console.warn(`⚠️ jobs.ch listing fetch failed: ${err?.message || err}`);
-    throw err;
-  }
+  const { vacancyUrls, provenEmpty, evidence } = await collectJobsChVacancyUrls(
+    COMPANY_TARGETS,
+    { fetchPage },
+  );
 
-  const hrefs = parseJosefMuellerListing(listingHtml);
-  if (!hrefs.length) {
+  if (!vacancyUrls.length) {
     console.warn('⚠️ No vacancy links parsed from jobs.ch company profile.');
-    return [];
+    if (!provenEmpty) return [];
+    console.log(`  🧩 Source-proven zero: ${evidence}`);
+    return markAuthoritativeEmptySnapshot([], evidence);
   }
-  console.log(`  📋 Listings found: ${hrefs.length}`);
+  console.log(`  📋 Listings found: ${vacancyUrls.length}`);
 
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const jobs = [];
   const seen = new Set();
 
-  for (const href of hrefs) {
-    const publicUrl = new URL(href, DETAIL_ORIGIN).toString();
+  for (const publicUrl of vacancyUrls) {
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 
     let detailHtml = '';
+    let sourceUrl = publicUrl;
+    let declaredSourceLang = null;
     try {
-      detailHtml = await fetchHtml(publicUrl, { timeoutMs });
+      const vacancy = await fetchJobsChVacancyInOriginalLanguage(publicUrl, { fetchPage });
+      detailHtml = vacancy.html;
+      sourceUrl = vacancy.url;
+      declaredSourceLang = vacancy.sourceLang;
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${publicUrl}: ${err?.message || err}`);
+      await new Promise((r) => setTimeout(r, 250));
       continue;
     }
 
     const parsed = parseJosefMuellerDetail(detailHtml);
     if (!parsed || !parsed.title) {
       console.warn(`  ⚠️ Could not parse JobPosting JSON-LD for ${publicUrl}`);
+      await new Promise((r) => setTimeout(r, 250));
       continue;
     }
 
@@ -381,11 +357,11 @@ export async function fetchAllJosefMuellerJobs() {
     const canton = inferSwissTargetCanton(location) || HQ.canton;
 
     const finalDescription = description || `${title} — ${JOSEF_MUELLER_COMPANY_NAME} (${location}).`;
-    const sourceLang = detectLang(finalDescription || title, 'de');
+    const sourceLang = declaredSourceLang || detectLang(finalDescription || title, 'de');
     const jobSlug = slugify(`${title} josef mueller gemuese ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const { contract, employmentType } = mapEmploymentType(employmentTypeRaw, title, finalDescription);
-    const postedDate = datePosted ? datePosted.slice(0, 10) : new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(datePosted);
 
     const job = {
       // ── Required fields ──
@@ -401,7 +377,7 @@ export async function fetchAllJosefMuellerJobs() {
       descriptionByLocale: { [sourceLang]: finalDescription },
       location,
       canton,
-      url: publicUrl,
+      url: sourceUrl,
       source: 'Josef Müller Gemüse AG Dedicated Parser (jobs.ch)',
       sourceLang,
       crawledAt: new Date().toISOString(),
@@ -419,8 +395,8 @@ export async function fetchAllJosefMuellerJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
-      applyUrl: publicUrl,
+      ...publication,
+      applyUrl: sourceUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };

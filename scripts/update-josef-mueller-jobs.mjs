@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllJosefMuellerJobs,
   isJosefMuellerJob,
@@ -27,6 +28,12 @@ runStandardCrawlerPipeline({
   isCompanyJob: isJosefMuellerJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  // Publish a zero only when the jobs.ch profile itself renders a zero
+  // vacancy counter. An unproven zero keeps the previous slice and leaves
+  // the crawler visibly unhealthy instead of masking selector/fetch drift.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(JOSEF_MUELLER_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
 }).catch((err) => {
   console.error(`❌ Josef Müller Gemüse AG crawler failed: ${err?.message || err}`);
   process.exit(1);

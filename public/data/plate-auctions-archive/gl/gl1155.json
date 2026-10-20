@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "gl-1587",
+      "sourceKey": "GL",
+      "sourceRecordId": "1587",
+      "canton": "Glarona",
+      "platePrefix": "GL",
+      "plateNumber": "1155",
+      "normalizedPlate": "GL1155",
+      "listingType": "fixed-price",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "startingPriceChf": 150,
+      "closedAt": "2026-09-15T06:58:50.733Z",
+      "officialAuctionUrl": "https://www.gl.ch/verwaltung/sicherheit-und-justiz/justiz/strassenverkehrsamt/strassenverkehr/kontrollschilder/wunschkontrollschilder.html/450",
+      "officialDetailUrl": "https://eschild.gl.ch/api/v1/plate",
+      "sourceFetchedAt": "2026-09-15T06:58:50.733Z",
+      "lastVerifiedAt": "2026-09-15T06:58:50.733Z",
+      "firstSeenAt": "2026-09-15T06:51:09.808Z",
+      "lastSeenAt": "2026-09-15T06:58:50.733Z",
+      "sourceCategory": "fixed-price-api",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "746271c352d8"
+    }
+  ]
+}

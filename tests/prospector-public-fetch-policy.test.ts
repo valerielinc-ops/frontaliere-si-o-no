@@ -1,10 +1,25 @@
+import { readFileSync } from 'node:fs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+
+const { launchChromium } = vi.hoisted(() => ({
+  launchChromium: vi.fn(),
+}));
+vi.mock('../scripts/lib/ensure-chromium.mjs', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>;
+  return { ...actual, launchChromium };
+});
+
 import {
   clearPoliteFetchStateForTests,
   politeFetch,
 } from '../scripts/lib/prospector/polite-fetch.mjs';
 import { createSpecUrlPolicy } from '../scripts/lib/prospector/public-fetch-policy.mjs';
-import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
+import {
+  fetchHtmlViaBrowser,
+  fetchRuntimePage,
+  runSpecInProduction,
+} from '../scripts/lib/prospector/spec-crawler.mjs';
+import { isConnectionLevelFetchError } from '../scripts/lib/transient-fetch.mjs';
 
 function response(url: string, status: number, location: string | null = null, body = '') {
   return {
@@ -19,6 +34,27 @@ function response(url: string, status: number, location: string | null = null, b
 
 describe('prospector public-only polite transport', () => {
   beforeEach(() => clearPoliteFetchStateForTests());
+
+  it('accepts a usable DOM after a non-2xx browser navigation', async () => {
+    const html = '<html><body><a href="/jobs/chef-de-partie">Chef de partie</a></body></html>';
+    const page = {
+      goto: vi.fn(async () => ({ ok: () => false, status: () => 403 })),
+      waitForTimeout: vi.fn(async () => {}),
+      title: vi.fn(async () => 'Hotelcareer jobs'),
+      locator: vi.fn(() => ({ textContent: vi.fn(async () => 'Chef de partie Klosters') })),
+      content: vi.fn(async () => html),
+    };
+    const browser = {
+      newContext: vi.fn(async () => ({ newPage: vi.fn(async () => page) })),
+      close: vi.fn(async () => {}),
+    };
+    launchChromium.mockResolvedValue(browser);
+
+    await expect(fetchHtmlViaBrowser('https://hotelcareer.example/jobs', { attempts: 1 }))
+      .resolves.toBe(html);
+    expect(page.content).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
 
   it.each([
     'file:///etc/passwd',
@@ -209,6 +245,447 @@ describe('prospector public-only polite transport', () => {
     expect(fetchImpl).toHaveBeenCalledWith(detail, expect.objectContaining({ redirect: 'manual' }));
   });
 
+  it('filters a multi-employer listing feed before detail enrichment', async () => {
+    const seed = 'https://romantik.example/list/';
+    const wanted = 'https://romantik.example/list/146';
+    const unrelated = 'https://romantik.example/list/19310';
+    const listing = `<a href="/list/146">Housekeeping-Mitarbeiter/in im Romantik Hotel Schweizerhof Flims</a>`
+      + `<a href="/list/19310">Chef de Rang im Romantik Hotel Schweizerhof Grindelwald</a>`;
+    const detailHtml = '<h1>Housekeeping-Mitarbeiter/in</h1><div class="job-location">Flims</div>'
+      + '<article class="vacancy-description">'
+      + 'Unterstützen Sie unser Housekeeping-Team im Romantik Hotel Schweizerhof Flims. '
+      + 'Wir bieten eine verantwortungsvolle Tätigkeit, faire Arbeitszeiten und ein familiäres Umfeld.'
+      + '</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      if (url === wanted) return response(url, 200, null, detailHtml);
+      if (url === unrelated) throw new Error('unrelated listing must be filtered before detail fetch');
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims', companyName: 'Schweizerhof',
+      companyHost: 'romantik.example', mode: 'template', seedUrls: [seed],
+      detailTemplate: '/list/*', listingCandidateText: 'Schweizerhof Flims',
+      detailEnrichment: true,
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Housekeeping-Mitarbeiter/in', url: wanted, location: 'Flims', canton: 'GR',
+    })]);
+    expect(fetchImpl).not.toHaveBeenCalledWith(unrelated, expect.anything());
+  });
+
+  it('filters a multi-employer ATS by tenant evidence on enriched detail pages', async () => {
+    const seed = 'https://romantik.example/list/';
+    const wanted = 'https://romantik.example/list/18877';
+    const unrelated = 'https://romantik.example/list/19310';
+    const listing = `<a href="/list/18877">Housekeeping-Mitarbeiter/in (m/w/d)</a>`
+      + `<a href="/list/19310">Chef de Service (m/w)</a>`;
+    const wantedDetail = '<h1>Housekeeping-Mitarbeiter/in (m/w/d)</h1><div class="job-location">Flims</div>'
+      + '<article class="vacancy-description">'
+      + 'Darum sollten Sie zum Schweizerhof Flims kommen. Unterstützen Sie unser Team '
+      + 'mit einer verantwortungsvollen Tätigkeit und geregelten Arbeitszeiten.'
+      + '</article>';
+    const unrelatedDetail = '<h1>Chef de Service (m/w)</h1><div class="job-location">Grindelwald</div>'
+      + '<article class="vacancy-description">'
+      + 'Das Romantik Hotel Schweizerhof Grindelwald sucht Unterstützung im Service. '
+      + 'Wir bieten eine abwechslungsreiche Aufgabe und faire Arbeitszeiten.'
+      + '</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      if (url === wanted) return response(url, 200, null, wantedDetail);
+      if (url === unrelated) return response(url, 200, null, unrelatedDetail);
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims', companyName: 'Schweizerhof',
+      companyHost: 'romantik.example', mode: 'template', seedUrls: [seed],
+      detailTemplate: '/list/*', detailEnrichment: true,
+      detailCandidateText: 'Schweizerhof Flims',
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Housekeeping-Mitarbeiter/in (m/w/d)', url: wanted, location: 'Flims', canton: 'GR',
+    })]);
+    expect(fetchImpl).toHaveBeenCalledWith(unrelated, expect.objectContaining({ redirect: 'manual' }));
+  });
+
+  it('does not count complete non-target tenants as missing details after target identity is confirmed', async () => {
+    const seed = 'https://romantik.example/list/';
+    const details = Array.from({ length: 28 }, (_, index) => (
+      `https://romantik.example/list/${146 + index}`
+    ));
+    const listing = details
+      .map((url, index) => `<a href="${url}">Hospitality role ${index + 1}</a>`)
+      .join('');
+    const detailHtml = (index: number) => '<h1>Hospitality role ' + (index + 1) + '</h1>'
+      + `<div class="job-location">${index < 3 ? 'Flims' : 'Grindelwald'}</div>`
+      + '<article class="vacancy-description">'
+      + (index < 3
+        ? 'Join the Schweizerhof Flims team in this hospitality role. We offer a varied position, '
+          + 'supportive colleagues, fair working hours and an attractive workplace in the region.'
+        : 'Join the Schweizerhof Grindelwald team in this hospitality role. We offer a varied position, '
+          + 'supportive colleagues, fair working hours and an attractive workplace in the region.')
+      + '</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      const index = details.indexOf(url);
+      if (index < 0) throw new Error(`unexpected URL ${url}`);
+      return response(url, 200, null, detailHtml(index));
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims', companyName: 'Schweizerhof',
+      companyHost: 'romantik.example', mode: 'template', seedUrls: [seed],
+      detailTemplate: '/list/*', detailEnrichment: true,
+      detailCandidateText: 'Schweizerhof Flims',
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toHaveLength(3);
+    expect((rows as any).detailDrop).toEqual({
+      candidates: 3, gone: 0, rejected: 0, dropped: 0,
+    });
+  });
+
+  it('keeps the detail-drop threshold over target candidates when a multi-tenant feed also has unrelated jobs', async () => {
+    const seed = 'https://romantik.example/list/';
+    const details = Array.from({ length: 30 }, (_, index) => (
+      `https://romantik.example/list/${200 + index}`
+    ));
+    const listing = details
+      .map((url, index) => `<a href="${url}">Hospitality role ${index + 1}</a>`)
+      .join('');
+    const targetDetail = (index: number) => '<h1>Hospitality role ' + (index + 1) + '</h1>'
+      + '<div class="job-location">Flims</div>'
+      + '<article class="vacancy-description">'
+      + 'Join the Schweizerhof Flims team in this hospitality role. We offer a varied position, '
+      + 'supportive colleagues, fair working hours and an attractive workplace in the region.'
+      + '</article>';
+    const unrelatedDetail = (index: number) => '<h1>Hospitality role ' + (index + 1) + '</h1>'
+      + '<div class="job-location">Grindelwald</div>'
+      + '<article class="vacancy-description">'
+      + 'Join the Schweizerhof Grindelwald team in this hospitality role. We offer a varied position, '
+      + 'supportive colleagues, fair working hours and an attractive workplace in the region.'
+      + '</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      const index = details.indexOf(url);
+      if (index < 0) throw new Error(`unexpected URL ${url}`);
+      if (index === 8 || index === 9) return response(url, 404, null, 'gone');
+      return response(url, 200, null, index < 10 ? targetDetail(index) : unrelatedDetail(index));
+    });
+
+    let error: any;
+    try {
+      await runSpecInProduction({
+        companyKey: 'schweizerhof-flims', companyName: 'Schweizerhof',
+        companyHost: 'romantik.example', mode: 'template', seedUrls: [seed],
+        detailTemplate: '/list/*', detailEnrichment: true,
+        detailCandidateText: 'Schweizerhof Flims',
+      } as any, {
+        fetchImpl,
+        disableWafProxy: true,
+        retries: 0,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+      });
+    } catch (caught) {
+      error = caught;
+    }
+
+    expect(error).toMatchObject({
+      specDetailDrop: { candidates: 10, gone: 2, rejected: 0, dropped: 2 },
+      specDiscoveredCount: 30,
+    });
+    expect(error.message).toMatch(/detail snapshot incompleto: 2\/10/);
+  });
+
+  it('keeps a detail without tenant identity in the fail-closed denominator', async () => {
+    const seed = 'https://romantik.example/list/';
+    const details = Array.from({ length: 22 }, (_, index) => (
+      `https://romantik.example/list/${250 + index}`
+    ));
+    const listing = details
+      .map((url, index) => `<a href="${url}">Hospitality role ${index + 1}</a>`)
+      .join('');
+    const detailHtml = (index: number) => {
+      const target = index < 20;
+      const explicitNonTarget = index === 20;
+      const location = target || index === 21 ? 'Flims' : 'Grindelwald';
+      const identity = target
+        ? 'Schweizerhof Flims'
+        : explicitNonTarget
+          ? 'Schweizerhof Grindelwald'
+          : 'Independent hospitality employer';
+      return '<h1>Hospitality role ' + (index + 1) + '</h1>'
+        + `<div class="job-location">${location}</div>`
+        + '<article class="vacancy-description">'
+        + `Join ${identity} in this hospitality role. We offer a varied position, `
+        + 'supportive colleagues, fair working hours and an attractive workplace in the region.'
+        + '</article>';
+    };
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      const index = details.indexOf(url);
+      if (index < 0) throw new Error(`unexpected URL ${url}`);
+      return response(url, 200, null, detailHtml(index));
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims', companyName: 'Schweizerhof',
+      companyHost: 'romantik.example', mode: 'template', seedUrls: [seed],
+      detailTemplate: '/list/*', detailEnrichment: true,
+      detailCandidateText: 'Schweizerhof Flims',
+    } as any, {
+      fetchImpl,
+      disableWafProxy: true,
+      retries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toHaveLength(20);
+    expect((rows as any).detailDrop).toEqual({
+      candidates: 21, gone: 1, rejected: 0, dropped: 1,
+    });
+  });
+
+  it('fails closed when no detail page proves the requested tenant', async () => {
+    const seed = 'https://romantik.example/list/';
+    const details = Array.from({ length: 10 }, (_, index) => (
+      `https://romantik.example/list/${300 + index}`
+    ));
+    const listing = details
+      .map((url, index) => `<a href="${url}">Hospitality role ${index + 1}</a>`)
+      .join('');
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      if (!details.includes(url)) throw new Error(`unexpected URL ${url}`);
+      return response(url, 200, null,
+        '<h1>Hospitality role</h1><div class="job-location">Grindelwald</div>'
+        + '<article class="vacancy-description">Join the Schweizerhof Grindelwald team. '
+        + 'We offer a varied position, supportive colleagues, fair working hours and an attractive workplace.</article>');
+    });
+
+    let error: any;
+    try {
+      await runSpecInProduction({
+        companyKey: 'schweizerhof-flims', companyName: 'Schweizerhof',
+        companyHost: 'romantik.example', mode: 'template', seedUrls: [seed],
+        detailTemplate: '/list/*', detailEnrichment: true,
+        detailCandidateText: 'Schweizerhof Flims',
+      } as any, {
+        fetchImpl,
+        disableWafProxy: true,
+        retries: 0,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+      });
+    } catch (caught) {
+      error = caught;
+    }
+
+    expect(error).toMatchObject({
+      specDetailDrop: { candidates: 10, gone: 10, rejected: 0, dropped: 10 },
+      specDiscoveredCount: 10,
+    });
+    expect(error.message).toMatch(/detail snapshot incompleto: 10\/10/);
+  });
+
+  it('fails closed when a non-empty spec loses too many detail pages', async () => {
+    const seed = 'https://employer.example/careers/';
+    const details = Array.from({ length: 10 }, (_, index) => (
+      `https://employer.example/careers/detail/${index + 1}`
+    ));
+    const listing = details
+      .map((url, index) => `<a href="${url}">Platform Engineer ${index + 1}</a>`)
+      .join('');
+    const detailHtml = (index: number) => '<h1>Platform Engineer ' + (index + 1) + '</h1>'
+      + '<div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">'
+      + 'Build reliable systems for our engineering organisation, coordinate production releases, '
+      + 'improve observability, support colleagues across the platform team, and document resilient '
+      + 'operational practices for every service owner in Zürich.'
+      + '</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      const index = details.indexOf(url);
+      if (index < 0) throw new Error(`unexpected URL ${url}`);
+      if (index >= 8) return response(url, 404, null, 'gone');
+      return response(url, 200, null, detailHtml(index));
+    });
+
+    let error: any;
+    try {
+      await runSpecInProduction({
+        companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+        mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+        detailEnrichment: true,
+      } as any, {
+        fetchImpl,
+        disableWafProxy: true,
+        retries: 0,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+      });
+    } catch (caught) {
+      error = caught;
+    }
+
+    expect(error).toMatchObject({
+      specDetailDrop: { candidates: 10, gone: 2, rejected: 0, dropped: 2 },
+      specDiscoveredCount: 10,
+    });
+    expect(error.message).toMatch(/detail snapshot incompleto: 2\/10/);
+  });
+
+  it('lets a declared source filter exclude unresolved geography without masking detail failures', async () => {
+    const seed = 'https://employer.example/careers/';
+    const details = Array.from({ length: 10 }, (_, index) => (
+      `https://employer.example/careers/detail/${index + 1}`
+    ));
+    const listing = details
+      .map((url, index) => `<a href="${url}">Platform Engineer ${index + 1}</a>`)
+      .join('');
+    const detailHtml = (index: number) => '<h1>Platform Engineer ' + (index + 1) + '</h1>'
+      + (index < 2 ? '' : '<div class="job-location">Zürich</div>')
+      + '<article class="vacancy-description">'
+      + 'Build reliable systems for our engineering organisation, coordinate production releases, '
+      + 'improve observability, support colleagues across the platform team, and document resilient '
+      + 'operational practices for every service owner in Zürich.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      const index = details.indexOf(url);
+      if (index < 0) throw new Error(`unexpected URL ${url}`);
+      return response(url, 200, null, detailHtml(index));
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+      detailEnrichment: true,
+    } as any, {
+      fetchImpl,
+      disableWafProxy: true,
+      retries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      isExpectedDetailFilter: ({ reason, decision }: any) => reason === 'geography'
+        && !decision.geography && !decision.explicitlyForeign,
+    });
+
+    expect(rows).toHaveLength(8);
+    expect((rows as any).detailDrop).toEqual({ candidates: 8, gone: 0, rejected: 0, dropped: 0 });
+  });
+
+  it('preserves the source discovery count when expected filters coexist with detail failures', async () => {
+    const seed = 'https://employer.example/careers/';
+    const details = Array.from({ length: 12 }, (_, index) => (
+      `https://employer.example/careers/detail/${index + 1}`
+    ));
+    const listing = details
+      .map((url, index) => `<a href="${url}">Platform Engineer ${index + 1}</a>`)
+      .join('');
+    const detailHtml = (index: number) => '<h1>Platform Engineer ' + (index + 1) + '</h1>'
+      + (index < 2 ? '' : '<div class="job-location">Zürich</div>')
+      + '<article class="vacancy-description">'
+      + 'Build reliable systems for our engineering organisation, coordinate production releases, '
+      + 'improve observability, support colleagues across the platform team, and document resilient '
+      + 'operational practices for every service owner in Zürich.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      const index = details.indexOf(url);
+      if (index < 0) throw new Error(`unexpected URL ${url}`);
+      if (index >= 10) return response(url, 404, null, 'gone');
+      return response(url, 200, null, detailHtml(index));
+    });
+
+    let error: any;
+    try {
+      await runSpecInProduction({
+        companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+        mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+        detailEnrichment: true,
+      } as any, {
+        fetchImpl,
+        disableWafProxy: true,
+        retries: 0,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+        isExpectedDetailFilter: ({ reason, decision }: any) => reason === 'geography'
+          && !decision.geography && !decision.explicitlyForeign,
+      });
+    } catch (caught) {
+      error = caught;
+    }
+
+    expect(error).toMatchObject({
+      specDetailDrop: { candidates: 10, gone: 2, rejected: 0, dropped: 2 },
+      specDiscoveredCount: 12,
+    });
+    expect(error.message).toMatch(/detail snapshot incompleto: 2\/10/);
+  });
+
+  it.each([
+    ['a detail page without tenant evidence', false],
+    ['a detail fetch error', true],
+  ])('fails closed when index-only tenant text is available but %s', async (_caseName, detailFetchFails) => {
+    const seed = 'https://romantik.example/list/';
+    const job = 'https://romantik.example/list/18877';
+    const listing = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Housekeeping-Mitarbeiter/in (m/w/d)',
+      url: job,
+      description: 'Schweizerhof listing teaser with enough indexed text to look complete even when the detail response lacks tenant evidence.',
+      jobLocation: { address: { addressLocality: 'Flims', addressCountry: 'CH' } },
+    })}</script>`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      if (url === job && detailFetchFails) throw new Error('detail unavailable');
+      if (url === job) return response(url, 200, null,
+        '<h1>Housekeeping-Mitarbeiter/in (m/w/d)</h1><div class="job-location">Flims</div>');
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims', companyName: 'Example',
+      companyHost: 'romantik.example', mode: 'jsonld', seedUrls: [seed],
+      detailEnrichment: true, detailCandidateText: 'schweizerhof',
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+      jinaRetries: 0,
+    });
+
+    expect(rows).toEqual([]);
+  });
+
   it('rescues a WAF 403 through Jina while keeping the prospector URL policy in front', async () => {
     const seed = 'https://employer.example/jobs';
     const detail = 'https://employer.example/careers/detail/1';
@@ -244,6 +721,374 @@ describe('prospector public-only polite transport', () => {
       expect.stringContaining('https://r.jina.ai/'),
       expect.objectContaining({ headers: expect.objectContaining({ 'X-Return-Format': 'html' }) }),
     );
+  });
+
+  it('uses an opt-in browser rescue after the direct page and Jina both hit the WAF', async () => {
+    const seed = 'https://hotelcareer.example/jobs/vereina/';
+    const detail = 'https://hotelcareer.example/jobs/vereina/chef-de-partie-123/';
+    const listing = `<a href="/jobs/vereina/chef-de-partie-123/">Chef de partie</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Chef de partie</h1><div class="job-location">Klosters</div>'
+      + '<article class="vacancy-description">Prepare and coordinate kitchen service for the hotel team, '
+      + 'maintain food quality and hygiene standards, and support the daily operation with colleagues across '
+      + 'the restaurant and guest service departments in Klosters.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 403, null, 'Challenge Validation');
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 403, null, 'Challenge Validation'));
+    const browserFetchImpl = vi.fn(async () => listing);
+
+    const rows = await runSpecInProduction({
+      companyKey: 'vereinaklosters', companyName: 'Vereina', companyHost: 'hotelcareer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/vereina/*', detailEnrichment: true,
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      browserFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Chef de partie', url: detail, location: 'Klosters', canton: 'GR',
+    })]);
+    expect(browserFetchImpl).toHaveBeenCalledWith(seed, expect.objectContaining({ timeoutMs: undefined }));
+    expect(jinaFetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it('rescues an Akamai challenge served as HTTP 200 instead of treating it as an empty listing', async () => {
+    const seed = 'https://employer.example/jobs';
+    const detail = 'https://employer.example/careers/detail/1';
+    const challenge = '<html><head><title>Challenge Validation</title></head>'
+      + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+      + `${' blocked'.repeat(30)}</body></html>`;
+    const listing = `<a href="/careers/detail/1">Platform Engineer</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
+      + 'coordinate production releases, improve observability, support colleagues across the platform team, '
+      + 'and document resilient operational practices for every service owner.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, challenge);
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    let jinaCalls = 0;
+    const jinaFetchImpl = vi.fn(async (url: string) => response(
+      url,
+      200,
+      null,
+      jinaCalls++ === 0 ? challenge : listing,
+    ));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      jinaRetries: 1,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
+    })]);
+    expect(jinaFetchImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it('rotates Jina again when a marked challenge is followed by an empty 200 proxy page', async () => {
+    const seed = 'https://employer.example/jobs';
+    const detail = 'https://employer.example/careers/detail/1';
+    const challenge = '<html><head><title>Challenge Validation</title></head>'
+      + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+      + `${' blocked'.repeat(30)}</body></html>`;
+    const emptyProxyPage = `<html><body>${'No positions available right now. '.repeat(20)}</body></html>`;
+    const listing = `<a href="/careers/detail/1">Platform Engineer</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
+      + 'coordinate production releases, improve observability, support colleagues across the platform team, '
+      + 'and document resilient operational practices for every service owner.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, challenge);
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    let jinaCalls = 0;
+    const jinaFetchImpl = vi.fn(async (url: string) => response(
+      url,
+      200,
+      null,
+      jinaCalls++ === 0 ? emptyProxyPage : listing,
+    ));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+      rescueOnEmptyListing: true,
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
+    })]);
+    expect(jinaFetchImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it('rescues a spec-scoped unmarked HTTP 200 interstitial after empty extraction', async () => {
+    const seed = 'https://employer.example/jobs';
+    const detail = 'https://employer.example/careers/detail/1';
+    const interstitial = '<html><head><title>Access Denied</title></head>'
+      + '<body><p>Request could not be completed.</p></body></html>';
+    const listing = `<a href="/careers/detail/1">Platform Engineer</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
+      + 'coordinate production releases, improve observability, support colleagues across the platform team, '
+      + 'and document resilient operational practices for every service owner.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, interstitial);
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, listing));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+      rescueOnEmptyListing: true,
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
+    })]);
+    expect(jinaFetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it('keeps an explicit zero outcome when every source rescue still yields no accepted detail link', async () => {
+    const seed = 'https://hotelcareer.example/jobs/vereina';
+    const interstitial = '<html><head><title>Access Denied</title></head>'
+      + '<body><p>Request could not be completed.</p></body></html>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, interstitial);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, interstitial));
+    const browserFetchImpl = vi.fn(async () => interstitial);
+
+    const rows = await runSpecInProduction({
+      companyKey: 'vereinaklosters', companyName: 'Vereina', companyHost: 'hotelcareer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/vereina/*/',
+      rescueOnEmptyListing: true, emptyListingOutcome: 'anti_bot_block',
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      browserFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([]);
+    expect(rows).toHaveProperty('fetchOutcome', 'anti_bot_block');
+    expect(rows).toHaveProperty('discoveredCount', 0);
+    expect(rows).toHaveProperty('fetchDetail', expect.stringContaining('Access Denied'));
+    expect(browserFetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it('does not count page chrome outside the learned detail template as a listing', async () => {
+    // Real Hotelcareer employer page without vacancies: the generic cascade's
+    // template guess picks the footer "Karriere" link, which the spec's detail
+    // template rejects. It used to skip the empty-listing rescue and the
+    // diagnostic, so the zero reached crawler-health with no cause at all.
+    const seed = 'https://www.hotelcareer.ch/jobs/hotel-vereina-52746';
+    const page = readFileSync(
+      new URL('./fixtures/hotelcareer/hotel-vereina-52746-no-vacancy.html', import.meta.url),
+      'utf8',
+    );
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, page);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, page));
+    const browserFetchImpl = vi.fn(async () => page);
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const rows = await runSpecInProduction({
+      companyKey: 'vereinaklosters', companyName: 'Vereina', companyHost: 'hotelcareer.ch',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/hotel-vereina-52746/*',
+      rescueOnEmptyListing: true, emptyListingOutcome: 'anti_bot_block',
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      browserFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+    const diagnostics = warn.mock.calls.map((call) => String(call[0]));
+    warn.mockRestore();
+
+    expect(rows).toEqual([]);
+    expect(jinaFetchImpl).toHaveBeenCalledOnce();
+    expect(browserFetchImpl).toHaveBeenCalledOnce();
+    expect(rows).toHaveProperty('fetchDetail', expect.stringContaining('Jobs Hotel Vereina'));
+    expect(diagnostics).toContainEqual(expect.stringContaining(`nessun annuncio su ${seed}`));
+  });
+
+  it('keeps an explicit anti-bot outcome when every discovered detail is blocked', async () => {
+    const seed = 'https://hotelcareer.example/jobs/vereina';
+    const detail = 'https://hotelcareer.example/jobs/vereina/chef-de-partie-123';
+    const challenge = '<html><head><title>Challenge Validation</title></head>'
+      + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+      + `${' blocked'.repeat(30)}</body></html>`;
+    const listing = `<a href="/jobs/vereina/chef-de-partie-123">Chef de partie</a>${' listing'.repeat(60)}`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed || url === detail) return response(url, 403, null, challenge);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    let jinaCalls = 0;
+    const jinaFetchImpl = vi.fn(async (url: string) => response(
+      url,
+      jinaCalls++ === 0 ? 200 : 403,
+      null,
+      jinaCalls === 1 ? listing : challenge,
+    ));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'vereinaklosters', companyName: 'Vereina', companyHost: 'hotelcareer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/vereina/*',
+      rescueOnEmptyListing: true, emptyListingOutcome: 'anti_bot_block',
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([]);
+    expect(rows).toHaveProperty('fetchOutcome', 'anti_bot_block');
+    expect(rows).toHaveProperty('discoveredCount', 1);
+    expect(rows).toHaveProperty('fetchDetail', expect.stringContaining('detail page'));
+  });
+
+  it('does not invent a fetch outcome for an unconfigured legitimate empty listing', async () => {
+    const seed = 'https://employer.example/jobs';
+    const empty = '<html><head><title>Open positions</title></head><body>No positions.</body></html>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, empty);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([]);
+    expect(rows).not.toHaveProperty('fetchOutcome');
+  });
+
+  it('rescues a connection-level seed failure through Jina instead of returning zero listings', async () => {
+    const seed = 'https://employer.example/jobs';
+    const detail = 'https://employer.example/careers/detail/1';
+    const listing = `<a href="/careers/detail/1">Platform Engineer</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
+      + 'coordinate production releases, improve observability, support colleagues across the platform team, '
+      + 'and document resilient operational practices for every service owner.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) throw new TypeError('fetch failed');
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected URL ${url}`);
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, listing));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      retries: 0,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
+    })]);
+    expect(jinaFetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it('keeps an exhausted connection rescue retryable instead of marking it anti-bot', async () => {
+    const seed = 'https://employer.example/jobs';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      const error = Object.assign(new Error('upstream timeout'), { code: 'ETIMEDOUT' });
+      throw error;
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 502));
+    const policy = createSpecUrlPolicy({ seedUrls: [seed] }, {
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+    });
+
+    let error: any;
+    try {
+      await fetchRuntimePage(seed, policy, {
+        fetchImpl,
+        jinaFetchImpl,
+        retries: 0,
+        jinaRetries: 0,
+        sleepImpl: async () => {},
+        jinaSleepImpl: async () => {},
+      });
+    } catch (caught) {
+      error = caught;
+    } finally {
+      await policy.dispatcher.close();
+    }
+
+    expect(error).toMatchObject({ retryable: true });
+    expect(error).not.toHaveProperty('status');
+    expect(isConnectionLevelFetchError(error)).toBe(true);
+    expect(error).not.toHaveProperty('antiBotExhausted');
+    expect(jinaFetchImpl).toHaveBeenCalledOnce();
   });
 
   it('marks an exhausted WAF rescue as anti-bot so the prior slice can be preserved', async () => {
@@ -308,5 +1153,39 @@ describe('prospector public-only polite transport', () => {
 
     expect(error).toMatchObject({ status: 403, antiBotExhausted: true });
     expect(jinaFetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('marks an exhausted HTTP 200 challenge as anti-bot instead of returning zero rows', async () => {
+    const seed = 'https://employer.example/jobs';
+    const challenge = '<html><head><title>Challenge Validation</title></head>'
+      + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+      + `${' blocked'.repeat(30)}</body></html>`;
+    const fetchImpl = vi.fn(async (url: string) => response(
+      url,
+      200,
+      null,
+      url.endsWith('/robots.txt') ? 'User-agent: *\nAllow: /' : challenge,
+    ));
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 502));
+
+    let error: any;
+    try {
+      await runSpecInProduction({
+        companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+        mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+      } as any, {
+        fetchImpl,
+        jinaFetchImpl,
+        jinaRetries: 0,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+        jinaSleepImpl: async () => {},
+      });
+    } catch (caught) {
+      error = caught;
+    }
+
+    expect(error).toMatchObject({ status: 200, antiBotExhausted: true });
+    expect(jinaFetchImpl).toHaveBeenCalledOnce();
   });
 });

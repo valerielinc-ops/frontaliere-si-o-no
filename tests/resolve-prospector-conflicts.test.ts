@@ -48,6 +48,65 @@ describe('Prospector rebase conflict resolver', () => {
     expect(merged.updatedAt).toBe(local.updatedAt);
   });
 
+  it('mantiene i segnali SECO più freschi insieme ai timestamp delle altre fonti', () => {
+    const base: any = {
+      version: 2,
+      updatedAt: iso(0),
+      candidates: {
+        shared: {
+          key: 'shared',
+          status: 'new',
+          sourceSeenAt: { seco: iso(-3000), osm: iso(-3000) },
+          adCount: 1,
+          sampleTitles: ['Titolo SECO vecchio'],
+          applyHosts: ['old-board.example'],
+        },
+      },
+      rejectedTombstones: {},
+    };
+    const upstream = structuredClone(base);
+    upstream.candidates.shared.sourceSeenAt.seco = iso(1000);
+    upstream.candidates.shared.adCount = 4;
+    upstream.candidates.shared.sampleTitles = ['Titolo SECO aggiornato'];
+    upstream.candidates.shared.applyHosts = ['new-board.example'];
+
+    const local = structuredClone(base);
+    local.candidates.shared.sourceSeenAt.osm = iso(2000);
+    local.candidates.shared.updatedAt = iso(2000);
+
+    const merged = mergeProspectorPath('data/prospector/candidates.json', base, upstream, local) as typeof base;
+    expect(merged.candidates.shared.sourceSeenAt).toEqual({ seco: iso(1000), osm: iso(2000) });
+    expect(merged.candidates.shared).toMatchObject({
+      adCount: 4,
+      sampleTitles: ['Titolo SECO aggiornato'],
+      applyHosts: ['new-board.example'],
+    });
+  });
+
+  it('mantiene la precedenza locale nei conflitti legacy senza timestamp SECO', () => {
+    const base: any = {
+      version: 2,
+      updatedAt: iso(0),
+      candidates: { shared: { key: 'shared', adCount: 1, sampleTitles: ['Base'], applyHosts: ['base.example'] } },
+      rejectedTombstones: {},
+    };
+    const upstream = structuredClone(base);
+    upstream.candidates.shared.adCount = 2;
+    upstream.candidates.shared.sampleTitles = ['Upstream'];
+    upstream.candidates.shared.applyHosts = ['upstream.example'];
+    const local = structuredClone(base);
+    local.candidates.shared.adCount = 3;
+    local.candidates.shared.sampleTitles = ['Local'];
+    local.candidates.shared.applyHosts = ['local.example'];
+
+    const merged = mergeProspectorPath('data/prospector/candidates.json', base, upstream, local) as typeof base;
+    expect(merged.candidates.shared).toMatchObject({
+      adCount: 3,
+      sampleTitles: ['Local'],
+      applyHosts: ['local.example'],
+    });
+  });
+
   it('mantiene il rifiuto terminale contro una snapshot locale più vecchia', () => {
     const base: any = {
       version: 2,

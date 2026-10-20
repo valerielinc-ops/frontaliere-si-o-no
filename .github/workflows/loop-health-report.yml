@@ -50,7 +50,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -79,7 +79,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -87,6 +87,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          # GITHUB_TOKEN non legge le variabili del repo via API: il kill switch
+          # dell'auto-close di followup-reconcile.yml arriva da `vars` (vuoto =
+          # non impostata) e il report lo mostra accanto ai follow-up.
+          LOOP_HEALTH_VARS_FROM_WORKFLOW: '1'
+          RECONCILE_NO_AUTOCLOSE: ${{ vars.RECONCILE_NO_AUTOCLOSE }}
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_DAYS: ${{ github.event.inputs.days || '7' }}
           INPUT_NO_POST: ${{ github.event.inputs.no_post }}

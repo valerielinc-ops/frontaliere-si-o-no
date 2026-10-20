@@ -17,16 +17,21 @@
  * a live 87-posting Swiss board would have vanished from the site.
  */
 
-import { describe, it, expect } from 'vitest';
+import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 
-import { hasMorePages, PAGE_SIZE } from '../scripts/lib/hitachi-energy-job-parser.mjs';
+import {
+  collectHitachiEnergyListings,
+  hasMorePages,
+  PAGE_SIZE,
+} from '../scripts/lib/hitachi-energy-job-parser.mjs';
+import { isRetryBudgetExhausted } from '../scripts/lib/transient-fetch.mjs';
 
 /** Build a listing payload with `count` items and explicit metadata. */
-function payload(count: number, meta: Record<string, unknown> = {}) {
+function payload(count: number, meta: Record<string, unknown> = {}, start = 0) {
   return {
     items: Array.from({ length: count }, (_, i) => ({
-      title: `Job ${i}`,
-      url: `https://www.hitachienergy.com/careers/open-jobs/details/JID3-${100000 + i}`,
+      title: `Job ${start + i}`,
+      url: `https://www.hitachienergy.com/careers/open-jobs/details/JID3-${100000 + start + i}`,
     })),
     ...meta,
   };
@@ -91,5 +96,90 @@ describe('hasMorePages (Hitachi Energy listing pagination)', () => {
     }
     expect(visited).toBe(pages.length);
     expect(fetched).toBe(87);
+  });
+});
+
+describe('collectHitachiEnergyListings (issue #12802)', () => {
+  /** The live board: `total` results, 20 per page, `loadMore` + `totalNumber` on every page. */
+  function board(total: number) {
+    return (offset: number) => {
+      const count = Math.max(0, Math.min(PAGE_SIZE, total - offset));
+      return Promise.resolve(payload(count, { totalNumber: total, loadMore: offset + count < total }, offset));
+    };
+  }
+
+  beforeEach(() => {
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+  afterEach(() => vi.restoreAllMocks());
+
+  it('walks every page of a healthy board', async () => {
+    const items = await collectHitachiEnergyListings({ fetchPage: board(74) });
+    expect(items).toHaveLength(74);
+  });
+
+  it('retries a later page that comes back empty before totalNumber, then continues', async () => {
+    const live = board(74);
+    let degraded = 1;
+    const fetchPage = vi.fn((offset: number) => {
+      if (offset === PAGE_SIZE && degraded-- > 0) return Promise.resolve({ items: [] });
+      return live(offset);
+    });
+    const items = await collectHitachiEnergyListings({ fetchPage });
+    expect(items).toHaveLength(74);
+    expect(fetchPage.mock.calls.filter(([offset]) => offset === PAGE_SIZE)).toHaveLength(2);
+  });
+
+  it('throws a retry-exhausted error when the later page stays empty (the 2026-10-11 run)', async () => {
+    const live = board(74);
+    const fetchPage = vi.fn((offset: number) => (offset === 0 ? live(0) : Promise.resolve({ items: [] })));
+    const run = collectHitachiEnergyListings({ fetchPage, emptyPageRetries: 2 });
+    const err = await run.then(() => null, (e) => e);
+    expect(err?.message).toMatch(/page 2 returned no new listings at 20 of totalNumber=74/);
+    expect(isRetryBudgetExhausted(err)).toBe(true);
+    expect(fetchPage.mock.calls.filter(([offset]) => offset === PAGE_SIZE)).toHaveLength(3);
+  });
+
+  it('records a higher totalNumber from an empty later page before deciding to retry', async () => {
+    const fetchPage = vi.fn((offset: number) =>
+      Promise.resolve(
+        offset === 0
+          ? payload(PAGE_SIZE, { totalNumber: PAGE_SIZE, loadMore: true })
+          : payload(0, { totalNumber: 74, loadMore: false }),
+      ),
+    );
+    const run = collectHitachiEnergyListings({ fetchPage, emptyPageRetries: 2 });
+    const err = await run.then(() => null, (e) => e);
+    expect(err?.message).toMatch(/page 2 returned no new listings at 20 of totalNumber=74/);
+    expect(isRetryBudgetExhausted(err)).toBe(true);
+    expect(fetchPage.mock.calls.filter(([offset]) => offset === PAGE_SIZE)).toHaveLength(3);
+  });
+
+  it('treats a page that only repeats seen listings like an empty page', async () => {
+    const live = board(74);
+    const fetchPage = (offset: number) => live(offset === PAGE_SIZE ? 0 : offset);
+    await expect(collectHitachiEnergyListings({ fetchPage, emptyPageRetries: 1 })).rejects.toThrow(/page 2 returned no new listings/);
+  });
+
+  it('rethrows a fetch failure after page 1 instead of returning a partial board', async () => {
+    const live = board(74);
+    const fetchPage = (offset: number) => (offset === 0 ? live(0) : Promise.reject(new Error('HTTP 503')));
+    await expect(collectHitachiEnergyListings({ fetchPage })).rejects.toThrow('HTTP 503');
+  });
+
+  it('keeps the page-1 fetch failure a soft empty result', async () => {
+    const items = await collectHitachiEnergyListings({ fetchPage: () => Promise.reject(new Error('HTTP 503')) });
+    expect(items).toEqual([]);
+  });
+
+  it('stops without retry on an empty page once totalNumber is reached', async () => {
+    // A source that says `loadMore: true` on its true last page.
+    const fetchPage = vi.fn((offset: number) =>
+      Promise.resolve(offset === 0 ? payload(PAGE_SIZE, { totalNumber: PAGE_SIZE, loadMore: true }) : { items: [] }),
+    );
+    const items = await collectHitachiEnergyListings({ fetchPage });
+    expect(items).toHaveLength(PAGE_SIZE);
+    expect(fetchPage).toHaveBeenCalledTimes(2);
   });
 });

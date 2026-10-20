@@ -233,24 +233,30 @@ describe('Clariant crawler parser', () => {
   // ── Detail page parse: microdata + description + job ID ──
   describe('parseClariantMicrodata', () => {
     it('extracts datePosted/hiringOrganization/locationLabel from the schema.org meta tags', () => {
+      const past = new Date(Date.now() - 7 * 86400000);
+      past.setUTCMilliseconds(0);
+      const words = past.toUTCString().replace(',', '').split(' ');
+      const sourceDate = `${words[0]} ${words[2]} ${words[1]} ${words[4]} UTC ${words[3]}`;
       const html = `
         <span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">
           <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
             <meta itemprop="streetAddress" content="Pratteln, CH">
           </span>
         </span>
-        <meta itemprop="datePosted" content="Thu Jun 18 00:00:00 UTC 2026">
+        <meta itemprop="datePosted" content="${sourceDate}">
         <meta itemprop="validThrough" content="Thu Dec 31 23:00:00 UTC 2026">
         <meta itemprop="hiringOrganization" content="Clariant">
       `;
       const meta = parseClariantMicrodata(html);
-      expect(meta.datePosted).toBe('2026-06-18');
+      expect(meta.datePosted).toBe(past.toISOString().replace('.000Z', 'Z'));
+      expect(meta.postedDate).toBe(meta.datePosted);
+      expect(meta.postingDateSource).toBe('reported');
       expect(meta.hiringOrganization).toBe('Clariant');
       expect(meta.locationLabel).toBe('Pratteln, CH');
     });
 
     it('returns null/empty defaults for empty/invalid input', () => {
-      expect(parseClariantMicrodata('')).toEqual({ datePosted: null, hiringOrganization: '', locationLabel: '' });
+      expect(parseClariantMicrodata('')).toEqual({ datePosted: '', postedDate: '', postingDateSource: 'unknown', hiringOrganization: '', locationLabel: '' });
     });
   });
 

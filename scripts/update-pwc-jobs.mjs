@@ -6,16 +6,18 @@
  *   https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500
  *
  * 1. Fetches all PwC job listings via JSON API (medium 1000311)
- * 2. All data is in the API response (no detail page fetching needed)
+ * 2. Listing fields come from the API; each description is read from the
+ *    vacancy page (`links.directlink`), which prints what the API omits
  * 3. Pages to the API-declared total, then keeps source-backed Swiss
  *    localities across all 26 cantons and drops foreign/unresolved rows.
  * 4. Merges into data/jobs.json
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
@@ -43,12 +45,14 @@ import {
   captureLostSlugs,
   LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { capSlugArray } from './lib/slug-history-journal.mjs';
 import {
   parsePwcJobs,
   inferPwcCategory,
   buildPwcLocalizedContent,
 } from './lib/pwc-job-parser.mjs';
+import { dropRepostedListings, enrichProspectiveJobsFromDetailPages } from './lib/prospective-ch-job-parser-common.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -97,26 +101,6 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        Origin: 'https://www.pwc.ch',
-        Referer: 'https://www.pwc.ch/',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
@@ -144,7 +128,13 @@ export async function fetchAllListings() {
 
   const fetchPage = async (offset) => {
     const url = `${API_BASE_URL}?lang=en&offset=${offset}&limit=${LISTING_PAGE_SIZE}`;
-    const data = await fetchJson(url);
+    const data = await fetchJson(url, {
+      timeoutMs: TIMEOUT_MS,
+      headers: {
+        Origin: 'https://www.pwc.ch',
+        Referer: 'https://www.pwc.ch/',
+      },
+    });
     const parsed = parsePwcJobs(data);
     return { ...parsed, url };
   };
@@ -228,7 +218,7 @@ export function buildPwcJob(row) {
   const hasSourceAddress = !row._explodedCity || city === sourceCity;
 
   return {
-    title: localized.titleByLocale.it,
+    title: localized.titleByLocale[localized.sourceLang],
     slug: localized.slugByLocale.it,
     url: detailUrl,
     applyUrl,
@@ -246,19 +236,21 @@ export function buildPwcJob(row) {
     category: inferPwcCategory(row.title, row.description),
     sector: 'Consulenza',
     source: 'pwc-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, row.language || 'en'),
-    postedDate: row.startDate ? row.startDate.slice(0, 10) : new Date().toISOString().slice(0, 10),
+    sourceLang: localized.sourceLang,
+    // Prospective start_date has no verified publication meaning for this tenant.
+    ...sourcePostingDateFields(),
+    crawledAt: new Date().toISOString(),
     validThrough: row.endDate ? row.endDate.slice(0, 10) : '',
     employmentType: row.employmentType || 'full-time',
     contractType: row.employmentType || 'full-time',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[localized.sourceLang],
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
   };
 }
 
-function jobMatchKey(job = {}) {
+export function jobMatchKey(job = {}) {
   // Key on the stable identifier embedded in the source URL (UUID, numeric ID,
   // content hash) rather than the full URL. PwC and similar vendors rewrite
   // the slug-portion of the URL when titles change while keeping the same
@@ -303,7 +295,7 @@ function explodeListings(listings) {
   return exploded;
 }
 
-function mergeJobs(discoveredJobs) {
+export function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
@@ -347,11 +339,14 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergedSlugByLocale,
       ...(previousSlugs.length > 0 ? { previousSlugs } : {}),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -376,7 +371,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || '',
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -408,20 +403,14 @@ function validateLocales() {
   });
 }
 
-async function main() {
-  setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'PwC Switzerland');
-  console.log('===============================================');
-  console.log('  PwC Switzerland — Dedicated Crawler');
-  console.log('===============================================');
-  console.log(`  API: ${API_URL}`);
-  console.log(`  Careers: ${CAREERS_URL}\n`);
-
+/**
+ * Listing → per-city records → vacancy-page descriptions → re-posts dropped.
+ * Returns `null` when the source lists no vacancy (the caller skips the run).
+ * Writes nothing: `main()` merges and publishes the result.
+ */
+export async function fetchAllPwcJobs() {
   const listings = await fetchAllListings();
-  if (listings.length === 0) {
-    console.log('No PwC jobs found — skipping.');
-    return;
-  }
+  if (listings.length === 0) return null;
 
   const explodedListings = explodeListings(listings);
   if (explodedListings.length !== listings.length) {
@@ -447,8 +436,30 @@ async function main() {
     console.log(`🌍 Location filter: ${explodedListings.length} source locations → ${jobs.length} Swiss jobs (${rejectedLocations} rejected)`);
   }
 
-  const { total, added, updated, diff } = mergeJobs(jobs);
-  updateAdapterConfig(jobs);
+  // The API text (intro + tasks + requirements) is 32-36 % of the rendered
+  // vacancy (audit 2026-09-29): "Your Team", "Your Benefits" and the office
+  // details exist only on the jobs.pwc.ch page.
+  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: COMPANY_NAME });
+  return dropRepostedListings(jobs, COMPANY_NAME, { pageDescribed });
+}
+
+async function main() {
+  setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'PwC Switzerland');
+  console.log('===============================================');
+  console.log('  PwC Switzerland — Dedicated Crawler');
+  console.log('===============================================');
+  console.log(`  API: ${API_URL}`);
+  console.log(`  Careers: ${CAREERS_URL}\n`);
+
+  const uniqueJobs = await fetchAllPwcJobs();
+  if (uniqueJobs === null) {
+    console.log('No PwC jobs found — skipping.');
+    return;
+  }
+
+  const { total, added, updated, diff } = mergeJobs(uniqueJobs);
+  updateAdapterConfig(uniqueJobs);
 
   console.log('\nRunning locale fill for PwC jobs...');
   await translateMissingJobLocales({

@@ -7,6 +7,8 @@
  * markdown description.
  */
 
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { decode as decodeHTML } from 'html-entities';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
@@ -51,7 +53,7 @@ function stripTags(html = '') {
 function htmlToMarkdown(html = '') {
   if (!html) return '';
 
-  let md = stripLastminuteBoilerplate(html)
+  let md = decodeHTML(stripLastminuteBoilerplate(html)
     // Section headings
     .replace(/<(?:h[1-6])[^>]*>([\s\S]*?)<\/(?:h[1-6])>/gi, (_, inner) => {
       const text = stripTags(inner);
@@ -76,16 +78,8 @@ function htmlToMarkdown(html = '') {
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     // Strip remaining tags
-    .replace(/<[^>]+>/g, ' ')
-    // Decode entities
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#0*39;|&apos;/gi, "'")
-    .replace(/&ndash;/gi, '\u2013')
-    .replace(/&mdash;/gi, '\u2014')
-    .replace(/&nbsp;|&#xa0;/gi, ' ')
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     // Clean up whitespace
     .replace(/[ \t]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
@@ -131,6 +125,90 @@ const SECTION_HEADINGS = {
  * Ordered sections for the final description.
  */
 const SECTION_ORDER = ['jobDescription', 'qualifications', 'additionalInformation', 'companyDescription'];
+
+const LASTMINUTE_CORPORATE_ORIGIN = 'https://corporate.lastminute.com';
+
+function lastminuteDeclaredTotals(html = '') {
+  return [...new Set(
+    [...String(html || '').matchAll(/\b(\d+)\s+(?:open\s+positions?|positions?\s+found)\b/giu)]
+      .map((match) => Number(match[1]))
+      .filter((value) => Number.isInteger(value)),
+  )];
+}
+
+/**
+ * Read the total exposed by the corporate page or its HTMX search response.
+ * A missing or contradictory count is deliberately not a completeness proof.
+ */
+export function parseLastminuteDeclaredTotal(html = '') {
+  const totals = lastminuteDeclaredTotals(html);
+  return totals.length === 1 ? totals[0] : null;
+}
+
+/**
+ * Parse the source-owned Lastminute listing response and prove discovery.
+ *
+ * The HTMX endpoint emits two anchors for each job row, so completeness is
+ * based on unique SmartRecruiters IDs, not anchor occurrences. The response is
+ * complete only when its single declared total is positive and exactly equals
+ * the number of unique canonical detail URLs.
+ */
+export function parseLastminuteListingDiscovery(html = '') {
+  const source = String(html || '');
+  const totals = lastminuteDeclaredTotals(source);
+  const detailById = new Map();
+  const hrefRe = /href\s*=\s*(["'])(.*?)\1/giu;
+  let anchorOccurrences = 0;
+  let match = null;
+
+  while ((match = hrefRe.exec(source)) !== null) {
+    const rawHref = decodeHTML(String(match[2] || ''));
+    if (!rawHref) continue;
+
+    let detailUrl = null;
+    try {
+      detailUrl = new URL(rawHref, LASTMINUTE_CORPORATE_ORIGIN);
+    } catch {
+      continue;
+    }
+    if (
+      detailUrl.hostname.toLowerCase() !== 'corporate.lastminute.com'
+      || !/^\/careers\/jobs\/job\/?$/i.test(detailUrl.pathname)
+    ) {
+      continue;
+    }
+
+    const postingId = extractSrIdFromUrl(detailUrl.href);
+    if (!postingId) continue;
+    anchorOccurrences += 1;
+    detailUrl.hash = '';
+    if (!detailById.has(postingId)) detailById.set(postingId, detailUrl.href);
+  }
+
+  const detailUrls = [...detailById.values()];
+  const declaredTotal = totals.length === 1 ? totals[0] : null;
+  let reason = '';
+  if (detailUrls.length === 0) {
+    reason = 'no canonical detail URLs';
+  } else if (totals.length === 0) {
+    reason = 'no source-declared total';
+  } else if (totals.length > 1) {
+    reason = `conflicting source-declared totals: ${totals.join(', ')}`;
+  } else if (declaredTotal === 0) {
+    reason = 'empty source discovery is not publishable';
+  } else if (detailUrls.length !== declaredTotal) {
+    reason = `discovered ${detailUrls.length} unique detail URLs but source declared ${declaredTotal}`;
+  }
+
+  return {
+    complete: reason === '',
+    reason,
+    declaredTotal,
+    declaredTotals: totals,
+    detailUrls,
+    anchorOccurrences,
+  };
+}
 
 /**
  * Parse SmartRecruiters API response into a structured job detail.
@@ -187,7 +265,7 @@ export function parseSmartRecruitersDetail(data = {}) {
     canton,
     country,
     applyUrl: data.applyUrl || '',
-    postedDate: data.releasedDate ? data.releasedDate.split('T')[0] : '',
+    ...sourcePostingDateFields(data.releasedDate),
     sourceTextLength: totalSourceLen,
     sectionCount,
     requirements: extractLastminuteRequirements(description),
@@ -237,33 +315,6 @@ export function extractSrIdFromUrl(rawUrl = '') {
   } catch {
     return '';
   }
-}
-
-/**
- * Generate a locale-specific boilerplate description wrapping the English
- * job content. Used as a deterministic fallback when AI translation fails.
- *
- * @param {{ title: string, location: string, enDescription: string }} opts
- * @param {string} locale - Target locale (it, de, fr)
- * @returns {string} Boilerplate description with English content appended
- */
-export function buildLastminuteLocaleFallback({ title, location, enDescription }, locale) {
-  const loc = String(location || '').trim();
-  if (!loc) return '';
-  const intros = {
-    it: `lastminute.com cerca per la sede di ${loc} un/a ${title}. Scopri i dettagli della posizione e candidati online tramite il portale aziendale.`,
-    de: `lastminute.com sucht am Standort ${loc} eine/n ${title}. Entdecken Sie die Details der Stelle und bewerben Sie sich online über das Unternehmensportal.`,
-    fr: `lastminute.com recherche pour son site de ${loc} un/e ${title}. Découvrez les détails du poste et postulez en ligne via le portail de l'entreprise.`,
-  };
-
-  const intro = intros[locale];
-  if (!intro) return '';
-
-  // Append English content below the locale intro for context
-  if (enDescription && enDescription.length > 100) {
-    return `${intro}\n\n---\n\n${enDescription}`;
-  }
-  return intro;
 }
 
 /**

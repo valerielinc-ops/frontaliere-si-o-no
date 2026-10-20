@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -205,7 +206,7 @@ async function fetchAllJobListings() {
 
 /**
  * Fetch the full detail record for a single job slug: description HTML,
- * city/postal code, ISO posted date and the real (SuccessFactors) apply URL.
+ * city/postal code and the real (SuccessFactors) apply URL.
  */
 async function fetchJobDetail(slug) {
   const res = await fetch(`${DETAIL_BASE_URL}/${slug}/__data.json`, {
@@ -228,7 +229,6 @@ async function fetchJobDetail(slug) {
     descriptionHtml: root?.description || '',
     city: chLocation?.city || '',
     postalCode: chLocation?.zipCode || '',
-    createdIsoDate: root?.createdIsoDate || '',
     applyNowUrl: root?.applyNowUrl || '',
     jobLocale: root?.jobLocale || '',
   };
@@ -312,7 +312,8 @@ export async function fetchAllCAndASchweizJobs() {
       sector: 'Commercio al dettaglio',
       currency: 'CHF',
       featured: false,
-      postedDate: detail?.createdIsoDate || new Date().toISOString().split('T')[0],
+      // The custom endpoint only exposes creation time, not publication evidence.
+      ...sourcePostingDateFields(''),
       applyUrl: detail?.applyNowUrl || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * scripts/lib/dedupe-growing-container-closer.mjs
  *
@@ -151,7 +153,7 @@ export function repairGrowingContainerCloser(file, src) {
 // by scripts/lib/resolve-append-conflicts.sh. Exits 0 always (this is a
 // best-effort repair pass; the caller's own parse/validation checks after
 // this runs are what actually gate the push).
-const isMain = process.argv[1] && import.meta.url === `file://${process.argv[1]}`;
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   const file = process.argv[2];
   const src = readFileSync(file, 'utf8');

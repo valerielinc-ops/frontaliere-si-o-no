@@ -13,7 +13,10 @@
  *   - Slug generation
  *   - Job shape validation
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   SPITAL_THUSIS_KEY,
   SPITAL_THUSIS_COMPANY_NAME,
@@ -25,6 +28,7 @@ import {
   detectCategory,
   parseListingPage,
   parseDetailPage,
+  fetchAllSpitalThusisJobs,
 } from '../scripts/lib/spital-thusis-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -267,6 +271,43 @@ describe('parseListingPage', () => {
   });
 });
 
+// ─── parseDetailPage: live Rukzuk layout (source-detail audit 2026-09-29) ───────
+// The heading regexes cut "Deine Aufgaben" at "…Betreuung unserer Patient:innen"
+// (a case-insensitive `Unser…:` lookahead inside a word), leaving the 46-char
+// thin row "Aufgaben:\n• ganzheitliche Pflege und Betreuung", and had no
+// pattern for "Dein Profil" / "Was dich bei uns erwartet".
+describe('parseDetailPage — Rukzuk job layout', () => {
+  const html = readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'spital-thusis-detail-rukzuk.html'),
+    'utf8',
+  );
+  const result = parseDetailPage(html);
+
+  it('keeps every section of the posting with its bullets', () => {
+    expect(result.description).toContain('Für unsere interdisziplinäre Pflegeabteilung im Spital Thusis suchen wir DICH');
+    expect(result.description).toMatch(/^• ganzheitliche Pflege und Betreuung unserer Patient:innen und deren Angehörigen$/m);
+    expect(result.description).toMatch(/^• Mitverantwortung für die Ausbildung von Fachpersonen Gesundheit EFZ sowie Studierenden HF$/m);
+    expect(result.description).toContain('Dein Profil:');
+    expect(result.description).toContain('Was dich bei uns erwartet:');
+    expect(result.description.split('\n').filter((line) => line.startsWith('• '))).toHaveLength(14);
+  });
+
+  it('stops at the application-tool link: no navigation or site footer', () => {
+    expect(result.description).not.toContain('Veranstaltungen');
+    expect(result.description).not.toContain('Link zum Bewerbungstool');
+    expect(result.description).not.toContain('Kontaktübersicht');
+    expect(result.description).not.toContain('administration@spitalthusis.ch');
+  });
+
+  it('reads requirements only from the profile section', () => {
+    expect(result.requirements).toEqual([
+      'abgeschlossene Ausbildung als Dipl. Pflegefachperson HF (oder gleichwertige Anerkennung)',
+      'hohes Qualitätsbewusstsein und Interesse an der Weiterentwicklung der Pflege',
+      'Freude an interdisziplinärer Zusammenarbeit und an einem konstruktiven, zielorientierten Arbeitsstil',
+    ]);
+  });
+});
+
 // ─── parseDetailPage ────────────────────────────────────────────────────────────
 
 describe('parseDetailPage', () => {
@@ -443,4 +484,38 @@ describe('job shape', () => {
     expect(validJob.streetAddress).toBe('Alte Strasse 31');
     expect(validJob.addressCountry).toBe('CH');
   });
+});
+
+// Only the posting's own text is published (issue 5253): a detail page without
+// a body used to be replaced by a stub ("{title} — Spital Thusis (Gesundheit
+// Mittelbünden). Arbeitsort: Thusis (GR). Pensum: …"). Shapes of the Rukzuk
+// pages of spitalthusis.ch.
+describe('fetchAllSpitalThusisJobs — listing without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    delete process.env.JOBS_CRAWLER_DELAY_MS;
+  });
+
+  it('publishes the listing with a body and skips the one without, never inventing text', async () => {
+    process.env.JOBS_CRAWLER_DELAY_MS = '1';
+    const listing = '<div><h2 class="teaserHeadline"><a href="/karriere-jobs/offene-stellen/physiotherapeut-in/">Physiotherapeut/in 80 - 100%</a></h2>'
+      + '<h2 class="teaserHeadline"><a href="/karriere-jobs/offene-stellen/koch-in/">Koch/Köchin 100%</a></h2></div>';
+    const detail = '<html><body><h2>Physiotherapeut/in 80 - 100%</h2><p>Wir suchen per sofort oder nach Vereinbarung eine/n Physiotherapeut/in.</p>'
+      + '<h4>Dein Aufgabengebiet:</h4><ul><li>Therapeutische Behandlung und Beratung ambulanter und stationärer Patientinnen und Patienten</li>'
+      + '<li>Selbständige Therapieplanung, Befundaufnahme und Dokumentation</li><li>Betreuung der Patientinnen und Patienten in der medizinischen Trainingstherapie</li>'
+      + '<li>Enge Zusammenarbeit mit Ärzteschaft und Pflege</li></ul><h4>Dein Anforderungsprofil:</h4><ul><li>Abgeschlossenes FH-Diplom in Physiotherapie</li>'
+      + '<li>Berufserfahrung in der Rehabilitation von Vorteil</li><li>Selbständige, flexible und teamorientierte Arbeitsweise</li></ul>'
+      + '<h4>Wir bieten:</h4><ul><li>Moderne Infrastruktur</li><li>42-Stunden-Woche mit mindestens 25 Ferientagen</li></ul></body></html>';
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('physiotherapeut-in')) return new Response(detail, { status: 200 });
+      if (u.includes('koch-in')) return new Response('<html><body><h2>Koch/Köchin 100%</h2></body></html>', { status: 200 });
+      return new Response(listing, { status: 200 });
+    }));
+
+    const jobs = await fetchAllSpitalThusisJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Physiotherapeut/in 80 - 100%']);
+    expect(jobs[0].description).toContain('Therapeutische Behandlung');
+    for (const job of jobs) expect(job.description).not.toMatch(/— Spital Thusis \(Gesundheit Mittelbünden\)/);
+  }, 20_000);
 });

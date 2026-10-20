@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * pr-body-check-gate.mjs — shared deterministic validator for PR bodies.
  * The PreToolUse hook uses it locally; CI workflows invoke its `--body-file`
@@ -23,7 +25,7 @@
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 import { hookStdinTimeoutMs, readHookStdin } from './lib/hook-stdin.mjs';
 import {
@@ -516,7 +518,7 @@ async function main() {
 
 // Only run when executed directly (e.g. `node pr-body-check-gate.mjs` as a
 // hook) — not when imported (e.g. by tests importing `extractPrBody`).
-const isMain = process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   const firstArg = process.argv[2];
   if (firstArg === '--help' || firstArg === '-h') {

@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * pr-collision-precheck.mjs — PreToolUse hook: before `gh pr create`, compare
  * the paths of the branch being proposed with the files of the OPEN pull
@@ -18,8 +20,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   resolveGatedHeadRef,
   resolveGitWorktreeRoot,
@@ -191,7 +192,7 @@ function main() {
   }));
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
   process.exitCode = 0;
 }

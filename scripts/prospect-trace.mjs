@@ -23,15 +23,22 @@
  *   node scripts/prospect-trace.mjs --source=osm --limit=150
  *   node scripts/prospect-trace.mjs --limit=20 --dry-run
  */
-import { loadCandidates, saveCandidates, setStatus, byStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
+import {
+  loadCandidates,
+  saveCandidates,
+  setStatus,
+  byStatus,
+  isTraceRetryDue,
+  scheduleTraceRetry,
+  statusCounts,
+} from './lib/prospector/candidate-store.mjs';
 import { loadRegistry, saveRegistry, observePlatform } from './lib/prospector/platform-registry.mjs';
-import { resolveDomain } from './lib/prospector/domain-resolve.mjs';
-import { traceCareers, traceFromCareersUrl } from './lib/prospector/careers-trail.mjs';
 import { registrableDomain } from './lib/prospector/registrable.mjs';
 import { mapPool } from './lib/prospector/polite-fetch.mjs';
 import { CONCURRENCY } from './lib/prospector/config.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 import { prioritizeTraceCandidates } from './lib/prospector/trace-priority.mjs';
+import { attributableTraceHosts, traceCandidate } from './lib/prospector/trace-candidate.mjs';
 
 const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
@@ -49,58 +56,53 @@ const store = loadCandidates();
 const registry = loadRegistry();
 
 const queue = onlyKey
+  // Manual --key intentionally bypasses automatic retry cooldown/evidence suppression.
   ? [store.candidates[onlyKey]].filter(Boolean)
   : prioritizeTraceCandidates(
-    // Live demand comes first: the previous domain-first ordering put the
-    // 24k-domain OSM backlog ahead of 13k SECO employers with active ads. That
-    // maximised cheap traces, but delayed the companies most likely to publish
-    // a vacancy now. The helper keeps domain-known candidates cheap within
-    // each demand bucket and serves ties oldest-first.
-    byStatus(store, 'new').filter((c) => !onlySource || (c.sources || []).includes(onlySource)),
+    // Prefer direct careers URLs, known employer domains and recent SECO
+    // observations; reserve a weighted share for weaker fallback candidates.
+    byStatus(store, 'new')
+      .filter((c) => isTraceRetryDue(c))
+      .filter((c) => !onlySource || (c.sources || []).includes(onlySource)),
     limit,
   );
 
 console.log('═══ Prospector · TRACE ═══');
 console.log(`in coda: ${queue.length} candidati (di ${byStatus(store, 'new').length} nuovi)\n`);
 
-const results = await mapPool(queue, CONCURRENCY, async (c) => {
-  let domain = c.domain ? registrableDomain(c.domain) : null;
-  let resolution = null;
-  if (!domain) {
-    resolution = await resolveDomain({ name: c.name, city: c.city, zip: c.zip });
-    domain = resolution.domain;
-  }
-  if (!domain) return { c, verdict: 'dead', reason: 'dominio non risolto', resolution };
-
-  // A source that already handed us the careers URL (the web index does) skips
-  // the homepage walk entirely — fewer requests and a trail that cannot be lost
-  // to a script-built navigation menu.
-  const trail = c.careersUrl
-    ? await traceFromCareersUrl(c.careersUrl, domain)
-    : await traceCareers(domain);
-  if (!trail.reachable) return { c, domain, verdict: 'dead', reason: 'sito irraggiungibile', resolution };
-  if (!trail.careersUrls.length && !trail.externalHosts.length) {
-    return { c, domain, verdict: 'dead', reason: 'nessuna pagina carriere', resolution, trail };
-  }
-  return { c, domain, verdict: 'traced', trail, resolution };
-});
+const results = await mapPool(queue, CONCURRENCY, (c) => traceCandidate(c));
 
 let traced = 0;
 let dead = 0;
+let deferred = 0;
 let platformHits = 0;
 const promoted = [];
 
 for (const r of results) {
   if (!r) continue;
   const { c } = r;
+  if (r.verdict === 'retry') {
+    deferred++;
+    setStatus(store, c.key, 'new', scheduleTraceRetry(c, r.reason));
+    console.log(`  ↻ ${String(c.name).slice(0, 32).padEnd(34)} ${r.reason} — riprovo dopo ${store.candidates[c.key].traceRetryAt}`);
+    continue;
+  }
   if (r.verdict === 'dead') {
     dead++;
-    setStatus(store, c.key, 'dead', { reason: r.reason, domain: r.domain || undefined });
+    setStatus(store, c.key, 'dead', {
+      reason: r.reason,
+      traceRetryable: false,
+      domain: r.domain || undefined,
+      traceRetryAt: null,
+    });
     continue;
   }
   traced++;
   const hosts = r.trail.externalHosts;
-  for (const h of hosts) {
+  // Without an independently known employer domain the outlink is observable,
+  // but cannot safely become an employer-to-platform registry sighting.
+  const attributableHosts = attributableTraceHosts(r);
+  for (const h of attributableHosts) {
     platformHits++;
     const { platform, promoted: justPromoted } = observePlatform(registry, {
       tenantHost: h.host,
@@ -109,7 +111,7 @@ for (const r of results) {
     });
     if (justPromoted && platform) promoted.push(platform.domain);
   }
-  const best = hosts.slice().sort((a, b) => b.score - a.score)[0];
+  const best = attributableHosts.slice().sort((a, b) => b.score - a.score)[0];
   setStatus(store, c.key, 'traced', {
     domain: r.domain,
     domainEvidence: r.resolution?.evidence,
@@ -119,14 +121,19 @@ for (const r of results) {
     tenantHost: best?.host || null,
     vacancyCount: best?.vacancyCount ?? 0,
     vacancySignals: best?.signals,
-    selfHosted: r.trail.selfHosted,
+    selfHosted: r.selfHosted,
     trailVia: r.trail.via,
+    reason: null,
+    traceRetryable: null,
+    traceRetryAt: null,
   });
-  const tag = best ? `${best.host} (score ${best.score.toFixed(1)}, ${best.vacancyCount} annunci)` : 'sito proprio';
-  console.log(`  ✓ ${String(c.name).slice(0, 32).padEnd(34)} ${String(r.domain).padEnd(26)} → ${tag}`);
+  const tag = best
+    ? `${best.host} (score ${best.score.toFixed(1)}, ${best.vacancyCount} annunci)`
+    : (!r.domain && hosts.length ? 'carriere raggiunte; datore non verificato' : 'sito proprio');
+  console.log(`  ✓ ${String(c.name).slice(0, 32).padEnd(34)} ${String(r.domain || 'dominio non verificato').padEnd(26)} → ${tag}`);
 }
 
-console.log(`\ntracciati: ${traced}   esauriti: ${dead}   sightings piattaforma: ${platformHits}`);
+console.log(`\ntracciati: ${traced}   rimandati: ${deferred}   esauriti: ${dead}   sightings piattaforma: ${platformHits}`);
 if (promoted.length) console.log(`PIATTAFORME PROMOSSE a confirmed: ${[...new Set(promoted)].join(', ')}`);
 const conf = Object.values(registry.platforms).filter((p) => p.status !== 'candidate' && p.status !== 'rejected');
 console.log(`registro: ${Object.keys(registry.platforms).length} piattaforme, ${conf.length} azionabili`);

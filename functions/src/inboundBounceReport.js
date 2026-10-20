@@ -43,7 +43,8 @@
  * SOFT_ESCALATION_THRESHOLD times before it can suppress anyone.
  */
 
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import {
   classifyBounceSeverity,
@@ -112,7 +113,6 @@ async function looksSolicited(subscriberRef, subscriberData, campaignId, nowMs) 
 async function applyToCollection(db, collection, {
   email, severity, reason, status, diagnosticCode, action, campaignId, originalMessageId, reportingMta, nowMs,
 }) {
-  const FieldValue = admin.firestore.FieldValue;
   const ref = db.collection(collection).doc(email);
   const snap = await ref.get();
   // Never create a subscriber from inbound mail (anti-forgery limit 2).
@@ -180,6 +180,9 @@ export async function handleInboundBounceReport({
   if (!email) return { status: 400, body: 'invalid recipient' };
 
   const db = injectedDb || getAdminDb();
+  if (await isDeletedEmailAccount(db, email)) {
+    return { status: 200, body: 'ignored: account_deleted', result: { applied: [], reason: 'account_deleted' } };
+  }
   const severity = classifyBounceSeverity({
     provider: 'dsn',
     rawEvent: action,

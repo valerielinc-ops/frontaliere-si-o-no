@@ -16,6 +16,7 @@
  * if the PDF is missing/unreachable/image-only.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { extractPdfJobContentFromUrl, buildPdfBackedDescription } from './pdf-job-content.mjs';
@@ -80,9 +81,27 @@ export function parseCsvmListing(html) {
     const title = anchorText.length >= 6
       ? anchorText
       : slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-    out.push({ url: `${BASE_URL}${path}`, slug, title, pdfUrl });
+    // This BlogPosting is the vacancy itself; never borrow a neighbouring post date.
+    const published = block.match(/<[^>]+itemprop="datePublished"[^>]*content="([^"]+)"/i)?.[1] || '';
+    const day = /^(\d{2})\.(\d{2})\.(\d{4})$/.exec(published);
+    const publication = sourcePostingDateFields(day ? `${day[3]}-${day[2]}-${day[1]}` : published);
+    out.push({ url: `${BASE_URL}${path}`, slug, title, pdfUrl, ...publication });
   }
   return out;
+}
+
+/**
+ * Source locale of a posting. A short title alone is not enough evidence:
+ * `Dipl. Pflegefachperson HF` reads as English to the detector, so a German
+ * posting was stored with `sourceLang: 'en'` (the German text in the EN slot,
+ * and translations derived from the wrong language). The PDF is the posting
+ * itself, so detect on title + PDF text when the PDF yielded text. Without it
+ * the description is our own fallback line (in Italian), so the title stays
+ * the only evidence — with the German default of this /de/ listing.
+ */
+export function csvmSourceLang(title = '', pdfText = '') {
+  const evidence = pdfText ? `${title}\n${pdfText}` : title;
+  return detectLang(evidence || title, 'de');
 }
 
 export async function fetchAllCsvmMustairJobs() {
@@ -93,7 +112,6 @@ export async function fetchAllCsvmMustairJobs() {
   console.log(`  ✓ ${items.length} job links extracted`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of items) {
     const title = it.title;
@@ -119,9 +137,7 @@ export async function fetchAllCsvmMustairJobs() {
       fallbackText: `Dettagli completi sul PDF allegato alla pagina ${it.url}`,
       footerLines: [it.pdfUrl ? `Stellenbeschrieb (PDF): ${it.pdfUrl}` : ''].filter(Boolean),
     });
-    // Detect the source locale from the stable German listing title, NOT the
-    // now-PDF-backed description, so the locale routing stays put.
-    const sourceLang = detectLang(title || description, 'de');
+    const sourceLang = csvmSourceLang(title, pdfText);
     const jobSlug = slugify(`${title} ${CSVM_MUSTAIR_KEY} mustair`);
     const urlHash = createHash('sha1').update(it.url).digest('hex').slice(0, 12);
     jobs.push({
@@ -159,7 +175,7 @@ export async function fetchAllCsvmMustairJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, it),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

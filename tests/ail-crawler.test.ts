@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { normalizePdfJobText, buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
+import { buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
+import {
+  buildAilDescriptionFields,
+  classifyAilListingHtml,
+  dropAilFabricatedText,
+  parseListingPage,
+} from '../scripts/update-ail-jobs.mjs';
 
 // ──────────────────────────────────────────────────────────────
 // Inline the title extraction + overlap functions (mirrors crawler)
@@ -101,46 +107,54 @@ describe('titleOverlap — AIL title validation', () => {
 // Description building tests
 // ──────────────────────────────────────────────────────────────
 
-describe('buildPdfBackedDescription — AIL format', () => {
-  it('builds rich description from Project Coordinator PDF', () => {
-    const normalized = normalizePdfJobText(FIXTURE_PROJECT_COORDINATOR_PDF);
-    const desc = buildPdfBackedDescription({
-      introLines: [
-        '## Project Coordinator',
-        'Aziende Industriali di Lugano (AIL) SA — posizione aperta a Lugano/Muzzano (TI).',
-      ],
-      pdfText: normalized,
-      footerLines: [
-        '---',
-        '**Settore:** Energia / Servizi pubblici',
-        '**Sede:** Via Industria 2, 6933 Muzzano (Lugano), TI, Svizzera',
-      ],
-    });
+describe('buildAilDescriptionFields — the PDF call, nothing of the runner', () => {
+  it('publishes the Project Coordinator call alone, keyed by its language', () => {
+    const fields = buildAilDescriptionFields(FIXTURE_PROJECT_COORDINATOR_PDF);
 
-    expect(desc.length).toBeGreaterThanOrEqual(500);
-    expect(desc).toContain('## Project Coordinator');
-    expect(desc).toContain('progettazione');
-    expect(desc).toContain('Chi cerchiamo');
-    expect(desc).toContain('**Settore:**');
+    expect(fields.description.length).toBeGreaterThanOrEqual(500);
+    expect(fields.description).toContain('progettazione');
+    expect(fields.description).toContain('Chi cerchiamo');
+    expect(fields.sourceLang).toBe('it');
+    expect(fields.descriptionByLocale).toEqual({ it: fields.description });
+    // The runner's former header/footer lines are gone.
+    expect(fields.description).not.toMatch(/posizione aperta a Lugano\/Muzzano|\*\*Settore:\*\*|\*\*Sede:\*\*|## Project Coordinator/);
   });
 
-  it('builds rich description from Audit PDF', () => {
-    const normalized = normalizePdfJobText(FIXTURE_AUDIT_PDF);
-    const desc = buildPdfBackedDescription({
-      introLines: [
-        '## Responsabile della Revisione interna (Audit)',
-        'Aziende Industriali di Lugano (AIL) SA — posizione aperta a Lugano/Muzzano (TI).',
-      ],
-      pdfText: normalized,
-      footerLines: ['**Sede:** Muzzano'],
-    });
+  it('publishes the Audit call alone', () => {
+    const fields = buildAilDescriptionFields(FIXTURE_AUDIT_PDF);
 
-    expect(desc.length).toBeGreaterThanOrEqual(500);
-    expect(desc).toContain('Revisione interna');
-    expect(desc).toContain('audit');
-    expect(desc).toContain('governance');
+    expect(fields.description.length).toBeGreaterThanOrEqual(500);
+    expect(fields.description).toContain('Revisione interna');
+    expect(fields.description).toContain('governance');
   });
 
+  it('gives a call without readable text no description', () => {
+    expect(buildAilDescriptionFields('').description).toBe('');
+  });
+});
+
+describe('dropAilFabricatedText — stored wrapper fossils', () => {
+  it('drops the wrapped description, source slot and translations', () => {
+    const wrapped = '## Supporto organizzativo\n\nAziende Industriali di Lugano (AIL) SA — posizione aperta a Lugano/Muzzano (TI).\n\nChi siamo: Siamo una Società dinamica nel settore dell’energia.';
+    const job: any = {
+      sourceLang: 'it',
+      description: wrapped,
+      descriptionByLocale: { it: wrapped, en: '## Organisational support\n\nAziende Industriali di Lugano (AIL) SA — open position in Lugano/Muzzano (TI).' },
+    };
+    expect(dropAilFabricatedText(job)).toBe(true);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('leaves a clean job alone', () => {
+    const job: any = { sourceLang: 'it', description: 'Chi siamo: Siamo una Società dinamica.', descriptionByLocale: { it: 'Chi siamo: Siamo una Società dinamica.', en: 'About us.' } };
+    expect(dropAilFabricatedText(job)).toBe(false);
+    expect(job.descriptionByLocale.en).toBe('About us.');
+  });
+});
+
+describe('buildPdfBackedDescription — generic fallback', () => {
   it('uses fallback when no PDF text available', () => {
     const desc = buildPdfBackedDescription({
       introLines: ['## Test Position'],
@@ -150,5 +164,126 @@ describe('buildPdfBackedDescription — AIL format', () => {
     });
 
     expect(desc).toContain('Consultare il bando');
+  });
+});
+
+describe('AIL crawler listing classification', () => {
+  it('accepts the official no-openings marker as a complete empty snapshot', () => {
+    const result = classifyAilListingHtml(
+      '<div class="inner-title">Al momento non ci sono posizioni aperte</div>',
+    );
+
+    expect(result.listings).toEqual([]);
+    expect(result.fetchOutcome).toBe('ok');
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
+  it('accepts the official no-openings marker when AIL appends its application CTA', () => {
+    const result = classifyAilListingHtml(
+      '<div class="inner-title mt-4">Al momento non ci sono posizioni aperte, inoltraci qui il tuo dossier di candidatura spontanea.</div>',
+    );
+
+    expect(result.listings).toEqual([]);
+    expect(result.fetchOutcome).toBe('ok');
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
+  it('recognises the live nested empty state with its linked application CTA', () => {
+    const html = [
+      '<div class="col-12 col-lg-10 offset-lg-1">',
+      '<div class="inner-title mt-4">',
+      '<p>Al momento non ci sono posizioni aperte, ',
+      '<a href="/AIL/risorse-umane/candidatura-spontanea.html">inoltraci qui</a> ',
+      'il tuo dossier di candidatura spontanea.</p>',
+      '</div>',
+      '</div>',
+    ].join('');
+    const result = classifyAilListingHtml(html);
+
+    expect(result.listings).toEqual([]);
+    expect(result.fetchOutcome).toBe('ok');
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
+  it('does not treat an unexpected continuation as an authoritative empty marker', () => {
+    const result = classifyAilListingHtml(
+      '<div class="inner-title">Al momento non ci sono posizioni aperte, le candidature sono invece aperte.</div>',
+    );
+
+    expect(result.fetchOutcome).toBe('selector_miss');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('keeps an unrecognised zero fail-closed', () => {
+    const result = classifyAilListingHtml(
+      '<div class="inner-title">Le posizioni saranno aggiornate a breve</div>',
+    );
+
+    expect(result.listings).toEqual([]);
+    expect(result.fetchOutcome).toBe('selector_miss');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('requires the official empty marker context, not just matching words', () => {
+    const result = classifyAilListingHtml(
+      '<script>const message = "Al momento non ci sono posizioni aperte";</script>',
+    );
+
+    expect(result.fetchOutcome).toBe('selector_miss');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('ignores script and style contents inside the empty-state container', () => {
+    for (const tag of ['script', 'style']) {
+      const result = classifyAilListingHtml(
+        `<div class="layout"><div class="inner-title"><${tag}>Al momento non ci sono posizioni aperte</${tag}></div></div>`,
+      );
+
+      expect(result.fetchOutcome).toBe('selector_miss');
+      expect(result.authoritativeEmptySnapshot).toBe(false);
+    }
+  });
+
+  it('requires an exact class attribute and class token', () => {
+    for (const html of [
+      '<div data-class="inner-title">Al momento non ci sono posizioni aperte</div>',
+      '<div class="not-inner-title">Al momento non ci sono posizioni aperte</div>',
+    ]) {
+      const result = classifyAilListingHtml(html);
+      expect(result.fetchOutcome).toBe('selector_miss');
+      expect(result.authoritativeEmptySnapshot).toBe(false);
+    }
+  });
+
+  it('recognises a job article as a successful non-empty response', () => {
+    const html = [
+      '<article class="job-position">',
+      '<h4>Operatore rete</h4>',
+      '<a href="/downloadJobPosition?uuid=abc123-def456">Bando PDF</a>',
+      '</article>',
+    ].join('');
+
+    expect(parseListingPage(html)).toHaveLength(1);
+    expect(classifyAilListingHtml(html)).toMatchObject({
+      fetchOutcome: 'ok',
+      authoritativeEmptySnapshot: false,
+    });
+  });
+
+  it('keeps direct AIL PDFs and the separate application id link', () => {
+    const html = [
+      '<article class="job-position">',
+      '<h4>Impiegata/o amministrativa/o</h4>',
+      '<p><a href="https://www.ail.ch/dam/jcr:abc/Amministrativo%2016.10.pdf">Bando di concorso</a></p>',
+      '<a href="/AIL/risorse-umane/concorsi.html?applicationId=972d6f71-cb83-44f6-817b-a9b9617e00c2">Vai alla candidatura</a>',
+      '</article>',
+    ].join('');
+
+    expect(parseListingPage(html)).toMatchObject([{
+      title: 'Impiegata/o amministrativa/o',
+      pdfUrl: 'https://www.ail.ch/dam/jcr:abc/Amministrativo%2016.10.pdf',
+      applyUrl: 'https://www.ail.ch/AIL/risorse-umane/concorsi.html?applicationId=972d6f71-cb83-44f6-817b-a9b9617e00c2',
+      uuid: '972d6f71-cb83-44f6-817b-a9b9617e00c2',
+    }]);
   });
 });

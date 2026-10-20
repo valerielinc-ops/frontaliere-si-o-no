@@ -35,8 +35,11 @@
  * two variants out of three leaves ALL of them non-reciprocal: the group still
  * names the missing one, the sanitizer still strips the lot, and the only
  * change is two more orphan `<loc>` entries. This module therefore backfills a
- * group **atomically** — every non-IT locale of a source passes the emit gate,
- * or none of that source's variants are emitted at all.
+ * group **atomically** when a page is missing — every non-IT locale of a
+ * source passes the emit gate, or none of that source's variants are emitted.
+ * A deliberately `noindex` alternate is different: it must stay out of every
+ * sitemap, while indexable siblings keep their own `<loc>` entries. The final
+ * reciprocity sanitizer removes only the unsupported hreflang annotations.
  *
  * Purity
  * ------
@@ -91,6 +94,7 @@ export type LocaleVariantSkipReason =
   | 'missing-trailing-slash'
   | 'already-listed'
   | 'not-emitted'
+  | 'not-indexable'
   | 'conflicting-group';
 
 export interface CollectLocaleVariantsResult {
@@ -159,10 +163,15 @@ function signatureOf(paths: HreflangPaths): string {
  *   (`BUILD_LOCALE`) the collector drops the other locales' writes, so the
  *   files are legitimately absent from this shard's `dist/` while the pages are
  *   very much live in production (served from that locale's own shard repo).
+ * @param isIndexable cross-shard ground truth for whether the emitted page may
+ *   be advertised in a sitemap. This must come from render-time bookkeeping,
+ *   not this shard's filesystem: a quarantined DE page is absent from an EN
+ *   shard's `dist/` but must still be excluded from the shared backfill.
  */
 export function collectLocaleVariantEntries(
   sources: readonly AnnotatedSitemapUrl[],
   isEmitted: (pathNoSlash: string) => boolean,
+  isIndexable: (pathNoSlash: string) => boolean = () => true,
 ): CollectLocaleVariantsResult {
   const listedLocs = new Set<string>(sources.map((s) => s.loc));
   const skipped = new Map<LocaleVariantSkipReason, number>();
@@ -172,6 +181,16 @@ export function collectLocaleVariantEntries(
   /** url → entry, plus the signature we first accepted for it. */
   const byUrl = new Map<string, LocaleVariantEntry>();
   const conflicted = new Set<string>();
+  // A conflicting alternate invalidates the complete hreflang clique for both
+  // source groups. Keeping the other members would only create orphan
+  // backfill entries that the final reciprocity sanitizer must remove anyway.
+  const conflictedSignatures = new Set<string>();
+  const markSignatureConflicted = (signature: string) => {
+    conflictedSignatures.add(signature);
+    for (const [candidateUrl, candidate] of byUrl) {
+      if (signatureOf(candidate.paths) === signature) byUrl.delete(candidateUrl);
+    }
+  };
 
   for (const source of sources) {
     if (source.annotations.length === 0) continue;
@@ -229,17 +248,38 @@ export function collectLocaleVariantEntries(
         cliqueComplete = false;
         break;
       }
+      if (!isIndexable(toPathNoSlash(href))) {
+        // Keep the page and its protective noindex, but never advertise it as
+        // a <loc>. Unlike a missing page this does not suppress indexable
+        // siblings: the final reciprocity sanitizer can remove the unsupported
+        // hreflang annotations without removing those siblings' own <loc>s.
+        note('not-indexable');
+        continue;
+      }
       candidates.push(locale);
     }
-    // Atomic: a partially-listed group stays non-reciprocal for every one of
-    // its members, so a partial backfill would add orphan <loc> entries and
-    // recover no annotations at all. See the clique rule in the file header.
+    // Atomic for missing pages: a partially-emitted group stays
+    // non-reciprocal for every member, so it would recover no annotations.
+    // Deliberately noindex candidates were skipped above without flipping
+    // cliqueComplete; their indexable siblings still deserve their own <loc>.
     if (!cliqueComplete) continue;
 
     const signature = signatureOf(completePaths);
+    if (conflictedSignatures.has(signature)) {
+      note('conflicting-group');
+      continue;
+    }
     for (const locale of candidates) {
+      if (conflictedSignatures.has(signature)) break;
       const url = completePaths[locale];
-      if (conflicted.has(url)) continue;
+      if (conflicted.has(url)) {
+        // A third distinct clique can arrive after this URL was already
+        // marked conflicted. It must be recorded and purged as a whole too;
+        // otherwise its other variants would survive as orphan entries.
+        markSignatureConflicted(signature);
+        note('conflicting-group');
+        break;
+      }
       const existing = byUrl.get(url);
       if (existing) {
         // Two different IT pages claiming the same locale URL with different
@@ -249,7 +289,10 @@ export function collectLocaleVariantEntries(
         if (signatureOf(existing.paths) !== signature) {
           byUrl.delete(url);
           conflicted.add(url);
+          markSignatureConflicted(signatureOf(existing.paths));
+          markSignatureConflicted(signature);
           note('conflicting-group');
+          break;
         }
         continue;
       }
@@ -260,6 +303,13 @@ export function collectLocaleVariantEntries(
         priority: source.priority,
       });
     }
+  }
+
+  // A signature can become conflicting after some of its candidates were
+  // accepted. Enforce the atomic rule once more so no partial clique survives
+  // merely because its collision was discovered later in source order.
+  for (const [url, entry] of byUrl) {
+    if (conflictedSignatures.has(signatureOf(entry.paths))) byUrl.delete(url);
   }
 
   // Deterministic output: identical input must produce a byte-identical file

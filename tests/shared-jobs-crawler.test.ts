@@ -1,7 +1,196 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { looksLikeShortLabelValue, extractCompanyFromText, extractLocationFromText, __testables } from '../scripts/lib/shared-jobs-crawler.mjs';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import {
+  looksLikeShortLabelValue,
+  extractCompanyFromText,
+  extractLocationFromText,
+  ensureLocaleFields,
+  __testables,
+} from '../scripts/lib/shared-jobs-crawler.mjs';
+import { isLikelyJobDetailUrl } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const { buildKnownJobUrlsSet } = __testables;
+
+describe('central job-board detail URLs', () => {
+  const listingUrl = 'https://www.swisstiming.com/company/job-offers/';
+  const detailUrl = `${listingUrl}?company=81&job=276771`;
+
+  it('distinguishes a query-param detail page from its listing path', () => {
+    expect(isLikelyJobDetailUrl(listingUrl)).toBe(false);
+    expect(isLikelyJobDetailUrl(detailUrl)).toBe(true);
+    expect(isLikelyJobDetailUrl(`${listingUrl}?company=138&job=276771`)).toBe(false);
+  });
+
+  it('gives the slow Swiss Timing origin an adapter-scoped timeout', () => {
+    const adapter = __testables.loadCompanyAdapters().get('swiss-timing-swatch-group');
+
+    expect(adapter?.requestTimeoutMs).toBe(30_000);
+  });
+
+  it('does not treat a generic job query as a detail page', () => {
+    expect(isLikelyJobDetailUrl('https://example.test/job-offers/?job=269611')).toBe(false);
+    expect(isLikelyJobDetailUrl('https://www.swisstiming.com/company/job-offers/?job=269611')).toBe(false);
+  });
+
+  it('recognizes Galenica Solique hash routes only when they carry a numeric vacancy id', () => {
+    expect(isLikelyJobDetailUrl('https://jobs.galenica.com/it/jobs/#job.id=3136151.4065791')).toBe(true);
+    expect(isLikelyJobDetailUrl('https://jobs.galenica.com/de/jobs/#job.id=12345')).toBe(true);
+    expect(isLikelyJobDetailUrl('https://jobs.galenica.com/it/jobs/')).toBe(false);
+    expect(isLikelyJobDetailUrl('https://jobs.galenica.com/it/jobs/#job.id=')).toBe(false);
+    expect(isLikelyJobDetailUrl('https://jobs.galenica.com/it/jobs/#job.id=search')).toBe(false);
+    expect(isLikelyJobDetailUrl('https://jobs.example.test/it/jobs/#job.id=12345')).toBe(false);
+  });
+
+  it('allows the shared JSON-LD parser to consume the detail page', () => {
+    const result = __testables.toJobFromJsonLd(
+      {
+        '@type': 'JobPosting',
+        title: 'Data Scientist (all genders) - On-Site Presence',
+        description: 'Build reliable analytics solutions with an interdisciplinary technology team at Swiss Timing.',
+        hiringOrganization: { name: 'Swiss Timing LTD' },
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            addressCountry: 'Switzerland',
+            addressLocality: 'Corgémont',
+            addressRegion: 'BE',
+          },
+        },
+      },
+      'Swiss Timing (Swatch Group)',
+      detailUrl,
+    );
+
+    expect(result.reason).toBeNull();
+    expect(result.job).toMatchObject({
+      url: detailUrl,
+      company: 'Swiss Timing LTD',
+      canton: 'BE',
+    });
+  });
+
+  it('uses a specific job H1 after a generic Swiss Timing Careers heading', () => {
+    const html = [
+      '<html><head><title>Careers - Swiss Timing</title>',
+      '<meta property="og:title" content="Careers - Swiss Timing">',
+      '<meta name="description" content="Join our engineering team to develop timing technology for international sports events.">',
+      '</head><body><h1>Careers</h1>',
+      '<h1>Data Scientist (all genders) - On-Site Presence</h1>',
+      '<p>Job description: Build reliable analytics solutions with our technology team.</p>',
+      '<p>Location: Rue de l&#39;Envers 1, 2606 Corgémont, Switzerland.</p>',
+      '</body></html>',
+    ].join('');
+    const result = __testables.toJobFromHtmlFallback(
+      html,
+      detailUrl,
+      'Swiss Timing (Swatch Group)',
+      'Corgémont',
+    );
+
+    expect(result.reason).toBeNull();
+    expect(result.job).toMatchObject({
+      title: 'Data Scientist (all genders) - On-Site Presence',
+      url: detailUrl,
+    });
+  });
+
+  it('extracts the structured Swiss Timing detail blocks instead of the thin meta description', () => {
+    const html = [
+      '<html><head><title>Careers - Swiss Timing</title>',
+      '<meta name="description" content="Short careers summary."></head><body>',
+      '<h1>Careers</h1><h1 class="title">Electronics Engineer (all genders) - On-Site Presence</h1>',
+      '<div class="description"><h2>Job description</h2>',
+      '<div>first text with more than twenty characters</div>',
+      '<div>second text with more than twenty characters</div>',
+      '<p>Develop innovative electronic timing technologies and wearable sensors used at international sports events.</p>',
+      '<ul><li>Design reliable timing devices.</li><li>Support validation and industrialization.</li></ul></div>',
+      '<div class="profile"><h2>Profile</h2><ul><li>Solution-oriented engineer with strong collaboration skills.</li></ul></div>',
+      '<div class="requirements"><h2>Professional requirements</h2>',
+      '<ul><li>Degree in Electronic Engineering.</li><li>Five years of product-development experience.</li></ul></div>',
+      '<div class="language_requirements"><h2>Languages</h2><ul><li>Fluent English and French.</li></ul></div>',
+      '<div class="location"><h2>Location</h2><span class="info">Rue de l Envers 1, 2606 Corgémont, Switzerland (Bern)</span></div>',
+      '</body></html>',
+    ].join('');
+    const result = __testables.toJobFromHtmlFallback(
+      html,
+      detailUrl,
+      'Swiss Timing (Swatch Group)',
+      'Corgémont',
+    );
+
+    expect(result.reason).toBeNull();
+    expect(result.job?.description.length).toBeGreaterThan(220);
+    expect(result.job?.description).toContain('first text with more than twenty characters');
+    expect(result.job?.description).toContain('second text with more than twenty characters');
+    expect(result.job?.description).toContain('Professional requirements');
+    expect(result.job).toMatchObject({ canton: 'BE' });
+  });
+});
+
+describe('shared locale normalization', () => {
+  it('does not heuristically publish an unsupported Romansh source into supported slots', () => {
+    const romansh = 'Ils candidats vegnan a lavurar cun nossa equipa e porschan in servetsch precis.';
+    const out = ensureLocaleFields({
+      title: 'Fufragnadi',
+      description: romansh,
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      titleByLocale: { rm: 'Fufragnadi' },
+      descriptionByLocale: { rm: romansh },
+      slugByLocale: { rm: 'fufragnadi' },
+    });
+
+    expect(out.titleByLocale).toEqual({
+      rm: 'Fufragnadi',
+      it: 'Posizione',
+      en: 'Job opening',
+      de: 'Stellenangebot',
+      fr: "Offre d'emploi",
+    });
+    expect(out.descriptionByLocale).toEqual({ rm: romansh });
+    expect(out.needsRetranslation).toBe(true);
+  });
+
+  it('repairs a short unsupported-source slot before the completeness floor', () => {
+    const out = ensureLocaleFields({
+      title: 'Fufragnadi',
+      description: 'Ils candidats vegnan a lavurar cun nossa equipa e porschan in servetsch precis.',
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      titleByLocale: { rm: 'Fufragnadi', it: 'x' },
+      descriptionByLocale: {},
+      slugByLocale: {},
+    });
+
+    expect(out.titleByLocale.it).toBe('Posizione');
+    expect(['it', 'en', 'de', 'fr'].every((locale) => out.titleByLocale[locale].length >= 3)).toBe(true);
+    expect(out.needsRetranslation).toBe(true);
+  });
+
+  it('uses the reviewed Romansh role-title fallback for known SRG/RTR titles', () => {
+    const out = ensureLocaleFields({
+      title: 'Redactura / Redactur Surselva',
+      description: 'La redacziun coordinescha ils cussegls editorials e publitgescha '
+        + 'cuntegn per la Svizra rumantscha.',
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      titleByLocale: { rm: 'Redactura / Redactur Surselva' },
+      descriptionByLocale: { rm: 'La redacziun coordinescha ils cussegls editorials e publitgescha '
+        + 'cuntegn per la Svizra rumantscha.' },
+      slugByLocale: { rm: 'redactura-redactur-surselva' },
+    });
+
+    expect(out.titleByLocale).toMatchObject({
+      rm: 'Redactura / Redactur Surselva',
+      it: 'Redattrice / Redattore Surselva',
+      en: 'Editor Surselva',
+      de: 'Redaktorin / Redaktor Surselva',
+      fr: 'Rédactrice / Rédacteur Surselva',
+    });
+  });
+});
 
 describe('crawlWorkdayJobs — concrete Swiss location default (#9210)', () => {
   it('drops country-only records and keeps records with a concrete Swiss locality by default', async () => {
@@ -166,6 +355,76 @@ describe('extractLocationFromText — does not let stray label keywords in body 
       </body></html>
     `;
     expect(extractLocationFromText(html, '')).toBe('Mendrisio');
+  });
+});
+
+const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
+
+describe('extractLocationFromText — page chrome never becomes the location (audit-parser-quality, issue 5253)', () => {
+  // Pagine reali swatchgroup.com (2026-09-24). Il JSON-LD ha newline grezzi
+  // nella description, quindi il crawler condiviso lo scarta e ricade sul
+  // testo della pagina: lì la scansione `NPA …` sceglieva la riga più lunga,
+  // cioè l'orologio (`+0200 Français Rechercher …`) o il footer
+  // (`© 2026 The Swatch Group Ltd Remonter`), invece del blocco #jl.
+  it('reads the #jl workplace block instead of the header clock (Comadur, Le Locle)', () => {
+    const html = readFileSync(path.join(FIXTURES, 'swatchgroup-comadur-detail-page-chrome.html'), 'utf8');
+    expect(extractLocationFromText(html, '')).toBe('Le Locle');
+  });
+
+  it('publishes a BFS homonym with its canton code instead of the whole address (Rado, Lengnau BE)', () => {
+    const html = readFileSync(path.join(FIXTURES, 'swatchgroup-rado-detail-homonym.html'), 'utf8');
+    expect(extractLocationFromText(html, '')).toBe('Lengnau BE');
+  });
+
+  it('keeps an unambiguous #jl locality bare and ignores the footer copyright year (Nivarox shape)', () => {
+    const html = `
+      <html><body>
+        <h1><span class="field f-n-title">Apprentissage Logisticien / Logisticienne CFC</span></h1>
+        <div id="jl" class="mb-4"> <p class="blue-bold mb-0">Lieu de travail</p> Avenue du Collège 10<br /> 2400 Le Locle (Neuchatel)<br /> Suisse </div>
+        <div class="footer__address"> © 2026 The Swatch Group Ltd <span class="back-to-top__button--text">Remonter</span></div>
+      </body></html>
+    `;
+    expect(extractLocationFromText(html, '')).toBe('Le Locle');
+  });
+
+  it('drops a postal-looking year and takes the postal locality from the labelled workplace (jobs.admin.ch)', () => {
+    const html = `
+      <html><body>
+        <div class="item"><label>Eintrittsdatum:</label><span>01.08.2027</span></div>
+        <div class="item"><label>Anstellungsart:</label><span>befristet</span></div>
+        <div class="item"><label>Arbeitsort:</label><span>Militärflugplatz, 3857 Meiringen</span></div>
+        <p>Diesen Beitrag kannst du leisten</p>
+      </body></html>
+    `;
+    expect(extractLocationFromText(html, '')).toBe('3857 Meiringen');
+  });
+
+  it('ignores a clearing/VAT number and lets the labelled slot answer (Bank Cler)', () => {
+    const html = `
+      <html><body>
+        <span class="JobDetail__item-slot">Arbeitsort</span>
+        <span class="JobDetail__item-slot">St. Gallen</span>
+        <footer><p>Clearing-Nr. 8440</p><p>MWST CHE-116.267.704</p></footer>
+      </body></html>
+    `;
+    expect(extractLocationFromText(html, '')).toBe('St. Gallen');
+  });
+
+  it('does not read a copyright year followed by a prose-homonym commune as a location', () => {
+    // `Alle` (JU) è anche «alle»: la stessa esclusione del recupero dal testo libero.
+    const html = '<html><body><h1>Verkäufer/in</h1><footer>© 2026 Alle Rechte vorbehalten</footer></body></html>';
+    expect(extractLocationFromText(html, '')).toBe('');
+  });
+
+  it('trims the trailing header word after a real postal locality (ETA, Grenchen)', () => {
+    const html = `
+      <html><body>
+        <p>ETA SA Manufacture Horlogère Suisse</p>
+        <p>Schild-Rust-Strasse 17 - CH-2540 Grenchen</p><p>Phone: +41 32 655 71 11</p>
+        <h1>MASCHINENOPERATEUR/IN TDA</h1>
+      </body></html>
+    `;
+    expect(extractLocationFromText(html, '')).toBe('2540 Grenchen');
   });
 });
 
@@ -509,6 +768,66 @@ describe('toJobFromJsonLd — explicit adapter detail URLs', () => {
     });
     expect(result.filteredOutByReason.jsonld_not_detail_url).toBeUndefined();
     expect(result.scrapedJobPages).toBe(1);
+  });
+
+  it('uses the visible Migros workplace when stale JSON-LD still names the previous canton', async () => {
+    const detailUrl = 'https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/masseurin-physiotherapeutin-osteopathin/cfa3560b-5496-4c27-a752-7653a8532449';
+    const staleJsonLd = {
+      '@type': 'JobPosting',
+      title: 'Masseur*in, Physiotherapeut*in, Osteopath*in',
+      description: 'Im Rahmen unserer neuen Organisation suchen wir eine erfahrene Fachperson für professionelle Massagen und die persönliche Betreuung unserer Mitglieder.',
+      hiringOrganization: { name: 'ACTIV FITNESS' },
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          addressCountry: 'CH',
+          addressLocality: 'Rüti ZH',
+          addressRegion: 'ZH',
+        },
+      },
+      url: detailUrl,
+    };
+    const html = `
+      <script type="application/ld+json">${JSON.stringify(staleJsonLd)}</script>
+      <section id="overview">
+        <div class="typo-body1">Im Rahmen unserer neuen Organisation suchen wir eine erfahrene Fachperson für professionelle Massagen.</div>
+        <address><p>ACTIV FITNESS</p><p>Lachen</p><div>Hintere Bahnhofstrasse 15</div><div><span>8853 Lachen SZ</span></div></address>
+      </section>
+      <section id="tasks"><p class="text-pretty">Du führst professionelle Massagen aus und betreust unsere Mitglieder.</p></section>
+      <section id="skills"><h4>Ausbildung</h4><p>Anerkannte Ausbildung als Masseur*in.</p></section>
+      <section id="benefits"><h4>Zentraler Arbeitsort</h4><p>Gut erschlossene Lage.</p></section>
+    `;
+
+    __testables.setCompanyAdaptersForTests(new Map([['migros-ticino', {
+      enabled: true,
+      crawlerModes: ['html', 'jsonld'],
+      seedDetailUrls: [detailUrl],
+    }]]));
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response(html, {
+      status: 200,
+      headers: { 'content-type': 'text/html' },
+    }));
+
+    const result = await __testables.processCompany(
+      { key: 'migros-ticino', name: 'Migros Ticino', website: 'https://jobs.migros.ch/', city: 'Bellinzona' },
+      /(job|career|vacanc|stellen|emploi)/i,
+      {
+        sourceSeeds: { byDomain: {}, byName: {} },
+        companyCrawlerMode: { 'migros-ticino': ['html', 'jsonld'] },
+        webDiscoveryEnabled: false,
+        minQualityScore: 0,
+        minDescriptionChars: 0,
+      },
+    );
+
+    expect(result.extractedJobs).toHaveLength(1);
+    expect(result.extractedJobs[0]).toMatchObject({
+      location: 'Lachen',
+      canton: 'SZ',
+      addressLocality: 'Lachen',
+      addressRegion: 'SZ',
+      url: detailUrl,
+    });
   });
 });
 

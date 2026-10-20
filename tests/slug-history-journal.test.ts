@@ -8,6 +8,7 @@ import {
   mergePreviousSlugsCapped,
   capSlugArray,
   restoreExistingSlugIdentity,
+  removePreviousSlugRoutes,
   RETAINED_EVENTS_CAP,
 } from '../scripts/lib/slug-history-journal.mjs';
 import {
@@ -34,6 +35,37 @@ describe('slug-history-journal', () => {
     recordSlugMutation({ jobId: 'x' });
     recordSlugMutation({ jobId: 'x', slug: 's', action: 'invalid-action', source: 'src' });
     expect(getEvents()).toHaveLength(0);
+  });
+
+  it('removes proven transferred routes from both histories and journals every dropped entry', () => {
+    const job = {
+      id: 'job-transfer',
+      previousSlugs: ['transferred-route', 'legacy-route'],
+      previousSlugsByLocale: {
+        it: ['transferred-route', 'it-route'],
+        fr: ['transferred-route'],
+      },
+    };
+
+    const removed = removePreviousSlugRoutes(
+      job,
+      new Map([['transferred-route', 'owner-crawler']]),
+      { source: 'test/ownership-transfer' },
+    );
+
+    expect(removed).toBe(3);
+    expect(job).toEqual({
+      id: 'job-transfer',
+      previousSlugs: ['legacy-route'],
+      previousSlugsByLocale: { it: ['it-route'] },
+    });
+    expect(getEvents()).toHaveLength(3);
+    expect(getEvents()).toMatchObject([
+      { jobId: 'job-transfer', locale: 'it', slug: 'transferred-route', action: 'drop', source: 'test/ownership-transfer' },
+      { jobId: 'job-transfer', locale: 'fr', slug: 'transferred-route', action: 'drop', source: 'test/ownership-transfer' },
+      { jobId: 'job-transfer', locale: null, slug: 'transferred-route', action: 'drop', source: 'test/ownership-transfer' },
+    ]);
+    expect(summarize()).toMatchObject({ total: 3, dropped: 3, jobsAffected: 1 });
   });
 
   it('mergePreviousSlugsCapped journals cap-trim overflow instead of silently dropping (company-crawler sibling fix)', () => {
@@ -212,6 +244,87 @@ describe('slug-history-journal', () => {
     expect(result.mergedSlugs).toBeGreaterThanOrEqual(1);
     expect(active[0].previousSlugsByLocale?.it).toContain('associate-designer-medacta-castel-san-pietro');
     expect(active[0].previousSlugs).toContain('associate-designer-medacta-castel-san-pietro');
+  });
+
+  it('does not recreate incident aliases as self-bridges across writer reorder', () => {
+    const cases = [
+      {
+        source: {
+          id: 'etat-de-fribourg-39d21b9be757',
+          url: 'https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftl_-Mitarbeiterin-Saan/1371961957/',
+          slug: 'personale-scientifico-etat-de-fribourg-fribourg-ac7ab5',
+          title: 'Wissenschaftl. Mitarbeiter/in',
+        },
+        owner: {
+          id: 'etat-de-fribourg-ee4a13314d50',
+          url: 'https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftl_-Mitarbeiterin-Saan/1373581257/',
+          slug: 'wissenschaftl-collaboratore-trice-etat-de-fribourg-m7758m',
+          title: 'Wissenschaftl. Mitarbeiter/in',
+        },
+        previousSlug: 'wissenschaftl-collaboratore-trice-etat-de-fribourg-m7758m',
+      },
+      {
+        source: {
+          id: 'stadt-zuerich-405b4ac0728d',
+          url: 'https://jobs.stadt-zuerich.ch/job/Kindheitsp%C3%A4dagogin-HF/1370575257/',
+          slug: 'pedagogia-infantile-in-sss-stadt-zurich',
+          title: 'Kindheitspädagog*in HF',
+        },
+        owner: {
+          id: 'stadt-zuerich-c9ee943891a3',
+          url: 'https://jobs.stadt-zuerich.ch/job/Kindheitsp%C3%A4dagogin-HF/1368263457/',
+          slug: 'kindheitspadagog-in-hf-stadt-zurich-0coqg4',
+          title: 'Kindheitspädagog*in HF',
+        },
+        previousSlug: 'kindheitspadagog-in-hf-stadt-zurich-0coqg4',
+      },
+    ];
+
+    const run = (reverse = false) => {
+      const prior = cases.map(({ source, previousSlug }) => ({
+        ...source,
+        slugByLocale: { it: source.slug },
+        previousSlugsByLocale: { it: [previousSlug] },
+        previousSlugs: [previousSlug],
+      }));
+      const active = cases.flatMap(({ source, owner }) => [
+        { ...source, slugByLocale: { it: source.slug }, previousSlugs: [], previousSlugsByLocale: {} },
+        { ...owner, slugByLocale: { it: owner.slug }, previousSlugs: [], previousSlugsByLocale: {} },
+      ]);
+      const ordered = reverse ? active.reverse() : active;
+
+      trackSlugHistoryDrift(prior, ordered);
+      return ordered;
+    };
+
+    const normal = run();
+    const reversed = run(true);
+    for (const { source, owner, previousSlug } of cases) {
+      for (const jobs of [normal, reversed]) {
+        const claimant = jobs.find((job) => job.url === source.url);
+        const rightfulOwner = jobs.find((job) => job.url === owner.url);
+        expect(claimant?.previousSlugs).not.toContain(previousSlug);
+        expect(claimant?.previousSlugsByLocale?.it || []).not.toContain(previousSlug);
+        // The alias is already the owner's active canonical route. Keeping it
+        // in history would emit a self-canonical bridge instead of a redirect.
+        expect(rightfulOwner?.previousSlugs || []).not.toContain(previousSlug);
+        expect(rightfulOwner?.previousSlugsByLocale?.it || []).not.toContain(previousSlug);
+      }
+    }
+
+    const normalize = (jobs: any[]) => jobs
+      .slice()
+      .sort((a, b) => a.url.localeCompare(b.url))
+      .map((job) => ({
+        url: job.url,
+        previousSlugs: job.previousSlugs,
+        previousSlugsByLocale: job.previousSlugsByLocale,
+      }));
+    expect(normalize(normal)).toEqual(normalize(reversed));
+
+    const beforeSecondPass = JSON.stringify(normal);
+    expect(trackSlugHistoryDrift(normal, normal)).toEqual({ driftCount: 0, mergedSlugs: 0 });
+    expect(JSON.stringify(normal)).toBe(beforeSecondPass);
   });
 
   it('restoreExistingSlugIdentity does not count a restore when only the key ORDER differs', () => {

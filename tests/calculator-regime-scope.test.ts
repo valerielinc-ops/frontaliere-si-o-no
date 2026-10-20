@@ -4,7 +4,7 @@
  *
  * The defect this locks down. `services/calculationService.ts` is hardwired to
  * the Italy-Switzerland regime — `getTicinoTaxRate`'s A/B/C/H withholding
- * tables, the Italian IRPEF brackets 23/35/43 % with addizionali, and
+ * tables, the Italian IRPEF brackets 23/33/43 % (2026) with addizionali, and
  * `FRANCHIGIA_NUOVI_FRONTALIERI` — and it takes no country-of-residence input,
  * so every run returns an Italian-regime net. The France, Germany, Austria and
  * Liechtenstein page families all link it as their primary CTA. A resident of

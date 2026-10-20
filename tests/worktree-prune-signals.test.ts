@@ -1,11 +1,17 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 import { CRON_MANAGED_GLOBS, isCronManagedPath } from '../scripts/lib/cron-managed-paths.mjs';
+
 import {
+  classifyDirty,
+  classifyDirtyEntries,
   classifyDirtyPaths,
+  isPrScratchPath,
+  parsePorcelainEntries,
   parsePorcelainPaths,
 } from '../scripts/lib/worktree-dirty.mjs';
 import {
@@ -21,9 +27,24 @@ import {
 import {
   canDeleteClosedCandidate,
   canDeleteIssueFix,
+  canRemoveIdleOnMain,
   hasAncestryProof,
+  IDLE_WORKTREE_MS,
+  isAbortedCheckout,
+  isIdleSince,
+  isOrphanResidueFile,
+  isPathBusy,
+  isRemovableOrphanDir,
   needsSnapshot,
 } from '../scripts/lib/branch-purge-policy.mjs';
+
+describe('sintassi del modulo pruner completo', () => {
+  it('compila prima di qualunque operazione di pulizia', () => {
+    expect(() => execFileSync(process.execPath, [
+      '--check', path.join(process.cwd(), 'scripts/prune-merged-worktrees.mjs'),
+    ], { stdio: 'pipe' })).not.toThrow();
+  });
+});
 
 // I due segnali che il 2026-09-04 tenevano in vita 21 worktree per 14 GB:
 //   • la finestra `gh pr list --limit 400` copre nove giorni su questo repo, e
@@ -101,6 +122,115 @@ describe('classificazione dello sporco', () => {
     const paths = ['data/fuel-prices.json', 'services/x.ts', 'README.md'];
     const { significant, ignored } = classifyDirtyPaths(paths);
     expect([...significant, ...ignored].sort()).toEqual([...paths].sort());
+  });
+});
+
+// 2026-10-02: 21 dei 44 worktree rimovibili erano trattenuti da un solo file
+// non tracciato, il body della PR scritto per `gh pr create --body-file`.
+describe('body della PR lasciato nel worktree', () => {
+  it('riconosce i nomi usati dagli agenti, solo alla radice', () => {
+    for (const name of ['.pr-body-9108.md', '.pr-body.md', '.pr-body-backfill-recovery-rerun.md',
+      '.codex-pr-body.md', 'PR_BODY.md', '.issue-831-comment.md', '.observer-pr1661-body-20260920.md']) {
+      expect(isPrScratchPath(name), name).toBe(true);
+    }
+    for (const name of ['docs/.pr-body.md', 'README.md', 'pr-body.md', '.issue-comment.md', '.pr-body-9108.ts',
+      '.observer-body.md', '.observer-pr1661-notes.md']) {
+      expect(isPrScratchPath(name), name).toBe(false);
+    }
+  });
+
+  it('il porcelain conserva lo stato accanto al path', () => {
+    expect(parsePorcelainEntries('?? .pr-body-1.md\n M PR_BODY.md\nR  a.ts -> b.ts')).toEqual([
+      { status: '??', path: '.pr-body-1.md' },
+      { status: ' M', path: 'PR_BODY.md' },
+      { status: 'R ', path: 'b.ts' },
+    ]);
+  });
+
+  it('il body è rumore solo se la PR esiste: senza PR è il testo che stava per aprirla', () => {
+    const entries = [{ status: '??', path: '.pr-body-9108.md' }, { status: '??', path: '.codex-pr-body.md' }];
+    expect(classifyDirtyEntries(entries).significant).toEqual([]);
+    expect(classifyDirtyEntries(entries, { prExists: true }).ignored).toEqual(['.pr-body-9108.md', '.codex-pr-body.md']);
+    expect(classifyDirtyEntries(entries, { prExists: false }).significant).toEqual(['.pr-body-9108.md', '.codex-pr-body.md']);
+  });
+
+  it('ignora il body non tracciato, ma non un file tracciato con lo stesso nome', () => {
+    const { significant, ignored } = classifyDirtyEntries([
+      { status: '??', path: '.pr-body-9108.md' },
+      { status: '??', path: '.issue-831-comment.md' },
+      { status: ' M', path: 'PR_BODY.md' },
+      { status: '??', path: 'notes.ts' },
+      { status: ' M', path: 'data/jobs/by-crawler/coop.json' },
+    ]);
+    expect(ignored).toEqual(['.pr-body-9108.md', '.issue-831-comment.md', 'data/jobs/by-crawler/coop.json']);
+    expect(significant).toEqual(['PR_BODY.md', 'notes.ts']);
+  });
+
+  it('uno stato git illeggibile non è "pulito"', () => {
+    // Prima l'errore di `git status` diventava '' e quindi "nessuna modifica".
+    const missing = path.join(os.tmpdir(), `worktree-che-non-esiste-${process.pid}`);
+    expect(classifyDirty(missing)).toEqual({ significant: [], significantEntries: [], ignored: [], error: true });
+  });
+});
+
+describe('worktree senza PR già interamente su main', () => {
+  const ok = { dirty: false, ahead: 0, idle: true, busy: false, busyKnown: true, ghOk: true };
+
+  it('si rimuove solo con tutte le prove insieme', () => {
+    expect(canRemoveIdleOnMain(ok)).toBe(true);
+  });
+
+  it.each([
+    ['sporco', { dirty: true }],
+    ['con commit propri', { ahead: 1 }],
+    ['ahead sconosciuto', { ahead: null }],
+    ['attivo di recente', { idle: false }],
+    ['in uso da un processo', { busy: true }],
+    ['lsof non disponibile', { busyKnown: false }],
+    ['stato PR non leggibile', { ghOk: false }],
+  ])('resta se %s', (_label, override) => {
+    expect(canRemoveIdleOnMain({ ...ok, ...override })).toBe(false);
+  });
+
+  it('inattivo vuol dire fermo da almeno IDLE_WORKTREE_MS', () => {
+    const now = Date.UTC(2026, 9, 2);
+    expect(isIdleSince(now - IDLE_WORKTREE_MS - 1, { now })).toBe(true);
+    expect(isIdleSince(now - 60 * 60 * 1000, { now })).toBe(false);
+    expect(isIdleSince(0, { now })).toBe(false);
+    expect(isIdleSince(Number.NaN, { now })).toBe(false);
+  });
+
+  it('una cwd dentro il worktree lo tiene, un fratello con lo stesso prefisso no', () => {
+    const cwds = ['/repo/.claude/worktrees/wt-1/scripts'];
+    expect(isPathBusy('/repo/.claude/worktrees/wt-1', cwds)).toBe(true);
+    expect(isPathBusy('/repo/.claude/worktrees/wt-1', ['/repo/.claude/worktrees/wt-1'])).toBe(true);
+    expect(isPathBusy('/repo/.claude/worktrees/wt-10', cwds)).toBe(false);
+    expect(isPathBusy('/repo/.claude/worktrees/wt-1', [])).toBe(false);
+  });
+
+  it('checkout interrotto: niente index e solo contenuto identico a HEAD', () => {
+    expect(isAbortedCheckout({ hasIndex: false, onlyHeadContent: true })).toBe(true);
+    expect(isAbortedCheckout({ hasIndex: true, onlyHeadContent: true })).toBe(false);
+    expect(isAbortedCheckout({ hasIndex: false, onlyHeadContent: false })).toBe(false);
+  });
+});
+
+describe('directory orfane sotto le cartelle dei worktree', () => {
+  it('considera residuo solo il rumore di macchina e il body PR alla radice', () => {
+    for (const rel of ['.DS_Store', 'sub/.DS_Store', 'node_modules/.vite/vitest/x/results.json',
+      'triad/node_modules/.vite/results.json', '.pr-body-content-first.md']) {
+      expect(isOrphanResidueFile(rel), rel).toBe(true);
+    }
+    for (const rel of ['src/a.ts', '.git', '.env.example', 'sub/.pr-body.md', '.cache/tsc/tsconfig.tsbuildinfo']) {
+      expect(isOrphanResidueFile(rel), rel).toBe(false);
+    }
+  });
+
+  it('si cancella solo se ferma e fatta solo di residui', () => {
+    expect(isRemovableOrphanDir({ files: ['.DS_Store'], idle: true })).toBe(true);
+    expect(isRemovableOrphanDir({ files: [], idle: true })).toBe(true);
+    expect(isRemovableOrphanDir({ files: ['.DS_Store'], idle: false })).toBe(false);
+    expect(isRemovableOrphanDir({ files: ['.DS_Store', 'src/a.ts'], idle: true })).toBe(false);
   });
 });
 
@@ -259,6 +389,27 @@ describe('guardie del purge', () => {
     expect(hasAncestryProof({ status: 'diverged', ahead_by: 1, behind_by: 1 })).toBe(false);
     expect(hasAncestryProof({ status: 'ahead', ahead_by: 8, behind_by: '0' })).toBe(false);
     expect(hasAncestryProof(null)).toBe(false);
+  });
+});
+
+describe('scope del purge dei worktree', () => {
+  const src = fs.readFileSync(
+    path.join(process.cwd(), 'scripts', 'prune-merged-worktrees.mjs'),
+    'utf8',
+  );
+
+  it('considera anche `.wt` senza allargarsi a directory simili', () => {
+    const match = src.match(/const ISOLATION_RE\s*=\s*(\/[^;]+\/);/);
+    expect(match, 'ISOLATION_RE non trovato in prune-merged-worktrees.mjs').toBeTruthy();
+    const literal = match![1];
+    const end = literal.lastIndexOf('/');
+    const isolation = new RegExp(literal.slice(1, end), literal.slice(end + 1));
+
+    expect(isolation.test('/workspace/.claude/worktrees/fix')).toBe(true);
+    expect(isolation.test('/workspace/.worktrees/fix')).toBe(true);
+    expect(isolation.test('/workspace/.wt/fix')).toBe(true);
+    expect(isolation.test('/workspace/.wt-old/fix')).toBe(false);
+    expect(isolation.test('/workspace/fix')).toBe(false);
   });
 });
 

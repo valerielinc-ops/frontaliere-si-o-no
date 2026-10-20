@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * pr-collision-detector.mjs — rileva PR aperte che toccano gli stessi file
  * funnel-critical (zero-Claude, deterministico).
@@ -9,6 +11,10 @@
  * alla seconda di mergiare finché non è rebasata oltre la prima.
  *
  * Logica:
+ *   - PR gemelle (stesso head ref): chiude le duplicate e tiene la più vecchia
+ *     (`findDuplicateHeadPrs`), prima di costruire il grafo.
+ *   - PR gemella di una PR già mergiata (stesso head, stesso commit): la chiude,
+ *     perché il suo contenuto è già su main (`findMergedTwin`).
  *   - lista PR OPEN NON-DRAFT; per ognuna i file cambiati (gh pr view N --json files).
  *   - FUNNEL-CRITICAL globs: scripts/lib/**, build-plugins/**,
  *     services/seoService.ts, services/seo/**, .github/workflows/**,
@@ -57,6 +63,41 @@ export { fetchPrFiles, GRAPHQL_FILES_CAP, REST_FILES_HARD_CAP };
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
+const AUTOFIX_LABEL = 'agent:autofix';
+
+function labelNames(pr) {
+  if (!Array.isArray(pr?.labels)) return [];
+  return pr.labels
+    .map((label) => (typeof label === 'string' ? label : label?.name))
+    .filter((label) => typeof label === 'string');
+}
+
+/**
+ * Provenienza autonoma della PR, nella stessa forma usata dagli altri custodi
+ * del ciclo: branch convenzionale, autore bot o label esplicita. Serve prima
+ * di propagare `agent:autofix` da una PR duplicata al keeper: una label sulla
+ * duplicata non dimostra che il keeper sia stato aperto dall'automazione.
+ * Pura → testabile.
+ */
+export function isAutonomousCollisionPr(pr) {
+  if (!pr || typeof pr !== 'object') return false;
+  const labels = labelNames(pr);
+  if (labels.includes('needs-human')) return false;
+  const ref = String(pr.headRefName || pr.headRef || '');
+  if (ref.startsWith('fix/') || ref.startsWith('automerge-')) return true;
+  if (pr.authorType === 'Bot') return true;
+  if (pr.author?.type === 'Bot' || pr.author?.isBot === true || pr.author?.is_bot === true) return true;
+  return labels.includes(AUTOFIX_LABEL);
+}
+
+/**
+ * Una duplicata esce dal grafo solo dopo una chiusura osservata. In dry-run
+ * la chiusura e' intenzionalmente simulata; in produzione lo stato GitHub deve
+ * essere esplicitamente `CLOSED`. Pura → testabile.
+ */
+export function duplicateClosureConfirmed({ dryRun = false, state = '' } = {}) {
+  return dryRun === true || String(state).toUpperCase() === 'CLOSED';
+}
 
 // Glob funnel-critical → predicate. Manteniamo i pattern espliciti e ristretti:
 // allargarli genererebbe falsi positivi (ogni PR collide con ogni PR).
@@ -91,6 +132,20 @@ function removeLabel(num, label) {
   gh(['pr', 'edit', String(num), '--repo', REPO, '--remove-label', label], { json: false, allowFail: true });
 }
 
+function closeDuplicateAndConfirm(num) {
+  if (DRY) {
+    console.log(`[dry] close #${num}`);
+    return duplicateClosureConfirmed({ dryRun: true });
+  }
+  gh(['pr', 'close', String(num), '--repo', REPO], { json: false, allowFail: true });
+  const current = gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'state'], { allowFail: true });
+  const confirmed = duplicateClosureConfirmed({ state: current?.state });
+  if (!confirmed) {
+    console.log(`PR #${num}: chiusura non confermata — resta nel grafo per questo run.`);
+  }
+  return confirmed;
+}
+
 function commentOnce(num, marker, body) {
   commentOnceShared(gh, REPO, num, marker, body, { dry: DRY });
 }
@@ -107,6 +162,98 @@ function commentOnce(num, marker, body) {
 export function selectCollisionCandidates(prs) {
   if (!Array.isArray(prs)) return [];
   return prs.filter((p) => p && p.isDraft !== true && Number.isInteger(p.number)).map((p) => p.number);
+}
+
+/** `owner/name` del repository di testa, minuscolo; null se non leggibile. */
+export function headRepositoryIdentity(pr) {
+  const full = pr?.headRepository?.nameWithOwner;
+  if (typeof full === 'string' && /^[^/\s]+\/[^/\s]+$/u.test(full)) return full.toLowerCase();
+  const owner = pr?.headRepositoryOwner?.login;
+  const name = pr?.headRepository?.name;
+  if (typeof owner === 'string' && owner && typeof name === 'string' && name) return `${owner}/${name}`.toLowerCase();
+  return null;
+}
+
+/**
+ * Identità completa della testa di una PR: repository, branch, SHA e base.
+ * Stringa vuota se un campo manca o è illeggibile (fail-closed). Pura.
+ */
+export function headIdentityKey(pr) {
+  const repo = headRepositoryIdentity(pr);
+  const ref = pr?.headRefName;
+  const oid = String(pr?.headRefOid || '').toLowerCase();
+  const base = pr?.baseRefName;
+  if (!repo || typeof ref !== 'string' || !ref || !/^[0-9a-f]{40}$/u.test(oid)
+    || typeof base !== 'string' || !base) return '';
+  return `${repo}:${ref}:${oid}:${base}`;
+}
+
+/**
+ * PR GEMELLA DI UNA PR GIÀ MERGIATA: stessa identità di testa di una PR
+ * mergiata, quindi stessi commit, già arrivati su main. Osservata #10780,
+ * gemella di #10781 (stesso `fix/issue-10752`, stesso SHA): le due sono
+ * rimaste aperte insieme per 69 minuti, fra due run del cron di questo
+ * detector (GitHub lo esegue ogni 3-6 ore, non ogni 30 minuti), poi #10781 è
+ * stata mergiata e #10780, ormai senza gemella aperta, restava `stale-review`
+ * per sempre. Un commit nuovo sulla PR aperta cambia lo SHA: quella PR porta
+ * lavoro nuovo e non viene toccata. Pura → testabile.
+ *
+ * @param {object} pr PR aperta, con i campi di `headIdentityKey`
+ * @param {Array<object>|null} mergedPrs PR mergiate con lo stesso branch
+ * @returns {number|null} numero della gemella mergiata, o null
+ */
+export function findMergedTwin(pr, mergedPrs) {
+  const key = headIdentityKey(pr);
+  if (!key || !Array.isArray(mergedPrs)) return null;
+  const twin = mergedPrs
+    .filter((merged) => merged && Number.isInteger(merged.number) && merged.number !== pr.number)
+    .filter((merged) => headIdentityKey(merged) === key)
+    .sort((a, b) => a.number - b.number)[0];
+  return twin ? twin.number : null;
+}
+
+/**
+ * PR GEMELLE: due PR aperte sullo stesso head (stesso repository, stesso
+ * branch, stesso commit) verso la stessa base sono la stessa PR due volte —
+ * stessi commit, stesso diff — non due lavori in parallelo. Osservate #10608 e
+ * #10609 su `fix/issue-10544`, create nello stesso secondo: condividendo ogni
+ * file si etichettavano `collision-risk` a vicenda, e la «seconda a
+ * raggiungere il merge» non poteva esistere. Si tiene la piu' vecchia fra le
+ * non-draft (una draft solo se lo sono tutte); le altre sono duplicate da
+ * chiudere (il branch resta: e' quello della PR tenuta). Pura → testabile.
+ *
+ * L'identita' e' completa e fail-closed: repository di testa (non il solo
+ * owner, che puo' avere piu' repository con lo stesso nome di branch), branch,
+ * SHA di testa e base. Un campo mancante o illeggibile = nessun raggruppamento
+ * e quindi nessuna chiusura.
+ *
+ * @param {Array<{number:number, isDraft?:boolean, headRefName?:string, headRefOid?:string, baseRefName?:string,
+ *   headRepositoryOwner?:{login?:string}, headRepository?:{name?:string, nameWithOwner?:string},
+ *   labels?:Array<{name:string}>}>} prs
+ * @returns {Array<{number:number, keeper:number, labels:string[]}>} duplicate da chiudere
+ */
+export function findDuplicateHeadPrs(prs) {
+  if (!Array.isArray(prs)) return [];
+  const byHead = new Map(); // repo:ref:oid:base -> [pr]
+  for (const pr of prs) {
+    if (!pr || !Number.isInteger(pr.number)) continue;
+    const key = headIdentityKey(pr);
+    if (!key) continue;
+    if (!byHead.has(key)) byHead.set(key, []);
+    byHead.get(key).push(pr);
+  }
+  const duplicates = [];
+  for (const group of byHead.values()) {
+    if (group.length < 2) continue;
+    // Tenuta: prima una PR pronta, poi la piu' vecchia. Una draft piu' vecchia
+    // non deve far chiudere la PR che sta andando al merge.
+    group.sort((a, b) => Number(a.isDraft === true) - Number(b.isDraft === true) || a.number - b.number);
+    const keeper = group[0].number;
+    for (const dup of group.slice(1)) {
+      duplicates.push({ number: dup.number, keeper, labels: (dup.labels || []).map((l) => l?.name).filter(Boolean) });
+    }
+  }
+  return duplicates.sort((a, b) => a.number - b.number);
 }
 
 /**
@@ -159,13 +306,53 @@ function main() {
   let prs;
   try {
     prs = gh(['pr', 'list', '--repo', REPO, '--state', 'open', '--limit', '50',
-      '--json', 'number,labels,isDraft,author,headRefName,title']);
+      '--json', 'number,labels,isDraft,author,headRefName,headRefOid,baseRefName,headRepository,headRepositoryOwner,title']);
   } catch (e) {
     console.error(`gh pr list fallito: ${String(e).slice(0, 160)}`);
     process.exit(0);
   }
   prs = prs || [];
   if (prs.length < 1) { console.log('Nessuna PR aperta.'); return; }
+
+  // Gemelle sullo stesso head ref: si chiude la duplicata prima del grafo, che
+  // altrimenti le farebbe collidere fra loro per sempre.
+  const duplicates = findDuplicateHeadPrs(prs);
+  const closedDuplicates = new Set();
+  for (const dup of duplicates) {
+    console.log(`PR #${dup.number}: gemella di #${dup.keeper} (stesso head ref) → chiusa come duplicata.`);
+    const keeper = prs.find((pr) => pr.number === dup.keeper);
+    if (dup.labels.includes(AUTOFIX_LABEL) && isAutonomousCollisionPr(keeper)) {
+      addLabel(dup.keeper, AUTOFIX_LABEL);
+    }
+    if (closeDuplicateAndConfirm(dup.number)) {
+      commentOnce(dup.number, `<!-- DUPLICATE_HEAD_OF:${dup.keeper} -->`,
+        `♻️ **duplicata**: questa PR e la PR #${dup.keeper} hanno lo stesso head branch, quindi gli stessi commit. ` +
+        `Resta aperta #${dup.keeper} (la più vecchia); questa viene chiusa senza toccare il branch. ` +
+        `_Segnale deterministico da pr-collision-detector.yml (zero-Claude)._`);
+      closedDuplicates.add(dup.number);
+    }
+  }
+
+  // Gemella di una PR già mergiata: la lettura delle mergiate è per branch e
+  // fail-closed (una risposta illeggibile non chiude niente).
+  for (const pr of prs) {
+    if (closedDuplicates.has(pr.number) || !headIdentityKey(pr)) continue;
+    const merged = gh(['pr', 'list', '--repo', REPO, '--state', 'merged', '--head', pr.headRefName,
+      '--limit', '20', '--json', 'number,headRefName,headRefOid,baseRefName,headRepository,headRepositoryOwner'],
+    { allowFail: true });
+    const twin = findMergedTwin(pr, merged);
+    if (!twin) continue;
+    console.log(`PR #${pr.number}: gemella di #${twin}, già mergiata con la stessa HEAD → chiusa.`);
+    if (closeDuplicateAndConfirm(pr.number)) {
+      commentOnce(pr.number, `<!-- DUPLICATE_HEAD_OF:${twin} -->`,
+        `♻️ **duplicata**: la PR #${twin} aveva lo stesso head branch e lo stesso commit ` +
+        `(\`${String(pr.headRefOid).slice(0, 12)}\`) ed è già mergiata, quindi questo contenuto è già su main. ` +
+        `Questa PR viene chiusa senza toccare il branch. ` +
+        `_Segnale deterministico da pr-collision-detector.yml (zero-Claude)._`);
+      closedDuplicates.add(pr.number);
+    }
+  }
+  if (closedDuplicates.size) prs = prs.filter((p) => !closedDuplicates.has(p.number));
 
   // Chi sta lavorando sull'altra PR. Senza questo il commento dice CHE c'e' una
   // collisione ma non A CHI parlarne, e con la flotta che apre PR in parallelo
@@ -269,6 +456,6 @@ function main() {
   console.log('collision scan completo.');
 }
 
-if (process.argv[1]?.endsWith('pr-collision-detector.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

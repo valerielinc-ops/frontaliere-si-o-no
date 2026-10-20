@@ -37,6 +37,7 @@ const SOURCE = {
   salaryMax: 95000,
   featured: true,
   logo: 'https://cdn.example.test/acme.png',
+  postingDateSource: 'reported',
   postedDate: '2026-04-26',
   crawledAt: '2026-04-26T08:00:00.000+02:00',
   sector: 'tech',

@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllAnswerConsultingJobs,
   isAnswerConsultingJob,
@@ -25,6 +26,11 @@ runStandardCrawlerPipeline({
   root: ROOT,
   fetchJobs: fetchAllAnswerConsultingJobs,
   isCompanyJob: isAnswerConsultingJob,
+  // The Workable widget's explicit empty `jobs` array is a source-proven zero.
+  // A missing/non-array payload remains unproven and keeps the old fail-closed path.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(ANSWERCONSULTING_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   isTrustedDomain,
   defaultSourceLang: 'en',
 }).catch((err) => {

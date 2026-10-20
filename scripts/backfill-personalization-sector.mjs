@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Backfill: correct STALE auto-derived sector fields on subscriber profiles
  * (issue #2993, follow-up to #3146).
@@ -37,6 +38,7 @@ import {
   derivePersonalizationPatch,
   PERSONALIZATION_FIELDS,
 } from './lib/subscriber-personalization.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const SECTOR_FIELDS = ['sector_interest', 'job_category'];
 
@@ -74,14 +76,8 @@ function parseArgs(argv) {
 }
 
 async function getFirestoreAdmin() {
-  const admin = await import('firebase-admin');
-  if (!admin.default.apps?.length) {
-    admin.default.initializeApp({
-      credential: admin.default.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return { db: admin.default.firestore(), FieldValue: admin.default.firestore.FieldValue };
+  const { FieldValue } = await import('firebase-admin/firestore');
+  return { db: await getFirestoreDb(), FieldValue };
 }
 
 const norm = (v) => String(v || '').trim().toLowerCase();
@@ -203,6 +199,6 @@ async function main() {
 }
 
 // Run only when invoked directly (not when imported by tests).
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().then(() => process.exit(0)).catch((err) => { console.error(err); process.exit(1); });
 }

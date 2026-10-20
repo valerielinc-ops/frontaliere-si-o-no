@@ -12,20 +12,22 @@
  * - Data privacy disclaimer
  */
 
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef } from 'react';
 import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { reportCaughtError } from '@/services/errorReporter';
-import { savePartialProfile } from '@/services/profileFirestore';
+import { loadUserCvProfile, loadUserProfile as loadPrivateUserProfile, loadUserProfileWithStatus, saveUserProfile, type UserCvProfileRecord } from '@/services/profileFirestore';
+import { hasLegacyStoredUserProfile, loadLegacyStoredUserProfileForImport, loadStoredUserProfile, removeLegacyStoredUserProfileAfterImport, saveStoredUserProfile, userLocationCacheKey, userProfileStorageKey, userWeatherCacheKey } from '@/services/userProfileStorage';
 import {
  User, LogIn, LogOut, Camera, Briefcase, Users, Calendar,
  Shield, Save, CheckCircle2, MapPin, Heart, Baby, Loader2, Edit3, Sparkles,
  Plus, Trash2, Calculator, BookOpen, ArrowRightLeft, Award,
  AlertCircle, Building2, Navigation, Globe, Banknote,
- Clock, FileCheck, Mail, ExternalLink, Newspaper, Bookmark,
+ Clock, FileCheck, Mail, ExternalLink, Newspaper, Bookmark, ChevronRight,
 } from 'lucide-react';
 import { useTranslation, type Locale, setLocale as setGlobalLocale, getLocale, LOCALE_LABELS } from '@/services/i18n';
-import { buildPath, ensureJobSlugMapLoaded } from '@/services/router';
+import { buildPath, ensureJobSlugMapLoaded, getApplicationConciergePath } from '@/services/router';
+import { fetchApplicationConciergeServices, type ApplicationConciergeService } from '@/services/applicationConciergeService';
 import { loadSavedJobs, SAVED_JOBS_CHANGED_EVENT, type SavedJobEntry } from '@/services/savedJobsService';
 import { fetchAllJobs } from '@/services/jobsService';
 import SubscriptionPreferencesController from '@/components/preferences/SubscriptionPreferencesController';
@@ -79,8 +81,6 @@ export interface UserProfileData {
  permitExpiry: string;
 }
 
-const PROFILE_STORAGE_KEY = 'frontaliere_user_profile';
-
 const DEFAULT_PROFILE: UserProfileData = {
  workPosition: '',
  age: '',
@@ -88,8 +88,8 @@ const DEFAULT_PROFILE: UserProfileData = {
  familySituation: '',
  frontaliereType: '',
  municipality: '',
- children: '0',
- familyMembers: '1',
+ children: '',
+ familyMembers: '',
  familyMembersList: [],
  workplace: '',
  preferredDogana: '',
@@ -97,6 +97,51 @@ const DEFAULT_PROFILE: UserProfileData = {
  grossSalary: '',
  permitExpiry: '',
 };
+
+function localeFromCvLanguage(value: string | undefined): Locale | '' {
+ const language = String(value || '').trim().toLocaleLowerCase();
+ if (['it', 'en', 'de', 'fr'].includes(language)) return language as Locale;
+ return '';
+}
+
+function cvProfilePrefill(parsed: NonNullable<UserCvProfileRecord['profile']>): Partial<UserProfileData> {
+ const prefill: Partial<UserProfileData> = {};
+ if (parsed.workPosition?.trim()) prefill.workPosition = parsed.workPosition.trim();
+ if (parsed.workplace?.trim()) prefill.workplace = parsed.workplace.trim();
+
+ if (parsed.age && ['18-25', '26-35', '36-45', '46-55', '56-65', '65+'].includes(parsed.age)) prefill.age = parsed.age;
+ if (parsed.gender && ['male', 'female', 'other'].includes(parsed.gender)) prefill.gender = parsed.gender;
+ if (parsed.familySituation && ['single', 'married', 'divorced', 'cohabiting'].includes(parsed.familySituation)) prefill.familySituation = parsed.familySituation;
+ if (parsed.frontaliereType && ['permit-g', 'permit-b', 'considering'].includes(parsed.frontaliereType)) prefill.frontaliereType = parsed.frontaliereType;
+ if (parsed.children && ['0', '1', '2', '3', '4+'].includes(parsed.children)) prefill.children = parsed.children;
+ if (parsed.familyMembers && ['1', '2', '3', '4', '5', '6+'].includes(parsed.familyMembers)) prefill.familyMembers = parsed.familyMembers;
+
+ const municipality = parsed.municipality ? findMunicipality(parsed.municipality) : undefined;
+ if (municipality) prefill.municipality = `${municipality.name} (${municipality.province})`;
+
+ const crossing = parsed.preferredDogana
+  ? borderCrossings.find((item) => item.name.toLocaleLowerCase() === parsed.preferredDogana?.trim().toLocaleLowerCase())
+  : undefined;
+ if (crossing) prefill.preferredDogana = crossing.name;
+
+ const preferredLanguage = localeFromCvLanguage(parsed.preferredLanguage);
+ if (preferredLanguage) prefill.preferredLanguage = preferredLanguage;
+
+ const grossSalary = Number(parsed.grossSalary);
+ if (Number.isFinite(grossSalary) && grossSalary > 0) prefill.grossSalary = String(grossSalary);
+ if (parsed.permitExpiry && /^\d{4}-\d{2}-\d{2}$/.test(parsed.permitExpiry)) prefill.permitExpiry = parsed.permitExpiry;
+
+ const relationships = ['spouse', 'child', 'parent', 'sibling', 'other'];
+ const familyMembersList = (parsed.familyMembersList || []).filter((member) =>
+  Boolean(member?.id)
+  && relationships.includes(member.relationship)
+  && typeof member.liveTogether === 'boolean'
+  && typeof member.dependent === 'boolean'
+  && (!member.birthYear || /^(?:19|20)\d{2}$/.test(member.birthYear)));
+ if (familyMembersList.length) prefill.familyMembersList = familyMembersList;
+
+ return prefill;
+}
 
 // ─── Common job positions for frontalieri ────────────────────
 
@@ -145,48 +190,72 @@ const initFirestore = async () => {
  }
 };
 
-const saveProfileToFirestore = async (email: string, data: UserProfileData) => {
- await savePartialProfile(email, data as unknown as Record<string, unknown>);
+const saveProfileToFirestore = async (uid: string, data: Record<string, unknown>): Promise<boolean> => {
+ return saveUserProfile(uid, data);
 };
 
-const loadProfileFromFirestore = async (email: string): Promise<UserProfileData | null> => {
+const PROFILE_STRING_FIELDS = ['workPosition', 'age', 'gender', 'familySituation', 'frontaliereType', 'municipality', 'children', 'familyMembers', 'workplace', 'preferredDogana', 'preferredLanguage', 'grossSalary', 'permitExpiry'] as const;
+
+const loadLegacyProfileFromFirestore = async (email: string): Promise<Partial<UserProfileData> | null> => {
+ if (!email.trim()) return null;
  try {
  const db = await initFirestore();
  if (!db) return null;
  const { doc, getDoc } = await import('firebase/firestore');
  const key = email.trim().toLowerCase();
  const snap = await getDoc(doc(db, 'newsletter_subscribers', key));
- if (snap.exists()) {
- const data = snap.data();
- return {
- workPosition: data.workPosition || '',
- age: data.age || '',
- gender: data.gender || '',
- familySituation: data.familySituation || '',
- frontaliereType: data.frontaliereType || '',
- municipality: data.municipality || '',
- children: data.children || '0',
- familyMembers: data.familyMembers || '1',
- familyMembersList: data.familyMembersList || [],
- workplace: data.workplace || '',
- preferredDogana: data.preferredDogana || '',
- preferredLanguage: data.preferredLanguage || '',
- grossSalary: data.grossSalary || '',
- permitExpiry: data.permitExpiry || '',
- };
- }
+   if (snap.exists()) {
+    const data = snap.data();
+    const profile: Partial<UserProfileData> = {};
+    PROFILE_STRING_FIELDS.forEach((field) => {
+     const value = data[field];
+     // Legacy subscriber data is a migration fallback. An empty legacy value
+     // must not erase a more recent profile cached on this device.
+     if (typeof value === 'string' && value.trim()) profile[field] = value;
+    });
+    if (Array.isArray(data.familyMembersList) && data.familyMembersList.length) {
+     profile.familyMembersList = data.familyMembersList;
+    }
+    return profile;
+   }
  return null;
  } catch {
  return null;
  }
 };
 
+const loadProfileFromFirestore = async (uid: string, email: string): Promise<Partial<UserProfileData> | null> => {
+ const [privateProfile, legacyProfile] = await Promise.all([
+  loadPrivateUserProfile(uid),
+  loadLegacyProfileFromFirestore(email),
+ ]);
+ if (!privateProfile && !legacyProfile) return null;
+ const merged: Partial<UserProfileData> = {};
+ PROFILE_STRING_FIELDS.forEach((field) => {
+  const privateValue = privateProfile?.[field];
+  const legacyValue = legacyProfile?.[field];
+  if (privateProfile && Object.hasOwn(privateProfile, field) && typeof privateValue === 'string') {
+   // Preserve explicit private blanks so the owner can clear a CV-derived value.
+   merged[field] = privateValue;
+  } else if (typeof legacyValue === 'string' && legacyValue.trim()) {
+   merged[field] = legacyValue;
+  }
+ });
+ const privateFamily = privateProfile?.familyMembersList;
+ if (Array.isArray(privateFamily)) {
+  merged.familyMembersList = privateFamily as FamilyMember[];
+ } else if (legacyProfile?.familyMembersList?.length) {
+  merged.familyMembersList = legacyProfile.familyMembersList;
+ }
+ return merged;
+};
+
 // ─── Exported helpers (used by App.tsx for prefill) ────────────
 
-export function loadUserProfile(): UserProfileData {
+export function loadUserProfile(uid?: string | null): UserProfileData {
  try {
- const stored = localStorage.getItem(PROFILE_STORAGE_KEY);
- if (stored) return { ...DEFAULT_PROFILE, ...JSON.parse(stored) };
+ const stored = loadStoredUserProfile(uid);
+ if (stored) return { ...DEFAULT_PROFILE, ...stored } as UserProfileData;
  } catch { /* ignore */ }
  return DEFAULT_PROFILE;
 }
@@ -196,9 +265,6 @@ export function profileToSimInputs(profile: UserProfileData): Partial<Simulation
  if (profile.familySituation) {
  const map: Record<string, string> = { single: 'SINGLE', married: 'MARRIED', divorced: 'SINGLE', cohabiting: 'SINGLE' };
  partial.maritalStatus = (map[profile.familySituation] || 'SINGLE') as SimulationInputs['maritalStatus'];
- }
- if (profile.frontaliereType) {
- partial.frontierWorkerType = (profile.frontaliereType === 'permit-g' ? 'NEW' : 'OLD') as SimulationInputs['frontierWorkerType'];
  }
  if (profile.children) {
  const n = parseInt(profile.children, 10);
@@ -344,6 +410,40 @@ const FamilyMemberRow: React.FC<{
 const UserProfile: React.FC = () => {
  const { t, locale } = useTranslation();
  const { user, loading: authLoading, signIn, signInFacebook, logout } = useAuth();
+ const legacyImportCopy = ({
+  it: {
+   title: 'Hai un profilo salvato in precedenza',
+   body: 'Questo browser contiene dati di profilo salvati prima della separazione per account. Restano nascosti finché non scegli di importarli. Importali solo se sono tuoi.',
+   import: 'Importa nel mio account', importing: 'Importazione…', later: 'Non ora',
+   confirm: 'Confermi che i dati salvati in precedenza sono tuoi e vuoi importarli nel tuo profilo?',
+   failed: 'Non è stato possibile salvare il profilo. La copia precedente è rimasta intatta.',
+  },
+  en: {
+   title: 'A profile was saved earlier',
+   body: 'This browser contains profile data saved before profiles were separated by account. It stays hidden until you choose to import it. Import it only if it is yours.',
+   import: 'Import into my account', importing: 'Importing…', later: 'Not now',
+   confirm: 'Confirm that the previously saved profile is yours and that you want to import it into your account.',
+   failed: 'The profile could not be saved. The earlier copy is still intact.',
+  },
+  de: {
+   title: 'Ein früher gespeichertes Profil ist vorhanden',
+   body: 'Dieser Browser enthält Profildaten, die vor der Trennung nach Konto gespeichert wurden. Sie bleiben verborgen, bis du sie importierst. Importiere sie nur, wenn sie dir gehören.',
+   import: 'In mein Konto importieren', importing: 'Wird importiert…', later: 'Später',
+   confirm: 'Bestätigst du, dass das früher gespeicherte Profil dir gehört und in dein Konto importiert werden soll?',
+   failed: 'Das Profil konnte nicht gespeichert werden. Die frühere Kopie ist weiterhin vorhanden.',
+  },
+  fr: {
+   title: 'Un ancien profil est disponible',
+   body: 'Ce navigateur contient des données de profil enregistrées avant leur séparation par compte. Elles restent masquées jusqu’à votre choix. Importez-les uniquement si elles vous appartiennent.',
+   import: 'Importer dans mon compte', importing: 'Importation…', later: 'Plus tard',
+   confirm: 'Confirmez-vous que l’ancien profil vous appartient et que vous souhaitez l’importer dans votre compte ?',
+   failed: 'Le profil n’a pas pu être enregistré. L’ancienne copie est toujours intacte.',
+  },
+ } as const)[locale];
+ const [conciergeService, setConciergeService] = useState<ApplicationConciergeService | null>(null);
+ const [cvProfile, setCvProfile] = useState<UserCvProfileRecord | null>(null);
+ const currentUidRef = useRef<string | null>(null);
+ useEffect(() => { currentUidRef.current = user?.uid ?? null; }, [user?.uid]);
  // Profile page needs auth immediately — skip the interaction-deferred loading
  useEffect(() => { eagerAuth(); }, []);
  // Show a "I miei annunci" shortcut only when the user has created publisher ads.
@@ -408,6 +508,39 @@ const UserProfile: React.FC = () => {
    })();
    return () => { cancelled = true; };
  }, [user]);
+
+ // Keep an active 30-day concierge service one click away from the profile.
+ // The API is owner-scoped; the profile never scans public job-board data to
+ // infer an entitlement.
+ useEffect(() => {
+   if (!user) { setConciergeService(null); return; }
+   let cancelled = false;
+   fetchApplicationConciergeServices(user).then((services) => {
+     if (cancelled) return;
+     const active = services.find((service) => service.paymentStatus === 'paid'
+       && service.serviceStatus === 'active'
+       && (!service.expiresAt || new Date(service.expiresAt).getTime() > Date.now()));
+     setConciergeService(active || null);
+   }).catch(() => {
+     if (!cancelled) setConciergeService(null);
+   });
+   return () => { cancelled = true; };
+ }, [user?.uid]);
+
+ // CV-derived data is kept in a private UID document. It is shown here as a
+ // safe projection and merged into empty local profile fields so a CV uploaded
+ // for either paid flow helps complete the same account profile.
+ useEffect(() => {
+   setCvProfile(null);
+   if (!user?.uid) return;
+   const uid = user.uid;
+   let cancelled = false;
+   loadUserCvProfile(uid).then((record) => {
+     if (!cancelled) setCvProfile(record?.userId === uid ? record : null);
+   });
+   return () => { cancelled = true; };
+ }, [user?.uid]);
+
  // Saved jobs (account-gating follow-up to #4466/#4467). The Firestore sync
  // itself is mounted once at app root (App.tsx → subscribeSavedJobsFirestore,
  // keyed on authUser?.uid) — this component only reads the already-live
@@ -431,7 +564,8 @@ const UserProfile: React.FC = () => {
      try {
        const all = await fetchAllJobs(locale as Locale);
        if (cancelled) return;
-       setActiveSavedJobIds(new Set(all.map((j) => j.id)));
+ const activeIds = all.map((j) => j.id).filter((id): id is string => typeof id === 'string');
+ setActiveSavedJobIds(new Set(activeIds));
      } catch {
        // best-effort: no expired badges rather than a broken section.
      }
@@ -446,10 +580,15 @@ const UserProfile: React.FC = () => {
  const [, setSlugMapReady] = useState(false);
  useEffect(() => { void ensureJobSlugMapLoaded().then(() => setSlugMapReady(true)); }, []);
  const [profile, setProfile] = useState<UserProfileData>(DEFAULT_PROFILE);
+ const [profileCloudLoadedFor, setProfileCloudLoadedFor] = useState<string | null>(null);
  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved'>('idle');
+ const [legacyProfileAvailable, setLegacyProfileAvailable] = useState(false);
+ const [legacyProfileImporting, setLegacyProfileImporting] = useState(false);
+ const [legacyProfileImportFailed, setLegacyProfileImportFailed] = useState(false);
  const [showFamily, setShowFamily] = useState(false);
  const [validationErrors, setValidationErrors] = useState<string[]>([]);
  const googleButtonRef = useRef<HTMLDivElement>(null);
+ const userEditedProfileFieldsRef = useRef(new Set<keyof UserProfileData>());
  const [gisButtonRendered, setGisButtonRendered] = useState(false);
  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
 
@@ -509,20 +648,28 @@ const UserProfile: React.FC = () => {
  if (!profile.preferredDogana) return null;
  return borderCrossings.find(c => c.name === profile.preferredDogana) || null;
  }, [profile.preferredDogana]);
- // Load profile from localStorage (immediate) + Firestore (async)
- useEffect(() => {
- const stored = localStorage.getItem(PROFILE_STORAGE_KEY);
- if (stored) {
- try {
- const parsed = { ...DEFAULT_PROFILE, ...JSON.parse(stored) };
+ // Keep browser profile cache isolated by authenticated UID.
+ useLayoutEffect(() => {
+ if (saveTimerRef.current) {
+  clearTimeout(saveTimerRef.current);
+  saveTimerRef.current = null;
+ }
+ setProfileCloudLoadedFor(null);
+ setCvProfile(null);
+ userEditedProfileFieldsRef.current.clear();
+ if (authLoading) {
+  setProfile(DEFAULT_PROFILE);
+  setCvProfile(null);
+  return;
+ }
+ const uid = user?.uid || null;
+ const stored = loadStoredUserProfile(uid);
+ const parsed = { ...DEFAULT_PROFILE, ...(stored || {}) } as UserProfileData;
  setProfile(parsed);
- // Apply saved language preference from local profile
  if (parsed.preferredLanguage && ['it', 'en', 'de', 'fr'].includes(parsed.preferredLanguage)) {
- setGlobalLocale(parsed.preferredLanguage as Locale);
+  setGlobalLocale(parsed.preferredLanguage as Locale);
  }
- } catch { /* ignore corrupt data */ }
- }
- }, []);
+ }, [authLoading, user?.uid]);
 
  // Load autologin-enabled flag for the current user
  useEffect(() => {
@@ -577,22 +724,27 @@ const UserProfile: React.FC = () => {
 
  // When user signs in, try loading from Firestore (cloud sync)
  useEffect(() => {
+ const uid = user?.uid;
+ let cancelled = false;
+ if (!uid) {
+  setProfileCloudLoadedFor(null);
+  return () => { cancelled = true; };
+ }
  const email = user ? getAuthEmail(user) : null;
- if (!email) return;
- loadProfileFromFirestore(email).then((cloudProfile) => {
+ loadProfileFromFirestore(uid, email || '').then((cloudProfile) => {
+ if (cancelled) return;
  if (cloudProfile) {
  setProfile(prev => {
  const merged: UserProfileData = { ...prev };
- // Merge string fields: cloud wins if local is empty
- const stringFields = ['workPosition', 'age', 'gender', 'familySituation', 'frontaliereType', 'municipality', 'children', 'familyMembers', 'workplace', 'preferredDogana', 'preferredLanguage', 'grossSalary', 'permitExpiry'] as const;
- stringFields.forEach(k => {
- if (cloudProfile[k] && !prev[k]) merged[k] = cloudProfile[k];
+ // Private cloud values, including explicit blanks, are authoritative unless
+ // the user has edited that field while the async profile load was in flight.
+ PROFILE_STRING_FIELDS.forEach(k => {
+ if (Object.hasOwn(cloudProfile, k) && !userEditedProfileFieldsRef.current.has(k)) merged[k] = cloudProfile[k]!;
  });
- // Merge family members list
- if (cloudProfile.familyMembersList?.length && !prev.familyMembersList?.length) {
- merged.familyMembersList = cloudProfile.familyMembersList;
+ if (Object.hasOwn(cloudProfile, 'familyMembersList') && !userEditedProfileFieldsRef.current.has('familyMembersList')) {
+ merged.familyMembersList = cloudProfile.familyMembersList || [];
  }
- localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(merged));
+ saveStoredUserProfile(user?.uid, merged as unknown as Record<string, unknown>);
  // Apply saved language preference
  if (merged.preferredLanguage && ['it', 'en', 'de', 'fr'].includes(merged.preferredLanguage)) {
  setGlobalLocale(merged.preferredLanguage as Locale);
@@ -600,10 +752,21 @@ const UserProfile: React.FC = () => {
  return merged;
  });
  }
+ }).finally(() => {
+  if (!cancelled) setProfileCloudLoadedFor(uid);
  });
+ return () => { cancelled = true; };
 
  // Newsletter subscription is explicit and is not part of profile sync.
  }, [user?.uid]);
+
+ useEffect(() => {
+  setLegacyProfileAvailable(false);
+  setLegacyProfileImporting(false);
+  setLegacyProfileImportFailed(false);
+  if (!user?.uid || profileCloudLoadedFor !== user.uid) return;
+  setLegacyProfileAvailable(hasLegacyStoredUserProfile());
+ }, [user?.uid, profileCloudLoadedFor]);
 
  // Merge Facebook Graph API profile data (age from birthday) into profile
  useEffect(() => {
@@ -621,11 +784,40 @@ const UserProfile: React.FC = () => {
  }
 
  if (changed) {
- localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(merged));
+ saveStoredUserProfile(user?.uid, merged as unknown as Record<string, unknown>);
  }
  return merged;
  });
  }, [user?.uid]);
+
+ useEffect(() => {
+   if (!user || profileCloudLoadedFor !== user.uid || cvProfile?.userId !== user.uid) return;
+   const parsed = cvProfile?.profile;
+   if (!parsed) return;
+   const extracted = cvProfilePrefill(parsed);
+   const merged = { ...profile };
+   const applied: Record<string, unknown> = {};
+   Object.entries(extracted).forEach(([field, value]) => {
+     if (value == null) return;
+     const key = field as keyof UserProfileData;
+     if (userEditedProfileFieldsRef.current.has(key)) return;
+     const isEmpty = key === 'familyMembersList'
+       ? !merged.familyMembersList?.length
+       : !String(merged[key] || '').trim();
+     if (!isEmpty) return;
+     (merged as unknown as Record<string, unknown>)[key] = value;
+     applied[key] = value;
+   });
+   if (!Object.keys(applied).length) return;
+   setProfile(merged);
+   saveStoredUserProfile(user.uid, merged as unknown as Record<string, unknown>);
+   if (applied.preferredLanguage && merged.preferredLanguage) {
+     setGlobalLocale(merged.preferredLanguage as Locale);
+   }
+   if (Object.keys(applied).length) {
+    void saveProfileToFirestore(user.uid, applied);
+   }
+ }, [cvProfile, profile, profileCloudLoadedFor, user]);
 
  // Google One Tap: prompt when user is not signed in. Authentication here is
  // access-only; newsletter consent is collected only by an explicit
@@ -754,7 +946,12 @@ const UserProfile: React.FC = () => {
  const { terminate } = await import('firebase/firestore');
  await terminate(db).catch(() => {});
  // 3. Clear localStorage
+ localStorage.removeItem(userProfileStorageKey(user.uid));
+ localStorage.removeItem(userWeatherCacheKey(user.uid));
+ localStorage.removeItem(userLocationCacheKey(user.uid));
  localStorage.removeItem('frontaliere_user_profile');
+ localStorage.removeItem('morning_weather_cache');
+ localStorage.removeItem('user_location_cache');
  localStorage.removeItem('frontaliere_achievements');
  // 4. Delete Firebase Auth account
  const deleted = await deleteCurrentUser();
@@ -799,13 +996,13 @@ const UserProfile: React.FC = () => {
  };
 
  const autoSave = useCallback((updatedProfile: UserProfileData) => {
- localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(updatedProfile));
+ saveStoredUserProfile(user?.uid, updatedProfile as unknown as Record<string, unknown>);
  if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
  saveTimerRef.current = setTimeout(async () => {
  setSaveStatus('saving');
- const email = user ? getAuthEmail(user) : null;
- if (email) {
- await saveProfileToFirestore(email, updatedProfile);
+ const uid = user?.uid;
+ if (uid) {
+ await saveProfileToFirestore(uid, updatedProfile as unknown as Record<string, unknown>);
  }
  setSaveStatus('saved');
  const fields = ['workPosition', 'age', 'familySituation', 'frontaliereType', 'municipality', 'grossSalary'] as const;
@@ -815,7 +1012,70 @@ const UserProfile: React.FC = () => {
  }, 800);
  }, [user?.uid]);
 
+ const handleImportLegacyProfile = async () => {
+  const uid = user?.uid;
+  if (!uid || legacyProfileImporting || !window.confirm(legacyImportCopy.confirm)) return;
+  setLegacyProfileImporting(true);
+  setLegacyProfileImportFailed(false);
+  try {
+   const legacy = loadLegacyStoredUserProfileForImport();
+   if (!legacy) {
+    setLegacyProfileAvailable(false);
+    return;
+   }
+
+   const cloudRead = await loadUserProfileWithStatus(uid);
+   if (!cloudRead.success) throw new Error('Private profile could not be read');
+   if (currentUidRef.current !== uid) return;
+   const cloudProfile = cloudRead.profile;
+   const localProfile = loadStoredUserProfile(uid);
+   const merged = { ...DEFAULT_PROFILE } as UserProfileData;
+   PROFILE_STRING_FIELDS.forEach((field) => {
+    if (localProfile && Object.hasOwn(localProfile, field)) {
+     merged[field] = typeof localProfile[field] === 'string' ? localProfile[field] as string : '';
+    } else if (cloudProfile && Object.hasOwn(cloudProfile, field)) {
+     merged[field] = typeof cloudProfile[field] === 'string' ? cloudProfile[field] as string : '';
+    } else if (userEditedProfileFieldsRef.current.has(field)) {
+     merged[field] = profile[field];
+    } else if (profile[field].trim()) {
+     merged[field] = profile[field];
+    } else if (typeof legacy[field] === 'string') {
+     merged[field] = legacy[field] as string;
+    }
+   });
+
+   if (localProfile && Object.hasOwn(localProfile, 'familyMembersList') && Array.isArray(localProfile.familyMembersList)) {
+    merged.familyMembersList = localProfile.familyMembersList as FamilyMember[];
+   } else if (cloudProfile && Object.hasOwn(cloudProfile, 'familyMembersList') && Array.isArray(cloudProfile.familyMembersList)) {
+    merged.familyMembersList = cloudProfile.familyMembersList as FamilyMember[];
+   } else if (userEditedProfileFieldsRef.current.has('familyMembersList')) {
+    merged.familyMembersList = profile.familyMembersList || [];
+   } else if (profile.familyMembersList?.length) {
+    merged.familyMembersList = profile.familyMembersList;
+   } else if (Array.isArray(legacy.familyMembersList)) {
+    merged.familyMembersList = legacy.familyMembersList as FamilyMember[];
+   }
+
+   const savedLocally = saveStoredUserProfile(uid, merged as unknown as Record<string, unknown>);
+   if (!savedLocally) throw new Error('Scoped profile cache could not be saved');
+   setProfile(merged);
+
+   const savedPrivately = await saveProfileToFirestore(uid, merged as unknown as Record<string, unknown>);
+   if (currentUidRef.current !== uid) return;
+   if (!savedPrivately || !removeLegacyStoredUserProfileAfterImport()) {
+    throw new Error('Profile recovery could not be completed');
+   }
+   setLegacyProfileAvailable(false);
+  } catch (error) {
+   console.warn('[Profile] Legacy profile recovery failed:', error);
+   if (currentUidRef.current === uid) setLegacyProfileImportFailed(true);
+  } finally {
+   if (currentUidRef.current === uid) setLegacyProfileImporting(false);
+  }
+ };
+
  const updateField = (field: keyof UserProfileData, value: string) => {
+ userEditedProfileFieldsRef.current.add(field);
  setProfile(prev => {
  const updated = { ...prev, [field]: value };
  autoSave(updated);
@@ -833,7 +1093,14 @@ const UserProfile: React.FC = () => {
  };
  };
 
+ const markFamilyProfileEdited = () => {
+ userEditedProfileFieldsRef.current.add('familyMembersList');
+ userEditedProfileFieldsRef.current.add('children');
+ userEditedProfileFieldsRef.current.add('familyMembers');
+ };
+
  const addFamilyMember = () => {
+ markFamilyProfileEdited();
  const newMember: FamilyMember = {
  id: Date.now().toString(36),
  relationship: 'child',
@@ -849,6 +1116,7 @@ const UserProfile: React.FC = () => {
  };
 
  const updateFamilyMember = (updatedMember: FamilyMember) => {
+ markFamilyProfileEdited();
  setProfile(prev => {
  const newList = (prev.familyMembersList || []).map(m => m.id === updatedMember.id ? updatedMember : m);
  const updated = { ...prev, familyMembersList: newList, ...syncFamilyCounters(newList) };
@@ -858,6 +1126,7 @@ const UserProfile: React.FC = () => {
  };
 
  const removeFamilyMember = (id: string) => {
+ markFamilyProfileEdited();
  setProfile(prev => {
  const newList = (prev.familyMembersList || []).filter(m => m.id !== id);
  const updated = { ...prev, familyMembersList: newList, ...syncFamilyCounters(newList) };
@@ -1036,6 +1305,33 @@ const UserProfile: React.FC = () => {
  )}
  </div>
  </div>
+
+ {legacyProfileAvailable && (
+  <section role="region" aria-label={legacyImportCopy.title} className="p-4 rounded-2xl border border-info-border bg-info-subtle">
+   <h3 className="text-sm font-bold text-strong">{legacyImportCopy.title}</h3>
+   <p className="mt-1 text-xs text-subtle">{legacyImportCopy.body}</p>
+   {legacyProfileImportFailed && <p role="alert" className="mt-2 text-xs font-medium text-danger">{legacyImportCopy.failed}</p>}
+   <div className="mt-3 flex flex-wrap items-center gap-2">
+    <button
+     type="button"
+     onClick={() => { void handleImportLegacyProfile(); }}
+     disabled={legacyProfileImporting}
+     className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-info-strong text-on-accent text-xs font-semibold disabled:opacity-60"
+    >
+     {legacyProfileImporting && <Loader2 size={14} className="animate-spin" />}
+     {legacyProfileImporting ? legacyImportCopy.importing : legacyImportCopy.import}
+    </button>
+    <button
+     type="button"
+     onClick={() => setLegacyProfileAvailable(false)}
+     disabled={legacyProfileImporting}
+     className="px-3 py-2 rounded-xl border border-edge bg-surface text-xs font-medium text-subtle disabled:opacity-60"
+    >
+     {legacyImportCopy.later}
+    </button>
+   </div>
+  </section>
+ )}
 
  {/* Quick actions strip */}
  <div className="px-6 py-3 bg-surface-alt/50 border-b border-edge">
@@ -1315,6 +1611,65 @@ const UserProfile: React.FC = () => {
  </div>
  )}
 
+ {conciergeService && (
+ <a
+   href={`${getApplicationConciergePath(locale)}?application_concierge_service_id=${encodeURIComponent(conciergeService.serviceId)}`}
+   className="mx-6 mt-4 block rounded-2xl border border-accent-border bg-accent-subtle/60 p-4 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+ >
+   <div className="flex items-start gap-3">
+     <div className="rounded-xl bg-accent p-2 text-on-accent"><Sparkles size={18} aria-hidden="true" /></div>
+     <div className="min-w-0 flex-1">
+       <div className="flex flex-wrap items-center justify-between gap-2">
+         <h3 className="text-sm font-bold text-heading">{t('profile.concierge.title')}</h3>
+         <ExternalLink size={15} className="shrink-0 text-accent" aria-hidden="true" />
+       </div>
+       <p className="mt-1 text-xs leading-5 text-body">{t('profile.concierge.subtitle')}</p>
+       <p className="mt-2 text-xs font-semibold text-accent">{t('profile.concierge.open')}{conciergeService.expiresAt ? ` · ${t('profile.concierge.expires')} ${new Date(conciergeService.expiresAt).toLocaleDateString(locale)}` : ''}</p>
+     </div>
+   </div>
+ </a>
+ )}
+
+ {user && (
+ <div className="mx-6 mt-4 border-y border-edge">
+   <a
+     href={`${buildPath({ activeTab: 'profile' }, locale)}?profile_view=applications`}
+     onClick={(event) => {
+       // profile_view is query state, not part of the SPA route model. Reload
+       // this same route so App reads the new view on mount.
+       event.preventDefault();
+       window.location.assign(event.currentTarget.href);
+     }}
+     className="flex min-h-16 items-center justify-between gap-4 py-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+   >
+     <span className="flex min-w-0 items-center gap-3">
+       <FileCheck size={18} className="shrink-0 text-accent" aria-hidden="true" />
+       <span className="min-w-0">
+         <span className="block text-sm font-semibold text-strong">{t('profile.paidApplications.linkTitle')}</span>
+         <span className="mt-0.5 block text-sm leading-5 text-subtle">{t('profile.paidApplications.linkSubtitle')}</span>
+       </span>
+     </span>
+     <ChevronRight size={18} className="shrink-0 text-accent" aria-hidden="true" />
+   </a>
+ </div>
+ )}
+
+ {cvProfile && (
+ <section className="mx-6 mt-4 rounded-2xl border border-info-border bg-info-subtle/50 p-4" aria-labelledby="profile-cv-title">
+   <div className="flex items-start gap-3">
+     <div className="rounded-xl bg-surface p-2 text-info"><FileCheck size={18} aria-hidden="true" /></div>
+     <div className="min-w-0 flex-1">
+       <h3 id="profile-cv-title" className="text-sm font-bold text-heading">{t('profile.cv.title')}</h3>
+       <p className="mt-1 text-xs leading-5 text-subtle">{t('profile.cv.subtitle')}</p>
+       <p className="mt-3 flex items-center gap-2 text-sm font-semibold text-body"><FileCheck size={15} className="text-success" aria-hidden="true" />{cvProfile.cvDocument?.fileName || t('profile.cv.pending')}</p>
+       {cvProfile.profile?.workPosition && <p className="mt-2 text-xs text-body"><span className="font-semibold">{t('profile.workPosition')}:</span> {cvProfile.profile.workPosition}</p>}
+       {cvProfile.profile?.skills?.length ? <p className="mt-1 text-xs leading-5 text-body"><span className="font-semibold">{t('profile.cv.skills')}:</span> {cvProfile.profile.skills.slice(0, 8).join(', ')}</p> : null}
+       {cvProfile.profile?.experienceSummary?.length ? <p className="mt-1 text-xs leading-5 text-body"><span className="font-semibold">{t('profile.cv.experience')}:</span> {cvProfile.profile.experienceSummary.slice(0, 2).join(' · ')}</p> : null}
+     </div>
+   </div>
+ </section>
+ )}
+
  {/* Profile data form */}
  <div className="p-6 space-y-5">
  <div className="flex items-center justify-between">
@@ -1540,6 +1895,7 @@ const UserProfile: React.FC = () => {
  onChange={(e) => updateField('children', e.target.value)}
  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
  >
+ <option value="">{t('profile.selectOption')}</option>
  <option value="0">0</option>
  <option value="1">1</option>
  <option value="2">2</option>
@@ -1558,6 +1914,7 @@ const UserProfile: React.FC = () => {
  onChange={(e) => updateField('familyMembers', e.target.value)}
  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
  >
+ <option value="">{t('profile.selectOption')}</option>
  <option value="1">1 ({t('profile.justMe')})</option>
  <option value="2">2</option>
  <option value="3">3</option>
@@ -1577,6 +1934,7 @@ const UserProfile: React.FC = () => {
  member={member}
  onUpdate={updateFamilyMember}
  onRemove={() => removeFamilyMember(member.id)}
+ disabled={saveStatus === 'saving'}
  t={t}
  />
  ))}
@@ -1746,6 +2104,7 @@ const UserProfile: React.FC = () => {
  mode="auth"
  email={profileEmail}
  userId={user.uid}
+ emailVerified={user.emailVerified === true}
  locale={getLocale()}
  />
  </div>

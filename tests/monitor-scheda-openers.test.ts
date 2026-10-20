@@ -27,10 +27,14 @@ import { buildIssueBody as buildCf5xxBody } from '../scripts/cf-5xx-issue-sync.m
 import { buildIssueBody as buildAppErrorBody } from '../scripts/app-error-issue-sync.mjs';
 import { buildIssueBody as buildPostHogBody } from '../scripts/posthog-error-issue-sync.mjs';
 import { buildIssueBody as buildCwvBody } from '../scripts/cwv-monitor-check.mjs';
+import { buildIssueBody as buildDeploySkewBody, evaluateSkew as evaluateDeploySkew } from '../scripts/lib/deploy-skew-signal.mjs';
 import { buildIssueBody as buildTelegramBody } from '../scripts/monitor-telegram-member-count.mjs';
 import { buildIssueBody as buildCampaignGoalBody } from '../scripts/campaign-goal-check.mjs';
 import { buildIndexationIssueBody, buildStructuredDataIssueBody } from '../scripts/monitor-gsc-job-indexation.mjs';
 import { buildIssueBody as buildSourceLivenessBody } from '../scripts/check-source-liveness.mjs';
+import { buildIssueBody as buildAuthSignupBody } from '../scripts/check-auth-signup-subscribers.mjs';
+import { buildIssueBody as buildEmployerInsightsFreshnessBody, evaluateFreshness as evaluateEmployerInsightsFreshness } from '../scripts/ci/check-employer-insights-freshness.mjs';
+import { aggregate as authSignupAggregate, evaluate as authSignupEvaluate } from '../scripts/lib/authSignupSubscriberMetrics.mjs';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
@@ -76,6 +80,9 @@ const OPENERS: Array<[string, () => string]> = [
     current: { date: '2026-09-07', cls_p75: 0.24 },
     fmt: (v: number) => String(v),
   })],
+  ['deploy-skew', () => buildDeploySkewBody({
+    result: evaluateDeploySkew({ hours: [{ dateHour: '2026092508', events: 82, users: 15 }], currentHour: '2026092509' }),
+  })],
   ['telegram-member-count', () => buildTelegramBody({
     chatId: '@canale', count: 1234, daysUnchanged: 21, reason: 'invariato da 21 giorni',
   })],
@@ -95,11 +102,22 @@ const OPENERS: Array<[string, () => string]> = [
     alive: false, reason: '3 giorni sotto la soglia', floor: 200, windowDays: 7,
     deadDays: [{ date: '2026-09-05', count: 3 }],
   })],
+  ['auth-signup', () => {
+    const agg = authSignupAggregate({
+      subscriberRows: [{ source_channel: 'job_gate' }],
+      accounts: Array.from({ length: 20 }, (_, i) => ({ provider: 'google', docClass: i < 12 ? 'stub' : 'subscribed', hasCreatedAt: false })),
+    });
+    return buildAuthSignupBody(agg, authSignupEvaluate(agg), { hours: 24, since: '2026-09-12T07:25:00Z', until: '2026-09-13T07:25:00Z' });
+  }],
   ['email-quota-pacing', () => buildPacingIssueBody({
     count: 2700, monthlyLimit: 3000, actualRatio: 0.9, expectedRatio: 0.5,
     daysRemaining: 15, cycleStart: new Date(),
     cycleEnd: new Date(Date.now() + 86_400_000),
   })],
+  ['employer-insights-freshness', () => buildEmployerInsightsFreshnessBody(
+    evaluateEmployerInsightsFreshness({ latestUpdatedAt: '2026-09-21T10:55:00.000Z', now: new Date('2026-10-03T10:30:00.000Z') }),
+    { runUrl: 'https://github.com/owner/repo/actions/runs/1' },
+  )],
 ];
 
 /**
@@ -139,7 +157,7 @@ describe('opener dei monitor — il blocco `## Scheda`', () => {
         // Un segnaposto non e' un comando: la scheda `Funnel impact` e' fallita
         // esattamente cosi', tornando prosa dentro un campo strutturato.
         expect(cmd).not.toMatch(/^(TBD|N\/A|—|-)$/i);
-        expect(cmd).toMatch(/^(node|npm|git|jq|gh|bash|source)\b/);
+        expect(cmd).toMatch(/^(node|npm|npx|git|jq|gh|bash|source)\b/);
       });
 
       it('dice cosa si misura, prima e dopo', () => {
@@ -164,6 +182,16 @@ describe('opener senza corpo esportato — controllo statico', () => {
       deadDays: [{ date: '2026-09-05', count: 3 }],
     });
     expect(body).not.toMatch(/node scripts\/check-source-liveness\.mjs --json\n```/);
+  });
+
+  it('le schede CTR usano il runtime TypeScript del workflow del monitor', () => {
+    const monitor = readFileSync(path.join(__dirname, '..', 'scripts', 'monitor-seo-ctr-by-template.mjs'), 'utf8');
+    const workflow = readFileSync(path.join(__dirname, '..', '.github', 'workflows', 'monitor-seo-ctr-by-template.yml'), 'utf8');
+    expect(monitor).toContain(
+      "const DRY_RUN_COMMAND = 'npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs --dry-run';",
+    );
+    expect(monitor.match(/comando: DRY_RUN_COMMAND/g)).toHaveLength(2);
+    expect(workflow).toContain('run: npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs');
   });
 });
 
@@ -192,7 +220,14 @@ describe('buildScheda — l\'invariante e\' eseguibile, non un commento', () => 
  * ogni suo ramo che risponde «si'» senza averlo verificato e' un verde permanente.
  */
 describe('checkUrlClean — nessun verde per assenza di dati', () => {
-  const snap = (ts: string, urls: string[], topN = 50) => ({ ts, topN, topPaths: urls.map((url) => ({ url, count: 1 })) });
+  const snap = (ts: string, urls: string[], topN = 50) => ({
+    ts,
+    topN,
+    topPaths: urls.map((url) => ({ url, count: 1 })),
+    ...(topN === 50
+      ? { errorPaths: urls.map((url) => ({ url, count: 1 })), errorPathsComplete: true }
+      : {}),
+  });
   const NOW = Date.parse('2026-09-07T00:00:00Z');
   const sette = (urlsPerSnap: string[][]) =>
     urlsPerSnap.map((u, i) => snap(`2026-09-0${i + 1}T00:00:00Z`, u));
@@ -216,7 +251,7 @@ describe('checkUrlClean — nessun verde per assenza di dati', () => {
     const h = sette([['a/x.js'], ['a/x.js'], [], [], [], [], []]);
     const r = checkUrlClean(h, 'a/MAI-VISTO.js', { snapshots: 3, now: Date.parse('2026-09-07T12:00:00Z') });
     expect(r.ok).toBe(false);
-    expect(r.reason).toMatch(/mai visto/);
+    expect(r.reason).toMatch(/mai osservato/);
   });
 
   it('serie ferma: fail-closed, non verde', () => {
@@ -242,7 +277,7 @@ describe('checkUrlClean — nessun verde per assenza di dati', () => {
     ];
     const r = checkUrlClean(h, 'a/x.js', { snapshots: 3, now: Date.parse('2026-09-04T12:00:00Z') });
     expect(r.ok).toBe(false);
-    expect(r.reason).toMatch(/mai visto/);
+    expect(r.reason).toMatch(/mai osservato/);
   });
 });
 

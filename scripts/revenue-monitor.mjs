@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Frontaliere Ticino — Weekly Revenue Monitoring
  *
@@ -10,15 +12,17 @@
  * Metrics tracked:
  *   - AdSense:  revenue/day, RPM, desktop RPM, auth-gate impressions
  *   - GSC:      clicks/day, avg position, CTR by page bucket
- *   - PostHog:  CLS p75 (mobile / desktop) from $web_vitals events
+ *   - GA4:      CLS p75 (mobile / desktop) from `web_vitals` events (GA4 only
+ *               since decision H9, 2026-10-05; the payload key stays
+ *               `posthog` and the source tag `ga4-fallback` for continuity
+ *               with data/revenue-monitor-history.jsonl and its readers)
  *
  * Auth (env, loaded via scripts/load-rc-env.mjs):
  *   GSC_CLIENT_ID / GSC_CLIENT_SECRET / GSC_REFRESH_TOKEN     (required for GSC)
  *   ADSENSE_REFRESH_TOKEN                                     (required for AdSense)
  *   ADSENSE_CLIENT_ID / ADSENSE_CLIENT_SECRET                 (optional; defaults to GSC_*)
- *   POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID             (optional; CLS
- *                                                              section; GA4 fallback)
- *   POSTHOG_HOST                                              (optional; defaults to https://eu.posthog.com)
+ *   GOOGLE_APPLICATION_CREDENTIALS / FIREBASE_SERVICE_ACCOUNT_JSON
+ *                                                             (optional; CLS section, GA4 Data API)
  *
  * Usage:
  *   node scripts/revenue-monitor.mjs                 # human table
@@ -44,8 +48,10 @@ import { PRICE_PER_UNIT_CHF } from '../functions/src/publisherPricingMirror.js';
 // Canonical canary-ad gate (scripts/lib/canaryAd.mjs — single source of truth,
 // same helper used by newsletter/blast/job-alert broadcast gates).
 import { isCanaryJob } from './lib/canaryAd.mjs';
+import { fetchManualSlotReport, renderManualSlotReport } from './lib/adsense-manual-slot-report.mjs';
+import { requireCompleteAdsenseReport } from './lib/adsense-report-coverage.mjs';
 import { settledWindow } from './lib/analytics-settled-window.mjs';
-import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
+import { checkGa4Liveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 import {
   fetchGa4WebVitals,
   GA4_READONLY_SCOPE,
@@ -95,7 +101,10 @@ export const BASELINE = {
     },
   },
   posthog: {
-    // CLS p75 baseline from PostHog $web_vitals (14d window 2026-04-06..19)
+    // CLS p75 baseline from PostHog $web_vitals (14d window 2026-04-06..19).
+    // Historical: since H9 the current CLS is GA4 (`source: 'ga4-fallback'`),
+    // compared only against `posthogGa4` from the history; this one is never
+    // paired with a GA4 value (`compareWithSource` refuses a source mismatch).
     clsP75Mobile:  0.51,
     clsP75Desktop: 0.18,
   },
@@ -243,6 +252,7 @@ async function fetchAdSenseReport(token) {
   let authGateImpressions = null;
   if (auRes.ok) {
     const au = await auRes.json();
+    requireCompleteAdsenseReport(au, 'AdSense ad-unit report');
     const gateRow = (au.rows || []).find((r) => {
       const name = r.cells?.[0]?.value?.toLowerCase() || '';
       return name.includes('authgate') || name.includes('auth_gate') || name.includes('jobdetail_auth');
@@ -250,8 +260,16 @@ async function fetchAdSenseReport(token) {
     if (gateRow) authGateImpressions = Number(gateRow.cells?.[3]?.value ?? 0);
   }
 
+  let manualSlotReport;
+  try {
+    manualSlotReport = await fetchManualSlotReport({ token, account, start, end, domain: new URL(SITE_URL).hostname, accountTimeZone: acctData.accounts?.[0]?.timeZone?.id || null });
+  } catch (error) {
+    manualSlotReport = { status: 'unmeasurable', reason: error.message };
+  }
+
   return {
     account,
+    manualSlotReport,
     window: { start, end },
     currencyCode,
     revenue7d: Number(revenue.toFixed(2)),
@@ -373,57 +391,13 @@ export function bucketCtrFromRows(rows, buckets) {
   return result;
 }
 
-// ── PostHog (HogQL via REST API) ────────────────────────────
+// ── CLS from GA4 `web_vitals` ───────────────────────────────
 /**
- * Query PostHog CLS p75 for the last 7 days, split by device type.
- * Returns { clsP75Mobile, clsP75Desktop, window } or null if unauthenticated.
- *
- * HogQL schema: $web_vitals events with properties.$web_vitals_CLS_value
- * (numeric) and properties.$device_type ('Mobile' | 'Desktop' | 'Tablet').
+ * CLS p75 (mobile / desktop) over the settled GA4 window. The function name
+ * and the `source: 'ga4-fallback'` tag are historical (GA4 was the fallback of
+ * a PostHog primary until H9): the tag is the key `loadLatestPosthogBaseline`
+ * pairs baselines on, so renaming it would orphan the existing GA4 baseline.
  */
-export async function fetchPostHogCls({ apiKey, projectId, host = 'https://eu.posthog.com', fetchImpl = fetch } = {}) {
-  if (!apiKey || !projectId) return null;
-  const { start, end } = last7Days();
-  const url = `${host.replace(/\/$/, '')}/api/projects/${projectId}/query/`;
-
-  const runQuery = async (deviceType) => {
-    const hogql = `
-      SELECT quantile(0.75)(toFloat(properties.$web_vitals_CLS_value)) AS cls_p75
-      FROM events
-      WHERE event = '$web_vitals'
-        AND properties.$device_type = '${deviceType}'
-        AND properties.$web_vitals_CLS_value IS NOT NULL
-        AND timestamp >= toDateTime('${start} 00:00:00')
-        AND timestamp <= toDateTime('${end} 23:59:59')
-    `.trim();
-    const res = await fetchImpl(url, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query: { kind: 'HogQLQuery', query: hogql } }),
-    });
-    if (!res.ok) {
-      throw new Error(`posthog ${res.status}: ${await res.text()}`);
-    }
-    const data = await res.json();
-    // results is array-of-rows; each row is array-of-columns
-    const raw = data?.results?.[0]?.[0];
-    if (raw === null || raw === undefined) return null;
-    const n = Number(raw);
-    return Number.isFinite(n) ? Number(n.toFixed(3)) : null;
-  };
-
-  const [mobile, desktop] = await Promise.all([runQuery('Mobile'), runQuery('Desktop')]);
-
-  return {
-    window: { start, end },
-    clsP75Mobile: mobile,
-    clsP75Desktop: desktop,
-  };
-}
-
 export async function fetchGa4ClsFallback({
   windowDays = 7,
   now = new Date(),
@@ -436,7 +410,7 @@ export async function fetchGa4ClsFallback({
   if (!token) return null;
   const { startDate, endDate } = ga4DateRange(Number(windowDays), 2, now);
   const rows = await fetchGa4WebVitals({ token, startDate, endDate, fetchImpl });
-  if (hasSignificantOtherBucket(rows)) return null;
+  if (hasSignificantOtherBucket(rows) || (rows.coverage?.truncated || rows.coverage?.distributionIncomplete)) return null;
   const byDevice = new Map([
     ['mobile', []],
     ['desktop', []],
@@ -454,6 +428,42 @@ export async function fetchGa4ClsFallback({
     clsP75Desktop,
     source: 'ga4-fallback',
   };
+}
+
+/**
+ * The CLS section of a run: GA4 vitality guard first, then the GA4 report.
+ * Returns `{ cls, warnings, errors }`; `cls` is null when not measurable.
+ */
+export async function measureCls({
+  checkLivenessImpl = checkGa4Liveness,
+  ga4ClsImpl = fetchGa4ClsFallback,
+  windowDays = 7,
+  now = new Date(),
+  logImpl = () => {},
+} = {}) {
+  const warnings = [];
+  const errors = [];
+  try {
+    const liveness = await checkLivenessImpl({ windowDays, now });
+    if (!liveness.alive) {
+      declareNotMeasurable('revenue-monitor', liveness);
+      warnings.push(`CLS non misurabile: ${liveness.reason}`);
+      return { cls: null, warnings, errors };
+    }
+    const cls = await ga4ClsImpl({ windowDays, now });
+    if (!cls) {
+      const reason = 'GA4 web_vitals report not usable (no token, significant (other) bucket, or incomplete distribution)';
+      declareNotMeasurable('revenue-monitor', { ...liveness, reason });
+      warnings.push(`CLS non misurabile: ${reason}`);
+      return { cls: null, warnings, errors };
+    }
+    logImpl('📐', 'CLS da GA4 `web_vitals`');
+    return { cls, warnings, errors };
+  } catch (e) {
+    errors.push(`ga4-cls: ${e.message}`);
+    warnings.push(`GA4 CLS query failed: ${e.message}`);
+    return { cls: null, warnings, errors };
+  }
 }
 
 // ── Comparison ──────────────────────────────────────────────
@@ -569,7 +579,7 @@ export function buildComparisonRows(current, baseline = BASELINE) {
     rows.push({ metric: 'CLS p75 mobile', baseline: posthogBaseline?.clsP75Mobile ?? null, baselineDate, current: posthog.clsP75Mobile, ...compareWithSource({ value: posthog.clsP75Mobile, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Mobile, source: posthogBaseline.source }, { higherIsBetter: false }) });
     rows.push({ metric: 'CLS p75 desktop', baseline: posthogBaseline?.clsP75Desktop ?? null, baselineDate, current: posthog.clsP75Desktop, ...compareWithSource({ value: posthog.clsP75Desktop, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Desktop, source: posthogBaseline.source }, { higherIsBetter: false }) });
   } else {
-    rows.push({ metric: 'PostHog CLS', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
+    rows.push({ metric: 'CLS (GA4 web_vitals)', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ unmeasurable' });
   }
 
   // Publisher stream (issue #4448) — no historical baseline yet, so rows are
@@ -683,6 +693,7 @@ export function renderMarkdown(rows, current, baseline = BASELINE) {
   } else {
     lines.push('## All metrics healthy — no regressions flagged.');
   }
+  if (current.adsense?.manualSlotReport) lines.push('', renderManualSlotReport(current.adsense.manualSlotReport));
   if (current.warnings?.length) {
     lines.push('');
     lines.push('## Warnings');
@@ -903,29 +914,13 @@ async function main() {
     log('⚠️', `GSC failed: ${e.message}`);
   }
 
-  // PostHog is primary when its credentials and ingestion are healthy. If
-  // either is missing, the same branch below attempts the GA4 mirror before
-  // declaring CLS non misurabile.
-  try {
-    const apiKey = process.env.POSTHOG_PERSONAL_API_KEY;
-    const projectId = process.env.POSTHOG_PROJECT_ID;
-    const host = process.env.POSTHOG_HOST;
-    const liveness = await checkPostHogLiveness({ windowDays: 7 });
-    if (liveness.alive) {
-      current.posthog = await fetchPostHogCls({ apiKey, projectId, host });
-    } else {
-      current.posthog = await fetchGa4ClsFallback({ windowDays: 7 });
-      if (current.posthog) {
-        log('🔁', 'PostHog non misurabile: CLS preso da GA4 `web_vitals`');
-      } else {
-        declareNotMeasurable('revenue-monitor', liveness);
-        current.warnings.push(`CLS non misurabile: ${liveness.reason}`);
-      }
-    }
-  } catch (e) {
-    current.errors.push(`posthog: ${e.message}`);
-    current.warnings.push(`PostHog CLS query failed: ${e.message}`);
-    log('⚠️', `PostHog failed: ${e.message}`);
+  // CLS: GA4 is the only source (H9). The guard runs inside measureCls().
+  {
+    const { cls, warnings, errors } = await measureCls({ logImpl: log });
+    current.posthog = cls;
+    current.warnings.push(...warnings);
+    current.errors.push(...errors);
+    if (errors.length) log('⚠️', `GA4 CLS failed: ${errors.join('; ')}`);
   }
 
   const ga4Baseline = loadLatestPosthogBaseline(HISTORY_FILE, 'ga4-fallback');
@@ -940,6 +935,7 @@ async function main() {
   } else {
     log('📊', `Revenue monitor — last 7 days vs baseline ${BASELINE.period}`);
     renderTable(rows);
+    if (current.adsense?.manualSlotReport) console.log(renderManualSlotReport(current.adsense.manualSlotReport));
     const regressions = rows.filter((r) => r.verdict.startsWith('🔴') || r.verdict.startsWith('⚠️'));
     if (regressions.length) log('⚠️', `${regressions.length} metric(s) regressed — see verdict column`);
     else log('✅', 'No regressions flagged');
@@ -962,7 +958,7 @@ async function main() {
 }
 
 // Only run main() when invoked directly (not when imported by tests).
-const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((e) => {
     console.error('revenue-monitor failed:', e.message);

@@ -47,6 +47,7 @@ import {
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CORPUS_SCRIPT = path.join(ROOT, 'scripts', 'pull-articles-corpus.mjs');
+const CHUNKER_SCRIPT = path.join(ROOT, 'scripts', 'lib', 'blog-article-registry-chunker.mjs');
 const API_SCRIPT = path.join(ROOT, 'scripts', 'pull-articles-api.mjs');
 const WORKFLOW = path.join(ROOT, '.github', 'workflows', 'sync-articles-sitemaps.yml');
 
@@ -133,19 +134,53 @@ function makeCorpusRemote(
   git('config', 'uploadpack.allowAnySHA1InWant', 'true');
   git('config', 'uploadpack.allowFilter', 'true');
 
-  fs.mkdirSync(path.join(dir, 'content'));
-  fs.writeFileSync(path.join(dir, 'content', 'marker.txt'), 'older\n');
-  for (let i = 0; i < extraFiles; i++) {
-    fs.writeFileSync(path.join(dir, 'content', `pad-${i}.txt`), 'x');
-  }
-  git('add', '-A');
-  git('commit', '--quiet', '-m', 'older');
-  const older = git('rev-parse', 'HEAD');
+  let older: string;
+  let head: string;
+  if (extraFiles > 0) {
+    // The large-floor case needs real Git tree entries, but not 5,000
+    // writeFileSync/add operations just to construct them. Reuse the same blob
+    // (as Git's object store already does for identical contents) and build the
+    // two trees directly; the tested pull still performs the real checkout of
+    // every file.
+    const writeBlob = (contents: string) => execFileSync(
+      'git', ['-C', dir, 'hash-object', '-w', '--stdin'],
+      { encoding: 'utf-8', input: contents },
+    ).trim();
+    const writeTree = (entries: string) => execFileSync(
+      'git', ['-C', dir, 'mktree'],
+      { encoding: 'utf-8', input: entries },
+    ).trim();
+    const createCommit = (tree: string, parent: string | null, message: string) => git(
+      'commit-tree', tree, ...(parent ? ['-p', parent] : []), '-m', message,
+    );
+    const paddingBlob = writeBlob('x');
+    const treeForMarker = (marker: string) => {
+      const markerBlob = writeBlob(marker);
+      const contentEntries = [
+        `100644 blob ${markerBlob}\tmarker.txt`,
+        ...Array.from(
+          { length: extraFiles },
+          (_, i) => `100644 blob ${paddingBlob}\tpad-${i}.txt`,
+        ),
+      ].sort().join('\n') + '\n';
+      const contentTree = writeTree(contentEntries);
+      return writeTree(`040000 tree ${contentTree}\tcontent\n`);
+    };
+    older = createCommit(treeForMarker('older\n'), null, 'older');
+    head = createCommit(treeForMarker('newer\n'), older, 'newer');
+    git('update-ref', 'refs/heads/main', head);
+  } else {
+    fs.mkdirSync(path.join(dir, 'content'));
+    fs.writeFileSync(path.join(dir, 'content', 'marker.txt'), 'older\n');
+    git('add', '-A');
+    git('commit', '--quiet', '-m', 'older');
+    older = git('rev-parse', 'HEAD');
 
-  fs.writeFileSync(path.join(dir, 'content', 'marker.txt'), 'newer\n');
-  git('add', '-A');
-  git('commit', '--quiet', '-m', 'newer');
-  const head = git('rev-parse', 'HEAD');
+    fs.writeFileSync(path.join(dir, 'content', 'marker.txt'), 'newer\n');
+    git('add', '-A');
+    git('commit', '--quiet', '-m', 'newer');
+    head = git('rev-parse', 'HEAD');
+  }
 
   return { url: `file://${dir}`, dir, head, older };
 }
@@ -394,10 +429,53 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
   const byName = (fragment: string) =>
     steps.jobs.sync.steps.find((s) => s.name?.includes(fragment));
 
-  it('does not pull the published surface once the corpus pull has given up', () => {
-    expect(byName('Pull published sitemaps')?.if).toContain(
-      "steps.pull-corpus.outputs.skipped != 'true'",
+  it('bounds every generated article registry after the mirror and snapshot replay', () => {
+    const script = fs.readFileSync(CORPUS_SCRIPT, 'utf-8');
+    const chunker = fs.readFileSync(CHUNKER_SCRIPT, 'utf-8');
+    expect(script).toContain(
+      "ARTICLE_REGISTRY_CHUNK_CONFIGS,\n  chunkArticleRegistry,\n} from './lib/blog-article-registry-chunker.mjs';",
     );
+    expect(script).toContain('ARTICLE_REGISTRY_CHUNK_CONFIGS.map((config) =>');
+    expect(chunker).toContain("declarationName: 'RAW_ARTICLES'");
+    expect(chunker).toContain("declarationName: 'RAW_SWISS_ARTICLES'");
+    const mirrorIndex = script.indexOf('mirrorTree(src, DEST');
+    const chunkIndex = script.indexOf('for (const { file, chunkCount } of splitArticleRegistries())');
+    const publishIndex = script.indexOf("publishPin(TARGET, { tag: 'pull-articles-corpus' });");
+    expect(mirrorIndex).toBeGreaterThanOrEqual(0);
+    expect(chunkIndex).toBeGreaterThan(mirrorIndex);
+    expect(publishIndex).toBeGreaterThan(chunkIndex);
+  });
+
+  it('treats only corpus-generated image-credit files as count-only churn', () => {
+    const script = fs.readFileSync(CORPUS_SCRIPT, 'utf-8');
+    expect(script).toContain('isPreservedTreePath,');
+    const countIndex = script.indexOf('const churnOnlyDestinationFiles = destinationOnlyPaths');
+    const shrinkIndex = script.indexOf('if (comparableDstN > 0 && srcN < comparableDstN)');
+    const mirrorIndex = script.indexOf('mirrorTree(src, DEST');
+    expect(countIndex).toBeGreaterThanOrEqual(0);
+    expect(shrinkIndex).toBeGreaterThan(countIndex);
+    expect(mirrorIndex).toBeGreaterThan(shrinkIndex);
+    // The allowlist itself lives in the tested corpus helper; keeping the
+    // consumer dependent on that helper prevents a broad file-count exemption.
+    expect(fs.readFileSync(
+      path.join(ROOT, 'scripts', 'lib', 'corpus-local-preserve.mjs'),
+      'utf-8',
+    )).toContain("'image-credits/'");
+    expect(script).toContain('preserve: (rel) => isPreservedTreePath(rel, churnOnlyDestinationFiles)');
+  });
+
+  it('runs both pinned pulls through the bounded whole-pair retry wrapper', () => {
+    const surface = byName('Pull the article corpus and published HTTP surface');
+    expect(surface?.id).toBe('pull-article-surface');
+    expect(surface?.run).toBe('node scripts/ci/pull-articles-surface.mjs');
+    const wrapper = fs.readFileSync(path.join(ROOT, 'scripts', 'ci', 'pull-articles-surface.mjs'), 'utf-8');
+    expect(wrapper).toContain("runPull('pull-articles-corpus.mjs'");
+    expect(wrapper).toContain("runPull('pull-articles-api.mjs'");
+    expect(wrapper).toContain("retryableSnapshot: outputs['retryable-snapshot'] === 'true'");
+    expect(wrapper).toContain("reason: outputs['retry-reason'] || outputs['skip-reason']");
+    expect(wrapper).toContain('retryArticleSyncPair');
+    expect(fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'articles-sync-retry.mjs'), 'utf-8'))
+      .toContain('MAX_ARTICLE_SYNC_ATTEMPTS = 3');
   });
 
   it('gates every writing step on the same decision', () => {
@@ -433,14 +511,55 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
     expect(resolve?.run).toContain(title);
   });
 
-  it('replays BOTH pulls when a rebase conflict forces a regenerate', () => {
-    // The helper hard-resets to origin/main first, which discards the corpus
-    // half too. Regenerating only the API half rebuilds the sitemaps against
-    // whatever registry origin/main carries — #5298, reintroduced on the
-    // conflict path.
-    const commit = byName('Commit if changed');
-    expect(commit?.run).toContain(
-      '--regenerate-cmd "node scripts/pull-articles-corpus.mjs && node scripts/pull-articles-api.mjs',
-    );
+  it('never delivers one half of the sync without the other', () => {
+    // #5298: the sitemaps must be built against the registry that travels with
+    // them. The corpus pull and the API pull are two halves of one snapshot;
+    // whichever path publishes them must carry both.
+    //
+    // This used to pin the exact text of a `--regenerate-cmd` flag. #10721
+    // replaced the direct push (and its rebase-and-regenerate retry) with a PR
+    // on a stable branch, the flag disappeared, and the pin went red for a
+    // change that kept the invariant. So the invariant is asserted on the
+    // structure of the step, for either delivery path:
+    const run = byName('Commit if changed')?.run ?? '';
+    expect(run, 'the commit step must exist and run a script').not.toBe('');
+
+    //  - a retry that regenerates after a rebase conflict discards the corpus
+    //    half too (the helper hard-resets to origin/main), so it replays BOTH
+    //    pulls, corpus first;
+    const regenerate = [...run.matchAll(/--regenerate-cmd\s+"([^"]*)"/g)].map((m) => m[1]);
+    for (const cmd of regenerate) {
+      const corpus = cmd.indexOf('scripts/pull-articles-corpus.mjs');
+      const api = cmd.indexOf('scripts/pull-articles-api.mjs');
+      expect(corpus, `regenerate without the corpus pull: ${cmd}`).toBeGreaterThanOrEqual(0);
+      expect(api, `regenerate without the API pull: ${cmd}`).toBeGreaterThan(corpus);
+    }
+
+    //  - a PR delivery publishes the working tree of this run, where both
+    //    pulls already ran, so one publisher call carries both halves.
+    //    Shell comments are not calls: a comment naming the script must not
+    //    count as a second publisher.
+    const publisherCalls = run
+      .split('\n')
+      .filter((line) => !line.trim().startsWith('#') && line.includes('scripts/lib/open-data-refresh-pr.sh'));
+    expect(
+      regenerate.length + publisherCalls.length,
+      'the commit step has no delivery path at all',
+    ).toBeGreaterThan(0);
+    if (publisherCalls.length > 0) {
+      expect(publisherCalls, 'the two halves must not be split across publisher calls').toHaveLength(1);
+      const published = [...run.matchAll(/--path\s+(\S+)/g)].map((m) => m[1]);
+      expect(published).toContain('packages/articles/content');
+      expect(published).toContain('public/sitemap-blog.xml');
+      expect(published).toContain('public/sitemap-blog-ch.xml');
+    }
+
+    // One wrapper runs the corpus and API pulls as a coherent pair before the
+    // commit step; its bounded replay owns both halves together.
+    const names = steps.jobs.sync.steps.map((s) => s.name ?? '');
+    const surfaceStep = names.findIndex((n) => n.includes('Pull the article corpus and published HTTP surface'));
+    const commitStep = names.findIndex((n) => n.includes('Commit if changed'));
+    expect(surfaceStep).toBeGreaterThanOrEqual(0);
+    expect(commitStep).toBeGreaterThan(surfaceStep);
   });
 });

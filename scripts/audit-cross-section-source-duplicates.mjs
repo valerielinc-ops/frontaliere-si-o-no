@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * One-time measurement of cross-section source-URL duplicates already
  * published on the site (follow-up #5849, item 1).
@@ -20,7 +22,7 @@
  * Usage: node scripts/audit-cross-section-source-duplicates.mjs
  */
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+
 import { listCrossSectionDuplicates } from './lib/cross-section-dedup.mjs';
 
 const LEDGERS = {
@@ -76,6 +78,4 @@ function main() {
   }
 }
 
-const invokedPath = process.argv[1] ? process.argv[1] : '';
-const thisPath = fileURLToPath(import.meta.url);
-if (invokedPath === thisPath) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

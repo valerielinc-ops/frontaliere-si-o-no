@@ -5,7 +5,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   resetJobLocalizationPipelineStateForTests,
 } from '../scripts/lib/job-localization-pipeline.mjs';
-import { translateMissingJobLocales } from '../scripts/lib/dedicated-crawler-common.mjs';
+import {
+  enrichJobLocalesDCC,
+  translateMissingJobLocales,
+} from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const ORIGINAL_ENV = { ...process.env };
 
@@ -214,5 +217,116 @@ describe('dedicated crawler localization pipeline integration', () => {
     expect(jobs[0].descriptionByLocale.it).toContain('## Responsabilita');
     expect(jobs[0].descriptionByLocale.de).toContain('## Aufgaben');
     expect(jobs[0].descriptionByLocale.fr).toContain('## Responsabilites');
+  });
+
+  it('uses the authoritative structured description before the flattened source-locale slot', async () => {
+    const job = {
+      source: 'publisher-submitted',
+      sourceLang: 'it',
+      company: 'Example SA',
+      companyKey: 'example',
+      url: 'https://example.test/jobs/demo',
+      title: 'Ruolo di prova',
+      description: '- A\n- B',
+      titleByLocale: {
+        it: 'Ruolo di prova',
+        en: 'Example role',
+        de: 'Beispielrolle',
+        fr: 'Poste exemple',
+      },
+      descriptionByLocale: {
+        it: 'A B',
+        en: 'A B',
+        de: 'A B',
+        fr: 'A B',
+      },
+    };
+
+    const enriched = await enrichJobLocalesDCC(job, { minDescriptionChars: 120 }, {
+      LOCALES: ['it', 'en', 'de', 'fr'],
+      FORCE_LOCALIZE_COMPANY_KEYS: new Set(['example']),
+      normalizeCompanyKey: (value: string) => value.toLowerCase(),
+      normalizeHost: (value: string) => value,
+      hostOf: (value: string) => new URL(value).host,
+    });
+
+    expect(enriched.needsRetranslation).toBe(true);
+  });
+
+  it('keeps the queue marker when SKIP_AI_TRANSLATION has complete titles but source-copied descriptions', async () => {
+    process.env.SKIP_AI_TRANSLATION = '1';
+    const sourceTitle = 'Facharzt Allgemeine Innere Medizin';
+    const sourceDescription = 'Beschreibung der Stelle mit ausreichend langem Inhalt. '.repeat(8);
+    fs.writeFileSync(jobsPath, `${JSON.stringify([{
+      slug: 'job-partial-argos',
+      company: 'Demo SA',
+      location: 'Lugano',
+      title: sourceTitle,
+      description: sourceDescription,
+      sourceLang: 'de',
+      needsRetranslation: true,
+      titleByLocale: {
+        de: sourceTitle,
+        it: 'Medico specialista in medicina interna',
+        en: 'Specialist in general internal medicine',
+        fr: 'Médecin spécialiste en médecine interne générale',
+      },
+      descriptionByLocale: { de: sourceDescription },
+      slugByLocale: { de: 'job-partial-argos' },
+    }], null, 2)}\n`, 'utf-8');
+
+    await translateMissingJobLocales({ dataJobsPath: jobsPath });
+    const [job] = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('keeps the queue marker after a title succeeds while descriptions remain below the floor', async () => {
+    const sourceTitle = 'Facharzt Allgemeine Innere Medizin';
+    const sourceDescription = 'Beschreibung der Stelle mit ausreichend langem Inhalt. '.repeat(8);
+    fs.writeFileSync(jobsPath, `${JSON.stringify([{
+      slug: 'job-partial-title-success',
+      company: 'Demo SA',
+      location: 'Lugano',
+      title: sourceTitle,
+      description: sourceDescription,
+      sourceLang: 'de',
+      needsRetranslation: true,
+      titleByLocale: {
+        de: sourceTitle,
+        it: sourceTitle,
+        en: 'Specialist in general internal medicine',
+        fr: 'Médecin spécialiste en médecine interne générale',
+      },
+      descriptionByLocale: {
+        de: sourceDescription,
+        it: 'Contenuto breve',
+        en: 'Short content',
+        fr: 'Contenu court',
+      },
+      slugByLocale: { de: 'job-partial-title-success' },
+    }], null, 2)}\n`, 'utf-8');
+
+    const fetchMock = vi.fn(async (_url: string, init?: RequestInit) => {
+      const body = JSON.parse(String(init?.body || '{}'));
+      const text = String(body.text || body.q || '');
+      const target = body.targetLang || body.target;
+      return {
+        ok: true,
+        json: async () => ({
+          translatedText: text === sourceTitle
+            ? target === 'it' ? 'Medico specialista in medicina interna' : 'Specialist in general internal medicine'
+            : '',
+        }),
+      };
+    });
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    await translateMissingJobLocales({ dataJobsPath: jobsPath });
+    const [job] = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+
+    expect(job.titleByLocale.it).toBe('Medico specialista in medicina interna');
+    expect(job.descriptionByLocale.en).toBe('Short content');
+    expect(job.needsRetranslation).toBe(true);
   });
 });

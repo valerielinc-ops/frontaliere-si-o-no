@@ -35,6 +35,11 @@ import { deriveSeoStaticFirstPaintReserve } from '@/build-plugins/shared/seoStat
 
 const ROOT = resolve(__dirname, '..', '..');
 const SEO_STATIC_CSS = readFileSync(resolve(ROOT, 'public', 'assets', 'seo-static.css'), 'utf-8');
+const INDEX_CSS = readFileSync(resolve(ROOT, 'index.css'), 'utf-8');
+const CTH_SELECTOR_FILTER = (selector: string): boolean =>
+  selector === '.cth-page' ||
+  selector === '.cth-page .cth-hero' ||
+  selector === '.cth-page .cth-hero .s-e3gkVi';
 
 describe('static SEO first-paint reserve (issue 5001 point 3)', () => {
   it('derives the seo-static.css reserve FROM the sheet, never from a hand-copy', () => {
@@ -100,6 +105,14 @@ describe('static SEO first-paint reserve (issue 5001 point 3)', () => {
       expect(out).toBe('.b{margin:0}');
     });
 
+    it('can project only the requested selectors without leaking sibling rules', () => {
+      const out = deriveSeoStaticFirstPaintReserve(
+        '.cth-page{padding:8px}.other{margin:0}',
+        { selectorFilter: (selector) => selector.includes('.cth-page') },
+      );
+      expect(out).toBe('.cth-page{padding:8px}');
+    });
+
     it('splits border shorthands into width+style and discards the colour', () => {
       // Under-reserving a carded box by its 1px border on each side is a real
       // (if small) shift; carrying `var(--color-edge)` into a first-paint block
@@ -157,6 +170,27 @@ describe('static SEO first-paint reserve (issue 5001 point 3)', () => {
     // it from the reserve WITHOUT also aligning the two stacks, the sitewide
     // font-swap shift comes straight back.
     expect(SEO_STATIC_SHEET_RESERVE_CSS).toMatch(/body\{[^}]*font-family:"Manrope"/);
+  });
+
+  it('reserves the complete CTH layout from index.css before the async app sheet lands', () => {
+    // Static CTH hubs use the same `.cth-page` hooks as the SPA, but index.css
+    // is async on the static shell. Keep the title's complete layout-only
+    // projection in seo-static.css so the existing critical-CSS derivation
+    // reserves its geometry at first paint. Equality makes future edits to
+    // these selectors fail until the static counterpart is updated; paint
+    // declarations stay owned by index.css and cannot leak into critical CSS.
+    const appLayout = deriveSeoStaticFirstPaintReserve(INDEX_CSS, {
+      selectorFilter: CTH_SELECTOR_FILTER,
+    });
+    const staticLayout = deriveSeoStaticFirstPaintReserve(SEO_STATIC_CSS, {
+      selectorFilter: CTH_SELECTOR_FILTER,
+    });
+
+    expect(appLayout.length).toBeGreaterThan(500);
+    expect(staticLayout).toBe(appLayout);
+    expect(SEO_STATIC_SHEET_RESERVE_CSS).toContain(appLayout);
+    expect(appLayout).toContain('.cth-page .cth-hero{position:relative;display:grid');
+    expect(appLayout).toContain('@media (max-width: 800px){.cth-page .cth-hero{');
   });
 
   it('keeps the index.css mirrors inside @layer base, never unlayered', () => {

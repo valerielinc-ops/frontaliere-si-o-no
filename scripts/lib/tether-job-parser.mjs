@@ -7,8 +7,9 @@
  * mirror https://careers.tether.io/api/offers if the legacy host fails.
  * Careers page: https://tether.recruitee.com/planb
  *
- * Tether is registered in Lugano, TI but all positions are remote.
- * We include ALL offers (no Swiss location filtering) per user request.
+ * Tether is registered in Lugano, TI but the Recruitee board also exposes
+ * worldwide offers. The Swiss slice keeps only offers with source-backed Swiss
+ * location evidence; foreign and unresolved offers are quarantined.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllTetherJobs()  — Fetch and parse all jobs
@@ -17,11 +18,18 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang, isLocationExplicitlyForeign, geocodeCountry } from './dedicated-crawler-common.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferAnyCanton, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import {
+  attachRecruiteeCountrySnapshot,
+  findSwissRecruiteeLocation,
+  hasOnlyExplicitlyForeignRecruiteeLocations,
+} from './recruitee-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -215,7 +223,10 @@ export async function fetchAllTetherJobs() {
   const { offers, origin } = await fetchJobListings();
   if (!offers || offers.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return attachRecruiteeCountrySnapshot([], {
+      complete: Boolean(origin),
+      offerCount: 0,
+    });
   }
 
   const detailUrlBase = `${origin || API_ORIGINS[0]}/o`;
@@ -223,44 +234,62 @@ export async function fetchAllTetherJobs() {
   console.log(`  📋 Offers found: ${offers.length}`);
 
   const jobs = [];
+  const acceptedDetailUrls = [];
+  const rejectedDetailUrls = [];
+  const unclassifiedDetailUrls = [];
+  let acceptedOfferCount = 0;
+  let rejectedOfferCount = 0;
+  let unclassifiedOfferCount = 0;
   for (const offer of offers) {
     const title = normalizeSpace(offer.title || '');
-    if (!title || title.length < 3) continue;
+    const slug = normalizeSpace(offer.slug);
+    const sourceDetailUrl = slug ? detailUrlBase + '/' + slug : '';
+    if (!title || title.length < 3) {
+      unclassifiedOfferCount += 1;
+      if (sourceDetailUrl) unclassifiedDetailUrls.push(sourceDetailUrl);
+      continue;
+    }
+
+    if (!Array.isArray(offer.locations)) {
+      unclassifiedOfferCount += 1;
+      if (sourceDetailUrl) unclassifiedDetailUrls.push(sourceDetailUrl);
+      continue;
+    }
 
     // Combine all description sections (description + requirements + education + experience)
     const combinedHtml = combineDescriptionSections(offer);
     const descriptionText = stripHtml(combinedHtml || offer.description || '');
 
-    // Extract location — remote company, default to Lugano HQ
-    const firstLoc = offer.locations?.[0] || {};
-    const rawCity = normalizeSpace(firstLoc.city || '');
-    const city = rawCity || HQ.city;
-    const state = normalizeSpace(firstLoc.state || 'Ticino');
-    const location = `${city}, ${state}`;
-
-    // Location classification: BFS Swiss municipalities → foreign keyword check → Nominatim
-    const inferredCanton = inferAnyCanton(city) || inferAnyCanton(location);
-    let isForeignCity = false;
-    if (!inferredCanton && rawCity) {
-      // City provided but not in any Swiss canton — check if it's foreign
-      isForeignCity = isLocationExplicitlyForeign(city) || isLocationExplicitlyForeign(location);
-      if (!isForeignCity && !isKnownSwissMunicipality(city)) {
-        // Not in BFS data and not in static foreign list — verify via Nominatim
-        const countryCode = await geocodeCountry(city);
-        if (countryCode && countryCode !== 'ch') {
-          isForeignCity = true;
-          console.log(`  🌍 ${city} → ${countryCode.toUpperCase()} (verified via geocoding)`);
-        } else if (!countryCode) {
-          // Nominatim failed — if not in BFS, assume foreign (safe default for remote company)
-          isForeignCity = true;
-          console.log(`  ⚠️ ${city} → unknown country, treating as foreign`);
-        }
-        // Rate limit: 1 req/sec for Nominatim
-        await new Promise((r) => setTimeout(r, 1100));
+    // Extract a source-backed Swiss location. A multi-location offer is kept
+    // when any one of its locations is Swiss; foreign-only/ambiguous offers
+    // remain quarantined instead of inheriting the Lugano HQ.
+    const firstLoc = findSwissRecruiteeLocation(offer.locations);
+    if (!firstLoc) {
+      if (hasOnlyExplicitlyForeignRecruiteeLocations(offer.locations)) {
+        rejectedOfferCount += 1;
+        if (sourceDetailUrl) rejectedDetailUrls.push(sourceDetailUrl);
+      } else {
+        unclassifiedOfferCount += 1;
+        if (sourceDetailUrl) unclassifiedDetailUrls.push(sourceDetailUrl);
       }
+      console.log(`  ⏭️  Skipped non-Swiss or unresolved location: ${title}`);
+      continue;
     }
-    const jobCanton = inferredCanton || (isForeignCity ? '' : HQ.canton);
-    const jobRegion = inferredCanton || (isForeignCity ? state : HQ.addressRegion);
+    acceptedOfferCount += 1;
+    if (sourceDetailUrl) acceptedDetailUrls.push(sourceDetailUrl);
+    const city = normalizeSpace(firstLoc.city);
+    const sourceState = normalizeSpace(firstLoc.state || '');
+    const state = sourceState;
+    const location = state ? `${city}, ${state}` : city;
+
+    // The country gate above is source-backed; infer a canton only from the
+    // selected Swiss location and never use the company HQ as a country proof.
+    const inferredCanton = inferCantonFromJobEvidence({
+      cityText: city,
+      locationText: sourceState ? location : city,
+    });
+    const jobCanton = inferredCanton;
+    const jobRegion = inferredCanton || sourceState;
 
     // Work model — Tether is remote-first
     let workModel = 'remote';
@@ -271,9 +300,7 @@ export async function fetchAllTetherJobs() {
     const employmentType = EMPLOYMENT_TYPE_MAP[offer.employment_type_code] || 'FULL_TIME';
 
     // Date
-    const datePosted = offer.published_at
-      ? String(offer.published_at).slice(0, 10)
-      : new Date().toISOString().slice(0, 10);
+    const postingDates = sourcePostingDateFields(offer.published_at);
 
     // Build detail + apply URLs
     const detailUrl = `${detailUrlBase}/${offer.slug}`;
@@ -283,7 +310,11 @@ export async function fetchAllTetherJobs() {
     const jobSlug = slugify(`${title} tether ch`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
 
-    const fallbackDesc = `${title} — open position at Tether Operations. Tether is a pioneer in digital asset technology, registered in Lugano, Canton Ticino. Remote-first company building products used by millions. Apply through the official Tether careers page.`;
+    // Only the posting's own text (issue 5253): no "<title> — open position at
+    // Tether Operations." line and company summary in place of a short Recruitee body.
+    // A body under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const job = {
       // ── Required fields ──
@@ -295,8 +326,8 @@ export async function fetchAllTetherJobs() {
       companyDomain: TETHER_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton: jobCanton,
       url: detailUrl,
@@ -307,9 +338,9 @@ export async function fetchAllTetherJobs() {
       // ── Recommended fields ──
       addressLocality: city,
       addressRegion: jobRegion,
-      addressCountry: isForeignCity ? '' : 'CH',
-      postalCode: inferredCanton ? HQ.postalCode : '',
-      country: isForeignCity ? '' : 'CH',
+      addressCountry: 'CH',
+      postalCode: normalizeSpace(firstLoc.postal_code || ''),
+      country: 'CH',
       category: detectCategory(title),
       contract: workModel === 'remote' ? 'remote' : 'full-time',
       employmentType,
@@ -318,8 +349,7 @@ export async function fetchAllTetherJobs() {
       sector: 'Fintech / Blockchain',
       currency: 'CHF',
       featured: false,
-      datePosted,
-      postedDate: datePosted,
+      ...postingDates,
       applyUrl,
       department: offer.department || '',
       requirements: [],
@@ -353,5 +383,14 @@ export async function fetchAllTetherJobs() {
   }
 
   console.log(`\n📋 Total Tether Operations jobs discovered: ${unique.length}`);
-  return unique;
+  return attachRecruiteeCountrySnapshot(unique, {
+    complete: Boolean(origin),
+    offerCount: offers.length,
+    acceptedOfferCount,
+    rejectedOfferCount,
+    unclassifiedOfferCount,
+    acceptedDetailUrls,
+    rejectedDetailUrls,
+    unclassifiedDetailUrls,
+  });
 }

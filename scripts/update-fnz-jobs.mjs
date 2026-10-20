@@ -18,6 +18,7 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -35,6 +36,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -45,8 +47,13 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergePreserveLocaleData,
-  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
+import {
+  dropFabricatedLocaleText,
+  dropTranslationsOfFabricatedSource,
+  sourceLocaleDescription,
+} from './lib/source-locale-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -54,6 +61,10 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
 import { resolveFnzSwissLocation } from './lib/fnz-job-parser.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -254,7 +265,10 @@ async function listSwissJobs() {
       const locText = posting.locationsText || '';
       // Multi-location postings ("N Locations") hide individual sites — keep as
       // candidate and let fetchFnzJobs() confirm via the detail page.
-      if (/^\s*\d+\s+location/i.test(locText) || isSwissLocationText(locText)) {
+      // A row named after a Swiss locality outside the commune gazetteer is
+      // kept for its detail, whose structured country decides.
+      if (/^\s*\d+\s+location/i.test(locText) || isSwissLocationText(locText)
+        || isWorkdaySwissPlaceCandidate(locText)) {
         candidates.push(posting);
       }
     }
@@ -338,13 +352,30 @@ function detectEmploymentType(timeType = '') {
   return 'FULL_TIME';
 }
 
-function buildDescription(title, descriptionText, location) {
-  const base = descriptionText || `${title} position at FNZ${location ? ` in ${location}` : ' in Switzerland'}.`;
-  return `${base}\n\nFNZ is a global fintech platform provider that partners with financial institutions, wealth managers, and asset managers. The company operates from multiple locations in Switzerland.`.trim();
+/**
+ * Description fields of one posting: the Workday `jobDescription` text in its
+ * own language. The runner used to append an English paragraph about FNZ to
+ * it and to write an Italian company blurb of its own into
+ * `descriptionByLocale.it` ("Posizione aperta presso FNZ a …"); neither was
+ * published by the source.
+ * Under the shared word floor (50 words) nothing is emitted: the merge keeps
+ * the stored source body, or the job is not published this run.
+ */
+export function buildFnzDescriptionFields(title, descriptionText, location) {
+  // Only the posting's own text over the shared word floor: nothing under it
+  // (the merge keeps the stored source body, or omits the job this run).
+  return sourceLocaleDescription(meetsSourceBodyFloor(descriptionText) ? descriptionText : '');
 }
 
-function buildDescriptionIt(title, location) {
-  return `Posizione aperta presso FNZ${location ? ` a ${location}` : ' in Svizzera'}.\nRuolo: ${title}.\n\nFNZ è un provider globale di piattaforme fintech che collabora con istituzioni finanziarie, gestori patrimoniali e asset manager. L'azienda opera da più sedi in Svizzera.`.trim();
+// Fossils of the removed builders in stored jobs (see source-locale-description.mjs).
+const FNZ_IT_BLURB_RE = /^Posizione aperta presso FNZ\b[\s\S]*provider globale di piattaforme fintech/;
+const FNZ_APPENDED_BLURB_RE = /FNZ is a global fintech platform provider that partners with financial institutions/;
+
+/** Remove the fabricated text of the former builders from a stored job. */
+export function dropFnzFabricatedText(job) {
+  const it = dropFabricatedLocaleText(job, 'it', FNZ_IT_BLURB_RE);
+  const derived = dropTranslationsOfFabricatedSource(job, FNZ_APPENDED_BLURB_RE);
+  return it || derived;
 }
 
 /** Resolve a Workday location list while preserving national fallback data. */
@@ -371,7 +402,7 @@ function buildPublicUrl(externalPath) {
 
 /* ── Fetch and build all FNZ Swiss jobs ────────────────────── */
 
-async function fetchFnzJobs() {
+export async function fetchFnzJobs() {
   console.log(`🔍 Fetching FNZ jobs from Workday API`);
   console.log(`   API: ${FNZ_API_BASE}/jobs`);
   console.log(`   Keeping Swiss locations across all 26 cantons by location text\n`);
@@ -420,7 +451,17 @@ async function fetchFnzJobs() {
       listing.locationsText || '',
     ];
 
-    const resolvedLocation = resolveFnzLocation(locationCandidates);
+    const fnzLocation = resolveFnzLocation(locationCandidates);
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery — official directory or postal code,
+    // only on the req's structured Swiss country — before the req is dropped
+    // or kept with the country-only national fallback.
+    const recovered = !fnzLocation || fnzLocation.nationalFallback
+      ? recoverWorkdayPrimarySwissPlace(info)
+      : null;
+    const resolvedLocation = recovered
+      ? { raw: info.location || '', city: recovered.location, canton: recovered.canton }
+      : fnzLocation;
     if (!resolvedLocation) {
       console.log(`  ⏭️  Skipped — Swiss location unresolved; no concrete city/address/CAP signal (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
       continue;
@@ -446,8 +487,7 @@ async function fetchFnzJobs() {
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = buildPublicUrl(externalPath);
 
-    const descEn = buildDescription(title, descriptionText, location);
-    const descIt = buildDescriptionIt(title, location);
+    const { description, descriptionByLocale, sourceLang } = buildFnzDescriptionFields(title, descriptionText, location);
 
     const slug = slugify(title, 'fnz');
     const employmentType = detectEmploymentType(info.timeType || '');
@@ -465,23 +505,15 @@ async function fetchFnzJobs() {
       addressCountry: 'CH',
       canton,
       country: 'CH',
-      description: descEn,
-      descriptionByLocale: {
-        en: descEn,
-        it: descIt,
-      },
-      titleByLocale: {
-        en: title,
-      },
+      description,
+      descriptionByLocale,
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
-      slugByLocale: {
-        en: slug,
-        it: slugify(title, 'fnz'),
-      },
       category: detectCategory(title),
-      datePosted: info.startDate || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(info.startDate),
       source: 'fnz-workday-crawler',
-      sourceLang: detectLang(descEn || title, 'en'),
+      sourceLang,
       employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Fintech / Servizi finanziari',
@@ -520,6 +552,15 @@ async function mergeFnzJobs(discoveredJobs) {
 
   const nonFnzJobs = allJobs.filter((j) => !isFnzJob(j));
   const existingFnzJobs = allJobs.filter(isFnzJob);
+  const fossils = existingFnzJobs.filter((job) => dropFnzFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped fabricated FNZ text from ${fossils} stored job(s); they will be retranslated`);
+  // Under the shared word floor the builder emits no body: keep the stored
+  // source body (fossils already dropped above), or omit the job this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingFnzJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(
     existingFnzJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
@@ -543,6 +584,9 @@ async function mergeFnzJobs(discoveredJobs) {
     country: 'CH',
     source: 'fnz-workday-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonFnzJobs, ...merged];
 
@@ -678,6 +722,20 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: FNZ_KEY,
+    companyLabel: FNZ_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(FNZ_KEY, jobs, {
+      isTargetJob: isFnzJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 
 async function main() {
@@ -698,7 +756,10 @@ async function main() {
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No FNZ jobs discovered.');
     console.log('   The Workday API may be unreachable or have no Swiss openings.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(FNZ_KEY, DATA_JOBS).filter(isFnzJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
@@ -733,7 +794,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isFnzJob) : [];
-  writeJobsCrawlerSlice(FNZ_KEY, _sliceJobs);
+  writeJobsCrawlerSlice(FNZ_KEY, _sliceJobs, { observedJobs: discoveredJobs });
   writeSummaryCrawlerSlice({
     key: FNZ_KEY,
     label: 'FNZ',

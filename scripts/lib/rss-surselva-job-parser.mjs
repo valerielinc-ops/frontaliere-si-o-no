@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Regionalspital Surselva (RSS) job parser — Ostendis JobPublisher API.
  *
@@ -31,8 +33,9 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -207,7 +210,11 @@ async function fetchDetailPage(detailUrl) {
     const res = await fetch(detailUrl, {
       signal: controller.signal,
       headers: {
-        Accept: 'text/html,application/xhtml+xml',
+        // link.ostendis.com answers 406 to a bare `text/html,application/xhtml+xml`
+        // (measured 2026-09-29: 18/18 detail pages refused, every job fell back
+        // to the metadata boilerplate). The browser-style list with a `*/*`
+        // fallback is accepted.
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'User-Agent': USER_AGENT,
         'Accept-Language': 'de-CH,de;q=0.9',
       },
@@ -220,6 +227,28 @@ async function fetchDetailPage(detailUrl) {
 }
 
 /**
+ * Ostendis publications end with the "Jetzt (online) bewerben" button followed
+ * by the employer's postal/phone footer ("Regionalspital Surselva AG -
+ * Personaldienst - Spitalstrasse 6 - 7130 Ilanz - +41 81 926 59 22"). Cut the
+ * text at the LAST line that is exactly that button label, and only when what
+ * follows is footer-sized — an apply sentence inside the body ("… oder direkt
+ * über "Jetzt bewerben"") is never a line of its own and stays.
+ */
+const OSTENDIS_APPLY_BUTTON_LINE_RE = /^Jetzt (?:online )?bewerben$/i;
+const OSTENDIS_FOOTER_MAX_CHARS = 240;
+
+export function stripOstendisApplyFooter(text = '') {
+  const lines = String(text || '').split('\n');
+  for (let i = lines.length - 1; i >= 0; i -= 1) {
+    if (!OSTENDIS_APPLY_BUTTON_LINE_RE.test(lines[i].trim())) continue;
+    const tail = lines.slice(i + 1).join(' ').trim();
+    if (tail.length > OSTENDIS_FOOTER_MAX_CHARS) break;
+    return lines.slice(0, i).join('\n').trim();
+  }
+  return String(text || '').trim();
+}
+
+/**
  * Extract JSON-LD JobPosting data from a detail page HTML string.
  * Returns { description, datePosted, employmentType, streetAddress,
  *           addressLocality, postalCode, addressRegion }.
@@ -227,7 +256,7 @@ async function fetchDetailPage(detailUrl) {
 export function parseDetailPageJsonLd(html = '') {
   const result = {
     description: '',
-    datePosted: '',
+    ...sourcePostingDateFields(''),
     employmentType: '',
     streetAddress: '',
     addressLocality: '',
@@ -235,23 +264,21 @@ export function parseDetailPageJsonLd(html = '') {
     addressRegion: '',
   };
 
-  // Extract JSON-LD block
-  const jsonLdMatch = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (!jsonLdMatch) return result;
-
   try {
-    const data = JSON.parse(jsonLdMatch[1]);
-    if (data['@type'] !== 'JobPosting') return result;
+    const data = extractJobPostingLd(html);
+    if (!data) return result;
 
-    // Extract description (HTML → plain text)
+    // Extract description (HTML → plain text). Line structure is kept so the
+    // `<li>` bullets survive (`normalizeSpace` used to flatten 18/18 rows into
+    // prose); the Ostendis template's trailing apply button + postal footer is
+    // page chrome, not part of the vacancy.
     if (data.description) {
-      result.description = normalizeSpace(stripHtml(data.description));
+      result.description = stripOstendisApplyFooter(
+        normalizeDescriptionSpace(stripHtml(data.description)),
+      );
     }
 
-    // datePosted
-    if (data.datePosted) {
-      result.datePosted = data.datePosted;
-    }
+    Object.assign(result, sourcePostingDateFields(data.datePosted));
 
     // employmentType (can be array or string)
     if (data.employmentType) {
@@ -306,17 +333,13 @@ export function parseOstendisJob(entry, detailData = {}) {
   const idSource = entry.id ? String(entry.id) : publicUrl;
   const urlHash = createHash('sha1').update(idSource).digest('hex').slice(0, 12);
 
-  // Build description: prefer detail page JSON-LD, fall back to title-based + company boilerplate
-  let descriptionText = detailData.description || '';
-  if (!descriptionText || descriptionText.length < 150) {
-    // Detail page description too short or missing — build from metadata + company boilerplate.
-    // The boilerplate must be rich enough that AI translations into IT/EN/FR stay above 150 chars.
-    const parts = [`${title} — Regionalspital Surselva (RSS)`];
-    if (entry.department) parts.push(`Abteilung: ${entry.department}`);
-    parts.push(`Arbeitsort: ${location} (${canton})`);
-    parts.push('Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22\'000 Einwohner und saisonal 20\'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten');
-    descriptionText = parts.join('. ');
-  }
+  // Only the posting's own text is published (issue 5253): a detail page
+  // without a body used to be replaced by a stub of metadata plus a hospital
+  // summary ("{title} — Regionalspital Surselva (RSS). Abteilung: … Die
+  // Regionalspital Surselva AG ist …"); no job is built from it any more, nor
+  // from a body under the shared 50-word floor (source-body-floor.mjs).
+  const descriptionText = detailData.description || '';
+  if (!meetsSourceBodyFloor(descriptionText)) return null;
 
   // Employment type: detail page → title-based inference
   let employmentType = detailData.employmentType || inferEmploymentType(title);
@@ -342,7 +365,7 @@ export function parseOstendisJob(entry, detailData = {}) {
 
   const postalCode = entry.zip || detailData.postalCode || '7130';
   const streetAddress = detailData.streetAddress || 'Spitalstrasse 6';
-  const datePosted = detailData.datePosted || new Date().toISOString().split('T')[0];
+  const publication = mergeSourcePostingDates({}, detailData);
 
   return {
     // ── Required fields ──
@@ -376,7 +399,7 @@ export function parseOstendisJob(entry, detailData = {}) {
     sector: 'Sanità / Assistenza',
     currency: 'CHF',
     featured: false,
-    postedDate: datePosted,
+    ...publication,
     applyUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
@@ -435,7 +458,10 @@ export async function fetchAllRssSurselvaJobs() {
     }
 
     const job = parseOstendisJob(entry, detailData);
-    if (!job) continue;
+    if (!job) {
+      console.log(`  ⏭️ Not published (no title or no vacancy text on the detail page): ${title || '(no title)'}`);
+      continue;
+    }
 
     jobs.push(job);
     console.log(`  ✅ ${title.substring(0, 60)} — ${job.location} (${job.employmentType})`);

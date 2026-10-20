@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Klinik Aadorf job parser — Dualoo ATS (portal 3ibnwlo9).
  *
@@ -15,7 +17,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, classAttrRx } from './crawler-template.mjs';
+import { slugify } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -24,6 +26,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { fetchDualooDetail } from './dualoo-detail.mjs';
 
 export const KLINIK_AADORF_KEY = 'klinik-aadorf';
 export const KLINIK_AADORF_COMPANY_NAME = 'Klinik Aadorf';
@@ -119,34 +122,6 @@ export function parseDualooPortal(html) {
   return out;
 }
 
-async function fetchDualooDetail(detailUrl) {
-  try {
-    const html = await fetchHtml(detailUrl);
-    const sections = [];
-    const grab = (cls, label) => {
-      const rx = new RegExp(`${classAttrRx(cls)}[^>]*>([\\s\\S]*?)</div>`, 'i');
-      const mm = html.match(rx);
-      if (!mm) return;
-      const text = mm[1]
-        .replace(/<li[^>]*>/gi, '\n• ')
-        .replace(/<\/li>/gi, '')
-        .replace(/<br\s*\/?>/gi, '\n')
-        .replace(/<[^>]+>/g, ' ')
-        .replace(/&nbsp;/gi, ' ')
-        .replace(/\s+\n/g, '\n')
-        .replace(/\s{2,}/g, ' ')
-        .trim();
-      if (text) sections.push(`${label}\n${text}`);
-    };
-    grab('advertisementResponsibilitiesText', 'Aufgaben:');
-    grab('advertisementRequirementsText', 'Anforderungen:');
-    grab('advertisementBenefitsText', 'Wir bieten:');
-    return sections.join('\n\n');
-  } catch {
-    return '';
-  }
-}
-
 export async function fetchAllKlinikAadorfJobs() {
   console.log(`🏥 Fetching ${KLINIK_AADORF_COMPANY_NAME} jobs`);
   console.log(`   Portal: ${PORTAL_URL}\n`);
@@ -156,13 +131,17 @@ export async function fetchAllKlinikAadorfJobs() {
   if (!items.length) return [];
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (let i = 0; i < items.length; i += 1) {
     const it = items[i];
     if (i > 0) await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
-    const detailContent = await fetchDualooDetail(it.url);
+    let publication = sourcePostingDateFields('');
+    const detailContent = await fetchDualooDetail(it.url, { fetchPage: async (url) => {
+      const detailHtml = await fetchHtml(url);
+      publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
+      return detailHtml;
+    } });
     if (detailContent) detailHits += 1;
 
     const description = [
@@ -217,7 +196,7 @@ export async function fetchAllKlinikAadorfJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

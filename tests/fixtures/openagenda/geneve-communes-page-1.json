@@ -1,0 +1,230 @@
+{
+  "total": 5,
+  "sort": [
+    "timingsWithFeatured.asc"
+  ],
+  "events": [
+    {
+      "uid": 70000001,
+      "slug": "exposition-de-printemps",
+      "state": 2,
+      "status": 1,
+      "attendanceMode": 1,
+      "title": {
+        "fr": "Exposition de printemps",
+        "en": "Spring exhibition"
+      },
+      "description": {
+        "fr": "Photographies et gravures d'un collectif local.",
+        "en": "Photographs and prints by a local collective."
+      },
+      "longDescription": {
+        "fr": "Texte long en **markdown**."
+      },
+      "conditions": {
+        "fr": "Entrée libre"
+      },
+      "gratuit": true,
+      "keywords": {
+        "fr": [
+          "exposition"
+        ]
+      },
+      "type-devenement": {
+        "id": 41,
+        "label": {
+          "fr": "Exposition"
+        }
+      },
+      "timezone": "Europe/Zurich",
+      "timings": [
+        {
+          "begin": "2026-11-12T10:00:00+01:00",
+          "end": "2026-11-12T17:00:00+01:00"
+        },
+        {
+          "begin": "2026-11-05T18:00:00+01:00",
+          "end": "2026-11-05T21:00:00+01:00"
+        },
+        {
+          "begin": "2026-11-20T10:00:00+01:00",
+          "end": "2026-11-20T17:00:00+01:00"
+        }
+      ],
+      "location": {
+        "uid": 90000001,
+        "name": "Galerie Exemple",
+        "address": "Rue de l'Exemple 1, 1227 Carouge",
+        "postalCode": "1227",
+        "city": "Carouge",
+        "adminLevel4": "Carouge",
+        "countryCode": "CH",
+        "latitude": 46.1836,
+        "longitude": 6.1393,
+        "timezone": "Europe/Zurich",
+        "email": "contact@example.org",
+        "phone": "+41 00 000 00 00",
+        "website": "https://example.org/lieu",
+        "agendaUid": 52853891
+      },
+      "image": {
+        "filename": "a1b2c3d4.base.image.jpg",
+        "size": {
+          "width": 700,
+          "height": 467
+        },
+        "variants": [
+          {
+            "filename": "a1b2c3d4.full.image.jpg",
+            "size": {
+              "width": 1400,
+              "height": 934
+            },
+            "type": "full"
+          },
+          {
+            "filename": "a1b2c3d4.thumb.image.jpg",
+            "size": {
+              "width": 200,
+              "height": 200
+            },
+            "type": "thumbnail"
+          }
+        ],
+        "base": "https://img.openagenda.com/main/"
+      },
+      "imageCredits": "Commune de Carouge",
+      "organisator": "Galerie Exemple",
+      "organisator_url": "https://example.org/galerie",
+      "registration": [
+        {
+          "type": "email",
+          "value": "inscription@example.org"
+        },
+        {
+          "type": "phone",
+          "value": "+41 00 000 00 01"
+        }
+      ],
+      "updatedAt": "2026-10-01T08:30:00.000Z",
+      "createdAt": "2026-09-01T08:30:00.000Z",
+      "sourceAgendas": [
+        {
+          "uid": 55000001,
+          "title": "Commune exemple",
+          "slug": "commune-exemple"
+        }
+      ],
+      "originAgenda": {
+        "uid": 55000001,
+        "title": "Commune exemple"
+      }
+    },
+    {
+      "uid": 70000002,
+      "slug": "concert-du-soir",
+      "state": 2,
+      "status": 1,
+      "attendanceMode": 1,
+      "title": {
+        "fr": "Concert du soir"
+      },
+      "description": {
+        "fr": "Un concert de musique de chambre."
+      },
+      "conditions": {
+        "fr": "Plein tarif 25 CHF, réduit 15 CHF"
+      },
+      "gratuit": false,
+      "type-devenement": {
+        "id": 34,
+        "label": {
+          "fr": "Concert"
+        }
+      },
+      "timezone": "Europe/Zurich",
+      "timings": [
+        {
+          "begin": "2026-10-23T22:30:00+02:00",
+          "end": "2026-10-24T00:30:00+02:00"
+        }
+      ],
+      "location": {
+        "uid": 90000001,
+        "name": "Salle communale",
+        "address": "Place du Marché 2",
+        "postalCode": "1204",
+        "city": "Genève",
+        "adminLevel4": "Genève",
+        "countryCode": "CH",
+        "latitude": 46.2017,
+        "longitude": 6.1466,
+        "timezone": "Europe/Zurich",
+        "email": "contact@example.org",
+        "phone": "+41 00 000 00 00",
+        "website": "https://example.org/lieu",
+        "agendaUid": 52853891
+      },
+      "image": {
+        "filename": "e5f6a7b8.base.image.jpg",
+        "size": {
+          "width": 700,
+          "height": 467
+        },
+        "variants": [
+          {
+            "filename": "e5f6a7b8.full.image.jpg",
+            "size": {
+              "width": 1400,
+              "height": 934
+            },
+            "type": "full"
+          },
+          {
+            "filename": "e5f6a7b8.thumb.image.jpg",
+            "size": {
+              "width": 200,
+              "height": 200
+            },
+            "type": "thumbnail"
+          }
+        ],
+        "base": "https://img.openagenda.com/main/"
+      },
+      "imageCredits": "DR",
+      "updatedAt": "2026-09-28T12:00:00.000Z",
+      "sourceAgendas": [
+        {
+          "uid": 55000001,
+          "title": "Commune exemple",
+          "slug": "commune-exemple"
+        }
+      ]
+    },
+    {
+      "uid": 70000003,
+      "slug": "webinaire",
+      "state": 2,
+      "status": 1,
+      "attendanceMode": 2,
+      "title": {
+        "fr": "Webinaire en ligne"
+      },
+      "timezone": "Europe/Zurich",
+      "timings": [
+        {
+          "begin": "2026-10-20T12:00:00+02:00",
+          "end": "2026-10-20T13:00:00+02:00"
+        }
+      ],
+      "onlineAccessLink": "https://example.org/webinaire",
+      "updatedAt": "2026-09-28T12:00:00.000Z"
+    }
+  ],
+  "after": [
+    "0",
+    "000001792000000",
+    "1792000000000",
+    "70000003"
+  ]
+}

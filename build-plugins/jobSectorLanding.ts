@@ -1,3 +1,4 @@
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Sector-based job hub definitions for high-intent GSC verticals.
  *
@@ -12,10 +13,8 @@
  *   /de/jobs-im-tessin/pflegepersonal/
  *   /fr/trouver-emploi-tessin/infirmiers/
  *
- * The three sectors map to the highest-opportunity GSC clusters (Apr 2026):
- *   - Infermieri  (nurses)
- *   - Case anziani (elderly care homes)
- *   - Educatori   (educators / socio-pedagogical)
+ * The curated taxonomy spans healthcare, technology, finance, trades,
+ * logistics, education and other job families.
  */
 
 import type { JobBoardLocale } from './jobBoardSeoPure';
@@ -46,6 +45,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ingegneri: 'Ingegneri',
     autisti: 'Autisti',
     sviluppatori: 'Sviluppatori Software',
+    informatica: 'Informatica',
     ristorazione: 'Ristorazione',
     oss: 'Operatori Socio-Sanitari',
     logistica: 'Logistica',
@@ -97,6 +97,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ingegneri: 'Engineers',
     autisti: 'Drivers',
     sviluppatori: 'Software Developers',
+    informatica: 'IT',
     ristorazione: 'Restaurants',
     oss: 'Healthcare Assistants',
     logistica: 'Logistics',
@@ -148,6 +149,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ingegneri: 'Ingenieure',
     autisti: 'Fahrer',
     sviluppatori: 'Softwareentwickler',
+    informatica: 'Informatik',
     ristorazione: 'Gastronomie',
     oss: 'Pflegeassistenten',
     logistica: 'Logistik',
@@ -199,6 +201,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ingegneri: 'Ingénieurs',
     autisti: 'Chauffeurs',
     sviluppatori: 'Développeurs Logiciel',
+    informatica: 'Informatique',
     ristorazione: 'Restauration',
     oss: 'Aides-Soignants',
     logistica: 'Logistique',
@@ -306,6 +309,7 @@ export interface SectorCountableJob {
   title?: string;
   description?: string;
   category?: string;
+  sector?: string;
   tags?: readonly string[] | string;
   location?: string;
   addressLocality?: string;
@@ -315,6 +319,7 @@ export interface SectorCountableJob {
   descriptionByLocale?: Partial<Record<JobBoardLocale, string>>;
   titleByLocale?: Partial<Record<JobBoardLocale, string>>;
   company?: string;
+  postingDateSource?: string;
   datePosted?: string;
   postedDate?: string;
   slug?: string;
@@ -407,6 +412,21 @@ const INTRA_FIELD_SEP = '(?:[^\\S\\n]|[-–—/_.]){1,3}';
  */
 const CYBER_QUALIFIER_SRC = '(?:\\binformation|\\bit\\b|\\bcloud|\\bnetwork|\\bcyber)';
 
+/**
+ * Qualifiers that turn a security-system phrase into cyber or occupational
+ * safety terminology. The same veto is applied to every language-specific
+ * physical-systems alternative below: otherwise a new qualifier can turn
+ * only one locale into a duplicate landing.
+ */
+const SECURITY_SYSTEM_PREFIX_VETO_SRC =
+  `(?:${CYBER_QUALIFIER_SRC}|\\binformations?|\\barbeit(?:s)?)`;
+const SECURITY_SYSTEM_SUFFIX_VETO_SRC =
+  `(?:${CYBER_QUALIFIER_SRC}|informat\\w*`
+  + `|(?:sul|sulla|del)${INTRA_FIELD_SEP}lavoro`
+  + `|(?:au|du)${INTRA_FIELD_SEP}travail`
+  + `|arbeit\\w*`
+  + `|(?:am|zur|f[uü]r)${INTRA_FIELD_SEP}arbeit\\w*)`;
+
 export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   infermieri: /infermier|infermiere|pfleger|pflegepersonal|pflegefach|krankenpfleg|krankensch|nurse|nursing|infirmier|infirmi[eè]re/i,
   // NOTE: do NOT add 3-letter abbreviations like \bris\b or \blis\b here —
@@ -429,6 +449,10 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /\bautist[aie]\b|\bautotrasport|\bcamionist|\bdriver\b|\btrucker\b|\bchauffeur\b|\bfahrer\b|\bberufsfahrer\b|\bconducteur[ -]?routier\b|\bcdl[ -]driver\b|\bdelivery[ -]driver\b|\blkw[- ]?fahrer\b|\bbus[- ]?fahrer\b/i,
   sviluppatori:
     /sviluppator|sviluppatore|programmator|programmatore|developer|software[ -]engineer|full[ -]?stack|front[ -]?end|back[ -]?end|devops|softwareentwickl|d[eé]veloppeur|programmeur/i,
+  // Require role context for IT acronyms because some sources label unrelated
+  // postings with the bare category "it".
+  informatica:
+    /\binformatic|\binformatik|\binformatique|\b(?:IT|ICT|TIC)[ /-]+(?:support|business|card|category|project|service|system|administrator|admin|analyst|engineer|architect|manager|specialist|operations|operation|infrastructure|network|security|software|data|application|database|cloud)\b|software|developer|programmat|devops|full[ -]?stack|front[ -]?end|back[ -]?end|database|cloud|network[ -](?:engineer|ingegnere|administrator|admin|architect|architetto|specialist)|cybersecurity|cyber[ -]security|information[ -]security|data[ -](?:engineer|scientist|analyst|platform)|system[ -](?:engineer|ingegnere|administrator|admin)|business[ -](?:system|analyst)|enterprise[ -]application|\bsap\b|\berp\b/i,
   ristorazione:
     /ristora|ristoratore|ristorant|cuoc[ho]|cameri[eè]r|chef|sous[ -]chef|gastronom|hospitality|food[ -]service|restaurant|kellner|koch|k[oö]chin|service[ -]de[ -]table|cuisinier|serveur|waiter|waitress|bistro|pizzeri/i,
   // The `operatore[ -]socio[ -]sanitar` literals required a single space (or
@@ -481,7 +505,7 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   banca: /\bbanca\b|\bbancar|\bbank\b|\bbanking\b|finanz|wealth[ -]management|asset[ -]management|private[ -]bank|gestione[ -]patrimonial|\btrader\b|relationship[ -]manager/i,
   assicurazioni: /assicurazion|assicurativ|versicherung|\binsurance\b|assurance|underwrit|\baktuar|\bactuary\b|\bbroker[ -]assicurativ/i,
   consulenza: /\bconsulen|\bconsultant\b|\bberatung\b|\bberater\b|\bconsulting\b|\bconseil\b|advisory|wirtschaftspr[uü]f/i,
-  avvocati: /\bavvocat|\blegale\b|\bgiurist|\blawyer\b|\battorney\b|\brechtsanwalt|\bjurist|\bavocat\b|\bnotaio\b|\bnotar\b|paralegal|legal[ -]counsel/i,
+  avvocati: /\bavvocat|\blegale\b|\blegal\b|\bgiurist|\blawyer\b|\battorney\b|\brechtsanwalt|\bjurist|\bavocat\b|\bnotaio\b|\bnotar\b|paralegal/i,
   'risorse-umane': /risorse[ -]umane|\bhr[ -]|\bhuman[ -]resources|personalwesen|personalberat|recruit|talent[ -]acquisition|ressources[ -]humaines|\brh\b/i,
   marketing: /\bmarketing\b|digital[ -]marketing|brand[ -]manager|seo[ -]|content[ -]manager|social[ -]media[ -]manager|growth[ -]/i,
   vendite: /\bvendit|\bsales\b|\bverkauf|\bventeur|\bventes\b|account[ -]executive|business[ -]development|commercial[ -]agent|key[ -]account|addetto[ -]vendit|verk[aä]ufer/i,
@@ -513,7 +537,7 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /\bcameri[eè]r|\bkellner|\bwaiter\b|\bwaitress\b|\bserveur|\bserveuse|\bservice[ -]de[ -]table|\bbarista\b|\bbarman\b|\bbartender\b|\b(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione/i,
   hotel: /\bhotel\b|\balbergh|\bhotelfach|\bhospitality\b|\breceptionist|\brezeption|\bconcierge\b|\bgouvernante\b|\bh[oô]tellerie|\bgovernante\b/i,
   pulizie: /\bpulizi|\breinigung|\bcleaning\b|\bnettoyage\b|\bputzfrau|\braumpfleg|\baddetto[ -]alle[ -]pulizie|\bagent[ -]d.entretien|\bfacility[ -]cleaning/i,
-  // Sicurezza FISICA. Il lookbehind tiene fuori `Information/IT/Cloud/Network/
+  // Sicurezza FISICA e sistemi di sicurezza. Il lookbehind tiene fuori `Information/IT/Cloud/Network/
   // Cyber Security Officer`, che non e' un guardiano ma un ruolo cyber: senza,
   // l'allargamento del lessico `cybersecurity` sopra lo farebbe comparire su
   // ENTRAMBE le landing. Il separatore del lookbehind e' `INTRA_FIELD_SEP`: un
@@ -535,6 +559,21 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     + '|\\bsicherheitsdienst|\\bwachmann|\\bvigilanz'
     + '|\\bguardia' + SEC_SEP + 'giurat'
     + '|\\bagent' + SEC_SEP + 'de' + SEC_SEP + 's[eé]curit'
+    // The TI corpus also contains project and technician roles for physical
+    // security systems (access control, video surveillance and intrusion
+    // alarms). They are physical-security jobs even when the title has no
+    // guard/officer noun (#9938); keep the phrases explicit so generic
+    // occupational-safety and cyber titles remain out of this hub.
+    + `|(?<!${SECURITY_SYSTEM_PREFIX_VETO_SRC}${INTRA_FIELD_SEP})`
+      + '\\bsistem[ai]' + INTRA_FIELD_SEP + 'di' + INTRA_FIELD_SEP + 'sicurezza'
+      + `(?!${INTRA_FIELD_SEP}${SECURITY_SYSTEM_SUFFIX_VETO_SRC})`
+    + `|(?<!${SECURITY_SYSTEM_PREFIX_VETO_SRC}${INTRA_FIELD_SEP})`
+      + '\\bsicherheits(?:systeme?|technik)\\b'
+      + `(?!${INTRA_FIELD_SEP}${SECURITY_SYSTEM_SUFFIX_VETO_SRC})`
+    + `|(?<!${SECURITY_SYSTEM_PREFIX_VETO_SRC}${INTRA_FIELD_SEP})`
+      + '\\bsyst[eè]mes?' + INTRA_FIELD_SEP + 'de' + INTRA_FIELD_SEP + 's[eé]curit[eé]'
+      + `(?!${INTRA_FIELD_SEP}${SECURITY_SYSTEM_SUFFIX_VETO_SRC})`
+    + '|\\bphysical' + INTRA_FIELD_SEP + 'security'
     + '|\\bsorvegli',
     'i',
   ),
@@ -560,7 +599,11 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     `(?<!${ARCHITECT_TECH_QUALIFIER_SRC}\\w*${INTRA_FIELD_SEP})`
     + '\\b(?:architet|architect\\b|architekt|architecte\\b)'
     + `(?!\\w*${INTRA_FIELD_SEP}${ARCHITECT_TECH_QUALIFIER_SRC})`
-    + '|\\bbauzeichner|\\bdisegnatore[ -]edil|\\bdessinateur',
+    // The Italian civil-engineering drafter is the same building-design role
+    // already covered by the German `Bauzeichner` and French `Dessinateur en
+    // génie civil` aliases. Keep generic/electrical technical drafters out.
+    + '|\\bbauzeichner|\\bdisegnatore[ -]edil'
+    + '|\\bdisegnatore[ -]di[ -]ingegneria[ -]civile|\\bdessinateur',
     'i',
   ),
   agricoltura: /\bagricol|\blandwirt|\bagriculture\b|\bagriculteur|\bcontadin|\bgartenbau|\bgiardinier|\bgärtner|\bvivaist|\bviticol/i,
@@ -582,7 +625,7 @@ function wordCount(s: string | undefined | null): number {
   return String(s).trim().split(/\s+/).filter(Boolean).length;
 }
 
-function jobIsActive(job: SectorCountableJob, locale: JobBoardLocale): boolean {
+export function isSectorHubJobActive(job: SectorCountableJob, locale: JobBoardLocale): boolean {
   if (!job || typeof job !== 'object') return false;
   if (job.expired) return false;
   const nr = job.needsRetranslation;
@@ -614,6 +657,7 @@ const SECTOR_DESCRIPTION_SCOPE: Record<SectorHubKey, boolean> = {
   ingegneri: false,
   autisti: false,
   sviluppatori: false,
+  informatica: false,
   ristorazione: false,
   oss: false,
   logistica: false,
@@ -660,7 +704,17 @@ const SECTOR_DESCRIPTION_SCOPE: Record<SectorHubKey, boolean> = {
 };
 
 /**
- * Locale-independent sector signal: canonical title/category/tags (+, for
+ * Some dedicated crawlers preserve an explicit, source-backed industry label
+ * even when a generic role title has no sector vocabulary. Keep this narrower
+ * than the ordinary energy matcher: a conglomerate label such as Siemens'
+ * "Industria e tecnologia (... energia ...)" must not turn an unrelated
+ * security role into an energy job merely because the word appears later.
+ */
+const ENERGY_SECTOR_METADATA_RE = /^\s*(?:energia|energy|energie|énergie)\b/i;
+
+/**
+ * Locale-independent sector signal: canonical title/category/tags, plus the
+ * bounded source sector signal described above for energy (+, for
  * description-scoped sectors, description/company/location/addressLocality).
  * Never touches titleByLocale/descriptionByLocale, so a hit here is true for
  * EVERY locale. Split out of jobMatchesSector so countSectorJobsByLocale can
@@ -671,13 +725,17 @@ const SECTOR_DESCRIPTION_SCOPE: Record<SectorHubKey, boolean> = {
  */
 function jobMatchesSectorCanonical(job: SectorCountableJob, sector: SectorHubKey): boolean {
   const pattern = SECTOR_MATCHERS[sector];
-  const titleOnlyParts: string[] = [];
-  if (job.title) titleOnlyParts.push(String(job.title));
-  if (job.category) titleOnlyParts.push(String(job.category));
+  const canonicalSignalParts: string[] = [];
+  if (job.title) canonicalSignalParts.push(String(job.title));
+  if (job.category) canonicalSignalParts.push(String(job.category));
   if (job.tags) {
-    titleOnlyParts.push(Array.isArray(job.tags) ? job.tags.join(' ') : String(job.tags));
+    canonicalSignalParts.push(Array.isArray(job.tags) ? job.tags.join(' ') : String(job.tags));
   }
-  if (pattern.test(titleOnlyParts.join(' \n '))) return true;
+  if (pattern.test(canonicalSignalParts.join(' \n '))) return true;
+
+  if (sector === 'energia' && job.sector && ENERGY_SECTOR_METADATA_RE.test(String(job.sector))) {
+    return true;
+  }
 
   if (!SECTOR_DESCRIPTION_SCOPE[sector]) return false;
 
@@ -696,9 +754,10 @@ function jobMatchesSectorCanonical(job: SectorCountableJob, sector: SectorHubKey
 /**
  * True when a job's text metadata matches the sector keyword pattern.
  *
- * For every sector the title (+ titleByLocale) / category / tags are
- * scanned. The body description is scanned only for sectors flagged in
- * `SECTOR_DESCRIPTION_SCOPE` — those need named-entity matching.
+ * For every sector the title (+ titleByLocale) / category / tags are scanned.
+ * Energy also accepts an anchored, explicit `sector` metadata label. The body
+ * description is scanned only for sectors flagged in `SECTOR_DESCRIPTION_SCOPE`
+ * — those need named-entity matching.
  *
  * Rationale: job titles state the role; descriptions add narrative that
  * can mention adjacent roles ("chauffeur service available", "Fahrer
@@ -760,6 +819,7 @@ export function countSectorJobsByLocale(
     ingegneri: 0,
     autisti: 0,
     sviluppatori: 0,
+    informatica: 0,
     ristorazione: 0,
     oss: 0,
     logistica: 0,
@@ -818,13 +878,13 @@ export function countSectorJobsByLocale(
       // per locale; only a miss falls through to the per-locale delta.
       const canonicalMatch = jobMatchesSectorCanonical(job, sector);
       for (const locale of ['it', 'en', 'de', 'fr'] as JobBoardLocale[]) {
-        // Match check (cheap: title-length regex) BEFORE jobIsActive (expensive:
+        // Match check (cheap: title-length regex) BEFORE isSectorHubJobActive (expensive:
         // wordCount() over the full description) — mirrors the original
-        // locale-agnostic loop's `continue`-before-jobIsActive short-circuit, so
+        // locale-agnostic loop's `continue`-before-isSectorHubJobActive short-circuit, so
         // the per-locale scoping fix (#4715) doesn't turn into an O(jobs × sectors
         // × locales) wordCount() sweep on the full CH dataset.
         if (!canonicalMatch && !jobMatchesSector(job, sector, locale)) continue;
-        if (jobIsActive(job, locale)) counts[locale][sector]++;
+        if (isSectorHubJobActive(job, locale)) counts[locale][sector]++;
       }
     }
   }
@@ -841,14 +901,14 @@ export function filterSectorJobs(
   if (!Array.isArray(jobs)) return [];
   const matches: SectorCountableJob[] = [];
   for (const job of jobs) {
-    if (!jobIsActive(job, locale)) continue;
+    if (!isSectorHubJobActive(job, locale)) continue;
     if (jobMatchesSector(job, sector, locale)) matches.push(job);
   }
   matches.sort((a, b) => {
     // First PARSEABLE date, not first truthy: a malformed datePosted must not
     // collapse to 0 and sink a still-fresh job below the slice(maxJobs) cut.
-    const at = firstParsableMs(a.datePosted, a.postedDate);
-    const bt = firstParsableMs(b.datePosted, b.postedDate);
+    const at = firstParsableMs(resolveReportedPostingDate(a));
+    const bt = firstParsableMs(resolveReportedPostingDate(b));
     return bt - at;
   });
   return matches.slice(0, maxJobs);
@@ -879,6 +939,40 @@ export function buildSectorHubSeo(
   void SECTOR_HUB_DISPLAY;
   void SECTOR_HUB_FIRE_THRESHOLD;
   const yearStr = String(year);
+
+  if (locale === 'it' && sector === 'informatica') {
+    const titleBase = formatSeoTitle({
+      keyword: 'Lavoro informatico',
+      location: 'Ticino',
+      year: yearStr,
+      count: safeCount > 0 ? safeCount : undefined,
+    });
+    const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
+    const desc = safeCount > 0
+      ? 'Lavoro informatico in Ticino: ' + safeCount + ' offerte attive tra software, cloud, sistemi, dati e supporto IT. Annunci aggiornati ogni giorno.'
+      : 'Offerte di lavoro informatico in Ticino tra software, cloud, sistemi, dati e supporto IT. Annunci aggiornati ogni giorno.';
+    const h1 = safeCount > 0
+      ? 'Offerte di lavoro nel settore informatico in Ticino (' + safeCount + ' posizioni)'
+      : 'Offerte di lavoro nel settore informatico in Ticino';
+    const intro = 'Questa pagina raccoglie annunci attivi nel settore informatico in Ticino: sviluppo software, cloud e infrastrutture, sistemi e database, dati, sicurezza informatica e supporto applicativo. Le offerte possono provenire da aziende tecnologiche, banche, industria e datori con team IT interni. Ogni scheda riporta le informazioni disponibili su sede, datore e requisiti. Gli annunci sono leggibili senza accesso; per aprire la candidatura ufficiale è richiesto un accesso gratuito a Frontaliere Ticino.';
+    const faq = [
+      {
+        question: 'Quante offerte di lavoro informatico ci sono in Ticino?',
+        answer: safeCount > 0
+          ? 'La pagina raccoglie ' + safeCount + ' offerte attive nel settore informatico in Ticino. La lista viene aggiornata più volte al giorno.'
+          : 'La lista viene aggiornata più volte al giorno; torna a consultarla per le nuove offerte informatiche in Ticino.',
+      },
+      {
+        question: 'Posso candidarmi come frontaliere?',
+        answer: 'La possibilità di candidarsi dipende dai requisiti del datore e dal singolo annuncio. Controlla le condizioni indicate, incluse eventuali autorizzazioni di lavoro.',
+      },
+      {
+        question: 'Come avviene la candidatura?',
+        answer: 'La descrizione è leggibile senza accesso. Per aprire la candidatura sul sito ufficiale del datore di lavoro è richiesto un accesso gratuito a Frontaliere Ticino; il datore può richiedere una propria iscrizione.',
+      },
+    ];
+    return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
+  }
 
   switch (locale) {
     case 'it': {
@@ -920,7 +1014,7 @@ export function buildSectorHubSeo(
           count: safeCount > 0 ? safeCount : undefined,
         });
       }
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = (() => {
         if (sector === 'case-anziani') {
           return safeCount > 0
@@ -933,8 +1027,8 @@ export function buildSectorHubSeo(
             : `Lavoro infermieri Svizzera Canton Ticino: posizioni in ospedali, cliniche e case anziani. Aggiornate ogni giorno, candidatura diretta.`;
         }
         return safeCount > 0
-          ? `Trova ${safeCount} offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Candidati come frontaliere direttamente online, senza registrazione.`
-          : `Trova offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Candidati come frontaliere direttamente online, senza registrazione.`;
+          ? `Trova ${safeCount} offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Leggi liberamente gli annunci; accesso gratuito per candidarti.`
+          : `Trova offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Leggi liberamente gli annunci; accesso gratuito per candidarti.`;
       })();
       // H1: narrative ("990 posti vacanti nel settore Case Anziani in Ticino").
       // Never identical to the SEO title (Semrush W3, issue 105).
@@ -955,12 +1049,12 @@ export function buildSectorHubSeo(
       })();
       const intro = (() => {
         if (sector === 'case-anziani') {
-          return `Case anziani Ticino offerte di lavoro: questa pagina raccoglie tutte le posizioni aperte in case di cura, residenze per anziani (RSA), istituti geriatrici e cooperative socio-assistenziali del Canton Ticino — tra cui Pregassona, OSCAM, RIS Lugano, Mendrisio, Bellinzona, Locarno, Chiasso, Massagno e Paradiso. Ogni annuncio è verificato e porta direttamente alla candidatura ufficiale del datore di lavoro, senza registrazione e senza intermediari. Profili più richiesti: infermieri, operatori socio-sanitari (OSS), animatori, ausiliari, cuochi e personale di pulizia.`;
+          return `Case anziani Ticino offerte di lavoro: questa pagina raccoglie tutte le posizioni aperte in case di cura, residenze per anziani (RSA), istituti geriatrici e cooperative socio-assistenziali del Canton Ticino — tra cui Pregassona, OSCAM, RIS Lugano, Mendrisio, Bellinzona, Locarno, Chiasso, Massagno e Paradiso. Puoi leggere gli annunci senza accesso; per proseguire alla candidatura ufficiale del datore di lavoro è richiesto un accesso gratuito. Profili più richiesti: infermieri, operatori socio-sanitari (OSS), animatori, ausiliari, cuochi e personale di pulizia.`;
         }
         if (sector === 'infermieri') {
-          return `Offerte lavoro infermieri Svizzera Canton Ticino: in questa pagina raccogliamo tutte le posizioni aperte oggi per infermieri diplomati e specialisti negli ospedali pubblici (rete EOC), cliniche private, case anziani e servizi di cure a domicilio (Spitex/SACD) ticinesi. Le offerte includono ruoli a tempo pieno e parziale, contratti a tempo indeterminato e mandati per supplenze. Ogni annuncio porta alla candidatura ufficiale, senza registrazione. Per i frontalieri italiani il riconoscimento del titolo passa dalla Croce Rossa Svizzera (SRC); il nostro elenco indica sede, datore di lavoro e profilo richiesto in modo trasparente.`;
+          return `Offerte lavoro infermieri Svizzera Canton Ticino: in questa pagina raccogliamo tutte le posizioni aperte oggi per infermieri diplomati e specialisti negli ospedali pubblici (rete EOC), cliniche private, case anziani e servizi di cure a domicilio (Spitex/SACD) ticinesi. Le offerte includono ruoli a tempo pieno e parziale, contratti a tempo indeterminato e mandati per supplenze. Gli annunci sono leggibili senza accesso; un accesso gratuito permette di proseguire alla candidatura ufficiale. Per i frontalieri italiani il riconoscimento del titolo passa dalla Croce Rossa Svizzera (SRC); il nostro elenco indica sede, datore di lavoro e profilo richiesto in modo trasparente.`;
         }
-        return `Pagina dedicata alle opportunità di lavoro ${noun.toLowerCase()} in Ticino. Contiene solo annunci attivi, pubblicati da ospedali, case anziani, scuole e cooperative ticinesi. Ogni annuncio porta alla candidatura ufficiale dell'azienda.`;
+        return `Pagina dedicata alle opportunità di lavoro ${noun.toLowerCase()} in Ticino. Contiene solo annunci attivi, pubblicati da ospedali, case anziani, scuole e cooperative ticinesi. Gli annunci sono leggibili senza accesso; un accesso gratuito permette di proseguire alla candidatura ufficiale dell'azienda.`;
       })();
       const faq = [
         {
@@ -975,7 +1069,7 @@ export function buildSectorHubSeo(
         },
         {
           question: 'Come avviene la candidatura?',
-          answer: 'Cliccando su un annuncio ti portiamo direttamente al sito ufficiale del datore di lavoro, dove puoi candidarti senza passaggi intermedi e senza registrazione su Frontaliere Ticino.',
+          answer: 'La descrizione è leggibile senza accesso. Per aprire la candidatura sul sito ufficiale del datore di lavoro è richiesto un accesso gratuito a Frontaliere Ticino; il datore può richiedere una propria iscrizione.',
         },
       ];
       return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
@@ -989,14 +1083,14 @@ export function buildSectorHubSeo(
         year: yearStr,
         count: safeCount > 0 ? safeCount : undefined,
       });
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = safeCount > 0
         ? `Browse ${safeCount} ${noun.toLowerCase()} jobs in Ticino, Switzerland — updated every day. Apply online for free as a cross-border worker.`
         : `Browse ${noun.toLowerCase()} jobs in Ticino, Switzerland — updated every day. Apply online for free as a cross-border worker.`;
       const h1 = safeCount > 0
         ? `${safeCount} open positions for ${noun} in Ticino`
         : `Career opportunities for ${noun} in Ticino`;
-      const intro = `A dedicated hub for ${noun.toLowerCase()} job opportunities in Ticino, Switzerland. Every listing links directly to the employer's official application page.`;
+      const intro = `A dedicated hub for ${noun.toLowerCase()} job opportunities in Ticino, Switzerland. Read full listings without signing in. Free sign-in is required to continue to the employer's official application page.`;
       const faq = [
         {
           question: `How many ${noun.toLowerCase()} jobs are there in Ticino?`,
@@ -1010,7 +1104,7 @@ export function buildSectorHubSeo(
         },
         {
           question: 'How do I apply?',
-          answer: 'Each listing links directly to the employer\'s official application page — no registration needed on Frontaliere Ticino.',
+          answer: 'Read the full description without signing in. Free sign-in on Frontaliere Ticino is required to open the official application page; the employer may require a separate account.',
         },
       ];
       return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
@@ -1024,14 +1118,14 @@ export function buildSectorHubSeo(
         year: yearStr,
         count: safeCount > 0 ? safeCount : undefined,
       });
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = safeCount > 0
         ? `Entdecke ${safeCount} Stellen für ${noun} im Tessin, täglich aktualisiert. Kostenlos online bewerben als Grenzgänger.`
         : `Entdecke Stellen für ${noun} im Tessin, täglich aktualisiert. Kostenlos online bewerben als Grenzgänger.`;
       const h1 = safeCount > 0
         ? `${safeCount} offene Stellen für ${noun} im Tessin`
         : `Karrierechancen für ${noun} im Tessin`;
-      const intro = `Spezielle Seite für ${noun}-Stellenangebote im Tessin. Jede Anzeige führt direkt zur offiziellen Bewerbungsseite des Arbeitgebers.`;
+      const intro = `Spezielle Seite für ${noun}-Stellenangebote im Tessin. Anzeigen sind ohne Anmeldung lesbar. Um zur offiziellen Bewerbungsseite zu gelangen, ist eine kostenlose Anmeldung erforderlich.`;
       const faq = [
         {
           question: `Wie viele Stellen für ${noun} gibt es im Tessin?`,
@@ -1045,7 +1139,7 @@ export function buildSectorHubSeo(
         },
         {
           question: 'Wie bewerbe ich mich?',
-          answer: 'Jede Anzeige verlinkt direkt auf die offizielle Bewerbungsseite des Arbeitgebers — keine Registrierung erforderlich.',
+          answer: 'Die vollständige Beschreibung ist ohne Anmeldung lesbar. Für die offizielle Bewerbung ist eine kostenlose Anmeldung bei Frontaliere Ticino erforderlich; der Arbeitgeber kann ein eigenes Konto verlangen.',
         },
       ];
       return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
@@ -1059,14 +1153,14 @@ export function buildSectorHubSeo(
         year: yearStr,
         count: safeCount > 0 ? safeCount : undefined,
       });
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = safeCount > 0
         ? `Parcourez ${safeCount} offres d'emploi pour ${noun.toLowerCase()} au Tessin, mises à jour chaque jour. Postulez gratuitement en ligne comme frontalier.`
         : `Parcourez les offres d'emploi pour ${noun.toLowerCase()} au Tessin, mises à jour chaque jour. Postulez gratuitement en ligne comme frontalier.`;
       const h1 = safeCount > 0
         ? `${safeCount} postes ouverts pour ${noun} au Tessin`
         : `Opportunités de carrière pour ${noun} au Tessin`;
-      const intro = `Page dédiée aux offres d'emploi pour ${noun.toLowerCase()} au Tessin. Chaque annonce renvoie directement à la candidature officielle de l'employeur.`;
+      const intro = `Page dédiée aux offres d'emploi pour ${noun.toLowerCase()} au Tessin. Les annonces sont lisibles sans connexion. Une connexion gratuite est nécessaire pour accéder à la candidature officielle de l'employeur.`;
       const faq = [
         {
           question: `Combien d'offres pour ${noun.toLowerCase()} au Tessin ?`,
@@ -1080,7 +1174,7 @@ export function buildSectorHubSeo(
         },
         {
           question: 'Comment postuler ?',
-          answer: 'Chaque annonce renvoie directement à la page de candidature officielle de l\'employeur — sans inscription sur Frontaliere Ticino.',
+          answer: 'La description complète est accessible sans connexion. Une connexion gratuite à Frontaliere Ticino est nécessaire pour ouvrir la candidature officielle ; l’employeur peut demander un compte distinct.',
         },
       ];
       return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };

@@ -77,13 +77,51 @@ describe('locale-router stale-if-error', () => {
     expect(await res.text()).toBe('<html>last-good DE</html>');
   });
 
-  it('propagates the origin 5xx when there is no cached copy', async () => {
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('boom', { status: 502 }));
+  it('does not cache origin 5xx and propagates it when there is no cached copy', async () => {
+    const cfOptions: Array<Record<string, unknown> | undefined> = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (_input, init) => {
+      cfOptions.push((init as RequestInit & { cf?: Record<string, unknown> } | undefined)?.cf);
+      return new Response('boom', { status: 502 });
+    });
 
     const res = await worker.fetch(new Request(`${APEX}/fr/emploi/`), {}, ctx);
 
     expect(res.status).toBe(502);
     expect(res.headers.get('X-Served-Stale')).toBeNull();
+    expect(cfOptions).toHaveLength(2);
+    expect(cfOptions[0]).toMatchObject({
+      cacheEverything: true,
+      cacheTtlByStatus: {
+        '200-299': 7200,
+        '300-399': 7200,
+        '400-427': 7200,
+        '428-429': -1,
+        '430': 7200,
+        '431': -1,
+        '432-499': 7200,
+        '500-599': -1,
+      },
+    });
+    expect(cfOptions[1]).toEqual(cfOptions[0]);
+  });
+
+  it.each([
+    [200, 7200], [301, 7200], [404, 7200], [410, 7200],
+    [427, 7200], [428, -1], [429, -1], [430, 7200],
+    [431, -1], [432, 7200], [499, 7200],
+  ])('uses one unambiguous origin-cache rule for HTTP %s', async (status, expectedTtl) => {
+    let policy: Record<string, number> | undefined;
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (_input, init) => {
+      policy = (init as RequestInit & { cf?: { cacheTtlByStatus?: Record<string, number> } })?.cf?.cacheTtlByStatus;
+      return new Response('page', { status });
+    });
+    await worker.fetch(new Request(`${APEX}/fr/emploi/`), {}, ctx);
+    const matches = Object.entries(policy || {}).filter(([range]) => {
+      const [first, last = first] = range.split('-').map(Number);
+      return status >= first && status <= last;
+    });
+    expect(matches).toHaveLength(1);
+    expect(matches[0][1]).toBe(expectedTtl);
   });
 
   it('returns 503 on origin throw when there is no cached copy', async () => {
@@ -105,5 +143,42 @@ describe('locale-router stale-if-error', () => {
     expect(res.status).toBe(200);
     expect(res.headers.get('X-Served-Stale')).toBeNull();
     expect(await res.text()).toBe('<html>fresh</html>');
+  });
+
+  it('retries when reading a shard body fails and pins the subrequest to identity encoding', async () => {
+    const truncated = new Response(null, { status: 200 });
+    vi.spyOn(truncated, 'arrayBuffer').mockRejectedValue(new Error('gzip truncated'));
+    const originRequests: Request[] = [];
+    let calls = 0;
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      originRequests.push(input instanceof Request ? input : new Request(input));
+      calls += 1;
+      return calls === 1 ? truncated : new Response('<html>recovered</html>', { status: 200 });
+    });
+
+    const res = await worker.fetch(
+      new Request(`${APEX}/articoli-frontaliere/tutti/retry-body/`),
+      {},
+      ctx,
+    );
+
+    expect(res.status).toBe(200);
+    expect(await res.text()).toBe('<html>recovered</html>');
+    expect(calls).toBe(2);
+    expect(originRequests.every((req) => req.headers.get('Accept-Encoding') === 'identity')).toBe(true);
+  });
+
+  it('serves stale when the retried shard body is still unreadable', async () => {
+    const path = `${APEX}/articoli-frontaliere/tutti/body-error/`;
+    seedCache(path, '<html>last-good body</html>');
+    const unreadable = new Response(null, { status: 200 });
+    vi.spyOn(unreadable, 'arrayBuffer').mockRejectedValue(new Error('gzip truncated'));
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(unreadable);
+
+    const res = await worker.fetch(new Request(path), {}, ctx);
+
+    expect(res.status).toBe(200);
+    expect(res.headers.get('X-Served-Stale')).toBe('origin-body');
+    expect(await res.text()).toBe('<html>last-good body</html>');
   });
 });

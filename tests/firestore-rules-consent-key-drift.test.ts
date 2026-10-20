@@ -151,7 +151,11 @@ describe('firestore.rules — consentFieldsTouched() copre i campi scritti', () 
       const rules = readFileSync(resolve(ROOT, 'firestore.rules'), 'utf8');
       const own = directRules(matchBlock(rules, `match /${collection}/{email}`));
       expect(own).toMatch(/allow update:[\s\S]*consentFieldsTouched\(request\.resource\.data, resource\.data\)/);
-      expect(own).toMatch(/request\.auth\.token\.email\.lower\(\) == email\.lower\(\)|isVerifiedSubscriberOwner\(email\)/);
+      // The owner's consent corrections pass through a verified-identity
+      // clause. On newsletter_subscribers that clause is
+      // isVerifiedOwnerNonStateUpdate(email) since the bare-identity CREATE
+      // branch was removed (a create now always needs a consent basis).
+      expect(own).toMatch(/request\.auth\.token\.email\.lower\(\) == email\.lower\(\)|isVerifiedSubscriberOwner\(email\)|isVerifiedOwnerNonStateUpdate\(email\)/);
     });
 
   it('nessun writer nuovo sfugge alla lista sorvegliata', () => {

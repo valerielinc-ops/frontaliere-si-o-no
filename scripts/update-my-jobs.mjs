@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Dedicated Bellevue Parkhotel & Spa crawler runner.
+ * Dedicated Teo Jakob AG crawler runner.
  *
- * Uses the standard crawler template with the Bellevue Parkhotel & Spa parser.
+ * Uses the standard crawler template with the Teo Jakob AG parser.
  * All fetch/parse logic lives in ./lib/my-job-parser.mjs.
  */
 import path from 'node:path';
@@ -28,6 +28,6 @@ runStandardCrawlerPipeline({
   isTrustedDomain,
   defaultSourceLang: 'de',
 }).catch((err) => {
-  console.error(`❌ Bellevue Parkhotel & Spa crawler failed: ${err?.message || err}`);
+  console.error(`❌ Teo Jakob AG crawler failed: ${err?.message || err}`);
   process.exit(1);
 });

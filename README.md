@@ -73,8 +73,8 @@ Questo strumento fornisce stime basate sulle aliquote e le leggi vigenti (o prev
 
 ## 🤝 Contribuire
 
-Il progetto è aperto a contributi. Se trovi un bug nel calcolo o vuoi aggiungere una funzionalità, sentiti libero di aprire una Issue o una Pull Request.
+Se trovi un bug nel calcolo o vuoi proporre una funzionalità, apri una Issue o una Pull Request. Clonare ed eseguire il progetto in locale è consentito per questo scopo, alle condizioni di [`LICENSE.md`](LICENSE.md): inviando una Pull Request concedi a Frontaliere Ticino il diritto di usare, modificare e pubblicare il contributo nel progetto.
 
 ## 📄 Licenza
 
-Distribuito sotto licenza MIT. Vedi `LICENSE` per maggiori informazioni.
+Copyright © 2024–2026 Frontaliere Ticino. Tutti i diritti riservati: le condizioni sono in [`LICENSE.md`](LICENSE.md). Il codice, i font e i modelli di terzi inclusi nel repository restano soggetti alle proprie licenze, elencate con i testi in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).

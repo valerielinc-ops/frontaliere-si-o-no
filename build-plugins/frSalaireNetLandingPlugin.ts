@@ -58,9 +58,9 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
-import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, DRIVEBY_AD_SNIPPET } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { FX_HREF } from './shared/comparatorHref';
 import { WriteCollector } from './batchWrite';
@@ -380,17 +380,16 @@ function renderPage(opts: RenderOpts): RenderResult {
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: H1,
     description: guardArticleJsonLdDescription(META_DESCRIPTION),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: LOCALE,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -418,7 +417,7 @@ function renderPage(opts: RenderOpts): RenderResult {
       price: '0',
       priceCurrency: 'EUR',
     },
-    provider: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    provider: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
   });
 
   // Above-the-fold blocks (template B order).
@@ -433,6 +432,7 @@ function renderPage(opts: RenderOpts): RenderResult {
   const profileExamplesHtml = renderProfileExamples();
   const cantonsGridHtml = renderCantonsGrid();
   const dividerHtml = renderApprofondisciDivider('Pour aller plus loin');
+  const frSalaireInlineAd = `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`;
 
   const body = `
     <nav class="s-bcr">
@@ -449,9 +449,11 @@ function renderPage(opts: RenderOpts): RenderResult {
     </header>
     ${statTilesHtml}
     ${primaryCtaHtml}
+    ${DRIVEBY_AD_SNIPPET}
     ${profileExamplesHtml}
     ${cantonsGridHtml}
     ${dividerHtml}
+    ${frSalaireInlineAd}
 
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">Comment est calculé le salaire net en Suisse</h2>
@@ -503,14 +505,18 @@ function renderPage(opts: RenderOpts): RenderResult {
     </section>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
+  const indexableBody = indexable
+    ? body
+    : body.replace(DRIVEBY_AD_SNIPPET, '').replace(frSalaireInlineAd, '');
+  const bodyHtml = `<main class="s-xzWvwM">${indexableBody}${endOfContentMultiplexHtml({ indexable, contentHtml: indexableBody })}</main>`;
 
   const html = buildSeoPageHtml({
     locale: LOCALE,
     title: TITLE,
     description: META_DESCRIPTION,
     canonicalUrl,
-    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: indexable ? 'index,follow' : 'noindex,follow',
     ogType: 'article',
     ogLocale: OG_LOCALE,
     hreflangHtml,
@@ -533,7 +539,6 @@ function buildSitemapXml(dateStamp: string): string {
   <url>
     <loc>${BASE_URL}${URL_PATH}</loc>
 ${altLinks}
-    <lastmod>${dateStamp}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -623,3 +628,7 @@ export function frSalaireNetLandingPlugin(rootDir: string): Plugin {
     },
   };
 }
+
+// Test-only export: keeps the static ad contract testable without running the
+// full Vite closeBundle pipeline.
+export { renderPage as __renderFrSalaireNetPageForTest };

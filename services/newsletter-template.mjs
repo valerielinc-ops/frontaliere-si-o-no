@@ -539,8 +539,6 @@ function renderJobs(matchedJobs, locale, totalJobs, rankingContext = null) {
         newsletterId: rankingContext.newsletterId,
         rankingScore: job.ranking?.rankingScore,
         relevanceScore: job.ranking?.relevanceScore,
-        ctrShrink: job.ranking?.ctrShrink,
-        randomBoost: job.ranking?.randomBoost,
       });
     }
 
@@ -743,7 +741,7 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
  * @param {string}  [data.acquisitionSource] — signup surface, forwarded as `as` tracking on the recommended link
  * @param {string}  [data.recommendationCampaign] — utm_campaign for the recommended block (defaults to 'recommended')
  * @param {string}  [data.rankingDeliveryId] — per-send job-ranking manifest id
- * @param {string}  [data.rankingVariant] — control/treatment assignment
+ * @param {string}  [data.rankingVariant] — control/affinity assignment
  * @param {string}  [data.rankingSurfaceId] — aggregate surface id
  * @param {string}  [data.newsletterId] — campaign id used by click attribution
  * @param {string}  [data.unsubscribeUrl]

@@ -61,6 +61,7 @@
  *   - isTrustedDomain()         — Validate URLs belong to this company / ATS host
  *   - HUBER_SUHNER_KEY / _COMPANY_NAME / _COMPANY_DOMAIN
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
@@ -251,7 +252,7 @@ function parseListing(html = '') {
     if (/^(initiativbewerbung|spontanbewerbung|blindbewerbung)$/i.test(title)) continue;
 
     const locMatch = row.match(/tableaslist_element_1152495">&nbsp;\|&nbsp;\s*([^<]*)<\/span>/);
-    const dateMatch = row.match(/Online since:\s*([\d.]+)/);
+    const dateMatch = row.match(/Online since:\s*(\d{1,2}\.\d{1,2}\.\d{4})(?=\s|<|$)/);
 
     seen.add(id);
     out.push({
@@ -343,7 +344,6 @@ export async function fetchAllHuberSuhnerJobs() {
 
   const jobs = [];
   let detailHits = 0;
-  const todayIso = new Date().toISOString().slice(0, 10);
 
   for (const entry of swissEntries) {
     const { detailUrl, applyUrl, spans, sections } = await fetchDetail(entry.id, entry.langCode);
@@ -358,20 +358,17 @@ export async function fetchAllHuberSuhnerJobs() {
       description = sections.join('\n\n');
       detailHits += 1;
     } else {
-      // Fallback: synthesise a structured description from listing + header
-      // metadata so we never ship thin/boilerplate content when the detail
-      // page extraction misses (network hiccup, unexpected markup change).
-      const bullets = [`• Standort: ${entry.rawLocation || city} (${canton})`];
-      if (workload) bullets.push(`• Pensum: ${workload.min === workload.max ? `${workload.min}%` : `${workload.min}-${workload.max}%`}`);
-      if (contractText) bullets.push(`• Anstellung: ${contractText}`);
-      bullets.push(`• Bewerbung über das Umantis-Karriereportal von ${HUBER_SUHNER_COMPANY_NAME}`);
-      description = `${entry.title} bei ${HUBER_SUHNER_COMPANY_NAME} in ${entry.rawLocation || city}, Schweiz.\n\n${bullets.join('\n')}`;
+      // No detail text: no description. The crawler used to write one of its
+      // own from the listing metadata ("<Titel> bei HUBER+SUHNER in <Ort>,
+      // Schweiz." with Standort/Pensum/Anstellung/Bewerbung bullets); the job
+      // now takes the pipeline's thin-source path.
+      description = '';
     }
 
     const sourceLang = detectLang(description || entry.title, 'de');
     const jobSlug = slugify(`${entry.title} ${HUBER_SUHNER_KEY} ${city}`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
-    const postedDate = parseSwissDate(entry.onlineSince) || todayIso;
+    const postingDates = sourcePostingDateFields(parseSwissDate(entry.onlineSince));
 
     const job = {
       // ── Required fields ──
@@ -410,7 +407,7 @@ export async function fetchAllHuberSuhnerJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

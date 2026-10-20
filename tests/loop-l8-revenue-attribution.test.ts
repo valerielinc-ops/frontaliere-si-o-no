@@ -1,8 +1,10 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { PARTNERS_REGISTRY, getAffiliateCommercialConfiguration } from '../functions/src/lib/affiliatePartnersRegistry.js';
 import { describe, expect, it } from 'vitest';
 import {
+  DEFAULT_MAX_AGE_HOURS,
   runL8,
   validateRevenueAttribution,
 } from '../scripts/ci/loop-l8-revenue-attribution.mjs';
@@ -97,6 +99,49 @@ function writeHistory(dir: string, rows = [historyRow()]) {
 }
 
 describe('L8 Revenue & Attribution', () => {
+  it('exempts explicitly inactive affiliate programs while retaining every history guardrail and unknown money', () => {
+    const inactive = { transactions: null, commercialConfiguration: getAffiliateCommercialConfiguration() };
+    const verdict = validateRevenueAttribution({ history: history(), affiliate: inactive }, { now: NOW });
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed', candidates: [] });
+    expect(verdict.snapshot.commercial).toMatchObject({ applicable: false, applicability: 'not_applicable', approvedNetChf: null, pendingChf: null });
+    const brokenHistory = history(historyRow({ adsense: { revenuePerDayCHF: -1 } }));
+    expect(validateRevenueAttribution({ history: brokenHistory, affiliate: inactive }, { now: NOW }).ok).toBe(false);
+  });
+
+  it('does not discard an authorised historical ledger when programs are inactive', () => {
+    const verdict = validateRevenueAttribution({ history: history(), affiliate: affiliate({ commercialConfiguration: getAffiliateCommercialConfiguration() }) }, { now: NOW });
+    expect(verdict.snapshot.commercial.approvedNetChf).toBe(250);
+    expect(verdict.snapshot.commercial.applicable).not.toBe(false);
+  });
+
+  it('keeps inactive-program observation amounts unavailable without creating an incident', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l8-inactive-'));
+    try {
+      const result = await runL8({ now: NOW, historyPath: writeHistory(dir),
+        affiliatePath: writeJson(dir, 'inactive.json', { transactions: null, commercialConfiguration: getAffiliateCommercialConfiguration() }),
+        reportDir: path.join(dir, 'report'), issue: true,
+        createIssueImpl: async () => { throw new Error('inactive affiliate program must not create an incident'); },
+        logger: { log() {} },
+      });
+      expect(result.verdict.ok).toBe(true);
+      expect(result.issued).toBe(false);
+      expect(result.observation).toMatchObject({ numerator: null, denominator: null, commercialApplicability: 'not_applicable' });
+      expect(result.outcome).toMatchObject({ status: 'unmeasurable', approvedNetChf: null, independent: false });
+    } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+  });
+
+  it('requires the commercial export again when a program activates, even with a stale inactive marker', () => {
+    const inactive = { transactions: null, commercialConfiguration: getAffiliateCommercialConfiguration() };
+    const partner = PARTNERS_REGISTRY[0];
+    const previous = partner.commercialActive;
+    try {
+      partner.commercialActive = true;
+      const verdict = validateRevenueAttribution({ history: history(), affiliate: inactive }, { now: NOW });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.issues.join(' ')).toContain('transactions/rows');
+    } finally { partner.commercialActive = previous; }
+  });
+
   it('keeps approved, pending and reversed CHF separate even when approved money exceeds exposures', () => {
     const verdict = validateRevenueAttribution({ history: history(), affiliate: affiliate() }, { now: NOW });
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
@@ -153,6 +198,31 @@ describe('L8 Revenue & Attribution', () => {
     expect(verdict.quality).toBe('unmeasurable');
     expect(verdict.snapshot.history.validRows).toBe(0);
     expect(verdict.issues.join(' ')).toContain('clsP75Mobile is missing');
+  });
+
+  it('keeps missing metrics on expired history rows as warnings, without inferring values', () => {
+    const staleDate = new Date(NOW.getTime() - (DEFAULT_MAX_AGE_HOURS + 24) * 3_600_000).toISOString().slice(0, 10);
+    const inactive = { transactions: null, commercialConfiguration: getAffiliateCommercialConfiguration() };
+    const verdict = validateRevenueAttribution({
+      history: history(historyRow({ date: staleDate, posthog: undefined }), historyRow()),
+      affiliate: inactive,
+    }, { now: NOW });
+
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
+    expect(verdict.snapshot.history).toMatchObject({ validRows: 2, invalidRows: 0 });
+    expect(verdict.warnings.join(' ')).toContain('history[0].posthog.clsP75Mobile is missing');
+    expect(verdict.warnings.join(' ')).toContain('history[0].posthog.clsP75Desktop is missing');
+  });
+
+  it('still rejects malformed required metrics on expired history rows', () => {
+    const staleDate = new Date(NOW.getTime() - (DEFAULT_MAX_AGE_HOURS + 24) * 3_600_000).toISOString().slice(0, 10);
+    const verdict = validateRevenueAttribution({
+      history: history(historyRow({ date: staleDate, posthog: { clsP75Mobile: 'unknown', clsP75Desktop: 0.15 } }), historyRow()),
+      affiliate: { transactions: null, commercialConfiguration: getAffiliateCommercialConfiguration() },
+    }, { now: NOW });
+
+    expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
+    expect(verdict.issues.join(' ')).toContain('history[0].posthog.clsP75Mobile is missing or not a non-negative number');
   });
 
   it('rejects dual web/email denominators when the money ledger has no channel attribution', () => {

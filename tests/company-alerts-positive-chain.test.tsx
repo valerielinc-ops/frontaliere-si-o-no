@@ -13,8 +13,13 @@
  */
 
 import React from 'react';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
+// La catena esercita otto anelli per quattro run consecutive; sotto la
+// concorrenza della suite completa il default globale di 15s non misura più
+// la correttezza del test ma la contesa del worker.
+const COMPANY_ALERT_CHAIN_TIMEOUT = 60_000;
 
 type FakeAlert = Record<string, any>;
 
@@ -23,6 +28,8 @@ const doubles = vi.hoisted(() => {
     subscriber: Record<string, any> | null;
     alerts: FakeAlert[];
     parentWrites: any[];
+    /** Server-side follow intents (company_follow_intents), never alerts. */
+    followIntents: any[];
     confirmationRequests: any[];
     providerMessages: any[];
     impressions: any[];
@@ -32,6 +39,7 @@ const doubles = vi.hoisted(() => {
     subscriber: null,
     alerts: [],
     parentWrites: [],
+    followIntents: [],
     confirmationRequests: [],
     providerMessages: [],
     impressions: [],
@@ -58,6 +66,7 @@ const doubles = vi.hoisted(() => {
     trackJobAlertCreated: vi.fn((payload: any) => {
       state.created.push(payload);
     }),
+    trackEvent: vi.fn(),
     setUserSegmentFlags: vi.fn(),
   };
 
@@ -142,6 +151,12 @@ const doubles = vi.hoisted(() => {
   });
 
   const addDoc = vi.fn(async (collectionRef: any, data: Record<string, any>) => {
+    if (String(collectionRef?.path || '').endsWith('/company_follow_intents')) {
+      const id = `intent-${state.followIntents.length + 1}`;
+      const ref = makeRef(`${collectionRef.path}/${id}`, id, collectionRef);
+      state.followIntents.push({ ...data, id, ref });
+      return ref;
+    }
     const id = `generated-${state.alerts.length + 1}`;
     const ref = makeRef(`${collectionRef.path}/${id}`, id, collectionRef);
     state.alerts.push({ ...data, id, ref });
@@ -163,6 +178,7 @@ const doubles = vi.hoisted(() => {
     state.subscriber = null;
     state.alerts.length = 0;
     state.parentWrites.length = 0;
+    state.followIntents.length = 0;
     state.confirmationRequests.length = 0;
     state.providerMessages.length = 0;
     state.impressions.length = 0;
@@ -180,6 +196,7 @@ const doubles = vi.hoisted(() => {
       analytics.trackJobAlertCtaShown,
       analytics.trackJobAlertCtaClick,
       analytics.trackJobAlertCreated,
+      analytics.trackEvent,
       analytics.setUserSegmentFlags,
     ]) mock.mockClear();
   };
@@ -227,13 +244,18 @@ const adminDouble = vi.hoisted(() => {
 
 vi.mock('firebase-admin', () => ({ default: adminDouble }));
 
+vi.mock('firebase-admin/firestore', () => ({
+  FieldValue: adminDouble.firestore.FieldValue,
+  Timestamp: adminDouble.firestore.Timestamp,
+}));
+
 vi.mock('firebase/firestore', () => ({
   collectionGroup: vi.fn((db: unknown, name: string) => ({ kind: 'collectionGroup', db, name })),
-  collection: vi.fn((parent: any, name: string) => ({
+  collection: vi.fn((parent: any, ...segments: string[]) => ({
     kind: 'collection',
     parent,
-    name,
-    path: `${parent?.path || ''}/${name}`,
+    name: segments[segments.length - 1],
+    path: `${parent?.path || ''}/${segments.join('/')}`,
   })),
   doc: vi.fn((...args: any[]) => {
     if (args[0] === doubles.db) {
@@ -272,7 +294,8 @@ vi.mock('@/services/authService', () => ({
 
 vi.mock('@/services/analytics', () => ({ Analytics: doubles.analytics }));
 
-vi.mock('@/services/userAlertsCache', () => ({
+vi.mock('@/services/userAlertsCache', async (importOriginal) => ({
+  ...await importOriginal<typeof import('@/services/userAlertsCache')>(),
   invalidateUserAlertsCache: vi.fn(),
 }));
 
@@ -448,6 +471,7 @@ async function runChain(locale: 'it' | 'en', round: number) {
 
   cleanup();
   localStorage.clear();
+  sessionStorage.clear();
   doubles.reset();
   const {
     CompanyFollowMount,
@@ -478,16 +502,30 @@ async function runChain(locale: 'it' | 'en', round: number) {
     locale,
     surface: 'employer_profile',
   })}</main>`;
-  render(<CompanyFollowMount />);
-  expect(window.location.pathname, 'ring 1: public company profile path').toBe(expectedPath);
-  expect(document.querySelectorAll('[data-company-follow-mount]'), 'ring 1: one SSG follow mount').toHaveLength(1);
-  expect(document.querySelector('[data-company-follow-mount]')?.getAttribute('data-company-key'), 'ring 1: mount carries company key').toBe(COMPANY_KEY);
-  expect(doubles.state.alerts, 'ring 1: visit creates no CompanyAlert').toHaveLength(0);
+  vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('visible');
+  Object.defineProperty(window, 'scrollY', { configurable: true, writable: true, value: 0 });
+  vi.useFakeTimers();
+  try {
+    await act(async () => { render(<CompanyFollowMount />); });
 
-  await waitFor(() => {
+    expect(window.location.pathname, 'ring 1: public company profile path').toBe(expectedPath);
+    expect(document.querySelectorAll('[data-company-follow-mount]'), 'ring 1: one SSG follow mount').toHaveLength(1);
+    expect(document.querySelector('[data-company-follow-mount]')?.getAttribute('data-company-key'), 'ring 1: mount carries company key').toBe(COMPANY_KEY);
+    expect(doubles.state.alerts, 'ring 1: visit creates no CompanyAlert').toHaveLength(0);
+
     expect(document.querySelector('[data-company-follow-inline="acme"] button[aria-pressed]'), 'ring 1: hydrated inline CTA is present').not.toBeNull();
-  }, { timeout: 2500 });
 
+    expect(screen.queryByRole('dialog'), 'ring 2: reading starts without a popup').toBeNull();
+    await act(async () => { vi.advanceTimersByTime(19_999); });
+    Object.defineProperty(window, 'scrollY', { configurable: true, writable: true, value: 200 });
+    fireEvent.scroll(window);
+    expect(screen.queryByRole('dialog'), 'ring 2: scroll cannot bypass the 20-second reading period').toBeNull();
+    expect(doubles.state.impressions, 'ring 2: no impression before reading eligibility').toHaveLength(0);
+    await act(async () => { vi.advanceTimersByTime(1); });
+  } finally {
+    // Keep the remaining Firestore/confirmation/provider chain on real timers.
+    vi.useRealTimers();
+  }
   // Ring 2 — actual shell visibility and onShown, not merely queue enqueue.
   await waitFor(() => {
     const dialog = screen.queryByRole('dialog');
@@ -530,6 +568,11 @@ async function runChain(locale: 'it' | 'en', round: number) {
   expect(doubles.state.confirmationRequests, 'ring 4: confirmation is captured by fake boundary').toHaveLength(1);
   expect(readPendingCompanyFollows(), 'ring 4: pending follow intent exists before confirmation').toHaveLength(1);
   expect(doubles.state.alerts, 'ring 4: pending confirmation creates no CompanyAlert').toHaveLength(0);
+  expect(doubles.state.followIntents, 'ring 4: the follow is also recorded server-side for any device').toHaveLength(1);
+  expect(doubles.state.followIntents[0], 'ring 4: server intent carries the canonical key, pending').toMatchObject({
+    company_key: canonicalCompanyProfileSlug(COMPANY, COMPANY_KEY),
+    status: 'pending',
+  });
   await confirmSyntheticAddress(email);
   expect(doubles.state.subscriber?.status, 'ring 4: confirmed unified address is active').toBe('confirmed');
   expect(doubles.state.subscriber?.isActive, 'ring 4: confirmed unified address is newsletter-active').toBe(true);
@@ -677,6 +720,12 @@ async function runChain(locale: 'it' | 'en', round: number) {
 }
 
 describe('Company Alerts — complete positive chain in isolation', () => {
+  afterEach(() => {
+    cleanup();
+    vi.useRealTimers();
+    vi.restoreAllMocks();
+  });
+
   beforeEach(() => {
     cleanup();
     document.body.innerHTML = '';
@@ -700,5 +749,5 @@ describe('Company Alerts — complete positive chain in isolation', () => {
     expect(results.every((result) => result.deliveryOutcome === 'accepted'), 'chain result: every explicit fake-provider ack accepted').toBe(true);
     const { getLocale } = await import('@/services/i18n');
     expect(getLocale(), 'chain result: final locale is the last exercised real locale').toBe('en');
-  });
+  }, COMPANY_ALERT_CHAIN_TIMEOUT);
 });

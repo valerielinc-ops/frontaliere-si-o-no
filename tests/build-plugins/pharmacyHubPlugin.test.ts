@@ -36,6 +36,7 @@ describe('pharmacyHubPlugin — buildPharmacyHubPage', () => {
   it('represents all 26 Swiss cantons and renders verified registry source links', () => {
     expect(SWISS_CANTONS).toHaveLength(26);
     const cards = getPharmacyHubCantonCards();
+    // cron-count-ok: una card per ciascun cantone di SWISS_CANTONS, invariant geografico.
     expect(cards).toHaveLength(26);
     expect(cards.every((card) => card.source)).toBe(true);
     expect(cards.find((card) => card.canton.code === 'TI')?.source?.officialSourceUrl)

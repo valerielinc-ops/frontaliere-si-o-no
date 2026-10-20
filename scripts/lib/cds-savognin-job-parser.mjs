@@ -40,6 +40,8 @@
  * Spontaneous-applications blocks are filtered out (no real vacancy).
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -54,11 +56,19 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const CDS_SAVOGNIN_KEY = 'cds-savognin';
 export const CDS_SAVOGNIN_COMPANY_NAME = 'Center da Sanadad Savognin';
+
+/**
+ * A fragment only the crawler's former paragraph wrote (in place of a thin
+ * body, or appended under 80 words), for `dropFabricatedDescriptions` on the
+ * stored jobs (issue 5253).
+ */
+export const CDS_SAVOGNIN_FABRICATED_DESCRIPTION_RE = /ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung\./;
 export const CDS_SAVOGNIN_COMPANY_DOMAIN = 'cds-savognin.ch';
 
 const SITE_ORIGIN = 'https://cds-savognin.ch';
@@ -229,14 +239,6 @@ export function parseCdsSavogninNewsItems(html = '') {
 
 /* ── Description fallback ──────────────────────────────────── */
 
-function buildFallbackDescription(title) {
-  return [
-    `${title} beim Center da Sanadad Savognin in Savognin, Kanton Graubünden.`,
-    '',
-    `Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.`,
-  ].join('\n');
-}
-
 /* ── Listing fetch (AJAX news widget) ──────────────────────── */
 
 /**
@@ -312,9 +314,11 @@ export async function fetchAllCdsSavogninJobs() {
   const listings = [];
   for (const item of newsItems) {
     let listing = null;
+    let publication = sourcePostingDateFields('');
     try {
       const detailHtml = await fetchHtml(item.detailUrl, { timeoutMs });
       const blocks = parseCdsSavogninListing(detailHtml);
+      publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
       // Prefer the block whose CMS id matches; else take the first real block.
       listing = blocks.find((b) => b.id === item.id) || blocks[0] || null;
     } catch (err) {
@@ -323,27 +327,23 @@ export async function fetchAllCdsSavogninJobs() {
 
     if (listing) {
       // Keep the canonical news id (stable jobId) from the listing link.
-      listings.push({ ...listing, id: item.id });
+      listings.push({ ...listing, id: item.id, ...publication });
     } else {
-      listings.push({ id: item.id, title: item.title, body: item.summary || '', pdfUrl: '' });
+      listings.push({ id: item.id, title: item.title, body: item.summary || '', pdfUrl: '', ...publication });
     }
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (const listing of listings) {
     const title = listing.title;
     const url = `${SITE_ORIGIN}/DE/aktuelles/${listing.id}.html`;
 
-    let description = listing.body && listing.body.split(/\s+/).length >= 30
-      ? listing.body
-      : buildFallbackDescription(title);
-    // Append a corporate-context footer for thinner postings — helps the AI
-    // localisation step produce coherent translations.
-    if (description.split(/\s+/).length < 80) {
-      description = `${description}\n\n${buildFallbackDescription(title)}`;
-    }
+    // Only the posting's own text (issue 5253): no title/centre paragraph in
+    // place of a thin body nor appended to one under 80 words; a body under
+    // the common 50-word floor gives no description (the shared pipeline's
+    // thin-source path).
+    const description = meetsSourceBodyFloor(listing.body) ? listing.body : '';
 
     const haystack = `${title} ${description}`;
     const sourceLang = detectLang(description || title, 'de');
@@ -385,7 +385,7 @@ export async function fetchAllCdsSavogninJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: listing.pdfUrl || url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

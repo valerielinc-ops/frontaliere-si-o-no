@@ -18,6 +18,7 @@ import {
   slugify,
   stripHtml,
 } from '@/scripts/lib/alpiq-job-parser.mjs';
+import { resolveAlpiqPostalCode } from '../scripts/update-alpiq-jobs.mjs';
 
 // ── Fixtures ────────────────────────────────────────────────────
 
@@ -135,6 +136,11 @@ Disclaimer: applications from agencies are not considered.
 // ── Tests ────────────────────────────────────────────────────────
 
 describe('Alpiq crawler — location filtering', () => {
+  it('keeps a source ZIP before the official lookup and falls back by canton only when needed', () => {
+    expect(resolveAlpiqPostalCode('Reiden', 'LU', '6500')).toBe('6500');
+    expect(resolveAlpiqPostalCode('Neuchâtel et Vallées', 'NE')).toBe('2000');
+  });
+
   it('identifies Swiss locations', () => {
     expect(isSwissLocation('Airolo')).toBe(true);
     expect(isSwissLocation('Biasca')).toBe(true);

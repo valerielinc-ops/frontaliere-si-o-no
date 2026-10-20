@@ -12,18 +12,25 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { stripHtml } from './crawler-template.mjs';
 import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const ANKER_SWISS_KEY = 'anker-swiss';
 export const ANKER_SWISS_COMPANY_NAME = 'Anker Swiss Ticino AG';
 export const ANKER_SWISS_COMPANY_DOMAIN = 'anker-swiss.ch';
+// The source starts returning HTTP 429 responses during the 1.1 s shared
+// prospector cadence once the listing grows beyond roughly 30 detail pages per
+// minute. Keep the slower cadence local to this source so other crawlers retain
+// the shared default while Anker's full detail snapshot remains complete.
+export const ANKER_SWISS_HOST_DELAY_MS = 2500;
 
 const CAREER_URL = 'https://anker-swiss.ch/stellen/';
 
@@ -146,7 +153,7 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(ANKER_SWISS_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, { hostDelayMs: ANKER_SWISS_HOST_DELAY_MS });
 }
 
 /**
@@ -201,7 +208,7 @@ export async function fetchAllAnkerSwissJobs() {
     const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       skipped.missingDescription++;
       continue;
     }
@@ -258,7 +265,7 @@ export async function fetchAllAnkerSwissJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -1,0 +1,23 @@
+{
+  "companyKey": "ccllabel-com",
+  "companyName": "CCL Label AG",
+  "companyHost": "ccllabel.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://ccllabel.com/it/azienda/carriera"
+  ],
+  "detailTemplate": "/it/azienda/carriera/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Scopri la posizione",
+    "Scopri la posizione",
+    "Scopri la posizione",
+    "Scopri la posizione"
+  ],
+  "canton": "AG",
+  "sourceLang": "it",
+  "learnedAt": "2026-10-03T11:06:11.062Z"
+}

@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -9,6 +9,10 @@ import {
   parseRss2JsonItems,
   decodeHtmlEntities,
 } from '@/scripts/lib/stadt-chur-feed-parser.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from '@/scripts/lib/source-body-floor.mjs';
+import { keepStoredSourceBodiesByKey } from '@/scripts/lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from '@/scripts/lib/stored-jobs-soft-exit.mjs';
+import { buildJob } from '@/scripts/update-stadt-chur-jobs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Real morss (open-source proxy) passthrough of jobs.chur.ch, captured 2026-07-12.
@@ -28,6 +32,16 @@ const ATOM = `<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom">
     <category term="healthcare"/>
   </entry>
 </feed>`;
+
+const SUMMARY_35 = Array.from({ length: 35 }, (_, index) => `Kurztext${index + 1}`).join(' ');
+const BODY_60 = Array.from({ length: 60 }, (_, index) => `Aufgabe${index + 1}`).join(' ');
+const REDUCED_FEED = `<rss><channel><title>Jobportal</title>
+  <item><title>Fixture Stelle</title>
+    <link>https://jobs.chur.ch/Fixture-Stelle-de-j1999.html</link>
+    <description>${SUMMARY_35}</description>
+    <pubDate>2026-09-30T08:00:00Z</pubDate>
+  </item>
+</channel></rss>`;
 
 describe('stadt-chur feed parser', () => {
   describe('parseRssItems (live morss RSS 2.0)', () => {
@@ -175,5 +189,146 @@ describe('stadt-chur feed parser', () => {
         'a & b <c> "d" \'e\'',
       );
     });
+  });
+
+  it('uses the shared source-body floor for a reduced feed fixture', async () => {
+    const [entry] = parseRssItems(REDUCED_FEED);
+    const thinJob = {
+      slug: 'fixture-stelle-stadt-chur-1999',
+      url: entry.link,
+      sourceLang: 'de',
+      description: entry.summary,
+      descriptionByLocale: { de: entry.summary },
+    };
+    const keyOf = (job: { url: string }) => job.url;
+
+    expect(sourceBodyWordCount(entry.summary)).toBe(35);
+    expect(meetsSourceBodyFloor(entry.summary)).toBe(false);
+    expect(keepStoredSourceBodiesByKey([thinJob], [], keyOf)).toEqual([]);
+
+    const write = vi.fn();
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => jobs,
+      storedJobs: [thinJob],
+      companyKey: 'stadt-chur-fixture',
+      companyLabel: 'Stadt Chur fixture',
+      write,
+    });
+    expect(write).toHaveBeenCalledWith([], {
+      housekeepingProof: [expect.objectContaining({
+        reason: 'thin-source-quarantine',
+        definitive: true,
+        job: expect.objectContaining({ slug: thinJob.slug }),
+      })],
+    });
+
+    const richJob = {
+      ...thinJob,
+      description: BODY_60,
+      descriptionByLocale: { de: BODY_60 },
+    };
+    expect(sourceBodyWordCount(BODY_60)).toBe(60);
+    expect(meetsSourceBodyFloor(BODY_60)).toBe(true);
+    const published = keepStoredSourceBodiesByKey([richJob], [], keyOf);
+    expect(published).toHaveLength(1);
+    expect(published[0]).toMatchObject({
+      slug: thinJob.slug,
+      url: thinJob.url,
+      description: BODY_60,
+    });
+  });
+
+  it('uses rich feed content when the detail page is unavailable', () => {
+    const content = `<p>${BODY_60}</p>`;
+    const job = buildJob({
+      title: 'Fixture Stelle',
+      link: 'https://jobs.chur.ch/Fixture-Stelle-de-j1999.html',
+      summary: SUMMARY_35,
+      content,
+      category: 'Verwaltung',
+      updated: '2026-09-30T08:00:00Z',
+    });
+
+    expect(job.description).toBe(BODY_60);
+    expect(meetsSourceBodyFloor(job.description)).toBe(true);
+  });
+
+  it('on a connection-level soft exit keeps one valid row and quarantines eight thin rows', async () => {
+    const stored = Array.from({ length: 9 }, (_, index) => ({
+      slug: `fixture-stelle-stadt-chur-${index}`,
+      url: `https://jobs.chur.ch/Fixture-Stelle-${index}-de-j${2000 + index}.html`,
+      sourceLang: 'de',
+      description: index === 0 ? BODY_60 : SUMMARY_35,
+      descriptionByLocale: { de: index === 0 ? BODY_60 : SUMMARY_35 },
+    }));
+    const write = vi.fn();
+
+    const rewritten = await rewritePreparedStoredJobs({
+      prepare: (jobs) => jobs,
+      storedJobs: stored,
+      companyKey: 'stadt-chur',
+      companyLabel: 'Stadt Chur',
+      write,
+    });
+
+    expect(rewritten).toBe(true);
+    expect(write).toHaveBeenCalledTimes(1);
+    const [jobs, options] = write.mock.calls[0];
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ slug: stored[0].slug, description: BODY_60 });
+    expect(options.housekeepingProof).toHaveLength(8);
+    expect(options.housekeepingProof.every((entry) => entry.reason === 'thin-source-quarantine')).toBe(true);
+    expect(options.housekeepingProof.map((entry) => entry.job.slug)).toEqual(stored.slice(1).map((job) => job.slug));
+  });
+
+  it('on a connection-level soft exit keeps every stored row with a valid body', async () => {
+    const stored = Array.from({ length: 9 }, (_, index) => ({
+      slug: `fixture-stelle-stadt-chur-${index}`,
+      url: `https://jobs.chur.ch/Fixture-Stelle-${index}-de-j${2100 + index}.html`,
+      sourceLang: 'de',
+      description: BODY_60,
+      descriptionByLocale: { de: BODY_60 },
+    }));
+    const write = vi.fn();
+
+    const rewritten = await rewritePreparedStoredJobs({
+      prepare: (jobs) => jobs,
+      storedJobs: stored,
+      companyKey: 'stadt-chur',
+      companyLabel: 'Stadt Chur',
+      write,
+    });
+
+    expect(rewritten).toBe(false);
+    expect(write).not.toHaveBeenCalled();
+  });
+
+  it('routes a connection-level feed failure through the stored thin-source cleanup', () => {
+    const runner = readFileSync(
+      path.join(__dirname, '..', 'scripts', 'update-stadt-chur-jobs.mjs'),
+      'utf8',
+    );
+
+    expect(runner).toContain('isConnectionLevelFetchError(err)');
+    expect(runner).toContain("markCrawlerSummaryAbortKind('connection-level-fetch');");
+    expect(runner).toMatch(
+      /entries = await fetchFeed\(\);[\s\S]*?if \(!isConnectionLevelFetchError\(err\)\) throw err;[\s\S]*?await rewriteStoredJobsWithoutThinSource\(stored\);/,
+    );
+  });
+
+  it('keeps the runner summary on the merge stats contract before assembly', () => {
+    const runner = readFileSync(
+      path.join(__dirname, '..', 'scripts', 'update-stadt-chur-jobs.mjs'),
+      'utf8',
+    );
+    const summaryCall = 'writeJobsSummary(COMPANY_KEY, stats);';
+    const summaryOffset = runner.indexOf(summaryCall);
+    const sliceSummaryOffset = runner.indexOf('writeSummaryCrawlerSlice({', summaryOffset);
+    const assemblyOffset = runner.indexOf('await assembleJobsDataset();', sliceSummaryOffset);
+
+    expect(summaryOffset).toBeGreaterThan(-1);
+    expect(runner.match(/writeJobsSummary\([^;]+\);/g)).toEqual([summaryCall]);
+    expect(summaryOffset).toBeLessThan(sliceSummaryOffset);
+    expect(sliceSummaryOffset).toBeLessThan(assemblyOffset);
   });
 });

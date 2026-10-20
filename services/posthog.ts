@@ -15,6 +15,7 @@ import { isLikelyBot } from './botPatterns';
 import {
  POSTHOG_SESSION_REPLAY_SAMPLE_RATE,
  createPostHogQuotaFilter,
+ isLocalDevHost,
 } from './posthogQuota';
 
 const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
@@ -25,6 +26,10 @@ let _loading: Promise<void> | null = null;
 
 async function ensurePostHog(): Promise<any> {
  if (_posthog) return _posthog;
+ // Never send local development traffic to the production PostHog project.
+ // Keep this before the bot gate and SDK import so dev work has no network
+ // side effects even when the browser looks like a real user.
+ if (isLocalDevHost()) return null;
  // Bot gate: never init PostHog for bot sessions. Returning before _loading is
  // set means no $pageview / $pageleave / session-replay / explicit captures ever
  // fire for bots — the single biggest lever on event volume against the

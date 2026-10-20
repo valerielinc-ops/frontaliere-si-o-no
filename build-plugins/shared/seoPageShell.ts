@@ -56,11 +56,12 @@
 
 import np from 'node:path';
 import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
-import { GPT_BOOTSTRAP_TAG, isJobBoardPageUrl } from '../jobBoardGpt';
+import { jobBoardHeadTags } from '../jobBoardGpt';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
 import { normalizeShellTitle } from './titleSuffix';
 import { minifyHtml } from './htmlMinify';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenames';
+import { normalizeStructuredData } from '../../services/seo/schema-normalizers';
 
 // `normalizeShellTitle` vive ora in ./titleSuffix.ts (modulo foglia), cosi'
 // che l'invariante di round-trip col confronto h1/title di
@@ -75,6 +76,32 @@ import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenam
 // non importato perche' titleSuffix.ts e' `mode: identical` e va copiato a
 // mano sul corpus, dove `shared/htmlEscape.ts` non esiste — vedi il suo
 // docblock. L'equivalenza fra le due copie e' pinnata dal test.
+
+/**
+ * Add stable identities to the two repeated entities emitted by static SEO
+ * generators. The shell receives already-serialized JSON-LD, so this one
+ * pass also covers generators whose source is on another workstream (for
+ * example job and border-wait pages) without changing their emitters.
+ */
+export function normalizeStaticJsonLdScripts(
+  scripts: readonly string[] | undefined,
+  options: { readonly allowNameOnlyOrganizationIds?: boolean } = {},
+): string[] {
+  const allowNameOnlyOrganizationIds = options.allowNameOnlyOrganizationIds !== false;
+  return (scripts ?? []).map((raw) => {
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      return raw;
+    }
+
+    const normalized = normalizeStructuredData(parsed, { allowNameOnlyOrganizationIds });
+    const serialized = JSON.stringify(normalized).replace(/</g, '\\u003c');
+    const original = JSON.stringify(parsed).replace(/</g, '\\u003c');
+    return serialized === original ? raw : serialized;
+  });
+}
 
 /** Cached entry-asset resolution, keyed by distDir absolute path. */
 interface EntryAssets {
@@ -107,6 +134,76 @@ export function clearEntryAssetsCache(): void {
   ENTRY_CACHE.clear();
 }
 
+/**
+ * Read one HTML attribute from a tag without depending on the minifier's
+ * choice of quoted or unquoted values. Build-time callers pass generated HTML
+ * here, so a small attribute reader is enough and avoids pulling a DOM parser
+ * into every SEO build.
+ */
+function htmlAttribute(tag: string, name: string): string | undefined {
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = tag.match(
+    new RegExp(`\\b${escapedName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'),
+  );
+  return match?.[1] ?? match?.[2] ?? match?.[3];
+}
+
+/**
+ * Return the URL path used for comparing same-resource preload hints.
+ *
+ * Hero markup uses a site-relative `/og/` path while a few older emitters use
+ * an origin-absolute URL. Comparing the parsed path keeps those forms from
+ * producing duplicate preloads and also remains correct after the deploy
+ * step rewrites `/og/` to the image CDN.
+ */
+function resourcePath(value: string): string {
+  const decoded = value.replace(/&amp;/g, '&');
+  try {
+    const parsed = new URL(decoded, 'https://frontaliere.local');
+    return `${parsed.pathname}${parsed.search}${parsed.hash}`;
+  } catch {
+    return decoded;
+  }
+}
+
+/**
+ * Build the LCP preload for the shared generated SEO hero, when present.
+ *
+ * `renderSeoHeroImage()` deliberately owns only the body `<img>` because its
+ * callers do not have access to the final document head. The shell is the one
+ * place all those pages share, so it can derive the hint from the marker that
+ * already identifies the generated card. Existing callers that supplied the
+ * same hero preload (the annual report page, for example) are left untouched.
+ */
+export function buildSeoHeroPreload(
+  bodyHtml: string,
+  extraHeadHtml = '',
+): string {
+  const imageTags = bodyHtml.match(/<img\b[^>]*>/gi) ?? [];
+  const heroTag = imageTags.find((tag) => htmlAttribute(tag, 'data-seo-hero') !== undefined);
+  if (!heroTag) return '';
+
+  const heroSrc = htmlAttribute(heroTag, 'src');
+  if (!heroSrc) return '';
+  const heroPath = resourcePath(heroSrc);
+
+  const existingImagePreload = (extraHeadHtml.match(/<link\b[^>]*>/gi) ?? []).some((tag) => {
+    const rel = htmlAttribute(tag, 'rel');
+    const as = htmlAttribute(tag, 'as');
+    return rel?.toLowerCase() === 'preload'
+      && as?.toLowerCase() === 'image'
+      && resourcePath(htmlAttribute(tag, 'href') ?? '') === heroPath;
+  });
+  if (existingImagePreload) return '';
+
+  const escapedSrc = heroSrc
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  return `<link rel="preload" as="image" href="${escapedSrc}" type="image/webp" fetchpriority="high">`;
+}
+
 export interface SeoPageShellOpts {
   locale: string;
   title: string;
@@ -119,6 +216,8 @@ export interface SeoPageShellOpts {
   bodyHtml: string;
   /** JSON-LD payloads as stringified JSON (one entry per `<script>` tag). */
   jsonLdScripts?: string[];
+  /** Whether name-only Organization nodes may receive a synthetic fallback ID. */
+  allowNameOnlyOrganizationIds?: boolean;
   /** Per-page og:image override. Defaults to site-wide og-image.png (1200×630). */
   ogImage?: string;
   ogImageWidth?: number;
@@ -147,7 +246,8 @@ export interface SeoPageShellOpts {
    * element (all 6 SEO feature plugins do).
    *
    * Ignored when {@link seoContentOutsideRoot} is true (the outside-root mode
-   * always emits its own `<main class="seo-static-content">` wrapper).
+   * promotes a leading caller-owned `<main>` or wraps plain inner HTML in the
+   * canonical static wrapper).
    */
   skipMainWrap?: boolean;
   /**
@@ -212,8 +312,9 @@ export interface SeoPageShellOpts {
  *   - Analytics, AdSense, GTAG, canonical, OG and favicon tags are emitted
  *
  * The caller passes the page-specific content (including its own `<main>`
- * or plain inner HTML). buildSimplePage wraps everything in
- * `<div id="root"><main class="static-job-page">${bodyHtml}</main></div>`.
+ * or plain inner HTML). In outside-root mode, buildSimplePage promotes a
+ * leading caller-owned `<main>` or wraps plain inner HTML in the canonical
+ * static landmark; legacy mode keeps the content inside `#root`.
  */
 export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
   const {
@@ -224,6 +325,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     hreflangHtml,
     bodyHtml,
     jsonLdScripts,
+    allowNameOnlyOrganizationIds = true,
     extraHeadHtml,
     ogImage,
     ogImageWidth,
@@ -259,6 +361,8 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
       })
     : { subnavHtml: '', bodyHtml };
 
+  const heroPreload = buildSeoHeroPreload(wrappedBody, extraHeadHtml ?? '');
+
   const simpleOpts: SimplePageOpts = {
     locale,
     title: normalizeShellTitle(title),
@@ -273,8 +377,8 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogImageHeight,
     ogImageType,
     ogImageAlt,
-    extraHeadHtml: `${extraHeadHtml ?? ''}${isJobBoardPageUrl(canonicalUrl) ? `\n${GPT_BOOTSTRAP_TAG}` : ''}`,
-    jsonLdScripts: jsonLdScripts ?? [],
+    extraHeadHtml: `${heroPreload}${extraHeadHtml ?? ''}${jobBoardHeadTags(canonicalUrl)}`,
+    jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts, { allowNameOnlyOrganizationIds }),
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,
     bodyHtml: wrappedBody,

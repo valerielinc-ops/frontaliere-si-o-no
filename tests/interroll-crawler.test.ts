@@ -1,21 +1,30 @@
 /**
  * Interroll Group — TYPO3 careers page parser tests
  */
+import fs from 'node:fs';
 import { describe, it, expect } from 'vitest';
 
 import {
   parseListingPage,
+  classifyInterrollListings,
   parseDetailPage,
   isSwissLocation,
   slugify,
   detectCategory,
   detectExperienceLevel,
   MIN_DESC_LENGTH,
+  extractInterrollJobBody,
 } from '@/scripts/lib/interroll-job-parser.mjs';
 import {
   resolveInterrollSiteAddress,
   INTERROLL_SITES,
+  buildInterrollJob,
 } from '@/scripts/update-interroll-jobs.mjs';
+
+const INTERROLL_UPDATER = fs.readFileSync(
+  new URL('../scripts/update-interroll-jobs.mjs', import.meta.url),
+  'utf8',
+);
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -111,6 +120,70 @@ describe('parseListingPage', () => {
     expect(jobs[0].location).toContain('Switzerland');
   });
 
+  it('keeps the country when the live card puts the department before it', () => {
+    const jobs = parseListingPage(`
+      <div class="job-listing-item">
+        <h3>Area Sales Manager Solutions</h3>
+        <p>Aussendienst | Germany</p>
+        <a href="/careers/jobs/job-detail/area-sales-manager">Details</a>
+      </div>
+      <div class="job-listing-item">
+        <h3>Area Sales Manager Solutions</h3>
+        <p>Kettering | United Kingdom</p>
+        <a href="/careers/jobs/job-detail/area-sales-manager-uk">Details</a>
+      </div>
+      <div class="job-listing-item">
+        <h3>Mechanical Design Engineer</h3>
+        <p>R&amp;D | Sant'Antonino | Switzerland</p>
+        <a href="/careers/jobs/job-detail/mechanical-design-ch">Details</a>
+      </div>
+    `);
+
+    expect(jobs.map((job) => job.location)).toEqual([
+      'Aussendienst | Germany',
+      'Kettering | United Kingdom',
+      "R&D | Sant'Antonino | Switzerland",
+    ]);
+  });
+
+  it('parses a USA foreign-only card as an authoritative filtered-empty board', () => {
+    const listings = parseListingPage(`
+      <div class="job-card">
+        <a href="/company/careers/jobs/job-detail/x">
+          <h3>X</h3>
+          <p>Operations | USA</p>
+        </a>
+      </div>
+    `);
+
+    expect(listings).toHaveLength(1);
+    expect(listings[0].location).toBe('Operations | USA');
+    expect(classifyInterrollListings(listings)).toMatchObject({
+      lastFetchOutcome: 'filtered_empty',
+      authoritativeEmptySnapshot: true,
+      unclassifiedLocationCount: 0,
+    });
+  });
+
+  it('parses the German Austria marker as an authoritative filtered-empty board', () => {
+    const listings = parseListingPage(`
+      <div class="job-card">
+        <a href="/company/careers/jobs/job-detail/x">
+          <h3>X</h3>
+          <p>Operations | Österreich</p>
+        </a>
+      </div>
+    `);
+
+    expect(listings).toHaveLength(1);
+    expect(listings[0].location).toBe('Operations | Österreich');
+    expect(classifyInterrollListings(listings)).toMatchObject({
+      lastFetchOutcome: 'filtered_empty',
+      authoritativeEmptySnapshot: true,
+      unclassifiedLocationCount: 0,
+    });
+  });
+
   it('returns empty array for empty input', () => {
     expect(parseListingPage('')).toHaveLength(0);
   });
@@ -121,6 +194,75 @@ describe('parseListingPage', () => {
     const urls = jobs.map(j => j.url);
     const unique = new Set(urls);
     expect(urls.length).toBe(unique.size);
+  });
+});
+
+describe('classifyInterrollListings', () => {
+  it('reports a reachable global board filtered to zero Swiss jobs with a proof', () => {
+    const result = classifyInterrollListings([
+      { title: 'Area Sales Manager', url: 'https://www.interroll.com/job-detail/sales', location: 'Germany' },
+      { title: 'Service Techniker', url: 'https://www.interroll.com/job-detail/service', location: 'Austria' },
+    ]);
+
+    expect(result.discovered).toBe(2);
+    expect(result.listings).toEqual([]);
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+    expect(result.unclassifiedLocationCount).toBe(0);
+  });
+
+  it('does not prove a filtered zero when any card has no recognized location', () => {
+    const result = classifyInterrollListings([
+      { title: 'Area Sales Manager', url: 'https://www.interroll.com/job-detail/sales', location: 'Germany' },
+      { title: 'Unknown role', url: 'https://www.interroll.com/job-detail/unknown', location: '' },
+    ]);
+
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+    expect(result.unclassifiedLocationCount).toBe(1);
+  });
+
+  it('recognizes a Swiss country after the department separator', () => {
+    const result = classifyInterrollListings([
+      {
+        title: 'Mechanical Design Engineer',
+        url: 'https://www.interroll.com/job-detail/mechanical-design',
+        location: 'R&D | Sant\'Antonino | Switzerland',
+      },
+    ]);
+
+    expect(result.listings).toHaveLength(1);
+    expect(result.lastFetchOutcome).toBe('ok');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('keeps an empty fetched board fail-closed as a selector miss', () => {
+    expect(classifyInterrollListings([])).toMatchObject({
+      discovered: 0,
+      listings: [],
+      lastFetchOutcome: 'selector_miss',
+    });
+  });
+});
+
+describe('filtered-empty heartbeat wiring', () => {
+  it('writes a normal summary instead of leaving the process-exit guard as the only signal', () => {
+    expect(INTERROLL_UPDATER).toContain(
+      "if (summaryCounts.lastFetchOutcome === 'filtered_empty')",
+    );
+    const filteredEmptyPath = INTERROLL_UPDATER.slice(
+      INTERROLL_UPDATER.indexOf("if (summaryCounts.lastFetchOutcome === 'filtered_empty')"),
+    );
+    expect(filteredEmptyPath).toContain(
+      'writeInterrollSummary({ counts: summaryCounts });',
+    );
+    expect(INTERROLL_UPDATER).toContain(
+      'lastFetchOutcome: counts.lastFetchOutcome',
+    );
+    expect(INTERROLL_UPDATER).toContain(
+      'authoritativeEmptySnapshot: counts.authoritativeEmptySnapshot === true && sliceJobs.length === 0',
+    );
+    expect(INTERROLL_UPDATER).toContain('publishAuthoritativeEmptySnapshot');
   });
 });
 
@@ -232,5 +374,55 @@ describe('resolveInterrollSiteAddress', () => {
   it('registry only contains the confirmed Sant\'Antonino site', () => {
     expect(INTERROLL_SITES).toHaveLength(1);
     expect(INTERROLL_SITES[0].key).toBe('sant-antonino');
+  });
+});
+
+// ─── Source text only (issue 5253) ──────────────────────────────────────────
+// Minimized from the live interroll.com job page (2026-09-29): the vacancy is
+// `.tx-jobs .news-detail-content`; the page around it is a 40k-character
+// mega-menu that `parseDetailPage`'s generic fallback would have published.
+const LIVE_TEMPLATE_DETAIL = `
+<html><body>
+<nav class="mega-menu"><div class="mega-menu-items-collapse-content">English Deutsch Products Solutions Industries Careers</div></nav>
+<div class="tx-jobs"><div class="module news-detail">
+  <div class="news-detail-header"><a href="/careers/jobs/">Back to overview</a> Aussendienst, Germany <h1>Area Sales Manager Products (m/v/d)</h1></div>
+  <div class="news-detail-content"><div class="inner"><div class="left">
+    <p>The Interroll Group is the leading global provider of material-handling solutions. The company was founded in 1959 and has been listed on the SIX Swiss Exchange since 1997.</p>
+    <p>Interroll provides system integrators and OEMs with a wide range of platform-based products and services in these categories: Rollers (conveyor rollers), Drives (motors and drives for conveyor systems), Conveyors &amp; Sorters as well as Pallet Handling (flow storage systems).</p>
+    <p><strong>What are my responsibilities?</strong></p>
+    <ul>
+      <li>Acquisition of new customers and key account management for the sales area</li>
+      <li>Development and implementation of strategies and action plans to increase sales</li>
+    </ul>
+  </div></div></div>
+</div></div>
+</body></html>`;
+
+describe('Interroll source text only (issue 5253)', () => {
+  const site = INTERROLL_SITES[0];
+  const raw = { title: 'Area Sales Manager Products (m/v/d)', url: 'https://www.interroll.com/careers/jobs/job-detail/area-sales-manager', location: "Sant'Antonino" };
+
+  it('reads only the vacancy container, never the navigation', () => {
+    const body = extractInterrollJobBody(LIVE_TEMPLATE_DETAIL);
+    expect(body).toContain('The Interroll Group is the leading global provider');
+    expect(body).toContain('• Acquisition of new customers');
+    expect(body).not.toContain('Products Solutions Industries');
+    expect(body).not.toContain('Back to overview');
+  });
+
+  it('returns nothing for a page without a vacancy container', () => {
+    expect(extractInterrollJobBody('<main><div>Products Solutions Industries Careers and a long navigation text</div></main>')).toBe('');
+  });
+
+  it('publishes the vacancy text in its own language instead of an invented sentence', () => {
+    const job = buildInterrollJob(raw, site, extractInterrollJobBody(LIVE_TEMPLATE_DETAIL));
+    expect(job?.sourceLang).toBe('en');
+    expect(job?.descriptionByLocale).toEqual({ en: job?.description });
+    expect(job?.description).not.toMatch(/position at Interroll Group in/);
+  });
+
+  it('does not publish a job without at least 50 words of source text', () => {
+    expect(buildInterrollJob(raw, site, '')).toBeNull();
+    expect(buildInterrollJob(raw, site, 'Area Sales Manager Products.')).toBeNull();
   });
 });

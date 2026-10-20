@@ -1,4 +1,8 @@
 import { baseCompanySlug } from './shared/companyProfileSlug.mjs';
+import {
+  WEEKLY_EMPLOYERS_CITIES as SHARED_WEEKLY_EMPLOYERS_CITIES,
+  WEEKLY_EMPLOYERS_ROUTE_CONFIG,
+} from './shared/weeklyEmployersRoutes.mjs';
 /**
  * Weekly "Aziende che assumono" per-city Hub — pure data/path helpers.
  *
@@ -43,22 +47,12 @@ export type WeeklyEmployersCity =
   | 'locarno';
 
 export const WEEKLY_EMPLOYERS_LOCALES: readonly WeeklyEmployersLocale[] = [
-  'it',
-  'en',
-  'de',
-  'fr',
-] as const;
+  ...WEEKLY_EMPLOYERS_ROUTE_CONFIG.map(({ locale }) => locale as WeeklyEmployersLocale),
+];
 
 /** Ordered list: regional "ticino" hub first, then city hubs sorted by GSC priority. */
-export const WEEKLY_EMPLOYERS_CITIES: readonly WeeklyEmployersCity[] = [
-  'ticino',
-  'lugano',
-  'mendrisio',
-  'chiasso',
-  'stabio',
-  'bellinzona',
-  'locarno',
-] as const;
+export const WEEKLY_EMPLOYERS_CITIES: readonly WeeklyEmployersCity[] =
+  SHARED_WEEKLY_EMPLOYERS_CITIES as readonly WeeklyEmployersCity[];
 
 /** City display name — proper nouns, same across all locales. */
 export const WEEKLY_EMPLOYERS_CITY_DISPLAY: Record<WeeklyEmployersCity, string> = {
@@ -72,40 +66,31 @@ export const WEEKLY_EMPLOYERS_CITY_DISPLAY: Record<WeeklyEmployersCity, string> 
 };
 
 /** Top-level section slug per locale. */
-export const WEEKLY_EMPLOYERS_SECTION: Record<WeeklyEmployersLocale, string> = {
-  it: 'aziende-che-assumono',
-  en: 'companies-hiring',
-  de: 'unternehmen-einstellen',
-  fr: 'entreprises-recrutent',
-};
+export const WEEKLY_EMPLOYERS_SECTION: Record<WeeklyEmployersLocale, string> = Object.fromEntries(
+  WEEKLY_EMPLOYERS_ROUTE_CONFIG.map(({ locale, section }) => [locale, section]),
+) as Record<WeeklyEmployersLocale, string>;
 
 /** Locale path prefix — Italian has no prefix. */
-export const WEEKLY_EMPLOYERS_LOCALE_PREFIX: Record<WeeklyEmployersLocale, string> = {
-  it: '',
-  en: '/en',
-  de: '/de',
-  fr: '/fr',
-};
+export const WEEKLY_EMPLOYERS_LOCALE_PREFIX: Record<WeeklyEmployersLocale, string> = Object.fromEntries(
+  WEEKLY_EMPLOYERS_ROUTE_CONFIG.map(({ locale, localePrefix }) => [
+    locale,
+    localePrefix ? `/${localePrefix}` : '',
+  ]),
+) as Record<WeeklyEmployersLocale, string>;
 
 /** "Current week" slug per locale. */
-export const WEEKLY_EMPLOYERS_CURRENT_SLUG: Record<WeeklyEmployersLocale, string> = {
-  it: 'settimana-corrente',
-  en: 'current-week',
-  de: 'aktuelle-woche',
-  fr: 'semaine-courante',
-};
+export const WEEKLY_EMPLOYERS_CURRENT_SLUG: Record<WeeklyEmployersLocale, string> = Object.fromEntries(
+  WEEKLY_EMPLOYERS_ROUTE_CONFIG.map(({ locale, currentSlug }) => [locale, currentSlug]),
+) as Record<WeeklyEmployersLocale, string>;
 
 /**
  * Archive slug *prefix* per locale.
  * Archive slug is `${prefix}-{NN}-{YYYY}` — e.g. IT "settimana-16-2026",
  * EN "week-16-2026", DE "woche-16-2026", FR "semaine-16-2026".
  */
-export const WEEKLY_EMPLOYERS_ARCHIVE_PREFIX: Record<WeeklyEmployersLocale, string> = {
-  it: 'settimana',
-  en: 'week',
-  de: 'woche',
-  fr: 'semaine',
-};
+export const WEEKLY_EMPLOYERS_ARCHIVE_PREFIX: Record<WeeklyEmployersLocale, string> = Object.fromEntries(
+  WEEKLY_EMPLOYERS_ROUTE_CONFIG.map(({ locale, archivePrefix }) => [locale, archivePrefix]),
+) as Record<WeeklyEmployersLocale, string>;
 
 export const WEEKLY_EMPLOYERS_OG_LOCALE: Record<WeeklyEmployersLocale, string> = {
   it: 'it_CH',

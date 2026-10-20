@@ -57,7 +57,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -84,7 +84,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -96,7 +96,7 @@ jobs:
       # That is also why the renderer-drift check (#5432) reads its expectation
       # from the published `sitemap-topics-<section>.xml` rather than
       # recomputing it with the engine's `computeEligibleTopicKeys`. The
-      # obstacle is NOT the install — `npx -y tsx@4` runs TypeScript here with
+      # obstacle is NOT the install — `npx -y tsx@4.23.15` runs TypeScript here with
       # no repo install at all, as `rerender-article-corpus.yml` does. It is
       # that recomputing answers a different question: what THIS checkout would
       # emit, from the site repo's copy of the corpus, instead of what the site

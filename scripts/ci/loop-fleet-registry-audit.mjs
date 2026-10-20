@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Audit the executable bindings of the loop fleet against its canonical
@@ -16,6 +18,7 @@ import { fileURLToPath } from 'node:url';
 import {
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
+import { lineAt } from './line-at.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -25,10 +28,6 @@ export const L11_PRODUCER = 'scripts/ci/record-loop-fleet-evidence.mjs';
 const LOOP_ID_RE = /^L\d+$/u;
 const LOOP_WORKFLOW_RE = /^loop-(l\d+)-.+\.ya?ml$/iu;
 const LOOP_PRODUCER_RE = /^loop-(l\d+)-.+\.mjs$/iu;
-
-function lineAt(source, index) {
-  return String(source).slice(0, Math.max(0, index)).split(/\r?\n/u).length;
-}
 
 function finding(file, rule, message, line = 1, evidence = null) {
   return {
@@ -494,5 +493,5 @@ function main() {
   if (summary.error > 0) process.exitCode = 1;
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) main();

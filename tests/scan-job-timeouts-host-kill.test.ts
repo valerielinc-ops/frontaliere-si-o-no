@@ -27,7 +27,15 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 // scan-job-timeouts-dedup.test.ts.
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
+  const mock = {
+    execFileSync: (cmd: string, args: string[], ...rest: unknown[]) => {
+      if (cmd === 'gh' && args[0] === 'api'
+        && String(args[1]).includes('/runs?status=success&event=schedule')) {
+        return JSON.stringify({ workflow_runs: [] });
+      }
+      return execFileSync(cmd, args, ...rest);
+    },
+  };
   return { ...mock, default: mock };
 });
 

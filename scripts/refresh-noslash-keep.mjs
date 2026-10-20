@@ -4,7 +4,11 @@
  * receive ANY measurable traffic without a trailing slash, sourced from:
  *   1. Google Search Console (SEO impressions)
  *   2. Google Analytics 4 (pageviews)
- *   3. PostHog (pageviews)
+ *
+ * PostHog `$pageview` was a third source until decisione H9 del 2026-10-05
+ * («rimpiazza PostHog con GA4»): GA4 `screenPageViews` per pagePath measures
+ * the same pageviews, and PostHog is under quota by choice. Paths it kept in
+ * earlier runs stay in the keep-list through the previous-list union below.
  *
  * These are the flat `.html` shadows we MUST keep emitting in dist/ so the
  * 200-OK direct serve at the no-slash form is preserved and we don't lose
@@ -24,7 +28,6 @@
  * Auth:
  *   - GSC: Firebase Service Account (same as scripts/check-gsc-frontaliere-baseline.mjs)
  *   - GA4: GA4_PROPERTY_ID env + GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_JSON
- *   - PostHog: POSTHOG_PERSONAL_API_KEY + POSTHOG_PROJECT_ID env
  *
  *   Missing sources are silently skipped (best-effort union).
  *
@@ -34,8 +37,7 @@
  *     "lookbackDays": 90,
  *     "sources": {
  *       "gsc":     { "ok": true,  "noSlashSeen": 671, "jobSectionKept": 3 },
- *       "ga4":     { "ok": false, "reason": "missing creds" },
- *       "posthog": { "ok": false, "reason": "missing creds" }
+ *       "ga4":     { "ok": false, "reason": "missing creds" }
  *     },
  *     "keepCount": 3,
  *     "keepPaths": [ "/cerca-lavoro-ticino/<slug>", ... ]
@@ -52,7 +54,8 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
-import { GA4_READONLY_SCOPE, getServiceAccountToken } from './lib/ga4-service-account.mjs';
+import { GA4_READONLY_SCOPE, getServiceAccountToken, paginateGa4Report } from './lib/ga4-service-account.mjs';
+import { guardCompleteGa4Report } from './lib/ga4-refresh-guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -161,55 +164,31 @@ async function fetchGa4(startDate, endDate) {
   const token = await getServiceAccountToken([GA4_READONLY_SCOPE]);
   if (!token) throw new Error('GA4 service-account credentials unavailable');
   const url = `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-    body: JSON.stringify({
+  // Paginato fino a rowCount: una finestra di pagePath oltre le 100000 righe
+  // veniva troncata in silenzio da un limit fisso senza offset (stessa classe
+  // della issue 11423). La keep-list e' additiva: una coda mancante non
+  // cancella i path osservati, ma resta visibile in `complete`.
+  const report = await paginateGa4Report({
+    body: {
       dateRanges: [{ startDate, endDate }],
       dimensions: [{ name: 'pagePath' }],
       metrics: [{ name: 'screenPageViews' }],
-      limit: 100000,
-    }),
+    },
+    fetchPage: async (page) => {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify(page),
+      });
+      if (!res.ok) throw new Error(`GA4 ${res.status}: ${await res.text()}`);
+      return res.json();
+    },
   });
-  if (!res.ok) throw new Error(`GA4 ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  return (data.rows || []).map((r) => ({
+  const rows = report.rows.map((r) => ({
     path: r.dimensionValues?.[0]?.value || '',
     views: parseInt(r.metricValues?.[0]?.value || '0', 10),
   }));
-}
-
-async function fetchPosthog(startDate, endDate) {
-  const apiKey = process.env.POSTHOG_PERSONAL_API_KEY;
-  const projectId = process.env.POSTHOG_PROJECT_ID;
-  const host = (process.env.POSTHOG_HOST || 'https://eu.posthog.com').replace(/\/$/, '');
-  if (!apiKey || !projectId) throw new Error('POSTHOG_PERSONAL_API_KEY/POSTHOG_PROJECT_ID unset');
-  const query = `
-    SELECT properties.$pathname AS path, count() AS views
-    FROM events
-    WHERE event = '$pageview'
-      AND properties.$pathname IS NOT NULL
-      AND (
-        properties.$pathname LIKE '/cerca-lavoro-%'
-        OR properties.$pathname LIKE '/en/find-jobs-%'
-        OR properties.$pathname LIKE '/de/jobs-im-%'
-        OR properties.$pathname LIKE '/de/jobs-in-%'
-        OR properties.$pathname LIKE '/fr/trouver-emploi-%'
-      )
-      AND timestamp >= toDateTime('${startDate} 00:00:00')
-      AND timestamp <= toDateTime('${endDate} 23:59:59')
-    GROUP BY path
-    LIMIT 5000
-  `.trim();
-  const url = `${host}/api/projects/${projectId}/query/`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
-  });
-  if (!res.ok) throw new Error(`PostHog ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  return (data.results || []).map((row) => ({ path: row[0], views: row[1] }));
+  return { rows, complete: report.complete, reportedRows: report.rowCount };
 }
 
 async function main() {
@@ -221,7 +200,7 @@ async function main() {
   console.error(`[noslash-keep] lookback ${startDate} → ${endDate} (${days} days), min impressions/views = ${minImpressions}`);
 
   const keep = new Set();
-  const sources = { gsc: { ok: false }, ga4: { ok: false }, posthog: { ok: false } };
+  const sources = { gsc: { ok: false }, ga4: { ok: false } };
   const sa = loadServiceAccount();
 
   // ─── GSC ───────────────────────────────────────────────────────────────
@@ -252,19 +231,25 @@ async function main() {
   // ─── GA4 ───────────────────────────────────────────────────────────────
   if (sa && process.env.GA4_PROPERTY_ID) {
     try {
-      const rows = await fetchGa4(startDate, endDate);
-      let noSlashSeen = 0, kept = 0;
-      for (const row of rows) {
-        const p = row.path;
-        if (!p || p.endsWith('/') || p.endsWith('.html') || p === '/') continue;
-        noSlashSeen += 1;
-        if (!JOB_SECTION_RX.test(p)) continue;
-        if (row.views < minImpressions) continue;
-        keep.add(p);
-        kept += 1;
+      const guarded = guardCompleteGa4Report(await fetchGa4(startDate, endDate));
+      if (!guarded.accepted) {
+        sources.ga4 = guarded.source;
+        console.error(`[noslash-keep] GA4: ${guarded.source.reason}`);
+      } else {
+        const { rows } = guarded;
+        let noSlashSeen = 0, kept = 0;
+        for (const row of rows) {
+          const p = row.path;
+          if (!p || p.endsWith('/') || p.endsWith('.html') || p === '/') continue;
+          noSlashSeen += 1;
+          if (!JOB_SECTION_RX.test(p)) continue;
+          if (row.views < minImpressions) continue;
+          keep.add(p);
+          kept += 1;
+        }
+        sources.ga4 = { ...guarded.source, noSlashSeen, jobSectionKept: kept };
+        console.error(`[noslash-keep] GA4: ${kept} job-section paths kept from ${noSlashSeen} no-slash paths (${rows.length} rows)`);
       }
-      sources.ga4 = { ok: true, rowsScanned: rows.length, noSlashSeen, jobSectionKept: kept };
-      console.error(`[noslash-keep] GA4: ${kept} job-section paths kept from ${noSlashSeen} no-slash paths (${rows.length} rows)`);
     } catch (err) {
       sources.ga4 = { ok: false, reason: err.message };
       console.error(`[noslash-keep] GA4: ${err.message}`);
@@ -272,31 +257,6 @@ async function main() {
   } else {
     sources.ga4 = { ok: false, reason: 'missing GA4_PROPERTY_ID or service account' };
     console.error('[noslash-keep] GA4: skipped (missing credentials)');
-  }
-
-  // ─── PostHog ───────────────────────────────────────────────────────────
-  if (process.env.POSTHOG_PERSONAL_API_KEY && process.env.POSTHOG_PROJECT_ID) {
-    try {
-      const rows = await fetchPosthog(startDate, endDate);
-      let noSlashSeen = 0, kept = 0;
-      for (const row of rows) {
-        const p = row.path;
-        if (!p || p.endsWith('/') || p.endsWith('.html') || p === '/') continue;
-        noSlashSeen += 1;
-        if (!JOB_SECTION_RX.test(p)) continue;
-        if (row.views < minImpressions) continue;
-        keep.add(p);
-        kept += 1;
-      }
-      sources.posthog = { ok: true, rowsScanned: rows.length, noSlashSeen, jobSectionKept: kept };
-      console.error(`[noslash-keep] PostHog: ${kept} job-section paths kept from ${noSlashSeen} no-slash paths (${rows.length} rows)`);
-    } catch (err) {
-      sources.posthog = { ok: false, reason: err.message };
-      console.error(`[noslash-keep] PostHog: ${err.message}`);
-    }
-  } else {
-    sources.posthog = { ok: false, reason: 'missing POSTHOG_* env' };
-    console.error('[noslash-keep] PostHog: skipped (missing credentials)');
   }
 
   // ─── Merge previous keep-list to avoid losing entries when a source is
@@ -326,7 +286,7 @@ async function main() {
     keepPaths,
   };
   writeJsonAtomic(OUT_PATH, output);
-  console.error(`[noslash-keep] Wrote ${OUT_PATH} — ${keepPaths.length} keep paths total (union of GSC/GA4/PostHog + previous keep-list)`);
+  console.error(`[noslash-keep] Wrote ${OUT_PATH} — ${keepPaths.length} keep paths total (union of GSC/GA4 + previous keep-list)`);
 }
 
 main().catch((err) => {

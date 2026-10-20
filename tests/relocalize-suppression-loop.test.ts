@@ -49,6 +49,24 @@ function stuckJob(): JobWithReconcileState {
 }
 
 describe('reconcileRetranslationState — give-up convergence', () => {
+  it('flags a source-locale copy even when the legacy description representation differs', () => {
+    const source = 'Als Fachperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Qualitätssicherung unserer täglichen Aufgaben im Team. '.repeat(3);
+    const job = {
+      sourceLang: 'de',
+      description: 'A stale legacy source representation that is not the source-locale slot.',
+      title: 'Fachperson',
+      titleByLocale: { de: 'Fachperson', it: 'Specialista', en: 'Specialist', fr: 'Spécialiste' },
+      descriptionByLocale: {
+        de: source,
+        it: source.replace(/ /g, '\n  '),
+        en: 'This is a translated English description with enough operational detail. '.repeat(5),
+        fr: 'Voici une description française traduite avec suffisamment de détails. '.repeat(5),
+      },
+    };
+
+    expect(isIncomplete(job)).toBe(true);
+  });
+
   it('an ATTEMPTED, permanently-incomplete job is suppressed after MAX attempts, then stops looping', () => {
     const job = stuckJob();
     expect(isIncomplete(job)).toBe(true);

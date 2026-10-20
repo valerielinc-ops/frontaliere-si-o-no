@@ -13,6 +13,7 @@
  */
 import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { extractJobPostingNodes } from './lib/jobposting-jsonld.mjs';
 import path from 'node:path';
 
 const SLICES_DIR = 'data/jobs/by-crawler';
@@ -58,19 +59,9 @@ function jaccardSimilarity(setA, setB) {
 /** Extract text from JSON-LD JobPosting if present */
 function extractJsonLd(html) {
   const parts = [];
-  const regex = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = regex.exec(html)) !== null) {
-    try {
-      const data = JSON.parse(m[1]);
-      const items = Array.isArray(data) ? data : [data];
-      for (const item of items) {
-        if (item?.['@type'] === 'JobPosting') {
-          if (item.title) parts.push(item.title);
-          if (item.description) parts.push(stripHtml(item.description));
-        }
-      }
-    } catch { /* ignore */ }
+  for (const item of extractJobPostingNodes(html)) {
+    if (item.title) parts.push(item.title);
+    if (item.description) parts.push(stripHtml(item.description));
   }
   return parts.join(' ');
 }

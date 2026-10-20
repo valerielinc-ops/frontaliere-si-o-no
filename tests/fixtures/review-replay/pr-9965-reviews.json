@@ -1,0 +1,81 @@
+[
+  [
+    {
+      "id": 5326778375,
+      "user": {
+        "login": "frontaliere-automation[bot]",
+        "type": "Bot"
+      },
+      "state": "COMMENTED",
+      "commit_id": "c850dadec70242e34a4f4a990d3492fef1426026",
+      "submitted_at": "2026-09-26T17:44:58Z",
+      "body": "<!-- REVIEW_INPUT_REVISION: body:994b8ce429bce15a455fc8cbd7b3aca7915c17bbde0b49b0d5069df9841f48d5 -->\n<!-- CODEX_FALLBACK_REVIEW -->\n\n## Scope\nReview del contributo completo per il ranking application-intent e i suoi consumer UI/email (tier: high).\n\n## Findings (Important: 1, Nit: 0)\nservices/applicationIntent.ts:L70: 🔴 Important: [funnel] `trackApplicationIntent()` aggiorna solo `localStorage`; il profilo Firestore di personalization letto da `scripts/send-job-alerts.mjs` viene aggiornato soltanto dal sync successivo, mentre questo handler supporta un redirect same-tab, quindi il consumer degli avvisi email può perdere il nuovo intent. Persistere il profilo application-intent tramite il percorso di sync autenticato prima del redirect. Accettazione: click Apply autenticato seguito da navigazione same-tab immediata → `applicationIntent.intents[].jobKey` è presente nel documento Firestore di personalization prima del successivo invio di alert.\n\n## Adversarial check\n- ❓ q: Le `relevanceSignals` già presenti nell’alert devono essere conservate quando `scripts/send-job-alerts.mjs:L2007` le sostituisce con il solo segnale `application_intent`? — deferred, non funnel-critical.\n- ❓ q: `Analytics.trackExperimentEvent` instrada il nuovo evento di exposure verso il sink Firebase previsto senza modificare le destinazioni esistenti? — deferred, non funnel-critical.\n- ❓ q: Quando entry malformate o scadute occupano gli ultimi 100 slot, è accettabile che `activeApplicationIntentJobKeys()` scarti chiavi valide precedenti? — deferred, non funnel-critical.\n"
+    },
+    {
+      "id": 5326904148,
+      "user": {
+        "login": "frontaliere-automation[bot]",
+        "type": "Bot"
+      },
+      "state": "COMMENTED",
+      "commit_id": "5e4f549fba29c459a2236db0d0d48bd2250fa23f",
+      "submitted_at": "2026-09-26T18:25:49Z",
+      "body": "## Scope\nReview of the application-intent ranking delta and same-tab persistence handoff (tier: incremental)\n\n<!-- REVIEW_INPUT_REVISION: body:994b8ce429bce15a455fc8cbd7b3aca7915c17bbde0b49b0d5069df9841f48d5 -->\n\n## Findings (Important: 0, Nit: 0)\nFix di `services/applicationIntent.ts:L91`: ok.\n\n## LGTM\n"
+    },
+    {
+      "id": 5326905036,
+      "user": {
+        "login": "frontaliere-automation[bot]",
+        "type": "Bot"
+      },
+      "state": "COMMENTED",
+      "commit_id": "5e4f549fba29c459a2236db0d0d48bd2250fa23f",
+      "submitted_at": "2026-09-26T18:26:10Z",
+      "body": "<!-- CODEX_FALLBACK_REVIEW -->\n## Scope\nReview of the application-intent ranking delta and same-tab persistence handoff (tier: incremental)\n\n<!-- REVIEW_INPUT_REVISION: body:994b8ce429bce15a455fc8cbd7b3aca7915c17bbde0b49b0d5069df9841f48d5 -->\n\n## Findings (Important: 0, Nit: 0)\nFix di `services/applicationIntent.ts:L91`: ok.\n\n## LGTM\n\n"
+    },
+    {
+      "id": 5326970020,
+      "user": {
+        "login": "frontaliere-automation[bot]",
+        "type": "Bot"
+      },
+      "state": "COMMENTED",
+      "commit_id": "ebb410e40d7351f846e07974cf49f4c53155b94a",
+      "submitted_at": "2026-09-26T18:46:44Z",
+      "body": "<!-- REVIEW_INPUT_REVISION: body:994b8ce429bce15a455fc8cbd7b3aca7915c17bbde0b49b0d5069df9841f48d5 -->\n<!-- CODEX_FALLBACK_REVIEW -->\n\n## Scope\nReview of the flag-gated application-intent ranking for the UI and alert-mail paths (tier: high)\n\nFix di `services/applicationIntent.ts:L91`: ok.\n\n## Findings (Important: 1, Nit: 0)\n- services/behaviorTracker.ts:L316: 🔴 Important: [funnel] `syncToFirestore()` can race between the new click flush and the existing hydration/interval snapshots (interactions: `services/applicationIntent.ts:L91`, `App.tsx:L1415`, `App.tsx:L1417`); an older full-profile write can replace the newer `applicationIntent` array, so a same-tab Apply can still disappear before alert matching reads it. Serialize all `syncToFirestore()` writes through one queue. Accettazione: an older hydration snapshot write resolving after the click snapshot → Firestore retains the clicked `applicationIntent.intents[].jobKey`.\n\n## Adversarial check\n- ❓ q: Does remounting JobBoard after hydration emit `application_intent_ranking_exposure` only once per board session? — deferred, non funnel-critical.\n- ❓ q: Do malformed legacy `applicationIntent` records with mixed timestamp representations remain excluded without changing baseline scores? — deferred, non funnel-critical.\n- ❓ q: When an email job has existing relevance signals as well as this signal, should `relevanceSignals` retain the existing entries instead of being replaced? — deferred, non funnel-critical.\n"
+    },
+    {
+      "id": 5327025249,
+      "user": {
+        "login": "frontaliere-automation[bot]",
+        "type": "Bot"
+      },
+      "state": "COMMENTED",
+      "commit_id": "ee7007c3c07c5c6a8771e4a3deb28d46f81af21c",
+      "submitted_at": "2026-09-26T19:04:40Z",
+      "body": "<!-- REVIEW_INPUT_REVISION: body:751df68aa69b16fbad14f2b872ccadc1e5e8600c0e8fc872edd77baec63a859e -->\n<!-- CODEX_FALLBACK_REVIEW -->\n## Scope\nReview of the incremental application-intent ranking delta and its direct synchronization interactions (tier: incremental-high).\n\n## Findings (Important: 1, Nit: 0)\n\nFix di `services/applicationIntent.ts:L91`: ok.\n\nservices/behaviorTracker.ts:L316: 🔴 Important: [funnel] `syncToFirestore()` can race between the new click flush and the existing hydration/interval snapshots (interactions: `services/applicationIntent.ts:L91`, `App.tsx:L1415`, `App.tsx:L1417`); an older full-profile write can replace the newer `applicationIntent` array, so a same-tab Apply can still disappear before alert matching reads it. Serialize all `syncToFirestore()` writes through one queue. Accettazione: an older hydration snapshot write resolving after the click snapshot → Firestore retains the clicked `applicationIntent.intents[].jobKey`.\n\n## Findings ledger (id stabile + stato)\n\n- `fadacdcf2952` open — services/behaviorTracker.ts:L316: 🔴 Important: [funnel] `syncToFirestore()` can race between the new click flush and the existing hydration/interval snapshots (interactions: `services/applicationIntent.ts:L91`, `App.tsx:L1415`, `App.tsx:L1417`); an older full-profile write can replace the newer `applicationIntent` array, so a same-tab Apply can still disappear before alert matching reads it. Serialize all `syncToFirestore()` writes through one queue. Accettazione: an older hydration snapshot write resolving after the click snapshot → Firestore retains the clicked `applicationIntent.intents[].jobKey`.\n\n## Adversarial check\n\n- ❓ q: Can an account switch within one mounted `JobBoard` leave `applicationIntentExposureRef` set and suppress the second account's Firebase exposure event? — deferred, non funnel-critical.\n- ❓ q: If the ranking flag resolves after the board mounts, can the one-shot exposure event record an arm that no longer matches the final flag state? — deferred, non funnel-critical.\n- ❓ q: Does `compareApplicationIntentJobKeys()` remain deterministic when multiple jobs produce an empty key after the 240-character bound? — deferred, non funnel-critical.\n"
+    },
+    {
+      "id": 5327080891,
+      "user": {
+        "login": "frontaliere-automation[bot]",
+        "type": "Bot"
+      },
+      "state": "COMMENTED",
+      "commit_id": "715fc4797bb03a96ba23cd66c200b2834dec3ef7",
+      "submitted_at": "2026-09-26T19:20:58Z",
+      "body": "<!-- REVIEW_INPUT_REVISION: body:3ee31ab181bf6974481029891da080212f933f012a7872a42281bebe7f21fdc7 -->\n<!-- CODEX_FALLBACK_REVIEW -->\n\n## Scope\nReview of the application-intent same-tab persistence delta and its interactions with the existing Firestore sync path (tier: incremental)\n\n## Findings (Important: 1, Nit: 0)\nFix di `services/applicationIntent.ts:L133`: ok.\n\nservices/behaviorTracker.ts:L316: 🔴 Important: [funnel] `syncToFirestore()` can race between the new click flush and the existing hydration/interval snapshots (interactions: `services/applicationIntent.ts:L91`, `App.tsx:L1415`, `App.tsx:L1417`); an older full-profile write can replace the newer `applicationIntent` array, so a same-tab Apply can still disappear before alert matching reads it. Serialize all `syncToFirestore()` writes through one queue. Accettazione: an older hydration snapshot write resolving after the click snapshot → Firestore retains the clicked `applicationIntent.intents[].jobKey`.\n\n## Findings ledger (id stabile + stato)\n- `124a670b7dfe` confirmed-fixed — `services/applicationIntent.ts:L133`: the authenticated click path now waits for the private profile write before same-tab navigation.\n- `7bce04bcfad0` open — `services/behaviorTracker.ts:L316`, `services/applicationIntent.ts:L91`, `App.tsx:L1415`, `App.tsx:L1417`: the full-profile Firestore writes remain unqueued and can overwrite the click snapshot.\n"
+    },
+    {
+      "id": 5327178068,
+      "user": {
+        "login": "frontaliere-automation[bot]",
+        "type": "Bot"
+      },
+      "state": "COMMENTED",
+      "commit_id": "99935792fa424270df1fe3c318b905644a14e647",
+      "submitted_at": "2026-09-26T19:46:34Z",
+      "body": "<!-- REVIEW_INPUT_REVISION: body:3ee31ab181bf6974481029891da080212f933f012a7872a42281bebe7f21fdc7 -->\n<!-- CODEX_FALLBACK_REVIEW -->\n## Scope\nRe-review del delta incremental-high per il ranking `application_intent` nei consumer degli avvisi job, con carry-forward degli Important storici non risolti. (tier: incremental-high)\n\n## Findings (Important: 2, Nit: 0)\nservices/applicationIntent.ts:L70: 🔴 Important: [funnel] `trackApplicationIntent()` aggiorna solo `localStorage`; il profilo Firestore di personalization letto da `scripts/send-job-alerts.mjs` viene aggiornato soltanto dal sync successivo, mentre questo handler supporta un redirect same-tab, quindi il consumer degli avvisi email può perdere il nuovo intent. Persistere il profilo application-intent tramite il percorso di sync autenticato prima del redirect. Accettazione: click Apply autenticato seguito da navigazione same-tab immediata → `applicationIntent.intents[].jobKey` è presente nel documento Firestore di personalization prima del successivo invio di alert.\nservices/behaviorTracker.ts:L316: 🔴 Important: [funnel] `syncToFirestore()` can race between the new click flush and the existing hydration/interval snapshots (interactions: `services/applicationIntent.ts:L91`, `App.tsx:L1415`, `App.tsx:L1417`); an older full-profile write can replace the newer `applicationIntent` array, so a same-tab Apply can still disappear before alert matching reads it. Serialize all `syncToFirestore()` writes through one queue. Accettazione: an older hydration snapshot write resolving after the click snapshot → Firestore retains the clicked `applicationIntent.intents[].jobKey`.\n\n## Findings ledger (id stabile + stato)\n- `124a670b7dfe` — open.\n- `fadacdcf2952` — open.\n\n## Adversarial check\n❓ q: Il sort resta stabile per due job con chiave applicazione vuota generata da slug oltre 240 caratteri? — deferred, non funnel-critical.\n❓ q: Il downstream tollera sempre il nuovo campo numerico `applicationIntentBoost` su job già serializzati senza `relevanceSignals`? — deferred, non funnel-critical.\n❓ q: Il limite effettivo di `relevanceSignals` resta quello atteso quando i segnali esistenti contengono duplicati e `application_intent` è già presente? — deferred, non funnel-critical.\n"
+    }
+  ]
+]

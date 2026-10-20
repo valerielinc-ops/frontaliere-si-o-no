@@ -6,21 +6,26 @@
  * API endpoint: https://casale.recruitee.com/api/offers
  * Fallback HTML: https://recruit.casale.ch/
  */
+import { mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
+import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseApiResponse, buildJobFromApi, parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/casale-job-parser.mjs';
+import { parseApiResponse, buildJobFromApi, buildCasaleDescriptionFields, parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/casale-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -55,7 +60,7 @@ async function fetchJson(url, timeoutMs = 20000) {
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; } finally { clearTimeout(timer); }
 }
 
-async function fetchJobs() {
+export async function fetchJobs() {
   console.log(`🔍 Fetching Casale SA jobs from API: ${API_URL}`);
   const apiData = await fetchJson(API_URL, 25000);
   if (!apiData) { console.error('❌ Failed to fetch Casale API.'); return []; }
@@ -69,8 +74,8 @@ async function fetchJobs() {
     // (truthy) → `-undefined` in an active slug (#952, class #900/#901). location/
     // addressLocality keep raw `built.city` (choke-point normalizer owns de-index).
     const slug = slugify(`${built.title} casale ${safeLocationToken(built.city, 'Lugano')}`);
-    const fallbackDesc = `${built.title} — posizione aperta presso Casale SA a Lugano, Canton Ticino, Svizzera. Casale SA è un'azienda globale di ingegneria con sede a Lugano, specializzata nella progettazione e costruzione di impianti per la produzione di fertilizzanti e prodotti chimici (ammoniaca, urea, metanolo, melamina, nitrati e fosfati). L'azienda offre un ambiente di lavoro stimolante e internazionale nel cuore del Ticino, con opportunità di crescita professionale in un contesto globale.`;
-    const description = (built.description && built.description.length >= 220) ? built.description : fallbackDesc;
+    // Source text only, in its own slot (issue 5253): see buildCasaleDescriptionFields.
+    const { description, descriptionByLocale, sourceLang } = buildCasaleDescriptionFields(built);
     return {
       url: built.detailUrl, applyUrl: built.applyUrl, title: built.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
@@ -78,11 +83,13 @@ async function fetchJobs() {
       addressLocality: built.city || 'Lugano', addressRegion: HQ.addressRegion, addressCountry: 'CH',
       postalCode: HQ.postalCode, streetAddress: 'Via Giulio Pocobelli 6',
       description,
-      titleByLocale: { en: built.title }, descriptionByLocale: {},
-      slug, slugByLocale: { en: slug, it: slug },
+      descriptionByLocale,
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(built.title, slug, sourceLang),
+      slug,
       category: detectCategory(built.title),
-      datePosted: built.datePosted,
-      source: 'casale-careers-crawler', sourceLang: detectLang(description || built.title, 'en'), employmentType: built.employmentType,
+      ...mergeSourcePostingDates({}, built),
+      source: 'casale-careers-crawler', sourceLang, employmentType: built.employmentType,
       experienceLevel: detectExperienceLevel(built.title),
       sector: 'Ingegneria / Chimica',
       _targetScope: { canton: HQ.canton, location: built.city || 'Lugano' },
@@ -90,10 +97,31 @@ async function fetchJobs() {
   });
 }
 
+// The text the runner used to publish INSTEAD of an offer under 220 characters:
+// "<title> — posizione aperta presso Casale SA a Lugano… Casale SA è un'azienda globale…".
+// Only ever recognised, to be removed from stored records (issue 5253).
+const CASALE_FABRICATED_RE = /posizione aperta presso Casale SA a Lugano|Casale SA è un'azienda globale di ingegneria con sede a Lugano/;
+
+/**
+ * Remove, from a stored job, the text this runner used to write itself
+ * (CASALE_FABRICATED_RE): the slots that carry it, the flat
+ * `description`, and the translations made from it, flagging the job for
+ * retranslation (`dropFabricatedDescription`). The merge keeps stored locale
+ * slots, so without this they would outlive the fix; the runner calls it on
+ * its stored jobs right before the merge.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropCasaleFabricatedText(job) {
+  return dropFabricatedDescription(job, CASALE_FABRICATED_RE);
+}
+
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonCompanyJobs = (Array.isArray(existing) ? existing : []).filter((j) => !isCompanyJob(j));
   const existingCompanyJobs = (Array.isArray(existing) ? existing : []).filter(isCompanyJob);
+  const fossils = existingCompanyJobs.filter((job) => dropCasaleFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Removed the former invented description from ${fossils} stored Casale job(s); they will be retranslated`);
 
   const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
@@ -106,6 +134,9 @@ async function mergeJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -122,6 +153,18 @@ function updateAdapterConfig(seedUrls) {
   fs.writeFileSync(p, JSON.stringify(a, null, 2) + '\n');
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropCasaleFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
@@ -130,7 +173,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════\n');
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
   const discovered = await fetchJobs();
-  if (!discovered.length) { console.log('⚠️ No Casale Swiss jobs discovered.'); return; }
+  if (!discovered.length) { console.log('⚠️ No Casale Swiss jobs discovered.'); await cleanStoredJobsOnSoftExit(); return; }
   updateAdapterConfig(discovered.map((j) => j.url));
   await mergeJobs(discovered);
   console.log('\n🌐 Running base crawler for AI localization...');
@@ -142,9 +185,11 @@ async function main() {
   const _dur = getCrawlerElapsedMs();
   const _sliceJobs = (readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob);
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
   console.log('\n✅ Casale SA crawler complete.');
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Casale'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Casale'));
+}

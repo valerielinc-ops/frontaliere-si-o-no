@@ -167,3 +167,7 @@ Semantic colors are preserved:
 | 2026-04-11 | Unified nav accent | Replaced 6 individual tab colors with single stripe-600 — Stripe doesn't use rainbow tabs |
 | 2026-04-11 | Space Grotesk display font | Matches Stripe's lightweight heading aesthetic (weight 300) |
 | 2026-04-11 | Blue-tinted shadows | Core Stripe visual signature — rgba(50,50,93,*) base |
+
+## 10. Content-first / Mobile-first
+
+Static pages put the operational answer, primary action, or live data immediately after the H1 and a short lede. Long editorial context, methodology, and FAQs follow the action/data area or stay inside collapsed accordions. Every landing page must be checked at a 390px viewport for readable hierarchy, comfortable tap targets, and zero horizontal overflow.

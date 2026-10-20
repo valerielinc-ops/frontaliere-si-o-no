@@ -1,6 +1,8 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -92,7 +94,8 @@ function parseJsonLd(document) {
   for (const node of document.querySelectorAll('script[type="application/ld+json"]')) {
     try {
       const payload = JSON.parse(node.textContent || '{}');
-      if (payload && payload['@type'] === 'JobPosting') return payload;
+      const [posting] = extractJobPostingNodesFromJson(payload);
+      if (posting) return posting;
     } catch {}
   }
   return null;
@@ -197,16 +200,15 @@ export function parseFinconsJobDetail(html = '') {
 export function buildFinconsLocalizedContent(detail = {}) {
   const sourceTitle = String(detail.title || '').trim();
   const location = String(detail.location || '').trim();
-  const descriptions = {
-    en: detail.description || '',
-  };
+  const slug = slugify(`${sourceTitle} Fincons Group ${location}`);
+  // Keyed by the language the ad is written in (read from the body: 22 of
+  // 25 Fincons ads are German), not a fixed `en` (#5253). Slug formula kept.
+  const sourceLang = sourceLangOfBody(detail.description, 'en');
   return {
-    titleByLocale: {
-      en: sourceTitle,
-    },
-    slugByLocale: {
-      en: slugify(`${sourceTitle} Fincons Group ${location}`),
-    },
-    descriptionByLocale: descriptions,
+    sourceLang,
+    slug,
+    titleByLocale: { [sourceLang]: sourceTitle },
+    slugByLocale: { [sourceLang]: slug },
+    descriptionByLocale: { [sourceLang]: detail.description || '' },
   };
 }

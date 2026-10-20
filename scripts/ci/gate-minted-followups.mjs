@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * gate-minted-followups.mjs — gate DETERMINISTICO in ingresso sul conio delle follow-up.
  *
@@ -57,17 +59,28 @@
  *   GH_TOKEN        richiesto per le scritture.
  *   GATE_PR_TOKEN   token per leggere/commentare le PR in GATE_PR_REPO quando
  *                   differisce da GH_REPO (default: GH_TOKEN).
+ *   GATE_ALT_PR_REPO / GATE_ALT_PR_TOKEN  repository gemello (e suo token) in cui
+ *                   risolvere una `Sources: PR #N` che in GATE_PR_REPO non e' una
+ *                   PR (item instradati cross-repository). Default: GH_REPO con
+ *                   GH_TOKEN quando GATE_PR_REPO ne differisce.
  *   DRY_RUN         "1" → stampa il verdetto, nessuna scrittura.
  *   GATE_MAX_AGE_MIN  età massima (minuti) della issue su cui agire (default 240). Un
  *                   backfill via workflow_dispatch su una PR vecchia non deve poter
  *                   riscrivere una issue che nel frattempo un umano ha curato.
+ *   MINT_ADMISSION_READ_CAP  tetto delle letture di file (API contents di GH_REPO,
+ *                   ramo `main`) per osservare gli item nati col token già vero
+ *                   (default 200). Oltre il tetto l'item conta `admission_unknown`.
+ *   Il repository gemello (bersagli) e il manifest del corpus si leggono col token
+ *   dichiarato per QUEL repository (`readTokenFor`): `GATE_ALT_PR_TOKEN` per
+ *   `GATE_ALT_PR_REPO`, `GATE_PR_TOKEN` per `GATE_PR_REPO`, `GH_TOKEN` per
+ *   `GH_REPO`. Nessun token dichiarato → nessuna lettura, `admission_unknown`.
  */
 
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { machineAdmission } from './lib/machine-broken.mjs';
 import {
   bucketState,
@@ -83,13 +96,29 @@ import {
   hasStableItemIds,
   hasStableItemIdsForDailyKey,
   hasUnterminatedMarkdownFence,
+  normalizeAcceptanceToken,
   parseFollowupItems,
   selectFirstOpenItem,
   splitFollowupItems,
   followupItemId,
 } from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
-import { hasTriageComment } from './collect-followup-batch.mjs';
+import {
+  claimBucketReferences,
+  hasTriageComment,
+  triageMarkerBucketReferences,
+} from './collect-followup-batch.mjs';
+import {
+  DEFAULT_ADMISSION_READ_CAP,
+  MINT_OBSERVATIONS,
+  contentsApiIo,
+  mintAdmission,
+} from './lib/followup-mint-admission.mjs';
+import { inertCommentText, itemBornSatisfiedMarker, parseItemMarkers } from './lib/followup-item-evidence.mjs';
+import { DEFAULT_REPOS as DEFAULT_FOLLOWUP_REPOS, fetchManifestFiles } from './followup-candidate-bullets.mjs';
+import { isTrustedAuthor } from './route-already-fixed.mjs';
+
+const TRIAGE_MARKER_PREFIX = '## Post-merge follow-up triage';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_AGE_MIN = intFromEnv('GATE_MAX_AGE_MIN', 240);
@@ -135,17 +164,62 @@ export function hasAutomationDeferredLabel(issue) {
     && issue.labels.some((label) => issueLabelName(label).toLowerCase() === AUTOMATION_DEFERRED_LABEL);
 }
 
-function queueBlockReason(issue) {
-  if (hasNeedsHumanLabel(issue)) return 'needs-human veto';
-  if (hasAutomationDeferredLabel(issue)) return `${AUTOMATION_DEFERRED_LABEL} handoff tecnico`;
-  return 'labels non verificabili';
+function hasFuParkedLabel(issue) {
+  // PARKED-RETRY owns its cooldown and generation marker; a mint-gate `keep`
+  // must not bypass that state machine by restoring the queue label.
+  return Array.isArray(issue?.labels)
+    && issue.labels.some((label) => issueLabelName(label).toLowerCase() === 'fu-parked');
 }
 
-/** Missing labels are unverifiable: never mint a new fixer queue entry. */
+// A decomposed parent is a tracker: its items stay `open` by design while the
+// children carry the work, and the drainer removes the queue label again at the
+// next tick (PARENT-DEQUEUE). Re-queueing it here is a label/comment loop
+// (#9443, #9508: 13 round trips in 25 hours). Same for a bucket already routed
+// to the decompose stage. Literal names on purpose: this gate must not import
+// the drainer. `maybe-resolved` is deliberately NOT a veto: a bucket with open
+// items and a stale `maybe-resolved` would stay out of the queue forever.
+const DECOMPOSED_PARENT_LABEL = 'decomposed:1';
+const DECOMPOSE_STAGE_LABELS = ['agent:decompose-queued', 'agent:decompose'];
+
+function hasIssueLabel(issue, name) {
+  return Array.isArray(issue?.labels)
+    && issue.labels.some((label) => issueLabelName(label).toLowerCase() === name);
+}
+
+/** Stable key + human reason of the lifecycle state that forbids a new queue entry. */
+function queueVeto(issue) {
+  if (hasNeedsHumanLabel(issue)) return { key: 'needs-human', reason: 'needs-human veto' };
+  if (hasAutomationDeferredLabel(issue)) {
+    return { key: AUTOMATION_DEFERRED_LABEL, reason: `${AUTOMATION_DEFERRED_LABEL} handoff tecnico` };
+  }
+  if (hasFuParkedLabel(issue)) return { key: 'fu-parked', reason: 'fu-parked handoff già parcheggiato' };
+  if (hasIssueLabel(issue, DECOMPOSED_PARENT_LABEL)) {
+    return { key: 'decomposed', reason: `${DECOMPOSED_PARENT_LABEL} padre già decomposto` };
+  }
+  const stage = DECOMPOSE_STAGE_LABELS.find((name) => hasIssueLabel(issue, name));
+  if (stage) return { key: 'decompose-stage', reason: `${stage} decomposizione in corso` };
+  if (!issueLabelsAreVerifiable(issue?.labels)) {
+    return { key: 'labels-unverifiable', reason: 'labels non verificabili' };
+  }
+  return null;
+}
+
+function queueBlockReason(issue) {
+  return queueVeto(issue)?.reason || 'labels non verificabili';
+}
+
+/** Missing labels and lifecycle handoffs are not eligible for a new queue entry. */
 export function canMintQueueLabel(issue) {
-  return issueLabelsAreVerifiable(issue?.labels)
-    && !hasNeedsHumanLabel(issue)
-    && !hasAutomationDeferredLabel(issue);
+  return queueVeto(issue) === null;
+}
+
+// Vetoes of this run, by stable key: the countable trace of every queue entry
+// the gate refused (same reason as `MINT_GATE_TALLY`: prose alone is not a measure).
+const queueVetoTally = new Map();
+
+function noteQueueVeto(issue) {
+  const key = queueVeto(issue)?.key || 'labels-unverifiable';
+  queueVetoTally.set(key, (queueVetoTally.get(key) || 0) + 1);
 }
 
 /**
@@ -199,20 +273,68 @@ export function partitionDailyBucketItems(body, opts = {}) {
   const demoted = [];
   const machineOptions = opts.machineOptions || {};
   const machineCache = machineOptions.cache instanceof Map ? machineOptions.cache : new Map();
+  // Un item `done` non è più un candidato al conio: è un fatto registrato dal
+  // reconciler. Gli oracoli di ammissione osservano lo stato di OGGI (un workflow
+  // riparato proprio da quell'item non è più «rotto», quindi `reject`), e un bucket
+  // `collecting` viene ripartizionato a ogni passata: senza questa eccezione il
+  // lavoro fatto sparisce dal corpo. La valutazione resta, ma solo come misura
+  // (`done_preserved`), mai come verdetto. Solo `done`: `open`, `in-progress`,
+  // `blocked` e gli item senza stato restano soggetti all'ammissione.
+  const donePreserved = [];
   for (const item of parsed) {
     const falsifiable = hasFalsifiableAcceptance(item.text);
     const admission = falsifiable
       ? machineAdmission(item.text, { ...machineOptions, cache: machineCache })
       : 'reject';
-    (falsifiable && admission !== 'reject' ? valid : demoted).push(item);
+    const admitted = falsifiable && admission !== 'reject';
+    if (!admitted && item.state === 'done') donePreserved.push(item.id);
+    (admitted || item.state === 'done' ? valid : demoted).push(item);
   }
   const targetRepository = dailyBucketTargetRepository(head) || '';
   const deduped = dedupeDailyItems(valid, targetRepository);
+  // Il referente, non solo la forma: un item il cui token è GIÀ vero sul `main`
+  // del repository del bucket nasce soddisfatto, e il reconciler lo marcherebbe
+  // `done` senza una PR. Solo al conio (bucket `collecting`) e solo per gli item
+  // aperti (`open`, o senza stato: il ciclo di vita li apre al sigillo): un item
+  // diventato vero DOPO il sigillo è lavoro fatto, non un conio sbagliato. Senza
+  // `fileIo` nessuna osservazione: il chiamante di produzione la passa sempre.
+  // Le stesse passate demotano (`mintAdmission`) i bullet già chiusi e — con
+  // `opts.mintTarget` (lato, manifest, io del gemello) —
+  // i bersagli assenti dal repository del bucket; un bersaglio che il manifest
+  // chiama qui con un altro nome viene riscritto nel solo campo `Target file`.
+  const items = [];
+  const admissions = [];
+  const rewritten = [];
+  const fileIo = opts.fileIo;
+  const minting = Boolean(fileIo) && bucketState(src) === 'collecting';
+  for (const item of deduped.items) {
+    if (!minting || (item.state !== 'open' && item.state !== null)) {
+      items.push(item);
+      continue;
+    }
+    const admission = mintAdmission(item, fileIo, opts.mintTarget ? { target: opts.mintTarget } : {});
+    const admitted = admission.item || item;
+    if (admission.item) rewritten.push({ id: item.id, from: String(item.targetFile || ''), to: String(admitted.targetFile || '') });
+    if (!admission.skipped || admission.observed.length || admission.demotion) {
+      admissions.push({
+        id: item.id,
+        token: normalizeAcceptanceToken(admitted.acceptanceToken),
+        targetFile: String(admitted.targetFile || ''),
+        observed: admission.observed,
+        ...(admission.demotion ? { demotion: admission.demotion } : {}),
+      });
+    }
+    if (admission.admit) items.push(admitted);
+    else demoted.push({ ...item, demotion: admission.demotion });
+  }
   return {
     head,
-    valid: deduped.items,
+    valid: items,
     demoted,
     duplicates: deduped.duplicates,
+    donePreserved,
+    admissions,
+    rewritten,
     unparsed: false,
   };
 }
@@ -425,7 +547,7 @@ export function decideDailyMintGate(issue, opts = {}) {
   if (!hasDailyBucketRepositoryConsistency(src, daily.targetRepository)) {
     return { action: 'skip', reason: 'mismatched-target-repository', valid: [], demoted: [], duplicates: [], body: null };
   }
-  const { head, valid, demoted, duplicates = [], unparsed } = partitionDailyBucketItems(src, {
+  const { head, valid, demoted, duplicates = [], donePreserved = [], admissions = [], rewritten = [], unparsed } = partitionDailyBucketItems(src, {
     ...opts,
     dailyKey: daily?.dailyKey || opts.dailyKey,
   });
@@ -433,29 +555,38 @@ export function decideDailyMintGate(issue, opts = {}) {
     const reason = !parseFollowupItems(src).length ? 'aggregate-unparsed' : 'missing-stable-item-id';
     return { action: 'skip', reason, valid: [], demoted: [], duplicates: [], body: null };
   }
-  if (!state) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null };
+  if (!state) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null, donePreserved, admissions };
   // A daily heading inside a fenced quote (or any other non-round-trippable
   // structure) is not a safe item boundary. Keep the bucket collecting rather
   // than sealing a body whose item set we cannot prove complete.
-  if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, duplicates, body: null };
-  if (!valid.length) return { action: 'suppress', reason: 'no-valid-item', valid: [], demoted, duplicates, body: null };
+  if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, duplicates, body: null, donePreserved, admissions };
+  // Testo, non l'item parsato: `demotedBlock()` lo conserva sulla PR sorgente, e un
+  // oggetto diventava `[object Object]` — il testo dell'item perso e la prova del
+  // gate (`Sources: PR #N`) impossibile da trovare per il collector.
+  if (!valid.length) return { action: 'suppress', reason: 'no-valid-item', valid: [], demoted: demoted.map((item) => item.text), demotedItems: demoted, duplicates, body: null, donePreserved, admissions };
   if (demoted.length) {
-    if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, duplicates, body: null };
+    if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, duplicates, body: null, donePreserved, admissions };
     return {
       action: 'demote',
       reason: 'some-items-not-falsifiable',
       valid: valid.map((item) => item.text),
       demoted: demoted.map((item) => item.text),
+      // Gli item parsati, per intestare l'elenco con `ID — titolo` (il testo parte
+      // DOPO l'intestazione, quindi da solo non ha né ID né titolo).
+      demotedItems: demoted,
       duplicates,
       // Once the invalid entries have been removed, the remaining complete set is
       // sealed in the same successful gate pass; it must never enter the fixer while
       // still collecting.
       body: setBucketState(rebuildDailyBody(head, valid), 'sealed'),
+      donePreserved,
+      admissions,
+      ...(rewritten.length ? { rewritten } : {}),
     };
   }
   if (duplicates.length) {
     const dedupedBody = setBucketState(rebuildDailyBody(head, valid), state);
-    if (!dedupedBody) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null };
+    if (!dedupedBody) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null, donePreserved, admissions };
     return {
       action: 'dedupe',
       reason: 'duplicate-fingerprint',
@@ -463,13 +594,18 @@ export function decideDailyMintGate(issue, opts = {}) {
       demoted: [],
       duplicates,
       body: dedupedBody,
+      donePreserved,
+      admissions,
+      ...(rewritten.length ? { rewritten } : {}),
     };
   }
   if (state === 'sealed') {
-    return { action: 'keep', reason: 'already-sealed', valid: valid.map((item) => item.text), demoted: [], duplicates: [], body: null };
+    return { action: 'keep', reason: 'already-sealed', valid: valid.map((item) => item.text), demoted: [], duplicates: [], body: null, donePreserved, admissions };
   }
-  const sealed = setBucketState(src, 'sealed');
-  if (!sealed) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null };
+  // Un `Target file` riscritto vive solo negli item: il corpo si ricostruisce da
+  // loro (come nel ramo `demote`), altrimenti il sigillo lo perderebbe.
+  const sealed = setBucketState(rewritten.length ? rebuildDailyBody(head, valid) : src, 'sealed');
+  if (!sealed) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null, donePreserved, admissions };
   return {
     action: 'seal',
     reason: 'daily-bucket-sealed',
@@ -477,6 +613,9 @@ export function decideDailyMintGate(issue, opts = {}) {
     demoted: [],
     duplicates: [],
     body: sealed,
+    donePreserved,
+    admissions,
+    ...(rewritten.length ? { rewritten } : {}),
   };
 }
 
@@ -687,12 +826,28 @@ export function parseOpenFollowupPages(raw) {
  * @param {string[]} demoted @returns {string}
  */
 export function demotedBlock(demoted) {
-  return (demoted || []).map((it) => `### ${itemHeadline(it)}\n${String(it).trim()}`).join('\n\n');
+  return (demoted || []).map((it) => `### ${itemHeadline(it)}\n${demotionLine(it)}${demotedItemText(it).trim()}`).join('\n\n');
 }
 
-/** Prima riga di un item, per l'elenco nel commento della PR. */
-export function itemHeadline(itemText) {
-  return String(itemText || '').split('\n')[0].trim().replace(/^[-–—\s]+/, '') || '(senza titolo)';
+/** Il motivo di una demozione dell'ammissione al conio, se c'è, come prima riga del blocco. */
+function demotionLine(item) {
+  const demotion = item && typeof item === 'object' ? item.demotion : null;
+  return demotion?.code ? `- Demozione al conio: \`${demotion.code}\` — ${inertCommentText(demotion.detail || '')}\n` : '';
+}
+
+/**
+ * Riga che identifica un item nel commento. Un item giornaliero parsato porta
+ * `ID — titolo`: il suo testo parte DOPO l'intestazione, quindi la prima riga
+ * del testo è vuota e l'elenco diceva «(senza titolo)» per ogni demoto.
+ * Gli item legacy (stringa) restano sulla prima riga del testo.
+ */
+export function itemHeadline(item) {
+  if (item && typeof item === 'object') {
+    const id = String(item.id || '').trim();
+    if (id) return `${id} — ${String(item.title || '').trim() || '(senza titolo)'}`;
+    return itemHeadline(demotedItemText(item));
+  }
+  return String(item || '').split('\n')[0].trim().replace(/^[-–—\s]+/, '') || '(senza titolo)';
 }
 
 // Ritorna `null` quando la chiamata fallisce (con allowFail), non la stringa vuota: il
@@ -714,6 +869,7 @@ function gh(args, { allowFail = false, token = process.env.GH_TOKEN } = {}) {
 function addQueueLabelIfEligible(issue, repoArgs) {
   if (!canMintQueueLabel(issue)) {
     const reason = queueBlockReason(issue);
+    noteQueueVeto(issue);
     console.log('#' + (issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (' + reason + ').');
     return false;
   }
@@ -733,6 +889,7 @@ function addQueueLabelIfEligible(issue, repoArgs) {
   }
   if (!canMintQueueLabel(latest)) {
     const reason = queueBlockReason(latest);
+    noteQueueVeto(latest);
     console.log('#' + (latest.number || issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (' + reason + ').');
     return false;
   }
@@ -802,13 +959,238 @@ export function dailyBucketRecoveryDecision({
   return { eligible: true, reason: 'historical-triage-markers', ...result };
 }
 
+// `gh pr view N` su un numero che nel repository e' una issue, o non esiste:
+// risposta DEFINITIVA, non un guasto transitorio.
+const NOT_A_PULL_REQUEST_RE = /Could not resolve to a PullRequest with the number of/i;
+
+/**
+ * Stato del marker di triage per UNA PR sorgente di un daily bucket.
+ *
+ * `Sources: PR #N` non porta il repository, ma un bucket puo' contenere item
+ * instradati dall'altro repository (FOLLOWUP.md § Routing cross-repository):
+ * il daily del sito #9443 cita `PR #1590`/`#1613`/`#1625` di
+ * frontaliere-articles accanto a `PR #9153`/`#9262` del sito. Cercarle solo nel
+ * repository delle PR rendeva `scanOk=false` a ogni run, e dal 2026-09-12 undici
+ * daily del sito restavano `collecting` (skip `triage-incomplete`) senza mai
+ * entrare in coda.
+ *
+ * `lookups` e' la lista ORDINATA dei repository in cui cercare
+ * (`{ repo, read(number) → { ok, comments } | { ok: false, notPr } }`). Si passa
+ * al successivo SOLO quando il precedente risponde «non e' una PR»; un guasto
+ * resta `unavailable` (fail-closed) e non viene indovinato altrove. Il primo
+ * repository in cui N e' una PR decide: con un numero che e' PR in entrambi, la
+ * Source si legge nel repository delle PR, come prima di questa risoluzione.
+ */
+export function resolveSourcePrTriage(number, lookups) {
+  const list = Array.isArray(lookups) ? lookups : [];
+  for (let index = 0; index < list.length; index += 1) {
+    const lookup = list[index];
+    const result = lookup?.read?.(number);
+    if (result?.ok === true) {
+      return {
+        status: hasTriageComment(result.comments) ? 'triaged' : 'untriaged',
+        repo: lookup.repo,
+        fallback: index > 0,
+      };
+    }
+    if (result?.notPr !== true) return { status: 'unavailable', repo: lookup?.repo || null, fallback: index > 0 };
+  }
+  return { status: 'unavailable', repo: null, fallback: false, notPrAnywhere: list.length > 0 };
+}
+
+/**
+ * `gh pr <sub> N` in UN repository, distinguendo «N non e' una PR qui»
+ * (`notPr`, definitivo) da un guasto. Un tentativo `notPr` non ha scritto nulla.
+ */
+function ghOnSourcePr(lookup, subcommand, number, extraArgs) {
+  try {
+    const env = lookup.token ? { ...process.env, GH_TOKEN: lookup.token } : process.env;
+    const out = execFileSync('gh', ['pr', subcommand, String(number), ...lookup.args, ...extraArgs], {
+      encoding: 'utf-8', maxBuffer: 1 << 26, env, stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    return { ok: true, out };
+  } catch (e) {
+    const detail = `${e?.stderr || ''}\n${e?.message || ''}`;
+    const notPr = NOT_A_PULL_REQUEST_RE.test(detail);
+    if (!notPr) console.log(`gh pr ${subcommand} ${number} → fallito: ${String(e?.message || '').split('\n')[0]}`);
+    return { ok: false, notPr };
+  }
+}
+
+/**
+ * Repository in cui risolvere le Sources di un bucket, in ordine: quello delle PR
+ * (`GATE_PR_REPO`, default `GH_REPO`), poi il repository gemello. Il gemello e'
+ * `GATE_ALT_PR_REPO` (+ `GATE_ALT_PR_TOKEN`) quando dichiarato; altrimenti, se le
+ * PR vivono in un repository diverso da quello delle issue, e' il repository
+ * delle issue stesso con `GH_TOKEN` (gli item che il suo triage vi ha scritto).
+ */
+function sourcePrLookups(prRepoArgs) {
+  const issueRepo = process.env.GH_REPO || '';
+  const prRepo = process.env.GATE_PR_REPO || issueRepo;
+  const lookups = [{
+    repo: prRepo || '(repo di default)',
+    args: prRepoArgs,
+    token: process.env.GATE_PR_TOKEN || process.env.GH_TOKEN,
+  }];
+  const altRepo = process.env.GATE_ALT_PR_REPO || (prRepo && issueRepo && prRepo !== issueRepo ? issueRepo : '');
+  const altToken = process.env.GATE_ALT_PR_REPO ? (process.env.GATE_ALT_PR_TOKEN || '') : process.env.GH_TOKEN;
+  if (altRepo && altRepo !== prRepo) {
+    if (altToken) {
+      lookups.push({ repo: altRepo, args: ['--repo', altRepo], token: altToken });
+    } else {
+      console.log(`⚠️ Sources cross-repository: nessun token per ${altRepo} → le PR di quel repository restano non verificabili.`);
+    }
+  }
+  return lookups.map((lookup) => ({
+    ...lookup,
+    read: (n) => {
+      const result = ghOnSourcePr(lookup, 'view', n, ['--json', 'comments']);
+      return result.ok ? { ok: true, comments: result.out } : result;
+    },
+  }));
+}
+
+/** Testo di un item demoto: il ramo `suppress` dei daily consegna item parsati. */
+function demotedItemText(item) {
+  return typeof item === 'string' ? item : String(item?.text ?? item?.raw ?? '');
+}
+
+/**
+ * Le PR citate dalla `Sources`/`Source` di UN item demoto. Stesso parser delle
+ * Sources del bucket (`dailyBucketSourcePrNumbers`, fuori da fence e citazioni):
+ * il testo di un item demoto parte dopo la sua intestazione, quindi gliene si
+ * ridà una neutra invece di riscrivere il parser.
+ */
+export function itemSourcePrNumbers(itemText) {
+  return dailyBucketSourcePrNumbers(`### FU-0000-00-00-000 — item\n${String(itemText || '')}`);
+}
+
+/**
+ * Raggruppa gli item demoti per PR sorgente: ogni item va SOLO sulle PR citate
+ * nella `Sources` di quell'item. Prima il commento con TUTTI gli item demoti
+ * del bucket finiva su TUTTE le PR del bucket: corpus #1742 ha ricevuto gli
+ * item di #1740, #1741 e #1771 ma mai il proprio, e la prova di persistenza del
+ * collector (`gatePreservedFollowupMatches`) non combaciava mai. Un item senza
+ * Sources leggibili va a `fallbackTargets` (le Sources del bucket o la PR del
+ * batch): il suo testo resta conservato, come prima.
+ *
+ * @returns {Array<{ pr: number, items: Array<string|object> }>}
+ */
+export function demotedItemsBySourcePr(demoted, fallbackTargets = []) {
+  const byPr = new Map();
+  for (const item of demoted || []) {
+    const text = demotedItemText(item);
+    const own = itemSourcePrNumbers(text);
+    for (const pr of (own.length ? own : positivePrNumbers(fallbackTargets))) {
+      if (!byPr.has(pr)) byPr.set(pr, []);
+      // L'item com'è arrivato (stringa o parsato): `demotedBlock` ne ricava il testo
+      // e, per un parsato, l'intestazione `ID — titolo`.
+      byPr.get(pr).push(item);
+    }
+  }
+  return [...byPr].map(([pr, items]) => ({ pr, items }));
+}
+
+/**
+ * Un marker di triage della PR cita il bucket `#N` su una riga che dice
+ * «bucket», con `parent #N` quando aggiorna un bucket esistente, oppure con il
+ * tag `follow-up(daily:YYYY-MM-DD)` subito dopo il numero: e' la forma del
+ * triage su due repository, un bucket per bullet (``- Corpus #1957
+ * `follow-up(daily:2026-09-28)` …``, marker di #10015 e #10050). La grammatica
+ * della finestra di claim e' condivisa col collector; una citazione storica
+ * dopo la lista non qualifica un bucket che il marker non ha promesso. La
+ * forma legacy senza `Created/updated:` resta accettata per i marker storici.
+ */
+export function triageMarkerCitesBucket(commentsJson, bucketNumber) {
+  let data;
+  try {
+    data = JSON.parse(commentsJson || '');
+  } catch {
+    return false;
+  }
+  const comments = Array.isArray(data) ? data : Array.isArray(data?.comments) ? data.comments : [];
+  return comments.some((comment) => {
+    const body = typeof comment?.body === 'string' ? comment.body : '';
+    if (!body.trimStart().startsWith(TRIAGE_MARKER_PREFIX)) return false;
+    const legacyBucketLine = body.split(/\r?\n/).some((line) =>
+      /\bbucket\b/i.test(line) && claimBucketReferences(line).includes(Number(bucketNumber)));
+    return legacyBucketLine || triageMarkerBucketReferences(body).includes(Number(bucketNumber));
+  });
+}
+
+/**
+ * Qualifica col repository la PR sorgente `number` di un item del bucket
+ * `bucketNumber`. `Sources: PR #N` non porta il repository, e i due repository
+ * numerano le PR in modo indipendente: la vecchia risoluzione «primo repository
+ * in cui N e' una PR» mandava gli item di corpus #1742 sulla PR #1742 del SITO.
+ * La PR giusta e' quella il cui marker di triage cita questo bucket; se nessun
+ * repository la dimostra cosi', resta la risoluzione legacy (primo repository in
+ * cui N e' una PR), cosi' il testo non viene mai perso.
+ *
+ * @returns {Array<object>|null} i lookup su cui commentare; `[]` se N non e' una
+ *   PR in nessun repository; `null` se una lettura era indisponibile prima di
+ *   poter decidere (fail-closed: niente riscrittura, retry al prossimo giro).
+ */
+export function qualifySourcePrLookups(number, bucketNumber, lookups) {
+  const cited = [];
+  let firstPr = null;
+  for (const lookup of Array.isArray(lookups) ? lookups : []) {
+    const result = lookup?.read?.(number);
+    if (result?.ok === true) {
+      if (!firstPr) firstPr = lookup;
+      if (triageMarkerCitesBucket(result.comments, bucketNumber)) cited.push(lookup);
+      continue;
+    }
+    if (result?.notPr !== true) return null;
+  }
+  if (cited.length) return cited;
+  return firstPr ? [firstPr] : [];
+}
+
+/**
+ * Conserva gli item demoti di un daily bucket sulle loro PR sorgente: un
+ * commento per PR (qualificata col repository), con i SOLI item la cui Sources
+ * la cita. Ritorna un risultato per commento tentato; `null` = non riuscito,
+ * come `gh()` con `allowFail`. `post(lookup, pr, body)` e' iniettabile nei test.
+ */
+export function preserveDemotedOnSourcePrs({
+  bucketNumber,
+  demoted,
+  fallbackTargets = [],
+  intro,
+  lookups,
+  post = (lookup, pr, body) => {
+    const result = ghOnSourcePr(lookup, 'comment', pr, ['--body', body]);
+    return result.ok ? result.out : null;
+  },
+  log = console.log,
+}) {
+  const results = [];
+  for (const { pr, items } of demotedItemsBySourcePr(demoted, fallbackTargets)) {
+    const targets = qualifySourcePrLookups(pr, bucketNumber, lookups);
+    if (targets === null) {
+      log(`gh pr comment ${pr} → rinviato: lettura della PR sorgente indisponibile, repository non qualificabile.`);
+      results.push(null);
+      continue;
+    }
+    if (!targets.length) {
+      log(`gh pr comment ${pr} → fallito: non è una PR in ${(lookups || []).map((lookup) => lookup.repo).join(' né in ')}`);
+      results.push(null);
+      continue;
+    }
+    const body = `${intro}\n\n${demotedBlock(items)}`;
+    for (const lookup of targets) results.push(post(lookup, pr, body));
+  }
+  return results;
+}
+
 /**
  * Find daily identities whose old collecting bodies can be sealed safely after a
  * zero-result batch.  Every duplicate body is read and contributes its live Sources
  * before checking markers, so consolidation cannot strand provenance from a newer
  * duplicate.  Any unreadable issue/PR is a failed proof, never an empty proof.
  */
-function recoverableDailyIdentities(open, repoArgs, prRepoArgs) {
+function recoverableDailyIdentities(open, repoArgs, sourceLookups) {
   const groups = new Map();
   for (const issue of Array.isArray(open) ? open : []) {
     const identity = dailyBucketIdentity(issue?.title || '');
@@ -845,12 +1227,18 @@ function recoverableDailyIdentities(open, repoArgs, prRepoArgs) {
     const triagedPrs = [];
     let scanOk = true;
     for (const number of positivePrNumbers(sourcePrs)) {
-      const comments = ghPr(['pr', 'view', String(number), ...prRepoArgs, '--json', 'comments'], { allowFail: true });
-      if (comments === null) {
+      const resolved = resolveSourcePrTriage(number, sourceLookups);
+      if (resolved.status === 'unavailable') {
         scanOk = false;
+        if (resolved.notPrAnywhere) {
+          console.log(`⚠️ daily ${identity}: PR #${number} non è una PR in ${sourceLookups.map((lookup) => lookup.repo).join(' né in ')} → Source non verificabile.`);
+        }
         continue;
       }
-      if (hasTriageComment(comments)) triagedPrs.push(number);
+      if (resolved.fallback) {
+        console.log(`ℹ️ daily ${identity}: PR #${number} non è una PR in ${sourceLookups[0].repo} → Source risolta in ${resolved.repo}.`);
+      }
+      if (resolved.status === 'triaged') triagedPrs.push(number);
     }
     const decision = dailyBucketRecoveryDecision({
       state: 'collecting',
@@ -990,6 +1378,163 @@ function consolidateDailyBuckets(open, repoArgs, recoverable = new Set()) {
   return blocked;
 }
 
+/**
+ * `gh api` grezzo per l'`io` dell'ammissione: stdout, oppure lancia con lo
+ * stderr nell'errore (il 404 di un file assente si distingue così da un guasto).
+ */
+function ghApiRaw(args) {
+  return execFileSync('gh', args, {
+    encoding: 'utf-8', maxBuffer: 1 << 26, stdio: ['ignore', 'pipe', 'pipe'],
+  });
+}
+
+/**
+ * Come `ghApiRaw`, ma con il token INIETTATO nel `GH_TOKEN` del processo `gh`
+ * (mai negli argomenti, quindi mai nei messaggi d'errore o nei log).
+ */
+export function ghApiRunner(token) {
+  return (args) => execFileSync('gh', args, {
+    encoding: 'utf-8', maxBuffer: 1 << 26, stdio: ['ignore', 'pipe', 'pipe'],
+    env: { ...process.env, GH_TOKEN: token },
+  });
+}
+
+/**
+ * Il token con cui leggere `repo`, dalle credenziali che il workflow dichiara
+ * per repository: `GATE_ALT_PR_TOKEN` per `GATE_ALT_PR_REPO`, `GATE_PR_TOKEN`
+ * (default `GH_TOKEN`, come `ghPr`) per `GATE_PR_REPO`, `GH_TOKEN` per
+ * `GH_REPO`. Nessuna credenziale dichiarata → `''`: il chiamante non legge e
+ * risponde `unknown`, mai con il token di un altro repository.
+ */
+export function readTokenFor(repo, env = process.env) {
+  if (!repo) return '';
+  if (env.GATE_ALT_PR_REPO && env.GATE_ALT_PR_REPO === repo) return env.GATE_ALT_PR_TOKEN || '';
+  if (env.GATE_PR_REPO && env.GATE_PR_REPO === repo) return env.GATE_PR_TOKEN || env.GH_TOKEN || '';
+  if (env.GH_REPO && env.GH_REPO === repo) return env.GH_TOKEN || '';
+  return '';
+}
+
+/** Contatori dell'ammissione per un verdetto (le chiavi della riga MINT_GATE_TALLY). */
+export function admissionCounts(admissions) {
+  const list = Array.isArray(admissions) ? admissions : [];
+  const count = (code) => list.filter((entry) => entry?.observed?.includes(code)).length;
+  return {
+    bornSatisfied: count(MINT_OBSERVATIONS.bornSatisfied),
+    tokenIsDeclaration: count(MINT_OBSERVATIONS.declaration),
+    admissionUnknown: count(MINT_OBSERVATIONS.unknown),
+  };
+}
+
+/** Contatori delle demozioni e riscritture dell'ammissione (seconda metà della riga MINT_GATE_TALLY). */
+export function mintCheckCounts(admissions) {
+  const list = Array.isArray(admissions) ? admissions : [];
+  const count = (code) => list.filter((entry) => entry?.observed?.includes(code)).length;
+  return {
+    closedState: count(MINT_OBSERVATIONS.closedState),
+    targetMissing: count(MINT_OBSERVATIONS.targetMissing),
+    targetInTwin: count(MINT_OBSERVATIONS.targetInTwin),
+    targetRewritten: count(MINT_OBSERVATIONS.targetRewritten),
+    targetIdenticalInCorpus: count(MINT_OBSERVATIONS.targetIdenticalInCorpus),
+  };
+}
+
+/**
+ * Righe per il commento del gate sul bucket: bersagli riscritti e item del corpus
+ * che puntano a un file `identical` (si corregge nel sito; lo corregge il prompt).
+ */
+export function targetNoteLines(admissions, rewritten = []) {
+  const lines = (Array.isArray(rewritten) ? rewritten : [])
+    .map((entry) => `- ${entry.id}: \`Target file\` riscritto da ${inertCodeSpanText(entry.from)} a ${inertCodeSpanText(entry.to)} (nome di questo repository secondo il manifest di mirror).`);
+  for (const entry of Array.isArray(admissions) ? admissions : []) {
+    if (!entry?.observed?.includes(MINT_OBSERVATIONS.targetIdenticalInCorpus)) continue;
+    lines.push(`- ${entry.id}: ${inertCodeSpanText(entry.targetFile)} è \`identical\` nel manifest di mirror: si corregge nel sito, non nel corpus.`);
+  }
+  return lines;
+}
+
+/**
+ * Il blocco `Bersagli:` del commento sul bucket, dalla decisione CORRENTE: se
+ * il corpo cambia dopo la lista la decisione si ricalcola, e le note con lei.
+ */
+function targetNotesBlock(decision) {
+  const notes = targetNoteLines(decision?.admissions, decision?.rewritten);
+  return notes.length ? `\n\nBersagli:\n${notes.join('\n')}` : '';
+}
+
+function inertCodeSpanText(value) {
+  return `\`${inertCodeSpan(String(value ?? '').replace(/`/g, ''))}\``;
+}
+
+/** Testo libero dentro un comando `::warning::` di Actions, su una riga. */
+function workflowCommandText(value) {
+  return String(value ?? '').replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+}
+
+/** Testo libero dentro un code span del commento: niente marker, niente backtick. */
+function inertCodeSpan(value) {
+  return inertCommentText(value).replace(/`/g, "'") || '(vuoto)';
+}
+
+/**
+ * Corpo del commento che marca gli item nati soddisfatti: un marker
+ * `FU_ITEM_BORN_SATISFIED` per item (letterale da `itemBornSatisfiedMarker`) e,
+ * in prosa, token e file. Il reconciler legge il marker dai commenti fidati e
+ * non conferma più l'item con quel token: la misura diventa una guardia sulla
+ * CHIUSURA senza togliere nulla dal tracciamento.
+ */
+export function bornSatisfiedCommentBody(entries, repository) {
+  const markers = entries.map((entry) => itemBornSatisfiedMarker({ item: entry.id }));
+  const lines = entries.map((entry) => `- ${entry.id}: \`${inertCodeSpan(entry.token)}\` in \`${inertCodeSpan(entry.targetFile)}\``);
+  return [
+    ...markers,
+    MINT_GATE_MARKER,
+    `🔎 **Gate sul conio** (zero-Claude): ${entries.length === 1 ? 'questo item nasce' : 'questi item nascono'} con il token di accettazione già vero su \`main\` di ${inertCodeSpan(repository)}.`,
+    '',
+    ...lines,
+    '',
+    'Restano in coda (l\'item è ammesso: è una misura, non una demozione), ma trovare quel token nel file non prova più che il lavoro sia stato fatto: il reconciler non li marcherà `done` su quel token. Per chiuderli serve una PR che li affronti o una verifica esplicita.',
+  ].join('\n');
+}
+
+/**
+ * Gli item nati soddisfatti che non hanno ancora il marker fra i commenti
+ * fidati del bucket. Commenti illeggibili (`null`) → tutti: un marker
+ * duplicato è innocuo (il lettore ne fa un insieme), uno mancante no.
+ */
+export function bornSatisfiedToMark(admissions, comments) {
+  const born = (Array.isArray(admissions) ? admissions : [])
+    .filter((entry) => entry?.id && entry.observed?.includes(MINT_OBSERVATIONS.bornSatisfied));
+  if (!born.length || !Array.isArray(comments)) return born;
+  const marked = new Set(parseItemMarkers(comments, { isTrusted: isTrustedAuthor })
+    .filter((marker) => marker.type === 'born-satisfied')
+    .map((marker) => marker.item));
+  return born.filter((entry) => !marked.has(String(entry.id).toUpperCase()));
+}
+
+/**
+ * Posta UNA volta, prima che il bucket venga sigillato, il marker degli item
+ * nati soddisfatti. Una lettura dei commenti per bucket con almeno un caso.
+ * Un errore lascia l'item ammesso (`::warning::`), senza demozioni di ripiego.
+ */
+function markBornSatisfiedItems(issue, admissions, repoArgs) {
+  if (!admissionCounts(admissions).bornSatisfied || DRY_RUN) return;
+  const view = gh(['issue', 'view', String(issue.number), ...repoArgs, '--json', 'comments'], { allowFail: true });
+  let comments = null;
+  try {
+    const parsed = JSON.parse(view || '');
+    if (Array.isArray(parsed?.comments)) comments = parsed.comments;
+  } catch {
+    comments = null;
+  }
+  const toMark = bornSatisfiedToMark(admissions, comments);
+  if (!toMark.length) return;
+  const posted = gh(['issue', 'comment', String(issue.number), ...repoArgs, '--body',
+    bornSatisfiedCommentBody(toMark, process.env.GH_REPO || 'default')], { allowFail: true });
+  if (posted === null) {
+    console.log(`::warning::conio: marker FU_ITEM_BORN_SATISFIED non postato su #${issue.number} (${toMark.map((entry) => entry.id).join(', ')}); item ammessi comunque.`);
+  }
+}
+
 function main() {
   const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
   const prRepoArgs = process.env.GATE_PR_REPO ? ['--repo', process.env.GATE_PR_REPO] : repoArgs;
@@ -1028,13 +1573,55 @@ function main() {
   // Collection completeness is proved per collecting bucket from its own Sources
   // and triage markers. Sealed buckets take a separate queue-repair path below and
   // never inherit a batch-wide completion signal.
+  const sourceLookups = sourcePrLookups(prRepoArgs);
   const recoveredDailyIdentities = COLLECTION_OK
-    ? recoverableDailyIdentities(open, repoArgs, prRepoArgs)
+    ? recoverableDailyIdentities(open, repoArgs, sourceLookups)
     : new Set();
   const blockedDailyIdentities = consolidateDailyBuckets(open, repoArgs, recoveredDailyIdentities);
   const report = [];
   const tally = [];
   const machineCache = new Map();
+  // L'io dell'ammissione legge il `main` del repository del BUCKET dall'API
+  // (GH_REPO con GH_TOKEN, il token di quel repository in ogni passaggio), mai il
+  // disco: i passaggi girano su checkout diversi, anche sparse o dell'altro
+  // repository, e così fanno tutti lo stesso controllo.
+  const admissionIo = contentsApiIo({
+    repo: process.env.GH_REPO || '',
+    ref: 'main',
+    gh: ghApiRaw,
+    cap: intFromEnv('MINT_ADMISSION_READ_CAP', DEFAULT_ADMISSION_READ_CAP),
+  });
+  // Il bersaglio si giudica col manifest di mirror (vive solo nel corpus: letto
+  // UNA volta per run via API, e solo se serve) e con l'io del gemello, ciascuno
+  // col token del SUO repository (`readTokenFor`): il GH_TOKEN del bucket puo'
+  // non leggere il gemello, e il 404 diventava un `missing` inventato. Manifest
+  // illeggibile o gemello senza token → `admission_unknown`, mai una demozione.
+  const corpusRepo = process.env.FOLLOWUP_CORPUS_REPO || DEFAULT_FOLLOWUP_REPOS.corpus;
+  const siteRepo = process.env.FOLLOWUP_SITE_REPO || DEFAULT_FOLLOWUP_REPOS.site;
+  const side = (process.env.GH_REPO || '') === corpusRepo ? 'corpus' : 'site';
+  const twinRepo = side === 'site' ? corpusRepo : siteRepo;
+  const twinToken = readTokenFor(twinRepo);
+  const corpusToken = readTokenFor(corpusRepo);
+  if (!twinToken) console.log(`::warning::conio: nessun token dichiarato per il gemello ${twinRepo} (GATE_ALT_PR_TOKEN/GATE_PR_TOKEN), i bersagli del gemello contano admission_unknown`);
+  let manifestFiles;
+  const mintTarget = {
+    side,
+    manifestFiles: () => {
+      if (manifestFiles === undefined) {
+        manifestFiles = corpusToken
+          ? fetchManifestFiles(corpusRepo, (args) => ghApiRunner(corpusToken)(['api', ...args]))
+          : null;
+        if (!manifestFiles) console.log('::warning::conio: manifest di mirror non leggibile, i bersagli assenti contano admission_unknown');
+      }
+      return manifestFiles;
+    },
+    twinIo: contentsApiIo({
+      repo: twinRepo,
+      ref: 'main',
+      gh: twinToken ? ghApiRunner(twinToken) : undefined,
+      cap: intFromEnv('MINT_ADMISSION_READ_CAP', DEFAULT_ADMISSION_READ_CAP),
+    }),
+  };
   let dailyClaimed = false;
   // A successful run with no newly eligible PRs still has to recover a collecting
   // bucket left by an earlier failed run. A null sentinel gives that pass no PR
@@ -1075,10 +1662,22 @@ function main() {
         let d = decideMintGate(iss, {
           machineOptions: { cache: machineCache },
           triageComplete: daily ? issueTriageComplete : TRIAGE_COMPLETE,
+          fileIo: admissionIo,
+          mintTarget,
         });
         let commentTargets = daily ? sourcePrNumbers(iss.body, pr) : [pr];
+        // Le Sources di un daily possono essere PR dell'altro repository: si
+        // commentano sulla PR qualificata col repository (`preserveDemotedOnSourcePrs`),
+        // un item per volta, non alla cieca in GATE_PR_REPO.
+        let commentViaSources = Boolean(daily);
         console.log(`#${iss.number} (${daily ? `daily:${daily.dailyKey}` : `PR #${pr}`}) → ${d.action} (${d.reason}; validi ${d.valid.length}, demoti ${d.demoted.length})`);
-        tally.push({ pr, issue: iss.number, action: d.action, reason: d.reason, demoted: d.demoted.length, kept: d.valid.length });
+        const admitted = admissionCounts(d.admissions);
+        tally.push({ pr, issue: iss.number, action: d.action, reason: d.reason, demoted: d.demoted.length, kept: d.valid.length, donePreserved: (d.donePreserved || []).length, ...admitted, ...mintCheckCounts(d.admissions) });
+        for (const entry of d.admissions || []) {
+          if (entry.demotion) console.log(`::warning::conio: ${entry.id} demoto (${entry.demotion.code}): ${workflowCommandText(entry.demotion.detail)}`);
+          if (!entry.observed.includes(MINT_OBSERVATIONS.bornSatisfied)) continue;
+          console.log(`::warning::conio: ${entry.id} nasce con il token già vero (${workflowCommandText(entry.token || 'token da Suggested action')})`);
+        }
         if (d.action === 'skip' || d.action === 'keep') {
           // Sealing and label mutation are separate GitHub writes. If the label
           // call failed after a successful body edit, a later retry sees `keep`
@@ -1111,6 +1710,9 @@ function main() {
           // The latest response is the admission snapshot. Missing or malformed
           // labels must replace the previous snapshot, never silently reuse it.
           iss = { ...iss, labels: latest.labels };
+          // Il marker PRIMA del sigillo: il reconciler lavora solo sui bucket
+          // sigillati, quindi quando li vede il marker c'è già.
+          markBornSatisfiedItems(iss, d.admissions, repoArgs);
           const bf = writeBodyFile(d.body);
           const newTitle = retitleDailyBucket(iss.title, d.valid.length);
           const editVerb = 'edit';
@@ -1125,16 +1727,20 @@ function main() {
           const queueEligible = canMintQueueLabel(iss);
           const queueMessage = queueEligible
             ? '✅ Daily bucket sigillato in modo deterministico: tutti gli item hanno ID stabile e acceptance verificabile. Ora può essere accodato a agent:fix-queued.'
+              + ((d.donePreserved || []).length
+                ? ` Eccezione: ${d.donePreserved.length} item già done conservat${d.donePreserved.length === 1 ? 'o' : 'i'} senza rivalutazione (${d.donePreserved.join(', ')}).`
+                : '')
             : '⚠️ Daily bucket sigillato, ma '
               + (queueBlockReason(iss) === 'labels non verificabili' ? 'labels non verificabili' : `${queueBlockReason(iss)} è presente`)
               + ': nessuna nuova coda automatica.';
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
-            MINT_GATE_MARKER + '\n' + queueMessage], { allowFail: true });
+            MINT_GATE_MARKER + '\n' + queueMessage + targetNotesBlock(d)], { allowFail: true });
           if (queueEligible) addQueueLabelIfEligible({
             ...iss,
             title: newTitle === null ? iss.title : newTitle,
             body: d.body,
           }, repoArgs);
+          else noteQueueVeto(iss);
           report.push(`- 🔒 #${iss.number} daily bucket sealed, ${d.valid.length} item accodabili — ${daily?.targetRepository || 'unknown'}`);
           continue;
         }
@@ -1158,17 +1764,21 @@ function main() {
           d = decideMintGate(iss, {
             machineOptions: { cache: machineCache },
             triageComplete: latestDaily ? latestTriageComplete : TRIAGE_COMPLETE,
+            fileIo: admissionIo,
+            mintTarget,
           });
           commentTargets = latestDaily ? sourcePrNumbers(iss.body, pr) : [pr];
+          commentViaSources = Boolean(latestDaily);
           if (d.action === 'skip' || d.action === 'keep' || !d.body) {
             console.log(`#${iss.number}: body cambiato dopo la lista → decisione ricalcolata (${d.action}/${d.reason}), nessun overwrite stale.`);
             continue;
           }
           console.log(`#${iss.number}: body cambiato dopo la lista → decisione ricalcolata dalla lettura nuova (${d.action}/${d.reason}).`);
         }
-        const list = d.demoted.map((it) => `- «${itemHeadline(it)}»`).join('\n');
+        const demotedItems = d.demotedItems || d.demoted;
+        const list = demotedItems.map((it) => `- «${itemHeadline(it)}»${it?.demotion?.code ? ` — \`${it.demotion.code}\`` : ''}`).join('\n');
         const duplicateList = (d.duplicates || [])
-          .map((entry) => `- «${itemHeadline(entry.item?.text || entry.item?.raw || '')}» (${entry.fingerprint})`)
+          .map((entry) => `- «${itemHeadline(entry.item || '')}» (${entry.fingerprint})`)
           .join('\n');
         // Il TESTO INTEGRALE, non il titolo. Nel ramo `demote` il corpo della issue viene
         // riscritto senza gli item demoti: se qui sopravvivesse solo la prima riga,
@@ -1180,16 +1790,19 @@ function main() {
         // The latest response is the admission snapshot. Missing or malformed
         // labels must replace the previous snapshot, never silently reuse it.
         iss = { ...iss, labels: latest.labels };
-        const verbatim = demotedBlock(d.demoted);
+        const verbatim = demotedBlock(demotedItems);
         const why = d.action === 'dedupe'
-          ? `${MINT_GATE_MARKER}\n🧹 **Gate deterministico sul conio** (zero-Claude): ${d.duplicates.length} item con fingerprint duplicato sono stati accorpati nel primo item; le rispettive \`Sources\` restano unite e non viene creato un secondo lavoro. Fingerprint: \`target repository + target file + token/azione normalizzata\`.\n\n${duplicateList}`
-          : `${MINT_GATE_MARKER}\n🚧 **Gate deterministico sul conio** (zero-Claude): ${d.demoted.length} item non porta${d.demoted.length === 1 ? '' : 'no'} una condizione di accettazione falsificabile — né un token-codice distintivo in una riga \`Suggested action\`, né una scheda con un \`COMANDO\` che nomini un referente — quindi nessuna evidenza potrà mai provarl${d.demoted.length === 1 ? 'o' : 'i'} affrontat${d.demoted.length === 1 ? 'o' : 'i'}. Oracolo: \`hasFalsifiableAcceptance()\` in \`scripts/ci/followup-resolution-match.mjs\`, lo STESSO che chiude l'item.\n\n${list}`;
+          ? `${MINT_GATE_MARKER}\n🧹 **Gate deterministico sul conio** (zero-Claude): ${d.duplicates.length} item con fingerprint duplicato sono stati accorpati in un solo item (il \`done\`, se presente; altrimenti il primo); le rispettive \`Sources\` restano unite e non viene creato un secondo lavoro. Fingerprint: \`target repository + target file + token/azione normalizzata\`.\n\n${duplicateList}`
+          : `${MINT_GATE_MARKER}\n🚧 **Gate deterministico sul conio** (zero-Claude): ${d.demoted.length} item non porta${d.demoted.length === 1 ? '' : 'no'} una condizione di accettazione falsificabile (o, se marcat${d.demoted.length === 1 ? 'o' : 'i'} con un codice, nasc${d.demoted.length === 1 ? 'e' : 'ono'} da un bullet già chiuso o da un bersaglio assente) — né un token-codice distintivo in una riga \`Suggested action\`, né una scheda con un \`COMANDO\` che nomini un referente — quindi nessuna evidenza potrà mai provarl${d.demoted.length === 1 ? 'o' : 'i'} affrontat${d.demoted.length === 1 ? 'o' : 'i'}. Oracolo: \`hasFalsifiableAcceptance()\` in \`scripts/ci/followup-resolution-match.mjs\`, lo STESSO che chiude l'item.\n\n${list}`;
         if (DRY_RUN) { console.log(why); continue; }
         // ORDINE, non decorazione: prima si CONSERVA il testo sulla PR, poi si tocca la
         // issue. Il verso opposto — riscrivi il corpo, poi prova a commentare — perde gli
         // item per sempre se la seconda chiamata fallisce, ed e' proprio la finestra in
         // cui `gh` fallisce piu' spesso (rate limit dopo N scritture in un batch).
-        const commentBody = `${MINT_GATE_MARKER}\n## Item demoti dal gate sul conio\n\nNon tracciati come item (nessuna condizione di accettazione falsificabile), ma **conservati qui integralmente**, come i \`Live-verification\`. ${d.action === 'suppress' ? `Issue #${iss.number} chiusa in ingresso: non restava nessun item valido.` : `Issue #${iss.number} resta aperta con ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'}; questi sono stati tolti dal suo corpo e vivono solo qui.`}\n\n${verbatim}`;
+        // L'intestazione e' comune; il blocco verbatim di un daily si compone PER PR
+        // sorgente (`preserveDemotedOnSourcePrs`), con i soli item che la citano.
+        const commentIntro = `${MINT_GATE_MARKER}\n## Item demoti dal gate sul conio\n\nNon tracciati come item (nessuna condizione di accettazione falsificabile, oppure il motivo in \`Demozione al conio\` sotto l'item), ma **conservati qui integralmente**, come i \`Live-verification\`. ${d.action === 'suppress' ? `Issue #${iss.number} chiusa in ingresso: non restava nessun item valido.` : `Issue #${iss.number} resta aperta con ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'}; questi sono stati tolti dal suo corpo e vivono solo qui.`}`;
+        const commentBody = `${commentIntro}\n\n${verbatim}`;
         if (!commentTargets.length && d.action !== 'dedupe') {
           console.log(`⚠️ #${iss.number}: nessuna PR sorgente leggibile per conservare gli item demoti → issue lasciata intatta.`);
           report.push(`- ⚠️ #${iss.number} demozione/soppressione rinviata, PR sorgente assente`);
@@ -1199,7 +1812,15 @@ function main() {
         // ['pr', 'comment', String(pr), ...prRepoArgs
         const commentResults = d.action === 'dedupe'
           ? []
-          : commentTargets.map((targetPr) => ghPr(['pr', 'comment', String(targetPr), ...prRepoArgs, '--body', commentBody], { allowFail: true }));
+          : commentViaSources
+            ? preserveDemotedOnSourcePrs({
+              bucketNumber: iss.number,
+              demoted: demotedItems,
+              fallbackTargets: commentTargets,
+              intro: commentIntro,
+              lookups: sourceLookups,
+            })
+            : commentTargets.map((targetPr) => ghPr(['pr', 'comment', String(targetPr), ...prRepoArgs, '--body', commentBody], { allowFail: true }));
         const posted = d.action === 'dedupe' || commentResults.every((result) => result !== null) ? 'posted' : null;
         if (d.action === 'demote' && posted === null) {
           console.log(`⚠️ #${iss.number}: commento sulla PR #${pr} non riuscito → NON riscrivo il corpo. Gli item demoti restano dove sono; il prossimo giro riprova.`);
@@ -1207,12 +1828,22 @@ function main() {
           continue;
         }
         if (d.action === 'suppress') {
+          // Stessa regola della demozione: chiudere la issue senza aver conservato
+          // gli item sulla PR sorgente (lookup o commento non riusciti) ne perderebbe
+          // l'unica copia leggibile fuori dalla coda. Commento e chiusura solo con
+          // `posted === 'posted'`; altrimenti issue intatta e retry al prossimo giro.
+          if (posted !== 'posted') {
+            console.log(`⚠️ #${iss.number}: conservazione sulla PR sorgente non riuscita → NON chiudo la issue. Il prossimo giro riprova.`);
+            report.push(`- ⏭️ #${iss.number} soppressione rinviata (commento sulla PR non riuscito) — PR #${pr}`);
+            continue;
+          }
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
             `${why}\n\nNessun item valido resta: questa issue non sarebbe mai potuta uscire dalla coda (\`aggregateCloseGate()\` la blocca per costruzione). Chiusa in ingresso; il testo resta qui e nel commento di summary della PR #${pr}. Se un item era lavoro vero, riaprilo come issue autonoma con una riga \`Suggested action\` che citi il simbolo **nella sua forma di codice**: un identificatore nudo (\`nomeFunzione\`) e un path nudo (\`scripts/ci/foo.mjs\`) non contano, perché compaiono nel file citato a prescindere dal fix — servono \`nomeFunzione()\`, \`oggetto.campo\`, \`COSTANTE >= 1\` o simili (\`isDistinctiveToken()\`, classe #1647). In alternativa, e spesso piu' facile, dagli una scheda: una riga \`- METRICA: prima=<n> atteso=<n> | COMANDO: <comando che nomina un file, uno script o un test>\`. Il referente non deve esistere ancora — lo crea la PR di fix — ma una metrica gia' al bersaglio (\`prima=N atteso=N\`) viene rifiutata: non c'e' niente da muovere.`],
             { allowFail: true });
           gh(['issue', 'close', String(iss.number), ...repoArgs, '--reason', 'not planned'], { allowFail: true });
           report.push(`- 🚫 #${iss.number} soppressa in ingresso (${d.demoted.length} item senza condizione di accettazione) — PR #${pr}`);
         } else {
+          if (daily && bucketState(d.body) === 'sealed') markBornSatisfiedItems(iss, d.admissions, repoArgs);
           const bf = writeBodyFile(d.body);
           const newTitle = daily
             ? retitleDailyBucket(iss.title, d.valid.length)
@@ -1233,7 +1864,7 @@ function main() {
             continue;
           }
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
-            `${why}\n\nRimoss${d.demoted.length === 1 ? 'o' : 'i'} dal corpo; ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'} rest${d.valid.length === 1 ? 'a' : 'ano'}.`],
+            `${why}\n\nRimoss${d.demoted.length === 1 ? 'o' : 'i'} dal corpo; ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'} rest${d.valid.length === 1 ? 'a' : 'ano'}.${targetNotesBlock(d)}`],
             { allowFail: true });
           if (daily && bucketState(d.body) === 'sealed' && selectFirstOpenItem(d.body)) {
             const queueEligible = canMintQueueLabel(iss);
@@ -1250,6 +1881,7 @@ function main() {
                 MINT_GATE_MARKER + '\n⚠️ Dopo la demozione il daily bucket resta sigillato, ma '
                   + (queueBlockReason(iss) === 'labels non verificabili' ? 'labels non verificabili' : `${queueBlockReason(iss)} è presente`)
                   + ': nessuna nuova coda automatica.'], { allowFail: true });
+              noteQueueVeto(iss);
               console.log('#' + iss.number + ': demozione sigillata senza nuova coda ('
                 + queueBlockReason(iss) + ').');
             }
@@ -1270,7 +1902,14 @@ function main() {
   // su un lato solo. Riga a formato fisso, grep-abile sui log di tutte le run (stessa
   // convenzione di `CLAUDE_USAGE` in claude-usage-summary.mjs).
   for (const t of tally) {
-    console.log(`MINT_GATE_TALLY repo=${process.env.GH_REPO || 'default'} pr=${t.pr} issue=${t.issue} action=${t.action} reason=${t.reason} demoted=${t.demoted} kept=${t.kept}`);
+    console.log(`MINT_GATE_TALLY repo=${process.env.GH_REPO || 'default'} pr=${t.pr} issue=${t.issue} action=${t.action} reason=${t.reason} demoted=${t.demoted} kept=${t.kept} done_preserved=${t.donePreserved} born_satisfied=${t.bornSatisfied} token_is_declaration=${t.tokenIsDeclaration} admission_unknown=${t.admissionUnknown} closed_state=${t.closedState} target_missing=${t.targetMissing} target_in_twin=${t.targetInTwin} target_rewritten=${t.targetRewritten} target_identical_in_corpus=${t.targetIdenticalInCorpus}`);
+  }
+  // Il tetto delle letture è dichiarato a ogni run, anche senza bucket al conio:
+  // un `admission_unknown` alto si legge accanto a `read_capped`.
+  const reads = admissionIo.stats();
+  console.log(`MINT_GATE_ADMISSION repo=${process.env.GH_REPO || 'default'} reads=${reads.reads} read_cap=${reads.cap} read_capped=${reads.capped} read_errors=${reads.errors}`);
+  for (const [reason, count] of queueVetoTally) {
+    console.log(`MINT_GATE_TALLY repo=${process.env.GH_REPO || 'default'} queue_vetoed=${count} reason=${reason}`);
   }
   const demotedTotal = tally.reduce((a, t) => a + t.demoted, 0);
   const summary = `Gate sul conio: ${report.length} issue nel report, ${demotedTotal} item demoti${DRY_RUN ? ' (dry-run)' : ''}.`;
@@ -1288,6 +1927,6 @@ function main() {
   }
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

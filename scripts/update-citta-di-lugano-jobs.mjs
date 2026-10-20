@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated Città di Lugano crawler runner.
  *
@@ -17,6 +19,7 @@
  *   6. Runs the shared base crawler for AI localization.
  *   7. Post-processes and validates.
  */
+import { mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -30,6 +33,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -45,7 +49,15 @@ import {
 mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, parseDetailPage, buildJob, stripHtml } from './lib/citta-di-lugano-job-parser.mjs';
+import {
+  parseListingPage,
+  parseDetailPage,
+  buildJob,
+  stripHtml,
+  CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE,
+} from './lib/citta-di-lugano-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   buildPdfBackedDescription,
@@ -111,13 +123,17 @@ async function fetchJobs() {
     console.error(`❌ Failed to fetch career page: ${err?.message || err}`);
     throw err;
   }
+  // Capture the observation only after the official listing response arrived;
+  // the parser never treats a competition/publication date as crawl time.
+  const observedAt = html ? new Date() : null;
 
   const rawListings = parseListingPage(html);
   console.log(`📋 Found ${rawListings.length} listing(s) on career page.`);
 
   const jobs = [];
   for (const listing of rawListings) {
-    const job = buildJob(listing);
+    listing.crawlObservedAt = observedAt;
+    let job = buildJob(listing);
     if (!job) continue;
 
     // Enrich description with PDF content when available
@@ -129,20 +145,12 @@ async function fetchJobs() {
         console.warn(`  ⚠️ PDF extraction failed for "${job.title}": ${pdfContent.error}`);
       } else if (pdfContent.text) {
         console.log(`  ✅ PDF extracted (${pdfContent.text.length} chars, ${pdfContent.totalPages} pages)`);
-        job.description = buildPdfBackedDescription({
-          introLines: [
-            `## ${job.title}`,
-            `${COMPANY_NAME} — concorso pubblico a Lugano (TI), Svizzera.`,
-          ],
-          pdfText: pdfContent.text,
-          fallbackText: job.description || '',
-          footerLines: [
-            `**Settore:** Pubblica Amministrazione`,
-            `**Sede:** Via Nizzola 5, 6900 Lugano, TI, Svizzera`,
-            `[Bando ufficiale (PDF)](${pdfUrl})`,
-          ],
-        });
-        job.descriptionByLocale = { it: job.description };
+        // The bando's own text, in its own language: no lines of the crawler
+        // (CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE). The builder writes the
+        // locale maps for that language; the slug fields are never rewritten
+        // here (slug-write ratchet, tests/slug-write-encapsulation.test.ts).
+        const description = buildPdfBackedDescription({ pdfText: pdfContent.text });
+        job = buildJob(listing, { description, sourceLang: detectLang(description, 'it') });
       }
     }
 
@@ -163,7 +171,11 @@ function jobMatchKey(job = {}) {
 function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isCompanyJob(job));
-  const targetExisting = existing.filter(isCompanyJob);
+  const targetExisting = dropFabricatedDescriptions(
+    existing.filter(isCompanyJob),
+    CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -179,7 +191,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      postedDate: job.postedDate || prev.postedDate,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -258,7 +270,20 @@ async function main() {
 
   const discoveredJobs = await fetchJobs();
   let diff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
-  if (discoveredJobs.length === 0) { console.log('ℹ️  No job listings found — skipping crawl.'); return; }
+  if (discoveredJobs.length === 0) {
+    console.log('ℹ️  No job listings found — skipping crawl.');
+    // The stored jobs are kept, without the text the crawler once wrote
+    // into them (the merge would have removed it).
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => dropFabricatedDescriptions(jobs, CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE, COMPANY_NAME),
+      storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+      companyKey: COMPANY_KEY,
+      companyLabel: COMPANY_NAME,
+      write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+      assemble: () => assembleJobsDataset(),
+    });
+    return;
+  }
 
   const seedUrls = discoveredJobs.map((j) => j.url);
   const mergeResult = mergeJobs(discoveredJobs);
@@ -282,10 +307,10 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isCompanyJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, { observedJobs: discoveredJobs });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
 }
 
-const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isDirectRun = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectRun) { main().catch((err) => exitCrawlerOnError(err, COMPANY_NAME)); }

@@ -9,6 +9,7 @@
  * The page uses Drupal Views with AJAX filtering; the crawler reads the
  * national listing and resolves each posting's Swiss canton.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -16,13 +17,15 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseMikronJobs, parseMikronJobDetail, slugify, normalizeSpace, htmlToText, MIKRON_CAREERS_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
+import { parseMikronJobs, parseMikronJobDetail, dropMikronFabricatedText, keepMikronSourceBodies, slugify, normalizeSpace, htmlToText, MIKRON_CAREERS_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './lib/source-body-floor.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -79,14 +82,16 @@ function detectExperienceLevel(title = '') {
 
 async function fetchPage(url) {
   const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '20000', 10);
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, { signal: controller.signal, headers: { 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)', Accept: 'text/html', 'Accept-Language': 'en,it-CH;q=0.9' } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
-    return await res.text();
+    return await fetchHtml(url, {
+      timeoutMs,
+      headers: {
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+        Accept: 'text/html',
+        'Accept-Language': 'en,it-CH;q=0.9',
+      },
+    });
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
 }
 
 /**
@@ -100,18 +105,6 @@ function detectEmploymentType(title = '') {
     if (maxPct < 100 || minPct < 80) return 'PART_TIME';
   }
   return 'FULL_TIME';
-}
-
-/**
- * Build a rich fallback description (>50 words) when detail page yields nothing.
- */
-function buildFallbackDescription(title, division, city = '', locale = 'en') {
-  const locationIt = city ? `a ${city}` : 'in Svizzera';
-  const locationEn = city ? `in ${city}` : 'in Switzerland';
-  if (locale === 'it') {
-    return `Posizione aperta: ${title} presso Mikron Group ${locationIt}.${division ? ` Divisione: ${division}.` : ''}\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e diverse sedi operative nel Paese. Le attività svizzere includono Mikron Machining ad Agno (TI) e Mikron Automation a Boudry (NE), con sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali.`;
-  }
-  return `Open position: ${title} at Mikron Group ${locationEn}.${division ? ` Division: ${division}.` : ''}\n\nMikron Group is a global leader in precision manufacturing and automation, headquartered in Biel/Bienne (Switzerland) with several operating sites in the country. Its Swiss activities include Mikron Machining in Agno (TI) and Mikron Automation in Boudry (NE), with high-precision machining systems for the automotive, medical, electronics, and watchmaking industries. The company offers a dynamic working environment, career growth opportunities, a positive corporate culture with strong team spirit, and competitive compensation with excellent social benefits.`;
 }
 
 // Known Swiss site addresses, keyed by city. Other cities fall back to the
@@ -155,7 +148,6 @@ async function fetchMikronJobs() {
 
     // Fetch detail page for rich description
     let descEn = '';
-    let descIt = '';
     let rawLocation = p.location || '';
     if (p.url) {
       console.log(`    🔗 Fetching detail page: ${p.url}`);
@@ -163,14 +155,17 @@ async function fetchMikronJobs() {
       if (detailHtml) {
         const detail = parseMikronJobDetail(detailHtml);
         if (detail.location) rawLocation = detail.location;
-        if (detail.description && detail.description.split(/\s+/).length >= 30) {
+        // One floor for the whole crawler (shared, 50 words): the detail gate
+        // used to accept 30 words and pad anything under 50 with an invented
+        // company paragraph.
+        if (meetsSourceBodyFloor(detail.description)) {
           descEn = detail.description;
-          console.log(`    ✅ Detail description: ${descEn.split(/\s+/).length} words`);
+          console.log(`    ✅ Detail description: ${sourceBodyWordCount(descEn)} words`);
         } else {
-          console.log(`    ⚠️ Detail page description too short (${(detail.description || '').split(/\s+/).length} words), using fallback`);
+          console.log(`    ⚠️ Detail page description too short (${sourceBodyWordCount(detail.description || '')} words): kept only if a source body is stored`);
         }
       } else {
-        console.log(`    ⚠️ Could not fetch detail page, using fallback`);
+        console.log(`    ⚠️ Could not fetch detail page: kept only if a source body is stored`);
       }
       // Small delay to be respectful to the server
       await new Promise((r) => setTimeout(r, 500));
@@ -186,13 +181,12 @@ async function fetchMikronJobs() {
     }
     const city0 = city;
 
-    // Fallback: build a rich description (>50 words) if detail page failed
-    if (!descEn || descEn.split(/\s+/).length < 50) {
-      descEn = buildFallbackDescription(title, p.division, city, 'en');
-    }
-    if (!descIt) {
-      descIt = buildFallbackDescription(title, p.division, city, 'it');
-    }
+    // The detail body is published in its own language (the Boudry postings
+    // are French under an English title): key it by the detected language so
+    // the French text is not stored as the `en` translation.
+    // A title is not evidence of the language (see sourceLangOfBody): without
+    // a body the stored one is kept, with its own language.
+    const sourceLang = sourceLangOfBody(descEn, 'en');
 
     const employmentType = detectEmploymentType(title);
 
@@ -201,10 +195,12 @@ async function fetchMikronJobs() {
       location: city0, canton, country: 'CH',
       ...(postalCode && { postalCode }),
       ...(streetAddress && { streetAddress }),
-      description: descEn, descriptionByLocale: { en: descEn, it: descIt },
-      titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'mikron') },
-      sourceLang: detectLang(descEn || title, 'en'),
-      category: detectCategory(title), datePosted: new Date().toISOString().split('T')[0],
+      description: descEn, descriptionByLocale: descEn ? { [sourceLang]: descEn } : {},
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(title, slug, sourceLang), slug,
+      sourceLang,
+      category: detectCategory(title), ...sourcePostingDateFields(''),
+      crawledAt: new Date().toISOString(),
       source: 'mikron-html-crawler', employmentType,
       experienceLevel: detectExperienceLevel(title), sector: 'Manifattura / Precision Manufacturing',
       _targetScope: { canton, location: city0 },
@@ -220,6 +216,15 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isMikronJob(j));
   const existingMikronJobs = allJobs.filter(isMikronJob);
+  const fossils = existingMikronJobs.filter((job) => dropMikronFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the crawler-written fallback text from ${fossils} stored job(s); they will be retranslated`);
+  // A detail body under the word floor: keep the stored source body, or do
+  // not publish the job this run.
+  const withBody = keepMikronSourceBodies(discoveredJobs, existingMikronJobs, extractStableJobId);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(existingMikronJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
@@ -235,6 +240,7 @@ async function mergeJobs(discoveredJobs) {
   const merged = mergePreserveLocaleData(existingMikronJobs, discoveredJobs).map((job) => ({
     ...job, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'mikron-html-crawler',
   }));
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

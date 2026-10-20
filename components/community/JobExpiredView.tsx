@@ -1,3 +1,4 @@
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
  * JobExpiredView — view for jobs found in /data/expired-jobs.json.
  *
@@ -27,6 +28,7 @@ import { AD_SLOTS, shouldPlaceInfeedAd } from '@/services/adsenseSlots';
 import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { buildPath } from '@/services/router';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import ArticleRailAdStack from '@/components/shared/ArticleRailAdStack';
@@ -35,8 +37,9 @@ import JobAlertSection from '@/components/community/JobAlertSection';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
 import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
-import { stripMarkdownMarkers } from '@/services/jobs/plainTextMarkdown';
+import { jobDescriptionPlainText, jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
+import { jobDescriptionTextToHtml } from '@/build-plugins/shared/jobDescription/toHtml';
 
 interface RelatedJob {
  slug: string;
@@ -49,6 +52,8 @@ interface RelatedJob {
  location?: string;
  canton?: string;
  contract?: string;
+ datePosted?: string;
+ postingDateSource?: string;
  postedDate?: string;
  crawledAt?: string;
  salaryMin?: number;
@@ -160,7 +165,7 @@ const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 
 export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob, onPostJob, onNavigateToSearch }: JobExpiredViewProps) {
  const [locale] = useLocale();
- const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ const { headline: gateHeadline, variant: gateVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
  const isDesktopLg = useMediaQuery('(min-width: 1024px)');
  const googleButtonRef = useRef<HTMLDivElement>(null);
@@ -184,25 +189,14 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  const localizedTitle = job.titleByLocale?.[locale] ?? job.title;
  const description = job.descriptionByLocale?.[locale] ?? '';
- // Same teaser chain as JobBoard's gate, and the same defect: it strips HTML
- // and prints the rest verbatim, so a markdown heading reached the reader as
- // `## Mansioni`. Markdown first — after the HTML strip below, `<[^>]+>` has
- // already eaten the `(url)` half of a link and stranded its brackets.
- const descriptionPlain = stripMarkdownMarkers(description)
- .replace(/<br\s*\/?>/gi, '\n')
- .replace(/<\/(p|li|ul|ol|div|h[1-6]|blockquote)>/gi, '\n')
- .replace(/<[^>]+>/g, ' ')
- // Strip ATX markdown headings (`## Heading`) left over from descriptions
- // authored/crawled as markdown — same fix as the JobBoard gate teaser,
- // same root cause: `#` isn't HTML so the tag-stripping above never
- // touches it. Anchored to line start + required whitespace so mid-line
- // `#` (e.g. "C#", "row #3") is never touched.
- .replace(/(^|\n)#{1,6}\s+/g, '$1')
- .replace(/[^\S\n]+/g, ' ')
- .replace(/\n[ \t]*/g, '\n')
- .replace(/\n{3,}/g, '\n\n')
- .trim();
- const descriptionPreview = descriptionPlain.slice(0, 220);
+ const descriptionPlain = jobDescriptionPlainText(description);
+ const descriptionPreview = jobDescriptionPreview(description);
+ // The full description is crawler/ATS HTML. It used to be injected raw, so a
+ // `<img onerror>`, an `on*` attribute or a `javascript:` link in the source
+ // ran on this page. Render it with the same serializer as the static job
+ // pages: markdown → AST, HTML → allowlist sanitizer
+ // (build-plugins/shared/jobDescription/sanitizeHtml.ts).
+ const descriptionHtml = jobDescriptionTextToHtml(description);
 
  const expiredDate = job.expiredAt
  ? new Date(job.expiredAt).toLocaleDateString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
@@ -237,8 +231,25 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  company: job.company,
  jobTitle: localizedTitle,
  location: jobLocation,
+ surface: 'expired',
  });
  }, [job.slug, alreadySignedIn]);
+
+ // Visible-gate impression, paired on cta_id with the email success below:
+ // `job_auth_gate.expired.unknown.view` → `job_auth_gate.expired.email.success`.
+ const gateImpressionRef = useCaptureImpression({
+  page: 'job_auth_gate',
+  section: 'expired',
+  variant: 'view',
+  ctaId: 'job_auth_gate.expired.unknown.view',
+  enabled: !alreadySignedIn,
+  emit: () => Analytics.trackJobAuthGate('view', {
+   surface: 'expired',
+   authState: 'anonymous',
+   variant: gateVariant,
+   jobSlug: job.slug,
+  }),
+ });
 
  // ── Auth setup ──
 
@@ -288,6 +299,24 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  sourceComponent: 'JobExpiredView',
  sourceRouteFamily: 'job-board',
  jobContext: newsletterJobContext,
+ });
+ Analytics.trackJobAuthGate('success', {
+  surface: 'expired',
+  method: 'email',
+  authState: 'pending_email',
+  variant: gateVariant,
+  jobSlug: job.slug,
+ });
+ Analytics.trackJobAuthFunnel('auth_success', {
+  method: 'email',
+  emailDomain: email.split('@')[1] || 'unknown',
+  company: job.company,
+  jobTitle: localizedTitle,
+  location: jobLocation,
+  surface: 'expired',
+  authState: 'pending_email',
+  variant: gateVariant,
+  jobSlug: job.slug,
  });
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.reload();
@@ -532,7 +561,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));
  const rjSalary = formatRelatedSalary(rj);
  const rjContract = formatContractLabel(rj.contract, locale);
- const rjPosted = formatDaysAgo(rj.postedDate ?? rj.crawledAt, locale);
+ const rjPosted = formatDaysAgo(resolveReportedPostingDate(rj) ?? undefined, locale);
  const card = (
  <article
  key={rjSlug}
@@ -582,14 +611,12 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const adCfg = isDesktopLg ? AD_SLOTS.JOBLIST_INFEED_DESKTOP : AD_SLOTS.JOBLIST_INFEED_MOBILE;
  return [
  card,
- // Reserve from the registry, never a literal: a hard-coded 280 here silently
- // outlived the #4302 raise to 336 and under-reserved every in-feed unit (#4677).
+ // The banner owns the reserve so terminal no-fill leaves no orphan wrapper.
  <div
  key={`rel-infeed-${rjSlug}`}
- style={{ ['--ad-mh' as string]: `${adCfg.placeholderMinHeight}px` }}
- className="my-3 min-h-[var(--ad-mh)]"
+
  >
- <AdSenseBanner adSlot={adCfg.slot} adFormat={adCfg.format} fullWidthResponsive={adCfg.fullWidthResponsive} />
+ <AdSenseBanner className="my-3" placement={`expired-related-${rjIdx}`} adSlot={adCfg.slot} adFormat={adCfg.format} fullWidthResponsive={adCfg.fullWidthResponsive} />
  </div>,
  ];
  }
@@ -661,7 +688,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
 
  {descriptionPlain && (
- <div className="prose prose-sm dark:prose-invert max-w-none text-body" dangerouslySetInnerHTML={{ __html: description }} />
+ <div className="prose prose-sm dark:prose-invert max-w-none text-body" dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
  )}
 
  {/* Mobile/tablet in-article ad */}
@@ -866,15 +893,15 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  maxHeight 0↔80px and shifting the gate below on every scroll direction change. */}
  {descriptionPreview && (
  <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden max-h-[clamp(0px,calc(100svh_-_540px),80px)]">
- <p className="px-3 py-2 text-sm text-body leading-relaxed whitespace-pre-line sm:py-3">
- {descriptionPreview}...
+ <p data-job-description-preview className="px-3 py-2 text-sm text-body leading-relaxed whitespace-pre-line sm:py-3">
+ {descriptionPreview}
  </p>
  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
  </div>
  )}
 
  {/* Auth gate */}
- <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
+ <div ref={gateImpressionRef} id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
  <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
  <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
  <span>{gateHeadline}</span>

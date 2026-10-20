@@ -22,7 +22,7 @@
  *      (25 per page, ~93 total Swiss jobs)
  *   2. For each listing extract: title, url, location, postedDate, jobId
  *   3. Fetch each detail page for the full description (<div id="content">)
- *   4. Build ParsedJob with canton resolution + fallback description
+ *   4. Build ParsedJob with canton resolution and the posting’s source description
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllSchindlerJobs()  — Fetch and parse all jobs
@@ -31,11 +31,20 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { readAttr, readTagByAttr } from './html-attr.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
-import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  resolveSuccessFactorsTemplateTokens,
+  sanitizeSuccessFactorsField,
+} from './successfactors-jobs2web-widget-guard.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractBalancedTagBlockWithStatus, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -73,28 +82,16 @@ const MONTH_ABBR = {
  *   - "May 11, 2026" / "Apr 28, 2026"  (English, common default)
  *   - "DD.MM.YYYY"                     (German format)
  *   - "2026-05-11"                     (ISO, just-in-case)
- * Returns YYYY-MM-DD or '' on failure.
+ * Preserves valid source precision; returns '' for invalid/future input.
  */
 export function parseDate(raw = '') {
   const text = String(raw || '').trim();
-  if (!text) return '';
-
-  // ISO already
-  const iso = text.match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if (iso) return `${iso[1]}-${iso[2]}-${iso[3]}`;
-
-  // English "MMM D, YYYY"
-  const en = text.match(/^([A-Za-zÀ-ÿ]{3,5})\s+(\d{1,2}),?\s+(\d{4})/);
-  if (en) {
-    const mm = MONTH_ABBR[en[1].toLowerCase().slice(0, 4)] || MONTH_ABBR[en[1].toLowerCase().slice(0, 3)];
-    if (mm) return `${en[3]}-${mm}-${en[2].padStart(2, '0')}`;
+  const localMonth = /^([A-Za-zÀ-ÿ]{3,5})\s+(\d{1,2}),?\s+(\d{4})$/.exec(text);
+  if (localMonth) {
+    const mm = MONTH_ABBR[localMonth[1].toLowerCase().slice(0, 4)] || MONTH_ABBR[localMonth[1].toLowerCase().slice(0, 3)];
+    if (mm) return successFactorsPostingDateFields(`${localMonth[3]}-${mm}-${localMonth[2].padStart(2, '0')}`).postedDate;
   }
-
-  // German "DD.MM.YYYY"
-  const de = text.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})/);
-  if (de) return `${de[3]}-${de[2].padStart(2, '0')}-${de[1].padStart(2, '0')}`;
-
-  return '';
+  return successFactorsPostingDateFields(text).postedDate;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -211,6 +208,9 @@ export function parseSearchResults(html) {
   if (!html || typeof html !== 'string') return [];
   const jobs = [];
   const seen = new Set();
+  // Only a complete result row establishes which vacancy owns these fields.
+  // Unscoped links remain discoverable, but cannot borrow adjacent metadata.
+  const rows = Array.from(html.matchAll(/<tr\b[^>]*>[\s\S]*?<\/tr\s*>/gi));
 
   // Match anchors to detail pages across any tenant under job.schindler.com.
   // Pattern: /{Tenant}/job/{slug}/{jobId}/
@@ -236,14 +236,11 @@ export function parseSearchResults(html) {
 
     const fullUrl = `${BASE_URL}${relUrl}`;
 
-    // Locate the surrounding row to extract location + date columns.
-    // The relevant pattern in the j2w template:
-    //   <td class="colLocation ...">...<span class="jobLocation">City, Region, CC</span>...</td>
-    //   <td class="colDate ...">...<span class="jobDate">May 11, 2026</span>...</td>
-    // We search forward from the anchor match for the next ~3KB of HTML.
-    const lookahead = html.slice(m.index, m.index + 4000);
-    const locMatch = lookahead.match(/class="jobLocation"[^>]*>\s*([^<]+?)\s*</i);
-    const dateMatch = lookahead.match(/class="jobDate"[^>]*>\s*([^<]+?)\s*</i);
+    const row = rows.find((candidate) => candidate.index <= m.index
+      && candidate.index + candidate[0].length >= anchorRe.lastIndex);
+    const rowHtml = row?.[0] || '';
+    const locMatch = rowHtml.match(/class="jobLocation"[^>]*>\s*([^<]+?)\s*</i);
+    const dateMatch = rowHtml.match(/class="jobDate"[^>]*>\s*([^<]+?)\s*</i);
 
     const location = locMatch ? normalizeSpace(locMatch[1]) : '';
     const rawDate = dateMatch ? normalizeSpace(dateMatch[1]) : '';
@@ -253,7 +250,7 @@ export function parseSearchResults(html) {
       title: rawTitle,
       url: fullUrl,
       location,
-      postedDate,
+      ...sourcePostingDateFields(postedDate),
       jobId,
       tenant,
     });
@@ -278,8 +275,11 @@ export function extractTotalResults(html) {
 /**
  * Parse a Schindler SF j2w detail page.
  * Returns { title, description, location, applyUrl }.
+ *
+ * `listingTitle` (the authoritative results-row title) fills an unrendered
+ * `[[Title]]` token in the body when the page's own heading is unusable.
  */
-export function parseDetailPage(html) {
+export function parseDetailPage(html, { listingTitle = '' } = {}) {
   if (!html || typeof html !== 'string') return null;
 
   // Title: <h1 class="job-title"> for Schindler tenants
@@ -300,10 +300,20 @@ export function parseDetailPage(html) {
   //   <span class="jobdescription">...</span>
   // (NOT in <div id="content"> — that wrapper contains search widgets too).
   let descriptionHtml = '';
-  const jdSpanMatch = html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>\s*(?:<\/div>\s*){0,5}(?:<div[^>]*class="(?:job-action|jobtitle-action|btn|apply-button)|<footer|<div[^>]*id="footer")/i);
+  // Walk the element's own nesting: the body is full of nested
+  // `<span style=…>` headings, so a non-greedy `…([\s\S]*?)</span>` stops
+  // inside the body. On the SBB_AS apprenticeship pages (no job-action/footer
+  // marker right after the span) it kept only the first ~half of the posting
+  // — the "Ton profil", "Tes avantages" and application sections were lost.
+  const jdLoc = locateTagByAttribute(html, 'class="[^"]*\\bjobdescription\\b[^"]*"', { skipVoidTags: true });
+  if (jdLoc) {
+    const balanced = extractBalancedTagBlockWithStatus(jdLoc.rest, jdLoc.tagName, 400000);
+    if (balanced.complete) descriptionHtml = balanced.html;
+  }
+  const jdSpanMatch = descriptionHtml ? null : html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>\s*(?:<\/div>\s*){0,5}(?:<div[^>]*class="(?:job-action|jobtitle-action|btn|apply-button)|<footer|<div[^>]*id="footer")/i);
   if (jdSpanMatch) {
     descriptionHtml = jdSpanMatch[1];
-  } else {
+  } else if (!descriptionHtml) {
     // Fall back: greedy match from <span class="jobdescription"> to its closing </span>.
     // SF templates can nest tags inside jobdescription, so we accept the largest match.
     const fallbackSpan = html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>\s*<\/div>/i);
@@ -329,7 +339,12 @@ export function parseDetailPage(html) {
     if (parts.length > 0) descriptionHtml = parts.join('\n\n');
   }
 
-  let description = normalizeDescriptionBullets(normalizeDescriptionSpace(stripHtml(descriptionHtml)));
+  let description = normalizeDescriptionBullets(normalizeDescriptionSpace(stripHtml(descriptionHtml).replace(/\r\n?/g, '\n')));
+
+  // The SBB_AS apprenticeship template ships an unrendered `[[Title]]` token
+  // inside the body ("nous t'offrons une: [[Title]] à Le Mont-sur-Lausanne").
+  // Render it with the posting title before the widget guard runs.
+  description = resolveSuccessFactorsTemplateTokens(description, { title: title || listingTitle });
 
   // Reject SF widget garbage that occasionally bleeds into the description.
   description = sanitizeSuccessFactorsField(description);
@@ -347,36 +362,22 @@ export function parseDetailPage(html) {
   // value is always authoritative; fetchAll uses it directly.
   const location = '';
 
-  return { title, description, location, applyUrl };
-}
-
-/* ── Fallback description ─────────────────────────────────── */
-
-function buildFallbackDescription(title, location) {
-  return `${title} bei Schindler in ${location || 'der Schweiz'}.\n\nDie Schindler-Gruppe ist einer der weltweit führenden Hersteller von Aufzügen, Fahrtreppen und Fahrsteigen. Das 1874 in der Schweiz gegründete Unternehmen beschäftigt rund 70'000 Mitarbeitende weltweit, davon mehrere tausend in der Schweiz. Schindler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und Karriereperspektiven in einem global tätigen Schweizer Technologieunternehmen mit Hauptsitz in Ebikon (Kanton Luzern).`;
+  const publicationTag = readTagByAttr(html, 'itemprop', 'datePosted');
+  const publication = extractJobPostingField(html, 'datePosted') || (publicationTag ? readAttr(publicationTag, 'content') : '');
+  return { title, description, location, applyUrl, ...successFactorsPostingDateFields(publication) };
 }
 
 /* ── HTTP fetch with timeout ──────────────────────────────── */
 
 async function fetchPage(url, timeoutMs, userAgent) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': userAgent,
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'de-DE,de;q=0.9,en;q=0.7,it;q=0.5,fr;q=0.4',
-      },
-      signal: controller.signal,
-      redirect: 'follow',
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
-    return await rescueHtmlIfChallenged(await res.text(), url, { timeoutMs });
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: {
+      'User-Agent': userAgent,
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Language': 'de-DE,de;q=0.9,en;q=0.7,it;q=0.5,fr;q=0.4',
+    },
+  });
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
@@ -435,12 +436,13 @@ export async function fetchAllSchindlerJobs() {
 
   // Step 2 — detail pages
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of allListings) {
     try {
       let detail = null;
       try {
         const detailHtml = await fetchPage(listing.url, timeoutMs, userAgent);
-        detail = parseDetailPage(detailHtml);
+        detail = parseDetailPage(detailHtml, { listingTitle: listing.title });
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
       }
@@ -454,15 +456,19 @@ export async function fetchAllSchindlerJobs() {
         inferSwissTargetCanton(region) ||
         'LU'; // Schindler HQ is in Ebikon (LU)
 
-      let description = '';
-      if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-        description = detail.description;
-      } else {
-        description = buildFallbackDescription(title, location);
+      // Only the posting's own text is published (issue 5253). A detail page
+      // that could not be read, or whose body is under 50 words, used to be
+      // replaced by an invented group summary; such a listing is not
+      // published any more.
+      const description = detail?.description || '';
+      if (!meetsSourceBodyFloor(description)) {
+        console.warn(`  ⏭️ Schindler: no vacancy text on the detail page, not published (${title})`);
+        withoutBody += 1;
+        await new Promise((r) => setTimeout(r, 300));
+        continue;
       }
 
       const sourceLang = detectLang(description || title, 'de');
-      const postedDate = listing.postedDate || new Date().toISOString().slice(0, 10);
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} ${SCHINDLER_KEY} ${location}`);
       const employmentType = detectEmploymentType(title);
@@ -498,7 +504,7 @@ export async function fetchAllSchindlerJobs() {
         sector: 'Industrial',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...mergeSourcePostingDates(listing, detail || {}),
         applyUrl: detail?.applyUrl || listing.url,
         jobReqId: listing.jobId || null,
         requirements: [],
@@ -510,6 +516,10 @@ export async function fetchAllSchindlerJobs() {
       console.warn(`  ⚠️ Skipping ${listing.title} — ${err?.message || err}`);
     }
     await new Promise((r) => setTimeout(r, 300));
+  }
+
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without a vacancy body on the detail page — not published.`);
   }
 
   // Deduplicate by URL (safety: multiple tenants can occasionally cross-link)

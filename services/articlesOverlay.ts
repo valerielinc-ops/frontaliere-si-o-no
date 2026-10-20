@@ -26,6 +26,7 @@
 import { cdnDataUrl, cdnFreshUrl } from '@/services/cdnDataBase';
 import { mergeArticleMetaOverlay } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
+import type { ArticleSection } from '@/services/articleSections';
 
 /** Mirrors one entry of the published index; every field beyond id/title optional. */
 export interface OverlayArticle {
@@ -54,9 +55,12 @@ export interface OverlayArticle {
    * components/community/BlogArticles.tsx).
    */
   slug?: string;
+  /** Optional corpus classification fields carried by newer indexes. */
+  articleType?: 'news' | 'evergreen';
+  canton?: string[];
 }
 
-export type OverlaySection = 'frontaliere' | 'svizzera';
+export type OverlaySection = ArticleSection;
 
 /** Beyond this the fetch is abandoned — a blog list must not wait on it. */
 const TIMEOUT_MS = 4000;
@@ -68,16 +72,18 @@ function isUsable(a: unknown): a is OverlayArticle {
       && typeof r.title === 'string' && r.title.length > 0;
 }
 
-/** One fetch of a published index file. `null` on any problem. */
-async function fetchIndex(
-  path: string,
-): Promise<{ articles: OverlayArticle[]; total: number; oldest: string | null } | null> {
+interface OverlayIndex {
+  articles: OverlayArticle[];
+  total: number;
+  oldest: string | null;
+}
+
+/** One fetch of a published index URL. `null` on any problem. */
+async function fetchIndexUrl(url: string): Promise<OverlayIndex | null> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
-    // cdnFreshUrl, not the bare path: this index is rewritten between deploys
-    // and its edge copy is NOT reachable by a purge. See cdnDataBase.ts.
-    const res = await fetch(cdnFreshUrl(cdnDataUrl(path)), { signal: controller.signal });
+    const res = await fetch(url, { signal: controller.signal });
     if (!res.ok) return null;
     const body = await res.json() as { articles?: unknown; total?: unknown; oldest?: unknown };
     if (!Array.isArray(body?.articles)) return null;
@@ -91,6 +97,44 @@ async function fetchIndex(
   } finally {
     clearTimeout(timer);
   }
+}
+
+/**
+ * Read both cache identities of an index and union them by id.
+ *
+ * The rotating URL bounds a stale unpurged browser variant, while the bare URL
+ * is the one the publisher purges. Neither is always fresher: run 38079614519
+ * served an updated bare `de`/`fr` index while the current rotating bucket was
+ * still ten minutes old. Reading only either identity can therefore drop a
+ * just-published article. A failure of one remains fail-open through the other.
+ */
+async function fetchIndex(path: string): Promise<OverlayIndex | null> {
+  const bareUrl = cdnDataUrl(path);
+  const variants = (await Promise.all([
+    fetchIndexUrl(bareUrl),
+    fetchIndexUrl(cdnFreshUrl(bareUrl)),
+  ])).filter((index): index is OverlayIndex => index !== null);
+  if (variants.length === 0) return null;
+
+  const articles: OverlayArticle[] = [];
+  const seen = new Set<string>();
+  for (const index of variants) {
+    for (const article of index.articles) {
+      if (seen.has(article.id)) continue;
+      seen.add(article.id);
+      articles.push(article);
+    }
+  }
+
+  const oldest = variants
+    .map((index) => index.oldest)
+    .filter((value): value is string => value !== null)
+    .sort()[0] ?? null;
+  return {
+    articles,
+    total: Math.max(...variants.map((index) => index.total)),
+    oldest,
+  };
 }
 
 /**

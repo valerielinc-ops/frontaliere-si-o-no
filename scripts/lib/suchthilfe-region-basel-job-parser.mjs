@@ -22,6 +22,7 @@
  * For each job we tag the canton by inspecting the PDF filename and title
  * (ESTA → BL/Reinach, everything else → BS/Basel).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -126,21 +127,21 @@ export function parseListing(html = '') {
 
 /* ── Description builder ───────────────────────────────────── */
 
-export function buildSuchthilfeRegionBaselDescription({ title, pdfText = '', pdfUrl = '', location }) {
-  return buildPdfBackedDescription({
-    introLines: [
-      `Die Suchthilfe Region Basel betreibt unter anderem die ESTA Klinik für Suchtbehandlung (Reinach BL), Kontakt- und Anlaufstellen (K+A), Beratungszentrum und das Programm SPEKTRUM in der Region Basel.`,
-      `Stelle: ${title} (${location?.city || ''} ${location?.canton ? '/ ' + location.canton : ''}).`,
-    ],
-    pdfText,
-    fallbackText: `Stelle "${title}" bei der Suchthilfe Region Basel. Aufgaben, Anforderungen und Bewerbungsmodalitäten sind dem offiziellen PDF zu entnehmen.`,
-    footerLines: [
-      `Quelle (PDF): ${pdfUrl}`,
-      `Karriereseite: ${SUCHTHILFE_REGION_BASEL_CAREERS_URL}`,
-      `Träger: Suchthilfe Region Basel`,
-    ],
-  });
+/**
+ * The description of one posting is the text of its PDF and nothing else. The
+ * crawler used to wrap it in lines of its own (a paragraph on the Suchthilfe
+ * Region Basel, "Stelle: <Titel> (<Ort>).", "Quelle (PDF): …", "Karriereseite:
+ * …", "Träger: …") and to substitute a sentence of its own when the PDF had no
+ * text. A PDF without readable text now gives no description and the job takes
+ * the pipeline's thin-source path.
+ */
+export function buildSuchthilfeRegionBaselDescription({ pdfText = '' } = {}) {
+  return buildPdfBackedDescription({ pdfText });
 }
+
+/** Fragments only the crawler's former wrapper wrote. */
+export const SUCHTHILFE_REGION_BASEL_FABRICATED_DESCRIPTION_RE =
+  /betreibt unter anderem die ESTA Klinik für Suchtbehandlung|sind dem offiziellen PDF zu entnehmen\.|(?:^|\n)Träger: Suchthilfe Region Basel/;
 
 /* ── Fetcher ───────────────────────────────────────────────── */
 
@@ -153,13 +154,12 @@ export async function fetchAllSuchthilfeRegionBaselJobs() {
     listingHtml = await fetchHtml(SUCHTHILFE_REGION_BASEL_CAREERS_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const rows = parseListing(listingHtml);
   console.log(`  ✓ ${rows.length} PDF postings detected`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
@@ -174,16 +174,7 @@ export async function fetchAllSuchthilfeRegionBaselJobs() {
       console.warn(`     ⚠️ PDF fetch failed: ${err?.message || err}`);
     }
     const location = inferLocationForPosting(row);
-    const description = buildSuchthilfeRegionBaselDescription({
-      title: row.title,
-      pdfText,
-      pdfUrl: row.pdfUrl,
-      location,
-    });
-    if (!description || description.length < 200) {
-      console.warn(`     ⚠️ Description too short (${description.length} chars) — skipping`);
-      continue;
-    }
+    const description = buildSuchthilfeRegionBaselDescription({ pdfText });
 
     const sourceLang = detectLang(description || row.title, 'de');
     const jobSlug = slugify(`${row.title} ${SUCHTHILFE_REGION_BASEL_KEY} ${location.city.toLowerCase()}`);
@@ -222,7 +213,7 @@ export async function fetchAllSuchthilfeRegionBaselJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: SUCHTHILFE_REGION_BASEL_CAREERS_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -4,7 +4,7 @@
  * and does not trigger React warnings (infinite loops, setState-in-render, etc.).
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, act, cleanup } from '@testing-library/react';
+import { render, screen, waitFor, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '@/App';
 
@@ -29,6 +29,7 @@ vi.mock('@/services/router', () => ({
   pushRoute: vi.fn(),
   replaceRoute: vi.fn(),
   buildPath: vi.fn(() => '/'),
+  isArticleSectionRoute: vi.fn(() => false),
   buildAllLocalePaths: vi.fn(() => ({ it: '/', en: '/en/', de: '/de/', fr: '/fr/' })),
   getSeoSection: vi.fn(() => 'home'),
   updatePathForLocale: vi.fn(),
@@ -328,4 +329,49 @@ describe('App smoke test', () => {
 
     consoleErrorSpy.mockRestore();
   }, 15000);
+
+  it('keeps the mobile navigation above a fixed Auto Ads anchor', async () => {
+    const previousWidth = window.innerWidth;
+    const previousHeight = window.innerHeight;
+    Object.defineProperty(window, 'innerWidth', { configurable: true, value: 390 });
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 844 });
+
+    render(<App />);
+    const nav = screen.getByRole('navigation', { name: 'Navigazione mobile' });
+    expect(nav).toHaveClass('mobile-bottom-nav');
+    expect(nav.style.getPropertyValue('--mobile-nav-ad-clearance')).toBe('0px');
+
+    const ad = document.createElement('iframe');
+    ad.id = 'aswift_mobile_nav_test';
+    ad.style.position = 'fixed';
+    Object.defineProperty(ad, 'getBoundingClientRect', {
+      configurable: true,
+      value: () => ({
+        top: 784,
+        bottom: 844,
+        width: 390,
+        height: 60,
+        left: 0,
+        right: 390,
+        x: 0,
+        y: 784,
+        toJSON: () => ({}),
+      }),
+    });
+    document.body.appendChild(ad);
+
+    await waitFor(
+      () => expect(nav.style.getPropertyValue('--mobile-nav-ad-clearance')).toBe('60px'),
+      { timeout: 2000 },
+    );
+
+    ad.remove();
+    await waitFor(
+      () => expect(nav.style.getPropertyValue('--mobile-nav-ad-clearance')).toBe('0px'),
+      { timeout: 2000 },
+    );
+
+    Object.defineProperty(window, 'innerWidth', { configurable: true, value: previousWidth });
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: previousHeight });
+  });
 });

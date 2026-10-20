@@ -11,12 +11,14 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
+import { extractBalancedTagBlock, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -140,7 +142,7 @@ async function tryGreenhouseApi() {
       });
       if (items.length > 0) {
         console.log(`   Greenhouse API (board: ${board}) returned ${items.length} jobs`);
-        return { items, board };
+        return { items: items.map((item) => ({ ...item, ...sourcePostingDateFields(item.first_published) })), board };
       }
     } catch (err) {
       console.log(`   Greenhouse board '${board}' failed: ${err.message}`);
@@ -174,13 +176,11 @@ function parseNagraAdvertisementTable(html = '') {
     const cells = [...rowMatch[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map((c) => c[1]);
     if (cells.length < 6) continue;
 
-    const [, dateRaw, titleCell, contractTypeRaw, locationRaw, entityRaw] = cells;
+    const [, , titleCell, contractTypeRaw, locationRaw, entityRaw] = cells;
     const idMatch = titleCell.match(/id=(\d+)/);
     const title = normalizeSpace(stripHtml(titleCell)).replace(/\.$/, '');
     if (!title || !idMatch) continue;
 
-    const [, d, m, y] = dateRaw.match(/(\d{2})-(\d{2})-(\d{4})/) || [];
-    const postedDate = d ? `${y}-${m}-${d}` : '';
     const contractType = normalizeSpace(stripHtml(contractTypeRaw));
     const entity = normalizeSpace(stripHtml(entityRaw));
     // The listing table has no free-text description (only Kudelski/id/date/
@@ -196,7 +196,7 @@ function parseNagraAdvertisementTable(html = '') {
       url: `${BASE_URL}/?page=advertisement_display&id=${idMatch[1]}`,
       location: normalizeSpace(stripHtml(locationRaw)),
       description,
-      postedDate,
+      ...sourcePostingDateFields(''),
     });
   }
   return jobs;
@@ -231,6 +231,21 @@ function extractDetailLocation(html = '') {
     if (location) return location;
   }
   return '';
+}
+
+/**
+ * The vacancy body of a careers.nagra.com `?page=advertisement_display` page:
+ * the `<div id="advert">` block (location, language requirements, "Who We
+ * Are", responsibilities, requirements, benefits). Read to its matching close
+ * tag because the body nests `<p>`/`<ul>`/`<span>` freely.
+ *
+ * @param {string} html
+ * @returns {string} inner HTML, or '' when the block is absent
+ */
+export function extractNagraAdvertHtml(html = '') {
+  const located = locateTagByAttribute(String(html || ''), `id=["']advert["']`, { skipVoidTags: true });
+  if (!located) return '';
+  return extractBalancedTagBlock(located.rest, located.tagName).trim();
 }
 
 /** Title of a raw listing, whatever shape the source used for it. */
@@ -301,16 +316,25 @@ export async function fetchAllKudelskiNagraJobs() {
     const rawLoc = listing.location?.name || listing.location || listing.city || '';
     let location = normalizeSpace(typeof rawLoc === 'string' ? rawLoc : rawLoc?.name || '');
 
-    // The NAGRA table currently gives some Swiss offers only as
-    // "Switzerland". Resolve the city from the official detail page instead
-    // of inventing a headquarters canton (the old code stamped these TI).
-    if (!inferAnyCanton(location)) {
+    // The NAGRA listing table carries no description at all, and gives some
+    // Swiss offers only as "Switzerland". The official detail page has both:
+    // the full vacancy body (`#advert`) and the workplace. Without it the
+    // published description was a 135-character sentence composed from the
+    // table's contract/entity columns against a 3,526-character posting
+    // (`advertisement_display&id=15828`, 2026-09-29). Greenhouse listings
+    // already carry `content` and only need the page for an unresolved city.
+    let advertHtml = '';
+    const needsDetailBody = !listing.content;
+    if (needsDetailBody || !inferAnyCanton(location)) {
       const detailUrl = listing.absolute_url || listing.url || listing.link || '';
       if (isTrustedDomain(detailUrl)) {
         try {
           const detailHtml = await fetchHtml(detailUrl, { timeoutMs: 20000 });
-          const detailLocation = extractDetailLocation(detailHtml);
-          if (detailLocation) location = detailLocation;
+          if (!inferAnyCanton(location)) {
+            const detailLocation = extractDetailLocation(detailHtml);
+            if (detailLocation) location = detailLocation;
+          }
+          if (needsDetailBody) advertHtml = extractNagraAdvertHtml(detailHtml);
         } catch (err) {
           console.warn(`  ⚠️ Kudelski NAGRA: detail fetch failed for ${title}: ${err.message}`);
         }
@@ -351,7 +375,7 @@ export async function fetchAllKudelskiNagraJobs() {
     );
 
     // Greenhouse provides job content as HTML
-    const descriptionHtml = listing.content || listing.description || '';
+    const descriptionHtml = listing.content || advertHtml || listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
 
     // Build public URL
@@ -397,7 +421,7 @@ export async function fetchAllKudelskiNagraJobs() {
       sector: 'Sicurezza digitale / Media technology',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.updated_at?.slice(0, 10) || listing.postedDate || new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, listing)),
       applyUrl: listing.absolute_url || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

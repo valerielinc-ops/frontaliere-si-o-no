@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 import fs from 'node:fs';
 import { haversineKm } from './lib/haversine.mjs';
@@ -114,11 +116,20 @@ function round(value, digits = 3) {
   return Math.round(value * factor) / factor;
 }
 
-function extractEcbRate(xml) {
+export function extractEcbRate(xml) {
+  const rateDateMatch = String(xml).match(/<Cube\b[^>]*\btime=['"](\d{4}-\d{2}-\d{2})['"][^>]*>/i);
+  if (!rateDateMatch) throw new Error('ECB reference date not found in XML');
+  const rateDate = rateDateMatch[1];
+  const parsedRateDate = new Date(`${rateDate}T00:00:00.000Z`);
+  if (!Number.isFinite(parsedRateDate.getTime()) || parsedRateDate.toISOString().slice(0, 10) !== rateDate) {
+    throw new Error('Invalid ECB reference date in XML');
+  }
   const match = String(xml).match(/currency=['"]CHF['"]\s+rate=['"]([\d.]+)['"]/i);
   if (!match) throw new Error('CHF rate not found in ECB XML');
   const chfPerEur = Number(match[1]);
+  if (!Number.isFinite(chfPerEur) || chfPerEur <= 0) throw new Error('Invalid ECB CHF rate in XML');
   return {
+    rateDate,
     chfPerEur,
     eurPerChf: 1 / chfPerEur,
   };
@@ -479,6 +490,7 @@ export function buildDataset({
       exchangeRate: {
         provider: 'ECB',
         sourceUrl: ECB_DAILY_URL,
+        rateDate: exchangeRate.rateDate ?? null,
         chfPerEur: round(exchangeRate.chfPerEur, 6),
         eurPerChf: round(exchangeRate.eurPerChf, 6),
       },
@@ -502,14 +514,55 @@ export function buildDataset({
   };
 }
 
+/**
+ * Hand-off for `scripts/build-fuel-cantons-dataset.mjs` (P9b): the full
+ * border-strip Swiss station list and every Italian MIMIT row of the border
+ * municipalities, which `buildDataset` truncates (top-N per municipality) and
+ * therefore cannot be re-read from `data/fuel-prices.json`. Written to a temp
+ * path only when `--cantons-input-out <file>` is passed, so no second request
+ * to TCS/MIMIT is ever needed for the canton dataset.
+ */
+export function buildFuelCantonsInput({ generatedAt, italyExtractedAt, swissStations, italyByMunicipality, exchangeRate }) {
+  const italyStations = [];
+  for (const [key, entries] of italyByMunicipality) {
+    const province = String(key).split(':').pop();
+    for (const entry of entries) {
+      italyStations.push({
+        id: entry.id,
+        province,
+        isSelf: entry.isSelf,
+        priceEur: entry.priceEur,
+        dieselPriceEur: entry.dieselPriceEur,
+        updatedAt: entry.updatedAt,
+      });
+    }
+  }
+  return {
+    generatedAt,
+    italyExtractedAt,
+    exchangeRate: { chfPerEur: exchangeRate.chfPerEur, eurPerChf: exchangeRate.eurPerChf },
+    swissStations: swissStations.map((s) => ({
+      id: s.id,
+      address: s.address,
+      lat: s.lat,
+      lng: s.lng,
+      sp95PriceChf: s.sp95PriceChf,
+      dieselPriceChf: s.dieselPriceChf,
+      updatedAt: s.updatedAt,
+    })),
+    italyStations,
+  };
+}
+
 // ─── Firestore write ────────────────────────────────────────
 
 async function writeToFirestore(payload) {
-  const admin = await import('firebase-admin');
-  if (!admin.default.apps.length) {
-    admin.default.initializeApp({ projectId: process.env.GCLOUD_PROJECT || process.env.FIREBASE_PROJECT_ID || 'frontaliere-ticino' });
+  const { getApps, initializeApp } = await import('firebase-admin/app');
+  const { getFirestore } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({ projectId: process.env.GCLOUD_PROJECT || process.env.FIREBASE_PROJECT_ID || 'frontaliere-ticino' });
   }
-  const db = admin.default.firestore();
+  const db = getFirestore();
 
   const metadataDoc = {
     generatedAt: payload.generatedAt,
@@ -550,6 +603,8 @@ async function main() {
   if (!municipalities.length) throw new Error('Unable to read municipalities dataset');
 
   const saveLocal = process.argv.includes('--save-local');
+  const cantonsInputFlag = process.argv.indexOf('--cantons-input-out');
+  const cantonsInputOut = cantonsInputFlag >= 0 ? process.argv[cantonsInputFlag + 1] : null;
 
   try {
     const [pricesText, stationsText, ecbXml, swissDocs] = await Promise.all([
@@ -600,6 +655,17 @@ async function main() {
       console.log('💾 Local JSON files written (--save-local)');
     }
 
+    if (cantonsInputOut) {
+      writeJson(cantonsInputOut, buildFuelCantonsInput({
+        generatedAt: payload.generatedAt,
+        italyExtractedAt: prices.extractedAt,
+        swissStations,
+        italyByMunicipality,
+        exchangeRate,
+      }));
+      console.log(`💾 Canton dataset hand-off written to ${cantonsInputOut}`);
+    }
+
     console.log('⛽ Fuel dataset generated: ' + payload.summary.municipalityCount + ' municipalities, ' + payload.summary.municipalitiesWithItalyPrices + ' with Italian prices, ' + payload.summary.municipalitiesWithSwissComparison + ' with IT/CH comparison.');
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
@@ -623,7 +689,7 @@ async function main() {
 }
 
 // Only run main() when invoked as a CLI, not when imported (e.g. by tests).
-const invokedAsCli = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+const invokedAsCli = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedAsCli) {
   main().catch((error) => {
     console.error(error);

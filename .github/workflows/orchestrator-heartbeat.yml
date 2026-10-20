@@ -1,13 +1,24 @@
 name: Orchestrator heartbeat
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Orchestrator heartbeat [loop-clock {0}]', inputs.loop_clock) || 'Orchestrator heartbeat' }}
 
 # A scheduled run that never gets created cannot fail and cannot notify the
 # owner. This independent 15-minute read-only watchdog detects that hole after
-# the measured GitHub cron delay, while orchestrate-crawlers remains the single
-# writer/dispatcher for the crawler wave.
+# a short grace, while orchestrate-crawlers remains the single
+# writer/dispatcher for the crawler wave. Its clock is Cloud Scheduler
+# (dispatchCrawlerOrchestrator in functions/index.js), not a GitHub cron.
 on:
   schedule:
     - cron: '*/15 * * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        type: string
+        default: ''
 
 concurrency:
   group: orchestrator-heartbeat
@@ -24,25 +35,40 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout heartbeat runtime
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
+            package.json
             scripts/ci/orchestrator-heartbeat.mjs
+            scripts/ci/loop-clock-health.mjs
+            scripts/ci/lib/run-listing-window.mjs
+            scripts/lib/bounded-response-body.mjs
             scripts/lib/github-issue-creator.mjs
+            functions/src/lib/orchestratorSlot.js
+            functions/src/loopClockTable.js
+            functions/src/loopClockIssueCondition.js
           sparse-checkout-cone-mode: false
 
       - name: Check latest orchestrator cron slot
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # The 09:00 slot currently has a 471-minute p95 scheduled-dispatch
-          # delay. Keep two hours before the next 12-hour slot for a real alert.
-          ORCHESTRATOR_HEARTBEAT_GRACE_MINUTES: '600'
+          # Cloud Scheduler creates the run seconds after the slot; 120 minutes
+          # absorb its retries and an in-flight functions deploy. (600 covered
+          # the ~4 h GitHub cron delay, removed on 2026-09-28.)
+          ORCHESTRATOR_HEARTBEAT_GRACE_MINUTES: '120'
         run: |
           mkdir -p "$RUNNER_TEMP/orchestrator-heartbeat"
           node scripts/ci/orchestrator-heartbeat.mjs \
             --output "$RUNNER_TEMP/orchestrator-heartbeat/report.json"
+
+      - name: Check loop clock freshness
+        if: always()
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/loop-clock-health.mjs
 
       - name: Publish heartbeat evidence
         if: always()

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { generateKeyPairSync, createVerify } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import { buildAppJwt, hasWorkflowsWrite } from '../scripts/ci/mint-app-token.mjs';
+import { buildAppJwt, hasActionsWrite, hasDataRefreshWrite, hasWorkflowsWrite } from '../scripts/ci/mint-app-token.mjs';
 
 // Deterministic test keypair (no network, no real App key).
 const { privateKey, publicKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
@@ -73,6 +73,46 @@ describe('hasWorkflowsWrite — the two conditions that decide the capability ga
 });
 
 /**
+ * deploy.yml's re-arm DISPATCHES a workflow run: an App token that can mint but
+ * lacks `actions: write` would 403 inside a continue-on-error step and leave the
+ * recovered build unpublished (review #9715). The step prefers APP_TOKEN only
+ * when this verified capability says so.
+ */
+describe('hasActionsWrite — dispatch capability read from the token, not assumed', () => {
+  it('granted only by a literal write', () => {
+    expect(hasActionsWrite({ actions: 'write', contents: 'write' })).toBe(true);
+    expect(hasActionsWrite({ actions: 'read' })).toBe(false);
+    expect(hasActionsWrite({ contents: 'write', workflows: 'write' })).toBe(false);
+    expect(hasActionsWrite(undefined)).toBe(false);
+    expect(hasActionsWrite(null)).toBe(false);
+  });
+
+  it('deploy.yml re-arm uses APP_TOKEN only when APP_TOKEN_ACTIONS is true', () => {
+    const deploy = readFileSync(new URL('../.github/workflows/deploy.yml', import.meta.url), 'utf8');
+    const rearm = deploy.slice(deploy.indexOf('- name: Re-arm the build pipeline if it has stopped with work outstanding'));
+    const tokenLine = rearm.split('\n').find((line) => line.trim().startsWith('GH_TOKEN:'));
+    expect(tokenLine?.trim()).toBe("GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}");
+  });
+});
+
+describe('hasDataRefreshWrite — both PR-publisher permissions are required', () => {
+  it('contents + pull_requests write → true', () => {
+    expect(hasDataRefreshWrite({ contents: 'write', pull_requests: 'write' })).toBe(true);
+  });
+
+  it('missing either permission → false so the PAT remains eligible', () => {
+    expect(hasDataRefreshWrite({ contents: 'write' })).toBe(false);
+    expect(hasDataRefreshWrite({ pull_requests: 'write' })).toBe(false);
+  });
+
+  it('read-only or malformed permissions → false', () => {
+    expect(hasDataRefreshWrite({ contents: 'read', pull_requests: 'write' })).toBe(false);
+    expect(hasDataRefreshWrite(undefined)).toBe(false);
+    expect(hasDataRefreshWrite(null)).toBe(false);
+  });
+});
+
+/**
  * The pure helper above is worthless if issue-fix.yml keeps gating on token PRESENCE —
  * that mismatch (script correct, wiring stale) is exactly the failure mode #4227
  * documented for check-workflows-scope.mjs, which sat orphaned for a whole escalation
@@ -82,7 +122,10 @@ describe('issue-fix.yml wiring — gates on capability, never on token presence 
   const yml = readFileSync(new URL('../.github/workflows/issue-fix.yml', import.meta.url), 'utf8');
 
   it('the workflows-scope pre-flight guard is gated on APP_TOKEN_WORKFLOWS != true', () => {
-    expect(yml).toContain("if: env.APP_TOKEN_WORKFLOWS != 'true'");
+    // Il gate sullo snapshot verificato (#9285) precede la capacita', ma il guard
+    // resta legato ad APP_TOKEN_WORKFLOWS, mai alla presenza del token.
+    expect(yml).toMatch(/if: steps\.issue_snapshot\.outputs\.verified == 'true' && env\.APP_TOKEN_WORKFLOWS != 'true'/);
+    expect(yml).not.toMatch(/if: [^\n]*env\.APP_TOKEN == ''/);
   });
 
   it('the agent capability-guard prompt branches on APP_TOKEN_WORKFLOWS, not on APP_TOKEN', () => {

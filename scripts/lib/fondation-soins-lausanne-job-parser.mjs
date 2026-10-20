@@ -39,8 +39,8 @@
  * Rich descriptions are enriched per kept card from the jobup.ch detail page's
  * schema.org JobPosting JSON-LD via the SHARED helper
  * `fetchJobupDetailDescription` (reused from jobup-ch-feed-common.mjs). If detail
- * enrichment is unavailable, a source-locale French fallback (well above the
- * 50-word thin-content floor) is synthesized from the card fields.
+ * enrichment is unavailable or under the common 50-word floor, the posting gets
+ * no description (issue 5253: no text of the crawler's own in its place).
  *
  * @outsourced-ats-confirmed: not a bypassed direct source — the SOURCE
  * MIGRATION note above already documents that FSL's actual previous direct
@@ -50,14 +50,17 @@
  * other foundations' postings from the same search page.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchViaJinaWithRetry } from './jina-proxy.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
-  decodeEntities,
   fetchJobupDetailDescription,
+  filterJobupCardsByEmployer,
+  parseJobupSearchCards,
   detectEmploymentTypeFromOccupation,
 } from './jobup-ch-feed-common.mjs';
 import {
@@ -86,56 +89,9 @@ const HQ = getCompanyDefaults(FONDATION_SOINS_LAUSANNE_KEY) || {
 
 /* ── SERP card parser ──────────────────────────────────────── */
 
-/** Extract a labelled card field ("Lieu de travail" / "Taux d'activité" / "Type de contrat"). */
-function serpFieldValue(segment, label) {
-  // jobup renders "<label><!-- -->:</span><p …>VALUE</p>"; the visually-hidden
-  // label span precedes the value paragraph.
-  const rx = new RegExp(`${label}<!-- -->:</span><p[^>]*>([^<]+)</p>`);
-  const m = segment.match(rx);
-  return m ? normalizeSpace(decodeEntities(m[1])) : '';
-}
-
-/**
- * Parse the jobup search SERP HTML into raw job cards.
- * Returns `[{ uuid, url, title, company, location, workRate, contract }]`.
- * The employer is NOT filtered here — call `filterFondationSoinsLausanneCards`.
- */
-export function parseJobupSerpCards(html = '') {
-  const out = [];
-  if (!html) return out;
-  // Each result card is a "job-link" anchor to a detail page; split on it so
-  // every segment holds exactly one card (title/fields/employer all inside).
-  const segments = String(html).split(/<a[^>]*\bdata-cy="job-link"[^>]*href="\/fr\/emplois\/detail\//i);
-  for (let i = 1; i < segments.length; i += 1) {
-    const seg = segments[i];
-    const uuid = (seg.match(/^([0-9a-f-]+)\//i) || [])[1];
-    if (!uuid) continue;
-
-    const title = normalizeSpace(decodeEntities((seg.match(/textStyle_body2[^>]*>([^<]+)</) || [])[1] || ''));
-    // Employer: the bold caption paragraph rendered under the avatar logo.
-    const company = normalizeSpace(
-      decodeEntities((seg.match(/<p class="[^"]*c_gray\.700[^"]*fw_bold">([^<]+)<\/p>/) || [])[1] || ''),
-    );
-    const location = serpFieldValue(seg, 'Lieu de travail');
-    const workRate = serpFieldValue(seg, "Taux d'activité");
-    const contract = serpFieldValue(seg, 'Type de contrat');
-
-    if (!title || title.length < 3) continue;
-    out.push({
-      uuid,
-      // jobup.ch è un portale esterno; /fr/ è la lingua canonica per un datore
-      // vodese francofono (FSL, Losanna), serve solo a estrarre la descrizione
-      // via Jina — non è un URL del nostro sito. locale-segment-ok: portale-esterno
-      url: `https://www.jobup.ch/fr/emplois/detail/${uuid}/`,
-      title,
-      company,
-      location,
-      workRate,
-      contract,
-    });
-  }
-  return out;
-}
+// Keep the exported FSL names stable for its tests and callers while the
+// selector/parser itself lives in the shared JobUp module.
+export const parseJobupSerpCards = parseJobupSearchCards;
 
 /**
  * STRICT employer filter: keep only cards whose employer is EXACTLY
@@ -144,10 +100,7 @@ export function parseJobupSerpCards(html = '') {
  * No fuzzy / substring matching.
  */
 export function filterFondationSoinsLausanneCards(cards = []) {
-  const target = FONDATION_SOINS_LAUSANNE_COMPANY_NAME.trim().toLowerCase();
-  return (Array.isArray(cards) ? cards : []).filter(
-    (c) => String(c?.company || '').trim().toLowerCase() === target,
-  );
+  return filterJobupCardsByEmployer(cards, FONDATION_SOINS_LAUSANNE_COMPANY_NAME);
 }
 
 /* ── Field helpers ─────────────────────────────────────────── */
@@ -176,24 +129,6 @@ function contractFromCard(contract = '') {
   if (/ind[ée]termin/i.test(contract)) return 'full-time';
   if (/d[ée]termin[ée]e|temporaire|cdd|int[ée]rim|fixed/i.test(contract)) return 'temporary';
   return 'full-time';
-}
-
-function buildFallbackDescription({ title, city, workRate, contract }) {
-  // Source-locale (French) fallback used only when the jobup detail JSON-LD is
-  // unavailable. Deliberately clears the 50-word thin-content floor.
-  return normalizeSpace(
-    [
-      `${title} — un poste à pourvoir au sein de la ${FONDATION_SOINS_LAUSANNE_COMPANY_NAME}.`,
-      `La Fondation Soins Lausanne assure des prestations d'aide et de soins à domicile pour la population de la ville de Lausanne, au sein du réseau vaudois AVASAD (Association Vaudoise d'Aide et de Soins à Domicile).`,
-      `En rejoignant nos équipes pluridisciplinaires, vous contribuez concrètement à la santé, à l'autonomie et au bien-vivre des personnes accompagnées à leur domicile, dans le canton de Vaud.`,
-      `Lieu de travail : ${city || HQ.city}.`,
-      workRate ? `Taux d'activité : ${workRate}.` : '',
-      contract ? `Type de contrat : ${contract}.` : '',
-      `Postulez directement via l'annonce jobup.ch liée à cette offre.`,
-    ]
-      .filter(Boolean)
-      .join(' '),
-  );
 }
 
 /* ── Company matchers ──────────────────────────────────────── */
@@ -246,7 +181,10 @@ export async function fetchAllFondationSoinsLausanneJobs() {
     html = await fetchSerpHtml();
   } catch (err) {
     console.warn(`  ⚠️ jobup SERP fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   if (!html) return [];
 
@@ -258,7 +196,6 @@ export async function fetchAllFondationSoinsLausanneJobs() {
   );
   if (!cards.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
 
@@ -267,23 +204,30 @@ export async function fetchAllFondationSoinsLausanneJobs() {
     const canton = inferSwissTargetCanton(city) || HQ.canton;
     const postalCode = HQ.postalCode;
 
-    // Rich description from the jobup detail JSON-LD (shared helper). Falls back
-    // to a synthesized French description above the thin-content floor.
+    // Description from the jobup detail JSON-LD (shared helper), and only that
+    // (issue 5253): no French text of the crawler's own in its place.
     let detailDescription = '';
+    let rawPostedDate = '';
     try {
-      detailDescription = await fetchJobupDetailDescription(card.url);
+      const detail = await fetchJobupDetailDescription(card.url, { includePostingDate: true });
+      if (detail && typeof detail === 'object') {
+        detailDescription = detail.description;
+        rawPostedDate = detail.rawPostedDate;
+      }
     } catch {
       detailDescription = '';
     }
     if (detailDescription) detailHits += 1;
     await new Promise((r) => setTimeout(r, 250));
 
-    const detailWordCount = detailDescription.split(/\s+/).filter(Boolean).length;
-    const description = detailWordCount >= 50
-      ? detailDescription
-      : buildFallbackDescription({ title: card.title, city, workRate: card.workRate, contract: card.contract });
+    // A body under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detailDescription) ? detailDescription : '';
 
-    const sourceLang = detectLang(description || card.title, 'fr');
+    // Without a body, the language of the FSL postings (French), not a guess
+    // from the title alone ("Infirmier terrain (H/F)" reads as German): the
+    // stored body the merge keeps, and the slug, sit in the `fr` slot.
+    const sourceLang = description ? detectLang(description, 'fr') : 'fr';
     const slug = slugify(`${card.title} ${FONDATION_SOINS_LAUSANNE_KEY} ${city}`);
     const urlHash = createHash('sha1').update(card.url).digest('hex').slice(0, 12);
     const employmentType = employmentTypeFromCard(card.workRate, card.title);
@@ -323,7 +267,7 @@ export async function fetchAllFondationSoinsLausanneJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(rawPostedDate),
       applyUrl: card.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

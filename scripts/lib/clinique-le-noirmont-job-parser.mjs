@@ -18,6 +18,7 @@
  * filename when present.
  */
 
+import { decode as decodeHTML } from 'html-entities';
 import { buildPdfBackedDescription } from './pdf-job-content.mjs';
 
 export const CLINIQUE_LE_NOIRMONT_KEY = 'clinique-le-noirmont';
@@ -31,15 +32,7 @@ export const MIN_CLINIQUE_LE_NOIRMONT_DESC_LENGTH = 400;
 const BASE_URL = 'https://www.cliniquelenoirmont.ch';
 
 function decodeHtmlEntities(html = '') {
-  return String(html)
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#039;/gi, "'")
-    .replace(/&#39;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)));
+  return decodeHTML(String(html || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 function titleCaseToken(token) {
@@ -143,22 +136,14 @@ export function resolveCliniqueLeNoirmontTitle(listing) {
 }
 
 /**
- * Build a structured PDF-backed description for a Le Noirmont posting.
+ * The description of one Le Noirmont posting: the text of its PDF and nothing
+ * else. The crawler used to wrap it in lines of its own (a sentence on the
+ * clinic, "Poste : <titre>.", "Source (PDF) : …", "Portail carrières : …",
+ * "Secteur : …") and to substitute a sentence of its own when the PDF had no
+ * text.
  */
-export function buildCliniqueLeNoirmontDescription({ title, pdfText = '', pdfUrl = '' }) {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `La Clinique Le Noirmont est un centre national de référence en réadaptation cardiovasculaire, médecine interne, oncologie et psychosomatique, situé dans le Jura suisse.`,
-      `Poste : ${title}.`,
-    ],
-    pdfText,
-    fallbackText: `Offre ${title} à la Clinique Le Noirmont. Les conditions complètes (profil, missions, candidature) figurent dans le PDF officiel.`,
-    footerLines: [
-      `Source (PDF) : ${pdfUrl}`,
-      `Portail carrières : ${CLINIQUE_LE_NOIRMONT_CAREERS_URL}`,
-      `Secteur : Réadaptation cardiovasculaire et médecine interne`,
-    ],
-  });
+export function buildCliniqueLeNoirmontDescription({ title, pdfText = '' } = {}) {
+  const description = buildPdfBackedDescription({ pdfText });
 
   const warnings = [];
   if (pdfText && description.length < MIN_CLINIQUE_LE_NOIRMONT_DESC_LENGTH) {
@@ -168,3 +153,7 @@ export function buildCliniqueLeNoirmontDescription({ title, pdfText = '', pdfUrl
   }
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former wrapper wrote. */
+export const CLINIQUE_LE_NOIRMONT_FABRICATED_DESCRIPTION_RE =
+  /est un centre national de référence en réadaptation cardiovasculaire|figurent dans le PDF officiel\.|(?:^|\n)Portail carrières : https?:/;

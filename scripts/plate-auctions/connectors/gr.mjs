@@ -1,15 +1,18 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /** Grigioni eAuction/eCari connector. */
 import {
   buildEcariDetailUrl,
   extractEcariTabSection,
   fetchHtml,
   parseEcariAuctionRows,
+  withEcariEmptyState,
 } from '../../../functions/src/plateAuctionsCore.js';
+import { GR_ECARI_CATALOGUE_URL } from '../../../functions/src/plateAuctionSourceUrls.js';
 
 export const GR_CANTON = 'Grigioni';
 export const GR_PLATE_CODE = 'GR';
-export const GR_AUCTION_URL = 'https://eauktion.gr.ch/';
 
 export function parseGrAuctionRows(html, { fetchedAt = new Date().toISOString() } = {}) {
   const tabs = [
@@ -18,27 +21,27 @@ export function parseGrAuctionRows(html, { fetchedAt = new Date().toISOString() 
     ['tabContent3', 'active', 'fixed-price', 'gr-fixed'],
     ['tabContent4', 'upcoming', 'wanted', 'gr-wanted'],
   ];
-  return tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(
+  return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(
     extractEcariTabSection(html, tab),
     {
       canton: GR_CANTON,
       plateCode: GR_PLATE_CODE,
-      officialAuctionUrl: GR_AUCTION_URL,
+      officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
       fetchedAt,
       auctionStatus,
       listingType,
       idPrefix,
-      detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_AUCTION_URL, sourceRecordId),
+      detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_ECARI_CATALOGUE_URL, sourceRecordId),
     },
-  ));
+  )), html, tabs.map(([tab]) => tab));
 }
 
 export async function fetchGrPlateAuctions() {
-  const html = await fetchHtml(GR_AUCTION_URL);
+  const html = await fetchHtml(GR_ECARI_CATALOGUE_URL);
   return parseGrAuctionRows(html, { fetchedAt: new Date().toISOString() });
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   fetchGrPlateAuctions()
     .then((auctions) => console.log(JSON.stringify(auctions, null, 2)))
     .catch((error) => {

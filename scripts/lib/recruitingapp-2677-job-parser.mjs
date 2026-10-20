@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { fetch as undiciFetch } from 'undici';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -20,8 +21,10 @@ import {
   umantisAuthoritativeEmptyOrNull,
 } from './umantis-empty-listing.mjs';
 import {
+  isAllowlistedAuthoritativeNonSwissLocation,
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
 import { extractLinks } from './prospector/careers-trail.mjs';
 import { umantisVacancyIdentity } from './prospector/umantis-detail.mjs';
@@ -39,6 +42,29 @@ const CAREER_URL = 'https://recruitingapp-2677.umantis.com/Jobs/1?lang=ger&Conte
 // Only these source-backed workplace localities can authorize retiring the
 // previous Swiss slice. A new locality must fail closed until it is reviewed.
 const AUTHORITATIVE_NON_SWISS_LOCATIONS = new Set(['eschen', 'salzburg', 'vaduz', 'wien']);
+
+/**
+ * Rows listed by the source but located outside Switzerland are an expected
+ * downstream filter only when the detail carries a rich, explicitly reviewed
+ * foreign locality. Unknown locations and incomplete details must remain part
+ * of the shared completeness denominator and fail closed.
+ */
+export function isRecruitingapp2677ExpectedDetailFilter({
+  reason,
+  detail,
+  decision,
+  descriptionSufficient,
+} = {}) {
+  if (reason !== 'geography' || decision?.geography || descriptionSufficient !== true) return false;
+  const locations = (Array.isArray(detail?.locationCandidates) ? detail.locationCandidates : [])
+    .map((candidate) => normalizeSpace(candidate?.addressLocality || candidate?.location || ''))
+    .filter(Boolean);
+  return locations.length > 0
+    && locations.every((location) => isAllowlistedAuthoritativeNonSwissLocation(
+      location,
+      AUTHORITATIVE_NON_SWISS_LOCATIONS,
+    ));
+}
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -76,8 +102,8 @@ export function stableLocationCandidatesKey(candidates = []) {
  * The generic Umantis cascade can mistake the first segment for a location
  * (`38,5h` / `80-100`), so this tenant reads the source's middle segment.
  */
-function extractRecruitingapp2677DetailFields(html = '', pageUrl = '') {
-  const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl);
+export function extractRecruitingapp2677DetailFields(html = '', pageUrl = '', opts = {}) {
+  const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl, opts);
   const introRx = /<(?:div|section)\b[^>]*\bclass\s*=\s*["'][^"']*\bintro\b[^"']*["'][^>]*>[\s\S]*?<\/(?:div|section)>/gi;
   const rawHtml = String(html || '');
   let introLine = '';
@@ -106,10 +132,16 @@ function extractRecruitingapp2677DetailFields(html = '', pageUrl = '') {
   return detail;
 }
 
-function attachSnapshotProof(rows, proof) {
+function attachSnapshotProof(rows, proof, observedDetailsByUrl = null, titleEvidenceByUrl = null) {
   Object.defineProperties(rows, {
     authoritativeSnapshotProof: { value: proof, enumerable: false },
     discoveredCount: { value: proof.discoveredCount, enumerable: false },
+    ...(observedDetailsByUrl ? {
+      observedDetailsByUrl: { value: observedDetailsByUrl, enumerable: false },
+    } : {}),
+    ...(titleEvidenceByUrl ? {
+      titleEvidenceByUrl: { value: titleEvidenceByUrl, enumerable: false },
+    } : {}),
   });
   return rows;
 }
@@ -203,6 +235,7 @@ async function fetchJobListings(runtime = {}) {
   const listingTitles = new Map();
   const conflictingListingIds = new Set();
   const observedDetails = new Map();
+  const observedDetailsByUrl = new Map();
   const invalidDetailIds = new Set();
   const conflictingDetailIds = new Set();
   // Keep the same Undici implementation that the production polite-fetch
@@ -241,13 +274,14 @@ async function fetchJobListings(runtime = {}) {
     return response;
   };
 
-  const observingDetailExtractor = (html, pageUrl) => {
-    const detail = extractRecruitingapp2677DetailFields(html, pageUrl);
+  const observingDetailExtractor = (html, pageUrl, opts = {}) => {
+    const detail = extractRecruitingapp2677DetailFields(html, pageUrl, opts);
     const vacancyId = umantisVacancyIdentity(pageUrl);
     if (vacancyId) {
       const decision = resolveDetailOrListingSwissGeography(detail, {});
       const observation = {
         id: vacancyId,
+        listingTitle: listingTitles.get(vacancyId) || '',
         title: normalizeSpace(detail.title || ''),
         rich: isSufficientVacancyDescription(detail.description),
         swiss: Boolean(decision.geography),
@@ -273,6 +307,12 @@ async function fetchJobListings(runtime = {}) {
       } else {
         observedDetails.set(vacancyId, observation);
       }
+      observedDetailsByUrl.set(pageUrl, {
+        body: html,
+        status: 200,
+        url: pageUrl,
+        detail,
+      });
     }
     return detail;
   };
@@ -281,6 +321,7 @@ async function fetchJobListings(runtime = {}) {
     ...runtime,
     fetchImpl: observingFetch,
     detailExtractor: observingDetailExtractor,
+    isExpectedDetailFilter: isRecruitingapp2677ExpectedDetailFilter,
   });
   const details = [...observedDetails.values()];
   const proof = {
@@ -303,7 +344,7 @@ async function fetchJobListings(runtime = {}) {
       `recruitingapp-2677: incomplete detail snapshot (${proof.detailCount}/${proof.discoveredCount})`,
     );
   }
-  return attachSnapshotProof(rows, proof);
+  return attachSnapshotProof(rows, proof, observedDetailsByUrl);
 }
 
 export function assertCompleteRecruitingapp2677Snapshot(jobs) {
@@ -313,10 +354,10 @@ export function assertCompleteRecruitingapp2677Snapshot(jobs) {
   if (!proof?.complete || proof.discoveredCount <= 0 || proof.publishedCount !== 0) return false;
   return proof.details.every((detail) => !detail.swiss
     && detail.locations.length > 0
-    && detail.locations.every((location) => location.split(/[,;&/|]/)
-      .map(normalize)
-      .filter(Boolean)
-      .every((locality) => AUTHORITATIVE_NON_SWISS_LOCATIONS.has(locality))));
+    && detail.locations.every((location) => isAllowlistedAuthoritativeNonSwissLocation(
+      location,
+      AUTHORITATIVE_NON_SWISS_LOCATIONS,
+    )));
 }
 
 /**
@@ -336,7 +377,12 @@ export async function fetchAllRecruitingapp2677Jobs(runtime = {}) {
     const authoritativeEmpty = umantisAuthoritativeEmptyOrNull(listings, RECRUITINGAPP_2677_COMPANY_NAME);
     if (authoritativeEmpty) return authoritativeEmpty;
     const proof = listings?.authoritativeSnapshotProof || emptySnapshotProof();
-    return attachSnapshotProof([], { ...proof, publishedCount: 0 });
+    return attachSnapshotProof(
+      [],
+      { ...proof, publishedCount: 0 },
+      listings?.observedDetailsByUrl || null,
+      listings?.titleEvidenceByUrl || null,
+    );
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -348,9 +394,10 @@ export async function fetchAllRecruitingapp2677Jobs(runtime = {}) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    const resolvedGeography = resolveSourceBackedSwissGeography(listing.location);
+    const geography = sourceBackedSwissGeographyFields(listing, resolvedGeography);
     if (!geography) continue;
-    const { location, canton } = geography;
+    const { location, canton, addressLocality, addressRegion, addressCountry } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -380,10 +427,10 @@ export async function fetchAllRecruitingapp2677Jobs(runtime = {}) {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
+      addressLocality: normalizeSpace(addressLocality || listing.addressLocality),
+      addressRegion: normalizeSpace(addressRegion || listing.addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || "CH"),
+      country: normalizeSpace(addressCountry || "CH"),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
@@ -393,7 +440,7 @@ export async function fetchAllRecruitingapp2677Jobs(runtime = {}) {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -405,5 +452,19 @@ export async function fetchAllRecruitingapp2677Jobs(runtime = {}) {
 
   console.log(`\n📋 Total E-Recruiting LLB-Gruppe Stellen jobs discovered: ${jobs.length}`);
   const proof = listings.authoritativeSnapshotProof || emptySnapshotProof();
-  return attachSnapshotProof(jobs, { ...proof, publishedCount: jobs.length });
+  const observedDetailsByUrl = new Map(listings.observedDetailsByUrl || []);
+  const titleEvidenceByUrl = new Map(jobs.map((job) => {
+    const id = umantisVacancyIdentity(job.url);
+    const observedEntry = [...observedDetailsByUrl.entries()]
+      .find(([detailUrl]) => umantisVacancyIdentity(detailUrl) === id);
+    if (observedEntry && observedEntry[0] !== job.url) observedDetailsByUrl.set(job.url, observedEntry[1]);
+    const listingTitle = proof.details?.find((detail) => detail.id === id)?.listingTitle || '';
+    return [job.url, { listingTitle, finalTitle: job.title, titleSource: 'source-adapter-output' }];
+  }));
+  return attachSnapshotProof(
+    jobs,
+    { ...proof, publishedCount: jobs.length },
+    observedDetailsByUrl,
+    titleEvidenceByUrl,
+  );
 }

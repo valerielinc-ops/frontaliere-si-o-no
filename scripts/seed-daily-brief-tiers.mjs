@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * seed-daily-brief-tiers.mjs — give every subscriber a starting cadence for the
  * daily brief, from the engagement history the provider webhooks already wrote
@@ -38,10 +40,10 @@
  *   node scripts/seed-daily-brief-tiers.mjs             # write
  */
 
-import fs from 'node:fs';
 import { isNewsletterExcluded } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { estimateDailyVolume, seedTier } from './lib/dailyBriefCadence.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const BATCH_SIZE = 400;
@@ -102,14 +104,7 @@ export async function attachClickEvents(rows) {
 }
 
 async function getFirestoreAdmin() {
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    initializeApp({ credential: cert(JSON.parse(fs.readFileSync(credPath, 'utf-8'))) });
-  }
-  return getFirestore();
+  return getFirestoreDb();
 }
 
 /**
@@ -183,7 +178,7 @@ async function main() {
   console.log(`✅ seeded ${writes.length} subscribers.`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error('❌ seed-daily-brief-tiers.mjs failed:', error);
     process.exitCode = 1;

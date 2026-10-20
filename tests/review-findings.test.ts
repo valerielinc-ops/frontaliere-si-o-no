@@ -1,13 +1,18 @@
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
 import {
   changedLinesFromPatch,
   dedupeFindingsById,
   findingDeclaredClass,
+  findingIdentityComponents,
   findingSymbol,
+  isExplicitNonFunnelDisposition,
   isMalformedReviewBody,
   isRegressionFinding,
   LEDGER_MAX_ENTRIES,
+  normalizeBodyCitationText,
+  normalizeMarkdownDestination,
   renderFindingsLedger,
   reviewBodyDefects,
   stableFindingId,
@@ -29,6 +34,26 @@ function finding(text: string) {
 }
 
 describe('identità stabile del finding', () => {
+  it('espone i quattro input normalizzati e ricostruisce l’id', () => {
+    const tick = String.fromCharCode(96);
+    const target = finding(
+      tick + 'z.mjs:L20' + tick + ', ' + tick + 'a.mjs:L4' + tick
+      + ': 🔴 Important: [correctness] ' + tick + 'parseFoo()' + tick
+      + ' must reject ' + tick + 'null' + tick + '.',
+    );
+    const identity = findingIdentityComponents(target);
+    expect(identity.paths).toEqual(['a.mjs', 'z.mjs']);
+    expect(identity.symbol).toBe('parseFoo()');
+    expect(identity.class).toBe('correctness');
+    expect(identity.prose).toContain('must reject');
+    const expected = createHash('sha256')
+      .update([identity.paths.join(String.fromCharCode(31)), identity.symbol, identity.class, identity.prose]
+        .join(String.fromCharCode(0)))
+      .digest('hex')
+      .slice(0, 12);
+    expect(stableFindingId(target)).toBe(expected);
+  });
+
   it('non cambia quando la riga si sposta', () => {
     const a = finding('`scripts/ci/foo.mjs:L12`: 🔴 Important: `parseFoo()` non gestisce il null. Aggiungi la guardia.');
     const b = finding('`scripts/ci/foo.mjs:L87`: 🔴 Important: `parseFoo()` non gestisce il null. Aggiungi la guardia.');
@@ -47,6 +72,14 @@ describe('identità stabile del finding', () => {
     expect(stableFindingId(a)).not.toBe(stableFindingId(b));
   });
 
+  it('mantiene tutti i file citati nell’identità di un finding multi-file', () => {
+    const a = finding('`scripts/ci/foo.mjs:L12`, `services/a.mjs:L20`: 🔴 Important: `parseFoo()` non gestisce il null.');
+    const b = finding('`scripts/ci/foo.mjs:L12`, `services/b.mjs:L20`: 🔴 Important: `parseFoo()` non gestisce il null.');
+    expect(a.citations.map((citation) => citation.path)).toEqual(['scripts/ci/foo.mjs', 'services/a.mjs']);
+    expect(b.citations.map((citation) => citation.path)).toEqual(['scripts/ci/foo.mjs', 'services/b.mjs']);
+    expect(stableFindingId(a)).not.toBe(stableFindingId(b));
+  });
+
   it('cade sulla prosa normalizzata quando non c’è un simbolo', () => {
     expect(findingSymbol('`scripts/ci/foo.mjs:L12`: 🔴 Important: il loop non termina.')).toBe('');
     const a = finding('`scripts/ci/foo.mjs:L12`: 🔴 Important: il loop non termina.');
@@ -62,6 +95,13 @@ describe('identità stabile del finding', () => {
     expect(findingDeclaredClass('`a.mjs:L1`: 🔴 Important: [regression] rotto.')).toBe('regression');
     expect(findingDeclaredClass('`a.mjs:L1`: 🔴 Important [urgentissimo]: rotto.')).toBe('other');
     expect(findingDeclaredClass('`a.mjs:L1`: 🔴 Important: rotto.')).toBe('other');
+    // Forma con ancora di posizione senza separatore (PR 9339): per il gate e'
+    // un finding, quindi il tag va letto anche li'.
+    expect(findingDeclaredClass('a.mjs:L1: 🔴 Important [regression] rotto.')).toBe('regression');
+    expect(findingDeclaredClass('- `a.mjs:L1`: 🔴 **Important** [funnel] rotto.')).toBe('funnel');
+    expect(findingDeclaredClass('a.mjs:L1: 🔴 Important [urgentissimo] rotto.')).toBe('other');
+    expect(findingDeclaredClass('a.mjs:L1: 🔴 Important rotto, vedi [regression] piu\' sotto.')).toBe('other');
+    expect(isRegressionFinding(finding('a.mjs:L1: 🔴 Important [regression] rotto.'))).toBe(true);
     expect(isRegressionFinding(finding('`a.mjs:L1`: 🔴 Important: [regression] rotto.'))).toBe(true);
   });
 
@@ -70,6 +110,17 @@ describe('identità stabile del finding', () => {
     const b = finding('`scripts/ci/foo.mjs:L99`: 🔴 Important: `parseFoo()` non gestisce il null.');
     expect(dedupeFindingsById([a, b])).toHaveLength(1);
     expect(dedupeFindingsById([a, b])[0].lineNumber).toBe(a.lineNumber);
+  });
+});
+
+describe('disposizione non-funnel condivisa', () => {
+  it('riconosce solo il suffisso esplicito del contratto', () => {
+    expect(isExplicitNonFunnelDisposition('🟡 Nit: commento stale — deferred, non funnel-critical.')).toBe(true);
+    expect(isExplicitNonFunnelDisposition('❓ q: rischio non verificato — deferred.')).toBe(false);
+    expect(isExplicitNonFunnelDisposition('❓ q: rischio non verificato — non-funnel-critical.')).toBe(false);
+    expect(isExplicitNonFunnelDisposition('❓ q: rischio non verificato — deferred, non-funnel-critical.')).toBe(false);
+    expect(isExplicitNonFunnelDisposition('🟡 Nit: deferred dentro la spiegazione, ma il finding resta aperto.')).toBe(false);
+    expect(isExplicitNonFunnelDisposition('🟡 Nit: commento stale — deferred, funnel-critical.')).toBe(false);
   });
 });
 
@@ -93,6 +144,19 @@ describe('igiene del body', () => {
 
   it('lascia passare un body normale', () => {
     expect(isMalformedReviewBody('## Findings (Important: 0, Nit: 0)\n\n- Fix di `a.mjs:L3`: ok.\n\n## LGTM')).toBe(false);
+  });
+});
+
+describe('normalizzazione Markdown della citazione body', () => {
+  it('rimuove solo delimitatori accoppiati e conserva i caratteri letterali', () => {
+    expect(normalizeBodyCitationText('**grassetto** *enfasi* ~~barrato~~')).toBe('grassetto enfasi barrato');
+    expect(normalizeBodyCitationText('field_name a*b c~d')).toBe('field_name a*b c~d');
+  });
+
+  it('bilancia le parentesi nella destinazione di link e immagini', () => {
+    const markdown = '[guida](https://example.test/a_(b)) e ![schema](<https://example.test/schema_(v2)>)';
+    expect(normalizeMarkdownDestination(markdown)).toBe('guida e schema');
+    expect(normalizeBodyCitationText(markdown)).toBe('guida e schema');
   });
 });
 
@@ -258,10 +322,19 @@ describe('ledger passato al reviewer', () => {
     expect(ledger).toContain(`\`${stableFindingId(open[0])}\` **open**`);
     expect(ledger).toContain(`\`${stableFindingId(closed[0])}\` **confirmed-fixed**`);
     expect(ledger.match(new RegExp(stableFindingId(open[0]), 'gu')).length).toBe(1);
+    expect(ledger).toContain('identity=' + JSON.stringify(findingIdentityComponents(open[0])));
   });
 
   it('dichiara la prima review quando non c’è storia', () => {
     expect(renderFindingsLedger({})).toMatch(/prima review/u);
+  });
+
+  it('dice come chiudere un open: per id, anche con file citati, mai con un 🔴 sul ledger (#9959, #10025)', () => {
+    const open = importantFindings('🔴 Important: [process] il contratto del processo resta irrisolto.');
+    const ledger = renderFindingsLedger({ open });
+    expect(ledger).toContain('Un `open` risolto si chiude con `` Fix di `<id>`: ok. `` più `` Fix di `path:L<riga attuale>`: ok. `` per ogni file citato (del body: `PR body:L<n>`)');
+    expect(ledger).toContain('mai un 🔴 sul ledger stesso');
+    expect(ledger).toContain(`\`${stableFindingId(open[0])}\` **open**`);
   });
 
   it('tiene tutti gli open e taglia solo la coda dei confirmed', () => {
@@ -344,6 +417,41 @@ describe('ledger: confirmed-fixed solo da conferma esplicita (review #9318, find
     expect(open.map((f) => f.text).join('\n')).toContain('beta()');
     // `historicalImportantFindings` resta il contratto precedente.
     expect(historicalImportantFindings(reviews, { includeLatest: true })).toEqual(open);
+  });
+
+  it('chiude due finding spostati sullo stesso file solo con due conferme distinte', () => {
+    const reviews = [[
+      bot(1, [
+        '## Findings (Important: 2, Nit: 0)',
+        '',
+        '`scripts/ci/shared.mjs:L465`: 🔴 Important: il parser non legge il country.',
+        '`scripts/ci/shared.mjs:L715`: 🔴 Important: il listing estero passa il gate.',
+      ].join('\n'), HEAD_B, '2026-09-19T10:00:00Z'),
+      bot(2, [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `scripts/ci/shared.mjs:L472`: ok.',
+        'Fix di `scripts/ci/shared.mjs:L733`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'), HEAD_A, '2026-09-19T11:00:00Z'),
+    ]];
+
+    const { open, confirmed } = partitionHistoricalImportantFindings(reviews, { includeLatest: true });
+    expect(open).toHaveLength(0);
+    expect(confirmed).toHaveLength(2);
+
+    const incomplete = [[
+      reviews[0][0],
+      bot(3, [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `scripts/ci/shared.mjs:L472`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'), HEAD_A, '2026-09-19T12:00:00Z'),
+    ]];
+    expect(partitionHistoricalImportantFindings(incomplete, { includeLatest: true }).open).toHaveLength(2);
   });
 
   it('un finding mai confermato non finisce nel ledger come chiuso', () => {
@@ -463,5 +571,99 @@ describe('finding ambiguo: mai declassato (review #9318, finding 4)', () => {
     expect(result.staleDeclassified ?? []).toHaveLength(0);
     expect(result.unresolved.map((f) => f.reason)).toContain('struttura della review ambigua');
     expect(result.blocking).toBe(true);
+  });
+});
+
+// Replay delle review reali: su #9968 (review 5327152883) e #9965 (review
+// 5327178068) il bundle passava come `open` 🔴 che una review `## LGTM`
+// successiva aveva confermato con `Fix di` sullo stesso file, e il reviewer li
+// ricopiava senza aprire il codice. Il gate resta com'è (li tiene aperti), il
+// ledger li presenta come `needs-verification`.
+describe('ledger: needs-verification per i 🔴 confermati da un LGTM successivo (#9968, #9965)', () => {
+  type Page = Array<{ id: number; user: { login: string; type: string }; state: string; commit_id: string; submitted_at: string; body: string }>;
+  const load = (pr: string): Page[] => JSON.parse(readFileSync(
+    new URL(`./fixtures/review-replay/pr-${pr}-reviews.json`, import.meta.url), 'utf8',
+  ));
+  const replay = (pages: unknown) => {
+    const partition = partitionHistoricalImportantFindings(pages, { includeLatest: true });
+    return { ...partition, ledger: renderFindingsLedger(partition) };
+  };
+  const bot = (id: number, body: string, at: string) => ({
+    id, user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    state: 'COMMENTED', commit_id: String(id).repeat(40).slice(0, 40), body, submitted_at: at,
+  });
+  const RAISED = '## Findings (Important: 1, Nit: 0)\n\n`scripts/ci/uno.mjs:L3`: 🔴 Important: `alfa()` rotto.\n';
+  const lgtmConfirming = (anchor: string) => `## Findings (Important: 0, Nit: 0)\n\nFix di \`${anchor}\`: ok.\n\n## LGTM\n`;
+
+  it('replay #9968: A e B ricopiati dopo due LGTM sono needs-verification, non open', () => {
+    const { open, needsVerification, ledger } = replay(load('9968'));
+    // Il gate non cambia: per lui restano aperti finché una conferma non li chiude.
+    expect(open).toHaveLength(2);
+    expect(needsVerification.map(stableFindingId).sort()).toEqual(open.map(stableFindingId).sort());
+    expect(ledger).not.toContain('**open**');
+    expect((ledger.match(/\*\*needs-verification\*\*/gu) || []).length).toBe(2);
+    expect(needsVerification.map((finding) => finding.verificationHint?.reviewId)).toEqual(['5326999109', '5326999109']);
+    // Niente pseudo-finding dalla sezione `## Findings ledger` della review 2.
+    expect(ledger).not.toContain('eabf305bc1f8');
+  });
+
+  it('replay #9965: il 🔴 confermato da un LGTM è needs-verification, quello mai confermato resta open', () => {
+    const { open, needsVerification, ledger } = replay(load('9965'));
+    const [intent] = needsVerification;
+    expect(needsVerification).toHaveLength(1);
+    expect(intent.citations[0]).toEqual({ path: 'services/applicationIntent.ts', line: 70 });
+    const stillOpen = open.filter((finding) => !needsVerification.some((nv) => stableFindingId(nv) === stableFindingId(finding)));
+    expect(stillOpen.map((finding) => finding.citations[0])).toEqual([{ path: 'services/behaviorTracker.ts', line: 316 }]);
+    const openLines = ledger.split('\n').filter((line) => line.includes('**open**'));
+    expect(openLines).toHaveLength(1);
+    expect(openLines[0]).toContain(stableFindingId(stillOpen[0]));
+    expect(ledger).toContain(`\`${stableFindingId(intent)}\` **needs-verification**`);
+  });
+
+  it('un finding mai confermato resta open: l’LGTM conferma un altro path', () => {
+    const { open, needsVerification, ledger } = replay([[
+      bot(1, RAISED, '2026-09-19T10:00:00Z'),
+      bot(2, lgtmConfirming('scripts/ci/due.mjs:L9'), '2026-09-19T11:00:00Z'),
+    ]]);
+    expect(open).toHaveLength(1);
+    expect(needsVerification).toHaveLength(0);
+    expect(ledger).toContain('**open**');
+    expect(ledger).not.toContain('needs-verification');
+  });
+
+  it('resta open se la conferma sullo stesso path viene da una review non approvante', () => {
+    // Due 🔴 sullo stesso file e una sola conferma a riga spostata: il gate
+    // non sa quale chiude e li tiene aperti entrambi.
+    const twoOnSameFile = '## Findings (Important: 2, Nit: 0)\n\n`scripts/ci/uno.mjs:L3`: 🔴 Important: `alfa()` rotto.\n`scripts/ci/uno.mjs:L20`: 🔴 Important: `gamma()` rotto.\n';
+    const confirmation = 'Fix di `scripts/ci/uno.mjs:L40`: ok.';
+    const notApproving = replay([[
+      bot(1, twoOnSameFile, '2026-09-19T10:00:00Z'),
+      bot(2, `## Findings (Important: 1, Nit: 0)\n\n${confirmation}\n\n\`scripts/ci/due.mjs:L9\`: 🔴 Important: \`beta()\` rotto.\n`, '2026-09-19T11:00:00Z'),
+    ]]);
+    expect(notApproving.open).toHaveLength(3);
+    expect(notApproving.needsVerification).toHaveLength(0);
+    expect((notApproving.ledger.match(/\*\*open\*\*/gu) || []).length).toBe(3);
+    // Controllo: la stessa conferma in una review approvante li marca da verificare.
+    const approving = replay([[
+      bot(1, twoOnSameFile, '2026-09-19T10:00:00Z'),
+      bot(2, `## Findings (Important: 0, Nit: 0)\n\n${confirmation}\n\n## LGTM\n`, '2026-09-19T11:00:00Z'),
+    ]]);
+    expect(approving.open).toHaveLength(2);
+    expect(approving.needsVerification).toHaveLength(2);
+  });
+
+  it('resta open se l’LGTM con la conferma precede la prima comparsa del finding', () => {
+    const { needsVerification } = replay([[
+      bot(1, lgtmConfirming('scripts/ci/uno.mjs:L40'), '2026-09-19T09:00:00Z'),
+      bot(2, RAISED, '2026-09-19T10:00:00Z'),
+    ]]);
+    expect(needsVerification).toHaveLength(0);
+  });
+
+  it('senza needsVerification il ledger è quello di prima (chiamanti come il corpus)', () => {
+    const { open, confirmed } = replay(load('9968'));
+    const ledger = renderFindingsLedger({ open, confirmed });
+    expect((ledger.match(/\*\*open\*\*/gu) || []).length).toBe(2);
+    expect(ledger).not.toContain('needs-verification');
   });
 });

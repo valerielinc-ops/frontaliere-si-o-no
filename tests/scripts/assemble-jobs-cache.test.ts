@@ -70,6 +70,12 @@ beforeAll(async () => {
     path.join(REPO_ROOT, 'build-plugins', 'shared', 'cantonResolvers.mjs'),
     path.join(tmpRoot, 'build-plugins', 'shared', 'cantonResolvers.mjs'),
   );
+  const articleSharedDir = path.join(tmpRoot, 'packages', 'articles', 'engine', 'shared');
+  mkdirSync(articleSharedDir, { recursive: true });
+  cpSync(
+    path.join(REPO_ROOT, 'packages', 'articles', 'engine', 'shared', 'htmlMarkup.mjs'),
+    path.join(articleSharedDir, 'htmlMarkup.mjs'),
+  );
   mkdirSync(path.join(tmpRoot, 'data'), { recursive: true });
   cpSync(
     path.join(REPO_ROOT, 'data', 'canton-url-slugs.json'),
@@ -78,6 +84,14 @@ beforeAll(async () => {
   cpSync(
     path.join(REPO_ROOT, 'data', 'canton-municipalities.json'),
     path.join(tmpRoot, 'data', 'canton-municipalities.json'),
+  );
+  cpSync(
+    path.join(REPO_ROOT, 'data', 'swiss-locality-postal-codes.json'),
+    path.join(tmpRoot, 'data', 'swiss-locality-postal-codes.json'),
+  );
+  cpSync(
+    path.join(REPO_ROOT, 'data', 'swiss-postal-code-index.json'),
+    path.join(tmpRoot, 'data', 'swiss-postal-code-index.json'),
   );
 
   // Pre-create empty slice directories so existsSync passes
@@ -211,6 +225,25 @@ describe('computeAssembleInputFingerprint — non-slice inputs', () => {
     expect(fp3).toEqual(fp0);
   });
 
+  it('changes when GSC slug evidence changes, appears or disappears', () => {
+    const fixtures = [
+      ['data/gsc-job-urls.json', '["https://frontaliereticino.ch/lavoro/indexed-job/"]'],
+      ['data/gsc-orphan-job-slugs.json', '["indexed-job"]'],
+    ];
+    for (const [rel, updated] of fixtures) {
+      const fp0 = computeAssembleInputFingerprint();
+      writeSlice(rel, '[]');
+      const fp1 = computeAssembleInputFingerprint();
+      writeSlice(rel, updated);
+      const fp2 = computeAssembleInputFingerprint();
+      rmSync(path.join(tmpRoot, rel));
+      const fp3 = computeAssembleInputFingerprint();
+
+      expect(new Set([fp0, fp1, fp2]).size).toBe(3);
+      expect(fp3).toEqual(fp0);
+    }
+  });
+
   it('changes when a file inside an aux data DIRECTORY changes', () => {
     writeSlice('data/orphan-enriched-data/part-00.json', '[]');
     const fpBefore = computeAssembleInputFingerprint();
@@ -232,10 +265,11 @@ describe('computeAssembleInputFingerprint — non-slice inputs', () => {
     expect(closure).toContain(path.join(root, 'scripts', 'lib', 'parse-job-slices-worker.mjs'));
   });
 
-  it('keys the run mode so a --no-summaries or --stats snapshot is never restored for a default run', () => {
+  it('keys the run mode so a --no-summaries, --active-only, or --stats snapshot is never restored for a default run', () => {
     const fp = computeAssembleInputFingerprint();
     expect(computeAssembleCacheKey().cacheKey).toBe(`${fp}_nostats`);
     expect(computeAssembleCacheKey({ withStats: true }).cacheKey).toBe(`${fp}_stats`);
     expect(computeAssembleCacheKey({ withSummaries: false }).cacheKey).toBe(`${fp}_nostats_nosummaries`);
+    expect(computeAssembleCacheKey({ withExpired: false }).cacheKey).toBe(`${fp}_nostats_activeonly`);
   });
 });

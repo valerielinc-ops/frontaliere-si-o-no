@@ -175,7 +175,7 @@ export const FAQ_famiglia: ReadonlyArray<FaqHubEntry> = [
         "Les bourses cantonales sont réservées aux résidents (loi cantonale tessinoise sur les bourses art. 3) [source : Ti.ch Office aides aux études]. Les enfants de frontaliers G en Italie n'y ont pas droit. Ils peuvent demander des bourses italiennes régionales (Lombardie : Dote Scuola) ou nationales (DSU université) selon ISEE. Exception : enfants inscrits dans des hautes écoles suisses (USI Lugano, SUPSI) peuvent bénéficier de réductions internes ou bourses au mérite indépendamment du domicile. Bourses talents SUPSI : CHF 2 000-8 000/an. Frais universitaires uniformes pour étudiants UE/AELE (CHF 1 500-2 000/semestre).",
     },
     sources: [
-      'https://www4.ti.ch/decs/ds/uast/',
+      'https://www4.ti.ch/decs/sa/uast/ufficio/',
     ],
   },
   {

@@ -58,7 +58,7 @@ describe('crawlerDirectFixBudget', () => {
     expect(queued).toBe(4); // prima erano 4 SFRATTATI, ora 4 in coda
   });
 
-  it('esclude dal secondo passaggio i pin keep-open e agent:no-age-out', () => {
+  it('esclude dal secondo passaggio i pin keep-open, agent:no-age-out e operations-audit-review', () => {
     const labels = (...names: string[]) => names.map((name) => ({ name }));
     const stringLabels = (...names: string[]) => names;
     const issue = (issueLabels: unknown) => ({
@@ -68,6 +68,7 @@ describe('crawlerDirectFixBudget', () => {
     });
     expect(isTriagedButNotRouted(issue(labels('agent:triaged', 'keep-open')))).toBe(false);
     expect(isTriagedButNotRouted(issue(labels('agent:triaged', 'agent:no-age-out')))).toBe(false);
+    expect(isTriagedButNotRouted(issue(labels('agent:triaged', 'operations-audit-review')))).toBe(false);
     expect(isTriagedButNotRouted(issue(labels('agent:triaged')))).toBe(true);
     expect(isTriagedButNotRouted(issue(stringLabels('agent:triaged', 'keep-open')))).toBe(false);
     expect(isTriagedButNotRouted(issue(stringLabels('agent:triaged', 'agent:no-age-out')))).toBe(false);
@@ -95,5 +96,16 @@ describe('crawlerDirectFixBudget', () => {
       body: '',
       labels: [{ name: 'agent:triaged' }, { name: 'automation-deferred' }],
     })).toBe(false);
+  });
+
+  it('non re-instrada una issue in verifica maybe-resolved (#9742)', () => {
+    // Forma di #9578 dopo l'instradamento già-risolto: `agent:fix` tolto,
+    // `maybe-resolved` aggiunto, nessun'altra label di routing.
+    const routed = { title: 'Deploy: validate-dist non trova l artifact github-pages', body: '' };
+    const labels = (...names: string[]) => names.map((name) => ({ name }));
+    const stringLabels = (...names: string[]) => names;
+    expect(isTriagedButNotRouted({ ...routed, labels: labels('bug', 'agent:triaged') })).toBe(true);
+    expect(isTriagedButNotRouted({ ...routed, labels: labels('bug', 'agent:triaged', 'maybe-resolved') })).toBe(false);
+    expect(isTriagedButNotRouted({ ...routed, labels: stringLabels('bug', 'agent:triaged', 'maybe-resolved') })).toBe(false);
   });
 });

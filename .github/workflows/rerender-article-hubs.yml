@@ -4,8 +4,8 @@ name: Rerender Article Hubs
 #
 # THE GAP THIS FILLS
 # ──────────────────
-# A section's hub pages — the `/tutti/` archive + pagination and the
-# `/…/argomenti/<topic>/` topic clusters — had exactly one producer that
+# A section's hub pages — the root landing, the `/tutti/` archive + pagination
+# and the `/…/argomenti/<topic>/` topic clusters — had exactly one producer that
 # reaches the served bytes: scripts/publish-article-fast.mjs, reachable only by
 # PUBLISHING AN ARTICLE, and only for that article's section. The full build
 # emits none of them (ARTICOLI*_BUILD_EMIT_SKIP=true, and the rehydrate's
@@ -54,11 +54,29 @@ on:
     paths:
       - 'build-plugins/seoHubsPlugin.ts'
       - 'build-plugins/topicClusterHubsPlugin.ts'
+      - 'build-plugins/lib/adSlotHtml.ts'
       - 'build-plugins/topicClusterHubsData.ts'
       - 'packages/articles/engine/articleHubPagesPlugin.ts'
       - 'packages/articles/engine/topicTaxonomy.ts'
+      - 'packages/articles/engine/articlesHubCards.ts'
+      - 'packages/articles/engine/blogImageCdnFinalize.ts'
+      - 'packages/articles/engine/shared/articleReaders.ts'
+      - 'packages/articles/engine/shared/articleRegistryEntries.ts'
+      - 'packages/articles/engine/shared/articleReaderSource.mjs'
+      - 'packages/articles/engine/shared/sourceDates.ts'
+      - 'build-plugins/shared/articleSectionCore.mjs'
+      - 'services/articleSourceDates.ts'
+      # Keep the checked-in content path as a trigger for preserved site-side
+      # files; the corpus-main overlay sources are listed explicitly below.
+      - 'packages/articles/content/**'
+      # The renderer overlays these helpers from corpus main; changes to any
+      # part of that shared overlay must rerender the hubs too.
+      - 'scripts/lib/article-corpus-overlay.mjs'
+      - 'scripts/lib/corpus-canton-exclusion.mjs'
+      - 'scripts/lib/corpus-local-preserve.mjs'
       - 'scripts/rerender-article-hubs.mjs'
       - 'scripts/lib/render-and-push-hubs.mjs'
+      - 'scripts/lib/refresh-article-hub-landings.mjs'
       # Self-test on change. A push touching only this file still runs the
       # whole path (render + validate + push), which is what makes an edit
       # here verifiable rather than hopeful.
@@ -66,96 +84,21 @@ on:
 
   # 2. THE CONTENT CHANGED. Hub pages are a function of the article corpus,
   #    not only of the renderers, and new articles arrive ~15-25 times a day.
-  #    This repo's copy of the corpus is refreshed by
-  #    sync-articles-sitemaps.yml, which commits `packages/articles/content`
-  #    with a bare `actions/checkout@v5` and `git push origin` — i.e. with the
-  #    GITHUB_TOKEN extraheader — so that commit triggers NOTHING and no
-  #    `push:` filter on `packages/articles/content/**` could ever work
-  #    (GitHub's anti-recursion rule, the same lesson
-  #    mirror-articles-engine.yml:54-60 wrote down). Subscribing to the
-  #    WORKFLOW instead of to its commit sidesteps that rule entirely.
-  #
-  #    WHY NOT the `repository_dispatch` nanako already sends, which would cost
-  #    nothing to adopt: `publish-api.yml` over there fires `articles-published`
-  #    at the END of its own run, in a race with sync-articles-sitemaps.yml —
-  #    the workflow that makes the corpus this render READS fresh. Rendering on
-  #    that event would read a corpus potentially one article behind and push
-  #    the resulting archive OVER the fresh one the fast path just wrote: a
-  #    silent un-publish of the very article that triggered it, and one the
-  #    driver's freshness guard cannot catch (it tolerates 25 articles of
-  #    slack, so a shortfall of one is invisible to it). Waiting for the sync
-  #    to COMPLETE is what makes the ordering correct — by then the content is
-  #    already committed. Full argument in issue #5442.
-  #
-  #    THE PRECONDITION, VERIFIED RATHER THAN ASSUMED (issue #5442): does
-  #    `workflow_run` fire when the upstream run was itself started by
-  #    `repository_dispatch`? It matters because 56 of the sync's last 60 runs
-  #    were exactly that (4 were its cron), so a trigger that only saw the cron
-  #    runs would close nothing. GitHub's docs state no exclusion by upstream
-  #    event type, and every upstream event that IS observable in this repo
-  #    does fire its subscriber — measured 2026-08-09, run ids so this can be
-  #    re-checked rather than believed:
-  #      • upstream `workflow_dispatch` → deploy.yml 31304204121 finished
-  #        11:11:42Z; deploy-publish.yml 31310187420 was created 11:11:44Z and
-  #        notify-journalist-article-live.yml 31310187329 at 11:11:43Z.
-  #      • upstream `workflow_run` (a chained parent) → translate-pending.yml
-  #        31306896317, itself event=workflow_run, finished 12:12:16Z;
-  #        sync-gsc-orphans.yml 31312695092 was created 12:12:18Z.
-  #      • upstream `schedule` → orchestrate-crawlers.yml 31306533236 finished
-  #        09:50:58Z; translate-pending.yml 31306896317 created 09:51:00Z.
-  #    `repository_dispatch` is the one upstream event with no subscriber on
-  #    main to observe it, which is precisely the gap this trigger fills. If it
-  #    turns out NOT to fire, the cost is zero: the schedule below is unchanged
-  #    and still covers new articles. The symptom would be no `workflow_run`
-  #    rows in `gh run list --workflow=rerender-article-hubs.yml` after a day,
-  #    against ~22 sync runs — worth checking once after this lands.
-  #
-  #    `types: [completed]` fires on ANY conclusion, so the jobs below gate on
-  #    `conclusion == 'success'`. A FAILED sync leaves the corpus mid-update,
-  #    and re-rendering from it would publish an archive built from stale
-  #    content — which is the defect #5432 exists to fix, not to reproduce.
-  #
-  #    Volume is self-limiting, and deliberately so — this is NOT ~22 renders a
-  #    day racing each other. The `rerender` job's
-  #    `concurrency: hub-rerender-<section>` with `cancel-in-progress: false`
-  #    admits one run per section and GitHub cancels the older PENDING run when
-  #    a newer one queues, so a burst of syncs coalesces into a single render
-  #    that reads the newest corpus. Whatever is left over is cheap: an
-  #    unchanged tree makes push-article-shard-incremental.sh a clean no-op.
-  workflow_run:
-    workflows: ['Sync article sitemaps, feeds and ticker from the articles API']
-    types: [completed]
-    # Filters on the UPSTREAM run's head_branch. Verified `main` on real
-    # repository_dispatch runs (31310988216, 31308714118, 31306028306) — a
-    # dispatch always lands on the default branch — so this excludes nothing
-    # that matters and keeps a stray non-main run from rendering.
-    branches: [main]
+  #    The publisher dispatch is the prompt path; the render clones corpus
+  #    `main` through the shared overlay, so this job no longer depends on the
+  #    site's lagging content copy. The per-section concurrency group below
+  #    coalesces bursts without cancelling a live publisher.
+  repository_dispatch:
+    types: [articles-published]
 
-  # 3. THE SAFETY NET, AND IT IS LOAD-BEARING — NOT REDUNDANT WITH (1) OR (2).
-  #    It covers what each of them structurally cannot:
-  #
-  #    (a) THE CODE PATH, sometimes. A push made with the default GITHUB_TOKEN
-  #        never triggers another workflow. auto-merge-on-lgtm.yml merges with
-  #        an App token or the Remote Config PAT precisely so that the merge
-  #        push cascades — but it falls back to GITHUB_TOKEN when neither
-  #        credential is available (its own step at :121 exists for that case
-  #        and says so). On that path the merge of a renderer change fires
-  #        nothing and (1) never sees it.
-  #
-  #    (b) THE CONTENT PATH, whenever the sync does not run or does not
-  #        succeed. (2) reacts only to a SUCCESSFUL sync-articles-sitemaps.yml;
-  #        a sync that fails, or a corpus that moves without one, still needs a
-  #        periodic sweep. This is also the only trigger left standing if that
-  #        subscription turns out not to fire on a repository_dispatch-started
-  #        upstream run — see the precondition note in (2).
-  #
-  #    Cheap when there is nothing to do: an unchanged tree makes
+  # 3. THE SAFETY NET. The schedule covers missed dispatches and any corpus
+  #    refresh that does not change the watched renderer paths. Cheap when
+  #    there is nothing to do: an unchanged tree makes
   #    push-article-shard-incremental.sh a clean no-op — no commit, no GitHub
   #    Pages build, nothing to purge.
   #
-  #    Offset from the two crons it must not race: sync-articles-sitemaps.yml
-  #    at :23 (which supplies the corpus this render reads — it must land
-  #    first) and mirror-articles-engine.yml at :19.
+  #    Offset from the corpus API refresh and mirror cron so the published
+  #    snapshot has a chance to converge before the identity guard evaluates.
   schedule:
     - cron: '47 */6 * * *'
 
@@ -178,34 +121,19 @@ on:
         default: true
 
 permissions:
-  # `write` for the topic-hub sitemap commit into public/, and for that alone.
-  # The commit goes out with GITHUB_TOKEN, which by the same anti-recursion
-  # rule quoted above triggers no workflow — so it cannot start a deploy per
-  # re-render (the property sync-articles-sitemaps.yml and
-  # fast-publish-article.yml already rely on for their own public/ commits).
+  # The sitemap enters main through a stable PR so the required Vitest check
+  # runs before publication.
   contents: write
+  pull-requests: write
   issues: write
 
 jobs:
   plan:
-    # THE CONCLUSION GATE for trigger (2). `types: [completed]` fires on every
-    # conclusion, so without this a FAILED sync-articles-sitemaps.yml run would
-    # start a render from a corpus left mid-update and push that stale archive
-    # over the fresh one — the exact failure #5432 exists to fix.
-    #
-    # The `github.event_name != 'workflow_run'` half is not decoration:
-    # `github.event.workflow_run` is null for push, schedule and
-    # workflow_dispatch, so the bare conclusion test would evaluate false on
-    # those and silently disable every OTHER trigger in this file. Same idiom,
-    # for the same reason, as generate-article.yml:148.
-    #
-    # Gating here rather than on `rerender` covers both jobs: `rerender` has
-    # `needs: plan`, so a skipped plan skips it too.
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
-    # Which sections run as separate matrix jobs. A push, a schedule or a
-    # completed sync always means both: the renderers and the corpus they read
-    # are shared, so either kind of change affects the two sections
-    # identically. A dispatch honours the operator's choice.
+    # Which sections run as separate matrix jobs. A push, publisher dispatch or
+    # schedule means both: the renderers and the corpus they read are shared,
+    # so either kind of change affects the two sections identically. A manual
+    # dispatch honours the operator's choice. The overlay pins corpus `main`
+    # inside the render, so no workflow_run fan-out is needed here.
     runs-on: ubuntu-latest
     outputs:
       sections: ${{ steps.compute.outputs.sections }}
@@ -229,8 +157,10 @@ jobs:
       matrix:
         section: ${{ fromJson(needs.plan.outputs.sections) }}
     runs-on: ubuntu-latest
-    # Minutes, not hours — the render of BOTH sections is ~3 s. This budget is
-    # for checkout, the Node setup and four shard clone/push round trips.
+    # Minutes, not hours — a hub fan-out is normally a couple of minutes per
+    # section, including four serial shard clone/push round trips. Keep enough
+    # room for slow but bounded network retries without turning this into a
+    # corpus-sized job.
     timeout-minutes: 30
     # Serialised per SECTION, never cancelled. Two runs on the same section
     # would push overlapping relpath sets to the same four shard repos, and a
@@ -244,30 +174,49 @@ jobs:
     environment: shard-secrets-overflow
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # NOT hygiene. Without it actions/checkout leaves its GITHUB_TOKEN in
           # an `http.extraheader` that git then prefers over the shard
           # credentials for any HTTPS remote — a `contents: read`-scoped token
           # that cannot write to the shards and whose push would fire no
-          # workflow anyway. Re-enabled explicitly for the one step that does
-          # need to write to THIS repo (the sitemap commit).
+          # workflow anyway. The sitemap publisher supplies its own PAT to the
+          # shared PR helper, so the checkout token must stay absent.
           persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
 
       # DRY resolution, in one place, read by every later step.
       #
-      # A dispatch defaults to dry (see the input's own default) so a manual
-      # poke cannot publish by accident; a push, a schedule or a completed sync
-      # publishes, because those are the three events that mean "the served
-      # pages are out of date" and a dry run of them would repair nothing.
-      # workflow_run reaches the `else` branch below and is therefore ARMED,
-      # which is the whole point of subscribing to the sync.
+      # A manual dispatch defaults to dry (see the input's own default) so a
+      # poke cannot publish by accident; a push, publisher dispatch or
+      # schedule publishes, because those events mean "the served pages are
+      # out of date" and a dry run of them would repair nothing.
       - name: Resolve mode
         id: mode
         env:
@@ -299,7 +248,7 @@ jobs:
       # and GITHUB_PAT as push-article-shard-incremental.sh's last-resort
       # fallback for a refused deploy key.
       #
-      # Deliberately NO `npm ci`: the driver runs under `npx -y tsx@4` and its
+      # Deliberately NO `npm ci`: the driver runs through the pinned tsx wrapper and its
       # whole transitive value-import closure (81 files, verified by scanning
       # it — the one `react` edge is reached through an `import type` that tsx
       # erases) touches no npm package at runtime. Same posture as
@@ -307,6 +256,18 @@ jobs:
       # reason this workflow costs minutes.
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
+
+      # The static shell scripts (build-plugins/staticScriptsPlugin.ts) reach the
+      # CDN only at the end of a full deploy, hours after the merge this job
+      # publishes within minutes. A file the last deploy did not upload would be
+      # referenced by every page pushed below: on 2026-10-07 that was
+      # gtag-init-<hash>.js, a 404 on every re-rendered article (#12270). This
+      # uploads what the CDN does not have, replaces nothing, and fails the job
+      # when it cannot — scripts/lib/cdn-shell-assets.mjs.
+      # Before the section lock on purpose: a failure here leaves nothing held.
+      - name: Ensure the static shell scripts are on the CDN
+        if: steps.mode.outputs.dry != 'true'
+        run: bash scripts/ci/run-pinned-tsx.sh scripts/ci/ensure-cdn-shell-assets.mjs
 
       # PROVE THE CREDENTIALS BEFORE RENDERING, not half-way through pushing.
       #
@@ -325,6 +286,7 @@ jobs:
       # cost more than it catches, and a genuinely read-only key still fails
       # loudly at the push (3 attempts, then the PAT fallback, then exit 1).
       - name: Probe shard access (${{ matrix.section }})
+        if: steps.mode.outputs.dry != 'true'
         env:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
@@ -368,14 +330,59 @@ jobs:
           done
           [ "$fail" = "0" ] || exit 1
 
+      # The hub HTML and the client article registry are one publish. Keep the
+      # same section lease used by fast-publish/resync from the companion and
+      # registry uploads through the shard pushes; without it a concurrent
+      # publisher can replace one half after the other was checked.
+      - name: Acquire article chunk section lock
+        id: acquire_chunk_lock
+        if: steps.mode.outputs.dry != 'true'
+        env:
+          ARTICLE_SECTION: ${{ matrix.section }}
+          LOCK_OWNER: hub-rerender-${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs acquire --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER"
+
+      - name: Renew article chunk section lock
+        id: renew_chunk_lock
+        if: steps.acquire_chunk_lock.outcome == 'success'
+        env:
+          ARTICLE_SECTION: ${{ matrix.section }}
+          LOCK_OWNER: hub-rerender-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.log"
+          rm -f "$LOCK_RENEW_PID_FILE" "$LOCK_RENEW_FAILURE_FILE" "$LOCK_RENEW_LOG_FILE"
+          # Do not wrap the renewer in setsid: on a runner process-group leader
+          # setsid forks, so $! would point at an exited wrapper instead of the
+          # live renewer that the later checks and cleanup must supervise.
+          env -u RUNNER_TRACKING_ID nohup node scripts/lib/r2-section-lock.mjs renew \
+            --section "$ARTICLE_SECTION" \
+            --owner "$LOCK_OWNER" \
+            --failure-file "$LOCK_RENEW_FAILURE_FILE" \
+            >"$LOCK_RENEW_LOG_FILE" 2>&1 < /dev/null &
+          echo "$!" > "$LOCK_RENEW_PID_FILE"
+          sleep 1
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
       # Render + validate ALWAYS; push only when not dry. The validation lives
       # inside the driver rather than in shell here, so a `--dry-run` is a
       # complete exercise of everything that can go wrong before a byte moves —
-      # including on a laptop. Each check defends a failure that renders
-      # "successfully"; see the driver for the incident behind each one.
+      # including on a laptop. The driver publishes the strict client registry
+      # and companions before its shard fan-out; each check defends a failure
+      # that renders "successfully"; see the driver for the incident behind
+      # each one.
       - name: Rerender ${{ matrix.section }} hubs
         id: render
+        if: steps.mode.outputs.dry == 'true' || (steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success')
         env:
+          # The hub fan-out writes ~1400 paths and the four shard pushes can
+          # take nearly two minutes. The shared 120s entrypoint default can
+          # kill a completed publish while Node is still unwinding; keep the
+          # npm probe at 120s and give this side-effecting entrypoint a bounded
+          # ten-minute budget, below the 30-minute job ceiling.
+          PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS: '600'
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
@@ -389,6 +396,13 @@ jobs:
           INPUT_DRY: ${{ steps.mode.outputs.dry }}
         run: |
           set -euo pipefail
+          if [ "$INPUT_DRY" = "true" ]; then
+            export ARTICLE_CHUNK_LOCK_ENFORCE=false
+          else
+            export ARTICLE_CHUNK_LOCK_ENFORCE=true
+          fi
+          export ARTICLE_CHUNK_LOCK_PID_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.pid"
+          export ARTICLE_CHUNK_LOCK_FAILURE_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.failure"
           mkdir -p "$RUNNER_TEMP/hubs"
           ARGS=(--section "$INPUT_SECTION"
                 --out "$RUNNER_TEMP/hubs/dist"
@@ -397,7 +411,51 @@ jobs:
           # Pinned to the same tsx major package.json declares ("tsx":
           # "^4.21.0"), like every other un-installed path in this repo, so a
           # future tsx major cannot silently change loader behaviour here.
-          npx -y tsx@4 scripts/rerender-article-hubs.mjs "${ARGS[@]}"
+          bash scripts/ci/run-pinned-tsx.sh scripts/rerender-article-hubs.mjs "${ARGS[@]}"
+
+      # The driver performs the strict client publication immediately before
+      # its shard fan-out. Check the watcher after that composite step as well,
+      # so a lost lease cannot be mistaken for a successful atomic publish.
+      - name: Verify article chunk section lock after rerender
+        id: verify_chunk_lock_after_render
+        if: always() && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # Release the shared lease even when strict client publication or a shard
+      # push fails. The heartbeat is stopped after the first guarded delete and
+      # the delete is retried once to avoid leaving a live lease behind.
+      - name: Release article chunk section lock after rerender
+        if: always() && steps.acquire_chunk_lock.outcome == 'success'
+        env:
+          ARTICLE_SECTION: ${{ matrix.section }}
+          LOCK_OWNER: hub-rerender-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -uo pipefail
+          release_status=0
+          node scripts/lib/r2-section-lock.mjs release --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER" || release_status=$?
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.pid"
+          if [ -s "$LOCK_RENEW_PID_FILE" ]; then
+            renew_pid="$(cat "$LOCK_RENEW_PID_FILE")"
+            kill -TERM "$renew_pid" 2>/dev/null || true
+            for _ in 1 2 3 4 5; do
+              kill -0 "$renew_pid" 2>/dev/null || break
+              sleep 1
+            done
+            kill -KILL "$renew_pid" 2>/dev/null || true
+            wait "$renew_pid" 2>/dev/null || true
+          fi
+          node scripts/lib/r2-section-lock.mjs release --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER" || release_status=$?
+          exit "$release_status"
 
       # The producer announces what it wrote — and only what it wrote.
       #
@@ -414,16 +472,17 @@ jobs:
       #     dist/sitemap.xml by discovering dist/sitemap-*.xml, and Vite copies
       #     public/ into dist/.
       #
-      # Fails open. The pages are already pushed and already serving; a missed
-      # publish means the sitemap is one run behind, not that anything 404s.
+      # The R2 copy is best effort because the shards remain the served source.
+      # The checked-in sitemap is different: its stable PR must be created
+      # successfully so the required Vitest check runs before discovery data
+      # reaches main.
       - name: Publish + commit the topic-hub sitemap
-        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success'
-        continue-on-error: true
+        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success' && steps.render.outputs.deferred != 'true'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.GITHUB_PAT }}
           INPUT_SECTION: ${{ matrix.section }}
         run: |
-          set -uo pipefail
+          set -euo pipefail
           SUMMARY="$RUNNER_TEMP/hubs/summary.json"
           DIST="$(jq -r --arg s "$INPUT_SECTION" '.sections[$s].distDir' "$SUMMARY")"
           REL="$(jq -r --arg s "$INPUT_SECTION" '.sections[$s].sitemapPath // empty' "$SUMMARY")"
@@ -446,20 +505,22 @@ jobs:
             echo "public/$REL unchanged — no commit"
             exit 0
           fi
-          # persist-credentials: false above left no push credential on origin,
-          # which is correct for the shard pushes and wrong for this one step.
-          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
-          git config user.name "Valerie Linc"
-          git config user.email "valerielinc@gmail.com"
-          git add -- "public/$REL"
-          git commit -q -m "🗺️ Topic-hub sitemap: $REL ($COUNT URL)"
-          # Races every other writer to main, exactly like
-          # sync-articles-sitemaps.yml. --regenerate-cmd re-copies the RENDERED
-          # file after a conflicting rebase, so the retry publishes this run's
-          # render rather than replaying a snapshot that lost.
-          bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "cp $DIST/$REL public/$REL && git add -- public/$REL" \
-            || echo "::warning::topic-sitemap commit did not land — the R2 copy above is already live; the index picks it up on a later run"
+          body="$RUNNER_TEMP/rerender-article-hub-sitemap-${INPUT_SECTION}-pr-body.md"
+          cat > "$body" <<'EOF'
+          Auto-generated by the article-hub rerender workflow.
+
+          ## Implementato
+          - Pubblica la sitemap topic tramite un branch stabile per sezione, così il required check `vitest (unit + integration)` gira prima dell'ingresso su `main`.
+
+          ## Non implementato (ancora)
+          Nessuno
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --path "public/$REL" \
+            --branch "chore/rerender-article-hub-sitemap-$INPUT_SECTION" \
+            --commit-message "🗺️ Topic-hub sitemap: $REL ($COUNT URL)" \
+            --title "chore(data): publish $INPUT_SECTION topic-hub sitemap" \
+            --body-file "$body"
 
       # A BOUNDED purge, on purpose.
       #
@@ -472,13 +533,13 @@ jobs:
       # before the next run.
       #
       # What does get purged is the set a human or a gate actually looks at:
-      # each locale's archive landing and each topic-hub landing, apex AND
+      # each locale's root landing, archive landing and each topic-hub landing, apex AND
       # origin. The origin is the one that matters and the one that is easy to
       # forget: locale-router.js fetches the shard origin with
       # `cacheEverything`, so that entry is keyed on the ORIGIN url and an
       # apex-only purge reports success while changing nothing.
       - name: Purge the edge for the hub landings
-        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success'
+        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success' && steps.render.outputs.deferred != 'true'
         continue-on-error: true
         env:
           INPUT_SECTION: ${{ matrix.section }}
@@ -492,8 +553,8 @@ jobs:
             exit 0
           fi
 
-          # Landings only: the archive landing, plus every topic hub's own
-          # landing.
+          # Landings only: the root landing, the archive landing, plus every
+          # topic hub's own landing.
           #
           # Matched POSITIVELY on the directory form (`…/index.html` that is
           # not `…/page-N/index.html`) rather than by excluding what looks like
@@ -545,9 +606,12 @@ jobs:
             if [ -s "$SUMMARY" ]; then
               jq -r --arg s "$INPUT_SECTION" '.sections[$s] |
                 "- archive pages: \(.archiveWritten)",
+                "- root landing pages: \(.landingWritten // 0)",
                 "- topic-hub pages: \(.topicHubWritten)",
                 "- paths pushed per locale: \(.pathsByLocale | to_entries | map("\(.key)=\(.value|length)") | join(" "))",
                 "- topic sitemap: \(.sitemapPath // "none") (\(.announcedUrlCount) URL)",
+                "- freshness deferred: \(.deferred // false)",
+                "- freshness note: \(.freshnessNote // "none")",
                 "- locales pushed: \((.pushedLocales // []) | join(", "))"' "$SUMMARY"
             else
               echo "- no summary produced (the render did not get that far)"
@@ -583,7 +647,7 @@ jobs:
       # e la forma deve restare identica a quella dello step di apertura —
       # la chiusura cerca per TITOLO, e un titolo diverso non chiude niente.
       - name: Resolve open issue on green
-        if: success()
+        if: success() && steps.render.outputs.deferred != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

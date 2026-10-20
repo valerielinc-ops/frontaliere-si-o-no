@@ -278,7 +278,10 @@ function buildAtsParserSection(tier) {
     // il voto di qualita' parlerebbe di un altro programma.
     return {
       imports: `import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';`,
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';`,
       fetchBlock: `/* ── Fetcher guidato dalla spec ───────────────────────────────
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
@@ -295,7 +298,7 @@ async function fetchJobListings() {
       imports: `import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';`,
@@ -323,7 +326,7 @@ async function fetchJobListings() {
         title: id.title,
         location: id.location,
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
       });
@@ -365,7 +368,7 @@ async function fetchJobListings() {
     title: j.title,
     location: j.location,
     url: j.applyUrl,
-    postedAt: j.postedAt,
+    ...mergeSourcePostingDates({}, j),
     description: j.descriptionHtml || '',
     jobReqId: j.jobReqId,
   }));
@@ -396,7 +399,7 @@ async function fetchJobListings() {
     title: j.title,
     location: j.location,
     url: j.applyUrl,
-    postedAt: j.postedAt,
+    ...mergeSourcePostingDates({}, j),
     description: j.descriptionHtml || '',
     jobReqId: j.jobReqId,
   }));
@@ -437,7 +440,8 @@ async function fetchJobListings() {
         title: job.title,
         location: job.location,
         url: job.applyUrl,
-        postedAt: job.postedAt,
+        ...mergeSourcePostingDates({}, job),
+        description: job.descriptionHtml || '',
         jobReqId: job.jobReqId,
       });
     }
@@ -460,14 +464,48 @@ async function fetchJobListings() {
 
 const atsSection = buildAtsParserSection(atsTier);
 const locationBlock = atsTier === 'prospected'
-  ? `    const geography = resolveSourceBackedSwissGeography(listing);
+  ? `    const sourceGeographyEvidence = {
+      location: listing.location,
+      addressLocality: listing.addressLocality,
+      addressRegion: listing.addressRegion,
+      addressCountry: listing.addressCountry,
+      country: listing.country,
+      postalCode: listing.postalCode,
+      streetAddress: listing.streetAddress,
+    };
+    const resolvedGeography = resolveSourceBackedSwissGeography(listing);
+    const geography = resolvedGeography
+      && (typeof sourceBackedSwissGeographyFields === 'function'
+        ? sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography)
+        : resolvedGeography);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
-    const { location, canton } = geography;`
+    const {
+      location,
+      canton,
+      addressLocality,
+      addressRegion,
+      addressCountry,
+      postalCode,
+      streetAddress,
+    } = geography;`
   : `    const location = normalizeSpace(listing.location || '');
     if (!location) continue;
     const canton = inferSwissTargetCanton(location) || '';`;
+const recommendedGeographyFields = atsTier === 'prospected'
+  ? `      addressLocality: normalizeSpace(addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || 'CH'),
+      country: normalizeSpace(addressCountry || 'CH'),
+      ...(postalCode ? { postalCode: normalizeSpace(postalCode) } : {}),
+      ...(streetAddress ? { streetAddress: normalizeSpace(streetAddress) } : {}),`
+  : `      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
+      country: normalizeSpace(listing.addressCountry || 'CH'),
+      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),`;
 
 /* ── Template: Parser ────────────────────────────────────────── */
 
@@ -487,6 +525,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 ${atsSection.imports ? `${atsSection.imports}\n` : ''}
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -730,12 +769,7 @@ ${locationBlock}
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
-      country: normalizeSpace(listing.addressCountry || 'CH'),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+${recommendedGeographyFields}
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME'
         ? 'part-time'
@@ -745,9 +779,8 @@ ${locationBlock}
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      // Preserve the source date; the shared merge assigns a stable first-seen
-      // date when the source does not publish one.
-      postedDate: listing.postedAt || null,
+      // Keep publication evidence separate from observation/creation aliases.
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -759,6 +792,94 @@ ${locationBlock}
   console.log(\`\\n📋 Total ${companyName} jobs discovered: \${jobs.length}\`);
   return jobs;
 }
+`;
+
+/* ── Template: Parser (Workday tier) ───────────────────────────
+ * A Workday tenant gets a thin wrapper over the shared factory, never a copy
+ * of the fetch loop: `createWorkdaySwissParser` owns the req's own primary
+ * workplace, the commune gazetteer then the official locality directory /
+ * postal code on a structured Swiss country, the detail's `timeType` and the
+ * source-body floor. The generic template above placed a req from its listing
+ * row with the gazetteer alone, read `timeType` from a CXS row that never
+ * carries it, and published nothing (the listing has no body).
+ */
+const workdayParserContent = `#!/usr/bin/env node
+/**
+ * ${companyName} job parser — Workday, through the shared factory.
+ *
+ * Source: ${careerUrl}
+ *
+ * \`createWorkdaySwissParser\` (./workday-swiss-job-parser-common.mjs) owns the
+ * whole Workday contract; do not copy its loop into this file.
+ *
+ * TODO before the first run:
+ *   - defaultCanton / defaultCity: the HQ, required by the factory but never
+ *     used to place a req.
+ *
+ * Left to the factory on purpose:
+ *   - countryFacetParameter: when the tenant rejects the default
+ *     \`locationCountry\` with HTTP 400, the factory reads the board's facets and
+ *     picks the country facet itself (\`discoverWorkdayCountryFacet\`). Declare it
+ *     only if the run log says "no single country facet on the Workday board"
+ *     and you verified the right key by hand.
+ *   - proveSwissAbsentFromLiveBoard: on by default, and the standard crawler
+ *     template honours the stamped zero without runner wiring. Pass \`false\`
+ *     only with a comment saying why.
+ */
+import { createWorkdaySwissParser } from './workday-swiss-job-parser-common.mjs';
+
+/* ── Constants ─────────────────────────────────────────────── */
+
+export const ${CONST_PREFIX}_KEY = '${companyKey}';
+export const ${CONST_PREFIX}_COMPANY_NAME = '${companyName}';
+export const ${CONST_PREFIX}_COMPANY_DOMAIN = '${companyDomain}';
+
+const CAREER_URL = '${careerUrl}';
+const _WORKDAY_URL = new URL(CAREER_URL);
+
+const parser = createWorkdaySwissParser({
+  companyKey: ${CONST_PREFIX}_KEY,
+  companyName: ${CONST_PREFIX}_COMPANY_NAME,
+  companyDomain: ${CONST_PREFIX}_COMPANY_DOMAIN,
+  tenantHost: _WORKDAY_URL.hostname,
+  sitePath: _WORKDAY_URL.pathname.replace(/^\\/+|\\/+$/g, '').split('/').pop() || 'External',
+  careerUrl: CAREER_URL,
+  defaultCanton: 'TODO',
+  defaultCity: 'TODO',
+  defaultSourceLang: '${sourceLang}',
+});
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+/**
+ * Check if a job belongs to ${companyName}.
+ * Used by the template to filter this company's jobs from the global dataset.
+ */
+export function is${pascalKey}Job(job) {
+  const key = normalize(job?.companyKey || job?.company || '')
+    .normalize('NFD')
+    .replace(/[\\u0300-\\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const company = normalize(job?.company || '');
+  const url = normalize(job?.url || '');
+
+  return (
+    key === ${CONST_PREFIX}_KEY ||
+    key.startsWith('${companyKey}-') ||
+    company.includes('${companyName.toLowerCase()}') ||
+    url.includes('${companyDomain}') ||
+    parser.isCompanyJob(job)
+  );
+}
+
+/** The corporate domain and the Workday tenant that serves the postings. */
+export const isTrustedDomain = parser.isTrustedDomain;
+
+/** Fetch and parse all Swiss jobs (source-locale only). */
+export const fetchAll${pascalKey}Jobs = parser.fetchAllJobs;
 `;
 
 /* ── Template: Runner ────────────────────────────────────────── */
@@ -838,12 +959,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 50
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
@@ -1112,7 +1233,7 @@ function upsertCrawlerManifestEntry(entry) {
 
 console.log(`\n🏗️  Scaffolding crawler: ${companyKey} (${companyName}) [--ats=${atsTier}${playwrightTier ? ', --playwright' : ''}${ignoreScriptsTier ? ', --ignore-scripts' : ''}]\n`);
 
-writeFile(files.parser, parserContent, 'Parser');
+writeFile(files.parser, atsTier === 'workday' ? workdayParserContent : parserContent, 'Parser');
 writeFile(files.runner, runnerContent, 'Runner');
 writeFile(files.test, testContent, 'Test');
 upsertCrawlerManifestEntry(workflowContentToManifestEntry(companyKey, workflowContent));

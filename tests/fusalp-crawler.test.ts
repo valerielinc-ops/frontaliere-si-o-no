@@ -1,9 +1,12 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   FUSALP_KEY,
   FUSALP_COMPANY_NAME,
   isFusalpJob,
   isTrustedDomain,
+  parseFusalpDetailDescription,
 } from '../scripts/lib/fusalp-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -124,6 +127,40 @@ describe('Fusalp crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── Detail body (#5253: JSON-LD lost "About"/"Recruitment Process" and the
+  //    whitespace collapse flattened every list) ──
+  describe('parseFusalpDetailDescription', () => {
+    const html = readFileSync(path.join(__dirname, 'fixtures', 'fusalp-detail.html'), 'utf8');
+
+    it('keeps every vacancy block with its heading, in page order', () => {
+      const description = parseFusalpDetailDescription(html);
+      const order = ['About', 'Job Description', 'Preferred Experience', 'Recruitment Process', 'Additional Information'];
+      const positions = order.map((marker) => description.indexOf(`${marker}\n`));
+      expect(positions.every((index) => index >= 0)).toBe(true);
+      expect([...positions].sort((a, b) => a - b)).toEqual(positions);
+      expect(description).toContain('This role strengthens our Zermatt boutique');
+      expect(description).toContain('you will first meet our HR team');
+    });
+
+    it('keeps lists as one line-start bullet per item', () => {
+      const description = parseFusalpDetailDescription(html);
+      expect(description).toMatch(/^• English is required\.$/m);
+      expect(description).toMatch(/^• Contract Type: Part-Time$/m);
+      expect(description).toMatch(/^• Location: Zermatt$/m);
+    });
+
+    it('leaves the apply block and the photo carousel out', () => {
+      const description = parseFusalpDetailDescription(html);
+      expect(description).not.toContain('Sounds like something made for you');
+      expect(description).not.toContain('Apply Now');
+      expect(description).not.toContain('welcometothejungle');
+    });
+
+    it('returns an empty string when the page has no vacancy blocks', () => {
+      expect(parseFusalpDetailDescription('<html><body><p>Not found</p></body></html>')).toBe('');
     });
   });
 });

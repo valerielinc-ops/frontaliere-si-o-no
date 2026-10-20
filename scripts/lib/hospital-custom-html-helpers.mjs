@@ -39,6 +39,84 @@ export function decodeEntities(s = '') {
 }
 
 /**
+ * Extract PDF links from a server-rendered HTML listing and resolve them
+ * against the page URL. WordPress/Weebly sources vary in harmless ways here:
+ * single vs double quotes, relative vs absolute paths, and download query
+ * parameters. Keeping this shape in one helper prevents each PDF crawler from
+ * silently drifting to a narrower selector.
+ *
+ * The path (not the complete URL) must end in .pdf; a query-only value such
+ * as /download?file=role.pdf is not a PDF resource and must not reach the
+ * downloader. Non-HTTP schemes are excluded before any caller fetches them.
+ *
+ * @param {string} html
+ * @param {string|URL} baseUrl
+ * @returns {Array<{href: string, filename: string}>}
+ */
+export function extractPdfLinks(html = '', baseUrl = '') {
+  if (!html || typeof html !== 'string' || !baseUrl) return [];
+
+  let base;
+  try {
+    base = new URL(baseUrl);
+  } catch {
+    return [];
+  }
+
+  const links = [];
+  // Limit extraction to real anchor start tags and consume full attributes,
+  // so data-href, aria-href, and text inside another attribute cannot
+  // impersonate the actual href.
+  const anchorRe = /<a\b(?:[^>"']|"[^"]*"|'[^']*')*>/gi;
+  const attributeRe = /\s+([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g;
+  let anchorMatch;
+  while ((anchorMatch = anchorRe.exec(html)) !== null) {
+    let hrefMatch = null;
+    let attributeMatch;
+    attributeRe.lastIndex = 0;
+    while ((attributeMatch = attributeRe.exec(anchorMatch[0])) !== null) {
+      if (attributeMatch[1].toLowerCase() !== 'href') continue;
+      hrefMatch = attributeMatch;
+      break;
+    }
+    if (!hrefMatch) continue;
+    const quotedHref = hrefMatch[2] ?? hrefMatch[3];
+    if (quotedHref === undefined) continue;
+
+    let rawHref;
+    try {
+      rawHref = decodeEntities(quotedHref).trim();
+    } catch {
+      // A malformed entity invalidates this candidate, not the whole listing.
+      continue;
+    }
+    if (!rawHref) continue;
+
+    let url;
+    try {
+      url = new URL(rawHref, base);
+    } catch {
+      continue;
+    }
+    if (!/^https?:$/i.test(url.protocol) || /\.pdf$/i.test(url.pathname) === false) continue;
+
+    const pathFilename = url.pathname.slice(url.pathname.lastIndexOf('/') + 1);
+    let filename;
+    try {
+      filename = decodeURIComponent(pathFilename);
+    } catch {
+      // Keep a malformed escape visible to the caller instead of turning a
+      // single bad link into a crawler-wide URIError.
+      filename = pathFilename;
+    }
+    if (!filename) continue;
+
+    links.push({ href: url.href, filename });
+  }
+  return links;
+}
+
+/**
  * Parse a "DD.MM.YYYY" (or single-digit "D.M.YYYY") Swiss short date into
  * ISO "YYYY-MM-DD". Returns '' if the input doesn't match. Shared home for
  * a construct several hospital/institutional parsers need independently
@@ -74,7 +152,7 @@ export function htmlToText(html = '') {
       // can no longer detect as a list — the Spital-STS-class "10/10 flat"
       // regression. The bullet also survives a later `normalizeSpace()` collapse
       // as an inline `• `, which `normalizeDescriptionBullets` re-expands.
-      .replace(/<li[^>]*>/gi, '\n• ')
+      .replace(/<li\b[^>]*>/gi, '\n• ')
       .replace(/<\/(p|div|li|h[1-6]|tr)>/gi, '\n')
       .replace(/<[^>]+>/g, ' ')
       .replace(/\n{3,}/g, '\n\n')
@@ -126,10 +204,10 @@ export function stripInlineJsCode(text = '') {
   return cut > 0 ? text.slice(0, cut).trimEnd() : text;
 }
 
-export async function fetchHtml(url, { timeoutMs } = {}) {
+export async function fetchHtml(url, { timeoutMs, includeStatus = false } = {}) {
   const t = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
-    const html = await fetchWithRetry(async () => {
+    const response = await fetchWithRetry(async () => {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), t);
       try {
@@ -143,13 +221,16 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
           err.retryable = RETRYABLE_STATUS.has(res.status);
           throw err;
         }
-        return await res.text();
+        return { status: res.status, body: await res.text() };
       } finally {
         clearTimeout(timer);
       }
     }, { label: `hospital-custom-html ${url}` });
     // 200-but-challenge (IP-reputation WAF served a challenge on a 200) → Jina.
-    return await rescueHtmlIfChallenged(html, url, { timeoutMs: t });
+    const body = await rescueHtmlIfChallenged(response.body, url, { timeoutMs: t });
+    return includeStatus
+      ? { status: body === response.body ? response.status : 200, body }
+      : body;
   } catch (err) {
     // The plain retries above all hit a connection-level `fetch failed`: the
     // GitHub runner's datacenter egress intermittently can't reach an otherwise
@@ -172,7 +253,7 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
       // the original error (dataset preserved). Body validation + original-error
       // preservation live in the shared helper.
       const html = await fetchHtmlViaJinaWithRetry(url, { timeoutMs: t });
-      if (html != null) return html;
+      if (html != null) return includeStatus ? { status: 200, body: html } : html;
     }
     throw err;
   }
@@ -297,8 +378,8 @@ export function detectHealthcareExperienceLevel(text = '') {
  *   Recognises percentages ("80%", "60-100%"), German keywords (Vollzeit/Teilzeit),
  *   French (temps plein/partiel) and Italian (tempo pieno/parziale).
  */
-export function detectHealthcareEmploymentType(text = '') {
-  const t = normalize(text);
+export function detectHealthcareEmploymentType(text = '', workload = '') {
+  const t = normalize(`${text || ''} ${workload || ''}`);
   if (!t) return 'OTHER';
   const pct = t.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || t.match(/(\d{2,3})\s*%/);
   if (pct) {

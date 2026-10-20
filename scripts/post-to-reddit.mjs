@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Post a new blog article to Reddit.
  *
@@ -166,7 +168,7 @@ async function main() {
 // it, `import`ing this module to unit-test `automationSubsForTopic` runs
 // `main()`, which calls `process.exit(0)` on missing argv. A posting script is
 // the last place that should execute as a side effect of being read.
-const isDirectInvocation = import.meta.url === `file://${process.argv[1]}`;
+const isDirectInvocation = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectInvocation) {
   main().catch((err) => {
     console.error('⚠️ post-to-reddit crashed:', err?.message || err);

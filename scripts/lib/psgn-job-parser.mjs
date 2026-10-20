@@ -22,6 +22,7 @@
  * that survived the same Prospective 400 outage by scraping HTML directly).
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -36,6 +37,8 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
+import { extractJsonLd, selectDetailStructuredRecords } from './prospector/extract.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -164,10 +167,20 @@ export function parseJobListHtml(html = '') {
  * text. Falls back to the `<section id="introduction">` + `<section id="aufgabeProfil">`
  * Prospective accordions when JSON-LD is missing.
  */
-function extractDetailDescription(html) {
+export function extractPsgnDetail(html, pageUrl = '', recordTitle = '') {
   const parts = [];
+  let sourceAddress = null;
+  const [selectedPosting] = selectDetailStructuredRecords(
+    extractJsonLd(html, pageUrl),
+    pageUrl,
+    recordTitle,
+    pageUrl,
+    recordTitle,
+  );
 
-  // Try JSON-LD first.
+  // Keep the source-specific body formatting, but only for the raw node whose
+  // identity the shared detail selector accepted. Recommendation/stale nodes
+  // on the same page are never eligible geography or prose evidence.
   for (const m of html.matchAll(
     /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi,
   )) {
@@ -175,16 +188,41 @@ function extractDetailDescription(html) {
     if (!raw.includes('responsibilities') && !raw.includes('qualifications')) continue;
     try {
       const data = JSON.parse(raw);
-      const items = Array.isArray(data) ? data : [data];
-      for (const item of items) {
+      for (const item of extractJobPostingNodesFromJson(data)) {
         if (item && (item.responsibilities || item.qualifications || item.description)) {
+          const rawUrl = String(item.url || item.sameAs || '');
+          let itemUrl = rawUrl;
+          try { if (rawUrl) itemUrl = new URL(rawUrl, pageUrl).toString(); } catch { /* retain raw evidence */ }
+          const identityMatches = selectedPosting && (selectedPosting.urlExplicit
+            ? itemUrl === selectedPosting.url
+            : normalize(item.title || item.name) === normalize(selectedPosting.title));
+          if (!identityMatches) continue;
+
+          const locations = Array.isArray(item.jobLocation) ? item.jobLocation : [item.jobLocation];
+          for (const place of locations.filter(Boolean)) {
+            const addresses = Array.isArray(place.address) ? place.address : [place.address];
+            const address = addresses.find((candidate) => candidate && typeof candidate === 'object');
+            if (address) {
+              sourceAddress = {
+                location: normalizeSpace(decodeEntities(address.addressLocality || '')),
+                postalCode: normalizeSpace(address.postalCode || ''),
+              };
+              break;
+            }
+          }
           const intro = normalizeSpace(htmlToText(String(item.description || '')));
           const resp = normalizeSpace(htmlToText(String(item.responsibilities || '')));
           const qual = normalizeSpace(htmlToText(String(item.qualifications || '')));
           if (intro) parts.push(intro);
           if (resp) parts.push(`Aufgaben:\n${resp}`);
           if (qual) parts.push(`Anforderungen:\n${qual}`);
-          if (parts.length) return parts.join('\n\n');
+          if (parts.length) {
+            return {
+              description: parts.join('\n\n'),
+              location: sourceAddress?.location || '',
+              postalCode: sourceAddress?.postalCode || '',
+            };
+          }
         }
       }
     } catch {
@@ -201,17 +239,21 @@ function extractDetailDescription(html) {
       if (txt) parts.push(txt);
     }
   }
-  return parts.join('\n\n');
+  return {
+    description: parts.join('\n\n'),
+    location: '',
+    postalCode: '',
+  };
 }
 
-async function fetchDetail(detailUrl) {
+async function fetchDetail(detailUrl, recordTitle) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return '';
-    return extractDetailDescription(html);
+    if (!html) return { description: '', location: '', postalCode: '' };
+    return extractPsgnDetail(html, detailUrl, recordTitle);
   } catch (err) {
     console.warn(`  ⚠️ PSGN detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return '';
+    return { description: '', location: '', postalCode: '' };
   }
 }
 
@@ -229,10 +271,6 @@ function pickPostalCode(city) {
 function pickCanton(city) {
   const inferred = inferSwissTargetCanton(city);
   return inferred || 'SG';
-}
-
-function parsePostedDate() {
-  return new Date().toISOString().slice(0, 10);
 }
 
 /* ── Main entry ────────────────────────────────────────────── */
@@ -254,6 +292,7 @@ export async function fetchAllPsgnJobs() {
   try {
     listHtml = await fetchHtml(CAREER_LIST_URL);
   } catch (err) {
+    // fetch-failure-empty-ok: PSGN's isolated careercenter is optional; callers retain the previous source snapshot.
     console.warn(`  ⚠️ PSGN careercenter fetch failed: ${err?.message || err}. Returning [].`);
     return [];
   }
@@ -267,15 +306,17 @@ export async function fetchAllPsgnJobs() {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
 
-    const detailText = await fetchDetail(r.detailHref);
-    const fallback = `${r.title} — ${PSGN_COMPANY_NAME}, ${r.location}${r.department ? ` (${r.department})` : ''}.`;
+    const detail = await fetchDetail(r.detailHref, r.title);
+    const detailText = detail.description;
+    const location = detail.location || r.location;
+    const fallback = `${r.title} — ${PSGN_COMPANY_NAME}, ${location}${r.department ? ` (${r.department})` : ''}.`;
     const safeDescription = detailText && detailText.split(/\s+/).length >= 30
       ? detailText
       : [fallback, detailText].filter(Boolean).join('\n\n');
 
-    const canton = pickCanton(r.location);
+    const canton = pickCanton(location);
     const sourceLang = detectLang(safeDescription || r.title, 'de');
-    const jobSlug = slugify(`${r.title} ${PSGN_KEY} ${r.location}`);
+    const jobSlug = slugify(`${r.title} ${PSGN_KEY} ${location}`);
     const url = r.detailHref;
     const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
 
@@ -293,18 +334,18 @@ export async function fetchAllPsgnJobs() {
       description: safeDescription,
       descriptionByLocale: { [sourceLang]: safeDescription },
       needsRetranslation: true,
-      location: r.location,
+      location,
       canton,
       url,
       source: 'Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
-      addressLocality: r.location,
+      addressLocality: location,
       addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: pickPostalCode(r.location),
+      postalCode: detail.postalCode || pickPostalCode(location),
       category: detectHealthcareCategory(r.title),
       contract: 'full-time',
       employmentType,
@@ -312,7 +353,8 @@ export async function fetchAllPsgnJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: parsePostedDate(),
+      // This adapter extracts no verified publication date.
+      ...sourcePostingDateFields(),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

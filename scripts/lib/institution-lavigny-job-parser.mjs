@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Institution de Lavigny job parser — custom HTML listing on ilavigny.ch.
  *
@@ -29,7 +31,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { fetchHtml, slugify } from './crawler-template.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -45,18 +47,10 @@ import {
 // Accept (same pattern as the riveneuve parser).
 async function fetchLavignyHtml(url, opts = {}) {
   const t = Number(opts.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), t);
-  try {
-    const res = await fetch(url, {
+  return fetchHtml(url, {
+    timeoutMs: t,
       headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  });
 }
 
 export const INSTITUTION_LAVIGNY_KEY = 'institution-lavigny';
@@ -148,6 +142,7 @@ export function parseLavignyListing(html) {
       detailText,
       jobupUuid,
       applyUrl,
+      ...sourcePostingDateFields(extractJobPostingLd(block)?.datePosted),
     });
   }
   return out;
@@ -165,13 +160,12 @@ export async function fetchAllInstitutionLavignyJobs() {
     html = await fetchLavignyHtml(LISTING_URL, { timeoutMs: 40000 });
   } catch (err) {
     console.warn(`  ⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const items = parseLavignyListing(html);
   console.log(`  ✓ ${items.length} offerte trovate`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of items) {
     const { postalCode, city } = extractPostalCity(it.locationLine);
@@ -230,7 +224,7 @@ export async function fetchAllInstitutionLavignyJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, it),
       applyUrl: finalUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 
-import { buildArticleSeoSections, cleanupArticleBodySections } from '@/build-plugins/articleSeoFallback';
+import {
+  buildArticleSeoSections,
+  cleanupArticleBodySections,
+  renderArticleDerivedSectionsHtml,
+  renderArticleInlineMarkup,
+} from '@/build-plugins/articleSeoFallback';
+import { normalizeArticleMarkdown } from '@/packages/articles/engine/shared/normalizeArticleMarkdown';
 import { flattenedSwissBody1, flattenedSwissBody3, flattenedSwissBodies } from './fixtures/flattenedArticleBodies';
 
 const wordCount = (value: string) => value.split(/\s+/).filter(Boolean).length;
@@ -60,6 +66,49 @@ describe('article SEO fallback builder', () => {
     ]);
   });
 
+  it('renders underscore emphasis without changing identifiers that contain underscores', () => {
+    expect(renderArticleInlineMarkup('_Fonte: Ticinonline, 24 febbraio 2026_')).toBe(
+      '<em>Fonte: Ticinonline, 24 febbraio 2026</em>',
+    );
+    expect(renderArticleInlineMarkup('**_mobilità pubblica_**')).toBe(
+      '<strong><em>mobilità pubblica</em></strong>',
+    );
+    expect(renderArticleInlineMarkup('MOPS_DanceSyndrome')).toBe('MOPS_DanceSyndrome');
+  });
+
+  it('renders emphasis nested inside Markdown link labels', () => {
+    expect(renderArticleInlineMarkup('[**Riforma disoccupazione frontalieri**](https://example.com)')).toBe(
+      '<a href="https://example.com"><strong>Riforma disoccupazione frontalieri</strong></a>',
+    );
+    expect(renderArticleInlineMarkup('[*La mia impresa, il mio futuro*](https://example.com)')).toBe(
+      '<a href="https://example.com"><em>La mia impresa, il mio futuro</em></a>',
+    );
+  });
+
+  it('turns legacy disclosure tags into headings instead of visible markup', () => {
+    const [section] = cleanupArticleBodySections(keyed([
+      'Intro.\n\n<details>\n<summary>Coverage</summary>\nBody.\n</details>',
+    ]));
+
+    expect(section.html).toContain('<h3>Coverage</h3>');
+    expect(section.html).toContain('<p>Body.</p>');
+    expect(section.html).not.toMatch(/(?:&lt;|<\/?)(?:details|summary)/i);
+  });
+
+  it('leaves disclosure-looking tags inside fenced code unchanged', () => {
+    const source = '```html\n<details><summary>literal</summary></details>\n```';
+
+    expect(normalizeArticleMarkdown(source)).toBe(source);
+  });
+
+  it('clamps a skipped heading level under the article section wrapper', () => {
+    const html = renderArticleDerivedSectionsHtml([
+      { heading: 'Contesto', html: '<h4>Analisi</h4><p>Testo.</p>' },
+    ]);
+
+    expect(html).toContain('<h2>Contesto</h2><h3>Analisi</h3>');
+  });
+
   it('recovers flattened headings instead of emitting a long heading block', () => {
     const [section] = cleanupArticleBodySections(keyed([
       '## In short - Point one - Point two ## Key facts - What: value - When: today ## Accident Details The medical emergency continued ## Additional information For more details, consult the official source.',
@@ -99,6 +148,70 @@ describe('article SEO fallback builder', () => {
     expect(sections.map((s) => s.html)).toEqual(['<p>Tom &amp; Jerry &lt;script&gt;alert(1)&lt;/script&gt;</p>']);
   });
 
+  it('renders legacy HTML anchors from archived bodies without exposing markup', () => {
+    const [section] = cleanupArticleBodySections(keyed([
+      'Fonte: <a href="https://www.seco.admin.ch/" target="_blank" rel="noopener">SECO</a>.',
+    ]));
+
+    expect(section.html).toBe(
+      '<p>Fonte: <a href="https://www.seco.admin.ch/">SECO</a>.</p>',
+    );
+    expect(section.html).not.toContain('&lt;a');
+    expect(section.html).not.toContain('target=');
+  });
+
+  it('normalizes legacy angle nav markers without exposing malformed URLs', () => {
+    expect(renderArticleInlineMarkup('[LAMal](<nav:health>)')).toBe('LAMal');
+    expect(renderArticleInlineMarkup('[Costo della vita](<nav:cost-of-living>)')).toBe('Costo della vita');
+    expect(renderArticleInlineMarkup('[Calcolatore](<nav:calculator>)')).toBe('Calcolatore');
+    expect(renderArticleInlineMarkup('Usa il <nav:calculator>calcolatore</nav:calculator>.')).toBe('Usa il calcolatore.');
+    expect(renderArticleInlineMarkup('Usa il calcolatore (<nav:calculator>).')).toBe('Usa il calcolatore.');
+    expect(renderArticleInlineMarkup('prefisso(<nav:calculator>)')).toBe('prefisso(&lt;nav:calculator&gt;)');
+    expect(renderArticleInlineMarkup('<nav:calculator>')).toBe('');
+    expect(renderArticleInlineMarkup('<nav:calculator>.')).toBe('.');
+    expect(renderArticleInlineMarkup('<nav:calculator> costo')).toBe('&lt;nav:calculator&gt; costo');
+    expect(renderArticleInlineMarkup('</nav:health>')).toBe('&lt;/nav:health&gt;');
+    expect(renderArticleInlineMarkup('<nav:calculator> costo </nav:health>')).toBe(
+      '&lt;nav:calculator&gt; costo &lt;/nav:health&gt;',
+    );
+  });
+
+  it('renders markdown links in visible FAQ-style answers with safe URLs', () => {
+    const [section] = cleanupArticleBodySections(keyed([
+      'Verifica la [pagina ufficiale](https://www.estv.admin.ch/it/).',
+    ]));
+
+    expect(section.html).toBe(
+      '<p>Verifica la <a href="https://www.estv.admin.ch/it/">pagina ufficiale</a>.</p>',
+    );
+  });
+
+  it('keeps unsafe inline URLs as escaped text', () => {
+    const [section] = cleanupArticleBodySections(keyed([
+      '[Apri](javascript:alert)',
+    ]));
+
+    expect(section.html).toBe('<p>Apri</p>');
+    expect(section.html).not.toContain('javascript:');
+  });
+
+  it.each([
+    'alertswiss.ch', 'www.chiasso.ch/missione-emergenza-chiasso-2026', 'calculator',
+    'https:example.test', 'https://', '//example.test/', '/\\example.test/',
+  ])('does not invent article-child URLs from an unresolved source href (%s)', (href) => {
+    expect(renderArticleInlineMarkup(`[**Fonte**](${href})`)).toBe('<strong>Fonte</strong>');
+    expect(renderArticleInlineMarkup(`<a href="${href}">Fonte</a>`)).toBe('Fonte');
+  });
+
+  it.each([
+    'https://example.test/source/?id=1', 'http://example.test/source/',
+    '/cambio-chf-eur/', '#fonti', '../other-article/', './document.pdf', 'mailto:help@example.test',
+    'foo/bar', '?section', 'other-article', 'report.pdf', './alertswiss.ch', 'calculator/help',
+  ])('preserves resolved and standard relative article links (%s)', (href) => {
+    expect(renderArticleInlineMarkup(`[Fonte](${href})`)).toBe(`<a href="${href}">Fonte</a>`);
+    expect(renderArticleInlineMarkup(`<a href="${href}">Fonte</a>`)).toBe(`<a href="${href}">Fonte</a>`);
+  });
+
   it('renders single-# headings (used by some articles) as h3, not literal text', () => {
     const sections = cleanupArticleBodySections(keyed(['# Titolo principale\nTesto del paragrafo.']));
 
@@ -132,11 +245,32 @@ describe('article SEO fallback builder', () => {
       const [section] = cleanupArticleBodySections(keyed([table]));
 
       expect(section.html).toBe(
-        '<table><thead><tr><th>Valico</th><th>Attesa</th></tr></thead>'
+        '<table aria-label="Table 1: Valico"><caption class="sr-only">Table 1: Valico</caption><thead><tr><th scope="col">Valico</th><th scope="col">Attesa</th></tr></thead>'
         + '<tbody><tr><td>Chiasso-Brogeda</td><td>12 min</td></tr>'
         + '<tr><td>Ponte Tresa</td><td>0 min</td></tr></tbody></table>',
       );
       expect(section.html).not.toContain('|');
+    });
+
+    it('gives each table a unique accessible name across body sections', () => {
+      const [firstTable, secondTable] = cleanupArticleBodySections([
+        { key: 'body1', text: '| anno | valore |\n|---|---|\n| 2025 | 1 |' },
+        { key: 'body2', text: '| anno | valore |\n|---|---|\n| 2026 | 2 |' },
+      ]);
+
+      expect(firstTable.html).toContain('aria-label="Table 1: anno"');
+      expect(secondTable.html).toContain('aria-label="Table 2: anno"');
+      expect(firstTable.html).toContain('<th scope="col">anno</th>');
+      expect(secondTable.html).toContain('<th scope="col">anno</th>');
+    });
+
+    it('pads an incomplete row so every column header has a data cell', () => {
+      const [section] = cleanupArticleBodySections(keyed([
+        '| Voce | Valore | Fonte |\n|---|---|---|\n| Cambio | 1.07 |',
+      ]));
+
+      expect(section.html).toContain('<td>—</td>');
+      expect(section.html.match(/<td>/g) ?? []).toHaveLength(3);
     });
 
     it('renders inline markup inside cells', () => {
@@ -186,8 +320,8 @@ describe('article SEO fallback builder', () => {
         ].join('\n'),
       ]));
 
-      expect(section.html).toContain('<table>');
-      expect(section.html).toContain('<th>Nota con ## marker interno</th>');
+      expect(section.html).toContain('<table aria-label="Table 1: Voce">');
+      expect(section.html).toContain('<th scope="col">Nota con ## marker interno</th>');
       expect(section.html).not.toContain('<h3>');
     });
 

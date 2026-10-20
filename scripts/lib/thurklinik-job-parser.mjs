@@ -15,6 +15,7 @@
  * (Gynaecology, Urology, ENT, Orthopaedics, Visceral & Hand surgery,
  * Anaesthesia & pain therapy).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -108,21 +109,21 @@ export function parseListing(html = '') {
 
 /* ── Description builder ───────────────────────────────────── */
 
-export function buildThurklinikDescription({ title, pdfText = '', pdfUrl = '' }) {
-  return buildPdfBackedDescription({
-    introLines: [
-      `Die Thurklinik in Niederuzwil (SG) ist eine Belegspital-Tagesklinik mit Schwerpunkten Gynäkologie, Urologie, HNO, Orthopädie, Viszeral- und Handchirurgie sowie Anästhesie und Schmerztherapie.`,
-      `Stelle: ${title}.`,
-    ],
-    pdfText,
-    fallbackText: `Stelle "${title}" an der Thurklinik Niederuzwil. Vollständige Anforderungen, Aufgaben und Bewerbungsmodalitäten sind dem offiziellen PDF zu entnehmen.`,
-    footerLines: [
-      `Quelle (PDF): ${pdfUrl}`,
-      `Karriereseite: ${THURKLINIK_CAREERS_URL}`,
-      `Spital: Thurklinik, Niederuzwil (SG)`,
-    ],
-  });
+/**
+ * The description of one posting is the text of its PDF and nothing else. The
+ * crawler used to wrap it in lines of its own (a paragraph on the Thurklinik,
+ * "Stelle: <Titel>.", "Quelle (PDF): …", "Karriereseite: …", "Spital: …") and
+ * to substitute a sentence of its own when the PDF had no text. A PDF without
+ * readable text now gives no description and the job takes the pipeline's
+ * thin-source path.
+ */
+export function buildThurklinikDescription({ pdfText = '' } = {}) {
+  return buildPdfBackedDescription({ pdfText });
 }
+
+/** Fragments only the crawler's former wrapper wrote. */
+export const THURKLINIK_FABRICATED_DESCRIPTION_RE =
+  /ist eine Belegspital-Tagesklinik mit Schwerpunkten|sind dem offiziellen PDF zu entnehmen\.|(?:^|\n)Spital: Thurklinik, Niederuzwil \(SG\)/;
 
 /* ── Fetcher ───────────────────────────────────────────────── */
 
@@ -135,7 +136,7 @@ export async function fetchAllThurklinikJobs() {
     listingHtml = await fetchHtml(THURKLINIK_CAREERS_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   let rows = parseListing(listingHtml);
   // Drop spontaneous-application placeholders, they are not real openings.
@@ -143,7 +144,6 @@ export async function fetchAllThurklinikJobs() {
   console.log(`  ✓ ${rows.length} concrete PDF postings detected`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
@@ -157,15 +157,7 @@ export async function fetchAllThurklinikJobs() {
     } catch (err) {
       console.warn(`     ⚠️ PDF fetch failed: ${err?.message || err}`);
     }
-    const description = buildThurklinikDescription({
-      title: row.title,
-      pdfText,
-      pdfUrl: row.pdfUrl,
-    });
-    if (!description || description.length < 200) {
-      console.warn(`     ⚠️ Description too short (${description.length} chars) — skipping`);
-      continue;
-    }
+    const description = buildThurklinikDescription({ pdfText });
 
     const sourceLang = detectLang(description || row.title, 'de');
     const jobSlug = slugify(`${row.title} ${THURKLINIK_KEY} ${HQ_CITY}`);
@@ -204,7 +196,8 @@ export async function fetchAllThurklinikJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // The PDF extraction has no verified publication metadata.
+      ...sourcePostingDateFields(),
       applyUrl: THURKLINIK_CAREERS_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

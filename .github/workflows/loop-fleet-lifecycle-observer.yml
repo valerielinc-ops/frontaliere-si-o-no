@@ -13,8 +13,9 @@ permissions:
   actions: read
   pull-requests: read
 
-# Serialize with the durable ledger bridge because both may update the same
-# append-only ledger branch. Neither workflow can write main directly.
+# Keep observer invocations serialized with each other. Source-run bridges keep
+# independent pending groups; both appenders retry branch races idempotently.
+# Neither workflow can write main directly.
 concurrency:
   group: loop-fleet-durable-ledger
   cancel-in-progress: false
@@ -25,17 +26,20 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout lifecycle contract
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: main
           fetch-depth: 1
           persist-credentials: false
           sparse-checkout: |
             /data/loop-fleet/loop-registry.json
-            /data/loop-fleet/ledger/
+            /data/loop-fleet/ledger/lifecycle-events*.jsonl
+            /scripts/ci/overlay-durable-loop-fleet-ledger.sh
             /scripts/ci/observe-loop-fleet-lifecycle.mjs
             /scripts/ci/append-loop-fleet-lifecycle.mjs
             /scripts/ci/mint-app-token.mjs
+            /scripts/ci/lib/run-listing-window.mjs
+            /scripts/lib/loop-fleet-ledger-files.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/githubApiHeaders.mjs
             /scripts/lib/google-service-account-token.mjs
@@ -44,7 +48,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -54,17 +58,14 @@ jobs:
           git fetch origin main
           git checkout --detach origin/main
 
-      - name: Overlay durable ledger data for observation
-        run: |
-          set -euo pipefail
-          ledger_branch='ledger/loop-fleet'
-          if timeout --signal=TERM --kill-after=10s 90s git fetch origin "$ledger_branch"; then
-            git checkout FETCH_HEAD -- data/loop-fleet/ledger/
-          else
-            echo '::notice::durable ledger branch is unavailable; observing the main seed data.'
-          fi
+      - name: Overlay bounded lifecycle ledger input
+        id: overlay_durable_ledger
+        env:
+          LEDGER_BRANCH: ledger/loop-fleet
+        run: bash scripts/ci/overlay-durable-loop-fleet-ledger.sh lifecycle
 
       - name: Observe PR, Actions and post-merge evidence
+        if: ${{ steps.overlay_durable_ledger.outputs.overlay_status == 'ready' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -111,6 +112,10 @@ jobs:
 
       - name: Persist lifecycle evidence to durable branch
         env:
+          # APP_TOKEN solo con contents+pull_requests verificati dal conio
+          # (APP_TOKEN_DATA_REFRESH): altrimenti vale vuoto e lo script ricade
+          # sul suo fallback. Lint: tests/workflow-app-token-capability.test.ts.
+          APP_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
           EVENT_FILE: ${{ runner.temp }}/loop-fleet-lifecycle-observer/lifecycle-events.jsonl
         run: |
           set -euo pipefail
@@ -118,7 +123,10 @@ jobs:
           bounded_remote() {
             local operation="${1:-remote-command}"
             local status
-            if timeout --signal=TERM --kill-after=10s "${remote_timeout_seconds}s" "$@"; then
+            if GIT_CONFIG_COUNT=1 \
+              GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
+              GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}" \
+              timeout --signal=TERM --kill-after=10s "${remote_timeout_seconds}s" "$@"; then
               return 0
             else
               status=$?
@@ -139,6 +147,7 @@ jobs:
             exit 1
           fi
           export GH_TOKEN="$write_token"
+          basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
 
           git config user.name 'frontaliere-automation[bot]'
           git config user.email '41898282+frontaliere-automation[bot]@users.noreply.github.com'
@@ -150,7 +159,10 @@ jobs:
           ledger_worktree="${RUNNER_TEMP}/loop-fleet-ledger-worktree"
           ledger_start='origin/main'
           if bounded_remote git ls-remote --exit-code --heads origin "refs/heads/$ledger_branch" >/dev/null 2>&1; then
-            bounded_remote git fetch origin "$ledger_branch"
+            # Only the current tip/tree and one bounded blob pack are needed to
+            # append a new shard. Avoid replaying history or lazy-fetching every
+            # ledger shard one by one from the blobless Actions checkout.
+            bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"
             ledger_start="origin/$ledger_branch"
           fi
           # Keep validators and the registry from the current main checkout;
@@ -161,13 +173,14 @@ jobs:
           git -C "$ledger_worktree" add -- data/loop-fleet/ledger/
           ledger_dir="$ledger_worktree/data/loop-fleet/ledger"
 
-          for attempt in 1 2 3 4 5; do
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
             # Re-apply the observed batch against the current tip every
             # attempt; the lifecycle appender is idempotent by recordId and
             # fails closed on conflicting duplicates.
             node scripts/ci/append-loop-fleet-lifecycle.mjs \
               --events-file "$EVENT_FILE" \
               --ledger-dir "$ledger_dir" \
+              --shard-id "observer-${GITHUB_RUN_ID}" \
               --registry data/loop-fleet/loop-registry.json
 
             if git -C "$ledger_worktree" diff --quiet -- data/loop-fleet/ledger \
@@ -183,16 +196,10 @@ jobs:
               echo "::error::durable ledger branch contains non-JSONL files: $invalid_ledger_files"
               exit 1
             fi
-            basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
-            if GIT_CONFIG_COUNT=1 \
-              GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
-              GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}" \
-              bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"; then
-              unset basic_auth
+            if bounded_remote git -C "$ledger_worktree" -c pack.window=0 -c pack.threads=1 push --no-thin origin "HEAD:refs/heads/$ledger_branch"; then
               exit 0
             fi
-            unset basic_auth
-            if bounded_remote git fetch origin "$ledger_branch"; then
+            if bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"; then
               # Rebase only the isolated ledger worktree onto the fetched tip;
               # the main worktree keeps the current validator and registry.
               git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"
@@ -203,9 +210,13 @@ jobs:
             git -C "$ledger_worktree" checkout HEAD -- data/loop-fleet/ledger/
             git -C "$ledger_worktree" read-tree --empty
             git -C "$ledger_worktree" add -- data/loop-fleet/ledger/
-            sleep $((attempt * 3))
+            if [ "$attempt" -lt 10 ]; then
+              retry_delay=$((attempt * 3 + GITHUB_RUN_ID % 11))
+              echo "::notice::lifecycle ledger push raced; retrying in ${retry_delay}s (attempt $((attempt + 1))/10)"
+              sleep "$retry_delay"
+            fi
           done
-          echo "::error::could not append the observed lifecycle batch to $ledger_branch after 5 attempts"
+          echo "::error::could not append the observed lifecycle batch to $ledger_branch after 10 attempts"
           exit 1
 
       - name: Cleanup Firebase credentials

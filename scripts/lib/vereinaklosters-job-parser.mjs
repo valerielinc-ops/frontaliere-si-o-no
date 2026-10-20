@@ -14,8 +14,18 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  copySpecFetchMetadata,
+  fetchHtmlViaBrowser,
+  loadSpec,
+  runSpecInProduction,
+} from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './authoritative-empty-snapshot.mjs';
+import { hotelcareerEmptyEmployerPageEvidence } from './hotelcareer-employer-page.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -26,6 +36,27 @@ export const VEREINAKLOSTERS_COMPANY_DOMAIN = 'hotelcareer.ch';
 const CAREER_URL = 'https://www.hotelcareer.ch/jobs/hotel-vereina-52746';
 const VEREINAKLOSTERS_PATH = '/jobs/hotel-vereina-52746';
 const MIN_DESCRIPTION_WORDS = 50;
+const VEREINAKLOSTERS_EMPTY_FETCH_OUTCOME = 'anti_bot_block';
+export const VEREINAKLOSTERS_SECONDARY_SPEC = {
+  companyKey: VEREINAKLOSTERS_KEY,
+  companyName: VEREINAKLOSTERS_COMPANY_NAME,
+  companyHost: 'local-job.ch',
+  platform: 'local-job.ch',
+  mode: 'template',
+  seedUrls: [
+    'https://local-job.ch/berufsgruppe/gastronomie-tourismus/graubuenden/serneus/',
+  ],
+  detailTemplate: '/job/*/',
+  // local-job's listing anchors carry the role title while the employer label
+  // sits beside the link. Filter on the source-backed detail page instead of
+  // dropping every candidate before detail enrichment can prove its tenant.
+  detailCandidateText: 'Hotel Vereina',
+  detailEnrichment: true,
+  detailFetchWorkers: 4,
+  pagination: { maxPages: 10 },
+  canton: 'GR',
+  sourceLang: 'de',
+};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -78,7 +109,10 @@ export function isVereinaklostersJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'hotelcareer.ch' || host.endsWith('.hotelcareer.ch');
+    return host === 'hotelcareer.ch'
+      || host.endsWith('.hotelcareer.ch')
+      || host === 'local-job.ch'
+      || host.endsWith('.local-job.ch');
   } catch {
     return false;
   }
@@ -122,27 +156,67 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
-  const spec = loadSpec(VEREINAKLOSTERS_KEY);
-  return runSpecInProduction(spec);
+export async function fetchPrimaryJobListings({
+  spec = loadSpec(VEREINAKLOSTERS_KEY),
+  runtime = { browserFetchImpl: fetchHtmlViaBrowser },
+} = {}) {
+  // Every seed page the runtime accepted (direct, clean-IP or browser), kept
+  // to read the employer page's own empty-state statement below.
+  const seedPages = [];
+  const seedUrls = new Set(spec.seedUrls || []);
+  // Hotelcareer has served a source-backed listing to a clean IP while the
+  // CI egress received an unmarked HTTP 200 interstitial. Ask the shared
+  // runtime for its clean-IP empty-listing rescue; it still accepts the page
+  // only when the normal vacancy extraction finds real detail links.
+  const rows = await runSpecInProduction(
+    {
+      ...spec,
+      rescueOnEmptyListing: true,
+      // A zero after direct + clean-IP + browser rescue is not evidence that
+      // Vereina has no vacancies: Hotelcareer has previously served two
+      // source-backed detail links to a clean egress. Keep the prior slice and
+      // make the WAF/interstitial verdict visible to crawler-health instead of
+      // collapsing it to the generic no-jobs-parsed symptom.
+      emptyListingOutcome: VEREINAKLOSTERS_EMPTY_FETCH_OUTCOME,
+    },
+    {
+      ...runtime,
+      onPageFetched: (page, url) => {
+        if (seedUrls.has(url)) seedPages.push(page);
+      },
+    },
+  );
+  if (rows.length > 0) return rows;
+  // An empty result is no proof of a zero (see above) — unless the employer
+  // page itself says so. Hotelcareer serves Vereina's canonical page with
+  // "Dieses Unternehmen sucht aktuell nicht nach Verstärkung" and no vacancy
+  // link (verified 2026-10-01; vereinaklosters.ch/jobs links this page as its
+  // open positions): the source's own zero, not a fetch gap. Without this
+  // proof corpus group 19 reported it as `no-jobs-parsed` (runs 36632563903,
+  // 36778722341) and crawler-health as broken.
+  for (const page of seedPages) {
+    const evidence = hotelcareerEmptyEmployerPageEvidence(page?.body, VEREINAKLOSTERS_PATH);
+    if (evidence) return markAuthoritativeEmptySnapshot([], evidence);
+  }
+  return rows;
+}
+
+async function fetchSecondaryJobListings() {
+  // Hotelcareer's Akamai fence has outlived the bounded direct/Jina/browser
+  // rescue. local-job is a public regional board that currently republishes
+  // Vereina's live Serneus vacancies with full detail pages; the generic
+  // prospector still filters the employer and validates every detail before
+  // anything can be published. Only consulted when the employer page did not
+  // prove a zero itself (see fetchAllVereinaklostersJobs).
+  return runSpecInProduction(VEREINAKLOSTERS_SECONDARY_SPEC);
 }
 
 /**
- * Fetch all Vereina jobs.
- * Returns an array of ParsedJob objects (source-locale only).
- *
- * IMPORTANT: Only set source-locale fields. Other locales are filled
- * by the AI localization step and translate-pending pipeline.
+ * @param {Array<Record<string, any>>} listings
+ * @returns {Array<Record<string, any>>}
  */
-export async function fetchAllVereinaklostersJobs() {
-  console.log(`🔍 Fetching Vereina jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
-
-  const listings = await fetchJobListings();
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
-    return [];
-  }
+function buildVereinaJobs(listings) {
+  if (!listings || listings.length === 0) return [];
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
@@ -155,7 +229,7 @@ export async function fetchAllVereinaklostersJobs() {
 
     const geography = resolveSourceBackedSwissGeography(listing.location);
     // Required structured-data geography must come from the vacancy source.
-    // Missing, foreign or non-specific values are not replaced with an HQ.
+    // Missing, foreign or non-specific values are not replaced by an HQ.
     if (!geography) continue;
     const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
@@ -218,4 +292,59 @@ export async function fetchAllVereinaklostersJobs() {
 
   console.log(`\n📋 Total Vereina jobs discovered: ${jobs.length}`);
   return jobs;
+}
+
+/**
+ * Fetch all Vereina jobs.
+ * Returns an array of ParsedJob objects (source-locale only).
+ *
+ * IMPORTANT: Only set source-locale fields. Other locales are filled
+ * by the AI localization step and translate-pending pipeline.
+ */
+export async function fetchAllVereinaklostersJobs({
+  primaryFetchImpl = fetchPrimaryJobListings,
+  secondaryFetchImpl = fetchSecondaryJobListings,
+} = {}) {
+  console.log(`🔍 Fetching Vereina jobs`);
+  console.log(`   Source: ${CAREER_URL}\n`);
+
+  let primaryListings;
+  let primaryError;
+  try {
+    primaryListings = await primaryFetchImpl();
+  } catch (error) {
+    primaryError = error;
+  }
+
+  // The official source proved it has no vacancy: a third-party board cannot
+  // contradict it (local-job still republished a 2026-09-09 JobG8 copy of a
+  // Vereina ad the employer page no longer lists).
+  if (isAuthoritativeEmptySnapshot(primaryListings)) {
+    console.log(`  🧩 Source-proven zero: ${primaryListings.authoritativeEmptyEvidence}`);
+    return primaryListings;
+  }
+
+  const primaryJobs = buildVereinaJobs(primaryListings || []);
+  if (primaryJobs.length > 0) return copySpecFetchMetadata(primaryJobs, primaryListings);
+
+  let secondaryListings;
+  let secondaryError;
+  try {
+    secondaryListings = await secondaryFetchImpl();
+  } catch (error) {
+    secondaryError = error;
+  }
+
+  const secondaryJobs = buildVereinaJobs(secondaryListings || []);
+  if (secondaryJobs.length > 0) return copySpecFetchMetadata(secondaryJobs, secondaryListings);
+
+  // Keep the primary source's explicit anti-bot/transport evidence when the
+  // fallback is also empty or unavailable. Never turn a failed source into a
+  // healthy authoritative zero, and never let a secondary outage hide the
+  // primary diagnosis.
+  if (primaryListings) return copySpecFetchMetadata(primaryJobs, primaryListings);
+  if (primaryError) throw primaryError;
+  if (secondaryListings) return copySpecFetchMetadata(secondaryJobs, secondaryListings);
+  if (secondaryError) throw secondaryError;
+  return [];
 }

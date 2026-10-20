@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109631",
+      "sourceKey": "TG",
+      "sourceRecordId": "109631",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "366663",
+      "normalizedPlate": "TG366663",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1000,
+      "bidCount": 34,
+      "endsAt": "2026-10-07T17:00:00.000Z",
+      "closedAt": "2026-10-07T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109631",
+      "sourceFetchedAt": "2026-10-07T06:06:06.221Z",
+      "lastVerifiedAt": "2026-10-07T06:06:06.221Z",
+      "firstSeenAt": "2026-09-23T11:42:12.340Z",
+      "lastSeenAt": "2026-10-07T06:06:06.221Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "d84e9676aa4e"
+    }
+  ]
+}

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * cf-5xx-snapshot.mjs — persist a classified daily 5xx snapshot, so this zone's error
  * history outlives Cloudflare's retention.
@@ -17,8 +19,9 @@
  *      "R2 answered 502" and "there was no cached copy to fall back on" are the same row.
  *
  * This script closes all three: one JSON line per run, appended to
- * data/cf-5xx-history.jsonl, carrying hourly buckets, the origin/cache breakdown, and the
- * per-surface split. Small enough to keep unpruned (a few kB/day), which matters — the
+ * data/cf-5xx-history.jsonl, carrying hourly buckets, the origin/cache breakdown, the
+ * per-surface split, and the complete bounded path result when it fits under the row cap.
+ * Small enough to keep unpruned for the observed zone (a few kB/day plus path rows), which matters — the
  * whole point is the long baseline.
  *
  * ─── Reading it back ────────────────────────────────────────────────────────────────
@@ -46,6 +49,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, appendFileSync } fr
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveOutputPath } from '../lib/resolve-output-path.mjs';
+import { CF_ANALYTICS_MAX_ROWS } from '../lib/cf-analytics.mjs';
 import {
   resolveZoneId,
   fetchErrorDiagnostics,
@@ -61,7 +65,7 @@ import {
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DEFAULT_HISTORY_FILE = 'data/cf-5xx-history.jsonl';
-/** Top offending URLs kept per snapshot. Matches cf-5xx-issue-sync's --limit=50 feeder cap. */
+/** Top offending URL/status rows retained for compact trend reports. */
 const TOP_PATHS = 50;
 
 // ── Pure helpers (exported for tests) ────────────────────────────────────────────────
@@ -149,7 +153,7 @@ export function summarizeSurfaces(rows) {
     flat.push({ surface, status: r.status, url: `${r.host}${r.path}`, count: n });
   }
   flat.sort((a, b) => b.count - a.count);
-  return { bySurface, topPaths: flat.slice(0, TOP_PATHS) };
+  return { bySurface, topPaths: flat.slice(0, TOP_PATHS), errorPaths: flat };
 }
 
 /**
@@ -174,6 +178,12 @@ export function buildSnapshot({ diagnostics, paths, windowHours, until, zoneName
     bySurface: surf.bySurface,
     topN: TOP_PATHS,
     topPaths: surf.topPaths,
+    // `topPaths` is a display sample, not evidence that an omitted URL had zero 5xx.
+    // Persist every path returned by the bounded GraphQL query and say explicitly
+    // whether that query reached its row cap. The checker can only treat absence
+    // as zero when the snapshot proves the path set was complete.
+    errorPaths: surf.errorPaths,
+    errorPathsComplete: paths.length < CF_ANALYTICS_MAX_ROWS,
   };
 }
 
@@ -212,7 +222,7 @@ export const CHECK_URL_DEFAULT_SNAPSHOTS = 7;
 export const CHECK_URL_MAX_AGE_DAYS = 3;
 
 /** `cdn.frontaliereticino.ch/assets/x.js`, con o senza schema, sempre nella stessa forma. */
-function historyUrlKey(u) {
+export function historyUrlKey(u) {
   return String(u ?? '').trim().replace(/^https?:\/\//, '').replace(/\/+$/, '') || '/';
 }
 
@@ -245,7 +255,12 @@ function historyUrlKey(u) {
  *
  * @param {Array<object>} history
  * @param {string} url
- * @returns {{ok: boolean, reason: string, checked: number, lastSeenAt: string|null}}
+ * `code` è la stessa risposta in forma leggibile da una macchina: il chiuditore
+ * di `cf-5xx-issue-sync.mjs` distingue con quello una misura COMPLETA (`clean`,
+ * `still-failing`) da una che non sa rispondere (tutti gli altri), invece di
+ * fare match sul testo di `reason`.
+ *
+ * @returns {{ok: boolean, code: 'url-missing'|'short-history'|'stale-series'|'incomplete-details'|'never-observed'|'still-failing'|'clean', reason: string, checked: number, lastSeenAt: string|null}}
  */
 export function checkUrlClean(history, url, {
   snapshots = CHECK_URL_DEFAULT_SNAPSHOTS,
@@ -253,40 +268,54 @@ export function checkUrlClean(history, url, {
   staleAfterDays = CHECK_URL_MAX_AGE_DAYS,
 } = {}) {
   const target = historyUrlKey(url);
-  if (!target || target === '/') return { ok: false, reason: 'URL mancante', checked: 0, lastSeenAt: null };
+  if (!target || target === '/') return { ok: false, code: 'url-missing', reason: 'URL mancante', checked: 0, lastSeenAt: null };
   const all = (history || []).filter((s) => s && s.ts);
   const top50 = all.filter((s) => Number(s.topN) === TOP_PATHS);
   if (top50.length < snapshots) {
-    return { ok: false, reason: `storia troppo corta: ${top50.length} snapshot top-50 su ${snapshots} richiesti`, checked: top50.length, lastSeenAt: null };
+    return { ok: false, code: 'short-history', reason: `storia troppo corta: ${top50.length} snapshot su ${snapshots} richiesti`, checked: top50.length, lastSeenAt: null };
   }
   const ageDays = (now - Date.parse(top50[top50.length - 1].ts)) / 86_400_000;
   if (!(ageDays <= staleAfterDays)) {
-    return { ok: false, reason: `serie ferma da ${ageDays.toFixed(1)} giorni (max ${staleAfterDays}) — il monitor non sta guardando`, checked: 0, lastSeenAt: null };
+    return { ok: false, code: 'stale-series', reason: `serie ferma da ${ageDays.toFixed(1)} giorni (max ${staleAfterDays}) — il monitor non sta guardando`, checked: 0, lastSeenAt: null };
   }
-  // Fail-closed sull'URL introvabile. `topPaths` tiene i 50 peggiori per
-  // gli snapshot nuovi; le righe legacy possono contenerne solo 15. La chiave
-  // arriva da fuori (il titolo della issue, sanificato):
-  // un URL che non compare in NESSUNO snapshot dell'intera storia non e' un URL
-  // guarito, e' una chiave che non ha mai fatto match — refuso, sanificazione
-  // che ha riscritto un carattere, o un path troppo raro per entrare nei top.
-  // Trattarlo come pulito darebbe un verde permanente su una issue ancora rossa.
-  if (!top50.some((s) => (s.topPaths || []).some((p) => historyUrlKey(p?.url) === target))) {
+  const window = top50.slice(-snapshots);
+  const incomplete = window.filter((s) => s.errorPathsComplete !== true || !Array.isArray(s.errorPaths));
+  if (incomplete.length) {
     return {
       ok: false,
-      reason: `mai visto in ${top50.length} snapshot top-50: la chiave non fa match (refuso, o path fuori dai top path di ogni snapshot) — non e' una prova di guarigione`,
+      code: 'incomplete-details',
+      reason: `dettagli URL completi assenti o troncati in ${incomplete.length} degli ultimi ${snapshots} snapshot — l'assenza dal top-50 non prova zero 5xx`,
+      checked: window.length - incomplete.length,
+      lastSeenAt: null,
+    };
+  }
+
+  // Keep rejecting a key that has never matched a real 5xx URL: it may be a
+  // typo or a sanitized issue title. Positive evidence can come from either
+  // legacy top-50 records or the complete path lists added by this schema.
+  if (!all.some((s) => {
+    const paths = [
+      ...(Array.isArray(s.errorPaths) ? s.errorPaths : []),
+      ...(Number(s.topN) === TOP_PATHS && Array.isArray(s.topPaths) ? s.topPaths : []),
+    ];
+    return paths.some((p) => historyUrlKey(p?.url) === target);
+  })) {
+    return {
+      ok: false,
+      code: 'never-observed',
+      reason: 'URL mai osservato fra i path 5xx: la chiave non fa match — non e\' una prova di guarigione',
       checked: 0,
       lastSeenAt: null,
     };
   }
 
-  const window = top50.slice(-snapshots);
   let lastSeenAt = null;
   for (const s of window) {
-    if ((s.topPaths || []).some((p) => historyUrlKey(p?.url) === target)) lastSeenAt = s.ts;
+    if ((s.errorPaths || []).some((p) => historyUrlKey(p?.url) === target)) lastSeenAt = s.ts;
   }
   return lastSeenAt
-    ? { ok: false, reason: `ancora fra i path 5xx, ultimo snapshot ${lastSeenAt}`, checked: window.length, lastSeenAt }
-    : { ok: true, reason: `nessun 5xx negli ultimi ${window.length} snapshot presenti (dal ${window[0].ts})`, checked: window.length, lastSeenAt: null };
+    ? { ok: false, code: 'still-failing', reason: `ancora fra i path 5xx, ultimo snapshot ${lastSeenAt}`, checked: window.length, lastSeenAt }
+    : { ok: true, code: 'clean', reason: `nessun 5xx negli ultimi ${window.length} snapshot presenti (dal ${window[0].ts})`, checked: window.length, lastSeenAt: null };
 }
 
 /** Human-readable trend across snapshots — the thing you actually want when triaging. */
@@ -415,7 +444,7 @@ async function main() {
   }
 }
 
-const invokedDirectly = process.argv[1] && process.argv[1].endsWith('cf-5xx-snapshot.mjs');
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     // PROCEED-SAFE: see docblock.

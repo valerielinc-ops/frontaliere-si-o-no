@@ -26,6 +26,7 @@ import {
   truncateUserAgent,
 } from '../functions/src/lib/requestForensics.js';
 import { handleSavedJobsDigestUnsubscribe, generateSavedJobsDigestUnsubToken } from '../functions/src/savedJobsDigestUnsubscribe.js';
+import { handleApplicationIntentReminderUnsubscribe, generateApplicationIntentReminderUnsubToken } from '../functions/src/applicationIntentReminderUnsubscribe.js';
 import { handleOutreachUnsubscribe, generateOutreachUnsubToken } from '../functions/src/outreachUnsubscribe.js';
 
 /** Minimal Express-ish request double: `req.get` is case-insensitive, like Express. */
@@ -270,6 +271,68 @@ describe('handleSavedJobsDigestUnsubscribe — forensics', () => {
   });
 });
 
+describe('handleApplicationIntentReminderUnsubscribe — forensics', () => {
+  const SECRET = 'test-secret-application-reminder';
+  const UID = 'uid-application-reminder';
+
+  it('writes only the email-reminder preference with forensics', async () => {
+    const sets: Record<string, any>[] = [];
+    const db = {
+      collection: () => ({
+        doc: () => ({
+          get: async () => ({ exists: true, data: () => ({ applicationIntentReminder: { optedIn: true } }) }),
+          set: async (data: any) => { sets.push(data); },
+        }),
+      }),
+    };
+    const result = await handleApplicationIntentReminderUnsubscribe({
+      uid: UID,
+      email: 'user@example.com',
+      token: generateApplicationIntentReminderUnsubToken(UID, SECRET),
+      secret: SECRET,
+      forensics: buildUnsubscribeForensics(fakeReq({
+        method: 'POST',
+        headers: { 'user-agent': 'Gmail-Unsubscriber', 'cf-connecting-ip': '203.0.113.42' },
+      })),
+      db: db as any,
+    });
+    expect(result.status).toBe(200);
+    expect(sets[0].applicationIntentReminder).toMatchObject({
+      optedOut: true,
+      unsubscribe_method: 'POST',
+      unsubscribe_ip: '203.0.113.0',
+    });
+    expect(sets[0]).not.toHaveProperty('applicationIntent');
+    expect(sets[0]).not.toHaveProperty('savedJobsDigest');
+  });
+
+  it('persists the opt-out when the valid uid has no users profile yet', async () => {
+    const sets: Record<string, any>[] = [];
+    const db = {
+      collection: () => ({
+        doc: () => ({
+          get: async () => ({ exists: false, data: () => undefined }),
+          set: async (data: any) => { sets.push(data); },
+        }),
+      }),
+    };
+    const result = await handleApplicationIntentReminderUnsubscribe({
+      uid: UID,
+      email: 'new-user@example.com',
+      token: generateApplicationIntentReminderUnsubToken(UID, SECRET),
+      secret: SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(sets).toHaveLength(1);
+    expect(sets[0].applicationIntentReminder).toMatchObject({
+      optedIn: false,
+      optedOut: true,
+    });
+  });
+});
+
 describe('handleOutreachUnsubscribe — forensics', () => {
   const SECRET = 'test-secret-outreach';
   const COMPANY = 'acme-sa';
@@ -338,6 +401,7 @@ describe('functions/index.js — every unsubscribe endpoint feeds the handler', 
   for (const handler of [
     'handleJobAlertUnsubscribe',
     'handleSavedJobsDigestUnsubscribe',
+    'handleApplicationIntentReminderUnsubscribe',
     'handleOutreachUnsubscribe',
     'handleSubscriptionManagement',
   ]) {

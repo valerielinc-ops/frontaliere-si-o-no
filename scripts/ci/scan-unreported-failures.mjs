@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * scan-unreported-failures.mjs — la rete di sicurezza GLOBALE sui workflow rossi.
  *
@@ -42,8 +44,11 @@
  *     prefisso di 60 char, commento di ricorrenza, reopen guardato.
  *   - `TITLE_RE` (scripts/ci/close-recovered-failure-issues.mjs) — la famiglia
  *     di titoli che il chiuditore centrale sa richiudere.
- * Nessuno dei due file viene modificato: sono `mode: identical` nel manifest, e
- * toccarli qui creerebbe `site-ahead` per un vantaggio nullo.
+ * Entrambi sono `mode: identical` nel manifest: si modificano solo quando il
+ * vantaggio vale il `site-ahead` che creano. Per il creator è successo una
+ * volta, con l'opzione `occurredAt` (#9761): il guard che separa una run
+ * anteriore alla chiusura da una ricorrenza serve a ogni scanner con una
+ * finestra all'indietro, quindi sta nel ramo di riapertura e non qui.
  *
  * ─── `cancelled` NON suona l'allarme ─────────────────────────────────────
  *
@@ -94,8 +99,15 @@
  * Costo per passata, dimensionato di conseguenza:
  *   - modalità failure (oraria): ~3 chiamate per l'elenco workflow + ~5 per le
  *     run rosse della finestra di 24 h (~465 `failure`, 100 per pagina) +
- *     1 `gh issue list` + per ogni workflow candidato 1 lettura dell'ultima run
- *     (il guard sul rientro) e 1 lettura dei job, entrambe ≤ MAX_ISSUES.
+ *     1 `gh issue list` (aperte) + ~5 pagine REST delle issue chiuse
+ *     nell'orizzonte (`core`, solo se serve lo storico) + per ogni workflow
+ *     candidato 1 lettura dell'ultima run
+ *     (il guard sul rientro; 2 solo se la prima non prova niente) e 1 lettura
+ *     dei job, entrambe ≤ MAX_ISSUES; in più 1 lettura dei job per ogni run rossa
+ *     della finestra di un workflow in `VERDICT_STEPS` (oggi
+ *     `crawler-health-monitor` e `seo-health-loop`, ~1 run al giorno ciascuno, e
+ *     `refresh-plate-auctions`, 4 al giorno, e `runtime-reliability-watch`,
+ *     dispatchato dai deploy e dal backstop schedulato), memoizzata per passata.
  *   - modalità `--dormant` (GIORNALIERA, non oraria, proprio per questo): 1
  *     chiamata per workflow schedulato, oggi 180. Una al giorno è il prezzo che
  *     rende il controllo possibile; orario costerebbe 4.320 chiamate/giorno sul
@@ -112,17 +124,65 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createGithubIssue, commentOnGithubIssue } from '../lib/github-issue-creator.mjs';
-import { TITLE_RE } from './close-recovered-failure-issues.mjs';
+import {
+  createGithubIssue,
+  commentOnGithubIssue,
+  occurrencePredatesClose,
+} from '../lib/github-issue-creator.mjs';
+import {
+  TITLE_RE,
+  VERDICT_STEPS,
+  isVerdictOnlyFailure,
+} from './close-recovered-failure-issues.mjs';
+import {
+  failureSignature,
+  SIGNATURE_MARKER,
+  SIGNATURE_MAX_LEN,
+  signatureMarker,
+} from './lib/failure-signature.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+
+// Mantieni l'API storica dello scanner: i test e i caller continuano a
+// importare questi simboli da qui, mentre la logica canonica vive nel modulo
+// condiviso col reporter che scrive il marker.
+export { failureSignature, SIGNATURE_MARKER, SIGNATURE_MAX_LEN } from './lib/failure-signature.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github', 'workflows');
+
+/**
+ * Some workflows intentionally finish red to deliver a signal rather than
+ * report an infrastructure failure. Their red conclusion must remain visible
+ * in Actions, but it is not an "unreported failure" for this scanner.
+ *
+ * Keep the contract keyed by workflow path (the display name can change), with
+ * the name as a compatibility fallback for callers that only have the
+ * workflow registry's name. This is deliberately explicit: a normal workflow
+ * must not become invisible merely because it exits non-zero.
+ */
+export const INTENTIONAL_FAILURE_WORKFLOW_PATHS = new Set([
+  '.github/workflows/quality-alerts.yml',
+  // This workflow is a manual baseline measurement: known red test files are
+  // the result being measured, not an infrastructure failure to open as an
+  // issue (see .github/workflows/full-suite-dispatch.yml).
+  '.github/workflows/full-suite-dispatch.yml',
+]);
+export const INTENTIONAL_FAILURE_WORKFLOW_NAMES = new Set([
+  'Quality alerts',
+  'full-suite dispatch',
+]);
+
+/**
+ * @param {{workflow_name?: string|null, workflow_path?: string|null}|null|undefined} run
+ */
+export function isIntentionalFailureWorkflow(run) {
+  return INTENTIONAL_FAILURE_WORKFLOW_PATHS.has(String(run?.workflow_path ?? ''))
+    || INTENTIONAL_FAILURE_WORKFLOW_NAMES.has(String(run?.workflow_name ?? ''));
+}
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const DORMANT_MODE = process.argv.includes('--dormant');
@@ -188,6 +248,15 @@ const MAX_ISSUES = intFromEnv('UNREPORTED_SCAN_MAX_ISSUES', 20);
 const OPEN_ISSUE_LISTING_CAP = 1000;
 
 /**
+ * Pagine REST (da 100) del listing delle issue chiuse nell'orizzonte. Non e' un
+ * campione: il listing pagina finche' una pagina torna corta, e questo tetto
+ * esiste solo contro un loop senza fine. Misurato il 2026-10-01: ~500 issue e
+ * PR chiuse aggiornate nelle 49 h dell'orizzonte, cioe' 5 pagine.
+ */
+const CLOSED_ISSUE_LISTING_MAX_PAGES = 50;
+const CLOSED_ISSUE_LISTING_PAGE_SIZE = 100;
+
+/**
  * Dopo quante ore di SILENZIO su una issue già aperta il guasto che continua a
  * ricorrere viene ri-registrato con un commento.
  *
@@ -248,84 +317,6 @@ export function isCoveredIssueStale(updatedAt, nowMs = Date.now(), hours = COVER
   if (!Number.isFinite(t)) return true;
   return nowMs - t > hours * 3600_000;
 }
-
-/**
- * La FIRMA di un guasto: quali job, e in quale step, sono caduti.
- *
- * ─── Il difetto che questa funzione esiste per chiudere ─────────────────
- *
- * `isCoveredIssueStale` misura se una ISSUE è ferma. Non misura se il GUASTO
- * che la issue descrive è ancora quello. Sono due cose diverse, e la differenza
- * è costata 10 ore e 24 minuti di produzione ferma il 2026-09-19.
- *
- * Ricostruzione, dai dati: la issue #9247 («CI Failure: Deploy to GitHub
- * Pages», aperta da questo stesso scanner l'11:46Z del 19/09) descrive la run
- * 35402513584 del 18/09, dove erano caduti `build-locale (fr|en|de)` allo step
- * di build. Etichettata `needs-human` e `agent:triaged`, è rimasta aperta — e
- * VIVA, perché triage, label e commenti automatici le rinfrescano `updatedAt`
- * di continuo (all'ultima lettura: 2026-09-20T16:33Z). Alle 20:54Z del 19/09 è
- * entrato in `deploy.yml` un gate fail-closed del tutto SCORRELATO, e da lì 78
- * run consecutive sono morte in ~20 secondi nel job `approve production
- * promotion`. A ogni passata oraria questo scanner ha visto il rosso, ha
- * trovato #9247 aperta e non-stale, ha scritto «issue aperta e attiva →
- * nessun commento» ed è rimasto zitto. La rete di sicurezza globale ha girato
- * verde per dieci ore sopra un guasto nuovo, perché un guasto VECCHIO e
- * diverso aveva un thread che qualcun altro teneva caldo.
- *
- * Una issue parcheggiata `needs-human` è quindi il PEGGIOR caso possibile per
- * il guard sulla freschezza: è esattamente quella che nessuno chiude e che
- * l'automazione continua a toccare. La freschezza da sola non può distinguere
- * «l'allarme è già stato dato» da «l'allarme è stato dato per un'altra cosa».
- *
- * ─── Come è costruita ───────────────────────────────────────────────────
- *
- * L'insieme ORDINATO delle coppie `job — step` cadute, con il parentetico
- * finale tolto da entrambi i nomi: `build-locale (fr)` e `build-locale (de)`
- * sono la stessa gamba di una matrice, e una firma che li distinguesse
- * cambierebbe a ogni combinazione di locali caduti — cioè un commento per
- * passata sullo stesso guasto, che è il rumore che questo file governa.
- * Stesso trattamento per lo step (`Build (BUILD_LOCALE=fr)` → `Build`).
- *
- * Uno startup failure ha zero job e nessuna firma dai job: ne ha una propria,
- * perché «la run non è partita» è una condizione distinta e va potuta seguire.
- *
- * `null` = job illeggibili. Chi chiama NON commenta su `null`: senza la firma
- * non si può dire che il guasto sia cambiato, e affermarlo a ogni passata
- * oraria produrrebbe esattamente la valanga che la dedup evita.
- *
- * @param {{total_count?: number, jobs?: Array<{name?: string, conclusion?: string, steps?: Array<{name?: string, conclusion?: string}>}>}|null} jobs
- * @returns {string|null}
- */
-export function failureSignature(jobs) {
-  if (!jobs || typeof jobs !== 'object') return null;
-  if (Number(jobs.total_count) === 0) return 'startup-failure: zero job';
-  if (!Array.isArray(jobs.jobs)) return null;
-  const strip = (v) => String(v ?? '').replace(/\s*\([^()]*\)\s*$/, '').trim();
-  const pairs = new Set();
-  for (const j of jobs.jobs) {
-    if (j?.conclusion !== 'failure') continue;
-    const step = (j.steps || []).find((st) => st?.conclusion === 'failure');
-    pairs.add(`${strip(j.name) || '(job senza nome)'} — step: ${step ? (strip(step.name) || '(step senza nome)') : '(nessuno step attribuito)'}`);
-  }
-  if (!pairs.size) return null;
-  const full = [...pairs].sort().join(' | ');
-  if (full.length <= SIGNATURE_MAX_LEN) return full;
-  // TRONCARE E BASTA sarebbe un silenzio: due guasti che condividono i primi
-  // 300 caratteri — facilissimo su una matrice larga, dove le coppie iniziali
-  // sono identiche e cambia solo la coda — collasserebbero sulla stessa firma,
-  // e il secondo verrebbe letto come «già registrato». Cioè di nuovo un
-  // allarme mancato, la classe di guasto che questo file ripara. Il prefisso
-  // resta perché la firma va anche LETTA da chi apre la issue; a renderla
-  // iniettiva ci pensa il digest della stringa intera.
-  const digest = createHash('sha256').update(full).digest('hex').slice(0, 12);
-  return `${full.slice(0, SIGNATURE_MAX_LEN)}… +${pairs.size} coppie (sha ${digest})`;
-}
-
-/** Quanto della firma resta leggibile prima del digest. */
-export const SIGNATURE_MAX_LEN = 300;
-
-/** Il marker leggibile a macchina che porta la firma dentro il thread. */
-export const SIGNATURE_MARKER = 'failure-signature:';
 
 /**
  * Il thread ha già registrato QUESTA firma?
@@ -484,6 +475,7 @@ function ghApiRows(apiPath, jqExpr, fields, { paginate = true } = {}) {
  */
 export function isReportableRun(run, { since, ignore = IGNORE } = {}) {
   if (!run || run.conclusion !== 'failure') return false;
+  if (isIntentionalFailureWorkflow(run)) return false;
   if (!isReportableScope(run, { ignore })) return false;
   const stamp = run.updated_at || run.created_at;
   if (since && !(stamp && Date.parse(stamp) >= Date.parse(since))) return false;
@@ -509,6 +501,96 @@ export function isReportableScope(run, { ignore = IGNORE } = {}) {
   if (run.head_branch !== 'main' && run.event !== 'schedule') return false;
   if (ignore.has(run.workflow_name)) return false;
   return true;
+}
+
+/* ── rientro dopo il rosso ───────────────────────────────────────────── */
+
+/** Quante run recenti del workflow legge il guard sul rientro (una pagina). */
+export const RECOVERY_LISTING_SIZE = 20;
+
+/**
+ * Esiti che non sono un verdetto sul workflow: una run `cancelled` (concorrenza,
+ * supersessione), `skipped` o `neutral` non dice ne' che il guasto e' rientrato
+ * ne' che e' ancora li'. Senza questo filtro un `cancelled` arrivato DOPO il
+ * verde nascondeva il rientro e il rosso gia' guarito veniva segnalato.
+ */
+const NON_VERDICT_CONCLUSIONS = new Set(['cancelled', 'skipped', 'neutral']);
+
+/**
+ * Il rosso `redRun` e' rientrato? Decide la run PIU' RECENTE nel perimetro,
+ * completata e con un verdetto, creata dopo il rosso: rientrato solo se e'
+ * `success`.
+ *
+ * `inconclusive` separa «la lettura non prova niente» da «il guasto c'e'
+ * ancora». La run rossa e' completata e nel perimetro, quindi un listing
+ * coerente la contiene — a meno che dopo di lei ne siano arrivate piu' di una
+ * pagina. Un listing assente, vuoto, o che la salta senza essere pieno di run
+ * piu' recenti e' una lettura rotta: il 2026-09-24 (run 35997761435) il guard
+ * ha riaperto #9478 su `Sync crawler workflows to the corpus repo` con sette
+ * run verdi nel perimetro dopo il rosso 35909380587, e la passata delle 06:45
+ * con lo stesso codice le aveva viste.
+ *
+ * @param {Array<Record<string,string|null>>|null} rows run recenti, newest-first o no
+ * @param {{id?: string|number, created_at: string}} redRun
+ * @returns {{recovered: boolean, inconclusive: boolean, green: Record<string,string|null>|null, reason: string}}
+ */
+export function recoveryVerdict(rows, redRun, { workflowName = null, ignore = IGNORE, pageSize = RECOVERY_LISTING_SIZE } = {}) {
+  if (rows === null) return { recovered: false, inconclusive: true, green: null, reason: 'listing illeggibile' };
+  if (rows.length === 0) return { recovered: false, inconclusive: true, green: null, reason: 'listing vuoto' };
+  const redAt = Date.parse(redRun.created_at);
+  const redId = redRun.id == null ? null : String(redRun.id);
+  const after = rows
+    .filter((r) => r.status == null || r.status === 'completed')
+    .filter((r) => isReportableScope({ ...r, workflow_name: workflowName }, { ignore }))
+    .filter((r) => Date.parse(r.created_at) > redAt && String(r.id) !== redId)
+    .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+  const verdict = after.find((r) => r.conclusion && !NON_VERDICT_CONCLUSIONS.has(r.conclusion));
+  if (verdict?.conclusion === 'success') {
+    return { recovered: true, inconclusive: false, green: verdict, reason: 'verde dopo il rosso' };
+  }
+  const redListed = redId !== null && rows.some((r) => String(r.id) === redId);
+  const pageFullOfNewer = rows.length >= pageSize && rows.every((r) => Date.parse(r.created_at) > redAt);
+  if (redId !== null && !redListed && !pageFullOfNewer) {
+    return { recovered: false, inconclusive: true, green: null, reason: `listing incoerente: manca la run rossa ${redId}` };
+  }
+  return {
+    recovered: false,
+    inconclusive: false,
+    green: null,
+    reason: verdict ? `ultima run con verdetto: ${verdict.conclusion}` : 'nessuna run con verdetto dopo il rosso',
+  };
+}
+
+/* ── storia vs ricorrenza ────────────────────────────────────────────── */
+
+/**
+ * L'inizio (`created_at`) della run rossa iniziata PER ULTIMA fra quelle di un
+ * workflow nella finestra: è il valore che il creator confronta con la chiusura
+ * della gemella chiusa (#9761, `occurrencePredatesClose`).
+ *
+ * Non basta l'inizio della run scelta per il corpo della issue, che è quella
+ * AGGIORNATA per ultima. Una run lunga iniziata prima della chiusura può finire
+ * dopo una run breve iniziata dopo: scegliendo la prima, la ricorrenza vera
+ * della seconda verrebbe letta come storia e taciuta per tutta la finestra.
+ *
+ * Fail-closed: un solo `created_at` illeggibile rende `null`, e con `null` il
+ * creator riapre come prima del guard.
+ *
+ * @param {Array<{created_at?: string|null}>|null|undefined} runs
+ * @returns {string|null}
+ */
+export function newestRunStart(runs) {
+  let newest = null;
+  let newestMs = -Infinity;
+  for (const r of runs || []) {
+    const ms = Date.parse(String(r?.created_at ?? ''));
+    if (!Number.isFinite(ms)) return null;
+    if (ms > newestMs) {
+      newestMs = ms;
+      newest = r.created_at;
+    }
+  }
+  return newest;
 }
 
 /* ── cadenza dichiarata da un cron ───────────────────────────────────── */
@@ -697,14 +779,25 @@ export function workflowScheduleFromSource(source) {
  * proprio quando l'API è in difficoltà. Chi chiama si ferma.
  */
 export function openFailureIssueWorkflows() {
+  const issues = readOpenIssues();
+  return issues === null ? null : latestIssuePerWorkflow(issues);
+}
+
+/**
+ * Le issue aperte (`number,title,updatedAt,body,url`), o `null` se il listing è illeggibile
+ * o troncato al cap. Una sola lettura serve sia alla mappa delle canoniche sia alla prova
+ * di persistenza dell'owner di uno step-verdetto (`ownerSignalPersisted`).
+ */
+export function readOpenIssues() {
   const raw = gh(
     ['issue', 'list', '--state', 'open', '--limit', String(OPEN_ISSUE_LISTING_CAP),
       // `updatedAt` arriva qui e non costa una chiamata in più: è il dato con cui
       // si distingue un allarme vivo da uno parcheggiato (vedi
       // COVERED_ISSUE_SILENCE_HOURS).
       // `body` contiene anche il campo strutturato `**Workflow:**` delle issue
-      // aperte dai monitor di dominio, che possono usare un titolo diverso.
-      '--json', 'number,title,updatedAt,body', ...repoFlag()],
+      // aperte dai monitor di dominio, che possono usare un titolo diverso;
+      // `url` serve per rimandare dal thread generico alla issue di dominio.
+      '--json', 'number,title,updatedAt,body,url', ...repoFlag()],
     { allowFailure: true },
   );
   if (raw === null) return null;
@@ -728,7 +821,156 @@ export function openFailureIssueWorkflows() {
     );
     return null;
   }
-  return latestIssuePerWorkflow(issues);
+  return issues;
+}
+
+/**
+ * Il verdetto ha DAVVERO scritto la sua famiglia per questa run?
+ *
+ * I nomi degli step dicono che la run è rossa per il solo verdetto, non che il segnale
+ * sia arrivato da qualche parte: `github-issue-creator.mjs` è best-effort ed esce 0 anche
+ * quando GitHub rifiuta la scrittura, quindi lo step che apre le issue della famiglia
+ * resta verde anche quando non ha scritto niente. Senza una prova, saltare la run
+ * trasformerebbe un guasto vero in un silenzio.
+ *
+ * Prova: una issue APERTA il cui titolo comincia con `entry.owner` e il cui `updatedAt`
+ * non precede l'inizio della run — creata, riaperta o commentata (`🔁`) da questa run o
+ * dopo. Dati mancanti o date illeggibili → `false`, cioè la run resta segnalabile.
+ *
+ * @param {{ owner?: string }|null} entry la voce di `VERDICT_STEPS`
+ * @param {Array<{ title?: string, updatedAt?: string }>|null} openIssues
+ * @param {{ created_at?: string }} run
+ */
+export function ownerSignalPersisted(entry, openIssues, run) {
+  const owner = typeof entry?.owner === 'string' ? entry.owner : '';
+  if (!owner.trim() || !Array.isArray(openIssues)) return false;
+  const startedAt = Date.parse(run?.created_at ?? '');
+  if (!Number.isFinite(startedAt)) return false;
+  return openIssues.some((issue) => typeof issue?.title === 'string'
+    && issue.title.startsWith(owner)
+    && Date.parse(issue.updatedAt ?? '') >= startedAt);
+}
+
+/**
+ * Prova che un owner di dominio chiuso abbia coperto la run osservata.
+ *
+ * Una issue chiusa non può coprire un crash generico: questa funzione viene
+ * chiamata solo per una voce di `VERDICT_STEPS`, e richiede che l'evento che
+ * ha scritto l'owner sia riferibile alla run osservata. Per il listing REST
+ * l'unico evento owner verificabile è la creazione dell'issue durante la run
+ * (`run.created_at <= createdAt <= run.updated_at`); una issue già esistente
+ * che viene chiusa durante o dopo la run non è prova del suo verdetto. La
+ * chiusura deve inoltre seguire la creazione, anche quando la scansione legge
+ * il rosso storico dopo una run sana.
+ *
+ * @param {{ owner?: string }|null} entry la voce di `VERDICT_STEPS`
+ * @param {Array<{ title?: string, createdAt?: string, closedAt?: string }>|null} closedIssues
+ * @param {{ created_at?: string, updated_at?: string }} run
+ */
+export function closedOwnerSignalPersisted(entry, closedIssues, run) {
+  const owner = typeof entry?.owner === 'string' ? entry.owner : '';
+  if (!owner.trim() || !Array.isArray(closedIssues)) return false;
+  const startedAt = Date.parse(run?.created_at ?? '');
+  const finishedAt = Date.parse(run?.updated_at ?? run?.created_at ?? '');
+  if (!Number.isFinite(startedAt) || !Number.isFinite(finishedAt)) return false;
+  return closedIssues.some((issue) => {
+    if (typeof issue?.title !== 'string' || !issue.title.startsWith(owner)) return false;
+    const createdAt = Date.parse(issue.createdAt ?? '');
+    const closedAt = Date.parse(issue.closedAt ?? '');
+    return Number.isFinite(createdAt) && Number.isFinite(closedAt)
+      && createdAt >= startedAt && createdAt <= finishedAt && closedAt >= createdAt;
+  });
+}
+
+/**
+ * Issue chiuse che possono avere già coperto una run riletta dalla finestra di
+ * lookback.
+ *
+ * Il listing delle aperte basta finché la canonica resta aperta. Un monitor di
+ * dominio può però chiudere la propria issue quando la run successiva è sana,
+ * prima che lo scanner orario rilegga il rosso storico: in quel caso l'issue
+ * chiusa resta prova del verdetto del monitor, ma non deve diventare una
+ * copertura storica per un crash generico. Il listing conserva quindi i due
+ * contratti separati:
+ *   - `failures`: solo le issue della famiglia `CI/Workflow/Crawler Failure:`;
+ *   - `domainOwners`: issue con `**Workflow:**`, usate solo da
+ *     `closedOwnerSignalPersisted` per i verdetti registrati.
+ *
+ * Quale storico serve, e perché si legge per intero. Una chiusura copre una
+ * run solo se è POSTERIORE al suo inizio, e ogni run considerata è iniziata
+ * dopo `since` (l'orizzonte della query sulle run): bastano quindi le issue
+ * chiuse dopo `since`, che hanno tutte `updated_at >= since`. La REST
+ * `issues?state=closed&since=` le restituisce tutte, e si pagina fino a una
+ * pagina corta. Prima si listavano le 1.000 issue chiuse più recenti di
+ * QUALUNQUE data con `gh issue list --limit 1000`: su un repository con più di
+ * 1.000 issue chiuse il cap scattava a ogni passata, lo storico risultava
+ * «illeggibile» e ogni workflow rosso senza issue aperta restava non
+ * consegnato (run 36798138310: 13 segnalazioni perse, scansione rossa).
+ *
+ * `fetchPage(page)` è iniettabile per i test e rende l'array JSON della
+ * pagina, oppure `null` se la lettura fallisce. Una pagina illeggibile o il
+ * tetto di pagine rendono `null`: un listing non provato completo non prova
+ * l'assenza della canonica, e chi chiama non apre duplicati.
+ */
+export function closedIssueHistory(since, {
+  fetchPage: fetchPageOverride,
+  maxPages = CLOSED_ISSUE_LISTING_MAX_PAGES,
+  pageSize = CLOSED_ISSUE_LISTING_PAGE_SIZE,
+} = {}) {
+  if (!Number.isFinite(Date.parse(String(since ?? '')))) return null;
+  const fetchPage = fetchPageOverride ?? ((page) => {
+    const raw = gh(
+      ['api', `repos/${REPO || '{owner}/{repo}'}/issues?state=closed`
+        + `&since=${encodeURIComponent(since)}&per_page=${pageSize}&page=${page}`],
+      { allowFailure: true },
+    );
+    if (raw === null) return null;
+    try {
+      return JSON.parse(raw || '[]');
+    } catch {
+      return null;
+    }
+  });
+
+  const byNumber = new Map();
+  for (let page = 1; page <= maxPages; page += 1) {
+    const items = fetchPage(page);
+    if (!Array.isArray(items)) return null;
+    for (const item of items) {
+      // La REST delle issue elenca anche le PR: non sono owner di un verdetto.
+      if (!item || typeof item !== 'object' || item.pull_request) continue;
+      const source = issueMatchSource(item);
+      if (source !== 'failure-title' && source !== 'workflow-field') continue;
+      byNumber.set(item.number, {
+        number: item.number,
+        title: item.title ?? '',
+        createdAt: item.created_at ?? null,
+        updatedAt: item.updated_at ?? null,
+        closedAt: item.closed_at ?? null,
+        body: item.body ?? '',
+        url: item.html_url ?? item.url ?? null,
+      });
+    }
+    if (items.length < pageSize) {
+      const all = [...byNumber.values()];
+      return {
+        failures: latestClosedIssuePerWorkflow(
+          all.filter((item) => issueMatchSource(item) === 'failure-title'),
+        ),
+        domainOwners: all.filter((item) => issueMatchSource(item) === 'workflow-field'),
+      };
+    }
+  }
+  console.error(
+    `::error::[scan-unreported-failures] ${maxPages} pagine di issue chiuse dopo ${since} senza `
+      + 'arrivare in fondo: lo storico delle issue non è provato completo e non si aprono duplicati.',
+  );
+  return null;
+}
+
+/** Compatibilità per i caller che usano solo la rete di failure generica. */
+export function closedFailureIssueWorkflows(since, options = {}) {
+  return closedIssueHistory(since, options)?.failures ?? null;
 }
 
 /**
@@ -749,18 +991,85 @@ export function workflowNameFromIssue(issue) {
 }
 
 /**
+ * Da quale contratto arriva il workflow dichiarato dalla issue.
+ *
+ * Un titolo della famiglia centrale identifica una issue di failure. Il campo
+ * nel corpo identifica invece una issue di dominio: il nome basta per cercare
+ * la relazione, ma non basta per dichiarare coperto un crash del workflow.
+ */
+export function issueMatchSource(issue) {
+  if (TITLE_RE.test(String(issue?.title || ''))) return 'failure-title';
+  return /^\*\*Workflow:\*\*\s*(.+?)\s*$/m.test(String(issue?.body || ''))
+    ? 'workflow-field'
+    : null;
+}
+
+/**
  * Sceglie una sola issue canonica quando piu' reporter dichiarano lo stesso
- * workflow. Il listing GitHub non e' un ordine stabile: conservare l'ultima
- * riga iterata puo' quindi riattivare una issue generica vecchia mentre una
- * issue specifica piu' recente sta gia' seguendo lo stesso guasto.
+ * workflow. Un titolo della famiglia failure ha precedenza sulle issue di
+ * dominio: queste ultime restano disponibili nella mappa separata sotto, ma
+ * non possono nascondere il thread che il reporter interno ha gia' aggiornato.
+ * A parita' di famiglia vince invece l'aggiornamento piu' recente, senza
+ * dipendere dall'ordine instabile del listing GitHub.
  */
 export function latestIssuePerWorkflow(issues) {
   const byWorkflow = new Map();
+  const sourceByWorkflow = new Map();
   for (const issue of issues) {
     const workflowName = workflowNameFromIssue(issue);
     if (!workflowName) continue;
 
     const candidate = { number: issue.number, updatedAt: issue.updatedAt ?? null };
+    const candidateSource = issueMatchSource(issue);
+    const previous = byWorkflow.get(workflowName);
+    if (!previous) {
+      byWorkflow.set(workflowName, candidate);
+      sourceByWorkflow.set(workflowName, candidateSource);
+      continue;
+    }
+
+    const previousSource = sourceByWorkflow.get(workflowName);
+    if (previousSource === 'failure-title' && candidateSource !== 'failure-title') continue;
+    if (candidateSource === 'failure-title' && previousSource !== 'failure-title') {
+      byWorkflow.set(workflowName, candidate);
+      sourceByWorkflow.set(workflowName, candidateSource);
+      continue;
+    }
+
+    const candidateTime = Date.parse(String(candidate.updatedAt ?? ''));
+    const previousTime = Date.parse(String(previous.updatedAt ?? ''));
+    if (
+      (Number.isFinite(candidateTime) && !Number.isFinite(previousTime))
+      || (candidateTime > previousTime)
+      || (candidateTime === previousTime && Number(candidate.number) > Number(previous.number))
+    ) {
+      byWorkflow.set(workflowName, candidate);
+      sourceByWorkflow.set(workflowName, candidateSource);
+    }
+  }
+  return byWorkflow;
+}
+
+/**
+ * Issue di dominio più recente per workflow, distinta dalla canonica della
+ * rete di sicurezza. Le issue con un titolo `CI/Workflow/Crawler Failure:`
+ * restano nella mappa standard anche se qualcuno ha aggiunto loro un campo
+ * `**Workflow:**`: quel titolo è il contratto di failure e ha precedenza.
+ */
+export function latestDomainIssuePerWorkflow(issues) {
+  const byWorkflow = new Map();
+  for (const issue of issues || []) {
+    if (issueMatchSource(issue) !== 'workflow-field') continue;
+    const workflowName = workflowNameFromIssue(issue);
+    if (!workflowName) continue;
+
+    const candidate = {
+      number: issue.number,
+      title: issue.title ?? '',
+      updatedAt: issue.updatedAt ?? null,
+      body: issue.body ?? '',
+      url: issue.url ?? null,
+    };
     const previous = byWorkflow.get(workflowName);
     if (!previous) {
       byWorkflow.set(workflowName, candidate);
@@ -778,6 +1087,120 @@ export function latestIssuePerWorkflow(issues) {
     }
   }
   return byWorkflow;
+}
+
+/**
+ * Il payload dei job è abbastanza completo da distinguere «step diverso» da
+ * «step non determinabile»? È la stessa soglia conservativa del registro nel
+ * chiuditore, ripetuta qui solo per non dichiarare nuova una firma quando un
+ * campo mancante potrebbe nascondere proprio il verdetto.
+ */
+function verdictPayloadComplete(workflowPath, jobs) {
+  // Fuori dal registro non esiste uno step-verdetto che possa coprire il
+  // failure: una firma leggibile va quindi al thread standard anche se una
+  // vecchia issue di dominio ha già registrato la stessa firma.
+  if (!VERDICT_STEPS[String(workflowPath ?? '')]) return true;
+  if (!jobs || typeof jobs !== 'object' || !Array.isArray(jobs.jobs)) return false;
+  const totalCount = Number(jobs.total_count);
+  if (!Number.isInteger(totalCount) || totalCount !== jobs.jobs.length || totalCount === 0) return false;
+  const jobConclusions = new Set(['success', 'skipped', 'failure']);
+  const stepConclusions = new Set(['success', 'skipped', 'failure']);
+  for (const job of jobs.jobs) {
+    if (!jobConclusions.has(job?.conclusion)) return false;
+    if (job.status !== undefined && job.status !== 'completed') return false;
+    if (job.conclusion === 'skipped' && !Array.isArray(job.steps)) continue;
+    if (!Array.isArray(job.steps)) return false;
+    if (!job.steps.every((step) => Boolean(step)
+      && typeof step.name === 'string' && step.name.trim() !== ''
+      && stepConclusions.has(step.conclusion)
+      && (step.status === undefined || step.status === 'completed'))) return false;
+  }
+  return true;
+}
+
+/**
+ * Decide se una issue di dominio copre davvero la run osservata.
+ *
+ * Il campo `**Workflow:**` stabilisce solo l'associazione. La copertura vera
+ * esiste quando `isVerdictOnlyFailure` dimostra che la run è rossa per il
+ * verdetto registrato del monitor e `ownerPersisted` prova che il monitor ha
+ * scritto la propria issue. Un altro step, un monitor non registrato o un
+ * verdetto senza prova di scrittura passa al thread `CI Failure:` standard.
+ * Job illeggibili restano in attesa: non si apre un duplicato su dati
+ * incompleti.
+ */
+export function domainIssueCoverage({
+  issue,
+  workflowPath,
+  jobs,
+  knownTexts = [],
+  ownerPersisted = false,
+} = {}) {
+  const signature = failureSignature(jobs);
+  if (signature === null) {
+    return { action: 'defer', reason: 'signature-undetermined', signature: null };
+  }
+
+  if (issueMatchSource(issue) !== 'workflow-field') {
+    return { action: 'failure-issue', reason: 'not-domain-issue', signature };
+  }
+
+  const verdictOnly = isVerdictOnlyFailure(workflowPath, jobs);
+  if (verdictOnly && ownerPersisted) {
+    return { action: 'covered', reason: 'verdict-step', signature };
+  }
+
+  const signatureIsNew = Array.isArray(knownTexts)
+    && !signatureAlreadyRecorded(knownTexts, signature);
+  if (!verdictPayloadComplete(workflowPath, jobs) && !signatureIsNew) {
+    return { action: 'defer', reason: 'signature-not-new-and-verdict-undetermined', signature };
+  }
+  return {
+    action: 'failure-issue',
+    reason: verdictOnly ? 'verdict-signal-unpersisted' : (signatureIsNew ? 'new-signature' : 'non-verdict-step'),
+    signature,
+  };
+}
+
+/**
+ * Sceglie la chiusura più recente fra le issue che dichiarano lo stesso
+ * workflow. Il confronto è sulla chiusura, non sul numero: un issue più
+ * vecchio può essere chiuso dopo una issue nuova e rappresenta la copertura
+ * temporale più recente.
+ */
+export function latestClosedIssuePerWorkflow(issues) {
+  const byWorkflow = new Map();
+  for (const issue of issues || []) {
+    const workflowName = workflowNameFromIssue(issue);
+    const closedAt = issue?.closedAt ?? null;
+    if (!workflowName || !Number.isFinite(Date.parse(String(closedAt ?? '')))) continue;
+
+    const candidate = { number: issue.number, closedAt };
+    const previous = byWorkflow.get(workflowName);
+    if (!previous) {
+      byWorkflow.set(workflowName, candidate);
+      continue;
+    }
+
+    const candidateTime = Date.parse(String(candidate.closedAt));
+    const previousTime = Date.parse(String(previous.closedAt));
+    if (
+      candidateTime > previousTime
+      || (candidateTime === previousTime && Number(candidate.number) > Number(previous.number))
+    ) {
+      byWorkflow.set(workflowName, candidate);
+    }
+  }
+  return byWorkflow;
+}
+
+/**
+ * True only when the observed failure started before the closed issue. An
+ * unknown timestamp fails open so a new failure is never hidden by an
+ * unverifiable historical record.
+ */
+export function closedIssueCoversRun(closedIssue, occurredAt) {
+  return Boolean(closedIssue && occurrencePredatesClose(occurredAt, closedIssue.closedAt));
 }
 
 /* ── modalità failure ───────────────────────────────────────────────── */
@@ -802,22 +1225,165 @@ function registeredWorkflows() {
   return byId.size ? byId : null;
 }
 
+const workflowSourceMemo = new Map();
+
+/**
+ * Read the workflow source that produced a run, not the source in today's
+ * checkout. The scanner uses a shallow checkout, so the Contents API is the
+ * only reliable way to inspect an older `head_sha`; an unreadable historical
+ * blob returns null and keeps the reporter guard fail-closed.
+ *
+ * @param {{workflowPath?: string|null, head_sha?: string|null}} run
+ * @param {{read?: Function}} [deps]
+ * @returns {string|null}
+ */
+export function workflowSourceForRun(run, { read = gh } = {}) {
+  const workflowPath = String(run?.workflowPath ?? '').trim();
+  const headSha = String(run?.head_sha ?? '').trim();
+  if (!/^[0-9a-f]{40}$/i.test(headSha)) return null;
+
+  const candidate = path.resolve(REPO_ROOT, workflowPath);
+  const relative = path.relative(WORKFLOWS_DIR, candidate);
+  if (!workflowPath || relative.startsWith('..') || path.isAbsolute(relative)) return null;
+  const normalizedPath = path.relative(REPO_ROOT, candidate).split(path.sep).join('/');
+  if (!normalizedPath.startsWith('.github/workflows/')) return null;
+
+  const key = `${headSha}:${normalizedPath}`;
+  if (workflowSourceMemo.has(key)) return workflowSourceMemo.get(key);
+
+  const apiPath = `repos/${REPO || '{owner}/{repo}'}/contents/${normalizedPath}`
+    + `?ref=${encodeURIComponent(headSha)}`;
+  const encoded = read(
+    ['api', '-X', 'GET', apiPath, '--jq', '.content // empty'],
+    { allowFailure: true },
+  );
+  if (!encoded) {
+    workflowSourceMemo.set(key, null);
+    return null;
+  }
+  try {
+    const source = Buffer.from(String(encoded).replace(/\s/g, ''), 'base64').toString('utf8');
+    workflowSourceMemo.set(key, source);
+    return source;
+  } catch {
+    workflowSourceMemo.set(key, null);
+    return null;
+  }
+}
+
+/**
+ * Split the named steps of a workflow without pulling a YAML dependency into
+ * the no-`npm ci` scanner. A step block starts at `- name:` and ends at the
+ * next sibling `- name:` with the same indentation; that is enough to inspect
+ * the existing `id: failgate` / failure-reporter contract.
+ *
+ * @param {string|null|undefined} source
+ * @returns {Array<{name:string, text:string}>}
+ */
+function workflowStepBlocks(source) {
+  if (!source) return [];
+  const lines = String(source).split('\n');
+  const starts = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const match = lines[i].match(/^(\s*)-\s+name:\s*(.*?)\s*$/);
+    if (!match) continue;
+    const name = match[2].replace(/^(['"])(.*)\1$/, '$2').trim();
+    starts.push({ index: i, indent: match[1].length, name });
+  }
+
+  return starts.map((step, index) => {
+    const next = starts.slice(index + 1).find((candidate) => candidate.indent === step.indent);
+    return {
+      name: step.name,
+      text: lines.slice(step.index, next ? next.index : lines.length).join('\n'),
+    };
+  });
+}
+
+function comparableStepName(name) {
+  return String(name ?? '').replace(/\s*\([^()]*\)\s*$/, '').trim();
+}
+
+/**
+ * Whether a failed run is the workflow's own expected condition, already
+ * surfaced by its internal issue opener.
+ *
+ * The global scanner must still report a crash before/outside detection. The
+ * safe contract is therefore deliberately narrow: the workflow source must
+ * have a `failgate` step and a `Report unexpected failure to GitHub Issues`
+ * step whose guard explicitly distinguishes a failgate failure; the Jobs API
+ * must show exactly that gate as the only failed step and the reporter must be
+ * skipped. If the issue opener fails, another step fails, or the Jobs API is
+ * unreadable, this returns false and the global alarm remains fail-closed.
+ *
+ * @param {{source?: string|null, jobs?: {jobs?: Array<{steps?: Array<{name?: string, conclusion?: string}>}>}|null}}} input
+ */
+export function isHandledExpectedFailure({ source, jobs } = {}) {
+  const blocks = workflowStepBlocks(source);
+  const gate = blocks.find((block) => /(^|\n)\s*id:\s*failgate\s*$/m.test(block.text));
+  const reporter = blocks.find((block) => block.name === 'Report unexpected failure to GitHub Issues');
+  if (!gate || !reporter) return false;
+
+  const reporterIf = reporter.text.match(/(^|\n)\s*if:\s*(.+)$/m)?.[2] || '';
+  if (!/failure\(\)/.test(reporterIf) || !/steps\.failgate\./.test(reporterIf)) return false;
+  if (!jobs || !Array.isArray(jobs.jobs)) return false;
+
+  const steps = jobs.jobs.flatMap((job) => (Array.isArray(job?.steps) ? job.steps : []));
+  const failedSteps = steps.filter((step) => step?.conclusion === 'failure');
+  const gateName = comparableStepName(gate.name);
+  const gateFailed = failedSteps.some((step) => comparableStepName(step?.name) === gateName);
+  const anotherStepFailed = failedSteps.some((step) => comparableStepName(step?.name) !== gateName);
+  const reporterSkipped = steps.some(
+    (step) => comparableStepName(step?.name) === comparableStepName(reporter.name)
+      && step?.conclusion === 'skipped',
+  );
+
+  return gateFailed && !anotherStepFailed && reporterSkipped;
+}
+
+/**
+ * Il guard del reporter interno è una deduplica secondaria per workflow che
+ * non hanno un owner registrato. Per i workflow in `VERDICT_STEPS` la prova
+ * più forte è invece separata: il monitor deve aver davvero persistito la
+ * propria issue. Se quella prova manca, non lasciare che la sola forma dei
+ * job trasformi un verdetto non consegnato in silenzio.
+ *
+ * @param {{ workflowPath?: string|null, ownerPersisted?: boolean }} run
+ */
+function maySuppressHandledExpectedFailure(run) {
+  return !VERDICT_STEPS[String(run?.workflowPath ?? '')]
+    || run?.ownerPersisted === true;
+}
+/** Memo di `readRunJobs`, svuotato all'inizio di ogni `scanFailures()`. */
+const runJobsMemo = new Map();
+
 /**
  * I job di una run, o `null` se non leggibili. Una sola chiamata, gia' prevista
  * dal budget dichiarato in testa al file («per ogni workflow candidato 1
  * lettura dell'ultima run e 1 lettura dei job, entrambe ≤ MAX_ISSUES»).
  */
 function readRunJobs(runId) {
+  // Memo per passata: la run di un workflow nel registro degli step-verdetto viene letta
+  // una volta per decidere se è di solo verdetto, e la stessa lettura serve poi al corpo
+  // della issue o alla firma. Il processo è monouso per passata: niente cache stantia.
+  const key = String(runId);
+  if (runJobsMemo.has(key)) return runJobsMemo.get(key);
   const raw = gh(
     ['api', `repos/${REPO || '{owner}/{repo}'}/actions/runs/${runId}/jobs?per_page=100`],
     { allowFailure: true },
   );
-  if (raw === null) return { jobs: null, readable: false };
-  try {
-    return { jobs: JSON.parse(raw), readable: true };
-  } catch {
-    return { jobs: null, readable: false };
+  let result;
+  if (raw === null) {
+    result = { jobs: null, readable: false };
+  } else {
+    try {
+      result = { jobs: JSON.parse(raw), readable: true };
+    } catch {
+      result = { jobs: null, readable: false };
+    }
   }
+  runJobsMemo.set(key, result);
+  return result;
 }
 
 /** Body + commenti di una issue, per cercarci i marker di firma. `null` = illeggibile. */
@@ -837,10 +1403,19 @@ function issueTexts(number) {
 
 /** La riga-marker da allegare a ogni registrazione, cosi' la prossima passata la riconosce. */
 function signatureLine(signature) {
-  return signature ? `\n\n<!-- ${SIGNATURE_MARKER} ${signature} -->` : '';
+  return signatureMarker(signature);
 }
 
-export function runBody({ run, workflowName, jobs, jobsReadable = true }) {
+/** Riferimento stabile alla issue di dominio che non copre un crash generico. */
+function domainIssueLine(issue) {
+  const number = Number(issue?.number);
+  if (!Number.isInteger(number)) return '';
+  const url = String(issue?.url || '').trim()
+    || (REPO ? `https://github.com/${REPO}/issues/${number}` : `#${number}`);
+  return `- issue di dominio correlata: [#${number}](${url})`;
+}
+
+export function runBody({ run, workflowName, jobs, jobsReadable = true, relatedIssue = null }) {
   const total = jobs?.total_count;
   const failed = (jobs?.jobs || []).filter((j) => j?.conclusion === 'failure');
   const lines = [];
@@ -849,6 +1424,8 @@ export function runBody({ run, workflowName, jobs, jobsReadable = true }) {
   lines.push(`- run: ${run.html_url}`);
   lines.push(`- event: \`${run.event}\` · branch: \`${run.head_branch}\``);
   lines.push(`- iniziata: ${run.created_at} · aggiornata: ${run.updated_at}`);
+  const relatedLine = domainIssueLine(relatedIssue);
+  if (relatedLine) lines.push(relatedLine);
   lines.push('');
   if (total === 0) {
     lines.push('**Startup failure: zero job.** La run è `failure` con `jobs.total_count: 0` —');
@@ -880,17 +1457,31 @@ export function runBody({ run, workflowName, jobs, jobsReadable = true }) {
   return lines.join('\n');
 }
 
-async function scanFailures() {
+export async function scanFailures() {
+  runJobsMemo.clear();
+  workflowSourceMemo.clear();
   const since = new Date(Date.now() - LOOKBACK_MINUTES * 60_000).toISOString();
   const horizon = new Date(Date.now() - RUN_QUERY_HORIZON_MINUTES * 60_000).toISOString();
 
-  const openIssues = openFailureIssueWorkflows();
+  const openIssueList = readOpenIssues();
+  const openIssues = openIssueList === null ? null : latestIssuePerWorkflow(openIssueList);
+  const domainIssues = openIssueList === null ? null : latestDomainIssuePerWorkflow(openIssueList);
   if (openIssues === null) {
     // Fail-CLOSED: senza sapere che cosa è già aperto, aprire significa
     // duplicare. Un rosso vero rientra alla passata dopo; un duplicato no.
     console.error('::error::[scan-unreported-failures] listing delle issue aperte illeggibile — nessuna issue aperta in questa passata.');
     return 1;
   }
+
+  let closedHistory = null;
+  let closedHistoryLoaded = false;
+  const loadClosedHistory = () => {
+    if (!closedHistoryLoaded) {
+      closedHistory = closedIssueHistory(horizon);
+      closedHistoryLoaded = true;
+    }
+    return closedHistory;
+  };
 
   const workflows = registeredWorkflows();
   if (!workflows) {
@@ -901,8 +1492,8 @@ async function scanFailures() {
     `repos/${REPO || '{owner}/{repo}'}/actions/runs`
       + `?created=%3E%3D${encodeURIComponent(horizon)}&status=failure&per_page=100`,
     '.workflow_runs[] | [.id, .workflow_id, .event, .head_branch, .conclusion,'
-      + ' .created_at, .updated_at, .html_url, .path] | @tsv',
-    ['id', 'workflow_id', 'event', 'head_branch', 'conclusion', 'created_at', 'updated_at', 'html_url', 'path'],
+      + ' .created_at, .updated_at, .html_url, .path, .head_sha] | @tsv',
+    ['id', 'workflow_id', 'event', 'head_branch', 'conclusion', 'created_at', 'updated_at', 'html_url', 'path', 'head_sha'],
   );
   // Lettura obbligatoria: senza l'elenco delle run non c'è niente da decidere, e
   // dichiarare «nessuna run rossa» sarebbe un verde su una misura non fatta.
@@ -915,22 +1506,68 @@ async function scanFailures() {
   for (const run of runs) {
     const wf = workflows.get(String(run.workflow_id));
     const workflowName = wf?.name || null;
-    if (!isReportableRun({ ...run, workflow_name: workflowName }, { since })) continue;
+    if (!isReportableRun({
+      ...run,
+      workflow_name: workflowName,
+      workflow_path: wf?.path || null,
+    }, { since })) continue;
     if (!workflowName) {
       console.warn(`::warning::[scan-unreported-failures] run ${run.id} senza workflow risolvibile (${run.path}) — saltata.`);
       continue;
     }
-    reportable.push({ ...run, workflowName });
+    // LC-03: il rosso VOLUTO di un monitor (lo step-verdetto registrato in
+    // VERDICT_STEPS, dopo che il monitor ha già aperto le issue della sua famiglia)
+    // non è un fallimento non segnalato: né issue nuova né ricorrenza. Si decide run
+    // per run e PRIMA del raggruppamento, così una run mista più vecchia nella stessa
+    // finestra resta segnalabile. Job illeggibili → non è di solo verdetto (fail-closed).
+    // E il verdetto deve aver DAVVERO scritto la sua famiglia (`ownerSignalPersisted`):
+    // i nomi degli step da soli non provano che il segnale sia arrivato.
+    const verdictEntry = VERDICT_STEPS[wf?.path || ''];
+    const verdictOnly = Boolean(verdictEntry) && isVerdictOnlyFailure(wf.path, readRunJobs(run.id).jobs);
+    let ownerPersisted = verdictOnly && ownerSignalPersisted(verdictEntry, openIssueList, run);
+    if (verdictOnly && !ownerPersisted) {
+      // A source-health owner may already be closed by the next healthy run
+      // before this hourly lookback sees the red run. The closed history is
+      // still scoped to verdict owners; it never covers a generic failure.
+      const history = loadClosedHistory();
+      ownerPersisted = Boolean(
+        history && closedOwnerSignalPersisted(verdictEntry, history.domainOwners, run),
+      );
+    }
+    if (verdictOnly && !ownerPersisted) {
+      console.warn(
+        `::warning::[scan-unreported-failures] ${workflowName}: run ${run.id} rossa per il solo step-verdetto, `
+          + `ma nessuna issue «${verdictEntry.owner}…» aperta risulta aggiornata dalla run → resta segnalabile.`,
+      );
+    } else if (verdictOnly) {
+      console.log(
+        `[scan-unreported-failures] ${workflowName}: run ${run.id} rossa per il solo step-verdetto `
+          + `«${verdictEntry.verdict}» → segnale già portato dalle issue «${verdictEntry.owner}…», nessuna segnalazione.`,
+      );
+      continue;
+    }
+    reportable.push({
+      ...run,
+      workflowName,
+      workflowPath: wf?.path || null,
+      workflowSource: workflowSourceForRun({
+        workflowPath: wf?.path,
+        head_sha: run.head_sha,
+      }),
+      ownerPersisted,
+    });
   }
 
   // Un solo thread per workflow: si tiene la run più recente, le altre sono la
   // stessa condizione che ricorre.
   const byWorkflow = new Map();
+  const runsByWorkflow = new Map();
   for (const run of reportable) {
     const prev = byWorkflow.get(run.workflowName);
     if (!prev || Date.parse(run.updated_at) > Date.parse(prev.updated_at)) {
       byWorkflow.set(run.workflowName, run);
     }
+    runsByWorkflow.set(run.workflowName, [...(runsByWorkflow.get(run.workflowName) || []), run]);
   }
 
   console.log(
@@ -947,14 +1584,46 @@ async function scanFailures() {
   // conterebbe come consegnato anche cio' che non e' mai atterrato. Ogni esito
   // confluisce qui e la funzione esce in UN punto, cosi' il verdetto non puo'
   // divergere dai conteggi che stampa.
-  const tally = { delivered: 0, active: 0, recovered: 0, deferred: [], undelivered: [] };
+  const tally = { delivered: 0, active: 0, recovered: 0, historical: 0, deferred: [], undelivered: [] };
   const pending = [...byWorkflow.entries()];
+  const loadClosedIssues = () => {
+    return loadClosedHistory()?.failures ?? null;
+  };
 
   for (let i = 0; i < pending.length; i += 1) {
     const [workflowName, run] = pending[i];
     const already = openIssues.get(workflowName);
+    const domainIssue = domainIssues.get(workflowName);
+    const domainIsCanonical = Boolean(domainIssue && already
+      && String(already.number) === String(domainIssue.number));
+    let domainCoverage = null;
 
-    if (already) {
+    if (domainIssue) {
+      // Il campo nel corpo collega il monitor, ma non basta a coprire un crash.
+      // La prova si fa sui job della run corrente; un payload illeggibile lascia
+      // intatto il fail-closed e non autorizza l'apertura di un secondo thread.
+      const { jobs: coverageJobs } = readRunJobs(run.id);
+      domainCoverage = domainIssueCoverage({
+        issue: domainIssue,
+        workflowPath: run.workflowPath,
+        jobs: coverageJobs,
+        // Nei payload incompleti il marker della issue distingue una firma
+        // nuova (da consegnare) da una firma già osservata (da non duplicare).
+        // Per uno step diverso la decisione resta standard in ogni caso.
+        knownTexts: domainIsCanonical ? issueTexts(domainIssue.number) : [],
+        ownerPersisted: run.ownerPersisted === true,
+      });
+      if (domainIsCanonical && domainCoverage.action === 'defer') {
+        tally.undelivered.push(`${workflowName} (copertura della issue di dominio non determinabile)`);
+        console.warn(
+          `::warning::[scan-unreported-failures] ${workflowName}: issue di dominio #${domainIssue.number}, `
+            + 'ma firma job/step illeggibile → nessun duplicato in questa passata.',
+        );
+        continue;
+      }
+    }
+
+    if (already && !(domainIsCanonical && domainCoverage?.action === 'failure-issue')) {
       // Un secondo thread non si apre mai. Si registra una ricorrenza in DUE
       // casi, e il secondo è il difetto riparato il 2026-09-20:
       //
@@ -971,6 +1640,14 @@ async function scanFailures() {
       //      segnalato. Il caso 2 è la sola cosa che poteva romperlo.
       const stale = isCoveredIssueStale(already.updatedAt);
       const { jobs: coveredJobs } = readRunJobs(run.id);
+      if (maySuppressHandledExpectedFailure(run)
+        && isHandledExpectedFailure({ source: run.workflowSource, jobs: coveredJobs })) {
+        tally.active += 1;
+        console.log(
+          `[scan-unreported-failures] ${workflowName}: expected failgate failure already surfaced by its internal reporter → skip.`,
+        );
+        continue;
+      }
       const signature = failureSignature(coveredJobs);
       const known = issueTexts(already.number);
       // Firma assente (job illeggibili) o thread illeggibile: si TACE sulla
@@ -1000,6 +1677,9 @@ async function scanFailures() {
         `🔁 Il guasto ricorre e ${why}.\n\n`
           + `- run: ${run.html_url}\n- event: \`${run.event}\` · branch: \`${run.head_branch}\`\n`
           + `- aggiornata: ${run.updated_at}\n`
+          + ((domainCoverage?.action === 'failure-issue' && domainIssue)
+            ? `${domainIssueLine(domainIssue)}\n`
+            : '')
           + (signature ? `- job/step: \`${signature}\`\n` : '')
           + '\n'
           + 'Registrato da `scripts/ci/scan-unreported-failures.mjs`: nessun secondo thread, '
@@ -1039,26 +1719,59 @@ async function scanFailures() {
     // di feature o su una PR — che su questo repo sono la maggioranza, 610 su
     // 930 in 48 h — veniva letta come guarigione e sopprimeva il rosso di
     // `main`: un rosso reale reso invisibile dal guard che doveva solo evitare
-    // rumore. Si chiede quindi una pagina di run completate e si guarda la piu'
-    // recente CHE RICADE NEL PERIMETRO, con lo stesso `isReportableScope` che
-    // ha selezionato il rosso.
-    const recent = ghApiRows(
+    // rumore. Si chiede quindi una pagina di run e decide la piu' recente con un
+    // verdetto CHE RICADE NEL PERIMETRO, con lo stesso `isReportableScope` che
+    // ha selezionato il rosso (vedi `recoveryVerdict`).
+    //
+    // Niente `status=completed` lato server: GitHub documenta quel parametro fra
+    // i filtri di ricerca (tetto di 1.000 risultati), e il rientro si legge dal
+    // listing semplice, come fa il chiuditore (`gh run list` senza stato in
+    // close-recovered). Completate ed esiti si filtrano in `recoveryVerdict`.
+    const readRecent = () => ghApiRows(
       `repos/${REPO || '{owner}/{repo}'}/actions/workflows/${run.workflow_id}/runs`
-        + '?per_page=20&status=completed',
-      '.workflow_runs[] | [.conclusion, .created_at, .event, .head_branch] | @tsv',
-      ['conclusion', 'created_at', 'event', 'head_branch'],
+        + `?per_page=${RECOVERY_LISTING_SIZE}`,
+      '.workflow_runs[] | [.id, .status, .conclusion, .created_at, .event, .head_branch] | @tsv',
+      ['id', 'status', 'conclusion', 'created_at', 'event', 'head_branch'],
       { paginate: false },
     );
-    const inScope = (recent || [])
-      .filter((r) => isReportableScope({ ...r, workflow_name: workflowName }))
-      .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
-    const newest = inScope[0];
-    if (newest && newest.conclusion === 'success'
-      && Date.parse(newest.created_at) > Date.parse(run.created_at)) {
+    let recovery = recoveryVerdict(readRecent(), run, { workflowName });
+    if (recovery.inconclusive) {
+      // Una sola rilettura: costa una chiamata solo quando la prima non prova
+      // niente, e distingue un listing momentaneamente rotto da uno vero.
+      console.warn(`[scan-unreported-failures] ${workflowName}: rientro non verificabile (${recovery.reason}) — rilettura.`);
+      recovery = recoveryVerdict(readRecent(), run, { workflowName });
+    }
+    if (recovery.recovered) {
+      const newest = recovery.green;
       tally.recovered += 1;
       console.log(
         `[scan-unreported-failures] ${workflowName}: rientrato (run verde ${newest.created_at} `
           + `su \`${newest.head_branch}\`/\`${newest.event}\` dopo il rosso ${run.created_at}) → nessuna issue.`,
+      );
+      continue;
+    }
+    if (recovery.inconclusive) {
+      // In dubbio si segnala (il costo e' un commento, quello di un rosso perso
+      // sono giorni), ma il motivo si DICE: prima questo ramo era muto.
+      console.warn(
+        `::warning::[scan-unreported-failures] ${workflowName}: rientro non verificabile dopo la rilettura `
+          + `(${recovery.reason}) — segnalo il rosso ${run.html_url} per prudenza.`,
+      );
+    }
+
+    const closedFailureIssues = loadClosedIssues();
+    if (closedFailureIssues === null) {
+      tally.undelivered.push(`${workflowName} (storico delle issue chiuse illeggibile)`);
+      continue;
+    }
+    const closedIssue = closedFailureIssues.get(workflowName);
+    const occurredAt = newestRunStart(runsByWorkflow.get(workflowName));
+    if (closedIssueCoversRun(closedIssue, occurredAt)) {
+      tally.historical += 1;
+      console.log(
+        `[scan-unreported-failures] ${workflowName}: la run rossa è iniziata alle ${occurredAt} `
+          + `prima della chiusura di #${closedIssue.number} (${closedIssue.closedAt}) `
+          + '→ storia già coperta, nessun duplicato.',
       );
       continue;
     }
@@ -1071,17 +1784,50 @@ async function scanFailures() {
     }
 
     const { jobs, readable: jobsReadable } = readRunJobs(run.id);
+    if (maySuppressHandledExpectedFailure(run)
+      && isHandledExpectedFailure({ source: run.workflowSource, jobs })) {
+      tally.active += 1;
+      console.log(
+        `[scan-unreported-failures] ${workflowName}: expected failgate failure already surfaced by its internal reporter → skip.`,
+      );
+      continue;
+    }
     // Il marker entra nel body fin dall'apertura: senza, la passata successiva
     // non troverebbe la firma nel thread e leggerebbe come «guasto cambiato»
     // lo stesso identico guasto, a ogni ora.
+    //
+    // `occurredAt` è il guard sulla STORIA (#9761). La finestra di 24 h rilegge
+    // a ogni passata anche le run rosse di stamattina, e se nel frattempo la
+    // fix ha chiuso la issue, il creator riapriva la gemella chiusa su una run
+    // che precede la chiusura: #9654, chiusa alle 17:59:52Z dalla PR #9699 e
+    // riaperta alle 20:48Z sulla run 35995267599 delle 11:49Z, senza nessuna run
+    // dopo il merge. Con l'inizio della run il creator distingue la storia già
+    // coperta dalla chiusura da una ricorrenza vera, che comincia DOPO.
+    // Vale l'inizio più recente fra le run rosse del workflow, non quello della
+    // run scelta per il corpo (vedi `newestRunStart`).
     const issue = await createGithubIssue({
       title,
-      description: runBody({ run, workflowName, jobs, jobsReadable })
+      description: runBody({
+        run,
+        workflowName,
+        jobs,
+        jobsReadable,
+        relatedIssue: domainCoverage?.action === 'failure-issue' ? domainIssue : null,
+      })
         + signatureLine(failureSignature(jobs)),
       priority: 2,
       labels: ['automation', 'ci-failure'],
       workflow: workflowName,
+      occurredAt,
     });
+    if (issue?.predatesClose === true) {
+      tally.historical += 1;
+      console.log(
+        `[scan-unreported-failures] ${workflowName}: nessuna run rossa della finestra è iniziata dopo `
+          + `la chiusura di #${issue.number} (ultima: ${run.html_url}) → storia, non ricorrenza: nessuna riapertura.`,
+      );
+      continue;
+    }
     if (!issue?.number || issue.persisted !== true) {
       tally.undelivered.push(workflowName);
       continue;
@@ -1092,7 +1838,8 @@ async function scanFailures() {
 
   console.log(
     `[scan-unreported-failures] fatto — ${tally.delivered} consegnate, ${tally.active} già coperte da `
-      + `una issue viva, ${tally.recovered} rientrate, ${tally.deferred.length} rinviate, `
+      + `una issue viva, ${tally.recovered} rientrate, ${tally.historical} anteriori alla chiusura, `
+      + `${tally.deferred.length} rinviate, `
       + `${tally.undelivered.length} NON consegnate (dry-run=${DRY_RUN}).`,
   );
   if (tally.undelivered.length) {
@@ -1261,7 +2008,7 @@ async function main() {
   return DORMANT_MODE ? scanDormant() : scanFailures();
 }
 
-if (process.argv[1]?.endsWith('scan-unreported-failures.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main()
     .then((code) => process.exit(code))
     .catch((e) => {

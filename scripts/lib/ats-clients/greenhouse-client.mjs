@@ -1,4 +1,5 @@
 import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
+import { sourcePostingDateFields } from '../source-posting-date.mjs';
 /**
  * Greenhouse ATS — Shared client.
  *
@@ -28,10 +29,8 @@ import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
  * Reference Greenhouse API docs:
  *   https://developers.greenhouse.io/job-board.html
  *
- * Existing in-tree consumers (NOT modified by this file):
- *   - scripts/lib/kudelski-nagra-job-parser.mjs
- *   - scripts/lib/vaxcyte-job-parser.mjs
- *   - scripts/lib/vir-biotechnology-job-parser.mjs
+ * Normalized consumers: On Running, Proton, Scandit and Veeam.
+ * Raw Greenhouse integrations elsewhere retain their own source parsing.
  */
 
 /**
@@ -42,8 +41,10 @@ import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
  * @property {string} location         First location string we could find
  *                                     (`job.location.name` or first office).
  * @property {string} company          Company display name (passed via options).
- * @property {string|null} postedAt    ISO timestamp — prefers `first_published`,
- *                                     falls back to `updated_at`, else null.
+ * @property {string|null} postedAt    Validated first_published, else null.
+ * @property {string} datePosted       Same source timestamp, or empty.
+ * @property {string} postedDate       Same source timestamp, or empty.
+ * @property {"reported"|"unknown"} postingDateSource Publication provenance.
  * @property {string} applyUrl         Greenhouse `absolute_url`.
  * @property {string} [descriptionHtml] HTML body, if `?content=true` was used.
  */
@@ -367,11 +368,7 @@ export function normalizeGreenhouseJob(rawJob, options = {}) {
   const location = normalizeWhitespace(pickFirstLocationString(rawJob));
   const applyUrl = typeof rawJob.absolute_url === 'string' ? rawJob.absolute_url : '';
 
-  const postedAt = (() => {
-    if (typeof rawJob.first_published === 'string' && rawJob.first_published) return rawJob.first_published;
-    if (typeof rawJob.updated_at === 'string' && rawJob.updated_at) return rawJob.updated_at;
-    return null;
-  })();
+  const postingDates = sourcePostingDateFields(rawJob.first_published);
 
   /** @type {NormalizedJob} */
   const normalized = {
@@ -380,7 +377,8 @@ export function normalizeGreenhouseJob(rawJob, options = {}) {
     title,
     location,
     company: companyName,
-    postedAt,
+    ...postingDates,
+    postedAt: postingDates.postedDate || null,
     applyUrl,
   };
 

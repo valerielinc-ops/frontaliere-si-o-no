@@ -22,10 +22,27 @@
  * the dynamic ones.
  */
 
+import fs from 'node:fs';
 import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
+import {
+  jobsSeoPagesFlushed,
+  shouldAwaitJobsSeoPagesFlushed,
+} from './shared/buildSignals';
+import {
+  FUEL_SITEMAP_FILES,
+  isFuelSitemapFile,
+} from './fuelDailyData';
 import { pruneAlreadyListedLocaleVariants } from './shared/localeVariantSitemap';
+import {
+  dropOverwrittenLocs,
+  dropUrlBlocksByLoc,
+  extractSitemapLocs,
+  getFinalSitemapMirrorLocs,
+  reconcileSitemapJobsWithDist,
+  reconcileSitemapSearchClustersWithDist,
+} from './relatedSearchClustersPlugin';
 
 /**
  * Filenames that must NEVER appear in the sitemap index itself:
@@ -47,6 +64,8 @@ const EXCLUDED_SITEMAP_FILES = new Set<string>([
 
 /** Match `sitemap-<name>.xml` — underscore separator is reserved for legacy. */
 const SITEMAP_FILE_PATTERN = /^sitemap-[a-z0-9][a-z0-9-]*\.xml$/i;
+const ARTICLE_SITEMAP_FILE_PATTERN = /^sitemap-(?:blog(?:-ch)?|locale-variants(?:-\d+)?|news)\.xml$/i;
+const NOINDEX_ROBOTS_RE = /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i;
 
 export interface DiscoveredSitemap {
   file: string;
@@ -89,6 +108,72 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
 }
 
 /**
+ * Remove noindex article URLs from the article sitemap families.
+ *
+ * Article pages can be temporarily noindex while an upstream corpus repair
+ * replaces a prompt placeholder. The HTML remains live for users and links,
+ * but a noindex URL must not remain in `sitemap-blog*`, the locale-variant
+ * backfill, or the news sitemap. Missing HTML is kept: a locale shard may
+ * own that page in another artifact, so absence in this dist is not evidence
+ * that the URL is invalid.
+ */
+export async function reconcileArticleSitemapsWithDist(distDir: string): Promise<number> {
+  if (!fs.existsSync(distDir)) return 0;
+
+  const files = fs
+    .readdirSync(distDir)
+    .filter((file) => ARTICLE_SITEMAP_FILE_PATTERN.test(file))
+    .map((file) => ({ file, xml: fs.readFileSync(path.join(distDir, file), 'utf-8') }));
+  if (files.length === 0) return 0;
+
+  const locs = [...new Set(files.flatMap(({ xml }) => extractSitemapLocs(xml)))];
+  const noindexLocs = new Set<string>();
+  await Promise.all(locs.map(async (loc) => {
+    let pathname: string;
+    try {
+      pathname = new URL(loc).pathname.replace(/\/+$/, '');
+    } catch {
+      return;
+    }
+    const relative = pathname.replace(/^\/+/, '');
+    if (!relative) return;
+    const candidates = [
+      path.join(distDir, relative, 'index.html'),
+      path.join(distDir, `${relative}.html`),
+    ];
+    for (const candidate of candidates) {
+      try {
+        const html = await fs.promises.readFile(candidate, 'utf-8');
+        if (NOINDEX_ROBOTS_RE.test(html)) noindexLocs.add(loc);
+        return;
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error;
+        // A missing page may belong to another locale shard; retain its loc.
+      }
+    }
+  }));
+
+  if (noindexLocs.size === 0) return 0;
+
+  let dropped = 0;
+  for (const { file, xml } of files) {
+    const next = dropUrlBlocksByLoc(xml, [...noindexLocs]);
+    if (next.dropped === 0) continue;
+    dropped += next.dropped;
+    const target = path.join(distDir, file);
+    if (extractSitemapLocs(next.xml).length === 0) fs.rmSync(target, { force: true });
+    else fs.writeFileSync(target, next.xml, 'utf-8');
+  }
+
+  if (dropped > 0) {
+    console.log(
+      `\x1b[33m[sitemap-alias]\x1b[0m removed ${dropped} noindex article URL(s) from sitemap dist output`,
+    );
+  }
+  return dropped;
+}
+
+/**
  * Build a complete sitemap-index XML from a list of discovered entries.
  * Callers pass the base URL explicitly so tests can pin it without relying
  * on the `BASE_URL` constant.
@@ -114,6 +199,88 @@ ${entries}
 export interface SitemapXmlFile {
   file: string;
   xml: string;
+}
+
+/** Remove numeric fuel sitemap shards left by an older incremental build. */
+function removeStaleFuelSitemapFiles(distDir: string): string[] {
+  const current = new Set<string>(FUEL_SITEMAP_FILES);
+  const removed: string[] = [];
+  for (const file of fs.readdirSync(distDir)) {
+    if (!isFuelSitemapFile(file) || current.has(file)) continue;
+    try {
+      fs.rmSync(path.join(distDir, file), { force: true });
+      removed.push(file);
+    } catch {
+      // The final reconciliation below still filters current files. A stale
+      // shard that cannot be removed must not make the build fail here.
+    }
+  }
+  return removed;
+}
+
+/**
+ * Reconcile every fuel sitemap against the final HTML in dist/.
+ *
+ * Fuel pages are emitted by one plugin but can be overwritten later by a
+ * bridge/alias emitter, and incremental builds can carry an old fuel shard.
+ * The path arrays collected before the final write are therefore not enough:
+ * a loc remains indexable only when its final document exists, is indexable,
+ * and self-canonical. Missing or noindex bridge pages are deliberately kept
+ * as HTML recovery pages but removed from the sitemap.
+ *
+ * Exported for the dist-artifact regression test; the Vite hook calls it after
+ * all page emitters have completed.
+ */
+export async function reconcileSitemapFuelWithDist(distDir: string): Promise<number> {
+  if (!fs.existsSync(distDir)) return 0;
+
+  const removedShards = removeStaleFuelSitemapFiles(distDir);
+  if (removedShards.length > 0) {
+    console.log(
+      `\x1b[33m[sitemap-alias]\x1b[0m removed stale fuel sitemap shard(s): ${removedShards.join(', ')}`,
+    );
+  }
+
+  const files = fs
+    .readdirSync(distDir)
+    .filter((file) => isFuelSitemapFile(file))
+    .map((file) => ({ file, xml: fs.readFileSync(path.join(distDir, file), 'utf-8') }));
+  if (files.length === 0) return 0;
+
+  const locs = files.flatMap(({ xml }) => extractSitemapLocs(xml));
+  if (locs.length === 0) return 0;
+
+  // On a locale shard, a genuinely absent foreign-locale page belongs to a
+  // sibling artifact and must remain in the main sitemap. If that foreign
+  // path is present on disk (for example, a direct-fs bridge), inspect it so
+  // noindex/non-self-canonical HTML cannot leak through.
+  const kept = new Set(
+    await dropOverwrittenLocs(distDir, locs, { inspectForeignPresent: true }),
+  );
+  const dropLocs = [...new Set(locs.filter((loc) => !kept.has(loc)))];
+  if (dropLocs.length === 0) return 0;
+
+  let dropped = 0;
+  const changedFiles: string[] = [];
+  for (const { file, xml } of files) {
+    const result = dropUrlBlocksByLoc(xml, dropLocs);
+    if (result.xml === xml || result.dropped === 0) continue;
+    if (extractSitemapLocs(result.xml).length === 0) {
+      fs.rmSync(path.join(distDir, file), { force: true });
+    } else {
+      fs.writeFileSync(path.join(distDir, file), result.xml, 'utf-8');
+    }
+    dropped += result.dropped;
+    changedFiles.push(file);
+  }
+  if (dropped > 0) {
+    console.log(
+      `\x1b[33m[sitemap-alias]\x1b[0m fuel sitemap dist-truth reconciliation removed ` +
+        `${dropped} URL(s) whose final HTML was missing, noindex, or non-self-canonical ` +
+        `(files=${changedFiles.join(', ')})`,
+    );
+  }
+  return dropped;
 }
 
 /** A `<url>` block that carries xhtml:link hreflang annotations. */
@@ -281,6 +448,22 @@ export function sanitizeSitemapHreflangReciprocity(
   return out;
 }
 
+/**
+ * Apply the final dist-truth gate to every dynamic sitemap family.
+ *
+ * Individual producers can run before a later page emitter overwrites a
+ * route. Keeping this pass here makes the published sitemap reflect the
+ * files that will actually be served from the completed dist/ tree.
+ */
+export async function reconcileFinalSitemapsWithDist(
+  distDir: string,
+  mirrorLocs: ReadonlyArray<string> = getFinalSitemapMirrorLocs(),
+): Promise<void> {
+  await reconcileSitemapSearchClustersWithDist(distDir);
+  await reconcileSitemapJobsWithDist(distDir, mirrorLocs);
+  await reconcileSitemapFuelWithDist(distDir);
+}
+
 export function sitemapAliasPlugin(rootDir: string): Plugin {
   return {
     name: 'sitemap-alias',
@@ -298,7 +481,25 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
         const distDir = path.resolve(rootDir, 'dist');
         if (!fs.existsSync(distDir)) return;
 
-        // 0. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the
+        // 0. Final dist-truth reconciliation for dynamic sitemaps. This hook
+        //    is deliberately the last sitemap hook in the post phase: the
+        //    producers' first passes run before later page emitters, so only
+        //    this position can catch a late noindex, non-self-canonical, or
+        //    redirect/missing overwrite in either family.
+        //    The explicit jobs barrier is required even though this hook is
+        //    post/sequential: closeBundle scheduling can otherwise expose a
+        //    stale foreign-locale shard before the jobs writer resolves.
+        if (shouldAwaitJobsSeoPagesFlushed()) {
+          await jobsSeoPagesFlushed;
+        }
+        await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs());
+
+        // Article translations can be temporarily quarantined with
+        // `noindex,follow` while the corpus retranslation lands. Keep those
+        // live recovery pages out of the article sitemap families.
+        await reconcileArticleSitemapsWithDist(distDir);
+
+        // 1. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the
         //    legacy alias copy so sitemap_news.xml inherits sanitized
         //    content, and before index regeneration.
         let sitemapFiles: SitemapXmlFile[] = fs
@@ -311,7 +512,7 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
             xml: fs.readFileSync(path.join(distDir, file), 'utf-8'),
           }));
 
-        // 0-pre. Locale-variant backfill de-duplication (issue #5110).
+        // 1-pre. Locale-variant backfill de-duplication (issue #5110).
         //    staticPagesPlugin writes sitemap-locale-variants-*.xml from its
         //    own emit bookkeeping, in a closeBundle that runs in parallel with
         //    every other SEO plugin's — it cannot know which URLs
@@ -344,7 +545,7 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
           );
         }
 
-        // 1. Legacy alias: sitemap-news.xml → sitemap_news.xml
+        // 2. Legacy alias: sitemap-news.xml → sitemap_news.xml
         //    Must run BEFORE discovery so the alias file exists when the
         //    discovery step runs (the alias is excluded from the index, but
         //    we still need it on disk for legacy consumers).
@@ -355,7 +556,7 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
           console.log('\x1b[36m[sitemap-alias]\x1b[0m Created sitemap_news.xml alias');
         }
 
-        // 2. Auto-discover all sitemap-*.xml in dist/ and regenerate the index
+        // 3. Auto-discover all sitemap-*.xml in dist/ and regenerate the index
         const discovered = await discoverSitemapFiles(distDir);
         const indexPath = path.join(distDir, 'sitemap.xml');
         const xml = buildSitemapIndexXml(discovered, BASE_URL);

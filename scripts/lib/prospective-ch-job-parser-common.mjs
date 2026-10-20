@@ -22,10 +22,18 @@
  * factory.
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { JSDOM, VirtualConsole } from 'jsdom';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
+import {
+  inferSwissTargetCanton,
+  isKnownSwissMunicipality,
+  isKnownSwissMunicipalityInCanton,
+} from './target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
@@ -80,45 +88,103 @@ async function fetchPage(apiUrl) {
   }, { label: `prospective-ch ${apiUrl}` });
 }
 
-function pickLocation(job, defaultCity) {
+const SWISS_COUNTRY_LABEL_RE = /^(?:ch|che|schweiz|suisse|svizzera|svizra|switzerland)$/i;
+// Some Prospective tenants put a street address in `sza_location.city`
+// (UZH: "Kurvenstrasse 31"). An address is not a place: it is skipped before
+// the foreign-country heuristics run, because a Swiss street can carry a
+// country name ("Rue de France 12", "Via Italia", "Frankreichstrasse 5").
+// Shape = a word followed by a house number, or a street word/suffix. A BFS
+// municipality or alias is never an address ("Davos Platz", "Weggis").
+const HOUSE_NUMBER_RE = /\p{L}[\p{L}.'’-]*\s+\d{1,4}[a-z]?(?:[/-]\d+[a-z]?)?(?=$|[\s,])/iu;
+const STREET_WORD_RE = new RegExp(
+  '(?:^|[\\s,])(?:rue|route|chemin|avenue|boulevard|place|quai|via|viale|piazza|strada|corso|'
+  + 'strasse|straße|gasse|weg|platz|allee)(?=$|[\\s,.])'
+  + '|\\p{L}(?:strasse|straße|str\\.|gasse|weg|platz|allee)(?=$|[\\s,.\\d])',
+  'iu',
+);
+
+function isAddressShaped(candidate = '') {
+  if (isKnownSwissMunicipality(candidate)) return false;
+  return HOUSE_NUMBER_RE.test(candidate) || STREET_WORD_RE.test(candidate);
+}
+
+// An address candidate may still name its place in another comma segment
+// ("Lengghalde 2, Zürich", Schulthess Klinik): keep those segments, drop the
+// street ones and bare country/canton labels.
+function placeSegments(candidate = '') {
+  if (!isAddressShaped(candidate)) return [candidate];
+  return candidate.split(',').map((part) => normalizeSpace(part)).filter((part) => (
+    part
+    && !SWISS_COUNTRY_LABEL_RE.test(part)
+    && !ALL_CANTON_CODES.includes(part)
+    && !isAddressShaped(part)
+  ));
+}
+
+/**
+ * Source-backed location candidates, in the historical priority order. There
+ * is deliberately no `defaultCity` entry: a listing that names no place has no
+ * geography, and the caller drops it instead of stamping the HQ city on it
+ * (issue 9844 — Bühler's foreign sites were published as Uzwil/SG).
+ */
+function pickLocationCandidates(job) {
   const szas = job?.szas || {};
+  const candidates = [];
   const cityRaw = String(szas['sza_location.city'] || '').trim();
   if (cityRaw) {
     const m = cityRaw.match(/\b(\d{4})(?:\s+|-(?=\p{L}))(\p{L}[^\n,]*)/u);
-    if (m) return normalizeSpace(m[2]);
-    return normalizeSpace(cityRaw);
+    candidates.push(normalizeSpace(m ? m[2] : cityRaw));
   }
   // Some Prospective tenants store the city under `sza_workplace.city` (a
   // plain city name without postal prefix) — newer schema, e.g. asana Spital AG.
+  // UZH fills `sza_location.city` with the street ("Kurvenstrasse 31") and
+  // keeps the city here, so it is also the next candidate when the first one
+  // does not resolve to a canton.
   const workplaceCity = String(szas['sza_workplace.city'] || '').trim();
-  if (workplaceCity) return normalizeSpace(workplaceCity);
+  if (workplaceCity) candidates.push(normalizeSpace(workplaceCity));
   // Some tenants (e.g. Stadt Bern, medium 1840) expose a flat `sza_location`
   // string "Street Number, ZIP City" instead of the dotted `sza_location.city`
-  // key above — parse the trailing "ZIP City" segment when present.
+  // key above — parse the trailing "ZIP City" segment when present, otherwise
+  // the last comma segment that is neither a bare Swiss country label nor a
+  // bare canton code ("Bern", "Murtenstrasse 98, Bern", "St. Niklaus, VS,
+  // Schweiz").
   const flatLocation = String(szas['sza_location'] || '').trim();
   if (flatLocation) {
     const flatMatch = flatLocation.match(/\b\d{4}(?:\s+|-(?=\p{L}))(\p{L}[^\n,]*)$/u);
-    if (flatMatch) return normalizeSpace(flatMatch[1]);
+    if (flatMatch) {
+      candidates.push(normalizeSpace(flatMatch[1]));
+    } else {
+      const segments = flatLocation.split(',').map((part) => normalizeSpace(part)).filter(Boolean);
+      while (segments.length && (
+        SWISS_COUNTRY_LABEL_RE.test(segments[segments.length - 1])
+        || ALL_CANTON_CODES.includes(segments[segments.length - 1])
+      )) segments.pop();
+      if (segments.length) candidates.push(segments[segments.length - 1]);
+    }
   }
-  // Sometimes the site label is in attributes[10] (legacy fallback). Skip it
-  // when it's clearly a department code (4-letter all-caps) rather than a city,
-  // so callers fall through to defaultCity.
+  if (candidates.length) return [...new Set(candidates.filter(Boolean))];
+  // Sometimes the site label is in attributes[10] (legacy fallback), consulted
+  // only when the listing has no location field at all. Skip it when it's
+  // clearly a department code (2-5 letter all-caps) rather than a city.
   const attr10 = Array.isArray(job?.attributes?.['10']) ? job.attributes['10'][0] : '';
   if (attr10) {
     const trimmed = normalizeSpace(attr10);
-    if (!/^[A-Z]{2,5}$/.test(trimmed)) return trimmed;
+    if (trimmed && !/^[A-Z]{2,5}$/.test(trimmed)) return [trimmed];
   }
-  return defaultCity;
+  return [];
+}
+
+function normalizeSiteKey(value = '') {
+  return normalizeSpace(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 }
 
 // City-gated HQ fallback: only borrow the configured default ZIP/street when
 // the resolved location TEXT actually matches the HQ city — canton-level
 // matching is wrong, since it would re-stamp HQ street/ZIP onto any other
-// city in the same canton. `pickLocation` already falls back to `defaultCity`
-// itself when there's no real signal, so this also covers the legitimate
-// zero-signal case (location === defaultCity).
+// city in the same canton. A listing without a source location never reaches
+// this point (it is dropped), so an empty location is never the HQ.
 function isHqCity(location, defaultCity) {
-  if (!location || !defaultCity) return !location;
+  if (!location || !defaultCity) return false;
   const escaped = String(defaultCity).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp(`\\b${escaped}\\b`, 'i').test(location);
 }
@@ -201,6 +267,417 @@ function buildDescription(job) {
   return normalizeDescriptionBullets(parts.join('\n\n'));
 }
 
+/* ── Detail page (directlink) ─────────────────────────────────
+ *
+ * The listing API is not the whole vacancy. Each tenant renders its
+ * `links.directlink` page from a template that adds what the listing never
+ * carries: `sza_benefits_2…6`, `sza_application`, fields the tenant keeps out
+ * of the listing payload ("Benefits dieser Stelle", "Lohn", "Weiteres zur
+ * Stelle", "Abteilungsbeschrieb") and the employer's own benefit/about blocks.
+ * Measured on the 2026-09-29 audit: the listing-only description was 9-45 %
+ * of the rendered vacancy on 25 tenants. The rendered page is therefore the
+ * source of the description; the listing text stays the fallback and the
+ * yardstick (the page must contain it, or it is not this vacancy's body).
+ */
+
+// Never vacancy text: markup, media, widgets and navigation.
+const DETAIL_DROP_TAGS = new Set([
+  'script', 'style', 'noscript', 'svg', 'template', 'iframe', 'form', 'button', 'select',
+  'textarea', 'input', 'label', 'nav', 'footer', 'img', 'picture', 'video', 'audio',
+  'canvas', 'object', 'embed', 'dialog', 'map', 'head', 'link', 'meta', 'title',
+]);
+const DETAIL_BLOCK_TAGS = new Set([
+  'address', 'article', 'aside', 'blockquote', 'body', 'dd', 'details', 'div', 'dl', 'dt',
+  'fieldset', 'figcaption', 'figure', 'header', 'hr', 'li', 'main', 'ol', 'p', 'pre',
+  'section', 'summary', 'table', 'tbody', 'td', 'tfoot', 'th', 'thead', 'tr', 'ul',
+]);
+// Class/id vocabulary of page chrome shared by the Prospective templates:
+// contact cards and forms, apply/share/job-alert widgets, "other vacancies"
+// rails, sticky headers, maps, galleries and slider controls/clones.
+const DETAIL_CHROME_TOKEN_RX = /cookie|consent|onetrust|share|social|breadcrumb|sticky|navbar|navigation|menu|burger|modal|popup|contact|kontakt|apply|bewerb|application|jobabo|job-abo|newsletter|subscribe|similar|related|other-?jobs|more-?jobs|weitere|joblist|job-list|footer|print-?only|duplicate|cloned|pagination|swiper-button|slick-arrow|slick-dots|slider-?control|lang-?switch|language-?switch|googlemap|google-map|opengoogle|jobmeta|job-meta/i;
+// Media words only as a whole class token or a dash/underscore segment:
+// `video`, `image-gallery`, `map` are widgets, `videoTextArea` (Livit's
+// "about us" copy next to a video) is not.
+const DETAIL_MEDIA_TOKEN_RX = /(?:^|[-_])(?:video|gallery|logo|map|maps)(?:$|[-_])/i;
+// A link to a map service is a route/"open in Maps" button, whatever its label
+// says in whatever language ("Auf Google Maps öffnen" on UPD, "Arbeitsweg
+// berechnen" on asana/Lindenhof, "Prise en compte du temps de trajet" on
+// Equans, "Grösser Karte anzeigen" on PBL): drop the element by its target,
+// not by a growing list of labels. A link whose label is an address (it
+// carries a postal code) is kept: there the link text is the workplace.
+const DETAIL_MAP_HREF_RX = /^(?:https?:)?\/\/(?:[\w-]+\.)*(?:google\.[a-z.]+\/maps\b|maps\.google\.[a-z.]+|goo\.gl\/maps\b|maps\.app\.goo\.gl|map\.search\.ch|openstreetmap\.org|maps\.apple\.com|bing\.com\/maps\b)/i;
+const DETAIL_HEADING_CLASS_RX = /title|heading|headline/i;
+// A heading that opens a chrome section: everything up to the next heading
+// is contact data, the application procedure or links to other vacancies.
+const DETAIL_CHROME_HEADING_RX = /^(?:ihr[e]? )?(?:kontakt|kontaktperson|ansprechpartner|ansprechperson|contact|contacts|contatto|contatti|personne de contact|persona di contatto|your contact|ta personne de contact)\b|^(?:bei |haben sie |hast du )?fragen\b|^(?:vos |your |le tue |deine |ihre )?questions?\b|^(?:weitere|andere|ähnliche|aehnliche|offene|verwandte) (?:offene )?(?:stellen|jobs|stellenangebote|angebote)\b|^(?:autres?|d['’]autres) (?:postes|offres|emplois)\b|^altr[ie] (?:posti|offerte|lavori)\b|^(?:other|similar|more|related) (?:open )?(?:jobs|positions|vacancies|roles)\b|^(?:der |unser )?bewerbungs(?:prozess|ablauf|verfahren)\b|^so bewirbst du dich\b|^(?:the )?application process\b|^processus de (?:candidature|recrutement)\b|^(?:teilen|share|partager|condividi)\b|^folgen sie uns\b|^follow us\b|^job-?abo\b|^newsletter\b|^einblicke\b|^impressionen\b|^(?:dein|ihr|euer) nächster schritt\b|^nächste schritte\b|^(?:your )?next steps?\b|^(?:la |les )?prochaines? étapes?\b|^kontaktformular\b/i;
+// Button/link labels rendered as their own line.
+const DETAIL_UI_LINE_RX = /^(?:jetzt (?:online )?bewerben|online bewerben|bewerben|bewerbung starten|zur bewerbung|apply(?: now)?|postuler(?: maintenant)?|postulez(?: maintenant)?|candidati(?: ora)?|candidarsi|mehr (?:erfahren|anzeigen|informationen)|weitere informationen|en savoir plus|read more|learn more|scopri di più|weiterlesen|zurück(?: zur übersicht)?|retour|back|drucken|print|teilen|share|merken|schliessen|schließen|close|senden|envoyer|linkedin|xing|facebook|twitter|instagram|whatsapp|youtube|e-?mail|mail|top|zur stellenübersicht|alle stellen|folgen sie uns|follow us|suivez-nous|seguici|weiter zurück|zurück weiter|link zu mehr informationen|alle benefits|mehr benefits|rechtliche grundlagen|zum inhalt springen|skip to (?:main )?content|download pdf|pdf herunterladen)[.!]?$/i;
+
+// Legal/footer links that survive as short lines (privacy notice, imprint).
+const DETAIL_LEGAL_LINE_RX = /datenschutz|protection des données|privacy|protezione dei dati|impressum|mentions légales|suis-nous|folge uns|seguici su/i;
+// Contact data of a named recruiter (phone number or e-mail address): not
+// vacancy text, and the apply link already is the way to reach them.
+const DETAIL_CONTACT_LINE_RX = /(?:\+|00)41[\s\d]{8,}|\b0\d{2}[\s/]\d{3}[\s]?\d{2}[\s]?\d{2}\b|[\w.+-]+@[\w-]+\.[a-z]{2,}/i;
+
+function detailLineKey(text = '') {
+  return String(text || '').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function detailWordSet(text = '') {
+  return new Set(detailLineKey(text).split(' ').filter((word) => word.length >= 4));
+}
+
+/**
+ * Share of the listing description's words (≥4 letters) that the rendered
+ * page text also contains. The rendered page of the same vacancy prints every
+ * listing field; a low share means the fetch served something else (a
+ * careercenter shell, a login wall, an expired-vacancy page).
+ */
+export function prospectiveDetailCoverage(detailText = '', listingText = '') {
+  const listingWords = detailWordSet(listingText);
+  if (!listingWords.size) return 0;
+  const detailWords = detailWordSet(detailText);
+  let covered = 0;
+  for (const word of listingWords) if (detailWords.has(word)) covered += 1;
+  return covered / listingWords.size;
+}
+
+/**
+ * Vacancy text of a Prospective directlink page, as markdown-ish lines
+ * (`## heading`, `• item`, paragraphs) in page order: chrome elements, chrome
+ * sections, button labels, the title and repeated lines (slider clones,
+ * front/back cards) removed.
+ *
+ * `listingText` is the listing-derived description of the same vacancy: an
+ * element whose chrome-looking class wraps listing text is a content
+ * container (some templates put the whole vacancy in `.jobContent-apply`) and
+ * is walked, not dropped.
+ *
+ * @param {string} html
+ * @param {{ title?: string, listingText?: string }} [opts]
+ * @returns {string}
+ */
+export function extractProspectiveDetailText(html = '', { title = '', listingText = '' } = {}) {
+  if (!html) return '';
+  // A detached virtual console: tenant stylesheets jsdom cannot parse would
+  // otherwise print one "Could not parse CSS stylesheet" per page.
+  const dom = new JSDOM(String(html), { virtualConsole: new VirtualConsole() });
+  try {
+    const { document } = dom.window;
+    const body = document.body;
+    if (!body) return '';
+    // Probes: a few listing sentences. An element containing one of them
+    // holds vacancy content and is never dropped as chrome.
+    const probes = String(listingText || '').split(/\n+/)
+      .map((line) => detailLineKey(line.replace(/^[•\-*]\s*/, '')))
+      .filter((key) => key.length >= 40)
+      .map((key) => key.slice(0, 60))
+      .slice(0, 60);
+    const holdsListingText = (el) => {
+      if (!probes.length) return false;
+      const key = detailLineKey(el.textContent || '');
+      return probes.some((probe) => key.includes(probe));
+    };
+    const isChromeElement = (el) => {
+      const tokens = `${el.getAttribute('class') || ''} ${el.getAttribute('id') || ''}`.split(/\s+/).filter(Boolean);
+      if (tokens.some((token) => DETAIL_CHROME_TOKEN_RX.test(token) || DETAIL_MEDIA_TOKEN_RX.test(token))) return true;
+      if (el.hasAttribute('hidden') || el.getAttribute('aria-hidden') === 'true') return true;
+      return /display\s*:\s*none/i.test(el.getAttribute('style') || '');
+    };
+    const hasBlockDescendant = (el) => [...el.querySelectorAll('*')]
+      .some((child) => DETAIL_BLOCK_TAGS.has(child.tagName.toLowerCase()) && child.tagName.toLowerCase() !== 'br');
+
+    const lines = [];
+    let buffer = '';
+    let bufferKind = 'text';
+    const flush = () => {
+      // Some templates print the card colour before the card text
+      // (jobs.admin.ch: `<p>#F7B4B8<span>Arbeiten für die Schweiz</span>…`).
+      const text = normalizeSpace(buffer).replace(/^#[0-9a-f]{6}(?=\S)/i, '');
+      if (text) lines.push({ kind: bufferKind, text });
+      buffer = '';
+      bufferKind = 'text';
+    };
+    const walk = (node) => {
+      for (const child of node.childNodes) {
+        if (child.nodeType === 3) { buffer += child.textContent; continue; }
+        if (child.nodeType !== 1) continue;
+        const tag = child.tagName.toLowerCase();
+        if (DETAIL_DROP_TAGS.has(tag)) continue;
+        if (isChromeElement(child) && !holdsListingText(child)) continue;
+        // A map link labelled with the address itself (SWICA: `<a href=
+        // "…google.com/maps…">Zürcherstrasse 31, 8401 Winterthur</a>`) is the
+        // workplace, not a button: only label-only links (no postal code) go.
+        if (tag === 'a' && DETAIL_MAP_HREF_RX.test(String(child.getAttribute('href') || '').trim())
+          && !/\b\d{4}\b/.test(child.textContent || '')) continue;
+        if (tag === 'br') {
+          // A line break inside a list item continues the same item.
+          if (bufferKind === 'item') buffer += ' ';
+          else flush();
+          continue;
+        }
+        const headingByClass = DETAIL_HEADING_CLASS_RX.test(child.getAttribute('class') || '')
+          && normalizeSpace(child.textContent).length <= 80
+          && !hasBlockDescendant(child);
+        if (/^h[1-6]$/.test(tag) || headingByClass) {
+          flush();
+          const text = normalizeSpace(child.textContent);
+          if (text) lines.push({ kind: tag === 'h1' ? 'title' : 'heading', text });
+          continue;
+        }
+        if (tag === 'li') {
+          flush();
+          bufferKind = 'item';
+          walk(child);
+          flush();
+          continue;
+        }
+        if (DETAIL_BLOCK_TAGS.has(tag)) {
+          flush();
+          walk(child);
+          flush();
+          continue;
+        }
+        walk(child);
+      }
+    };
+    walk(body);
+    flush();
+
+    const titleKey = detailLineKey(title);
+    const out = [];
+    const seen = new Set();
+    let skippingChromeSection = false;
+    for (const line of lines) {
+      const key = detailLineKey(line.text);
+      if (!key) continue;
+      if (line.kind === 'title' || line.kind === 'heading') {
+        skippingChromeSection = DETAIL_CHROME_HEADING_RX.test(normalizeSpace(line.text));
+        if (skippingChromeSection || line.kind === 'title') continue;
+      }
+      if (skippingChromeSection) continue;
+      if (DETAIL_UI_LINE_RX.test(line.text)) continue;
+      if (line.text.length <= 90 && DETAIL_LEGAL_LINE_RX.test(line.text)) continue;
+      if (line.text.length <= 250 && DETAIL_CONTACT_LINE_RX.test(line.text)) continue;
+      // The vacancy title (alone or followed by the pensum) is not body text.
+      if (titleKey && (key === titleKey || (key.startsWith(titleKey) && key.length <= titleKey.length + 12))) continue;
+      if (line.kind === 'heading') {
+        // Flip cards and tab headers print the same label twice in a row.
+        const previous = out[out.length - 1];
+        if (previous?.kind === 'heading' && detailLineKey(previous.text) === key) continue;
+        out.push(line);
+        continue;
+      }
+      // Body text repeated by slider clones, print copies and card backs.
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(line);
+    }
+    // In a run of headings with no body between them only the last one heads
+    // a section; the others are hero/fact labels (department, place, start
+    // date) and read as plain lines.
+    const kept = out.map((line, index) => (
+      line.kind === 'heading' && out[index + 1]?.kind === 'heading'
+        ? { kind: 'text', text: line.text }
+        : line
+    ));
+    // Headings that end the page have no body: leftover labels.
+    while (kept.length && kept[kept.length - 1].kind === 'heading') kept.pop();
+    // A label heading over a single short value is a fact row, not a section:
+    // "Arbeitsort" + "Zürich" reads as "Arbeitsort: Zürich".
+    const merged = [];
+    for (let index = 0; index < kept.length; index += 1) {
+      const line = kept[index];
+      const value = kept[index + 1];
+      const after = kept[index + 2];
+      if (line.kind === 'heading' && value && value.kind === 'text' && value.text.length <= 60
+        && (!after || after.kind === 'heading')) {
+        // A heading repeated as its own value (PBL prints the address as a
+        // heading and again under it) is one line, not "X: X".
+        const label = line.text.replace(/[:：]\s*$/, '');
+        merged.push({
+          kind: 'text',
+          text: detailLineKey(label) === detailLineKey(value.text) ? value.text : `${label}: ${value.text}`,
+        });
+        index += 1;
+        continue;
+      }
+      merged.push(line);
+    }
+    const text = merged.map((line, index) => {
+      if (line.kind === 'heading') return `${index ? '\n' : ''}## ${line.text}`;
+      if (line.kind === 'item') return `• ${line.text}`;
+      return line.text;
+    }).join('\n');
+    return text;
+  } finally {
+    dom.window.close();
+  }
+}
+
+// Below this share of the listing words the fetched page is not this
+// vacancy's body (careercenter shell, login wall, another tenant's page).
+// Measured 2026-09-29 on ~90 rendered vacancies of 40 tenants: a vacancy's own
+// page covers 0.56-1.00 of its listing text (the low end = listing fields the
+// template does not print, e.g. PDAG's `sza_benefits`, or listing noise such
+// as Spital Bülach's icon file names); a page of another tenant covers at
+// most 0.34. Gone vacancies answer 404/410 and never reach this check.
+export const PROSPECTIVE_DETAIL_MIN_COVERAGE = 0.5;
+const DETAIL_GONE_STATUS = new Set([404, 410]);
+
+/**
+ * The rendered vacancy text of `html` when it can replace the listing text,
+ * else `{ text: '', reason }`: it must contain the listing text (coverage)
+ * and not be shorter than it.
+ *
+ * Coverage is also the language check: a page rendered in another language
+ * than the listing shares almost none of its words. The page language itself
+ * is not compared — a tenant can print a German body inside an English
+ * template (PwC "Your Team"/"Your Benefits" around German vacancy text,
+ * 26/153 vacancies on 2026-09-29), and that page is the vacancy as published.
+ *
+ * @param {string} html  detail page already fetched by the caller
+ * @param {{ title?: string, listingText?: string }} opts
+ * @returns {{ text: string, reason: string }}
+ */
+export function selectProspectiveDetailDescription(html, { title = '', listingText = '' } = {}) {
+  let text = '';
+  try {
+    text = extractProspectiveDetailText(html, { title, listingText });
+  } catch {
+    return { text: '', reason: 'extract-failed' };
+  }
+  if (!text || prospectiveDetailCoverage(text, listingText) < PROSPECTIVE_DETAIL_MIN_COVERAGE) {
+    return { text: '', reason: 'not-this-vacancy' };
+  }
+  if (stripHtml(text).length < stripHtml(listingText).length) return { text: '', reason: 'shorter-than-listing' };
+  return { text, reason: '' };
+}
+
+/**
+ * The part of `fetch` the detail reader uses (tests pass a stub).
+ * @typedef {(url: string, init?: object) => Promise<{ ok: boolean, status: number, url?: string,
+ *   headers?: { get: (name: string) => string | null }, text: () => Promise<string> }>} DetailFetch
+ */
+
+/**
+ * @param {string} url
+ * @param {{ fetchImpl?: DetailFetch, timeoutMs?: number }} [opts]
+ */
+async function fetchDetailHtml(url, { fetchImpl = fetch, timeoutMs } = {}) {
+  const limit = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), limit);
+    try {
+      const res = await fetchImpl(url, {
+        headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
+        redirect: 'follow',
+        signal: controller.signal,
+      });
+      if (DETAIL_GONE_STATUS.has(res.status)) return { status: res.status, url: res.url || url, html: '' };
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      // Only a declared HTML document is a rendered vacancy. A JSON or
+      // plain-text answer (API error body, proxy page) can echo the listing
+      // text and pass the coverage check, and so can an answer that declares
+      // no type at all: fail closed before reading the body.
+      const type = String(res.headers?.get?.('content-type') || '');
+      if (!/\bhtml\b/i.test(type)) return { status: res.status, url: res.url || url, html: '', notHtml: true };
+      return { status: res.status, url: res.url || url, html: await res.text() };
+    } finally {
+      clearTimeout(timer);
+    }
+  }, { label: `prospective-ch detail ${url}` });
+}
+
+/**
+ * Replace each job's listing-derived description with the vacancy text of its
+ * rendered detail page (`job.url`, the Prospective directlink). The listing
+ * text stays in place — never a job dropped — when the page cannot be read,
+ * is not on a trusted host, is gone, or does not contain the listing text
+ * (coverage below {@link PROSPECTIVE_DETAIL_MIN_COVERAGE}).
+ *
+ * @param {object[]} jobs  crawler jobs ({ url, title, description, descriptionByLocale, sourceLang })
+ * @param {{ isTrustedDomain?: (url: string) => boolean, label?: string, concurrency?: number,
+ *   delayMs?: number, fetchImpl?: DetailFetch, includePostingDate?: boolean }} [opts]
+ * @returns {Promise<{ used: number, fallback: Record<string, number>, pageDescribed: Set<object> }>}
+ */
+export async function enrichProspectiveJobsFromDetailPages(jobs, {
+  isTrustedDomain = () => true,
+  label = 'prospective',
+  concurrency = 3,
+  delayMs = 250,
+  fetchImpl = fetch,
+  includePostingDate = false,
+} = {}) {
+  const list = Array.isArray(jobs) ? jobs : [];
+  const fallback = {};
+  const pageDescribed = new Set();
+  let used = 0;
+  const miss = (reason) => { fallback[reason] = (fallback[reason] || 0) + 1; };
+  const pageByUrl = new Map();
+  let cursor = 0;
+  const worker = async () => {
+    while (cursor < list.length) {
+      const job = list[cursor];
+      cursor += 1;
+      const url = String(job?.url || '');
+      if (!/^https:\/\//i.test(url) || !isTrustedDomain(url)) { miss('untrusted-url'); continue; }
+      let page;
+      try {
+        // One vacancy can back several records (PwC explodes a multi-city
+        // listing per city): its page is fetched once.
+        if (!pageByUrl.has(url)) {
+          pageByUrl.set(url, fetchDetailHtml(url, { fetchImpl }).finally(
+            () => (delayMs > 0 ? new Promise((resolve) => setTimeout(resolve, delayMs)) : null),
+          ));
+        }
+        page = await pageByUrl.get(url);
+      } catch {
+        miss('fetch-failed');
+        continue;
+      }
+      if (!page.html) { miss(page.notHtml ? 'not-html' : `http-${page.status}`); continue; }
+      if (page.url !== url && !isTrustedDomain(page.url)) { miss('untrusted-redirect'); continue; }
+      const sourceLang = job.sourceLang || 'de';
+      const listingText = job.descriptionByLocale?.[sourceLang] || job.description || '';
+      const { text, reason } = selectProspectiveDetailDescription(page.html, {
+        title: job.title,
+        listingText,
+      });
+      if (!text) { miss(reason); continue; }
+      if (includePostingDate) {
+        const posting = extractJobPostingLd(page.html);
+        // The structured posting must identify this vacancy, not a related-job widget.
+        const sameTitle = normalize(normalizeSpace(stripHtml(posting?.title || '')))
+          === normalize(normalizeSpace(stripHtml(job.title || '')));
+        Object.assign(job, sourcePostingDateFields(sameTitle ? posting?.datePosted : ''));
+      }
+      // Runners that seed every locale with the source text until
+      // translation fills them (Agroscope, PwC) keep that seed consistent.
+      const byLocale = { ...(job.descriptionByLocale || {}) };
+      for (const [locale, value] of Object.entries(byLocale)) {
+        if (value === listingText) byLocale[locale] = text;
+      }
+      byLocale[sourceLang] = text;
+      job.description = text;
+      job.descriptionByLocale = byLocale;
+      pageDescribed.add(job);
+      used += 1;
+    }
+  };
+  await Promise.all(Array.from({ length: Math.max(1, Math.min(concurrency, list.length)) }, worker));
+  const fallbackSummary = Object.entries(fallback).map(([reason, count]) => `${count} ${reason}`).join(', ');
+  console.log(`  📄 ${label}: ${used}/${list.length} descriptions from the rendered vacancy page${fallbackSummary ? ` (listing text kept: ${fallbackSummary})` : ''}`);
+  return { used, fallback, pageDescribed };
+}
+
 // `fallbackCategory` lets non-healthcare tenants (e.g. a hospitality
 // employer reusing this hospital-oriented factory) override the
 // last-resort bucket for titles that don't match any keyword below.
@@ -232,6 +709,61 @@ function detectExperienceLevel(title = '') {
 }
 
 /**
+ * The same vacancy published twice under two listing ids: identical title,
+ * workplace and full rendered vacancy text, requisition number and bare
+ * dates aside (a posting per headcount, or a re-post the tenant never
+ * withdrew). A seeker
+ * sees one vacancy, so the later copy is dropped.
+ *
+ * Only jobs in `pageDescribed` (description read from the rendered page) are
+ * compared. A listing-derived text is not the whole vacancy and can hide what
+ * tells two postings apart: GZ Dielsdorf's two "Fachperson Gesundheit EFZ"
+ * share the listing text but one is "Befristet", the other "Unbefristet";
+ * Lindenhof's two "Dipl. Pflegefachfrau/-mann FH/HF" differ by a "Gut zu
+ * wissen" section the listing omits.
+ *
+ * @param {object[]} jobs
+ * @param {string} [label]
+ * @param {{ pageDescribed?: Set<object> }} [opts]
+ * @returns {object[]}
+ */
+// Posting metadata, not vacancy content: a requisition/reference number or a
+// bare date line (publication or start date). BKW publishes one "Lehrstelle
+// Montage-Elektriker:in EFZ" per apprentice place in Thun, identical but for
+// "Referenznummer A-2205668 / A-2205540"; Raiffeisen Egnach re-published its
+// "Mitarbeiter Kreditadministration" on 11.09.2026 without withdrawing the
+// 07.08.2026 copy (only the `.date` line differs).
+const REQUISITION_LINE_RX = /^(?:[•\-*]\s*)?(?:referenz(?:nummer|-?nr\.?)|referenznr\.?|numéro de référence|numero di riferimento|reference(?: number| no\.?)?|ref\.?(?: no\.?| nr\.?)?|job-?id|stellen-?id|id)\s*[:#]?\s*[\w$./-]+$/i;
+const BARE_DATE_LINE_RX = /^(?:[•\-*]\s*)?\d{1,2}\.\s?\d{1,2}\.\s?\d{2,4}$/;
+
+function repostKeyText(description = '') {
+  return String(description || '').split('\n')
+    .filter((line) => !REQUISITION_LINE_RX.test(line.trim()) && !BARE_DATE_LINE_RX.test(line.trim()))
+    .join('\n');
+}
+
+export function dropRepostedListings(jobs, label = 'prospective', { pageDescribed = new Set() } = {}) {
+  const seen = new Set();
+  const unique = [];
+  let dropped = 0;
+  for (const job of Array.isArray(jobs) ? jobs : []) {
+    if (!pageDescribed.has(job)) { unique.push(job); continue; }
+    const key = [
+      detailLineKey(job?.title),
+      detailLineKey(job?.location),
+      detailLineKey(job?.postalCode),
+      detailLineKey(job?.streetAddress),
+      detailLineKey(repostKeyText(job?.description)),
+    ].join('||');
+    if (seen.has(key)) { dropped += 1; continue; }
+    seen.add(key);
+    unique.push(job);
+  }
+  if (dropped > 0) console.log(`  ⏭️  ${label}: dropped ${dropped} re-posted listings (same title, workplace and rendered vacancy text)`);
+  return unique;
+}
+
+/**
  * Create a Prospective.ch parser for one employer.
  *
  * @param {Object} config
@@ -239,9 +771,34 @@ function detectExperienceLevel(title = '') {
  * @param {string} config.companyName
  * @param {string} config.companyDomain
  * @param {string|number} config.mediumId    Prospective tenant ID
- * @param {string} config.defaultCanton
- * @param {string} config.defaultCity
+ * @param {string} config.defaultCanton  HQ canton. It is NOT a fallback for a
+ *   listing whose location is absent, foreign or unresolved — those listings
+ *   are dropped (counted in `locationSkipped`, issue 9844). It is read only
+ *   by `allSitesInDefaultCanton` below.
+ * @param {string} config.defaultCity  HQ city. Used only to gate the HQ
+ *   postal/street fallback when the listing's own city IS the HQ city; never
+ *   substituted for a missing source location.
  * @param {string} config.defaultPostalCode
+ * @param {boolean} [config.allSitesInDefaultCanton=false]  Declares that every
+ *   workplace of this employer lies in `defaultCanton` by construction (a
+ *   cantonal or municipal administration, never a multi-site group). It only
+ *   disambiguates a source locality that is a BFS municipality of
+ *   `defaultCanton` but that canton inference leaves unresolved because the
+ *   name also exists elsewhere (`Oberwil`, BL/ZG). It never assigns a canton to
+ *   an absent, explicitly foreign or non-municipality location.
+ * @param {boolean} [config.singleLocality=false]  Declares that every
+ *   workplace of this employer is in `defaultCity`/`defaultCanton` by
+ *   construction (e.g. SPITEX BASEL, a home-care service for the city of
+ *   Basel only). A listing whose source location is absent or does not
+ *   resolve is then placed there instead of being dropped; an explicitly
+ *   foreign location is still dropped. Never set it on a multi-site employer:
+ *   that is exactly the HQ fallback this factory refuses by default.
+ * @param {Record<string, string>} [config.siteCantons]  Verified sites of this
+ *   employer that the BFS municipality registry cannot resolve on its own:
+ *   sub-municipal localities (`Valens`, part of Pfäfers SG) or cross-canton
+ *   homonyms whose canton the source proves (`Wald`, ZIP 8636 → ZH). Keys are
+ *   matched against the whole source locality (case/diacritics-insensitive);
+ *   values are canton codes. Never consulted for a location the source omits.
  * @param {string} [config.defaultStreetAddress] HQ street, used ONLY as a
  *   city-gated fallback (resolved location matches defaultCity) when a
  *   listing's own `sza_workplace` has no parseable street segment.
@@ -270,6 +827,20 @@ function detectExperienceLevel(title = '') {
  *   label. All Prospective tenants onboarded so far are hospitals/clinics, so
  *   this defaults to healthcare; non-healthcare tenants (e.g. a school
  *   district) should pass their own sector.
+ * @param {boolean} [config.detailPageDescription=false]  Read each vacancy's
+ *   description from its rendered directlink page instead of the listing
+ *   payload (see {@link enrichProspectiveJobsFromDetailPages}). Set it on a
+ *   tenant whose template prints vacancy sections the listing API does not
+ *   carry — measured, not assumed: the 2026-09-29 audit found the listing
+ *   text at 9-45 % of the rendered vacancy on those tenants. The listing text
+ *   remains the per-job fallback.
+ * @param {(listing: object, context: object) => string} [config.sourceUrlFn]
+ *   Override the public URL emitted for a listing while retaining the API as
+ *   the source of the vacancy text. The callback receives the listing and the
+ *   normalized direct/apply links plus the API URL.
+ * @param {(listing: object, context: object) => string} [config.applyUrlFn]
+ *   Override the application URL emitted for a listing. The callback receives
+ *   the same context as `sourceUrlFn`.
  * @param {(title: string, department: string) => string} [config.categoryFn]
  *   Override the per-job category classifier. Defaults to the shared
  *   healthcare-biased `detectCategory()` (its unmatched-role fallback is
@@ -287,6 +858,9 @@ export function createProspectiveChParser(config) {
     defaultCanton,
     defaultCity,
     defaultPostalCode,
+    allSitesInDefaultCanton = false,
+    singleLocality = false,
+    siteCantons = {},
     defaultStreetAddress = '',
     publicCareerUrl,
     defaultSourceLang = 'de',
@@ -303,10 +877,58 @@ export function createProspectiveChParser(config) {
     // hospitality employer or municipal administration) needs to pass these.
     sector = 'Sanità / Ospedali',
     categoryFn = detectCategory,
+    detailPageDescription = false,
+    sourceUrlFn,
+    applyUrlFn,
   } = config;
 
   if (!companyKey || !companyName || !mediumId || (!defaultCanton && typeof locationResolver !== 'function')) {
     throw new Error('createProspectiveChParser: missing required config');
+  }
+  if ((allSitesInDefaultCanton || singleLocality) && !ALL_CANTON_CODES.includes(String(defaultCanton || '').toUpperCase())) {
+    throw new Error(`createProspectiveChParser: allSitesInDefaultCanton/singleLocality need a Swiss canton code, got ${defaultCanton}`);
+  }
+  if (singleLocality && !normalizeSpace(defaultCity)) {
+    throw new Error('createProspectiveChParser: singleLocality needs defaultCity');
+  }
+  const siteCantonByKey = new Map();
+  for (const [site, code] of Object.entries(siteCantons || {})) {
+    const canton = String(code || '').trim().toUpperCase();
+    if (!normalizeSiteKey(site) || !ALL_CANTON_CODES.includes(canton)) {
+      throw new Error(`createProspectiveChParser: invalid siteCantons entry ${site} → ${code}`);
+    }
+    siteCantonByKey.set(normalizeSiteKey(site), canton);
+  }
+
+  // Default branch (no `locationResolver`): the first source candidate that
+  // resolves to a Swiss canton wins. Address-shaped candidates are never
+  // classified; only their non-street comma segments are tried. An explicitly
+  // foreign candidate does not decide on its
+  // own: it drops the listing only when no later candidate proves a Swiss
+  // place. When nothing resolves — absent location, or a place no rule can
+  // prove Swiss — the listing is dropped: unknown geography stays fail-closed
+  // and never inherits the HQ canton (owner rule, issue 9844). The only
+  // exception is a tenant that declares `singleLocality`, and never for a
+  // listing that named a foreign place.
+  function resolveSourceLocation(listing) {
+    let foreignSeen = false;
+    for (const candidate of pickLocationCandidates(listing).flatMap(placeSegments)) {
+      if (isLocationExplicitlyForeign(candidate)) {
+        foreignSeen = true;
+        continue;
+      }
+      const canton = siteCantonByKey.get(normalizeSiteKey(candidate))
+        || inferSwissTargetCanton(candidate)
+        || (allSitesInDefaultCanton && isKnownSwissMunicipalityInCanton(candidate, defaultCanton)
+          ? String(defaultCanton).toUpperCase()
+          : '');
+      if (canton) return { location: candidate, canton };
+    }
+    if (foreignSeen) return null;
+    if (singleLocality) {
+      return { location: normalizeSpace(defaultCity), canton: String(defaultCanton).toUpperCase() };
+    }
+    return null;
   }
 
   const API_BASE = `https://ohws.prospective.ch/public/v1/medium/${mediumId}/jobs`;
@@ -487,7 +1109,24 @@ export function createProspectiveChParser(config) {
       // instead, same as the empty-field case already handled below.
       const rawApplyLink = normalizeSpace(szas.sza_apply_link || '');
       const applyLink = /^https?:\/\//i.test(rawApplyLink) ? rawApplyLink : '';
-      const publicUrl = directLink || applyLink || publicCareerUrl || API_BASE;
+      const linkContext = {
+        directLink,
+        applyLink,
+        publicCareerUrl: publicCareerUrl || '',
+        apiUrl: API_BASE,
+      };
+      const customPublicUrl = typeof sourceUrlFn === 'function'
+        ? sourceUrlFn(listing, linkContext)
+        : '';
+      const publicUrl = normalizeSpace(customPublicUrl)
+        || directLink
+        || applyLink
+        || publicCareerUrl
+        || API_BASE;
+      const customApplyUrl = typeof applyUrlFn === 'function'
+        ? applyUrlFn(listing, { ...linkContext, publicUrl })
+        : '';
+      const resolvedApplyUrl = normalizeSpace(customApplyUrl) || applyLink || publicUrl;
 
       let location;
       let canton;
@@ -501,20 +1140,20 @@ export function createProspectiveChParser(config) {
         location = normalizeSpace(resolution.location);
         canton = String(resolution.canton || '').trim().toUpperCase();
       } else {
-        location = pickLocation(listing, defaultCity);
-        canton = inferSwissTargetCanton(location) || defaultCanton;
+        const resolved = resolveSourceLocation(listing);
+        if (!resolved) {
+          locationSkipped += 1;
+          continue;
+        }
+        ({ location, canton } = resolved);
       }
       const descriptionText = buildDescription(listing);
       const sourceLang = detectLang(descriptionText || title, defaultSourceLang);
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);
       const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-      const postedDate = (() => {
-        const raw = listing?.start_date || listing?.last_modification_timestamp || '';
-        const d = new Date(String(raw || ''));
-        if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-        return new Date().toISOString().slice(0, 10);
-      })();
+      // Listing start/modification timestamps are not publication evidence.
+      const postingDates = sourcePostingDateFields('');
 
       const department = normalizeSpace(
         (Array.isArray(listing?.attributes?.['20']) ? listing.attributes['20'][0] : '')
@@ -559,8 +1198,8 @@ export function createProspectiveChParser(config) {
         sector,
         currency: 'CHF',
         featured: false,
-        postedDate,
-        applyUrl: applyLink || publicUrl,
+        ...postingDates,
+        applyUrl: resolvedApplyUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
       });
@@ -575,8 +1214,13 @@ export function createProspectiveChParser(config) {
     if (locationSkipped > 0) {
       console.log(`  ⏭️  Filtered out ${locationSkipped} listings (unresolved/non-Swiss source location)`);
     }
-    console.log(`📋 Total ${companyName} jobs discovered: ${jobs.length}`);
-    return jobs;
+    let pageDescribed = new Set();
+    if (detailPageDescription && jobs.length) {
+      ({ pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: companyName, includePostingDate: true }));
+    }
+    const unique = dropRepostedListings(jobs, companyName, { pageDescribed });
+    console.log(`📋 Total ${companyName} jobs discovered: ${unique.length}`);
+    return unique;
   }
 
   return { fetchAllJobs, isCompanyJob, isTrustedDomain };

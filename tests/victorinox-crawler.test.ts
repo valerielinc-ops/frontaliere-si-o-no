@@ -143,7 +143,7 @@ describe('Victorinox crawler parser', () => {
     it('includes every structured-data completeness field (Non-Negotiable #3)', () => {
       const structuredDataInputs = [
         'postalCode', 'streetAddress', 'title', 'description',
-        'addressLocality', 'addressCountry', 'employmentType', 'postedDate',
+        'addressLocality', 'addressCountry', 'employmentType',
       ];
       for (const field of structuredDataInputs) {
         expect(validJob[field]).toBeTruthy();
@@ -282,21 +282,31 @@ describe('Victorinox crawler parser', () => {
       expect(delemontJob.streetAddress).toBe('');
     });
 
-    it('applies the thin-description guard: short detail pages fall back to a synthesized description ≥30 words', async () => {
+    it('publishes only the source text: a thin detail page gets no crawler summary (issue 5253)', async () => {
       stubFetch(buildListingHtml(ROWS), ROWS);
 
       const jobs = await fetchAllVictorinoxJobs();
       const zermattJob = jobs.find((j: any) => j.title === 'Sales Assistant - Zermatt m/w/d');
 
       expect(zermattJob).toBeDefined();
-      // The raw detail text was too thin (< 30 words), so the fallback
-      // summary (dept/location/ref + company boilerplate) was used instead
-      // of the thin raw detail text.
-      expect(zermattJob.description).not.toContain('Kurze Stellenbeschreibung');
-      expect(zermattJob.description).toContain('Bereich: Sales');
-      expect(zermattJob.description).toContain('Standort: Zermatt');
-      expect(zermattJob.description).toContain('Referenz: 2026-241');
-      expect(zermattJob.description).toContain('Victorinox');
+      // The detail page is under the common 50-word floor: the description
+      // stays empty (the shared pipeline's thin-source path) instead of the
+      // labelled listing fields and company sentence the crawler used to
+      // write in its place.
+      expect(zermattJob.description).toBe('');
+      expect(zermattJob.description).not.toMatch(/Bereich:|Standort:|Referenz:|Schweizer Familienunternehmen/);
+    });
+
+    it('retains the full publication timestamp from a matching detail JobPosting', async () => {
+      const date = new Date(Date.now() - 86400000).toISOString();
+      const row = ROWS[0];
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => ({ ok: true, status: 200,
+        text: async () => String(url).includes('list-of-all-jobs.aspx') ? buildListingHtml([row])
+          : detailHtml(row.detail) + `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: row.title, url: PORTAL_BASE + row.href, datePosted: date, description: row.detail })}</script>`
+      })));
+      const jobs = await fetchAllVictorinoxJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ datePosted: date, postedDate: date, postingDateSource: 'reported' });
     });
 
     it('includes structured-data completeness fields for every returned job (Non-Negotiable #3)', async () => {
@@ -306,12 +316,17 @@ describe('Victorinox crawler parser', () => {
       expect(jobs.length).toBeGreaterThan(0);
       const structuredDataInputs = [
         'title', 'description', 'addressLocality', 'addressCountry',
-        'employmentType', 'postedDate',
+        'employmentType',
       ];
       for (const job of jobs) {
         for (const field of structuredDataInputs) {
+          // The thin Zermatt page is under the 50-word floor: no description
+          // by design (thin-source path, issue 5253; see the test above).
+          if (field === 'description' && (job as any).title === 'Sales Assistant - Zermatt m/w/d') continue;
           expect((job as any)[field]).toBeTruthy();
         }
+        // These source fixtures contain no publication date, so they cannot emit dated schema.
+        expect(job).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
         // postalCode/streetAddress are safe-defaulted (never omitted) even
         // when a secondary site legitimately has no HQ street on record.
         expect(job).toHaveProperty('postalCode');

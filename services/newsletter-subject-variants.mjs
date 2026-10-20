@@ -5,8 +5,9 @@
  * subject-line styles. Each subscriber is deterministically assigned a variant
  * for a given campaign (stable across the daily cron re-runs of the same weekly
  * campaign, rotating across campaigns). The cascade then picks a provider by
- * quota — independent of the variant — so every provider sees a ~50/50 mix of
- * variants, making the provider×variant open-rate cross-tab valid.
+ * quota — independent of the variant — so every provider sees an equal mix of
+ * the configured variants when no winner is explicitly promoted, making the
+ * provider×variant open-rate cross-tab valid.
  *
  * IMPORTANT — variant assignment is DETERMINISTIC, so the reporting script
  * (`scripts/newsletter-ab-report.mjs`) can RE-COMPUTE the variant for any
@@ -37,10 +38,12 @@ export function normalizeEmail(raw) {
 }
 
 /**
- * The two A/B variants. Two is the statistically-cheapest contrast and maps to
- * the two dominant subject-line schools:
+ * The four subject-line variants. The first two are the existing arms; the
+ * latter two extend the test with distinct, non-overlapping hooks:
  *   - `concreto`  → specificity-forward: numbers, locations, concrete benefit.
  *   - `curioso`   → curiosity-forward: question / curiosity-gap / FOMO.
+ *   - `pratico`   → action/checklist-forward: immediate utility.
+ *   - `novita`    → timely-update-forward: what changed this week.
  *
  * `styleDirective[locale]` is injected into the AI subject prompt (kept in the
  * target language to prevent the model drifting to Italian). `fallback[locale]`
@@ -81,7 +84,42 @@ export const SUBJECT_VARIANTS = [
       fr: '🤔 Le taux CHF te coûte-t-il cher ?',
     },
   },
+  {
+    id: 'pratico',
+    label: 'Practical / action-first',
+    styleDirective: {
+      it: 'STILE A/B "pratico": apri con un\'azione, una mini-checklist o un risultato ottenibile subito. Dai istruzioni utili e concrete; niente domanda, mistero o urgenza artificiale. Non chiamare il lettore "frontaliere": parla del suo bisogno.',
+      en: 'A/B STYLE "practical": lead with an action, a mini-checklist, or a result the reader can get right away. Give useful, concrete instructions; no question, mystery, or artificial urgency. Do not label the reader; lead with the need.',
+      de: 'A/B-STIL "praktisch": mit einer Handlung, einer Mini-Checkliste oder einem sofort erreichbaren Ergebnis beginnen. Nützliche, konkrete Anleitung; keine Frage, kein Rätsel, keine künstliche Dringlichkeit. Leser nicht als Grenzgänger bezeichnen.',
+      fr: 'STYLE A/B "pratique" : commence par une action, une mini-checklist ou un résultat immédiat. Donne des conseils utiles et concrets ; pas de question, de mystère ni d’urgence artificielle. Ne qualifie pas le lecteur de frontalier.',
+    },
+    fallback: {
+      it: '✅ 3 passi per capire il tuo netto',
+      en: '✅ 3 steps to understand your net pay',
+      de: '✅ 3 Schritte zu deinem Nettolohn',
+      fr: '✅ 3 étapes pour comprendre votre net',
+    },
+  },
+  {
+    id: 'novita',
+    label: 'News / timely update',
+    styleDirective: {
+      it: 'STILE A/B "novità": metti in primo piano cosa è cambiato o cosa c\'è di nuovo questa settimana, con un fatto verificabile e tempestivo. Informativo e attuale, senza domanda, mistero o clickbait. Non chiamare il lettore "frontaliere".',
+      en: 'A/B STYLE "news": lead with what changed or what is new this week, using one concrete and timely fact. Informative and current, with no question, mystery, or clickbait. Do not label the reader.',
+      de: 'A/B-STIL "Neuigkeit": in den Vordergrund stellen, was sich diese Woche geändert hat oder neu ist, mit einer konkreten und aktuellen Tatsache. Informativ und zeitnah, ohne Frage, Rätsel oder Clickbait. Leser nicht als Grenzgänger bezeichnen.',
+      fr: 'STYLE A/B "actualité" : mets en avant ce qui a changé ou ce qui est nouveau cette semaine, avec un fait concret et actuel. Informatif et opportun, sans question, mystère ni clickbait. Ne qualifie pas le lecteur de frontalier.',
+    },
+    fallback: {
+      it: '🆕 Cosa cambia questa settimana in Ticino',
+      en: '🆕 What changes this week in Ticino',
+      de: '🆕 Was sich diese Woche im Tessin ändert',
+      fr: '🆕 Ce qui change cette semaine au Tessin',
+    },
+  },
 ];
+
+/** The first two arms used before the four-arm experiment was introduced. */
+export const LEGACY_SUBJECT_VARIANTS = Object.freeze(SUBJECT_VARIANTS.slice(0, 2));
 
 /** Default variant id — used when none can be assigned. */
 export const DEFAULT_VARIANT_ID = SUBJECT_VARIANTS[0].id;

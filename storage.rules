@@ -25,12 +25,30 @@ service firebase.storage {
       allow create: if request.auth != null
         && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.userId == request.auth.uid
         && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.paymentStatus == 'paid'
-        && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.consentVersion == 'assisted-application-v1'
+        && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']
         && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.consentedAt is timestamp
         && request.resource.size < 5 * 1024 * 1024
         && request.resource.contentType.matches('^(application/pdf|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document)$');
       allow read: if false;
       allow update, delete: if false;
+    }
+
+    // CV source for the paid 30-day concierge. The profile/consent write is
+    // server-side; this rule only permits the candidate's file after payment,
+    // while the API validates the resulting storage key before persisting it.
+    match /application-concierge-uploads/{serviceId}/{file} {
+      allow create: if request.auth != null
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.userId == request.auth.uid
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.paymentStatus == 'paid'
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.serviceStatus == 'active'
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.expiresAt > request.time
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.consentVersion == 'application-concierge-v1'
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.consentedAt is timestamp
+        && file.matches('^[A-Za-z0-9._-]+$')
+        && !file.matches('.*\\.\\..*')
+        && request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('^(application/pdf|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document)$');
+      allow read, update, delete: if false;
     }
 
     // Journalist hero-image uploads for draft/queued articles (see
@@ -43,6 +61,21 @@ service firebase.storage {
         && request.auth.uid == uid
         && request.resource.size < 5 * 1024 * 1024
         && request.resource.contentType.matches('image/.*');
+    }
+
+    // Private event snapshots (Eventfrog Public API, AGB §17(3)): read and
+    // written only by CI with the Admin SDK, which bypasses these rules. No
+    // client may ever list, read or write them — stated explicitly so a future
+    // broad rule above cannot open the prefix by accident
+    // (tests/events-private-source-exclusions.test.ts pins it).
+    match /private-event-snapshots/{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    // Source descriptions used only by the private rewrite queue. The Admin
+    // SDK reads this prefix from trusted CI; no Firebase client may access it.
+    match /private-event-description-sources/{allPaths=**} {
+      allow read, write: if false;
     }
 
     // Default deny: any path not matched above is inaccessible.

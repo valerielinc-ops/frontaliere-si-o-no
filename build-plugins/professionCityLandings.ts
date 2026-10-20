@@ -26,9 +26,9 @@ import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
 
-import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, buildCanonicalBridgePage } from './constants';
+import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, buildCanonicalBridgePage, DRIVEBY_AD_SNIPPET } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { buildDayStampIso } from './shared/buildDayStamp';
@@ -41,12 +41,7 @@ import {
 } from './cityJobsHub';
 import { getCantonDisplayName } from './shared/cantonDisplay';
 import { resolveCantonSection } from './shared/cantonSection';
-import {
-  renderCantonSeoProse,
-  buildCantonSeoProseFaqItems,
-  type CantonSeoLocale,
-} from './shared/cantonSeoProse';
-import { cantonAnnualMedianChf } from './shared/cantonSalaryIndex';
+import { professionSalaryPresentation } from './shared/professionSalaryPresentation';
 import {
   aggregateProfessionJobsByCity,
   type ProfessionJobsSnapshot,
@@ -76,6 +71,7 @@ import {
   differentiateH1FromTitle,
 } from './shared/seoContentTokens';
 import { resolveProfessionCitiesFlushed } from './shared/buildSignals';
+import { renderProfessionCityInsights, type ProfessionCitySnapshots } from './professionCityInsights';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 
 /** Minimum real active jobs for a (city, profession) page to be emitted. */
@@ -98,15 +94,14 @@ interface Copy {
   lede: (count: number, role: string, city: string) => string;
   tileLive: string;
   tileFresh: string;
-  tileMedian: string;
   employersHeading: (city: string) => string;
-  noSalary: string;
+  /** Lead sentence of the employer list, so the names read as prose and not only as pills. */
+  employersLead: (role: string, city: string, list: string) => string;
   cta: (city: string) => string;
   breadcrumbHome: string;
   breadcrumbTicino: string;
   metaTitle: (role: string, city: string) => string;
   metaDesc: (count: number, role: string, city: string) => string;
-  perYear: string;
 }
 
 const COPY: Record<ProfessionLocale, Copy> = {
@@ -116,15 +111,13 @@ const COPY: Record<ProfessionLocale, Copy> = {
     lede: (n, r, c) => `${n} offerte attive per ${r} a ${c} e dintorni, da datori di lavoro svizzeri reali.`,
     tileLive: 'Offerte attive',
     tileFresh: 'Pubblicate (30 gg)',
-    tileMedian: 'Stipendio mediano lordo/anno',
     employersHeading: (c) => `Chi assume a ${c}`,
-    noSalary: 'n/d',
+    employersLead: (r, c, list) => `Datori di lavoro con più offerte attive per ${r} a ${c}: ${list}.`,
     cta: (c) => `Vedi tutte le offerte a ${c}`,
     breadcrumbHome: 'Home',
     breadcrumbTicino: 'Ticino',
     metaTitle: (r, c) => `Lavoro ${r} ${c} — offerte e stipendio`,
-    metaDesc: (n, r, c) => `${n} offerte per ${r} a ${c}: datori reali, stipendio mediano e candidatura diretta. Aggiornato ogni 12 ore.`,
-    perYear: '/anno',
+    metaDesc: (n, r, c) => `${n} offerte per ${r} a ${c}: datori reali, fonti salariali e candidatura diretta. Aggiornato ogni 12 ore.`,
   },
   en: {
     eyebrow: 'Jobs by profession',
@@ -132,15 +125,13 @@ const COPY: Record<ProfessionLocale, Copy> = {
     lede: (n, r, c) => `${n} active ${r} openings in ${c} and surrounding area, from real Swiss employers.`,
     tileLive: 'Active openings',
     tileFresh: 'Posted (30 days)',
-    tileMedian: 'Median gross salary/year',
     employersHeading: (c) => `Who is hiring in ${c}`,
-    noSalary: 'n/a',
+    employersLead: (r, c, list) => `Employers with the most active ${r} openings in ${c}: ${list}.`,
     cta: (c) => `See all openings in ${c}`,
     breadcrumbHome: 'Home',
     breadcrumbTicino: 'Ticino',
     metaTitle: (r, c) => `${r} jobs ${c} — openings and salary`,
-    metaDesc: (n, r, c) => `${n} ${r} openings in ${c}: real employers, median salary and direct apply. Updated every 12 hours.`,
-    perYear: '/yr',
+    metaDesc: (n, r, c) => `${n} ${r} openings in ${c}: real employers, salary sources and direct apply. Updated every 12 hours.`,
   },
   de: {
     eyebrow: 'Stellen nach Beruf',
@@ -148,15 +139,13 @@ const COPY: Record<ProfessionLocale, Copy> = {
     lede: (n, r, c) => `${n} aktive ${r}-Stellen in ${c} und Umgebung, von echten Schweizer Arbeitgebern.`,
     tileLive: 'Aktive Stellen',
     tileFresh: 'Veröffentlicht (30 Tage)',
-    tileMedian: 'Medianlohn brutto/Jahr',
     employersHeading: (c) => `Wer in ${c} einstellt`,
-    noSalary: 'k.A.',
+    employersLead: (r, c, list) => `Arbeitgeber mit den meisten aktiven ${r}-Stellen in ${c}: ${list}.`,
     cta: (c) => `Alle Stellen in ${c} ansehen`,
     breadcrumbHome: 'Home',
     breadcrumbTicino: 'Tessin',
     metaTitle: (r, c) => `${r} Stellen ${c} — Angebote und Lohn`,
-    metaDesc: (n, r, c) => `${n} ${r}-Stellen in ${c}: echte Arbeitgeber, Medianlohn und Direktbewerbung. Alle 12 Stunden aktualisiert.`,
-    perYear: '/Jahr',
+    metaDesc: (n, r, c) => `${n} ${r}-Stellen in ${c}: echte Arbeitgeber, Lohnquellen und Direktbewerbung. Alle 12 Stunden aktualisiert.`,
   },
   fr: {
     eyebrow: 'Emplois par profession',
@@ -164,25 +153,18 @@ const COPY: Record<ProfessionLocale, Copy> = {
     lede: (n, r, c) => `${n} offres actives pour ${r} à ${c} et environs, d'employeurs suisses réels.`,
     tileLive: 'Offres actives',
     tileFresh: 'Publiées (30 j)',
-    tileMedian: 'Salaire médian brut/an',
     employersHeading: (c) => `Qui recrute à ${c}`,
-    noSalary: 'n/d',
+    employersLead: (r, c, list) => `Employeurs avec le plus d'offres actives pour ${r} à ${c} : ${list}.`,
     cta: (c) => `Voir toutes les offres à ${c}`,
     breadcrumbHome: 'Accueil',
     breadcrumbTicino: 'Tessin',
     metaTitle: (r, c) => `Emploi ${r} ${c} — offres et salaire`,
-    metaDesc: (n, r, c) => `${n} offres ${r} à ${c} : employeurs réels, salaire médian et candidature directe. Mis à jour toutes les 12 heures.`,
-    perYear: '/an',
+    metaDesc: (n, r, c) => `${n} offres ${r} à ${c} : employeurs réels, sources salariales et candidature directe. Mis à jour toutes les 12 heures.`,
   },
 };
 
 function esc(s: unknown): string {
   return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-
-function fmtChf(n: number, locale: ProfessionLocale): string {
-  const sep = locale === 'en' ? ',' : locale === 'fr' ? ' ' : "'";
-  return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
 }
 
 /**
@@ -296,9 +278,15 @@ export function renderProfessionCityPage(opts: {
   cityKey: CityHubKey;
   id: ProfessionId;
   snapshot: ProfessionJobsSnapshot;
+  /**
+   * Every (city, profession) snapshot of the build — the two peer axes of the
+   * insights block (#11678). Optional so a single-page caller keeps working:
+   * the block then shows only this pair's own offers.
+   */
+  byCity?: ProfessionCitySnapshots;
   distDir: string;
 }): { html: string; words: number } {
-  const { locale, cityKey, id, snapshot, distDir } = opts;
+  const { locale, cityKey, id, snapshot, byCity, distDir } = opts;
   const c = COPY[locale];
   const def = resolveCityDef(cityKey);
   const cityDisplay = def.display;
@@ -312,10 +300,7 @@ export function renderProfessionCityPage(opts: {
   const cantonCrumbLabel = def.isTi ? c.breadcrumbTicino : getCantonDisplayName(def.cantonUrlKey, locale);
   const cantonCrumbHref = def.isTi ? homeHref : cantonSectionRoot(locale, def);
 
-  // Real corpus median for this city+profession; fall back to the canton-wide
-  // BFS annual median when the matched jobs carry no salary data.
-  const median = snapshot.medianSalaryChf && snapshot.medianSalaryChf > 0 ? snapshot.medianSalaryChf : cantonAnnualMedianChf(def.cantonBfs);
-  const medianStr = median > 0 ? `CHF ${fmtChf(median, locale)}` : c.noSalary;
+  const salary = professionSalaryPresentation(locale, def.cantonBfs, snapshot.reportedSalary);
 
   const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_CLASS}">
   <a href="${homeHref}" class="${BREADCRUMB_LINK_CLASS}">${esc(c.breadcrumbHome)}</a>
@@ -328,11 +313,17 @@ export function renderProfessionCityPage(opts: {
   const tiles = renderStatGrid([
     { label: c.tileLive, value: String(snapshot.liveCount), tone: pickStatTileTone('openings', snapshot.liveCount) },
     { label: c.tileFresh, value: String(snapshot.fresh30Count), tone: pickStatTileTone('fresh', snapshot.fresh30Count) },
-    { label: c.tileMedian, value: median > 0 ? `${medianStr}${c.perYear}` : medianStr, tone: 'accent' },
+    { label: salary.label, value: salary.value, tone: 'accent' },
   ]);
 
+  const andWord = { it: ' e ', en: ' and ', de: ' und ', fr: ' et ' }[locale];
+  const employerNames = snapshot.topEmployers.map((e) => `${e.name} (${e.count})`);
+  const employerList = employerNames.length <= 1
+    ? employerNames.join('')
+    : `${employerNames.slice(0, -1).join(', ')}${andWord}${employerNames[employerNames.length - 1]}`;
   const employers = snapshot.topEmployers.length > 0
     ? `<h2 style="${H2_STYLE}">${esc(c.employersHeading(cityDisplay))}</h2>
+<p class="my-2">${esc(c.employersLead(role, cityDisplay, employerList))}</p>
 <ul class="flex flex-wrap gap-2 my-2">${snapshot.topEmployers
         .map((e) => `<li class="rounded-full bg-surface-alt px-3 py-1 text-sm">${esc(e.name)} <span class="text-subtle">(${e.count})</span></li>`)
         .join('')}</ul>`
@@ -342,16 +333,12 @@ export function renderProfessionCityPage(opts: {
   // listing for this city (also the below-floor bridge target).
   const ctaHref = cityHubTarget(locale, def);
 
-  const proseOpts = {
-    locale: locale as CantonSeoLocale,
-    cantonDisplay: def.isTi ? (locale === 'it' || locale === 'en' ? 'Ticino' : 'Tessin') : getCantonDisplayName(def.cantonUrlKey, locale),
-    slot: 'city-landing' as const,
-    entityName: cityDisplay,
-    countHint: snapshot.liveCount,
-    ctaHref,
-    ctaLabel: c.cta(cityDisplay),
-  };
-  const prose = renderCantonSeoProse(proseOpts);
+  // Il contenuto che solo questa coppia ha: i titoli reali delle sue offerte,
+  // la stessa professione nelle altre città e le altre professioni della
+  // città, nominati (#11678). Vuoto quando non c'è dato: niente sezione.
+  const insights = renderProfessionCityInsights({ locale, cityKey, id, snapshot, byCity, minJobs: MIN_JOBS });
+
+  const professionCityInlineAd = `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`;
 
   // ── Stessa collisione di professionCantonLandings.ts, qui ancora LATENTE ──
   //
@@ -380,12 +367,19 @@ export function renderProfessionCityPage(opts: {
 
   const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">💼</span>${esc(c.eyebrow)} · ${esc(cityDisplay)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(h1Display)}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(snapshot.liveCount, role, cityDisplay))}</p></header>`;
 
-  const main = `<div class="cl-fun">${breadcrumb}
+  const mainContent = `<div class="cl-fun">${breadcrumb}
 ${header}
 ${tiles}
+${salary.noteHtml}
+${DRIVEBY_AD_SNIPPET}
 ${employers}
+${insights}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cityDisplay))} →</a></p>
-${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
+${professionCityInlineAd}</div>`;
+  const main = mainContent.replace(
+    /<\/div>$/,
+    `${endOfContentMultiplexHtml({ indexable: true, contentHtml: mainContent })}</div>`,
+  );
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',
@@ -396,12 +390,6 @@ ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
       { '@type': 'ListItem', position: 3, name: c.h1(role, cityDisplay), item: `${BASE_URL}${canonicalPath}` },
     ],
   };
-  const faqLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: buildCantonSeoProseFaqItems(proseOpts),
-  };
-
   const hreflangPaths = {
     it: buildProfessionCityPath('it', cityKey, id),
     en: buildProfessionCityPath('en', cityKey, id),
@@ -428,7 +416,12 @@ ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
     canonicalUrl: `${BASE_URL}${canonicalPath}`,
     hreflangHtml: renderHreflangTags(hreflangPaths),
     bodyHtml: main,
-    jsonLdScripts: [JSON.stringify(breadcrumbLd), JSON.stringify(faqLd)],
+    // The shared city FAQ/context belongs to the canonical city hub linked by
+    // the CTA. Keeping it on this profession×city leaf made ~45 of its 61
+    // information-gain segments identical across the family and duplicated
+    // the hub's FAQPage. The leaf's offer/employer/peer payload is the
+    // page-specific answer; the hub remains the operational context page.
+    jsonLdScripts: [JSON.stringify(breadcrumbLd)],
     ogLocale: OG_LOCALE[locale],
     robots: 'index,follow',
     distDir,
@@ -448,7 +441,7 @@ export interface ProfessionCityEmitResult {
 
 function buildSitemap(paths: readonly string[], dateStamp: string): string {
   const entries = paths
-    .map((p) => `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.5</priority>\n  </url>`)
+    .map((p) => `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.5</priority>\n  </url>`)
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
 }
@@ -549,7 +542,7 @@ export async function emitProfessionCityPages(opts: { rootDir: string; distDir: 
       // bridge's hub target.
       const rendered = PROFESSION_LOCALES.map((locale) => ({
         locale,
-        ...renderProfessionCityPage({ locale, cityKey, id, snapshot, distDir: opts.distDir }),
+        ...renderProfessionCityPage({ locale, cityKey, id, snapshot, byCity, distDir: opts.distDir }),
       }));
       if (rendered.some((r) => r.words < MIN_INDEXABLE_WORDS)) {
         result.pagesSkippedForWordCount += PROFESSION_LOCALES.length;

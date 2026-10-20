@@ -10,6 +10,9 @@
  * listing HTML + JSON-LD detail pages directly instead of going through
  * `prospective-ch-job-parser-common.mjs`.
  */
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+
 import { describe, it, expect } from 'vitest';
 
 import {
@@ -139,6 +142,34 @@ describe('Concordia crawler parser', () => {
         },
         delayMs: 0,
       })).rejects.toThrow(/refusing to publish a partial dataset/);
+    });
+
+    it('publishes the rendered vacancy, not only its JSON-LD body (audit 2026-09-29: 39-44 % of the page)', async () => {
+      // Real detail page, minimized (scripts/media removed, contact data replaced).
+      const html = readFileSync(
+        path.resolve(process.cwd(), 'tests/fixtures/prospective-detail/concordia-kundenberater-zuerich.html'),
+        'utf8',
+      );
+      const detailUrl = 'https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-zuerich/9bdc7a5b-47fa-4d7c-8ab7-e29d8e8198bb';
+      const jobs = await fetchAllConcordiaJobs({
+        fetchPage: async (url: string) => (
+          url === detailUrl ? html : `<div class="total-jobs">1 Jobs</div><a href="${detailUrl}">Job</a>`
+        ),
+        delayMs: 0,
+      });
+
+      expect(jobs).toHaveLength(1);
+      const [job] = jobs;
+      expect(job.location).toBe('Zürich');
+      // JSON-LD sections …
+      expect(job.description).toContain('## Das erwartet dich');
+      expect(job.description).toContain('• Du akquirierst Neukunden');
+      // … and the page-only ones.
+      expect(job.description).toContain('## Deine Vorteile');
+      expect(job.description).toContain('Voller Lohn während 14 Mutterschaftswochen');
+      // Recruiter contact and application chrome stay out.
+      expect(job.description).not.toMatch(/Gina Muster|Hanna Beispiel|Telefon/);
+      expect(job.descriptionByLocale[job.sourceLang]).toBe(job.description);
     });
 
     it('fails closed when a detail page lacks JobPosting data', async () => {

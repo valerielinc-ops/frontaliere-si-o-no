@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ur-motorcycle-731",
+      "sourceKey": "UR",
+      "sourceRecordId": "motorcycle-731",
+      "canton": "Uri",
+      "platePrefix": "UR",
+      "plateNumber": "731",
+      "normalizedPlate": "UR731",
+      "listingType": "fixed-price",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "startingPriceChf": 250,
+      "closedAt": "2026-09-15T06:58:56.497Z",
+      "officialAuctionUrl": "https://www.ur.ch/dienstleistungen/4046",
+      "officialDetailUrl": "https://www.ur.ch/_rtr/publikation_4933",
+      "sourceFetchedAt": "2026-09-15T06:58:56.497Z",
+      "lastVerifiedAt": "2026-09-15T06:58:56.497Z",
+      "firstSeenAt": "2026-09-15T06:58:56.497Z",
+      "lastSeenAt": "2026-09-15T06:58:56.497Z",
+      "sourceCategory": "fixed-price-list",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "e0bcd22e1c07"
+    }
+  ]
+}

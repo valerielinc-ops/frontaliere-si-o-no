@@ -41,6 +41,10 @@ on:
         description: 'Open/refresh a GitHub issue when the check fails'
         type: boolean
         default: true
+      force_probe_failure:
+        description: 'Exercise all retry rounds with every probe held failing'
+        type: boolean
+        default: false
 
 concurrency:
   group: hydrated-article-parity
@@ -55,22 +59,19 @@ jobs:
     runs-on: ubuntu-latest
     # 15 minuti erano meno del BUDGET DI RETRY che questo job si concede.
     #
-    # 8 landing × 8 tentativi × 45 s di attesa = ~44 minuti se ogni landing
-    # esaurisce la scala. Misurato il 2026-08-07: il job e' morto al landing 3
-    # su 8, quindi non ha MAI raggiunto lo step che apre la issue — il gate era
-    # piu' rumoroso proprio dove veniva zittito, ed e' per questo che le due
-    # issue #5279/#5280 non nominano nessun articolo.
-    #
-    # Alzare il timeout da solo pagherebbe 44 minuti di runner su una coda gia'
-    # satura (vedi deploy-publish.yml). La scala di retry esiste per UNA
-    # condizione — un articolo appena dispatchato non ancora propagato — che si
-    # risolve in pochi minuti; 8 tentativi erano tarati su un check che ora
-    # impiega 15 secondi invece di minuti. Ridotta a 3 tentativi (~1,5 min per
-    # landing, ~12 min nel caso peggiore) e timeout a 25: il caso peggiore
-    # rientra con margine e il job arriva sempre a riportare.
+    # I retry sono round GLOBALI: tutte le landing rosse vengono ricontrollate
+    # dopo 5 e 10 minuti, invece di dormire per ciascuna landing. La sequenza
+    # 38078943097 -> 38079614519 ha misurato proprio ~10 minuti tra HTML nuovo e
+    # indici client completi. Il vecchio 3 × 45 s per-locale dichiarava di
+    # coprire il bucket da cinque minuti ma concedeva solo 90 secondi allo
+    # stesso surface; al tempo stesso serializzava l'attesa fino a ~12 minuti.
+    # Ogni probe ha inoltre un hard timeout di 20 s e 2 s di kill grace. Il
+    # worst-case riproducibile con tutte le otto landing rosse e' quindi
+    # 2 × 300 s + 3 × 8 × 22 s = 1128 s (18m48s): restano 6m12s per checkout,
+    # setup e reporting prima del timeout di job.
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -98,7 +99,7 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -113,6 +114,11 @@ jobs:
         id: check
         env:
           SECTION_INPUT: ${{ github.event.inputs.section || 'both' }}
+          PARITY_ATTEMPTS: '3'
+          PARITY_RETRY_SLEEP_SECONDS: '300'
+          PARITY_PROBE_TIMEOUT_SECONDS: '20'
+          PARITY_PROBE_KILL_AFTER_SECONDS: '2'
+          PARITY_FORCE_PROBE_FAILURE: ${{ github.event.inputs.force_probe_failure || 'false' }}
         run: |
           set -uo pipefail
           if [ "$SECTION_INPUT" = "both" ]; then
@@ -121,43 +127,65 @@ jobs:
             sections="$SECTION_INPUT"
           fi
 
+          run_probe() {
+            if [ "$PARITY_FORCE_PROBE_FAILURE" = "true" ]; then
+              echo "forced parity failure for $1/$2"
+              return 1
+            fi
+            timeout --signal=TERM \
+              --kill-after="${PARITY_PROBE_KILL_AFTER_SECONDS}s" \
+              "${PARITY_PROBE_TIMEOUT_SECONDS}s" \
+              node scripts/ci/check-hydrated-article-parity.mjs \
+              --section="$1" --locale="$2"
+          }
+
           rc=0
           : > parity-report.txt
+          : > parity-targets.txt
           # All eight handed-off landings, the same set the article-hub
           # watchdog probes. The defect is per-locale: a slug that is not the
           # id only exists on en/de/fr, and checking `it` alone missed a live
           # 404 on svizzera/de (found exactly this way).
           for section in $sections; do
             for locale in it en de fr; do
-              label="${section}/${locale}"
-              attempt=1
-              ok=0
-              while [ "$attempt" -le 3 ]; do
-                echo "::group::${label} — attempt ${attempt}/3"
-                if node scripts/ci/check-hydrated-article-parity.mjs \
-                     --section="$section" --locale="$locale" 2>&1 \
-                     | tee "parity-${section}-${locale}.txt"; then
-                  ok=1
-                  echo "::endgroup::"
-                  break
-                fi
-                echo "::endgroup::"
-                attempt=$((attempt + 1))
-                [ "$attempt" -le 3 ] && sleep 45
-              done
-              if [ "$ok" -ne 1 ]; then
-                rc=1
-                {
-                  echo "### ${label}"
-                  echo ''
-                  echo '```'
-                  cat "parity-${section}-${locale}.txt"
-                  echo '```'
-                  echo ''
-                } >> parity-report.txt
-              fi
+              echo "$section $locale" >> parity-targets.txt
             done
           done
+
+          attempt=1
+          while [ -s parity-targets.txt ] && [ "$attempt" -le "$PARITY_ATTEMPTS" ]; do
+            : > parity-targets-next.txt
+            while read -r -u 9 section locale; do
+              label="${section}/${locale}"
+              echo "::group::${label} — attempt ${attempt}/${PARITY_ATTEMPTS}"
+              if ! run_probe "$section" "$locale" </dev/null 2>&1 \
+                   | tee "parity-${section}-${locale}.txt"; then
+                echo "$section $locale" >> parity-targets-next.txt
+              fi
+              echo "::endgroup::"
+            done 9< parity-targets.txt
+            mv parity-targets-next.txt parity-targets.txt
+            if [ -s parity-targets.txt ] && [ "$attempt" -lt "$PARITY_ATTEMPTS" ]; then
+              sleep "$PARITY_RETRY_SLEEP_SECONDS"
+            fi
+            attempt=$((attempt + 1))
+          done
+
+          while read -r -u 9 section locale; do
+            rc=1
+            label="${section}/${locale}"
+            {
+              echo "### ${label}"
+              echo ''
+              echo '```'
+              cat "parity-${section}-${locale}.txt"
+              echo '```'
+              echo ''
+            } >> parity-report.txt
+          done 9< parity-targets.txt
+          if [ "$PARITY_FORCE_PROBE_FAILURE" = "true" ]; then
+            cat parity-report.txt
+          fi
           exit "$rc"
 
       # Stable title (ISSUES.md: dedup a MONTE) — this condition is by

@@ -74,6 +74,7 @@ import {
   VITEST_CHECK_NAME,
   REDFLAG_IMPORTANT_RE,
   REVIEW_WORKFLOW_DRIFT_FILES,
+  formatSquashCommitSubject,
   isReviewerBot,
 } from './lib/constants.mjs';
 import {
@@ -810,7 +811,9 @@ function main() {
   };
 
   const mergeArgs = [
-    'pr', 'merge', PR, '--auto', '--squash', '--delete-branch', '--repo', REPO,
+    'pr', 'merge', PR, '--auto', '--squash', '--subject',
+    formatSquashCommitSubject({ prNumber: PR, title: freshPr.title }),
+    '--delete-branch', '--repo', REPO,
     '--match-head-commit', freshPr.headRefOid,
   ];
   try {

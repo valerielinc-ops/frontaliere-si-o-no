@@ -10,11 +10,14 @@ import {
   extractFileCitations,
   historicalImportantFindings,
   importantFindings,
+  isLedgerAcceptanceFinding,
   logClassification,
   CODEX_REVIEW_MARKER,
   normalizeReviewBody,
   runReviewGate,
+  unanchoredConfirmationTarget,
 } from '../scripts/ci/review-gate.mjs';
+import { stableFindingId } from '../scripts/ci/lib/review-findings.mjs';
 
 const DIFF_FILES = ['src/changed.mjs'];
 const TREE_FILES = ['src/changed.mjs', 'scripts/legacy.mjs', 'scripts/other.mjs'];
@@ -65,6 +68,12 @@ const classifyCurrentDiff = async (body: string) => classifyReview(body, {
   complete: true,
   repositoryPaths: TREE_FILES,
 });
+
+// These scenarios exercise review-history classification, not the git diff
+// implementation. Their synthetic SHAs do not exist in the checkout; keeping
+// the delta unavailable avoids spawning a failing git process under the full
+// suite's concurrent load (where it can consume the whole 15s test budget).
+const noChangedLines = () => null;
 
 describe('review gate: scope classification is fail-closed', () => {
   it('blocks when the file list is incomplete', () => {
@@ -392,6 +401,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       headSha: HEAD_SHA,
       reviews: [[historicalImportantReview, alignmentLgtmReview]],
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
 
@@ -428,6 +438,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       headSha: HEAD_SHA,
       reviews: [[historicalImportantReview, legacyConfirmation]],
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
 
@@ -442,6 +453,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       headSha: HEAD_SHA,
       reviews: [[unanchoredImportantReview, alignmentLgtmReview]],
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
 
@@ -452,10 +464,12 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
   it('emits the exact normalized key for an unresolved unanchored Important', async () => {
     const log = vi.spyOn(console, 'log').mockImplementation(() => {});
     try {
-      logClassification(await classifyCurrentDiff(unanchoredImportantReview.body));
+      const classification = await classifyCurrentDiff(unanchoredImportantReview.body);
+      logClassification(classification);
 
+      const id = stableFindingId(classification.unresolved[0]);
       expect(log).toHaveBeenCalledWith(
-        'review-gate: BLOCKING finding=1 reason=nessun file citato expectedKey="🔴 Important: process contract remains unresolved"',
+        `review-gate: BLOCKING finding=1 reason=nessun file citato confirm="${id}" expectedKey="🔴 Important: process contract remains unresolved"`,
       );
     } finally {
       log.mockRestore();
@@ -478,6 +492,121 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 
     expect(result.approved).toBe(true);
     expect(result.classification.findings).toHaveLength(0);
+  });
+
+  it('allows an unanchored Important after its ledger id has an explicit confirmation', async () => {
+    const [finding] = importantFindings(unanchoredImportantReview.body);
+    const fixedReview = {
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n\nFix di \`${stableFindingId(finding)}\`: ok.\n\n## LGTM`,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[unanchoredImportantReview, fixedReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.classification.findings).toHaveLength(0);
+  });
+
+  it('closes an unanchored Important by id only when the whole confirmation target is that id', () => {
+    const [finding] = importantFindings(unanchoredImportantReview.body);
+    const id = stableFindingId(finding);
+    const review = (confirmation: string) => ({
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n${confirmation}\n## LGTM`,
+    });
+    for (const confirmation of [
+      // L'id citato dentro una frase è contesto, non il target della conferma.
+      `Fix di \`Historical finding ${id}: il bundle riporta il testo\`: ok.`,
+      `Fix di \`${id.toUpperCase()}\`: ok.`,
+      `Fix di \`${id.slice(0, 11)}\`: ok.`,
+      'Fix di `000000000000`: ok.',
+    ]) {
+      expect(historicalImportantFindings([unanchoredImportantReview, review(confirmation)], { includeLatest: true }))
+        .toHaveLength(1);
+    }
+    expect(historicalImportantFindings([unanchoredImportantReview, review(`Fix di \`${id}\`: ok.`)], { includeLatest: true }))
+      .toHaveLength(0);
+  });
+
+  it('keeps the exact PR body anchor as the only id-free closure of a body finding', () => {
+    // Review 5330340986: il ramo dell'id non deve scavalcare `PR body:L<n>`.
+    const opened = { ...historicalImportantReview, body: 'PR body:L12: 🔴 Important: [process] runner measurements missing.' };
+    const [finding] = importantFindings(opened.body);
+    expect(unanchoredConfirmationTarget(finding)).toBe('PR body:L12');
+    const review = (confirmation: string) => ({
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n${confirmation}\n## LGTM`,
+    });
+    expect(historicalImportantFindings([opened, review(`Fix di \`${stableFindingId(finding)}\`: ok.`)], { includeLatest: true }))
+      .toHaveLength(1);
+    expect(historicalImportantFindings([opened, review('Fix di `PR body:L12`: ok.')], { includeLatest: true }))
+      .toHaveLength(0);
+  });
+
+  it('prints the same confirmation target the gate accepts', () => {
+    const [plain] = importantFindings(unanchoredImportantReview.body);
+    expect(unanchoredConfirmationTarget(plain)).toBe(stableFindingId(plain));
+    // `PR body:L7` a metà riga non è un anchor per il gate: il target resta l'id.
+    const [midLine] = importantFindings('Historical finding abc: 🔴 Important: [process] vedi PR body:L7 per il claim.');
+    expect(unanchoredConfirmationTarget(midLine)).toBe(stableFindingId(midLine));
+    const [anchored] = importantFindings(reviewFor('src/changed.mjs', 'the parser drops the last row'));
+    expect(unanchoredConfirmationTarget(anchored)).toBeNull();
+  });
+
+  it('closes a finding anchored on a file by id only together with its file re-confirmed (#10025)', () => {
+    const anchored = { ...historicalImportantReview, body: reviewFor('src/changed.mjs', 'the parser drops the last row') };
+    const [finding] = importantFindings(anchored.body);
+    const review = (...confirmations: string[]) => ({
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n${confirmations.join('\n')}\n## LGTM`,
+    });
+    const id = `Fix di \`${stableFindingId(finding)}\`: ok.`;
+    // L'id da solo non prova che il file sia stato riaperto all'HEAD.
+    expect(historicalImportantFindings([anchored, review(id)], { includeLatest: true })).toHaveLength(1);
+    expect(historicalImportantFindings([anchored, review(id, 'Fix di `src/changed.mjs:L40`: ok.')], { includeLatest: true }))
+      .toHaveLength(0);
+    // L'id di un altro finding non chiude questo.
+    const other = importantFindings(reviewFor('src/changed.mjs', 'the parser drops the first row').body)[0];
+    expect(historicalImportantFindings([anchored, review(`Fix di \`${stableFindingId(other)}\`: ok.`)], { includeLatest: true }))
+      .toHaveLength(1);
+  });
+
+  it('closes restated unanchored 🔴 by their printed id, never by a prose paraphrase', () => {
+    // Forma delle review 5326530304 e 5326704826 (PR 9959): 🔴 senza file
+    // riformulati a ogni giro con prefissi diversi. Il testo normalizzato
+    // intero non viene mai ricopiato alla lettera; l'id sì. L'Accettazione qui
+    // è verificabile sulla PR: quella sul solo ledger è declassata (sotto).
+    const meta = (id: number, text: string) => ({
+      ...historicalImportantReview,
+      id,
+      body: `## Findings (Important: 1, Nit: 0)\n${text}\n## Adversarial check\n- ❓ q: nessuna.`,
+    });
+    const history = [
+      meta(10, 'Historical finding `c7a2dc47f1c0` (anchor non risolvibile): 🔴 Important: [process] Il body non dichiara la misura pre/post; non può essere chiuso per silenzio. Accettazione: il body riporta il delta pre/post.'),
+      meta(11, '🔴 Important: [process] Il finding storico `e5269f0f9d49` non ha una risposta del fixer; non può essere chiuso per silenzio. Accettazione: `node scripts/ci/pr-body-check-gate.mjs --body-file body.md` esce 0.'),
+    ];
+    const open = historicalImportantFindings(history, { includeLatest: true });
+    expect(open).toHaveLength(2);
+
+    const narrative = {
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n${open.map((finding) =>
+        `Fix di \`Historical finding ${stableFindingId(finding)}: il bundle corrente riporta il testo completo\`: ok.`).join('\n')}\n## LGTM`,
+    };
+    expect(historicalImportantFindings([...history, narrative], { includeLatest: true })).toHaveLength(2);
+
+    const byId = {
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n${open.map((finding) =>
+        `Fix di \`${stableFindingId(finding)}\`: ok.`).join('\n')}\n## LGTM`,
+    };
+    expect(historicalImportantFindings([...history, byId], { includeLatest: true })).toHaveLength(0);
   });
 
   it('resolves a PR body finding only with an explicit matching metadata line', () => {
@@ -511,6 +640,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       headSha: HEAD_SHA,
       reviews: [[outsideReview, alignmentLgtmReview]],
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
 
@@ -519,7 +649,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.blocking).toBe(false);
   });
 
-  it('approves an applicable outside-only Important without requiring an LGTM', async () => {
+  it('requires an LGTM even for an applicable outside-only Important', async () => {
     const outsideOnlyReview = {
       ...historicalImportantReview,
       body: reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
@@ -534,7 +664,8 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       mutate: false,
     });
 
-    expect(result.approved).toBe(true);
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
     expect(result.classification.outsideOnly).toBe(true);
     expect(result.classification.blocking).toBe(false);
   });
@@ -562,7 +693,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.outsideOnly).toBe(true);
   });
 
-  it('allows an explicitly non-funnel question beside an outside-only finding', async () => {
+  it('requires an LGTM beside an outside-only finding even for a non-funnel question', async () => {
     const outsideOnlyReview = {
       ...historicalImportantReview,
       body: [
@@ -580,7 +711,8 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       mutate: false,
     });
 
-    expect(result.approved).toBe(true);
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
     expect(result.classification.outsideOnly).toBe(true);
   });
 
@@ -732,6 +864,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       reviewRevision: REVIEW_REVISION,
       repositoryPaths: TREE_FILES,
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
     expect(blocked.approved).toBe(false);
@@ -756,6 +889,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       reviewRevision: REVIEW_REVISION,
       repositoryPaths: TREE_FILES,
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
     expect(approved).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
@@ -977,6 +1111,45 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     });
 
     expect(result).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
+  });
+
+  it('REGRESSIONE #10580: accetta la copia riparata col marker di una prima LGTM senza marker', async () => {
+    // Il modello posta la LGTM senza il marker Codex; lo step «Repair missing
+    // Codex review marker» la riposta identica col marker. Il compattamento
+    // «primo verdetto della HEAD» scartava la copia: gate rosso deterministico.
+    const body = `${REVIEW_INPUT_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM\n`;
+    const app = { type: 'Bot', login: 'frontaliere-automation[bot]' };
+    const unmarked = { id: 5368550896, user: app, state: 'COMMENTED', body, commit_id: HEAD_SHA, submitted_at: '2026-09-30T15:39:20Z' };
+    const repaired = { id: 5368555034, user: app, state: 'COMMENTED', body: `${CODEX_REVIEW_MARKER}\n${body}`, commit_id: HEAD_SHA, submitted_at: '2026-09-30T15:39:44Z' };
+    const evidence = { provider: 'codex', model: 'gpt-5.6-luna', effort: 'max', trigger: 'runtime-429', status: 'success' };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 10580,
+      headSha: HEAD_SHA,
+      reviews: [[unmarked, repaired]],
+      reviewRevision: REVIEW_REVISION,
+      codexEvidence: evidence,
+      mutate: false,
+    });
+    expect(result).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
+
+    // Una review successiva DIVERSA resta fuori (storm #9066/#9074), anche se marcata.
+    const laterImportant = {
+      ...repaired,
+      id: 5368555999,
+      body: `${CODEX_REVIEW_MARKER}\n${REVIEW_INPUT_MARKER}\n## Findings (Important: 1, Nit: 0)\n\n\`src/changed.mjs:L12\`: 🔴 Important: rompe il contratto.\n`,
+    };
+    const storm = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 10580,
+      headSha: HEAD_SHA,
+      reviews: [[unmarked, laterImportant]],
+      reviewRevision: REVIEW_REVISION,
+      codexEvidence: evidence,
+      mutate: false,
+    });
+    expect(storm.approved).toBe(false);
+    expect(storm.reason).toMatch(/review Codex marcata/i);
   });
 
   it('fails closed when Codex evidence is requested but the marked review is absent', async () => {
@@ -1522,6 +1695,21 @@ describe('review gate: citazioni e conferme', () => {
     expect(historicalImportantFindings([opened, moved], { includeLatest: true })).toHaveLength(0);
   });
 
+  it('abbina basename storico e path completo nelle conferme a righe spostate', () => {
+    const first = bot('## Findings (Important: 1, Nit: 0)\n\n`review-gate.mjs:L465`: 🔴 Important: primo difetto.\n');
+    const second = bot('## Findings (Important: 1, Nit: 0)\n\n`review-gate.mjs:L715`: 🔴 Important: secondo difetto.\n');
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `scripts/ci/review-gate.mjs:L472`: ok.',
+      'Fix di `scripts/ci/review-gate.mjs:L733`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([first, second, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
   it('mantiene aperti finding distinti sullo stesso file quando la conferma cambia riga', () => {
     const first = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L7`: 🔴 Important: primo difetto.\n');
     const second = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L12`: 🔴 Important: secondo difetto.\n');
@@ -1746,5 +1934,188 @@ describe('review gate: fallback provenance reaches every authoritative consumer'
     const read = src.slice(src.indexOf('function readReviews'));
     expect(read).toContain('parseReviewPages(pages)');
     expect(read).toContain('reviews PR: JSON/pagine/entry malformate');
+  });
+});
+
+describe('review gate: an acceptance checked only on the review bundle/ledger is not a PR finding (PR 9959)', () => {
+  const bot = (id: number, body: string, commit = PRIOR_SHA) => ({
+    id,
+    user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    state: 'COMMENTED',
+    body,
+    commit_id: commit,
+  });
+  // Forme reali, dalle review 5326530304, 5328450715 e 5330565944.
+  const META = [
+    'Historical finding `c7a2dc47f1c0` (anchor non risolvibile): 🔴 Important: [process] Il finding storico resta open nel bundle senza testo o anchor verificabile; non può essere chiuso per silenzio. Accettazione: risposta del fixer al finding `c7a2dc47f1c0` → il bundle successivo contiene il testo del finding, il suo anchor e una risoluzione esplicita.',
+    'Historical finding 3e3cde56a33a: 🔴 Important: [process] Historical finding remains open in the bundle without a verifiable text or anchor. Accettazione: the next deterministic bundle contains the complete finding text, an anchor `path:L<line>` or `PR body:L<n>`, and an explicit resolution.',
+    "Historical findings `e5269f0f9d49`, `3e3cde56a33a`: 🔴 Important: [process] Gli Important storici senza file restano aperti. Accettazione: `rg -n '\\*\\*open\\*\\*' /home/runner/work/_temp/codex-home.pqfaVw/scratch/review-ctx/review-bundle.md` produce nessun output e ogni ID elencato risulta `confirmed-fixed`.",
+  ];
+  // Stessa accettazione, ma ancorato al body: resta sulle regole del body e
+  // sulla conferma esatta `PR body:L7` (review 5330691138).
+  const BODY_META = 'PR body:L7: 🔴 Important: [process] Il bundle deterministico mantiene ancora open 45 entry storiche. Accettazione: il prossimo bundle deterministico riporta tutti i 34 stable ID come `confirmed-fixed` e nessun ledger entry `open`.';
+
+  it('recognizes the review-ledger acceptances and nothing else', () => {
+    for (const text of META) {
+      const [finding] = importantFindings(text);
+      expect(isLedgerAcceptanceFinding(finding), text.slice(0, 60)).toBe(true);
+    }
+    for (const text of [
+      // Il rilievo vero di quella PR: resta bloccante.
+      'PR body:L3: 🔴 Important: [process] Il claim di ottimizzazione resta non validato. Accettazione: baseline pre/post dello stesso diff da 404 path → il body riporta il delta.',
+      // «bundle» e «ledger» del prodotto, non della review.
+      '🔴 Important: [contract] il bundle del client importa ancora `node:fs`. Accettazione: `npm run build` → il bundle del client non contiene `node:fs`.',
+      '🔴 Important: [process] il ledger dei crawler non registra la generazione. Accettazione: `data/crawler-generation-ledger.jsonl` contiene la riga della run.',
+      // Una clausola vera accanto a una sul ledger: resta bloccante.
+      '🔴 Important: [correctness] il conteggio è sbagliato. Accettazione: `npx vitest run tests/x.test.ts` passa.\nAccettazione: il prossimo bundle deterministico lo marca `confirmed-fixed`.',
+      // Nessuna accettazione: nessuna prova che sia solo sul ledger.
+      '🔴 Important: [process] il finding storico resta open nel bundle.',
+      BODY_META,
+      // Controesempi della review 5330691138: token nudo e clausola mista.
+      '🔴 Important: [process] x. Accettazione: confirmed-fixed',
+      '🔴 Important: [process] x. Accettazione: review-bundle.md exists and scripts/ci/review-gate.mjs is correct',
+      '🔴 Important: [process] x. Accettazione: il prossimo bundle deterministico è rigenerato da `npx vitest run tests/review-gate.test.ts`.',
+      // Review 11321: la clausola su più righe si legge fino alla fine del
+      // finding, quindi il comando sulla riga di continuazione la tiene di codice
+      // (senza un path: un file citato renderebbe il finding ancorato comunque).
+      '🔴 Important: [process] x. Accettazione: il prossimo bundle deterministico lo marca `confirmed-fixed`\ndopo `npm run build`.',
+    ]) {
+      const [finding] = importantFindings(text);
+      expect(isLedgerAcceptanceFinding(finding), text.slice(0, 60)).toBe(false);
+    }
+    // Un finding ancorato a un file non è mai toccato.
+    const [anchored] = importantFindings('`scripts/ci/review-gate.mjs:L12`: 🔴 Important: il ledger perde voci. Accettazione: il prossimo bundle deterministico le mostra.');
+    expect(isLedgerAcceptanceFinding(anchored)).toBe(false);
+    // Il comando di accettazione della review costruisce il finding solo con `text`.
+    expect(isLedgerAcceptanceFinding({ citations: [], text: 'PR body:L7: 🔴 Important: [contract] performance claim. Accettazione: review-bundle.md' })).toBe(false);
+  });
+
+  it('leaves a body-anchored ledger remark to its exact PR body confirmation', () => {
+    const opened = bot(40, `## Findings (Important: 1, Nit: 0)\n${BODY_META}\n## Adversarial check`);
+    expect(historicalImportantFindings([opened], { includeLatest: true })).toHaveLength(1);
+    const confirmed = bot(41, '## Findings (Important: 0, Nit: 0)\nFix di `PR body:L7`: ok.\n## LGTM', HEAD_SHA);
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
+  it('keeps ledger-referential Important out of the historical ledger, and real ones in', () => {
+    const history = META.map((text, index) => bot(10 + index, `## Findings (Important: 1, Nit: 0)\n${text}\n## Adversarial check`));
+    expect(historicalImportantFindings(history, { includeLatest: true })).toHaveLength(0);
+    const real = bot(20, '## Findings (Important: 1, Nit: 0)\n🔴 Important: [process] contract remains unresolved. Accettazione: `node scripts/ci/pr-body-check-gate.mjs --body-file body.md` esce 0.');
+    expect(historicalImportantFindings([...history, real], { includeLatest: true })).toHaveLength(1);
+  });
+
+  it('does not approve a ledger-only Important without LGTM, and logs why', async () => {
+    const history = META.map((text, index) => bot(10 + index, `## Findings (Important: 1, Nit: 0)\n${text}\n## Adversarial check`));
+    const latest = bot(30, `## Findings (Important: 1, Nit: 0)\n${META[2]}\n\n## Adversarial check\n- ❓ q: nessuna. — deferred, non funnel-critical.`, HEAD_SHA);
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const result = await runReviewGate({
+        repo: 'owner/repo',
+        pr: 1,
+        headSha: HEAD_SHA,
+        reviews: [[...history, latest]],
+        classifyAndMintReviewFn: async (body: string) => {
+          const classification = await classifyCurrentDiff(body);
+          logClassification(classification);
+          return classification;
+        },
+        changedLinesFn: noChangedLines,
+        mutate: false,
+      });
+      expect(result.approved).toBe(false);
+      expect(result.reason).toMatch(/manca ## LGTM/i);
+      expect(log.mock.calls.flat().join('\n')).toMatch(/review-gate: DECLASSIFIED-LEDGER finding=1 /u);
+    } finally {
+      log.mockRestore();
+    }
+
+    const withReal = bot(31, `## Findings (Important: 2, Nit: 0)\n${META[2]}\n🔴 Important: [process] contract remains unresolved.\n## Adversarial check`, HEAD_SHA);
+    const blocked = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[...history, withReal]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
+      mutate: false,
+    });
+    expect(blocked.approved).toBe(false);
+  });
+});
+
+describe('review gate: the stable id confirms a finding with cited files (#10025)', () => {
+  const bot = (id: number, body: string, commit: string) => ({
+    id,
+    user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    state: 'COMMENTED',
+    body,
+    commit_id: commit,
+  });
+  const FP = '.github/workflows/fast-publish-article.yml';
+  const RS = '.github/workflows/resync-cdn-article-chunks.yml';
+  // Forma reale della review delle 14:01 su #10025: tre 🔴 sugli stessi due
+  // workflow, ciascuno con una citazione per file.
+  const opening = bot(1, [
+    '## Findings (Important: 3, Nit: 0)',
+    `- ${FP}:L196, ${RS}:L84: 🔴 Important: [correctness] il lease viene rilasciato senza verificare lo SHA esatto dell'oggetto.`,
+    `- ${FP}:L212, ${RS}:L97: 🔴 Important: [correctness] il lease non viene rinnovato durante la pubblicazione lunga.`,
+    `- ${FP}:L320, ${RS}:L121: 🔴 Important: [correctness] il rilascio non usa If-Match e può cancellare il lease di un altro writer.`,
+  ].join('\n'), 'a'.repeat(40));
+  const findings = importantFindings(opening.body);
+  const ids = findings.map((finding) => stableFindingId(finding));
+  const approving = (confirmations: string[]) => bot(2, [
+    '## Findings (Important: 0, Nit: 0)',
+    ...confirmations,
+    '',
+    '## LGTM',
+  ].join('\n'), 'b'.repeat(40));
+
+  it('replay: four moved-line confirmations per file for three findings close nothing', () => {
+    const moved = [214, 241, 385, 393].map((line) => `Fix di \`${FP}:L${line}\`: ok.`)
+      .concat([101, 126, 164, 172].map((line) => `Fix di \`${RS}:L${line}\`: ok.`));
+    expect(findings).toHaveLength(3);
+    expect(historicalImportantFindings([opening, approving(moved)])).toHaveLength(3);
+  });
+
+  it('the stable ids plus the re-confirmed files close exactly the confirmed findings', () => {
+    expect(new Set(ids).size).toBe(3);
+    const files = [`Fix di \`${FP}:L214\`: ok.`, `Fix di \`${RS}:L101\`: ok.`];
+    const byId = (list: string[]) => list.map((id) => `Fix di \`${id}\`: ok.`);
+    // Gli id senza nessun file riconfermato non chiudono nulla.
+    expect(historicalImportantFindings([opening, approving(byId(ids))])).toHaveLength(3);
+    expect(historicalImportantFindings([opening, approving([...byId(ids), ...files])])).toHaveLength(0);
+    const open = historicalImportantFindings([opening, approving([...byId([ids[1]]), ...files])]);
+    expect(open.map((finding) => stableFindingId(finding)).sort()).toEqual([ids[0], ids[2]].sort());
+    // Un file citato senza conferma lascia il finding aperto.
+    expect(historicalImportantFindings([opening, approving([...byId(ids), files[0]])])).toHaveLength(3);
+  });
+
+  it('acceptance of review 5331196488: one id for a two-file finding is not enough', () => {
+    const twoFiles = bot(1, '## Findings (Important: 1, Nit: 0)\n- a.yml:L1, b.yml:L2: 🔴 Important: [correctness] il lock non viene ricontrollato prima del push.', 'a'.repeat(40));
+    const [finding] = importantFindings(twoFiles.body);
+    const id = `Fix di \`${stableFindingId(finding)}\`: ok.`;
+    expect(historicalImportantFindings([twoFiles, approving([id])])).toHaveLength(1);
+    expect(historicalImportantFindings([twoFiles, approving([id, 'Fix di `a.yml:L9`: ok.'])])).toHaveLength(1);
+    expect(historicalImportantFindings([twoFiles, approving([id, 'Fix di `a.yml:L9`: ok.', 'Fix di `b.yml:L7`: ok.'])]))
+      .toHaveLength(0);
+  });
+
+  it('an unknown or truncated id closes nothing', () => {
+    expect(historicalImportantFindings([opening, approving([
+      'Fix di `0123456789ab`: ok.',
+      `Fix di \`${ids[0].slice(0, 11)}\`: ok.`,
+    ])])).toHaveLength(3);
+  });
+
+  it('logs the id as the confirmation of a blocking in-diff finding', () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const classification = classifyReview(opening.body, { files: [FP, RS], complete: true, repositoryPaths: [FP, RS] });
+      logClassification(classification);
+      expect(log.mock.calls.flat().join('\n'))
+        .toContain(`review-gate: BLOCKING finding=1 path=${FP},${RS} reason=at least one cited file is in the current PR diff confirm="${ids[0]}"`);
+    } finally {
+      log.mockRestore();
+    }
   });
 });

@@ -14,6 +14,7 @@
  *   6. Runs base crawler for AI localization (localize-existing-only)
  *   7. Validates locale coverage
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -31,6 +32,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -47,15 +49,16 @@ mergeLocaleTextMap,
 import {
   parseBpsSuisseListingPage,
   parseBpsSuisseDetailPage, inferEmploymentType,
+  buildBpsSuisseDescriptionFields,
+  dropBpsSuisseFabricatedText,
 } from './lib/bps-suisse-job-parser.mjs';
-import {
-  buildPdfBackedDescription,
-  extractPdfJobContentFromUrl,
-} from './lib/pdf-job-content.mjs';
+import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { fetchHtml as fetchHtmlShared, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -78,6 +81,11 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+const SUMMARY_COUNTS = {
+  discovered: null,
+  parsed: null,
+  lastFetchOutcome: null,
+};
 
 /* ── Matchers ──────────────────────────────────────────────── */
 function isBpsJob(job) {
@@ -115,7 +123,7 @@ async function fetchHtml(url, timeoutMs = 15000) {
 }
 
 /* ── Discovery & Detail Fetching ──────────────────────────── */
-async function fetchJobs() {
+export async function fetchJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   console.log(`🔍 Fetching BPS Suisse listing page: ${BPS_LISTING_URL}`);
 
@@ -124,7 +132,7 @@ async function fetchJobs() {
     listingHtml = await fetchHtml(BPS_LISTING_URL, timeoutMs);
   } catch (err) {
     console.error(`❌ Failed to fetch listing page: ${err?.message || err}`);
-    return [];
+    throw err;
   }
 
   // Use robust regex to find all carriera-*.php links (matches the original working pattern)
@@ -144,6 +152,8 @@ async function fetchJobs() {
     const parserMatch = parserListings.find((p) => p.url === url);
     return { url, title: parserMatch?.title || '' };
   });
+  SUMMARY_COUNTS.discovered = listings.length;
+  SUMMARY_COUNTS.lastFetchOutcome = 'ok';
   console.log(`📋 Found ${listings.length} job link(s) on listing page.`);
 
   const jobs = [];
@@ -164,7 +174,7 @@ async function fetchJobs() {
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
       .join(' ');
 
-    // Start with best available title: parser listing > URL-derived > fallback
+    // Start with best available title: parser listing > URL-derived
     if (!listing.title && urlDerivedTitle) {
       listing.title = urlDerivedTitle;
     }
@@ -188,7 +198,10 @@ async function fetchJobs() {
     }
 
     if (!listing.title) {
-      listing.title = 'Posizione aperta BPS Suisse';
+      // Neither the listing nor the carriera-*.php slug names the role: there
+      // is no posting title to publish (the runner used to invent one).
+      console.warn(`  ⚠️ Skipping BPS Suisse link without a title: ${listing.url}`);
+      continue;
     }
 
     // Fetch and parse PDF content when available — BPS Suisse posts full job descriptions as PDFs
@@ -204,18 +217,9 @@ async function fetchJobs() {
       }
     }
 
-    // Build description: prefer PDF content; fall back to HTML body
-    const fallbackDesc = `${listing.title} — posizione aperta presso BPS (Banca Popolare di Sondrio) SUISSE, istituto bancario con sede a Lugano, Canton Ticino, Svizzera. BPS Suisse offre servizi bancari per clientela privata e commerciale con una forte presenza sul territorio ticinese. L'azienda offre un ambiente di lavoro professionale e stimolante nel settore finanziario.`;
-    description = buildPdfBackedDescription({
-      introLines: [`## ${listing.title}`, `BPS (Banca Popolare di Sondrio) SUISSE — posizione aperta a ${location} (TI).`],
-      pdfText: pdfText || '',
-      fallbackText: description || fallbackDesc,
-      footerLines: [
-        `**Settore:** Bancario / Finanziario`,
-        `**Sede:** Via Giacomo Bentina 5, 6901 Lugano, TI, Svizzera`,
-        pdfUrl ? `[Bando ufficiale (PDF)](${pdfUrl})` : '',
-      ].filter(Boolean),
-    });
+    // Description: the PDF call when present, else the detail-page body.
+    const descriptionFields = buildBpsSuisseDescriptionFields({ pdfText, bodyText: description });
+    description = descriptionFields.description;
 
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     // Slug-only guard: `location` is reassigned from `detail.location`, which can
@@ -244,12 +248,13 @@ async function fetchJobs() {
       slug,
       slugByLocale: { it: slug },
       titleByLocale: { it: listing.title },
-      descriptionByLocale: {},
+      descriptionByLocale: descriptionFields.descriptionByLocale,
+      sourceLang: descriptionFields.sourceLang,
       requirementsByLocale: { it: [] },
       category: 'finance',
       contract: 'full-time',
       currency: 'CHF',
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...sourcePostingDateFields(''),
       source: 'bps-suisse-careers-crawler',
       crawledAt: new Date().toISOString(),
       _targetScope: { canton: HQ.canton, location },
@@ -257,6 +262,10 @@ async function fetchJobs() {
     console.log(`  ✅ ${listing.title} — ${location}`);
   }
 
+  SUMMARY_COUNTS.parsed = jobs.length;
+  SUMMARY_COUNTS.lastFetchOutcome = jobs.length > 0
+    ? 'ok'
+    : (listings.length > 0 ? 'filtered_empty' : 'ok');
   console.log(`📋 Total BPS Suisse jobs discovered: ${jobs.length}`);
   return jobs;
 }
@@ -271,6 +280,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(BPS_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isBpsJob(job));
   const targetExisting = existing.filter(isBpsJob);
+  const fossils = targetExisting.filter((job) => dropBpsSuisseFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former description wrapper from ${fossils} stored BPS Suisse job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -286,7 +297,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      postedDate: job.postedDate || prev.postedDate,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -332,9 +343,21 @@ function updateAdapterConfig(seedUrls) {
 }
 
 /* ── Main ──────────────────────────────────────────────────── */
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropBpsSuisseFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(BPS_KEY, DATA_JOBS).filter(isBpsJob),
+    companyKey: BPS_KEY,
+    companyLabel: BPS_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(BPS_KEY, jobs, options),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(BPS_KEY, 'BPS Suisse');
+  registerCrawlerSummaryGuard(BPS_KEY, 'BPS Suisse', SUMMARY_COUNTS);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${BPS_COMPANY_NAME} — Dedicated Crawler`);
   console.log('═══════════════════════════════════════════════');
@@ -342,6 +365,31 @@ async function main() {
   const discoveredJobs = await fetchJobs();
   if (discoveredJobs.length === 0) {
     console.log('ℹ️ No BPS Suisse job URLs discovered. Exiting OK.');
+    await cleanStoredJobsOnSoftExit();
+    const _durationMs = getCrawlerElapsedMs();
+    const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+    const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isBpsJob) : [];
+    writeSummaryCrawlerSlice({
+      key: BPS_KEY,
+      label: 'BPS Suisse',
+      generatedAt: new Date().toISOString(),
+      total: _sliceJobs.length,
+      discovered: SUMMARY_COUNTS.discovered,
+      parsed: SUMMARY_COUNTS.parsed,
+      lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
+      written: _sliceJobs.length,
+      newCount: 0,
+      updatedCount: 0,
+      removedCount: 0,
+      unchangedCount: 0,
+      durationMs: _durationMs,
+      avgDurationMs: _durationMs,
+      durationHistory: [_durationMs],
+      newJobs: [],
+      updatedJobs: [],
+      removedJobs: [],
+      unchangedJobs: [],
+    });
     return;
   }
 
@@ -389,6 +437,9 @@ async function main() {
     label: 'BPS Suisse',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: SUMMARY_COUNTS.discovered,
+    parsed: SUMMARY_COUNTS.parsed,
+    lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
     newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount,
     durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs],
     newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
@@ -396,4 +447,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'BPS Suisse'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'BPS Suisse'));
+}

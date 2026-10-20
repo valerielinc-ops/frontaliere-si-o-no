@@ -6,11 +6,15 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
   CDN_ASSET_CHECK_MAX_URLS,
+  assertCdnAssetRefsLive,
+  extractCdnAssetUrlsFromHtml,
   formatCdnAssetReport,
   formatOffloadCoverageReport,
+  findSameOriginAssetRefs,
   isSoftMissing,
   verifyCdnAssetRefs,
 } from '../scripts/lib/cdn-asset-existence.mjs';
+import { main as verifyCdnAssetPublish } from '../scripts/ci/verify-cdn-asset-publish.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -29,6 +33,52 @@ const res = (status: number, contentType: string | null = null) => ({
  * carica a vuoto e nessun gate diventa rosso.
  */
 describe('guardia di esistenza degli /assets/ riscritti sul CDN', () => {
+  it('extracts only canonical CDN asset refs and shares the offload extension alphabet', () => {
+    const html = [
+      '<script src="https://cdn.frontaliereticino.ch/assets/gtag-init-cc02c2128433.js"></script>',
+      '<link href="https://cdn.frontaliereticino.ch/assets/index-abc.css">',
+      '<img src="https://cdn.other.test/assets/not-this-one.png">',
+      '<script src="https://cdn.frontaliereticino.ch/data/jobs.json"></script>',
+    ].join('');
+    expect(extractCdnAssetUrlsFromHtml(html)).toEqual([
+      'https://cdn.frontaliereticino.ch/assets/gtag-init-cc02c2128433.js',
+      'https://cdn.frontaliereticino.ch/assets/index-abc.css',
+    ]);
+    expect(findSameOriginAssetRefs('<script src="/assets/old.js"></script>')).toEqual(['"/assets/old.js']);
+  });
+
+  it('fail-closes the publish gate on missing and unknown asset responses', async () => {
+    await expect(assertCdnAssetRefsLive({
+      urls: ['https://cdn.example.test/assets/missing.js'],
+      fetchImpl: vi.fn().mockResolvedValue(res(404, 'text/plain')) as unknown as typeof fetch,
+    })).rejects.toMatchObject({
+      message: expect.stringContaining('refusing shard publication'),
+      results: [{ state: 'missing', status: 404 }],
+    });
+    await expect(assertCdnAssetRefsLive({
+      urls: ['https://cdn.example.test/assets/unknown.js'],
+      fetchImpl: vi.fn().mockRejectedValue(new Error('ENOTFOUND')) as unknown as typeof fetch,
+    })).rejects.toMatchObject({
+      results: [{ state: 'unknown', status: null }],
+    });
+  });
+
+  it('the publish CLI blocks a same-origin or missing-asset replacement before mutation', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'cdn-publish-gate-'));
+    try {
+      fs.writeFileSync(
+        path.join(root, 'page.html'),
+        '<script src="https://cdn.frontaliereticino.ch/assets/new-shell.js"></script>'
+        + '<link href="/assets/forgotten.css">',
+      );
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue(res(404, 'text/plain')));
+      await expect(verifyCdnAssetPublish(['--dist', root, '--file', 'page.html'])).resolves.toBe(1);
+    } finally {
+      vi.unstubAllGlobals();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('un 404 diventa una riga ::warning::, e la verifica non lancia', async () => {
     const fetchImpl = vi.fn().mockResolvedValue(res(404, 'text/plain'));
     const results = await verifyCdnAssetRefs({

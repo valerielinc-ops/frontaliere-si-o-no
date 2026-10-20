@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated EMS-Chemie AG crawler runner.
  *
@@ -19,6 +21,7 @@
  *   6. Runs the shared base crawler for AI localization.
  *   7. Post-processes and validates.
  */
+import { mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError, fetchHtml as templateFetchHtml } from './lib/crawler-template.mjs';
@@ -48,10 +51,17 @@ import {
 mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, parseDetailPage, buildJob, stripHtml } from './lib/ems-chemie-job-parser.mjs';
+import {
+  parseListingPage,
+  parsePortalDetailPage,
+  isForeignPortalListing,
+  isForeignPortalDetail,
+  buildJob,
+} from './lib/ems-chemie-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -149,18 +159,39 @@ async function fetchEmsPage(offset, timeoutMs) {
   }
 }
 
-async function fetchJobs() {
+const DETAIL_DELAY_MS = 300;
+
+/**
+ * Read one careercenter vacancy page. Returns the parsed portal detail, or
+ * null when the page cannot be fetched/parsed (the listing then has no
+ * vacancy text and is not published in this run).
+ */
+async function fetchPortalDetail(url, timeoutMs) {
+  try {
+    const html = await fetchHtml(url, timeoutMs);
+    return parsePortalDetailPage(html);
+  } catch (err) {
+    console.warn(`  ⚠️ Detail fetch failed for ${url}: ${err?.message || err}`);
+    return null;
+  }
+}
+
+export async function fetchJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   console.log(`🔍 Fetching ${COMPANY_NAME} career page...`);
 
   // Try each career URL until one returns job listings
   let allListings = [];
+  let observedAt = null;
   for (const url of CAREERS_URLS) {
     try {
       const html = await fetchHtml(url, timeoutMs);
       const rawListings = parseListingPage(html);
       console.log(`  📋 ${url} → ${rawListings.length} listing(s)`);
       if (rawListings.length > 0) {
+        // This timestamp belongs to the successful source observation; the
+        // parser never derives crawl freshness from the posting date.
+        observedAt = new Date();
         allListings = rawListings;
         // Follow pagination on the primary careercenter portal (see
         // fetchEmsPage doc comment) so jobs beyond page 1 aren't lost.
@@ -190,14 +221,54 @@ async function fetchJobs() {
   }
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of allListings) {
-    const job = buildJob(listing);
+    // The careercenter lists EMS's German sites (Groß-Umstadt, DEU) next to
+    // the Swiss ones. They used to be published under the Domat/Ems seat with
+    // an invented Italian blurb; they are not Swiss vacancies at all.
+    if (isForeignPortalListing(listing)) {
+      console.log(`  ⏭️  Skipped non-Swiss vacancy: ${listing.title} (${listing.location}, ${listing.countryCode})`);
+      continue;
+    }
+    // The vacancy body lives on the detail page only. Without this fetch
+    // every job carried an invented seat blurb instead of its tasks, profile
+    // and benefits (audit run 36528331656: 312-363 published characters
+    // against ~3k on the source page). Without a body the listing is not
+    // published (issue 5253).
+    const detail = /\/offene-stellen\//.test(listing.url)
+      ? await fetchPortalDetail(listing.url, Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000)
+      : null;
+    if (detail && isForeignPortalDetail(detail)) {
+      console.log(`  ⏭️  Skipped non-Swiss vacancy: ${listing.title} (${detail.locality}, ${detail.country})`);
+      await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+      continue;
+    }
+    const detailDescription = detail?.description && meetsSourceBodyFloor(detail.description)
+      ? detail.description
+      : '';
+    const job = buildJob({
+      ...listing,
+      crawlObservedAt: observedAt,
+      description: detailDescription,
+      sourceLang: detailDescription ? detectLang(detailDescription, 'de') : undefined,
+      datePosted: listing.datePosted || detail?.datePosted || '',
+      employmentType: detail?.employmentType || listing.employmentType,
+    });
     if (job) {
       console.log(`  ✅ ${job.title} (${job.location})`);
       jobs.push(job);
+    } else if (!detailDescription) {
+      console.log(`  ⏭️  No vacancy text on the careercenter page, not published: ${listing.title}`);
+      withoutBody += 1;
+    }
+    if (detail !== null || /\/offene-stellen\//.test(listing.url)) {
+      await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
     }
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} listing(s) without vacancy text — not published.`);
+  }
   console.log(`📋 Total unique ${COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }
@@ -227,7 +298,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      postedDate: job.postedDate || prev.postedDate,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -330,10 +401,10 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isCompanyJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, { observedJobs: discoveredJobs });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
 }
 
-const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isDirectRun = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectRun) { main().catch((err) => exitCrawlerOnError(err, COMPANY_NAME)); }

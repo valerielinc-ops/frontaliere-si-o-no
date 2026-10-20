@@ -33,6 +33,8 @@ import {
 } from '../scripts/lib/honegger-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
+const publishedTimestamp = `${new Date(Date.now() - 10 * 86400000).toISOString().slice(0, 10)}T09:00:00+00:00`;
+
 // ─── Sample listing page HTML (WP query-loop) ──────────────────────────────
 
 const LISTING_HTML = `<ul class="wp-block-query">
@@ -68,7 +70,7 @@ const LISTING_HTML = `<ul class="wp-block-query">
 // ─── Sample detail page HTML — single location ─────────────────────────────
 
 const DETAIL_HTML_SINGLE = `<html><head>
-<meta property="article:published_time" content="2026-06-01T09:00:00+00:00">
+<meta property="article:published_time" content="${publishedTimestamp}">
 <meta property="article:modified_time" content="2026-06-20T08:00:00+00:00">
 </head><body>
 <h2 class="wp-block-heading has-deepwhite-color has-text-color has-xx-large-font-size">Mitarbeiter/in Reinigung (m/w/d)</h2>
@@ -318,8 +320,10 @@ describe('parseHoneggerDetailPage — single location', () => {
     ]);
   });
 
-  it('extracts the posted date from article:modified_time meta', () => {
-    expect(detail.postedDate).toBe('2026-06-20');
+  it('preserves publication and ignores article modification', () => {
+    expect(detail.postedDate).toBe(publishedTimestamp);
+    expect(detail.datePosted).toBe(publishedTimestamp);
+    expect(detail.postingDateSource).toBe('reported');
   });
 });
 
@@ -339,21 +343,21 @@ describe('parseHoneggerDetailPage — multi-location', () => {
     });
   });
 
-  it('falls back to published_time when modified_time is absent', () => {
+  it('keeps published_time when modified_time is absent', () => {
     const html = DETAIL_HTML_SINGLE.replace(
       '<meta property="article:modified_time" content="2026-06-20T08:00:00+00:00">',
       '',
     );
     const d = parseHoneggerDetailPage(html, 'fallback');
-    expect(d.postedDate).toBe('2026-06-01');
+    expect(d.postedDate).toBe(publishedTimestamp);
   });
 
-  it('reads the modified time independently from meta attribute order', () => {
+  it('ignores modified time independently from meta attribute order', () => {
     const html = DETAIL_HTML_SINGLE.replace(
       '<meta property="article:modified_time" content="2026-06-20T08:00:00+00:00">',
       '<meta content="2026-06-21T08:00:00+00:00" data-source="wp" property="article:modified_time">',
     );
-    expect(parseHoneggerDetailPage(html, 'fallback').postedDate).toBe('2026-06-21');
+    expect(parseHoneggerDetailPage(html, 'fallback').postedDate).toBe(publishedTimestamp);
   });
 });
 

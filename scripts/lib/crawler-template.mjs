@@ -132,6 +132,7 @@
  *     needsRetranslation
  *     qualityScore
  */
+import { decode as decodeHTML } from 'html-entities';
 import fs from 'node:fs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import path from 'node:path';
@@ -146,7 +147,12 @@ import {
   setCrawlerStartTime,
   getCrawlerElapsedMs,
 } from '../jobs-url-helper.mjs';
-import { CRAWLER_FETCH_OUTCOMES } from './crawler-fetch-outcome.mjs';
+import {
+  CRAWLER_ABORT_KINDS,
+  CRAWLER_FETCH_OUTCOMES,
+  fetchOutcomeAllowsStampedEmpty,
+} from './crawler-fetch-outcome.mjs';
+import { isAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { normalizeDetailDrop, detailDropSummaryFields } from './crawler-detail-drop.mjs';
 import {
   writeJobsCrawlerSlice,
@@ -157,6 +163,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from '../assemble-jobs-dataset.mjs';
+import { rewritePreparedStoredJobs } from './stored-jobs-soft-exit.mjs';
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
@@ -164,16 +171,33 @@ import {
   detectLang,
   deriveLocalizedSlug,
 } from './dedicated-crawler-common.mjs';
-import { archiveRemovedJobsToSlice } from './expired-jobs-archive.mjs';
+import { mergeJobIdentity } from './job-match-key.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import {
+  buildThinSourceHousekeepingProof,
+  buildSourceBodyFailureHousekeepingProof,
+  collectThinSourceJobsForQuarantine,
+  dropFailedSourceJobsWithoutValidBody,
+  keepStoredSourceBodiesByKey,
+  sourceBodyForJob,
+} from './stored-source-body.mjs';
+import { hasSourceBodyFailure, sourceBodyFailureRecord } from './source-body-failure.mjs';
+import { archiveRemovedJobsToSlice, readExpiredSlice } from './expired-jobs-archive.mjs';
+import { countResurrectedJobs, flapSummaryFields } from './crawler-flap.mjs';
+import { publishedOnNextDeploy } from './translation-publication-hold.mjs';
 import {
   RETRYABLE_STATUS,
   WAF_IP_BLOCK_STATUS,
   isTransientFetchError,
   isConnectionLevelFetchError,
   fetchWithRetry,
+  isRetryBudgetExhausted as isRetryBudgetExhaustedError,
 } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
-import { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+import {
+  fetchFollowingValidatedRedirects,
+  resolveProspectorFetch,
+} from './prospector/public-fetch-policy.mjs';
 import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
@@ -181,21 +205,6 @@ import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
 export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
 export { assertFeedEndpointHost };
-
-function isRetryBudgetExhaustedError(err) {
-  // `fetchWithRetry()` marks the terminal thrown error with `retryExhausted`.
-  // The lower-level `httpFetchWithRetry()` adapter additionally copies that
-  // state to `retryBudgetExhausted` on the Response, and parsers commonly wrap
-  // either form in a domain error. Accept both markers at the crawler boundary
-  // so a transient source fence (not a parser regression) preserves the last
-  // good slice instead of opening a red workflow run.
-  return (
-    err?.retryBudgetExhausted === true ||
-    err?.retryExhausted === true ||
-    err?.response?.retryBudgetExhausted === true ||
-    err?.response?.retryExhausted === true
-  );
-}
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -277,220 +286,28 @@ export function normalizeDescriptionSpace(value = '') {
     .trim();
 }
 
-/**
- * Restore line-start bullet markers in job descriptions.
- *
- * The audit's `hasStructuredContent` requires bullets to be at line-start
- * (`/^\s*[-•*]\s/m`). HTML→text pipelines often produce inline bullets
- * (`Aufgaben: • Item • Item`) when downstream `normalizeSpace`/`stripHtml`
- * collapses newlines, OR multi-paragraph "list" sections (header followed
- * by ≥3 short consecutive lines) without explicit bullet markers.
- *
- * This helper:
- *   1. Inserts `\n` before every inline `•` (idempotent — already-line-start
- *      bullets are left alone).
- *   2. If still no line-start bullet found, scans for runs of ≥3 consecutive
- *      non-empty lines ≤200 chars (typical "PROFILE / Requirements" lists)
- *      and prepends `• ` to each item. The first short line of a run is
- *      treated as a section heading and left bullet-free.
- *
- * Idempotent: safe to call multiple times. Returns input unchanged when
- * structure is already present or input is empty/non-string.
- *
- * @param {string} text
- * @returns {string}
- */
-// Common job-posting section headers across IT/DE/FR/EN. When these appear
-// inline inside a flattened description, we insert a paragraph break so the
-// text-to-list normalizer below has line boundaries to work with.
-const SECTION_HEADER_PATTERNS = [
-  // German (Swiss federal job postings — jobs.admin.ch, Prospective.ch JobBooster)
-  /\b(Diesen Beitrag kannst du leisten|Das macht dich einzigartig|Das bieten wir|Dein Einsatz für Sicherheit und Freiheit|Ihre Aufgaben|Ihr Profil|Wir bieten|Anforderungen|Aufgaben|Ihre Hauptaufgaben|Ihre Verantwortung|Was Sie erwartet|Was wir bieten|Ihre Qualifikationen|Ihr neues Aufgabengebiet)\b/g,
-  // Italian (EOC, AIL, etc.)
-  /\b(Le sue mansioni|Le tue mansioni|I suoi compiti|I tuoi compiti|Il profilo richiesto|Profilo richiesto|Profilo ricercato|Requisiti necessari|Requisiti richiesti|Requisiti|Offriamo|Cosa offriamo|Le sue responsabilità|Le tue responsabilità|Cosa farà|Mansioni principali|Competenze richieste|Cerchiamo|Stiamo cercando)\b/g,
-  // French
-  /\b(Vos tâches|Vos missions|Votre mission|Votre profil|Nous offrons|Nous proposons|Vos responsabilités|Vos compétences|Profil recherché|Exigences|Compétences requises)\b/g,
-  // English
-  /\b(Your responsibilities|Your tasks|Your profile|We offer|What we offer|Requirements|Qualifications|What you'll do|What you bring|Job description|Profile|Responsibilities)\b/g,
-];
-
-export function normalizeDescriptionBullets(text) {
-  if (!text || typeof text !== 'string') return text;
-  let out = text;
-
-  // 1. Inline ' • ' → '\n• ' (only when not already line-start)
-  out = out.replace(/([^\n\r])[ \t]+•[ \t]+/g, '$1\n• ');
-  if (/^\s*[-•*]\s/m.test(out)) return out;
-
-  // 2. When the text is a single-line/long paragraph blob, try to split at
-  // known section-header phrases (DE/IT/FR/EN) so the run-detector below has
-  // line boundaries. We insert '\n• ' BEFORE the header so the header itself
-  // becomes a line-start bulleted item — that satisfies the audit and keeps
-  // the original wording intact.
-  for (const pattern of SECTION_HEADER_PATTERNS) {
-    out = out.replace(pattern, (match, _g1, offset, src) => {
-      // Don't double-insert if already at line start
-      const prevChar = offset > 0 ? src[offset - 1] : '\n';
-      if (prevChar === '\n') return match;
-      return `\n• ${match}`;
-    });
-  }
-  if (/^\s*[-•*]\s/m.test(out)) return out;
-
-  // 2. Detect runs of ≥3 consecutive non-empty short lines (≤200 chars)
-  const lines = out.split(/\n/);
-  const inRun = new Array(lines.length).fill(false);
-  let i = 0;
-  while (i < lines.length) {
-    const t = lines[i].trim();
-    if (!t || t.length > 200) { i++; continue; }
-    let j = i;
-    while (j < lines.length) {
-      const tj = lines[j].trim();
-      if (!tj || tj.length > 200) break;
-      j++;
-    }
-    if (j - i >= 3) {
-      for (let k = i; k < j; k++) inRun[k] = true;
-    }
-    i = j;
-  }
-
-  // First short line of a run = section heading; leave bullet-free.
-  let prevWasInRun = false;
-  for (let k = 0; k < lines.length; k++) {
-    if (!inRun[k]) { prevWasInRun = false; continue; }
-    const t = lines[k].trim();
-    if (!prevWasInRun && t.length <= 35 && !/[.!?]$/.test(t)) {
-      // section heading — keep as-is
-      prevWasInRun = true;
-      continue;
-    }
-    lines[k] = lines[k].replace(t, '• ' + t);
-    prevWasInRun = true;
-  }
-  return lines.join('\n');
-}
-
-/**
- * Idempotent clean-up of crawler artifacts in job descriptions. Runs at
- * assemble-time (`scripts/assemble-jobs-dataset.mjs`) alongside
- * `normalizeDescriptionBullets`. Defensive against malformed input from
- * AI translation: drops empty `**...**` bolds, strips standalone separator
- * lines (`______`, `=====`), strips trailing inline separator runs, and
- * dedupes consecutive identical paragraphs.
- *
- * Mirrors the runtime parser in `build-plugins/shared/jobDescription/parser.ts`
- * but operates on raw text BEFORE the renderer parses. Cleaning here keeps
- * the assembled dataset (`data/jobs.json`) tidy without rewriting every
- * by-crawler source file.
- *
- * @param {string} text
- * @returns {string}
- */
-export function cleanCrawlerArtifacts(text) {
-  if (!text || typeof text !== 'string') return text;
-  let s = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-
-  // 1. Drop empty / whitespace-only bolds (e.g. "** **", "**  **", "** : **")
-  s = s.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
-  // 1a. Odd `**` count (source truncated the closing marker) survives the
-  // pair-matching replace above untouched — same gap guarded in the runtime
-  // parser (build-plugins/shared/jobDescription/parser.ts) and
-  // free-translate.mjs; mirrored here so a stray marker can't reach
-  // data/jobs.json even before any renderer runs (#4553).
-  const doubleStars = (s.match(/\*\*/g) || []).length;
-  if (doubleStars % 2 !== 0) {
-    s = s.replace(/\*\*/g, '');
-  }
-
-  // 1b. Convert mid-line separator runs (3+ `_`/`=`/`~`) to paragraph breaks.
-  // AI-translation flattening occasionally collapses paragraph boundaries
-  // around visual dividers, producing patterns like
-  // `Ref.: HFR-M-251801 _______________________________________ Le Département…`
-  // on a single line. Step 2 below only catches WHOLE separator-only lines,
-  // step 3 only TRAILING runs — neither catches mid-line. Splitting here
-  // restores the original paragraph structure so the rest of the pipeline
-  // (and audit:no-literal-markdown, CLAUDE.md rule #1, 0-tolerance) stays
-  // clean even when the runtime parser is bypassed. Was `{6,}` — stale vs.
-  // the `{3,}` threshold `scripts/audit-no-literal-markdown.mjs`
-  // (SEPARATOR_RUN_RE) and every other stripper in this codebase
-  // (jobDescription/parser.ts, jobDescription/toHtml.ts,
-  // jobsSeoPagesPlugin.ts) actually use, so a 3-5 char mid-line run leaked
-  // through unconverted (audit regression #4593, sibling-pattern fix per
-  // CLAUDE.md non-negotiable #6).
-  s = s.replace(/[_=~]{3,}/g, '\n\n');
-
-  // 2. Strip standalone separator-only lines ("______", "===", "----")
-  s = s
-    .split('\n')
-    .filter((line) => !/^[\s_\-=*•·~]{3,}$/.test(line))
-    .join('\n');
-
-  // 3. Strip trailing inline separator runs ("Be part of something. ______")
-  s = s
-    .split('\n')
-    .map((line) => line.replace(/\s+[_\-=~*]{3,}\s*$/g, '').trimEnd())
-    .join('\n');
-
-  // 4. Truncate at first inline JS widget signature. SAP SF, TYPO3 ke_search,
-  // Freeform widgets and similar parsers occasionally leak `<script>` content
-  // when callers strip tags without first deleting `<script>...</script>`
-  // blocks. The body text starts with the JS source which the
-  // validate-jobs-quality gate flags as code_in_description. Cut everything
-  // from that boundary onward — defensive mirror of stripHtml() above.
-  {
-    const fnMatch = s.match(/(?:\n|^|\s)(?:\/\/\s*<!\[CDATA\[|\$\(|jQuery\(|function\s+\w*\s*\(|\(function\s*\()/);
-    if (fnMatch && fnMatch.index > 0) s = s.slice(0, fnMatch.index).trimEnd();
-    const varMatch = s.match(/(?:\n|^|\s)(?:const|let|var)\s+\w+\s*=\s*(?:window|document|new\s+Object|\{|\[|document\.querySelectorAll|new\s+XMLHttpRequest)/);
-    if (varMatch && varMatch.index > 0) s = s.slice(0, varMatch.index).trimEnd();
-  }
-
-  // 5. Dedup consecutive identical paragraphs (Panoramica/Descrizione artifact)
-  const paragraphs = s.split(/\n{2,}/);
-  const out = [];
-  const norm = (p) =>
-    p
-      .toLowerCase()
-      .replace(/[\p{P}\p{S}]+/gu, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-  const seen = new Set();
-  for (const p of paragraphs) {
-    const t = p.trim();
-    if (!t) continue;
-    const key = norm(t);
-    if (seen.has(key)) continue;
-    seen.add(key);
-    out.push(t);
-  }
-
-  return out.join('\n\n');
-}
+// The two write-time description clean-up steps live in a zero-dependency
+// module so the retranslation baseline can hash through them without an
+// import cycle (lib/crawler-retranslation-baseline.mjs).
+export { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './description-artifacts.mjs';
 
 // Shared with build-plugins and tests — the implementation lives in a
 // zero-dependency module so the vite config graph doesn't inherit crawler deps.
 export { stripScriptsAndStyles } from './strip-scripts-styles.mjs';
 
 /**
- * Strip HTML tags and decode common entities. Use for description fields.
+ * Strip HTML tags and decode HTML entities once. Use for description fields.
  */
 export function stripHtml(html = '') {
-  const stripped = String(html || '')
+  const stripped = decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<li\b[^>]*>/gi, '\n• ')
     .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/\u00a0/g, ' ')
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/\n{3,}/g, '\n\n')
     .replace(/ {2,}/g, ' ')
     .trim();
@@ -586,12 +403,12 @@ export async function fetchHtml(url, options = {}) {
         };
         const res = redirectValidator
           ? await fetchFollowingValidatedRedirects(url, {
-              fetchImpl: options.fetchImpl || fetch,
+              fetchImpl: options.fetchImpl || (options.dispatcher ? resolveProspectorFetch() : fetch),
               validateUrl: redirectValidator,
               requestOptions,
               maxRedirects: options.maxRedirects ?? 5,
             })
-          : await (options.fetchImpl || fetch)(url, requestOptions);
+          : await (options.fetchImpl || (options.dispatcher ? resolveProspectorFetch() : fetch))(url, requestOptions);
         if (!res.ok) {
           const err = new Error(`HTTP ${res.status} from ${url}`);
           err.status = res.status;
@@ -733,8 +550,9 @@ export async function fetchHtmlWithCookies(url, options = {}) {
  * A connection-level fetch failure (egress could not reach an otherwise-healthy
  * source; no HTTP response received) is INFRA, not a source change. Exiting 1
  * here opens a "Crawler Failure" issue every run and risks de-indexing a live
- * employer. We instead exit 0 and preserve the existing slice — the same
- * outcome as an empty fetch. A *persistent* outage is still surfaced by the
+ * employer. We instead exit 0 and preserve valid stored rows, quarantining
+ * only thin-source rows through the shared soft-exit path — the same outcome
+ * as an empty fetch. A *persistent* outage is still surfaced by the
  * crawler-health monitor (3 consecutive 0-job runs → broken issue), so nothing
  * is silently buried. A thrown HTTP status (403/404/5xx) means the server DID
  * respond → genuine break → exit 1 so it surfaces immediately.
@@ -828,9 +646,10 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @typedef {Object} CrawlerConfig
  * @property {string}   companyKey          — Unique kebab-case key (e.g. 'lonza')
  * @property {string}   companyLabel        — Display name for logs (e.g. 'Lonza')
- * @property {Function} fetchJobs           — async () => ParsedJob[] or
+ * @property {Function} fetchJobs           — async ({ existingJobs }) => ParsedJob[] or
  *                                             { jobs: ParsedJob[], ...metadata }.
- *                                             Source-locale only.
+ *                                             Source-locale only. The argument
+ *                                             is optional for legacy parsers.
  * @property {Function} isCompanyJob        — (job) => boolean. Matches this company's jobs.
  * @property {string}   [root]              — Project root (default: cwd)
  * @property {string}   [defaultSourceLang] — Fallback source language (default: 'it')
@@ -838,49 +657,102 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @property {Function} [matchKey]          — Custom URL matching for merge dedup
  * @property {boolean}  [preserveExistingSlugs] — Keep every existing active slug for matched stable IDs
  * @property {(jobs: object[]|undefined|null) => boolean} [validateAuthoritativeSnapshot] — Throws unless the fresh batch proves a complete source snapshot
- * @property {boolean}  [allowAuthoritativeEmptySnapshot] — Publish a source-proven zero instead of keeping stale rows
+ * @property {boolean}  [allowAuthoritativeEmptySnapshot] — With a validator: `true` publishes the
+ *   validated zero instead of keeping stale rows. Without a validator: leave it unset and an empty
+ *   batch stamped by `markAuthoritativeEmptySnapshot` is honoured by default; `false` opts out.
  * @property {'all'|'empty-only'} [authoritativeSnapshotScope] — Limit source authority to proven empty snapshots; non-empty partial batches keep miss grace
  * @property {Object}   [baseCrawlerOpts]   — Extra options for runDedicatedBaseCrawler
+ * @property {(jobs: object[]) => (object[]|void)} [prepareExistingJobs] — Called with this
+ *   company's stored jobs right before the merge, and on a run that parses no job
+ *   (`rewritePreparedStoredJobs` in stored-jobs-soft-exit.mjs). It may repair them
+ *   in place or return a replacement array. Used to remove text the crawler itself
+ *   once wrote into stored jobs, which the merge would otherwise keep.
  */
 
 /**
- * Evaluate the opt-in authoritative-snapshot contract. A zero may be
- * published only when a source-specific validator proves it and the caller
- * explicitly opts in; an opt-in without a validator has no effect.
+ * Validator verdict: accounting proven, coverage NOT complete. See
+ * `evaluateAuthoritativeSnapshot`. A string, not a boolean, so a validator that
+ * returns `false` on failure keeps failing closed.
+ */
+export const SNAPSHOT_VALIDATED_PARTIAL = 'validated-partial-snapshot';
+
+/**
+ * Evaluate the authoritative-snapshot contract. A zero may be published on
+ * exactly two kinds of evidence:
+ *
+ *   1. Runner-wired: a source-specific validator proves the batch AND the
+ *      caller passes `allowAuthoritativeEmptySnapshot: true`. An opt-in without
+ *      a validator still has no effect on an unstamped batch.
+ *   2. Parser-stamped (default, no runner wiring): the caller passes NO
+ *      validator, has not set `allowAuthoritativeEmptySnapshot: false`, and
+ *      the empty batch carries the `markAuthoritativeEmptySnapshot` stamp. The
+ *      stamp is the proof — the parser only applies it after reading the
+ *      source's own "no open positions" state — so requiring the runner to
+ *      repeat it in three lines of wiring added nothing but one PR per company.
+ *      Authority is `empty-only` by construction: a non-empty batch is never
+ *      stamped, so it keeps the ordinary miss-grace path.
+ *
+ * The stamp is non-enumerable and lives on the array instance: a batch that was
+ * filtered, spread or rebuilt after stamping is a bare `[]` again and stays
+ * fail-closed (`no-jobs-parsed`). A run whose own fetch verdict is a failure
+ * (`anti_bot_block`, `selector_miss`, …) is never default-proof either: the two
+ * claims contradict each other, and the failure is the safe one to believe.
+ *
+ * A validator may also return `SNAPSHOT_VALIDATED_PARTIAL`: its accounting
+ * checks held (it still throws when they do not), but the batch is by its own
+ * admission not the whole source — e.g. fachkraft's `max-observed` listing,
+ * whose pagination repeats and therefore skips cards. Such a batch is
+ * published, and every stored job it does not contain keeps the ordinary miss
+ * grace (277-538 live jobs retired per run, back 1-2 runs later).
  *
  * @param {object[]|undefined|null} parsedJobs
  * @param {{
- *   validateAuthoritativeSnapshot?: (jobs: object[]|undefined|null) => boolean,
+ *   validateAuthoritativeSnapshot?: (jobs: object[]|undefined|null) => boolean|typeof SNAPSHOT_VALIDATED_PARTIAL,
  *   allowAuthoritativeEmptySnapshot?: boolean,
  *   authoritativeSnapshotScope?: 'all'|'empty-only',
  *   companyLabel?: string,
+ *   fetchOutcome?: string|null,
  * }} [options]
- * @returns {{ authoritativeSnapshotVerified: boolean, authoritativeEmptySnapshot: boolean }}
+ * @returns {{ authoritativeSnapshotVerified: boolean, authoritativeEmptySnapshot: boolean, partialSnapshotValidated?: true }}
  */
 export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
   const {
     validateAuthoritativeSnapshot,
-    allowAuthoritativeEmptySnapshot = false,
+    allowAuthoritativeEmptySnapshot,
     authoritativeSnapshotScope = 'all',
     companyLabel = 'Crawler',
+    fetchOutcome = null,
   } = options;
   if (!['all', 'empty-only'].includes(authoritativeSnapshotScope)) {
     throw new Error(`${companyLabel}: invalid authoritative snapshot scope`);
   }
   let authoritativeSnapshotVerified = false;
+  let partialSnapshotValidated = false;
   const snapshotIsWithinAuthorityScope = authoritativeSnapshotScope === 'all'
     || (Array.isArray(parsedJobs) && parsedJobs.length === 0);
   if (validateAuthoritativeSnapshot && snapshotIsWithinAuthorityScope) {
-    if (validateAuthoritativeSnapshot(parsedJobs) !== true) {
+    const verdict = validateAuthoritativeSnapshot(parsedJobs);
+    if (verdict === SNAPSHOT_VALIDATED_PARTIAL) {
+      partialSnapshotValidated = true;
+    } else if (verdict !== true) {
       throw new Error(`${companyLabel}: authoritative snapshot validator did not return true`);
+    } else {
+      authoritativeSnapshotVerified = true;
     }
-    authoritativeSnapshotVerified = true;
   }
+  const stampedProofHonoured = !validateAuthoritativeSnapshot
+    && allowAuthoritativeEmptySnapshot !== false
+    && fetchOutcomeAllowsStampedEmpty(fetchOutcome)
+    && isAuthoritativeEmptySnapshot(parsedJobs);
+  if (stampedProofHonoured) authoritativeSnapshotVerified = true;
   return {
     authoritativeSnapshotVerified,
+    // Only present when the validator said so: the two-field shape stays the
+    // contract for every validator that never returns the partial verdict.
+    ...(partialSnapshotValidated ? { partialSnapshotValidated: true } : {}),
     authoritativeEmptySnapshot: Boolean(
       authoritativeSnapshotVerified
-      && allowAuthoritativeEmptySnapshot
+      && (stampedProofHonoured || allowAuthoritativeEmptySnapshot)
       && Array.isArray(parsedJobs)
       && parsedJobs.length === 0
     ),
@@ -957,9 +829,12 @@ export async function runStandardCrawlerPipeline(config) {
     matchKey,
     preserveExistingSlugs = false,
     validateAuthoritativeSnapshot,
-    allowAuthoritativeEmptySnapshot = false,
+    // No default on purpose: `undefined` (stamped proof honoured) and `false`
+    // (explicit opt-out) are different answers — see evaluateAuthoritativeSnapshot.
+    allowAuthoritativeEmptySnapshot,
     authoritativeSnapshotScope = 'all',
     baseCrawlerOpts = {},
+    prepareExistingJobs,
   } = config;
 
   if (!companyKey || !companyLabel || !fetchJobs || !isCompanyJob) {
@@ -1000,6 +875,7 @@ export async function runStandardCrawlerPipeline(config) {
     lastFetchOutcome: null,
     abortKind: null,
     detailDrop: null,
+    sourceBodyFailures: [],
   };
   registerCrawlerSummaryGuard(companyKey, companyLabel, counts);
   console.log('═══════════════════════════════════════════════');
@@ -1011,13 +887,40 @@ export async function runStandardCrawlerPipeline(config) {
   const existingJobs = readExistingCrawlerJobs(companyKey, DATA_JOBS);
   const companyExisting = existingJobs.filter(isCompanyJob);
   const beforeSnapshot = snapshotJobSlugs(companyExisting);
+  const rewriteStoredJobsOnSoftExit = () => rewritePreparedStoredJobs({
+    prepare: prepareExistingJobs,
+    storedJobs: companyExisting,
+    companyKey,
+    companyLabel,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(companyKey, jobs, {
+      isTargetJob: isCompanyJob,
+      preserveExistingSlugs,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+  // The one exit for a run that ends without publishing after the fetch
+  // returned. Every such run leaves the same exit-guard receipt (`total: 0,
+  // earlyExit: true`), so the cause has to travel in `counts.abortKind` or the
+  // monitor can only say "cause not reported". All of them stay ABORTS: naming
+  // the exit never makes the run healthy. `rewriteStoredJobs` is the branch's
+  // own stored-slice housekeeping (thin-source quarantine lives there) and is
+  // passed in, not decided here, so each branch keeps exactly its own call.
+  const finishWithoutPublish = async ({ kind, rewriteStoredJobs = null }) => {
+    if (!CRAWLER_ABORT_KINDS.has(kind)) {
+      // The exit guard drops an unknown name to `null`: fail loudly instead.
+      throw new Error(`${companyLabel}: unknown crawler abort kind "${kind}"`);
+    }
+    counts.abortKind = kind;
+    if (rewriteStoredJobs) await rewriteStoredJobs();
+  };
 
   // ─── Step 2: Fetch ──────────────────────────────────────────
   // Parser returns source-locale jobs only. DO NOT set non-source locale fields.
   let parsedJobs;
   let fetchMetadata;
   try {
-    const fetchResult = await fetchJobs();
+    const fetchResult = await fetchJobs({ existingJobs: companyExisting });
     ({ jobs: parsedJobs, metadata: fetchMetadata } = normalizeCrawlerFetchResult(fetchResult));
   } catch (err) {
     // Connection-level fetch failure = the runner's datacenter egress could not
@@ -1025,8 +928,9 @@ export async function runStandardCrawlerPipeline(config) {
     // ~1-3% of fetches per wave; sites return 200 from a clean IP). This is
     // INFRA, not a source change: hard-failing here would open a "Crawler
     // Failure" issue every run AND risk de-indexing a live employer's TI/GR
-    // pages. Preserve the existing slice and soft-exit instead — exactly the
-    // same outcome as an empty fetch. A *persistent* outage is still caught by
+    // pages. Preserve valid stored rows, quarantining only thin-source rows
+    // through the shared soft-exit path — exactly the same outcome as an empty
+    // fetch. A *persistent* outage is still caught by
     // the crawler-health monitor (3 consecutive 0-job runs → broken issue).
     //
     // Connection-level ONLY (no HTTP response ever received): a thrown HTTP
@@ -1041,6 +945,7 @@ export async function runStandardCrawlerPipeline(config) {
       console.log(
         `\n⚠️ ${companyLabel}: connection-level fetch failure after retries + proxy fallback (${err.message}). Keeping existing jobs.`,
       );
+      await rewriteStoredJobsOnSoftExit();
       return;
     }
     if (isRetryBudgetExhaustedError(err)) {
@@ -1049,6 +954,7 @@ export async function runStandardCrawlerPipeline(config) {
       console.log(
         `\n⚠️ ${companyLabel}: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs.`,
       );
+      await rewriteStoredJobsOnSoftExit();
       return;
     }
     if (err?.feedEndpointUnavailable) {
@@ -1057,6 +963,7 @@ export async function runStandardCrawlerPipeline(config) {
       console.log(
         `\n⚠️ ${companyLabel}: ${err.message}. Keeping existing jobs.`,
       );
+      await rewriteStoredJobsOnSoftExit();
       return;
     }
     // Anti-bot fence exhausted across realistic-UA + Jina clean IP + Playwright
@@ -1071,7 +978,42 @@ export async function runStandardCrawlerPipeline(config) {
       console.log(
         `\n⚠️ ${companyLabel}: anti-bot fence exhausted (UA + Jina + Playwright) for ${err.message}. Keeping existing jobs.`,
       );
+      await rewriteStoredJobsOnSoftExit();
       return;
+    }
+    // A prospector spec can observe listing links but lose too many detail
+    // pages to prove a complete snapshot. Treat that as a parser/source
+    // extraction failure and keep the previous slice untouched; publishing
+    // the surviving rows would turn a transient detail outage into live-job
+    // expiry and later resurrection (the Stellenpartner health incident).
+    if (err?.specDetailDrop && Number.isInteger(err?.specDiscoveredCount)) {
+      counts.discovered = err.specDiscoveredCount;
+      counts.parsed = 0;
+      counts.lastFetchOutcome = 'selector_miss';
+      counts.detailDrop = normalizeDetailDrop(err.specDetailDrop);
+      console.warn(
+        `\n⚠️ ${companyLabel}: spec detail snapshot incomplete; keeping existing jobs `
+        + `(${counts.detailDrop?.dropped ?? 'unknown'}/${counts.detailDrop?.candidates ?? 'unknown'} dropped).`,
+      );
+      return finishWithoutPublish({ kind: 'source-extraction-failed' });
+    }
+    // A prospector listing can fail closed before detail enrichment proves a
+    // complete snapshot (missing declared total, pagination hole, or a source
+    // response while walking the listing). The runtime marks that stage so the
+    // worker records the same receipt as any other source-extraction failure;
+    // otherwise the runner exits non-zero and the group commit withholds the
+    // crawler summary, making a live previous slice look like a missing run.
+    if (err?.specListingFailure === true) {
+      if (Number.isInteger(err?.specDiscoveredCount)) {
+        counts.discovered = err.specDiscoveredCount;
+      }
+      counts.parsed = 0;
+      counts.lastFetchOutcome = 'selector_miss';
+      console.warn(
+        `\n⚠️ ${companyLabel}: spec listing snapshot incomplete; keeping existing jobs `
+        + `(${err?.message || 'listing extraction failed'}).`,
+      );
+      return finishWithoutPublish({ kind: 'source-extraction-failed' });
     }
     throw err;
   }
@@ -1082,9 +1024,33 @@ export async function runStandardCrawlerPipeline(config) {
   if (CRAWLER_FETCH_OUTCOMES.has(fetchMetadata?.fetchOutcome)) {
     counts.lastFetchOutcome = fetchMetadata.fetchOutcome;
   }
+  // The outcome exactly as the parser reported it. The summary keeps only the
+  // recognised vocabulary (above), but the stamped-zero decision below must see
+  // an unrecognised value too: read as "nothing reported", it would let a
+  // parser that names an unknown failure retire every stored job.
+  const reportedFetchOutcome = fetchMetadata?.fetchOutcome ?? counts.lastFetchOutcome;
+  if (reportedFetchOutcome != null && !CRAWLER_FETCH_OUTCOMES.has(reportedFetchOutcome)) {
+    console.warn(
+      `\n⚠️ ${companyLabel}: unrecognised fetchOutcome ${JSON.stringify(String(reportedFetchOutcome).slice(0, 80))} — a stamped empty snapshot will not be honoured on this run.`,
+    );
+  }
   // Set before every early return below, so a soft-exit slice written by the
   // exit guard carries the same evidence a published one would.
   counts.parsed = Array.isArray(parsedJobs) ? parsedJobs.length : 0;
+  counts.sourceBodyFailures = (
+    Array.isArray(fetchMetadata?.sourceBodyFailures)
+      ? fetchMetadata.sourceBodyFailures
+      : (Array.isArray(parsedJobs)
+        ? parsedJobs.map(sourceBodyFailureRecord).filter(Boolean)
+        : [])
+  ).slice(0, 100);
+  if (counts.sourceBodyFailures.length > 0) {
+    console.warn(
+      `  ⚠️ ${companyLabel}: ${counts.sourceBodyFailures.length} source-body extraction failure(s) `
+      + `(${counts.sourceBodyFailures.map((failure) => failure.reason).filter(Boolean).join(', ')}) — `
+      + 'valid stored source bodies will be retained and failed rows will not be thin-source quarantined.',
+    );
+  }
   // Coop-family enrichers attach the non-fatal drop observation to the array.
   // Keep it in the mutable guard counters so early exits preserve the signal.
   counts.detailDrop = normalizeDetailDrop(parsedJobs?.detailDrop);
@@ -1104,33 +1070,109 @@ export async function runStandardCrawlerPipeline(config) {
       + `(${Math.round(missingDetailUrlRatio * 100)}%) lost their detail URL `
       + `(limit ${MISSING_DETAIL_URL_MAX_RATIO * 100}%). Keeping existing jobs.`,
     );
-    return;
+    return finishWithoutPublish({ kind: 'missing-detail-url' });
   }
 
-  // Only source-specific crawlers with an explicit completeness proof may
-  // retire every unmatched record immediately. Validation runs before the
-  // zero-job soft exit and before any scratch/archive write, so a partial or
-  // degraded crawl fails closed with the existing slice untouched.
-  const { authoritativeSnapshotVerified, authoritativeEmptySnapshot } = evaluateAuthoritativeSnapshot(
+  // Only a run with an explicit proof may retire every unmatched record
+  // immediately: a source-specific validator wired by the runner, or an empty
+  // batch the parser stamped as a source-proven zero. Validation runs before
+  // the zero-job soft exit and before any scratch/archive write, so a partial
+  // or degraded crawl fails closed with the existing slice untouched.
+  const {
+    authoritativeSnapshotVerified,
+    authoritativeEmptySnapshot,
+    partialSnapshotValidated = false,
+  } = evaluateAuthoritativeSnapshot(
     parsedJobs,
     {
       validateAuthoritativeSnapshot,
       allowAuthoritativeEmptySnapshot,
       authoritativeSnapshotScope,
       companyLabel,
+      fetchOutcome: reportedFetchOutcome,
     },
   );
 
   if (!parsedJobs || (parsedJobs.length === 0 && !authoritativeEmptySnapshot)) {
-    counts.abortKind = 'no-jobs-parsed';
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);
-    return;
+    return finishWithoutPublish({
+      kind: 'no-jobs-parsed',
+      rewriteStoredJobs: rewriteStoredJobsOnSoftExit,
+    });
   }
 
   if (authoritativeEmptySnapshot) {
     console.log(`\n🧩 ${companyLabel}: authoritative empty snapshot verified. Retiring stale jobs...\n`);
+  } else if (partialSnapshotValidated) {
+    console.log(
+      `\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed from a validated PARTIAL snapshot; `
+      + 'stored jobs it does not contain keep the miss grace instead of being retired.\n',
+    );
   } else {
-    console.log(`\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed. Merging...\n`);
+    console.log(`\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed, preparing source bodies.\n`);
+  }
+
+  // A source listing can still yield a job-shaped row when its detail/PDF body
+  // was unreadable. Keep the body from the same stored source when it clears
+  // the floor; otherwise leave that row out of this run. The final filter below
+  // also removes older thin rows that miss grace would otherwise retain.
+  const mergeExisting = typeof prepareExistingJobs === 'function'
+    ? (prepareExistingJobs(companyExisting) || companyExisting)
+    : companyExisting;
+  const sourceBodyMatchKey = matchKey || mergeJobIdentity;
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(
+    parsedJobs,
+    mergeExisting,
+    sourceBodyMatchKey,
+  );
+  const mergeExistingForSourceBodies = dropFailedSourceJobsWithoutValidBody(
+    mergeExisting,
+    parsedJobs,
+    sourceBodyMatchKey,
+  );
+  if (!authoritativeEmptySnapshot && sourceBodyJobs.length === 0) {
+    const allRowsFailedExtraction = Array.isArray(parsedJobs)
+      && parsedJobs.length > 0
+      && parsedJobs.every(hasSourceBodyFailure);
+    if (allRowsFailedExtraction) {
+      console.warn(
+        `\n⚠️ ${companyLabel}: PDF/source extraction failed for every parsed job; `
+        + 'no row is published without a valid stored source body. Reason: pdf-extraction-failed.\n',
+      );
+    } else {
+      console.warn(
+        `\n⚠️ ${companyLabel}: no parsed job has a source body of at least 50 words; `
+        + 'quarantining only genuine thin-source rows and keeping valid stored bodies.\n',
+      );
+    }
+    return finishWithoutPublish({
+      kind: allRowsFailedExtraction ? 'source-extraction-failed' : 'thin-source-all',
+      rewriteStoredJobs: () => rewritePreparedStoredJobs({
+        // The hook has already run above; reuse its prepared array so a
+        // no-publishable run does not invoke a mutating hook twice.
+        prepare: () => mergeExisting,
+        storedJobs: companyExisting,
+        companyKey,
+        companyLabel,
+        sourceBodyFailureJobs: Array.isArray(parsedJobs)
+          ? parsedJobs.filter(hasSourceBodyFailure)
+          : [],
+        sourceBodyFailureKeyOf: sourceBodyMatchKey,
+        write: (jobs, options) => writeJobsCrawlerSliceVerified(companyKey, jobs, {
+          isTargetJob: isCompanyJob,
+          preserveExistingSlugs,
+          ...options,
+        }),
+        assemble: () => assembleJobsDataset(),
+      }),
+    });
+  }
+
+  if (!authoritativeEmptySnapshot) {
+    console.log(
+      `  ✅ ${companyLabel}: ${sourceBodyJobs.length}/${parsedJobs.length} parsed job(s) have `
+      + 'a publishable source body (stored source bodies may replace thin reads).\n',
+    );
   }
 
   // ─── Step 3: Merge with slug stability ──────────────────────
@@ -1141,13 +1183,25 @@ export async function runStandardCrawlerPipeline(config) {
     ...(matchKey ? { matchKey } : {}),
     ...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),
   };
-  const merged = mergePreserveLocaleData(companyExisting, parsedJobs, mergeOpts);
+  const merged = mergePreserveLocaleData(mergeExistingForSourceBodies, sourceBodyJobs, mergeOpts);
   const slugStableMerge = preserveExistingSlugs
     ? restoreExistingSlugIdentity(companyExisting, merged).jobs
     : merged;
-  const clean = slugStableMerge.sort((a, b) =>
-    String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(
+    parsedJobs,
+    slugStableMerge,
+    sourceBodyMatchKey,
   );
+  const thinSourceCount = thinSourceJobs.length;
+  if (thinSourceCount > 0) {
+    console.warn(
+      `  ⚠️ ${companyLabel}: quarantining ${thinSourceCount} merged job(s) without `
+      + 'a source body of at least 50 words (thin-source path).',
+    );
+  }
+  const clean = slugStableMerge
+    .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
 
   // Write merged dataset (intermediate — Steps 5-6 modify in-place). DATA_JOBS
   // is a scratch path scoped to THIS crawler's own companyKey (see derivation
@@ -1161,8 +1215,11 @@ export async function runStandardCrawlerPipeline(config) {
   const diff = computeCrawlDiff(beforeSnapshot, afterMergeSnapshot);
   printCrawlChangeSummary(diff, companyLabel);
   writeCrawlChangeSummaryToGH(diff, companyLabel);
-  printPublishedJobUrls(clean, companyLabel);
-  writeJobsSummary(clean, companyLabel);
+  // An agency job held out of publication until its titles are translated is
+  // not a published offer (scripts/lib/translation-publication-hold.mjs).
+  const publishedNow = publishedOnNextDeploy(clean);
+  printPublishedJobUrls(publishedNow, companyLabel);
+  writeJobsSummary(publishedNow, companyLabel);
 
   // ─── Step 4b: Archive removed jobs to per-crawler expired slice ──
   // mergePreserveLocaleData drops entries not present in the fresh fetch
@@ -1171,13 +1228,25 @@ export async function runStandardCrawlerPipeline(config) {
   // `diff.removedJobs` (full job objects, with slug + locale data) into
   // `data/jobs/expired/by-crawler/<companyKey>.json` so the build plugin
   // can emit the soft-landing page.
-  if (diff.removedJobs && diff.removedJobs.length > 0) {
-    const archived = archiveRemovedJobsToSlice(diff.removedJobs, companyKey);
-    if (archived > 0) {
-      console.log(
-        `📦 Archived ${archived} removed jobs → data/jobs/expired/by-crawler/${companyKey}.json`,
-      );
-    }
+  // Oscillation observer: jobs that are new in this run but were
+  // retired into the expired slice within the last few days. Read BEFORE this
+  // run archives, so only earlier retirements count.
+  const flap = countResurrectedJobs(diff.newJobs, readExpiredSlice(companyKey));
+  if (flap.resurrected > 0) {
+    console.warn(
+      `  🔁 ${companyLabel}: ${flap.resurrected} new job(s) were expired within the last `
+      + `${flap.windowDays} day(s) — the source still had them (crawler flap). `
+      + `Sample: ${flap.sample.slice(0, 3).join(' ')}`,
+    );
+  }
+
+  // Invoke the helper even when no job disappeared: it also persists repairs
+  // to legacy entries already present in the expired slice.
+  const archived = archiveRemovedJobsToSlice(diff.removedJobs, companyKey);
+  if (archived > 0) {
+    console.log(
+      `📦 Archived ${archived} removed jobs → data/jobs/expired/by-crawler/${companyKey}.json`,
+    );
   }
 
   // ─── Step 5: AI Localization ────────────────────────────────
@@ -1243,6 +1312,20 @@ export async function runStandardCrawlerPipeline(config) {
   const durationMs = getCrawlerElapsedMs();
   const sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const sliceJobs = Array.isArray(sliceRaw) ? sliceRaw.filter(isCompanyJob) : [];
+  const thinHousekeepingProof = buildThinSourceHousekeepingProof(
+    diff.removedJobs,
+    thinSourceJobs,
+    sourceBodyMatchKey,
+  );
+  const sourceFailureHousekeepingProof = buildSourceBodyFailureHousekeepingProof(
+    diff.removedJobs,
+    Array.isArray(parsedJobs) ? parsedJobs.filter(hasSourceBodyFailure) : [],
+    sourceBodyMatchKey,
+  );
+  const housekeepingProof = [
+    ...(thinHousekeepingProof || []),
+    ...(sourceFailureHousekeepingProof || []),
+  ];
 
   // Evidence-gated write (#5016/#5017). Identical to writeJobsCrawlerSlice
   // until the anti-shrink guard trips; then the disappearing jobs are probed
@@ -1252,6 +1335,8 @@ export async function runStandardCrawlerPipeline(config) {
   await writeJobsCrawlerSliceVerified(companyKey, sliceJobs, {
     isTargetJob: isCompanyJob,
     preserveExistingSlugs,
+    ...(housekeepingProof.length > 0 ? { housekeepingProof } : {}),
+    ...(sourceFailureHousekeepingProof ? { verifyUnprovenHousekeeping: true } : {}),
     // The source-specific validator has already proven that every attempted
     // detail became one rich, unique published row. If the central guard trips,
     // URL probes remain weaker for WordPress archives that keep retired detail
@@ -1273,12 +1358,18 @@ export async function runStandardCrawlerPipeline(config) {
     discovered: counts.discovered,
     parsed: counts.parsed,
     lastFetchOutcome: counts.lastFetchOutcome,
+    sourceBodyFailureCount: counts.sourceBodyFailures.length,
+    sourceBodyFailures: counts.sourceBodyFailures,
     written: sliceJobs.length,
     ...detailDropSummaryFields(counts.detailDrop),
+    ...flapSummaryFields(flap),
+    ...(partialSnapshotValidated ? { snapshotCoverage: 'partial' } : {}),
     // Per-run proof, not a per-slug guess: true only when this run's parser
-    // returned zero jobs AND its own `validateAuthoritativeSnapshot` proved
-    // the source explicitly says so (e.g. an "attualmente non ci sono
-    // posizioni aperte" marker inside the crawler's article boundary). The
+    // returned zero jobs AND the proof held — the runner's own
+    // `validateAuthoritativeSnapshot`, or the parser's
+    // `markAuthoritativeEmptySnapshot` stamp — i.e. the source explicitly
+    // says so (e.g. an "attualmente non ci sono posizioni aperte" marker
+    // inside the crawler's article boundary). The
     // crawler-health monitor consumes it to tell "source is genuinely empty"
     // apart from "selector died", exactly like the `discovered > 0 &&
     // written === 0` filtered-empty signal (#5945) — without an

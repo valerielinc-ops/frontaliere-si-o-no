@@ -76,7 +76,7 @@ on:
   workflow_call:
     inputs:
       max_jobs:
-        description: 'Max jobs for the cascade. Wall-clock-bound, not quota-bound — the 90min cascade deadline stops it first.'
+        description: 'Max jobs for the cascade. Wall-clock-bound, not quota-bound — its 30min cascade window stops it first.'
         type: string
         default: '900'
       mopup_max_jobs:
@@ -99,8 +99,14 @@ on:
         description: 'Dry run (no commit)'
         type: boolean
         default: false
+      collect_company_served:
+        description: 'Collect raw companyServed rows for the translation-thinking-ab measurement'
+        type: boolean
+        default: false
     secrets:
       FIREBASE_SERVICE_ACCOUNT_JSON:
+        required: false
+      CODEX_AUTH_JSON:
         required: false
 # No concurrency: block here — see the header note (checklist point 3).
 permissions:
@@ -113,6 +119,16 @@ env:
   TRANSLATE_RUN_CLOCK_REQUIRED: '1'
   # Bounded, opt-out memo for repeated stats/observability language detection.
   TRANSLATION_DETECTOR_MEMO: ${{ vars.TRANSLATION_DETECTOR_MEMO || '1' }}
+  # The existing thinking A/B remains opt-in: data collection must not change
+  # the scheduled translation behavior unless a caller explicitly asks for it.
+  TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
+  # Agency admission threshold (owner decision 2026-10-03): agency jobs that
+  # arrive with untranslated titles stay out of the PUBLISHED data/jobs.json
+  # until translated, but this pipeline must still see them there — Phase 2b
+  # (relocalize-pending-jobs.mjs) and the flag markers read data/jobs.json, not
+  # the slices. Every assemble in this job therefore includes them. See
+  # scripts/lib/translation-publication-hold.mjs.
+  JOBS_INCLUDE_TRANSLATION_HELD: '1'
 
 jobs:
   translate:
@@ -123,13 +139,14 @@ jobs:
       # Bootstrap checkout #1: anonymous, read-only — see header note.
       - name: Checkout frontaliere-si-o-no (public, read-only)
         id: checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: valerielinc-ops/frontaliere-si-o-no
           fetch-depth: 50
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -140,7 +157,7 @@ jobs:
       - name: Restore per-company translation cache
         id: translation_cache_restore
         continue-on-error: true
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
@@ -160,19 +177,41 @@ jobs:
             echo "translation-cache: miss" >> "$GITHUB_STEP_SUMMARY"
           fi
 
-      - name: Cache Opus-MT models
-        uses: actions/cache@v5
+      # One .cache/transformers holds the Opus-MT weights AND the ~470MB e5
+      # model of the Argos semantic gate (#9675). actions/cache never re-saves an
+      # exact key hit, so under the old immutable `opus-mt-models-v1` key the e5
+      # files downloaded after the restore were thrown away and fetched again on
+      # every run (#9677). The v2 key misses once, restores the Opus-MT weights
+      # through the old prefix and saves the directory with e5 in it.
+      - name: Cache local MT models (Opus-MT + e5 semantic judge)
+        uses: actions/cache@v6
         with:
           path: .cache/transformers
-          key: opus-mt-models-v1
-          restore-keys: opus-mt-models-
+          key: local-mt-models-v2-opus-e5
+          restore-keys: |
+            local-mt-models-
+            opus-mt-models-
 
       - name: Cache Argos Translate models
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.local/share/argos-translate/packages
           key: argos-translate-models-v1
           restore-keys: argos-translate-models-
+
+      # The Argos worker appends every translated unit here (LOCAL_MT_UNIT_CACHE)
+      # and compacts the file to the units still queued. A worker killed at its
+      # time budget therefore hands its finished units to Phase 2c and to the
+      # next run instead of losing them. Per-run key, restored by prefix, like
+      # the per-company translation cache; outside data/ so no commit sees it.
+      - name: Restore Argos unit cache
+        id: local_mt_unit_cache_restore
+        continue-on-error: true
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/local-mt-units
+          key: local-mt-units-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: local-mt-units-v1-
 
       - name: Prepare Firebase credentials (optional)
         env:
@@ -188,6 +227,34 @@ jobs:
 
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
+
+      # One verdict per translation provider on every credentialed run: Phase
+      # 2b usually stops at its deadline before calling any of them, so the
+      # cascade summary never showed revoked Azure keys or the Google tier
+      # refused on every call. DeepL is read through /v2/usage (no characters);
+      # Azure and Google get a two-character request each.
+      - name: Probe translation provider readiness
+        id: provider_readiness
+        continue-on-error: true
+        run: node scripts/translation-provider-readiness.mjs --summary --json "$RUNNER_TEMP/translation-provider-readiness.json"
+
+      # Resolve the effective Codex reserve budget once, after Remote Config
+      # has been loaded. An existing environment/input value wins; otherwise
+      # the repository variable is the rollback lever and 350 is only the
+      # unset default. Writing the result to GITHUB_ENV lets every translating
+      # phase inherit the same setting without redefining it in its own env.
+      - name: Resolve Codex reserve budget
+        if: inputs.skip_translate != true
+        env:
+          FREE_TRANSLATE_CODEX_MAX_CALLS_REPO: ${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}
+        run: |
+          if [ -n "${FREE_TRANSLATE_CODEX_MAX_CALLS:-}" ]; then
+            echo "FREE_TRANSLATE_CODEX_MAX_CALLS already set; preserving effective setting"
+          elif [ -n "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" ]; then
+            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=%s\n' "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" >> "$GITHUB_ENV"
+          else
+            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=350\n' >> "$GITHUB_ENV"
+          fi
 
       # Bootstrap checkout #2: reconfigure auth with GITHUB_PAT — see header
       # note and crawler-group-NN-logic.yml's identical step for the full
@@ -210,8 +277,8 @@ jobs:
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true
         run: |
-          python3 -m pip install --quiet --upgrade pip
-          python3 -m pip install --quiet argostranslate
+          python3 -m pip install --quiet --upgrade pip==26.2.1
+          python3 -m pip install --quiet argostranslate==1.11.0
           python3 scripts/local-mt-translate.py --install
 
       # Seed the clock in a non-optional step. Phase 2a/2b/2c may continue on
@@ -245,11 +312,13 @@ jobs:
       - name: Record translation rollout context
         env:
           ROLLOUT_REPOSITORY: ${{ github.repository }}
-          ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
+          SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           OPUSMT_RESCUE_SWITCH: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
         run: |
           echo "Translation rollout repository=$ROLLOUT_REPOSITORY"
           echo "LOCAL_MT_LANG_AWARE_OVERWRITE=$ROLLOUT_SWITCH"
+          echo "LOCAL_MT_SEMANTIC_MAX_OVERWRITES=$SEMANTIC_MAX_OVERWRITES"
           echo "LOCAL_MT_OPUSMT_RESCUE=$OPUSMT_RESCUE_SWITCH"
 
       - name: Log translation stats (before)
@@ -261,22 +330,60 @@ jobs:
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
         continue-on-error: true
         env:
-          LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          LOCAL_MT_TIME_BUDGET_MS: '4500000'  # 75 * 60 * 1000
+          # Units Argos already translated (this run's earlier pass or a
+          # previous run): reused instead of re-translated, see the cache step.
+          LOCAL_MT_UNIT_CACHE: .cache/local-mt-units/units.jsonl
+          # Phase budget inside the 210min envelope (minutes from the run clock;
+          # the clock starts ~7min after the job, the queue after 210 keeps its
+          # 140min). Measured on corpus run 36779310211 (2026-10-01): with 150min
+          # here Argos was killed at 150min with 4,749 of 16,990 requests done,
+          # the cascade started at 159min against its 90min run-wide deadline
+          # and translated 0 jobs, and the Phase 2d/2e gate saw 212min and
+          # skipped. Now:
+          #   0-3    assemble + stats
+          #   3-78   2a Argos, titles first (this step, 75min)
+          #   78-103 2a.2 title residue to the free cascade (25min window,
+          #          110min ceiling)
+          #   ~110   re-assemble + Argos commit + flags + baseline (~7min)
+          #   110-140 2b cascade (30min window, 150min ceiling)
+          #   140-170 2c Argos mop-up (170min ceiling)
+          #   ~175   commit; gate needs >= 15min: 35min left for 2d/2e
+          #   175-210 2d titles (07:00 run) / 2e descriptions
           # Budget arithmetic, measured from the shared run-start marker:
-          # 350min hard job cap − 280min mop-up deadline = 70min commit queue.
-          # Killed runs: 34030460785 (2026-09-06 13:16:31Z→19:11:32Z),
-          # 34126519779 (2026-09-07 13:17:01Z→19:12:02Z), and
-          # 34223496560 (2026-09-08 13:28:23Z→19:23:24Z), all 355min.
-          # Healthy run 34234173510 used 8min for the initial data commit and
-          # 5min for the observability commit; 70min also covers re-assembles,
-          # the title-fix pass, and artifact uploads.
-          # The two 150min per-step caps below are both bounded by this one
-          # 280min run-wide deadline; they are not additive.
-          LOCAL_MT_MOPUP_DEADLINE_MS: '16800000' # 280 * 60 * 1000; reserve 70min.
+          # 350min hard job cap − 210min run-wide deadline = 140min queue, of
+          # which ~6min are spent BEFORE the marker (checkout, npm ci, Argos
+          # install), so ~134min really remain for the post-translation queue.
+          # 280min (70min queue) was sized on 2026-09-08, when a data commit
+          # took 5-8min. Each `git-commit-data.sh --slice-only` call now
+          # re-3-way-merges every slice that diverged from origin/main during
+          # the run, 5-47min per call, and the queue has up to five of them.
+          # Corpus runs killed at the 350min cap with the queue unfinished:
+          # 35871986449 (2026-09-24, mop-up to 275min, the post-mop-up data
+          # commit alone 47min), 35897636278 (2026-09-24, mop-up to 276min,
+          # 73min of queue and still in the observability commit) and
+          # 35726632397 (2026-09-23, title lane to 240min, 109min of queue and
+          # still in the slug commit). Every one lost the slug regeneration, the
+          # translation-cache save and the deploy trigger, and a job timeout
+          # skips `always()` steps too, so the failure reporter never ran.
+          # The per-step caps and windows of 2a, 2a.2, 2b and 2c, and the Phase
+          # 2d/2e lanes, are all bounded by this one 210min run-wide deadline.
+          LOCAL_MT_MOPUP_DEADLINE_MS: '12600000' # 210 * 60 * 1000; reserve 140min.
           # Rollout switch for the language-aware overwrite arm (workspace issue 16).
-          # Default '0' = the arm runs and COUNTS but withholds the write, so a run
-          # can be read before it is allowed to act. Set the repo variable to '1'.
-          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          # Default '1' enables the bounded semantic-gated repair. Set the repo
+          # variable to '0' to keep the arm in shadow as an immediate rollback.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
+          # Argos semantic gate rollout (#9677). LOCAL_MT_LANG_AWARE_OVERWRITE above
+          # is its kill-switch: '0' keeps every overwrite in shadow (a bounded
+          # sample is judged and counted, nothing written). The cap bounds the
+          # overwrites one phase may write (hard max 2000 in the script). The
+          # run rollback is the #9676 guard in local-mt-semantic-policy.mjs.
+          # Counts per verdict and per withheld reason land in the log line
+          # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded). The
+          # companion path carries the first 200 judged overwrite candidates.
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
+          LOCAL_MT_SEMANTIC_CANDIDATES_PATH: ${{ runner.temp }}/local-mt-semantic-candidates-phase-2a.json
           # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
           # only after the rollout is approved.
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
@@ -284,6 +391,42 @@ jobs:
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+
+      # ── Codex Luna Max: available from the first title repair lane on ──────
+      # Start the broker after the Argos bulk pass and BEFORE Phase 2a.2. The
+      # title lane therefore gets Codex in the same default (primary) position
+      # as 2b/2d/2e — owner decision 2026-10-06: Codex is the first lane of
+      # every translation cascade — while the existing cascade and its guards
+      # remain unchanged when the broker is unavailable or disabled.
+      - id: setup_claude_haiku_fallback
+        if: inputs.skip_translate != true && inputs.dry_run != true
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_idle_ttl_ms: '12600000'
+
+      # ── Phase 2a.2: title residue to the free cascade, before descriptions ──
+      # Titles Argos left as source copies go to the cascade (Codex Luna Max
+      # for at most 15 of the lane's 25 minutes, then DeepL → Azure → …) BEFORE
+      # the job cascade (2b) and the description lanes spend time and premium
+      # quota on descriptions. Writes
+      # slices only; the re-assemble and the Argos commit below pick it up, and
+      # it is gated like them so 2b never scatters a stale dataset over it.
+      - name: "Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)"
+        id: title_cascade_before_descriptions
+        if: inputs.skip_translate != true && inputs.dry_run != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        continue-on-error: true
+        env:
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '6600000' # 110 * 60 * 1000 run-wide ceiling
+          UNTRANSLATED_TITLE_FIX_WINDOW_MS: '1500000'   # 25 * 60 * 1000 from this step's start
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
+          FREE_TRANSLATE_CODEX_LANES: '3'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000'
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
+        run: node scripts/fix-untranslated-titles.mjs
 
       # Keep this re-assemble on the default full form. The baseline and Phase
       # 2b cascade consume the dataset produced here, so skipping summaries
@@ -305,7 +448,7 @@ jobs:
           SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/translation-title-fix-attempts.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
@@ -338,6 +481,22 @@ jobs:
             --now "$started_at"
           echo "ready=true" >> "$GITHUB_OUTPUT"
 
+      # ── Codex Luna Max: reserve of Phase 2b, last-resort tier of 2d/2e ───
+      # Owner decision H7 (2026-10-05): «utilizza codex luna max per le
+      # traduzioni quando falliscono le chiavi». The broker was started before
+      # the title repair lane above and remains available for Phase 2b, so it
+      # gets its socket with the DEFAULT tier position of free-translate.mjs: Codex
+      # translates a text only once DeepL and Azure can no longer serve the
+      # run (every key rejected or out of quota, or not configured — Azure is
+      # blanked in 2b, see there), and before Google Cloud and the free tiers.
+      # Codex is the primary lane; if its broker is unavailable or its
+      # per-run circuit opens, the existing translation tiers continue. Every
+      # consumer has its own per-process budget; the
+      # subscription is shared with the owner's interactive use. The idle TTL
+      # covers the stretch between 2b and 2d/2e (Argos mop-up, commits) inside
+      # the 210-minute envelope. Without the secret, or with
+      # ENABLE_CODEX_ARTICLE_FALLBACK=0 in Remote Config, the step does nothing
+      # and every phase keeps the cascade it had.
       - name: "Phase 2b: Translate pending jobs (cascade top-up)"
         id: translation_shadow_preflight_v2_decision
         if: inputs.skip_translate != true
@@ -346,7 +505,33 @@ jobs:
           # Translation and metadata calls deliberately keep the normal
           # cascade; Codex preference is scoped to body generation inside
           # create-article.
-          JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
+          # Argos-first: a 30min window from this step's start under a 150min
+          # run-wide ceiling, so 2b no longer depends on what 2a consumed (see
+          # the budget table at Phase 2a). Argos disabled: the cascade is the
+          # primary translator, 250min run-wide and no window, as before.
+          JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '9000000' }}
+          JOBS_CASCADE_WINDOW_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '0' || '1800000' }}
+          # Azure (F0, 2M chars/month) is kept for titles: Phase 2a.2 and 2d
+          # spend it on ~46-char titles, while one 2b window of job
+          # localization (titles + ~2,500-char descriptions per locale) can
+          # use a month of it. Without the keys this cascade skips the tier,
+          # as it did while Azure answered 401.
+          AZURE_TRANSLATOR_KEY: ''
+          AZURE_TRANSLATOR_KEY_2: ''
+          # Codex reserve (see the broker step above): default tier position,
+          # at most the configured number of requests (350 by default) and 25
+          # minutes of the 30-minute window per run. The jobs queue is traffic-
+          # ordered, so the budget goes to the most visited jobs first. The phase writes its counters to
+          # TRANSLATE_CODEX_RESERVE_DIR for the stats row and the credential
+          # alert (scripts/lib/codex-reserve-report.mjs).
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
+          FREE_TRANSLATE_CODEX_MAX_MS: '1500000'
+          FREE_TRANSLATE_CODEX_LANES: '3'
+          # 25 righe per richiesta nelle fasi delle descrizioni: misura reale del 2026-10-08 (Codex Luna Max, 60 righe vere, una corsia): 10 righe/richiesta 6 richieste in 53,9 s; 25 righe 3 in 67,4 s; 50 righe 2 in 40,5 s; tutte tradotte e allineate. Il tempo per riga cambia poco, le richieste scendono di 2-3 volte.
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '25'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000'
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
           MT_LOCAL_OPUSMT: '1'
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
@@ -406,11 +591,25 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
-          LOCAL_MT_MOPUP_DEADLINE_MS: '16800000' # same 280min run-wide ceiling; 70min queue margin.
+          LOCAL_MT_UNIT_CACHE: .cache/local-mt-units/units.jsonl
+          # 170min, not the 210min envelope: the last 40min belong to the
+          # commit and the Phase 2d/2e lanes (budget table at Phase 2a).
+          LOCAL_MT_MOPUP_DEADLINE_MS: '10200000' # 170 * 60 * 1000
           # Rollout switch for the language-aware overwrite arm (workspace issue 16).
-          # Default '0' = the arm runs and COUNTS but withholds the write, so a run
-          # can be read before it is allowed to act. Set the repo variable to '1'.
-          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          # Default '1' enables the bounded semantic-gated repair. Set the repo
+          # variable to '0' to keep the arm in shadow as an immediate rollback.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
+          # Argos semantic gate rollout (#9677). LOCAL_MT_LANG_AWARE_OVERWRITE above
+          # is its kill-switch: '0' keeps every overwrite in shadow (a bounded
+          # sample is judged and counted, nothing written). The cap bounds the
+          # overwrites one phase may write (hard max 2000 in the script). The
+          # run rollback is the #9676 guard in local-mt-semantic-policy.mjs.
+          # Counts per verdict and per withheld reason land in the log line
+          # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded). The
+          # companion path carries the first 200 judged overwrite candidates.
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
+          LOCAL_MT_SEMANTIC_CANDIDATES_PATH: ${{ runner.temp }}/local-mt-semantic-candidates-phase-2c.json
           # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
           # only after the rollout is approved.
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
@@ -421,6 +620,13 @@ jobs:
 
       # Phase 2c mutates slices only. Re-assemble slice -> dataset; scattering
       # the stale assembled file in this direction would erase its new fills.
+      # Restored after the corpus review of the transport (PR 2232 there): the
+      # scripts of Phases 2d/2e read slices, but their import closure includes
+      # libraries that can read data/jobs.json, and "never at runtime" was not
+      # proven. Measured cost of this step: 300 s on corpus run 37272320066
+      # (2026-10-05, job 111641824967, step 34, 09:19:01-09:24:01 UTC; the
+      # other three assembles of that run took 313, 312 and 309 s). That is
+      # the baseline the removal would have saved, not worth a stale dataset.
       - name: Re-assemble dataset after Phase 2c mop-up
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         env:
@@ -438,22 +644,51 @@ jobs:
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
+      # ── Budget gate for Phases 2d/2e ─────────────────────────────────────
+      # The lanes stop at the 210min run-wide deadline, but only inside their
+      # own process: past it the broker still started (~21s; it now starts
+      # before Phase 2b) and the commit step still re-merged every diverged
+      # slice to find nothing (137-850s).
+      # Corpus runs 36240711198 (2d at 215min) and 36169299281 (2e at 252min,
+      # later killed at the 350min cap). Measured productive starts all had
+      # >= 57min left, so below one Codex budget (15min) nothing starts and a
+      # ::notice:: says why. See scripts/translate-repair-lane-gate.mjs.
+      - name: Gate Phase 2d/2e repair lanes on remaining run budget
+        id: repair_lane_budget
+        if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          REPAIR_LANE_DEADLINE_MS: '12600000' # same 210min envelope as Phases 2a-2e.
+          REPAIR_LANE_MIN_REMAINING_MS: '900000' # 15min = FREE_TRANSLATE_CODEX_MAX_MS.
+        run: node scripts/translate-repair-lane-gate.mjs
+
       # ── Phase 2d: Fix source-copy titles (once-daily repair lane)
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
         # The original cron expression survives the cross-repo workflow_call.
         # Run this cheap repair once daily; its queue ordering is starvation-safe.
-        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
         env:
-          # 240min from the shared marker leaves 110min before the 350min hard
-          # cap for title commit, final assemble, publication-tree stats,
-          # observability, and uploads. Healthy runs currently close in
-          # ~125-155min, so this lane gets ~85-115min before it stops.
-          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '14400000' # 240 * 60 * 1000; 110min remain.
+          # Same 210min run-wide envelope as the Argos mop-up (see Phase 2a):
+          # it leaves 140min before the 350min hard cap for the title commit,
+          # final assemble, publication-tree stats, observability, slugs and
+          # uploads. At 240min run 35726632397 (2026-09-23) was killed in the
+          # slug commit after 109min of queue. Healthy runs currently close in
+          # ~125-155min, so this lane gets ~55-85min before it stops.
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '12600000' # 210 * 60 * 1000; 140min remain.
+          # Codex primary lane (see the broker step above): at most the configured
+          # number of calls (350 by default) and 15 minutes per run, because the
+          # subscription is shared with the owner's interactive use and this lane runs every day.
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
+          FREE_TRANSLATE_CODEX_LANES: '3'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000'
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes
         id: commit_title_fixes
-        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
         env:
           SKIP_AI_TRANSLATION: '1'
         run: |
@@ -466,17 +701,30 @@ jobs:
       # The shorter runs retain this lane, with an explicit item cap so a
       # pathological backlog cannot consume the commit window.
       - name: "Phase 2e: Fix untranslated descriptions (free cascade)"
-        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
         env:
-          # Same 240min run-wide envelope as Phase 2d; 110min remain before
+          # Same 210min run-wide envelope as Phase 2d; 140min remain before
           # the 350min hard cap for commits, final assemble, and publication.
-          UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '14400000' # shared with title fixes; not additive.
+          UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '12600000' # shared with title fixes; not additive.
           UNTRANSLATED_DESCRIPTION_FIX_MAX: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_MAX || '2000' }}
+          # Azure is kept for titles, as in Phase 2b (see there).
+          AZURE_TRANSLATOR_KEY: ''
+          AZURE_TRANSLATOR_KEY_2: ''
+          # Codex primary lane, same per-run budget as Phase 2d (the two
+          # phases never run in the same run).
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
+          FREE_TRANSLATE_CODEX_LANES: '3'
+          # 25 righe per richiesta nelle fasi delle descrizioni: misura reale del 2026-10-08 (Codex Luna Max, 60 righe vere, una corsia): 10 righe/richiesta 6 richieste in 53,9 s; 25 righe 3 in 67,4 s; 50 righe 2 in 40,5 s; tutte tradotte e allineate. Il tempo per riga cambia poco, le richieste scendono di 2-3 volte.
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '25'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000'
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
 
       - name: Commit description fixes
         id: commit_description_fixes
-        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
         env:
           SKIP_AI_TRANSLATION: '1'
         run: |
@@ -484,6 +732,35 @@ jobs:
           bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)"
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Cleanup Codex auth broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then exit 0; fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" || echo "::warning::Codex auth broker cleanup did not complete"
+
+      # A provider whose every credential is rejected is an owner action
+      # (rotate it where this workflow reads it): one deduplicated needs-human
+      # issue per provider, closed by the first run in which the provider
+      # answers again. Since the Codex reserve (owner decision H7, 2026-10-05)
+      # a rejected key is expected and covered while Codex translates: the
+      # step runs after every translating phase, reads their reserve reports,
+      # and opens or comments the issue only when Codex failed too or was not
+      # there (scripts/translation-provider-readiness.mjs, `--codex-reserve-dir`).
+      - name: Alert on rejected translation credentials (dedup, zero-Claude)
+        if: always() && steps.provider_readiness.outcome == 'success' && inputs.dry_run != true
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/translation-provider-readiness.mjs \
+            --alert-from "$RUNNER_TEMP/translation-provider-readiness.json" \
+            --codex-reserve-dir "$RUNNER_TEMP/translation-codex-reserve" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       # Phases 2d/2e write slices. This is the final translation-bearing
       # persistence barrier; Phase 3 below changes only slugs.
@@ -500,6 +777,10 @@ jobs:
       # point for the tree that was (or can be) published.
       - name: Log translation stats (after)
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        env:
+          # Codex reserve counters of this run (translated / rejected), summed
+          # into the `after` row as `codexReserve`.
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: |
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             node scripts/log-translation-stats.mjs after
@@ -606,6 +887,29 @@ jobs:
           retention-days: 30
           if-no-files-found: warn
 
+      - name: Upload translation thinking A/B observations
+        if: always() && inputs.collect_company_served == true && inputs.skip_translate != true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}.json
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: error
+      # Argos semantic gate telemetry (#9677), one JSON per mop-up phase:
+      # verdicts accepted/rejected/unclear/error, writes by kind, withheld by
+      # reason (kill-switch/cap/rollback), cap and #9676 rollback-guard state.
+      - name: Upload Argos semantic telemetry
+        if: always() && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: local-mt-semantic-telemetry-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
+            ${{ runner.temp }}/local-mt-semantic-candidates-*.json
+          retention-days: 30
+          if-no-files-found: warn
+
       - name: Commit translation observability history
         if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
         env:
@@ -626,28 +930,60 @@ jobs:
           retention-days: 14
           if-no-files-found: error
 
+      # Agency admission threshold: agency jobs held out of publication whose
+      # titles this run translated are released in the slices here, so the
+      # admission is committed together with the translation (by the slug
+      # commit below) and alerts date their novelty from now. Also prints how
+      # many are still waiting: the translation-capacity measure. Soft-failing:
+      # the assembler publishes a translated job anyway and the crawler funnel
+      # releases it on its next write.
+      - name: Release translated agency jobs held for translation
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        continue-on-error: true
+        run: node scripts/release-translation-holds.mjs
+
       # ── Phase 3: Regenerate slugs from translated titles ──────────────────
       - name: "Phase 3: Regenerate locale slugs"
+        id: slug_regeneration
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
         run: node scripts/regenerate-slugs-by-locale.mjs
 
+      - name: Upload slug regeneration proof
+        id: slug_regeneration_proof
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: slug-regeneration-proof-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/slug-regeneration-proof.json
+          retention-days: 14
+          if-no-files-found: error
+
       - name: Commit slug regeneration
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        id: commit_slug_regeneration
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         env:
           SKIP_AI_TRANSLATION: '1'
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
 
       - name: Save per-company translation cache
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         continue-on-error: true
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
 
+      - name: Save Argos unit cache
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && hashFiles('.cache/local-mt-units/units.jsonl') != ''
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/local-mt-units
+          key: local-mt-units-v1-${{ github.run_id }}-${{ github.run_attempt }}
+
       # ── Phase 4: Validate + Deploy ──────────────────────────────────────
       - name: Trigger deploy
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.commit_slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         # GITHUB_REPOSITORY overridden inline: trigger-workflow.sh (called by
         # trigger-deploy.sh) resolves its dispatch target from that env var,
         # which — like github.repository — reflects the CALLER
@@ -671,7 +1007,7 @@ jobs:
 
       - name: Report failure to GitHub Issues
         if: failure()
-        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/report-failure@main
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/report-failure@57b6d36d7baac843ca800783e6f17cf3e61030c0
         with:
           title: 'Workflow Failure: Translate Pending Jobs'
           closed-by: close-recovered-failure-issues

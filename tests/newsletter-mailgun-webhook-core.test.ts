@@ -4,14 +4,15 @@ import { persistMailgunEvent } from '../functions/src/newsletterMailgunWebhookCo
 /**
  * `existingEvents` seeds the `events` subcollection per doc (keyed by
  * `${collection}/${docId}`) so refreshPreferredSendHour's
- * `.collection('events').orderBy('occurred_at', 'desc').limit(300).get()`
+ * `.collection('events').where('event_type', 'in', ['open', 'click'])`
+ * `.orderBy('occurred_at', 'desc').limit(300).get()`
  * query (FRO — #3798) has something to read. Real Firestore query semantics
  * (actual ordering/limiting) aren't reproduced — these tests only need the
  * seeded docs to come back so the sample count/hour computation runs.
  * Mirrors tests/newsletter-mailjet-webhook-core.test.ts.
  */
 function createFakeDb(
-  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  existingDocs: Record<string, Record<string, Record<string, unknown> | null>> = {},
   existingEvents: Record<string, Array<Record<string, unknown>>> = {},
 ) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
@@ -24,7 +25,15 @@ function createFakeDb(
           sets.push({ collection: name, docId, data });
         },
         get: async () => {
-          const docData = existingDocs[name]?.[docId];
+          // A recipient is a known subscriber unless the test says otherwise:
+          // a provider event never creates the subscriber record
+          // (mergeAccountDeletedSubscriberUpdate, lib/subscriberReactivation.js),
+          // so a test about what an event WRITES needs the document to exist.
+          // Seed `null` for a recipient with no document.
+          const seeded = existingDocs[name] || {};
+          const docData = docId in seeded
+            ? seeded[docId]
+            : (name === 'newsletter_subscribers' || name === 'job_alert_subscribers' ? {} : undefined);
           return {
             exists: !!docData,
             data: () => docData || {},
@@ -43,12 +52,14 @@ function createFakeDb(
             },
             // Minimal query shim: only `events` collections are queried
             // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
-            orderBy: () => ({
-              limit: () => ({
-                get: async () => {
-                  const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
-                  return { docs: seeded.map((d) => ({ data: () => d })) };
-                },
+            where: () => ({
+              orderBy: () => ({
+                limit: () => ({
+                  get: async () => {
+                    const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+                    return { docs: seeded.map((d) => ({ data: () => d })) };
+                  },
+                }),
               }),
             }),
           };
@@ -243,5 +254,25 @@ describe('newsletterMailgunWebhookCore — campaign attribution', () => {
       tags: ['weekly_2026-08-17'],
     } as any);
     expect(campaignOf(db)).toBe('weekly_2026-08-17');
+  });
+});
+
+describe('newsletterMailgunWebhookCore — a provider event never creates the subscriber record', () => {
+  // A transactional email (a calculator PDF) goes to addresses that have no
+  // subscriber document on purpose; its events used to create one holding only
+  // counters, which syncNewsletterSubscriberAuth then gave a shadow Auth account.
+  it.each([
+    ['newsletter', [], 'newsletter_subscribers'],
+    ['job alert', ['job-alert'], 'job_alert_subscribers'],
+  ])('writes nothing for a recipient with no %s document', async (_label, tags, collection) => {
+    const db = createFakeDb({ [collection]: { 'nobody@example.com': null } });
+    for (const event of ['delivered', 'opened', 'clicked', 'failed', 'complained', 'unsubscribed']) {
+      const result = await persistMailgunEvent(db as any, {
+        event, recipient: 'nobody@example.com', timestamp: 1700000000, tags, severity: 'permanent',
+      });
+      expect(result, event).toEqual({ skipped: true, reason: 'unknown_recipient' });
+    }
+    expect(db.__sets).toEqual([]);
+    expect(db.__adds).toEqual([]);
   });
 });

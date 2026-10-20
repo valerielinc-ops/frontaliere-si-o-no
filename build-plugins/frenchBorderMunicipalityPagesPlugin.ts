@@ -36,6 +36,7 @@ import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { CALC_HREF } from './shared/calcHref';
 import { renderNearestComparison } from './shared/nearestMunicipalityComparison';
+import { buildPeerProse, rankPeerRows } from './shared/peerCohortComparison';
 import { formatSourceAttribution } from './shared/authoritativeSources';
 import { CALCULATOR_REGIME_SCOPE_NOTICE, CALCULATOR_REGIME_SCOPE_TAG } from './shared/calculatorRegimeScope';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
@@ -90,6 +91,19 @@ function eur(amount: number, locale: FrenchLocale): string {
 }
 function intFmt(n: number, locale: FrenchLocale): string {
   return new Intl.NumberFormat(intlLang(locale), { maximumFractionDigits: 0 }).format(n);
+}
+
+/** Department names are a sourced, stable fact already present in the dataset. */
+const DEPARTMENT_LABEL: Record<string, Record<FrenchLocale, string>> = {
+  '01': { it: 'Ain', en: 'Ain', de: 'Ain', fr: 'Ain' },
+  '25': { it: 'Doubs', en: 'Doubs', de: 'Doubs', fr: 'Doubs' },
+  '39': { it: 'Giura', en: 'Jura', de: 'Jura', fr: 'Jura' },
+  '74': { it: 'Alta Savoia', en: 'Haute-Savoie', de: 'Haute-Savoie', fr: 'Haute-Savoie' },
+  '90': { it: 'Territorio di Belfort', en: 'Territoire de Belfort', de: 'Territoire de Belfort', fr: 'Territoire de Belfort' },
+};
+
+function departmentLabel(dept: string, locale: FrenchLocale): string {
+  return DEPARTMENT_LABEL[dept]?.[locale] ?? dept;
 }
 
 function taxAmountStr(regime: FrenchRegime, locale: FrenchLocale): string {
@@ -184,6 +198,18 @@ interface Copy {
   colRent: string;
   spreadComparison: string;
   comparisonSource: string;
+  comparisonPeerNoun: string;
+  rentMetric: string;
+  populationMetric: string;
+  rentObservation: (observations: number) => string;
+  noPeer: string;
+  departmentPopulationMetric: (department: string) => string;
+  departmentDistanceMetric: (department: string) => string;
+  departmentRentMetric: (department: string) => string;
+  crossingPopulationMetric: (crossing: string) => string;
+  profileCrossing: (crossing: string, peers: string, hasPeers: boolean) => string;
+  profileNearbyCrossings: (crossings: string) => string;
+  profileRoute: (department: string, canton: string, crossing: string) => string;
   faqTitle: string;
   faqQ1: (name: string) => string;
   faqA1: (name: string, regime: string) => string;
@@ -196,6 +222,8 @@ interface Copy {
   disclaimer: string;
   hubTitle: string;
   hubLede: string;
+  hubContextTitle: string;
+  hubContext: string;
   groupGeneve: string;
   groupHuitCantons: string;
   /** Hub group for dual-basis communes — see FrenchRegimeBasis. */
@@ -240,6 +268,20 @@ const COPY: Record<FrenchLocale, Copy> = {
     colRent: 'Affitto bilocale',
     spreadComparison: 'la distanza dal confine',
     comparisonSource: 'Distanza su strada dal valico più vicino, popolazione e affitto indicativo dal dataset comunale francese (INSEE).',
+    comparisonPeerNoun: 'comuni',
+    rentMetric: "l'affitto mensile indicativo",
+    populationMetric: 'la popolazione',
+    rentObservation: (observations) => `Stima del canone su ${intFmt(observations, 'it')} osservazioni DGALN/DHUP.`,
+    noPeer: 'nessun comune',
+    departmentPopulationMetric: (department) => `la popolazione nel dipartimento ${department}`,
+    departmentDistanceMetric: (department) => `la distanza nel dipartimento ${department}`,
+    departmentRentMetric: (department) => `l'affitto nel dipartimento ${department}`,
+    crossingPopulationMetric: (crossing) => `la popolazione tra i comuni serviti da ${crossing}`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `Il valico ${crossing} è condiviso anche da ${peers}.` : `Il valico ${crossing} è il riferimento per questa pagina.`,
+    profileNearbyCrossings: (crossings) => `I sei comuni più vicini usano questi valichi di riferimento: ${crossings}.`,
+    profileRoute: (department, canton, crossing) =>
+      `Il dataset collega il dipartimento ${department} al canton ${canton} attraverso il valico ${crossing}; il cantone di lavoro, non questa rotta, determina il regime fiscale.`,
     faqTitle: 'Domande frequenti',
     faqQ1: (n) => `Che regime fiscale si applica a ${n}?`,
     faqA1: (n, r) =>
@@ -257,6 +299,9 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubTitle: 'Vivere in Francia e lavorare in Svizzera, comune per comune',
     hubLede:
       'Affitti, distanza dal valico e regime fiscale (Ginevra vs otto cantoni) per i comuni francesi del corridoio Ginevra-Vaud-Neuchâtel-Giura-Vallese.',
+    hubContextTitle: 'Come leggere questa guida',
+    hubContext:
+      'Il regime fiscale non segue automaticamente il comune di residenza: dipende dal cantone svizzero in cui lavori. Ginevra applica l’accordo del 1973 con imposta alla fonte e credito in Francia; Vaud, Neuchâtel, Giura e Vallese rientrano nell’accordo del 1983, con dichiarazione in Francia e compensazione del 4,5%. Per questo le pagine sono raggruppate per base fiscale, mentre le schede comune riportano popolazione, distanza stradale dal valico più vicino e affitto indicativo. Le cifre sono riferimenti, non un calcolo fiscale personalizzato.',
     groupGeneve: 'Regime Ginevra',
     groupHuitCantons: 'Regime otto cantoni',
     groupDual: 'Ginevra o otto cantoni (secondo il cantone di lavoro)',
@@ -299,6 +344,20 @@ const COPY: Record<FrenchLocale, Copy> = {
     colRent: 'One-bedroom rent',
     spreadComparison: 'the distance to the border',
     comparisonSource: 'Road distance to the nearest crossing, population and indicative rent from the French municipal dataset (INSEE).',
+    comparisonPeerNoun: 'towns',
+    rentMetric: 'indicative monthly rent',
+    populationMetric: 'population',
+    rentObservation: (observations) => `Rent estimate based on ${intFmt(observations, 'en')} DGALN/DHUP observations.`,
+    noPeer: 'no town',
+    departmentPopulationMetric: (department) => `population in ${department}`,
+    departmentDistanceMetric: (department) => `distance in ${department}`,
+    departmentRentMetric: (department) => `rent in ${department}`,
+    crossingPopulationMetric: (crossing) => `population among towns served by ${crossing}`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `The ${crossing} crossing also serves ${peers}.` : `The ${crossing} crossing is the reference for this page.`,
+    profileNearbyCrossings: (crossings) => `The six nearest towns use these reference crossings: ${crossings}.`,
+    profileRoute: (department, canton, crossing) =>
+      `The dataset links the ${department} department to canton ${canton} through the ${crossing} crossing; the canton where you work, not this route, determines the tax regime.`,
     faqTitle: 'FAQ',
     faqQ1: (n) => `Which tax regime applies in ${n}?`,
     faqA1: (n, r) =>
@@ -316,6 +375,9 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubTitle: 'Living in France, working in Switzerland, town by town',
     hubLede:
       'Rent, distance to the border crossing and tax regime (Geneva vs eight cantons) for the French towns in the Geneva-Vaud-Neuchâtel-Jura-Valais corridor.',
+    hubContextTitle: 'How to read this guide',
+    hubContext:
+      'The applicable tax regime does not follow automatically from the town where you live: it depends on the Swiss canton where you work. Geneva uses the 1973 agreement with source tax and a French tax credit; Vaud, Neuchâtel, Jura and Valais fall under the 1983 agreement, with the income declared in France and a 4.5% compensation paid to Switzerland. The pages are therefore grouped by tax basis, while each town profile reports population, road distance to the nearest crossing and indicative rent. These figures are reference points, not a personalised tax calculation.',
     groupGeneve: 'Geneva regime',
     groupHuitCantons: 'Eight-canton regime',
     groupDual: 'Geneva or eight cantons (by canton of employment)',
@@ -358,6 +420,20 @@ const COPY: Record<FrenchLocale, Copy> = {
     colRent: 'Miete 2-Zimmer',
     spreadComparison: 'die Entfernung zur Grenze',
     comparisonSource: 'Straßenentfernung zum nächsten Übergang, Einwohnerzahl und Richtmiete aus dem französischen Gemeindedatensatz (INSEE).',
+    comparisonPeerNoun: 'Gemeinden',
+    rentMetric: 'die monatliche Richtmiete',
+    populationMetric: 'die Einwohnerzahl',
+    rentObservation: (observations) => `Mietschätzung auf Basis von ${intFmt(observations, 'de')} Beobachtungen von DGALN/DHUP.`,
+    noPeer: 'keine Gemeinde',
+    departmentPopulationMetric: (department) => `die Einwohnerzahl im Departement ${department}`,
+    departmentDistanceMetric: (department) => `die Entfernung im Departement ${department}`,
+    departmentRentMetric: (department) => `die Miete im Departement ${department}`,
+    crossingPopulationMetric: (crossing) => `die Einwohnerzahl der vom Übergang ${crossing} bedienten Gemeinden`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `Der Übergang ${crossing} bedient auch ${peers}.` : `Der Übergang ${crossing} ist der Referenzübergang für diese Seite.`,
+    profileNearbyCrossings: (crossings) => `Die sechs nächstgelegenen Gemeinden führen zu diesen Referenzübergängen: ${crossings}.`,
+    profileRoute: (department, canton, crossing) =>
+      `Der Datensatz ordnet das Departement ${department} über ${crossing} dem Kanton ${canton} zu; das Steuerregime bestimmt jedoch der Arbeitskanton, nicht diese Route.`,
     faqTitle: 'Häufige Fragen',
     faqQ1: (n) => `Welches Steuerregime gilt in ${n}?`,
     faqA1: (n, r) =>
@@ -375,6 +451,9 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubTitle: 'In Frankreich leben, in der Schweiz arbeiten, Ort für Ort',
     hubLede:
       'Miete, Distanz zum Grenzübergang und Steuerregime (Genf vs. acht Kantone) für die französischen Orte im Korridor Genf-Waadt-Neuenburg-Jura-Wallis.',
+    hubContextTitle: 'So lesen Sie diesen Ratgeber',
+    hubContext:
+      'Das Steuerregime richtet sich nicht automatisch nach dem Wohnort, sondern nach dem Schweizer Kanton, in dem Sie arbeiten. Für Genf gilt das Abkommen von 1973 mit Quellensteuer und Anrechnung in Frankreich; Waadt, Neuenburg, Jura und Wallis fallen unter das Abkommen von 1983, mit Deklaration in Frankreich und einer Ausgleichszahlung von 4,5%. Deshalb sind die Orte nach Steuergrundlage gruppiert. Jede Ortsseite zeigt Einwohnerzahl, Strassenentfernung zum nächsten Grenzübergang und eine Richtmiete. Die Werte sind Orientierung, keine persönliche Steuerberechnung.',
     groupGeneve: 'Regime Genf',
     groupHuitCantons: 'Regime acht Kantone',
     groupDual: 'Genf oder acht Kantone (je nach Arbeitskanton)',
@@ -417,6 +496,20 @@ const COPY: Record<FrenchLocale, Copy> = {
     colRent: 'Loyer deux-pièces',
     spreadComparison: 'la distance de la frontière',
     comparisonSource: 'Distance routière du passage le plus proche, population et loyer indicatif issus du jeu de données communal français (INSEE).',
+    comparisonPeerNoun: 'communes',
+    rentMetric: 'le loyer mensuel indicatif',
+    populationMetric: 'la population',
+    rentObservation: (observations) => `Loyer estimé sur la base de ${intFmt(observations, 'fr')} observations DGALN/DHUP.`,
+    noPeer: 'aucune commune',
+    departmentPopulationMetric: (department) => `la population dans le département ${department}`,
+    departmentDistanceMetric: (department) => `la distance dans le département ${department}`,
+    departmentRentMetric: (department) => `le loyer dans le département ${department}`,
+    crossingPopulationMetric: (crossing) => `la population des communes desservies par ${crossing}`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `Le passage ${crossing} dessert aussi ${peers}.` : `Le passage ${crossing} est le passage de référence pour cette page.`,
+    profileNearbyCrossings: (crossings) => `Les six communes les plus proches utilisent ces passages de référence : ${crossings}.`,
+    profileRoute: (department, canton, crossing) =>
+      `Le jeu de données relie le département ${department} au canton ${canton} par le passage ${crossing} ; le régime fiscal dépend du canton de travail, pas de cet itinéraire.`,
     faqTitle: 'Questions fréquentes',
     faqQ1: (n) => `Quel régime fiscal s'applique à ${n} ?`,
     faqA1: (n, r) =>
@@ -434,6 +527,9 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubTitle: 'Vivre en France, travailler en Suisse, commune par commune',
     hubLede:
       'Loyers, distance à la frontière et régime fiscal (Genève vs huit cantons) pour les communes françaises du corridor Genève-Vaud-Neuchâtel-Jura-Valais.',
+    hubContextTitle: 'Comment lire ce guide',
+    hubContext:
+      'Le régime fiscal ne dépend pas automatiquement de la commune de résidence : il dépend du canton suisse où vous travaillez. Genève applique l’accord de 1973, avec impôt à la source et crédit d’impôt en France ; Vaud, Neuchâtel, Jura et Valais relèvent de l’accord de 1983, avec déclaration en France et une compensation de 4,5 % versée à la Suisse. Les communes sont donc regroupées selon la base fiscale. Chaque fiche indique la population, la distance routière jusqu’au passage frontalier le plus proche et un loyer indicatif. Ces chiffres sont des repères, pas un calcul fiscal personnalisé.',
     groupGeneve: 'Régime Genève',
     groupHuitCantons: 'Régime huit cantons',
     groupDual: 'Genève ou huit cantons (selon le canton de travail)',
@@ -465,6 +561,175 @@ function breadcrumbLd(locale: FrenchLocale, name: string, canonicalUrl: string):
       { '@type': 'ListItem', position: 3, name, item: canonicalUrl },
     ],
   });
+}
+
+const FRENCH_POPULATION_RANK = [...FRENCH_ABOVE_FLOOR].sort(
+  (a, b) => b.population - a.population || a.slug.localeCompare(b.slug),
+);
+const FRENCH_DISTANCE_RANK = [...FRENCH_ABOVE_FLOOR].sort(
+  (a, b) => a.distanceKm - b.distanceKm || a.slug.localeCompare(b.slug),
+);
+const FRENCH_RENT_RANK = [...FRENCH_ABOVE_FLOOR].sort(
+  (a, b) => a.avgRentMonthly - b.avgRentMonthly || a.slug.localeCompare(b.slug),
+);
+
+function groupFrenchMunicipalities<T extends 'dept' | 'nearestCrossing'>(
+  field: T,
+): Map<FrenchBorderMunicipality[T], FrenchBorderMunicipality[]> {
+  const groups = new Map<FrenchBorderMunicipality[T], FrenchBorderMunicipality[]>();
+  for (const municipality of FRENCH_ABOVE_FLOOR) {
+    const group = groups.get(municipality[field]);
+    if (group) group.push(municipality);
+    else groups.set(municipality[field], [municipality]);
+  }
+  return groups;
+}
+
+const FRENCH_BY_DEPT = groupFrenchMunicipalities('dept');
+const FRENCH_BY_CROSSING = groupFrenchMunicipalities('nearestCrossing');
+
+function joinFrenchNames(names: readonly string[], locale: FrenchLocale, fallback: string): string {
+  if (names.length === 0) return fallback;
+  if (names.length === 1) return names[0];
+  const conjunction = locale === 'it' ? ' e ' : locale === 'de' ? ' und ' : locale === 'fr' ? ' et ' : ' and ';
+  return `${names.slice(0, -1).join(', ')}${conjunction}${names[names.length - 1]}`;
+}
+
+function buildFrenchMetricProse(params: {
+  locale: FrenchLocale;
+  rows: readonly FrenchBorderMunicipality[];
+  current: FrenchBorderMunicipality;
+  metricLabel: string;
+  valueOf: (municipality: FrenchBorderMunicipality) => number;
+  higherIsBetter: boolean;
+  formatValue: (value: number, locale: FrenchLocale) => string;
+}): string[] {
+  const { locale, rows, current, metricLabel, valueOf, higherIsBetter, formatValue } = params;
+  return buildPeerProse({
+    locale,
+    ranked: rankPeerRows(
+      rows.map((municipality) => ({
+        key: municipality.slug,
+        name: municipality.name,
+        value: valueOf(municipality),
+      })),
+      higherIsBetter,
+    ),
+    currentKey: current.slug,
+    labels: { heading: '', metricLabel, peerNoun: COPY[locale].comparisonPeerNoun },
+    formatValue,
+    higherIsBetter,
+  });
+}
+
+/**
+ * The previous French fix named only the six nearest communes and ranked rent
+ * and population inside that small window. The remaining boilerplate was the
+ * same tax explanation on every page, so the coorte stopped at about 22%.
+ * These summaries expose the relationships already present in the sourced
+ * dataset: full-corridor ranks, department peers, and communes using the same
+ * crossing. Each claim is computed at build time and names the rows involved;
+ * no new municipal fact is invented or copied from an adjacent field.
+ */
+function buildFrenchProfileProse(
+  locale: FrenchLocale,
+  current: FrenchBorderMunicipality,
+  neighbours: Array<{ place: FrenchBorderMunicipality }>,
+): string[] {
+  const c = COPY[locale];
+  const formatNames = (names: readonly string[]) => joinFrenchNames(names, locale, c.noPeer);
+  const formatInt = (value: number, valueLocale: FrenchLocale) => intFmt(value, valueLocale);
+  const formatKm = (value: number, valueLocale: FrenchLocale) => `${intFmt(value, valueLocale)} km`;
+  const formatRent = (value: number, valueLocale: FrenchLocale) => eur(value, valueLocale);
+  const department = departmentLabel(current.dept, locale);
+  const departmentPeers = FRENCH_BY_DEPT.get(current.dept) ?? [];
+  const crossingRows = FRENCH_BY_CROSSING.get(current.nearestCrossing) ?? [];
+  const crossingPeers = crossingRows.filter((municipality) => municipality.slug !== current.slug);
+  const nearbyCrossings = [...new Set(neighbours.map(({ place }) => place.nearestCrossing))];
+
+  const prose = [
+    ...buildFrenchMetricProse({
+      locale,
+      rows: FRENCH_POPULATION_RANK,
+      current,
+      metricLabel: c.populationMetric,
+      valueOf: (municipality) => municipality.population,
+      higherIsBetter: true,
+      formatValue: formatInt,
+    }),
+    ...buildFrenchMetricProse({
+      locale,
+      rows: FRENCH_DISTANCE_RANK,
+      current,
+      metricLabel: c.spreadComparison,
+      valueOf: (municipality) => municipality.distanceKm,
+      higherIsBetter: false,
+      formatValue: formatKm,
+    }),
+    ...buildFrenchMetricProse({
+      locale,
+      rows: FRENCH_RENT_RANK,
+      current,
+      metricLabel: c.rentMetric,
+      valueOf: (municipality) => municipality.avgRentMonthly,
+      higherIsBetter: false,
+      formatValue: formatRent,
+    }),
+    ...buildFrenchMetricProse({
+      locale,
+      rows: departmentPeers,
+      current,
+      metricLabel: c.departmentPopulationMetric(department),
+      valueOf: (municipality) => municipality.population,
+      higherIsBetter: true,
+      formatValue: formatInt,
+    }),
+    ...buildFrenchMetricProse({
+      locale,
+      rows: departmentPeers,
+      current,
+      metricLabel: c.departmentDistanceMetric(department),
+      valueOf: (municipality) => municipality.distanceKm,
+      higherIsBetter: false,
+      formatValue: formatKm,
+    }),
+    ...buildFrenchMetricProse({
+      locale,
+      rows: departmentPeers,
+      current,
+      metricLabel: c.departmentRentMetric(department),
+      valueOf: (municipality) => municipality.avgRentMonthly,
+      higherIsBetter: false,
+      formatValue: formatRent,
+    }),
+    c.profileCrossing(
+      current.nearestCrossing,
+      formatNames(crossingPeers.map((municipality) => municipality.name)),
+      crossingPeers.length > 0,
+    ),
+    c.profileNearbyCrossings(formatNames(nearbyCrossings)),
+    c.profileRoute(department, getCantonDisplayName(current.canton, locale), current.nearestCrossing),
+  ];
+
+  // A shared crossing is itself a useful local relationship. Keep the ranking
+  // fail-closed for singleton/pair groups: a two-row comparison is not enough
+  // to support the peer prose contract, while the explicit crossing sentence
+  // above remains true for every page.
+  if (crossingPeers.length >= 2) {
+    prose.push(
+      ...buildFrenchMetricProse({
+        locale,
+        rows: crossingRows,
+        current,
+        metricLabel: c.crossingPopulationMetric(current.nearestCrossing),
+        valueOf: (municipality) => municipality.population,
+        higherIsBetter: true,
+        formatValue: formatInt,
+      }),
+    );
+  }
+
+  return prose;
 }
 
 // ── Page renderers ──────────────────────────────────────────────
@@ -513,7 +778,37 @@ function renderRelated(locale: FrenchLocale, current: FrenchBorderMunicipality):
         value: (m) => eur(m.avgRentMonthly, locale),
       },
     ],
-    sourceNote: c.comparisonSource,
+    sourceNote: `${c.comparisonSource} ${c.rentObservation(current.rentObs)}`,
+    extraProse: ({ current: self, neighbours }) => {
+      const places = [self, ...neighbours.map((entry) => entry.place)];
+      const proseFor = (
+        key: 'avgRentMonthly' | 'population',
+        metricLabel: string,
+        formatValue: (value: number, valueLocale: FrenchLocale) => string,
+        higherIsBetter: boolean,
+      ) =>
+        buildPeerProse({
+          locale,
+          ranked: rankPeerRows(
+            places.map((place) => ({ key: place.slug, name: place.name, value: place[key] })),
+            higherIsBetter,
+          ),
+          currentKey: self.slug,
+          labels: { heading: '', metricLabel, peerNoun: c.comparisonPeerNoun },
+          formatValue,
+          higherIsBetter,
+        });
+
+      // The table exposes the raw values. These two ranked summaries explain
+      // what those values mean for a reader choosing among nearby communes;
+      // peer names survive the information-gain identity mask, while the
+      // figures remain visible and are still treated as data by the auditor.
+      return [
+        ...proseFor('avgRentMonthly', c.rentMetric, (value, valueLocale) => eur(value, valueLocale), false),
+        ...proseFor('population', c.populationMetric, (value, valueLocale) => intFmt(value, valueLocale), true),
+        ...buildFrenchProfileProse(locale, self, neighbours),
+      ];
+    },
   });
 }
 
@@ -557,7 +852,7 @@ export function renderAboveFloorPage(params: {
     <header class="rounded-md border border-edge bg-surface p-5 sm:p-7" data-speakable>
       <div class="flex flex-wrap items-center gap-2 text-sm">
         <span class="rounded-full border border-info-border bg-info-subtle px-3 py-1 font-semibold text-info">${esc(c.role)}</span>
-        <span class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-subtle">${esc(getCantonDisplayName(municipality.canton, locale))} · ${esc(municipality.nearestCrossing)}</span>
+        <span class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-subtle">${esc(departmentLabel(municipality.dept, locale))} · ${esc(getCantonDisplayName(municipality.canton, locale))} · ${esc(municipality.nearestCrossing)}</span>
       </div>
       <h1 class="mt-4 text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(c.h1(n, regimeLabel))}</h1>
       <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(c.lede(n, regimeLabel, taxStr))}</p>
@@ -621,7 +916,7 @@ export function renderAboveFloorPage(params: {
   </div>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
 
   const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -787,11 +1082,15 @@ export function renderHubPage(params: { locale: FrenchLocale; dateStamp: string;
       <p class="mt-3 text-sm text-muted">${esc(c.updated)}: <time datetime="${dateStamp}">${dateStamp}</time></p>
     </header>
     ${groups}
+    <section class="mt-8 rounded-md border border-edge bg-surface-raised p-5">
+      <h2 class="text-lg font-bold text-heading">${esc(c.hubContextTitle)}</h2>
+      <p class="mt-3 leading-7 text-body">${esc(c.hubContext)}</p>
+    </section>
     <p class="mt-6 text-xs leading-5 text-muted">${esc(c.disclaimer)}</p>
   </div>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
 
   const hubHreflang = FRENCH_LOCALES.map(
     (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${FRENCH_HUB_PATH[alt]}">`,
@@ -832,7 +1131,7 @@ function buildSitemap(dateStamp: string): string {
     const altLines = alts
       .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.href}" />`)
       .join('\n');
-    return `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLines}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+    return `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLines}\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
   };
 
   const urls: string[] = [];

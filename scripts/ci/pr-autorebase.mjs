@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * pr-autorebase.mjs — rebase reale delle PR a un passo dal merge (zero-Claude).
  *
@@ -60,12 +62,12 @@
  *       GITHUB_REPOSITORY. Richiede `gh` + `git` in un checkout full-history.
  */
 import { execFileSync, spawnSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 import {
   VITEST_CHECK_NAME,
   VITEST_EXECUTION_JOB_NAME,
   isReviewerBot,
-  REVIEW_WORKFLOW_DRIFT_FILES,
 } from './lib/constants.mjs';
 import {
   latestCompletedVitestConclusion,
@@ -81,6 +83,14 @@ import {
   pollUntil,
   vitestCheckNeedsPolling,
   vitestJobIsConcluded,
+  latestCompletedVitestRun,
+  vitestFailureIsTestsStep,
+  parseVitestFailureReport,
+  relativeImportCandidates,
+  inheritedRedRescueDecision,
+  testedMainSince,
+  VITEST_RELATED_STEP_NAME,
+  VITEST_FAILURE_REPORT_MARKER,
 } from './lib/vitestCheck.mjs';
 import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment,
   countPaginatedLines, lastPaginatedJsonLine } from './lib/prComments.mjs';
@@ -96,6 +106,20 @@ import {
   renderReopenBudget,
 } from './lib/reopen-breaker.mjs';
 import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
+import { PR_FIX_CLAIM_MARKER, latestPrFixClaims } from './pr-fixer-claim.mjs';
+import { conflictHandoffExpectedHead, conflictHandoffOriginPr } from './check-issue-already-resolved.mjs';
+import {
+  GENERATED_FILE_REGISTRY,
+  generatedConflictPlan,
+  generatedConflictWorktreePaths,
+} from './generated-files-registry.mjs';
+import {
+  duplicateOldEnough,
+  electHandoffKeeper,
+  handoffBusy,
+  handoffRouted,
+  MIN_DUPLICATE_AGE_MINUTES,
+} from './reconcile-conflict-handoffs.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -132,6 +156,9 @@ const MAX_REOPENS = intFromEnv('AUTOREBASE_MAX_REOPENS', DEFAULT_MAX_REOPENS);
 
 const budget = runBudgetFromEnv();
 const CONFLICT_MARKER = '<!-- AUTOREBASE_CONFLICT -->';
+/** Lock esplicito per una risoluzione manuale già iniziata sul branch della PR. */
+export const CONFLICT_RESOLUTION_LOCK_LABEL = 'agent:resolving-conflict';
+export const CONFLICT_RESOLUTION_LOCK_MAX_AGE_MS = 60 * 60 * 1000;
 
 // ── Rilevazione conflitti con main su TUTTE le PR aperte ─────────────────────
 //
@@ -150,14 +177,6 @@ const CONFLICT_MARKER = '<!-- AUTOREBASE_CONFLICT -->';
 // riparazione resta near-merge-only.
 const MAIN_CONFLICT_MARKER = '<!-- MAIN_CONFLICT -->';
 const MAIN_CONFLICT_LABEL = 'has-conflicts';
-// `tests.yml` contiene oggi il gate di review del sito. Conserviamo anche il
-// nome storico perché una PR può essere stata aperta quando il gate viveva in
-// `pr-review-loop.yml`; in entrambi i casi il file deve essere byte-identico a
-// main prima che un run di review possa essere considerato valido.
-const REVIEW_VALIDATION_WORKFLOW_PATHS = [
-  ...REVIEW_WORKFLOW_DRIFT_FILES,
-  '.github/workflows/pr-review-loop.yml',
-];
 // One-shot per PR: `vitestFailureIsNotAttributableToPr` è pura e ri-risponderebbe
 // `true` a ogni tick finché l'head resta rosso. Il marker rende il rescue
 // irripetibile: una PR ri-testata contro main verde che torna ROSSA è rotta per
@@ -165,6 +184,15 @@ const REVIEW_VALIDATION_WORKFLOW_PATHS = [
 // la stessa classe di livelock di #2415). Da lì la prendono recycle-stale-prs /
 // un umano.
 const STUCK_RED_MARKER = '<!-- AUTOREBASE_STUCK_RED_RESCUE -->';
+// Rescue del rosso EREDITATO e poi riparato su main (2026-09-25): ripetibile
+// per chiave (test falliti, commit di main che li tocca), non one-shot. Vedi
+// `inheritedRedRescueDecision` in lib/vitestCheck.mjs.
+const INHERITED_RED_MARKER = '<!-- AUTOREBASE_INHERITED_RED_RESCUE';
+const INHERITED_RED_KEY_RE = /<!-- AUTOREBASE_INHERITED_RED_RESCUE key=([0-9a-f]{12}@[0-9a-f]{7,12}) -->/gu;
+const INHERITED_RED_MAX = intFromEnv('AUTOREBASE_INHERITED_RED_MAX', 3);
+// Escalation dei fixer al loro round cap: `needs-human` messo da loro non è
+// del reopen-breaker e non si toglie qui.
+const FIXER_ESCALATION_MARKERS = ['<!-- NEEDS_HUMAN_ESCALATION:', '<!-- REDFLAG_BODY_DEADLOCK -->'];
 // Backstop `stale` di vitestFailureIsNotAttributableToPr: un vitest rosso più
 // vecchio di N ore va ri-verificato una volta anche senza prova di main-rosso
 // (copre i fallimenti INFRA, es. #5019: `RPC failed; curl 56` + runner shutdown
@@ -416,11 +444,208 @@ function git(args, { allowFail = false } = {}) {
   }
 }
 
+function gitAt(cwd, args, { allowFail = false } = {}) {
+  try {
+    return execFileSync('git', args, {
+      cwd,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+  } catch (error) {
+    if (allowFail) return null;
+    throw error;
+  }
+}
+
+function runGeneratedCommand(command, { cwd, env }) {
+  try {
+    const stdout = execFileSync(command.argv[0], command.argv.slice(1), {
+      cwd,
+      env,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+    return { ok: true, stdout, stderr: '' };
+  } catch (error) {
+    return {
+      ok: false,
+      stdout: error?.stdout || '',
+      stderr: error?.stderr || String(error),
+      status: error?.status ?? null,
+    };
+  }
+}
+
+function unmergedPaths(runGit) {
+  const raw = runGit(['diff', '--name-only', '--diff-filter=U'], { allowFail: true });
+  if (raw === null) return null;
+  return raw.split(/\r?\n/u).map((path) => path.trim()).filter(Boolean);
+}
+
+function generatedPathCandidates(runGit, conflictPaths, registry) {
+  const raw = runGit(['ls-files', '-co', '--exclude-standard', '-z'], { allowFail: true });
+  if (raw === null) return null;
+  const candidates = [...new Set([
+    ...conflictPaths,
+    ...raw.split('\0').filter(Boolean),
+  ])];
+  return candidates.filter((path) => generatedConflictPlan([path], registry).eligible);
+}
+
+function commandFailureReason(stage, rule, result) {
+  const detail = String(result?.stderr || result?.stdout || '').trim().split(/\r?\n/u)[0];
+  return `${stage} ${rule.id}${detail ? `: ${detail.slice(0, 240)}` : ''}`;
+}
+
+export const GENERATED_CONFLICT_MERGE_COMMIT_MESSAGE = 'Merge origin/main (regenerate generated files)';
+
+/**
+ * Risolve un merge fallito soltanto quando ogni path non risolto e' nel
+ * registro degli artefatti generati. Prima sceglie il lato main come input
+ * leggibile per i generatori, poi esegue generazione e --check, stage mirato e
+ * commit del merge. Un fallimento lascia al chiamante l'abort esistente.
+ *
+ * `commandRunner` e' iniettabile per provare la transazione in un repository
+ * git temporaneo senza eseguire il generatore reale; il registro di produzione
+ * conserva comunque i comandi reali.
+ */
+export function resolveGeneratedConflictMerge({
+  cwd = process.cwd(),
+  registry = GENERATED_FILE_REGISTRY,
+  gitRunner,
+  commandRunner = runGeneratedCommand,
+} = {}) {
+  const runGit = gitRunner || ((args, options) => gitAt(cwd, args, options));
+  const conflictPaths = unmergedPaths(runGit);
+  if (conflictPaths === null) {
+    return { status: 'failed', reason: 'cannot read unmerged paths' };
+  }
+  if (conflictPaths.length === 0) return { status: 'not-applicable', conflictPaths };
+
+  const plan = generatedConflictPlan(conflictPaths, registry);
+  if (!plan.eligible) {
+    return {
+      status: 'ineligible',
+      conflictPaths,
+      unregistered: plan.unregistered,
+    };
+  }
+
+  const sparseCheckout = runGit(['config', '--bool', 'core.sparseCheckout'], { allowFail: true });
+  if (String(sparseCheckout || '').trim() === 'true') {
+    const worktreePaths = generatedConflictWorktreePaths(plan);
+    if (worktreePaths.length > 0
+      && runGit(['sparse-checkout', 'add', ...worktreePaths], { allowFail: true }) === null) {
+      return {
+        status: 'failed',
+        conflictPaths,
+        reason: 'cannot materialize generator inputs: git sparse-checkout add failed',
+      };
+    }
+    // Il checkout del job e' usa e getta: non serve ripristinare i pattern aggiunti.
+  }
+
+  const sourceCommit = (runGit(['merge-base', 'origin/main', 'HEAD'], { allowFail: true }) || '').trim();
+  if (!/^[0-9a-f]{40}$/iu.test(sourceCommit)) {
+    return { status: 'failed', conflictPaths, reason: 'cannot resolve origin/main merge-base' };
+  }
+
+  for (const path of conflictPaths) {
+    if (runGit(['checkout', '--theirs', '--', path], { allowFail: true }) === null) {
+      return { status: 'failed', conflictPaths, reason: `cannot seed generated path ${path} from main` };
+    }
+  }
+
+  for (const rule of plan.rules) {
+    const generatorEnv = {
+      ...process.env,
+      ...rule.generator.env,
+      CRAWLER_SOURCE_COMMIT: sourceCommit,
+    };
+    let generated;
+    try {
+      generated = commandRunner(rule.generator, { cwd, env: generatorEnv });
+    } catch (error) {
+      generated = { ok: false, stderr: String(error) };
+    }
+    if (!generated?.ok) {
+      return { status: 'failed', conflictPaths, reason: commandFailureReason('generator failed', rule, generated) };
+    }
+
+    const verifierEnv = {
+      ...process.env,
+      ...rule.verifier.env,
+      CRAWLER_SOURCE_COMMIT: sourceCommit,
+    };
+    let verified;
+    try {
+      verified = commandRunner(rule.verifier, { cwd, env: verifierEnv });
+    } catch (error) {
+      verified = { ok: false, stderr: String(error) };
+    }
+    if (!verified?.ok) {
+      return { status: 'failed', conflictPaths, reason: commandFailureReason('verification failed', rule, verified) };
+    }
+  }
+
+  const pathsToStage = generatedPathCandidates(runGit, conflictPaths, registry);
+  if (pathsToStage === null || pathsToStage.length === 0) {
+    return { status: 'failed', conflictPaths, reason: 'cannot enumerate generated paths to stage' };
+  }
+  if (runGit(['add', '--all', '--', ...pathsToStage], { allowFail: true }) === null) {
+    return { status: 'failed', conflictPaths, reason: 'cannot stage regenerated paths' };
+  }
+
+  const remaining = unmergedPaths(runGit);
+  if (remaining === null || remaining.length > 0) {
+    return {
+      status: 'failed',
+      conflictPaths,
+      reason: `generated resolution left unmerged paths: ${(remaining || []).join(', ')}`,
+    };
+  }
+  if (runGit(['commit', '-m', GENERATED_CONFLICT_MERGE_COMMIT_MESSAGE], { allowFail: true }) === null) {
+    return { status: 'failed', conflictPaths, reason: 'cannot commit regenerated merge' };
+  }
+  return {
+    status: 'resolved',
+    conflictPaths,
+    rules: plan.rules.map((rule) => rule.id),
+  };
+}
+
+/**
+ * Decide the hand-off boundary for a conflict whose paths may be generated.
+ * The caller runs the existing generated resolver only for `regenerate`; a
+ * valid manual-resolution lock always wins and blocks both regeneration and
+ * hand-off.
+ */
+export function decideGeneratedConflictHandoff({
+  conflictPaths = [],
+  conflictLockState = 'none',
+  resolutionStatus = 'not-started',
+} = {}) {
+  if (conflictLockState === 'active' || conflictLockState === 'unreadable') {
+    return { action: 'skip', reason: 'lock' };
+  }
+
+  const plan = generatedConflictPlan(conflictPaths);
+  if (!plan.eligible) {
+    return { action: 'handoff', reason: 'manual-conflict', unregistered: plan.unregistered };
+  }
+  if (resolutionStatus === 'not-started') {
+    return { action: 'regenerate', reason: 'generated-only', rules: plan.rules.map((rule) => rule.id) };
+  }
+  if (resolutionStatus === 'resolved') {
+    return { action: 'resolved', reason: 'generated' };
+  }
+  return { action: 'handoff', reason: 'generated-resolution-failed' };
+}
+
 /**
  * Restituisce l'entry dell'albero per un path senza materializzare il file.
  * `null` significa che Git non ha potuto leggere il ref; `exists:false` è
- * invece un'assenza legittima (per esempio il vecchio `pr-review-loop.yml`
- * non esiste più né su head né su main).
+ * invece un'assenza legittima.
  */
 function gitTreeEntry(ref, path) {
   const raw = git(['ls-tree', '-r', ref, '--', path], { allowFail: true });
@@ -432,56 +657,32 @@ function gitTreeEntry(ref, path) {
 }
 
 /**
- * Confronto puro delle entry del workflow di review. Le mappe devono
- * contenere entrambe le chiavi, anche quando il file è assente (`exists:false`)
- * o il ref è illeggibile (`null`).
- */
-export function reviewWorkflowHasDrift(mainEntries, headEntries) {
-  for (const path of REVIEW_VALIDATION_WORKFLOW_PATHS) {
-    const mainEntry = mainEntries?.[path] ?? null;
-    const headEntry = headEntries?.[path] ?? null;
-    if (mainEntry === null || headEntry === null) return true;
-    if (mainEntry.exists !== headEntry.exists) return true;
-    if (mainEntry.exists && mainEntry.oid !== headEntry.oid) return true;
-  }
-  return false;
-}
-
-/**
- * Verifica il motivo concreto per cui il workflow di review deve essere
- * riallineato a main. È fail-closed: se un ref/path non è leggibile, il
- * chiamante mantiene il merge di main invece di ri-triggerare una review che
- * potrebbe fallire con la validazione 401.
- */
-function hasReviewWorkflowValidationDrift(headSha) {
-  const mainEntries = Object.fromEntries(
-    REVIEW_VALIDATION_WORKFLOW_PATHS.map((path) => [path, gitTreeEntry('origin/main', path)]),
-  );
-  const headEntries = Object.fromEntries(
-    REVIEW_VALIDATION_WORKFLOW_PATHS.map((path) => [path, gitTreeEntry(headSha, path)]),
-  );
-  return reviewWorkflowHasDrift(mainEntries, headEntries);
-}
-
-/**
  * Decide cosa fare con `stale-review` quando la PR è behind ma non c'è un
- * conflitto GitHub reale. La label da sola non prova il workflow-validation
- * drift: `stale-pr-rescuer` la usa anche per coda congestionata e test rossi.
+ * conflitto GitHub reale. La label non prova nulla sul branch: il rescuer la
+ * usa anche per coda congestionata, test rossi e 🔴 non ripresi.
  *
- * `rebase` conserva il percorso che deve creare un nuovo head (drift o
- * stuck-red); `retrigger` riapre la stessa head per rifare review+test senza
- * un push; `wait` lascia agire il fixer/human su una review già esistente.
+ * `rebase` resta solo per lo stuck-red, l'unico caso in cui un merge di main
+ * ripara qualcosa; `retrigger` riapre la stessa head per rifare review+test
+ * senza un push; `wait` lascia agire il fixer su una review già esistente.
+ *
+ * Il «workflow-validation drift» non è più un motivo (AGENTS.md, «MAI `git
+ * merge origin/main` per profilassi»). Il confronto byte-level di `tests.yml`
+ * fra head e main scattava su ogni PR nata prima dell'ultima modifica del
+ * workflow, cioè quasi tutte: `tests.yml` gira comunque sul merge ref, e il
+ * 401 che quel merge preveniva non esiste più dal #8200. L'effetto era una HEAD
+ * nuova a ogni giro del rescuer, e con lei un round cap del 🔴-fixer azzerato:
+ * su #10467 cinque merge di main in otto ore, lo stesso 🔴 di body rivisto e
+ * dichiarato non auto-fixabile a ogni HEAD, senza mai arrivare al cap.
  */
 export function staleReviewAction({
   staleReview,
   lgtm,
-  workflowValidationDrift,
   hasCurrentClaudeReview,
   stuckRed,
   collisionRisk,
 }) {
   if (!staleReview || lgtm || collisionRisk) return 'continue';
-  if (stuckRed || workflowValidationDrift) return 'rebase';
+  if (stuckRed) return 'rebase';
   return hasCurrentClaudeReview ? 'wait' : 'retrigger';
 }
 
@@ -511,13 +712,92 @@ function pushBranch(branch) {
   );
 }
 
-/** Una review claude-bot con `## LGTM` (su qualunque commit)? */
-function hasLgtmReview(num) {
-  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
-  if (!Array.isArray(reviews)) return false;
-  return reviews.some(
-    (r) => isReviewerBot(r.user) && (r.body || '').includes('## LGTM')
+function configureAutorebaseCommitIdentity() {
+  git(['config', 'user.name', 'Valerie Linc']);
+  git(['config', 'user.email', 'valerielinc@gmail.com']);
+}
+
+/**
+ * Verdetto dell'ULTIMA review del bot di review: quella più recente sulla HEAD
+ * corrente se esiste, altrimenti la più recente in assoluto (HEAD appena
+ * rebasata, review non ancora arrivata: vale ancora l'ultimo giudizio).
+ *
+ * Prima contava un `## LGTM` su QUALUNQUE commit passato: una PR con un LGTM
+ * vecchio e un 🔴 su ogni HEAD successiva restava «quasi pronta» per sempre,
+ * e ogni avanzamento di main la ribasava (vitest rosso dal gate di review →
+ * `rebaseActionForLgtmPr` = rebase) → nuova HEAD → nuova review → 🔴. Misurato
+ * su #9959: 45 merge di main in 24h, 43 review Codex, ~27% dei minuti CI.
+ *
+ * @returns {'lgtm'|'blocking'|'none'|'unknown'} `unknown` = API illeggibile.
+ */
+export function latestReviewerVerdict(reviews, head) {
+  return latestReviewerSnapshot(reviews, head).verdict;
+}
+
+/**
+ * Ultima review terminale del bot, con una chiave stabile per il controllo
+ * TOCTOU appena prima del push. `PENDING` non è un verdetto e `DISMISSED` non
+ * è più valido: se restano solo quelle forme la risposta è `unknown`, così il
+ * chiamante non ribasa alla cieca mentre GitHub sta aggiornando la review.
+ */
+export function latestReviewerSnapshot(reviews, head) {
+  if (!Array.isArray(reviews)) return { verdict: 'unknown', key: null };
+  const botReviews = reviews
+    .map((review, index) => ({ review, index }))
+    .filter(({ review }) => review && isReviewerBot(review.user));
+  if (!botReviews.length) return { verdict: 'none', key: null };
+  const bot = botReviews.filter(({ review }) => isTerminalReviewState(review.state));
+  if (!bot.length) return { verdict: 'unknown', key: null };
+  const onHead = bot.filter(({ review }) => head && review.commit_id === head);
+  const pool = onHead.length ? onHead : bot;
+  const at = ({ review }) => {
+    const t = Date.parse(review.submitted_at || '');
+    return Number.isFinite(t) ? t : Number.NEGATIVE_INFINITY;
+  };
+  // Ordine cronologico per `submitted_at`; a parità (o se manca a entrambe)
+  // vince la posizione successiva nell'API, che è già cronologica.
+  const latest = pool.reduce((best, cur) => (at(cur) - at(best) < 0 ? best : cur));
+  const review = latest.review;
+  const key = String(
+    review.id ?? `${review.commit_id || ''}|${review.submitted_at || ''}|${review.body || ''}|${latest.index}`,
   );
+  return {
+    verdict: String(review.body || '').includes('## LGTM') ? 'lgtm' : 'blocking',
+    key,
+  };
+}
+
+const TERMINAL_REVIEW_STATES = new Set(['APPROVED', 'CHANGES_REQUESTED', 'COMMENTED']);
+
+export function isTerminalReviewState(state) {
+  return TERMINAL_REVIEW_STATES.has(String(state || '').toUpperCase());
+}
+
+export function reviewerSnapshotChanged(before, after) {
+  return !before || !after
+    || before.verdict === 'unknown'
+    || after.verdict === 'unknown'
+    || before.verdict !== after.verdict
+    || before.key !== after.key;
+}
+
+/**
+ * `needs-human` resta tracking, NON un veto generico: una PR ferma su un rosso
+ * ereditato da main (#6253/#6254/#6255) va ancora ri-testata. Diventa veto solo
+ * insieme a un ultimo verdetto BLOCCANTE (o illeggibile: attendere è sicuro,
+ * ribasare alla cieca no): lì il merge di main non cambia il verdetto, genera
+ * solo una HEAD nuova, una review nuova e un altro giro del 🔴-fixer — che il
+ * round cap per-HEAD non conta mai oltre «round 1/3».
+ */
+export function needsHumanBlocksAutorebase({ labels = [], verdict }) {
+  const hasNeedsHuman = labels.some((label) => (typeof label === 'string' ? label : label?.name) === 'needs-human');
+  return hasNeedsHuman && (verdict === 'blocking' || verdict === 'unknown');
+}
+
+function readReviewerSnapshot(num, head) {
+  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
+  const snapshot = latestReviewerSnapshot(reviews, head);
+  return typeof snapshot === 'string' ? { verdict: snapshot, key: null } : snapshot;
 }
 
 /** Esiste ALMENO una review claude-bot (LGTM o 🔴, qualunque esito)? Serve a
@@ -715,6 +995,23 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
   return reopenToRetrigger(num);
 }
 
+/**
+ * Il rosso della HEAD e' il SOLO review gate, su una run in cui la review e'
+ * girata davvero (non saltata dal guard, non abortita), e il one-shot del
+ * reopen per il review gate non e' ancora speso? E' il caso in cui un nuovo
+ * giro sulla stessa HEAD rilegge un verdetto gia' postato (il guard salta
+ * Codex). Gli altri casi tornano al rebase di prima: un gate rosso dopo un
+ * guard-skip fallirebbe identico, e speso il one-shot il breaker lo
+ * rifiuterebbe.
+ */
+function reviewGateRedOnFreshVerdict(num, head) {
+  const steps = vitestJobSteps(head);
+  if (!vitestFailureIsReviewGate(steps)) return false;
+  if (reviewSkippedByGuard(steps) || reviewAbortedWithoutVerdict(steps)) return false;
+  const prior = parseReopenBudget(readReopenBudgetBody(num));
+  return !(prior && prior.reviewGateUsed);
+}
+
 /** Body del commento sticky del budget, o '' se non c'è. */
 function readReopenBudgetBody(num) {
   // Element-wise + `@json` (un body per riga, escapato): un aggregato come
@@ -727,10 +1024,20 @@ function readReopenBudgetBody(num) {
 }
 
 /** Label correnti della PR (rilette: il breaker può averle appena cambiate). */
+function readCurrentPrLabelNames(num) {
+  try {
+    const view = gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'labels']);
+    if (!Array.isArray(view?.labels)) return null;
+    return view.labels
+      .map((label) => String(label?.name || ''))
+      .filter(Boolean);
+  } catch {
+    return null;
+  }
+}
+
 function labelsOf(num) {
-  const raw = gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'labels',
-    '--jq', '[.labels[].name] | join(",")'], { json: false, allowFail: true });
-  return (raw || '').trim().split(',').filter(Boolean);
+  return readCurrentPrLabelNames(num) || [];
 }
 
 /**
@@ -937,7 +1244,177 @@ function stuckRedRescueReason(head) {
     mainTestsRuns: mainTestsRuns(),
     staleHours: STUCK_RED_STALE_H,
   });
-  return rescue ? reason : '';
+  if (!rescue) return '';
+  return stuckRedRescueAllowedForSteps(vitestJobSteps(head)) ? reason : '';
+}
+
+/**
+ * Lo stuck-red vale per un rosso che un merge di main può riparare. Un rosso del
+ * SOLO review gate con un verdetto vero (né review abortita né saltata dalla
+ * guardia) no: è un 🔴 della PR, lo possiede il 🔴-fixer. `red-main` prova solo
+ * che main ha chiuso un `tests` verde dopo il rosso, cosa quasi sempre vera.
+ * Misurato su #10088 (2026-09-27 15:36Z): commento «main era ROSSO» con main
+ * verde da ore, merge di main durante il 🔴-fixer, claim superato e fixer
+ * uscito senza fix; la review della head nuova ha ritrovato lo stesso 🔴.
+ *
+ * @param {Array<{name?: string, conclusion?: string}>} steps
+ */
+export function stuckRedRescueAllowedForSteps(steps) {
+  if (!vitestFailureIsReviewGate(steps)) return true;
+  return reviewAbortedWithoutVerdict(steps) || reviewSkippedByGuard(steps);
+}
+
+/** Commenti della PR che contengono uno dei `markers`, come `{ login, type, body }`.
+ * Element-wise + `@json` come `readReopenBudgetBody`: un aggregato girerebbe
+ * per pagina sotto `--paginate`. */
+function commentsWithMarkers(num, markers) {
+  const filter = markers.map((m) => `contains(${JSON.stringify(m)})`).join(' or ');
+  const raw = gh(['api', `repos/${REPO}/issues/${num}/comments?per_page=100`, '--paginate',
+    '--jq', `.[] | select((.body // "") | ${filter}) | {login: .user.login, type: .user.type, body: .body} | @json`],
+  { json: false, allowFail: true });
+  return String(raw || '').split('\n').filter(Boolean).flatMap((line) => {
+    try { return [JSON.parse(line)]; } catch { return []; }
+  });
+}
+
+/** Il file sorgente su `origin/main`, o '' se non leggibile. */
+function mainFileSource(file) {
+  return git(['show', `origin/main:${file}`], { allowFail: true }) || '';
+}
+
+/** I file di test falliti più i moduli che importano direttamente (su main). */
+function inheritedRedRelevantPaths(files) {
+  const paths = new Set(files);
+  for (const file of files) {
+    for (const group of relativeImportCandidates(mainFileSource(file), file)) {
+      const found = group.find((candidate) => gitTreeEntry('origin/main', candidate)?.exists);
+      if (found) paths.add(found);
+    }
+  }
+  return [...paths].sort();
+}
+
+/** Quando è nata la run che ha prodotto l'ultimo check vitest completato: il
+ * suo merge ref è di quel momento, anche dopo un rerun (`created_at` resta
+ * quello del primo tentativo). '' se il link o l'API non sono leggibili. */
+function testedRunCreatedAt(checks) {
+  const ref = jobRefFromCheckRun(latestCompletedVitestExecutionRun(checks));
+  if (!ref) return '';
+  const raw = gh(['api', `repos/${REPO}/actions/runs/${ref.runId}`, '--jq', '.created_at'],
+    { json: false, allowFail: true });
+  return String(raw || '').trim();
+}
+
+/** L'ultimo commit di main, dopo `sinceIso`, che tocca uno dei `paths` ('' se nessuno). */
+function latestMainCommitTouching(paths, sinceIso) {
+  let best = { date: '', sha: '' };
+  for (const p of paths) {
+    const raw = gh(['api',
+      `repos/${REPO}/commits?sha=main&path=${encodeURIComponent(p)}&since=${encodeURIComponent(sinceIso)}&per_page=1`,
+      '--jq', '.[0] | select(.) | "\\(.commit.committer.date) \\(.sha)"'],
+    { json: false, allowFail: true });
+    const [date = '', sha = ''] = String(raw || '').trim().split(/\s+/u);
+    if (/^[0-9a-f]{40}$/iu.test(sha) && date > best.date) best = { date, sha };
+  }
+  return best.sha;
+}
+
+/**
+ * Il rosso di `head` è ereditato da main e main lo ha poi riparato? Vedi
+ * `inheritedRedRescueDecision` in lib/vitestCheck.mjs. Ritorna
+ * `{ key, files, commit }` oppure null; il motivo del no viene loggato.
+ */
+function inheritedRedRescue(num, head) {
+  const checks = checkRunsOf(head);
+  if (vitestCheckNeedsPolling(checks)) return null;
+  const last = latestCompletedVitestRun(checks);
+  if (!last || last.conclusion !== 'failure') return null;
+  if (!vitestFailureIsTestsStep(vitestJobSteps(head))) {
+    console.log(`PR #${num}: rosso ereditato? no — non è fallito lo step \`${VITEST_RELATED_STEP_NAME}\` (review gate, body o gate sorgente: un merge di main non li ripara).`);
+    return null;
+  }
+  const comments = commentsWithMarkers(num, [VITEST_FAILURE_REPORT_MARKER, INHERITED_RED_MARKER]);
+  // Il report lo scrive `tests.yml` (github-actions): un commento di un utente
+  // con lo stesso marker non è una prova.
+  const reportBody = comments
+    .filter((c) => c.type === 'Bot' && c.body.includes(VITEST_FAILURE_REPORT_MARKER))
+    .map((c) => c.body)
+    .pop();
+  const report = parseVitestFailureReport(reportBody);
+  const usedKeys = comments
+    .flatMap((c) => [...c.body.matchAll(INHERITED_RED_KEY_RE)].map((m) => m[1]));
+  const prFiles = String(gh(['api', `repos/${REPO}/pulls/${num}/files?per_page=100`, '--paginate',
+    '--jq', '.[].filename'], { json: false, allowFail: true }) || '').split('\n').filter(Boolean);
+  // Il merge ref è calcolato quando la run NASCE, e un rerun lo riusa: il
+  // `started_at` del check di un rerun è successivo e nascondeva la
+  // riparazione di main. #9753: run 36079087777 nata alle 00:46Z, rilanciata
+  // dallo stale-pr-rescuer alle 03:57Z; #9774 (02:03Z) risultava «prima» del
+  // rosso e la sweep delle 06:36Z rispondeva `main-unchanged`.
+  const since = testedMainSince({
+    runCreatedAt: testedRunCreatedAt(checks),
+    checkStartedAt: last.started_at,
+    checkCompletedAt: last.completed_at,
+  });
+  const files = report && !report.truncated ? report.files : [];
+  const relevantMainCommit = files.length > 0 && since
+    ? latestMainCommitTouching(inheritedRedRelevantPaths(files), since)
+    : '';
+  const d = inheritedRedRescueDecision({
+    report, head, prFiles, relevantMainCommit, usedKeys, maxRescues: INHERITED_RED_MAX,
+  });
+  if (!d.rescue) {
+    console.log(`PR #${num}: rosso ereditato? no (${d.reason}${d.key ? `, chiave ${d.key}` : ''}).`);
+    return null;
+  }
+  return { key: d.key, files, commit: relevantMainCommit };
+}
+
+/** Commento del rescue, scritto DOPO il push: la chiave si consuma solo se il
+ * merge di main è davvero arrivato sul branch. */
+/** Commento one-shot dello stuck-red, DOPO un push riuscito: scritto prima,
+ * come fino al 2026-09-27, una guardia che rinviava il rebase (review, tests o
+ * fixer in volo) lasciava il marker speso senza nessun rebase, e il tick dopo
+ * trovava il rescue già consumato. */
+function commentStuckRedRescue(num, reason) {
+  if (DRY || !reason) return;
+  const why = reason === 'red-main'
+    ? 'il suo `vitest` è stato eseguito sul merge ref mentre `main` era ROSSO, ed è tornato verde dopo'
+    : 'il suo `vitest` è rosso da oltre ' + STUCK_RED_STALE_H + 'h senza che nulla possa ri-eseguirlo (probabile fallimento infrastrutturale)';
+  gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
+    `${STUCK_RED_MARKER}\n♻️ **autorebase / stuck-red**: questa PR è ferma perché ${why}.\n\nCon i test rossi il job si ferma prima della review Claude (che dal 2026-08-26 gira dentro lo stesso \`tests.yml\`), quindi la PR non può ottenere né \`## LGTM\` né una label — e senza quelli nessun workflow la ri-testa: stato assorbente. Rebase su \`origin/main\` + ri-esecuzione dei test, **una sola volta**. Se torna rossa, il fallimento è della PR.\n\n_Segnale deterministico da pr-autorebase.yml (zero-Claude)._`],
+    { json: false, allowFail: true });
+}
+
+function commentInheritedRedRescue(num, rescue) {
+  const list = rescue.files.map((f) => `- \`${f}\``).join('\n');
+  const body = `${INHERITED_RED_MARKER} key=${rescue.key} -->\n` +
+    '♻️ **autorebase / rosso ereditato**: i test che fallivano su questa PR sono fuori dal suo diff, ' +
+    `e dopo il rosso \`main\` li ha toccati (commit \`${rescue.commit.slice(0, 12)}\`, sul test o su un modulo che importa direttamente):\n\n` +
+    `${list}\n\n` +
+    'Ho mergiato `origin/main` nel branch: il push rilancia test e review sulla HEAD nuova. ' +
+    `Un rescue per ogni coppia (test falliti, commit di main), al massimo ${INHERITED_RED_MAX} per PR. ` +
+    'Se gli stessi test falliscono ancora senza un nuovo commit di main su di loro, il rosso è della PR.\n\n' +
+    '_Segnale deterministico da pr-autorebase (zero-Claude)._';
+  if (DRY) { console.log(`[dry] commento rescue rosso ereditato #${num} key=${rescue.key}`); return; }
+  gh(['pr', 'comment', String(num), '--repo', REPO, '--body', body], { json: false, allowFail: true });
+}
+
+/**
+ * Dopo un push l'HEAD è nuova: il `needs-human` che il reopen-breaker aveva
+ * messo per il vitest rosso della HEAD vecchia non descrive più la PR (il
+ * breaker stesso azzera il contatore a ogni commit nuovo). Si toglie solo se
+ * l'ha messo il breaker — c'è il suo commento sticky — e nessun fixer ha
+ * escalato per il proprio round cap.
+ */
+function releaseBreakerLabelAfterPush(num) {
+  if (!labelsOf(num).includes(BREAKER_LABEL)) return;
+  const markers = commentsWithMarkers(num, [REOPEN_BUDGET_MARKER, ...FIXER_ESCALATION_MARKERS]);
+  if (!markers.some((c) => c.body.includes(REOPEN_BUDGET_MARKER))) return;
+  if (markers.some((c) => FIXER_ESCALATION_MARKERS.some((m) => c.body.includes(m)))) return;
+  if (DRY) { console.log(`[dry] -label ${BREAKER_LABEL} #${num}`); return; }
+  gh(['pr', 'edit', String(num), '--repo', REPO, '--remove-label', BREAKER_LABEL],
+    { json: false, allowFail: true });
+  console.log(`PR #${num}: -label ${BREAKER_LABEL} (messa dal reopen-breaker su una HEAD ormai superata).`);
 }
 
 /** Un commento della PR contiene già `marker`? Dedup condivisa fra il comment di
@@ -1060,10 +1537,89 @@ function testsRunsForBranch(branch) {
 }
 
 /**
+ * C'è un fixer (🔴 o ❌) ancora al lavoro sulla head ATTUALE? Puro → testabile.
+ *
+ * Livelock misurato il 2026-09-27 su #10051 (`fix/issue-10038`, label
+ * `collision-risk`, ultimo verdetto 🔴 → `rebaseActionForLgtmPr` = rebase):
+ * otto merge di main in tre ore, ognuno 1-16 minuti DOPO la review, mentre il
+ * 🔴-fixer di quella review era ancora in coda o nel setup (13:03→13:09,
+ * 14:11→14:12, 14:33→14:43, 15:27→15:29, 15:49→16:05). Le guardie sopra non
+ * lo vedono: a review pubblicata il run `tests` della head è concluso. Il fixer
+ * arriva al claim 12-18 minuti dopo l'avvio, trova la head spostata («HEAD
+ * cambiata dopo il claim») e si ferma senza toccare il modello: zero fix in 7
+ * giri, e la review della head nuova ritrova lo stesso 🔴.
+ *
+ * Due sorgenti, perché nessuna copre da sola entrambi i fixer:
+ *  - `runs`: le run di `pr-redflag-fixer.yml` sul branch della PR
+ *    (`pull_request_review` porta branch e SHA della PR) — coprono la coda e il
+ *    setup, PRIMA che esista un claim;
+ *  - `claims`: i marker `PR_FIX_CLAIM` attivi sulla head — l'unico segnale del
+ *    ❌-fixer, le cui run `workflow_run` stanno su `main` senza SHA della PR.
+ * Un claim il cui runner è noto come concluso (`claimRunStatus[runId]` non in
+ * volo) non protegge più nessun lavoro; uno con stato illeggibile sì, fino al
+ * TTL: attendere è sicuro, spostare la head sotto un fixer vivo no.
+ *
+ * @returns {{source: 'run'|'claim', id: string|number|null, status: string, workflow?: string}|null}
+ */
+export function fixerInFlightOnHead({ runs, claims, head, nowSec = Math.floor(Date.now() / 1000), claimRunStatus = {} }) {
+  if (!head) return null;
+  const sha = String(head).toLowerCase();
+  for (const r of Array.isArray(runs) ? runs : []) {
+    if (!r || String(r.head_sha || '').toLowerCase() !== sha) continue;
+    const status = String(r.status || '');
+    if (!RUN_STATUS_IN_FLIGHT.has(status)) continue;
+    return { source: 'run', id: typeof r.id === 'number' ? r.id : null, status };
+  }
+  for (const claim of Array.isArray(claims) ? claims : []) {
+    if (!claim || claim.state !== 'active' || String(claim.headSha || '').toLowerCase() !== sha) continue;
+    if (!(Number(claim.expiresAt) > Number(nowSec))) continue;
+    const runId = String(claim.runId || '');
+    const status = runId ? claimRunStatus?.[runId] : undefined;
+    if (status !== undefined && !RUN_STATUS_IN_FLIGHT.has(String(status))) continue;
+    return { source: 'claim', id: runId || null, status: status === undefined ? 'unknown' : String(status), workflow: String(claim.workflow || '') };
+  }
+  return null;
+}
+
+/** Run di `pr-redflag-fixer.yml` sul branch della PR (ultime 20). Come per
+ * `testsRunsForBranch`, un errore API attraversa `gh`: processPR salta la PR
+ * questo tick invece di rebasare alla cieca sotto un fixer. */
+function redflagFixerRunsForBranch(branch) {
+  const out = gh(
+    ['api', `repos/${REPO}/actions/workflows/pr-redflag-fixer.yml/runs?branch=${encodeURIComponent(branch)}&per_page=20`]);
+  return (out && Array.isArray(out.workflow_runs)) ? out.workflow_runs : [];
+}
+
+/** Claim `active` dei fixer sulla PR (ultimo stato per token, come li legge
+ * `pr-fixer-claim.mjs`) e stato del loro runner. Anche qui un errore di lettura
+ * dei commenti attraversa `gh`; lo stato di un singolo runner illeggibile resta
+ * `undefined`, cioè «in volo» per `fixerInFlightOnHead`. */
+function activeFixerClaims(num, head) {
+  const raw = gh(['api', `repos/${REPO}/issues/${num}/comments?per_page=100`, '--paginate',
+    '--jq', `.[] | select((.body // "") | contains(${JSON.stringify(PR_FIX_CLAIM_MARKER)})) | {id: .id, created_at: .created_at, user: {login: .user.login}, body: .body} | @json`],
+  { json: false });
+  const comments = String(raw || '').split('\n').filter(Boolean).flatMap((line) => {
+    try { return [JSON.parse(line)]; } catch { return []; }
+  });
+  const sha = String(head).toLowerCase();
+  const claims = latestPrFixClaims(comments).filter((claim) => claim.state === 'active' && claim.headSha === sha);
+  const claimRunStatus = {};
+  for (const claim of claims) {
+    const runId = String(claim.runId || '');
+    if (!runId || Object.hasOwn(claimRunStatus, runId)) continue;
+    const status = gh(['api', `repos/${REPO}/actions/runs/${runId}`, '--jq', '.status'], { json: false, allowFail: true });
+    if (status) claimRunStatus[runId] = String(status).trim();
+  }
+  return { claims, claimRunStatus };
+}
+
+/**
  * Decisione rebase per una PR near-merge che è behind>0 (valutata DOPO il check
  * CONFLITTO). Pura → testabile; il razionale del livelock è al call-site.
- * @param {{lgtm: boolean, collisionBlocked: boolean, vitestConclusion: string, hasVitestCheck: boolean}} s
- * @returns {'rebase'|'skip'|'heal'}
+ * @param {{lgtm: boolean, collisionBlocked: boolean, vitestConclusion: string, hasVitestCheck: boolean, reviewGateOnly?: boolean}} s
+ * @returns {'rebase'|'skip'|'heal'|'reopen'}
+ *   'reopen' = LGTM e il SOLO review gate rosso su un verdetto fresco: nuovo
+ *              giro sulla stessa HEAD (vedi il commento nel corpo).
  *   'rebase' = la PR va rebasata (collisionBlocked: il gate collisione preciso
  *              di auto-merge-eval bloccherebbe il merge, #6039 — non più la
  *              sola presenza della label, vedi collisionGateBlocks al call-site,
@@ -1075,7 +1631,14 @@ function testsRunsForBranch(branch) {
  *   'heal'   = come 'skip' MA head orfana (nessun check vitest) → dispatch tests
  *              invece di rebasare, così il vitest atterra su head stabile.
  */
-export function rebaseActionForLgtmPr({ lgtm, collisionBlocked, vitestConclusion, hasVitestCheck }) {
+export function rebaseActionForLgtmPr({ lgtm, collisionBlocked, vitestConclusion, hasVitestCheck, reviewGateOnly = false }) {
+  // LGTM sulla HEAD e il SOLO review gate rosso: il gate non ha letto un
+  // verdetto che c'era (#10580: due review LGTM alle 15:39:20 e 15:39:44, gate
+  // alle 15:39:49 «nessuna review Codex marcata sulla HEAD»). Un merge di main
+  // non ripara il gate: crea una HEAD nuova e una review nuova, che su #10580
+  // ha trovato un 🔴 e ha fermato la PR per un giorno. Un nuovo giro sulla
+  // stessa HEAD rilegge la review esistente (il re-review guard salta Codex).
+  if (lgtm && !collisionBlocked && vitestConclusion === 'failure' && reviewGateOnly) return 'reopen';
   if (!lgtm || collisionBlocked || vitestConclusion === 'failure') return 'rebase';
   return hasVitestCheck ? 'skip' : 'heal';
 }
@@ -1279,17 +1842,155 @@ export function conflictHandoffMarker(head) {
   return `${CONFLICT_HANDOFF_MARKER_PREFIX} head=${String(head).slice(0, 12)} -->`;
 }
 
-/** Il conflitto merita un agente adesso? Puro: niente rete. */
-export function shouldHandOffConflict({ lgtm, alreadyHandedOff }) {
-  return Boolean(lgtm) && !alreadyHandedOff;
+function timestampMs(value) {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : NaN;
+  const at = Date.parse(String(value ?? ''));
+  return Number.isFinite(at) ? at : NaN;
 }
 
-/** Titolo stabile e body della issue di hand-off. Puro: niente rete. */
-export function buildConflictHandoffIssue({ num, branch, head, files }) {
+/** Ultimo evento di lock, o null se la timeline non ne porta uno leggibile. */
+export function lastConflictResolutionLockEvent(events) {
+  let latest = null;
+  for (const event of Array.isArray(events) ? events : []) {
+    const label = typeof event?.label === 'string' ? event.label : event?.label?.name;
+    if (label !== CONFLICT_RESOLUTION_LOCK_LABEL) continue;
+    if (event?.event !== 'labeled' && event?.event !== 'unlabeled') continue;
+    const at = timestampMs(event.created_at ?? event.createdAt);
+    if (!Number.isFinite(at)) continue;
+    if (!latest || at >= latest.at) latest = { event: event.event, at };
+  }
+  return latest;
+}
+
+/**
+ * Stato del lock di risoluzione. Puro: il lettore GitHub inietta eventi e
+ * timestamp, così scadenza e push restano testabili senza chiamare la rete.
+ */
+export function decideConflictResolutionLock({
+  labels = [],
+  events,
+  headCommittedAt = null,
+  now = Date.now(),
+  maxAgeMs = CONFLICT_RESOLUTION_LOCK_MAX_AGE_MS,
+}) {
+  const names = labels.map((label) => (typeof label === 'string' ? label : label?.name));
+  if (!names.includes(CONFLICT_RESOLUTION_LOCK_LABEL)) {
+    return { state: 'none', release: false };
+  }
+  if (!Array.isArray(events)) {
+    return { state: 'unreadable', release: false, reason: 'timeline' };
+  }
+  const latest = lastConflictResolutionLockEvent(events);
+  if (!latest) return { state: 'unreadable', release: false, reason: 'timeline' };
+  if (latest.event === 'unlabeled') return { state: 'none', release: false, reason: 'unlabeled' };
+  const nowAt = timestampMs(now);
+  if (!Number.isFinite(nowAt)) return { state: 'unreadable', release: false, reason: 'clock' };
+  const expiresAt = latest.at + maxAgeMs;
+  if (nowAt >= expiresAt) {
+    return { state: 'expired', release: true, lockedAt: latest.at, expiresAt };
+  }
+  const headAt = timestampMs(headCommittedAt);
+  if (!Number.isFinite(headAt)) {
+    return { state: 'unreadable', release: false, reason: 'head' };
+  }
+  if (headAt > latest.at) {
+    return { state: 'pushed', release: true, lockedAt: latest.at, headCommittedAt: headAt, expiresAt };
+  }
+  return { state: 'active', release: false, lockedAt: latest.at, expiresAt };
+}
+
+/** Il conflitto merita un agente adesso? Puro: niente rete. */
+export function shouldHandOffConflict({
+  lgtm,
+  agentOwned = false,
+  alreadyHandedOff,
+  conflictLockState = 'none',
+}) {
+  const lockBlocks = conflictLockState === 'active' || conflictLockState === 'unreadable';
+  return (Boolean(lgtm) || Boolean(agentOwned)) && !alreadyHandedOff && !lockBlocks;
+}
+
+// --- HAND-OFF di una PR del ciclo in conflitto, anche SENZA LGTM (2026-09-27) --
+// «Senza LGTM il conflitto resta un dettaglio del lavoro in corso del suo
+// autore» vale per una PR umana. Per una PR `agent:autofix` l'autore e' il
+// ciclo, e il conflitto lo congela: GitHub non avvia workflow `pull_request*`
+// su una PR in conflitto, quindi niente review e niente 🔴-fixer (#10095: review
+// con 2 🔴 alle 16:25Z, zero run del fixer; #10098 idem). Restavano solo il
+// rescuer dopo 2 h e il recycle dopo 24 h. `needs-human` resta fuori: li' la PR
+// e' gia' in mano a una persona.
+export const AGENT_AUTOFIX_LABEL = 'agent:autofix';
+
+/** PR del ciclo che nessuna persona sta seguendo: il conflitto passa di mano
+ * anche senza LGTM, in qualunque ramo lo si incontri (review 5331343431: con
+ * `stale-review` o `collision-risk` la PR e' near-merge e il conflitto passa
+ * dai tre hand-off dopo l'abort del merge).
+ *
+ * La provenienza si prova come la provano rescuer, recycle, custode e fixer
+ * (`isAutonomousPr` di orphan-pr-custodian.mjs): label `agent:autofix` OPPURE
+ * branch storico del ciclo `fix/*` / `automerge-*`. Con la sola label, una PR
+ * del ciclo aperta senza label (#10608, `fix/issue-10544`, gemella di #10609)
+ * restava in conflitto senza hand-off, mentre il recycle la trattava già come
+ * autonoma: due definizioni di «del ciclo» in disaccordo sulla stessa PR. */
+export function isAgentOwnedPr(labels = [], headRefName = '') {
+  const names = labels.map((label) => (typeof label === 'string' ? label : label?.name));
+  if (names.includes('needs-human')) return false;
+  if (names.includes(AGENT_AUTOFIX_LABEL)) return true;
+  const ref = String(headRefName || '');
+  return ref.startsWith('fix/') || ref.startsWith('automerge-');
+}
+
+export function agentPrConflictNeedsHandOff({
+  conflicted,
+  nearMerge,
+  labels = [],
+  headRefName = '',
+  conflictLockState = null,
+}) {
+  const names = labels.map((label) => (typeof label === 'string' ? label : label?.name));
+  const lockBlocks = conflictLockState === null
+    ? names.includes(CONFLICT_RESOLUTION_LOCK_LABEL)
+    : conflictLockState === 'active' || conflictLockState === 'unreadable';
+  return conflicted === true && !nearMerge && !lockBlocks && isAgentOwnedPr(labels, headRefName);
+}
+
+/**
+ * Titolo e body della issue di hand-off. Puro: niente rete. Il titolo cambia
+ * con il LGTM: la dedup si fa sulla PR di origine (`handoffIssuesForOrigin`).
+ */
+export function buildConflictHandoffIssue({
+  num,
+  branch,
+  head,
+  files,
+  lgtm = true,
+  closes = null,
+  generatedResolution = null,
+}) {
   const list = (files || []).slice(0, 30).map((f) => `- \`${f}\``).join('\n') || '- (elenco non disponibile: ricalcolalo con il comando sotto)';
-  const title = `Conflitto con main dopo LGTM: riapplicare la PR #${num} su main`;
+  // Le issue che #N chiude passano alla PR nuova: #10095 chiudeva #10082, la sua
+  // riapplicazione #10145 no, e #10082 sarebbe rimasta aperta a farsi rifare.
+  // `null` = elenco illeggibile: l'agente lo ricava dal body di #N.
+  const closesStep = Array.isArray(closes)
+    ? (closes.length > 0
+      ? ` La PR #${num} chiude ${closes.map((n) => `#${n}`).join(', ')}: nella PR nuova scrivi un \`Closes #<n>\` per ciascuna, uno per riga.`
+      : '')
+    : ` Riporta nella PR nuova, uno per riga, i \`Closes #<n>\` del body di #${num}.`;
+  const title = lgtm
+    ? `Conflitto con main dopo LGTM: riapplicare la PR #${num} su main`
+    : `Conflitto con main: riapplicare la PR #${num} su main`;
+  const opening = lgtm
+    ? `La PR #${num} (branch \`${branch}\`, HEAD \`${String(head).slice(0, 12)}\`) aveva un \`## LGTM\` ed e' entrata in conflitto con \`main\`. L'autorebase deterministico ha provato \`git merge origin/main\` e l'unione degli import, poi ha abortito: il conflitto tocca codice, non solo import.`
+    : `La PR #${num} (branch \`${branch}\`, HEAD \`${String(head).slice(0, 12)}\`) e' una PR del ciclo (\`agent:autofix\`) senza \`## LGTM\` ed e' in conflitto con \`main\`: con il conflitto GitHub non avvia review ne' 🔴-fixer, quindi nessun altro passo del ciclo la sblocca. I suoi 🔴 aperti tornano alla review della PR nuova.`;
+  const generatedFailure = generatedResolution?.status === 'failed'
+    ? [
+      '',
+      `Rigenerazione automatica tentata e fallita: ${generatedResolution.reason || 'motivo non disponibile'}`,
+      '<!-- GENERATED_RESOLUTION_FAILED -->',
+    ]
+    : [];
   const body = [
-    `La PR #${num} (branch \`${branch}\`, HEAD \`${String(head).slice(0, 12)}\`) aveva un \`## LGTM\` ed e' entrata in conflitto con \`main\`. L'autorebase deterministico ha provato \`git merge origin/main\` e l'unione degli import, poi ha abortito: il conflitto tocca codice, non solo import.`,
+    opening,
+    ...generatedFailure,
     '',
     'File in conflitto:',
     '',
@@ -1299,28 +2000,404 @@ export function buildConflictHandoffIssue({ num, branch, head, files }) {
     '',
     `1. \`git fetch origin main ${branch}\` e \`git diff $(git merge-base origin/main origin/${branch}) origin/${branch}\`: e' il contributo della PR, gia' approvato.`,
     '2. Riapplicalo su `origin/main` nel branch di questa issue risolvendo i conflitti: conserva il comportamento arrivato su `main` E quello della PR. Nessuna modifica oltre a quella gia\' approvata.',
-    `3. Apri la PR con \`Supersedes #${num}\` e \`Closes\` di questa issue, poi chiudi #${num} con un commento che rimanda alla nuova PR.`,
+    `3. Apri la PR con \`Supersedes #${num}\` e \`Closes\` di questa issue, poi chiudi #${num} con un commento che rimanda alla nuova PR.${closesStep}`,
     '',
     'Se il conflitto e\' gia\' stato risolto sul branch originale (la PR torna mergeable), chiudi questa issue senza PR.',
     '',
-    '_Aperta da pr-autorebase (zero-Claude) al primo conflitto non auto-risolvibile dopo il LGTM._',
+    lgtm
+      ? '_Aperta da pr-autorebase (zero-Claude) al primo conflitto non auto-risolvibile dopo il LGTM._'
+      : '_Aperta da pr-autorebase (zero-Claude) al primo conflitto di una PR del ciclo, che il conflitto congela._',
   ].join('\n');
   return { title, body };
 }
 
-/** `gh` con esito binario: true solo se il comando e' uscito 0. */
-function ghOk(args) {
+// --- CONTENUTO GIA' SU MAIN (#9741) ------------------------------------------
+// Un conflitto dopo LGTM puo' nascere proprio perche' il contributo della PR e'
+// gia' arrivato su `main` da un'altra PR (la riapplicazione di un hand-off
+// precedente, squash-mergiata): #9708 e' stata aperta per #9693 un minuto dopo
+// il merge di #9701, che l'aveva gia' riapplicata; una seconda riapplicazione
+// ha poi prodotto la PR duplicata #9704. `git merge-base --is-ancestor` non
+// vede nulla, perche' lo squash non porta i commit della PR su main: l'unico
+// confronto che regge e' sul contenuto, file per file.
+//
+// Per ogni file toccato dalla PR (diff merge-base..HEAD, senza rename):
+//   - blob identico su HEAD e su main (anche entrambi assenti) → gia' su main;
+//   - altrimenti, le righe non vuote AGGIUNTE dalla PR devono comparire su main
+//     almeno tante volte quante nell'HEAD della PR (il caso #9693: main ha le
+//     asserzioni nuove piu' una riga che la PR toglieva). Un file senza righe
+//     aggiunte (sola rimozione, cancellazione, binario) con blob diverso NON e'
+//     su main: la rimozione non si puo' dimostrare applicata.
+// Qualunque errore di git → `unknown`, e il chiamante si comporta come prima
+// (fail-closed: la issue si apre).
+export const CONTENT_ON_MAIN_MAX_FILES = 300;
+
+/** Il contributo della PR a UN file e' gia' su main? Puro: niente git. */
+export function fileContentOnMain({ prOid, mainOid, addedLines, prText, mainText }) {
+  if ((prOid || null) === (mainOid || null)) return true;
+  if (!prOid || !mainOid) return false;
+  const added = (addedLines || []).filter((l) => l.trim() !== '');
+  if (added.length === 0) return false;
+  const count = (text) => {
+    const m = new Map();
+    for (const l of String(text ?? '').split('\n')) m.set(l, (m.get(l) || 0) + 1);
+    return m;
+  };
+  const prCount = count(prText);
+  const mainCount = count(mainText);
+  return added.every((l) => (mainCount.get(l) || 0) >= Math.max(1, prCount.get(l) || 0));
+}
+
+/** Righe aggiunte da un `git diff --unified=0` di un solo file. Pura. */
+export function addedLinesFromDiff(diff) {
+  const out = [];
+  let inHunk = false;
+  for (const l of String(diff ?? '').split('\n')) {
+    if (l.startsWith('@@')) { inHunk = true; continue; }
+    if (!inHunk) continue;
+    if (l.startsWith('+')) out.push(l.slice(1));
+  }
+  return out;
+}
+
+/**
+ * Verdetto sul contenuto della PR rispetto a main, calcolato solo con git
+ * locale (nessuna rete). `cwd` e `mainRef` servono ai test su un repo sintetico.
+ *
+ * @returns {{ state: 'on-main'|'not-on-main'|'unknown', files: string[], missing: string[], reason: string }}
+ */
+export function prContentOnMainVerdict(headSha, { mainRef = 'origin/main', cwd } = {}) {
+  const run = (args) => {
+    const res = spawnSync('git', ['--literal-pathspecs', ...args], {
+      cwd, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
+    });
+    return res.status === 0 ? res.stdout : null;
+  };
+  const unknown = (reason) => ({ state: 'unknown', files: [], missing: [], reason });
+  const head = String(run(['rev-parse', '--verify', '--quiet', `${headSha}^{commit}`]) || '').trim();
+  const main = String(run(['rev-parse', '--verify', '--quiet', `${mainRef}^{commit}`]) || '').trim();
+  if (!head || !main) return unknown(`ref illeggibile (head=${Boolean(head)}, main=${Boolean(main)})`);
+  const base = String(run(['merge-base', main, head]) || '').trim();
+  if (!base) return unknown('merge-base non calcolabile');
+  const status = run(['diff', '-z', '--no-renames', '--name-only', base, head]);
+  if (status === null) return unknown('diff merge-base..HEAD fallito');
+  const files = status.split('\0').filter(Boolean);
+  if (files.length === 0) return unknown('la PR non ha file rispetto al merge-base');
+  if (files.length > CONTENT_ON_MAIN_MAX_FILES) return unknown(`${files.length} file (> ${CONTENT_ON_MAIN_MAX_FILES})`);
+
+  const tree = (ref) => {
+    const raw = run(['ls-tree', '-r', '-z', ref, '--', ...files]);
+    if (raw === null) return null;
+    const map = new Map();
+    for (const entry of raw.split('\0').filter(Boolean)) {
+      const m = /^[0-7]{6} \w+ ([0-9a-f]{40,64})\t([\s\S]+)$/.exec(entry);
+      if (m) map.set(m[2], m[1]);
+    }
+    return map;
+  };
+  const prTree = tree(head);
+  const mainTree = tree(main);
+  if (!prTree || !mainTree) return unknown('ls-tree fallito');
+
+  const missing = [];
+  for (const path of files) {
+    const prOid = prTree.get(path) || null;
+    const mainOid = mainTree.get(path) || null;
+    let addedLines = [];
+    let prText = '';
+    let mainText = '';
+    if (prOid && mainOid && prOid !== mainOid) {
+      const diff = run(['diff', '--no-color', '--no-ext-diff', '--no-renames', '--unified=0', base, head, '--', path]);
+      prText = run(['cat-file', 'blob', prOid]);
+      mainText = run(['cat-file', 'blob', mainOid]);
+      if (diff === null || prText === null || mainText === null) return unknown(`lettura di ${path} fallita`);
+      addedLines = addedLinesFromDiff(diff);
+    }
+    if (!fileContentOnMain({ prOid, mainOid, addedLines, prText, mainText })) missing.push(path);
+  }
+  return {
+    state: missing.length === 0 ? 'on-main' : 'not-on-main',
+    files,
+    missing,
+    reason: missing.length === 0 ? `${files.length} file gia' su main` : `${missing.length}/${files.length} file non su main`,
+  };
+}
+
+/**
+ * `gh` con esito binario e motivo: `ok` solo se il comando e' uscito 0;
+ * altrimenti `error` porta la prima riga di stderr, per il log.
+ */
+function ghRun(args) {
   try {
-    execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
-    return true;
-  } catch {
-    return false;
+    execFileSync('gh', args, { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] });
+    return { ok: true, error: '' };
+  } catch (error) {
+    const stderr = String(error?.stderr || error?.message || '').trim().split('\n')[0];
+    return { ok: false, error: stderr.slice(0, 300) || `exit ${error?.status ?? '?'}` };
   }
 }
 
-function handOffConflictToFixer(num, branch, head, lgtm) {
+/**
+ * Gli hand-off aperti per la PR di ORIGINE `num`, dalle righe
+ * `[number, title, body, labels, created_at]` (una per riga JSON), in ordine
+ * crescente. Pura. La prima chiave e' la PR di origine
+ * (`conflictHandoffOriginPr`), non il titolo: il titolo cambia con il LGTM, e
+ * su #11147 lo stesso conflitto sulla stessa HEAD ha prodotto «Conflitto con
+ * main:» (#11151) e poi «Conflitto con main dopo LGTM:» (#11154, #11156,
+ * #11157), quattro issue in 17 minuti. La HEAD nel body e' la seconda chiave:
+ * una nuova HEAD deve portare una nuova evidenza, mai il body di un conflitto
+ * precedente.
+ * `null` se una riga non e' leggibile: un elenco parziale non prova l'assenza
+ * di una issue gia' aperta.
+ * @returns {Array<{number:number, title:string, body:string, labels:string[], created_at:string|null}>|null}
+ */
+export function handoffIssuesForOrigin(raw, num) {
+  const byNumber = new Map();
+  for (const line of String(raw ?? '').split('\n')) {
+    if (!line.trim()) continue;
+    let row;
+    try { row = JSON.parse(line); } catch { return null; }
+    if (!Array.isArray(row) || !Number.isSafeInteger(row[0]) || typeof row[1] !== 'string') return null;
+    if (conflictHandoffOriginPr(row[1]) !== Number(num)) continue;
+    byNumber.set(row[0], {
+      number: row[0],
+      title: row[1],
+      body: typeof row[2] === 'string' ? row[2] : '',
+      labels: Array.isArray(row[3]) ? row[3].filter((l) => typeof l === 'string') : [],
+      created_at: typeof row[4] === 'string' ? row[4] : null,
+    });
+  }
+  return [...byNumber.values()].sort((a, b) => a.number - b.number);
+}
+
+/**
+ * Una riga rappresenta la stessa evidenza solo se il body prova la HEAD
+ * corrente. Un body senza HEAD non e' riusabile: creare una nuova evidenza e'
+ * sicuro, instradare quella stantia no (fail-closed).
+ */
+export function handoffEvidenceMatchesHead(issue, head) {
+  const expected = conflictHandoffExpectedHead(issue?.body);
+  const observed = String(head || '').trim().toLowerCase();
+  return Boolean(expected && observed && observed.startsWith(expected));
+}
+
+/** Elenco degli hand-off per la coppia PR di origine + HEAD osservata. */
+export function handoffIssuesForOriginAndHead(raw, num, head) {
+  const issues = handoffIssuesForOrigin(raw, num);
+  return issues === null ? null : issues.filter((issue) => handoffEvidenceMatchesHead(issue, head));
+}
+
+/**
+ * Elenco degli hand-off aperti letto UNA volta per sweep e riusato per tutte
+ * le PR in conflitto; `invalidate()` dopo una creazione, cosi' la rilettura
+ * vede la issue nuova (e quella di una run concorrente). `readRaw()` restituisce
+ * le righe JSON o `null` se illeggibile.
+ */
+export function createHandoffIssueIndex(readRaw) {
+  let raw;
+  let loaded = false;
+  return {
+    forOrigin(num) {
+      if (!loaded) {
+        raw = readRaw();
+        loaded = true;
+      }
+      if (raw === null || raw === undefined) {
+        loaded = false; // illeggibile: il prossimo uso ritenta
+        return null;
+      }
+      return handoffIssuesForOrigin(raw, num);
+    },
+    invalidate() {
+      loaded = false;
+    },
+  };
+}
+
+/**
+ * Elenco CONSISTENTE degli hand-off aperti. Non usa la search API
+ * (`gh issue list --search ... in:title`): il suo indice arriva in ritardo di
+ * secondi o minuti, e proprio nella finestra in cui due sweep concorrenti
+ * decidono se creare la issue. L'elenco REST legge il database.
+ */
+function readOpenHandoffRows() {
+  try {
+    return execFileSync('gh', ['api', '--paginate', `repos/${REPO}/issues?state=open&per_page=100`,
+      '--jq', '.[] | select(.pull_request == null) | select(.title | startswith("Conflitto con main")) '
+        + '| [.number, .title, (.body // ""), [.labels[].name], .created_at] | @json'],
+    { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
+  } catch {
+    return null;
+  }
+}
+
+const handoffIssueIndex = createHandoffIssueIndex(readOpenHandoffRows);
+
+/**
+ * Che cosa fare degli hand-off gia' aperti per la coppia PR di origine + HEAD.
+ * Pura.
+ *   - nessuno → `create`;
+ *   - quello eletto (`electHandoffKeeper`, la funzione del riconciliatore,
+ *     qui senza l'elenco delle PR aperte) e' gia' instradato o reclamato e porta la stessa HEAD →
+ *     `already-handed-off`: nessuna scrittura, anche se il marker sulla PR
+ *     manca (l'idempotenza non dipende da un secondo write riuscito);
+ *   - altrimenti → `reuse`: si riusa solo il keeper della HEAD corrente e gli
+ *     si aggiorna l'evidenza prima di applicare `agent:fix`.
+ *
+ * Una issue della stessa PR ma con una HEAD diversa non entra nell'elezione:
+ * resta il lavoro della coppia precedente e non può ricevere il routing della
+ * coppia nuova.
+ */
+export function planConflictHandoff({ existing, num, head }) {
+  if (!Array.isArray(existing) || existing.length === 0) return { action: 'create' };
+  const currentHead = existing.filter((issue) => handoffEvidenceMatchesHead(issue, head));
+  if (currentHead.length === 0) return { action: 'create' };
+  const keeper = electHandoffKeeper(currentHead, Number(num), []);
+  const handedOff = handoffRouted(keeper) || handoffBusy(keeper, Number(num), []);
+  if (handedOff) return { action: 'already-handed-off', issue: keeper.number };
+  return { action: 'reuse', issue: Number(keeper.number) };
+}
+
+/**
+ * Elegge la issue di hand-off canonica con `electHandoffKeeper` (claim, poi
+ * instradata, poi la piu' vecchia: la funzione del riconciliatore, ma senza
+ * l'elenco delle PR aperte, quindi una riapplicazione in volo senza claim qui
+ * non si vede) e chiude le altre come duplicate, salvo quelle con un claim
+ * (come `planDuplicateClosures`) e quelle create da meno di
+ * `MIN_DUPLICATE_AGE_MINUTES` (un'altra run sta ancora instradandole): le
+ * decide il riconciliatore, che vede anche le PR aperte.
+ * Deterministico su ogni sweep: due run concorrenti eleggono la stessa.
+ * Ritorna il numero canonico.
+ * @param {Array<{number:number, body:string, labels:string[], created_at:string|null}>} members
+ *   elenco completo degli hand-off della PR
+ * @param {number} num PR di origine
+ * @param {string} head HEAD corrente della PR di origine
+ */
+function closeDuplicateHandoffIssues(members, num, head) {
+  const currentHead = (members || []).filter((member) => handoffEvidenceMatchesHead(member, head));
+  if (currentHead.length === 0) {
+    console.log(`::warning::PR #${num}: nessuna evidenza leggibile per HEAD ${String(head || '').slice(0, 12)} → nessuna issue instradata.`);
+    return '';
+  }
+  const canonical = electHandoffKeeper(currentHead, num, []).number;
+  const now = Date.now();
+  for (const member of currentHead) {
+    const dup = member.number;
+    if (dup === canonical) continue;
+    if (handoffBusy(member, num, [])) {
+      console.log(`issue di hand-off #${dup} duplicata di #${canonical} ma reclamata dal fixer → resta, decide il riconciliatore.`);
+      continue;
+    }
+    if (!duplicateOldEnough(member, now)) {
+      console.log(`issue di hand-off #${dup} duplicata di #${canonical} ma creata da meno di ${MIN_DUPLICATE_AGE_MINUTES} minuti → resta, decide il prossimo giro.`);
+      continue;
+    }
+    if (DRY) { console.log(`[dry] chiude la issue di hand-off duplicata #${dup} (canonica #${canonical})`); continue; }
+    gh(['issue', 'close', String(dup), '--repo', REPO, '--reason', 'not planned', '--comment',
+      `Duplicata di #${canonical}: stesso hand-off di conflitto della PR #${num} sulla HEAD ${String(head || '').slice(0, 12)}, aperto da due sweep di pr-autorebase (concorrenti, o prima e dopo il LGTM). Il lavoro prosegue su #${canonical}. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
+    { json: false, allowFail: true });
+    console.log(`issue di hand-off #${dup} duplicata di #${canonical} → chiusa.`);
+  }
+  return canonical;
+}
+
+/**
+ * Scrive l'evidenza corrente prima del routing. Un keeper già reclamato o
+ * instradato è immutabile: non si sostituisce il contesto sotto un fixer in
+ * volo. In tutti gli altri casi un errore di edit è fail-closed.
+ */
+function refreshHandoffEvidence(issue, body, origin) {
+  if (!issue || issue.body === body || handoffRouted(issue) || handoffBusy(issue, origin, [])) return true;
+  const edited = ghRun(['issue', 'edit', String(issue.number), '--repo', REPO, '--body', body]);
+  if (!edited.ok) {
+    console.log(`::warning::issue #${issue.number}: evidenza HEAD/file non aggiornata (${edited.error}) → routing rinviato.`);
+    return false;
+  }
+  return true;
+}
+
+function parseConflictResolutionLockEvents(raw) {
+  if (typeof raw !== 'string') return null;
+  const events = [];
+  for (const line of raw.split('\n')) {
+    if (!line.trim()) continue;
+    try {
+      const event = JSON.parse(line);
+      if (!event || typeof event !== 'object') return null;
+      events.push({ ...event, label: CONFLICT_RESOLUTION_LOCK_LABEL });
+    } catch {
+      return null;
+    }
+  }
+  return events;
+}
+
+function readConflictResolutionLockEvents(num) {
+  try {
+    const raw = gh([
+      'api', '--paginate', `repos/${REPO}/issues/${num}/events?per_page=100`,
+      '--jq', `.[] | select((.event == "labeled" or .event == "unlabeled") and .label.name == "${CONFLICT_RESOLUTION_LOCK_LABEL}") | {event, created_at} | @json`,
+    ], { json: false });
+    return parseConflictResolutionLockEvents(raw);
+  } catch {
+    return null;
+  }
+}
+
+function readHeadCommitterAt(head) {
+  try {
+    const raw = gh(['api', `repos/${REPO}/commits/${head}`, '--jq', '.commit.committer.date'], { json: false });
+    return String(raw || '').trim() || null;
+  } catch {
+    return null;
+  }
+}
+
+function readConflictResolutionLock(num, head, knownLabels = null) {
+  const labels = knownLabels ?? readCurrentPrLabelNames(num);
+  if (!Array.isArray(labels)) return { state: 'unreadable', release: false, reason: 'labels' };
+  if (!labels.includes(CONFLICT_RESOLUTION_LOCK_LABEL)) return { state: 'none', release: false };
+  const events = readConflictResolutionLockEvents(num);
+  const headCommittedAt = readHeadCommitterAt(head);
+  return decideConflictResolutionLock({ labels, events, headCommittedAt });
+}
+
+function removeConflictResolutionLock(num, decision) {
+  const reason = decision.state === 'expired' ? 'scaduto dopo 60 minuti' : 'rimosso dopo il primo push sulla HEAD';
+  if (DRY) {
+    console.log(`[dry] -label ${CONFLICT_RESOLUTION_LOCK_LABEL} #${num} (${reason})`);
+    return;
+  }
+  gh(['pr', 'edit', String(num), '--repo', REPO, '--remove-label', CONFLICT_RESOLUTION_LOCK_LABEL],
+    { json: false, allowFail: true });
+  console.log(`PR #${num}: -label ${CONFLICT_RESOLUTION_LOCK_LABEL} (${reason}).`);
+}
+
+function releaseConflictResolutionLockIfNeeded(num, head, knownLabels) {
+  const decision = readConflictResolutionLock(num, head, knownLabels);
+  if (decision.release) removeConflictResolutionLock(num, decision);
+  return decision;
+}
+
+function handOffConflictToFixer(
+  num,
+  branch,
+  head,
+  lgtm,
+  { agentOwned = false, generatedResolution = null } = {},
+) {
+  const lock = readConflictResolutionLock(num, head);
+  if (lock.release) removeConflictResolutionLock(num, lock);
+  if (lock.state === 'active' || lock.state === 'unreadable') {
+    console.log(`PR #${num}: lock ${CONFLICT_RESOLUTION_LOCK_LABEL} ${lock.state === 'active' ? 'valido' : 'non verificabile'} → nessun hand-off a issue-fix.`);
+    return;
+  }
   const marker = conflictHandoffMarker(head);
-  if (!shouldHandOffConflict({ lgtm, alreadyHandedOff: lgtm && hasCommentMarker(num, marker) })) return;
+  if (!shouldHandOffConflict({
+    lgtm,
+    agentOwned,
+    alreadyHandedOff: (lgtm || agentOwned) && hasCommentMarker(num, marker),
+    conflictLockState: lock.state,
+  })) return;
   // Il ramo chiamante puo' essersi basato su `mergeable=CONFLICTING`, che e'
   // una cache: l'hand-off parte solo se merge-tree conferma ADESSO un
   // conflitto. `clean` o `unknown` → nessuna issue (fail-closed).
@@ -1329,40 +2406,95 @@ function handOffConflictToFixer(num, branch, head, lgtm) {
     console.log(`PR #${num}: merge-tree ${verdict.state} al momento dell'hand-off → nessuna issue.`);
     return;
   }
-  const { title, body } = buildConflictHandoffIssue({ num, branch, head, files: verdict.files });
+  // #9741: il conflitto puo' essere con la riapplicazione della PR stessa.
+  // Solo un `on-main` dimostrato sopprime la issue; `unknown` resta fail-closed.
+  const onMain = prContentOnMainVerdict(head);
+  if (onMain.state === 'on-main') {
+    console.log(`PR #${num}: contenuto gia' su main (confronto per blob: ${onMain.reason}) → nessuna issue di hand-off.`);
+    return;
+  }
+  if (onMain.state === 'unknown') {
+    console.log(`PR #${num}: confronto per blob con main non determinabile (${onMain.reason}) → hand-off invariato.`);
+  }
+  const { title, body } = buildConflictHandoffIssue({
+    num,
+    branch,
+    head,
+    files: verdict.files,
+    lgtm,
+    closes: prClosingIssueNumbers(num),
+    generatedResolution,
+  });
   if (DRY) { console.log(`[dry] #${num} conflitto dopo LGTM → issue agent:fix «${title}»`); return; }
-  // Il titolo e' stabile: una issue gia' aperta da un tick precedente (routing
-  // fallito, marker non scritto) viene riusata invece di duplicata.
-  const existing = gh(['issue', 'list', '--repo', REPO, '--state', 'open', '--search', `"${title}" in:title`,
-    '--json', 'number,title'], { allowFail: true });
+  // La chiave e' la coppia PR di ORIGINE + HEAD, non il titolo (che cambia con
+  // il LGTM): una issue gia' aperta da un tick precedente sulla stessa HEAD
+  // (routing fallito, marker non scritto, titolo dell'altra variante) viene
+  // riusata invece di duplicata. Una HEAD nuova crea evidenza nuova.
+  const existing = handoffIssueIndex.forOrigin(num);
   if (existing === null) {
     console.log(`::warning::PR #${num}: elenco issue illeggibile → hand-off rinviato al prossimo tick.`);
     return;
   }
-  let issue = String((existing || []).find((i) => i.title === title)?.number || '');
-  if (!issue) {
+  const plan = planConflictHandoff({ existing, num, head });
+  if (plan.action === 'already-handed-off') {
+    console.log(`PR #${num}: hand-off gia' instradato con #${plan.issue} per la stessa HEAD → nessuna scrittura.`);
+    return;
+  }
+  let issue = '';
+  let evidenceRows = existing;
+  if (plan.action === 'reuse') {
+    issue = String(closeDuplicateHandoffIssues(existing, num, head) || '');
+    if (!issue) return;
+  } else if (plan.action === 'create') {
     // `agent:triaged` alla creazione: il triage la manderebbe comunque in coda
     // (`agent:fix-queued`), cioe' ore invece di minuti. `agent:fix` arriva con
     // un edit separato, perche' e' l'evento `labeled` a far partire issue-fix,
     // e l'identita' di GH_TOKEN e' quella ammessa dal suo sender gate.
     const url = String(gh(['issue', 'create', '--repo', REPO, '--title', title, '--body', body,
       '--label', 'agent:triaged'], { json: false, allowFail: true }) || '').trim();
-    issue = /\/issues\/(\d+)/.exec(url)?.[1] || '';
+    const created = /\/issues\/(\d+)/.exec(url)?.[1] || '';
+    // Due sweep concorrenti (il job `post-review` di due PR diverse) leggono
+    // entrambi «nessuna issue» e ne creano una ciascuno: #10586 e #10587 per
+    // la stessa HEAD di #10569, a 5 s di distanza. La rilettura DOPO la
+    // creazione vede anche quella dell'altro: tutti e due eleggono la stessa
+    // (`electHandoffKeeper`) e la instradano; la gemella appena creata resta
+    // al riconciliatore, che la chiude passata la finestra di instradamento.
+    if (created) {
+      handoffIssueIndex.invalidate();
+      const after = handoffIssueIndex.forOrigin(num);
+      if (after === null || after.length === 0) {
+        console.log(`::warning::PR #${num}: issue #${created} creata ma l'elenco ${after === null ? 'non e\' rileggibile' : 'non la contiene ancora'} → agent:fix NON applicata, routing rinviato al prossimo tick (riusa #${created}).`);
+        return;
+      }
+      evidenceRows = after;
+      issue = String(closeDuplicateHandoffIssues(after, num, head) || '');
+      if (!issue) return;
+    }
   }
   if (!issue) {
     console.log(`::warning::PR #${num}: issue di hand-off del conflitto non creata — resta la label stale-review.`);
     return;
   }
+  const evidence = evidenceRows.find((candidate) => String(candidate.number) === issue);
+  if (!refreshHandoffEvidence(evidence, body, num)) return;
   // Esito dall'exit status, non dallo stdout: senza routing confermato il
   // marker NON si scrive, cosi' il prossimo tick riprova sulla stessa issue.
-  if (!ghOk(['issue', 'edit', issue, '--repo', REPO, '--add-label', 'agent:fix'])) {
-    console.log(`::warning::issue #${issue}: agent:fix non applicata — marker non scritto, ritento al prossimo tick.`);
+  const routed = ghRun(['issue', 'edit', issue, '--repo', REPO, '--add-label', 'agent:fix']);
+  if (!routed.ok) {
+    console.log(`::warning::issue #${issue}: agent:fix non applicata (${routed.error}) — marker non scritto, ritento al prossimo tick.`);
     return;
   }
   gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
-    `${marker}\n♻️ **autorebase / conflitto dopo LGTM**: affidato a issue-fix con #${issue}, che riapplica il contributo approvato su \`main\` in una PR nuova. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
+    `${marker}\n♻️ **autorebase / conflitto${lgtm ? ' dopo LGTM' : ' di una PR del ciclo'}**: affidato a issue-fix con #${issue}, che riapplica il contributo${lgtm ? ' approvato' : ''} su \`main\` in una PR nuova. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
   { json: false, allowFail: true });
-  console.log(`PR #${num}: conflitto dopo LGTM → hand-off a issue-fix con #${issue}.`);
+  console.log(`PR #${num}: conflitto${lgtm ? ' dopo LGTM' : ' di una PR del ciclo'} → hand-off a issue-fix con #${issue}.`);
+}
+
+function prClosingIssueNumbers(num) {
+  const view = gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'closingIssuesReferences'], { allowFail: true });
+  const refs = view?.closingIssuesReferences;
+  if (!Array.isArray(refs)) return null;
+  return refs.map((ref) => Number(ref?.number)).filter((n) => Number.isSafeInteger(n) && n > 0);
 }
 
 function commentConflictOnce(num, branch) {
@@ -1456,11 +2588,94 @@ function resolveImportUnionConflicts() {
   return true;
 }
 
+/** Risolve il merge in corso, mantenendo il percorso import-union precedente. */
+function resolveMergeConflict() {
+  const generated = resolveGeneratedConflictMerge();
+  if (generated.status === 'resolved') {
+    return { resolved: true, mode: 'generated', generated };
+  }
+  if (generated.status === 'failed') {
+    console.log(`  rigenerazione dei conflitti generati fallita → abort: ${generated.reason}`);
+    return { resolved: false, mode: 'generated-failed', generated };
+  }
+  if (resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
+    return { resolved: true, mode: 'import-union', generated };
+  }
+  return { resolved: false, mode: 'none', generated };
+}
+
+/**
+ * Prima del hand-off di una PR del ciclo, prova la stessa transazione di
+ * rigenerazione usata dal percorso near-merge, ma solo per un conflitto tutto
+ * generato. Un conflitto misto o un fallimento lascia al chiamante il normale
+ * hand-off; il lock valido di una risoluzione manuale blocca entrambi.
+ */
+function tryGeneratedConflictBeforeHandoff(num, branch, head, reviewerSnapshot) {
+  const lock = readConflictResolutionLock(num, head);
+  if (lock.release) removeConflictResolutionLock(num, lock);
+  if (lock.state === 'active' || lock.state === 'unreadable') {
+    console.log(`PR #${num}: lock ${CONFLICT_RESOLUTION_LOCK_LABEL} ${lock.state === 'active' ? 'valido' : 'non verificabile'} → nessuna rigenerazione né hand-off.`);
+    return { status: 'locked' };
+  }
+
+  const verdict = mergeTreeVerdict(head);
+  if (verdict.state !== 'conflicted') return { status: 'not-applicable', reason: verdict.state };
+
+  const decision = decideGeneratedConflictHandoff({
+    conflictPaths: verdict.files,
+    conflictLockState: lock.state,
+  });
+  if (decision.action === 'skip') return { status: 'locked' };
+  if (decision.action !== 'regenerate') return { status: 'handoff', reason: decision.reason };
+  if (DRY) {
+    console.log(`[dry] #${num} conflitto solo su file generati → rigenerazione prima del hand-off`);
+    return { status: 'not-applicable', reason: 'dry-run' };
+  }
+
+  if (!checkoutDecidedHead(num, branch, head)) return { status: 'handoff', reason: 'checkout-failed' };
+  configureAutorebaseCommitIdentity();
+
+  const merged = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
+  if (merged !== null) {
+    git(['reset', '--hard', head], { allowFail: true });
+    return { status: 'not-applicable', reason: 'conflict-cleared' };
+  }
+
+  const generated = resolveGeneratedConflictMerge();
+  const resolvedDecision = decideGeneratedConflictHandoff({
+    conflictPaths: verdict.files,
+    conflictLockState: lock.state,
+    resolutionStatus: generated.status,
+  });
+  if (resolvedDecision.action !== 'resolved') {
+    console.log(`  rigenerazione prima del hand-off fallita → abort: ${generated.reason || resolvedDecision.reason}`);
+    git(['merge', '--abort'], { allowFail: true });
+    return { status: 'handoff', reason: resolvedDecision.reason, generated };
+  }
+
+  const reviewerBeforePush = readReviewerSnapshot(num, head);
+  if (reviewerSnapshotChanged(reviewerSnapshot, reviewerBeforePush)) {
+    console.log(`PR #${num}: review cambiata o non verificabile dopo la rigenerazione → reset alla HEAD ${head.slice(0, 8)}, nessun push.`);
+    git(['reset', '--hard', head], { allowFail: true });
+    return { status: 'not-applicable', reason: 'review-changed' };
+  }
+
+  const pushed = pushBranch(branch);
+  if (pushed === null) {
+    console.log(`PR #${num}: push della rigenerazione fallito — hand-off invariato, riprovo al prossimo tick.`);
+    return { status: 'handoff', reason: 'push-failed', generated };
+  }
+  releaseBreakerLabelAfterPush(num);
+  if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
+  console.log(`✅ PR #${num}: conflitto solo su file generati AUTO-RISOLTO + pushato → nessun hand-off; dispatch tests + review.`);
+  return { status: 'resolved', generated };
+}
+
 async function processPR(pr) {
   const num = pr.number;
   const branch = pr.headRefName;
   const head = pr.headRefOid;
-  const labels = (pr.labels || []).map((l) => l.name);
+  let labels = (pr.labels || []).map((l) => l.name);
 
   // `behind` serve allo stuck-red e al flusso normale:
   // memoizzato per non pagare tre volte la compare API.
@@ -1496,24 +2711,36 @@ async function processPR(pr) {
   // UNA vitest, non una per tick. Se dopo il rebase è ancora rossa, il rosso è
   // suo.
   let stuckRedReason = '';
+  let inheritedRescue = null;
   if (behindOf() > 0) {
     stuckRedReason = stuckRedRescueReason(head);
     if (stuckRedReason && hasCommentMarker(num, STUCK_RED_MARKER)) {
-      console.log(`PR #${num} stuck-red (${stuckRedReason}) ma GIÀ ri-testata una volta (marker) — skip: il rosso è suo.`);
+      console.log(`PR #${num} stuck-red (${stuckRedReason}) ma GIÀ ri-testata una volta (marker) — valuto il rosso ereditato.`);
       stuckRedReason = '';
+    }
+    // Il one-shot sopra può essersi speso mentre main era ancora rosso sullo
+    // stesso test: la prova che main lo ha poi riparato apre un rescue nuovo,
+    // uno per chiave (test falliti, commit di main).
+    if (!stuckRedReason) {
+      inheritedRescue = inheritedRedRescue(num, head);
+      if (inheritedRescue) stuckRedReason = 'inherited-fixed';
     }
   }
 
-  // `needs-human` è un marker di tracking/escalation. Non è un gate di questo
-  // flusso: se la PR è eleggibile per autorebase, rebase e dispatch seguono i
-  // normali segnali `## LGTM`, `collision-risk`, `stale-review` e stuck-red.
+  // `needs-human` da solo è un marker di tracking/escalation, non un gate di
+  // questo flusso. Lo diventa solo con un ultimo verdetto bloccante: vedi
+  // `needsHumanBlocksAutorebase`, applicato dopo la rilevazione conflitti.
 
-  // GATE frugalità: solo near-merge.
-  const lgtm = hasLgtmReview(num);
+  // GATE frugalità: solo near-merge. Conta l'ULTIMO verdetto del reviewer,
+  // non un LGTM qualsiasi della storia della PR (`latestReviewerVerdict`).
+  const reviewerSnapshot = readReviewerSnapshot(num, head);
+  const reviewerVerdict = reviewerSnapshot.verdict;
+  const lgtm = reviewerVerdict === 'lgtm';
   let nearMerge =
     labels.includes('collision-risk') ||
     labels.includes('stale-review') ||
     lgtm;
+  const agentOwned = isAgentOwnedPr(labels, branch);
 
   // ── QUARTA classe near-merge: STUCK-RED (2026-08-05) ───────────────────────
   // Le prime tre classi presuppongono che una PR bloccata abbia GIÀ un segnale:
@@ -1551,23 +2778,43 @@ async function processPR(pr) {
     return;
   }
 
+  // Un push successivo al lock lo chiude anche se il conflitto è già rientrato
+  // e quindi questo tick non entrerà mai nel percorso di hand-off.
+  if (labels.includes(CONFLICT_RESOLUTION_LOCK_LABEL)) {
+    const lock = releaseConflictResolutionLockIfNeeded(num, head, labels);
+    if (lock.release || lock.reason === 'unlabeled') {
+      labels = labels.filter((label) => label !== CONFLICT_RESOLUTION_LOCK_LABEL);
+    }
+  }
+
+  // Veto `needs-human` + verdetto bloccante: DOPO la rilevazione conflitti
+  // (sola lettura + label, resta utile a chi interviene a mano) e PRIMA di
+  // ogni scrittura sul branch (stuck-red, heal, merge, push, reopen).
+  if (needsHumanBlocksAutorebase({ labels, verdict: reviewerVerdict })) {
+    console.log(`::notice::PR #${num} needs-human con ultimo verdetto del reviewer ${reviewerVerdict} → nessun rebase automatico: il merge di main non cambia il verdetto, genererebbe solo un'altra review.`);
+    return;
+  }
+
   if (!nearMerge) {
+    if (agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels, headRefName: branch })) {
+      const generatedResolution = tryGeneratedConflictBeforeHandoff(num, branch, head, reviewerSnapshot);
+      if (generatedResolution.status === 'handoff') {
+        handOffConflictToFixer(num, branch, head, lgtm, {
+          agentOwned,
+          generatedResolution: generatedResolution.generated,
+        });
+      }
+    }
     console.log(`PR #${num} non near-merge (no LGTM/collision-risk/stale-review/stuck-red) — skip del rebase.`);
     return;
   }
 
   const behind = behindOf();
 
-  if (stuckRedReason) {
-    console.log(`PR #${num} STUCK-RED (${stuckRedReason}): vitest rosso non attribuibile alla PR, ${behind} dietro main → rescue one-shot (rebase + re-test).`);
-    if (!DRY) {
-      const why = stuckRedReason === 'red-main'
-        ? 'il suo `vitest` è stato eseguito sul merge ref mentre `main` era ROSSO, ed è tornato verde dopo'
-        : 'il suo `vitest` è rosso da oltre ' + STUCK_RED_STALE_H + 'h senza che nulla possa ri-eseguirlo (probabile fallimento infrastrutturale)';
-      gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
-        `${STUCK_RED_MARKER}\n♻️ **autorebase / stuck-red**: questa PR è ferma perché ${why}.\n\nCon i test rossi il job si ferma prima della review Claude (che dal 2026-08-26 gira dentro lo stesso \`tests.yml\`), quindi la PR non può ottenere né \`## LGTM\` né una label — e senza quelli nessun workflow la ri-testa: stato assorbente. Rebase su \`origin/main\` + ri-esecuzione dei test, **una sola volta**. Se torna rossa, il fallimento è della PR.\n\n_Segnale deterministico da pr-autorebase.yml (zero-Claude)._`],
-        { json: false, allowFail: true });
-    }
+  if (inheritedRescue) {
+    console.log(`PR #${num} ROSSO EREDITATO riparato su main (chiave ${inheritedRescue.key}, commit ${inheritedRescue.commit.slice(0, 12)}): ${behind} dietro main → rebase + re-test; il commento con la chiave segue il push.`);
+  } else if (stuckRedReason) {
+    console.log(`PR #${num} STUCK-RED (${stuckRedReason}): vitest rosso non attribuibile alla PR, ${behind} dietro main → rescue one-shot (rebase + re-test); il commento one-shot segue il push.`);
   }
 
   if (behind === 0) {
@@ -1613,17 +2860,25 @@ async function processPR(pr) {
       if (DRY) { console.log(`[dry] #${num} CONFLICTING → tenta auto-resolve import-union, else stale-review`); return; }
       let done = false;
       if (checkoutDecidedHead(num, branch, head)) {
-        git(['config', 'user.name', 'Valerie Linc']);
-        git(['config', 'user.email', 'valerielinc@gmail.com']);
+        configureAutorebaseCommitIdentity();
         const mg = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
-        if (mg === null && resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
-          const pushed = pushBranch(branch);
-          if (pushed !== null) {
-            // Push OK: la PR è ora mergeable. Dispatch tests + review sulla
-            // nuova HEAD: il vecchio LGTM non viene riusato.
-            console.log(`✅ PR #${num}: conflitto import-union AUTO-RISOLTO + pushato → mergeable; dispatch tests + review.`);
-            if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
+        const resolution = mg === null ? resolveMergeConflict() : { resolved: false, mode: 'none' };
+        if (resolution.resolved) {
+          const reviewerBeforePush = readReviewerSnapshot(num, head);
+          if (reviewerSnapshotChanged(reviewerSnapshot, reviewerBeforePush)) {
+            console.log(`PR #${num}: review cambiata o non verificabile dopo il merge ${resolution.mode} → reset alla HEAD ${head.slice(0, 8)}, nessun push.`);
+            git(['reset', '--hard', head], { allowFail: true });
             done = true;
+          } else {
+            const pushed = pushBranch(branch);
+            if (pushed !== null) {
+              if (!inheritedRescue) commentStuckRedRescue(num, stuckRedReason);
+              // Push OK: la PR è ora mergeable. Dispatch tests + review sulla
+              // nuova HEAD: il vecchio LGTM non viene riusato.
+              console.log(`✅ PR #${num}: conflitto ${resolution.mode} AUTO-RISOLTO + pushato → mergeable; dispatch tests + review.`);
+              if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
+              done = true;
+            }
           }
         }
         if (!done) git(['merge', '--abort'], { allowFail: true });
@@ -1632,7 +2887,10 @@ async function processPR(pr) {
         console.log(`PR #${num} CONFLICTING non auto-risolvibile (non import-only) → stale-review + comment (recycle).`);
         ensureStaleLabel(num);
         commentConflictOnce(num, branch);
-        handOffConflictToFixer(num, branch, head, lgtm);
+        handOffConflictToFixer(num, branch, head, lgtm, {
+          agentOwned,
+          generatedResolution: resolution.generated,
+        });
       }
       return;
     }
@@ -1669,11 +2927,13 @@ async function processPR(pr) {
   // (orphan-heal esteso a behind>0, prima solo behind===0), senza rebasare: il
   // check vitest atterra su una head STABILE e auto-merge la mergia behind.
   const collisionRisk = labels.includes('collision-risk');
+  const headVitest = vitestConclusion(head);
   const action = rebaseActionForLgtmPr({
     lgtm,
     collisionBlocked: collisionRisk && collisionGateBlocks(num, head, behind),
-    vitestConclusion: vitestConclusion(head),
+    vitestConclusion: headVitest,
     hasVitestCheck: headHasVitestCheck(head),
+    reviewGateOnly: lgtm && headVitest === 'failure' && reviewGateRedOnFreshVerdict(num, head),
   });
   if (action === 'heal') {
     console.log(`PR #${num} LGTM non-collision, ${behind} dietro main, head ${head.slice(0, 8)} SENZA check-run vitest → checkpoint manuale (NO rebase, nessun dispatch trusted).`);
@@ -1684,7 +2944,7 @@ async function processPR(pr) {
     console.log(`PR #${num} LGTM + vitest non-failure sull'head, no collision, ${behind} dietro main → SKIP rebase (main non-strict: auto-merge la mergia così com'è; rebasarla orfanizzerebbe l'head).`);
     return;
   }
-  console.log(`PR #${num} (${branch}) è ${behind} dietro main, near-merge → valuto rebase.`);
+  console.log(`PR #${num} (${branch}) è ${behind} dietro main, near-merge → valuto ${action === 'reopen' ? 'un nuovo giro sulla stessa HEAD' : 'rebase'}.`);
 
   // Review-in-flight guard: NON rebasare mentre una review Claude è in volo
   // sull'head. Il nuovo workflow non cancella la review vecchia, ma deferire
@@ -1721,6 +2981,26 @@ async function processPR(pr) {
     return;
   }
 
+  // Fixer-in-flight guard (#10051, 2026-09-27): NON rebasare mentre un 🔴/❌
+  // fixer lavora sulla head ATTUALE. A review pubblicata il run `tests` è già
+  // concluso, quindi la guardia sopra non scatta; il fixer invece resta 12-18
+  // minuti fra coda e setup prima del claim, e una head spostata in quella
+  // finestra lo fa uscire senza fix («HEAD cambiata dopo il claim»). Stessa
+  // ripresa delle guardie sopra: il prossimo tick trova il fixer concluso, o la
+  // head nuova che ha pushato, e la guardia non scatta più.
+  const { claims: fixerClaims, claimRunStatus } = activeFixerClaims(num, head);
+  const fixer = fixerInFlightOnHead({
+    runs: redflagFixerRunsForBranch(branch),
+    claims: fixerClaims,
+    head,
+    claimRunStatus,
+  });
+  if (fixer) {
+    const what = fixer.source === 'run' ? `run pr-redflag-fixer ${fixer.id ?? '?'}` : `claim ${fixer.workflow || 'fixer'} (run ${fixer.id ?? '?'})`;
+    console.log(`PR #${num} (${branch}): ${what} ${fixer.status} sulla head ATTUALE ${head.slice(0, 8)} — skip rebase questo tick (il merge di main farebbe uscire il fixer senza fix; riprendo al prossimo trigger).`);
+    return;
+  }
+
   // Activity-guard: se l'head è stato pushato pochi minuti fa, un contributor/
   // agent è probabilmente mid-flight (sta ancora pushando fix su una PR LGTM'd).
   // Rebasare ora racerebbe il suo push → skip, riprova al prossimo tick (il
@@ -1734,6 +3014,12 @@ async function processPR(pr) {
     }
   }
 
+  if (action === 'reopen') {
+    console.log(`PR #${num}: LGTM sulla HEAD ${head.slice(0, 8)} e il solo review gate rosso → close+reopen sulla stessa head, nessun merge di main.`);
+    if (guardedReopen(num, head)) clearStaleReviewLabel(num);
+    return;
+  }
+
   const m = await mergeableState(num);
   if (m === 'UNKNOWN' || m === '') {
     console.log(`PR #${num} mergeable=UNKNOWN dopo poll — skip questo run (riprova al prossimo tick).`);
@@ -1744,7 +3030,7 @@ async function processPR(pr) {
     console.log(`PR #${num} mergeable=CONFLICTING → label stale-review + comment once.`);
     ensureStaleLabel(num);
     commentConflictOnce(num, branch);
-    handOffConflictToFixer(num, branch, head, lgtm);
+    handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
     return;
   }
 
@@ -1753,39 +3039,34 @@ async function processPR(pr) {
     return;
   }
 
-  // `stale-review` non è sinonimo di workflow-validation drift. Il rescuer la
-  // applica anche quando una review non è mai partita, quando la coda è
-  // congestionata o quando i test sono rossi. Fare in tutti questi casi
-  // `merge origin/main` crea un nuovo head e invalida il giro CI corrente.
-  //
-  // Il merge resta obbligatorio quando il confronto byte-level dimostra che il
-  // workflow di review è cambiato rispetto a main: senza quel merge il run
-  // può fallire con "401 Unauthorized — Workflow validation failed". Se non
-  // c'è drift, una PR senza review viene riaperta sulla stessa head, mentre una
-  // review già esistente resta al redflag-fixer/umano: nessuna review stale
-  // viene considerata risolta da un push di main.
+  // `stale-review` non chiede un merge di main. Il rescuer la applica quando
+  // una review non è mai partita, quando la coda è congestionata, quando i test
+  // sono rossi o quando un 🔴 non è stato ripreso: in nessuno di questi casi
+  // `merge origin/main` ripara qualcosa, e ogni HEAD nuova invalida il giro CI
+  // e azzera il round cap del 🔴-fixer (vedi `staleReviewAction`). Una PR senza
+  // review viene riaperta sulla stessa head; una review già esistente resta al
+  // redflag-fixer: nessuna review stale viene considerata risolta da un push di
+  // main. Resta il solo stuck-red, che il merge ripara davvero.
   if (labels.includes('stale-review') && !lgtm && !collisionRisk) {
-    const workflowValidationDrift = hasReviewWorkflowValidationDrift(head);
     const staleAction = staleReviewAction({
       staleReview: true,
       lgtm,
-      workflowValidationDrift,
       // Un errore API deve restare fail-closed: hasClaudeReviewOnHead() torna
       // true e quindi non apriamo/retriggeriamo alla cieca.
-      hasCurrentClaudeReview: workflowValidationDrift ? true : hasClaudeReviewOnHead(num, head),
+      hasCurrentClaudeReview: hasClaudeReviewOnHead(num, head),
       stuckRed: Boolean(stuckRedReason),
       collisionRisk,
     });
     if (staleAction === 'wait') {
-      console.log(`PR #${num}: stale-review senza drift del workflow e review già presente — nessun merge di main; attendo redflag-fixer/umano.`);
+      console.log(`PR #${num}: stale-review con review già presente sulla HEAD — nessun merge di main; attendo redflag-fixer.`);
       return;
     }
     if (staleAction === 'retrigger') {
-      console.log(`PR #${num}: stale-review senza drift del workflow e senza review — close+reopen sulla stessa head, nessun merge di main.`);
+      console.log(`PR #${num}: stale-review senza review sulla HEAD — close+reopen sulla stessa head, nessun merge di main.`);
       if (guardedReopen(num, head)) clearStaleReviewLabel(num);
       return;
     }
-    console.log(`PR #${num}: stale-review con workflow-validation drift — il merge di main resta necessario.`);
+    console.log(`PR #${num}: stale-review con stuck-red — il merge di main resta il rimedio.`);
   }
 
   // MERGEABLE → tenta il merge di origin/main nel branch.
@@ -1794,24 +3075,39 @@ async function processPR(pr) {
   // checkout del branch sull'head remoto (worktree CI pulito), solo se è ancora
   // l'head su cui i gate sopra hanno deciso.
   if (!checkoutDecidedHead(num, branch, head)) return;
-  git(['config', 'user.name', 'Valerie Linc']);
-  git(['config', 'user.email', 'valerielinc@gmail.com']);
+  configureAutorebaseCommitIdentity();
 
   const merged = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
   if (merged === null) {
     // Conflitto a runtime (mergeable era ottimista o è cambiato tra check e
-    // merge). Tenta l'auto-resolve import-union come nel path CONFLICTING; se
-    // non import-only → abort + stale-review.
-    if (resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
-      console.log(`PR #${num}: conflitto runtime AUTO-RISOLTO (import-union) → proseguo col push.`);
+    // merge). I soli artefatti registrati vengono rigenerati; per gli altri
+    // resta l'auto-resolve import-union e poi l'abort esistente.
+    const resolution = resolveMergeConflict();
+    if (resolution.resolved) {
+      console.log(`PR #${num}: conflitto runtime AUTO-RISOLTO (${resolution.mode}) → proseguo col push.`);
     } else {
       console.log(`PR #${num}: merge origin/main ha conflitto non auto-risolvibile → abort + stale-review + comment.`);
       git(['merge', '--abort'], { allowFail: true });
       ensureStaleLabel(num);
       commentConflictOnce(num, branch);
-      handOffConflictToFixer(num, branch, head, lgtm);
+      handOffConflictToFixer(num, branch, head, lgtm, {
+        agentOwned,
+        generatedResolution: resolution.generated,
+      });
       return;
     }
+  }
+
+  // Ultimo controllo TOCTOU della review: fra il verdetto usato per decidere
+  // il merge di main e questo punto può essere arrivata una review nuova,
+  // oppure quella precedente può essere stata dismissata. Anche un verdetto
+  // uguale non basta: confrontiamo la chiave della review, così una nuova
+  // review bloccante non passa solo perché la precedente era già bloccante.
+  const reviewerBeforePush = readReviewerSnapshot(num, head);
+  if (reviewerSnapshotChanged(reviewerSnapshot, reviewerBeforePush)) {
+    console.log(`PR #${num}: review cambiata o non verificabile dopo il merge locale → reset alla HEAD ${head.slice(0, 8)}, nessun push; riprovo al prossimo tick.`);
+    git(['reset', '--hard', head], { allowFail: true });
+    return;
   }
 
   // Push via PAT. TOCTOU: tra mergeable-check e push un nuovo commit potrebbe
@@ -1822,6 +3118,9 @@ async function processPR(pr) {
     console.log(`PR #${num}: push fallito (probabile non-fast-forward / TOCTOU) — skip, riprova al prossimo tick.`);
     return;
   }
+  if (inheritedRescue) commentInheritedRedRescue(num, inheritedRescue);
+  else if (stuckRedReason) commentStuckRedRescue(num, stuckRedReason);
+  releaseBreakerLabelAfterPush(num);
 
   // Riesegui test E review sull'head rebasato tramite il normale evento
   // `pull_request.synchronize` generato dal push. Non invocare workflow_dispatch
@@ -1900,6 +3199,6 @@ async function main() {
 
 // Esegui solo come CLI (non quando importato dai test → resolveImportConflictsInText
 // testabile in isolamento, come classify-issue.mjs / alert-pat-down.mjs).
-if (process.argv[1] && process.argv[1].endsWith('pr-autorebase.mjs')) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

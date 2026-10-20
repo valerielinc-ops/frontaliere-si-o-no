@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * identify-top-marquee-by-gsc.mjs  —  Cathedral Phase 2 / T2.8
  *
@@ -586,7 +587,7 @@ async function main() {
 // Same guard as scripts/check-pages-publish-lag.mjs: the module now exports
 // `resolveServiceAccount` for its unit test, and a bare `main()` call would run
 // the whole GSC pull (and its process.exit) the moment vitest imported it.
-const invokedDirectly = import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     failGracefully(`Unexpected error: ${err.message || err}`);

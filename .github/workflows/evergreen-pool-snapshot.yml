@@ -31,12 +31,12 @@ jobs:
     timeout-minutes: 12
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
@@ -68,11 +68,17 @@ jobs:
             --in=/tmp/pool.json \
             --history=data/evergreen-pool-history.json \
             --summary-out=/tmp/pool-summary.md
+          node scripts/ci/validate-workflow-data.mjs \
+            --kind evergreen-pool-history \
+            --file data/evergreen-pool-history.json
           echo "## Evergreen pool snapshot" >> "$GITHUB_STEP_SUMMARY"
           cat /tmp/pool-summary.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit snapshot history
         run: |
+          node scripts/ci/validate-workflow-data.mjs \
+            --kind evergreen-pool-history \
+            --file data/evergreen-pool-history.json
           node scripts/ci/validate-generated-data.mjs \
             --kind evergreen \
             --file data/evergreen-pool-history.json

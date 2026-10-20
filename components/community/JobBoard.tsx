@@ -1,3 +1,7 @@
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
+import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
+import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 /**
  * JobBoard — Ticino job board for cross-border workers
  *
@@ -5,30 +9,35 @@
  * - Detail: dedicated SEO-friendly page per job (slug route), with sidebar widgets and related jobs.
  */
 
+import { updateJobBoardListingMetadata } from '@/services/seo/jobBoardListingMetadata';
+import { isForeignLocation, isListingInventoryJob, normalizeListingIdentity } from '@/services/jobBoardInventory';
 import React, { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
-import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
+import { openJobAlertForm, requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
-import { firstParsableDateStr, firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
+import { firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
 import { parseJsonResponse } from '@/services/jsonResponseParser';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
-const CompanyFollowCta = lazyRetry(() => import('@/components/community/CompanyFollowCta'));
-const CompanyFollowPopup = lazyRetry(() => import('@/components/community/CompanyFollowCta').then((m) => ({ default: m.CompanyFollowPopup })));
+// The inline action arrives with the detail; its registration modal loads on click.
+import CompanyFollowCta, { CompanyFollowPopup } from '@/components/community/CompanyFollowCta';
 // Eager, and tiny: a placeholder that arrives with its own chunk reserves nothing.
 import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceholder';
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
 const AssistedApplicationOffer = lazyRetry(() => import('@/components/community/AssistedApplicationOffer'));
+const SumUpPaymentWidget = lazyRetry(() => import('@/components/community/SumUpPaymentWidget'));
 const RewardedApplicationOffer = lazyRetry(() => import('@/components/community/RewardedApplicationOffer'));
+import type { RewardedOfferUnavailableInfo } from '@/components/community/RewardedApplicationOffer';
 const AssistedApplicationUpload = lazyRetry(() => import('@/components/community/AssistedApplicationUpload'));
+const AssistedApplicationReview = lazyRetry(() => import('@/components/community/AssistedApplicationReview'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
 const SaveSignInPromptModal = lazyRetry(() => import('@/components/community/SaveSignInPromptModal'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
@@ -40,16 +49,26 @@ import PublisherApplyForm from '@/components/community/PublisherApplyForm';
 import { renderPublisherMarkdown } from '@/services/publisherMarkdown';
 import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import {
- fetchAggregatedJobs,
  fetchAllJobs,
  fetchJobsForCanton,
  getDefaultCantonForVisit,
  scopeJobsToCanton,
  AGGREGATE_CANTON_CODE,
- type Job as RawJob,
 } from '@/services/jobsService';
 import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
 import { professionSynonymText } from '@/services/professionSynonyms';
+import {
+ addJobSearchLocationTokens,
+ addJobBoardAutocompleteSuggestions,
+ collectJobSearchLocationTokens,
+ deriveJobBoardOccupationTerms,
+ deriveJobBoardAutocompleteSuggestions,
+ offerBoundedRankedCandidate,
+ rankedCandidateValues,
+ scheduleFrameBudgetedScan,
+ shouldRearmCancelledFetchAttempt,
+ type RankedCandidate,
+} from '@/services/jobBoardSearchPipeline';
 import { cantonSearchTokens, CANTON_CODES, getCantonLabel } from '@/services/cantonList';
 import {
   loadSavedJobs,
@@ -69,9 +88,11 @@ import {
   savePendingSaveJobIntent,
   consumePendingSaveJobIntent,
   peekPendingSaveJobIntent,
+  type PendingSaveJobIntent,
   type SaveJobSurface,
 } from '@/services/pendingSaveJob';
 import {
+ BEHAVIOR_DATA_CHANGED_EVENT,
  type BehaviorData,
  getBehaviorData,
  readBehaviorAndMarkVisit,
@@ -79,19 +100,24 @@ import {
  trackSearch as trackSearchBehavior,
  trackFilterUsage,
 } from '@/services/behaviorTracker';
+import { compareApplicationIntentJobKeys } from '@/services/applicationIntentRanking.mjs';
 import {
  computePersonalScore,
- computeNewJobsCount,
+ createPersonalScorer,
+ schedulePersonalJobScores,
+ type PersonalScore,
+ reuseIfSameOrder,
+ NO_PERSONAL_SCORE,
+ scheduleNewJobsCount,
  getTrendingByLocation,
  computeTrendingBoost,
  SURVEY_SECTOR_TO_CATEGORY,
 } from '@/services/personalizationScoring';
 import { type JobMatchProfileData, loadJobMatchProfile, mergeNewsletterSignals } from '@/services/jobMatchProfile';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
-import TrendingSection from '@/components/community/TrendingSection';
+import TrendingSection, { selectRecommendationJobs } from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
-import { stripMarkdownMarkers } from '@/services/jobs/plainTextMarkdown';
 import PopularSearchChips from '@/components/community/PopularSearchChips';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
@@ -143,6 +169,7 @@ import {
  resolveAnalyticsCompanyHubKey,
  resolveAnalyticsJobIdentity,
 } from '@/services/analytics';
+import { recordApplicationIntent } from '@/services/applicationIntent';
 import { deriveAnalyticsPageContext } from '@/services/analyticsPageContext';
 // Type-only: jobAlertService itself is always dynamically imported below (code
 // splitting) — this import is erased at build time, no bundle/runtime impact.
@@ -150,17 +177,20 @@ import type { JobAlert } from '@/services/jobAlertService';
 import { fetchUserAlertsCached, invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import { suggestSimilarTerms } from '@/services/search/fuzzySearchSuggestions';
 import { buildJobCopyAttribution, shouldAttributeCopy } from '@/services/jobCopyAttribution';
+import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
+import { canShowJobAlertPrompt, markJobAlertPromptShown, dismissJobAlertPrompt } from '@/services/jobAlertPromptPolicy';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
 import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugEntriesLoaded, isJobSlugReady, preloadBlogData, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
+import type { BlogArticleId } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
-import { buildJobPostingSchema, isEmployerOwnedApplyUrl, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
+import { buildJobPostingFacts, buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
-import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/salaryEstimateSuffix';
+import { salaryProvenanceSuffix } from '@/build-plugins/shared/salaryEstimateSuffix';
 import { callNativeHistory } from '@/services/nativeHistoryCall';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -186,20 +216,38 @@ import {
  type Inline as JobDescInline,
 } from '@/build-plugins/shared/jobDescription/parser';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
+import { currentJobGateAssignment, recordJobGateExposure, useJobGateExperiment } from '@/hooks/useJobGateExperiment';
+import {
+ JOBGATE_EXPERIMENT_ID,
+ getJobGateSubscriberVariant,
+} from '@/services/jobGateExperiment';
+import { jobGateSkin } from '@/components/community/jobGateSkin';
 import {
  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+ shouldOfferPaidFallback,
  trackAssistedApplicationEvent,
+ useAssistedApplicationCopyVariant,
  useAssistedApplicationVariant,
+ useOfferwallPaidFallback,
+ type AssistedApplicationCopyVariant,
  type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
+import { hasTransientUserActivation, watchNewTabOpened } from '@/services/userActivation';
+import { flushHandoffReceipts } from '@/services/rewardedHandoffLedger';
 import {
  getRewardedApplicationAccessExpiresAt,
+ REWARDED_APPLICATION_ACCESS_TTL_HOURS,
 } from '@/services/rewardedApplicationAccess';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
+import { preloadRewardedWebAd } from '@/services/rewardedWebAd';
+import { takeOfferwallResume } from '@/services/offerwallRecovery';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
+ getAssistedApplicationCheckoutErrorCode,
+ type AssistedApplicationCheckoutResult,
 } from '@/services/assistedApplicationCheckout';
+import { readReviewToken } from '@/services/assistedApplicationReviewService';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 import {
@@ -207,7 +255,6 @@ import {
  normalizeJobCategory,
  normalizeJobContract,
  resolveCompanyLogoUrl,
- resolveCompanyWebsiteHost,
 } from '@/services/jobDataNormalization';
 import {
  sanitizeJobTitle,
@@ -232,14 +279,16 @@ import {
 // (e.g. tests/jobboard-italian-lowercase-list-parsing.test.ts).
 export { buildFallbackCanonicalContent } from '@/services/jobs/canonicalFallback';
 import { handleCompanyLogoError, generateInitialsLogo } from '@/services/logoService';
-import { deriveJobPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
+import { getJobLocationSnapshot, resolveJobPostingPostalCode } from '@/services/jobLocationSnapshot';
 import { getJobSalaryContext } from '@/data/salaryData';
 import {
+ unifiedEmailConsentInput,
+ upsertNewsletterSubscriber,
  upsertUnifiedEmailSubscriber,
 } from '@/services/newsletterSubscribers';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
-import { requestSlot, releaseSlot, POPUP_PRIORITY } from '@/services/popupQueue';
+import { requestSlot, releaseSlot, POPUP_PRIORITY, canShowPromotionalPrompt } from '@/services/popupQueue';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import { isLikelyBot } from '@/services/botPatterns';
 import type { Article } from '@/data/blog-articles-data';
@@ -248,6 +297,7 @@ import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/shared/healthPremiumsPaths';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
+import { isJobBoardSectionPathname } from '../../scripts/lib/jobBoardSections.mjs';
 import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
@@ -267,7 +317,6 @@ import {
 // See scripts/lib/crawler-location-config.mjs for the crawler-side switch.
 const DEFAULT_CANTON = 'TI';
 const DEFAULT_CANTON_DISPLAY = 'Ticino';
-const DEFAULT_POSTAL_CODE = '6900';
 const TARGET_CANTONS_ORDERED = ['TI', 'GR', 'VS'] as const;
 
 // Search-broaden floor: when a canton-scoped search yields FEWER than this many
@@ -276,11 +325,15 @@ const TARGET_CANTONS_ORDERED = ['TI', 'GR', 'VS'] as const;
 // the documented "SPA may over-recover vs the static landing" intent — broadening
 // never de-indexes a canonical page, it only fills the hydrated board.
 const BROADEN_BELOW = 10;
+const MAX_FALLBACK_RESULTS = 30;
 // Rank boost applied to a broadened cross-canton job whose LOCATION matches a
 // city named in the query (e.g. "…lausanne" → jobs physically in Lausanne sort
 // above jobs that merely mention the city in their description). Large enough to
 // dominate token-hit score so city-relevant listings lead the broadened tail.
 const CITY_MATCH_BOOST = 1000;
+function makeSearchBroadenKey(locale: Locale, query: string): string {
+ return `${locale}\u001f${query}`;
+}
 
 // Memoized stemmed haystack for the broaden tiers (cross-canton / cross-locale).
 // Those tiers scan the locale-wide unscoped pool (thousands of jobs) and used to
@@ -293,7 +346,7 @@ const CITY_MATCH_BOOST = 1000;
 // Reference stability — WeakMap hit-rate analysis:
 // The cache key is the job object reference. References are stable because
 // `unscopedJobs` and `crossLocaleJobs` are React state populated once per
-// session via one-shot guards (searchBroadenFetchAttempted,
+// session via one-shot guards (searchBroadenAttemptedQueries,
 // companyBroadenFetchAttempted, crossLocaleFetchAttempted). React never
 // recreates state values on re-render; the same JobListing objects live in
 // state until unmount or an explicit setState call. Therefore:
@@ -348,36 +401,6 @@ function trackJobAlertCtaShownOnce(surface: 'job_match_pill' | 'job_board_filter
   Analytics.trackJobAlertCtaShown(surface, keyword);
 }
 
-// Foreign country/city keywords — jobs matching these are EXCLUDED entirely.
-// These are locations outside Switzerland that should never appear on a Swiss job board.
-const FOREIGN_LOCATION_KEYWORDS = [
- 'london', 'paris', 'milan', 'milano', 'berlin', 'munich', 'münchen',
- 'frankfurt', 'hamburg', 'vienna', 'wien', 'madrid', 'barcelona',
- 'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
- 'tokyo', 'beijing', 'shanghai', 'singapore', 'bangkok', 'mumbai',
- 'dubai', 'new york', 'los angeles', 'toronto', 'sydney', 'melbourne',
- 'rome', 'roma', 'napoli', 'torino', 'bologna', 'genova', 'palermo',
- 'venezia', 'florence', 'firenze', 'kuala lumpur', 'luxembourg',
- 'jersey',
- 'united kingdom', 'germany', 'france', 'netherlands', 'belgium',
- 'austria', 'ireland', 'denmark', 'norway', 'sweden', 'finland',
- 'portugal', 'spain', 'poland', 'czech', 'romania', 'hungary',
- 'croatia', 'greece', 'japan', 'china', 'india', 'thailand',
- 'philippines', 'indonesia', 'malaysia', 'vietnam', 'south korea',
- 'taiwan', 'hong kong', 'australia', 'new zealand', 'canada',
- 'united states', 'mexico', 'brazil', 'argentina', 'chile',
- 'south africa', 'nigeria', 'kenya', 'egypt', 'israel', 'qatar',
- 'saudi arabia', 'bahrain', 'liechtenstein',
- 'ruggell', 'barberà del vallès', 'barbera del valles',
-];
-// Swiss cities that contain substrings of foreign city names (e.g. Münchenstein contains München)
-const SWISS_FALSE_POSITIVE_GUARD = ['münchenstein', 'münchenbuchsee', 'münchenwiler', 'romanshorn', 'romandie'];
-const isForeignLocation = (locality: string) => {
- const lower = locality.toLowerCase();
- if (SWISS_FALSE_POSITIVE_GUARD.some(s => lower.includes(s))) return false;
- return FOREIGN_LOCATION_KEYWORDS.some(kw => lower.includes(kw));
-};
-
 // Non-target Swiss cities — jobs in these locations are kept but sorted AFTER target cantons.
 const NON_TARGET_SWISS_CITY_KEYWORDS = [
  'zurich', 'zürich', 'geneva', 'genève', 'geneve', 'bern', 'berne',
@@ -401,16 +424,6 @@ const CANTON_DISPLAY: Record<string, string> = {
  'BL': 'Basel-Landschaft', 'TG': 'Thurgau', 'SZ': 'Schwyz', 'GL': 'Glarus',
  'JU': 'Jura', 'NW': 'Nidwalden', 'OW': 'Obwalden', 'AR': 'Appenzell AR',
  'AI': 'Appenzell AI', 'UR': 'Uri',
-};
-
-const CANTON_FALLBACK_POSTAL: Record<string, string> = {
- 'TI': '6900', 'GR': '7000', 'ZH': '8001', 'BE': '3001',
- 'LU': '6003', 'BS': '4001', 'GE': '1201', 'VD': '1003',
- 'AG': '5001', 'SG': '9001', 'VS': '1950', 'FR': '1700',
- 'NE': '2000', 'ZG': '6300', 'SH': '8200', 'SO': '4500',
- 'BL': '4410', 'TG': '8500', 'SZ': '6430', 'GL': '8750',
- 'JU': '2800', 'NW': '6370', 'OW': '6060', 'AR': '9100',
- 'AI': '9050', 'UR': '6460',
 };
 
 type ContractType = 'full-time' | 'part-time' | 'temporary' | 'internship' | 'contract';
@@ -453,6 +466,8 @@ export interface JobListing {
  addressLocality?: string;
  addressCountry?: string;
  featured: boolean;
+ postingDateSource?: string;
+ datePosted?: string;
  postedDate: string;
  crawledAt?: string;
  firstSeenAt?: string;
@@ -462,6 +477,7 @@ export interface JobListing {
  companyDomain?: string;
  /** Publisher-provided logo URL (https-only, projected from the publish form). */
  companyLogo?: string | null;
+ qualityScore?: number;
  /** Markdown description (sponsored publisher ads only). */
  descriptionMd?: string | null;
  sector?: string;
@@ -495,6 +511,8 @@ const JOB_EMAIL_ACCESS_KEY = 'frontaliere_job_email_access';
 // enough to not collide with the save interaction that triggered it.
 const SAVED_NUDGE_SHOW_DELAY_MS = 1200;
 const JOB_AUTH_REDIRECT_SLUG_KEY = 'frontaliere_job_auth_redirect_slug';
+const ASSISTED_CHECKOUT_AUTH_RESUME_KEY = 'frontaliere_assisted_checkout_auth_resume';
+const ASSISTED_CHECKOUT_AUTH_RESUME_TTL_MS = 30 * 60 * 1000;
 
 /** Module-level cache for per-job detail data (fetched on-demand when detail view opens). */
 const jobDetailCache = new Map<string, Promise<Partial<JobListing>>>();
@@ -600,6 +618,33 @@ function clearJobAuthRedirectSlug(): void {
  }
 }
 
+function saveAssistedCheckoutAuthResume(jobId: string): void {
+ try {
+  sessionStorage.setItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY, JSON.stringify({ jobId, savedAt: Date.now() }));
+ } catch {
+  // Auth can still complete when sessionStorage is unavailable.
+ }
+}
+
+function consumeAssistedCheckoutAuthResume(jobId: string): boolean {
+ try {
+  const raw = sessionStorage.getItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY);
+  if (!raw) return false;
+  const marker = JSON.parse(raw) as { jobId?: unknown; savedAt?: unknown };
+  if (marker?.jobId !== jobId) return false;
+  const savedAt = Number(marker.savedAt);
+  if (!Number.isFinite(savedAt) || Date.now() - savedAt < 0 || Date.now() - savedAt > ASSISTED_CHECKOUT_AUTH_RESUME_TTL_MS) {
+   sessionStorage.removeItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY);
+   return false;
+  }
+  sessionStorage.removeItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY);
+  return true;
+ } catch {
+  try { sessionStorage.removeItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY); } catch { /* storage unavailable */ }
+  return false;
+ }
+}
+
 /** Find articles related to a job based on job-title/keyword ↔ article-slug overlap */
 function getRelatedArticlesForJob(
  job: JobListing,
@@ -677,6 +722,10 @@ interface JobBoardProps {
  onRequireAuth?: () => void;
  /** Personalization feature flag (from Firebase Remote Config) */
  enablePersonalization?: boolean;
+ /** Exact-job application-intent ranking flag (off by default). */
+ enableApplicationIntentRanking?: boolean;
+ /** Refresh local behavior after the account's private Firestore profile hydrates. */
+ behaviorHydrationRevision?: number;
  /** User profile data for personalization scoring */
  userProfile?: import('@/components/pages/UserProfile').UserProfileData | null;
  /**
@@ -741,7 +790,7 @@ function buildReferralUrl(job: JobListing): string {
  }
 }
 
-function companyLogoUrl(job: JobListing): string | null {
+function companyLogoUrl(job: Pick<JobListing, 'company' | 'companyKey' | 'companyDomain' | 'url' | 'companyLogo'>): string | null {
  const explicitLogo = resolveCompanyLogoUrl({
  company: job.company,
  companyKey: job.companyKey,
@@ -777,7 +826,7 @@ export function normalizeIncomingJob(raw: any): JobListing {
 
  return {
  ...raw,
- id: String(raw?.id || raw?.slug || `${company}-${title}`),
+ ...normalizeListingIdentity(raw ?? {}),
  company,
  companyKey,
  title,
@@ -791,10 +840,11 @@ export function normalizeIncomingJob(raw: any): JobListing {
  ? raw.requirements.map((item: unknown) => String(item || '').trim()).filter(Boolean)
  : [],
  featured: Boolean(raw?.featured),
- // A recrawl must never make an undated listing look newly published. Prefer
- // the source publication date, then the first discovery timestamp; crawledAt
- // is only a last-resort fallback because it changes on every recrawl.
- postedDate: firstParsableDateStr(raw?.postedDate, raw?.firstSeenAt, raw?.crawledAt) || new Date().toISOString().slice(0, 10),
+ // Only verified employer publication dates populate these aliases.
+ // Observation timestamps remain separate and cannot establish publication.
+ postingDateSource: raw?.postingDateSource,
+ datePosted: resolveReportedPostingDate(raw || {}) || undefined,
+ postedDate: resolveReportedPostingDate(raw || {}) || '',
  // Do not promote job.url (which may be an ATS host) into ownership proof.
  // Static SEO and runtime JSON-LD must both use the crawler's raw domain.
  companyDomain: rawCompanyDomain || undefined,
@@ -818,7 +868,7 @@ async function normalizeJobPool(rawJobs: readonly unknown[]): Promise<JobListing
  const normalized: JobListing[] = [];
  const BATCH_SIZE = 512;
  for (let i = 0; i < rawJobs.length; i += 1) {
-  normalized.push(normalizeIncomingJob(rawJobs[i]));
+  if (isListingInventoryJob(rawJobs[i])) normalized.push(normalizeIncomingJob(rawJobs[i]));
   if ((i + 1) % BATCH_SIZE === 0 && i + 1 < rawJobs.length) {
    await yieldToMainThread();
   }
@@ -870,7 +920,8 @@ export function formatSalary(
  const range = max ? `${job.currency} ${min}k – ${max}k` : `${job.currency} ${min}k+`;
  // Estimated bands are declared as such, same convention as the SSG job
  // cards (`SALARY_ESTIMATE_SUFFIX` in build-plugins/shared/jobCardHtml.ts).
- return job.salarySource === 'estimated' ? `${range} ${SALARY_ESTIMATE_SUFFIX[locale]}` : range;
+ const suffix = salaryProvenanceSuffix(job.salarySource, locale);
+ return suffix ? `${range} ${suffix}` : range;
 }
 
 function contractTranslationKey(job: Pick<JobListing, 'contract' | 'title' | 'description'>): string {
@@ -1763,6 +1814,18 @@ export function parseCompanySlugFilter(initialJobSlug?: string, activeJobs?: Job
  return slug || null;
 }
 
+/**
+ * Parse a search landing slug unless it is also the canonical (or localized)
+ * slug of an active job. Job titles can legitimately begin with `ricerca-`,
+ * `search-`, `suche-`, or `recherche-`, so the reserved landing prefix is not
+ * enough to identify the page once the board already knows the job record.
+ */
+export function parseJobRouteSearchFilter(initialJobSlug?: string, activeJobs?: JobListing[]): string | null {
+ if (!initialJobSlug) return null;
+ if (activeJobs?.some((job) => matchesRouteSlug(job, initialJobSlug))) return null;
+ return parseSearchSlugFilter(initialJobSlug);
+}
+
 function getJobBoardLocationRoutePrefix(locale: Locale): string {
  switch (locale) {
  case 'en': return 'location';
@@ -1794,11 +1857,15 @@ function parseLocationSlugFilter(initialJobSlug?: string): string | null {
  return slug || null;
 }
 
-export function shouldRestoreJobBoardListState(previousSlug?: string, nextSlug?: string): boolean {
+export function shouldRestoreJobBoardListState(
+ previousSlug?: string,
+ nextSlug?: string,
+ activeJobs?: JobListing[],
+): boolean {
  const wasOnDetail = Boolean(
  previousSlug
  && !parseCompanySlugFilter(previousSlug)
- && !parseSearchSlugFilter(previousSlug)
+ && !parseJobRouteSearchFilter(previousSlug, activeJobs)
  && !parseLocationSlugFilter(previousSlug)
  );
  const isBackToPlainList = !nextSlug;
@@ -2060,7 +2127,7 @@ const DATE_RANGE_MS: Record<DateRange, number> = {
   '90d': 90 * 24 * 60 * 60 * 1000,
 };
 
-type JobDateFields = Pick<JobListing, 'postedDate' | 'firstSeenAt'>;
+type JobDateFields = Pick<JobListing, 'postedDate' | 'firstSeenAt' | 'datePosted' | 'postingDateSource'>;
 
 type CachedJobDates = {
  postedAt: number;
@@ -2077,8 +2144,8 @@ function cachedJobDates(job: JobDateFields): CachedJobDates {
  const cached = jobDateCache.get(objectJob);
  if (cached) return cached;
  const parsed: CachedJobDates = {
-  postedAt: firstParsableMs(job.postedDate, job.firstSeenAt),
-  firstSeenAt: firstParsableMs(job.firstSeenAt, job.postedDate),
+  postedAt: firstParsableMs(resolveReportedPostingDate(job)),
+  firstSeenAt: firstParsableMs(job.firstSeenAt),
  };
  jobDateCache.set(objectJob, parsed);
  return parsed;
@@ -2240,10 +2307,16 @@ function readCurrentPageViewPath(): string {
  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
 }
 
-/** The Italian Ticino job-board surface runs the rewarded treatment without an experiment. */
+/**
+ * Every job-board section (all cantons, the Switzerland aggregator, every
+ * locale) runs the rewarded treatment without an experiment (owner decision
+ * 2026-09-26, which ends the control/assisted_application A/B there). Same
+ * matcher as the click-only Offerwall gate, so "Candidati" opens the
+ * Offerwall wherever the gate holds it.
+ */
 function isAlwaysRewardedApplicationSurface(): boolean {
  if (typeof window === 'undefined') return false;
- return /^\/cerca-lavoro-ticino(?:\/|$)/.test(window.location.pathname);
+ return isJobBoardSectionPathname(window.location.pathname);
 }
 
 function readAssistedApplicationOrderId(): string | null {
@@ -2259,11 +2332,87 @@ function isExternalApplicationJob(job: JobListing): boolean {
 
 const JOB_AUTH_GATE_EXPERIMENT_ID = 'authgate-headline-v3';
 
-function assistedApplicationJobContext(job: JobListing, variant: AssistedApplicationVariant) {
+interface InterruptibleDerivation<T> {
+ value: T;
+ pending: boolean;
+}
+
+/**
+ * Build a complete derived value outside React's render task. A dependency
+ * change cancels the old scan; only the result for the current revision can be
+ * observed, so downstream fetch/SEO effects never consume a partial corpus.
+ */
+function useInterruptibleDerivation<TItem, TAccumulator, TResult>({
+ items,
+ enabled,
+ emptyValue,
+ createAccumulator,
+ visit,
+ finish,
+}: {
+ items: ReadonlyArray<TItem>;
+ enabled: boolean;
+ emptyValue: TResult;
+ createAccumulator: () => TAccumulator;
+ visit: (accumulator: TAccumulator, item: TItem, index: number) => boolean | void;
+ finish: (accumulator: TAccumulator) => TResult;
+}): InterruptibleDerivation<TResult> {
+ const revision = useMemo(
+  () => ({}),
+  [items, enabled, createAccumulator, visit, finish],
+ );
+ const [settled, setSettled] = useState<{ revision: object | null; value: TResult }>(() => ({
+  revision: null,
+  value: emptyValue,
+ }));
+
+ useEffect(() => {
+  if (!enabled) return;
+  const scan = scheduleFrameBudgetedScan({
+   items,
+   createAccumulator,
+   visit,
+   finish,
+   onComplete: (value) => {
+    startTransition(() => setSettled({ revision, value }));
+   },
+  });
+  return () => scan.cancel();
+ }, [items, enabled, createAccumulator, visit, finish, revision]);
+
+ const current = enabled && settled.revision === revision;
+ return {
+  value: current ? settled.value : emptyValue,
+  pending: enabled && !current,
+ };
+}
+
+/**
+ * The gate's unified subscriber write. An enrolled jobgate visitor also gets
+ * `variant: 'jobgate-v5:<arm>'` on the document (the readout's join key); the
+ * consent fields still come from `unifiedEmailConsentInput`, unchanged. Not
+ * enrolled (kill switch, timeout, bot bypass) → exactly `upsertUnifiedEmailSubscriber`.
+ */
+async function upsertJobGateSubscriber(
+ db: Parameters<typeof upsertUnifiedEmailSubscriber>[0],
+ input: Parameters<typeof upsertUnifiedEmailSubscriber>[1],
+) {
+ const variant = getJobGateSubscriberVariant(await currentJobGateAssignment());
+ return variant
+  ? upsertNewsletterSubscriber(db, { ...unifiedEmailConsentInput(input), variant })
+  : upsertUnifiedEmailSubscriber(db, input);
+}
+
+function buildAssistedApplicationJobContext(
+ job: JobListing,
+ variant: AssistedApplicationVariant,
+ copyVariant?: AssistedApplicationCopyVariant,
+) {
  return {
   variant,
   jobId: String(job.id),
   companyId: String(job.companyKey || job.company || 'unknown'),
+  ...(copyVariant ? { copy_variant: copyVariant } : {}),
  };
 }
 
@@ -2280,12 +2429,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onFacebookAuthRequired,
  onRequireAuth,
  enablePersonalization = false,
+ enableApplicationIntentRanking = false,
+ behaviorHydrationRevision = 0,
  userProfile = null,
  initialFilterCanton = null,
 }) => {
  const { t } = useTranslation();
  const [locale] = useLocale();
- const { headline: gateHeadline, variant: gateVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ const { variant: headlineVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const killSwitches = useKillSwitches();
  // Keep crawlers and automated browsers on the canonical/original apply path:
  // do not fetch Remote Config, assign a paid/rewarded arm, or emit experiment
@@ -2295,6 +2446,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isCrawlerVisitor = useMemo(() => isCrawlerVisitorAgent(navigator.userAgent || ''), []);
  const isLikelyBotVisitor = useMemo(() => isLikelyBot(), []);
  const shouldBypassAssistedApplicationExperiment = isCrawlerVisitor || isLikelyBotVisitor;
+ // jobgate: while enrolled, every gate event carries the round's id + arm;
+ // otherwise the tags stay exactly the headline experiment's.
+ const jobGate = useJobGateExperiment(shouldBypassAssistedApplicationExperiment);
+ const gateVariant: string = jobGate.enrolled ? jobGate.arm : headlineVariant;
+ const gateExperimentId = jobGate.enrolled ? JOBGATE_EXPERIMENT_ID : JOB_AUTH_GATE_EXPERIMENT_ID;
+ const jobGateFailTags = jobGate.enrolled ? { variant: gateVariant, experimentId: gateExperimentId } : {};
  const alwaysRewardedApplicationSurface = isAlwaysRewardedApplicationSurface();
  const {
   variant: configuredAssistedApplicationVariant,
@@ -2302,14 +2459,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  } = useAssistedApplicationVariant(
   !alwaysRewardedApplicationSurface && !shouldBypassAssistedApplicationExperiment,
  );
+ const {
+  variant: assistedApplicationCopyVariant,
+  ready: assistedApplicationCopyVariantReady,
+ } = useAssistedApplicationCopyVariant(!shouldBypassAssistedApplicationExperiment);
  const assistedApplicationVariant = shouldBypassAssistedApplicationExperiment
   ? 'control'
   : alwaysRewardedApplicationSurface
   ? (killSwitches.rewardedApplicationAd ? 'control' : 'rewarded_ad')
   : configuredAssistedApplicationVariant;
- const assistedApplicationVariantReady = shouldBypassAssistedApplicationExperiment
+ const assistedApplicationJobContext = (job: JobListing, variant: AssistedApplicationVariant) => (
+  buildAssistedApplicationJobContext(job, variant, assistedApplicationCopyVariant)
+ );
+ // Paid 1,99 € offer as the fallback of an Offerwall that could not load
+ // (owner decision 2026-09-29), only on the rewarded job-board surface.
+ const offerwallPaidFallbackEnabled = useOfferwallPaidFallback(
+  alwaysRewardedApplicationSurface && !shouldBypassAssistedApplicationExperiment,
+ );
+ const assistedApplicationVariantReady = (shouldBypassAssistedApplicationExperiment
   || alwaysRewardedApplicationSurface
-  || configuredAssistedApplicationVariantReady;
+  || configuredAssistedApplicationVariantReady)
+  && (shouldBypassAssistedApplicationExperiment || assistedApplicationCopyVariantReady);
  // Hold the detail skeleton (not the auth gate) while a newsletter autologin is
  // exchanging — the visitor is about to be signed in; flashing the gate is noise.
  const newsletterAutologinInFlight = useNewsletterAutologinInFlight();
@@ -2415,8 +2585,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Search-broaden: when a canton-scoped SEARCH yields a thin in-canton set
  // (< BROADEN_BELOW) we lazy-load the locale-wide pool so the cross-canton tier
  // can fill the page. Closes the gap left by `unscopedJobs` (populated only via
- // the legacy path) for the healthy-shard search case. One-shot per mount.
- const searchBroadenFetchAttempted = useRef(false);
+ // the legacy path) for the healthy-shard search case. Track attempts per
+ // (locale, query): a new thin query or locale must not inherit the terminal
+ // state of the pair that was visible when the previous request started.
+ const searchBroadenAttemptedQueries = useRef<Set<string>>(new Set());
+ // The pool is query-independent. Share the in-flight request across rapid
+ // query changes so the per-query correctness guard does not create duplicate
+ // downloads while the user is typing.
+ const searchBroadenPoolPromiseRef = useRef<{
+   locale: Locale;
+   promise: Promise<JobListing[] | null>;
+ } | null>(null);
+ // A canton-scoped thin search must finish its same-locale pool attempt before
+ // Tier 4 decides that the query is empty. This is the (locale, query) pair
+ // whose attempt has reached a terminal state, not a mount-wide boolean.
+ const [searchBroadenSettledQueries, setSearchBroadenSettledQueries] = useState<ReadonlySet<string>>(() => new Set());
  const [jobsLoading, setJobsLoading] = useState(true);
  // In-flight count of the lazy broaden / cross-locale fallback fetches. A thin
  // canton-scoped search/company page reads `filteredJobs.length === 0` after the
@@ -2475,9 +2658,48 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // responded.
  const [appliedJobId, setAppliedJobId] = useState<string | null>(null);
  const [assistedApplicationJob, setAssistedApplicationJob] = useState<JobListing | null>(null);
+ // Why the paid offer is open: the assisted-application experiment arm, or the
+ // fallback of a rewarded Offerwall that could not load.
+ const [assistedOfferSource, setAssistedOfferSource] = useState<'experiment' | 'offerwall_fallback'>('experiment');
+ const assistedOfferAvailable = assistedApplicationVariant === 'assisted_application'
+  || (assistedApplicationVariant === 'rewarded_ad' && assistedOfferSource === 'offerwall_fallback');
  const [rewardedApplicationJob, setRewardedApplicationJob] = useState<JobListing | null>(null);
+ // The open rewarded offer resumes a click after the Offerwall recovery reload.
+ const [rewardedApplicationResumed, setRewardedApplicationResumed] = useState(false);
+ // The resumed click already holds the access: the offer shows only its
+ // "open" card, since no click activation survives the reload.
+ const [rewardedApplicationOpenCardOnly, setRewardedApplicationOpenCardOnly] = useState(false);
+ // The resumed click had already taken the free path of the paid choice: it
+ // goes straight to the Offerwall, and a failure never brings the choice back.
+ const [rewardedApplicationFreeChosen, setRewardedApplicationFreeChosen] = useState(false);
+ // The reason of a direct hand-off (no ad, paid fallback off) whose new tab
+ // waits for confirmation: the offer's "open" card retries that hand-off.
+ const rewardedDirectHandoffReasonRef = useRef<string | null>(null);
+ // Synchronous twin of the two application offers' state: a double click on
+ // "Candidati" runs handleApply twice before React re-renders, and the second
+ // run must not emit a second apply/offer event pair (or a second rewarded
+ // request) for the same gesture.
+ const applicationOfferOpenRef = useRef(false);
+ useEffect(() => {
+  if (!rewardedApplicationJob && !assistedApplicationJob) applicationOfferOpenRef.current = false;
+ }, [assistedApplicationJob, rewardedApplicationJob]);
+ useEffect(() => {
+  if (!rewardedApplicationJob) {
+   setRewardedApplicationResumed(false);
+   setRewardedApplicationOpenCardOnly(false);
+   setRewardedApplicationFreeChosen(false);
+   rewardedDirectHandoffReasonRef.current = null;
+  }
+ }, [rewardedApplicationJob]);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
  const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
+ const [sumUpPayment, setSumUpPayment] = useState<{
+  checkoutId: string;
+  orderId: string;
+  successUrl: string;
+  eventContext: ReturnType<typeof buildAssistedApplicationJobContext>;
+ } | null>(null);
+ const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
  useEffect(() => {
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
@@ -2486,7 +2708,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // segment is the job's OLD slug, not a search keyword. 13 historic slugs start
  // with ricerca-/search-/suche-/recherche- (measured on prod 2026-08-07) and
  // would otherwise seed the search box, filtering the listing on a job URL.
- const [searchQuery, setSearchQuery] = useState(() => (readBridgeTargetSlug() ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl());
+ const isSeededExpiredDetail = Boolean(initialJobSlug && seededJobMatchesSlug(initialJobSlug));
+ const [searchQuery, setSearchQuery] = useState(() => (readBridgeTargetSlug() || isSeededExpiredDetail ? null : parseJobRouteSearchFilter(initialJobSlug, jobs)) || readSearchQueryFromUrl());
  const deferredSearchQuery = useDeferredValue(searchQuery);
  // Search input is uncontrolled (defaultValue, no `value` prop): keystrokes paint
  // natively in the DOM with zero React involvement, so typing never waits on this
@@ -2565,16 +2788,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const authUnlockCandidateRef = useRef<string | null>(null);
  const jobAuthExposureRef = useRef<string | null>(null);
  const wasLoggedInRef = useRef(isLoggedIn);
- // Job id whose detail was just unlocked by a fresh social (Google/FB) auth.
- // The job-detail alert prompt fires immediately (delay 0) for this job —
- // it's the highest-intent moment (the user just authed to read THIS job),
- // so we don't wait out the dwell timer before offering the one-tap alert.
- const justAuthedJobIdRef = useRef<string | null>(null);
 
  // ── Personalization: behavior data + derived state ──
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
  const [lastVisitTimestamp, setLastVisitTimestamp] = useState<number | null>(null);
  const visitCapturedRef = useRef(false);
+ const applicationIntentExposureRef = useRef(false);
+ const applicationIntentSyncRef = useRef<{ jobId: string; promise: Promise<boolean> } | null>(null);
  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
  const [jobMatchProfile, setJobMatchProfile] = useState<JobMatchProfileData | null>(null);
  // INP: behaviorData/jobMatchProfile land via a post-mount effect (localStorage
@@ -2592,9 +2812,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const deferredUserProfile = useDeferredValue(userProfile);
  // Job-popularity map, fetched instead of bundled (#5001 — see
  // services/jobPopularityService.ts for the measurement that motivated it).
- // Starts as the frozen empty map: getTrendingByLocation() returns [] for it
- // and TrendingSection only renders at 3+ matches, so the pre-load state is
- // simply "no trending strip yet" — the same thing an offline user already saw.
+ // Starts as the frozen empty map: getTrendingByLocation() returns [] for it.
+ // The recommendation slot shows already loaded jobs until popularity arrives,
+ // preserving its geometry even when this optional request fails.
  const [popularity, setPopularity] = useState<Record<string, number>>(EMPTY_JOB_POPULARITY);
  // Deferred for the same reason as the three values above (#4302): it is an
  // enhancement-only input that lands via a post-mount effect, and its arrival
@@ -2635,12 +2855,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // stays in React state for this board session, so later SPA updates to
  // behaviorData cannot make the counter compare against "now".
  useEffect(() => {
- if (!enablePersonalization || visitCapturedRef.current) return;
- visitCapturedRef.current = true;
- const { data, previousLastVisit } = readBehaviorAndMarkVisit();
- setBehaviorData(data);
- setLastVisitTimestamp(previousLastVisit);
- }, [enablePersonalization]);
+ if (!enablePersonalization && !enableApplicationIntentRanking) return;
+ if (enablePersonalization && !visitCapturedRef.current) {
+  visitCapturedRef.current = true;
+  const { data, previousLastVisit } = readBehaviorAndMarkVisit();
+  setBehaviorData(data);
+  setLastVisitTimestamp(previousLastVisit);
+ } else {
+  setBehaviorData(getBehaviorData());
+ }
+ }, [enablePersonalization, enableApplicationIntentRanking, behaviorHydrationRevision]);
+
+ // Preference changes happen in the profile surface, which can remain mounted
+ // beside the board during an SPA session. Refresh immediately so a signal
+ // opt-out also removes the local ranking treatment without a full remount.
+ useEffect(() => {
+  const onBehaviorDataChanged = () => setBehaviorData(getBehaviorData());
+  window.addEventListener(BEHAVIOR_DATA_CHANGED_EVENT, onBehaviorDataChanged);
+  return () => window.removeEventListener(BEHAVIOR_DATA_CHANGED_EVENT, onBehaviorDataChanged);
+ }, []);
 
  // Load survey-derived job-match profile (sector/canton/experience level).
  // Independent of behaviorData: a user who only completed SalarySurvey (no
@@ -2663,7 +2896,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const savedJobIds = useMemo(() => new Set(savedJobs.map((entry) => entry.id)), [savedJobs]);
 
- const performToggleSave = useCallback((job: JobListing, surface: 'list' | 'detail', uid: string) => {
+ const performToggleSave = useCallback((job: JobListing, surface: SaveJobSurface, uid: string) => {
  const result = toggleSavedJob({
  id: job.id,
  slug: job.slug ?? null,
@@ -2681,6 +2914,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, []);
 
+ // Issue 9575 (sibling of the job-alert form): when localStorage cannot hold
+ // the pending intent, keep it in memory. The sign-in modal opens in THIS tab,
+ // so an in-tab sign-in still replays the save; only a link opened in another
+ // tab has no channel to it. Every reader below falls back to this ref.
+ const pendingSaveFallbackRef = useRef<PendingSaveJobIntent | null>(null);
+ const stashPendingSave = useCallback((intent: PendingSaveJobIntent): boolean => {
+ const stored = savePendingSaveJobIntent(intent);
+ pendingSaveFallbackRef.current = stored ? null : intent;
+ return stored;
+ }, []);
+
  // Account-gating (#4466 follow-up): anonymous tap never writes — stash the
  // pending job in services/pendingSaveJob.ts (localStorage, survives a
  // magic-link email opened in a brand new tab) + open the sign-in modal.
@@ -2689,7 +2933,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const handleToggleSave = useCallback((job: JobListing, surface: SaveJobSurface = 'list') => {
  const uid = authUser?.uid ?? null;
  if (!uid) {
- savePendingSaveJobIntent({
+ const pendingStored = stashPendingSave({
  kind: 'save_job',
  entry: {
  id: job.id,
@@ -2707,11 +2951,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
       // full-screen overlay on top of this modal.
       requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
  setSaveAuthPromptOpen(true);
- Analytics.trackEvent('save_signin_prompt_shown', { job_id: job.id, surface });
+ Analytics.trackEvent('save_signin_prompt_shown', { job_id: job.id, surface, pending_stored: pendingStored });
  return;
  }
  performToggleSave(job, surface, uid);
- }, [authUser?.uid, performToggleSave]);
+ }, [authUser?.uid, performToggleSave, stashPendingSave]);
 
  const handleToggleSaveFromList = useCallback(
  (job: JobListing) => handleToggleSave(job, 'list'),
@@ -2731,7 +2975,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!uid) return;
       releaseSlot('save-auth-prompt');
  setSaveAuthPromptOpen(false);
- const intent = consumePendingSaveJobIntent();
+ const intent = consumePendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
+ pendingSaveFallbackRef.current = null;
  if (!intent) return;
  if (intent.kind === 'save_job') {
  Analytics.trackEvent('save_signin_prompt_completed', { job_id: intent.entry.id, surface: intent.surface });
@@ -2756,7 +3001,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // another tab); closing the "check your email" card isn't abandonment.
  // The 15-minute TTL in pendingSaveJob.ts handles true abandonment.
  const handleSaveAuthPromptDismiss = useCallback(() => {
- const intent = peekPendingSaveJobIntent();
+ const intent = peekPendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
  Analytics.trackEvent(
  'save_signin_prompt_dismissed',
  intent?.kind === 'save_job' ? { job_id: intent.entry.id, surface: intent.surface } : { surface: 'saved_filter_pill' },
@@ -2787,13 +3032,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [enablePersonalization, deferredSearchQuery]);
 
  // New jobs counter
- // computeNewJobsCount + the personal-score filter below iterate the full
- // job list — deferred so a behaviorData/jobMatchProfile update from the
- // post-mount effect doesn't block a concurrent click (see deferred* comment
- // above).
- const newJobsInfo = useMemo(() => {
- if (!enablePersonalization || !deferredBehaviorData) return { total: 0, matching: 0 };
- return computeNewJobsCount(jobs, lastVisitTimestamp, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile);
+ // The badge can score the entire corpus for a returning visitor too.
+ // Time-slice it just like the ranking path below, cancelling stale queries.
+ const [newJobsInfo, setNewJobsInfo] = useState({ total: 0, matching: 0 });
+ useEffect(() => {
+ if (!enablePersonalization || !deferredBehaviorData) {
+ setNewJobsInfo({ total: 0, matching: 0 });
+ return;
+ }
+ return scheduleNewJobsCount(jobs, lastVisitTimestamp, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile,
+ count => startTransition(() => setNewJobsInfo(count)));
  }, [enablePersonalization, deferredBehaviorData, jobs, lastVisitTimestamp, deferredUserProfile, deferredJobMatchProfile]);
 
  // Trending jobs for user's location
@@ -2806,13 +3054,57 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Count of jobs whose personal score is boosted by any signal (behavior,
  // tax/onboarding profile, or job-match survey profile). Feeds both the
  // "Personalizzato per te" pill and the job_match_impression analytics event.
+ //
+ // Scored ONCE per input change and shared with sortedJobs below (#9583):
+ // both used to score the full list separately, with the user-side inputs
+ // recompiled for every job — a returning user at the tracker caps froze the
+ // main thread for 14 s (1x CPU) right after mount and again on every
+ // deferred search keystroke (trackSearch refreshes behaviorData).
+ const [scheduledPersonalScores, setScheduledPersonalScores] = useState<{
+ scores: Map<JobListing, PersonalScore>;
+ personalization: boolean;
+ applicationIntent: boolean;
+ } | null>(null);
+ const personalScoreByJob = (enablePersonalization || enableApplicationIntentRanking) && deferredBehaviorData
+ && scheduledPersonalScores?.personalization === enablePersonalization
+ && scheduledPersonalScores?.applicationIntent === enableApplicationIntentRanking
+ ? scheduledPersonalScores.scores
+ : null;
+ useEffect(() => {
+ if ((!enablePersonalization && !enableApplicationIntentRanking) || !deferredBehaviorData) return;
+ // A new query cancels unfinished scoring; sorting only sees complete maps.
+ return schedulePersonalJobScores(jobs, createPersonalScorer(
+  deferredBehaviorData,
+  deferredUserProfile ?? null,
+  deferredJobMatchProfile,
+  {
+   applicationIntentRankingEnabled: enableApplicationIntentRanking,
+   personalizationEnabled: enablePersonalization,
+  },
+ ), scores => startTransition(() => setScheduledPersonalScores({
+  scores, personalization: enablePersonalization, applicationIntent: enableApplicationIntentRanking,
+ })));
+ }, [enablePersonalization, enableApplicationIntentRanking, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
  const matchedJobCount = useMemo(() => {
- if (!enablePersonalization || !deferredBehaviorData) return 0;
- return jobs.filter((j) => computePersonalScore(j, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile).score > 0).length;
- }, [enablePersonalization, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
+ if (!personalScoreByJob) return 0;
+ let count = 0;
+ for (const personal of personalScoreByJob.values()) if (personal.score > 0) count++;
+ return count;
+ }, [personalScoreByJob]);
 
  // Whether personalization is actively changing sort order (any job scored > 0)
  const isPersonalizationActive = matchedJobCount > 0;
+
+ // Low-cardinality experiment exposure; this helper is Firebase Analytics-only
+ // and deliberately carries no user, employer, or job identifiers.
+ useEffect(() => {
+ if ((!enablePersonalization && !enableApplicationIntentRanking) || !behaviorData || applicationIntentExposureRef.current) return;
+ applicationIntentExposureRef.current = true;
+ Analytics.trackExperimentEvent('application_intent_ranking_exposure', {
+  experiment_id: 'application_intent_ranking',
+  variant: enableApplicationIntentRanking ? 'treatment' : 'control',
+ });
+ }, [enablePersonalization, enableApplicationIntentRanking, behaviorData]);
 
  // Analytics: track personalization state
  useEffect(() => {
@@ -2856,7 +3148,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // Restore page + scroll when returning from job detail to list
  useEffect(() => {
- const shouldRestore = shouldRestoreJobBoardListState(prevSlugRef.current, initialJobSlug);
+ const shouldRestore = shouldRestoreJobBoardListState(prevSlugRef.current, initialJobSlug, jobs);
  prevSlugRef.current = initialJobSlug;
  if (shouldRestore && savedListState.current) {
  const { page: savedPage, scrollY, query } = savedListState.current;
@@ -2867,7 +3159,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  savedListState.current = null;
  requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: 'instant' }));
  }
- }, [initialJobSlug]);
+ }, [initialJobSlug, jobs]);
 
  // ⌘K / Ctrl+K keyboard shortcut to focus search
  useEffect(() => {
@@ -2943,7 +3235,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateSaveReaskedRef = useRef(false);
  useEffect(() => {
  if (!hasAccess || authUser?.uid || gateSaveReaskedRef.current) return;
- const intent = peekPendingSaveJobIntent();
+ const intent = peekPendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
  if (intent?.kind !== 'save_job' || intent.surface !== 'detail_gate') return;
  gateSaveReaskedRef.current = true;
  requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
@@ -2971,9 +3263,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  //
  // `parseCompanySlugFilter` used to catch the company ones by scanning
  // `jobs[].previousSlugs`, but the slim index no longer carries that field
- // (build-plugins/shared/slimJobIndex.ts). `parseSearchSlugFilter` never had
- // the guard at all, so the 13 search-prefixed aliases mis-parsed already —
- // same class of bug, closed here in the same PR (AGENTS.md §6).
+ // (build-plugins/shared/slimJobIndex.ts). Search-prefixed job slugs need the
+ // same active-job disambiguation: a real title can begin with `ricerca-` even
+ // when the URL is not a search landing.
  //
  // The build-injected global is the right signal: synchronous, present at
  // first paint, and set by the very plugin that emits the bridge page.
@@ -2987,16 +3279,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // an expired job page — not a company filter page. This catches expired jobs whose
   // company name starts with "azienda-" etc. The slug-specific match prevents stale
   // window globals from a previous SPA navigation triggering a false positive.
-  if (initialJobSlug && seededJobMatchesSlug(initialJobSlug)) return null;
+  if (isSeededExpiredDetail) return null;
   return filter;
- }, [initialJobSlug, jobs, isBridgePage]);
+ }, [initialJobSlug, jobs, isBridgePage, isSeededExpiredDetail]);
  const locationSlugFilter = useMemo(
- () => (isBridgePage ? null : parseLocationSlugFilter(initialJobSlug)),
- [initialJobSlug, isBridgePage],
+ () => (isBridgePage || isSeededExpiredDetail ? null : parseLocationSlugFilter(initialJobSlug)),
+ [initialJobSlug, isBridgePage, isSeededExpiredDetail],
  );
  const searchSlugFilter = useMemo(
- () => (isBridgePage ? null : parseSearchSlugFilter(initialJobSlug)),
- [initialJobSlug, isBridgePage],
+ () => (isBridgePage || isSeededExpiredDetail ? null : parseJobRouteSearchFilter(initialJobSlug, jobs)),
+ [initialJobSlug, jobs, isBridgePage, isSeededExpiredDetail],
  );
  // Title-cased search keyword for the search-landing H1 (e.g. "verkaufsberater
  // in tessin" → "Verkaufsberater In Tessin"). Keeps the keyword in the H1 after
@@ -3008,10 +3300,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  useEffect(() => {
  const syncFromUrl = () => {
- // Same bridge-page guard as `searchSlugFilter` above (the third call site of
- // parseSearchSlugFilter): on a job bridge page the URL segment is a job's old
- // slug, not a search keyword, so it must not become the search query.
- const next = (isBridgePage ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl();
+ // Same route-slug guard as `searchSlugFilter` above:
+ // On a job bridge page the URL segment is a job's old slug, not a search
+ // keyword, and an active job whose slug starts with a
+ // reserved prefix is not a search landing either.
+ const next = (isBridgePage || isSeededExpiredDetail ? null : parseJobRouteSearchFilter(initialJobSlug, jobs)) || readSearchQueryFromUrl();
  const nextPage = readPageFromUrl();
  applySearchQuery((prev) => (prev === next ? prev : next));
  setPage(nextPage);
@@ -3025,7 +3318,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
  window.addEventListener('popstate', syncFromUrl);
  return () => window.removeEventListener('popstate', syncFromUrl);
- }, [initialJobSlug, isBridgePage, page, searchQuery]);
+ }, [initialJobSlug, jobs, isBridgePage, isSeededExpiredDetail, page, searchQuery]);
 
  useEffect(() => {
  const next = searchSlugFilter || readSearchQueryFromUrl();
@@ -3041,16 +3334,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  /**
  * Initial-mount data load (D9 + D11 + E4).
  *
- * Source of truth migrated from monolithic `/data/jobs.json` → per-canton
- * shards via `services/jobsService.ts`. Shards carry raw Job objects without
- * locale-translated fields, so when (a) the shard pipeline is not yet
- * deployed for this build, or (b) the chosen shards return zero jobs, we
- * fall back to the legacy locale-aware loader (`fetchAllJobs()` / the slim
- * index files) which preserves existing UX during the rollout window.
+ * Canton routes load their locale-specific shard; the national route loads
+ * the complete locale slim index from the same build snapshot. A missing
+ * canton shard falls back to that index scoped to the requested canton.
  *
  * D11 — referrer-aware default canton:
  *   - referrer contains "frontaliere" → start on TI shard (single fetch).
- *   - otherwise → multi-canton aggregate across the top 8 Swiss cantons.
+ *   - otherwise → complete Swiss inventory.
  *
  * Cancellation: the effect aborts state writes when `cancelled` flips to
  * true, so a locale change mid-flight cannot stomp the next load.
@@ -3059,11 +3349,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let cancelled = false;
  // Fresh load for this locale/canton → the authoritative index is pending again.
  setFullLoadPending(true);
-
- /** Top-N cantons fetched when no canton intent is detected (req #4). */
- const TOP_AGGREGATE_CANTONS: ReadonlyArray<string> = [
- 'TI', 'GR', 'VS', 'ZH', 'BE', 'BS', 'GE', 'VD',
- ];
 
  /**
  * First-page slim asset (#2580): the first ~50 records of the slim index,
@@ -3186,10 +3471,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  try {
- const shardJobs: RawJob[] =
- targetCanton === AGGREGATE_CANTON_CODE
- ? await fetchAggregatedJobs(TOP_AGGREGATE_CANTONS, locale, { deduplicate: true })
- : await fetchJobsForCanton(targetCanton, locale);
+ // The aggregate sentinel resolves to the complete locale index in the
+ // service; a top-canton sample would disagree with the national SEO count.
+ const shardJobs = await fetchJobsForCanton(targetCanton, locale);
 
  // Shards not yet deployed (every shard 404'd / empty) → legacy loader.
  // The legacy payload is the locale-wide monolith (~13 MB, all 26 cantons
@@ -3529,49 +3813,67 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
  const assistedApplicationOrderId = readAssistedApplicationOrderId();
+ const assistedApplicationReviewToken = readReviewToken();
+ // Preload only where "Candidati" is actually reachable: anonymous visitors
+ // see the login gate instead of the CTA, so a request for them could never
+ // be shown and would only inflate the unit's unfilled requests.
  const shouldPreloadRewardedApplicationAd = Boolean(
   isJobDetailView
   && authResolved
+  && hasAccess
   && assistedApplicationVariant === 'rewarded_ad'
   && !killSwitches.rewardedApplicationAd
   && selectedJob
   && isExternalApplicationJob(selectedJob)
   && getRewardedApplicationAccessExpiresAt() === null,
  );
+ // The Candidati click is the visitor's opt-in to the rewarded video, which
+ // then opens without a second click. Google's rewarded-web policy requires
+ // that choice to be informed, so every labelled Candidati CTA that will open
+ // the video says so.
+ const rewardedCtaDisclosure = selectedJob
+  && isExternalApplicationJob(selectedJob)
+  && assistedApplicationVariant === 'rewarded_ad'
+  && !killSwitches.rewardedApplicationAd
+  && getRewardedApplicationAccessExpiresAt() === null
+  ? t('jobBoard.assisted.rewardedTitle')
+  : null;
  useEffect(() => {
   if (!shouldPreloadRewardedApplicationAd) return;
- let cancelled = false;
- let idleId: number | null = null;
- let timeoutId: number | null = null;
- let preloadPromise: Promise<unknown> | null = null;
- const idleWindow = window as Window & {
-   requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
-   cancelIdleCallback?: (id: number) => void;
- };
- const start = () => {
-   if (cancelled || !isAdsConsentGranted() || preloadPromise) return;
-   // Keep the rewarded/GPT implementation out of the initial JobBoard chunk.
-   // The page only downloads it for an eligible, consented detail view.
-   preloadPromise = import('@/services/rewardedWebAd')
-    .then(({ preloadRewardedWebAd }) => {
-     if (!cancelled) preloadRewardedWebAd();
-    })
-    .catch(() => {});
- };
-  if (typeof idleWindow.requestIdleCallback === 'function') {
-   idleId = idleWindow.requestIdleCallback(start, { timeout: 1000 });
-  } else {
-   timeoutId = window.setTimeout(start, 250);
-  }
-  const unsubscribe = onAdsConsentChange((value) => {
-   if (value === 'granted') start();
-  });
-  return () => {
-   cancelled = true;
+ // Start the auction as soon as an eligible, consented detail renders: a
+ // creative that is already ready when "Candidati" is clicked opens with no
+ // wait. A click that finds the request still pending or already ended gets
+ // its own auction from the offer (requestRewardedWebAd), and the video opens
+ // on rewardedSlotReady: GPT does not require a live user activation for
+ // makeRewardedVisible(), measured on production with the activation expired.
+ if (isAdsConsentGranted()) preloadRewardedWebAd();
+ const unsubscribe = onAdsConsentChange((value) => {
+   if (value === 'granted') preloadRewardedWebAd();
+ });
+ return () => {
    unsubscribe();
-   if (idleId !== null) idleWindow.cancelIdleCallback?.(idleId);
-   if (timeoutId !== null) window.clearTimeout(timeoutId);
+ };
+ }, [shouldPreloadRewardedApplicationAd]);
+ // Load the application offers' code while the visitor reads the job: the
+ // "Candidati" click otherwise waited for these chunks with nothing on screen
+ // (live 2026-10-05, 4G and a 4x slower CPU: 1,007 ms from the click to the
+ // paid choice). The lazy components then resolve at once.
+ useEffect(() => {
+  if (!shouldPreloadRewardedApplicationAd) return undefined;
+  const warm = () => {
+   void import('@/components/community/RewardedApplicationOffer').catch(() => {});
+   void import('@/components/community/AssistedApplicationOffer').catch(() => {});
   };
+  const idleWindow = window as Window & {
+   requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+   cancelIdleCallback?: (id: number) => void;
+  };
+  if (typeof idleWindow.requestIdleCallback === 'function') {
+   const id = idleWindow.requestIdleCallback(warm, { timeout: 4000 });
+   return () => idleWindow.cancelIdleCallback?.(id);
+  }
+  const timer = window.setTimeout(warm, 2000);
+  return () => window.clearTimeout(timer);
  }, [shouldPreloadRewardedApplicationAd]);
  const assistedExposureKeysRef = useRef(new Set<string>());
  useEffect(() => {
@@ -3609,11 +3911,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let cancelled = false;
  (async () => {
  try {
- const [{ getFirestore, doc, getDoc }, { app }] = await Promise.all([
+ const [{ getFirestore, doc, getDoc }, { getApp }] = await Promise.all([
  import('firebase/firestore'),
  import('@/services/firebase'),
  ]);
- const snap = await getDoc(doc(getFirestore(app), 'newsletter_subscribers', userEmail.toLowerCase()));
+ const snap = await getDoc(doc(getFirestore(await getApp()), 'newsletter_subscribers', userEmail.toLowerCase()));
  if (cancelled || !snap.exists()) return;
  const data = snap.data() as Record<string, unknown>;
  const newsletterSignals = {
@@ -3879,8 +4181,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Same as the job-match pill above: the impression comes from
  // <JobBoardFilterAlertCta onImpression> on real viewport visibility (#5039).
 
+ const jobReadingIntent = useJobReadingIntent(String(selectedJob?.id || initialJobSlug || 'job-list'));
  useEffect(() => {
- try { console.log('[AlertDebug] enter', { detail: isJobDetailView, flag: enableJobAlerts, uid: !!userId, email: !!userEmail, inFlight: newsletterAutologinInFlight, jobId: selectedJob?.id }); } catch { /* noop */ }
+  const onOtherPrompt = (event: Event) => {
+   if ((event as CustomEvent).detail !== 'job-detail-alert-prompt') setJobDetailPromptVisible(false);
+  };
+  window.addEventListener('ft-job-alert-prompt-shown', onOtherPrompt);
+  return () => window.removeEventListener('ft-job-alert-prompt-shown', onOtherPrompt);
+ }, []);
+ useEffect(() => {
+ if (!jobReadingIntent || !canShowJobAlertPrompt() || !canShowPromotionalPrompt()) return;
  if (!isJobDetailView || !selectedJob) return;
  if (!enableJobAlerts) return;
  if (!userId || !userEmail) {
@@ -3935,7 +4245,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return;
  }
  if (cancelled) return;
- if (findMatchingAlertForCategory(existing, localizedCategory)) {
+ if (findMatchingAlertForCategory(existing, localizedCategory, selectedJob.canton)) {
  Analytics.trackJobAlertCtaSkipped('job_detail_prompt', 'already_subscribed');
  return;
  }
@@ -3947,22 +4257,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return;
  }
 
- // Leva B: a user who just authed via Google/FB to unlock THIS job is at
- // peak intent — show the one-tap alert offer immediately rather than
- // waiting out the dwell timer. Consume the ref so it fires only once.
- const justAuthed = justAuthedJobIdRef.current === selectedJob.id;
- if (justAuthed) justAuthedJobIdRef.current = null;
- // Show immediately (0 s) for peak-intent arrivals; 1.5 s dwell otherwise.
- // Newsletter-autologin visitors only become authenticated after a ~4 s token
- // exchange, and the 1.5 s timer then races (and usually loses) against the
- // AdSense/enrichment re-renders that re-run this effect — so the prompt often
- // never fires (observed: hasUser:true at +4 s, then no toast). They clicked a
- // job in an email = peak intent, so treat them like an in-app post-auth unlock.
- const showImmediately = justAuthed || wasNewsletterAutologinAttempted();
- try { console.log('[AlertDebug] arm timer', { delayMs: showImmediately ? 0 : 1500, existing: existing.length, category: localizedCategory }); } catch { /* noop */ }
  timerId = window.setTimeout(() => {
- if (cancelled) { try { console.log('[AlertDebug] timer cancelled before fire'); } catch { /* noop */ } return; }
- try { console.log('[AlertDebug] FIRE — prompt visible'); } catch { /* noop */ }
+ if (cancelled || !canShowJobAlertPrompt() || !canShowPromotionalPrompt()) return;
  setJobDetailPromptCategory(localizedCategory);
  setJobDetailPromptVisible(true);
  // The impression is NOT fired here any more. The toast waits for a
@@ -3971,7 +4267,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // counting the first would inflate the denominator of the one
  // job-alert surface that actually converts. It fires from the
  // prompt's `onShown` instead — see jobDetailPromptJsx below.
- }, showImmediately ? 0 : 1500);
+ }, 0);
  })();
 
  return () => {
@@ -3984,7 +4280,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // flake after the 0 s change. A real navigation changes the id and still
  // re-runs / re-arms.
  // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [isJobDetailView, selectedJob?.id, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t]);
+ }, [isJobDetailView, selectedJob?.id, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t, jobReadingIntent]);
 
  // Impression for the peak-intent alert offer inside the applied receipt. Fired
  // on appearance rather than via IntersectionObserver because the receipt is
@@ -4006,11 +4302,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Auto-unmount the prompt if the user logs out or leaves the detail view.
  useEffect(() => {
  if (!jobDetailPromptVisible) return;
- if (!isJobDetailView || !userEmail || !userId) {
+ if (!isJobDetailView || !userEmail || !userId || !jobReadingIntent) {
  setJobDetailPromptVisible(false);
  setJobDetailPromptCategory(null);
  }
- }, [isJobDetailView, jobDetailPromptVisible, userEmail, userId]);
+ }, [isJobDetailView, jobDetailPromptVisible, userEmail, userId, jobReadingIntent]);
 
  const editorialJobTodayLanding = useMemo(() => {
  if (editorialLandingDescriptor?.kind !== 'today') return null;
@@ -4161,18 +4457,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
  }, [selectedJob]);
 
- // sortedJobs re-scores + re-sorts every loaded job (up to ~12k on the
- // Switzerland-wide aggregator) as one synchronous block; it reads the
- // deferred* personalization inputs declared above so this resort yields to
- // a concurrent click instead of blocking it (see comment there, #4302).
- const sortedJobs = useMemo(() => {
- // Step 1: EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
- const swissJobs = jobs.filter(j => {
- const loc = j.addressLocality || j.location || '';
- return !isForeignLocation(loc);
- });
-
- // Step 2: Canton priority + personalization scoring
+ // sortedJobs re-sorts every loaded job (up to ~12k on the Switzerland-wide
+ // aggregator) as one synchronous block; it reads the deferred* personalization
+ // scores declared above so this resort yields to a concurrent click instead
+ // of blocking it (see comment there, #4302). When the resulting order is the
+ // one already rendered, the previous array is returned: its identity keys the
+ // search index below, and a new identity for the same order rebuilt that index
+ // (and every memo downstream) after each deferred search keystroke (#9583).
+ //
+ // The sort keys that do not depend on personalization (canton rank, calendar day) depend on `jobs` alone, so they are
+ // computed once per list here instead of on every personal-score change:
+ // over the ~22k-job live list they cost ~200 ms at 1x CPU, paid again by
+ // each tracked search keystroke before this split (#9583).
+ const jobSortKeys = useMemo(() => {
  const cantonRank = (job: JobListing) => {
  if (job.addressLocality && isNonTargetSwissCity(job.addressLocality)) {
  return TARGET_CANTONS_ORDERED.length;
@@ -4184,10 +4481,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const t = new Date(d || 0);
  return new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
  };
-
- const shouldPersonalize = enablePersonalization && deferredBehaviorData;
-
- const withMeta = swissJobs.map(j => ({
+ return jobs
+ // Keep the foreign-location guard visible at the sort boundary: this memo
+ // owns the SPA ordering contract, while the shared predicate also applies it
+ // before data enters the listing pool used by SSR and the slim index.
+ .filter((j) => !isForeignLocation(j.addressLocality || j.location || '') && isListingInventoryJob(j))
+ .map(j => ({
  job: j,
  // Sponsored (featured) ads bought the top placement — they outrank every
  // other signal. Inventory is scarce by construction (FEATURED_SLOTS_PER_CANTON
@@ -4196,19 +4495,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  rank: cantonRank(j),
  day: dayTs(j.crawledAt || j.postedDate),
  qs: j.qualityScore ?? 0,
- personal: shouldPersonalize
- ? computePersonalScore(j, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile)
- : { score: 0, topSignal: '' },
  }));
- withMeta.sort((a, b) =>
- (b.sp - a.sp)
- || (b.personal.score - a.personal.score)
- || (a.rank - b.rank)
- || (b.day - a.day)
- || (b.qs - a.qs)
- );
- return withMeta.map(({ job }) => job);
- }, [jobs, enablePersonalization, deferredBehaviorData, deferredUserProfile, deferredJobMatchProfile]);
+ }, [jobs]);
+ const sortedJobsRef = useRef<JobListing[] | null>(null);
+ const sortedJobs = useMemo(() => {
+ const withMeta = jobSortKeys.map(keys => ({
+ ...keys,
+ personal: personalScoreByJob?.get(keys.job) ?? NO_PERSONAL_SCORE,
+ }));
+ withMeta.sort((a, b) => {
+ const existingOrder = (b.sp - a.sp)
+  || (b.personal.score - a.personal.score)
+  || (a.rank - b.rank)
+  || (b.day - a.day)
+  || (b.qs - a.qs);
+ if (existingOrder !== 0 || !enableApplicationIntentRanking) return existingOrder;
+ return compareApplicationIntentJobKeys(a.job, b.job);
+ });
+ const next = reuseIfSameOrder(sortedJobsRef.current, withMeta.map(({ job }) => job));
+ sortedJobsRef.current = next;
+ return next;
+ }, [jobSortKeys, personalScoreByJob, enableApplicationIntentRanking]);
 
  // Pre-built search index: caches normalised haystack per job so
  // queryMatchesJob doesn't recompute expensive string normalisation on every keystroke.
@@ -4223,11 +4530,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // that matches nothing — the 7,16 MB stampede this component is trying to
  // avoid. A locale switch has the same shape from the other side: same array
  // identity, haystacks built for the previous language.
+ /**
+  * A build seed is already the complete answer for its route. While it applies,
+  * no fallback may interpret the deliberately empty client derivation as a
+  * corpus miss: doing so downloads and scans pools that cannot affect the UI.
+ * Facets deliberately do not disable the seed: they narrow its bounded result
+ * set below, matching the build-to-SPA handoff contract.
+  */
+ const clusterSeedApplies = clusterSeedJobs.length > 0
+   && !!clusterSeed
+   && deferredSearchQuery.trim() === clusterSeed.q.trim()
+   && !companySlugFilter
+   && !locationSlugFilter;
+ const unseededSearchPipelineEnabled = !clusterSeedApplies;
+
  const [searchIndex, setSearchIndex] = useState<{
  readonly map: Map<JobListing, string>;
  readonly jobs: ReadonlyArray<JobListing> | null;
  readonly locale: Locale | null;
- }>(() => ({ map: new Map(), jobs: null, locale: null }));
+ readonly ids: ReadonlySet<string>;
+ readonly locationTokens: ReadonlySet<string>;
+ }>(() => ({ map: new Map(), jobs: null, locale: null, ids: new Set(), locationTokens: new Set() }));
 
  // Time-sliced, not fixed-count. A 50-job chunk per rAF frame makes the wall
  // clock a function of the FRAME COUNT, not of the work: 14.700 jobs (the
@@ -4243,6 +4566,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // before, not later.
  useEffect(() => {
  const map = new Map<JobListing, string>();
+ const ids = new Set<string>();
+ const locationTokens = new Set<string>();
  let i = 0;
  let raf = 0;
  let cancelled = false;
@@ -4262,6 +4587,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // like "nurse" or "Pflegefachfrau" surfaces a job titled "Infermiera".
  const synonyms = professionSynonymText(localizedTitle);
  map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`));
+ ids.add(job.id);
+ addJobSearchLocationTokens(locationTokens, job);
  i++;
  if ((i & CLOCK_CHECK_MASK) === 0 && performance.now() >= deadline) break;
  }
@@ -4273,7 +4600,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (i < sortedJobs.length) {
  raf = requestAnimationFrame(processChunk);
  } else {
- setSearchIndex({ map, jobs: sortedJobs, locale });
+ setSearchIndex({ map, jobs: sortedJobs, locale, ids, locationTokens });
  }
  }
 
@@ -4295,6 +4622,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Keep both fallback pools in one identity-keyed index: cross-locale results
  // use the same matcher, and object references remain stable after setState.
  const fallbackIndexJobs = useMemo<ReadonlyArray<JobListing>>(() => {
+ if (!unseededSearchPipelineEnabled) return [];
  const merged: JobListing[] = [];
  const seen = new Set<JobListing>();
  for (const job of [...unscopedJobs, ...crossLocaleJobs]) {
@@ -4303,7 +4631,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  merged.push(job);
  }
  return merged;
- }, [unscopedJobs, crossLocaleJobs]);
+ }, [unscopedJobs, crossLocaleJobs, unseededSearchPipelineEnabled]);
 
  const [fallbackSearchIndex, setFallbackSearchIndex] = useState<{
  readonly map: Map<JobListing, string>;
@@ -4326,13 +4654,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  while (i < fallbackIndexJobs.length) {
  const job = fallbackIndexJobs[i];
  fallbackMap.set(job, getBroadenHaystack(job, locale));
- const location = `${job.addressLocality || ''} ${job.location || ''}`;
- for (const token of normalizeSearchText(location).split(' ')) {
-  if (!token) continue;
-  const stem = stemSearchToken(token);
-  if (stem.length <= 3 || RELATED_SEARCH_STOPWORDS.has(stem)) continue;
-  fallbackLocationTokens.add(stem);
- }
+ addJobSearchLocationTokens(fallbackLocationTokens, job);
  i++;
  if ((i & CLOCK_CHECK_MASK) === 0 && performance.now() >= deadline) break;
  }
@@ -4393,8 +4715,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   * discarded, because once the index completed the strict tier had 8 results
   * all along. One flag for all four consumers so they cannot drift apart.
   */
- const searchIndexPending = Boolean(deferredSearchQuery.trim())
- && (searchIndex.jobs !== sortedJobs || searchIndex.locale !== locale);
+ const searchIndexCurrent = searchIndex.jobs === sortedJobs && searchIndex.locale === locale;
+ const searchIndexPending = Boolean(deferredSearchQuery.trim()) && !searchIndexCurrent;
 
  // Post-auth prompt removed 2026-05-19: PostHog 30-day data showed 88%
  // dismiss rate · 3 open · 0 accepts · 3 silent errors on
@@ -4402,10 +4724,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // "second-job" trigger has no audience either — the job-detail prompt
  // (relaxed gating, max 2/day) carries conversions instead.
 
+ const searchLocationTokens = useMemo<Set<string>>(() => {
+ const set = new Set(searchIndexCurrent ? searchIndex.locationTokens : []);
+ if (clusterSeedApplies) collectJobSearchLocationTokens(clusterSeedJobs, set);
+ for (const token of fallbackSearchIndex.locationTokens) set.add(token);
+ return set;
+ }, [searchIndex, searchIndexCurrent, fallbackSearchIndex, clusterSeedApplies, clusterSeedJobs]);
+
  // Helper: apply ALL non-search filters (company, location, category,
  // contract, sector, date, newOnly). Reused by both the strict AND-match
  // path below and the OR-fallback path so the two stay consistent.
+ const occupationTerms = useMemo(() => hasActiveSalarySearchIntent(deferredSearchQuery, searchSlugFilter, initialJobSlug) ? deriveJobBoardOccupationTerms(deferredSearchQuery, searchLocationTokens) : [], [deferredSearchQuery, searchLocationTokens, searchSlugFilter, initialJobSlug]);
+ // The seed, strict search and every broadening tier share occupational relevance.
  const passingNonSearchFilters = useCallback((job: JobListing, now: number, cutoff: number): boolean => {
+ if (!matchesJobOccupation(job, locale, occupationTerms)) return false;
  if (companySlugFilter) {
  const slugCandidates = companyRouteSlugCandidates(job.company, job.companyKey);
  if (!slugCandidates.has(companySlugFilter)) return false;
@@ -4442,23 +4774,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (jobMax < salaryRangeFilter.min || jobMinRaw > rangeMax) return false;
  }
  return true;
- }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly, deferredShowSavedOnly, savedJobIds, salaryRangeFilter]);
-
- // strictFilteredJobs: AND-match on every search token (current behavior).
- // The OR-fallback layer below kicks in when this is empty for a
- // multi-token query — typical for slug-driven URLs like
- // /cerca-lavoro-ticino/ricerca-koch-davos/ where no job has BOTH "koch"
- // and "davos" but many have one of the two.
- const strictFilteredJobs = useMemo(() => {
- const now = Date.now();
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
- const query = deferredSearchQuery.trim();
- return sortedJobs.filter((job) => {
- if (!passingNonSearchFilters(job, now, cutoff)) return false;
- if (query) return indexedQueryMatch(job, query);
- return true;
- });
- }, [sortedJobs, deferredSelectedDateRange, deferredSearchQuery, indexedQueryMatch, passingNonSearchFilters]);
+ }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly, deferredShowSavedOnly, savedJobIds, salaryRangeFilter, locale, occupationTerms]);
 
  // Location vocabulary for the OR-fallback relevance floor. Stemmed tokens of
  // every job location currently in memory (canton-scoped + unscoped pool).
@@ -4485,27 +4801,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // token and silently lowering the floor. Removing a token from the discount
  // set can only RAISE the floor (stricter) — it never surfaces more off-topic
  // jobs — so the guard is monotone-safe.
- const scopedSearchLocationTokens = useMemo<Set<string>>(() => {
- const set = new Set<string>();
- for (const j of sortedJobs) {
- const loc = `${j.addressLocality || ''} ${j.location || ''}`;
- for (const tok of normalizeSearchText(loc).split(' ')) {
- if (!tok) continue;
- const stem = stemSearchToken(tok);
- if (stem.length <= 3) continue;
- if (RELATED_SEARCH_STOPWORDS.has(stem)) continue;
- set.add(stem);
- }
- }
- return set;
- }, [sortedJobs]);
-
- const searchLocationTokens = useMemo<Set<string>>(() => {
- const set = new Set(scopedSearchLocationTokens);
- for (const token of fallbackSearchIndex.locationTokens) set.add(token);
- return set;
- }, [scopedSearchLocationTokens, fallbackSearchIndex]);
-
  // OR-fallback relevance floor, ported from the static cluster plugin
  // (build-plugins/relatedSearchClustersPlugin.ts: `minOrScore`). A query with
  // ≥2 CONTENT tokens (after stripping job-search boilerplate AND location
@@ -4555,39 +4850,90 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // matches (excluding the strict ids, which `filteredJobs` lists first), so the
  // hydrated page matches the static cluster page instead of collapsing to 1
  // (which also removed the jarring static-30 → hydrated-1 layout shift).
- const MAX_FALLBACK_RESULTS = 30;
- const orFallbackInCantonJobs = useMemo<JobListing[]>(() => {
- const query = deferredSearchQuery.trim();
- if (!query || strictFilteredJobs.length >= BROADEN_BELOW) return [];
+ const orFallbackTokens = useMemo(
+  () => normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken),
+  [orFallbackQuery],
+ );
 
- // Score the boilerplate-stripped query so the matched tokens stay
- // consistent with the floor (`orFallbackMinScore`, which counts content
- // tokens) — see `orFallbackQuery` above.
- const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
- if (queryTokens.length < 2) return []; // single token: AND === OR, nothing to add
+ type InCantonAccumulator = {
+  now: number;
+  cutoff: number;
+  strict: JobListing[];
+  fallback: RankedCandidate<JobListing>[];
+  queryMatches: JobListing[];
+  autocomplete: string[];
+  autocompleteSeen: Set<string>;
+ };
+ type InCantonResult = {
+  strict: JobListing[];
+  fallback: JobListing[];
+  queryMatches: JobListing[];
+  autocomplete: string[];
+ };
+ const emptyInCantonResult = useMemo<InCantonResult>(() => ({
+  strict: [], fallback: [], queryMatches: [], autocomplete: [],
+ }), []);
+ const createInCantonAccumulator = useCallback((): InCantonAccumulator => {
+  const now = Date.now();
+  return {
+   now,
+   cutoff: deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange],
+   strict: [],
+   fallback: [],
+   queryMatches: [],
+   autocomplete: [],
+   autocompleteSeen: new Set(),
+  };
+ }, [deferredSelectedDateRange]);
+ const visitInCantonJob = useCallback((accumulator: InCantonAccumulator, job: JobListing, sourceIndex: number) => {
+  const query = deferredSearchQuery.trim();
+  const queryMatches = !query || indexedQueryMatch(job, query);
+  if (query && queryMatches) accumulator.queryMatches.push(job);
 
- const now = Date.now();
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
+  if (accumulator.autocomplete.length < 5) {
+   addJobBoardAutocompleteSuggestions(
+    accumulator.autocomplete,
+    accumulator.autocompleteSeen,
+    job,
+    query,
+    locale,
+   );
+  }
 
- // Exclude jobs already matched by the strict AND tier — this tier supplies
- // only the OR-fill tail; `filteredJobs` lists the strict matches first.
- const strictIds = new Set<string>();
- for (const j of strictFilteredJobs) strictIds.add(j.id);
-
- const scored: { job: JobListing; score: number }[] = [];
- for (const job of sortedJobs) {
- if (strictIds.has(job.id)) continue;
- if (!passingNonSearchFilters(job, now, cutoff)) continue;
- const haystack = searchIndex.map.get(job) ?? '';
- let score = 0;
- for (const t of queryTokens) {
- if (haystack.includes(` ${t}`)) score++;
- }
- if (score >= orFallbackMinScore) scored.push({ job, score });
- }
- scored.sort((a, b) => b.score - a.score);
- return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, orFallbackQuery, searchIndex, deferredSelectedDateRange, passingNonSearchFilters, orFallbackMinScore]);
+  if (!passingNonSearchFilters(job, accumulator.now, accumulator.cutoff)) return;
+  if (queryMatches) {
+   accumulator.strict.push(job);
+   return;
+  }
+  if (orFallbackTokens.length < 2) return;
+  const haystack = searchIndex.map.get(job) ?? '';
+  let score = 0;
+  for (const token of orFallbackTokens) {
+   if (haystack.includes(` ${token}`)) score++;
+  }
+  if (score < orFallbackMinScore) return;
+  offerBoundedRankedCandidate(accumulator.fallback, { value: job, score, sourceIndex }, MAX_FALLBACK_RESULTS);
+ }, [deferredSearchQuery, indexedQueryMatch, locale, passingNonSearchFilters, orFallbackTokens, searchIndex, orFallbackMinScore]);
+ const finishInCantonDerivation = useCallback((accumulator: InCantonAccumulator): InCantonResult => ({
+  strict: accumulator.strict,
+  fallback: deferredSearchQuery.trim()
+   && accumulator.strict.length < BROADEN_BELOW
+   && orFallbackTokens.length >= 2
+   ? rankedCandidateValues(accumulator.fallback)
+   : [],
+  queryMatches: accumulator.queryMatches,
+  autocomplete: accumulator.autocomplete.slice(0, 5),
+ }), [deferredSearchQuery, orFallbackTokens.length]);
+ const inCantonDerivation = useInterruptibleDerivation({
+  items: sortedJobs,
+  enabled: unseededSearchPipelineEnabled && !searchIndexPending,
+  emptyValue: emptyInCantonResult,
+  createAccumulator: createInCantonAccumulator,
+  visit: visitInCantonJob,
+  finish: finishInCantonDerivation,
+ });
+ const strictFilteredJobs = inCantonDerivation.value.strict;
+ const orFallbackInCantonJobs = inCantonDerivation.value.fallback;
 
  // Cross-canton OR-fallback (Tier 3): only fires when strict AND the in-
  // canton OR-fallback both returned zero. Searches the unscoped locale-wide
@@ -4598,73 +4944,73 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // date-range or non-search filter. The locale-wide haystacks are prepared in
  // a frame-budgeted fallback index above, so a date/filter change only scans
  // the already-indexed records and never rebuilds 26k strings in the render.
- const crossCantonFallbackJobs = useMemo<JobListing[]>(() => {
- const query = deferredSearchQuery.trim();
- if (!query) return [];
- // Broaden when the in-canton tiers returned FEWER than BROADEN_BELOW jobs
- // (was: only when they returned exactly zero). A single weak in-canton match
- // — e.g. a TI job whose description happens to mention "lausanne" — used to
- // suppress the much richer cross-canton set, leaving the page stuck at 1.
- // The in-canton result is whichever tier won: strict (AND) if it has any,
- // else the in-canton OR fallback. These are merged-with (not replaced) by the
- // consumer (`filteredJobs`), so this tier only supplies the broadened tail.
- // strict + OR-fill tail (the fill excludes strict ids, so no double count).
+ type RankedFallbackAccumulator = {
+  now: number;
+  cutoff: number;
+  ranked: RankedCandidate<JobListing>[];
+ };
+ const createRankedFallbackAccumulator = useCallback((): RankedFallbackAccumulator => {
+  const now = Date.now();
+  return {
+   now,
+   cutoff: deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange],
+   ranked: [],
+  };
+ }, [deferredSelectedDateRange]);
+ const crossCantonCityTokens = useMemo(
+  () => orFallbackTokens.filter((token) => searchLocationTokens.has(token)),
+  [orFallbackTokens, searchLocationTokens],
+ );
+ const visitCrossCantonJob = useCallback((accumulator: RankedFallbackAccumulator, job: JobListing, sourceIndex: number) => {
+  if (searchIndex.ids.has(job.id)) return;
+  if (isForeignLocation(job.addressLocality || job.location || '')) return;
+  if (!passingNonSearchFilters(job, accumulator.now, accumulator.cutoff)) return;
+  const haystack = fallbackSearchIndex.map.get(job) ?? '';
+  let score = 0;
+  for (const token of orFallbackTokens) {
+   if (haystack.includes(` ${token}`)) score++;
+  }
+  if (score < orFallbackMinScore) return;
+  if (crossCantonCityTokens.length > 0) {
+   const locationHaystack = buildStemmedHaystack(`${job.addressLocality || ''} ${job.location || ''}`);
+   if (crossCantonCityTokens.some((token) => locationHaystack.includes(` ${token}`))) {
+    score += CITY_MATCH_BOOST;
+   }
+  }
+  offerBoundedRankedCandidate(accumulator.ranked, { value: job, score, sourceIndex }, MAX_FALLBACK_RESULTS);
+ }, [searchIndex, passingNonSearchFilters, fallbackSearchIndex, orFallbackTokens, orFallbackMinScore, crossCantonCityTokens]);
+ const finishRankedFallback = useCallback(
+  (accumulator: RankedFallbackAccumulator) => rankedCandidateValues(accumulator.ranked),
+  [],
+ );
  const inCantonCount = strictFilteredJobs.length + orFallbackInCantonJobs.length;
- if (inCantonCount >= BROADEN_BELOW) return [];
- if (unscopedJobs.length === 0) return [];
- if (fallbackSearchIndexPending) return [];
-
- // Score the boilerplate-stripped query (see `orFallbackQuery`) so the
- // tokens match the floor's content-token count.
- const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
- if (queryTokens.length === 0) return [];
-
- // City-aware relevance: query tokens that are part of the location vocabulary
- // (`searchLocationTokens`) name a place ("lausanne"). A broadened job whose
- // own LOCATION matches one of them is far more relevant than a job that only
- // mentions the city in prose, so it gets CITY_MATCH_BOOST and leads the tail.
- const cityTokens = queryTokens.filter((t) => searchLocationTokens.has(t));
-
- const now = Date.now();
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
-
- const scopedIds = new Set<string>();
- for (const j of sortedJobs) scopedIds.add(j.id);
-
- const scored: { job: JobListing; score: number }[] = [];
- for (const job of unscopedJobs) {
- if (scopedIds.has(job.id)) continue;
- if (isForeignLocation(job.addressLocality || job.location || '')) continue;
- if (!passingNonSearchFilters(job, now, cutoff)) continue;
- const haystack = fallbackSearchIndex.map.get(job) ?? '';
- let score = 0;
- for (const t of queryTokens) {
- if (haystack.includes(` ${t}`)) score++;
- }
- if (score < orFallbackMinScore) continue;
- let locBoost = 0;
- if (cityTokens.length > 0) {
- const locHay = buildStemmedHaystack(`${job.addressLocality || ''} ${job.location || ''}`);
- for (const ct of cityTokens) {
- if (locHay.includes(` ${ct}`)) { locBoost = CITY_MATCH_BOOST; break; }
- }
- }
- scored.push({ job, score: score + locBoost });
- }
- scored.sort((a, b) => b.score - a.score);
- return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, orFallbackQuery, deferredSelectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore, searchLocationTokens, fallbackSearchIndex, fallbackSearchIndexPending]);
+ const crossCantonDerivation = useInterruptibleDerivation({
+  items: unscopedJobs,
+  enabled: unseededSearchPipelineEnabled
+   && !inCantonDerivation.pending
+   && Boolean(deferredSearchQuery.trim())
+   && inCantonCount < BROADEN_BELOW
+   && unscopedJobs.length > 0
+   && !fallbackSearchIndexPending
+   && searchIndexCurrent,
+  emptyValue: emptyInCantonResult.strict,
+  createAccumulator: createRankedFallbackAccumulator,
+  visit: visitCrossCantonJob,
+  finish: finishRankedFallback,
+ });
+ const crossCantonFallbackJobs = crossCantonDerivation.value;
 
  // Tier 4 trigger: lazy-load DE/FR/EN slim indexes when all in-locale tiers
  // returned zero for a non-empty query. Same job ID across locale shards so
  // we dedup against the already-loaded pool (sortedJobs ∪ unscopedJobs) to
  // avoid surfacing jobs the user already saw filtered-out. Fetch is one-shot
- // per session (crossLocaleFetchAttempted ref) — cross-locale corpora are
- // similarly sized to the IT one, so a per-keystroke refetch would waste
- // bandwidth without changing results.
+ // after it settles; if route/seed navigation cancels it, cleanup re-arms the
+ // attempt so leaving the seeded route can retry.
  useEffect(() => {
+ if (!unseededSearchPipelineEnabled) return;
  if (crossLocaleFetchAttempted.current) return;
  if (jobsLoading) return;
+ if (inCantonDerivation.pending || crossCantonDerivation.pending) return;
  // The zero below is only an answer once the index covers the corpus.
  if (searchIndexPending) return;
  if (fallbackSearchIndexPending) return;
@@ -4673,9 +5019,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (strictFilteredJobs.length > 0) return;
  if (orFallbackInCantonJobs.length > 0) return;
  if (crossCantonFallbackJobs.length > 0) return;
+ // On a canton-scoped search, let the same-locale broaden answer first. It
+ // either populates `unscopedJobs` (so Tier 3 can return) or settles empty /
+ // failed, in which case Tier 4 remains the correct terminal fallback. The
+ // aggregate board and company+search path intentionally skip this gate:
+ // neither path owns a same-locale search-broaden fetch.
+ const cantonScopedSearch =
+   !companySlugFilter
+   && (initialFilterCanton || getDefaultCantonForVisit()) !== AGGREGATE_CANTON_CODE;
+ const searchBroadenKey = makeSearchBroadenKey(locale, q);
+ if (cantonScopedSearch && unscopedJobs.length === 0 && !searchBroadenSettledQueries.has(searchBroadenKey)) return;
  crossLocaleFetchAttempted.current = true;
  setPendingFallbacks((n) => n + 1);
  let cancelled = false;
+ let attemptSettled = false;
  const allLocales: ReadonlyArray<Locale> = ['it', 'en', 'de', 'fr'];
  const otherLocales = allLocales.filter((l) => l !== locale);
  (async () => {
@@ -4712,18 +5069,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setPendingFallbacks((n) => n - 1);
  // Mark the terminal fallback settled (batched with setCrossLocaleJobs on the
  // success path, so results + settled flip together — no stale-0 frame).
- if (!cancelled) setCrossLocaleSettled(true);
+ if (!cancelled) {
+   attemptSettled = true;
+   setCrossLocaleSettled(true);
+ }
  }
  })();
- return () => { cancelled = true; };
+ return () => {
+   cancelled = true;
+   if (shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)) crossLocaleFetchAttempted.current = false;
+ };
  }, [
- deferredSearchQuery, jobsLoading, locale,
+ deferredSearchQuery, jobsLoading, locale, unseededSearchPipelineEnabled,
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
- unscopedJobs, sortedJobs,
+ unscopedJobs, sortedJobs, initialFilterCanton, companySlugFilter, searchBroadenSettledQueries,
  // Load-bearing: on a search that is genuinely empty, the tier counts above
  // never change when the index completes, so without this dep the effect
  // would not re-run and the fallback would never fire at all.
  searchIndexPending, fallbackSearchIndexPending,
+ inCantonDerivation.pending, crossCantonDerivation.pending,
  ]);
 
  // Shared locale-wide pool loader (slim index). Used by BOTH the company-hub
@@ -4748,10 +5112,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // canton-scoped pool has ZERO openings for that employer (HQ in another
  // canton), lazy-load the locale-wide pool into `unscopedJobs` so the
  // company-broadening tier below can show its Swiss-wide openings instead of
- // the empty-state. One-shot per mount; skipped when the pool is already loaded.
+ // the empty-state. One-shot after settlement; cancellation re-arms the attempt.
  useEffect(() => {
  if (companyBroadenFetchAttempted.current) return;
  if (jobsLoading) return;
+ if (inCantonDerivation.pending) return;
  if (!companySlugFilter) return;
  if (deferredSearchQuery.trim()) return; // search active → cross-locale tier owns the pool fetch
  if (strictFilteredJobs.length > 0) return; // employer has in-canton openings
@@ -4759,6 +5124,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  companyBroadenFetchAttempted.current = true;
  setPendingFallbacks((n) => n + 1);
  let cancelled = false;
+ let attemptSettled = false;
  (async () => {
  try {
  const pool = await loadUnscopedPool();
@@ -4771,91 +5137,112 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Mark the terminal company-broaden fallback settled (batched with
  // setUnscopedJobs on the success path, so results + settled flip together —
  // no stale-0 frame). Mirrors the crossLocaleSettled pattern for Tier 4.
- if (!cancelled) setCompanyBroadenSettled(true);
+ if (!cancelled) {
+   attemptSettled = true;
+   setCompanyBroadenSettled(true);
+ }
  }
  })();
- return () => { cancelled = true; };
- }, [companySlugFilter, deferredSearchQuery, jobsLoading, strictFilteredJobs.length, unscopedJobs.length, locale, loadUnscopedPool]);
+ return () => {
+   cancelled = true;
+   if (shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)) companyBroadenFetchAttempted.current = false;
+ };
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, strictFilteredJobs.length, unscopedJobs.length, locale, loadUnscopedPool, inCantonDerivation.pending]);
 
  // Search-broaden trigger: a canton-scoped SEARCH whose in-canton tiers are
  // thin (< BROADEN_BELOW) needs the locale-wide pool so the city-aware cross-
  // canton tier can fill the page. Distinct from the company trigger (no search)
  // and the cross-locale tier (other locales): this is same-locale, other-canton.
  // Skipped on the aggregate board (already nationwide) and when the pool is
- // already loaded. One-shot per mount (ref set only when we actually fetch, so a
- // later thin search still triggers if the first search was well-populated).
+ // already loaded. An attempt is recorded per query; the shared promise keeps
+ // rapid query changes from downloading the same locale-wide pool repeatedly.
+ // A query that was attempted but is not terminal yet may attach again after
+ // A→B→A, so the current query still receives the shared pool result.
  useEffect(() => {
- if (searchBroadenFetchAttempted.current) return;
+ if (!unseededSearchPipelineEnabled) return;
  if (jobsLoading) return;
+ if (inCantonDerivation.pending) return;
  // The in-canton counts below are provisional until the index is complete.
  if (searchIndexPending) return;
  if (companySlugFilter) return; // company path owns its loader
- if (!deferredSearchQuery.trim()) return;
+ const query = deferredSearchQuery.trim();
+ if (!query) return;
  if ((initialFilterCanton || getDefaultCantonForVisit()) === AGGREGATE_CANTON_CODE) return;
  if (unscopedJobs.length > 0) return; // pool already available
  // strict + OR-fill tail (the fill excludes strict ids, so no double count).
  const inCantonCount = strictFilteredJobs.length + orFallbackInCantonJobs.length;
  if (inCantonCount >= BROADEN_BELOW) return; // enough in-canton results already
- searchBroadenFetchAttempted.current = true;
- setPendingFallbacks((n) => n + 1);
- let cancelled = false;
+ const queryKey = makeSearchBroadenKey(locale, query);
+ const alreadyAttempted = searchBroadenAttemptedQueries.current.has(queryKey);
+ if (alreadyAttempted && searchBroadenSettledQueries.has(queryKey)) return;
+ if (!alreadyAttempted) {
+   searchBroadenAttemptedQueries.current.add(queryKey);
+   setPendingFallbacks((n) => n + 1);
+ }
  (async () => {
  try {
- const pool = await loadUnscopedPool();
- if (cancelled || !pool) return;
+ const cached = searchBroadenPoolPromiseRef.current;
+ const promise = cached?.locale === locale ? cached.promise : loadUnscopedPool();
+ searchBroadenPoolPromiseRef.current = { locale, promise };
+ const pool = await promise;
+ // The pool is query-independent. An observer from an earlier query must still
+ // publish it when this is the current locale request, otherwise A→B→A can leave the
+ // final A waiter with a terminal marker but no same-locale pool in state.
+ const currentRequest = searchBroadenPoolPromiseRef.current;
+ if (!pool || currentRequest?.locale !== locale || currentRequest.promise !== promise) return;
  setUnscopedJobs(pool);
  } catch (err: unknown) {
  reportCaughtError(err, 'jobBoard.loadJobs.searchBroaden');
  } finally {
- setPendingFallbacks((n) => n - 1);
+ if (!alreadyAttempted) setPendingFallbacks((n) => n - 1);
+ // Mark THIS (locale, query) pair terminal even when the index is empty, failed,
+ // or the user changed query while it was in flight. A later pair has its own gate.
+ setSearchBroadenSettledQueries((previous) => {
+   if (previous.has(queryKey)) return previous;
+   const next = new Set(previous);
+   next.add(queryKey);
+   return next;
+ });
  }
  })();
- return () => { cancelled = true; };
  // `searchIndexPending` is load-bearing, same reason as the cross-locale tier:
  // a genuinely thin search leaves every other dep unchanged when the index
  // completes, so the broaden would never fire without it.
- }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool, searchIndexPending]);
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool, searchIndexPending, searchBroadenSettledQueries, inCantonDerivation.pending, unseededSearchPipelineEnabled]);
 
  // Tier 4: cross-locale OR fallback. Same scoring as Tier 3, run against the
  // lazily-loaded DE/FR/EN pool. Job ID + slug are canonical across locale
  // shards, so the result still routes to the Italian URL via the existing
  // slug field — the only thing that may render in another language is the
  // title when no IT translation exists for that record.
- const crossLocaleFallbackJobs = useMemo<JobListing[]>(() => {
- const query = deferredSearchQuery.trim();
- if (!query) return [];
- if (strictFilteredJobs.length > 0) return [];
- if (orFallbackInCantonJobs.length > 0) return [];
- if (crossCantonFallbackJobs.length > 0) return [];
- if (crossLocaleJobs.length === 0) return [];
- if (fallbackSearchIndexPending) return [];
-
- // Score the boilerplate-stripped query (see `orFallbackQuery`) so the
- // tokens match the floor's content-token count.
- const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
- if (queryTokens.length === 0) return [];
-
- const now = Date.now();
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
-
- const scored: { job: JobListing; score: number }[] = [];
- for (const job of crossLocaleJobs) {
- if (isForeignLocation(job.addressLocality || job.location || '')) continue;
- if (!passingNonSearchFilters(job, now, cutoff)) continue;
- const haystack = fallbackSearchIndex.map.get(job) ?? '';
- let score = 0;
- for (const t of queryTokens) {
- if (haystack.includes(` ${t}`)) score++;
- }
- if (score >= orFallbackMinScore) scored.push({ job, score });
- }
- scored.sort((a, b) => b.score - a.score);
- return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [
- strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
- crossLocaleJobs, deferredSearchQuery, orFallbackQuery, deferredSelectedDateRange, passingNonSearchFilters, locale, orFallbackMinScore,
- fallbackSearchIndex, fallbackSearchIndexPending,
- ]);
+ const visitCrossLocaleJob = useCallback((accumulator: RankedFallbackAccumulator, job: JobListing, sourceIndex: number) => {
+  if (isForeignLocation(job.addressLocality || job.location || '')) return;
+  if (!passingNonSearchFilters(job, accumulator.now, accumulator.cutoff)) return;
+  const haystack = fallbackSearchIndex.map.get(job) ?? '';
+  let score = 0;
+  for (const token of orFallbackTokens) {
+   if (haystack.includes(` ${token}`)) score++;
+  }
+  if (score < orFallbackMinScore) return;
+  offerBoundedRankedCandidate(accumulator.ranked, { value: job, score, sourceIndex }, MAX_FALLBACK_RESULTS);
+ }, [passingNonSearchFilters, fallbackSearchIndex, orFallbackTokens, orFallbackMinScore]);
+ const crossLocaleDerivation = useInterruptibleDerivation({
+  items: crossLocaleJobs,
+  enabled: unseededSearchPipelineEnabled
+   && !inCantonDerivation.pending
+   && !crossCantonDerivation.pending
+   && Boolean(deferredSearchQuery.trim())
+   && strictFilteredJobs.length === 0
+   && orFallbackInCantonJobs.length === 0
+   && crossCantonFallbackJobs.length === 0
+   && crossLocaleJobs.length > 0
+   && !fallbackSearchIndexPending,
+  emptyValue: emptyInCantonResult.strict,
+  createAccumulator: createRankedFallbackAccumulator,
+  visit: visitCrossLocaleJob,
+  finish: finishRankedFallback,
+ });
+ const crossLocaleFallbackJobs = crossLocaleDerivation.value;
 
  // Tier 3.5 — company-hub broadening. Fires when a company filter is active
  // but every in-canton tier (and the search cross-canton tier) returned zero:
@@ -4871,29 +5258,50 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // this tier stays out so the search-driven cross-locale Tier 4 can answer
  // the keyword instead of dumping every Swiss-wide opening for the employer
  // (which would ignore the query and mislead the "N positions" banner).
- const companyBroadeningFallbackJobs = useMemo<JobListing[]>(() => {
- if (!companySlugFilter) return [];
- if (deferredSearchQuery.trim()) return [];
- if (strictFilteredJobs.length > 0) return [];
- if (orFallbackInCantonJobs.length > 0) return [];
- if (crossCantonFallbackJobs.length > 0) return [];
- if (unscopedJobs.length === 0) return [];
-
- const now = Date.now();
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
-
- const scopedIds = new Set<string>();
- for (const j of sortedJobs) scopedIds.add(j.id);
-
- const matches: JobListing[] = [];
- for (const job of unscopedJobs) {
- if (scopedIds.has(job.id)) continue;
- if (isForeignLocation(job.addressLocality || job.location || '')) continue;
- if (!passingNonSearchFilters(job, now, cutoff)) continue; // company filter enforced here
- matches.push(job);
- }
- return matches.slice(0, MAX_FALLBACK_RESULTS);
- }, [companySlugFilter, deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, unscopedJobs, sortedJobs, deferredSelectedDateRange, passingNonSearchFilters]);
+ type OrderedFallbackAccumulator = {
+  now: number;
+  cutoff: number;
+  matches: JobListing[];
+ };
+ const createOrderedFallbackAccumulator = useCallback((): OrderedFallbackAccumulator => {
+  const now = Date.now();
+  return {
+   now,
+   cutoff: deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange],
+   matches: [],
+  };
+ }, [deferredSelectedDateRange]);
+ const visitCompanyFallbackJob = useCallback((accumulator: OrderedFallbackAccumulator, job: JobListing) => {
+  if (searchIndex.ids.has(job.id)) return;
+  if (isForeignLocation(job.addressLocality || job.location || '')) return;
+  if (!passingNonSearchFilters(job, accumulator.now, accumulator.cutoff)) return;
+  accumulator.matches.push(job);
+  return accumulator.matches.length < MAX_FALLBACK_RESULTS;
+ }, [searchIndex, passingNonSearchFilters]);
+ const finishOrderedFallback = useCallback(
+  (accumulator: OrderedFallbackAccumulator) => accumulator.matches,
+  [],
+ );
+ const companyFallbackDerivation = useInterruptibleDerivation({
+  items: unscopedJobs,
+  enabled: !inCantonDerivation.pending
+   && Boolean(companySlugFilter)
+   && !deferredSearchQuery.trim()
+   && strictFilteredJobs.length === 0
+   && orFallbackInCantonJobs.length === 0
+   && crossCantonFallbackJobs.length === 0
+   && unscopedJobs.length > 0
+   && searchIndexCurrent,
+  emptyValue: emptyInCantonResult.strict,
+  createAccumulator: createOrderedFallbackAccumulator,
+  visit: visitCompanyFallbackJob,
+  finish: finishOrderedFallback,
+ });
+ const companyBroadeningFallbackJobs = companyFallbackDerivation.value;
+ const resultDerivationPending = inCantonDerivation.pending
+  || crossCantonDerivation.pending
+  || crossLocaleDerivation.pending
+  || companyFallbackDerivation.pending;
 
  // filteredJobs: the tiered search result.
  //   1. strictFilteredJobs (AND across all tokens, in-canton)
@@ -4906,20 +5314,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // replacing it: in-canton matches first, then the city-aware broadened tail,
  // deduped by id. crossCantonFallbackJobs is itself empty once in-canton fills
  // (>= BROADEN_BELOW), so the merge is a no-op on healthy pages.
- /**
-  * True while the build's seeded result set is still the right answer for what
-  * is on screen: the visitor has not changed the query away from the one this
-  * page is about, and is not in a company/location view (those have their own
-  * loaders and their own corpora). Facet filters are deliberately NOT part of
-  * this test — they narrow the seeded set inside the tier rather than throwing
-  * it away, which is what a visitor ticking "ultime 24h" expects.
-  */
- const clusterSeedApplies = clusterSeedJobs.length > 0
-   && !!clusterSeed
-   && deferredSearchQuery.trim() === clusterSeed.q.trim()
-   && !companySlugFilter
-   && !locationSlugFilter;
-
  const filteredJobs = useMemo<JobListing[]>(() => {
  // Sponsored ads matching the query surface above organic results, even when
  // they arrive via a fallback tier (e.g. a sponsored ad from another canton
@@ -4968,6 +5362,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return featuredFirst(crossLocaleFallbackJobs);
  }, [clusterSeedApplies, clusterSeedJobs, deferredSelectedDateRange, passingNonSearchFilters,
  strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
+
+ // The loaded result set is authoritative for the root hub's metadata too.
+ useEffect(() => {
+  if (initialJobSlug || jobsLoading || fullLoadPending || searchIndexPending || resultDerivationPending) return;
+  updateJobBoardListingMetadata(locale, initialFilterCanton || 'TI', filteredJobs.length);
+ }, [locale, initialFilterCanton, initialJobSlug, jobsLoading, fullLoadPending, searchIndexPending, resultDerivationPending, filteredJobs.length]);
 
  // Resolve the hub identity from the same company-route candidates that drive
  // the visible filter. A display-name collision is intentionally not guessed:
@@ -5072,18 +5472,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // in-flight fallback phase (pendingFallbacks) and the first frame after the
  // index load, before the fetch effects have fired (no fallback attempted yet).
  const anyFallbackAttempted =
- searchBroadenFetchAttempted.current
+ searchBroadenAttemptedQueries.current.size > 0
  || companyBroadenFetchAttempted.current
  || crossLocaleFetchAttempted.current;
- const resultsResolving =
- jobsLoading
- || (Boolean(deferredSearchQuery.trim()) || Boolean(companySlugFilter))
+ const fallbackResultsResolving =
+ (Boolean(deferredSearchQuery.trim()) || Boolean(companySlugFilter))
  // ...unless the build already handed us the answer. With the cluster seed
  // applied `filteredJobs` is not provisional — it is the exact set this page
  // was emitted with, complete on the first frame — so holding the skeleton
  // until the shards land would spend the whole win on an animation. Every
  // window below is about waiting for a corpus we no longer need to wait for.
- && !clusterSeedApplies
  && (
  fullLoadPending
  || (filteredJobs.length === 0 && (
@@ -5118,6 +5516,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || fallbackSearchIndexPending
  ))
  );
+ const resultsResolving = (jobsLoading || resultDerivationPending || fallbackResultsResolving)
+ && !clusterSeedApplies;
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
@@ -5220,7 +5620,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const relatedSearchSuggestions = useMemo(() => {
  const baseQuery = deferredSearchQuery.trim();
  if (!baseQuery) return [];
- const matching = sortedJobs.filter((job) => indexedQueryMatch(job, baseQuery));
+ const matching = clusterSeedApplies ? clusterSeedJobs : inCantonDerivation.value.queryMatches;
  if (matching.length === 0) return [];
 
  const seen = new Set<string>();
@@ -5232,7 +5632,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const key = normalizeSearchText(clean);
  if (!key || key === normBase || seen.has(key)) return;
  // Validate candidate against the already-filtered matches instead of all jobs (O(n) vs O(n²))
- if (!matching.some((job) => indexedQueryMatch(job, clean))) return;
+ if (!clusterSeedApplies && !matching.some((job) => indexedQueryMatch(job, clean))) return;
  seen.add(key);
  out.push(clean);
  };
@@ -5249,40 +5649,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  return out.slice(0, 5);
- }, [deferredSearchQuery, sortedJobs, locale, indexedQueryMatch]);
+ }, [deferredSearchQuery, clusterSeedApplies, clusterSeedJobs, inCantonDerivation.value.queryMatches, locale, indexedQueryMatch]);
 
  // Autocomplete suggestions as user types in job search
- const autocompleteSuggestions = useMemo(() => {
- const q = deferredSearchQuery.trim().toLowerCase();
- if (!q || q.length < 2) return [];
- const seen = new Set<string>();
- const suggestions: string[] = [];
- const add = (text: string) => {
- const clean = text.trim();
- if (!clean || clean.toLowerCase() === q) return;
- const key = clean.toLowerCase();
- if (seen.has(key)) return;
- seen.add(key);
- suggestions.push(clean);
- };
- for (const job of sortedJobs) {
- const title = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title).split(/[-–—|•·]/)[0]?.trim() || '';
- if (title.toLowerCase().startsWith(q)) add(title);
- const company = String(job.company || '').trim();
- if (company.toLowerCase().startsWith(q)) add(company);
- const location = String(job.location || '').trim();
- if (location.toLowerCase().startsWith(q)) add(location);
- if (suggestions.length >= 5) break;
- }
- return suggestions.slice(0, 5);
- }, [deferredSearchQuery, sortedJobs, locale]);
+ const clusterSeedAutocompleteSuggestions = useMemo(
+  () => clusterSeedApplies
+   ? deriveJobBoardAutocompleteSuggestions(clusterSeedJobs, deferredSearchQuery, locale)
+   : [],
+  [clusterSeedApplies, clusterSeedJobs, deferredSearchQuery, locale],
+ );
+ const autocompleteSuggestions = clusterSeedApplies
+  ? clusterSeedAutocompleteSuggestions
+  : inCantonDerivation.value.autocomplete;
 
  // Smart 0-results (issue #4301): candidate pool of real job titles/
  // locations for fuzzy "did you mean" suggestions when the query matches
  // nothing (autocompleteSuggestions above only catches startsWith matches,
  // so a typo or an unrelated-but-close term surfaces nothing there).
  const zeroResultCandidatePool = useMemo(() => {
- if (filteredJobs.length !== 0) return [];
  const seen = new Set<string>();
  const out: string[] = [];
  for (const job of sortedJobs) {
@@ -5298,7 +5682,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (out.length >= 300) break;
  }
  return out;
- }, [filteredJobs.length, sortedJobs, locale]);
+ }, [sortedJobs, locale]);
 
  const zeroResultSuggestions = useMemo(() => {
  const q = deferredSearchQuery.trim();
@@ -5500,8 +5884,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!searchSlugFilter) {
  syncQueryParamsToUrl({ q: deferredSearchQuery.trim() });
  }
+ if (searchIndexPending || resultDerivationPending) return;
  Analytics.trackSearch(deferredSearchQuery.trim(), { resultsCount: filteredJobs.length, searchSource: 'job-board' });
- }, [deferredSearchQuery, searchSlugFilter, filteredJobs.length]);
+ }, [deferredSearchQuery, searchSlugFilter, searchIndexPending, resultDerivationPending, filteredJobs.length]);
 
  // A free-text URL such as `?q=nurse` starts from the static landing HTML,
  // whose title contains the all-board count. Once the authoritative filtered
@@ -5529,6 +5914,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
    ? baseTitle
    : `${baseTitle} — ${t('jobBoard.resultsCount', { count: String(filteredJobs.length) })}`;
  }, [activeSearchHeadingQuery, selectedJob, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, resultsResolving, filteredJobs.length, t]);
+
+ const recommendationJobs = useMemo(
+ () => selectRecommendationJobs(filteredJobs, trendingJobs, enablePersonalization),
+ [filteredJobs, trendingJobs, enablePersonalization],
+ );
 
  const totalPages = Math.max(1, Math.ceil(filteredJobs.length / pageSize));
  const currentPage = Math.min(page, totalPages);
@@ -5603,7 +5993,29 @@ const JobBoard: React.FC<JobBoardProps> = ({
  })
  .sort((a, b) => (b.score !== a.score ? b.score - a.score : b.freshness - a.freshness))
  .slice(0, 6)
- .map((x) => x.job);
+ .map((x) => {
+ const job = x.job;
+ return {
+ slug: job.slug!,
+ title: job.title,
+ titleByLocale: job.titleByLocale,
+ company: job.company,
+ companyKey: job.companyKey,
+ companyDomain: job.companyDomain,
+ url: job.url,
+ location: job.location,
+ canton: job.canton,
+ contract: job.contract,
+ postingDateSource: job.postingDateSource,
+ datePosted: job.datePosted,
+ postedDate: job.postedDate,
+ crawledAt: job.crawledAt,
+ salaryMin: job.salaryMin,
+ salaryMax: job.salaryMax,
+ currency: job.currency,
+ featured: job.featured,
+ };
+ });
  }, [expiredJob, sortedJobs]);
 
  // Load blog meta translations + articles data for cross-linking (only when job selected).
@@ -5645,9 +6057,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const selectedJobTitle = selectedJob ? sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title) : '';
 
  useEffect(() => {
- if (jobs.length === 0) return;
- // FRO: Skip dynamic schema injection for expired/orphan/bridge job pages —
- // the build plugin already injected a static JobPosting JSON-LD.
+ // Archived job slugs can share a search/location prefix. Preserve their
+ // static schema, but do not let a stale seed protect the next listing route.
+ if (isSeededExpiredDetail) return;
+ if (!selectedJob) {
+  const isListing = !initialJobSlug || searchSlugFilter || companySlugFilter || locationSlugFilter || editorialLandingDescriptor;
+  if (!isListing) return; // Preserve a detail's static schema while its data loads.
+  // A slim detail can preserve the static schema until its description loads.
+  // Navigating away before that fetch completes must still remove the schema.
+  document.querySelectorAll('script[type="application/ld+json"]').forEach((script) => {
+   const containsPosting = (value: unknown): boolean => Boolean(value && typeof value === 'object'
+    && ((value as Record<string, unknown>)['@type'] === 'JobPosting'
+      || Object.values(value).some(containsPosting)));
+   try { if (containsPosting(JSON.parse(script.textContent || '{}'))) script.remove(); }
+   catch { /* leave unrelated malformed scripts to their owner */ }
+  });
+  return;
+ }
+ // JobPosting is only valid on a single active job detail.
+ // The build plugin owns the metadata of archived and bridge pages.
  // Guard 1: slug set but no active job found → expired/orphan page.
  if (initialJobSlug && !selectedJob) {
  return;
@@ -5663,26 +6091,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return;
  }
 
- const toIsoDateTime = (raw?: string): string => {
- if (!raw) return new Date().toISOString();
- const parsed = new Date(raw);
- if (!Number.isNaN(parsed.getTime())) return parsed.toISOString();
- const safe = new Date(`${raw}T00:00:00.000Z`);
- return Number.isNaN(safe.getTime()) ? new Date().toISOString() : safe.toISOString();
- };
-
- const toValidThrough = (postedRaw?: string): string => {
- const posted = new Date(toIsoDateTime(postedRaw));
- posted.setUTCDate(posted.getUTCDate() + 60);
- // Floor to now+30d (#3505): these are ACTIVE listings — a stale postedDate
- // must not emit an already-past validThrough (Google drops it as expired).
- const floor = new Date();
- floor.setUTCDate(floor.getUTCDate() + 30);
- return (posted.getTime() < floor.getTime() ? floor : posted).toISOString();
- };
-
- const jobsForSchema = selectedJob ? [selectedJob] : pagedJobs;
- const jobPostings = jobsForSchema.map((job): Record<string, unknown> | null => {
+ const jobsForSchema = [selectedJob];
+ const jobPostings = jobsForSchema.map((job): ReturnType<typeof buildJobPostingSchema> | null => {
  const jobPath = buildJobPath(job);
  const canonicalUrl = `${window.location.origin}${jobPath}`;
  const description = (
@@ -5717,101 +6127,58 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Sanitize address fields — reject crawler artifacts and non-geographic strings
  const isValidAddr = (s: string) => s && s.length <= 100 && (s.match(/\s/g) || []).length <= 8 && !/stampa|segnalazione|descrizione|annuncio|verifica|attività|dillo/i.test(s);
  const rawLocality = String(job.addressLocality || '').trim();
- const multiLoc = isMultiLocation(job.location) || isMultiLocation(rawLocality);
- const addressLocality = multiLoc ? 'Switzerland' : (isValidAddr(rawLocality) ? rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY));
- const addressRegion = multiLoc ? 'CH' : String(job.canton || DEFAULT_CANTON);
- const addressCountry = String(job.addressCountry || 'CH');
- const postalCode = deriveJobPostalCode(job);
+ const addressLocality = isValidAddr(rawLocality) ? rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY);
+ const addressRegion = String(job.canton || DEFAULT_CANTON);
+ // Same CAP/street pairing as the static JobPosting (#9108, #9841): discard
+ // a source tuple when its CAP belongs to another locality (for example a
+ // Chur job stamped with the employer HQ's Dübendorf CAP and street).
+ const { postalCode, sourcePostalCoherent } = resolveJobPostingPostalCode(
+ { location: job.location, addressLocality, postalCode: job.postalCode },
+ addressLocality,
+ addressRegion,
+ );
  const rawStreet = String(job.streetAddress || '').trim();
- const streetAddress = isValidAddr(rawStreet) ? rawStreet : '';
- const posting: Record<string, unknown> = {
- '@type': 'JobPosting',
+ // Skip JobPosting if no meaningful description — an empty description is worse than no schema
+ if (!description || description.length < 30) return null;
+ return buildJobPostingSchema({
+ id: job.id,
+ slug: job.slug,
  title: localizedTitle,
  description,
- inLanguage: locale,
- datePosted: toIsoDateTime(job.postedDate),
- validThrough: toValidThrough(job.postedDate),
- employmentType: CONTRACT_TO_EMPLOYMENT_TYPE[normalizeJobContract(job.contract, localizedTitle, description)] || 'OTHER',
- identifier: {
- '@type': 'PropertyValue',
- name: job.company,
- value: job.id,
- },
- hiringOrganization: {
- '@type': 'Organization',
- name: job.company,
- sameAs: (() => {
- const host = resolveCompanyWebsiteHost({
  company: job.company,
  companyKey: job.companyKey,
  companyDomain: job.companyDomain,
+ companyLogoUrl: logo,
+ addressLocality,
+ addressRegion,
+ addressCountry: job.addressCountry,
+ postalCode,
+ streetAddress: sourcePostalCoherent && isValidAddr(rawStreet) ? rawStreet : '',
+ postingDateSource: job.postingDateSource,
+ datePosted: job.datePosted,
+ postedDate: job.postedDate,
+ crawledAt: job.crawledAt,
+ contract: job.contract,
+ salaryMin,
+ salaryMax,
+ salaryCurrency,
+ sector: job.sector,
+ category: job.category,
  url: job.url,
- });
- return host ? `https://www.${host}` : 'https://frontaliereticino.ch';
- })(),
- logo,
- },
- jobLocationType: isRemote ? 'TELECOMMUTE' : undefined,
- jobLocation: {
- '@type': 'Place',
- address: {
- '@type': 'PostalAddress',
- addressLocality: isRemote ? 'Switzerland' : addressLocality,
- addressRegion: isRemote ? 'CH' : addressRegion,
- addressCountry,
- postalCode: postalCode || CANTON_FALLBACK_POSTAL[addressRegion] || DEFAULT_POSTAL_CODE,
- streetAddress: streetAddress || addressLocality || DEFAULT_CANTON_DISPLAY,
- },
- },
- directApply: isEmployerOwnedApplyUrl(job),
+ applyUrl: job.applyUrl,
+ isRemote,
+ } satisfies JobInput, {
+ locale,
  url: canonicalUrl,
- };
- if (isRemote) {
- // Scoped to remote jobs only — an on-site job is not "open to applicants
- // from CH" in the schema.org sense (mirrors build-plugins/shared/jobPostingSchema.ts).
- posting.applicantLocationRequirements = {
- '@type': 'Country',
- name: 'CH',
- };
- }
- if (Number.isFinite(salaryMin)) {
- // FRO-maxValue: maxValue MUST always be present — GSC flags missing maxValue as quality issue.
- const effectiveMax = Number.isFinite(salaryMax) && salaryMax > salaryMin
- ? salaryMax
- : Math.round(salaryMin * 1.2);
- posting.baseSalary = {
- '@type': 'MonetaryAmount',
- currency: salaryCurrency,
- value: {
- '@type': 'QuantitativeValue',
- minValue: salaryMin,
- maxValue: effectiveMax,
- unitText: 'YEAR',
- },
- };
- } else {
- // Fallback: Ticino minimum wage ~CHF 41,080/year ensures baseSalary is always present
- posting.baseSalary = {
- '@type': 'MonetaryAmount',
- currency: 'CHF',
- value: {
- '@type': 'QuantitativeValue',
- minValue: 41080,
- maxValue: 49296,
- unitText: 'YEAR',
- },
- };
- }
- // Skip JobPosting if no meaningful description — an empty description is worse than no schema
- if (!description || description.length < 30) return null;
- return posting;
- }).filter((p): p is Record<string, unknown> => p !== null);
+ baseUrl: window.location.origin,
+ });
+ }).filter((p): p is NonNullable<typeof p> => p !== null);
 
  // FRO: If viewing a single job but we can't generate a valid schema
  // (e.g., slim index loaded first without description), preserve the
  // static HTML's JobPosting injected by the build plugin. The full data
  // will load shortly and re-trigger this effect with a valid schema.
- if (selectedJob && jobPostings.length === 0) {
+ if (selectedJob && jobPostings.length === 0 && resolveReportedPostingDate(selectedJob)) {
  return;
  }
 
@@ -5842,13 +6209,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (hasJobPosting(data)) el.remove();
  } catch { /* non-JSON or malformed — leave it */ }
  });
- document.head.appendChild(script);
+ if (jobPostings.length > 0) document.head.appendChild(script);
 
  return () => {
  const el = document.getElementById('jobposting-structured-data');
  if (el) el.remove();
  };
- }, [jobs, pagedJobs, locale, selectedJob, initialJobSlug, expiredJob, bridgeTargetSlug]);
+ }, [jobs, pagedJobs, locale, selectedJob, initialJobSlug, expiredJob, bridgeTargetSlug, isSeededExpiredDetail]);
 
  // ── ItemList JSON-LD (docs/seo-action-plan-apr2026.md) ───────────────────
  // Emit a Schema.org ItemList pointing at the currently filtered job list.
@@ -5861,6 +6228,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const el = document.getElementById(ITEMLIST_ID);
  if (el) el.remove();
  };
+ if (resultDerivationPending) return;
 
  // Skip ONLY on a real job-detail view. Search/company/location landing
  // pages also set initialJobSlug but render a job LIST, so they should still
@@ -5934,9 +6302,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.head.appendChild(script);
 
  return cleanup;
- }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, cantonI18n, t]);
+ }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, cantonI18n, t, resultDerivationPending]);
 
  const daysSincePosted = (dateStr: string) => {
+ if (!dateStr || !Number.isFinite(Date.parse(dateStr))) return ({
+ it: 'Data di pubblicazione non verificata', en: 'Publication date unverified',
+ de: 'Veröffentlichungsdatum ungeprüft', fr: 'Date de publication non vérifiée',
+ })[locale];
  const diff = Math.floor((Date.now() - new Date(dateStr).getTime()) / 86400000);
  if (diff === 0) return t('jobBoard.today');
  if (diff === 1) return t('jobBoard.yesterday');
@@ -6166,6 +6538,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [selectedJob?.slug, selectedJob?.slugByLocale?.it, enablePersonalization]);
 
  useEffect(() => {
+ if (!selectedJob || !authResolved || newsletterAutologinInFlight) return;
+ Analytics.trackJobApplicationStep({ jobId: String(selectedJob.id), jobSlug: selectedJob.slugByLocale?.it || selectedJob.slug || '', employerKey: selectedJob.companyKey || undefined }, 'detail_view');
+ }, [selectedJob?.id, selectedJob?.slugByLocale?.it, authResolved, newsletterAutologinInFlight]);
+
+ useEffect(() => {
  if (!authResolved || !authGateOpen || hasAccess) return;
  const focusedJob = pendingJob || selectedJob;
  if (focusedJob) {
@@ -6178,7 +6555,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   searchQuery: searchQuery.trim() || null,
   surface: 'modal',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
  });
  }
  void promptOneTap({ surface: 'job_gate_modal' });
@@ -6198,9 +6575,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  useEffect(() => {
  if (!authResolved || !selectedJob || hasAccess) return;
- const exposureKey = `${selectedJob.id}:inline:${gateVariant}`;
+ const gate = document.getElementById('job-auth-gate');
+ if (!gate) return;
+ const onVisible = () => {
+ requestSlot('job-inline-auth-gate', POPUP_PRIORITY.INLINE_AUTH_GATE);
+ const exposureKey = `${selectedJob.id}:inline:${gateExperimentId}:${gateVariant}`;
  if (jobAuthExposureRef.current === exposureKey) return;
  jobAuthExposureRef.current = exposureKey;
+ recordJobGateExposure(jobGate);
  authUnlockCandidateRef.current = selectedJob.id;
  saveAuthJobContext({
  slug: selectedJob.slug || null,
@@ -6209,7 +6591,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  category: selectedJob.category || null,
  surface: 'inline',
  variant: gateVariant,
- experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+ experimentId: gateExperimentId,
  });
  void promptOneTap({ surface: 'job_gate_inline' });
  const context = buildJobTrackingContext(selectedJob);
@@ -6217,7 +6599,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   surface: 'inline' as const,
   authState: 'anonymous' as const,
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: context.jobSlug,
  };
  Analytics.trackJobAuthGate('view', telemetry);
@@ -6226,10 +6608,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
   surface: 'inline',
   authState: 'anonymous',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: context.jobSlug,
  });
- }, [authResolved, selectedJob?.id, hasAccess, gateVariant]);
+ };
+ if (typeof IntersectionObserver === 'undefined') return;
+ const observer = new IntersectionObserver((entries) => {
+  if (!entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.1)) return;
+  observer.disconnect();
+  onVisible();
+ }, { threshold: 0.1 });
+ observer.observe(gate);
+ return () => { observer.disconnect(); releaseSlot('job-inline-auth-gate'); };
+ }, [authResolved, selectedJob?.id, hasAccess, gateVariant, gateExperimentId, newsletterAutologinInFlight]);
 
  useEffect(() => {
  // Wait for auth to resolve before rendering GIS buttons.
@@ -6266,7 +6657,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     method: 'google' as const,
     authState: 'anonymous' as const,
     variant: gateVariant,
-    experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+    experimentId: gateExperimentId,
     jobSlug: context.jobSlug,
    };
    Analytics.trackJobAuthGate('method_click', telemetry);
@@ -6276,7 +6667,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     surface,
     authState: 'anonymous',
     variant: gateVariant,
-    experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+    experimentId: gateExperimentId,
     jobSlug: context.jobSlug,
    });
   },
@@ -6304,7 +6695,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return () => {
  cancelled = true;
  };
- }, [authResolved, authGateOpen, hasAccess, locale, selectedJob, pendingJob, gateVariant]);
+ }, [authResolved, authGateOpen, hasAccess, locale, selectedJob, pendingJob, gateVariant, gateExperimentId]);
 
  useEffect(() => {
  const becameLoggedIn = !wasLoggedInRef.current && isLoggedIn;
@@ -6328,7 +6719,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
  const jobContext = buildJobTrackingContext(unlockedJob);
 
- void autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`, 'authenticated').then((consented) => {
+ void autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`, 'authenticated', undefined, unlockedJob).then((consented) => {
   if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
    sourceChannel: 'job_gate',
    sourceCta: 'job_gate_google_unlock',
@@ -6337,8 +6728,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
    registrationMethod: 'authenticated',
   });
  });
- // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
- justAuthedJobIdRef.current = unlockedJob.id;
  setAuthNotice(null);
  setAuthError(null);
  setAuthGateOpen(false);
@@ -6348,7 +6737,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   method: 'google',
   authState: 'registered',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
  Analytics.trackJobAuthFunnel('auth_success', {
@@ -6358,7 +6747,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   surface: 'inline',
   authState: 'registered',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
  Analytics.trackSelectContent('job_board_open_detail', `${unlockedJob.company}_${unlockedJob.title}`);
@@ -6386,28 +6775,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(redirectSlug, getJobMetaForSlug(redirectSlug)?.canton);
  }, [authResolved, hasAccess, initialJobSlug, onJobRouteChange]);
 
- // When the inline auth gate is visible (job detail + not logged in),
- // register with the popup queue so achievement toasts are suppressed,
- // and scroll the auth gate into view for small viewports.
- const inlineAuthGateVisible = Boolean(selectedJob && authResolved && !hasAccess);
- useEffect(() => {
- if (!inlineAuthGateVisible) return;
- requestSlot('job-inline-auth-gate', POPUP_PRIORITY.INLINE_AUTH_GATE);
- // Scroll the auth gate into view after a short delay to let layout settle
- const raf = requestAnimationFrame(() => {
- document.getElementById('job-auth-gate')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
- });
- return () => {
- cancelAnimationFrame(raf);
- releaseSlot('job-inline-auth-gate');
- };
- }, [inlineAuthGateVisible]);
-
- const openDetail = (job: JobListing) => {
+ // Reading the public description never scrolls to or activates the auth gate.
+ const openDetail = useCallback((job: JobListing, preserveJourney = false) => {
   if (!authResolved) return;
- // Always navigate to the detail page — the inline auth gate handles
- // unauthenticated users with a blurred preview + sign-in form,
- // giving more context than a modal popup and boosting conversion.
+ if (!preserveJourney) Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'list_select');
+ // Public description first; sign-in is required only to continue to application.
  savedListState.current = { page, scrollY: window.scrollY, query: searchQuery.trim() };
  onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));
  window.scrollTo({ top: 0, behavior: 'instant' });
@@ -6418,7 +6790,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  Analytics.trackJobMatchClick(topSignal, score);
  }
  }
- };
+ }, [authResolved, page, searchQuery, onJobRouteChange, locale, enablePersonalization, behaviorData, userProfile, jobMatchProfile]);
 
  const renderJobCard = (job: JobListing) => (
  <JobCard
@@ -6442,20 +6814,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // static `infeedAdListItemHtml`; cadence is the shared `shouldPlaceInfeedAd`.
  const renderInfeedAd = (keySuffix: string, experimentVariant?: InfeedAdVariant): React.ReactNode => {
  const cfg = isMobile ? AD_SLOTS.JOBLIST_INFEED_MOBILE : AD_SLOTS.JOBLIST_INFEED_DESKTOP;
- // Reserve from the registry, never a literal: this wrapper hard-coded 280 and
- // silently outlived the #4302 raise to 336, under-reserving every in-feed unit
- // in the list (up to JOBLIST_AD_MAX_PER_LIST per page) — issue #4677.
+ // AdSenseBanner owns both the registry reserve and its terminal collapse.
  return (
  <div
  key={`infeed-${isMobile ? 'm' : 'd'}-${keySuffix}-${adRefreshKey}`}
- style={{ ['--ad-mh' as string]: `${cfg.placeholderMinHeight}px` }}
- className="min-h-[var(--ad-mh)]"
+
  {...(experimentVariant ? {
    'data-ad-experiment': INFEED_AD_EXPERIMENT_ID,
    'data-ad-variant': experimentVariant,
  } : {})}
  >
  <AdSenseBanner
+ placement={`joblist-infeed-${keySuffix}`}
  adSlot={cfg.slot}
  adFormat={cfg.format}
  fullWidthResponsive={cfg.fullWidthResponsive}
@@ -6485,7 +6855,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    method: 'unknown',
    authState: 'anonymous',
    variant: gateVariant,
-   experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+   experimentId: gateExperimentId,
    jobSlug: jobContext.jobSlug,
   });
   Analytics.trackJobAuthFunnel('gate_dismiss', {
@@ -6493,7 +6863,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    surface,
    authState: 'anonymous',
    variant: gateVariant,
-   experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+   experimentId: gateExperimentId,
    jobSlug: jobContext.jobSlug,
   });
   authUnlockCandidateRef.current = null;
@@ -6536,17 +6906,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
   method: provider,
   authState: 'anonymous',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
- Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext });
+ Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext, ...jobGateFailTags });
  return;
  }
  authUnlockCandidateRef.current = null;
  clearJobAuthRedirectSlug();
  const userEmail = result.email || result.user?.email;
  const sourceSuffix = jobToTrack ? `:${jobToTrack.company}:${sanitizeJobTitle(jobToTrack.title).slice(0, 60)}` : '';
- const consented = await autoNewsletterSubscribe(userEmail, `job_gate_${provider}${sourceSuffix}`, 'authenticated');
+ const consented = await autoNewsletterSubscribe(userEmail, `job_gate_${provider}${sourceSuffix}`, 'authenticated', undefined, jobToTrack);
  setAuthNotice(null);
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
  Analytics.trackJobAuthGate('success', {
@@ -6554,7 +6924,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   method: provider,
   authState: 'registered',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
  Analytics.trackJobAuthFunnel('auth_success', {
@@ -6564,7 +6934,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   surface,
   authState: 'registered',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
  if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
@@ -6579,8 +6949,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobToOpen = pendingJob || selectedJob;
  setPendingJob(null);
  if (jobToOpen) {
- // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
- justAuthedJobIdRef.current = jobToOpen.id;
  onJobRouteChange?.(deriveLocalizedJobSlug(jobToOpen, locale), resolveJobCanton(jobToOpen));
  Analytics.trackSelectContent('job_board_open_detail', `${jobToOpen.company}_${jobToOpen.title}`);
  }
@@ -6591,10 +6959,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   method: provider,
   authState: 'anonymous',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
- Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext });
+ Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext, ...jobGateFailTags });
  } finally {
  setAuthBusy(null);
  }
@@ -6608,7 +6976,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobContext = pendingJob ? buildJobTrackingContext(pendingJob) : { jobSlug: null };
  try {
  const sourceSuffix = pendingJob ? `:${pendingJob.company}:${sanitizeJobTitle(pendingJob.title).slice(0, 60)}` : '';
- const consented = await autoNewsletterSubscribe(email, `job_gate_email${sourceSuffix}`, 'email');
+ const consented = await autoNewsletterSubscribe(email, `job_gate_email${sourceSuffix}`, 'email', undefined, pendingJob);
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
@@ -6618,7 +6986,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   method: 'email',
   authState: 'pending_email',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
  Analytics.trackJobAuthFunnel('auth_success', {
@@ -6628,7 +6996,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   surface: 'modal',
   authState: 'pending_email',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
  if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
@@ -6656,10 +7024,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   method: 'email',
   authState: 'anonymous',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
- Analytics.trackJobAuthFunnel('auth_fail', { method: 'email', ...jobContext });
+ Analytics.trackJobAuthFunnel('auth_fail', { method: 'email', ...jobContext, ...jobGateFailTags });
  } finally {
  setAuthBusy(null);
  }
@@ -6673,7 +7041,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setAuthError(null);
  const jobContext = buildJobTrackingContext(job);
  try {
- const consented = await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`, 'email');
+ const consented = await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`, 'email', 'job_board_email_unlock', job);
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
@@ -6683,7 +7051,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   method: 'email',
   authState: 'pending_email',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
  Analytics.trackJobAuthFunnel('auth_success', {
@@ -6693,7 +7061,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   surface: 'inline',
   authState: 'pending_email',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
  if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
@@ -6714,10 +7082,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   method: 'email',
   authState: 'anonymous',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: jobContext.jobSlug,
  });
- Analytics.trackJobAuthFunnel('auth_fail', { method: 'email', ...jobContext });
+ Analytics.trackJobAuthFunnel('auth_fail', { method: 'email', ...jobContext, ...jobGateFailTags });
  } finally {
  setAuthBusy(null);
  }
@@ -6748,9 +7116,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
 
  const autoNewsletterSubscribe = async (
- email?: string,
- source?: string,
- registrationMethod: 'email' | 'authenticated' = 'email',
+ email: string | undefined,
+ source: string,
+ registrationMethod: 'email' | 'authenticated',
+ // Explicit CTA id; the fallback reads the registration method, never the
+ // source name (`job_gate:<company>:<title>` holds no "email").
+ sourceCta: 'job_board_email_unlock' | 'job_board_social_unlock' | undefined,
+ // The offer whose company and title `source` carries. The job fields of the
+ // document (`job_company`, `job_location`, `job_slug`) must describe the SAME
+ // offer: the confirmation email prints the title from `source` next to the
+ // company from `job_company`. They used to come from `selectedJob ||
+ // sortedJobs[0]` while the list modal stamps `pendingJob` into `source`, so
+ // one signup could carry two offers: 5 single-signup documents of March–April
+ // 2026 hold the clicked offer's title and another offer's slug (measured
+ // 2026-09-25). Every caller now passes the job it stamped.
+ job: JobListing | null,
  ): Promise<boolean> => {
  if (!email) return false;
  try {
@@ -6760,9 +7140,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ]);
  const firestore = getFirestore(await getApp());
  if (!firestore) return false;
- const normalizedSource = String(source || 'job_board_auth').toLowerCase();
  const sourceChannel = 'job_gate' as const;
- const focusedJob = selectedJob || sortedJobs[0] || null;
+ const focusedJob = job;
  const jobContext = focusedJob
  ? {
  slug: focusedJob.slug || null,
@@ -6779,12 +7158,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  category: null,
  searchQuery: searchQuery.trim() || null,
  };
- await upsertUnifiedEmailSubscriber(firestore, {
+ await upsertJobGateSubscriber(firestore, {
  email,
  source: source || 'job_board_auth',
  sourceChannel,
  sourcePage: window.location.pathname,
- sourceCta: normalizedSource.includes('email') ? 'job_board_email_unlock' : 'job_board_social_unlock',
+ sourceCta: sourceCta || (registrationMethod === 'email' ? 'job_board_email_unlock' : 'job_board_social_unlock'),
  sourceComponent: 'JobBoard',
    sourceRouteFamily: 'job-board',
    locale: navigator.language || 'it-IT',
@@ -6903,13 +7282,32 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(undefined);
  };
 
+ const recordJobApplicationIntent = (job: JobListing, surface: string): Promise<boolean> => {
+  const rawMode = (job as { applyMode?: string }).applyMode;
+  const applicationMode = rawMode === 'in_house' || rawMode === 'forward_email' ? rawMode : 'external';
+  return recordApplicationIntent({
+   job: {
+    id: job.id,
+    slug: job.slug,
+    slugByLocale: job.slugByLocale,
+    companyKey: job.companyKey,
+    title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+   },
+   applicationMode,
+   origin: typeof window !== 'undefined' ? window.location.pathname : '/',
+   surface,
+   consentText: t('jobBoard.applicationIntentConsent'),
+   authEmail: getAuthEmail(authUser),
+   authUser,
+  });
+ };
+
   const trackPublisherApplySignals = (
   job: JobListing,
   contentType: string,
-  options: { deferExternalHandoff?: boolean } = {},
   ): string => {
   const eventId = createPublisherApplyEventId();
-  const referralUrl = buildReferralUrl(job);
+ Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'apply_click');
  Analytics.trackEvent('select_content', {
  content_type: contentType,
  item_id: `${job.company}_${job.title}`,
@@ -6920,33 +7318,46 @@ const JobBoard: React.FC<JobBoardProps> = ({
  is_sponsored: job.featured ? 'sponsored' : 'free',
  emission_id: eventId,
  });
-  if (isExternalApplicationJob(job) && !options.deferExternalHandoff) {
-  Analytics.trackJobApplyHandoff(job, referralUrl, {
-   surface: contentType,
-   emissionId: eventId,
-  });
- }
  return eventId;
  };
 
- const redirectExternalApplication = (job: JobListing, surface: string, trackHandoff: boolean, sameTab = false) => {
+ const redirectExternalApplication = async (
+  job: JobListing,
+  surface: string,
+  _trackHandoff: boolean,
+  sameTab = false,
+  extraParams: Record<string, string> = {},
+ ) => {
   const applyDestination = buildReferralUrl(job);
-  if (!applyDestination) return;
-  if (trackHandoff) {
-   Analytics.trackJobApplyHandoff(job, applyDestination, {
-    surface,
-    emissionId: createPublisherApplyEventId(),
-   });
+  if (!applyDestination) {
+   Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'handoff_error');
+   return;
   }
   trackAssistedApplicationEvent(
    'external_apply_redirected',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, ...extraParams },
   );
+  try {
   if (sameTab) {
+   const pendingIntent = applicationIntentSyncRef.current;
+   if (pendingIntent?.jobId === String(job.id)) {
+    try {
+     await pendingIntent.promise;
+    } catch {
+     // Persistence is best-effort; never block the user's external hand-off.
+    }
+    applicationIntentSyncRef.current = null;
+   }
    window.location.assign(applyDestination);
   } else {
    window.open(applyDestination, '_blank', 'noopener,noreferrer');
   }
+  } catch {
+   Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'handoff_error');
+   setAuthError(t('jobBoard.authFailed'));
+   return;
+  }
+  Analytics.trackJobApplyHandoff(job, applyDestination, { surface, emissionId: createPublisherApplyEventId() });
   // Mutate the page in the same tick as the hand-off — the confirmation is the
   // user-visible receipt AND the DOM change that makes this click non-dead.
   setAppliedJobId(job.id);
@@ -6961,75 +7372,272 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
   setAssistedApplicationJob(null);
   setAssistedCheckoutError(null);
-  redirectExternalApplication(
+  void redirectExternalApplication(
    job,
    assistedApplicationVariant === 'rewarded_ad' ? 'rewarded_application_fallback' : 'assisted_application_offer',
    true,
   );
  };
 
- const handleRewardedApplicationContinue = () => {
+ const handleRewardedApplicationContinue = (): Promise<boolean> => {
   const job = rewardedApplicationJob;
-  if (!job) return;
-  setRewardedApplicationJob(null);
-  // This callback happens after the visitor has explicitly chosen to continue
-  // from the rewarded modal, so use the current tab: a late window.open is
-  // commonly blocked by the browser.
-  redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true);
+  if (!job) return Promise.resolve(true);
+  // The offer calls this after Google's reward only while the page holds a
+  // click's activation (at once, or from its "open" button), so the employer
+  // opens in a new tab and the visitor keeps the site (owner decision
+  // 2026-09-29). The offer stays mounted until that tab takes the foreground:
+  // a popup blocked despite the activation brings its "open" card back.
+  const opened = watchNewTabOpened();
+  const directReason = rewardedDirectHandoffReasonRef.current;
+  if (rewardedApplicationOpenCardOnly) {
+   // A resumed click whose access was granted before the reload: its apply
+   // signals were recorded then, so no second hand-off event.
+   void redirectExternalApplication(job, 'rewarded_application_entitlement', false, false);
+  } else if (directReason !== null) {
+   // The "open" card of a direct hand-off whose new tab was blocked: the
+   // click retries it, already counted as a hand-off the first time.
+   void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', false, false, {
+    handoff: 'direct_external',
+    reason: directReason,
+   });
+  } else {
+   void redirectExternalApplication(job, 'rewarded_application_inline_completed', true, false, {
+    handoff: 'rewarded_granted',
+   });
+  }
+  return opened.then((ok) => {
+   if (ok) setRewardedApplicationJob(null);
+   return ok;
+  });
  };
 
- const handleRewardedApplicationUnavailable = (reason: string) => {
+ // Only a fresh page load can hold the Offerwall for this click (see
+ // services/offerwallRecovery.ts): the offer has set the resume marker, and
+ // the effect after handleApply reopens the same click once the page is back.
+ // The application intent recorded by the click is given a moment to land
+ // first, as before a same-tab hand-off.
+ const handleRewardedApplicationReload = () => {
   const job = rewardedApplicationJob;
   if (!job) return;
-  // The offer already records the technical reason and direct handoff on the
-  // rewarded_ad_unavailable event. This callback only owns navigation.
-  void reason;
-  setRewardedApplicationJob(null);
-  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
+  const pendingIntent = applicationIntentSyncRef.current;
+  const intentSettled = pendingIntent?.jobId === String(job.id)
+   ? Promise.race([
+    pendingIntent.promise.then(() => undefined, () => undefined),
+    new Promise<void>((resolve) => { window.setTimeout(resolve, 1500); }),
+   ])
+   : Promise.resolve();
+  void intentSettled.then(() => window.location.reload());
  };
 
- const handleAssistedPaid = async () => {
+ const handleRewardedApplicationUnavailable = (
+  reason: string,
+  info?: RewardedOfferUnavailableInfo,
+ ): Promise<boolean> | undefined => {
+  const job = rewardedApplicationJob;
+  if (!job) return;
+  // The Offerwall and its GPT fallback could not LOAD, or the visitor refused
+  // the ad (ads refused in the CMP, consent message unanswered, Offerwall
+  // closed without its reward): when enabled, the same click opens the paid
+  // offer, whose free external button opens the employer in a new tab. A
+  // visitor who already saw the paid choice before the Offerwall and took the
+  // free path gets no second paid offer (owner decision 2026-10-03).
+  if (offerwallPaidFallbackEnabled && shouldOfferPaidFallback(reason) && !info?.paidOfferShown) {
+   setRewardedApplicationJob(null);
+   setAssistedCheckoutError(null);
+   setAssistedOfferSource('offerwall_fallback');
+   setAssistedApplicationJob(job);
+   trackAssistedApplicationEvent('offerwall_paid_fallback_offered', {
+    ...assistedApplicationJobContext(job, assistedApplicationVariant),
+    reason,
+    price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+   });
+   return;
+  }
+  // Paid fallback off, or an ineligible run (bots, non-production hosts): the
+  // offer has already tracked the technical detail, and the same click goes
+  // straight to the employer. No retry, no local video, no second click. A
+  // new tab needs a click's activation; without one (a late asynchronous
+  // outcome) the browser would block it, so the current tab is used.
+  if (!hasTransientUserActivation()) {
+   setRewardedApplicationJob(null);
+   void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
+    handoff: 'direct_external',
+    reason,
+   });
+   return undefined;
+  }
+  // Inside a click's activation the employer opens in a new tab. The offer
+  // stays mounted until that tab takes the foreground: a popup blocked
+  // anyway brings the offer's "open" card, whose click retries the same
+  // hand-off, so the visitor never loses the employer silently (PR #10366
+  // review). Watch before window.open: the new tab can hide the page at once.
+  rewardedDirectHandoffReasonRef.current = reason;
+  const opened = watchNewTabOpened();
+  void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, false, {
+   handoff: 'direct_external',
+   reason,
+  });
+  return opened.then((ok) => {
+   if (ok) setRewardedApplicationJob(null);
+   return ok;
+  });
+ };
+
+ const handleAssistedPaid = () => {
   const job = assistedApplicationJob;
-  if (!job || assistedApplicationVariant !== 'assisted_application' || assistedCheckoutBusy) return;
+  if (!job || !assistedOfferAvailable) return;
+  return startAssistedCheckout(job);
+ };
+
+ // The paid offer's checkout, from the assisted-application offer or from the
+ // paid choice the rewarded offer shows before the Offerwall (`trigger`).
+ const startAssistedCheckout = async (job: JobListing, extra: Record<string, unknown> = {}) => {
+  if (assistedCheckoutBusy) return;
   setAssistedCheckoutBusy(true);
   setAssistedCheckoutError(null);
   trackAssistedApplicationEvent(
    'assisted_application_choose_paid',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), ...extra, price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
   trackAssistedApplicationEvent(
    'checkout_started',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), ...extra, price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
+  const checkoutResumed = Boolean(
+   authUser?.getIdToken
+   && authUser?.isAnonymous !== true
+   && consumeAssistedCheckoutAuthResume(String(job.id)),
+  );
+  if (checkoutResumed) {
+   trackAssistedApplicationEvent(
+    'checkout_resumed',
+    { ...assistedApplicationJobContext(job, assistedApplicationVariant), ...extra, price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
+   );
+  }
+  let user: any | null = null;
   try {
-   const user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
-   if (!user?.getIdToken) throw new Error('assisted_application_auth_required');
+   user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
+  } catch (error) {
+   setAssistedCheckoutBusy(false);
+   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+   saveAssistedCheckoutAuthResume(String(job.id));
+   trackAssistedApplicationEvent(
+    'checkout_failed',
+    {
+     ...assistedApplicationJobContext(job, assistedApplicationVariant),
+     price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+     reason: 'auth_failed',
+     error_code: getAssistedApplicationCheckoutErrorCode(error),
+    },
+   );
+   onRequireAuth?.();
+   return;
+  }
+  if (!user?.getIdToken) {
+   setAssistedCheckoutBusy(false);
+   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+   saveAssistedCheckoutAuthResume(String(job.id));
+   trackAssistedApplicationEvent(
+    'checkout_failed',
+    {
+     ...assistedApplicationJobContext(job, assistedApplicationVariant),
+     price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+     reason: 'auth_required',
+     error_code: 'assisted_application_auth_required',
+    },
+   );
+   onRequireAuth?.();
+   return;
+  }
+  try {
    const currentPath = `${window.location.origin}${window.location.pathname}`;
-   const result = await createAssistedApplicationCheckout({
+   const result: AssistedApplicationCheckoutResult = await createAssistedApplicationCheckout({
     jobId: String(job.id),
     companyId: String(job.companyKey || job.company || 'unknown'),
     jobUrl: String(job.url || job.applyUrl || ''),
     companyName: String(job.company || ''),
     jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
-    experimentVariant: assistedApplicationVariant,
+    experimentVariant: assistedApplicationVariant === 'assisted_application' ? 'assisted_application' : 'offerwall_fallback',
+    copyVariant: assistedApplicationCopyVariant,
     successUrl: currentPath,
     cancelUrl: currentPath,
    }, user);
+   if (result.paymentProvider === 'sumup') {
+    setAssistedCheckoutBusy(false);
+    setSumUpPaymentBusy(false);
+    setSumUpPayment({
+     checkoutId: result.checkoutId,
+     orderId: result.orderId,
+     successUrl: currentPath,
+     eventContext: assistedApplicationJobContext(job, assistedApplicationVariant),
+    });
+    return;
+   }
    window.location.assign(result.url);
   } catch (error) {
    setAssistedCheckoutBusy(false);
    setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
-  trackAssistedApplicationEvent(
-   'checkout_failed',
+   const errorCode = getAssistedApplicationCheckoutErrorCode(error);
+   const failureReason = errorCode === 'assisted_application_auth_required'
+    ? 'auth_required'
+    : 'session_creation_failed';
+   trackAssistedApplicationEvent(
+    'checkout_failed',
     {
      ...assistedApplicationJobContext(job, assistedApplicationVariant),
      price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
-     reason: 'session_creation_failed',
+     reason: failureReason,
+     error_code: errorCode,
     },
-  );
-   if ((error as { message?: string })?.message === 'assisted_application_auth_required') onRequireAuth?.();
+   );
+   if (failureReason === 'auth_required') {
+    saveAssistedCheckoutAuthResume(String(job.id));
+    onRequireAuth?.();
+   }
   }
  };
+
+ const closeSumUpPayment = useCallback(() => {
+  if (sumUpPaymentBusy) return;
+  setSumUpPayment(null);
+  setAssistedCheckoutBusy(false);
+  setAssistedCheckoutError(null);
+ }, [sumUpPaymentBusy]);
+
+ const handleSumUpResponse = useCallback((type: string) => {
+  if (!sumUpPayment) return;
+  if (type === 'success') {
+   setSumUpPaymentBusy(true);
+   const returnUrl = new URL(sumUpPayment.successUrl, window.location.origin);
+   returnUrl.searchParams.set('assisted_application_order_id', sumUpPayment.orderId);
+   // SumUp's callback is the client-side completion signal. The destination
+   // page remains locked until the server webhook marks this order as paid.
+   window.location.assign(returnUrl.toString());
+   return;
+  }
+  if (type === 'fail' || type === 'error') {
+   setSumUpPaymentBusy(false);
+   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+   trackAssistedApplicationEvent('checkout_failed', {
+    ...sumUpPayment.eventContext,
+    payment_provider: 'sumup',
+    reason: type === 'fail' ? 'payment_failed' : 'payment_error',
+   });
+  }
+ }, [sumUpPayment, t]);
+
+ const handleSumUpWidgetError = useCallback((error: unknown) => {
+  setSumUpPaymentBusy(false);
+  setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+  if (sumUpPayment) {
+   trackAssistedApplicationEvent('checkout_failed', {
+    ...sumUpPayment.eventContext,
+    payment_provider: 'sumup',
+    reason: 'widget_load_failed',
+    error_code: getAssistedApplicationCheckoutErrorCode(error),
+   });
+  }
+ }, [sumUpPayment, t]);
 
  // A treatment click can happen on a list card while auth is still resolving.
  // Keep the selected job queued and route it as soon as the detail host is
@@ -7037,7 +7645,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // like a dead CTA.
  useEffect(() => {
   if (!assistedApplicationJob || isJobDetailView || !authResolved) return;
-  openDetail(assistedApplicationJob);
+  openDetail(assistedApplicationJob, true);
  }, [assistedApplicationJob, authResolved, isJobDetailView]);
 
  // Rewarded treatment clicks from a list card need the same detail host as
@@ -7045,37 +7653,44 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // means the video never creates a second crawlable URL or a separate page.
  useEffect(() => {
   if (!rewardedApplicationJob || isJobDetailView || !authResolved) return;
-  openDetail(rewardedApplicationJob);
+  openDetail(rewardedApplicationJob, true);
  }, [rewardedApplicationJob, authResolved, isJobDetailView]);
 
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
+  // An application offer for this click is already open (double click, or a
+  // click that reached the page behind the dialog): one gesture, one offer.
+  if (applicationOfferOpenRef.current) return;
+  // A list CTA starts the same journey that its detail/offer host resumes.
+  if (!isJobDetailView) Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'list_select');
   const isExternal = isExternalApplicationJob(job);
+  const mode = (job as { applyMode?: string }).applyMode;
+  // Keep anonymous job-board visitors on the sign-in/subscription funnel.
+  // The detail view is the only surface allowed to request the rewarded ad
+  // before sign-in, because it owns the canonical rewarded offer host.
+  if (isExternal) {
+   applicationIntentSyncRef.current = {
+    jobId: String(job.id),
+    promise: recordJobApplicationIntent(job, surface),
+   };
+  } else {
+   // In-house/forward-email applications have no external hand-off to await;
+   // the server-side intent is still recorded before the form is shown.
+   applicationIntentSyncRef.current = null;
+   void recordJobApplicationIntent(job, surface);
+  }
   if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
-   // Keep anonymous job-board visitors on the sign-in/subscription funnel.
-   // The detail view is the only surface allowed to request the rewarded ad
-   // before sign-in, because it owns the canonical rewarded offer host.
    onRequireAuth?.();
    return;
   }
   const rewardedAccessExpiresAt = isExternal && assistedApplicationVariant === 'rewarded_ad'
    ? getRewardedApplicationAccessExpiresAt()
    : null;
-  const rewardedNeedsOffer = assistedApplicationVariant === 'rewarded_ad'
-   && !killSwitches.rewardedApplicationAd
-   && rewardedAccessExpiresAt === null;
-  const eventId = trackPublisherApplySignals(
-   job,
-   surface,
-   isExternal && (assistedApplicationVariant === 'assisted_application' || rewardedNeedsOffer)
-    ? { deferExternalHandoff: true }
-    : undefined,
-  );
+   const eventId = trackPublisherApplySignals(job, surface);
   // In-house / forward-email publisher ads apply via the on-page
  // PublisherApplyForm (#candidatura), NOT an external URL. For these,
  // applyUrl/url point back at the ad's own /lavoro/<slug> page, so opening
  // job.url in a new tab just re-shows the listing ("returns to the ad"
  // bug). Scroll to the in-page form instead.
- const mode = (job as { applyMode?: string }).applyMode;
  if (mode === 'in_house' || mode === 'forward_email') {
   trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
   document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -7093,10 +7708,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
    if (rewardedAccessExpiresAt !== null) {
     trackAssistedApplicationEvent(
      'rewarded_application_access_used',
-     { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, access_expires_at: rewardedAccessExpiresAt, access_ttl_hours: 12 },
+     { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, access_expires_at: rewardedAccessExpiresAt, access_ttl_hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS },
     );
    }
-   redirectExternalApplication(
+   void redirectExternalApplication(
     job,
     killSwitches.rewardedApplicationAd ? 'rewarded_application_killswitch' : 'rewarded_application_entitlement',
     false,
@@ -7110,8 +7725,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'rewarded_application_offer_requested',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, provider: 'google_gpt_rewarded_web' },
   );
+  applicationOfferOpenRef.current = true;
   setRewardedApplicationJob(job);
-  if (!isJobDetailView) openDetail(job);
+  if (!isJobDetailView) openDetail(job, true);
   return;
  }
  if (assistedApplicationVariant === 'assisted_application') {
@@ -7123,12 +7739,68 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // clicks through the detail render, where `assistedApplicationOfferJsx` is
   // mounted, so the treatment CTA never becomes an invisible state update.
   setAssistedCheckoutError(null);
+  setAssistedOfferSource('experiment');
+  applicationOfferOpenRef.current = true;
   setAssistedApplicationJob(job);
-  if (!isJobDetailView) openDetail(job);
+  if (!isJobDetailView) openDetail(job, true);
   return;
  }
- redirectExternalApplication(job, surface, false);
+ void redirectExternalApplication(job, surface, false);
  };
+
+ // Receipts of earlier rewarded grants (services/rewardedHandoffLedger.ts)
+ // leave from a visible job-board page: the visitor who never came back to
+ // the tab after the employer's page opened is counted on the next visit.
+ useEffect(() => {
+  flushHandoffReceipts();
+ }, []);
+
+ // Resume the click that reloaded the page for the Offerwall, once, when the
+ // same job detail is back with its apply path decided. The click's apply
+ // signals and intent were recorded before the reload; only the offer reopens.
+ const offerwallResumeCheckedRef = useRef(false);
+ useEffect(() => {
+  if (offerwallResumeCheckedRef.current || !selectedJob || !authResolved || !assistedApplicationVariantReady) return;
+  offerwallResumeCheckedRef.current = true;
+  const resume = takeOfferwallResume(String(selectedJob.id));
+  if (!resume) return;
+  if (
+   assistedApplicationVariant !== 'rewarded_ad'
+   || killSwitches.rewardedApplicationAd
+   || !isExternalApplicationJob(selectedJob)
+   || applicationOfferOpenRef.current
+  ) return;
+  // The reload's reason and the gate/consent state at the click travel in the
+  // marker: the event the offer sent just before the reload does not arrive.
+  const context = {
+   ...assistedApplicationJobContext(selectedJob, assistedApplicationVariant),
+   surface: 'rewarded_application_resume',
+   ...resume,
+  };
+  const accessExpiresAt = getRewardedApplicationAccessExpiresAt();
+  if (accessExpiresAt !== null) {
+   trackAssistedApplicationEvent('rewarded_application_access_used', {
+    ...context,
+    access_expires_at: accessExpiresAt,
+    access_ttl_hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS,
+   });
+   // No click behind this hand-off: a new tab would be blocked, and this tab
+   // would take the visitor off the site. The offer shows only its "open"
+   // card, whose click opens the new tab.
+   applicationOfferOpenRef.current = true;
+   setRewardedApplicationOpenCardOnly(true);
+   setRewardedApplicationResumed(true);
+   setRewardedApplicationJob(selectedJob);
+   return;
+  }
+  trackAssistedApplicationEvent('rewarded_application_offer_resumed', context);
+  applicationOfferOpenRef.current = true;
+  setRewardedApplicationFreeChosen(resume.choice === 'free');
+  setRewardedApplicationResumed(true);
+  setRewardedApplicationJob(selectedJob);
+  // Checked once per page load, when the detail is ready.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [selectedJob, authResolved, assistedApplicationVariantReady]);
 
  const handleShare = async (job: JobListing) => {
  const url = `${window.location.origin}${buildJobPath(job)}`;
@@ -7305,7 +7977,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={() => {
  const category = (t(categoryTranslationKey(selectedJob)) || '').trim();
  Analytics.trackJobAlertCtaClick('job_detail_button', 'open', category);
- requestJobAlertOpen(category || undefined);
+ requestJobAlertOpen(category || undefined, 'job_detail_button');
  backToList();
  }}
  className="inline-flex items-center gap-2 px-3 py-2 min-h-[44px] text-xs font-semibold font-display rounded-lg bg-accent-strong text-on-accent hover:bg-accent-strong-hover transition-colors"
@@ -7341,7 +8013,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sourceJobUrl={selectedJob?.url ?? null}
  sourceJobTitle={selectedJob?.title ?? null}
  cantonCode={selectedJob?.canton ?? null}
- onShown={() => Analytics.trackJobAlertCtaShown('job_detail_prompt', jobDetailPromptCategory)}
+ onShown={() => { markJobAlertPromptShown('job-detail-alert-prompt'); Analytics.trackJobAlertCtaShown('job_detail_prompt', jobDetailPromptCategory); }}
  onClose={() => {
  setJobDetailPromptVisible(false);
  setJobDetailPromptCategory(null);
@@ -7367,6 +8039,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }).catch(() => {});
  }}
  onDismissed={() => {
+ dismissJobAlertPrompt();
  const category = jobDetailPromptCategory;
  Analytics.trackJobAlertCtaClick('job_detail_prompt', 'dismiss', category);
  import('@/services/jobDetailAlertGating').then(({ loadGatingState, saveGatingState, recordDismiss, normalizeKeyword }) => {
@@ -7408,6 +8081,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
     context="category"
     keywordLabel={detailAlertCategoryLabel}
     cantonCode={selectedJob.canton ?? null}
+    formOrigin="job_detail_anonymous"
+    onAnonymousAuthRequired={onRequireAuth}
     onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_anonymous', detailAlertCategoryLabel)}
     onAnonymousOpen={() => {
      Analytics.trackJobAlertCtaClick('job_detail_anonymous', 'open', detailAlertCategoryLabel);
@@ -7432,12 +8107,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  categoryLabel={savedNudge.categoryLabel}
  cantonCode={savedNudge.cantonCode}
  cantonLabel={savedNudge.cantonCode ? getCantonLabel(savedNudge.cantonCode, locale) : null}
- onShown={() => Analytics.trackEvent('nudge_shown', {
+ onShown={() => {
+ // The saved-jobs nudge has its own `nudge_*` funnel and stays outside the
+ // campaign's seven-surface denominator, but its generic shown event keeps the
+ // raw `job_alert_created` pair attributable for GA4 diagnostics.
+ Analytics.trackJobAlertCtaShown('saved_jobs_nudge', savedNudge.categoryLabel);
+ Analytics.trackEvent('nudge_shown', {
  nudge: 'saved_jobs_alert',
  saved_count: savedNudge.savedCount,
  nudge_category: savedNudge.category,
  nudge_canton: savedNudge.cantonCode || '(none)',
- })}
+ })
+ }}
  userId={userId}
  email={userEmail}
  locale={locale}
@@ -7453,10 +8134,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // queued-request + backToList dance as the prompt's onManage above.
  saveNudgeState(recordNudgeAccepted(loadNudgeState(), new Date()));
  if (isJobDetailView) {
- requestJobAlertOpen(savedNudge.categoryLabel);
+ requestJobAlertOpen(savedNudge.categoryLabel, 'saved_jobs_nudge');
  backToList();
  } else {
- window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { keyword: savedNudge.categoryLabel } }));
+ openJobAlertForm(savedNudge.categoryLabel, 'saved_jobs_nudge');
  }
  }}
  onDismissed={handleSavedNudgeDismissed}
@@ -7474,18 +8155,43 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
- const assistedApplicationOfferJsx = assistedApplicationJob && assistedApplicationVariant === 'assisted_application' ? (
-  <Suspense fallback={null}>
+ // On screen only while an offer's code is still arriving (it is loaded
+ // ahead, see above): a "Candidati" click never looks dead.
+ const applicationOfferCodeLoadingJsx = (
+  <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/55 px-4 backdrop-blur-sm" data-testid="application-offer-code-loading">
+   <div role="status" aria-live="polite" className="flex items-center gap-3 rounded-stripe border border-edge bg-surface px-5 py-4 shadow-stripe-lg">
+    <Loader2 className="h-5 w-5 shrink-0 animate-spin text-accent motion-reduce:animate-none" aria-hidden="true" />
+    <p className="text-sm font-semibold text-heading">{t('jobBoard.rewardedOffer.loading')}</p>
+   </div>
+  </div>
+ );
+
+ const assistedApplicationOfferJsx = sumUpPayment ? (
+  <Suspense fallback={applicationOfferCodeLoadingJsx}>
+   <SumUpPaymentWidget
+    checkoutId={sumUpPayment.checkoutId}
+    locale={locale}
+    onResponse={handleSumUpResponse}
+    onError={handleSumUpWidgetError}
+    onClose={closeSumUpPayment}
+    error={assistedCheckoutError}
+    busy={sumUpPaymentBusy}
+   />
+  </Suspense>
+ ) : assistedApplicationJob && assistedOfferAvailable ? (
+  <Suspense fallback={applicationOfferCodeLoadingJsx}>
    <AssistedApplicationOffer
     jobId={String(assistedApplicationJob.id)}
     companyId={String(assistedApplicationJob.companyKey || assistedApplicationJob.company || 'unknown')}
     companyName={assistedApplicationJob.company}
     jobTitle={sanitizeJobTitle(assistedApplicationJob.titleByLocale?.[locale] ?? assistedApplicationJob.title)}
     variant={assistedApplicationVariant}
+    copyVariant={assistedApplicationCopyVariant}
     onChooseExternal={handleAssistedExternal}
     onChoosePaid={handleAssistedPaid}
     onClose={() => {
      setAssistedApplicationJob(null);
+     setAssistedOfferSource('experiment');
      setAssistedCheckoutBusy(false);
      setAssistedCheckoutError(null);
     }}
@@ -7495,16 +8201,34 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
- const rewardedApplicationOfferJsx = rewardedApplicationJob && assistedApplicationVariant === 'rewarded_ad' ? (
-  <Suspense fallback={null}>
+ const rewardedApplicationOfferJsx = !sumUpPayment && rewardedApplicationJob && assistedApplicationVariant === 'rewarded_ad' ? (
+  <Suspense fallback={applicationOfferCodeLoadingJsx}>
    <RewardedApplicationOffer
     jobId={String(rewardedApplicationJob.id)}
     companyId={String(rewardedApplicationJob.companyKey || rewardedApplicationJob.company || 'unknown')}
     companyName={rewardedApplicationJob.company}
     jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
+    copyVariant={assistedApplicationCopyVariant}
     onContinue={handleRewardedApplicationContinue}
     onUnavailable={handleRewardedApplicationUnavailable}
-    onDismiss={() => setRewardedApplicationJob(null)}
+    onDismiss={() => {
+     setRewardedApplicationJob(null);
+     setAssistedCheckoutBusy(false);
+     setAssistedCheckoutError(null);
+    }}
+    resumed={rewardedApplicationResumed}
+    startInHandoff={rewardedApplicationOpenCardOnly}
+    onReload={handleRewardedApplicationReload}
+    // The paid offer first, the Offerwall prepared hidden behind it (owner
+    // decision 2026-10-03), under the same Remote Config flag as the paid
+    // fallback: ASSISTED_APPLICATION_OFFERWALL_FALLBACK off restores the
+    // Offerwall-only click.
+    paidChoice={offerwallPaidFallbackEnabled && !rewardedApplicationFreeChosen ? {
+     onChoosePaid: () => startAssistedCheckout(rewardedApplicationJob, { trigger: 'offerwall_first' }),
+     paidLoading: assistedCheckoutBusy,
+     error: assistedCheckoutError,
+    } : undefined}
+    paidOfferSeen={rewardedApplicationFreeChosen}
    />
   </Suspense>
  ) : null;
@@ -7574,7 +8298,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    method: 'google',
    authState: 'anonymous',
    variant: gateVariant,
-   experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+   experimentId: gateExperimentId,
    jobSlug: ctx.jobSlug,
   });
   Analytics.trackJobAuthFunnel('auth_method_click', {
@@ -7583,7 +8307,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    surface: 'modal',
    authState: 'anonymous',
    variant: gateVariant,
-   experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+   experimentId: gateExperimentId,
    jobSlug: ctx.jobSlug,
   });
   void handleAuthAndOpen('google', 'modal');
@@ -7618,7 +8342,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   method: 'linkedin',
   authState: 'anonymous',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: ctx.jobSlug,
  });
  Analytics.trackJobAuthFunnel('auth_method_click', {
@@ -7627,7 +8351,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   surface: 'modal',
   authState: 'anonymous',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: ctx.jobSlug,
  });
  setAuthBusy('linkedin');
@@ -7640,7 +8364,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   searchQuery: searchQuery.trim() || null,
   surface: 'modal',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
  });
  const jobSlug = job.slugByLocale?.[locale] ?? job.slug;
  const section = getJobBoardSectionSlug(locale);
@@ -7726,6 +8450,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  );
 
+ if (assistedApplicationReviewToken) {
+  return (
+   <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-center text-sm text-subtle">{t('jobBoard.assisted.loading')}</div>}>
+    <AssistedApplicationReview token={assistedApplicationReviewToken} />
+   </Suspense>
+  );
+ }
+
  if (assistedApplicationOrderId) {
   return (
    <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-center text-sm text-subtle">{t('jobBoard.assisted.loading')}</div>}>
@@ -7769,21 +8501,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !seeded) {
  return <SkeletonJobDetail />;
  }
- // Listing/search/location pages fall through to the normal rail shell below.
- // `resultsResolving` includes `jobsLoading`, so that shell mounts the real
- // hero, search/filter footprint and result loader from the first frame. The
- // old early return rendered only the hero plus a 56px placeholder, then
- // inserted the desktop banner/rails and the full filter stack when the index
- // arrived — a deterministic layout shift on the CLS-sensitive job board.
- // Company-brand pages keep a layout-matching skeleton because their loaded
- // hero is the richer EmployerBrandHub, not this text hero.
+ // Listing/search/location pages must keep the final rail shell mounted while
+ // the async job index resolves. The previous early return rendered only the
+ // hero and a short placeholder, then inserted the banner/rails and full
+ // filter footprint when the index arrived — a deterministic CLS on the
+ // field-sensitive job-board landing. `resultsResolving` keeps the content
+ // area in its loading state while this shell remains structurally stable.
  if (companySlugFilter) {
  return (
+ // Company-brand pages keep a layout-matching skeleton because their loaded
+ // hero is the richer EmployerBrandHub, not the listing hero.
  <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <SkeletonJobBoard />
  </JobBoardRailShell>
  );
- }
  }
  }
 
@@ -7806,7 +8537,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Mail className="h-4 w-4" />
  </div>
  <div className="min-w-0 flex-1">
- <p className="text-sm font-bold text-warning">{t('newsletter.doubleOptIn.title')}</p>
+ <p className="text-sm font-bold text-warning">
+ {t('newsletter.doubleOptIn.title')}
+ </p>
  <p className="mt-1 truncate text-xs font-medium text-warning">{authNotice.email}</p>
  </div>
  <ChevronDown
@@ -8745,8 +9478,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    job: JobListing,
    surface: 'company_follow_button' | 'company_follow_gate',
  ) => (
-   // Reserving fallback: this CTA renders in the job-detail header now, so the
-   // lazy chunk landing must swap a same-sized block rather than insert one.
+   // Reserve space if a descendant suspends; the inline CTA itself is eager.
    <Suspense fallback={<CompanyFollowPlaceholder />}>
      <CompanyFollowCta
        company={String(job.company || '')}
@@ -8781,43 +9513,57 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gatePosted = daysSincePosted(selectedJob.postedDate);
  const gateIsNew = isNewJob(selectedJob);
  const logoUrl = cdnImageUrl(resolveCompanyLogoUrl(selectedJob));
- const previewCharLimit = 220;
- // Fixed-height teaser box with a STATIC height (svh, not dvh) so it never
- // shifts frame-to-frame — preserving the CLS guard below.
- const previewBoxClass =
- '[@media(max-height:540px)]:hidden h-[clamp(0px,calc(100svh_-_540px),80px)]';
- // stripMarkdownMarkers runs BEFORE the HTML strip, not after: `<[^>]+>`
- // below would otherwise have already eaten the `(url)` half of a markdown
- // link and left the `[testo]` brackets stranded. Measured on the live
- // corpus, ~30% of descriptions carry a heading marker and ~19% a `**` pair;
- // this teaser prints its input verbatim into a `whitespace-pre-line`
- // paragraph, so both were reaching the reader as literal characters.
- const descriptionPreview = stripMarkdownMarkers(
- selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? ''
- )
- .replace(/<br\s*\/?>/gi, '\n')
- .replace(/<\/(p|li|ul|ol|div|h[1-6]|blockquote)>/gi, '\n')
- .replace(/<[^>]+>/g, ' ')
- // Strip ATX markdown headings (`## Heading`) left over from descriptions
- // authored/crawled as markdown: HTML tags are gone by this point but `#`
- // isn't HTML, so it survived and rendered literally in the gate teaser
- // (verified in production). Anchored to line start + required whitespace
- // so mid-line `#` (e.g. "C#", "row #3") is never touched.
- .replace(/(^|\n)#{1,6}\s+/g, '$1')
- .replace(/[^\S\n]+/g, ' ')
- .replace(/\n[ \t]*/g, '\n')
- .replace(/\n{3,}/g, '\n\n')
- .trim()
- .slice(0, previewCharLimit);
- // True while the slim index gave us no description but the per-job detail
- // fetch hasn't settled yet (cache miss on first render, or in flight).
- // Switches the always-mounted teaser box from static bars to a pulsing
- // skeleton; the box itself never mounts/unmounts after first paint (its
- // height is fixed by the svh clamp), so neither the text arriving late
- // (~92px push, 0.054 CLS/view) nor a detail that settles WITHOUT a
- // description (reverse ~80px collapse) can shift the auth gate.
- const teaserPending = !descriptionPreview
+ const publicDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? '';
+ const descriptionPreview = jobDescriptionPreview(publicDescription);
+ const descriptionPending = !publicDescription
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
+ // jobgate-v5: contrast/accent treatment per arm; Spotlight is also the
+ // fail-safe product default. Copy and order stay fixed in every arm.
+ const gateSkin = jobGateSkin(jobGate.arm);
+ const inlineEmailForm = (
+ <form
+ onSubmit={(e) => {
+ e.preventDefault();
+ const ctx = buildJobTrackingContext(selectedJob);
+ Analytics.trackJobAuthGate('method_click', {
+  surface: 'inline',
+  method: 'email',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: ctx.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_method_click', {
+  method: 'email',
+  ...ctx,
+  surface: 'inline',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: ctx.jobSlug,
+ });
+ void handleInlineEmailAccess(selectedJob);
+ }}
+ className="mt-3 space-y-2"
+ >
+ <EmailInput
+ value={emailInput}
+ onChange={setEmailInput}
+ placeholder={t('jobBoard.authGateEmailPlaceholder')}
+ className={gateSkin.emailInput}
+ />
+ {/* `spotlight` keeps the CTA enabled on an empty field: the input is
+     `required`, so the browser stops the submit and focuses it. */}
+ <button
+ type="submit"
+ disabled={authBusy !== null || (gateSkin.emailSubmitDisabledWhenEmpty && !emailInput.trim())}
+ className={gateSkin.emailSubmit}
+ >
+ {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
+ {t('jobBoard.gate.emailCta')}
+ </button>
+ </form>
+ );
  const gateCompanySlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const gateJobCanton = resolveJobCanton(selectedJob);
  const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: gateJobCanton, jobSlug: gateCompanySlug }, locale);
@@ -8911,7 +9657,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="space-y-4">
 
  {/* Job header — always visible */}
- <div className="rounded-stripe border border-edge bg-surface p-4 sm:p-5">
+ <div className="rounded-stripe border border-edge bg-surface p-4 sm:p-5" data-no-auto-ads="inside">
  <div className="flex items-start gap-4">
  {logoUrl && (
  <img
@@ -8986,87 +9732,64 @@ const JobBoard: React.FC<JobBoardProps> = ({
      the title block) as JobExpiredView and JobOrphanView; it renders null
      unless the build proved a hub exists for this employer. */}
  <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
- {/* CompanyAlert (#5012) — the follow CTA, directly under the hub link it
-     belongs with. It used to sit far below the auth gate, past the teaser and
-     the sign-in block; on the surface where the reader is MOST likely to
-     leave without an account, the one ask that does not need an account was
-     the last thing on the page. Same component, same anonymous
-     email-capture + double opt-in, moved to where the employer is named. */}
- {companyFollowCta(selectedJob, 'company_follow_gate')}
- {/* Readable description teaser — shows first ~200 chars to create information
- scent and an "open loop" that motivates signup. Fades out at the bottom.
- On very short viewports (landscape phones) we hide it entirely so the gate CTAs
- land above the fold.
- CLS guards: (a) svh, NOT dvh — dvh re-resolves every time the mobile URL bar
- collapses/expands, oscillating the box 0↔80px and shifting the gate and
- everything below it on every scroll direction change; svh is static.
- (b) The box is ALWAYS mounted at a FIXED clamp height (height, not
- maxHeight, so short text / skeleton / settled-empty all produce the exact
- same container height frame-to-frame). Contents only cross-fade between
- text, a pulsing skeleton (detail fetch pending) and static redacted bars
- (detail settled with no description — keeping the reserve, never
- collapsing). This kills both the ~92px gate push when the late teaser
- text arrived (0.054 CLS/view) and the reverse collapse for
- description-less jobs. */}
- <div className={`relative mt-3 w-full overflow-hidden rounded-stripe ${previewBoxClass}`}>
- {descriptionPreview ? (
- <p className="px-3 py-2 text-sm text-body leading-relaxed whitespace-pre-line sm:py-3">
- {descriptionPreview}...
- </p>
- ) : teaserPending ? (
- <div className="px-3 py-2 sm:py-3 space-y-2" aria-hidden="true">
- <SkeletonLine height="h-4" />
- <SkeletonLine height="h-4" />
- <SkeletonLine height="h-4" width="w-3/4" />
- </div>
- ) : (
- // Detail settled with no description: static redacted-style bars (no
- // pulse — nothing is loading) keep the reserved height instead of
- // collapsing the box, which would yank the gate up by the same ~80px
- // the late-teaser push used to move it down.
- <div className="px-3 py-2 sm:py-3 space-y-2 opacity-60" aria-hidden="true">
- <div className="bg-surface-raised rounded-lg w-full h-4" />
- <div className="bg-surface-raised rounded-lg w-full h-4" />
- <div className="bg-surface-raised rounded-lg w-3/4 h-4" />
- </div>
- )}
- <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
- </div>
+ {/* The anonymous preview has one text budget; requirements remain behind access. */}
+ <section className="mt-4 space-y-3" aria-label={t('jobBoard.descriptionHeading')} data-testid="job-public-description" data-job-description-preview>
+  {descriptionPreview ? <p className={gateSkin.previewFade ? 'text-sm leading-relaxed text-body mask-b-from-30%' : 'text-sm leading-relaxed text-body'}>{descriptionPreview}</p> : (
+   // Keep the empty-description slot stable when enrichment settles without a
+   // public description. Otherwise the settled fallback collapses the space
+   // reserved by the loading skeleton and shifts the auth gate upward.
+   <div className="min-h-[160px]">
+    {descriptionPending ? (
+     <div className="space-y-3" aria-busy="true"><SkeletonLine height="h-4" /><SkeletonLine height="h-4" /><SkeletonLine height="h-4" /></div>
+    ) : <p className="text-sm text-subtle">{t('jobBoard.gate.descriptionUnavailable')}</p>}
+   </div>
+  )}
+ </section>
 
- {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
- <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
- <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
- <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
- <span>{gateHeadline}</span>
+ {/* Auth gate — embedded inline for all viewports (no extra click needed).
+     jobgate-v5 arms change only contrast/accent through `gateSkin`
+     (components/community/jobGateSkin.ts). */}
+ {(() => {
+ const gateHeading = (
+ <h2 className={gateSkin.heading}>
+ <Eye className={gateSkin.headingIcon} aria-hidden="true" />
+ <span>{t('jobBoard.gate.applicationTitle')}</span>
  </h2>
+ );
+ const gateExplanation = (
+ <>
+ <p className={gateSkin.subtitle}>{t('jobBoard.gate.subtitle')}</p>
 
  {/* Trust signals — 2 lines at text-sm. text-xs is reserved for metadata
  per the project's design context (.impeccable.md). */}
- <ul className="mt-3 space-y-1.5 text-sm text-subtle">
+ <ul className={gateSkin.trustList}>
  <li className="flex items-center gap-2">
- <CheckCircle2 size={14} className="text-success flex-shrink-0" aria-hidden="true" />
+ <CheckCircle2 size={14} className={gateSkin.trustIcon} aria-hidden="true" />
  <span>{locale === 'it' ? 'Gratis · Per sempre' : locale === 'de' ? 'Kostenlos · Für immer' : locale === 'fr' ? 'Gratuit · Pour toujours' : 'Free · Forever'}</span>
  </li>
  <li className="flex items-center gap-2">
- <Shield size={14} className="text-success flex-shrink-0" aria-hidden="true" />
+ <Shield size={14} className={gateSkin.trustIcon} aria-hidden="true" />
  <span>{t('jobBoard.gate.privacyNote')}</span>
  </li>
  </ul>
-
+ </>
+ );
+ const gateConsent = (
  <EmailConsentCheckbox
   consentKey="communicationsOptIn"
   locale={locale}
   className="mt-3 text-xs text-muted leading-relaxed"
+  noticeClassName={gateSkin.consentNotice ?? undefined}
  />
-
- {/* Social proof — keep one short line */}
- {jobs.length > 0 && (
- <p className="mt-3 text-xs font-medium text-accent">
+ );
+ // Social proof — keep one short line
+ const gateSocialProof = jobs.length > 0 && (
+ <p className={gateSkin.socialProof}>
  {jobs.length.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
  </p>
- )}
-
- <div className="mt-4 space-y-3">
+ );
+ const gateActions = (
+ <div className={gateSkin.actionsFirst ? 'space-y-3' : 'mt-4 space-y-3'}>
  <div className="space-y-2">
  <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!inlineGoogleButtonReady && (
@@ -9079,7 +9802,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   method: 'google',
   authState: 'anonymous',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: ctx.jobSlug,
  });
  Analytics.trackJobAuthFunnel('auth_method_click', {
@@ -9088,13 +9811,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
   surface: 'inline',
   authState: 'anonymous',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: ctx.jobSlug,
  });
  void handleAuthAndOpen('google', 'inline');
  }}
  disabled={authBusy !== null}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised disabled:opacity-60 text-strong text-sm font-semibold shadow-sm transition-colors"
+ className={gateSkin.googleFallbackButton}
  >
  {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
@@ -9121,7 +9844,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   method: 'linkedin',
   authState: 'anonymous',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: ctx.jobSlug,
  });
  Analytics.trackJobAuthFunnel('auth_method_click', {
@@ -9130,7 +9853,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   surface: 'inline',
   authState: 'anonymous',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
   jobSlug: ctx.jobSlug,
  });
  setAuthBusy('linkedin');
@@ -9143,7 +9866,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   searchQuery: searchQuery.trim() || null,
   surface: 'inline',
   variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  experimentId: gateExperimentId,
  });
  const jobSlug = job.slugByLocale?.[locale] ?? job.slug;
  const section = getJobBoardSectionSlug(locale);
@@ -9155,10 +9878,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  signInWithLinkedIn().catch(() => setAuthBusy(null));
  }
  }}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ className={gateSkin.linkedInButton}
  >
  {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
- <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+ <svg className={gateSkin.linkedInIcon ? `w-4 h-4 ${gateSkin.linkedInIcon}` : 'w-4 h-4'} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  )}
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
  </button>
@@ -9168,58 +9891,50 @@ const JobBoard: React.FC<JobBoardProps> = ({
  to remove the form's vertical footprint from their decision flow. */}
  <details open className="group">
  <summary className="flex items-center gap-3 cursor-pointer list-none py-1 -my-1 [&::-webkit-details-marker]:hidden">
- <div className="flex-1 h-px bg-surface-raised/50" />
- <span className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-subtle transition-colors">
+ <div className={gateSkin.divider} />
+ <span className={gateSkin.dividerLabel}>
  {t('jobBoard.authGateOrEmail')}
  <ChevronDown size={14} className="transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
  </span>
- <div className="flex-1 h-px bg-surface-raised/50" />
+ <div className={gateSkin.divider} />
  </summary>
- <form
- onSubmit={(e) => {
- e.preventDefault();
- const ctx = buildJobTrackingContext(selectedJob);
- Analytics.trackJobAuthGate('method_click', {
-  surface: 'inline',
-  method: 'email',
-  authState: 'anonymous',
-  variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
-  jobSlug: ctx.jobSlug,
- });
- Analytics.trackJobAuthFunnel('auth_method_click', {
-  method: 'email',
-  ...ctx,
-  surface: 'inline',
-  authState: 'anonymous',
-  variant: gateVariant,
-  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
-  jobSlug: ctx.jobSlug,
- });
- void handleInlineEmailAccess(selectedJob);
- }}
- className="mt-3 space-y-2"
- >
- <EmailInput
- value={emailInput}
- onChange={setEmailInput}
- placeholder={t('jobBoard.authGateEmailPlaceholder')}
- className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
- />
- <button
- type="submit"
- disabled={authBusy !== null || !emailInput.trim()}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
- >
- {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
- {t('jobBoard.gate.emailCta')}
- </button>
- </form>
+ {inlineEmailForm}
  </details>
  </div>
-
- {authError && <p className="text-sm text-danger mt-2">{authError}</p>}
+ );
+ const gateError = authError && <p className={gateSkin.authError}>{authError}</p>;
+ return (
+ <div
+ id="job-auth-gate"
+ role="region"
+ aria-label={t('jobBoard.gate.title')}
+ className={gateSkin.container}
+ data-jobgate-arm={jobGate.enrolled ? jobGate.arm : undefined}
+ >
+ {gateSkin.headerBand ? (
+ <>
+ <div className={gateSkin.headerBand}>{gateHeading}</div>
+ <div className={gateSkin.body}>
+ {gateActions}
+ {gateConsent}
+ {gateExplanation}
+ {gateSocialProof}
+ {gateError}
  </div>
+ </>
+ ) : (
+ <>
+ {gateHeading}
+ {gateExplanation}
+ {gateConsent}
+ {gateSocialProof}
+ {gateActions}
+ {gateError}
+ </>
+ )}
+ </div>
+ );
+ })()}
  </div>
 
  {/* AdSense — below auth gate form */}
@@ -9248,6 +9963,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  )}
 
+ {companyFollowCta(selectedJob, 'company_follow_gate')}
  {/* Company banner — gate view */}
  <a
  href={gateCompanyHref}
@@ -9473,9 +10189,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ...canonicalResidualSections,
  ];
  const hybridLayoutEnabled = false;
- const applyUrl = buildReferralUrl(selectedJob);
  const applyMode = (selectedJob as { applyMode?: string }).applyMode;
  const isInHouseApply = applyMode === 'in_house' || applyMode === 'forward_email';
+ const renderApplicationIntentConsent = (className = 'mt-2 text-xs text-muted') => (
+  isExternalApplicationJob(selectedJob) ? (
+   <a
+    href="#application-intent-disclosure"
+    className={`${className} inline-block text-accent underline underline-offset-2 hover:text-accent-hover`}
+    data-testid="application-intent-link"
+   >
+    {t('jobBoard.applicationIntentDetails')}
+   </a>
+  ) : null
+ );
+ const renderApplicationIntentDisclosure = () => (
+  isExternalApplicationJob(selectedJob) ? (
+   <section
+    id="application-intent-disclosure"
+    aria-labelledby="application-intent-disclosure-title"
+    className="scroll-mt-24 mt-4 rounded-2xl border border-edge bg-surface-alt p-4 sm:p-5"
+   >
+    <h2 id="application-intent-disclosure-title" className="text-sm font-bold font-display text-heading">
+     {t('jobBoard.applicationIntentDetails')}
+    </h2>
+    <p className="mt-2 text-xs leading-relaxed text-muted" data-testid="application-intent-consent">
+     {t('jobBoard.applicationIntentConsent')}
+    </p>
+   </section>
+  ) : null
+ );
  // Publisher / sponsored ad: a paid submission carries a `publisherJobId`. Used
  // to gate the per-job "Avvisami per questo annuncio" CTA (specificJobId alert).
  const isPublisherAd = Boolean((selectedJob as { publisherJobId?: string | null }).publisherJobId);
@@ -9503,6 +10245,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  addressCountry: selectedJob.addressCountry,
  postalCode: selectedJob.postalCode,
  streetAddress: selectedJob.streetAddress,
+ postingDateSource: selectedJob.postingDateSource,
+ datePosted: selectedJob.datePosted,
  postedDate: selectedJob.postedDate,
  crawledAt: selectedJob.crawledAt,
  contract: selectedJob.contract,
@@ -9519,11 +10263,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const faqIsTicino = detailJobCanton === 'TI';
  const faqCantonDisplay = getCantonDisplayName(detailJobCanton, locale);
- const faqSchema = buildJobPostingSchema(faqJobInput, {
- locale,
- url: detailPageUrl,
- baseUrl: PUBLIC_SITE_URL,
- });
+ const faqSchema = buildJobPostingFacts(faqJobInput, locale, { fallbackUrl: detailPageUrl });
  const jobFaqPairs: JobFaqPair[] = buildJobPostingFaqPairs(faqSchema, {
  locale,
  jobUrl: resolveJobApplicationUrl(selectedJob, detailPageUrl),
@@ -9711,6 +10451,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  </div>
  ) : (
+ <>
  <button
   type="button"
  className="hybrid-ab-cta"
@@ -9718,6 +10459,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  {t('jobBoard.apply')}
  </button>
+ {renderApplicationIntentConsent('mt-1.5 text-xs text-muted')}
+ {rewardedCtaDisclosure && (
+  <p className="mt-1.5 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p>
+ )}
+ </>
  )}
 
  {!(selectedJob as unknown as { publisherJobId?: string }).publisherJobId && (
@@ -9761,6 +10507,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {sectorContextWidget && (
  <div className="mt-3">{sectorContextWidget}</div>
  )}
+ {renderApplicationIntentDisclosure()}
  </article>
  {detailAlertCtaJsx}
  {jobDetailPromptJsx}
@@ -9815,16 +10562,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* ── Center content (existing 12-col job-detail grid) ── */}
  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
  <article className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5">
- <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6">
+ <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6" data-no-auto-ads="inside">
  <div className="flex items-start gap-3 sm:gap-4">
- <a
- href={isInHouseApply ? '#candidatura' : applyUrl}
- target={isInHouseApply ? undefined : '_blank'}
- rel="nofollow noopener noreferrer"
- onClick={(e) => {
-  e.preventDefault();
-  handleApply(selectedJob, 'job_board_apply_header_logo');
- }}
+ <button
+ type="button"
+ onClick={() => handleApply(selectedJob, 'job_board_apply_header_logo')}
  aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
  >
@@ -9841,21 +10583,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ) : (
  <Building2 className="w-9 h-9 text-muted" />
  )}
- </a>
+ </button>
  <div className="min-w-0 flex-1">
  <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display text-heading leading-tight break-words [hyphens:auto]">
- <a
- href={isInHouseApply ? '#candidatura' : applyUrl}
- target={isInHouseApply ? undefined : '_blank'}
- rel="nofollow noopener noreferrer"
- onClick={(e) => {
-  e.preventDefault();
-  handleApply(selectedJob, 'job_board_apply_header_title');
- }}
- className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+ <button
+ type="button"
+ onClick={() => handleApply(selectedJob, 'job_board_apply_header_title')}
+ className="text-left hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
  >
  {selectedJobTitle}
- </a>
+ </button>
  {selectedJob.featured && <Star className="inline-block w-4 h-4 ml-2 text-warning fill-warning" />}
  </h1>
  <p className="mt-1 text-sm text-body break-words">
@@ -9959,7 +10696,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
          two controls answer one question — "this company" — and reading them
          together is what makes the second one obvious;
        · CompanyFollowButton holds its follow/unfollow state locally and
-         resolves it with its own `findCompanyAlert` call. A second instance
+         resolves it through the shared alerts cache. A second instance
          on the same page would not just re-query: after one click the two
          would disagree, and clicking the stale one writes a SECOND alert
          document for the same employer, burning one of the visitor's few
@@ -10081,6 +10818,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <ArrowUpRight className="w-4 h-4" />
  {t('jobBoard.apply')}
  </button>
+ {renderApplicationIntentConsent()}
  {appliedNoticeJsx}
  <dl className="grid grid-cols-3 gap-2 text-xs">
  <div className="rounded-lg bg-surface-alt p-2 text-center">
@@ -10146,8 +10884,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  width={28}
  height={28}
  loading="lazy"
- onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {appliedNoticeJsx}
+ onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
+ {renderApplicationIntentConsent()}
  {isPublisherAd && userId && userEmail && (
  <Suspense fallback={null}>
  <JobDetailJobAlertButton
@@ -10158,6 +10897,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sourceJobSlug={selectedJob.slug ?? null}
  sourceJobUrl={selectedJob.url ?? null}
  sourceJobTitle={selectedJob.title ?? null}
+ onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_button', selectedJob.title)}
+ onAccepted={() => Analytics.trackJobAlertCtaClick('job_detail_button', 'accept', selectedJob.title)}
  onSubscribed={() => {
  Analytics.trackJobAlertCtaClick('job_detail_button', 'success', selectedJob.title);
  Analytics.trackJobAlertCreated({ keywords: selectedJob.title || '', frequency: 'daily', surface: 'job_detail_button' });
@@ -10177,6 +10918,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  injected by services/seoService.ts (content-parity rule, CLAUDE.md §
  Static SEO Pages). Collapsed by default: prose FAQ sits below the
  action/data area per the mobile-first content-order rule. */}
+ {renderApplicationIntentDisclosure()}
  {jobFaqPairs.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-3">
  <h2 className="text-base font-bold font-display text-heading">{t('jobBoard.faq.title')}</h2>
@@ -10250,8 +10992,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {relatedArticles.map((article) => (
  <a
  key={article.id}
- href={buildPath({ activeTab: 'blog', blogArticle: article.id })}
- onClick={(e) => { e.preventDefault(); nav.navigateTo('blog', article.id); }}
+ href={buildPath({ activeTab: 'blog', blogArticle: article.id as BlogArticleId })}
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('blog', article.id as BlogArticleId); }}
  className="text-left rounded-xl border border-success-border p-3 bg-success-subtle/60 hover:bg-success-subtle transition-colors"
  >
  <div className="flex items-start gap-3">
@@ -10312,6 +11054,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onImpression={() => trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel)}
  keywordLabel={boardFilterAlertKeywordLabel}
  cantonCode={boardFilterAlertCantonCode}
+ filters={{
+ locations: selectedLocation === 'all' ? [] : [selectedLocation],
+ contractTypes: selectedContract === 'all' ? [] : [selectedContract],
+ sectors: selectedSector === 'all' ? [] : [selectedSector],
+ }}
+ formOrigin="job_board_filters"
+ onAnonymousAuthRequired={onRequireAuth}
+ onAccepted={() => Analytics.trackJobAlertCtaClick('job_board_filters', 'accept', boardFilterAlertKeywordLabel)}
  onAnonymousOpen={() => {
  Analytics.trackJobAlertCtaClick('job_board_filters', 'open', boardFilterAlertKeywordLabel);
  }}
@@ -10376,6 +11126,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Suspense fallback={<div className="h-[100px] rounded-xl bg-surface-raised animate-pulse" />}>
  <JobAlertForm
  authUser={authUser}
+ authResolved={!authLoading}
  onRequireAuth={onRequireAuth}
  initialKeyword={searchQuery}
  initialCantonCode={boardFilterAlertCantonCode}
@@ -10451,6 +11202,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  data-testid="company-follow-inline-surface"
  className="rounded-xl border border-accent-border bg-accent-subtle/40 p-3 sm:p-4"
  >
+ <EmployerHubCta company={companyDisplayName} companyKey={companyFollowJob?.companyKey ?? null} locale={locale} />
  <Suspense fallback={<CompanyFollowPlaceholder />}>
  <CompanyFollowCta
  company={companyDisplayName}
@@ -10618,10 +11370,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={() => {
  const next = !showSavedOnly;
  if (next && !authUser?.uid) {
- savePendingSaveJobIntent({ kind: 'show_saved_only' });
+ const pendingStored = stashPendingSave({ kind: 'show_saved_only' });
       requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
  setSaveAuthPromptOpen(true);
- Analytics.trackEvent('save_signin_prompt_shown', { surface: 'saved_filter_pill' });
+ Analytics.trackEvent('save_signin_prompt_shown', { surface: 'saved_filter_pill', pending_stored: pendingStored });
  return;
  }
  setShowSavedOnly(next);
@@ -10825,8 +11577,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {boardFilterAlertCtaJsx}
 
- {/* ── Personalization: NewJobsCounter + Personalizzato pill + TrendingSection ── */}
- {enablePersonalization && (
+ {/* A neutral, useful recommendation slot exists before Remote Config resolves.
+     The flag only opts into popularity ranking; false keeps ordinary job cards. */}
+ <TrendingSection
+ trendingJobs={recommendationJobs.map((j) => ({
+ ...j,
+ logoUrl: companyLogoUrl(j),
+ href: j.slug ? buildPath({ activeTab: 'job-board' as any, jobSlug: j.slug }, locale) : undefined,
+ }))}
+ popularity={enablePersonalization ? deferredPopularity : EMPTY_JOB_POPULARITY}
+ heading={t('jobBoard.recommendations.heading')}
+ ariaLabel={t('jobBoard.recommendations.heading')}
+ emptyLabel={t(resultsResolving ? 'jobBoard.loadingResults' : 'jobBoard.noResults')}
+ onJobClick={(slug) => {
+ Analytics.trackSelectContent('trending_section_click', slug);
+ const job = recommendationJobs.find((j) => j.slug === slug);
+ if (job) openDetail(job);
+ }}
+ />
+
+ {/* ── Personalization notices (no empty wrapper when the flag resolves) ── */}
+ {enablePersonalization && ((!newJobsDismissed && newJobsInfo.total > 0) || isPersonalizationActive || (jobMatchAlertVisible && userId && userEmail)) && (
  <div className="space-y-3">
  {!newJobsDismissed && newJobsInfo.total > 0 && (
  <NewJobsCounter
@@ -10853,6 +11624,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onImpression={() => trackJobAlertCtaShownOnce('job_match_pill', jobMatchAlertCategoryLabel)}
  categoryLabel={jobMatchAlertCategoryLabel}
  cantonCode={jobMatchAlertCantonCode}
+ onAccepted={() => Analytics.trackJobAlertCtaClick('job_match_pill', 'accept', jobMatchAlertCategoryLabel)}
  onSubscribed={() => {
  Analytics.trackJobAlertCtaClick('job_match_pill', 'success', jobMatchAlertCategoryLabel);
  Analytics.trackJobAlertCreated({
@@ -10881,23 +11653,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  </Suspense>
  )}
- {trendingJobs.length >= 3 && (
- <TrendingSection
- trendingJobs={trendingJobs.map((j) => ({
- ...j,
- logoUrl: companyLogoUrl(j),
- href: j.slug ? buildPath({ activeTab: 'job-board' as any, jobSlug: j.slug }, locale) : undefined,
- }))}
- popularity={deferredPopularity}
- heading={t('jobBoard.trending.heading')}
- ariaLabel={t('jobBoard.trending.aria')}
- onJobClick={(slug) => {
- Analytics.trackSelectContent('trending_section_click', slug);
- const job = jobs.find((j) => j.slug === slug);
- if (job) openDetail(job);
- }}
- />
- )}
+
  </div>
  )}
 

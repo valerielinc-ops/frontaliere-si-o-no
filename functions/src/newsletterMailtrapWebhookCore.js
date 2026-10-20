@@ -1,4 +1,4 @@
-import admin from 'firebase-admin';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
@@ -6,9 +6,12 @@ import {
  positiveEventRecoveryFields,
  positiveEventStatusFields,
  mergeAccountDeletedSubscriberUpdate,
+ UNKNOWN_RECIPIENT,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { eraseJobEmailAffinityProfile, isAffinityErasingEvent } from './lib/jobEmailAffinityStore.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
  * Mailtrap webhook handler — receives delivery events and stores them in Firestore.
@@ -81,6 +84,10 @@ export async function persistMailtrapEvent(db, eventData) {
  const type = mapMailtrapEvent(eventData.event);
  if (!type) return { skipped: true, reason: `unknown_event: ${eventData.event}` };
 
+ if (await isDeletedEmailAccount(db, email)) {
+   return { skipped: true, reason: 'account_deleted' };
+ }
+
  const campaignId = extractCampaignId(eventData);
  const messageId = eventData.message_id || '';
  const occurredAt = eventData.timestamp
@@ -97,6 +104,12 @@ export async function persistMailtrapEvent(db, eventData) {
  });
  }
 
+ // Complaint/unsubscribe = stop su ogni canale: il profilo di affinita' degli
+ // annunci va cancellato subito, come promette la privacy policy.
+ if (isAffinityErasingEvent(type)) {
+   await eraseJobEmailAffinityProfile(db, email);
+ }
+
  // Route job-alert events to job_alert_subscribers
  const vars = eventData.custom_variables || {};
  const category = eventData.category || '';
@@ -106,7 +119,6 @@ export async function persistMailtrapEvent(db, eventData) {
  return persistJobAlertMailtrapEvent(db, { email, type, eventData, messageId, occurredAt });
  }
 
- const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('newsletter_subscribers').doc(email);
 
  // Update subscriber-level fields
@@ -162,7 +174,7 @@ export async function persistMailtrapEvent(db, eventData) {
  // 'suppressed', or a 'bounced' that is NOT proven-permanent. It never
  // clears a human-declared 'complained'/'unsubscribed', nor a hard bounce.
  // The doc read happens only on these three event types.
- await mergeAccountDeletedSubscriberUpdate(
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  subscriberUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -175,6 +187,7 @@ export async function persistMailtrapEvent(db, eventData) {
  : null,
  db,
  );
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -247,7 +260,6 @@ export async function persistMailtrapEvent(db, eventData) {
 // ── Job alert event handler (mirrors newsletter pattern) ────
 
 async function persistJobAlertMailtrapEvent(db, { email, type, eventData, messageId, occurredAt }) {
- const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
 
  const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };
@@ -269,7 +281,7 @@ async function persistJobAlertMailtrapEvent(db, { email, type, eventData, messag
  // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
  // which would overwrite 'complained' — a human's spam complaint — with a
  // machine's inference, and equally resurrect a proven-permanent hard bounce.
- await mergeAccountDeletedSubscriberUpdate(
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  topUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -282,6 +294,7 @@ async function persistJobAlertMailtrapEvent(db, { email, type, eventData, messag
  : null,
  db,
  );
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -324,7 +337,6 @@ export async function handleMailtrapWebhookRequest({ body, query, webhookSecret 
  }
  }
 
- console.log(`[mailtrapWebhook] Body preview: ${JSON.stringify(body).slice(0, 300)}`);
 
  const events = body?.events;
  if (!Array.isArray(events) || events.length === 0) {
@@ -332,16 +344,16 @@ export async function handleMailtrapWebhookRequest({ body, query, webhookSecret 
  return { ok: true, ping: true };
  }
 
- const db = admin.firestore();
+ const db = getFirestore();
  const results = [];
 
  for (const event of events) {
  try {
  const result = await persistMailtrapEvent(db, event);
  results.push(result);
- console.log(`[mailtrapWebhook] ${event.event} → ${result.type || 'skipped'} for ${event.email || '?'}`);
+ console.log(`[mailtrapWebhook] ${result.reason || result.type || 'skipped'}`);
  } catch (err) {
- console.error(`[mailtrapWebhook] Error processing ${event.event} for ${event.email}: ${err.message}`);
+ console.error(`[mailtrapWebhook] Error processing ${event.event}: ${err.message}`);
  results.push({ error: err.message, event: event.event, email: event.email });
  }
  }

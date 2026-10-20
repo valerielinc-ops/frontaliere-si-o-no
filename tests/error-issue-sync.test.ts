@@ -31,6 +31,7 @@ const { UNIVERSAL_BENIGN_PATTERNS } = await import('../services/benignErrorPatte
 const appErrorSync = await import('../scripts/app-error-issue-sync.mjs');
 const posthogSync = await import('../scripts/posthog-error-issue-sync.mjs');
 const cfSync = await import('../scripts/cf-5xx-issue-sync.mjs');
+const { decideMonitorIssue } = await import('../scripts/lib/monitor-issue-reconcile.mjs');
 
 function ghCalls(): string[][] {
   return execFileSync.mock.calls
@@ -128,6 +129,11 @@ describe('hasActionableErrorMessage', () => {
     expect(hasActionableErrorMessage('  (Not Set)  ')).toBe(false);
     expect(hasActionableErrorMessage('Stale chunk: Failed to fetch dynamically imported module')).toBe(true);
   });
+
+  it('denies the proven non-actionable cross-origin type without denying the same message first-party', () => {
+    expect(isIssueDenied('RangeError: Maximum call stack size exceeded.', 'cross_origin_script')).toBe(true);
+    expect(isIssueDenied('RangeError: Maximum call stack size exceeded.', 'unhandled_error')).toBe(false);
+  });
 });
 
 describe('app-error-issue-sync.mjs', () => {
@@ -199,6 +205,35 @@ describe('app-error-issue-sync.mjs', () => {
     expect(title).not.toContain('does not provide an export');
   });
 
+  it('keeps cross-origin telemetry out of the backlog while preserving first-party RangeErrors', async () => {
+    issueListEmptyThenCreate(105);
+    readFileSync.mockReturnValue(JSON.stringify({
+      ga4: {
+        errorHealth: {
+          totalErrors: 30,
+          errorRate: 0.2,
+          healthStatus: '🟢 HEALTHY',
+          appErrors: [
+            // This classification is assigned only after the entire stack is
+            // proven to be an opaque cross-origin script (#10369).
+            { errorType: 'cross_origin_script', errorMessage: 'RangeError: Maximum call stack size exceeded.', pagePath: '/cerca-lavoro-ticino/stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona/', count: 10, users: 1 },
+            // Same generic message, but first-party and therefore still actionable.
+            { errorType: 'unhandled_error', errorMessage: 'RangeError: Maximum call stack size exceeded.', pagePath: '/it/lavoro/', count: 6, users: 2 },
+          ],
+          topStacks: [],
+        },
+      },
+    }));
+
+    await appErrorSync.main();
+
+    const calls = createCalls();
+    expect(calls).toHaveLength(1);
+    const title = calls[0][calls[0].indexOf('--title') + 1];
+    expect(title).toContain('unhandled_error');
+    expect(title).not.toContain('cross_origin_script');
+  });
+
   it('skips message-less "(not set)" / empty GA4 buckets (#4148 — no message, reason or stack to act on)', async () => {
     issueListEmptyThenCreate(104);
     readFileSync.mockReturnValue(JSON.stringify({
@@ -259,184 +294,291 @@ describe('app-error-issue-sync.mjs', () => {
   });
 });
 
-describe('posthog-error-issue-sync.mjs', () => {
-  /**
-   * main() now runs the PostHog vitality guard (scripts/lib/source-liveness.mjs)
-   * before its $exception query, and the guard reaches PostHog through the same
-   * global fetch these tests stub. A flat stub would answer the liveness probe
-   * with the $exception rows, which parse to zero events/day — the monitor would
-   * correctly abstain and every assertion below would fail for the wrong reason.
-   *
-   * So the stub dispatches on the query: liveness probes get a healthy 45 days
-   * at the last measured pre-outage volume (90.027/day on 2026-07-22), the
-   * $exception query gets `rows`. The guard's abstention behaviour itself is
-   * covered in tests/monitor-source-liveness-guard.test.ts.
-   */
-  const livenessProbeDays = () => {
-    const out: Array<[string, number]> = [];
-    const now = new Date();
-    for (let back = 0; back <= 45; back += 1) {
-      const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
-      d.setUTCDate(d.getUTCDate() - back);
-      out.push([d.toISOString().slice(0, 10), 90027]);
-    }
-    return out;
-  };
+// Feeder app-error: issue riconfermata senza eventi negli ultimi 7 giorni.
+//
+// The GA4 report is a TRAILING 30-day window. Before this gate, issue 8612 was
+// re-confirmed with the identical "21 hit / 11 utenti" in four weekly reports
+// while GA4 showed 129 events on one day and 3 in the last 7.
+describe('app-error-issue-sync.mjs — recency, production host, chunk-load family', () => {
+  const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString().slice(0, 10);
+  const CHUNK = 'TypeError: Failed to fetch dynamically imported module: https://cdn.frontaliereticino.ch/assets/';
+  const reportWith = (appErrors: unknown[]) => JSON.stringify({
+    ga4: { errorHealth: { totalErrors: 300, errorRate: 0.3, healthStatus: '🟢 HEALTHY', appErrors, topStacks: [] } },
+  });
+  const titles = () => createCalls().map((c) => c[c.indexOf('--title') + 1]);
+  const bodies = () => createCalls().map((c) => c[c.indexOf('--body') + 1]);
 
-  const stubPostHogFetch = (rows: unknown[]) => {
-    const mock = vi.fn(async (_url: string, init?: { body?: string }) => {
-      const body = String(init?.body ?? '');
-      const isProbe = body.includes('GROUP BY d') && body.includes('toDate(timestamp)');
-      return { ok: true, json: async () => ({ results: isProbe ? livenessProbeDays() : rows }) };
-    });
-    vi.stubGlobal('fetch', mock);
-    return mock;
-  };
+  it('does NOT file an old spike: 129 hits in the window, 0 in the last 7 days', async () => {
+    issueListEmptyThenCreate(601);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'TypeError', errorMessage: 'x is not a function', pagePath: '/it/lavoro/', hostName: 'frontaliereticino.ch', count: 129, users: 40, last7d: 0, lastSeen: daysAgo(24) },
+    ]));
 
-  it('exits silently (no fetch, no gh call) when credentials are missing', async () => {
-    const fetchMock = vi.fn();
-    vi.stubGlobal('fetch', fetchMock);
-    delete process.env.POSTHOG_PERSONAL_API_KEY;
-    delete process.env.POSTHOG_PROJECT_ID;
+    await appErrorSync.main();
 
-    await posthogSync.main({ ga4FallbackImpl: async () => [] });
-
-    expect(fetchMock).not.toHaveBeenCalled();
-    expect(ghCalls()).toHaveLength(0);
+    expect(createCalls()).toHaveLength(0);
   });
 
-  it('exits silently when the HogQL query throws', async () => {
-    process.env.POSTHOG_PERSONAL_API_KEY = 'k';
-    process.env.POSTHOG_PROJECT_ID = 'p';
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 500, text: async () => 'boom' }));
+  it('does NOT file when the last 7 days are below MIN_COUNT, whatever the 30-day total', async () => {
+    issueListEmptyThenCreate(602);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'TypeError', errorMessage: 'x is not a function', pagePath: '/it/lavoro/', hostName: 'frontaliereticino.ch', count: 129, users: 40, last7d: 3, lastSeen: daysAgo(2) },
+    ]));
 
-    await posthogSync.main({ ga4FallbackImpl: async () => [] });
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+  });
+
+  it('files a recent error and writes window total, last 7 days, last seen and the truncation note', async () => {
+    issueListEmptyThenCreate(603);
+    const seen = daysAgo(1);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'TypeError', errorMessage: 'x is not a function', pagePath: '/it/lavoro/', hostName: 'frontaliereticino.ch', count: 129, users: 40, last7d: 17, lastSeen: seen },
+    ]));
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(1);
+    const [body] = bodies();
+    expect(body).toContain('**Hits (report window):** 129');
+    expect(body).toContain('**Last 7 days:** 17');
+    expect(body).toContain(`**Last seen:** ${seen}`);
+    expect(body).toContain('truncates `error_message` at 100 characters');
+    expect(body).toContain('prima=17 hit negli ultimi 7 giorni (129 nella finestra del report)');
+  });
+
+  it('ranks and escalates on the last 7 days, not on the window total', async () => {
+    issueListEmptyThenCreate(604);
+    readFileSync.mockReturnValue(reportWith([
+      // Big old total, barely alive: must NOT be priority:high (count >= 50 used to be enough).
+      { errorType: 'TypeError', errorMessage: 'old but still twitching', pagePath: '/it/a/', hostName: 'frontaliereticino.ch', count: 400, users: 90, last7d: 6, lastSeen: daysAgo(1) },
+      { errorType: 'TypeError', errorMessage: 'burning right now', pagePath: '/it/b/', hostName: 'frontaliereticino.ch', count: 80, users: 30, last7d: 75, lastSeen: daysAgo(0) },
+    ]));
+
+    await appErrorSync.main();
+
+    const calls = createCalls();
+    expect(titles()[0]).toContain('burning right now');
+    const labelsOf = (call: string[]) => call.filter((_, i) => call[i - 1] === '--label');
+    expect(labelsOf(calls[0])).toContain('priority:high');
+    expect(labelsOf(calls[1])).not.toContain('priority:high');
+  });
+
+  it('discards an entry from a non-production host (dev server, Firebase service domain)', async () => {
+    issueListEmptyThenCreate(605);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'TypeError', errorMessage: 'dev server noise', pagePath: '/', hostName: '127.0.0.1', count: 37, users: 1, last7d: 37, lastSeen: daysAgo(0) },
+      { errorType: 'TypeError', errorMessage: 'firebase service domain', pagePath: '/', hostName: 'frontaliere-ticino.firebaseapp.com', count: 30, users: 2, last7d: 30, lastSeen: daysAgo(0) },
+    ]));
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+  });
+
+  it('files ONE canonical issue for two truncated URLs of the chunk-load family', async () => {
+    issueListEmptyThenCreate(606);
+    const members = [
+      { errorType: 'error_boundary', errorMessage: `${CHUNK}News`, pagePath: '/it/news/', hostName: 'frontaliereticino.ch', count: 21, users: 11, last7d: 4, lastSeen: daysAgo(2) },
+      { errorType: 'api_error', errorMessage: `${CHUNK}seoService.js`, pagePath: '/it/', hostName: 'frontaliereticino.ch', count: 20, users: 9, last7d: 3, lastSeen: daysAgo(1) },
+    ];
+    readFileSync.mockReturnValue(reportWith(members));
+
+    await appErrorSync.main();
+
+    // Each member alone is below MIN_COUNT in the last 7 days: the class is the unit.
+    expect(createCalls()).toHaveLength(1);
+    const [title] = titles();
+    expect(title).toBe('App Error: chunk load — Failed to fetch dynamically imported module (famiglia)');
+    const [body] = bodies();
+    for (const m of members) expect(body).toContain(m.pagePath);
+    expect(body).toContain('**Hits (report window):** 41');
+    expect(body).toContain('**Last 7 days:** 7');
+    expect(body).toContain(`**Last seen:** ${daysAgo(1)}`);
+  });
+
+  it('does NOT file the chunk-load family when the whole family is an old spike', async () => {
+    issueListEmptyThenCreate(607);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'error_boundary', errorMessage: `${CHUNK}News`, pagePath: '/it/news/', hostName: 'frontaliereticino.ch', count: 129, users: 60, last7d: 3, lastSeen: daysAgo(3) },
+      { errorType: 'api_error', errorMessage: `${CHUNK}seoService.js`, pagePath: '/it/', hostName: 'frontaliereticino.ch', count: 20, users: 9, last7d: 0, lastSeen: daysAgo(20) },
+    ]));
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+  });
+
+  it('a report without `last7d` is "not measured", not zero: the entry still files and the body says so', async () => {
+    issueListEmptyThenCreate(608);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'TypeError', errorMessage: 'x is not a function', pagePath: '/it/lavoro/', count: 12, users: 9 },
+    ]));
+    const logged = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(1);
+    expect(bodies()[0]).toContain('not measured by this report');
+    expect(logged.mock.calls.flat().join('\n')).toContain('recency gate NOT applied');
+    logged.mockRestore();
+  });
+});
+
+describe('posthog-error-issue-sync.mjs (GA4 source since decision H9, 2026-10-05)', () => {
+  /**
+   * main() reads GA4 `app_error`/`exception` as its only source, behind the
+   * GA4 vitality guard (scripts/lib/source-liveness.mjs). Both boundaries are
+   * injected: `checkLivenessImpl` (the guard) and `ga4FallbackImpl` (the GA4
+   * report). Nothing here may reach PostHog any more — `fetch` is stubbed to
+   * fail loudly so a regression to the old HogQL branch cannot pass.
+   */
+  const alive = async () => ({ alive: true, reason: 'ga4 alive', windowDays: 7, floor: 500, daysEvaluated: [], deadDays: [], totalEvents: 900000, source: 'ga4' });
+  const dead = async () => ({ alive: false, reason: 'ga4 ingested < 500 events/day', windowDays: 7, floor: 500, daysEvaluated: [], deadDays: [], totalEvents: 0, source: 'ga4' });
+  const row = (message: string, type: string, count: number, sessions: number, sampleUrl: string, sampleExceptionList: unknown = []) =>
+    ({ message, type, count, sessions, sampleUrl, sampleExceptionList });
+  const run = (rows: unknown, extra: Record<string, unknown> = {}) =>
+    posthogSync.main({ checkLivenessImpl: alive, ga4FallbackImpl: async () => rows, ...extra } as never);
+
+  let fetchMock: ReturnType<typeof vi.fn>;
+  beforeEach(() => {
+    fetchMock = vi.fn(async () => { throw new Error('no network in this test: PostHog must not be queried'); });
+    vi.stubGlobal('fetch', fetchMock);
+  });
+
+  it('abstains (no GA4 report, no gh call) when the GA4 guard says the source is dead', async () => {
+    const report = vi.fn(async () => [row('Boom', 'TypeError', 900, 400, 'https://frontaliereticino.ch/')]);
+    await posthogSync.main({ checkLivenessImpl: dead, ga4FallbackImpl: report } as never);
+
+    expect(report).not.toHaveBeenCalled();
+    expect(ghCalls()).toHaveLength(0);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('positive control: with a live guard the same rows DO reach gh', async () => {
+    issueListEmptyThenCreate(200);
+    await run([row('Boom', 'TypeError', 900, 400, 'https://frontaliereticino.ch/')]);
+
+    expect(createCalls()).toHaveLength(1);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('reconciles a disappeared signature after one complete live report', async () => {
+    issueListEmptyThenCreate(207);
+    const issue = { title: posthogSync.titleFor(row('Boom', 'TypeError', 900, 400, 'https://frontaliereticino.ch/')) };
+    const reconcile = posthogSync.posthogReconcile([], { windowDays: 7, minCount: 5 });
+    const verdict = reconcile.verdictFor(issue);
+    const activeVerdict = posthogSync.posthogReconcile([
+      row('Boom', 'TypeError', 900, 400, 'https://frontaliereticino.ch/'),
+    ], { windowDays: 7, minCount: 5 }).verdictFor(issue);
+
+    expect(reconcile.confirmations).toBe(1);
+    expect(verdict).toMatchObject({ complete: true, clean: true });
+    expect(activeVerdict).toMatchObject({ complete: true, clean: false });
+    expect(decideMonitorIssue({
+      issue: { ...issue, state: 'OPEN', labels: [] },
+      comments: [],
+      events: [],
+      verdict,
+      family: reconcile.family,
+      confirmations: reconcile.confirmations,
+    })).toMatchObject({ action: 'close' });
+
+    await run([]);
+    expect(createCalls()).toHaveLength(0);
+    expect(ghCalls().filter((args) => args[0] === 'api' && args.some((arg) => arg.includes('issues?state=open')))).toHaveLength(1);
+  });
+
+  it('abstains when the GA4 report throws or cannot authenticate (null), never reading it as zero errors', async () => {
+    await posthogSync.main({ checkLivenessImpl: alive, ga4FallbackImpl: async () => { throw new Error('GA4 500'); } } as never);
+    await run(null);
 
     expect(ghCalls()).toHaveLength(0);
-    delete process.env.POSTHOG_PERSONAL_API_KEY;
-    delete process.env.POSTHOG_PROJECT_ID;
   });
 
   it('filters rows below MIN_COUNT and syncs the rest', async () => {
-    process.env.POSTHOG_PERSONAL_API_KEY = 'k';
-    process.env.POSTHOG_PROJECT_ID = 'p';
     issueListEmptyThenCreate(201);
-    stubPostHogFetch([
-          ['Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'],
-          ['rare one-off', 'Error', 1, 1, 'https://frontaliereticino.ch/it/x/'],
-        ]);
-
-    await posthogSync.main();
-
-    expect(createCalls()).toHaveLength(1);
-    delete process.env.POSTHOG_PERSONAL_API_KEY;
-    delete process.env.POSTHOG_PROJECT_ID;
-  });
-
-  it('drops message-less telemetry before issue sync, including GA4 fallback values (#9537)', async () => {
-    process.env.POSTHOG_PERSONAL_API_KEY = 'k';
-    process.env.POSTHOG_PROJECT_ID = 'p';
-    issueListEmptyThenCreate(205);
-    stubPostHogFetch([
-      ['(not set)', 'sw_cache_stale', 16, 15, 'https://frontaliereticino.ch/'],
-      ['', 'sw_cache_stale', 9, 8, 'https://frontaliereticino.ch/'],
-      ['Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'],
+    await run([
+      row('Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'),
+      row('rare one-off', 'Error', 1, 1, 'https://frontaliereticino.ch/it/x/'),
     ]);
 
-    await posthogSync.main();
-
-    const calls = createCalls();
-    expect(calls).toHaveLength(1);
-    expect(calls[0][calls[0].indexOf('--title') + 1]).toContain('Cannot read properties');
-    delete process.env.POSTHOG_PERSONAL_API_KEY;
-    delete process.env.POSTHOG_PROJECT_ID;
+    expect(createCalls()).toHaveLength(1);
   });
 
-  it('does not create issues for self-healed version-skew SyntaxErrors or opaque "Script error." (#3758/#3759/#3761)', async () => {
-    process.env.POSTHOG_PERSONAL_API_KEY = 'k';
-    process.env.POSTHOG_PROJECT_ID = 'p';
-    issueListEmptyThenCreate(203);
-    stubPostHogFetch([
-          // Denied: link-time version-skew wordings across engines — already
-          // self-healed client-side (cache-bust + budgeted reload) and kept in
-          // PostHog for chunk-load dashboards.
-          ["The requested module './vendor-firebase-core.js' does not provide an export named 'createWebChannelTransport'", 'SyntaxError', 16, 9, 'https://frontaliereticino.ch/cerca-lavoro-ticino/'],
-          ["The requested module './constants.js' does not provide an export named 'a'", 'SyntaxError', 37, 8, 'https://frontaliereticino.ch/'],
-          ['import not found: House', 'SyntaxError', 6, 3, 'https://frontaliereticino.ch/'],
-          ['ambiguous indirect export: House', 'SyntaxError', 6, 3, 'https://frontaliereticino.ch/'],
-          ["Importing binding name 'House' is not found.", 'SyntaxError', 6, 3, 'https://frontaliereticino.ch/'],
-          // Denied: opaque cross-origin "Script error." (already dropped at
-          // before_send; residual pre-deploy events must not re-file issues).
-          ['Script error.', 'Error', 41, 12, 'https://frontaliereticino.ch/vita-in-ticino/vacanze-scolastiche-ticino-2026/'],
-          // Real actionable error — must still be synced.
-          ['Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'],
-        ]);
-
-    await posthogSync.main();
+  it('filters the same semantic type and keeps the `GA4 Exception:` title prefix (#10369)', async () => {
+    issueListEmptyThenCreate(206);
+    await run([
+      row('RangeError: Maximum call stack size exceeded.', 'cross_origin_script', 10, 1,
+        'https://frontaliereticino.ch/cerca-lavoro-ticino/stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona/'),
+      row('RangeError: Maximum call stack size exceeded.', 'unhandled_error', 6, 2, 'https://frontaliereticino.ch/it/lavoro/'),
+    ]);
 
     const calls = createCalls();
     expect(calls).toHaveLength(1);
     const title = calls[0][calls[0].indexOf('--title') + 1];
-    expect(title).toContain('Cannot read properties');
-    delete process.env.POSTHOG_PERSONAL_API_KEY;
-    delete process.env.POSTHOG_PROJECT_ID;
+    expect(title).toContain('GA4 Exception: unhandled_error');
+    const body = calls[0][calls[0].indexOf('--body') + 1];
+    expect(body).toContain('GA4 `app_error`/`exception`');
+    expect(body).not.toContain('PostHog `$exception`');
   });
 
-  it('includes resolved stack origins (sample) in the body when $exception_list resolves frames, and "unresolved (0 frames)" otherwise (#5999)', async () => {
-    process.env.POSTHOG_PERSONAL_API_KEY = 'k';
-    process.env.POSTHOG_PROJECT_ID = 'p';
-    issueListEmptyThenCreate(204);
-    // HogQL's `any(properties.$exception_list)` (and every other read of a
-    // JSON-typed column) comes back as a JSON-ENCODED STRING, not a parsed
-    // array/object — confirmed live against the PostHog API while fixing
-    // #5999 itself. Stubbing a plain object here (as this test previously
-    // did) hid the real bug: extractStackFrameOrigins() silently returned
-    // [] for every real row because Array.isArray() on a string is false.
-    stubPostHogFetch([
-      [
-        'Ba', 'Error', 7, 2, 'https://frontaliereticino.ch/en/find-jobs-basel/quality-solution-lead-roche-ch/',
-        JSON.stringify([{ stacktrace: { frames: [{ filename: 'https://accounts.google.com/gsi/client' }, { filename: 'https://accounts.google.com/gsi/client' }] } }]),
-      ],
-      [
-        'no frames resolved', 'Error', 6, 3, 'https://frontaliereticino.ch/it/',
-        JSON.stringify([{ stacktrace: { frames: [] } }]),
-      ],
+  it('drops message-less telemetry before issue sync (#9537)', async () => {
+    issueListEmptyThenCreate(205);
+    await run([
+      row('(not set)', 'sw_cache_stale', 16, 15, 'https://frontaliereticino.ch/'),
+      row('', 'sw_cache_stale', 9, 8, 'https://frontaliereticino.ch/'),
+      row('Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'),
     ]);
 
-    await posthogSync.main();
+    const calls = createCalls();
+    expect(calls).toHaveLength(1);
+    expect(calls[0][calls[0].indexOf('--title') + 1]).toContain('Cannot read properties');
+  });
+
+  it('does not create issues for self-healed version-skew SyntaxErrors or opaque "Script error." (#3758/#3759/#3761)', async () => {
+    issueListEmptyThenCreate(203);
+    await run([
+      // Denied: link-time version-skew wordings across engines — already
+      // self-healed client-side (cache-bust + budgeted reload).
+      row("The requested module './vendor-firebase-core.js' does not provide an export named 'createWebChannelTransport'", 'SyntaxError', 16, 9, 'https://frontaliereticino.ch/cerca-lavoro-ticino/'),
+      row("The requested module './constants.js' does not provide an export named 'a'", 'SyntaxError', 37, 8, 'https://frontaliereticino.ch/'),
+      row('import not found: House', 'SyntaxError', 6, 3, 'https://frontaliereticino.ch/'),
+      row('ambiguous indirect export: House', 'SyntaxError', 6, 3, 'https://frontaliereticino.ch/'),
+      row("Importing binding name 'House' is not found.", 'SyntaxError', 6, 3, 'https://frontaliereticino.ch/'),
+      // Denied: opaque cross-origin "Script error.".
+      row('Script error.', 'Error', 41, 12, 'https://frontaliereticino.ch/vita-in-ticino/vacanze-scolastiche-ticino-2026/'),
+      // Real actionable error — must still be synced.
+      row('Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'),
+    ]);
 
     const calls = createCalls();
-    expect(calls).toHaveLength(2);
-    const bodyFor = (title: string) => {
-      const call = calls.find((c) => c[c.indexOf('--title') + 1].includes(title))!;
-      return call[call.indexOf('--body') + 1];
-    };
-    expect(bodyFor('Ba')).toContain('**Resolved stack origins (sample):** https://accounts.google.com/gsi/client, https://accounts.google.com/gsi/client');
-    expect(bodyFor('no frames resolved')).toContain('**Resolved stack origins (sample):** unresolved (0 frames)');
-    delete process.env.POSTHOG_PERSONAL_API_KEY;
-    delete process.env.POSTHOG_PROJECT_ID;
+    expect(calls).toHaveLength(1);
+    expect(calls[0][calls[0].indexOf('--title') + 1]).toContain('Cannot read properties');
+  });
+
+  it('writes "unresolved (0 frames)" as stack origins for GA4 rows, which carry no exception list (#5999)', async () => {
+    issueListEmptyThenCreate(204);
+    await run([row('no frames resolved', 'Error', 6, 3, 'https://frontaliereticino.ch/it/')]);
+
+    const calls = createCalls();
+    expect(calls).toHaveLength(1);
+    expect(calls[0][calls[0].indexOf('--body') + 1]).toContain('**Resolved stack origins (sample):** unresolved (0 frames)');
   });
 
   it('does not create a GitHub issue for "Importing a module script failed" even above threshold (#3762)', async () => {
-    process.env.POSTHOG_PERSONAL_API_KEY = 'k';
-    process.env.POSTHOG_PROJECT_ID = 'p';
     issueListEmptyThenCreate(202);
-    stubPostHogFetch([
-          // Denied: kept in PostHog for chunk-load dashboards but not a backlog ticket.
-          ['Importing a module script failed.', 'TypeError', 13, 10, 'https://frontaliereticino.ch/en/find-jobs-ticino/'],
-          // Real actionable error — must still be synced.
-          ['Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'],
-        ]);
-
-    await posthogSync.main();
+    await run([
+      row('Importing a module script failed.', 'TypeError', 13, 10, 'https://frontaliereticino.ch/en/find-jobs-ticino/'),
+      row('Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'),
+    ]);
 
     const calls = createCalls();
     expect(calls).toHaveLength(1);
     const title = calls[0][calls[0].indexOf('--title') + 1];
     expect(title).toContain('Cannot read properties');
     expect(title).not.toContain('Importing a module script');
-    delete process.env.POSTHOG_PERSONAL_API_KEY;
-    delete process.env.POSTHOG_PROJECT_ID;
   });
 });
 
@@ -476,6 +618,15 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignScriptError!.source);
   });
 
+  it('mirrors the Microsoft Office/Outlook bridge pattern so residual events cannot reopen app-error issues (#13628)', () => {
+    const sample = 'Object Not Found Matching Id:2, MethodName:update, ParamCount:4';
+    const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test(sample));
+    expect(benignPattern).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+    expect(isIssueDenied(sample)).toBe(true);
+    expect(isIssueDenied(`Non-Error promise rejection captured with value: ${sample}`)).toBe(true);
+  });
+
   it('mirrors the AbortError pattern from services/benignErrorPatterns.ts byte-for-byte (#4147)', () => {
     const benignAbortError = UNIVERSAL_BENIGN_PATTERNS.find((p) =>
       p.test('AbortError: The user aborted a request.'),
@@ -508,6 +659,24 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     );
     expect(benignPattern).toBeDefined();
     expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+  });
+
+  it('mirrors every IndexedDB lifecycle pattern so stale GA4 events cannot reopen #9466', () => {
+    const samples = [
+      'Connection to Indexed Database server lost.',
+      "Failed to execute 'transaction' on 'IDBDatabase': The database connection is closing.",
+      'InvalidStateError: IDBDatabase connection is closing',
+      'InvalidStateError: Object store cannot be found in the database',
+      'UnknownError: an internal IDBDatabase operation failed',
+      'Database deleted by request of the user',
+    ];
+    const denySources = ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source);
+    for (const sample of samples) {
+      const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test(sample));
+      expect(benignPattern, `missing shared benign pattern for ${sample}`).toBeDefined();
+      expect(denySources).toContain(benignPattern!.source);
+      expect(isIssueDenied(sample)).toBe(true);
+    }
   });
 
   it('mirrors the unsupported-browser "Unexpected token ?" parse pattern from services/benignErrorPatterns.ts byte-for-byte (#4172)', () => {

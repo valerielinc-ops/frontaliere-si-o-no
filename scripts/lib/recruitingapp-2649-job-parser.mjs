@@ -11,6 +11,7 @@
  *   - stripHtml()                — Re-exported from crawler-template.mjs
  *   - buildSlug()                — Shared canonical slug base and disambiguator
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { fetch as undiciFetch } from 'undici';
 import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
@@ -18,8 +19,10 @@ import { stripHtml } from './crawler-template.mjs';
 import { buildSlug } from './regenerate-slugs-helpers.mjs';
 import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import {
+  isAllowlistedAuthoritativeNonSwissLocation,
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { extractLinks } from './prospector/careers-trail.mjs';
@@ -34,6 +37,28 @@ export const RECRUITINGAPP_2649_COMPANY_DOMAIN = 'recruitingapp-2649.umantis.com
 
 const CAREER_URL = 'https://recruitingapp-2649.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
 const AUTHORITATIVE_NON_SWISS_LOCATIONS = new Set(['berlin', 'bonn']);
+
+/**
+ * Treat a source-backed foreign locality as an expected geography filter only
+ * after its detail is rich and the locality is explicitly reviewed. Transport,
+ * tenant and description failures must continue to count as incomplete.
+ */
+export function isRecruitingapp2649ExpectedDetailFilter({
+  reason,
+  detail,
+  decision,
+  descriptionSufficient,
+} = {}) {
+  if (reason !== 'geography' || decision?.geography || descriptionSufficient !== true) return false;
+  const locations = (Array.isArray(detail?.locationCandidates) ? detail.locationCandidates : [])
+    .map((candidate) => normalizeSpace(candidate?.addressLocality || candidate?.location || ''))
+    .filter(Boolean);
+  return locations.length > 0
+    && locations.every((location) => isAllowlistedAuthoritativeNonSwissLocation(
+      location,
+      AUTHORITATIVE_NON_SWISS_LOCATIONS,
+    ));
+}
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -136,18 +161,26 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-function attachSnapshotProof(rows, proof) {
-  Object.defineProperty(rows, 'authoritativeSnapshotProof', {
-    value: proof,
-    enumerable: false,
-    configurable: false,
-    writable: false,
-  });
-  Object.defineProperty(rows, 'discoveredCount', {
-    value: proof.discoveredCount,
-    enumerable: false,
-    configurable: false,
-    writable: false,
+function attachSnapshotProof(rows, proof, observedDetailsByUrl = null, titleEvidenceByUrl = null) {
+  Object.defineProperties(rows, {
+    authoritativeSnapshotProof: {
+      value: proof,
+      enumerable: false,
+      configurable: false,
+      writable: false,
+    },
+    discoveredCount: {
+      value: proof.discoveredCount,
+      enumerable: false,
+      configurable: false,
+      writable: false,
+    },
+    ...(observedDetailsByUrl ? {
+      observedDetailsByUrl: { value: observedDetailsByUrl, enumerable: false },
+    } : {}),
+    ...(titleEvidenceByUrl ? {
+      titleEvidenceByUrl: { value: titleEvidenceByUrl, enumerable: false },
+    } : {}),
   });
   return rows;
 }
@@ -163,6 +196,7 @@ async function fetchJobListings(runtime = {}) {
   const attemptedDetailIds = new Set();
   const listingTitles = new Map();
   const observedDetails = new Map();
+  const observedDetailsByUrl = new Map();
   // Same undici copy that supplies the dispatcher `politeFetch` hands down.
   // `globalThis.fetch` here would skip gunzip in silence and read every page
   // as empty — the proof below is fail-closed, but the crawler would still
@@ -194,23 +228,31 @@ async function fetchJobListings(runtime = {}) {
     return response;
   };
 
-  const observingDetailExtractor = (html, pageUrl) => {
+  const observingDetailExtractor = (html, pageUrl, opts = {}) => {
     // Stessa catena del runtime sintetizzato e del validatore, da un modulo
     // solo: qui la copia locale aveva perso per strada il guard su
     // `locationGateRejected` che il runtime applica.
-    const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl);
+    const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl, opts);
 
     const vacancyId = umantisVacancyIdentity(pageUrl);
     if (vacancyId) {
       const decision = resolveDetailOrListingSwissGeography(detail, {});
       observedDetails.set(vacancyId, {
         id: vacancyId,
+        listingTitle: listingTitles.get(vacancyId) || '',
         title: normalizeSpace(detail.title || ''),
         rich: isSufficientVacancyDescription(detail.description),
         swiss: Boolean(decision.geography),
         locations: detail.locationCandidates
           .map((candidate) => normalizeSpace(candidate?.addressLocality || candidate?.location || ''))
           .filter(Boolean),
+      });
+      const observedUrl = canonicalRecruitingapp2649Url(pageUrl);
+      if (observedUrl) observedDetailsByUrl.set(observedUrl, {
+        body: html,
+        status: 200,
+        url: pageUrl,
+        detail,
       });
     }
     return detail;
@@ -220,6 +262,7 @@ async function fetchJobListings(runtime = {}) {
     ...runtime,
     fetchImpl: observingFetch,
     detailExtractor: observingDetailExtractor,
+    isExpectedDetailFilter: isRecruitingapp2649ExpectedDetailFilter,
   });
   const details = [...observedDetails.values()];
   const proof = {
@@ -240,7 +283,7 @@ async function fetchJobListings(runtime = {}) {
       `recruitingapp-2649: incomplete detail snapshot (${proof.detailCount}/${proof.discoveredCount})`,
     );
   }
-  return attachSnapshotProof(rows, proof);
+  return attachSnapshotProof(rows, proof, observedDetailsByUrl);
 }
 
 export function assertCompleteRecruitingapp2649Snapshot(jobs) {
@@ -249,10 +292,10 @@ export function assertCompleteRecruitingapp2649Snapshot(jobs) {
   if (!proof?.complete || proof.discoveredCount <= 0 || proof.publishedCount !== 0) return false;
   return proof.details.every((detail) => !detail.swiss
     && detail.locations.length > 0
-    && detail.locations.every((location) => {
-      const locality = normalize(location).split(/[,;/|]/)[0].trim();
-      return AUTHORITATIVE_NON_SWISS_LOCATIONS.has(locality);
-    }));
+    && detail.locations.every((location) => isAllowlistedAuthoritativeNonSwissLocation(
+      location,
+      AUTHORITATIVE_NON_SWISS_LOCATIONS,
+    )));
 }
 
 /**
@@ -275,7 +318,7 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
       publishedCount: 0,
       complete: false,
       details: [],
-    });
+    }, listings?.observedDetailsByUrl || null, listings?.titleEvidenceByUrl || null);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -287,9 +330,10 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    const resolvedGeography = resolveSourceBackedSwissGeography(listing.location);
+    const geography = sourceBackedSwissGeographyFields(listing, resolvedGeography);
     if (!geography) continue;
-    const { location, canton } = geography;
+    const { location, canton, addressLocality, addressRegion, addressCountry } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -328,10 +372,10 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
+      addressLocality: normalizeSpace(addressLocality || listing.addressLocality),
+      addressRegion: normalizeSpace(addressRegion || listing.addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || "CH"),
+      country: normalizeSpace(addressCountry || "CH"),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
@@ -341,7 +385,7 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -351,5 +395,20 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
   }
 
   console.log(`\n📋 Total Alexander von Humboldt-Stiftung Stellen jobs discovered: ${jobs.length}`);
-  return attachSnapshotProof(jobs, listings.authoritativeSnapshotProof);
+  const titleEvidenceByUrl = new Map(jobs.map((job) => {
+    const id = umantisVacancyIdentity(job.url);
+    const listingTitle = listings.authoritativeSnapshotProof?.details
+      ?.find((detail) => detail.id === id)?.listingTitle || '';
+    return [job.url, {
+      listingTitle,
+      finalTitle: job.title,
+      titleSource: 'source-adapter-output',
+    }];
+  }));
+  return attachSnapshotProof(
+    jobs,
+    listings.authoritativeSnapshotProof,
+    listings.observedDetailsByUrl || null,
+    titleEvidenceByUrl,
+  );
 }

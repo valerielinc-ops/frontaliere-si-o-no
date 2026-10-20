@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * audit-job-description-locale — the measurement behind
  * tests/job-locale-consistency.test.ts's DESCRIPTIONS ratchet, run on a
@@ -92,7 +94,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
-import { normalizeJobLocale } from './lib/job-locale-utils.mjs';
+import {
+  isDescriptionSourceCopy,
+  normalizeDescriptionForCompare,
+  normalizeJobLocale,
+  sourceLocaleTextCandidates,
+  sourceLocaleTextForTranslation,
+} from './lib/job-locale-utils.mjs';
 import {
   measureDescriptionLocales,
   DESCRIPTION_POPULATION,
@@ -149,9 +157,6 @@ function queuedForMs(job, now) {
   return Number.isFinite(t) ? now - t : null;
 }
 
-/** Whitespace-insensitive key — a re-wrapped copy is still a copy. */
-const textKey = (t) => String(t || '').trim().split(/\s+/).join(' ');
-
 /**
  * Count the jobs the site is serving in the wrong language RIGHT NOW because
  * their translation never happened, grouped by how long they have waited and
@@ -192,13 +197,19 @@ export function measureTranslationQueue(
     // adopt that — a display fallback and a measurement are different things.
     const sourceLang = normalizeJobLocale(job?.sourceLang);
     if (!LOCALES.includes(sourceLang)) continue;
-    const source = String(job?.descriptionByLocale?.[sourceLang] || '').trim();
+    const sourceDescriptions = sourceLocaleTextCandidates(job, 'description');
+    const source = sourceLocaleTextForTranslation(job, 'description', MIN_DESCRIPTION_CHARS);
     if (source.length < MIN_DESCRIPTION_CHARS) continue;
     // Normalised once, not once per locale: these are multi-KB strings and the
-    // loop runs across the whole corpus.
-    const sourceKey = textKey(source);
+    // loop runs across the whole corpus. Keep this key identical to the
+    // writer/selector predicate so a whitespace-only copy is both measured and
+    // selected for repair.
+    const sourceKeys = sourceDescriptions
+      .filter((candidate) => candidate.length >= MIN_DESCRIPTION_CHARS)
+      .map((candidate) => normalizeDescriptionForCompare(candidate));
     const copied = LOCALES.filter(
-      (locale) => locale !== sourceLang && textKey(job?.descriptionByLocale?.[locale]) === sourceKey,
+      (locale) => locale !== sourceLang
+        && sourceKeys.includes(normalizeDescriptionForCompare(job?.descriptionByLocale?.[locale])),
     );
     if (!copied.length) continue;
     sourceCopyJobs += 1;
@@ -325,8 +336,8 @@ export function auditDescriptionLocales(jobs, { now = Date.now(), isSwissLocatio
       const slug = String(job?.slug || '?');
       const normalizedSourceLang = normalizeJobLocale(job?.sourceLang || 'it');
       const sourceLang = LOCALES.includes(normalizedSourceLang) ? normalizedSourceLang : 'it';
-      const sourceDesc = String(job?.descriptionByLocale?.[sourceLang] || job?.description || '').trim();
-      const sourceCopy = sourceDesc.length > 0 && description.toLowerCase() === sourceDesc.toLowerCase();
+      const sourceDescriptions = sourceLocaleTextCandidates(job, 'description');
+      const sourceCopy = sourceDescriptions.some((source) => isDescriptionSourceCopy(description, source));
 
       offenders.push({
         company, slug, locale,
@@ -456,7 +467,7 @@ async function main() {
   }
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   // main() is async only because it lazily imports the BFS predicate; an
   // unhandled rejection here would exit 0 with no report, which reads as a

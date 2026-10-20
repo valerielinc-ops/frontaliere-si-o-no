@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Resolve the generated Prospector files when the queue commit is rebased.
  *
@@ -17,7 +19,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { gitShowStage } from './git-show-stage.mjs';
 
 export const PROSPECTOR_PATHS = Object.freeze({
@@ -174,15 +176,40 @@ function mergeCandidate(upstream, local) {
   const statuses = [upstream.status, local.status].filter((status) => status in CANDIDATE_STATUS_RANK);
   if (statuses.length) merged.status = statuses.sort((a, b) => CANDIDATE_STATUS_RANK[a] - CANDIDATE_STATUS_RANK[b]).at(-1);
 
+  if (isObject(upstream.sourceSeenAt) || isObject(local.sourceSeenAt)) {
+    const upstreamSeen = objectOrEmpty(upstream.sourceSeenAt);
+    const localSeen = objectOrEmpty(local.sourceSeenAt);
+    const seenAt = {};
+    for (const source of new Set([...Object.keys(upstreamSeen), ...Object.keys(localSeen)])) {
+      const timestamp = newest(upstreamSeen[source], localSeen[source]);
+      if (timestamp) seenAt[source] = timestamp;
+    }
+    merged.sourceSeenAt = seenAt;
+  }
+
+  // SECO signal fields form one observation snapshot. A concurrent OSM/web
+  // merge must not overwrite fresher listing data just because its candidate
+  // object was serialized locally. Timestamp-less legacy collisions retain
+  // the established spread/local-wins behavior.
+  const upstreamSecoAt = Date.parse(String(upstream.sourceSeenAt?.seco || ''));
+  const localSecoAt = Date.parse(String(local.sourceSeenAt?.seco || ''));
+  if (Number.isFinite(upstreamSecoAt) || Number.isFinite(localSecoAt)) {
+    const secoWinner = Number.isFinite(upstreamSecoAt)
+      && (!Number.isFinite(localSecoAt) || upstreamSecoAt > localSecoAt)
+      ? upstream
+      : local;
+    for (const field of ['adCount', 'sampleTitles', 'applyHosts']) {
+      if (hasOwn(secoWinner, field)) merged[field] = clone(secoWinner[field]);
+      else delete merged[field];
+    }
+  }
+
   // These fields are observations accumulated by independent stages. A local
   // re-run must not erase a source, URL, or trail learned by the other run.
-  for (const field of ['sources', 'applyHosts', 'careersUrls', 'trailVia', 'vacancySignals']) {
+  for (const field of ['sources', 'careersUrls', 'trailVia', 'vacancySignals']) {
     if (Array.isArray(upstream[field]) || Array.isArray(local[field])) {
       merged[field] = unionArray(upstream[field], local[field]);
     }
-  }
-  if (Array.isArray(upstream.sampleTitles) || Array.isArray(local.sampleTitles)) {
-    merged.sampleTitles = unionArray(upstream.sampleTitles, local.sampleTitles).slice(0, 20);
   }
   if (Array.isArray(upstream.validationHistory) || Array.isArray(local.validationHistory)) {
     const history = unionArray(upstream.validationHistory, local.validationHistory)
@@ -469,5 +496,4 @@ export function main() {
   }
 }
 
-const thisFile = fileURLToPath(import.meta.url);
-if (process.argv[1] && path.resolve(process.argv[1]) === thisFile) main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

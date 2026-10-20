@@ -1,6 +1,9 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /**
  * Baronie (Chocolat Alprose SA) — detail page parser
@@ -30,7 +33,7 @@ const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontali
 
 
 function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -38,15 +41,8 @@ function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -119,7 +115,8 @@ function extractParagraphs(html) {
 
 /**
  * Parse a Baronie detail page HTML into structured content.
- * Returns { detailTitle, introText, sections[], markdown, sectionCount, location, company, sourceTextLength }
+ * Returns { detailTitle, introText, preambleText, sections[], bodyMarkdown,
+ * markdown, sectionCount, location, company, sourceTextLength }
  */
 export function parseBaronieDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
@@ -182,42 +179,41 @@ export function parseBaronieDetailHtml(html) {
     }
   }
 
-  // Build markdown
-  const parts = [];
-  if (introText) parts.push(introText);
-  if (preambleText && preambleText !== introText) parts.push(preambleText);
+  // Keep the body separate from the intro. The aggregate `markdown` is used
+  // for the published description, but it must not be used as evidence that
+  // the source body was parsed: an intro-only response can otherwise look
+  // complete when the body container disappears after a markup drift.
+  const bodyParts = [];
+  if (preambleText) bodyParts.push(preambleText);
   for (const sec of sections) {
     if (sec.items.length > 0) {
-      parts.push(`\n## ${sec.heading}\n${sec.items.map((it) => `- ${it}`).join('\n')}`);
+      bodyParts.push(`\n## ${sec.heading}\n${sec.items.map((it) => `- ${it}`).join('\n')}`);
     } else if (sec.paragraphs.length > 0) {
-      parts.push(`\n## ${sec.heading}\n${sec.paragraphs.join('\n')}`);
+      bodyParts.push(`\n## ${sec.heading}\n${sec.paragraphs.join('\n')}`);
     }
   }
+  const bodyMarkdown = bodyParts.join('\n').trim();
+  const parts = [];
+  if (introText) parts.push(introText);
+  if (bodyMarkdown && bodyMarkdown !== introText) parts.push(bodyMarkdown);
   const markdown = parts.join('\n').trim();
 
   // Extract JSON-LD for location and company info
   let location = '';
   let company = '';
   let addressCountry = '';
-  const jsonLdMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (jsonLdMatch) {
-    try {
-      const ld = JSON.parse(jsonLdMatch[1]);
-      const candidates = Array.isArray(ld) ? ld : Array.isArray(ld?.['@graph']) ? ld['@graph'] : [ld];
-      const job = candidates.find((node) => node && node['@type'] === 'JobPosting') || null;
-      if (job) {
-        const jobLocations = Array.isArray(job.jobLocation) ? job.jobLocation : [job.jobLocation];
-        const jobLocation = jobLocations.find((loc) => /^CH$/i.test(loc?.address?.addressCountry || '')) || jobLocations[0];
-        if (jobLocation?.address) {
-          const addr = jobLocation.address;
-          location = normalizeSpace(addr.addressLocality || '');
-          addressCountry = normalizeSpace(addr.addressCountry || '');
-        }
-        if (job.hiringOrganization?.name) {
-          company = normalizeSpace(job.hiringOrganization.name);
-        }
-      }
-    } catch { /* ignore JSON parse errors */ }
+  const job = extractJobPostingNodes(html)[0];
+  if (job) {
+    const jobLocations = Array.isArray(job.jobLocation) ? job.jobLocation : [job.jobLocation];
+    const jobLocation = jobLocations.find((loc) => /^CH$/i.test(loc?.address?.addressCountry || '')) || jobLocations[0];
+    if (jobLocation?.address) {
+      const addr = jobLocation.address;
+      location = normalizeSpace(addr.addressLocality || '');
+      addressCountry = normalizeSpace(addr.addressCountry || '');
+    }
+    if (job.hiringOrganization?.name) {
+      company = normalizeSpace(job.hiringOrganization.name);
+    }
   }
 
   // Fallback location detection from text
@@ -233,6 +229,7 @@ export function parseBaronieDetailHtml(html) {
     introText,
     preambleText,
     sections,
+    bodyMarkdown,
     markdown,
     sectionCount: sections.length,
     location,
@@ -240,6 +237,22 @@ export function parseBaronieDetailHtml(html) {
     company,
     sourceTextLength,
   };
+}
+
+/**
+ * A detail response is usable for the Swiss filter only when the parser found
+ * the posting identity, body, and a location signal. Without all three, a
+ * zero Swiss-job result could be markup drift rather than a filtered-empty
+ * source snapshot.
+ */
+export function isBaronieDetailComplete(detail) {
+  return Boolean(
+    detail
+      && typeof detail === 'object'
+      && String(detail.detailTitle || '').trim()
+      && String(detail.bodyMarkdown || '').trim()
+      && (String(detail.addressCountry || '').trim() || String(detail.location || '').trim()),
+  );
 }
 
 /**
@@ -284,7 +297,10 @@ export async function fetchBaronieJobUrls(timeoutMs = 15000) {
     return [...urls];
   } catch (err) {
     console.warn(`⚠️ Failed to fetch careers page: ${err.message}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   } finally {
     clearTimeout(timer);
   }
@@ -314,18 +330,26 @@ export async function fetchBaronieDetailPage(url, timeoutMs = 15000) {
 
 /**
  * Build localized content for a Baronie job from parsed detail data.
+ *
+ * The description is the detail text only, in the slot of its own language
+ * (`sourceLang`, detected by the runner) — issue 5253. The builder used to
+ * key it as `it` whatever its language, and to replace a text of 100
+ * characters or less with "<company>, azienda svizzera del gruppo Baronie
+ * specializzata nella produzione di cioccolato premium, cerca un profilo
+ * <title>…", a paragraph we wrote. A posting without text, or under the
+ * shared 50-word floor, now gets no description and takes the thin-source
+ * path of the pipeline.
  */
-export function buildBaronieLocalizedContent({ title, location, company, detailMarkdown }) {
+export function buildBaronieLocalizedContent({ title, location, detailMarkdown, sourceLang }) {
   const city = normalizeSpace(location) || 'Caslano';
-  const companyName = normalizeSpace(company) || 'Chocolat Alprose SA / Baronie Switzerland SA';
-
-  const itDesc = detailMarkdown && detailMarkdown.length > 100
-    ? detailMarkdown
-    : `${companyName}, azienda svizzera del gruppo Baronie specializzata nella produzione di cioccolato premium, cerca un profilo ${title} per la sede di ${city}. Baronie è il partner preferito a livello globale per prodotti a marchio proprio nel settore cioccolato e gelato, con 19 siti produttivi in Europa, USA, UK e Costa d'Avorio. L'azienda, con sede svizzera a Caslano (Ticino), opera nella filiera integrata del cacao. Candidati tramite il portale ufficiale.`;
+  const text = String(detailMarkdown || '').trim();
+  const description = meetsSourceBodyFloor(text) ? text : '';
+  const lang = String(sourceLang || '').trim() || 'en';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc },
+    descriptionByLocale: description ? { [lang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} baronie ${city}`),
       en: slugify(`${title} baronie ${city}`),

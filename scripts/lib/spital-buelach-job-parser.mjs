@@ -31,6 +31,9 @@ const parser = createProspectiveChParser({
   apiLang: 'de',
   defaultSourceLang: 'de',
   publicCareerUrl: 'https://www.spitalbuelach.ch/offene-stellen',
+  // Listing payload = 33 % of the rendered vacancy (audit 2026-09-29):
+  // the "Pluspunkte" benefit list exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllSpitalBuelachJobs = parser.fetchAllJobs;

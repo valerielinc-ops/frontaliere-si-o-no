@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourceCompactOffsetPostingDateFields, sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 /**
  * Ticino Company Careers Crawler
  *
@@ -16,13 +18,17 @@
  */
 
 import fs from 'node:fs';
+import { stripHtmlTags } from '../../packages/articles/engine/shared/htmlMarkup.mjs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
+import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 import path from 'node:path';
 import { performance } from 'node:perf_hooks';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readAllAttr, readAttr, readMetaContent } from './html-attr.mjs';
+import { readClosedElement } from './html-balanced-element.mjs';
 import { createHash } from 'node:crypto';
 import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores, flushScoresBeforeExit, printRunSummary } from './ai-models.mjs';
+import { getFirestoreDb } from './firestore-admin.mjs';
 import { validateJobUrls } from './validate-job-url.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { hasAnyJobSignal } from './job-like.mjs';
@@ -32,7 +38,7 @@ import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
 import { detectJobTitleLang, detectJobTitleLocaleDetails, holdSourceLang, pinnedTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
 import {
-  heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl,
+  heuristicTranslateJobTitle, safeUnsupportedSourceTitle, isUnsupportedSourceLang, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl,
   // FRO-231: slug utilities extracted from this file
   normalizeSpace as _normalizeSpace,
   slugify as _slugify,
@@ -46,6 +52,7 @@ import {
   isLowQualityLocalizedTitle as _isLowQualityLocalizedTitle,
   isLowQualityLocalizedSlug as _isLowQualityLocalizedSlug,
   fingerprintJob as _fingerprintJob,
+  eocContinuityKey as _eocContinuityKey,
   dedupHeuristicKey as _dedupHeuristicKey,
   ensureJobSlug as _ensureJobSlug,
   stableSlugHash as _stableSlugHash,
@@ -124,6 +131,7 @@ import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mj
 import { freeTranslateWithRetry, logCascadeSummary } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
 import { hasConcatenatedWords, hasUsableTitle } from './translation-quality.mjs';
+import { assessComposedFromInputs, assessVerbatimRestructure } from './ai-output-fidelity.mjs';
 import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import {
   extractMigrosStructuredData,
@@ -138,8 +146,13 @@ import {
   isTargetSwissLocation,
   isTicinoRelevant,
   isGrigioniRelevant,
+  isKnownSwissCity,
   normalizeCantonCode,
+  swissCityFromLocationField,
+  swissMunicipalityCantons,
+  TEXT_RESCUE_AMBIGUOUS_TOKENS,
 } from './target-swiss-locations.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import {
   isFederalJobsPortalUrl,
   normalizeFederalDepartmentCompany,
@@ -737,16 +750,16 @@ function migrateCompanyJobKeys(jobs, companyKeyResolver) {
  * (data/jobs/by-crawler/*.json) are committed and contain translated data.
  * Falling back to slices preserves translations across crawler runs.
  */
-function readExistingJobsFromSlices(scopedKeys) {
-  if (!fs.existsSync(BY_CRAWLER_DIR)) return [];
-  const files = listSliceFileNames(BY_CRAWLER_DIR);
+function readExistingJobsFromSlices(scopedKeys, sliceDir = BY_CRAWLER_DIR) {
+  if (!fs.existsSync(sliceDir)) return [];
+  const files = listSliceFileNames(sliceDir);
   const scopedKeySet = scopedKeys && scopedKeys.length > 0 ? new Set(scopedKeys) : null;
   const jobs = [];
   for (const file of files) {
     const key = file.replace(/\.json$/, '');
     // When running a scoped crawler, only load that crawler's slice
     if (scopedKeySet && !scopedKeySet.has(key)) continue;
-    const data = readJson(path.join(BY_CRAWLER_DIR, file), null);
+    const data = readJson(path.join(sliceDir, file), null);
     if (data && Array.isArray(data.jobs)) {
       jobs.push(...data.jobs);
     }
@@ -804,6 +817,9 @@ function loadCompanyAdapters() {
     }
     const priority = Number.isFinite(Number(parsed.priority)) ? Number(parsed.priority) : 0;
     const userAgent = typeof parsed.userAgent === 'string' ? parsed.userAgent.trim() : '';
+    const requestTimeoutMs = Number.isFinite(Number(parsed.requestTimeoutMs))
+      ? Math.min(60_000, Math.max(4_000, Math.floor(Number(parsed.requestTimeoutMs))))
+      : undefined;
     const adapter = {
       enabled,
       crawlerModes,
@@ -816,6 +832,7 @@ function loadCompanyAdapters() {
       companyKeyAliases,
       priority,
       userAgent: userAgent || undefined,
+      requestTimeoutMs,
     };
     out.set(key, adapter);
     for (const alias of companyKeyAliases) {
@@ -851,10 +868,9 @@ function stripCodeFenceJson(text = '') {
 
 function stripHtml(s) {
   return normalizeSpace(
-    String(s || '')
-      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<[^>]+>/g, ' ')
+    stripHtmlTags(String(s || '')
+      .replace(/<script(?=[\s/>])[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style(?=[\s/>])[\s\S]*?<\/style>/gi, ' '))
       .replace(/&nbsp;/g, ' ')
       .replace(/&amp;/g, '&')
       .replace(/&lt;/g, '<')
@@ -969,14 +985,17 @@ function normalizeAdapterSeedMeta(rawMeta) {
   const canton = normalizeCantonCode(rawMeta.canton || rawMeta.cantonCode || rawMeta.region || rawMeta.regionCode || '');
   const company = normalizeSpace(rawMeta.company || rawMeta.companyName || rawMeta.brand || '');
   const contract = normalizeSpace(rawMeta.contract || rawMeta.employmentType || '');
-  const postedDate = normalizeSpace(rawMeta.postedDate || rawMeta.datePosted || '');
-  if (!location && !canton && !company && !contract && !postedDate) return null;
+  const postingDates = mergeSourcePostingDates({}, rawMeta);
+  const postedDate = postingDates.postedDate;
+  const sourceReference = normalizeSpace(rawMeta.sourceReference || '');
+  if (!location && !canton && !company && !contract && !postedDate && !sourceReference) return null;
   return {
     location,
     canton,
     company,
     contract,
-    postedDate,
+    ...postingDates,
+    ...(sourceReference ? { sourceReference } : {}),
     ...(rawMeta.preferWorkplaceLocation === true || workplaceLocation
       ? { preferWorkplaceLocation: true }
       : {}),
@@ -1305,15 +1324,14 @@ function cleanDescription(desc) {
   // paragraph and trip the audit's no-structured-content ratchet. Keep the
   // newlines so the rest of cleanDescription (already designed around \n) can
   // do its job.
-  let text = String(desc || '')
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+  let text = stripHtmlTags(String(desc || '')
+    .replace(/<script(?=[\s/>])[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style(?=[\s/>])[\s\S]*?<\/style>/gi, ' ')
     .replace(/<\/p>/gi, '\n')
     .replace(/<\/h[1-6]>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
-    .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
+    .replace(/<li(?=[\s/>])[^>]*>/gi, '\n- ')
+    .replace(/<\/li>/gi, '\n'))
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
@@ -1403,7 +1421,12 @@ function stripDescriptionBoilerplate(text) {
 //  • Only runs if the text is flat (no existing ## headings + \n\n)
 //  • Only runs if text ≥ 100 chars (short descriptions don't need it)
 //  • Returns original text on any failure (network, quota, malformed output)
-//  • Validates output length to avoid truncated results
+//  • Accepts an answer — fresh OR read back from the persistent cache — only if
+//    it is the input plus markdown (assessVerbatimRestructure in
+//    ai-output-fidelity.mjs): no reasoning preamble/prompt echo, ≥ 90 % of its
+//    tokens from the input, ≥ 90 % of the input's tokens kept. The old "≥ 70 %
+//    of the input length" check let a model's 12 000-character reasoning
+//    through (swiss-medical-network montchoisi-motionlab, 2026-09).
 
 /** @type {number} */
 let structureDescriptionCalls = 0;
@@ -1430,6 +1453,18 @@ export function resolveLocalePromptContext(sourceLang) {
   };
 }
 
+// Every heading the prompts suggest, in every locale: answers produced before
+// the prompts were localized carry Italian headings on German text, and the
+// model may pick any of them. They are structure, not added content.
+const _SECTION_HEADING_VOCABULARY = [...new Set(
+  Object.values(_LOCALE_SECTION_HEADINGS).flatMap((h) => Object.values(h)),
+)];
+
+/** Formatter invariant for one (input, answer) pair — see ai-output-fidelity.mjs. */
+function assessStructuredDescription(rawText, answer) {
+  return assessVerbatimRestructure(rawText, answer, { headingVocabulary: _SECTION_HEADING_VOCABULARY });
+}
+
 async function structureJobDescription(rawText, sourceLang = 'it') {
   if (!rawText || rawText.length < 100) return rawText;
   const { langName } = resolveLocalePromptContext(sourceLang);
@@ -1437,7 +1472,15 @@ async function structureJobDescription(rawText, sourceLang = 'it') {
   const cacheKey = buildAiCacheKey('structure-desc-v2', [rawText, sourceLang]);
   const fromCache = getCachedAiResponse(cacheKey);
   if (typeof fromCache === 'string') {
-    return fromCache === AI_CACHE_RAW_SENTINEL ? rawText : fromCache;
+    if (fromCache === AI_CACHE_RAW_SENTINEL) return rawText;
+    // The cache travels between runs (actions/cache, rolling key) and an entry
+    // never expires while it is being read, so an answer accepted by the old
+    // length-only check would be replayed — and re-translated — forever. The
+    // invariant applies to what the cache returns exactly as to a fresh answer.
+    const cachedVerdict = assessStructuredDescription(rawText, fromCache);
+    if (cachedVerdict.ok) return fromCache;
+    deleteCachedAiResponse(cacheKey);
+    console.warn(`  ⚠️ structureJobDescription: dropped cached answer (${cachedVerdict.reason})`);
   }
 
   // Already has markdown structure → skip
@@ -1487,11 +1530,14 @@ ${rawText}`;
     }
     // Strip code fences if the model wrapped output; sanitize control chars
     const cleaned = _sanitizeAiOutput(result).replace(/^```(?:markdown)?\s*\n?/i, '').replace(/\n?```\s*$/, '').trim();
-    // Validate: output should be at least 70% of input length (guard against truncation)
-    if (cleaned.length >= rawText.length * 0.7) {
+    // Validate: the answer must be the input plus markdown — this also covers
+    // truncation (token recall) that the old 70 %-length check was for.
+    const verdict = assessStructuredDescription(rawText, cleaned);
+    if (verdict.ok) {
       setCachedAiResponse(cacheKey, cleaned);
       return cleaned;
     }
+    console.warn(`  ⚠️ structureJobDescription: rejected AI answer (${verdict.reason}) — keeping the source text`);
   } catch { /* ignore — return original */ }
   setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
   return rawText;
@@ -1509,6 +1555,10 @@ ${rawText}`;
 //  • Only runs if additional structured data is available
 //  • Returns original description on any failure
 //  • Rate-limited to ENRICH_THIN_MAX_PER_RUN per crawler run
+//  • Accepts an answer — fresh or cached — only without a reasoning preamble,
+//    without a repetition loop, and with every sentence/bullet anchored in the
+//    data it was given (assessComposedFromInputs in ai-output-fidelity.mjs):
+//    the prompt forbids inventing information, and nothing else enforced it.
 
 /** @type {number} */
 let enrichThinCalls = 0;
@@ -1538,9 +1588,25 @@ async function aiEnrichThinDescription(job, sourceLangHint) {
     workPercentage,
     sourceLang,
   ]);
+  // Everything the prompt below carries: a composed sentence must be anchored
+  // in at least one of these.
+  const composeInputs = [
+    job.title, job.company, job.location, job.contract, desc,
+    ...responsibilities, ...requirements, ...benefits, workPercentage,
+  ].map((x) => String(x || ''));
+  const assessComposed = (answer) => assessComposedFromInputs(composeInputs, answer, {
+    allowedWords: _SECTION_HEADING_VOCABULARY,
+    references: [desc],
+  });
   const fromCache = getCachedAiResponse(cacheKey);
   if (typeof fromCache === 'string') {
-    return fromCache === AI_CACHE_RAW_SENTINEL ? job.description : fromCache;
+    if (fromCache === AI_CACHE_RAW_SENTINEL) return job.description;
+    // Same replay hazard as structureJobDescription: a cached answer is
+    // re-judged, and one that fails is dropped and recomputed.
+    const cachedVerdict = assessComposed(fromCache);
+    if (cachedVerdict.ok) return fromCache;
+    deleteCachedAiResponse(cacheKey);
+    console.warn(`  ⚠️ aiEnrichThinDescription: dropped cached answer (${cachedVerdict.reason})`);
   }
 
   // Already rich enough → skip
@@ -1620,8 +1686,12 @@ ${contextParts.join('\n\n')}`;
     const cleaned = _sanitizeAiOutput(result).replace(/^```(?:markdown)?\s*\n?/i, '').replace(/\n?```\s*$/, '').trim();
     // Must be at least as long as original and reasonably sized
     if (cleaned.length >= desc.length && cleaned.length >= 200) {
-      setCachedAiResponse(cacheKey, cleaned);
-      return cleaned;
+      const verdict = assessComposed(cleaned);
+      if (verdict.ok) {
+        setCachedAiResponse(cacheKey, cleaned);
+        return cleaned;
+      }
+      console.warn(`  ⚠️ aiEnrichThinDescription: rejected AI answer (${verdict.reason}) — keeping the source text`);
     }
   } catch { /* ignore — return original */ }
   setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
@@ -1630,19 +1700,17 @@ ${contextParts.join('\n\n')}`;
 
 function htmlToStructuredText(html) {
   if (!html) return '';
-  let text = String(html)
+  let text = stripHtmlTags(String(html)
     // Common ATS pattern: <p><strong>Section title</strong></p>
-    .replace(/<p[^>]*>\s*<strong[^>]*>([\s\S]*?)<\/strong>\s*<\/p>/gi, '\n## $1\n')
+    .replace(/<p(?=[\s/>])[^>]*>\s*<strong(?=[\s/>])[^>]*>([\s\S]*?)<\/strong>\s*<\/p>/gi, '\n## $1\n')
     // Convert structural HTML to newlines/markdown markers
-    .replace(/<h[1-6][^>]*>/gi, '\n## ')
+    .replace(/<h[1-6](?=[\s/>])[^>]*>/gi, '\n## ')
     .replace(/<\/h[1-6]>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<li(?=[\s/>])[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<p[^>]*>/gi, '\n')
-    .replace(/<\/p>/gi, '\n')
-    // Strip remaining HTML tags AFTER preserving structure
-    .replace(/<[^>]+>/g, ' ');
+    .replace(/<p(?=[\s/>])[^>]*>/gi, '\n')
+    .replace(/<\/p>/gi, '\n'));
   return cleanDescription(text);
 }
 
@@ -1720,11 +1788,11 @@ function formatRexxDescription(html) {
   ];
 
   // Find all h2 positions and their text content
-  const h2Re = /<h2[^>]*>([\s\S]*?)<\/h2>/gi;
+  const h2Re = /<h2(?=[\s/>])[^>]*>([\s\S]*?)<\/h2>/gi;
   let h2Match;
   const h2Tags = [];
   while ((h2Match = h2Re.exec(content)) !== null) {
-    const rawText = h2Match[1].replace(/<[^>]+>/g, '').trim().replace(/:$/, '');
+    const rawText = stripHtmlTags(h2Match[1], '').trim().replace(/:$/, '');
     h2Tags.push({ fullMatch: h2Match[0], index: h2Match.index, endIndex: h2Match.index + h2Match[0].length, text: rawText });
   }
 
@@ -1749,9 +1817,9 @@ function formatRexxDescription(html) {
   // Convert h2 headings to ## markdown.
   // These contain <span> wrappers, so we strip inner tags to get clean text.
   content = content.replace(
-    /<h2[^>]*>([\s\S]*?)<\/h2>/gi,
+    /<h2(?=[\s/>])[^>]*>([\s\S]*?)<\/h2>/gi,
     (_, inner) => {
-      const text = inner.replace(/<[^>]+>/g, '').trim().replace(/:$/, '');
+      const text = stripHtmlTags(inner, '').trim().replace(/:$/, '');
       return text ? `\n## ${text}\n` : '\n';
     }
   );
@@ -1769,16 +1837,16 @@ function formatRexxDescription(html) {
 
   // Convert lists
   content = content
-    .replace(/<ul[^>]*>/gi, '\n')
+    .replace(/<ul(?=[\s/>])[^>]*>/gi, '\n')
     .replace(/<\/ul>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<li(?=[\s/>])[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<p[^>]*>/gi, '\n')
+    .replace(/<p(?=[\s/>])[^>]*>/gi, '\n')
     .replace(/<\/p>/gi, '\n');
 
   // Strip all remaining HTML tags
-  content = content.replace(/<[^>]+>/g, ' ');
+  content = stripHtmlTags(content);
 
   // Strip Rexx-specific noise that may survive after HTML stripping:
   // - Duplicate header text: "Descrizione posizione Descrizione"
@@ -1886,7 +1954,7 @@ function extractRexxSalary(html) {
 }
 
 function extractPageLang(html = '') {
-  const m = String(html).match(/<html[^>]*\slang=["']([a-z]{2})(?:-[A-Z]{2})?["']/i);
+  const m = String(html).match(/<html(?=[\s/>])[^>]*\slang=["']([a-z]{2})(?:-[A-Z]{2})?["']/i);
   return normalizeSpace(m?.[1] || '').toLowerCase() || 'en';
 }
 
@@ -1909,9 +1977,70 @@ function bestJobPostingNodeFromHtml(html) {
   return best;
 }
 
+/**
+ * Località dal blocco `#jl` («Lieu de travail» / «Arbeitsort») del portale
+ * Swatch Group: è la sede che la vacancy dichiara, una riga per campo
+ * (`via<br>NPA località (cantone)<br>paese`). Si pubblica la sola località,
+ * col codice cantone quando il nome è un omonimo BFS (`Lengnau` esiste in AG
+ * e in BE → `Lengnau BE`, la stessa forma di `Buchs AG`/`Wil SG` nel dataset).
+ * Senza una riga `NPA località` si restituisce '' e decide il chiamante.
+ */
+function workplaceBlockLocality(block = '') {
+  const lines = String(block)
+    .replace(/<p(?=[\s/>])[^>]*>[\s\S]*?<\/p>/i, ' ')
+    .split(/<br\s*\/?>|\n/i)
+    .map((line) => normalizeSpace(decodeNumericEntities(decodeHtmlEntities(stripHtml(line)))))
+    .filter(Boolean);
+  for (const line of lines) {
+    const match = line.match(/^(?:CH-)?\d{4}\s+(.+?)(?:\s*\(([^)]+)\))?$/i);
+    if (!match) continue;
+    const city = normalizeSpace(match[1]);
+    if (!city) continue;
+    const cantonCode = normalizeCantonCode(match[2] || '');
+    const homonym = swissMunicipalityCantons(city).length > 1;
+    return homonym && cantonCode ? `${city} ${cantonCode}` : city;
+  }
+  return '';
+}
+
+/**
+ * Una riga `NPA …` letta nel testo dell'intera pagina è una località solo se
+ * dopo il numero viene davvero un comune svizzero: la scansione libera
+ * catturava altrimenti il chrome della pagina — il fuso dell'orologio
+ * (`+0200 Français Rechercher …`), il copyright (`© 2026 The Swatch Group Ltd
+ * Remonter`), un anno (`01.08.2027 Anstellungsart`) o il numero di clearing
+ * (`Clearing-Nr. 8440 MWST CHE`) — e, essendo la più lunga, vinceva sul
+ * luogo di lavoro vero (audit-parser-quality, issue 5253). Si tiene solo
+ * `NPA + comune`, tagliando la coda (`2540 Grenchen Phone` → `2540 Grenchen`).
+ * I comuni che sono anche parole comuni (`© 2026 Alle Rechte vorbehalten`)
+ * restano esclusi come nel recupero dal testo libero
+ * (`TEXT_RESCUE_AMBIGUOUS_TOKENS`).
+ */
+const POSTAL_LINE_RE = /\b(\d{4,5}\s+[A-ZÀ-ÖØ-Ýa-zà-öø-ÿ'(). -]{2,80})\b/g;
+
+function postalLineLocality(line = '') {
+  const match = normalizeSpace(line).match(/^(\d{4,5})\s+(.+)$/);
+  if (!match) return '';
+  const words = match[2].split(/\s+/).filter(Boolean);
+  for (let n = Math.min(3, words.length); n >= 1; n--) {
+    const prefix = words.slice(0, n).join(' ').replace(/[\s,;:.·•|-]+$/, '');
+    const token = prefix.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, ' ').trim();
+    if (!prefix || TEXT_RESCUE_AMBIGUOUS_TOKENS.has(token)) continue;
+    if (isKnownSwissCity(prefix) || swissMunicipalityCantons(prefix).length > 0) {
+      return `${match[1]} ${prefix}`;
+    }
+  }
+  return '';
+}
+
 function extractWorkdayLocation(html) {
   const candidates = [];
-  const block = String(html).match(/<div[^>]*id=["']jl["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] || '';
+  const block = String(html).match(/<div(?=[\s/>])[^>]*id=["']jl["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] || '';
+  // Il blocco `#jl` è il luogo di lavoro dichiarato dalla vacancy: quando dà
+  // una località vince su ogni scansione del testo della pagina.
+  const blockLocality = workplaceBlockLocality(block);
+  if (blockLocality) return blockLocality;
   const text = cleanDescription(block);
   if (text) {
     const byLabel = normalizeSpace(text.split(/Arbeitsort|Lieu de travail|Workplace|Sede di lavoro|Work location|Arbeitsstelle/i).pop() || text);
@@ -1920,10 +2049,16 @@ function extractWorkdayLocation(html) {
 
   const plain = stripHtml(html);
   const locLabel = plain.match(/(?:Arbeitsort|Lieu de travail|Workplace|Sede di lavoro|Work location)\s*:?\s*([^\n]{3,180})/i)?.[1];
-  if (locLabel) candidates.push(normalizeSpace(locLabel));
+  if (locLabel) {
+    // `Arbeitsort: Militärflugplatz, 3857 Meiringen …` (jobs.admin.ch): se il
+    // valore etichettato contiene un indirizzo postale, la località è quella.
+    const labelPostal = (locLabel.match(POSTAL_LINE_RE) || []).map(postalLineLocality).find(Boolean);
+    candidates.push(labelPostal || normalizeSpace(locLabel));
+  }
 
-  const postalLine = plain.match(/\b(\d{4,5}\s+[A-ZÀ-ÖØ-Ýa-zà-öø-ÿ'(). -]{2,80})\b/g) || [];
-  for (const p of postalLine.slice(0, 4)) candidates.push(normalizeSpace(p));
+  const postalLine = plain.match(POSTAL_LINE_RE) || [];
+  const postalLocalities = postalLine.map(postalLineLocality).filter(Boolean);
+  for (const p of postalLocalities.slice(0, 4)) candidates.push(p);
 
   // #4587: the "jl" div split and the loose label regex above are the same
   // crude full-text label scan pattern guarded elsewhere in this file (see
@@ -1949,6 +2084,46 @@ function extractWorkdayApplyUrl(html, baseUrl) {
 // extractMigrosStructuredData, extractMigrosSectionItems, extractMigrosBenefitItems
 // are imported from ./migros-job-parser.mjs at the top of this file.
 
+const SWISS_CANTON_SUFFIX_RE = /\b(AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH)\s*$/i;
+
+/**
+ * Prefer Migros' visible workplace card over stale JobPosting geography.
+ *
+ * The portal can move a vacancy while leaving its JSON-LD `jobLocation`
+ * behind.  Only act when the visible card itself ends in an explicit Swiss
+ * canton code: that source-backed marker lets us update all four geography
+ * fields together without guessing from an employer or street name.
+ */
+function applyMigrosVisibleWorkplaceGeography(job, migrosData) {
+  if (!job || !Array.isArray(migrosData?.workplaces)) return false;
+  for (const workplace of migrosData.workplaces) {
+    const canton = normalizeCantonCode(String(workplace || '').match(SWISS_CANTON_SUFFIX_RE)?.[1] || '');
+    if (!canton) continue;
+    const location = swissCityFromLocationField(workplace, canton);
+    if (!location) continue;
+    job.location = location;
+    job.canton = canton;
+    job.addressLocality = location;
+    job.addressRegion = canton;
+    return true;
+  }
+  return false;
+}
+
+function extractSwissTimingJobDescription(html = '') {
+  const blocks = [];
+  for (const className of ['description', 'profile', 'requirements', 'language_requirements']) {
+    const inner = readClosedElement(
+      String(html),
+      `class=["'][^"']*\\b${className}\\b[^"']*["']`,
+    );
+    if (!inner) continue;
+    const text = htmlToStructuredText(inner);
+    if (text.length >= 20) blocks.push(text);
+  }
+  return cleanDescription(blocks.join('\n\n'));
+}
+
 function extractRichJobDescription(html) {
   const supsiParsed = parseSupsiJobDetail(html);
   if (supsiParsed.description.length >= 180) return supsiParsed.description;
@@ -1968,14 +2143,14 @@ function extractRichJobDescription(html) {
     const sectionId = mm[1].toLowerCase();
     let sectionHtml = mm[2];
     // Strip SVG noise (skill-level dots and decorative icons)
-    sectionHtml = sectionHtml.replace(/<svg[\s\S]*?<\/svg>/gi, '');
+    sectionHtml = sectionHtml.replace(/<svg(?=[\s/>])[\s\S]*?<\/svg>/gi, '');
     // Strip share buttons and apply buttons containers
-    sectionHtml = sectionHtml.replace(/<div[^>]*class="[^"]*ad-share-list[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '');
+    sectionHtml = sectionHtml.replace(/<div(?=[\s/>])[^>]*class="[^"]*ad-share-list[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '');
     // Strip image carousels
-    sectionHtml = sectionHtml.replace(/<div[^>]*class="[^"]*flicking[^"]*"[^>]*>[\s\S]*?(?:<\/div>\s*){1,5}/gi, '');
+    sectionHtml = sectionHtml.replace(/<div(?=[\s/>])[^>]*class="[^"]*flicking[^"]*"[^>]*>[\s\S]*?(?:<\/div>\s*){1,5}/gi, '');
     // Skip overview share/apply UI (keep only typo-body1 intro text)
     if (sectionId === 'overview') {
-      const introMatch = sectionHtml.match(/<div[^>]*class="[^"]*typo-body1[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+      const introMatch = sectionHtml.match(/<div(?=[\s/>])[^>]*class="[^"]*typo-body1[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
       if (introMatch) {
         sectionHtml = introMatch[1];
       }
@@ -1985,6 +2160,18 @@ function extractRichJobDescription(html) {
   }
   const migrosJoined = cleanDescription(migrosChunks.join('\n\n'));
   if (migrosJoined.length >= 300) return migrosJoined;
+
+  // NCore Platform detail pages keep the vacancy in `.singlePosition .pTesto`
+  // and render the application/privacy UI beside it. Read the balanced body
+  // element so the generic HTML fallback receives the employer's posting, not
+  // the page shell or GDPR modal. Dedicated NCore runners use the same source
+  // container, so this also covers adapter-provided detail seeds.
+  const ncorePosition = readClosedElement(html, 'class=[^>]*\\bsinglePosition\\b');
+  if (ncorePosition) {
+    const ncoreBody = readClosedElement(ncorePosition, 'class=[^>]*\\bpTesto\\b') || ncorePosition;
+    const ncoreText = htmlToStructuredText(ncoreBody);
+    if (ncoreText.length >= 180) return cleanDescription(ncoreText);
+  }
 
   // Rexx Systems ATS (concorsi.ti.ch) — job content in <div class="emp_nr_innerframe">
   // Contains structured sections (Compiti, Requisiti, Condizioni, Scadenza) with
@@ -2003,7 +2190,7 @@ function extractRichJobDescription(html) {
   // The boundary keywords (apply, job-actions, etc.) may appear as substrings
   // (e.g., "applylink pull-right"), so we don't require them at a class boundary.
   const sfMatch = String(html).match(
-    /class=["']jobdescription["'][^>]*>([\s\S]*?)(?:<div[^>]*class=["'][^"']*(?:job-actions|apply|back-button|applyContainer)[^"']*["']|<footer\b)/i
+    /class=["']jobdescription["'][^>]*>([\s\S]*?)(?:<div(?=[\s/>])[^>]*class=["'][^"']*(?:job-actions|apply|back-button|applyContainer)[^"']*["']|<footer\b)/i
   );
   if (sfMatch) {
     const sfText = htmlToStructuredText(sfMatch[1]);
@@ -2012,13 +2199,13 @@ function extractRichJobDescription(html) {
 
   const mainChunk =
     String(html).match(/<div class="row wysiwyg">([\s\S]*?)<div class="col-lg-4/i)?.[1] ||
-    String(html).match(/<main[^>]*>([\s\S]*?)<\/main>/i)?.[1] ||
+    String(html).match(/<main(?=[\s/>])[^>]*>([\s\S]*?)<\/main>/i)?.[1] ||
     '';
   const richText = htmlToStructuredText(mainChunk);
   if (richText.length >= 180) return richText;
 
   const richBlocks = [];
-  const richBlockRe = /<div[^>]*class=["'][^"']*m-richtext__content[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi;
+  const richBlockRe = /<div(?=[\s/>])[^>]*class=["'][^"']*m-richtext__content[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi;
   let rb;
   while ((rb = richBlockRe.exec(String(html))) !== null) {
     const t = htmlToStructuredText(rb[1]);
@@ -2029,7 +2216,7 @@ function extractRichJobDescription(html) {
 
   // Fallback to high-signal field blocks common in career pages.
   const blocks = [];
-  const re = /<div[^>]*class=["'][^"']*field[^"']*f-n-(?:body|field-job-[^"']+)[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi;
+  const re = /<div(?=[\s/>])[^>]*class=["'][^"']*field[^"']*f-n-(?:body|field-job-[^"']+)[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi;
   let m;
   while ((m = re.exec(String(html))) !== null) {
     const t = htmlToStructuredText(m[1]);
@@ -2148,6 +2335,7 @@ export function ensureLocaleFields(job) {
   const sourceLang = pinnedLang || holdSourceLang(out, `${bestTitle} ${bestDescription}`, 'en');
   const titleSourceLang = pinnedLang || detectJobTitleLang(baseTitle || bestTitle, sourceLang);
   const sourceTitle = baseTitle || normalizeSpace(titleByLocale[titleSourceLang] || bestTitle);
+  const sourceLocaleIsPublished = LOCALES.includes(sourceLang);
 
   // Detect the language of the raw base description separately — it may differ
   // from sourceLang when titleByLocale has wrong-language entries.
@@ -2160,7 +2348,7 @@ export function ensureLocaleFields(job) {
   }
 
   for (const locale of LOCALES) {
-    const currentTitle = normalizeSpace(titleByLocale[locale] || '');
+    let currentTitle = normalizeSpace(titleByLocale[locale] || '');
     // A non-source slot with a pre-existing 1–2 character title is not a
     // translated title and must not fall through the stable-content branch.
     // Clear it before the source-copy/empty-slot split so the next
@@ -2168,7 +2356,7 @@ export function ensureLocaleFields(job) {
     if (locale !== titleSourceLang && currentTitle && !hasUsableTitle(currentTitle)) {
       titleByLocale[locale] = '';
       out.needsRetranslation = true;
-      continue;
+      currentTitle = '';
     }
     if (locale === titleSourceLang) {
       if (!currentTitle || currentTitle !== sourceTitle) {
@@ -2212,7 +2400,10 @@ export function ensureLocaleFields(job) {
         }
       }
     } else if (!currentTitle && locale !== titleSourceLang && sourceTitle) {
-      // Locale slot was already empty — try heuristic fill
+      // Locale slot was already empty — try a deterministic fill. This also
+      // covers known unsupported-source titles; unknown ones receive a
+      // locale-safe generic label for the deploy gate and remain queued rather
+      // than receiving a source-language copy.
       const translated = heuristicTranslateJobTitle(sourceTitle, locale);
       if (
         hasUsableTitle(translated) &&
@@ -2222,11 +2413,20 @@ export function ensureLocaleFields(job) {
         titleByLocale[locale] = translated;
       }
     }
+    if (
+      locale !== titleSourceLang &&
+      !hasUsableTitle(titleByLocale[locale]) &&
+      isUnsupportedSourceLang(titleSourceLang)
+    ) {
+      titleByLocale[locale] = safeUnsupportedSourceTitle(locale);
+      out.needsRetranslation = true;
+    }
     // Fill empty description slots for source/detected language only.
     // Non-source locales are left empty if no proper translation is available —
     // UI/runtime SEO can fallback to out.description when needed.
     // However, NEVER delete existing description data for any locale.
     if (
+      sourceLocaleIsPublished &&
       !normalizeSpace(descriptionByLocale[locale] || '') &&
       bestDescription &&
       (locale === sourceLang || locale === baseDescLang)
@@ -2601,7 +2801,7 @@ export function extractLocationFromText(html = '', fallback = '') {
   const clerDetailLoc = normalizeSpace(
     stripHtml(
       String(html).match(
-        /JobDetail__item-slot[^>]*>\s*(?:Luogo di lavoro|Sede di lavoro|Workplace|Lieu de travail|Arbeitsort)\s*<\/span>\s*<span[^>]*JobDetail__item-slot[^>]*>([\s\S]*?)<\/span>/i
+        /JobDetail__item-slot[^>]*>\s*(?:Luogo di lavoro|Sede di lavoro|Workplace|Lieu de travail|Arbeitsort)\s*<\/span>\s*<span(?=[\s/>])[^>]*JobDetail__item-slot[^>]*>([\s\S]*?)<\/span>/i
       )?.[1] || ''
     )
   );
@@ -2803,10 +3003,13 @@ function fetchRetryDelayMs(attempt) {
   return Math.min(5000, expo + jitter);
 }
 
-async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userAgent } = {}) {
+async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userAgent, timeoutMs } = {}) {
   const upperMethod = normalizeSpace(method || 'GET').toUpperCase();
   const canRetry = (upperMethod === 'GET' || upperMethod === 'HEAD') && !body;
   const maxAttempts = canRetry ? 1 + FETCH_RETRY_ATTEMPTS : 1;
+  const effectiveTimeoutMs = Number.isFinite(Number(timeoutMs))
+    ? Math.min(60_000, Math.max(4_000, Math.floor(Number(timeoutMs))))
+    : REQUEST_TIMEOUT_MS;
   let lastErr = null;
 
   // Opt-in egress proxy for IP-blocked sources (JOBS_CRAWLER_FETCH_PROXY lists
@@ -2830,8 +3033,23 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
     // body. Let HEAD fall through to the generic proxied fetch below, which keeps
     // the original method.
     if (canRetry && upperMethod === 'GET') {
-      const jinaRes = await fetchViaJinaWithRetry(url, { timeoutMs: REQUEST_TIMEOUT_MS });
-      if (jinaRes.ok) return jinaRes;
+      const jinaRes = await fetchViaJinaWithRetry(url, { timeoutMs: effectiveTimeoutMs });
+      // On exhaustion fetchViaJinaWithRetry hands back the last response
+      // unchanged, which is an HTTP 200 when every Jina IP got the WAF
+      // challenge as a 200 (its documented contract: callers re-check the
+      // body). Trusting `ok` alone returned that challenge as the page and
+      // never reached the direct fetch below (cambiavalute.ch).
+      let jinaBodyError = null;
+      if (jinaRes.ok) {
+        const jinaBody = await jinaRes.text();
+        jinaBodyError = detectJinaErrorBody(jinaBody);
+        if (!jinaBodyError) {
+          return new Response(jinaBody, {
+            status: 200,
+            headers: { 'content-type': jinaRes.headers.get('content-type') || 'text/html' },
+          });
+        }
+      }
       // Every Jina egress IP tried was still blocked/erroring (#3797 recurrence,
       // 2026-07-07: all 4 cambiavalute.ch detail pages silently dropped this way
       // in one CI run — zero log trace, even though a plain direct fetch worked
@@ -2843,7 +3061,7 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
       // same exhausted proxy path). Logged so a future recurrence is diagnosable
       // from CI output alone (previously this path was completely silent — the
       // caller's `if (!res.ok) continue` masked it entirely).
-      const jinaFailReason = jinaRes.headers.get('x-jina-retry-reason') || `HTTP ${jinaRes.status}`;
+      const jinaFailReason = jinaRes.headers.get('x-jina-retry-reason') || jinaBodyError || `HTTP ${jinaRes.status}`;
       console.warn(`⚠️ Jina proxy exhausted for ${url} (${jinaFailReason}) — falling back to direct fetch.`);
       postJinaFallback = true;
     } else {
@@ -2859,8 +3077,8 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
     const timeoutPromise = new Promise((_, reject) => {
       timer = setTimeout(() => {
         controller.abort();
-        reject(new Error(`timeout after ${REQUEST_TIMEOUT_MS}ms`));
-      }, REQUEST_TIMEOUT_MS);
+        reject(new Error(`timeout after ${effectiveTimeoutMs}ms`));
+      }, effectiveTimeoutMs);
     });
     const fetchPromise = fetch(targetUrl, {
       method: upperMethod,
@@ -2965,6 +3183,7 @@ async function searchGoogleCse(query, limit = 8) {
       .map((x) => tryUrl(x?.link || ''))
       .filter(Boolean);
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
 }
@@ -2981,6 +3200,7 @@ async function searchDuckDuckGo(query, limit = 8) {
     const html = await res.text();
     return parseDuckDuckGoHtmlLinks(html).slice(0, Math.max(1, limit));
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
 }
@@ -3006,6 +3226,7 @@ async function searchBingRss(query, limit = 8) {
     const xml = await res.text();
     return parseRssLinks(xml).slice(0, Math.max(1, limit));
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
 }
@@ -3208,7 +3429,7 @@ let crawlerConfigGlobal = null;
 
 function extractJsonLdBlocks(html) {
   const blocks = [];
-  const regex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  const regex = /<script(?=[\s/>])[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
   let m;
   while ((m = regex.exec(html)) !== null) {
     const raw = m[1].trim();
@@ -3239,7 +3460,11 @@ function extractJobPostingNodes(node) {
       return;
     }
     if (typeof n !== 'object') return;
-    if (n['@type'] === 'JobPosting') out.push(n);
+    const type = n['@type'];
+    const isJobPosting = Array.isArray(type)
+      ? type.some((item) => String(item).includes('JobPosting'))
+      : String(type || '').includes('JobPosting');
+    if (isJobPosting) out.push(n);
     if (Array.isArray(n['@graph'])) n['@graph'].forEach(walk);
     for (const value of Object.values(n)) {
       if (value && typeof value === 'object') walk(value);
@@ -3486,14 +3711,14 @@ function extractJobTeaserApiUrls(html, baseUrl) {
 
 function parseDdMmYyyy(raw = '') {
   const m = String(raw).match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
-  if (!m) return dateOnly(Date.now());
+  if (!m) return '';
   const d = Number(m[1]);
   const mm = Number(m[2]);
   const y = Number(m[3]);
   const iso = new Date(Date.UTC(y, mm - 1, d));
   // Round-trip: reject calendar-impossible dates (31.04, 31.02) silently
   // overflowed by Date.UTC instead of trusting a misparsed postedDate.
-  if (iso.getUTCDate() !== d || iso.getUTCMonth() !== mm - 1) return dateOnly(Date.now());
+  if (iso.getUTCDate() !== d || iso.getUTCMonth() !== mm - 1) return '';
   return iso.toISOString().slice(0, 10);
 }
 
@@ -3650,15 +3875,9 @@ function parseSmartRecruitersSource(listingUrl) {
 }
 
 function workdayPostedDateToIso(postedOnRaw) {
-  const raw = normalizeSpace(postedOnRaw).toLowerCase();
-  if (!raw) return dateOnly(Date.now());
-  if (raw.includes('today') || raw.includes('oggi') || raw.includes('aujourd')) return dateOnly(Date.now());
-  if (raw.includes('yesterday') || raw.includes('ieri') || raw.includes('hier')) return dateOnly(Date.now() - 86400000);
-  const days = Number(raw.match(/(\d+)\s+day/)?.[1] || raw.match(/(\d+)\s+giorn/)?.[1] || raw.match(/(\d+)\s+jour/)?.[1]);
-  if (Number.isFinite(days) && days >= 0) return dateOnly(Date.now() - days * 86400000);
-  const weeks = Number(raw.match(/(\d+)\s+week/)?.[1] || raw.match(/(\d+)\s+settiman/)?.[1] || raw.match(/(\d+)\s+semain/)?.[1]);
-  if (Number.isFinite(weeks) && weeks >= 0) return dateOnly(Date.now() - weeks * 7 * 86400000);
-  return dateOnly(Date.now());
+  // Relative strings (notably "30+ days ago" or whole weeks) do not prove
+  // an exact employer publication date. Keep only an explicit source ISO.
+  return sourcePostingDateFields(postedOnRaw).postedDate;
 }
 
 async function extractDetailPayload(html, detailUrl) {
@@ -3824,6 +4043,9 @@ async function crawlWorkdayJobs(
       let companyName = company.name;
       let applyUrl = detailUrl;
       let contractRaw = '';
+      // The req's own `jobPostingInfo` (structured primary + country), kept for
+      // the shared Workday place recovery below.
+      let apiInfo = null;
 
       // 1) Preferred: Workday CXS detail API.
       try {
@@ -3836,6 +4058,7 @@ async function crawlWorkdayJobs(
             // eslint-disable-next-line no-await-in-loop
             const apiPayload = await detailApiRes.json();
             const info = apiPayload?.jobPostingInfo || {};
+            apiInfo = info;
             const apiDesc = htmlToStructuredText(info.jobDescription || '');
             if (apiDesc.length >= 120) {
               descriptionSeed = apiDesc;
@@ -3888,8 +4111,12 @@ async function crawlWorkdayJobs(
           requirementsByLocale = detailPayload.requirementsByLocale || {};
 
           // AI enrichment only if still thin or locale coverage is missing.
+          // Never inside the orchestrated crawl (SKIP_AI_TRANSLATION=1): the
+          // job falls through to enrichJobLocalesDCC, which marks it
+          // needsRetranslation for translate-pending, as every other crawler.
           const localeCoverage = Object.keys(descriptionByLocale).length;
           if (
+            process.env.SKIP_AI_TRANSLATION !== '1' &&
             crawlerConfig?.aiLocalizationEnabled &&
             aiLocalizationCalls < (crawlerConfig?.aiLocalizationMaxJobsPerRun || 0) &&
             localeCoverage === 0 &&
@@ -3924,18 +4151,26 @@ async function crawlWorkdayJobs(
       } catch {
         // Keep fallback descriptionSeed
       }
+      // A place the commune gazetteer cannot resolve (a locality such as
+      // `Rotkreuz`, an address with a postal code) gets the shared Workday
+      // recovery from the req's own primary: official directory or postal
+      // code, on its structured Swiss country only (workday-swiss-job-parser-common).
+      const recoveredPlace = apiInfo && !inferAnyCanton(location) ? recoverWorkdayPrimarySwissPlace(apiInfo) : null;
+      if (recoveredPlace) location = recoveredPlace.location;
       const geoSignal = `${title} ${location} ${descriptionSeed}`;
       if (isLocationExplicitlyForeign(location)) continue;
       if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) continue;
       if (!location && !isTargetSwissLocation(`${title} ${descriptionSeed}`)) continue;
-      if (requireConcreteLocation && !isConcreteSwissWorkdayLocation(location)) {
+      if (requireConcreteLocation && !recoveredPlace && !isConcreteSwissWorkdayLocation(location)) {
         console.warn(`  ⚠️ Skipping Workday job without a concrete Swiss locality: "${title}" (${location || 'unknown'})`);
         continue;
       }
-      if (!isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
-      const inferredCanton = (requireConcreteLocation
-        ? inferAnyCanton(location)
-        : inferAnyCanton(location) || inferAnyCanton(`${title} ${descriptionSeed}`)) || '';
+      if (!recoveredPlace && !isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
+      const inferredCanton = (recoveredPlace
+        ? recoveredPlace.canton
+        : requireConcreteLocation
+          ? inferAnyCanton(location)
+          : inferAnyCanton(location) || inferAnyCanton(`${title} ${descriptionSeed}`)) || '';
       if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
       collected.push({
         id: '',
@@ -3953,7 +4188,7 @@ async function crawlWorkdayJobs(
         requirements: requirementsSeed,
         requirementsByLocale,
         featured: false,
-        postedDate,
+        ...sourcePostingDateFields(postedDate),
         url: applyUrl || detailUrl,
         source: 'Company Careers Crawler',
       });
@@ -3990,6 +4225,7 @@ async function crawlGreenhouseJobs(company, source) {
       headers: { Accept: 'application/json, text/plain, */*' },
     });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];
@@ -4024,7 +4260,8 @@ async function crawlGreenhouseJobs(company, source) {
       description,
       requirements: extractRequirements(description),
       featured: false,
-      postedDate: dateOnly(j?.updated_at || j?.updatedAt || Date.now()),
+      // Greenhouse exposes first_published separately from updated_at.
+      ...sourcePostingDateFields(j?.first_published),
       url: detailUrl,
       source: 'Company Careers Crawler',
     });
@@ -4039,6 +4276,7 @@ async function crawlLeverJobs(company, source) {
       headers: { Accept: 'application/json, text/plain, */*' },
     });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];
@@ -4080,7 +4318,8 @@ async function crawlLeverJobs(company, source) {
       description,
       requirements: extractRequirements(description),
       featured: false,
-      postedDate: dateOnly(j?.createdAt || j?.updatedAt || Date.now()),
+      // Lever createdAt is posting creation, not evidence of first publication.
+      ...sourcePostingDateFields(''),
       url: detailUrl,
       source: 'Company Careers Crawler',
     });
@@ -4095,6 +4334,7 @@ async function crawlSmartRecruitersJobs(company, source) {
       headers: { Accept: 'application/json, text/plain, */*' },
     });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];
@@ -4129,7 +4369,7 @@ async function crawlSmartRecruitersJobs(company, source) {
       description,
       requirements: extractRequirements(description),
       featured: false,
-      postedDate: dateOnly(j?.releasedDate || Date.now()),
+      ...sourcePostingDateFields(j?.releasedDate),
       url: detailUrl,
       source: 'Company Careers Crawler',
     });
@@ -4154,7 +4394,7 @@ function absoluteSameHostLinks(html, baseUrl, hintsRegex) {
   return [...links];
 }
 
-async function crawlGenericListingJobs(company, listingUrl, crawlerConfig, knownJobUrls = new Set(), { userAgent } = {}) {
+async function crawlGenericListingJobs(company, listingUrl, crawlerConfig, knownJobUrls = new Set(), { userAgent, timeoutMs } = {}) {
   const queue = [{ url: listingUrl, depth: 0 }];
   const visited = new Set();
   const jobs = [];
@@ -4172,7 +4412,7 @@ async function crawlGenericListingJobs(company, listingUrl, crawlerConfig, known
     let html = '';
     try {
       // eslint-disable-next-line no-await-in-loop
-      const res = await fetchWithTimeout(pageUrl, { userAgent });
+      const res = await fetchWithTimeout(pageUrl, { userAgent, timeoutMs });
       if (!res.ok) continue;
       // eslint-disable-next-line no-await-in-loop
       html = await res.text();
@@ -4218,7 +4458,7 @@ async function crawlGenericListingJobs(company, listingUrl, crawlerConfig, known
   for (const detailUrl of detailLinks) {
     try {
       // eslint-disable-next-line no-await-in-loop
-      const res = await fetchWithTimeout(detailUrl, { userAgent });
+      const res = await fetchWithTimeout(detailUrl, { userAgent, timeoutMs });
       // eslint-disable-next-line no-await-in-loop
       const html = await res.text();
       const blocks = extractJsonLdBlocks(html);
@@ -4255,6 +4495,7 @@ async function crawlTeaserApiJobs(company, apiUrl) {
   try {
     res = await fetchWithTimeout(apiUrl, { headers: { Accept: 'application/json, text/plain, */*' } });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];
@@ -4305,7 +4546,7 @@ async function crawlTeaserApiJobs(company, apiUrl) {
       description: cleanDescription(`${title}. ${row?.fieldofactivity || ''}. ${row?.workloadTitle || ''}: ${row?.workload || ''}`),
       requirements: [],
       featured: false,
-      postedDate: parseDdMmYyyy(row?.date || ''),
+      ...sourcePostingDateFields(parseDdMmYyyy(row?.date || '')),
       url: detailUrl,
       source: 'Company Careers Crawler',
     };
@@ -4315,7 +4556,7 @@ async function crawlTeaserApiJobs(company, apiUrl) {
       title: baseJob.title || title,
       location: baseJob.location || locationFromTitle,
       contract: normalizeContract(row?.workload || row?.expiration || '', baseJob.title || title, baseJob.description || ''),
-      postedDate: parseDdMmYyyy(row?.date || baseJob.postedDate || ''),
+      ...mergeSourcePostingDates(baseJob, sourcePostingDateFields(parseDdMmYyyy(row?.date || ''))),
       url: detailUrl,
       source: 'Company Careers Crawler',
     };
@@ -4547,13 +4788,19 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
     description,
     requirements: extractRequirements(description),
     featured: false,
-    postedDate: dateOnly(seedMeta?.postedDate || node.datePosted || Date.now()),
+    ...mergeSourcePostingDates(
+      seedMeta,
+      /jobs\.migros\.ch$/i.test(hostOf(sourcePageUrl))
+        ? sourceCompactOffsetPostingDateFields(node.datePosted)
+        : sourcePostingDateFields(node.datePosted),
+    ),
     url,
     // The generic parser exposes the canonical detail URL as the handoff
     // target when JSON-LD does not publish a separate application URL. This
     // is only a navigable handoff; L3 must never count it as an application.
     applyUrl: url,
     source: 'Company Careers Crawler',
+    ...(seedMeta?.sourceReference ? { sourceReference: seedMeta.sourceReference } : {}),
     ...(seedMetaRelevant ? {
       _targetScope: {
         type: 'adapter_seed_meta',
@@ -4595,12 +4842,28 @@ function extractHtmlMicrodataAddress(html = '') {
   };
 }
 
+function extractHtmlMicrodataContent(html = '', prop = '') {
+  const tag = String(html).match(new RegExp(
+    `<[^>]*\\bitemprop=["']${prop}["'][^>]*>`,
+    'i',
+  ))?.[0] || '';
+  const content = tag.match(/\bcontent=(?:"([^"]*)"|'([^']*)')/i);
+  return normalizeSpace(decodeHtmlEntities(content?.[1] || content?.[2] || ''));
+}
+
 function extractTitleFromHtml(html) {
-  return normalizeSpace(stripScriptsAndStyles(html).match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
+  return normalizeSpace(stripScriptsAndStyles(html).match(/<title(?=[\s/>])[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
 }
 
 function extractH1FromHtml(html = '') {
-  return normalizeSpace(stripHtml(stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || ''));
+  const source = stripScriptsAndStyles(html);
+  const headings = [...source.matchAll(/<h1(?=[\s/>])[^>]*>([\s\S]*?)<\/h1>/gi)]
+    .map((match) => normalizeSpace(stripHtml(match[1])))
+    .filter(Boolean);
+  // Some ATS detail pages put a site-wide heading ("Careers") before the
+  // actual position title. Prefer the first specific heading instead of
+  // falling through to an equally generic <title>/og:title.
+  return headings.find((heading) => !isLikelyGenericCareerTitle(heading)) || headings[0] || '';
 }
 
 /**
@@ -4624,7 +4887,7 @@ function extractMetaContent(html, attr, value) {
  */
 function extractRexxJobTitle(html) {
   if (!/<div class=["']emp_nr_innerframe["']>/i.test(html)) return '';
-  const re = /<h2[^>]*class=["'][^"']*emp_nr_subtitle[^"']*["'][^>]*>([\s\S]*?)<\/h2>/gi;
+  const re = /<h2(?=[\s/>])[^>]*class=["'][^"']*emp_nr_subtitle[^"']*["'][^>]*>([\s\S]*?)<\/h2>/gi;
   const h2s = [];
   let m;
   while ((m = re.exec(String(html))) !== null) {
@@ -4696,7 +4959,10 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   // Try Migros-specific structured extraction first (returns separate fields)
   const migrosData = extractMigrosStructuredData(html);
 
-  const richDescription = supsiParsed?.description || migrosData?.description || extractRichJobDescription(html);
+  const swissTimingDescription = hostOf(pageUrl).endsWith('swisstiming.com')
+    ? extractSwissTimingJobDescription(html)
+    : '';
+  const richDescription = supsiParsed?.description || migrosData?.description || swissTimingDescription || extractRichJobDescription(html);
   const description = cleanDescription(
     richDescription ||
     extractMetaContent(html, 'property', 'og:description') ||
@@ -4710,6 +4976,9 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
     return { job: null, reason: 'html_listing_summary_page' };
   }
   const microdataAddress = extractHtmlMicrodataAddress(html);
+  const htmlPublication = successFactorsPostingDateFields(
+    extractHtmlMicrodataContent(html, 'datePosted'),
+  );
   const microdataLocation = [microdataAddress.locality, microdataAddress.region]
     .filter(Boolean)
     .join(', ');
@@ -4799,13 +5068,14 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
       ? requirementsFromMigros
       : extractRequirements(description),
     featured: false,
-    postedDate: dateOnly(seedMeta?.postedDate || Date.now()),
+    ...mergeSourcePostingDates(seedMeta, htmlPublication),
     url: pageUrl,
     // HTML-only pages have the same explicit handoff contract as JSON-LD
     // pages. The URL is evidence of where a user can continue, not a submit
     // event or a commercial outcome.
     applyUrl: pageUrl,
     source: 'Company Careers Crawler',
+    ...(seedMeta?.sourceReference ? { sourceReference: seedMeta.sourceReference } : {}),
     ...(seedMetaRelevant ? {
       _targetScope: {
         type: 'adapter_seed_meta',
@@ -4829,8 +5099,6 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
 }
 
 // FRO-231: fingerprint, slug registry, dedup → moved to top of file (FRO-359)
-
-const GRACE_PERIOD_MAX_MISSES = 2;
 
 function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}) {
   const resolveCompanyKey = typeof options.resolveCompanyKey === 'function'
@@ -4919,7 +5187,7 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
         // means SOME page scraped, not that every page did, so one run's
         // partial-page miss shouldn't be a permanent removal.
         const missStreak = (Number(job?.crawlerMissStreak) || 0) + 1;
-        if (missStreak <= GRACE_PERIOD_MAX_MISSES) {
+        if (missStreak <= CRAWLER_GRACE_PERIOD_MAX_MISSES) {
           prunedExisting.push({ ...job, crawlerMissStreak: missStreak });
           continue;
         }
@@ -5125,7 +5393,10 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
   const adapterDetailUrls = Array.isArray(adapter?.seedDetailUrls) ? adapter.seedDetailUrls : [];
   const hasAdapterSeeds = adapterSeeds.length > 0 || adapterDetailUrls.length > 0;
   try {
-    const res = await fetchWithTimeout(company.website);
+    const res = await fetchWithTimeout(company.website, {
+      userAgent: adapter?.userAgent,
+      timeoutMs: adapter?.requestTimeoutMs,
+    });
     if (!res.ok) {
       // Don't bail if adapter has seed URLs — they may be on a different host (e.g., jobs.migros.ch vs migros.ch)
       if (!hasAdapterSeeds) return result;
@@ -5278,7 +5549,10 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
 
   for (const pageUrl of careerUrls) {
     try {
-      const res = await fetchWithTimeout(pageUrl, { userAgent: adapter?.userAgent });
+      const res = await fetchWithTimeout(pageUrl, {
+        userAgent: adapter?.userAgent,
+        timeoutMs: adapter?.requestTimeoutMs,
+      });
       if (!res.ok) continue;
       const html = await res.text();
       for (const wd of extractWorkdayListingUrls(html, pageUrl)) workdayListingUrls.add(wd);
@@ -5386,7 +5660,10 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
       let genericJobs = [];
       try {
         // eslint-disable-next-line no-await-in-loop
-        genericJobs = await crawlGenericListingJobs(company, listingUrl, crawlerConfig, knownJobUrls, { userAgent: adapter?.userAgent });
+        genericJobs = await crawlGenericListingJobs(company, listingUrl, crawlerConfig, knownJobUrls, {
+          userAgent: adapter?.userAgent,
+          timeoutMs: adapter?.requestTimeoutMs,
+        });
       } catch {
         genericJobs = [];
       }
@@ -5441,7 +5718,10 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
     for (const detailUrl of links) {
       try {
         const seedMeta = getAdapterSeedMetaForUrl(adapter, detailUrl);
-        const res = await fetchWithTimeout(detailUrl, { userAgent: adapter?.userAgent });
+        const res = await fetchWithTimeout(detailUrl, {
+          userAgent: adapter?.userAgent,
+          timeoutMs: adapter?.requestTimeoutMs,
+        });
         if (!res.ok) continue;
         const html = await res.text();
         const sourceTag = jobLinkSources.get(detailUrl) || 'detail_link';
@@ -5474,6 +5754,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
                   parsed.job._migrosResponsibilities = migrosData.responsibilities;
                   parsed.job._migrosBenefits = migrosData.benefits;
                   parsed.job._migrosWorkPercentage = migrosData.workPercentage;
+                  applyMigrosVisibleWorkplaceGeography(parsed.job, migrosData);
                 }
               }
               maybeAcceptCandidate(parsed.job, 'jsonld');
@@ -5694,12 +5975,7 @@ async function loadCrawlerConfigFromFirestore() {
   const enabled = process.env.JOBS_CRAWLER_USE_FIRESTORE_CONFIG === '1';
   if (!enabled) return null;
   try {
-    const adminMod = await import('firebase-admin');
-    const admin = adminMod.default || adminMod;
-    if (!admin.apps.length) {
-      admin.initializeApp({ credential: admin.credential.applicationDefault() });
-    }
-    const fsAdmin = admin.firestore();
+    const fsAdmin = await getFirestoreDb();
     const snap = await fsAdmin.doc(CRAWLER_FIRESTORE_DOC).get();
     if (!snap.exists) return null;
     const data = snap.data();
@@ -6142,6 +6418,7 @@ async function main() {
     resolveJobCompanyKey: companyKeyResolver.resolveRecord,
     contentReuse: crawlerConfig.contentReuse,
     localizeExistingOnly: localizeExistingOnly,
+    continuityKey: _eocContinuityKey,
   });
   let merged = mergeResult.merged;
   const {
@@ -6656,6 +6933,16 @@ async function main() {
     localizationSterileCompanyKeys: [...localizationSterileCompanyKeys],
     localizationCoveredCompanyKeys: [...localizationCoveredCompanyKeys],
     localizationObservability: localizationObservability?.toJSON() || null,
+    // Dedicated post-processors need to distinguish a current, observed
+    // source pool from a scratch slice retained after an empty/failed fetch.
+    // Keep only the identity fields needed by post-processors from THIS run;
+    // callers must not infer source liveness from the merged output written to
+    // disk, and the full job payload must not be retained by the return value.
+    observedJobs: incomingJobs.map((job) => ({
+      url: job?.url,
+      company: job?.company,
+      companyDomain: job?.companyDomain,
+    })),
   };
 }
 
@@ -6668,12 +6955,26 @@ export { main as runSharedCrawlerPipeline };
 // normally only set by main(), and aiResponseCache is a module-singleton
 // in-memory Map that must be reset between test cases (#3080).
 export const __testables = {
+  stripHtml,
+  cleanDescription,
+  htmlToStructuredText,
   aiValidateJobDetailPage,
+  // AI formatter/composer and the cache they read back from (fidelity guard).
+  structureJobDescription,
+  aiEnrichThinDescription,
+  enrichJobLocales,
+  buildAiCacheKey,
+  getCachedAiResponse,
+  AI_CACHE_RAW_SENTINEL,
   fetchWithTimeout,
   buildKnownJobUrlsSet,
   crawlWorkdayJobs,
   buildCompanyKeyResolver,
   migrateCompanyJobKeys,
+  loadCompanyAdapters,
+  // The committed slice is what a run starts from when the scratch dataset is
+  // absent (every CI run), including the run after a failed one.
+  readExistingJobsFromSlices,
   pruneStaleCrawlerJobs,
   getCompanyAdapter,
   absoluteLinks,

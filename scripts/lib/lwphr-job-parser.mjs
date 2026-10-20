@@ -58,6 +58,23 @@ export function reconcilePdfTitle(pageTitle = '', pdfTitle = '') {
   return pdfTitle;
 }
 
+/**
+ * A listing is mergeable only when its PDF produced real text. Failed,
+ * image-only, and empty extractions must not become boilerplate jobs whose
+ * source URL is validated only after the merge.
+ *
+ * @param {{ error?: string, thin?: boolean, text?: string }|null} pdf
+ * @returns {boolean}
+ */
+export function isUsableLwphrPdf(pdf = {}) {
+  return Boolean(
+    pdf
+      && !String(pdf.error || '').trim()
+      && !pdf.thin
+      && String(pdf.text || '').trim(),
+  );
+}
+
 function decodeHtml(value = '') {
   return String(value || '')
     .replace(/&nbsp;/gi, ' ')
@@ -87,17 +104,64 @@ export function absoluteLwphrUrl(rawHref = '') {
   return `https://www.lwphr.ch${href.startsWith('/') ? '' : '/'}${href}`;
 }
 
+const LWPHR_OPEN_SECTION_RE = /\b(?:posizioni?\s+aperte|open\s+positio)/iu;
+const LWPHR_ARCHIVED_SECTION_RE = /\b(?:posizioni?\s+archiviate|archived\s+positions?)/iu;
+const LWPHR_PDF_HREF_RE = /\.pdf(?:[?#]|$)/iu;
+
+function isPdfLink(link) {
+  return LWPHR_PDF_HREF_RE.test(String(link.getAttribute('href') || '').trim());
+}
+
+function pdfLinksWithin(scope) {
+  return [...scope.querySelectorAll('a[href]')].filter(isPdfLink);
+}
+
+function sectionMarkerKind(element) {
+  const text = normalize(element.textContent || '').replace(/\u200b/g, ' ');
+  if (!text) return '';
+
+  const isOpen = LWPHR_OPEN_SECTION_RE.test(text);
+  const isArchived = LWPHR_ARCHIVED_SECTION_RE.test(text);
+  if (isOpen === isArchived) return '';
+  return isOpen ? 'open' : 'archived';
+}
+
+function collectSectionMarkers(document) {
+  return [...document.querySelectorAll('*')]
+    .map((element) => ({ element, kind: sectionMarkerKind(element) }))
+    .filter(({ kind }) => kind);
+}
+
+function collectOpenSectionLinks(document, documentPositionFollowing) {
+  const accordionItems = [...document.querySelectorAll('.accordion__item')];
+  const openItem = accordionItems.find((item) => {
+    const text = normalize(item.textContent || '').replace(/\u200b/g, ' ');
+    return LWPHR_OPEN_SECTION_RE.test(text) && !LWPHR_ARCHIVED_SECTION_RE.test(text);
+  });
+  if (openItem) return pdfLinksWithin(openItem);
+
+  const markers = collectSectionMarkers(document);
+  if (!markers.some(({ kind }) => kind === 'open')) {
+    throw new Error('Could not find LWPHR open positions section');
+  }
+
+  return pdfLinksWithin(document).filter((link) => {
+    let lastMarker = null;
+    for (const marker of markers) {
+      if (marker.element.compareDocumentPosition(link) & documentPositionFollowing) {
+        lastMarker = marker;
+      }
+    }
+    return lastMarker?.kind === 'open';
+  });
+}
+
 export function parseLwphrOpenJobs(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
-  const accordionItems = [...document.querySelectorAll('.accordion__item')];
-  const openItem = accordionItems.find((item) => /posizioni aperte|open positio/i.test(normalize(item.textContent || '')));
-  if (!openItem) {
-    throw new Error('Could not find LWPHR open positions accordion');
-  }
-
   const jobs = [];
-  for (const link of openItem.querySelectorAll('.accordion__content a[href$=".pdf"]')) {
+  const openLinks = collectOpenSectionLinks(document, dom.window.Node.DOCUMENT_POSITION_FOLLOWING);
+  for (const link of openLinks) {
     const title = normalize(decodeHtml(link.textContent || ''));
     const pdfUrl = absoluteLwphrUrl(link.getAttribute('href') || '');
     if (!title || title === ')' || title === '​') continue;
@@ -213,14 +277,17 @@ export function inferLwphrCategory(title = '', pdfText = '') {
   return 'other';
 }
 
-export function buildLwphrLocalizedPayload({ title = '', pdfText = '', location = '', pdfUrl = '' } = {}) {
-  const trimmed = normalize(pdfText);
-  const locationLabel = String(location || '').trim();
-  const locationForSlug = locationLabel || 'Switzerland';
-  const locationSentenceIt = locationLabel ? `Sede indicativa: ${locationLabel}.` : 'Sede indicativa non specificata nella pubblicazione.';
-  const locationSentenceEn = locationLabel ? `Indicative location: ${locationLabel}.` : 'The publication does not specify a location.';
-  const locationSentenceDe = locationLabel ? `Ungefaehrer Arbeitsort: ${locationLabel}.` : 'Die Ausschreibung nennt keinen Arbeitsort.';
-  const locationSentenceFr = locationLabel ? `Lieu indicatif: ${locationLabel}.` : 'La publication ne precise pas de lieu.';
+/**
+ * Titles and slugs of one LWP posting (kept identical in the four locales, as
+ * the published slugs are). The description is not part of this payload: the
+ * runner publishes the PDF text alone, in its own language. This payload used
+ * to wrap that text, untranslated, in four intros of its own ("LWP Ledermann
+ * Wieting & Partners pubblica questa opportunita…", "… lists this role…",
+ * "… veroeffentlicht diese Stelle…", "… publie cette opportunite…"), a
+ * "Sede indicativa…" sentence and a "PDF ufficiale: …" line.
+ */
+export function buildLwphrLocalizedPayload({ title = '', location = '' } = {}) {
+  const locationForSlug = String(location || '').trim() || 'Switzerland';
   const titles = {
     en: title,
     it: title,
@@ -233,33 +300,14 @@ export function buildLwphrLocalizedPayload({ title = '', pdfText = '', location 
     de: slugify(`${title} lwp ledermann wieting partners ${locationForSlug}`),
     fr: slugify(`${title} lwp ledermann wieting partners ${locationForSlug}`),
   };
-
-  const descriptions = {
-    it: [
-      `LWP Ledermann Wieting & Partners pubblica questa opportunita sul proprio portale per il mercato svizzero. La descrizione completa del ruolo e stata estratta dal PDF ufficiale del mandato.`,
-      locationSentenceIt,
-      trimmed,
-      `PDF ufficiale: ${pdfUrl}`,
-    ].join('\n\n'),
-    en: [
-      `LWP Ledermann Wieting & Partners lists this role on its Swiss opportunities portal. The full role description below is extracted from the official PDF published by the recruiter.`,
-      locationSentenceEn,
-      trimmed,
-      `Official PDF: ${pdfUrl}`,
-    ].join('\n\n'),
-    de: [
-      `LWP Ledermann Wieting & Partners veroeffentlicht diese Stelle in seinem Schweizer Karriereportal. Die vollstaendige Beschreibung unten wurde aus dem offiziellen PDF der Ausschreibung extrahiert.`,
-      locationSentenceDe,
-      trimmed,
-      `Offizielles PDF: ${pdfUrl}`,
-    ].join('\n\n'),
-    fr: [
-      `LWP Ledermann Wieting & Partners publie cette opportunite sur son portail suisse. La description complete ci-dessous provient du PDF officiel de l annonce.`,
-      locationSentenceFr,
-      trimmed,
-      `PDF officiel: ${pdfUrl}`,
-    ].join('\n\n'),
-  };
-
-  return { titles, slugs, descriptions };
+  return { titles, slugs };
 }
+
+/**
+ * Fragments only the crawler once wrote around the PDF text (the four
+ * localized intros of `buildLwphrLocalizedPayload` and the runner's own
+ * intro/footer). Used to clean jobs stored before the PDF text was published
+ * alone.
+ */
+export const LWPHR_FABRICATED_DESCRIPTION_RE =
+  /LWP Ledermann Wieting & Partners (?:pubblica questa opportunita|lists this role on its Swiss|veroeffentlicht diese Stelle|publie cette opportunite)|(?:^|\n)(?:PDF ufficiale|Official PDF|Offizielles PDF|PDF officiel|Portale careers): https?:/;

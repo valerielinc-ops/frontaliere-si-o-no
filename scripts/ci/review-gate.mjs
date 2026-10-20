@@ -25,12 +25,14 @@ import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import { boundReviewsToFirstHeadVerdict } from './lib/pr-review-admission.mjs';
 import {
   contributionFingerprint,
+  findingAcceptanceClauses,
   isCarryForwardReview,
   verifyCarryForwardReview,
 } from './lib/review-carry-forward.mjs';
 import {
   isTerminalManagedReview,
   parseReviewPages,
+  reviewBodyIsApproving,
 } from './lib/pr-review-admission.mjs';
 import {
   acceptedReviewInputRevisionsFromPullRequest,
@@ -41,9 +43,13 @@ import {
 import {
   changedLinesFromPatch,
   dedupeFindingsById,
+  extractBodyCitation,
+  findingIdentityComponents,
   isMalformedReviewBody,
+  normalizeBodyCitationText,
   reviewBodyDefects,
   stableFindingId,
+  stripBodyCitationLines,
   unchangedLineImportants,
 } from './lib/review-findings.mjs';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
@@ -60,10 +66,6 @@ const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE = /^\s*(?:[-*+>]\s*)?(?:nessun[oa]?|no)\s+$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]\s*|(?=\s+\S))/u;
 const FINDING_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}(?:[:—-]|(?=\s+\S))|❓\s*q\s*:/gu;
-const QUESTION_MARKER_RE = /❓\s*q\s*:/iu;
-// A question is disposable only with the explicit review suffix used by the
-// contract. Words such as "deferred" inside the question itself stay open.
-const NON_FUNNEL_QUESTION_RE = /(?:^|[—–])\s*(?:deferred\s*,\s*)?(?:non[-\s]?funnel(?:[-\s]?critical)?|not[-\s]?funnel(?:[-\s]?critical)?|deferred)\s*[.!]?\s*$/iu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
 // This is deliberately narrower than REVIEWER_LOGIN_RE and is accepted only
 // together with a validated Codex evidence file plus an exact HEAD commit and
@@ -217,13 +219,38 @@ function importantFindingLine(line, { inLgtm = false } = {}) {
   return !ZERO_IMPORTANT_RE.test(String(line).slice(marker.index + marker[0].length).trim());
 }
 
+const FINDINGS_LEDGER_HEADING_RE = /^##\s+Findings ledger\b/iu;
+
+/**
+ * La sezione `## Findings ledger` e' la copia che il reviewer fa del ledger
+ * del bundle: id stabile + stato di finding GIA' emessi. Non e' un verdetto.
+ * Letta come tale, ogni bullet con un 🔴 citato diventava uno pseudo-finding
+ * nuovo con testo `- \`<id>\` **open** — ...` (su #9968 il ledger del bundle
+ * mostrava `ceb9b1b6adb4 confirmed-fixed — - eabf305bc1f8 **open** …`). I
+ * finding veri restano nella loro sezione e quelli storici restano aperti per
+ * il cammino storico, quindi svuotare il ledger non toglie nessun rilievo.
+ * Le righe diventano vuote invece di sparire: i numeri di riga restano quelli
+ * del body, e l'intestazione resta, cosi' chiude il finding che la precede
+ * come ogni altro H2.
+ */
+function withoutFindingsLedger(lines) {
+  let inLedger = false;
+  return lines.map((line) => {
+    if (/^##\s/u.test(line)) {
+      inLedger = FINDINGS_LEDGER_HEADING_RE.test(line);
+      return line;
+    }
+    return inLedger ? '' : line;
+  });
+}
+
 /**
  * Parse every real Important finding. Its text ends at the next finding of any
  * severity or at the next H2, so `## Adversarial check` and the summary cannot
  * leak paths into the previous finding.
  */
 function parseImportantFindings(body, extractCitations) {
-  const lines = normalizeReviewBody(body).split(/\r?\n/u);
+  const lines = withoutFindingsLedger(normalizeReviewBody(body).split(/\r?\n/u));
   const markerLines = lines
     .map((line, index) => ({ line, index, marker: firstFindingMarker(line) }))
     .filter(({ marker }) => marker);
@@ -306,17 +333,10 @@ function emptyClassification(findings = []) {
     outside: [],
     inScope: [],
     unresolved: [],
+    ledgerDeclassified: [],
     outsideOnly: false,
     blocking: false,
   };
-}
-
-// An adversarial `❓ q:` may still describe a funnel-critical risk. The
-// outside-only exception is safe without `## LGTM` only when the reviewer
-// explicitly disposes of every question as non-funnel/deferred.
-function hasUnresolvedFunnelQuestion(body) {
-  return normalizeReviewBody(body).split(/\r?\n/u).some((line) =>
-    QUESTION_MARKER_RE.test(line) && !NON_FUNNEL_QUESTION_RE.test(line));
 }
 
 /**
@@ -332,14 +352,11 @@ export function classifyReview(body, {
   // pure classifier fail-closed: only a caller holding a real checkout can
   // prove the carve-out, and everything unproven keeps blocking.
   isIgnoredPath = () => false,
-  // The deterministic PR-body contract of this same run passed on the current
-  // body. It is the single source of truth for the body: a model 🔴 anchored
-  // only on `PR body:L<n>` is then at most a Nit and never blocks (20% of the
-  // 🔴 measured on 2026-09-19 were body findings on a green contract).
+  // Retained for caller compatibility. A green body contract alone never
+  // declassifies a 🔴: body findings need the textual-citation proof below.
   bodyContractPassed = false,
-  // Current PR body, needed to prove that the anchored line lies inside
-  // `## Non implementato`, the section the contract validates. Without it
-  // nothing is declassified.
+  // Current PR body, needed to prove that a quoted body excerpt is absent.
+  // Without it nothing is declassified.
   prBody = null,
   // Id stabili (`review-findings.mjs`) dei 🔴 già emessi dalle review
   // precedenti. Un finding il cui id è qui non è nuovo e non viene mai
@@ -378,7 +395,12 @@ export function classifyReview(body, {
   const inScope = [];
   const unresolved = [];
   const ignoredCitations = [];
-  const bodyDeclassified = [];
+  const staleBodyDeclassified = [];
+  const ledgerDeclassified = [];
+  const hasCurrentPrBody = typeof prBody === 'string';
+  const normalizedPrBody = hasCurrentPrBody
+    ? normalizeBodyCitationText(prBody)
+    : '';
 
   // Righe realmente confrontate fra l'ultima review e questa HEAD. Il seed con
   // l'elenco file della PR è la parte che rende la regola utile: dopo un merge
@@ -411,13 +433,33 @@ export function classifyReview(body, {
       unresolved.push({ ...finding, reason: 'struttura della review ambigua' });
       continue;
     }
-    if (staleIds.has(finding.findingNumber)) {
+    if (isStaleBodyFinding(finding, prBody)) {
+      const bodyCitation = extractBodyCitation(finding.text);
+      const normalizedCitation = bodyCitation
+        ? normalizeBodyCitationText(bodyCitation)
+        : '';
+      if (normalizedCitation && hasCurrentPrBody
+          && !normalizedPrBody.includes(normalizedCitation)
+          && isContractDomainBodyFinding(finding, prBody)) {
+        staleBodyDeclassified.push({
+          ...finding,
+          bodyCitation,
+          stableId: stableFindingId(finding),
+        });
+        continue;
+      }
+      // Body-only findings never enter the generic unchanged-code-line
+      // declassification: without the quote-absent proof, or outside the
+      // deterministic contract domain, they remain red.
+    } else if (staleIds.has(finding.findingNumber)) {
       staleDeclassified.push({ ...finding, stableId: stableFindingId(finding) });
       continue;
     }
-    if (bodyContractPassed && finding.citations.length === 0
-        && isContractDomainBodyFinding(finding, prBody)) {
-      bodyDeclassified.push(finding);
+    // A body anchor without a valid quote, or with a quote still present,
+    // remains unresolved. The exact absence proof above is the only new
+    // declassification path for PR-body findings.
+    if (isLedgerAcceptanceFinding(finding)) {
+      ledgerDeclassified.push(finding);
       continue;
     }
     if (finding.citations.length === 0) {
@@ -486,9 +528,11 @@ export function classifyReview(body, {
     inScope,
     unresolved,
     ignoredCitations,
-    bodyDeclassified,
+    staleBodyDeclassified,
     staleDeclassified,
-    outsideOnly: (outside.length + bodyDeclassified.length + staleDeclassified.length) > 0
+    ledgerDeclassified,
+    outsideOnly: (outside.length + staleBodyDeclassified.length + staleDeclassified.length
+      + ledgerDeclassified.length) > 0
       && inScope.length === 0 && unresolved.length === 0,
     blocking: inScope.length > 0 || unresolved.length > 0,
   };
@@ -498,26 +542,26 @@ export function classifyReview(body, {
 export function prBodyFindingLine(finding) {
   const fromText = prBodyAnchor(finding?.text);
   if (fromText !== null) return fromText;
-  const match = String(finding?.line || '').match(/`?PR body[:#]L?([1-9]\d*)/iu);
-  return match ? Number(match[1]) : null;
+  return prBodyAnchor(finding?.line);
 }
 
 // Claims the contract cannot judge (REVIEW.md step 7: perf/optimization claim
-// without a baseline) keep blocking even when anchored on the body.
-const NON_CONTRACT_BODY_RE = /\b(?:baseline|perf|performance|speed-?up|misura|misurat|pre\/post|revert|ottimizzazion|optimi[sz]ation|claim)\w*/iu;
+// without a baseline) keep blocking while the current anchored body line still
+// contains the claim; the finding prose may describe text that is now gone.
+const NON_CONTRACT_BODY_RE = /\b(?:baseline|perf|performance|speed-?up|misura|misurat|pre\/post|revert|ottimizzazion|optimi[sz]ation|capacit|claim)\w*/iu;
 
 /**
  * A 🔴 anchored only on `PR body:L<n>`, on a line inside `## Non implementato`
  * (the section the deterministic contract validates), about a contract rule.
- * Anything else — a line elsewhere in the body, a perf claim, no body text to
- * prove the position — stays blocking.
+ * Anything else — a line elsewhere in the body, a current perf/capacity claim,
+ * no body text to prove the position — stays blocking.
  */
 export function isContractDomainBodyFinding(finding, prBody) {
   const line = prBodyFindingLine(finding);
   if (line === null || typeof prBody !== 'string' || !prBody) return false;
-  if (NON_CONTRACT_BODY_RE.test(String(finding?.text || ''))) return false;
   const lines = prBody.split(/\r?\n/u);
   if (line > lines.length) return false;
+  if (NON_CONTRACT_BODY_RE.test(lines[line - 1] || '')) return false;
   let section = null;
   for (let index = 0; index < line; index += 1) {
     const heading = lines[index].match(/^\s{0,3}#{2,3}\s+(.+?)\s*$/u);
@@ -699,6 +743,68 @@ function prBodyAnchor(text) {
   return match ? Number(match[1]) : null;
 }
 
+// Target di conferma che è soltanto l'id stabile del ledger (`review-findings.mjs`,
+// 12 esadecimali): `Fix di \`c7a2dc47f1c0\`: ok.`. Solo il target intero conta,
+// mai un id citato dentro una frase: una conferma che nomina due finding non
+// chiude il secondo per contesto.
+const STABLE_ID_TARGET_RE = /^[0-9a-f]{12}$/u;
+
+/**
+ * La conferma che `findingConfirmed` accetta per un 🔴 senza file citato:
+ * `PR body:L<n>` quando la riga del marker comincia con quell'anchor (la
+ * conferma del body resta esatta), altrimenti l'id stabile. Il bundle del
+ * reviewer e il 🔴-fixer la stampano da qui: se usassero un predicato diverso
+ * potrebbero suggerire una conferma che il gate poi rifiuta. `null` per un
+ * finding ancorato a un file, che si chiude con `path:L<n>`.
+ */
+// L'Accettazione che si verifica solo sul bundle o sul ledger della review
+// stessa («il prossimo bundle deterministico contiene…», «`rg '**open**'
+// review-ctx/review-bundle.md` non produce output», «ogni ID risulta
+// `confirmed-fixed`»). Formule della review, non le parole nude: in questo repo
+// «bundle» e «ledger» sono anche il bundle JS e i ledger dei crawler.
+const LEDGER_ACCEPTANCE_RE = /review-bundle\.md|review-ctx\/|\b(?:prossimo|next)\s+(?:deterministic\s+)?bundle\b|\bbundle\s+(?:deterministico|successivo)\b|\bdeterministic\s+bundle\b/iu;
+// Tolti i path del bundle della review, la clausola non deve citare nulla del
+// repository: un path o un comando che esegue codice del repo la rendono una
+// verifica sulla PR (review 5330691138: «review-bundle.md exists and
+// scripts/ci/review-gate.mjs is correct» non è ledger-only).
+const LEDGER_PATH_RE = /\S*(?:review-ctx\/|review-bundle\.md)\S*/giu;
+const REPO_COMMAND_RE = /\b(?:npm|npx|node|vitest|tsx|git|bash|sh)\b/iu;
+
+function ledgerOnlyClause(clause) {
+  if (!LEDGER_ACCEPTANCE_RE.test(clause)) return false;
+  const rest = clause.replace(LEDGER_PATH_RE, ' ');
+  return extractFileCitations(rest).length === 0 && !REPO_COMMAND_RE.test(rest);
+}
+
+/**
+ * Un 🔴 senza file la cui Accettazione, in ogni sua clausola, si verifica solo
+ * sul bundle o sul ledger della review. Nessuna modifica alla PR può
+ * soddisfarla: REVIEW.md chiede un 🔴 chiudibile da un agente che legge solo
+ * quella riga, e questo non lo è per costruzione. Sulla PR 9959 questi
+ * meta-finding («il finding storico X resta open senza anchor») si sono
+ * rialzati da soli per 55 review, portando il ledger a 111 voci aperte, mentre
+ * il codice aveva già quattro `## LGTM`. Su 120 PR mergiate prima: zero 🔴
+ * senza file, quindi zero casi toccati. Ogni clausola vale fino alla
+ * clausola successiva o alla fine del finding (`findingAcceptanceClauses`):
+ * troncata al primo a capo, un comando sulla riga di continuazione non veniva
+ * letto e il 🔴 vero era declassato (review 11321). Formato non riconosciuto o
+ * clausola troncata: resta bloccante. Un 🔴 ancorato a `PR body:L<n>` resta
+ * sulle regole del body (`isContractDomainBodyFinding`) e sulla sua conferma
+ * esatta.
+ */
+export function isLedgerAcceptanceFinding(finding) {
+  if ((finding?.citations || []).length > 0) return false;
+  if (prBodyAnchor(finding?.line) !== null || prBodyAnchor(finding?.text) !== null) return false;
+  const clauses = findingAcceptanceClauses(finding?.text);
+  return clauses !== null && clauses.length > 0 && clauses.every(ledgerOnlyClause);
+}
+
+export function unanchoredConfirmationTarget(finding) {
+  if ((finding?.citations || []).length > 0) return null;
+  const bodyAnchor = prBodyAnchor(finding?.line);
+  return bodyAnchor !== null ? `PR body:L${bodyAnchor}` : stableFindingId(finding);
+}
+
 function fixConfirmations(body) {
   const confirmations = [];
   for (const line of normalizeReviewBody(body).split(/\r?\n/u)) {
@@ -709,6 +815,7 @@ function fixConfirmations(body) {
       citations: extractFileCitations(text),
       bodyAnchor: prBodyAnchor(text),
       key: findingKey({ citations: [], text }),
+      stableId: STABLE_ID_TARGET_RE.test(text) ? text : null,
     });
   }
   return confirmations;
@@ -732,12 +839,53 @@ function confirmationHasUniqueTarget(
   candidate,
   finding,
   openFindings,
-  { ignoreLine = false, allowSharedBarePath = false } = {},
+  { ignoreLine = false, allowSharedBarePath = false, confirmations = [] } = {},
 ) {
   const matchesCitation = (citation) => citationPathMatches(candidate.path, citation.path)
     && (ignoreLine || candidate.line === null || candidate.line === citation.line);
   const findingMatches = finding.citations.filter(matchesCitation);
   if (findingMatches.length !== 1) return false;
+
+  // When a review carries two distinct Important findings on the same file
+  // across a line-moving fix, the new line numbers are individually
+  // unambiguous only as a set. A path-only uniqueness check sees both open
+  // findings and rejects both confirmations forever. Pair one precise
+  // confirmation per one-citation finding by stable line order, but require
+  // the complete cardinality and exact path so one confirmation can never
+  // close two findings.
+  if (ignoreLine && candidate.line !== null) {
+    const samePathEntries = openFindings
+      .map((openFinding) => ({
+        finding: openFinding,
+        citations: openFinding.citations.filter((citation) =>
+          citation.line !== null && citationPathMatches(citation.path, candidate.path)),
+      }))
+      .filter((entry) => entry.citations.length > 0);
+    // Il conteggio vale solo se TUTTI i finding aperti sul path hanno una
+    // citazione sola. Con un finding a due citazioni accanto (#9968) scartarlo
+    // dal conteggio lascia una conferma ambigua fra i due finding — `L390`
+    // poteva essere la B:`L391` spostata e chiudeva invece A:`L378`. Quel caso
+    // lo risolve `crossFindingPairedCitations`, che conta tutte le localita'.
+    const samePathFindings = samePathEntries.every((entry) => entry.citations.length === 1)
+      ? samePathEntries
+      : [];
+    const candidates = [...new Map(
+      confirmations
+        .flatMap((confirmation) => confirmation.citations)
+        .filter((confirmation) => confirmation.line !== null
+          && citationPathMatches(confirmation.path, candidate.path))
+        .map((confirmation) => [`${confirmation.path}:${confirmation.line}`, confirmation]),
+    ).values()];
+    if (samePathFindings.length > 1
+        && candidates.length === samePathFindings.length) {
+      const orderedFindings = [...samePathFindings]
+        .sort((left, right) => left.citations[0].line - right.citations[0].line);
+      const orderedCandidates = [...candidates]
+        .sort((left, right) => left.line - right.line);
+      const findingIndex = orderedFindings.findIndex((entry) => entry.finding === finding);
+      if (findingIndex >= 0) return orderedCandidates[findingIndex].line === candidate.line;
+    }
+  }
 
   // A fully qualified path plus an explicit line is already an unambiguous
   // anchor, even when two historical findings carry the same anchor while
@@ -865,6 +1013,78 @@ function cardinalityPairedCitations(finding, confirmations, openFindings) {
 }
 
 /**
+ * Accoppiamento per cardinalita' FRA finding sullo stesso path (#9968).
+ *
+ * `cardinalityPairedCitations` chiude un gruppo solo quando nessun ALTRO
+ * finding aperto cita quel path, e il ramo «stable line order» di
+ * `confirmationHasUniqueTarget` considera solo i finding con UNA citazione sul
+ * path. Il caso misto — un finding con una citazione e un altro con due sullo
+ * stesso file — cade fra i due: su #9968 A:`L378` e B:`L374, L391` restavano
+ * aperti per sempre dopo due `## LGTM`, perche' `L378` e `L391` non esistevano
+ * piu' nel file e ogni conferma a riga spostata vedeva due finding aperti.
+ *
+ * La regola generalizza lo stesso conteggio all'insieme dei finding aperti,
+ * sulle LOCALITA' (path esatto + riga), non sulle citazioni:
+ *   1. si lavora solo su un path completo `P` (contiene `/`) che una conferma
+ *      di QUESTA review cita con una riga;
+ *   2. fail-closed se una qualunque citazione aperta o conferma che denota `P`
+ *      per suffix-matching non e' esattamente `P` con una riga (basename nudo,
+ *      path piu' corto, companion senza riga): l'ambiguita' fra file omonimi
+ *      non si scioglie contando;
+ *   3. le localita' confermate a riga esatta, o gia' confermate da una review
+ *      precedente (`carried`), sono consumate; restano N localita' aperte;
+ *   4. le conferme di `P` su righe che non corrispondono a nessuna localita'
+ *      nota sono le conferme «a riga spostata», deduplicate per riga: servono
+ *      ESATTAMENTE N. Con meno (o con piu') non si chiude niente — una
+ *      conferma non vale mai per due punti da correggere;
+ *   5. l'accoppiamento in ordine di riga crescente e' una biiezione fra le N
+ *      localita' residue e le N conferme distinte: ogni citazione aperta su
+ *      quelle localita' e' confermata, e nessuna conferma copre due punti.
+ *
+ * Le conferme sono raccolte da UNA sola review alla volta: righe di review
+ * diverse appartengono a head diverse, e ordinarle insieme non ha senso. La
+ * memoria fra review e' a livello di citazione (`carried`): una citazione che
+ * una review ha confermato resta confermata anche se il finding, nel suo
+ * insieme, si chiude solo con una review successiva.
+ */
+function crossFindingPairedCitations(openFindings, confirmations, carried = new Set()) {
+  const paired = new Set();
+  const confirmationCitations = confirmations.flatMap((confirmation) => confirmation.citations);
+  const paths = [...new Set(confirmationCitations
+    .filter((candidate) => candidate.line !== null && candidate.path.includes('/'))
+    .map((candidate) => candidate.path))];
+  const openCitations = openFindings.flatMap((openFinding) => openFinding.citations);
+  const byLine = (left, right) => left - right;
+
+  for (const path of paths) {
+    const related = openCitations.filter((citation) => citationPathMatches(citation.path, path));
+    if (related.length === 0) continue;
+    if (related.some((citation) => citation.path !== path || citation.line === null)) continue;
+    const relatedConfirmations = confirmationCitations
+      .filter((candidate) => citationPathMatches(candidate.path, path));
+    if (relatedConfirmations.some((candidate) => candidate.path !== path || candidate.line === null)) {
+      continue;
+    }
+
+    const confirmedLines = new Set(relatedConfirmations.map((candidate) => candidate.line));
+    const knownLines = new Set(related.map((citation) => citation.line));
+    const settled = (citation) => carried.has(citation) || confirmedLines.has(citation.line);
+    const remainingLines = [...new Set(related
+      .filter((citation) => !settled(citation))
+      .map((citation) => citation.line))].sort(byLine);
+    if (remainingLines.length === 0) continue;
+    const movedLines = [...confirmedLines].filter((line) => !knownLines.has(line)).sort(byLine);
+    if (movedLines.length !== remainingLines.length) continue;
+
+    const pairedLines = new Set(remainingLines);
+    for (const citation of related) {
+      if (!settled(citation) && pairedLines.has(citation.line)) paired.add(citation);
+    }
+  }
+  return paired;
+}
+
+/**
  * `citationConfirmed()` follows a moved path+line anchor only when the path
  * still identifies one finding, preserving convergence without broad matching.
  */
@@ -891,39 +1111,161 @@ export function citationConfirmed(
     return confirmationHasUniqueTarget(candidate, finding, openFindings, {
       ignoreLine: movedLine || barePathConfirmedAtLine,
       allowSharedBarePath: allowSharedBarePath && barePathConfirmedAtLine,
+      confirmations,
     });
   }));
+}
+
+// Il dato letto/usato da quel file: «letto da `scripts/send-job-alerts.mjs`»
+// (#9965), «read by `x`». Elenco chiuso di proposito: una forma non prevista
+// lascia il companion un anchor, cioe' il comportamento precedente.
+const READER_CONTEXT_PREFIX_RE = /(?:\b(?:lett|usat|consumat|chiamat|importat|invocat)[oaie]\s+da|\b(?:read|used|consumed|called|imported|invoked)\s+by)\s*`?$/iu;
+const PATH_CHAR_RE = /[A-Za-z0-9_.@/-]/u;
+
+/**
+ * Vero solo se OGNI menzione del companion nel testo del finding sta dopo il
+ * marker 🔴 e lo nomina come lettore/consumer del dato. Una menzione
+ * nell'anchor (prima del marker), una richiesta di correggerlo o qualunque
+ * forma non riconosciuta lo lasciano un anchor da confermare.
+ */
+function bareCompanionIsReaderContext(finding, citation) {
+  const text = String(finding?.text || '');
+  const path = String(citation?.path || '');
+  if (!path) return false;
+  const markerIndex = text.search(IMPORTANT_MARKER_RE);
+  if (markerIndex < 0) return false;
+  let mentions = 0;
+  for (let index = text.indexOf(path); index !== -1; index = text.indexOf(path, index + 1)) {
+    const before = text[index - 1] || '';
+    const after = text[index + path.length] || '';
+    // Parte di un path piu' lungo: non e' una menzione di questo file.
+    if (PATH_CHAR_RE.test(before) || (PATH_CHAR_RE.test(after) && after !== '.')) continue;
+    if (index < markerIndex) return false;
+    if (!READER_CONTEXT_PREFIX_RE.test(text.slice(Math.max(0, index - 48), index))) return false;
+    mentions += 1;
+  }
+  return mentions > 0;
 }
 
 function findingConfirmed(
   finding,
   confirmations,
   openFindings = [finding],
-  { repositoryPaths = null, repositoryPathsFromFallback = false } = {},
+  {
+    repositoryPaths = null,
+    repositoryPathsFromFallback = false,
+    settledCitations = null,
+    // Le conferme vengono da una review approvante (`## LGTM` e
+    // `Important: 0`). Solo il cammino storico lo sa e lo passa.
+    approvingReview = false,
+    // Citazioni accoppiate fra finding dalle conferme di QUESTA review, senza
+    // il `carried` delle review precedenti.
+    pairedByThisReview = null,
+    // Elenco COMPLETO dei file che la PR modifica; `null` quando non e' noto.
+    changedFiles = null,
+  } = {},
 ) {
   if (finding.citations.length === 0) {
     const bodyAnchor = prBodyAnchor(finding.line);
+    // Il testo normalizzato intero era l'unica chiave per un 🔴 senza file, e
+    // un modello non lo ricopia mai alla lettera: su #9959 la conferma
+    // `Fix di \`Historical finding 8b3056a2e2a3: …\`: ok.` non chiudeva nulla,
+    // il 🔴 restava aperto per sempre e la review successiva ne rialzava uno
+    // nuovo sul ledger stesso (da 1 a 109 aperti in 50 review, 4 LGTM
+    // ignorati). L'id stabile è l'identità che il bundle stampa accanto a ogni
+    // voce ed è la stessa di `dedupeFindingsById`: confermarlo è una conferma
+    // esplicita, non una chiusura per silenzio. Un 🔴 del body resta chiuso
+    // solo dal suo `PR body:L<n>` (vedi `unanchoredConfirmationTarget`).
+    const stableId = bodyAnchor === null ? stableFindingId(finding) : null;
     return confirmations.some((confirmation) => confirmation.key === findingKey(finding)
+      || (stableId !== null && confirmation.stableId === stableId)
       || (bodyAnchor !== null && confirmation.bodyAnchor === bodyAnchor));
+  }
+  // L'id stabile sceglie QUALE finding si chiude anche quando le righe si sono
+  // spostate (#10025): con piu' 🔴 sullo stesso file le conferme a riga
+  // spostata si accoppiano solo per conteggio esatto, e 4 conferme per 3
+  // finding su `fast-publish-article.yml` non ne chiudevano nessuno (una
+  // `## LGTM` con `Important: 0` restava BLOCKING). L'id da solo pero' non
+  // prova che ogni file citato sia stato riaperto all'HEAD: serve anche una
+  // conferma `path:L<n>` di QUESTA review per ciascun path citato, a una riga
+  // qualunque. Un anchor o un companion mai riconfermato tiene il finding
+  // aperto (review 5331196488).
+  const citedStableId = stableFindingId(finding);
+  if (confirmations.some((confirmation) => confirmation.stableId === citedStableId)) {
+    const confirmedPaths = confirmations.flatMap((confirmation) => confirmation.citations)
+      .map((candidate) => candidate.path);
+    const citedPaths = [...new Set(finding.citations.map((citation) => citation.path))];
+    // Quella conferma non puo' arrivare per un file citato senza riga che la
+    // PR non modifica: il reviewer scrive `Fix di path:L<n>` solo sui file che
+    // vede nel diff. Su #12346 il 🔴 ancorato a `live-data-test-guard.mjs:L571`
+    // nominava `public/news-ticker-live.json`, il valore da rimettere in un
+    // elenco, e due `## LGTM` con l'id e l'anchor confermati restavano
+    // BLOCKING. Con l'id confermato da una review approvante quel file vale
+    // come contesto, e solo lui: ogni path citato con riga e ogni file che la
+    // PR modifica vogliono ancora la propria conferma, e serve almeno un
+    // anchor con riga. Senza l'elenco completo dei file o senza il tree
+    // autorevole non cambia niente.
+    const hasPreciseAnchor = finding.citations.some((citation) => citation.line !== null);
+    const outOfDiffContext = (path) => {
+      if (!approvingReview || !hasPreciseAnchor) return false;
+      if (!Array.isArray(changedFiles) || !Array.isArray(repositoryPaths) || repositoryPathsFromFallback) return false;
+      if (finding.citations.some((citation) => citation.path === path && citation.line !== null)) return false;
+      const resolved = resolveCitedPath({ path }, repositoryPaths);
+      return resolved.status === 'resolved' && !changedContains(changedFiles, resolved.path);
+    };
+    if (citedPaths.every((path) => confirmedPaths.some((candidate) => citationPathMatches(candidate, path))
+      || outOfDiffContext(path))) {
+      return true;
+    }
   }
   // Le citazioni chiuse dall'accoppiamento per cardinalita' non passano da
   // `citationConfirmed`: li' l'ambiguita' di path dentro lo stesso finding e'
   // per costruzione irrisolvibile, e il conteggio l'ha gia' risolta.
+  // `settledCitations` arriva solo dal cammino storico: citazioni confermate
+  // da una review precedente o accoppiate fra finding (#9968).
   const cardinalityPaired = cardinalityPairedCitations(finding, confirmations, openFindings);
   const anchorConfirmed = (citation, options = {}) => cardinalityPaired.has(citation)
+    || Boolean(settledCitations?.has(citation))
     || citationConfirmed(citation, confirmations, finding, openFindings, options);
   const preciseCitations = finding.citations.filter((citation) => citation.line !== null);
+  // The tree only ever *tightens* this anchor check, so a locally rebuilt
+  // tree would newly close findings on PRs that pass today. The fallback is
+  // allowed to prove that a path is outside the diff, never to raise the bar
+  // here: under a fallback tree this clause keeps the tree-unavailable
+  // posture. Only an authoritative API tree tightens it.
+  const preciseAnchorsResolve = repositoryPathsFromFallback
+    || !Array.isArray(repositoryPaths)
+    || preciseCitations.every((citation) =>
+      resolveCitedPath(citation, repositoryPaths).status === 'resolved');
   const preciseAnchorsConfirmed = preciseCitations.length > 0
     && preciseCitations.every((citation) => anchorConfirmed(citation))
-    // The tree only ever *tightens* this anchor check, so a locally rebuilt
-    // tree would newly close findings on PRs that pass today. The fallback is
-    // allowed to prove that a path is outside the diff, never to raise the bar
-    // here: under a fallback tree this clause keeps the tree-unavailable
-    // posture. Only an authoritative API tree tightens it.
-    && (repositoryPathsFromFallback
-      || !Array.isArray(repositoryPaths)
-      || preciseCitations.every((citation) =>
-        resolveCitedPath(citation, repositoryPaths).status === 'resolved'));
+    && preciseAnchorsResolve;
+  // Caso #9965: `services/applicationIntent.ts:L70` cita nel testo
+  // `scripts/send-job-alerts.mjs` senza riga, il consumer che legge il dato,
+  // non un secondo punto da correggere. L'anchor preciso era confermato da una
+  // review `## LGTM`, ma il companion esiste nel tree, quindi l'esenzione
+  // «unresolvable bare context» qui sotto non si applica e nessun reviewer
+  // scrive mai `Fix di` su un file che non ha toccato: il finding restava
+  // aperto per sempre. Il companion senza riga vale come contesto SOLO quando
+  // ogni anchor preciso e' confermato dalle conferme di QUESTA review (non
+  // dal `carried` di review precedenti) e questa review e' approvante: e' lei
+  // a dichiarare che nel contributo non resta nessun 🔴. Senza anchor preciso,
+  // con un anchor non confermato o con una review non approvante il companion
+  // resta un anchor da confermare, come prima. Due vincoli ulteriori tengono
+  // l'esenzione su questo caso: serve il tree autorevole (un tree di
+  // fallback resta inerte qui dentro, come per l'esenzione sotto) e ogni
+  // menzione del companion deve nominarlo come lettore del dato
+  // (`bareCompanionIsReaderContext`). Un companion che il finding chiede di
+  // correggere («also fix `data/x.json`», #9208) o che sta nell'anchor prima
+  // del marker resta un secondo punto da confermare.
+  const preciseConfirmedByApprovingReview = approvingReview
+    && preciseCitations.length > 0
+    && Array.isArray(repositoryPaths)
+    && !repositoryPathsFromFallback
+    && preciseCitations.every((citation) => cardinalityPaired.has(citation)
+      || Boolean(pairedByThisReview?.has(citation))
+      || citationConfirmed(citation, confirmations, finding, openFindings))
+    && preciseAnchorsResolve;
   return finding.citations.every((citation) => {
     const isBareCompanion = citation.line === null && citation.path.includes('/');
     // Review prose often uses illustrative paths that are not repository
@@ -942,6 +1284,12 @@ function findingConfirmed(
       && resolveCitedPath(citation, repositoryPaths).status === 'non-risolubile'
       && resolveCitedPath(citation, repositoryPaths).candidates.length === 0;
     if (isUnresolvableBareContext) return true;
+    if (isBareCompanion
+        && preciseConfirmedByApprovingReview
+        && resolveCitedPath(citation, repositoryPaths).status === 'resolved'
+        && bareCompanionIsReaderContext(finding, citation)) {
+      return true;
+    }
     const otherAnchorsConfirmed = isBareCompanion
       && finding.citations
         .filter((other) => other !== citation)
@@ -973,6 +1321,16 @@ export function historicalImportantFindings(reviews, options = {}) {
  * declassato per scope o per riga non cambiata non è stato confermato da
  * nessuno, e dirlo al reviewer lo autorizza a sopprimere un rilievo ancora
  * valido.
+ *
+ * `needsVerification` e' un SOTTOINSIEME di `open`, solo per il ledger del
+ * bundle: i 🔴 ancora aperti per il gate su cui una review approvante
+ * (`## LGTM`, `Important: 0`) successiva alla loro prima comparsa ha scritto
+ * `Fix di` sullo stesso path, a una riga qualunque. Su #9968 la conferma a
+ * riga spostata non si lasciava accoppiare e, dopo un merge di main, il
+ * reviewer ricopiava A e B come `open` senza aprire il file (review
+ * 5327152883). Il gate non cambia: per lui restano aperti finche' una
+ * conferma non li chiude; cambia solo cio' che il reviewer e' invitato a fare,
+ * cioe' verificare all'HEAD invece di ricopiare.
  */
 export function partitionHistoricalImportantFindings(
   reviews,
@@ -981,34 +1339,76 @@ export function partitionHistoricalImportantFindings(
     citationExtractor = extractFileCitations,
     repositoryPaths = null,
     repositoryPathsFromFallback = false,
+    // File che la PR modifica, quando l'elenco e' completo: vedi il ramo
+    // dell'id stabile in `findingConfirmed`.
+    changedFiles = null,
   } = {},
 ) {
+  const changedPaths = Array.isArray(changedFiles)
+    ? [...new Set(changedFiles.map((file) => normalizePath(file, { stripGitPrefix: false })).filter(Boolean))]
+    : null;
   const bots = reviewerList(reviews).filter((review) =>
     review?.user?.type === 'Bot'
       && REVIEWER_LOGIN_RE.test(review.user.login || '')
       && isTerminalManagedReview(review),
   );
-  if (bots.length < (includeLatest ? 1 : 2)) return { open: [], confirmed: [] };
+  if (bots.length < (includeLatest ? 1 : 2)) return { open: [], confirmed: [], needsVerification: [] };
 
   const open = new Map();
   const confirmed = [];
+  // Prima review che ha emesso ciascun id stabile: un 🔴 ricopiato dopo un
+  // LGTM ha lo stesso id del primo, e la conferma approvante sta in mezzo.
+  const firstSeenById = new Map();
+  const approvingPaths = [];
+  // Citazioni precise gia' confermate da una review precedente, per identita'
+  // dell'oggetto: una citazione nata DOPO la conferma non la eredita mai.
+  const carried = new Set();
   const latestIndex = bots.length - 1;
   for (const [index, review] of bots.entries()) {
     const confirmations = fixConfirmations(review?.body);
+    const approvingReview = reviewBodyIsApproving(review?.body);
+    if (approvingReview) {
+      approvingPaths.push({
+        index,
+        review,
+        paths: confirmations.flatMap((confirmation) => confirmation.citations)
+          .filter((candidate) => candidate.line !== null)
+          .map((candidate) => candidate.path),
+      });
+    }
     const openFindings = [...open.values()].map(({ finding }) => finding);
+    const pairedByThisReview = crossFindingPairedCitations(openFindings, confirmations, carried);
+    const settledCitations = new Set([...carried, ...pairedByThisReview]);
     for (const [key, entry] of open.entries()) {
       if (entry.reviewIndex >= index) continue;
       if (findingConfirmed(entry.finding, confirmations, openFindings, {
         repositoryPaths,
         repositoryPathsFromFallback,
+        settledCitations,
+        approvingReview,
+        pairedByThisReview,
+        changedFiles: changedPaths,
       })) {
         confirmed.push(entry.finding);
         open.delete(key);
+        continue;
+      }
+      for (const citation of entry.finding.citations) {
+        if (citation.line === null) continue;
+        if (settledCitations.has(citation)
+            || citationConfirmed(citation, confirmations, entry.finding, openFindings)) {
+          carried.add(citation);
+        }
       }
     }
     if (!includeLatest && index === latestIndex) break;
 
     for (const finding of parseImportantFindings(review?.body, citationExtractor)) {
+      // Un 🔴 verificabile solo sul ledger non diventa una voce del ledger:
+      // era esattamente il circuito che lo alimentava (`isLedgerAcceptanceFinding`).
+      if (isLedgerAcceptanceFinding(finding)) continue;
+      const id = stableFindingId(finding);
+      if (!firstSeenById.has(id)) firstSeenById.set(id, index);
       open.set(findingKey(finding), {
         finding,
         reviewIndex: index,
@@ -1017,12 +1417,32 @@ export function partitionHistoricalImportantFindings(
     }
   }
 
-  return {
-    open: [...open.values()].map(({ finding, reviewCommit }) => ({
+  const openOut = [...open.values()].map(({ finding, reviewIndex, reviewCommit }) => ({
+    finding: { ...finding, reviewCommit },
+    firstSeen: firstSeenById.get(stableFindingId(finding)) ?? reviewIndex,
+  }));
+  const needsVerification = [];
+  for (const { finding, firstSeen } of openOut) {
+    const primary = finding.citations.find((citation) => citation.line !== null)
+      || finding.citations[0];
+    if (!primary) continue;
+    const later = approvingPaths.find(({ index, paths }) => index > firstSeen
+      && paths.some((path) => citationPathMatches(path, primary.path)));
+    if (!later) continue;
+    needsVerification.push({
       ...finding,
-      reviewCommit,
-    })),
+      verificationHint: {
+        path: primary.path,
+        reviewId: String(later.review?.id ?? ''),
+        reviewCommit: String(later.review?.commit_id || ''),
+      },
+    });
+  }
+
+  return {
+    open: openOut.map(({ finding }) => finding),
     confirmed,
+    needsVerification,
   };
 }
 
@@ -1498,7 +1918,7 @@ export function scopeDeclassificationOptions({
 // `blocking`. Ogni altra uscita e' un no-op VERDE, e fino al 2026-09-20 due di
 // quelle uscite non lasciavano nessuna traccia sulla PR:
 //
-//   • `bodyDeclassified` / `staleDeclassified` senza nessun `outside`: nessuna
+//   • `staleBodyDeclassified` / `staleDeclassified` senza nessun `outside`: nessuna
 //     follow-up viene coniata (il mint guarda solo `outside`), il fixer e'
 //     skippato, la run e' verde e il 🔴 sparisce senza che nessuno lo legga.
 //     Irraggiungibile prima della fix qui sopra, raggiungibile 11 volte su 47
@@ -1522,6 +1942,11 @@ export function isBodyAnchoredFinding(finding) {
   return (finding?.citations?.length ?? 0) === 0 && prBodyFindingLine(finding) !== null;
 }
 
+/** Il filtro del contratto e' parte della prova stale, non un post-filtro. */
+function isStaleBodyFinding(finding, prBody) {
+  return isBodyAnchoredFinding(finding) && isContractDomainBodyFinding(finding, prBody);
+}
+
 /**
  * Classifica l'uscita dello scope. `silent` e' vero esattamente quando la run
  * uscirebbe verde senza lasciare niente sulla PR: e' il predicato che il
@@ -1534,8 +1959,9 @@ export function scopeExit(classification) {
     return { kind: SCOPE_EXITS.NONE, bodyOnly: false, silent: false, declassified: [] };
   }
   const declassified = [
-    ...(classification.bodyDeclassified || []).map((finding) => ({ finding, reason: 'body' })),
+    ...(classification.staleBodyDeclassified || []).map((finding) => ({ finding, reason: 'stale-body' })),
     ...(classification.staleDeclassified || []).map((finding) => ({ finding, reason: 'stale' })),
+    ...(classification.ledgerDeclassified || []).map((finding) => ({ finding, reason: 'ledger' })),
   ];
   if (classification.blocking === true) {
     return { kind: SCOPE_EXITS.BLOCKING, bodyOnly, silent: false, declassified };
@@ -1668,6 +2094,38 @@ Run: ${runUrl}`;
   gh(['pr', 'comment', String(pr), '--repo', repo, '--body', body], { json: false, allowFail: true });
 }
 
+export function renderStaleBodyFindingComment(finding, headSha, runUrl = '') {
+  const stableId = stableFindingId(finding);
+  const citation = String(finding?.bodyCitation || extractBodyCitation(finding?.text) || '');
+  return [
+    `<!-- REVIEW_GATE_STALE_BODY_FINDING:${stableId} -->`,
+    '⚠️ **Finding superato** — il testo citato non è più nel body attuale (spazi e Markdown normalizzati).',
+    '',
+    '**Testo del finding:**',
+    `> ${safeText(finding?.text || finding?.line)}`,
+    '',
+    `**Citazione mancante:** ${JSON.stringify(citation)}`,
+    `HEAD: ${headSha}`,
+    runUrl ? `Run: ${runUrl}` : '',
+  ].filter(Boolean).join('\n');
+}
+
+function postStaleBodyFindingComment(repo, pr, finding, headSha, runUrl) {
+  const marker = `<!-- REVIEW_GATE_STALE_BODY_FINDING:${stableFindingId(finding)} -->`;
+  try {
+    const existing = gh([
+      'api', `repos/${repo}/issues/${pr}/comments`, '--paginate', '--jq', '.[].body',
+    ], { json: false, allowFail: true }) || '';
+    if (String(existing).includes(marker)) return;
+    gh([
+      'pr', 'comment', String(pr), '--repo', repo,
+      '--body', renderStaleBodyFindingComment(finding, headSha, runUrl),
+    ], { json: false, allowFail: true });
+  } catch (error) {
+    console.log(`review-gate: commento finding superato non pubblicato (${String(error).slice(0, 160)}).`);
+  }
+}
+
 async function withRepo(repo, callback) {
   const previous = process.env.GH_REPO;
   process.env.GH_REPO = repo;
@@ -1714,8 +2172,11 @@ async function mintFollowup({ repo, pr, prUrl, findings }) {
 }
 
 export function logClassification(classification) {
-  for (const finding of classification.bodyDeclassified ?? []) {
-    console.log(`review-gate: DECLASSIFIED-BODY finding=${finding.findingNumber} reason=deterministic PR-body contract passed on the current body; a body remark is at most a Nit`);
+  for (const finding of classification.staleBodyDeclassified ?? []) {
+    console.log(`review-gate: DECLASSIFIED-STALE-BODY finding=${finding.findingNumber} id=${finding.stableId} reason=quoted PR-body text is absent from the current body after whitespace/Markdown normalization`);
+  }
+  for (const finding of classification.ledgerDeclassified ?? []) {
+    console.log(`review-gate: DECLASSIFIED-LEDGER finding=${finding.findingNumber} reason=Important without a file whose acceptance is checked only on the review bundle/ledger; no change to the PR can satisfy it`);
   }
   for (const finding of classification.staleDeclassified ?? []) {
     console.log(`review-gate: DECLASSIFIED-UNCHANGED-LINE finding=${finding.findingNumber} id=${finding.stableId} reason=new Important anchored only on lines untouched since the previous review; declare 🔴 Important: [regression] to keep it blocking`);
@@ -1729,11 +2190,11 @@ export function logClassification(classification) {
     }
   }
   for (const finding of classification.inScope) {
-    console.log(`review-gate: BLOCKING finding=${finding.findingNumber} path=${finding.resolvedFiles.join(',')} reason=at least one cited file is in the current PR diff`);
+    console.log(`review-gate: BLOCKING finding=${finding.findingNumber} path=${finding.resolvedFiles.join(',')} reason=at least one cited file is in the current PR diff confirm=${JSON.stringify(stableFindingId(finding))} identity=${JSON.stringify(findingIdentityComponents(finding))}`);
   }
   for (const finding of classification.unresolved) {
     const expectedKey = finding.citations?.length === 0
-      ? ` expectedKey=${JSON.stringify(findingKey(finding))}`
+      ? ` confirm=${JSON.stringify(unanchoredConfirmationTarget(finding))} expectedKey=${JSON.stringify(findingKey(finding))}`
       : '';
     console.log(`review-gate: BLOCKING finding=${finding.findingNumber} reason=${finding.reason}${expectedKey}`);
   }
@@ -1792,11 +2253,17 @@ export async function classifyAndMintReview(body, {
     repositoryPaths,
     isIgnoredPath: gitPathIsIgnored,
     bodyContractPassed,
-    prBody: bodyContractPassed && prBody === null ? readPrBody(repo, pr) : prBody,
+    prBody: prBody === null ? readPrBody(repo, pr) : prBody,
     priorFindingIds,
     changedLinesSince,
   });
   logClassification(classification);
+
+  if (mutate) {
+    for (const finding of classification.staleBodyDeclassified ?? []) {
+      postStaleBodyFindingComment(repo, Number(pr), finding, headSha, process.env.RUN_URL || '');
+    }
+  }
 
   let followup = null;
   if (classification.outside.length > 0 && mutate) {
@@ -1830,6 +2297,9 @@ export async function runReviewGate({
   classifyAndMintReviewFn = classifyAndMintReview,
   carryFingerprintFn = contributionFingerprint,
   bodyContractPassed = false,
+  // Restituisce l'elenco COMPLETO dei file che la PR modifica, o `null`.
+  // Assente = nessun file citato senza riga viene mai letto come contesto.
+  changedFilesFn = null,
 } = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || '')) || !/^[0-9a-f]{40}$/iu.test(String(headSha || ''))) {
     throw new Error('repo, PR number or HEAD SHA non valido');
@@ -1941,10 +2411,36 @@ export async function runReviewGate({
       staleFindings: staleCarry.findings,
     };
   }
-  const historical = historicalImportantFindings(reviewHistory, {
+  const historicalOptions = {
     repositoryPaths: repositoryPaths ?? null,
     repositoryPathsFromFallback,
-  });
+  };
+  let historical = historicalImportantFindings(reviewHistory, historicalOptions);
+  // L'elenco dei file della PR serve in un caso solo: una review approvante
+  // lascia aperto un 🔴 storico. Si legge li' e basta, e ogni 🔴 che si chiude
+  // per questo lascia una riga nel log: e' il conteggio di quanto decide la
+  // regola del file citato senza riga (vedi `findingConfirmed`).
+  if (historical.length > 0 && typeof changedFilesFn === 'function' && body.includes('## LGTM')) {
+    let changedFiles = null;
+    try {
+      changedFiles = changedFilesFn();
+    } catch {
+      changedFiles = null;
+    }
+    if (Array.isArray(changedFiles) && changedFiles.length > 0) {
+      const withDiff = historicalImportantFindings(reviewHistory, { ...historicalOptions, changedFiles });
+      const stillOpen = new Set(withDiff.map(stableFindingId));
+      for (const finding of historical) {
+        const id = stableFindingId(finding);
+        if (stillOpen.has(id)) continue;
+        const context = [...new Set(finding.citations
+          .filter((citation) => citation.line === null)
+          .map((citation) => citation.path))];
+        console.log(`review-gate: OUT-OF-DIFF-CONTEXT finding id=${id} path=${context.join(',') || '-'} identity=${JSON.stringify(findingIdentityComponents(finding))} reason=file cited without a line is outside the PR diff; id and line anchors confirmed by an approving review`);
+      }
+      historical = withDiff;
+    }
+  }
   const effectiveBody = reviewBodyWithHistoricalFindings(body, historical);
   const findings = importantFindings(effectiveBody);
   const reviewCommit = String(latest.commit_id || '');
@@ -1990,19 +2486,10 @@ export async function runReviewGate({
     logClassification(classification);
   }
 
-  // A reviewer must not approve while an Important finding is still in scope
-  // (or cannot be resolved). Once every Important is conservatively classified
-  // outside this PR diff, however, the finding is debt recorded in the
-  // aggregate follow-up and the review has no in-scope blocker left to approve.
-  // Requiring a literal LGTM in that one case deadlocks otherwise safe PRs:
-  // Claude correctly withholds LGTM for the historical out-of-diff finding,
-  // while this gate correctly declassifies it. Keep the literal requirement
-  // for empty, in-scope, and unresolved verdicts.
-  const outsideOnlyWithoutLgtm = !body.includes('## LGTM')
-    && classification.outsideOnly
-    && !classification.blocking
-    && !hasUnresolvedFunnelQuestion(body);
-  if (!body.includes('## LGTM') && !outsideOnlyWithoutLgtm) {
+  // An out-of-diff Important is recorded in the aggregate follow-up, but it
+  // does not replace the reviewer's explicit verdict for the current HEAD.
+  // Every successful review must carry the literal LGTM marker.
+  if (!body.includes('## LGTM')) {
     return { approved: false, reason: 'manca ## LGTM', classification, review: latest };
   }
   if (classification.blocking) {
@@ -2041,6 +2528,12 @@ async function main() {
     repositoryPathsFromFallback: tree.fromFallback,
     reviewRevision,
     bodyContractPassed: process.env.BODY_CONTRACT_OUTCOME === 'success',
+    // Solo un elenco completo: in uno troncato un file della PR sembrerebbe
+    // fuori dal diff.
+    changedFilesFn: () => {
+      const changed = fetchPrFiles(Number(pr), gh, repo);
+      return changed.complete === true && changed.files.length > 0 ? changed.files : null;
+    },
   });
   writeApproved(result.approved);
   if (!result.approved) {
@@ -2101,10 +2594,8 @@ async function scopeMain() {
   const tree = hasFindings ? fetchRepositoryHeadPaths(repo, pr) : { paths: null, fromFallback: false };
   if (tree.paths) options.repositoryPaths = tree.paths;
   // NB: `bodyContractPassed` resta deliberatamente FUORI da questo percorso.
-  // Nel gate gemello declassa il 🔴 ancorato al body, che li' e' l'uscita
-  // giusta (il contratto deterministico ha gia' giudicato il body). Qui
-  // l'uscita giusta e' l'opposta: il fixer PUO' riscrivere il body, quindi il
-  // finding resta azionabile e viene instradato con `bodyOnly`.
+  // Anche il gate deve avere la prova testuale del finding: un contratto verde
+  // da solo non declassa un 🔴 ancorato al body.
   let reviews = null;
   try {
     reviews = hasFindings ? readReviews(repo, pr) : null;
@@ -2172,12 +2663,28 @@ const isDirectRun = (() => {
  * finding. Those `Fix di ...: ok.` lines are resolution evidence, not new
  * anchors for the finding currently being classified.
  */
+// `Accettazione:` e `Replica:` (REVIEW.md «Re-review convergence» / «Output format») citano
+// i MEZZI della verifica — un test, un comando, la riga indicata dal fixer —
+// non ancore da correggere. Se diventassero citazioni del finding, la
+// conferma `Fix di path:L<n>: ok` dell'anchor vero non basterebbe più a
+// chiuderlo: il gate pretenderebbe una conferma anche per il file di test
+// nominato nel controllo, e il ciclo non convergerebbe.
+const VERIFICATION_MARKER_RE = /\b(?:Accettazione|Replica)\s*:/u;
+
+// Il testo della riga da `Accettazione:` o `Replica:` in poi, anche inline sulla
+// stessa riga del finding, non produce ancore.
+function anchorText(line) {
+  const at = line.search(VERIFICATION_MARKER_RE);
+  return at === -1 ? line : line.slice(0, at);
+}
+
 function extractFindingCitations(text, extractCitations) {
   const findingText = normalizeReviewBody(text)
     .split(/\r?\n/u)
     .filter((line) => !FIX_CONFIRMATION_RE.test(line))
+    .map(anchorText)
     .join('\n');
-  const occurrences = extractCitations(findingText, {
+  const occurrences = extractCitations(stripBodyCitationLines(findingText), {
     dedupe: false,
     includeMatchIndex: true,
   });

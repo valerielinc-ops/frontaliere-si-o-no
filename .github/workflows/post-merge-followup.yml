@@ -1,7 +1,7 @@
 name: Post-merge follow-up triage
 
 # SCHEDULED-BATCH (era pull_request:[closed] per-PR). Una sola sessione Codex Luna Max ogni
-# ~3h triagia TUTTE le PR mergiate dall'owner dalla finestra precedente, invece di
+# ~2h (cron `0 */2`, era ~3h) triagia TUTTE le PR mergiate dall'owner dalla finestra precedente, invece di
 # UNA run per ogni merge. Il ~60-80% delle run per-PR creava zero issue → spreco
 # sulla quota Max OAuth CONDIVISA (AGENTS.md § frugalità — "più batched"). Sicurezza
 # garantita dal marker di idempotenza per-PR, che e' il cursore durevole (vedi
@@ -16,7 +16,10 @@ name: Post-merge follow-up triage
 # indietro (vedi collect-followup-batch.mjs).
 on:
   schedule:
-    - cron: '0 */3 * * *' # ogni 3h
+    # 3h→2h (2026-09-27): GitHub esegue ~62% dei cron nominali (gap mediano
+    # misurato 4,9h sul cron da 3h); con il cap di sessione a 14 PR servono
+    # ~7 run reali/giorno per coprire il flusso. Il corpus gira al minuto 40.
+    - cron: '0 */2 * * *' # ogni 2h
   workflow_dispatch:
     inputs:
       pr_number:
@@ -33,9 +36,10 @@ permissions:
   # la finestra e' un lookback fisso, vedi collect-followup-batch.mjs)
 
 concurrency:
-  # Questo è il mutex condiviso con followup-reconcile.yml: gate e reconciler
-  # possono toccare lo stesso bucket daily. Il drainer ha un mutex dedicato
-  # perché la promozione della coda non deve restare dietro a questo batch.
+  # Questo è il mutex condiviso con followup-reconcile.yml e con il job `drain`
+  # di followup-drainer.yml: gate, reconciler e drainer possono toccare lo
+  # stesso bucket daily. Il drainer lo prende a livello di job (stesso group,
+  # stesso mutex), così i wake-up che il suo `if:` scarta non entrano nel gruppo.
   # La chiave è repo-scoped (non workflow-scoped), e cancel:false conserva la run già partita.
   group: followup-daily-${{ github.repository }}
   cancel-in-progress: false
@@ -43,7 +47,7 @@ concurrency:
 jobs:
   followup:
     # Trigger:
-    # - `schedule`: batch automatico ogni 3h delle PR mergiate dall'owner
+    # - `schedule`: batch automatico ogni 2h delle PR mergiate dall'owner
     #   (`valerielinc-ops` / `frontaliere-automation[bot]`) — il filtro autore vive
     #   ora in `collect-followup-batch.mjs`, non più nell'`if:` del job.
     # - `workflow_dispatch` (closes #774): backfill manuale di UNA PR già mergiata ma
@@ -54,16 +58,19 @@ jobs:
     # `follow-up` quando il filtro scopo passa. Vedi FOLLOWUP.md.
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    # 30→40 (2026-07-17): headroom per il cap turni dinamico alzato (max 60→80).
-    timeout-minutes: 40 # batch di N PR in una sessione (era 10 per una sola PR)
+    # 30→40 (2026-07-17): headroom per il cap turni dinamico alzato (max 80→240).
+    # 40→140 (2026-09-27): il cap di sessione passa da 4 a 14 PR
+    # (FOLLOWUP_SESSION_BATCH_LIMIT). 140 = step Codex 120 + pre-step misurato
+    # (checkout+collect fino a ~10 min con ~200 PR in finestra) + coda ~1 min.
+    timeout-minutes: 140 # batch di N PR in una sessione (era 10 per una sola PR)
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -94,8 +101,16 @@ jobs:
       # silenzio. Per questo il confine ora e' un lookback fisso.
       # Misurato: 35 run rosse consecutive sul sito (161,6 h), 34 sul corpus.
       # Emette collection_ok, batch_prs (csv), batch_count, deferred_count,
-      # max_turns e daily_key (Europe/Zurich). collection_ok è distinto dal batch
+      # max_turns, daily_key (Europe/Zurich) e quarantined_prs/quarantined_count.
+      # collection_ok è distinto dal batch
       # vuoto: un errore di raccolta non può essere interpretato come "nessuna PR".
+      # Quarantena (run 36461728260, 36495756021, 36520419253): una PR con marker
+      # la cui persistenza è `false` in modo definitivo da oltre 6h esce dal
+      # batch, perché Codex la salterebbe per il marker e la verifica resterebbe
+      # rossa a ogni run. Resta visibile: `::warning::`, riga nello step summary,
+      # output `quarantined_prs` e issue «Post-merge follow-up: marker di triage
+      # in quarantena» (github-issue-creator, un solo commento per PR). Un
+      # verdetto `null` (lettura indisponibile) resta in retry.
       # Vedi scripts/ci/collect-followup-batch.mjs.
       - name: Collect follow-up batch
         id: collect
@@ -189,21 +204,36 @@ jobs:
           set -uo pipefail
           mkdir -p "$CTX_DIR"
           : > "$CTX_DIR/prs.md"
+          PR_JSON_FILES=()
           IFS=',' read -ra NUMS <<< "$BATCH_PRS"
           for n in "${NUMS[@]}"; do
             [ -z "$n" ] && continue
             {
               echo "### PR #$n"
               echo '```json'
-              gh pr view "$n" --repo "$REPO" --json number,title,body,mergedAt,mergeCommit,url,author 2>/dev/null || echo '{}'
+              # `headRefOid`: la run `tests` dell'head, letta per i bullet che rinviano alla CI la verifica locale.
+              gh pr view "$n" --repo "$REPO" --json number,title,body,mergedAt,mergeCommit,headRefOid,url,author > "$CTX_DIR/pr-$n.json" 2>/dev/null || echo '{}' > "$CTX_DIR/pr-$n.json"
+              cat "$CTX_DIR/pr-$n.json"
               echo '```'
               echo "Reviews:"
               echo '```json'
-              gh api "repos/$REPO/pulls/$n/reviews" 2>/dev/null || echo '[]'
+              # Paginata: oltre 30 review le ultime (quelle che contano) restavano fuori.
+              { gh api "repos/$REPO/pulls/$n/reviews?per_page=100" --paginate --slurp 2>/dev/null | jq 'add // []' 2>/dev/null; } || echo '[]'
               echo '```'
               echo
             } >> "$CTX_DIR/prs.md"
+            PR_JSON_FILES+=("$CTX_DIR/pr-$n.json")
           done
+
+          # Bullet di `## Non implementato (ancora)` già classificati (stesso oracolo
+          # del no-op gate) e instradati col manifest di mirror del corpus, letto UNA
+          # volta via API: l'agente non riapplica la tassonomia né una mappa in prosa.
+          # Fail-open: senza sezione il prompt ricade sulla lettura diretta.
+          # Un bullet «blocked: resource guard… la CI di questa PR fa da oracolo»
+          # esce `verified-by-merge-run` solo se la run `tests` sull'head lo ha
+          # eseguito verde (log letto, tetto FOLLOWUP_MERGE_RUN_LOG_CAP); altrimenti resta candidato.
+          node scripts/ci/followup-candidate-bullets.mjs --side site "${PR_JSON_FILES[@]}" \
+            > "$CTX_DIR/candidate-bullets.md" || : > "$CTX_DIR/candidate-bullets.md"
 
           # In-flight PR overlap (line "In-flight PR overlap" sotto): elenco PR aperte +
           # i loro file, condiviso da TUTTE le PR del batch (non per-PR).
@@ -222,6 +252,8 @@ jobs:
             echo "## Per-PR metadata + reviews (batch: $BATCH_PRS)"
             cat "$CTX_DIR/prs.md"
             echo
+            cat "$CTX_DIR/candidate-bullets.md"
+            echo
             echo "## Open PRs (per il check 'In-flight PR overlap')"
             cat "$CTX_DIR/open-prs.json"
             echo
@@ -233,12 +265,15 @@ jobs:
 
       - name: Run Codex Luna Max follow-up triage (batch)
         # Tetto sullo step: senza, l'unico limite era il cap del job
-        # (40min) e la run ci moriva `cancelled` — che NON fa scattare
+        # (ora 140min) e la run ci moriva `cancelled` — che NON fa scattare
         # nessun `if: failure()` e si vede solo dallo scan periodico
         # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
-        # 32min = cap del job meno il setup pre-provider misurato (~98s
-        # sulle ultime run) e una coda per gli step `if: always()`.
-        timeout-minutes: 32
+        # 120min (era 32) = il tetto massimo per uno step agentico, lo stesso
+        # del gemello corpus (claude-step-timeout.test.mjs): watchdog Codex
+        # 114 min + setup Codex (~2-4 min) + kill grace + finalize ci stanno
+        # dentro, e resta sotto il job da 140 min con il pre-step e la coda
+        # degli step `if: always()`.
+        timeout-minutes: 120
         id: followup
         # Gira SOLO se il batch ha almeno una PR. Per le altre run (finestra vuota /
         # tutte già-triagiate / tutte scartate dai gate) la sessione del provider è
@@ -266,7 +301,7 @@ jobs:
           codex_corpus_github_token: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           # Il merge che alimenta questo workflow può arrivare da automation interna:
           # i token host-side restano limitati ai permessi del job e ai bridge espliciti.
-          # max-turns DINAMICO = min(26 + 8*batch_count, 80), floor 26: il cap cresce
+          # max-turns DINAMICO = min(26 + 8*batch_count, 240), floor 26: il cap cresce
           # con il numero di PR, senza consentire sessioni illimitate.
           # Se il batch satura il cap, il residuo è dichiarato in `deferred_count`
           # e ricade nella finestra successiva; l'idempotenza salta le PR già
@@ -274,6 +309,23 @@ jobs:
           # Percorsi storici non presenti in questo repository: `auto-merge-on-lgtm.yml`
           # e `pr-review-loop.yml`. Il triage corrente vive in questo workflow e in
           # `tests.yml`; i nomi sopra sono solo riferimenti documentali di confine.
+          # Watchdog Codex 25→31 min: il gemello corpus ha misurato ~7,35 s/turno
+          # su una finestra da 11 PR; il ceiling 240 richiede ~29 min. I 31 min
+          # lasciano margine misurato sotto lo step da 32 min e il job da 40 min,
+          # evitando che il watchdog diventi un cap più basso del collector.
+          # Benchmark batch_count=27: provider+setup post 1.816.453 ms (30,27 min),
+          # watchdog 31 min e step 32 min non attivati; margine watchdog 43.547 ms.
+          # 31→114 min (2026-09-27, cap di sessione 4→14 PR): la base è il
+          # benchmark production-equivalent COMPLETATO più lento, corpus 34602892494:
+          # 21 PR commentate in 1.792.000 ms (batch_count=36, bootstrap incluso).
+          # È un envelope di sessione intera, non una media per PR: una media
+          # non è un upper bound per il costo della singola PR. Il target di 14
+          # è coperto dal benchmark completato da 21 PR; la durata totale di
+          # 1792 s resta sotto il watchdog da 6840 s. Watchdog + setup/kill
+          # grace/coda (~5 min) = 119 min, sotto lo step da 120. Il run
+          # 36009410204 (4 PR uccise a 1803 s) resta solo diagnostico: >=451 s/PR
+          # è censurato e non un upper bound.
+          exec_timeout_minutes: "114"
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}
@@ -297,7 +349,7 @@ jobs:
             - Cerca prima un issue aperto con quella chiave e quel repository. Se esiste, rileggi il body immediatamente prima dell'append; confronta la baseline (o una hash), ricostruisci l'append dalla lettura nuova su divergenza e non sovrascrivere contenuto concorrente. Se trovi un bucket `collecting` storico che contiene una PR della finestra, riusa quella chiave/titolo anche se il retry è entrato nel giorno successivo: mai sdoppiare la finestra. Se non esiste, crea UNA sola issue per gruppo con `State: collecting`; non aggiungere `agent:fix` né `agent:fix-queued` durante la raccolta.
             - Ogni item deve avere un ID stabile `FU-YYYY-MM-DD-NNN`, assegnato una sola volta, e i campi `Target repository`, `Target file`, `Original text`, `Suggested action`, `Acceptance token`, `Sources`. Deduplica col fingerprint `target repository + target file + token/azione normalizzata`; su match aggiungi la PR alla riga `Sources`, non un secondo item.
             - Il body resta `State: collecting` finché tutti i chunk seriali del batch sono conclusi. Non troncare mai il set per un cap “max 10”: il cap vale solo per chunk/sessione. Un errore lascia il bucket collecting e la finestra senza avanzare; il retry riusa la stessa chiave e le PR già commentate restano idempotenti.
-            - Se la finestra supera il budget della sessione, il collector fornisce al massimo quattro PR e dichiara il residuo in `deferred_count`, lasciando `collection_ok=true`: il troncamento è un rinvio pianificato, non un errore, e la run schedulata deve restare VERDE. Processa tutte le PR emesse e nient'altro: il residuo è compito della finestra successiva, che salta per idempotenza le PR già commentate. Non trattare `deferred_count > 0` come un motivo per allargare il lavoro, per lasciare un commento di allarme o per aprire un secondo bucket sullo stesso `(daily_key, target repository)`.
+            - Se la finestra supera il budget della sessione, il collector fornisce al massimo `FOLLOWUP_SESSION_BATCH_LIMIT` PR (oggi 14) e dichiara il residuo in `deferred_count`, lasciando `collection_ok=true`: il troncamento è un rinvio pianificato, non un errore, e la run schedulata deve restare VERDE. Processa tutte le PR emesse e nient'altro: il residuo è compito della finestra successiva, che salta per idempotenza le PR già commentate. Non trattare `deferred_count > 0` come un motivo per allargare il lavoro, per lasciare un commento di allarme o per aprire un secondo bucket sullo stesso `(daily_key, target repository)`.
             - Solo il gate zero-agent successivo demota gli item privi di acceptance falsificabile, porta il bucket a `State: sealed` e aggiunge `agent:fix-queued`. Un bucket collecting non è lavorabile dal drainer.
             - Una PR di fix daily con `Addresses #<bucket>` e `Follow-up item: FU-...` passa il gate anti-nipote solo per cercare finding nuovi: non creare issue figlie. Leggi il bucket padre nello stesso repository target; i finding già coperti dal padre aggiornano `Sources`/si deduplicano, quelli genuinamente nuovi si appendono al padre (se sealed, riportalo a collecting per il gate successivo). Se il padre è illeggibile, posta il blocco sulla PR e non creare un contenitore alternativo.
 
@@ -325,6 +377,10 @@ jobs:
               Se un item cita piu' file, scegli il repo del file che richiede la modifica
               comportamentale; se cita solo un sintomo, individua prima il file sorgente
               reale. Scrivi sempre nell'issue `Target repository:` e `Target file:`.
+              La mappa è un'indicazione: per i path citati dai bullet vale `routes` in
+              `## Candidate bullets` (manifest di mirror): `repo` → `Target repository`, `targetPath` → `Target file`,
+              anche se il path ha un altro nome o manca qui. `repo: unknown` → conia
+              nel repository della PR con la nota `route-unverified`.
               Per Nanako usa SEMPRE `gh` con il repository esplicito:
               `gh issue create --repo nanakokyobashi-rgb/frontaliere-articles ...`.
               Nel processo Codex non cercare né interpolare `GITHUB_PAT` o `GH_TOKEN`:
@@ -333,10 +389,12 @@ jobs:
               credential corpus è indisponibile, posta il blocco di routing sulla PR
               e lascia l'item da ritentare nella prossima passata.
               Dedup, label e commenti vanno eseguiti sullo stesso `--repo` target.
-            - Parse PR body `## Non implementato (ancora)`. **Il routing lo decide lo STATO LETTERALE del bullet, non una parola-scusa** (AGENTS.md #8; `scripts/ci/followup-has-candidates.mjs` applica esattamente questa regola a monte, e sono la stessa tassonomia — non inventarne una terza):
-              - `in questa PR` · `PR concatenata #N` · `per scelta` · `by construction` · `blocked: decisione del proprietario` → **NON creare issue**: la voce è già chiusa o già tracciata altrove.
-              - `blocked: <causa tecnica>` → **crea issue**, e riporta la causa nel campo `Blocked on:` dell'item.
-              - **nessuno stato dichiarato** → **crea issue** (fail-safe: un residuo non qualificato è lavoro potenzialmente dovuto, e tacerlo è peggio che generare una traccia).
+            - Parse PR body `## Non implementato (ancora)`: i bullet sono GIÀ classificati nel bundle, sezione `## Candidate bullets` (stesso oracolo di `scripts/ci/followup-has-candidates.mjs`). **Decide lo STATO LETTERALE del bullet, non una parola-scusa** (AGENTS.md #8): applica le «Regole di lettura» in testa a quella sezione, senza una terza tassonomia. In breve:
+              - `candidate: false` con `reason: closing-state` (`in questa PR` · `PR concatenata #N` · `per scelta` · `by construction` · `blocked: decisione del proprietario`) o `reason: empty` → **NON creare issue**: decide il bundle, non la tua rilettura.
+              - `reason: verified-by-merge-run` → **NON creare issue**; il commento di triage cita `ownVerification.runId`.
+              - `reason: hard-exclude` è un match LESSICALE, non un verdetto: decidi tu con le regole hard-exclude scritte sotto. `candidate: true` significa AMMISSIBILE, non «da coniare». Solo `kind: bullet` è materia di conio decisa dal bundle.
+              - Bullet `blocked:` la cui causa NON è di codice (fonte esterna, terzi, decisione attesa) → conialo con `State: blocked` e la causa in `Blocked on:`.
+              Solo se per questa PR la sezione manca o porta `error`, applica tu la regola degli stati letterali (FOLLOWUP.md § parse rules).
               Il vecchio skip su `out of scope` / `posposto` è **ABOLITO** (FOLLOWUP.md § parse rules): non sono più scappatoie di chiusura, e trattarli come tali faceva evaporare lavoro dovuto.
             - **Riporta lo stato NELL'ITEM che minti**, come riga `- Stato dichiarato nella PR: <lo stato letterale, verbatim, oppure «nessuno»>`. Senza, la issue di follow-up nasce non qualificata e nessuno può distinguere a macchina ciò che aspetta una decisione umana da ciò che un agente potrebbe chiudere subito — è la ragione per cui la coda non si smaltisce (misurato il 2026-08-14: 9 item su 25 nelle follow-up aperte del sito senza stato).
             - Parse reviewer bot review più recente: estrai 🟡 nit, ❓ q, `## Adversarial check` bullets. Skip 🔴 (già fixed o droppato consapevolmente pre-merge).
@@ -345,6 +403,7 @@ jobs:
             - **Hard-exclude live-verification-only (FOLLOWUP.md → "Hard-exclude: live-verification-only item"):** NON mintare issue (reason `live-verify-only`), prima del filtro funnel, **a prescindere dalla fonte**, ogni item la cui UNICA azione è ispezionare il sito già deployato (nessun file da editare): "verify live / verifica live / post-deploy / (post-merge, live) / (live)", "curl la URL prod / live-200", "render at NNNpx", "apri DevTools", "Playwright hydration", checkbox `## Test plan` `- [ ]` etichettata `(post-merge, live)` non spuntata. **Routing:** raccoglili in una UNICA checklist `Live-verification` batchata nel summary commento di QUELLA PR, NON come issue. **Eccezione:** un item che MESCOLA live-verify con un'edit concreta resta actionable.
             - **Hard-exclude rischio senza condizione di accettazione falsificabile (decisione del proprietario, 2026-09-05):** un item entra in coda SOLO se porta con sé qualcosa che, girando, può provare che è stato affrontato. In pratica: la sua `Suggested action` deve citare fra backtick almeno **un token-codice distintivo** (simbolo, campo, chiave, path, costante — ciò che un check potrà cercare verbatim nel file citato). Un rischio formulato solo in prosa («nessun gate impedisce un drift futuro», «valutare se serve un campo esplicito») **non si può mai provare affrontato**: nessuna evidenza lo chiuderà, quindi entra in coda e non ne esce più. NON mintarlo come item (reason `no-acceptance-condition`) — **raccoglilo nel commento di summary della PR**, dove resta leggibile, esattamente come si fa per `Live-verification`. Vale **a prescindere dalla fonte**, e in particolare per i bullet di `## Adversarial check`, che sono la fonte dominante di questa classe. L'oracolo è lo STESSO che poi chiude l'item (`citedTokens()` in `scripts/ci/followup-resolution-match.mjs`): usarne uno più permissivo in apertura è ciò che ha prodotto la coda immortale. **Seconda strada ammessa dal 2026-09-07 (D3), in DISGIUNZIONE con la prima:** invece del token, l'item può portare una riga di scheda `- METRICA: prima=<n> atteso=<n> | COMANDO: <comando>` il cui comando **nomina un referente** — un file, uno script o un test, cioè un path con una `/` e un'estensione (`npx vitest run tests/foo.test.ts`, `node scripts/ci/bar.mjs`). Il referente NON deve esistere ancora: può essere il test che la fix dovrà scrivere. Una metrica già al bersaglio (`prima=N atteso=N`) viene invece RIFIUTATA, perché non c'è niente da muovere. Usa questa strada quando l'item è lavoro vero ma la frase non si lascia ridurre a un token: è spesso più facile che inventare un token, e prova di più. Misurato il 2026-09-05 sul sito: 81 item su 129 nelle ultime 60 follow-up non citano un solo token, e 36 dei 49 item delle aggregate bloccate sono di questa classe.
               **PRIMA FORMULA L'AZIONE, POI GIUDICA QUELLA — e se l'item è azionabile ma la frase non porta un token, DERIVALO invece di scartarlo.** Il metro non si applica al bullet grezzo della review ma al testo che scrivi tu in `Suggested action`: sul bullet grezzo `suggestedActionText()` ricade sull'INTERO testo e i backtick che stanno in `Original text` fanno sembrare l'item ammissibile, mentre alla chiusura quella regione è esclusa per costruzione e l'item vale `no-valid-item` — cioè nasce già non chiudibile. Misurato eseguendo le funzioni: sullo stesso item, `citedTokens()` sul bullet grezzo dà `["manifest.counts"]` e sull'item coniato dà `[]`. Quindi: se un item ha codice da cambiare, vai a **cercare** il file, il simbolo o il campo da toccare e scrivilo tu nella `Suggested action` (`nomeFunzione()`, `oggetto.campo`, `COSTANTE >= 1` — mai un identificatore nudo né un path nudo, che `isDistinctiveToken()` rifiuta per scelta). Scartare per forma un item funnel-critico è peggio che scartarne uno vago: quello ha codice da cambiare e finisce in un commento che nessun reconciler drena. La rinuncia vale solo quando non esiste NIENTE da toccare, cioè quando è davvero un rischio in prosa.
+              **Il token derivato deve essere ASSENTE OGGI:** è ciò che un grep troverà DOPO la fix e NON trova oggi nel `Target file`; un token copiato dal codice corrente è già vero e l'item nasce soddisfatto. Verificalo (`grep -c -F`) prima di coniare; se il residuo è già vero su `main`, scarta l'item con motivo `already-on-main` nel commento di triage. Una prova post-merge senza file da modificare va nella checklist `Live-verification`, non in un item di codice. Il `COMANDO` di una scheda è un'osservazione (test, conteggio, lettura di run), mai uno script che riscrive dati.
               NB: dopo di te gira uno step deterministico (`scripts/ci/gate-minted-followups.mjs`) che ri-applica questa regola con la funzione vera, non con la tua lettura di questa riga. Un item che non la rispetta viene demoto dal corpo della issue e conservato nel commento della PR.
             - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip).
             - **In-flight PR overlap** (anti self-flag): escludi item su file che una PR aperta sta già modificando — usa `## Open PRs` + `## Open PR changed files` già nel bundle (punto 4 del Bootstrap), non rifare `gh pr list`/`gh pr diff --name-only` → log "in-flight in PR #N". Vedi FOLLOWUP.md § Dedup.
@@ -384,7 +443,13 @@ jobs:
           COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}
           ACTION_OUTCOME: ${{ steps.followup.outputs.codex_outcome }}
           ACTION_SUCCESS: ${{ steps.followup.outputs.action_success }}
-          CORPUS_REPO: nanakokyobashi-rgb/frontaliere-articles
+          GH_REPO: ${{ github.repository }}
+          # I due repository in cui puo' vivere un bucket giornaliero: un item
+          # del sito con target un file del corpus conia NEL CORPUS, quindi la
+          # verifica deve poter leggere entrambi (bucketRepoToken sceglie il
+          # token per repository).
+          FOLLOWUP_SITE_REPO: valerielinc-ops/frontaliere-si-o-no
+          FOLLOWUP_CORPUS_REPO: nanakokyobashi-rgb/frontaliere-articles
           GITHUB_PAT_NANAKO: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           GITHUB_PAT: ${{ env.GITHUB_PAT }}
         run: |
@@ -399,33 +464,20 @@ jobs:
           action_ok=false
           persistence_ok=true
 
-          # A PR marker is only an idempotency claim.  For a non-empty result it
-          # must point to a durable daily bucket whose body contains both a stable
-          # item heading and this PR in Sources.  This catches a successful marker
-          # comment followed by a failed issue create/edit; otherwise the next run
-          # would skip the PR forever.  The bucket can live in either repository.
-          bucket_persisted_for_pr() {
-            bucket="$1"
-            pr_number="$2"
-            for target_repo in "${REPO:-}" "${CORPUS_REPO:-}"; do
-              [ -n "$target_repo" ] || continue
-              target_token="${GH_TOKEN:-}"
-              if [ "$target_repo" = "${CORPUS_REPO:-}" ]; then
-                target_token="${GITHUB_PAT_NANAKO:-${GITHUB_PAT:-}}"
-              fi
-              [ -n "$target_token" ] || continue
-              issue_json=$(GH_TOKEN="$target_token" gh issue view "$bucket" --repo "$target_repo" --json number,title,body 2>/dev/null) || continue
-              if printf '%s' "$issue_json" | jq -e --arg bucket "$bucket" --arg pr "$pr_number" '
-                ((.number | tostring) == $bucket)
-                and ((.title // "") | test("^follow-up\\(daily:[0-9]{4}-[0-9]{2}-[0-9]{2}\\):[[:space:]]+[0-9]+[[:space:]]+items?"))
-                and ((.body // "") | test("(?m)^### FU-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}"))
-                and ((.body // "") | test("(?m)^-[[:space:]]+Sources?:[^\\n]*PR[[:space:]]+#" + $pr + "([^0-9]|$)"))
-              ' >/dev/null 2>&1; then
-                return 0
-              fi
-            done
-            return 1
-          }
+          # Il marker della PR e' solo un CLAIM di idempotenza: da solo non prova
+          # che il triage sia atterrato da qualche parte. La prova durevole e'
+          # il bucket giornaliero (o, per gli item demoti dal gate sul conio, il
+          # commento di conservazione sulla PR sorgente posteriore al marker), e
+          # vive in uno dei due repository.
+          #
+          # Quella verifica NON e' riscritta qui. Lo era, e la copia bash non
+          # conosceva la prova del gate: dopo una demozione il bucket non
+          # citava piu' la PR, la PR rientrava nel batch, Codex la saltava
+          # perche' il marker c'era gia' e questo step restava rosso finche'
+          # la PR non usciva dalla finestra (run 36212700029, 36202115664,
+          # 35947247334). Ora esiste un solo predicato, in
+          # scripts/ci/collect-followup-batch.mjs, e questo step lo INVOCA
+          # come fa il gemello corpus: la divergenza non e' piu' esprimibile.
 
           if [ "$collection_ok" != true ]; then
             echo "triage incompleta: collection_ok non è true (raccolta fallita/illeggibile)"
@@ -460,75 +512,14 @@ jobs:
               esac
               seen="${seen:+$seen,}${pr}"
               actual=$((actual + 1))
-              comments=$(gh pr view "$pr" --repo "$REPO" --json comments 2>/dev/null) || comments=""
-              if [ -z "$comments" ] || ! printf '%s' "$comments" | jq -e '[.comments[]?.body // "" | contains("## Post-merge follow-up triage")] | any' >/dev/null 2>&1; then
-                echo "triage incompleta: PR #$pr senza marker di triage leggibile"
-                marker_ok=false
-              else
-                marker_body=$(printf '%s' "$comments" | jq -r '[.comments[]?.body // "" | select(contains("## Post-merge follow-up triage"))] | last // ""' 2>/dev/null || true)
-                # `grep -Ei` e non `sed -n -E`: la grammatica del claim e'
-                # case-insensitive nel gemello JS, e un `created/updated:` in
-                # minuscolo non deve sparire da questo lato (finding review L478).
-                claim_head='^[[:space:]]*(-[[:space:]]+|\*[[:space:]]+)?Created(/updated)?:'
-                claim_lines=$(printf '%s\n' "$marker_body" | grep -Ei "$claim_head" || true)
-                bucket_refs=$(printf '%s\n' "$claim_lines" | grep -Eio 'bucket[[:space:]]*:?[[:space:]]*#[0-9]+' | sed -E 's/.*#//' | sort -un || true)
-                # A zero-candidate summary may name the unchanged daily bucket for
-                # audit context. That is not a claim that this PR was persisted in
-                # the bucket, so it must use the empty-result path below.
-                # Discriminante STRUTTURALE, gemello di `triageMarkerPersistenceExpectation`
-                # in scripts/ci/collect-followup-batch.mjs (il legame e' coperto da
-                # tests/followup-marker-zero-claim.test.ts): sulla riga di claim
-                # isolata qui sopra conta il NUMERO dichiarato, non la prosa. La
-                # lista di formule ammesse che stava qui e' stata superata tre volte
-                # dalla variante successiva; l'ultima il 2026-09-18 con
-                # «Created/updated: 0 item; nessun bucket creato.», marker corretto
-                # per un esito legittimo, run rossa.
-                # `0([^0-9.]|$)`: un `Created: 0.5 item` non e' un claim a zero.
-                zero_claim=false
-                if [ -n "$claim_lines" ] && ! printf '%s\n' "$claim_lines" \
-                  | grep -Eqvi "${claim_head}[[:space:]]*0([^0-9.]|\$)"; then
-                  zero_claim=true
-                fi
-                # Variante prodotta in produzione e responsabile di #9286:
-                # «nessun item per questa PR; bucket #N non modificato da questa
-                # PR». Il bucket è contesto, non una prova di persistenza. Le due
-                # clausole devono stare sulla STESSA riga; separarle in prosa
-                # renderebbe il fallback troppo permissivo.
-                unchanged_bucket_zero=false
-                if [ -n "$claim_lines" ]; then
-                  unchanged_bucket_zero=true
-                  while IFS= read -r claim_line; do
-                    if ! printf '%s\n' "$claim_line" | grep -Eqi "${claim_head}[[:space:]]*nessun[[:space:]]+item[[:space:]]+per[[:space:]]+questa[[:space:]]+PR[[:space:]]*;[[:space:]]*bucket([[:space:]]+giornaliero)?[[:space:]]+#[1-9][0-9]*[[:space:]]+non[[:space:]]+modificat[oa][[:space:]]+da[[:space:]]+questa[[:space:]]+PR[[:space:]]*\.?[[:space:]]*$"; then
-                      unchanged_bucket_zero=false
-                      break
-                    fi
-                  done <<< "$claim_lines"
-                fi
-                # Le formule d'intestazione valgono SOLO se non esiste alcuna riga
-                # di claim: cercarle nell'intero corpo anche con un claim non-zero
-                # permetteva a una prosa successiva di scavalcare la verifica del
-                # bucket per una persistenza REALE (finding review L484).
-                if [ "$zero_claim" = true ] || [ "$unchanged_bucket_zero" = true ] \
-                  || { [ -z "$claim_lines" ] \
-                    && printf '%s' "$marker_body" | grep -Eiq 'zero outstanding items|backfill skipped'; }; then
-                  # The explicit zero-item marker is an empty-result claim. A
-                  # bucket named only as unchanged audit context is not a
-                  # persistence claim and must not fail this branch.
-                  :
-                elif [ -z "$bucket_refs" ]; then
-                  echo "triage incompleta: marker PR #$pr senza riferimento a un bucket persistito"
-                  persistence_ok=false
-                else
-                  while IFS= read -r bucket; do
-                    [ -n "$bucket" ] || continue
-                    if ! bucket_persisted_for_pr "$bucket" "$pr"; then
-                      echo "triage incompleta: bucket #$bucket per PR #$pr non leggibile o senza item/Source persistito"
-                      persistence_ok=false
-                    fi
-                  done < <(printf '%s\n' "$bucket_refs")
-                fi
-              fi
             done
+            # Un solo invio per tutto il batch: stesso predicato
+            # dell'idempotenza del collector, stesse letture cross-repo.
+            if [ "$marker_ok" = true ]; then
+              if ! node scripts/ci/collect-followup-batch.mjs --verify-persistence "$csv"; then
+                persistence_ok=false
+              fi
+            fi
             if [ "$actual" -ne "$count" ] 2>/dev/null; then
               echo "triage incompleta: batch_count=$count ma PR verificate=$actual"
               marker_ok=false
@@ -570,6 +561,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          # I daily del sito contengono anche item instradati dal corpus
+          # (FOLLOWUP.md § Routing cross-repository) con `Sources: PR #N` di
+          # frontaliere-articles: senza questo repository gemello il recovery
+          # storico non li risolveva mai e i daily restavano `collecting`.
+          GATE_ALT_PR_REPO: nanakokyobashi-rgb/frontaliere-articles
+          GATE_ALT_PR_TOKEN: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
           COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}

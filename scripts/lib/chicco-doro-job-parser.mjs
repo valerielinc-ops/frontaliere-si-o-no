@@ -10,6 +10,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd, extractMicrodata } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -41,6 +43,16 @@ export const MIN_DESC_LENGTH = 100;
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
+}
+
+function canonicalPostingUrl(rawUrl = '', baseUrl = '') {
+  try {
+    const parsed = new URL(rawUrl, baseUrl || undefined);
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+    return parsed.href;
+  } catch {
+    return '';
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -339,6 +351,25 @@ function parseDetailPage(html = '') {
   return body;
 }
 
+/** Match publication to this listing, including singleton structured records. */
+function chiccoPublicationFields(html, pageUrl, listing) {
+  const records = [...extractJsonLd(html, pageUrl), ...extractMicrodata(html, pageUrl)];
+  let publication = mergeSourcePostingDates({}, {});
+  for (const record of records) {
+    if (normalizeSpace(record.title).toLowerCase() !== listing.title.toLowerCase()) continue;
+    if (record.urlExplicit) {
+      try {
+        if (canonicalPostingUrl(record.url, pageUrl) !== canonicalPostingUrl(listing.url || pageUrl, pageUrl)) continue;
+      } catch { continue; }
+    } else if (records.length !== 1) {
+      // Multiple URL-less records cannot independently identify this listing.
+      continue;
+    }
+    publication = mergeSourcePostingDates(publication, record);
+  }
+  return publication;
+}
+
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
@@ -384,7 +415,9 @@ export async function fetchAllChiccoDoroJobs({ fetchPage = fetchHtml, sleep = (m
     }
     if (listings.length > 0) {
       console.log(`  Jobs found on ${url}: ${listings.length}`);
-      allListings = allListings.concat(listings);
+      allListings = allListings.concat(listings.map((listing) => {
+        return { ...listing, ...chiccoPublicationFields(html, url, listing) };
+      }));
     }
   }
 
@@ -406,10 +439,12 @@ export async function fetchAllChiccoDoroJobs({ fetchPage = fetchHtml, sleep = (m
   const jobs = [];
   for (const listing of allListings) {
     let description = listing.snippet || '';
+    let publication = mergeSourcePostingDates({}, listing);
     if (listing.url && listing.url !== CAREER_URL) {
       try {
         const detailHtml = await fetchPage(listing.url, { timeoutMs: 25000 });
         const detailBody = parseDetailPage(detailHtml);
+        publication = mergeSourcePostingDates(publication, chiccoPublicationFields(detailHtml, listing.url, listing));
         if (detailBody && detailBody.length > description.length) {
           description = detailBody;
         }
@@ -447,7 +482,7 @@ export async function fetchAllChiccoDoroJobs({ fetchPage = fetchHtml, sleep = (m
       employmentType: detectEmploymentType(listing.title + ' ' + description),
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...publication,
       url: listing.url || CAREER_URL,
       applyUrl: listing.url || CAREER_URL,
       source: 'Chicco d\u2019Oro Dedicated Parser',

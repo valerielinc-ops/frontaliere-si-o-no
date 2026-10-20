@@ -353,10 +353,12 @@ describe('SEO surfaces that must survive the shard (the traffic the owner asked 
     expect(jobBoardSrc).toContain('const loadUnscopedPool = useCallback');
     expect(jobBoardSrc).toMatch(/\/data\/jobs-\$\{locale\}-index\.json/);
     // Both triggers still present: thin in-canton search, and the company hub.
-    expect(jobBoardSrc).toContain('searchBroadenFetchAttempted');
+    expect(jobBoardSrc).toContain('searchBroadenAttemptedQueries');
     expect(jobBoardSrc).toContain('companyBroadenFetchAttempted');
-    // And the tier itself still reads the pool.
-    expect(jobBoardSrc).toMatch(/for \(const job of unscopedJobs\)/);
+    // And the tier itself still reads that pool, now through the bounded scan
+    // rather than a synchronous loop in React's render task.
+    expect(jobBoardSrc).toContain('const crossCantonDerivation = useInterruptibleDerivation({');
+    expect(jobBoardSrc).toContain('items: unscopedJobs,');
   });
 
   it('cross-LOCALE search (tier 4) still reaches the other locale corpora', () => {
@@ -395,11 +397,11 @@ describe('SEO surfaces that must survive the shard (the traffic the owner asked 
   });
 
   it('the job-board title count no longer drags in the whole corpus', () => {
-    // getActiveJobCountLabel runs on EVERY listing page and needed nothing but
+    // getActiveJobCount runs on EVERY listing page and needed nothing but
     // a number; it used to get it via `map.size` on the full index, which would
     // have re-downloaded everything the shard just saved.
     expect(seoSrc).toContain('JOB_CANTON_MANIFEST_PATH');
-    const start = seoSrc.indexOf('async function getActiveJobCountLabel');
+    const start = seoSrc.indexOf('async function getActiveJobCount(');
     const block = seoSrc.slice(start, start + 1800);
     expect(block).toContain('cdnDataUrl(JOB_CANTON_MANIFEST_PATH)');
     // Fallback to the index must survive for pre-shard deploys / CDN lag.

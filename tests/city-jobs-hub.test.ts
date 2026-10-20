@@ -358,6 +358,25 @@ describe('per-canton city hub — hydration-safe SPA shell', () => {
     expect(html).not.toMatch(/<div id="root">\s*<main class="static-job-page"/);
   });
 
+  it('complete city hubs emit rich JSON-LD and stay indexable', async () => {
+    const { readFileSync } = await import('fs');
+    const { resolve } = await import('path');
+    const src = readFileSync(
+      resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+    const anchorStart = src.indexOf('Per-canton city hubs (Phase 3.1)');
+    const anchorEnd = src.indexOf('Static paginated listing pages');
+    const block = src.slice(anchorStart, anchorEnd);
+
+    // Every canonical city URL now carries the complete geographic template,
+    // including the empty/low-inventory variant, so it may expose its
+    // CollectionPage/ItemList and remains indexable.
+    expect(block).toContain('const cityHubIndexable = true;');
+    expect(block).toContain('jsonLdScripts: cityHubIndexable ? [breadcrumbLd, collectionLd, itemListLd] : [],');
+    expect(block).toContain("robots: 'index,follow',");
+  });
+
   // Anti-regression sweep — every staticOverlay page emit in jobsSeoPagesPlugin
   // (pagination / categoria / sector / company-city / keyword / search / combo)
   // must use buildSeoPageHtml. The legacy buildSimplePage default mode wraps

@@ -111,14 +111,9 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   const isTi = canton === 'TI';
   const out: string[] = [];
 
-  // TI claim: interpolate the live jobsCount like the non-TI branch does
-  // (the hardcoded "oltre 1.500" contradicted the title's real count, e.g.
-  // 5914, on the indexed hub). Falls back to the legacy fixed claim only
-  // when the caller has no usable count (jobsCount <= 0).
-  const tiJobsClaim = jobsCount > 0
-    ? `<strong>${jobsCount.toLocaleString('de-CH')}</strong>`
-    : 'oltre 1.500';
-  const tiFaqJobsClaim = jobsCount > 0 ? jobsCount.toLocaleString('de-CH') : 'oltre 1.500';
+  // Zero is a measured empty inventory, never a reason to invent vacancies.
+  const tiJobsClaim = `<strong>${jobsCount.toLocaleString('de-CH')}</strong>`;
+  const tiFaqJobsClaim = jobsCount.toLocaleString('de-CH');
 
   // ── 1. H2 + intro paragraph (definition block for AI extraction) ────────
   if (isTi) {

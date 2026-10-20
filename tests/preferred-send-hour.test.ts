@@ -35,6 +35,7 @@ function createFakeSubscriberRef({
 } = {}) {
   const sets: Array<{ data: Record<string, unknown>; opts?: unknown }> = [];
   let eventsQueried = false;
+  let eventsWhere: { field: string; operator: string; value: unknown } | null = null;
   const ref = {
     get: async () => ({ exists: !!docData, data: () => docData }),
     set: async (data: Record<string, unknown>, opts?: unknown) => {
@@ -43,18 +44,28 @@ function createFakeSubscriberRef({
     collection: (name: string) => {
       if (name !== 'events') throw new Error(`unexpected subcollection: ${name}`);
       return {
-        orderBy: () => ({
-          limit: () => ({
-            get: async () => {
-              eventsQueried = true;
-              return { docs: events.map((d) => ({ data: () => d })) };
-            },
-          }),
-        }),
+        where: (field: string, operator: string, value: unknown) => {
+          eventsWhere = { field, operator, value };
+          return {
+            orderBy: () => ({
+              limit: () => ({
+                get: async () => {
+                  eventsQueried = true;
+                  return { docs: events.map((d) => ({ data: () => d })) };
+                },
+              }),
+            }),
+          };
+        },
       };
     },
   };
-  return { ref, sets, wasEventsQueried: () => eventsQueried };
+  return {
+    ref,
+    sets,
+    wasEventsQueried: () => eventsQueried,
+    eventsWhere: () => eventsWhere,
+  };
 }
 
 function fakeFieldValue() {
@@ -282,6 +293,18 @@ describe('circularMeanToHour (functions/src/lib) — shared angle→hour convers
 describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () => {
   it('exposes the refresh interval constant (6 hours)', () => {
     expect(PREFERRED_SEND_REFRESH_INTERVAL_MS).toBe(6 * 60 * 60 * 1000);
+  });
+
+  it('filters the events query to open/click before applying the 300-row limit', async () => {
+    const { ref, eventsWhere } = createFakeSubscriberRef();
+
+    await refreshPreferredSendHour(ref as never, fakeFieldValue());
+
+    expect(eventsWhere()).toEqual({
+      field: 'event_type',
+      operator: 'in',
+      value: ['open', 'click'],
+    });
   });
 
   it('skips the events query and write when sample_count >= threshold and updated_at is fresh (<6h)', async () => {

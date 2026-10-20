@@ -13,13 +13,20 @@
  * - trafficHistory/{slug}/snapshots/{snapshotId} → append-only historical record
  */
 
-import admin from 'firebase-admin';
+import {
+ applicationDefault,
+ getApp,
+ getApps,
+ initializeApp,
+} from 'firebase-admin/app';
+import { getFirestore, Timestamp } from 'firebase-admin/firestore';
 import { slugifyCrossingName, BORDER_CROSSINGS } from './borderCrossingsData.js';
 import {
   TRAFFIC_PROVIDER_SPECS,
   TRANSIENT_RESERVATION_REASONS,
   buildTrafficProviderChain,
   classifyProviderError,
+  estimateWebcamWait,
   getTrafficSegmentTravelTimes,
   isRetryableReservationError,
   isTransientProviderRefusal,
@@ -345,8 +352,67 @@ async function reserveRequestIfNeeded(options, providerId, operation = 'route') 
 }
 
 function finiteNonNegative(value) {
- const n = Number(value);
- return Number.isFinite(n) && n >= 0 ? n : null;
+ return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : null;
+}
+
+// Official-signal payloads predate the strict webcam baseline contract and
+// may arrive from the open-data adapters as numeric strings. Keep that
+// compatibility local to the official path without allowing empty strings or
+// other sentinels to become zero.
+function legacyOfficialNonNegative(value) {
+ const normalized = typeof value === 'string'
+  ? value.trim() === '' ? null : Number(value)
+  : value;
+ return finiteNonNegative(normalized);
+}
+
+const WEBCAM_BASELINE_PROVIDER_IDS = new Set(['tomtom', 'here']);
+
+/**
+ * Pair per-feed CV measurements with the crossing-segment provider wait.
+ *
+ * This is shadow-only evidence: it is produced after the provider request that
+ * already powers the traffic snapshot, and it explicitly records zero
+ * incremental paid requests. No aggregate fallback is allowed here because a
+ * single max score cannot identify which feed produced it.
+ */
+export function buildWebcamBaselineObservations({
+ crossingName,
+ provider,
+ providerWaitMinutes,
+ webcam,
+ observedAt,
+}) {
+ const wait = finiteNonNegative(providerWaitMinutes);
+ if (!WEBCAM_BASELINE_PROVIDER_IDS.has(provider) || wait === null) return [];
+ if (typeof observedAt !== 'string' || !Number.isFinite(Date.parse(observedAt))) return [];
+ if (!Array.isArray(webcam?.feedObservations)) return [];
+
+ return webcam.feedObservations
+  .filter((feed) => {
+   const score = finiteNonNegative(feed?.congestionScore);
+   const vehicles = finiteNonNegative(feed?.vehicleCount);
+   return feed?.visibility === 'good'
+    && typeof feed?.feedKey === 'string'
+    && feed.feedKey.trim().length > 0
+    && score !== null
+    && score >= 0
+    && score <= 1
+    && vehicles !== null;
+  })
+  .map((feed) => ({
+   crossingName,
+   provider,
+   providerWaitMinutes: wait,
+   feedKey: feed.feedKey,
+   vehicleCount: feed.vehicleCount,
+   congestionScore: feed.congestionScore,
+   queueDetected: feed.queueDetected === true,
+   observedAt,
+   // The route and webcam observations share this collector run; no extra
+   // provider request is made for the benchmark row.
+   incrementalPaidRequests: 0,
+  }));
 }
 
 function officialSignalForCrossing(options, crossing) {
@@ -361,8 +427,8 @@ function officialSignalForCrossing(options, crossing) {
  * measured delay remain provenance, not fabricated minutes. */
 function applyOfficialSignal(waitTimeMinutes, approachMinutes, signal) {
  if (!signal) return { waitTimeMinutes, approachMinutes };
- const officialQueue = finiteNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes);
- const officialApproach = finiteNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes);
+ const officialQueue = legacyOfficialNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes);
+ const officialApproach = legacyOfficialNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes);
  return {
   waitTimeMinutes: officialQueue === null ? waitTimeMinutes : Math.max(waitTimeMinutes, Math.round(officialQueue)),
   approachMinutes: officialApproach === null ? approachMinutes : Math.max(approachMinutes, Math.round(officialApproach)),
@@ -400,7 +466,7 @@ async function getSegmentWithProviderFallback(originLat, originLng, destLat, des
     options.providerRuntime?.disabled?.add(providerId);
    }
    console.warn(
-    `⚠️ ${providerId} failed for one traffic segment (${transient ? `${kind}/transient` : kind}) — rotating fallback`,
+    `⚠️ ${providerId} failed for one traffic segment (${transient ? `${kind}/transient` : kind}) — rotating fallback: ${error?.message ?? error}`,
    );
   }
  }
@@ -453,10 +519,25 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
    options,
   ).then((value) => ({ ...value, provider }));
 
- const [crossingResult, approachResult] = await Promise.allSettled([
- segmentFetcher(lat, lng, checkpointLat, lng),
- segmentFetcher(approachLat, lng, lat, lng),
+ // Select the crossing provider before starting the approach request. If a
+ // traffic-aware provider fails and fallback selects a static router, a
+ // parallel approach request would spend a second static-provider route for
+ // the same crossing even though it cannot provide a traffic delay.
+ const [crossingResult] = await Promise.allSettled([
+  segmentFetcher(lat, lng, checkpointLat, lng),
  ]);
+ const selectedCrossingProvider = crossingResult.status === 'fulfilled'
+  ? crossingResult.value.provider
+  : null;
+ const selectedProviderIsTrafficAware = crossingResult.status === 'fulfilled'
+  ? providerChain?.length
+   ? TRAFFIC_PROVIDER_SPECS[selectedCrossingProvider]?.trafficAware === true
+   : TRAFFIC_PROVIDER_SPECS[selectedCrossingProvider]?.trafficAware ?? true
+  : false;
+ const shouldFetchApproach = crossingResult.status === 'rejected' || selectedProviderIsTrafficAware;
+ const approachResult = shouldFetchApproach
+  ? (await Promise.allSettled([segmentFetcher(approachLat, lng, lat, lng)]))[0]
+  : { status: 'skipped' };
 
  let waitTimeMinutes = 0;
  let approachMinutes = 0;
@@ -497,10 +578,15 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  }
  }
 
+ // Preserve the provider's raw crossing wait before official signals and the
+ // webcam sanity filter touch it. This is the target value for the shadow
+ // baseline; the published value below may legitimately be adjusted.
+ const providerWaitBeforeWebcamSanity = waitTimeMinutes;
+
  if (approachResult.status === 'fulfilled') {
  const { durationNormalSec, durationTrafficSec } = approachResult.value;
  approachMinutes = Math.max(0, Math.round((durationTrafficSec - durationNormalSec) / 60));
- } else {
+ } else if (approachResult.status !== 'skipped') {
  console.warn(`⚠️ Approach segment failed for ${crossing.name}: ${approachResult.reason?.message}`);
  }
 
@@ -531,6 +617,7 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  // Only active when webcam analysis is enabled (options.enableWebcam) and the
  // crossing actually has a camera (analyzeWebcamForCrossing returns null otherwise).
  let webcam = null;
+ const webcamObservedAt = new Date().toISOString();
  if (options.enableWebcam) {
   try {
    const { analyzeWebcamForCrossing } = await import('../../scripts/analyze-webcam-frame.mjs');
@@ -539,6 +626,14 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
    console.warn(`⚠️ Webcam analysis skipped for ${crossing.name}: ${webcamErr.message}`);
   }
  }
+
+ const webcamBaselineObservations = buildWebcamBaselineObservations({
+  crossingName: crossing.name,
+  provider: crossingResult.status === 'fulfilled' ? crossingResult.value.provider : null,
+  providerWaitMinutes: providerWaitBeforeWebcamSanity,
+  webcam,
+  observedAt: webcamObservedAt,
+ });
 
  if (hasLiveData) {
   // (a) Adjust-only: never let the webcam replace a successful routing estimate.
@@ -552,7 +647,18 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  } else if (webcam && webcam.visibility === 'good') {
   // (b) Webcam-as-PRIMARY: both routing segments failed but a good-visibility
   // camera saw the road. Use the granular congestion→minutes estimate.
-  waitTimeMinutes = Math.max(waitTimeMinutes, estimateWaitFromCongestion(webcam.congestionScore));
+  const calibratedEstimate = estimateWebcamWait(
+   webcam.congestionScore,
+   options.webcamWaitCalibration,
+  );
+  // Keep the existing conservative fallback until the shadow benchmark has
+  // produced a validated calibration. The new estimator is never silently
+  // promoted by the presence of a webcam score alone.
+  if (calibratedEstimate.status === 'estimated') {
+   waitTimeMinutes = Math.max(waitTimeMinutes, calibratedEstimate.waitTimeMinutes);
+  } else {
+   waitTimeMinutes = Math.max(waitTimeMinutes, estimateWaitFromCongestion(webcam.congestionScore));
+  }
   approachMinutes = 0; // no live approach datum to combine with
   source = signal ? 'official+webcam' : 'webcam';
   console.log(
@@ -560,8 +666,8 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
    `congestionScore=${webcam.congestionScore == null ? 'null' : webcam.congestionScore.toFixed(2)} ` +
    `(queueDetected=${webcam.queueDetected}) → ${waitTimeMinutes} min`,
   );
- } else if (signal && (finiteNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes) !== null
-  || finiteNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes) !== null)) {
+ } else if (signal && (legacyOfficialNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes) !== null
+  || legacyOfficialNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes) !== null)) {
   // Official open-data signals are a useful primary fallback when both route
   // segments fail. Incident-only records deliberately do not reach this path.
   source = 'official';
@@ -592,18 +698,22 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  };
  if (officialSources) result.officialSources = officialSources;
  if (signal?.updatedAt) result.officialLastUpdate = String(signal.updatedAt);
- if (finiteNonNegative(signal?.queueKm) !== null) result.officialQueueKm = Number(signal.queueKm);
+ const officialQueueKm = legacyOfficialNonNegative(signal?.queueKm);
+ if (officialQueueKm !== null) result.officialQueueKm = officialQueueKm;
  if (signal) result.dataQuality = hasLiveData ? 'live+official' : 'official';
+ if (webcamBaselineObservations.length > 0) {
+  result.webcamBaselineObservations = webcamBaselineObservations;
+ }
  return result;
 }
 
 // ─── Firebase Admin init ──────────────────────────────────────
 
 export function ensureAdminApp() {
- if (!admin.apps.length) {
- admin.initializeApp({ credential: admin.credential.applicationDefault() });
+ if (!getApps().length) {
+ initializeApp({ credential: applicationDefault() });
  }
- return admin;
+ return getApp();
 }
 
 // ─── Legacy HERE budget helpers ─────────────────────────────────
@@ -706,36 +816,49 @@ async function persistIfPublishable(results, errors, label) {
 
 function createProviderMeshRuntime(providerChain) {
  const disabled = new Set();
+ const RATE_LIMIT_WAIT_BUDGET_MS = 45_000;
  const reserveRequest = async (providerId, operation = 'route') => {
   if (disabled.has(providerId)) return { allowed: false, reason: 'disabled' };
-  try {
-   const reservation = await reserveTrafficProviderRequest(providerId, operation);
-   if (!reservation?.allowed) {
-    const reason = reservation.reason ?? 'quota';
-    // A spent allowance is account-wide; a minimum-interval refusal is not.
-    if (!TRANSIENT_RESERVATION_REASONS.includes(reason)) disabled.add(providerId);
+  const rateWaitStartedAt = Date.now();
+  while (true) {
+   try {
+    const reservation = await reserveTrafficProviderRequest(providerId, operation);
+    if (!reservation?.allowed) {
+     const reason = reservation.reason ?? 'quota';
+     if (reason === 'rate-limit') {
+      const retryAfterMs = Number(reservation.retryAfterMs);
+      const elapsedMs = Date.now() - rateWaitStartedAt;
+      if (Number.isFinite(retryAfterMs) && retryAfterMs > 0
+       && elapsedMs + retryAfterMs <= RATE_LIMIT_WAIT_BUDGET_MS) {
+       await new Promise((resolve) => setTimeout(resolve, retryAfterMs));
+       continue;
+      }
+     }
+     // A spent allowance is account-wide; a minimum-interval refusal is not.
+     if (!TRANSIENT_RESERVATION_REASONS.includes(reason)) disabled.add(providerId);
+     console.warn(
+      `🛑 ${providerId}/${operation} quota guard blocked the request (${reason}) — rotating provider`,
+     );
+    }
+    return reservation;
+   } catch (error) {
+    // A failed quota transaction cannot prove that a paid request is safe, so
+    // THIS request always fails closed. Whether the PROVIDER survives depends
+    // on why the transaction failed, and the two cases are opposites:
+    //   - retryable (contention on the single per-provider counter, Firestore
+    //     unavailable): keep the provider eligible. Banning it here is what
+    //     collapsed the mesh on 2026-09-18.
+    //   - permanent (permission denied, bad configuration): every remaining
+    //     segment would fail identically, so disable and rotate once instead of
+    //     re-hitting the same fault 280 times.
+    const retryable = isRetryableReservationError(error);
+    if (!retryable) disabled.add(providerId);
     console.warn(
-     `🛑 ${providerId}/${operation} quota guard blocked the request (${reason}) — rotating provider`,
+     `🛑 ${providerId}/${operation} quota check failed `
+     + `(${retryable ? 'retryable — next segment may reserve' : 'permanent — provider disabled'}): ${error.message}`,
     );
+    return { allowed: false, reason: retryable ? 'quota-check-failed' : 'quota-check-permanent' };
    }
-   return reservation;
-  } catch (error) {
-   // A failed quota transaction cannot prove that a paid request is safe, so
-   // THIS request always fails closed. Whether the PROVIDER survives depends
-   // on why the transaction failed, and the two cases are opposites:
-   //   - retryable (contention on the single per-provider counter, Firestore
-   //     unavailable): keep the provider eligible. Banning it here is what
-   //     collapsed the mesh on 2026-09-18.
-   //   - permanent (permission denied, bad configuration): every remaining
-   //     segment would fail identically, so disable and rotate once instead of
-   //     re-hitting the same fault 280 times.
-   const retryable = isRetryableReservationError(error);
-   if (!retryable) disabled.add(providerId);
-   console.warn(
-    `🛑 ${providerId}/${operation} quota check failed `
-    + `(${retryable ? 'retryable — next segment may reserve' : 'permanent — provider disabled'}): ${error.message}`,
-   );
-   return { allowed: false, reason: retryable ? 'quota-check-failed' : 'quota-check-permanent' };
   }
  };
 
@@ -772,7 +895,11 @@ async function runTrafficCollectionWithProviderMesh(options, providerChain) {
    // Same rule as the per-segment rotation: a transient reservation refusal
    // must not cost the provider the whole run before it has served anything.
    if (!isTransientProviderRefusal(error)) runtime.disabled.add(providerId);
-   console.warn(`🛑 ${providerId} preflight failed (${classifyProviderError(error)}) — rotating provider`);
+   // The class alone hid WHY a provider left the run: on 2026-09-30 (run
+   // 36768407121) google-routes logged only `(auth)` while google-maps, on the
+   // same key, said "legacy API … not enabled for your project". The adapter
+   // message is bounded (status + a short body slice) and carries no key.
+   console.warn(`🛑 ${providerId} preflight failed (${classifyProviderError(error)}) — rotating provider: ${error?.message ?? error}`);
   }
  }
 
@@ -858,9 +985,9 @@ export async function runTrafficCollection(options = {}) {
  * - trafficHistory/{slug}/snapshots/{snapshotId} → historical append-only
  */
 export async function saveTrafficToFirestore(crossingResults) {
- const adm = ensureAdminApp();
- const db = adm.firestore();
- const now = adm.firestore.Timestamp.now();
+ ensureAdminApp();
+ const db = getFirestore();
+ const now = Timestamp.now();
  // Use the current timestamp (ms) as a chronologically sortable document ID.
  const snapshotId = Date.now().toString();
 
@@ -875,24 +1002,30 @@ export async function saveTrafficToFirestore(crossingResults) {
 
  for (const result of crossingResults) {
  const slug = slugifyCrossingName(result.crossingName);
+ const { webcamBaselineObservations, ...publishedResult } = result;
  const docData = {
- ...result,
- lastUpdate: now,
- hour,
- dayOfWeek,
+ ...publishedResult,
+  lastUpdate: now,
+  hour,
+  dayOfWeek,
  };
 
  // Current state – overwrite on every run
  const currentRef = db.collection('trafficCurrent').doc(slug);
  batch.set(currentRef, docData);
 
- // Historical snapshot – append only
- const historyRef = db
+  // Historical snapshot – append only
+  const historyRef = db
  .collection('trafficHistory')
  .doc(slug)
  .collection('snapshots')
  .doc(snapshotId);
- batch.set(historyRef, docData);
+ // Keep the raw pair in the append-only operational history, not in the
+ // current public document. The daily mirror only aggregates wait minutes,
+ // so this shadow evidence never changes the public snapshot shape.
+ batch.set(historyRef, webcamBaselineObservations?.length > 0
+  ? { ...docData, webcamBaselineObservations }
+  : docData);
  }
 
  await batch.commit();
@@ -932,7 +1065,8 @@ function buildWebcamCrossingResult(crossing, waitTimeMinutes, approachMinutes = 
   : typeof signal?.sourceId === 'string' ? signal.sourceId : '';
  if (officialSources) result.officialSources = officialSources;
  if (signal?.updatedAt) result.officialLastUpdate = String(signal.updatedAt);
- if (finiteNonNegative(signal?.queueKm) !== null) result.officialQueueKm = Number(signal.queueKm);
+ const officialQueueKm = legacyOfficialNonNegative(signal?.queueKm);
+ if (officialQueueKm !== null) result.officialQueueKm = officialQueueKm;
  if (signal) result.dataQuality = webcamUsed ? 'official+webcam' : 'official';
  return result;
 }
@@ -982,8 +1116,8 @@ export async function runWebcamOnlyCollection(options = {}) {
  const signal = officialSignalForCrossing(options, crossing);
  const officialMinutes = applyOfficialSignal(0, 0, signal);
  const hasOfficialMinutes = signal && (
-  finiteNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes) !== null
-  || finiteNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes) !== null
+  legacyOfficialNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes) !== null
+  || legacyOfficialNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes) !== null
  );
  // A camera remains the preferred free primary signal. If it is absent/night,
  // an explicit official queue/approach measurement can still refresh the
@@ -994,10 +1128,14 @@ export async function runWebcamOnlyCollection(options = {}) {
   continue;
  }
 
- const waitTimeMinutes = Math.max(
-  officialMinutes.waitTimeMinutes,
-  estimateWaitFromCongestion(webcam.congestionScore),
+ const calibratedEstimate = estimateWebcamWait(
+  webcam.congestionScore,
+  options.webcamWaitCalibration,
  );
+ const webcamWaitMinutes = calibratedEstimate.status === 'estimated'
+  ? calibratedEstimate.waitTimeMinutes
+  : estimateWaitFromCongestion(webcam.congestionScore);
+ const waitTimeMinutes = Math.max(officialMinutes.waitTimeMinutes, webcamWaitMinutes);
  results.push(buildWebcamCrossingResult(crossing, waitTimeMinutes, officialMinutes.approachMinutes, signal));
  console.log(
  `📷 Webcam-only estimate for ${crossing.name}: ` +

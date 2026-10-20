@@ -54,6 +54,49 @@ function transientResponse(response) {
     || (response.status === 403 && response.headers.has('retry-after'));
 }
 
+/**
+ * An independent copy of one stream chunk, never a view. A reader may hand
+ * back the same buffer on every read (#7483), and a polyfilled body may hand
+ * back a bare ArrayBuffer: over that, `new Uint8Array(value)` is a view on the
+ * producer's memory, so a later write by the producer rewrote bytes already
+ * read. A typed array other than Uint8Array is copied byte by byte, not
+ * element by element. Anything else is not a body chunk.
+ */
+function isCrossRealmArrayBuffer(value) {
+  return Object.prototype.toString.call(value) === '[object ArrayBuffer]';
+}
+
+function copyOfChunk(value) {
+  if (isCrossRealmArrayBuffer(value)) return new Uint8Array(value.slice(0));
+  if (ArrayBuffer.isView(value)) {
+    return new Uint8Array(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength));
+  }
+  throw new GitHubActionsReadError('github_api_invalid', 'response chunk is not bytes');
+}
+
+const READER_CANCEL_DEADLINE_MS = 1_000;
+
+/**
+ * Best-effort cleanup after a reader error. A rejected `reader.read()` may
+ * already have errored the stream, and some polyfills leave `reader.cancel()`
+ * pending forever. Cleanup is bounded and can never replace the read verdict.
+ */
+async function cancelReaderWithDeadline(reader) {
+  let timer;
+  try {
+    await Promise.race([
+      Promise.resolve().then(() => reader.cancel()),
+      new Promise((resolve) => {
+        timer = setTimeout(resolve, READER_CANCEL_DEADLINE_MS);
+      }),
+    ]);
+  } catch {
+    // The read verdict stays authoritative even if cancellation rejects.
+  } finally {
+    if (timer !== undefined) clearTimeout(timer);
+  }
+}
+
 async function readBoundedResponse(response, maxBytes) {
   const declared = Number(response.headers.get('content-length'));
   if (Number.isFinite(declared) && declared > maxBytes) {
@@ -67,15 +110,22 @@ async function readBoundedResponse(response, maxBytes) {
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
-      size += value.byteLength;
+      const chunk = copyOfChunk(value);
+      size += chunk.byteLength;
       if (size > maxBytes) {
-        try { await reader.cancel(); } catch { /* the cap remains authoritative */ }
         throw new GitHubActionsReadError('github_response_too_large');
       }
-      chunks.push(value);
+      chunks.push(chunk);
     }
+  } catch (error) {
+    await cancelReaderWithDeadline(reader);
+    throw error;
   } finally {
-    reader.releaseLock();
+    // Releasing the lock is cleanup and must never replace the verdict: older
+    // WHATWG streams and polyfilled bodies throw from releaseLock() (pending
+    // read, stream left mid-cancel), which would turn a completed read or a
+    // `github_response_too_large` into a retried transport failure (#9729).
+    try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }
   }
   const bytes = new Uint8Array(size);
   let offset = 0;
@@ -86,6 +136,19 @@ async function readBoundedResponse(response, maxBytes) {
   return bytes;
 }
 
+/**
+ * @typedef {object} GitHubActionsReadClientOptions
+ * @property {string} apiUrl
+ * @property {string} token
+ * @property {string} [apiVersion]
+ * @property {typeof fetch} [fetchImpl]
+ * @property {(milliseconds: number) => Promise<void>} [sleep]
+ * @property {number} [timeoutMs]
+ */
+
+/**
+ * @param {GitHubActionsReadClientOptions} [options]
+ */
 export function createGitHubActionsReadClient({
   apiUrl,
   token,
@@ -93,7 +156,7 @@ export function createGitHubActionsReadClient({
   fetchImpl = fetch,
   sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)),
   timeoutMs = 30_000,
-} = {}) {
+} = /** @type {GitHubActionsReadClientOptions} */ ({})) {
   if (typeof apiUrl !== 'string' || !/^https:\/\//.test(apiUrl)
       || typeof token !== 'string' || token.length === 0
       || typeof apiVersion !== 'string' || apiVersion.length === 0

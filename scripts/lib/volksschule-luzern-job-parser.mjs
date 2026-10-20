@@ -62,6 +62,9 @@ const parser = createProspectiveChParser({
   extraTrustedHosts: ['jobs.stadtluzern.ch', 'job.stadtluzern.ch', 'stadtluzern.prospective.ch'],
   sector: SECTOR,
   categoryFn: detectVolksschuleCategory,
+  // Listing payload = 29-39 % of the rendered vacancy (audit 2026-09-29):
+  // "Weiteres zur Stelle", "Lohn" and the benefit rows exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllVolksschuleLuzernJobs = parser.fetchAllJobs;

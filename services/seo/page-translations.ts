@@ -1,3 +1,4 @@
+import { METHODOLOGY_COPY, METHODOLOGY_PATHS } from '../editorialMethodology';
 // Page-level structured data translations for CollectionPage, ItemList, WebPage,
 // AboutPage and ContactPage schemas rendered on localized pages.
 //
@@ -31,6 +32,11 @@ type ItemListLocaleMap = Record<string, { en: ItemListTranslation; de: ItemListT
 // ───────────────────────────────────────────────────────────────────────────
 
 export const COLLECTION_PAGE_TRANSLATIONS: BasicLocaleMap = {
+ "Comuni Italiani di Frontiera": {
+ en: { name: "Italian Border Municipalities", description: "List of Italian municipalities in the border zone with Switzerland" },
+ de: { name: "Italienische Grenzgemeinden", description: "Liste der italienischen Gemeinden im Grenzgebiet zur Schweiz" },
+ fr: { name: "Communes frontalieres italiennes", description: "Liste des communes italiennes dans la zone frontaliere avec la Suisse" }
+ },
  "Comparatori Servizi Frontalieri": {
  en: { name: "Cross-Border Worker Service Comparators", description: "Comparison tools for essential services for cross-border workers" },
  de: { name: "Vergleichstools fuer Grenzgaengerdienste", description: "Vergleichstools fuer wesentliche Dienstleistungen fuer Grenzgaenger" },
@@ -408,6 +414,15 @@ export function translateWebPage(obj: Record<string, any>, locale: Lang): void {
  * Translate an AboutPage JSON-LD object in place.
  */
 export function translateAboutPage(obj: Record<string, any>, locale: Lang): void {
+ if (Object.values(METHODOLOGY_COPY).some(copy => copy.title === obj.name) || (typeof obj.url === 'string' && Object.values(METHODOLOGY_PATHS).some(path => obj.url === `https://frontaliereticino.ch${path}`))) {
+ const copy = METHODOLOGY_COPY[locale];
+ obj.name = copy.title;
+ obj.description = copy.description;
+ obj.url = `https://frontaliereticino.ch${METHODOLOGY_PATHS[locale]}`;
+ obj.inLanguage = locale;
+ if (obj.about?.['@type'] === 'CreativeWork') obj.about.name = copy.title;
+ return;
+ }
  applyBasic(obj, ABOUT_PAGE_TRANSLATIONS, locale);
 }
 

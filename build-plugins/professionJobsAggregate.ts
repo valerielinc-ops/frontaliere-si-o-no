@@ -1,9 +1,11 @@
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Build-time aggregator for the profession landings (AE-3 template B).
  *
  * Reads data/jobs.json once per build, derives per-profession metrics that
- * feed the new template B header (3 stat tiles + 3 featured jobs + employer
- * grid). PROFESSION_FACTS in professionLandingsData.ts stays as the frozen
+ * feed the new template B header (3 stat tiles + complete live inventory +
+ * employer grid). PROFESSION_FACTS in professionLandingsData.ts stays as the frozen
  * authority for typicalSalaryRange / CCL / recognition — those are stable
  * editorial facts, not snapshot-driven.
  *
@@ -32,7 +34,7 @@ import {
   type ProfessionLocale,
 } from './professionLandingsData';
 import { resolveJobCanton } from './shared/cantonSection';
-import { realSalaryMedianChf } from './shared/realSalaryMedian';
+import { realSalaryMedianChf, reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
 import { jobMatchesCity, type CityHubKey } from './cityJobsHub';
 import { PROFESSION_CITY_DEFS } from './professionCityData';
@@ -64,6 +66,8 @@ interface JobRecord {
    * re-enriched. */
   salarySource?: string;
   currency?: string;
+  postingDateSource?: string;
+  datePosted?: string;
   postedDate?: string;
   firstSeenAt?: string;
   featured?: boolean;
@@ -85,6 +89,10 @@ export interface FeaturedJob {
   readonly contract: string | null;
   readonly salaryMin: number | null;
   readonly salaryMax: number | null;
+  readonly salarySource?: string;
+  readonly currency?: string;
+  readonly postingDateSource?: string;
+  readonly datePosted?: string | null;
   readonly postedDate: string;
   readonly daysAgo: number;
   readonly slug: string;
@@ -104,8 +112,12 @@ export interface ProfessionJobsSnapshot {
   readonly fresh30Count: number;
   /** Median annual gross CHF salary computed from baseSalary midpoints. */
   readonly medianSalaryChf: number | null;
+  /** Provenance-qualified annual CHF ranges; missing legacy summaries fail closed. */
+  readonly reportedSalary?: ReportedSalarySummary;
   /** Top 3 freshest featured (else freshest) jobs that match this profession. */
   readonly featured: readonly FeaturedJob[];
+  /** Complete valid live inventory: legacy Ticino profession landing and profession × city landings. */
+  readonly jobs?: readonly FeaturedJob[];
   /** Top 6 employers by job count for this profession. */
   readonly topEmployers: ReadonlyArray<{ name: string; count: number }>;
 }
@@ -212,7 +224,10 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
     // ristorazione` alternative catches the official Swiss job-title forms
     // EOC uses ("Impiegato/a della ristorazione", "Collaboratore/trice di
     // ristorazione") that carry no camerier/kellner/waiter stem at all (#5413).
-    title: /\b(camerier|kellner|waiter|waitress|serveur|serveuse|chef de rang|commis de salle|barista|barkeeper|(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione)/i,
+    // Keep WOKIN's German forms narrow: bare `Servicemitarbeiter` is also used
+    // for customer-service jobs, while these source titles carry either the
+    // published workload range or an explicit restaurant qualifier.
+    title: /\b(camerier|kellner|waiter|waitress|serveur|serveuse|servicemitarbeiter(?:\/in)?\s+\d{1,3}\s*[–-]\s*\d{1,3}\s*%|servicehilfskraft\s+(?:rastaurant|restaurant)|restaurantangestellt|chef de rang|commis de salle|barista|barkeeper|(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione)/i,
   },
   elettricista: {
     title: /\b(elettricist|elektriker|electrician|électricien|electricien|elektromonteur|elektroinstallat)/i,
@@ -385,8 +400,8 @@ function toFeatured(job: JobRecord, now: number): FeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
   // First PARSEABLE date, not first truthy: a malformed postedDate must not
   // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
-  const postedDate = firstParsableDateStr(job.postedDate, job.firstSeenAt);
-  const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   return {
     id: job.id,
@@ -401,6 +416,10 @@ function toFeatured(job: JobRecord, now: number): FeaturedJob | null {
     contract: job.employmentType ?? job.contract ?? null,
     salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : null,
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
+    salarySource: job.salarySource,
+    currency: job.currency,
+    postingDateSource: job.postingDateSource ?? undefined,
+    datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
     daysAgo,
     slug: job.slug,
@@ -414,6 +433,7 @@ function buildSnapshotForProfession(
   jobs: readonly JobRecord[],
   matcher: ProfessionMatcher,
   now: number,
+  includeAllJobs = false,
 ): ProfessionJobsSnapshot {
   const matches: JobRecord[] = [];
   for (const job of jobs) {
@@ -426,8 +446,8 @@ function buildSnapshotForProfession(
   const last30 = now - 30 * DAY_MS;
   let fresh30 = 0;
   for (const job of matches) {
-    const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
-    if (ts && ts >= last30) fresh30++;
+    const ts = firstParsableMs(resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)));
+    if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
   const medianSalary = realSalaryMedianChf(matches);
@@ -449,22 +469,25 @@ function buildSnapshotForProfession(
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;
     if (aFeat !== bFeat) return bFeat - aFeat;
-    const aTs = firstParsableMs(a.postedDate, a.firstSeenAt);
-    const bTs = firstParsableMs(b.postedDate, b.firstSeenAt);
+    const aTs = firstParsableMs(resolveRolloutPostingDate(a, () => firstParsableDateStr(a.postedDate, a.firstSeenAt), new Date(now)));
+    const bTs = firstParsableMs(resolveRolloutPostingDate(b, () => firstParsableDateStr(b.postedDate, b.firstSeenAt), new Date(now)));
     return bTs - aTs;
   });
-  const featured: FeaturedJob[] = [];
+  const projectedJobs: FeaturedJob[] = [];
   for (const job of sortedMatches) {
-    if (featured.length >= 3) break;
     const f = toFeatured(job, now);
-    if (f) featured.push(f);
+    if (f) projectedJobs.push(f);
+    if (!includeAllJobs && projectedJobs.length >= 3) break;
   }
+  const featured = projectedJobs.slice(0, 3);
 
   return {
     liveCount: matches.length,
     fresh30Count: fresh30,
     medianSalaryChf: medianSalary,
+    reportedSalary: reportedSalarySummary(matches),
     featured,
+    ...(includeAllJobs ? { jobs: projectedJobs } : {}),
     topEmployers,
   };
 }
@@ -494,7 +517,7 @@ export function aggregateProfessionJobs(
   const jobs = allJobs.filter((job) => resolveJobCanton(job as { canton?: string; location?: string }) === 'TI');
   const out = {} as Record<ProfessionId, ProfessionJobsSnapshot>;
   for (const id of PROFESSION_IDS) {
-    out[id] = buildSnapshotForProfession(jobs, PROFESSION_MATCHERS[id], now);
+    out[id] = buildSnapshotForProfession(jobs, PROFESSION_MATCHERS[id], now, true);
   }
   _snapshotCache = out;
   _cacheRootDir = rootDir;
@@ -677,7 +700,10 @@ export function aggregateProfessionJobsByCity(
       : cantonJobs.filter((job) => jobMatchesChCity(job, def.display));
     const perProfession = {} as Record<ProfessionId, ProfessionJobsSnapshot>;
     for (const id of PROFESSION_IDS) {
-      perProfession[id] = buildSnapshotForProfession(cityJobs, PROFESSION_MATCHERS[id], now);
+      // `includeAllJobs`: the city landing names its real offers
+      // (professionCityInsights.ts, #11678), so it needs more than the 3
+      // featured ones. The renderer caps what it shows.
+      perProfession[id] = buildSnapshotForProfession(cityJobs, PROFESSION_MATCHERS[id], now, true);
     }
     out[def.key] = perProfession;
   }

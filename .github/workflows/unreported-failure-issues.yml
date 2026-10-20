@@ -1,4 +1,8 @@
 name: unreported-failure-issues
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('unreported-failure-issues [loop-clock {0}]', inputs.loop_clock) || 'unreported-failure-issues' }}
 
 # La rete di sicurezza GLOBALE sui workflow rossi e su quelli che hanno smesso
 # di girare. Razionale completo, misure e costi in
@@ -52,6 +56,11 @@ on:
         required: false
         type: boolean
         default: false
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        type: string
+        default: ''
 
 # Gruppo distinto per cron. Con un gruppo unico GitHub tiene UN SOLO run pending
 # e scarta quello superato: la passata giornaliera sui dormienti, se accodata
@@ -72,7 +81,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -85,7 +94,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
@@ -101,7 +109,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 

@@ -10,6 +10,7 @@
  * 5. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -40,16 +41,18 @@ import {
   isLocationExplicitlyForeign,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseHitachiEnergyListingJson,
   parseHitachiEnergyDetailPage,
   buildHitachiEnergyLocalizedContent,
+  publishableHitachiEnergyRows,
   isHitachiEnergySwissRelevant,
   inferHitachiEnergyCanton,
-  hasMorePages,
+  collectHitachiEnergyListings,
   PAGE_SIZE,
 } from './lib/hitachi-energy-job-parser.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
@@ -72,7 +75,7 @@ const LISTING_API = 'https://www.hitachienergy.com/careers/open-jobs/_jcr_conten
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_PAGES = positiveIntFromEnv('HITACHI_MAX_PAGES', 100000); // uncapped — loop breaks on empty items / !hasMorePages
+const MAX_PAGES = positiveIntFromEnv('HITACHI_MAX_PAGES', 100000); // uncapped — collectHitachiEnergyListings stops on the declared last page
 const MAX_DETAIL_PAGES = positiveIntFromEnv('HITACHI_MAX_DETAIL_PAGES', 100000);
 const DETAIL_DELAY_MS = 1200;
 
@@ -96,24 +99,6 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
 }
 
 async function fetchText(url, timeoutMs = TIMEOUT_MS) {
@@ -188,51 +173,15 @@ function mapEmploymentType(jobType = '', contractType = '') {
 async function fetchAllListings() {
   console.log('🔍 Fetching Hitachi Energy Switzerland jobs via API...');
 
-  const allItems = [];
-  const seenIds = new Set();
-  let lastJson = null;
-
-  for (let page = 0; page < MAX_PAGES; page++) {
-    const offset = page * PAGE_SIZE;
-    const url = `${LISTING_API}?location=Switzerland${offset > 0 ? `&offset=${offset}` : ''}`;
-    console.log(`  📄 Page ${page + 1} (offset=${offset}): ${url}`);
-
-    let json;
-    try {
-      json = await fetchJson(url);
-    } catch (err) {
-      console.log(`  ⚠️ API page ${page + 1} fetch failed: ${err.message}`);
-      break;
-    }
-
-    lastJson = json;
-    const items = parseHitachiEnergyListingJson(json);
-    const newItems = items.filter((item) => !seenIds.has(item.jobId));
-    if (newItems.length === 0) break;
-
-    for (const item of newItems) {
-      seenIds.add(item.jobId);
-      allItems.push(item);
-    }
-    console.log(`     Found ${newItems.length} new jobs (total: ${allItems.length})`);
-
-    // `fetchedCount` lets hasMorePages() fall back to the payload's own
-    // `totalNumber` when `loadMore` is absent — never to the page-length
-    // heuristic that truncated the crawl at a short first page (#4993).
-    if (!hasMorePages(json, { fetchedCount: allItems.length })) break;
-    await sleep(800);
-  }
-
-  const declaredTotal = Number(lastJson?.totalNumber);
-  if (Number.isFinite(declaredTotal) && declaredTotal > 0 && allItems.length < declaredTotal) {
-    // Loud, non-fatal: pagination ended before the source's own declared
-    // count. The shrink guard is still the thing that refuses a bad write,
-    // but this makes a truncated crawl legible in the run log instead of
-    // looking like a healthy short board (#4993).
-    console.warn(
-      `  ⚠️ Pagination ended at ${allItems.length} listings but the API declares totalNumber=${declaredTotal} — treating this run as truncated.`,
-    );
-  }
+  const allItems = await collectHitachiEnergyListings({
+    fetchPage: (offset) => {
+      const url = `${LISTING_API}?location=Switzerland${offset > 0 ? `&offset=${offset}` : ''}`;
+      console.log(`  📄 Page ${offset / PAGE_SIZE + 1} (offset=${offset}): ${url}`);
+      return fetchJson(url, { timeoutMs: TIMEOUT_MS, label: `Hitachi Energy listing offset=${offset}` });
+    },
+    sleep,
+    maxPages: MAX_PAGES,
+  });
 
   console.log(`📋 Total Switzerland listings: ${allItems.length}`);
   return allItems;
@@ -278,7 +227,7 @@ function buildHitachiJob(row) {
   const primaryLoc = String(row.primaryLocation || row.location || '').split(',')[0].trim();
 
   return {
-    title: localized.titleByLocale.it,
+    title: localized.titleByLocale[localized.sourceLang],
     slug: localized.slugByLocale.it,
     url: row.url,
     applyUrl: row.applyUrl,
@@ -294,12 +243,12 @@ function buildHitachiJob(row) {
     category: inferCategory(row.title, row.jobFunction),
     sector: inferSector(row.jobFunction),
     source: 'hitachi-energy-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'en'),
-    postedDate: row.publicationDate || new Date().toISOString().slice(0, 10),
+    sourceLang: localized.sourceLang,
+    ...sourcePostingDateFields(row.publicationDate),
     employmentType: mapEmploymentType(row.jobType, row.contractType),
     contractType: normalize(row.contractType) || 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[localized.sourceLang],
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -329,10 +278,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -357,7 +309,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -428,7 +380,11 @@ async function main() {
     console.log(`🔄 Deduplicated: ${enrichedListings.length} → ${deduplicated.length} unique jobs`);
   }
 
-  const allBuilt = deduplicated.map(buildHitachiJob);
+  const { rows: withBody, withoutBody } = publishableHitachiEnergyRows(deduplicated);
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+  }
+  const allBuilt = withBody.map(buildHitachiJob);
   const jobs = allBuilt.filter((job) => {
     const loc = String(job.addressLocality || job.location || '');
     if (isLocationExplicitlyForeign(loc)) {

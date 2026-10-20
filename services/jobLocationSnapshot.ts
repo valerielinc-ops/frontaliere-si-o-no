@@ -2,6 +2,7 @@ import { borderCrossings } from '../data/borderCrossings';
 import { haversineKm } from '../scripts/lib/haversine.mjs';
 import type { BorderCrossingId } from './router';
 import { slugifyCrossingName } from './borderCrossingSlug';
+import { postalCodeBelongsToLocality, resolvePostalCode } from '../build-plugins/shared/postalCodes';
 
 type CrossingType = {
  id: BorderCrossingId;
@@ -360,9 +361,14 @@ export function getJobLocationSnapshot(input: {
 
  const seed = inferSeed(locality, input.postalCode);
  if (!seed) {
+ // A CAP the postal snapshot binds to another locality (a company-HQ CAP
+ // stamped on every vacancy) is omitted, not printed next to this city (#9841).
+ const explicitPostalCode = String(input.postalCode || '').trim();
  return {
  locality,
- postalCode: String(input.postalCode || '').trim() || undefined,
+ postalCode: explicitPostalCode && postalCodeBelongsToLocality(locality, explicitPostalCode)
+ ? explicitPostalCode
+ : undefined,
  crossings: [],
  };
  }
@@ -395,4 +401,30 @@ export function deriveJobPostalCode(input: {
  if (locationSeed) return locationSeed.postalCode;
 
  return fallbackPostalCode;
+}
+
+/**
+ * CAP a client-side JobPosting publishes with `addressLocality`, with the
+ * pairing rule of `buildJobPostingSchema` (#9108, #9841): a source CAP known
+ * to belong to another locality (a company-HQ CAP stamped on every vacancy)
+ * is not published with this one, and `sourcePostalCoherent` tells the caller
+ * to drop the source street that travels with it. The CAP then comes from the
+ * locality (`deriveJobPostalCode` without the source CAP) and, when that
+ * still names another locality (the Ticino default on a Bern job), from
+ * `resolvePostalCode` (city table, then canton capital).
+ */
+export function resolveJobPostingPostalCode(
+ input: { location?: string; addressLocality?: string; postalCode?: string },
+ addressLocality: string,
+ addressRegion: string,
+): { postalCode: string; sourcePostalCoherent: boolean } {
+ const sourcePostalCoherent = postalCodeBelongsToLocality(addressLocality, input.postalCode);
+ const derivedPostalCode = deriveJobPostalCode(sourcePostalCoherent ? input : { ...input, postalCode: '' });
+ const fallbackPostalCode = resolvePostalCode(addressLocality, addressRegion);
+ const postalCode = postalCodeBelongsToLocality(addressLocality, derivedPostalCode)
+ ? derivedPostalCode
+ : postalCodeBelongsToLocality(addressLocality, fallbackPostalCode)
+ ? fallbackPostalCode
+ : '';
+ return { postalCode, sourcePostalCoherent };
 }

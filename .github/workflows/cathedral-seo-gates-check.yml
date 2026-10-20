@@ -45,6 +45,17 @@ name: cathedral-seo-gates-check
 # Regressions are untouched: `current > baseline` still opens one issue per
 # gate and still fails this workflow.
 #
+# 2026-10-02 — one classification for both places. Each gate now declares its
+# `gateKey` in scripts/ci/lib/seo-gate-classes.mjs, the same table validate-dist
+# reads to decide whether a red gate sequesters `publish` (none does since
+# 2026-10-03; owner decisions: B and C on 2026-10-02, A on 2026-10-03, open an
+# issue for the autofixer). The verdict carries class and mode, and the regression issue
+# takes its priority from the mode (A=1, B=2, C=3) and carries a sample of the
+# offenders, so the same gate has one weight in both places. Its
+# title family `SEO gates regression: …` is also excluded from the
+# followup-drainer age-out, which used to close it minutes after a recurrence
+# reopened it (#9195: reopened 2026-10-02T06:39:44Z, closed 06:44:06Z).
+#
 # CLAUDE.md non-negotiable #14 — live test after merge:
 #   gh workflow run cathedral-seo-gates-check.yml --ref main
 #   gh run view <id>          # verify success or expected failure
@@ -214,32 +225,8 @@ jobs:
     env:
       NODE_OPTIONS: '--max-old-space-size=8192'
     steps:
-      # Free ~25-30 GB before dist/ lands. This gate no longer BUILDS dist
-      # (issue #5169 — see the replay steps below), but it still materialises
-      # the whole logical site: the github-pages tarball plus every locale and
-      # section shard, which the rehydrate scripts will `git clone` when a run's
-      # artifacts have expired. ubuntu-latest ships ~14 GB free on /, so the
-      # cleanup is still load-bearing — it just guards the download now, not a
-      # Vite emit. Deletes only toolchains this repo never uses.
-      - name: Free disk space (remove unused toolchains)
-        shell: bash
-        run: |
-          echo "::group::Disk usage BEFORE cleanup"
-          df -h /
-          echo "::endgroup::"
-          sudo rm -rf /usr/local/lib/android &
-          sudo rm -rf /usr/share/dotnet &
-          sudo rm -rf /opt/ghc &
-          sudo rm -rf /usr/local/share/boost &
-          sudo rm -rf /opt/hostedtoolcache/CodeQL &
-          sudo rm -rf /usr/share/swift &
-          wait
-          echo "::group::Disk usage AFTER cleanup"
-          df -h /
-          echo "::endgroup::"
-
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # workflow_run checks the validator source that built the artifact;
           # schedule/push/dispatch keep the existing main checkout behavior.
@@ -254,6 +241,7 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
+            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
@@ -268,8 +256,22 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
+      # Free disk before dist/ lands. This gate no longer BUILDS dist
+      # (issue #5169 — see the replay steps below), but it still materialises
+      # the whole logical site: the github-pages tarball plus every locale and
+      # section shard, which the rehydrate scripts will `git clone` when a run's
+      # artifacts have expired. That site ends the rehydrate at 134 of the
+      # runner's 145 GB (green run 36539937034: "/dev/root 145G 134G 12G"), so
+      # the cleanup is load-bearing. It runs right AFTER the sparse checkout
+      # because the one list now lives in the repo, shared with every other
+      # job that rehydrates the logical dist; it deletes only toolchains this
+      # job never uses and prints df (blocks AND inodes) before/after.
+      - name: Free disk space (remove unused toolchains)
+        shell: bash
+        run: bash scripts/ci/free-runner-disk.sh
+
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: 'npm'
@@ -417,10 +419,12 @@ jobs:
           {
             echo "## SEO Content Gates Verdict"
             echo ""
-            echo '| Gate | Status | Current | Baseline | Delta |'
-            echo '|------|--------|---------|----------|-------|'
-            jq -r '.gates[] | "| \(.name) | \(.status) | \(.current // "—") | \(.baseline // "—") | \(.delta // "—") |"' \
+            echo '| Gate | Class / mode | Status | Current | Baseline | Delta |'
+            echo '|------|--------------|--------|---------|----------|-------|'
+            jq -r '.gates[] | "| \(.name) | \(.class // "?") / \(.mode // "?") | \(.status) | \(.current // "—") | \(.baseline // "—") | \(.delta // "—") |"' \
               data/cathedral-seo-gates-verdict.json
+            echo ""
+            echo "Class/mode from \`scripts/ci/lib/seo-gate-classes.mjs\` — the same table validate-dist uses to decide whether a red gate sequesters \`publish\`."
             echo ""
             echo "_Checked at $(jq -r .checkedAt data/cathedral-seo-gates-verdict.json)_"
           } >> "$GITHUB_STEP_SUMMARY"
@@ -467,7 +471,7 @@ jobs:
           # `set -euo pipefail` hazard the raw `gh` call carried here.
           node scripts/lib/github-issue-creator.mjs \
             --title "$title" \
-            --description "$(cat /tmp/issue-body.md)" \
+            --description-file /tmp/issue-body.md \
             --priority 4 \
             --label seo-gates \
             --workflow "${{ github.workflow }}"
@@ -502,6 +506,17 @@ jobs:
               delta=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .delta'          data/cathedral-seo-gates-verdict.json)
               audit_cmd=$(jq -r --arg n "$name" '.gates[] | select(.name == $n) | .auditCmd'       data/cathedral-seo-gates-verdict.json)
               notes=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .notes'          data/cathedral-seo-gates-verdict.json)
+              # Class, mode and priority come from the shared classification
+              # (scripts/ci/lib/seo-gate-classes.mjs): A=1, B=2, C=3 (none blocks
+              # `publish`, owner 2026-10-02/03). A gate the table does not know
+              # reports class `?`, mode `unclassified`, priority 1.
+              gclass=$(jq -r --arg n "$name"    '.gates[] | select(.name == $n) | .class // "?"'   data/cathedral-seo-gates-verdict.json)
+              gmode=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .mode // "unclassified"' data/cathedral-seo-gates-verdict.json)
+              priority=$(jq -r --arg n "$name"  '.gates[] | select(.name == $n) | .issuePriority // 1' data/cathedral-seo-gates-verdict.json)
+              # `## Offender` section built by the checker from the audit's
+              # own report (scripts/ci/lib/gate-issue-offenders.mjs): the
+              # pages an autofixer has to look at, not only the counts.
+              offenders=$(jq -r --arg n "$name" '.gates[] | select(.name == $n) | .offenderSection // ""' data/cathedral-seo-gates-verdict.json)
               {
                 echo "Automated check detected a REGRESSION on the **${name}** gate."
                 echo ""
@@ -519,7 +534,12 @@ jobs:
                 echo "- Delta:    ${delta}"
                 echo "- Reproduce locally: \`${audit_cmd}\`"
                 echo "- Notes: ${notes}"
+                echo "- Class: **${gclass}** (mode \`${gmode}\`, scripts/ci/lib/seo-gate-classes.mjs)"
                 echo ""
+                if [ -n "$offenders" ]; then
+                  echo "$offenders"
+                  echo ""
+                fi
                 echo "Per CLAUDE.md non-negotiables #1 + #5, the fix is to ELIMINATE the new"
                 echo "offenders — do NOT widen the baseline as a workaround."
                 echo ""
@@ -527,8 +547,8 @@ jobs:
               } > /tmp/issue-body.md
               node scripts/lib/github-issue-creator.mjs \
                 --title "$title" \
-                --description "$(cat /tmp/issue-body.md)" \
-                --priority 2 \
+                --description-file /tmp/issue-body.md \
+                --priority "$priority" \
                 --label seo-gates \
                 --label regression \
                 --workflow "${{ github.workflow }}"

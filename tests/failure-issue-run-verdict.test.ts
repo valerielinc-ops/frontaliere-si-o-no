@@ -73,6 +73,10 @@ describe('issue di fallimento aperte da un run che resta verde', () => {
           if (!/\bexit\s+[1-9]/.test(later.text)) return false;
           const laterCond = ifCondition(later.text);
           if (!laterCond) return false;
+          // Un gate finale `if: always()` gira su OGNI ramo, quindi copre anche quello
+          // dell'opener: e' il caso dei crawler-group, dove `Launch <slug>` apre la issue
+          // e `Fail crawler group after all member outcomes` porta il job a rosso.
+          if (laterCond.trim() === 'always()') return true;
           return (
             laterCond.includes(`steps.${gated[1]}.outcome`) ||
             (openerId !== '' && laterCond.includes(`steps.${openerId}.outputs`))

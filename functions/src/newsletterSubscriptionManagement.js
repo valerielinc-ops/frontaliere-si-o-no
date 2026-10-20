@@ -38,7 +38,8 @@
  */
 
 import { createHash, timingSafeEqual } from 'node:crypto';
-import admin from 'firebase-admin';
+import { getAuth } from 'firebase-admin/auth';
+import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
@@ -52,9 +53,15 @@ import {
 } from './lib/emailSuppression.js';
 import {
  CONFIRMATION_LINK_PROOF,
+ CONFIRMATION_METHODS,
  hasConfirmationProof,
+ hasSubscriberCreationStamp,
+ hasSubscriptionBasis,
 } from './lib/subscriberConsent.js';
+import { REGISTRATION_TERMS_TEXT, REGISTRATION_TERMS_VERSION } from './lib/registrationTermsText.js';
 import { isAccountDeletedTombstone } from './authAccountCleanup.js';
+import { fulfillCompanyFollowIntents } from './companyFollowIntents.js';
+import { eraseJobEmailAffinityProfile } from './lib/jobEmailAffinityStore.js';
 import {
  verifyAutologinCode,
  resolveAutologinPolicy,
@@ -72,18 +79,25 @@ import {
 } from './lib/newsletterActionToken.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const REGISTRATION_TERMS_VERSION = '2026-09-16.1';
 const ADVERTISING_OPT_OUT_FIELD = 'advertising_opt_out';
 const ADVERTISING_REACTIVATED_AT_FIELD = 'advertising_reactivated_at';
-// Kept in this Functions bundle because it cannot import the TypeScript
-// register. Keep these strings byte-identical to consentDisplayText(
-// 'communicationsOptIn', locale) in services/consentTexts.ts.
-const REGISTRATION_TERMS_TEXT = Object.freeze({
- it: 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).',
- en: 'By registering I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-09-15.1).',
- de: 'Mit der Registrierung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-09-15.1).',
- fr: 'En m’inscrivant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-09-15.1).',
-});
+// The registration sentence and its version live in ONE Functions module,
+// pinned to services/consentTexts.ts by a test (the copy that used to sit here
+// had stopped at 2026-09-15.1 while the site moved on).
+// Where the preference-centre activations below happen, as `consent_origin`.
+const PREFERENCE_CENTER_SURFACE = 'preference_center';
+
+/**
+ * `created_at` for a row that this activation turns into a relationship and
+ * that has none — the dashboard and the signup monitors count by it. Only
+ * when the row is KNOWN to lack every creation stamp: a merge write would
+ * otherwise overwrite the real creation date with today.
+ */
+function creationStampIfMissing(data) {
+ return data && !hasSubscriberCreationStamp(data)
+  ? { created_at: FieldValue.serverTimestamp() }
+  : {};
+}
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
 // infra/cloudflare-worker/locale-router.js) — bypasses the SPA/index.html
 // catch-all so the confirmation page's own resubscribe link doesn't loop
@@ -97,22 +111,50 @@ const TEXT_COLOR = '#1f2937';
 const MUTED_COLOR = '#6b7280';
 const BORDER_COLOR = '#dbe2ea';
 
-async function mintNewsletterAuthToken(normalizedEmail) {
- try {
- ensureAdminApp();
+async function mintNewsletterAuthSession(normalizedEmail) {
  let uid = null;
  try {
- const userRecord = await admin.auth().getUserByEmail(normalizedEmail);
+ ensureAdminApp();
+ try {
+ const userRecord = await getAuth().getUserByEmail(normalizedEmail);
  uid = userRecord.uid;
  } catch {
- const newUser = await admin.auth().createUser({ email: normalizedEmail, emailVerified: true });
+ const newUser = await getAuth().createUser({ email: normalizedEmail, emailVerified: true });
  uid = newUser.uid;
  }
- return uid ? await admin.auth().createCustomToken(uid) : null;
+ return { uid, authToken: uid ? await getAuth().createCustomToken(uid) : null };
  } catch (authErr) {
  console.warn('[newsletterManage] Failed to generate auth token:', authErr?.message);
- return null;
+ return { uid, authToken: null };
  }
+}
+
+/**
+ * The link click is the moment a server-recorded follow intent may become a
+ * CompanyAlert (functions/src/companyFollowIntents.js). Best-effort: the
+ * confirmation/login response never changes because of it, and a failure
+ * leaves the intents pending for the next click (or the browser replay).
+ */
+async function fulfillFollowIntentsOnClick(db, normalizedEmail, uid, via) {
+ if (!uid) return null;
+ try {
+  return await fulfillCompanyFollowIntents({
+   db,
+   email: normalizedEmail,
+   uid,
+   normalizeKey: normalizeCompanyAlertKey,
+   groupKey: companyFollowGroupKey,
+   via,
+  });
+ } catch (err) {
+  console.warn('[newsletterManage] company follow fulfilment failed (non-fatal):', err?.message || err);
+  return null;
+ }
+}
+
+function companyFollowFulfilledSummary(outcome) {
+ if (!outcome || outcome.created + outcome.existing === 0) return null;
+ return { created: outcome.created, existing: outcome.existing, pending: outcome.pending };
 }
 
 function normalizeEmail(value) {
@@ -140,6 +182,10 @@ function hasAdvertisingReactivation(data) {
 
 function isAdvertisingPreferenceEnabled(data) {
  if (!data || typeof data !== 'object') return false;
+ // Same floor as the advertising sender (services/publisherBlastMatch.mjs):
+ // a row with no relationship — a profile-only sign-in row, the saved-jobs
+ // digest record — receives no advertising, so the page must not say it does.
+ if (!hasSubscriptionBasis(data)) return false;
  if (isAddressSuppressed(data.status)
   || data.consent_advertising === false
   || data[ADVERTISING_OPT_OUT_FIELD] === true) return false;
@@ -157,7 +203,9 @@ async function clearCompanyFollowFollowupPending(db, email) {
  const ref = db.collection('newsletter_subscribers').doc(email);
  const snapshot = await ref.get();
  if (!snapshot.exists) return;
- await ref.set({ company_follow_followup_pending: false }, { merge: true });
+ if (snapshot.data()?.company_follow_followup_pending !== false) {
+  await ref.set({ company_follow_followup_pending: false }, { merge: true });
+ }
 }
 
 /**
@@ -406,7 +454,25 @@ const BRAND_ALIAS_TO_CANONICAL = Object.freeze({
  'bewerbungsmanagement-spital-davos': 'spital-davos',
  'kzu-recruiting': 'kzu',
  'diakoniewerk-neumuenster': 'spital-zollikerberg',
+ 'capri-holdings-michael-kors-versace': 'michael-kors',
+ usi: 'usi-universita-della-svizzera-italiana',
+ 'ospedale-malcantonese-oscam-fondazione-giuseppe-rossi': 'oscam-ospedale-e-casa-anziani-malcantonese',
+ 'zurich-insurance-sede-ticino': 'zurich-insurance',
 });
+
+// Deployment-boundary mirror of build-plugins/shared/companyFollowGroups.mjs
+// (member slug → group key), parity-tested by tests/company-alert.test.ts.
+// Following one member follows the whole group, so a second pin on another
+// member of the same group returns the existing follow instead of a duplicate.
+const COMPANY_FOLLOW_GROUP_KEY = Object.freeze({
+ coop: 'coop',
+ 'coop-genossenschaft': 'coop',
+});
+
+export function companyFollowGroupKey(slug) {
+ const s = String(slug || '');
+ return COMPANY_FOLLOW_GROUP_KEY[s] || s;
+}
 
 export function normalizeCompanyAlertKey(value) {
  const norm = (x) => String(x || '')
@@ -497,7 +563,7 @@ function serializeAlertDoc(id, data) {
  */
 const RESUBSCRIBE_BURST_WINDOW_MS = 10_000;
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', mode = undefined, autologinPolicy = undefined, tokenPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, emailConsentGiven = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, forensics = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', mode = undefined, autologinPolicy = undefined, tokenPolicy = undefined, mintAuthSession = mintNewsletterAuthSession, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, emailConsentGiven = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, forensics = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  // Defaults to GET, i.e. FAIL-CLOSED. A caller that forgets to thread the verb
  // through cannot re-subscribe anybody; the opposite default would make the
@@ -684,17 +750,17 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ensureAdminApp();
  let uid = null;
  try {
- const userRecord = await admin.auth().getUserByEmail(normalizedEmail);
+ const userRecord = await getAuth().getUserByEmail(normalizedEmail);
  uid = userRecord.uid;
  } catch {
- const newUser = await admin.auth().createUser({ email: normalizedEmail, emailVerified: true });
+ const newUser = await getAuth().createUser({ email: normalizedEmail, emailVerified: true });
  uid = newUser.uid;
  }
  if (uid) {
  // Autologin authenticates the session; it does not witness a newsletter
  // consent action. Account-deletion tombstones stay in place until the
  // authenticated app reaches its ordinary, explicit registration path.
- const authToken = await admin.auth().createCustomToken(uid);
+ const authToken = await getAuth().createCustomToken(uid);
  // AFTER the token is actually minted, not before: the metric counts sessions
  // that were really handed out, so a `createCustomToken` failure lands in the
  // catch below and inflates neither half of the ratio.
@@ -820,15 +886,15 @@ export async function handleSubscriptionManagement({ action, email, token, local
  await subscriberRef.set({
  email: normalizedEmail,
  autologin_enabled: desired,
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
+ updatedAt: FieldValue.serverTimestamp(),
  }, { merge: true });
 
  await subscriberRef.collection('events').add({
  email: normalizedEmail,
  event_type: desired ? 'autologin_enabled' : 'autologin_disabled',
  source_channel: 'preferences_link',
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  });
 
@@ -884,10 +950,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  const watermarkMs = revocationWatermarkFor(now.getTime());
  await subscriberRef.set({
  email: normalizedEmail,
- autologin_revoked_before: admin.firestore.Timestamp.fromMillis(watermarkMs),
- autologin_revoked_at: admin.firestore.FieldValue.serverTimestamp(),
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ autologin_revoked_before: Timestamp.fromMillis(watermarkMs),
+ autologin_revoked_at: FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
+ updatedAt: FieldValue.serverTimestamp(),
  }, { merge: true });
 
  await subscriberRef.collection('events').add({
@@ -895,7 +961,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  event_type: 'autologin_revoked',
  source_channel: 'preferences_link',
  effective_from: new Date(watermarkMs).toISOString(),
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: now.toISOString(),
  });
 
@@ -935,8 +1001,11 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // page whose entire job is to say whether they are.
  const optOutBinding = isNewsletterOptOutBinding(data);
  const isActive = data.isActive === true || data.active === true;
- // Subscribed unless explicitly unsubscribed.
- const subscribed = !optOutBinding && (isActive || status === 'confirmed' || status === 'pending');
+ // Subscribed unless explicitly unsubscribed — and only when the row is a
+ // relationship at all: the saved-jobs digest record stays unsubscribed
+ // whatever status a webhook or the suppression decay wrote on it.
+ const subscribed = !optOutBinding && hasSubscriptionBasis(data)
+  && (isActive || status === 'confirmed' || status === 'pending');
  newsletter = {
  subscribed,
  autologinEnabled: data.autologin_enabled !== false,
@@ -1026,6 +1095,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
   status: 'subscribed',
   isActive: true,
   active: true,
+  // A row that was never captured (for example an opt-out written on a
+  // profile-only document) becomes a relationship here: date it.
+  ...creationStampIfMissing(existingSubscriber.data() || {}),
   // An explicit newsletter reactivation lifts the global stop for this
   // address. Other channels remain in their own off/paused state, so this
   // does not silently re-enable them.
@@ -1033,30 +1105,31 @@ export async function handleSubscriptionManagement({ action, email, token, local
   all_emails_opted_out: false,
   global_email_opt_out: false,
   global_email_opted_out: false,
-  account_deleted_at: admin.firestore.FieldValue.delete(),
+  account_deleted_at: FieldValue.delete(),
   ...(!existingSubscriber.data()?.registration_terms_accepted ? {
    consent_given: true,
-   consent_given_at: admin.firestore.FieldValue.serverTimestamp(),
+   consent_given_at: FieldValue.serverTimestamp(),
    consent_basis: 'registration_terms',
    registration_terms_accepted: true,
    registration_terms_version: REGISTRATION_TERMS_VERSION,
    registration_terms_text: termsText,
-   registration_terms_accepted_at: admin.firestore.FieldValue.serverTimestamp(),
+   registration_terms_accepted_at: FieldValue.serverTimestamp(),
    consent_text: termsText,
    consent_text_version: REGISTRATION_TERMS_VERSION,
    consent_text_displayed: true,
    consent_act: 'registration_terms_acceptance',
    consent_method: 'terms_and_conditions',
    consent_purpose: 'unified_email_channels',
+   consent_origin: PREFERENCE_CENTER_SURFACE,
   } : {}),
  // Both spellings, and NEITHER opt-out stamp is deleted (#5711). The
  // re-opt-in stamp is what lifts the opt-out for every sender now —
  // `isNewsletterOptOutBinding` compares the two — so the lift is no
  // longer paid for with the evidence that the opt-out happened.
- resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
- resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ resubscribed_at: FieldValue.serverTimestamp(),
+ resubscribedAt: FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
+ updatedAt: FieldValue.serverTimestamp(),
  }, { merge: true });
  } else {
  await subscriberRef.set({
@@ -1064,14 +1137,14 @@ export async function handleSubscriptionManagement({ action, email, token, local
  status: 'unsubscribed',
  isActive: false,
  active: false,
- unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ unsubscribed_at: FieldValue.serverTimestamp(),
  // Both spellings, so every opt-out writer leaves the SAME observable
  // state whichever path the recipient used (#5673). The camelCase twin
  // is what 458 historic documents and scripts/send-newsletter.mjs's
  // belt-and-suspenders filter read.
- unsubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ unsubscribedAt: FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
+ updatedAt: FieldValue.serverTimestamp(),
  ...forensicFields,
  }, { merge: true });
  }
@@ -1086,7 +1159,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  email: normalizedEmail,
  event_type: desired ? 'subscription_resubscribed' : 'subscription_unsubscribed',
  source_channel: 'preferences_link',
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  metadata: {
  ip: forensicFields.unsubscribe_ip || null,
@@ -1094,6 +1167,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  },
  ...(desired ? {} : forensicFields),
  });
+
+ // `unsubscribed` ferma ogni canale (emailSuppression.js): e' la
+ // disiscrizione da tutto che cancella subito il profilo di affinita'.
+ if (!desired) await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
 
  return { status: 200, json: { success: true, subscribed: desired } };
  } catch (err) {
@@ -1124,9 +1201,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  await subscriberRef.set({
  email: normalizedEmail,
  daily_brief_frequency_override: requested === null
- ? admin.firestore.FieldValue.delete()
+ ? FieldValue.delete()
  : requested,
- daily_brief_override_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ daily_brief_override_updated_at: FieldValue.serverTimestamp(),
  }, { merge: true });
 
  await subscriberRef.collection('events').add({
@@ -1134,7 +1211,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  event_type: 'daily_brief_frequency_set',
  frequency: requested,
  source_channel: 'preferences_link',
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  // #5681 — an affirmative preference change, same metadata.ip/user_agent
  // shape already used by the ESP webhook event writes (e.g.
@@ -1184,16 +1261,16 @@ export async function handleSubscriptionManagement({ action, email, token, local
  await subscriberRef.set({
  email: normalizedEmail,
  consent_advertising: desired,
- consent_advertising_at: desired ? admin.firestore.FieldValue.serverTimestamp() : null,
- consent_advertising_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ consent_advertising_at: desired ? FieldValue.serverTimestamp() : null,
+ consent_advertising_updated_at: FieldValue.serverTimestamp(),
  // Written, never deleted, in BOTH directions. `false` is not the same
  // record as an absent field: it says this person was asked and said
  // yes, which is the only evidence that survives a later complaint —
  // the same reason #5711 stopped erasing the opt-out stamps.
  advertising_opt_out: !desired,
- advertising_opt_out_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ advertising_opt_out_updated_at: FieldValue.serverTimestamp(),
   ...(desired ? {
-   advertising_reactivated_at: admin.firestore.FieldValue.serverTimestamp(),
+   advertising_reactivated_at: FieldValue.serverTimestamp(),
    // Keep the stop-all fields untouched. Enabling this category is an explicit
    // choice after a global stop, but it must not reactivate any other channel.
   } : {}),
@@ -1203,7 +1280,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  email: normalizedEmail,
  event_type: desired ? 'advertising_opted_in' : 'advertising_opted_out',
  source_channel: 'preferences_link',
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  // Only the opt-OUT direction carries forensics: the fields are named
  // `unsubscribe_*` and would be a lie on the way back in.
@@ -1240,17 +1317,17 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // audit can still prove when/why the user left.
  await alertRef.set({
   active: false,
-  unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+  unsubscribed_at: FieldValue.serverTimestamp(),
   unsubscribe_source: 'preferences_link',
-  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
-  updated_at: admin.firestore.FieldValue.serverTimestamp(),
+  updatedAt: FieldValue.serverTimestamp(),
+  updated_at: FieldValue.serverTimestamp(),
  }, { merge: true });
  await subscriberRef.collection('events').add({
  email: normalizedEmail,
  event_type: 'job_alert_deleted',
  source_channel: 'preferences_link',
  meta: { alert_id: id },
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  });
  return { status: 200, json: { success: true, alert_id: id } };
@@ -1329,7 +1406,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  await ref.set({
  ...patch,
  email: normalizedEmail,
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ updatedAt: FieldValue.serverTimestamp(),
  }, { merge: true });
 
  await subscriberRef.collection('events').add({
@@ -1337,7 +1414,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  event_type: 'job_alert_updated',
  source_channel: 'preferences_link',
  meta: { alert_id: id, fields },
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  });
 
@@ -1399,27 +1476,28 @@ export async function handleSubscriptionManagement({ action, email, token, local
     source_channel: 'job_gate',
     source_page: '/preferenze-newsletter/',
     consent_given: true,
-    consent_given_at: admin.firestore.FieldValue.serverTimestamp(),
+    consent_given_at: FieldValue.serverTimestamp(),
     consent_advertising: true,
-    consent_advertising_at: admin.firestore.FieldValue.serverTimestamp(),
-    consent_advertising_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+    consent_advertising_at: FieldValue.serverTimestamp(),
+    consent_advertising_updated_at: FieldValue.serverTimestamp(),
     consent_basis: 'registration_terms',
     registration_terms_accepted: true,
     registration_terms_version: REGISTRATION_TERMS_VERSION,
     registration_terms_text: termsText,
-    registration_terms_accepted_at: admin.firestore.FieldValue.serverTimestamp(),
+    registration_terms_accepted_at: FieldValue.serverTimestamp(),
     consent_text: termsText,
     consent_text_version: REGISTRATION_TERMS_VERSION,
     consent_text_displayed: true,
     consent_act: 'registration_terms_acceptance',
     consent_method: 'terms_and_conditions',
     consent_purpose: 'unified_email_channels',
-    confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
-    confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
-    subscribed_at: admin.firestore.FieldValue.serverTimestamp(),
-    created_at: admin.firestore.FieldValue.serverTimestamp(),
-    updated_at: admin.firestore.FieldValue.serverTimestamp(),
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    consent_origin: PREFERENCE_CENTER_SURFACE,
+    confirmed_at: FieldValue.serverTimestamp(),
+    confirmedAt: FieldValue.serverTimestamp(),
+    subscribed_at: FieldValue.serverTimestamp(),
+    created_at: FieldValue.serverTimestamp(),
+    updated_at: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
    });
    subscriberData = (await subscriberRef.get()).data() || {};
   }
@@ -1435,30 +1513,32 @@ export async function handleSubscriptionManagement({ action, email, token, local
     status: 'subscribed',
     isActive: true,
     active: true,
+    ...creationStampIfMissing(subscriberData),
     all_email_opted_out: false,
     all_emails_opted_out: false,
     global_email_opt_out: false,
     global_email_opted_out: false,
-    resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
-    resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
-    resubscribe_pending: admin.firestore.FieldValue.delete(),
+    resubscribed_at: FieldValue.serverTimestamp(),
+    resubscribedAt: FieldValue.serverTimestamp(),
+    resubscribe_pending: FieldValue.delete(),
     ...(!subscriberData.registration_terms_accepted ? {
      consent_given: true,
-     consent_given_at: admin.firestore.FieldValue.serverTimestamp(),
+     consent_given_at: FieldValue.serverTimestamp(),
      consent_basis: 'registration_terms',
      registration_terms_accepted: true,
      registration_terms_version: REGISTRATION_TERMS_VERSION,
      registration_terms_text: termsText,
-     registration_terms_accepted_at: admin.firestore.FieldValue.serverTimestamp(),
+     registration_terms_accepted_at: FieldValue.serverTimestamp(),
      consent_text: termsText,
      consent_text_version: REGISTRATION_TERMS_VERSION,
      consent_text_displayed: true,
      consent_act: 'registration_terms_acceptance',
      consent_method: 'terms_and_conditions',
      consent_purpose: 'unified_email_channels',
+     consent_origin: PREFERENCE_CENTER_SURFACE,
     } : {}),
-    updated_at: admin.firestore.FieldValue.serverTimestamp(),
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    updated_at: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
    }, { merge: true });
    subscriberData = (await subscriberRef.get()).data() || {};
   }
@@ -1504,6 +1584,24 @@ export async function handleSubscriptionManagement({ action, email, token, local
     json: { success: true, alert: serializeAlertDoc(existingDoc.id, existingDoc.data() || {}) },
    };
   }
+  // Same follow group, different member (`coop` vs `coop-genossenschaft`):
+  // one follow per group, like services/jobAlertService.ts createAlert.
+  if (companyPin) {
+   let groupFollow = null;
+   existing.forEach((d) => {
+    const data = d.data() || {};
+    if (groupFollow || data.active === false || !data.specificCompanyKey) return;
+    const stored = normalizeCompanyAlertKey(data.specificCompanyKey);
+    if (stored !== companyPin && companyFollowGroupKey(stored) === companyFollowGroupKey(companyPin)) groupFollow = d;
+   });
+   if (groupFollow) {
+    await clearCompanyFollowFollowupPending(db, normalizedEmail);
+    return {
+     status: 200,
+     json: { success: true, alert: serializeAlertDoc(groupFollow.id, groupFollow.data() || {}) },
+    };
+   }
+  }
   let activeCount = 0;
  existing.forEach((d) => {
  const data = d.data() || {};
@@ -1523,9 +1621,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  status: 'active',
  isActive: true,
  active: true,
- account_deleted_at: admin.firestore.FieldValue.delete(),
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ account_deleted_at: FieldValue.delete(),
+ updated_at: FieldValue.serverTimestamp(),
+ updatedAt: FieldValue.serverTimestamp(),
  }, { merge: true });
 
  const docData = {
@@ -1546,9 +1644,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
   ...(companyPin ? {
    consent_purpose: 'companyFollow',
    consent_act: 'company_follow_activation',
-   consent_recorded_at: admin.firestore.FieldValue.serverTimestamp(),
+   consent_recorded_at: FieldValue.serverTimestamp(),
   } : {}),
-  createdAt: admin.firestore.FieldValue.serverTimestamp(),
+  createdAt: FieldValue.serverTimestamp(),
  };
  let newRef;
  if (deterministicSnap.exists) {
@@ -1565,7 +1663,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  event_type: 'job_alert_created',
  source_channel: 'preferences_link',
  meta: { alert_id: newRef.id, fields: ALERT_LIST_FIELDS.concat(['frequency', 'frequencyOverride']) },
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  });
 
@@ -1591,14 +1689,14 @@ export async function handleSubscriptionManagement({ action, email, token, local
  status: 'unsubscribed',
  isActive: false,
  active: false,
- unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ unsubscribed_at: FieldValue.serverTimestamp(),
  // Both spellings, so every opt-out writer leaves the SAME observable
  // state whichever path the recipient used (#5673). The camelCase twin
  // is what 458 historic documents and scripts/send-newsletter.mjs's
  // belt-and-suspenders filter read.
- unsubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ unsubscribedAt: FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
+ updatedAt: FieldValue.serverTimestamp(),
  ...forensicFields,
  }, { merge: true });
 
@@ -1614,10 +1712,13 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // nothing reads it back — but it is the measurement that says how many
  // people would have hit "Link non valido" without the fallback.
  credential: optOut.viaAutologin ? 'autologin_code' : 'email_token',
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  ...forensicFields,
  });
+
+ // Same cross-channel stop as above: the click-affinity profile goes now.
+ await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
 
  return {
  status: 200,
@@ -1654,21 +1755,21 @@ export async function handleSubscriptionManagement({ action, email, token, local
     status: 'unsubscribed',
     isActive: false,
     active: false,
-    unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
-    unsubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
+    unsubscribed_at: FieldValue.serverTimestamp(),
+    unsubscribedAt: FieldValue.serverTimestamp(),
     all_email_opted_out: true,
     all_emails_opted_out: true,
     global_email_opt_out: true,
     global_email_opted_out: true,
-    all_email_opted_out_at: admin.firestore.FieldValue.serverTimestamp(),
-    global_email_opt_out_at: admin.firestore.FieldValue.serverTimestamp(),
+    all_email_opted_out_at: FieldValue.serverTimestamp(),
+    global_email_opt_out_at: FieldValue.serverTimestamp(),
     daily_brief_frequency_override: 'off',
     consent_advertising: false,
-    consent_advertising_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+    consent_advertising_updated_at: FieldValue.serverTimestamp(),
     advertising_opt_out: true,
-    advertising_opt_out_updated_at: admin.firestore.FieldValue.serverTimestamp(),
-    updated_at: admin.firestore.FieldValue.serverTimestamp(),
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    advertising_opt_out_updated_at: FieldValue.serverTimestamp(),
+    updated_at: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
     ...forensicFields,
    }, { merge: true });
 
@@ -1676,10 +1777,12 @@ export async function handleSubscriptionManagement({ action, email, token, local
     email: normalizedEmail,
     event_type: 'all_email_unsubscribed',
     source_channel: 'preferences_link',
-    timestamp: admin.firestore.FieldValue.serverTimestamp(),
+    timestamp: FieldValue.serverTimestamp(),
     occurred_at: new Date().toISOString(),
     ...forensicFields,
    });
+
+   await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
 
    return {
     status: 200,
@@ -1729,7 +1832,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
      }),
     };
    }
-   const authToken = await mintNewsletterAuthToken(normalizedEmail);
+   const { uid: loginUid, authToken } = await mintAuthSession(normalizedEmail);
    if (!authToken) {
     return {
      status: 500,
@@ -1743,11 +1846,16 @@ export async function handleSubscriptionManagement({ action, email, token, local
      }),
     };
    }
+   // A login link requested by the follow prompt for an address that already
+   // has confirmation proof is the same explicit completion act as the DOI.
+   const loginFollowOutcome = await fulfillFollowIntentsOnClick(db, normalizedEmail, loginUid, 'login_link');
+   const loginFollowFulfilled = companyFollowFulfilledSummary(loginFollowOutcome);
    return {
     status: 200,
     authToken,
     alreadyConfirmed: true,
     loginOnly: true,
+    ...(loginFollowFulfilled ? { companyFollowFulfilled: loginFollowFulfilled } : {}),
     html: buildResponseHtml({
      title: t(lang, 'loginSuccessTitle'),
      message: t(lang, 'loginSuccessBody'),
@@ -1815,15 +1923,17 @@ export async function handleSubscriptionManagement({ action, email, token, local
     status: 'suppressed',
     isActive: false,
     active: false,
-    company_follow_confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
-    confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
-    confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+    company_follow_confirmed_at: FieldValue.serverTimestamp(),
+    confirmed_at: FieldValue.serverTimestamp(),
+    confirmedAt: FieldValue.serverTimestamp(),
     confirmed_via: CONFIRMATION_LINK_PROOF,
     confirmedVia: CONFIRMATION_LINK_PROOF,
+    confirmation_method: CONFIRMATION_METHODS.DOI_CLICK,
+    confirmed_via_surface: 'confirmation_email',
     company_follow_followup_pending: true,
-    account_deleted_at: admin.firestore.FieldValue.delete(),
-    updated_at: admin.firestore.FieldValue.serverTimestamp(),
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    account_deleted_at: FieldValue.delete(),
+    updated_at: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
    }
    : {
     email: normalizedEmail,
@@ -1832,37 +1942,41 @@ export async function handleSubscriptionManagement({ action, email, token, local
      isActive: true,
      active: true,
     }),
-    confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
-    confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+    confirmed_at: FieldValue.serverTimestamp(),
+    confirmedAt: FieldValue.serverTimestamp(),
     confirmed_via: CONFIRMATION_LINK_PROOF,
     confirmedVia: CONFIRMATION_LINK_PROOF,
+    // The same fact in the vocabulary every confirming writer shares
+    // (CONFIRMATION_METHODS): how the address was confirmed, and where.
+    confirmation_method: CONFIRMATION_METHODS.DOI_CLICK,
+    confirmed_via_surface: 'confirmation_email',
     ...(alreadyConfirmed ? {} : {
-     account_deleted_at: admin.firestore.FieldValue.delete(),
+     account_deleted_at: FieldValue.delete(),
     }),
     // A unified CompanyFollow capture is an all-email consent plus a parked
     // employer-follow intent. Keep the central row active after DOI and leave
     // the follow marker for App.tsx to flush into the alert collection. The
     // legacy company-only branch above has its own suppressed state.
     ...(companyFollowPending ? {
-     company_follow_confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
+     company_follow_confirmed_at: FieldValue.serverTimestamp(),
      company_follow_followup_pending: true,
     } : {}),
     // A double opt-in confirmation click IS the explicit act that lifts an
     // earlier opt-out. The original opt-out stamps remain as evidence; the
     // newer re-opt-in stamp is what the shared predicate compares.
     ...(alreadyConfirmed ? {} : {
-     resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
-     resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
+     resubscribed_at: FieldValue.serverTimestamp(),
+     resubscribedAt: FieldValue.serverTimestamp(),
     }),
     ...(pendingReconsent ? {
      all_email_opted_out: false,
      all_emails_opted_out: false,
      global_email_opt_out: false,
      global_email_opted_out: false,
-     resubscribe_pending: admin.firestore.FieldValue.delete(),
+     resubscribe_pending: FieldValue.delete(),
     } : {}),
-    updated_at: admin.firestore.FieldValue.serverTimestamp(),
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    updated_at: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
    };
   await db.collection('newsletter_subscribers').doc(normalizedEmail).set(confirmationFields, { merge: true });
 
@@ -1870,7 +1984,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  email: normalizedEmail,
  event_type: pendingReconsent ? 'subscription_resubscribed' : 'confirm',
  source_channel: 'confirmation_link',
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  // #5681 — the double opt-in confirmation click is an affirmative action
  // that was recording no attribution at all. Same metadata.ip/user_agent
@@ -1900,7 +2014,16 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
 
  // Generate a custom auth token for auto-login after confirmation.
- const authToken = await mintNewsletterAuthToken(normalizedEmail);
+ const { uid: confirmedUid, authToken } = await mintAuthSession(normalizedEmail);
+
+ // The DOI click is the consent boundary the follow was parked for: turn the
+ // server-recorded intents into CompanyAlerts now, whatever device opened the
+ // link. Only an intent set that is entirely satisfied closes the follow-up
+ // action; anything still pending keeps the existing "return to the company"
+ // marker (legacy clients that recorded no server intent included).
+ const followOutcome = await fulfillFollowIntentsOnClick(db, normalizedEmail, confirmedUid, 'confirmation_link');
+ const followFulfilled = companyFollowFulfilledSummary(followOutcome);
+ const followupStillRequired = companyFollowPending && !(followFulfilled && followOutcome.pending === 0);
 
  const confirmTitle = alreadyConfirmed
  ? `${t(lang, 'manageResubscribeTitle')}`
@@ -1913,7 +2036,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
   status: 200,
   authToken,
   alreadyConfirmed,
-  ...(companyFollowPending ? {
+  ...(followFulfilled ? { companyFollowFulfilled: { ...followFulfilled, newsletterActive: !companyFollowOnly } } : {}),
+  ...(followupStillRequired ? {
    companyFollowFollowup: {
     required: true,
     sourcePath: safeFollowupPath(subscriberData.source_page),
@@ -1978,11 +2102,15 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // ever SUPPRESS a redundant bump, never suppress a first write.
  let priorHasStamp = false;
  let priorAddressSuppressed = false;
+ // Known only after a successful read: a failed read never writes a
+ // creation date, which on a merge would overwrite the real one.
+ let priorCreationStamp = {};
  try {
  const priorSnap = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
  const prior = priorSnap.exists ? (priorSnap.data() || {}) : {};
  priorAddressSuppressed = isAddressSuppressed(prior.status);
  priorHasStamp = !!(prior.confirmed_at || prior.confirmedAt);
+ priorCreationStamp = creationStampIfMissing(prior);
  const optOutMs = toEpochMillis(prior.unsubscribed_at) ?? toEpochMillis(prior.unsubscribedAt);
  const priorAgent = typeof prior.unsubscribe_user_agent === 'string' ? prior.unsubscribe_user_agent : null;
  const currentAgent = typeof forensicFields.unsubscribe_user_agent === 'string'
@@ -2034,7 +2162,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  gap_ms: burst.gapMs,
  request_method: httpMethod,
  request_user_agent: burst.agent,
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  });
  } catch (eventErr) {
@@ -2061,8 +2189,11 @@ export async function handleSubscriptionManagement({ action, email, token, local
  status: 'confirmed',
  isActive: true,
  active: true,
- account_deleted_at: admin.firestore.FieldValue.delete(),
- resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ // A "riattiva" on a row that was never captured (an opt-out on a
+ // profile-only document) is its first relationship: date it.
+ ...priorCreationStamp,
+ account_deleted_at: FieldValue.delete(),
+ resubscribed_at: FieldValue.serverTimestamp(),
  // The proof of consent, written HERE too and not only in the `confirm`
  // branch (#5677). This branch wrote `confirmed` with no stamp, and the
  // token that reaches it is an HMAC(email) checked without ever looking
@@ -2102,8 +2233,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // scripts/lib/dormantWinback.mjs key on send/engagement history — so the
  // supersession comparison above is its only recency consumer.
  ...(priorHasStamp ? {} : {
- confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
- confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+ confirmed_at: FieldValue.serverTimestamp(),
+ confirmedAt: FieldValue.serverTimestamp(),
  }),
  // `unsubscribed_at` / `unsubscribedAt` are NOT cleared here, and this is
  // the second half of #5711. Deleting them made the re-subscription
@@ -2118,9 +2249,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // see isNewsletterOptOutBinding in lib/newsletterOptOut.js and its
  // canonical twin services/newsletterOptOut.mjs. Both spellings, because
  // scripts/send-newsletter.mjs and the SPA read different ones (#5673).
- resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ resubscribedAt: FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
+ updatedAt: FieldValue.serverTimestamp(),
  }, { merge: true });
 
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
@@ -2131,7 +2262,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // deliberate submission from whatever the previous GET link was
  // collecting. Every row written from here on says POST by construction.
  request_method: httpMethod,
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  });
 

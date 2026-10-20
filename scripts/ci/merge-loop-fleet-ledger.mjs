@@ -1,12 +1,13 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * Merge one immutable loop-run artifact into the durable fleet ledger.
  *
  * This helper only appends validated records. It has no GitHub or production
- * credentials; the caller owns the durable branch that carries the four JSONL
- * files. A rerun is idempotent by recordId and a conflicting duplicate fails
- * closed instead of silently rewriting history.
+ * credentials; the caller owns the durable branch that carries the canonical
+ * JSONL files and bounded shards. A rerun is idempotent by recordId and a
+ * conflicting duplicate fails closed instead of silently rewriting history.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -15,19 +16,21 @@ import {
   appendJsonlSerialized,
   validateActionClassAgainstPolicy,
   validateDecisionLifecycle,
+  validateHistoricalLifecycleEvent,
+  validateHistoricalOutcomeAgainstPolicy,
   validateLifecycleEvent,
   validateOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 import { canonicalJson } from '../lib/canonical-json-digest.mjs';
+import {
+  ledgerShardName,
+  listLoopFleetLedgerFiles,
+  LOOP_FLEET_LEDGER_FILES,
+} from '../lib/loop-fleet-ledger-files.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
-const LEDGER_FILES = Object.freeze({
-  observation: 'loop-observations.jsonl',
-  decision: 'loop-decisions.jsonl',
-  health: 'loop-health-history.jsonl',
-  lifecycle: 'lifecycle-events.jsonl',
-});
+const LEDGER_FILES = LOOP_FLEET_LEDGER_FILES;
 
 const RECORD_TYPES = Object.freeze({
   observation: 'observation',
@@ -138,12 +141,12 @@ function validateHistoricalRecord(registry, type, record) {
   }
   try {
     if (type === 'lifecycle') {
-      validateLifecycleEvent(registry, historicalLoopId, record);
+      validateHistoricalLifecycleEvent(registry, historicalLoopId, record);
       return record;
     }
     validateActionClassAgainstPolicy(registry, historicalLoopId, record.actionClass);
     if (type === 'decision') validateDecisionLifecycle(registry, historicalLoopId, record);
-    validateOutcomeAgainstPolicy(registry, historicalLoopId, record.outcome);
+    validateHistoricalOutcomeAgainstPolicy(registry, historicalLoopId, record.outcome);
   } catch (error) {
     throw new Error(`historical ${type} ${record.recordId} violates the registry: ${error.message}`);
   }
@@ -154,8 +157,11 @@ function sameRecord(left, right) {
   return canonicalJson(left) === canonicalJson(right);
 }
 
-function mergeRecords({ target, label, records, registry, loopId, type }) {
-  const existing = readJsonl(target, label);
+function mergeRecords({ ledgerDir, fileName, shardId, records, registry, loopId, type }) {
+  const existingFiles = listLoopFleetLedgerFiles(ledgerDir, fileName);
+  const existing = existingFiles.flatMap((file) => readJsonl(file, `ledger ${path.basename(file)}`));
+  const label = `ledger ${fileName}`;
+  const target = path.join(path.resolve(ledgerDir), ledgerShardName(fileName, shardId));
   const byId = new Map();
   for (const record of existing) {
     validateHistoricalRecord(registry, type, record);
@@ -174,7 +180,7 @@ function mergeRecords({ target, label, records, registry, loopId, type }) {
       skipped += 1;
       continue;
     }
-    const write = appendJsonlSerialized(target, record, { label });
+    const write = appendJsonlSerialized(target, record, { label: `ledger ${path.basename(target)}` });
     byId.set(record.recordId, record);
     if (write.appended) appended += 1;
     else skipped += 1;
@@ -189,6 +195,7 @@ export function mergeLoopFleetLedger({
   inputDir,
   ledgerDir,
   registryPath = DEFAULT_REGISTRY_PATH,
+  shardId = null,
 } = {}) {
   if (!/^L\d+$/u.test(String(loopId || ''))) throw new Error('loopId must look like L0, L1, …');
   if (!text(runId)) throw new Error('runId is required');
@@ -222,8 +229,9 @@ export function mergeLoopFleetLedger({
   const results = {};
   for (const [type, fileName] of Object.entries(LEDGER_FILES)) {
     results[type] = mergeRecords({
-      target: path.join(targetDir, fileName),
-      label: `canonical ${fileName}`,
+      ledgerDir: targetDir,
+      fileName,
+      shardId,
       records: records[type],
       registry,
       loopId,
@@ -253,12 +261,13 @@ export function main({ argv = process.argv.slice(2), logger = console } = {}) {
     inputDir: valueAfter(argv, '--input-dir'),
     ledgerDir: valueAfter(argv, '--ledger-dir'),
     registryPath: valueAfter(argv, '--registry', DEFAULT_REGISTRY_PATH),
+    shardId: valueAfter(argv, '--shard-id'),
   });
   logger.log(JSON.stringify(result, null, 2));
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

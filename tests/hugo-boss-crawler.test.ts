@@ -4,9 +4,11 @@
  * Tests parseSearchPage(), parseDetailPage(), buildDetailUrl(),
  * detectCategory(), detectExperienceLevel(), and isHugoBossTargetLocation().
  */
+import fs from 'node:fs';
 import { describe, it, expect, vi } from 'vitest';
 
-import { fetchJobs } from '../scripts/update-hugo-boss-jobs.mjs';
+import { enrichWithDetails, fetchJobs } from '../scripts/update-hugo-boss-jobs.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
 import {
   assertHugoBossNationalReadComplete,
@@ -19,6 +21,7 @@ import {
   detectExperienceLevel,
   MIN_DESC_LENGTH,
 } from '@/scripts/lib/hugo-boss-job-parser.mjs';
+import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs';
 
 // ─── Fixture: Phenom DDO embedded in a search page ──────────────────────────
 
@@ -212,7 +215,7 @@ describe('fetchJobs national pagination', () => {
     const pages = new Map([
       ['0', makeSearchPage(4, [
         makeSwissJob('valid-1'),
-        { jobId: 'dropped-1', reqId: 'dropped-1' },
+        { jobId: 'dropped-1', reqId: 'dropped-1', title: 'Germany job', city: 'Frankfurt', country: 'Germany' },
       ])],
       ['2', makeSearchPage(4, [
         makeSwissJob('valid-2'),
@@ -247,8 +250,57 @@ describe('fetchJobs national pagination', () => {
   it('accepts a valid empty Phenom DDO/data envelope as a proven termination', async () => {
     const fetchHtml = vi.fn(async () => makeSearchPage(0, []));
 
-    await expect(fetchJobs({ fetchHtml })).resolves.toEqual([]);
+    const jobs = await fetchJobs({ fetchHtml });
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(jobs.hugoBossSnapshot).toMatchObject({
+      complete: true,
+      coverage: 'complete',
+      discovered: 0,
+      published: 0,
+      targetMatches: 0,
+      authoritativeEmptySnapshot: true,
+    });
     expect(fetchHtml).toHaveBeenCalledTimes(1);
+  });
+
+  it('fails closed when a non-empty DDO row is silently dropped by the parser', async () => {
+    const fetchHtml = vi.fn(async () => makeSearchPage(1, [{
+      jobId: 'title-drift',
+      reqId: 'title-drift',
+      city: 'Zürich',
+      country: 'Switzerland',
+    }]));
+
+    await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/lost records.*field drift/i);
+  });
+
+  it('does not mark a duplicate-page zero as authoritative', async () => {
+    const repeatedPage = makeSearchPage(4, [
+      { ...makeSwissJob('foreign-1'), city: 'Frankfurt', state: 'Hessen', cityStateCountry: 'Frankfurt, Hessen, Germany', country: 'Germany' },
+      { ...makeSwissJob('foreign-2'), city: 'Munich', state: 'Bavaria', cityStateCountry: 'Munich, Bavaria, Germany', country: 'Germany' },
+    ]);
+    const fetchHtml = vi.fn(async () => repeatedPage);
+
+    const jobs = await fetchJobs({ fetchHtml });
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(jobs.hugoBossSnapshot).toMatchObject({
+      complete: false,
+      coverage: 'max-observed',
+      targetMatches: 0,
+      authoritativeEmptySnapshot: false,
+    });
+  });
+
+  it('uses a per-run source proof instead of the health allowlist', () => {
+    const runner = fs.readFileSync(new URL('../scripts/update-hugo-boss-jobs.mjs', import.meta.url), 'utf8');
+    expect(runner).toContain('markAuthoritativeEmptySnapshot');
+    expect(runner).toContain('isAuthoritativeEmptySnapshot');
+
+    expect(EMPTY_OK_CRAWLERS.has('hugo-boss')).toBe(false);
   });
 
   it('publishes the maximum observed snapshot when Phenom repeats a page after bounded retries', async () => {
@@ -450,12 +502,56 @@ describe('parseDetailPage', () => {
   it('extracts a description body', () => {
     const result = parseDetailPage(FIXTURE_DETAIL_PAGE);
     expect(result.body.length).toBeGreaterThan(0);
+    expect(result.sourceBodyLength).toBeGreaterThan(MIN_DESC_LENGTH);
+    expect(result.body).toContain('Design and develop seasonal collections');
+  });
+
+  it('reads a complete JobPosting from graph and type-array JSON-LD', () => {
+    const completeDescription = 'The detail page contains the responsibilities and profile for this role. '.repeat(12);
+    const html = `<h1>Assistant Store Manager</h1>
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [{
+          '@type': ['JobPosting'],
+          title: 'Assistant Store Manager',
+          description: completeDescription,
+        }],
+      })}</script>
+      <script>phApp.ddo = ${JSON.stringify({
+        jobDetail: { data: { job: { title: 'Assistant Store Manager', description: 'Short teaser' } } },
+      })}; phApp.experimentData = {};</script>`;
+
+    const result = parseDetailPage(html);
+
+    expect(result.body).toContain('responsibilities and profile');
+    expect(result.body).not.toBe('Short teaser');
+    expect(result.sourceBodyLength).toBeGreaterThan(MIN_DESC_LENGTH);
   });
 
   it('returns empty for empty input', () => {
     const result = parseDetailPage('');
     expect(result.title).toBe('');
     expect(result.body).toBe('');
+  });
+});
+
+describe('enrichWithDetails', () => {
+  it('replaces a listing teaser with the complete structured detail body', async () => {
+    const jobs = [{
+      url: 'https://careers.hugoboss.com/global/en/job/HUBO/detail',
+      title: 'Designer Bodywear',
+      description: 'Short listing teaser',
+      descriptionByLocale: { en: 'Short listing teaser' },
+      sourceLang: 'en',
+    }];
+
+    const enriched = await enrichWithDetails(jobs, {
+      fetchHtml: vi.fn(async () => FIXTURE_DETAIL_PAGE),
+    });
+
+    expect(enriched[0].description.length).toBeGreaterThan(MIN_DESC_LENGTH);
+    expect(enriched[0].description).toContain('Design and develop seasonal collections');
+    expect(enriched[0].descriptionByLocale.en).toContain('Your Responsibilities');
   });
 });
 

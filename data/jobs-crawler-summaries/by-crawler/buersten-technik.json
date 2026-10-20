@@ -1,27 +1,33 @@
 {
   "key": "buersten-technik",
   "label": "buersten-technik",
-  "generatedAt": "2026-09-23T23:52:21.184Z",
+  "generatedAt": "2026-10-19T21:31:23.272Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3031,
-  "avgDurationMs": 3031,
+  "unchangedCount": 1,
+  "durationMs": 4623,
+  "avgDurationMs": 4623,
   "durationHistory": [
-    3031
+    4623
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "buersten-technik-3feb89202caa",
-      "slug": "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch",
+      "slug": "apprendistato-come-meccanico-di-produzione-efz-buersten-technik-wattwil-sg",
       "company": "buersten-technik",
       "companyKey": "buersten-technik",
       "companyDomain": "yousty.ch",
@@ -31,7 +37,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
       "source": "buersten-technik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:13.850Z",
+      "crawledAt": "2026-10-19T21:31:06.311Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -45,7 +51,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "2026-08-01",
+      "postedDate": "2026-08-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -60,6 +68,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

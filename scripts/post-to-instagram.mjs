@@ -36,6 +36,9 @@
  *                                    granted, so this is unset today and the
  *                                    poster soft-skips. See CLAUDE.md.
  *   INSTAGRAM_BUSINESS_ACCOUNT_ID   required — already set (17841439417386982)
+ *   SOCIAL_ROBOT_MODE               off | dry (default) | live — API or the
+ *                                   Playwright robot's queue (data/instagram-queue.json);
+ *                                   see scripts/lib/social-publish-queue.mjs
  *   GA4_PROPERTY_ID                 defaults to properties/524485296
  *   R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY / R2_S3_ENDPOINT / R2_BUCKET
  *                                    required to host the carousel images —
@@ -55,7 +58,6 @@ import {
   loadJobSections,
   loadJobIndex,
   formatDayIt,
-  buildCarouselCaption,
 } from './lib/social-post-utils.mjs';
 import {
   instagramUrl,
@@ -64,6 +66,12 @@ import {
   INSTAGRAM_CAMPAIGN_BORDER,
 } from './lib/instagram-links.mjs';
 import {
+  chooseInstagramCreative,
+  buildInstagramCaption,
+  instagramCreativeContent,
+  instagramCreativeLedgerFields,
+} from './lib/instagram-creative.mjs';
+import {
   previousReportDay,
   rankCandidates,
   pickTopNUnposted,
@@ -71,11 +79,22 @@ import {
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 import { renderCarouselSlides } from './lib/social-carousel-image.mjs';
 import { uploadCarouselSlides } from './lib/social-carousel-upload.mjs';
+import {
+  buildQueueEntry,
+  deliverSocialPost,
+  dequeuePosts,
+  enqueuePost,
+  queuePathFor,
+  resolveSocialRobotMode,
+  socialPublishRoute,
+  isPublishedForKindDay,
+} from './lib/social-publish-queue.mjs';
 import { publishCarousel } from './lib/instagram-publish.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const LEDGER_PATH = path.join(ROOT, 'data', 'instagram-posted.json');
+const QUEUE_PATH = queuePathFor(ROOT, 'instagram');
 const POSTED_TRIM_LIMIT = 1000;
 
 /** Same rationale as post-to-linkedin-member.mjs: forever-dedup would slowly
@@ -95,11 +114,9 @@ function getBusinessAccountId() {
   return id || null;
 }
 
-// fetchGa4Day / formatDayIt / buildCarouselCaption moved to
-// scripts/lib/ga4-service-account.mjs and scripts/lib/social-post-utils.mjs
-// — the LinkedIn member poster (and, for the caption, the TikTok poster)
-// need the identical logic (project rule: a helper duplicated literally in
-// ≥2 files MUST live in ONE shared module).
+// fetchGa4Day / formatDayIt moved to scripts/lib/ga4-service-account.mjs;
+// Instagram-specific creative copy lives in scripts/lib/instagram-creative.mjs
+// so the treatment, CTA and measurement metadata stay in one pure module.
 
 // ─────────────────────────── Graph API ───────────────────────────
 //
@@ -108,11 +125,54 @@ function getBusinessAccountId() {
 // three-step carousel flow against mocked payloads — this file calls main() at
 // module scope and cannot be imported from a test. See that lib's header.
 
+// ─────────────────────────── delivery ───────────────────────────
+//
+// API or the Playwright robot's queue, chosen by the Remote Config switch
+// SOCIAL_ROBOT_MODE — see scripts/lib/social-publish-queue.mjs. The ledger is
+// written here only for an API publish; a queued post reaches the ledger once
+// the robot has seen Instagram's confirmation (scripts/social-robot/confirm.mjs).
+
+async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish }) {
+  await deliverSocialPost({
+    route,
+    label: 'Instagram',
+    publish,
+    recordPublished: (res) => {
+      console.log(`✅ posted — ${res.mediaId}`);
+      const ts = new Date().toISOString();
+      appendLedger(
+        LEDGER_PATH,
+        ledgerEntries.map((e) => ({
+          ...e,
+          ts,
+          instagramMediaId: res.mediaId,
+          instagramStoryImageUrl: urls[0],
+        })),
+        POSTED_TRIM_LIMIT,
+      );
+    },
+    enqueue: () => {
+      enqueuePost(
+        QUEUE_PATH,
+        buildQueueEntry({ channel: 'instagram', kind, day, caption, imageUrls: urls, ledgerEntries }),
+      );
+    },
+    // The API covered this kind: an older queued post of it must not reach the robot.
+    dequeue: () => dequeuePosts(QUEUE_PATH, { channel: 'instagram', kind }),
+  });
+}
+
 // ─────────────────────────── job/article (daily) ───────────────────────────
 
-async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId }) {
+async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robotMode }) {
   const campaign = kind === 'job' ? INSTAGRAM_CAMPAIGN_JOB : INSTAGRAM_CAMPAIGN_ARTICLE;
   const ledger = loadLedger(LEDGER_PATH);
+  if (!dryRun && isPublishedForKindDay(ledger, { kind, day })) {
+    const queueId = `${kind}-${day}`;
+    dequeuePosts(QUEUE_PATH, { channel: 'instagram', kind, queueId });
+    console.log(`ℹ️  ${kind}: post ${queueId} già pubblicato — nessun replay e coda stale ripulita`);
+    return;
+  }
   const cutoff = Date.now() - DEDUP_WINDOW_DAYS * 86400000;
   const recent = new Set(
     ledger.posted
@@ -158,23 +218,27 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId }) {
     return { title, statLabel: 'Visualizzazioni', statValue: String(p.views), footerNote: job?.location || '' };
   });
   const captionPicks = picks.map((p, i) => ({ title: slideItems[i].title, statValue: `${p.views} visualizzazioni` }));
-  const caption = buildCarouselCaption({ kind, dayLabel: formatDayIt(day), picks: captionPicks });
+  const dayLabel = formatDayIt(day);
+  const creative = chooseInstagramCreative({ kind, day });
+  const caption = buildInstagramCaption({ kind, dayLabel, picks: captionPicks, creative });
 
-  console.log(`\n─── ${kind} carousel (${picks.length} slides) ───`);
+  console.log(`\n─── ${kind} carousel (${picks.length} slides + CTA, creative: ${creative.id}) ───`);
   console.log(caption);
   console.log('───');
 
   if (dryRun) return;
-  if (!accessToken || !igUserId) {
+  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
+  if (!route.render) {
     console.log('⚠️  no INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID — skipping (soft)');
     return;
   }
 
   const slides = await renderCarouselSlides({
-    kicker: kind === 'job' ? 'LAVORI PIÙ CLICCATI' : 'ARTICOLI PIÙ LETTI',
-    title: kind === 'job' ? 'I lavori più cliccati' : 'Gli articoli più letti',
-    subtitle: formatDayIt(day),
+    kicker: creative.cover.kicker,
+    title: creative.cover.title,
+    subtitle: dayLabel,
     items: slideItems,
+    closing: creative.closing,
   });
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
@@ -186,30 +250,20 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId }) {
     return;
   }
 
-  const res = await publishCarousel({ igUserId, accessToken, imageUrls: urls, caption });
-  if (!res.ok) {
-    console.error(`⚠️  Instagram publish failed: ${res.reason}`);
-    return;
-  }
-  console.log(`✅ posted — ${res.mediaId}`);
-  appendLedger(
-    LEDGER_PATH,
-    picks.map((p) => ({
-      id: p.slug,
-      kind,
-      url: instagramUrl(`${SITE_URL}${p.path}/`, campaign, p.slug),
-      day,
-      views: p.views,
-      ts: new Date().toISOString(),
-      instagramMediaId: res.mediaId,
-    })),
-    POSTED_TRIM_LIMIT,
-  );
+  const ledgerEntries = picks.map((p) => ({
+    id: p.slug,
+    kind,
+    url: instagramUrl(`${SITE_URL}${p.path}/`, campaign, instagramCreativeContent(creative, p.slug)),
+    day,
+    views: p.views,
+    ...instagramCreativeLedgerFields(creative),
+  }));
+  await deliver({ route, kind, day, caption, urls, ledgerEntries, publish: () => publishCarousel({ igUserId, accessToken, imageUrls: urls, caption }) });
 }
 
 // ─────────────────────────── border (weekly) ───────────────────────────
 
-async function postBorderCarousel({ dryRun, accessToken, igUserId }) {
+async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) {
   const { computeRanking, computeWeekWindow } = await import('./lib/border-wait-ranking.mjs');
   const { BORDER_WAIT_CROSSINGS, BORDER_CROSSING_DISPLAY, isTicinoCrossing, buildOggiPath } = await import(
     '../build-plugins/borderWaitData.ts'
@@ -241,27 +295,31 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId }) {
     statValue: fmtMinutes(r.avgMinutes),
   }));
   const dayLabel = `${weekStart} – ${weekEnd}`;
-  const caption = buildCarouselCaption({
+  const creative = chooseInstagramCreative({ kind: 'border', day: weekStart });
+  const caption = buildInstagramCaption({
     kind: 'border',
     dayLabel,
     picks: fastest.map((r, i) => ({ title: slideItems[i].title, statValue: fmtMinutes(r.avgMinutes) })),
+    creative,
   });
 
-  console.log(`\n─── border carousel (${fastest.length} slides) ───`);
+  console.log(`\n─── border carousel (${fastest.length} slides + CTA, creative: ${creative.id}) ───`);
   console.log(caption);
   console.log('───');
 
   if (dryRun) return;
-  if (!accessToken || !igUserId) {
+  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
+  if (!route.render) {
     console.log('⚠️  no INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID — skipping (soft)');
     return;
   }
 
   const slides = await renderCarouselSlides({
-    kicker: 'CLASSIFICA DOGANE',
-    title: 'Le dogane più veloci',
+    kicker: creative.cover.kicker,
+    title: creative.cover.title,
     subtitle: dayLabel,
     items: slideItems,
+    closing: creative.closing,
   });
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
@@ -273,26 +331,20 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId }) {
     return;
   }
 
-  const res = await publishCarousel({ igUserId, accessToken, imageUrls: urls, caption });
-  if (!res.ok) {
-    console.error(`⚠️  Instagram publish failed: ${res.reason}`);
-    return;
-  }
-  console.log(`✅ posted — ${res.mediaId}`);
-  appendLedger(
-    LEDGER_PATH,
-    [
-      {
-        id: weekStart,
-        kind: 'border',
-        url: instagramUrl(buildOggiPath('it', fastest[0].slug), INSTAGRAM_CAMPAIGN_BORDER, weekStart),
-        day: weekStart,
-        ts: new Date().toISOString(),
-        instagramMediaId: res.mediaId,
-      },
-    ],
-    POSTED_TRIM_LIMIT,
-  );
+  const ledgerEntries = [
+    {
+      id: weekStart,
+      kind: 'border',
+      url: instagramUrl(
+        buildOggiPath('it', fastest[0].slug),
+        INSTAGRAM_CAMPAIGN_BORDER,
+        instagramCreativeContent(creative, weekStart),
+      ),
+      day: weekStart,
+      ...instagramCreativeLedgerFields(creative),
+    },
+  ];
+  await deliver({ route, kind: 'border', day: weekStart, caption, urls, ledgerEntries, publish: () => publishCarousel({ igUserId, accessToken, imageUrls: urls, caption }) });
 }
 
 // ─────────────────────────── main ───────────────────────────
@@ -307,6 +359,9 @@ async function main() {
 
   console.log(`─── Instagram daily/weekly — day ${day}${dryRun ? ' (dry run)' : ''} ───`);
 
+  const robotMode = resolveSocialRobotMode();
+  console.log(`ℹ️  SOCIAL_ROBOT_MODE=${robotMode} (Remote Config; see scripts/lib/social-publish-queue.mjs)`);
+
   const accessToken = dryRun ? null : getAccessToken();
   const igUserId = dryRun ? null : getBusinessAccountId();
 
@@ -316,9 +371,9 @@ async function main() {
 
   for (const kind of kinds) {
     if (kind === 'border') {
-      await postBorderCarousel({ dryRun, accessToken, igUserId });
+      await postBorderCarousel({ dryRun, accessToken, igUserId, robotMode });
     } else if (kind === 'job' || kind === 'article') {
-      await postGa4Carousel({ kind, day, dryRun, accessToken, igUserId });
+      await postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robotMode });
     } else {
       console.warn(`⚠️  unknown --only=${kind} — expected job, article or border`);
     }

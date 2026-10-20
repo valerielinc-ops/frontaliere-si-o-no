@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Snapshot border-wait history from Firestore → data/border-wait-history/.
  *
@@ -6,8 +8,9 @@
  *
  *  1. CLI: `node scripts/snapshot-border-wait-history.mjs` — initializes
  *     Firebase Admin (via GOOGLE_APPLICATION_CREDENTIALS), runs the snapshot,
- *     and exits. This preserves the historical workflow contract used by
- *     `update-border-wait-history.yml`.
+ *     and exits. The scheduled writer is `traffic-scheduler.yml`, which
+ *     invokes this helper through `scripts/collect-traffic.mjs`; there is
+ *     no separate scheduled CLI workflow.
  *
  *  2. Programmatic: `import { snapshotBorderWaitFiles } from …` — the live
  *     traffic collector (`scripts/collect-traffic.mjs`) reuses this helper
@@ -30,10 +33,12 @@
  * Optionally prunes history files older than 90 days to keep the repo lean.
  */
 
-import admin from 'firebase-admin';
+import { FieldPath } from 'firebase-admin/firestore';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { writeBorderWaitArchive } from './lib/border-wait-monthly-archive.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,12 +46,6 @@ const DEFAULT_REPO_ROOT = path.resolve(__dirname, '..');
 
 function ensureDirs(historyDir) {
   fs.mkdirSync(historyDir, { recursive: true });
-}
-
-function initFirebase() {
-  if (admin.apps.length > 0) return admin;
-  admin.initializeApp({ credential: admin.credential.applicationDefault() });
-  return admin;
 }
 
 function toEpochMs(docId) {
@@ -125,8 +124,8 @@ async function fetchTrafficHistoryForDay(db, slug, dayKey) {
     .collection('trafficHistory')
     .doc(slug)
     .collection('snapshots')
-    .where(admin.firestore.FieldPath.documentId(), '>=', String(startOfDay))
-    .where(admin.firestore.FieldPath.documentId(), '<', String(endOfDay))
+    .where(FieldPath.documentId(), '>=', String(startOfDay))
+    .where(FieldPath.documentId(), '<', String(endOfDay))
     .get();
   /** @type {Array<any>} */
   const rows = [];
@@ -211,7 +210,8 @@ export async function snapshotBorderWaitFiles(db, opts = {}) {
     'utf-8',
   );
 
-  // 3. Optional prune.
+  // 3. Preserve published monthly facts before optional daily-window pruning.
+  writeBorderWaitArchive(historyDir, path.join(repoRoot, 'data', 'border-wait-archive'), today);
   if (opts.prune !== false) {
     const days = typeof opts.prune === 'number' && opts.prune > 0 ? opts.prune : 90;
     pruneOldHistory(historyDir, days);
@@ -226,8 +226,7 @@ async function main() {
     console.error('❌ GOOGLE_APPLICATION_CREDENTIALS is not set or file does not exist');
     process.exit(1);
   }
-  initFirebase();
-  const db = admin.firestore();
+  const db = await getFirestoreDb();
 
   const today = new Date().toISOString().slice(0, 10);
   console.log(`🚦 Snapshotting border-wait history for ${today}…`);
@@ -242,7 +241,7 @@ async function main() {
 }
 
 // Only run main() when invoked as a CLI, not when imported.
-const invokedAsCli = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+const invokedAsCli = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedAsCli) {
   main().catch((err) => {
     console.error('❌ snapshot-border-wait-history failed:', err);

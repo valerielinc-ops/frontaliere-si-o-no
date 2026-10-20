@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -30,6 +31,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseDelvitechCareerPage,
   parseDelvitechJobDetail,
@@ -275,12 +277,6 @@ function assertCompleteDelvitechSnapshot(jobs = []) {
   return true;
 }
 
-function buildApplyUrl(email, title, fallbackUrl) {
-  if (!email) return fallbackUrl;
-  const subject = encodeURIComponent(`Application - ${title}`);
-  return `mailto:${email}?subject=${subject}`;
-}
-
 async function buildDelvitechJob(listing) {
   const detailUrl = absoluteUrl(listing.href);
   const html = await fetchRobust(detailUrl);
@@ -306,9 +302,12 @@ async function buildDelvitechJob(listing) {
     sourceLocationClassified: true,
     job: {
       title: detail.title,
-      slug: localized.slugByLocale.en,
+      slug: localized.slug,
       url: detailUrl,
-      applyUrl: buildApplyUrl(detail.email, detail.title, detailUrl),
+      // The source advertises email applications inside this HTTPS detail
+      // page. Publish the page as the navigable handoff; keep the source email
+      // separately so a mailto value never becomes the L3 applyUrl.
+      applyUrl: detailUrl,
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       companyDomain: COMPANY_DOMAIN,
@@ -321,8 +320,8 @@ async function buildDelvitechJob(listing) {
       category: inferDelvitechCategory(detail.title, detail.description),
       sector: 'Tecnologia & IT',
       source: 'delvitech-dedicated-crawler',
-      sourceLang: detectLang(detail.description || detail.title, 'en'),
-      postedDate: new Date().toISOString().slice(0, 10),
+      sourceLang: localized.sourceLang,
+      ...sourcePostingDateFields(detail.datePublished),
       employmentType: 'full-time',
       contractType: 'full-time',
       validThrough: '',
@@ -358,10 +357,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -386,7 +388,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

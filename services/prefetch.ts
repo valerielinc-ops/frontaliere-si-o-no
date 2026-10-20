@@ -64,6 +64,7 @@ const TAB_LOADERS: Record<string, PrefetchFn[]> = {
  ],
  vita: [
   () => import('@/components/tabs/VitaTabContent'),
+  () => import('@/components/guide/FrontierGuide'),
  ],
  blog: [
  () => import('@/components/community/BlogArticles'),

@@ -26,6 +26,7 @@
  *
  * Source: https://careers.mediclinic.com/Hirslanden/search
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
@@ -33,9 +34,13 @@ import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from './jina-proxy.
 import { isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 import { inferSwissTargetCanton, isKnownSwissCity } from './target-swiss-locations.mjs';
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { parseSuccessFactorsMicrodataLocation } from './successfactors-shared-job-parser-common.mjs';
+import { hqPostalCodeForLocality } from './dedicated-crawler-common.mjs';
+import { dropSameSourceReference } from './identical-posting-dedupe.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -61,7 +66,7 @@ function normalize(value = '') {
  * Parse "DD.MM.YYYY" → "YYYY-MM-DD". Returns '' on failure.
  */
 export function parseDate(raw = '') {
-  const m = String(raw || '').trim().match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  const m = String(raw || '').trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
   if (!m) return '';
   return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
 }
@@ -116,13 +121,26 @@ function detectExperienceLevel(title = '') {
  */
 export function parseLocation(raw = '') {
   const text = normalizeSpace(raw);
-  if (!text) return { city: 'Zürich', postalCode: '8008' };
+  if (!text) return { city: '', postalCode: '' };
   const m = text.match(/^([^,]+)(?:,\s*CH)?(?:,\s*(\d{4}))?/i);
   if (!m) return { city: text, postalCode: '' };
   return {
-    city: normalizeSpace(m[1]) || 'Zürich',
+    city: normalizeSpace(m[1]),
     postalCode: m[2] || '',
   };
+}
+
+/** Normalize the SuccessFactors `datePosted` microdata value without using
+ * crawl time or a listing/start date as a publication-date substitute. */
+function normalizeSuccessFactorsDatePosted(raw = '') {
+  const value = normalizeSpace(raw);
+  const match = /^(?:Sun|Mon|Tue|Wed|Thu|Fri|Sat)\s+([A-Za-z]{3})\s+(\d{1,2})\s+(\d{2}):(\d{2}):(\d{2})\s+(?:UTC|GMT)\s+(\d{4})$/i.exec(value);
+  if (!match) return value;
+  const month = {
+    jan: '01', feb: '02', mar: '03', apr: '04', may: '05', jun: '06',
+    jul: '07', aug: '08', sep: '09', oct: '10', nov: '11', dec: '12',
+  }[match[1].toLowerCase()];
+  return month ? `${match[6]}-${month}-${String(match[2]).padStart(2, '0')}T${match[3]}:${match[4]}:${match[5]}Z` : value;
 }
 
 /* ── Listing page parser ──────────────────────────────────── */
@@ -340,7 +358,7 @@ export function descriptionBodyToMarkdown(bodyHtml = '') {
 
 /**
  * Parse a Hirslanden job detail page (SuccessFactors j2w).
- * Returns { title, description, location, applyUrl }.
+ * Returns { title, description, location, postedDate, applyUrl }.
  *
  * Title + description come from the SF microdata (`itemprop="title"` /
  * `itemprop="description"`) which carries the REAL per-job content. The old
@@ -373,8 +391,8 @@ export function parseDetailPage(html) {
   // Prefer the typed body <span> and exclude void <meta>/<link> microdata nodes.
   // An unscoped `[itemprop="description"]` would match a `<meta itemprop=
   // "description">` shipped in <head> first (document order), whose `.innerHTML`
-  // is empty → every description collapses to buildFallbackDescription → the
-  // duplicate-listings audit critical reappears (#1885, follow-up of #1884).
+  // is empty → every listing lost its body (it collapsed to an invented
+  // fallback then, it is skipped now) (#1885, follow-up of #1884).
   let description = '';
   const descEl =
     doc.querySelector('span[itemprop="description"]') ||
@@ -411,6 +429,19 @@ export function parseDetailPage(html) {
   }
   if (location && /[<="']|viewport|content|width|home-?office/i.test(location)) location = '';
 
+  // SuccessFactors exposes the employer's publication timestamp as
+  // `meta[itemprop="datePosted"]` inside the JobPosting microdata scope. The
+  // tile listing does not carry this field, so read the scoped detail value
+  // before the caller falls back to the listing date.
+  const jobPostingScope = doc.querySelector('[itemscope][itemtype*="JobPosting"]') || doc;
+  const datePostedEl = jobPostingScope.querySelector('[itemprop="datePosted"]');
+  const postedDate = normalizeSuccessFactorsDatePosted(
+    datePostedEl?.getAttribute('content')
+      || datePostedEl?.getAttribute('datetime')
+      || datePostedEl?.textContent
+      || '',
+  );
+
   return {
     title,
     description,
@@ -418,14 +449,9 @@ export function parseDetailPage(html) {
     locationEvidence,
     region: structuredLocation?.region || '',
     postalCode: structuredLocation?.postalCode || '',
+    postedDate,
     applyUrl,
   };
-}
-
-/* ── Fallback description ─────────────────────────────────── */
-
-function buildFallbackDescription(title, location) {
-  return `${title} bei der Hirslanden-Klinik in ${location || 'der Schweiz'}.\n\nDie Hirslanden-Gruppe ist mit 17 Privatkliniken und mehreren Tageskliniken die führende Privatklinik-Gruppe der Schweiz. Sie beschäftigt rund 11'000 Mitarbeitende und arbeitet mit über 2'500 Belegärztinnen und Belegärzten zusammen. Hirslanden gehört zur internationalen Mediclinic-Gruppe (Südafrika / Vereinigtes Königreich / Schweiz / Vereinigte Arabische Emirate). Wir bieten ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und Karriereperspektiven in einem führenden Schweizer Gesundheitsunternehmen.`;
 }
 
 /* ── Job identification ───────────────────────────────────── */
@@ -517,13 +543,54 @@ export function resolveHirslandenLocation(detailLocationText, listingCity) {
   return detail || listing;
 }
 
+/**
+ * Resolve the canton from structured locality evidence only.
+ *
+ * A facility label is not a canton source: `Hirslanden OPERA Zumikon AG`
+ * contains the legal suffix `AG`, although Zumikon is in ZH. Prefer the
+ * known listing locality, then the structured address region. If those two
+ * primary sources disagree, return no canton so the caller can fail closed;
+ * do not reinterpret an ambiguous facility label or a nearby field.
+ */
+export function resolveHirslandenCanton({ listingCity = '', detailRegion = '', facility = '' } = {}) {
+  const listing = normalizeSpace(listingCity);
+  const region = normalizeSpace(detailRegion);
+  const facilityText = normalizeSpace(facility);
+  const listingCanton = isKnownSwissCity(listing) ? inferSwissTargetCanton(listing) : '';
+  const regionCanton = inferSwissTargetCanton(region);
+
+  if (listingCanton && regionCanton && listingCanton !== regionCanton) return '';
+  if (listingCanton) return listingCanton;
+  if (regionCanton) return regionCanton;
+
+  // Only an exact known city is safe as a last resort. Free-text facility
+  // names are deliberately not passed through inferSwissTargetCanton().
+  return isKnownSwissCity(facilityText) ? inferSwissTargetCanton(facilityText) : '';
+}
+
+// "Referenznummer: 43018" (German ads), "Numéro de référence: 70053" (French).
+const REFERENCE_NUMBER_RE = /\b(?:Referenznummer|Numéro de référence)\s*:\s*(\d{3,})/iu;
+
+/**
+ * The Referenznummer the advertisement prints in its header, or '' when it
+ * prints none.
+ *
+ * @param {{ description?: string, descriptionByLocale?: Record<string, string>, sourceLang?: string }} job
+ * @returns {string}
+ */
+export function hirslandenReferenceNumber(job) {
+  const text = job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '';
+  return REFERENCE_NUMBER_RE.exec(String(text))?.[1] || '';
+}
+
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
  * Fetch all Hirslanden Klinik jobs.
  *   1. Walk paginated SF j2w search results
  *   2. For each listing, fetch its detail page for the description
- * Returns ParsedJob[] with source-locale fields only (sourceLang='de').
+ * Returns ParsedJob[] with source-locale fields only, keyed by the language
+ * the body is written in (German, or French for the Romandie clinics).
  */
 export async function fetchAllHirslandenJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
@@ -569,6 +636,7 @@ export async function fetchAllHirslandenJobs() {
 
   // Step 2 — detail pages
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of allListings) {
     try {
       let detail = null;
@@ -585,40 +653,56 @@ export async function fetchAllHirslandenJobs() {
       const location = detail?.locationEvidence === 'microdata'
         ? realLocationText
         : resolveHirslandenLocation(realLocationText, city);
-      const inferredCanton = inferSwissTargetCanton(location)
-        || inferSwissTargetCanton(detail?.region || '')
-        || inferSwissTargetCanton(city)
-        || null;
-      if (realLocationText && !inferredCanton) {
+      const inferredCanton = resolveHirslandenCanton({
+        listingCity: city,
+        detailRegion: detail?.region || '',
+        facility: location,
+      }) || null;
+      if (!inferredCanton) {
         console.warn(`  ⚠️ Hirslanden: skipping unresolvable location "${realLocationText}" (${title})`);
+        await new Promise((r) => setTimeout(r, 300));
         continue;
       }
-      const canton = inferredCanton || 'ZH';
-      const postalCode = detail?.postalCode || parsedPostal || '8008';
+      const canton = inferredCanton;
+      // Keep the existing safe postal fallback when the source omits a CAP;
+      // the canton itself is never inferred from this fallback.
+      const postalCode = detail?.postalCode || parsedPostal || hqPostalCodeForLocality(location, 'Zürich', '8008');
 
-      let description = '';
-      if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-        description = detail.description;
-      } else {
-        description = buildFallbackDescription(title, location);
+      // Only the posting's own text is published (issue 5253). A detail page
+      // that could not be read, or whose body is under the shared 50-word
+      // floor, used to be replaced by an invented group summary; such a
+      // listing is not published any more.
+      const description = detail?.description || '';
+      if (!meetsSourceBodyFloor(description)) {
+        console.warn(`  ⏭️ Hirslanden: no vacancy text on the detail page, not published (${title})`);
+        withoutBody += 1;
+        await new Promise((r) => setTimeout(r, 300));
+        continue;
       }
 
-      const postedDate = listing.postedDate || new Date().toISOString().slice(0, 10);
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} ${HIRSLANDEN_KEY} ${location}`);
       const employmentType = detectEmploymentType(title);
+      // The language the body is written in: 33 of 339 published postings
+      // (2026-09-29) are French, and a fixed `de` put them in the German slot.
+      const sourceLang = sourceLangOfBody(description, 'de');
+      const detailPostingDate = sourcePostingDateFields(detail?.postedDate);
+      const postingDate = detailPostingDate.postingDateSource === 'reported'
+        ? detailPostingDate
+        : sourcePostingDateFields(listing.postedDate);
 
       const job = {
         id: `${HIRSLANDEN_KEY}-${urlHash}`,
+        externalId: listing.jobId,
         slug: jobSlug,
-        slugByLocale: { de: jobSlug },
+        slugByLocale: { [sourceLang]: jobSlug },
         company: HIRSLANDEN_COMPANY_NAME,
         companyKey: HIRSLANDEN_KEY,
         companyDomain: HIRSLANDEN_COMPANY_DOMAIN,
         title,
-        titleByLocale: { de: title },
+        titleByLocale: { [sourceLang]: title },
         description,
-        descriptionByLocale: { de: description },
+        descriptionByLocale: { [sourceLang]: description },
         location,
         canton,
         addressLocality: location,
@@ -633,14 +717,14 @@ export async function fetchAllHirslandenJobs() {
         experienceLevel: detectExperienceLevel(title),
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...postingDate,
         url: listing.url,
         applyUrl: detail?.applyUrl || listing.url,
         source: 'Hirslanden Klinik Dedicated Parser (SuccessFactors j2w)',
-        sourceLang: 'de',
+        sourceLang,
         crawledAt: new Date().toISOString(),
         requirements: [],
-        requirementsByLocale: { de: [] },
+        requirementsByLocale: { [sourceLang]: [] },
       };
 
       if (detail?.locationEvidence === 'description') markLocationDerivedFromVacancyText(job);
@@ -650,6 +734,10 @@ export async function fetchAllHirslandenJobs() {
       console.warn(`  ⚠️ Skipping ${listing.title} — ${err?.message || err}`);
     }
     await new Promise((r) => setTimeout(r, 300));
+  }
+
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without a vacancy body on the detail page — not published.`);
   }
 
   // Deduplicate by URL
@@ -662,6 +750,16 @@ export async function fetchAllHirslandenJobs() {
     deduped.push(job);
   }
 
-  console.log(`\n📋 Total unique ${HIRSLANDEN_COMPANY_NAME} jobs discovered: ${deduped.length}`);
-  return deduped;
+  // Hirslanden publishes the same advertisement under a second SuccessFactors
+  // job id: a re-post (1124147801/1123876301, Referenznummer 43018) or the
+  // French version of a Biel posting (1391700433/1391700533, 70053). The ad
+  // prints its own Referenznummer, and the same number on two URLs is one
+  // advertisement: one page. Postings without a number are never grouped.
+  const { jobs: unique, dropped } = dropSameSourceReference(deduped, hirslandenReferenceNumber);
+  if (dropped.length > 0) {
+    console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same Referenznummer under another job id).`);
+  }
+
+  console.log(`\n📋 Total unique ${HIRSLANDEN_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
 }

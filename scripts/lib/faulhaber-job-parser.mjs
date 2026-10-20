@@ -19,7 +19,10 @@
  * `validateDetailHtml()` is also exported as the testable detail-validation
  * boundary; it returns the parsed detail that the caller can reuse.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
@@ -32,6 +35,8 @@ import {
   WAF_IP_BLOCK_STATUS,
 } from './crawler-template.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { isSpontaneousApplicationTitle } from './spontaneous-application.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -52,6 +57,11 @@ export const FAULHABER_KEY = 'faulhaber';
 export const FAULHABER_COMPANY_NAME = 'Faulhaber';
 export const FAULHABER_COMPANY_DOMAIN = 'faulhaber.com';
 
+/**
+ * Node-selection heuristic only: the first body block with this many
+ * characters is taken as the vacancy text. Whether that text is published is
+ * decided by the shared 50-word floor (source-body-floor.mjs).
+ */
 export const MIN_DESC_LENGTH = 100;
 
 /** Only keep Swiss jobs from the Croglio site */
@@ -164,6 +174,7 @@ function parseListingData(body = '') {
     throw new Error('Faulhaber: listing-data response is incomplete');
   }
   const jobs = [];
+  let swissSpontaneousApplications = 0;
   for (const row of payload.Joboffers) {
     const title = normalizeSpace(row?.JobofferName || '');
     const location = normalizeSpace(row?.LocationName || '');
@@ -178,8 +189,22 @@ function parseListingData(body = '') {
       throw new Error('Faulhaber: listing data contains an unsafe detail URL');
     }
     if (!title || !SWISS_LOCATION_RE.test(location)) continue;
+    // HR4YOU lists the Croglio plant's standing "Candidatura spontanea" as an
+    // offer (its `IsUnsolicitedApps` flag is not reliably set). It is an
+    // application container, not a vacancy, and its one-paragraph body can
+    // never meet the source-body floor (corpus run 36790878741).
+    if (row?.IsUnsolicitedApps === true || isSpontaneousApplicationTitle(title)) {
+      swissSpontaneousApplications += 1;
+      continue;
+    }
     jobs.push({ title, url, location, department });
   }
+  // Non-enumerable, like the other source-proof fields of the repo: the whole
+  // feed was read (`JoboffersCount` matched) and these counts describe it.
+  Object.defineProperties(jobs, {
+    listingOfferCount: { value: payload.Joboffers.length, enumerable: false },
+    swissSpontaneousApplications: { value: swissSpontaneousApplications, enumerable: false },
+  });
   return jobs;
 }
 
@@ -246,8 +271,12 @@ export function validateDetailHtml(html = '') {
     throw new Error('Faulhaber: detail response has no supported vacancy boundary');
   }
   const detail = parseDetailPage(html, document);
-  if (detail.description.length < MIN_DESC_LENGTH) {
-    throw new Error(`Faulhaber: detail description below ${MIN_DESC_LENGTH} characters`);
+  // A page without any vacancy text is not a detail page (outage, template
+  // change): the caller retries it through the proxy or fails the run. Whether
+  // a real text is long enough to publish is decided by the shared 50-word
+  // floor in fetchAllFaulhaberJobs, not by a character count here.
+  if (!sourceBodyWordCount(detail.description)) {
+    throw new Error('Faulhaber: detail response has no vacancy text');
   }
   return detail;
 }
@@ -371,11 +400,21 @@ export async function fetchAllFaulhaberJobs({
     throw new Error(`Faulhaber: failed to fetch the listing data: ${err.message}`, { cause: err });
   }
   console.log(`  Swiss jobs found in listing data: ${listings.length}`);
-  if (!listings.length) return [];
+  if (!listings.length) {
+    // `parseListingData` only returns after reading the complete feed (the
+    // declared `JoboffersCount` matched every row and every detail URL was
+    // trusted), so no Swiss vacancy in it is the source's own zero: retire
+    // the stored Croglio jobs instead of keeping them live.
+    const placeholders = Number(listings.swissSpontaneousApplications) || 0;
+    return markAuthoritativeEmptySnapshot([], `HR4YOU listing data: ${listings.listingOfferCount} offer(s), `
+      + `none at a Swiss site${placeholders ? ` besides ${placeholders} spontaneous-application entry` : ''}`);
+  }
 
   const jobs = [];
+  let belowFloor = 0;
   for (const listing of listings) {
     let description = '';
+    let publication = sourcePostingDateFields();
     let detailLocation = listing.location;
 
     if (listing.url) {
@@ -383,12 +422,23 @@ export async function fetchAllFaulhaberJobs({
         const detail = await fetchFaulhaberHtml(listing.url, {
           timeoutMs: 15000,
           validateRedirectUrl: detailRedirectValidator(listing.url),
-          parseBody: validateDetailHtml,
+          parseBody: (html) => {
+            const detail = validateDetailHtml(html);
+            const posting = extractJobPostingLd(html);
+            let sameUrl = !posting?.url;
+            if (posting?.url) {
+              try { sameUrl = new URL(posting.url, listing.url).href === new URL(listing.url).href; }
+              catch { sameUrl = false; }
+            }
+            const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === normalizeSpace(listing.title).toLowerCase();
+            return { ...detail, ...sourcePostingDateFields(sameTitle && sameUrl ? posting?.datePosted : '') };
+          },
           label: 'job detail',
           fetchHtmlImpl,
           fetchJinaImpl,
         });
         description = detail.description;
+        publication = sourcePostingDateFields(detail.datePosted);
         if (!detailLocation && detail.location) detailLocation = detail.location;
       } catch (err) {
         throw new Error(`Faulhaber: failed to fetch a trusted detail page: ${err.message}`, { cause: err });
@@ -398,14 +448,21 @@ export async function fetchAllFaulhaberJobs({
     // If we got no location from listing and detail didn't confirm Swiss, skip
     if (!listing.location && !SWISS_LOCATION_RE.test(detailLocation)) continue;
 
-    // A synthetic title/location fallback is thin content and would turn a
-    // transient detail outage into published low-quality data. Preserve the
-    // previous slice by failing the whole run instead.
-    if (!description || description.length < MIN_DESC_LENGTH) {
-      throw new Error(`Faulhaber: detail description below ${MIN_DESC_LENGTH} characters for ${listing.url}`);
+    // The shared 50-word floor (source-body-floor.mjs): a shorter text is not
+    // published this run (the standard pipeline keeps the stored record for
+    // its grace runs); 100 characters let a 20-word body through. Nothing is
+    // ever composed in its place.
+    if (!meetsSourceBodyFloor(description)) {
+      belowFloor += 1;
+      console.warn(`  ⏭️ ${listing.title}: source body under 50 words — not published this run (${listing.url})`);
+      continue;
     }
 
-    const sourceLang = detectLang(listing.title, 'de');
+    // Language of the published body, not of the title (issue 5253): titles
+    // are loanword soup ("Candidatura spontanea", "Junior Logistics
+    // Specialist", "Guest Experience Specialist") and filed the body under a
+    // foreign source slot. The title is only the fallback when no body exists.
+    const sourceLang = detectLang(description || listing.title, 'de');
     const jobSlug = buildJobSlug(`${listing.title} Croglio`, 'faulhaber');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, description);
@@ -434,7 +491,7 @@ export async function fetchAllFaulhaberJobs({
       employmentType: empType,
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...publication,
       url: listing.url,
       applyUrl: listing.url,
       source: 'Faulhaber Dedicated Parser',
@@ -443,6 +500,12 @@ export async function fetchAllFaulhaberJobs({
     });
   }
 
+  // Not one vacancy with a publishable body is a source-level failure (a
+  // transient detail outage): fail the run so the previous slice stays,
+  // instead of publishing thin text or emptying the slice.
+  if (jobs.length === 0 && belowFloor > 0) {
+    throw new Error(`Faulhaber: no detail page with a source body of 50 words (${belowFloor} below the floor)`);
+  }
   console.log(`  Total Faulhaber jobs discovered: ${jobs.length}`);
   return jobs;
 }

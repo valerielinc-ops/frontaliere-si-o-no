@@ -8,6 +8,11 @@
     "https://recruitingapp-1154.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
   ],
   "detailTemplate": "/Vacancies/*/Description/1",
+  "umantisListingCantonOverrides": [
+    { "postalCode": "9102", "locality": "Herisau", "canton": "AR" },
+    { "postalCode": "9450", "locality": "Altstätten", "canton": "SG" },
+    { "postalCode": "9471", "locality": "Buchs", "canton": "SG" }
+  ],
   "sampleVacancyCount": 7,
   "sampleTitles": [
     "Teamleiter*in Sicherheit 100%",

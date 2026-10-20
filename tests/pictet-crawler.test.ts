@@ -162,7 +162,7 @@ describe('Pictet Group crawler parser', () => {
 
   // ── Job Shape Validation ──
   describe('job shape', () => {
-    // A minimal valid job for reference (Pictet HQ Geneva).
+    // A minimal valid job for reference (a Geneva vacancy).
     const validJob = {
       id: 'pictet-abc123',
       slug: 'wealth-manager-pictet-geneva',
@@ -206,7 +206,7 @@ describe('Pictet Group crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
 
-    it('default canton is GE (Pictet HQ Geneva)', () => {
+    it('a Geneva vacancy carries canton GE', () => {
       expect(validJob.canton).toBe('GE');
     });
   });

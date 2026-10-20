@@ -10,14 +10,23 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { extractDetailFields } from './prospector/extract.mjs';
+import {
+  extractUmantisDetailFields,
+  extractUmantisTitleAlternativeLocationEvidence,
+} from './prospector/umantis-detail.mjs';
 import {
   runUmantisSpecWithEmptyProof,
   umantisAuthoritativeEmptyOrNull,
 } from './umantis-empty-listing.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveDetailOrListingSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -26,6 +35,133 @@ export const RECRUITINGAPP_2563_COMPANY_NAME = 'Switch Bewerbermanagement Stelle
 export const RECRUITINGAPP_2563_COMPANY_DOMAIN = 'recruitingapp-2563.umantis.com';
 
 const CAREER_URL = 'https://recruitingapp-2563.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
+
+// Switch publishes the workplace in the vacancy title; the Umantis detail page
+// may also carry only the employer's generic address. Single-site titles and
+// explicitly Swiss alternatives are source-backed evidence, while any title
+// that cannot prove a Swiss site remains fail-closed.
+const SWITCH_SINGLE_CITY_TITLE_RX = /\bin\s+(Zürich|Zurich|Lausanne)\s*$/i;
+const SWITCH_SUPPORTED_CITY_RX = /\b(Zürich|Zurich|Lausanne)\b/gi;
+const SWITCH_DESCRIPTION_START_RX = /<h1\b[^>]*>[\s\S]{0,2000}?<\/h1\s*>/i;
+const SWITCH_DESCRIPTION_END_RX = /<div\b[^>]*\bid\s*=\s*(["'])mg_footer\1[^>]*>/i;
+
+/**
+ * Read the vacancy-only portion of Switch's custom Umantis template.
+ *
+ * The employer introduction sits before the vacancy title and contact,
+ * application and legal chrome sit under `#mg_footer`. Both boundaries are
+ * required so a changed or partial response remains fail-closed.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function extractRecruitingapp2563Description(html = '') {
+  const source = String(html || '');
+  const start = SWITCH_DESCRIPTION_START_RX.exec(source);
+  if (!start) return '';
+  const tail = source.slice(start.index + start[0].length);
+  const end = SWITCH_DESCRIPTION_END_RX.exec(tail);
+  if (!end) return '';
+  return normalizeSpace(stripHtml(tail.slice(0, end.index)));
+}
+
+/**
+ * Recover Switch's explicit single-city title suffix as source-backed detail
+ * evidence. This deliberately does not infer a location from arbitrary prose
+ * or from the employer's registered address.
+ *
+ * @param {string} title
+ * @returns {{ location: string, addressLocality: string, addressCountry: string }|null}
+ */
+export function extractRecruitingapp2563TitleLocation(title = '') {
+  const normalizedTitle = normalizeSpace(title);
+  const cityOccurrences = normalizedTitle.match(SWITCH_SUPPORTED_CITY_RX) || [];
+  if (cityOccurrences.length !== 1) return null;
+  const match = SWITCH_SINGLE_CITY_TITLE_RX.exec(normalizedTitle);
+  if (!match) return null;
+  const location = normalizeSpace(match[1]);
+  const candidate = { location, addressLocality: location, addressCountry: 'CH' };
+  return resolveDetailOrListingSwissGeography({}, candidate).geography
+    ? candidate
+    : null;
+}
+
+/**
+ * Detail extractor for Switch's title-backed workplace field.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {{ recordUrl?: string }} [opts]
+ */
+export function extractRecruitingapp2563DetailFields(html = '', pageUrl = '', opts = {}) {
+  const genericDetail = extractDetailFields(html, pageUrl, opts);
+  const umantisDetail = extractUmantisDetailFields(html);
+  const switchDescription = extractRecruitingapp2563Description(html);
+  const detail = {
+    ...genericDetail,
+    description: genericDetail.description || umantisDetail.description || switchDescription,
+  };
+  const renderedTitle = stripHtml(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
+  const detailTitle = normalizeSpace(detail.title);
+  const normalizedRenderedTitle = normalizeSpace(renderedTitle);
+  const titleSourcesAgree = !detailTitle || !normalizedRenderedTitle
+    || normalize(detailTitle) === normalize(normalizedRenderedTitle);
+  const titleForLocation = titleSourcesAgree ? detailTitle || normalizedRenderedTitle : '';
+  const location = extractRecruitingapp2563TitleLocation(titleForLocation);
+  const alternativeLocation = location
+    ? null
+    : extractUmantisTitleAlternativeLocationEvidence(titleForLocation);
+
+  // The shared Umantis extractor keeps every explicit alternative and projects
+  // the first one for the site's singular job schema. Reuse that same evidence
+  // on the detail page so a generic employer HQ cannot veto a vacancy title
+  // that names two verified Swiss workplaces. A foreign or otherwise
+  // conflicting structured detail candidate still wins as a fail-closed veto.
+  if (alternativeLocation) {
+    const genericLocationDecision = resolveDetailOrListingSwissGeography(detail, {});
+    if (!genericLocationDecision.explicitlyForeign) {
+      return {
+        ...detail,
+        location: alternativeLocation.location,
+        addressLocality: alternativeLocation.addressLocality,
+        addressRegion: alternativeLocation.addressRegion,
+        addressCountry: alternativeLocation.addressCountry,
+        postalCode: alternativeLocation.postalCode,
+        streetAddress: alternativeLocation.streetAddress,
+        locationCandidates: alternativeLocation.locationCandidates,
+      };
+    }
+  }
+
+  if (!location) {
+    const genericLocationPresent = Boolean(detail.location)
+      || Boolean(detail.addressCountry)
+      || (Array.isArray(detail.locationCandidates) && detail.locationCandidates.length > 0);
+    if (!genericLocationPresent) return detail;
+
+    // The generic Umantis candidate is not trustworthy for this tenant when
+    // the title does not prove one city. Block it explicitly so the shared
+    // resolver cannot fall back to the employer HQ or a conflicting listing
+    // candidate and publish an invented workplace.
+    return {
+      ...detail,
+      location: '',
+      addressCountry: '',
+      locationCandidates: [],
+      locationGateRejected: true,
+    };
+  }
+
+  // A generic Umantis address can be the employer's HQ (historically Lugano),
+  // not this vacancy's workplace. The explicit single-city title is stronger
+  // source evidence, so replace the generic candidate rather than merge it.
+  return {
+    ...detail,
+    location: location.location,
+    addressCountry: location.addressCountry,
+    locationCandidates: [location],
+  };
+}
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -111,7 +247,10 @@ function detectEmploymentType(text = '') {
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
 async function fetchJobListings(runtime = {}) {
-  return runUmantisSpecWithEmptyProof(RECRUITINGAPP_2563_KEY, runtime);
+  return runUmantisSpecWithEmptyProof(RECRUITINGAPP_2563_KEY, {
+    ...runtime,
+    detailExtractor: extractRecruitingapp2563DetailFields,
+  });
 }
 
 /**
@@ -151,9 +290,14 @@ export async function fetchAllRecruitingapp2563Jobs(runtime = {}) {
     // mean what autoFilteredEmpty claims it means (see note below).
     geoEligible += 1;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    // Umantis may expose alternative workplaces as separate source-backed
+    // candidates. Resolve the full listing record so this parser keeps the
+    // shared fail-closed multi-location decision instead of reducing it to
+    // the single display `listing.location` field.
+    const geographyDecision = resolveDetailOrListingSwissGeography({}, listing);
+    const geography = sourceBackedSwissGeographyFields(listing, geographyDecision.geography);
     if (!geography) continue;
-    const { location, canton } = geography;
+    const { location, canton, addressLocality, addressRegion, addressCountry } = geography;
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
@@ -180,10 +324,10 @@ export async function fetchAllRecruitingapp2563Jobs(runtime = {}) {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
+      addressLocality: normalizeSpace(addressLocality || listing.addressLocality),
+      addressRegion: normalizeSpace(addressRegion || listing.addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || "CH"),
+      country: normalizeSpace(addressCountry || "CH"),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
@@ -193,7 +337,7 @@ export async function fetchAllRecruitingapp2563Jobs(runtime = {}) {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

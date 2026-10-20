@@ -14,6 +14,9 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { EVENTS_SLICE_DIR } from './events-utils.mjs';
+import { applyDetailFailureReuse } from './detail-failure-reuse-policy.mjs';
+import { mergeEventHistory, publishedEventRoutes } from './events-retention.mjs';
+import { appendPrivateEventDescriptionSources, sanitizeEventForPublication } from './event-description-policy.mjs';
 
 export const CHECKPOINT_DIR = path.join(EVENTS_SLICE_DIR, '..', 'checkpoints');
 
@@ -61,15 +64,28 @@ export function saveGenericCursor(filePath, cursor) {
 }
 
 /**
- * Upsert `freshEvents` (by stable `id`) into the slice already on disk,
- * drop any id in `goneIds` (events explicitly revisited and confirmed
- * expired/removed this run), and prune anything whose last relevant date
- * (endDate || startDate) is already in the past — a source-agnostic
- * safety net so events that silently drop out of a source's own listing
- * (and are therefore never revisited/explicitly marked gone) don't linger
- * in the slice forever. Returns the resulting total event count.
+ * Upsert `freshEvents` (by stable `id`) into the slice already on disk.
+ *
+ * Event URLs are an SEO archive: an event dropping out of a source listing,
+ * being explicitly reported in `goneIds`, or ending in the past is NOT proof
+ * that its published URL may be deleted. `goneIds` is retained in the API for
+ * crawler diagnostics and forward compatibility, but deliberately has no
+ * destructive effect here. When a record changes its date/title/location,
+ * mergeEventHistory carries the old route into `previousRoutes`.
+ * Returns the resulting total event count.
  */
-export function mergeEventsIntoSlice({ slicePath, sourceKey, sourceName, freshEvents, goneIds, crawledAt }) {
+export function mergeEventsIntoSlice({
+  slicePath,
+  sourceKey,
+  sourceName,
+  canton,
+  freshEvents,
+  goneIds,
+  crawledAt,
+  detailFailureIds = [],
+  detailAttemptCount,
+  detailFailureStrategy = 'reuse-or-reject',
+}) {
   let existing = [];
   if (existsSync(slicePath)) {
     try {
@@ -80,18 +96,92 @@ export function mergeEventsIntoSlice({ slicePath, sourceKey, sourceName, freshEv
     }
   }
 
-  const byId = new Map(existing.map((event) => [event.id, event]));
-  for (const id of goneIds || []) byId.delete(id);
-  for (const event of freshEvents) byId.set(event.id, event);
+  // Source descriptions may exist in crawler memory, but this is the last
+  // boundary before a slice becomes versioned. Keep an opt-in private JSONL
+  // copy for the rewrite backlog, then remove the prose from both new and old
+  // rows before detail-reuse, history, and the write below.
+  appendPrivateEventDescriptionSources(freshEvents);
+  const safeFreshEvents = freshEvents.map(sanitizeEventForPublication);
+  const safeExistingEvents = existing.map(sanitizeEventForPublication);
 
-  const todayIso = String(crawledAt).slice(0, 10);
-  const events = [...byId.values()].filter((event) => {
-    const lastRelevant = event.endDate || event.startDate;
-    return !lastRelevant || lastRelevant >= todayIso;
+  const detailReuse = applyDetailFailureReuse({
+    freshRows: safeFreshEvents,
+    failedIdentities: detailFailureIds,
+    attemptedCount: detailAttemptCount,
+    previousRows: safeExistingEvents,
+    identityOf: (event) => event?.id,
+    requireReuse: false,
+    fallbackOf: (previous) => {
+      if (!previous?.id || !String(previous.title || '').trim() || !String(previous.startDate || '').trim()) {
+        return null;
+      }
+      return { ...previous };
+    },
   });
+  // MySwitzerland has an independently verified Algolia event row. When its
+  // detail transport stops on the 406 policy threshold, the caller may make
+  // that source-backed fallback explicit. It must still provide a fresh row
+  // for every failed identity; other sources keep the shared reject policy.
+  const freshEventIds = new Set(
+    safeFreshEvents.map((event) => (typeof event?.id === 'string' ? event.id.trim() : '')).filter(Boolean),
+  );
+  const canPublishSourceBackedIndex = sourceKey === 'myswitzerland'
+    && detailFailureStrategy === 'source-backed-index'
+    && detailReuse.detailFailureCount > 0
+    && detailReuse.invalidFailureIdentityCount === 0
+    && detailReuse.duplicateFailureIdentityCount === 0
+    && detailReuse.previousSnapshotIdentityCollisionCount === 0
+    && detailReuse.detailFailureIdentities.every((identity) => freshEventIds.has(identity));
+  if (!detailReuse.canPublish && !canPublishSourceBackedIndex) {
+    throw new Error(
+      `[${sourceKey}] detail failure/reuse policy rejected ${detailReuse.detailFailureCount}/`
+      + `${detailReuse.attemptedCount} attempted detail(s)`,
+    );
+  }
+  if (canPublishSourceBackedIndex) {
+    console.warn(
+      `[${sourceKey}] detail failure/reuse policy exceeded; publishing the explicit source-backed index fallback`,
+    );
+  }
+  if (detailReuse.detailFailureCount > 0) {
+    console.warn(
+      `[${sourceKey}] detail failure/reuse accounting: ${detailReuse.detailFailureCount} failed, `
+      + `${canPublishSourceBackedIndex ? 'index-backed rows published' : `${detailReuse.reusedDetailCount} previous snapshot row(s) reused`}`,
+    );
+  }
+
+  const byId = new Map(safeExistingEvents.map((event) => [event.id, event]));
+  const previousRoutes = publishedEventRoutes(
+    safeExistingEvents,
+    typeof crawledAt === 'string' ? crawledAt.slice(0, 10) : undefined,
+  );
+  // Deliberately retain goneIds: source disappearance is a crawl observation,
+  // not authorization to erase a public event URL.
+  const rowsToMerge = canPublishSourceBackedIndex ? safeFreshEvents : detailReuse.rows;
+  for (const event of rowsToMerge) {
+    if (!event?.id) continue;
+    const previous = byId.get(event.id);
+    byId.set(
+      event.id,
+      previous ? mergeEventHistory(previous, event, previousRoutes.get(event.id)) : event,
+    );
+  }
+
+  // Keep the parameter part of the explicit contract even though it is now
+  // non-destructive by design; this makes accidental reintroduction of a
+  // delete loop obvious in review.
+  void goneIds;
+  const events = [...byId.values()];
 
   mkdirSync(path.dirname(slicePath), { recursive: true });
-  const slice = { schemaVersion: 1, sourceKey, sourceName, assembledAt: crawledAt, events };
+  const slice = {
+    schemaVersion: 1,
+    sourceKey,
+    sourceName,
+    ...(canton ? { canton } : {}),
+    assembledAt: crawledAt,
+    events,
+  };
   writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`, 'utf-8');
   return events.length;
 }

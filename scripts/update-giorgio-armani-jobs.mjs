@@ -26,6 +26,7 @@
  * stores across Switzerland (Zurich, Landquart outlet, etc.), making
  * their positions relevant for Italian cross-border workers.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -54,6 +55,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import {
   parseGiorgioArmaniListingHtml,
@@ -117,12 +119,6 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-function toIsoDate(value = '') {
-  const parsed = new Date(String(value || '').trim());
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
 }
 
 function isTargetJob(job = {}) {
@@ -316,7 +312,7 @@ async function buildGiorgioArmaniJob(discovery) {
 
   return {
     title: detail.title,
-    slug: localized.slugByLocale.it,
+    slug: localized.slug,
     url: buildJobUrl(discovery.reqId),
     applyUrl: detail.applyHref ? `https://career5.successfactors.eu${detail.applyHref}` : buildApplyUrl(discovery.reqId),
     company: COMPANY_NAME,
@@ -331,8 +327,8 @@ async function buildGiorgioArmaniJob(discovery) {
     category: inferGiorgioArmaniCategory(detail.area, detail.title),
     sector: 'Moda & Lusso',
     source: 'giorgio-armani-dedicated-crawler',
-    sourceLang: detectLang(detail.description || '', 'en'),
-    postedDate: toIsoDate(),
+    sourceLang: localized.sourceLang,
+    ...sourcePostingDateFields(),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
@@ -370,10 +366,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -398,7 +397,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

@@ -37,6 +37,16 @@
  * merge cleanly — see memory/feedback_worktree_merge_router_duplicates.
  */
 
+import {
+  HEALTH_PREMIUM_AGE_BRACKETS as SHARED_HEALTH_PREMIUM_AGE_BRACKETS,
+  HEALTH_PREMIUM_AGE_SLUG as SHARED_HEALTH_PREMIUM_AGE_SLUG,
+  HEALTH_PREMIUM_CANTONS as SHARED_HEALTH_PREMIUM_CANTONS,
+  HEALTH_PREMIUM_CANTON_SLUG as SHARED_HEALTH_PREMIUM_CANTON_SLUG,
+  HEALTH_PREMIUM_LOCALES as SHARED_HEALTH_PREMIUM_LOCALES,
+  HEALTH_PREMIUM_LOCALE_PREFIX as SHARED_HEALTH_PREMIUM_LOCALE_PREFIX,
+  HEALTH_PREMIUM_SECTION_SLUG as SHARED_HEALTH_PREMIUM_SECTION_SLUG,
+} from '../../scripts/lib/healthPremiumSections.mjs';
+
 export type HealthPremiumLocale = 'it' | 'en' | 'de' | 'fr';
 
 /**
@@ -111,7 +121,8 @@ export interface HealthPremiumAgeDef {
   max: number | null;
 }
 
-export const HEALTH_PREMIUM_LOCALES: readonly HealthPremiumLocale[] = ['it', 'en', 'de', 'fr'] as const;
+export const HEALTH_PREMIUM_LOCALES: readonly HealthPremiumLocale[] =
+  SHARED_HEALTH_PREMIUM_LOCALES as readonly HealthPremiumLocale[];
 
 /**
  * Canonical ordering: the original 5 target cantons first (so their index in
@@ -119,45 +130,11 @@ export const HEALTH_PREMIUM_LOCALES: readonly HealthPremiumLocale[] = ['it', 'en
  * cantons in alphabetical order of the internal identifier. Keep this order
  * stable — tests, hub grids and related-links sibling pickers walk it.
  */
-export const HEALTH_PREMIUM_CANTONS: readonly HealthPremiumCanton[] = [
-  // Original F2 target set — slugs frozen for backward compatibility.
-  'ticino',
-  'grigioni',
-  'uri',
-  'vallese',
-  'zurigo',
-  // B-cont-2 expansion — remaining 21 Swiss cantons.
-  'argovia',
-  'appenzello-interno',
-  'appenzello-esterno',
-  'berna',
-  'basilea-campagna',
-  'basilea-citta',
-  'friborgo',
-  'ginevra',
-  'glarona',
-  'giura',
-  'lucerna',
-  'neuchatel',
-  'nidvaldo',
-  'obvaldo',
-  'san-gallo',
-  'sciaffusa',
-  'soletta',
-  'svitto',
-  'turgovia',
-  'vaud',
-  'zugo',
-] as const;
+export const HEALTH_PREMIUM_CANTONS: readonly HealthPremiumCanton[] =
+  SHARED_HEALTH_PREMIUM_CANTONS as readonly HealthPremiumCanton[];
 
-export const HEALTH_PREMIUM_AGE_BRACKETS: readonly HealthPremiumAgeDef[] = [
-  { id: '0-18', min: 0, max: 18 },
-  { id: '19-25', min: 19, max: 25 },
-  { id: '26-30', min: 26, max: 30 },
-  { id: '31-45', min: 31, max: 45 },
-  { id: '46-55', min: 46, max: 55 },
-  { id: '56-plus', min: 56, max: null },
-] as const;
+export const HEALTH_PREMIUM_AGE_BRACKETS: readonly HealthPremiumAgeDef[] =
+  SHARED_HEALTH_PREMIUM_AGE_BRACKETS as readonly HealthPremiumAgeDef[];
 
 /**
  * BAG 2-letter canton code for each hub. Used to index into
@@ -325,167 +302,15 @@ export const HEALTH_PREMIUM_CANTON_DISPLAY: Record<HealthPremiumLocale, Record<H
  * / schaffhausen / schaffhouse, etc.) to catch long-tail queries in each
  * market's search language.
  */
-export const HEALTH_PREMIUM_CANTON_SLUG: Record<HealthPremiumLocale, Record<HealthPremiumCanton, string>> = {
-  it: {
-    // Original 5 — slugs frozen, do NOT edit.
-    ticino: 'ticino',
-    grigioni: 'grigioni',
-    uri: 'uri',
-    vallese: 'vallese',
-    zurigo: 'zurigo',
-    // B-cont-2 additions — Italian exonyms.
-    argovia: 'argovia',
-    'appenzello-interno': 'appenzello-interno',
-    'appenzello-esterno': 'appenzello-esterno',
-    berna: 'berna',
-    'basilea-campagna': 'basilea-campagna',
-    'basilea-citta': 'basilea-citta',
-    friborgo: 'friborgo',
-    ginevra: 'ginevra',
-    glarona: 'glarona',
-    giura: 'giura',
-    lucerna: 'lucerna',
-    neuchatel: 'neuchatel',
-    nidvaldo: 'nidvaldo',
-    obvaldo: 'obvaldo',
-    'san-gallo': 'san-gallo',
-    sciaffusa: 'sciaffusa',
-    soletta: 'soletta',
-    svitto: 'svitto',
-    turgovia: 'turgovia',
-    vaud: 'vaud',
-    zugo: 'zugo',
-  },
-  en: {
-    // Original 5 — slugs frozen.
-    ticino: 'ticino',
-    grigioni: 'graubunden',
-    uri: 'uri',
-    vallese: 'valais',
-    zurigo: 'zurich',
-    // B-cont-2 additions — English forms.
-    argovia: 'aargau',
-    'appenzello-interno': 'appenzell-innerrhoden',
-    'appenzello-esterno': 'appenzell-ausserrhoden',
-    berna: 'bern',
-    'basilea-campagna': 'basel-landschaft',
-    'basilea-citta': 'basel-stadt',
-    friborgo: 'fribourg',
-    ginevra: 'geneva',
-    glarona: 'glarus',
-    giura: 'jura',
-    lucerna: 'lucerne',
-    neuchatel: 'neuchatel',
-    nidvaldo: 'nidwalden',
-    obvaldo: 'obwalden',
-    'san-gallo': 'st-gallen',
-    sciaffusa: 'schaffhausen',
-    soletta: 'solothurn',
-    svitto: 'schwyz',
-    turgovia: 'thurgau',
-    vaud: 'vaud',
-    zugo: 'zug',
-  },
-  de: {
-    // Original 5 — slugs frozen.
-    ticino: 'tessin',
-    grigioni: 'graubuenden',
-    uri: 'uri',
-    vallese: 'wallis',
-    zurigo: 'zuerich',
-    // B-cont-2 additions — German forms (umlaut → oe/ae/ue transliteration).
-    argovia: 'aargau',
-    'appenzello-interno': 'appenzell-innerrhoden',
-    'appenzello-esterno': 'appenzell-ausserrhoden',
-    berna: 'bern',
-    'basilea-campagna': 'basel-landschaft',
-    'basilea-citta': 'basel-stadt',
-    friborgo: 'freiburg',
-    ginevra: 'genf',
-    glarona: 'glarus',
-    giura: 'jura',
-    lucerna: 'luzern',
-    neuchatel: 'neuenburg',
-    nidvaldo: 'nidwalden',
-    obvaldo: 'obwalden',
-    'san-gallo': 'st-gallen',
-    sciaffusa: 'schaffhausen',
-    soletta: 'solothurn',
-    svitto: 'schwyz',
-    turgovia: 'thurgau',
-    vaud: 'waadt',
-    zugo: 'zug',
-  },
-  fr: {
-    // Original 5 — slugs frozen.
-    ticino: 'tessin',
-    grigioni: 'grisons',
-    uri: 'uri',
-    vallese: 'valais',
-    zurigo: 'zurich',
-    // B-cont-2 additions — French forms (accents stripped for URL hygiene).
-    argovia: 'argovie',
-    'appenzello-interno': 'appenzell-rhodes-interieures',
-    'appenzello-esterno': 'appenzell-rhodes-exterieures',
-    berna: 'berne',
-    'basilea-campagna': 'bale-campagne',
-    'basilea-citta': 'bale-ville',
-    friborgo: 'fribourg',
-    ginevra: 'geneve',
-    glarona: 'glaris',
-    giura: 'jura',
-    lucerna: 'lucerne',
-    neuchatel: 'neuchatel',
-    nidvaldo: 'nidwald',
-    obvaldo: 'obwald',
-    'san-gallo': 'saint-gall',
-    sciaffusa: 'schaffhouse',
-    soletta: 'soleure',
-    svitto: 'schwytz',
-    turgovia: 'thurgovie',
-    vaud: 'vaud',
-    zugo: 'zoug',
-  },
-};
+export const HEALTH_PREMIUM_CANTON_SLUG: Record<HealthPremiumLocale, Record<HealthPremiumCanton, string>> =
+  SHARED_HEALTH_PREMIUM_CANTON_SLUG as Record<HealthPremiumLocale, Record<HealthPremiumCanton, string>>;
 
 /**
  * Age-bracket URL slug per locale. Localised so long-tail queries in each
  * language land on a URL that matches the native age-bracket phrasing.
  */
-export const HEALTH_PREMIUM_AGE_SLUG: Record<HealthPremiumLocale, Record<HealthPremiumAgeBracket, string>> = {
-  it: {
-    '0-18': 'bambini-0-18',
-    '19-25': 'giovani-adulti-19-25',
-    '26-30': 'adulto-26-30',
-    '31-45': 'adulto-31-45',
-    '46-55': 'adulto-46-55',
-    '56-plus': 'adulto-56-piu',
-  },
-  en: {
-    '0-18': 'children-0-18',
-    '19-25': 'young-adults-19-25',
-    '26-30': 'adult-26-30',
-    '31-45': 'adult-31-45',
-    '46-55': 'adult-46-55',
-    '56-plus': 'adult-56-plus',
-  },
-  de: {
-    '0-18': 'kinder-0-18',
-    '19-25': 'junge-erwachsene-19-25',
-    '26-30': 'erwachsene-26-30',
-    '31-45': 'erwachsene-31-45',
-    '46-55': 'erwachsene-46-55',
-    '56-plus': 'erwachsene-56-plus',
-  },
-  fr: {
-    '0-18': 'enfants-0-18',
-    '19-25': 'jeunes-adultes-19-25',
-    '26-30': 'adulte-26-30',
-    '31-45': 'adulte-31-45',
-    '46-55': 'adulte-46-55',
-    '56-plus': 'adulte-56-plus',
-  },
-};
+export const HEALTH_PREMIUM_AGE_SLUG: Record<HealthPremiumLocale, Record<HealthPremiumAgeBracket, string>> =
+  SHARED_HEALTH_PREMIUM_AGE_SLUG as Record<HealthPremiumLocale, Record<HealthPremiumAgeBracket, string>>;
 
 /**
  * Human-readable bracket label per locale (used in H1s, breadcrumbs, etc.).
@@ -528,22 +353,14 @@ export const HEALTH_PREMIUM_AGE_LABEL: Record<HealthPremiumLocale, Record<Health
 /**
  * Locale path prefix (empty for Italian default, /en|de|fr/ otherwise).
  */
-export const HEALTH_PREMIUM_LOCALE_PREFIX: Record<HealthPremiumLocale, string> = {
-  it: '',
-  en: '/en',
-  de: '/de',
-  fr: '/fr',
-};
+export const HEALTH_PREMIUM_LOCALE_PREFIX: Record<HealthPremiumLocale, string> =
+  SHARED_HEALTH_PREMIUM_LOCALE_PREFIX as Record<HealthPremiumLocale, string>;
 
 /**
  * Root section slug per locale.
  */
-export const HEALTH_PREMIUM_SECTION_SLUG: Record<HealthPremiumLocale, string> = {
-  it: 'premi-cassa-malati',
-  en: 'health-insurance-premiums',
-  de: 'krankenkassenpraemien',
-  fr: 'primes-assurance-maladie',
-};
+export const HEALTH_PREMIUM_SECTION_SLUG: Record<HealthPremiumLocale, string> =
+  SHARED_HEALTH_PREMIUM_SECTION_SLUG as Record<HealthPremiumLocale, string>;
 
 /**
  * Locale-aware comparator URL (existing /confronti/health page).

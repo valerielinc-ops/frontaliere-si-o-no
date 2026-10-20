@@ -30,7 +30,9 @@
 // element via useLayoutEffect before paint, so JS-enabled users see the
 // full SPA-hydrated job page — UX identical to today. Crawlers without
 // JS see the thin static body (≥50 words + JSON-LD + canonical), which
-// remains a valid indexable page.
+// remains a valid crawler-facing bridge body. The caller decides whether the
+// old URL is indexable; job previous-slug aliases replace the robots directive
+// with noindex after this body is built.
 
 import { EJP_STRIPPED_MARKER } from './ejpMarker';
 import { stripScriptsAndStyles } from '../../scripts/lib/strip-scripts-styles.mjs';

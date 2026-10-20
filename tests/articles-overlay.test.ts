@@ -60,6 +60,31 @@ describe('fetchArticleOverlay — every failure resolves to []', () => {
     const r = await fetchArticleOverlay('frontaliere', 'it');
     expect(r.map((a) => a.id)).toEqual(['buono']);
   });
+
+  it('keeps articles from both cache identities when either one is newer', async () => {
+    vi.stubGlobal('fetch', vi.fn((u: string) => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        total: 2,
+        articles: String(u).includes('?v=')
+          ? [{ id: 'solo-rotated', title: 'Rotated' }]
+          : [{ id: 'solo-bare', title: 'Bare' }],
+      }),
+    } as unknown as Response)));
+    const r = await fetchArticleOverlay('frontaliere', 'it');
+    expect(r.map((a) => a.id)).toEqual(['solo-bare', 'solo-rotated']);
+  });
+
+  it('uses the surviving cache identity when the other read fails', async () => {
+    vi.stubGlobal('fetch', vi.fn((u: string) => Promise.resolve(
+      String(u).includes('?v=')
+        ? { ok: false, status: 503 }
+        : { ok: true, json: () => Promise.resolve({ total: 1, articles: [{ id: 'bare', title: 'Bare' }] }) },
+    ) as Promise<Response>));
+    await expect(fetchArticleOverlay('frontaliere', 'it')).resolves.toEqual([
+      { id: 'bare', title: 'Bare' },
+    ]);
+  });
 });
 
 // The published window (RECENT_LIMIT=150) was sized against how often the site
@@ -95,8 +120,8 @@ describe('fetchArticleOverlay — escalates past the published window', () => {
     vi.stubGlobal('fetch', fn);
     const out = await fetchArticleOverlay('frontaliere', 'it', 2999);
     expect(out.map((a) => a.id)).toEqual(['r1']);
-    expect(fn).toHaveBeenCalledTimes(1);
-    expect(String(fn.mock.calls[0][0])).not.toContain('-full');
+    expect(fn).toHaveBeenCalledTimes(2);
+    expect(fn.mock.calls.map((call) => String(call[0])).every((url) => !url.includes('-full'))).toBe(true);
   });
 
   it('keeps the window when the full index is missing — never drops the overlay', async () => {
@@ -112,7 +137,7 @@ describe('fetchArticleOverlay — escalates past the published window', () => {
     vi.stubGlobal('fetch', fn);
     const out = await fetchArticleOverlay('frontaliere', 'it');
     expect(out.map((a) => a.id)).toEqual(['r1']);
-    expect(fn).toHaveBeenCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(2);
   });
 });
 
@@ -153,11 +178,12 @@ describe('fetchArticleOverlay — the date trigger catches what the count misses
     vi.stubGlobal('fetch', fn);
     const out = await fetchArticleOverlay('frontaliere', 'it', 3073, '2026-08-01');
     expect(out.map((a) => a.id)).toEqual(['r1']);
-    expect(fn).toHaveBeenCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(2);
   });
 });
 
-// The index is fetched under a ROTATING url, and that is not a detail.
+// The index is fetched under both its stable and ROTATING urls, and that is not
+// a detail.
 //
 // Measured 2026-08-06: the publisher purged these urls and the purge returned
 // success, yet the copy the app received did not move for 28 hours. The
@@ -184,10 +210,13 @@ describe('fetchArticleOverlay — the url carries a bounded freshness key', () =
     return fn;
   };
 
-  it('appends a version token, so it cannot be served the unpurgeable variant', async () => {
+  it('reads both the publisher-purged URL and a versioned cache identity', async () => {
     const fn = stubOk();
     await fetchArticleOverlay('frontaliere', 'it');
-    expect(urlsFrom(fn)[0]).toMatch(/blog-index-frontaliere-it\.json\?v=\d+$/);
+    expect(urlsFrom(fn)).toEqual([
+      expect.stringMatching(/blog-index-frontaliere-it\.json$/),
+      expect.stringMatching(/blog-index-frontaliere-it\.json\?v=\d+$/),
+    ]);
   });
 
   it('reuses one url inside a bucket, so the CDN still absorbs the traffic', async () => {
@@ -197,7 +226,7 @@ describe('fetchArticleOverlay — the url carries a bounded freshness key', () =
     await fetchArticleOverlay('frontaliere', 'it');
     now.mockReturnValue(1_000_000_000_000 + 60_000); // +1 min, same bucket
     await fetchArticleOverlay('frontaliere', 'it');
-    const [a, b] = urlsFrom(fn);
+    const [, a, , b] = urlsFrom(fn);
     // Assert the token is there before asserting it is stable, else this test
     // passes for the wrong reason on a build that dropped versioning entirely.
     expect(a).toMatch(/\?v=\d+$/);
@@ -211,7 +240,7 @@ describe('fetchArticleOverlay — the url carries a bounded freshness key', () =
     await fetchArticleOverlay('frontaliere', 'it');
     now.mockReturnValue(1_000_000_000_000 + 5 * 60_000); // +5 min, next bucket
     await fetchArticleOverlay('frontaliere', 'it');
-    const [a, b] = urlsFrom(fn);
+    const [, a, , b] = urlsFrom(fn);
     expect(a).not.toBe(b);
   });
 

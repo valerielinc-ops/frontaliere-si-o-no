@@ -2,9 +2,9 @@
 /**
  * Backfill script — assigns `authorSlug`/`authorName` to every article entry
  * in `data/blog-articles-data.ts` that doesn't already have one. Authors are
- * spread round-robin across the registry (marco-ferrari, laura-bianchi,
- * redazione, repeat) so legacy articles get a real Person byline for the
- * NewsArticle JSON-LD upgrade in A2.
+ * spread round-robin across the general editorial profiles (marco-ferrari,
+ * laura-bianchi, redazione, repeat) so legacy articles get a named newsroom
+ * signature for the NewsArticle JSON-LD upgrade in A2.
  *
  * Idempotent: re-running the script only touches entries still missing the
  * fields, so it's safe to run after partial backfills.
@@ -23,14 +23,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const DATA_FILE = path.join(PROJECT_ROOT, 'data/blog-articles-data.ts');
 
-// Registry mirror — keep in sync with data/authors.ts's generalist team.
-// Guest specialists (e.g. samuele-valente, a narrow Italia-Svizzera tax-treaty
-// author — see data/authors.ts) are DELIBERATELY excluded from this pool: this
-// script blindly round-robins with no topic scoring, so including a topical
-// guest here would misattribute unrelated legacy articles (pensions, customs,
-// wages, ...) to a specialist whose byline should only ever be assigned via
-// pickAuthorForTopic()'s keyword match (scripts/create-article.mjs), never by
-// rotation (PR #3625 review).
+// Registry mirror — keep in sync with data/authors.ts's generalist profiles.
+// Samuele Valente is deliberately excluded from this blind rotation because
+// he is a real guest author and the script has no topic scoring. His byline is
+// selected through pickAuthorForTopic() or uid attribution, never by rotation.
+// This avoids assigning a tax-treaty author to unrelated legacy articles about
+// pensions, customs or wages.
 const AUTHORS = [
   { slug: 'marco-ferrari', name: 'Marco Ferrari' },
   { slug: 'laura-bianchi', name: 'Laura Bianchi' },

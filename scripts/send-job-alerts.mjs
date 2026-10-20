@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * FRO-333: Send Job Alert emails to subscribed users.
  *
@@ -28,21 +30,33 @@ import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
 import {
   buildAlertProfile,
-  scoreJobForAlert,
+  createAlertScorer,
   createJobFeatureCache,
   partitionByGeoPreference,
   freshnessBoost,
   FRESHNESS_BOOST_48H_MS,
 } from '../services/jobAlertMatching.mjs';
 import {
+  buildApplicationIntentJobKey,
+  compareApplicationIntentJobKeys,
+  ALERT_APPLICATION_INTENT_BOOST,
+} from '../services/applicationIntentRanking.mjs';
+import {
   classifyZeroMatchCause,
-  getZeroMatchMonitorAction,
   summarizeZeroMatchPlans,
 } from './lib/job-alert-zero-match-diagnosis.mjs';
+import {
+  MATCHER_HEALTH_MAX_PROBES,
+  buildMatcherHealthProbes,
+  evaluateMatcherHealth,
+  getMatcherHealthMonitorAction,
+} from './lib/job-alert-matcher-health.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { isCrossChannelStop, isJobAlertExcluded } from '../services/emailSuppression.mjs';
+import { evaluateJobAlertConsent } from './lib/jobalert-backfill-core.mjs';
 import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
 import {
   normalizeSentMap,
@@ -65,31 +79,36 @@ import {
   openedSinceLastJobAlertSend,
   reactivationAfterReturnVisit,
 } from './lib/jobAlertCadence.mjs';
-import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
+import { buildDeliveryDocId, uniqueUnknownFallback } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import {
   assignJobRankingVariant,
   buildEmbeddedRankingUpdate,
   buildJobEmailDeliveryId,
   rankEmailJobs,
+  rankingNeedsAffinityProfile,
   readJobEmailRankingConfig,
   stableJobId,
 } from '../functions/src/lib/jobEmailRanking.js';
 import { appendJobRankingParams } from '../functions/src/lib/jobEmailRankingLinks.js';
-import { recordJobEmailImpressions } from '../functions/src/lib/jobEmailRankingStore.js';
+import { buildRankingJobsManifest, recordJobEmailImpressions } from '../functions/src/lib/jobEmailRankingStore.js';
+import { RANKING_PERSONALIZATION_OPT_OUT_FIELD, affinityRankingContext } from '../functions/src/lib/jobEmailAffinity.js';
+import { loadJobEmailAffinityProfiles } from '../functions/src/lib/jobEmailAffinityStore.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
 import {
   DEFAULT_JOB_ALERT_LOOKBACK_MS,
+  createJobAlertCandidateSelector,
+  isOpenJobAlertJob,
   jobInventoryTimestampMs,
-  selectJobAlertCandidates,
 } from './lib/job-alert-newness.mjs';
 // localePathPrefix aliased to the local name this script has always used for
 // its locale-aware URL construction — the implementation is the canonical
 // shared helper (also used by send-newsletter.mjs, send-saved-jobs-digest.mjs).
 import { localePathPrefix } from './lib/articleContent.mjs';
+import { translationHoldReleasedMs } from './lib/translation-publication-hold.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -138,13 +157,11 @@ const ENGAGEMENT_SEND_PRIORITY = {
 // alerts into tomorrow's retry queue.
 const QUOTA_BUFFER_RATIO = 0.1;
 
-// Owner ask 2026-07-18: surface how many alerts matched literally zero jobs
-// this run (as opposed to "had matches, all already sent" — a healthy case),
-// so a persistently high rate flags a matching-quality problem (narrow user
-// search, a missing keyword/synonym, or a genuine sector/geo inventory gap)
-// rather than staying invisible. Starting value — tune after a few runs of
-// real data once the `📉 Zero-match:` log line below establishes a baseline.
-const ZERO_MATCH_ISSUE_THRESHOLD_RATIO = 0.2;
+// Canonical title of the job-alert matcher monitor. Kept stable across the
+// change of measure (owner decision 2026-10-04, issue 9060) so the issue
+// history stays in one thread; the trigger is now the matcher-health probes of
+// scripts/lib/job-alert-matcher-health.mjs, not the zero-match yield.
+const MATCHER_MONITOR_ISSUE_TITLE = '[Monitor] Job-alert zero-match rate above threshold';
 
 // Testing allowlist: set to a Set of emails for admin-only testing,
 // or null to enable for all users.
@@ -234,30 +251,140 @@ export const checkJobPageLive = checkPageBodyLive;
  * aren't re-checked). Jobs with no resolvable slug fall back to the site root
  * in the email (always live) and are never filtered. Exported for tests.
  */
-async function filterLiveJobs(jobs, locale, cache) {
+async function inspectLiveJobs(
+  jobs,
+  locale,
+  cache,
+  { check = checkJobPageLive, maxNewChecks = Number.POSITIVE_INFINITY } = {},
+) {
   const withUrls = jobs.map((job) => ({ job, url: jobPageUrl(job, locale) }));
   // Dedupe by URL both across calls (via the shared `cache`) AND within this
   // single call (two jobs — e.g. two locale variants — can resolve to the
   // same page); otherwise a duplicate URL in the same batch would be
   // checked once per occurrence before either result lands in `cache`.
   const uniqueToCheck = [...new Set(withUrls.map(({ url }) => url).filter((url) => url && !cache.has(url)))];
-  if (uniqueToCheck.length > 0) {
-    await runWithConcurrency(uniqueToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
-      cache.set(url, await checkJobPageLive(url));
+  const checkBudget = Number.isFinite(maxNewChecks)
+    ? Math.max(0, Math.trunc(maxNewChecks))
+    : uniqueToCheck.length;
+  const urlsToCheck = uniqueToCheck.slice(0, checkBudget);
+  if (urlsToCheck.length > 0) {
+    await runWithConcurrency(urlsToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
+      cache.set(url, await check(url));
     });
   }
-  const results = withUrls.map(({ job, url }) => ({ job, live: !url || cache.get(url) !== false }));
-  const checked = results.length;
-  const liveCount = results.filter((r) => r.live).length;
+  const results = withUrls.map(({ job, url }) => {
+    const known = !url || cache.has(url);
+    return { job, url, known, live: known && (!url || cache.get(url) !== false) };
+  });
+  const knownResults = results.filter((result) => result.known);
+  const knownLiveJobs = knownResults.filter((result) => result.live).map((result) => result.job);
+  const unknownJobs = results.filter((result) => !result.known).map((result) => result.job);
+  const checked = knownResults.length;
+  const liveCount = knownLiveJobs.length;
   if (checked >= JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE && liveCount / checked < JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO) {
     console.warn(`   ⚠️  Live-link check: only ${liveCount}/${checked} job page(s) resolved live — suspected transient network issue, failing open (sending unfiltered) rather than emptying the alert`);
-    return jobs;
+    return { jobs, knownLiveJobs, unknownJobs, failOpen: true };
   }
   const deadCount = checked - liveCount;
   if (deadCount > 0) {
     console.log(`   🔗 Live-link check: ${deadCount}/${checked} job(s) filtered out (dead link — pulled/expired or not yet deployed)`);
   }
-  return results.filter((r) => r.live).map((r) => r.job);
+  return { jobs: knownLiveJobs, knownLiveJobs, unknownJobs, failOpen: false };
+}
+
+async function filterLiveJobs(jobs, locale, cache) {
+  return (await inspectLiveJobs(jobs, locale, cache)).jobs;
+}
+
+/**
+ * Rank first, then live-check only the candidates that can fill this email.
+ *
+ * The old pipeline live-checked every item in `matched` before asking the
+ * ranking layer for its ten cards. On the 26/09 run that was 470,653 matched
+ * rows and 52,526 distinct page URLs. Ranking the complete list is cheap and
+ * deterministic; liveness is not. This loop checks the ranked shortlist,
+ * removes any dead URL, and re-ranks only when a replacement is needed. When
+ * the shortlist is live, the result is exactly the old
+ * `rankEmailJobs(filterLiveJobs(matched))` result without fetching the unused
+ * tail of the pool. If a shortlist looks like a network-wide failure, the
+ * existing fail-open rule is re-evaluated against the full matched pool before
+ * deciding whether to preserve the shortlist or choose live replacements.
+ */
+async function rankLiveJobsForEmail(
+  matched,
+  locale,
+  cache,
+  rankingOptions,
+  { limit = MAX_JOB_CARDS, initialRanked = null, check = checkJobPageLive } = {},
+) {
+  const excludedUrls = new Set();
+  const checkedUrls = new Set();
+  let ranked = initialRanked;
+
+  const inspectWithinBudget = async (jobs) => {
+    const uniqueUrls = [...new Set(jobs.map((job) => jobPageUrl(job, locale)).filter(Boolean))];
+    for (const url of uniqueUrls) {
+      if (cache.has(url)) checkedUrls.add(url);
+    }
+    const uncachedUrls = uniqueUrls.filter((url) => !cache.has(url));
+    const remaining = Math.max(0, limit - checkedUrls.size);
+    for (const url of uncachedUrls.slice(0, remaining)) checkedUrls.add(url);
+    return inspectLiveJobs(jobs, locale, cache, { check, maxNewChecks: remaining });
+  };
+
+  while (true) {
+    if (!ranked) {
+      const candidates = matched.filter((job) => {
+        const url = jobPageUrl(job, locale);
+        return !url || !excludedUrls.has(url);
+      });
+      ranked = rankEmailJobs(candidates, { ...rankingOptions, limit });
+    }
+    if (ranked.length === 0) return [];
+
+    const result = await inspectWithinBudget(ranked);
+    if (result.failOpen) {
+      // A dead top-ten shortlist is not enough evidence of a transient
+      // network failure: the lower-ranked pool may contain the live cards
+      // needed to replace it. Reuse the existing ratio guard on the full pool
+      // before returning anything unfiltered. This keeps true fail-open
+      // behaviour for an outage while preventing dead cards from winning over
+      // live replacements.
+      // The shortlist has exhausted this alert's HTTP budget. The full-pool
+      // pass is therefore a bounded fail-open classification: cached answers
+      // are respected, while the uncached tail is treated as unverified rather
+      // than triggering another network scan. This keeps the replacement pool
+      // live-orderable without reintroducing the pre-#9314 fan-out.
+      const fullResult = await inspectWithinBudget(matched);
+      if (fullResult.failOpen) {
+        const knownDeadUrls = new Set(
+          matched
+            .map((job) => jobPageUrl(job, locale))
+            .filter((url) => url && cache.get(url) === false),
+        );
+        const fallbackCandidates = [...fullResult.knownLiveJobs, ...fullResult.unknownJobs].filter((job) => {
+          const url = jobPageUrl(job, locale);
+          return !url || !knownDeadUrls.has(url);
+        });
+        return rankEmailJobs(
+          fallbackCandidates.length > 0 ? fallbackCandidates : fullResult.jobs,
+          { ...rankingOptions, limit },
+        );
+      }
+      ranked = rankEmailJobs(fullResult.jobs, { ...rankingOptions, limit });
+      continue;
+    }
+
+    const deadUrls = new Set(
+      ranked
+        .map((job) => jobPageUrl(job, locale))
+        .filter((url) => url && cache.get(url) === false),
+    );
+    if (deadUrls.size === 0 || checkedUrls.size >= limit) return result.jobs;
+
+    for (const url of deadUrls) excludedUrls.add(url);
+    ranked = null;
+  }
 }
 
 /**
@@ -318,6 +445,10 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
         idleWaiters.push(resolve);
         settleIfIdle();
       });
+    },
+    /** URLs ever queued, and those not yet answered (waiting or in flight). */
+    stats() {
+      return { queued: queue.length, pending: queue.length - head + active };
     },
   };
 }
@@ -382,8 +513,10 @@ function firstParsableMs(...values) {
 // `crawledAt` means "last verified live" for the rolling inventory and is
 // intentionally excluded here: publisher projections refresh it on every sync.
 // Real novelty is anchored to the immutable discovery/source dates instead.
+// An agency job held out of publication until its titles were translated is
+// new to the site from its release (scripts/lib/translation-publication-hold.mjs).
 export function jobRealFreshnessMs(job) {
-  return firstParsableMs(job?.firstSeenAt, job?.postedDate);
+  return Math.max(firstParsableMs(job?.firstSeenAt, job?.postedDate), translationHoldReleasedMs(job));
 }
 
 /**
@@ -641,24 +774,7 @@ export function __setFirestoreAdminForTest(fakeDb) {
 
 async function getFirestoreAdmin() {
   if (_db) return _db;
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) {
-      throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    }
-    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-    if (cred.project_id) {
-      // Service account JSON (CI/CD)
-      initializeApp({ credential: cert(cred) });
-    } else {
-      // ADC / user credentials (local dev)
-      const { applicationDefault } = await import('firebase-admin/app');
-      initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
-    }
-  }
-  _db = getFirestore();
+  _db = await getFirestoreDb();
   return _db;
 }
 
@@ -784,7 +900,13 @@ function clickedJobMeta(lastClickedUrl, locationIndex) {
 // use; `searches[].query` + viewed-job categories add intent tokens.
 function behaviorSignals(personalization) {
   if (!personalization || typeof personalization !== 'object') {
-    return { behaviorLocations: [], behaviorTokens: [], filterLocations: [] };
+    return {
+      behaviorLocations: [],
+      behaviorTokens: [],
+      filterLocations: [],
+      applicationIntent: null,
+      applicationIntentAuthUid: null,
+    };
   }
   const viewedJobs = Array.isArray(personalization.viewedJobs) ? personalization.viewedJobs : [];
   const searches = Array.isArray(personalization.searches) ? personalization.searches : [];
@@ -802,7 +924,15 @@ function behaviorSignals(personalization) {
     ...searches.map((s) => s?.query).filter(Boolean),
     ...viewedJobs.map((v) => v?.category).filter(Boolean),
   ];
-  return { behaviorLocations, behaviorTokens, filterLocations };
+  return {
+    behaviorLocations,
+    behaviorTokens,
+    filterLocations,
+    applicationIntent: personalization.applicationIntent || null,
+    applicationIntentAuthUid: typeof personalization.applicationIntentAuthUid === 'string'
+      ? personalization.applicationIntentAuthUid.trim()
+      : null,
+  };
 }
 
 // ── Matching logic ───────────────────────────────────────────
@@ -811,15 +941,6 @@ function behaviorSignals(personalization) {
 // shares the keyword tokenizer with the newsletter funnel. The matching loop
 // in main() builds a per-alert profile (alert config + source-job intent +
 // newsletter_subscribers profile) and scores every recent job against it.
-
-function embeddedAlertRankingStats(alert) {
-  const stats = new Map();
-  for (const entry of Object.values(alert?.ranking_stats || {})) {
-    const jobId = String(entry?.job_id || '');
-    if (jobId) stats.set(jobId, entry);
-  }
-  return stats;
-}
 
 // ── Email template ───────────────────────────────────────────
 
@@ -1091,8 +1212,6 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
         alertId: alert.id,
         rankingScore: job.ranking?.rankingScore,
         relevanceScore: job.ranking?.relevanceScore,
-        ctrShrink: job.ranking?.ctrShrink,
-        randomBoost: job.ranking?.randomBoost,
       });
     }
     const url = wrapJobUrl(rawJobUrl);
@@ -1280,8 +1399,6 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
         alertId: alert.id,
         rankingScore: job.ranking?.rankingScore,
         relevanceScore: job.ranking?.relevanceScore,
-        ctrShrink: job.ranking?.ctrShrink,
-        randomBoost: job.ranking?.randomBoost,
       });
     }
     const url = wrapJobUrl(rawJobUrl);
@@ -1356,21 +1473,37 @@ export async function mailerooMetaOnSent(item, sendResult) {
 // differently-named/shaped subcollection) sees per-user send-time outcomes for
 // job alerts too. Used by both the first-send (sendBatch) and retry
 // (processRetryQueue) paths, same as mailerooMetaOnSent above.
-async function persistJobAlertDelivery(item, sendResult) {
+export async function persistJobAlertDelivery(item, sendResult) {
   const email = item.recipient?.email?.toLowerCase().trim();
-  const alertId = item.meta?.alertId;
-  if (!email || !alertId) return;
+  const alertId = String(item.meta?.alertId || '').trim();
+  const consentProof = item.meta?.consentProof || null;
+  if (!email) return;
   try {
     const db = await getFirestoreAdmin();
     const rankingDeliveryId = item.meta?.rankingDeliveryId || null;
-    const deliveryDocId = buildDeliveryDocId(rankingDeliveryId || alertId, email);
+    const sentAt = new Date();
+    // The audience filter may run long before a provider accepts this item
+    // (especially when a scheduled send waits in the cascade). Preserve the
+    // timestamp captured by that filter alongside the already-evaluated allow
+    // decision and its basis. `sentAt` is the provider-accepted boundary, not
+    // a consent read, so it must never replace the filter timestamp.
+    const consentCheckedAt = consentProof?.checkedAt || null;
+    // A successful provider send must remain observable even if an upstream
+    // item lost its alert id. The null campaign_id keeps attribution closed;
+    // the provider id/time fallback prevents two unknown sends collapsing into
+    // one Firestore document and lets the exporter report missingAlertId.
+    const deliveryKey = rankingDeliveryId || alertId || uniqueUnknownFallback(sendResult?.messageId, sentAt.toISOString());
+    const deliveryDocId = buildDeliveryDocId(deliveryKey, email);
     await db.collection('job_alert_subscribers').doc(email)
       .collection('campaign_deliveries').doc(deliveryDocId).set({
       email,
-      campaign_id: alertId,
+      campaign_id: alertId || null,
       ranking_delivery_id: rankingDeliveryId,
       ranking_variant: item.meta?.rankingVariant || null,
-      ranking_jobs: item.meta?.rankingJobs || [],
+      // Lean manifest only (job_id, position, scores): the full job objects stay
+      // in memory on item.meta.rankingJobs for recordJobEmailImpressions and the
+      // retry queue. Storing them here cost ~200 KB per delivery document.
+      ranking_jobs: buildRankingJobsManifest(item.meta?.rankingJobs),
       message_id: sendResult?.messageId || null,
       provider: sendResult?.provider || null,
       // Per-user send-time (#3798): scheduledFor is the cascade's authoritative
@@ -1379,8 +1512,17 @@ async function persistJobAlertDelivery(item, sendResult) {
       // (personal/global) — absent entirely for retries, which never resolve one.
       scheduled_for: sendResult?.scheduledFor ?? null,
       send_time_source: item.meta?.sendTimeSource ?? null,
+      // L4 outcome contract v1: keep the allow decision, basis and real check
+      // time evaluated before the provider call. The exporter can then bound
+      // the filter-to-send interval without accepting a fabricated send-time
+      // consent read or trusting a later profile mutation.
+      outcome_contract_version: 1,
+      consent_checked: consentProof ? true : null,
+      consent_allowed: consentProof ? consentProof.allowed === true : null,
+      consent_basis: consentProof?.basis || null,
+      consent_checked_at: consentCheckedAt,
       is_operator_verification: !!item.meta?.isOperatorVerification,
-      sent_at: new Date(),
+      sent_at: sentAt,
     }, { merge: true });
   } catch (e) {
     console.warn('⚠️ Job-alert delivery persist failed:', e?.message);
@@ -1448,8 +1590,10 @@ async function sendBatch(emails) {
         alertId: e.alertId,
         rankingDeliveryId: e.rankingDeliveryId || null,
         rankingVariant: e.rankingVariant || 'control',
+        rankingAffinityProfile: e.rankingAffinityProfile === true,
         rankingJobs: e.sentJobs || [],
         sendTimeSource: e.sendTimeSource || null,
+        consentProof: e.consentProof || null,
         // is_operator_verification (#3798 report accuracy): ALLOWED_EMAILS set means
         // an operator verification run (parallel send-newsletter.mjs's mode==='test')
         // targeting specific recipient(s), not real subscriber traffic — flagged so
@@ -1520,6 +1664,9 @@ async function enqueueFailedEmails(db, failedItems) {
         html: item.payload?.html || '',
         rankingDeliveryId: item.meta?.rankingDeliveryId || null,
         rankingVariant: item.meta?.rankingVariant || null,
+        rankingAffinityProfile: typeof item.meta?.rankingAffinityProfile === 'boolean'
+          ? item.meta.rankingAffinityProfile
+          : null,
         rankingJobs: item.meta?.rankingJobs || [],
         createdAt: FieldValue.serverTimestamp(),
         retryCount: 0,
@@ -1602,12 +1749,25 @@ async function processRetryQueue(db) {
         const jobAlertRoot = jobAlertRootSnap.exists ? jobAlertRootSnap.data() || {} : null;
 
         let discardReason = null;
+        let consentProof = null;
         if (!alert || alert.active !== true || alert.paused === true) {
           discardReason = 'alert-not-live';
           retryStale += 1;
         } else if (isCrossChannelStop(newsletter) || isJobAlertExcluded(jobAlertRoot?.status)) {
           discardReason = 'suppressed';
           retrySuppressed += 1;
+        } else {
+          const consent = evaluateJobAlertConsent({ alert, subscriber: newsletter });
+          if (!consent.allowed) {
+            discardReason = 'no-subscription-basis';
+            retrySuppressed += 1;
+          } else {
+            consentProof = {
+              allowed: true,
+              basis: consent.reason || 'unspecified',
+              checkedAt: new Date().toISOString(),
+            };
+          }
         }
 
         if (discardReason) {
@@ -1634,7 +1794,12 @@ async function processRetryQueue(db) {
             alertId: item.alertId,
             rankingDeliveryId: item.data.rankingDeliveryId || null,
             rankingVariant: item.data.rankingVariant || 'control',
+            // null for a retry queued before the field existed.
+            rankingAffinityProfile: typeof item.data.rankingAffinityProfile === 'boolean'
+              ? item.data.rankingAffinityProfile
+              : null,
             rankingJobs: item.data.rankingJobs || [],
+            consentProof,
           },
         });
         retryDocs.push({
@@ -1676,6 +1841,7 @@ async function processRetryQueue(db) {
       alertId: item.meta.alertId,
       email: item.recipient?.email,
       variant: item.meta.rankingVariant || 'control',
+      affinityProfile: item.meta.rankingAffinityProfile,
       jobs: item.meta.rankingJobs,
       sentAt: new Date(),
     }));
@@ -1793,9 +1959,11 @@ function planAlertMatch(alert, {
   locationIndex,
   cityToCanton,
   subscriberProfiles,
+  applicationIntentAccountProfiles = new Map(),
   recentJobs,
   now,
   featureCache = null,
+  applicationIntentRankingEnabled = process.env.APPLICATION_INTENT_RANKING_ENABLED === 'true',
 }) {
   // Enrich the alert with the subscriber's newsletter profile, browsing
   // personalization (filter usage + viewed-job geography) and the geography of
@@ -1805,6 +1973,12 @@ function planAlertMatch(alert, {
   // the soft location boost (strongest intent; #3025).
   const clicked = clickedJobMeta(lastClickedUrlByEmail.get(alert.email.toLowerCase()), locationIndex);
   const sourceJobLocations = sourceJobLocationsFor(alert, locationIndex);
+  const accountProfile = applicationIntentAccountProfiles.get(alert.email.toLowerCase());
+  const applicationIntent = accountProfile
+    && accountProfile.uid === behavior.applicationIntentAuthUid
+    && accountProfile.optedOut !== true
+    ? behavior.applicationIntent
+    : null;
   const extras = {
     behaviorLocations: [...(behavior.behaviorLocations || []), ...clicked.locations],
     behaviorTokens: behavior.behaviorTokens || [],
@@ -1818,6 +1992,8 @@ function planAlertMatch(alert, {
       ...sourceJobLocations,
     ],
     cityToCanton,
+    applicationIntent,
+    now,
   };
   const profile = buildAlertProfile(
     alert,
@@ -1826,29 +2002,72 @@ function planAlertMatch(alert, {
   );
   // Canary gate: broadcast-restricted ads only ever match the OWNER's alerts,
   // so a test listing can't reach real alert subscribers.
-  const canaryEligible = isOwnerEmail(alert.email) ? recentJobs : recentJobs.filter((j) => !isCanaryJob(j));
+  const ownerAlert = isOwnerEmail(alert.email);
   // needsRetranslation only means translations FROM the job's source locale
   // are stale — exclude a job from THIS alert only when its own source
   // locale differs from the recipient's locale (#4715).
   const alertLocale = nlNormLocale(alert.locale);
-  const eligibleJobs = canaryEligible.filter(
-    (j) => !(j.needsRetranslation === true && alertLocale !== (j.sourceLang || 'it')),
-  );
   // Relevance score + graduated freshness boost: a job first seen within
   // 24h/48h gets +2/+1 on top of its relevance so GENUINELY new listings win
   // near-ties against the re-crawled backlog (the pool re-admits the whole
   // inventory daily — see MATCH_WINDOW_MS). The boost never resurrects a
   // 0-score job: relevance still decides IF a job surfaces, freshness only
   // decides how high.
-  const sorted = eligibleJobs
-    .map((job) => {
-      const relevance = scoreJobForAlert(job, profile, nlNormLocale(alert.locale), featureCache);
-      return {
-        job: relevance > 0 ? { ...job, relevanceScore: relevance } : job,
-        score: relevance > 0 ? relevance + freshnessBoost(job, now) : 0,
-      };
-    })
-    .filter((m) => m.score > 0)
+  //
+  // One pass over the candidate window, with the alert's scorer compiled once
+  // (#9314): since #9471 the window is the recipient's whole catch-up
+  // inventory (~19K rows per alert in production, 96M rows in run
+  // 36097910375), so the two eligibility filters, the per-row entry objects of
+  // the zero-score rows and the per-row profile work were paid ~19K times per
+  // alert. The eligibility rules, the scorer's answer and the row order are
+  // unchanged; `candidateCount` still counts every eligible row.
+  //
+  // The tiebreak timestamp is parsed ONCE per surviving entry, not twice per
+  // comparison (#9314): the comparator's two `new Date()` calls per compare
+  // were ~40% of the matching CPU. The value is the exact expression the
+  // comparator used (NaN included), so every pairwise result — and therefore
+  // the order — is unchanged.
+  const scoreJob = createAlertScorer(profile, alertLocale, featureCache, {
+    applicationIntentRankingEnabled,
+  });
+  const applicationIntentJobKeys = applicationIntentRankingEnabled
+    ? profile.applicationIntentJobKeys || new Set()
+    : new Set();
+  const scored = [];
+  let candidateCount = 0;
+  for (const job of recentJobs) {
+    if (!ownerAlert && isCanaryJob(job)) continue;
+    if (job.needsRetranslation === true && alertLocale !== (job.sourceLang || 'it')) continue;
+    candidateCount++;
+    const relevance = scoreJob(job);
+    if (relevance <= 0) continue;
+    const applicationIntentRanked = applicationIntentRankingEnabled
+      && applicationIntentJobKeys.has(buildApplicationIntentJobKey(job));
+    const firstSeenMs = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
+    const existingRelevanceSignals = applicationIntentRanked && Array.isArray(job.relevanceSignals)
+      ? job.relevanceSignals
+        .filter((signal) => typeof signal === 'string' && signal.length <= 64)
+        .slice(0, 15)
+      : [];
+    scored.push({
+      job: {
+        ...job,
+        relevanceScore: relevance,
+        ...(applicationIntentRanked ? {
+          applicationIntentBoost: ALERT_APPLICATION_INTENT_BOOST,
+          relevanceSignals: [...new Set([...existingRelevanceSignals, 'application_intent'])],
+        } : {}),
+        // Carry the parsed immutable discovery date to the final ranking
+        // layer; crawledAt is intentionally not a freshness clock.
+        newnessAt: Number.isFinite(firstSeenMs) && firstSeenMs > 0 ? firstSeenMs : null,
+      },
+      score: relevance + freshnessBoost(job, now),
+      // Keep the explicit source shape used by the sorting regression guard:
+      // the value is still parsed once above and the comparator consumes it.
+      firstSeenMs: job.firstSeenAt ? firstSeenMs : 0,
+    });
+  }
+  const sorted = scored
     .sort((a, b) => {
       // Primary: higher score first.
       const scoreDiff = b.score - a.score;
@@ -1856,9 +2075,11 @@ function planAlertMatch(alert, {
       // Tiebreak: more recently first-seen jobs first. Without this, location-only
       // alerts (where every match has score=2) yielded an arbitrary insertion order
       // and stale jobs leaked into the subject line.
-      const aTime = a.job.firstSeenAt ? new Date(a.job.firstSeenAt).getTime() : 0;
-      const bTime = b.job.firstSeenAt ? new Date(b.job.firstSeenAt).getTime() : 0;
-      return bTime - aTime;
+      const recencyDiff = b.firstSeenMs - a.firstSeenMs;
+      if (recencyDiff !== 0) return recencyDiff;
+      return applicationIntentRankingEnabled
+        ? compareApplicationIntentJobKeys(a.job, b.job)
+        : 0;
     });
 
   // Per-company cap: at most 2 jobs per company in the surfaced list. Without
@@ -1889,7 +2110,6 @@ function planAlertMatch(alert, {
   // to out-of-area matches when too few local ones exist (never starves a
   // sparse alert). No-op when the alert already scopes geography itself.
   const ranked = partitionByGeoPreference(rankedAll, profile);
-  const candidateCount = eligibleJobs.length;
 
   if (ranked.length === 0) {
     return {
@@ -1910,6 +2130,72 @@ function planAlertMatch(alert, {
   const sentMap = normalizeSentMap(alert.sentJobIds);
   const matched = filterUnsentJobs(ranked, sentMap, now, DEDUP_WINDOW_MS);
   return { alert, candidateCount, rankedCount: ranked.length, zeroCause: null, sentMap, matched };
+}
+
+/**
+ * Matcher health on the ACTIVE inventory (owner decision 2026-10-04, issue
+ * 9060): the synthetic alerts of scripts/lib/job-alert-matcher-health.mjs are
+ * planned by the same `planAlertMatch` as the real alerts, but against every
+ * open listing instead of a recipient's "new since my last email" window, and
+ * with no subscriber/behaviour signal. Each probe is cut from a listing in that
+ * inventory, so a zero is a matcher regression and never a quiet day.
+ * `planMatch` is the seam the tests use to break the matcher on purpose.
+ *
+ * Never throws: main() calls this BEFORE sendBatch and the probes score rows of
+ * the whole active inventory that no recipient window may contain this run, so
+ * one malformed row must not abort the send for every subscriber. On an
+ * exception the result carries `error` and zero probes, which the monitor
+ * action treats as 'skip' (issue left untouched). `durationMs` is the measured
+ * cost of the step, logged on the "Matcher health" line.
+ */
+function runJobAlertMatcherHealth(inventoryJobs, {
+  now = Date.now(),
+  locationIndex = new Map(),
+  cityToCanton = new Map(),
+  featureCache = null,
+  maxProbes = MATCHER_HEALTH_MAX_PROBES,
+  planMatch = planAlertMatch,
+} = {}) {
+  const startedAt = Date.now();
+  try {
+    const activeInventory = (inventoryJobs || []).filter((job) => isOpenJobAlertJob(job, now));
+    const sample = buildMatcherHealthProbes(activeInventory, { maxProbes });
+    const context = {
+      behaviorProfiles: new Map(),
+      lastClickedUrlByEmail: new Map(),
+      locationIndex,
+      cityToCanton,
+      subscriberProfiles: new Map(),
+      applicationIntentAccountProfiles: new Map(),
+      recentJobs: activeInventory,
+      now,
+      featureCache,
+    };
+    const result = evaluateMatcherHealth(sample.probes, (alert) => planMatch(alert, context));
+    return {
+      ...result,
+      error: null,
+      durationMs: Date.now() - startedAt,
+      activeInventoryCount: activeInventory.length,
+      groupCount: sample.groupCount,
+      sampledGroupCount: sample.sampledGroupCount,
+      cantonCount: sample.cantonCount,
+    };
+  } catch (err) {
+    return {
+      probeCount: 0,
+      passedCount: 0,
+      failureCount: 0,
+      failureByKind: {},
+      failures: [],
+      error: String(err?.message || err),
+      durationMs: Date.now() - startedAt,
+      activeInventoryCount: 0,
+      groupCount: 0,
+      sampledGroupCount: 0,
+      cantonCount: 0,
+    };
+  }
 }
 
 async function main() {
@@ -2064,6 +2350,11 @@ async function main() {
   // read before (newsletter_subscribers/{email}/private/personalization), which
   // is why precise location data was "missing" from alerts (issue #2993).
   const behaviorProfiles = new Map();
+  // Application-intent ranking is allowed only when the private projection is
+  // explicitly bound to the subscriber's Auth uid and the current users/{uid}
+  // purpose preference permits it. Missing/erroring profile reads leave this
+  // map empty, which is the intentional fail-closed behavior.
+  const applicationIntentAccountProfiles = new Map();
   // Raw personalization subdoc + whether the parent doc exists, kept so the
   // post-send enrichment step (section 6 below) can consolidate every signal
   // back into the flat profile fields (no-clobber).
@@ -2159,10 +2450,82 @@ async function main() {
     alerts = alerts.filter((a) => !suppressionLookupFailedEmails.has(a.email.toLowerCase()));
     console.warn(`   ⏳ Subscriber suppression lookup failed; ${before - alerts.length} alert(s) deferred for the next run.`);
   }
+
+  try {
+    const uidByEmail = new Map();
+    for (const [email, behavior] of behaviorProfiles) {
+      const newsletter = subscriberProfiles.get(email) || {};
+      const alertSubscriber = jobAlertProfiles.get(email) || {};
+      const uid = [
+        newsletter.user_id,
+        newsletter.userId,
+        newsletter.uid,
+        alertSubscriber.user_id,
+        alertSubscriber.userId,
+        alertSubscriber.uid,
+      ].find((candidate) => typeof candidate === 'string' && candidate.trim());
+      const normalizedUid = typeof uid === 'string' ? uid.trim() : '';
+      if (normalizedUid && normalizedUid === behavior.applicationIntentAuthUid) {
+        uidByEmail.set(email, normalizedUid);
+      }
+    }
+    const uids = [...new Set(uidByEmail.values())];
+    if (uids.length > 0) {
+      if (typeof db.getAll !== 'function') throw new Error('batched users profile lookup unavailable');
+      const accountProfiles = new Map();
+      const PROFILE_CHUNK_SIZE = 200;
+      for (let i = 0; i < uids.length; i += PROFILE_CHUNK_SIZE) {
+        const chunk = uids.slice(i, i + PROFILE_CHUNK_SIZE);
+        const snapshots = await db.getAll(...chunk.map((uid) => db.collection('users').doc(uid)));
+        snapshots.forEach((snapshot, index) => {
+          const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
+          if (!exists) return;
+          const data = snapshot.data() || {};
+          accountProfiles.set(chunk[index], { optedOut: data.applicationIntent?.optedOut === true });
+        });
+      }
+      for (const [email, uid] of uidByEmail) {
+        const account = accountProfiles.get(uid);
+        if (account && !account.optedOut) applicationIntentAccountProfiles.set(email, { uid, optedOut: false });
+      }
+    }
+  } catch (err) {
+    // The alert audience and suppression path remain usable, but application
+    // intent must not be used without a current, readable account profile.
+    applicationIntentAccountProfiles.clear();
+    console.warn(`   ⚠️  Application-intent account preference lookup failed; ranking signal disabled: ${err?.message || err}`);
+  }
   if (suppressedEmails.size > 0) {
     const before = alerts.length;
     alerts = alerts.filter((a) => !suppressedEmails.has(a.email.toLowerCase()));
     console.log(`   🚫 Suppressed (global stop / bounced / complained / provider list): ${before - alerts.length} alert(s) skipped`);
+  }
+  // An alert backfilled from a newsletter document that carries no
+  // relationship (profile-only: login fields, no status, no terms, no
+  // consent) has no basis either — the same `hasSubscriptionBasis` floor the
+  // newsletter senders apply since #9734, via the shared per-alert predicate.
+  // Explicit alerts (alert form, company follow) keep their own basis.
+  const alertConsentProofs = new Map();
+  {
+    const before = alerts.length;
+    const consentCheckedAt = new Date().toISOString();
+    alerts = alerts.filter((a) => {
+      const consent = evaluateJobAlertConsent({
+        alert: a,
+        subscriber: subscriberProfiles.get(a.email.toLowerCase()) ?? null,
+      });
+      if (consent.allowed === true) {
+        alertConsentProofs.set(`${a.email.toLowerCase()}\u0000${a.id}`, {
+          allowed: true,
+          basis: consent.reason || 'unspecified',
+          checkedAt: consentCheckedAt,
+        });
+      }
+      return consent.allowed === true;
+    });
+    if (before !== alerts.length) {
+      console.log(`   🚫 Backfilled alerts without a subscription basis: ${before - alerts.length} alert(s) skipped`);
+    }
   }
   if (autologinDisabledSet.size > 0) {
     console.log(`   🔒 Autologin opt-out: ${autologinDisabledSet.size} subscriber(s) will receive email without autologin token`);
@@ -2331,16 +2694,48 @@ async function main() {
   // alert is what lets the pool's I/O callbacks run between two plans. Job-side
   // scoring features are memoised across alerts (the pool is not mutated here).
   const featureCache = createJobFeatureCache();
+  // Row timestamps and expiry are recipient-independent: parsed once for the
+  // run, not once per alert (#9314). Same windows as selectJobAlertCandidates.
+  const selectCandidateWindow = createJobAlertCandidateSelector(inventoryJobs, { nowMs: now });
   const livenessPrefetcher = createJobLivenessPrefetcher(jobLiveCheckCache);
+  // Affinity profiles are read only when the configured treatment is affinity.
+  // The newness treatment is independent of personal profiles, so it avoids
+  // this batch of Firestore reads. A failed read degrades to "no profile"
+  // (standard order), never blocks.
+  const affinityNow = new Date(now);
+  const needsAffinityProfiles = rankingNeedsAffinityProfile({ config: JOB_EMAIL_RANKING_CONFIG });
+  const { profiles: affinityProfiles, stats: affinityLoadStats } = needsAffinityProfiles
+    ? await loadJobEmailAffinityProfiles(
+      db,
+      alerts.map((alert) => {
+        const emailKey = alert.email.toLowerCase();
+        return {
+          email: emailKey,
+          optOut: subscriberProfiles.get(emailKey)?.[RANKING_PERSONALIZATION_OPT_OUT_FIELD] === true,
+        };
+      }),
+    )
+    : {
+      profiles: new Map(),
+      stats: { recipients: 0, opted_out: 0, read: 0, found: 0, failed: 0, skipped_reason: 'not_required' },
+    };
+  const affinityContextByEmail = new Map();
+  const affinityContextFor = (email) => {
+    const emailKey = String(email || '').toLowerCase();
+    if (!affinityContextByEmail.has(emailKey)) {
+      affinityContextByEmail.set(emailKey, affinityRankingContext(affinityProfiles.get(emailKey) ?? null, affinityNow));
+    }
+    return affinityContextByEmail.get(emailKey);
+  };
   const plans = [];
   const cursorReasons = {};
   let cursorCandidateCount = 0;
+  const planningStartedAt = Date.now();
   for (const alert of alerts) {
     const recipientProfile = jobAlertProfiles.get(alert.email.toLowerCase()) || {};
-    const candidateWindow = selectJobAlertCandidates(inventoryJobs, {
+    const candidateWindow = selectCandidateWindow({
       recipientLastSentAt: recipientProfile.last_sent_at,
       alertCreatedAt: alert.createdAt,
-      nowMs: now,
       initialLookbackMs: MATCH_WINDOW_MS,
     });
     cursorReasons[candidateWindow.reason] = (cursorReasons[candidateWindow.reason] || 0) + 1;
@@ -2351,22 +2746,65 @@ async function main() {
       locationIndex,
       cityToCanton,
       subscriberProfiles,
+      applicationIntentAccountProfiles,
       // `planAlertMatch` keeps its historical property name for the test
       // oracle, but the value is now the recipient-aware candidate pool.
       recentJobs: candidateWindow.jobs,
       now,
       featureCache,
     });
-    plans.push(plan);
-    if (plan.matched.length > 0) livenessPrefetcher.enqueue(plan.matched, nlNormLocale(alert.locale));
+    const rankingVariant = assignJobRankingVariant({
+      subjectId: alert.email,
+      config: JOB_EMAIL_RANKING_CONFIG,
+    });
+    const { affinityProfile, affinityScorer } = affinityContextFor(alert.email);
+    const rankingOptions = {
+      variant: rankingVariant,
+      affinityScorer,
+      config: JOB_EMAIL_RANKING_CONFIG,
+    };
+    // Prefetch only the current ranking shortlist. If a page is dead,
+    // rankLiveJobsForEmail expands it one replacement at a time after the
+    // shared pool has drained.
+    const preflightRanked = plan.matched.length > 0
+      ? rankEmailJobs(plan.matched, { ...rankingOptions, limit: MAX_JOB_CARDS })
+      : [];
+    plans.push({ ...plan, rankingVariant, rankingAffinityProfile: affinityProfile, rankingOptions, preflightRanked });
+    if (preflightRanked.length > 0) livenessPrefetcher.enqueue(preflightRanked, nlNormLocale(alert.locale));
     await new Promise((resolve) => setImmediate(resolve));
   }
+  // #9314: `Capacity check` → `Total` mixes CPU (planning) and network (the
+  // live-link prefetch the drain waits for). Log the split so a run shows
+  // which one bounds the matching step.
+  const planningMs = Date.now() - planningStartedAt;
+  const prefetchAfterPlanning = livenessPrefetcher.stats();
   await livenessPrefetcher.drain();
+  const drainMs = Date.now() - planningStartedAt - planningMs;
+  console.log(`   ⏱️ Matching split: planning ${(planningMs / 1000).toFixed(1)} s for ${alerts.length} alerts; live-link prefetch ${prefetchAfterPlanning.queued} URL(s), ${prefetchAfterPlanning.pending} still pending after planning, drained in ${(drainMs / 1000).toFixed(1)} s`);
   console.log(`   🧭 Recipient-aware candidate windows: ${JSON.stringify(cursorReasons)} (${cursorCandidateCount} candidate rows before matching)`);
+  {
+    const variantCounts = {};
+    let withProfile = 0;
+    for (const plan of plans) {
+      variantCounts[plan.rankingVariant] = (variantCounts[plan.rankingVariant] || 0) + 1;
+      if (plan.rankingAffinityProfile) withProfile++;
+    }
+    console.log(`   🎯 Job-email ranking: ${JSON.stringify(variantCounts)} alerts; ${withProfile} with a valid affinity profile (profiles ${JSON.stringify(affinityLoadStats)})`);
+  }
   const zeroMatchSummary = summarizeZeroMatchPlans(plans);
 
   // 3b. Build, in the original alert order, with the same logs and counters.
-  for (const { alert, rankedCount, zeroCause, sentMap, matched } of plans) {
+  for (const {
+    alert,
+    rankedCount,
+    zeroCause,
+    sentMap,
+    matched,
+    rankingVariant,
+    rankingAffinityProfile,
+    rankingOptions,
+    preflightRanked,
+  } of plans) {
     if (rankedCount === 0) {
       console.log(`   ⏭️ Alert ${alert.id}: 0 matches (${zeroCause}) → skip`);
       continue;
@@ -2380,36 +2818,28 @@ async function main() {
     // it gets baked into the email — data/jobs.json is a crawl snapshot and
     // can lag the job actually being pulled/expired, or the deploy of its
     // per-locale SSG page.
-    const liveMatched = await filterLiveJobs(matched, nlNormLocale(alert.locale), jobLiveCheckCache);
-    if (liveMatched.length === 0) {
+    const rankedForEmail = await rankLiveJobsForEmail(
+      matched,
+      nlNormLocale(alert.locale),
+      jobLiveCheckCache,
+      rankingOptions,
+      { initialRanked: preflightRanked },
+    );
+    if (rankedForEmail.length === 0) {
       console.log(`   ⏭️  Alert ${alert.id}: ${matched.length} matches, all failed the live-link check → skip`);
       continue;
     }
 
-    totalMatches += liveMatched.length;
-    const rankingVariant = assignJobRankingVariant({
-      subjectId: alert.email,
-      surface: 'job_alert',
-      campaignId: TODAY_ISO,
-      config: JOB_EMAIL_RANKING_CONFIG,
-    });
+    // This counter now reflects live candidates selected for the email. An
+    // exact count of every live item in the unused tail would recreate the
+    // network work this bounded preflight removes.
+    totalMatches += rankedForEmail.length;
     const rankingDeliveryId = buildJobEmailDeliveryId({
       surface: 'job_alert',
       surfaceId: alert.id,
       recipientId: alert.email,
       campaignId: TODAY_ISO,
       runId: JOB_EMAIL_RANKING_RUN_ID,
-    });
-    const rankedForEmail = rankEmailJobs(liveMatched, {
-      statsByJob: embeddedAlertRankingStats(alert),
-      variant: rankingVariant,
-      surface: 'job_alert',
-      surfaceId: alert.id,
-      campaignId: TODAY_ISO,
-      randomSeed: alert.email,
-      limit: MAX_JOB_CARDS,
-      config: JOB_EMAIL_RANKING_CONFIG,
-      nowMs: now,
     });
     const autologinEnabled = !autologinDisabledSet.has(alert.email.toLowerCase());
     const { subject, html, text, unsubscribeUrl } = buildAlertEmail(
@@ -2468,6 +2898,8 @@ async function main() {
       sentJobs,
       rankingDeliveryId,
       rankingVariant,
+      rankingAffinityProfile,
+      consentProof: alertConsentProofs.get(`${alert.email.toLowerCase()}\u0000${alert.id}`) || null,
       unsubscribeUrl,
       scheduledAt,
       sendTimeSource,
@@ -2487,72 +2919,99 @@ async function main() {
 
   console.log(`\n   Total: ${emailsToSend.length} emails, ${totalMatches} job matches`);
 
+  // Zero-match YIELD of the real alerts: informative only (owner decision
+  // 2026-10-04, issue 9060). It is computed on each recipient's "available
+  // since my last email" window, so it rises in quiet periods, on a second run
+  // of the same day and for criteria the inventory does not carry — none of
+  // which is a matcher defect. It is logged and quoted in the monitor report,
+  // and it opens or closes nothing.
+  const {
+    evaluatedAlertCount,
+    noEligibleCandidateCount,
+    emptyProfileCount,
+    zeroMatchCount,
+    zeroMatchRate,
+    zeroMatchByCause,
+  } = zeroMatchSummary;
+  const rateLabel = zeroMatchRate === null ? 'n/a' : `${(zeroMatchRate * 100).toFixed(1)}%`;
   if (alerts.length > 0) {
-    const {
-      evaluatedAlertCount,
-      noEligibleCandidateCount,
-      zeroMatchCount,
-      zeroMatchRate,
-      zeroMatchByCause,
-    } = zeroMatchSummary;
-    const rateLabel = zeroMatchRate === null ? 'n/a' : `${(zeroMatchRate * 100).toFixed(1)}%`;
-    console.log(`   📉 Zero-match: ${zeroMatchCount}/${evaluatedAlertCount} alerts with eligible candidates (${rateLabel}) — by cause: ${JSON.stringify(zeroMatchByCause)}`);
-    console.log(`   🪟 No eligible candidates after recipient cursor: ${noEligibleCandidateCount}/${alerts.length} alerts (excluded from matcher-health rate)`);
-    const monitorAction = getZeroMatchMonitorAction({
-      zeroMatchCount,
-      alertCount: evaluatedAlertCount,
-      threshold: ZERO_MATCH_ISSUE_THRESHOLD_RATIO,
-      dryRun: DRY_RUN,
-      targeted: Boolean(ALLOWED_EMAILS),
-    });
-    if (monitorAction === 'report') {
-      // Best-effort diagnostic report: this call sits BEFORE sendBatch, so any
-      // exception here (e.g. a future github-issue-creator.mjs change that adds
-      // a non-guarded internal path) must never abort main() and skip sending
-      // job-alert emails to every subscriber. Same convention as
-      // scripts/reconcile-here-usage.mjs's alert-issue try-catch.
-      try {
-        const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
-        const causeLines = Object.entries(zeroMatchByCause)
-          .sort((a, b) => b[1] - a[1])
-          .map(([cause, count]) => `- \`${cause}\`: ${count}`)
-          .join('\n');
-        await createGithubIssue({
-          title: '[Monitor] Job-alert zero-match rate above threshold',
-          description: [
-            `${zeroMatchCount}/${evaluatedAlertCount} job alerts with eligible candidates (${rateLabel}) matched **zero** jobs this run `
-              + `(threshold: ${(ZERO_MATCH_ISSUE_THRESHOLD_RATIO * 100).toFixed(0)}%).`,
-            `${noEligibleCandidateCount}/${alerts.length} alert(s) had no eligible candidates after the recipient cursor and were excluded from the matcher-health denominator.`,
-            '',
-            'Breakdown by cause (see scripts/lib/job-alert-zero-match-diagnosis.mjs):',
-            causeLines,
-            '',
-            '- `keyword-narrow` / `keyword-and-geo-narrow`: the alert\'s explicit keywords matched nothing — check for a synonym/taxonomy gap in the matcher.',
-            '- `geo-narrow`: the alert\'s location/canton filter matched nothing — may be a genuine inventory gap in that area, or the filter is too narrow.',
-            '- `pinned-job-or-company-gone`: the alert is pinned to a specific job/company that\'s no longer active.',
-            '- `soft-profile-narrow`: no hard filter is set, but the profile\'s soft intent signals matched nothing in the eligible pool.',
-            '- `empty-profile`: the alert has no hard or soft matching signal; the matcher intentionally keeps it fail-closed instead of broadcasting unrelated jobs.',
-            '',
-            'No subscriber PII in this report (aggregate counts/causes only).',
-          ].join('\n'),
-          priority: 3,
-          labels: ['automation', 'bug'],
-          workflow: 'send-job-alerts',
-        });
-      } catch (err) {
-        console.warn(`   ⚠️ zero-match issue report failed (non-fatal, continuing to send): ${err.message}`);
-      }
-    } else if (monitorAction === 'resolve') {
-      // A recovered production run must close the canonical monitor issue;
-      // otherwise one transient red run leaves a stale OPEN issue forever.
-      try {
-        const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
-        resolveGithubIssue('[Monitor] Job-alert zero-match rate above threshold', {
-          workflow: 'send-job-alerts',
-        });
-      } catch (err) {
-        console.warn(`   ⚠️ zero-match issue recovery failed (non-fatal, continuing to send): ${err.message}`);
-      }
+    console.log(`   📉 Zero-match yield (informative): ${zeroMatchCount}/${evaluatedAlertCount} alerts with eligible candidates (${rateLabel}) — by cause: ${JSON.stringify(zeroMatchByCause)}`);
+    console.log(`   🪟 No eligible candidates after recipient cursor: ${noEligibleCandidateCount}/${alerts.length} alerts (excluded from the yield rate)`);
+    console.log(`   🧭 Empty profiles with no hard/soft signal: ${emptyProfileCount}/${alerts.length} alerts (excluded from the yield rate)`);
+  }
+
+  // Matcher health: synthetic alerts cut from the active inventory, planned by
+  // the same matcher against every open listing. This — not the yield — drives
+  // the canonical monitor issue.
+  const matcherHealth = runJobAlertMatcherHealth(inventoryJobs, {
+    now,
+    locationIndex,
+    cityToCanton,
+    featureCache,
+  });
+  if (matcherHealth.error) {
+    console.warn(`   ⚠️ matcher-health probe failed (non-fatal, continuing to send; monitor left untouched) after ${matcherHealth.durationMs} ms: ${matcherHealth.error}`);
+  } else {
+    console.log(`   🩺 Matcher health: ${matcherHealth.passedCount}/${matcherHealth.probeCount} synthetic alerts matched ≥1 job on the active inventory (${matcherHealth.activeInventoryCount} open listings; ${matcherHealth.sampledGroupCount}/${matcherHealth.groupCount} canton×profession groups sampled across ${matcherHealth.cantonCount} cantons, cap ${MATCHER_HEALTH_MAX_PROBES} probes) in ${matcherHealth.durationMs} ms — failures by kind: ${JSON.stringify(matcherHealth.failureByKind)}`);
+  }
+  const monitorAction = getMatcherHealthMonitorAction({
+    probeCount: matcherHealth.probeCount,
+    failureCount: matcherHealth.failureCount,
+    dryRun: DRY_RUN,
+    targeted: Boolean(ALLOWED_EMAILS),
+  });
+  if (!matcherHealth.error && matcherHealth.probeCount === 0) {
+    console.warn('   ⚠️ Matcher health: no synthetic alert could be built from the active inventory (no listing with a canton and a title token) — monitor left untouched');
+  }
+  if (monitorAction === 'report') {
+    // Best-effort diagnostic report: this call sits BEFORE sendBatch, so any
+    // exception here (e.g. a future github-issue-creator.mjs change that adds
+    // a non-guarded internal path) must never abort main() and skip sending
+    // job-alert emails to every subscriber. Same convention as
+    // scripts/reconcile-here-usage.mjs's alert-issue try-catch.
+    try {
+      const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
+      const failureLines = matcherHealth.failures
+        .slice(0, 30)
+        .map((f) => `- \`${f.kind}\` canton \`${f.canton}\`, profession \`${f.profession || '(none)'}\`, keyword \`${f.keyword}\` (seed job \`${f.sourceJobId}\`): ${f.candidateCount} eligible rows, cause \`${f.zeroCause || 'n/a'}\``)
+        .join('\n');
+      const causeLines = Object.entries(zeroMatchByCause)
+        .sort((a, b) => b[1] - a[1])
+        .map(([cause, count]) => `- \`${cause}\`: ${count}`)
+        .join('\n');
+      await createGithubIssue({
+        title: MATCHER_MONITOR_ISSUE_TITLE,
+        description: [
+          `${matcherHealth.failureCount}/${matcherHealth.probeCount} synthetic job alerts built from the active inventory matched **zero** jobs this run.`,
+          'Each synthetic alert carries a profession keyword (a word of a listing\'s own title, or its category label) and that listing\'s canton as hard filters, and is planned by the real matcher (`planAlertMatch`) against every open listing. The listing it was cut from is in that inventory, so a zero is a matcher regression, not a quiet day.',
+          `Sample: ${matcherHealth.sampledGroupCount}/${matcherHealth.groupCount} canton×profession groups across ${matcherHealth.cantonCount} cantons (cap ${MATCHER_HEALTH_MAX_PROBES} probes), ${matcherHealth.activeInventoryCount} open listings.`,
+          '',
+          `Failing probes (first ${Math.min(30, matcherHealth.failures.length)}):`,
+          failureLines,
+          '',
+          `Informative, not a trigger — zero-match yield of the real alerts on their recipient windows: ${zeroMatchCount}/${evaluatedAlertCount} (${rateLabel}); ${noEligibleCandidateCount}/${alerts.length} with no eligible candidates after the recipient cursor; ${emptyProfileCount}/${alerts.length} with an empty profile.`,
+          causeLines,
+          '',
+          'See scripts/lib/job-alert-matcher-health.mjs (probes) and scripts/lib/job-alert-zero-match-diagnosis.mjs (yield causes).',
+          'No subscriber PII in this report (synthetic alerts and aggregate counts only).',
+        ].join('\n'),
+        priority: 3,
+        labels: ['automation', 'bug'],
+        workflow: 'send-job-alerts',
+      });
+    } catch (err) {
+      console.warn(`   ⚠️ matcher-health issue report failed (non-fatal, continuing to send): ${err.message}`);
+    }
+  } else if (monitorAction === 'resolve') {
+    // A recovered production run must close the canonical monitor issue;
+    // otherwise one transient red run leaves a stale OPEN issue forever.
+    try {
+      const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+      await resolveGithubIssue(MATCHER_MONITOR_ISSUE_TITLE, {
+        workflow: 'send-job-alerts',
+      });
+    } catch (err) {
+      console.warn(`   ⚠️ matcher-health issue recovery failed (non-fatal, continuing to send): ${err.message}`);
     }
   }
 
@@ -2618,6 +3077,7 @@ async function main() {
           alertId: email.alertId,
           email: email.to,
           variant: email.rankingVariant || 'control',
+          affinityProfile: email.rankingAffinityProfile === true,
           jobs: email.sentJobs,
           sentAt: new Date(),
         }));
@@ -2814,7 +3274,7 @@ async function main() {
 // Only run main() when executed directly (not when imported by tests).
 const isEntryPoint = (() => {
   try {
-    return process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
+    return process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }
@@ -2827,4 +3287,12 @@ if (isEntryPoint) {
   });
 }
 
-export { buildAlertEmail, filterLiveJobs, jobPageUrl, createJobLivenessPrefetcher, planAlertMatch };
+export {
+  buildAlertEmail,
+  filterLiveJobs,
+  jobPageUrl,
+  createJobLivenessPrefetcher,
+  planAlertMatch,
+  rankLiveJobsForEmail,
+  runJobAlertMatcherHealth,
+};

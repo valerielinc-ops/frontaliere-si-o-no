@@ -2,7 +2,7 @@ name: Funnel Metrics Snapshot (weekly)
 
 # Collects the field metrics the open RPM/CLS tracker issues need so they stop
 # being "blocked on unavailable data":
-#   #886 / #855 — CLS p75 mobile/desktop (PostHog $web_vitals)
+#   #886 / #855 — CLS p75 mobile/desktop (GA4 web_vitals, via revenue-monitor)
 #   #888        — GSC avg position + CTR by URL bucket (high-CPC ranking)
 #   #857        — AdSense RPM (content-mix dilution proxy)
 #
@@ -40,12 +40,12 @@ jobs:
     timeout-minutes: 12
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
@@ -86,12 +86,18 @@ jobs:
             --in=/tmp/revenue.json \
             --history=data/funnel-metrics-history.json \
             --summary-out=/tmp/funnel-summary.md
+          node scripts/ci/validate-workflow-data.mjs \
+            --kind funnel-metrics-history \
+            --file data/funnel-metrics-history.json
           echo "## Funnel metrics snapshot" >> "$GITHUB_STEP_SUMMARY"
           cat /tmp/funnel-summary.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit snapshot history
         id: commit
         run: |
+          node scripts/ci/validate-workflow-data.mjs \
+            --kind funnel-metrics-history \
+            --file data/funnel-metrics-history.json
           node scripts/ci/validate-generated-data.mjs \
             --kind funnel \
             --file data/funnel-metrics-history.json

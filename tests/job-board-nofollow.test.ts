@@ -44,11 +44,9 @@ function extractAnchorOpeningTags(source: string): string[] {
 /**
  * An anchor is "outbound" when it can open in a new tab — either a literal
  * `target="_blank"` or a conditional `target={cond ? undefined : '_blank'}`
- * that resolves to `_blank` for the external case. The header apply links use
- * the conditional form: external jobs open applyUrl in a new tab (outbound,
- * must carry nofollow), in-house publisher ads scroll to the on-page
- * #candidatura form (internal, no _blank). Either way, if `_blank` can appear
- * the anchor must declare nofollow. Internal SPA navigations never use _blank.
+ * that resolves to `_blank` for the external case. Either way, if `_blank`
+ * can appear the anchor must declare nofollow. Application actions are
+ * buttons and expose no outbound href. Internal SPA navigations never use _blank.
  */
 function isOutboundAnchor(tag: string): boolean {
   return /target="_blank"/.test(tag) || /target=\{[^}]*'_blank'[^}]*\}/.test(tag);
@@ -60,10 +58,9 @@ describe('JobBoard outbound ATS links carry nofollow', () => {
   const outbound = anchors.filter(isOutboundAnchor);
 
   it('has at least one outbound anchor (sanity check)', () => {
-    // Header logo + header title + concorsi.ti.ch official-source link =
-    // 3 known outbound anchors. The apply CTA stopped being an anchor in
-    // #8757 (see the next-but-one test).
-    expect(outbound.length).toBeGreaterThanOrEqual(3);
+    // The concorsi.ti.ch official-source link remains an outbound anchor.
+    // Application actions (including header logo/title) are buttons.
+    expect(outbound.length).toBeGreaterThanOrEqual(1);
   });
 
   it('every outbound <a target="_blank"> has rel="nofollow noopener noreferrer"', () => {
@@ -90,20 +87,9 @@ describe('JobBoard outbound ATS links carry nofollow', () => {
     expect(source).toContain("window.open(applyDestination, '_blank', 'noopener,noreferrer')");
   });
 
-  it('the header logo and title apply links carry nofollow when outbound', () => {
-    // Header logo + title route in-house ads to the on-page #candidatura form
-    // and external jobs to applyUrl in a new tab; the outbound (_blank) case
-    // must still carry nofollow. Pull the two conditional blocks by their
-    // header analytics events.
-    const logoBlockMatch = source.match(
-      /href=\{isInHouseApply \? '#candidatura' : applyUrl\}\s+target=\{isInHouseApply \? undefined : '_blank'\}\s+rel="([^"]+)"[\s\S]*?job_board_apply_header_logo/,
-    );
-    const titleBlockMatch = source.match(
-      /href=\{isInHouseApply \? '#candidatura' : applyUrl\}\s+target=\{isInHouseApply \? undefined : '_blank'\}\s+rel="([^"]+)"[\s\S]*?job_board_apply_header_title/,
-    );
-
-    expect(logoBlockMatch?.[1]).toBe('nofollow noopener noreferrer');
-    expect(titleBlockMatch?.[1]).toBe('nofollow noopener noreferrer');
+  it('header application actions expose no crawlable external destination', () => {
+    expect(source).not.toContain("href={isInHouseApply ? '#candidatura' : applyUrl}");
+    expect(source).not.toContain('href={applyUrl}');
   });
 });
 

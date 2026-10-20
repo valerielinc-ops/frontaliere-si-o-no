@@ -53,6 +53,58 @@ function stripHtml(html = '') {
   );
 }
 
+const FART_EMPTY_FORM_TITLE_RE = /\bCandidatura\s+per\s+un\s+concorso\s+pubblicato\b/i;
+const FART_EMPTY_FORM_NO_VACANCIES_RE = /\bAl\s+momento\s+non\s+ci\s+sono\s+concorsi\s+aperti\b/i;
+const FART_EMPTY_FORM_SELECT_LABEL_RE = /\bSelezioni\s+il\s+concorso\s+per\s+il\s+quale\s+desidera\s+candidarsi\b/i;
+const SELECT_RE = /<select\b[^>]*>[\s\S]*?<\/select>/gi;
+const OPTION_RE = /<option\b([^>]*)>([\s\S]*?)<\/option>/gi;
+
+function hasOnlyPlaceholderOption(selectHtml = '') {
+  const options = [...String(selectHtml).matchAll(OPTION_RE)];
+  if (options.length === 0) return false;
+
+  return options.every(([, , rawText]) => {
+    const text = normalizeSpace(stripHtml(rawText));
+    return !text || FART_EMPTY_FORM_SELECT_LABEL_RE.test(text);
+  });
+}
+
+/**
+ * Prove the current FART page is the new, explicit zero-vacancy form.
+ *
+ * The old page exposed one <h5> plus a PDF link per concorso. FART replaced
+ * it with a spontaneous-application form whose vacancy dropdown is populated
+ * by FART itself. The current no-vacancy rendering explicitly says that there
+ * are no open concorsi, while older renderings exposed the same fact through
+ * an empty labelled dropdown. Either source-owned proof is authoritative only
+ * with the form heading; an empty/unknown page remains unproven so the
+ * anti-shrink guard can keep the prior slice.
+ */
+export function isFartAuthoritativeEmptySnapshot(html = '') {
+  const source = String(html || '');
+  if (!source.trim() || /<h5\b/i.test(source)) return false;
+
+  const visibleText = normalizeSpace(stripHtml(source));
+  if (!FART_EMPTY_FORM_TITLE_RE.test(visibleText)) return false;
+
+  if (FART_EMPTY_FORM_NO_VACANCIES_RE.test(visibleText)) return true;
+
+  for (const match of source.matchAll(SELECT_RE)) {
+    const selectHtml = match[0];
+    const start = Math.max(0, Number(match.index || 0) - 1400);
+    const end = Math.min(source.length, Number(match.index || 0) + selectHtml.length + 500);
+    const context = normalizeSpace(stripHtml(source.slice(start, end)));
+    if (
+      FART_EMPTY_FORM_SELECT_LABEL_RE.test(context)
+      && hasOnlyPlaceholderOption(selectHtml)
+    ) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 /**
  * Parse the WordPress careers page and return job listings.
  *
@@ -89,7 +141,25 @@ export function parseFartListingPage(html = '') {
 }
 
 /**
- * Build a full description from a job title and raw (un-normalized) PDF text.
+ * Return the source state without treating every parser miss as a real zero.
+ *
+ * @param {string} html
+ * @returns {{ state: 'jobs'|'empty'|'invalid', jobs: Array<{title: string, pdfUrl: string}> }}
+ */
+export function parseFartListingState(html = '') {
+  const jobs = parseFartListingPage(html);
+  if (jobs.length > 0) return { state: 'jobs', jobs };
+  if (isFartAuthoritativeEmptySnapshot(html)) return { state: 'empty', jobs };
+  return { state: 'invalid', jobs };
+}
+
+/**
+ * Build the description of one concorso from its raw (un-normalized) PDF
+ * text: the bando's own text and nothing else. The crawler used to wrap it in
+ * lines of its own ("FART pubblica il seguente concorso.", "Posizione: …",
+ * "Bando ufficiale disponibile in PDF.", "Settore: …", "Sede: …",
+ * "Contatto: …") and to substitute "Concorso <titolo> presso FART…" when the
+ * PDF had no text; a bando without readable text now gets no description.
  *
  * Passes the raw PDF text to buildPdfBackedDescription so normalizePdfJobText()
  * is applied exactly once — avoiding the double-normalization that previously
@@ -103,20 +173,7 @@ export function parseFartListingPage(html = '') {
  * @returns {{ description: string, warnings: string[] }}
  */
 export function buildFartDescription(title = '', rawPdfText = '') {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `${COMPANY_NAME} pubblica il seguente concorso.`,
-      `Posizione: ${title}.`,
-    ],
-    pdfText: rawPdfText,
-    fallbackText: `Concorso ${title} presso ${COMPANY_NAME}. Consultare il bando PDF ufficiale per dettagli completi su requisiti, mansioni e candidatura.`,
-    footerLines: [
-      'Bando ufficiale disponibile in PDF.',
-      'Settore: Trasporti pubblici / Ferrovia',
-      'Sede: Via Domenico Galli 9, 6600 Locarno (TI), Svizzera',
-      'Contatto: fart@centovalli.ch | Tel. +41 (0)91 756 04 00',
-    ],
-  });
+  const description = buildPdfBackedDescription({ pdfText: rawPdfText });
 
   const warnings = [];
   if (rawPdfText && description.length < MIN_FART_DESC_LENGTH) {
@@ -128,6 +185,10 @@ export function buildFartDescription(title = '', rawPdfText = '') {
 
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former wrapper wrote (see `buildFartDescription`). */
+export const FART_FABRICATED_DESCRIPTION_RE =
+  /pubblica il seguente concorso\.|Consultare il bando PDF ufficiale per dettagli completi|(?:^|\n)Bando ufficiale disponibile in PDF\.|(?:^|\n)Contatto: fart@centovalli\.ch/;
 
 /**
  * Count meaningful paragraphs in a description string.

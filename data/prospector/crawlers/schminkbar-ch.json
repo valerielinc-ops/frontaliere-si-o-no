@@ -1,0 +1,22 @@
+{
+  "companyKey": "schminkbar-ch",
+  "companyName": "schminkbar (schweiz) ag",
+  "companyHost": "schminkbar.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://schminkbar.ch/jobs/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Mehr sehen",
+    "Mehr sehen",
+    "Mehr sehen"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-30T13:46:43.553Z"
+}

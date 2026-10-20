@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * corpus-ahead-check.mjs — il RICEVITORE che mancava al lato sito.
  *
@@ -47,15 +49,13 @@
  *     sovrascriverebbe il generatore che pubblica gli articoli con la nostra
  *     copia piu' vecchia, cioe' cancellerebbe esattamente le guardie che
  *     vogliamo ricevere.
- *  2. **La semantica di copia e' distruttiva.** Sia il mirror dell'engine
- *     (`rm -rf engine && cp -R`) sia `transport-generator-to-nanako.yml`
- *     (`rm -rf generator`, poi ricostruisce dal manifest) ricostruiscono la
- *     cartella da zero. Applicato a `generator/`, questo cancella i file che
- *     esistono SOLO di la': il manifest del corpus ne dichiara 21 come
- *     `corpus-only`, fra cui `generator/scripts/lib/topic-coverage-guard.mjs`
- *     — che e' la guardia di #120. Lo dice gia' in prosa l'intestazione di
- *     `apply-generator-rewire-to-nanako.yml`: «anything that exists ONLY on the
- *     nanako side is destroyed by the next transport».
+ *  2. **La semantica di copia deve rispettare la proprieta'.** Il mirror
+ *     dell'engine (`rm -rf engine && cp -R`) ricostruisce la propria superficie
+ *     perche' quella directory e' interamente site-owned. `generator/`, invece,
+ *     contiene anche file corpus-only: il transport li preserva e sovrappone
+ *     soltanto il manifest site-owned. Altrimenti una nuova side branch basata
+ *     sul default branch del corpus cancellerebbe, per esempio,
+ *     `generator/scripts/lib/topic-coverage-guard.mjs`, la guardia di #120.
  *
  * `engine/` e' copiabile perche' `tests/packages-articles-confinement.test.ts`
  * dimostra via AST che non importa nulla fuori da se'. Per `generator/` non
@@ -367,6 +367,47 @@ export function undeclaredRelativeImports({ entries, read, isDeclared, exists })
   return out;
 }
 
+/**
+ * I gemelli su cui gira il guard, con il path di QUESTO repo.
+ *
+ * Ambito: i soli `identical`. Un `adapted` diverge per costruzione — il gemello
+ * di la' puo' legittimamente non avere quell'import, ed e' proprio il caso di
+ * `atomic-write-json.mjs`, che sul corpus e' `adapted` PERCHE' lascia cadere
+ * `./slug-preservation-guard.mjs`. Allargare a `adapted` produrrebbe 31 righe
+ * di cui quasi nessuna e' un difetto, cioe' un report che nessuno legge.
+ *
+ * @param {{files: Array<{path: string, sitePath?: string, mode?: string}>}} manifest
+ * @returns {Array<{path: string, mode: string}>}
+ */
+export function identicalTwinEntries(manifest) {
+  return manifest.files
+    .filter((f) => f.mode === 'identical')
+    .map((f) => ({ path: f.sitePath || f.path, mode: f.mode }));
+}
+
+/**
+ * I path di questo repo che esisteranno anche di la': ogni voce del manifest
+ * del corpus che non sia `corpus-only*`, piu' la consegna del transport.
+ *
+ * «Dichiarato» include il manifest del transport, non solo quello del corpus:
+ * la domanda vera non e' «e' registrato in QUESTO elenco» ma «esistera' di la'
+ * quando ci arrivera' chi lo importa», e i due elenchi sono due canali di
+ * consegna dello stesso file.
+ *
+ * @param {{files: Array<{path: string, sitePath?: string, mode?: string}>}} manifest
+ * @param {Iterable<string>} [transportPaths] i path di `transportManifestPaths()`.
+ * @returns {Set<string>}
+ */
+export function declaredTwinPaths(manifest, transportPaths = []) {
+  const declared = new Set(
+    manifest.files
+      .filter((f) => f.mode !== 'corpus-only' && f.mode !== 'corpus-only-pending')
+      .map((f) => f.sitePath || f.path),
+  );
+  for (const rel of transportPaths) declared.add(rel);
+  return declared;
+}
+
 /** L'altro elenco di consegna: la MOVE set che il transport copia sotto `generator/`. */
 export const TRANSPORT_MANIFEST = '.github/transport/nanako-generator-manifest.txt';
 
@@ -586,33 +627,14 @@ async function main() {
 
   // Il guard di chiusura (vedi il blocco sopra `relativeImportSpecifiers`). Gira
   // qui, non in un branch a parte, perche' il manifest e' gia' in mano e la
-  // risposta e' locale: nessuna fetch in piu'.
-  //
-  // Ambito: i soli `identical`. Un `adapted` diverge per costruzione — il gemello
-  // di la' puo' legittimamente non avere quell'import, ed e' proprio il caso di
-  // `atomic-write-json.mjs`, che sul corpus e' `adapted` PERCHE' lascia cadere
-  // `./slug-preservation-guard.mjs`. Allargare a `adapted` produrrebbe 31 righe
-  // di cui quasi nessuna e' un difetto, cioe' un report che nessuno legge.
-  //
-  // «Dichiarato» include il manifest del transport, non solo quello del corpus:
-  // la domanda vera non e' «e' registrato in QUESTO elenco» ma «esistera' di la'
-  // quando ci arrivera' chi lo importa», e i due elenchi sono due canali di
-  // consegna dello stesso file.
-  const declared = new Set(
-    manifest.files
-      .filter((f) => f.mode !== 'corpus-only' && f.mode !== 'corpus-only-pending')
-      .map((f) => f.sitePath || f.path),
-  );
-  for (const rel of transportManifestPaths()) declared.add(rel);
+  // risposta e' locale: nessuna fetch in piu'. Ambito e insieme dei dichiarati
+  // stanno in `identicalTwinEntries`/`declaredTwinPaths`, condivisi con il
+  // cancello di PR `identical-twin-import-gate.mjs`.
+  const declared = declaredTwinPaths(manifest, transportManifestPaths());
 
   const importHazards = undeclaredRelativeImports({
-    entries: manifest.files
-      .filter((f) => f.mode === 'identical')
-      .map((f) => ({ path: f.sitePath || f.path, mode: f.mode })),
-    read: (rel) => {
-      const buf = siteContent(rel);
-      return buf === null ? null : buf.toString('utf8');
-    },
+    entries: identicalTwinEntries(manifest),
+    read: readSiteText,
     isDeclared: (rel) => declared.has(rel),
   }).map((h) => ({
     path: h.from,
@@ -682,7 +704,7 @@ async function main() {
 
 // `import.meta.main` non esiste su Node 20; il confronto sul path e' la forma
 // che questo repo usa altrove per "eseguito, non importato".
-const invokedDirectly = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (invokedDirectly) {
   main().then(

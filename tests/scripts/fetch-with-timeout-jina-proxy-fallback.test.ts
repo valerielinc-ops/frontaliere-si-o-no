@@ -28,12 +28,15 @@ const { fetchWithTimeout } = __testables;
 const PROXY_HOST = 'cambiavalute.ch';
 const TARGET_URL = `https://${PROXY_HOST}/annuncio-di-lavoro/test-job/`;
 
-function jinaResponse(ok: boolean, opts: { status?: number; reason?: string } = {}) {
+// A real target page clears detectJinaErrorBody's 200-char floor.
+const REAL_JINA_BODY = `<html><body>${'Real cambiavalute.ch job posting read through Jina. '.repeat(6)}</body></html>`;
+
+function jinaResponse(ok: boolean, opts: { status?: number; reason?: string; body?: string } = {}) {
   return {
     ok,
     status: opts.status ?? (ok ? 200 : 502),
     headers: new Headers(opts.reason ? { 'x-jina-retry-reason': opts.reason } : {}),
-    text: async () => '<html>jina body</html>',
+    text: async () => opts.body ?? REAL_JINA_BODY,
   };
 }
 
@@ -61,6 +64,7 @@ describe('fetchWithTimeout — JOBS_CRAWLER_FETCH_PROXY Jina-exhaustion fallback
     global.fetch = vi.fn();
     const res = await fetchWithTimeout(TARGET_URL);
     expect(res.ok).toBe(true);
+    expect(await res.text()).toBe(REAL_JINA_BODY);
     expect(global.fetch).not.toHaveBeenCalled();
   });
 
@@ -80,6 +84,23 @@ describe('fetchWithTimeout — JOBS_CRAWLER_FETCH_PROXY Jina-exhaustion fallback
     // target — or it would just re-hit the same exhausted proxy path.
     expect(calledUrl).toBe(TARGET_URL);
     expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('all-egress-ips-blocked'));
+  });
+
+  // fetchViaJinaWithRetry returns the LAST response unchanged on exhaustion:
+  // when every Jina IP got the sgcaptcha challenge as an HTTP 200, `ok` is
+  // true but the body is the challenge. That used to be returned as the page
+  // and the direct fetch never ran.
+  it('falls back to the direct fetch when exhausted Jina hands back a 200 challenge body', async () => {
+    const challengeBody = `<html><body>${'Please wait while we verify your browser. sgcaptcha challenge. '.repeat(4)}</body></html>`;
+    fetchViaJinaWithRetry.mockResolvedValue(jinaResponse(true, { body: challengeBody }));
+    global.fetch = vi.fn(async () => new Response(REAL_DIRECT_BODY, { status: 200 })) as unknown as typeof fetch;
+    const res = await fetchWithTimeout(TARGET_URL);
+    expect(res.ok).toBe(true);
+    expect(await res.text()).toBe(REAL_DIRECT_BODY);
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect((global.fetch as ReturnType<typeof vi.fn>).mock.calls[0][0]).toBe(TARGET_URL);
+    expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('Jina proxy exhausted'));
+    expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('sgcaptcha'));
   });
 
   // PR #3832 review finding (🔴): the direct-fetch fallback used to trust any

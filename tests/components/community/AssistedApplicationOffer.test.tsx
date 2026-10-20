@@ -7,27 +7,38 @@ const mocks = vi.hoisted(() => ({
 }));
 
 vi.mock('@/services/i18n', () => ({
+  // The Terms and Privacy links are built with buildPath, which reads the locale.
+  getLocale: () => 'it',
+  useLocale: () => ['it'],
   useTranslation: () => ({
     t: (key: string) => ({
       'common.close': 'Chiudi',
       'jobBoard.assisted.title': 'Vuoi delegare questa candidatura?',
       'jobBoard.assisted.body': 'Invia il CV e i dati necessari.',
+      'jobBoard.assisted.copy.time_saved.title': 'Risparmia tempo sulla candidatura',
+      'jobBoard.assisted.copy.time_saved.body': 'Inviaci il CV e risparmia tempo.',
+      'jobBoard.assisted.copy.portal_relief.title': 'Preferisci non gestire il portale?',
+      'jobBoard.assisted.copy.portal_relief.body': 'Ci occupiamo del portale quando possibile.',
+      'jobBoard.assisted.copy.handled_for_you.title': 'Vuoi che ce ne occupiamo noi?',
+      'jobBoard.assisted.copy.handled_for_you.body': 'Affidaci questa candidatura.',
       'jobBoard.assisted.stepsLabel': 'Come funziona',
       'jobBoard.assisted.step1': 'Ci invii il CV',
       'jobBoard.assisted.step2': 'Prepariamo la candidatura',
       'jobBoard.assisted.step3': 'La inviamo quando possibile',
       'jobBoard.assisted.transparency': 'Nessuna garanzia di assunzione.',
       'jobBoard.assisted.externalCta': 'Candidati da solo, gratis',
-      'jobBoard.assisted.paidCta': 'Delega l’invio — 0,99 €',
+      'jobBoard.assisted.paidCta': 'Delega l’invio — 1,99 €',
       'jobBoard.assisted.paidLoading': 'Apro il pagamento…',
       'jobBoard.assisted.priceNote': 'Pagamento unico · nessun abbonamento',
       'jobBoard.assisted.disclaimer': 'Privacy prima dell’upload.',
+      'jobBoard.concierge.offerLink': 'Cerchi più posizioni? Automatizza la tua ricerca di lavoro',
+      'jobBoard.concierge.offerLinkHint': 'Cerchiamo le posizioni adatte, prepariamo candidature su misura e le inviamo dopo il tuo via libera.',
     }[key] || key),
   }),
 }));
 
 vi.mock('@/services/assistedApplicationExperiment', () => ({
-  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 99,
+  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 199,
   trackAssistedApplicationEvent: mocks.trackAssistedApplicationEvent,
 }));
 
@@ -58,12 +69,36 @@ describe('AssistedApplicationOffer', () => {
   it('shows one primary paid CTA, a clear free alternative, and records the price', () => {
     renderOffer();
 
-    expect(screen.getByTestId('assisted-application-offer-paid')).toHaveTextContent('Delega l’invio — 0,99 €');
+    expect(screen.getByTestId('assisted-application-offer-paid')).toHaveTextContent('Delega l’invio — 1,99 €');
     expect(screen.getByTestId('assisted-application-offer-external')).toHaveTextContent('Candidati da solo, gratis');
     expect(screen.getByText('Pagamento unico · nessun abbonamento')).toBeTruthy();
     expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
       'assisted_application_offer_viewed',
-      expect.objectContaining({ price_eur_cents: 99, jobId: 'job-42', companyId: 'company-acme' }),
+      expect.objectContaining({ price_eur_cents: 199, jobId: 'job-42', companyId: 'company-acme' }),
+    );
+  });
+
+  it('links the concierge offer to the canonical public landing', () => {
+    renderOffer();
+
+    expect(screen.getByRole('link', { name: 'Cerchi più posizioni? Automatizza la tua ricerca di lavoro' }))
+      .toHaveAttribute('href', '/automatizza-ricerca-lavoro-svizzera/');
+  });
+
+  it.each([
+    ['control', 'Vuoi delegare questa candidatura?', 'Invia il CV e i dati necessari.'],
+    ['time_saved', 'Risparmia tempo sulla candidatura', 'Inviaci il CV e risparmia tempo.'],
+    ['portal_relief', 'Preferisci non gestire il portale?', 'Ci occupiamo del portale quando possibile.'],
+    ['handled_for_you', 'Vuoi che ce ne occupiamo noi?', 'Affidaci questa candidatura.'],
+  ] as const)('renders the %s copy arm without changing the offer choices', (copyVariant, title, body) => {
+    renderOffer({ copyVariant });
+
+    expect(screen.getByRole('heading', { name: title })).toBeTruthy();
+    expect(screen.getByText(body)).toBeTruthy();
+    expect(screen.getByTestId('assisted-application-offer-paid')).toHaveTextContent('Delega l’invio — 1,99 €');
+    expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
+      'assisted_application_offer_viewed',
+      expect.objectContaining({ copy_variant: copyVariant }),
     );
   });
 
@@ -79,10 +114,75 @@ describe('AssistedApplicationOffer', () => {
     expect(props.onClose).toHaveBeenCalledTimes(1);
   });
 
+  it('ignores the second click of a double click on the backdrop, but honours a later one', () => {
+    let clock = 5_000;
+    const nowSpy = vi.spyOn(performance, 'now').mockImplementation(() => clock);
+    const props = renderOffer();
+    const backdrop = screen.getByTestId('assisted-application-offer');
+
+    clock += 150;
+    fireEvent.click(backdrop);
+    expect(props.onClose).not.toHaveBeenCalled();
+
+    clock += 1_000;
+    fireEvent.click(backdrop);
+    expect(props.onClose).toHaveBeenCalledTimes(1);
+    nowSpy.mockRestore();
+  });
+
   it('keeps checkout errors visible to assist recovery', () => {
     renderOffer({ error: 'Non siamo riusciti ad avviare il pagamento.' });
 
     expect(screen.getByRole('alert')).toHaveTextContent('Non siamo riusciti ad avviare il pagamento.');
+    // With the actions, which stay on screen while the card scrolls.
+    expect(screen.getByTestId('assisted-application-offer-actions')).toContainElement(screen.getByRole('alert'));
   });
 
+  it('pins both choices to the bottom of the card, so a short card never hides the free path', () => {
+    // Live 2026-10-07: above Google's anchor ad the card was 550 px for 724 px of
+    // content, and the free button sat below the fold.
+    renderOffer();
+
+    const actions = screen.getByTestId('assisted-application-offer-actions');
+    expect(actions).toContainElement(screen.getByTestId('assisted-application-offer-paid'));
+    expect(actions).toContainElement(screen.getByTestId('assisted-application-offer-external'));
+    expect(actions.className).toMatch(/(^|\s)sticky(\s|$)/);
+    expect(actions.className).toMatch(/(^|\s)bottom-0(\s|$)/);
+    expect(actions.className).toMatch(/(^|\s)bg-surface(\s|$)/);
+    // Inside the scrolling card, not outside it.
+    const card = screen.getByRole('dialog');
+    expect(card).toContainElement(actions);
+    // The card has no bottom padding of its own (its content wrapper carries it): the pinned
+    // block reaches the card's bottom edge, with no strip of scrolled text under it.
+    expect(card.className).not.toMatch(/(^|\s)(sm:)?p-\d|(^|\s)(sm:)?pb-\d|(^|\s)(sm:)?py-\d/);
+    expect(actions.parentElement?.className).toMatch(/(^|\s)pb-4(\s|$)/);
+    expect(actions.parentElement?.className).toMatch(/(^|\s)sm:pb-6(\s|$)/);
+    expect(actions.parentElement?.parentElement).toBe(card);
+  });
+
+  it('leaves the body scroll and Escape to its host when embedded, and names who opened it', () => {
+    document.body.style.overflow = 'auto';
+    const props = renderOffer({
+      embedded: true,
+      variant: 'rewarded_ad',
+      trigger: 'offerwall_first',
+      externalLabel: 'Candidati da solo, gratis con un breve video',
+    });
+
+    // The host (RewardedApplicationOffer) holds the one scroll lock and Escape.
+    expect(document.body.style.overflow).toBe('auto');
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(props.onClose).not.toHaveBeenCalled();
+    expect(screen.getByTestId('assisted-application-offer-external'))
+      .toHaveTextContent('Candidati da solo, gratis con un breve video');
+    expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith('assisted_application_offer_viewed', {
+      variant: 'rewarded_ad',
+      copy_variant: 'control',
+      jobId: 'job-42',
+      companyId: 'company-acme',
+      price_eur_cents: 199,
+      trigger: 'offerwall_first',
+    });
+    document.body.style.overflow = '';
+  });
 });

@@ -37,7 +37,55 @@ set -euo pipefail
 # historical working-tree fallback.
 push_input=$(cat)
 
-# ── CI automation guard (article-generation outage 2026-07-08→10) ──────────
+is_zero_sha() {
+  [[ "$1" =~ ^0{40}(0{24})?$ ]]
+}
+
+# A full-tree replacement can otherwise pass unnoticed when a local or
+# automated writer pushes a commit that contains only one generated snapshot.
+# Compare Git's tracked path counts (tree objects only; sparse checkouts work)
+# before running any advisory gate or its CI/data-writer early return below.
+if [ -n "$push_input" ]; then
+  while read -r _local_ref local_sha remote_ref remote_sha; do
+    [ "$remote_ref" = "refs/heads/main" ] || continue
+    [ -n "$local_sha" ] || continue
+    if is_zero_sha "$local_sha"; then
+      echo "::error::Refusing to delete refs/heads/main."
+      exit 1
+    fi
+    if is_zero_sha "$remote_sha"; then continue; fi
+    # A concurrent writer may have advanced main after this checkout was
+    # created. The advertised push SHA is still the correct comparison base,
+    # but a shallow/stale clone may not contain its commit object. The guard
+    # fetches that exact SHA from the push URL with a bounded single-flight fetch.
+    node scripts/ci/guard-main-tree-shrink.mjs \
+      --before "$remote_sha" \
+      --after "$local_sha" \
+      --fetch-missing-from "$2"
+  done <<< "$push_input"
+fi
+
+# La costante e la decisione di ascendenza vivono in un solo modulo condiviso
+# con CI e con i writer dei dati. Il modulo aggiorna origin/main solo quando il
+# ref spinto contiene davvero il marker, quindi il caso ordinario resta locale
+# e la verifica usa un fetch treeless quando serve.
+if [ -n "$push_input" ]; then
+  while read -r _local_ref local_sha _remote_ref _remote_sha; do
+    [ -z "$local_sha" ] && continue
+    case "$local_sha" in
+      0000000000000000000000000000000000000000) continue ;;
+    esac
+    node scripts/lib/old-history-guard.mjs \
+      --head "$local_sha" \
+      --base refs/remotes/origin/main \
+      --refresh-base \
+      --remote origin \
+      --branch main
+  done <<< "$push_input"
+fi
+
+# ── CI/data-writer automation guard (article-generation outage 2026-07-08→10)
+# ────────────────────────────────────────────────────────────────────────────
 # npm ci's `prepare` script sets core.hooksPath=.githooks inside EVERY GitHub
 # Actions job as well, so this gate also fired on data-refresh workflows that
 # push generated content (articles, crawler data) straight to main. Those are
@@ -45,10 +93,11 @@ push_input=$(cat)
 # services/** whose boilerplate is shared by every sibling article file, so
 # the strict gate rejected the push 10/10 times (run 29090019854: 10871
 # candidates → exit 1 → "Article is LOST") and article production dropped to
-# zero. Skip the gate when running under GitHub Actions AND every pushed ref
-# targets main — issue-fix agents push claude/* branches, so the gate keeps
-# firing for the pre-PR pushes it was designed for.
-if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
+# zero. Skip the gate when running under GitHub Actions, or for an explicitly
+# named automated data writer, AND every pushed ref targets main. Issue-fix
+# agents push claude/* branches, so the gate keeps firing for the pre-PR pushes
+# it was designed for.
+if [ "${GITHUB_ACTIONS:-}" = "true" ] || [ -n "${FRONTALIERE_AUTOMATED_DATA_PUSH:-}" ]; then
   any_ref=0
   all_main=1
   while read -r _local_ref _local_sha remote_ref _remote_sha; do
@@ -57,7 +106,11 @@ if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
     if [ "$remote_ref" != "refs/heads/main" ]; then all_main=0; fi
   done <<< "$push_input"
   if [ "$any_ref" = "1" ] && [ "$all_main" = "1" ]; then
-    echo "sibling-gate: skipped (GitHub Actions automated push to main)"
+    if [ -n "${FRONTALIERE_AUTOMATED_DATA_PUSH:-}" ]; then
+      echo "sibling-gate: skipped (automated data push to main: ${FRONTALIERE_AUTOMATED_DATA_PUSH})"
+    else
+      echo "sibling-gate: skipped (GitHub Actions automated push to main)"
+    fi
     exit 0
   fi
 fi

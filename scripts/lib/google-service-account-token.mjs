@@ -16,6 +16,36 @@ import { createSign } from 'node:crypto';
 export const GOOGLE_TOKEN_URL = 'https://oauth2.googleapis.com/token';
 const TOKEN_LIFETIME_SECONDS = 3600;
 
+const QUOTA_TOKEN_EXCHANGE_REASONS = new Set([
+  'rate_limit_exceeded',
+  'quota_exceeded',
+]);
+
+/**
+ * Google's OAuth token endpoint uses the flat RFC 6749 error shape
+ * (`{error, error_description}`). Unknown or malformed bodies stay terminal:
+ * a 403 is retryable only when Google identifies it as a quota rejection.
+ */
+export function extractOAuthErrorReason(bodyText) {
+  try {
+    const { error } = JSON.parse(bodyText) ?? {};
+    return typeof error === 'string' ? error : null;
+  } catch {
+    return null;
+  }
+}
+
+export function isRetryableTokenExchangeStatus(status, reason) {
+  if (status === 429 || status >= 500) return true;
+  return status === 403 && QUOTA_TOKEN_EXCHANGE_REASONS.has(reason);
+}
+
+function isRetryableTokenExchangeError(error) {
+  return error?.name === 'TypeError'
+    || error?.name === 'AbortError'
+    || error?.name === 'TimeoutError';
+}
+
 /**
  * Build a signed JWT assertion for the given service account and scope.
  * @param {{client_email: string, private_key: string}} creds
@@ -62,19 +92,16 @@ export const TOKEN_EXCHANGE_TIMEOUT_MS = 30_000;
 /**
  * Exchange a signed assertion for an access token.
  *
- * Retries 429/5xx: this call sits directly upstream of the Remote Config
- * fetch in load-rc-env.mjs's REST fallback, and a single transient failure
- * here produces the exact same symptom as one in the RC fetch itself — see
- * isRetryableRcFetchStatus in load-rc-env.mjs, which retries the sibling call.
+ * Retries network/time-out failures, 429/5xx, and recognized OAuth quota
+ * rejections. Credential and grant errors remain terminal.
  * @param {string} assertion
  * @returns {Promise<string>} access token
  */
 export async function exchangeAssertionForToken(assertion) {
   let lastErr;
   for (let attempt = 1; attempt <= TOKEN_EXCHANGE_ATTEMPTS; attempt++) {
-    let res;
     try {
-      res = await fetch(GOOGLE_TOKEN_URL, {
+      const res = await fetch(GOOGLE_TOKEN_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
@@ -83,27 +110,24 @@ export async function exchangeAssertionForToken(assertion) {
         }),
         signal: AbortSignal.timeout(TOKEN_EXCHANGE_TIMEOUT_MS),
       });
-    } catch (err) {
-      // AbortSignal.timeout() rejects the fetch instead of resolving a status —
-      // the status-based retry below never runs, so a slow-but-never-erroring
-      // endpoint would fail on the FIRST timeout instead of spending the
-      // 7-attempt/~63s budget this loop exists to provide. Any other thrown
-      // error (DNS, TLS, etc.) is not something a retry can fix — fail fast.
-      if (err?.name !== 'AbortError' && err?.name !== 'TimeoutError') throw err;
-      lastErr = new Error(`OAuth token exchange timed out after ${TOKEN_EXCHANGE_TIMEOUT_MS}ms`);
-      if (attempt < TOKEN_EXCHANGE_ATTEMPTS) {
-        await new Promise((r) => setTimeout(r, 1000 * 2 ** (attempt - 1)));
+      if (res.ok) {
+        const data = await res.json();
+        if (!data?.access_token) throw new Error('OAuth response missing access_token');
+        return data.access_token;
       }
-      continue;
+      const text = await res.text();
+      const reason = extractOAuthErrorReason(text);
+      lastErr = new Error(`OAuth token exchange failed: ${res.status}${reason ? ` (${reason})` : ''} ${text}`);
+      if (!isRetryableTokenExchangeStatus(res.status, reason)) throw lastErr;
+    } catch (err) {
+      // fetch and response body reads both reject for time-outs and transient
+      // transport failures. Keep the whole request lifecycle in this attempt
+      // so a connection lost after the headers still consumes the retry budget.
+      if (!isRetryableTokenExchangeError(err)) throw err;
+      lastErr = err?.name === 'AbortError' || err?.name === 'TimeoutError'
+        ? new Error(`OAuth token exchange timed out after ${TOKEN_EXCHANGE_TIMEOUT_MS}ms`)
+        : err;
     }
-    if (res.ok) {
-      const data = await res.json();
-      if (!data?.access_token) throw new Error('OAuth response missing access_token');
-      return data.access_token;
-    }
-    const text = await res.text();
-    lastErr = new Error(`OAuth token exchange failed: ${res.status} ${text}`);
-    if (res.status !== 429 && res.status < 500) throw lastErr;
     if (attempt < TOKEN_EXCHANGE_ATTEMPTS) {
       await new Promise((r) => setTimeout(r, 1000 * 2 ** (attempt - 1)));
     }

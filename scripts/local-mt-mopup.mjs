@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * local-mt-mopup.mjs — IN-PROCESS, $0, no-external-API translation MOP-UP tier.
  *
@@ -44,18 +46,32 @@
  *   LOCAL_MT_TIME_BUDGET_MS    — per-step wall-clock ceiling (default 280*60*1000)
  *   LOCAL_MT_MOPUP_DEADLINE_MS — run-wide deadline from run start (default 320*60*1000)
  *   LOCAL_MT_PYTHON            — python interpreter (default 'python3')
+ *   LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE — texts per embedding warm-up batch (default 64)
  *   LOCAL_MT_DRY_RUN=1         — scan + report only, no Python call, no writes
  */
 
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import os from 'node:os';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-jobs.mjs';
-import { isTitleSourceCopy, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
+import {
+  isDescriptionSourceCopy,
+  isTitleSourceCopy,
+  normalizeJobLocale,
+  sourceLocaleTextCandidates,
+  sourceLocaleTextForTranslation,
+  titleLooksUntranslated,
+} from './lib/job-locale-utils.mjs';
+import { fillUnsupportedSourceTitleSlots } from './lib/dedicated-crawler-common.mjs';
+import {
+  isTitleRepairQueueSlot,
+  titleRepairDetectorVerdict,
+} from './lib/untranslated-title-repair.mjs';
 import { resolveRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import {
@@ -65,8 +81,28 @@ import {
   normalizeProtectedTokenSentinels,
 } from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
-import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
+import { isModelMetaAnswer, isStructureFlattenedCopy, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { translateWithLocalOpusMt } from './lib/local-opus-mt.mjs';
+import {
+  DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX,
+  DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE,
+  interpretSemanticVerdict,
+  judgeLocalMtMeaning,
+  prewarmLocalMtMeaning,
+  SEMANTIC_VERDICT,
+} from './lib/local-mt-semantic-judge.mjs';
+import {
+  createSemanticRollbackGuard,
+  evaluateOverwritePolicy,
+  POLICY_VERDICT,
+} from './lib/local-mt-semantic-policy.mjs';
+import {
+  createSemanticCandidateRecorder,
+  createSemanticRolloutFromEnv,
+  formatSemanticTelemetry,
+  semanticBucketOf,
+  semanticWriteKind,
+} from './lib/local-mt-semantic-rollout.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -84,29 +120,63 @@ const MIN_DESC_CHARS = 120;
 const WRITE_GUARD_DECISIONS = [
   'write',
   'skip:candidate-untranslated',
+  'skip:semantic-mismatch',
+  'skip:semantic-unavailable',
+  'skip:semantic-reject',
+  'skip:semantic-unclear',
+  'skip:semantic-rollback',
   'skip:source-copy',
   'skip:existing-good',
   'skip:finalize-empty',
   'skip:source-locale',
   'skip:empty-raw',
   'skip:no-op',
+  'skip:structure-flattened',
 ];
+const SEMANTIC_PREWARM_BATCH_SIZE = Math.max(
+  1,
+  Number.isFinite(Number(process.env.LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE))
+    ? Math.floor(Number(process.env.LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE))
+    : DEFAULT_LOCAL_MT_SEMANTIC_PREWARM_BATCH_SIZE,
+);
+
+/**
+ * Keep every candidate's two texts resident until its verdict is consumed.
+ * The semantic judge's cache is bounded by text, so a block of half the cache
+ * capacity is safe even when every source and candidate is unique. Duplicate
+ * texts only make the block cheaper; the consumer order remains unchanged.
+ */
+export function semanticCandidateBlocks(candidates, cacheMax = DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX) {
+  const requestedMax = Number(cacheMax);
+  const maxEntries = Number.isFinite(requestedMax)
+    ? Math.max(1, Math.floor(requestedMax))
+    : DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX;
+  const blockSize = Math.max(1, Math.floor(maxEntries / 2));
+  const list = Array.isArray(candidates) ? candidates : [];
+  const blocks = [];
+  for (let offset = 0; offset < list.length; offset += blockSize) {
+    blocks.push(list.slice(offset, offset + blockSize));
+  }
+  return blocks;
+}
 const OPUS_MT_RESCUE_DECISIONS = new Set([
   'skip:candidate-untranslated',
   'skip:source-copy',
+  'skip:structure-flattened',
 ]);
 const NEGATIVE_CACHE_DECISIONS = new Set([
   'skip:candidate-untranslated',
   'skip:source-copy',
   'skip:finalize-empty',
   'skip:no-op',
+  'skip:structure-flattened',
 ]);
 const NEGATIVE_CACHE_TTL_MS = Number(process.env.LOCAL_MT_NEGATIVE_CACHE_TTL_MS) || 7 * 24 * 60 * 60 * 1000;
 const NEGATIVE_CACHE_JITTER_MS = Number(process.env.LOCAL_MT_NEGATIVE_CACHE_JITTER_MS) || 6 * 60 * 60 * 1000;
 const NEGATIVE_CACHE_VERSION = 'local-mt-v2:glossary-v2';
 
 /**
- * Rollout switch for the language arm of classifyMopupWrite() (workspace issue
+ * Rollout switch for the language arm of classifyMopupStructure() (workspace issue
  * 16). Default OFF, and OFF does not mean blind: the arm still runs and still
  * counts, it only withholds the write, so a production run can be READ before
  * it is allowed to act. Same repo-variable idiom as
@@ -151,10 +221,10 @@ const TIME_BUDGET_MS = Math.min(
   STATIC_TIME_BUDGET_MS,
   Math.max(0, MOPUP_DEADLINE_MS - (Date.now() - RUN_START_MS)),
 );
-// Reserve 5min after the spawn kill for the JSON-write phase.
+// Reserve time after the spawn kill for the write phase (see writeReserveMs).
 // spawnSync timeout = TIME_BUDGET_MS - WRITE_RESERVE_MS so that when ETIMEDOUT
 // fires, Date.now()-started is still < TIME_BUDGET_MS and budgetOk() stays true.
-const WRITE_RESERVE_MS = 5 * 60 * 1000;
+const WRITE_RESERVE_MS = writeReserveMs(TIME_BUDGET_MS, process.env.LOCAL_MT_WRITE_RESERVE_MS);
 
 function parseFlag(name) {
   return process.argv.slice(2).includes(name);
@@ -259,12 +329,11 @@ export function needsWork(job) {
  * backlog on the 2026-08-18 snapshot.
  */
 export function missingSlots(job) {
-  const srcLang = job.sourceLang || 'it';
+  const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
   const tbl = job.titleByLocale || {};
   const dbl = job.descriptionByLocale || {};
-  const sourceTitle = (job.title || tbl[srcLang] || '').trim();
-  const sourceDesc = (job.description || dbl[srcLang] || '').trim();
-  const sourceDescLc = sourceDesc.toLowerCase();
+  const sourceTitle = sourceLocaleTextForTranslation(job, 'title', MIN_TITLE_CHARS);
+  const sourceDescCandidates = sourceLocaleTextCandidates(job, 'description');
   const slots = [];
 
   for (const locale of LOCALES) {
@@ -282,21 +351,22 @@ export function missingSlots(job) {
     // shorter than the floor from the lexical check too (issue #6539).
     const tooShortOrCopy = sourceTitle.length >= MIN_TITLE_CHARS &&
       (title.length < MIN_TITLE_CHARS || isTitleSourceCopy(title, sourceTitle));
-    const lexicallyUntranslated = titleLooksUntranslated({
-      title,
-      sourceTitle,
-      sourceLang: srcLang,
-      targetLocale: locale,
-      company: job.company || '',
-      location: job.location || '',
-    }).untranslated;
-    if (tooShortOrCopy || lexicallyUntranslated) {
+    const lexicallyUntranslated = titleRepairDetectorVerdict({ job, locale, title }).untranslated;
+    // A model's refusal or request for the input sitting in the slot (the
+    // same verdict as isIncomplete): long, not a copy, lexically "English".
+    if (tooShortOrCopy || lexicallyUntranslated || isModelMetaAnswer(title, sourceTitle)) {
       slots.push({ locale, field: 'title' });
     }
 
     // Description missing, too short, or an untranslated copy of the source desc.
-    if (sourceDesc.length >= MIN_DESC_CHARS &&
-        (desc.length < MIN_DESC_CHARS || desc.toLowerCase() === sourceDescLc)) {
+    const descriptionNeedsRepair = sourceDescCandidates.some((source) =>
+      source.length >= MIN_DESC_CHARS && (
+        desc.length < MIN_DESC_CHARS
+        || isDescriptionSourceCopy(desc, source)
+        || isStructureFlattenedCopy(source, desc)
+        || isModelMetaAnswer(desc, source)
+      ));
+    if (descriptionNeedsRepair) {
       slots.push({ locale, field: 'description' });
     }
   }
@@ -408,7 +478,7 @@ export function finalizeMopupTranslation({
 }) {
   return finalizeTranslatedText({
     sourceText,
-    translatedText: balanceMarkdownMarkers(String(rawText ?? '')),
+    translatedText: balanceMarkdownMarkers(String(rawText ?? ''), { sourceText }),
     targetLang,
     fieldType,
     protectedTokens,
@@ -494,6 +564,46 @@ export function orderMopupJobsByTraffic(jobs, popularity, cap) {
 }
 
 /**
+ * L'ordine in cui il batch arriva al worker Argos: prima TUTTI i titoli, poi le
+ * descrizioni, ciascun gruppo nell'ordine di traffico deciso da
+ * `orderMopupJobsByTraffic`.
+ *
+ * PERCHE'. `scripts/local-mt-translate.py` traduce le unita' nell'ordine in cui
+ * le legge (dedup in un dict, poi una coda FIFO del thread pool) e quando il
+ * timeout del passo lo uccide restano scritte solo le richieste gia' complete.
+ * Costruito job per job, il batch alternava un titolo (una riga, un'unita') e
+ * la sua descrizione (in media ~9 unita'): misurato sul run translate-pending
+ * 36779310211 del corpus (2026-10-01), 16.990 richieste e 152.736 unita', il
+ * worker ucciso a 150 minuti con 4.749 richieste fatte. I titoli dei job oltre
+ * quel punto non partivano mai, mentre il ratchet del sito
+ * (tests/job-locale-consistency.test.ts, titoli non tradotti) e' salito dal
+ * 31,54% al 34,46% in un giorno con ~3.200 slot titolo nuovi in coda.
+ *
+ * Un titolo costa una sola unita': messi in testa, quelli dei job selezionati
+ * finiscono nei primi minuti e le descrizioni usano il tempo che resta. Nessun
+ * job entra o esce dalla selezione: cambia solo l'ordine dentro il batch.
+ *
+ * @param {Array<{ id: string }>} requests nell'ordine dei job selezionati
+ * @param {(request: { id: string }) => string | undefined} fieldOf il campo
+ *   ('title' | 'description') a cui la richiesta scrive
+ * @param {(request: { id: string }) => boolean} [isOverwrite] vero per un
+ *   titolo che sostituirebbe un valore ben formato (vedi isOverwriteSlot): va
+ *   dopo i titoli vuoti o rotti, perche' la sua scrittura e' limitata dal tetto
+ *   del rollout e spenta dal rollback della run, quella di un riempimento no
+ * @returns {Array<{ id: string }>} stessi oggetti, titoli prima
+ */
+export function orderMopupRequestsTitleFirst(requests, fieldOf, isOverwrite = () => false) {
+  const titles = [];
+  const overwriteTitles = [];
+  const others = [];
+  for (const request of requests) {
+    if (fieldOf(request) !== 'title') others.push(request);
+    else (isOverwrite(request) ? overwriteTitles : titles).push(request);
+  }
+  return [...titles, ...overwriteTitles, ...others];
+}
+
+/**
  * Quanta della coorte fresca (<24h) la corsia freschezza vede davvero.
  *
  * PERCHE' ESISTE (issue #7362). La corsia mette in testa i job piu' giovani di
@@ -559,7 +669,149 @@ export function createFreshCoverageMeter({ now = Date.now() } = {}) {
   };
 }
 
-export function classifyMopupWrite({
+/**
+ * Time kept after the worker for the write loop (guards + semantic judge per
+ * candidate), out of the phase budget.
+ *
+ * It was a fixed 5 minutes, sized when the worker returned ~4000 results. With
+ * the batched worker the first run (corpus 37397114200, 2026-10-06) returned
+ * 5279 results in Phase 2a and the loop hit the budget after 90 slice files
+ * («Time budget reached — stopping before remaining files»), again in Phase
+ * 2c after 70: the translations were done and stayed unwritten until a later
+ * pass. A quarter of the phase budget, between 5 and 15 minutes: 15 for the
+ * 75-minute bulk pass, ~9 for a 35-minute mop-up. `override` is
+ * LOCAL_MT_WRITE_RESERVE_MS.
+ */
+export function writeReserveMs(timeBudgetMs, override) {
+  const forced = Number(override);
+  if (Number.isFinite(forced) && forced > 0) return forced;
+  const quarter = Math.floor((Number(timeBudgetMs) || 0) / 4);
+  return Math.min(15 * 60 * 1000, Math.max(5 * 60 * 1000, quarter));
+}
+
+/**
+ * True when the stored value of a slot is too short or a copy of the source:
+ * replacing it is a repair. A stored value that is NOT bad can only be replaced
+ * by the language arm, i.e. it is an overwrite. One definition for the write
+ * guard below and for the queue (isOverwriteSlot), so the two cannot disagree
+ * on which slots the overwrite cap governs.
+ */
+function existingSlotIsBad({ field, existing, normalizedSourceText, normalizedSourceTexts = null }) {
+  const sources = Array.isArray(normalizedSourceTexts) && normalizedSourceTexts.length > 0
+    ? normalizedSourceTexts
+    : [normalizedSourceText];
+  return existing.length < (field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS)
+    || (field === 'title'
+      ? sources.some((source) => isTitleSourceCopy(existing, source))
+      : sources.some((source) => isDescriptionSourceCopy(existing, source)
+        || isStructureFlattenedCopy(source, existing)));
+}
+
+/**
+ * Would a write to this queued slot be an OVERWRITE (a language-driven
+ * replacement of a stored, well-formed title)? Those writes are bounded by the
+ * semantic rollout (LOCAL_MT_SEMANTIC_MAX_OVERWRITES per process) and switched
+ * off by the run rollback, so the queue only sends Argos as many of them as can
+ * actually be written. Same predicate as classifyMopupStructure()'s
+ * `existing && !existingIsBad`, evaluated before translating.
+ */
+export function isOverwriteSlot(job, { locale, field }) {
+  if (field !== 'title') return false;
+  const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
+  if (locale === srcLang) return false;
+  const existing = String(job.titleByLocale?.[locale] || '').trim();
+  if (!existing) return false;
+  const rawSourceTexts = sourceLocaleTextCandidates(job, 'title');
+  const normalizedSourceTexts = rawSourceTexts.map((source) => normalizeArgosText(source, srcLang, 'title'));
+  return !existingSlotIsBad({
+    field,
+    existing,
+    normalizedSourceText: normalizedSourceTexts[0] || '',
+    normalizedSourceTexts,
+  });
+}
+
+/**
+ * Whether a slot should remain in the Argos request batch.
+ *
+ * Normal fills/repairs, including descriptions, stay on Argos. Only an
+ * existing-good title that the shared Codex title-lane predicate admits is
+ * reserved for that lane; non-admitted title overwrites keep all Argos guards.
+ * The title lane scans the same admitted slots without an attempt-count or
+ * per-announcement admission filter; `attemptState` only orders retries, and
+ * its deadline defers an unchanged slot to the next Codex run.
+ */
+export function shouldQueueArgosSlot(job, { locale, field }) {
+  if (!isOverwriteSlot(job, { locale, field })) return true;
+  const existing = String(job.titleByLocale?.[locale] || '').trim();
+  return !isTitleRepairQueueSlot({ job, locale, title: existing });
+}
+
+/**
+ * How many overwrite slots this pass hands to Argos.
+ *
+ * WHY. On the corpus run 37272320066 (2026-10-05) Phase 2a translated 4166
+ * requests and wrote 1227: 2847 were overwrite candidates of which 16 were
+ * written (the rollout cap is 100 per process, and the run rollback tripped
+ * after 116 judged), and Phase 2c re-queued the same titles and wrote 0 of
+ * 3015. Every withheld candidate cost a translation and displaced a fill.
+ *
+ * - rollback already tripped earlier in this run (Phase 2a for Phase 2c): 0,
+ *   the arm is off for the rest of the run;
+ * - kill-switch off: the shadow sample is bounded by the cap, so the cap;
+ * - enforcing: the cap times `factor`, because the judge accepts only a share
+ *   of the candidates (16 of 116 on that run) and the rest stay unwritten.
+ */
+export function overwriteQueueBudget({ overwritesEnabled, maxOverwrites, rollbackTripped = false, factor = 4 }) {
+  if (rollbackTripped) return 0;
+  const cap = Math.max(0, Math.floor(Number(maxOverwrites) || 0));
+  if (!overwritesEnabled) return cap;
+  return cap * Math.max(1, Math.floor(Number(factor) || 1));
+}
+
+// Run-scoped memory of the overwrite rollback (#9676), so Phase 2c does not
+// translate again the overwrite titles Phase 2a's rollback already withheld.
+// Keyed on the run start: a stale file from another run is ignored.
+const ROLLBACK_MARKER_PATH = path.join(
+  process.env.RUNNER_TEMP || os.tmpdir(),
+  'translate-pending-local-mt-overwrite-rollback.json',
+);
+
+export function readOverwriteRollback(runStartMs, markerPath = ROLLBACK_MARKER_PATH) {
+  try {
+    const marker = JSON.parse(fs.readFileSync(markerPath, 'utf-8'));
+    return marker?.runStartMs === runStartMs && marker?.tripped === true ? marker : null;
+  } catch {
+    return null;
+  }
+}
+
+export function recordOverwriteRollback(runStartMs, status, markerPath = ROLLBACK_MARKER_PATH) {
+  if (!status?.tripped) return;
+  try {
+    fs.writeFileSync(markerPath, JSON.stringify({
+      runStartMs,
+      tripped: true,
+      reason: status.reason,
+      observed: status.observed,
+      regressions: status.regressions,
+    }), 'utf-8');
+  } catch {
+    // Best-effort: without the marker Phase 2c only spends its overwrite budget.
+  }
+}
+
+/**
+ * The structural half of the write guard: empty-raw → finalize-empty →
+ * source-copy → existing-good → language arm. It answers "is this candidate
+ * well-formed and allowed to fill/replace the slot?" and does NOT read meaning.
+ * A `write` here is only a candidate for the semantic gate: callers that
+ * mutate a job must go through commitMopupCandidate() (async judge) or pass a
+ * `semanticVerdict` to classifyMopupWrite().
+ * The OpusMT rescue pre-selection and the reject audit use it directly,
+ * because they study the structural chain.
+ */
+export function classifyMopupStructure({
   job,
   locale,
   field,
@@ -567,11 +819,15 @@ export function classifyMopupWrite({
   protectedTokens = [],
   langAware = true,
 }) {
-  const srcLang = job.sourceLang || 'it';
+  const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
   const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
-  const rawSourceText = field === 'title'
-    ? (job.title || job.titleByLocale?.[srcLang] || '').trim()
-    : (job.description || job.descriptionByLocale?.[srcLang] || '').trim();
+  const rawSourceTexts = sourceLocaleTextCandidates(job, field);
+  const rawSourceText = sourceLocaleTextForTranslation(
+    job,
+    field,
+    field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS,
+  );
+  const normalizedSourceTexts = rawSourceTexts.map((source) => normalizeArgosText(source, srcLang, field));
   const normalizedSourceText = normalizeArgosText(rawSourceText, srcLang, field);
   const existing = String(job[bag]?.[locale] || '').trim();
   const base = { incoming: '', sourceText: rawSourceText, normalizedSourceText, existing };
@@ -596,21 +852,26 @@ export function classifyMopupWrite({
   // such as `ZQ ①000%`. The finalizer scrubs that debris and re-appends the
   // target-locale gender form, which would otherwise make a source echo look
   // like a translation and let the source text through this writer.
-  const sourceCopy = isProtectedSourceCopy(normalizedSourceText, raw)
+  const sourceCopy = normalizedSourceTexts.some((source) => isProtectedSourceCopy(source, raw))
     || (field === 'title'
-      ? isTitleSourceCopy(incoming, normalizedSourceText)
-      : incoming.toLowerCase() === normalizedSourceText.toLowerCase());
+      ? normalizedSourceTexts.some((source) => isTitleSourceCopy(incoming, source))
+      : normalizedSourceTexts.some((source) => isDescriptionSourceCopy(incoming, source)));
   if (sourceCopy) {
     return { ...base, incoming, decision: 'skip:source-copy' };
   }
 
+  if (field === 'description' && normalizedSourceTexts.some((source) => isStructureFlattenedCopy(source, incoming))) {
+    return { ...base, incoming, decision: 'skip:structure-flattened' };
+  }
+
   // Don't overwrite an already-good translation (one that isn't a source copy
   // and meets the min length). Only fill genuinely-missing/bad slots.
-  const existingIsBad = existing.length < (field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS)
-    || (field === 'title'
-      ? isTitleSourceCopy(existing, normalizedSourceText)
-      : existing.toLowerCase() === normalizedSourceText.toLowerCase());
-  if (existing && !existingIsBad) {
+  if (existing && !existingSlotIsBad({
+    field,
+    existing,
+    normalizedSourceText,
+    normalizedSourceTexts,
+  })) {
     // LANGUAGE ARM (workspace issue 16). Length and byte-exact copy are not the
     // only ways an existing value can be bad: it can be the wrong LANGUAGE.
     // missingSlots() one screen up already knows that — it queues a title when
@@ -655,7 +916,7 @@ export function classifyMopupWrite({
       sourceLang: srcLang,
       targetLocale: locale,
       company: job.company || '',
-      location: job.location || '',
+      location: job.addressLocality || job.location || '',
     });
     const existingVerdict = ask(existing);
     if (!existingVerdict.untranslated) {
@@ -672,6 +933,8 @@ export function classifyMopupWrite({
         incoming,
         decision: 'skip:candidate-untranslated',
         reason: candidateVerdict.reason,
+        existingDetectorReason: existingVerdict.reason,
+        candidateDetectorReason: candidateVerdict.reason,
         languageDriven: true,
       };
     }
@@ -680,6 +943,8 @@ export function classifyMopupWrite({
       incoming,
       decision: 'write',
       reason: existingVerdict.reason,
+      existingDetectorReason: existingVerdict.reason,
+      candidateDetectorReason: candidateVerdict.reason,
       languageDriven: true,
     };
   }
@@ -688,9 +953,208 @@ export function classifyMopupWrite({
 }
 
 /**
+ * Fold a semantic verdict into a structural result (#9675). Only a structural
+ * `write` is affected; every other decision is returned unchanged. The verdict
+ * is interpreted by the judge module, so there is one definition of "accept":
+ * a missing verdict, a thrown judge or a non-finite score is
+ * `skip:semantic-unavailable`, and the stored value stays.
+ */
+function applySemanticVerdict(structural, verdict) {
+  if (structural?.decision !== 'write') return structural;
+  const { outcome, score } = interpretSemanticVerdict(verdict);
+  const semantic = {
+    semanticScore: score,
+    semanticReason: String(verdict?.reason || 'semantic-unavailable'),
+  };
+  if (outcome === SEMANTIC_VERDICT.ACCEPT) return { ...structural, ...semantic };
+  const mismatch = outcome === SEMANTIC_VERDICT.MISMATCH;
+  return {
+    ...structural,
+    ...semantic,
+    decision: mismatch ? 'skip:semantic-mismatch' : 'skip:semantic-unavailable',
+  };
+}
+
+/**
+ * Overwrite policy (#9676). A structural `write` that REPLACES a stored value
+ * (the language-driven arm) must also pass scripts/lib/local-mt-semantic-policy
+ * .mjs: deterministic meaning guards, the echo ceiling and the calibrated
+ * cutoff. `reject` and `unclear` keep the stored value. With a run guard, the
+ * first unavailable verdict or a rejected share above the rollback limit
+ * switches the arm off before the next candidate is written. Fills of an empty
+ * slot are left to the judge's bootstrap gate.
+ */
+function applyOverwritePolicy(structural, judged, { sourceLang, locale, rollbackGuard } = {}) {
+  if (structural?.decision !== 'write' || !structural.languageDriven) return judged;
+  if (rollbackGuard?.status().tripped) {
+    rollbackGuard.withhold();
+    return {
+      ...judged,
+      decision: 'skip:semantic-rollback',
+      semanticPolicy: { verdict: 'rollback', reason: rollbackGuard.status().reason },
+    };
+  }
+  if (judged?.decision === 'skip:semantic-unavailable') {
+    rollbackGuard?.observe({ verdict: POLICY_VERDICT.UNAVAILABLE, reason: judged.semanticReason });
+    return judged;
+  }
+  if (judged?.decision === 'skip:semantic-mismatch') {
+    rollbackGuard?.observe({ verdict: POLICY_VERDICT.REJECT, reason: 'semantic-mismatch' });
+    return judged;
+  }
+  if (judged?.decision !== 'write') return judged;
+  const policy = evaluateOverwritePolicy({
+    sourceText: judged.normalizedSourceText,
+    sourceLang,
+    candidateText: judged.incoming,
+    targetLocale: locale,
+    existingText: judged.existing,
+    score: judged.semanticScore,
+  });
+  rollbackGuard?.observe(policy);
+  if (policy.shouldWrite) return { ...judged, semanticPolicy: policy };
+  return {
+    ...judged,
+    semanticPolicy: policy,
+    decision: policy.verdict === POLICY_VERDICT.UNCLEAR
+      ? 'skip:semantic-unclear'
+      : policy.verdict === POLICY_VERDICT.REJECT ? 'skip:semantic-reject' : 'skip:semantic-unavailable',
+  };
+}
+
+/**
+ * The full write guard: the structural chain plus the semantic gate.
+ *
+ * Synchronous by design, so it can be called from audits and one-liners: the
+ * semantic score is passed in as `semanticVerdict` (already computed by
+ * judgeMopupWrite() or by a test). Without it a structural `write` becomes
+ * `skip:semantic-unavailable` — fail-closed: no score, no write.
+ */
+export function classifyMopupWrite({ semanticVerdict, ...options }) {
+  const structural = classifyMopupStructure(options);
+  return applyOverwritePolicy(structural, applySemanticVerdict(structural, semanticVerdict), {
+    sourceLang: normalizeJobLocale(options.job?.sourceLang) || 'it',
+    locale: options.locale,
+  });
+}
+
+/**
+ * Run the semantic judge on a structural result and fold its verdict in.
+ * The judge compares the normalized source with the FINALIZED candidate (the
+ * exact text that would be written). It is only called for a structural
+ * `write`, so rejected slots cost no embedding. A judge that throws is
+ * treated as unavailable: the slot keeps its stored value.
+ */
+export async function judgeMopupWrite(structural, {
+  sourceLang,
+  locale,
+  field,
+  judge = judgeLocalMtMeaning,
+  rollbackGuard,
+} = {}) {
+  if (structural?.decision !== 'write') return structural;
+  let verdict;
+  try {
+    verdict = await judge({
+      sourceText: structural.normalizedSourceText,
+      candidateText: structural.incoming,
+      sourceLang,
+      targetLang: locale,
+      field,
+    });
+  } catch {
+    verdict = { accepted: false, score: null, reason: 'judge-error' };
+  }
+  return applyOverwritePolicy(structural, applySemanticVerdict(structural, verdict), {
+    sourceLang,
+    locale,
+    rollbackGuard,
+  });
+}
+
+/**
+ * The only place the mop-up mutates a translated field. Judges a structural
+ * `write` candidate and assigns it to `job[titleByLocale|descriptionByLocale]`
+ * only on an accepted verdict; any other outcome — mismatch, missing score,
+ * judge error — leaves the job object exactly as it was.
+ *
+ * With a `rollout` (scripts/lib/local-mt-semantic-rollout.mjs, #9677) the
+ * boundary is also bounded: a language-driven overwrite needs the kill-switch
+ * on and room under the per-phase cap. A withheld candidate returns
+ * `withheld:<reason>` and the job is untouched. The run rollback stays the
+ * #9676 guard (`rollbackGuard`, defaulting to the rollout's): the rollout only
+ * counts its `skip:semantic-rollback` outcomes. Without a rollout the
+ * behaviour is the #9675 gate plus the #9676 policy.
+ */
+export async function commitMopupCandidate({
+  job,
+  locale,
+  field,
+  candidate,
+  judge = judgeLocalMtMeaning,
+  rollout = null,
+  rollbackGuard = rollout?.rollbackGuard,
+}) {
+  const kind = semanticWriteKind(candidate);
+  if (rollout && candidate?.decision === 'write') {
+    const reason = rollout.beforeJudge({ kind });
+    if (reason) return { written: false, decision: `withheld:${reason}`, judged: candidate };
+  }
+  const judged = await judgeMopupWrite(candidate, {
+    sourceLang: normalizeJobLocale(job?.sourceLang) || 'it',
+    locale,
+    field,
+    judge,
+    rollbackGuard,
+  });
+  if (rollout) rollout.recordJudged(judged);
+  if (judged?.decision !== 'write') {
+    return { written: false, decision: judged?.decision, judged };
+  }
+  if (rollout) {
+    const reason = rollout.admitWrite({ kind });
+    if (reason) return { written: false, decision: `withheld:${reason}`, judged };
+  }
+  const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
+  if (!job[bag] || typeof job[bag] !== 'object') job[bag] = {};
+  job[bag][locale] = judged.incoming;
+  return { written: true, decision: judged.decision, judged };
+}
+
+/**
+ * The kill-switch side of the write boundary (#9677). With
+ * LOCAL_MT_LANG_AWARE_OVERWRITE off, a language-driven overwrite never
+ * reaches commitMopupCandidate(): the mop-up loop drops it first. This counts
+ * it in the rollout as `withheld:kill-switch` (the same decision the boundary
+ * would take), so the telemetry says how many overwrites the switch held
+ * back, and judges a sample bounded by the overwrite cap. The shadow verdicts
+ * go through the #9675 gate and the #9676 policy but not through the run
+ * rollback guard, and are counted apart from the enforced verdicts. Takes no
+ * job: it cannot write. Returns null for anything that is not a withheld
+ * overwrite.
+ */
+export async function shadowWithheldOverwrite({
+  candidate,
+  rollout,
+  sourceLang,
+  locale,
+  field,
+  judge = judgeLocalMtMeaning,
+}) {
+  if (!rollout || rollout.overwritesEnabled) return null;
+  if (candidate?.decision !== 'write' || candidate.languageDriven !== true) return null;
+  const decision = `withheld:${rollout.beforeJudge({ kind: 'overwrite' })}`;
+  if (!rollout.shouldShadowJudge()) return { decision, shadowBucket: null, judged: null };
+  const shadow = await judgeMopupWrite(candidate, { sourceLang, locale, field, judge });
+  const shadowBucket = semanticBucketOf(shadow);
+  rollout.recordShadowVerdict(shadowBucket);
+  return { decision, shadowBucket, judged: shadow };
+}
+
+/**
  * Apply the rollout switch only to the language-aware repair arm. A normal
  * fill of a missing slot is always eligible; an existing non-empty title is
- * eligible only when classifyMopupWrite() has proved both that the stored
+ * eligible only when classifyMopupStructure() has proved both that the stored
  * value is in the wrong language and that the candidate is not. This keeps
  * the flag from becoming a blanket overwrite switch (#1235).
  */
@@ -727,7 +1191,7 @@ export async function rescueMopupRejects({
   for (const [id, rawText] of results) {
     const target = targets.get(id);
     if (!target) continue;
-    const argos = classifyMopupWrite({
+    const argos = classifyMopupStructure({
       job: target.job,
       locale: target.locale,
       field: target.field,
@@ -754,7 +1218,7 @@ export async function rescueMopupRejects({
     const { id, target } = eligible[index];
     const { request } = target;
     const rawText = await translate(request.text, request.from, request.to);
-    const opus = classifyMopupWrite({
+    const opus = classifyMopupStructure({
       job: target.job,
       locale: target.locale,
       field: target.field,
@@ -805,6 +1269,88 @@ function normalizeCompanyKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
+/**
+ * Emit the semantic rollout telemetry (#9677): the console block and the
+ * greppable JSON line always, the JSON file when the workflow names one
+ * (uploaded as an artifact), a short job-summary block when running in
+ * Actions. Written on every exit path of the mop-up, early returns included,
+ * so a missing file means the step never ran, not that it ran clean.
+ */
+function reportSemanticTelemetry(snapshot, env = process.env) {
+  console.log('');
+  for (const line of formatSemanticTelemetry(snapshot)) console.log(line);
+  const target = String(env.LOCAL_MT_SEMANTIC_TELEMETRY_PATH || '').trim();
+  if (target) {
+    try {
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, `${JSON.stringify(snapshot, null, 2)}\n`, 'utf-8');
+    } catch (err) {
+      console.log(`::warning::[local-mt] could not write semantic telemetry to ${target}: ${err?.message || err}`);
+    }
+  }
+  const summary = String(env.GITHUB_STEP_SUMMARY || '').trim();
+  if (summary) {
+    const { verdicts, written, withheld, cap } = snapshot;
+    const lines = [
+      `### Argos semantic gate (${snapshot.status})`,
+      `- verdicts: accepted ${verdicts.accepted}, rejected ${verdicts.rejected}, unclear ${verdicts.unclear}, error ${verdicts.error}`,
+      `- written: fill ${written.fill}, repair ${written.repair}, overwrite ${written.overwrite}/${cap.maxOverwrites}`,
+      `- withheld: kill-switch ${withheld['kill-switch']}, cap ${withheld.cap}, rollback ${withheld.rollback}`,
+    ];
+    if (snapshot.rollbackRecommended) {
+      lines.push(`- rollback recommended: set ${snapshot.killSwitch.variable}=0`);
+    }
+    try {
+      fs.appendFileSync(summary, `${lines.join('\n')}\n\n`, 'utf-8');
+    } catch { /* the summary is a convenience; the log line is the record */ }
+  }
+}
+
+function semanticCandidateArtifactEntry({ job, locale, field, candidate, judged, mode, written }) {
+  const verdict = semanticBucketOf(judged);
+  // A cap/rollback/kill-switch decision may carry the structural candidate
+  // through the commit result without ever calling the semantic judge. It is
+  // withheld telemetry, not an accepted verdict; only folded judge results
+  // have semanticReason (including errors with a null score).
+  if (
+    !verdict
+    || typeof judged?.semanticReason !== 'string'
+    || semanticWriteKind(candidate) !== 'overwrite'
+  ) return null;
+  const score = Number.isFinite(judged?.semanticScore) ? judged.semanticScore : null;
+  const policy = judged?.semanticPolicy || null;
+  return {
+    jobKey: job?.url || job?.id || job?.slug || null,
+    sourceLang: normalizeJobLocale(job?.sourceLang) || 'it',
+    targetLang: String(locale || ''),
+    field,
+    detectorReason: candidate?.existingDetectorReason || candidate?.reason || null,
+    existingDetectorReason: candidate?.existingDetectorReason || null,
+    candidateDetectorReason: candidate?.candidateDetectorReason || null,
+    existingTitle: String(candidate?.existing || ''),
+    candidateTitle: String(candidate?.incoming || ''),
+    score,
+    verdict,
+    decision: judged?.decision || null,
+    policyVerdict: policy?.verdict || null,
+    policyReason: policy?.reason || judged?.semanticReason || null,
+    policyFindings: Array.isArray(policy?.findings) ? policy.findings.slice() : [],
+    mode,
+    written: Boolean(written),
+  };
+}
+
+/** Write the bounded per-candidate sample next to the aggregate telemetry. */
+function reportSemanticCandidates(snapshot, env = process.env) {
+  const target = String(env.LOCAL_MT_SEMANTIC_CANDIDATES_PATH || '').trim();
+  if (!target) return;
+  try {
+    writeJson(target, snapshot);
+  } catch (err) {
+    console.log(`::warning::[local-mt] could not write semantic candidate sample to ${target}: ${err?.message || err}`);
+  }
+}
+
 async function main() {
   // Parse CLI options only for direct execution. This module is imported by
   // mark-mistranslated-jobs.mjs; its flags must not configure an imported
@@ -812,6 +1358,26 @@ async function main() {
   const dryRun = parseFlag('--dry-run') || String(process.env.LOCAL_MT_DRY_RUN || '0') === '1';
   const maxJobs = Number(parseOpt('--max-jobs', process.env.LOCAL_MT_MAX_JOBS)) || 2000;
 
+  // One rollback guard per run for the overwrite arm (#9676), shared with the
+  // rollout so the telemetry reports the same guard the write boundary obeys.
+  const rollout = createSemanticRolloutFromEnv(process.env, {
+    overwritesEnabled: LANG_AWARE_OVERWRITE,
+    rollbackGuard: createSemanticRollbackGuard(),
+  });
+  const candidateRecorder = createSemanticCandidateRecorder();
+  try {
+    await runMopup({ dryRun, maxJobs, rollout, candidateRecorder });
+  } finally {
+    reportSemanticTelemetry(rollout.snapshot());
+    reportSemanticCandidates(candidateRecorder.snapshot());
+  }
+}
+
+export function writeMopupSlice(filePath, data) {
+  writeJson(filePath, data);
+}
+
+async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) {
   // Publish the run start (WRITE-ONCE) so that under the Argos-first ordering this
   // BULK pass (Phase 2a) — which runs BEFORE the cascade — establishes the shared
   // run clock. The cascade (Phase 2b) and the leftover mop-up (Phase 2c) then bound
@@ -855,6 +1421,7 @@ async function main() {
   // tier too, at the cost of reading every slice instead of stopping early.
   const candidates = []; // { file, jobIdx, job, slots }
   let scannedJobs = 0;
+  let unsupportedSourceFallbacks = 0;
   // Misura la copertura della coorte <24h nella scansione che stiamo gia'
   // facendo — la corsia freschezza ordina `candidates`, non la coda pending
   // (issue #7362). Stesso `now` per tutta la passata, cosi' la finestra non
@@ -865,6 +1432,21 @@ async function main() {
     const filePath = path.join(BY_CRAWLER_DIR, file);
     const data = readJson(filePath);
     if (!data || !Array.isArray(data.jobs)) continue;
+
+    // Argos has no Romansh model and the Codex title lane historically only
+    // admitted non-empty slots. Apply only the reviewed source-title mappings
+    // before queueing, so a source-only unsupported-language record is repaired
+    // by this lane instead of sending impossible `rm -> locale` requests.
+    let fallbackChanged = false;
+    if (!dryRun) {
+      for (const job of data.jobs) {
+        const repaired = fillUnsupportedSourceTitleSlots(job, LOCALES);
+        if (!repaired.changed) continue;
+        fallbackChanged = true;
+        unsupportedSourceFallbacks += repaired.filled;
+      }
+      if (fallbackChanged) writeMopupSlice(filePath, data);
+    }
 
     for (let jobIdx = 0; jobIdx < data.jobs.length; jobIdx++) {
       scannedJobs++;
@@ -900,13 +1482,25 @@ async function main() {
   const jobsInScope = []; // { file, jobIdx } (deduped)
   const jobSeen = new Set();
   let nextId = 0;
+  // Overwrite slots are queued only up to what this pass can write (see
+  // overwriteQueueBudget); the rest stay for a run whose rollout has room.
+  const earlierRollback = readOverwriteRollback(RUN_START_MS);
+  const overwriteBudget = overwriteQueueBudget({
+    overwritesEnabled: rollout.overwritesEnabled,
+    maxOverwrites: rollout.snapshot().cap.maxOverwrites,
+    rollbackTripped: Boolean(earlierRollback),
+    factor: process.env.LOCAL_MT_OVERWRITE_QUEUE_FACTOR ?? 4,
+  });
+  let overwriteQueued = 0;
+  let overwriteDeferred = 0;
+  let overwriteTitleHandoff = 0;
 
   for (const { file, jobIdx, job, slots } of selected) {
-    const srcLang = job.sourceLang || 'it';
+    const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
     const tbl = job.titleByLocale || {};
     const dbl = job.descriptionByLocale || {};
-    const sourceTitle = (job.title || tbl[srcLang] || '').trim();
-    const sourceDesc = (job.description || dbl[srcLang] || '').trim();
+    const sourceTitle = sourceLocaleTextForTranslation(job, 'title', MIN_TITLE_CHARS);
+    const sourceDesc = sourceLocaleTextForTranslation(job, 'description', MIN_DESC_CHARS);
 
     let queued = 0;
     for (const { locale, field } of slots) {
@@ -927,13 +1521,25 @@ async function main() {
         negativeCacheHits++;
         continue;
       }
+      const overwrite = isOverwriteSlot(job, { locale, field });
+      if (!shouldQueueArgosSlot(job, { locale, field })) {
+        overwriteTitleHandoff++;
+        continue;
+      }
+      if (overwrite) {
+        if (overwriteQueued >= overwriteBudget) {
+          overwriteDeferred++;
+          continue;
+        }
+        overwriteQueued++;
+      }
       const id = `r${nextId++}`;
       // Mask gender trigraphs so Argos never sees the raw code (see
       // buildMopupRequest). The sentinels are carried on the target entry and
       // restored — in the target locale's display form — by the write loop.
       const { request, protectedTokens } = buildMopupRequest({ id, text, from: srcLang, to: locale, field });
       requests.push(request);
-      targets.set(id, { file, jobIdx, job, locale, field, request, protectedTokens, negativeCacheKey });
+      targets.set(id, { file, jobIdx, job, locale, field, request, protectedTokens, negativeCacheKey, overwrite });
       queued++;
     }
     if (queued > 0) {
@@ -943,9 +1549,16 @@ async function main() {
   }
 
   console.log(`📊 [local-mt] Scanned ${scannedJobs} jobs across ${sliceFiles.length} slices · ${candidates.length} candidates in the queue.`);
+  if (unsupportedSourceFallbacks > 0) {
+    console.log(`   🧩 ${unsupportedSourceFallbacks} unsupported-source title slot(s) repaired from reviewed mappings.`);
+  }
   console.log(`   ${jobsInScope.length} jobs in scope · ${requests.length} field translations queued.\n`);
   if (negativeCacheHits > 0) {
     console.log(`   ♻️  ${negativeCacheHits} fields skipped by the negative MT cache (TTL ${Math.round(NEGATIVE_CACHE_TTL_MS / 86400000)}d).`);
+  }
+  console.log(`   Overwrite slots: ${overwriteQueued} queued, ${overwriteDeferred} deferred (budget ${overwriteBudget}${earlierRollback ? `; rollback already tripped this run: ${earlierRollback.reason}` : ''}${rollout.overwritesEnabled ? '' : '; kill-switch off, shadow sample only'}).`);
+  if (overwriteTitleHandoff > 0) {
+    console.log(`   ${overwriteTitleHandoff} title overwrite slot(s) reserved for the Codex title-repair lane.`);
   }
 
   if (requests.length === 0) {
@@ -955,9 +1568,20 @@ async function main() {
     return;
   }
 
+  // Titles first, then descriptions (see orderMopupRequestsTitleFirst): the
+  // worker is FIFO and a timeout kill keeps only completed requests. Overwrite
+  // titles go after the fills and repairs of empty or broken slots.
+  const orderedRequests = orderMopupRequestsTitleFirst(
+    requests,
+    (r) => targets.get(r.id)?.field,
+    (r) => targets.get(r.id)?.overwrite === true,
+  );
+  const titleRequestCount = orderedRequests.filter((r) => targets.get(r.id)?.field === 'title').length;
+  console.log(`   Order: ${titleRequestCount} title request(s) first, then ${orderedRequests.length - titleRequestCount} description request(s).`);
+
   if (dryRun) {
     console.log('🏁 [local-mt] Dry run — not invoking Python, not writing slices.');
-    const sample = requests.slice(0, 5)
+    const sample = orderedRequests.slice(0, 5)
       .map((r) => `   ${r.from}->${r.to} [${(r.text || '').slice(0, 50)}…]`)
       .join('\n');
     console.log('   Sample requests:\n' + sample);
@@ -965,7 +1589,7 @@ async function main() {
   }
 
   // Run the Python worker ONCE over the whole batch (models loaded once).
-  const jsonl = requests.map((r) => JSON.stringify(r)).join('\n') + '\n';
+  const jsonl = orderedRequests.map((r) => JSON.stringify(r)).join('\n') + '\n';
   console.log(`🐍 [local-mt] Invoking ${PYTHON} ${path.relative(ROOT, PY_SCRIPT)} on ${requests.length} requests...`);
   const started = Date.now();
   const proc = spawnSync(PYTHON, [PY_SCRIPT], {
@@ -990,7 +1614,7 @@ async function main() {
     // Process stalled: killed by the timeout guard. Fall through to parse
     // whatever partial stdout was captured before the kill so partial results
     // are committed rather than lost.
-    console.warn(`⏰ [local-mt] Python worker killed after ${Math.round(TIME_BUDGET_MS / 60000)}min timeout — will commit partial results.`);
+    console.warn(`⏰ [local-mt] Python worker killed after ${Math.round((TIME_BUDGET_MS - WRITE_RESERVE_MS) / 60000)}min timeout (${Math.round(TIME_BUDGET_MS / 60000)}min budget minus the ${Math.round(WRITE_RESERVE_MS / 60000)}min write reserve) — will commit partial results.`);
   } else if (bufOverflow) {
     console.warn(`⚠️  [local-mt] Python worker stdout exceeded 256 MB maxBuffer — parsing captured partial results. Consider reducing --max-jobs or LOCAL_MT_MAX_JOBS.`);
   } else if (proc.status !== 0) {
@@ -1057,23 +1681,34 @@ async function main() {
   const langSkipReasons = {};
   let shadowWithheld = 0;
   let languageFieldsRewritten = 0;
+  const semanticTally = {};
+  // One rollback guard per run for the overwrite arm (#9676), created in main().
+  const overwriteRollback = rollout.rollbackGuard;
 
+  let filesVisited = 0;
   for (const [file, edits] of byFile) {
     if (!budgetOk()) {
-      console.log('⏰ [local-mt] Time budget reached — stopping before remaining files (already-translated fields stay in memory but unwritten).');
+      let unwritten = 0;
+      let index = 0;
+      for (const pending of byFile.values()) {
+        if (index++ >= filesVisited) unwritten += pending.length;
+      }
+      console.log(`⏰ [local-mt] Time budget reached — stopping before the remaining ${byFile.size - filesVisited} of ${byFile.size} slice files: ${unwritten} translated field(s) left unwritten (their units stay in the unit cache for the next pass).`);
       break;
     }
+    filesVisited += 1;
     const filePath = path.join(BY_CRAWLER_DIR, file);
     const data = readJson(filePath);
     if (!data || !Array.isArray(data.jobs)) continue;
 
     let fileChanged = false;
     const touchedJobs = new Set();
+    const semanticCandidates = [];
 
     for (const { id, jobIdx, locale, field, text, protectedTokens, negativeCacheKey } of edits) {
       const job = data.jobs[jobIdx];
       if (!job) continue;
-      const srcLang = job.sourceLang || 'it';
+      const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
       if (locale === srcLang) continue; // never write the source locale
 
       const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
@@ -1091,11 +1726,13 @@ async function main() {
       // Italian title, and a leaked "(ORGANIZZAZIONE)" reaching the dataset.
       // Returns '' when nothing meaningful survives, which the guard chain skips.
       // The whole chain (empty-raw → finalize-empty → source-copy →
-      // existing-good → language arm) lives in classifyMopupWrite() so the
-      // reject audit can observe it.
-      const { decision, incoming, reason, languageDriven } = classifyMopupWrite({
+      // existing-good → language arm) lives in classifyMopupStructure() so the
+      // reject audit can observe it; the semantic gate runs below, only on a
+      // slot that would actually be written.
+      const structural = classifyMopupStructure({
         job, locale, field, rawText: text, protectedTokens,
       });
+      const { decision, reason, languageDriven } = structural;
       decisionTally[decision] = (decisionTally[decision] || 0) + 1;
       if (languageDriven) {
         const bucket = decision === 'write' ? langWriteReasons : langSkipReasons;
@@ -1106,14 +1743,14 @@ async function main() {
       // Missing fields remain eligible regardless of the rollout switch.
       const rescue = opusRescue?.writes.get(id);
       const finalCandidate = rescue
-        ? classifyMopupWrite({
+        ? classifyMopupStructure({
             job,
             locale,
             field,
             rawText: rescue.rawText,
             protectedTokens,
           })
-        : { decision, incoming, languageDriven };
+        : structural;
       if (rescue && finalCandidate.decision === 'write') {
         if (negativeCache.entries[negativeCacheKey]) {
           delete negativeCache.entries[negativeCacheKey];
@@ -1134,6 +1771,24 @@ async function main() {
         if (decision === 'write' && languageDriven) {
           shadowWithheld++;
         }
+        // Kill-switch telemetry and shadow sample (#9677). Never writes.
+        const shadowOutcome = await shadowWithheldOverwrite({
+          candidate: finalCandidate,
+          rollout,
+          sourceLang: srcLang,
+          locale,
+          field,
+        });
+        const shadowEntry = semanticCandidateArtifactEntry({
+          job,
+          locale,
+          field,
+          candidate: finalCandidate,
+          judged: shadowOutcome?.judged,
+          mode: 'shadow',
+          written: false,
+        });
+        if (shadowEntry) candidateRecorder?.record(shadowEntry);
         continue;
       }
 
@@ -1150,11 +1805,63 @@ async function main() {
         continue;
       }
 
-      job[bag][locale] = finalCandidate.incoming;
-      fileChanged = true;
-      fieldsFilled++;
-      if (languageDriven) languageFieldsRewritten++;
-      touchedJobs.add(jobIdx);
+      // Semantic gate (#9675): the structural chain cannot tell
+      // `Gefängnisseelsorger → Cappellano carcerario` from
+      // `Gefängnisseelsorger → Prigionieri`. Keep candidates in the original
+      // edit order, warm their exact finalized texts in batches, then consume
+      // the verdicts sequentially below. The semantic policy and the rollout
+      // rollback/cap therefore still observe the same order as before.
+      //
+      // Not negative-cached on purpose: the fill threshold is still a
+      // bootstrap value and the overwrite cutoff rests on a small synthetic
+      // dataset, so a cached verdict would park the slot for a week on a
+      // provisional number.
+      semanticCandidates.push({ job, jobIdx, locale, field, candidate: finalCandidate, languageDriven });
+    }
+
+    for (const semanticBlock of semanticCandidateBlocks(semanticCandidates)) {
+      const semanticTexts = [];
+      for (const { candidate } of semanticBlock) {
+        semanticTexts.push(candidate.normalizedSourceText, candidate.incoming);
+      }
+      try {
+        const warmup = await prewarmLocalMtMeaning(semanticTexts, {
+          batchSize: SEMANTIC_PREWARM_BATCH_SIZE,
+        });
+        if (warmup.failed > 0) {
+          console.warn(`⚠️  [local-mt] Semantic embedding warm-up failed for ${warmup.failed} text(s); falling back to one-text judge calls.`);
+        }
+      } catch (error) {
+        console.warn(`⚠️  [local-mt] Semantic embedding warm-up unavailable (${error?.message || 'unknown error'}); falling back to one-text judge calls.`);
+      }
+
+      for (const { job, jobIdx, locale, field, candidate, languageDriven } of semanticBlock) {
+        const committed = await commitMopupCandidate({
+          job,
+          locale,
+          field,
+          candidate,
+          rollout,
+          rollbackGuard: overwriteRollback,
+        });
+        semanticTally[committed.decision] = (semanticTally[committed.decision] || 0) + 1;
+        const candidateEntry = semanticCandidateArtifactEntry({
+          job,
+          locale,
+          field,
+          candidate,
+          judged: committed.judged,
+          mode: 'enforcing',
+          written: committed.written,
+        });
+        if (candidateEntry) candidateRecorder?.record(candidateEntry);
+        if (!committed.written) continue;
+
+        fileChanged = true;
+        fieldsFilled++;
+        if (languageDriven) languageFieldsRewritten++;
+        touchedJobs.add(jobIdx);
+      }
     }
 
     // Clear needsRetranslation ONLY when the job is now actually complete.
@@ -1167,19 +1874,9 @@ async function main() {
     }
 
     if (fileChanged) {
-      // Atomic write: temp+rename so a SIGKILL mid-write cannot leave a
-      // truncated slice that causes the subsequent assemble step to hard-fail.
-      // NOTE: this script writes per-crawler slices only — never data/jobs.json
-      // directly. data/jobs.json is written exclusively by assemble-jobs-dataset.mjs.
-      const content = JSON.stringify(data, null, 2) + '\n';
-      const tmp = `${filePath}.${process.pid}.tmp`;
-      try {
-        fs.writeFileSync(tmp, content, 'utf-8');
-        fs.renameSync(tmp, filePath);
-      } catch (err) {
-        try { fs.unlinkSync(tmp); } catch { /* best-effort cleanup */ }
-        throw err;
-      }
+      // Use the shared slice boundary so localization updates cannot bypass
+      // the previous-slug preservation guard.
+      writeMopupSlice(filePath, data);
       filesWritten++;
     }
   }
@@ -1200,6 +1897,15 @@ async function main() {
     const pct = totalDecisions ? ((100 * n) / totalDecisions).toFixed(1) : '0.0';
     console.log(`   ${decision.padEnd(28)} ${String(n).padStart(6)}  ${pct}%`);
   }
+  const semanticTotal = Object.values(semanticTally).reduce((a, b) => a + b, 0);
+  console.log(`\n🧭 [local-mt] Semantic gate (${semanticTotal} candidates judged before write):`);
+  for (const [decision, n] of sorted(semanticTally)) {
+    const pct = semanticTotal ? ((100 * n) / semanticTotal).toFixed(1) : '0.0';
+    console.log(`   ${decision.padEnd(28)} ${String(n).padStart(6)}  ${pct}%`);
+  }
+  const rollback = overwriteRollback.status();
+  recordOverwriteRollback(RUN_START_MS, rollback);
+  console.log(`   overwrite rollback: ${rollback.tripped ? 'TRIPPED' : 'armed'} (${rollback.reason}; observed=${rollback.observed} rejected=${rollback.regressions} unavailable=${rollback.unavailable} withheld=${rollback.withheld} limit=${rollback.maxRegressionRate})`);
   const langWrites = Object.values(langWriteReasons).reduce((a, b) => a + b, 0);
   const langSkips = Object.values(langSkipReasons).reduce((a, b) => a + b, 0);
   console.log(`\n🌍 [local-mt] Language arm — LOCAL_MT_LANG_AWARE_OVERWRITE=${LANG_AWARE_OVERWRITE ? '1 (ENFORCING, writes applied)' : '0 (SHADOW, writes withheld)'}`);
@@ -1228,7 +1934,7 @@ const invokedDirectly = (() => {
   try {
     const entry = process.argv[1];
     if (!entry) return false; // node REPL / no script → not a direct invocation
-    return import.meta.url === `file://${entry}` || import.meta.url.endsWith(entry);
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch { return false; }
 })();
 

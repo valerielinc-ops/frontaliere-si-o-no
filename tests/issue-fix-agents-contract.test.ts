@@ -49,7 +49,7 @@ describe('issue-fix delivers the binding AGENTS contract before Claude', () => {
     expect(result.stdout).toContain('## AGENTS.md — Non-Negotiables');
     expect(result.stdout).toContain('## AGENTS.md — Privacy');
     expect(result.stdout).toContain('Mai disabilitare AdSense Auto Ads');
-    expect(result.stdout).toContain('Git identity canonica');
+    expect(result.stdout).toContain('Pre-commit PII scan');
     for (const { file, heading } of AGENTS_REQUIRED_SECTIONS) {
       const source = readFileSync(join(ROOT, file), 'utf8');
       expect(result.stdout).toContain(extractSectionByHeading(source, heading));

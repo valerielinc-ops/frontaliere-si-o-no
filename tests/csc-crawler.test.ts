@@ -4,13 +4,16 @@ import path from 'node:path';
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import {
   buildCscAdapterConfig,
+  buildCscAuthoritativeEmptySummary,
   canonicalCscDetailUrl,
   fetchCscJobUrls,
   parseCscPrimaryJobDetail,
   parseCscCareersPage,
+  parseCscNcoreBoardPage,
   verifyCscDetailUrls,
 } from '../scripts/update-csc-costruzioni-jobs.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
+import { parseDetailPage } from '../scripts/lib/sintetica-job-parser.mjs';
 
 type DetailFixture = { url: string; html: string };
 type CscFixture = {
@@ -23,7 +26,18 @@ type CscFixture = {
 const fixture = JSON.parse(
   fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'csc-careers-pages.json'), 'utf8'),
 ) as CscFixture;
-const careersUrl = 'https://csc-sa.ch/lavoro-carriera-edilizia';
+const careersUrl = 'https://csc-sa.ch/lavoro-carriera-edilizia/';
+const ncoreBoardUrl = 'https://app.ncoreplat.com/jobboard/filters/4321/csc-costruzioni-sa';
+const ncoreDetailUrl = 'https://app.ncoreplat.com/jobposition/811972/business-developer-ch/csc-costruzioni-sa';
+const ncoreEmbeddedDetailUrl = 'https://app.ncoreplat.com/jobposition/813007/tecnico-opere-in-sotterraneo-ch/csc-costruzioni-sa';
+const ncoreMigratedCareersPage = `<!doctype html><html><body><h1>Le nostre offerte di lavoro</h1><a href="${ncoreBoardUrl}">HERE</a></body></html>`;
+const ncoreListingPage = `<!doctype html><html><body><div class="singlePosition"><h3>Business Developer - CH</h3><h4>Canton Ticino</h4><p>Posizione commerciale presso CSC Costruzioni SA.</p><a href="${ncoreDetailUrl}" class="btn">Candidati Ora</a></div></body></html>`;
+const ncoreBoardShellPage = '<!doctype html><html><body><div id="job-board">Filtri di ricerca</div></body></html>';
+const ncoreFilterBoardStatePage = `<!doctype html><html><body><div id="job-board"><script type="application/json">{"positions":[{"detail":"https:\\/\\/app.ncoreplat.com\\/jobposition\\/813007\\/tecnico-opere-in-sotterraneo-ch\\/csc-costruzioni-sa"}]}</script></div></body></html>`;
+const ncoreDetailPage = `<!doctype html><html><head><title>Business Developer - CH | CSC Costruzioni SA</title></head><body><div class="singlePosition"><h1>Business Developer - CH</h1><h4>Sede di lavoro: Lugano (CH)</h4><div class="pTesto"><p>CSC Costruzioni SA, parte del gruppo internazionale WeBuild, è un’impresa con sede a Lugano attiva da oltre 60 anni nella realizzazione di opere complesse e sostenibili.</p><p>Il ruolo sostiene lo sviluppo commerciale nel Canton Ticino, le relazioni con clienti e partner, il monitoraggio del mercato e il supporto alle gare.</p><p>Si richiedono esperienza nel settore costruzioni, italiano fluente e conoscenza delle leggi svizzere sugli appalti pubblici.</p></div></div></body></html>`;
+const ncoreShortDetailUrl = 'https://app.ncoreplat.com/jobposition/811973/muratore-ch/csc-costruzioni-sa';
+const ncoreShortBody = 'x'.repeat(111);
+const ncoreShortDetailPage = `<!doctype html><html><head><title>Muratore - CH | CSC Costruzioni SA</title></head><body><div class="singlePosition"><h1>Muratore</h1><div class="pTesto">${ncoreShortBody}</div></div></body></html>`;
 const testScratchRoot = fs.mkdtempSync(path.join(tmpdir(), 'csc-crawler-test-'));
 const testSnapshotPath = path.join(testScratchRoot, 'live-structure.json');
 const previousSnapshotPath = process.env.CSC_LIVE_STRUCTURE_SNAPSHOT_PATH;
@@ -62,13 +76,126 @@ function fixtureFetch(overrides: Record<string, ReturnType<typeof htmlResponse>>
 }
 
 describe('CSC authoritative Drupal discovery', () => {
-  it('recognises only the three CSC detail route families', () => {
+  it('recognises only the CSC detail route families', () => {
     for (const detail of fixture.details) expect(canonicalCscDetailUrl(detail.url)).toBe(detail.url);
+    expect(canonicalCscDetailUrl(ncoreDetailUrl)).toBe(ncoreDetailUrl);
+    expect(canonicalCscDetailUrl(`${ncoreDetailUrl}/`)).toBe(ncoreDetailUrl);
     expect(canonicalCscDetailUrl(careersUrl)).toBeNull();
     expect(canonicalCscDetailUrl('https://csc-sa.ch/node/24')).toBeNull();
     expect(canonicalCscDetailUrl('https://csc-sa.ch/node/321?preview=1')).toBeNull();
     expect(canonicalCscDetailUrl('https://other.example/node/321')).toBeNull();
     expect(canonicalCscDetailUrl('http://csc-sa.ch/node/321')).toBeNull();
+  });
+
+  it('follows the official careers link when CSC migrates from Drupal to NCore', async () => {
+    const responses = new Map([
+      [careersUrl, htmlResponse(careersUrl, ncoreMigratedCareersPage)],
+      [ncoreBoardUrl, htmlResponse(ncoreBoardUrl, ncoreListingPage)],
+      [ncoreDetailUrl, htmlResponse(ncoreDetailUrl, ncoreDetailPage)],
+    ]);
+    const fetchImpl = vi.fn(async (url: string | URL) => {
+      const response = responses.get(String(url));
+      if (!response) throw new Error(`Unexpected URL ${url}`);
+      return response;
+    });
+
+    await expect(fetchCscJobUrls({ fetchImpl, timeoutMs: 1000 })).resolves.toEqual({
+      urls: [ncoreDetailUrl],
+      authoritativeEmpty: false,
+    });
+    expect(parseCscNcoreBoardPage(ncoreListingPage)).toEqual({
+      urls: [ncoreDetailUrl],
+      authoritativeEmpty: false,
+    });
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+  });
+
+  it('recovers detail URLs embedded in the NCore filter-board state', () => {
+    expect(parseCscNcoreBoardPage(ncoreFilterBoardStatePage)).toEqual({
+      urls: [ncoreEmbeddedDetailUrl],
+      authoritativeEmpty: false,
+    });
+  });
+
+  it('renders the NCore filter board when the initial response is only the SPA shell', async () => {
+    const responses = new Map([
+      [careersUrl, htmlResponse(careersUrl, ncoreMigratedCareersPage)],
+      [ncoreBoardUrl, htmlResponse(ncoreBoardUrl, ncoreBoardShellPage)],
+      [ncoreDetailUrl, htmlResponse(ncoreDetailUrl, ncoreDetailPage)],
+    ]);
+    const fetchImpl = vi.fn(async (url: string | URL) => {
+      const response = responses.get(String(url));
+      if (!response) throw new Error(`Unexpected URL ${url}`);
+      return response;
+    });
+    const renderBoardPage = vi.fn(async () => ({
+      html: ncoreListingPage,
+      responseUrl: ncoreBoardUrl,
+    }));
+
+    await expect(fetchCscJobUrls({ fetchImpl, renderBoardPage, timeoutMs: 1000 })).resolves.toEqual({
+      urls: [ncoreDetailUrl],
+      authoritativeEmpty: false,
+    });
+    expect(renderBoardPage).toHaveBeenCalledWith(ncoreBoardUrl, { timeoutMs: 1000 });
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+  });
+
+  it('rejects a canonical NCore detail whose body is below the rich-description floor', async () => {
+    expect(parseDetailPage(ncoreShortDetailPage).sourceBodyLength).toBe(120);
+
+    await expect(verifyCscDetailUrls([ncoreShortDetailUrl], {
+      fetchImpl: vi.fn(async () => htmlResponse(ncoreShortDetailUrl, ncoreShortDetailPage)),
+      renderDetailPage: vi.fn(async () => ({
+        html: ncoreShortDetailPage,
+        responseUrl: ncoreShortDetailUrl,
+      })),
+      timeoutMs: 1000,
+    })).rejects.toThrow(/did not return a canonical work-position page/);
+  });
+
+  it('renders a client-rendered NCore detail shell before applying the trust contract', async () => {
+    const detailShell = '<!doctype html><html><body><div id="app">Loading position…</div></body></html>';
+    const renderDetailPage = vi.fn(async () => ({
+      html: ncoreDetailPage,
+      responseUrl: ncoreDetailUrl,
+    }));
+
+    await expect(verifyCscDetailUrls([ncoreDetailUrl], {
+      fetchImpl: vi.fn(async () => htmlResponse(ncoreDetailUrl, detailShell)),
+      renderDetailPage,
+      timeoutMs: 1000,
+    })).resolves.toEqual([ncoreDetailUrl]);
+    expect(renderDetailPage).toHaveBeenCalledWith(ncoreDetailUrl, { timeoutMs: 1000 });
+  });
+
+  it('rejects a rendered NCore detail that leaves the exact route contract', async () => {
+    const renderDetailPage = vi.fn(async () => ({
+      html: ncoreDetailPage,
+      responseUrl: ncoreShortDetailUrl,
+    }));
+
+    await expect(verifyCscDetailUrls([ncoreDetailUrl], {
+      fetchImpl: vi.fn(async () => htmlResponse(ncoreDetailUrl, '<html><body>Loading…</body></html>')),
+      renderDetailPage,
+      timeoutMs: 1000,
+    })).rejects.toThrow(/rendered detail redirected outside its exact detail contract/);
+  });
+
+  it('keeps the shared HTML fallback on the NCore posting body', () => {
+    const parsed = sharedCrawlerTestables.toJobFromHtmlFallback(
+      ncoreDetailPage,
+      ncoreDetailUrl,
+      'CSC Costruzioni SA',
+      'Ticino',
+      { isSeedDetail: true },
+    );
+    expect(parsed.reason).toBeNull();
+    expect(parsed.job).toMatchObject({
+      title: 'Business Developer - CH',
+      location: expect.stringMatching(/Lugano|Ticino/i),
+      description: expect.stringContaining('sviluppo commerciale'),
+    });
   });
 
   it('verifies exact listing/detail parity before returning explicit seeds', async () => {
@@ -164,6 +291,22 @@ describe('CSC authoritative Drupal discovery', () => {
       authoritativeEmpty: true,
     });
     expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('builds a canonical health proof for the explicit empty state', () => {
+    const summary = buildCscAuthoritativeEmptySummary('2026-10-03T00:00:00.000Z', 123);
+
+    expect(summary).toMatchObject({
+      key: 'csc-costruzioni',
+      total: 0,
+      discovered: 0,
+      parsed: 0,
+      written: 0,
+      authoritativeEmptySnapshot: true,
+      durationMs: 123,
+    });
+    expect(summary).not.toHaveProperty('earlyExit');
+    expect(summary).not.toHaveProperty('exitCode');
   });
 
   it('fails closed on truncated listings and partial detail responses', async () => {

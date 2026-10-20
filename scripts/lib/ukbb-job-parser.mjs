@@ -31,6 +31,9 @@
  * for our IT audience.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { extractJobPostingsLd, jobPostingDescriptionText } from './jsonld-jobposting.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -118,25 +121,56 @@ export function parseSitemapIndexLocs(xml = '') {
  * Returns the parsed JSON object or `null`.
  */
 export function extractJobPostingLd(html = '') {
-  // Portal now adds extra attributes (data-nuxt-schema-org, data-hid) after
-  // the type before the closing `>` — `[^>]*` tolerates those.
-  const rx = /<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
+  return extractJobPostingsLd(html)[0] || null;
+}
+
+/** Application instructions and phone numbers, not the vacancy. */
+const CONTACT_SECTION_RX = /^(?:kontakt|contact|contatto|ihr kontakt|ansprechperson)$/i;
+
+/**
+ * The vacancy as the offer page renders it: every
+ * `<section class="job-data-section">` in page order — the untitled
+ * introduction, then «Ihre Aufgaben», «Ihr Profil», «Unser Angebot» — each
+ * heading kept as a `##` line and each `<li>` as a bullet. The contact block
+ * is left out.
+ *
+ * The JSON-LD alone is not the ad: it has no introduction at all and spreads
+ * the rest over `description` (tasks), `responsibilities` (profile) and
+ * `incentiveCompensation` (offer). Publishing `description` alone was half
+ * the posting (terminkoordinator-in-polikliniken…/ecdde5d7…: 715 of ~1'700
+ * characters, issue 5253).
+ *
+ * @param {string} html
+ * @returns {string} '' when the page carries no such section
+ */
+export function extractUkbbRenderedDescription(html = '') {
+  const parts = [];
+  const rx = /<section\b[^>]*\bclass=["'][^"']*\bjob-data-section\b[^"']*["'][^>]*>([\s\S]*?)<\/section>/gi;
   let m;
   while ((m = rx.exec(html))) {
-    const raw = m[1].trim();
-    if (!raw) continue;
-    try {
-      const obj = JSON.parse(raw);
-      // The portal sometimes emits a @graph array
-      const candidates = Array.isArray(obj?.['@graph']) ? obj['@graph'] : [obj];
-      for (const c of candidates) {
-        if (c?.['@type'] === 'JobPosting') return c;
-      }
-    } catch {
-      // ignore non-JSON or partial JSON-LD blocks
-    }
+    const inner = m[1];
+    const headingMatch = /<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/i.exec(inner);
+    const heading = headingMatch ? normalizeSpace(decodeEntities(headingMatch[1].replace(/<[^>]+>/g, ' '))) : '';
+    if (heading && CONTACT_SECTION_RX.test(heading)) continue;
+    const body = htmlToText(headingMatch ? inner.replace(headingMatch[0], ' ') : inner)
+      .split('\n').map((line) => line.replace(/[ \t]+/g, ' ').replace(/ ([:;,.])(?=\s|$)/g, '$1').trim()).join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    if (!body) continue;
+    parts.push(heading ? `## ${heading}\n${body}` : body);
   }
-  return null;
+  return parts.join('\n\n');
+}
+
+/**
+ * Fallback when the page renders no sections: the three JSON-LD fields the
+ * portal fills, in page order (tasks, profile, offer).
+ */
+function jsonLdDescription(ld = {}) {
+  return ['description', 'responsibilities', 'incentiveCompensation']
+    .map((field) => unescapeLooseHtml(ld[field] || ''))
+    .filter(Boolean)
+    .join('\n\n');
 }
 
 function unescapeLooseHtml(s = '') {
@@ -170,11 +204,6 @@ function pickLocation(jobLocation) {
   };
 }
 
-function pickPostedDate(raw) {
-  const s = typeof raw === 'string' ? raw.slice(0, 10) : '';
-  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
-  return new Date().toISOString().slice(0, 10);
-}
 
 /* ── Main entry ────────────────────────────────────────────── */
 
@@ -186,8 +215,8 @@ export async function fetchAllUkbbJobs() {
   try {
     xml = await fetchHtml(SITEMAP_URL);
   } catch (err) {
-    console.warn(`  ⚠️ UKBB sitemap fetch failed: ${err?.message || err}. Returning [].`);
-    return [];
+    console.warn(`  ⚠️ UKBB sitemap fetch failed: ${err?.message || err}. Rethrowing error.`);
+    throw err;
   }
 
   const childSitemaps = parseSitemapIndexLocs(xml);
@@ -228,6 +257,13 @@ export async function fetchAllUkbbJobs() {
     }
     ldHits += 1;
 
+    // The native heading identifies the vacancy independently of JSON-LD.
+    // Multiple postings cannot safely identify the body selected above.
+    const pageTitle = jobPostingDescriptionText(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '');
+    const publication = extractJobPostingsLd(html).length === 1
+      ? identifiedPostingPublication(html, url, pageTitle)
+      : sourcePostingDateFields();
+
     const title = normalizeSpace(decodeEntities(ld.title || ''));
     if (!title || title.length < 3) continue;
     // Skip non-job entries (unsolicited applications + pool-closed placeholders).
@@ -235,7 +271,8 @@ export async function fetchAllUkbbJobs() {
     if (/^initiativbewerbung\b/i.test(title)) continue;
     if (title.length > 80 && /vielen dank|job-abo|momentan|im moment/i.test(title)) continue;
 
-    const description = unescapeLooseHtml(ld.description || '');
+    const rendered = extractUkbbRenderedDescription(html);
+    const description = rendered.split(/\s+/).length >= 30 ? rendered : jsonLdDescription(ld);
     const safeDescription = description && description.split(/\s+/).length >= 30
       ? description
       : `${title} — ${UKBB_COMPANY_NAME}, Basel.\n\n${description || ''}`.trim();
@@ -280,7 +317,7 @@ export async function fetchAllUkbbJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: pickPostedDate(ld.datePosted),
+      ...withLegacyPostingDay(publication),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

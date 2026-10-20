@@ -1,3 +1,5 @@
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -21,6 +23,13 @@ import {
   normalizeHtmlForReuse,
   refreshHtmlBuildId,
 } from '../../build-plugins/shared/incrementalHtmlReuse.mjs';
+import {
+  hasActiveJobPostingJsonLd,
+  replaceActiveJobPostingDates,
+  rewriteActiveJobHtml,
+  shouldInvalidateActiveJobReuseForSafeDefault,
+} from '../../build-plugins/jobsSeoPagesPlugin';
+import type { ActiveJobReuseFragments } from '../../build-plugins/jobsSeoPagesPlugin';
 
 const FINGERPRINT_ENV_KEYS = [
   'STRIP_ACTIVE_JOB_PROSE',
@@ -102,15 +111,23 @@ function writePreviousManifest(
   kind: string,
   input: unknown,
   emitterFingerprints = TEST_EMITTER_FINGERPRINTS,
+  reuseInput: unknown = input,
 ) {
   const manifest = new IncrementalManifest('it');
-  manifest.register(pagePath, kind, input);
+  manifest.register(pagePath, kind, input, undefined, undefined, reuseInput);
   manifest.setJobsSeoEmitterFingerprint(emitterFingerprints);
   manifest.write(rootDir, path.join(rootDir, '.cache', 'incremental-manifest-prev'));
 }
 
-function writeCachedHtml(rootDir: string, pagePath: string, kind: string, input: unknown, html: string) {
-  const inputHash = computeInputHash(input, kind);
+function writeCachedHtml(
+  rootDir: string,
+  pagePath: string,
+  kind: string,
+  input: unknown,
+  html: string,
+  reuseInput: unknown = input,
+) {
+  const inputHash = computeInputHash(reuseInput, kind);
   const file = htmlReuseCachePath(rootDir, 'it', pagePath, null, kind, inputHash);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html, 'utf8');
@@ -128,6 +145,115 @@ async function createReuse(
 }
 
 describe('jobs SEO disk HTML reuse', () => {
+  it.each(['unknown', 'reported', undefined] as const)('refreshes mixed provenance %s through the cache contract', (postingDateSource) => {
+    const sourceDate = new Date(Date.now() - 3 * 86400000).toISOString();
+    const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"old"}</script>';
+    const date = resolveReportedPostingDate({ postingDateSource, datePosted: sourceDate });
+    const result = replaceActiveJobPostingDates(fragment, date, new Date(Date.now() + 86400000).toISOString());
+    if (postingDateSource === 'reported') expect(result).toContain(date);
+    else expect(result).toBe('');
+  });
+
+  it('removes a cached JobPosting when publication provenance becomes unknown', () => {
+    const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"2026-01-01","validThrough":"2026-12-31"}</script>';
+    expect(replaceActiveJobPostingDates(fragment, null, '2026-12-31')).toBe('');
+  });
+
+  it('forces a fresh render when a previously unknown job gains a reported date', () => {
+    expect(() => replaceActiveJobPostingDates('', '2026-01-01', '2026-12-31')).toThrow();
+  });
+
+  it('invalidates a safe-default cache entry that has no JobPosting JSON-LD', () => {
+    const missing = '<!-- jobs-seo-reuse:job-posting:start -->'
+      + '<!-- jobs-seo-reuse:job-posting:end -->';
+    const jobPosting = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"1970-01-01"}'
+      + '</script>';
+
+    expect(hasActiveJobPostingJsonLd(missing)).toBe(false);
+    expect(hasActiveJobPostingJsonLd(jobPosting)).toBe(true);
+    expect(shouldInvalidateActiveJobReuseForSafeDefault(missing, 'safe-default')).toBe(true);
+    expect(shouldInvalidateActiveJobReuseForSafeDefault(jobPosting, 'safe-default')).toBe(false);
+    expect(shouldInvalidateActiveJobReuseForSafeDefault(missing, 'reported')).toBe(false);
+  });
+
+  it('forces lookup to persist a fresh JobPosting after a safe-default cache miss', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-berna/mansioni-richieste-hirslanden-klinik-search-a0f5e9/';
+    const input = { jobId: 'allowlisted-undated', locale: 'it', slug: 'allowlisted-undated' };
+    const cachedWithoutJobPosting = [
+      '<!-- jobs-seo-reuse:job-posting:start -->',
+      '<!-- jobs-seo-reuse:job-posting:end -->',
+      '<!-- jobs-seo-reuse:hero-badges:start -->old<!-- jobs-seo-reuse:hero-badges:end -->',
+      '<!-- jobs-seo-reuse:mobile-action:start -->old<!-- jobs-seo-reuse:mobile-action:end -->',
+      '<!-- jobs-seo-reuse:recent-articles:start -->old<!-- jobs-seo-reuse:recent-articles:end -->',
+    ].join('');
+    const resolved = resolveRolloutSchemaPostingDate(
+      { postingDateSource: 'unknown' },
+      new Date(),
+      'https://frontaliereticino.ch/cerca-lavoro-berna/mansioni-richieste-hirslanden-klinik-search-a0f5e9/',
+    );
+    const fragments: ActiveJobReuseFragments = {
+      jobPostingDatePosted: resolved?.value ?? null,
+      jobPostingDateProvenance: resolved?.provenance ?? null,
+      jobPostingValidThrough: new Date(Date.now() + 86_400_000).toISOString(),
+      heroBadges: 'fresh badges',
+      mobileAction: 'fresh action',
+      recentArticles: 'fresh articles',
+    };
+    const freshHtml = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"1970-01-01"}'
+      + '</script>';
+    try {
+      expect(resolved).toMatchObject({ value: '1970-01-01', provenance: 'safe-default' });
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, cachedWithoutJobPosting);
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup(
+        'it',
+        pagePath,
+        'active-job',
+        input,
+        'active',
+        null,
+        { rewriteHtml: (html: string) => rewriteActiveJobHtml(html, fragments) },
+      );
+
+      expect(candidate).toMatchObject({ hit: false, html: null });
+      expect(reuse.summary().active.missReasons).toMatchObject({ 'html-rewrite-failed': 1 });
+      reuse.finish(candidate, freshHtml);
+      expect(hasActiveJobPostingJsonLd(freshHtml)).toBe(true);
+      expect(freshHtml).toContain('"datePosted":"1970-01-01"');
+
+      const reread = await createReuse(rootDir);
+      expect(reread.lookup('it', pagePath, 'active-job', input, 'active').html).toBe(freshHtml);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('accepts a cached JobPosting whose dates are already current', () => {
+    const daysAgo = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
+    const currentDatePosted = daysAgo(0);
+    const currentValidThrough = new Date(
+      Date.parse(currentDatePosted) + 30 * 86_400_000,
+    ).toISOString();
+    const fragment = '<script type="application/ld+json">'
+      + `{"@type":"JobPosting","datePosted":"${currentDatePosted}","validThrough":"${currentValidThrough}"}`
+      + '</script>';
+
+    expect(() => replaceActiveJobPostingDates(
+      fragment,
+      currentDatePosted,
+      currentValidThrough,
+    )).not.toThrow();
+    expect(replaceActiveJobPostingDates(
+      fragment,
+      currentDatePosted,
+      currentValidThrough,
+    )).toBe(fragment);
+  });
+
   it('is disabled unless JOBS_SEO_REUSE=1', async () => {
     const rootDir = fixtureRoot();
     try {
@@ -157,6 +283,51 @@ describe('jobs SEO disk HTML reuse', () => {
         reused: 1,
         reusable: 1,
         verified: 0,
+        mismatches: 0,
+      });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('reuses the stable key and rewrites volatile HTML before the caller saves it', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/volatile-fragments/';
+    const previousInput = { stable: 'job-v1', feedDigest: 'old-feed', renderDateBucket: '2026-09-19' };
+    const currentInput = { stable: 'job-v1', feedDigest: 'new-feed', renderDateBucket: '2026-09-20' };
+    const reuseInput = { stable: 'job-v1' };
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', previousInput, TEST_EMITTER_FINGERPRINTS, reuseInput);
+      writeCachedHtml(
+        rootDir,
+        pagePath,
+        'active-job',
+        previousInput,
+        '<html><body>old-feed old-date</body></html>',
+        reuseInput,
+      );
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup(
+        'it',
+        pagePath,
+        'active-job',
+        currentInput,
+        'active',
+        null,
+        {
+          reuseInput,
+          rewriteHtml: (html: string) => html.replaceAll('old-', 'new-'),
+        },
+      );
+      expect(candidate).toMatchObject({
+        hit: true,
+        html: '<html><body>new-feed new-date</body></html>',
+      });
+      reuse.finish(candidate, candidate.html);
+      expect(reuse.summary().active).toMatchObject({
+        rendered: 0,
+        reused: 1,
+        reusable: 1,
         mismatches: 0,
       });
     } finally {
@@ -871,12 +1042,15 @@ describe('jobs SEO disk HTML reuse', () => {
     // `buildActiveJobPageInput` assembles the active page INPUT (job digest,
     // related-job projections, related-articles feed digest); it renders
     // nothing and reads no render helper, so the module stays inert.
+    // `buildActiveJobPageReuseInput` only projects that input into the stable
+    // cache-key shape; it also renders nothing and stays in the same module.
     // `buildExpiredSoftLandingPageInput` is the same kind of assembler for the
     // expired soft-landing page: it digests the inline payload the template
     // already built and the JSON-LD postal code, and renders nothing either.
     expect(manifestImport?.[1].split(',').map((name) => name.trim()).filter(Boolean).sort()).toEqual([
       'INCREMENTAL_MANIFEST_ENABLED',
       'buildActiveJobPageInput',
+      'buildActiveJobPageReuseInput',
       'buildExpiredSoftLandingPageInput',
       'buildMinimalJobInput',
       'getIncrementalManifestInputCache',

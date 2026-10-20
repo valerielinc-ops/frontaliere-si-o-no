@@ -20,6 +20,7 @@
  * Kispi has ~3'000 employees and is the largest paediatric hospital in
  * Switzerland (canton Zürich); typically 50+ open positions.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -33,6 +34,8 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 export const KISPI_KEY = 'kispi';
 export const KISPI_COMPANY_NAME = 'Universitäts-Kinderspital Zürich';
@@ -102,18 +105,15 @@ function extractJobPostingLd(html) {
   for (const raw of blocks) {
     try {
       const parsed = JSON.parse(raw);
-      const candidates = Array.isArray(parsed) ? parsed : [parsed];
-      for (const c of candidates) {
-        if (c && (c['@type'] === 'JobPosting' || (Array.isArray(c['@type']) && c['@type'].includes('JobPosting')))) {
-          return c;
-        }
-      }
+      const [posting] = extractJobPostingNodesFromJson(parsed);
+      if (posting) return posting;
     } catch {
       // Try a permissive cleanup pass: strip trailing commas
       try {
         const cleaned = raw.replace(/,\s*([}\]])/g, '$1');
         const parsed = JSON.parse(cleaned);
-        if (parsed && parsed['@type'] === 'JobPosting') return parsed;
+        const [posting] = extractJobPostingNodesFromJson(parsed);
+        if (posting) return posting;
       } catch {
         // give up on this block
       }
@@ -187,7 +187,6 @@ export async function fetchAllKispiJobs() {
   if (!items.length) return [];
   console.log(`  📄 Fetching detail pages for JSON-LD JobPosting payloads...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let ldHits = 0;
 
@@ -208,17 +207,18 @@ export async function fetchAllKispiJobs() {
     // string and skip the `detail.metaDesc` tier (the raw HTML is truthy so the
     // `: metaDesc` branch never runs). `|| detail.metaDesc` preserves the
     // fallback hierarchy (same idiom fix as the Decathlon parser).
-    const descriptionText = normalizeDescriptionBullets(normalizeSpace(htmlToText(descriptionHtml))).slice(0, 6000)
+    const descriptionText = normalizeDescriptionBullets(normalizeSpace(htmlToText(descriptionHtml)))
       || detail.metaDesc;
-    const description = descriptionText
-      || `${title} — ${KISPI_COMPANY_NAME}, Zürich.`;
+    // Only source text (issue 5253): no "<title> — <company>, Zürich." line
+    // in place of a missing body. A text under the common 50-word floor gives
+    // no description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const address = (ld.jobLocation && ld.jobLocation.address) || {};
     const city = normalizeSpace(decodeEntities(String(address.addressLocality || DEFAULT_CITY)));
     const street = normalizeSpace(decodeEntities(String(address.streetAddress || DEFAULT_STREET)));
     const postal = String(address.postalCode || DEFAULT_POSTAL_CODE);
-    const datePostedRaw = String(ld.datePosted || '').slice(0, 10);
-    const datePosted = /^\d{4}-\d{2}-\d{2}$/.test(datePostedRaw) ? datePostedRaw : todayIso;
+    const publication = sourcePostingDateFields(ld.datePosted);
     const employmentType = normaliseEmploymentType(ld.employmentType);
 
     const sourceLang = detectLang(description || title, 'de');
@@ -263,7 +263,7 @@ export async function fetchAllKispiJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: datePosted,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

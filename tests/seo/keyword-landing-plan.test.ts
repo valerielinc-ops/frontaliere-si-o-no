@@ -110,6 +110,13 @@ describe('plan sealing', () => {
     expect(keywordLandingPlanSize()).toBe(3);
     expect(isPlannedKeywordLanding('/cerca-lavoro-ticino/ricerca-a/')).toBe(true);
   });
+
+  it('copies registered paths so producers can release staging arrays', () => {
+    const paths = [LIVE];
+    registerKeywordLandingPaths('related-search-clusters', paths);
+    paths.length = 0;
+    expect(isPlannedKeywordLanding(LIVE)).toBe(true);
+  });
 });
 
 describe('isStaleKeywordLanding', () => {

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -30,6 +31,7 @@ import {
   slugify,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseSkyguideListings,
   parseSkyguideJobDetail,
@@ -292,12 +294,6 @@ function inferCategory(detail = {}) {
   return 'other';
 }
 
-function normalizePostedDate(raw = '') {
-  const date = new Date(raw);
-  if (Number.isNaN(date.getTime())) return new Date().toISOString().slice(0, 10);
-  return date.toISOString().slice(0, 10);
-}
-
 async function buildSkyguideJob(listing) {
   const detailUrl = absoluteUrl(listing.href);
   const html = await fetchHtml(detailUrl, SKYGUIDE_FETCH_OPTS);
@@ -305,9 +301,10 @@ async function buildSkyguideJob(listing) {
   const localized = buildSkyguideLocalizedContent(detail, COMPANY_NAME);
   const location = normalizeLocation(detail.location || listing.location);
   const canton = inferSkyguideCanton(detail.location || listing.location);
+  const { sourceLang } = localized;
   return {
-    title: localized.titleByLocale.it || detail.title || listing.title,
-    slug: localized.slugByLocale.it,
+    title: localized.titleByLocale[sourceLang] || detail.title || listing.title,
+    slug: localized.slug,
     url: detailUrl,
     applyUrl: absoluteUrl(detail.applyPath),
     company: COMPANY_NAME,
@@ -322,12 +319,13 @@ async function buildSkyguideJob(listing) {
     category: inferCategory(detail),
     sector: 'Logistica',
     source: 'skyguide-dedicated-crawler',
-    sourceLang: detectLang(detail.description || '', 'it'),
-    postedDate: normalizePostedDate(detail.datePostedRaw),
+    sourceLang,
+    ...sourcePostingDateFields(detail.datePostedRaw),
+    crawledAt: new Date().toISOString(),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[sourceLang],
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -357,10 +355,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -421,7 +422,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {

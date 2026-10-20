@@ -43,7 +43,7 @@ export const SLIM_INDEX_FIELDS: ReadonlySet<string> = new Set([
   'addressLocality', 'addressRegion', 'sector',
   'category', 'contract', 'department',
   'salaryMin', 'salaryMax', 'currency', 'salarySource',
-  'postedDate', 'crawledAt', 'firstSeenAt',
+  'postingDateSource', 'datePosted', 'postedDate', 'crawledAt', 'firstSeenAt',
   'featured', 'source', 'qualityScore',
   // Publisher-ad fields: card logo + the apply-mode trio the detail view needs
   // to mount the in-house apply form (PublisherApplyForm).

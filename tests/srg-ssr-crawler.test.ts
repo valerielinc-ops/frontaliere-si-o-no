@@ -1,11 +1,22 @@
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import {
   SRG_SSR_KEY,
   SRG_SSR_COMPANY_NAME,
   isSrgSsrJob,
   isTrustedDomain,
+  extractSrgSsrRenderedDescription,
+  detectSrgSsrBodyLanguage,
+  resolveSrgSsrSourceLang,
+  prepareSrgSsrExistingJobs,
+  srgSsrBenefitsText,
 } from '../scripts/lib/srg-ssr-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { hardenJobLocaleFields } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { repairShortDescriptions } from '../scripts/lib/job-locale-slot-repair.mjs';
+import { collectBlockingIssues, LOCALES } from '../scripts/validate-translation-completeness.mjs';
 
 describe('SRG SSR crawler parser', () => {
   // ── Constants ──
@@ -124,6 +135,185 @@ describe('SRG SSR crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── Rendered description (issue 5253) ──
+  describe('extractSrgSsrRenderedDescription', () => {
+    // Minimised RTR detail page (contact names/phones redacted). Its JSON-LD
+    // `description` carries tasks + profile + a contact stub only: the
+    // introduction and the «Per infurmaziun» block exist only in the markup.
+    const html = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'srg-ssr', 'rtr-fufragnadi-detail.html'),
+      'utf8',
+    );
+    const text = extractSrgSsrRenderedDescription(html);
+
+    it('keeps the introduction and every specification block the page renders', () => {
+      expect(text).toMatch(/^RTR è in'unitad d'interpresa da la SRG SSR/);
+      expect(text).toContain('## Tge èn las pussaivladads?');
+      expect(text).toContain('## Tge èn nossas spetgas?');
+      expect(text).toContain('## Per infurmaziun');
+      expect(text).toContain("RTR porscha mintg'onn ina plazza d'emprendissadi commerziala");
+    });
+
+    it('keeps the line structure of the source instead of one flat paragraph', () => {
+      expect(text).toContain('Ti discurras in idiom rumantsch e sas era scriver rumantsch\nTi has almain');
+    });
+
+    it('closes with the offer block, each benefit once (not again from the SVG tooltip)', () => {
+      expect(text).toMatch(/\n## Nossa purschida\nTge dovri per cuntanscher/);
+      for (const title of ['Far medias', 'Concepir la digitalisaziun', 'Esser uman', 'Crear senn']) {
+        expect(text).toContain(`\n- ${title}: `);
+      }
+      expect(text.match(/Schurnalissem da qualitad è nossa fatschenta principala/g)).toHaveLength(1);
+      expect(text.indexOf('## Nossa purschida')).toBeGreaterThan(text.indexOf('## Per infurmaziun'));
+    });
+
+    it('reads no benefits from a page without the offer section', () => {
+      expect(srgSsrBenefitsText('<section id="introduction"><p>x</p></section>')).toBe('');
+    });
+
+    it('leaves out contact, slogan quote and other sections', () => {
+      expect(text).not.toMatch(/Persuna da contact|resursas umanas|\+41/);
+      expect(text).not.toContain('In fufragnadi tar RTR porscha sguards');
+    });
+
+    it('keeps a benefits-only detail page', () => {
+      const html = '<section id="benefits"><h2>Offer</h2><div class="teaser">T</div><p class="benefit-1 content">B</p></section>';
+      const benefitsOnly = extractSrgSsrRenderedDescription(html);
+
+      expect(benefitsOnly).toContain('## Offer');
+      expect(benefitsOnly).toContain('T');
+      expect(benefitsOnly).toContain('B');
+    });
+
+    it('returns an empty string when the template sections are absent', () => {
+      expect(extractSrgSsrRenderedDescription('<html><body><h1>x</h1></body></html>')).toBe('');
+    });
+  });
+
+  describe('RTR source-language mapping', () => {
+    const html = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'srg-ssr', 'rtr-fufragnadi-detail.html'),
+      'utf8',
+    );
+    const romanshBody = extractSrgSsrRenderedDescription(html);
+
+    it('detects Romansh from the body, never from the title', () => {
+      expect(detectSrgSsrBodyLanguage(romanshBody)).toBe('rm');
+    });
+
+    it('prefers a same-ID German sibling when the source exposes one', () => {
+      expect(resolveSrgSsrSourceLang({
+        description: romanshBody,
+        localizedDescriptions: { de: 'Wir suchen eine Lernperson für RTR.' },
+      })).toBe('de');
+    });
+
+    it('keeps a genuine Italian RSI body in Italian, including a Romansh mention', () => {
+      const italianBody = 'La RSI è un servizio pubblico da Lugano. '
+        + 'Il ruolo collabora con la redazione italiana e tratta anche il termine rumantsch. '
+        + 'Le attività si svolgono in un team editoriale e richiedono precisione.';
+      expect(detectSrgSsrBodyLanguage(italianBody)).toBe('it');
+    });
+
+    it('does not classify Italian, French, or German broadcaster prose as Romansh', () => {
+      const falsePositives = [
+        'La RSI è un partner da anni del progetto LAS dedicato al rumantsch.',
+        'La RSI presenta il nuovo progetto editoriale e ne racconta gli obiettivi al pubblico.',
+        'La RTS présente ses offres et explique les prochaines étapes aux personnes intéressées.',
+        'Das SRF informiert über das Projekt und beschreibt die nächsten Schritte für das Team.',
+      ];
+
+      for (const body of falsePositives) {
+        expect(detectSrgSsrBodyLanguage(body)).not.toBe('rm');
+      }
+    });
+
+    it('requires corroboration for a distinctive Romansh marker', () => {
+      expect(detectSrgSsrBodyLanguage("L'infurmaziun è da far cun ils candidats.", 'de')).toBe('rm');
+    });
+
+    it('repairs historical RTR copies without changing published slugs', () => {
+      const historical = {
+        id: 'srg-ssr-rtr-rm-1',
+        url: 'https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi/abc',
+        slug: 'fufragnadi-srg-ssr-cuira',
+        title: 'Fufragnadi',
+        description: romanshBody,
+        sourceLang: 'it',
+        titleByLocale: {
+          it: 'Fufragnadi',
+          en: 'Fufragnadi',
+          de: 'Fufragnadi',
+          fr: 'Fufragnadi',
+        },
+        descriptionByLocale: {
+          it: romanshBody,
+          en: romanshBody,
+          de: romanshBody,
+          fr: romanshBody,
+        },
+        slugByLocale: {
+          it: 'fufragnadi-it',
+          en: 'fufragnadi-en',
+          de: 'fufragnadi-de',
+          fr: 'fufragnadi-fr',
+        },
+      };
+
+      const [repaired] = prepareSrgSsrExistingJobs([historical]);
+      expect(repaired.sourceLang).toBe('rm');
+      expect(repaired.sourceLangOriginal).toBe('rm');
+      expect(repaired.needsRetranslation).toBe(true);
+      expect(Object.keys(repaired.titleByLocale)).toEqual(['rm']);
+      expect(Object.keys(repaired.descriptionByLocale)).toEqual(['rm']);
+      expect(repaired.descriptionByLocale.rm).toBe(romanshBody);
+      expect(repaired.slug).toBe(historical.slug);
+      expect(repaired.slugByLocale).toMatchObject(historical.slugByLocale);
+    });
+
+    it('leaves a Romansh-only record publishable after prepare → hardening → description repair', () => {
+      const title = 'Redactura / Redactur Engiadina';
+      const romanshOnly = {
+        id: 'srg-ssr-rtr-rm-2',
+        url: 'https://jobs.srgssr.ch/rtr/offene-stellen/redactura-redactur-engiadina/def',
+        slug: 'redactura-redactur-engiadina-srg-ssr-zurich',
+        title,
+        description: romanshBody,
+        company: 'SRG SSR',
+        addressLocality: 'Zürich',
+        sourceLang: 'rm',
+        titleByLocale: { rm: title },
+        descriptionByLocale: { rm: romanshBody },
+        slugByLocale: { rm: 'redactura-redactur-engiadina-srg-ssr-zurich' },
+      };
+
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-srg-rm-gate-'));
+      const previousRegistryOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+      process.env.SLUG_REGISTRY_PATH_OVERRIDE = path.join(tempDir, 'no-slug-registry.json');
+      try {
+        const jobsPath = path.join(tempDir, 'jobs.json');
+        const prepared = prepareSrgSsrExistingJobs([romanshOnly]);
+        fs.writeFileSync(jobsPath, `${JSON.stringify(prepared, null, 2)}\n`, 'utf-8');
+        hardenJobLocaleFields({ dataJobsPath: jobsPath });
+        const { jobs: [job] } = repairShortDescriptions(JSON.parse(fs.readFileSync(jobsPath, 'utf-8')));
+
+        expect(collectBlockingIssues([job])).toEqual([]);
+        expect(job.sourceLang).toBe('rm');
+        expect(job.needsRetranslation).toBe(true);
+        for (const locale of LOCALES) {
+          expect(job.titleByLocale[locale].trim().length, locale).toBeGreaterThanOrEqual(3);
+          // The Romansh source is never published verbatim in a slot.
+          expect(job.titleByLocale[locale], locale).not.toBe(title);
+          expect(job.descriptionByLocale[locale], locale).not.toBe(romanshBody);
+        }
+      } finally {
+        if (previousRegistryOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+        else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
+        fs.rmSync(tempDir, { recursive: true, force: true });
+      }
     });
   });
 });

@@ -260,12 +260,18 @@ function fixOutcomeEntry(comment, { ignoreBackstop = false } = {}) {
  * @returns {{outcome: string|null, at: number|null}}
  */
 export function latestFixOutcomeEntryFromComments(comments) {
+  const { outcome, at } = latestFixOutcomeCommentFromComments(comments);
+  return { outcome, at };
+}
+
+/** Ultimo verdetto autentico insieme al commento che lo attribuisce. */
+export function latestFixOutcomeCommentFromComments(comments) {
   let latest = null;
   for (const comment of comments || []) {
     const entry = fixOutcomeEntry(comment, { ignoreBackstop: true });
-    if (entry && (!latest || entry.at >= latest.at)) latest = entry;
+    if (entry && (!latest || entry.at >= latest.at)) latest = { ...entry, comment };
   }
-  return latest || { outcome: null, at: null };
+  return latest || { outcome: null, at: null, comment: null };
 }
 
 /**

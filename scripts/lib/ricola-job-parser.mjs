@@ -52,10 +52,14 @@
  * - isTrustedDomain()    — Validate URLs belong to this company
  * - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, decodeHtmlEntities, decodeNumericEntities, normalizeSpace as normalizeSpaceDCC } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './drop-fabricated-description.mjs';
 
 /* ── Constants ────────────────────────────────────────────── */
 
@@ -272,7 +276,7 @@ async function fetchJobListings(options = {}) {
       html = await fetchPage(buildPageUrl(pageIdx));
     } catch (err) {
       console.warn(`  ⚠️ Ricola: fetch failed on page ${pageIdx} (${err?.message || err}). Stopping pagination.`);
-      break;
+      throw err;
     }
 
     const rows = extractListingRows(html);
@@ -318,6 +322,27 @@ async function fetchJobListings(options = {}) {
  * personal email) before the generic `stripHtml()` helper converts the
  * remainder to plain text with preserved bullet lists.
  */
+/**
+ * Contract type from the listing's "Employment period" term. The old test
+ * `/limited|befristet|temporary/` also matched "un**limited**", so both Ricola
+ * postings on main (permanent roles) were published as temporary.
+ */
+export function ricolaContractFromTerm(term = '') {
+  const value = normalizeSpace(term).toLowerCase();
+  if (/\b(?:unlimited|unbefristet|permanent|indeterminato|indéterminée?)\b/.test(value)) return 'full-time';
+  return /\b(?:limited|befristet|temporary|temporär|fixed[- ]term|determinato|déterminée?)\b/.test(value) ? 'temporary' : 'full-time';
+}
+
+// The listing facts line the parser used to append to every body
+// ("\n\nType: Part-time. Employment period: unlimited."). Stored records still
+// carry it until the shared cleanup drops them before the merge.
+export const RICOLA_META_LINE_RX = /\n\n(?:Type|Employment period): [^\n]*\.\s*$/;
+
+/** `prepareExistingJobs` for the standard pipeline: drop the stored meta-line bodies. */
+export function prepareRicolaExistingJobs(jobs) {
+  return dropFabricatedDescriptions(jobs, RICOLA_META_LINE_RX, RICOLA_COMPANY_NAME);
+}
+
 export function extractRicolaDetailContent(html) {
   if (!html || typeof html !== 'string') return '';
 
@@ -343,17 +368,23 @@ export function extractRicolaDetailContent(html) {
 }
 
 /**
- * Fetch one Umantis detail page and return validated prose content, or ''
- * on any failure (caller falls back to listing-derived boilerplate).
+ * Fetch one Umantis detail page and return prose and source publication fields
+ * on any failure (the caller then leaves the job out of this run).
  */
-async function fetchDetailContent(detailUrl, options = {}) {
+async function fetchDetailFields(detailUrl, expectedTitle, options = {}) {
   const fetchPage = options._fetchHtml || fetchHtml;
   try {
     const html = await fetchPage(detailUrl);
-    return extractRicolaDetailContent(html);
+    const records = extractJsonLd(html, detailUrl);
+    const matched = records.find(record => {
+      if (normalizeSpace(record.title || '').toLowerCase() !== normalizeSpace(expectedTitle).toLowerCase()) return false;
+      if (!record.urlExplicit) return records.length === 1;
+      try { return new URL(record.url, detailUrl).href === new URL(detailUrl).href; } catch { return false; }
+    });
+    return { description: extractRicolaDetailContent(html), ...mergeSourcePostingDates({}, matched) };
   } catch (err) {
     console.warn(`  ⚠️ Ricola: detail fetch failed for ${detailUrl} (${err?.message || err}).`);
-    return '';
+    return { description: '', ...mergeSourcePostingDates() };
   }
 }
 
@@ -362,7 +393,7 @@ async function fetchDetailContent(detailUrl, options = {}) {
 // Internal export for test injection — not part of the public crawler contract.
 export const __testables = {
   fetchJobListings,
-  fetchDetailContent,
+  fetchDetailFields,
   buildPageUrl,
   resolveDetailUrl,
   parseRowMetadata,
@@ -399,22 +430,24 @@ export async function fetchAllRicolaJobs(options = {}) {
     const { city, postalCode, streetAddress } = resolveAddress(listing.location);
     const canton = inferSwissTargetCanton(city) || HQ.canton;
 
-    const detailContent = await fetchDetailContent(listing.url, options);
+    const detail = await fetchDetailFields(listing.url, title, options);
+    const detailContent = detail.description;
 
-    const meta = [];
-    if (listing.employmentType) meta.push(`Type: ${listing.employmentType}`);
-    if (listing.contractTerm) meta.push(`Employment period: ${listing.contractTerm}`);
-    const metaLine = meta.length > 0 ? `\n\n${meta.join('. ')}.` : '';
+    // Source text only (issue 5253): without a detail body over the 50-word
+    // floor the job is left out of this run (the standard pipeline keeps the
+    // stored record in grace) instead of getting a company paragraph written
+    // here ("… is a Swiss herbal-candy manufacturer … Apply via the Ricola
+    // careers portal.").
+    if (!meetsSourceBodyFloor(detailContent)) {
+      console.warn(`  ⏭️ ${title}: no vacancy text on the detail page — not published this run`);
+      continue;
+    }
+    // The posting's own text only: the listing's "Type: … Employment period:
+    // …" facts are structured fields (employmentType, contract), not a line
+    // appended to the body.
+    const descriptionText = detailContent;
 
-    const descriptionText = detailContent
-      ? `${detailContent}${metaLine}`
-      : [
-          `${title} at ${RICOLA_COMPANY_NAME}, ${city}${canton ? ` (${canton} canton)` : ''}, Switzerland.`,
-          `${RICOLA_COMPANY_NAME} is a Swiss herbal-candy manufacturer headquartered in Laufen (BL).`,
-          `Apply via the Ricola careers portal.${metaLine}`,
-        ].join(' ');
-
-    const sourceLang = detectLang(descriptionText || title, 'en');
+    const sourceLang = detectLang(detailContent, 'en');
     const jobSlug = slugify(`${title} ricola ch`);
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(listing.employmentType || title);
@@ -451,13 +484,13 @@ export async function fetchAllRicolaJobs(options = {}) {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: /limited|befristet|temporary/i.test(listing.contractTerm || '') ? 'temporary' : 'full-time',
+      contract: ricolaContractFromTerm(listing.contractTerm),
       employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: listing.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

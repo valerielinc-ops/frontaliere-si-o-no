@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * detect-ats.mjs
  *
@@ -398,7 +400,7 @@ async function main() {
   console.log(JSON.stringify(result, null, 2));
 }
 
-const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === __filename;
+const isDirectRun = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectRun) {
   main().catch((err) => {
     console.error('Fatal:', err);

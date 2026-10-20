@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { readClosedElement } from './html-balanced-element.mjs';
 /**
  * Klinik Gut AG (Gruppe) — orthopaedic / accident private clinic group in
  * Graubünden + Ascona. HQ in St. Moritz (postal 7500).
@@ -54,6 +57,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -176,11 +180,16 @@ export function parseKlinikGutOpenings(html = '') {
 
     const idIdx = html.indexOf(`id="${btn.domId}"`, btn.pos);
     let body = '';
+    let publication = sourcePostingDateFields('');
     if (idIdx >= 0) {
       const bodyOpen = /<div[^>]*\baccordion-body\b[^>]*>/i.exec(html.slice(idIdx));
       const bodyStart = bodyOpen ? idIdx + bodyOpen.index + bodyOpen[0].length : idIdx;
       const next = boundaries.find((p) => p > btn.pos) ?? html.length;
-      body = htmlToText(html.slice(bodyStart, Math.max(bodyStart, next)));
+      const vacancyHtml = html.slice(bodyStart, Math.max(bodyStart, next));
+      body = htmlToText(vacancyHtml);
+      const collapse = readClosedElement(html, `id="${btn.domId}"`);
+      const publicationHtml = readClosedElement(collapse, 'class="[^"]*\\baccordion-body\\b[^"]*"');
+      publication = sourcePostingDateFields(extractJobPostingLd(publicationHtml)?.datePosted);
       // Trim a trailing contact card ("Zuständige Personen …") if it leaked past
       // the bound, then strip the file-download artifact a Drupal
       // `paragraph--type--document` leaves inline ("Datei <file>.pdf (288 KB)").
@@ -203,20 +212,10 @@ export function parseKlinikGutOpenings(html = '') {
     }
 
     const detailUrl = `${PUBLIC_CAREER_URL}#${btn.domId}`;
-    out.push({ id: btn.domId, num: btn.num, title: btn.title, body, detailUrl, location });
+    out.push({ id: btn.domId, num: btn.num, title: btn.title, body, detailUrl, location, ...publication });
   }
 
   return out;
-}
-
-/* ── Description fallback ──────────────────────────────────── */
-
-function buildFallbackDescription(title, cityName) {
-  return [
-    `${title} bei der Klinik Gut AG am Standort ${cityName}.`,
-    '',
-    'Die Klinik Gut ist eine etablierte private Klinik-Gruppe für Orthopädie, Unfallchirurgie und Sportmedizin mit Hauptstandorten in St. Moritz und Fläsch (Graubünden) sowie Praxisstandorten in Chur, Buchs SG, Zürich und Ascona. Sie betreut nationale und internationale Patientinnen und Patienten und legt Wert auf ein engagiertes Team und individuelle Versorgung.',
-  ].join('\n');
 }
 
 /* ── Main fetch ────────────────────────────────────────────── */
@@ -243,7 +242,6 @@ export async function fetchAllKlinikGutJobs() {
     return [];
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (const opening of openings) {
@@ -251,12 +249,11 @@ export async function fetchAllKlinikGutJobs() {
     const loc = opening.location || DEFAULT_LOCATION;
 
     // The full posting body is inline in the accordion item — no detail fetch.
-    let description = opening.body && opening.body.split(/\s+/).length >= 40
-      ? opening.body
-      : buildFallbackDescription(title, loc.city);
-    if (description.split(/\s+/).length < 80) {
-      description = `${description}\n\n${buildFallbackDescription(title, loc.city)}`;
-    }
+    // Only the posting's own text (issue 5253): no title/clinic-group
+    // paragraph in place of a thin body nor appended to one under 80 words; a
+    // body under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(opening.body) ? opening.body : '';
 
     const haystack = `${title} ${description}`;
     const sourceLang = detectLang(description || title, 'de');
@@ -299,7 +296,7 @@ export async function fetchAllKlinikGutJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, opening),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

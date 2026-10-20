@@ -1,7 +1,8 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   BLS_KEY,
   BLS_COMPANY_NAME,
+  fetchAllBlsJobs,
   isBlsJob,
   isTrustedDomain,
   parseJobsApiResponse,
@@ -60,7 +61,7 @@ describe('BLS AG crawler parser', () => {
     });
   });
 
-  // ── parseJobsApiResponse (JobsInit JSON API — #4523 fix) ──
+  // ── parseJobsApiResponse (BLS JobsSearch JSON API) ──
   describe('parseJobsApiResponse', () => {
     it('parses Jobs[] entries into listing-entry shape', () => {
       const json = {
@@ -93,6 +94,53 @@ describe('BLS AG crawler parser', () => {
       expect(parseJobsApiResponse(json)[0].pensum).toBe('100%');
     });
 
+    it('extracts the slug and UUID from case-variant detail routes', () => {
+      const entries = parseJobsApiResponse({
+        Jobs: [{ Title: 'X', Lead: 'Bern, 100%', URL: 'https://jobs.bls.ch/Offene-Stellen/x/uuid-case' }],
+      });
+      expect(entries).toHaveLength(1);
+      expect(entries[0]).toMatchObject({ slug: 'x', uuid: 'uuid-case' });
+    });
+
+    it('accepts nested lower-case API records and root-relative detail URLs', () => {
+      const json = {
+        data: {
+          jobs: [{
+            title: 'Service technician',
+            lead: 'Bern, 80–100%',
+            url: '/offene-stellen/service-technician/uuid-relative',
+          }],
+        },
+      };
+      expect(parseJobsApiResponse(json)[0]).toMatchObject({
+        url: 'https://jobs.bls.ch/offene-stellen/service-technician/uuid-relative',
+        slug: 'service-technician',
+        uuid: 'uuid-relative',
+        title: 'Service technician',
+        locationRaw: 'Bern',
+        pensum: '80-100%',
+      });
+    });
+
+    it('unwraps encoded response containers and detail URL aliases', () => {
+      const entries = parseJobsApiResponse({
+        d: JSON.stringify({
+          Results: [{
+            Name: 'Dispatcher',
+            Lead: 'Bern, 100%',
+            DetailURL: 'https://jobs.bls.ch/Offene-Stellen/dispatcher/uuid-encoded',
+          }],
+        }),
+      });
+      expect(entries).toHaveLength(1);
+      expect(entries[0]).toMatchObject({
+        title: 'Dispatcher',
+        locationRaw: 'Bern',
+        pensum: '100%',
+        uuid: 'uuid-encoded',
+      });
+    });
+
     it('falls back to Region when Lead has no location prefix', () => {
       const json = {
         Jobs: [{ Title: 'X', Lead: '80%', Region: 'Bönigen', URL: 'https://jobs.bls.ch/offene-stellen/x/uuid-2' }],
@@ -102,6 +150,11 @@ describe('BLS AG crawler parser', () => {
 
     it('skips entries whose URL does not match the offene-stellen detail pattern', () => {
       const json = { Jobs: [{ Title: 'X', Lead: 'Bern, 100%', URL: 'https://jobs.bls.ch/1000754/jobabo?lang=en' }] };
+      expect(parseJobsApiResponse(json)).toHaveLength(0);
+    });
+
+    it('rejects detail URLs outside trusted BLS domains', () => {
+      const json = { Jobs: [{ Title: 'X', Lead: 'Bern, 100%', URL: 'https://example.com/offene-stellen/x/uuid-external' }] };
       expect(parseJobsApiResponse(json)).toHaveLength(0);
     });
 
@@ -116,6 +169,187 @@ describe('BLS AG crawler parser', () => {
       expect(parseJobsApiResponse(null)).toEqual([]);
       expect(parseJobsApiResponse({ Jobs: null })).toEqual([]);
     });
+  });
+
+  it('uses the listing widget JobsSearch POST endpoint and parses its jobs', async () => {
+    const searchUrl = 'https://jobs.bls.ch/api/JobPortal/JobsSearch?sc_lang=en';
+    const detailUrl = 'https://jobs.bls.ch/offene-stellen/mechaniker-schienenfahrzeuge/2a7b3bed-4367-4ac7-b091-f2a5cbb4e352';
+    const listingHtml = `<div data-init="jobs" data-api-url-jobs-search="${searchUrl}"></div>`;
+    const apiResponse = [{
+      Title: 'Mechaniker:in Schienenfahrzeuge',
+      Lead: 'Bönigen, 80-100%',
+      Category: 'Skilled manual jobs',
+      Region: 'Bönigen',
+      URL: detailUrl,
+    }];
+    const detailJsonLd = {
+      '@type': 'JobPosting',
+      title: 'Mechaniker:in Schienenfahrzeuge',
+      description: 'Wartung und Instandhaltung von Schienenfahrzeugen.',
+      jobLocation: { address: { addressLocality: 'Bönigen', addressCountry: 'CH' } },
+    };
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url === 'https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen') {
+        return new Response(listingHtml, { status: 200 });
+      }
+      if (url === searchUrl) return new Response(JSON.stringify(apiResponse), { status: 200 });
+      if (url === detailUrl) {
+        return new Response(`<script type="application/ld+json">${JSON.stringify(detailJsonLd)}</script>`, { status: 200 });
+      }
+      throw new Error(`Unexpected BLS fetch: ${url}`);
+    });
+
+    try {
+      const jobs = await fetchAllBlsJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        companyKey: 'bls',
+        title: 'Mechaniker:in Schienenfahrzeuge',
+        location: 'Bönigen',
+        addressCountry: 'CH',
+        url: detailUrl,
+      });
+      expect(fetchSpy).toHaveBeenCalledTimes(3);
+      const [, postOptions] = fetchSpy.mock.calls[1];
+      expect(String(fetchSpy.mock.calls[1][0])).toBe(searchUrl);
+      expect(postOptions).toMatchObject({
+        method: 'POST',
+        body: '',
+        headers: expect.objectContaining({
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Referer: 'https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen',
+        }),
+      });
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
+
+  it('matches structured publication evidence when its URL has a trailing slash', async () => {
+    const searchUrl = 'https://jobs.bls.ch/api/JobPortal/JobsSearch?sc_lang=en';
+    const detailUrl = 'https://jobs.bls.ch/offene-stellen/techniker/uuid-trailing-slash';
+    const listingHtml = `<div data-init="jobs" data-api-url-jobs-search="${searchUrl}"></div>`;
+    const apiResponse = [{
+      Title: 'Techniker:in Schienenfahrzeuge',
+      Lead: 'Bönigen, 80-100%',
+      URL: detailUrl,
+    }];
+    const detailJsonLd = {
+      '@type': 'JobPosting',
+      title: 'Techniker:in Schienenfahrzeuge',
+      url: `${detailUrl}/`,
+      datePosted: '2026-09-01',
+      description: 'Wartung und Instandhaltung von Schienenfahrzeugen.',
+      jobLocation: { address: { addressLocality: 'Bönigen', addressCountry: 'CH' } },
+    };
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url === 'https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen') {
+        return new Response(listingHtml, { status: 200 });
+      }
+      if (url === searchUrl) return new Response(JSON.stringify(apiResponse), { status: 200 });
+      if (url === detailUrl) {
+        return new Response(`<script type="application/ld+json">${JSON.stringify(detailJsonLd)}</script>`, { status: 200 });
+      }
+      throw new Error(`Unexpected BLS fetch: ${url}`);
+    });
+
+    try {
+      const jobs = await fetchAllBlsJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        datePosted: '2026-09-01',
+        postedDate: '2026-09-01',
+        postingDateSource: 'reported',
+      });
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
+
+  it('uses the canonical JobsSearch endpoint when the widget omits it', async () => {
+    const searchUrl = 'https://www.bls.ch/api/JobPortal/JobsSearch?sc_lang=en';
+    const detailUrl = 'https://jobs.bls.ch/offene-stellen/disponent/uuid-fallback';
+    const apiResponse = [{
+      Title: 'Dispatcher',
+      Lead: 'Bern, 100%',
+      URL: detailUrl,
+    }];
+    const detailJsonLd = {
+      '@type': 'JobPosting',
+      title: 'Dispatcher',
+      description: 'Koordination des Bahnbetriebs.',
+      jobLocation: { address: { addressLocality: 'Bern', addressCountry: 'CH' } },
+    };
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url === 'https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen') {
+        return new Response('<div>Loading...</div>', { status: 200 });
+      }
+      if (url === searchUrl) return new Response(JSON.stringify(apiResponse), { status: 200 });
+      if (url === detailUrl) {
+        return new Response(`<script type="application/ld+json">${JSON.stringify(detailJsonLd)}</script>`, { status: 200 });
+      }
+      throw new Error(`Unexpected BLS fetch: ${url}`);
+    });
+
+    try {
+      const jobs = await fetchAllBlsJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ title: 'Dispatcher', location: 'Bern', url: detailUrl });
+      expect(fetchSpy).toHaveBeenCalledTimes(3);
+      const [, postOptions] = fetchSpy.mock.calls[1];
+      expect(String(fetchSpy.mock.calls[1][0])).toBe(searchUrl);
+      expect(postOptions).toMatchObject({ method: 'POST', body: '' });
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
+
+  it('falls back to the official JobsInit endpoint after an empty JobsSearch response', async () => {
+    const searchUrl = 'https://www.bls.ch/api/JobPortal/JobsSearch?sc_lang=en';
+    const initUrl = 'https://www.bls.ch/api/JobPortal/JobsInit?sc_lang=en';
+    const detailUrl = 'https://jobs.bls.ch/offene-stellen/zugverkehrsleiter/uuid-init-fallback';
+    const detailJsonLd = {
+      '@type': 'JobPosting',
+      title: 'Zugverkehrsleiter',
+      description: 'Sicherer und pünktlicher Bahnbetrieb.',
+      jobLocation: { address: { addressLocality: 'Bern', addressCountry: 'CH' } },
+    };
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url === 'https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen') {
+        return new Response('<div>Loading...</div>', { status: 200 });
+      }
+      if (url === searchUrl) return new Response('[]', { status: 200 });
+      if (url === initUrl) {
+        return new Response(JSON.stringify([{
+          Title: 'Zugverkehrsleiter',
+          Lead: 'Bern, 100%',
+          URL: detailUrl,
+        }]), { status: 200 });
+      }
+      if (url === detailUrl) {
+        return new Response(`<script type="application/ld+json">${JSON.stringify(detailJsonLd)}</script>`, { status: 200 });
+      }
+      throw new Error(`Unexpected BLS fetch: ${url}`);
+    });
+
+    try {
+      const jobs = await fetchAllBlsJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ title: 'Zugverkehrsleiter', location: 'Bern', url: detailUrl });
+      expect(fetchSpy).toHaveBeenCalledTimes(4);
+      expect(String(fetchSpy.mock.calls[2][0])).toBe(initUrl);
+      expect(fetchSpy.mock.calls[2][1]).not.toMatchObject({ method: 'POST', body: '' });
+    } finally {
+      fetchSpy.mockRestore();
+    }
   });
 
   // ── slugify (imported from crawler-template) ──

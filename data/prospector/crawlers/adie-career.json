@@ -1,0 +1,23 @@
+{
+  "companyKey": "adie-career",
+  "companyName": "ADIE",
+  "companyHost": "adie-career.talent-soft.com",
+  "platform": "talent-soft.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://adie-career.talent-soft.com/accueil.aspx?LCID=1036"
+  ],
+  "detailTemplate": "/offre-de-emploi/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 13,
+  "sampleTitles": [
+    "Flux RSS et autres flux",
+    "CONSEILLER (ERE) ADIE - ALBI(81) H/F (Réf. : 2026-1551) - CONSEILLER ADIE 3",
+    "CONSEILLER/CONSEILLERE ADIE -VALENCE H/F (Réf. : 2026-1550) - CONSEILLER ADIE 2",
+    "DIRECTEUR TERRITORIAL Bretagne (35) H/F (Réf. : 2026-1549) - DIRECTEUR TERRITORIAL 2",
+    "DIRECTEUR SYSTEMES D’INFORMATION H/F (Réf. : 2026-1548) - DIRECTEUR SYSTEMES D’INFORMATION"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-16T10:20:11.794Z"
+}

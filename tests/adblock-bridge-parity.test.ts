@@ -4,9 +4,9 @@
  *
  * index.html covers the SPA entry. The ~200k generated SEO and job pages never
  * clone it — they load ads from the shared dist/assets/adsense-loader.js built
- * from ADSENSE_LOADER_CONTENT. AdBlockGate mounts on every route, so a bridge
- * present only in index.html would leave the gate on its weak local probe
- * exactly where it fires and where the ad revenue is.
+ * from ADSENSE_LOADER_CONTENT. Google's Funding Choices message/detection can
+ * run on every route, so a bridge present only in index.html would leave the
+ * recovery flow without the Google signal exactly where ad revenue is.
  *
  * Why this file EXECUTES both copies instead of grepping them: a parity test
  * that only checks that the same identifiers appear in both places is green on
@@ -150,7 +150,7 @@ const SCENARIOS: Scenario[] = [
  * The degenerate states. Every one of these must answer with the two SAFE
  * negatives. `blocked:true` here gates a visitor who blocks nothing;
  * `adsAllowed:true` here permanently un-gates a visitor who blocks everything
- * (AdBlockGate returns early on `adsAllowed` before it ever looks at
+ * (the legacy AdBlockGate returned early on `adsAllowed` before it ever looks at
  * `blocked`), and it also survives the `live` re-read, so it cannot be
  * corrected later in the page's life.
  */

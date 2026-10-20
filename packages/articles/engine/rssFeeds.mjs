@@ -31,9 +31,15 @@
  * been mirrored to the deploying checkout no longer silently degrades to the
  * app icon in the feed.
  */
-import { ARTICLE_SECTION_CORE } from './shared/articleSectionCore.mjs';
+import {
+  registerActiveArticleSections,
+  SITE_RENDERED_ARTICLE_SECTIONS,
+} from './shared/articleSectionCore.mjs';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { findAllSeoEntryMatches } from './shared/seo-entry.mjs';
+import { createImageCreditReader, mediaRssCreditXml, renderImageCreditHtml } from './shared/imageCredits.mjs';
+import { articleSectionEntry } from './shared/articleSectionCore.mjs';
+import { cantonRssChannel } from './shared/cantonSectionCopy.mjs';
 
 export const BASE_URL = 'https://frontaliereticino.ch';
 export const RSS_LOCALES = ['it', 'en', 'de', 'fr'];
@@ -69,51 +75,131 @@ const FRONTALIERE_SEO_CHUNKS = [
 ];
 
 /**
- * Section table. `slugFile`/`bodyDir`/`metaPrefix`/`indexSlug` come from
- * ARTICLE_SECTION_CORE (the canonical tuple); `seoFiles` stays local to this
- * table rather than joining the shared tuple, since no other consumer needs
- * exactly this list.
+ * Per-kind feed profile: the fields that are local to the RSS table (no other
+ * consumer needs them) — which SEO chunks hold the items, the slug fallback,
+ * the feed file names and the channel copy. Keyed by the section `kind` from
+ * ARTICLE_SECTION_CORE, not by the section name. The two rows are the two
+ * hand-written entries this table held before it became table-driven, value
+ * for value.
+ *
+ * The `canton` row (P7a) derives everything from the section core: its own
+ * SEO chunk (`seo-blog-canton-<code>.ts`, the same file the article renderer's
+ * descriptor reads), its own feed names (`rss-canton-<code>[-<locale>].xml`)
+ * and a channel titled with the canton's display name in each locale
+ * (`shared/cantonSectionCopy.mjs`), so no canton can borrow svizzera's
+ * channel. `channel` is a function of the core entry for every kind; the two
+ * historical rows return the same literals they always held.
+ * `rssSectionFor` still fails loudly on a kind with no row.
  */
-export const RSS_SECTIONS = [
-  {
-    id: 'frontaliere',
+const RSS_KIND_PROFILES = {
+  frontaliere: {
     seoFiles: FRONTALIERE_SEO_CHUNKS,
-    slugFile: ARTICLE_SECTION_CORE.frontaliere.slugDataFile,
-    slugConst: ARTICLE_SECTION_CORE.frontaliere.slugConst,
-    metaFile: (locale) => `${ARTICLE_SECTION_CORE.frontaliere.metaPrefix}-${locale}.ts`,
-    bodyDir: ARTICLE_SECTION_CORE.frontaliere.bodyDir,
     // Localized slug fallback: missing locale → IT slug → articleId.
     slugFallback: 'it',
-    mainFeed: 'rss.xml',
-    feedFile: (locale) => `rss-${locale}.xml`,
-    localeMeta: {
-      it: { title: 'Frontaliere Ticino', description: 'Notizie e guide per frontalieri italiani in Ticino', language: 'it', articlePrefix: `/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.it}/` },
-      en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino', language: 'en', articlePrefix: `/en/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.en}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /en/ e il branch per-locale, non un path costruito dinamicamente
-      de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin', language: 'de', articlePrefix: `/de/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.de}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /de/ e il branch per-locale, non un path costruito dinamicamente
-      fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin', language: 'fr', articlePrefix: `/fr/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.fr}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /fr/ e il branch per-locale, non un path costruito dinamicamente
-    },
+    mainFeed: () => 'rss.xml',
+    feedFile: () => (locale) => `rss-${locale}.xml`,
+    channel: () => ({
+      it: { title: 'Frontaliere Ticino', description: 'Notizie e guide per frontalieri italiani in Ticino' },
+      en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino' },
+      de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin' },
+      fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin' },
+    }),
   },
-  {
-    id: 'svizzera',
+  national: {
     seoFiles: ['seo-blog-ch.ts'],
-    slugFile: ARTICLE_SECTION_CORE.svizzera.slugDataFile,
-    slugConst: ARTICLE_SECTION_CORE.svizzera.slugConst,
-    metaFile: (locale) => `${ARTICLE_SECTION_CORE.svizzera.metaPrefix}-${locale}.ts`,
-    bodyDir: ARTICLE_SECTION_CORE.svizzera.bodyDir,
     // National slugs default to the article id per-locale (matches the
     // indexing-api URL resolution in generate-article.yml: SWISS_SLUGS[id][loc]
     // with an id fallback, NOT an IT-slug fallback).
     slugFallback: 'id',
-    mainFeed: 'rss-svizzera.xml',
-    feedFile: (locale) => `rss-svizzera-${locale}.xml`,
-    localeMeta: {
-      it: { title: 'Frontaliere Ticino — Svizzera', description: 'Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana', language: 'it', articlePrefix: `/${ARTICLE_SECTION_CORE.svizzera.indexSlug.it}/` },
-      en: { title: 'Frontaliere Ticino — Switzerland', description: 'News and guides about Switzerland: economy, work, taxes and daily life', language: 'en', articlePrefix: `/en/${ARTICLE_SECTION_CORE.svizzera.indexSlug.en}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /en/ e il branch per-locale, non un path costruito dinamicamente
-      de: { title: 'Frontaliere Ticino — Schweiz', description: 'Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag', language: 'de', articlePrefix: `/de/${ARTICLE_SECTION_CORE.svizzera.indexSlug.de}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /de/ e il branch per-locale, non un path costruito dinamicamente
-      fr: { title: 'Frontaliere Ticino — Suisse', description: 'Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne', language: 'fr', articlePrefix: `/fr/${ARTICLE_SECTION_CORE.svizzera.indexSlug.fr}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /fr/ e il branch per-locale, non un path costruito dinamicamente
-    },
+    mainFeed: (core) => `rss-${core.section}.xml`,
+    feedFile: (core) => (locale) => `rss-${core.section}-${locale}.xml`,
+    channel: () => ({
+      it: { title: 'Frontaliere Ticino — Svizzera', description: 'Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana' },
+      en: { title: 'Frontaliere Ticino — Switzerland', description: 'News and guides about Switzerland: economy, work, taxes and daily life' },
+      de: { title: 'Frontaliere Ticino — Schweiz', description: 'Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag' },
+      fr: { title: 'Frontaliere Ticino — Suisse', description: 'Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne' },
+    }),
   },
-];
+  canton: {
+    // Never shared with another section: the article renderer reads this
+    // section's entries from `services/seo/seo-blog-<section>.ts`
+    // (articleSectionDescriptors.ts, canton row), the feed reads the same file.
+    seoFiles: (core) => [`seo-blog-${core.section}.ts`],
+    // Same fallback the archive applies to a canton article without a slug in
+    // this locale (`blogUrlSlugs[id]?.[locale] ?? id`): the id, not the IT slug.
+    slugFallback: 'id',
+    mainFeed: (core) => `rss-${core.section}.xml`,
+    feedFile: (core) => (locale) => `rss-${core.section}-${locale}.xml`,
+    channel: (core) => cantonRssChannel(core.section),
+  },
+};
+
+/** Root-relative prefix of a section's article URLs in one locale (IT has no locale segment). */
+function articlePrefixFor(core, locale) {
+  return locale === 'it' ? `/${core.indexSlug.it}/` : `/${locale}/${core.indexSlug[locale]}/`;
+}
+
+/**
+ * One RSS table row for a core section entry. `slugFile`/`slugConst`/
+ * `metaFile`/`bodyDir`/`articlePrefix` come from the core (the canonical
+ * tuple); the rest from the section kind's profile.
+ */
+export function rssSectionFor(core) {
+  const profile = Object.prototype.hasOwnProperty.call(RSS_KIND_PROFILES, core.kind) ? RSS_KIND_PROFILES[core.kind] : undefined;
+  if (!profile) {
+    throw new Error(`rssFeeds: nessun profilo RSS per la sezione attiva "${core.section}" (tipo ${core.kind})`);
+  }
+  const channel = profile.channel(core);
+  return {
+    id: core.section,
+    seoFiles: typeof profile.seoFiles === 'function' ? profile.seoFiles(core) : profile.seoFiles,
+    slugFile: core.slugDataFile,
+    slugConst: core.slugConst,
+    metaFile: (locale) => `${core.metaPrefix}-${locale}.ts`,
+    bodyDir: core.bodyDir,
+    slugFallback: profile.slugFallback,
+    mainFeed: profile.mainFeed(core),
+    feedFile: profile.feedFile(core),
+    localeMeta: Object.fromEntries(RSS_LOCALES.map((locale) => [locale, {
+      title: channel[locale].title,
+      description: channel[locale].description,
+      language: locale,
+      articlePrefix: articlePrefixFor(core, locale),
+    }])),
+  };
+}
+
+/**
+ * Publisher table: one row per ACTIVE section of ARTICLE_SECTION_CORE_LIST, in
+ * core order (frontaliere, svizzera, then activated cantons). Inactive canton
+ * sections are not in the list. The corpus/API publisher uses this active
+ * table because canton feeds are served from R2.
+ */
+export const RSS_SECTIONS = [];
+
+function refreshRssSections(entries) {
+  RSS_SECTIONS.splice(0, RSS_SECTIONS.length, ...entries.map(rssSectionFor));
+}
+
+registerActiveArticleSections(refreshRssSections);
+
+/**
+ * RSS rows that a monolith site build may render. Keep this as a projection of
+ * the core selector rather than filtering `RSS_SECTIONS` at each call site:
+ * the latter is the active publisher table and intentionally includes cantons.
+ */
+export const SITE_RSS_SECTIONS = SITE_RENDERED_ARTICLE_SECTIONS.map(rssSectionFor);
+
+/**
+ * RSS table row of ANY known section id, active or not (throws on an unknown
+ * id). `RSS_SECTIONS` stays the active list the publisher iterates; this is
+ * what the canton publisher (corpus, R2) and the tests use to build one
+ * canton's feeds — pass the row to `buildSectionFeeds`.
+ * @param {string} id
+ */
+export function rssSectionForId(id) {
+  return rssSectionFor(articleSectionEntry(id));
+}
 
 const DEFAULT_LAYOUT = { seoDir: 'services/seo', localesDir: 'services/locales', slugDir: null };
 
@@ -186,16 +272,25 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
       const ogDescription = unescapeQuoted(block.match(/ogDescription:\s*'((?:[^'\\]|\\.)*)'/)?.[1], "'");
 
       // Per-article byline, from the same `"author"` object the page's JSON-LD
-      // and visible byline are built from. Only a Person is carried over: an
-      // Organization author is the Redazione, which the channel title already
-      // states, and repeating it as <dc:creator> would say nothing.
+      // and visible byline are built from. Carry only a named real Person or
+      // editorial-profile Organization: the newsroom fallback is the channel
+      // title and repeating it as <dc:creator> would say nothing.
       const authorBlock = block.match(/"author":\s*\{[^}]*\}/)?.[0];
+      const isNamedAuthor =
+        authorBlock &&
+        ((/"@type":\s*"Organization"/.test(authorBlock) &&
+          (/"@id":\s*"[^"]+#profile"/.test(authorBlock) || /"url":\s*"[^"]*\/autori\//.test(authorBlock)))
+          || (/(?:"@type":\s*"Person")/.test(authorBlock) &&
+            (/"@id":\s*"[^"]+#person"/.test(authorBlock) || /"url":\s*"[^"]*\/autori\//.test(authorBlock))));
       const authorName =
-        authorBlock && /"@type":\s*"Person"/.test(authorBlock)
+        isNamedAuthor
           ? unescapeQuoted(authorBlock.match(/"name":\s*"((?:[^"\\]|\\.)*)"/)?.[1], '"')
           : '';
 
-      if (!headline || !datePublished) continue;
+      // An item needs a REAL date: `<pubDate>` and the newest-first sort are
+      // built from it, and `new Date('garbage').toUTCString()` is the literal
+      // "Invalid Date" — it does not throw, so toRfc822's catch never fires.
+      if (!headline || !datePublished || !Number.isFinite(Date.parse(datePublished))) continue;
 
       articles.set(articleId, {
         headline,
@@ -303,6 +398,21 @@ function escapeCData(text) {
   return String(text || '').replace(/]]>/g, ']]]]><![CDATA[>');
 }
 
+/**
+ * Remove the SPA-only `nav:<action>` links from syndicated article bodies.
+ *
+ * `nav:` is an internal router action, not a URL scheme. Leaving markdown such
+ * as `[Calcola la pensione](nav:pension)` in RSS therefore gives crawlers a
+ * malformed relative URL (`/nav:pension/`) which cannot exist on the site.
+ * Article HTML already treats these links as plain text; RSS must keep the
+ * same safe representation instead of exporting the private routing syntax.
+ */
+export function sanitizeFeedBody(body) {
+  return String(body || '')
+    .replace(/\[([^\]]+)\]\(\s*nav:[^)]+\)/gi, '$1')
+    .replace(/\bnav:[a-z0-9-]+\b/gi, '');
+}
+
 function toRfc822(isoDate) {
   try {
     return new Date(isoDate).toUTCString();
@@ -315,7 +425,7 @@ const FALLBACK_IMAGE = `${BASE_URL}/icons/icon-512x512.png`;
 
 // ── Feed rendering ────────────────────────────────────────────────────
 
-function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images, repairSerpSnippet) {
+function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images, credits, repairSerpSnippet) {
   const meta = section.localeMeta[locale];
 
   // The IT per-locale feed's self-link points at the section's main feed
@@ -343,12 +453,9 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
     );
 
     // Per-item byline. Without it a feed reader has nothing but the channel
-    // title to attribute the piece to, so every article — guest-authored
-    // ones included — syndicates as written by the Redazione, the same
-    // defect `article:author` had in ogPagesPlugin.ts. The Person here is
-    // the one content/seo/** already declares, i.e. the one the page byline
-    // and the JSON-LD show; an Organization author yields no <dc:creator>
-    // because the channel already says that.
+    // title to attribute the piece to, so a named editorial profile would be
+    // syndicated as written by the Redazione. The newsroom Organization yields
+    // no <dc:creator> because the channel already says that.
     const creator = article.authorName || '';
 
     items.push({
@@ -358,6 +465,9 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
       pubDate: article.datePublished,
       category: article.articleSection,
       imageUrl: images.get(articleId) || FALLBACK_IMAGE,
+      // Credit record of that cover (P14); null for the app-icon fallback and
+      // for every cover without a record.
+      imageCredit: credits.get(articleId) ?? null,
       articleId,
       creator,
     });
@@ -379,10 +489,19 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
   // slug.
   const itemsXml = topItems
     .map((item) => {
-      const body = bodies?.get(item.articleId);
-      const contentEncoded = body
-        ? `\n      <content:encoded><![CDATA[${escapeCData(body)}]]></content:encoded>`
+      const body = sanitizeFeedBody(bodies?.get(item.articleId));
+      // A reader shows the cover away from the article page, so a credited
+      // Commons cover carries its credit in the item too (P14): the localised
+      // line at the end of the body, and Media RSS credit/licence inside
+      // media:content. An uncredited cover keeps the self-closing element.
+      const creditHtml = item.imageCredit ? renderImageCreditHtml(item.imageCredit, locale) : '';
+      const encoded = body && creditHtml ? `${body}\n\n${creditHtml}` : body;
+      const contentEncoded = encoded
+        ? `\n      <content:encoded><![CDATA[${escapeCData(encoded)}]]></content:encoded>`
         : '';
+      const mediaContent = item.imageCredit
+        ? `<media:content url="${escapeXml(item.imageUrl)}" medium="image">${mediaRssCreditXml(item.imageCredit, locale)}</media:content>`
+        : `<media:content url="${escapeXml(item.imageUrl)}" medium="image"/>`;
       return `    <item>
       <title>${escapeXml(item.title)}</title>
       <link>${BASE_URL}${meta.articlePrefix}${escapeXml(item.slug)}/</link>
@@ -390,7 +509,7 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
       <pubDate>${toRfc822(item.pubDate)}</pubDate>${item.creator ? `\n      <dc:creator><![CDATA[${escapeCData(item.creator)}]]></dc:creator>` : ''}
       <guid isPermaLink="false">${BASE_URL}${meta.articlePrefix}${escapeXml(item.articleId)}</guid>
       <category>${escapeXml(item.category)}</category>
-      <media:content url="${escapeXml(item.imageUrl)}" medium="image"/>
+      ${mediaContent}
     </item>`;
     })
     .join('\n');
@@ -427,8 +546,9 @@ ${itemsXml}
  * `[filename, xml]` list — the caller decides where the bytes land (public/ in
  * the site, dist/api/ in the publisher). Nothing is written here.
  *
- * `registry` is the section's article array; only `id` and `image` are read,
- * to resolve `media:content` without touching the filesystem.
+ * `registry` is the section's article array; `id` and `image` are read to
+ * resolve `media:content` without touching the filesystem, and `date === ''`
+ * (publication date unknown) keeps that article out of the feed.
  */
 export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], layout = {}, repairSerpSnippet }) {
   // NON opzionale, e senza fallback identita'. Il produttore reale dei feed e'
@@ -461,11 +581,37 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
   // through `cdnBlogImage`), but the older `/images/places/*` entries are still
   // origin-relative and are NOT offloaded to the CDN — the filesystem probe this
   // replaces served exactly those from BASE_URL. Same split, no host guessing.
+  //
+  // The same registry value keys the cover's credit record (P14), read from
+  // the same two layouts as the article page: `content/image-credits` in the
+  // corpus repo (the real producer, scripts/build-api.mjs), and
+  // `packages/articles/content/image-credits` in the site.
+  const imageCredits = createImageCreditReader(fs, [
+    path.join(rootDir, 'packages/articles/content/image-credits'),
+    path.join(rootDir, 'content/image-credits'),
+  ]);
   const images = new Map();
+  const credits = new Map();
   for (const a of registry) {
     if (!a || !a.id || !a.image) continue;
     images.set(a.id, a.image.startsWith('http') ? a.image : `${BASE_URL}${a.image}`);
+    const credit = imageCredits.get(a.image);
+    if (credit) credits.set(a.id, credit);
   }
+
+  // `date: ''` in the registry is the corpus stating that the publication date
+  // is UNKNOWN (corpus PR 2082, "omit unverified historical article dates").
+  // A feed item cannot exist without a `<pubDate>`, so such an article stays
+  // out of every feed even if a stale `datePublished` literal survives in its
+  // SEO entry: the registry is the editorial decision, the SEO literal is not.
+  // Only the explicit '' marker counts — a registry row without a `date` field
+  // at all (image-only callers) says nothing about the date.
+  const unknownDateIds = new Set(
+    registry.filter((a) => a && a.id && a.date === '').map((a) => a.id),
+  );
+  const feedArticles = unknownDateIds.size
+    ? new Map([...articles].filter(([id]) => !unknownDateIds.has(id)))
+    : articles;
 
   const feeds = [];
   for (const locale of RSS_LOCALES) {
@@ -474,7 +620,7 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
     const excerpts = parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, 'excerpt');
     const bodies = parseBlogBodies(fs, path, rootDir, localesDir, section.bodyDir, locale);
 
-    const xml = renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images, repairSerpSnippet);
+    const xml = renderFeed(section, locale, feedArticles, slugs, titles, excerpts, bodies, images, credits, repairSerpSnippet);
     if (!xml) continue;
 
     feeds.push([section.feedFile(locale), xml]);
@@ -486,9 +632,13 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
   return { id: section.id, articleCount: articles.size, slugCount: slugs.size, feeds };
 }
 
-/** Build every feed of every section. `registries` is keyed by section id. */
-export function buildAllRssFeeds({ fs, path, rootDir, registries = {}, layout = {}, repairSerpSnippet }) {
-  return RSS_SECTIONS.map((section) =>
+/**
+ * Build every feed in `sections`. `registries` is keyed by section id.
+ * Defaults to the active publisher table for the corpus/R2 caller; a site
+ * emitter must pass `SITE_RSS_SECTIONS` explicitly.
+ */
+export function buildAllRssFeeds({ fs, path, rootDir, registries = {}, layout = {}, repairSerpSnippet, sections = RSS_SECTIONS }) {
+  return sections.map((section) =>
     buildSectionFeeds({
       fs,
       path,

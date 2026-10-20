@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
-import { ARTICLE_SECTION_DESCRIPTORS } from '../build-plugins/shared/articleSectionDescriptors';
+import { SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS } from '../build-plugins/shared/articleSectionDescriptors';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 describe('static pages blog detail rendering', () => {
@@ -18,6 +18,25 @@ describe('static pages blog detail rendering', () => {
     // The assertion accepts EITHER the legacy literal or the new class form so the test
     // survives further class-name churn driven by upstream style edits.
     expect(source).toMatch(/\?\s*`<div (style="max-width:56rem;margin:0 auto;padding:1rem"|class="s-[A-Za-z0-9_-]+")>\$\{heroImg\}<article>/);
+  });
+});
+
+describe('static article heroes expose an early LCP preload', () => {
+  const source = readFileSync(path.resolve(__dirname, '..', 'build-plugins', 'staticPagesPlugin.ts'), 'utf-8');
+
+  it('selects the section or detail hero for both article sections', () => {
+    expect(source).toContain('if (blogSlugs.has(firstSeg) || swissSlugs.has(firstSeg))');
+    expect(source).toContain('const sectionHero = isSwissSection ? swissHeroImageStatic : blogHeroImageStatic;');
+    expect(source).toContain('const articleIds = isSwissSection ? swissArticleIdByLocale : blogArticleIdByLocale;');
+    expect(source).toContain('heroImageByArticleId[detailId]');
+    expect(source).toContain('<link rel="preload" as="image" fetchpriority="high" href="${preloadHero}">');
+  });
+
+  it('passes the generated glossary hero into the hand-rolled shell preload list', () => {
+    expect(source).toContain("const getPagePreloads = (urlPath: string, locale: string, generatedHeroUrl = '')");
+    expect(source).toContain('if (generatedHeroUrl)');
+    expect(source).toContain('glossaryHero ? seoHeroImageUrl(glossaryHero) : \'\'');
+    expect(source).toContain('<link rel="preload" as="image" fetchpriority="high" href="${generatedHeroUrl}">');
   });
 });
 
@@ -43,7 +62,8 @@ describe('ogPagesPlugin skip-set covers every article section (no missingTarget 
     // used to be independent inline literals — this test originally scraped
     // the two source files and diffed the `slugData` string literals it found
     // in each. As of issue #4881 Fase 6 both derive from the SAME shared
-    // `ARTICLE_SECTION_DESCRIPTORS` array (build-plugins/shared/articleSectionDescriptors.ts),
+    // `SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS` array
+    // (build-plugins/shared/articleSectionDescriptors.ts),
     // so neither file contains a `slugData: '…'` literal to scrape anymore —
     // the invariant this test guards (staticPagesPlugin's skip-set covers
     // every section ogPagesPlugin owns) is now true BY CONSTRUCTION, not by
@@ -51,18 +71,18 @@ describe('ogPagesPlugin skip-set covers every article section (no missingTarget 
     // omitted from one is omitted from both, never silently mismatched.
     expect(ogSource).toMatch(/from ['"]\.\/shared\/articleSectionDescriptors['"]/);
     expect(staticSource).toMatch(/from ['"]\.\/shared\/articleSectionDescriptors['"]/);
-    expect(ogSource).toMatch(/ARTICLE_SECTION_DESCRIPTORS/);
-    expect(staticSource).toMatch(/ARTICLE_SECTION_DESCRIPTORS\.map/);
+    expect(ogSource).toMatch(/SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS/);
+    expect(staticSource).toMatch(/SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS\.map/);
 
     // Runtime-level guard on the shared array itself: still ≥2 article
     // sections (frontaliere + svizzera), each with a real slugData value —
     // if this ever went empty or lost a section, BOTH plugins would silently
     // lose skip-set coverage together (the exact failure mode this test
     // exists to catch), so pin it directly against the live data.
-    const slugDataValues = ARTICLE_SECTION_DESCRIPTORS.map((sec) => sec.slugData);
+    const slugDataValues = SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS.map((sec) => sec.slugData);
     expect(slugDataValues).toContain('services/routerBlogData.ts');
     expect(slugDataValues).toContain('services/routerSwissData.ts');
-    for (const sec of ARTICLE_SECTION_DESCRIPTORS) {
+    for (const sec of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS) {
       expect(sec.slugData, `section "${sec.name}" must define a non-empty slugData`).toBeTruthy();
     }
   });

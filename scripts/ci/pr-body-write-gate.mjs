@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Gate B — allow one body write per PR, then require an explicit contract-fix
  * override. This is intentionally independent from pr-body-check-gate.mjs:
@@ -22,8 +24,7 @@
  * fleet still carries no declaration and still gets blocked, and the TTL is
  * far longer than the review cycle it protects.
  */
-import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 import { findPrBodyWrite, readHookCommand } from './lib/hook-command-parser.mjs';
 import { claimMarker, resolveHookRepositoryScope } from './lib/hook-state.mjs';
@@ -165,5 +166,5 @@ async function main() {
 // Run only when executed directly (the hook does `node pr-body-write-gate.mjs`).
 // Importing it — which the test does, to exercise the pure helpers — must not
 // start a hook that then waits on stdin. Same guard as pr-body-check-gate.mjs.
-const isMain = Boolean(process.argv[1]) && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
+const isMain = Boolean(process.argv[1]) && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) main().catch(() => process.exit(0));

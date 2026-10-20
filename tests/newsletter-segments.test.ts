@@ -185,4 +185,25 @@ describe('selectArticleCandidates', () => {
     const result = selectArticleCandidates(info, WINNERS);
     expect(result.mode).toBe('single');
   });
+
+  it('rotates the leading candidates when the campaign index advances', () => {
+    const current = selectArticleCandidates(makeSub({ engagementLevel: 'cool' }), WINNERS, {
+      digestLimit: 3,
+      rotationIndex: 100,
+    });
+    const next = selectArticleCandidates(makeSub({ engagementLevel: 'cool' }), WINNERS, {
+      digestLimit: 3,
+      rotationIndex: 101,
+    });
+
+    expect(current.slugs).toEqual(['a-pratico', 'b-fiscale', 'c-novita']);
+    expect(next.slugs).toEqual(['b-fiscale', 'c-novita', 'a-pratico']);
+  });
+
+  it('keeps selection deterministic for a resumed campaign', () => {
+    const options = { digestLimit: 3, rotationIndex: 100 };
+    const first = selectArticleCandidates(makeSub({ engagementLevel: 'cool' }), WINNERS, options);
+    const resumed = selectArticleCandidates(makeSub({ engagementLevel: 'cool' }), WINNERS, options);
+    expect(resumed).toEqual(first);
+  });
 });

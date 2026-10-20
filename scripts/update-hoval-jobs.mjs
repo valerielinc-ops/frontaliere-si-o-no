@@ -15,12 +15,13 @@
  * 6. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -33,6 +34,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -51,10 +53,12 @@ import {
   buildHovalLocalizedContent,
   isHovalSwissJob,
   inferHovalCanton,
+  dropHovalFabricatedText,
 } from './lib/hoval-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -104,24 +108,6 @@ async function fetchText(url, timeoutMs = TIMEOUT_MS) {
     timeoutMs,
     headers: { Accept: 'text/html,application/xhtml+xml,application/json' },
   });
-}
-
-async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
 }
 
 function sleep(ms) {
@@ -178,7 +164,7 @@ async function fetchAllListings() {
   console.log('🔍 Fetching Hoval Swiss jobs via JSON API...');
   console.log(`  📡 ${LISTING_API}`);
 
-  const json = await fetchJson(LISTING_API);
+  const json = await fetchJson(LISTING_API, { timeoutMs: TIMEOUT_MS });
   const { items, totalResults } = parseHovalListingJson(json);
 
   console.log(`📋 Total Swiss listings: ${totalResults} (parsed: ${items.length})`);
@@ -219,7 +205,8 @@ async function enrichWithDetails(listings) {
 }
 
 function buildHovalJob(row) {
-  const localized = buildHovalLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, row.language === 'Italiano' ? 'it' : row.language === 'German' ? 'de' : row.language === 'Francese' ? 'fr' : 'it');
+  const localized = buildHovalLocalizedContent({ ...row, sourceLang });
   const canton = inferHovalCanton(row.location);
   return {
     title: localized.titleByLocale.it,
@@ -238,12 +225,12 @@ function buildHovalJob(row) {
     category: inferCategory(row.title, row.department),
     sector: inferSector(row.department),
     source: 'hoval-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, row.language === 'Italiano' ? 'it' : row.language === 'German' ? 'de' : row.language === 'Francese' ? 'fr' : 'it'),
-    postedDate: new Date().toISOString().slice(0, 10),
+    sourceLang,
+    ...sourcePostingDateFields(),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -258,6 +245,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fabricatedFossils = targetExisting.filter((job) => dropHovalFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Hoval job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -273,6 +262,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -301,7 +291,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -333,6 +323,18 @@ function validateLocales() {
   });
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropHovalFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Hoval');
@@ -345,6 +347,7 @@ async function main() {
   const listings = await fetchAllListings();
   if (listings.length === 0) {
     console.log('⚠️ No Swiss listings found on Hoval JSON API — skipping.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

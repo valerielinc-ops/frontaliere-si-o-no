@@ -268,10 +268,10 @@ describe('loop-fleet-ledger-reconcile', () => {
     expect(hasActiveBridgeRun([{ status: 'requested' }])).toBe(true);
   });
 
-  it('reads durable IDs from all four canonical ledgers', () => {
+  it('reads durable IDs from canonical ledgers and their shards', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-reconcile-test-'));
     fs.mkdirSync(path.join(root, 'ledger'));
-    writeJsonl(path.join(root, 'ledger'), 'loop-health-history.jsonl', [{ recordId: 'health-1' }]);
+    writeJsonl(path.join(root, 'ledger'), 'loop-health-history-run-1.jsonl', [{ recordId: 'health-1' }]);
     expect([...durableRecordIds(path.join(root, 'ledger')).health]).toEqual(['health-1']);
     expect(durableRecordIds(path.join(root, 'ledger')).observation.size).toBe(0);
     expect(durableRecordIds(path.join(root, 'ledger')).decision.size).toBe(0);

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 // Parse claude-code-action's `execution_file` and emit EXACT token/cost
 // metrics for the run, so per-workflow Claude burn is measurable (not estimated).
 // Writes a markdown table to $GITHUB_STEP_SUMMARY + a grep-able CLAUDE_USAGE
@@ -6,7 +7,7 @@
 // Usage: node scripts/ci/claude-usage-summary.mjs <execution_file> [label]
 // Best-effort: never throws, never fails the job.
 import fs from 'node:fs';
-import { resolve } from 'node:path';
+
 import { pathToFileURL } from 'node:url';
 
 function finiteNumberOrNull(value) {
@@ -182,7 +183,6 @@ function main() {
   }
 }
 
-const invokedPath = process.argv[1] ? pathToFileURL(resolve(process.argv[1])).href : '';
-if (import.meta.url === invokedPath) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

@@ -21,13 +21,12 @@
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  *
- * NOTE (2026-05-28): Zero-job runs since 2026-05-23 are NOT a parser bug.
- * The AIL AJAX endpoint currently returns the static message
- *   "Al momento non ci sono posizioni aperte"
- * inside a single <div class="inner-title"> (no <article class="job-position">
- * blocks). Parser logic is intact; source has zero openings. Keep this
- * crawler enabled — it will resume returning jobs when AIL posts new ones.
+ * NOTE: AIL can return an explicit no-openings marker inside a nested
+ * `.inner-title` block (no <article class="job-position"> blocks). Only that
+ * exact source-owned marker is an authoritative empty snapshot; unknown empty
+ * responses remain fail-closed as selector misses.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -42,6 +41,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -51,17 +51,23 @@ import {
   runDedicatedBaseCrawler,
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
-  detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   buildPdfBackedDescription,
   extractPdfJobContentFromUrl,
 } from './lib/pdf-job-content.mjs';
+import {
+  dropFabricatedLocaleText,
+  dropTranslationsOfFabricatedSource,
+  sourceLocaleDescription,
+} from './lib/source-locale-description.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -84,6 +90,15 @@ const AJAX_URL =
   'https://www.ail.ch/AIL/risorse-umane/offerte-di-lavoro/content/0.html?ajax=true';
 const BASE_URL = 'https://www.ail.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const AIL_EMPTY_SOURCE_RE =
+  /^al momento\s+non ci sono\s+posizioni\s+aperte(?:[.!?]|,\s+inoltraci qui il tuo dossier di candidatura spontanea[.!]?)?$/i;
+const SUMMARY_COUNTS = {
+  discovered: null,
+  parsed: null,
+  lastFetchOutcome: null,
+  abortKind: null,
+  authoritativeEmptySnapshot: false,
+};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function normalize(value = '') {
@@ -190,12 +205,21 @@ async function fetchPage(url, timeoutMs = 20_000) {
     });
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return '';
+      return {
+        html: '',
+        fetchOutcome: res.status === 403 || res.status === 429
+          ? 'anti_bot_block'
+          : 'feed_endpoint_unavailable',
+      };
     }
-    return await res.text();
+    const html = await res.text();
+    return {
+      html,
+      fetchOutcome: html ? 'ok' : 'feed_endpoint_unavailable',
+    };
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
-    return '';
+    return { html: '', fetchOutcome: 'connection_error' };
   } finally {
     clearTimeout(timer);
   }
@@ -237,7 +261,7 @@ function titleOverlap(expected = '', actual = '') {
   return matches / expWords.length;
 }
 
-function parseListingPage(html) {
+export function parseListingPage(html) {
   const jobs = [];
 
   // Each job is in <article class="job-position">...</article>
@@ -262,33 +286,48 @@ function parseListingPage(html) {
     const closeDateMatch = block.match(
       /Data di chiusura\s*<span>([\s\S]*?)<\/span>/i
     );
-    const datePosted = pubDateMatch
-      ? parseItalianDate(normalizeSpace(pubDateMatch[1]))
-      : new Date().toISOString().slice(0, 10);
+    const publicationLabel = pubDateMatch ? normalizeSpace(pubDateMatch[1]) : '';
+    const publication = sourcePostingDateFields(/^\d{1,2}\s+\w+\s+\d{4}$/.test(publicationLabel)
+      ? parseItalianDate(publicationLabel)
+      : '');
     const validThrough = closeDateMatch
       ? parseItalianDate(normalizeSpace(closeDateMatch[1]))
       : '';
 
-    // PDF link: /downloadJobPosition?uuid=UUID
-    const pdfMatch = block.match(
-      /href="(\/downloadJobPosition\?uuid=[a-f0-9-]+)"/i
+    // AIL used to expose PDFs through /downloadJobPosition?uuid=UUID. The
+    // current page serves direct /dam/jcr:...pdf links instead, while the
+    // application id lives on the separate candidature link. Resolve both
+    // forms from the source page so a markup change cannot silently publish a
+    // job without its official PDF or application URL.
+    const links = [...block.matchAll(
+      /<a\b[^>]*\bhref\s*=\s*(["'])([^"']+)\1[^>]*>/gi,
+    )].map((match) => {
+      try {
+        const url = new URL(decodeHtmlEntities(match[2]), BASE_URL);
+        return isTrustedDomain(url.href) ? url : null;
+      } catch {
+        return null;
+      }
+    }).filter(Boolean);
+    const pdfUrlObject = links.find((url) =>
+      /\.pdf$/i.test(url.pathname) ||
+      (/\/downloadJobPosition$/i.test(url.pathname) && url.searchParams.has('uuid')),
     );
-    const pdfUrl = pdfMatch
-      ? `${BASE_URL}${decodeHtmlEntities(pdfMatch[1])}`
-      : '';
+    const pdfUrl = pdfUrlObject?.href || '';
 
-    // UUID extraction
-    const uuidMatch = (pdfUrl || '').match(/uuid=([a-f0-9-]+)/i);
-    const uuid = uuidMatch ? uuidMatch[1] : '';
-
-    // Apply URL
-    const applyUrl = uuid
-      ? `${BASE_URL}/AIL/risorse-umane/concorsi.html?applicationId=${uuid}`
-      : CAREERS_URL;
+    const applyUrlObject = links.find((url) =>
+      /\/AIL\/risorse-umane\/concorsi\.html$/i.test(url.pathname) &&
+      url.searchParams.has('applicationId'),
+    );
+    const uuid = pdfUrlObject?.searchParams.get('uuid') ||
+      applyUrlObject?.searchParams.get('applicationId') || '';
+    const applyUrl = applyUrlObject?.href || (uuid
+      ? `${BASE_URL}/AIL/risorse-umane/concorsi.html?applicationId=${encodeURIComponent(uuid)}`
+      : CAREERS_URL);
 
     jobs.push({
       title,
-      datePosted,
+      ...publication,
       validThrough,
       pdfUrl,
       uuid,
@@ -297,6 +336,51 @@ function parseListingPage(html) {
   }
 
   return jobs;
+}
+
+/**
+ * Classify the response after the HTTP boundary has succeeded. An empty list
+ * is only publishable when AIL itself rendered its explicit no-openings
+ * message; every other zero is a fail-closed selector miss.
+ */
+export function classifyAilListingHtml(html = '') {
+  const listings = parseListingPage(html);
+  const emptyStateContents = [];
+  const divTokens = /<!--[\s\S]*?-->|<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>|<\/?div\b[^>]*>/gi;
+  const divStack = [];
+  let tokenMatch;
+  while ((tokenMatch = divTokens.exec(html)) !== null) {
+    const token = tokenMatch[0];
+    if (token.startsWith('<!--') || tokenMatch[1]) continue;
+
+    if (/^<\//u.test(token)) {
+      const openingDiv = divStack.pop();
+      if (openingDiv?.isInnerTitle) {
+        emptyStateContents.push(html.slice(openingDiv.contentStart, tokenMatch.index));
+      }
+      continue;
+    }
+
+    const classMatch = token.match(/(?:^|\s)class\s*=\s*(["'])([^"']*)\1/i);
+    const classTokens = classMatch?.[2].split(/\s+/u) ?? [];
+    divStack.push({
+      contentStart: divTokens.lastIndex,
+      isInnerTitle: classTokens.includes('inner-title'),
+    });
+  }
+
+  const authoritativeEmptySnapshot = listings.length === 0 && emptyStateContents.some((content) => {
+    const visibleMarkup = content
+      .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, ' ')
+      .replace(/<[^>]*>/g, ' ');
+    const visibleText = normalizeSpace(decodeHtmlEntities(visibleMarkup));
+    return AIL_EMPTY_SOURCE_RE.test(visibleText);
+  });
+  return {
+    listings,
+    authoritativeEmptySnapshot,
+    fetchOutcome: listings.length > 0 || authoritativeEmptySnapshot ? 'ok' : 'selector_miss',
+  };
 }
 
 /* ── Category & experience detection ───────────────────────── */
@@ -328,20 +412,44 @@ function detectEmploymentType(title = '') {
 }
 
 /* ── Main discovery ────────────────────────────────────────── */
-async function fetchAilJobs() {
+export async function fetchAilJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+
+  Object.assign(SUMMARY_COUNTS, {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    authoritativeEmptySnapshot: false,
+  });
 
   console.log(`🔍 Fetching AIL SA jobs...`);
   console.log(`  📡 AJAX endpoint: ${AJAX_URL}`);
 
-  const ajaxHtml = await fetchPage(AJAX_URL, timeoutMs);
+  const fetchResult = await fetchPage(AJAX_URL, timeoutMs);
+  const ajaxHtml = fetchResult.html;
+  SUMMARY_COUNTS.lastFetchOutcome = fetchResult.fetchOutcome;
   if (!ajaxHtml) {
     console.warn('⚠️ Failed to fetch AJAX listing page.');
+    SUMMARY_COUNTS.abortKind = 'connection-level-fetch';
     return [];
   }
 
-  const listings = parseListingPage(ajaxHtml);
+  const classified = classifyAilListingHtml(ajaxHtml);
+  const { listings } = classified;
+  SUMMARY_COUNTS.discovered = listings.length;
+  SUMMARY_COUNTS.parsed = 0;
+  SUMMARY_COUNTS.lastFetchOutcome = classified.fetchOutcome;
+  SUMMARY_COUNTS.authoritativeEmptySnapshot = classified.authoritativeEmptySnapshot;
   console.log(`  📋 Found ${listings.length} job listing(s) on page.`);
+
+  if (listings.length === 0) {
+    if (!classified.authoritativeEmptySnapshot) {
+      SUMMARY_COUNTS.abortKind = 'no-jobs-parsed';
+      console.warn('⚠️ AIL listing page was fetched but no known job or empty-state marker matched.');
+    }
+    return [];
+  }
 
   // Fetch PDF content for each job
   const jobs = [];
@@ -377,23 +485,7 @@ async function fetchAilJobs() {
       }
     }
 
-    const description = buildPdfBackedDescription({
-      introLines: [
-        `## ${title}`,
-        `${COMPANY_NAME} — posizione aperta a Lugano/Muzzano (TI).`,
-      ],
-      pdfText: pdfContent.text || '',
-      fallbackText: `Posizione: ${title} presso ${COMPANY_NAME}. Consultare il bando ufficiale (PDF) per maggiori dettagli.`,
-      footerLines: [
-        '---',
-        listing.validThrough
-          ? `**Termine di candidatura:** ${listing.validThrough}`
-          : '',
-        '**Settore:** Energia / Servizi pubblici',
-        '**Sede:** Via Industria 2, 6933 Muzzano (Lugano), TI, Svizzera',
-        `[Bando ufficiale (PDF)](${listing.pdfUrl || CAREERS_URL})`,
-      ].filter(Boolean),
-    });
+    const { description, descriptionByLocale, sourceLang } = buildAilDescriptionFields(pdfContent.text || '');
 
     const slug = slugify(title, COMPANY_KEY);
 
@@ -414,13 +506,14 @@ async function fetchAilJobs() {
       employmentType: detectEmploymentType(title),
       experienceLevel: detectExperienceLevel(title),
       source: 'ail-lugano-crawler',
-      datePosted: listing.datePosted,
+      ...mergeSourcePostingDates({}, listing),
+      crawledAt: new Date().toISOString(),
       validThrough: listing.validThrough || undefined,
       titleByLocale: { it: title },
-      descriptionByLocale: { it: description },
+      descriptionByLocale,
       slug,
       slugByLocale: { it: slug },
-      sourceLang: detectLang(description || title, 'it'),
+      sourceLang,
       _targetScope: { canton: HQ.canton, location: 'Lugano' },
     };
 
@@ -429,7 +522,49 @@ async function fetchAilJobs() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
+  SUMMARY_COUNTS.parsed = jobs.length;
   return jobs;
+}
+
+/**
+ * Description fields of one AIL posting: the text of its PDF call, in its own
+ * language. The runner used to wrap it in lines of its own ("## <title>",
+ * "Aziende Industriali di Lugano (AIL) SA — posizione aperta a Lugano/Muzzano
+ * (TI).", "**Settore:** Energia / Servizi pubblici", "**Sede:** Via Industria
+ * 2…", a link to the PDF) and to substitute "Posizione: <title> presso AIL…
+ * Consultare il bando ufficiale (PDF)…" when the PDF had no text; AIL
+ * publishes none of it (the deadline stays in `validThrough`, the PDF in
+ * `applyUrl`). A call without readable text gets no description and takes the
+ * pipeline's thin-source path.
+ *
+ * @param {string} pdfText
+ */
+export function buildAilDescriptionFields(pdfText = '') {
+  return sourceLocaleDescription(buildPdfBackedDescription({ pdfText }), { defaultLang: 'it' });
+}
+
+// Fossils of the former wrapper in stored jobs (header line or substituted
+// fallback sentence).
+const AIL_WRAPPER_RE = /— posizione aperta a Lugano\/Muzzano \(TI\)\.|Consultare il bando ufficiale \(PDF\) per maggiori dettagli\./;
+
+/**
+ * Remove the former wrapper from a stored job: the translations made from the
+ * wrapped text, the wrapped source slot and the wrapped description. The merge
+ * below keeps existing locale slots and only replaces the description with a
+ * LONGER one, so without this the wrapper would outlive the fix.
+ *
+ * @returns {boolean} true when the job carried the wrapper.
+ */
+export function dropAilFabricatedText(job) {
+  if (!job || typeof job !== 'object') return false;
+  const derived = dropTranslationsOfFabricatedSource(job, AIL_WRAPPER_RE);
+  const source = dropFabricatedLocaleText(job, job.sourceLang || 'it', AIL_WRAPPER_RE);
+  const wrappedDescription = AIL_WRAPPER_RE.test(String(job.description || ''));
+  if (wrappedDescription) {
+    job.description = '';
+    job.needsRetranslation = true;
+  }
+  return derived || source || wrappedDescription;
 }
 
 /* ── Merge ─────────────────────────────────────────────────── */
@@ -455,6 +590,8 @@ async function mergeJobs(discoveredJobs) {
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
   const existingTargetJobs = allJobs.filter(isTargetJob);
+  const fossils = existingTargetJobs.filter((job) => dropAilFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former description wrapper from ${fossils} stored AIL job(s); they will be retranslated`);
 
   const existingByKey = new Map();
   for (const job of existingTargetJobs) {
@@ -487,6 +624,8 @@ async function mergeJobs(discoveredJobs) {
     if (ex) {
       const updatedJob = {
         ...ex,
+        ...mergeSourcePostingDates(ex, discovered),
+        crawledAt: discovered.crawledAt,
         title: discovered.title || ex.title,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
@@ -647,6 +786,35 @@ function logStats(beforeSnapshot = new Map()) {
 
 }
 
+function writeAilSummary(crawlDiff, { writeSlice = false } = {}) {
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
+  if (writeSlice) writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: 'AIL SA',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    discovered: SUMMARY_COUNTS.discovered,
+    parsed: SUMMARY_COUNTS.parsed,
+    lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
+    authoritativeEmptySnapshot: SUMMARY_COUNTS.authoritativeEmptySnapshot,
+    written: _sliceJobs.length,
+    newCount: crawlDiff.newJobs.length,
+    updatedCount: crawlDiff.updatedJobs.length,
+    removedCount: crawlDiff.removedJobs.length,
+    unchangedCount: crawlDiff.unchangedCount,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: crawlDiff.newJobs.slice(0, 30),
+    updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
+    removedJobs: crawlDiff.removedJobs.slice(0, 30),
+    unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+  });
+}
+
 function validateLocales() {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_AIL_STRICT',
@@ -663,9 +831,21 @@ function validateLocales() {
 }
 
 /* ── Main ──────────────────────────────────────────────────── */
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropAilFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'AIL SA');
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'AIL SA', SUMMARY_COUNTS);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  AIL SA (Aziende Industriali di Lugano) — Dedicated Crawler');
@@ -686,6 +866,8 @@ async function main() {
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
+    await cleanStoredJobsOnSoftExit();
+    SUMMARY_COUNTS.authoritativeEmptySnapshot && writeAilSummary(crawlDiff);
     return;
   }
 
@@ -708,8 +890,10 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
+  crawlDiff = stats.crawlDiff || crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ No AIL jobs found after crawl. No error — exiting OK.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
@@ -719,28 +903,10 @@ async function main() {
   console.log('\n✅ AIL SA crawler complete.');
 
   // Write per-crawler slice and reassemble global dataset
-  const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({
-    key: COMPANY_KEY,
-    label: 'AIL SA',
-    generatedAt: new Date().toISOString(),
-    total: _sliceJobs.length,
-    newCount: crawlDiff.newJobs.length,
-    updatedCount: crawlDiff.updatedJobs.length,
-    removedCount: crawlDiff.removedJobs.length,
-    unchangedCount: crawlDiff.unchangedCount,
-    durationMs: _durationMs,
-    avgDurationMs: _durationMs,
-    durationHistory: [_durationMs],
-    newJobs: crawlDiff.newJobs.slice(0, 30),
-    updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
-    removedJobs: crawlDiff.removedJobs.slice(0, 30),
-    unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
-  });
+  writeAilSummary(crawlDiff, { writeSlice: true });
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'AIL SA'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'AIL SA'));
+}

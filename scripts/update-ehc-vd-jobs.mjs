@@ -12,6 +12,7 @@ import {
   fetchAllEhcVdJobs,
   isEhcVdJob,
   isTrustedDomain,
+  prepareEhcVdExistingJobs,
   EHC_VD_KEY,
   EHC_VD_COMPANY_NAME,
 } from './lib/ehc-vd-job-parser.mjs';
@@ -26,6 +27,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllEhcVdJobs,
   isCompanyJob: isEhcVdJob,
   isTrustedDomain,
+  prepareExistingJobs: prepareEhcVdExistingJobs,
   defaultSourceLang: 'fr',
 }).catch((err) => {
   console.error(`❌ EHC crawler failed: ${err?.message || err}`);

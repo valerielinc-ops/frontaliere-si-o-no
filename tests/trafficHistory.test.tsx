@@ -1,55 +1,21 @@
 /**
- * Tests for TrafficHistory component — verifies Firestore-first data loading
+ * Tests for TrafficHistory component — verifies public read-model loading
  * with fallback to the hardcoded CROSSING_PATTERNS model.
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, waitFor, cleanup } from '@testing-library/react';
 import TrafficHistory from '@/components/guide/TrafficHistory';
 
-// ─── Mock firebase/firestore ────────────────────────────────────
-
-const mockGetDocs = vi.fn();
-
-vi.mock('@/services/firebase', () => ({
-  getApp: vi.fn().mockResolvedValue({}),
-}));
-
 vi.mock('@/services/errorReporter', () => ({
   reportCaughtError: vi.fn(),
 }));
 
-vi.mock('firebase/firestore', () => ({
-  getFirestore: vi.fn(() => ({})),
-  collection: vi.fn((_db: unknown, ...pathSegments: string[]) => ({ path: pathSegments.join('/') })),
-  query: vi.fn((...args: unknown[]) => args[0]),
-  orderBy: vi.fn(),
-  limit: vi.fn(),
-  getDocs: (...args: unknown[]) => mockGetDocs(...args),
-}));
+const mockFetch = vi.fn();
 
 // ─── Helpers ────────────────────────────────────────────────────
 
-/** Creates a minimal Firestore snapshot with the given docs */
-function fakeSnapshot(docs: Record<string, unknown>[]) {
-  return {
-    size: docs.length,
-    empty: docs.length === 0,
-    forEach: (cb: (d: { data: () => Record<string, unknown> }) => void) =>
-      docs.forEach(d => cb({ data: () => d })),
-  };
-}
-
-/** Generates N snapshot docs for a given day/hour with a specific wait time */
-function generateDocs(count: number, day: number, hour: number, totalMinutes: number) {
-  return Array.from({ length: count }, () => ({
-    dayOfWeek: day,
-    hour,
-    totalCrossingMinutes: totalMinutes,
-    waitTimeMinutes: totalMinutes - 1,
-    status: totalMinutes < 5 ? 'green' : totalMinutes < 15 ? 'yellow' : 'red',
-    direction: 'IT → CH',
-    lastUpdate: { toDate: () => new Date() },
-  }));
+function mockHistoryResponse(history: Record<string, unknown>) {
+  return { ok: true, json: async () => ({ history }) };
 }
 
 // ─── Tests ──────────────────────────────────────────────────────
@@ -57,6 +23,7 @@ function generateDocs(count: number, day: number, hour: number, totalMinutes: nu
 describe('TrafficHistory', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.stubGlobal('fetch', mockFetch);
     vi.spyOn(console, 'warn').mockImplementation(() => {});
   });
 
@@ -64,8 +31,8 @@ describe('TrafficHistory', () => {
     cleanup();
   });
 
-  it('renders with fallback model when Firestore returns no data', async () => {
-    mockGetDocs.mockResolvedValue(fakeSnapshot([]));
+  it('renders with fallback model when the public read model has no data', async () => {
+    mockFetch.mockResolvedValue(mockHistoryResponse({}));
 
     render(<TrafficHistory />);
 
@@ -77,8 +44,8 @@ describe('TrafficHistory', () => {
     expect(screen.getByText(/mappa dei tempi/i)).toBeInTheDocument();
   });
 
-  it('renders with fallback model when Firestore throws', async () => {
-    mockGetDocs.mockRejectedValue(new Error('Network error'));
+  it('renders with fallback model when the public read model throws', async () => {
+    mockFetch.mockRejectedValue(new Error('Network error'));
 
     render(<TrafficHistory />);
 
@@ -87,14 +54,10 @@ describe('TrafficHistory', () => {
     }, { timeout: 5000 });
   });
 
-  it('shows real data badge when Firestore has enough snapshots', async () => {
-    // Generate 30 docs spread across Monday 7AM and Monday 8AM for chiasso-strada
-    const docs = [
-      ...generateDocs(15, 1, 7, 12),
-      ...generateDocs(15, 1, 8, 18),
-    ];
-
-    mockGetDocs.mockResolvedValue(fakeSnapshot(docs));
+  it('shows real data badge when the public read model has an aggregate', async () => {
+    mockFetch.mockResolvedValue(mockHistoryResponse({
+      'Chiasso - Strada': { 1: { 7: 12, 8: 18 } },
+    }));
 
     render(<TrafficHistory />);
 
@@ -104,17 +67,15 @@ describe('TrafficHistory', () => {
   });
 
   it('shows loading state initially', () => {
-    mockGetDocs.mockImplementation(() => new Promise(() => {})); // never resolves
+    mockFetch.mockImplementation(() => new Promise(() => {})); // never resolves
 
     render(<TrafficHistory />);
 
     expect(screen.getByText(/caricamento/i)).toBeInTheDocument();
   });
 
-  it('falls back when snapshot count is below threshold', async () => {
-    // Only 10 docs — below MIN_SNAPSHOTS_FOR_REAL_DATA (20)
-    const docs = generateDocs(10, 1, 7, 12);
-    mockGetDocs.mockResolvedValue(fakeSnapshot(docs));
+  it('falls back when the server has no aggregate for a below-threshold sample', async () => {
+    mockFetch.mockResolvedValue(mockHistoryResponse({}));
 
     render(<TrafficHistory />);
 
@@ -123,13 +84,10 @@ describe('TrafficHistory', () => {
     }, { timeout: 5000 });
   });
 
-  it('does not turn snapshots without a wait reading into zero-minute history', async () => {
-    const docs = Array.from({ length: 20 }, (_, index) => ({
-      dayOfWeek: 1,
-      hour: 7 + (index % 2),
-      lastUpdate: { toDate: () => new Date() },
+  it('does not turn an aggregate without a wait reading into zero-minute history', async () => {
+    mockFetch.mockResolvedValue(mockHistoryResponse({
+      'Chiasso - Strada': { 1: {} },
     }));
-    mockGetDocs.mockResolvedValue(fakeSnapshot(docs));
 
     render(<TrafficHistory />);
 

@@ -8,10 +8,17 @@ function stripHtml(html = '') {
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n• ')
+    // A list item is emitted as a markdown bullet here, once. It used to be
+    // '• ' and sectionMarkdown() then prefixed '- ' again, so every item of
+    // the source <ul> was published as a double marker `- • item`.
+    .replace(/<li[^>]*>/gi, '\n- ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '- ')
+    // An upper-case bold run is a section title: keep it on its own line even
+    // when the feed glues it to the previous paragraph (`</p><b>ÜBER DICH</b>`).
+    .replace(/<(b|strong)\b[^>]*>([^<]{3,60})<\/\1>/gi, (match, _tag, label) => (
+      isSectionHeading(label.trim()) ? `\n${label.trim()}\n` : match
+    ))
     .replace(/<\/?(ul|ol|div|section|span|strong|b)[^>]*>/gi, '')
     .replace(/&nbsp;/gi, ' ')
     .replace(/&amp;/gi, '&')
@@ -31,6 +38,20 @@ function stripHtml(html = '') {
     .trim();
 }
 
+/**
+ * Softgarden renders every section title of this feed as an upper-case `<b>`
+ * line (WAS DICH ERWARTET, ÜBER DICH, BENEFITS, but also ÜBER UNS,
+ * DEINE VERANTWORTLICHKEITEN, BIST DU UNSER ZUKÜNFTIGES TALENT?). A closed
+ * list of four titles folded the others into the previous section as a
+ * bullet, so "ÜBER UNS" was published as an item of the overview.
+ */
+function isSectionHeading(line = '') {
+  if (line.startsWith('- ')) return false;
+  if (line.length < 3 || line.length > 60) return false;
+  const letters = line.replace(/[^\p{L}]/gu, '');
+  return letters.length >= 3 && letters === letters.toLocaleUpperCase('de-CH');
+}
+
 function splitSections(text = '') {
   const lines = String(text || '')
     .split('\n')
@@ -39,10 +60,9 @@ function splitSections(text = '') {
 
   const sections = [];
   let current = { heading: 'Overview', lines: [] };
-  const headingPattern = /^(WAS DICH ERWARTET|ÜBER DICH|UNSERE WERTE|BENEFITS)$/i;
 
   for (const line of lines) {
-    if (headingPattern.test(line)) {
+    if (isSectionHeading(line)) {
       if (current.lines.length) sections.push(current);
       current = { heading: line, lines: [] };
       continue;
@@ -63,6 +83,8 @@ function translateHeading(locale, heading) {
       'ÜBER DICH': 'Il tuo profilo',
       'UNSERE WERTE': 'I nostri valori',
       BENEFITS: 'Benefit',
+      'ÜBER UNS': 'Chi siamo',
+      'DEINE VERANTWORTLICHKEITEN': 'Le tue responsabilità',
     },
     en: {
       OVERVIEW: 'Overview',
@@ -70,6 +92,8 @@ function translateHeading(locale, heading) {
       'ÜBER DICH': 'About you',
       'UNSERE WERTE': 'Our values',
       BENEFITS: 'Benefits',
+      'ÜBER UNS': 'About us',
+      'DEINE VERANTWORTLICHKEITEN': 'Your responsibilities',
     },
     de: {
       OVERVIEW: 'Überblick',
@@ -77,6 +101,8 @@ function translateHeading(locale, heading) {
       'ÜBER DICH': 'Über dich',
       'UNSERE WERTE': 'Unsere Werte',
       BENEFITS: 'Benefits',
+      'ÜBER UNS': 'Über uns',
+      'DEINE VERANTWORTLICHKEITEN': 'Deine Verantwortlichkeiten',
     },
     fr: {
       OVERVIEW: 'Aperçu',
@@ -84,6 +110,8 @@ function translateHeading(locale, heading) {
       'ÜBER DICH': 'Ton profil',
       'UNSERE WERTE': 'Nos valeurs',
       BENEFITS: 'Avantages',
+      'ÜBER UNS': 'À propos de nous',
+      'DEINE VERANTWORTLICHKEITEN': 'Tes responsabilités',
     },
   };
   return map[locale]?.[norm] || heading;

@@ -1,3 +1,5 @@
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { crawledAtFromObservation } from './source-crawl-observation.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Ferrovia Retica (RhB) — job parser
@@ -19,8 +21,11 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *          stripHtml, normalizeSpace, isGrigioniItalianoJob
  */
 
+import { decode as decodeHTML } from 'html-entities';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { detectLanguage } from './detect-language.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const HQ = getCompanyDefaults('ferrovia-retica');
 
@@ -40,14 +45,7 @@ export function stripHtml(html = '') {
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/&(?:#(?:x[0-9a-f]+|[0-9]+)|[a-z][a-z0-9]+);/gi, (entity) => decodeHTML(entity))
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -157,15 +155,8 @@ export function parseListingPage(html) {
     const pctMatch = rawTitle.match(/(\d{1,3})\s*[-–]\s*(\d{1,3})\s*%/) || rawTitle.match(/\((\d{1,3})%\)/);
     const percentage = pctMatch ? (pctMatch[2] ? `${pctMatch[1]}-${pctMatch[2]}%` : `${pctMatch[1]}%`) : '';
 
-    // Extract date from nearby context (DD. Month YYYY pattern)
-    const dateMatch = html.slice(Math.max(0, match.index - 200), match.index + match[0].length + 200)
-      .match(/(\d{1,2})\.\s*(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre|Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s*(\d{4})/i);
-    let datePosted = '';
-    if (dateMatch) {
-      const months = { gennaio: '01', febbraio: '02', marzo: '03', aprile: '04', maggio: '05', giugno: '06', luglio: '07', agosto: '08', settembre: '09', ottobre: '10', novembre: '11', dicembre: '12', januar: '01', februar: '02', 'märz': '03', april: '04', mai: '05', juni: '06', juli: '07', august: '08', september: '09', oktober: '10', november: '11', dezember: '12' };
-      const m = months[dateMatch[2].toLowerCase()] || '01';
-      datePosted = `${dateMatch[3]}-${m}-${dateMatch[1].padStart(2, '0')}`;
-    }
+    // Nearby dates may describe a deadline or employment start, not publication.
+    const datePosted = '';
 
     jobs.push({ title: rawTitle, url: fullUrl, location, datePosted, percentage });
   }
@@ -318,15 +309,16 @@ export function getLocationAddress(location = '') {
   return { postalCode: '7000', streetAddress: 'Bahnhofstrasse 25, 7001 Chur' };
 }
 
-/* ── Fallback description builder ──────────────────────────── */
+/* ── Invented fallback (removed) ───────────────────────────── */
 
 /**
- * Build a rich fallback description (>50 words) when detail page yields nothing.
+ * First sentence of the company paragraph earlier versions published when a
+ * detail page was thin ("<titolo> presso la Ferrovia Retica (RhB) a …
+ * La Ferrovia Retica è la più grande azienda di trasporti …"): text the
+ * source never showed. Its presence marks a STORED description as not
+ * source-read, so the runner removes it before the merge.
  */
-export function buildFallbackDescription(title, location, percentage) {
-  const pctInfo = percentage ? ` Grado di occupazione: ${percentage}.` : '';
-  return `${title} presso la Ferrovia Retica (RhB) a ${location}, Cantone dei Grigioni, Svizzera.${pctInfo}\n\nLa Ferrovia Retica è la più grande azienda di trasporti del Cantone dei Grigioni con circa 1400 collaboratori. La RhB gestisce la rete ferroviaria a scartamento ridotto più estesa della Svizzera, con 384 km di linee che attraversano 115 gallerie e 383 ponti, inclusa la celebre tratta patrimonio mondiale UNESCO dell'Albula/Bernina. L'azienda offre condizioni di impiego moderne e attrattive, un abbonamento generale di 2a classe, sconti viaggio, un piano pensionistico completo, possibilità di acquisto di vacanze supplementari e numerose opportunità di formazione e perfezionamento professionale.`;
-}
+export const RHB_INVENTED_FALLBACK_RE = /La Ferrovia Retica è la più grande azienda di trasporti del Cantone dei Grigioni/;
 
 /* ── Job builder ───────────────────────────────────────────── */
 
@@ -346,6 +338,8 @@ export function sourceLangFromUrl(url = '') {
 
 export function buildJob(raw) {
   if (!raw || !raw.title) return null;
+  const crawledAt = crawledAtFromObservation(raw.crawlObservedAt);
+  if (!crawledAt) return null;
 
   const title = normalizeSpace(raw.title);
   if (!title || title.length < 3) return null;
@@ -353,13 +347,12 @@ export function buildJob(raw) {
   const location = raw.location || 'Chur';
   const address = getLocationAddress(location);
 
-  // Use detail description if available and >50 words, otherwise use rich fallback
-  let description = '';
-  if (raw.description && raw.description.split(/\s+/).length >= 50) {
-    description = raw.description;
-  } else {
-    description = buildFallbackDescription(title, location, raw.percentage);
-  }
+  // Only the detail page's own vacancy body is published, above the shared
+  // word floor (source-body-floor.mjs). A thinner or missing body yields NO
+  // description here: the runner keeps the body stored from an earlier read
+  // of the source, or leaves the job unpublished this run. The invented
+  // company paragraph that used to fill the gap is gone (#5253).
+  const description = meetsSourceBodyFloor(raw.description) ? raw.description : '';
 
   // Detect employment type from percentage
   let employmentType = 'FULL_TIME';
@@ -372,7 +365,15 @@ export function buildJob(raw) {
   // "Ferrovia Retica (RhB)" slugifies to "ferrovia-retica-rhb" — this matches the
   // stable form that hardenJobLocaleFields produces from the company name.
   const baseSlug = slugify(`${title}-ferrovia-retica-rhb-${location}`);
-  const sourceLang = sourceLangFromUrl(raw.url);
+  // The URL locale is the language of the page CHROME, not of the vacancy:
+  // RhB's /it/job/ pages wrap German-written postings in Italian headings
+  // ("Cosa puoi fare • Begleitung unserer Reisezüge …"). Labelling that body
+  // 'it' made the pipeline "translate" the Italian slot from German into
+  // garbage ("Copuoi · …", "Ti 29 3 $ 3 $ 2 …") while the real text sat only
+  // in `description` (#5253). The detail body decides; the URL locale is the
+  // tie-breaker, and the only signal left when no body was read.
+  const urlLang = sourceLangFromUrl(raw.url);
+  const sourceLang = description ? detectLanguage(description, urlLang) : urlLang;
 
   return {
     title,
@@ -387,7 +388,11 @@ export function buildJob(raw) {
     employmentType,
     category: detectCategory(title, description),
     description,
-    postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
+    // ParsedJob contract: the source slot carries the crawled text. Without it
+    // the merge kept the previous (stale or corrupt) source-locale copy forever.
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
+    ...sourcePostingDateFields(raw.datePosted),
+    crawledAt,
     source: 'company-website',
     sourceLang,
     slug: baseSlug,

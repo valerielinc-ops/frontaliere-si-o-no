@@ -11,7 +11,9 @@ const SIBLING_PARSERS = [
   'scripts/lib/alcon-job-parser.mjs',
   'scripts/lib/ardian-job-parser.mjs',
   'scripts/lib/csl-behring-job-parser.mjs',
-  'scripts/lib/medtronic-job-parser.mjs',
+  // medtronic delega alla factory Workday condivisa (issue 5253): si
+  // controlla la factory, che emette il job per tutti i suoi consumatori.
+  'scripts/lib/workday-swiss-job-parser-common.mjs',
   'scripts/lib/rituals-cosmetics-job-parser.mjs',
   'scripts/lib/stryker-job-parser.mjs',
 ];

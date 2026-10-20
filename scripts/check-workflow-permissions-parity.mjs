@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-workflow-permissions-parity.mjs
  *
@@ -28,7 +30,7 @@
  */
 
 import { readFileSync, readdirSync } from 'node:fs';
-import { resolve, dirname, basename, join } from 'node:path';
+import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -307,7 +309,7 @@ export function checkRepo({
 }
 
 // CLI entry point
-if (basename(process.argv[1] || '') === basename(fileURLToPath(import.meta.url))) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     // Override hook for the exit-code integration test (#984 item 3); defaults
     // to the repo's .github/workflows so normal CLI runs are unaffected.

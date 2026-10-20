@@ -442,13 +442,17 @@ describe('runFactualityGates — memory plumbing', () => {
     expect(codes(r.blocking)).toContain('fabricated-institution');
   });
 
-  it('does not apply learned memory when the source is missing', () => {
+  // Una sigla in denylist e' CONFERMATA inventata da evidenze con fonte (le
+  // osservazioni senza fonte non arrivano al learner): vale anche quando
+  // l'articolo sotto esame non ha una fonte giudicabile, come per ogni
+  // evergreen. Senza fonte non si impara niente e i soli sospetti tacciono.
+  it('keeps the confirmed denylist when the source is missing, without learning', () => {
     const r = runFactualityGates({
       sections: { body1: 'Lo dice l\'Ufficio cantonale del lavoro (UCLV).' },
       memory: { denylist: new Set(['UCLV']) },
     });
-    expect(r.passed).toBe(true);
-    expect(codes(r.issues)).toEqual(['unknown-institution']);
+    expect(r.passed).toBe(false);
+    expect(codes(r.blocking)).toContain('fabricated-institution');
     expect(r.observations).toEqual([]);
   });
 

@@ -17,6 +17,7 @@
  *   - isTrustedDomain()         — Validate URLs belong to this company
  *   - slugify() / stripHtml()   — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -247,9 +248,7 @@ export async function fetchAllClimeworksJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} climeworks ${city}`);
 
-    const postedDate = offer.created_at
-      ? String(offer.created_at).slice(0, 10)
-      : new Date().toISOString().slice(0, 10);
+    const postingDates = sourcePostingDateFields(offer.published_at);
 
     const apiEmploymentType = offer.employment_type_code || '';
 
@@ -283,7 +282,7 @@ export async function fetchAllClimeworksJobs() {
       sector: 'Clima e Sostenibilità',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: publicUrl,
       requirements,
       requirementsByLocale: { [sourceLang]: requirements },

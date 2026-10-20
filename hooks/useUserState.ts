@@ -9,14 +9,14 @@
  * - Admin privilege check
  * - Chatbot auth wrappers (authentication only; newsletter consent is separate)
  */
-import { useState, useEffect, useCallback, type Dispatch, type SetStateAction, type MutableRefObject } from 'react';
+import { useState, useEffect, useLayoutEffect, useCallback, type Dispatch, type SetStateAction, type MutableRefObject } from 'react';
 import { useAuth, getAuthEmail, promptOneTap, cancelOneTap, getUserPhotoURL, getUserDisplayName } from '@/services/authService';
 import { claimOneTapPrompt } from '@/services/oneTapPromptGate';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { ContactPrefill } from '@/components/pages/ContactPage';
 import type { SimulationInputs } from '@/types';
-
-const ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com'];
+import { isSiteAdminUid } from '@/services/adminIdentity';
+import { userProfileStorageKey } from '@/services/userProfileStorage';
 
 import { Analytics } from '@/services/analyticsProxy';
 
@@ -46,41 +46,52 @@ export function useUserState(
  const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
 
  const authEmail = authUser ? getAuthEmail(authUser) : null;
- const isPrivilegedAdmin = ADMIN_EMAIL_WHITELIST.includes(authEmail?.toLowerCase() ?? '');
+ const isPrivilegedAdmin = isSiteAdminUid(authUser?.uid);
 
  // Load user profile for prefilling simulator inputs (deferred to idle)
  // Skipped when URL params already hydrated the inputs
- useEffect(() => {
+ useLayoutEffect(() => {
+ setUserProfile(null);
+ let cancelled = false;
+ let idleRequest: number | null = null;
+ let timeoutRequest: ReturnType<typeof setTimeout> | null = null;
  const loadProfile = () => {
- if (urlHydrated.current) return;
+ if (cancelled || urlHydrated.current) return;
  import('@/components/pages/UserProfile').then(({ loadUserProfile, profileToSimInputs }) => {
- const profile = loadUserProfile();
- const hasData = profile.familySituation || profile.children !== '0' || profile.age || profile.frontaliereType;
+ if (cancelled) return;
+ const profile = loadUserProfile(authUser?.uid);
+ const hasData = Boolean(profile.familySituation || profile.children || profile.age || profile.frontaliereType);
+ setUserProfile(hasData ? profile : null);
  if (hasData) {
- setUserProfile(profile);
  const prefilled = profileToSimInputs(profile);
  if (Object.keys(prefilled).length > 0) {
  setInputs(prev => ({ ...prev, ...prefilled }));
  }
  }
- });
+ }).catch(() => {});
  };
  const idleWindow = window as Window & {
  requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ cancelIdleCallback?: (handle: number) => void;
  };
  if (typeof idleWindow.requestIdleCallback === 'function') {
- idleWindow.requestIdleCallback(loadProfile, { timeout: 4000 });
+ idleRequest = idleWindow.requestIdleCallback(loadProfile, { timeout: 4000 });
  } else {
- setTimeout(loadProfile, 2000);
+ timeoutRequest = setTimeout(loadProfile, 2000);
  }
  const onStorage = (e: StorageEvent) => {
- if (e.key === 'frontaliere_user_profile' && e.newValue) {
+ if (e.key === userProfileStorageKey(authUser?.uid) && e.newValue) {
  try { setUserProfile(JSON.parse(e.newValue) as UserProfileData); } catch { /* ignore */ }
  }
  };
  window.addEventListener('storage', onStorage);
- return () => window.removeEventListener('storage', onStorage);
- }, []);
+ return () => {
+ cancelled = true;
+ if (idleRequest != null) idleWindow.cancelIdleCallback?.(idleRequest);
+ if (timeoutRequest != null) clearTimeout(timeoutRequest);
+ window.removeEventListener('storage', onStorage);
+ };
+ }, [authUser?.uid]);
 
  // Chatbot auth wrappers
  const chatbotGoogleSignIn = useCallback(async (): Promise<any | null> => {

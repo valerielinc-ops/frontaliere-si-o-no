@@ -24,8 +24,21 @@
 //     null when fingerprint is missing/empty so the caller can skip
 //     injection cleanly (preserves byte-identical prompts).
 
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { dirname } from 'node:path';
+import {
+  closeSync,
+  existsSync,
+  fsyncSync,
+  mkdirSync,
+  openSync,
+  readFileSync,
+  readdirSync,
+  renameSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs';
+import { createHash, randomUUID } from 'node:crypto';
+import { basename, dirname, join, resolve } from 'node:path';
 
 import {
   FRONTALIERI_DOMAIN_RE,
@@ -115,7 +128,14 @@ export const EVERGREEN_COUNTER_PATH = 'data/topic-candidates-evergreen-counter.j
 // previous run already proved is a duplicate. Persisted here so the next
 // run can skip known-rejected keywords for free (no wasted generation).
 export const EVERGREEN_REJECTED_PATH = 'data/topic-candidates-evergreen-rejected.json';
-export const EVERGREEN_REJECTED_MAX_IDS = 500;
+// The cap applies independently to confirmed bans and strike records. Legacy
+// strings are migrated into a third, equally bounded quarantine list, so a
+// long-lived generator cannot grow the state file without limit.
+export const EVERGREEN_REJECTED_MAX_IDS = 2048;
+export const EVERGREEN_REJECTED_SCHEMA_VERSION = 2;
+export const EVERGREEN_POOL_NAME = 'evergreen';
+export const EVERGREEN_STRIKE_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+export const EVERGREEN_LEGACY_VALIDITY_RULE = 'preflight-required';
 
 // Scoring weights — per design doc.
 export const SCORE_WEIGHT_DEMAND = 0.6;
@@ -974,97 +994,778 @@ export function shouldForceEvergreen(count, ratio = EVERGREEN_QUOTA_DEFAULT) {
 }
 
 /**
- * Load the evergreen-rejected tracker from disk. Returns `{keywords: []}`
- * on any read/parse failure or missing file — byte-identical to today's
- * behavior when the file has never been written.
+ * ── Evergreen rejection ledger ────────────────────────────────────────────
+ *
+ * The old ledger stored `keywords[]` and `strikes{}` as global values. That
+ * made a decision from one section, pool generation, or pool epoch look valid
+ * forever in every later run. Schema v2 keeps the decision, but gives active
+ * records a complete provenance tuple and gives strikes an expiry.
+ *
+ * A legacy record is never silently dropped. It is moved to `legacy[]` with
+ * the explicit `preflight-required` validity rule. With a complete runtime
+ * context it is not an active block: the normal duplicate preflight must
+ * revalidate it, and a confirmed duplicate is written back with fresh
+ * provenance. Without a runtime context the helper fails closed and keeps it
+ * blocked, so a caller cannot accidentally reactivate an unscoped decision.
  */
-export function loadEvergreenRejectedTracker(opts = {}) {
-  const path = (opts && opts.path) || EVERGREEN_REJECTED_PATH;
-  const raw = loadJsonSafe(path);
-  if (!raw || typeof raw !== 'object' || !Array.isArray(raw.keywords)) {
-    return { keywords: [], strikes: {} };
-  }
-  // `strikes` is additive: a file written before it existed simply has none,
-  // and one written with it stays readable by an older build, which ignores it.
-  const strikes = {};
-  if (raw.strikes && typeof raw.strikes === 'object') {
-    for (const [k, v] of Object.entries(raw.strikes)) {
-      if (typeof k === 'string' && Number.isInteger(v) && v > 0) strikes[k] = v;
-    }
-  }
-  return { keywords: raw.keywords.filter((x) => typeof x === 'string'), strikes };
-}
-
-/**
- * Strikes before a keyword stops being offered. Three, not one: quality
- * rejects are partly LLM variance, so a single bad draft must not retire a
- * good topic (that is why quality rejects were excluded from the permanent
- * ban in the first place). Three consecutive failures is no longer variance.
- */
+export const TOPIC_GATE_URL_TTL_MS = 48 * 60 * 60 * 1000;
+export const TOPIC_GATE_URL_MAX = 300;
 export const EVERGREEN_STRIKE_LIMIT = 3;
 
-/** Whether `keyword` was already confirmed a duplicate in a previous run. */
-export function isEvergreenRejected(tracker, keyword) {
-  if (!tracker || !Array.isArray(tracker.keywords) || !keyword) return false;
-  if (tracker.keywords.includes(keyword)) return true;
-  // Strike-limited backoff. A keyword whose gates never converge used to be
-  // re-picked on every cron slot forever: it is not a duplicate and not a
-  // topic-gate abort, so nothing recorded it, and it burned the entire run
-  // each time. That is what stopped article production between 2026-07-30 and
-  // 2026-08-03 — the same tax keyword was selected, failed the source-fidelity
-  // gate through all six attempts, and came back 30 minutes later.
-  const n = tracker.strikes?.[keyword];
-  return Number.isInteger(n) && n >= EVERGREEN_STRIKE_LIMIT;
+function emptyEvergreenRejectedTracker() {
+  return {
+    schemaVersion: EVERGREEN_REJECTED_SCHEMA_VERSION,
+    bans: [],
+    strikes: [],
+    legacy: [],
+    topicGateUrls: {},
+  };
+}
+
+function isRecord(value) {
+  return !!value && typeof value === 'object' && !Array.isArray(value);
+}
+
+function isoNow(value = Date.now()) {
+  const ms = Number(value);
+  return Number.isFinite(ms) ? new Date(ms).toISOString() : new Date().toISOString();
+}
+
+function epochMs(value, fallback = NaN) {
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  if (typeof value === 'string' && value.trim()) {
+    const parsed = Date.parse(value);
+    if (Number.isFinite(parsed)) return parsed;
+  }
+  return fallback;
+}
+
+function completeProvenance(value) {
+  return isRecord(value)
+    && typeof value.section === 'string' && value.section.length > 0
+    && typeof value.pool === 'string' && value.pool.length > 0
+    && typeof value.poolEpoch === 'string' && value.poolEpoch.length > 0;
+}
+
+function contextFrom(value = {}) {
+  const source = isRecord(value?.context) ? { ...value.context, now: value.now ?? value.context.now } : value;
+  return {
+    section: typeof source?.section === 'string' ? source.section : null,
+    pool: typeof source?.pool === 'string' ? source.pool : null,
+    poolEpoch: typeof source?.poolEpoch === 'string' ? source.poolEpoch : null,
+    now: epochMs(source?.now, Date.now()),
+  };
+}
+
+function hasContext(context) {
+  return completeProvenance(context);
+}
+
+function matchesContext(entry, context) {
+  return hasContext(context)
+    && entry.section === context.section
+    && entry.pool === context.pool
+    && entry.poolEpoch === context.poolEpoch;
+}
+
+function legacyEntry(kind, keyword, now, count = undefined) {
+  return {
+    kind,
+    keyword,
+    section: null,
+    pool: null,
+    poolEpoch: null,
+    status: 'pending-revalidation',
+    validityRule: EVERGREEN_LEGACY_VALIDITY_RULE,
+    migratedAt: isoNow(now),
+    ...(Number.isInteger(count) && count > 0 ? { count } : {}),
+  };
+}
+
+function readTopicGateUrls(value, { strict = false } = {}) {
+  const out = {};
+  if (value == null) return out;
+  if (!isRecord(value)) {
+    if (strict) throw new Error('topicGateUrls must be an object');
+    return out;
+  }
+  for (const [key, entry] of Object.entries(value)) {
+    if (typeof key !== 'string' || !key || !entry || typeof entry.section !== 'string' || !Number.isFinite(entry.ts)) {
+      if (strict) throw new Error(`invalid topicGateUrls entry: ${key}`);
+      continue;
+    }
+    out[key] = { section: entry.section, ts: entry.ts };
+  }
+  return out;
+}
+
+function normalizeV2(raw) {
+  if (raw.schemaVersion !== EVERGREEN_REJECTED_SCHEMA_VERSION) {
+    throw new Error(`unsupported evergreen ledger schemaVersion=${JSON.stringify(raw.schemaVersion)}`);
+  }
+  if (!Array.isArray(raw.bans) || !Array.isArray(raw.strikes) || !Array.isArray(raw.legacy)) {
+    throw new Error('schema v2 requires bans[], strikes[] and legacy[]');
+  }
+
+  const tracker = emptyEvergreenRejectedTracker();
+  for (const [index, entry] of raw.bans.entries()) {
+    if (!isRecord(entry) || typeof entry.keyword !== 'string' || !entry.keyword || !completeProvenance(entry)
+      || entry.status !== 'active' || entry.validityRule !== 'confirmed-duplicate') {
+      throw new Error(`ban[${index}] has no complete provenance`);
+    }
+    tracker.bans.push({
+      keyword: entry.keyword,
+      section: entry.section,
+      pool: entry.pool,
+      poolEpoch: entry.poolEpoch,
+      status: 'active',
+      validityRule: entry.validityRule || 'confirmed-duplicate',
+      reason: typeof entry.reason === 'string' ? entry.reason : 'duplicate',
+      firstSeenAt: typeof entry.firstSeenAt === 'string' ? entry.firstSeenAt : isoNow(),
+      lastValidatedAt: typeof entry.lastValidatedAt === 'string' ? entry.lastValidatedAt : isoNow(),
+      expiresAt: null,
+    });
+  }
+  for (const [index, entry] of raw.strikes.entries()) {
+    const expires = epochMs(entry?.expiresAt);
+    if (!isRecord(entry) || entry.status !== 'active' || entry.validityRule !== 'quality-strike-ttl'
+      || typeof entry.keyword !== 'string' || !entry.keyword || !completeProvenance(entry)
+      || !Number.isInteger(entry.count) || entry.count < 1 || !Number.isFinite(expires)) {
+      throw new Error(`strike[${index}] has invalid count, expiry or provenance`);
+    }
+    tracker.strikes.push({
+      keyword: entry.keyword,
+      section: entry.section,
+      pool: entry.pool,
+      poolEpoch: entry.poolEpoch,
+      status: 'active',
+      validityRule: entry.validityRule || 'quality-strike-ttl',
+      count: entry.count,
+      firstStrikeAt: typeof entry.firstStrikeAt === 'string' ? entry.firstStrikeAt : isoNow(),
+      lastStrikeAt: typeof entry.lastStrikeAt === 'string' ? entry.lastStrikeAt : isoNow(),
+      expiresAt: new Date(expires).toISOString(),
+    });
+  }
+  for (const [index, entry] of raw.legacy.entries()) {
+    if (!isRecord(entry) || (entry.kind !== 'ban' && entry.kind !== 'strike')
+      || typeof entry.keyword !== 'string' || !entry.keyword
+      || entry.validityRule !== EVERGREEN_LEGACY_VALIDITY_RULE) {
+      throw new Error(`legacy[${index}] has no explicit validity rule`);
+    }
+    tracker.legacy.push({
+      kind: entry.kind,
+      keyword: entry.keyword,
+      section: null,
+      pool: null,
+      poolEpoch: null,
+      status: 'pending-revalidation',
+      validityRule: EVERGREEN_LEGACY_VALIDITY_RULE,
+      migratedAt: typeof entry.migratedAt === 'string' ? entry.migratedAt : isoNow(),
+      ...(Number.isInteger(entry.count) && entry.count > 0 ? { count: entry.count } : {}),
+    });
+  }
+  tracker.topicGateUrls = readTopicGateUrls(raw.topicGateUrls, { strict: true });
+  return tracker;
+}
+
+function provenanceFromResolver(resolve, kind, keyword) {
+  if (typeof resolve !== 'function') return null;
+  try {
+    const candidate = resolve({ kind, keyword });
+    return completeProvenance(candidate) ? {
+      section: candidate.section,
+      pool: candidate.pool,
+      poolEpoch: candidate.poolEpoch,
+    } : null;
+  } catch {
+    return null;
+  }
 }
 
 /**
- * Record one non-fatal failure for `keyword`. Pure — caller persists. Unlike
- * `appendEvergreenRejected` this does not retire the keyword outright; it
- * retires only once `EVERGREEN_STRIKE_LIMIT` is reached.
+ * Convert the pre-v2 `{keywords: string[], strikes: Record<string, number>}`
+ * shape without dropping a single decision. A caller may provide
+ * `provenanceFor({ kind, keyword })` for entries it has independently
+ * verified; everything else remains explicitly quarantined for preflight.
+ * The returned report is suitable for a dry-run migration command.
+ */
+export function migrateEvergreenRejectedTracker(raw, opts = {}) {
+  const now = epochMs(opts.now, Date.now());
+  if (!isRecord(raw)) return { ok: false, error: 'ledger is not an object', dropped: [] };
+  if (raw.schemaVersion === EVERGREEN_REJECTED_SCHEMA_VERSION) {
+    try {
+      return {
+        ok: true,
+        migrated: false,
+        tracker: normalizeV2(raw),
+        report: { bans: raw.bans.length, strikes: raw.strikes.length, legacy: raw.legacy.length, dropped: [] },
+      };
+    } catch (error) {
+      return { ok: false, error: error.message, dropped: [] };
+    }
+  }
+  if (!Array.isArray(raw.keywords)) return { ok: false, error: 'legacy ledger requires keywords[]', dropped: [] };
+  if (raw.strikes != null && !isRecord(raw.strikes)) {
+    return { ok: false, error: 'legacy ledger strikes must be an object', dropped: [] };
+  }
+
+  const tracker = emptyEvergreenRejectedTracker();
+  const report = { bans: 0, strikes: 0, legacy: 0, dropped: [] };
+  for (const keyword of raw.keywords) {
+    if (typeof keyword !== 'string' || !keyword) {
+      report.dropped.push({ kind: 'ban', value: keyword });
+      continue;
+    }
+    const provenance = provenanceFromResolver(opts.provenanceFor, 'ban', keyword);
+    if (provenance) {
+      tracker.bans.push({
+        keyword,
+        ...provenance,
+        status: 'active',
+        validityRule: 'confirmed-duplicate',
+        reason: 'legacy-confirmed-duplicate',
+        firstSeenAt: isoNow(now),
+        lastValidatedAt: isoNow(now),
+        expiresAt: null,
+      });
+      report.bans += 1;
+    } else {
+      tracker.legacy.push(legacyEntry('ban', keyword, now));
+      report.legacy += 1;
+    }
+  }
+  for (const [keyword, count] of Object.entries(raw.strikes || {})) {
+    if (typeof keyword !== 'string' || !keyword || !Number.isInteger(count) || count < 1) {
+      report.dropped.push({ kind: 'strike', keyword, value: count });
+      continue;
+    }
+    const provenance = provenanceFromResolver(opts.provenanceFor, 'strike', keyword);
+    if (provenance) {
+      tracker.strikes.push({
+        keyword,
+        ...provenance,
+        status: 'active',
+        validityRule: 'quality-strike-ttl',
+        count,
+        firstStrikeAt: isoNow(now),
+        lastStrikeAt: isoNow(now),
+        expiresAt: isoNow(now + EVERGREEN_STRIKE_TTL_MS),
+      });
+      report.strikes += 1;
+    } else {
+      tracker.legacy.push(legacyEntry('strike', keyword, now, count));
+      report.legacy += 1;
+    }
+  }
+  try {
+    tracker.topicGateUrls = readTopicGateUrls(raw.topicGateUrls, { strict: true });
+  } catch (error) {
+    return { ok: false, error: error.message, dropped: report.dropped };
+  }
+  if (report.dropped.length > 0) {
+    return { ok: false, error: 'legacy ledger contains malformed entries', dropped: report.dropped };
+  }
+  return { ok: true, migrated: true, tracker, report };
+}
+
+function coerceTracker(tracker) {
+  if (tracker?.invalid) return { ...emptyEvergreenRejectedTracker(), invalid: true };
+  if (tracker?.schemaVersion === EVERGREEN_REJECTED_SCHEMA_VERSION) {
+    try { return normalizeV2(tracker); } catch { return { ...emptyEvergreenRejectedTracker(), invalid: true }; }
+  }
+  if (tracker && (Array.isArray(tracker.keywords) || isRecord(tracker.strikes))) {
+    const migrated = migrateEvergreenRejectedTracker(tracker);
+    if (migrated.ok) return migrated.tracker;
+  }
+  return tracker?.invalid ? { ...emptyEvergreenRejectedTracker(), invalid: true } : emptyEvergreenRejectedTracker();
+}
+
+function capRecords(records, maxIds) {
+  const max = Number.isInteger(maxIds) && maxIds > 0 ? maxIds : EVERGREEN_REJECTED_MAX_IDS;
+  return records.slice(Math.max(0, records.length - max));
+}
+
+/** Fingerprint the exact keyword membership of one section's evergreen pool. */
+export function computeEvergreenPoolEpoch(pool, section = 'unknown') {
+  const keywords = (Array.isArray(pool) ? pool : [])
+    .map((entry) => typeof entry === 'string' ? entry : entry?.keyword)
+    .filter((keyword) => typeof keyword === 'string' && keyword)
+    .sort();
+  const digest = createHash('sha256').update(JSON.stringify([...new Set(keywords)])).digest('hex').slice(0, 16);
+  return `${section}:${EVERGREEN_POOL_NAME}:${digest}`;
+}
+
+function recordIsExpired(record, now) {
+  const expires = epochMs(record?.expiresAt);
+  return Number.isFinite(expires) && expires <= now;
+}
+
+function activeBanRecords(tracker, keyword) {
+  return tracker.bans.filter((entry) => entry.keyword === keyword && entry.status === 'active');
+}
+
+function activeStrikeRecords(tracker, keyword) {
+  return tracker.strikes.filter((entry) => entry.keyword === keyword && entry.status === 'active');
+}
+
+function hasLegacyRecord(tracker, kind, keyword) {
+  return tracker.legacy.some((entry) => entry.kind === kind && entry.keyword === keyword);
+}
+
+function hasLegacyStrikeAtThreshold(tracker, keyword) {
+  return tracker.legacy.some((entry) => entry.kind === 'strike'
+    && entry.keyword === keyword
+    && Number.isInteger(entry.count)
+    && entry.count >= EVERGREEN_STRIKE_LIMIT);
+}
+
+/** Whether the confirmed ban is active for this exact section/pool epoch. */
+export function isEvergreenBanned(tracker, keyword, context = {}) {
+  if (!keyword) return false;
+  if (tracker?.invalid) return true;
+  const normalized = coerceTracker(tracker);
+  const ctx = contextFrom(context);
+  const records = activeBanRecords(normalized, keyword);
+  if (!hasContext(ctx)) return records.length > 0 || hasLegacyRecord(normalized, 'ban', keyword);
+  // A changed pool epoch is deliberately a revalidation opportunity. The
+  // preflight caller refreshes a confirmed duplicate with the new epoch.
+  return records.some((entry) => matchesContext(entry, ctx));
+}
+
+/** Whether the quality strike threshold is active for this exact context. */
+export function isEvergreenStruck(tracker, keyword, context = {}) {
+  if (!keyword) return false;
+  if (tracker?.invalid) return true;
+  const normalized = coerceTracker(tracker);
+  const ctx = contextFrom(context);
+  const now = ctx.now;
+  const records = activeStrikeRecords(normalized, keyword)
+    .filter((entry) => entry.count >= EVERGREEN_STRIKE_LIMIT && !recordIsExpired(entry, now));
+  if (!hasContext(ctx)) {
+    return records.length > 0 || hasLegacyStrikeAtThreshold(normalized, keyword);
+  }
+  return records.some((entry) => matchesContext(entry, ctx));
+}
+
+/** Return the observable reason used by the generation breakdown. */
+export function evergreenRejectionKind(tracker, keyword, context = {}) {
+  if (isEvergreenBanned(tracker, keyword, context)) return 'ban';
+  if (isEvergreenStruck(tracker, keyword, context)) return 'strike';
+  return null;
+}
+
+/** Whether `keyword` is blocked by either active ledger mechanism. */
+export function isEvergreenRejected(tracker, keyword, context = {}) {
+  return evergreenRejectionKind(tracker, keyword, context) !== null || !!tracker?.invalid;
+}
+
+function upsertLegacy(tracker, kind, keyword, now, count) {
+  const existing = tracker.legacy.find((entry) => entry.kind === kind && entry.keyword === keyword);
+  if (existing) {
+    return tracker.legacy.map((entry) => entry === existing
+      ? { ...entry, ...(Number.isInteger(count) && count > 0 ? { count } : {}), migratedAt: entry.migratedAt || isoNow(now) }
+      : entry);
+  }
+  return capRecords([...tracker.legacy, legacyEntry(kind, keyword, now, count)], EVERGREEN_REJECTED_MAX_IDS);
+}
+
+/**
+ * Record one quality failure. A complete context creates a TTL-bound strike;
+ * without it the decision stays a quarantined legacy record, never a global
+ * unscoped block.
  */
 export function strikeEvergreenKeyword(tracker, keyword, opts = {}) {
-  const keywords = Array.isArray(tracker?.keywords) ? tracker.keywords.slice() : [];
-  const strikes = { ...(tracker?.strikes || {}) };
-  if (!keyword) return { keywords, strikes };
-  strikes[keyword] = (strikes[keyword] || 0) + 1;
-  // Bounded like `keywords`, and by the same FIFO rule, so a long-lived repo
-  // cannot grow this map without limit.
-  const maxIds = (opts && opts.maxIds) || EVERGREEN_REJECTED_MAX_IDS;
-  const over = Object.keys(strikes).length - maxIds;
-  if (over > 0) for (const k of Object.keys(strikes).slice(0, over)) delete strikes[k];
-  return { keywords, strikes };
+  const normalized = coerceTracker(tracker);
+  if (!keyword) return normalized;
+  const ctx = contextFrom(opts);
+  const at = ctx.now;
+  if (!hasContext(ctx)) {
+    const current = normalized.legacy.find((entry) => entry.kind === 'strike' && entry.keyword === keyword);
+    return {
+      ...normalized,
+      legacy: upsertLegacy(normalized, 'strike', keyword, at, (current?.count || 0) + 1),
+    };
+  }
+  const index = normalized.strikes.findIndex((entry) => entry.keyword === keyword && matchesContext(entry, ctx));
+  const previous = index >= 0 ? normalized.strikes[index] : null;
+  const expired = previous && recordIsExpired(previous, at);
+  const next = {
+    keyword,
+    section: ctx.section,
+    pool: ctx.pool,
+    poolEpoch: ctx.poolEpoch,
+    status: 'active',
+    validityRule: 'quality-strike-ttl',
+    count: expired ? 1 : (previous?.count || 0) + 1,
+    firstStrikeAt: expired ? isoNow(at) : (previous?.firstStrikeAt || isoNow(at)),
+    lastStrikeAt: isoNow(at),
+    expiresAt: isoNow(at + EVERGREEN_STRIKE_TTL_MS),
+  };
+  const strikes = normalized.strikes.slice();
+  if (index >= 0) strikes[index] = next;
+  else strikes.push(next);
+  return { ...normalized, strikes: capRecords(strikes, opts.maxIds) };
 }
 
 /**
- * Append a confirmed-duplicate keyword to the tracker (dedup, FIFO-capped
- * at `EVERGREEN_REJECTED_MAX_IDS`, oldest evicted first). Pure — caller
- * persists the returned tracker.
+ * Record a confirmed duplicate/topic-gate decision. Confirmed bans never
+ * expire; a pool epoch change simply forces the next preflight to revalidate
+ * them before a fresh provenance record is written.
  */
 export function appendEvergreenRejected(tracker, keyword, opts = {}) {
-  const maxIds = (opts && opts.maxIds) || EVERGREEN_REJECTED_MAX_IDS;
-  const keywords = Array.isArray(tracker?.keywords) ? tracker.keywords.slice() : [];
-  if (keyword && !keywords.includes(keyword)) keywords.push(keyword);
-  while (keywords.length > maxIds) keywords.shift();
-  return { keywords, strikes: { ...(tracker?.strikes || {}) } };
+  const normalized = coerceTracker(tracker);
+  if (!keyword) return normalized;
+  const ctx = contextFrom(opts);
+  const at = ctx.now;
+  if (!hasContext(ctx)) {
+    return { ...normalized, legacy: upsertLegacy(normalized, 'ban', keyword, at) };
+  }
+  const next = {
+    keyword,
+    section: ctx.section,
+    pool: ctx.pool,
+    poolEpoch: ctx.poolEpoch,
+    status: 'active',
+    validityRule: 'confirmed-duplicate',
+    reason: typeof opts.reason === 'string' ? opts.reason : 'duplicate',
+    firstSeenAt: isoNow(at),
+    lastValidatedAt: isoNow(at),
+    expiresAt: null,
+  };
+  const bans = normalized.bans.slice();
+  const index = bans.findIndex((entry) => entry.keyword === keyword && matchesContext(entry, ctx));
+  if (index >= 0) bans[index] = { ...bans[index], ...next, firstSeenAt: bans[index].firstSeenAt || next.firstSeenAt };
+  else bans.push(next);
+  return { ...normalized, bans: capRecords(bans, opts.maxIds) };
 }
 
-/** Persist the evergreen-rejected tracker to disk. */
-export function persistEvergreenRejectedTracker(tracker, opts = {}) {
-  const path = (opts && opts.path) || EVERGREEN_REJECTED_PATH;
+/** Pure helper used by the historical, section-specific strike reset report. */
+export function clearEvergreenStrikesForPool(tracker, pool, opts = {}) {
+  const normalized = coerceTracker(tracker);
+  const poolSet = new Set(Array.isArray(pool) ? pool : []);
+  const cleared = [];
+  const strikes = [];
+  for (const entry of normalized.strikes) {
+    if (poolSet.has(entry.keyword)) cleared.push({ keyword: entry.keyword, strikes: entry.count, wasRetired: entry.count >= EVERGREEN_STRIKE_LIMIT });
+    else strikes.push(entry);
+  }
+  const legacy = [];
+  for (const entry of normalized.legacy) {
+    if (entry.kind === 'strike' && poolSet.has(entry.keyword)) {
+      cleared.push({ keyword: entry.keyword, strikes: entry.count || 0, wasRetired: (entry.count || 0) >= EVERGREEN_STRIKE_LIMIT });
+    } else legacy.push(entry);
+  }
+  return {
+    tracker: { ...normalized, strikes: capRecords(strikes, opts.maxIds), legacy },
+    cleared,
+    keptBanned: [
+      ...normalized.bans.filter((entry) => poolSet.has(entry.keyword)).map((entry) => entry.keyword),
+      ...normalized.legacy.filter((entry) => entry.kind === 'ban' && poolSet.has(entry.keyword)).map((entry) => entry.keyword),
+    ],
+  };
+}
+
+/**
+ * ── URL DI NOTIZIE SCARTATI DAL TOPIC-GATE ─────────────────────────────────
+ *
+ * `topicGateUrls` shares the file with the evergreen ledger but has its own
+ * 48-hour TTL and section key. Every tracker transformation above preserves it.
+ */
+
+/** Key of one abort: section AND URL, so sections never overwrite each other. */
+export function topicGateUrlKey(urlKey, section) {
+  return `${section}::${urlKey}`;
+}
+
+/** Whether `urlKey` got a topic-gate abort in `section` within the TTL. */
+export function isTopicGateAbortedUrl(tracker, urlKey, section, now = Date.now(), ttlMs = TOPIC_GATE_URL_TTL_MS) {
+  const entry = tracker?.topicGateUrls?.[topicGateUrlKey(urlKey, section)];
+  return !!entry && entry.section === section && now - entry.ts >= 0 && now - entry.ts < ttlMs;
+}
+
+/** Record a topic-gate abort. Pure; expired entries are removed and capped. */
+export function recordTopicGateAbortedUrl(tracker, urlKey, section, now = Date.now(), ttlMs = TOPIC_GATE_URL_TTL_MS) {
+  const normalized = coerceTracker(tracker);
+  const topicGateUrls = {};
+  for (const [key, entry] of Object.entries(normalized.topicGateUrls || {})) {
+    if (now - entry.ts < ttlMs) topicGateUrls[key] = entry;
+  }
+  if (urlKey && section) {
+    const key = topicGateUrlKey(urlKey, section);
+    delete topicGateUrls[key];
+    topicGateUrls[key] = { section, ts: now };
+  }
+  const keys = Object.keys(topicGateUrls);
+  for (const key of keys.slice(0, Math.max(0, keys.length - TOPIC_GATE_URL_MAX))) delete topicGateUrls[key];
+  return { ...normalized, topicGateUrls };
+}
+
+const EVERGREEN_LEDGER_LOCK_TIMEOUT_MS = 30_000;
+const EVERGREEN_LEDGER_LOCK_INIT_GRACE_MS = 5_000;
+const EVERGREEN_LEDGER_LOCK_RETRY_MS = 15;
+const evergreenLedgerWaitCell = new Int32Array(new SharedArrayBuffer(4));
+
+function waitForEvergreenLedgerLock(ms) {
+  Atomics.wait(evergreenLedgerWaitCell, 0, 0, ms);
+}
+
+function processIsAlive(pid) {
   try {
-    mkdirSync(dirname(path), { recursive: true });
-    writeFileSync(
-      path,
-      JSON.stringify({
-        keywords: Array.isArray(tracker?.keywords) ? tracker.keywords : [],
-        strikes: (tracker && typeof tracker.strikes === 'object' && tracker.strikes) || {},
-      }, null, 2) + '\n',
-      'utf-8',
-    );
+    process.kill(pid, 0);
     return true;
-  } catch (e) {
-    console.warn(`[generator] could not write evergreen-rejected tracker to ${path}: ${e.message}`);
-    return false;
+  } catch (error) {
+    if (error.code === 'ESRCH') return false;
+    // EPERM means the process exists; unknown errors also fail closed.
+    return true;
+  }
+}
+
+function inspectEvergreenLedgerLock(lockPath) {
+  let lockStat;
+  try {
+    lockStat = statSync(lockPath);
+  } catch (error) {
+    if (error.code === 'ENOENT') return 'missing';
+    throw error;
+  }
+
+  let owner;
+  try {
+    owner = JSON.parse(readFileSync(join(lockPath, 'owner.json'), 'utf-8'));
+  } catch (error) {
+    if (error.code !== 'ENOENT' && !(error instanceof SyntaxError)) throw error;
+    return Date.now() - lockStat.mtimeMs >= EVERGREEN_LEDGER_LOCK_INIT_GRACE_MS ? 'stale' : 'busy';
+  }
+
+  if (!Number.isSafeInteger(owner?.pid) || owner.pid < 1 || typeof owner.token !== 'string' || !owner.token) {
+    return Date.now() - lockStat.mtimeMs >= EVERGREEN_LEDGER_LOCK_INIT_GRACE_MS ? 'stale' : 'busy';
+  }
+  return processIsAlive(owner.pid) ? 'busy' : 'stale';
+}
+
+/** Create a fully-owned directory, then publish it as the lock in one rename. */
+function tryAcquireEvergreenLedgerDirectoryLock(lockPath, token) {
+  const candidatePath = `${lockPath}.candidate-${process.pid}-${token}`;
+  mkdirSync(candidatePath, { mode: 0o700 });
+  try {
+    writeFileSync(
+      join(candidatePath, 'owner.json'),
+      JSON.stringify({ pid: process.pid, token, createdAt: Date.now() }),
+      { encoding: 'utf-8', flag: 'wx', mode: 0o600 },
+    );
+    try {
+      renameSync(candidatePath, lockPath);
+      return true;
+    } catch (error) {
+      if (error.code === 'EEXIST' || error.code === 'ENOTEMPTY') return false;
+      throw error;
+    }
+  } finally {
+    rmSync(candidatePath, { recursive: true, force: true });
+  }
+}
+
+function reclaimStaleEvergreenLedgerLock(lockPath) {
+  if (inspectEvergreenLedgerLock(lockPath) !== 'stale') return false;
+  const stalePath = `${lockPath}.stale-${randomUUID()}`;
+  try {
+    renameSync(lockPath, stalePath);
+  } catch (error) {
+    if (['ENOENT', 'EEXIST', 'ENOTEMPTY'].includes(error.code)) return false;
+    throw error;
+  }
+  rmSync(stalePath, { recursive: true, force: true });
+  return true;
+}
+
+/** Acquire the reaper, reclaiming a reaper owner that died mid-recovery. */
+function acquireEvergreenLedgerReaperLock(reaperPath) {
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const reaperToken = randomUUID();
+    let ownsReaper = false;
+    try {
+      ownsReaper = tryAcquireEvergreenLedgerDirectoryLock(reaperPath, reaperToken);
+    } catch (error) {
+      if (error.code === 'EEXIST' || error.code === 'ENOTEMPTY') ownsReaper = false;
+      else throw error;
+    }
+    if (ownsReaper) return { lockPath: reaperPath, token: reaperToken };
+    if (!reclaimStaleEvergreenLedgerLock(reaperPath)) return null;
+  }
+  return null;
+}
+
+/** Reclaim only a dead owner, with one reaper at a time and a fresh recheck. */
+function reclaimEvergreenLedgerLock(lockPath) {
+  const reaper = acquireEvergreenLedgerReaperLock(`${lockPath}.reaper`);
+  if (!reaper) return false;
+
+  try {
+    return reclaimStaleEvergreenLedgerLock(lockPath);
+  } finally {
+    releaseEvergreenLedgerDirectoryLock(reaper.lockPath, reaper.token);
+  }
+}
+
+function releaseEvergreenLedgerDirectoryLock(lockPath, token) {
+  let owner;
+  try {
+    owner = JSON.parse(readFileSync(join(lockPath, 'owner.json'), 'utf-8'));
+  } catch (error) {
+    throw new Error(`cannot verify evergreen ledger lock ownership at ${lockPath}: ${error.message}`);
+  }
+  if (owner.token !== token || owner.pid !== process.pid) {
+    throw new Error(`evergreen ledger lock ownership changed at ${lockPath}`);
+  }
+  const releasedPath = `${lockPath}.released-${process.pid}-${randomUUID()}`;
+  renameSync(lockPath, releasedPath);
+  rmSync(releasedPath, { recursive: true });
+}
+
+function acquireEvergreenLedgerLock(path) {
+  const lockPath = `${path}.lock`;
+  const deadline = Date.now() + EVERGREEN_LEDGER_LOCK_TIMEOUT_MS;
+  while (true) {
+    if (Date.now() >= deadline) {
+      throw new Error(`timed out waiting for evergreen ledger lock at ${lockPath}`);
+    }
+    const state = inspectEvergreenLedgerLock(lockPath);
+    if (state === 'missing') {
+      const token = randomUUID();
+      if (tryAcquireEvergreenLedgerDirectoryLock(lockPath, token)) return { lockPath, token };
+      waitForEvergreenLedgerLock(Math.min(EVERGREEN_LEDGER_LOCK_RETRY_MS, deadline - Date.now()));
+      continue;
+    }
+    if (state === 'stale') {
+      if (!reclaimEvergreenLedgerLock(lockPath)) {
+        if (Date.now() >= deadline) {
+          throw new Error(`timed out waiting for evergreen ledger lock at ${lockPath}`);
+        }
+        waitForEvergreenLedgerLock(Math.min(EVERGREEN_LEDGER_LOCK_RETRY_MS, deadline - Date.now()));
+      }
+      continue;
+    }
+    if (Date.now() >= deadline) {
+      throw new Error(`timed out waiting for evergreen ledger lock at ${lockPath}`);
+    }
+    waitForEvergreenLedgerLock(Math.min(EVERGREEN_LEDGER_LOCK_RETRY_MS, deadline - Date.now()));
+  }
+}
+
+function removeAbandonedEvergreenLedgerTemps(path) {
+  const directory = dirname(path);
+  const prefix = `.${basename(path)}.tmp-`;
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    if (!entry.name.startsWith(prefix) || (!entry.isFile() && !entry.isSymbolicLink())) continue;
+    rmSync(join(directory, entry.name), { force: true });
+  }
+}
+
+function serializedEvergreenRejectedTracker(tracker) {
+  return JSON.stringify({
+    schemaVersion: EVERGREEN_REJECTED_SCHEMA_VERSION,
+    bans: tracker.bans,
+    strikes: tracker.strikes,
+    legacy: tracker.legacy,
+    topicGateUrls: tracker.topicGateUrls,
+  }, null, 2) + '\n';
+}
+
+function syncEvergreenLedgerDirectory(directory) {
+  let fd;
+  try {
+    fd = openSync(directory, 'r');
+    fsyncSync(fd);
+  } catch (error) {
+    // Some supported filesystems do not allow fsync on directory descriptors.
+    if (!['EINVAL', 'ENOTSUP', 'EISDIR', 'EBADF'].includes(error.code)) throw error;
+  } finally {
+    if (fd !== undefined) closeSync(fd);
+  }
+}
+
+function atomicallyReplaceEvergreenRejectedTracker(path, tracker, opts = {}) {
+  const directory = dirname(path);
+  const tempPath = join(directory, `.${basename(path)}.tmp-${process.pid}-${randomUUID()}`);
+  let fd;
+  try {
+    fd = openSync(tempPath, 'wx', 0o600);
+    writeFileSync(fd, serializedEvergreenRejectedTracker(tracker), 'utf-8');
+    fsyncSync(fd);
+    closeSync(fd);
+    fd = undefined;
+
+    // Deterministic fault injection for the crash/rollback regression only.
+    opts._beforeAtomicReplaceForTest?.({ path, tempPath });
+    renameSync(tempPath, path);
+    try {
+      (opts._syncDirectoryForTest || syncEvergreenLedgerDirectory)(directory);
+    } catch (error) {
+      // The rename is already committed and cannot be rolled back safely.
+      // Propagate unexpected durability failures, but make the committed state
+      // explicit so callers do not mistake this for a pre-commit failure.
+      error.ledgerCommitted = true;
+      error.phase = 'post-rename-directory-fsync';
+      error.message = `Evergreen ledger ${path} was replaced, but directory fsync failed: ${error.message}`;
+      throw error;
+    }
+  } catch (error) {
+    if (fd !== undefined) closeSync(fd);
+    rmSync(tempPath, { force: true });
+    throw error;
+  }
+}
+
+/** Load and migrate in memory; a malformed existing file fails closed. */
+export function loadEvergreenRejectedTracker(opts = {}) {
+  const path = (opts && opts.path) || EVERGREEN_REJECTED_PATH;
+  if (!existsSync(path)) return emptyEvergreenRejectedTracker();
+  let raw;
+  try {
+    raw = JSON.parse(readFileSync(path, 'utf-8'));
+  } catch (error) {
+    console.warn(`[generator] could not load ${path}: ${error.message}`);
+    return { ...emptyEvergreenRejectedTracker(), invalid: true, invalidReason: 'unreadable-ledger' };
+  }
+  const migrated = migrateEvergreenRejectedTracker(raw);
+  if (!migrated.ok) {
+    console.warn(`[generator] refusing malformed evergreen ledger ${path}: ${migrated.error}`);
+    return { ...emptyEvergreenRejectedTracker(), invalid: true, invalidReason: migrated.error };
+  }
+  return migrated.tracker;
+}
+
+/**
+ * Serialize a ledger read-modify-write across generator processes. The
+ * updater runs under the lock against the latest on-disk state; an invalid
+ * ledger or pre-rename replacement failure throws and leaves the previous
+ * file intact. Directory fsync after rename is best-effort because the new
+ * ledger is already committed and cannot be rolled back safely. A crash before
+ * rename leaves only an ignored temp file.
+ */
+export function persistEvergreenRejectedTrackerAtomically(update, opts = {}) {
+  if (typeof update !== 'function') throw new TypeError('evergreen ledger update must be a function');
+  const path = resolve((opts && opts.path) || EVERGREEN_REJECTED_PATH);
+  mkdirSync(dirname(path), { recursive: true });
+  const lock = acquireEvergreenLedgerLock(path);
+  try {
+    removeAbandonedEvergreenLedgerTemps(path);
+    const current = loadEvergreenRejectedTracker({ path });
+    if (current.invalid) {
+      throw new Error(`refusing to update invalid evergreen ledger at ${path}: ${current.invalidReason}`);
+    }
+    const proposed = update(current);
+    if (proposed && typeof proposed.then === 'function') {
+      throw new TypeError('evergreen ledger update must be synchronous');
+    }
+    if (!isRecord(proposed) || proposed.invalid) {
+      throw new Error(`evergreen ledger update returned an invalid tracker for ${path}`);
+    }
+    const normalized = normalizeV2(proposed);
+    atomicallyReplaceEvergreenRejectedTracker(path, normalized, opts);
+    return normalized;
+  } finally {
+    releaseEvergreenLedgerDirectoryLock(lock.lockPath, lock.token);
   }
 }
 
@@ -1341,8 +2042,25 @@ export default {
   rankAndSelectHeadlines,
   EVERGREEN_REJECTED_PATH,
   EVERGREEN_REJECTED_MAX_IDS,
+  EVERGREEN_REJECTED_SCHEMA_VERSION,
+  EVERGREEN_POOL_NAME,
+  EVERGREEN_STRIKE_TTL_MS,
+  EVERGREEN_LEGACY_VALIDITY_RULE,
+  EVERGREEN_STRIKE_LIMIT,
+  computeEvergreenPoolEpoch,
+  migrateEvergreenRejectedTracker,
   loadEvergreenRejectedTracker,
+  isEvergreenBanned,
+  isEvergreenStruck,
+  evergreenRejectionKind,
   isEvergreenRejected,
   appendEvergreenRejected,
-  persistEvergreenRejectedTracker,
+  strikeEvergreenKeyword,
+  clearEvergreenStrikesForPool,
+  TOPIC_GATE_URL_TTL_MS,
+  TOPIC_GATE_URL_MAX,
+  topicGateUrlKey,
+  isTopicGateAbortedUrl,
+  recordTopicGateAbortedUrl,
+  persistEvergreenRejectedTrackerAtomically,
 };

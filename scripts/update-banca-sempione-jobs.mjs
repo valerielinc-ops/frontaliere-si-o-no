@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated Banca del Sempione crawler runner.
  *
@@ -19,9 +21,12 @@
  * Swiss offices: Lugano (HQ), Bellinzona, Locarno, Chiasso (all TI), Zurich (ZH).
  * Swiss jobs in any of the 26 target cantons are kept in the board dataset.
  */
+import { decode as decodeHTML } from 'html-entities';
 import { getCompanyDefaults, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import fs from 'node:fs';
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
+import { crawledAtFromObservation } from './lib/source-crawl-observation.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -76,34 +81,7 @@ const BANCA_SEMPIONE_LOCALES = ['it', 'en', 'de', 'fr'];
 
 /* ── HTML / text helpers ───────────────────────────────────── */
 function decodeHtmlEntities(value = '') {
-  return String(value || '')
-    .replace(/&#0*38;|&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#0*39;|&apos;/gi, "'")
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&#8211;/g, '–')
-    .replace(/&#8212;/g, '—')
-    .replace(/&#8217;/g, "\u2019")
-    .replace(/&#8216;/g, "\u2018")
-    .replace(/&#8220;/g, "\u201C")
-    .replace(/&#8221;/g, "\u201D")
-    .replace(/&lsquo;/g, "\u2018")
-    .replace(/&rsquo;/g, "\u2019")
-    .replace(/&ldquo;/g, "\u201C")
-    .replace(/&rdquo;/g, "\u201D")
-    .replace(/&ndash;/g, '–')
-    .replace(/&mdash;/g, '—')
-    .replace(/&egrave;/g, 'è')
-    .replace(/&agrave;/g, 'à')
-    .replace(/&ugrave;/g, 'ù')
-    .replace(/&ograve;/g, 'ò')
-    .replace(/&igrave;/g, 'ì')
-    .replace(/&#\d+;/g, (m) => {
-      const code = parseInt(m.slice(2, -1), 10);
-      return isFinite(code) ? String.fromCharCode(code) : m;
-    })
-    .trim();
+  return decodeHTML(String(value || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ').trim();
 }
 
 function stripHtml(html = '') {
@@ -157,6 +135,11 @@ export function inferLocation(title = '', contentText = '') {
   if (/\bdubai\b|\bmiddle east\b|\bdifc\b/i.test(titleLower)) {
     return { location: 'Dubai', canton: '', country: 'AE' };
   }
+  // The bank's Italian branch ("… (Milano Branch)"): the role is in Milan,
+  // not at the Lugano headquarters the default below would publish.
+  if (/\bmilano\b|\bmilan\b/i.test(titleLower)) {
+    return { location: 'Milano', canton: '', country: 'IT' };
+  }
 
   // Zurich office
   if (/\bzurich\b|\bzürich\b|\boffice in zurich\b|\bzurigo\b/i.test(combined)) {
@@ -205,15 +188,42 @@ function detectCategory(title = '', contentText = '') {
   return 'finance'; // Default for a bank
 }
 
-/* ── Description builders ──────────────────────────────────── */
-function buildDescriptionEn(title, contentText) {
-  const snippet = contentText.length > 300 ? contentText.slice(0, 300).replace(/\s+\S*$/, '…') : contentText;
-  return `${title} at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). ${snippet}`;
-}
-
-function buildDescriptionIt(title, contentText) {
-  const snippet = contentText.length > 300 ? contentText.slice(0, 300).replace(/\s+\S*$/, '…') : contentText;
-  return `${title} presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). ${snippet}`;
+/* ── Description ───────────────────────────────────────────── */
+/**
+ * The WordPress `content.rendered` of a vacancy as markdown: paragraphs kept
+ * apart, `<ul>/<ol>` items as `- ` bullets, headings as `## `. The previous
+ * builders published a generic bank blurb plus the first 300 characters of
+ * the content flattened into one line (6/6 stored jobs without a single
+ * list, and every responsibility/profile bullet past character 300 lost).
+ */
+export function wpContentToMarkdown(html = '') {
+  const text = String(html || '')
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<h[1-6][^>]*>([\s\S]*?)<\/h[1-6]>/gi, (_, heading) => `\n\n## ${heading}\n\n`)
+    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/?(?:p|div|ul|ol|figure|blockquote|section)(?:\s[^>]*)?>/gi, '\n\n')
+    .replace(/<[^>]+>/g, '');
+  const lines = text
+    .split('\n')
+    .map((line) => decodeHtmlEntities(line).replace(/\u00a0/g, ' ').replace(/[ \t]+/g, ' ').trim());
+  const out = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+    if (line === '-' || line === '- ' || line === '##') continue;
+    if (!line) {
+      // WordPress separates list items with blank lines: keep a list tight.
+      const prev = out[out.length - 1] || '';
+      const next = lines.slice(i + 1).find((candidate) => candidate && candidate !== '-');
+      if (prev.startsWith('- ') && next && next.startsWith('- ')) continue;
+      if (prev !== '') out.push('');
+      continue;
+    }
+    out.push(line);
+  }
+  return out.join('\n').replace(/\n{3,}/g, '\n\n').trim();
 }
 
 /* ── Fetch jobs from WP REST API ───────────────────────────── */
@@ -222,7 +232,7 @@ function buildDescriptionIt(title, contentText) {
 // body — the same class of intermittent block that broke the Bucher + Suter
 // WP REST listing, #4247) via exponential backoff instead of hard-failing
 // the whole crawler on one blip.
-async function fetchBancaSempioneJobs() {
+export async function fetchBancaSempioneJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 
   console.log(`🔍 Fetching Banca del Sempione jobs from WP REST API...`);
@@ -240,6 +250,9 @@ async function fetchBancaSempioneJobs() {
     return [];
   }
 
+  const crawledAt = crawledAtFromObservation(new Date());
+  if (!crawledAt) return [];
+
   console.log(`📋 WP REST API returned ${wpJobs.length} job listing(s).`);
   warnIfListingAtCap({ label: 'Banca del Sempione listing', count: wpJobs.length, cap: LISTING_PAGE_CAP });
 
@@ -252,7 +265,9 @@ async function fetchBancaSempioneJobs() {
     const url = wpJob.link || '';
     const contentHtml = wpJob.content?.rendered || '';
     const contentText = decodeHtmlEntities(stripHtml(contentHtml));
-    const postedDate = wpJob.date || '';
+    // WordPress date_gmt is the original publication instant in GMT, not modified_gmt.
+    const publishedGmt = String(wpJob.date_gmt || '').trim();
+    const postedDate = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(publishedGmt) ? `${publishedGmt}Z` : publishedGmt;
 
     if (!title || !url) continue;
 
@@ -277,9 +292,9 @@ async function fetchBancaSempioneJobs() {
       continue;
     }
 
-    // Build description
-    const descEn = buildDescriptionEn(title, contentText);
-    const descIt = buildDescriptionIt(title, contentText);
+    // The posting itself, in the language it was published in.
+    const description = wpContentToMarkdown(contentHtml);
+    const sourceLang = detectLang(contentText || title, 'it');
 
     // Build slug from WP slug
     const wpSlug = wpJob.slug || '';
@@ -296,9 +311,13 @@ async function fetchBancaSempioneJobs() {
       canton: canton || HQ.canton,
       country: country || 'CH',
       category,
-      description: descEn,
-      descriptionIt: descIt,
-      postedDate: postedDate ? new Date(postedDate).toISOString().slice(0, 10) : '',
+      description,
+      ...(sourceLang === 'it' ? { descriptionIt: description } : {}),
+      // Source-locale slot: without it mergePreserveLocaleData keeps the
+      // stored (truncated) source text over the fresh one.
+      descriptionByLocale: { [sourceLang]: description },
+      ...sourcePostingDateFields(postedDate),
+      crawledAt,
       source: 'company-website',
       slug: baseSlug,
       slugByLocale: {
@@ -310,7 +329,7 @@ async function fetchBancaSempioneJobs() {
       titleByLocale: {
         it: title,
       },
-      sourceLang: detectLang(descEn || title, 'it'),
+      sourceLang,
     };
 
     console.log(`  ✅ ${title} (${location}, ${canton || country || '?'})`);
@@ -531,7 +550,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isBancaSempioneJob) : [];
-  writeJobsCrawlerSlice(BANCA_SEMPIONE_KEY, _sliceJobs);
+  writeJobsCrawlerSlice(BANCA_SEMPIONE_KEY, _sliceJobs, { observedJobs: discoveredJobs });
   writeSummaryCrawlerSlice({
     key: BANCA_SEMPIONE_KEY,
     label: 'Banca del Sempione',
@@ -552,7 +571,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isDirectRun = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (isDirectRun) {
   main().catch((err) => exitCrawlerOnError(err, 'Banca del Sempione'));

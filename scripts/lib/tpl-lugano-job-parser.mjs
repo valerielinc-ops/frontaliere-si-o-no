@@ -12,6 +12,7 @@
  *   isTplJob(job)              — match TPL jobs in dataset
  */
 
+import { JSDOM } from 'jsdom';
 import { buildPdfBackedDescription } from './pdf-job-content.mjs';
 
 const TPL_ORIGIN = 'https://www.tplsa.ch';
@@ -55,13 +56,30 @@ function stripHtml(html = '') {
  *   - `idhr=0` is the spontaneous-application form, not a job posting.
  *
  * @param {string} html - Raw HTML of the listing page
- * @returns {{ url: string, title: string }[]}
+ * @returns {{ url: string, title: string, datePosted?: string }[]}
  */
 export function parseTplListingPage(html = '') {
   if (!html) return [];
 
   const results = [];
   const seen = new Set();
+  const document = new JSDOM(html).window.document;
+  // Read the column explicitly labelled publication, never the deadline beside it.
+  const rows = [...document.querySelectorAll('.col-md-12')];
+  const header = rows.find((row) => [...row.children].some((cell) => normalizeSpace(cell.textContent).toLowerCase() === 'data pubblicazione'));
+  const publicationColumn = header ? [...header.children].findIndex((cell) => normalizeSpace(cell.textContent).toLowerCase() === 'data pubblicazione') : -1;
+  const months = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+  const publicationByHref = new Map();
+  if (publicationColumn >= 0) {
+    for (const link of document.querySelectorAll('a[href]')) {
+      const row = link.closest('.col-md-12');
+      const cell = row?.children[publicationColumn];
+      if (!cell || cell.contains(link)) continue;
+      const match = /^(\d{1,2})\s+([a-z]+)\s+(\d{4})$/i.exec(normalizeSpace(cell.textContent));
+      const month = match ? months.indexOf(match[2].toLowerCase()) + 1 : 0;
+      if (match && month) publicationByHref.set(link.getAttribute('href'), `${match[3]}-${String(month).padStart(2, '0')}-${match[1].padStart(2, '0')}`);
+    }
+  }
 
   const linkPattern =
     /<a\b[^>]*href\s*=\s*"([^"]*\/candidati\/?\?[^"]*\bidhr=(\d+)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
@@ -96,7 +114,8 @@ export function parseTplListingPage(html = '') {
 
     if (seen.has(url)) continue;
     seen.add(url);
-    results.push({ url, title: rawTitle });
+    const datePosted = publicationByHref.get(rawUrl) || '';
+    results.push({ url, title: rawTitle, ...(datePosted ? { datePosted } : {}) });
   }
 
   return results;
@@ -204,7 +223,10 @@ export function extractTplCapitolatoUrl(html = '') {
 /**
  * Build the published description for a TPL vacancy: the capitolato PDF text is
  * the body, the page block (application instructions) is the fallback for a
- * missing/image-only PDF.
+ * missing/image-only PDF. Only the source's text: the crawler used to add
+ * lines of its own ("TPL pubblica il seguente concorso.", "Posizione: …",
+ * "Capitolato ufficiale disponibile in PDF.", "Settore: …", "Sede: …") and a
+ * sentence of its own when neither text existed.
  *
  * @param {string} title
  * @param {string} rawPdfText - un-normalized capitolato text ('' when absent)
@@ -212,20 +234,7 @@ export function extractTplCapitolatoUrl(html = '') {
  * @returns {{ description: string, warnings: string[] }}
  */
 export function buildTplDescription(title = '', rawPdfText = '', inlineBody = '') {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `${TPL_COMPANY_NAME} pubblica il seguente concorso.`,
-      `Posizione: ${normalizeSpace(title)}.`,
-    ],
-    pdfText: rawPdfText,
-    fallbackText: inlineBody
-      || `Concorso ${normalizeSpace(title)} presso ${TPL_COMPANY_NAME}. Consultare il capitolato ufficiale per i dettagli completi su mansioni, requisiti e modalita di candidatura.`,
-    footerLines: [
-      'Capitolato ufficiale disponibile in PDF.',
-      'Settore: Trasporti pubblici / Mobilita',
-      'Sede: Via Campagna 15, 6900 Lugano (TI), Svizzera',
-    ],
-  });
+  const description = buildPdfBackedDescription({ pdfText: rawPdfText, fallbackText: inlineBody });
 
   const warnings = [];
   if (rawPdfText && description.length < MIN_TPL_DESC_LENGTH) {
@@ -236,6 +245,10 @@ export function buildTplDescription(title = '', rawPdfText = '', inlineBody = ''
   }
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former wrapper wrote (see `buildTplDescription`). */
+export const TPL_FABRICATED_DESCRIPTION_RE =
+  /pubblica il seguente concorso\.|Consultare il capitolato ufficiale per i dettagli completi|(?:^|\n)Capitolato ufficiale disponibile in PDF\.|(?:^|\n)Sede: Via Campagna 15, 6900 Lugano/;
 
 /**
  * Check if a job belongs to TPL.

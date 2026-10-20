@@ -104,11 +104,38 @@ test.describe('daily brief — pipe tables survive both renders', () => {
         .waitForFunction(() => !!document.querySelector('#root')?.textContent?.trim(), { timeout: 30_000 })
         .catch(() => {});
 
-      const hydrated = await page.evaluate(() => {
-        const root = (document.querySelector('#root') as HTMLElement | null) || document.body;
-        // innerText, not textContent: only what is actually visible counts.
-        return { tables: root.querySelectorAll('table').length, text: root.innerText || '' };
-      });
+      // WHAT THE READER SEES, NOT WHAT `#root` HOLDS. The article can end up on
+      // either side of `#root` and both are correct (useNavigationState.ts,
+      // resolvePendingArticle): the SPA adopts it and draws it inside `#root`,
+      // or it "stays out" and the shard's static <main> — a sibling of `#root`
+      // — remains on screen. Counting inside `#root` only reads the second,
+      // legitimate outcome as "0 tables": run 37754770528 failed all four
+      // locales that way while the page snapshot showed both tables rendered.
+      // So: tables that are actually laid out, anywhere in the document.
+      const readSurface = () =>
+        page.evaluate(() => {
+          const laidOut = (el: Element) => (el as HTMLElement).getClientRects().length > 0;
+          return {
+            tables: Array.from(document.querySelectorAll('table')).filter(laidOut).length,
+            // innerText, not textContent: only what is actually visible counts.
+            text: document.body.innerText || '',
+          };
+        });
+
+      // The takeover is not atomic — the static <main> goes first and the SPA
+      // article follows (measured live 2026-10-08: 3–7 s apart, issue #12421)
+      // — so a single read can land in between.
+      // Read until the count has held for three consecutive seconds, bounded:
+      // a page that never settles on the static count still fails below, with
+      // the count it settled on.
+      let hydrated = await readSurface();
+      let steady = 0;
+      for (let i = 0; i < 20 && steady < 3; i++) {
+        await page.waitForTimeout(1_000);
+        const next = await readSurface();
+        steady = next.tables === hydrated.tables && next.tables === staticTables ? steady + 1 : 0;
+        hydrated = next;
+      }
 
       expect(
         hydrated.tables,

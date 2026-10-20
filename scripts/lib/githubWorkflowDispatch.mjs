@@ -2,6 +2,7 @@ import {
   GITHUB_WORKFLOW_DISPATCH_API_VERSION,
   githubApiHeaders,
 } from './githubApiHeaders.mjs';
+import { cancelReaderWithDeadline } from './bounded-response-body.mjs';
 
 export const MAX_GITHUB_WORKFLOW_DISPATCH_RESPONSE_BYTES = 1024 * 1024;
 const RUN_LOOKUP_ATTEMPTS = 3;
@@ -71,13 +72,23 @@ export async function readBoundedJsonResponse(
       if (done) break;
       size += value.byteLength;
       if (size > maxBytes) {
-        try { await reader.cancel(); } catch { /* keep the size error authoritative */ }
         throw new Error('github_response_too_large');
       }
-      chunks.push(value);
+      // A copy, never a view: a reader may hand back the same buffer on every
+      // read (#7483), and over a bare ArrayBuffer `new Uint8Array(value)` is a
+      // view on the producer's memory, not a copy.
+      chunks.push(value instanceof ArrayBuffer
+        ? new Uint8Array(value.slice(0))
+        : new Uint8Array(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
     }
+  } catch (error) {
+    await cancelReaderWithDeadline(reader);
+    throw error;
   } finally {
-    reader.releaseLock();
+    // Releasing the lock is cleanup and must never replace the verdict: older
+    // WHATWG streams and polyfilled bodies throw from releaseLock(), which
+    // would turn a completed read or `github_response_too_large` into that error (#9729).
+    try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }
   }
 
   if (size === 0) return null;

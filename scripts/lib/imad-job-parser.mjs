@@ -21,13 +21,16 @@
  *   - IMAD_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import {
   fetchSmartRecruitersJobs,
   SmartRecruitersApiError,
+  smartRecruitersPostingUrls,
 } from './ats-clients/smartrecruiters-client.mjs';
+import { SPONTANEOUS_APPLICATION_RE } from './spontaneous-application.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -149,6 +152,21 @@ function composeLocationText(loc = {}) {
   return parts.join(', ');
 }
 
+/**
+ * SmartRecruiters can expose a generic application container as a posting.
+ * It has no vacancy body or role-specific qualifications; publishing the
+ * institution blurb as a job description creates a false opening.
+ */
+export function isImadSpontaneousApplication(posting = {}) {
+  const title = String(posting?.name || '').trim();
+  if (SPONTANEOUS_APPLICATION_RE.test(title)) return true;
+  const customFields = Array.isArray(posting?.customField) ? posting.customField : [];
+  return customFields.some((field) => {
+    const label = `${field?.fieldLabel || ''} ${field?.valueLabel || ''}`;
+    return SPONTANEOUS_APPLICATION_RE.test(label) || /offres\s+spontan[eé]es/i.test(label);
+  });
+}
+
 function extractPostingDescription(posting) {
   const sections = posting?.jobAd?.sections;
   if (!sections || typeof sections !== 'object') return '';
@@ -188,6 +206,10 @@ export async function fetchAllImadJobs() {
       const posting = normalized.rawPosting || {};
       const title = normalizeSpace(posting?.name || '');
       if (!title || title.length < 3) continue;
+      if (isImadSpontaneousApplication(posting)) {
+        console.log(`  ⏭️ Skipping generic spontaneous-application container: ${title}`);
+        continue;
+      }
 
       const locationText = composeLocationText(posting?.location) || 'Genève';
       const city = (posting?.location?.city && String(posting.location.city).trim())
@@ -201,22 +223,13 @@ export async function fetchAllImadJobs() {
       const descriptionText = stripHtml(descriptionRaw);
 
       const postingId = String(posting?.id || '').trim();
-      const publicUrl =
-        (typeof posting?.applyUrl === 'string' && posting.applyUrl) ||
-        (typeof posting?.postingUrl === 'string' && posting.postingUrl) ||
-        (postingId ? `https://jobs.smartrecruiters.com/${SR_TENANT}/${postingId}` : CAREER_URL);
+      // The ad page, not the `?oga=true` apply flow (see smartRecruitersPostingUrls).
+      const srUrls = smartRecruitersPostingUrls(posting, SR_TENANT);
+      const publicUrl = srUrls.pageUrl || CAREER_URL;
 
       const sourceLang = detectLang(descriptionText || title, 'fr');
       const jobSlug = slugify(`${title} imad ${city || 'geneve'}`);
       const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-      const releasedRaw = posting?.releasedDate || posting?.createdOn || '';
-      const postedDate = (() => {
-        if (!releasedRaw) return new Date().toISOString().slice(0, 10);
-        const d = new Date(releasedRaw);
-        if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-        return d.toISOString().slice(0, 10);
-      })();
 
       const postalCode = (posting?.location?.postalCode && String(posting.location.postalCode).trim()) || '';
 
@@ -257,8 +270,8 @@ export async function fetchAllImadJobs() {
         sector: 'Sanità / Cure a domicilio',
         currency: 'CHF',
         featured: false,
-        postedDate,
-        applyUrl: publicUrl,
+        ...sourcePostingDateFields(posting?.releasedDate),
+        applyUrl: srUrls.applyUrl || publicUrl,
         jobReqId: postingId || null,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

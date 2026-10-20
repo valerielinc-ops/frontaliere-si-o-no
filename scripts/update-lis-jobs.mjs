@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated LIS (Lugano Istituti Sociali) crawler runner.
  * Runs only LIS jobs (Arca24 ATS at lavoraconnoi.lugano-lis.ch)
@@ -12,6 +14,7 @@
  * crawler receives proper HTML from the Arca24 host.
  */
 import fs from 'node:fs';
+import { mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { createHash } from 'node:crypto';
@@ -981,7 +984,7 @@ function runBaseCrawler() {
  *
  * This function bypasses those issues by scraping Arca24 directly.
  */
-async function crawlArca24Direct() {
+export async function crawlArca24Direct() {
   console.log('\n🔍 Direct Arca24 scraping: discovering job URLs...');
   const discovery = await fetchLisJobUrls({
     userAgent: LIS_USER_AGENT,
@@ -1016,7 +1019,9 @@ async function crawlArca24Direct() {
       timeoutMs: 15000,
     });
     if (detail) {
-      const job = buildLisJob(listing.url, detail);
+      // The detail response is the source observation for this job. Keep the
+      // clock capture in the runner, never inside buildLisJob's pure builder.
+      const job = buildLisJob(listing.url, detail, new Date());
       if (job) {
         console.log(`  ✅ ${detail.title} → ${detail.location || 'unknown'} [${(detail.description || '').length} chars]`);
         parsedJobs.push(job);
@@ -1081,6 +1086,7 @@ async function crawlArca24Direct() {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -1257,6 +1263,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => exitCrawlerOnError(err, 'LIS'));
 }

@@ -24,6 +24,9 @@ import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { htmlToMarkdown } from './axpo-job-parser.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { sourcePostingDateFields, sourceCompactOffsetPostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingAddress, extractJobPostingDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -211,7 +214,7 @@ async function fetchJobListings() {
         rawLocation: normalizeSpace(raw?.location || raw?.cityStateCountry || raw?.city || ''),
         url,
         applyUrl: raw.applyUrl || url,
-        postedAt: raw.postedDate || raw.dateCreated || '',
+        ...sourceCompactOffsetPostingDateFields(raw.postedDate),
         description: raw.descriptionTeaser || '',
         jobReqId: jobId,
         category: raw.category || (Array.isArray(raw.multi_category) ? raw.multi_category[0] : ''),
@@ -239,31 +242,49 @@ async function fetchJobListings() {
  * extract that HTML and convert it to markdown via the shared
  * htmlToMarkdown helper (same pattern used by the Givaudan parser).
  */
-async function fetchThermoFisherDetailDescription(detailUrl) {
+async function fetchThermoFisherDetail(detailUrl) {
+  const empty = { description: '', detailAddress: null, ...sourcePostingDateFields('') };
   try {
     const res = await fetch(detailUrl, { headers: { 'User-Agent': UA, Accept: 'text/html' } });
-    if (!res.ok) return '';
+    if (!res.ok) return empty;
     const html = await res.text();
-    const blocks = html.match(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi) || [];
-    for (const block of blocks) {
-      try {
-        const jsonText = block.replace(/^<script[^>]*>/i, '').replace(/<\/script>$/i, '');
-        const parsed = JSON.parse(jsonText);
-        const candidates = Array.isArray(parsed) ? parsed : [parsed];
-        for (const o of candidates) {
-          if (String(o?.['@type'] || '').includes('JobPosting') && o?.description) {
-            const { markdown } = htmlToMarkdown(String(o.description));
-            if (markdown) return markdown;
-          }
-        }
-      } catch {
-        /* skip malformed JSON-LD block */
-      }
-    }
+    const { markdown } = htmlToMarkdown(extractJobPostingDescription(html));
+    return {
+      description: markdown,
+      detailAddress: extractJobPostingAddress(html),
+      ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')),
+    };
   } catch {
     /* network/timeout → caller falls back to teaser */
   }
-  return '';
+  return empty;
+}
+
+/**
+ * The Phenom country facet can leak a foreign vacancy into the Swiss result.
+ * Let an explicit detail-page address override the widget location, while a
+ * missing structured address keeps the listing evidence for transient pages.
+ */
+export function resolveThermoFisherSourceGeography({
+  listingLocation = '',
+  listingPostalCode = '',
+  listingAddress = '',
+  detailAddress = null,
+} = {}) {
+  if (detailAddress) {
+    return resolveSourceBackedSwissGeography({
+      location: detailAddress.locality,
+      addressLocality: detailAddress.locality,
+      addressCountry: detailAddress.addressCountry,
+      postalCode: detailAddress.postalCode,
+      streetAddress: detailAddress.streetAddress,
+    });
+  }
+  return resolveSourceBackedSwissGeography({
+    location: listingLocation,
+    postalCode: listingPostalCode,
+    streetAddress: listingAddress,
+  });
 }
 
 /**
@@ -286,19 +307,12 @@ export async function fetchAllThermoFisherScientificJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   const seen = new Set();
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const sourceLocation = normalizeSpace(listing.rawLocation || listing.location || '');
-    const geography = resolveSourceBackedSwissGeography(sourceLocation);
-    if (!geography) {
-      console.warn(`  ⚠️ Thermo Fisher Scientific: skipping unresolvable location "${sourceLocation}" (${title})`);
-      continue;
-    }
-    const { location, canton } = geography;
-    const addressLocality = normalizeSpace(location.split(',')[0]);
     const publicUrl = listing.url || CAREER_URL;
     const applyUrl = listing.applyUrl || publicUrl;
 
@@ -307,8 +321,31 @@ export async function fetchAllThermoFisherScientificJobs() {
 
     // Prefer FULL structured detail-page description (markdown bullets)
     // over the flat listing teaser. Falls back to teaser on any fetch failure.
-    const detailMarkdown = await fetchThermoFisherDetailDescription(publicUrl);
-    const descriptionText = detailMarkdown || stripHtml(listing.description || '');
+    const detail = await fetchThermoFisherDetail(publicUrl);
+    const sourceLocation = normalizeSpace(listing.rawLocation || listing.location || '');
+    const geography = resolveThermoFisherSourceGeography({
+      listingLocation: sourceLocation,
+      listingPostalCode: listing.postalCode,
+      listingAddress: listing.address,
+      detailAddress: detail.detailAddress,
+    });
+    if (!geography) {
+      console.warn(`  ⚠️ Thermo Fisher Scientific: detail/listing location is not a verified Swiss place "${sourceLocation}" (${title})`);
+      continue;
+    }
+    const { location, canton } = geography;
+    const addressLocality = normalizeSpace(location.split(',')[0]);
+    const descriptionText = detail.description || stripHtml(listing.description || '');
+    // Only the posting's own text is published (issue 5253): with neither a
+    // detail body nor a listing teaser the posting used to go out as
+    // "{title} — Thermo Fisher Scientific (Schweiz) AG"; it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.log(`  ⏭️ no vacancy text on the detail page nor in the listing, not published: ${title}`);
+      withoutBody += 1;
+      await new Promise((r) => setTimeout(r, 300));
+      continue;
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} thermo-fisher-scientific ch`);
@@ -324,8 +361,8 @@ export async function fetchAllThermoFisherScientificJobs() {
       companyDomain: THERMO_FISHER_SCIENTIFIC_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Thermo Fisher Scientific (Schweiz) AG`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Thermo Fisher Scientific (Schweiz) AG` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -335,7 +372,8 @@ export async function fetchAllThermoFisherScientificJobs() {
 
       // ── Recommended fields ──
       addressLocality,
-      postalCode: thermoFisherPostalCode(addressLocality, canton, listing.postalCode),
+      postalCode: geography.postalCode || thermoFisherPostalCode(addressLocality, canton, listing.postalCode),
+      streetAddress: geography.streetAddress || listing.address || '',
       addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
@@ -346,7 +384,7 @@ export async function fetchAllThermoFisherScientificJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, detail),
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -356,6 +394,9 @@ export async function fetchAllThermoFisherScientificJobs() {
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} posting(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total Thermo Fisher Scientific (Schweiz) AG jobs discovered: ${jobs.length}`);
   return jobs;
 }

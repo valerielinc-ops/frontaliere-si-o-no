@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -33,12 +34,15 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   isTsmgTargetLocation,
+  isTsmgExplicitlyForeignLocation,
+  inferTsmgCanton,
   inferTsmgRegion,
   inferTsmgCategory,
   buildTsmgLocalizedContent,
+  fetchTsmgPostingPublication,
 } from './lib/tsmg-job-parser.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { classifyCountryValue } from './lib/prospector/country-inventory.mjs';
+import { isSystemicRejection, systemicRatio } from './lib/source-record-quarantine.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -86,12 +90,6 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-function toIsoDate(value = '') {
-  const parsed = new Date(String(value || '').trim());
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
-}
-
 async function fetchJson(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 90000) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -110,50 +108,117 @@ async function fetchJson(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
   }
 }
 
-function assertCompleteTsmgSourceSnapshot(payload) {
+/**
+ * Structural fields a Lever posting is missing, by name. The bare «degraded
+ * snapshot at posting N» message (issue 9320, postings 625/649/852) could not
+ * tell a truncated payload from one foreign posting without `country`.
+ */
+function missingTsmgPostingFields(job) {
+  if (!job || typeof job !== 'object') return ['posting'];
+  const location = job?.categories?.location;
+  return [
+    !String(job.id || '').trim() ? 'id' : null,
+    !String(job.hostedUrl || '').trim() ? 'hostedUrl' : null,
+    typeof job.country === 'string' && job.country.trim() ? null : 'country',
+    !job.categories || typeof job.categories !== 'object' ? 'categories' : null,
+    typeof location !== 'string' || !location.trim() ? 'categories.location' : null,
+  ].filter(Boolean);
+}
+
+/**
+ * A posting this run cannot classify may be quarantined only when it cannot
+ * touch the published slice. Missing-country rows need deterministic foreign
+ * evidence; CH rows with an unresolved location only need to be outside the
+ * target scope. In both cases an already-published URL stays fail-closed.
+ */
+function canQuarantineTsmgPosting(job, location, publishedKeys, { requireExplicitForeign = false } = {}) {
+  if (isTsmgTargetLocation(location)) return false;
+  if (publishedKeys.has(jobMatchKey({ url: String(job?.hostedUrl || '').trim() }))) return false;
+  return !requireExplicitForeign || isTsmgExplicitlyForeignLocation(location);
+}
+
+function assertCompleteTsmgSourceSnapshot(payload, { publishedKeys = new Set() } = {}) {
   if (!Array.isArray(payload)) {
     throw new Error('TSMG Lever returned an invalid snapshot: expected an array of postings');
   }
+  const quarantined = [];
   for (const [index, job] of payload.entries()) {
-    const location = job?.categories?.location;
-    const country = typeof job?.country === 'string' ? job.country.trim() : '';
-    if (
-      !job
-      || typeof job !== 'object'
-      || !String(job.id || '').trim()
-      || !String(job.hostedUrl || '').trim()
-      || !country
-      || !job.categories
-      || typeof job.categories !== 'object'
-      || typeof location !== 'string'
-      || !location.trim()
-    ) {
-      throw new Error(`TSMG Lever returned a degraded snapshot at posting ${index + 1}`);
+    const where = `posting ${index + 1} of ${payload.length}`;
+    const missing = missingTsmgPostingFields(job);
+    const id = String(job?.id || '').trim() || '?';
+    // Identity and location stay mandatory: without them the posting cannot
+    // be judged, and that is exactly what a truncated payload looks like.
+    const structural = missing.filter((field) => field !== 'country');
+    if (structural.length) {
+      throw new Error(
+        `TSMG Lever returned a degraded snapshot at ${where}: `
+        + `missing ${missing.join(', ')} (id=${id})`,
+      );
     }
+    const normalizedLocation = job.categories.location.trim();
+    // Lever sometimes serves a posting without `country` (2026-09-23/24: 3 of
+    // 4334, «Jefferson City, MO» and «Windeck»). That is missing data on THAT
+    // record, not a degraded payload: quarantine it only when the location is
+    // deterministically foreign and it cannot be an already published vacancy.
+    // An unknown location stays fail-closed because it may be a new Swiss
+    // target that the resolver has not learned yet (issue 9320).
+    if (missing.includes('country')) {
+      if (!canQuarantineTsmgPosting(job, normalizedLocation, publishedKeys, { requireExplicitForeign: true })) {
+        throw new Error(
+          `TSMG Lever returned a degraded snapshot at ${where}: missing country `
+          + `on a posting that is not proven foreign or may be a published/target Swiss vacancy `
+          + `(id=${id}, location "${normalizedLocation}")`,
+        );
+      }
+      quarantined.push({ job, reason: `missing country, location "${normalizedLocation}" is deterministically foreign` });
+      continue;
+    }
+    const country = job.country.trim();
     const normalizedCountry = normalizeTsmgCountry(country);
-    const normalizedLocation = location.trim();
     if (!normalizedCountry) {
       throw new Error(
-        `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
-        + `country "${country}" is not a recognised country value`,
+        `TSMG Lever returned a degraded snapshot at ${where}: `
+        + `country "${country}" is not a recognised country value (id=${id})`,
       );
     }
     // A provider can mark a posting as CH while the location field explicitly
     // names another country. That is a source classification error, not a
     // reason to discard the whole authoritative snapshot: the caller filters
     // this row as non-CH below. Unknown Swiss-looking locations remain
-    // fail-closed because they do not provide enough geography evidence.
+    // fail-closed when they could be a target or an already published posting
+    // because they do not provide enough geography evidence.
     if (normalizedCountry === 'CH' && isLocationExplicitlyForeign(normalizedLocation)) {
       continue;
     }
-    if (normalizedCountry === 'CH' && !inferAnyCanton(normalizedLocation)) {
-      throw new Error(
-        `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
-        + `categories.location "${normalizedLocation}" is not a recognised Swiss location`,
-      );
+    if (normalizedCountry === 'CH' && !inferTsmgCanton(normalizedLocation)) {
+      if (!canQuarantineTsmgPosting(job, normalizedLocation, publishedKeys)) {
+        throw new Error(
+          `TSMG Lever returned a degraded snapshot at ${where}: `
+          + `categories.location "${normalizedLocation}" is not a recognised Swiss location (id=${id})`,
+        );
+      }
+      // A genuinely unresolved CH location is safe to quarantine only when it
+      // cannot retire a previously published page; known TSMG aliases resolve
+      // above through inferTsmgCanton.
+      quarantined.push({ job, reason: `CH posting with unrecognised Swiss location "${normalizedLocation}"` });
     }
   }
-  return payload;
+  if (!quarantined.length) return payload;
+  // Shared systemic valve (#3789/#7702): once unclassifiable postings stop
+  // looking like isolated records, Lever itself is degraded and the whole
+  // snapshot stays out.
+  if (isSystemicRejection(quarantined.length, payload.length)) {
+    throw new Error(
+      `TSMG Lever returned a degraded snapshot: ${quarantined.length}/${payload.length} postings `
+      + `could not be classified (systemic threshold ${Math.round(systemicRatio() * 100)}%)`,
+    );
+  }
+  console.log(`⚠️  TSMG: ${quarantined.length}/${payload.length} unclassifiable non-target posting(s) quarantined:`);
+  for (const { job, reason } of quarantined.slice(0, 10)) {
+    console.log(`   - ${String(job.id).trim()}: ${reason}`);
+  }
+  const skipped = new Set(quarantined.map(({ job }) => job));
+  return payload.filter((job) => !skipped.has(job));
 }
 
 function normalizeTsmgCountry(value = '') {
@@ -214,7 +279,9 @@ function buildJob(job) {
     sector: 'Tecnologia & IT',
     source: 'tsmg-dedicated-crawler',
     sourceLang: 'en',
-    postedDate: toIsoDate(job.createdAt),
+    // Lever createdAt is record creation, not proof of first publication.
+    ...sourcePostingDateFields(''),
+    crawledAt: new Date().toISOString(),
     employmentType: normalize(job?.categories?.commitment || '').includes('part') ? 'part-time' : 'full-time',
     contractType: normalize(job?.categories?.commitment || '').includes('part') ? 'part-time' : 'full-time',
     validThrough: '',
@@ -240,6 +307,19 @@ function buildJob(job) {
   };
 }
 
+async function buildJobsWithSourcePostingDates(rawJobs = []) {
+  const jobs = [];
+  for (const rawJob of rawJobs) {
+    const job = buildJob(rawJob);
+    // Lever's `createdAt` is record creation, not proof of the employer's
+    // publication date. Read the title-matched JobPosting JSON-LD on the
+    // vacancy page; a failed/absent read stays explicitly unknown.
+    const publication = await fetchTsmgPostingPublication(job.url, rawJob.text || job.title);
+    jobs.push({ ...job, ...publication });
+  }
+  return jobs;
+}
+
 function jobMatchKey(job = {}) {
   return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
@@ -263,6 +343,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -292,7 +373,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -338,7 +419,12 @@ async function main() {
   // remains untouched without using a count floor. A complete source may also
   // contain Swiss postings outside the target cantons, so the filtered target
   // is allowed to be empty.
-  const rawJobs = assertCompleteTsmgSourceSnapshot(await fetchJson(API_URL));
+  // Postings unclassifiable by this run may only be quarantined when they
+  // cannot touch the published slice (see `canQuarantineTsmgPosting`).
+  const publishedKeys = new Set(
+    readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob).map(jobMatchKey).filter(Boolean),
+  );
+  const rawJobs = assertCompleteTsmgSourceSnapshot(await fetchJson(API_URL), { publishedKeys });
   const authoritativeSnapshotVerified = true;
   const swiss = rawJobs.filter(isTsmgSwissPosting);
   const foreignDiscarded = rawJobs.length - swiss.length;
@@ -354,7 +440,7 @@ async function main() {
   if (authoritativeEmptySnapshot) {
     console.log('✅ Lever complete snapshot contains no target-canton postings — publishing the verified empty result.');
   }
-  const discoveredJobs = target.map(buildJob);
+  const discoveredJobs = await buildJobsWithSourcePostingDates(target);
   const { total, added, updated, diff} = mergeJobs(discoveredJobs);
   updateAdapterConfig(discoveredJobs);
 

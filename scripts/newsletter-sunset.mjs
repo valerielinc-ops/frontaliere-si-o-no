@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Newsletter inactivity sunset runner.
  *
@@ -30,6 +31,8 @@ import { classifySunset } from './lib/subscriberSunset.mjs';
 import { buildWinbackEmail } from '../services/winbackEmail.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { localeOf } from './lib/subscriberLocale.mjs';
+import { pathToFileURL } from 'node:url';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 function argValue(flag) {
   const i = process.argv.indexOf(flag);
@@ -45,15 +48,7 @@ const FROM_EMAIL = process.env.NEWSLETTER_FROM || 'Frontaliere Ticino <newslette
 let db;
 
 async function initFirebase() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  db = a.firestore();
+  db = await getFirestoreDb();
 }
 
 /**
@@ -72,15 +67,9 @@ export async function sendWinbacks(items) {
         subject,
         html,
         text,
-        // Skip click-tracking link rewriting: the CTA is a direct resubscribe
-        // action on our canonical https origin (valid cert), and the resubscribe
-        // hit is our own re-engagement signal — we don't need the ESP click event.
-        tracking: false,
-        // campaign_id tag (#6317/#6765): forceProvider below is Resend, whose
-        // webhook only reads campaign_id off this tag — Maileroo's per-message
-        // ref fallback (functions/src/lib/mailerooRef.js defaultCampaignId)
-        // never applies here, so without it every send fell to the
-        // `unknown:<messageId>` fallback and was filed `unattributed`.
+        // campaign_id tag (#6317/#6765): Maileroo's webhook attributes via the
+        // per-message ref (functions/src/lib/mailerooRef.js), which reads the
+        // campaign off this tag — without it the send is filed `unattributed`.
         tags: [{ name: 'campaign_id', value: 'sunset_winback' }],
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl}>`,
@@ -91,13 +80,15 @@ export async function sendWinbacks(items) {
       meta: { type: 'winback' },
     };
   });
-  // forceProvider: 'resend' (#6198) — Maileroo's tracking param is a single
-  // flag (opens+clicks together), so tracking:false above would also blind
-  // the open-rate measurement. Resend's send fn already sets open_tracking
-  // and click_tracking independently, so it's the only cascade provider that
-  // can honor "clicks off, opens on". Volume is weekly/low (sunset cohort
-  // only); the shared cascade enforces Resend's free-plan 100/day ceiling.
-  const result = await sendEmailCascade(cascade, { concurrency: 3, forceProvider: 'resend' });
+  // forceProvider: 'maileroo' — the whole win-back track goes through Maileroo
+  // with open AND click tracking on. Resend was forced here (#6198) only to
+  // keep opens while turning clicks off, and its 100/day free-plan ceiling
+  // failed 75 of 175 stage-2 sends on 2026-10-01. Clicks were turned off only
+  // because Mailgun's tracking domain once served a mismatched TLS cert
+  // (#2836); Maileroo's tracked links resolve fine (2.845 recorded clicks in
+  // the 7 days to 2026-10-05). Opens matter here: they are the engagement
+  // that keeps a dormant subscriber out of the sunset after the grace window.
+  const result = await sendEmailCascade(cascade, { concurrency: 3, forceProvider: 'maileroo' });
   logProviderSummary();
   return new Set(
     (result.failed || []).map((f) => String(f?.recipient?.email || f?.payload?.to?.[0] || '').toLowerCase()),
@@ -219,7 +210,9 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error('[newsletter-sunset] fatal:', err?.stack || err?.message || err);
-  process.exit(1);
-});
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
+  main().catch((err) => {
+    console.error('[newsletter-sunset] fatal:', err?.stack || err?.message || err);
+    process.exit(1);
+  });
+}

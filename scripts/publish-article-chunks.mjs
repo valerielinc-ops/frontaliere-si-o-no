@@ -1,4 +1,5 @@
 #!/usr/bin/env -S npx -y tsx
+import { realpathSync } from 'node:fs';
 // publish-article-chunks.mjs (issue #4881 Fase 3-bis) — publish the CLIENT-SIDE
 // article data chunks (`blog-articles-data.js`, `swiss-articles-data.js`) plus a
 // slim news-ticker payload to the CDN, OUTSIDE the full Vite/Rollup build, so a
@@ -105,20 +106,22 @@
 // is precisely why it is now shared (AGENTS.md #6).
 //
 // CLI (no npm ci in this job — see fast-publish-article.yml's own comment;
-// esbuild is invoked via `npx -y` on demand, exactly like tsx@4 already is):
+// esbuild is invoked via `npx -y` on demand, exactly like tsx@4.23.15 already is):
 //   npx -y tsx scripts/publish-article-chunks.mjs [--dry-run]
-// Always (re)publishes BOTH registries — cheap enough to PUT unconditionally
-// (small JSON payloads; upload-cdn-file.sh always transfers, see its own
-// header on why a checksum-based skip is unsafe here, issue #5497), and this
-// workflow step doesn't know in isolation which registry(ies) the
-// just-rendered article touched.
+//   npx -y tsx scripts/publish-article-chunks.mjs --section frontaliere --strict --no-ticker
+// By default this (re)publishes BOTH registries — cheap enough to PUT
+// unconditionally (small JSON payloads; upload-cdn-file.sh always transfers,
+// see its own header on why a checksum-based skip is unsafe here, issue #5497).
+// `--section` narrows the publish to the registry and companions used by one
+// fast-publish run. `--strict` turns the uploader's deliberately best-effort
+// exit code into a fail-closed gate and requires the targeted purge to succeed;
+// the fast-publish workflow uses it before pushing any HTML shard. `--no-ticker`
+// leaves the ticker for its existing post-live verification step.
 //
-// Exit: ALWAYS 0. Every failure mode (esbuild missing, shape mismatch, R2
-// creds absent, upload failure, purge failure) is reported via
-// `::warning::`/console.error and swallowed — this step sits in the
-// fast-publish workflow with the SAME best-effort posture as the existing
-// "Upload CDN assets (images)" step: the article is fully published even if
-// this script never runs.
+// Without `--strict`, failures retain the historical best-effort posture for
+// the manual/resync callers. With `--strict`, a missing credential, failed PUT,
+// malformed chunk, or failed purge exits non-zero so a hub cannot be published
+// ahead of the client registry again (#5819).
 
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -126,14 +129,15 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { computeTickerArticles } from '../build-plugins/newsTickerDataPlugin.ts';
+import { CDN_ASSET_ORIGIN } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
 import { REST_BASE, DEFAULT_ZONE_NAME, resolveZoneId } from './lib/cf-analytics.mjs';
 import { purgeBodiesForUrls } from './lib/cf-purge-variants.mjs';
 
 export const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
-// Pinned to package.json's devDependencies "esbuild": "^0.25.12" — same
-// determinism rationale as publish-article-fast.mjs pinning `tsx@4`.
-const ESBUILD_VERSION = '0.25.12';
+export const CDN_BASE = CDN_ASSET_ORIGIN;
+// Pinned to package.json's devDependencies "esbuild": "^0.28.2" — same
+// determinism rationale as publish-article-fast.mjs pinning `tsx@4.23.15`.
+const ESBUILD_VERSION = '0.28.2';
 
 /**
  * The two client-loaded article registries this script keeps CDN-fresh.
@@ -144,21 +148,37 @@ const ESBUILD_VERSION = '0.25.12';
  * companion that failed its OWN upload (caught, warned, non-fatal) must not
  * let the registry publish anyway, or the #4881 incident reproduces for that
  * one article even with the companions-first ordering in place.
+ *
+ * `namespaceExport`: the module namespace the Rollup chunk ALSO exports. The
+ * registry is statically imported (BlogArticles, AdminPanel) and dynamically
+ * imported (JobBoard, SiteSearch, seoService), so Rollup rewrites the dynamic
+ * sites to `import('./blog-articles-data.js').then((m) => m.blogArticlesData)`.
+ * A chunk rebuilt here with `ARTICLES` alone resolves those to `undefined`:
+ * resilientImport reads that as a stale chunk, clears the caches and reloads
+ * the page, once per tab, a few seconds after it opens (live 2026-10-05: every
+ * job page reloaded after the 09:04 UTC article sync, cutting the "Candidati"
+ * flow mid-way). Rollup names the namespace after the module, so the name is
+ * stable; the swiss one has no dynamic pick today and is exported for the
+ * same shape.
  */
 export const REGISTRIES = [
   {
+    section: 'frontaliere',
     source: 'data/blog-articles-data.ts',
     cdnKey: 'assets/blog-articles-data.js',
     exportName: 'ARTICLES',
+    namespaceExport: 'blogArticlesData',
     requiredCompanionKeys: [
       ...['it', 'en', 'de', 'fr'].map((loc) => `assets/blog-meta-${loc}.js`),
       'assets/routerBlogData.js',
     ],
   },
   {
+    section: 'svizzera',
     source: 'data/swiss-articles-data.ts',
     cdnKey: 'assets/swiss-articles-data.js',
     exportName: 'SWISS_ARTICLES',
+    namespaceExport: 'swissArticlesData',
     requiredCompanionKeys: [
       ...['it', 'en', 'de', 'fr'].map((loc) => `assets/blog-meta-ch-${loc}.js`),
       'assets/routerSwissData.js',
@@ -202,6 +222,27 @@ export const CHUNK_CACHE_CONTROL = 'public, max-age=300, must-revalidate';
 export const TICKER_CDN_KEY = 'data/news-ticker-live.json';
 export const TICKER_CACHE_CONTROL = 'public, max-age=300, must-revalidate';
 
+const SECTION_NAMES = new Set(REGISTRIES.map((registry) => registry.section));
+
+function readCliValue(flag) {
+  const index = process.argv.indexOf(flag);
+  if (index < 0) return undefined;
+  return process.argv[index + 1];
+}
+
+export function chunksForSection(section) {
+  if (section === undefined) {
+    return { registries: REGISTRIES, companions: COMPANION_CHUNKS };
+  }
+  if (!SECTION_NAMES.has(section)) {
+    throw new Error(`[publish-article-chunks] unknown section "${section}"`);
+  }
+  const registries = REGISTRIES.filter((registry) => registry.section === section);
+  const requiredCompanionKeys = new Set(registries.flatMap((registry) => registry.requiredCompanionKeys));
+  const companions = COMPANION_CHUNKS.filter((companion) => requiredCompanionKeys.has(companion.cdnKey));
+  return { registries, companions };
+}
+
 // Lazily resolved: `esbuild`'s own JS API is used when the package happens to
 // be resolvable (the vitest CI job runs `npm ci` first, so it's always
 // present there — no subprocess, no network, no flake risk in the test-gate
@@ -221,9 +262,30 @@ function getEsbuildApi() {
  * Rebuild one registry module standalone with esbuild — no Rollup/vite.config
  * involved. Pure/testable: caller supplies rootDir + outFile so vitest can
  * point this at the real repo without any network/CDN side effect.
+ * `namespaceExport` (see REGISTRIES) adds the module namespace under that
+ * name, next to the module's own exports, through a generated entry.
  */
-export async function buildRegistryChunk(rootDir, sourceRel, outFile) {
-  const src = path.join(rootDir, sourceRel);
+export async function buildRegistryChunk(rootDir, sourceRel, outFile, { namespaceExport } = {}) {
+  const moduleFile = path.join(rootDir, sourceRel);
+  let src = moduleFile;
+  let entryDir = null;
+  if (namespaceExport) {
+    entryDir = fs.mkdtempSync(path.join(os.tmpdir(), 'publish-article-chunks-entry-'));
+    src = path.join(entryDir, 'entry.mjs');
+    const specifier = JSON.stringify(moduleFile);
+    fs.writeFileSync(
+      src,
+      `export * from ${specifier};\nimport * as namespace from ${specifier};\nexport { namespace as ${namespaceExport} };\n`,
+    );
+  }
+  try {
+    await bundleRegistryEntry(rootDir, src, outFile);
+  } finally {
+    if (entryDir) fs.rmSync(entryDir, { recursive: true, force: true });
+  }
+}
+
+async function bundleRegistryEntry(rootDir, src, outFile) {
   const api = await getEsbuildApi();
   if (api) {
     await api.build({
@@ -260,9 +322,14 @@ export async function buildRegistryChunk(rootDir, sourceRel, outFile) {
  * `main()` below treats it as non-fatal, per this script's best-effort
  * posture; the vitest test treats it as a real failure).
  */
-export async function validateRegistryChunk(outFile, exportName, shape = 'array') {
+export async function validateRegistryChunk(outFile, exportName, shape = 'array', namespaceExport = undefined) {
   const mod = await import(pathToFileURL(outFile).href);
   const value = mod[exportName];
+  // The namespace the SPA's dynamic imports pick must carry the very same
+  // registry, or those pages reload (see REGISTRIES).
+  if (namespaceExport && mod[namespaceExport]?.[exportName] !== value) {
+    throw new Error(`[publish-article-chunks] ${outFile} export "${namespaceExport}.${exportName}" is missing or not the same as "${exportName}"`);
+  }
   if (shape === 'object') {
     // Translation tables and slug maps are keyed objects, not arrays. Empty is
     // still a failure: shipping an empty table is exactly the state that makes
@@ -307,28 +374,53 @@ export async function purgeCdnFiles(token, resolvedZoneId, urls) {
   }
 }
 
-async function uploadViaScript(localFile, cdnKey, cacheControl) {
-  execFileSync('bash', [path.join(ROOT_DIR, 'scripts/lib/upload-cdn-file.sh'), localFile, cdnKey, cacheControl], {
+function uploadViaScript(localFile, cdnKey, cacheControl, { required = false } = {}) {
+  const args = [path.join(ROOT_DIR, 'scripts/lib/upload-cdn-file.sh'), localFile, cdnKey, cacheControl];
+  if (!required) {
+    execFileSync('bash', args, {
+      cwd: ROOT_DIR,
+      stdio: 'inherit',
+    });
+    return;
+  }
+
+  const output = execFileSync('bash', args, {
     cwd: ROOT_DIR,
-    stdio: 'inherit',
+    encoding: 'utf8',
+    stdio: ['inherit', 'pipe', 'inherit'],
   });
+  process.stdout.write(output);
+  if (!output.includes('✅ uploaded ')) {
+    throw new Error(`[publish-article-chunks] upload-cdn-file.sh did not confirm ${cdnKey}`);
+  }
 }
 
 async function main() {
   const dryRun = process.argv.includes('--dry-run');
-  // #4959: the ESM registry/companion chunks are Rollup-shaped build artifacts and
-  // must not be published outside the full build (see the fast-publish workflow for
-  // the failure they caused). The news-ticker payload is plain JSON on a stable,
-  // hand-authored contract, so it stays safe to refresh per article — that split is
-  // what --ticker-only expresses.
   const tickerOnly = process.argv.includes('--ticker-only');
+  const strict = process.argv.includes('--strict');
+  const noTicker = process.argv.includes('--no-ticker');
+  const section = readCliValue('--section');
+  if (tickerOnly && (strict || noTicker || section !== undefined)) {
+    throw new Error('[publish-article-chunks] --ticker-only cannot be combined with --strict, --no-ticker, or --section');
+  }
+  const selected = chunksForSection(section);
+  const cfApiToken = process.env.CF_API_TOKEN;
+  // Strict mode must fail before the first CDN upload. Otherwise a missing
+  // purge credential can leave the client companions/registry ahead of the
+  // rendered hub even though the workflow correctly skips the shard push.
+  if (strict && !dryRun && !cfApiToken) {
+    throw new Error('CF_API_TOKEN is required for strict chunk publication');
+  }
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'publish-article-chunks-'));
   const uploadedKeys = [];
   let blogArticles = null;
+  const failedCompanions = [];
+  const failedRegistries = [];
 
   // Companions FIRST — see COMPANION_CHUNKS' comment for why the order is the
   // fix, not an optimisation.
-  for (const companion of COMPANION_CHUNKS) {
+  for (const companion of selected.companions) {
     if (tickerOnly) break;
     const outFile = path.join(tmpDir, path.basename(companion.cdnKey));
     try {
@@ -339,22 +431,28 @@ async function main() {
         console.log(`[publish-article-chunks] --dry-run: skipping upload of ${companion.cdnKey}`);
         continue;
       }
-      uploadViaScript(outFile, companion.cdnKey, CHUNK_CACHE_CONTROL);
+      uploadViaScript(outFile, companion.cdnKey, CHUNK_CACHE_CONTROL, { required: strict });
       uploadedKeys.push(companion.cdnKey);
     } catch (err) {
+      failedCompanions.push(companion.cdnKey);
       console.log(
         `::warning::[publish-article-chunks] ${companion.source} publish failed — client keeps serving the last full-build chunk: ${err.message}`,
       );
     }
   }
 
-  for (const registry of REGISTRIES) {
+  if (strict && !dryRun && failedCompanions.length > 0) {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+    throw new Error(`required companion publish failed: ${failedCompanions.join(', ')}`);
+  }
+
+  for (const registry of selected.registries) {
     if (tickerOnly && registry.exportName !== 'ARTICLES') continue;
     const outFile = path.join(tmpDir, path.basename(registry.cdnKey));
     try {
       console.log(`[publish-article-chunks] rebuilding ${registry.source} -> ${outFile}`);
-      await buildRegistryChunk(ROOT_DIR, registry.source, outFile);
-      const value = await validateRegistryChunk(outFile, registry.exportName);
+      await buildRegistryChunk(ROOT_DIR, registry.source, outFile, { namespaceExport: registry.namespaceExport });
+      const value = await validateRegistryChunk(outFile, registry.exportName, 'array', registry.namespaceExport);
       console.log(`[publish-article-chunks] ${registry.exportName}: ${value.length} entries`);
       if (registry.exportName === 'ARTICLES') blogArticles = value;
 
@@ -371,13 +469,19 @@ async function main() {
         continue;
       }
 
-      uploadViaScript(outFile, registry.cdnKey, CHUNK_CACHE_CONTROL);
+      uploadViaScript(outFile, registry.cdnKey, CHUNK_CACHE_CONTROL, { required: strict });
       uploadedKeys.push(registry.cdnKey);
     } catch (err) {
+      failedRegistries.push(registry.cdnKey);
       console.log(
         `::warning::[publish-article-chunks] ${registry.source} publish failed — client keeps serving the last full-build chunk: ${err.message}`,
       );
     }
+  }
+
+  if (strict && !dryRun && failedRegistries.length > 0) {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+    throw new Error(`required registry publish failed: ${failedRegistries.join(', ')}`);
   }
 
   // News-ticker payload — reuses computeTickerArticles unchanged (same
@@ -385,7 +489,7 @@ async function main() {
   // FRESH registry above instead of a stale static import. Only meaningful
   // for the frontaliere registry (the ticker has only ever tracked
   // data/blog-articles-data.ts — see build-plugins/newsTickerDataPlugin.ts).
-  if (blogArticles) {
+  if (blogArticles && !noTicker) {
     try {
       const ticker = computeTickerArticles(fs, path, ROOT_DIR, blogArticles);
       if (ticker.length === 0) {
@@ -409,7 +513,7 @@ async function main() {
     return;
   }
 
-  const token = process.env.CF_API_TOKEN;
+  const token = cfApiToken;
   if (!token) {
     console.log('[publish-article-chunks] CF_API_TOKEN not set — skipping targeted CDN purge (non-fatal; short Cache-Control override still bounds staleness).');
     fs.rmSync(tmpDir, { recursive: true, force: true });
@@ -421,17 +525,20 @@ async function main() {
     await purgeCdnFiles(token, zoneId, urls);
     console.log(`[publish-article-chunks] purged ${urls.length} CDN url(s): ${urls.join(', ')}`);
   } catch (err) {
+    if (strict) {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+      throw err;
+    }
     console.log(`::warning::[publish-article-chunks] targeted CDN purge failed — edge may serve a stale chunk until Cache-Control: ${CHUNK_CACHE_CONTROL} expires: ${err.message}`);
   }
 
   fs.rmSync(tmpDir, { recursive: true, force: true });
 }
 
-const isDirectInvocation = import.meta.url === `file://${process.argv[1]}`;
+const isDirectInvocation = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectInvocation) {
   main().catch((err) => {
-    // Never fail the workflow step from an uncaught rejection — see header
-    // "Exit: ALWAYS 0".
     console.log(`::warning::[publish-article-chunks] unexpected error: ${err?.message ?? err}`);
+    if (process.argv.includes('--strict')) process.exitCode = 1;
   });
 }

@@ -1,11 +1,58 @@
-import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   EVEREST_RE_KEY,
   EVEREST_RE_COMPANY_NAME,
+  fetchAllEverestReJobs,
   isEverestReJob,
   isTrustedDomain,
 } from '../scripts/lib/everest-re-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+
+const CURRENT_WORKDAY_FIXTURE = JSON.parse(
+  fs.readFileSync(new URL('./fixtures/workday/everest-re-board-2026-10-06.json', import.meta.url), 'utf8'),
+);
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
+describe('Everest Re current Workday board', () => {
+  it('proves a complete foreign-only board instead of returning an unproven zero', async () => {
+    const listingRequests: any[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input: unknown, init: any = {}) => {
+      const url = String(input);
+      if (url.endsWith('/jobs')) {
+        listingRequests.push(JSON.parse(init.body));
+        return new Response(JSON.stringify(CURRENT_WORKDAY_FIXTURE.listingResponse), {
+          status: 200,
+          headers: { 'content-type': 'application/json' },
+        });
+      }
+      const detailPath = Object.keys(CURRENT_WORKDAY_FIXTURE.detailResponses)
+        .find((path) => url.endsWith(path));
+      const detail = detailPath ? CURRENT_WORKDAY_FIXTURE.detailResponses[detailPath] : null;
+      return detail
+        ? new Response(JSON.stringify(detail), {
+          status: 200,
+          headers: { 'content-type': 'application/json' },
+        })
+        : new Response('', { status: 404 });
+    }));
+
+    expect(CURRENT_WORKDAY_FIXTURE.listingResponse.jobPostings.length).toBeGreaterThan(0);
+
+    const jobs = await fetchAllEverestReJobs();
+
+    expect(listingRequests.map((body) => body.appliedFacets)).toEqual([
+      { locationCountry: ['187134fccb084a0ea9b4b95f23890dbe'] },
+      {},
+    ]);
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+});
 
 describe('Everest Re crawler parser', () => {
   // ── Constants ──

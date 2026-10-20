@@ -29,6 +29,7 @@
  *   - Pôle Santé Pays-d'Enhaut, Château-d'Oex (key `hpe`)
  *   - Étab. Hospitaliers Nord Vaudois, Yverdon (key `ehnv`)
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -37,6 +38,7 @@ import { launchChromium } from './ensure-chromium.mjs';
 import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { isSufficientVacancyDescription as hasPublishableJobupDetail } from './prospector/extract.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import { evaluateSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 import { createSourceRecordQuarantine } from './source-record-quarantine.mjs';
@@ -70,12 +72,12 @@ function isAntiBotStatus(status) {
 }
 
 /**
- * Whether a Playwright-fetched body looks like the jobup feed payload, i.e. raw
- * JSON (`[`/`{`) or a JSONP `xCallback({...})` wrapper (the two shapes
- * `parseFeedBody` accepts). Used to reject a WAF 200-with-JS/CAPTCHA challenge
- * page, which would pass `resp.ok()` but is not the feed — returning it would
- * throw in `parseFeedBody` and re-surface a confusing parse error instead of the
- * original anti-bot failure (#1323 item 7).
+ * Whether a fetched body (direct fetch or Playwright) looks like the jobup feed
+ * payload, i.e. raw JSON (`[`/`{`) or a JSONP `xCallback({...})` wrapper (the
+ * two shapes `parseFeedBody` accepts). Used to reject a WAF 200-with-JS/CAPTCHA
+ * challenge page, which would pass `res.ok`/`resp.ok()` but is not the feed —
+ * returning it would throw in `parseFeedBody` and surface a confusing parse
+ * error instead of the anti-bot failure (#1323 item 7).
  */
 export function looksLikeJsonFeedBody(text) {
   const trimmed = String(text || '').trim();
@@ -196,6 +198,74 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * Extract a labelled field from a jobup.ch search-result card.
+ *
+ * The search page is relevance-ranked, so parsers must first parse the card's
+ * employer and then apply an exact employer filter. Keeping this selector in
+ * the shared JobUp module prevents each migrated crawler from drifting on the
+ * same markup and accidentally widening its employer match.
+ */
+function searchCardFieldValue(segment, label) {
+  const rx = new RegExp(`${label}<!-- -->:</span><p[^>]*>([^<]+)</p>`);
+  const match = String(segment || '').match(rx);
+  return match ? normalizeSpace(decodeEntities(match[1])) : '';
+}
+
+/**
+ * Parse jobup.ch search SERP cards into source records.
+ *
+ * The employer is deliberately returned, not interpreted here: callers must
+ * use filterJobupCardsByEmployer with the exact employer they own.
+ */
+export function parseJobupSearchCards(html = '') {
+  const cards = [];
+  if (!html) return cards;
+
+  // Each result is a job-link anchor to a detail page. Splitting on that
+  // semantic marker keeps title, employer and labelled fields in one segment.
+  const segments = String(html).split(/<a[^>]*\bdata-cy="job-link"[^>]*href="\/fr\/emplois\/detail\//i);
+  for (let i = 1; i < segments.length; i += 1) {
+    const segment = segments[i];
+    const uuid = (segment.match(/^([0-9a-f-]+)\//i) || [])[1];
+    if (!uuid) continue;
+
+    const title = normalizeSpace(decodeEntities(
+      (segment.match(/textStyle_body2[^>]*>([^<]+)</) || [])[1] || '',
+    ));
+    const company = normalizeSpace(decodeEntities(
+      (segment.match(/<p class="[^"]*c_gray\.700[^"\n]*fw_bold">([^<]+)<\/p>/) || [])[1] || '',
+    ));
+    const location = searchCardFieldValue(segment, 'Lieu de travail');
+    const workRate = searchCardFieldValue(segment, "Taux d'activité");
+    const contract = searchCardFieldValue(segment, 'Type de contrat');
+
+    if (!title || title.length < 3) continue;
+    cards.push({
+      uuid,
+      // jobup.ch is an external portal; this URL is used for source detail
+      // enrichment and is not a local route.
+      // locale-segment-ok: verified against fetchJobupDetailDescription consumers; fixed French JobUp detail path is used only for external source enrichment.
+      url: `https://www.jobup.ch/fr/emplois/detail/${uuid}/`,
+      title,
+      company,
+      location,
+      workRate,
+      contract,
+    });
+  }
+  return cards;
+}
+
+/** Keep only cards whose employer is an exact case-insensitive match. */
+export function filterJobupCardsByEmployer(cards = [], employerName = '') {
+  const target = normalizeSpace(employerName).toLowerCase();
+  if (!target) return [];
+  return (Array.isArray(cards) ? cards : []).filter(
+    (card) => normalizeSpace(card?.company).toLowerCase() === target,
+  );
+}
+
 async function fetchFeed(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   let attemptIdx = 0; // rotates the realistic UA across retries
@@ -226,21 +296,36 @@ async function fetchFeed(url) {
           err.retryable = res.status === 408 || res.status === 429 || res.status >= 500;
           throw err;
         }
-        return await res.text();
+        const body = await res.text();
+        // jobup's WAF can also answer 200 with an HTML challenge/interstitial
+        // page instead of the feed (observed 2026-09-23 from GitHub runners:
+        // `Unexpected token '<', "<!doctype "... is not valid JSON` killed the
+        // pole-sante-pays-enhaut and cnp crawlers in the same wave while the
+        // feed served JSON from a clean IP). Route it through the same anti-bot
+        // fallback as a 403 instead of surfacing a JSON parse error.
+        if (!looksLikeJsonFeedBody(body)) {
+          const err = new Error(`HTTP 200 non-JSON (anti-bot challenge?) body from ${url}`);
+          err.status = res.status;
+          err.challengeBody = true;
+          err.retryable = false;
+          throw err;
+        }
+        return body;
       } finally {
         clearTimeout(timer);
       }
     }, { label: `jobup ${url}` });
     return parseFeedBody(text);
   } catch (err) {
-    // Persistent anti-bot fence (403/406): the feed is a plain GET so we can
-    // route it through the Jina Reader proxy (clean egress IP, real browser
+    // Persistent anti-bot fence (403/406, or a 200 non-JSON challenge body):
+    // the feed is a plain GET so we can route it through the Jina Reader proxy
+    // (clean egress IP, real browser
     // fetch) as a cheaper intermediate step before spinning up a full headless
     // Chromium. Jina succeeds in the common case (IP-reputation block only);
     // Playwright is the final resort when jobup's WAF demands a full JS session
     // (#1745). Fallback order: Jina → Playwright → re-throw original error.
-    if (isAntiBotStatus(err?.status)) {
-      console.warn(`[jobup] HTTP ${err.status} from ${url} — trying Jina proxy fallback`);
+    if (isAntiBotStatus(err?.status) || err?.challengeBody === true) {
+      console.warn(`[jobup] HTTP ${err.status}${err?.challengeBody ? ' (non-JSON challenge body)' : ''} from ${url} — trying Jina proxy fallback`);
       const jinaRaw = await fetchHtmlViaJinaWithRetry(url, { timeoutMs: 30000 });
       // Jina renders JSON endpoints through Chromium's JSON viewer → the JSON
       // is wrapped in an HTML page; extract it before parsing.
@@ -363,7 +448,7 @@ function detectExperienceLevel(title = '', contrat = '') {
  * `JobPosting` schema with `description` (HTML) — far richer than the feed's
  * `ref` category text.
  */
-export async function fetchJobupDetailDescription(detailUrl) {
+export async function fetchJobupDetailDescription(detailUrl, { includePostingDate = false } = {}) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -397,17 +482,18 @@ export async function fetchJobupDetailDescription(detailUrl) {
       const payload = block.replace(/^<script[^>]+>/, '').replace(/<\/script>$/, '').trim();
       try {
         const data = JSON.parse(payload);
-        const items = Array.isArray(data) ? data : [data];
-        for (const item of items) {
-          if (item?.['@type'] === 'JobPosting' && item?.description) {
-            // description is HTML; strip tags and decode entities
-            const text = String(item.description)
-              .replace(/<br\s*\/?>/gi, '\n')
-              .replace(/<li[^>]*>/gi, '\n• ')
-              .replace(/<\/(p|div|li|h[1-6])>/gi, '\n')
-              .replace(/<[^>]+>/g, ' ');
-            return decodeEntities(text).replace(/\n{3,}/g, '\n\n').replace(/ {2,}/g, ' ').trim();
-          }
+        for (const item of extractJobPostingNodesFromJson(data)) {
+          if (!item?.description) continue;
+          // description is HTML; strip tags and decode entities
+          const text = String(item.description)
+            .replace(/<br\s*\/?>/gi, '\n')
+            .replace(/<li[^>]*>/gi, '\n• ')
+            .replace(/<\/(p|div|li|h[1-6])>/gi, '\n')
+            .replace(/<[^>]+>/g, ' ');
+          const description = decodeEntities(text).replace(/\n{3,}/g, '\n\n').replace(/ {2,}/g, ' ').trim();
+          return includePostingDate
+            ? { description, rawPostedDate: typeof item.datePosted === 'string' ? item.datePosted : '' }
+            : description;
         }
       } catch {
         // skip malformed JSON-LD blocks
@@ -434,6 +520,7 @@ export async function fetchJobupDetailDescription(detailUrl) {
  * @param {string} config.defaultPostalCode  Legacy config; never used as a location fallback
  * @param {string} [config.publicCareerUrl]  Corporate career page URL
  * @param {string} [config.defaultSourceLang='fr']
+ * @param {boolean} [config.publicationDateFromDetail=false] Use only the observed JobPosting publication date.
  */
 export function createJobupChFeedParser(config) {
   const {
@@ -444,6 +531,7 @@ export function createJobupChFeedParser(config) {
     defaultCanton,
     publicCareerUrl,
     defaultSourceLang = 'fr',
+    publicationDateFromDetail = false,
   } = config;
 
   if (!companyKey || !companyName || !jobupKey || !defaultCanton) {
@@ -488,7 +576,6 @@ export function createJobupChFeedParser(config) {
 
     if (!items.length) return [];
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     const seenLinks = new Set();
     let detailHits = 0;
@@ -554,7 +641,8 @@ export function createJobupChFeedParser(config) {
       const postalCode = lieu.postal;
 
       // Fetch detail page for rich description (JSON-LD JobPosting)
-      const detailDescription = await fetchJobupDetailDescription(link);
+      const detail = await fetchJobupDetailDescription(link, { includePostingDate: publicationDateFromDetail });
+      const detailDescription = typeof detail === 'string' ? detail : detail.description;
       await new Promise((r) => setTimeout(r, 250));
       if (!hasPublishableJobupDetail(detailDescription)) {
         console.log(`     ⚠ detail content rejected for ${link}: missing or thin source description`);
@@ -567,7 +655,9 @@ export function createJobupChFeedParser(config) {
       const sourceLang = detectLang(description || title, defaultSourceLang);
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);
       const urlHash = createHash('sha1').update(link).digest('hex').slice(0, 12);
-      const postedDate = parseJobupDate(raw?.puddate || '') || todayIso;
+      const postingFields = publicationDateFromDetail
+        ? sourcePostingDateFields(typeof detail === 'object' ? detail.rawPostedDate : '')
+        : sourcePostingDateFields('');
 
       jobs.push({
         id: `${companyKey}-${urlHash}`,
@@ -607,7 +697,7 @@ export function createJobupChFeedParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...postingFields,
         applyUrl: link,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

@@ -14,6 +14,10 @@ import { readdirSync, statSync, existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
+import {
+  toStructuredDataJobPostingError,
+  validateMandatoryJobPostingFields,
+} from './lib/jobposting-mandatory-fields.mjs';
 
 const DIST = join(process.cwd(), 'dist');
 
@@ -119,24 +123,15 @@ function validateDataset(schema, filePath) {
 }
 
 function validateJobPosting(schema, filePath) {
-  const errors = [];
   const type = schema['@type'];
-  if (type !== 'JobPosting') return errors;
+  if (type !== 'JobPosting') return [];
+  const errors = validateMandatoryJobPostingFields(schema)
+    .map((violation) => toStructuredDataJobPostingError(violation, filePath));
 
-  // Mandatory Google fields
-  const checks = [
-    ['title', schema.title],
-    ['datePosted', schema.datePosted],
-    ['hiringOrganization.name', schema.hiringOrganization?.name],
-    ['employmentType', schema.employmentType],
-    // GSC quality issue: missing validThrough flagged as non-critical but counted
-    // in the JobPosting "Issues" report — treat as deploy-blocking error.
-    ['validThrough', schema.validThrough],
-  ];
-  for (const [field, value] of checks) {
-    if (!isNonEmpty(value)) {
-      errors.push({ file: filePath, type: 'JobPosting', field, message: `JobPosting missing "${field}"` });
-    }
+  // Consumer-specific: GSC reports validThrough separately from the nine
+  // mandatory fields and this gate intentionally keeps it deploy-blocking.
+  if (!isNonEmpty(schema.validThrough)) {
+    errors.push({ file: filePath, type: 'JobPosting', field: 'validThrough', message: 'JobPosting missing "validThrough"' });
   }
 
   // validThrough must parse to a valid date. Past dates are allowed —
@@ -149,25 +144,12 @@ function validateJobPosting(schema, filePath) {
     }
   }
 
-  // Description must be >= 30 chars
-  const desc = String(schema.description || '').trim();
-  if (desc.length < 30) {
-    errors.push({ file: filePath, type: 'JobPosting', field: 'description', message: `JobPosting description too short (${desc.length} chars, need >= 30)` });
-  }
-
-  // jobLocation.address must exist with addressLocality
+  // Consumer-specific address quality checks. The shared contract already
+  // reports missing jobLocation/address/postalCode/streetAddress.
   const address = schema.jobLocation?.address;
-  if (!address) {
-    errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation', message: 'JobPosting missing "jobLocation.address"' });
-  } else {
+  if (address && typeof address === 'object') {
     if (!isNonEmpty(address.addressLocality)) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressLocality', message: 'JobPosting missing "addressLocality"' });
-    }
-    if (!isNonEmpty(address.postalCode)) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.postalCode', message: 'JobPosting missing "postalCode"' });
-    }
-    if (!isNonEmpty(address.streetAddress)) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.streetAddress', message: 'JobPosting missing "streetAddress"' });
     }
     // GSC quality issue: missing addressRegion flagged as non-critical but
     // counted in the JobPosting "Issues" report — treat as deploy-blocking.
@@ -175,35 +157,6 @@ function validateJobPosting(schema, filePath) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressRegion', message: 'JobPosting missing "addressRegion"' });
     } else if (!/^[A-Z]{2}$/.test(String(address.addressRegion).trim())) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressRegion', message: `JobPosting addressRegion "${address.addressRegion}" is not a 2-letter Swiss canton code` });
-    }
-  }
-
-  // baseSalary must be present and valid
-  const bs = schema.baseSalary;
-  if (!bs || typeof bs !== 'object') {
-    errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary', message: 'JobPosting missing "baseSalary"' });
-  } else {
-    const val = bs.value;
-    if (!val || typeof val !== 'object') {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value', message: 'JobPosting baseSalary missing "value"' });
-    } else {
-      const minVal = Number(val.minValue);
-      if (!Number.isFinite(minVal) || minVal <= 0) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.minValue', message: 'JobPosting baseSalary.value.minValue missing or invalid' });
-      }
-      // FRO-maxValue: maxValue is now MANDATORY — GSC flags missing maxValue as quality issue.
-      const maxVal = Number(val.maxValue);
-      if (!Number.isFinite(maxVal) || maxVal <= 0) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.maxValue', message: 'JobPosting baseSalary.value.maxValue missing or invalid' });
-      } else if (Number.isFinite(minVal) && maxVal < minVal) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.maxValue', message: 'JobPosting baseSalary.value.maxValue < minValue' });
-      }
-      if (!isNonEmpty(val.unitText)) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.unitText', message: 'JobPosting baseSalary.value.unitText missing' });
-      }
-    }
-    if (!isNonEmpty(bs.currency)) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.currency', message: 'JobPosting baseSalary.currency missing' });
     }
   }
 
@@ -228,25 +181,37 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // description >= 30 chars
-  const desc = String(schema.description || '').trim();
-  if (desc.length < 30) {
-    errors.push({ file: filePath, type: 'Event', field: 'description', message: `Event description too short (${desc.length} chars, need >= 30)` });
+  // A description is optional while the event waits for an exact rewrite-cache
+  // hit. When present, it still needs to be substantial enough for rich data.
+  if (schema.description !== undefined) {
+    const desc = String(schema.description || '').trim();
+    if (desc.length < 30) {
+      errors.push({ file: filePath, type: 'Event', field: 'description', message: `Event description too short (${desc.length} chars, need >= 30)` });
+    }
   }
 
-  // location must exist with addressLocality
+  // location must exist with a non-empty name and addressLocality
   if (!schema.location || typeof schema.location !== 'object') {
     errors.push({ file: filePath, type: 'Event', field: 'location', message: 'Event missing "location"' });
   } else {
+    if (!isNonEmpty(schema.location.name)) {
+      errors.push({ file: filePath, type: 'Event', field: 'location.name', message: 'Event missing "location.name"' });
+    }
     const addr = schema.location.address;
     if (!addr || !isNonEmpty(addr.addressLocality)) {
       errors.push({ file: filePath, type: 'Event', field: 'location.address.addressLocality', message: 'Event missing "location.address.addressLocality"' });
     }
   }
 
-  // image, organizer and performer are optional Schema.org properties. Check
-  // their shape only when a source provides them; the event catalog does not
-  // invent a generic image, source-as-organizer or venue-as-performer.
+  // These three fields are part of the current Event page contract. Legacy
+  // fixtures may still fail here, which is intentional: a regression that
+  // drops a deterministic default must block the build instead of passing as
+  // an absent optional value.
+  for (const field of ['image', 'organizer', 'performer']) {
+    if (schema[field] === undefined || schema[field] === null) {
+      errors.push({ file: filePath, type: 'Event', field, message: `Event missing required structured-data field "${field}"` });
+    }
+  }
   if (schema.image !== undefined && schema.image !== null) {
     const hasImage = Array.isArray(schema.image)
       ? schema.image.some((img) => isNonEmpty(typeof img === 'string' ? img : img?.url))
@@ -261,32 +226,43 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // offers — OPTIONAL (Google lists it as recommended, not required). Many
-  // Event sources (e.g. the Ticino agenda) never expose a price, and asserting
-  // price:"0" (free) on a paid concert/theatre would misrepresent an indexed
-  // page (structured-data policy risk). So we require the verified core fields
-  // only WHEN PRESENT — accurate offers (e.g. free public holidays) still get
-  // validated; price-less Event listings omit them cleanly.
-  if (schema.offers !== undefined && schema.offers !== null) {
+  // Every emitted Event must carry a complete Offer. Verified prices keep
+  // their source amount; unknown prices use the deterministic price: 0
+  // fallback. Zero does not by itself assert free access. AggregateOffer
+  // uses lowPrice instead of price.
+  const offerType = String(schema.offers?.['@type'] || 'Offer').split('/').pop();
+  const offerAmountField = offerType === 'AggregateOffer' ? 'lowPrice' : 'price';
+  if (schema.offers === undefined || schema.offers === null) {
+    errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event missing "offers"' });
+  } else {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {
-      if (schema.offers.price === undefined || schema.offers.price === null) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers missing "price"' });
+      const price = schema.offers[offerAmountField];
+      if (typeof price !== 'number' || !Number.isFinite(price)) {
+        errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} must be a finite number` });
+      } else if (price < 0) {
+        errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} must not be negative` });
       }
       if (!isNonEmpty(schema.offers.priceCurrency)) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
       }
-      if ('availability' in schema.offers && !isNonEmpty(schema.offers.availability)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers has an empty "availability"' });
-      }
-      if ('validFrom' in schema.offers && !isNonEmpty(schema.offers.validFrom)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers has an empty "validFrom"' });
-      }
-      if ('url' in schema.offers && !isNonEmpty(schema.offers.url)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers has an empty "url"' });
+      for (const field of ['availability', 'validFrom', 'url']) {
+        if (!isNonEmpty(schema.offers[field])) {
+          const hasEmptyValue = Object.prototype.hasOwnProperty.call(schema.offers, field);
+          errors.push({
+            file: filePath,
+            type: 'Event',
+            field: `offers.${field}`,
+            message: `Event offers ${hasEmptyValue ? 'has an empty' : 'missing'} "${field}"`,
+          });
+        }
       }
     }
+  }
+  const freeOfferAmount = offerType === 'AggregateOffer' ? schema.offers?.lowPrice : schema.offers?.price;
+  if (schema.isAccessibleForFree === true && freeOfferAmount !== 0) {
+    errors.push({ file: filePath, type: 'Event', field: 'isAccessibleForFree', message: `isAccessibleForFree=true requires offers.${offerAmountField}=0` });
   }
 
   return errors;

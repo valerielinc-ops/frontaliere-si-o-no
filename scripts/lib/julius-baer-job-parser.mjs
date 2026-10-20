@@ -16,7 +16,10 @@
 
 import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 export const WORKDAY_API_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External';
 export const WORKDAY_PUBLIC_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/en-US/External';
@@ -79,6 +82,39 @@ export function isSwissLocation(locationText = '') {
 
 /** @deprecated Misleading legacy name; alias of isSwissLocation. Keep until callers are migrated. */
 export const isTicinoLocation = isSwissLocation;
+
+/**
+ * Whether a listing row may be a Swiss Julius Baer posting worth reading the
+ * detail of: Swiss location text, or a Swiss locality / postal code outside
+ * the commune gazetteer (`isWorkdaySwissPlaceCandidate`), whose structured
+ * country the detail then confirms. The ONE pre-filter of the listing, shared
+ * by `parseWorkdayListings` and the runner.
+ */
+export function isJuliusBaerSwissListing(locationsText = '') {
+  return isSwissLocation(locationsText) || isWorkdaySwissPlaceCandidate(locationsText);
+}
+
+/**
+ * The Swiss place a Julius Baer req is published under — `{ city, canton }`,
+ * or null. The req's own location first (commune gazetteer); a place the
+ * gazetteer cannot resolve (a locality, an address) gets the shared Workday
+ * recovery: official directory or unique postal code, only on the req's
+ * structured Swiss country. The ONE place rule, shared by
+ * `parseWorkdayJobDetail` and the runner.
+ *
+ * @param {object} info the detail's `jobPostingInfo`
+ * @param {string} [listingLocationsText] the listing row, when the detail
+ *   carries no location
+ * @returns {{ city: string, canton: string } | null}
+ */
+export function resolveJuliusBaerPlace(info = {}, listingLocationsText = '') {
+  const locationRaw = info?.location || listingLocationsText || '';
+  const city = parseWorkdayCity(locationRaw);
+  const canton = city ? inferAnyCanton(`${city} ${locationRaw}`) : '';
+  if (city && canton) return { city, canton };
+  const recovered = recoverWorkdayPrimarySwissPlace(info);
+  return recovered ? { city: recovered.location, canton: recovered.canton } : null;
+}
 
 /**
  * Parse city name from Workday location text.
@@ -157,7 +193,7 @@ export function parseWorkdayListings(apiResponse) {
     seen.add(externalPath);
 
     // Filter for Swiss locations; the detail path resolves the canton per job.
-    if (!isSwissLocation(locationsText)) continue;
+    if (!isJuliusBaerSwissListing(locationsText)) continue;
 
     results.push({
       title,
@@ -185,19 +221,17 @@ export function parseWorkdayJobDetail(detail, externalPath = '') {
   const title = normalizeSpace(info.title || '');
   if (!title || title.length < 3) return null;
 
-  const locationRaw = info.location || '';
-  const city = parseWorkdayCity(locationRaw);
-  const canton = inferAnyCanton(locationRaw);
   // A country-only or otherwise unresolved detail is not safe to publish as a
   // structured Swiss job location. Keep the listing admission broad, but
   // require both fields before emitting the detail record.
-  if (!city || !canton) return null;
+  const place = resolveJuliusBaerPlace(info);
+  if (!place) return null;
+  const { city, canton } = place;
   const descriptionHtml = info.jobDescription || '';
   const descriptionText = stripHtml(descriptionHtml);
   const publicUrl = buildPublicUrl(externalPath);
   const timeType = info.timeType || '';
   const jobReqId = info.jobReqId || '';
-  const startDate = info.startDate || new Date().toISOString().split('T')[0];
 
   return {
     title,
@@ -208,8 +242,23 @@ export function parseWorkdayJobDetail(detail, externalPath = '') {
     employmentType: detectEmploymentType(timeType),
     category: detectCategory(title),
     experienceLevel: detectExperienceLevel(title),
-    datePosted: startDate,
+    ...workdayPostingDateFields({ jobPostingInfo: info }),
     jobReqId,
     externalPath,
   };
+}
+
+// The text this crawler used to write itself: the lines the runner wrote ("<title> position at Julius Baer in <city>, Switzerland." and "Posizione aperta presso Julius Baer a <city>. Ruolo: …").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const JULIUS_BAER_FABRICATED_RE = / position at Julius Baer in [^\n]*, Switzerland\.|Posizione aperta presso Julius Baer a /;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropJuliusBaerFabricatedText(job) {
+  return dropFabricatedDescription(job, JULIUS_BAER_FABRICATED_RE);
 }

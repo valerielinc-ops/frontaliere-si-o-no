@@ -92,7 +92,7 @@ export const EVENT_SOURCES = {
   myswitzerland: {
     key: 'myswitzerland',
     label: 'MySwitzerland',
-    homepage: 'https://www.myswitzerland.com',
+    homepage: 'https://www.myswitzerland.com/en/',
     canton: null,
   },
   // Pilot non-TI source-canton crawler (issue #3644, F2 of #3125) — validates
@@ -105,7 +105,82 @@ export const EVENT_SOURCES = {
     homepage: 'https://www.geneve.ch/agenda',
     canton: 'GE',
   },
+  // Cantonal agendas from the P9a source survey (2026-10-05), on the same
+  // createAgendaCrawler factory. Structured feeds only: an agenda that is
+  // reachable only as listing HTML is not added here.
+  'fr-agenda': {
+    key: 'fr-agenda',
+    label: 'Etat de Fribourg — Evénements',
+    homepage: 'https://www.fr.ch/evenements',
+    canton: 'FR',
+  },
+  // iCMS platform agendas (scripts/crawl-icms-agenda.mjs). `canton` is the
+  // agenda's own canton: a row whose locality names a comune elsewhere is
+  // attributed to that comune's canton instead (scripts/lib/icms-agenda.mjs).
+  'nw-agenda': {
+    key: 'nw-agenda',
+    label: 'Kanton Nidwalden — Veranstaltungskalender',
+    homepage: 'https://www.nw.ch/anlaesseaktuelles',
+    canton: 'NW',
+  },
+  'ow-agenda': {
+    key: 'ow-agenda',
+    label: 'Kanton Obwalden — Anlässe',
+    homepage: 'https://www.ow.ch/anlaesseaktuelles',
+    canton: 'OW',
+  },
+  'lu-stadt-agenda': {
+    key: 'lu-stadt-agenda',
+    label: 'Stadt Luzern — Termine',
+    homepage: 'https://www.stadtluzern.ch/aktuelles/termine',
+    canton: 'LU',
+  },
+  // Organizer JSON-LD (owner decision D3, 2026-10-05): the Settimane Musicali
+  // di Ascona publish a schema.org MusicEvent per concert. No licence and no
+  // prohibition, so only facts are kept (title, date, venue, price, link):
+  // no organizer description, no images (scripts/crawl-classicascona-events.mjs).
+  classicascona: {
+    key: 'classicascona',
+    label: 'classicAscona — Settimane Musicali di Ascona',
+    homepage: 'https://classicascona.ch/concerti/',
+    canton: 'TI',
+  },
+  // OpenAgenda API v2 (scripts/crawl-openagenda-events.mjs): Ville de Genève,
+  // Association des communes genevoises and Région de Nyon, under the Licence
+  // Ouverte 2.0. `canton: null` — the canton comes from the venue's comune or,
+  // failing that, from the coordinates in assemble (rule 4b).
+  openagenda: {
+    key: 'openagenda',
+    label: 'OpenAgenda',
+    homepage: 'https://openagenda.com/',
+    canton: null,
+  },
 };
+
+// ── Event-image licence policy ───────────────────────────────
+// Event facts may be aggregated from many public agendas, but a public URL is
+// not an image licence. Keep the allowlist as a single registry so crawlers,
+// the assembler, the renderer and the CDN uploader cannot drift apart.
+//
+// OpenAgenda is the only admitted source at present: its public announcements
+// are reusable under the Licence Ouverte 2.0, and its image crawler additionally
+// requires an agenda-declared licence plus a non-rights-reserved credit before
+// mirroring an individual image (see crawl-openagenda-events.mjs).
+export const EVENT_IMAGE_LICENSES = Object.freeze({
+  openagenda: Object.freeze({
+    name: 'Licence Ouverte 2.0',
+    termsUrl: 'https://doc.openagenda.com/fr/article/conditions-generales-dutilisation-xq325m/',
+  }),
+});
+
+export function isEventImageSourceAllowed(sourceKey) {
+  return typeof sourceKey === 'string' && Object.prototype.hasOwnProperty.call(EVENT_IMAGE_LICENSES, sourceKey);
+}
+
+/** True for a safe mirrored filename whose stable-id prefix is allowlisted. */
+export function isEventImageSafeIdAllowed(safeId) {
+  return typeof safeId === 'string' && Object.keys(EVENT_IMAGE_LICENSES).some((sourceKey) => safeId.startsWith(`${sourceKey}-`));
+}
 
 // ── Localized URL path config (single source of truth, §6) ───
 // The events SSG pages live under a LOCALIZED base segment per locale (en/de/fr
@@ -345,15 +420,31 @@ export function normalizeText(value) {
  * including escaped tags such as `&lt;b&gt;...&lt;/b&gt;`. */
 export function cleanEventText(value) {
   if (typeof value !== 'string') return '';
-  const withoutRawTags = value
-    .replace(/<!--[\s\S]*?-->/g, ' ')
-    .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-    .replace(/<br\s*\/?\s*>/gi, ' ')
-    .replace(/<\/?[a-z][^>]*>/gi, ' ');
-  return decodeHtmlEntities(withoutRawTags, { level: 'html5', scope: 'body' })
-    .replace(/<\/?[a-z][^>]*>/gi, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  let text = value;
+  // Crawler feeds occasionally encode the same field more than once
+  // (`&amp;auml;`). Decode until stable so a visible entity cannot survive
+  // solely because it was wrapped in another entity.
+  for (let pass = 0; pass < 3; pass += 1) {
+    const withoutRawTags = text
+      .replace(/<!--[\s\S]*?-->/g, ' ')
+      .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+      .replace(/<br\s*\/?\s*>/gi, ' ')
+      .replace(/<\/?[a-z][^>]*>/gi, ' ');
+    const decoded = decodeHtmlEntities(withoutRawTags, { level: 'html5', scope: 'body' })
+      .replace(/<\/?[a-z][^>]*>/gi, ' ');
+    text = decoded;
+    if (decoded === withoutRawTags) break;
+  }
+
+  // The source fields are plain text in the rendered event cards. Remove the
+  // small Markdown subset that appears in agenda feeds while preserving
+  // ordinary hashtags such as `#batterypower` and names containing `*`.
+  text = text
+    .replace(/(^|\s)#{1,6}(?=\s)/g, '$1')
+    .replace(/(^|[\s([{\"'“‘])(\*{1,3}|_{1,3})(?=\S)([\s\S]*?\S)\2(?=$|[\s)\]}.,!?;:'\"”’])/g, '$1$3')
+    .replace(/(^|\s)(?:\*{3,}|_{3,})(?=\s|$)/g, '$1');
+
+  return text.replace(/\s+/g, ' ').trim();
 }
 
 /**
@@ -686,6 +777,13 @@ export function resolveItalianFrontierComuni(geo, { maxKm = 15 } = {}) {
 // (#6163, .gitignore): the directory holds ONLY what the current run mirrored,
 // which is exactly what crawl-events.yml uploads to the CDN before it exits.
 const EVENT_IMAGE_DIR = path.join(REPO_ROOT, 'public', 'images', 'events');
+// Resolved LAZILY and honours EVENTS_IMAGE_DIR, like the manifest path below:
+// the tests mirror into a tmpdir instead of creating (and then deleting) image
+// files under public/images/events/ in the checkout.
+function eventImageDir() {
+  const override = process.env.EVENTS_IMAGE_DIR;
+  return override ? path.resolve(override) : EVENT_IMAGE_DIR;
+}
 // Committed index of every image already mirrored to the CDN, `<stableId>` ->
 // `<ext>` (issue #6163). It replaces the existsSync() probe below as the
 // authoritative "do we already have this one?" answer, because the 5'568
@@ -803,6 +901,97 @@ const EVENT_IMAGE_MAX_WIDTH = 1600;
 const EVENT_IMAGE_MAX_HEIGHT = 1600;
 const EVENT_IMAGE_WEBP_QUALITY = 82;
 const EVENT_IMAGE_WEBP_EFFORT = 6;
+// Body cancellation is cleanup, not part of the response verdict. Keep a
+// source that stops acknowledging a broken upstream instead of letting one
+// stalled cancel hold the serial crawler forever.
+const EVENT_IMAGE_CANCEL_TIMEOUT_MS = 1_000;
+
+/**
+ * Read a response body without ever accumulating more than maxBytes.
+ * Content-Length is an early rejection; chunked responses and lying lengths
+ * are still bounded while the stream is consumed. The body is cancelled on
+ * every oversize path so a rejected image cannot strand a crawler connection.
+ *
+ * Allocation follows what the upstream declared or actually sent, never the
+ * cap: a declared length (already <= maxBytes) is preallocated exactly; a
+ * chunked response keeps its chunks and concatenates them once, so an image
+ * served without Content-Length no longer reserves the full 20 MiB cap. The
+ * per-response cap is unchanged. This bounds the reserved ArrayBuffer memory,
+ * not RSS: the old uninitialised cap buffer was mostly never paged in (before
+ * and after measurements are in corpus PR
+ * nanakokyobashi-rgb/frontaliere-articles#1770; ported to the site in #9729).
+ */
+async function readEventImageBody(response, maxBytes) {
+  const rawContentLength = response.headers.get('content-length');
+  const parsedContentLength = rawContentLength === null ? NaN : Number(rawContentLength);
+  const declaredLength = Number.isSafeInteger(parsedContentLength) && parsedContentLength >= 0
+    ? parsedContentLength
+    : null;
+  if (declaredLength !== null && declaredLength > maxBytes) {
+    await cancelEventImageResponse(response);
+    return null;
+  }
+
+  const reader = response.body?.getReader?.();
+  if (!reader) {
+    await cancelEventImageResponse(response);
+    return null;
+  }
+
+  const capacity = declaredLength ?? maxBytes;
+  const buffer = declaredLength === null ? null : Buffer.allocUnsafe(capacity);
+  const chunks = [];
+  let totalBytes = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      const chunkBytes = value?.byteLength;
+      if (!Number.isSafeInteger(chunkBytes) || chunkBytes < 0
+        || totalBytes > maxBytes - chunkBytes || totalBytes > capacity - chunkBytes) {
+        await awaitEventImageCleanup(() => reader.cancel('event image exceeds byte limit'));
+        return null;
+      }
+      if (chunkBytes === 0) continue;
+
+      // The chunk's bytes as a view: over a bare ArrayBuffer `buffer.set(value)`
+      // copied nothing (no `length`) and `Buffer.from(value)` shared the
+      // producer's memory; a typed array other than Uint8Array would be copied
+      // element by element instead of byte by byte.
+      const bytes = value instanceof ArrayBuffer
+        ? new Uint8Array(value)
+        : new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+      if (buffer) buffer.set(bytes, totalBytes);
+      // A copy, not the chunk itself: a reader may hand back the same buffer
+      // on every read (corpus nanakokyobashi-rgb/frontaliere-articles#1906).
+      else chunks.push(Buffer.from(bytes));
+      totalBytes += chunkBytes;
+    }
+    return buffer ? buffer.subarray(0, totalBytes) : Buffer.concat(chunks, totalBytes);
+  } catch (error) {
+    await awaitEventImageCleanup(() => reader.cancel());
+    throw error;
+  } finally {
+    releaseEventImageReader(reader);
+  }
+}
+
+/**
+ * Releasing the reader lock is cleanup, like the cancel above: it must never
+ * replace the verdict already reached. Current Node/undici streams reject any
+ * pending read instead of throwing, but older WHATWG implementations and
+ * polyfilled bodies throw a TypeError from `releaseLock()` (pending read, or
+ * a stream left mid-cancel by the bounded cleanup timeout). Thrown from the
+ * `finally`, that error would turn a fully read image into `null`.
+ */
+function releaseEventImageReader(reader) {
+  try {
+    reader.releaseLock?.();
+  } catch {
+    // The byte/size verdict stays authoritative.
+  }
+}
 
 function extFromContentType(contentType) {
   const ct = String(contentType || '').toLowerCase();
@@ -846,24 +1035,51 @@ async function encodeEventImage(buf, contentType) {
   }
 }
 
+async function awaitEventImageCleanup(cleanup) {
+  let timer;
+  try {
+    await Promise.race([
+      Promise.resolve().then(cleanup),
+      new Promise((resolve) => {
+        timer = setTimeout(resolve, EVENT_IMAGE_CANCEL_TIMEOUT_MS);
+      }),
+    ]);
+  } catch {
+    // The size/type verdict remains authoritative even if cleanup rejects.
+  } finally {
+    if (timer !== undefined) clearTimeout(timer);
+  }
+}
+
+async function cancelEventImageResponse(response) {
+  await awaitEventImageCleanup(() => response?.body?.cancel?.());
+}
+
 /**
- * Download an event's source image once and store it locally under
+ * Download an allowlisted event source image once and store it locally under
  * `public/images/events/<sourceKey>-<rawId>.<ext>`. Returns the site-relative
- * path (e.g. `/images/events/guidle-Acv6rYJ.webp`) on success, or `null` on any
- * failure (missing URL, network error, oversized/non-image response) — callers
+ * path (e.g. `/images/events/openagenda-Acv6rYJ.webp`) on success, or `null` on any
+ * failure (unlicensed source, missing URL, network error, oversized/non-image
+ * response) — callers
  * MUST treat a null return as "no image" (never fall back to the original
  * remote URL, that would defeat the no-hotlink requirement).
  *
  * The stored extension is normally `webp` — encodeEventImage re-encodes what
  * was downloaded; the source's own extension survives only when that is
  * skipped.
+ *
+ * @param {string} sourceKey - source registry key checked against the image licence policy
  */
-export async function mirrorEventImage(sourceUrl, stableId) {
+export async function mirrorEventImage(sourceUrl, stableId, sourceKey) {
+  // Gate before manifest/disk probes: a stale entry from a previously allowed
+  // run must not resurrect an image after its source licence is revoked.
+  if (!isEventImageSourceAllowed(sourceKey)) return null;
   if (!sourceUrl || !/^https?:\/\//i.test(sourceUrl)) return null;
   const safeId = String(stableId || '').replace(/[^a-zA-Z0-9:_-]/g, '').replace(/:/g, '-');
   if (!safeId) return null;
 
-  mkdirSync(EVENT_IMAGE_DIR, { recursive: true });
+  const imageDir = eventImageDir();
+  mkdirSync(imageDir, { recursive: true });
   // 1. The committed manifest — the only probe that still works now that the
   //    mirrored bytes live on the CDN instead of in git.
   const manifest = loadEventImageManifest();
@@ -875,20 +1091,26 @@ export async function mirrorEventImage(sourceUrl, stableId) {
   //    stat() calls and is the difference between "re-download one image" and
   //    "re-download the catalogue".
   const existingMatch = ['jpg', 'jpeg', 'png', 'webp']
-    .map((ext) => path.join(EVENT_IMAGE_DIR, `${safeId}.${ext}`))
+    .map((ext) => path.join(imageDir, `${safeId}.${ext}`))
     .find((p) => existsSync(p));
   if (existingMatch) return `/images/events/${path.basename(existingMatch)}`;
 
   try {
     const res = await fetch(sourceUrl, { headers: { 'User-Agent': EVENT_IMAGE_USER_AGENT } });
-    if (!res.ok) return null;
+    if (!res.ok) {
+      await cancelEventImageResponse(res);
+      return null;
+    }
     const contentType = res.headers.get('content-type') || '';
-    if (!contentType.startsWith('image/')) return null;
-    const raw = Buffer.from(await res.arrayBuffer());
-    if (raw.byteLength === 0 || raw.byteLength > EVENT_IMAGE_MAX_BYTES) return null;
+    if (!contentType.startsWith('image/')) {
+      await cancelEventImageResponse(res);
+      return null;
+    }
+    const raw = await readEventImageBody(res, EVENT_IMAGE_MAX_BYTES);
+    if (!raw || raw.byteLength === 0) return null;
     const { buf, ext } = await encodeEventImage(raw, contentType);
     const fileName = `${safeId}.${ext}`;
-    writeFileSync(path.join(EVENT_IMAGE_DIR, fileName), buf);
+    writeFileSync(path.join(imageDir, fileName), buf);
     recordEventImage(safeId, ext);
     return `/images/events/${fileName}`;
   } catch {
@@ -1383,8 +1605,99 @@ export function eventStableId(sourceKey, rawId) {
 // price accordion, tio-agenda's "Prezzo:" label) — one regex pair, not a
 // copy per crawler (AGENTS.md §6: literal duplicate regex across ≥2 files
 // must live in one shared module).
-const PRICE_FREE_RE = /\b(gratis|gratuit[oe]?|free|kostenlos|eintritt frei|entr[ée]e libre|ingresso libero|entrata libera)\b/i;
-const PRICE_AMOUNT_RE = /(\d+(?:[.,]\d{1,2})?)/g;
+const PRICE_FREE_RE = /\b(gratis|gratuit(?:[aioe]|i|es|s)?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|freier\s+eintritt|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i|es|s)?|libera)|entr[ée]e?s?\s+(?:libre?s?|gratuite?s?))\b/iu;
+const PRICE_CHILD_FREE_RE = /(?:children|kids|bambini|enfants|kinder)(?:\s+(?:(?:under|below|moins\s+de|unter)\s+\d{1,2}|\d{1,2}\s*[–—-]\s*\d{1,2}))?\s*(?:[:,;-]\s*)?(?:are|is|sono|sont|sind)?\s*(?:free|gratis|gratuit(?:[aioe]|i|es|s)?|kostenlos|frei|liber[oa])/iu;
+const PRICE_CHILD_FREE_FOR_RE = /(?:free|gratis|gratuit(?:[aioe]|i|es|s)?|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)(?:\s+(?:under|below|moins\s+de|unter)\s+\d{1,2})?/iu;
+const PRICE_CHILD_AGE_RANGE_RE = /\b(?:children|kids|bambini|enfants|kinder)\b[^,.;\n]*?\b\d{1,2}\s*[–—-]\s*\d{1,2}\b/giu;
+const PRICE_AMOUNT_TOKEN = String.raw`(?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d+)(?:[.,]\d{1,2})?`;
+const PRICE_AMOUNT_RE = new RegExp(String.raw`(?<![\p{L}\p{N}])${PRICE_AMOUNT_TOKEN}(?![\p{L}\p{N}])`, 'gu');
+const PRICE_ADJACENT_AMOUNT_RE = new RegExp(String.raw`(?:(?<![\p{L}\p{N}])(CHF|EUR|€|S?Fr\.?)(${PRICE_AMOUNT_TOKEN})(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(${PRICE_AMOUNT_TOKEN})(CHF|EUR|€|S?Fr\.?)(?![\p{L}\p{N}]))`, 'giu');
+const PRICE_RANGE_POSTFIX_RE = new RegExp(String.raw`(${PRICE_AMOUNT_TOKEN})\s*[–—-]\s*${PRICE_AMOUNT_TOKEN}\s*(CHF|EUR|€|S?Fr\.?|francs?|franchi|franken)`, 'iu');
+const PRICE_CURRENCY_BEFORE_RE = /(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)\s*$/iu;
+const PRICE_CURRENCY_AFTER_RE = /^\s*(?:[.]\s*[–—-]{1,2}\s*)?(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)(?=$|\s|[.,;:)/])/iu;
+const PRICE_LABEL_BEFORE_RE = /(?:price|prices|prezz[oi]|preise?|prix|tariff[ae]|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\s*[:=]?\s*$/iu;
+const PRICE_LABEL_AFTER_RE = /^\s*(?:price|prices|prezzo|preise?|prix|tariffa|tarif|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b/iu;
+const PRICE_AUDIENCE_BEFORE_RE = /(?:adult(?:s|es)?|adulti|erwachsene)\s*$/iu;
+const PRICE_AUDIENCE_AFTER_RE = /^\s*(?:adult(?:s|es)?|adulti|erwachsene)\b/iu;
+const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezz[oi]|preise?|prix|tariff[ae]|tarif|admission|entry|entrance|entr[ée]e|ingresso|entrata|eintritt|accesso?|acc[eè]s|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
+const PRICE_DATE_OR_PHONE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b|\+?\d[\d\s()./-]{6,}\d\b)/u;
+const PRICE_DATE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b)/gu;
+const PRICE_PHONE_RE = /\+?\d[\d\s()./-]{6,}\d/u;
+const PRICE_PHONE_ALL_RE = /\+?\d[\d\s()./-]{6,}\d/gu;
+const PRICE_TIME_RE = /\b\d{1,2}:\d{2}\b/gu;
+const PRICE_FREE_ONLY_RE = /^(?:gratis|free|kostenlos|gratuit(?:[aioe]|i|es|s)?|gratuit(?:e|s|es)?\s+(?:pour|per|for)\s+(?:tous|tutte|tutti|all)|gratis\s+per\s+tutti|free\s+for\s+all|freier\s+eintritt|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i|es|s)?|libera)|entr[ée]e?s?\s+(?:libre?s?|gratuite?s?))\s*[.!]?$/iu;
+const PRICE_ACCESS_FREE_RE = /(?:\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso|acc[eè]s)\b[^,;.\n]*\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i|es|s)?)\b|\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i|es|s)?)\b[^,;.\n]*\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso|acc[eè]s)\b)/iu;
+const PRICE_ALL_AUDIENCES_FREE_RE = /\b(?:adult(?:s|es)?|adulti|erwachsene)\b[^,.;]*\b(?:free|gratis|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i|es|s)?)\b/iu;
+const PRICE_NON_ACCESS_FREE_RE = /\b(?:parking|parcheggio|parkplatz|stationnement)\b/iu;
+const PRICE_PARKING_BEFORE_RE = /(?:parking|parcheggio|parkplatz|stationnement)\s*[:=,-]?\s*(?:CHF|EUR|€|S?Fr\.?)?\s*$/iu;
+
+function priceResult(value, evidence) {
+  Object.defineProperty(value, 'evidence', { value: evidence, enumerable: false, configurable: true });
+  return value;
+}
+
+function normalizePriceAmount(raw) {
+  const normalized = raw.replace(/['’\s]/g, '').replace(/\.(?=\d{3}(?:\D|$))/g, '').replace(/,(?=\d{3}(?:\D|$))/g, '').replace(',', '.');
+  return Number.parseFloat(normalized);
+}
+
+function canonicalPriceCurrency(raw) {
+  return /EUR|EUROS?|€/iu.test(raw) ? 'EUR' : 'CHF';
+}
+
+function overlapsDate(text, start, length) {
+  PRICE_DATE_RE.lastIndex = 0;
+  let match;
+  while ((match = PRICE_DATE_RE.exec(text))) {
+    if (start < match.index + match[0].length && start + length > match.index) return true;
+  }
+  return false;
+}
+
+function overlapsPhone(text, start, length) {
+  PRICE_PHONE_ALL_RE.lastIndex = 0;
+  let match;
+  while ((match = PRICE_PHONE_ALL_RE.exec(text))) {
+    if (start < match.index + match[0].length && start + length > match.index) return true;
+  }
+  return false;
+}
+
+function collectPriceCandidates(text) {
+  const candidates = [];
+  const defaultCurrency = canonicalPriceCurrency(text);
+  const candidateText = text.replace(PRICE_TIME_RE, ' ');
+  PRICE_AMOUNT_RE.lastIndex = 0;
+  let match;
+  while ((match = PRICE_AMOUNT_RE.exec(candidateText))) {
+    const before = candidateText.slice(Math.max(0, match.index - 32), match.index);
+    const after = candidateText.slice(match.index + match[0].length, match.index + match[0].length + 32);
+    const currency = before.match(PRICE_CURRENCY_BEFORE_RE)?.[0] || after.match(PRICE_CURRENCY_AFTER_RE)?.[0];
+    const hasPriceLabel = PRICE_LABEL_BEFORE_RE.test(before) || PRICE_LABEL_AFTER_RE.test(after) || PRICE_AUDIENCE_BEFORE_RE.test(before);
+    if (currency && PRICE_PARKING_BEFORE_RE.test(before)) continue;
+    if (!currency && !hasPriceLabel) continue;
+    if (overlapsDate(candidateText, match.index, match[0].length) || overlapsPhone(candidateText, match.index, match[0].length) || (!currency && PRICE_AUDIENCE_AFTER_RE.test(after))) continue;
+    const amount = normalizePriceAmount(match[0]);
+    if (Number.isFinite(amount) && amount >= 0) candidates.push({ amount, currency: canonicalPriceCurrency(currency || defaultCurrency) });
+  }
+  PRICE_ADJACENT_AMOUNT_RE.lastIndex = 0;
+  while ((match = PRICE_ADJACENT_AMOUNT_RE.exec(candidateText))) {
+    const rawAmount = match[2] || match[3];
+    const rawCurrency = match[1] || match[4];
+    const before = candidateText.slice(Math.max(0, match.index - 32), match.index);
+    if (PRICE_PARKING_BEFORE_RE.test(before) || /^(?:19|20)\d{2}$/u.test(rawAmount)) continue;
+    const amountStart = match.index + match[0].indexOf(rawAmount);
+    if (overlapsDate(candidateText, amountStart, rawAmount.length) || overlapsPhone(candidateText, amountStart, rawAmount.length)) continue;
+    const amount = normalizePriceAmount(rawAmount);
+    if (Number.isFinite(amount) && amount >= 0) candidates.push({ amount, currency: canonicalPriceCurrency(rawCurrency) });
+  }
+  const range = PRICE_RANGE_POSTFIX_RE.exec(candidateText);
+  if (range) {
+    const amount = normalizePriceAmount(range[1]);
+    if (Number.isFinite(amount) && amount >= 0) candidates.push({ amount, currency: canonicalPriceCurrency(range[2]) });
+  }
+  return candidates;
+}
 
 /**
  * Parse a free-text price snippet (e.g. "CHF 10.00 pro Person", "Ingresso 20
@@ -1398,30 +1711,211 @@ const PRICE_AMOUNT_RE = /(\d+(?:[.,]\d{1,2})?)/g;
 export function parsePriceText(rawText) {
   const t = typeof rawText === 'string' ? rawText.replace(/\s+/g, ' ').trim() : '';
   if (!t) return undefined;
-  const numbers = [];
-  PRICE_AMOUNT_RE.lastIndex = 0;
-  let m;
-  while ((m = PRICE_AMOUNT_RE.exec(t))) {
-    const n = Number.parseFloat(m[1].replace(',', '.'));
-    if (Number.isFinite(n)) numbers.push(n);
+  const free = PRICE_FREE_RE.test(t);
+  const conditionalFree = PRICE_CHILD_FREE_RE.test(t) || /(?:free|gratis|gratuit(?:[aioe]|i|es|s)?|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)/iu.test(t);
+  if (free && conditionalFree) {
+    // Remove the child-free clause first, then explicitly mask age ranges as
+    // well. A source can spell the same condition in a way that does not fit
+    // PRICE_CHILD_FREE_RE exactly; 0–5 is an eligibility range, never an
+    // admission amount, so it must not win over the adult tariff.
+    const conditionalText = t
+      .replace(PRICE_CHILD_FREE_RE, ' ')
+      .replace(PRICE_CHILD_AGE_RANGE_RE, (segment) => segment.replace(PRICE_AMOUNT_RE, ' '));
+    const conditionalAmounts = collectPriceCandidates(conditionalText.replace(PRICE_CHILD_FREE_FOR_RE, ' '));
+    if (conditionalAmounts.length) {
+      const cheapest = conditionalAmounts.reduce((min, candidate) => candidate.amount < min.amount ? candidate : min);
+      return priceResult({ amount: cheapest.amount, currency: cheapest.currency, isFree: false }, 'numeric');
+    }
+    if (PRICE_ALL_AUDIENCES_FREE_RE.test(t)) {
+      return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'label-free');
+    }
+    return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
   }
-  if (numbers.length) {
-    const amount = Math.min(...numbers);
-    return { amount, currency: 'CHF', isFree: amount === 0 };
+  if (/^0(?:[.,]0{1,2}|[.][–—-]{1,2})?$/u.test(t)) return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'numeric');
+  if (/^(?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{1,5})(?:[.,]\d{1,2})?$/u.test(t)) {
+    const normalized = t.replace(/['’\s]/g, '').replace(/\.(?=\d{3}(?:\D|$))/g, '').replace(/,(?=\d{3}(?:\D|$))/g, '').replace(',', '.');
+    const amount = Number.parseFloat(normalized);
+    if (Number.isFinite(amount)) return priceResult({ amount, currency: 'CHF', isFree: amount === 0 }, 'numeric');
   }
-  if (PRICE_FREE_RE.test(t)) return { amount: 0, currency: 'CHF', isFree: true };
-  return { amount: null, currency: 'CHF', isFree: false };
+  if (free && PRICE_FREE_ONLY_RE.test(t)) {
+    return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'label-free');
+  }
+  if (!PRICE_CONTEXT_RE.test(t)) {
+    return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
+  }
+  const candidates = collectPriceCandidates(t);
+  if (candidates.length) {
+    const cheapest = candidates.reduce((min, candidate) => candidate.amount < min.amount ? candidate : min);
+    return priceResult({ amount: cheapest.amount, currency: cheapest.currency, isFree: cheapest.amount === 0 }, 'numeric');
+  }
+  if (free && (PRICE_FREE_ONLY_RE.test(t) || PRICE_ACCESS_FREE_RE.test(t))) {
+    return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'label-free');
+  }
+  return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
 }
 
 /**
- * Whether a parsed `{amount, currency, isFree}` price carries a confident
- * enough signal to publish as schema.org `offers` — `isFree: true` or a real
- * parsed `amount`. Excludes the `amount: null` ambiguous bucket (price
- * mentioned but not machine-parseable, e.g. "su richiesta"): asserting
- * `price:"0"` there would fabricate "free" for a plausibly-paid event.
+ * Whether a parsed `{amount, currency, isFree}` price carries a value at all —
+ * `isFree: true` or a real parsed `amount`. Excludes the `amount: null`
+ * ambiguous bucket (price mentioned but not machine-parseable, e.g. "su
+ * richiesta"). This is the crawler-internal candidate test ("did this field
+ * yield a tariff?"); it says nothing about provenance, so it must never decide
+ * publication — that is `hasConfidentPrice()`.
+ */
+export function hasParsedPrice(price) {
+  return Boolean(price) && (price.isFree === true || typeof price.amount === 'number');
+}
+
+/**
+ * Registry of publishable tariffs (rule H5): for each admitted source, the
+ * structured fields whose value may be shown, and how. A price is published
+ * only when its `priceSource` is a key here AND its `priceField` is one of
+ * that source's fields — the pair, not the two lists separately, so an
+ * Eventfrog record can never publish an `offers.price` and a classicAscona
+ * record never a `gratuit`.
+ *
+ * Owner decisions:
+ *   - 2026-10-04 (FU-2026-10-03-002): MySwitzerland, then Guidle — schema.org
+ *     JSON-LD `offers[].price` and `isAccessibleForFree`.
+ *   - 2026-10-05 (D4):
+ *     - classicAscona: JSON-LD `Offer.price` (single price) and
+ *       `AggregateOffer.lowPrice` (shown as «from CHF X»). Never «free»: a
+ *       concert without a structured price stays without a price.
+ *     - Eventfrog Public API: `lowestTicketPrice`, shown as «from CHF X». The
+ *       field carries no currency: it is CHF only because the event location
+ *       is in Switzerland (`currencySource: 'location.country'`).
+ *     - OpenAgenda: the boolean `gratuit`, shown only as «free», never as an
+ *       amount. The free-text `conditions` is never a price.
+ *
+ * Per-field rule:
+ *   - `free`: 'only' (the field can only assert free admission), 'never'
+ *     (a zero or free value from it is discarded), 'any'.
+ *   - `from`: the amount is a minimum («from CHF X», AggregateOffer.lowPrice).
+ *   - `currency` / `currencySource`: required on the price object when the
+ *     source field itself has no currency.
+ *
+ * Key order is the precedence among duplicates (assemble-events-dataset.mjs).
+ * A source outside this registry (Turismo Ticino, tio.ch, Genève agenda, …)
+ * never makes a price reliable until its terms have been verified and the
+ * owner adds it here.
+ */
+export const EVENT_PRICE_FIELD_RULES = deepFreeze({
+  myswitzerland: {
+    'offers.price': { free: 'any', from: false },
+    isAccessibleForFree: { free: 'only', from: false },
+  },
+  guidle: {
+    'offers.price': { free: 'any', from: false },
+    isAccessibleForFree: { free: 'only', from: false },
+  },
+  classicascona: {
+    'offers.price': { free: 'never', from: false },
+    'offers.lowPrice': { free: 'never', from: true },
+  },
+  eventfrog: {
+    lowestTicketPrice: { free: 'never', from: true, currency: 'CHF', currencySource: 'location.country' },
+  },
+  openagenda: {
+    gratuit: { free: 'only', from: false },
+  },
+});
+
+function deepFreeze(value) {
+  for (const inner of Object.values(value)) {
+    if (inner && typeof inner === 'object') deepFreeze(inner);
+  }
+  return Object.freeze(value);
+}
+
+/** Admitted tariff sources, in precedence order (keys of EVENT_PRICE_FIELD_RULES). */
+export const EVENT_PRICE_SOURCES = Object.freeze(Object.keys(EVENT_PRICE_FIELD_RULES));
+
+/**
+ * Every structured field admitted for at least one source. Labelled HTML
+ * tariff boxes (`detail-table`, `price-accordion`), indexed copy
+ * (`index-content`), third-party ticketing pages (`booking-page`) and
+ * OpenAgenda `conditions` are free text read by a parser: recorded, never
+ * reliable. Publication is decided per source by `hasConfidentPrice`.
+ */
+export const STRUCTURED_EVENT_PRICE_FIELDS = Object.freeze([
+  ...new Set(Object.values(EVENT_PRICE_FIELD_RULES).flatMap((fields) => Object.keys(fields))),
+]);
+
+/** The rule for a price's (source, field) pair, or undefined when not admitted. */
+export function eventPriceFieldRule(price) {
+  const fields = Object.hasOwn(EVENT_PRICE_FIELD_RULES, price?.priceSource || '')
+    ? EVENT_PRICE_FIELD_RULES[price.priceSource]
+    : undefined;
+  return fields && Object.hasOwn(fields, price?.priceField || '') ? fields[price.priceField] : undefined;
+}
+
+/** Stamp a parsed price with the source and the field it was read from. */
+export function withEventPriceSource(price, priceSource, priceField) {
+  if (!price || typeof price !== 'object') return price;
+  return { ...price, priceSource, priceField };
+}
+
+/**
+ * Whether a price is reliable enough to publish (schema.org `offers`,
+ * `isAccessibleForFree`, the visible price line): it carries a value AND was
+ * read from a field admitted for its source (`EVENT_PRICE_FIELD_RULES`),
+ * within that field's rule. A tariff parsed from free text — or a legacy
+ * record without `priceSource`/`priceField` — stays in the data but is not
+ * reliable: asserting `price:"0"` or a parsed amount there would publish an
+ * inference as a source fact.
  */
 export function hasConfidentPrice(price) {
-  return Boolean(price) && (price.isFree === true || typeof price.amount === 'number');
+  if (!hasParsedPrice(price)) return false;
+  const rule = eventPriceFieldRule(price);
+  if (!rule) return false;
+  const free = price.isFree === true || price.amount === 0;
+  if (rule.free === 'only' && !(price.isFree === true && (price.amount === 0 || price.amount == null))) return false;
+  if (rule.free === 'never' && (free || !(Number.isFinite(price.amount) && price.amount > 0))) return false;
+  if (rule.currency && price.currency !== rule.currency) return false;
+  if (rule.currencySource && price.currencySource !== rule.currencySource) return false;
+  return true;
+}
+
+/** Whether a reliable price is a minimum («from CHF X», AggregateOffer.lowPrice). */
+export function isFromEventPrice(price) {
+  return hasConfidentPrice(price) && eventPriceFieldRule(price).from === true;
+}
+
+/**
+ * OpenAgenda `gratuit` → a «free» price with its provenance, or undefined.
+ * Only the boolean `true` counts; `false`, a missing field and the free-text
+ * `conditions` never produce a price (D4, 2026-10-05).
+ */
+export function openAgendaGratuitPrice(event) {
+  if (event?.gratuit !== true) return undefined;
+  return withEventPriceSource({ amount: 0, currency: 'CHF', isFree: true }, 'openagenda', 'gratuit');
+}
+
+/** Currency of an Eventfrog amount, from the location country (the API field has none). */
+const EVENTFROG_CURRENCY_BY_COUNTRY = Object.freeze({ CH: 'CHF' });
+
+/**
+ * Eventfrog `lowestTicketPrice` → a «from CHF X» price with its provenance,
+ * or undefined. The API amount carries no currency, so it is CHF only when
+ * the event location is in Switzerland (`location.country === 'CH'`); any
+ * other or missing country gives no price. Also required: a positive amount,
+ * a ticketed event (`agendaEntryOnly === false`) that is not cancelled.
+ *
+ * @param {{ lowestTicketPrice?: unknown, agendaEntryOnly?: unknown, cancelled?: unknown }} event
+ * @param {{ country?: unknown } | undefined} location - the event's Eventfrog location record.
+ */
+export function eventfrogLowestTicketPrice(event, location) {
+  const amount = event?.lowestTicketPrice;
+  if (typeof amount !== 'number' || !Number.isFinite(amount) || amount <= 0) return undefined;
+  if (event?.agendaEntryOnly !== false || event?.cancelled === true) return undefined;
+  const country = typeof location?.country === 'string' ? location.country.trim().toUpperCase() : '';
+  const currency = Object.hasOwn(EVENTFROG_CURRENCY_BY_COUNTRY, country) ? EVENTFROG_CURRENCY_BY_COUNTRY[country] : undefined;
+  if (!currency) return undefined;
+  return withEventPriceSource(
+    { amount, currency, isFree: false, currencySource: 'location.country' },
+    'eventfrog',
+    'lowestTicketPrice',
+  );
 }
 
 // ── Date helpers ─────────────────────────────────────────────

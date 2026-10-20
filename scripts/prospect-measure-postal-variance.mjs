@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Measure the "variable NPA" criterion on a wide sample of promoted specs.
  *
@@ -119,7 +120,10 @@ function hasSourceBackedGeography(detail = {}, listing = {}) {
 
 function detailTruth(spec, page, listing = {}) {
   try {
-    const detail = extractRuntimeDetailFields(spec, page.body || '', page.url || '');
+    const detail = extractRuntimeDetailFields(spec, page.body || '', page.url || '', {
+      recordUrl: listing.url,
+      recordTitle: listing.title,
+    });
     const reference = detailReferenceTruth(detail);
     return {
       ...reference,
@@ -554,7 +558,7 @@ async function main() {
 }
 
 const isDirectRun = process.argv[1]
-  && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectRun) {
   main().catch((error) => {
     console.error(`[postal-variance] ${error?.stack || error}`);

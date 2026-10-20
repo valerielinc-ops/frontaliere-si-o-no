@@ -54,12 +54,14 @@ import {
   MIN_SERVED_SHARE,
   TITLE_POPULATION,
   assertPopulationUnchanged,
+  heldPopulationSlots,
   measureDescriptionLocales,
   measureTitleLocales,
 } from '../scripts/lib/job-locale-population.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
+const DATA_META_PATH = path.resolve(__dirname, '..', 'data', 'jobs-meta.json');
 
 interface Job {
   company?: string;
@@ -87,9 +89,23 @@ function loadJobs(): Job[] | null {
   }
 }
 
+// Agency jobs held out of publication until translated (owner decision
+// 2026-10-03) are corpus, not in data/jobs.json. Both expectedSlots were
+// measured when they were all published, so the POPULATION guard adds their
+// slots back, as counted by the same assembly; the RATE stays on what the site
+// serves. Null (no/stale meta) = the guard compares data/jobs.json alone.
+function loadHeldSlots(publishedJobCount: number) {
+  try {
+    return heldPopulationSlots(JSON.parse(fs.readFileSync(DATA_META_PATH, 'utf-8')), publishedJobCount);
+  } catch {
+    return null;
+  }
+}
+
 describe('job-locale-consistency', () => {
   const jobs = loadJobs();
   const hasDataset = jobs !== null;
+  const heldSlots = hasDataset ? loadHeldSlots(jobs!.length) : null;
   if (!hasDataset) {
     console.warn(
       '[job-locale-consistency] data/jobs.json absent — ratchets skipped. '
@@ -107,6 +123,11 @@ describe('job-locale-consistency', () => {
    *   · main @10:59 UTC (efd6faf8): 100 / 90,528 slots = 0.110%, 38.2% served
    * Same cap, two states that previously read 0.064% and 0.325% — the 5x swing
    * was the denominator, not the corpus.
+   *
+   * RE-DERIVED 2026-09-29 (issue #9102): the assembled corpus measured
+   * 36 / 115,907 slots = 0.031% with 61.8% served. The 0.30% cap is unchanged:
+   * this commit re-pins the denominator and its measured rate, without loosening
+   * the quality gate.
    *
    * POPULATION and DEFECT are deliberately NOT the same set, and that is the
    * fix. The denominator is every description slot in the corpus, queue or no
@@ -147,8 +168,8 @@ describe('job-locale-consistency', () => {
     'localized descriptions are not stored under the wrong locale',
     { timeout: 180000 },
     () => {
-      // 0.30% — measured 0.110% on the ASSEMBLED data/jobs.json, 2026-08-11,
-      // on DESCRIPTION_POPULATION (90,900 slots ±15%).
+      // 0.30% — re-derived at 0.031% on the ASSEMBLED data/jobs.json,
+      // 2026-09-29, on DESCRIPTION_POPULATION (115,907 slots ±15%).
       const MAX_RATE = 0.003;
 
       const { slots, servedSlots, mismatches } = measureDescriptionLocales(
@@ -167,11 +188,12 @@ describe('job-locale-consistency', () => {
           + `${(rate * 100).toFixed(3)}% (max ${(MAX_RATE * 100).toFixed(3)}%) `
           + `population=assembled data/jobs.json, expected ${DESCRIPTION_POPULATION.expectedSlots} `
           + `±${(DESCRIPTION_POPULATION.tolerance * 100).toFixed(0)}%, `
-          + `served ${servedSlots}/${slots} = ${(servedShare * 100).toFixed(1)}% (min ${(MIN_SERVED_SHARE * 100).toFixed(0)}%)`
+          + `served ${servedSlots}/${slots} = ${(servedShare * 100).toFixed(1)}% (min ${(MIN_SERVED_SHARE * 100).toFixed(0)}%), `
+          + `held for translation ${heldSlots ? `+${heldSlots.descriptions} slots in the population` : 'not reported'}`
       );
 
       // 1. Is this the set the baseline was derived on? Distinct failure.
-      assertPopulationUnchanged(DESCRIPTION_POPULATION, slots);
+      assertPopulationUnchanged(DESCRIPTION_POPULATION, slots + (heldSlots?.descriptions ?? 0));
 
       // 2. Can this gate still see anything? Moving the denominator off the
       //    queue removes the instability but would let a corpus-wide queue
@@ -284,11 +306,10 @@ describe('job-locale-consistency', () => {
     'non-source job titles are not left in the source language',
     { timeout: 180000 },
     () => {
-      // 33.00% — measured 29.45% on the ASSEMBLED data/jobs.json, 2026-08-12,
-      // on TITLE_POPULATION (68,200 slots ±15%). Re-measured 2026-08-25 (issue
-      // #6510, population re-baseline only): 24,371/78,725 = 30.96%, still
-      // under the 33.00% cap — no quality regression, MAX_RATE UNCHANGED. See
-      // the docstring above for the original margin derivation.
+      // 33.00% — the population re-baseline on 2026-09-30 measured
+      // 29,643/90,712 = 32.68% on the assembled artefact. The cap remains
+      // unchanged and the measured rate is still below it; this is a
+      // denominator re-baseline, not permission to loosen the quality gate.
       const MAX_RATE = 0.33;
 
       const { slots, flagged, offenders } = measureTitleLocales(
@@ -304,10 +325,11 @@ describe('job-locale-consistency', () => {
         `[ratchet] ${TITLE_POPULATION.id} ${flagged}/${slots} = `
           + `${(rate * 100).toFixed(2)}% (max ${(MAX_RATE * 100).toFixed(2)}%) `
           + `population=assembled data/jobs.json, expected ${TITLE_POPULATION.expectedSlots} `
-          + `±${(TITLE_POPULATION.tolerance * 100).toFixed(0)}%`
+          + `±${(TITLE_POPULATION.tolerance * 100).toFixed(0)}%, `
+          + `held for translation ${heldSlots ? `+${heldSlots.titles} slots in the population` : 'not reported'}`
       );
 
-      assertPopulationUnchanged(TITLE_POPULATION, slots);
+      assertPopulationUnchanged(TITLE_POPULATION, slots + (heldSlots?.titles ?? 0));
 
       expect(
         rate,

@@ -19,6 +19,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildDataset,
   buildSwissBorderStations,
+  extractEcbRate,
 } from '../scripts/generate-fuel-prices-dataset.mjs';
 
 const COMO = { name: 'Como', province: 'CO', lat: 45.81, lng: 9.08, distanceKm: 0, fascia: '0-10' };
@@ -45,6 +46,30 @@ function runGenerator(rawStations: ReturnType<typeof rawStation>[]) {
 }
 
 describe('generate-fuel-prices-dataset diesel ranking', () => {
+  it('extracts and validates the ECB reference date with the CHF rate', () => {
+    const rate = extractEcbRate('<Envelope><Cube time="2026-06-01"><Cube currency="CHF" rate="0.95"/></Cube></Envelope>');
+
+    expect(rate).toEqual({ rateDate: '2026-06-01', chfPerEur: 0.95, eurPerChf: 1 / 0.95 });
+    expect(() => extractEcbRate('<Envelope><Cube><Cube currency="CHF" rate="0.95"/></Cube></Envelope>'))
+      .toThrow('ECB reference date not found');
+    expect(() => extractEcbRate('<Envelope><Cube time="2026-02-30"><Cube currency="CHF" rate="0.95"/></Cube></Envelope>'))
+      .toThrow('Invalid ECB reference date');
+    expect(() => extractEcbRate('<Envelope><Cube time="2026-06-01"><Cube currency="CHF" rate="0"/></Cube></Envelope>'))
+      .toThrow('Invalid ECB CHF rate');
+  });
+
+  it('persists the ECB reference date in the published dataset source metadata', () => {
+    const payload = buildDataset({
+      municipalities: [],
+      italyExtractedAt: '2026-06-01',
+      swissStations: [],
+      italyByMunicipality: new Map(),
+      exchangeRate: { rateDate: '2026-06-01', chfPerEur: 0.95, eurPerChf: 1 / 0.95 },
+    });
+
+    expect(payload.sources.exchangeRate).toMatchObject({ provider: 'ECB', rateDate: '2026-06-01' });
+  });
+
   it('persists the full-set diesel minimum, not the sp95-cheapest pump', () => {
     const swiss = runGenerator([
       rawStation('G', 1.98, null), // sp95-cheapest, but no diesel price

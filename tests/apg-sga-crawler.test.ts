@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, vi, describe, it, expect } from 'vitest';
 import {
+  fetchAllApgSgaJobs,
   APG_SGA_KEY,
   APG_SGA_COMPANY_NAME,
   isApgSgaJob,
@@ -218,5 +219,26 @@ describe('APG|SGA crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+
+describe('APG publication evidence through the feed/detail producer', () => {
+  afterEach(() => vi.unstubAllGlobals());
+  it.each(['2026-02-18T00:30:00+01:00', '', '2026-02-30', '9999-01-01'])('handles source date %s without a crawl clock', async (datePosted) => {
+    const detailUrl = 'https://jobs.apgsga.ch/job/source-date';
+    const description = Array.from({ length: 60 }, () => 'engineering').join(' ');
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.includes('/assets/version/')) return new Response(JSON.stringify({ version: 'v46' }));
+      if (url.includes('/ojp/data/')) return new Response(JSON.stringify({ jobs: [{ title: 'Engineer', detail: detailUrl, city: 'Lugano', text: description }] }));
+      if (url === detailUrl) return new Response(`<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: 'Engineer', description, datePosted })}</script>`);
+      return new Response('<div data-token="abcdefghijklmnop1234"></div>');
+    }));
+    const jobs = await fetchAllApgSgaJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject(datePosted.startsWith('2026-02-18')
+      ? { postedDate: datePosted, datePosted, postingDateSource: 'reported' }
+      : { postedDate: '', datePosted: '', postingDateSource: 'unknown' });
   });
 });

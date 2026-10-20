@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * identical-twin-transport-dryrun.mjs — controllo 2 (+ riuso del 4) del piano
  * di verifica per il trasporto automatico guidato dal manifest.
@@ -76,13 +78,12 @@
  * Env: stessi `CORPUS_REPO` / `CORPUS_REF` / `GH_TOKEN` di `corpus-ahead-check.mjs`.
  */
 
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import {
   CORPUS_REPO,
   CORPUS_REF,
   MANIFEST_PATH_IN_CORPUS,
   classify,
+  declaredTwinPaths,
   localHash,
   readSiteText,
   sha256,
@@ -190,14 +191,9 @@ async function main() {
   // Controllo 4, scoped ai soli candidati `ready`: "dichiarato" include sia il
   // manifest del corpus (esclusi corpus-only/-pending, che di la' non hanno
   // un gemello da nominare) sia il transport manifest generator-to-nanako —
-  // due canali di consegna dello stesso file, stessa scelta di
-  // `corpus-ahead-check.mjs`.
-  const declared = new Set(
-    manifest.files
-      .filter((f) => f.mode !== 'corpus-only' && f.mode !== 'corpus-only-pending')
-      .map((f) => f.sitePath || f.path),
-  );
-  for (const rel of transportManifestPaths()) declared.add(rel);
+  // due canali di consegna dello stesso file. L'insieme e' `declaredTwinPaths()`,
+  // lo stesso di `corpus-ahead-check.mjs` e del cancello di PR.
+  const declared = declaredTwinPaths(manifest, transportManifestPaths());
 
   const readyEntries = results.filter((r) => r.transport === 'ready');
   const hazards = undeclaredRelativeImports({
@@ -252,7 +248,7 @@ async function main() {
   return strictExitCode(results, STRICT);
 }
 
-const invokedDirectly = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (invokedDirectly) {
   main().then(

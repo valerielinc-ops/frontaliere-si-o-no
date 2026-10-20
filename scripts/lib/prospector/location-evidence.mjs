@@ -5,6 +5,7 @@ import {
   isKnownSwissMunicipality,
   isKnownSwissMunicipalityInCanton,
   isLiechtensteinPostalCode,
+  normalizeSwissCantonCode,
   normalizeSwissTargetLocationText,
   swissMunicipalityCantons,
 } from '../target-swiss-locations.mjs';
@@ -44,6 +45,41 @@ const EMPTY_LOCATION_EVIDENCE = Object.freeze({
   streetAddress: '',
 });
 
+/**
+ * Normalize one source location part used by an authoritative foreign
+ * snapshot proof. A source may prefix the locality with its postal code
+ * (for example `9490 Vaduz`); the postal code is evidence attached to the
+ * known locality, not a new locality name. Callers still have to compare the
+ * returned value with their explicit, source-reviewed allowlist.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+export function normalizeAuthoritativeNonSwissLocationPart(value = '') {
+  return normalizeSwissTargetLocationText(value)
+    .replace(/^\d{4,6}\s+/, '')
+    .trim();
+}
+
+/**
+ * Check a source location against a parser's reviewed non-Swiss allowlist.
+ * Postal prefixes are evidence attached to the locality; every non-empty
+ * locality segment must still be explicitly reviewed by that parser.
+ *
+ * @param {unknown} value
+ * @param {ReadonlySet<string>} allowlist
+ * @returns {boolean}
+ */
+export function isAllowlistedAuthoritativeNonSwissLocation(value, allowlist) {
+  const parts = String(value || '')
+    .split(/[,;&/|]/)
+    .map(normalizeAuthoritativeNonSwissLocationPart)
+    .filter(Boolean);
+  return parts.length > 0
+    && Boolean(allowlist && typeof allowlist.has === 'function')
+    && parts.every((part) => allowlist.has(part));
+}
+
 function hasToken(value, token) {
   const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp(`(?:^|\\s)${escaped}(?:$|\\s)`).test(value);
@@ -69,57 +105,9 @@ const CODE_OPEN_DELIMITERS = '\\s(,;/|.!?:';
 const CODE_CLOSE_DELIMITERS = '\\s),;/|.!?:';
 const COMMON_INITIAL_LOCATION_TOKENS = new Set(['ST', 'LA', 'LE']);
 
-// `normalizeCantonCode()` intentionally accepts municipalities and curated
-// city aliases because it is a free-text helper. `addressRegion`, however, is
-// a subdivision field: accepting `Buchs` there as SG manufactures canton
-// evidence from a city name. Keep a narrow, versioned list of the 26 official
-// canton names (and their official-language spellings) for structured region
-// slots.
-const OFFICIAL_CANTON_NAMES = Object.freeze({
-  AG: ['aargau', 'argovie', 'argovia'],
-  AI: ['appenzell innerrhoden', 'appenzell rhodes interieures', 'appenzello interno'],
-  AR: ['appenzell ausserrhoden', 'appenzell rhodes exterieures', 'appenzello esterno'],
-  BE: ['bern', 'berne', 'berna'],
-  BL: ['basel landschaft', 'bale campagne', 'basilea campagna'],
-  BS: ['basel stadt', 'bale ville', 'basilea citta'],
-  FR: ['fribourg', 'freiburg', 'friburgo'],
-  GE: ['geneve', 'genf', 'ginevra', 'geneva'],
-  GL: ['glarus', 'glaris', 'glarona'],
-  GR: ['graubunden', 'grisons', 'grigioni', 'grischun'],
-  JU: ['jura', 'giura'],
-  LU: ['luzern', 'lucerne', 'lucerna'],
-  NE: ['neuchatel', 'neuenburg'],
-  NW: ['nidwalden', 'nidwald', 'nidvaldo'],
-  OW: ['obwalden', 'obwald', 'obvaldo'],
-  SG: ['st gallen', 'saint gall', 'san gallo', 'sankt gallen'],
-  SH: ['schaffhausen', 'schaffhouse', 'sciaffusa'],
-  SO: ['solothurn', 'soleure', 'soletta'],
-  SZ: ['schwyz', 'svitto'],
-  TG: ['thurgau', 'thurgovie', 'turgovia'],
-  TI: ['ticino', 'tessin'],
-  UR: ['uri'],
-  VD: ['vaud', 'waadt'],
-  VS: ['valais', 'wallis', 'vallese'],
-  ZG: ['zug', 'zoug', 'zugo'],
-  ZH: ['zurich', 'zuerich', 'zurigo'],
-});
-
-function normalizeOfficialCantonCode(value) {
-  const normalized = normalizeSwissTargetLocationText(value);
-  if (!normalized) return '';
-  const code = normalized.toUpperCase();
-  if (Object.hasOwn(OFFICIAL_CANTON_NAMES, code)) return code;
-  const isoCode = /^CH\s+([A-Z]{2})$/.exec(code)?.[1] || '';
-  if (Object.hasOwn(OFFICIAL_CANTON_NAMES, isoCode)) return isoCode;
-  for (const [candidate, names] of Object.entries(OFFICIAL_CANTON_NAMES)) {
-    if (names.includes(normalized)) return candidate;
-  }
-  return '';
-}
-
 function locationRegionKey(value, addressCountry = '') {
   const raw = String(value || '').trim();
-  const canton = normalizeOfficialCantonCode(raw);
+  const canton = normalizeSwissCantonCode(raw);
   if (canton) return canton;
   const region = normalizeSwissTargetLocationText(raw);
   if (!region) return '';
@@ -183,7 +171,7 @@ function hasUncorroboratedForeignSubdivision(value) {
   // ...). A colliding suffix remains Swiss only when the locality independently
   // corroborates that canton; unfamiliar NY/ON and named foreign subdivisions
   // remain authoritative negative evidence.
-  return !codes.some(({ code }) => normalizeOfficialCantonCode(code)
+  return !codes.some(({ code }) => normalizeSwissCantonCode(code)
     && explicitCorroboratedCanton(value, [{ code }], withoutCodes) === code);
 }
 
@@ -209,7 +197,32 @@ function isSwissCountry(value) {
   return Boolean(country && [...SWISS_COUNTRY_LABELS].some((label) => hasToken(country, label)));
 }
 
-function isExplicitlyForeign(value, addressCountry = '') {
+function isSourceLocationMetadataSuffix(value) {
+  const normalized = normalizeSwissTargetLocationText(value);
+  if (!normalized) return true;
+  if (isSwissCountry(normalized)) return true;
+  return normalized.split(' ').every((token) => token === 'ch'
+    || token === 'hq'
+    || token === 'ho'
+    || token === 'ep'
+    || /^\d{4,10}$/.test(token)
+    || Boolean(normalizeSwissCantonCode(token)));
+}
+
+function structuredLocalityCorroboratesLocation(location, locality) {
+  const localityKey = normalizeSwissTargetLocationText(locality);
+  if (!localityKey) return false;
+  return String(location || '').split(/[,;/|]/).some((segment) => {
+    const normalizedSegment = normalizeSwissTargetLocationText(segment)
+      .replace(/^(?:ch\s*)?\d{4,10}\s+/, '')
+      .trim();
+    if (normalizedSegment === localityKey) return true;
+    if (!normalizedSegment.startsWith(`${localityKey} `)) return false;
+    return isSourceLocationMetadataSuffix(normalizedSegment.slice(localityKey.length + 1));
+  });
+}
+
+export function isExplicitlyForeign(value, addressCountry = '') {
   const country = String(addressCountry || '').trim();
   if (country && !isSwissCountry(country)) return true;
   if (hasOnlyExplicitForeignCountry(value)) return true;
@@ -226,22 +239,34 @@ function isExplicitlyForeign(value, addressCountry = '') {
  *
  * @param {unknown} value
  * @param {unknown} [addressCountry]
- * @returns {{ location: string, canton: string, addressCountry?: string }|null}
+ * @returns {{ location: string, canton: string, addressCountry?: string, postalCode?: string, streetAddress?: string }|null}
  */
 export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
   const evidence = /** @type {any} */ (value && typeof value === 'object'
     ? value
     : { location: value, addressCountry });
+  const structuredLocationInput = Boolean(value && typeof value === 'object');
   const location = String(evidence.location || evidence.addressLocality || '').replace(/\s+/g, ' ').trim();
   const country = String(evidence.addressCountry || evidence.country || addressCountry || '').trim();
   const addressLocality = String(evidence.addressLocality || '').replace(/\s+/g, ' ').trim();
   const addressRegion = String(evidence.addressRegion || '').replace(/\s+/g, ' ').trim();
+  // Swiss Post localities are finer-grained than BFS communes (for example
+  // `Le Lignon`, 1219, belongs to GE but is not a commune). They are safe
+  // source evidence when the vacancy carries the postal pair OR an explicit
+  // structured canton alongside the locality. A bare locality remains
+  // fail-closed so prose cannot become geography.
+  const hasPostalAddressEvidence = Boolean(String(evidence.postalCode || '').trim())
+    || /(?:^|\D)(?:CH[\s-]?)?\d{4}(?:\D|$)/.test(location);
   if (!location) return null;
   // Municipality names have international homonyms (e.g. Provence VD). An
   // explicit terminal country segment from the source outranks that fuzzy
   // token match. Multi-location rows that also name Switzerland remain valid.
   if (isExplicitlyForeign(location, country) || hasUncorroboratedForeignSubdivision(location)) return null;
-  const structuredCanton = normalizeOfficialCantonCode(addressRegion);
+  const structuredCanton = normalizeSwissCantonCode(addressRegion);
+  const hasStructuredLocalityEvidence = Boolean(addressLocality
+    && structuredCanton
+    && structuredLocalityCorroboratesLocation(location, addressLocality));
+  const allowOfficialLocality = hasPostalAddressEvidence || hasStructuredLocalityEvidence;
   // addressRegion is an explicit subdivision slot. A value that is not one of
   // the 26 Swiss cantons is authoritative negative evidence, irrespective of
   // whether it came from a familiar foreign inventory entry such as NY/ON or
@@ -257,15 +282,92 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
   const locality = addressLocality || withoutCodes.split(/[,;/|]/)[0]
     .replace(/\b(?:switzerland|schweiz|suisse|svizzera|svizra)\b\s*$/i, '')
     .trim();
-  const municipalityCantons = swissMunicipalityCantons(locality);
+  // A bare Zürich plus a postal code still lacks a source-backed target-canton
+  // signal when the source did not provide an explicit locality or country.
+  // Reject it before the official-locality branch can treat the country-wide
+  // registry hit as sufficient evidence.
+  if (hasPostalAddressEvidence && !addressLocality && !country
+    && normalizeSwissTargetLocationText(location) === 'zurich') return null;
+  const municipalityCantons = swissMunicipalityCantons(locality, {
+    includeOfficialLocalities: allowOfficialLocality,
+  });
   if (!explicitCanton && municipalityCantons.length > 1) return null;
   if (explicitCanton && addressLocality
-    && !isKnownSwissMunicipalityInCanton(addressLocality, explicitCanton)) return null;
-  const canton = explicitCanton || inferSwissTargetCanton(withoutCodes);
-  if (!canton || (!explicitCanton && !isCantonRelevant(withoutCodes, canton, { includeBorderProximity: false }))) return null;
+    && !isKnownSwissMunicipalityInCanton(addressLocality, explicitCanton, {
+      allowOfficialLocality,
+    })) return null;
+  const localityCanton = !explicitCanton && municipalityCantons.length === 1
+    ? municipalityCantons[0]
+    : '';
+  // `swissMunicipalityCantons` is country-wide. Keep the target-canton guard
+  // on this inferred path instead of treating a unique registry hit as proof
+  // that the source location belongs to the configured funnel. The resolver
+  // has one relevance path; source-backed locality evidence only broadens the
+  // official-locality tokens accepted by `isCantonRelevant`.
+  const localityIsRelevant = localityCanton && isCantonRelevant(locality, localityCanton, {
+    includeBorderProximity: false,
+    includeOfficialLocality: allowOfficialLocality,
+  });
+  if (localityCanton && !localityIsRelevant) return null;
+  // A bare canton label is not enough source-backed locality evidence: unlike
+  // a named municipality such as Winterthur, it can describe a broad region.
+  // Keep an explicit country or postal pair as the stronger source signal.
+  // `locationCodes` may strip a non-geographic employer suffix such as HQ,
+  // HO or EP before deriving `locality`; only the exact bare source value is
+  // the ambiguous canton-only case, not a decorated workplace label.
+  if (localityCanton && !structuredLocationInput && !country && !hasPostalAddressEvidence && !isSwissCountry(location)
+    && localityCanton === 'ZH' && normalizeSwissCantonCode(locality) === localityCanton
+    && normalizeSwissTargetLocationText(location) === normalizeSwissTargetLocationText(locality)) return null;
+  const canton = explicitCanton || localityCanton || inferSwissTargetCanton(withoutCodes);
+  if (!canton || (!explicitCanton && !localityIsRelevant
+    && !isCantonRelevant(withoutCodes, canton, {
+      includeBorderProximity: false,
+      includeOfficialLocality: allowOfficialLocality,
+    }))) return null;
+  const postalCode = String(evidence.postalCode || '').replace(/\s+/g, ' ').trim();
+  const streetAddress = String(evidence.streetAddress || '').replace(/\s+/g, ' ').trim();
   const geography = { location, canton };
   if (country) geography.addressCountry = country;
+  if (postalCode) geography.postalCode = postalCode;
+  if (streetAddress) geography.streetAddress = streetAddress;
   return geography;
+}
+
+/**
+ * Project a resolved source geography into the structured address fields used
+ * by a published job row. The resolver deliberately returns only the compact
+ * `{ location, canton }` identity because most callers only need that pair;
+ * parsers that publish schema.org fields must use the resolved canton again,
+ * rather than copying a raw `addressRegion` that may be a display name or a
+ * stale value from a different extraction stage.
+ *
+ * @param {unknown} value source location or structured source evidence
+ * @param {{location: string, canton: string, addressCountry?: string}|null} [resolved]
+ * @returns {{location: string, canton: string, addressLocality: string, addressRegion: string, addressCountry?: string, postalCode?: string, streetAddress?: string}|null}
+ */
+export function sourceBackedSwissGeographyFields(value, resolved = null) {
+  const geography = resolved || resolveSourceBackedSwissGeography(value);
+  if (!geography) return null;
+  const evidence = value && typeof value === 'object' ? /** @type {any} */ (value) : {};
+  const addressLocality = String(
+    evidence.addressLocality || String(geography.location || '').split(/[,;/|]/)[0],
+  ).replace(/\s+/g, ' ').trim();
+  const addressCountry = String(
+    geography.addressCountry || evidence.addressCountry || evidence.country || '',
+  ).replace(/\s+/g, ' ').trim();
+  const postalCode = String(geography.postalCode || '').replace(/\s+/g, ' ').trim();
+  const streetAddress = String(geography.streetAddress || '').replace(/\s+/g, ' ').trim();
+  return {
+    ...geography,
+    addressLocality,
+    // `geography.canton` is the value the source resolver actually verified.
+    // Never copy the raw structured field here: that is the mismatch this
+    // projection prevents at the parser → assembler handoff.
+    addressRegion: geography.canton,
+    ...(addressCountry ? { addressCountry } : {}),
+    ...(postalCode ? { postalCode } : {}),
+    ...(streetAddress ? { streetAddress } : {}),
+  };
 }
 
 /**
@@ -428,10 +530,27 @@ export function evaluateSourceBackedSwissGeography(candidates = []) {
     const location = String(candidate?.location || '').trim();
     const country = String(candidate?.addressCountry || candidate?.country || '').trim();
     const region = String(candidate?.addressRegion || '').trim();
+    const regionCanton = normalizeSwissCantonCode(region);
+    const hasPostalAddressEvidence = Boolean(String(candidate?.postalCode || '').trim())
+      || /(?:^|\D)(?:CH[\s-]?)?\d{4}(?:\D|$)/.test(location);
+    const regionLocality = String(candidate?.addressLocality || stripLocationCodes(location))
+      .replace(/^\s*(?:CH[\s-]?)?\d{4}\s+/i, '')
+      .trim();
+    const hasStructuredLocalityEvidence = Boolean(regionCanton
+      && regionLocality
+      && structuredLocalityCorroboratesLocation(location, regionLocality));
+    const allowOfficialLocality = hasPostalAddressEvidence || hasStructuredLocalityEvidence;
+    const regionIsCorroboratedSwiss = Boolean(regionCanton
+      && isKnownSwissMunicipalityInCanton(regionLocality, regionCanton, {
+        allowOfficialLocality,
+      }));
     if (isExplicitlyForeign(location, country)
       || hasUncorroboratedForeignSubdivision(location)
-      || (region && !normalizeOfficialCantonCode(region))
-      || isKnownForeignSubdivision(region)) {
+      || (region && !regionCanton)
+      // Codes such as AR/NE can name both a Swiss canton and a foreign
+      // subdivision. Keep the foreign veto unless the source locality proves
+      // that this structured region is the Swiss canton.
+      || (isKnownForeignSubdivision(region) && !regionIsCorroboratedSwiss)) {
       explicitlyForeign = true;
       continue;
     }
@@ -633,6 +752,22 @@ function structuredText(value) {
 }
 
 /**
+ * Some JSON-LD producers append the ISO country code to `addressRegion`
+ * (`ZH,CH`, `Lombardy,IT`) while also supplying `addressCountry`. Keep the
+ * region as the source declares it, but remove only that redundant terminal
+ * country segment before the structured geography resolver validates it.
+ */
+function schemaAddressRegion(addressRegion, addressCountry) {
+  const region = structuredText(addressRegion);
+  const country = structuredText(addressCountry).toUpperCase();
+  if (!region || !/^[A-Z]{2,3}$/.test(country)) return region;
+  const parts = region.split(',').map((part) => part.trim()).filter(Boolean);
+  return parts.length > 1 && parts.at(-1)?.toUpperCase() === country
+    ? parts.slice(0, -1).join(', ')
+    : region;
+}
+
+/**
  * Preserve every schema.org JobPosting location and its country/address
  * evidence. Dedicated crawlers use the same representation as the generic
  * Prospector runtime so a foreign first entry cannot hide a later CH place.
@@ -648,8 +783,8 @@ export function schemaJobLocationCandidates(jobLocation) {
     for (const address of addresses) {
       if (!address || typeof address !== 'object') continue;
       const addressLocality = structuredText(address.addressLocality);
-      const addressRegion = structuredText(address.addressRegion);
       const addressCountry = structuredText(address.addressCountry);
+      const addressRegion = schemaAddressRegion(address.addressRegion, addressCountry);
       const placeName = structuredText(address.name || place.name);
       const location = [addressLocality || placeName, addressRegion].filter(Boolean).join(', ');
       if (!location && !addressCountry) continue;

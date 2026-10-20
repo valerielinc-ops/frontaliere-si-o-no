@@ -120,6 +120,15 @@ beforeAll(async () => {
  * continuazione finale, l'heredoc le lascia nude, un prompt YAML le indenta.
  * Si smette al primo heading successivo — la stessa regola del gate, che è
  * anche la trappola nota («un `###` subito sotto l'header svuota la sezione»).
+ *
+ * Si smette anche alla chiusura di un template literal JS (`` `; ``, `` `) ``,
+ * `` `, ``): il body generato da uno script finisce lì, e quello che segue è
+ * codice. Senza questo arresto il docblock JSDoc della funzione successiva
+ * (` * Opens/updates the canonical issue…`) veniva letto come una lista di
+ * bullet `*` emessi nella sezione: misurato il 2026-10-04 su
+ * scripts/audit-missing-company-logos.mjs dopo PR 11522, dieci «residui senza
+ * stato» che nessun body ha mai contenuto, mentre l'unico bullet vero porta
+ * `blocked:`.
  */
 export function emittedResidualLines(text: string, from: number): string[] {
   const rest = text.slice(from);
@@ -134,6 +143,7 @@ export function emittedResidualLines(text: string, from: number): string[] {
     // trasporta il body (fine heredoc / fine array printf).
     if (/^#{1,6}[ \t]/.test(cleaned)) break;
     if (/^(EOF|>>\s*"?\$body|>\s*"?\$body|```)/.test(cleaned)) break;
+    if (/^`\s*[;),]*$/.test(cleaned)) break; // fine del template literal JS
     lines.push(cleaned);
   }
   return lines;
@@ -310,7 +320,12 @@ function promptBlocks(text: string): PromptBlock[] {
 
 type Emission = { rel: string; bullets: string[]; placeholders: string[]; raw: string };
 
+const emissionCache = new WeakMap<SourceFile[], Emission[]>();
+
 function emissions(srcs: SourceFile[]): Emission[] {
+  const cached = emissionCache.get(srcs);
+  if (cached) return cached;
+
   const out: Emission[] = [];
   for (const s of srcs) {
     NON_IMPL_RE.lastIndex = 0;
@@ -327,6 +342,7 @@ function emissions(srcs: SourceFile[]): Emission[] {
       });
     }
   }
+  emissionCache.set(srcs, out);
   return out;
 }
 
@@ -471,6 +487,30 @@ describe('generatori del body PR — sezione dei residui', () => {
     expect(found.size).toBeGreaterThanOrEqual(6);
   });
 
+  it('la sezione emessa da un template literal finisce alla sua chiusura', () => {
+    const source = [
+      'function body() {',
+      '  return `## Non implementato (ancora)',
+      '',
+      '- **blocked: servono asset ufficiali** — elenco corrente.',
+      '`;',
+      '}',
+      '',
+      '/**',
+      ' * Opens/updates the canonical issue while anomalies remain.',
+      ' * `createIssue` defaults to github-issue-creator.mjs.',
+      ' */',
+    ].join('\n');
+    const from = source.indexOf('(ancora)') + '(ancora)'.length;
+    const bullets = sectionBullets(emittedResidualLines(source, from).join('\n'));
+    expect(bullets).toHaveLength(1);
+    expect(bullets[0]).toContain('blocked: servono asset ufficiali');
+    // Un body che contiene un backtick in linea resta intero.
+    const inline = '## Non implementato (ancora)\n- `x` — per scelta: motivo\n- y — in questa PR\n## fine';
+    const inlineFrom = inline.indexOf('(ancora)') + '(ancora)'.length;
+    expect(sectionBullets(emittedResidualLines(inline, inlineFrom).join('\n'))).toHaveLength(2);
+  });
+
   it('ogni bullet LETTERALE emesso dichiara uno stato', async () => {
     const offenders: string[] = [];
     for (const e of emissions(sources)) {
@@ -545,7 +585,7 @@ describe('generatori del body PR — sezione dei residui', () => {
       offenders,
       'un prompt istruisce un agente a scrivere i residui senza dargli la tassonomia completa degli stati',
     ).toEqual([]);
-  }, 30_000);
+  }, 90_000);
 
   it('nessun bullet emesso usa la tassonomia ABOLITA come stato', async () => {
     const offenders: string[] = [];

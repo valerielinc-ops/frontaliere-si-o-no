@@ -4,7 +4,7 @@ import { test, expect, type Page } from 'playwright/test';
  * Template B regression test for profession landings (2026-05 redesign).
  *
  * Asserts the mobile-first above-the-fold contract from CLAUDE.md regola #17:
- * the meaty content (stat tiles + primary CTA + first featured live job)
+ * the meaty content (stat tiles + primary CTA + first live job)
  * must sit above the 736 px fold at 414 px viewport — NOT pushed below by
  * SEO prose. Also locks out the banned `border-left:4px` accent stripe and
  * proves the long-form prose still lives in the same document for the
@@ -61,13 +61,13 @@ test.describe('Profession landings template B — mobile above-the-fold contract
     expect(await cta.getAttribute('href')).toMatch(/\/calcola-stipendio\/?$/);
   });
 
-  test('first featured live job renders with company + posted date', async ({ page }) => {
+  test('first live job renders with company + posted date', async ({ page }) => {
     await gotoLanding(page);
 
-    await expect(page.locator('h2:has-text("Offerte in evidenza")')).toBeVisible();
+    await expect(page.locator('h2:has-text("Offerte di lavoro")')).toBeVisible();
 
-    // At least 1 featured job card (the aggregate returns 0..3). Each card
-    // must include a "Pubblicata …" freshness line.
+    // At least 1 live job card. Each card must include a "Pubblicata …"
+    // freshness line.
     const postedLine = page.locator('text=/Pubblicat[ao]/').first();
     await expect(postedLine).toBeVisible();
   });

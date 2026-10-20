@@ -2,7 +2,8 @@ name: Verify Company Logos (weekly)
 
 # Assembles the canonical dataset, resolves every effective logo through the
 # same resolver used by the renderers, and probes the resulting local and
-# external references. Writes broken ones to data/company-logos-broken.json;
+# external references and checks raster resolution. Writes broken or
+# low-quality ones to data/company-logos-broken.json;
 # the companion audit workflow opens the actionable issue.
 #
 # Runs every Sunday 04:00 UTC.
@@ -25,7 +26,7 @@ jobs:
       COMPANY_LOGO_AUDIT_MIN_JOBS: '1000'
       COMPANY_LOGO_AUDIT_ASSET_BASE_URL: https://cdn.frontaliereticino.ch
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
@@ -38,7 +39,7 @@ jobs:
         # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
         timeout-minutes: 12
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm

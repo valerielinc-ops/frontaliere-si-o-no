@@ -23,10 +23,12 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { extractUmantisDetailContent } from './umantis-listing-common.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractUmantisDetailContent, parseSwissDate } from './umantis-listing-common.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 
 const DETAIL_USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -130,6 +132,46 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
+/* ── Location ──────────────────────────────────────────────── */
+
+const SWISS_COUNTRY_LABEL_RE = /^(?:switzerland|schweiz|suisse|svizzera|svizra)$/i;
+
+// Bobst Swiss sites whose locality name the federal register shares with
+// another canton: `Mex` is a municipality in Vaud AND in Valais, so the
+// gazetteer (correctly) refuses to pick one. The Umantis row names the site,
+// not the canton; the Bobst plant there is Bobst Mex SA, canton Vaud. This is
+// a lookup of the locality the SOURCE published, never a substitute for a
+// missing or foreign one.
+const BOBST_SWISS_SITE_CANTONS = new Map([['mex', 'VD']]);
+
+/**
+ * Swiss geography of a Umantis location cell, or `null`.
+ *
+ * The board is Bobst's global one: a cell reads `Country (City)` —
+ * `Switzerland (Mex)`, `Switzerland (Grenchen)`, but also
+ * `Italy (San Giorgio Monferrato)`, `USA (Parsippany)`, `India (Pune)`. The
+ * legacy scaffold stamped every cell it could not resolve with the HQ
+ * (`|| 'Mex'`, `|| 'VD'`), so 22 foreign vacancies went out as Vaud rows
+ * (issue 9842). A foreign country, an empty cell or a Swiss locality that does
+ * not resolve to one canton now returns `null` and the vacancy is dropped.
+ *
+ * @param {string} rawLocation
+ * @returns {{ location: string, canton: string } | null}
+ */
+export function resolveBobstSwissGeography(rawLocation = '') {
+  const location = normalizeSpace(rawLocation);
+  if (!location) return null;
+  const cell = location.match(/^([^()]+?)\s*\(([^()]+)\)$/);
+  const country = cell ? normalizeSpace(cell[1]) : '';
+  const city = cell ? normalizeSpace(cell[2]) : location;
+  if (country && !SWISS_COUNTRY_LABEL_RE.test(country)) return null;
+  if (!city || isLocationExplicitlyForeign(city)) return null;
+  const siteCanton = BOBST_SWISS_SITE_CANTONS.get(normalize(city));
+  if (siteCanton) return { location, canton: siteCanton };
+  const geography = resolveSourceBackedSwissGeography(city);
+  return geography ? { location, canton: geography.canton } : null;
+}
+
 /* ── Category Detection ────────────────────────────────────── */
 
 function detectCategory(title = '') {
@@ -220,7 +262,7 @@ function parseRowMetadata(cellText, title) {
   }
 
   // Posted date — "Online since: dd.mm.yyyy" appears before the title.
-  const onlineSince = cellText.match(/Online since:\s*(\d{1,2}[./-]\d{1,2}[./-]\d{2,4})/i);
+  const onlineSince = cellText.match(/Online since:\s*(\d{1,2}\.\d{1,2}\.\d{4})(?=\s|\||$)/i);
   if (onlineSince) out.postedDate = onlineSince[1];
 
   const segments = rest
@@ -413,6 +455,7 @@ async function fetchJobListings(options = {}) {
     console.log(`   ✅ Bobst Umantis returned ${out.length} unique vacancies.`);
     return out;
   } catch (err) {
+    // fetch-failure-empty-ok: typed Playwright branches (anti-bot, navigation timeout, browser launch) are runner transients the pipeline does not soft-exit
     if (AntiBotBlockError && err instanceof AntiBotBlockError) {
       console.warn(
         `   ⚠️ Bobst: anti-bot block (status=${err.status}, title=${JSON.stringify(err.title || '')}). Returning [].`,
@@ -448,6 +491,7 @@ export const __testables = {
   resolveApplyUrl,
   buildPageUrl,
   parseRowMetadata,
+  resolveBobstSwissGeography,
   UMANTIS_LISTING_URL,
   UMANTIS_BASE,
   ROW_SELECTOR,
@@ -478,12 +522,17 @@ export async function fetchAllBobstJobs(options = {}) {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Mex'; // HQ: Mex (VD)
-    const canton = inferSwissTargetCanton(location) || 'VD';
+    const geography = resolveBobstSwissGeography(listing.location);
+    if (!geography) {
+      console.log(`  ⏭️  Skipped non-Swiss or unresolved location: ${listing.location || '(none)'} — ${title}`);
+      continue;
+    }
+    const { location, canton } = geography;
     const publicUrl = listing.url || UMANTIS_LISTING_URL;
 
     // Fetch detail page for prose — listing rows ship only metadata.
@@ -493,24 +542,18 @@ export async function fetchAllBobstJobs(options = {}) {
       descriptionText = await fetchBobstDetail(publicUrl);
       await new Promise((r) => setTimeout(r, 250)); // rate-limit detail fetches
     }
-    if (!descriptionText) {
-      // Synthesise a structured English fallback when the detail fetch fails.
-      // Mirrors umantis-listing-common.mjs ultra_thin remediation: title + entity
-      // + city/canton + dept/type metadata + apply boilerplate. Enough prose to
-      // pass the thin-source gate; AI localization enriches the locale variants.
-      const meta = [];
-      if (listing.department) meta.push(`Department: ${listing.department}`);
-      if (listing.employmentType) meta.push(`Type: ${listing.employmentType}`);
-      if (listing.contractTerm) meta.push(`Term: ${listing.contractTerm}`);
-      const metaLine = meta.length > 0 ? ` ${meta.join('. ')}.` : '';
-      descriptionText = [
-        `${title} at ${BOBST_COMPANY_NAME}, ${location}${canton ? ` (${canton} canton)` : ''}, Switzerland.`,
-        `${BOBST_COMPANY_NAME} is a global supplier of substrate processing, printing and converting equipment for the packaging industry.`,
-        `Apply via the Bobst careers portal.${metaLine}`,
-      ].join(' ');
+    // Only the source's own text is published (issue 5253). A detail page
+    // that was not read or holds no body is not described from the listing
+    // row (department, type, term) plus company prose: the job stays out of
+    // this run, so the standard pipeline keeps the body stored from the
+    // source under its miss grace, and a job never read is not published.
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      withoutBody += 1;
+      console.log(`  ⏭️ ${title}: no source body (${sourceBodyWordCount(descriptionText)} words) — not published in this run`);
+      continue;
     }
 
-    const sourceLang = detectLang(descriptionText || title, 'en');
+    const sourceLang = detectLang(descriptionText, 'en');
     const jobSlug = slugify(`${title} bobst ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -524,8 +567,8 @@ export async function fetchAllBobstJobs(options = {}) {
       companyDomain: BOBST_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Bobst`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Bobst` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       // Newly-discovered jobs ship with source-locale-only fields. The shared
       // AI-localization step clears this flag when it fills the remaining 3
       // locales; if it can't, `translate-pending.yml` picks it up out-of-band.
@@ -548,7 +591,7 @@ export async function fetchAllBobstJobs(options = {}) {
       sector: 'Industria', // Industrial packaging machinery / printing equipment
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(parseSwissDate(listing.postedDate)),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -560,6 +603,7 @@ export async function fetchAllBobstJobs(options = {}) {
   }
 
   console.log(`\n📋 Total Bobst jobs discovered: ${jobs.length}`);
+  if (withoutBody > 0) console.log(`   Without a source body: ${withoutBody}/${listings.length}`);
   return jobs;
 }
 

@@ -35,6 +35,8 @@ const parser = createJobupChFeedParser({
   defaultPostalCode: '2074',
   publicCareerUrl: 'https://www.cnp.ch/carrieres/',
   defaultSourceLang: 'fr',
+  // The employer feed's puddate can disagree by years with the job detail.
+  publicationDateFromDetail: true,
 });
 
 export const fetchAllCnpJobs = parser.fetchAllJobs;

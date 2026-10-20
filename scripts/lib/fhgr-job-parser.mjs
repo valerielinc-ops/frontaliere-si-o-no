@@ -26,8 +26,11 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
@@ -274,7 +277,7 @@ function extractSpanText(rowHtml, elementId) {
   const regex = new RegExp(`tableaslist_element_${elementId}"[^>]*>([\\s\\S]*?)(?=<span class="tableaslist_|<br\\s*/?>|$)`);
   const match = rowHtml.match(regex);
   if (!match) return '';
-  return normalizeSpace(decodeEntities(stripHtml(match[1])));
+  return normalizeSpace(stripHtml(match[1]));
 }
 
 /**
@@ -322,7 +325,7 @@ export function parseFhgrDetailPage(html = '', fallbackTitle = '') {
   // Intro text from <div class="einleitung" id="einschub">
   const introMatch = html.match(/<div\s+class="einleitung"[^>]*>([\s\S]*?)<\/div>/);
   if (introMatch) {
-    const introText = normalizeSpace(stripHtml(decodeEntities(introMatch[1])));
+    const introText = normalizeSpace(stripHtml(introMatch[1]));
     if (introText.length > 20) blocks.push(introText);
   }
 
@@ -332,7 +335,7 @@ export function parseFhgrDetailPage(html = '', fallbackTitle = '') {
 
   while ((textMatch = textRegex.exec(html)) !== null) {
     const rawContent = textMatch[1];
-    const cleaned = normalizeSpace(stripHtml(decodeEntities(rawContent)));
+    const cleaned = normalizeSpace(stripHtml(rawContent));
     if (cleaned.length > 20) {
       blocks.push(cleaned);
     }
@@ -398,10 +401,15 @@ export async function fetchAllFhgrJobs() {
   for (const listing of listings) {
     let descriptionText = '';
     let detailTitle = listing.title;
+    let publication = mergeSourcePostingDates({}, {});
 
     try {
       const detailHtml = await fetchPage(listing.detailUrl);
       const detail = parseFhgrDetailPage(detailHtml, listing.title);
+      const records = extractJsonLd(detailHtml, listing.detailUrl);
+      const record = records.find((candidate) => normalizeSpace(candidate.title).toLowerCase() === normalizeSpace(listing.title).toLowerCase()
+        && (candidate.urlExplicit ? candidate.url === listing.detailUrl : records.length === 1));
+      publication = mergeSourcePostingDates({}, record || {});
       descriptionText = detail.description;
       if (detail.title) detailTitle = detail.title;
     } catch (err) {
@@ -416,7 +424,10 @@ export async function fetchAllFhgrJobs() {
     const location = listing.location || 'Chur';
     const canton = inferAnyCanton(location) || 'GR';
 
-    const fallbackDesc = `${title} — Fachhochschule Graubünden, ${location}`;
+    // Only the posting's own text (issue 5253): no "<title> — Fachhochschule Graubünden, <place>"
+    // line in place of a missing body. A body under the common 50-word floor
+    // gives no description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} fhgr ch`);
@@ -439,8 +450,8 @@ export async function fetchAllFhgrJobs() {
       companyDomain: FHGR_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton,
       url: listing.detailUrl,
@@ -460,7 +471,7 @@ export async function fetchAllFhgrJobs() {
       sector: 'Formazione / Ricerca',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...publication,
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

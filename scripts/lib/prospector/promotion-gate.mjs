@@ -23,6 +23,8 @@
  * reasons ARE the audit trail.
  */
 
+import { tenantHostOwner } from './coverage.mjs';
+
 /** @typedef {{ passed: boolean, reasons: string[], checks: Record<string, boolean> }} GateResult */
 
 export const GATE_DEFAULTS = {
@@ -65,6 +67,48 @@ export const GATE_DEFAULTS = {
 };
 
 /**
+ * A missing or malformed source-backed location measurement is a failure, not
+ * an invitation to infer a default geography. Keep this predicate shared by
+ * VALIDATE and PROMOTE so a `good` quality score cannot re-enter the promoted
+ * queue while the production gate uses a different interpretation of the same
+ * measurement.
+ *
+ * @param {unknown} rate
+ * @param {unknown} [minRate]
+ * @returns {boolean}
+ */
+export function passesSourceBackedLocationRate(rate, minRate = GATE_DEFAULTS.minLocationSourceRate) {
+  const measured = typeof rate === 'number' ? rate : NaN;
+  const threshold = Number(minRate);
+  return Number.isFinite(measured)
+    && measured >= 0
+    && measured <= 1
+    && Number.isFinite(threshold)
+    && measured >= threshold;
+}
+
+/**
+ * Select the queue state after one validation run. A quality `good` verdict is
+ * not sufficient for PROMOTE: until the source-backed geography yield is
+ * proven, keep the candidate retryable in `validated` rather than putting a
+ * known gate failure into `promoted`.
+ *
+ * @param {{ verdict?: unknown, locationSourceRate?: unknown }} [report]
+ * @returns {'validated'|'promoted'|'rejected'}
+ */
+export function candidateStatusAfterValidation(report = {}) {
+  // A failed/incomplete runtime snapshot is evidence about neither a bad
+  // employer nor an empty listing. Keep the candidate retryable and require
+  // fresh good-day observations before it can satisfy promotion stability.
+  if (report.runtimeSnapshotComplete === false) return 'validated';
+  if (report.verdict === 'bad') return 'rejected';
+  if (report.verdict === 'good' && passesSourceBackedLocationRate(report.locationSourceRate)) {
+    return 'promoted';
+  }
+  return 'validated';
+}
+
+/**
  * Normalizza la leva di verifica `--min-days`.
  *
  * A 0 la condizione del gate diventa `distinctDays >= 0`, cioe' sempre vera: il
@@ -95,7 +139,7 @@ function distinctDays(history) {
  * Decide whether one candidate may enter production unattended.
  *
  * @param {Record<string, any>} candidate
- * @param {{ existingKeys?: Set<string> }} [ctx]
+ * @param {{ existingKeys?: Set<string>, hostOwners?: Map<string, Set<string>> }} [ctx]
  * @param {Partial<typeof GATE_DEFAULTS>} [opts]
  * @returns {GateResult}
  */
@@ -106,8 +150,17 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   const checks = {};
   const mark = (name, ok, why) => { checks[name] = ok; if (!ok) reasons.push(why); return ok; };
 
-  const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
-  const good = history.filter((h) => h.verdict === 'good');
+  const validationHistory = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+  // A generic runSpec grading cannot establish stability for a candidate that
+  // now uses a dedicated source adapter. Keep both the two-day proof and the
+  // latest quality measurements on that adapter's history.
+  const sourceAdapterVersion = String(candidate.sourceAdapterVersion || '').trim();
+  const history = sourceAdapterVersion
+    ? validationHistory.filter((entry) => entry.sourceAdapterVersion === sourceAdapterVersion)
+    : validationHistory;
+  const lastIncompleteIndex = history.findLastIndex((entry) => entry.runtimeSnapshotComplete === false);
+  const stabilityHistory = history.slice(lastIncompleteIndex + 1);
+  const good = stabilityHistory.filter((h) => h.verdict === 'good');
   const latest = history[history.length - 1] || {};
 
   // `promoting` significa che il candidato e' gia' dentro una PR di promozione
@@ -142,6 +195,15 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   mark('keyFree', !candidate.crawlerKey || !(ctx.existingKeys || new Set()).has(candidate.crawlerKey),
     `la chiave ${candidate.crawlerKey} esiste gia' in produzione`);
 
+  // La copertura si chiede UNA volta, alla scoperta; un candidato entrato in
+  // coda prima di un segnale di copertura non se la sente chiedere mai piu'.
+  // Qui la si richiede sull'host del tenant, l'ultimo momento in cui la
+  // risposta cambia l'esito: `recruitingapp-2998.umantis.com` e' arrivato in
+  // produzione come doppione di `bethesda-spital` proprio cosi' (issue 5253).
+  const tenantOwner = tenantHostOwner(candidate, ctx.hostOwners);
+  mark('tenantFree', !tenantOwner,
+    `il tenant ${candidate.tenantHost} e' gia' letto dal crawler ${tenantOwner}: sarebbe lo stesso datore due volte`);
+
   mark('runs', good.length >= g.minRuns,
     `solo ${good.length} validazione/i buona/e su ${g.minRuns} richieste`);
 
@@ -173,7 +235,7 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
 
   const locationSourceRate = latest.locationSourceRate;
   mark('sourceBackedLocation',
-    Number(locationSourceRate) >= g.minLocationSourceRate,
+    passesSourceBackedLocationRate(locationSourceRate, g.minLocationSourceRate),
     locationSourceRate === undefined
       ? 'nessuna misura della localita\' source-backed nell\'ultima validazione: serve una nuova validazione'
       : `solo il ${Math.round(Number(locationSourceRate) * 100)}% delle pagine campionate espone una localita' svizzera source-backed, serve ${Math.round(g.minLocationSourceRate * 100)}%`);
@@ -306,7 +368,7 @@ export function findOpenPromotionPr(openPrs = [], prefix = 'prospector/promote-'
  * ten crawlers a day is recoverable while one that can add four hundred is not.
  *
  * @param {Record<string, any>[]} candidates
- * @param {{ existingKeys?: Set<string> }} [ctx]
+ * @param {{ existingKeys?: Set<string>, hostOwners?: Map<string, Set<string>> }} [ctx]
  * @param {Partial<typeof GATE_DEFAULTS>} [opts]
  * @returns {{ promotable: any[], blocked: { candidate: any, reasons: string[], checks: Record<string, boolean> }[], capped: number }}
  */
@@ -322,6 +384,26 @@ export function selectForPromotion(candidates, ctx = {}, opts = {}) {
   promotable.sort((a, b) => (b.vacancyCount || 0) - (a.vacancyCount || 0));
   const capped = Math.max(0, promotable.length - g.maxPerRun);
   return { promotable: promotable.slice(0, g.maxPerRun), blocked, capped };
+}
+
+/** @param {{ checks?: Record<string, boolean> }} item */
+function failedChecksOf(item) {
+  return Object.entries(item?.checks || {})
+    .filter(([, passed]) => passed === false)
+    .map(([name]) => name);
+}
+
+/** @param {{ candidate?: Record<string, any> }} item */
+function promotionCandidateKey(item) {
+  return String(item?.candidate?.key || item?.candidate?.crawlerKey || '(senza chiave)');
+}
+
+/** I soli predicati che una run successiva puo' soddisfare da se'. */
+const STABILITY_CHECKS = new Set(['runs', 'days']);
+
+/** @param {string[]} failed */
+function isStabilityOnly(failed) {
+  return failed.length > 0 && failed.every((name) => STABILITY_CHECKS.has(name));
 }
 
 /**
@@ -340,14 +422,62 @@ export function summarizePromotionBlocks(blocked = []) {
   let stabilityOnly = 0;
   let other = 0;
   for (const item of blocked) {
-    const failedChecks = Object.entries(item?.checks || {})
-      .filter(([, passed]) => passed === false)
-      .map(([name]) => name);
-    if (failedChecks.length > 0 && failedChecks.every((name) => name === 'runs' || name === 'days')) {
-      stabilityOnly += 1;
-    } else {
-      other += 1;
-    }
+    if (isStabilityOnly(failedChecksOf(item))) stabilityOnly += 1;
+    else other += 1;
   }
   return { stabilityOnly, other };
+}
+
+/**
+ * Attribuisce ogni blocco `other` ai predicati che ha effettivamente fallito
+ * (#9680). La sola partizione stabilita'/altro dice QUANTI candidati servono
+ * una diagnosi, non QUALE: il tally per testo della ragione si frammenta,
+ * perche' le ragioni portano i valori misurati ("qualita' 0.62 sotto...",
+ * "qualita' 0.71 sotto..."), e la sua top-10 nasconde la coda. Qui si conta
+ * per NOME del check, che e' stabile fra le run e confrontabile nel tempo.
+ *
+ * `unattributed` elenca i candidati `other` senza una causa concreta: nessun
+ * check a `false` oppure nessuna ragione registrata. Deve restare vuoto; un
+ * elemento qui e' un blocco che nessun predicato spiega, cioe' un difetto
+ * del gate o del record, non del candidato.
+ *
+ * I conteggi di `failedChecks` si sovrappongono: un candidato puo' fallire
+ * piu' predicati. Ordinati per frequenza decrescente, poi per nome, cosi'
+ * l'output e' deterministico.
+ *
+ * @param {{ candidate?: Record<string, any>, reasons?: string[], checks?: Record<string, boolean> }[]} blocked
+ * @returns {{ stabilityOnly: number, other: number, failedChecks: Record<string, number>, stabilityOnlyKeys: string[], unattributed: string[], candidateFailures: { key: string, failedChecks: string[] }[] }}
+ */
+export function diagnosePromotionBlocks(blocked = []) {
+  const { stabilityOnly, other } = summarizePromotionBlocks(blocked);
+  /** @type {Record<string, number>} */
+  const tally = {};
+  const stabilityOnlyKeys = [];
+  const unattributed = [];
+  const candidateFailures = [];
+  for (const item of blocked) {
+    const failed = failedChecksOf(item);
+    const key = promotionCandidateKey(item);
+    candidateFailures.push({ key, failedChecks: failed });
+    if (isStabilityOnly(failed)) {
+      stabilityOnlyKeys.push(key);
+      continue;
+    }
+    for (const name of failed) tally[name] = (tally[name] || 0) + 1;
+    const hasReason = Array.isArray(item?.reasons) && item.reasons.some((r) => String(r || '').trim());
+    if (failed.length === 0 || !hasReason) unattributed.push(key);
+  }
+  const failedChecks = Object.fromEntries(
+    Object.entries(tally).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])),
+  );
+  candidateFailures.sort((a, b) => a.key.localeCompare(b.key)
+    || a.failedChecks.join(',').localeCompare(b.failedChecks.join(',')));
+  return {
+    stabilityOnly,
+    other,
+    failedChecks,
+    stabilityOnlyKeys: stabilityOnlyKeys.sort(),
+    unattributed: unattributed.sort(),
+    candidateFailures,
+  };
 }

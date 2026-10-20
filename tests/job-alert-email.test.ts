@@ -311,7 +311,7 @@ describe('job alert email — plaintext alternative', () => {
   it('tracks ranked job links in both HTML and plaintext alternatives', () => {
     const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob({ id: 'job-plain-text' })], true, {
       deliveryId: 'jer_job_alert_delivery',
-      variant: 'treatment',
+      variant: 'affinity',
     });
     expect(result.html).toContain('je=1');
     expect(result.html).toContain('job_id=job-plain-text');
@@ -565,7 +565,10 @@ describe('job alert sorting — score tiebreak by recency', () => {
       'utf8',
     );
     // Confirms the tiebreak exists in the matching loop (regression guard).
-    expect(src).toMatch(/firstSeenAt[\s\S]{0,400}bTime\s*-\s*aTime/);
+    // Since #9314 the timestamp is parsed once per entry (`firstSeenMs`) and
+    // the comparator subtracts the pre-parsed values; the behavioural oracle
+    // for the order is tests/job-alert-plan-sort-cost.test.ts.
+    expect(src).toMatch(/firstSeenMs:\s*job\.firstSeenAt[\s\S]{0,800}b\.firstSeenMs\s*-\s*a\.firstSeenMs/);
   });
 });
 

@@ -19,7 +19,7 @@ const WORKFLOW = path.join(ROOT, '.github/workflows/sync-articles-sitemaps.yml')
  *
  *   [pull-articles-corpus] frontaliere: 3903 → 3921 articles (+18 new)
  *   [pull-articles-corpus] svizzera: 2157 → 2194 articles (+37 new)
- *   human-side-effect-gate: DENY (publisher-source-run-unverified)
+ *   previous side-effect policy: DENY (publisher-source-run-unverified)
  *
  * The job reported `success`. rerender-article-hubs run 35423187532 then went
  * red with `37 behind, tolerance 25` — the consumer discovering the producer's
@@ -174,8 +174,8 @@ describe('assert-articles-sync-delivered', () => {
 
     // Keyed on the human's STATED intent. Not `github.event_name`, which would
     // excuse an approved `dry_run: false` manual sync, and NOT
-    // `effective_dry_run`, which human-side-effect-gate.mjs forces true on a
-    // DENIAL — the one case the guard exists for.
+    // `effective_dry_run`, which the previous side-effect policy forced true on
+    // a DENIAL — the one case the guard exists for.
     expect(last.if).toBe("github.event.inputs.dry_run != 'true'");
     expect(last.if).not.toContain('event_name');
     expect(last.if).not.toContain('effective_dry_run');

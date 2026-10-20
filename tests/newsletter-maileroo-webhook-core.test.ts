@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  handleMailerooWebhookRequest,
   persistMailerooEvent,
   verifyMailerooSignature,
 } from '../functions/src/newsletterMailerooWebhookCore.js';
@@ -8,18 +9,25 @@ import crypto from 'crypto';
 /**
  * `existingEvents` seeds the `events` subcollection per doc (keyed by
  * `${collection}/${docId}`) so refreshPreferredSendHour's
- * `.collection('events').orderBy('occurred_at', 'desc').limit(300).get()`
+ * `.collection('events').where('event_type', 'in', ['open', 'click'])`
+ * `.orderBy('occurred_at', 'desc').limit(300).get()`
  * query (FRO — #3798) has something to read. Real Firestore query semantics
  * (actual ordering/limiting) aren't reproduced — these tests only need the
  * seeded docs to come back so the sample count/hour computation runs.
  * Mirrors tests/newsletter-mailjet-webhook-core.test.ts.
  */
 function createFakeDb(
-  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  existingDocs: Record<string, Record<string, Record<string, unknown> | null>> = {},
   existingEvents: Record<string, Array<Record<string, unknown>>> = {},
 ) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
+  const creates: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
+  const createdDocs = new Map<string, Record<string, unknown>>();
+
+  function docKey(collection: string, docId: string) {
+    return `${collection}/${docId}`;
+  }
 
   const makeCollection = (name: string) => ({
     doc: (docId: string) => {
@@ -28,7 +36,15 @@ function createFakeDb(
           sets.push({ collection: name, docId, data });
         },
         get: async () => {
-          const docData = existingDocs[name]?.[docId];
+          // A recipient is a known subscriber unless the test says otherwise:
+          // a provider event never creates the subscriber record
+          // (mergeAccountDeletedSubscriberUpdate, lib/subscriberReactivation.js),
+          // so a test about what an event WRITES needs the document to exist.
+          // Seed `null` for a recipient with no document.
+          const seeded = existingDocs[name] || {};
+          const docData = docId in seeded
+            ? seeded[docId]
+            : (name === 'newsletter_subscribers' || name === 'job_alert_subscribers' ? {} : undefined);
           return {
             exists: !!docData,
             data: () => docData || {},
@@ -41,8 +57,19 @@ function createFakeDb(
               set: async (data: Record<string, unknown>, _opts?: unknown) => {
                 sets.push({ collection: subPath, docId: subDocId, data });
               },
+              create: async (data: Record<string, unknown>) => {
+                const key = docKey(subPath, subDocId);
+                if (createdDocs.has(key)) {
+                  const error: any = new Error('Already exists');
+                  error.code = 6;
+                  throw error;
+                }
+                createdDocs.set(key, data);
+                creates.push({ collection: subPath, docId: subDocId, data });
+              },
               get: async () => {
-                const docData = existingDocs[subPath]?.[subDocId];
+                const docData = createdDocs.get(docKey(subPath, subDocId))
+                  || existingDocs[subPath]?.[subDocId];
                 return {
                   exists: !!docData,
                   data: () => docData || undefined,
@@ -54,12 +81,14 @@ function createFakeDb(
             },
             // Minimal query shim: only `events` collections are queried
             // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
-            orderBy: () => ({
-              limit: () => ({
-                get: async () => {
-                  const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
-                  return { docs: seeded.map((d) => ({ data: () => d })) };
-                },
+            where: () => ({
+              orderBy: () => ({
+                limit: () => ({
+                  get: async () => {
+                    const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+                    return { docs: seeded.map((d) => ({ data: () => d })) };
+                  },
+                }),
               }),
             }),
           };
@@ -75,6 +104,9 @@ function createFakeDb(
             get: async (ref: any) => ref.get(),
             set: (ref: any, data: Record<string, unknown>, opts?: unknown) => {
               ref.set(data, opts);
+            },
+            create: (ref: any, data: Record<string, unknown>) => {
+              ref.create(data);
             },
           };
           return updateFunction(tx);
@@ -93,6 +125,7 @@ function createFakeDb(
     },
     __sets: sets,
     __adds: adds,
+    __creates: creates,
   };
 }
 
@@ -128,6 +161,81 @@ describe('newsletterMailerooWebhookCore', () => {
     expect(db.__sets.some((e) => e.collection === 'newsletter_subscribers' && e.docId === 'testuser@example.com')).toBe(true);
     expect(db.__sets.some((e) => e.collection.includes('/campaign_deliveries') && e.docId.includes('weekly_2026-03-11_testuser@example.com'))).toBe(true);
     expect(db.__adds.some((e) => e.collection.includes('/events'))).toBe(true);
+  });
+
+  it('deduplicates a repeated provider event_id without incrementing twice', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        'duplicate@example.com': { status: 'confirmed', isActive: true },
+      },
+    });
+    const event = {
+      event_type: 'delivered',
+      event_id: 'evt_maileroo_duplicate_1',
+      message_id: 'msg_duplicate_1',
+      event_data: { to: 'duplicate@example.com' },
+    };
+
+    const first = await persistMailerooEvent(db as any, event);
+    const second = await persistMailerooEvent(db as any, event);
+
+    expect(first).toMatchObject({ processed: true, type: 'delivered' });
+    expect(second).toEqual({ skipped: true, reason: 'duplicate' });
+    expect(db.__creates).toHaveLength(1);
+    expect(db.__sets.filter((entry) => entry.collection === 'newsletter_subscribers').length).toBe(1);
+  });
+
+  it('deduplicates job-alert events on the same provider event_id', async () => {
+    const db = createFakeDb({
+      job_alert_subscribers: {
+        'alert-user@example.com': { status: 'active' },
+      },
+    });
+    const event = {
+      event_type: 'opened',
+      event_id: 'evt_maileroo_job_alert_1',
+      message_id: 'msg_job_alert_1',
+      tags: { type: 'job-alert' },
+      event_data: { to: 'alert-user@example.com' },
+    };
+
+    const first = await persistMailerooEvent(db as any, event);
+    const second = await persistMailerooEvent(db as any, event);
+
+    expect(first).toMatchObject({ processed: true, type: 'open', collection: 'job_alert_subscribers' });
+    expect(second).toEqual({ skipped: true, reason: 'duplicate' });
+    expect(db.__creates).toHaveLength(1);
+  });
+
+  it('preserves a confirmation-copy experiment campaign from the provider tag', async () => {
+    const campaign = 'confirmation_copy_ab_generic_job_gate_email_unlock_it';
+    const db = createFakeDb({
+      newsletter_subscribers: { 'ab@example.com': { status: 'pending' } },
+    });
+    const result = await persistMailerooEvent(db as any, {
+      event_type: 'accepted',
+      message_id: 'ab-message',
+      event_data: { to: 'ab@example.com' },
+      tags: { campaign_id: campaign, type: 'transactional' },
+    });
+    expect(result).toMatchObject({ processed: true, type: 'send', campaignId: campaign });
+    const stored = db.__adds.find((entry) => entry.collection.includes('/events'));
+    expect(stored?.data).toMatchObject({ event_type: 'send', campaign_id: campaign, provider: 'maileroo' });
+
+    const engagementDb = createFakeDb({
+      newsletter_subscribers: { 'ab@example.com': { status: 'pending' } },
+      'newsletter_subscribers/_meta_/maileroo_refs': {
+        'ab-reference': { email: 'ab@example.com', campaign_id: campaign, is_job_alert: false },
+      },
+    });
+    const engagement = await persistMailerooEvent(engagementDb as any, {
+      event_type: 'clicked',
+      message_reference_id: 'ab-reference',
+      event_data: { original_url: 'https://frontaliereticino.ch/' },
+    });
+    expect(engagement).toMatchObject({ processed: true, type: 'click', campaignId: campaign });
+    const storedEngagement = engagementDb.__adds.find((entry) => entry.collection.includes('/events'));
+    expect(storedEngagement?.data).toMatchObject({ event_type: 'click', campaign_id: campaign, provider: 'maileroo' });
   });
 
   it('maps accepted → send and delivered → delivered', async () => {
@@ -382,6 +490,34 @@ describe('verifyMailerooSignature', () => {
   });
 });
 
+describe('handleMailerooWebhookRequest', () => {
+  const secret = 'whsec-handler-test';
+  const payload = JSON.stringify({ event_type: 'delivered', event_data: { to: 'a@example.com' } });
+  const signature = crypto.createHmac('sha256', secret).update(payload, 'utf8').digest('hex');
+
+  it('fails closed when the webhook secret is missing', async () => {
+    await expect(handleMailerooWebhookRequest({
+      payload,
+      headers: {},
+      signingSecret: '',
+      db: createFakeDb() as any,
+    })).rejects.toThrow('secret is not configured');
+  });
+
+  it('propagates persistence errors so the provider can retry the delivery', async () => {
+    const brokenDb = {
+      collection: () => { throw new Error('firestore down'); },
+    };
+
+    await expect(handleMailerooWebhookRequest({
+      payload,
+      headers: { 'x-maileroo-signature': signature },
+      signingSecret: secret,
+      db: brokenDb as any,
+    })).rejects.toThrow('firestore down');
+  });
+});
+
 describe('newsletterMailerooWebhookCore — malformed "Name <email>" recipient (root-cause fix)', () => {
   it('keys the subscriber doc by the bare address, not the raw "Name <email>" string', async () => {
     const db = createFakeDb();
@@ -442,5 +578,23 @@ describe('newsletterMailerooWebhookCore — job-alert routing without a lookup r
       tags: [{ name: 'type', value: 'lifecycle' }],
     } as any);
     expect(routedCollections(db).join()).toContain('newsletter_subscribers');
+  });
+});
+
+describe('newsletterMailerooWebhookCore — a provider event never creates the subscriber record', () => {
+  it.each([
+    ['newsletter', { campaign_id: 'calculator_paywall' }, 'newsletter_subscribers'],
+    ['job alert', { type: 'job-alert', alert_id: 'alert_42' }, 'job_alert_subscribers'],
+  ])('writes nothing for a recipient with no %s document', async (_label, tags, collection) => {
+    const db = createFakeDb({ [collection]: { 'nobody@example.com': null } });
+    for (const eventType of ['accepted', 'delivered', 'opened', 'clicked', 'failed', 'complained']) {
+      const result = await persistMailerooEvent(db as any, {
+        event_type: eventType, message_id: 'm1', event_time: 1700000000, tags,
+        event_data: { to: 'nobody@example.com' },
+      });
+      expect(result, eventType).toEqual({ skipped: true, reason: 'unknown_recipient' });
+    }
+    expect(db.__sets).toEqual([]);
+    expect(db.__adds).toEqual([]);
   });
 });

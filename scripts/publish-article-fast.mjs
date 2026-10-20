@@ -10,7 +10,7 @@
 // fast path and the full build apart.
 //
 // CLI:
-//   npx -y tsx scripts/publish-article-fast.mjs --id <articleId> --section <frontaliere|svizzera> --out <scratchDistDir> --summary <summaryJsonPath>
+//   npx -y tsx scripts/publish-article-fast.mjs --id <articleId> --section <frontaliere|svizzera> --out <scratchDistDir> --summary <summaryJsonPath> [--read-only-audit]
 //
 // Pipeline (mirrors postWalkCoordinatorPlugin.ts's real per-file order —
 // see build-plugins/postWalkWorker.mjs for the production analogue):
@@ -37,9 +37,9 @@
 //      `/images/blog/<file>` refs to the CDN URL. Applied to every written
 //      file (index + bridge), matching blogImageCdnFinalizePlugin's
 //      unconditional whole-dist walk in the full build.
-//   6 / 6b / 7. renderHubsAndOffload() — the section's `/tutti/` archive +
-//      pagination, then its `/…/argomenti/<topic>/` hubs, then the CDN
-//      offload over everything written so far, in exactly that order
+//   6 / 6b / 6c / 7. renderHubsAndOffload() — the section's root landing,
+//      `/tutti/` archive + pagination, then its `/…/argomenti/<topic>/` hubs,
+//      then the CDN offload over everything written so far, in exactly that order
 //      (issue #5270). All three now live in
 //      scripts/lib/render-and-push-hubs.mjs, which is the ONLY place they are
 //      implemented and the only place their order is expressed — see that
@@ -79,8 +79,8 @@
 //   whose ARTICLE page was refused keeps its (shorter) `paths` and omits `url`
 //   — nothing new is serving there, so nothing is polled or announced for it.
 //   `paths` per shard = [article index.html, article flat bridge, ...that
-//   locale's hub-archive pages from step 6, ...that locale's topic-hub pages
-//   from step 6b].
+//   locale's root landing, hub-archive pages from step 6b, ...that locale's
+//   topic-hub pages from step 6c].
 //   `edgeFiles` = APEX artifacts, not shard ones: today just this section's
 //   `sitemap-topics-<section>.xml`, written by step 6b from the very pages it
 //   rendered. The workflow publishes it to R2 (EDGE_PUSHED_FILES) and commits
@@ -109,6 +109,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { pinRenderEnv, renderHubsAndOffload } from './lib/render-and-push-hubs.mjs';
+import { decideCorpusOverlayMode, prepareCorpusContentOverlay } from './lib/article-corpus-overlay.mjs';
+import {
+  checkCorpusFreshness,
+  countRenderedArticleArchiveItems,
+} from './rerender-article-hubs.mjs';
+import { filterEntriesByImagePostcondition } from './lib/article-image-postcondition.mjs';
 // Output-boundary REFUSAL (see scripts/lib/control-char-publish-gate.mjs).
 // The renderer is build-plugins/ogPagesPlugin.ts, whose article half is the
 // mirrored engine under packages/articles/engine — so the guard sits where
@@ -122,18 +128,20 @@ import { keepPublishable, screenShardPaths } from './lib/control-char-publish-ga
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 function parseArgs(argv) {
-  const out = {};
+  const out = { readOnlyAudit: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--id') out.id = argv[++i];
     else if (a === '--section') out.section = argv[++i];
     else if (a === '--out') out.out = argv[++i];
     else if (a === '--summary') out.summary = argv[++i];
+    else if (a === '--allow-content-overlay') out.allowContentOverlay = true;
+    else if (a === '--read-only-audit') out.readOnlyAudit = true;
   }
   const missing = ['id', 'section', 'out', 'summary'].filter((k) => !out[k]);
   if (missing.length > 0) {
     console.error(`[publish-article-fast] missing required flag(s): ${missing.map((k) => `--${k}`).join(', ')}`);
-    console.error('Usage: npx -y tsx scripts/publish-article-fast.mjs --id <articleId> --section <frontaliere|svizzera> --out <scratchDistDir> --summary <summaryJsonPath>');
+    console.error('Usage: npx -y tsx scripts/publish-article-fast.mjs --id <articleId> --section <frontaliere|svizzera> --out <scratchDistDir> --summary <summaryJsonPath> [--read-only-audit]');
     process.exit(1);
   }
   if (out.section !== 'frontaliere' && out.section !== 'svizzera') {
@@ -146,8 +154,22 @@ function parseArgs(argv) {
 async function main() {
   const t0 = Date.now();
   const args = parseArgs(process.argv.slice(2));
-  const distDir = path.resolve(args.out);
-  fs.mkdirSync(distDir, { recursive: true });
+  const overlayMode = decideCorpusOverlayMode({
+    isCi: process.env.GITHUB_ACTIONS === 'true',
+    dryRun: false,
+    explicit: args.allowContentOverlay,
+  });
+  if (overlayMode.mode === 'refuse') throw new Error(overlayMode.reason);
+  const corpusOverlay = overlayMode.mode === 'overlay'
+    ? await prepareCorpusContentOverlay({
+      rootDir: ROOT_DIR,
+      retainCheckout: true,
+      logPrefix: '[publish-article-fast]',
+    })
+    : { commit: null, contentRevision: null };
+  try {
+    const distDir = path.resolve(args.out);
+    fs.mkdirSync(distDir, { recursive: true });
 
   // ASSET_CDN + TZ, both of which build-plugins/constants.ts and the renderers
   // read ONCE at module evaluation — so this must run BEFORE the first dynamic
@@ -188,7 +210,7 @@ async function main() {
     console.error(
       `[publish-article-fast] article id "${args.id}" not found in section "${args.section}" — check --id/--section`,
     );
-    process.exit(1);
+    throw new Error(`article id "${args.id}" was not rendered`);
   }
   const entry = entries[0];
 
@@ -250,12 +272,65 @@ async function main() {
   // section's hubs WITHOUT publishing an article. Before that split, a change
   // to the hub renderers had no way of reaching the served pages except as a
   // side effect of the editorial cadence (issue #5432).
-  const { hubResult, topicHubResult } = await renderHubsAndOffload({
+  const { landingResult, hubResult, topicHubResult } = await renderHubsAndOffload({
     rootDir: ROOT_DIR,
     distDir,
     section: args.section,
     logPrefix: '[publish-article-fast]',
   });
+
+  if (landingResult.errors.length > 0) {
+    for (const error of landingResult.errors) {
+      console.error(`[publish-article-fast] ${error}`);
+    }
+    throw new Error(
+      `root article-hub landing refresh failed for ${args.section}; refusing to publish a partial section`,
+    );
+  }
+
+  // The hub HTML and the client registry are two representations of the same
+  // corpus snapshot. The section rerender driver has this guard already, but
+  // the fast path is another hub writer and must prove the same handoff before
+  // its workflow can publish the rendered shards. Without this check a corpus
+  // commit can make the hub see a new id while the published API/chunks still
+  // serve the previous registry — exactly the hydration parity failure this
+  // publisher is meant to prevent.
+  if (!args.readOnlyAudit) {
+    const renderedItemCount = countRenderedArticleArchiveItems({
+      distDir,
+      archivePathsByLocale: { it: hubResult.pathsByLocale?.it ?? [] },
+    });
+    const freshness = await checkCorpusFreshness(args.section, renderedItemCount, {
+      corpusCheckoutDir: corpusOverlay.checkoutDir ?? null,
+    });
+    console.log(`[publish-article-fast] ${freshness.note}`);
+    if (!freshness.ok) {
+      throw new Error(
+        `[publish-article-fast] corpus/client handoff is not publishable: ${freshness.note}`,
+      );
+    }
+  } else {
+    console.log('[publish-article-fast] read-only audit mode — skipped corpus/client handoff freshness guard');
+  }
+
+  const registryFilename = args.section === 'svizzera' ? 'swiss-articles-data.ts' : 'blog-articles-data.ts';
+  const { readArticleRegistryMetadata } = await import('../packages/articles/engine/shared/articleRegistryMetadata.ts');
+  const registryPath = path.join(ROOT_DIR, 'packages', 'articles', 'content', registryFilename);
+  const declaredImages = fs.existsSync(registryPath)
+    ? Object.fromEntries(readArticleRegistryMetadata(fs.readFileSync(registryPath, 'utf-8')).map((item) => [item.id, item.image]))
+    : {};
+  const htmlByPath = {};
+  for (const rel of [...Object.values(entry.paths), ...Object.values(entry.flatPaths)]) {
+    if (rel && fs.existsSync(path.join(distDir, rel))) htmlByPath[rel] = fs.readFileSync(path.join(distDir, rel), 'utf-8');
+  }
+  const imagePostcondition = filterEntriesByImagePostcondition({ entries, declaredImages, htmlByPath });
+  const publishEntry = imagePostcondition.entries[0] ?? null;
+  if (imagePostcondition.excludedArticles.length > 0) {
+    console.error(
+      `[publish-article-fast] image postcondition withheld ${imagePostcondition.excludedPages} page(s) for ` +
+        `${imagePostcondition.firstExcludedArticleIds.join(', ')}`,
+    );
+  }
 
   // ── Summary JSON for stream B (shard push) / stream C (workflow) ──
   const sectionShardKey = args.section === 'frontaliere' ? 'articolifrontaliere' : 'articolisvizzera';
@@ -266,13 +341,14 @@ async function main() {
 
   // subtree convention matches scripts/lib/section-shard-slugs.json's own
   // documented formula: it -> <slug>, en/de/fr -> <loc>/<slug>.
-  // Hub-archive relpaths for this locale are appended after the article's
+  // Root-landing and hub-archive relpaths for this locale are appended after the article's
   // own 2 paths — push-article-shard-incremental.sh takes an arbitrary list
   // of relpaths per locale/section invocation, so no separate push call or
   // workflow change is needed (.github/workflows/fast-publish-article.yml
   // already forwards every entry in `paths[]`).
   //
-  // Topic-hub relpaths (step 6b) ride the same list. They land under the SAME
+  // Root landing relpaths (step 6) and topic-hub relpaths (step 6c) ride the
+  // same list. They land under the SAME
   // shard subtree as the archive — both are `<indexSlug[locale]>/…`, and
   // `ARTICLE_SECTION_CORE.<section>.indexSlug` is what the shard slug in
   // section-shard-slugs.json mirrors — so no new shard, key or push leg is
@@ -282,8 +358,9 @@ async function main() {
     locales.map((locale) => [
       locale,
       [
-        entry.paths[locale],
-        entry.flatPaths[locale],
+        publishEntry?.paths[locale],
+        publishEntry?.flatPaths[locale],
+        ...(landingResult.pathsByLocale[locale] ?? []),
         ...hubResult.pathsByLocale[locale],
         ...(topicHubResult.pathsByLocale[locale] ?? []),
       ].filter(Boolean),
@@ -334,13 +411,13 @@ async function main() {
       // the workflow's `if: failure()` reporter, as a Bug issue saying the
       // article never went out. A locale that did not publish its article page
       // therefore pushes whatever else is clean and advertises no URL to poll.
-      const articleRel = entry.paths[locale];
+      const articleRel = publishEntry?.paths[locale];
       const articlePublished = Boolean(articleRel) && paths.includes(articleRel);
       return {
         locale,
         subtree: locale === 'it' ? slugMap.it : `${locale}/${slugMap[locale]}`,
         paths,
-        ...(articlePublished ? { url: entry.urls[locale] } : {}),
+        ...(articlePublished ? { url: publishEntry.urls[locale] } : {}),
       };
     })
     .filter((shard) => shard.paths.length > 0);
@@ -358,10 +435,10 @@ async function main() {
   // article, breaking stream B/C's CDN push. DEFAULT_IMG ('/og-image.png',
   // last-resort fallback, not under images/) has no thumbnail and is already
   // a static site asset — never listed here.
-  const heroImgRel = entry.img.replace(/^\/+/, ''); // e.g. "images/blog/foo.webp" | "images/places/lugano-view.webp"
-  const heroDir = path.dirname(heroImgRel); // e.g. "images/blog" | "images/places"
+  const heroImgRel = publishEntry?.img?.replace(/^\/+/, ''); // e.g. "images/blog/foo.webp" | "images/places/lugano-view.webp"
+  const heroDir = heroImgRel ? path.dirname(heroImgRel) : ''; // e.g. "images/blog" | "images/places"
   const cdnUploads = [];
-  if (heroDir.startsWith('images/') || heroDir === 'images') {
+  if (heroImgRel && (heroDir.startsWith('images/') || heroDir === 'images')) {
     const heroExt = path.extname(heroImgRel) || '.webp';
     const heroBase = path.basename(heroImgRel, heroExt);
     const heroLocal = path.join('public', heroDir, `${heroBase}${heroExt}`);
@@ -416,7 +493,17 @@ async function main() {
     codes: [...new Set(findings.map((f) => `0x${f.code.toString(16).padStart(2, '0')}`))],
     count: findings.length,
   }));
-  const summary = { id: args.id, section: args.section, shards, cdnUploads, edgeFiles, refused };
+  const summary = {
+    id: args.id,
+    requestedId: args.id,
+    section: args.section,
+    contentRevision: corpusOverlay.contentRevision,
+    shards,
+    cdnUploads,
+    edgeFiles,
+    refused,
+    imagePostcondition,
+  };
   const summaryPath = path.resolve(args.summary);
   fs.mkdirSync(path.dirname(summaryPath), { recursive: true });
   fs.writeFileSync(summaryPath, JSON.stringify(summary, null, 2) + '\n', 'utf-8');
@@ -431,6 +518,9 @@ async function main() {
       `[publish-article-fast] control-char gate: ${refused.length} of ${screening.checked} rendered file(s) ` +
         `withheld, ${shards.length}/${locales.length} locale shard(s) still publishing`,
     );
+  }
+  } finally {
+    corpusOverlay.cleanup?.();
   }
 }
 

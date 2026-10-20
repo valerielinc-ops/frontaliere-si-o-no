@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Snapshot today's fuel prices per zone to data/fuel-prices-history/YYYY-MM-DD.json.
@@ -15,6 +17,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildStationSlug } from './lib/fuel-station-slug.mjs';
+import { FUEL_ZONES } from '../build-plugins/shared/fuelRouteSlugs.mjs';
+import { writeFuelArchive } from './lib/fuel-monthly-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -22,7 +26,7 @@ const FUEL_DATA_PATH = path.join(ROOT, 'data', 'fuel-prices.json');
 const HISTORY_DIR = path.join(ROOT, 'data', 'fuel-prices-history');
 const RETENTION_DAYS = 90;
 
-const ZONES = ['chiasso', 'mendrisio', 'lugano', 'bellinzona', 'locarno'];
+const ZONES = FUEL_ZONES;
 // Italian curated cities — must mirror FUEL_ITALIAN_CITIES in
 // build-plugins/fuelDailyData.ts. matchKey is the lowercase municipality
 // name as it appears in data/fuel-prices.json (`municipality` field).
@@ -43,14 +47,6 @@ const ITALIAN_CITIES = [
   { slug: 'morbegno', matchKey: 'morbegno' },
   { slug: 'cernobbio', matchKey: 'cernobbio' },
 ];
-// Legacy fallback: the TCS Firestore feed now exposes per-station DIESEL prices
-// directly (ingested by scripts/generate-fuel-prices-dataset.mjs → `dieselPriceChf`),
-// so the SP95+offset derivation is no longer the primary path. We keep the
-// constant as a documented fallback for historical snapshot files emitted before
-// the real-diesel ingestion rolled out, and in case the DIESEL field
-// temporarily disappears from the upstream feed. Observed delta on Swiss retail
-// ≈ 0.08 CHF/L (diesel above SP95) as of 2026 — tune centrally if needed.
-const LEGACY_DIESEL_OFFSET_CHF = 0.08;
 
 function mean(nums) {
   if (nums.length === 0) return null;
@@ -69,7 +65,7 @@ function collectStations(dataset) {
   for (const row of dataset?.municipalities ?? []) {
     const nearby = row?.swiss?.nearbyStations ?? [];
     for (const s of nearby) {
-      if (!s || typeof s.sp95PriceChf !== 'number') continue;
+      if (!s || (stationPriceForFuel(s, 'benzina') === null && stationPriceForFuel(s, 'diesel') === null)) continue;
       const key = `${s.id ?? s.name ?? ''}:${s.address ?? ''}`;
       if (seen.has(key)) continue;
       seen.add(key);
@@ -79,25 +75,15 @@ function collectStations(dataset) {
   return out;
 }
 
-/**
- * Resolve a per-station price for the target fuel. Reads the real
- * `dieselPriceChf` field populated by the TCS Firestore feed when available;
- * falls back to SP95 + observed offset only for stations that still lack a
- * direct DIESEL record (reported in logs so coverage gaps stay visible).
- */
-function stationPriceForFuel(station, fuel) {
-  const sp95 = station.sp95PriceChf;
-  if (typeof sp95 !== 'number' || Number.isNaN(sp95)) return null;
-  if (fuel === 'benzina') return Number(sp95.toFixed(3));
-  // fuel === 'diesel'
-  const real = station.dieselPriceChf;
-  if (typeof real === 'number' && Number.isFinite(real)) {
-    return Number(real.toFixed(3));
-  }
-  return Number((sp95 + LEGACY_DIESEL_OFFSET_CHF).toFixed(3));
+/** Resolve only observed, finite positive prices for the requested fuel. */
+export function stationPriceForFuel(station, fuel) {
+  if (fuel === 'diesel' && (station.dieselSource === 'derived' || station.dieselSource === 'monthly_average')) return null;
+  const value = fuel === 'benzina' ? station.sp95PriceChf : station.dieselPriceChf;
+  return typeof value === 'number' && Number.isFinite(value) && value > 0
+    ? Number(value.toFixed(3)) : null;
 }
 
-function computeZoneAvg(stations, zone, fuel) {
+export function computeZoneAvg(stations, zone, fuel) {
   const filtered = zone ? stations.filter((s) => stationBelongsToZone(s, zone)) : stations;
   const prices = filtered
     .map((s) => stationPriceForFuel(s, fuel))
@@ -107,11 +93,11 @@ function computeZoneAvg(stations, zone, fuel) {
 
 /**
  * Snapshot coverage diagnostics — included in the emitted snapshot so we can
- * audit the proportion of "real" vs "derived" diesel prices day by day.
+ * audit observed diesel coverage without filling gaps with estimates.
  */
 function dieselCoverageStats(stations) {
   const total = stations.length;
-  const real = stations.filter((s) => typeof s.dieselPriceChf === 'number' && Number.isFinite(s.dieselPriceChf)).length;
+  const real = stations.filter((s) => stationPriceForFuel(s, 'diesel') !== null).length;
   return {
     totalStations: total,
     realDieselStations: real,
@@ -201,11 +187,7 @@ function main() {
   const stations = collectStations(dataset);
   const today = new Date().toISOString().slice(0, 10);
   const coverage = dieselCoverageStats(stations);
-  const dieselSource = coverage.realDieselStations === 0
-    ? 'derived'
-    : coverage.realDieselStations === coverage.totalStations
-      ? 'api'
-      : 'mixed';
+  const dieselSource = coverage.realDieselStations === 0 ? 'unavailable' : 'api';
 
   const snapshot = {
     date: today,
@@ -261,6 +243,7 @@ function main() {
   const out = path.join(HISTORY_DIR, `${today}.json`);
   fs.writeFileSync(out, JSON.stringify(snapshot, null, 2), 'utf-8');
 
+  writeFuelArchive(HISTORY_DIR, path.join(ROOT, 'data', 'fuel-prices-archive'), today);
   const pruned = pruneOldSnapshots();
   const zoneList = Object.entries(snapshot.zones)
     .map(([z, v]) => `${z}: diesel=${v.diesel} benzina=${v.benzina}`)
@@ -273,4 +256,4 @@ function main() {
   if (pruned > 0) console.log(`[snapshot-fuel-history] pruned ${pruned} snapshots older than ${RETENTION_DAYS}d`);
 }
 
-main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

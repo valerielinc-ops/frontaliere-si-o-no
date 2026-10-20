@@ -46,13 +46,14 @@
  *       <h2 ...>Das kannst du bei uns bewirken</h2> <ul class="wp-block-list hon-list"><li>...
  *       <h2 ...>Das bringst du mit</h2>              <ul class="wp-block-list hon-list"><li>...
  *       <h2 class="wp-block-heading">Wir als Arbeitgeber</h2> <p>...</p> <ul class="wp-block-list hon-list"><li>...
- *   - <meta property="article:modified_time" content="ISO8601"> → postedDate
+ *   - <meta property="article:published_time" content="ISO8601"> → explicit publication
  *
  * Exports the required functions for the crawler template:
  *   - fetchAllHoneggerJobs() — Fetch and parse all jobs
  *   - isHoneggerJob()        — Match jobs belonging to this company
  *   - isTrustedDomain()      — Validate URLs belong to this company
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { readAttr, readMetaContent } from './html-attr.mjs';
@@ -229,7 +230,7 @@ export function parseHoneggerListingPage(html = '') {
     seen.add(postId);
 
     const titleMatch = block.match(/<h2 class="wp-block-post-title[^"]*">([\s\S]*?)<\/h2>/);
-    const title = titleMatch ? normalizeSpace(stripHtml(decodeWpEntities(titleMatch[1]))) : '';
+    const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
     if (!title) continue;
 
     const linkTag = (block.match(/<a\b[^>]*>/gi) ?? []).find((tag) =>
@@ -238,7 +239,7 @@ export function parseHoneggerListingPage(html = '') {
     if (!detailUrl) continue;
 
     const excerptMatch = block.match(/<p class="wp-block-post-excerpt__excerpt">([\s\S]*?)<\/p>/);
-    const excerpt = excerptMatch ? normalizeSpace(stripHtml(decodeWpEntities(excerptMatch[1]))) : '';
+    const excerpt = excerptMatch ? normalizeSpace(stripHtml(excerptMatch[1])) : '';
 
     results.push({ postId, title, detailUrl, excerpt });
   }
@@ -276,7 +277,7 @@ function extractHeadingSection(html = '', headingText) {
   const liRegex = /<li[^>]*>([\s\S]*?)<\/li>/g;
   let liMatch;
   while ((liMatch = liRegex.exec(listHtml)) !== null) {
-    const text = normalizeSpace(stripHtml(decodeWpEntities(liMatch[1])));
+    const text = normalizeSpace(stripHtml(liMatch[1]));
     if (text.length > 1) items.push(text);
   }
   return items;
@@ -292,7 +293,7 @@ export function parseHoneggerDetailPage(html = '', fallbackTitle = '') {
   const titleMatch = html.match(
     /<h2 class="wp-block-heading has-deepwhite-color has-text-color has-xx-large-font-size">([\s\S]*?)<\/h2>/,
   );
-  const title = titleMatch ? normalizeSpace(stripHtml(decodeWpEntities(titleMatch[1]))) : fallbackTitle;
+  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : fallbackTitle;
 
   const categoryTerms = extractTaxonomyTerms(html, 'job-kategorie', 'job-kategorie');
   const categorySlug = categoryTerms[0]?.slug || '';
@@ -311,9 +312,8 @@ export function parseHoneggerDetailPage(html = '', fallbackTitle = '') {
   const requirements = extractHeadingSection(html, 'Das bringst du mit');
   const employerBenefits = extractHeadingSection(html, 'Wir als Arbeitgeber');
 
-  const modifiedTime = readMetaContent(html, 'article:modified_time');
   const publishedTime = readMetaContent(html, 'article:published_time');
-  const postedDate = (modifiedTime || publishedTime).split('T')[0] || '';
+  const publication = sourcePostingDateFields(publishedTime);
 
   return {
     title,
@@ -325,7 +325,7 @@ export function parseHoneggerDetailPage(html = '', fallbackTitle = '') {
     tasks,
     requirements,
     employerBenefits,
-    postedDate,
+    ...publication,
   };
 }
 
@@ -419,7 +419,6 @@ export async function fetchAllHoneggerJobs() {
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} honegger ag ${loc.city}`);
     const idHash = createHash('sha1').update(`honegger-${listing.postId}`).digest('hex').slice(0, 12);
-    const postedDate = detail.postedDate || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -453,7 +452,7 @@ export async function fetchAllHoneggerJobs() {
       sector: 'Facility Management / Pulizie',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: listing.detailUrl,
       requirements: detail.requirements,
       requirementsByLocale: { [sourceLang]: detail.requirements },

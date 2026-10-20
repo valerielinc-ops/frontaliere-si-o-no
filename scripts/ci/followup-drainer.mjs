@@ -42,7 +42,7 @@
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { appendFileSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { classifyIssue, isFixerExempt } from '../lib/classify-issue.mjs';
 import {
@@ -76,22 +76,28 @@ import {
   readQuotaFloorLedger,
   releaseQuotaFloorLease,
 } from './quota-floor-lease.mjs';
-import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
+import { FIX_OUTCOME_RE, TITLE_RE as RECONCILER_TITLE_RE } from './close-recovered-failure-issues.mjs';
 import { runBudgetFromEnv } from './lib/run-budget.mjs';
 import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 import {
   bucketState,
-  dailyKeyFromBucketBody,
   dailyBucketInfo,
-  hasDailyBucketRepositoryConsistency,
-  hasStableItemIds,
-  hasStableItemIdsForDailyKey,
-  hasUnterminatedMarkdownFence,
+  dailyBucketScopeDecision,
   countAggregateHeadingItems,
   followupItemMarkers,
-  parseFollowupItems,
+  isDailyBucketTitle,
   selectFirstOpenItem,
 } from './followup-resolution-match.mjs';
+import { parseItemMarkers } from './lib/followup-item-evidence.mjs';
+import {
+  DEFAULT_PARENT_REARM_MAX_PER_WINDOW,
+  DEFAULT_PARENT_REARM_WINDOW_DAYS,
+  decomposedChildNumbers,
+  decideParentRearm,
+  parentRearmCommentBody,
+  reopenedAfterDecomposition,
+} from './lib/parent-close-recurrence.mjs';
+import { isTrustedAuthor } from './route-already-fixed.mjs';
 
 export {
   detectWorkflowScoped,
@@ -114,47 +120,73 @@ export function isDailyBucketCollecting(issue) {
  * while the fixer receives exactly one stable item at a time through the workflow.
  */
 export function dailyBucketQueueDecision(issue) {
-  const info = dailyBucketInfo(issue?.title || '');
-  if (!info) return { eligible: true, reason: null, item: null };
-  if (hasUnterminatedMarkdownFence(issue?.body || '')) {
-    return { eligible: false, reason: 'unterminated-markdown-fence', item: null };
-  }
-  if (bucketState(issue?.body || '') !== 'sealed') return { eligible: false, reason: 'bucket-collecting', item: null };
-  if (dailyKeyFromBucketBody(issue?.body || '') !== info.dailyKey) {
-    return { eligible: false, reason: 'mismatched-daily-key', item: null };
-  }
-  if (!hasDailyBucketRepositoryConsistency(issue?.body || '', info.targetRepository)) {
-    return { eligible: false, reason: 'mismatched-target-repository', item: null };
-  }
-  const items = parseFollowupItems(issue?.body || '');
-  if (info.itemCount !== items.length) {
-    return { eligible: false, reason: 'mismatched-item-count', item: null };
-  }
-  if (!hasStableItemIds(issue?.body || '')) return { eligible: false, reason: 'missing-stable-item-id', item: null };
-  if (!hasStableItemIdsForDailyKey(issue?.body || '', info.dailyKey)) {
-    return { eligible: false, reason: 'mismatched-stable-item-id', item: null };
-  }
-  const item = selectFirstOpenItem(issue?.body || '');
-  return item
-    ? { eligible: true, reason: null, item }
-    : { eligible: false, reason: 'no-open-item', item: null };
+  const scope = dailyBucketScopeDecision(issue?.title || '', issue?.body || '');
+  if (!scope.isDaily) return { eligible: true, reason: null, item: null };
+  if (!scope.valid) return { eligible: false, reason: scope.reason, item: null };
+  return scope.item
+    ? { eligible: true, reason: null, item: scope.item }
+    : { eligible: false, reason: scope.reason || 'no-open-item', item: null };
 }
 
 /**
  * Return the open PR that explicitly claims a daily-bucket item, if any.
- * A PR for another item in the same bucket must not hold this item back; the
- * marker is the item-level mutex required by the daily contract.
+ * The deterministic fixer branch is shared by every FU in the bucket, so a PR
+ * marked for another item still holds this one back while that branch is open.
+ * A legacy PR with no item marker that cites this bucket remains an ambiguous,
+ * fail-closed mutex.
  *
  * @param {string} itemId
- * @param {Array<{number?: number, title?: string, body?: string}>} openPrs
- * @returns {{number?: number, title?: string, body?: string}|null}
+ * @param {Array<{number?: number, title?: string, body?: string, head?: {ref?: string}, headRefName?: string}>} openPrs
+ * @param {number|null} issueNumber
+ * @param {string} repository
+ * @returns {{number?: number, title?: string, body?: string, head?: {ref?: string}, headRefName?: string}|null}
  */
-export function openPrForDailyItem(itemId, openPrs) {
+export function openPrForDailyItem(itemId, openPrs, issueNumber = null, repository = REPO) {
   const wanted = String(itemId || '').toUpperCase();
   if (!/^FU-\d{4}-\d{2}-\d{2}-\d{3}$/.test(wanted)) return null;
-  return (Array.isArray(openPrs) ? openPrs : []).find((pr) =>
-    followupItemMarkers(`${pr?.title || ''}\n${pr?.body || ''}`).includes(wanted),
-  ) || null;
+  const issueRef = Number(issueNumber);
+  const legacyBranch = Number.isInteger(issueRef) && issueRef > 0
+    ? `fix/issue-${issueRef}`
+    : null;
+  return (Array.isArray(openPrs) ? openPrs : []).find((pr) => {
+    const text = `${pr?.title || ''}\n${pr?.body || ''}`;
+    const markers = followupItemMarkers(text);
+    // Un marker esplicito e' evidence per-item da qualunque repository. La
+    // euristica legacy sul branch vale invece solo per il repo corrente: una
+    // fork puo' riusare fix/issue-N. Ownership illeggibile resta bloccante.
+    if (markers.includes(wanted)) return true;
+    const headRefs = [pr?.head?.ref, pr?.headRefName];
+    const legacyBranchMatches = legacyBranch !== null
+      && headRefs.some((ref) => ref === legacyBranch)
+      && isRepositoryOwnedPrHead(pr, repository) !== false;
+    // Marker diversi separano l'evidence, non il branch condiviso.
+    if (legacyBranchMatches) return true;
+    if (!Number.isInteger(issueRef) || issueRef <= 0 || markers.length) return false;
+    return new RegExp(`(^|[^\\d])#${issueRef}(?!\\d)`).test(text);
+  }) || null;
+}
+
+/**
+ * Identita' minima della head di una PR. Null significa che il payload non
+ * prova il repository, quindi i consumer che mutano restano fail-closed.
+ * @param {{head?: {ref?: string, repo?: {full_name?: string}}, headRefName?: string, headRepository?: {nameWithOwner?: string}|string}} pr
+ * @returns {{ref: string, repository: string}|null}
+ */
+export function openPrHeadIdentity(pr) {
+  const ref = pr?.head?.ref ?? pr?.headRefName;
+  const repository = pr?.head?.repo?.full_name
+    ?? (typeof pr?.headRepository === 'string' ? pr.headRepository : pr?.headRepository?.nameWithOwner);
+  if (typeof ref !== 'string' || !ref.trim()) return null;
+  if (typeof repository !== 'string' || !repository.trim()) return null;
+  return { ref: ref.trim(), repository: repository.trim() };
+}
+
+/** True/false when ownership is known, null when the head payload is ambiguous. */
+export function isRepositoryOwnedPrHead(pr, repository = REPO) {
+  const identity = openPrHeadIdentity(pr);
+  const expected = String(repository || '').trim().toLowerCase();
+  if (!identity || !expected) return null;
+  return identity.repository.toLowerCase() === expected;
 }
 
 /**
@@ -172,11 +204,11 @@ export function flattenPaginatedOpenPrs(raw) {
 }
 
 /** Fail-closed decision for the daily item-level PR mutex. */
-export function dailyMutexDecision(itemId, scan) {
+export function dailyMutexDecision(itemId, scan, issueNumber = null, repository = REPO) {
   if (!scan || scan.ok !== true || !Array.isArray(scan.prs)) {
     return { eligible: false, reason: 'open-pr-scan-unavailable', pr: null };
   }
-  const pr = openPrForDailyItem(itemId, scan.prs);
+  const pr = openPrForDailyItem(itemId, scan.prs, issueNumber, repository);
   return pr
     ? { eligible: false, reason: 'item-pr-open', pr }
     : { eligible: true, reason: null, pr: null };
@@ -254,7 +286,7 @@ const SETTLE_MIN = intFromEnv('FOLLOWUP_SETTLE_MIN', 3);
 // Quante run `issue-fix` possono essere vive insieme. Era 1 hard-coded — un
 // mutex, non un cap — poi alzato a 3 (2026-09-04). Il default locale resta 5:
 // è il massimo misurato come stabile dalla flotta locale. Il workflow remoto
-// configura esplicitamente 7 sui runner GitHub Actions; quel valore resta
+// configura esplicitamente 15 sui runner GitHub Actions; quel valore resta
 // bounded e protetto da claim/quota Codex, senza cambiare il fallback locale.
 // Override:
 // `FOLLOWUP_MAX_INFLIGHT_FIX=N` conserva il kill-switch e la telemetria — la
@@ -411,9 +443,13 @@ const LBL_NO_AGE_OUT = 'agent:no-age-out';
 // (`from-decompose`) entrano nella coda fix normale via triage; il padre resta
 // aperto e viene chiuso dal pass PARENT-CLOSE quando TUTTE le figlie sono chiuse.
 //
-// Anti-ricorsione by-construction: un padre `decomposed:1` non è mai ri-decomposto,
-// una figlia `from-decompose` è atomica per costruzione e non è mai decomposta.
-// L'unica eccezione voluta è la issue-contenitore residua che il planner crea
+// Anti-ricorsione by-construction: finché porta `decomposed:1` un padre non è
+// ri-decomposto, e una figlia `from-decompose` è atomica per costruzione. La
+// sola uscita del padre è PARENT-CLOSE oppure PARENT-REARM: il riarmo è
+// autorizzato da una ricorrenza del monitor con figlie già chiuse, rimuove il
+// tracker dal veto e lo rimette nel triage normale; una decomposizione nuova
+// torna quindi a creare un tracker soggetto allo stesso ciclo bounded.
+// L'altra eccezione voluta è la issue-contenitore residua che il planner crea
 // quando le unità superano il cap (SENZA `from-decompose`): ri-entra nel ciclo e
 // converge perché ogni giro chiude ≥ (cap-1) unità atomiche.
 // `DECOMPOSE_ENABLED=false` spegne routing e promozione (kill-switch, default on).
@@ -424,8 +460,21 @@ const LBL_FROM_DECOMP = 'from-decompose';
 const LBL_DECOMP_RETRIED = 'decompose-retried';
 const LBL_MAYBE_RESOLVED = 'maybe-resolved';
 const DECOMPOSE_ENABLED = process.env.DECOMPOSE_ENABLED !== 'false';
-const DECOMPOSED_INTO_RE = /<!--\s*DECOMPOSED_INTO:\s*((?:#?\d+[\s,]*)+)-->/i;
+// Il marker `DECOMPOSED_INTO` e il suo parse vivono in
+// `./lib/parent-close-recurrence.mjs` (`decomposedIntoNumbers`): la data della
+// decomposizione letta dalla guardia del PARENT-CLOSE usa la stessa regola.
 const PARENT_CLOSE_MAX_PER_RUN = intFromEnv('FOLLOWUP_PARENT_CLOSE_MAX_PER_RUN', 5);
+// Un riarmo può riaprire il costo della decomposizione: resta bounded sia sul
+// tick sia sul thread. I default sono volutamente separati dai cap esistenti.
+const PARENT_REARM_MAX_PER_RUN = positiveIntFromEnv('FOLLOWUP_PARENT_REARM_MAX_PER_RUN', 2);
+const PARENT_REARM_MAX_PER_WINDOW = positiveIntFromEnv(
+  'FOLLOWUP_PARENT_REARM_MAX_PER_WINDOW',
+  DEFAULT_PARENT_REARM_MAX_PER_WINDOW,
+);
+const PARENT_REARM_WINDOW_DAYS = positiveIntFromEnv(
+  'FOLLOWUP_PARENT_REARM_WINDOW_DAYS',
+  DEFAULT_PARENT_REARM_WINDOW_DAYS,
+);
 // `parent-dequeue` è una mutazione separata dal controllo `parent-close` che
 // segue. Il cap impedisce che un backlog di padri consumi tutta la finestra del
 // job prima che il tracker possa essere esaminato e chiuso.
@@ -469,6 +518,69 @@ export function parentDequeueBudgetDecision({
   };
 }
 
+// Marker di idempotenza del commento `parent-dequeue`. Senza, ogni tick in cui
+// qualcuno RIMETTE `agent:fix*` su un padre decomposto produceva un commento
+// identico (misurato: 13 su 9443 e 13 su 9508 in 25 ore), e ogni commento
+// rinfresca `updatedAt`, che cooldown e age-out leggono. Il commento resta uno;
+// il riaccodamento diventa un segnale (`parent_dequeue_repeat`), non rumore.
+export const PARENT_DEQUEUED_MARKER = '<!-- PARENT_DEQUEUED -->';
+const PARENT_DEQUEUED_RE = /<!--\s*PARENT_DEQUEUED\s*-->/;
+
+/**
+ * Cosa fare del commento di un `parent-dequeue`. Pura → testabile.
+ * `null`/non-array = «non ho potuto leggere i commenti», che non è «non ce ne
+ * sono»: al buio non si commenta (un commento in più è proprio il difetto).
+ *
+ * @param {Array<{body?: string}>|null|undefined} comments
+ * @returns {'comment'|'repeat'|'unreadable'}
+ */
+export function parentDequeueCommentDecision(comments) {
+  if (!Array.isArray(comments)) return 'unreadable';
+  return comments.some((c) => PARENT_DEQUEUED_RE.test(String(c?.body || '')))
+    ? 'repeat'
+    : 'comment';
+}
+
+/**
+ * Esegue il dequeue di UN padre decomposto con I/O iniettato. La rimozione
+ * delle label è incondizionata (è la mutazione che conta); il commento si posta
+ * solo la prima volta. Marker già presente = qualcuno ha rimesso la label dopo
+ * un dequeue: niente commento, ma un `::warning::` che nomina la issue.
+ *
+ * @param {{number: number}} parent
+ * @param {{
+ *   readComments: (num: number) => Array<{body?: string}>|null,
+ *   postComment: (num: number, body: string) => void,
+ *   removeLabels: (num: number) => void,
+ *   body: string,
+ *   log?: (line: string) => void,
+ * }} io
+ * @returns {'comment'|'repeat'|'unreadable'}
+ */
+export function applyParentDequeue(parent, { readComments, postComment, removeLabels, body, log = console.log }) {
+  const num = parent.number;
+  let comments = null;
+  try {
+    comments = readComments(num);
+  } catch {
+    comments = null;
+  }
+  const decision = parentDequeueCommentDecision(comments);
+  if (decision === 'comment') {
+    try {
+      postComment(num, `${PARENT_DEQUEUED_MARKER}\n${body}`);
+    } catch (e) {
+      log(`::warning::parent-dequeue: comment #${num} fallito: ${String(e).slice(0, 120)}`);
+    }
+  } else if (decision === 'repeat') {
+    log(`::warning::parent-dequeue ripetuto #${num}: \`agent:fix\`/\`agent:fix-queued\` rimessa su un padre già tolto dalla coda — tolgo le label senza un altro commento; va corretto chi la rimette.`);
+  } else {
+    log(`::warning::parent-dequeue: commenti di #${num} non leggibili → nessun commento (label tolte comunque).`);
+  }
+  removeLabels(num);
+  return decision;
+}
+
 /**
  * La issue può entrare nello stadio di decomposizione? Pura (solo label) →
  * testabile. Esclude i padri già decomposti (`decomposed:1`), le figlie
@@ -502,11 +614,13 @@ export function isDecomposeEligible(iss) {
  * Un padre già decomposto (`decomposed:1`) è un TRACKER, non lavoro del fixer.
  *
  * Dopo lo scorporo tutto lo scope vive nelle sub-issue dichiarate dal marker
- * `DECOMPOSED_INTO`, che entrano in coda da sole; il padre ha un solo stato
- * terminale, il PARENT-CLOSE più sotto (figlie tutte chiuse). Promuoverlo o
- * ri-armarlo verso `agent:fix` manda un run Claude su una issue che NON ha
- * lavoro proprio: l'agent legge il body, trova gli item già delegati e non può
- * che terminare senza PR — e implementarli lì duplicherebbe le figlie.
+ * `DECOMPOSED_INTO`, che entrano in coda da sole; il padre resta un tracker
+ * fino a PARENT-CLOSE (figlie tutte chiuse) o PARENT-REARM (ricorrenza del
+ * monitor dopo il marker). Promuoverlo direttamente verso `agent:fix` manda
+ * un run Claude su una issue che NON ha lavoro proprio: l'agent legge il body,
+ * trova gli item già delegati e non può che terminare senza PR — e implementarli
+ * lì duplicherebbe le figlie. PARENT-REARM è diverso: rimuove prima il veto e
+ * `agent:triaged`, poi lascia che sia il triage-sweep esistente a classificarlo.
  *
  * Misurato il 2026-09-04 su #7340 (`decomposed:1` + `agent:fix` + `fu-attempt:1`,
  * scorporata la sera prima in #7382-#7386): nello stesso istante altri tre
@@ -525,25 +639,11 @@ export function isDecomposedParent(iss) {
   return names(iss).includes(LBL_DECOMPOSED);
 }
 
-/**
- * Numeri delle sub-issue dichiarate dall'ULTIMO marker `DECOMPOSED_INTO` nei
- * commenti (l'ultimo vince: una decomposizione corretta a mano sovrascrive la
- * precedente). Dedup, ordina, ignora garbage. Pura → testabile.
- * @param {Array<{body?: string}>} comments
- * @returns {number[]}
- */
-export function decomposedChildNumbers(comments) {
-  let nums = null;
-  for (const c of comments || []) {
-    const m = DECOMPOSED_INTO_RE.exec(String(c?.body || ''));
-    if (!m) continue;
-    const parsed = [...new Set(
-      (m[1].match(/\d+/g) || []).map(Number).filter((n) => Number.isInteger(n) && n > 0),
-    )].sort((a, b) => a - b);
-    if (parsed.length) nums = parsed;
-  }
-  return nums || [];
-}
+// `decomposedChildNumbers` (l'ULTIMO marker `DECOMPOSED_INTO` vince) vive in
+// `./lib/parent-close-recurrence.mjs` ed è ri-esportata qui per i chiamanti
+// esistenti: `decompose-route-check.mjs` la importa dal modulo puro senza
+// trascinare il grafo di import del drainer nel job `decompose`.
+export { decomposedChildNumbers };
 
 // Age-out close: il post-merge-followup apre 1 follow-up per PR mergiata e
 // NESSUN workflow le chiude mai → ratchet monotòno (osservate 41 aperte). Un
@@ -758,6 +858,102 @@ export function verdictExitDecision(outcome, { hasPR = false, noAutoclose = fals
       : { action: 'close', reason: 'already-fixed: difetto verificato assente' };
   }
   return { action: 'escalate', reason: `capacità/causa fuori dalla portata della CI: ${outcome}` };
+}
+
+// --- VERDETTO A GRANA ITEM SUI BUCKET GIORNALIERI ----------------------------
+// Su un bucket `follow-up(daily:…)` l'ultimo `FIX_OUTCOME` riguarda UN item, non
+// la issue. Quando `route-already-fixed.mjs` lo ha gia' scritto sull'item
+// (`FU_ITEM_EVIDENCE` / `FU_ITEM_BLOCKED` dopo il verdetto, `State: blocked` nel
+// corpo), rileggerlo come verdetto del bucket parcheggiava, flaggava
+// `maybe-resolved` o differiva l'INTERA issue, e gli item successivi non
+// venivano mai raggiunti: la issue 8334 portava `fu-attempt:3` + `fu-parked` +
+// `maybe-resolved` insieme, e 5 bucket giornalieri erano `fu-parked`.
+//
+// «Coperto» significa soltanto «non fermare il resto del bucket per questo
+// verdetto»: NON e' una prova di chiusura, e nessun ramo lo usa per chiudere.
+// `FU_ITEM_ATTEMPT` da solo non copre: registra il tentativo, non l'esito
+// sull'item. Senza marker di autore fidato DOPO il verdetto nulla cambia
+// (fail-closed): il verdetto vale per il bucket come prima.
+
+/** Commento GraphQL o REST nella forma che leggono `parseItemMarkers` e
+ * `isTrustedAuthor` (`createdAt`, `author.login`, `authorAssociation`). Su REST
+ * `user.type` e' autoritativo: un utente non-bot con un login da bot perde il
+ * login, e resta solo la sua associazione al repository. */
+function markerCommentShape(comment) {
+  const restType = comment?.user?.type;
+  const login = restType && String(restType).toLowerCase() !== 'bot'
+    ? ''
+    : (comment?.author?.login ?? comment?.user?.login ?? '');
+  return {
+    body: comment?.body,
+    createdAt: comment?.createdAt ?? comment?.created_at ?? null,
+    author: { login },
+    authorAssociation: comment?.authorAssociation ?? comment?.author_association ?? '',
+  };
+}
+
+/** Autore fidato per un marker `FU_ITEM_*`: lo stesso predicato con cui
+ * `route-already-fixed.mjs` legge i marker, esteso alla forma REST. */
+export function isTrustedMarkerAuthor(comment) {
+  return isTrustedAuthor(markerCommentShape(comment));
+}
+
+const ITEM_VERDICT_COVER_TYPES = new Set(['evidence', 'blocked']);
+
+/**
+ * Il verdetto dell'issue e se un marker d'item lo ha gia' consumato. Pura.
+ * - issue non giornaliera, nessun verdetto o nessun predicato di fiducia →
+ *   `covered: false` (l'ultimo `FIX_OUTCOME`, come `latestFixOutcomeFromComments`);
+ * - bucket giornaliero → `covered: true` se un commento di autore fidato
+ *   SUCCESSIVO al commento del verdetto (per `createdAt`; a parita' di secondo,
+ *   per posizione) porta `FU_ITEM_EVIDENCE` o `FU_ITEM_BLOCKED`, E il bucket ha
+ *   ancora un item `open` (`hasOpenItem`). Senza un item da lavorare «il resto
+ *   del bucket» non esiste: il verdetto torna a valere per la issue (park /
+ *   flag `maybe-resolved` come prima), invece di rimettere in coda un bucket
+ *   che il DRAIN salterebbe a ogni tick come `no-open-item`. `hasOpenItem`
+ *   assente → `false` (fail-closed).
+ *
+ * @param {Array<object>} comments forma GraphQL o REST
+ * @param {{isDailyBucket?: boolean, hasOpenItem?: boolean, isTrusted?: (comment: object) => boolean}} [options]
+ * @returns {{outcome: string|null, covered: boolean, marker: {type: string, item: string}|null}}
+ */
+export function bucketVerdictCoverage(comments, { isDailyBucket = false, hasOpenItem = false, isTrusted } = {}) {
+  const list = Array.isArray(comments) ? comments : [];
+  const latest = latestFixOutcomeEntryFromComments(list);
+  const uncovered = { outcome: latest.outcome, covered: false, marker: null };
+  if (!latest.outcome || !isDailyBucket || hasOpenItem !== true || typeof isTrusted !== 'function') return uncovered;
+  // Il commento del verdetto: l'ultimo con lo stesso esito e lo stesso istante,
+  // cioe' quello che `latestFixOutcomeEntryFromComments` sceglie (`>=`).
+  let verdictIndex = -1;
+  list.forEach((comment, index) => {
+    const entry = latestFixOutcomeEntryFromComments([comment]);
+    if (entry.outcome === latest.outcome && entry.at === latest.at) verdictIndex = index;
+  });
+  for (let index = 0; index < list.length; index++) {
+    const shaped = markerCommentShape(list[index]);
+    const at = Date.parse(String(shaped.createdAt ?? ''));
+    if (!Number.isFinite(at)) continue;
+    if (at < latest.at || (at === latest.at && index <= verdictIndex)) continue;
+    const marker = parseItemMarkers([shaped], { isTrusted })
+      .find((candidate) => ITEM_VERDICT_COVER_TYPES.has(candidate.type));
+    if (marker) return { outcome: latest.outcome, covered: true, marker: { type: marker.type, item: marker.item } };
+  }
+  return uncovered;
+}
+
+/**
+ * Verdetto con cui uno stadio decide se parcheggiare, differire, flaggare o
+ * saltare un'issue. Issue non giornaliera → l'ultimo `FIX_OUTCOME` (come
+ * prima); bucket giornaliero → `null` se il verdetto e' gia' scritto sull'item
+ * (vedi `bucketVerdictCoverage`), altrimenti l'ultimo `FIX_OUTCOME`. Pura.
+ *
+ * @param {Array<object>} comments forma GraphQL o REST
+ * @param {{isDailyBucket?: boolean, hasOpenItem?: boolean, isTrusted?: (comment: object) => boolean}} [options]
+ * @returns {string|null}
+ */
+export function effectiveIssueVerdict(comments, options = {}) {
+  const coverage = bucketVerdictCoverage(comments, options);
+  return coverage.covered ? null : coverage.outcome;
 }
 
 // Esiti ZERO-WORK: la run è morta PRIMA che l'agent leggesse la issue, quindi
@@ -1051,15 +1247,32 @@ export function detectMalformedBody(title, body) {
 // sezione (o con la sezione vuota) promuove normale — potrebbe comunque avere
 // uno scope implementabile direttamente.
 const SUB_ISSUES_HEADING_RE = /^##\s+Sub-issues\b/im;
+const PROFESSION_CANTON_RESIDUAL_TITLE_RE =
+  /^residuo\s+profession\w*\s*[×x]\s*canton\w*\b[\s\S]*\bgap\b[\s\S]*\bscomporre\b/i;
+const PROFESSION_CANTON_RESIDUAL_HEADING_RE = /^##\s+Residuo snapshot da scomporre\s*$/im;
+const PROFESSION_CANTON_RESIDUAL_ITEM_RE =
+  /^\s*[-*]\s+([a-z][a-z0-9]*(?:-[a-z0-9]+)*)\s+\(\d+\):\s+([A-Z][A-Z-]*(?:,\s*[A-Z][A-Z-]*)*)\s*$/gm;
+
+/**
+ * Estrae una sezione Markdown di livello 2 senza confondere i suoi bullet con
+ * quelli della sezione successiva. I detector strutturali del drainer devono
+ * leggere il contesto, non il primo elenco che assomiglia a un item.
+ * @param {string} body
+ * @param {RegExp} headingRe
+ * @returns {string}
+ */
+function markdownSection(body, headingRe) {
+  const text = String(body || '');
+  const headingMatch = headingRe.exec(text);
+  if (!headingMatch) return '';
+  const afterHeading = text.slice(headingMatch.index + headingMatch[0].length);
+  const nextHeadingIdx = afterHeading.search(/^##\s+/m);
+  return nextHeadingIdx === -1 ? afterHeading : afterHeading.slice(0, nextHeadingIdx);
+}
 
 /** Testo della sezione `## Sub-issues` (fino alla prossima `##` o a fine body), o '' se assente. */
 function subIssuesSection(body) {
-  const b = String(body || '');
-  const headingMatch = SUB_ISSUES_HEADING_RE.exec(b);
-  if (!headingMatch) return '';
-  const afterHeading = b.slice(headingMatch.index + headingMatch[0].length);
-  const nextHeadingIdx = afterHeading.search(/^##\s+/m);
-  return nextHeadingIdx === -1 ? afterHeading : afterHeading.slice(0, nextHeadingIdx);
+  return markdownSection(body, SUB_ISSUES_HEADING_RE);
 }
 
 /**
@@ -1155,10 +1368,20 @@ function stripFencedBlocks(text) {
   return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
 }
 
+/** Conta solo le righe del formato emesso dal contenitore professione×cantone. */
+function countProfessionCantonResidualItems(body) {
+  const section = markdownSection(body, PROFESSION_CANTON_RESIDUAL_HEADING_RE);
+  if (!section) return 0;
+  return new Set(
+    [...section.matchAll(PROFESSION_CANTON_RESIDUAL_ITEM_RE)].map((match) => match[1].toLowerCase()),
+  ).size;
+}
+
 /**
- * Numero di voci di lavoro DISTINTE enumerate nel body: task-list `- [ ]`/`- [x]`
- * e sezioni numerate `## N.` (le due forme usate dagli handoff di sessione in
- * questo repo). Pura → testabile.
+ * Numero di voci di lavoro DISTINTE enumerate nel body: task-list `- [ ]`/`- [x]`,
+ * sezioni numerate `## N.` (le due forme usate dagli handoff di sessione in
+ * questo repo) e snapshot residue professione×cantone emesse da issue-decompose.
+ * Pura → testabile.
  * @param {string} body
  * @returns {number}
  */
@@ -1166,7 +1389,7 @@ export function countBacklogItems(body) {
   const b = stripFencedBlocks(body);
   const checkboxes = (b.match(/^[ \t]*[-*][ \t]+\[[ xX]\]/gm) || []).length;
   const numberedSections = (b.match(/^##[ \t]*\d+\.[ \t]/gm) || []).length;
-  return checkboxes + numberedSections;
+  return checkboxes + numberedSections + countProfessionCantonResidualItems(b);
 }
 
 /**
@@ -1177,7 +1400,9 @@ export function countBacklogItems(body) {
  * @param {string} body
  */
 export function detectBacklogTracker(title, body) {
-  if (!BACKLOG_TITLE_RE.test(String(title || '').trim())) return false;
+  const titleText = String(title || '').trim();
+  const residualSnapshotTitle = PROFESSION_CANTON_RESIDUAL_TITLE_RE.test(titleText);
+  if (!BACKLOG_TITLE_RE.test(titleText) && !residualSnapshotTitle) return false;
   return countBacklogItems(body) >= BACKLOG_MIN_ITEMS;
 }
 
@@ -1382,6 +1607,7 @@ const DATA_PENDING_RE = new RegExp([
   String.raw`\bnon\s+(?:e|è|e')\s+(?:ancora\s+)?valutabile\b`,
   String.raw`\bpost[-\s]merge\b[^.\n]{0,40}\bbaseline\b`,
 ].join('|'), 'i');
+const MARKDOWN_HEADING_LINE_RE = /^\s{0,3}#{1,6}\s/;
 
 /**
  * L'issue è ferma su un dato che non esiste ancora? Pura → testabile.
@@ -1391,6 +1617,16 @@ const DATA_PENDING_RE = new RegExp([
  * solo se copre l'issue INTERA — cioè se sta nel TITOLO (che descrive lo scope
  * complessivo: «(blocked, in attesa di dati…)»), oppure se l'issue non è
  * aggregata (`N items deferred` / `N item deferito/i` assente o N<=1).
+ *
+ * Un bucket giornaliero («follow-up(daily:…): N items — <repo>») è
+ * un'aggregata con un'altra grammatica del titolo: `AGGREGATE_ITEMS_RE` non lo
+ * riconosce, e letto come issue singola veniva scandito riga per riga —
+ * 10831 parcheggiata intera, 7 item `open` fermi. Un item del bucket che
+ * aspetta davvero un dato lo dichiara il suo `State: blocked`, non questa regex.
+ *
+ * Le righe di intestazione Markdown non si valutano: un titolo di sezione
+ * («### … Full-suite post-merge: report e baseline di performance») nomina un
+ * argomento, non dichiara un'attesa.
  * @param {string} title @param {string} body
  * @returns {string|null} la frase che ha fatto scattare il rilevamento
  */
@@ -1400,7 +1636,9 @@ export function detectDataPending(title, body) {
   if (titleHit) return t.trim().slice(0, 200);
   const m = AGGREGATE_ITEMS_RE.exec(t);
   if (m && Number(m[1]) > 1) return null; // aggregata: un bullet non parla per gli altri
+  if (isDailyBucketTitle(t)) return null; // bucket giornaliero: aggregata per costruzione
   for (const raw of String(body || '').split('\n')) {
+    if (MARKDOWN_HEADING_LINE_RE.test(raw)) continue;
     if (DATA_PENDING_RE.test(raw)) return raw.trim().slice(0, 200);
   }
   return null;
@@ -1689,16 +1927,86 @@ export function groupIssueQueue(issues, {
  * ritorna il PRIMO overlap trovato {prNumber, prTitle, file} o null se nessuno.
  * Pura (niente gh) → testabile in unit test senza mock.
  * @param {string[]} paths
- * @param {Map<number, {title:string, files:Set<string>}>} prFilesMap
+ * Le PR ferme (`STALLED_PR_LABELS`) non contano come overlap.
+ * @param {Map<number, {title:string, files:Set<string>, labels?:string[]}>} prFilesMap
  * @returns {{prNumber:number, prTitle:string, file:string}|null}
  */
-export function findOverlapFile(paths, prFilesMap) {
-  for (const [prNumber, { title, files }] of prFilesMap) {
+// Titolo scritto da `buildConflictHandoffIssue` (scripts/ci/pr-autorebase.mjs)
+// quando una PR va in conflitto con main: la PR #N e' quella che il fixer deve
+// SOSTITUIRE (`Supersedes #N`). Resta aperta finche' la PR nuova non la chiude,
+// e tocca per costruzione gli stessi file che l'issue elenca come conflitto:
+// trattarla come overlap rinvia l'issue finche' #N resta aperta, cioe' per
+// sempre (#10131 su #10121, 27-09: `overlap-skip` e `fu-attempt:1`).
+const CONFLICT_HANDOFF_TITLE_RE = /^Conflitto con main(?: dopo LGTM)?: riapplicare la PR #(\d+) su main$/u;
+
+export function conflictHandoffOriginPr(title) {
+  const match = CONFLICT_HANDOFF_TITLE_RE.exec(String(title || '').trim());
+  return match ? Number(match[1]) : null;
+}
+
+// Una PR FERMA non e' «lavoro in volo»: l'overlap esiste per aspettare che una
+// PR in corsa mergi, e queste non mergeranno da sole. `has-conflicts` aspetta a
+// sua volta un hand-off o un recycle, `stale-review` e' ferma da oltre 2 h su
+// uno stallo noto, `needs-human` e' fuori dal ciclo. Aspettarle chiude un
+// cerchio: #10586/#10587 («riapplicare la PR #10569») rinviate tre volte per
+// `tests/data-refresh-pr-wiring.test.ts` «in volo» in #10555, a sua volta in
+// conflitto e `stale-review`, fino a `fu-parked`; e #10555 non poteva uscirne
+// prima di #10569. Se la PR nuova mergia per prima, quella ferma va in
+// conflitto e il suo hand-off la riapplica sopra: la catena converge.
+export const STALLED_PR_LABELS = Object.freeze(['has-conflicts', 'stale-review', 'needs-human']);
+
+export function isStalledPr(labels = []) {
+  return (labels || []).some((label) => STALLED_PR_LABELS.includes(
+    typeof label === 'string' ? label : label?.name,
+  ));
+}
+
+export function findOverlapFile(paths, prFilesMap, { ignorePr = null } = {}) {
+  for (const [prNumber, { title, files, labels = [] }] of prFilesMap) {
+    if (ignorePr !== null && Number(prNumber) === Number(ignorePr)) continue;
+    if (isStalledPr(labels)) continue;
     for (const p of paths) {
       if (files.has(p)) return { prNumber, prTitle: String(title || ''), file: p };
     }
   }
   return null;
+}
+
+// --- OVERLAP DICHIARATO DAL FIXER --------------------------------------------
+// Il pre-flight qui sopra vede solo i path di CODE_PATH_RE; il fixer applica la
+// regola Overlap-file del suo prompt a qualunque file citato, `tests/` compreso.
+// Quando il fixer rinvia (`FIX_OUTCOME: overlap-skip`) su un file che il drainer
+// non vede, il rescue lo contava come run morta: `fu-attempt`++, ri-promozione
+// al tick dopo, stesso rinvio, fino a `fu-parked`. #10586/#10587 sono arrivate
+// a `fu-attempt:3` in tre ore per `tests/data-refresh-pr-wiring.test.ts` «in
+// volo» in #10555, senza che il fixer avesse mai potuto provare.
+//
+// La PR che il fixer nomina nel suo commento diventa la condizione di rinvio:
+// finché resta aperta e attiva (non ferma, `isStalledPr`) la issue torna in coda
+// SENZA consumare un tentativo e il drain non la promuove; appena la PR mergia,
+// si chiude o si ferma, la issue riparte. Bounded: un giro gratuito richiede una
+// PR attiva diversa a ogni rinvio. PR illeggibile o non nominata → come prima
+// (tentativo consumato al rescue, promozione al drain).
+
+/** PR nominata dall'ultimo verdetto del fixer, se quel verdetto è `overlap-skip`. Pura. */
+export function overlapSkipBlocker(comments) {
+  const latest = latestFixOutcomeEntryFromComments(comments);
+  if (latest.outcome !== 'overlap-skip') return null;
+  const comment = (comments || []).find((c) => {
+    const match = FIX_OUTCOME_RE.exec(String(c?.body || ''));
+    return match && match[1].toLowerCase() === 'overlap-skip'
+      && Date.parse(String(c?.createdAt ?? c?.created_at ?? '')) === latest.at;
+  });
+  // La forma del prompt («già in volo nella PR #<n>») prima di qualunque altra
+  // PR citata: in un hand-off il commento nomina anche la PR da riapplicare.
+  const text = String(comment?.body || '');
+  const pr = /in volo nella PR\s+#(\d+)/i.exec(text) || /\bPR\s+#(\d+)/i.exec(text);
+  return pr ? Number(pr[1]) : null;
+}
+
+/** La PR bloccante è ancora lavoro in volo? (`gh pr view --json state,labels`). Pura. */
+export function overlapBlockerActive(pr) {
+  return String(pr?.state || '').toUpperCase() === 'OPEN' && !isStalledPr(pr?.labels || []);
 }
 
 /**
@@ -1783,6 +2091,67 @@ export function isPermanentTracker(iss) {
 }
 
 /**
+ * Le famiglie di titoli con un chiuditore PROPRIO fuori dal reconciler centrale,
+ * ciascuna con chi la chiude:
+ *   - `CI Failure (build): …`       → job `resolve-build-alarm` del workflow di
+ *                                     deploy, solo a run con TUTTE le gambe verdi;
+ *   - `CI Failure (deploy): …`      → step gemello `--resolve` del workflow di
+ *                                     pubblicazione;
+ *   - `Validation Failure (dist): …` → `report-validate-dist-failure.mjs --mode resolve`;
+ *   - `Validation Failure (live): …` → step gemello `--resolve` del validatore live;
+ *   - `SEO gates regression: <gate> above baseline` → step `Resolve regression
+ *     issues for gates back under baseline` di cathedral-seo-gates-check.yml,
+ *     per gate, quando il gate torna `pass`/`improved`.
+ * `tests/followup-drainer-ageout-alarm-issues.test.ts` verifica che ognuno di
+ * questi chiuditori esista davvero: una famiglia qui senza chiuditore sarebbe una
+ * issue immortale.
+ *
+ * L'ultima famiglia è lo stesso difetto di #7918, misurato il 2026-10-02:
+ * `SEO gates regression: max-bfs-depth above baseline` (#9195) RIAPERTA da
+ * cathedral alle 06:39:44Z per una regressione vera e chiusa da questo drainer
+ * alle 06:44:06Z come «non funnel-blocking»; `… text-html-ratio …` (#8602)
+ * riaperta il 01/10 alle 22:04:41Z e chiusa alle 22:50:02Z con 232 896 offender
+ * contro 6 912. Il rosso di cathedral restava senza una issue aperta che lo
+ * dicesse: è uno dei motivi per cui il check sembrava «opzionale».
+ */
+const OWNER_CLOSED_SCOPED_ALARM_RE = /^(?:(?:CI Failure \((?:build|deploy)\)|Validation Failure \((?:dist|live)\)): |SEO gates regression: \S+ above baseline$)/;
+
+/**
+ * La issue è un ALLARME automatico che ha un chiuditore proprio? Pura → testabile.
+ *
+ * Un allarme di fallimento ha un ciclo di vita che appartiene a chi lo apre: si
+ * apre o si RIAPRE sul rosso e si chiude sul verde. L'age-out non ha niente da
+ * dire su quella condizione, e chiudendola la rende invisibile mentre è ancora
+ * vera. Il caso che l'ha provato, 2026-09-25: `CI Failure (build): Deploy to
+ * GitHub Pages` (#7918), creata il 07/09, è stata RIAPERTA dal leg del deploy
+ * alle 23:56:22Z per un build rosso e chiusa da questo drainer alle 00:07:16Z
+ * come «nessun evento significativo da ≥7gg»: la riapertura e il suo commento 🔁
+ * li scrive un bot, quindi non contano come attività, e l'età si misura dalla
+ * creazione. Undici minuti dopo l'allarme il deploy era rosso e nessuna issue
+ * aperta lo diceva.
+ *
+ * Il discriminante è il titolo, e NON l'intero `AUTO_TITLE_RE` del
+ * raggruppamento: dentro quella famiglia ci sono allarmi che nessuno chiude, e
+ * per loro l'age-out è l'unico chiuditore che esiste. Sono
+ *   - `CI Failure (<evento>): …`, che `scopedTitle` di `scan-job-timeouts.mjs`
+ *     conia per una run FUORI da `main` e che il reconciler lascia stare per
+ *     costruzione;
+ *   - `Campaign goal FAILED: …`, per cui `campaign-goal-check.mjs` dichiara
+ *     «Non esiste un closer automatico».
+ * Coprono invece il resto il `TITLE_RE` del reconciler
+ * (`close-recovered-failure-issues.mjs`, importato e non ricopiato: se cambia la
+ * sua forma cambia anche questa esclusione) e le famiglie con scope elencate in
+ * `OWNER_CLOSED_SCOPED_ALARM_RE`.
+ *
+ * @param {{title?: string}} iss
+ * @returns {boolean}
+ */
+export function isOwnerClosedFailureAlarm(iss) {
+  const title = String(iss?.title || '');
+  return RECONCILER_TITLE_RE.test(title) || OWNER_CLOSED_SCOPED_ALARM_RE.test(title);
+}
+
+/**
  * Tutto cio' che rende una issue eleggibile all'age-out TRANNE l'inattivita'.
  * Puro (niente gh) → testabile. Estratto da `isAgeOutEligible` perche' il
  * chiamante deve poter decidere se vale la pena SPENDERE una lettura commenti
@@ -1795,6 +2164,8 @@ export function isAgeOutCandidate(iss, { now, ageOutDays }) {
   if (!ageOutDays || ageOutDays <= 0) return false;
   if (!isQueueManaged(iss)) return false;
   if (hasActiveAgentClaim(iss)) return false;
+  // La chiusura di un allarme spetta a chi lo apre, non all'inattività.
+  if (isOwnerClosedFailureAlarm(iss)) return false;
   const ls = (iss?.labels || []).map((l) => l.name);
   if (isPermanentTracker(iss)) return false; // issue-contatore/tracker permanente, mai eleggibile
   if (ls.includes(LBL_FIX) || ls.includes(LBL_QUEUED)) return false; // in lavorazione/coda
@@ -2138,12 +2509,33 @@ export function normalizeIssuePage(raw) {
     }
     const body = item.body == null ? '' : item.body;
     if (typeof body !== 'string') return null;
+    // `state` fa parte della proiezione: il PARENT-REARM decide sullo stato del
+    // padre letto da GitHub e resta fail-closed quando manca. Senza questo
+    // campo ogni padre riaperto risultava «unreadable» e nessuno veniva
+    // riarmato (misurato il 2026-10-06 nella run 37544637026: 3 padri saltati a
+    // ogni tick). L'endpoint REST lo porta sempre; una riga che non lo ha resta
+    // valida per gli altri pool, uno `state` che non e' una stringa e' una
+    // risposta malformata.
+    const state = item.state;
+    if (state !== undefined && state !== null && typeof state !== 'string') return null;
     // The REST issues endpoint is shared with pull requests. A PR is a valid
     // API row, but it is not an issue in any of the drainer pools.
     if (item.pull_request) continue;
-    rows.push({ number, title, body, labels: normalizedLabels, createdAt, updatedAt });
+    rows.push({
+      number, title, body, labels: normalizedLabels, createdAt, updatedAt,
+      ...(state ? { state } : {}),
+    });
   }
   return { rows, pageLength: raw.length };
+}
+
+/**
+ * Stato di una issue come lo porta la riga dello snapshot. `null` significa
+ * che la PROIEZIONE non lo contiene: e' un difetto di cablaggio da segnalare,
+ * non una issue illeggibile da ritentare al tick successivo.
+ */
+export function snapshotIssueState(row) {
+  return typeof row?.state === 'string' && row.state ? row.state : null;
 }
 
 /**
@@ -2213,7 +2605,8 @@ function loadOpenPrsForDailyMutex() {
     ]);
     const prs = flattenPaginatedOpenPrs(raw);
     if (!prs || !prs.every((pr) => Number.isInteger(Number(pr.number)) && Number(pr.number) > 0
-      && typeof pr.title === 'string' && (typeof pr.body === 'string' || pr.body === null))) {
+      && typeof pr.title === 'string' && (typeof pr.body === 'string' || pr.body === null)
+      && openPrHeadIdentity(pr) !== null)) {
       return { ok: false, prs: [] };
     }
     return { ok: true, prs };
@@ -2456,6 +2849,35 @@ export function isCrawlerRescueCandidate(iss) {
   if (has(iss, LBL_QUEUED) || has(iss, LBL_PARKED)
       || has(iss, 'needs-human') || has(iss, LBL_AUTOMATION_DEFERRED)) return false;
   return !isDecomposedParent(iss);
+}
+
+/**
+ * Un pin permanente o un defer tecnico possono essere aggiunti dopo la
+ * promozione diretta a `agent:fix`, lasciando una route corrente `none`.
+ * Questa riconciliazione riguarda solo quel routing stantio: non riattiva una
+ * issue in coda e non tocca claim locali/remoti.
+ * @param {{title?: string, body?: string, labels?: Array<string|{name:string}>}} iss
+ */
+export function isStaleDirectFixRouteCandidate(iss) {
+  if (!has(iss, LBL_FIX) || has(iss, LBL_QUEUED) || hasActiveAgentClaim(iss)) return false;
+  return classifyIssue(String(iss?.title || ''), names(iss), String(iss?.body || '')).route === 'none';
+}
+
+/** Gate pura del dequeue: ogni stato non verificabile lascia la route intatta. */
+export function staleDirectFixRouteDecision(iss, {
+  inFlight = Number.POSITIVE_INFINITY,
+  liveClaimAllowed = false,
+  hasOpenPr = null,
+  settling = true,
+} = {}) {
+  if (!isStaleDirectFixRouteCandidate(iss)) {
+    return { action: 'keep', reason: 'route non diretto o ancora eleggibile' };
+  }
+  if (inFlight !== 0) return { action: 'wait', reason: 'run issue-fix attiva o non leggibile' };
+  if (!liveClaimAllowed) return { action: 'keep', reason: 'claim attivo o non leggibile' };
+  if (hasOpenPr !== false) return { action: 'keep', reason: 'PR aperta o non verificabile' };
+  if (settling) return { action: 'wait', reason: 'promozione nella finestra di assestamento' };
+  return { action: 'dequeue', reason: 'la classificazione corrente restituisce route none' };
 }
 
 /** WF-scope = il fix toccherebbe .github/workflows (capability-guard) → non
@@ -2730,6 +3152,45 @@ export function deferAutomationIssue(number, { add = [], remove = [] } = {}) {
   return editChecked(number, { add: [LBL_AUTOMATION_DEFERRED, ...add], remove });
 }
 
+/** Snapshot live usata esclusivamente dalla riconciliazione dei direct route. */
+function liveIssueForDirectRoute(num) {
+  try {
+    const issue = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,labels,updatedAt']);
+    return issue && typeof issue.title === 'string' && Array.isArray(issue.labels)
+      && typeof issue.updatedAt === 'string'
+      ? issue
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Rilettura claim fail-closed prima della mutazione del direct route. */
+function liveClaimAllowsMutation(num) {
+  if (DRY) return true;
+  try {
+    const issue = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'labels']);
+    if (!issue || !Array.isArray(issue.labels)) return false;
+    return !hasActiveAgentClaim(issue);
+  } catch {
+    return false;
+  }
+}
+
+function commentIssue(num, body) {
+  if (DRY) {
+    console.log(`[dry] comment #${num}: ${String(body).slice(0, 100)}`);
+    return true;
+  }
+  try {
+    gh(['issue', 'comment', String(num), '--repo', REPO, '--body', body], { json: false });
+    return true;
+  } catch (error) {
+    console.log(`::warning::comment #${num} fallito: ${String(error).slice(0, 120)}`);
+    return false;
+  }
+}
+
 function edit(num, { add = [], remove = [] }) {
   const args = ['issue', 'edit', String(num), '--repo', REPO];
   for (const l of add) args.push('--add-label', l);
@@ -2809,12 +3270,16 @@ function routeToDecompose(num, { remove = [], note }) {
  * contava la PR mergiata come in-flight per sempre → mai rescue né park).
  * Issue aperta + PR chiusa + vecchia = orfana: re-queue; il pre-flight
  * already-resolved di issue-fix protegge dal re-run inutile se è done. */
-function hasFixPR(num) {
+function hasFixPR(num, { failClosed = false } = {}) {
   for (const branch of [`fix/issue-${num}`]) {
     try {
       const prs = gh(['pr', 'list', '--repo', REPO, '--head', branch, '--state', 'open', '--json', 'number', '--limit', '1']);
-      if (Array.isArray(prs) && prs.length) return true;
-    } catch { /* ignore */ }
+      if (!Array.isArray(prs)) return failClosed;
+      if (prs.length) return true;
+    } catch {
+      if (failClosed) return true;
+      /* Il rescue storico resta best-effort; il direct-route gate no. */
+    }
   }
   return false;
 }
@@ -3228,6 +3693,53 @@ function issueComments(num) {
   }
 }
 
+/**
+ * Stati completi delle figlie, richiesti soltanto dopo una ricorrenza del
+ * monitor. Un campo mancante, una risposta non riconoscibile o una lettura
+ * fallita non autorizzano il PARENT-REARM.
+ */
+function readParentRearmChildStates(childNumbers) {
+  if (!Array.isArray(childNumbers) || childNumbers.length === 0) return null;
+  const states = [];
+  for (const number of childNumbers) {
+    try {
+      const issue = gh(['issue', 'view', String(number), '--repo', REPO, '--json', 'state']);
+      const state = String(issue?.state || '').toUpperCase();
+      if (!['OPEN', 'CLOSED'].includes(state)) return null;
+      states.push({ number, state });
+    } catch {
+      return null;
+    }
+  }
+  return states;
+}
+
+function reportParentRearm(results) {
+  if (!results.length) return;
+  const summary = results.map(({ number, outcome, reason }) => `- #${number}: ${outcome}${reason ? ` (${reason})` : ''}`).join('\n');
+  console.log(`parent_rearm=${results.filter((result) => result.outcome === 'rearmed').length}`
+    + ` parent_rearm_skipped=${results.filter((result) => result.outcome !== 'rearmed').length}`);
+  if (!process.env.GITHUB_STEP_SUMMARY) return;
+  try {
+    appendFileSync(
+      process.env.GITHUB_STEP_SUMMARY,
+      `### parent-rearm\n\n${summary}\n\n`,
+    );
+  } catch (e) {
+    console.log(`parent-rearm: step summary non scrivibile (${String(e).slice(0, 120)})`);
+  }
+}
+
+/** Stato della PR nominata da un `overlap-skip`, o `null` su errore gh
+ * (`overlapBlockerActive(null)` è falso: nessun rinvio su un glitch API). */
+function readOverlapBlocker(num) {
+  try {
+    return gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'state,labels']);
+  } catch {
+    return null;
+  }
+}
+
 /** Commenti della issue in forma REST, o `null` su errore gh. È l'unica
  * sorgente che porta `user.type` — il flag di bot autoritativo, che non
  * richiede alcuna allowlist da mantenere (vedi `isBotComment`) — e ora serve
@@ -3294,6 +3806,64 @@ function latestFixOutcome(num) {
   return latestFixOutcomeFromComments(issueComments(num) || []);
 }
 
+// Bucket giornalieri DISTINTI il cui verdetto NON_RETRYABLE era gia' scritto
+// sull'item (vedi `bucketVerdictCoverage`): stampato a fine run come
+// `verdict_covered=<n>`. Un Set, non un contatore: lo stesso bucket passa da
+// VERDICT-EXIT e da parked-retry nello stesso tick.
+const verdictCoveredIssues = new Set();
+
+function noteVerdictCovered(iss, coverage, stage) {
+  verdictCoveredIssues.add(iss.number);
+  console.log(`${stage}: verdetto coperto da marker item (#${iss.number}, ${coverage.marker.item}) — \`${coverage.outcome}\` già scritto sull'item (${coverage.marker.type}), il bucket non si ferma su questo verdetto.`);
+}
+
+/** Opzioni di `bucketVerdictCoverage` per una riga di issue REST (con `body`). */
+function bucketCoverageOptions(iss) {
+  return {
+    isDailyBucket: isDailyBucketTitle(iss?.title || ''),
+    hasOpenItem: selectFirstOpenItem(iss?.body || '') !== null,
+    isTrusted: isTrustedMarkerAuthor,
+  };
+}
+
+/** Copertura del verdetto per uno stadio che parcheggia, differisce, flagga o
+ * salta. Logga e conta solo quando la regola cambia una decisione, cioe' su un
+ * verdetto NON_RETRYABLE coperto. Nessun ramo chiude su un verdetto coperto. */
+function stageVerdictCoverage(iss, comments, stage) {
+  const coverage = bucketVerdictCoverage(comments, bucketCoverageOptions(iss));
+  if (coverage.covered && NON_RETRYABLE.has(coverage.outcome)) noteVerdictCovered(iss, coverage, stage);
+  return coverage;
+}
+
+/** Rescue: il verdetto NON_RETRYABLE della promozione corrente e' gia' scritto
+ * sull'item del bucket? Commenti illeggibili → `false`, cioe' il park di prima
+ * (fail-closed). Una sola lettura in piu', e solo sui bucket giornalieri. */
+function rescueVerdictCovered(iss, outcome) {
+  const options = bucketCoverageOptions(iss);
+  if (!options.isDailyBucket || !options.hasOpenItem) return false;
+  const comments = issueComments(iss.number);
+  if (comments === null) return false;
+  const coverage = bucketVerdictCoverage(comments, options);
+  if (!coverage.covered || coverage.outcome !== outcome) return false;
+  noteVerdictCovered(iss, coverage, 'rescue');
+  return true;
+}
+
+/** Contatore `verdict_covered` nel log e nello step summary della run. */
+function reportVerdictCovered() {
+  const verdictCoveredCount = verdictCoveredIssues.size;
+  console.log(`verdict_covered=${verdictCoveredCount}`);
+  if (!process.env.GITHUB_STEP_SUMMARY) return;
+  try {
+    appendFileSync(
+      process.env.GITHUB_STEP_SUMMARY,
+      `### verdetti a grana item\n\n\`verdict_covered=${verdictCoveredCount}\` — bucket giornalieri non fermati da un verdetto già scritto sull'item (\`FU_ITEM_EVIDENCE\` / \`FU_ITEM_BLOCKED\`).\n\n`,
+    );
+  } catch (e) {
+    console.log(`verdict_covered: step summary non scrivibile (${String(e).slice(0, 120)})`);
+  }
+}
+
 /** Beacon di quota sulla issue (epoch di reset), o null. Best-effort. */
 function quotaResetsAt(num) {
   return maxQuotaResetsAt(issueComments(num) || []);
@@ -3307,7 +3877,12 @@ export function normalizeOpenPrPage(raw) {
     const number = Number(item.number);
     if (!Number.isInteger(number) || number <= 0 || typeof item.title !== 'string'
       || (item.body !== null && typeof item.body !== 'string')) return null;
-    rows.push({ number, title: item.title, body: item.body || '' });
+    // Label assenti o illeggibili = nessuna: la PR resta un overlap pieno
+    // (direzione conservativa, vedi `isStalledPr`).
+    const labels = Array.isArray(item.labels)
+      ? item.labels.map((label) => label?.name).filter((name) => typeof name === 'string')
+      : [];
+    rows.push({ number, title: item.title, body: item.body || '', labels });
   }
   return { rows, pageLength: raw.length };
 }
@@ -3351,7 +3926,7 @@ function loadOpenPrFilesMap() {
     if (!filesScan.complete) {
       return { complete: false, reason: `pr-${pr.number}-files:${filesScan.reason}`, map };
     }
-    map.set(pr.number, { title: pr.title, body: pr.body, files: new Set(filesScan.rows) });
+    map.set(pr.number, { title: pr.title, body: pr.body, labels: pr.labels, files: new Set(filesScan.rows) });
   }
   return { complete: true, reason: null, map };
 }
@@ -3364,6 +3939,7 @@ function main() {
     runDrain();
   } finally {
     budget.report();
+    reportVerdictCovered();
   }
 }
 
@@ -3579,8 +4155,10 @@ export function runDrain() {
     // `isDecomposedParent`). I filtri di RESCUE/DRAIN impediscono che ci
     // rientri, ma non tolgono la label a chi ci è già dentro: senza questo
     // passo #7340 & C. resterebbero `agent:fix` per sempre, invisibili a ogni
-    // altro strato. È una mutazione comment+edit, quindi ha lo stesso costo
-    // degli altri item e deve lasciare la capacità del PARENT-CLOSE.
+    // altro strato. È una mutazione read+comment+edit (la lettura dei commenti
+    // serve al marker di idempotenza; nel caso `repeat` il commento non parte),
+    // quindi ha lo stesso costo degli altri item e deve lasciare la capacità
+    // del PARENT-CLOSE.
     const parentDequeueCandidates = parents.filter(
       (x) => !hasActiveAgentClaim(x) && (has(x, LBL_FIX) || has(x, LBL_QUEUED)),
     );
@@ -3588,6 +4166,7 @@ export function runDrain() {
     if (parentDequeueCandidates.length > dequeueCap) {
       console.log(`parent-dequeue: cap ${PARENT_DEQUEUE_MAX_PER_RUN}/run raggiunto, ${parentDequeueCandidates.length - dequeueCap} rinviati al prossimo tick (no silent cap).`);
     }
+    const parentDequeueRepeats = [];
     for (let dequeueIndex = 0; dequeueIndex < dequeueCap; dequeueIndex += 1) {
       const p = parentDequeueCandidates[dequeueIndex];
       const budgetGate = parentDequeueBudgetDecision({
@@ -3611,14 +4190,28 @@ export function runDrain() {
         break;
       }
       if (DRY) { console.log(`[dry] parent-dequeue #${p.number}`); continue; }
+      const dequeueDecision = applyParentDequeue(p, {
+        readComments: issueComments,
+        postComment: (num, body) => gh(['issue', 'comment', String(num), '--repo', REPO, '--body', body], { json: false }),
+        removeLabels: (num) => edit(num, { remove: [LBL_FIX, LBL_QUEUED] }),
+        body: `⏭️ **Pre-flight drainer (zero-Claude): padre decomposto fuori dalla coda del fixer.** Lo scope di questa issue vive nelle sub-issue dichiarate da \`DECOMPOSED_INTO\`, che entrano in coda per conto loro; qui non resta lavoro proprio, e un run del fixer non potrebbe che terminare senza PR (o duplicare una figlia). Rimuovo \`agent:fix\`/\`agent:fix-queued\`. La issue **resta aperta**: la chiude il PARENT-CLOSE quando tutte le figlie sono chiuse.`,
+      });
+      if (dequeueDecision === 'repeat') parentDequeueRepeats.push(p.number);
+      console.log(`PARENT-DEQUEUE #${p.number} (decomposed:1, lavoro delegato alle figlie; commento: ${dequeueDecision}) — "${p.title?.slice(0, 50)}"`);
+    }
+    // Contatore stampato a ogni giro non-DRY che ha candidati (anche a 0): è la misura
+    // del riaccodamento residuo, cioè di chi rimette la label su un padre già
+    // tolto dalla coda.
+    if (dequeueCap > 0 && !DRY) console.log(`parent_dequeue_repeat=${parentDequeueRepeats.length}`);
+    if (parentDequeueRepeats.length > 0 && process.env.GITHUB_STEP_SUMMARY) {
       try {
-        gh(['issue', 'comment', String(p.number), '--repo', REPO, '--body',
-          `⏭️ **Pre-flight drainer (zero-Claude): padre decomposto fuori dalla coda del fixer.** Lo scope di questa issue vive nelle sub-issue dichiarate da \`DECOMPOSED_INTO\`, che entrano in coda per conto loro; qui non resta lavoro proprio, e un run del fixer non potrebbe che terminare senza PR (o duplicare una figlia). Rimuovo \`agent:fix\`/\`agent:fix-queued\`. La issue **resta aperta**: la chiude il PARENT-CLOSE quando tutte le figlie sono chiuse.`], { json: false });
+        appendFileSync(
+          process.env.GITHUB_STEP_SUMMARY,
+          `### parent-dequeue ripetuto\n\n\`parent_dequeue_repeat=${parentDequeueRepeats.length}\` — ${parentDequeueRepeats.map((n) => `#${n}`).join(', ')}: \`agent:fix\`/\`agent:fix-queued\` rimessa su un padre decomposto già tolto dalla coda.\n\n`,
+        );
       } catch (e) {
-        console.log(`::warning::parent-dequeue: comment #${p.number} fallito: ${String(e).slice(0, 120)}`);
+        console.log(`parent-dequeue: step summary non scrivibile (${String(e).slice(0, 120)})`);
       }
-      edit(p.number, { remove: [LBL_FIX, LBL_QUEUED] });
-      console.log(`PARENT-DEQUEUE #${p.number} (decomposed:1, lavoro delegato alle figlie) — "${p.title?.slice(0, 50)}"`);
     }
     // Il cap di questo stadio conta le ESAMINATE, non le azioni — a differenza
     // di age-out (`slice` su candidate già filtrate), verdict-exit (`attempted`) e
@@ -3641,6 +4234,8 @@ export function runDrain() {
       });
       let examined = 0;
       let lastExaminedCursor = cursorState.cursor;
+      let parentRearms = 0;
+      const parentRearmResults = [];
       for (const p of rotatedParents) {
         if (hasActiveAgentClaim(p)) {
           console.log(`CLAIM-SKIP #${p.number} (agent claim presente: ${names(p).filter((name) => [LBL_IN_PROGRESS, LBL_LOCAL, LBL_REMOTE].includes(name)).join(', ') || 'stato claim incompleto'}) → nessun parent-close sulla flotta locale/remota`);
@@ -3653,8 +4248,89 @@ export function runDrain() {
         if (!budget.take(`#${p.number} (parent-close)`, ITEM_COST_MS)) break;
         examined++;
         lastExaminedCursor = String(p.number);
-        const kids = decomposedChildNumbers(issueComments(p.number) || []);
+        const comments = issueComments(p.number) || [];
+        const kids = decomposedChildNumbers(comments);
         if (!kids.length) continue; // marker assente/illeggibile → nessuna decisione
+        // Un monitor (`🔁 **Reopened**` o `🔁 Recurrence on workflow run.`) che
+        // ha riaperto/riconfermato il padre DOPO la decomposizione ha detto che
+        // la condizione è tornata: le figlie chiuse non lo smentiscono. Prima
+        // delle view di stato delle figlie la decisione pura verifica marker,
+        // idempotenza e tetto, quindi un padre non riaperto non paga letture.
+        if (reopenedAfterDecomposition(comments)) {
+          const parentState = snapshotIssueState(p);
+          if (parentState === null) {
+            // Senza lo stato la decisione risponderebbe «unreadable» per sempre:
+            // lo si dice una volta, con un nome diverso, invece di ritentare a
+            // vuoto e leggere le figlie a ogni tick.
+            parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: 'parent-state-missing' });
+            console.log(`::warning::parent-rearm: lo snapshot non porta lo stato del padre #${p.number} — difetto di cablaggio della proiezione, non un padre illeggibile; nessun riarmo finche' non torna.`);
+            continue;
+          }
+          const rearmOptions = {
+            parentState,
+            comments,
+            now: Date.now(),
+            maxRearms: PARENT_REARM_MAX_PER_WINDOW,
+            windowMs: PARENT_REARM_WINDOW_DAYS * 24 * 60 * 60 * 1000,
+          };
+          // Questo primo passaggio non legge GitHub: serve solo a riparare una
+          // mutazione commentata ma non etichettata dopo un crash fra le due.
+          const recorded = decideParentRearm({ ...rearmOptions, childStates: null });
+          if (recorded.reason === 'already-rearmed') {
+            if (!DRY && !editChecked(p.number, {
+              remove: [LBL_DECOMPOSED, 'agent:triaged', LBL_FIX, LBL_QUEUED],
+            })) {
+              parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: 'label-write-failed' });
+              console.log(`::warning::parent-rearm: ripristino label #${p.number} fallito — marker conservato, retry al prossimo tick.`);
+              continue;
+            }
+            parentRearmResults.push({ number: p.number, outcome: 'repaired', reason: 'marker-present' });
+            console.log(`PARENT-REARM-REPAIR #${p.number} (marker già scritto, label stale rimossa → triage-sweep)`);
+            continue;
+          }
+          if (parentRearms >= PARENT_REARM_MAX_PER_RUN) {
+            parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: 'run-cap' });
+            console.log(`PARENT-REARM-SKIP #${p.number} (cap ${PARENT_REARM_MAX_PER_RUN}/run raggiunto, rinvio al prossimo tick)`);
+            continue;
+          }
+          const childStates = readParentRearmChildStates(kids);
+          const decision = decideParentRearm({ ...rearmOptions, childStates });
+          if (decision.action !== 'rearm') {
+            parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: decision.reason });
+            console.log(`PARENT-REARM-SKIP #${p.number} (${decision.reason})`);
+            continue;
+          }
+          if (DRY) {
+            parentRearmResults.push({ number: p.number, outcome: 'dry-run', reason: decision.reason });
+            console.log(`[dry] PARENT-REARM #${p.number} (figlie ${kids.join(', ')}) → triage-sweep`);
+            continue;
+          }
+          try {
+            gh(['issue', 'comment', String(p.number), '--repo', REPO, '--body',
+              parentRearmCommentBody({
+                reopenedAt: decision.reopenedAt,
+                childNumbers: decision.childNumbers,
+              })], { json: false });
+          } catch (e) {
+            parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: 'marker-write-failed' });
+            console.log(`::warning::parent-rearm: marker #${p.number} non scritto (${String(e).slice(0, 160)}) — label intatta, retry al prossimo tick.`);
+            continue;
+          }
+          // Il commento è il riarmo durevole: anche se la seconda mutazione
+          // fallisce e richiede repair al tick successivo, non si scrivono più
+          // di PARENT_REARM_MAX_PER_RUN marker nello stesso run.
+          parentRearms++;
+          if (!editChecked(p.number, {
+            remove: [LBL_DECOMPOSED, 'agent:triaged', LBL_FIX, LBL_QUEUED],
+          })) {
+            parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: 'label-write-failed' });
+            console.log(`::warning::parent-rearm: label #${p.number} non rimossa dopo il marker — retry al prossimo tick.`);
+            continue;
+          }
+          parentRearmResults.push({ number: p.number, outcome: 'rearmed', reason: decision.reason });
+          console.log(`PARENT-REARM #${p.number} (figlie tutte chiuse: ${kids.join(', ')}) → rimosso ${LBL_DECOMPOSED}, routing via triage-sweep`);
+          continue;
+        }
         let allClosed = true;
         for (const k of kids) {
           try {
@@ -3676,6 +4352,7 @@ export function runDrain() {
       if (examined > 0) {
         persistParentCloseCursor({ cursor: lastExaminedCursor, commentId: cursorState.commentId });
       }
+      reportParentRearm(parentRearmResults);
     }
   }
 
@@ -3835,6 +4512,12 @@ export function runDrain() {
         continue;
       }
 
+      // Bucket giornaliero il cui verdetto e' gia' scritto sull'item: niente
+      // flag `maybe-resolved` ne' defer dell'intera issue. Resta parked e il
+      // parked-retry la rimette in coda per l'item successivo. Il ramo UNPARK
+      // sopra legge invece il verdetto GREZZO: un verdetto coperto c'e' stato,
+      // non e' «nessun tentativo reale».
+      if (stageVerdictCoverage(iss, comments, 'verdict-exit').covered) continue;
       const d = verdictExitDecision(outcome, {
         hasPR: hasFixPR(iss.number),
         noAutoclose: VERDICT_EXIT_NO_AUTOCLOSE,
@@ -4069,7 +4752,11 @@ export function runDrain() {
       // commenti sono già in mano da `issueCommentsRest`, e da quando
       // `latestFixOutcomeFromComments` accetta anche la forma REST li legge
       // davvero — prima, su una lista REST, restituiva `null` sempre.
-      const parkedVerdict = latestFixOutcomeFromComments(comments);
+      // Su un bucket giornaliero il verdetto gia' scritto sull'item non vale
+      // per la issue (`effectiveIssueVerdict`): il bucket rientra per l'item
+      // successivo, con cooldown e tetti invariati.
+      const parkedCoverage = stageVerdictCoverage(iss, comments, 'parked-retry');
+      const parkedVerdict = parkedCoverage.covered ? null : parkedCoverage.outcome;
       if (parkedVerdict && NON_RETRYABLE.has(parkedVerdict)) { verdictSkipped++; continue; }
       if (!isRetryCooldownElapsed(iss, comments, { now, cooldownDays: cdDays })) continue;
       eligible.push({ iss, at: lastSignificantActivityAt(iss, comments) });
@@ -4195,10 +4882,54 @@ export function runDrain() {
   const stuckFix = rescueSafe ? allFix.filter(
     (i) => isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED) && !isDecomposedParent(i)
   ) : [];
+  const staleDirectFixes = rescueSafe ? allFix.filter(isStaleDirectFixRouteCandidate) : [];
   // Il complemento esatto di `stuckFix` dentro `agent:fix`: i crawler
   // (`route='fix'`, unica categoria non queue-managed). Erano l'unica categoria
   // che nessuno strato di recupero guardava — vedi `crawlerFixDecision` (#5514).
   const crawlerFix = rescueSafe ? allFix.filter(isCrawlerRescueCandidate) : [];
+
+  // Una route diretta puo' diventare invalida dopo l'applicazione di un pin o di
+  // un defer tecnico. Rileggo titolo/label/data, claim e PR prima di togliere
+  // solo `agent:fix`: issue e pin restano aperti, e lo stato ambiguo non muta.
+  let staleDirectFixesRemoved = 0;
+  let staleDirectFixesPreviewed = 0;
+  for (const iss of staleDirectFixes) {
+    if (!budget.take(`#${iss.number} (dequeue direct fix pinned)`, ITEM_COST_MS)) break;
+    const live = DRY
+      ? { title: iss.title, labels: iss.labels, updatedAt: iss.updatedAt }
+      : liveIssueForDirectRoute(iss.number);
+    if (!live || !isStaleDirectFixRouteCandidate({ ...iss, title: live.title, labels: live.labels })) {
+      console.log(`PIN-ROUTE-SKIP #${iss.number}: routing live non piu' direct-fix non eleggibile o label illeggibili.`);
+      continue;
+    }
+    const decision = staleDirectFixRouteDecision({ ...iss, title: live.title, labels: live.labels }, {
+      inFlight: inflight,
+      liveClaimAllowed: liveClaimAllowsMutation(iss.number),
+      hasOpenPr: hasFixPR(iss.number, { failClosed: true }),
+      settling: isSettlingPromotion({ outcome: null, ageMin: minutesSince(live.updatedAt), settleMin: SETTLE_MIN }),
+    });
+    if (decision.action !== 'dequeue') {
+      console.log(`PIN-ROUTE-SKIP #${iss.number} (${decision.reason}) — routing lasciato intatto.`);
+      continue;
+    }
+    if (DRY) {
+      staleDirectFixesPreviewed++;
+      console.log(`[dry] PIN-ROUTE-RECONCILE #${iss.number}: rimuoverei agent:fix; issue e pin restano aperti.`);
+      continue;
+    }
+    const note = `📌 **Pre-flight drainer (zero-Claude): routing diretto non piu' valido.** La classificazione corrente restituisce \`route=none\`; rimuovo solo \`agent:fix\`. La issue e i pin restano aperti.\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;
+    if (!commentIssue(iss.number, note)) continue;
+    if (!editChecked(iss.number, { remove: [LBL_FIX] })) continue;
+    staleDirectFixesRemoved++;
+    console.log(`PIN-ROUTE-RECONCILE #${iss.number} (route=none) — "${iss.title?.slice(0, 50)}"`);
+  }
+  if (staleDirectFixes.length > 0) {
+    const outcome = DRY
+      ? `stale_direct_fix_routes_would_remove=${staleDirectFixesPreviewed}/${staleDirectFixes.length}`
+      : `stale_direct_fix_routes_removed=${staleDirectFixesRemoved}/${staleDirectFixes.length}`;
+    console.log(outcome);
+  }
+
   // Promozioni "in assestamento": un agent:fix follow-up giovane e senza PR ha
   // la run viva OPPURE non ancora registrata in `gh run list` (latenza
   // queue→listing di alcuni secondi). In entrambi i casi lo slot issue-fix è
@@ -4411,10 +5142,28 @@ export function runDrain() {
       edit(iss.number, { add: [LBL_QUEUED], remove: [LBL_FIX] });
       continue;
     }
+    // OVERLAP DICHIARATO (vedi `overlapSkipBlocker`): aspettare una PR attiva
+    // non è un tentativo fallito. Il drain trattiene la issue finché la PR resta
+    // in volo; PR non nominata, illeggibile o già ferma → ramo età-tentativi.
+    if (outcome === 'overlap-skip') {
+      const blocker = overlapSkipBlocker(issueComments(iss.number) || []);
+      if (blocker !== null && overlapBlockerActive(readOverlapBlocker(blocker))) {
+        console.log(`RE-QUEUE #${iss.number} (overlap-skip sulla PR #${blocker}, ancora in volo) → tentativo NON consumato, il drain la trattiene finché #${blocker} è attiva`);
+        edit(iss.number, { add: [LBL_QUEUED], remove: [LBL_FIX] });
+        continue;
+      }
+    }
     if (outcome && NON_RETRYABLE.has(outcome)) {
-      console.log(`PARK #${iss.number} (esito non-ri-tentabile: ${outcome}) → no re-queue, evito run identica`);
-      edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
-      continue;
+      // Bucket giornaliero con il verdetto gia' scritto sull'item: di norma
+      // `route-already-fixed.mjs` lo ha gia' rimesso in coda, e qui arriva solo
+      // se quella edit delle label e' fallita. Niente park dell'intera issue:
+      // si prosegue verso il ramo età-tentativi qui sotto, che ri-accoda
+      // consumando un tentativo (MAX_ATTEMPTS invariato, bound conservato).
+      if (!rescueVerdictCovered(iss, outcome)) {
+        console.log(`PARK #${iss.number} (esito non-ri-tentabile: ${outcome}) → no re-queue, evito run identica`);
+        edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
+        continue;
+      }
     }
     if (outcome && DELIVERED.has(outcome)) {
       // Run conclusa CON una PR, e quella PR è stata MERGIATA in questo ciclo.
@@ -4781,9 +5530,13 @@ export function runDrain() {
         runCommand: (args) => gh(args, { json: false }),
       });
       if (!lease.ok) return { ok: false, reason: lease.reason };
-      floorLedger.activeLeases.push({ kind: 'issue-fix', subject, owner, expiresAt: Infinity, released: false });
+      floorLedger.activeLeases.push({
+        kind: 'issue-fix', subject, owner, expiresAt: Infinity, released: false, commentId: lease.commentId,
+      });
+      floorReservations.set(subject, { ok: true, owner, existing: false, commentId: lease.commentId });
     }
-    const reservation = { ok: true, owner, existing: !!decision.existing };
+    const reservation = floorReservations.get(subject)
+      || { ok: true, owner, existing: !!decision.existing, commentId: decision.existing?.commentId ?? null };
     floorReservations.set(subject, reservation);
     if (DRY) console.log(`[dry] quota floor lease issue-fix ${subject} → ${owner}`);
     return reservation;
@@ -4793,8 +5546,8 @@ export function runDrain() {
     if (!reservation || DRY || reservation.existing) return true;
     const released = releaseQuotaFloorLease({
       repo: REPO,
-      ledgerIssue: QUOTA_FLOOR_LEDGER,
       owner: reservation.owner,
+      commentId: reservation.commentId,
       runCommand: (args) => gh(args, { json: false }),
     });
     if (!released.ok) {
@@ -4990,7 +5743,7 @@ export function runDrain() {
     }
     if (dailyQueue.item) {
       if (dailyOpenPrScan === null) dailyOpenPrScan = loadOpenPrsForDailyMutex();
-      const mutex = dailyMutexDecision(dailyQueue.item.id, dailyOpenPrScan);
+      const mutex = dailyMutexDecision(dailyQueue.item.id, dailyOpenPrScan, cand.number, REPO);
       if (!mutex.eligible) {
         if (mutex.reason === 'item-pr-open') {
           console.log(`SKIP #${cand.number} (${dailyQueue.item.id} già dichiarato nella PR #${mutex.pr?.number}) → item in volo, resta in coda`);
@@ -5189,6 +5942,18 @@ export function runDrain() {
       continue; // prova il prossimo in coda
     }
 
+    // Overlap dichiarato dal fixer all'ultimo giro (vedi `overlapSkipBlocker`):
+    // la PR che ha nominato è ancora attiva → rinvio, come l'overlap dei path
+    // qui sotto. Stessa direzione conservativa: commenti o PR illeggibili → si
+    // promuove. Ultimo controllo prima dei path: la lettura dei commenti la
+    // pagano solo i candidati che hanno superato tutti gli altri.
+    const declaredBlocker = overlapSkipBlocker(issueComments(cand.number) || []);
+    if (declaredBlocker !== null && overlapBlockerActive(readOverlapBlocker(declaredBlocker))) {
+      console.log(`OVERLAP-SKIP #${cand.number} (il fixer ha rinviato per la PR #${declaredBlocker}, ancora in volo) → rinvio al prossimo tick`);
+      overlapSkipped++;
+      continue;
+    }
+
     // Check: overlap-file con PR aperta (escalation #3810). Zero-Claude, pre-promozione.
     const candPaths = extractCodePaths(`${cand.title}\n${body}`);
     if (candPaths.length > 0) {
@@ -5198,7 +5963,9 @@ export function runDrain() {
         overlapSkipped++;
         continue;
       }
-      const overlap = findOverlapFile(candPaths, prFilesScan.map);
+      const overlap = findOverlapFile(candPaths, prFilesScan.map, {
+        ignorePr: conflictHandoffOriginPr(cand.title),
+      });
       if (overlap) {
         console.log(`OVERLAP-SKIP #${cand.number} (file \`${overlap.file}\` in-volo in PR #${overlap.prNumber} "${overlap.prTitle.slice(0, 40)}") → rinvio al prossimo tick`);
         overlapSkipped++;

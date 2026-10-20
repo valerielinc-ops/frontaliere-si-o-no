@@ -24,13 +24,21 @@ import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { compareExpiredAt } from './compare-expired-at.mjs';
 import {
   addPreviousSlugForLocale,
+  appendSlugDisambiguator,
   DEFAULT_PREV_SLUG_CAP,
+  decodeUnicodeEscapeLeaks,
   getPreviousSlugsForLocale,
   isLegacyRouteCapRefusal,
   LOCALES,
   promotePreviousSlugToLegacy,
 } from './dedicated-crawler-common.mjs';
-import { buildStableJobIdentity } from './job-identity.mjs';
+import { replaceSlugRouteEverywhere } from './slug-history-journal.mjs';
+import {
+  archiveRecordNamesPosting,
+  archiveRecordSourceIdentities,
+  buildStableJobIdentity,
+} from './job-identity.mjs';
+import { isHeldFromPublication } from './translation-publication-hold.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,7 +49,7 @@ const DEFAULT_EXPIRED_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'b
  * Build an expired-job archive entry from a job object. Preserves the fields
  * the build plugin needs to render an enriched JobExpiredView under any
  * locale prefix (slugByLocale, descriptionByLocale, previousSlugs, salary +
- * address). Mirrors `scripts/cleanup-jobs.mjs:buildExpiredEntry` byte for byte.
+ * address). Keeps its shape aligned with `scripts/cleanup-jobs.mjs:buildExpiredEntry`.
  *
  * @param {object} job
  * @returns {object} expired entry
@@ -51,7 +59,7 @@ export function buildExpiredEntry(job) {
   const entry = {
     slug: job.slug,
     title: job.title || '',
-    titleByLocale: job.titleByLocale || {},
+    titleByLocale: { ...(job.titleByLocale || {}) },
     company: job.company || '',
     companyKey: job.companyKey || '',
     location: job.location || '',
@@ -84,6 +92,7 @@ export function buildExpiredEntry(job) {
         ? JSON.parse(JSON.stringify(job.sourceIdentityHistory))
         : undefined,
   };
+  normalizeExpiredEntryTitles(entry);
   if (!entry.postalCode) delete entry.postalCode;
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
@@ -98,6 +107,38 @@ export function buildExpiredEntry(job) {
 /** An `expiredAt` that `Date.parse` can actually order. */
 export function isParsableExpiredAt(value) {
   return typeof value === 'string' && value !== '' && Number.isFinite(Date.parse(value));
+}
+
+/**
+ * Repair title fields that were persisted with a literal JSON unicode escape.
+ *
+ * Refline's old title extractor could read an escaped `<h1>` from JSON-LD and
+ * write values such as `Interpr\\u00e8te` into a job. Active crawler hardening
+ * already repairs this class, but expired entries do not get crawled again, so
+ * the archive writers need the same last-resort boundary. Descriptions are
+ * deliberately excluded: unlike titles, they may legitimately quote escape
+ * syntax in developer-facing job text.
+ *
+ * @param {object} entry
+ * @returns {boolean} whether a title field changed
+ */
+export function normalizeExpiredEntryTitles(entry) {
+  if (!entry || typeof entry !== 'object') return false;
+  let changed = false;
+  const decode = (value) => {
+    if (typeof value !== 'string') return value;
+    const decoded = decodeUnicodeEscapeLeaks(value);
+    if (decoded !== value) changed = true;
+    return decoded;
+  };
+
+  if (typeof entry.title === 'string') entry.title = decode(entry.title);
+  if (entry.titleByLocale && typeof entry.titleByLocale === 'object' && !Array.isArray(entry.titleByLocale)) {
+    for (const [locale, value] of Object.entries(entry.titleByLocale)) {
+      entry.titleByLocale[locale] = decode(value);
+    }
+  }
+  return changed;
 }
 
 const DETERMINISTIC_EXPIRED_AT_EPOCH = Date.parse('2025-01-01T00:00:00.000Z');
@@ -125,8 +166,9 @@ export function deterministicExpiredAt(entry = {}) {
 
 /**
  * Give every entry read back from disk an `expiredAt` the downstream sort can
- * order, BEFORE it reaches one of the two `slice(0, EXPIRED_JOBS_CAP)` cuts
- * (`assemble-jobs-dataset.mjs`, `cleanup-jobs.mjs`).
+ * order and clean title fields before it reaches one of the two
+ * `slice(0, EXPIRED_JOBS_CAP)` cuts (`assemble-jobs-dataset.mjs`,
+ * `cleanup-jobs.mjs`).
  *
  * `buildExpiredEntry` always stamps a fresh ISO timestamp, so an unparseable
  * value can only arrive from an archive already on disk (hand-edit, legacy
@@ -157,17 +199,137 @@ export function normalizeExpiredAtEntries(entries, opts = {}) {
   const source = opts.source || 'expired-archive-normalize';
   let repaired = 0;
   const stamped = new Set();
+  let timestampRepairs = 0;
+  let titleRepairs = 0;
   for (const entry of entries) {
     if (!entry || typeof entry !== 'object') continue;
-    if (isParsableExpiredAt(entry.expiredAt)) continue;
-    entry.expiredAt = explicitNow || deterministicExpiredAt(entry);
-    stamped.add(entry.expiredAt);
-    repaired += 1;
+    const titlesChanged = normalizeExpiredEntryTitles(entry);
+    if (titlesChanged) titleRepairs += 1;
+    let changed = titlesChanged;
+    if (!isParsableExpiredAt(entry.expiredAt)) {
+      entry.expiredAt = explicitNow || deterministicExpiredAt(entry);
+      stamped.add(entry.expiredAt);
+      timestampRepairs += 1;
+      changed = true;
+    }
+    if (changed) repaired += 1;
   }
-  if (repaired > 0) {
-    console.log(`  🩹 ${source}: ${repaired} expired entries had no parsable expiredAt → stamped ${[...stamped].join(', ')}`);
+  if (timestampRepairs > 0) {
+    console.log(`  🩹 ${source}: ${timestampRepairs} expired entries had no parsable expiredAt → stamped ${[...stamped].join(', ')}`);
+  }
+  if (titleRepairs > 0) {
+    console.log(`  🩹 ${source}: ${titleRepairs} expired entries had literal unicode escapes in title fields → decoded`);
   }
   return repaired;
+}
+
+function routeValues(job = {}) {
+  const values = [
+    job.slug,
+    ...(job.slugByLocale && typeof job.slugByLocale === 'object' && !Array.isArray(job.slugByLocale)
+      ? Object.values(job.slugByLocale)
+      : []),
+    ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
+    ...(job.previousSlugsByLocale
+      && typeof job.previousSlugsByLocale === 'object'
+      && !Array.isArray(job.previousSlugsByLocale)
+      ? Object.values(job.previousSlugsByLocale).flatMap((slugs) => Array.isArray(slugs) ? slugs : [])
+      : []),
+  ];
+  return new Set(values.filter((value) => typeof value === 'string' && value.length > 0));
+}
+
+function hasExplicitlyDifferentSourceIdentity(expiredJob, activeJob) {
+  const activeUrl = String(activeJob?.url ?? '').trim();
+  if (!activeUrl) return false;
+  const expiredIdentities = archiveRecordSourceIdentities(expiredJob);
+  if (expiredIdentities.size === 0) return false;
+  return !expiredIdentities.has(buildStableJobIdentity(activeJob));
+}
+
+function collisionRouteSuffix(entry, route, attempt) {
+  const identities = [...archiveRecordSourceIdentities(entry)].sort();
+  const source = identities[0] || String(entry.sourceIdentity || '').trim();
+  return createHash('sha1')
+    .update(`expired-route-owner\0${source}\0${route}\0${attempt}`)
+    .digest('hex')
+    .slice(0, 8);
+}
+
+/**
+ * Keep an expired archive record from claiming a route that belongs to a
+ * different active posting.
+ *
+ * A title/company/location slug is not a posting identity. The active and
+ * expired records can therefore legitimately share that derived slug while
+ * naming different source URLs. Ghost reconciliation must retain that source
+ * identity distinction, but the route index still needs one owner. In that
+ * narrow, source-proven case, deterministically move every occurrence of the
+ * archived route (current and historical, including locale maps) to a unique
+ * archive route. Unknown or identity-less records are left untouched so this
+ * repair never guesses which posting owns a route.
+ *
+ * Mutates `expiredJobs` in place and is idempotent.
+ *
+ * @param {object[]} expiredJobs
+ * @param {object[]} activeJobs
+ * @returns {{ entries: object[], changed: number, repairedRoutes: number, details: string[] }}
+ */
+export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
+  if (!Array.isArray(expiredJobs) || !Array.isArray(activeJobs) || activeJobs.length === 0) {
+    return { entries: Array.isArray(expiredJobs) ? expiredJobs : [], changed: 0, repairedRoutes: 0, details: [] };
+  }
+
+  const activeRouteOwners = new Map();
+  for (const activeJob of activeJobs) {
+    for (const route of routeValues(activeJob)) {
+      const owners = activeRouteOwners.get(route) || [];
+      if (!owners.includes(activeJob)) owners.push(activeJob);
+      activeRouteOwners.set(route, owners);
+    }
+  }
+
+  const reservedRoutes = new Set(activeRouteOwners.keys());
+  for (const expiredJob of expiredJobs) {
+    for (const route of routeValues(expiredJob)) reservedRoutes.add(route);
+  }
+
+  let changed = 0;
+  let repairedRoutes = 0;
+  const details = [];
+  for (const expiredJob of expiredJobs) {
+    if (!expiredJob || typeof expiredJob !== 'object') continue;
+    const conflictingRoutes = [...routeValues(expiredJob)].filter((route) => {
+      const owners = activeRouteOwners.get(route);
+      if (!owners || owners.length === 0) return false;
+      // If any active owner is provably the same posting, ghost reconciliation
+      // owns this route and must be allowed to remove/merge it normally.
+      if (owners.some((owner) => archiveRecordNamesPosting(expiredJob, owner))) return false;
+      // A collision is repairable only when every active owner is explicitly
+      // different. Ambiguous source evidence must not trigger a rewrite.
+      return owners.every((owner) => hasExplicitlyDifferentSourceIdentity(expiredJob, owner));
+    });
+
+    for (const route of conflictingRoutes) {
+      let attempt = 0;
+      let replacement;
+      do {
+        replacement = appendSlugDisambiguator(route, collisionRouteSuffix(expiredJob, route, attempt));
+        attempt += 1;
+      } while (reservedRoutes.has(replacement));
+
+      if (!replaceSlugRouteEverywhere(expiredJob, route, replacement, {
+        source: 'expired-jobs-archive.repairExpiredRoutesAgainstActive',
+        reason: 'route collides with a distinct active posting',
+      })) continue;
+      reservedRoutes.add(replacement);
+      changed += 1;
+      repairedRoutes += 1;
+      if (details.length < 20) details.push(`${route} → ${replacement}`);
+    }
+  }
+
+  return { entries: expiredJobs, changed, repairedRoutes, details };
 }
 
 /**
@@ -238,8 +400,9 @@ export function mergeSourceIdentityHistory(survivor, removed) {
  *
  * Merges with any existing entries by `slug`, keeping the most-recently
  * expired entry per slug. Skips jobs without a slug (no static page to land
- * on). Returns the number of newly-added entries; zero means the on-disk
- * file is unchanged.
+ * on). An empty `removedJobs` list still reads the existing file so
+ * title/timestamp repairs are persisted during a clean housekeeping run.
+ * Returns the number of newly-added entries; zero means no new slug was added.
  *
  * @param {object[]} removedJobs - Full job objects (NOT `{ id }` refs)
  * @param {string} crawlerKey
@@ -247,9 +410,27 @@ export function mergeSourceIdentityHistory(survivor, removed) {
  * @param {string} [opts.dir] - Override directory (default: data/jobs/expired/by-crawler)
  * @returns {number} added count
  */
+/**
+ * Read a crawler's expired slice (read-only; missing or corrupt → `[]`).
+ *
+ * @param {string} crawlerKey
+ * @param {{ dir?: string }} [opts]
+ * @returns {object[]}
+ */
+export function readExpiredSlice(crawlerKey, opts = {}) {
+  if (!crawlerKey) return [];
+  const dir = opts.dir || DEFAULT_EXPIRED_SLICES_DIR;
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.join(dir, `${crawlerKey}.json`), 'utf-8'));
+    return Array.isArray(raw) ? raw : [];
+  } catch {
+    return [];
+  }
+}
+
 export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   if (!crawlerKey) return 0;
-  if (!Array.isArray(removedJobs) || removedJobs.length === 0) return 0;
+  if (!Array.isArray(removedJobs)) return 0;
 
   const dir = opts.dir || DEFAULT_EXPIRED_SLICES_DIR;
   fs.mkdirSync(dir, { recursive: true });
@@ -281,6 +462,10 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   });
   for (const job of removedJobs) {
     if (!job?.slug) continue;
+    // A job held out of publication for translation (agency admission
+    // threshold) never had a public URL: archiving it would mint an expired
+    // soft-landing page for a route nobody was ever served.
+    if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
     const prev = bySlug.get(entry.slug);
     if (!prev) {
@@ -328,6 +513,61 @@ export function localeRouteKeys(job = {}) {
     }
   }
   return routes;
+}
+
+/**
+ * Archive jobs removed by a publication-time filter.
+ *
+ * Unlike a source-slice disappearance, a Swiss gate drop happens after the
+ * crawler has already handed the job to assembly. Keep the same SEO contract:
+ * the active record may disappear, but its expired detail route must remain.
+ * Existing slugs/routes are skipped before calling the normal archive writer
+ * so a repeated assembly does not refresh `expiredAt` on every run.
+ *
+ * @param {Array<{job?: object, reason?: string}|object>} droppedRows
+ * @param {{ dir?: string }} [opts]
+ * @returns {{ added: number, skipped: number, byCrawler: Record<string, number> }}
+ */
+export function archiveFilteredJobsToSlices(droppedRows, opts = {}) {
+  if (!Array.isArray(droppedRows) || droppedRows.length === 0) {
+    return { added: 0, skipped: 0, byCrawler: {} };
+  }
+
+  const grouped = new Map();
+  let skipped = 0;
+  for (const row of droppedRows) {
+    const job = row?.job && typeof row.job === 'object' ? row.job : row;
+    // Legacy baseline rows can lack companyKey. They still have a public slug,
+    // so keep them in a dedicated assembly slice instead of silently deleting
+    // their expired page at the filter boundary.
+    const crawlerKey = String(job?.companyKey || job?.crawlerKey || 'assembly-filtered').trim();
+    if (!job?.slug || isHeldFromPublication(job)) {
+      skipped++;
+      continue;
+    }
+    if (!grouped.has(crawlerKey)) grouped.set(crawlerKey, []);
+    grouped.get(crawlerKey).push(job);
+  }
+
+  let added = 0;
+  const byCrawler = {};
+  for (const [crawlerKey, jobs] of grouped) {
+    const existing = readExpiredSlice(crawlerKey, opts);
+    const existingSlugs = new Set(existing.map((entry) => entry?.slug).filter(Boolean));
+    const existingRoutes = new Set(existing.flatMap((entry) => [...localeRouteKeys(entry)]));
+    const candidates = jobs.filter((job) => {
+      if (existingSlugs.has(job.slug)) return false;
+      const routes = localeRouteKeys(job);
+      return ![...routes].some((route) => existingRoutes.has(route));
+    });
+    const count = archiveRemovedJobsToSlice(candidates, crawlerKey, opts);
+    if (count > 0) {
+      added += count;
+      byCrawler[crawlerKey] = count;
+    }
+  }
+
+  return { added, skipped, byCrawler };
 }
 
 /** Preserve every route known by `removed` on `survivor`. */
@@ -477,7 +717,7 @@ function compareArchiveEntries(a, b) {
  * crawler cron where a throw would abort the whole archival step. The residual
  * duplicates stay visible to `assertNoDuplicateRoutesWithin`.
  */
-export function collapseDuplicateRouteEntries(entries, { source = 'expired-archive-dedup' } = {}) {
+function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-dedup' } = {}) {
   const namespaced = (entry) => (entry?.companyKey
     ? [...localeRouteKeys(entry)].map((route) => `${entry.companyKey}::${route}`)
     : []);
@@ -623,4 +863,79 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     unmergeable,
     capRefused,
   };
+}
+
+/**
+ * The legacy-route cap can make a component unmergeable for one pass while a
+ * different component is still removable. Removing that other component may
+ * make the first component mergeable on the next pass, so every archive
+ * writer must receive a fixed point rather than a merely sorted intermediate.
+ *
+ * Eight passes is the measured upper bound for the committed fixtures and is
+ * deliberately finite: a cycle or a newly introduced non-convergent merge is
+ * a correctness failure, not a reason to churn a large archive indefinitely.
+ */
+export const MAX_COLLAPSE_PASSES = 8;
+
+/**
+ * Hash an archive without materialising its complete JSON representation.
+ *
+ * The aggregate archive is already larger than V8's maximum string length.
+ * `JSON.stringify(entries)` therefore throws before the first collapse pass,
+ * even with ample heap. Feeding the same array framing and per-entry JSON to
+ * SHA-256 keeps the fixed-point/cycle comparison order-sensitive while
+ * bounding every intermediate string to one archive record.
+ */
+function archiveEntriesSignature(entries) {
+  const hash = createHash('sha256');
+  hash.update('[');
+  for (let index = 0; index < entries.length; index += 1) {
+    if (index > 0) hash.update(',');
+    hash.update(JSON.stringify(entries[index]) ?? 'null');
+  }
+  hash.update(']');
+  return hash.digest('hex');
+}
+
+export function collapseDuplicateRouteEntries(entries, options = {}) {
+  let current = entries;
+  let currentSignature = archiveEntriesSignature(current);
+  const seenSignatures = new Set([currentSignature]);
+  let collapsed = 0;
+  let slugsTransferred = 0;
+  let firstPassCapRefused = 0;
+
+  for (let pass = 0; pass < MAX_COLLAPSE_PASSES; pass += 1) {
+    const result = collapseDuplicateRouteEntriesOnce(current, options);
+    if (pass === 0) firstPassCapRefused = result.capRefused;
+    collapsed += result.collapsed;
+    slugsTransferred += result.slugsTransferred;
+
+    const nextSignature = archiveEntriesSignature(result.entries);
+    if (nextSignature === currentSignature) {
+      return {
+        ...result,
+        collapsed,
+        slugsTransferred,
+        // Preserve the pre-fixpoint meaning used by the archive reports:
+        // this is the number refused by the first canonical pass. The final
+        // pass is exposed separately for convergence diagnostics.
+        capRefused: firstPassCapRefused,
+        finalCapRefused: result.capRefused,
+      };
+    }
+
+    if (seenSignatures.has(nextSignature)) {
+      throw new Error(
+        `expired archive route collapse did not converge: cycle detected after ${pass + 1} pass(es)`,
+      );
+    }
+    seenSignatures.add(nextSignature);
+    current = result.entries;
+    currentSignature = nextSignature;
+  }
+
+  throw new Error(
+    `expired archive route collapse did not converge after ${MAX_COLLAPSE_PASSES} passes`,
+  );
 }

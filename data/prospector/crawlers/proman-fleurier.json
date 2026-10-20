@@ -1,0 +1,24 @@
+{
+  "companyKey": "proman-fleurier",
+  "companyName": "PROMAN BM-EMPLOI SA — Fleurier",
+  "companyHost": "proman-group.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.proman-group.ch/Job/SearchJobs?brancheId=0&regionId=0&typeId=0"
+  ],
+  "detailTemplate": "/job/#/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 18,
+  "sampleTitles": [
+    "Horloger Décotteur",
+    "Opérateur assemblage mouvement",
+    "Mécanicien Régleur CNC 2x8",
+    "Automaticien de production",
+    "Opérateur garnissage nuit"
+  ],
+  "canton": "NE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-03T11:06:35.764Z"
+}

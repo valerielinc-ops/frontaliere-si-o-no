@@ -10,7 +10,10 @@ import {
   detectCategory,
   detectExperienceLevel,
   MIN_DESC_LENGTH,
+  extractHelsinnJobBody,
 } from '@/scripts/lib/helsinn-job-parser.mjs';
+import { buildHelsinnJob } from '@/scripts/update-helsinn-jobs.mjs';
+import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -136,7 +139,28 @@ describe('parseListingPage', () => {
   });
 
   it('returns empty array for "no jobs" message', () => {
-    expect(parseListingPage(FIXTURE_EMPTY_LISTING)).toHaveLength(0);
+    const jobs = parseListingPage(FIXTURE_EMPTY_LISTING);
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
+  it('keeps a discovered job when generic no-offers copy appears on the page', () => {
+    const jobs = parseListingPage('<main>nessuna offerta</main><a href="/node/123">Real job</a>');
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].id).toBe('123');
+  });
+
+  it('does not prove an empty snapshot when the dedicated marker coexists with a job link', () => {
+    const jobs = parseListingPage(
+      '<main>Purtroppo non ci sono offerte di lavoro, torna a trovarci!</main>'
+      + '<a href="/node/123">Real job</a>',
+    );
+    expect(jobs).toHaveLength(1);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('keeps missing listing HTML fail-closed instead of proving an empty source', () => {
+    expect(isAuthoritativeEmptySnapshot(parseListingPage(''))).toBe(false);
   });
 
   it('returns empty array for empty input', () => {
@@ -207,5 +231,29 @@ describe('detectExperienceLevel', () => {
 
   it('detects MID for regular title', () => {
     expect(detectExperienceLevel('Clinical Research Associate')).toBe('MID');
+  });
+});
+
+// ─── Source text only (issue 5253) ──────────────────────────────────────────
+describe('Helsinn source text only (issue 5253)', () => {
+  const listing = { title: 'Clinical Research Associate', url: 'https://www.e-lavoro.ch/node/1234', location: 'Lugano' };
+
+  it('reads the Drupal body field of the detail page, not the page chrome', () => {
+    const body = extractHelsinnJobBody(FIXTURE_DETAIL_PAGE);
+    expect(body.length).toBeGreaterThanOrEqual(MIN_DESC_LENGTH);
+    expect(extractHelsinnJobBody('<main><nav>Home Jobs Contatti</nav></main>')).toBe('');
+  });
+
+  it('publishes the detail text in its own language instead of an invented sentence', () => {
+    const body = extractHelsinnJobBody(FIXTURE_DETAIL_PAGE);
+    expect(body.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+    const job = buildHelsinnJob(listing, body);
+    expect(job).not.toBeNull();
+    expect(Object.keys(job!.descriptionByLocale)).toEqual([job!.sourceLang]);
+    expect(job!.description).not.toMatch(/position at Helsinn Healthcare SA/);
+  });
+
+  it('does not publish a job whose detail page gives no text', () => {
+    expect(buildHelsinnJob(listing, '')).toBeNull();
   });
 });

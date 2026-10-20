@@ -1,4 +1,5 @@
 import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
+import SWISS_LOCALITY_POSTAL_CODES from '../../data/swiss-locality-postal-codes.json' with { type: 'json' };
 import { ALL_CANTON_CODES, TARGET_CANTONS, SWISS_CANTONS, isTargetCanton } from './crawler-location-config.mjs';
 
 // ─── Text normalization ────────────────────────────────────────────────────
@@ -66,6 +67,7 @@ export const AMBIGUOUS_LOCATION_WORD_TOKENS = new Set([
   'sales',   // Sâles (FR)
   'concise', // Concise (VD)
   'court',   // Court (BE)
+  'plan',    // Plan-les-Ouates (GE) — common job-prose word
 ]);
 
 // BFS disambiguates same-name municipalities across cantons with a trailing
@@ -84,6 +86,61 @@ export const AMBIGUOUS_LOCATION_WORD_TOKENS = new Set([
 const DISAMBIGUATED_BARE_CITY_ALIASES = new Set([
   'villeneuve', // Villeneuve (VD) — distinctive proper noun, negligible collision risk
 ]);
+
+// The BFS municipality snapshot intentionally contains communes only. The
+// Swiss Post/swisstopo directory additionally contains official localities and
+// former-commune names used by employers (Emmenbrücke, Niederurnen, Turgi,
+// Heerbrugg, Ilanz, …). Keep that second registry canton-scoped: a name such
+// as Nussbaumen or Wohlen is not safe without the record's canton.
+const _officialLocalityTokensByCanton = new Map();
+const _officialLocalityCantonsByToken = new Map();
+const _officialLocalityNameByToken = new Map();
+const _officialDisambiguatedBareTokens = new Set();
+for (const [code, entries] of Object.entries(SWISS_LOCALITY_POSTAL_CODES.cantons || {})) {
+  const all = new Set();
+  for (const name of Object.keys(entries || {})) {
+    const token = normalizeToken(name);
+    if (!token) continue;
+    all.add(token);
+    const disambiguated = name.match(/^(.+?)\s*\(([a-z]{2})\)$/i);
+    if (disambiguated) {
+      const bare = normalizeToken(disambiguated[1]);
+      if (bare) {
+        all.add(bare);
+        _officialDisambiguatedBareTokens.add(bare);
+      }
+    }
+    if (!_officialLocalityCantonsByToken.has(token)) _officialLocalityCantonsByToken.set(token, new Set());
+    _officialLocalityCantonsByToken.get(token).add(code);
+    if (!_officialLocalityNameByToken.has(token)) _officialLocalityNameByToken.set(token, name);
+    if (disambiguated) {
+      const bare = normalizeToken(disambiguated[1]);
+      if (bare) {
+        if (!_officialLocalityCantonsByToken.has(bare)) _officialLocalityCantonsByToken.set(bare, new Set());
+        _officialLocalityCantonsByToken.get(bare).add(code);
+        if (!_officialLocalityNameByToken.has(bare)) _officialLocalityNameByToken.set(bare, disambiguated[1].trim());
+      }
+    }
+  }
+  _officialLocalityTokensByCanton.set(code, all);
+}
+
+function getOfficialLocalityTokens(cantonCode, { includeAmbiguous = false } = {}) {
+  const all = _officialLocalityTokensByCanton.get(cantonCode) || new Set();
+  if (includeAmbiguous) return all;
+  return new Set([...all].filter((token) =>
+    !AMBIGUOUS_LOCATION_WORD_TOKENS.has(token)
+    && !_officialDisambiguatedBareTokens.has(token)));
+}
+
+const _uniqueOfficialLocalityTokens = new Set(
+  [..._officialLocalityCantonsByToken.entries()]
+    .filter(([token, cantons]) =>
+      cantons.size === 1
+      && !_officialDisambiguatedBareTokens.has(token)
+      && !AMBIGUOUS_LOCATION_WORD_TOKENS.has(token))
+    .map(([token]) => token),
+);
 
 /**
  * Get all city tokens (municipalities + aliases) for a canton.
@@ -135,7 +192,6 @@ function getCantonScopedBareTokens(cantonCode) {
   const entry = MUNICIPALITY_DATA.cantons?.[cantonCode];
   const municipalities = entry?.municipalities || [];
   const aliases = entry?.aliases || [];
-  const all = [...new Set([...municipalities, ...aliases])];
   // Track which distinct BFS entries produce each bare token before
   // committing anything to the returned Set. Two DIFFERENT municipalities
   // in the SAME canton could in principle share a bare name (BFS
@@ -149,14 +205,30 @@ function getCantonScopedBareTokens(cantonCode) {
   // AMBIGUOUS_LOCATION_WORD_TOKENS above. Regression-guarded by
   // tests/swiss-municipality-whitelist.test.ts.
   const sourcesByToken = new Map();
-  for (const city of all) {
+  const canonicalTokens = new Set();
+  const addSource = (city) => {
     const disambiguated = city.match(/^(.+?)\s*\([a-z]{2}\)$/i);
     const bareToken = normalizeToken(disambiguated?.[1] || city);
     // A raw municipality that is ambiguous in prose is authoritative here:
     // the caller already supplied the canton and therefore disambiguated it.
-    if (!bareToken) continue;
+    if (!bareToken) return '';
     if (!sourcesByToken.has(bareToken)) sourcesByToken.set(bareToken, new Set());
     sourcesByToken.get(bareToken).add(city);
+    return bareToken;
+  };
+  for (const city of municipalities) {
+    const bareToken = addSource(city);
+    if (bareToken) canonicalTokens.add(bareToken);
+  }
+  for (const alias of aliases) {
+    const bareToken = normalizeToken(alias.match(/^(.+?)\s*\([a-z]{2}\)$/i)?.[1] || alias);
+    // A translated/spelling alias such as `Zurich` for the canonical
+    // municipality `Zürich` is the same municipality after normalization. It
+    // must not manufacture an intra-canton collision and make the source
+    // unusable for callers that require exactly one canton. Distinct
+    // municipalities still remain separate sources and stay fail-closed.
+    if (canonicalTokens.has(bareToken)) continue;
+    addSource(alias);
   }
 
   const tokens = new Set();
@@ -260,7 +332,10 @@ const SAFE_WORD_BOUNDARY_CODES = new Set(['TI', 'GR', 'VS', 'GE', 'AG', 'SG', 'T
  * Swiss cantons. Uses: SWISS_CANTONS names, BFS municipalities, manual
  * aliases, static tokens, canton code patterns, and border proximity.
  */
-export function isCantonRelevant(text = '', cantonCode = '', { includeBorderProximity = true } = {}) {
+export function isCantonRelevant(text = '', cantonCode = '', {
+  includeBorderProximity = true,
+  includeOfficialLocality = false,
+} = {}) {
   const lower = normalizeSwissTargetLocationText(text);
   if (!lower) return false;
 
@@ -274,6 +349,17 @@ export function isCantonRelevant(text = '', cantonCode = '', { includeBorderProx
   // 2. Municipality + alias tokens from BFS JSON
   const cityTokens = getCantonCityTokens(code);
   if (cityTokens.length > 0 && hasToken(cityTokens, lower)) return true;
+
+  // 2b. Official Swiss Post/swisstopo localities that are not BFS communes.
+  // They are opt-in because this function is also used for free-text canton
+  // inference; accepting every postal locality there changes conservative
+  // parser behaviour. Structured location-field callers can opt in, and may
+  // safely include canton-scoped ambiguous names because their postal pair
+  // has already supplied the disambiguating source evidence.
+  if (includeOfficialLocality) {
+    const officialLocalityTokens = getOfficialLocalityTokens(code, { includeAmbiguous: true });
+    if (officialLocalityTokens.size > 0 && hasToken([...officialLocalityTokens], lower)) return true;
+  }
 
   // 3. Canton code patterns: "(TI)", "CH TI", "6900 TI"
   const codeLower = code.toLowerCase();
@@ -292,8 +378,10 @@ export function isCantonRelevant(text = '', cantonCode = '', { includeBorderProx
   // names a Swiss location". Callers gating foreign-job rejection pass
   // includeBorderProximity:false so that e.g. "Como, Italy" is not read as Swiss.
   if (includeBorderProximity) {
+    // Whole words, like every other token here (#9846): a substring scan read
+    // the Italian "comodo" ("convenient") as Como.
     const borderKeywords = BORDER_PROXIMITY_BY_CANTON[code];
-    if (borderKeywords?.some((keyword) => lower.includes(keyword))) return true;
+    if (borderKeywords && hasToken(borderKeywords, lower)) return true;
   }
 
   return false;
@@ -492,6 +580,29 @@ export function normalizeCantonCode(raw = '') {
   return '';
 }
 
+/**
+ * Normalize a structured Swiss canton field without treating a municipality
+ * or a representative city alias as a canton. Some schema.org producers put
+ * the country code next to the canton (`ZH,CH`, `CH-ZH`); that pair is still
+ * Swiss subdivision evidence even when `addressCountry` is absent.
+ *
+ * @param {string} raw
+ * @returns {string}
+ */
+export function normalizeSwissCantonCode(raw = '') {
+  const normalized = normalizeSwissTargetLocationText(raw);
+  if (!normalized) return '';
+  const upper = normalized.toUpperCase();
+  if (Object.hasOwn(SWISS_CANTONS, upper)) return upper;
+  const paired = /^(?:CH\s+([A-Z]{2})|([A-Z]{2})\s+CH)$/.exec(upper);
+  const pairedCode = paired?.[1] || paired?.[2] || '';
+  if (pairedCode && Object.hasOwn(SWISS_CANTONS, pairedCode)) return pairedCode;
+  for (const [code, names] of Object.entries(CANTON_EXPLICIT_NAMES)) {
+    if (names.some((name) => normalizeSwissTargetLocationText(name) === normalized)) return code;
+  }
+  return '';
+}
+
 // ─── Target location check ────────────────────────────────────────────────
 
 export function isTargetSwissLocation(text = '', {
@@ -512,6 +623,71 @@ export function isTargetSwissLocation(text = '', {
 
 // Country-level word tokens that identify Switzerland without a city/canton.
 const SWISS_COUNTRY_RE = /\b(switzerland|schweiz|suisse|svizzera|swiss)\b/i;
+
+// "Deutschschweiz", "Ostschweiz", "Zentralschweiz": the country word as the
+// head of a regional compound.
+const SWISS_REGION_COMPOUND_RE = /schweiz\b/i;
+
+/**
+ * Strict Swiss signal of a LOCATION FIELD: the country word (also as the head
+ * of "Deutschschweiz"), a canton name or code, or a BFS municipality — also a
+ * bare name BFS only lists with a canton suffix ("Bremgarten") — but not a
+ * border town (Como, Evian), which is foreign. False means the field names no
+ * Swiss place at all, i.e. unknown geography for callers that keep it
+ * fail-closed (#9846).
+ *
+ * A municipality glued by a hyphen to a non-Swiss word is no signal either,
+ * unless it lies in `cantonHint`, the canton the record itself carries:
+ * "Rheinfelden-Karsau" on a Basel record is the German Rheinfelden, while
+ * "Baden-Dättwil" on an Aargau record is the Aargau Baden and its quarter.
+ *
+ * @param {string} text
+ * @param {string} [cantonHint]
+ * @returns {boolean}
+ */
+export function locationFieldHasSwissSignal(text = '', cantonHint = '', { includeOfficialLocality = false } = {}) {
+  const s = maskForeignCompounds(String(text || ''), normalizeCantonCode(cantonHint));
+  if (!s.trim()) return false;
+  return SWISS_COUNTRY_RE.test(s)
+    || SWISS_REGION_COMPOUND_RE.test(s)
+    || swissMunicipalityCantons(s).length > 0
+    || (includeOfficialLocality && Boolean(swissCityFromLocationField(s, cantonHint)))
+    || isTargetSwissLocation(s, { includeBorderProximity: false, includeAllCantons: true });
+}
+
+const SWISS_COUNTRY_WORD_RE = /^(?:switzerland|schweiz|suisse|svizzera|swiss)$/;
+
+/**
+ * Blank out every hyphenated compound in which a Swiss name is glued to a word
+ * that is not Swiss ("Baden-Württemberg", "Rheinfelden-Karsau"), unless one of
+ * its Swiss parts lies in `canton`. A compound that is itself a Swiss name
+ * ("Basel-Stadt"), made of Swiss parts only ("Biel-Bienne") or headed by the
+ * country word ("Nordwest-Schweiz") stays.
+ */
+function maskForeignCompounds(text, canton) {
+  const words = tokenizeFreeText(text);
+  let masked = text;
+  for (let first = 0; first < words.length; first++) {
+    if (!words[first].joinsNext || (first > 0 && words[first - 1].joinsNext)) continue;
+    let last = first;
+    while (last < words.length - 1 && words[last].joinsNext) last++;
+    const chain = words.slice(first, last + 1);
+    const swissParts = chain.filter((word) => _allSwissCityTokens.has(word.folded));
+    const foreignCompound = !_allSwissCityTokens.has(chain.map((word) => word.folded).join(' '))
+      && !chain.some((word) => SWISS_COUNTRY_WORD_RE.test(word.folded))
+      && swissParts.length > 0
+      && swissParts.length < chain.length;
+    const inRecordCanton = Boolean(canton) && swissParts.some((word) => (
+      isKnownSwissMunicipalityInCanton(word.folded, canton) || normalizeCantonCode(word.folded) === canton
+    ));
+    if (foreignCompound && !inRecordCanton) {
+      const { start } = chain[0];
+      const { end } = chain[chain.length - 1];
+      masked = masked.slice(0, start) + ' '.repeat(end - start) + masked.slice(end);
+    }
+  }
+  return masked;
+}
 
 // Authoritative "is this free-text location in Switzerland?" check, used by the
 // nationwide Workday crawlers (fnz, bracco) instead of hand-rolled per-crawler
@@ -554,6 +730,25 @@ const _strictSwissCityTokens = (() => {
   return tokens;
 })();
 
+// The generated municipality snapshot also carries a small set of English
+// exonyms used by structured source fields (Geneva, Lucerne, Berne, Basle).
+// They are valid source evidence when the field itself establishes a
+// Swiss/work-mode context. In free text, a sole exonym is also usable rescue
+// evidence, but a competing foreign/multi-site signal must still block it:
+// selecting Geneva from "Paris, Geneva, London" would overwrite the real
+// description rescue. `Zurich` is intentionally not listed: normalizeToken()
+// folds it to the same token as canonical `Zürich`, so excluding it would also
+// discard the canonical form.
+const STRUCTURED_ONLY_ENGLISH_EXONYM_CANONICAL_NAMES = new Map([
+  ['geneva', 'Genève'],
+  ['lucerne', 'Luzern'],
+  ['berne', 'Bern'],
+  ['basle', 'Basel'],
+]);
+const STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS = new Set(
+  STRUCTURED_ONLY_ENGLISH_EXONYM_CANONICAL_NAMES.keys(),
+);
+
 // Token set of canton-only labels (names + 2-letter codes). Used to detect
 // when a `location` field is canton-level rather than city-level.
 const _cantonOnlyTokens = (() => {
@@ -578,12 +773,17 @@ const _cantonOnlyTokens = (() => {
  * tokens — no cross-canton ambiguity left to resolve. Without a hint (or
  * with an unresolvable one), behaviour is unchanged. See #6147.
  */
-export function isKnownSwissMunicipality(cityName = '', cantonHint = '') {
+export function isKnownSwissMunicipality(cityName = '', cantonHint = '', { allowOfficialLocality = false } = {}) {
   const token = normalizeToken(cityName);
   if (!token || token.length < 2) return false;
-  if (_allSwissCityTokens.has(token)) return true;
   const canton = normalizeCantonCode(cantonHint);
-  return canton ? getCantonScopedBareTokens(canton).has(token) : false;
+  if (_allSwissCityTokens.has(token)) {
+    return true;
+  }
+  if (allowOfficialLocality && _officialLocalityCantonsByToken.has(token)) return true;
+  return canton
+    ? getCantonScopedBareTokens(canton).has(token)
+    : false;
 }
 
 /**
@@ -592,12 +792,17 @@ export function isKnownSwissMunicipality(cityName = '', cantonHint = '') {
  * source values such as `Buchs AG` (also Buchs SG) and must not turn
  * `Baden DE` into a Swiss canton marker merely because Baden exists in AG.
  */
-export function isKnownSwissMunicipalityInCanton(cityName = '', cantonHint = '') {
+export function isKnownSwissMunicipalityInCanton(
+  cityName = '',
+  cantonHint = '',
+  { allowOfficialLocality = false } = {},
+) {
   const token = normalizeToken(cityName);
   const canton = normalizeCantonCode(cantonHint);
   if (!token || token.length < 2 || !canton) return false;
   return getCantonCityTokens(canton).includes(token)
-    || getCantonScopedBareTokens(canton).has(token);
+    || getCantonScopedBareTokens(canton).has(token)
+    || (allowOfficialLocality && getOfficialLocalityTokens(canton, { includeAmbiguous: true }).has(token));
 }
 
 /**
@@ -606,10 +811,13 @@ export function isKnownSwissMunicipalityInCanton(cityName = '', cantonHint = '')
  * prose-ambiguous names, because callers use the cardinality to reject a bare
  * homonym (`Buchs`, `Reinach`) until the source supplies a canton.
  */
-export function swissMunicipalityCantons(cityName = '') {
+export function swissMunicipalityCantons(cityName = '', { includeOfficialLocalities = false } = {}) {
   const token = normalizeToken(String(cityName || '').replace(/\s*\([a-z]{2}\)\s*$/i, ''));
   if (!token) return [];
-  return Object.keys(SWISS_CANTONS).filter((code) => getCantonScopedBareTokens(code).has(token));
+  return Object.keys(SWISS_CANTONS).filter((code) =>
+    getCantonScopedBareTokens(code).has(token)
+      || (includeOfficialLocalities
+        && getOfficialLocalityTokens(code, { includeAmbiguous: true }).has(token)));
 }
 
 /**
@@ -622,12 +830,17 @@ export function swissMunicipalityCantons(cityName = '') {
  *
  * `cantonHint`: see isKnownSwissMunicipality above.
  */
-export function isKnownSwissCity(cityName = '', cantonHint = '') {
+export function isKnownSwissCity(cityName = '', cantonHint = '', { allowOfficialLocality = false } = {}) {
   const token = normalizeToken(cityName);
   if (!token || token.length < 2) return false;
-  if (_strictSwissCityTokens.has(token)) return true;
   const canton = normalizeCantonCode(cantonHint);
-  return canton ? getCantonScopedBareTokens(canton).has(token) : false;
+  if (_strictSwissCityTokens.has(token)) {
+    return true;
+  }
+  if (allowOfficialLocality && _officialLocalityCantonsByToken.has(token)) return true;
+  return canton
+    ? getCantonScopedBareTokens(canton).has(token)
+    : false;
 }
 
 /**
@@ -683,6 +896,20 @@ const _canonicalCityNameByToken = (() => {
       map.set(token, parentToken ? (map.get(parentToken) || name) : name);
     }
   }
+  for (const token of _uniqueOfficialLocalityTokens) {
+    if (map.has(token)) continue;
+    const owners = _officialLocalityCantonsByToken.get(token) || new Set();
+    const parentTokens = [...owners]
+      .flatMap((code) => getCantonCityTokens(code))
+      .filter((candidate) => candidate !== token && token.startsWith(`${candidate} `))
+      .sort((a, b) => b.length - a.length);
+    const parentToken = parentTokens[0];
+    if (parentToken && map.has(parentToken)) {
+      map.set(token, map.get(parentToken));
+    } else if (_officialLocalityNameByToken.has(token)) {
+      map.set(token, _officialLocalityNameByToken.get(token));
+    }
+  }
   return map;
 })();
 
@@ -715,25 +942,63 @@ export function canonicalSwissCityName(value = '') {
  * for a real city before deciding to drop the record.
  *
  * @param {string} text
- * @param {{ skipTokens?: Set<string> }} [options] - tokens to ignore. A
+ * @param {{ skipTokens?: Set<string>, cantonHint?: string, allowOfficialLocality?: boolean, includeEnglishExonyms?: boolean }} [options] - tokens to ignore. A
  *   skipped token does NOT abort the scan: the search continues so that a
  *   description reading "alle Mitarbeitenden in Winterthur" still resolves to
  *   Winterthur instead of the village of Alle (JU). Callers scanning free-form
  *   description text should pass TEXT_RESCUE_AMBIGUOUS_TOKENS — or, better,
- *   just call rescueSwissCityFromText(), which does it for them.
+ *   just call rescueSwissCityFromText(), which does it for them. English
+ *   exonyms are excluded here unless a structured source-field caller opts in;
+ *   rescueSwissCityFromText() accepts a sole exonym and rejects it only when
+ *   the text supplies a competing foreign/multi-site signal.
  */
-export function findSwissCityInText(text = '', { skipTokens } = {}) {
+export function isKnownSwissLocationFieldToken(candidate, cantonHint = '') {
+  if (isKnownSwissCity(candidate, cantonHint)) return true;
+  // A field is authoritative even for a prose-ambiguous municipality alias
+  // such as `Plan` (GE). The ambiguity guard belongs to free-text scanning;
+  // an explicit locality value must still be usable without a canton field.
+  const bfsCantons = swissMunicipalityCantons(candidate);
+  if (bfsCantons.length === 1) return true;
+  const token = normalizeToken(candidate);
+  if (!token) return false;
+  // The explicit location field may contain a real Swiss locality whose
+  // canton is missing or stale (Nussbaumen, Wohlen, Le Crêt-du-Locle). The
+  // field is authoritative, while description prose keeps the stricter
+  // global/canton-scoped whitelist below.
+  const owners = _officialLocalityCantonsByToken.get(token);
+  if (!owners || owners.size === 0) return false;
+  // A bare BFS homonym such as Buchs or Gossau remains ambiguous unless the
+  // source supplies the owning canton. Official postal localities that are
+  // not BFS homonyms (Nussbaumen, Feldmeilen, ...) remain valid field values
+  // even when their source canton is stale or absent.
+  if (bfsCantons.length > 1) {
+    const canton = normalizeCantonCode(cantonHint);
+    return Boolean(canton && bfsCantons.includes(canton));
+  }
+  return true;
+}
+
+export function findSwissCityInText(text = '', {
+  skipTokens,
+  cantonHint = '',
+  allowOfficialLocality = false,
+  includeEnglishExonyms = false,
+} = {}) {
   if (!text || typeof text !== 'string') return '';
   const norm = normalizeToken(text);
   if (!norm) return '';
+  const hasSwissFieldContext = /\b(?:switzerland|schweiz|suisse|svizzera|swiss)\b/i.test(text);
   // Tokenise on whitespace; bigrams + trigrams catch multi-word cities
   // like "La Chaux-de-Fonds", "Saint-Gall".
   const words = norm.split(' ').filter((w) => w.length >= 2);
-  for (let n = 3; n >= 1; n--) {
+  for (let n = 4; n >= 1; n--) {
     for (let i = 0; i + n <= words.length; i++) {
       const candidate = words.slice(i, i + n).join(' ');
       if (skipTokens?.has(candidate)) continue;
-      if (_strictSwissCityTokens.has(candidate)) return candidate;
+      if (!includeEnglishExonyms && !hasSwissFieldContext && STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS.has(candidate)) continue;
+      if (allowOfficialLocality
+        ? isKnownSwissLocationFieldToken(candidate, cantonHint)
+        : isKnownSwissCity(candidate, cantonHint)) return candidate;
     }
   }
   return '';
@@ -791,31 +1056,216 @@ export const TEXT_RESCUE_AMBIGUOUS_TOKENS = new Set([
   'meilen',   // DE "miles" — pulled Michigan/Tampa/Boston postings into Meilen (ZH)
   'gland',    // EN "gland" — pharma descriptions (Penzberg, Mannheim) → Gland (VD)
   'rossa',    // IT "red"   — Prada's Taichung postings → Rossa (GR)
+  // #9846 (assembler replay on the slices of 2026-09-25): the company name in
+  // "F. Hoffmann-La Roche" and in "la Roche Diagnostics", "de la Roche" —
+  // 14 Roche postings abroad (Mississauga, Penzberg, Tucson, Tunis, …)
+  // shipped as La Roche (FR).
+  'la roche',
 ]);
 
+// ─── Free-text scan with Unicode word boundaries (#9846) ───────────────────
+// Description text is prose, so the scan works on WORDS as the text wrote them
+// rather than on the ASCII-folded string findSwissCityInText() uses for
+// location fields. Folding throws away three things that decide whether a
+// municipality name in prose is really a place:
+//
+//   - the word boundary itself: folding turns every non-ASCII letter into a
+//     separator, so "Großdietwil" (Grossdietwil, LU) became the words "gro"
+//     + "dietwil", i.e. Dietwil (AG). A word here is a maximal run of Unicode
+//     letters, marks and digits, folded only by stripping the accents. Always
+//     applied;
+//   - the hyphen: "Baden-Württemberg" is one foreign toponym, not the Aargau
+//     town Baden followed by a second word, and "Hoffmann-La Roche" is a
+//     company name, not the Fribourg village La Roche;
+//   - the case: "tenero" (IT "tender") and "leuk" (NL "nice") are adjectives,
+//     "la Roche" is the article before a company name; the villages are written
+//     Tenero, Leuk, La Roche.
+//
+// The last two decide only in the foreign context of rescueSwissCityFromText():
+// a job with a Swiss locality or postcode may well be in "Baden-Dättwil" or
+// "Estavayer-le-Lac", and there the compound is Swiss.
+const FREE_TEXT_WORD_RE = /[\p{L}\p{M}\p{N}]+/gu;
+// A compound is two words joined by a hyphen with no space around it; a spaced
+// dash ("Basel - Zürich") separates two places instead.
+const COMPOUND_JOIN_RE = /^[-\u2010\u2011]$/u;
+// An e-mail address or URL is an identifier, written in lower case whatever it
+// names: "fisiocare.lugano@gmail.com" names Lugano as much as "Lugano" does.
+const IDENTIFIER_RE = /@|:\/\/|^www\./iu;
+
+function foldFreeTextWord(word) {
+  return word.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '');
+}
+
+// An elided article or preposition: the "L" of "L'Abbaye", the "d" of
+// "Val-d'Illiez".
+const ELISION_AFTER_RE = /^['’ʼ]/u;
+
+function tokenizeFreeText(text) {
+  const words = [];
+  for (const match of text.matchAll(FREE_TEXT_WORD_RE)) {
+    words.push({ raw: match[0], folded: foldFreeTextWord(match[0]), start: match.index, end: match.index + match[0].length });
+  }
+  for (let i = 0; i < words.length; i++) {
+    const next = words[i + 1];
+    words[i].joinsNext = Boolean(next) && COMPOUND_JOIN_RE.test(text.slice(words[i].end, next.start));
+  }
+  // Same length floor as findSwissCityInText() — a stray letter never takes
+  // part in a candidate — except an elided "l'"/"d'", which is part of
+  // official names such as L'Abbaye (VD) and Val-d'Illiez (VS).
+  return words.filter((word) => word.folded.length >= 2 || ELISION_AFTER_RE.test(text.slice(word.end)));
+}
+
 /**
- * Guarded combination of findSwissCityInText() + canonicalSwissCityName():
- * accepts a match only when it is ≥4 characters AND not an everyday word.
- * Some Swiss municipality names are also everyday nouns in the job's own
- * language (e.g. "Zug" = train in German, "Bulle" = bubble in French), so a
- * description that merely mentions commute logistics ("gut mit dem Zug
- * erreichbar") must not be treated as naming the job's real city.
+ * True when the candidate words[i..j] sit inside a longer hyphenated compound
+ * that is not itself Swiss: "Baden-Württemberg", "Hoffmann-La Roche". The whole
+ * compound being a Swiss name ("Basel-Stadt") or every other part being a Swiss
+ * place ("Zürich-Oerlikon") keeps the match.
+ */
+function isInsideForeignCompound(words, i, j) {
+  let first = i;
+  while (first > 0 && words[first - 1].joinsNext) first--;
+  let last = j;
+  while (last < words.length - 1 && words[last].joinsNext) last++;
+  if (first === i && last === j) return false;
+  const compound = words.slice(first, last + 1).map((word) => word.folded).join(' ');
+  if (_allSwissCityTokens.has(compound)) return false;
+  const rest = [...words.slice(first, i), ...words.slice(j + 1, last + 1)];
+  return !rest.every((word) => _allSwissCityTokens.has(word.folded));
+}
+
+/**
+ * True when the text writes the candidate as the proper noun it would be if it
+ * named the municipality: every word the BFS name capitalises starts with a
+ * capital here too. "la Roche", "tenero", "leuk" fail; "Zurich" for Zürich,
+ * "ZÜRICH" and "La Chaux-de-Fonds" pass, and so does a name inside an e-mail
+ * address or URL.
+ */
+function isWrittenAsProperNoun(text, words, i, j, canonicalName) {
+  let from = words[i].start;
+  while (from > 0 && !/\s/u.test(text[from - 1])) from--;
+  let to = words[j].end;
+  while (to < text.length && !/\s/u.test(text[to])) to++;
+  if (IDENTIFIER_RE.test(text.slice(from, to))) return true;
+  const canonicalWords = canonicalName.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+  const aligned = canonicalWords.length === j - i + 1;
+  for (let k = i; k <= j; k++) {
+    const mustBeCapital = aligned ? /^\p{Lu}/u.test(canonicalWords[k - i]) : k === i;
+    if (mustBeCapital && !/^\p{Lu}/u.test(words[k].raw)) return false;
+  }
+  return true;
+}
+
+// The employer's headquarters, not the job's workplace. The owner's rule for
+// unknown geography is "no HQ fallback" (#9846): "mit Hauptsitz in Winterthur,
+// Schweiz" in a Schkopau posting says where Sulzer is registered, and so does
+// its Italian version "con sede a Winterthur" ("sede di lavoro", the
+// workplace, is not a cue).
+const HQ_CUE_BEFORE_RE = /(?:hauptsitz|hauptquartier|firmensitz|konzernsitz|stammsitz|headquarter(?:s|ed)?|head\s+office|\bhq|si[eè]ge(?:\s+social)?|quartier\s+g[eé]n[eé]ral|sede\s+(?:centrale|principale|legale|sociale)|con\s+sede|casa\s+madre)\b[^.;:!?\n]{0,30}$/iu;
+// A clause is cut at sentence punctuation and brackets: "(u. a. Penzberg,
+// Basel, Oceanside, Vacaville und South San Francisco)".
+const CLAUSE_BREAK_RE = /[.;:!?()[\]\n•|]/u;
+const LIST_ITEM_SPLIT_RE = /\s*(?:,|\/|&|\s(?:und|and|et|e|y|or|oder|ou|o)\s)\s*/iu;
+
+/**
+ * True when the candidate is one entry of a list of sites that also names a
+ * place abroad: "offices across Geneva, Zurich, Barcelona, London",
+ * "Penzberg, Basel, Oceanside, … South San Francisco". Such a list is the
+ * employer's international footprint, not where this job is. A list of Swiss
+ * sites only ("Luzern, Sursee und Wolhusen") still places the job in
+ * Switzerland and keeps its match.
+ */
+function isInForeignSiteList(text, start, end, isForeignPlace) {
+  if (typeof isForeignPlace !== 'function') return false;
+  let from = start;
+  while (from > 0 && !CLAUSE_BREAK_RE.test(text[from - 1])) from--;
+  let to = end;
+  while (to < text.length && !CLAUSE_BREAK_RE.test(text[to])) to++;
+  const before = text.slice(from, start);
+  const after = text.slice(end, to);
+  // A candidate with no list separator right next to it is prose, not a list
+  // entry.
+  if (!LIST_ITEM_SPLIT_RE.test(before.slice(-8)) && !LIST_ITEM_SPLIT_RE.test(after.slice(0, 8))) return false;
+  return [...before.split(LIST_ITEM_SPLIT_RE), ...after.split(LIST_ITEM_SPLIT_RE)]
+    // A list entry is a place name of at most four words. The first and last
+    // entries run into the prose around the list ("Avec des bureaux à
+    // Genève"), so a longer item is read by its first and last four words.
+    .flatMap((item) => {
+      const itemWords = item.trim().split(/\s+/u).filter(Boolean);
+      if (itemWords.length <= 4) return [itemWords.join(' ')];
+      const edges = [];
+      for (let k = 1; k <= 4; k++) edges.push(itemWords.slice(0, k).join(' '), itemWords.slice(-k).join(' '));
+      return edges;
+    })
+    // Two-letter entries are department labels far more often than country
+    // codes ("Sales, IT, Finance").
+    .filter((phrase) => phrase.length >= 3)
+    .some((phrase) => isForeignPlace(phrase));
+}
+
+/**
+ * Guarded description-text rescue: returns the canonical name of the Swiss
+ * municipality the text names, or '' when it names none that can be trusted.
+ * Same scan order as findSwissCityInText() (three-word names first, then two,
+ * then one), on Unicode words (see above), with these guards:
  *
- * The ≥4-char rule alone is far too weak: it stops "Zug" but lets through
- * "Alle" (4), "Root" (4), "Rolle" (5), "Fully" (5) and "Bulle" (5) — which
- * between them accounted for ~1.4k mislocated jobs (see
- * TEXT_RESCUE_AMBIGUOUS_TOKENS). Hence the explicit token blocklist.
+ * - not an everyday word or company name (TEXT_RESCUE_AMBIGUOUS_TOKENS);
+ * - the first name found must be ≥4 characters, otherwise there is no rescue:
+ *   "Zug" (DE "train") never qualifies. The ≥4-char rule alone let through
+ *   "Alle", "Root", "Rolle", "Fully" and "Bulle", ~1.4k mislocated jobs, hence
+ *   the blocklist. A short name still ends the scan, as before #9846: the A/B
+ *   of that PR measured that scanning past it re-admits German postings in
+ *   "Neuenburg am Rhein" as Neuchâtel and moves the city of ~40 Swiss rows;
+ * - with `foreignContext`, set by a caller whose own locality names no Swiss
+ *   place (unknown geography, fail-closed per the owner's rule, #9846), four
+ *   more: the name is not part of a foreign hyphenated compound
+ *   (Baden-Württemberg), it is written as a proper noun (articles and common
+ *   words fail), it is not the employer's headquarters, and it is not one
+ *   entry of a list of sites that names a place abroad. `isForeignPlace`
+ *   recognises those places; without it the list guard is off.
  *
- * Returns '' when there is no match, the match is too short, or the match is
- * an everyday word. Single source of truth for every DESCRIPTION-text rescue
- * call site — never inline the raw
+ * A blocklisted or guarded name does not stop the scan. Single source of truth
+ * for every DESCRIPTION-text rescue call site — never inline the raw
  * canonicalSwissCityName(findSwissCityInText(...)) expression instead. To pull
  * a city out of a location FIELD, use swissCityFromLocationField() below.
+ *
+ * @param {string} text
+ * @param {{ foreignContext?: boolean, isForeignPlace?: (item: string) => boolean, skipTokens?: Set<string> }} [options]
+ * @returns {string}
  */
-export function rescueSwissCityFromText(text = '') {
-  const found = findSwissCityInText(text, { skipTokens: TEXT_RESCUE_AMBIGUOUS_TOKENS });
-  if (!found || found.length < 4) return '';
-  return canonicalSwissCityName(found);
+export function rescueSwissCityFromText(text = '', { foreignContext = false, isForeignPlace, skipTokens } = {}) {
+  if (!text || typeof text !== 'string') return '';
+  const words = tokenizeFreeText(text);
+  for (let n = 3; n >= 1; n--) {
+    for (let i = 0; i + n <= words.length; i++) {
+      const j = i + n - 1;
+      const candidate = words.slice(i, j + 1).map((word) => word.folded).join(' ');
+      const englishExonymHasCompetingSignal = STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS.has(candidate)
+        && (isInsideForeignCompound(words, i, j)
+          || isInForeignSiteList(
+            text,
+            words[i].start,
+            words[j].end,
+            isForeignPlace,
+          ));
+      if (TEXT_RESCUE_AMBIGUOUS_TOKENS.has(candidate)
+        || englishExonymHasCompetingSignal
+        || skipTokens?.has(candidate)
+        || !_strictSwissCityTokens.has(candidate)) continue;
+      if (candidate.length < 4) return '';
+      const canonicalName = STRUCTURED_ONLY_ENGLISH_EXONYM_CANONICAL_NAMES.get(candidate)
+        || canonicalSwissCityName(candidate);
+      if (foreignContext) {
+        const start = words[i].start;
+        const end = words[j].end;
+        if (isInsideForeignCompound(words, i, j)) continue;
+        if (!isWrittenAsProperNoun(text, words, i, j, canonicalName)) continue;
+        if (HQ_CUE_BEFORE_RE.test(text.slice(Math.max(0, start - 60), start))) continue;
+        if (isInForeignSiteList(text, start, end, isForeignPlace)) continue;
+      }
+      return canonicalName;
+    }
+  }
+  return '';
 }
 
 /**
@@ -831,15 +1281,147 @@ export function rescueSwissCityFromText(text = '') {
  *     IS Rolle (VD) → no blocklist, and no ≥4-char rule either.
  *
  * Handles the decoration crawlers wrap around a city name: "Baden, Aargau",
- * "Luzern / hybrid", "2540 Grenchen Phone", "Visp-Eyholz". Returns '' when the
- * field names no known Swiss municipality.
+ * "Luzern / hybrid", "2540 Grenchen Phone", "Visp-Eyholz". A canton hint
+ * also makes a bare homonym inside a decorated field safe ("Gossau, SG",
+ * "Bremgarten, Aargau"). Returns '' when the field names no known Swiss
+ * municipality.
  *
  * Exists so neither behaviour is expressed by inlining
  * canonicalSwissCityName(findSwissCityInText(...)) at a call site, where the
  * choice of blocklist-or-not becomes invisible and drifts.
+ *
+ * @param {string} value
+ * @param {{ allowUnqualifiedEnglishExonyms?: boolean }} [options]
  */
-export function swissCityFromLocationField(value = '') {
-  return canonicalSwissCityName(findSwissCityInText(value));
+const SWISS_CANTON_CODE_MARKER_SOURCE = `(?:${ALL_CANTON_CODES.join('|')})`;
+const SWISS_CANTON_CODE_MARKER_RE = new RegExp(
+  `\\b${SWISS_CANTON_CODE_MARKER_SOURCE}\\b`,
+  'gi',
+);
+const SWISS_LOCATION_FIELD_MARKER_RE = new RegExp(
+  `\\b(?:${SWISS_CANTON_CODE_MARKER_SOURCE}|CH|CHE|756)\\b`,
+  'i',
+);
+
+function locationCantonMarkers(raw = '') {
+  return [...String(raw || '').matchAll(SWISS_CANTON_CODE_MARKER_RE)]
+    .map(([marker]) => marker.toUpperCase());
+}
+
+function stripLocationCantonMarker(city = '') {
+  return String(city || '')
+    .replace(new RegExp(`\\s*\\(?${SWISS_CANTON_CODE_MARKER_SOURCE}\\)?$`, 'i'), '')
+    .trim();
+}
+
+function hasMatchingCantonMarker(raw, city, { includeOfficialLocalities = false } = {}) {
+  const markers = locationCantonMarkers(raw);
+  if (!markers.length) return true;
+  const cityCantons = swissMunicipalityCantons(stripLocationCantonMarker(city), { includeOfficialLocalities });
+  return markers.every((marker) => cityCantons.includes(marker));
+}
+
+function findSwissCityInCantonText(text = '', canton = '') {
+  const normalized = normalizeToken(text);
+  if (!normalized || !canton) return '';
+  const words = normalized.split(' ').filter((word) => word.length >= 2);
+  for (let n = 3; n >= 1; n -= 1) {
+    for (let i = 0; i + n <= words.length; i += 1) {
+      const candidate = words.slice(i, i + n).join(' ');
+      if (isKnownSwissMunicipalityInCanton(candidate, canton, { allowOfficialLocality: true })) return candidate;
+    }
+  }
+  return '';
+}
+
+function canonicalLocationFieldCity(city, markers, { includeOfficialLocalities = false } = {}) {
+  const canonical = canonicalSwissCityName(city);
+  if (markers.length !== 1 || /\\([A-Z]{2}\\)$/i.test(canonical)) return canonical;
+  const bareCity = stripLocationCantonMarker(city);
+  if (swissMunicipalityCantons(bareCity, { includeOfficialLocalities }).length <= 1) return canonical;
+  return canonicalSwissCityName(`${bareCity} ${markers[0]}`);
+}
+
+function englishExonymFromLocationField(value = '', allowUnqualifiedEnglishExonyms = false) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  const candidate = findSwissCityInText(raw, { includeEnglishExonyms: true });
+  if (!candidate || !STRUCTURED_ONLY_ENGLISH_EXONYM_TOKENS.has(candidate)) return '';
+
+  // An exact field, an explicit Swiss marker, or a work-mode decoration is a
+  // source-backed location shape. A bare English token embedded in an
+  // unqualified multi-site list is not: `Paris, Geneva, London` must not win
+  // over an independently rescued city from the vacancy text.
+  const withoutWorkMode = raw.replace(WORK_MODE_TOKEN_RE, '$1 ');
+  const hasWorkMode = withoutWorkMode !== raw;
+  const hasSwissMarker = SWISS_COUNTRY_RE.test(raw) || SWISS_LOCATION_FIELD_MARKER_RE.test(raw);
+  if (hasSwissMarker && !hasMatchingCantonMarker(raw, candidate, { includeOfficialLocalities: true })) return '';
+  return allowUnqualifiedEnglishExonyms
+    || normalizeSwissTargetLocationText(raw) === candidate
+    || hasWorkMode
+    || hasSwissMarker
+    ? candidate
+    : '';
+}
+
+export function swissCityFromLocationField(value = '', cantonHintOrOptions = '') {
+  const raw = String(value || '').trim();
+  const options = cantonHintOrOptions && typeof cantonHintOrOptions === 'object'
+    ? cantonHintOrOptions
+    : {};
+  const cantonHint = typeof cantonHintOrOptions === 'string' ? cantonHintOrOptions : '';
+  const allowUnqualifiedEnglishExonyms = options.allowUnqualifiedEnglishExonyms === true;
+  if (!raw) return '';
+  const markers = locationCantonMarkers(raw);
+  const directFieldCity = isKnownSwissLocationFieldToken(raw, cantonHint) ? raw : '';
+  const scopedCity = markers.length === 1
+    ? findSwissCityInCantonText(raw, markers[0])
+    : '';
+  const hintedCity = cantonHint
+    ? findSwissCityInText(raw, {
+      cantonHint,
+      allowOfficialLocality: true,
+    })
+    : '';
+  const city = directFieldCity
+    || scopedCity
+    || hintedCity
+    || findSwissCityInText(raw, {
+      allowOfficialLocality: true,
+    })
+    || englishExonymFromLocationField(value, allowUnqualifiedEnglishExonyms);
+  if (!city || !hasMatchingCantonMarker(raw, city, { includeOfficialLocalities: true })) return '';
+  return canonicalLocationFieldCity(city, markers, { includeOfficialLocalities: true });
+}
+
+// A work mode written where a city would go: EN/DE/FR/IT forms seen on
+// Workday, Greenhouse and Personio boards (`Remote`, `Homeoffice`,
+// `Télétravail`, `Telelavoro`, `Hybrid`), alone or decorated with a country or
+// region (`Remote, Switzerland`, `Switzerland - Remote`, `Hybrid (CH)`).
+// Letter-bounded, so it never matches inside a longer word. The leading
+// boundary is captured (group 1) and put back by the replacement instead of
+// being a lookbehind: this module reaches client bundles, and a regex
+// lookbehind crashes older Safari/WebKit at parse time (#1996).
+const WORK_MODE_TOKEN_RE = /(^|[^\p{L}\p{N}])(?:remote|remoto|home[\s-]*office|work[\s-]+from[\s-]+home|hybrid|hybride|ibrido|t[eé]l[eé]travail|telelavoro|telearbeit|smart[\s-]*working)(?![\p{L}\p{N}])/giu;
+
+/**
+ * True when a location label names a work mode — "Remote", "Home Office",
+ * "Homeoffice", "Hybrid", "Télétravail", "Telelavoro", alone or with a
+ * country or region ("Remote, Switzerland", "Home Office - Switzerland",
+ * "Hybrid (CH)", "Telelavoro - Ticino") — and NO Swiss municipality. Such a
+ * label names no place, so a crawler must skip the job instead of stamping it
+ * with its HQ city or canton: unknown geography stays fail-closed (issue 9839).
+ *
+ * A label that also names a municipality is a place qualified by a work mode
+ * and returns false: "Remote - Zurich" and "Zürich Hybrid" name Zürich. A
+ * canton is not a municipality: "Hybrid (ZH)" names no place.
+ */
+export function isWorkModeLocationLabel(value = '') {
+  const text = String(value || '').trim();
+  if (!text) return false;
+  const withoutWorkMode = text.replace(WORK_MODE_TOKEN_RE, '$1 ');
+  if (withoutWorkMode === text) return false;
+  return !swissCityFromLocationField(withoutWorkMode);
 }
 
 // ─── Liechtenstein postal-code helper ──────────────────────────────────────

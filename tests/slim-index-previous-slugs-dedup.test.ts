@@ -272,26 +272,26 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
   it('company, location AND search filters all short-circuit on a bridge page', () => {
     // Measured on prod 2026-08-07: 8 historic slugs start with a company
     // prefix and 13 with a search prefix. parseCompanySlugFilter used to catch
-    // the company ones via jobs[].previousSlugs (now gone); parseSearchSlugFilter
-    // never had a guard at all. Same class → fixed together (AGENTS.md §6).
+    // the company ones via jobs[].previousSlugs (now gone); search-prefixed
+    // active job slugs need the same disambiguation (AGENTS.md §6).
     expect(src).toMatch(/const isBridgePage = !!bridgeTargetSlug/);
     expect(src).toMatch(/if \(isBridgePage\) return null;/);
-    expect(src).toMatch(/isBridgePage \? null : parseLocationSlugFilter\(initialJobSlug\)/);
-    expect(src).toMatch(/isBridgePage \? null : parseSearchSlugFilter\(initialJobSlug\)/);
+    expect(src).toMatch(/isBridgePage \|\| isSeededExpiredDetail \? null : parseLocationSlugFilter\(initialJobSlug\)/);
+    expect(src).toMatch(/isBridgePage \|\| isSeededExpiredDetail \? null : parseJobRouteSearchFilter\(initialJobSlug, jobs\)/);
   });
 
-  it('guards EVERY parseSearchSlugFilter(initialJobSlug) call site', () => {
+  it('guards EVERY route-slug search-filter call site', () => {
     // Three call sites read the ROUTE slug: the searchSlugFilter memo, the
     // popstate handler, and the searchQuery useState initializer. An unguarded
     // one lets a bridge page's old slug become the search query, filtering the
     // listing on what is actually a job URL. (The fourth occurrence,
     // `shouldRestoreJobBoardListState`, takes a *navigation history* slug, not
     // the route slug — different construct, deliberately not guarded.)
-    const callSites = src.match(/parseSearchSlugFilter\(initialJobSlug\)/g) ?? [];
+    const callSites = src.match(/parseJobRouteSearchFilter\(initialJobSlug, jobs\)/g) ?? [];
     expect(callSites.length).toBe(3);
     const guarded =
-      (src.match(/isBridgePage \? null : parseSearchSlugFilter\(initialJobSlug\)/g) ?? []).length +
-      (src.match(/readBridgeTargetSlug\(\) \? null : parseSearchSlugFilter\(initialJobSlug\)/g) ?? []).length;
+      (src.match(/isBridgePage \|\| isSeededExpiredDetail \? null : parseJobRouteSearchFilter\(initialJobSlug, jobs\)/g) ?? []).length +
+      (src.match(/readBridgeTargetSlug\(\) \|\| isSeededExpiredDetail \? null : parseJobRouteSearchFilter\(initialJobSlug, jobs\)/g) ?? []).length;
     expect(guarded).toBe(callSites.length);
   });
 
@@ -350,7 +350,7 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
     // there would be a TDZ error. The module-level reader has no such constraint.
     expect(src).toMatch(/function readBridgeTargetSlug\(\): string \| undefined/);
     expect(src).toMatch(
-      /useState\(\(\) => \(readBridgeTargetSlug\(\) \? null : parseSearchSlugFilter\(initialJobSlug\)\) \|\| readSearchQueryFromUrl\(\)\)/,
+      /useState\(\(\) => \(readBridgeTargetSlug\(\) \|\| isSeededExpiredDetail \? null : parseJobRouteSearchFilter\(initialJobSlug, jobs\)\) \|\| readSearchQueryFromUrl\(\)\)/,
     );
     // Single source of truth: the hook reads the same helper (dep list asserted
     // separately, in the per-route re-read test above).

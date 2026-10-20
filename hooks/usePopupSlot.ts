@@ -30,7 +30,7 @@
  */
 import { useEffect, useState } from 'react';
 
-import { isActive, releaseSlot, requestSlot, subscribe } from '@/services/popupQueue';
+import { isActive, markSlotShown, releaseSlot, requestSlot, subscribe } from '@/services/popupQueue';
 
 export function usePopupSlot(slotId: string, priority: number): boolean {
   // Seeded from the queue rather than `false`: a slot that is free on the very
@@ -51,6 +51,8 @@ export function usePopupSlot(slotId: string, priority: number): boolean {
       releaseSlot(slotId);
     };
   }, [priority, slotId]);
+
+  useEffect(() => { if (active) markSlotShown(slotId); }, [active, slotId]);
 
   return active;
 }

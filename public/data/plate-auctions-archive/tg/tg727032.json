@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109630",
+      "sourceKey": "TG",
+      "sourceRecordId": "109630",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "727032",
+      "normalizedPlate": "TG727032",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 0,
+      "endsAt": "2026-10-07T17:00:00.000Z",
+      "closedAt": "2026-10-07T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109630",
+      "sourceFetchedAt": "2026-10-06T18:26:53.867Z",
+      "lastVerifiedAt": "2026-10-06T18:26:53.867Z",
+      "firstSeenAt": "2026-09-23T11:42:12.340Z",
+      "lastSeenAt": "2026-10-06T18:26:53.867Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "3c6178f4de81"
+    }
+  ]
+}

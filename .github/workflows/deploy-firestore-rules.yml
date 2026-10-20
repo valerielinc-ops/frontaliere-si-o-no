@@ -1,4 +1,6 @@
 name: Deploy Firestore Rules & Indexes
+# Also ships storage.rules: before 2026-09-29 no workflow deployed it, so the
+# Storage paths it declares (assisted-application CV uploads) never went live.
 
 on:
   push:
@@ -7,6 +9,8 @@ on:
     paths:
       - 'firestore.rules'
       - 'firestore.indexes.json'
+      - 'storage.rules'
+      - 'scripts/ci/check-storage-cross-service-role.mjs'
   workflow_dispatch:
 
 permissions:
@@ -15,14 +19,16 @@ permissions:
 
 concurrency:
   group: deploy-firestore-rules
-  cancel-in-progress: true
+  # Rules, storage and indexes are production state; never interrupt an
+  # active deployment just because a newer main commit entered the queue.
+  cancel-in-progress: false
 
 jobs:
   deploy-rules:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -34,7 +40,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
@@ -50,7 +55,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: 'npm'
@@ -59,7 +64,7 @@ jobs:
         run: npm ci
 
       - name: Install Firebase CLI
-        run: npm install -g firebase-tools
+        run: npm install -g firebase-tools@15.32.0
 
       - name: Prepare Firebase credentials
         env:
@@ -82,6 +87,16 @@ jobs:
       - name: Deploy Firestore security rules
         run: firebase deploy --only firestore:rules --project frontaliere-ticino
 
+      # storage.rules uses firestore.get() (cross-service rules): they only work
+      # when the Storage service agent holds roles/firebaserules.firestoreServiceAgent,
+      # which firebase-tools never grants in a non-interactive run. Fail loudly
+      # instead of shipping rules that deny every upload.
+      - name: Check Storage cross-service IAM role
+        run: node scripts/ci/check-storage-cross-service-role.mjs --project frontaliere-ticino
+
+      - name: Deploy Storage security rules
+        run: firebase deploy --only storage --project frontaliere-ticino
+
       # Before this, indexes in firestore.indexes.json were never shipped (only
       # firestore:rules was), so the file was dead config and prod indexes
       # drifted from it — a query relying on an undeployed index failed with
@@ -102,7 +117,7 @@ jobs:
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "CI Failure: ${{ github.workflow }}" \
-            --description "## Firestore rules deploy fallito
+            --description "## Firestore/Storage rules deploy fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Branch:** ${{ github.ref_name }}
           **Trigger:** ${{ github.event_name }}" \

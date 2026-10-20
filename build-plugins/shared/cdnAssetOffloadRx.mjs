@@ -35,6 +35,9 @@
 export const ASSET_EXT_ALTERNATION =
   'js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json';
 
+/** Canonical host used by the generated HTML asset offload and fast renderers. */
+export const CDN_ASSET_ORIGIN = 'https://cdn.frontaliereticino.ch';
+
 /**
  * Bash ERE (extended regex) source string for the SAME-ORIGIN /assets/ matcher.
  * Consumed by the deploy workflow via `node -p`. Matches a quote/paren/`(`-delimited

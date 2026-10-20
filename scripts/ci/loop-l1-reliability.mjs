@@ -1,11 +1,12 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /** L1 — Reliability & UX. */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
@@ -16,6 +17,8 @@ import {
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L1';
+const ISSUE_TITLE = 'L1 Reliability: telemetry cannot support a safe decision';
+const ISSUE_WORKFLOW = 'Loop L1 Reliability';
 export const DEFAULT_TELEMETRY_PATH = path.join('data', 'error-triage-baseline.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 72;
@@ -192,7 +195,8 @@ export async function runL1({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -255,7 +259,7 @@ export async function runL1({
     denominator: verdict.ok ? denominator : null,
     observedAt: generatedAt?.toISOString() || null,
     reason: verdict.ok
-      ? 'fresh PostHog useful-session export contains the complete session outcome'
+      ? 'fresh GA4 useful-session export contains the complete session outcome'
       : `useful-session outcome is ${verdict.quality}; no reliability change is authorized`,
     now,
   });
@@ -294,13 +298,18 @@ export async function runL1({
   }
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L1 Reliability: telemetry cannot support a safe decision',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'reliability', 'loop-l1'],
-      workflow: 'Loop L1 Reliability',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, held });
   logger.log(`[L1] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
@@ -356,7 +365,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[L1] fatal: ${error.message}`);
     process.exitCode = 1;

@@ -42,8 +42,10 @@ function richDescription(): string {
 
 // Distinct titles are required so hardening derives distinct slugs — identical
 // titles collapse to one slug and the per-slug thin map dedups, hiding the ratio.
-// `company` is intentionally one that matches NO boilerplate key so the thin
-// descriptions are not auto-enriched before the guard runs.
+// `company` matches no COMPANY_BOILERPLATE_IT key. Hardening used to pad the
+// thin descriptions of those companies before the guard ran; it no longer
+// pads anything (issue 5253), and the name keeps the fixture independent of
+// that table.
 const NO_BOILERPLATE_COMPANY = 'Qzx Volatile Source Gmbh';
 
 function makeGoodJob(slug: string, n: number) {

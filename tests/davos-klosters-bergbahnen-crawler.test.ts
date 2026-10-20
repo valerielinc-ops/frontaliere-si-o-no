@@ -1,8 +1,12 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect, vi } from 'vitest';
 import {
   fetchDavosKlostersBergbahnenDetailPage,
   parseDavosKlostersBergbahnenListingHtml,
   parseDavosKlostersBergbahnenDetailHtml,
+  isDavosKlostersBergbahnenSourceBodyPublishable,
+  stripTemplatePlaceholders,
   normalizeDavosKlostersBergbahnenJobUrl,
   slugify,
   stripHtml,
@@ -59,6 +63,37 @@ const SAMPLE_LISTING_HTML = `
   </div>
 </div>
 </body></html>
+`;
+
+const CURRENT_LISTING_HTML = `
+<ul class="list-unstyled job-list">
+  <li class="job-list-item stretch-link">
+    <div class="job-list-item__content-wrapper">
+      <h3 class="h5 mb-0">Ablöser Schneeräumung &amp; Bahnanlagen</h3>
+      <p class="description text-muted mb-0">
+        ab November 2026
+        |
+        100%
+        |
+        Bergbahnen
+      </p>
+    </div>
+    <a href="/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399"
+       class="btn btn-primary stretch-link__link"
+       aria-label="Details anzeigen Ablöser Schneeräumung &amp; Bahnanlagen">
+      <span class="btn__text">Details anzeigen</span>
+    </a>
+  </li>
+  <li class="job-list-item stretch-link">
+    <div class="job-list-item__content-wrapper">
+      <h3 class="h5 mb-0">Allrounder:in Bergrestaurant Jatzmeder</h3>
+      <p class="description text-muted mb-0">ab Wintersaison 2026 | 80 - 100% | Gastro &amp; Bar</p>
+    </div>
+    <a href="/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3916691">
+      Details anzeigen
+    </a>
+  </li>
+</ul>
 `;
 
 const SAMPLE_DETAIL_HTML = `
@@ -155,6 +190,25 @@ describe('Davos Klosters Bergbahnen job parser', () => {
       expect(jobs[0].department).toBe('Gastro & Bar');
       expect(jobs[1].percentage).toBe('100%');
       expect(jobs[1].department).toBe('Bergbahnen');
+    });
+
+    it('extracts the current job-list markup and pipe-delimited metadata', () => {
+      const jobs = parseDavosKlostersBergbahnenListingHtml(CURRENT_LISTING_HTML);
+      expect(jobs).toHaveLength(2);
+      expect(jobs[0]).toMatchObject({
+        title: 'Ablöser Schneeräumung & Bahnanlagen',
+        jobId: '2475399',
+        period: 'ab November 2026',
+        percentage: '100%',
+        department: 'Bergbahnen',
+      });
+      expect(jobs[1]).toMatchObject({
+        title: 'Allrounder:in Bergrestaurant Jatzmeder',
+        jobId: '3916691',
+        period: 'ab Wintersaison 2026',
+        percentage: '80 - 100%',
+        department: 'Gastro & Bar',
+      });
     });
 
     it("keeps an apostrophe inside a double-quoted detail href", () => {
@@ -451,5 +505,55 @@ describe('Davos Klosters Bergbahnen job parser', () => {
     it('detects full-time from 100%', () => {
       expect(inferEmploymentType('Pistenfahrzeugführer 100%', '')).toBe('FULL_TIME');
     });
+  });
+});
+
+// ── #5253: an ad whose CMS template was never filled ──────────────────────
+
+describe('template placeholder bodies (#5253)', () => {
+  // Real page, minimised: `_j_3940215` renders every section as its heading
+  // followed by `Text <heading>`; the ABACUS portal behind it says the same.
+  const PLACEHOLDER_PAGE = fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'crawler-quality-f', 'davos-placeholder-detail.html'),
+    'utf8',
+  );
+
+  const detailWithBody = (body: string) => `
+    <h1><span class="text-primary">Betriebselektriker:in</span></h1>
+    <div class="wysiwyg"><p>${body}</p></div></div>
+  `;
+
+  const wordBody = (count: number) => Array.from(
+    { length: count },
+    (_, index) => `Anforderung${index + 1}`,
+  ).join(' ');
+
+  it('publishes no description for a body made only of placeholders (and no chrome fallback)', () => {
+    const parsed = parseDavosKlostersBergbahnenDetailHtml(PLACEHOLDER_PAGE);
+    expect(parsed?.description).toBeUndefined();
+  });
+
+  it('quarantines a 35-word source body and publishes a 60-word body unchanged', () => {
+    const thinBody = wordBody(35);
+    const richBody = wordBody(60);
+
+    expect(isDavosKlostersBergbahnenSourceBodyPublishable(
+      parseDavosKlostersBergbahnenDetailHtml(detailWithBody(thinBody))?.description,
+    )).toBe(false);
+    expect(isDavosKlostersBergbahnenSourceBodyPublishable(
+      parseDavosKlostersBergbahnenDetailHtml(detailWithBody(richBody))?.description,
+    )).toBe(true);
+  });
+
+  it('drops heading/"Text <heading>" pairs but keeps real sections and real prose starting with "Text"', () => {
+    const text = [
+      'Einleitung', 'Text Einleitung',
+      'Aufgaben', '• Pistenpräparation im Winter',
+      'Wir bieten', 'Text wir bieten',
+      'Textilreinigung und Wäsche gehören ebenfalls dazu.',
+    ].join('\n');
+    expect(stripTemplatePlaceholders(text)).toBe(
+      'Aufgaben\n• Pistenpräparation im Winter\nTextilreinigung und Wäsche gehören ebenfalls dazu.',
+    );
   });
 });

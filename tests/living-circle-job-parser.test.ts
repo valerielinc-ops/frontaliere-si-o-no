@@ -83,4 +83,32 @@ describe('living-circle-job-parser', () => {
   it('falls back to the HQ canton only when the location resolves to nothing', () => {
     expect(resolveLivingCircleCanton({ location: '' }, 'TI')).toBe('TI');
   });
+
+  // Live feed item (Barkeeper, Bergwelt Grindelwald), minimised. Every <li>
+  // used to be published as `- • item` (the parser wrote '• ' and the section
+  // renderer prefixed '- ' again), and ÜBER UNS — not in the closed list of
+  // four titles — was folded into the overview as a bullet. A title glued to
+  // the previous paragraph (`</p><b>WAS DICH ERWARTET</b>`) is still a title.
+  it('emits each source list item as one markdown bullet and keeps every upper-case section title', () => {
+    const [role] = parseLivingCircleFeed({
+      dataFeedElement: [{
+        item: {
+          title: 'Barkeeper 80-100% (all genders)',
+          url: 'https://jobs.thelivingcircle.ch/jobs/67470292/Barkeeper-80-100%25-all-genders-/',
+          description: '<b>ÜBER UNS</b>\n<p><span>The Living Circle ist die führende Hospitality-Gruppe der Schweiz.</span></p>'
+            + '<b>WAS DICH ERWARTET</b><ul><li>Persönliche Betreuung und individuelle Beratung unserer Gäste</li><li>Aktiver Zusatzverkauf</li></ul>\n\n'
+            + '<b>ÜBER DICH</b>\n<ul><li>Du verfügst über Berufserfahrung im Bar- oder Gastronomiebereich</li></ul>\n\n'
+            + '<b>BIST DU UNSER ZUKÜNFTIGES TALENT?</b>\n<ul><li>Lebenslauf mit Foto</li></ul>',
+          jobLocation: { address: { addressLocality: 'Grindelwald' } },
+        },
+      }],
+    });
+    const { de, it: itLocale } = buildLivingCircleLocalizedContent(role);
+    expect(de.description).not.toContain('•');
+    expect(de.description).toContain('## Über uns\n- The Living Circle ist die führende Hospitality-Gruppe der Schweiz.');
+    expect(de.description).toContain('## Was dich erwartet\n- Persönliche Betreuung und individuelle Beratung unserer Gäste\n- Aktiver Zusatzverkauf');
+    expect(de.description).toContain('## Über dich\n- Du verfügst über Berufserfahrung im Bar- oder Gastronomiebereich');
+    expect(de.description).toContain('## BIST DU UNSER ZUKÜNFTIGES TALENT?\n- Lebenslauf mit Foto');
+    expect(itLocale.description).toContain('## Chi siamo');
+  });
 });

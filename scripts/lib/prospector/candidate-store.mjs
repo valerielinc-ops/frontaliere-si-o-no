@@ -61,12 +61,110 @@ const STORE_VERSION = 2;
  */
 export const MAX_REJECTED_TOMBSTONES = 10_000;
 
+/**
+ * A trace failure caused by transport or source discovery is not proof that
+ * the employer has no careers surface. Keep the candidate in `new` and let a
+ * later run retry it instead of turning one outage into a 90-day tombstone.
+ */
+const RETRYABLE_TRACE_REASON_RX = /(?:sito|dominio|pagina|rete|host|dns|timeout|http|fetch).*(?:irraggiungibile|non risolto|non raggiungibile|tempor|errore|blocc|timeout)|(?:irraggiungibile|non raggiungibile|timeout)/i;
+const TRACE_RETRY_DELAYS_DAYS = [1, 3, 7, 14, 30];
+const DOMAIN_RETRY_FRESH_OBSERVATION_AFTER = 4;
+const SECO_SIGNAL_FIELDS = new Set(['adCount', 'sampleTitles', 'applyHosts']);
+const TRACE_RETRY_EVIDENCE_FIELDS = ['name', 'domain', 'careersUrl', 'city', 'zip', 'country'];
+const TRACE_RETRY_DISCOVERY_SOURCES = new Set(['own', 'seco', 'osm', 'web']);
+const TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE = new Map([
+  ['own', new Set()],
+  ['seco', new Set(['name', 'domain', 'city', 'zip', 'country'])],
+  ['osm', new Set(['name', 'domain', 'city', 'country'])],
+  // Common Crawl's company label is only a host fragment; its actionable
+  // evidence is the employer host and careers URL.
+  ['web', new Set(['domain', 'careersUrl', 'country'])],
+]);
+const TRACE_EVIDENCE_SNAPSHOT_VERSION = 2;
+
 const EMPTY = { version: STORE_VERSION, updatedAt: null, candidates: {}, rejectedTombstones: {} };
 const TOMBSTONE_COUNTS = new WeakMap();
 
 /** @param {unknown} value */
 function isObjectMap(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+/** @param {Record<string, any>} candidate */
+function recordSourceObservation(candidate, source, at) {
+  const current = isObjectMap(candidate.sourceSeenAt) ? candidate.sourceSeenAt : {};
+  candidate.sourceSeenAt = { ...current, [source]: at };
+}
+
+/**
+ * Snapshot only evidence TRACE can use to resolve or directly visit an
+ * employer. Source timestamps are intentionally excluded: recurring discovery
+ * runs must not make an identical name/location guess look newly actionable.
+ *
+ * @param {Record<string, any>} candidate
+ * @returns {Record<string, any>}
+ */
+function traceEvidenceSnapshot(candidate) {
+  const evidence = Object.fromEntries(TRACE_RETRY_EVIDENCE_FIELDS.map((field) => [
+    field,
+    normalizeTraceEvidenceField(field, candidate?.[field]),
+  ]));
+  const sourceSeenAt = isObjectMap(candidate?.sourceSeenAt) ? Object.keys(candidate.sourceSeenAt) : [];
+  evidence.version = TRACE_EVIDENCE_SNAPSHOT_VERSION;
+  evidence.sources = [...new Set([
+    ...(Array.isArray(candidate?.sources) ? candidate.sources : []),
+    ...sourceSeenAt,
+  ].filter((source) => TRACE_RETRY_DISCOVERY_SOURCES.has(source)))].sort();
+  return evidence;
+}
+
+/** @param {string} field @param {unknown} rawValue */
+function normalizeTraceEvidenceField(field, rawValue) {
+  const value = String(rawValue ?? '').trim().replace(/\s+/g, ' ');
+  if (field === 'domain') return value ? registrableDomain(value) : '';
+  if (field === 'careersUrl') {
+    if (!value) return '';
+    try {
+      const url = new URL(value);
+      url.hash = '';
+      // URL canonicalizes scheme/host while preserving case-sensitive path
+      // and query components, which may distinguish a different careers page.
+      return url.toString();
+    } catch {
+      return value;
+    }
+  }
+  return value.toLowerCase();
+}
+
+/** @param {unknown} value */
+function isTraceEvidenceSnapshot(value) {
+  if (!isObjectMap(value)
+    || value.version !== TRACE_EVIDENCE_SNAPSHOT_VERSION
+    || !TRACE_RETRY_EVIDENCE_FIELDS.every((field) => typeof value[field] === 'string')
+    || !Array.isArray(value.sources)
+    || !value.sources.every((source) => typeof source === 'string' && TRACE_RETRY_DISCOVERY_SOURCES.has(source))) {
+    return false;
+  }
+  const canonicalSources = [...new Set(value.sources)].sort();
+  return TRACE_RETRY_EVIDENCE_FIELDS.every((field) => value[field] === normalizeTraceEvidenceField(field, value[field]))
+    && JSON.stringify(value.sources) === JSON.stringify(canonicalSources);
+}
+
+/**
+ * @param {Record<string, any>} candidate
+ * @param {Record<string, any>} snapshot
+ */
+function matchesTraceEvidenceSnapshot(candidate, snapshot) {
+  const current = traceEvidenceSnapshot(candidate);
+  return TRACE_RETRY_EVIDENCE_FIELDS.every((field) => current[field] === snapshot[field])
+    && JSON.stringify(current.sources) === JSON.stringify([...snapshot.sources].sort());
+}
+
+/** @param {Record<string, any>} candidate */
+function hasExhaustedDomainResolution(candidate) {
+  return Number(candidate?.traceAttempts) >= DOMAIN_RETRY_FRESH_OBSERVATION_AFTER
+    && String(candidate?.reason || '') === 'dominio non risolto';
 }
 
 /** @param {ReturnType<typeof loadCandidates>} store */
@@ -164,6 +262,94 @@ export function loadCandidates(file = CANDIDATES_PATH) {
 }
 
 /**
+ * Legacy diagnostic classifier for trace reasons. It is retained for reports
+ * and compatibility, but it is deliberately not authorization to reopen a
+ * dead candidate: revival requires the persisted `traceRetryable: true`
+ * verdict below.
+ *
+ * @param {string} reason
+ * @returns {boolean}
+ */
+export function isRetryableTraceReason(reason = '') {
+  return RETRYABLE_TRACE_REASON_RX.test(String(reason || '').trim());
+}
+
+/**
+ * A candidate with a future retry timestamp is intentionally absent from the
+ * TRACE queue. `--key=…` remains an explicit operator override in the stage
+ * script, so a stuck candidate can still be inspected immediately.
+ *
+ * @param {Record<string, any>} candidate
+ * @param {number} [now]
+ * @returns {boolean}
+ */
+export function isTraceRetryDue(candidate, now = Date.now()) {
+  if (hasExhaustedDomainResolution(candidate)) {
+    const lastEvidence = candidate?.traceLastEvidenceSnapshot;
+    // Old or malformed records have no trustworthy baseline. Fail closed until
+    // a discovery upsert saves their pre-merge evidence, then compare incoming
+    // evidence structurally so JSON property order cannot wake an identical
+    // retry.
+    return isTraceEvidenceSnapshot(lastEvidence)
+      && !matchesTraceEvidenceSnapshot(candidate, lastEvidence);
+  }
+  const at = Date.parse(String(candidate?.traceRetryAt || ''));
+  return !Number.isFinite(at) || at <= now;
+}
+
+/**
+ * Build bounded exponential backoff metadata for one retryable trace attempt.
+ *
+ * @param {Record<string, any>} candidate
+ * @param {string} reason
+ * @param {number} [now]
+ * @returns {Record<string, any>}
+ */
+export function scheduleTraceRetry(candidate, reason, now = Date.now()) {
+  const attempts = Math.max(0, Number(candidate?.traceAttempts) || 0);
+  const delayDays = TRACE_RETRY_DELAYS_DAYS[Math.min(attempts, TRACE_RETRY_DELAYS_DAYS.length - 1)];
+  const attemptedAt = new Date(now).toISOString();
+  return {
+    reason,
+    traceRetryable: true,
+    traceAttempts: attempts + 1,
+    traceLastAttemptAt: attemptedAt,
+    traceRetryAt: new Date(now + delayDays * 86_400_000).toISOString(),
+    traceLastEvidenceSnapshot: traceEvidenceSnapshot(candidate),
+  };
+}
+
+/**
+ * Reopen a retryable dead candidate when a new discovery source sees it again.
+ * The explicit `traceRetryable` verdict is required: the human-readable
+ * reason is deliberately not authoritative, because old generic reasons such
+ * as "sito irraggiungibile" also described permanent 404 responses. A new
+ * careers URL remains an independent, stronger discovery signal.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {string} key
+ * @param {Record<string, any>} [incoming]
+ * @param {string|null} [ledgerFile]
+ * @param {string} [source]
+ * @returns {Record<string, any>|null}
+ */
+export function reviveRetryableDeadCandidate(store, key, incoming = {}, ledgerFile = LEDGER_PATH, source = '') {
+  const candidate = store.candidates[key];
+  if (!candidate || candidate.status !== 'dead') return candidate || null;
+  const sourceEvidenceFields = TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE.get(source);
+  const hasNewCareerUrl = sourceEvidenceFields?.has('careersUrl')
+    && Boolean(incoming?.careersUrl)
+    && String(incoming.careersUrl) !== String(candidate.careersUrl || '');
+  if (candidate.traceRetryable !== true && !hasNewCareerUrl) return candidate;
+  const revived = setStatus(store, key, 'new', {
+    ...(hasNewCareerUrl ? { careersUrl: incoming.careersUrl } : {}),
+    reason: 'riscontro dopo una nuova scoperta',
+    traceRetryAt: null,
+  }, ledgerFile);
+  return revived;
+}
+
+/**
  * @param {ReturnType<typeof loadCandidates>} store
  * @param {string} [file]
  */
@@ -202,8 +388,21 @@ export function upsertCandidate(store, incoming, source) {
     rememberRejected(store, existing);
     return { key, created: false };
   }
+  if (existing && !Array.isArray(existing.sources)) existing.sources = [];
+  const sourcePreviouslySeen = Boolean(existing && (
+    existing.sources.includes(source)
+    || (isObjectMap(existing.sourceSeenAt) && Object.prototype.hasOwnProperty.call(existing.sourceSeenAt, source))
+  ));
+  // Legacy exhausted domain guesses have no evidence baseline. Save the
+  // pre-upsert snapshot before merging, so an unchanged rediscovery cannot
+  // wake the same failed guess merely by refreshing sourceSeenAt.
+  if (existing && hasExhaustedDomainResolution(existing)
+    && !isTraceEvidenceSnapshot(existing.traceLastEvidenceSnapshot)) {
+    existing.traceLastEvidenceSnapshot = traceEvidenceSnapshot(existing);
+  }
+  if (existing) recordSourceObservation(existing, source, now);
   if (!existing) {
-    store.candidates[key] = {
+    const candidate = {
       key,
       status: 'new',
       sources: [source],
@@ -211,11 +410,26 @@ export function upsertCandidate(store, incoming, source) {
       updatedAt: now,
       ...incoming,
     };
+    recordSourceObservation(candidate, source, now);
+    if (source !== 'seco') {
+      for (const field of SECO_SIGNAL_FIELDS) delete candidate[field];
+    }
+    store.candidates[key] = candidate;
     return { key, created: true };
   }
   for (const [k, v] of Object.entries(incoming)) {
     if (v === undefined || v === null || v === '') continue;
-    if (k === 'status' || k === 'sources') continue;
+    if (k === 'status' || k === 'sources' || k === 'sourceSeenAt') continue;
+    if (SECO_SIGNAL_FIELDS.has(k)) {
+      if (source === 'seco') existing[k] = v;
+      continue;
+    }
+    const sourceEvidenceFields = TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE.get(source);
+    if (TRACE_RETRY_EVIDENCE_FIELDS.includes(k)) {
+      const empty = existing[k] === undefined || existing[k] === '' || existing[k] === null;
+      if (empty || (sourcePreviouslySeen && sourceEvidenceFields?.has(k))) existing[k] = v;
+      continue;
+    }
     if (existing[k] === undefined || existing[k] === '' || existing[k] === null) existing[k] = v;
   }
   if (!existing.sources.includes(source)) existing.sources.push(source);
@@ -256,6 +470,120 @@ export function setStatus(store, key, status, patch = {}, ledgerFile = LEDGER_PA
   if (prev === 'rejected' || c.status === 'rejected') rememberRejected(store, c);
   if (prev !== c.status) appendLedger({ key, from: prev, to: c.status, at: c.updatedAt, reason: patch.reason }, ledgerFile);
   return c;
+}
+
+/**
+ * Return a promoted candidate to the retryable validation queue after a fresh
+ * run proves a non-terminal gate failure. This is intentionally narrower than
+ * `setStatus`: the normal state machine is forward-only, and no other state
+ * may be rewound by a validation result. `promoted` is the one state that
+ * represents a quality pass while still being outside production.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {string} key
+ * @param {Record<string, any>} [patch]
+ * @param {string|null} [ledgerFile]
+ * @returns {Record<string, any>|null}
+ */
+export function requeuePromotedCandidate(store, key, patch = {}, ledgerFile = LEDGER_PATH) {
+  const c = store.candidates[key];
+  if (!c || c.status !== 'promoted') return null;
+  const at = new Date().toISOString();
+  const safePatch = Object.fromEntries(
+    Object.entries(patch).filter(([name]) => name !== 'status'),
+  );
+  c.status = 'validated';
+  Object.assign(c, safePatch, { updatedAt: at });
+  appendLedger({ key, from: 'promoted', to: 'validated', at, reason: safePatch.reason }, ledgerFile);
+  return c;
+}
+
+/**
+ * Reopen a candidate only after the exact promotion PR is verified CLOSED and
+ * unmerged. This is the sole allowed rewind from `promoting`; ordinary
+ * `setStatus` stays forward-only. The closed PR remains in bounded audit
+ * history while the in-flight pointer is cleared.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {string} key
+ * @param {{ number?: string|number, state?: string, mergedAt?: string|null, closedAt?: string|null, url?: string }} pullRequest
+ * @param {string|null} [ledgerFile]
+ * @returns {Record<string, any>|null}
+ */
+export function requeueClosedPromotionCandidate(store, key, pullRequest = {}, ledgerFile = LEDGER_PATH) {
+  const candidate = store.candidates[key];
+  const associatedNumber = Number(candidate?.promotionPr);
+  const verifiedNumber = Number(pullRequest.number);
+  if (!candidate || candidate.status !== 'promoting'
+    || !Number.isSafeInteger(associatedNumber) || associatedNumber <= 0
+    || verifiedNumber !== associatedNumber
+    || pullRequest.state !== 'CLOSED'
+    || !Object.prototype.hasOwnProperty.call(pullRequest, 'mergedAt')
+    || pullRequest.mergedAt !== null) return null;
+
+  const at = new Date().toISOString();
+  const history = Array.isArray(candidate.promotionHistory) ? candidate.promotionHistory : [];
+  history.push({
+    number: String(associatedNumber),
+    state: 'CLOSED',
+    mergedAt: null,
+    closedAt: pullRequest.closedAt || null,
+    url: pullRequest.url || null,
+    observedAt: at,
+  });
+  candidate.promotionHistory = history.slice(-20);
+  candidate.status = 'promoted';
+  delete candidate.promotionPr;
+  delete candidate.promotionBranch;
+  candidate.reason = `PR ${associatedNumber} chiusa senza merge, ricandidato`;
+  candidate.updatedAt = at;
+  appendLedger({
+    key,
+    from: 'promoting',
+    to: 'promoted',
+    at,
+    reason: candidate.reason,
+  }, ledgerFile);
+  return candidate;
+}
+
+/**
+ * Reopen a rejected candidate only after an explicitly opted-in source adapter
+ * has produced a new validation entry. The adapter version is a bounded retry
+ * key: a second bad result under the same version remains terminal.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {string} key
+ * @param {string} sourceAdapterVersion
+ * @param {string|null} [ledgerFile]
+ * @returns {Record<string, any>|null}
+ */
+export function reopenRejectedCandidate(store, key, sourceAdapterVersion, ledgerFile = LEDGER_PATH) {
+  const candidate = store.candidates[key];
+  const version = String(sourceAdapterVersion || '').trim();
+  if (!candidate || candidate.status !== 'rejected' || !version) return null;
+
+  const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+  const latest = history.at(-1);
+  const previous = history.at(-2);
+  if (latest?.sourceAdapterVersion !== version
+    || previous?.sourceAdapterVersion === version
+    || candidate.reopenedSourceAdapterVersion === version) return null;
+
+  const tombstones = tombstonesFor(store);
+  if (Object.prototype.hasOwnProperty.call(tombstones, key)) {
+    delete tombstones[key];
+    TOMBSTONE_COUNTS.set(tombstones, Math.max(0, tombstoneCount(tombstones) - 1));
+  }
+
+  const at = new Date().toISOString();
+  candidate.status = 'validated';
+  candidate.updatedAt = at;
+  candidate.reason = `rivalutata con source adapter ${version}`;
+  candidate.reopenedSourceAdapterVersion = version;
+  delete candidate.rejectedAt;
+  appendLedger({ key, from: 'rejected', to: 'validated', at, reason: candidate.reason }, ledgerFile);
+  return candidate;
 }
 
 /**

@@ -1,0 +1,37 @@
+{
+  "companyKey": "sympajobs-reinach-bl",
+  "candidateKey": "sympajobs@reinach-bl",
+  "revalidateRejectedWithSourceAdapter": true,
+  "companyName": "Sympajobs AG",
+  "companyHost": "sympajobs.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://sympajobs.ch/jobs/"
+  ],
+  "listingEndpoint": {
+    "url": "https://sympajobs.ch/jm-ajax/get_listings/",
+    "method": "GET",
+    "params": {
+      "per_page": "100",
+      "orderby": "date",
+      "order": "DESC",
+      "show_pagination": "true"
+    },
+    "maxPages": 50
+  },
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 2,
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "Schreinermonteur m/w",
+    "Plattenleger (M/W/D)",
+    "Dachdecker m/w",
+    "Reinigungsmitarbeiter/-in 20-100%",
+    "Gipser/in (w/m)"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-15T00:00:00.000Z"
+}

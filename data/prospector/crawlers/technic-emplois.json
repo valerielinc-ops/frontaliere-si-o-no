@@ -1,0 +1,24 @@
+{
+  "companyKey": "technic-emplois",
+  "companyName": "Technic Emplois SA",
+  "companyHost": "technic-emplois.ch",
+  "platform": "jobup.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://technic-emplois.ch/offre-demploi/",
+    "https://blog.jobeo.ch/technicemploi/",
+    "https://www.jobup.ch/fr/emplois/?term=Technic%20Emplois%20SA"
+  ],
+  "allowedDetailOrigins": [
+    "https://jobeo.ch",
+    "https://www.jobeo.ch",
+    "https://jobup.ch",
+    "https://www.jobup.ch"
+  ],
+  "detailTemplate": "/fr/emplois/detail/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 2,
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-15T00:00:00.000Z"
+}

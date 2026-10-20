@@ -49,6 +49,10 @@ on:
         description: 'Dry run (no commit)'
         type: boolean
         default: false
+      collect_company_served:
+        description: 'Collect raw companyServed rows for the translation-thinking-ab measurement'
+        type: boolean
+        default: false
 
 concurrency:
   group: jobs-data-pipeline
@@ -69,6 +73,12 @@ env:
   # times per run, so give Node headroom above its ~4GB implicit default
   # while leaving ~4GB for the OS/git/npm subprocesses (issue #3767 OOM).
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288'
+  # The existing thinking A/B remains opt-in: data collection must not change
+  # the scheduled translation behavior unless a caller explicitly asks for it.
+  TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
+  # Same as translate-pending-logic.yml: held agency jobs must stay visible to
+  # Phase 2b in data/jobs.json (scripts/lib/translation-publication-hold.mjs).
+  JOBS_INCLUDE_TRANSLATION_HELD: '1'
 
 jobs:
   translate:
@@ -93,12 +103,12 @@ jobs:
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 50
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -108,7 +118,7 @@ jobs:
 
       - name: Restore per-company translation cache
         id: translation_cache_restore
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
@@ -132,12 +142,17 @@ jobs:
       # IT/EN/DE/FR directions). First run downloads from the HF CDN once (~minutes,
       # one-time); cached runs reuse them so the in-cascade local tier pays no
       # cold-start. Mirrors the embedding-build workflows' .cache/transformers cache.
-      - name: Cache Opus-MT models
-        uses: actions/cache@v5
+      # Same directory also holds the ~470MB e5 model of the Argos semantic gate;
+      # the old immutable key never re-saved it (#9677). See
+      # translate-pending-logic.yml for the full note.
+      - name: Cache local MT models (Opus-MT + e5 semantic judge)
+        uses: actions/cache@v6
         with:
           path: .cache/transformers
-          key: opus-mt-models-v1
-          restore-keys: opus-mt-models-
+          key: local-mt-models-v2-opus-e5
+          restore-keys: |
+            local-mt-models-
+            opus-mt-models-
 
       # Cache the installed Argos Translate packages (it/en/de/fr <-> en, ~a few
       # hundred MB total). install_models() in local-mt-translate.py downloads
@@ -147,7 +162,7 @@ jobs:
       # cache hit just skips the network transfer; a cache miss falls through to
       # the existing retry logic unchanged.
       - name: Cache Argos Translate models
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.local/share/argos-translate/packages
           key: argos-translate-models-v1
@@ -203,9 +218,9 @@ jobs:
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true
         run: |
-          python3 -m pip install --quiet --upgrade pip
+          python3 -m pip install --quiet --upgrade pip==26.2.1
           # argostranslate pulls ctranslate2 + sentencepiece (the int8 CPU runtime).
-          python3 -m pip install --quiet argostranslate
+          python3 -m pip install --quiet argostranslate==1.11.0
           # Download the it/en/de/fr xx<->en packages once (Argos pivots the cross
           # pairs through English). Idempotent + retried inside the script.
           python3 scripts/local-mt-translate.py --install
@@ -225,6 +240,12 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          # Argos semantic gate rollout (#9677): bounded repair enabled by
+          # default; set the repo variable to '0' for an immediate shadow rollback.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
+          LOCAL_MT_SEMANTIC_CANDIDATES_PATH: ${{ runner.temp }}/local-mt-semantic-candidates-phase-2a.json
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
@@ -367,6 +388,15 @@ jobs:
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/log-translation-stats.mjs after
 
+      - name: Upload translation thinking A/B observations
+        if: always() && inputs.collect_company_served == true && inputs.skip_translate != true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}.json
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: error
+
       - name: Scatter changes back to per-crawler slices
         # always()-guarded so partial work is scattered to per-crawler slices for
         # the commit step even if the translate step errored or was cut short by
@@ -405,11 +435,29 @@ jobs:
           # local-mt-translate.py flushes each request's JSONL as soon as its units
           # resolve, and the mop-up parses + commits the partial stdout (timedOut branch).
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          # Argos semantic gate rollout (#9677): bounded repair enabled by
+          # default; set the repo variable to '0' for an immediate shadow rollback.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
+          LOCAL_MT_SEMANTIC_CANDIDATES_PATH: ${{ runner.temp }}/local-mt-semantic-candidates-phase-2c.json
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         # --max-jobs is DECOUPLED from the `max_jobs` input (which caps the quota-bound
         # cascade). Argos is free + unlimited, so the mop-up drains whatever remains.
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+
+      - name: Upload Argos semantic telemetry
+        if: always() && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: local-mt-semantic-telemetry-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
+            ${{ runner.temp }}/local-mt-semantic-candidates-*.json
+          retention-days: 30
+          if-no-files-found: warn
 
       - name: Commit translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
@@ -434,32 +482,50 @@ jobs:
       # Phase 2c REMOVED — descriptions are at 0 source copies.
       # If new crawlers add untranslated descriptions, Phase 2 (AI) handles them.
 
+      # Same as translate-pending-logic.yml: release translated agency jobs.
+      - name: Release translated agency jobs held for translation
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        continue-on-error: true
+        run: node scripts/release-translation-holds.mjs
+
       # ── Phase 3: Regenerate slugs from translated titles ──────────────────
       # Safe replacement for hardenJobLocaleFields (which was destructive:
       # re-translated titles, contaminated EN/DE/FR with Italian, set needsRetranslation).
       # This script ONLY regenerates slugByLocale from existing titleByLocale.
       # It NEVER modifies titles, descriptions, or needsRetranslation.
       - name: "Phase 3: Regenerate locale slugs"
+        id: slug_regeneration
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
         run: node scripts/regenerate-slugs-by-locale.mjs
 
+      - name: Upload slug regeneration proof
+        id: slug_regeneration_proof
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: slug-regeneration-proof-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/slug-regeneration-proof.json
+          retention-days: 14
+          if-no-files-found: error
+
       - name: Commit slug regeneration
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        id: commit_slug_regeneration
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         env:
           SKIP_AI_TRANSLATION: '1'
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
 
       - name: Save per-company translation cache
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         continue-on-error: true
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
 
       # ── Phase 4: Validate + Deploy ──────────────────────────────────────
       - name: Trigger deploy
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.commit_slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         run: |
           if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
             echo "✅ All translations complete — triggering deploy"

@@ -12,6 +12,7 @@ import {
   fetchAllLeukerbadClinicJobs,
   isLeukerbadClinicJob,
   isTrustedDomain,
+  leukerbadClinicMatchKey,
   LEUKERBAD_CLINIC_KEY,
   LEUKERBAD_CLINIC_COMPANY_NAME,
 } from './lib/leukerbad-clinic-job-parser.mjs';
@@ -26,6 +27,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllLeukerbadClinicJobs,
   isCompanyJob: isLeukerbadClinicJob,
   isTrustedDomain,
+  matchKey: leukerbadClinicMatchKey,
   defaultSourceLang: 'fr',
 }).catch((err) => {
   console.error(`❌ Leukerbad Clinic crawler failed: ${err?.message || err}`);

@@ -1,13 +1,17 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   HIRSLANDEN_KEY,
   HIRSLANDEN_COMPANY_NAME,
   isHirslandenJob,
   isTrustedDomain,
+  parseLocation,
   parseSearchResults,
   parseDetailPage,
   descriptionBodyToMarkdown,
   resolveHirslandenLocation,
+  resolveHirslandenCanton,
+  fetchAllHirslandenJobs,
+  hirslandenReferenceNumber,
 } from '../scripts/lib/hirslanden-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -266,6 +270,16 @@ describe('Hirslanden Klinik crawler parser', () => {
       expect(d?.applyUrl).toContain('/talentcommunity/apply/66992/');
     });
 
+    it('reads the employer publication timestamp from SuccessFactors JobPosting microdata', () => {
+      const d = parseDetailPage(`
+        <div itemscope itemtype="http://schema.org/JobPosting">
+          <meta itemprop="datePosted" content="Sun Oct 11 02:00:00 UTC 2026">
+        </div>
+        <h1>Rolle</h1>
+      `);
+      expect(d?.postedDate).toBe('2026-10-11T02:00:00Z');
+    });
+
     it('returns null for empty/invalid input', () => {
       expect(parseDetailPage('')).toBeNull();
       expect(parseDetailPage(null)).toBeNull();
@@ -324,5 +338,150 @@ describe('Hirslanden Klinik crawler parser', () => {
     it('passes garbage through unchanged when the listing city is not known either (fully unresolvable — caller skips it)', () => {
       expect(resolveHirslandenLocation('Besetzung per: 1. Oktober 2026', '')).toBe('Besetzung per: 1. Oktober 2026');
     });
+  });
+
+  describe('resolveHirslandenCanton', () => {
+    it('uses the listing locality instead of a facility name legal suffix', () => {
+      expect(resolveHirslandenCanton({
+        listingCity: 'Zumikon',
+        detailRegion: 'Zürich',
+        facility: 'Hirslanden OPERA Zumikon AG',
+      })).toBe('ZH');
+    });
+
+    it('fails closed when structured locality and region disagree', () => {
+      expect(resolveHirslandenCanton({
+        listingCity: 'Zumikon',
+        detailRegion: 'Aargau',
+        facility: 'Hirslanden OPERA Zumikon AG',
+      })).toBe('');
+    });
+
+    it('does not infer a canton from an ambiguous facility-only label', () => {
+      expect(resolveHirslandenCanton({ facility: 'Hirslanden OPERA Zumikon AG' })).toBe('');
+    });
+  });
+
+  it('does not invent a Zürich locality when the listing source is empty', () => {
+    expect(parseLocation('')).toEqual({ city: '', postalCode: '' });
+  });
+});
+
+// Only the posting's own text is published (issue 5253). A detail page without
+// a vacancy body used to be published with an invented group summary ("{title}
+// bei der Hirslanden-Klinik in {city}. Die Hirslanden-Gruppe ist mit 17
+// Privatkliniken …"); such a listing is not published any more. Shapes
+// minimised from careers.mediclinic.com/Hirslanden (2026-09-29).
+describe('fetchAllHirslandenJobs — listing without a vacancy body', () => {
+  it('publishes the posting with a body and skips the one without, never inventing text', async () => {
+    const body = Array.from({ length: 12 }, (_, i) => `<p>Aufgabe ${i + 1}: Du betreust Patientinnen und Patienten auf der Station mit viel Herz.</p>`).join('');
+    const searchHtml = `<table>
+      <tr><td><a href="/Hirslanden/job/Zuerich-Pflegefachfrau/1123876301/">Dipl. Pflegefachfrau / Pflegefachmann (a) 80-100%</a></td><td>Zürich, ZH, CH</td><td>29.09.2026</td></tr>
+      <tr><td><a href="/Hirslanden/job/Zuerich-Fachfrau-Gesundheit/1123876302/">Fachfrau / Fachmann Gesundheit (a) 80-100%</a></td><td>Zürich, ZH, CH</td><td>29.09.2026</td></tr>
+    </table>`;
+    const detailHtml = (inner: string) => `<html><body><span itemprop="description">${inner}</span></body></html>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      text: async () => {
+        if (url.includes('/Hirslanden/search')) return searchHtml;
+        if (url.includes('1123876301')) return detailHtml(body);
+        return detailHtml('<p>Jetzt bewerben</p>');
+      },
+    })));
+    try {
+      const jobs = await fetchAllHirslandenJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].title).toBe('Dipl. Pflegefachfrau / Pflegefachmann (a) 80-100%');
+      expect(jobs[0].externalId).toBe('1123876301');
+      expect(jobs[0].description).toContain('Aufgabe 12: Du betreust Patientinnen');
+      expect(jobs[0].description).not.toMatch(/Die Hirslanden-Gruppe ist mit 17 Privatkliniken/);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+  it('propagates a detail-page datePosted when the listing tile has no date', async () => {
+    const body = Array.from({ length: 12 }, (_, i) => `<p>Attività ${i + 1}: assistenza clinica e collaborazione con il team.</p>`).join('');
+    const searchHtml = `<table>
+      <tr><td><a href="/Hirslanden/job/Bern-Pflegefachfrau/1123876310/">Dipl. Pflegefachfrau</a></td><td>Bern, CH, 3000</td><td></td></tr>
+    </table>`;
+    const detailHtml = `<html><body>
+      <div itemscope itemtype="http://schema.org/JobPosting"><meta itemprop="datePosted" content="Sun Oct 11 02:00:00 UTC 2026"></div>
+      <span itemprop="description">${body}</span>
+    </body></html>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      text: async () => url.includes('/Hirslanden/search') ? searchHtml : detailHtml,
+    })));
+    try {
+      const jobs = await fetchAllHirslandenJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        datePosted: '2026-10-11T02:00:00Z',
+        postedDate: '2026-10-11T02:00:00Z',
+        postingDateSource: 'reported',
+      });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+});
+
+// 2026-09-29: Hirslanden publishes one advertisement under two SuccessFactors
+// job ids — a re-post (Referenznummer 43018: 1123876301 and 1124147801) or
+// the French version of a Biel posting (70053: 1391700433 and 1391700533).
+// The ad prints its own Referenznummer: the same number is one advertisement.
+describe('Hirslanden — one page per Referenznummer', () => {
+  it('reads the Referenznummer from the German and the French header', () => {
+    const de = 'Arbeitsort: Hirslanden Salem-Spital | Bern\n\nBesetzung per: nach Vereinbarung\n\nAnstellungsart: Unbefristet\n\nReferenznummer: 43018\n\nAls grösstes medizinisches Netzwerk der Schweiz';
+    const fr = "Lieu du travail: Hirslanden Klinik Linde | Biel / Bienne Occupation par: Selon accordType d'emploi: À durée déterminée Numéro de référence: 70053\n\nEn tant que plus grand réseau médical de Suisse";
+    expect(hirslandenReferenceNumber({ sourceLang: 'de', descriptionByLocale: { de } })).toBe('43018');
+    expect(hirslandenReferenceNumber({ sourceLang: 'fr', description: fr })).toBe('70053');
+    expect(hirslandenReferenceNumber({ description: 'Arbeitsort: Klinik Hirslanden | Zürich' })).toBe('');
+  });
+
+  it('keeps one page for the French and German versions of one Biel ad (Referenznummer 70053)', async () => {
+    const { dropSameSourceReference } = await import('../scripts/lib/identical-posting-dedupe.mjs');
+    const de = {
+      sourceLang: 'de',
+      title: 'Dipl. Hebamme (a) 50-100% - Befristete Anstellung',
+      description: 'Arbeitsort: Hirslanden Klinik Linde | Biel / Bienne\n\nBesetzung per: nach Vereinbarung\n\nAnstellungsart: Befristet\n\nReferenznummer: 70053\n\nAls grösstes medizinisches Netzwerk der Schweiz',
+      url: 'https://careers.mediclinic.com/Hirslanden/job/Biel-Dipl_-Hebamme/1391700433/',
+    };
+    const fr = {
+      sourceLang: 'fr',
+      title: 'Sage-femme diplômée (a) 50-100% - À durée déterminée',
+      description: "Lieu du travail: Hirslanden Klinik Linde | Biel / Bienne Occupation par: Selon accordType d'emploi: À durée déterminée Numéro de référence: 70053\n\nEn tant que plus grand réseau médical de Suisse",
+      url: 'https://careers.mediclinic.com/Hirslanden/job/Biel-Sage-femme-diplomee/1391700533/',
+    };
+    const { jobs, dropped } = dropSameSourceReference([fr, de], hirslandenReferenceNumber);
+    expect(jobs).toEqual([de]);
+    expect(dropped).toEqual([fr]);
+  });
+
+  it('publishes one posting per Referenznummer, the one with the lowest job id', async () => {
+    const tasks = Array.from({ length: 12 }, (_, i) => `<p>Aufgabe ${i + 1}: Du betreust Patientinnen und Patienten auf der Station mit viel Herz.</p>`).join('');
+    const searchHtml = `<table>
+      <tr><td><a href="/Hirslanden/job/Bern-Pflegefachfrau/1124147801/">Dipl. Pflegefachfrau / Pflegefachmann (a) 20-100%</a></td><td>Bern, BE, CH</td><td>29.09.2026</td></tr>
+      <tr><td><a href="/Hirslanden/job/Bern-Pflegefachfrau/1123876301/">Dipl. Pflegefachfrau / Pflegefachmann (a) 20-100%</a></td><td>Bern, BE, CH</td><td>29.09.2026</td></tr>
+      <tr><td><a href="/Hirslanden/job/Zuerich-Fachfrau-Gesundheit/1100000001/">Fachfrau / Fachmann Gesundheit (a) 80-100%</a></td><td>Zürich, ZH, CH</td><td>29.09.2026</td></tr>
+    </table>`;
+    const detailHtml = (reference: string) => `<html><body><span itemprop="description"><p>Referenznummer: ${reference}</p>${tasks}</span></body></html>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      text: async () => {
+        if (url.includes('/Hirslanden/search')) return searchHtml;
+        return detailHtml(url.includes('1100000001') ? '68021' : '43018');
+      },
+    })));
+    try {
+      const jobs = await fetchAllHirslandenJobs();
+      expect(jobs.map((job: { url: string }) => job.url.match(/\/(\d+)\/?$/)?.[1]).sort()).toEqual(['1100000001', '1123876301']);
+      expect(jobs.find((job: { url: string }) => job.url.endsWith('/1123876301/'))).toMatchObject({ externalId: '1123876301' });
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });

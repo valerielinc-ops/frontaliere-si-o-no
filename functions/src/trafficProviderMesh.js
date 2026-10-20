@@ -8,7 +8,13 @@
  * job already publishes that counter under `meta/hereTransactionBudget`.
  */
 
-import admin from 'firebase-admin';
+import {
+ applicationDefault,
+ getApps,
+ initializeApp,
+} from 'firebase-admin/app';
+import { getFirestore, Timestamp } from 'firebase-admin/firestore';
+import { HERE_MONTHLY_FREE_TIER_BUDGET } from './lib/hereBudget.js';
 
 const GOOGLE_ROUTES_URL = 'https://routes.googleapis.com/directions/v2:computeRoutes';
 const MAPBOX_DIRECTIONS_URL = 'https://api.mapbox.com/directions/v5/mapbox/driving-traffic';
@@ -17,6 +23,180 @@ const GRAPHHOPPER_ROUTING_URL = 'https://graphhopper.com/api/1/route';
 const OPENROUTESERVICE_ROUTING_URL = 'https://api.heigit.org/openrouteservice/v2/directions/driving-car';
 const STADIA_ROUTING_URL = 'https://api.stadiamaps.com/route/v1';
 const REQUEST_TIMEOUT_MS = 12_000;
+
+// A webcam wait estimate is not publishable merely because a score exists.
+// These are the fail-closed acceptance limits for the shadow benchmark. The
+// three-feed floor is deliberately small and explicit; the error limits keep
+// a convenient-looking but inaccurate mapping out of the live consumer.
+export const WEBCAM_BASELINE_MIN_FEEDS = 3;
+export const WEBCAM_BASELINE_MIN_PAIRS = 3;
+export const WEBCAM_BASELINE_MIN_COVERAGE = 0.8;
+export const WEBCAM_BASELINE_MAX_MAE_MINUTES = 5;
+export const WEBCAM_BASELINE_MAX_ABSOLUTE_ERROR_MINUTES = 10;
+export const WEBCAM_WAIT_CAP_MINUTES = 30;
+
+const WEBCAM_BASELINE_PROVIDERS = new Set(['tomtom', 'here']);
+
+function finiteNumber(value) {
+  return typeof value === 'number' && Number.isFinite(value) ? value : null;
+}
+
+function validObservedAt(value) {
+  return typeof value === 'string' && Number.isFinite(Date.parse(value));
+}
+
+function validBaselinePair(row) {
+  const score = finiteNumber(row?.congestionScore);
+  const vehicleCount = finiteNumber(row?.vehicleCount);
+  const providerWaitMinutes = finiteNumber(row?.providerWaitMinutes);
+  return typeof row?.feedKey === 'string'
+    && row.feedKey.trim().length > 0
+    && WEBCAM_BASELINE_PROVIDERS.has(row.provider)
+    && score !== null
+    && score >= 0
+    && score <= 1
+    && vehicleCount !== null
+    && vehicleCount >= 0
+    && providerWaitMinutes !== null
+    && providerWaitMinutes >= 0
+    && validObservedAt(row.observedAt)
+    && row.incrementalPaidRequests === 0;
+}
+
+/**
+ * Assess the raw shadow rows before an estimator can be promoted.
+ *
+ * This is intentionally pure and does not infer missing fields. A row without
+ * a feed identity, vehicle count, provider wait, timestamp, or explicit zero
+ * incremental paid requests is not a usable pair. `candidateWaitMinutes` is
+ * supplied by the offline benchmark for accuracy measurement; production
+ * shadow rows never invent it.
+ */
+export function assessWebcamWaitBaseline(observations) {
+  const rows = Array.isArray(observations) ? observations : [];
+  const pairs = rows.filter(validBaselinePair);
+  const feedKeys = new Set(pairs.map((row) => row.feedKey.trim()));
+  const coverage = rows.length === 0 ? 0 : pairs.length / rows.length;
+  const incrementalPaidRequests = rows.every(
+    (row) => Number.isSafeInteger(row?.incrementalPaidRequests),
+  )
+    ? rows.reduce((sum, row) => sum + row.incrementalPaidRequests, 0)
+    : null;
+  const candidatePairs = pairs.filter((row) => {
+    const candidate = finiteNumber(row.candidateWaitMinutes);
+    return candidate !== null && candidate >= 0;
+  });
+  const absoluteErrors = candidatePairs.map((row) => Math.abs(
+    row.candidateWaitMinutes - row.providerWaitMinutes,
+  ));
+  const maeMinutes = absoluteErrors.length > 0
+    ? absoluteErrors.reduce((sum, error) => sum + error, 0) / absoluteErrors.length
+    : null;
+  const maxAbsoluteErrorMinutes = absoluteErrors.length > 0
+    ? Math.max(...absoluteErrors)
+    : null;
+  const reasons = [];
+
+  if (feedKeys.size < WEBCAM_BASELINE_MIN_FEEDS) {
+    reasons.push(`requires at least ${WEBCAM_BASELINE_MIN_FEEDS} distinct feed keys`);
+  }
+  if (pairs.length < WEBCAM_BASELINE_MIN_PAIRS) {
+    reasons.push(`requires at least ${WEBCAM_BASELINE_MIN_PAIRS} valid webcam/provider pairs`);
+  }
+  if (coverage < WEBCAM_BASELINE_MIN_COVERAGE) {
+    reasons.push(`pair coverage ${coverage.toFixed(3)} is below ${WEBCAM_BASELINE_MIN_COVERAGE}`);
+  }
+  if (incrementalPaidRequests !== 0) {
+    reasons.push('baseline collection must add zero paid provider requests');
+  }
+  if (candidatePairs.length !== pairs.length) {
+    reasons.push('candidate accuracy is not measured for every valid pair');
+  }
+  if (maeMinutes !== null && maeMinutes > WEBCAM_BASELINE_MAX_MAE_MINUTES) {
+    reasons.push(`mean absolute error ${maeMinutes.toFixed(3)} exceeds ${WEBCAM_BASELINE_MAX_MAE_MINUTES} minutes`);
+  }
+  if (
+    maxAbsoluteErrorMinutes !== null
+    && maxAbsoluteErrorMinutes > WEBCAM_BASELINE_MAX_ABSOLUTE_ERROR_MINUTES
+  ) {
+    reasons.push(
+      `maximum absolute error ${maxAbsoluteErrorMinutes.toFixed(3)} exceeds `
+      + `${WEBCAM_BASELINE_MAX_ABSOLUTE_ERROR_MINUTES} minutes`,
+    );
+  }
+
+  return {
+    ready: reasons.length === 0,
+    reasons,
+    metrics: {
+      rows: rows.length,
+      validPairs: pairs.length,
+      feedCount: feedKeys.size,
+      coverage,
+      providers: [...new Set(pairs.map((row) => row.provider))].sort(),
+      incrementalPaidRequests,
+      candidatePairs: candidatePairs.length,
+      maeMinutes,
+      maxAbsoluteErrorMinutes,
+    },
+  };
+}
+
+function validWebcamWaitCalibration(calibration) {
+  const feedCount = finiteNumber(calibration?.feedCount);
+  const coverage = finiteNumber(calibration?.coverage);
+  const maeMinutes = finiteNumber(calibration?.maeMinutes);
+  const maxAbsoluteErrorMinutes = finiteNumber(calibration?.maxAbsoluteErrorMinutes);
+  const intercept = finiteNumber(calibration?.intercept);
+  const slope = finiteNumber(calibration?.slope);
+  const capMinutes = finiteNumber(calibration?.capMinutes ?? WEBCAM_WAIT_CAP_MINUTES);
+  return calibration?.validated === true
+    && feedCount !== null
+    && feedCount >= WEBCAM_BASELINE_MIN_FEEDS
+    && coverage !== null
+    && coverage >= WEBCAM_BASELINE_MIN_COVERAGE
+    && maeMinutes !== null
+    && maeMinutes <= WEBCAM_BASELINE_MAX_MAE_MINUTES
+    && maxAbsoluteErrorMinutes !== null
+    && maxAbsoluteErrorMinutes <= WEBCAM_BASELINE_MAX_ABSOLUTE_ERROR_MINUTES
+    && calibration.incrementalPaidRequests === 0
+    && intercept !== null
+    && intercept >= 0
+    && slope !== null
+    && slope >= 0
+    && capMinutes !== null
+    && capMinutes >= 0
+    && capMinutes <= WEBCAM_WAIT_CAP_MINUTES;
+}
+
+/**
+ * Return a calibrated wait estimate, or an explicit unknown result.
+ *
+ * No calibration is checked into production by this change: until the shadow
+ * benchmark supplies a validated model, the scheduler keeps its existing
+ * fallback and does not publish this new estimate.
+ */
+export function estimateWebcamWait(congestionScore, calibration = null) {
+  const score = finiteNumber(congestionScore);
+  if (score === null || score < 0 || score > 1) {
+    return { status: 'unknown', waitTimeMinutes: null, reason: 'no-signal' };
+  }
+  if (!validWebcamWaitCalibration(calibration)) {
+    return { status: 'unknown', waitTimeMinutes: null, reason: 'baseline-not-validated' };
+  }
+  const raw = calibration.intercept + calibration.slope * score;
+  if (!Number.isFinite(raw)) {
+    return { status: 'unknown', waitTimeMinutes: null, reason: 'invalid-calibration' };
+  }
+  return {
+    status: 'estimated',
+    waitTimeMinutes: Math.min(
+      calibration.capMinutes ?? WEBCAM_WAIT_CAP_MINUTES,
+      Math.max(0, Math.round(raw)),
+    ),
+    reason: null,
+  };
+}
 
 // Every route/flow request reserves its unit in its own Firestore transaction
 // against ONE document per provider, and the collector fires a whole batch
@@ -107,8 +287,8 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
             // compatible with its legacy `month` field via the read fallback.
             documentId: 'hereTransactionBudget',
             budgetEnv: 'HERE_MONTHLY_BUDGET',
-            defaultBudget: 4_000,
-            safeMaximum: 4_500,
+            defaultBudget: HERE_MONTHLY_FREE_TIER_BUDGET,
+            safeMaximum: HERE_MONTHLY_FREE_TIER_BUDGET,
           }),
         ],
       }),
@@ -195,6 +375,11 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
     key: 'graphhopperApiKey',
     quotas: Object.freeze({
       route: quotaOperation({
+        // The free GraphHopper key used by the collector is credit-limited per
+        // minute as well as per day. Keep one route reservation at least 3s
+        // apart (~20 one-credit routes/minute) so the provider never sees the
+        // 3-crossing × 2-segment burst that caused the recurring 429.
+        rateLimit: { maxPerMinute: 20, minIntervalMs: 3_000 },
         limits: [quotaLimit({
           period: 'day',
           quotaScope: 'graphhopper',
@@ -204,8 +389,10 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
         })],
       }),
     }),
-    batchSize: 3,
-    batchDelayMs: 500,
+    // Static routing needs one segment only (the second segment has no live
+    // delay to measure), and the shared reservation cadence serializes calls.
+    batchSize: 1,
+    batchDelayMs: 0,
     trafficAware: false,
   }),
   stadia: Object.freeze({
@@ -367,8 +554,7 @@ export function computeProviderBudgetDecision({
 }
 
 function ensureAdminApp() {
-  if (!admin.apps.length) admin.initializeApp({ credential: admin.credential.applicationDefault() });
-  return admin;
+  if (!getApps().length) initializeApp({ credential: applicationDefault() });
 }
 
 /**
@@ -393,8 +579,8 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
   if (!Number.isSafeInteger(requestedUnits) || requestedUnits <= 0) {
     return { allowed: false, reason: 'invalid-units', provider: providerId, operation };
   }
-  const adm = ensureAdminApp();
-  const db = adm.firestore();
+  ensureAdminApp();
+  const db = getFirestore();
   const quotaRefs = quota.limits.map((limit) => ({
     limit,
     ref: db.collection('meta').doc(limit.documentId ?? `trafficProviderQuota-${limit.quotaScope}`),
@@ -502,7 +688,7 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
         count: failed.decision.count,
       };
     }
-    const updatedAt = adm.firestore.Timestamp.now();
+    const updatedAt = Timestamp.now();
     for (const [index, item] of decisions.entries()) {
       tx.set(quotaRefs[index].ref, {
         provider: providerId,
@@ -584,7 +770,7 @@ export function isProviderQuotaError(error) {
  * document. `rate-limit` is a per-provider minimum interval that carries its
  * own `retryAfterMs`. Treating either as account-wide is what turned three
  * aborted transactions into a 5.6-hour outage on 2026-09-18: mapbox — the only
- * provider that actually serves all 141 crossings — was banned mid-run and the
+ * provider that actually served the paid-monitored crossing set — was banned mid-run and the
  * mesh collapsed onto its misconfigured fallbacks.
  */
 export const TRANSIENT_RESERVATION_REASONS = Object.freeze(['quota-check-failed', 'rate-limit']);
@@ -769,7 +955,7 @@ async function getOpenRouteServiceTimes(originLat, originLng, destLat, destLng, 
  * JSON body. The original adapter called it OSRM-style — a GET on
  * `/route/v1/driving/{lng,lat;lng,lat}` — which is not a route on that host and
  * answered `HTTP 404` with an empty body on EVERY segment since the provider
- * was added. It was the final error for 45 of the 141 crossings in run
+ * was added. It was the final error for 45 crossings in run
  * 35358498994, and its 20-credit reservation was spent on each of those 404s.
  *
  * Both response shapes are accepted: `trip.summary.time` is the native reply,

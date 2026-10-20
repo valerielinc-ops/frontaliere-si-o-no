@@ -8,6 +8,7 @@
  *   Career page: https://www.wysshoelzli.ch/jobs-karriere
  *   PDF folder:  /uploads/Stelleninserate/*.pdf
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -44,11 +45,19 @@ import {
   KLINIK_WYSSHOLZLI_COMPANY_NAME,
   KLINIK_WYSSHOLZLI_COMPANY_DOMAIN,
   KLINIK_WYSSHOLZLI_CAREERS_URL,
+  KLINIK_WYSSHOLZLI_FABRICATED_DESCRIPTION_RE,
 } from './lib/klinik-wyssholzli-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import {
+  dropUnreadableSourceJobsWithoutValidBody,
+  keepStoredSourceBodiesByKey,
+} from './lib/stored-source-body.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './lib/source-body-failure.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -147,9 +156,24 @@ function jobMatchKey(job = {}) {
   );
 }
 
+function urlKey(job = {}) {
+  return String(job?.url || '').trim().replace(/\/+$/, '');
+}
+
+/** Stored postings of this crawler, without text the crawler once invented. */
+function readStoredTargetJobs() {
+  return dropFabricatedDescriptions(
+    readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    KLINIK_WYSSHOLZLI_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
+}
+
 function buildJob({ title, pdfUrl, pdfText, filename }) {
   const slug = slugify(`${title}-${COMPANY_KEY}`);
-  const description = buildKlinikWysshholzliDescription({ title, pdfText, pdfUrl }).description;
+  // The PDF text is keyed by its own language.
+  const sourceLang = detectLang(`${title} ${pdfText}`, 'de');
+  const description = buildKlinikWysshholzliDescription({ title, pdfText }).description;
   return {
     title,
     slug,
@@ -170,25 +194,30 @@ function buildJob({ title, pdfUrl, pdfText, filename }) {
     employmentType: 'full-time',
     contractType: 'full-time',
     source: `${COMPANY_KEY}-dedicated-crawler`,
-    sourceLang: detectLang(`${title} ${pdfText}`, 'de'),
-    postedDate: new Date().toISOString().slice(0, 10),
+    sourceLang,
+    ...sourcePostingDateFields(),
     validThrough: '',
     needsRetranslation: true,
     description,
-    titleByLocale: { de: title },
-    descriptionByLocale: { de: description },
-    slugByLocale: { de: slug },
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: description },
+    slugByLocale: { [sourceLang]: slug },
     _meta: { sourceFilename: filename },
   };
 }
 
-async function mergeJobs(discoveredJobs) {
+async function mergeJobs(discoveredJobs, parsedJobs = discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
-  const existingTarget = existing.filter(isTargetJob);
+  const existingTarget = readStoredTargetJobs();
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
-  const mergedTarget = mergePreserveLocaleData(existingTarget, discoveredJobs);
+  // A posting whose PDF gave no usable body this run (failed or image-only)
+  // is in discoveredJobs only with a stored body over the floor. Without one,
+  // the merge's grace retention must not re-add the stored row: its body is
+  // under the floor too, so it would go out empty.
+  const mergeExistingTarget = dropUnreadableSourceJobsWithoutValidBody(existingTarget, parsedJobs, urlKey);
+  const mergedTarget = mergePreserveLocaleData(mergeExistingTarget, discoveredJobs);
   for (const job of mergedTarget) {
     job.needsRetranslation = true;
   }
@@ -231,7 +260,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -264,9 +293,10 @@ function validateLocales() {
   });
 }
 
-async function main() {
+export async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'Klinik Wysshölzli');
+  const summaryCounts = { sourceBodyFailures: [] };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Klinik Wysshölzli', summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Klinik Wysshölzli — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
@@ -279,32 +309,67 @@ async function main() {
     throw new Error('Klinik Wysshölzli discovery returned 0 PDF jobs.');
   }
 
-  const discoveredJobs = [];
+  // A posting whose PDF cannot be read this run is a degraded source, handled
+  // like the other PDF crawlers (Locarno, Bellinzona, FART): it is marked with
+  // the source-body failure reason, keeps the body stored from an earlier
+  // read of the same PDF, is left out of this run only when no stored body
+  // exists, and is listed in the summary slice either way. It used to abort
+  // the whole crawler, so one transient read failure (all five PDFs answered
+  // HTTP 415 to the CI egress, run corpus 36989251899) failed crawler group 20.
+  const parsedJobs = [];
+  const sourceBodyFailures = [];
   for (const listing of listings) {
     console.log(`  📄 Extracting PDF: ${listing.filename}`);
     const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl);
-    if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
-    const pdfText = pdf.text || '';
-    if (!pdfText) {
-      console.warn(`     ⚠️ Empty PDF text — skipping ${listing.filename}`);
-      continue;
-    }
-    discoveredJobs.push(
-      buildJob({
+    if (pdf.proxiedBy) console.log(`     ↪︎ read through ${pdf.proxiedBy} (direct HTTP ${pdf.httpStatus})`);
+    // A PDF without a text layer (pdf.thin) leaves the same gap as a failed
+    // read: both are listed as a degraded source, as ECAM does.
+    const pdfFailed = Boolean(pdf.extractionFailed || pdf.error || pdf.thin);
+    if (pdfFailed) {
+      const message = pdf.error || pdf.warning || 'PDF extraction failed';
+      console.warn(`     ⚠️ PDF error: ${message}`);
+      sourceBodyFailures.push({
         title: listing.titleFromFilename,
-        pdfUrl: listing.pdfUrl,
-        pdfText,
-        filename: listing.filename,
-      })
+        url: listing.pdfUrl,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message,
+      });
+    }
+    const job = buildJob({
+      title: listing.titleFromFilename,
+      pdfUrl: listing.pdfUrl,
+      pdfText: pdfFailed ? '' : (pdf.text || ''),
+      filename: listing.filename,
+    });
+    if (pdfFailed) {
+      job.sourceBodyFailureReason = SOURCE_BODY_FAILURE_REASON;
+      job.sourceBodyFailureMessage = sourceBodyFailures.at(-1).message;
+    }
+    parsedJobs.push(job);
+  }
+  summaryCounts.sourceBodyFailures = sourceBodyFailures;
+
+  const discoveredJobs = keepStoredSourceBodiesByKey(parsedJobs, readStoredTargetJobs(), urlKey);
+  const freshBodyByKey = new Map(parsedJobs.map((job) => [urlKey(job), job.description]));
+  const keptStored = discoveredJobs.filter((job) => job.description !== freshBodyByKey.get(urlKey(job))).length;
+  if (keptStored > 0) {
+    console.warn(`  ⚠️ ${keptStored} posting(s) keep the source body stored from an earlier read of the same PDF.`);
+  }
+  if (discoveredJobs.length < parsedJobs.length) {
+    console.warn(
+      `  ⚠️ ${parsedJobs.length - discoveredJobs.length} posting(s) left out of this run: no readable PDF text and no stored source body.`,
+    );
+  }
+  if (discoveredJobs.length === 0) {
+    throw new Error(
+      `Klinik Wysshölzli has no publishable posting: ${parsedJobs.length} listed, `
+      + `${sourceBodyFailures.length} PDF read failure(s), no stored source body to keep.`,
     );
   }
 
-  if (discoveredJobs.length === 0) {
-    throw new Error('Klinik Wysshölzli discovered 0 jobs with extractable PDF text.');
-  }
-
-  updateAdapterConfig(discoveredJobs);
-  const { diff } = await mergeJobs(discoveredJobs);
+  // Seeds name every listed posting, including one left out of this run.
+  updateAdapterConfig(parsedJobs);
+  const { diff } = await mergeJobs(discoveredJobs, parsedJobs);
 
   console.log('\n🌐 Running locale fill for Klinik Wysshölzli jobs...');
   await translateMissingJobLocales({
@@ -324,6 +389,8 @@ async function main() {
     label: 'Klinik Wysshölzli',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    sourceBodyFailureCount: sourceBodyFailures.length,
+    sourceBodyFailures: sourceBodyFailures.slice(0, 100),
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
@@ -339,4 +406,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Klinik Wysshölzli'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Klinik Wysshölzli'));
+}

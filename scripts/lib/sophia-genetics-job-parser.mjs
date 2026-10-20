@@ -37,11 +37,13 @@
  *   - isTrustedDomain()            — Validate URLs belong to this company
  *   - slugify() / stripHtml()      — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
 import { isChCountry } from './ch-country-guard.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -74,13 +76,6 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
-}
-
-function toIsoDate(value) {
-  if (!value) return new Date().toISOString().split('T')[0];
-  const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return new Date().toISOString().split('T')[0];
-  return d.toISOString().split('T')[0];
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -175,7 +170,8 @@ export function buildSophiaGeneticsApplyUrl(shortcode) {
  * label from the first occurrence.
  */
 export function parseSophiaGeneticsWidgetPayload(payload) {
-  const rawJobs = Array.isArray(payload?.jobs) ? payload.jobs : [];
+  const hasJobsArray = Array.isArray(payload?.jobs);
+  const rawJobs = hasJobsArray ? payload.jobs : [];
   const byShortcode = new Map();
   for (const raw of rawJobs) {
     if (!raw || typeof raw !== 'object' || !raw.shortcode) continue;
@@ -185,10 +181,17 @@ export function parseSophiaGeneticsWidgetPayload(payload) {
       shortcode: raw.shortcode,
       employmentType: raw.employment_type || '',
       department: raw.department || '',
-      publishedDate: raw.published_on || raw.created_at || '',
+      publishedDate: raw.published_on || '',
     });
   }
-  return Array.from(byShortcode.values());
+  const listings = Array.from(byShortcode.values());
+  if (hasJobsArray && rawJobs.length === 0) {
+    return markAuthoritativeEmptySnapshot(
+      listings,
+      `Workable widget ${WIDGET_API_URL} returned a valid jobs array with zero current listings`,
+    );
+  }
+  return listings;
 }
 
 /**
@@ -256,7 +259,7 @@ export async function fetchAllSophiaGeneticsJobs() {
   const listings = parseSophiaGeneticsWidgetPayload(widgetPayload);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return listings;
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -297,7 +300,7 @@ export async function fetchAllSophiaGeneticsJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const department = Array.isArray(detail?.department) ? detail.department.join(' ') : (detail?.department || listing.department || '');
     const employmentType = normalizeSophiaGeneticsEmploymentType(listing.employmentType, title);
-    const postedDate = toIsoDate(detail?.published || listing.publishedDate);
+    const postingDates = sourcePostingDateCandidatesFields([detail?.published, listing.publishedDate]);
 
     const job = {
       // ── Required fields ──
@@ -332,7 +335,7 @@ export async function fetchAllSophiaGeneticsJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: publicUrl,
       jobReqId: listing.shortcode || null,
       requirements: [],

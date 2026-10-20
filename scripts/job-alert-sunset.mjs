@@ -32,21 +32,14 @@
 import { classifyJobAlertSunset } from './lib/jobAlertSunset.mjs';
 import { recipientsWithAllAlertsDecayed } from './lib/jobAlertCadence.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const APPLY = process.argv.includes('--apply');
 
 let db;
 
 async function initFirebase() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  db = a.firestore();
+  db = await getFirestoreDb();
 }
 
 async function main() {

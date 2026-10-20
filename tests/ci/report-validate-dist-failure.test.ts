@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -34,10 +34,25 @@ const {
   selectResolvableTitles,
   redactWorkflowPaths,
   resolveMode,
+  reportDist,
+  measureBuildFreshness,
+  releaseParkedRecurrences,
+  parseValidatedBuildMarker,
+  parkedReleaseDecision,
+  shouldParkNewIssue,
+  PARK_LABELS,
+  PARK_CREATE_LABELS,
   TITLE_PREFIX,
   LEGACY_TITLE,
   DEDUP_TITLE_PREFIX_LEN,
+  MAX_PER_GATE_ISSUES,
+  CATHEDRAL_OWNED_GATES,
+  gatesToResolve,
 } = await import('../../scripts/ci/report-validate-dist-failure.mjs');
+// Moduli del ciclo che leggono le label di parcheggio: il test di contratto
+// sotto verifica il parcheggio contro i loro predicati veri, non contro una copia.
+const { isTriagedButNotRouted } = await import('../../scripts/ci/triage-sweep.mjs');
+const { isReparkableCandidate } = await import('../../scripts/ci/followup-drainer.mjs');
 
 const ROOT = resolve(import.meta.dirname, '..', '..');
 const FX = (name: string) => readFileSync(resolve(import.meta.dirname, 'fixtures', name), 'utf8');
@@ -158,16 +173,54 @@ describe('titleForGate — sempre dentro la finestra di dedup (60 char)', () => 
   });
 });
 
+/**
+ * Lo scenario BFS reale con il gate rinominato `audit:hreflang`: dal
+ * 2026-10-02 `audit:max-bfs-depth` ha la sua issue in cathedral (vedi
+ * CATHEDRAL_OWNED_GATES), quindi i test sulla composizione del body usano un
+ * gate B che solo validate-dist misura. Log, estratto e riassunto restano
+ * quelli veri.
+ */
+function hreflangInput(overrides: Record<string, unknown> = {}) {
+  const base = bfsInput();
+  const job = base.failedJobs[0];
+  return {
+    ...base,
+    failedJobs: [{
+      ...job,
+      gates: [{ gate: 'audit:hreflang', seconds: 756.85, rc: 1, line: '❌ FAIL  audit:hreflang                           756.85 rc=1' }],
+    }],
+    ...overrides,
+  };
+}
+
 describe('buildIssuePayloads — una issue per gate, fallback legacy', () => {
-  it('1 gate → titolo per-gate, label Bug + ci-gate:<slug>', () => {
-    const payloads = buildIssuePayloads(bfsInput());
+  it('1 gate → titolo per-gate, label Bug + ci-gate:<slug>, priorità dalla classe', () => {
+    const payloads = buildIssuePayloads(hreflangInput());
     expect(payloads).toHaveLength(1);
-    expect(payloads[0].title).toBe('Validation Failure (dist): audit:max-bfs-depth');
-    expect(payloads[0].labels).toEqual(['Bug', 'ci-gate:audit-max-bfs-depth']);
+    expect(payloads[0].title).toBe('Validation Failure (dist): audit:hreflang');
+    expect(payloads[0].labels).toEqual(['Bug', 'ci-gate:audit-hreflang']);
+    expect(payloads[0].priority).toBe(2); // classe B
+    expect(payloads[0].gate).toBe('audit:hreflang');
   });
 
-  it('>3 gate → una sola issue riassuntiva col titolo legacy', () => {
-    const gates = ['audit:hreflang', 'audit:page-weight', 'audit:text-html-ratio', 'validate:sitemap'].map((gate) => ({
+  it('gate misurato da cathedral (max-bfs-depth) → nessuna issue qui, nemmeno la riassuntiva', () => {
+    expect(CATHEDRAL_OWNED_GATES.has('audit:max-bfs-depth')).toBe(true);
+    expect(buildIssuePayloads(bfsInput())).toEqual([]);
+  });
+
+  it('run 36922718485: 4 gate rossi → 4 issue, non una riassuntiva', () => {
+    const gates = ['gate:seo-source', 'audit:all/h1-title-duplicates', 'audit:all/page-weight', 'validate:sitemap'].map((gate) => ({
+      gate, seconds: 1, rc: 1, line: `❌ FAIL  ${gate}  1.00 rc=1`,
+    }));
+    const payloads = buildIssuePayloads(bfsInput({
+      failedJobs: [{ name: 'validate-dist / validate-dist-postbuild', gates, summaryLines: [], excerpt: '' }],
+    }));
+    expect(payloads.map((p: { title: string }) => p.title)).toEqual(gates.map((g) => titleForGate(g.gate)));
+    expect(payloads.map((p: { priority: number }) => p.priority)).toEqual([1, 3, 2, 1]);
+  });
+
+  it('>MAX_PER_GATE_ISSUES gate → una sola issue riassuntiva col titolo legacy', () => {
+    const gates = Array.from({ length: MAX_PER_GATE_ISSUES + 1 }, (_, i) => `validate:synthetic-${i}`).map((gate) => ({
       gate, seconds: 1, rc: 1, line: `❌ FAIL  ${gate}  1.00 rc=1`,
     }));
     const payloads = buildIssuePayloads(bfsInput({
@@ -176,6 +229,23 @@ describe('buildIssuePayloads — una issue per gate, fallback legacy', () => {
     expect(payloads).toHaveLength(1);
     expect(payloads[0].title).toBe(LEGACY_TITLE);
     for (const g of gates) expect(payloads[0].body).toContain(g.line);
+  });
+
+  it('body: sezione Offender dal report JSON del gate', () => {
+    const report = {
+      audit: 'hreflang', passed: false, offendersTotal: 2, ranAt: '2026-10-02T00:00:00Z',
+      byFeature: { 'job-board': 2 },
+      topOffenders: [{ path: 'dist/en/find-jobs-zurich/x/index.html', feature: 'job-board', metric: 1 }],
+    };
+    const [payload] = buildIssuePayloads(hreflangInput({
+      reports: { 'audit:hreflang': { report, source: '`audit-reports/hreflang.json`' } },
+    }));
+    expect(payload.body).toContain('## Offender');
+    expect(payload.body).toContain('`dist/en/find-jobs-zurich/x/index.html`');
+    expect(payload.body).toContain('`job-board`: 2');
+    // Senza report il body lo dice, non tace.
+    const [bare] = buildIssuePayloads(hreflangInput());
+    expect(bare.body).toContain('non disponibile');
   });
 
   it('0 gate riconosciuti (fallimento infra) → issue legacy, mai zero issue', () => {
@@ -188,33 +258,32 @@ describe('buildIssuePayloads — una issue per gate, fallback legacy', () => {
   });
 
   it('body: Suggested action con path scripts/, MAI path .github/workflows/', () => {
-    const [payload] = buildIssuePayloads(bfsInput());
+    const [payload] = buildIssuePayloads(hreflangInput());
     expect(payload.body).toContain('## Suggested action');
-    // Path del gate derivati da package.json (audit:max-bfs-depth).
-    expect(payload.body).toContain('scripts/audit-bfs-depth.mjs');
-    expect(payload.body).toContain('data/bfs-depth-baseline.json');
+    // Path del gate derivati da package.json (audit:hreflang).
+    expect(payload.body).toContain('scripts/audit-hreflang.mjs');
     // Il capability guard del fixer (check-workflows-scope.mjs) blocca a zero
     // token qualunque body che citi un path .github/workflows/**.
     expect(payload.body).not.toContain('.github/workflows/');
   });
 
   it('body: Build SHA = deploy_ref (mai github.sha), job/step, gate verbatim, estratto', () => {
-    const [payload] = buildIssuePayloads(bfsInput());
+    const [payload] = buildIssuePayloads(hreflangInput());
     expect(payload.body).toContain('`abc1234def5678`');
     expect(payload.body).toContain('deploy_ref');
     expect(payload.body).toContain('validate-dist / validate-dist-postbuild-bfs');
     expect(payload.body).toContain('BFS-depth + orphan-sitemap-pages audits (serial chain)');
-    expect(payload.body).toMatch(/❌ FAIL\s+audit:max-bfs-depth\s+756\.85 rc=1/);
+    expect(payload.body).toMatch(/❌ FAIL\s+audit:hreflang\s+756\.85 rc=1/);
     expect(payload.body).toContain('BFS-chain summary: 1 passed, 1 failed');
     expect(payload.body).toContain('How to fix');
     // Riproduzione locale: comando npm + artifact con gli offender completi.
-    expect(payload.body).toContain('npm run audit:max-bfs-depth');
+    expect(payload.body).toContain('npm run audit:hreflang');
     expect(payload.body).toContain('audit-reports*-31259344953-1');
     expect(payload.body).toContain('byFeature');
   });
 
   it('body: il workflow accorpato riporta il risultato del solo job dist', () => {
-    const [payload] = buildIssuePayloads(bfsInput({
+    const [payload] = buildIssuePayloads(hreflangInput({
       results: { dist: 'failure' },
       failedJobs: [],
     }));
@@ -223,15 +292,15 @@ describe('buildIssuePayloads — una issue per gate, fallback legacy', () => {
   });
 
   it('senza deploy_ref il body lo dice e NON ripiega su github.sha', () => {
-    const [payload] = buildIssuePayloads(bfsInput({ deployRef: '' }));
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: '' }));
     expect(payload.body).toContain('deploy_ref non passato');
     expect(payload.body).not.toContain('abc1234def5678');
   });
 
   it('replay: deploy_run_id della BUILD, non del run di validazione', () => {
-    const [payload] = buildIssuePayloads(bfsInput());
+    const [payload] = buildIssuePayloads(hreflangInput());
     expect(payload.body).toContain(
-      'gh workflow run audit-dist-from-run.yml -f deploy_run_id=31250000000 -f audits=max-bfs-depth',
+      'gh workflow run audit-dist-from-run.yml -f deploy_run_id=31250000000 -f audits=hreflang',
     );
     expect(payload.body).not.toContain('deploy_run_id=31259344953');
   });
@@ -363,6 +432,12 @@ describe('redazione dei path .github/workflows/** (capability guard del fixer)',
       .toBe('gh workflow run audit-dist-from-run.yml -f x=1'); // bare .yml: il guard non ci matcha
   });
 
+  it('lo scanner dei timeout usa il matcher identico, non il reporter dist adattato', () => {
+    const scanner = readFileSync(resolve(ROOT, 'scripts/ci/scan-job-timeouts.mjs'), 'utf8');
+    expect(scanner).toContain("from '../lib/workflow-scope-detect.mjs'");
+    expect(scanner).not.toContain("from './report-validate-dist-failure.mjs'");
+  });
+
   it('il body finale è redatto anche quando il path arriva da un excerpt già composto', () => {
     const [payload] = buildIssuePayloads(bfsInput({
       failedJobs: [{
@@ -402,5 +477,318 @@ describe('titoli per-gate: distinti e non prefisso l\'uno dell\'altro (dedup sta
 
   it('ogni titolo reale sta dentro la finestra di dedup senza troncamento', () => {
     for (const g of REAL_GATES) expect(titleForGate(g)).toBe(TITLE_PREFIX + g);
+  });
+});
+
+describe('ciclo di vita per gate (owner 2026-10-02: ogni errore una issue)', () => {
+  // Righe nella forma del log reale del run 36922718485.
+  const LOG = [
+    '2026-10-01T23:57:00.4932966Z ❌ FAIL  audit:all                                2262.07 rc=1',
+    '2026-10-01T23:57:00.4932966Z ❌ FAIL  gate:seo-source                            97.55 rc=1',
+    '2026-10-01T23:57:00.4932966Z ✅ PASS  audit:hreflang                            960.28 rc=0',
+    '2026-10-01T23:57:00.4932966Z ✅ PASS  audit:job-title-locale(report-only)        25.31 rc=0',
+    '2026-10-01T23:57:00.5340149Z audit-all: failed-audits=h1-title-duplicates,text-html-ratio,page-weight',
+  ].join('\n');
+
+  it('audit:all si espande nei sotto-auditor falliti, come failed_gates', () => {
+    const { failedGates, passedGates } = parseGateLines(LOG);
+    expect(failedGates.map((g: { gate: string }) => g.gate)).toEqual([
+      'gate:seo-source',
+      'audit:all/h1-title-duplicates',
+      'audit:all/text-html-ratio',
+      'audit:all/page-weight',
+    ]);
+    expect(passedGates).toContain('audit:hreflang');
+    expect(passedGates).toContain('audit:all/faqpage-validity');
+    expect(passedGates).not.toContain('audit:all/page-weight');
+  });
+
+  it('senza marker audit:all resta opaco (fail-closed)', () => {
+    const { failedGates } = parseGateLines(LOG.split('\n').slice(0, 2).join('\n'));
+    expect(failedGates.map((g: { gate: string }) => g.gate)).toEqual(['audit:all', 'gate:seo-source']);
+  });
+
+  it('si chiudono le issue dei soli gate rientrati in questo run', () => {
+    const { failedGates, passedGates } = parseGateLines(LOG);
+    const resolvable = gatesToResolve(passedGates, failedGates.map((g: { gate: string }) => g.gate));
+    expect(resolvable).toContain('audit:hreflang');
+    expect(resolvable).toContain('audit:all/title-length');
+    expect(resolvable).not.toContain('audit:all/page-weight');
+    expect(resolvable).not.toContain('gate:seo-source');
+    expect(resolvable).not.toContain('audit:all'); // il bundle non è passato per intero
+    expect(resolvable.some((g: string) => g.includes('('))).toBe(false); // righe report-only
+  });
+
+  it('resolveMode chiude a titolo esatto: «…audit:all» non chiude «…audit:all/page-weight»', () => {
+    const open = [
+      { number: 200, title: 'Validation Failure (dist): audit:all/page-weight', url: 'u', state: 'OPEN' },
+      { number: 201, title: 'Validation Failure (dist): audit:all', url: 'u', state: 'OPEN' },
+    ];
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return JSON.stringify(open);
+      if (args[0] === 'issue' && args[1] === 'view') return JSON.stringify({ state: 'CLOSED' });
+      return '';
+    });
+    process.env.GH_REPO = 'valerielinc-ops/frontaliere-si-o-no';
+    resolveMode({ dryRun: false });
+    const closes = ghCalls().filter((a) => a[0] === 'issue' && a[1] === 'close').map((a) => a[2]);
+    expect(closes.sort()).toEqual(['200', '201']);
+  });
+});
+
+/**
+ * LC-09 — freschezza della build validata. Caso misurato: 11117/11118 aperte
+ * alle 13:38Z del 2026-10-03 sul build 5121254f5 (run 37099011095, creata alle
+ * 05:11:15Z), con le fix su `main` dalle 05:46Z/05:59Z e la build successiva
+ * 37107091990 già riuscita alle 11:35Z: issue nuove, subito in triage, su un
+ * difetto già corretto.
+ */
+describe('freschezza della build validata (LC-09)', () => {
+  const REPO = 'valerielinc-ops/frontaliere-si-o-no';
+  const STALE_REF = '5121254f5c491ebeb5c475926b81f3c06553bffc';
+  const MAIN_SHA = '7acf7f1c854aaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+  const NEWER_REF = '1cc0b46716bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
+  const HREFLANG_TITLE = 'Validation Failure (dist): audit:hreflang';
+  const STALE = { mainSha: MAIN_SHA, mainAhead: 14, newerBuild: true, newerRunId: '37107091990' };
+
+  type Route = (args: string[]) => string | undefined;
+  /** Mock di `gh` per argomenti: la prima route che risponde vince; il resto è ''. */
+  function routeGh(...routes: Route[]) {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      for (const r of routes) {
+        const out = r(args);
+        if (out !== undefined) return out;
+      }
+      return '';
+    });
+  }
+  const failing: Route = (a) => (a[0] === 'api' && /\/compare\//.test(a[1]) ? (() => { throw new Error('HTTP 502'); })() : undefined);
+  const mainHead: Route = (a) => (a[0] === 'api' && a[1].endsWith('/commits/main') ? `${MAIN_SHA}\n` : undefined);
+  const compareAhead = (n: number): Route => (a) => (a[0] === 'api' && /\/compare\//.test(a[1]) ? JSON.stringify({ status: 'ahead', ahead_by: n }) : undefined);
+  const deployRun: Route = (a) => (a[0] === 'api' && /\/actions\/runs\/37099011095$/.test(a[1])
+    ? JSON.stringify({ workflow_id: 233284293, created_at: '2026-10-03T05:11:15Z' }) : undefined);
+  const deployRuns = (rows: unknown[]): Route => (a) => (a[0] === 'api' && /\/actions\/workflows\/233284293\/runs\?/.test(a[1])
+    ? JSON.stringify(rows) : undefined);
+  const REAL_ROWS = [
+    { id: 37120074315, head_sha: 'ac5bf7c0e0fcccccccccccccccccccccccccccccc', created_at: '2026-10-03T11:34:13Z' },
+    { id: 37107091990, head_sha: NEWER_REF, created_at: '2026-10-03T07:39:57Z' },
+    { id: 37099011095, head_sha: STALE_REF, created_at: '2026-10-03T05:11:15Z' },
+  ];
+
+  it('issue nuova, main avanti di 14 e build più recente riuscita → fu-parked + fu-data-pending e marker', () => {
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: STALE }));
+    expect(payload.labels).toEqual(['Bug', 'ci-gate:audit-hreflang', ...PARK_CREATE_LABELS]);
+    expect(PARK_LABELS).toEqual(['fu-parked', 'fu-data-pending']);
+    expect(PARK_CREATE_LABELS).toEqual(['agent:triaged', ...PARK_LABELS]);
+    expect(payload.body).toContain(`<!-- VALIDATED_BUILD: sha=${STALE_REF} main_ahead=14 newer_build=true main=${MAIN_SHA} -->`);
+    // Il marker sta sotto «Build SHA», non in coda: un body troncato lo conserva.
+    expect(payload.body.indexOf('VALIDATED_BUILD')).toBeGreaterThan(payload.body.indexOf('## Build SHA'));
+    expect(payload.body.indexOf('VALIDATED_BUILD')).toBeLessThan(payload.body.indexOf('## Job/step falliti'));
+    expect(payload.body).toContain('https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/37107091990');
+  });
+
+  it('issue nuova, main_ahead = 0 → instradamento normale (nessuna label di parcheggio)', () => {
+    const fresh = { ...STALE, mainAhead: 0 };
+    expect(shouldParkNewIssue(fresh)).toBe(false);
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: fresh }));
+    expect(payload.labels).toEqual(['Bug', 'ci-gate:audit-hreflang']);
+    expect(payload.body).toContain('main_ahead=0 newer_build=true');
+  });
+
+  it('main avanti ma nessuna build più recente → instradamento normale', () => {
+    expect(shouldParkNewIssue({ ...STALE, newerBuild: false })).toBe(false);
+    expect(shouldParkNewIssue({ ...STALE, newerBuild: null })).toBe(false);
+  });
+
+  it('compare che fallisce → main_ahead=unknown, instradamento normale (mai un numero inventato)', () => {
+    routeGh(mainHead, failing, deployRun, deployRuns(REAL_ROWS));
+    const f = measureBuildFreshness({ repo: REPO, deployRef: STALE_REF, deployRunId: '37099011095' });
+    expect(f.mainAhead).toBeNull();
+    expect(f.newerBuild).toBe(true);
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: f }));
+    expect(payload.labels).toEqual(['Bug', 'ci-gate:audit-hreflang']);
+    expect(payload.body).toContain(`main_ahead=unknown newer_build=true main=${MAIN_SHA}`);
+  });
+
+  it('misura sul caso reale: build successiva dallo stesso workflow della run di build, run vecchie scartate', () => {
+    routeGh(mainHead, compareAhead(289), deployRun, deployRuns([
+      ...REAL_ROWS,
+      // il listato `branch=…&status=success` a volte restituisce run vecchie
+      { id: 31930304228, head_sha: 'dddddddddddddddddddddddddddddddddddddddd', created_at: '2026-08-16T00:00:00Z' },
+    ]));
+    const f = measureBuildFreshness({ repo: REPO, deployRef: STALE_REF, deployRunId: '37099011095' });
+    expect(f).toEqual({ mainSha: MAIN_SHA, mainAhead: 289, newerBuild: true, newerRunId: '37120074315' });
+    const listCall = ghCalls().find((a) => /\/actions\/workflows\/233284293\/runs\?/.test(a[1]))!;
+    expect(listCall[1]).toContain('branch=main');
+    expect(listCall[1]).toContain('status=success');
+    expect(listCall[1]).toContain(`created=${encodeURIComponent('>=2026-10-03T05:11:15Z')}`);
+    // Solo la build validata stessa e run vecchie → nessuna build successiva.
+    routeGh(mainHead, compareAhead(289), deployRun, deployRuns([REAL_ROWS[2]]));
+    expect(measureBuildFreshness({ repo: REPO, deployRef: STALE_REF, deployRunId: '37099011095' }).newerBuild).toBe(false);
+    // Senza deploy_run_id la seconda prova non è misurabile.
+    expect(measureBuildFreshness({ repo: REPO, deployRef: STALE_REF, deployRunId: '' }).newerBuild).toBeNull();
+  });
+
+  it('contratto col ciclo: la issue parcheggiata non la instrada nessun passaggio del triage e resta nel pool PARKED-RETRY', () => {
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: STALE }));
+    const asIssue = (names: string[]) => ({ number: 11200, title: payload.title, body: payload.body, labels: names.map((name) => ({ name })) });
+    const parked = asIssue(payload.labels);
+    // Primo passaggio di triage-sweep: prende le open SENZA agent:triaged e le
+    // instrada col solo classifyIssue, che per questo titolo dice queue.
+    expect(parked.labels.some((l) => l.name === 'agent:triaged')).toBe(true);
+    // Secondo passaggio: rispetta fu-parked (ROUTING_LABELS).
+    expect(isTriagedButNotRouted(parked)).toBe(false);
+    // Il fallback promesso esiste: il PARKED-RETRY del drainer la vede.
+    expect(isReparkableCandidate(parked)).toBe(true);
+    // Sbloccata dal reporter (tolte le due label): il secondo passaggio la instrada.
+    const released = asIssue(payload.labels.filter((l: string) => !PARK_LABELS.includes(l)));
+    expect(isTriagedButNotRouted(released)).toBe(true);
+    // Controprova: queued+parked (ciò che il primo passaggio produceva senza
+    // agent:triaged) è fuori dal PARKED-RETRY, cioè un limbo.
+    expect(isReparkableCandidate(asIssue([...payload.labels, 'agent:fix-queued']))).toBe(false);
+  });
+
+  it('marker: il parse rilegge ciò che il body scrive', () => {
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: STALE }));
+    expect(parseValidatedBuildMarker(payload.body)).toEqual({
+      sha: STALE_REF, mainAhead: 14, newerBuild: true, mainSha: MAIN_SHA,
+    });
+    expect(parseValidatedBuildMarker('nessun marker')).toBeNull();
+  });
+
+  describe('validazione successiva', () => {
+    const parkedBody = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: STALE }))[0].body;
+    const parkedList: Route = (a) => (a[0] === 'issue' && a[1] === 'list' && a.includes('fu-parked')
+      ? JSON.stringify([{ number: 11118, title: HREFLANG_TITLE, body: parkedBody }]) : undefined);
+    const behind = (n: number): Route => (a) => (a[0] === 'api' && a[1].includes(`/compare/${MAIN_SHA}...`)
+      ? JSON.stringify({ status: n === 0 ? 'ahead' : 'diverged', behind_by: n }) : undefined);
+    const edits = () => ghCalls().filter((a) => a[0] === 'issue' && a[1] === 'edit');
+
+    it('gate ancora rosso su una build che contiene il main di allora → le due label vengono tolte', () => {
+      routeGh(parkedList, behind(0));
+      const out = releaseParkedRecurrences({ repo: REPO, runId: '37120125747', deployRef: NEWER_REF, failingTitles: [HREFLANG_TITLE] });
+      expect(out).toEqual([{ number: 11118, decision: 'release' }]);
+      const [edit] = edits();
+      expect(edit.slice(0, 3)).toEqual(['issue', 'edit', '11118']);
+      expect(edit).toEqual(expect.arrayContaining(['--remove-label', 'fu-parked', 'fu-data-pending']));
+      expect(ghCalls().some((a) => a[0] === 'issue' && a[1] === 'comment' && a[2] === '11118')).toBe(true);
+    });
+
+    it('build che ancora non contiene il main di allora, o stessa build rivalidata → resta parcheggiata', () => {
+      routeGh(parkedList, behind(3));
+      expect(releaseParkedRecurrences({ repo: REPO, deployRef: NEWER_REF, failingTitles: [HREFLANG_TITLE] }))
+        .toEqual([{ number: 11118, decision: 'keep' }]);
+      routeGh(parkedList, behind(0));
+      expect(releaseParkedRecurrences({ repo: REPO, deployRef: STALE_REF, failingTitles: [HREFLANG_TITLE] }))
+        .toEqual([{ number: 11118, decision: 'keep' }]);
+      expect(edits()).toHaveLength(0);
+    });
+
+    it('contenimento non misurabile → sblocco (fail-closed verso il fixer); gate non rosso → nessun tocco', () => {
+      routeGh(parkedList, failing);
+      expect(releaseParkedRecurrences({ repo: REPO, deployRef: NEWER_REF, failingTitles: [HREFLANG_TITLE] }))
+        .toEqual([{ number: 11118, decision: 'release' }]);
+      execFileSync.mockReset();
+      routeGh(parkedList, behind(0));
+      expect(releaseParkedRecurrences({ repo: REPO, deployRef: NEWER_REF, failingTitles: ['Validation Failure (dist): gate:seo-source'] }))
+        .toEqual([]);
+      expect(edits()).toHaveLength(0);
+    });
+
+    it('issue con fu-data-pending ma senza le due prove nel marker non è un parcheggio del reporter', () => {
+      const marker = parseValidatedBuildMarker(`<!-- VALIDATED_BUILD: sha=${STALE_REF} main_ahead=0 newer_build=true main=${MAIN_SHA} -->`);
+      expect(parkedReleaseDecision({ marker, deployRef: NEWER_REF, contains: true })).toBe('skip');
+      expect(parkedReleaseDecision({ marker: null, deployRef: NEWER_REF, contains: null })).toBe('skip');
+    });
+  });
+
+  describe('reportDist end-to-end (gh simulato)', () => {
+    const LOG = '2026-10-03T13:30:00.0000000Z ❌ FAIL  audit:hreflang                             12.00 rc=1\n';
+    const jobs: Route = (a) => (a[0] === 'api' && /\/actions\/runs\/37120000000\/jobs/.test(a[1])
+      ? JSON.stringify({ jobs: [{ id: 1, name: 'validate-dist / validate-dist-postbuild', conclusion: 'failure', html_url: 'u', steps: [] }] })
+      : undefined);
+    const log: Route = (a) => (a[0] === 'api' && /\/actions\/jobs\/1\/logs$/.test(a[1]) ? LOG : undefined);
+    const openIssues = (rows: unknown[]): Route => (a) => (a[0] === 'issue' && a[1] === 'list' && !a.includes('fu-parked')
+      ? JSON.stringify(a[a.indexOf('--state') + 1] === 'open' ? rows : []) : undefined);
+    const created: Route = (a) => (a[0] === 'issue' && a[1] === 'create' ? 'https://github.com/x/y/issues/11200' : undefined);
+
+    beforeEach(() => {
+      Object.assign(process.env, {
+        GH_REPO: REPO, RUN_ID: '37120000000', RUN_ATTEMPT: '1',
+        INPUT_DEPLOY_RUN_ID: '37099011095', INPUT_DEPLOY_REF: STALE_REF, DIST_RESULT: 'failure',
+      });
+    });
+    afterEach(() => {
+      for (const k of ['RUN_ID', 'RUN_ATTEMPT', 'INPUT_DEPLOY_RUN_ID', 'INPUT_DEPLOY_REF', 'DIST_RESULT']) delete process.env[k];
+    });
+
+    it('issue nuova su build arretrata → creata con fu-parked + fu-data-pending', async () => {
+      routeGh(jobs, log, mainHead, compareAhead(14), deployRun, deployRuns(REAL_ROWS), openIssues([]), created);
+      await reportDist({ dryRun: false });
+      const create = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'create')!;
+      expect(create).toBeDefined();
+      expect(create).toEqual(expect.arrayContaining(['--label', 'agent:triaged', 'fu-parked', 'fu-data-pending']));
+      expect(create[create.indexOf('--body') + 1]).toContain('VALIDATED_BUILD: sha=' + STALE_REF + ' main_ahead=14 newer_build=true');
+    });
+
+    it('ricorrenza su issue già aperta e instradata → solo commento, nessun parcheggio', async () => {
+      const open = [{ number: 11000, title: HREFLANG_TITLE, url: 'u', state: 'OPEN', labels: [{ name: 'agent:fix-queued' }] }];
+      routeGh(jobs, log, mainHead, compareAhead(14), deployRun, deployRuns(REAL_ROWS), openIssues(open), created);
+      await reportDist({ dryRun: false });
+      const calls = ghCalls();
+      expect(calls.some((a) => a[0] === 'issue' && a[1] === 'create')).toBe(false);
+      expect(calls.some((a) => a[0] === 'issue' && a[1] === 'comment' && a[2] === '11000')).toBe(true);
+      // Nessuna scrittura porta le label di parcheggio (l'unica menzione è la lettura dei parcheggiati).
+      const writes = calls.filter((a) => !(a[0] === 'issue' && a[1] === 'list'));
+      expect(writes.some((a) => a.includes('fu-parked') || a.includes('fu-data-pending') || a.includes('agent:triaged'))).toBe(false);
+    });
+
+    it('fallback legacy → sblocca la issue per-gate ancora rossa se la build contiene il main', async () => {
+      const targetGate = 'gate:legacy-fallback-target';
+      const allGates = [targetGate, ...Array.from(
+        { length: MAX_PER_GATE_ISSUES },
+        (_, i) => `gate:legacy-fallback-${i}`,
+      )];
+      const legacyLog = allGates
+        .map((gate) => `2026-10-03T13:30:00.0000000Z ❌ FAIL  ${gate}  12.00 rc=1`)
+        .join('\n') + '\n';
+      const legacyJobs: Route = (a) => (a[0] === 'api' && /\/actions\/runs\/37120000000\/jobs/.test(a[1])
+        ? JSON.stringify({ jobs: [{ id: 2, name: 'validate-dist / validate-dist-postbuild', conclusion: 'failure', html_url: 'u', steps: [] }] })
+        : undefined);
+      const legacyLogRoute: Route = (a) => (a[0] === 'api' && /\/actions\/jobs\/2\/logs$/.test(a[1]) ? legacyLog : undefined);
+      const compareCurrentBuild: Route = (a) => {
+        if (a[0] !== 'api') return undefined;
+        if (a[1].includes(`/compare/${NEWER_REF}...${MAIN_SHA}`)) {
+          return JSON.stringify({ status: 'ahead', ahead_by: 14 });
+        }
+        if (a[1].includes(`/compare/${MAIN_SHA}...${NEWER_REF}`)) {
+          return JSON.stringify({ status: 'ahead', behind_by: 0 });
+        }
+        return undefined;
+      };
+      const parkedBody = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: STALE }))[0].body;
+      const parkedGateIssue: Route = (a) => (a[0] === 'issue' && a[1] === 'list' && a.includes('fu-parked')
+        ? JSON.stringify([{ number: 11119, title: titleForGate(targetGate), body: parkedBody }])
+        : undefined);
+      process.env.INPUT_DEPLOY_REF = NEWER_REF;
+      routeGh(legacyJobs, legacyLogRoute, mainHead, compareCurrentBuild, deployRun, deployRuns(REAL_ROWS), openIssues([]), parkedGateIssue, created);
+
+      await reportDist({ dryRun: false });
+
+      const create = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'create')!;
+      expect(create[create.indexOf('--title') + 1]).toBe(LEGACY_TITLE);
+      const edit = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'edit' && a[2] === '11119');
+      expect(edit).toEqual(expect.arrayContaining(['--remove-label', 'fu-parked', 'fu-data-pending']));
+      expect(ghCalls().some((a) => a[0] === 'issue' && a[1] === 'comment' && a[2] === '11119')).toBe(true);
+    });
+
+    it('misure fallite → issue nuova creata e instradata come prima', async () => {
+      routeGh(jobs, log, openIssues([]), created); // commits/main, compare, runs: tutte ''
+      await reportDist({ dryRun: false });
+      const create = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'create')!;
+      expect(create.includes('fu-parked')).toBe(false);
+      expect(create.includes('agent:triaged')).toBe(false);
+      expect(create[create.indexOf('--body') + 1]).toContain('main_ahead=unknown newer_build=unknown main=unknown');
+    });
   });
 });

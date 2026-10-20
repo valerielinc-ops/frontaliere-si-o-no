@@ -20,6 +20,17 @@ import { initPostHog } from '@/services/posthog';
 import { invalidateHeaderBiddingOnNavigation } from '@/services/headerBidding';
 import { callNativeHistory } from '@/services/nativeHistoryCall';
 import { deriveAnalyticsPageContext } from '@/services/analyticsPageContext';
+import {
+ DECISION_MOMENT_COMPLETED_ATTRIBUTE,
+ DECISION_MOMENT_ID_ATTRIBUTE,
+ DECISION_MOMENT_BRIDGE_EVENT,
+ DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
+ DECISION_MOMENT_SURFACE_ATTRIBUTE,
+ drainDecisionMomentBridgeQueue,
+ emitDecisionMomentBridge,
+ isDecisionMomentBridgePayload,
+ removeDecisionMomentBridgePayload,
+} from '@/services/decisionMomentTelemetry';
 
 export interface UIState {
  isDarkMode: boolean;
@@ -33,6 +44,55 @@ export interface UIState {
 function deferAttributionPageView(path: string): boolean {
  const pageTemplate = deriveAnalyticsPageContext(path).pageTemplate;
  return pageTemplate === 'job_detail' || pageTemplate === 'jobs_company';
+}
+
+function readDocumentTitle(): string | undefined {
+ const title = typeof document !== 'undefined' ? document.title.trim() : '';
+ return title || undefined;
+}
+
+/** Route changes update the shell title asynchronously. Wait for a title
+ * mutation (or a short bounded fallback) so GA4 does not attach the previous
+ * page's title to the new path. */
+function trackPageViewAfterNavigation(path: string, options?: { immediate?: boolean }): void {
+ if (options?.immediate) {
+  Analytics.trackPageView(path, readDocumentTitle());
+  return;
+ }
+
+ if (typeof document === 'undefined') {
+  Analytics.trackPageView(path);
+  return;
+ }
+
+ const previousTitle = document.title;
+ let settled = false;
+ let observer: MutationObserver | undefined;
+ let timeoutId: number | undefined;
+ const finish = () => {
+  if (settled) return;
+  settled = true;
+  observer?.disconnect();
+  if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+  Analytics.trackPageView(path, readDocumentTitle());
+ };
+
+ const titleNode = document.querySelector('title');
+ if (typeof MutationObserver !== 'undefined') {
+  observer = new MutationObserver(() => {
+   if (document.title && document.title !== previousTitle) finish();
+  });
+  observer.observe(titleNode || document.head, { childList: true, characterData: true, subtree: true });
+ }
+
+ // Covers synchronous title changes and environments without MutationObserver.
+ const raf = window.requestAnimationFrame;
+ if (typeof raf === 'function') {
+  raf(() => raf(finish));
+ } else {
+  window.setTimeout(finish, 0);
+ }
+ timeoutId = window.setTimeout(finish, 400);
 }
 
 export function useUIState(activeTab: ActiveTab): UIState {
@@ -101,7 +161,7 @@ export function useUIState(activeTab: ActiveTab): UIState {
  const run = () => {
  Analytics.init();
  const initialPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
- if (!deferAttributionPageView(initialPath)) Analytics.trackPageView(initialPath);
+ if (!deferAttributionPageView(initialPath)) Analytics.trackPageView(initialPath, readDocumentTitle());
  // Generic session-init marker (kept for session-level dashboards). The
  // calculator funnel uses `funnel: 'calculator'` instead, emitted via
  // fireCalcEntryIfNeeded — see Phase 4 of the May 18 recovery plan.
@@ -151,11 +211,60 @@ export function useUIState(activeTab: ActiveTab): UIState {
  };
  }, []);
 
+ // Decision-moment telemetry is shared by static SEO pages and the SPA. Static
+ // pages can emit before this hook mounts, so drain the bounded queue as well
+ // as listening for live events. Explicit data attributes keep click tracking
+ // scoped to reviewed decision bridges; no DOM route inference is involved.
+ useEffect(() => {
+  const seen = new Set<string>();
+  const consume = (value: unknown) => {
+   if (!isDecisionMomentBridgePayload(value)) return;
+   removeDecisionMomentBridgePayload(value);
+   const key = `${value.kind}:${value.surface}:${value.id}`;
+   if (seen.has(key)) return;
+   seen.add(key);
+   if (value.kind === 'completed') Analytics.trackDecisionMomentCompleted(value.surface, value.id);
+   else Analytics.trackDecisionMomentNextAction(value.surface, value.id);
+  };
+  const onBridge = (event: Event) => consume((event as CustomEvent<unknown>).detail);
+  window.addEventListener(DECISION_MOMENT_BRIDGE_EVENT, onBridge);
+
+  drainDecisionMomentBridgeQueue().forEach(consume);
+  document.querySelectorAll<HTMLElement>(`[${DECISION_MOMENT_COMPLETED_ATTRIBUTE}="true"]`).forEach((element) => {
+   consume({
+    kind: 'completed',
+    surface: element.getAttribute(DECISION_MOMENT_SURFACE_ATTRIBUTE),
+    id: element.getAttribute(DECISION_MOMENT_ID_ATTRIBUTE),
+   });
+  });
+
+  const onDecisionMomentClick = (event: MouseEvent) => {
+   const target = event.target;
+   if (!(target instanceof Element)) return;
+   const element = target.closest<HTMLElement>(`[${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}]`);
+   if (!element) return;
+   const payload: unknown = {
+    kind: 'next_action',
+    surface: element.getAttribute(DECISION_MOMENT_SURFACE_ATTRIBUTE),
+    id: element.getAttribute(DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE),
+   };
+   if (isDecisionMomentBridgePayload(payload)) emitDecisionMomentBridge(payload);
+  };
+  document.addEventListener('click', onDecisionMomentClick, true);
+
+  return () => {
+   window.removeEventListener(DECISION_MOMENT_BRIDGE_EVENT, onBridge);
+   document.removeEventListener('click', onDecisionMomentClick, true);
+  };
+ }, []);
+
  // Centralized SPA pageview tracking for all route changes
  useEffect(() => {
  const trackCurrentLocation = () => {
- const path = `${window.location.pathname}${window.location.search}${window.location.hash}`;
- if (!deferAttributionPageView(path)) Analytics.trackPageView(path);
+  const path = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  if (!deferAttributionPageView(path)) {
+   trackPageViewAfterNavigation(path, { immediate: trackImmediately });
+  }
  // Also emit calc-funnel entry if the new route is any calc URL and we
  // haven't fired it yet this session (deduped via sessionStorage). This
  // covers in-SPA navigation into the calculator from any other tab.
@@ -171,6 +280,7 @@ export function useUIState(activeTab: ActiveTab): UIState {
  };
 
  const originalPushState = history.pushState;
+ const trackImmediately = typeof originalPushState !== 'function';
 
  history.pushState = function (...args) {
  // Defensive guard (issue #4304, hardened #5606): a live PostHog cluster

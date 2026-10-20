@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Prepara, dentro un checkout del corpus, la consegna atomica dei workflow
@@ -8,11 +10,12 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   createCrawlerGroupIds,
   deriveCrawlerGroupIdsFromContract,
 } from '../lib/crawler-generation-group-ids.mjs';
+import { WATCHDOG_RUNTIME_PATH, manifestDigest } from './translate-watchdog-pin.mjs';
 
 export const CRAWLER_WORKFLOW_FILES = [
   ...createCrawlerGroupIds(24).map((group) => `crawler-group-${group}.yml`),
@@ -157,6 +160,69 @@ function expectedMappings(crawlerWorkflowFiles = CRAWLER_WORKFLOW_FILES) {
   ]));
 }
 
+export const PORTABLE_CORPUS_SITE_PREFIX = '.github/corpus-workflows/';
+
+/**
+ * Registro lockstep delle famiglie crawler: i sitePath che il trasporto
+ * registra come voci `identical` del loop-sync manifest del corpus. E' la
+ * stessa mappa che `prepareCrawlerWorkflowCorpusSync` copia e baselinea, non
+ * una lista parallela da tenere allineata a mano.
+ */
+export function registeredCorpusSitePaths(crawlerWorkflowFiles = CRAWLER_WORKFLOW_FILES) {
+  return [...expectedMappings(crawlerWorkflowFiles).keys()].sort();
+}
+
+/** Elenca ricorsivamente un albero portabile come sitePath `.github/corpus-workflows/...`. */
+export function listPortableTreeSitePaths(dir) {
+  const out = [];
+  const walk = (current, rel) => {
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      const childRel = rel ? `${rel}/${entry.name}` : entry.name;
+      if (entry.isDirectory()) walk(path.join(current, entry.name), childRel);
+      else out.push(`${PORTABLE_CORPUS_SITE_PREFIX}${childRel}`);
+    }
+  };
+  walk(dir, '');
+  return out.sort();
+}
+
+/**
+ * Differenza fra le famiglie emesse e il registro lockstep. `unregistered` sono
+ * file emessi che il trasporto non copierebbe ne' censirebbe (il corpus li
+ * scoprirebbe solo dal censimento notturno dei gemelli, #1571 corpus);
+ * `unemitted` sono voci registrate senza un file emesso, che farebbero fallire
+ * la consegna a meta'.
+ */
+export function diffEmittedFamiliesAgainstRegistry({ emittedSitePaths, registeredSitePaths } = {}) {
+  if (!Array.isArray(registeredSitePaths) || registeredSitePaths.length === 0) {
+    throw new Error('crawler lockstep registry missing or empty: cannot prove emitted families are registered');
+  }
+  if (!Array.isArray(emittedSitePaths)) {
+    throw new Error('crawler lockstep check requires the emitted site paths');
+  }
+  const registered = new Set(registeredSitePaths);
+  const emitted = new Set(emittedSitePaths);
+  return {
+    unregistered: [...emitted].filter((sitePath) => !registered.has(sitePath)).sort(),
+    unemitted: [...registered].filter((sitePath) => !emitted.has(sitePath)).sort(),
+  };
+}
+
+/** Fallisce se una famiglia emessa non ha la sua voce lockstep, o viceversa. */
+export function assertEmittedFamiliesRegistered({ emittedSitePaths, registeredSitePaths, origin = 'emitted' } = {}) {
+  const { unregistered, unemitted } = diffEmittedFamiliesAgainstRegistry({ emittedSitePaths, registeredSitePaths });
+  if (unregistered.length === 0 && unemitted.length === 0) return;
+  const lines = [
+    ...unregistered.map((sitePath) => `  unregistered ${origin} family: ${sitePath}`),
+    ...unemitted.map((sitePath) => `  registered but not ${origin}: ${sitePath}`),
+  ];
+  throw new Error(
+    'crawler family lockstep violated: every file under .github/corpus-workflows/ must be a '
+    + 'transport mapping (CRAWLER_WORKFLOW_FILES / CORPUS_OBSERVER_FILES / contract.json) '
+    + `in scripts/ci/prepare-crawler-workflow-corpus-sync.mjs\n${lines.join('\n')}`,
+  );
+}
+
 function contentForSitePath(sitePath, { contractBuffer, payloads, observerPayloads }) {
   if (sitePath.endsWith('/contract.json')) return contractBuffer;
   const observer = CORPUS_OBSERVER_FILES.find(({ source }) =>
@@ -166,8 +232,19 @@ function contentForSitePath(sitePath, { contractBuffer, payloads, observerPayloa
     : payloads.get(path.basename(sitePath));
 }
 
-/** Consente rispetto a main soltanto le baseline crawler owned censite sopra. */
-export function assertCrawlerManifestDelta({ baseManifest, currentManifest, crawlerWorkflowFiles } = {}) {
+/**
+ * Consente rispetto a main soltanto le baseline crawler owned censite sopra.
+ * Con `watchdogRuntimeDigest` (il digest del runtime del watchdog translate
+ * presente nel checkout) ammette in piu' un solo campo non owned: la
+ * `baseline.corpus` della voce `corpus-only` di quel runtime, e solo se vale
+ * quel digest — e' il rinfresco del pin che viaggia con `translate-pending.yml`.
+ */
+export function assertCrawlerManifestDelta({
+  baseManifest,
+  currentManifest,
+  crawlerWorkflowFiles,
+  watchdogRuntimeDigest,
+} = {}) {
   if (!baseManifest || !currentManifest) throw new Error('baseManifest and currentManifest are required');
   const expected = structuredClone(baseManifest);
   const discoveredWorkflowFiles = crawlerWorkflowFiles ?? [
@@ -207,6 +284,15 @@ export function assertCrawlerManifestDelta({ baseManifest, currentManifest, craw
       }
     } else {
       expected.files.push(structuredClone(current));
+    }
+  }
+  if (watchdogRuntimeDigest) {
+    const isWatchdogEntry = (entry) => entry.path === WATCHDOG_RUNTIME_PATH
+      && entry.mode === 'corpus-only' && entry.baseline?.site === null;
+    const baseEntry = (expected.files ?? []).find(isWatchdogEntry);
+    const currentEntry = (currentManifest.files ?? []).find(isWatchdogEntry);
+    if (baseEntry && currentEntry?.baseline.corpus === watchdogRuntimeDigest) {
+      baseEntry.baseline.corpus = watchdogRuntimeDigest;
     }
   }
   if (JSON.stringify(currentManifest) !== JSON.stringify(expected)) {
@@ -254,6 +340,14 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
       throw new Error(`${observer.source}: content does not match transport contract`);
     }
   }
+  // Un file dell'export che nessuna mappa registra non verrebbe ne' copiato ne'
+  // baselineato: la consegna resterebbe verde lasciando la famiglia fuori dal
+  // lockstep. Fallisci prima di scrivere nel checkout del corpus.
+  assertEmittedFamiliesRegistered({
+    emittedSitePaths: listPortableTreeSitePaths(sourceDir),
+    registeredSitePaths: registeredCorpusSitePaths(crawlerWorkflowFiles),
+    origin: 'exported',
+  });
 
   const manifestPath = path.join(corpusRoot, CORPUS_MANIFEST_PATH);
   const manifest = JSON.parse(readRequired(manifestPath).toString('utf8'));
@@ -324,13 +418,18 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
   return { artifacts: payloads.size, observers: observerPayloads.size, paths: expectedCorpusPaths(crawlerWorkflowFiles) };
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
-  const [sourceDir, corpusRoot] = process.argv.slice(2);
+  const [sourceDir, corpusRoot, watchdogRuntimeFile] = process.argv.slice(2);
   if (sourceDir === '--assert-manifest-delta') {
     const baseManifest = JSON.parse(fs.readFileSync(0, 'utf8'));
     const currentManifest = JSON.parse(readRequired(corpusRoot).toString('utf8'));
-    assertCrawlerManifestDelta({ baseManifest, currentManifest });
+    // Terzo argomento facoltativo: il runtime del watchdog translate nel
+    // checkout del corpus. Assente dal disco = nessuna deroga.
+    const watchdogRuntimeDigest = watchdogRuntimeFile && fs.existsSync(watchdogRuntimeFile)
+      ? manifestDigest(fs.readFileSync(watchdogRuntimeFile))
+      : undefined;
+    assertCrawlerManifestDelta({ baseManifest, currentManifest, watchdogRuntimeDigest });
     console.log('Crawler loop-sync manifest delta is confined to its owned baselines.');
     process.exit(0);
   }

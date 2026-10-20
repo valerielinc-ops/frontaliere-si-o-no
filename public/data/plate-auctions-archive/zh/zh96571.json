@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43450",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43450",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "96571",
+      "normalizedPlate": "ZH96571",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 360,
+      "bidCount": 9,
+      "endsAt": "2026-09-16T17:00:00.000Z",
+      "closedAt": "2026-09-16T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43450",
+      "sourceFetchedAt": "2026-09-15T06:59:00.727Z",
+      "lastVerifiedAt": "2026-09-15T06:59:00.727Z",
+      "firstSeenAt": "2026-09-14T11:56:46.121Z",
+      "lastSeenAt": "2026-09-15T06:59:00.727Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "4daf907db35d"
+    }
+  ]
+}

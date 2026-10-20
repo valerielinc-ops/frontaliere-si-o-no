@@ -14,8 +14,10 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import { extractBalancedTagBlockWithStatus } from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -229,24 +231,28 @@ async function fetchJobDetail(url) {
   if (!html) return {};
 
   const dateM = html.match(/itemprop="datePosted"[^>]*content="([^"]+)"/i);
-  const postedDate = dateM
-    ? parseSuccessFactorsPostedDate(dateM[1]) || null
-    : null;
+  const publication = successFactorsPostingDateFields(dateM?.[1]);
 
   let description = '';
   const descM = html.match(/<span class="jobdescription"[^>]*>/i);
   if (descM) {
     const start = descM.index + descM[0].length;
     const rest = html.slice(start);
-    // Cut at the share/apply chrome region (CSB display containers).
-    let end = rest.search(/data-careersite-propertyid|class="[^"]*displayDTM|<div class="row apply/i);
-    const body = end !== -1 ? rest.slice(0, end) : rest.slice(0, 8000);
-    description = body;
+    // Cut at the share/apply chrome region (CSB display containers). Without
+    // those markers, read the jobdescription span to its own closing tag
+    // instead of an 8000-character window of the page (issue 5253).
+    const end = rest.search(/data-careersite-propertyid|class="[^"]*displayDTM|<div class="row apply/i);
+    if (end !== -1) {
+      description = rest.slice(0, end);
+    } else {
+      const span = extractBalancedTagBlockWithStatus(rest, 'span', rest.length);
+      description = span.complete ? span.html : '';
+    }
   }
 
   const empM = html.match(/itemprop="employmentType"[^>]*content="([^"]+)"/i);
   return {
-    postedDate,
+    ...publication,
     descriptionHtml: description,
     employmentTypeHint: empM ? empM[1] : '',
   };
@@ -263,7 +269,7 @@ async function fetchJobListings() {
       html = await fetchHtml(url, { headers: { 'User-Agent': CRAWLER_UA } });
     } catch (err) {
       console.error(`❌ listing fetch failed (startrow=${startrow}): ${err?.message || err}`);
-      break;
+      throw err;
     }
     const rows = parseTilePage(html);
     if (rows.length === 0) {
@@ -382,7 +388,7 @@ export async function fetchAllSonovaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

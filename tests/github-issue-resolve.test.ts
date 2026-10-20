@@ -8,7 +8,7 @@ vi.mock('node:child_process', () => {
   return { ...mock, default: mock };
 });
 
-const { resolveGithubIssue } = await import('../scripts/lib/github-issue-creator.mjs');
+const { findOpenGithubIssuesByTitlePrefix, resolveGithubIssue } = await import('../scripts/lib/github-issue-creator.mjs');
 
 function ghCalls(): string[][] {
   return execFileSync.mock.calls
@@ -67,6 +67,33 @@ describe('resolveGithubIssue — close canonical issue on green', () => {
     expect(view).toContain('state');
   });
 
+  it('closes the evaluated issue number when a same-title twin appears during resolution', () => {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        return JSON.stringify([
+          { number: 102, title: 'CI Failure (push): workflow', url: 'twin-url', state: 'OPEN' },
+          { number: 101, title: 'CI Failure (push): workflow', url: 'evaluated-url', state: 'OPEN' },
+        ]);
+      }
+      if (args[0] === 'issue' && args[1] === 'view') {
+        return JSON.stringify({ state: args[2] === '101' ? 'CLOSED' : 'OPEN' });
+      }
+      return '';
+    });
+
+    const res = resolveGithubIssue('CI Failure (push): workflow', {
+      issueNumber: 101,
+      workflow: 'workflow',
+    });
+
+    expect(res).toMatchObject({ number: 101, persisted: true });
+    const calls = ghCalls();
+    const close = calls.find((a) => a[0] === 'issue' && a[1] === 'close');
+    expect(close?.[2]).toBe('101');
+    expect(calls.some((a) => a[0] === 'issue' && a[1] === 'close' && a[2] === '102')).toBe(false);
+    expect(calls.some((a) => a[0] === 'issue' && a[1] === 'list')).toBe(false);
+  });
+
   it('does not report success when gh issue close is refused', () => {
     mockOpenCanonical({ closeOk: false, viewState: 'OPEN' });
     const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -83,6 +110,40 @@ describe('resolveGithubIssue — close canonical issue on green', () => {
     expect((caught as { number?: number }).number).toBe(1247);
 
     errorSpy.mockRestore();
+  });
+
+  it('retries a transient GraphQL close and verifies the recovered issue state', () => {
+    let closeAttempts = 0;
+    let viewAttempts = 0;
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        return JSON.stringify([
+          { number: 1247, title: 'Validation Failure (dist): post-deploy', url: 'u', state: 'OPEN' },
+        ]);
+      }
+      if (args[0] === 'issue' && args[1] === 'close') {
+        closeAttempts += 1;
+        if (closeAttempts === 1) {
+          throw Object.assign(new Error('Command failed'), {
+            stderr: 'GraphQL: Something went wrong while executing your query',
+          });
+        }
+        return '';
+      }
+      if (args[0] === 'issue' && args[1] === 'view') {
+        viewAttempts += 1;
+        return JSON.stringify({ state: viewAttempts === 1 ? 'OPEN' : 'CLOSED' });
+      }
+      return '';
+    });
+
+    const warningSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const res = resolveGithubIssue('Validation Failure (dist): post-deploy', {});
+
+    expect(res).toMatchObject({ number: 1247, persisted: true });
+    expect(closeAttempts).toBe(2);
+    expect(viewAttempts).toBe(2);
+    warningSpy.mockRestore();
   });
 
   it('does not report success when close stdout is non-null but the issue stays OPEN', () => {
@@ -106,6 +167,21 @@ describe('resolveGithubIssue — close canonical issue on green', () => {
 
     expect(res).toBeNull();
     expect(ghCalls().some((a) => a[1] === 'close')).toBe(false);
+  });
+
+  it('lists every open portal-stop issue for the complete host prefix', () => {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        return JSON.stringify([
+          { number: 12092, title: '[portal-stop] career5.successfactors.eu: pagina non superata su /career' },
+          { number: 11914, title: '[portal-stop] career5.successfactors.eu: account del portale su /career' },
+          { number: 12093, title: '[portal-stop] career50.successfactors.eu: account del portale su /career' },
+        ]);
+      }
+      return '';
+    });
+
+    expect(findOpenGithubIssuesByTitlePrefix('[portal-stop] career5.successfactors.eu:')?.map((issue) => issue.number)).toEqual([12092, 11914]);
   });
 
   it('only matches an exact stable-title prefix, not a fuzzy token hit', () => {

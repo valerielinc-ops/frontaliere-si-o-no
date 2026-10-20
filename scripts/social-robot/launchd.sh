@@ -1,0 +1,395 @@
+#!/bin/bash
+
+# Launch agent of the social robot on the agents' Mac host: two windows a day
+# in which the robot publishes (or, in a dry run, prepares) the queued
+# Instagram and TikTok carousels from the owner's Chrome profile. The same
+# pass reads Instagram Insights and Business Suite through that profile.
+#
+#   bash scripts/social-robot/launchd.sh install    write and load the plist (this Mac, this checkout)
+#   bash scripts/social-robot/launchd.sh run        one window (what launchd runs)
+#   bash scripts/social-robot/launchd.sh status     launch agent, last log lines
+#   bash scripts/social-robot/launchd.sh uninstall  unload and remove the plist
+#
+# Neither launchd nor `run` executes the checkout's working tree, which may sit
+# on somebody else's branch: install copies this script into the state folder
+# (the plist runs that copy), and `run` fetches origin/main, extracts the robot's files of that
+# commit into a frozen snapshot under the state folder, links
+# the checkout's node_modules (Playwright) and runs it from there. The mode
+# comes from Remote Config (SOCIAL_ROBOT_MODE, read with the site's own
+# loader and the service account in ~/.config/frontaliere): the plist always
+# passes --publish, and only `live` makes the robot press the button.
+#
+# Logs: ~/Library/Logs/frontaliere/social-robot.log (and .launchd.*.log).
+# State (profile, journal, diagnostics): ~/Library/Application Support/frontaliere/social-robot
+# Windows: SR_WINDOWS="HH:MM HH:MM" at install time (default 11:30 and 18:30
+# local time, after the posters' 08:20/08:25 UTC runs have committed the queue);
+# the robot adds up to 20 minutes of random delay to each.
+#
+# Bash 3.2 (macOS /bin/bash): no associative arrays, no ${var,,}.
+
+set -u
+
+label=ch.frontaliere.social-robot
+home_dir=${HOME:-~}
+log_dir=${SR_LOG_DIR:-$home_dir/Library/Logs/frontaliere}
+log_file="$log_dir/social-robot.log"
+agents_dir=${SR_LAUNCH_AGENTS_DIR:-$home_dir/Library/LaunchAgents}
+state_dir=${SOCIAL_ROBOT_STATE_DIR:-$home_dir/Library/Application Support/frontaliere/social-robot}
+site_file="$state_dir/site.path"
+sa_file=${SR_SERVICE_ACCOUNT:-$home_dir/.config/frontaliere/sa-frontaliere-ticino.json}
+windows=${SR_WINDOWS:-11:30 18:30}
+max_log_lines=4000
+
+# The robot's import closure, extracted from the destination SHA's launcher
+# for every run. The installed copy can be one run behind while it refreshes.
+# tests/social-robot.test.ts checks that it covers every relative import of
+# run.mjs and of the loader, so a new import cannot silently break the Mac host.
+snapshot_paths="scripts/social-robot scripts/ci/guard-main-tree-shrink.mjs scripts/lib/is-invoked-directly.mjs scripts/lib/git-fetch-target.mjs scripts/lib/main-push-guard.mjs scripts/lib/single-flight-lock.mjs scripts/lib/stale-fetch-pack-sweep.mjs scripts/lib/social-publish-queue.mjs scripts/lib/instagram-engagement.mjs scripts/lib/instagram-community-automation.mjs scripts/lib/instagram-community-browser.mjs scripts/lib/instagram-insights-browser.mjs scripts/lib/instagram-insights-snapshot.mjs scripts/lib/instagram-media-matching.mjs scripts/lib/instagram-graph-constants.mjs scripts/lib/ga4-service-account.mjs scripts/lib/analytics-settled-window.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
+social_robot_issue_title='Social robot Mac host failure'
+
+script_dir=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd -P) || exit 1
+site=${SR_SITE_REPO:-}
+# The installed copy lives in the state folder, so its dirname is not the
+# checkout. Persist the checkout at install time for manual/legacy launches
+# whose environment does not contain SR_SITE_REPO.
+if [ -z "$site" ] && [ -f "$site_file" ]; then
+  site=$(/usr/bin/head -n 1 "$site_file")
+fi
+if [ -z "$site" ]; then
+  site=$(CDPATH="" cd -- "$script_dir/../.." && pwd -P) || exit 1
+fi
+
+log() {
+  /bin/mkdir -p "$log_dir" 2>/dev/null || return 0
+  printf '%s %s\n' "$(/bin/date -u '+%Y-%m-%dT%H:%M:%SZ')" "$*" >>"$log_file"
+}
+
+trim_log() {
+  [ -f "$log_file" ] || return 0
+  lines=$(/usr/bin/wc -l <"$log_file")
+  if [ "$lines" -gt "$max_log_lines" ]; then
+    /usr/bin/tail -n $((max_log_lines / 2)) "$log_file" >"$log_file.tmp" && /bin/mv "$log_file.tmp" "$log_file"
+  fi
+}
+
+# Downloads are disposable after one robot entry; diagnostics are retained for
+# two weeks so a selector/loading failure remains inspectable without allowing
+# the Mac host's state directory to grow until Git cannot create a worktree.
+prune_state_tree() {
+  root=$1
+  max_age=$2
+  [ -d "$root" ] || return 0
+  now=$(/bin/date +%s)
+  for child in "$root"/*; do
+    [ -e "$child" ] || [ -L "$child" ] || continue
+    [ -d "$child" ] || continue
+    [ -L "$child" ] && continue
+    mtime=$(/usr/bin/stat -f '%m' "$child" 2>/dev/null) || continue
+    case "$mtime" in
+      ''|*[!0-9]*) continue ;;
+    esac
+    if [ $((now - mtime)) -gt "$max_age" ]; then
+      /bin/rm -rf "$child" || log "state cleanup failed: $child"
+    else
+      prune_state_tree "$child" "$max_age"
+    fi
+  done
+}
+
+prune_stale_state() {
+  prune_state_tree "$state_dir/downloads" 86400
+  prune_state_tree "$state_dir/diagnostics" $((14 * 24 * 3600))
+}
+
+# A fetch killed by ENOSPC can leave a large tmp_pack_* in the repository's
+# object store. Reclaim only files older than the shared one-hour safety window
+# before and after the fetch; a live fetch keeps its mtime fresh. The helper is
+# intentionally best-effort so a cleanup problem never hides origin/main.
+sweep_stale_fetch_packs() {
+  pack_dir=$(g rev-parse --git-path objects/pack 2>/dev/null) || return 0
+  case "$pack_dir" in
+    /*) ;;
+    *) pack_dir="$site/$pack_dir" ;;
+  esac
+  sweep_output=$(node "$site/scripts/lib/stale-fetch-pack-sweep.mjs" "$pack_dir" 2>/dev/null) || return 0
+  [ -n "$sweep_output" ] && log "$sweep_output"
+}
+
+g() {
+  git -C "$site" "$@"
+}
+
+snapshot_paths_for_sha() {
+  sha=$1
+  destination_launcher=$(g show "${sha}:scripts/social-robot/launchd.sh" 2>/dev/null) || return 1
+  destination_paths=$(printf '%s\n' "$destination_launcher" | /usr/bin/sed -n 's/^snapshot_paths="\([^"]*\)"$/\1/p' | /usr/bin/head -n 1)
+  [ -n "$destination_paths" ] || return 1
+  printf '%s\n' "$destination_paths"
+}
+
+verify_snapshot() {
+  snapshot_root=$1
+  node "$snapshot_root/scripts/social-robot/verify-snapshot.mjs" "$snapshot_root"
+}
+
+# `git archive` can wait indefinitely for an unrelated tree/blob in a
+# blob:none partial clone. Resolve the destination tree first, then fetch and
+# write only the files declared by that commit's launcher. This keeps the host
+# independent from the checkout's working tree and avoids materialising the
+# site's large public/data trees.
+materialize_snapshot() {
+  sha=$1
+  destination_root=$2
+  destination_paths=$3
+  tracked_files=$(g ls-tree -r --name-only "$sha" -- $destination_paths) || return 1
+  [ -n "$tracked_files" ] || return 1
+  # shellcheck disable=SC2162 # Bash 3.2 supports read -r; repository paths have no newlines.
+  while IFS= read -r snapshot_file; do
+    [ -n "$snapshot_file" ] || continue
+    target="$destination_root/$snapshot_file"
+    /bin/mkdir -p "$(/usr/bin/dirname "$target")" || return 1
+    if ! g show "${sha}:${snapshot_file}" >"$target"; then
+      /bin/rm -f "$target"
+      return 1
+    fi
+  done <<EOF
+$tracked_files
+EOF
+}
+
+alarm_issue() {
+  errors=''
+  if [ -f "$log_file" ]; then
+    errors=$(
+      /usr/bin/tail -n 80 "$log_file" |
+        /usr/bin/grep -E -i 'error|failed|failure|exception|fatal|cannot|not found|missing|exit [1-9]' |
+        /usr/bin/sed -E \
+          -e 's#/(Users|home)/[^/ ]+#~#g' \
+          -e 's/([A-Za-z0-9_]*(TOKEN|SECRET|PASSWORD|PRIVATE_KEY|API_KEY)[A-Za-z0-9_]*[=:])[^[:space:]]*/\1[REDACTED]/g' \
+          -e 's/(Bearer[[:space:]]+)[^[:space:]]+/\1[REDACTED]/g' |
+        /usr/bin/cut -c1-400 || true
+    )
+  fi
+  [ -n "$errors" ] || errors='(no error lines captured)'
+  repo=${GH_REPO:-valerielinc-ops/frontaliere-si-o-no}
+  body=$(printf 'Mac host social robot failure.\n\nError lines from the local log:\n%s' "$errors")
+  issue_number=$(
+    gh issue list --repo "$repo" --state open --search "\"$social_robot_issue_title\" in:title" --limit 1 --json number --jq '.[0].number' 2>/dev/null
+  ) || issue_number=''
+  if [ -n "$issue_number" ]; then
+    gh issue comment "$issue_number" --repo "$repo" --body "$body" >/dev/null 2>&1 || true
+  else
+    gh issue create --repo "$repo" --title "$social_robot_issue_title" --body "$body" >/dev/null 2>&1 || true
+  fi
+  return 0
+}
+
+# Extract the robot of origin/main into $state_dir/runner/<sha>; print its path.
+snapshot() {
+  sha=$1
+  runner_root="$state_dir/runner"
+  dest="$runner_root/$sha"
+  marker="$dest/.snapshot-verified"
+  if [ ! -f "$dest/scripts/social-robot/run.mjs" ] || [ ! -f "$dest/scripts/load-rc-env.mjs" ] || [ ! -f "$marker" ]; then
+    destination_snapshot_paths=$(snapshot_paths_for_sha "$sha") || return 1
+    /bin/mkdir -p "$runner_root" || return 1
+    tmp="$runner_root/.tmp-$sha-$$"
+    /bin/rm -rf "$tmp" "$dest" && /bin/mkdir -p "$tmp" || return 1
+    if ! materialize_snapshot "$sha" "$tmp" "$destination_snapshot_paths"; then
+      /bin/rm -rf "$tmp"
+      return 1
+    fi
+    if ! verification_output=$(verify_snapshot "$tmp" 2>&1); then
+      log "snapshot verification failed for ${sha:0:8}: $(printf '%s' "$verification_output" | /usr/bin/tr '\n' ' ' | /usr/bin/cut -c1-300)"
+      /bin/rm -rf "$tmp" "$dest"
+      return 1
+    fi
+    printf '%s\n' "$sha" >"$tmp/.snapshot-verified" || { /bin/rm -rf "$tmp" "$dest"; return 1; }
+    /bin/mv "$tmp" "$dest" || { /bin/rm -rf "$tmp" "$dest"; return 1; }
+  fi
+  /bin/ln -sfn "$site/node_modules" "$dest/node_modules"
+  # launchd runs the copy in the state folder, never the checkout's working
+  # tree. Both BSD and GNU `mv` can follow a symlink when its destination is a
+  # directory, and their `ln` no-dereference flags differ. Remove only the
+  # verified link, then create the new one explicitly.
+  if ! /usr/bin/cmp -s "$dest/scripts/social-robot/launchd.sh" "$state_dir/launchd.sh"; then
+    /bin/cp "$dest/scripts/social-robot/launchd.sh" "$state_dir/launchd.sh.tmp" && /bin/mv -f "$state_dir/launchd.sh.tmp" "$state_dir/launchd.sh"
+  fi
+  if [ -L "$runner_root/current" ]; then
+    /bin/rm -f "$runner_root/current" || return 1
+  fi
+  /bin/ln -s "$dest" "$runner_root/current" || return 1
+  # Keep the current snapshot and the previous one.
+  for old in $(/bin/ls -1t "$runner_root" 2>/dev/null | /usr/bin/grep -E '^[0-9a-f]{40}$' | /usr/bin/tail -n +3); do
+    /bin/rm -rf "${runner_root:?}/${old:?}"
+  done
+  printf '%s\n' "$dest"
+}
+
+# Load the same Remote Config environment as the CI poster. The values stay in
+# this process and are never logged: the community worker needs a Graph token
+# as well as SOCIAL_ROBOT_MODE, while the latter remains the only value printed
+# below. Existing environment variables win inside the loader. The default
+# community/Insights path needs only the authenticated Chrome profile; Graph
+# credentials remain an explicit compatibility path.
+load_rc_environment() {
+  runner=$1
+  [ -f "$sa_file" ] || { log "service account missing ($sa_file): Remote Config unavailable, dry run"; return 0; }
+  rc_exports=$(GOOGLE_APPLICATION_CREDENTIALS="$sa_file" node "$runner/scripts/load-rc-env.mjs" 2>/dev/null) || rc_exports=''
+  [ -n "$rc_exports" ] || return 0
+  eval "$rc_exports"
+}
+
+cmd_run() {
+  /bin/mkdir -p "$log_dir" "$state_dir" 2>/dev/null
+  prune_stale_state
+  sweep_stale_fetch_packs
+  if ! out=$(g -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=60 fetch -q origin main 2>&1); then
+    log "fetch failed, using the last fetched origin/main: $(printf '%s' "$out" | /usr/bin/tr '\n' ' ' | /usr/bin/cut -c1-200)"
+  fi
+  sweep_stale_fetch_packs
+  ref=${SR_REF:-origin/main} # SR_REF: another commit, only to try a branch by hand
+  sha=$(g rev-parse --verify -q "$ref^{commit}") || { log "$ref unknown in $site: nothing run"; return 0; }
+  runner=$(snapshot "$sha") || { log "snapshot of ${sha:0:8} failed: nothing run"; alarm_issue; trim_log; return 0; }
+  load_rc_environment "$runner"
+  mode=${SOCIAL_ROBOT_MODE:-}
+  log "run ${sha:0:8} SOCIAL_ROBOT_MODE=${mode:-<absent>}"
+  run_status=0
+  SOCIAL_ROBOT_MODE="$mode" SOCIAL_ROBOT_SITE_REPO="$site" SOCIAL_ROBOT_STATE_DIR="$state_dir" GH_REPO=valerielinc-ops/frontaliere-si-o-no \
+    node "$runner/scripts/social-robot/run.mjs" --publish --jitter >>"$log_file" 2>&1 || run_status=$?
+  insights_status=0
+  if [ "$mode" != 'off' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'off' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'graph' ] && [ -f "$state_dir/instagram-insights.json" ]; then
+    node "$runner/scripts/social-robot/persist-browser-insights.mjs" \
+      --repo "$site" --snapshot "$state_dir/instagram-insights.json" >>"$log_file" 2>&1 || insights_status=$?
+    [ "$insights_status" -eq 0 ] || log "browser Insights persistence failed (exit $insights_status)"
+  fi
+  log "exit $run_status"
+  [ "$run_status" -eq 0 ] && [ "$insights_status" -eq 0 ] || alarm_issue
+  trim_log
+  return 0
+}
+
+plist_path() {
+  printf '%s/%s.plist\n' "$agents_dir" "$label"
+}
+
+xml() {
+  printf '%s' "$1" | /usr/bin/sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g'
+}
+
+# launchd does not inherit the shell's PATH: fix node's folder now, while the
+# installer sees it; ~/.local/bin first, for the `gh` shim of the coordinator.
+launchd_path() {
+  node_bin=$(command -v node 2>/dev/null) || node_bin=''
+  case "$node_bin" in
+    /*) ;;
+    *) printf 'social-robot: node not in PATH (PATH=%s): no plist written\n' "${PATH:-}" >&2; return 1 ;;
+  esac
+  out=''
+  for entry in "$home_dir/.local/bin" "${node_bin%/*}" /opt/homebrew/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin; do
+    case ":$out:" in
+      *":$entry:"*) ;;
+      *) out=${out:+$out:}$entry ;;
+    esac
+  done
+  printf '%s\n' "$out"
+}
+
+# One <dict> per HH:MM window.
+calendar_entries() {
+  for w in $windows; do
+    case "$w" in
+      [0-2][0-9]:[0-5][0-9]) ;;
+      *) printf 'social-robot: bad window "%s" (HH:MM)\n' "$w" >&2; return 1 ;;
+    esac
+    h=${w%%:*}; m=${w##*:}
+    h=${h#0}; m=${m#0}
+    [ "${h:-0}" -le 23 ] || { printf 'social-robot: bad hour in "%s"\n' "$w" >&2; return 1; }
+    printf '\t\t<dict><key>Hour</key><integer>%s</integer><key>Minute</key><integer>%s</integer></dict>\n' "${h:-0}" "${m:-0}"
+  done
+}
+
+cmd_install() {
+  launchd_env_path=$(launchd_path) || exit 69
+  entries=$(calendar_entries) || exit 64
+  /bin/mkdir -p "$agents_dir" "$log_dir" "$state_dir" || exit 73
+  site_tmp="$site_file.$$"
+  printf '%s\n' "$site" >"$site_tmp" || exit 73
+  /bin/mv -f "$site_tmp" "$site_file" || { /bin/rm -f "$site_tmp"; exit 73; }
+  # The plist points at a copy in the state folder: the checkout may later sit
+  # on a branch without this file. `run` keeps the copy on origin/main's version.
+  if [ "$script_dir/launchd.sh" != "$state_dir/launchd.sh" ]; then
+    /bin/cp "$script_dir/launchd.sh" "$state_dir/launchd.sh" || exit 73
+  fi
+  plist=$(plist_path)
+  cat >"$plist" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>$label</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>$(xml "$state_dir/launchd.sh")</string>
+		<string>run</string>
+	</array>
+	<key>StartCalendarInterval</key>
+	<array>
+$entries
+	</array>
+	<key>ProcessType</key>
+	<string>Interactive</string>
+	<key>WorkingDirectory</key>
+	<string>$(xml "$site")</string>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key><string>$(xml "$home_dir")</string>
+		<key>PATH</key><string>$(xml "$launchd_env_path")</string>
+		<key>SR_SITE_REPO</key><string>$(xml "$site")</string>
+	</dict>
+	<key>StandardOutPath</key>
+	<string>$(xml "$log_dir/social-robot.launchd.out.log")</string>
+	<key>StandardErrorPath</key>
+	<string>$(xml "$log_dir/social-robot.launchd.err.log")</string>
+</dict>
+</plist>
+EOF
+  if [ -x /usr/bin/plutil ]; then /usr/bin/plutil -lint -s "$plist" || exit 65; fi
+  [ -n "${SR_NO_LAUNCHCTL:-}" ] && { printf '%s\n' "$plist"; return 0; }
+  domain="gui/$(/usr/bin/id -u)"
+  /bin/launchctl bootout "$domain/$label" 2>/dev/null
+  /bin/launchctl bootstrap "$domain" "$plist" || exit 1
+  printf 'loaded %s (windows: %s): %s\n' "$label" "$windows" "$plist"
+}
+
+cmd_uninstall() {
+  /bin/launchctl bootout "gui/$(/usr/bin/id -u)/$label" 2>/dev/null
+  /bin/rm -f "$(plist_path)"
+  printf 'removed %s\n' "$label"
+}
+
+cmd_status() {
+  if /bin/launchctl print "gui/$(/usr/bin/id -u)/$label" >/dev/null 2>&1; then
+    printf '%s loaded\n' "$label"
+  else
+    printf '%s not loaded (bash scripts/social-robot/launchd.sh install)\n' "$label"
+  fi
+  [ -f "$log_file" ] && /usr/bin/tail -n 20 "$log_file"
+  return 0
+}
+
+# All the work is in functions called from the last line: bash reads the
+# script in pieces, and a fetch may replace this file while it runs.
+main() {
+  case "${1:-run}" in
+    run) cmd_run ;;
+    install) cmd_install ;;
+    uninstall) cmd_uninstall ;;
+    status) cmd_status ;;
+    -h|--help) /usr/bin/sed -n '3,26p' "$0" ;;
+    *) printf 'usage: launchd.sh [run|install|uninstall|status]\n' >&2; exit 64 ;;
+  esac
+}
+main "$@"; exit $?

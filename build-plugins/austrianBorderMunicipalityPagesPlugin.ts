@@ -562,7 +562,7 @@ export function renderAboveFloorPage(params: {
   </div>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
 
   const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -701,7 +701,7 @@ export function renderHubPage(params: { locale: AustrianLocale; dateStamp: strin
   </div>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
 
   const hubHreflang = AUSTRIAN_LOCALES.map(
     (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${AUSTRIAN_HUB_PATH[alt]}">`,
@@ -742,7 +742,7 @@ function buildSitemap(dateStamp: string): string {
     const altLines = alts
       .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.href}" />`)
       .join('\n');
-    return `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLines}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+    return `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLines}\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
   };
 
   const urls: string[] = [];

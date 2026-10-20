@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * report-daily-brief-cadence.mjs — the daily brief's own numbers (issue #5415 §3.10).
  *
@@ -25,6 +27,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DAILY_BRIEF_TIERS, estimateDailyVolume, utcDayOf } from './lib/dailyBriefCadence.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -36,14 +39,7 @@ const DAYS = Number(argv[argv.indexOf('--days') + 1]) || 14;
 const COMPLAINT_CEILING = 0.003; // Gmail/Yahoo bulk-sender limit
 
 async function getFirestoreAdmin() {
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    initializeApp({ credential: cert(JSON.parse(fs.readFileSync(credPath, 'utf-8'))) });
-  }
-  return getFirestore();
+  return getFirestoreDb();
 }
 
 /**
@@ -169,7 +165,7 @@ async function main() {
   fs.appendFileSync(HISTORY, `${JSON.stringify(report)}\n`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error('❌ report-daily-brief-cadence.mjs failed:', error);
     process.exitCode = 1;

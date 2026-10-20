@@ -10,7 +10,10 @@
  * version of the job. Existing expired entries are preserved (merge by slug);
  * historical expired entries that later disappeared from the archive are also
  * restored, and legacy entries receive sourceIdentity/firstSeenAt metadata
- * from the active-slice history;
+ * from the active-slice history. The same history pass repairs active slice
+ * entries whose crawler-generated firstSeenAt was reset by a fresh rewrite;
+ * otherwise the next company-alert run would still treat a standing vacancy
+ * as new.
  * the on-disk shape matches what `runStandardCrawlerPipeline` would write
  * going forward, so the build plugin renders the same JobExpiredView.
  *
@@ -36,12 +39,14 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
   collapseDuplicateRouteEntries,
   mergeSourceIdentityHistory,
+  normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { createFirstSeenMetadataIndex } from './lib/first-seen-history.mjs';
+import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -80,12 +85,20 @@ function readJobsFromSlice(blob) {
   return [];
 }
 
+function parseSlice(blob) {
+  try {
+    return JSON.parse(blob);
+  } catch {
+    return null;
+  }
+}
+
 function buildExpiredEntry(job) {
   const sourceIdentity = job?.sourceIdentity || (job?.url ? buildStableJobIdentity(job) : '');
   const entry = {
     slug: job.slug,
     title: job.title || '',
-    titleByLocale: job.titleByLocale || {},
+    titleByLocale: { ...(job.titleByLocale || {}) },
     company: job.company || '',
     companyKey: job.companyKey || '',
     location: job.location || '',
@@ -115,6 +128,7 @@ function buildExpiredEntry(job) {
         ? JSON.parse(JSON.stringify(job.sourceIdentityHistory))
         : undefined,
   };
+  normalizeExpiredEntryTitles(entry);
   if (!entry.postalCode) delete entry.postalCode;
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
@@ -168,7 +182,9 @@ function processSlice(sliceFile) {
   const currentPath = path.join(BY_CRAWLER_DIR, sliceFile);
   if (!fs.existsSync(currentPath)) return null;
 
-  const currentJobs = readJobsFromSlice(fs.readFileSync(currentPath, 'utf-8'));
+  const currentBlob = fs.readFileSync(currentPath, 'utf-8');
+  const currentPayload = parseSlice(currentBlob);
+  const currentJobs = readJobsFromSlice(currentBlob);
   const currentIds = new Set(currentJobs.map((j) => j.id).filter(Boolean));
   const currentSlugs = new Set(currentJobs.map((j) => j.slug).filter(Boolean));
 
@@ -201,6 +217,9 @@ function processSlice(sliceFile) {
   // metadata index sees every historical version, including jobs that are
   // active today, so legacy archive entries can recover firstSeenAt too.
   const lostById = new Map();
+  // Ids whose most recent historical version was held out of publication for
+  // translation: never public, so never archived (no expired soft-landing).
+  const heldLostIds = new Set();
   const historicalExpiredBySlug = new Map();
   const historicalIndex = createFirstSeenMetadataIndex();
   for (const sha of sliceCommits) {
@@ -217,7 +236,11 @@ function processSlice(sliceFile) {
         if (!job?.id || !job?.slug) continue;
         if (currentIds.has(job.id)) continue;
         if (currentSlugs.has(job.slug)) continue; // same slug, different id — treat as kept
-        if (lostById.has(job.id)) continue;
+        if (lostById.has(job.id) || heldLostIds.has(job.id)) continue;
+        if (isHeldFromPublication(job)) {
+          heldLostIds.add(job.id);
+          continue;
+        }
         lostById.set(job.id, job);
       }
     }
@@ -279,6 +302,14 @@ function processSlice(sliceFile) {
   // handles a vacancy that is active again today: it need not be absent from
   // the current slice to have a durable first-seen date in the archive.
   const metadata = historicalIndex.enrich([...bySlug.values()]);
+  const activeMetadata = historicalIndex.enrichActive(currentJobs);
+
+  if (activeMetadata.enrichedEntries > 0 && !DRY_RUN) {
+    const nextPayload = Array.isArray(currentPayload)
+      ? currentJobs
+      : { ...(currentPayload || {}), jobs: currentJobs };
+    writeJsonAtomic(currentPath, nextPayload);
+  }
 
   let added = 0;
   for (const job of lostById.values()) {
@@ -309,7 +340,13 @@ function processSlice(sliceFile) {
 
   // A repair adds no slug, so `added` stays put: write it out anyway,
   // otherwise the unorderable value survives on disk until an unrelated add.
-  if (added === 0 && recoveredFromHistory === 0 && repaired === 0 && metadata.enrichedEntries === 0) {
+  if (
+    added === 0
+    && recoveredFromHistory === 0
+    && repaired === 0
+    && metadata.enrichedEntries === 0
+    && activeMetadata.enrichedEntries === 0
+  ) {
     return {
       crawlerKey,
       scannedCommits: sliceCommits.length,
@@ -317,6 +354,7 @@ function processSlice(sliceFile) {
       added: 0,
       recovered: 0,
       enriched: 0,
+      activeEnriched: 0,
     };
   }
 
@@ -338,6 +376,7 @@ function processSlice(sliceFile) {
     added: added + recoveredFromHistory,
     recovered: recoveredFromHistory,
     enriched: metadata.enrichedEntries,
+    activeEnriched: activeMetadata.enrichedEntries,
   };
 }
 
@@ -361,6 +400,7 @@ function main() {
     addedTotal: 0,
     recoveredTotal: 0,
     enrichedTotal: 0,
+    activeEnrichedTotal: 0,
     lostTotal: 0,
     scannedTotal: 0,
   };
@@ -374,10 +414,11 @@ function main() {
     summary.addedTotal += result.added;
     summary.recoveredTotal += result.recovered;
     summary.enrichedTotal += result.enriched;
-    if (result.enriched > 0) summary.withMetadata++;
-    if (result.lost > 0 || result.enriched > 0 || process.env.VERBOSE === '1') {
+    summary.activeEnrichedTotal += result.activeEnriched || 0;
+    if (result.enriched > 0 || result.activeEnriched > 0) summary.withMetadata++;
+    if (result.lost > 0 || result.enriched > 0 || result.activeEnriched > 0 || process.env.VERBOSE === '1') {
       console.log(
-        `  ${result.crawlerKey}: scanned=${result.scannedCommits} lost=${result.lost} added=${result.added} recovered=${result.recovered} metadata=${result.enriched}`,
+        `  ${result.crawlerKey}: scanned=${result.scannedCommits} lost=${result.lost} added=${result.added} recovered=${result.recovered} metadata=${result.enriched} activeMetadata=${result.activeEnriched || 0}`,
       );
     }
   }
@@ -386,6 +427,7 @@ function main() {
   console.log(`   Total lost: ${summary.lostTotal}, newly archived: ${summary.addedTotal}`);
   console.log(`   Recovered historical archive entries: ${summary.recoveredTotal}`);
   console.log(`   Archives enriched: ${summary.enrichedTotal} entries across ${summary.withMetadata} crawlers`);
+  console.log(`   Active slices enriched: ${summary.activeEnrichedTotal} jobs`);
   console.log(`   Total commits scanned: ${summary.scannedTotal}`);
 }
 

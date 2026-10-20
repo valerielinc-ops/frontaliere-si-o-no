@@ -13,14 +13,14 @@
  *
  * Source of truth: data/employer-profiles.json (scripts/build-employer-profiles.mjs)
  * — corpus-derived FACTS only, no editorial judgement, no PII (brand-safety).
- * The live active-job listings + JobPosting structured data come from the
+ * The live active-job listings + ItemList structured data come from the
  * assembled corpus data/jobs.json (via loadJobsJson), grouped by the SAME
  * canonicalCompanyProfileSlug the dataset uses (build-plugins/shared/
  * companyProfileSlug.mjs — one definition, no slug drift).
  *
  * Contract (repo SSG rules): apply:'build', enforce:'post', emit in
  * closeBundle(), pass distDir. Every page via buildSeoPageHtml (SPA shell +
- * lite-shell hydration). JSON-LD JobPosting via the shared buildJobPostingSchema
+ * lite-shell hydration). JSON-LD links via the shared buildJobListEntry
  * (guarantees AGENTS #3 mandatory fields). Sitemap written as
  * dist/sitemap-employer-profiles.xml (sitemapAliasPlugin auto-discovers it).
  *
@@ -40,30 +40,43 @@
  * Namespace: distinct from publisherAdPagesPlugin (`/lavoro/<slug>/`) — no
  * collision. Gate: SKIP_EMPLOYER_PROFILE_PAGES=1 fast-exits local builds.
  */
+import { reportedSalarySummary, isReportedAnnualChfSalary } from './shared/realSalaryMedian';
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { renderJobCardListHtml, localizedContract, type JobCardJob } from './shared/jobCardHtml';
-import { buildListItemJobPosting } from './shared/jobPostingListItem';
+import { buildJobListEntry } from './shared/jobListEntry';
 import { renderEmployerCtaBlock } from './shared/employerCtaBlock';
 import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder';
+import { LOGO_IMG_ONERROR, resolveJobLogoSrc } from './shared/companyLogoResolver';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { escHtml as esc } from './shared/htmlEscape';
 import { WriteCollector } from './batchWrite';
 import { loadJobsJson, releaseJobsJson } from './shared/loadJobsJson';
 import { logBuildMem } from './shared/buildMemLog';
 import { resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { buildCurrentWeekPath } from './weeklyEmployersData';
 import { buildSectorHubPath, SECTOR_HUB_KEYS, type SectorHubKey } from './jobSectorLanding';
 import { buildEmployerProfilePath, canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
 import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
 import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
+import { buildCompanyOrganization } from './shared/jobPostingSchema';
 import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { JOBLIST_AD_EVERY_N, JOBLIST_AD_MAX_PER_LIST } from '../services/adsenseSlots';
+import {
+  EMPLOYER_PROFILE_MID_AD_EOC_VARIANT,
+  EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID,
+  EMPLOYER_PROFILE_MID_AD_TARGET_SLUG,
+  EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY,
+  resolveEmployerProfileMidAdVariant,
+  type EmployerProfileMidAdVariant,
+} from '../services/employerProfileAdExperiment';
 
 export const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Locale = (typeof LOCALES)[number];
@@ -77,10 +90,10 @@ const localePrefix = (locale: Locale): string => (locale === 'it' ? '' : `/${loc
 const profilePath = (locale: Locale, slug: string): string => buildEmployerProfilePath(locale, slug);
 
 /**
- * Max active jobs rendered as cards and JobPosting ItemList entries per
- * profile page. Derive the boundary from the shared in-feed cadence: the
- * trailing card keeps the slot after the last eligible position renderable,
- * while the full active count remains visible in the stat tile and heading.
+ * Max active jobs rendered as cards and ItemList entries per profile page.
+ * Derive the boundary from the shared in-feed cadence: the trailing card keeps
+ * the slot after the last eligible position renderable, while the full active
+ * count remains visible in the stat tile and heading.
  */
 const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;
 
@@ -116,13 +129,12 @@ const HOME_LABEL: Record<Locale, string> = { it: 'Home', en: 'Home', de: 'Starts
 const HUB_LABEL: Record<Locale, string> = { it: 'Aziende', en: 'Companies', de: 'Unternehmen', fr: 'Entreprises' };
 
 // Visible methodology copy for indexable profiles. It explains the boundary
-// of the corpus-derived facts and gives the page useful context even when an
-// employer has many ad slots but only a compact set of cards.
+// of the corpus-derived facts without competing with the active-job list.
 const PROFILE_METHOD_NOTE: Record<Locale, string> = {
-  it: 'I conteggi riflettono gli annunci attivi disponibili al momento della compilazione; sedi, salari e contratti compaiono solo quando il dato è pubblicato nella fonte dell’offerta. Per candidarti, verifica sempre l’annuncio originale.',
-  en: 'The counts reflect active postings available when this page was built; locations, salaries and contract types appear only when the job source publishes them. For an application, always check the original posting.',
-  de: 'Die Zählungen beziehen sich auf aktive Stellen, die beim Seitenaufbau verfügbar waren; Standorte, Gehälter und Vertragsarten erscheinen nur, wenn die Stellenquelle sie veröffentlicht. Vor einer Bewerbung bitte die Originalanzeige prüfen.',
-  fr: 'Les totaux correspondent aux annonces actives disponibles lors de la génération de la page; lieux, salaires et types de contrat apparaissent uniquement si la source de l’offre les publie. Pour postuler, vérifiez toujours l’annonce originale.',
+  it: 'I conteggi riflettono gli annunci attivi al momento della compilazione; verifica sede, salario e contratto nell’annuncio originale.',
+  en: 'Counts reflect active postings at build time; verify location, salary and contract details in the original listing.',
+  de: 'Die Zählungen zeigen aktive Stellen zum Zeitpunkt des Aufbaus; prüfen Sie Standort, Gehalt und Vertrag in der Originalanzeige.',
+  fr: 'Les totaux reflètent les annonces actives lors de la génération; vérifiez lieu, salaire et contrat dans l’annonce originale.',
 };
 
 // ── <title> / <h1>: aligned to the phrase people actually type ─────────────
@@ -263,7 +275,7 @@ const OPEN_ROLES_LABEL: Record<Locale, string> = {
   it: 'Posizioni aperte', en: 'Open positions', de: 'Offene Stellen', fr: 'Postes ouverts',
 };
 const MEDIAN_SALARY_LABEL: Record<Locale, string> = {
-  it: 'Stipendio mediano', en: 'Median salary', de: 'Median­gehalt', fr: 'Salaire médian',
+  it: 'Mediana delle fasce dichiarate', en: 'Median of reported ranges', de: 'Median gemeldeter Lohnspannen', fr: 'Médiane des fourchettes déclarées',
 };
 const LOCATIONS_LABEL: Record<Locale, string> = {
   it: 'Sedi', en: 'Locations', de: 'Standorte', fr: 'Sites',
@@ -274,8 +286,23 @@ const SECTOR_LABEL: Record<Locale, string> = {
 const NEW_ROLES_LABEL: Record<Locale, string> = {
   it: 'Nuove offerte', en: 'New postings', de: 'Neue Stellen', fr: 'Nouvelles annonces',
 };
-const JOBS_HEADING: Record<Locale, string> = {
-  it: 'Offerte di lavoro attive', en: 'Active job openings', de: 'Aktive Stellenangebote', fr: 'Offres d’emploi actives',
+const JOBS_HEADING: Record<Locale, (name: string, count: number) => string> = {
+  it: (name, count) => `Offerte di lavoro attive per ${name} (${count})`,
+  en: (name, count) => `Active jobs at ${name} (${count})`,
+  de: (name, count) => `Aktive Stellen bei ${name} (${count})`,
+  fr: (name, count) => `Postes ouverts chez ${name} (${count})`,
+};
+const VIEW_OPENINGS_CTA: Record<Locale, (count: number) => string> = {
+  it: (count) => `Vedi ${count} offerte`,
+  en: (count) => `View ${count} openings`,
+  de: (count) => `${count} offene Stellen ansehen`,
+  fr: (count) => `Voir ${count} offres`,
+};
+const METHOD_SUMMARY: Record<Locale, string> = {
+  it: 'Come leggere questi dati',
+  en: 'How to read this data',
+  de: 'So lesen Sie diese Daten',
+  fr: 'Comment lire ces données',
 };
 const EXPLORE_HEADING: Record<Locale, string> = {
   it: 'Esplora', en: 'Explore', de: 'Entdecken', fr: 'Explorer',
@@ -336,13 +363,15 @@ export interface CorpusJob {
   canton?: string;
   contract?: string;
   employmentType?: string;
-  postedDate?: string;
+  postingDateSource?: string;
   datePosted?: string;
+  postedDate?: string;
   crawledAt?: string;
   firstSeenAt?: string;
   salaryMin?: number | null;
   salaryMax?: number | null;
   salarySource?: 'reported' | 'existing' | 'estimated';
+  currency?: string;
   companyDomain?: string;
   url?: string;
   [k: string]: unknown;
@@ -358,8 +387,7 @@ function localizedJobSlug(job: CorpusJob, locale: Locale): string {
 function jobDetailPath(job: CorpusJob, locale: Locale): string {
   const slug = localizedJobSlug(job, locale);
   if (!slug) return '';
-  const section = resolveCantonSection(locale, resolveJobCanton(job));
-  return `${localePrefix(locale)}/${section}/${slug}/`.replace(/\/+/g, '/');
+  return buildCanonicalJobDetailPath(locale, job, slug);
 }
 
 /** Per-locale sentence builders for the intro prose — one map, shared assembly
@@ -377,7 +405,7 @@ interface ProseTemplate {
    * per-build aggregate, distinct from the per-job contract badge already
    * shown on each card (see contractMixProse). */
   readonly contractMix: (label: string, count: number, total: number) => string;
-  /** Real salary min–max range across postings with a reported/estimated
+  /** Real salary min–max range across postings with a source-reported annual CHF
    * figure — distinct from the single median stat tile. */
   readonly salaryRange: (min: string, max: string) => string;
   readonly outro: string;
@@ -389,13 +417,13 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     cantonsMulti: (first, firstCount, rest) => `Il canton ${first} conta il maggior numero di offerte (${firstCount}), seguito da ${rest}.`,
     citiesSingle: (city) => `La sede principale con offerte attive è ${city}.`,
     citiesMulti: (first, firstCount, rest) => `A livello di città, le sedi con più posizioni aperte sono ${first} (${firstCount} offerte), seguita da ${rest}.`,
-    salary: (sal) => `Lo stipendio mediano stimato per queste offerte è di ${sal} lordi all’anno.`,
+    salary: (sal) => `La mediana delle fasce dichiarate nel campione è di ${sal} lordi all’anno.`,
     trend: (added, win) => `Negli ultimi ${win} giorni sono state pubblicate ${added} nuove offerte.`,
     contractMix: (label, count, total) => count === total
       ? `Tutte le posizioni attive sono a ${label}.`
       : `${count} delle ${total} posizioni attive pubblicate sono a ${label}.`,
     salaryRange: (min, max) => `Gli stipendi pubblicati per queste posizioni vanno da ${min} a ${max} lordi all’anno.`,
-    outro: 'Consulta qui sotto le posizioni attive e candidati direttamente sul sito del datore di lavoro.',
+    outro: 'Le posizioni attive sono raccolte in questa pagina; per candidarti apri la fonte originale.',
   },
   en: {
     intro: (name, n, cantonCount) => `${name} currently has ${n} open positions published on Frontaliere Ticino, across ${cantonCount} Swiss canton${cantonCount === 1 ? '' : 's'}.`,
@@ -403,13 +431,13 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     cantonsMulti: (first, firstCount, rest) => `Canton ${first} has the most openings (${firstCount}), followed by ${rest}.`,
     citiesSingle: (city) => `The main location with open positions is ${city}.`,
     citiesMulti: (first, firstCount, rest) => `By city, the locations with the most open positions are ${first} (${firstCount} openings), followed by ${rest}.`,
-    salary: (sal) => `The estimated median salary for these roles is ${sal} gross per year.`,
+    salary: (sal) => `The median of reported ranges in the sample is ${sal} gross per year.`,
     trend: (added, win) => `In the last ${win} days, ${added} new postings were published.`,
     contractMix: (label, count, total) => count === total
       ? `All active positions are ${label}.`
       : `${count} of the ${total} active postings are ${label}.`,
     salaryRange: (min, max) => `Published salaries for these roles range from ${min} to ${max} gross per year.`,
-    outro: 'Browse the active roles below and apply directly on the employer’s own site.',
+    outro: 'The active roles are collected on this page; to apply, open the original source.',
   },
   de: {
     intro: (name, n, cantonCount) => `${name} hat aktuell ${n} offene Stellen auf Frontaliere Ticino, verteilt auf ${cantonCount} Schweizer Kanton${cantonCount === 1 ? '' : 'e'}.`,
@@ -417,13 +445,13 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     cantonsMulti: (first, firstCount, rest) => `Der Kanton ${first} hat die meisten Stellen (${firstCount}), gefolgt von ${rest}.`,
     citiesSingle: (city) => `Der wichtigste Standort mit offenen Stellen ist ${city}.`,
     citiesMulti: (first, firstCount, rest) => `Nach Stadt betrachtet haben ${first} (${firstCount} Stellen) die meisten offenen Stellen, gefolgt von ${rest}.`,
-    salary: (sal) => `Das geschätzte Median­gehalt für diese Stellen beträgt ${sal} brutto pro Jahr.`,
+    salary: (sal) => `Der Median gemeldeter Lohnspannen in der Stichprobe beträgt ${sal} brutto pro Jahr.`,
     trend: (added, win) => `In den letzten ${win} Tagen wurden ${added} neue Stellen veröffentlicht.`,
     contractMix: (label, count, total) => count === total
       ? `Alle aktiven Stellen sind ${label}.`
       : `${count} der ${total} aktiven Stellen sind ${label}.`,
     salaryRange: (min, max) => `Die veröffentlichten Gehälter für diese Stellen reichen von ${min} bis ${max} brutto pro Jahr.`,
-    outro: 'Sehen Sie sich unten die aktiven Stellen an und bewerben Sie sich direkt auf der Website des Arbeitgebers.',
+    outro: 'Die aktiven Stellen sind auf dieser Seite zusammengefasst; öffnen Sie für die Bewerbung die Originalquelle.',
   },
   fr: {
     intro: (name, n, cantonCount) => `${name} compte actuellement ${n} postes ouverts publiés sur Frontaliere Ticino, répartis dans ${cantonCount} canton${cantonCount === 1 ? '' : 's'} suisse${cantonCount === 1 ? '' : 's'}.`,
@@ -431,13 +459,13 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     cantonsMulti: (first, firstCount, rest) => `Le canton de ${first} compte le plus grand nombre d’offres (${firstCount}), suivi de ${rest}.`,
     citiesSingle: (city) => `Le site principal avec des postes ouverts est ${city}.`,
     citiesMulti: (first, firstCount, rest) => `Par ville, les sites avec le plus de postes ouverts sont ${first} (${firstCount} offres), suivi de ${rest}.`,
-    salary: (sal) => `Le salaire médian estimé pour ces postes est de ${sal} brut par an.`,
+    salary: (sal) => `La médiane des fourchettes déclarées de l’échantillon est de ${sal} brut par an.`,
     trend: (added, win) => `Au cours des ${win} derniers jours, ${added} nouvelles annonces ont été publiées.`,
     contractMix: (label, count, total) => count === total
       ? `Tous les postes actifs sont en ${label}.`
       : `${count} des ${total} postes actifs publiés sont en ${label}.`,
     salaryRange: (min, max) => `Les salaires publiés pour ces postes vont de ${min} à ${max} brut par an.`,
-    outro: 'Parcourez les postes actifs ci-dessous et postulez directement sur le site de l’employeur.',
+    outro: 'Les postes actifs sont réunis sur cette page ; pour postuler, ouvrez la source originale.',
   },
 };
 
@@ -482,12 +510,12 @@ function contractMixProse(jobs: CorpusJob[], locale: Locale): string {
   return PROSE_TEMPLATES[locale].contractMix(topLabel.toLowerCase(), topCount, total);
 }
 
-/** Real salary min–max range across postings with a reported/estimated
+/** Real salary min–max range across postings with a source-reported annual CHF
  * figure — distinct from the single median stat tile and the per-card salary
  * line. Returns '' when there isn't a genuine range
  * (fewer than 2 data points, or min === max — nothing to compare). */
 function salaryRangeProse(jobs: CorpusJob[], locale: Locale): string {
-  const values = jobs
+  const values = jobs.filter(isReportedAnnualChfSalary)
     .flatMap((j) => [j.salaryMin, j.salaryMax])
     .filter((v): v is number => typeof v === 'number' && Number.isFinite(v) && v > 0);
   if (values.length < 2) return '';
@@ -507,9 +535,10 @@ function salaryRangeProse(jobs: CorpusJob[], locale: Locale): string {
  * Does not guarantee every one of the ~1860 profiles clears the 10% floor
  * (a handful with no contract/salary data at all get none of the two new
  * sentences); see PR body for the honest remaining gap. */
-export function introProse(profile: EmployerProfile, jobs: CorpusJob[], locale: Locale): string {
+function introProseParts(profile: EmployerProfile, jobs: CorpusJob[], locale: Locale): string[] {
   const t = PROSE_TEMPLATES[locale];
-  const sal = profile.salaryMedianChf ? fmtChf(profile.salaryMedianChf) : null;
+  const median = reportedSalarySummary(jobs).medianChf;
+  const sal = median ? fmtChf(median) : null;
   const added = profile.trend?.added ?? null;
   const win = profile.trend?.windowDays ?? 30;
   return [
@@ -521,11 +550,34 @@ export function introProse(profile: EmployerProfile, jobs: CorpusJob[], locale: 
     contractMixProse(jobs, locale),
     salaryRangeProse(jobs, locale),
     t.outro,
-  ].filter(Boolean).join(' ');
+  ].filter(Boolean);
+}
+
+export function introProse(profile: EmployerProfile, jobs: CorpusJob[], locale: Locale): string {
+  return introProseParts(profile, jobs, locale).join(' ');
 }
 
 function statTile(label: string, value: string): string {
-  return `<div class="rounded-xl border border-edge bg-surface-alt px-3.5 py-2.5"><div class="text-xs text-muted">${esc(label)}</div><div class="text-sm font-semibold text-strong">${value}</div></div>`;
+  return `<div class="company-profile-stat"><div class="company-profile-stat-label">${esc(label)}</div><div class="company-profile-stat-value">${value}</div></div>`;
+}
+
+/** Resolve the brand image used by the employer-profile hero. The same chain
+ * as job cards is intentionally reused: curated assets first, then a stable
+ * company monogram, and finally the local placeholder. This means every
+ * emitted profile has a visible identity even when the corpus has no logo. */
+export function employerProfileLogoSrc(profile: EmployerProfile, jobs: CorpusJob[] = []): string {
+  const representative = jobs.find((job) => job.companyDomain || job.url || job.companyKey) ?? jobs[0];
+  return resolveJobLogoSrc({
+    company: profile.name,
+    companyKey: profile.companyKey ?? representative?.companyKey,
+    companyDomain: representative?.companyDomain,
+    url: representative?.url,
+  });
+}
+
+function employerProfileLogoHtml(profile: EmployerProfile, jobs: CorpusJob[]): string {
+  const logoSrc = employerProfileLogoSrc(profile, jobs);
+  return `<div class="company-profile-brand"><img class="company-profile-brand-image" src="${esc(logoSrc)}" alt="${esc(`Logo ${profile.name}`)}" width="80" height="80" loading="eager" fetchpriority="high" decoding="async" onerror="${LOGO_IMG_ONERROR}"></div>`;
 }
 
 function breadcrumbHtml(locale: Locale, name: string): string {
@@ -553,12 +605,20 @@ function exploreLinksHtml(profile: EmployerProfile, locale: Locale): string {
   const items = links
     .map((l) => `<li><a href="${esc(l.href)}" class="text-sm font-semibold text-link">${esc(l.label)} →</a></li>`)
     .join('\n');
-  return `<section class="mt-8" aria-label="${esc(EXPLORE_HEADING[locale])}">
-<h2 class="text-base font-bold text-strong mb-3">${esc(EXPLORE_HEADING[locale])}</h2>
+  return `<nav class="mt-8" aria-label="${esc(EXPLORE_HEADING[locale])}">
 <ul class="space-y-2 list-none p-0 m-0">
 ${items}
 </ul>
-</section>`;
+</nav>`;
+}
+
+interface ProfileRenderOptions {
+  /** Keep the indexability probe free of manual ad markup. */
+  interleaveInfeedAds?: boolean;
+  /** Add the opt-in EOC mid-page test unit only to an indexable final render. */
+  includeEmployerProfileMidAd?: boolean;
+  /** Build-time Remote Config snapshot captured before the SSG loop starts. */
+  employerProfileMidAdVariant?: EmployerProfileMidAdVariant;
 }
 
 interface ProfileRenderOptions {
@@ -574,9 +634,16 @@ function renderProfileBody(
   options: ProfileRenderOptions = {},
 ): string {
   const name = profile.name;
+  const profileIntroParts = introProseParts(profile, allActiveJobs, locale);
+  const profileLede = profileIntroParts[0] ?? '';
+  // The lede already states the employer and live total. Keep the full facts
+  // below the opening list, but do not repeat that first sentence or the CTA
+  // outro a second time.
+  const profileContext = profileIntroParts.slice(1, -1).join(' ');
+  const salarySummary = reportedSalarySummary(allActiveJobs);
   const tiles = [
     statTile(OPEN_ROLES_LABEL[locale], String(profile.activeJobs)),
-    profile.salaryMedianChf ? statTile(MEDIAN_SALARY_LABEL[locale], fmtChf(profile.salaryMedianChf)) : '',
+    salarySummary.medianChf ? statTile(MEDIAN_SALARY_LABEL[locale], fmtChf(salarySummary.medianChf)) : '',
     statTile(LOCATIONS_LABEL[locale], esc(locationsSummary(profile)) || String(profile.cantons.length)),
     profile.sector ? statTile(SECTOR_LABEL[locale], esc(profile.sector)) : '',
     profile.trend?.added ? statTile(`${NEW_ROLES_LABEL[locale]} (${profile.trend.windowDays}g)`, `+${profile.trend.added}`) : '',
@@ -596,11 +663,13 @@ function renderProfileBody(
           addressLocality: job.addressLocality,
           canton: job.canton,
           contract: job.contract,
-          postedDate: job.postedDate,
+          postingDateSource: job.postingDateSource,
           datePosted: job.datePosted,
+          postedDate: job.postedDate,
           salaryMin: job.salaryMin ?? null,
           salaryMax: job.salaryMax ?? null,
           salarySource: job.salarySource,
+          currency: job.currency,
           companyDomain: job.companyDomain,
           url: job.url,
         },
@@ -610,20 +679,37 @@ function renderProfileBody(
     locale,
     interleaveInfeedAds: options.interleaveInfeedAds,
   });
+  const employerProfileMidAdHtml = options.includeEmployerProfileMidAd
+    && options.employerProfileMidAdVariant === EMPLOYER_PROFILE_MID_AD_EOC_VARIANT
+    && profile.slug === EMPLOYER_PROFILE_MID_AD_TARGET_SLUG
+    ? `<section class="max-w-3xl mx-auto px-4 my-6" aria-label="advertisement" data-ad-experiment="${EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID}" data-ad-variant="${EMPLOYER_PROFILE_MID_AD_EOC_VARIANT}">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</section>`
+    : '';
 
-  return `<main class="seo-static-content max-w-[820px] mx-auto px-5 pt-6 pb-14 leading-relaxed text-body">
+  return `<main class="seo-static-content company-profile-page max-w-[820px] mx-auto px-5 pt-6 pb-14 leading-relaxed text-body">
 ${breadcrumbHtml(locale, name)}
-<header class="rounded-2xl border border-edge bg-surface-alt p-5 mb-5">
-<h1 class="text-[26px] font-bold text-strong leading-tight m-0 mb-1.5">${esc(employerHeadline(locale, name))}</h1>
-<p class="text-[15px] text-muted m-0">${esc(introProse(profile, allActiveJobs, locale).split('. ')[0])}.</p>
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">${tiles}</div>
+<header class="company-profile-hero">
+<div class="company-profile-hero-top">
+<div class="company-profile-identity">
+${employerProfileLogoHtml(profile, allActiveJobs)}
+<div class="company-profile-identity-copy">
+<h1 class="company-profile-title">${esc(employerHeadline(locale, name))}</h1>
+<p class="company-profile-lede">${esc(profileLede)}</p>
+</div>
+</div>
+<a class="company-profile-primary-action" href="#company-openings">${esc(VIEW_OPENINGS_CTA[locale](profile.activeJobs))}<span aria-hidden="true"> →</span></a>
+</div>
+<div class="company-profile-stats">${tiles}</div>
+${reportedSalaryNote(locale, salarySummary)}
 </header>
-${companyFollowMountPlaceholder({ company: name, companyKey: profile.companyKey, locale, surface: 'employer_profile' })}
-<section class="mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(introProse(profile, allActiveJobs, locale))}</p><p class="my-2.5 leading-relaxed text-body">${esc(PROFILE_METHOD_NOTE[locale])}</p></section>
-<section class="mb-2">
-<h2 class="text-lg font-bold text-strong mb-3">${esc(JOBS_HEADING[locale])} (${profile.activeJobs})</h2>
+${employerProfileMidAdHtml}
+<section id="company-openings" class="company-profile-openings mb-2" aria-labelledby="company-openings-title">
+<div class="company-profile-openings-head">
+<h2 id="company-openings-title" class="company-profile-openings-title">${esc(JOBS_HEADING[locale](name, profile.activeJobs))}</h2>
+</div>
 ${jobListHtml}
 </section>
+${companyFollowMountPlaceholder({ company: name, companyKey: profile.companyKey, locale, surface: 'employer_profile' })}
+<section class="company-profile-context mb-7">${profileContext ? `<p class="my-2.5 leading-relaxed text-body">${esc(profileContext)}</p>` : ''}<details class="company-profile-method"><summary>${esc(METHOD_SUMMARY[locale])}</summary><p>${esc(PROFILE_METHOD_NOTE[locale])}</p></details></section>
 ${exploreLinksHtml(profile, locale)}
 ${renderEmployerCtaBlock(locale, 'employer_profile')}
 </main>`;
@@ -718,6 +804,11 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       }
       const profiles = dataset.profiles || [];
       const belowFloor = dataset.belowFloor || [];
+      const knownEmployerProfileSlugs = new Set(
+        [...profiles, ...belowFloor]
+          .map((record) => String(record.slug || '').trim())
+          .filter(Boolean),
+      );
       if (profiles.length === 0 && belowFloor.length === 0) {
         console.log('\x1b[33m[employer-profile-pages]\x1b[0m empty dataset — nothing to emit.');
         resolveEmployerProfilesFlushed([]);
@@ -757,6 +848,13 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       let profilePages = 0;
       let bridgePages = 0;
       let thinDowngraded = 0;
+      // Remote Config is a build input, not a runtime input. The deploy
+      // workflow loads it before `npm run build:ci`; snapshot it at the SSG
+      // boundary so every profile in this artifact sees the same arm and a
+      // later environment mutation cannot create mixed HTML.
+      const employerProfileMidAdVariant = resolveEmployerProfileMidAdVariant(
+        process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY],
+      );
 
       for (const profile of profiles) {
         const slug = profile.slug;
@@ -767,7 +865,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             firstDateMs(b.postedDate, b.datePosted, b.crawledAt, b.firstSeenAt) -
             firstDateMs(a.postedDate, a.datePosted, a.crawledAt, a.firstSeenAt),
           );
-        // Keep the repeated card + JobPosting payload bounded. The live total
+        // Keep the repeated card + ItemList payload bounded. The live total
         // remains explicit in the stat tile and jobs heading below, so this is
         // a preview cap rather than a claim that the company has fewer roles.
         const listed = group.slice(0, MAX_JOBS_LISTED);
@@ -814,16 +912,20 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         // adversarial check). Rendering is reused in the emit loop below.
         const rendered = LOCALES.map((locale) => {
           // Probe without manual ad markup; noindex/thin pages must not carry
-          // manual slots. Indexable pages are rendered again with the shared
-          // list renderer, which inserts ads after cards 3, 6, 9, … up to the
-          // site's account-safety cap.
+          // manual slots. Employer profiles keep the page-level multiplex as
+          // their control unit; the opt-in EOC test and shared every-three-jobs
+          // cadence are added only to the indexable final render below.
           const bodyHtml = renderProfileBody(liveProfile, listed, locale, group, {
             interleaveInfeedAds: false,
           });
           const meetsFloor = liveActive >= MIN_ACTIVE_JOBS || demandHold;
           const indexable = meetsFloor && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
           const renderedBodyHtml = indexable
-            ? renderProfileBody(liveProfile, listed, locale, group, { interleaveInfeedAds: true })
+            ? renderProfileBody(liveProfile, listed, locale, group, {
+                interleaveInfeedAds: true,
+                includeEmployerProfileMidAd: true,
+                employerProfileMidAdVariant,
+              })
             : bodyHtml;
           return { locale, bodyHtml: renderedBodyHtml, indexable };
         });
@@ -839,30 +941,36 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           const urlPath = profilePath(locale, slug);
           const canonicalUrl = `${BASE_URL}${urlPath}`;
 
-          // JobPosting ItemList (supplementary list-page signal; the
-          // authoritative per-job JobPosting also lives on each linked detail
-          // page). Kept as full buildListItemJobPosting output — an earlier
-          // draft of this fix lightened it to plain name+url to help
-          // audit:text-html-ratio, but tests/employer-profile-pages.test.ts
-          // ("embeds COMPLETE JobPosting structured data (Non-Negotiable #3)")
-          // asserts every mandatory JobPosting field on THIS page's ItemList
-          // items too — that test is the project's actual encoded contract
-          // for this page. The ItemList stays aligned with the bounded visible
-          // card preview while the live total remains in the UI heading.
+          // Keep the ItemList aligned with the visible cards. JobPosting belongs
+          // exclusively to each linked single-position detail page.
           const itemListElements = listed
             .map((job) => {
               // Same guard as the job cards (renderProfileBody): a job whose
               // slug is missing has no detail page — without this skip, jobUrl
-              // would collapse to the bare BASE_URL and the JobPosting in the
+              // would collapse to the bare BASE_URL and the linked page in the
               // ItemList would point at the homepage (reviewer 🔴, PR #4511).
               const detail = jobDetailPath(job, locale);
               if (!detail) return null;
-              const posting = buildListItemJobPosting(job, { locale, url: `${BASE_URL}${detail}`, baseUrl: BASE_URL });
+              const posting = buildJobListEntry(job, { locale, url: `${BASE_URL}${detail}`, baseUrl: BASE_URL });
               return posting ?? null;
             })
             .filter((p): p is Record<string, unknown> => p !== null)
             .map((posting, idx) => ({ '@type': 'ListItem', position: idx + 1, item: posting }));
-          const jsonLdScripts = [breadcrumbLd(locale, slug, profile.name)];
+          const representativeJob = listed.find((job) => String(job.companyDomain || '').trim()) || listed[0];
+          const organization = buildCompanyOrganization({
+            company: profile.name,
+            companyKey: profile.companyKey,
+            companyDomain: representativeJob?.companyDomain,
+          }, {
+            locale,
+            baseUrl: BASE_URL,
+            fallbackUrl: `${BASE_URL}${profilePath('it', slug)}`,
+            knownSlugs: knownEmployerProfileSlugs,
+          });
+          const jsonLdScripts = [breadcrumbLd(locale, slug, profile.name), inlineScriptJson({
+            '@context': 'https://schema.org',
+            ...organization,
+          })];
           if (itemListElements.length > 0) {
             jsonLdScripts.push(inlineScriptJson({
               '@context': 'https://schema.org',
@@ -877,7 +985,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
 
           // End-of-content multiplex — gated on `indexable`, so below-floor /
           // thin profiles (noindex) never carry a manual slot (MFA-safety).
-          const bodyWithAd = `${bodyHtml}${endOfContentMultiplexHtml({ indexable })}`;
+          const bodyWithAd = `${bodyHtml}${endOfContentMultiplexHtml({ indexable, contentHtml: bodyHtml })}`;
 
           // Budget-aware cascade — see employerTitleCandidates() and the
           // search-intent block comment at the top of this file for the GSC
@@ -1051,7 +1159,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
               const alts = alternates
                 .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`)
                 .join('\n');
-              return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+              return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
             })
             .join('\n');
           const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;

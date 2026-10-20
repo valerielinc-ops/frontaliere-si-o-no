@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Crawler — Ville de Genève Agenda (events, pilot non-TI canton, GE).
  *
@@ -28,13 +29,17 @@
  * venue/title match still takes priority if a different real GE comune name
  * happens to appear in the description text.
  *
- * Flyer images (no-hotlink policy): mirrored by the factory itself via the
- * shared `mirrorEventImage`, same as every other events crawler.
+ * Flyer images (licence policy): passed through the factory's shared image
+ * gate; this HTML source is not allowlisted, so its third-party images are
+ * dropped before the slice is written.
+ * Admission tariffs and ticket links come from each event's own detail page.
  */
 import { pathToFileURL } from 'node:url';
 import { JSDOM } from 'jsdom';
 import { createAgendaCrawler } from './lib/agenda-crawler-factory.mjs';
-import { EVENT_SOURCES, eventStableId, loadCantonComuni, resolveComune, isoDay } from './lib/events-utils.mjs';
+import { sanitizeEventForPublication } from './lib/event-description-policy.mjs';
+import { EVENT_SOURCES, eventStableId, loadCantonComuni, resolveComune, isoDay, isEventImageSourceAllowed } from './lib/events-utils.mjs';
+import { parseEventPriceText } from './lib/event-metadata.mjs';
 
 const SOURCE = EVENT_SOURCES['ge-agenda'];
 const ORIGIN = 'https://www.geneve.ch';
@@ -92,9 +97,9 @@ const GRACE_DAYS = 3;
 /**
  * Infer a year for a bare day/month combo (no year in the source text):
  * prefer the CURRENT year unless that date would land more than
- * `GRACE_DAYS` in the past relative to `now` — geneve.ch/agenda never lists
- * past events (verified live), so a date that already happened a few days
- * ago more likely means "next year" than "we're looking at a stale event".
+ * `GRACE_DAYS` in the past relative to `now`. This is only a parsing
+ * candidate: publication below also checks the source's collection horizon
+ * before accepting a year that the date text did not actually publish.
  */
 function inferYear(day, month, now) {
   const year = now.getUTCFullYear();
@@ -109,11 +114,13 @@ function inferYear(day, month, now) {
  * for a single-day event. Returns `null` when the string can't be parsed
  * with reasonable confidence; callers MUST skip the card rather than
  * fabricate a guess.
+ * `latestInferredDate`, when supplied by the publisher, bounds unsupported
+ * next-year inference before an open-ended date is anchored to today.
  *
  * Exported for tests/crawl-ge-agenda.test.ts — pure string parsing, no live
  * network/DOM needed to cover every observed format.
  */
-export function parseGeneveDateFr(rawText, now = new Date()) {
+export function parseGeneveDateFr(rawText, now = new Date(), latestInferredDate = '') {
   if (!rawText || typeof rawText !== 'string') return null;
   let normalized = stripAccents(rawText).toLowerCase().replace(/’/g, "'");
 
@@ -182,6 +189,12 @@ export function parseGeneveDateFr(rawText, now = new Date()) {
   const first = toIso(tokens[0].day, tokens[0].month, tokens[0].year);
   const last = toIso(tokens[tokens.length - 1].day, tokens[tokens.length - 1].month, tokens[tokens.length - 1].year);
 
+  // Old yearless dates are not evidence of next year's edition. Check the
+  // source's inferred date, not an open-ended interval's synthetic "today"
+  // start. Include a range's inferred end year even when its start is in the
+  // current year; keep explicit years, nearby rollover and wholly current-year dates.
+  if (!explicitYear && latestInferredDate && tokens[lastIdx].year > now.getUTCFullYear() && last > latestInferredDate) return null;
+
   if (isOpenEnded) {
     // We don't know the real start — use the crawl day as an honest lower
     // bound (we DO know the event is running as of today, per "jusqu'au").
@@ -214,6 +227,7 @@ export function parseGeneveAgendaHtml(html, page, now = new Date()) {
   const comuni = loadCantonComuni(SOURCE.canton);
   const events = [];
   let skippedNoDate = 0;
+  const latestInferredDate = new Date(now.getTime() + HORIZON_DAYS * 86400000).toISOString().slice(0, 10);
 
   for (const card of doc.querySelectorAll('article.event')) {
     const a = card.querySelector('a[href]');
@@ -226,7 +240,7 @@ export function parseGeneveAgendaHtml(html, page, now = new Date()) {
     if (!title) continue;
 
     const dateText = text(card.querySelector('.date small') || card.querySelector('.date'));
-    const parsedDate = parseGeneveDateFr(dateText, now);
+    const parsedDate = parseGeneveDateFr(dateText, now, latestInferredDate);
     if (!parsedDate) {
       skippedNoDate += 1;
       continue;
@@ -256,20 +270,58 @@ export function parseGeneveAgendaHtml(html, page, now = new Date()) {
       comuneMatch: method || undefined,
       canton: SOURCE.canton,
       url: absoluteUrl(href),
-      imageUrl: absoluteUrl(rawImageUrl) || undefined,
+      ...(isEventImageSourceAllowed(SOURCE.key) && absoluteUrl(rawImageUrl) ? { imageUrl: absoluteUrl(rawImageUrl) } : {}),
     });
   }
 
   if (skippedNoDate > 0) {
-    console.warn(`[ge-agenda] page ${page}: skipped ${skippedNoDate} card(s) with an unparseable date`);
+    console.warn(`[ge-agenda] page ${page}: skipped ${skippedNoDate} card(s) with an unparseable date or unconfirmed year`);
   }
   return events;
+}
+
+/** Read only this event's tariff/booking fields, excluding related-event cards. */
+export function extractGeneveEventPrice(html, eventUrl) {
+  const dom = new JSDOM(html);
+  try {
+    const doc = dom.window.document;
+    const tariff = text(doc.querySelector('.field--name-field-rates-and-conditions'));
+    const price = parseEventPriceText(tariff);
+    const href = doc.querySelector('.field--name-field-oa-reservation-link a[href]')?.getAttribute('href');
+    let ticketUrl;
+    if (href) {
+      try {
+        const url = new URL(href, eventUrl);
+        if (url.protocol === 'https:' || url.protocol === 'http:') ticketUrl = url.href;
+      } catch {
+        // An unusable booking link does not discard a verified tariff.
+      }
+    }
+    return price || ticketUrl ? { ...price, ...(ticketUrl ? { url: ticketUrl } : {}) } : undefined;
+  } finally {
+    dom.window.close();
+  }
+}
+
+export async function enrichGeneveEvent(event, fetchHtml) {
+  const html = await fetchHtml(event.url);
+  if (!html) {
+    const unchanged = { ...event };
+    Object.defineProperty(unchanged, 'detailFetchFailed', {
+      value: true,
+      enumerable: false,
+    });
+    return unchanged;
+  }
+  const price = extractGeneveEventPrice(html, event.url);
+  return price ? { ...event, price } : event;
 }
 
 const crawler = createAgendaCrawler({
   sourceKey: SOURCE.key,
   baseUrl: PAGE_URL,
   parseDayHtml: parseGeneveAgendaHtml,
+  enrichEvent: enrichGeneveEvent,
   iterations: MAX_PAGES,
   horizonDays: HORIZON_DAYS,
   stopOnEmptyPage: true,
@@ -280,14 +332,14 @@ async function main() {
   const dryRun = args.includes('--dry-run');
   const { events } = await crawler.crawl({ dryRun });
   if (dryRun) {
-    console.log(JSON.stringify(events.slice(0, 3), null, 2));
+    console.log(JSON.stringify(events.slice(0, 3).map(sanitizeEventForPublication), null, 2));
   }
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-ge-agenda.mjs`), so
 // tests can import `parseGeneveAgendaHtml`/`parseGeneveDateFr` without
 // triggering a live fetch.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[ge-agenda] crawl failed: ${err?.message || err}`);
     process.exit(1);

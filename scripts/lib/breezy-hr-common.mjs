@@ -26,6 +26,7 @@
  *   - hopital-fribourgeois → Hôpital fribourgeois (HFR), Fribourg
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -38,6 +39,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 const DETAIL_DELAY_MS = 250;
 // Breezy's server-side prerender only kicks in for crawler UAs. Without
@@ -123,10 +125,7 @@ export function parseBreezyDetail(html) {
     } catch {
       continue;
     }
-    const candidates = Array.isArray(obj) ? obj : [obj];
-    for (const c of candidates) {
-      const type = c?.['@type'];
-      if (type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'))) {
+    for (const c of extractJobPostingNodesFromJson(obj)) {
         const title = String(c.title || '').trim();
         const descriptionHtml = String(c.description || '');
         const descriptionText = htmlToText(descriptionHtml);
@@ -135,12 +134,6 @@ export function parseBreezyDetail(html) {
         const region = String(loc.addressRegion || '').trim();
         const postalCode = String(loc.postalCode || '').trim();
         const employmentTypeRaw = String(c.employmentType || '').toUpperCase();
-        const postedRaw = c.datePosted ? String(c.datePosted) : '';
-        const postedDate = (() => {
-          if (!postedRaw) return '';
-          const d = new Date(postedRaw);
-          return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
-        })();
         return {
           title,
           descriptionHtml,
@@ -149,9 +142,8 @@ export function parseBreezyDetail(html) {
           region,
           postalCode,
           employmentTypeRaw,
-          postedDate,
+          ...sourcePostingDateFields(c.datePosted),
         };
-      }
     }
   }
   return null;
@@ -170,7 +162,6 @@ export function parseBreezyDetail(html) {
  * @param {string} [config.defaultPostalCode]
  * @param {string} [config.defaultSourceLang='fr']
  * @param {string} [config.sourceLabel]
- * @param {string} [config.fallbackBrandBlurb]  Boilerplate description when detail fetch fails.
  */
 export function createBreezyHrParser(config) {
   const {
@@ -183,7 +174,6 @@ export function createBreezyHrParser(config) {
     defaultPostalCode = '',
     defaultSourceLang = 'fr',
     sourceLabel,
-    fallbackBrandBlurb = '',
   } = config;
 
   if (!companyKey || !companyName || !breezyTenant || !defaultCanton) {
@@ -225,7 +215,7 @@ export function createBreezyHrParser(config) {
       listing = await fetchJsonWithTimeout(listingUrl);
     } catch (err) {
       console.warn(`⚠️ Listing fetch failed (${listingUrl}): ${err?.message || err}`);
-      return [];
+      throw err;
     }
     if (!Array.isArray(listing) || !listing.length) {
       console.warn(`⚠️ Empty / unexpected listing payload for ${companyName}`);
@@ -233,7 +223,6 @@ export function createBreezyHrParser(config) {
     }
     console.log(`  ✓ ${listing.length} openings in listing JSON`);
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let failed = 0;
     for (let i = 0; i < listing.length; i += 1) {
@@ -272,20 +261,17 @@ export function createBreezyHrParser(config) {
       const cantonInferred = inferSwissTargetCanton(`${city} ${detail?.region || ''}`) || defaultCanton;
       const postalCode = detail?.postalCode || defaultPostalCode;
 
-      let descriptionRaw = detail?.descriptionText || '';
-      // Boilerplate guard
-      const uniqueWords = new Set(
-        descriptionRaw.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-      );
-      if (uniqueWords.size < 30) {
-        descriptionRaw = fallbackBrandBlurb
-          ? `${title} chez ${companyName} à ${city}.\n\n${fallbackBrandBlurb}`
-          : `${title} chez ${companyName} à ${city}.`;
-      }
+      // The posting's own text, whatever its length. Under 30 distinct words
+      // the parser used to replace it with "<titre> chez <entreprise> à
+      // <lieu>." and the tenant's brand paragraph; a posting without text now
+      // gets no description and takes the pipeline's thin-source path.
+      const descriptionRaw = detail?.descriptionText || '';
 
       const sourceLang = detectLang(descriptionRaw || title, defaultSourceLang);
-      const postedDate = detail?.postedDate
-        || (item.published_date ? new Date(item.published_date).toISOString().slice(0, 10) : todayIso);
+      const publication = mergeSourcePostingDates(
+        sourcePostingDateFields(item.published_date),
+        detail || {},
+      );
 
       let employmentType = 'OTHER';
       if (/FULL_TIME/.test(detail?.employmentTypeRaw || '')) employmentType = 'FULL_TIME';
@@ -333,7 +319,7 @@ export function createBreezyHrParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...withLegacyPostingDay(publication),
         applyUrl: detailUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

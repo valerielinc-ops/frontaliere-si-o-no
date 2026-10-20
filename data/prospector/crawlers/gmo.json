@@ -8,6 +8,10 @@
     "https://www.arsante.ch/emploi"
   ],
   "detailTemplate": "/emploi/*",
+  "pagination": {
+    "maxPages": 20,
+    "selfNextIsTerminal": true
+  },
   "sampleVacancyCount": 10,
   "sampleTitles": [
     "Conducteur·rice de travaux junior",

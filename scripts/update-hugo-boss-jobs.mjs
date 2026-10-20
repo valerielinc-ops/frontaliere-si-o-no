@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated Hugo Boss Switzerland crawler runner.
  *
@@ -16,23 +18,29 @@
  *   6. Run base crawler for AI localization
  *   7. Post-process and validate
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { resolveLocalityAddress } from './lib/swiss-structured-address.mjs';
+import { exitCrawlerOnError, fetchHtml as sharedFetchHtml } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { assertHugoBossNationalReadComplete, extractPhenomDdo, parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
+import { assertHugoBossNationalReadComplete, extractPhenomDdo, parseSearchPage, parseDetailPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { inferAnyCanton, isKnownSwissCity } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { isAuthoritativeEmptySnapshot, markAuthoritativeEmptySnapshot } from './lib/authoritative-empty-snapshot.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -68,11 +76,9 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+    return await sharedFetchHtml(url, {
+      timeoutMs,
       headers: {
         Accept: 'text/html,application/xhtml+xml',
         'Accept-Language': 'en,it-CH;q=0.9',
@@ -81,10 +87,7 @@ async function fetchPage(url, timeoutMs = 20000) {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
-    return await res.text();
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
 }
 
 function slugify(value = '') {
@@ -180,6 +183,12 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     for (const key of newRecordKeys) seenRawRecordKeys.add(key);
     const pageRecordCount = uniquePageRecordKeys.length;
     const pageJobs = parseSearchPage(html);
+    if (rawPageCount > 0 && pageJobs.length !== rawPageCount) {
+      throw new Error(
+        `Hugo Boss page ${page + 1} parsed ${pageJobs.length} of ${rawPageCount} DDO records. `
+        + 'A non-empty source page lost records (likely title/field drift); refusing to treat the result as an empty snapshot.',
+      );
+    }
     console.log(`  📄 Page ${page + 1}: ${pageJobs.length} parsed jobs from ${rawPageCount} DDO records (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);
     for (const job of pageJobs) {
       const key = rawHugoRecordKey(job);
@@ -238,17 +247,24 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     // otherwise use the coherent canton fallback as the locality too.
     const sourceCity = isKnownSwissCity(raw.city, canton) ? raw.city : '';
     const fallbackAddress = resolveFallbackAddress(undefined, sourceCity, canton);
+    // Una città reale senza via/NPA resta la località della vacancy: il
+    // capoluogo di ripiego la sostituiva (issue 5253).
     const resolvedAddress = sourceCity && raw.address && raw.postalCode
       ? {
         addressLocality: sourceCity,
         streetAddress: raw.address,
         postalCode: raw.postalCode,
       }
-      : fallbackAddress;
+      : sourceCity
+        ? resolveLocalityAddress({ city: sourceCity, canton })
+        : fallbackAddress;
     const location = resolvedAddress.addressLocality;
     const detailUrl = buildDetailUrl(raw);
     const locationToken = location || canton;
     const slug = slugify(`${raw.title} hugo-boss ${locationToken}`);
+    // Title, body and slug in the posting's own language slot, read from the
+    // body (a fixed `en` filed Italian and German postings as English).
+    const sourceLang = sourceLangOfBody(raw.description, 'en');
     return {
       url: detailUrl || CAREERS_URL,
       applyUrl: raw.applyUrl ? `https://${COMPANY_HOST}${raw.applyUrl}` : detailUrl,
@@ -264,19 +280,26 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       postalCode: resolvedAddress.postalCode,
       streetAddress: resolvedAddress.streetAddress,
       description: raw.description || `${raw.title} position at Hugo Boss in ${locationToken}, Switzerland.`,
-      titleByLocale: { en: raw.title },
-      descriptionByLocale: { en: raw.description || '' },
+      ...sourceSlotTitleAndSlug(raw.title, slug, sourceLang),
+      descriptionByLocale: { [sourceLang]: raw.description || '' },
       slug,
-      slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
-      datePosted: raw.postedDate || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(raw.postedDate),
       source: 'hugo-boss-careers-crawler',
-      sourceLang: detectLang(raw.description || raw.title, 'en'),
+      sourceLang,
       employmentType: inferEmploymentType(raw.title, raw.description),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Moda / Lusso',
     };
   }).filter(Boolean);
+  const authoritativeEmptySnapshot = readAudit.complete && swissJobs.length === 0;
+  if (authoritativeEmptySnapshot) {
+    markAuthoritativeEmptySnapshot(
+      mapped,
+      `Completed national Phenom DDO read (${allJobs.length} parsed records; `
+      + `totalHits=${totalHits ?? 'not reported'}); no Swiss postings matched the crawler scope.`,
+    );
+  }
   Object.defineProperty(mapped, 'hugoBossSnapshot', {
     value: Object.freeze({
       ...readAudit,
@@ -284,10 +307,50 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       recordsSeen,
       discovered: allJobs.length,
       published: mapped.length,
+      targetMatches: swissJobs.length,
+      authoritativeEmptySnapshot,
     }),
     enumerable: false,
   });
   return mapped;
+}
+
+/**
+ * Replace listing teasers with the canonical detail-page body when the
+ * detail exposes a complete description. Keep the national-read snapshot and
+ * the listing evidence when a detail fetch is unavailable or still thin.
+ */
+export async function enrichWithDetails(discoveredJobs, { fetchHtml = fetchPage } = {}) {
+  if (!Array.isArray(discoveredJobs) || discoveredJobs.length === 0) return discoveredJobs;
+
+  const enriched = discoveredJobs.map((job) => ({ ...job }));
+  for (const job of enriched) {
+    if (!job.url) continue;
+    let html;
+    try {
+      html = await fetchHtml(job.url, 25000);
+    } catch (error) {
+      console.warn(`⚠️ Hugo Boss detail fetch failed for ${job.url}: ${error.message}`);
+      continue;
+    }
+    if (!html) continue;
+
+    const detail = parseDetailPage(html);
+    const description = detail.body;
+    if (!meetsSourceBodyFloor(description)) continue;
+    const sourceLang = sourceLangOfBody(description, job.sourceLang || 'en');
+    job.description = description;
+    job.descriptionByLocale = { [sourceLang]: description };
+    job.sourceLang = sourceLang;
+  }
+
+  if (discoveredJobs.hugoBossSnapshot) {
+    Object.defineProperty(enriched, 'hugoBossSnapshot', {
+      value: discoveredJobs.hugoBossSnapshot,
+      enumerable: false,
+    });
+  }
+  return enriched;
 }
 
 async function mergeJobs(discoveredJobs) {
@@ -311,6 +374,9 @@ async function mergeJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -327,16 +393,74 @@ function updateAdapterConfig(seedUrls) {
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
 }
 
+async function publishAuthoritativeEmptySnapshot({ beforeSnapshot, discovered }) {
+  const snapshot = discovered.hugoBossSnapshot || {};
+  const diff = computeCrawlDiff(beforeSnapshot, new Map());
+  const durationMs = getCrawlerElapsedMs();
+
+  updateAdapterConfig([]);
+  const archived = archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY);
+  // Clear the per-crawler scratch slice before emitting the verified empty
+  // slice. This keeps a later base-crawler/localization pass from seeing the
+  // retired jobs through the runner's private input path.
+  await mergeJobs([]);
+  writeJobsCrawlerSlice(COMPANY_KEY, [], { skipShrinkGuard: true });
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: COMPANY_NAME,
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: snapshot.discovered ?? 0,
+    parsed: snapshot.published ?? 0,
+    written: 0,
+    lastFetchOutcome: 'ok',
+    authoritativeEmptySnapshot: true,
+    authoritativeSnapshotVerified: true,
+    coverage: snapshot.coverage || 'complete',
+    terminationReason: snapshot.terminationReason || null,
+    sourceRecordsSeen: snapshot.recordsSeen ?? null,
+    sourceTotalHits: snapshot.totalHits ?? null,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: diff.removedJobs.length,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: diff.removedJobs.slice(0, 30),
+    unchangedJobs: [],
+  });
+  printCrawlChangeSummary(diff, COMPANY_NAME);
+  writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
+  await assembleJobsDataset();
+  console.log(`ℹ️ Persisted authoritative Hugo Boss zero; archived ${archived} expired route(s).`);
+}
+
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME, summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Hugo Boss — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
-  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob));
 
-  const discovered = await fetchJobs();
-  if (discovered.length === 0) { console.log('⚠️ No Hugo Boss jobs discovered. Keeping existing.'); return; }
+  const discovered = await enrichWithDetails(await fetchJobs());
+  const snapshot = discovered.hugoBossSnapshot || {};
+  summaryCounts.discovered = Number.isFinite(snapshot.discovered) ? snapshot.discovered : 0;
+  summaryCounts.parsed = Number.isFinite(snapshot.published) ? snapshot.published : 0;
+  if (discovered.length === 0) {
+    if (isAuthoritativeEmptySnapshot(discovered)) {
+      console.log('ℹ️ Hugo Boss national DDO completed with no Swiss postings; publishing an authoritative empty snapshot.');
+      await publishAuthoritativeEmptySnapshot({ beforeSnapshot, discovered });
+      return;
+    }
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.log('⚠️ Hugo Boss produced no publishable jobs without a proven empty-source snapshot; keeping existing data.');
+    return;
+  }
 
   updateAdapterConfig(discovered.map((j) => j.url));
   await mergeJobs(discovered);
@@ -354,12 +478,12 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceJobs = (readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob);
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], coverage: discovered.hugoBossSnapshot?.coverage || 'complete', terminationReason: discovered.hugoBossSnapshot?.terminationReason || null, sourceRecordsSeen: discovered.hugoBossSnapshot?.recordsSeen ?? null, sourceTotalHits: discovered.hugoBossSnapshot?.totalHits ?? null, authoritativeSnapshotVerified: discovered.hugoBossSnapshot?.complete === true, newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, discovered: snapshot.discovered ?? null, parsed: snapshot.published ?? null, written: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], coverage: snapshot.coverage || 'complete', terminationReason: snapshot.terminationReason || null, sourceRecordsSeen: snapshot.recordsSeen ?? null, sourceTotalHits: snapshot.totalHits ?? null, authoritativeSnapshotVerified: snapshot.complete === true, newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
   console.log('\n✅ Hugo Boss crawler complete.');
 }
 
-const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isDirectRun = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectRun) {
   main().catch((err) => exitCrawlerOnError(err, 'Hugo Boss'));
 }

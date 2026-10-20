@@ -1,0 +1,23 @@
+{
+  "companyKey": "bluedotbpo",
+  "companyName": "Manatal",
+  "companyHost": "bluedotbpo.careers-page.com",
+  "platform": "careers-page.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://bluedotbpo.careers-page.com/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Assistente de Recrutamento | Inglês Fluente | Remoto | U.S",
+    "Contador | Inglês Fluente | Remoto | U.S",
+    "Recrutador Executivo | Inglês Fluente | Remoto | U.S",
+    "Analista de Marketing Generalista | Inglês Fluente | Remoto | U.S",
+    "Executivo de Vendas B2B | Inglês Fluente | Remoto | U.S"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-18T09:40:35.367Z"
+}

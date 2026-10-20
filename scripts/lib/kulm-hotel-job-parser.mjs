@@ -18,9 +18,11 @@
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, fetchJson } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -157,25 +159,6 @@ function mapContractDuration(duration = '', workload = '100') {
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
 
-async function fetchJson(url) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': USER_AGENT,
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 async function fetchHtml(url) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
@@ -214,7 +197,13 @@ async function fetchAllVacanciesFromApi() {
   do {
     const url = `${API_BASE}?page=${page}`;
     console.log(`  📥 Fetching page ${page}/${lastPage}: ${url}`);
-    const response = await fetchJson(url);
+    const response = await fetchJson(url, {
+      timeoutMs: TIMEOUT_MS,
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': USER_AGENT,
+      },
+    });
 
     if (response.data && Array.isArray(response.data)) {
       allVacancies.push(...response.data);
@@ -301,6 +290,12 @@ function extractSections(html = '') {
   return text.length > 50 ? text : '';
 }
 
+/** Labels of the synthesized facts line, in the language of the ad body. */
+const META_LABELS = {
+  en: { workload: 'Workload', contract: 'Contract', start: 'Start' },
+  de: { workload: 'Pensum', contract: 'Vertrag', start: 'Stellenantritt' },
+};
+
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 /**
@@ -343,9 +338,11 @@ export async function fetchAllKulmHotelJobs() {
 
     // Fetch detail page for full description
     let detailDescription = '';
+    let sourceDatePosted = '';
     try {
       const detailHtml = await fetchHtml(detailUrl);
       detailDescription = parseDetailPage(detailHtml);
+      sourceDatePosted = extractJobPostingField(detailHtml, 'datePosted');
       if (i < vacancies.length - 1) {
         await new Promise((r) => setTimeout(r, delayMs));
       }
@@ -367,20 +364,27 @@ export async function fetchAllKulmHotelJobs() {
     const workload = vac.workload || '100';
     const { employmentType, contract, contractType, contractLabel } = mapContractDuration(vac.contract_duration, workload);
 
-    // Posted date from contract_starts_at
-    const postedDate = vac.contract_starts_at
-      ? vac.contract_starts_at.slice(0, 10)
-      : new Date().toISOString().split('T')[0];
+
+
+    const detailWordCount = detailDescription ? detailDescription.split(/\s+/).length : 0;
+    const hasRichDetail = detailWordCount >= 50;
+
+    // The language of the ad is the language of its body. It used to be
+    // guessed from the TITLE alone, and job titles are loanword soup
+    // ("Sous Chef Main Kitchen" → it, "Room Attendant / Zimmerdame" → fr,
+    // "Office Employee/ Steward" → de): 10 of 17 English ads were published
+    // with the English text in a foreign source slot, so the Italian page
+    // served English and the English slot a translation of itself (#5253).
+    // The synthesized German fallback is German by construction.
+    const sourceLang = hasRichDetail ? detectLang(detailDescription, 'en') : 'de';
+    const labels = META_LABELS[sourceLang] || META_LABELS.en;
 
     // Build description
     const metaLine = [
       `${title} — ${KULM_HOTEL_COMPANY_NAME} (${locationLabel}), ${city} (Engadin, Graubünden).`,
-      `Pensum: ${workload}%. Vertrag: ${contractLabel}.`,
-      vac.contract_starts_at ? `Stellenantritt: ${vac.contract_starts_at.slice(0, 10)}.` : '',
+      `${labels.workload}: ${workload}%. ${labels.contract}: ${contractLabel}.`,
+      vac.contract_starts_at ? `${labels.start}: ${vac.contract_starts_at.slice(0, 10)}.` : '',
     ].filter(Boolean).join(' ');
-
-    const detailWordCount = detailDescription ? detailDescription.split(/\s+/).length : 0;
-    const hasRichDetail = detailWordCount >= 50;
 
     const fallbackDescription = [
       metaLine,
@@ -395,8 +399,6 @@ export async function fetchAllKulmHotelJobs() {
     const description = hasRichDetail
       ? `${metaLine}\n\n${detailDescription}`
       : fallbackDescription;
-
-    const sourceLang = detectLang(title, 'en');
 
     const job = {
       // ── Required fields ──
@@ -431,7 +433,8 @@ export async function fetchAllKulmHotelJobs() {
       sector: 'Ospitalità / Hotellerie',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(sourceDatePosted),
+      jobStartDate: vac.contract_starts_at || '',
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

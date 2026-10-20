@@ -7,17 +7,18 @@
  *
  * Workday API endpoints (tenant changed from "capriholdings" to "capri", 2026-03-25):
  *   Michael Kors: POST https://capri.wd1.myworkdayjobs.com/wday/cxs/capri/Michael_Kors/jobs
- *   Versace:      POST https://capri.wd1.myworkdayjobs.com/wday/cxs/capri/Versace/jobs
+ *   (Versace's site is decommissioned — WORKDAY_SITES in lib/capri-holdings-job-parser.mjs)
  *   Detail:       GET  https://capri.wd1.myworkdayjobs.com/wday/cxs/capri/{site}/job/{path}
  *
  * This script:
- *   1. Queries both Michael Kors and Versace Workday APIs for Swiss positions
+ *   1. Queries every brand site in WORKDAY_SITES for Swiss positions
  *   2. Fetches full job details for each match
  *   3. Builds job objects with canonical Workday URLs
  *   4. Merges into data/jobs.json
  *   5. Runs base crawler for AI localization (4 locales)
  *   6. Post-processes and validates locale coverage
  */
+import { workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -31,19 +32,22 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
+import { crawledAtFromObservation } from './lib/source-crawl-observation.mjs';
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
-  detectLang,
   normalize,
   normalizeKey,
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropFabricatedLocaleText, sourceLocaleDescription } from './lib/source-locale-description.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { isChCountry } from './lib/ch-country-guard.mjs';
 import {
@@ -57,6 +61,12 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+// Brand sites and endpoints live in one place: the parser module documents
+// why a site is (no longer) queried.
+import { WORKDAY_SITES, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE } from './lib/capri-holdings-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -70,20 +80,17 @@ const CAPRI_KEY = 'capri-holdings';
 const DATA_JOBS = crawlerScratchPathFor(CAPRI_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
-const CAPRI_COMPANY_NAME = 'Capri Holdings (Michael Kors / Versace)';
+// Il marchio che il candidato vede: Versace è passato a Prada (2026-10-01) e
+// il crawler legge solo Michael Kors. Il vecchio nome «Capri Holdings (Michael
+// Kors / Versace)» è un alias di `michael-kors` in brandCanonicalMap.mjs.
+const CAPRI_COMPANY_NAME = 'Michael Kors';
 const CAPRI_HOST = 'capri.wd1.myworkdayjobs.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-/** Workday API sites to query — each brand has its own site within the "capri" tenant */
-const WORKDAY_SITES = [
-  { site: 'Michael_Kors', brand: 'Michael Kors' },
-  { site: 'Versace', brand: 'Versace' },
-];
-
-const WORKDAY_API_BASE = 'https://capri.wd1.myworkdayjobs.com/wday/cxs/capri';
-const WORKDAY_PUBLIC_BASE = 'https://capri.wd1.myworkdayjobs.com/en-US';
 const WORKDAY_TOTAL_DRIFT_RETRIES = 2;
 const WORKDAY_TOTAL_DRIFT_RETRY_DELAY_MS = 500;
+const WORKDAY_QUERY_RESTARTS = 2;
+const WORKDAY_QUERY_RESTART_DELAY_MS = 1000;
 
 /* ── Helpers ──────────────────────────────────────────────── */
 
@@ -361,37 +368,72 @@ export async function listSwissJobs(site, brand) {
 
   // Strategy 1: Search for "Switzerland" to find Swiss jobs
   for (const searchText of ['Switzerland', 'Mendrisio', 'Lugano', 'Ticino', '']) {
-    let offset = 0;
-    const limit = 20;
-    let queryPostingsFetched = 0;
-    let queryExpectedTotal;
-    const queryPostingIdentities = new Set();
-    while (true) {
-      const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
-      const { jobPostings, declaredTotal } = await fetchWorkdayPage(apiUrl, body, {
-        brand,
-        searchText,
-        offset,
-        expectedTotal: queryExpectedTotal,
-      });
-      if (queryExpectedTotal === undefined) queryExpectedTotal = declaredTotal;
-      const pageLength = jobPostings.length;
-      assertUniqueWorkdayPostings(jobPostings, {
-        brand,
-        searchText,
-        offset,
-        seen: queryPostingIdentities,
-      });
-      queryPostingsFetched += pageLength;
-      if (queryPostingsFetched > declaredTotal) {
-        throw new Error(
-          `Workday ${brand} ${searchText || 'empty'} search fetched `
-          + `${queryPostingsFetched}/${declaredTotal} rows at offset ${offset}`,
+    let queryCompleted = false;
+    for (let queryAttempt = 0; queryAttempt <= WORKDAY_QUERY_RESTARTS; queryAttempt += 1) {
+      const limit = 20;
+      let offset = 0;
+      let queryPostingsFetched = 0;
+      let queryExpectedTotal;
+      const queryPostingIdentities = new Set();
+      const queryPostings = [];
+
+      try {
+        while (true) {
+          const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
+          const { jobPostings, declaredTotal } = await fetchWorkdayPage(apiUrl, body, {
+            brand,
+            searchText,
+            offset,
+            expectedTotal: queryExpectedTotal,
+          });
+          if (queryExpectedTotal === undefined) queryExpectedTotal = declaredTotal;
+          const pageLength = jobPostings.length;
+          assertUniqueWorkdayPostings(jobPostings, {
+            brand,
+            searchText,
+            offset,
+            seen: queryPostingIdentities,
+          });
+          queryPostingsFetched += pageLength;
+          if (queryPostingsFetched > declaredTotal) {
+            const error = new Error(
+              `Workday ${brand} ${searchText || 'empty'} search fetched `
+              + `${queryPostingsFetched}/${declaredTotal} rows at offset ${offset}`,
+            );
+            error.code = 'WORKDAY_TOTAL_CHANGED';
+            throw error;
+          }
+          queryPostings.push(...jobPostings);
+
+          if (queryPostingsFetched < declaredTotal && pageLength < limit) {
+            const error = new Error(
+              `Workday ${brand} ${searchText || 'empty'} search returned `
+              + `${queryPostingsFetched}/${declaredTotal} rows before a short page`,
+            );
+            error.code = 'WORKDAY_TOTAL_CHANGED';
+            throw error;
+          }
+          if (queryPostingsFetched === declaredTotal) break;
+          offset += limit;
+        }
+      } catch (error) {
+        const restartablePaginationError = error?.code === 'WORKDAY_TOTAL_CHANGED'
+          || error?.code === 'WORKDAY_PAGINATION_REPEATED';
+        if (!restartablePaginationError || queryAttempt >= WORKDAY_QUERY_RESTARTS) {
+          throw error;
+        }
+        const delayMs = WORKDAY_QUERY_RESTART_DELAY_MS * (queryAttempt + 1);
+        console.warn(
+          `⚠️ Workday ${brand} ${searchText || 'empty'} search pagination was not stable; `
+          + `restarting query (${queryAttempt + 1}/${WORKDAY_QUERY_RESTARTS}) in ${delayMs}ms`,
         );
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
+        continue;
       }
 
-      for (const posting of jobPostings) {
-        // Check if already found
+      // Keep each search query transactional: only merge its pages into the
+      // cross-query set after its total and pagination have been verified.
+      for (const posting of queryPostings) {
         if (allPostings.some((p) => p.externalPath === posting.externalPath)) continue;
 
         // Workday search matches arbitrary posting fields, so every result
@@ -401,15 +443,11 @@ export async function listSwissJobs(site, brand) {
         if (!isSwissWorkdayListing(posting)) continue;
         allPostings.push({ ...posting, brand });
       }
-
-      if (queryPostingsFetched < declaredTotal && pageLength < limit) {
-        throw new Error(
-          `Workday ${brand} ${searchText || 'empty'} search returned `
-          + `${queryPostingsFetched}/${declaredTotal} rows before a short page`,
-        );
-      }
-      if (queryPostingsFetched === declaredTotal) break;
-      offset += limit;
+      queryCompleted = true;
+      break;
+    }
+    if (!queryCompleted) {
+      throw new Error(`Workday ${brand} ${searchText || 'empty'} search did not complete`);
     }
   }
 
@@ -503,10 +541,12 @@ export function assertUniqueWorkdayPostings(
       );
     }
     if (seen.has(identity)) {
-      throw new Error(
+      const error = new Error(
         `Workday ${brand} ${searchText || 'empty'} search repeated posting identity `
         + `${identity} at offset ${offset}`,
       );
+      error.code = 'WORKDAY_PAGINATION_REPEATED';
+      throw error;
     }
     seen.add(identity);
   }
@@ -516,7 +556,29 @@ export function assertUniqueWorkdayPostings(
 /**
  * Fetch all Swiss Capri Holdings jobs across both brand sites.
  */
-async function fetchCapriHoldingsJobs() {
+/**
+ * Description fields of one posting: the Workday `jobDescription` text in its
+ * own language. The runner used to write an Italian company blurb of its own
+ * into `descriptionByLocale.it` of every job ("Posizione aperta presso <brand>
+ * (Capri Holdings) a …"), which the source never published.
+ * Under the shared word floor (50 words) nothing is emitted: the merge keeps
+ * the stored source body, or the job is not published this run.
+ */
+export function buildCapriDescriptionFields(title, descriptionText, brand, city) {
+  // Only the posting's own text over the shared word floor: nothing under it
+  // (the merge keeps the stored source body, or omits the job this run).
+  return sourceLocaleDescription(meetsSourceBodyFloor(descriptionText) ? descriptionText : '');
+}
+
+// Fossil of the removed Italian builder in stored jobs (see source-locale-description.mjs).
+const CAPRI_IT_BLURB_RE = /^Posizione aperta presso [\s\S]*\(Capri Holdings\)[\s\S]*gruppo globale della moda di lusso/;
+
+/** Remove the fabricated Italian blurb from a stored job. */
+export function dropCapriFabricatedText(job) {
+  return dropFabricatedLocaleText(job, 'it', CAPRI_IT_BLURB_RE);
+}
+
+export async function fetchCapriHoldingsJobs() {
   console.log(`🔍 Fetching Capri Holdings jobs from Workday API`);
   console.log(`   Tenant: capri.wd1.myworkdayjobs.com`);
   console.log(`   Sites: ${WORKDAY_SITES.map((s) => s.site).join(', ')}\n`);
@@ -534,6 +596,9 @@ async function fetchCapriHoldingsJobs() {
 
   console.log(`\n  📋 Total Swiss-location candidates across all brands: ${allSwissListings.length}`);
   if (allSwissListings.length === 0) return [];
+
+  const crawledAt = crawledAtFromObservation(new Date());
+  if (!crawledAt) return [];
 
   const jobs = [];
   for (const listing of allSwissListings) {
@@ -577,8 +642,7 @@ async function fetchCapriHoldingsJobs() {
     const publicUrl = `${WORKDAY_PUBLIC_BASE}/${listing._site}${externalPath}`;
     const brand = listing.brand || 'Capri Holdings';
     const resolvedCity = city;
-    const descEn = descriptionText || `${title} position at ${brand} in ${resolvedCity}.`;
-    const descIt = `Posizione aperta presso ${brand} (Capri Holdings) a ${resolvedCity === 'Switzerland' ? 'Svizzera' : resolvedCity}.\nRuolo: ${title}.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.`;
+    const { description, descriptionByLocale, sourceLang } = buildCapriDescriptionFields(title, descriptionText, brand, resolvedCity);
     const slug = slugify(title, 'capri-holdings');
     const locationText = `${locationRaw} ${listingLocationSignal}`;
     const sourcePostalCode = getWorkdaySourceField(info, ['postalCode', 'postal_code', 'zipCode', 'zip'])
@@ -607,17 +671,18 @@ async function fetchCapriHoldingsJobs() {
       addressCountry: 'CH',
       postalCode: structuredAddress.postalCode,
       streetAddress: structuredAddress.streetAddress,
-      description: descEn,
-      descriptionByLocale: { en: descEn, it: descIt },
-      titleByLocale: { en: title },
+      description,
+      descriptionByLocale,
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
-      slugByLocale: { en: slug, it: slugify(title, 'capri-holdings') },
       category: detectCategory(title),
-      datePosted: info.startDate || new Date().toISOString().split('T')[0],
+      ...workdayPostingDateFields(detail),
+      crawledAt,
       source: 'capri-holdings-workday-crawler',
       employmentType: detectEmploymentType(info.timeType || ''),
       experienceLevel: detectExperienceLevel(title),
-      sourceLang: detectLang(descEn || title, 'en'),
+      sourceLang,
       sector: 'Fashion / Luxury Retail',
       _brand: brand,
       _targetScope: { canton: addressCanton, location: addressCity },
@@ -644,6 +709,15 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCapriJobs = allJobs.filter((j) => !isCapriJob(j));
   const existingCapriJobs = allJobs.filter(isCapriJob);
+  const fossils = existingCapriJobs.filter((job) => dropCapriFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the fabricated Italian Capri blurb from ${fossils} stored job(s); they will be retranslated`);
+  // Under the shared word floor the builder emits no body: keep the stored
+  // source body (fossils already dropped above), or omit the job this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingCapriJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(
     existingCapriJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
@@ -667,6 +741,9 @@ async function mergeJobs(discoveredJobs) {
     country: 'CH',
     source: 'capri-holdings-workday-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCapriJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -692,7 +769,7 @@ function updateAdapterConfig() {
     priority: Math.max(adapter.priority || 0, 10),
     crawlerModes: ['api'],
     seedUrls: WORKDAY_SITES.map((s) => `${WORKDAY_PUBLIC_BASE}/${s.site}`),
-    notes: 'Workday API at capri.wd1.myworkdayjobs.com — Michael Kors + Versace. Swiss positions (Mendrisio TI logistics hub).',
+    notes: `Workday API at capri.wd1.myworkdayjobs.com — ${WORKDAY_SITES.map((s) => s.brand).join(' + ')}. Swiss positions (Mendrisio TI logistics hub).`,
     updatedAt: new Date().toISOString(),
   });
 
@@ -768,13 +845,27 @@ function validateLocaleCoverage() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: CAPRI_KEY,
+    companyLabel: CAPRI_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(CAPRI_KEY, jobs, {
+      isTargetJob: isCapriJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(CAPRI_KEY, 'Capri Holdings');
   console.log('═══════════════════════════════════════════════');
   console.log('  Capri Holdings — Dedicated Crawler');
-  console.log('  Brands: Michael Kors, Versace, Jimmy Choo');
+  console.log(`  Brand sites: ${WORKDAY_SITES.map((s) => s.brand).join(', ')}`);
   console.log('  ATS: Workday (capri.wd1.myworkdayjobs.com)');
   console.log('═══════════════════════════════════════════════\n');
 
@@ -786,7 +877,10 @@ async function main() {
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No Swiss Capri Holdings jobs discovered.');
     console.log('   The Workday API may have no Swiss openings currently.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(CAPRI_KEY, DATA_JOBS).filter(isCapriJob),
+    );
     const stats = logStats(_beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
     writeCrawlChangeSummaryToGH(computeCrawlDiff(_beforeSnapshot, new Map()), 'Capri Holdings');
@@ -832,7 +926,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isCapriJob) : [];
-  writeJobsCrawlerSlice(CAPRI_KEY, _sliceJobs);
+  writeJobsCrawlerSlice(CAPRI_KEY, _sliceJobs, { observedJobs: discoveredJobs });
   writeSummaryCrawlerSlice({
     key: CAPRI_KEY,
     label: 'Capri Holdings',

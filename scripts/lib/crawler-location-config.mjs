@@ -135,7 +135,10 @@ export const COMPANY_HQ = {
   'medacta':                      { city: 'Castel San Pietro',  canton: 'TI', postalCode: '6874', addressRegion: 'TI' },
   'mendrisio':                    { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
   'otis':                         { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
-  'oscam':                        { city: 'Caslano',            canton: 'TI', postalCode: '6987', addressRegion: 'TI' },
+  // Ospedale Malcantonese: the official OSCAM career notices give Nucleo 30,
+  // CH-6980 Castelrotto. Casa Anziani is a separate Caslano site and must not
+  // be used as the generic hospital crawler default.
+  'oscam':                        { city: 'Castelrotto',         canton: 'TI', postalCode: '6980', addressRegion: 'TI' },
   'prada':                        { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
   'raiffeisen-vc':                { city: 'Cadempino',          canton: 'TI', postalCode: '6814', addressRegion: 'TI' },
   'rapelli':                      { city: 'Stabio',             canton: 'TI', postalCode: '6855', addressRegion: 'TI' },
@@ -328,6 +331,7 @@ export const COMPANY_HQ = {
   'gz-dielsdorf':                 { city: 'Dielsdorf',          canton: 'ZH', postalCode: '8157', addressRegion: 'ZH' },
   'pzm-muensingen':               { city: 'Münsingen',          canton: 'BE', postalCode: '3110', addressRegion: 'BE' },
   'prosenectute-ti':              { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'protectas':                    { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'spital-limmattal':             { city: 'Schlieren',          canton: 'ZH', postalCode: '8952', addressRegion: 'ZH' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
@@ -460,6 +464,7 @@ export const COMPANY_HQ = {
   'liebherr': { city: 'Bulle', canton: 'FR', postalCode: '1630', addressRegion: 'FR' },
   'decathlon': { city: 'Vernier', canton: 'GE', postalCode: '1214', addressRegion: 'GE' },
   'geberit': { city: 'Rapperswil-Jona', canton: 'SG', postalCode: '8645', addressRegion: 'SG' },
+  'mediamarkt': { city: 'Dietikon', canton: 'ZH', postalCode: '8953', addressRegion: 'ZH' },
   'bkw': { city: 'Bern', canton: 'BE', postalCode: '3013', addressRegion: 'BE' },
   'hermes': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
   'hilti': { city: 'Adliswil', canton: 'ZH', postalCode: '8134', addressRegion: 'ZH' },
@@ -778,6 +783,9 @@ export const COMPANY_HQ = {
   // `resolveAddress()` in scripts/lib/holmes-place-job-parser.mjs; this HQ
   // entry is only the generic canton/postal fallback.
   'holmes-place': { city: 'Oberrieden', canton: 'ZH', postalCode: '8942', addressRegion: 'ZH' },
+  // ZAUGG AG's official vacancy places the welding team at its Eggiwil
+  // headquarters; the official site footer gives CH-3537 Eggiwil.
+  'zaugg': { city: 'Eggiwil', canton: 'BE', postalCode: '3537', addressRegion: 'BE' },
 };
 
 /**

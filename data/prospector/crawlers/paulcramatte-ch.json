@@ -1,0 +1,24 @@
+{
+  "companyKey": "paulcramatte-ch",
+  "companyName": "Paul Cramatte SA",
+  "companyHost": "paulcramatte.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://paulcramatte.ch/fr/offres-d-emploi.html"
+  ],
+  "detailTemplate": "/fr/offres-d-emploi/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 51,
+  "sampleTitles": [
+    "Polisseur composants mouvement (H/F/X)",
+    "Passeur au bain (H/F/X)",
+    "Employé/e de commerce",
+    "Praticien en mécanique AFP (H/F)",
+    "Polymécanicien (H/F)"
+  ],
+  "canton": "JU",
+  "sourceLang": "it",
+  "learnedAt": "2026-10-17T09:08:55.788Z"
+}

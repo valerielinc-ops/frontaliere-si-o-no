@@ -10,9 +10,10 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
-import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { assignProspectiveListingIds, assignReferenceJobIds, prospectiveStableRef } from './prospective-reference-ids.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
@@ -119,17 +120,6 @@ function detectEmploymentType(text = '') {
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
- * Convert a prospective.ch `start_date` / `last_modification_timestamp`
- * (ISO 8601 string) to a YYYY-MM-DD posted date.
- */
-function toPostedDate(value) {
-  if (!value) return null;
-  const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toISOString().split('T')[0];
-}
-
-/**
  * Is this OHWS job located in Switzerland? The 1003228 careercenter is
  * CH-only, but we guard via country label + 4-digit Swiss zip anyway.
  */
@@ -169,6 +159,70 @@ async function fetchJobListings() {
   return collected;
 }
 
+const DETAIL_DELAY_MS = 150;
+const DETAIL_CONCURRENCY = 3;
+
+function sectionInner(html, id) {
+  const match = new RegExp(`<section\\b[^>]*\\bid=["']${id}["'][^>]*>([\\s\\S]*?)</section>`, 'i').exec(html);
+  return match ? match[1] : '';
+}
+
+/**
+ * The ad body of a jobs.emmi.com vacancy page, as HTML.
+ *
+ * The OHWS feed carries only the two bullet lists (`sza_tasks`,
+ * `sza_requirements`); its `sza_benefits` is a single sentence pointing to the
+ * careers site. The vacancy page the job links to is the ad itself: the
+ * role-specific introduction, the two headed lists ("Das kannst du bewirken",
+ * "Das bringst du mit") and the site's benefit cards ("Das bieten wir dir").
+ * Publishing the feed alone dropped the introduction, the headings and every
+ * benefit — 886 of 4,276 characters on the Langnau Betriebsmechaniker:in page
+ * (2026-09-29). About, application process, contact and similar-jobs sections
+ * are page chrome and stay out.
+ *
+ * @param {string} html
+ * @returns {string} '' when the page has none of the ad sections
+ */
+export function extractEmmiVacancyHtml(html = '') {
+  const source = String(html || '');
+  const parts = [];
+  const intro = sectionInner(source, 'introduction');
+  if (stripHtml(intro)) parts.push(intro);
+  const tasksAndProfile = sectionInner(source, 'tasksAndProfile');
+  if (stripHtml(tasksAndProfile)) parts.push(tasksAndProfile);
+  const benefits = sectionInner(source, 'benefits');
+  if (benefits) {
+    const items = [];
+    const cardRe = /class="benefitTitle"[^>]*>([\s\S]*?)<\/div>[\s\S]*?class="benefitText"[^>]*>([\s\S]*?)<\/div>/gi;
+    let card;
+    while ((card = cardRe.exec(benefits)) !== null) {
+      const title = normalizeSpace(stripHtml(card[1]));
+      const text = normalizeSpace(stripHtml(card[2]));
+      if (title || text) items.push(`<li>${[title, text].filter(Boolean).join(': ')}</li>`);
+    }
+    const heading = /<h2\b[^>]*>([\s\S]*?)<\/h2>/i.exec(benefits)?.[0] || '';
+    const benefitsLink = /<a\b[^>]*class="[^"]*arrowIconLink[^"]*"[^>]*>([\s\S]*?)<\/a>/i.exec(benefits)?.[0] || '';
+    // Some valid ads have no benefit cards but still publish the section
+    // heading and the link to Emmi's benefits page. Keeping that rendered
+    // source text prevents the dedicated parser from dropping the final ad
+    // section and falling below the source-detail completeness gate.
+    if (items.length || heading || benefitsLink) {
+      parts.push(`${heading}${items.length ? `<ul>${items.join('')}</ul>` : ''}${benefitsLink}`);
+    }
+  }
+  return parts.join('\n');
+}
+
+async function fetchEmmiVacancyHtml(url) {
+  if (!isTrustedDomain(url) || !/(^|\.)jobs\.emmi\.com$/i.test(new URL(url).hostname)) return '';
+  try {
+    return extractEmmiVacancyHtml(await fetchHtml(url));
+  } catch (err) {
+    console.warn(`  ⚠️ Emmi detail fetch failed (${url}): ${err?.message || err}`);
+    return '';
+  }
+}
+
 /**
  * Fetch all Emmi jobs.
  * Returns an array of ParsedJob objects (source-locale only).
@@ -176,7 +230,13 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllEmmiJobs() {
+/** See lib/prospective-reference-ids.mjs: kept for this parser's callers and tests. */
+export const emmiStableRef = prospectiveStableRef;
+export function assignEmmiJobIds(entries = [], options = {}) {
+  return assignReferenceJobIds(entries, 'emmi', options);
+}
+
+export async function fetchAllEmmiJobs({ existingJobs = [] } = {}) {
   console.log(`🔍 Fetching Emmi jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
@@ -188,10 +248,27 @@ export async function fetchAllEmmiJobs() {
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
+  // Vacancy pages, read three at a time (80+ pages one by one cost minutes of
+  // cron time); a page that cannot be read falls back to the OHWS blocks.
+  const vacancyHtmlByUrl = new Map();
+  const detailUrls = [...new Set(listings
+    .map((listing) => listing.links?.directlink || '')
+    .filter(Boolean))];
+  let nextDetail = 0;
+  await Promise.all(Array.from({ length: Math.min(DETAIL_CONCURRENCY, detailUrls.length) }, async () => {
+    while (nextDetail < detailUrls.length) {
+      const url = detailUrls[nextDetail++];
+      vacancyHtmlByUrl.set(url, await fetchEmmiVacancyHtml(url));
+      await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+    }
+  }));
+
   const jobs = [];
   const seen = new Set();
+  // A reference code shared by distinct postings gets one id per posting.
+  const idByListing = assignProspectiveListingIds(listings, 'emmi', CAREER_URL, { existingJobs });
 
-  for (const listing of listings) {
+  for (const [listingIndex, listing] of listings.entries()) {
     const szas = listing.szas || {};
 
     // Switzerland-only guard (board is CH-only; defensive check anyway).
@@ -212,33 +289,29 @@ export async function fetchAllEmmiJobs() {
     const postalCode = /^\d{4}$/.test(zip) ? zip : HQ.postalCode;
     const addressRegion = region || HQ.region;
 
-    // ── Description: tasks + requirements blocks from OHWS ──
-    const tasksHtml = szas.sza_tasks || '';
-    const reqsHtml = szas.sza_requirements || '';
-    const descriptionHtml = [tasksHtml, reqsHtml].filter(Boolean).join('\n');
-    const descriptionText = stripHtml(descriptionHtml) || stripHtml(tasksHtml);
-
     // ── Canonical job-detail URL (links.directlink) ──
     const publicUrl = listing.links?.directlink || CAREER_URL;
 
-    // Stable reference: prefer prospective viewkey/reference, fallback URL hash.
-    const stableRef =
-      String(szas.sza_reference_code || listing.viewkey || listing.id || '').trim();
-    const urlHash = stableRef
-      ? createHash('sha1').update(`emmi:${stableRef}`).digest('hex').slice(0, 12)
-      : createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const id = `emmi-${urlHash}`;
+    // ── Description: the vacancy page (intro, headed lists, benefits); the
+    // OHWS tasks + requirements blocks only when the page cannot be read ──
+    const tasksHtml = szas.sza_tasks || '';
+    const reqsHtml = szas.sza_requirements || '';
+    const vacancyHtml = vacancyHtmlByUrl.get(publicUrl) || '';
+    const descriptionHtml = vacancyHtml || [tasksHtml, reqsHtml].filter(Boolean).join('\n');
+    const descriptionText = stripHtml(descriptionHtml) || stripHtml(tasksHtml);
+
+    // Stable reference: prefer prospective viewkey/reference, fallback URL
+    // hash; a reference shared by distinct postings is resolved up front.
+    const id = idByListing[listingIndex];
     if (seen.has(id)) continue;
     seen.add(id);
 
     const sourceLang = detectLang(descriptionText || title, SOURCE_LANG);
     const jobSlug = slugify(`${title} emmi ch`);
 
-    // ── Posted date: prefer OHWS start_date, fall back to last-modified ──
-    const postedDate =
-      toPostedDate(listing.start_date) ||
-      toPostedDate(listing.last_modification_timestamp) ||
-      new Date().toISOString().split('T')[0];
+    // OHWS publication start is corroborated by the employer's JobPosting.
+    // Preserve its full timestamp; modification time is not publication evidence.
+    const postingDates = sourcePostingDateFields(listing.start_date);
 
     // ── Employment type: pensum + sza_employment_type label ──
     const pensumMax = Number(szas['sza_pensum.max']);
@@ -296,7 +369,7 @@ export async function fetchAllEmmiJobs() {
       sector: SECTOR,
       currency: normalizeSpace(szas['sza_salary.currency'] || '') || 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: normalizeSpace(szas.sza_apply_link || '') || publicUrl,
       requirements,
       requirementsByLocale: { [sourceLang]: requirements },

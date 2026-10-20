@@ -20,6 +20,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 const BASE_URL = 'https://jobs.amag-group.ch';
 
@@ -113,17 +114,8 @@ export function parseAmagListingPage(html = '') {
 export function parseAmagDetailPage(html = '', fallbackTitle = '') {
   const document = new JSDOM(html).window.document;
 
-  // Extract JSON-LD JobPosting
-  let jsonLd = null;
-  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
-    try {
-      const data = JSON.parse(script.textContent || '');
-      if (data?.['@type'] === 'JobPosting') {
-        jsonLd = data;
-        break;
-      }
-    } catch { /* skip malformed JSON-LD */ }
-  }
+  // Extract JSON-LD JobPosting, including array and @graph schema shapes.
+  const jsonLd = extractJobPostingNodes(html)[0] || null;
 
   const title = normalizeSpace(jsonLd?.title || fallbackTitle);
   const description = jsonLd?.description ? stripHtml(jsonLd.description) : '';

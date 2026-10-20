@@ -72,7 +72,7 @@ const OG_LOCALE: Record<FrontalierePillarLocale, string> = {
 
 const TILE_STYLES = [STAT_TILE_ACCENT, STAT_TILE_SUCCESS, STAT_TILE_BASE] as const;
 
-function renderPage(locale: FrontalierePillarLocale, dateStamp: string, distDir: string) {
+export function renderPage(locale: FrontalierePillarLocale, dateStamp: string, distDir: string) {
   const copy = FRONTALIERE_PILLAR_COPY[locale];
   // One description of the hero, used three times: the <img>, `Article.image`
   // and `og:image`. Declared up here rather than next to the JSON-LD because
@@ -165,11 +165,11 @@ ${breadcrumbHtml}
 <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)}</p>
 <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
 <p style="${LEDE_STYLE}">${esc(copy.lede)}</p>
-${renderSeoHeroImage(hero)}
 <div class="mt-4 grid gap-3 sm:grid-cols-3">
 ${tilesHtml}
 </div>
 <div class="s-KZc0LQ"><a href="${esc(copy.primaryCtaHref)}" class="s-cta">${esc(copy.primaryCtaLabel)} →</a></div>
+${renderSeoHeroImage(hero)}
 ${sectionsHtml}
 ${professionsHtml}
 ${faqHtml}
@@ -198,17 +198,16 @@ ${sourcesHtml}
   });
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
     image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),
@@ -218,7 +217,7 @@ ${sourcesHtml}
   const wordCount = countHtmlBodyWords(bodyHtml);
   const bodyHtmlWithAd = bodyHtml.replace(
     /<\/div>\s*$/,
-    `${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</div>`,
+    `${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: bodyHtml })}</div>`,
   );
   const html = buildSeoPageHtml({
     locale,
@@ -256,7 +255,6 @@ function buildSitemapXml(today: string): string {
     (loc) => `  <url>
     <loc>${BASE_URL}${buildFrontalierePillarPath(loc)}</loc>
 ${alternates.join('\n')}
-    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>`,

@@ -18,11 +18,13 @@ import {
 } from '../scripts/lib/rheinmetall-air-defence-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
+const publicationDate = new Date(Date.now() - 5 * 86400000).toISOString();
+
 function makeListing(overrides: Record<string, unknown> = {}) {
   return {
     id: '782153_en',
     url: '/en/job/mitarbeiter_qualitaetssicherung_mit_schwerpunkt_mechanik__m_w_d_/782153',
-    date: '2025-07-14T00:00:00+02:00',
+    date: publicationDate,
     title: 'Mitarbeiter Qualitätssicherung mit Schwerpunkt Mechanik (m/w/d)',
     companyName: RHEINMETALL_AIR_DEFENCE_COMPANY_NAME,
     departmentName: 'Unternehmensbereich Defence',
@@ -168,7 +170,7 @@ describe('Rheinmetall Air Defence crawler parser', () => {
       expect(job.url).toBe('https://www.rheinmetall.com/en/job/mitarbeiter_qualitaetssicherung_mit_schwerpunkt_mechanik__m_w_d_/782153');
       expect(job.slugByLocale).toEqual({ de: job.slug });
       expect(job.description.length).toBeGreaterThan(0);
-      expect(job.postedDate).toBe('2025-07-14');
+      expect(job).toMatchObject({ postedDate: publicationDate, datePosted: publicationDate, postingDateSource: 'reported' });
     });
 
     it('maps a Studen listing onto the SZ test-centre address (not Bern)', async () => {

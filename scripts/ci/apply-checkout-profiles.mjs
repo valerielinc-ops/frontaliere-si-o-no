@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Scrive nei workflow lo sparse-checkout calcolato da checkout-profile-analyzer.mjs.
  *
@@ -20,14 +22,64 @@ const DRY = process.argv.includes('--dry-run');
 const CHECK = process.argv.includes('--check');
 const ONLY = process.argv.includes('--only') ? process.argv[process.argv.indexOf('--only') + 1] : null;
 const MARK = '# checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs';
+const FULL_CHECKOUT_MARK = '# checkout profile: intentionally full';
 
-// `data/blog-articles-data.ts` is a symlink into the article package. A
-// typecheck profile must carry both names: Git checks out the symlink at the
-// first path, while the compiler resolves its target at the second one.
+// `data/blog-articles-data.ts` is a symlink into the article package and its
+// source imports `./blogImageCdnMirror`. TypeScript resolves that import from
+// the logical `data/` path, so a sparse typecheck must carry both the package
+// files and the matching `data/` symlink alias.
 export const TYPECHECK_REQUIRED_SPARSE_PATHS = [
   '/data/blog-articles-data.ts',
+  '/data/blogImageCdnMirror.ts',
   '/packages/articles/content/blog-articles-data.ts',
+  '/packages/articles/content/blogImageCdnMirror.ts',
 ];
+
+/**
+ * Input letti dal build globale mentre gira nel job `vitest`.
+ *
+ * I nomi `data/blog-articles-data.ts`, `data/blogImageCdnMirror.ts` e
+ * `data/swiss-articles-data.ts` sono symlink: Git deve materializzare sia i
+ * link sotto `data/` sia i bersagli reali nel package degli articoli. Gli altri
+ * file sono sorgenti letti da Vite/build-plugin a runtime, quindi non bastano la
+ * chiusura degli import statici né un profilo che guarda solo il typecheck.
+ * Tenere il contratto qui, accanto al generatore dei profili, evita che
+ * `tests.yml`, il verifier e i test possano divergere.
+ */
+export const GLOBAL_TESTS_REQUIRED_SPARSE_PATHS = Object.freeze([
+  '/package.json',
+  '/scripts/ci/check-below-floor-bridge.mjs',
+  '/scripts/ci/check-sibling-patterns.mjs',
+  '/scripts/ci/identical-twin-import-gate.mjs',
+  '/scripts/ci/sample-mem-during.sh',
+  '/data/blog-articles-data.ts',
+  '/data/blogImageCdnMirror.ts',
+  '/data/swiss-articles-data.ts',
+  '/data/fuel-prices.json',
+  '/public/data/fuel-prices.json',
+  '/packages/articles/content/blog-articles-data.ts',
+  '/packages/articles/content/swiss-articles-data.ts',
+  '/packages/articles/content/blogArticleIds.ts',
+  '/packages/articles/content/routerBlogData.ts',
+  '/packages/articles/content/routerSwissData.ts',
+  '/packages/articles/content/blogImageCdnMirror.ts',
+  '/packages/articles/content/blog-body/de/simulazione-fiscale-frontaliere-2026.ts',
+  '/packages/articles/content/blog-body/en/simulazione-fiscale-frontaliere-2026.ts',
+  '/packages/articles/content/blog-body/fr/simulazione-fiscale-frontaliere-2026.ts',
+  '/packages/articles/content/blog-body/it/simulazione-fiscale-frontaliere-2026.ts',
+  '/packages/articles/content/blog-meta-it.ts',
+  '/packages/articles/content/blog-meta-en.ts',
+  '/packages/articles/content/blog-meta-de.ts',
+  '/packages/articles/content/blog-meta-fr.ts',
+  '/packages/articles/content/blog-meta-ch-it.ts',
+  '/packages/articles/content/blog-meta-ch-en.ts',
+  '/packages/articles/content/blog-meta-ch-de.ts',
+  '/packages/articles/content/blog-meta-ch-fr.ts',
+  '/packages/articles/content/seo/seo-blog.ts',
+  '/packages/articles/content/seo/seo-blog-7.ts',
+  '/packages/articles/content/seo/seo-blog-ch.ts',
+  '/packages/articles/content/seo/seoMetadataType.ts',
+]);
 
 /** Righe dei pattern sparse per una lista di bucket da escludere. */
 export function sparsePatterns(exclude, include = []) {
@@ -45,7 +97,7 @@ function sparsePatternMatches(pattern, target) {
   return target === normalized || target.startsWith(normalized + '/');
 }
 
-function sparseIncludesPath(raw, target) {
+export function sparseIncludesPath(raw, target) {
   let included = false;
   for (const line of String(raw ?? '').split('\n')) {
     const trimmed = line.trim();
@@ -55,6 +107,28 @@ function sparseIncludesPath(raw, target) {
     included = !excluded;
   }
   return included;
+}
+
+/**
+ * Verifica gli input runtime non chiudibili dal grafo statico del job globale.
+ * Un checkout pieno (o un profilo senza sparse-checkout) e' sicuro per
+ * costruzione; qui si controlla solo il job `vitest` con un allow-list.
+ */
+export function missingGlobalTestsSparsePaths(text, file = 'workflow.yml') {
+  let doc;
+  try { doc = YAML.parse(text, { logLevel: 'silent' }); } catch { return []; }
+  const job = doc?.jobs?.vitest;
+  if (!job) return [];
+  const checkout = (job.steps ?? []).find(
+    (step) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+  );
+  const sparse = checkout?.with?.['sparse-checkout'];
+  if (sparse === undefined) return [];
+  const checkoutPath = String(checkout?.with?.path ?? '').replace(/^\.?\/?/, '').replace(/\/+$/, '');
+  if (checkoutPath !== '') return [];
+  return GLOBAL_TESTS_REQUIRED_SPARSE_PATHS
+    .filter((target) => !sparseIncludesPath(sparse, target.slice(1)))
+    .map((target) => `${file}:vitest:${target}`);
 }
 
 /**
@@ -90,10 +164,12 @@ export function missingTypecheckSparsePaths(text, file = 'workflow.yml') {
  *
  * Ritorna `{ text, status }`:
  *   - `patched`  blocco inserito o aggiornato;
- *   - `manual`   il passo ha gia' uno sparse-checkout scritto a mano → NON si
- *                tocca. Alcuni sono piu' snelli di quanto questo script sappia
+ *   - `manual`   il passo ha gia' uno sparse-checkout scritto a mano, oppure
+ *                porta il marcatore `FULL_CHECKOUT_MARK` → NON si tocca.
+ *                Alcuni profili sono piu' snelli di quanto questo script sappia
  *                produrre (`measure-deploy-delta.yml` si porta giu' un solo file
- *                .py), e sovrascriverli sarebbe una regressione;
+ *                .py), mentre altri hanno misure runtime che giustificano il
+ *                checkout pieno: sovrascriverli sarebbe una regressione;
  *   - `nostep`   nessun passo di checkout in questo job.
  *
  * Il blocco viene ACCODATO in fondo al `with:` esistente, non anteposto: cosi'
@@ -133,6 +209,7 @@ export function patchJobCheckout(text, jobId, patterns) {
   // farebbe passare il secondo per generato — sovrascrivendolo.
   const stepText = text.slice(stepNode.range[0], stepNode.range[2]);
   const generated = hasSparse && stepText.includes(MARK);
+  if (stepText.includes(FULL_CHECKOUT_MARK)) return { text, status: 'manual' };
   if (hasSparse && !generated) return { text, status: 'manual' };
 
   // `patterns` vuoto significa RIMUOVI: il job e' finito sopra la soglia di
@@ -236,7 +313,9 @@ export function computeProfiledText(workflowPath, npmScripts) {
   for (const job of analysis.jobs) {
     if (!job.hasCheckout) continue;
     const runsTypecheck = [...(job.entries ?? []), ...(job.closure ?? [])].includes('scripts/ci/check-typecheck-baseline.mjs');
-    const include = runsTypecheck && job.exclude.length ? TYPECHECK_REQUIRED_SPARSE_PATHS : [];
+    const include = job.jobId === 'vitest' && job.exclude.length
+      ? [...new Set([...TYPECHECK_REQUIRED_SPARSE_PATHS, ...GLOBAL_TESTS_REQUIRED_SPARSE_PATHS])]
+      : runsTypecheck && job.exclude.length ? TYPECHECK_REQUIRED_SPARSE_PATHS : [];
     const r = patchJobCheckout(text, job.jobId, job.exclude.length ? sparsePatterns(job.exclude, include) : []);
     if (r.status === 'manual') { manual.push(job.jobId); continue; }
     if (r.status === 'multi') { multi.push(job.jobId); continue; }
@@ -290,4 +369,4 @@ function main() {
   if (CHECK && typecheckMissing.length) process.exitCode = 1;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

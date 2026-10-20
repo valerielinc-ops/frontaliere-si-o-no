@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, it, expect, vi } from 'vitest';
+import ts from 'typescript';
+import { afterAll, beforeAll, describe, it, expect, vi } from 'vitest';
 import {
   assertCoopAdapterParity,
   assertCompleteCoopDiscovery,
@@ -12,9 +13,12 @@ import {
   findUnrecognizedCoopDivisions,
   isCoopJob,
   reconcileCoopLocationCanton,
+  coopDetailNeedsQuarantine,
+  coopDetailSourceBody,
 } from '../scripts/update-coop-jobs.mjs';
+import { countDuplicateListings, fingerprintsForCrawler } from '../scripts/audit-parser-quality.mjs';
 import { jobLocationRedundancy } from '../scripts/lib/job-location-display.mjs';
-import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { fingerprintJob, mergeAndDeduplicate } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import {
   extractJsonLd,
@@ -24,13 +28,34 @@ import {
   applyCoopJsonLdToJob,
   applyCoopSourceDetailToJob,
   enrichCoopSourceBackedJobs,
-  buildCoopTranslationCacheEntry,
+  fetchCoopDetailPage,
+  resolveCoopJsonLdGeography,
   resolveCoopCantonCode,
+  collapseRepublishedCoopVacancies,
+  withoutRepublishedCoopVacancies,
+  composeCoopFamilyDescription,
+  extractCoopFamilyPageDetails,
 } from '../scripts/lib/coop-job-parser.mjs';
 
 const frenchDetailFixture = JSON.parse(
   fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-french-detail.json'), 'utf8'),
 );
+// Live Prospective detail pages (Coop store, Fust apprenticeship, fenaco
+// generic, Interdiscount branch), minimized to the JSON-LD, the analytics
+// workplace field and the content blocks; recruiter names/phones redacted.
+const familyPages = Object.fromEntries(JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-family-detail-pages.json'), 'utf8'),
+).pages.map((page: { id: string, url: string, html: string }) => [page.id, page]));
+const interdiscountWorkplaceListings = JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'interdiscount-workplace-listing-addresses.json'), 'utf8'),
+).records;
+
+// Two Coop apprenticeship ads published at Heiden under two UUIDs (identical
+// but for the ATS tracking id), plus the Interdiscount/Jumbo pages of the
+// location fixes; minimized, recruiter names redacted.
+const republishedPages = Object.fromEntries(JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-family-republished-pages.json'), 'utf8'),
+).pages.map((page: { id: string, url: string, html: string }) => [page.id, page]));
 
 const makeCoopApiJob = (index, { canton = 'Zurigo' } = {}) => ({
   links: {
@@ -72,6 +97,7 @@ describe('Coop authoritative detail routing', () => {
     expect(resolveCoopCantonCode('Graubünden', '', '')).toBe('GR');
     expect(resolveCoopCantonCode('Nidwaldo', '', '')).toBe('NW');
     expect(resolveCoopCantonCode('', 'Chur', '')).toBe('GR');
+    expect(resolveCoopCantonCode('Basel-Stadt', 'Region Muri AG', 'BS')).toBe('AG');
     expect(resolveCoopCantonCode('Principato del Liechtenstein', '', '')).toBe('');
   });
 
@@ -164,6 +190,74 @@ describe('Coop authoritative detail routing', () => {
     expect(assertCompleteCoopDiscovery(discovery)).toBe(true);
   });
 
+  it('recovers from a stale division filter without admitting Coop subsidiaries', async () => {
+    const coopUrl = 'https://jobs.coopjobs.ch/offene-stellen/coop/11111111-1111-4111-8111-111111111111';
+    const jumboUrl = 'https://jobs.coopjobs.ch/offene-stellen/jumbo/22222222-2222-4222-8222-222222222222';
+    const proseJumboUrl = 'https://jobs.coopjobs.ch/offene-stellen/jumbo-prose/33333333-3333-4333-8333-333333333333';
+    const missingAttributeUrl = 'https://jobs.coopjobs.ch/offene-stellen/missing-attribute/44444444-4444-4444-8444-444444444444';
+    const calls: URL[] = [];
+    const fetchImpl = vi.fn(async (rawUrl) => {
+      const url = new URL(rawUrl);
+      calls.push(url);
+      if (url.searchParams.has('f')) {
+        return new Response(JSON.stringify({ total: 0, jobs: [] }), { status: 200 });
+      }
+      const jobs = [
+        {
+          links: { directlink: coopUrl },
+          attributes: { '30': ['Zurigo'], '70': ['Coop Genossenschaft'] },
+        },
+        {
+          links: { directlink: jumboUrl },
+          attributes: { '30': ['Zurigo'], '70': ['Jumbo'] },
+        },
+        {
+          links: { directlink: proseJumboUrl },
+          attributes: { '30': ['Zurigo'], '70': ['Jumbo, Division der Coop Genossenschaft'] },
+        },
+        {
+          links: { directlink: missingAttributeUrl },
+          attributes: {},
+          company: 'Coop Genossenschaft',
+        },
+      ];
+      return new Response(JSON.stringify({ total: jobs.length, jobs }), { status: 200 });
+    });
+
+    const discovery = await fetchCoopJobDetailUrls({ fetchImpl });
+
+    expect(calls).toHaveLength(2);
+    expect(calls[0].searchParams.get('f')).toMatch(/^70:/);
+    expect(calls[1].searchParams.has('f')).toBe(false);
+    expect(discovery).toMatchObject({
+      apiTotal: 4,
+      fetched: 4,
+      urls: [coopUrl],
+      droppedNonCoop: 3,
+      droppedNonCh: 0,
+      usedUnfilteredFallback: true,
+    });
+    expect(assertCompleteCoopDiscovery(discovery)).toBe(true);
+  });
+
+  it('rejects when the discovery fetch ignores AbortSignal instead of exiting cleanly', async () => {
+    const previousTimeout = process.env.JOBS_CRAWLER_TIMEOUT_MS;
+    process.env.JOBS_CRAWLER_TIMEOUT_MS = '10';
+    let observedSignal: AbortSignal | undefined;
+    try {
+      await expect(fetchCoopJobDetailUrls({
+        fetchImpl: async (_url, options) => {
+          observedSignal = options?.signal;
+          return new Promise(() => {});
+        },
+      })).rejects.toMatchObject({ name: 'TimeoutError' });
+      expect(observedSignal?.aborted).toBe(true);
+    } finally {
+      if (previousTimeout === undefined) delete process.env.JOBS_CRAWLER_TIMEOUT_MS;
+      else process.env.JOBS_CRAWLER_TIMEOUT_MS = previousTimeout;
+    }
+  });
+
   it('prefers a canton encoded in the listing location over a conflicting attr-30 stamp', async () => {
     const url = 'https://jobs.coopjobs.ch/offene-stellen/reinach/11111111-1111-4111-8111-111111111111';
     const jobs = [{
@@ -202,6 +296,27 @@ describe('Coop authoritative detail routing', () => {
       canton: 'TI',
       preferWorkplaceLocation: true,
     });
+  });
+
+  it('carries the authoritative Coop offer reference through the detail seed', async () => {
+    const url = 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/11111111-1111-4111-8111-111111111111';
+    const jobs = [{
+      links: { directlink: url },
+      attributes: { '30': ['Grigioni'], '70': ['Coop'] },
+      szas: { sza_reference_code: '155808' },
+    }];
+    const discovery = await fetchCoopJobDetailUrls({
+      fetchImpl: async () => new Response(JSON.stringify({ total: 1, jobs }), { status: 200 }),
+    });
+    expect(discovery.seedMetaByUrl[url]).toMatchObject({ sourceReference: '155808' });
+
+    const parsed = sharedCrawlerTestables.toJobFromJsonLd(
+      frenchDetailFixture.jsonLd,
+      'Coop',
+      frenchDetailFixture.url,
+      { isSeedDetail: true, seedMeta: { location: 'Chavornay', canton: 'VD', sourceReference: '155808' } },
+    );
+    expect(parsed.job).toMatchObject({ sourceReference: '155808' });
   });
 
   it('reconciles a Coop regional label ending in an Aargau code', () => {
@@ -669,6 +784,33 @@ describe('extractJsonLd — Coop pages', () => {
   });
 });
 
+describe('fetchCoopDetailPage timeout handling', () => {
+  it('settles when the detail fetch ignores AbortSignal', async () => {
+    let observedSignal: AbortSignal | undefined;
+    const result = await fetchCoopDetailPage(
+      'https://jobs.coopjobs.ch/offene-stellen/slow/11111111-1111-4111-8111-111111111111',
+      10,
+      async (_url, options) => {
+        observedSignal = options?.signal;
+        return new Promise(() => {});
+      },
+    );
+
+    expect(result).toBeNull();
+    expect(observedSignal?.aborted).toBe(true);
+  });
+
+  it('also bounds a response whose body read never settles', async () => {
+    const result = await fetchCoopDetailPage(
+      'https://jobs.coopjobs.ch/offene-stellen/slow-body/22222222-2222-4222-8222-222222222222',
+      10,
+      async () => ({ ok: true, text: async () => new Promise(() => {}) }),
+    );
+
+    expect(result).toBeNull();
+  });
+});
+
 // ──────────────────────────────────────────────────────────────
 // coopDescHtmlToMarkdown tests
 // ──────────────────────────────────────────────────────────────
@@ -780,6 +922,19 @@ describe('titleOverlap — Coop titles', () => {
 // ──────────────────────────────────────────────────────────────
 
 describe('applyCoopJsonLdToJob — location update from JSON-LD', () => {
+  it('rejects a location marker when JSON-LD explicitly declares a foreign country', () => {
+    expect(resolveCoopJsonLdGeography({
+      location: 'Region Muri AG',
+      addressCountry: 'DE',
+    })).toBeNull();
+
+    expect(resolveCoopJsonLdGeography({
+      location: 'Region Muri AG',
+      addressCountry: 'CH',
+      addressRegion: 'BS',
+    })).toMatchObject({ location: 'Region Muri AG', canton: 'AG' });
+  });
+
   it('updates location and addressLocality when JSON-LD has different locality', () => {
     const job = {
       title: 'Verkaufsberater:in',
@@ -830,6 +985,136 @@ describe('applyCoopJsonLdToJob — location update from JSON-LD', () => {
     expect(updated.addressLocality).toBe('Chur');
     expect(updated.canton).toBe('GR');
     expect(updated.addressRegion).toBe('GR');
+  });
+
+  it('keeps an explicit adapter workplace when detail JSON-LD carries the employer address', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Basel',
+      addressLocality: 'Basel',
+      canton: 'BS',
+      addressRegion: 'BS',
+      company: 'Coop',
+      _targetScope: {
+        type: 'adapter_seed_meta',
+        location: 'Region Zürich (Sihlcity und Umgebung)',
+        canton: 'ZH',
+      },
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Basel',
+          addressRegion: 'Basel-Stadt',
+          addressCountry: 'CH',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+
+    const { job: updated, changed } = applyCoopJsonLdToJob(job, jsonLd);
+
+    expect(changed).toBe(true);
+    expect(updated.location).toBe('Region Zürich (Sihlcity und Umgebung)');
+    expect(updated.addressLocality).toBe('Region Zürich (Sihlcity und Umgebung)');
+    expect(updated.canton).toBe('ZH');
+    expect(updated.addressRegion).toBe('ZH');
+  });
+
+  it('keeps the adapter canton when the same locality resolves differently in detail JSON-LD', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Muri',
+      addressLocality: 'Muri',
+      canton: 'BE',
+      addressRegion: 'BE',
+      company: 'Coop',
+      _targetScope: {
+        type: 'adapter_seed_meta',
+        location: 'Muri',
+        canton: 'BE',
+      },
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Muri',
+          addressRegion: 'AG',
+          addressCountry: 'CH',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+
+    const { job: updated } = applyCoopJsonLdToJob(job, jsonLd);
+
+    expect(updated.location).toBe('Muri');
+    expect(updated.canton).toBe('BE');
+    expect(updated.addressRegion).toBe('BE');
+  });
+
+  it('keeps a source-backed regional wrapper when the generic resolver cannot reduce it to one city', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Basel',
+      addressLocality: 'Basel',
+      canton: 'BS',
+      addressRegion: 'BS',
+      company: 'Coop',
+      _targetScope: {
+        type: 'adapter_seed_meta',
+        location: 'Region Muri AG',
+        canton: 'AG',
+      },
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Basel',
+          addressRegion: 'Basel-Stadt',
+          addressCountry: 'CH',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+
+    const { job: updated } = applyCoopJsonLdToJob(job, jsonLd);
+
+    expect(updated.location).toBe('Region Muri AG');
+    expect(updated.addressLocality).toBe('Region Muri AG');
+    expect(updated.canton).toBe('AG');
+    expect(updated.addressRegion).toBe('AG');
+  });
+
+  it('uses a source location marker over a conflicting structured region', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Region Muri AG',
+      addressLocality: 'Region Muri AG',
+      canton: 'BS',
+      addressRegion: 'BS',
+      company: 'Coop',
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Region Muri AG',
+          addressRegion: 'Basel-Stadt',
+          addressCountry: 'CH',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+
+    const { job: updated } = applyCoopJsonLdToJob(job, jsonLd);
+
+    expect(updated).toMatchObject({
+      location: 'Region Muri AG',
+      addressLocality: 'Region Muri AG',
+      canton: 'AG',
+      addressRegion: 'AG',
+    });
+    expect(jobLocationRedundancy(updated.location, updated.canton)?.conflict).toBeFalsy();
   });
 
   it('updates company when JSON-LD has a more specific store name', () => {
@@ -1026,21 +1311,27 @@ describe('Coop-family source-detail contract (#5253)', () => {
     );
   });
 
-  it('includes word and text counts when only the 50-word floor rejects (#7884)', () => {
+  // The floor is the shared source-body WORD floor (source-body-floor.mjs):
+  // 49 long words clear the former 200-character minimum by far and are still
+  // not published; 50 are. Markdown markers ("##", "-") are not words.
+  it('rejects a 49-word body however many characters it has, and publishes 50 words (#7884)', () => {
     const [companyKey, url, locality, region] = cases[0];
     const listing = {
       id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
       description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
     };
-    const longTokens = Array.from({ length: 46 }, (_, index) => `Verantwortung${index + 1}`).join(' ');
-    const detail = {
+    const detailWith = (words: number) => ({
       ...jsonLd(listing.title, locality, region),
-      description: `<h2>Aufgaben</h2><ul><li>${longTokens}</li></ul>`,
-    };
+      // "Aufgaben" + (words - 1) long tokens.
+      description: `<h2>Aufgaben</h2><ul><li>${Array.from({ length: words - 1 }, (_, index) => `Verantwortungsbereich${index + 1}`).join(' ')}</li></ul>`,
+    });
+    const fortyNine = detailWith(49);
+    expect(coopDescHtmlToMarkdown(fortyNine.description).length).toBeGreaterThan(1000);
 
-    expect(() => applyCoopSourceDetailToJob(listing, detail)).toThrow(
-      /49 words, \d+ chars\): Description below minimum 50 words/,
+    expect(() => applyCoopSourceDetailToJob(listing, fortyNine)).toThrow(
+      /49 words, \d+ chars\): Description too short: 49 words \(minimum 50\)/,
     );
+    expect(applyCoopSourceDetailToJob(listing, detailWith(50))).toMatchObject({ _enrichedFromDetail: true });
   });
 
   it.each(cases)('%s replaces listing fallbacks without changing identity or route history', (companyKey, url, locality, region, canton) => {
@@ -1059,6 +1350,47 @@ describe('Coop-family source-detail contract (#5253)', () => {
     expect(result.description).not.toContain('Listing boilerplate');
     expect(result.description.trim().split(/\s+/).length).toBeGreaterThanOrEqual(50);
     for (const [key, value] of Object.entries(identity)) expect(result[key]).toEqual(value);
+  });
+
+  it('listingAddressEvidence() keeps the listing locality ahead of a conflicting HQ JSON-LD address', () => {
+    const listing = {
+      id: 'coop-store-stable', companyKey: 'coop-ticino',
+      url: 'https://jobs.coopjobs.ch/offene-stellen/test/55555555-5555-4555-8555-555555555555',
+      title: 'Verkäuferin Verkäufer', description: 'listing fallback',
+      location: 'Fallback Hauptsitz', addressLocality: 'Zürich',
+      canton: 'ZH', addressRegion: 'ZH', addressCountry: 'CH', sourceLang: 'de',
+    };
+    const result = applyCoopSourceDetailToJob(
+      listing,
+      jsonLd(listing.title, 'Oberbüren', 'St. Gallen'),
+    );
+
+    expect(result).toMatchObject({
+      location: 'Zürich', addressLocality: 'Zürich', canton: 'ZH', addressRegion: 'ZH',
+      postalCode: '', streetAddress: '',
+    });
+    expect(result.location).not.toBe('Oberbüren');
+    expect(result.description.trim().split(/\s+/).length).toBeGreaterThanOrEqual(50);
+  });
+
+  it('keeps a source-owned regional marker when the listing region is stale', () => {
+    const listing = {
+      id: 'coop-regional-stable', companyKey: 'coop-ticino',
+      url: 'https://jobs.coopjobs.ch/offene-stellen/test/66666666-6666-4666-8666-666666666666',
+      title: 'Verkäuferin Verkäufer', description: 'listing fallback',
+      location: 'Region Muri AG', addressLocality: 'Region Muri AG',
+      canton: 'BS', addressRegion: 'BS', addressCountry: 'CH', sourceLang: 'de',
+    };
+    const result = applyCoopSourceDetailToJob(
+      listing,
+      jsonLd(listing.title, 'Region Muri AG', 'Basel-Stadt'),
+    );
+
+    expect(result).toMatchObject({
+      location: 'Region Muri AG', addressLocality: 'Region Muri AG',
+      canton: 'AG', addressRegion: 'AG',
+    });
+    expect(jobLocationRedundancy(result.location, result.canton)?.conflict).toBeFalsy();
   });
 
   it('fails the whole enrichment before publishing a partial or malformed detail batch', async () => {
@@ -1394,29 +1726,57 @@ describe('Coop-family source-detail contract (#5253)', () => {
 });
 
 // ──────────────────────────────────────────────────────────────
-// Translation-cache redirect-history preservation (issue #2962)
+// The run after a failed one starts from the committed slice (issue 9142,
+// residue 3; redirect history: issue 2962)
 //
-// All 9 URLs flagged by the daily 404-risk audit were Coop jobs whose old
-// (sitemap-referenced) slugs were left unserved. The Coop translation cache is
-// the only crawler-specific persistence layer, and it must carry redirect
-// history (previousSlugs / previousSlugsByLocale) so that, when the cache
-// re-injects a job into data/jobs.json, the build plugin can still emit bridge
-// pages for the old URLs instead of letting them 404.
+// A failed Coop run publishes nothing, so the slice on main stays the one of
+// the last successful run. Every CI run starts without the scratch dataset and
+// the shared crawler loads the scoped crawler's existing jobs from that slice;
+// the merge then keeps translations and redirect history for unchanged jobs.
+// This is the path that replaced `coop-ticino-locale-cache.json`: that file was
+// never committed (git-commit-data.sh --slice-only stages only the slice), and
+// its injection returned early on CI because the scratch file did not exist.
+// Failure title if this breaks: «Coop: dopo una run fallita le traduzioni non
+// vengono riusate (la slice o la cache non arrivano al merge)».
 // ──────────────────────────────────────────────────────────────
-describe('buildCoopTranslationCacheEntry — redirect-history preservation (#2962)', () => {
-  const jobWithHistory = {
-    url: 'https://jobs.coopjobs.ch/offene-stellen/metzger/abc-123',
-    slug: 'metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z',
+describe('Coop: the run after a failed one reuses translations from the committed slice (issue 9142)', () => {
+  const sourceDescription = [
+    'Als Metzgerin oder Metzger in unserer Fleischabteilung in Goldach berätst du unsere Kundschaft kompetent und freundlich.',
+    'Du bereitest Fleisch- und Wurstwaren fachgerecht zu, präsentierst sie ansprechend und sorgst für Frische und Hygiene.',
+    'Du bringst eine abgeschlossene Ausbildung als Fleischfachfrau oder Fleischfachmann mit und arbeitest gerne im Team.',
+  ].join(' ');
+  const localized = (it: string, en: string, fr: string) => ({ it, en, de: sourceDescription, fr });
+  const sliceJob = {
+    id: 'coop-goldach-metzger',
+    url: 'https://jobs.coopjobs.ch/offene-stellen/metzger/11111111-1111-4111-8111-000000000001',
+    slug: 'macellaio-coop-genossenschaft-goldach-i5fg9z',
+    title: 'Metzger/in',
     company: 'Coop Genossenschaft',
-    companyKey: 'coop',
+    companyKey: 'coop-ticino',
     location: 'Goldach',
     canton: 'SG',
-    titleByLocale: { it: 'Macellaio', en: 'Butcher', de: 'Metzger', fr: 'Boucher' },
+    sourceLang: 'de',
+    source: 'Company Careers Crawler',
+    crawledAt: new Date(Date.now() - 2 * 86_400_000).toISOString(),
+    description: sourceDescription,
+    requirements: ['Ausbildung als Fleischfachfrau/Fleischfachmann'],
+    titleByLocale: { it: 'Macellaio/a', en: 'Butcher', de: 'Metzger/in', fr: 'Boucher/ère' },
+    descriptionByLocale: localized(
+      'Come macellaia o macellaio nel nostro reparto carne a Goldach consigli la clientela con competenza e cordialità. Prepari carne e salumi a regola d’arte, li presenti in modo attraente e garantisci freschezza e igiene. Hai una formazione completa e lavori volentieri in team.',
+      'As a butcher in our meat department in Goldach you advise our customers competently and kindly. You prepare meat and sausage products professionally, present them attractively and ensure freshness and hygiene. You have completed training as a meat specialist and enjoy teamwork.',
+      'En tant que bouchère ou boucher dans notre rayon viande à Goldach, tu conseilles notre clientèle avec compétence et amabilité. Tu prépares viandes et charcuteries dans les règles, tu les présentes avec soin et tu garantis fraîcheur et hygiène. Tu as une formation achevée et aimes le travail en équipe.',
+    ),
+    requirementsByLocale: {
+      it: ['Formazione di macellaio/a'],
+      en: ['Training as a meat specialist'],
+      de: ['Ausbildung als Fleischfachfrau/Fleischfachmann'],
+      fr: ['Formation de boucher/ère'],
+    },
     slugByLocale: {
-      it: 'metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z',
-      en: 'butcher-meat-specialist-coop-genossenschaft-goldach-i5fg9z',
-      de: 'metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z',
-      fr: 'boucher-specialiste-de-la-viande-coop-genossenschaft-goldach-i5fg9z',
+      it: 'macellaio-coop-genossenschaft-goldach-i5fg9z',
+      en: 'butcher-coop-genossenschaft-goldach-i5fg9z',
+      de: 'metzger-in-coop-genossenschaft-goldach-i5fg9z',
+      fr: 'boucher-coop-genossenschaft-goldach-i5fg9z',
     },
     previousSlugs: ['butcher-meat-specialist-coop-genossenschaft-goldach'],
     previousSlugsByLocale: {
@@ -1424,38 +1784,91 @@ describe('buildCoopTranslationCacheEntry — redirect-history preservation (#296
       fr: ['boucher-specialiste-de-la-viande-coop-genossenschaft-goldach'],
     },
   };
+  // The same vacancy as the next run scrapes it: source language only.
+  const recrawled = {
+    url: sliceJob.url,
+    title: sliceJob.title,
+    company: sliceJob.company,
+    companyKey: sliceJob.companyKey,
+    location: sliceJob.location,
+    canton: sliceJob.canton,
+    sourceLang: 'de',
+    source: 'Company Careers Crawler',
+    description: sourceDescription,
+    requirements: sliceJob.requirements,
+    titleByLocale: { de: sliceJob.title },
+    descriptionByLocale: { de: sourceDescription },
+  };
+  // contentReuse as the crawler-group run logs it (`contentReuse=on similarity>=0.7 ...`).
+  const contentReuse = { enabled: true, similarityThreshold: 0.7, minSourceChars: 220, maxLengthDeltaRatio: 0.02 };
 
-  it('carries previousSlugs and previousSlugsByLocale through the cache entry', () => {
-    const entry = buildCoopTranslationCacheEntry(jobWithHistory);
-    expect(entry.previousSlugs).toEqual(jobWithHistory.previousSlugs);
-    expect(entry.previousSlugsByLocale).toEqual(jobWithHistory.previousSlugsByLocale);
-    // Existing translation fields still preserved.
-    expect(entry.slugByLocale).toEqual(jobWithHistory.slugByLocale);
-    expect(entry.titleByLocale).toEqual(jobWithHistory.titleByLocale);
+  let tmpDir = '';
+  let previousRegistryOverride: string | undefined;
+  beforeAll(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'coop-after-failed-run-'));
+    fs.writeFileSync(path.join(tmpDir, 'slug-registry.json'), '{}', 'utf8');
+    previousRegistryOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = path.join(tmpDir, 'slug-registry.json');
+    const sliceDir = path.join(tmpDir, 'by-crawler');
+    fs.mkdirSync(sliceDir);
+    // The slice left on main by the last successful run, next to the `[]`
+    // companion still tracked there and a sibling crawler's slice.
+    fs.writeFileSync(path.join(sliceDir, 'coop-ticino.json'), JSON.stringify({ jobs: [sliceJob] }));
+    fs.writeFileSync(path.join(sliceDir, 'coop-ticino-locale-cache.json'), '[]');
+    fs.writeFileSync(path.join(sliceDir, 'fust.json'), JSON.stringify({ jobs: [{ url: 'https://jobs.coopjobs.ch/offene-stellen/fust/1', companyKey: 'fust' }] }));
+  });
+  afterAll(() => {
+    if (previousRegistryOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
+    fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
-  it('omits redirect-history keys entirely when there is no history (no empty-placeholder churn)', () => {
-    const entry = buildCoopTranslationCacheEntry({
-      url: 'https://jobs.coopjobs.ch/offene-stellen/x/1',
-      slug: 'fresh-job-coop-lugano',
-      slugByLocale: { it: 'fresh-job-coop-lugano' },
-      // no previousSlugs / previousSlugsByLocale
-    });
-    expect(entry).not.toHaveProperty('previousSlugs');
-    expect(entry).not.toHaveProperty('previousSlugsByLocale');
-    // Empty objects/arrays are not treated as history.
-    const entryEmpty = buildCoopTranslationCacheEntry({
-      url: 'u', slug: 's', previousSlugs: [], previousSlugsByLocale: {},
-    });
-    expect(entryEmpty).not.toHaveProperty('previousSlugs');
-    expect(entryEmpty).not.toHaveProperty('previousSlugsByLocale');
+  it('loads the Coop slice, and only the Coop slice, as the existing dataset', () => {
+    const existing = sharedCrawlerTestables.readExistingJobsFromSlices(['coop-ticino'], path.join(tmpDir, 'by-crawler'));
+    expect(existing).toEqual([sliceJob]);
   });
 
-  it('is pure/deterministic (does not stamp cachedAt itself)', () => {
-    const a = buildCoopTranslationCacheEntry(jobWithHistory);
-    const b = buildCoopTranslationCacheEntry(jobWithHistory);
-    expect(a).toEqual(b);
-    expect(a).not.toHaveProperty('cachedAt');
+  it('keeps every translation and the redirect history of an unchanged job', () => {
+    const existing = sharedCrawlerTestables.readExistingJobsFromSlices(['coop-ticino'], path.join(tmpDir, 'by-crawler'));
+    const result = mergeAndDeduplicate(existing, [recrawled], {}, { scopeCompanyKeys: ['coop-ticino'], contentReuse });
+    expect(result.inserted).toBe(0);
+    expect(result.reusedLocalizationFromPrevious).toBe(1);
+    const [job] = result.merged.filter((candidate: { url?: string }) => candidate.url === sliceJob.url);
+    expect(job.titleByLocale).toEqual(sliceJob.titleByLocale);
+    expect(job.descriptionByLocale).toEqual(sliceJob.descriptionByLocale);
+    expect(job.requirementsByLocale).toEqual(sliceJob.requirementsByLocale);
+    expect(job.previousSlugs).toEqual(expect.arrayContaining(sliceJob.previousSlugs));
+    for (const [locale, slugs] of Object.entries(sliceJob.previousSlugsByLocale)) {
+      expect(job.previousSlugsByLocale?.[locale]).toEqual(expect.arrayContaining(slugs));
+    }
+  });
+});
+
+describe('Coop runner writes nothing under data/jobs/by-crawler/ but its slice', () => {
+  // A non-slice file there has already produced a 20 MB phantom archive and a
+  // translation cache that was never committed (issue 9142). The slice itself
+  // is written by writeJobsCrawlerSlice, so the runner needs no path there.
+  // The check walks the parsed source (comments are not tokens, string
+  // literals stay intact), so a glob such as 'by-crawler/*.json' cannot hide
+  // code, and a slice-dir constant imported from a helper is caught by name.
+  // It is a static proxy for the runtime behaviour: the runner's only write
+  // there goes through writeJobsCrawlerSlice.
+  it('builds no path into data/jobs/by-crawler', () => {
+    const file = path.resolve(import.meta.dirname, '..', 'scripts', 'update-coop-jobs.mjs');
+    const sourceFile = ts.createSourceFile(file, fs.readFileSync(file, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
+    const literals: string[] = [];
+    const identifiers = new Set<string>();
+    const visit = (node: ts.Node) => {
+      if (ts.isStringLiteralLike(node) || ts.isTemplateHead(node) || ts.isTemplateMiddle(node) || ts.isTemplateTail(node)) {
+        literals.push(node.text);
+      } else if (ts.isIdentifier(node)) {
+        identifiers.add(node.text);
+      }
+      ts.forEachChild(node, visit);
+    };
+    visit(sourceFile);
+    expect(literals.filter((text) => /by-crawler|locale-cache/.test(text))).toEqual([]);
+    expect([...identifiers].filter((name) => /BY_CRAWLER|LOCALE_CACHE|TRANSLATIONS_CACHE|SLICE_DIR/i.test(name))).toEqual([]);
   });
 });
 
@@ -1510,5 +1923,395 @@ describe('assertCoopSingleCompanyKeyScope (#6945 item 2)', () => {
       .toThrow(/sole company-key scope/);
     expect(() => assertCoopSingleCompanyKeyScope({ JOBS_CRAWLER_COMPANY_KEY: 'jumbo' }))
       .toThrow(/sole company-key scope/);
+  });
+});
+
+// ──────────────────────────────────────────────────────────────
+// Detail-page content outside the JSON-LD (parser-quality audit #5253)
+// ──────────────────────────────────────────────────────────────
+
+describe('Coop-family detail page content outside the JSON-LD description', () => {
+  const pageOf = (id: string) => familyPages[id];
+  const detailOf = (id: string) => extractCoopFamilyPageDetails(pageOf(id).html);
+  const jsonLdOf = (id: string) => extractJsonLd(pageOf(id).html);
+
+  it('reads the Coop store facts and leaves contact/process chrome out', () => {
+    const page = detailOf('coop-store');
+    expect(page.facts).toEqual(expect.arrayContaining([
+      { label: 'Arbeitsort', value: 'Coop, Albisriederstrasse 334, 8047 Zürich' },
+      { label: 'Pensum', value: '8 - 20 Std./Woche' },
+      { label: 'Stellenantritt', value: 'per sofort oder nach Vereinbarung' },
+    ]));
+    expect(page.sections.map((section) => section.heading)).not.toContain('Bewerbungsprozess');
+    expect(page.facts.map((fact) => fact.label)).not.toContain('Deine Ansprechperson');
+  });
+
+  it('gives two Zürich stores of the same role two different published bodies and addresses', () => {
+    const job = {
+      title: 'Verkäufer:in Food', company: 'Coop Genossenschaft', location: 'Zürich', addressLocality: 'Zürich',
+      canton: 'ZH', addressRegion: 'ZH', sourceLang: 'de',
+    };
+    const html = pageOf('coop-store').html;
+    const otherStoreHtml = html
+      .replaceAll('Albisriederstrasse 334', 'Dorflindenstrasse 2')
+      .replaceAll('8047', '8050');
+    const publish = (pageHtml: string, url: string) => {
+      const jsonLd = extractJsonLd(pageHtml);
+      const { job: located } = applyCoopJsonLdToJob(job, jsonLd);
+      const body = composeCoopFamilyDescription(coopDescHtmlToMarkdown(jsonLd.description), extractCoopFamilyPageDetails(pageHtml));
+      return { ...located, url, description: `## ${job.title}\n\n**Coop Genossenschaft** — Zürich, ZH, Svizzera\n\n${body}` };
+    };
+    const a = publish(html, 'https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/2f1b4fc6-b883-4d7c-963f-a29fd82e6a17');
+    const b = publish(otherStoreHtml, 'https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/ef8c87a1-aba4-44e1-971f-503dddba761e');
+
+    expect(a.description).toContain('- Arbeitsort: Coop, Albisriederstrasse 334, 8047 Zürich');
+    expect(a.description).toContain('- Pensum: 8 - 20 Std./Woche');
+    expect(a.description).toContain('## Aufgaben');
+    expect(a).toMatchObject({ location: 'Zürich', postalCode: '8047', streetAddress: 'Albisriederstrasse 334' });
+    expect(b).toMatchObject({ location: 'Zürich', postalCode: '8050', streetAddress: 'Dorflindenstrasse 2' });
+    const [fpA, fpB] = fingerprintsForCrawler([a, b], 'title-aware');
+    expect(fpA).not.toBe(fpB);
+  });
+
+  it('drops a stale street when the adapter workplace overrides the detail address', () => {
+    const { job: updated } = applyCoopJsonLdToJob({
+      title: 'Verkaufsberater:in', location: 'Basel', addressLocality: 'Basel', canton: 'BS', addressRegion: 'BS',
+      company: 'Coop', postalCode: '4051', streetAddress: 'Detailstrasse 1',
+      _targetScope: { type: 'adapter_seed_meta', location: 'Region Zürich (Sihlcity und Umgebung)', canton: 'ZH' },
+    }, {
+      jobLocation: { address: { addressLocality: 'Basel', addressRegion: 'Basel-Stadt', addressCountry: 'CH', postalCode: '4051', streetAddress: 'Detailstrasse 1' } },
+      hiringOrganization: { name: 'Coop' },
+    });
+    expect(updated.location).toBe('Region Zürich (Sihlcity und Umgebung)');
+    expect(updated.postalCode).toBeUndefined();
+    expect(updated.streetAddress).toBeUndefined();
+  });
+
+  it('collapses only the same ad republished at the same store address', () => {
+    const base = {
+      title: 'Transportdisponent:in', location: 'Gossau', postalCode: '9200', streetAddress: 'Industriestrasse 109',
+      description: '- Arbeitsort: Coop, Industriestrasse 109, 9200 Gossau\n- Pensum: 100 %\n\n## Aufgaben\n- Touren planen',
+    };
+    const jobs = [
+      { ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/b', firstSeenAt: new Date(Date.now() - 2 * 86400000).toISOString() },
+      { ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/a', firstSeenAt: new Date(Date.now() - 30 * 86400000).toISOString() },
+      { ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/c', description: base.description.replace('100 %', '60 %') },
+      { ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/d', postalCode: '', streetAddress: '' },
+      { ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/e', postalCode: '', streetAddress: '' },
+    ];
+    const { kept, collapsed } = collapseRepublishedCoopVacancies(jobs);
+
+    expect(collapsed).toEqual([{
+      url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/b',
+      keptUrl: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/a',
+    }]);
+    expect(kept.map((job) => job.url.slice(-1))).toEqual(['a', 'c', 'd', 'e']);
+  });
+
+  it('publishes the fenaco tasks, profile, facts and benefits the JSON-LD leaves out', () => {
+    const listing = {
+      id: 'volg-fenaco-stable', companyKey: 'volg-fenaco', url: pageOf('fenaco-generic').url,
+      title: 'Planungs- und Bauprojektleiterin / Bauprojektleiter (w/m/d)', description: 'listing fallback',
+      location: 'Sursee', canton: 'LU', sourceLang: 'de',
+    };
+    const jsonLd = jsonLdOf('fenaco-generic');
+    const jsonLdOnly = coopDescHtmlToMarkdown(jsonLd.description);
+    const result = applyCoopSourceDetailToJob(listing, jsonLd, detailOf('fenaco-generic'));
+
+    expect(jsonLdOnly).not.toContain('Fundierte CAD-Kenntnisse');
+    expect(result.description).toContain('## Diese Aufgaben begeistern dich');
+    expect(result.description).toContain('- Fundierte CAD-Kenntnisse');
+    expect(result.description).toContain('- Pensum: 80-100 %');
+    expect(result.description).toContain('- Attraktive Ferienregelung: ');
+    expect(result.description).not.toContain('Bewerbungsprozess');
+    expect(result.description).not.toContain('Online-Formular');
+    expect(result.description.length).toBeGreaterThan(jsonLdOnly.length * 4);
+    expect(result).toMatchObject({ location: 'Sursee', canton: 'LU', postalCode: '6210' });
+  });
+
+  it('does not repeat a benefit list the JSON-LD already carries', () => {
+    const markdown = '## Das bieten wir dir\n- Jahresabo "update Fitness"\n- CHF 500 für Laptop oder Tablet\n- SBB Halbtax oder Anteil GA CHF 650';
+    const composed = composeCoopFamilyDescription(markdown, {
+      workplace: '', facts: [], sections: [],
+      benefits: { heading: 'Das bieten wir dir', items: ['Jahresabo "update Fitness"', 'CHF 500 für Laptop oder Tablet', 'Neu: Kinderzulage'] },
+    });
+    expect(composed).toBe(markdown);
+  });
+
+  it('extends an existing benefit heading in place instead of publishing it twice', () => {
+    const markdown = '## Das bieten wir dir\n- 6 Wochen Ferien\n\nKontaktperson HR';
+    const composed = composeCoopFamilyDescription(markdown, {
+      workplace: '', facts: [], sections: [],
+      benefits: { heading: 'Das bieten wir dir', items: ['Jahresabo "update Fitness"', 'SBB Halbtax'] },
+    });
+    expect(composed.match(/## Das bieten wir dir/g)).toHaveLength(1);
+    expect(composed).toContain('- 6 Wochen Ferien\n- Jahresabo "update Fitness"\n- SBB Halbtax\n\nKontaktperson HR');
+  });
+
+  it('publishes the Fust workplace the page declares instead of the Oberbüren head office', () => {
+    const jsonLd = jsonLdOf('fust-apprenticeship');
+    // A re-crawled record may still carry the head office from an earlier run.
+    const staleListing = {
+      id: 'fust-stable', companyKey: 'fust', url: pageOf('fust-apprenticeship').url,
+      title: 'Detailhandelsfachfrau:mann EFZ «Gestalten von Einkaufserlebnissen»', description: 'listing fallback',
+      location: 'Oberbüren', addressLocality: 'Oberbüren', canton: 'SG', addressRegion: 'SG',
+      postalCode: '9245', streetAddress: 'Industrie Haslen 3', sourceLang: 'de',
+    };
+    expect(jsonLd.jobLocation.address.addressLocality).toBe('Oberbüren');
+    const result = applyCoopSourceDetailToJob(staleListing, jsonLd, detailOf('fust-apprenticeship'));
+
+    expect(result).toMatchObject({ location: 'Zuchwil', addressLocality: 'Zuchwil', canton: 'SO', postalCode: '', streetAddress: '' });
+    expect(result.description).toContain('- Lehrdauer von 01.08.2027 bis 31.07.2030');
+    // Without the page the old head-office behaviour is unchanged.
+    expect(applyCoopSourceDetailToJob(staleListing, jsonLd)).toMatchObject({ location: 'Oberbüren', canton: 'SG' });
+  });
+
+  it('keeps a non-municipality branch label only when it is coherent with the listing canton', () => {
+    const jsonLd = jsonLdOf('interdiscount-branch-label');
+    const page = detailOf('interdiscount-branch-label');
+    const listing = {
+      id: 'interdiscount-stable', companyKey: 'interdiscount', url: pageOf('interdiscount-branch-label').url,
+      title: 'Detailhandelsfachfrau:mann EFZ "Gestalten von Einkaufserlebnissen"', description: 'listing fallback',
+      location: 'Heerbrugg', addressLocality: 'Heerbrugg', canton: 'SG', addressRegion: 'SG', addressCountry: 'CH', sourceLang: 'de',
+    };
+    expect(jsonLd.jobLocation.address.addressLocality).toBe('Jegensdorf');
+    expect(applyCoopSourceDetailToJob(listing, jsonLd, page)).toMatchObject({
+      location: 'Heerbrugg', canton: 'SG', postalCode: '', streetAddress: '',
+    });
+    const pageOnlyListing = { ...listing, location: 'St. Gallen', addressLocality: 'St. Gallen' };
+    expect(applyCoopSourceDetailToJob(pageOnlyListing, jsonLd, page)).toMatchObject({
+      location: 'Heerbrugg', canton: 'SG', postalCode: '', streetAddress: '',
+    });
+    // The same label without listing corroboration names no canton: not evidence.
+    const { addressLocality, ...regionOnly } = listing;
+    expect(applyCoopSourceDetailToJob({ ...regionOnly, location: 'St. Gallen' }, jsonLd, page)).toMatchObject({
+      location: 'Jegensdorf', postalCode: '3303',
+    });
+  });
+
+  it.each(interdiscountWorkplaceListings)(
+    'keeps source-backed listing-only workplace $location instead of the Interdiscount HQ',
+    (sourceListing) => {
+      const jsonLd = jsonLdOf('interdiscount-branch-label');
+      const listing = { ...sourceListing, companyKey: 'interdiscount', description: 'listing fallback', sourceLang: 'de' };
+      expect(jsonLd.jobLocation.address.addressLocality).toBe('Jegensdorf');
+      expect(jsonLd.jobLocation.address.postalCode).toBe('3303');
+
+      // The real detail JSON-LD is the HQ; the listing snapshot is the only
+      // workplace evidence passed to this listingAddressEvidence() path.
+      const result = applyCoopSourceDetailToJob(listing, { ...jsonLd, title: listing.title });
+      expect(result).toMatchObject({
+        location: sourceListing.addressLocality,
+        addressLocality: sourceListing.addressLocality,
+        canton: sourceListing.canton,
+        addressRegion: sourceListing.canton,
+        postalCode: sourceListing.postalCode,
+        streetAddress: '',
+      });
+      expect(result).not.toMatchObject({ location: 'Jegensdorf', postalCode: '3303', streetAddress: 'Bernstrasse 90' });
+    },
+  );
+
+  it('keeps the real HQ fallback when a non-municipality listing locality is unverified', () => {
+    const jsonLd = jsonLdOf('interdiscount-branch-label');
+    const sourceListing = interdiscountWorkplaceListings[0];
+    const listing = { ...sourceListing, companyKey: 'interdiscount', description: 'listing fallback', sourceLang: 'de' };
+    const unverifiedListings = [
+      { ...listing, addressLocality: '' },
+      { ...listing, addressCountry: 'DE' },
+      { ...listing, addressLocality: 'Schweiz', location: 'Schweiz' },
+    ];
+
+    for (const unverified of unverifiedListings) {
+      expect(applyCoopSourceDetailToJob(unverified, { ...jsonLd, title: listing.title })).toMatchObject({
+        location: 'Jegensdorf', canton: 'BE', postalCode: '3303', streetAddress: 'Bernstrasse 90',
+      });
+    }
+  });
+
+  it('keeps the detail municipality when the branch label only qualifies it', () => {
+    const jsonLd = {
+      ...jsonLdOf('fust-apprenticeship'),
+      jobLocation: { address: { addressLocality: 'Schaffhausen', addressRegion: 'Schaffhausen', addressCountry: 'Schweiz', postalCode: '8207', streetAddress: 'Herblingerstrasse 1' } },
+    };
+    const page = { ...detailOf('fust-apprenticeship'), workplace: 'Schaffhausen, Herblingermarkt' };
+    const listing = {
+      id: 'fust-stable', companyKey: 'fust', url: pageOf('fust-apprenticeship').url,
+      title: 'Detailhandelsfachfrau:mann EFZ «Gestalten von Einkaufserlebnissen»', description: 'listing fallback',
+      location: 'Schaffhausen', canton: 'SH', sourceLang: 'de',
+    };
+    expect(applyCoopSourceDetailToJob(listing, jsonLd, page)).toMatchObject({
+      location: 'Schaffhausen', postalCode: '8207', streetAddress: 'Herblingerstrasse 1',
+    });
+  });
+});
+
+describe('Coop quarantine gate on the composed source body (review #10333)', () => {
+  // Real JSON-LD wording of a Coop sales role, cut to 49 words, and the page's
+  // own facts/sections: the composed posting clears the 50-word source floor.
+  const WORDS = 'Du liebst die Abwechslung darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen stets freundlich und engagiert Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet'.split(' ');
+  const jsonLd49 = { description: `<p>${Array.from({ length: 49 }, (_, i) => WORDS[i % WORDS.length]).join(' ')}</p>` };
+  const page = {
+    workplace: '',
+    facts: [{ label: 'Arbeitsort', value: 'Coop Supermarkt Zürich Oerlikon, Schaffhauserstrasse 355, 8050 Zürich' }, { label: 'Pensum', value: '40-60%' }],
+    sections: [],
+    benefits: null,
+  };
+  const staleJob = { description: '## Verkäufer:in Food\n\nlisting fallback' };
+
+  it('does not quarantine a 49-word JSON-LD whose page details bring the composed body to 50+ words', () => {
+    const composed = coopDetailSourceBody(jsonLd49, page);
+    expect(composed).toContain('Schaffhauserstrasse 355');
+    expect(coopDetailNeedsQuarantine(staleJob, jsonLd49, page)).toBe(false);
+  });
+
+  it('still quarantines the same 49-word JSON-LD without page details and without a stored body', () => {
+    expect(coopDetailNeedsQuarantine(staleJob, jsonLd49, null)).toBe(true);
+    expect(coopDetailNeedsQuarantine(staleJob, null, null)).toBe(true);
+  });
+});
+
+describe('Coop reposts without a street address (parser-quality audit #5253)', () => {
+  const pages = ['coop-heiden-a', 'coop-heiden-b'].map((id) => republishedPages[id]);
+  const title = 'Detailhandelsfachfrau:mann EFZ "Gestalten von Einkaufserlebnissen"';
+
+  it('keeps source-backed postings with different datePosted values apart', () => {
+    const j = { title: 'Ruolo', description: 'test', location: 'Reiden', company: 'Volg', _enrichedFromDetail: true };
+    const { kept, collapsed } = collapseRepublishedCoopVacancies([
+      { ...j, url: 'https://x/a', datePosted: '2026-09-01' },
+      { ...j, url: 'https://x/b', datePosted: '2026-09-02' },
+    ], { allowIdenticalSourcePostingsWithoutAddress: true });
+
+    expect(kept.length).toBe(2);
+    expect(collapsed.length).toBe(0);
+  });
+
+  it('collapses source-backed reposts when the authoritative reference matches', () => {
+    const j = {
+      title: 'Nachwuchskader Verkauf Engadin',
+      description: 'same source body with enough words to represent the accepted vacancy text',
+      location: 'Sankt Moritz',
+      company: 'Coop',
+      sourceReference: '155808',
+      _enrichedFromDetail: true,
+    };
+    const { kept, collapsed } = collapseRepublishedCoopVacancies([
+      {
+        ...j,
+        url: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/old',
+        firstSeenAt: '2026-09-09T00:00:00.000Z',
+        slug: 'nachwuchskader-verkauf-engadin-old',
+        slugByLocale: { it: 'nachwuchskader-verkauf-engadin-old-it' },
+        postedDate: '2026-07-10',
+        datePosted: '2026-07-10',
+        validThrough: '2027-07-09',
+      },
+      {
+        ...j,
+        url: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/new',
+        firstSeenAt: '2026-09-10T00:00:00.000Z',
+        slug: 'nachwuchskader-verkauf-engadin-new',
+        slugByLocale: { it: 'nachwuchskader-verkauf-engadin-new-it' },
+        postedDate: '2026-09-09',
+        datePosted: '2026-09-09',
+        validThrough: '2026-10-08',
+      },
+    ], { allowIdenticalSourcePostingsWithoutAddress: true });
+
+    expect(kept.map((job) => job.url)).toEqual(['https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/old']);
+    expect(kept[0].previousSlugs).toContain('nachwuchskader-verkauf-engadin-new');
+    expect(kept[0].previousSlugsByLocale.it).toContain('nachwuchskader-verkauf-engadin-new-it');
+    expect(collapsed).toEqual([{
+      url: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/new',
+      keptUrl: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/old',
+    }]);
+  });
+
+  it('does not use a different source reference as repost proof', () => {
+    const base = {
+      title: 'Nachwuchskader Verkauf Engadin',
+      description: 'same source body with enough words to represent the accepted vacancy text',
+      location: 'Sankt Moritz',
+      company: 'Coop',
+      _enrichedFromDetail: true,
+    };
+    const { kept, collapsed } = collapseRepublishedCoopVacancies([
+      { ...base, sourceReference: '155808', url: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/a', datePosted: '2026-07-10' },
+      { ...base, sourceReference: '155809', url: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/b', datePosted: '2026-09-09' },
+    ], { allowIdenticalSourcePostingsWithoutAddress: true });
+
+    expect(kept).toHaveLength(2);
+    expect(collapsed).toEqual([]);
+  });
+
+  it('keeps two UUIDs apart when the source gives no store address, even with identical pages', () => {
+    const listings = pages.map(({ url }) => ({
+      id: 'coop-family-heiden', companyKey: 'jumbo', url, title, description: 'listing fallback',
+      location: 'Heiden', addressLocality: 'Heiden', canton: 'AR', addressRegion: 'AR', addressCountry: 'CH', sourceLang: 'de',
+    }));
+    const enriched = listings.map((listing, index) => applyCoopSourceDetailToJob(
+      listing, extractJsonLd(pages[index].html), extractCoopFamilyPageDetails(pages[index].html),
+    ));
+
+    // The page names only "Heiden" (the JSON-LD is the Gossau office): no
+    // street, store number or shared URL proves the two are one vacancy, so
+    // the audit bucket stays and both live pages stay published.
+    expect(enriched[0].description).toBe(enriched[1].description);
+    expect(enriched.map((job) => [job.location, job.postalCode, job.streetAddress])).toEqual([['Heiden', '', ''], ['Heiden', '', '']]);
+    expect(countDuplicateListings(enriched, fingerprintsForCrawler(enriched, 'title-aware'))).toBe(2);
+    expect(collapseRepublishedCoopVacancies(enriched).collapsed).toEqual([]);
+    expect(withoutRepublishedCoopVacancies(enriched, 'JUMBO').map((job: { url: string }) => job.url)).toEqual(pages.map(({ url }) => url));
+  });
+
+  it('collapses identical source-backed no-address pages and bridges the removed routes', () => {
+    const listings = pages.map(({ url }, index) => ({
+      id: 'coop-family-heiden', companyKey: 'coop-ticino', url, title, description: 'listing fallback',
+      location: 'Heiden', addressLocality: 'Heiden', canton: 'AR', addressRegion: 'AR', addressCountry: 'CH', sourceLang: 'de',
+      firstSeenAt: `2026-01-0${index + 1}T00:00:00.000Z`,
+      slug: `detailhandelsfachfrau-heiden-${index === 0 ? 'old' : 'new'}`,
+      slugByLocale: { de: `detailhandelsfachfrau-heiden-${index === 0 ? 'old' : 'new'}-de` },
+    }));
+    const enriched = listings.map((listing, index) => applyCoopSourceDetailToJob(
+      listing, extractJsonLd(pages[index].html), extractCoopFamilyPageDetails(pages[index].html),
+    ));
+    const sourceBackedUrls = new Set(enriched.map((job) => job.url));
+
+    const { kept, collapsed } = collapseRepublishedCoopVacancies(enriched, {
+      allowIdenticalSourcePostingsWithoutAddress: true,
+      sourceBackedUrls,
+    });
+
+    expect(collapsed).toEqual([{ url: pages[1].url, keptUrl: pages[0].url }]);
+    expect(kept).toHaveLength(1);
+    expect(kept[0].previousSlugsByLocale.de).toContain('detailhandelsfachfrau-heiden-new-de');
+    expect(countDuplicateListings(kept, fingerprintsForCrawler(kept, 'title-aware'))).toBe(0);
+  });
+
+  it('moves every route of a collapsed full-address repost onto the record it keeps', () => {
+    const base = {
+      title: 'Transportdisponent:in', location: 'Gossau', postalCode: '9200', streetAddress: 'Industriestrasse 109',
+      description: '- Arbeitsort: Coop, Industriestrasse 109, 9200 Gossau\n- Pensum: 100 %\n\n## Aufgaben\n- Touren planen',
+    };
+    const keeper = {
+      ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/a',
+      firstSeenAt: new Date(Date.now() - 30 * 86400000).toISOString(),
+      slug: 'transportdisponent-in-coop-gossau', slugByLocale: { it: 'transportdisponent-in-coop-gossau', de: 'transportdisponent-in-gossau' },
+    };
+    const repost = {
+      ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/b',
+      firstSeenAt: new Date(Date.now() - 2 * 86400000).toISOString(),
+      // The shared fresh slug is the keeper's own URL, not a route to bridge.
+      slug: 'transportdisponent-in-coop-gossau',
+      slugByLocale: { it: 'transportdisponent-in-coop-gossau', de: 'transportdisponent-in-gossau-2' },
+      previousSlugsByLocale: { it: ['disponent-coop-gossau'] },
+    };
+    const { kept, collapsed } = collapseRepublishedCoopVacancies([repost, keeper]);
+
+    expect(collapsed).toEqual([{ url: repost.url, keptUrl: keeper.url }]);
+    expect(kept).toEqual([keeper]);
+    expect(keeper.previousSlugsByLocale.de).toContain('transportdisponent-in-gossau-2');
+    expect(keeper.previousSlugsByLocale.it).toContain('disponent-coop-gossau');
+    expect(keeper.previousSlugsByLocale.it).not.toContain(keeper.slug);
+    expect(countDuplicateListings(kept, fingerprintsForCrawler(kept, 'title-aware'))).toBe(0);
   });
 });

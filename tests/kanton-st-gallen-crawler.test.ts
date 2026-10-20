@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
+  fetchAllKantonStGallenJobs,
   KANTON_ST_GALLEN_KEY,
   KANTON_ST_GALLEN_COMPANY_NAME,
   isKantonStGallenJob,
@@ -172,5 +173,23 @@ describe('Kanton St. Gallen crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+
+describe('Kanton St Gallen explicit publication provenance through fetchAll', () => {
+  afterEach(() => { vi.unstubAllGlobals(); vi.useRealTimers(); });
+  it.each([
+    ['29.09.2026', '2026-09-29'], ['', ''], ['30.02.2026', ''], ['05.10.2026', ''], ['invalid', ''], ['29.09.20260', ''], ['29.09.2026junk', ''],
+  ])('validates Online seit %s without collection fallback', async (raw, expected) => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(new Date('2026-10-04T12:00:00Z'));
+    const listing = `<div>St. Gallen | Online seit: ${raw} <a href="/Vacancies/6519/Description/1">Fachperson Administration</a> | Art: Vollzeit</div>`;
+    const prose = 'Wir suchen eine erfahrene Fachperson für die verantwortungsvolle Mitarbeit in unserem Team. '.repeat(12);
+    const detail = `<div class="customdatablock" id="customdatablock_1"><p>${prose}</p></div>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => new Response(String(url).includes('/Description/') ? detail : listing)));
+    const jobs = await fetchAllKantonStGallenJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ datePosted: expected, postedDate: expected, postingDateSource: expected ? 'reported' : 'unknown' });
   });
 });

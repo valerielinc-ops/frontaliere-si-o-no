@@ -12,6 +12,7 @@ import {
   fetchAllSrgSsrJobs,
   isSrgSsrJob,
   isTrustedDomain,
+  prepareSrgSsrExistingJobs,
   SRG_SSR_KEY,
   SRG_SSR_COMPANY_NAME,
 } from './lib/srg-ssr-job-parser.mjs';
@@ -26,6 +27,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllSrgSsrJobs,
   isCompanyJob: isSrgSsrJob,
   isTrustedDomain,
+  prepareExistingJobs: prepareSrgSsrExistingJobs,
   defaultSourceLang: 'de',
 }).catch((err) => {
   console.error(`❌ SRG SSR crawler failed: ${err?.message || err}`);

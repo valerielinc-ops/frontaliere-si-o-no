@@ -11,6 +11,7 @@ import {
   buildAnswerConsultingApplyUrl,
   fetchAllAnswerConsultingJobs,
 } from '../scripts/lib/answerconsulting-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 const WIDGET_URL = 'https://apply.workable.com/api/v1/widget/accounts/answermodules';
@@ -156,7 +157,9 @@ describe('AnswerConsulting SA crawler parser', () => {
 
     it('returns an empty array for a payload with no jobs', () => {
       expect(parseAnswerConsultingWidgetPayload({ jobs: [] })).toEqual([]);
-      expect(parseAnswerConsultingWidgetPayload({})).toEqual([]);
+      const missingJobs = parseAnswerConsultingWidgetPayload({});
+      expect(missingJobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(missingJobs)).toBe(false);
       expect(parseAnswerConsultingWidgetPayload(null)).toEqual([]);
     });
 
@@ -239,7 +242,18 @@ describe('AnswerConsulting SA crawler parser', () => {
       global.fetch = originalFetch;
     });
 
-    it('returns an empty array when the widget feed has no jobs (current live state: 0 openings)', async () => {
+    it.each(['', '2026-02-30', '9999-01-01'])('does not promote missing/invalid publication %s or creation time', async (published) => {
+      global.fetch = vi.fn(async (url: string) => new Response(JSON.stringify(
+        String(url) === WIDGET_URL
+          ? { jobs: [widgetRow({ published_on: published, created_at: '2026-03-20' })] }
+          : detailPayload({ published }),
+      ), { status: 200 })) as unknown as typeof fetch;
+      const jobs = await fetchAllAnswerConsultingJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ postedDate: '', datePosted: '', postingDateSource: 'unknown' });
+    });
+
+    it('marks a valid empty widget feed as an authoritative zero', async () => {
       global.fetch = vi.fn(async (url: string) => {
         expect(String(url)).toBe(WIDGET_URL);
         return new Response(JSON.stringify({ name: 'AnswerModules', jobs: [] }), { status: 200 });
@@ -247,6 +261,7 @@ describe('AnswerConsulting SA crawler parser', () => {
 
       const jobs = await fetchAllAnswerConsultingJobs();
       expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
     });
 
     it('parses a successful feed, keeping only Swiss jobs and producing complete structured-data fields', async () => {
@@ -303,7 +318,7 @@ describe('AnswerConsulting SA crawler parser', () => {
       expect(job.title).toBe('R&D Software Engineer');
       expect(typeof job.description).toBe('string');
       expect(job.description.length).toBeGreaterThan(0);
-      expect(job.postedDate).toBe('2026-04-02');
+      expect(job).toMatchObject({ postedDate: '2026-04-02T00:00:00.000Z', datePosted: '2026-04-02T00:00:00.000Z', postingDateSource: 'reported' });
       expect(job.company).toBe('AnswerConsulting SA');
       expect(job.addressLocality).toBe('Mendrisio');
       expect(job.postalCode).toBe('6850');

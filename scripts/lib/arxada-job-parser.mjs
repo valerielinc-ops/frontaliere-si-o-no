@@ -15,12 +15,15 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -224,7 +227,10 @@ async function listSwissJobs() {
   }
 
   // Client-side filter: only Swiss locations
-  const swissPostings = allPostings.filter((p) => isSwissLocation(p.locationsText));
+  // A row named after a Swiss locality outside the commune gazetteer is kept
+  // for its detail, whose structured country decides (shared Workday recovery).
+  const swissPostings = allPostings.filter((p) => isSwissLocation(p.locationsText)
+    || isWorkdaySwissPlaceCandidate(p.locationsText));
   console.log(`  \ud83c\udfaf Filtered ${allPostings.length} total → ${swissPostings.length} Swiss jobs`);
   return swissPostings;
 }
@@ -287,6 +293,7 @@ export async function fetchAllArxadaJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) {
       console.log(`  \u23ed\ufe0f  Skipped — empty title`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
@@ -301,9 +308,16 @@ export async function fetchAllArxadaJobs() {
     const cityFromSource = parseWorkdayLocation(locationRaw);
     const cityFromVacancyText = cityFromSource
       ? '' : rescueSwissCityFromText(stripHtml(info.jobDescription || ''));
-    const city = cityFromSource || cityFromVacancyText || 'Visp';
+    // Gate on the gazetteer, not on `inferCanton`, whose final `return 'VS'`
+    // never fails and would hide every place it cannot resolve.
+    const sourceCanton = cityFromSource ? inferAnyCanton(cityFromSource) : '';
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country (workday-swiss-job-parser-common).
+    const recovered = sourceCanton ? null : recoverWorkdayPrimarySwissPlace(info);
+    const city = recovered?.location || cityFromSource || cityFromVacancyText || 'Visp';
 
-    const canton = inferCanton(city);
+    const canton = recovered ? recovered.canton : inferCanton(city);
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}${externalPath}`;
@@ -347,7 +361,7 @@ export async function fetchAllArxadaJobs() {
       sector: 'Chimica / Specialty Chemicals',
       currency: 'CHF',
       featured: false,
-      postedDate: info.startDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(workdayPostingDateFields(listing), workdayPostingDateFields(detail)),
       url: publicUrl,
       applyUrl: publicUrl,
       source: 'Arxada Dedicated Parser (Workday)',

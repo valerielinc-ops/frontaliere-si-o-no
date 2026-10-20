@@ -43,14 +43,16 @@
  * (`npm run build:ci`) always exercises it — exit 0 required.
  */
 
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { NURSING_FACILITIES_ANCHOR } from './shared/nursingFacilityLinks';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
@@ -244,6 +246,10 @@ function renderFeaturedJobs(
       contract: j.contract ?? undefined,
       salaryMin: j.salaryMin,
       salaryMax: j.salaryMax,
+      salarySource: j.salarySource,
+      currency: j.currency,
+      postingDateSource: j.postingDateSource,
+      datePosted: j.datePosted ?? undefined,
       postedDate: j.postedDate,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
@@ -266,7 +272,7 @@ function renderFeaturedJobs(
   return `<section class="s-KZc0LQ">
     <h2 class="s-8dKmAe">${esc(copy.shell.featuredJobsTitle)}</h2>
     ${listHtml}
-    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
+    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-flex;align-items:center;min-height:44px;padding:8px 0;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
   </section>`;
 }
 
@@ -383,17 +389,16 @@ function renderPage(opts: {
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -453,20 +458,22 @@ function renderPage(opts: {
     ${id in HERO_BADGES
       ? renderLandingHero(id, locale, {
           openings: snapshot.liveCount,
-          medianSalary: snapshot.medianSalaryChf ?? undefined,
+          // Salary provenance is explained alongside the sample statistic below.
         }, copy.h1, copy.denseLede)
       : `<header class="s-YcUNX5">
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.shell.eyebrow)}</p>
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.denseLede)}</p>
     </header>`}
-    <p class="text-sm font-medium text-accent mt-1">${esc(copy.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${statTilesHtml}
+    ${reportedSalaryNote(locale, snapshot.reportedSalary)}
     ${primaryCtaHtml}
     ${featuredHtml}
     ${employerGridHtml}
     ${dividerHtml}
     ${sectionsHtml}
+    ${NURSING_FACILITIES_ANCHOR}
     <section class="s-KZc0LQ">
       <h2 class="s-BEjFo9">${esc(copy.faqTitle)}</h2>
       ${faqHtml}
@@ -481,7 +488,10 @@ function renderPage(opts: {
     </section>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-it71Rt">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  // buildSeoPageHtml supplies the single crawler-facing main landmark. Keep
+  // the template layout class on a neutral wrapper so nursing landings do
+  // not nest a second main inside the shared SEO shell.
+  const bodyHtml = `<div class="s-it71Rt">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
 
   const jsonLdScripts = [breadcrumbLd, faqLd, articleLd];
   if (itemListLd) jsonLdScripts.push(itemListLd);
@@ -509,7 +519,7 @@ function buildSitemapXml(entries: Array<{ canonical: string; alternates: string[
   const urls = entries
     .map(({ canonical, alternates }) => {
       const alts = alternates.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`).join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;

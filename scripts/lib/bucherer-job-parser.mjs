@@ -25,15 +25,28 @@
  * the search response already carries the full HTML description, address,
  * and posting dates needed here, so no per-job detail fetch is required.
  *
+ * Dayforce scopes every posting to the culture(s) the recruiter published it
+ * in: the search XHR carries a `cultureCode` and only returns that culture's
+ * postings. Since 2026-09 Bucherer publishes in `de-DE` (German-speaking
+ * boutiques) and `fr-FR` (Romandie) only, while `en-GB` — the only culture
+ * this parser used to load — answers `maxCount: 0` (#9649). The parser
+ * therefore walks every culture in BUCHERER_CULTURES, merges the postings by
+ * id and links each one to its own culture's detail page
+ * (`/{culture}/bucherer/CANDIDATEPORTAL/jobs/{id}`; the same id under another
+ * culture is a 404).
+ *
  * Exports the 4 functions expected by the crawler template:
  *   - fetchAllBuchererJobs() — Fetch and parse all Swiss jobs
  *   - isBuchererJob()        — Match jobs belonging to this company
  *   - isTrustedDomain()      — Validate URLs belong to this company/ATS
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import {
   createBrowser,
@@ -49,9 +62,26 @@ export const BUCHERER_COMPANY_NAME = 'Bucherer';
 export const BUCHERER_COMPANY_DOMAIN = 'bucherer.com';
 
 const ATS_HOST = 'dayforcehcm.com';
-const LISTING_URL = 'https://jobs.dayforcehcm.com/en-GB/bucherer/CANDIDATEPORTAL';
+const PORTAL_ORIGIN = 'https://jobs.dayforcehcm.com';
 const SEARCH_API_PATH = '/jobposting/search';
 const MAX_PAGES = 20;
+
+/**
+ * Dayforce cultures to crawl, in priority order: a posting published in more
+ * than one culture keeps the first culture's text and URL. `de-DE`/`fr-FR`
+ * carry the live postings; `it-IT`/`en-GB` are crawled so a Ticino or English
+ * posting is not missed (`de-CH`/`fr-CH`/`it-CH` are 404 on this portal).
+ */
+export const BUCHERER_CULTURES = ['de-DE', 'fr-FR', 'it-IT', 'en-GB'];
+const DEFAULT_CULTURE = BUCHERER_CULTURES[0];
+
+export function buchererListingUrl(culture = DEFAULT_CULTURE) {
+  return `${PORTAL_ORIGIN}/${culture}/bucherer/CANDIDATEPORTAL`;
+}
+
+export function buchererJobUrl(jobPostingId, culture = DEFAULT_CULTURE) {
+  return `${buchererListingUrl(culture)}/jobs/${jobPostingId}`;
+}
 
 // Cloudflare on jobs.dayforcehcm.com blocks the shared bot UA; a plain
 // desktop Safari UA (same fix used by the Richemont Playwright parser)
@@ -101,7 +131,7 @@ export function isBuchererJob(job) {
     key.startsWith('bucherer') ||
     company.includes('bucherer') ||
     url.includes('bucherer.com') ||
-    url.includes('dayforcehcm.com/en-gb/bucherer')
+    /dayforcehcm\.com\/[a-z]{2}-[a-z]{2}\/bucherer\b/.test(url)
   );
 }
 
@@ -195,107 +225,283 @@ function resolveAddress(rawLoc = {}) {
   return { city, postalCode, streetAddress, region };
 }
 
-/* ── Thin-content guard (Non-Negotiable #4: never index <50 words) ──── */
+/* ── Description: the posting text only ──────────────────────────── */
 
-function buildFallbackDescription(title, location) {
-  return [
-    `Bucherer cerca un/una ${title} per la sede di ${location}.`,
-    `Bucherer AG, fondata nel 1888 a Lucerna, è il principale rivenditore svizzero di orologi e gioielli di lusso e partner ufficiale di marchi come Rolex, Patek Philippe, Cartier e Breitling.`,
-    `Il gruppo gestisce oltre 30 boutique in Svizzera, Germania e altri mercati internazionali e possiede la propria manifattura orologiera, Carl F. Bucherer.`,
-    `Lavorare in Bucherer significa entrare in un ambiente dedicato al lusso e all'artigianato svizzero, con formazione specialistica in orologeria e gioielleria, percorsi di carriera internazionali e un forte legame con la tradizione del settore.`,
-    `Le posizioni aperte spaziano tra vendita in boutique, orologeria e gioielleria, logistica, amministrazione, marketing e ruoli corporate presso la sede centrale di Lucerna.`,
-    `Candidature online sul portale ufficiale bucherer.com/en/career.`,
-  ].join(' ');
-}
-
-function resolveDescription(rawHtml, title, location) {
-  const text = stripHtml(rawHtml || '');
-  if (text && text.split(/\s+/).filter(Boolean).length >= 50) return text;
-  return buildFallbackDescription(title, location);
+/**
+ * The Dayforce text of the posting (issue 5253). Under 50 words it used to
+ * be REPLACED by "Bucherer cerca un/una <title> per la sede di <location>."
+ * and five sentences about Bucherer written by the parser. Now a text under
+ * the shared 50-word floor is not published: the posting gets no description
+ * and takes the thin-source path (quarantine).
+ */
+function resolveDescription(rawHtml) {
+  const text = stripHtml(rawHtml || '').trim();
+  return meetsSourceBodyFloor(text) ? text : '';
 }
 
 /* ── Fetch (Playwright, Cloudflare-gated) ─────────────────────── */
 
 /**
- * Navigate to the Dayforce candidate-portal listing page and capture the
- * organic `jobposting/search` XHR response(s) it fires (never replayed
- * manually — see module docblock). Defensively paginates via the Ant
- * Design "next page" control in case the current single-page result grows,
- * capped at MAX_PAGES.
+ * Merge the captured `jobposting/search` responses of every culture into one
+ * posting list. Pure (no network), exported for tests.
+ *
+ * Each captured entry is `{ cultureCode, body }`. Postings are tagged with
+ * `_cultureCode` so parsePostings() can link the detail page that actually
+ * exists; the same id seen under a later culture is dropped (first culture
+ * in BUCHERER_CULTURES order wins).
+ */
+export function mergeCulturePostings(captured = []) {
+  const order = (c) => {
+    const i = BUCHERER_CULTURES.indexOf(c);
+    return i === -1 ? BUCHERER_CULTURES.length : i;
+  };
+  const sorted = [...captured].sort((a, b) => order(a?.cultureCode) - order(b?.cultureCode));
+  const seenIds = new Set();
+  const postings = [];
+  for (const entry of sorted) {
+    const cultureCode = entry?.cultureCode || DEFAULT_CULTURE;
+    for (const posting of entry?.body?.jobPostings || []) {
+      const id = String(posting?.jobPostingId || posting?.jobReqId || '');
+      if (!id || seenIds.has(id)) continue;
+      seenIds.add(id);
+      postings.push({ ...posting, _cultureCode: cultureCode });
+    }
+  }
+  return postings;
+}
+
+function cultureOfSearchRequest(request) {
+  try {
+    const body = request.postDataJSON();
+    if (body && typeof body.cultureCode === 'string' && body.cultureCode) return body.cultureCode;
+  } catch {
+    /* no / non-JSON post body */
+  }
+  return null;
+}
+
+function nonNegativeInteger(value) {
+  if (value === null || value === undefined || value === '') return null;
+  const number = Number(value);
+  return Number.isSafeInteger(number) && number >= 0 ? number : null;
+}
+
+function postingIdentity(posting) {
+  const value = posting?.jobPostingId ?? posting?.jobReqId;
+  const identity = String(value ?? '').trim();
+  return identity || null;
+}
+
+function hasContiguousCoverage(intervals, declaredTotal) {
+  if (declaredTotal === 0) return true;
+
+  let coveredThrough = 0;
+  const orderedIntervals = [...intervals].sort(([a], [b]) => a - b);
+  for (const [start, end] of orderedIntervals) {
+    if (start > coveredThrough) return false;
+    coveredThrough = Math.max(coveredThrough, end);
+    if (coveredThrough >= declaredTotal) return true;
+  }
+  return false;
+}
+
+/**
+ * Check that the organic Dayforce search responses cover every requested
+ * culture and every source-declared result. A valid response for one culture
+ * is not evidence that another culture was observed: Dayforce scopes the
+ * listing by culture, so publishing the union of an incomplete set can retire
+ * live jobs from the missing culture.
+ *
+ * @param {Array<{cultureCode?: string, body?: object}>} captured
+ * @param {string[]} cultures
+ * @returns {{complete: boolean, allEmpty: boolean, missingCultures: string[], incompleteCultures: string[], observedPostings: number}}
+ */
+export function assessCultureCoverage(captured = [], cultures = BUCHERER_CULTURES) {
+  const stats = new Map(
+    cultures.map((culture) => [culture, {
+      responses: 0,
+      invalid: false,
+      declaredTotals: [],
+      intervals: [],
+      postingIds: new Set(),
+      postingCount: 0,
+    }]),
+  );
+
+  for (const entry of Array.isArray(captured) ? captured : []) {
+    const culture = entry?.cultureCode;
+    const state = stats.get(culture);
+    if (!state) continue;
+
+    state.responses += 1;
+    const body = entry?.body;
+    const postings = body?.jobPostings;
+    const declaredTotal = nonNegativeInteger(body?.maxCount);
+    const offset = nonNegativeInteger(body?.offset);
+    if (!Array.isArray(postings) || declaredTotal === null) {
+      state.invalid = true;
+      continue;
+    }
+
+    state.declaredTotals.push(declaredTotal);
+    state.postingCount += postings.length;
+    for (const posting of postings) {
+      const identity = postingIdentity(posting);
+      if (identity) state.postingIds.add(identity);
+    }
+
+    const responseEnd = offset === null ? null : offset + postings.length;
+    if (
+      offset === null
+      || !Number.isSafeInteger(responseEnd)
+      || responseEnd > declaredTotal
+    ) {
+      state.invalid = true;
+    } else {
+      state.intervals.push([offset, responseEnd]);
+    }
+  }
+
+  const missingCultures = [];
+  const incompleteCultures = [];
+  let allEmpty = true;
+  let observedPostings = 0;
+
+  for (const culture of cultures) {
+    const state = stats.get(culture);
+    if (!state || state.responses === 0) {
+      missingCultures.push(culture);
+      allEmpty = false;
+      continue;
+    }
+
+    const declaredTotal = state.declaredTotals.length > 0
+      ? Math.max(...state.declaredTotals)
+      : null;
+    observedPostings += state.postingIds.size;
+    if (declaredTotal !== 0 || state.postingIds.size !== 0 || state.postingCount !== 0) {
+      allEmpty = false;
+    }
+
+    if (
+      state.invalid
+      || declaredTotal === null
+      || !hasContiguousCoverage(state.intervals, declaredTotal)
+      || state.postingIds.size !== declaredTotal
+    ) {
+      incompleteCultures.push(culture);
+    }
+  }
+
+  return {
+    complete: missingCultures.length === 0 && incompleteCultures.length === 0,
+    allEmpty: missingCultures.length === 0 && incompleteCultures.length === 0 && allEmpty,
+    missingCultures,
+    incompleteCultures,
+    observedPostings,
+  };
+}
+
+/**
+ * For each culture in BUCHERER_CULTURES, navigate to the Dayforce
+ * candidate-portal listing page and capture the organic `jobposting/search`
+ * XHR response(s) it fires (never replayed manually — see module docblock).
+ * Defensively paginates via the Ant Design "next page" control, capped at
+ * MAX_PAGES per culture.
  */
 async function discoverAllJobPostings() {
   let browser;
-  const rawPostings = [];
-  const seenIds = new Set();
+  const captured = [];
+  const pendingResponses = new Set();
 
   try {
     browser = await createBrowser({ userAgent: BROWSER_UA });
     const context = await createPoliteContext(browser, { userAgent: BROWSER_UA });
 
-    const capturedResponses = [];
     context.on('response', (resp) => {
       const url = resp.url();
-      if (resp.status() !== 200 || !url.includes(SEARCH_API_PATH)) return;
-      resp
+      if (!url.includes(SEARCH_API_PATH)) return;
+      if (resp.status() !== 200) return;
+      const cultureCode = cultureOfSearchRequest(resp.request());
+      if (!BUCHERER_CULTURES.includes(cultureCode)) return;
+      const pending = resp
         .json()
         .then((body) => {
-          if (body) capturedResponses.push(body);
+          if (body) captured.push({ cultureCode, body });
         })
         .catch(() => {
           /* not JSON / unrelated response — ignore */
-        });
+        })
+        .finally(() => pendingResponses.delete(pending));
+      pendingResponses.add(pending);
     });
 
-    const page = await fetchWithRateLimit(context, LISTING_URL, { minDelayMs: 3000 });
-
-    // Dismiss cookie-consent banner if present — it intercepts pointer
-    // events on the search results / pagination controls below.
-    try {
-      const acceptBtn = page.locator('button:has-text("Accept")').first();
-      if (await acceptBtn.isVisible({ timeout: 5000 })) {
-        await acceptBtn.click({ timeout: 5000, force: true });
-      }
-    } catch {
-      /* no consent banner shown — nothing to dismiss */
-    }
-
-    // The listing page auto-fires the search XHR on load; wait for the
-    // organic response rather than constructing the API call ourselves.
-    await page.waitForTimeout(8000);
-
-    const collectFrom = (body) => {
-      let addedNew = false;
-      for (const posting of body?.jobPostings || []) {
-        const id = String(posting.jobPostingId || posting.jobReqId || '');
-        if (!id || seenIds.has(id)) continue;
-        seenIds.add(id);
-        rawPostings.push(posting);
-        addedNew = true;
-      }
-      return addedNew;
+    const settleResponses = async () => {
+      if (pendingResponses.size > 0) await Promise.all([...pendingResponses]);
     };
 
-    for (const body of capturedResponses) collectFrom(body);
+    for (const culture of BUCHERER_CULTURES) {
+      const page = await fetchWithRateLimit(context, buchererListingUrl(culture), { minDelayMs: 3000 });
 
-    for (let pageNum = 1; pageNum < MAX_PAGES; pageNum += 1) {
-      const nextBtn = page.locator('.ant-pagination-next:not(.ant-pagination-disabled)').first();
-      const hasNext = await nextBtn.count().catch(() => 0);
-      if (!hasNext) break;
+      // Dismiss cookie-consent banner if present — it intercepts pointer
+      // events on the search results / pagination controls below.
+      try {
+        const acceptBtn = page.locator('button:has-text("Accept"), button:has-text("Akzeptieren"), button:has-text("Accepter")').first();
+        if (await acceptBtn.isVisible({ timeout: 5000 })) {
+          await acceptBtn.click({ timeout: 5000, force: true });
+        }
+      } catch {
+        /* no consent banner shown — nothing to dismiss */
+      }
 
-      const beforeCount = capturedResponses.length;
-      await nextBtn.click({ timeout: 5000, force: true }).catch(() => {});
-      await page.waitForTimeout(4000);
-      if (capturedResponses.length === beforeCount) break; // no new response fired
+      // The listing page auto-fires the search XHR on load; wait for the
+      // organic response rather than constructing the API call ourselves.
+      await page.waitForTimeout(8000);
+      await settleResponses();
 
-      if (!collectFrom(capturedResponses[capturedResponses.length - 1])) break;
+      for (let pageNum = 1; pageNum < MAX_PAGES; pageNum += 1) {
+        const nextBtn = page.locator('.ant-pagination-next:not(.ant-pagination-disabled)').first();
+        const hasNext = await nextBtn.count().catch(() => 0);
+        if (!hasNext) break;
+
+        const beforeCount = captured.filter((entry) => entry.cultureCode === culture).length;
+        await nextBtn.click({ timeout: 5000, force: true }).catch(() => {});
+        await page.waitForTimeout(4000);
+        await settleResponses();
+        const cultureResponses = captured.filter((entry) => entry.cultureCode === culture);
+        if (cultureResponses.length === beforeCount) break; // no new response fired
+        const last = cultureResponses.at(-1);
+        if (!last?.body?.jobPostings?.length) break;
+      }
+
+      const got = captured
+        .filter((c) => c.cultureCode === culture)
+        .reduce((n, c) => n + (c.body?.jobPostings?.length || 0), 0);
+      console.log(`  🌐 ${culture}: ${got} posting(s)`);
+
+      await page.close().catch(() => {});
     }
-
-    await page.close().catch(() => {});
   } finally {
     await closeAll(browser);
   }
 
-  return rawPostings;
+  await Promise.all([...pendingResponses]);
+  const coverage = assessCultureCoverage(captured);
+  return {
+    postings: mergeCulturePostings(captured),
+    coverage,
+  };
+}
+
+function attachFetchMetadata(jobs, metadata) {
+  for (const [key, value] of Object.entries(metadata)) {
+    Object.defineProperty(jobs, key, {
+      value,
+      enumerable: false,
+      configurable: true,
+    });
+  }
+  return jobs;
 }
 
 /**
@@ -327,25 +533,27 @@ export function parsePostings(postings = []) {
     const { city, postalCode, streetAddress, region } = resolveAddress(rawLoc);
     const location = normalizeSpace(city || HQ.city);
     const canton =
-      normalizeCantonCode(rawLoc.stateCode || '') ||
+      // Romandie locations come back as `CH-VS` rather than `VS`.
+      normalizeCantonCode(String(rawLoc.stateCode || '').replace(/^CH-/i, '')) ||
       inferAnyCanton(location) ||
       inferAnyCanton(`${location} ${region}`) ||
       HQ.canton;
 
+    const culture = posting._cultureCode || DEFAULT_CULTURE;
     const jobPostingId = String(posting.jobPostingId || posting.jobReqId || '');
     const publicUrl = jobPostingId
-      ? `https://jobs.dayforcehcm.com/en-GB/bucherer/CANDIDATEPORTAL/Job/${jobPostingId}`
-      : LISTING_URL;
+      ? buchererJobUrl(jobPostingId, culture)
+      : buchererListingUrl(culture);
     if (seenUrls.has(publicUrl)) continue;
     seenUrls.add(publicUrl);
 
-    const description = resolveDescription(posting.jobDescription, title, location);
-    const sourceLang = detectLang(description, 'de');
+    const description = resolveDescription(posting.jobDescription);
+    const sourceLang = detectLang(description, culture.slice(0, 2).toLowerCase());
     const jobSlug = slugify(`${title} bucherer ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(`${posting.typeOfEmployment?.label || ''} ${title}`);
-    const postedDate = (posting.postingStartTimestampUTC && String(posting.postingStartTimestampUTC).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
+    // Dayforce Posting Start Date is candidate availability, distinct from Job Start Date.
+    const postingDates = sourcePostingDateFields(posting.postingStartTimestampUTC);
 
     const job = {
       // ── Required fields ──
@@ -358,7 +566,7 @@ export function parsePostings(postings = []) {
       title,
       titleByLocale: { [sourceLang]: title },
       description,
-      descriptionByLocale: { [sourceLang]: description },
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
       location,
       canton,
       url: publicUrl,
@@ -380,7 +588,7 @@ export function parsePostings(postings = []) {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: publicUrl,
       jobReqId: posting.jobReqId || jobPostingId || null,
       requirements: [],
@@ -402,19 +610,42 @@ export function parsePostings(postings = []) {
  */
 export async function fetchAllBuchererJobs() {
   console.log(`🔍 Fetching ${BUCHERER_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${LISTING_URL}\n`);
+  console.log(`   Source: ${buchererListingUrl()} (cultures: ${BUCHERER_CULTURES.join(', ')})\n`);
 
-  let postings;
+  let snapshot;
   try {
-    postings = await discoverAllJobPostings();
+    snapshot = await discoverAllJobPostings();
   } catch (err) {
     console.warn(`⚠️ Bucherer Dayforce fetch failed: ${err?.message || err}`);
     throw err;
   }
 
+  const { postings, coverage } = snapshot;
+  if (!coverage.complete) {
+    const missing = coverage.missingCultures.length > 0
+      ? `missing response: ${coverage.missingCultures.join(', ')}`
+      : 'all cultures responded incompletely';
+    console.warn(
+      `⚠️ Bucherer Dayforce snapshot incomplete (${missing}); keeping the previous slice.`,
+    );
+    return attachFetchMetadata([], {
+      discoveredCount: coverage.observedPostings,
+      fetchOutcome: 'selector_miss',
+    });
+  }
+
   if (!postings || postings.length === 0) {
+    if (coverage.allEmpty) {
+      return markAuthoritativeEmptySnapshot(
+        [],
+        `Dayforce search returned maxCount=0 for every culture (${BUCHERER_CULTURES.join(', ')})`,
+      );
+    }
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return attachFetchMetadata([], {
+      discoveredCount: 0,
+      fetchOutcome: 'filtered_empty',
+    });
   }
 
   console.log(`  📋 Listings found: ${postings.length}`);
@@ -422,5 +653,5 @@ export async function fetchAllBuchererJobs() {
   const jobs = parsePostings(postings);
 
   console.log(`\n📋 Total ${BUCHERER_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  return attachFetchMetadata(jobs, { discoveredCount: postings.length });
 }

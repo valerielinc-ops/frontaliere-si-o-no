@@ -27,10 +27,16 @@
  *   - isTrustedDomain()      — Validate URLs belong to this company's ATS
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
+import {
+  inferSwissTargetCanton,
+  isWorkModeLocationLabel,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
+import { resolveSwissLocalityCanton, resolveSwissPostalCodePlace } from './swiss-locality-directory.mjs';
 import { fetchPersonioJobs } from './ats-clients/personio-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -141,6 +147,11 @@ function isSwissAddressCountry(value = '') {
   return /^(?:ch|che|756|switzerland|schweiz|suisse|svizzera)(?:$|[\s(-])/i.test(country);
 }
 
+function hasExplicitCantonMarker(value = '', canton = '') {
+  if (!value || !canton) return false;
+  return new RegExp(`(?:^|[\\s,(])${canton}(?:$|[\\s,)])`, 'i').test(value);
+}
+
 /**
  * Resolve the best city / postal code / street / region / canton from the
  * Personio `office` free-text field and, when present, its structured detail
@@ -157,11 +168,28 @@ function resolveLocation(officeText = '', locationDetail = null) {
     ? locationDetail
     : null;
   const detailLocality = normalizeSpace(confirmedDetail?.locality || '');
-  const city = swissCityFromLocationField(detailLocality) || swissCityFromLocationField(office);
+  const detailPostalCode = normalizeSpace(confirmedDetail?.postalCode || '');
+  const detailPostalPlace = resolveSwissPostalCodePlace(detailPostalCode);
+  const detailCantonHint = inferSwissTargetCanton(detailLocality);
+  const detailCanton = detailLocality
+    ? resolveSwissLocalityCanton(detailLocality, {
+      postalCode: detailPostalCode,
+      cantons: hasExplicitCantonMarker(detailLocality, detailCantonHint)
+        ? [detailCantonHint]
+        : null,
+    })
+    : '';
+  const detailCity = detailCanton
+    && detailPostalPlace?.canton === detailCanton
+    ? detailPostalPlace.locality
+    : detailCanton
+      ? swissCityFromLocationField(detailLocality)
+      : '';
+  const city = detailCity || swissCityFromLocationField(office);
   const resolvedLocation = city || detailLocality || office;
-  const canton = inferSwissTargetCanton(detailLocality || resolvedLocation) || HQ.canton;
+  const canton = detailCanton || inferSwissTargetCanton(resolvedLocation) || HQ.canton;
   const isHqCity = !resolvedLocation || /z[uü]rich/i.test(resolvedLocation);
-  const hasStructuredAddress = Boolean(detailLocality);
+  const hasStructuredAddress = Boolean(detailCity);
 
   return {
     location: resolvedLocation || HQ.city,
@@ -217,6 +245,13 @@ export async function fetchAllIgrooveJobs() {
       listing.location,
       listing.locationDetail,
     );
+    // An office that is a work mode (`Remote`, `Hybrid`) names no place: skip
+    // it rather than publish the label with the HQ canton (issue 9839 rule).
+    // `Zürich Hybrid` still names Zürich and resolves above.
+    if (isWorkModeLocationLabel(location)) {
+      console.log(`  ⏭️  Skipped (office names no place: ${location}): ${title}`);
+      continue;
+    }
 
     const descriptionHtml = listing.descriptionHtml || '';
     const descriptionText = stripHtml(descriptionHtml);
@@ -225,8 +260,6 @@ export async function fetchAllIgrooveJobs() {
     const jobSlug = slugify(`${title} igroove ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(`${listing.employmentType || ''} ${listing.schedule || ''}`);
-    const postedDate = (listing.postedAt && String(listing.postedAt).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -261,7 +294,7 @@ export async function fetchAllIgrooveJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],

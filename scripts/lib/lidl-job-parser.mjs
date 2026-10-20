@@ -183,6 +183,40 @@ export function hasListContent(text = '') {
   return /(?:^|\n)\s*-\s+\S/m.test(String(text || ''));
 }
 
+function countListItems(text = '') {
+  return (String(text || '').match(/(?:^|\n)[ \t]*-[ \t]+\S/g) || []).length;
+}
+
+/**
+ * Put the LiCa API body back into its own language slot when the stored copy
+ * of that slot has lost the list structure the API carries.
+ *
+ * The shared base crawler hands back `descriptionByLocale[sourceLang]` with
+ * the list collapsed into prose ("Ta mission\n- Responsable … - Assurer …")
+ * while the top-level `description` keeps one item per line: 159/237 matched
+ * vacancies on 2026-09-29. The site renders `descriptionByLocale[locale]`
+ * first, so French/German readers saw the collapsed list. The API body is
+ * the authoritative source-language text of this run; a slot with at least as
+ * many list items as the API body is left alone.
+ *
+ * @param {{ descriptionByLocale?: Record<string, string> }} job  mutated in place
+ * @param {{ sourceLang?: string, description?: string }} apiJob
+ * @returns {boolean} true when the source-language slot was replaced
+ */
+export function restoreLidlSourceLocaleStructure(job, apiJob) {
+  const lang = String(apiJob?.sourceLang || '').trim().toLowerCase();
+  const apiDesc = String(apiJob?.description || '').trim();
+  if (!job || !lang || !apiDesc) return false;
+  const apiItems = countListItems(apiDesc);
+  if (apiItems < 2) return false;
+  const byLocale = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? job.descriptionByLocale
+    : {};
+  if (countListItems(byLocale[lang]) >= apiItems) return false;
+  job.descriptionByLocale = { ...byLocale, [lang]: apiDesc };
+  return true;
+}
+
 /**
  * Priority-ordered CSS selectors for the job description container.
  * team.lidl.ch uses a Nuxt/Vue frontend; selectors cover known class patterns
@@ -214,6 +248,8 @@ function findRichestListElement(document) {
   let best = null;
   let bestCount = 0;
   for (const el of document.querySelectorAll('div, section, article')) {
+    const chrome = `${el.tagName || ''} ${el.id || ''} ${el.className || ''}`;
+    if (/(?:header|footer|nav|menu|breadcrumb|sidebar|navigation)/i.test(chrome)) continue;
     const count = el.querySelectorAll('li').length;
     if (count > bestCount) {
       bestCount = count;
@@ -243,19 +279,32 @@ export function parseLidlDetailPage(html = '') {
   const titleEl = document.querySelector('h1');
   const title = normalizeSpace(titleEl?.textContent || '');
 
-  // ── Body via priority selectors ───────────────────────────────
-  let body = '';
+  // ── Body via the rendered LiCa detail modules ─────────────────
+  // The current LiCa page puts the vacancy prose and the source-published
+  // benefits cards in sibling modules below `.lica-job-detail-page`. A
+  // first-match selector is unsafe here: the page also contains a navigation
+  // module with more list items than the vacancy itself.
+  const modernBlocks = [...document.querySelectorAll(
+    '.lica-job-detail-page .lica-rich-text, .lica-job-detail-page .lica-benefits-module',
+  )]
+    .map((el) => innerTextWithBullets(el))
+    .filter(Boolean);
+  let body = modernBlocks.join('\n\n');
 
-  for (const sel of BODY_SELECTORS) {
-    const el = document.querySelector(sel);
-    if (!el) continue;
-    const text = innerTextWithBullets(el);
-    if (text.length >= MIN_LIDL_FULL_DESC) {
-      body = text;
-      break;
+  // ── Body via priority selectors (legacy LiCa/ATS layouts) ─────
+  if (body.length < MIN_LIDL_FULL_DESC) {
+    body = '';
+    for (const sel of BODY_SELECTORS) {
+      const el = document.querySelector(sel);
+      if (!el) continue;
+      const text = innerTextWithBullets(el);
+      if (text.length >= MIN_LIDL_FULL_DESC) {
+        body = text;
+        break;
+      }
+      // Keep the longest candidate as fallback even if below threshold
+      if (text.length > body.length) body = text;
     }
-    // Keep the longest candidate as fallback even if below threshold
-    if (text.length > body.length) body = text;
   }
 
   // ── Fallback: richest-list element ────────────────────────────

@@ -21,6 +21,7 @@
  *   4. Builds job objects and merges them into jobs.json.
  *   5. Translates and validates locale coverage.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -50,9 +51,16 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import {
+  decodeColinCieEntities,
+  parseColinCieJobDescription,
+  resolveColinCieGeography,
+} from './lib/colin-cie-job-parser.mjs';
+import { extractJobPostingField } from './lib/jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -80,19 +88,6 @@ const USER_AGENTS = [
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
 ];
 
-/* city tag → { location, canton, country } */
-const CITY_MAP = {
-  lugano:       { location: 'Lugano',       canton: 'TI', country: 'CH' },
-  zürich:       { location: 'Zürich',       canton: 'ZH', country: 'CH' },
-  zurich:       { location: 'Zürich',       canton: 'ZH', country: 'CH' },
-  schaffhausen: { location: 'Schaffhausen', canton: 'SH', country: 'CH' },
-  basel:        { location: 'Basel',        canton: 'BS', country: 'CH' },
-  bern:         { location: 'Bern',         canton: 'BE', country: 'CH' },
-  luzern:       { location: 'Luzern',       canton: 'LU', country: 'CH' },
-  zug:          { location: 'Zug',          canton: 'ZG', country: 'CH' },
-  munsbach:     { location: 'Munsbach',     canton: '',   country: 'LU' },
-};
-
 /* ── Helpers ───────────────────────────────────────────────── */
 function readJson(filePath, fallback) {
   try { return JSON.parse(fs.readFileSync(filePath, 'utf8')); } catch { return fallback; }
@@ -107,32 +102,6 @@ function normalizeKey(value = '') {
     .trim().toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-}
-
-function decodeHtmlEntities(text) {
-  return text
-    .replace(/&#038;/g, '&')
-    .replace(/&#8211;/g, '–')
-    .replace(/&#8217;/g, "'")
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'");
-}
-
-function stripHtml(html) {
-  return html
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/p>/gi, '\n\n')
-    .replace(/<\/li>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n• ')
-    .replace(/<[^>]+>/g, '')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
 }
 
 function deriveSlug(title, city) {
@@ -226,7 +195,7 @@ function parseListingPage(html) {
     // Title
     const titleMatch = cardHtml.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i);
     if (!titleMatch) continue;
-    const title = decodeHtmlEntities(titleMatch[1].replace(/<[^>]+>/g, '').trim());
+    const title = decodeColinCieEntities(titleMatch[1].replace(/<[^>]+>/g, '').trim());
 
     // Detail URL
     const urlMatch = cardHtml.match(/href='([^']*karriere[^']*)'/i);
@@ -234,14 +203,10 @@ function parseListingPage(html) {
     const detailPath = urlMatch[1];
     const detailUrl = detailPath.startsWith('http') ? detailPath : BASE_URL + detailPath;
 
-    // Date
+    // The unlabelled newsDate does not establish employer publication semantics.
+    // Retain the visible value separately; publication requires detail evidence.
     const dateMatch = cardHtml.match(/<span\s+class='newsDate'>\s*(\d{2}\.\d{2}\.\d{4})\s*<\/span>/i);
     const dateStr = dateMatch ? dateMatch[1] : '';
-    let postedDate = '';
-    if (dateStr) {
-      const [d, m, y] = dateStr.split('.');
-      postedDate = `${y}-${m}-${d}`;
-    }
 
     // Tags (category, country, city)
     const tagRegex = /<span\s+class='jobTag'>(.*?)<\/span>/gi;
@@ -255,47 +220,21 @@ function parseListingPage(html) {
     const country = tags[1] || '';
     const city = tags[2] || '';
 
-    jobs.push({ postId, title, detailUrl, postedDate, category, country, city });
+    jobs.push({ postId, title, detailUrl, sourceListingDate: dateStr, ...sourcePostingDateFields(''), category, country, city });
   }
   return jobs;
 }
 
 /**
- * Fetch a detail page and extract the job description.
- * Sections: intro h4, "Das bieten wir Ihnen", "Ihre Hauptaufgaben bei uns", "Das bringen Sie mit"
+ * Fetch a detail page and extract its description and explicit publication evidence.
  */
-async function fetchJobDescription(url) {
+async function fetchJobDetail(url) {
   try {
     const html = await fetchPage(url);
-    const sections = [];
-
-    // Intro paragraph (h4 with strong/mediumStyle)
-    const introMatch = html.match(/<h4><strong><span[^>]*class="mediumStyle"[^>]*>([\s\S]*?)<\/span><\/strong><\/h4>/i);
-    if (introMatch) {
-      sections.push(decodeHtmlEntities(stripHtml(introMatch[1])));
-    }
-
-    // Named sections: "Das bieten wir Ihnen", "Ihre Hauptaufgaben", "Das bringen Sie mit"
-    const sectionRegex = /<h3[^>]*><span[^>]*class="pinkStyle"[^>]*>([\s\S]*?)<\/span><\/h3>\s*<ul[^>]*>([\s\S]*?)<\/ul>/gi;
-    let sMatch;
-    while ((sMatch = sectionRegex.exec(html)) !== null) {
-      const heading = decodeHtmlEntities(stripHtml(sMatch[1]));
-      const listHtml = sMatch[2];
-      const items = [];
-      const itemRegex = /<li>([\s\S]*?)<\/li>/gi;
-      let iMatch;
-      while ((iMatch = itemRegex.exec(listHtml)) !== null) {
-        items.push(decodeHtmlEntities(stripHtml(iMatch[1])));
-      }
-      if (items.length > 0) {
-        sections.push(`## ${heading}\n${items.map(i => `• ${i}`).join('\n')}`);
-      }
-    }
-
-    return sections.join('\n\n') || '';
+    return { description: parseColinCieJobDescription(html), ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')) };
   } catch (err) {
     console.warn(`  ⚠️  Could not fetch detail page ${url}: ${err.message}`);
-    return '';
+    return { description: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -312,9 +251,8 @@ function inferCategory(rawCategory = '', title = '') {
 }
 
 /* ── Build job object ──────────────────────────────────────── */
-function buildJob(row, description) {
-  const cityKey = normalize(row.city);
-  const geo = CITY_MAP[cityKey] || { location: row.city || 'Schweiz', canton: '', country: 'CH' };
+function buildJob(row, description, geo) {
+  if (!geo) return null;
   const slug = deriveSlug(row.title, row.city);
 
   return {
@@ -335,14 +273,16 @@ function buildJob(row, description) {
     sector: 'Finanza / Wealth Management',
     source: 'colin-cie-dedicated-crawler',
     sourceLang: 'de',
-    postedDate: row.postedDate || new Date().toISOString().slice(0, 10),
+    ...mergeSourcePostingDates({}, row),
+    crawledAt: new Date().toISOString(),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
     description,
     titleByLocale: { de: row.title },
     descriptionByLocale: { de: description },
-    slugByLocale: { it: slug },
+    // Slug in the same source slot as the text (#5253).
+    slugByLocale: { de: slug },
   };
 }
 
@@ -367,10 +307,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -392,7 +335,7 @@ function mergeJobs(discoveredJobs) {
 function updateAdapterConfig(jobs) {
   const seedMetaByUrl = {};
   for (const job of jobs) {
-    seedMetaByUrl[job.url] = { location: job.location, canton: job.canton, company: COMPANY_NAME };
+    seedMetaByUrl[job.url] = { location: job.location, canton: job.canton, company: COMPANY_NAME, ...mergeSourcePostingDates({}, job) };
   }
   writeJson(ADAPTER_PATH, {
     companyKey: COMPANY_KEY,
@@ -447,13 +390,28 @@ async function main() {
     return;
   }
 
+  const swissListings = [];
+  for (const listing of listings) {
+    const geography = resolveColinCieGeography(listing);
+    if (!geography) {
+      console.warn(`  ⏭️ Quarantining non-CH or unresolved listing: ${listing.title} (${listing.country || 'country missing'}, ${listing.city || 'city missing'})`);
+      continue;
+    }
+    swissListings.push({ listing, geography });
+  }
+  if (swissListings.length === 0) {
+    console.warn('⚠️ No source-backed Swiss listings; preserving the current Colin&Cie slice.');
+    return;
+  }
+
   // 2. Fetch detail pages for descriptions
   console.log('\n📥 Fetching job detail pages...');
   const jobs = [];
-  for (const listing of listings) {
+  for (const { listing, geography } of swissListings) {
     console.log(`  🔗 ${listing.detailUrl}`);
-    const description = await fetchJobDescription(listing.detailUrl);
-    jobs.push(buildJob(listing, description));
+    const detail = await fetchJobDetail(listing.detailUrl);
+    const job = buildJob({ ...listing, ...detail }, detail.description, geography);
+    if (job) jobs.push(job);
     // Small delay between requests
     await new Promise((r) => setTimeout(r, 500));
   }

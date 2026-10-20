@@ -4,6 +4,9 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { flatString } from './lib/flat-string.mjs';
+import { findHreflangReciprocityFailures } from './lib/hreflang-reciprocity.mjs';
+import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
+import { extractHreflangAlternates as extractAlternates } from './lib/hreflang-alternates.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -41,17 +44,14 @@ function sitemapPages() {
  return out;
 }
 
-function extractAlternates(html) {
- // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
- const out = new Map();
- const regex = /<link\s+rel=["']?alternate["']?[^>]*hreflang=["']?([^"'\s>]+)["']?[^>]*href=["']?([^"'\s>]+)["']?/gi;
- let match;
- while ((match = regex.exec(html)) !== null) out.set(match[1], match[2]);
- return out;
+function isNoindexPage(html) {
+ return /<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html)
+  || /<meta\b[^>]*content=["'][^"']*noindex[^"']*["'][^>]*name=["']robots["']/i.test(html);
 }
 
 const pages = sitemapPages();
 const failures = [];
+const pageRecords = [];
 
 for (const page of pages) {
  if (!existsSync(page.htmlFile)) continue;
@@ -63,14 +63,18 @@ for (const page of pages) {
   continue;
  }
 
+ if (!isNoindexPage(html)) {
+  pageRecords.push({ url: page.url, relPath: page.relPath, alternates });
+ }
+
  const itHref = alternates.get('it');
  const xDefault = alternates.get('x-default');
  if (itHref && xDefault && normalize(itHref) !== normalize(xDefault)) {
-  failures.push(`${page.relPath} — x-default must match IT href`);
+  failures.push(flatString(`${page.relPath} — x-default "${xDefault}" does not match IT hreflang "${itHref}"`));
  }
 
  for (const [hreflang, href] of alternates) {
-  if (!href.startsWith(BASE_URL)) continue;
+  if (!href.startsWith(BASE_URL) || isExternallyServedUrl(href)) continue;
   const target = urlToFile(href);
   if (!existsSync(target)) {
    // flatString: `href` is a capture out of the page HTML (a SlicedString
@@ -83,6 +87,15 @@ for (const page of pages) {
  }
 }
 
+for (const issue of findHreflangReciprocityFailures(pageRecords, {
+ baseUrl: BASE_URL,
+ skipTarget: isExternallyServedUrl,
+})) {
+ // `issue.target` and `issue.source` ultimately derive from page HTML hrefs;
+ // flatten at the scan-wide accumulator boundary just like missing targets.
+ failures.push(flatString(`${issue.sourcePath} — hreflang ${issue.hreflang} target has no reciprocal link back: ${issue.target} → ${issue.source}`));
+}
+
 const _offendersForReport = failures.map((f) => {
  // Each failure is "<relPath> — <reason>"; split on " — ".
  const idx = f.indexOf(' — ');
@@ -92,6 +105,7 @@ const _offendersForReport = failures.map((f) => {
  let kind = 'other';
  if (reason.startsWith('missing hreflang')) kind = 'missing';
  else if (reason.startsWith('x-default')) kind = 'xDefaultMismatch';
+ else if (reason.startsWith('hreflang') && reason.includes('no reciprocal')) kind = 'missingReturn';
  else if (reason.startsWith('hreflang')) kind = 'targetMissing';
  return { path: p, feature: kind, metric: 1, ratio: null, reason };
 });
@@ -114,8 +128,9 @@ if (failures.length > 0) {
   threshold: { metric: 'count', value: 0, comparator: '<=' },
   offenders: _offendersForReport,
   byFeature: _byFeatureForReport,
+  sampleRate: 1,
   extra: { pagesScanned: pages.length },
- });
+});
  process.exit(1);
 }
 
@@ -125,5 +140,6 @@ await writeAuditReport({
  passed: true,
  threshold: { metric: 'count', value: 0, comparator: '<=' },
  offenders: [],
+ sampleRate: 1,
  extra: { pagesScanned: pages.length },
 });

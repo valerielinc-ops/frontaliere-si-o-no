@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * Reconcile completed loop runs with the durable ledger bridge.
@@ -18,7 +19,9 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { createdSinceFilter, newestFirst } from './lib/run-listing-window.mjs';
 import { canonicalJson as canonicalRecordContent } from '../lib/canonical-json-digest.mjs';
+import { listLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
 
 export const SOURCE_LOOPS = Object.freeze([
   ['L0', 'loop-l0-data-truth.yml', 'loop-l0-data-truth'],
@@ -115,16 +118,17 @@ function jsonlRecords(file) {
 }
 
 function recordsById(ledgerDir, fileName) {
-  const file = path.join(path.resolve(ledgerDir), fileName);
   const records = new Map();
-  for (const record of jsonlRecords(file)) {
-    const recordId = String(record?.recordId || '');
-    if (!recordId) continue;
-    const previous = records.get(recordId);
-    if (previous && canonicalRecordContent(previous) !== canonicalRecordContent(record)) {
-      throw new Error(`canonical ${fileName} contains conflicting duplicate ${recordId}`);
+  for (const file of listLoopFleetLedgerFiles(ledgerDir, fileName)) {
+    for (const record of jsonlRecords(file)) {
+      const recordId = String(record?.recordId || '');
+      if (!recordId) continue;
+      const previous = records.get(recordId);
+      if (previous && canonicalRecordContent(previous) !== canonicalRecordContent(record)) {
+        throw new Error(`ledger ${path.basename(file)} contains conflicting duplicate ${recordId}`);
+      }
+      records.set(recordId, record);
     }
-    records.set(recordId, record);
   }
   return records;
 }
@@ -249,14 +253,21 @@ export function hasActiveBridgeRun(runs) {
     .has(String(run?.status || '')));
 }
 
+// 90 giorni: e' la retention degli artifact di prova dei loop, oltre la quale
+// `downloadEvidence` non avrebbe comunque nulla da scaricare, e copre le 12
+// run di default anche dei loop settimanali. La finestra `created` evita
+// l'elenco fermo che l'API puo' restituire per `branch`
+// (scripts/ci/lib/run-listing-window.mjs).
+const SOURCE_RUN_WINDOW_DAYS = 90;
+
 function runList(definition, limit) {
   const raw = gh([
     'run', 'list', '--workflow', definition.workflowFile, '--branch', 'main',
-    '--status', 'completed', '--limit', String(limit),
+    '--status', 'completed', '--created', createdSinceFilter(SOURCE_RUN_WINDOW_DAYS), '--limit', String(limit),
     '--json', 'databaseId,status,conclusion,headBranch,headSha,event,createdAt,updatedAt',
   ], { allowFailure: true });
   const runs = parseJson(raw, []);
-  return Array.isArray(runs) ? runs : [];
+  return newestFirst(runs);
 }
 
 function downloadEvidence(definition, run, root) {
@@ -365,7 +376,7 @@ function main({ argv = process.argv.slice(2), logger = console } = {}) {
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

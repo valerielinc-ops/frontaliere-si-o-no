@@ -5,6 +5,31 @@
 /* Dark mode color-scheme — fixes native scrollbars, inputs, form controls */
 html.dark { color-scheme: dark; }
 
+/* Leaflet ships its controls with an opaque light palette. Keep the map
+   chrome aligned with the page when the library stylesheet is injected after
+   this entry sheet. */
+html.dark .leaflet-bar a,
+html.dark .leaflet-control-layers,
+html.dark .leaflet-control-attribution,
+html.dark .leaflet-control-scale-line,
+html.dark .leaflet-popup-content-wrapper,
+html.dark .leaflet-popup-tip,
+html.dark .leaflet-tooltip {
+  background-color: var(--_surface);
+  color: var(--_heading);
+  border-color: var(--_edge);
+}
+html.dark .leaflet-bar a:hover,
+html.dark .leaflet-bar a:focus,
+html.dark .leaflet-bar a.leaflet-disabled {
+  background-color: var(--_surface-raised);
+  color: var(--_muted);
+}
+html.dark .leaflet-control-attribution a,
+html.dark .leaflet-container a {
+  color: var(--_link);
+}
+
 /* ── Semantic Design Tokens ──
    Intermediate vars (--_*) hold mode-specific values.
    @theme references them so Tailwind generates utilities:
@@ -105,7 +130,7 @@ html.dark {
   --_strong: #e2e8f0;        /* slate-200 */
   --_heading: #f1f5f9;       /* slate-100 */
   --_edge: #334155;          /* slate-700 */
-  --_link: #7a5af8;          /* stripe-purple-light */
+  --_link: #a78bfa;          /* stripe-purple-light — AA text/link */
   --_accent: #7a5af8;        /* stripe-purple-light */
   --_accent-hover: #9b8afb;  /* stripe-purple-lighter */
   --_success: #34d399;
@@ -169,6 +194,13 @@ html.dark {
   --_chart-area: rgba(167, 139, 250, 0.25);
   --_chart-dot: #e2e8f0;
   --_chart-label: #94a3b8;
+}
+
+/* Text accents need the lighter dark-mode tone for WCAG AA. Solid accent
+   backgrounds keep using --_accent, so buttons do not lose their contrast. */
+html.dark .text-link,
+html.dark .text-accent {
+  color: var(--_link);
 }
 
 /* Hero gradient — decorative radial glow using semantic info + surface tokens */
@@ -246,6 +278,64 @@ main:not(.seo-static-content):not(.cluster-seo-prose) { display: block !importan
 @media (min-width: 1800px) {
   main:not(.seo-static-content):not(.cluster-seo-prose) { max-width: calc(100vw - 420px) !important; }
 }
+
+/* Static reading-page rails: the 160px tier fits beside the 1120px content
+   container on ordinary desktop widths; the existing xlw utilities take over
+   with 300px rails at 1400px. */
+.ft-static-rail-stack,
+.ft-static-rail-panel { display: none; }
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .ft-rail-grid {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr) 160px;
+    gap: 1rem;
+    margin-inline: auto;
+    max-width: 1768px;
+  }
+  .ft-rail-grid > .ft-rail-aside {
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+  }
+  /* Job-board static fallbacks use the SPA's x-tier contract. At 1200–1279
+     the SPA wrapper is still a single column (its `xl:` grid starts at 1280),
+     so do not let the legacy `.ft-rail-grid` rule create 160px gutters. */
+  .ft-rail-grid.ft-rail-grid-x {
+    display: block;
+    max-width: 2400px;
+    margin-inline: auto;
+  }
+  .ft-rail-grid.ft-rail-grid-x > .ft-rail-aside-x { display: none; }
+}
+@media (min-width: 1280px) and (max-width: 1399.98px) {
+  .ft-rail-grid.ft-rail-grid-x {
+    display: grid;
+    grid-template-columns: var(--ft-rail-w-m-l, 180px) minmax(0, 1fr) var(--ft-rail-w-m-r, 180px);
+    gap: 1rem;
+    max-width: 2400px;
+    margin-inline: auto;
+  }
+  .ft-rail-grid.ft-rail-grid-x > .ft-rail-aside-x { display: block; }
+}
+@media (min-width: 1400px) {
+  .ft-rail-grid.ft-rail-grid-x {
+    display: grid;
+    grid-template-columns: var(--ft-rail-w-l, 300px) minmax(0, 1fr) var(--ft-rail-w-r, 300px);
+    gap: 1rem;
+    max-width: 2400px;
+    margin-inline: auto;
+  }
+  .ft-rail-grid.ft-rail-grid-x > .ft-rail-aside-x { display: flex; }
+}
+@media (min-width: 1200px) {
+  .ft-static-rail-stack {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .ft-static-rail-panel { display: block; }
+}
 /* Inside the SPA rail grid the side tracks already reserve the rail width, so
    the viewport-based cap above would double-reserve — leaving blank margins
    when a rail collapses (unfilled) and the track frees its space. Let main fill
@@ -264,6 +354,705 @@ main.seo-static-content {
   margin-inline: auto;
   padding-inline: clamp(16px, 4vw, 32px);
   box-sizing: border-box;
+}
+
+/* Canton article-section hubs — an editorial/data surface with a clear
+   reading spine, restrained cards and explicit ad boundaries. The renderer
+   keeps the stable `s-*` classes used by the static SEO sheet; these scoped
+   hooks are the visual layer for the corpus-owned canton pages. */
+.cth-page {
+  min-width: 0;
+  padding-block: clamp(8px, 1vw, 16px) 56px;
+}
+.cth-page .s-AxRVCF {
+  margin: 0 0 20px;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+}
+.cth-page .s-AxRVCF a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+.cth-page .s-AxRVCF a:hover { text-decoration: underline; }
+.cth-page .cth-hero {
+  margin: 0;
+  padding: clamp(24px, 4vw, 48px) clamp(20px, 4vw, 52px);
+  border: 1px solid var(--color-edge);
+  border-radius: var(--radius-stripe);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-stripe-sm);
+}
+.cth-page .cth-hero .s-e3gkVi {
+  max-width: 18ch;
+  margin: 0 0 14px;
+  color: var(--color-heading);
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+.cth-page .cth-hero p {
+  max-width: 68ch;
+  margin: 0;
+  color: var(--color-body);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.cth-page .cth-hero .s-OPPwy- {
+  max-width: 58ch;
+  color: var(--color-strong);
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+  line-height: 1.55;
+}
+.cth-page .cth-hero .s-Sn0UIv {
+  margin-top: 18px;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+.cth-page .cth-section {
+  margin: 0;
+  padding-block: clamp(24px, 4vw, 40px);
+  border-top: 1px solid var(--color-edge);
+}
+.cth-page .cth-section-title {
+  margin: 0 0 16px;
+  color: var(--color-heading);
+  font-size: clamp(1.25rem, 2.3vw, 1.75rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.cth-page .cth-section-intro {
+  max-width: 70ch;
+  margin: -4px 0 18px;
+  color: var(--color-subtle);
+  line-height: 1.65;
+}
+.cth-page .cth-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: clamp(22px, 3vw, 32px) 0;
+  background: transparent;
+}
+.cth-page .cth-fact {
+  min-width: 0;
+  margin: 0;
+  padding: 18px;
+  border: 1px solid var(--color-edge);
+  border-radius: var(--radius-stripe);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-stripe-sm);
+}
+.cth-page .cth-fact .s-tlbl {
+  color: var(--color-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+.cth-page .cth-fact .s-tval {
+  margin: 8px 0;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+.cth-page .cth-fact a,
+.cth-page .cth-data-list a,
+.cth-page .cth-topic-list a,
+.cth-page .cth-archive-link a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+.cth-page .cth-fact a:hover,
+.cth-page .cth-data-list a:hover,
+.cth-page .cth-topic-list a:hover,
+.cth-page .cth-archive-link a:hover { text-decoration: underline; }
+.cth-page .cth-topic-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cth-page .cth-topic-list li { min-width: 0; }
+.cth-page .cth-topic-list a {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border: 1px solid var(--color-edge);
+  border-radius: var(--radius-stripe);
+  background: var(--color-surface);
+  color: var(--color-strong);
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+.cth-page .cth-topic-list a::after {
+  content: '→';
+  color: var(--color-accent);
+  font-weight: 700;
+}
+.cth-page .cth-topic-list a:hover {
+  border-color: var(--color-accent-border);
+  background: var(--color-accent-subtle);
+}
+.cth-page .cth-data-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-body);
+  line-height: 1.6;
+}
+.cth-page .cth-data-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-edge);
+}
+.cth-page .cth-data-list li:first-child { border-top: 1px solid var(--color-edge); }
+.cth-page .cth-data-list li:last-child { border-bottom: 0; }
+.cth-page .cth-data-list strong { color: var(--color-heading); }
+.cth-page .cth-article-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cth-page .cth-article-list > li {
+  margin: 0;
+  border: 1px solid var(--color-edge);
+  border-radius: var(--radius-stripe);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-stripe-sm);
+}
+.cth-page .cth-article-list a {
+  display: block;
+  padding: 16px 18px;
+  color: inherit;
+  text-decoration: none;
+}
+.cth-page .cth-article-list a:hover { background: var(--color-accent-subtle); }
+.cth-page .cth-article-list .s-lkdl0F {
+  display: block;
+  color: var(--color-heading);
+  font-weight: 700;
+  line-height: 1.35;
+}
+.cth-page .cth-article-list .s-hNvHD_ {
+  display: block;
+  margin-top: 6px;
+  color: var(--color-subtle);
+  line-height: 1.55;
+}
+.cth-page .cth-tools { padding-bottom: 28px; }
+.cth-page .cth-topic-nav {
+  margin-top: 8px;
+  padding: 22px;
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-stripe);
+  background: var(--color-accent-subtle);
+}
+.cth-page .cth-topic-nav .cth-section-title { margin-bottom: 12px; }
+.cth-page .cth-archive-link {
+  margin: 0;
+  padding-block: 8px 28px;
+  color: var(--color-link);
+  font-weight: 700;
+}
+.cth-page .cth-ad {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 14px 0;
+  border-block: 1px solid var(--color-edge);
+  color: var(--color-muted);
+}
+.cth-page .cth-ad-label {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.cth-page .cth-ad ins.adsbygoogle {
+  display: block;
+  width: 100%;
+  max-width: 64rem;
+}
+.cth-page .cth-ad-top { margin-block: 16px 4px; }
+.cth-page .cth-ad-bottom { margin-top: 12px; }
+@media (max-width: 639px) {
+  .cth-page .cth-hero { padding: 24px 18px; }
+  .cth-page .cth-hero .s-e3gkVi { max-width: none; }
+  .cth-page .cth-topic-nav { padding: 18px; }
+}
+
+/* Canton topic hubs — second-pass editorial art direction. The static
+   snapshot and the hydrated React surface share these hooks so the handoff
+   never changes the visual language. The page reads like a compact magazine
+   cover opening into a live service dashboard: one dark, asymmetric thesis;
+   then a deliberate rhythm of signal, lists, tools and ad pauses. */
+.cth-page {
+  padding-block: 12px 72px;
+}
+.cth-page .cth-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, .38fr);
+  gap: clamp(24px, 5vw, 72px);
+  overflow: hidden;
+  margin: 0;
+  padding: clamp(30px, 5vw, 64px);
+  border: 0;
+  border-inline-start: 0;
+  border-radius: 20px;
+  background: var(--color-surface-inverted);
+  box-shadow: 0 24px 54px color-mix(in srgb, var(--color-heading) 18%, transparent);
+  isolation: isolate;
+}
+.cth-page .cth-hero::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 18px;
+  border: 1px solid color-mix(in srgb, var(--color-on-accent) 13%, transparent);
+  border-radius: 14px;
+  pointer-events: none;
+}
+.cth-page .cth-hero::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -16%;
+  right: 26%;
+  width: 1px;
+  height: 132%;
+  background: color-mix(in srgb, var(--color-accent) 70%, transparent);
+  transform: rotate(24deg);
+  transform-origin: center;
+  pointer-events: none;
+}
+.cth-page .cth-hero-copy { min-width: 0; }
+.cth-page .cth-hero .s-e3gkVi {
+  max-width: 12ch;
+  margin: 0 0 20px;
+  color: var(--color-on-accent);
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+  font-weight: 500;
+  line-height: .96;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+}
+.cth-page .cth-hero p {
+  max-width: 66ch;
+  color: color-mix(in srgb, var(--color-on-accent) 74%, transparent);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.cth-page .cth-hero .s-OPPwy- {
+  max-width: 58ch;
+  color: var(--color-on-accent);
+  font-size: clamp(1.08rem, 2vw, 1.35rem);
+  line-height: 1.52;
+}
+.cth-page .cth-hero .cth-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: baseline;
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px solid color-mix(in srgb, var(--color-on-accent) 18%, transparent);
+  color: color-mix(in srgb, var(--color-on-accent) 68%, transparent);
+  font-size: .8rem;
+}
+.cth-page .cth-hero-index {
+  align-self: end;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid color-mix(in srgb, var(--color-on-accent) 18%, transparent);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--color-accent) 13%, var(--color-surface-inverted));
+}
+.cth-page .cth-hero-index h2 {
+  margin: 0 0 14px;
+  color: var(--color-on-accent);
+  font-family: var(--font-display);
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.cth-page .cth-hero-index ul {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cth-page .cth-hero-index li { border-top: 1px solid color-mix(in srgb, var(--color-on-accent) 14%, transparent); }
+.cth-page .cth-hero-index a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 42px;
+  color: color-mix(in srgb, var(--color-on-accent) 84%, transparent);
+  font-size: .86rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.cth-page .cth-hero-index a:hover { color: var(--color-on-accent); }
+.cth-page .cth-hero-index a span { color: var(--color-accent); font-size: 1rem; }
+
+.cth-page .cth-ad {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  padding: 22px 0;
+  border: 0;
+  border-block: 1px solid var(--color-edge);
+  background: transparent;
+}
+.cth-page .cth-ad-label {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.cth-page .cth-ad ins.adsbygoogle { display: block; width: 100%; max-width: 64rem; }
+.cth-page .cth-ad-placeholder { width: 100%; max-width: 38rem; }
+.cth-page .cth-ad-slot { width: 100%; }
+.cth-page .cth-ad-top { margin-block: 20px 4px; padding-block: 18px; }
+.cth-page .cth-ad-inline {
+  max-width: 44rem;
+  margin: clamp(18px, 3vw, 30px) auto;
+  padding-block: 24px;
+}
+.cth-page .cth-ad-inline ins.adsbygoogle { max-width: 38rem; }
+.cth-page .cth-ad-bottom { margin-top: 22px; padding-block: 24px; }
+
+.cth-page .cth-section { padding-block: clamp(30px, 4vw, 52px); border-top: 0; }
+.cth-page .cth-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-edge);
+}
+.cth-page .cth-section-title {
+  margin: 0;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.8vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+.cth-page .cth-section-marker {
+  width: 42px;
+  height: 4px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--color-accent);
+}
+.cth-page .cth-section-intro { max-width: 70ch; margin: 0 0 18px; color: var(--color-subtle); line-height: 1.7; }
+.cth-page .cth-source-line { color: var(--color-muted); font-size: .78rem; line-height: 1.5; }
+.cth-page .cth-facts {
+  display: block;
+  margin: 0;
+  padding: clamp(28px, 4vw, 48px) 0 20px;
+  background: transparent;
+}
+.cth-page .cth-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--color-edge);
+  border-radius: 16px;
+  background: var(--color-edge);
+}
+.cth-page .cth-fact {
+  grid-column: span 4;
+  min-width: 0;
+  margin: 0;
+  padding: 22px;
+  border: 0;
+  border-radius: 0;
+  background: var(--color-surface);
+  box-shadow: none;
+}
+.cth-page .cth-fact-featured {
+  grid-column: span 6;
+  background: var(--color-surface-inverted);
+}
+.cth-page .cth-fact .cth-fact-label,
+.cth-page .cth-fact .cth-fact-note,
+.cth-page .cth-fact .cth-fact-source { color: var(--color-muted); font-size: .75rem; line-height: 1.4; }
+.cth-page .cth-fact-featured .cth-fact-label,
+.cth-page .cth-fact-featured .cth-fact-note,
+.cth-page .cth-fact-featured .cth-fact-source { color: color-mix(in srgb, var(--color-on-accent) 68%, transparent); }
+.cth-page .cth-fact .s-tval {
+  margin: 10px 0 8px;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.045em;
+  overflow-wrap: anywhere;
+}
+.cth-page .cth-fact-featured .s-tval { color: var(--color-on-accent); font-size: clamp(1.8rem, 4vw, 3.6rem); }
+.cth-page .cth-fact a,
+.cth-page .cth-data-list a,
+.cth-page .cth-topic-list a,
+.cth-page .cth-archive-link a { color: var(--color-link); text-decoration: none; }
+.cth-page .cth-fact-featured a { color: color-mix(in srgb, var(--color-on-accent) 88%, transparent); }
+.cth-page .cth-fact a:hover,
+.cth-page .cth-data-list a:hover,
+.cth-page .cth-topic-list a:hover,
+.cth-page .cth-archive-link a:hover { text-decoration: underline; }
+
+.cth-page .cth-data-list { display: block; margin: 0; padding: 0; list-style: none; color: var(--color-body); line-height: 1.6; }
+.cth-page .cth-data-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 15px 0;
+  border-top: 1px solid var(--color-edge);
+}
+.cth-page .cth-data-list li:last-child { border-bottom: 1px solid var(--color-edge); }
+.cth-page .cth-data-list time { color: var(--color-muted); font-size: .78rem; white-space: nowrap; }
+.cth-page .cth-data-list strong { color: var(--color-heading); font-weight: 650; }
+.cth-page .cth-article-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.cth-page .cth-article-list > li { margin: 0; border: 0; border-top: 1px solid var(--color-edge); border-radius: 0; background: transparent; box-shadow: none; }
+.cth-page .cth-article-list > li:last-child { border-bottom: 1px solid var(--color-edge); }
+.cth-page .cth-article-list a { display: grid; gap: 7px; padding: 18px 0; color: inherit; text-decoration: none; }
+.cth-page .cth-article-list a:hover { background: transparent; }
+.cth-page .cth-article-list .s-lkdl0F { display: block; color: var(--color-heading); font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; line-height: 1.35; }
+.cth-page .cth-article-list .s-hNvHD_ { display: block; margin-top: 0; color: var(--color-subtle); line-height: 1.55; }
+.cth-page .cth-tools { padding-bottom: 30px; }
+.cth-page .cth-topic-nav {
+  margin-top: 18px;
+  padding: 24px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--color-accent-subtle);
+}
+.cth-page .cth-topic-nav .cth-section-title { margin-bottom: 12px; }
+.cth-page .cth-topic-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; margin: 0; padding: 0; list-style: none; }
+.cth-page .cth-topic-list li { min-width: 0; border-top: 1px solid var(--color-accent-border); }
+.cth-page .cth-topic-list a {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-strong);
+  font-weight: 700;
+  text-decoration: none;
+}
+.cth-page .cth-topic-list a::after { content: '↗'; color: var(--color-accent); font-weight: 700; }
+.cth-page .cth-topic-list a:hover { border: 0; background: transparent; color: var(--color-link); }
+
+/* Hydrated topic hubs own the same rail contract as the reference station
+   page. The static snapshot uses the shared body rail grid; this wrapper is
+   only visible after the runtime payload takes over. */
+.cth-react-rail-grid {
+  display: grid;
+  grid-template-columns: 0 minmax(0, 1fr) 0;
+  gap: 0;
+  width: 100%;
+  max-width: 1768px;
+  margin-inline: auto;
+}
+.cth-react-rail-grid .cth-react-rail { display: none; min-width: 0; }
+.cth-react-rail-grid .cth-react-center { min-width: 0; }
+@media (min-width: 1200px) {
+  .cth-react-rail-grid { grid-template-columns: var(--cth-rail-left, 160px) minmax(0, 1fr) var(--cth-rail-right, 160px); gap: 16px; }
+  .cth-react-rail-grid .cth-react-rail { display: flex; min-height: 600px; flex-direction: column; }
+}
+@media (min-width: 1400px) {
+  .cth-react-rail-grid { grid-template-columns: var(--cth-rail-left, 300px) minmax(0, 1fr) var(--cth-rail-right, 300px); }
+}
+@media (max-width: 800px) {
+  .cth-page .cth-hero { grid-template-columns: 1fr; gap: 28px; padding: 30px 22px; }
+  .cth-page .cth-hero .s-e3gkVi { max-width: none; font-size: clamp(2.35rem, 13vw, 4rem); }
+  .cth-page .cth-facts-grid { grid-template-columns: 1fr; }
+  .cth-page .cth-fact,
+  .cth-page .cth-fact-featured { grid-column: auto; }
+  .cth-page .cth-topic-list { grid-template-columns: 1fr; }
+}
+
+/* The bare job-board hub has no SPA sub-navigation. Match the static rail
+   shell to #main-content's padding so the first grid row keeps its position
+   when the fallback is adopted into the React shell. */
+.job-board-static-top-stack {
+  margin-top: 16px;
+}
+.job-board-top-banner-reserve {
+  display: none;
+}
+.job-board-static-rail-shell {
+  margin-top: 0;
+  padding-inline: 12px;
+  box-sizing: border-box;
+}
+main.seo-static-content.job-board-static-hub {
+  display: block;
+  max-width: 2400px;
+  margin-inline: auto;
+  width: 100%;
+  padding: 0 0 56px;
+}
+@media (min-width: 1024px) {
+  .job-board-static-top-stack {
+    margin-top: 32px;
+  }
+  .job-board-top-banner-reserve {
+    display: block;
+    min-height: 100px;
+  }
+  .job-board-static-rail-shell {
+    margin-top: 1.5rem;
+    width: calc(100% - 32px);
+    padding-inline: 0;
+  }
+}
+
+/* Active job pages are SPA-owned after hydration. Keep their crawler fallback
+   on the same width, padding and centre grid as `#main-content` so the static
+   frame does not reflow when the detail view takes over. */
+main.seo-static-content.static-job-page {
+  display: block;
+  max-width: 2400px;
+  margin-inline: auto;
+  width: 100%;
+  padding: 16px 12px 56px;
+}
+.job-detail-top-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 44px;
+  margin-bottom: 1.5rem;
+}
+.job-detail-top-row .bn { margin: 0; width: auto; }
+.job-detail-top-banner-reserve { display: none; }
+.static-job-rail-center { min-width: 0; width: 100%; }
+.static-job-inner-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 1024px) {
+  main.seo-static-content.static-job-page { padding: 32px 16px 56px; }
+  .job-detail-top-banner-reserve {
+    display: block;
+    flex: 1 1 0%;
+    min-width: 0;
+    min-height: 100px;
+  }
+  .static-job-inner-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .static-job-inner-grid > .proposal { grid-column: span 8 / span 8; }
+  .static-job-inner-grid > .job-detail-rail { grid-column: span 4 / span 4; }
+}
+
+/* Plate-auction static pages: keep the data table usable on narrow screens
+   and make the primary navigation comfortably tappable. The same rules are
+   mirrored in seo-static.css because static SEO shells load that sheet during
+   first paint. */
+.plate-auction-static .plate-auction-static-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 20px;
+}
+.plate-auction-static .plate-auction-static-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-edge);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-link);
+  font-weight: 700;
+  text-decoration: none;
+}
+.plate-auction-static .plate-auction-static-nav a:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-subtle);
+}
+.plate-auction-static .plate-auction-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-edge);
+  border-radius: 14px;
+  background: var(--color-surface);
+  margin: 12px 0 24px;
+}
+.plate-auction-static .plate-auction-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.plate-auction-static .plate-auction-table th,
+.plate-auction-static .plate-auction-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-edge);
+  text-align: left;
+  white-space: nowrap;
+}
+.plate-auction-static .plate-auction-table th {
+  background: var(--color-surface-alt);
+  color: var(--color-subtle);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.plate-auction-static .plate-auction-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+@media (max-width: 639px) {
+  .plate-auction-static .plate-auction-static-nav a {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .plate-auction-static .plate-auction-table-wrap {
+    margin-top: 10px;
+  }
 }
 
 /* Static SEO card hover state (used by seoContentTokens renderers) */
@@ -331,176 +1120,441 @@ a.seo-entity-card:focus-visible {
    of that block: pages without it have nothing to protect and must keep their
    static content flowing right below the 57px header. `:has()` matches from
    the initial prerendered HTML (the block is a static sibling), so the gate is
-   live before JS and the homepage flash protection is preserved. */
+   live before JS and the homepage flash protection is preserved.
+
+   SECOND EXCLUSION (#8868) — SPA-takeover job board. `/cerca-lavoro-ticino/`
+   (and its locale twins) DOES emit a footer block (`aside#jb-seo-block`), but
+   its prerendered content is NOT inside #root: #root holds only the 80px
+   `.ft-hdr-reserve`, and the crawler fallback is a body-level
+   `.ft-rail-grid > main.seo-static-content` after it. The footer block is the
+   LAST thing in a ~150KB document, so on a slow connection the browser paints
+   the static listing first and only then parses the aside: the `:has()` gate
+   flips on mid-load, #root jumps from 80px to 100vh and pushes the whole
+   visible listing (plus the static sub-nav) below the fold — a single
+   layout-shift of 0.58 (desktop, Playwright attribution against production,
+   4x CPU / 1.6 Mbps, 2026-09-24). Such pages have nothing inside #root to
+   protect: index.tsx moves the fallback INTO #root and reserves its real
+   height inline before createRoot().render(). So the reservation stays off
+   while a static fallback still sits outside #root. */
 #root {
   display: flow-root;
 }
-body:has(.seo-footer-block) #root {
+body:has(.seo-footer-block):not(:has(
+  > .ft-rail-grid > main.seo-static-content,
+  > .ft-rail-grid > main.cluster-seo-prose,
+  > main.seo-static-content,
+  > main.cluster-seo-prose
+)) #root {
   min-height: 100vh;
 }
 
-/* ── Footer SEO content blocks (homepage / calculator / job-board) ──────────
-   Substantive prerendered content injected as sibling of #root so React
-   hydration leaves it untouched. Sits below the footer; presented as a
-   minimal collapsible "Approfondimenti" panel via native <details>/<summary>
-   so the visual footprint stays small while the content remains fully
-   indexable by search engines. Colors use design-token CSS vars so the
-   block auto-adapts to dark mode. */
-aside.seo-footer-block {
-  max-width: 1100px;
-  margin: 24px auto 56px;
-  padding: 0 20px;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  color: var(--color-body);
-  line-height: 1.65;
+/* ── Pre-footer statico (home / calcolatore / job-board) ────────────────────
+   Due famiglie di blocchi che il build emette DOPO #root, fuori dalla
+   riconciliazione React, perche' restino leggibili senza JavaScript:
+     · i rail di discovery (`.homepage-discovery`, `.hp-discovery-block`,
+       `.homepage-locale-main-nav`): la directory di link interni;
+     · il pannello SEO (`aside.seo-footer-block`): prosa lunga a scomparsa.
+   `StaticPrefooterSlot` li adotta sopra il footer; senza JavaScript restano
+   dove nascono, in coda al documento, con gli stessi stili.
+
+   Queste regole vivono QUI e non in `public/assets/seo-static.css`: la home e'
+   l'`index.html` di Vite e carica soltanto questo foglio. Finche' i rail erano
+   stilati la' uscivano con i default del browser (misurato in produzione il
+   2026-10-07: `display: inline` su ogni link). Ogni pagina statica carica
+   comunque anche questo foglio, quindi una sola copia basta per tutte.
+
+   Solo token semantici: il blocco segue da solo il tema scuro. */
+.static-prefooter {
+  background: var(--color-surface);
   border-top: 1px solid var(--color-edge);
-  padding-top: 24px;
+}
+
+.homepage-discovery,
+aside.seo-footer-block,
+body > .hp-discovery-block,
+.static-prefooter > .hp-discovery-block,
+.homepage-locale-main-nav {
+  box-sizing: border-box;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-inline: 16px;
+  color: var(--color-body);
+  font-family: inherit;
+}
+
+/* ── Rail di discovery: una directory a colonne, non una nuvola di pill ── */
+.homepage-discovery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px clamp(32px, 5vw, 72px);
+  padding-block: clamp(40px, 6vw, 64px) 32px;
+}
+.homepage-discovery > .hp-discovery-block {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.homepage-discovery > .hp-discovery-block--guides {
+  flex: 2.4 1 440px;
+}
+body > .hp-discovery-block,
+.static-prefooter > .hp-discovery-block {
+  padding-block: 40px 32px;
+}
+.hp-discovery-heading {
+  margin: 0 0 8px;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.hp-discovery-links,
+.hp-cross-hub-links,
+.hp-canton-links,
+.homepage-locale-main-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  column-gap: 24px;
+}
+.hp-discovery-block--guides .hp-discovery-links {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  column-gap: 32px;
+}
+.hp-canton-links {
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  column-gap: 16px;
+  padding-bottom: 8px;
+}
+.homepage-locale-main-nav {
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  padding-block: 24px 40px;
+}
+.hp-discovery-pill,
+.hp-cross-hub-link,
+.hp-canton-link {
+  display: flex;
+  align-items: flex-start;
+  min-height: 44px;
+  padding: 12px 0;
+  color: var(--color-body);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  text-decoration: underline transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1), text-decoration-color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hp-discovery-pill--nav {
+  font-weight: 500;
+}
+.hp-discovery-pill:hover,
+.hp-cross-hub-link:hover,
+.hp-canton-link:hover {
+  color: var(--color-link);
+  text-decoration-color: currentColor;
+}
+.hp-language-option:focus-visible,
+.hp-discovery-pill:focus-visible,
+.hp-cross-hub-link:focus-visible,
+.hp-canton-link:focus-visible,
+.hp-canton-summary:focus-visible,
+aside.seo-footer-block summary:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Cantoni: 25 link, chiusi di default perche' la colonna resti corta. */
+.hp-canton-details {
+  margin-top: 8px;
+  border-top: 1px solid var(--color-edge);
+}
+.hp-canton-summary,
+aside.seo-footer-block summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--color-heading);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.hp-canton-summary::-webkit-details-marker,
+aside.seo-footer-block summary::-webkit-details-marker {
+  display: none;
+}
+.hp-canton-summary {
+  min-height: 48px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.hp-canton-summary::after,
+aside.seo-footer-block summary::after {
+  content: "";
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  border-right: 1.5px solid var(--color-subtle);
+  border-bottom: 1.5px solid var(--color-subtle);
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.18s ease-out;
+}
+.hp-canton-details[open] > .hp-canton-summary::after,
+aside.seo-footer-block details[open] > summary::after {
+  border-color: var(--color-accent);
+  transform: translateY(2px) rotate(225deg);
+}
+.hp-canton-summary:hover,
+aside.seo-footer-block summary:hover {
+  color: var(--color-link);
+}
+
+/* Lingue: ultima riga della directory, dove un visitatore le cerca. */
+.homepage-language-switch {
+  display: flex;
+  flex: 1 0 100%;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  order: 9;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-edge);
+}
+.hp-language-option {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  color: var(--color-subtle);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background-color 0.18s ease-out, color 0.18s ease-out;
+}
+.hp-language-option:first-child {
+  margin-left: -12px;
+}
+.hp-language-option:hover {
+  background: var(--color-accent-subtle);
+  color: var(--color-link);
+}
+.hp-language-option--current {
+  color: var(--color-heading);
+  font-weight: 600;
+}
+
+/* ── Pannello SEO: titolo e intro a sinistra, sezioni a scomparsa a destra ── */
+aside.seo-footer-block {
+  padding-block: 0 clamp(40px, 6vw, 64px);
+  line-height: 1.7;
+}
+/* Il filetto di separazione e' un elemento a se', cosi' resta allineato al
+   testo invece di sporgere nel padding laterale del contenitore. */
+aside.seo-footer-block::before {
+  content: "";
+  display: block;
+  grid-column: 1 / -1;
+  margin-bottom: clamp(40px, 6vw, 72px);
+  border-top: 1px solid var(--color-edge);
 }
 aside.seo-footer-block .seo-fb-title {
-  font-size: 18px;
-  font-weight: 700;
+  max-width: 18ch;
+  margin: 0 0 16px;
   color: var(--color-heading);
-  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 2.6vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  text-wrap: balance;
 }
 aside.seo-footer-block .seo-fb-intro {
-  font-size: 14px;
-  color: var(--color-subtle);
-  margin: 0 0 16px;
-  max-width: 70ch;
+  max-width: 68ch;
+  margin: 0 0 24px;
+  color: var(--color-body);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+/* Auto Ads puo' inserire un annuncio come figlio diretto del pannello: gli si
+   riserva l'intera riga, cosi' non rompe la griglia a due colonne. */
+aside.seo-footer-block > .google-auto-placed {
+  grid-column: 1 / -1;
+  max-width: 100%;
+  margin: 0 0 24px !important;
 }
 aside.seo-footer-block details {
   border-top: 1px solid var(--color-edge);
 }
-aside.seo-footer-block details:first-of-type {
-  border-top: none;
+aside.seo-footer-block .seo-fb-sections > details:last-of-type,
+aside.seo-footer-block > details:last-of-type {
+  border-bottom: 1px solid var(--color-edge);
 }
 aside.seo-footer-block summary {
-  cursor: pointer;
-  font-size: 15px;
+  min-height: 60px;
+  padding: 12px 0;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--color-heading);
-  list-style: none;
-  padding: 12px 32px 12px 0;
-  position: relative;
-  user-select: none;
-}
-aside.seo-footer-block summary::-webkit-details-marker { display: none; }
-aside.seo-footer-block summary::after {
-  content: "+";
-  position: absolute;
-  right: 4px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--color-subtle);
-}
-aside.seo-footer-block details[open] summary::after { content: "−"; }
-aside.seo-footer-block summary:hover { color: var(--color-link); }
-aside.seo-footer-block summary:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-  border-radius: 4px;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
 }
 aside.seo-footer-block .seo-fb-section-body {
-  padding: 4px 0 18px;
-  color: var(--color-body);
+  max-width: 68ch;
+  padding: 4px 0 28px;
+}
+aside.seo-footer-block details[open] > .seo-fb-section-body {
+  animation: seo-fb-reveal 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes seo-fb-reveal {
+  from {
+    opacity: 0.4;
+    transform: translateY(-6px);
+  }
 }
 aside.seo-footer-block .seo-fb-section-body p {
-  margin: 0 0 12px;
-  font-size: 14px;
-  line-height: 1.65;
+  margin: 0 0 14px;
   color: var(--color-body);
+  font-size: 0.9375rem;
+  line-height: 1.7;
 }
-aside.seo-footer-block .seo-fb-section-body p:last-child { margin-bottom: 0; }
+aside.seo-footer-block .seo-fb-section-body p:last-child {
+  margin-bottom: 0;
+}
+/* I quattro strumenti: un elenco a due colonne, niente riquadri dentro una
+   sezione che e' gia' un contenitore. */
 aside.seo-footer-block .seo-fb-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
-  margin: 0 0 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 32px;
+  margin: 0;
 }
 aside.seo-footer-block .seo-fb-card {
-  background: var(--color-surface-alt);
-  border: 1px solid var(--color-edge);
-  border-radius: 12px;
-  padding: 14px;
+  min-width: 0;
 }
 aside.seo-footer-block .seo-fb-card h3 {
-  font-size: 14px;
-  font-weight: 700;
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   color: var(--color-heading);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.35;
 }
 aside.seo-footer-block .seo-fb-card p {
   margin: 0;
-  font-size: 13px;
-  color: var(--color-body);
-  line-height: 1.5;
+  color: var(--color-subtle);
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
-aside.seo-footer-block dl { margin: 0; }
+aside.seo-footer-block dl {
+  margin: 0;
+}
 aside.seo-footer-block dt {
-  font-weight: 600;
+  margin: 24px 0 6px;
   color: var(--color-heading);
-  margin: 12px 0 4px;
-  font-size: 14px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.45;
 }
-aside.seo-footer-block dt:first-child { margin-top: 0; }
+aside.seo-footer-block dt:first-child {
+  margin-top: 0;
+}
 aside.seo-footer-block dd {
-  margin: 0 0 12px;
+  margin: 0;
   color: var(--color-body);
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: 0.9375rem;
+  line-height: 1.7;
 }
 aside.seo-footer-block .seo-fb-disclaimer {
-  margin: 18px 0 0;
-  padding-top: 12px;
-  border-top: 1px solid var(--color-edge);
-  font-size: 12px;
+  max-width: 78ch;
+  margin: 32px 0 0;
   color: var(--color-subtle);
-  font-style: italic;
+  font-size: 0.8125rem;
+  font-style: normal;
+  line-height: 1.65;
 }
-/* Underline inline prose links inside the SEO footer aside.
-   Squirrel a11y/link-in-text-block flags un-underlined links that share
-   color contrast with surrounding body text. Scope is limited to <p>/<dd>
-   bodies so structural pills/CTAs elsewhere keep their pill chrome. */
+/* Link nella prosa sottolineati: Squirrel a11y/link-in-text-block segnala i
+   link distinguibili dal testo intorno solo per colore. */
 aside.seo-footer-block p a,
 aside.seo-footer-block dd a,
 aside.seo-footer-block .seo-fb-section-body a {
+  color: var(--color-link);
   text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
 }
 aside.seo-footer-block p a:hover,
 aside.seo-footer-block dd a:hover,
 aside.seo-footer-block .seo-fb-section-body a:hover {
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 0.14em;
+}
+
+/* Due colonne solo quando il markup porta i due contenitori: un artefatto
+   incrementale piu' vecchio, senza `.seo-fb-head`, resta a colonna singola. */
+@media (min-width: 900px) {
+  aside.seo-footer-block:has(> .seo-fb-head) {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+  }
+  /* Niente `position: sticky` sul titolo: Chrome lo vincola all'intero pannello
+     e non alla sua riga, quindi scorrendo finiva sopra il disclaimer (fino a
+     86px, misurato in produzione) e sopra un eventuale annuncio Auto Ads. */
+  aside.seo-footer-block > .seo-fb-head .seo-fb-intro {
+    margin-bottom: 0;
+  }
+  aside.seo-footer-block > .seo-fb-disclaimer {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Puntatore fine: righe piu' compatte. Il minimo di 44px resta la regola di
+   base, quella che vale al tocco. */
+@media (hover: hover) and (pointer: fine) {
+  .hp-discovery-pill,
+  .hp-cross-hub-link,
+  .hp-canton-link {
+    min-height: 34px;
+    padding-block: 7px;
+  }
+  .hp-language-option {
+    min-height: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .homepage-discovery {
+    gap: 28px;
+  }
+  aside.seo-footer-block .seo-fb-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-discovery-pill,
+  .hp-cross-hub-link,
+  .hp-canton-link,
+  .hp-language-option,
+  .hp-canton-summary::after,
+  aside.seo-footer-block summary::after {
+    transition: none;
+  }
+  aside.seo-footer-block details[open] > .seo-fb-section-body {
+    animation: none;
+  }
 }
 
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }
 
-/* Hide AdSense auto-ads when a high-priority modal is open.
-   AdSense overlays use z-index up to 2147483647, which covers our popups.
-   Using display:none (not just visibility:hidden) to fully remove the ads'
-   stacking context — visibility:hidden keeps the element in the stacking
-   order and its z-index still competes with the modal.
-   Toggled by adding .modal-open to <body> when newsletter/critical modals show. */
-body.modal-open ins.adsbygoogle,
-body.modal-open [id^="google_ads"],
-body.modal-open [id^="aswift_"],
-body.modal-open [id^="aswift_"] ~ *,
-body.modal-open iframe[id^="aswift_"],
-body.modal-open div[data-ad-client],
-body.modal-open div[id^="google_ads_iframe"],
-body.modal-open .adsbygoogle[data-ad-status],
-body.modal-open iframe[src*="doubleclick"],
-body.modal-open iframe[src*="googlesyndication"],
-body.modal-open div[id^="div-gpt-ad"],
-body.modal-open .google-auto-placed {
-  display: none !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
+/* Site dialogs arbitrate through popupQueue. Google anchor, in-page and
+   vignette ads retain their layout and visibility while a dialog is open. */
 
 /* ===== Auto-Ad Containment + CLS Bounding (P0.1.C / P0.1.D / #2190) ════
    Google Auto Ads inject `.google-auto-placed` divs anywhere on the page,
@@ -563,6 +1617,29 @@ body.modal-open .google-auto-placed {
   max-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Static manual AdSense slots reserve their height in the emitted HTML before
+   React exists. The static loader adds this marker only after an explicit
+   `unfilled` answer or a script failure, and only offscreen, so a real creative keeps its
+   footprint. The parent rule also removes the wrapper's margin, otherwise a
+   failed 1100px drive-by slot would leave a misleading band around the zeroed
+   <ins>. */
+ins.adsbygoogle[data-ft-static-ad-collapsed] {
+  min-height: 0 !important;
+  max-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: block !important;
+}
+:where(div, li, section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed]:only-child) {
+  height: 0 !important;
+  min-height: 0 !important;
+  margin-block: 0 !important;
+  padding-block: 0 !important;
   overflow: hidden !important;
 }
 
@@ -696,6 +1773,10 @@ input[type=number] { -moz-appearance: textfield; }
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Content-driven compact breakpoint: the article can reserve 160px ad rails
+     from 1200px without squeezing the reading column below its desktop measure. */
+  --breakpoint-xlc: 1200px;
 
   /* Extra desktop breakpoint between xl (1280) and 2xl (1536), used by the
      article side-rail layout to widen the gutters to 300px half-page ad rails.
@@ -921,10 +2002,16 @@ input[type=number] { -moz-appearance: textfield; }
   }
 }
 
+/* The cover-photo credit (.ft-image-credit, P14): <small> marks a credit line,
+   shown at the footer's own size (text-sm) rather than preflight's 80%. */
+.ft-image-credit small { font-size: inherit; }
+
 /* Print styles */
 @media print {
   body { background: white !important; }
-  header, footer, nav, aside, .print\:hidden,
+  /* The cover-photo credit (.ft-image-credit, P14) is a <footer> inside the
+     article: the cover prints, so its author and licence print with it. */
+  header, footer:not(.ft-image-credit), nav, aside, .print\:hidden,
   [aria-label="cookie"], [class*="adsense"], [class*="AdSense"],
   [class*="bottom-sheet"], [class*="SocialProof"], [class*="AdSense"],
   button:not([data-print-keep]), details, [class*="skeleton"] { display: none !important; }
@@ -1112,6 +2199,7 @@ input[type=number] { -moz-appearance: textfield; }
   .ev-img { @apply h-full w-full object-cover; }
   .ev-imgz { @apply transition-transform duration-300 group-hover:scale-105; }
   .ev-chip { @apply pointer-events-none absolute left-2 top-2 inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-surface/95; }
+  .ev-img-note { @apply pointer-events-none absolute bottom-2 left-2 max-w-[calc(100%-1rem)] rounded-md border border-edge bg-surface/95 px-2 py-1 text-xs font-semibold leading-tight text-heading; }
   .ev-t { @apply font-display text-base font-semibold leading-snug text-heading line-clamp-2; }
   .ev-a { @apply static after:absolute after:inset-0; }
   .ev-meta { @apply mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-body; }
@@ -1180,9 +2268,9 @@ input[type=number] { -moz-appearance: textfield; }
   .ev-hero-backdrop {
     position: absolute;
     inset: -1rem;
-    width: calc(100% + 2rem);
-    height: calc(100% + 2rem);
-    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     filter: blur(18px) saturate(1.12);
     opacity: .44;
     transform: scale(1.06);
@@ -1317,6 +2405,11 @@ input[type=number] { -moz-appearance: textfield; }
     letter-spacing: .1em;
     text-transform: uppercase;
   }
+  .ev-hero-image-note {
+    color: color-mix(in srgb, var(--_on-accent) 72%, transparent);
+    font-size: .6875rem;
+    line-height: 1.35;
+  }
   .ev-head {
     margin-top: clamp(1rem, 2.5vw, 2rem);
     border-radius: 1rem;
@@ -1444,12 +2537,35 @@ input[type=number] { -moz-appearance: textfield; }
    measured height of a fixed Auto Ads anchor through this custom property; the
    ad itself remains untouched and continues to serve. */
 .above-mobile-nav {
-  bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px) + var(--bottom-prompt-ad-clearance, 0px));
+  --bottom-prompt-offset: calc(4.5rem + env(safe-area-inset-bottom, 0px) + var(--bottom-prompt-ad-clearance, 0px));
+  bottom: var(--bottom-prompt-offset);
+  transition: bottom 180ms ease-out;
+}
+
+/* A tall anchor consumes real space. Keep the prompt's controls scrollable in
+   the remaining viewport instead of capping the ad measurement and overlapping
+   the creative, or moving the prompt's top beyond the viewport. */
+.above-mobile-nav[data-bottom-prompt] {
+  max-height: max(0px, calc(100dvh - var(--bottom-prompt-offset) - 1rem));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Google Auto Ads anchors are fixed to the bottom of the viewport. Keep the
+   mobile navigation in its own visible band above that anchor instead of
+   letting the creative cover its labels. App.tsx updates the custom property
+   from the same measured clearance used by bottom prompts; a missing/flow ad
+   keeps the native bottom-0 position. */
+.mobile-bottom-nav {
+  bottom: var(--mobile-nav-ad-clearance, 0px);
   transition: bottom 180ms ease-out;
 }
 @media (min-width: 768px) {
   .above-mobile-nav {
-    bottom: calc(1rem + var(--bottom-prompt-ad-clearance, 0px));
+    --bottom-prompt-offset: calc(1rem + var(--bottom-prompt-ad-clearance, 0px));
+  }
+  .mobile-bottom-nav {
+    bottom: 0;
   }
 }
 
@@ -1774,4 +2890,158 @@ main.seo-static-content .fuel-map-ssr-description {
   .fuel-map-result { min-height: 60px; padding-block: 9px; }
   .fuel-map-result-links { padding-top: 2px; }
   .fuel-map-result-links a { min-height: 44px; }
+}
+
+/* Pharmacy directory — a calm dispatch-board treatment for high-intent
+ * lookups. The surface stays inside the site's semantic token system so the
+ * same hierarchy works in dark mode and in the static SEO fallback. */
+.pharmacy-hero,
+.pharmacy-detail-hero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-accent-border);
+  border-radius: 24px;
+  background: var(--color-surface);
+  box-shadow: 0 18px 44px color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+.pharmacy-hero-inner,
+.pharmacy-detail-hero-inner { position: relative; z-index: 1; }
+.pharmacy-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border: 1px solid var(--color-accent-border);
+  border-radius: 999px;
+  background: var(--color-accent-subtle);
+  padding: 4px 10px;
+  color: var(--color-accent);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.pharmacy-stat-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid var(--color-edge);
+}
+.pharmacy-stat {
+  min-width: 9rem;
+  flex: 1 1 9rem;
+  padding: 14px 18px 16px;
+}
+.pharmacy-stat + .pharmacy-stat { border-left: 1px solid var(--color-edge); }
+.pharmacy-stat-label {
+  display: block;
+  color: var(--color-muted);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.pharmacy-stat-value {
+  display: block;
+  margin-top: 3px;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.pharmacy-search-panel,
+.pharmacy-detail-card {
+  border: 1px solid var(--color-edge);
+  border-radius: 20px;
+  background: var(--color-surface);
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--color-heading) 6%, transparent);
+}
+.pharmacy-search-panel { padding: clamp(18px, 3vw, 28px); }
+.pharmacy-directory-list { min-width: 0; }
+.pharmacy-list-item {
+  border: 1px solid var(--color-edge);
+  border-radius: 18px;
+  background: var(--color-surface);
+  padding: 18px;
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--color-heading) 4%, transparent);
+  transition: transform 170ms cubic-bezier(.16,1,.3,1), box-shadow 170ms ease, border-color 170ms ease;
+}
+.pharmacy-list-item:hover {
+  border-color: var(--color-accent-border);
+  box-shadow: 0 14px 32px color-mix(in srgb, var(--color-accent) 11%, transparent);
+  transform: translateY(-2px);
+}
+.pharmacy-list-marker {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+}
+.pharmacy-detail-hero { padding: clamp(20px, 4vw, 36px); }
+.pharmacy-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+.pharmacy-fact-grid {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--color-edge);
+  border-radius: 16px;
+  background: var(--color-edge);
+}
+.pharmacy-fact {
+  min-width: 0;
+  background: var(--color-surface);
+  padding: 14px;
+}
+.pharmacy-fact dt {
+  color: var(--color-muted);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.pharmacy-fact dd { margin-top: 4px; color: var(--color-body); overflow-wrap: anywhere; }
+.pharmacy-province-link {
+  display: flex;
+  min-height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid var(--color-edge);
+  border-radius: 18px;
+  background: var(--color-surface);
+  padding: 16px 18px;
+  transition: transform 170ms cubic-bezier(.16,1,.3,1), border-color 170ms ease, box-shadow 170ms ease;
+}
+.pharmacy-province-link:hover {
+  border-color: var(--color-accent-border);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--color-accent) 9%, transparent);
+  transform: translateY(-2px);
+}
+.pharmacy-live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 14%, transparent);
+}
+
+@media (min-width: 640px) {
+  .pharmacy-fact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .pharmacy-stat { padding-inline: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pharmacy-list-item,
+  .pharmacy-province-link { transition: none; transform: none; }
 }

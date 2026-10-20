@@ -27,6 +27,8 @@
  *      if the file became a bridge in step 1.
  *   3. **hreflang-postprocess LAST**: walks the (possibly modified) HTML and
  *      strips broken hreflang entries. Skipped for bridges.
+ *   4. **asset-integrity**: adds SRI to first-party `/assets/` resources while
+ *      the same file contents are already in memory.
  *
  * Idempotency: each transform returns `null` to indicate "no change" so the
  * coordinator only writes a file when at least one transform produced new
@@ -81,6 +83,12 @@ import {
 import type { BlogLinkLocale } from './blogContextualLinksData';
 import { transformFlatRedirect } from './flatHtmlRedirectPlugin';
 import { transformHreflang } from './hreflangPostprocessPlugin';
+import {
+  addIntegrityToHtml,
+  assetIntegrityFingerprint,
+  assetIntegritySnapshot,
+  registerDistAssets,
+} from './shared/assetIntegrity';
 import { allowExternallyServedTargets } from '../scripts/lib/externally-served-paths.mjs';
 import { shouldEmitPath } from './shared/localeEmitFilter';
 import {
@@ -146,6 +154,32 @@ import {
 
 interface CoordinatorOptions {
   readonly baseUrl: string;
+}
+
+const ASSET_INTEGRITY_STATE_FILE = 'asset-integrity-v1.txt';
+
+function assetIntegrityStatePath(rootDir: string): string {
+  return path.join(rootDir, '.cache', 'incremental-manifest', ASSET_INTEGRITY_STATE_FILE);
+}
+
+function readAssetIntegrityState(rootDir: string): string | null {
+  try {
+    const value = fs.readFileSync(assetIntegrityStatePath(rootDir), 'utf8').trim();
+    return value || null;
+  } catch {
+    return null;
+  }
+}
+
+function writeAssetIntegrityState(rootDir: string, fingerprint: string): void {
+  try {
+    const statePath = assetIntegrityStatePath(rootDir);
+    fs.mkdirSync(path.dirname(statePath), { recursive: true });
+    fs.writeFileSync(statePath, `${fingerprint}\n`, 'utf8');
+  } catch {
+    // Cache state is advisory; a failed write only causes a safe full walk on
+    // the next incremental build.
+  }
 }
 
 interface WorkerResult {
@@ -261,6 +295,7 @@ function runSingleThreaded(
   distDir: string,
   baseUrl: string,
   trimmedBase: string,
+  assetIntegrityRegistry: ReadonlyMap<string, string>,
   writeFiles = true,
   collectWouldWritePaths = false,
 ): WorkerResult {
@@ -379,6 +414,12 @@ function runSingleThreaded(
       }
     }
 
+    const integrityPatched = addIntegrityToHtml(html, assetIntegrityRegistry);
+    if (integrityPatched !== html) {
+      html = integrityPatched;
+      mutated = true;
+    }
+
     if (mutated && html !== original) {
       if (collectWouldWritePaths) result.wouldWritePaths?.push(filePath);
       const __tWrite = profileStart();
@@ -409,6 +450,7 @@ async function runInWorker(
     assignedFiles: readonly string[];
     htmlPathIndex: ReturnType<typeof buildSharedHtmlPathIndex>;
     keywordLandingPlan: KeywordLandingPlanSnapshot;
+    assetIntegrityEntries: ReadonlyArray<readonly [string, string]>;
   },
 ): Promise<WorkerResult> {
   return new Promise((resolve, reject) => {
@@ -561,6 +603,14 @@ export function postWalkCoordinatorPlugin(
         }
 
         const startTotal = Date.now();
+        // staticScriptsPlugin writes stable carriers during closeBundle, so
+        // register the final on-disk asset bytes before dispatching the shared
+        // HTML walk. Workers receive this small map by structured clone.
+        const registeredAssetCount = registerDistAssets(distDir);
+        const assetIntegrityRegistry = assetIntegritySnapshot();
+        const assetIntegrityEntries = [...assetIntegrityRegistry.entries()];
+        const currentAssetIntegrityFingerprint = assetIntegrityFingerprint(assetIntegrityRegistry);
+        const previousAssetIntegrityFingerprint = readAssetIntegrityState(rootDir);
 
         let processHtmlPaths: readonly string[] = [];
         let incrementalPlan: PostWalkIncrementalPlan | null = null;
@@ -568,6 +618,8 @@ export function postWalkCoordinatorPlugin(
         let incrementalPlanPhaseMs = 0;
         let incrementalVerifyPhaseMs = 0;
         const incrementalEnabled = postWalkIncrementalEnabled();
+        const assetIntegrityChanged = incrementalEnabled
+          && previousAssetIntegrityFingerprint !== currentAssetIntegrityFingerprint;
         let manifests: PostWalkManifestStateLoadResult | null = null;
         let manifestHtmlEntryCount = 0;
         let changedByKind = 'none';
@@ -1027,6 +1079,26 @@ export function postWalkCoordinatorPlugin(
           }
         }
 
+        // SRI is a global HTML dependency: changing a stable asset changes
+        // the hash required by every page that references it. A normal
+        // incremental manifest only sees page bytes, so invalidate its delta
+        // when the asset registry fingerprint changes.
+        if (assetIntegrityChanged && incrementalPlan?.mode === 'incremental') {
+          const reason = 'asset-integrity registry changed';
+          incrementalPlan = {
+            ...incrementalPlan,
+            mode: 'full',
+            processHtmlPaths: fullProcessHtmlPaths,
+            processed: fullProcessHtmlPaths.length,
+            skippedUnchanged: 0,
+            fallbackReason: reason,
+            fallbackMode: 'full',
+          };
+          processHtmlPaths = fullProcessHtmlPaths;
+          // eslint-disable-next-line no-console
+          console.log(`[post-walk-coordinator][incremental] fallback=full reason=${reason}`);
+        }
+
         if (
           incrementalEnabled
           && incrementalPlan?.mode === 'incremental'
@@ -1041,6 +1113,7 @@ export function postWalkCoordinatorPlugin(
             distDir,
             baseUrl,
             trimmedBase,
+            assetIntegrityRegistry,
             false,
             true,
           );
@@ -1112,6 +1185,7 @@ export function postWalkCoordinatorPlugin(
                 distDir,
                 baseUrl,
                 trimmedBase,
+                assetIntegrityRegistry,
               )
             : await (async () => {
                 const __tChunk = profileStart();
@@ -1136,6 +1210,7 @@ export function postWalkCoordinatorPlugin(
                       assignedFiles,
                       htmlPathIndex,
                       keywordLandingPlan,
+                      assetIntegrityEntries,
                     });
                     if (r.profilerBuckets && r.profilerBuckets.length > 0) {
                       profileIngestBuckets(r.profilerBuckets);
@@ -1184,6 +1259,10 @@ export function postWalkCoordinatorPlugin(
           writePostWalkUnmanifestedTopLevels(rootDir, inventoryUnmanifestedTopLevels);
         }
 
+        if (incrementalEnabled) {
+          writeAssetIntegrityState(rootDir, currentAssetIntegrityFingerprint);
+        }
+
         for (const f of merged.writeFailures) {
           // eslint-disable-next-line no-console
           console.warn(`[post-walk-coordinator] failed to write ${f.filePath}: ${f.msg}`);
@@ -1199,7 +1278,7 @@ export function postWalkCoordinatorPlugin(
             `(${preEmittedFlatBridgesSkipped} pre-skipped, ${merged.bridgeSkipped} non-bridge skipped), ` +
             `blog: ${merged.blogArticlesModified} modified / ${merged.blogLinksInjected} links injected, ` +
             `hreflang: ${merged.hreflangFilesRewritten} rewritten / ${merged.hreflangLinksKept} kept / ${merged.hreflangLinksDropped} dropped, ` +
-            `total writes: ${merged.totalWrites}`,
+            `sri assets: ${registeredAssetCount}, total writes: ${merged.totalWrites}`,
         );
 
         if (incrementalEnabled && incrementalPlan) {

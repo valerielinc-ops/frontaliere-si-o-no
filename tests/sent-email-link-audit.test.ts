@@ -481,6 +481,19 @@ describe('channel coverage — "la copertura, non il campione" (#5682 point 4)',
     }
   });
 
+  it('keeps application-intent reminders registered with their unsubscribe audit contract', () => {
+    const sender = 'send-application-intent-reminders.mjs';
+    const channel = MASS_EMAIL_CHANNELS[sender];
+    expect(channel).toEqual({ id: 'application-intent-reminder', requireUnsubscribe: true });
+    expect(resolveChannel(`/x/scripts/${sender}`)).toEqual(channel);
+
+    const { findings } = auditEmailLinksStatic(
+      bodyWith(`https://${SITE_HOST}/disiscrivi-promemoria-candidature/?uid=uid-1&email=reader%40example.invalid&token=${'a'.repeat(64)}`),
+      { channel: channel.id, requireUnsubscribe: channel.requireUnsubscribe },
+    );
+    expect(findings.map((finding) => finding.code)).not.toContain('unsubscribe_missing');
+  });
+
   it('resolveChannel maps an entry script to its channel, and defaults to requiring an unsubscribe link', () => {
     expect(resolveChannel('/x/scripts/send-daily-brief.mjs').id).toBe('daily-brief');
     expect(resolveChannel('/x/scripts/brand-new-sender.mjs')).toEqual({ id: 'brand-new-sender', requireUnsubscribe: true });

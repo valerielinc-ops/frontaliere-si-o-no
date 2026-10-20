@@ -39,11 +39,15 @@ on:
       - '.github/actions/**'
       - '.github/scripts/**'
       - 'scripts/ci/technical-operations-audit.mjs'
+      - 'scripts/ci/overlay-durable-loop-fleet-ledger.sh'
+      - 'scripts/ci/line-at.mjs'
       - 'scripts/ci/loop-fleet-*.mjs'
       - 'scripts/ci/loop-l*.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-*.mjs'
+      - 'scripts/lib/gh-exec-buffer.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/gh-exec-buffer.mjs'
       - 'data/loop-fleet/loop-registry.json'
       - 'package-lock.json'
 
@@ -65,7 +69,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout workflow inventory
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           filter: blob:none
@@ -84,19 +88,6 @@ jobs:
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/ci/loop-fleet-registry-audit.mjs
           sparse-checkout-cone-mode: false
-      - name: Overlay durable ledger branch
-        env:
-          LEDGER_BRANCH: ledger/loop-fleet
-        run: |
-          set -euo pipefail
-          if ! git ls-remote --exit-code --heads origin "refs/heads/$LEDGER_BRANCH" >/dev/null 2>&1; then
-            echo "::notice::durable ledger branch $LEDGER_BRANCH does not exist yet; using the in-tree ledger."
-            exit 0
-          fi
-          git fetch --depth 1 origin "$LEDGER_BRANCH"
-          mkdir -p data/loop-fleet/ledger
-          git checkout FETCH_HEAD -- data/loop-fleet/ledger
-          echo "::notice::overlaid data/loop-fleet/ledger from $LEDGER_BRANCH"
       # Secondo (e ultimo) percorso del repo che gira su un ref di PR con una
       # cache npm: `pull_request` qui sopra è filtrato su `.github/workflows/**`
       # e `.github/actions/**`, quindi ogni PR che tocca un workflow faceva

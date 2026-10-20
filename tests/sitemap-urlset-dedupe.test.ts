@@ -13,8 +13,11 @@
 import { describe, it, expect } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore — plain ESM helper without type declarations
-import { emitSitemapXml, splitToShards } from '../scripts/lib/sitemap-shard.mjs';
+import { emitSitemapXml, splitToShards, writeShardsToDist } from '../scripts/lib/sitemap-shard.mjs';
 import { dedupeUrlsetXmlByLoc } from '../build-plugins/shared/sitemapUrlsetDedupe';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 
 const countLoc = (xml: string, loc: string): number =>
   xml.split(`<loc>${loc}</loc>`).length - 1;
@@ -46,6 +49,47 @@ describe('emitSitemapXml — per-file <loc> dedup (#3516)', () => {
     expect(shards).toHaveLength(2);
     for (const shard of shards) {
       expect(countLoc(emitSitemapXml(shard.urls), url)).toBe(1);
+    }
+  });
+});
+
+describe('writeShardsToDist — stale shard cleanup', () => {
+  it('removes old job shards before the auto-discovery sweep can republish them', async () => {
+    const dist = fs.mkdtempSync(path.join(os.tmpdir(), 'sitemap-shard-cleanup-'));
+    try {
+      fs.writeFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), '<stale/>');
+      fs.writeFileSync(path.join(dist, 'sitemap-jobs-expired.xml'), '<stale/>');
+      fs.writeFileSync(path.join(dist, 'sitemap-pages.xml'), '<keep/>');
+
+      await writeShardsToDist(
+        [{ filename: 'sitemap-jobs-zurigo.xml', urls: [{ loc: 'https://frontaliereticino.ch/a/' }] }],
+        dist,
+        'https://frontaliereticino.ch',
+      );
+
+      expect(fs.existsSync(path.join(dist, 'sitemap-jobs-argovia.xml'))).toBe(false);
+      expect(fs.existsSync(path.join(dist, 'sitemap-jobs-expired.xml'))).toBe(false);
+      expect(fs.existsSync(path.join(dist, 'sitemap-pages.xml'))).toBe(true);
+      expect(fs.existsSync(path.join(dist, 'sitemap-jobs-zurigo.xml'))).toBe(true);
+      expect(fs.readFileSync(path.join(dist, 'sitemap-index.xml'), 'utf8'))
+        .toContain('sitemap-jobs-zurigo.xml');
+    } finally {
+      fs.rmSync(dist, { recursive: true, force: true });
+    }
+  });
+
+  it('removes the nested shard index when the current build has no shards', async () => {
+    const dist = fs.mkdtempSync(path.join(os.tmpdir(), 'sitemap-shard-empty-'));
+    try {
+      fs.writeFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), '<stale/>');
+      fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), '<stale-index/>');
+
+      await writeShardsToDist([], dist, 'https://frontaliereticino.ch');
+
+      expect(fs.existsSync(path.join(dist, 'sitemap-jobs-argovia.xml'))).toBe(false);
+      expect(fs.existsSync(path.join(dist, 'sitemap-index.xml'))).toBe(false);
+    } finally {
+      fs.rmSync(dist, { recursive: true, force: true });
     }
   });
 });

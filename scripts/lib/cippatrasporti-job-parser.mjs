@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
@@ -56,10 +57,7 @@ function isoDateFromItalian(value = '') {
   if (!match) return '';
   const [, day, month, year] = match;
   const candidate = `${year}-${month}-${day}`;
-  const parsed = new Date(`${candidate}T00:00:00.000Z`);
-  return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === candidate
-    ? candidate
-    : '';
+  return sourcePostingDateFields(candidate).postedDate;
 }
 
 function assertCippatrasportiSourceUrl(rawUrl = '', expectedPath = '') {
@@ -241,8 +239,13 @@ export function parseCippatrasportiDetailPage(html = '', pageUrl = '', listing =
     const addressCountry = schemaText(address.addressCountry);
     const postalCode = schemaText(address.postalCode);
     const streetAddress = schemaText(address.streetAddress);
-    const detailPostedDate = String(jobPosting.datePosted || '').slice(0, 10);
-    const postedDate = detailPostedDate || listing.postedDate || '';
+    const rawDetailDate = jobPosting.datePosted;
+    const hasDetailDate = rawDetailDate != null && rawDetailDate !== '';
+    const detailPublication = sourcePostingDateFields(rawDetailDate);
+    const listingPublication = sourcePostingDateFields(listing.postedDate);
+    const publication = hasDetailDate ? detailPublication : listingPublication;
+    // Compare source calendar days only after validating the entire timestamp.
+    const detailDay = detailPublication.postedDate.slice(0, 10);
 
     if (!SOURCE_IDENTITY_RE.test(organization)) {
       throw new Error('Cippà Trasporti: JobPosting hiring organization is missing or foreign');
@@ -257,8 +260,9 @@ export function parseCippatrasportiDetailPage(html = '', pageUrl = '', listing =
       throw new Error(`Cippà Trasporti: source-backed detail description is thin for ${sourceUrl.href}`);
     }
     if (
-      !/^\d{4}-\d{2}-\d{2}$/.test(postedDate)
-      || (detailPostedDate && listing.postedDate && detailPostedDate !== listing.postedDate)
+      publication.postingDateSource !== 'reported'
+      || (listing.postedDate && listingPublication.postingDateSource !== 'reported')
+      || (detailDay && listing.postedDate && detailDay !== listingPublication.postedDate)
     ) {
       throw new Error(`Cippà Trasporti: detail date disagrees with the authoritative listing for ${sourceUrl.href}`);
     }
@@ -290,7 +294,7 @@ export function parseCippatrasportiDetailPage(html = '', pageUrl = '', listing =
       country: addressCountry || geography.addressCountry || 'CH',
       ...(postalCode ? { postalCode } : {}),
       ...(streetAddress ? { streetAddress } : {}),
-      postedDate,
+      ...publication,
       employmentType: schemaText(jobPosting.employmentType),
     };
   } finally {
@@ -450,7 +454,7 @@ export async function fetchAllCippatrasportiJobs({
         sector: 'Logistica e trasporti',
         currency: 'CHF',
         featured: false,
-        postedDate: detail.postedDate,
+        ...mergeSourcePostingDates({}, detail),
         applyUrl: publicUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

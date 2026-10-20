@@ -25,8 +25,8 @@
  * (which is what the audit script reads via BFS). We assert:
  *
  *   1. The 3 index page kinds exist for every locale × applicable fuel.
- *   2. Each index emits one `<a href>` per synthetic leaf input (= every
- *      sitemap-listed page is linked from its index).
+ *   2. Each index links every indexable leaf emitted from the synthetic
+ *      dataset; Swiss stations without any observed price are not leaves.
  *   3. The hub-links block emitted into each daily-fuel page contains:
  *        - a link to each of the 3 indexes (or 2 for diesel: the IT-station
  *          index is benzina-only)
@@ -35,6 +35,7 @@
  *   4. Index canonical paths follow the expected per-locale slug pattern.
  */
 
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   generateFuelIndexPages,
@@ -50,10 +51,17 @@ import {
   FUEL_TYPES,
   FUEL_ZONES,
   FUEL_ITALIAN_CITIES,
+  buildFuelItalianCityPath,
+  buildFuelStationPath,
   type FuelDailyLocale,
   type FuelType,
 } from '../../build-plugins/fuelDailyData';
+import { generateFuelStationPages } from '../../build-plugins/fuelDailyPagesPlugin';
 import { createAuditor, MAX_HTML_BYTES } from '../../scripts/audit-page-weight.mjs';
+import {
+  createAuditor as createTextHtmlRatioAuditor,
+  extractVisibleText,
+} from '../../scripts/audit-text-html-ratio.mjs';
 
 // ── Synthetic leaves ──────────────────────────────────────────────
 
@@ -77,6 +85,37 @@ const SYNTHETIC_ITALIAN_LARGE: ItalianStationLeaf[] = Array.from({ length: 260 }
   name: `MIMIT station ${index} with a representative long station name`,
   brand: `Brand ${index % 18}`,
   address: `Via del valico ${index}, zona frontaliera nord, 22100 Como — ingresso lato autostrada e servizio self-service`,
+}));
+
+const TEXT_RATIO_ITALIAN: ItalianStationLeaf[] = Array.from({ length: 220 }, (_, index) => ({
+  citySlug: `city-${Math.floor(index / 2)}`,
+  cityDisplay: `City ${Math.floor(index / 2)}`,
+  stationSlug: `station-${index}`,
+  name: `Station ${index}`,
+  brand: `Brand ${index % 18}`,
+  address: `Via Roma ${index}, Como`,
+}));
+
+const TEXT_RATIO_ITALIAN_CITIES: ItalianStationLeaf[] = FUEL_ITALIAN_CITIES.map((city, index) => ({
+  citySlug: city.slug,
+  cityDisplay: city.display,
+  stationSlug: `city-station-${index}`,
+  name: `Station ${index}`,
+  brand: `Brand ${index}`,
+  address: `Via Roma ${index}, ${city.display}`,
+}));
+
+const TEXT_RATIO_SWISS: SwissStationLeaf[] = Array.from({ length: 51 }, (_, index) => ({
+  zone: FUEL_ZONES[index % FUEL_ZONES.length],
+  slug: `station-${index}`,
+  name: `Station ${index}`,
+  brand: `Brand ${index % 18}`,
+  address: `Via Roma ${index}, Como`,
+  lat: 45.8 + index / 10_000,
+  lng: 8.9 + index / 10_000,
+  benzinaPriceChf: 1.8,
+  dieselPriceChf: 1.9,
+  updatedAt: '2026-04-28T08:00:00.000Z',
 }));
 
 function countAnchors(html: string, hrefSubstr: string): number {
@@ -136,7 +175,24 @@ describe('fuel-station orphans — index pages exist for every locale × fuel', 
   }
 });
 
-describe('fuel-station orphans — every synthetic leaf is linked from its index', () => {
+describe('fuel-station orphans — every emitted leaf is linked from its index', () => {
+  const swissStationPages = generateFuelStationPages({
+    today: TODAY,
+    dataset: {
+      municipalities: [{
+        swiss: {
+          nearbyStations: SYNTHETIC_SWISS.map((station) => ({
+            id: station.slug,
+            name: station.name,
+            brand: station.brand,
+            address: station.address,
+            sp95PriceChf: station.benzinaPriceChf,
+            dieselPriceChf: station.dieselPriceChf,
+          })),
+        },
+      }],
+    },
+  });
   const pages = generateFuelIndexPages({
     today: TODAY,
     swissStations: SYNTHETIC_SWISS,
@@ -144,11 +200,21 @@ describe('fuel-station orphans — every synthetic leaf is linked from its index
   });
 
   for (const fuel of FUEL_TYPES) {
-    it(`Swiss-stations index (it/${fuel}) links every Swiss station leaf`, () => {
-      const html = pages[buildFuelIndexPath('it', fuel, 'swissStations')]!;
-      for (const leaf of SYNTHETIC_SWISS) {
-        // The full per-station path embeds zone + slug; both are unique.
-        expect(countAnchors(html, `/${leaf.zone}/stazioni/${leaf.slug}/`)).toBeGreaterThanOrEqual(1);
+    it(`Swiss-stations indexes (${fuel}) link every emitted Swiss station leaf in all locales`, () => {
+      for (const locale of FUEL_DAILY_LOCALES) {
+        const html = pages[buildFuelIndexPath(locale, fuel, 'swissStations')]!;
+        const emittedPaths = SYNTHETIC_SWISS
+          .map((station) => buildFuelStationPath(locale, fuel, station.zone, station.slug))
+          .filter((path) => swissStationPages[path] && !swissStationPages[path].includes('noindex,follow'));
+        // Both priced stations are real emitted leaves. The unpriced fixture
+        // never enters the emitter's station contexts and has no indexable URL.
+        expect(emittedPaths).toHaveLength(2);
+        for (const path of emittedPaths) {
+          expect(countAnchors(html, path), `orphaned leaf: ${path}`).toBeGreaterThanOrEqual(1);
+        }
+        const unpricedPath = buildFuelStationPath(locale, fuel, SYNTHETIC_SWISS[2].zone, SYNTHETIC_SWISS[2].slug);
+        expect(swissStationPages[unpricedPath]).toBeUndefined();
+        expect(countAnchors(html, unpricedPath)).toBe(0);
       }
     });
     it(`Italian-cities index (it/${fuel}) is leaf-driven: links only cities with an emitted station leaf`, () => {
@@ -281,7 +347,9 @@ describe('fuel-station map — Swiss index carries a client island without losin
     expect(payload.stations.every((station: { lat: number; lng: number; benzinaPriceChf: number }) => Number.isFinite(station.lat) && Number.isFinite(station.lng) && station.benzinaPriceChf > 0)).toBe(true);
     expect(html).toMatch(/<h2 id=(?:"|')?fuel-map-title(?:"|')? class=(?:"|')?fuel-map-ssr-title(?:"|')?>Karte der Treibstoffpreise im Tessin<\/h2>/);
     expect(html).toMatch(/<strong>2<\/strong>\s*<span>Tankstellen auf der Karte<\/span>/);
-    expect(html).toMatch(/<time dateTime=(?:"|')?2026-04-28(?:"|')?>Preise des Tages · 2026-04-28<\/time>/);
+    expect(payload.updatedAt).toBeNull();
+    expect(html).toContain('Abrufzeit nicht verfügbar');
+    expect(html).not.toContain('Preise des Tages');
   });
 
   it('keeps map payload fuel-specific for diesel indexes', () => {
@@ -291,6 +359,25 @@ describe('fuel-station map — Swiss index carries a client island without losin
     expect(payload.fuel).toBe('diesel');
     expect(payload.stations[0].dieselPriceChf).toBeGreaterThan(0);
   });
+});
+
+describe('fuel-station indexes — mobile typography keeps advice labels readable', () => {
+  const staticCss = readFileSync(new URL('../../public/assets/seo-static.css', import.meta.url), 'utf8');
+  const pages = generateFuelIndexPages({
+    today: TODAY,
+    swissStations: SYNTHETIC_SWISS,
+    italianStations: SYNTHETIC_ITALIAN,
+  });
+
+  for (const fuel of FUEL_TYPES) {
+    for (const locale of FUEL_DAILY_LOCALES) {
+      it(`uses at least 12px for the advice label (${locale}/${fuel})`, () => {
+        const html = pages[buildFuelIndexPath(locale, fuel, 'swissStations')]!;
+        expect(html).toContain('fuel-index-advice__label');
+        expect(staticCss).toMatch(/\.fuel-index-advice__label\{[^}]*font-size:12px[^}]*\}/);
+      });
+    }
+  }
 });
 
 describe('fuel-station orphans — emittedPaths gate excludes pages the build skipped', () => {
@@ -370,5 +457,102 @@ describe('fuel-station index pagination — Italian station pages stay within th
     expect(pages[middlePath]).toMatch(/rel(?:="prev"|=prev)/);
     expect(pages[middlePath]).toMatch(/rel(?:="next"|=next)/);
     expect(pages[middlePath]).toContain('Stazioni benzina Italia confine — indice completo — pagina 2');
+  });
+});
+
+describe('fuel-station index pages — preserve the text/HTML quality floor', () => {
+  const pages = generateFuelIndexPages({
+    today: TODAY,
+    swissStations: TEXT_RATIO_SWISS,
+    italianStations: TEXT_RATIO_ITALIAN,
+  });
+  const targetRoots = FUEL_DAILY_LOCALES.flatMap((locale) => [
+    buildFuelIndexPath(locale, 'benzina', 'swissStations'),
+    buildFuelIndexPath(locale, 'diesel', 'swissStations'),
+    buildFuelIndexPath(locale, 'benzina', 'italianStations'),
+  ]);
+  const targetPages = Object.entries(pages).filter(([path]) =>
+    targetRoots.some((root) => path === root || path.startsWith(`${root.slice(0, -1)}/page-`)),
+  );
+
+  it('keeps each generated station index above the production audit’s 10% hard floor', () => {
+    expect(targetPages.length).toBeGreaterThan(0);
+    for (const [path, html] of targetPages) {
+      const htmlBytes = Buffer.byteLength(html, 'utf8');
+      const textBytes = Buffer.byteLength(extractVisibleText(html), 'utf8');
+      const ratio = (textBytes / htmlBytes) * 100;
+      expect(ratio, `${path}: ${textBytes}/${htmlBytes} bytes (${ratio.toFixed(2)}%)`).toBeGreaterThan(10);
+    }
+  });
+
+  it('shows the source-backed Swiss price and collection time in the compact station link', () => {
+    const html = pages[buildFuelIndexPath('it', 'diesel', 'swissStations')]!;
+    expect(html).toContain('Prezzo');
+    expect(html).toContain('CHF/l');
+    expect(html).toContain('rilevato');
+  });
+});
+
+describe('Italian-cities fuel index — text/HTML ratio and link preservation', () => {
+  const path = buildFuelIndexPath('it', 'benzina', 'italianCities');
+  const pages = generateFuelIndexPages({
+    today: TODAY,
+    swissStations: [],
+    italianStations: TEXT_RATIO_ITALIAN_CITIES,
+  });
+  const html = pages[path]!;
+
+  it('passes the production text/HTML ratio auditor’s 10% floor', async () => {
+    const audit = createTextHtmlRatioAuditor({
+      threshold: 10,
+      featureFilter: 'fuel-daily',
+      failOnOffenders: true,
+    });
+    audit.collect(`${process.cwd()}/dist${path}index.html`, html);
+
+    const result = await audit.report();
+    expect(result.extra.scannedByFeature['fuel-daily']).toBe(1);
+    expect(result.offendersTotal, result.humanSummary).toBe(0);
+    expect(result.passed, result.humanSummary).toBe(true);
+  });
+
+  it('preserves each city href and stable zone fragment while labeling city counts', () => {
+    for (const city of FUEL_ITALIAN_CITIES) {
+      const href = buildFuelItalianCityPath('it', 'benzina', city.slug);
+      expect(countAnchors(html, href), `missing or duplicate city link: ${href}`).toBe(1);
+    }
+    for (const zone of FUEL_ZONES) {
+      if (!FUEL_ITALIAN_CITIES.some((city) => city.nearestZone === zone)) continue;
+      expect(html).toMatch(new RegExp(`\\bid=["']?zone-${zone}["']?(?=[\\s>])`));
+    }
+    expect(html).toMatch(/class=["']?fuel-index-compact-group__count["']?(?=[\s>])[^>]*>\(\d+ città\)<\/small>/);
+  });
+});
+
+
+describe('Swiss fuel index collection provenance', () => {
+  it('filters each fuel and keeps collection time independent of the build date', () => {
+    const collection = new Date('2026-09-30T22:30:00.000Z');
+    const build = new Date(collection.getTime() + 3 * 86400000);
+    const stations = SYNTHETIC_SWISS.map((station, index) => ({ ...station,
+      dieselPriceChf: index === 0 ? null : 1.9,
+      updatedAt: collection.toISOString(),
+      dieselUpdatedAt: new Date(collection.getTime() - 86400000).toISOString(),
+    }));
+    const pages = generateFuelIndexPages({ today: build, swissStations: stations, italianStations: [] });
+    const diesel = pages[buildFuelIndexPath('it', 'diesel', 'swissStations')];
+    const petrol = pages[buildFuelIndexPath('it', 'benzina', 'swissStations')];
+    expect(countAnchors(diesel, stations[0].slug)).toBe(0);
+    expect(countAnchors(diesel, stations[1].slug)).toBeGreaterThan(0);
+    expect(countAnchors(petrol, stations[0].slug)).toBeGreaterThan(0);
+    const payload = JSON.parse(diesel.match(/<script id="fuel-station-map-data" type="application\/json">([\s\S]*?)<\/script>/)![1]);
+    expect(payload.updatedAt).toBe(stations[1].dieselUpdatedAt);
+    expect(payload.stations).toHaveLength(1);
+    expect(payload.stations[0].collectedAt).toBe(stations[1].dieselUpdatedAt);
+    expect(diesel).toContain('Ultima acquisizione nel campione');
+    expect(diesel).toMatch(/30[/.]09[/.]2026/);
+    expect(diesel).not.toContain('listini ufficiali');
+    expect(diesel).not.toContain(`"dateModified":"${build.toISOString()}"`);
+    expect(petrol).toMatch(/01[/.]10[/.]2026/);
   });
 });

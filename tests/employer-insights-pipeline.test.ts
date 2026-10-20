@@ -9,7 +9,9 @@ import {
   buildGa4EventQueryBody,
   buildInsightsDocuments,
   collapseTechnicalDuplicates,
+  findFirstCompleteGa4IdentityAt,
   loadApplicationRecords,
+  queryGa4EmissionEvidence,
   queryGa4EventRows,
   queryEventRows,
   resolveEventIdentity,
@@ -484,7 +486,7 @@ describe('employer insights event coverage', () => {
       eventName === '$pageview' ? 1 : 0,
       eventName === 'select_content' || eventName === 'job_apply' ? 1 : 0,
       'action-array-1',
-      '2026-09-01 12:00:00',
+      IN_WINDOW_TIMESTAMP,
     ];
     const [doc] = build([
       groupedRow('job_apply', 'job-array-event'),
@@ -985,6 +987,9 @@ describe('employer insights technical deduplication', () => {
     expect(buildGa4EventQueryBody(summerWindow, { includeEmissionId: true }).dateRanges).toEqual([
       { startDate: '2026-09-09', endDate: '2026-09-11' },
     ]);
+    expect(buildGa4EventQueryBody(summerWindow, { includeEmissionId: true, includeCurrentDate: true }).dateRanges).toEqual([
+      { startDate: '2026-09-09', endDate: '2026-09-12' },
+    ]);
 
     const dstWindow = {
       from: '2026-10-24T00:00:00+02:00',
@@ -1075,6 +1080,142 @@ describe('employer insights technical deduplication', () => {
       emissionIdRows: 1,
       emissionIdObserved: 4,
       emissionIdMissingObserved: 0,
+      firstCompleteIdentityAt: ga4Window.from,
+    });
+  });
+
+  it('finds the first complete forward-only GA4 identity suffix without hiding a later gap', () => {
+    const ga4Window = {
+      from: '2026-09-09T00:00:00+02:00',
+      to: '2026-09-13T00:00:00+02:00',
+      kind: 'ga4-evidence-test',
+      timezone: 'Europe/Zurich',
+    };
+    const rows = [
+      { timestamp: '2026-09-09T00:00:00.000Z', observed: 10, emissionId: '' },
+      { timestamp: '2026-09-10T00:00:00.000Z', observed: 4, emissionId: 'emission-10' },
+      { timestamp: '2026-09-11T00:00:00.000Z', observed: 5, emissionId: 'emission-11' },
+    ];
+
+    expect(findFirstCompleteGa4IdentityAt(rows, ga4Window)).toBe('2026-09-10T00:00:00.000Z');
+    expect(findFirstCompleteGa4IdentityAt([
+      ...rows,
+      { timestamp: '2026-09-12T00:00:00.000Z', observed: 1, emissionId: '' },
+    ], ga4Window)).toBeNull();
+  });
+
+  it('re-queries the complete suffix instead of slicing a mixed GA4 report', async () => {
+    const ga4Window = {
+      from: '2026-09-09T00:00:00+02:00',
+      to: '2026-09-13T00:00:00+02:00',
+      kind: 'ga4-evidence-test',
+      timezone: 'Europe/Zurich',
+    };
+    const row = (date: string, emissionId: string, eventCount: number) => ({
+      dimensionValues: [date, 'page_view', 'acme', 'role-it', '/role-it/', emissionId || '(not set)'],
+      metricValues: [{ value: String(eventCount) }, { value: '1' }, { value: '1' }],
+    });
+    const calls: string[] = [];
+    const report = async ({ body }: { body: Record<string, any> }) => {
+      const startDate = body.dateRanges[0].startDate;
+      calls.push(startDate);
+      if (startDate === '2026-09-10') {
+        return {
+          rowCount: 2,
+          rows: [row('20260910', 'emission-10', 4), row('20260911', 'emission-11', 5)],
+        };
+      }
+      return {
+        rowCount: 3,
+        rows: [row('20260909', '', 10), row('20260910', 'emission-10', 4), row('20260911', 'emission-11', 5)],
+      };
+    };
+
+    const evidence = await queryGa4EmissionEvidence(ga4Window, {
+      token: 'test-token',
+      propertyId: 'properties/test',
+      report,
+    });
+
+    expect(calls).toEqual(['2026-09-09', '2026-09-10']);
+    expect(evidence.window.from).toBe('2026-09-10T00:00:00.000Z');
+    expect(evidence.result.coverage).toMatchObject({
+      returned: 9,
+      emissionIdMissingObserved: 0,
+      firstCompleteIdentityAt: evidence.window.from,
+    });
+  });
+
+  it('scopes live emission evidence to Employer Insights surfaces', async () => {
+    const ga4Window = {
+      from: '2026-09-09T00:00:00+02:00',
+      to: '2026-09-13T00:00:00+02:00',
+      kind: 'ga4-evidence-test',
+      timezone: 'Europe/Zurich',
+    };
+    const row = (path: string, employerKey: string, jobSlug: string, emissionId: string, eventCount: number) => ({
+      dimensionValues: [
+        '20260909',
+        'page_view',
+        employerKey || '(not set)',
+        jobSlug || '(not set)',
+        path,
+        emissionId || '(not set)',
+      ],
+      metricValues: [{ value: String(eventCount) }, { value: '1' }, { value: '1' }],
+    });
+    const report = async () => ({
+      rowCount: 2,
+      rows: [
+        row('/statistiche/', '', '', '', 50),
+        row('/cerca-lavoro-ticino/role-it/', 'acme', 'role-it', 'emission-1', 4),
+      ],
+    });
+
+    const evidence = await queryGa4EmissionEvidence(ga4Window, {
+      token: 'test-token',
+      propertyId: 'properties/test',
+      report,
+    });
+
+    expect(evidence.result.rows).toHaveLength(1);
+    expect(evidence.result.coverage).toMatchObject({
+      selection: 'employer-insights',
+      providerRowsReturned: 2,
+      providerTotalRows: 2,
+      returned: 4,
+      sourceObserved: 4,
+      identityObserved: 4,
+      emissionIdObserved: 4,
+      emissionIdMissingObserved: 0,
+      firstCompleteIdentityAt: '2026-09-08T22:00:00.000Z',
+    });
+
+    const blocked = await queryGa4EmissionEvidence(ga4Window, {
+      token: 'test-token',
+      propertyId: 'properties/test',
+      report: async () => ({
+        rowCount: 2,
+        rows: [
+          row('/statistiche/', '', '', '', 50),
+          {
+            dimensionValues: [
+              '20260909',
+              'job_apply',
+              'acme',
+              'role-it',
+              '/cerca-lavoro-ticino/role-it/',
+              '(not set)',
+            ],
+            metricValues: [{ value: '2' }, { value: '1' }, { value: '1' }],
+          },
+        ],
+      }),
+    });
+    expect(blocked.result.coverage).toMatchObject({
+      returned: 2,
+      emissionIdMissingObserved: 2,
+      firstCompleteIdentityAt: null,
     });
   });
 

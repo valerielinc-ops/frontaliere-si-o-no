@@ -46,6 +46,7 @@ import {
   RE_OPT_IN_EVENT_TYPES,
   DEFAULT_WINDOW_SECONDS,
 } from './lib/resubscribePairs.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const argv = process.argv.slice(2);
 const APPLY = argv.includes('--apply');
@@ -64,16 +65,7 @@ const JSON_OUT = argValue('--json');
 let db;
 
 async function initFirebase() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  db = a.firestore();
-  return a;
+  db = await getFirestoreDb();
 }
 
 /**

@@ -20,10 +20,13 @@
  *
  * Source: https://www.wurth-international.com/wurth-international-group/Karriere/Job-Portal/Jobs.php
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { classifyMalformedRowDrift } from './malformed-row-observability.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -42,9 +45,9 @@ export const WUERTH_INTERNATIONAL_COMPANY_DOMAIN = 'wurth-international.com';
  * Parse "DD.MM.YYYY" → "YYYY-MM-DD". Returns '' on failure.
  */
 export function parseDate(raw = '') {
-  const m = String(raw || '').trim().match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  const m = String(raw || '').trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
   if (!m) return '';
-  return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+  return sourcePostingDateFields(`${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`).datePosted;
 }
 
 /* ── Category detection ───────────────────────────────────── */
@@ -250,15 +253,21 @@ export function parseDetailPage(html) {
   };
 }
 
-/* ── Single-site fallback description ─────────────────────── */
+/* ── Description: the posting text only ──────────────────── */
 
 /**
- * Build a rich single-site fallback description (>50 words) when the detail
- * page yields nothing.
+ * The detail text of a posting (issue 5253). Under 50 words it used to be
+ * REPLACED by buildFallbackDescription: "<title> bei Würth International AG
+ * in <location>, Kanton Graubünden, Schweiz." and a paragraph about the Würth
+ * group written by the parser. Now a text under the shared 50-word floor is
+ * not published: the posting gets no description and takes the thin-source
+ * path (quarantine).
+ *
+ * @param {{ description?: string } | null} detail  parseDetailPage output
  */
-export function buildFallbackDescription(title, location, entryLevel = '') {
-  const levelInfo = entryLevel ? ` Einstiegslevel: ${entryLevel}.` : '';
-  return `${title} bei Würth International AG in ${location}, Kanton Graubünden, Schweiz.${levelInfo}\n\nDie Würth International AG ist ein Unternehmen der Würth-Gruppe, dem weltgrössten Handelskonzern für Montage- und Befestigungsmaterial. Am Hauptsitz in Chur (Graubünden) betreut Würth International die Zentraleinkaufsaktivitäten des Würth Konzerns in rund 80 Ländern. Das Unternehmen bietet ein internationales Arbeitsumfeld mit modernen Anstellungsbedingungen, flexiblen Arbeitszeiten, hybriden Arbeitsmodellen, überdurchschnittlichen Sozialleistungen und vielfältigen Weiterbildungsmöglichkeiten. Würth International ist ausgezeichnet mit dem Label Friendly Work Space und legt grossen Wert auf eine wertschätzende Unternehmenskultur.`;
+export function wuerthDescriptionFromDetail(detail) {
+  const text = String(detail?.description || '').trim();
+  return meetsSourceBodyFloor(text) ? text : '';
 }
 
 /* ── Job identification ───────────────────────────────────── */
@@ -310,20 +319,14 @@ export async function fetchAllWuerthInternationalJobs() {
   console.log(`   Listing: ${LISTING_URL}\n`);
 
   // Step 1: Fetch listing page
-  const controller1 = new AbortController();
-  const timer1 = setTimeout(() => controller1.abort(), timeoutMs);
   let listingHtml;
   try {
-    const res = await fetch(LISTING_URL, {
+    listingHtml = await fetchHtml(LISTING_URL, {
+      timeoutMs,
       headers: { 'User-Agent': userAgent },
-      signal: controller1.signal,
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from listing page`);
-    listingHtml = await res.text();
   } catch (err) {
     throw new Error(`Failed to fetch listing page: ${err?.message || err}`);
-  } finally {
-    clearTimeout(timer1);
   }
 
   const { jobs: listings, skippedMalformedRows } = parseListingPage(listingHtml);
@@ -349,52 +352,45 @@ export async function fetchAllWuerthInternationalJobs() {
   const jobs = [];
   for (const listing of listings) {
     try {
-      const controller2 = new AbortController();
-      const timer2 = setTimeout(() => controller2.abort(), timeoutMs);
-
       let detail = null;
       try {
-        const res = await fetch(listing.url, {
+        const detailHtml = await fetchHtml(listing.url, {
+          timeoutMs,
           headers: { 'User-Agent': userAgent },
-          signal: controller2.signal,
         });
-
-        if (res.ok) {
-          const detailHtml = await res.text();
-          detail = parseDetailPage(detailHtml);
-        }
-      } finally {
-        clearTimeout(timer2);
+        detail = parseDetailPage(detailHtml);
+      } catch (err) {
+        // Preserve the old listing-only fallback for an HTTP detail response,
+        // while letting connection failures reach the outer guard so a missing
+        // detail cannot silently turn into a published partial job.
+        if (!Number.isFinite(err?.status)) throw err;
       }
 
       // Build job object
       const title = detail?.title || listing.title;
       const location = detail?.location || listing.location || 'Chur';
       const employmentTypeRaw = detail?.employmentType || 'FULL_TIME';
-      const postedDate = detail?.postedDate || new Date().toISOString().slice(0, 10);
 
-      // Build description
-      let description = '';
-      if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-        description = detail.description;
-      } else {
-        description = buildFallbackDescription(title, location, listing.entryLevel);
-      }
+
+      // Build description: the detail text only (see wuerthDescriptionFromDetail).
+      const description = wuerthDescriptionFromDetail(detail);
 
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} wuerth-international ${location}`);
+      // The language the body is written in, not a fixed `de`.
+      const sourceLang = sourceLangOfBody(description, 'de');
 
       const job = {
         id: `${WUERTH_INTERNATIONAL_KEY}-${urlHash}`,
         slug: jobSlug,
-        slugByLocale: { de: jobSlug },
+        slugByLocale: { [sourceLang]: jobSlug },
         company: WUERTH_INTERNATIONAL_COMPANY_NAME,
         companyKey: WUERTH_INTERNATIONAL_KEY,
         companyDomain: WUERTH_INTERNATIONAL_COMPANY_DOMAIN,
         title,
-        titleByLocale: { de: title },
+        titleByLocale: { [sourceLang]: title },
         description,
-        descriptionByLocale: { de: description },
+        descriptionByLocale: description ? { [sourceLang]: description } : {},
         location,
         canton: HQ.canton,
         addressLocality: location,
@@ -409,11 +405,11 @@ export async function fetchAllWuerthInternationalJobs() {
         employmentType: employmentTypeRaw,
         experienceLevel: listing.entryLevel === 'Auszubildende' ? 'intern' : 'mid',
         featured: false,
-        postedDate,
+        ...sourcePostingDateFields(detail?.postedDate),
         url: listing.url,
         applyUrl: detail?.applyUrl || listing.url,
         source: 'Wuerth International Dedicated Parser (HTML)',
-        sourceLang: 'de',
+        sourceLang,
         crawledAt: new Date().toISOString(),
       };
 

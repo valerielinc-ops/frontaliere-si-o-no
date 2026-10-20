@@ -66,6 +66,7 @@
  * - isTrustedDomain() — Validate URLs belong to this company
  * - VALORA_KEY / VALORA_COMPANY_NAME / VALORA_COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -263,6 +264,53 @@ function parseListingPage(html) {
   return stubs;
 }
 
+// Sections of the agency-partner template that carry the role, in page order:
+// Summary (prose), Tasks and Requirements (two headed lists), Success profile
+// (a list of traits) and Benefits (one `<strong>` per benefit card). The
+// "Agency model" hero between them is a heading plus an external link.
+const AGENCY_TEMPLATE_SECTIONS = [
+  'ct-jobs-detail-nutshell',
+  'ct-jobs-detail-requirements',
+  'ct-jobs-detail-successprofile',
+  'ct-jobs-detail-benefits',
+];
+
+/**
+ * The role body of an "Agenturpartner" posting.
+ *
+ * This template has no `.ct-jobs-detail-text` block. The parser used to keep
+ * only the prose column of its Summary section, so the published ad lost the
+ * tasks, the requirements (equity capital, permit), the success profile and
+ * the benefits — 1,255 of the 5,004 characters of
+ * `/en/job/229/agenturpartnerin-agenturpartner-kanton-graubunden`
+ * (measured 2026-09-29).
+ *
+ * Attributes are dropped before anything else: the wrappers carry
+ * `uk-scrollspy="target: > *; ..."`, whose literal `>` breaks the simple
+ * `<[^>]+>` tag stripper mid-attribute. Images, the chart canvas and icons go
+ * with them; each benefit card's `<strong>` becomes a list item.
+ */
+export function extractAgencyTemplateHtml(html = '') {
+  const parts = [];
+  for (const cls of AGENCY_TEMPLATE_SECTIONS) {
+    const match = new RegExp(`<section\\b[^>]*\\b${cls}\\b[^>]*>([\\s\\S]*?)</section>`, 'i').exec(html);
+    if (!match) continue;
+    let section = match[1]
+      .replace(/<(picture|canvas|svg)\b[\s\S]*?<\/\1>/gi, '')
+      .replace(/<(img|i)\b[^>]*>(?:<\/i>)?/gi, '')
+      .replace(/<([a-z][a-z0-9]*)\b(?:[^>"']|"[^"]*"|'[^']*')*>/gi, '<$1>');
+    if (cls === 'ct-jobs-detail-benefits') {
+      const items = [...section.matchAll(/<strong>([\s\S]*?)<\/strong>/gi)]
+        .map((item) => item[1].trim())
+        .filter(Boolean);
+      const heading = /<h3>([\s\S]*?)<\/h3>/i.exec(section)?.[0] || '';
+      section = items.length ? `${heading}<ul>${items.map((item) => `<li>${item}</li>`).join('')}</ul>` : '';
+    }
+    if (section.trim()) parts.push(section);
+  }
+  return parts.join('\n');
+}
+
 /**
  * Fetch one detail page and pull out structured fields + description.
  * Returns null (never throws) if the fetch fails — caller skips the stub.
@@ -317,16 +365,8 @@ async function fetchJobDetail(url) {
   );
   // "Agenturpartner" (agency-partner franchise) postings use a distinct
   // multi-section landing-page template with no `.ct-jobs-detail-text`
-  // block at all — fall back to the prose column of their "Summary"
-  // (`#in-kuerze`) section, the closest equivalent to a role description
-  // on that template. Captures only the `<p>` column itself (not the
-  // enclosing `<h3>`/wrapper `<div>`), because the wrapper's
-  // `uk-scrollspy="target: > *; ..."` attribute contains a literal `>`
-  // that breaks this codebase's simple `<[^>]+>` tag-stripper mid-attribute.
-  const nutshellMatch = !bodyMatch
-    ? html.match(/uk-width-3-5@m uk-width-1-2@l">([\s\S]*?)<\/div>\s*<div class="uk-width-2-5@m/i)
-    : null;
-  const descriptionHtml = bodyMatch ? bodyMatch[1] : (nutshellMatch ? nutshellMatch[1] : '');
+  // block at all — see `extractAgencyTemplateHtml`.
+  const descriptionHtml = bodyMatch ? bodyMatch[1] : extractAgencyTemplateHtml(html);
 
   return {
     title,
@@ -362,7 +402,7 @@ async function fetchJobListings() {
       html = await fetchHtml(pageUrl, { headers: { 'User-Agent': BROWSER_UA } });
     } catch (err) {
       console.warn(`  ⚠️ listing page fetch failed (${pageUrl}): ${err?.message || err}`);
-      break;
+      throw err;
     }
 
     const totalMatch = html.match(/(\d+)\s*entries/i);
@@ -388,7 +428,10 @@ async function fetchJobListings() {
   const listings = [];
   for (const stub of stubs) {
     const detail = await fetchJobDetail(stub.url);
-    if (!detail) continue;
+    if (!detail) {
+      await new Promise((r) => setTimeout(r, 200));
+      continue;
+    }
     listings.push({ ...stub, detail });
     await new Promise((r) => setTimeout(r, 200));
   }
@@ -446,9 +489,7 @@ export async function fetchAllValoraJobs() {
     const jobSlug = slugify(`${title} valora ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(detail.employmentLabel || '');
-    const postedDate =
-      parseValoraDate(detail.publicationDateRaw) ||
-      new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(parseValoraDate(detail.publicationDateRaw));
 
     const job = {
       // ── Required fields ──
@@ -483,7 +524,7 @@ export async function fetchAllValoraJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       jobReqId: detail.referenceNumber || null,
       requirements: [],
@@ -493,6 +534,37 @@ export async function fetchAllValoraJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${VALORA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  const unique = dedupeRepostedValoraJobs(jobs);
+  if (unique.length < jobs.length) {
+    console.log(`  🧹 ${jobs.length - unique.length} re-posted duplicate(s) dropped (same title, store address and body)`);
+  }
+  console.log(`\n📋 Total ${VALORA_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
+}
+
+function valoraJobNumber(url = '') {
+  const match = /\/job\/(\d+)\//.exec(String(url || ''));
+  return match ? Number(match[1]) : Number.POSITIVE_INFINITY;
+}
+
+/**
+ * Valora opens several requisitions for the same store role and publishes each
+ * as its own page with an identical title, store address and body: four
+ * "barista Caffè Spettacolo - 16.4 h" at Rue des Terreaux 25, Lausanne
+ * (jobs 5996/5997/6001/6002, reference numbers 21299-21301…), two BackWerk
+ * Sihlquai C5 Zürich (6414/6417), 12 of 48 published jobs on 2026-09-29.
+ * On the site they are one vacancy shown N times. Keep one per identical
+ * (title, street, postal code, locality, body); the lowest job number wins so
+ * the surviving id stays stable across runs whatever the listing order.
+ */
+export function dedupeRepostedValoraJobs(jobs = []) {
+  const fold = (value) => String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
+  const byKey = new Map();
+  for (const job of jobs) {
+    const key = [job.title, job.streetAddress, job.postalCode, job.addressLocality, job.description].map(fold).join('|');
+    const kept = byKey.get(key);
+    if (!kept || valoraJobNumber(job.url) < valoraJobNumber(kept.url)) byKey.set(key, job);
+  }
+  const survivors = new Set(byKey.values());
+  return jobs.filter((job) => survivors.has(job));
 }

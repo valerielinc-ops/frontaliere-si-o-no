@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43484",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43484",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "17531",
+      "normalizedPlate": "ZH17531",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1450,
+      "bidCount": 11,
+      "endsAt": "2026-09-23T17:00:00.000Z",
+      "closedAt": "2026-09-23T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43484",
+      "sourceFetchedAt": "2026-09-23T11:42:42.115Z",
+      "lastVerifiedAt": "2026-09-23T11:42:42.115Z",
+      "firstSeenAt": "2026-09-19T11:05:30.418Z",
+      "lastSeenAt": "2026-09-23T11:42:42.115Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "fa2ff919bd55"
+    }
+  ]
+}

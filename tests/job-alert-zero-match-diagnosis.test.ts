@@ -9,7 +9,6 @@
 import { buildAlertProfile } from '../services/jobAlertMatching.mjs';
 import {
   classifyZeroMatchCause,
-  getZeroMatchMonitorAction,
   summarizeZeroMatchPlans,
   ZERO_MATCH_CAUSES,
 } from '../scripts/lib/job-alert-zero-match-diagnosis.mjs';
@@ -91,6 +90,7 @@ describe('summarizeZeroMatchPlans', () => {
       alertCount: 3,
       evaluatedAlertCount: 2,
       noEligibleCandidateCount: 1,
+      emptyProfileCount: 0,
       zeroMatchCount: 1,
       zeroMatchRate: 0.5,
       zeroMatchByCause: { [ZERO_MATCH_CAUSES.SOFT_PROFILE_NARROW]: 1 },
@@ -107,25 +107,32 @@ describe('summarizeZeroMatchPlans', () => {
     ])).toMatchObject({
       evaluatedAlertCount: 0,
       noEligibleCandidateCount: 1,
+      emptyProfileCount: 0,
       zeroMatchCount: 0,
       zeroMatchRate: null,
     });
   });
-});
 
-describe('getZeroMatchMonitorAction', () => {
-  it('reports only when the production rate is strictly above the threshold', () => {
-    expect(getZeroMatchMonitorAction({ zeroMatchCount: 3, alertCount: 10 })).toBe('report');
-    expect(getZeroMatchMonitorAction({ zeroMatchCount: 2, alertCount: 10 })).toBe('resolve');
-  });
-
-  it('does not resolve from dry-run or targeted operator sends', () => {
-    expect(getZeroMatchMonitorAction({ zeroMatchCount: 0, alertCount: 10, dryRun: true })).toBe('skip');
-    expect(getZeroMatchMonitorAction({ zeroMatchCount: 0, alertCount: 10, targeted: true })).toBe('skip');
-  });
-
-  it('does not infer recovery from an empty or invalid denominator', () => {
-    expect(getZeroMatchMonitorAction({ zeroMatchCount: 0, alertCount: 0 })).toBe('skip');
-    expect(getZeroMatchMonitorAction({ zeroMatchCount: -1, alertCount: 10 })).toBe('skip');
+  it('excludes intentional empty profiles from matcher health while keeping them observable', () => {
+    expect(summarizeZeroMatchPlans([
+      {
+        candidateCount: 6,
+        rankedCount: 0,
+        zeroCause: ZERO_MATCH_CAUSES.EMPTY_PROFILE,
+      },
+      {
+        candidateCount: 6,
+        rankedCount: 0,
+        zeroCause: ZERO_MATCH_CAUSES.KEYWORD_NARROW,
+      },
+    ])).toEqual({
+      alertCount: 2,
+      evaluatedAlertCount: 1,
+      noEligibleCandidateCount: 0,
+      emptyProfileCount: 1,
+      zeroMatchCount: 1,
+      zeroMatchRate: 1,
+      zeroMatchByCause: { [ZERO_MATCH_CAUSES.KEYWORD_NARROW]: 1 },
+    });
   });
 });

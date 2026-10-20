@@ -1,5 +1,6 @@
+import { estimateAnnualFrontierSsnEUR, normalizeFrontierSsnRate } from './frontierHealthContribution';
 import { SimulationInputs, SimulationResult, TaxResult, TaxBreakdownItem, ExpenseItem } from '../types';
-import { FRANCHIGIA_NUOVI_FRONTALIERI, SWISS_CHILD_ALLOWANCE_ANNUAL, LINKS, LOMBARDIA_ADDIZIONALE_REGIONALE, DEFAULT_TECH_PARAMS } from '../constants';
+import { AC_SALARY_CAP_CHF, FRANCHIGIA_NUOVI_FRONTALIERI, SWISS_CHILD_ALLOWANCE_ANNUAL, LINKS, LOMBARDIA_ADDIZIONALE_REGIONALE, DEFAULT_TECH_PARAMS } from '../constants';
 
 // Accordo 2024 concurrent-taxation split: only this share of the ordinary CH
 // source tax is withheld for a "nuovo frontaliere" resident within 20km of the
@@ -79,7 +80,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
  const EXCHANGE_RATE = customExchangeRate;
 
  const avsAmount = annualIncomeCHF * avsRate;
- const acAmount = Math.min(annualIncomeCHF, 148200) * acRate;
+ const acAmount = Math.min(annualIncomeCHF, AC_SALARY_CAP_CHF) * acRate;
  const laaAmount = annualIncomeCHF * laaRate;
  const ijmAmount = annualIncomeCHF * ijmRate;
  
@@ -132,7 +133,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
  let notesIT: string[] = [];
  let itBreakdown: TaxBreakdownItem[] = [];
 
- const taxPercentage = ssnHealthTaxPercentage ?? 3;
+ const taxPercentage = normalizeFrontierSsnRate(ssnHealthTaxPercentage ?? 3);
  let franchigiaUsed = 0;
  let irpefDetails = undefined;
 
@@ -142,11 +143,12 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
  // Calculate SSN Health Tax for Old Frontier Workers (if enabled)
  let ssnHealthTaxEUR = 0;
  let ssnHealthTaxCHF = 0;
- const netBeforeSsnEUR = (grossTotalCH - totalSocialDeductions - taxWithheldInCH_CHF - expensesTotalIT_CHF) * EXCHANGE_RATE;
+ // DM 14 November 2025, art. 1: salary net of payroll deductions, not disposable income.
+ const netBeforeSsnEUR = (grossTotalCH - totalSocialDeductions - taxWithheldInCH_CHF) * EXCHANGE_RATE;
  
  if (enableOldFrontierHealthTax) {
  // SSN Tax: configurable % of net income, min 30€/month (360€/year), max 200€/month (2400€/year)
- ssnHealthTaxEUR = Math.max(360, Math.min(2400, netBeforeSsnEUR * (taxPercentage / 100)));
+ ssnHealthTaxEUR = estimateAnnualFrontierSsnEUR(netBeforeSsnEUR, taxPercentage);
  ssnHealthTaxCHF = ssnHealthTaxEUR / EXCHANGE_RATE;
  notesIT.push(`calc.ssnHealthTaxNote|${Math.round(ssnHealthTaxEUR/12)}|${taxPercentage}`);
  }
@@ -288,14 +290,43 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
 };
 
 /**
+ * Italian IRPEF brackets for tax year 2026 (art. 11 TUIR as amended by
+ * Legge 30 dicembre 2025 n. 199, art. 1 c. 3): 23% up to €28,000, 33% from
+ * €28,000 to €50,000 (35% until 2025), 43% above €50,000.
+ * Single source of truth for every calculator that needs the brackets or
+ * the marginal rate: do not re-declare the rates in a component.
+ * The L. 199/2025 c. 4 neutralisation for incomes above €200,000 cuts the
+ * 19% oneri detraibili by €440; it lives in the deductions, not in the
+ * gross tax, and the site models no such oneri.
+ */
+export const IRPEF_BRACKETS_2026: ReadonlyArray<{ readonly upTo: number; readonly rate: number }> = [
+ { upTo: 28000, rate: 0.23 },
+ { upTo: 50000, rate: 0.33 },
+ { upTo: Infinity, rate: 0.43 },
+];
+
+/** Marginal IRPEF rate (2026 brackets) for a given taxable base. */
+export function irpefMarginalRate(taxableBase: number): number {
+ for (const bracket of IRPEF_BRACKETS_2026) {
+ if (taxableBase <= bracket.upTo) return bracket.rate;
+ }
+ return IRPEF_BRACKETS_2026[IRPEF_BRACKETS_2026.length - 1].rate;
+}
+
+/**
  * Calculate gross IRPEF from a taxable base using 2026 Italian brackets.
  * Exported for reuse in RenovationCalculator (OLD frontaliere mini-calc).
  */
 export function calculateIrpefGross(taxableBase: number): number {
  if (taxableBase <= 0) return 0;
- if (taxableBase <= 28000) return taxableBase * 0.23;
- if (taxableBase <= 50000) return 28000 * 0.23 + (taxableBase - 28000) * 0.35;
- return 28000 * 0.23 + 22000 * 0.35 + (taxableBase - 50000) * 0.43;
+ let tax = 0;
+ let lower = 0;
+ for (const { upTo, rate } of IRPEF_BRACKETS_2026) {
+ if (taxableBase <= lower) break;
+ tax += (Math.min(taxableBase, upTo) - lower) * rate;
+ lower = upTo;
+ }
+ return tax;
 }
 
 /**
@@ -686,7 +717,7 @@ export function calculateSeasonalScenario(input: SeasonalScenarioInput): Seasona
   const familyAllowanceCHF = children * SWISS_CHILD_ALLOWANCE_ANNUAL * (monthsWorked / 12);
 
   const avsAmount = grossWorkedCHF * avsRate;
-  const acAmount = Math.min(grossWorkedCHF, 148200) * acRate;
+  const acAmount = Math.min(grossWorkedCHF, AC_SALARY_CAP_CHF) * acRate;
   const laaAmount = grossWorkedCHF * laaRate;
   const ijmAmount = grossWorkedCHF * ijmRate;
   const lppAmount = grossWorkedCHF * lppRate;

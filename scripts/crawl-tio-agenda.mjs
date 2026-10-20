@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Crawler — Tio.ch Agenda (events for the whole canton of Ticino).
  *
@@ -12,21 +13,17 @@
  *
  * Flyer images (issue #3036 item 3): the raw flyer URL each card links to
  * (tio.ch embeds thumbnails hosted on biglietteria.ch, a third-party ticketing
- * site with no stated reuse terms) is NEVER hotlinked into production — see
- * `mirrorEventImages` below, which downloads each flyer once via
- * events-utils.mjs `mirrorEventImage` and replaces the URL with our own
- * mirrored `/images/events/...` copy (or drops it entirely on any failure),
- * the same convention `crawl-guidle-events.mjs` / `crawl-myswitzerland-events.mjs`
- * already use.
+ * site with no stated reuse terms) is NEVER hotlinked or downloaded into
+ * production. `mirrorEventImages` applies the shared licence gate and drops
+ * the URL because this source is not allowlisted.
  *
  * Detail metadata (description/address/offers gap): the day-page card carries
  * only the compact event summary; the per-event detail page exposes the
  * source description, address and a "Prezzo:" label (empty/hidden when tio.ch
  * has no price on file). `enrichEventsWithPrice` below fetches each event's
- * detail page once and parses that source metadata with the shared helpers, so `eventLd()`
- * (build-plugins/eventsSeoPagesPlugin.ts) can publish the fields Tio actually
- * supplies — never fabricated: an event with no source signal still omits
- * that field, by design.
+ * detail page once and parses that source metadata with the shared helpers, so
+ * `eventLd()` (build-plugins/eventsSeoPagesPlugin.ts) can publish the fields
+ * Tio supplies and fill the remaining structured-data fields deterministically.
  *
  * Usage:
  *   node scripts/crawl-tio-agenda.mjs                 # next 21 days
@@ -36,7 +33,6 @@
  * Exit code is always 0 unless an unexpected crash occurs (CI-soft).
  */
 
-import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { JSDOM } from 'jsdom';
@@ -50,15 +46,25 @@ import {
   resolveComune,
   loadCantonComuni,
   mirrorEventImage,
-  parsePriceText,
+  isEventImageSourceAllowed,
   normalizeText,
   geocodeVenue,
   loadGeocodeCache,
   saveGeocodeCache,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
+  hasParsedPrice,
 } from './lib/events-utils.mjs';
 import { freeTranslateWithRetryDetailed, asTranslationResult } from './lib/free-translate.mjs';
+import {
+  extractEventPeopleFromText,
+  parseEventPriceText,
+  extractEventPeopleFromTitle,
+  fillEventPeopleDefaults,
+  normalizeEventPeople,
+} from './lib/event-metadata.mjs';
+import { mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { sanitizeEventForPublication, stripDescriptionTranslationCache } from './lib/event-description-policy.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 const DAY_URL = (compact) => `https://www.tio.ch/agenda/day/${compact}`;
@@ -195,15 +201,13 @@ export function warnIfLowConfidenceComuneShare(byMethod, resolved) {
 }
 
 /**
- * Mirror every event's flyer image to our own CDN storage before it ever
- * reaches the slice file / dataset — the no-hotlink policy (see
- * events-utils.mjs mirrorEventImage header) requires `imageUrl` to always be
- * either a site-relative mirrored path or absent, NEVER the raw
- * tio.ch/biglietteria.ch flyer URL `parseDayHtml` extracts from the DOM.
- * Mirrors the guidle/myswitzerland crawlers' convention (map → mirror →
- * store), just applied as a post-pass here since tio-agenda parses every
- * event straight off the already-fetched day pages — the card itself never
- * carries the detail metadata either, that's a separate per-event fetch, see
+ * Apply the event-image licence gate before an event reaches the slice file /
+ * dataset. The shared mirror contract requires `imageUrl` to be either a
+ * site-relative path from an allowlisted source or absent, NEVER the raw
+ * tio.ch/biglietteria.ch flyer URL `parseDayHtml` extracts from the DOM. This
+ * is a post-pass because tio-agenda parses every event straight off the
+ * already-fetched day pages; the card itself never carries the detail
+ * metadata either, that's a separate per-event fetch, see
  * `enrichEventsWithPrice` below.
  *
  * Returns a NEW array (does not mutate `events`). `mirrorFn` is injectable so
@@ -212,28 +216,31 @@ export function warnIfLowConfidenceComuneShare(byMethod, resolved) {
 export async function mirrorEventImages(events, mirrorFn = mirrorEventImage) {
   const out = [];
   for (const ev of events) {
-    const imageUrl = (await mirrorFn(ev.imageUrl, ev.id)) || undefined;
-    out.push({ ...ev, imageUrl });
+    const mirrored = await mirrorFn(ev.imageUrl, ev.id, SOURCE.key);
+    const { imageUrl: _sourceImageUrl, ...withoutSourceImage } = ev;
+    out.push(mirrored ? { ...withoutSourceImage, imageUrl: mirrored } : withoutSourceImage);
     // Only pace real network attempts (skipped for events with no source
     // image at all, and skipped entirely under an injected test mirrorFn).
-    if (mirrorFn === mirrorEventImage && ev.imageUrl) await sleep(IMAGE_MIRROR_DELAY_MS);
+    if (mirrorFn === mirrorEventImage && ev.imageUrl && isEventImageSourceAllowed(SOURCE.key)) {
+      await sleep(IMAGE_MIRROR_DELAY_MS);
+    }
   }
   return out;
 }
 
 /**
  * Parse an event detail page's "Prezzo:" label into `{amount, currency,
- * isFree}` via the shared `parsePriceText` (same parser guidle's price
+ * isFree}` via the shared `parseEventPriceText` (same parser guidle's price
  * accordion uses). tio.ch renders the label unconditionally but leaves it
- * empty when no price is on file — `parsePriceText('')` correctly returns
+ * empty when no price is on file — `parseEventPriceText('')` correctly returns
  * `undefined` for that case, so no price signal never becomes a fabricated
  * one. Returns `undefined` when the label itself is missing (page shape
  * changed, or fetch returned something unexpected).
  */
 export function extractTioPrice(html) {
   const m = /<strong>\s*Prezzo:\s*<\/strong>\s*([^<]*)/i.exec(html || '');
-  const inline = m ? parsePriceText(m[1]) : undefined;
-  if (inline) return inline;
+  const inline = m ? parseEventPriceText(m[1]) : undefined;
+  if (hasParsedPrice(inline)) return inline;
 
   // Some detail pages render the label as a plain paragraph, while the
   // amount is text in the same element. Restrict this fallback to paragraphs
@@ -244,8 +251,8 @@ export function extractTioPrice(html) {
     const value = text(paragraph);
     const labelled = /^Prezzo:\s*(.+)$/i.exec(value);
     if (!labelled) continue;
-    const parsed = parsePriceText(labelled[1]);
-    if (parsed) return parsed;
+    const parsed = parseEventPriceText(labelled[1]);
+    if (hasParsedPrice(parsed)) return parsed;
   }
   return undefined;
 }
@@ -260,6 +267,7 @@ export function extractTioDetailMetadata(html) {
   if (typeof html !== 'string' || !html) return {};
   const doc = new JSDOM(html).window.document;
   const eventTitle = [...doc.querySelectorAll('h1')].find((heading) => !heading.classList.contains('page-title'));
+  const titleText = text(eventTitle);
   const eventColumn = eventTitle?.parentElement;
   const titleIndex = eventColumn ? [...eventColumn.children].indexOf(eventTitle) : -1;
   const paragraphs =
@@ -285,22 +293,29 @@ export function extractTioDetailMetadata(html) {
   }
 
   const price = extractTioPrice(html) || (/(?:entrata libera|ingresso libero|gratuit[oa])/i.test(descriptionText)
-    ? parsePriceText('entrata libera')
+    ? parseEventPriceText('entrata libera')
     : undefined);
+  const sourcePeople = extractEventPeopleFromText(descriptionText, { includePerformer: 'explicit' });
+  const titlePeople = extractEventPeopleFromTitle(titleText);
   return {
     ...(descriptionText.length >= 30 ? { description: descriptionText } : {}),
     ...(Object.keys(address).length ? { address } : {}),
     ...(values[0] ? { venue: values[0] } : {}),
     ...(price ? { price } : {}),
+    ...(sourcePeople.organizer ? { organizer: sourcePeople.organizer } : {}),
+    ...(sourcePeople.performer || titlePeople.performer
+      ? { performer: sourcePeople.performer || titlePeople.performer }
+      : {}),
   };
 }
 
 /**
  * Fetch each event's own detail page once and attach a `price` (the day-page
  * card this crawler otherwise parses never carries one — see file header).
- * Populating `price` here is what lets `eventLd()`
- * (build-plugins/eventsSeoPagesPlugin.ts) emit a real schema.org `offers`
- * block for tio-agenda events instead of always omitting it.
+ * Populating `price` here lets `eventLd()` preserve a real source price and
+ * its ticket metadata; when the detail page has no parseable price,
+ * eventLd() supplies the deterministic structured-data fallback while the
+ * visible price line remains hidden by its confidence gate.
  *
  * Not idempotent/cached like `mirrorEventImages` — every event is re-fetched
  * every run since price can change. A fetch failure (network/timeout) just
@@ -312,9 +327,11 @@ export function extractTioDetailMetadata(html) {
  */
 export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
   const out = [];
+  const detailFailureIds = [];
   for (const ev of events) {
     const html = ev.url ? await fetchFn(ev.url) : null;
     const metadata = html ? extractTioDetailMetadata(html) : {};
+    if (!html || Object.keys(metadata).length === 0) detailFailureIds.push(ev.id);
     const detailComune = metadata.address?.locality
       ? resolveComune({ venue: metadata.address.locality, title: '', region: '' }).comune
       : undefined;
@@ -324,11 +341,21 @@ export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
       ...(metadata.address ? { address: metadata.address } : {}),
       ...(metadata.venue ? { venue: metadata.venue } : {}),
       ...(metadata.price ? { price: metadata.price } : {}),
+      ...(metadata.organizer ? { organizer: normalizeEventPeople(metadata.organizer, ev.url, ev.url) } : {}),
+      ...(metadata.performer ? { performer: metadata.performer } : {}),
       ...(detailComune ? { comune: detailComune, comuneMatch: 'exact' } : {}),
     };
-    out.push(next);
+    out.push(fillEventPeopleDefaults(next, SOURCE));
     if (fetchFn === fetchHtml) await sleep(PRICE_FETCH_DELAY_MS);
   }
+  Object.defineProperty(out, 'detailFailureIds', {
+    value: detailFailureIds,
+    enumerable: false,
+  });
+  Object.defineProperty(out, 'detailAttemptCount', {
+    value: events.length,
+    enumerable: false,
+  });
   return out;
 }
 
@@ -368,6 +395,20 @@ export async function enrichEventsWithGeo(events, cache, geocodeFn = geocodeVenu
 
 const TRANSLATE_DELAY_MS = 200;
 const TRANSLATE_LOCALES = ['en', 'de', 'fr'];
+// Wall-clock cap of the title-translation pass, same shape as guidle's
+// GUIDLE_TRANSLATE_BUDGET_MS. One title is up to three sequential cascade
+// calls, and with DeepL out of quota and Azure answering 401 each call walks
+// the whole cascade: the pass took 22.4 min on 2026-09-24 (run 36029589003,
+// then cancelled at the 60-minute timeout) and 32.8 min on 2026-09-25 (run
+// 36124423043, 89.7 of 90 minutes). Titles past the deadline keep their
+// Italian text and are retried on the next run.
+const TRANSLATE_BUDGET_MS = Number(process.env.TIO_TRANSLATE_BUDGET_MS) || 6 * 60_000;
+
+// A cached slot is settled when it holds usable text or the `null`
+// passthrough marker; anything else (absent, empty) is asked again.
+function isSettledTranslation(value) {
+  return value === null || (typeof value === 'string' && value.trim() !== '');
+}
 
 /**
  * Attach `titleByLocale` to every event — tio-agenda cards carry only a
@@ -379,21 +420,46 @@ const TRANSLATE_LOCALES = ['en', 'de', 'fr'];
  * slice from scratch every run (see `main` below), so without this cache the
  * same recurring titles would be re-translated every single day.
  *
+ * Only the locales a cached entry does not settle yet are asked, and a
+ * partial entry is cached too: before, an entry was stored only once all
+ * three locales came back, so a title whose `en` kept failing re-paid its
+ * `de` and `fr` as well on every run. After the 2026-09-28 run 17 of the 237
+ * distinct titles were in that state, each with one or two locales already
+ * translated and thrown away.
+ *
+ * `deadline` (epoch ms, opt-in) caps the pass. It is checked before EVERY
+ * network call, not only before a title: past it, the locales still missing
+ * keep their Italian text (cached locales are still used), including the rest
+ * of a title whose first call crossed the deadline.
+ *
  * Returns a NEW array (does not mutate `events`). `translateFn`/`cache` are
  * injectable so tests can verify the enrichment without a live network call.
  */
-export async function enrichEventsWithTranslations(events, cache, translateFn = freeTranslateWithRetryDetailed) {
+export async function enrichEventsWithTranslations(
+  events,
+  cache,
+  translateFn = freeTranslateWithRetryDetailed,
+  { deadline = null } = {},
+) {
   const out = [];
+  let deferred = 0;
   for (const ev of events) {
     const key = normalizeText(ev.title);
     if (!key) {
       out.push({ ...ev });
       continue;
     }
-    let entry = cache[key];
-    if (!entry || Object.keys(entry).length < TRANSLATE_LOCALES.length) {
-      entry = {};
-      for (const locale of TRANSLATE_LOCALES) {
+    let entry = cache[key] || {};
+    const missing = TRANSLATE_LOCALES.filter((locale) => !isSettledTranslation(entry[locale]));
+    if (missing.length > 0) {
+      entry = { ...entry };
+      let asked = false;
+      for (const locale of missing) {
+        if (deadline !== null && Date.now() >= deadline) {
+          deferred += 1;
+          break;
+        }
+        asked = true;
         const { text: translated, passthrough } = asTranslationResult(
           await translateFn({
             text: ev.title,
@@ -406,25 +472,30 @@ export async function enrichEventsWithTranslations(events, cache, translateFn = 
         if (translated) entry[locale] = translated;
         // Passthrough = la cascata ha stabilito che il titolo e' gia' identico
         // in quella lingua (un festival, un toponimo): esito deterministico,
-        // memoizzato come `null`. Senza questo slot l'entry non arriva MAI a
-        // tre locale, non viene mai scritta in cache, e questo crawler — che
-        // riscrive la sua slice da zero ogni giorno — ripaga l'intera cascata
-        // sullo stesso titolo ogni singolo run.
+        // memoizzato come `null`. Senza questo slot il locale resterebbe
+        // scoperto, e questo crawler — che riscrive la sua slice da zero ogni
+        // giorno — ripagherebbe la cascata su quel titolo a ogni run.
         else if (passthrough) entry[locale] = null;
         if (translateFn === freeTranslateWithRetryDetailed) await sleep(TRANSLATE_DELAY_MS);
       }
-      if (Object.keys(entry).length === TRANSLATE_LOCALES.length) cache[key] = entry;
+      if (asked && TRANSLATE_LOCALES.some((locale) => isSettledTranslation(entry[locale]))) cache[key] = entry;
     }
     // I marker `null` non sono traduzioni: il locale resta scoperto e legge
     // l'italiano come prima, esattamente come quando la traduzione mancava.
     const usable = Object.fromEntries(
-      Object.entries(entry).filter(([, v]) => typeof v === 'string' && v),
+      Object.entries(entry).filter(([, v]) => typeof v === 'string' && v.trim() !== ''),
     );
     if (Object.keys(usable).length === 0) {
       out.push({ ...ev });
       continue;
     }
     out.push({ ...ev, titleByLocale: { it: ev.title, ...usable } });
+  }
+  if (deferred) {
+    console.log(
+      `[tio-agenda] title translation: budget reached — ${deferred}/${events.length} event(s) keep the Italian title `
+        + 'for the missing locales, retried next run',
+    );
   }
   return out;
 }
@@ -497,6 +568,8 @@ async function main() {
   // BEFORE mirroring images or writing the slice — see
   // `enrichEventsWithPrice` above.
   const pricedEvents = await enrichEventsWithPrice(events);
+  const detailFailureIds = pricedEvents.detailFailureIds || [];
+  const detailAttemptCount = pricedEvents.detailAttemptCount ?? events.length;
   const withPrice = pricedEvents.filter((e) => e.price).length;
   const withDescription = pricedEvents.filter((e) => e.description).length;
   const withAddress = pricedEvents.filter((e) => e.address).length;
@@ -520,38 +593,42 @@ async function main() {
   console.log(`[tio-agenda] geo resolved ${withGeo}/${geoEvents.length}`);
 
   const translationCache = loadEventTitleTranslationCache();
-  const translatedEvents = await enrichEventsWithTranslations(geoEvents, translationCache);
+  const translatedEvents = await enrichEventsWithTranslations(geoEvents, translationCache, undefined, {
+    deadline: Date.now() + TRANSLATE_BUDGET_MS,
+  });
   const withTranslation = translatedEvents.filter((e) => e.titleByLocale).length;
   console.log(`[tio-agenda] title translated ${withTranslation}/${translatedEvents.length}`);
 
   if (dryRun) {
     console.log('🏃 dry-run — slice not written');
-    console.log(JSON.stringify(translatedEvents.slice(0, 3), null, 2));
+    console.log(JSON.stringify(translatedEvents.slice(0, 3).map(sanitizeEventForPublication), null, 2));
     return;
   }
 
   // Persist caches only on a real (non-dry-run) write, so a --dry-run/test
   // invocation never pollutes the tracked cache files with speculative data.
   saveGeocodeCache(geocodeCache);
+  stripDescriptionTranslationCache(translationCache);
   saveEventTitleTranslationCache(translationCache);
 
-  mkdirSync(EVENTS_SLICE_DIR, { recursive: true });
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
-  const slice = {
-    schemaVersion: 1,
+  const total = mergeEventsIntoSlice({
+    slicePath,
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
     canton: SOURCE.canton,
-    assembledAt: crawledAt,
-    events: translatedEvents,
-  };
-  writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`, 'utf-8');
-  console.log(`[tio-agenda] wrote ${translatedEvents.length} events → ${path.relative(process.cwd(), slicePath)}`);
+    freshEvents: translatedEvents,
+    goneIds: [],
+    crawledAt,
+    detailFailureIds,
+    detailAttemptCount,
+  });
+  console.log(`[tio-agenda] merged ${translatedEvents.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-tio-agenda.mjs`), so
 // tests can import `parseDayHtml` without triggering a live fetch.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[tio-agenda] crawl failed: ${err?.message || err}`);
     process.exit(1);

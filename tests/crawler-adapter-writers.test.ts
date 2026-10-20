@@ -9,6 +9,7 @@ import {
 } from '../scripts/update-abb-jobs.mjs';
 import {
   assertMigrosAdapterParity,
+  compareMigrosDetailUrls,
   ensureAdapterSeedUrls as ensureMigros,
   finalizeMigrosDiscovery,
 } from '../scripts/update-migros-jobs.mjs';
@@ -31,6 +32,7 @@ import {
   assertRaiffeisenAdapterParity,
   ensureAdapterSeedUrls as ensureRaiffeisen,
   fetchJobUrls as fetchRaiffeisenJobUrls,
+  buildRaiffeisenAuthoritativeEmptySnapshot,
 } from '../scripts/update-raiffeisen-vc-jobs.mjs';
 import {
   assertSbbAdapterParity,
@@ -168,6 +170,36 @@ describe('Migros SPA discovery finalization', () => {
     expect(result.urls).toHaveLength(1);
   });
 
+  // #6932 item 4: the duplicate-identity winner is chosen by locale
+  // precedence (it > de > others), not by lexical order, and the choice is
+  // stable across reruns whatever order the listing emits the variants in.
+  // A lexical-only comparator picks /de/ ("de" < "it") and fails here.
+  it('prefers the Italian variant of one posting regardless of discovery order (#6932)', () => {
+    const fr = `/fr/nos-entreprises/job/migros-ticino/test/${uuid}`;
+    const otherUuid = '22222222-2222-4222-8222-222222222222';
+    const deOnly = `/de/unsere-unternehmen/job/migros-ticino/other/${otherUuid}`;
+    const frOnlyTwin = `/fr/nos-entreprises/job/migros-ticino/other/${otherUuid}`;
+    const options = { termination: 'next-disabled', pagesFetched: 1 } as const;
+
+    const orders = [
+      [de, fr, itPath, frOnlyTwin, deOnly],
+      [itPath, de, fr, deOnly, frOnlyTwin],
+      [fr, deOnly, itPath, frOnlyTwin, de],
+    ];
+    const results = orders.map((paths) => finalizeMigrosDiscovery(paths, options));
+    for (const result of results) {
+      expect(result.duplicateIdentity).toBe(3);
+      expect(result.urls).toEqual([
+        `https://jobs.migros.ch${itPath}`,
+        `https://jobs.migros.ch${deOnly}`,
+      ]);
+    }
+    expect(compareMigrosDetailUrls(`https://jobs.migros.ch${itPath}`, `https://jobs.migros.ch${de}`))
+      .toBeLessThan(0);
+    expect(compareMigrosDetailUrls(`https://jobs.migros.ch${de}`, `https://jobs.migros.ch${fr}`))
+      .toBeLessThan(0);
+  });
+
   it('fails closed without terminal pagination or on a malformed detail path', () => {
     expect(() => finalizeMigrosDiscovery([itPath], { termination: '', pagesFetched: 1000 })).toThrow(/incomplete/);
     expect(() => finalizeMigrosDiscovery(['/it/not-a-job'], { termination: 'next-disabled', pagesFetched: 1 }))
@@ -267,21 +299,115 @@ describe('Raiffeisen VC bilingual discovery invariants', () => {
   const detail = 'https://jobs.raiffeisen.ch/posti-vacanti/consulente/e2c8937c-104e-4234-8353-3b21a3a51b46';
   const marker = '<html><title>Banca Raiffeisen Vedeggio Cassarate</title><main>vedeggio-cassarate raiffeisen</main>';
   it('requires both pages and deduplicates their shared vacancy identity', async () => {
-    const fetchImpl = async () => new Response(`${marker}<a href="${detail}">job</a></html>`, { status: 200 });
+    const requestedUrls: string[] = [];
+    const fetchImpl = async (url: string) => {
+      requestedUrls.push(url);
+      return new Response(`${marker}<a href="${detail}">job</a></html>`, { status: 200 });
+    };
     await expect(fetchRaiffeisenJobUrls({ fetchImpl, timeoutMs: 1000 })).resolves.toMatchObject({
       urls: [detail], pagesSucceeded: 2, duplicateIdentity: 1, sourceZero: false,
     });
+    expect(requestedUrls).toEqual([
+      'https://www.raiffeisen.ch/vedeggio-cassarate/it/chi-siamo/carriera/lavorare-banca-raiffeisen.html',
+      'https://www.raiffeisen.ch/vedeggio-cassarate/de/ueber-uns/karriere-stellen.html',
+    ]);
     const unavailable = async () => new Response('down', { status: 503 });
-    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unavailable, timeoutMs: 1000 })).rejects.toThrow(/503/);
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unavailable, timeoutMs: 1000, retries: 0 })).rejects.toThrow(/503/);
   });
 
-  it('accepts zero only from both branded pages and rejects a partial/foreign body', async () => {
-    const zero = async () => new Response(`${marker}</html>`, { status: 200 });
+  it('retries a transient careers-page fetch before applying the bilingual discovery guard', async () => {
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      if (attempts === 1) {
+        const error = new TypeError('fetch failed');
+        error.cause = { code: 'ECONNRESET' };
+        throw error;
+      }
+      return new Response(`${marker}<a href="${detail}">job</a></html>`, { status: 200 });
+    };
+
+    await expect(fetchRaiffeisenJobUrls({
+      fetchImpl,
+      timeoutMs: 1000,
+      retries: 1,
+      retryBaseMs: 0,
+    })).resolves.toMatchObject({ urls: [detail], pagesSucceeded: 2 });
+    expect(attempts).toBe(3);
+  });
+
+  it('accepts zero only from both branded pages with explicit listing evidence', async () => {
+    const zero = async () => new Response(
+      `${marker}<div class="listing-count">0</div><p>Offene Stellen – 0 neue Hinweise</p></html>`,
+      { status: 200 },
+    );
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: zero, timeoutMs: 1000 }))
       .resolves.toMatchObject({ urls: [], pagesSucceeded: 2, sourceZero: true });
-    const unrelated = async () => new Response('<html>challenge</html>', { status: 200 });
+    const localizedZero = async (url: string) => {
+      const emptyText = url.includes('/de/')
+        ? 'Derzeit haben wir keine offenen Stellen.'
+        : 'Attualmente non ci sono posizioni aperte.';
+      return new Response(
+        `${marker.replace('</main>', '')}<section><h2>Offene Stellen</h2><p>${emptyText}</p></section></main></html>`,
+        { status: 200 },
+      );
+    };
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: localizedZero, timeoutMs: 1000 }))
+      .resolves.toMatchObject({ urls: [], pagesSucceeded: 2, sourceZero: true });
+    const duplicatedCount = async () => new Response(
+      `${marker}<div class="listing-count">0</div><div class="listing-count">0</div></html>`,
+      { status: 200 },
+    );
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: duplicatedCount, timeoutMs: 1000 }))
+      .rejects.toThrow(/explicit zero-open-positions marker/);
+    const unrelatedCopy = async () => new Response(
+      `${marker}<p>Offene Stellen – 0 neue Hinweise</p></html>`,
+      { status: 200 },
+    );
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unrelatedCopy, timeoutMs: 1000 }))
+      .rejects.toThrow(/explicit zero-open-positions marker/);
+    const unrelated = async () => new Response(
+      `${marker}<div class="job-filter"><span class="total">0 nuove indicazioni</span></div></html>`,
+      { status: 200 },
+    );
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: unrelated, timeoutMs: 1000 }))
+      .rejects.toThrow(/explicit zero-open-positions marker/);
+    const labelledCount = async () => new Response(
+      `${marker}<div class="listing-count">0 nuove indicazioni</div></html>`,
+      { status: 200 },
+    );
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: labelledCount, timeoutMs: 1000 }))
+      .rejects.toThrow(/explicit zero-open-positions marker/);
+    const unmarkedZero = async () => new Response(`${marker}</html>`, { status: 200 });
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unmarkedZero, timeoutMs: 1000 }))
+      .rejects.toThrow(/explicit zero-open-positions marker/);
+    const invalid = async () => new Response('<html>challenge</html>', { status: 200 });
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: invalid, timeoutMs: 1000 }))
       .rejects.toThrow(/identity marker/);
+  });
+
+  it('builds a health-visible authoritative zero and reports removed jobs', () => {
+    const priorJob = {
+      companyKey: 'banca-raiffeisen-vedeggio-cassarate',
+      slug: 'consulente-clientela-privata-banca-raiffeisen-vedeggio-cassarate',
+      title: 'Consulente clientela privata',
+      url: detail,
+    };
+    const result = buildRaiffeisenAuthoritativeEmptySnapshot(
+      [priorJob],
+      '2026-10-03T00:00:00.000Z',
+      42,
+    );
+    expect(result.jobs).toEqual([]);
+    expect(result.jobs.authoritativeEmptyState).toBe('authoritative-source-zero');
+    expect(result.summary).toMatchObject({
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
+      total: 0,
+      removedCount: 1,
+      durationMs: 42,
+    });
+    expect(result.crawlDiff.removedJobs).toHaveLength(1);
   });
 });
 

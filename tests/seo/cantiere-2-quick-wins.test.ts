@@ -2,6 +2,16 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
+import pages from '../../services/seo/seo-pages';
+import {
+  buildTitleWithBrand,
+  META_DESCRIPTION_MAX_CHARS,
+  TITLE_MAX_CHARS,
+} from '../../build-plugins/shared/titleSuffix';
+import {
+  GUIDE_LOCALE_SEO_SOURCE_PATHS,
+  resolveGuideLocaleSeoByPath,
+} from '../../build-plugins/shared/guideLocaleSeo';
 
 const SEO_SOURCE = readFileSync(
   path.resolve(__dirname, '../../services/seo/seo-pages.ts'),
@@ -35,6 +45,43 @@ describe('cantiere 2 — SEO metadata quick wins', () => {
     expect(entry).toContain("ogTitle: 'Guida frontaliere Svizzera 2026 — permesso G, tasse e dogana'");
   });
 
+  it('keeps every curated guide sibling inside the shared SERP budgets', () => {
+    const guideEntries = Object.values(pages).filter((entry) =>
+      entry.canonicalPath?.startsWith('/guida-frontaliere/'),
+    );
+
+    expect(guideEntries.length).toBeGreaterThan(0);
+    for (const entry of guideEntries) {
+      expect(entry.title.length, `${entry.canonicalPath}: title`).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+      expect(entry.description.length, `${entry.canonicalPath}: description`).toBeLessThanOrEqual(
+        META_DESCRIPTION_MAX_CHARS,
+      );
+    }
+  });
+
+  it('keeps every localized guide sibling intent-specific in static metadata', () => {
+    expect(GUIDE_LOCALE_SEO_SOURCE_PATHS).toHaveLength(9);
+
+    for (const locale of ['en', 'de', 'fr']) {
+      for (const sourcePath of GUIDE_LOCALE_SEO_SOURCE_PATHS) {
+        const metadata = resolveGuideLocaleSeoByPath(sourcePath, locale);
+        expect(metadata, `${locale} ${sourcePath}: missing localized metadata`).toBeTruthy();
+        expect(metadata!.title.length, `${locale} ${sourcePath}: title`).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+        expect(buildTitleWithBrand(metadata!.title).length, `${locale} ${sourcePath}: branded title`)
+          .toBeLessThanOrEqual(TITLE_MAX_CHARS);
+        expect(metadata!.description.length, `${locale} ${sourcePath}: description`)
+          .toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+        expect(metadata!.description.length, `${locale} ${sourcePath}: thin description`)
+          .toBeGreaterThan(50);
+      }
+    }
+
+    expect(resolveGuideLocaleSeoByPath('/guida-frontaliere/disoccupazione-transfrontaliera/', 'en'))
+      .toMatchObject({ title: 'Unemployment: Switzerland and Italy' });
+    expect(resolveGuideLocaleSeoByPath('/guida-frontaliere/trasferire-auto-svizzera/', 'en'))
+      .toMatchObject({ title: 'Transfer Your Car to Switzerland' });
+  });
+
   it('keeps calculator metadata grammatical and within the description budget', () => {
     const entry = entrySource('calcolatore', 'guide');
     const description = entry.match(/\n description: '([^']+)'/)?.[1] ?? '';
@@ -49,10 +96,10 @@ describe('cantiere 2 — SEO metadata quick wins', () => {
 
   it('describes the border map without an unverified crossing count', () => {
     const entry = entrySource("'border-map'", 'jobboard');
-    expect(entry).toContain("title: 'Mappa confine Italia-Svizzera 2026 | Valichi del Ticino'");
-    expect(entry).toContain("description: 'Mappa interattiva del confine Italia-Svizzera in Ticino: valichi, tempi di attesa live, webcam e comuni di frontiera.'");
-    expect(entry).toContain("ogTitle: 'Mappa confine Italia-Svizzera 2026 | Valichi del Ticino'");
-    expect(entry).toContain("ogDescription: 'Mappa interattiva del confine Italia-Svizzera in Ticino: valichi, tempi di attesa live, webcam e comuni di frontiera.'");
+    expect(entry).toContain("title: 'Mappa Confine Svizzera-Italia 2026: Valichi e Tempi Live'");
+    expect(entry).toContain("description: 'Mappa interattiva confine Svizzera-Italia: valichi del Ticino, tempi di attesa live, webcam e comuni italiani entro 20 km.'");
+    expect(entry).toContain("ogTitle: 'Mappa Confine Svizzera-Italia 2026: Valichi e Tempi Live'");
+    expect(entry).toContain("ogDescription: 'Mappa interattiva del confine Svizzera-Italia: valichi, tempi live, webcam e comuni di frontiera.'");
     expect(entry).not.toMatch(/title: '[^']*9 Valichi/);
     expect(entry).not.toMatch(/description: '[^']*9 valichi/);
     expect(entry).toContain("canonicalPath: '/guida-frontaliere/mappa-confine/'");

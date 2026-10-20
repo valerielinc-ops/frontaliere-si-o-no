@@ -32,6 +32,7 @@
  * Genève GE, Luzern LU, Schachen LU, …) — a wide, multi-canton dataset
  * relevant to this site's CH-wide job cathedral.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -122,12 +123,6 @@ function pickCanton(addressRegion = '', city = '') {
   return inferSwissTargetCanton(city || addressRegion) || DEFAULT_CANTON;
 }
 
-function pickPostedDate(raw) {
-  const s = typeof raw === 'string' ? raw.slice(0, 10) : '';
-  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
-  return new Date().toISOString().slice(0, 10);
-}
-
 /* ── Main entry ────────────────────────────────────────────── */
 
 export async function fetchAllGallikerJobs() {
@@ -138,13 +133,19 @@ export async function fetchAllGallikerJobs() {
   try {
     listingHtml = await fetchHtml(LISTING_URL);
   } catch (err) {
-    console.warn(`⚠️ Galliker Refline listing fetch failed: ${err?.message || err}. Returning [].`);
-    return [];
+    console.warn(`⚠️ Galliker Refline listing fetch failed: ${err?.message || err}.`);
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   const listings = parseReflineListing(listingHtml, { listingHost: REFLINE_HOST, tenant: REFLINE_TENANT });
   console.log(`   ✓ ${listings.length} positions on Refline listing`);
-  if (!listings.length) return [];
+  // Preserve a parser-stamped authoritative zero from Refline's explicit
+  // no-results state; replacing it with a fresh [] would reintroduce the
+  // fail-closed false alarm fixed at the shared listing boundary.
+  if (!listings.length) return listings;
 
   const jobs = [];
   for (let i = 0; i < listings.length; i += 1) {
@@ -173,7 +174,7 @@ export async function fetchAllGallikerJobs() {
     const postalCode = addr.postalCode || DEFAULT_POSTAL;
     const streetAddress = addr.streetAddress || DEFAULT_STREET;
     const employmentType = detectEmploymentType(ld?.employmentType, `${title} ${description}`);
-    const postedDate = pickPostedDate(ld?.datePosted);
+    const publication = sourcePostingDateFields(ld?.datePosted);
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${GALLIKER_KEY} ${city}`);
@@ -214,7 +215,7 @@ export async function fetchAllGallikerJobs() {
       sector: 'Logistica / Trasporti',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: listing.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

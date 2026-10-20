@@ -4,6 +4,7 @@
  * Source discovery is API-first via Prospective.ch, then detail extraction
  * is delegated to the shared crawler using the SSR job detail pages.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,8 +29,14 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { detectLang } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
-import { parseKsgrJobsPage } from './lib/ksgr-job-parser.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
+import { mapPool } from './lib/prospector/polite-fetch.mjs';
+import {
+  composeKsgrDescription,
+  parseKsgrDetailExtras,
+  parseKsgrJobsPage,
+} from './lib/ksgr-job-parser.mjs';
+import { preferEnrichedDescription } from './lib/enriched-description-fallback.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -42,6 +49,7 @@ const HQ = getCompanyDefaults(KSGR_KEY);
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000745';
 const API_LANG = 'de';
 const PAGE_SIZE = 100;
+const DETAIL_CONCURRENCY = 3;
 const COMPANY_NAME = 'Kantonsspital Graubünden';
 const COMPANY_DOMAIN = 'ksgr.ch';
 
@@ -87,20 +95,6 @@ function isTrustedKsgrDomain(rawUrl = '') {
   }
 }
 
-async function fetchJson(url) {
-  const response = await fetch(url, {
-    headers: {
-      Accept: 'application/json',
-      'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-    },
-  });
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status} for ${url}`);
-  }
-  return await response.json();
-}
-
 async function fetchAllKsgrJobs() {
   const discovered = [];
   let total = null;
@@ -130,6 +124,28 @@ async function fetchAllKsgrJobs() {
   return deduped;
 }
 
+/**
+ * Benefit cards and contact block exist only on the jobs.ksgr.ch detail page,
+ * not in the Prospective API. A page that cannot be read leaves that job on
+ * its API text (see `preferEnrichedDescription` for how a previously
+ * enriched text survives a transient failure) — the crawl never fails on it.
+ */
+async function fetchKsgrDetailExtras(apiJobs) {
+  const extrasByUrl = new Map();
+  let failed = 0;
+  await mapPool(apiJobs, DETAIL_CONCURRENCY, async (job) => {
+    try {
+      const extras = parseKsgrDetailExtras(await fetchHtml(job.detailUrl));
+      if (extras.benefits.length || extras.contact) extrasByUrl.set(job.detailUrl, extras);
+    } catch {
+      failed += 1;
+    }
+    await sleep(150);
+  });
+  console.log(`🧾 KSGR detail pages enriched: ${extrasByUrl.size}/${apiJobs.length}${failed ? ` (${failed} unreadable, API text kept)` : ''}.`);
+  return extrasByUrl;
+}
+
 function slugify(value = '') {
   const slug = String(value || '')
     .trim()
@@ -142,7 +158,7 @@ function slugify(value = '') {
   return truncateSlugAtWordBoundary(slug, 140);
 }
 
-function buildJobFromApiData(apiJob, existingByUrl) {
+function buildJobFromApiData(apiJob, existingByUrl, extras = null) {
   // Match on the stable id extracted from the detail URL (the UUID trailing
   // segment, e.g. .../offene-stellen/<title-slug>/<uuid>) rather than the
   // raw lowercased URL, so a Prospective title/slug rewrite doesn't orphan
@@ -151,7 +167,23 @@ function buildJobFromApiData(apiJob, existingByUrl) {
   // API-based dedicated crawlers (mikron, swiss-medical-network).
   const existing = existingByUrl.get(extractStableJobId(apiJob.detailUrl));
   const title = apiJob.title;
-  const description = apiJob.description || '';
+  const previousSourceDescription = existing?.descriptionByLocale?.de || '';
+  // Benefit cards and contact are the hospital's, not the vacancy's: without
+  // the feed's role text they are never published as a body. Such a job keeps
+  // the text the source gave on an earlier run, or is not published (main).
+  const hasRoleText = Boolean(String(apiJob.description || '').trim());
+  let description = previousSourceDescription;
+  if (hasRoleText) {
+    description = extras
+      ? composeKsgrDescription(apiJob.description, extras)
+      : preferEnrichedDescription(previousSourceDescription, apiJob.description);
+  }
+  // The German source slot follows the crawl: it used to be frozen at the
+  // first crawl (`existing.descriptionByLocale || …`), so a parser fix never
+  // reached published jobs. Translations of an older source are kept until the
+  // translation pipeline redoes them — flagged below when the source moved.
+  const sourceChanged = Boolean(previousSourceDescription)
+    && normalize(previousSourceDescription).replace(/\s+/g, ' ') !== normalize(description).replace(/\s+/g, ' ');
   // Guard the slug location token so a literal "undefined"/"null" from the API
   // (both truthy → slip past `|| 'graubuenden'`) can never leak `-undefined`
   // into an active slug (sitemap-canonical gate). Slug-only; addressLocality is
@@ -175,19 +207,19 @@ function buildJobFromApiData(apiJob, existingByUrl) {
     canton: HQ.canton,
     postalCode: apiJob.postalCode || '7000',
     streetAddress: apiJob.streetAddress || '',
-    postedDate: apiJob.postedDate || new Date().toISOString().slice(0, 10),
+    ...mergeSourcePostingDates(existing, sourcePostingDateFields(apiJob.postedDate)),
     employmentType: apiJob.employmentType || '',
     category: apiJob.industry || 'healthcare',
     crawledAt: new Date().toISOString(),
     slug: existing?.slug || slug,
     slugByLocale: existing?.slugByLocale || { de: slug },
     titleByLocale: existing?.titleByLocale || { de: title },
-    descriptionByLocale: existing?.descriptionByLocale || { de: description },
+    descriptionByLocale: { ...(existing?.descriptionByLocale || {}), de: description },
     baseSalary: existing?.baseSalary || { currency: 'CHF', value: { minValue: 41080, unitText: 'YEAR' } },
     featured: false,
     previousSlugs: existing?.previousSlugs || [],
     previousSlugsByLocale: existing?.previousSlugsByLocale || {},
-    needsRetranslation: !(existing?.titleByLocale?.it),
+    needsRetranslation: !(existing?.titleByLocale?.it) || sourceChanged,
     _targetScope: 'grigioni',
   };
 }
@@ -212,18 +244,30 @@ async function main() {
     if (key) existingByUrl.set(key, job);
   }
 
-  // Discover all jobs from Prospective API (no detail page scraping needed)
+  // Discover all jobs from Prospective API; detail pages only add the
+  // benefit cards and contact block the API does not carry.
   const discoveredJobs = await fetchAllKsgrJobs();
   if (discoveredJobs.length === 0) {
     throw new Error('KSGR discovery returned 0 jobs.');
   }
   console.log(`🔎 KSGR discovered ${discoveredJobs.length} jobs from Prospective API.`);
 
-  // Build job objects directly from API data
-  const jobs = discoveredJobs.map((apiJob) => buildJobFromApiData(apiJob, existingByUrl));
+  const extrasByUrl = await fetchKsgrDetailExtras(discoveredJobs);
+
+  // Build job objects from API data + detail-page-only sections
+  const builtJobs = discoveredJobs.map((apiJob) => buildJobFromApiData(
+    apiJob,
+    existingByUrl,
+    extrasByUrl.get(apiJob.detailUrl) || null,
+  ));
+  const jobs = builtJobs.filter((job) => String(job.description || '').trim());
+  if (jobs.length < builtJobs.length) {
+    console.log(`⏭️ KSGR: ${builtJobs.length - jobs.length} job(s) without role text in the feed and none stored — not published.`);
+  }
   console.log(`📋 Built ${jobs.length} KSGR job objects from API data.`);
 
-  // Write slice directly (skip shared crawler — jobs.ksgr.ch returns 403 from CI)
+  // Write slice directly (the shared crawler is not needed: the API carries
+  // every per-vacancy field and fetchKsgrDetailExtras adds the rest).
   writeJobsCrawlerSlice(KSGR_KEY, jobs);
 
   // Summary and diff

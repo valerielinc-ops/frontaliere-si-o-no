@@ -1,3 +1,5 @@
+import { classifyProfessionLandingFeature } from './professionLandingsSections.mjs';
+
 /**
  * Shared canton-aware job-board section matcher.
  * ─────────────────────────────────────────────────────────────────────────
@@ -70,6 +72,34 @@ export const JOB_BOARD_SECTION_RX =
   new RegExp(`(?:^|/)(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/`);
 
 /**
+ * Matches a browser pathname (`window.location.pathname`) inside a job-board
+ * section, for every canton, the Switzerland aggregator and every locale
+ * (optional `/it|/en|/de|/fr` prefix, like jobBoardSeoPure's
+ * CANTON_LANDING_RE: `/it/cerca-lavoro-…` is not served today, but it is a
+ * section-shaped path): the section root, with or without its trailing
+ * slash, and any page below it. Anchored at the start, unlike
+ * JOB_BOARD_SECTION_RX, so `/blog/cerca-lavoro-ticino/` does not match.
+ *
+ * Runtime consumers: the rewarded "Candidati" surface
+ * (components/community/JobBoard.tsx) and the click-only Offerwall gate
+ * FC_JOBBOARD_OFFERWALL_GATE_JS (build-plugins/constants.ts), which embeds
+ * `.source` into inline JS. Its hand-written twins (index.html and the
+ * corpus's transported host/constants.ts) are pinned by
+ * tests/offerwall-click-gate-parity.test.ts and by the SiteShellContract
+ * fingerprint.
+ */
+export const JOB_BOARD_SECTION_PATHNAME_RX =
+  new RegExp(`^(?:/(?:it|en|de|fr))?/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*(?:/|$)`);
+
+/**
+ * @param {string} pathname a browser pathname such as `window.location.pathname`.
+ * @returns {boolean} true when the page sits in any job-board section.
+ */
+export function isJobBoardSectionPathname(pathname) {
+  return JOB_BOARD_SECTION_PATHNAME_RX.test(String(pathname || ''));
+}
+
+/**
  * Profession × city landing pages are job-payload pages too, but they use
  * the locale-natural `/jobs-{city}-{role}/` (or `lavoro`/`arbeit`/`travail`)
  * shape instead of living below a canton job-board section. Keep this
@@ -80,14 +110,35 @@ export const JOB_BOARD_SECTION_RX =
  * The city list mirrors `build-plugins/professionCityData.ts`. These are the
  * eleven enumerated city hubs from which profession landings are emitted;
  * anchoring the city prevents an editorial `/en/jobs-…/` guide from being
- * swallowed by the job-payload exemption.
+ * swallowed by the job-payload exemption. The city alternation is exported
+ * for services/adPageTemplate.ts, whose `role_landing` bucket (and its inline
+ * twin in the AdSense loader) must follow the same eleven hubs.
  */
-const PROFESSION_CITY_SLUG_SOURCE =
+export const PROFESSION_CITY_SLUG_SOURCE =
   'lugano|mendrisio|bellinzona|locarno|chiasso|zurich|basel|bern|luzern|geneve|lausanne';
 
 export const JOB_BOARD_PROFESSION_CITY_RX = new RegExp(
   `(?:^|/)(?:lavoro|jobs|arbeit|travail)-(?:${PROFESSION_CITY_SLUG_SOURCE})-[a-z0-9][a-z0-9-]*(?:/index\\.html)?/?$`,
 );
+
+/**
+ * The profession × canton family has the same flat shape as profession × city
+ * (`{areaWord}-{cantonSlug}-{role}/`), but both the canton and the role may
+ * contain hyphens. A prefix regex would therefore classify editorial slugs
+ * such as `/en/jobs-st-gallen-guide/` as a job payload. The exact route-set
+ * classifier is generated from professionCantonData.ts and precompiled once
+ * in professionLandingsSections.mjs; this adapter only normalises the dist
+ * path form (`…/index.html`) used by the information-gain auditor.
+ */
+function normalizeProfessionLandingPath(path) {
+  const raw = String(path || '').replace(/\\/g, '/');
+  const withLeadingSlash = raw.startsWith('/') ? raw : `/${raw}`;
+  return withLeadingSlash.replace(/\/index\.html$/, '/');
+}
+
+export function isJobBoardProfessionCantonPath(normalisedPath) {
+  return classifyProfessionLandingFeature(normalizeProfessionLandingPath(normalisedPath)) === 'profession-canton';
+}
 
 /**
  * Matches the company-hub segment immediately below a job-board section,
@@ -141,13 +192,15 @@ export function isJobBoardSectionPath(normalisedPath) {
 }
 
 /**
- * True for either a canton-aware job-board section or a profession × city
- * landing with a live jobs payload. This is the scope used by content audits
- * that compare editorial prose; section-only consumers should keep using
- * isJobBoardSectionPath().
+ * True for either a canton-aware job-board section or a profession landing
+ * (city or canton) with a live jobs payload. This is the scope used by content
+ * audits that compare editorial prose; section-only consumers should keep
+ * using isJobBoardSectionPath().
  */
 export function isJobBoardContentPath(normalisedPath) {
-  return JOB_BOARD_SECTION_RX.test(normalisedPath) || JOB_BOARD_PROFESSION_CITY_RX.test(normalisedPath);
+  return JOB_BOARD_SECTION_RX.test(normalisedPath) ||
+    JOB_BOARD_PROFESSION_CITY_RX.test(normalisedPath) ||
+    isJobBoardProfessionCantonPath(normalisedPath);
 }
 
 /**

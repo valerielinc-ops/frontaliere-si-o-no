@@ -30,9 +30,12 @@
  *   - isTrustedDomain()              — Validate URLs belong to Umantis tenant
  *   - SPITAL_MAENNEDORF_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
-import { fetchUmantisDetailContentResult } from './umantis-detail-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { fetchUmantisDetailResult, extractUmantisDetailContent } from './umantis-detail-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -307,7 +310,7 @@ export async function fetchAllSpitalMaennedorfJobs() {
         pageHtml = await fetchPage(pageUrl, cookieJar);
       } catch (err) {
         console.warn(`  ⚠️ Page ${pageNum} fetch failed: ${err?.message}`);
-        break;
+        throw err;
       }
       const pageListings = parseSpitalMaennedorfListingPage(pageHtml);
       let added = 0;
@@ -343,10 +346,15 @@ export async function fetchAllSpitalMaennedorfJobs() {
     // fall back to the listing snippet only on network failure or
     // unexpected layout.
     let detailContent = '';
+    let postingDates = sourcePostingDateFields('');
     let deadDetail = false;
     try {
-      ({ content: detailContent, deadDetail } =
-        await fetchUmantisDetailContentResult(BASE_URL, listing.vacancyId, { lang: 'ger' }));
+      const detail = await fetchUmantisDetailResult(BASE_URL, listing.vacancyId, { lang: 'ger' });
+      deadDetail = detail.deadDetail;
+      detailContent = deadDetail ? '' : extractUmantisDetailContent(detail.html);
+      postingDates = sourcePostingDateFields(deadDetail ? undefined : extractJobPostingField(detail.html, 'datePosted'));
+      // Preserve the pacing of fetchUmantisDetailContentResult without another request.
+      await new Promise((resolve) => setTimeout(resolve, 250));
     } catch (err) {
       detailContent = '';
       deadDetail = false;
@@ -362,8 +370,13 @@ export async function fetchAllSpitalMaennedorfJobs() {
     }
     if (detailContent && detailContent.length > 200) detailHits += 1;
 
-    const fallbackDesc = `${title} — ${SPITAL_MAENNEDORF_COMPANY_NAME}, ${location}`;
-    const descriptionText = detailContent || listing.snippet || fallbackDesc;
+    // Only the posting's own text (issue 5253): the detail body, or the
+    // listing snippet when the detail was not read — never a "<title> —
+    // Spital Männedorf, <place>" line in place of both. A body under the common
+    // 50-word floor gives no description (the shared pipeline's thin-source
+    // path).
+    const sourceBody = detailContent || listing.snippet || '';
+    const descriptionText = meetsSourceBodyFloor(sourceBody) ? sourceBody : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} ${SPITAL_MAENNEDORF_KEY} ch`);
@@ -410,7 +423,7 @@ export async function fetchAllSpitalMaennedorfJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...postingDates,
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

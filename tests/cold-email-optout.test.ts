@@ -10,6 +10,7 @@ const buildSequence = rawBuildSequence as unknown as (args: {
   periodLabel: string;
   contactName?: string;
   topRole?: string;
+  optOutEmail?: string;
 }) => ReturnType<typeof rawBuildSequence>;
 
 // Compliance guard: cold B2B outreach MUST carry an opt-out on every touch
@@ -23,6 +24,7 @@ describe('cold-email opt-out invariant', () => {
     periodLabel: 'negli ultimi 3 mesi',
     contactName: 'Denise Rossi',
     topRole: 'Magazziniere',
+    optOutEmail: OPTOUT_EMAIL,
   });
 
   it('builds the full 4-touch sequence', () => {

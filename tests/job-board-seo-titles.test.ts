@@ -12,13 +12,19 @@ import {
   JOB_BOARD_LANDING_PATHS,
   type JobBoardLocale,
 } from '../build-plugins/jobBoardSeo'
-import { buildItalianCantonLandingTitle } from '../services/seo/job-board-titles'
+import { buildCantonLandingTitle } from '../services/seo/job-board-titles'
 
-describe('buildItalianCantonLandingTitle', () => {
-  it('uses job-offer intent and preserves the site brand for canton landings', () => {
-    expect(buildItalianCantonLandingTitle('Zurigo')).toBe(
-      'Offerte di lavoro in Zurigo | Frontaliere Ticino',
-    )
+describe('buildCantonLandingTitle', () => {
+  it('uses live job-offer intent for the Zurich canton landing', () => {
+    const title = buildCantonLandingTitle({
+      locale: 'it',
+      cantonDisplay: 'Zurigo',
+      count: 137,
+      year: 2026,
+    })
+    expect(title).toContain('Offerte di lavoro in Zurigo')
+    expect(title).toContain('137')
+    expect(title).toContain('2026')
   })
 })
 
@@ -60,7 +66,7 @@ describe('buildJobBoardSeo (F3a — CTR-optimized titles)', () => {
     // Desc includes number + primary keyword + CTA
     expect(entry.desc).toContain('2408')
     expect(entry.desc).toContain('offerte di lavoro in Ticino')
-    expect(entry.desc).toMatch(/Candidati/)
+    expect(entry.desc).toContain('Leggi gli annunci; accesso gratuito per candidarti.')
   })
 
   it('omits fire emoji on title when count below threshold', () => {
@@ -228,21 +234,32 @@ describe('getActiveJobCountsByLocale', () => {
     }
   })
 
-  it('reads and counts active jobs from data/jobs.json', () => {
+  it('counts the national listing inventory by default and keeps explicit canton filtering', () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'jbsEo-'))
     try {
       fs.mkdirSync(path.join(tmp, 'data'), { recursive: true })
       const longDesc = 'word '.repeat(60).trim()
       const jobs = [
-        { descriptionByLocale: { it: longDesc, en: longDesc, de: longDesc, fr: longDesc } },
-        { descriptionByLocale: { it: longDesc, en: longDesc, de: longDesc, fr: longDesc } },
+        { id: 'ti-a', title: 'Ruolo A', company: 'Esempio SA', canton: 'TI', descriptionByLocale: { it: longDesc } },
+        { id: 'ti-b', title: 'Ruolo B', company: 'Esempio SA', canton: 'TI' },
+        { id: 'zh-a', title: 'Ruolo C', company: 'Esempio SA', canton: 'ZH', descriptionByLocale: { it: longDesc, en: longDesc } },
       ]
       fs.writeFileSync(path.join(tmp, 'data/jobs.json'), JSON.stringify(jobs))
-      const counts = getActiveJobCountsByLocale(tmp)
-      expect(counts).toEqual({ it: 2, en: 2, de: 2, fr: 2 })
+      expect(getActiveJobCountsByLocale(tmp)).toEqual({ it: 3, en: 3, de: 3, fr: 3 })
+      expect(getActiveJobCountsByLocale(tmp, 'TI')).toEqual({ it: 2, en: 2, de: 2, fr: 2 })
     } finally {
       fs.rmSync(tmp, { recursive: true, force: true })
     }
+  })
+
+  it('keeps static Ticino landing metadata canton-scoped', () => {
+    const source = fs.readFileSync(
+      path.resolve(__dirname, '../build-plugins/staticPagesPlugin.ts'),
+      'utf8',
+    )
+    expect(source.match(/const jobBoardCounts = getActiveJobCountsByLocale\([^\n]+\)/g)).toEqual([
+      "const jobBoardCounts = getActiveJobCountsByLocale(rootDir, 'TI')",
+    ])
   })
 })
 

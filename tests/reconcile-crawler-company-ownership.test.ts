@@ -41,6 +41,18 @@ import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
 import { resolveBrandCanonical } from '../build-plugins/shared/brandCanonicalMap.mjs';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
+describe('issue #9963 Swiss Post ownership transfer', () => {
+  it('passes the complete job record to multi-field ownership classification', () => {
+    const source = readFileSync(
+      new URL('../scripts/reconcile-crawler-company-ownership.mjs', import.meta.url),
+      'utf8',
+    );
+
+    expect(source).toContain('dedicatedPostOwner(job) === item.dedicated');
+    expect(source).not.toContain('dedicatedPostOwner(job.company)');
+  });
+});
+
 interface FixtureJob {
   id: string;
   company: string;

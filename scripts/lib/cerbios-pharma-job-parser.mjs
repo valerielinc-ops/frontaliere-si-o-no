@@ -14,8 +14,12 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace
  */
 
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { decode as decodeHTML } from 'html-entities';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
 
 const HQ = getCompanyDefaults('cerbios-pharma');
 
@@ -35,14 +39,7 @@ export function stripHtml(html = '') {
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/&(?:#(?:x[0-9a-f]+|[0-9]+)|[a-z][a-z0-9]+);/gi, (entity) => decodeHTML(entity))
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -73,9 +70,17 @@ export function slugify(value = '') {
 export function parseListingPage(html) {
   if (!html || typeof html !== 'string') return [];
 
-  // Check for "no offers" message
-  if (/non ci sono offerte|nessuna offerta|no.*job.*offer|no.*vacanc/i.test(html)) {
-    return [];
+  // Drupal's `view-empty` is the portal's dedicated no-results container.
+  // Never promote matching copy elsewhere on the page (including a live job
+  // row) to proof that the entire listing is empty.
+  const emptyStateMatch = html.match(
+    /<div[^>]*class=["'][^"']*\bview-empty\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i,
+  );
+  if (emptyStateMatch && /(?:non ci sono offerte|nessuna offerta|no\s+(?:job|jobs|vacanc(?:y|ies)|open positions?))/i.test(stripHtml(emptyStateMatch[1]))) {
+    return markAuthoritativeEmptySnapshot(
+      [],
+      'e-lavoro.ch/node/91 explicit no-open-offers message',
+    );
   }
 
   const jobs = [];
@@ -233,7 +238,14 @@ export function buildJob(raw) {
   if (!title || title.length < 3) return null;
 
   const location = raw.location || 'Barbengo';
-  const description = raw.description || `${title} presso Cerbios-Pharma SA, azienda farmaceutica CDMO con sede a Barbengo (Lugano, Ticino). Cerbios-Pharma è specializzata nello sviluppo e nella produzione di principi attivi farmaceutici (API) e coniugati anticorpo-farmaco (ADC), servendo clienti farmaceutici globali. L'azienda opera in un ambiente GMP certificato con tecnologie all'avanguardia.`;
+  // The listing's own text only, keyed by its language. The builder used to
+  // substitute a paragraph of its own on Cerbios-Pharma ("<titolo> presso
+  // Cerbios-Pharma SA, azienda farmaceutica CDMO…") and to copy the Italian
+  // title into all four locales; a listing without text now gets no
+  // description and takes the pipeline's thin-source path.
+  const description = normalizeSpace(raw.description || '');
+  const sourceLang = detectLang(description || title, 'it');
+  const slug = slugify(`${title}-cerbios-pharma-${location}`);
 
   return {
     title,
@@ -251,18 +263,24 @@ export function buildJob(raw) {
     employmentType: inferEmploymentType(title, description),
     category: detectCategory(title, description),
     description,
-    postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
+    descriptionByLocale: { [sourceLang]: description },
+    sourceLang,
+    ...sourcePostingDateFields(raw.datePosted),
     source: 'company-website',
-    slug: slugify(`${title}-cerbios-pharma-${location}`),
-    slugByLocale: {
-      it: slugify(`${title}-cerbios-pharma-${location}`),
-      en: slugify(`${title}-cerbios-pharma-${location}`),
-      de: slugify(`${title}-cerbios-pharma-${location}`),
-      fr: slugify(`${title}-cerbios-pharma-${location}`),
-    },
-    titleByLocale: { it: title, en: title, de: title, fr: title },
+    slug,
+    slugByLocale: { [sourceLang]: slug },
+    titleByLocale: { [sourceLang]: title },
   };
 }
+
+/**
+ * Fragment only the former builder wrote ("<titolo> presso Cerbios-Pharma SA,
+ * azienda farmaceutica CDMO con sede a Barbengo…" when the listing had no
+ * text). Used to clean jobs stored before the builder published the listing
+ * text alone.
+ */
+export const CERBIOS_PHARMA_FABRICATED_DESCRIPTION_RE =
+  /presso Cerbios-Pharma SA, azienda farmaceutica CDMO con sede a Barbengo/;
 
 /* ── Category detection ────────────────────────────────────── */
 

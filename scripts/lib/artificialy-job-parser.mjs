@@ -19,8 +19,11 @@ import {
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
 import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 const BASE_URL = 'https://www.artificialy.com';
+const LINKEDIN_JOB_URL_RE = /^https?:\/\/(?:[a-z-]+\.)?linkedin\.com\/jobs\/view\/[^/?#]+(?:[/?#]|$)/i;
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -52,6 +55,19 @@ function slugify(value = '') {
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-'), 180);
+}
+
+/**
+ * A short career-card summary is not a source body. It may stay in the
+ * parser's intermediate result only when the card points at the authorized
+ * LinkedIn job detail that the runner can fetch and validate separately.
+ */
+export function isArtificialyLinkedInJobUrl(rawUrl = '') {
+  return LINKEDIN_JOB_URL_RE.test(String(rawUrl || '').trim());
+}
+
+function isSourceBodyCandidate(item = {}) {
+  return meetsSourceBodyFloor(item.description || '') || isArtificialyLinkedInJobUrl(item.applyUrl);
 }
 
 /**
@@ -98,9 +114,8 @@ function extractJsonLdJobs(html) {
   while ((match = scriptPattern.exec(html)) !== null) {
     try {
       const data = JSON.parse(match[1]);
-      const postings = Array.isArray(data) ? data : data['@type'] === 'JobPosting' ? [data] : [];
+      const postings = extractJobPostingNodesFromJson(data);
       for (const p of postings) {
-        if (p['@type'] !== 'JobPosting') continue;
         const loc = p.jobLocation || {};
         const address = loc.address || {};
         items.push({
@@ -118,6 +133,54 @@ function extractJsonLdJobs(html) {
     } catch { /* ignore malformed JSON-LD */ }
   }
   return items;
+}
+
+/**
+ * Extract the full posting body from a LinkedIn guest job page.
+ *
+ * Artificialy's own career page contains only a short card summary. The
+ * linked LinkedIn posting carries the source-backed responsibilities and
+ * requirements needed to clear the shared 50-word source-body floor. Keep
+ * this parser deliberately scoped to LinkedIn's job-description containers;
+ * stripping the whole document would mix navigation and recommended jobs into
+ * the posting body.
+ */
+export function parseArtificialyLinkedInJobPage(html = '') {
+  const source = String(html || '');
+  if (!source || isArtificialyCloudflareBlockedPage(source)) {
+    return { description: '', blocked: Boolean(source) };
+  }
+
+  const candidates = [];
+  const blockPattern = /<([a-z][\w-]*)\b[^>]*class=(['"])[^'"]*\b(?:show-more-less-html__markup|description__text|job-details__main-content)\b[^'"]*\2[^>]*>([\s\S]*?)<\/\1>/gi;
+  for (const match of source.matchAll(blockPattern)) {
+    const text = stripHtml(match[3] || '');
+    if (text) candidates.push(text);
+  }
+
+  // LinkedIn has also exposed the guest posting body through JobPosting JSON-LD
+  // on some page variants. Reuse the same source text when that representation
+  // is present instead of relying on a single presentation-layer selector.
+  const scriptPattern = /<script[^>]*type\s*=\s*['"]application\/ld\+json['"][^>]*>([\s\S]*?)<\/script>/gi;
+  for (const match of source.matchAll(scriptPattern)) {
+    try {
+      const data = JSON.parse(match[1]);
+      const entries = Array.isArray(data) ? data : [data];
+      for (const entry of entries) {
+        const types = Array.isArray(entry?.['@type']) ? entry['@type'] : [entry?.['@type']];
+        if (!types.includes('JobPosting') || !entry.description) continue;
+        const text = stripHtml(entry.description);
+        if (text) candidates.push(text);
+      }
+    } catch {
+      // Ignore malformed/non-JSON scripts; the HTML containers remain usable.
+    }
+  }
+
+  const description = candidates
+    .sort((a, b) => b.length - a.length)
+    .find((text) => meetsSourceBodyFloor(text)) || '';
+  return { description, blocked: false };
 }
 
 /**
@@ -238,10 +301,14 @@ export function parseArtificialyCareerPage(html = '') {
 
   if (!html || html.length < 200) return { items: [] };
 
-  // Try strategies in order of reliability
-  let items = extractJsonLdJobs(html);
-  if (items.length === 0) items = extractHtmlJobCards(html);
-  if (items.length === 0) items = extractLinkBasedJobs(html);
+  // Try strategies in order of reliability, but do not let a short JSON-LD
+  // teaser prevent a richer HTML/card source from being considered. A short
+  // card is retained only when its authorized LinkedIn detail URL gives the
+  // runner a source-backed enrichment path; the runner applies the hard floor
+  // again after that detail fetch.
+  let items = extractJsonLdJobs(html).filter(isSourceBodyCandidate);
+  if (items.length === 0) items = extractHtmlJobCards(html).filter(isSourceBodyCandidate);
+  if (items.length === 0) items = extractLinkBasedJobs(html).filter(isSourceBodyCandidate);
 
   // Deduplicate by title
   const seen = new Set();
@@ -288,22 +355,27 @@ export function inferArtificialyCategory(title = '') {
 
 /**
  * Build localized content for an Artificialy job.
+ *
+ * The description is the posting text only, in the slot of its own language
+ * (`sourceLang`, detected by the runner) — issue 5253. The builder used to
+ * copy it into all four slots, so the Italian, English, German and French
+ * pages carried the same untranslated text and translation never replaced
+ * them, and without a text it wrote "Artificialy cerca <title> con sede a
+ * <place>. Azienda svizzera specializzata in intelligenza artificiale…" in
+ * all four. A posting without text, or under the shared 50-word floor, now
+ * gets no description and takes the thin-source path of the pipeline.
  */
 export function buildArtificialyLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.location || 'Lugano').trim();
-  const description = String(job.description || '').trim();
-
-  const fallbackDesc = `Artificialy cerca ${title} con sede a ${location}. Azienda svizzera specializzata in intelligenza artificiale con sedi a Lugano e Zurigo. Candidati online su artificialy.com.`;
+  const text = String(job.description || '').trim();
+  const description = meetsSourceBodyFloor(text) ? text : '';
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: {
-      it: description || fallbackDesc,
-      en: description || fallbackDesc,
-      de: description || fallbackDesc,
-      fr: description || fallbackDesc,
-    },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} artificialy ${location}`),
       en: slugify(`${title} artificialy ${location}`),

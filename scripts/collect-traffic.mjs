@@ -17,7 +17,8 @@
  *   TOMTOM_API_KEY=… node scripts/collect-traffic.mjs
  */
 
-import admin from 'firebase-admin';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 import {
   MAX_CROSSING_FAILURE_RATE,
   runIsPublishable,
@@ -115,7 +116,8 @@ if (errors > 0) {
 // Reuses the firebase-admin app already initialised inside
 // `runTrafficCollection()` (it idempotently calls initializeApp once).
 try {
-  const db = admin.firestore();
+  if (!getApps().length) initializeApp({ credential: applicationDefault() });
+  const db = getFirestore();
   const { slugs, dayFile, currentPath } = await snapshotBorderWaitFiles(db);
   console.log(`✅ Mirrored ${slugs.length} crossings → ${currentPath}`);
   console.log(`✅ Mirrored ${slugs.length} crossings × 24h → ${dayFile}`);

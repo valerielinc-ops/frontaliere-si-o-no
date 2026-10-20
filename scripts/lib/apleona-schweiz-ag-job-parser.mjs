@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -18,7 +19,10 @@ import {
   extractDetailFields,
   isSufficientVacancyDescription,
 } from './prospector/extract.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 import {
   runUmantisSpecWithEmptyProof,
   umantisAuthoritativeEmptyOrNull,
@@ -120,10 +124,11 @@ function apleonaLocationCandidate(location = '') {
  *
  * @param {string} html
  * @param {string} pageUrl
+ * @param {{ recordUrl?: string, recordTitle?: string }} [opts]
  */
-export function extractApleonaDetailFields(html = '', pageUrl = '') {
+export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
   const source = String(html || '');
-  const base = extractDetailFields(source, pageUrl);
+  const base = extractDetailFields(source, pageUrl, opts);
   if (!source) return base;
 
   const dom = new JSDOM(source);
@@ -323,9 +328,10 @@ export async function fetchAllApleonaSchweizAgJobs(runtime = {}) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    const resolvedGeography = resolveSourceBackedSwissGeography(listing.location);
+    const geography = sourceBackedSwissGeographyFields(listing, resolvedGeography);
     if (!geography) continue;
-    const { location, canton } = geography;
+    const { location, canton, addressLocality, addressRegion, addressCountry } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -358,10 +364,10 @@ export async function fetchAllApleonaSchweizAgJobs(runtime = {}) {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
+      addressLocality: normalizeSpace(addressLocality || listing.addressLocality),
+      addressRegion: normalizeSpace(addressRegion || listing.addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || "CH"),
+      country: normalizeSpace(addressCountry || "CH"),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
@@ -371,7 +377,7 @@ export async function fetchAllApleonaSchweizAgJobs(runtime = {}) {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

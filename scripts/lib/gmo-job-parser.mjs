@@ -12,10 +12,14 @@
  *   - buildSlug()                — Shared canonical slug base and disambiguator
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
 import { stripHtml } from './crawler-template.mjs';
 import { buildSlug } from './regenerate-slugs-helpers.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -105,13 +109,42 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+/**
+ * Arsanté's board also exposes open vacancies whose detail page contains no
+ * workplace. The generated consumer already drops those rows through the
+ * source-backed Swiss geography gate; they are an intentional source filter,
+ * not a failed detail fetch. Keep that distinction explicit so the shared
+ * completeness guard still fails closed on transport, tenant or description
+ * failures and only this known downstream filter is excluded from its ratio.
+ */
+export function isGmoExpectedDetailFilter({ reason, detail, decision, descriptionSufficient } = {}) {
+  const locationEvidence = [
+    ...(Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : []),
+    ...(Array.isArray(detail?.locationCandidates) ? detail.locationCandidates : []),
+  ].some((candidate) => hasAnyLocationEvidence(candidate));
+  return reason === 'geography'
+    && !decision?.geography
+    && decision?.explicitlyForeign !== true
+    && detail?.hasStructuredVacancy === true
+    && !locationEvidence
+    && descriptionSufficient === true;
+}
+
+function hasAnyLocationEvidence(value) {
+  if (Array.isArray(value)) return value.some((entry) => hasAnyLocationEvidence(entry));
+  if (value && typeof value === 'object') {
+    return Object.values(value).some((entry) => hasAnyLocationEvidence(entry));
+  }
+  return String(value || '').trim().length > 0;
+}
+
 /* ── Fetcher guidato dalla spec ───────────────────────────────
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
 async function fetchJobListings() {
   const spec = loadSpec(GMO_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, { isExpectedDetailFilter: isGmoExpectedDetailFilter });
 }
 
 /**
@@ -151,9 +184,10 @@ export async function fetchAllGmoJobs() {
     // mean what autoFilteredEmpty claims it means (see note below).
     geoEligible += 1;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    const resolvedGeography = resolveSourceBackedSwissGeography(listing.location);
+    const geography = sourceBackedSwissGeographyFields(listing, resolvedGeography);
     if (!geography) continue;
-    const { location, canton } = geography;
+    const { location, canton, addressLocality, addressRegion, addressCountry } = geography;
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
@@ -189,10 +223,10 @@ export async function fetchAllGmoJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
+      addressLocality: normalizeSpace(addressLocality || listing.addressLocality),
+      addressRegion: normalizeSpace(addressRegion || listing.addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || "CH"),
+      country: normalizeSpace(addressCountry || "CH"),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
@@ -202,7 +236,7 @@ export async function fetchAllGmoJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

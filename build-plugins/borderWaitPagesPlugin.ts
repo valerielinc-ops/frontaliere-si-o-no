@@ -2,7 +2,7 @@
  * Vite build plugin — emits static HTML for border-wait pages (F8).
  *
  * Reads a pre-snapshotted JSON state written by `scripts/snapshot-border-wait-
- * history.mjs` (cron, daily 23:30 CET) so the plugin stays deterministic and
+ * history.mjs` (via the traffic-scheduler collector) so the plugin stays deterministic and
  * doesn't hit Firestore at build time. If the snapshot files are missing, the
  * plugin degrades gracefully and emits pages with the static `avgWait*` fallback
  * from data/borderCrossings.ts plus a banner explaining that live data is
@@ -10,10 +10,10 @@
  *
  * Page set (per build) — counts are DERIVED from the registries in
  * borderWaitData.ts, never hand-maintained here; the figures below are an
- * illustration at the time of writing (143 crossings × 19 regions, #4545):
+ * illustration at the time of writing (160 crossings × 20 regions, BORDER2):
  *   - /traffico-dogane/                                        root hub × 4 locales = 4
  *   - /traffico-dogane/{region}/                               regional hubs × 4    = 76
- *   - /traffico-dogane/{crossing}/oggi/                        143 × 4              = 572
+ *   - /traffico-dogane/{crossing}/oggi/                        160 × 4              = 640
  *   - /traffico-dogane/{crossing}/{YYYY-MM}/ (top-5 past months)                    = 0 initially,
  *                                                                                     grows progressively
  *
@@ -37,12 +37,15 @@
  */
 
 import type { Plugin } from 'vite';
+import { sourceDateIso, formatSourceDate, borderReadingState } from '../services/dataFreshness';
+import { BORDER_WAIT_SOURCE_URLS } from './borderWaitSourceUrls';
 import fs from 'node:fs';
 import np from 'node:path';
-import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
+import { readBorderWaitArchive } from '../scripts/lib/border-wait-monthly-archive.mjs';
+import { htmlHasIndexableRobots } from './shared/incrementalHtmlReuse.mjs';
 import {
   BASE_URL,
-  BUILD_DATE_STAMP,
+  BUILD_ID,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
   DRIVEBY_AD_SNIPPET,
@@ -68,6 +71,7 @@ import {
   TOP_5_CROSSINGS,
   buildArchivePath,
   buildOggiPath,
+  parseBorderWaitPath,
   buildRegionalHubPath,
   buildRootHubPath,
   type BorderCrossingRegion,
@@ -80,6 +84,7 @@ import {
   BORDER_WAIT_HYDRATION_ASSET_PATH,
   BORDER_WAIT_HYDRATION_SCRIPT_TAG,
 } from './borderWaitHydrationScript';
+import { BORDER_WAIT_TONE_COLORS, borderWaitTone, type BorderWaitTone } from './borderWaitTone';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
 import { slugifyCrossingName } from '../services/borderCrossingSlug';
 import {
@@ -87,12 +92,21 @@ import {
   renderBorderWaitComparison,
   renderBorderWaitPicker,
 } from './borderWaitComparison';
+import { renderArchiveMonthInsights } from './borderWaitArchiveInsights';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
-import { buildTitleWithBrand } from './shared/titleSuffix';
+import {
+  buildTitleWithBrand,
+  TITLE_MAX_CHARS,
+  truncateToClauseNonEmpty,
+} from './shared/titleSuffix';
+import {
+  DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
+  DECISION_MOMENT_SURFACE_ATTRIBUTE,
+} from '../services/decisionMomentTelemetry';
 import {
   FUEL_LOCALE_PREFIX,
   FUEL_SECTION_SLUG,
@@ -130,6 +144,90 @@ import {
 // updates automatically.
 
 type DiscoverMoreCta = { title: string; href: string };
+
+/**
+ * Split a crossing label into its corridor and the road/checkpoint token.
+ * The road token is the actual discriminator for several otherwise identical
+ * corridors (Basel–Weil am Rhein, Büsingen–Schaffhausen, etc.).
+ */
+function crossingTitleParts(crossingDisplay: string): { corridor: string; route: string } {
+  const value = String(crossingDisplay || '').replace(/\s+/g, ' ').trim();
+  const comma = value.indexOf(',');
+  if (comma < 0) return { corridor: value, route: '' };
+  return {
+    corridor: value.slice(0, comma).trim(),
+    route: value.slice(comma + 1).trim(),
+  };
+}
+
+/**
+ * Keep both ends of an overlong proper name so a capped fallback still
+ * carries a useful corridor/road discriminator.  Current registry labels fit
+ * without this rung; it protects future data and adversarial inputs without
+ * inventing a keyword.
+ */
+function compactBorderTitlePart(value: string, maxChars: number): string {
+  const normalized = String(value || '').replace(/\s+/g, ' ').trim();
+  const chars = [...normalized];
+  if (chars.length <= maxChars) return normalized;
+  const headChars = Math.ceil((maxChars - 1) / 2);
+  const tailChars = Math.floor((maxChars - 1) / 2);
+  return `${chars.slice(0, headChars).join('')}…${chars.slice(-tailChars).join('')}`;
+}
+
+/**
+ * Build the leaf `<title>` without allowing a long corridor prefix to erase
+ * the road name. The previous implementation truncated the full H1 at a
+ * clause boundary, so three Basel routes all became “Basel – Weil am Rhein”.
+ * The route-first candidates retain the factual valico/strada discriminator;
+ * `buildTitleWithBrand` adds the publisher suffix afterwards when it fits.
+ */
+export function buildBorderWaitLeafTitle(
+  locale: BorderWaitLocale,
+  crossingDisplay: string,
+): string {
+  const { corridor, route } = crossingTitleParts(crossingDisplay);
+  const place = route ? `${route} — ${corridor}` : corridor;
+  const candidatesByLocale: Record<BorderWaitLocale, string[]> = {
+    it: route
+      ? [`Tempi di attesa ${place}`, `Dogana ${place}`]
+      : [`Tempi di attesa alla dogana ${place}`, `Dogana ${place}`, `Tempi di attesa ${place}`],
+    en: route
+      ? [`${place} border wait`, `Border crossing ${place}`]
+      : [`${place} border wait`, `Border crossing ${place}`, `Border wait ${place}`],
+    de: route
+      ? [`Wartezeit ${place}`, `Grenzübergang ${place}`]
+      : [`Wartezeit ${place}`, `Grenzübergang ${place}`, `Wartezeit ${corridor}`],
+    fr: route
+      ? [`Attente douane ${place}`, `Poste frontière ${place}`]
+      : [`Attente douane ${place}`, `Poste frontière ${place}`, `Attente ${corridor}`],
+  };
+  const candidates = candidatesByLocale[locale];
+  const firstFit = candidates.find((candidate) => [...candidate].length <= TITLE_MAX_CHARS);
+  if (firstFit) return firstFit;
+
+  // Preserve a bounded corridor alongside the route in the final rung.  A
+  // route-only fallback made two long corridors with the same road token
+  // indistinguishable, while returning the raw candidate could exceed the
+  // shared title cap.
+  const compactRoute = compactBorderTitlePart(route, 28);
+  const compactCorridor = compactBorderTitlePart(corridor, 30);
+  const overflowFallback: Record<BorderWaitLocale, string> = {
+    it: route
+      ? `Dogana ${compactRoute} — ${compactCorridor}`
+      : `Dogana ${compactCorridor}`,
+    en: route
+      ? `Border wait ${compactRoute} — ${compactCorridor}`
+      : `Border wait ${compactCorridor}`,
+    de: route
+      ? `Grenze ${compactRoute} — ${compactCorridor}`
+      : `Grenze ${compactCorridor}`,
+    fr: route
+      ? `Douane ${compactRoute} — ${compactCorridor}`
+      : `Douane ${compactCorridor}`,
+  };
+  return truncateToClauseNonEmpty(overflowFallback[locale], TITLE_MAX_CHARS);
+}
 
 function buildDiscoverMoreCtas(locale: BorderWaitLocale): ReadonlyArray<DiscoverMoreCta> {
   const dieselHref =
@@ -383,8 +481,8 @@ export function renderFastestCrossingCard(
 
   return `<div class="s-cLZUx7">
        <strong>${esc(label)}:</strong>
-       <a class="s-zFOCI6" href="${getCrossingHref(best.slug, locale)}">${esc(getCrossingLabel(best, locale))}</a>
-       · <span class="s-4sIcQF">${best.waitTimeMinutes} min</span>
+       <a class="s-zFOCI6" data-bw-slot="link" ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="open_crossing" href="${getCrossingHref(best.slug, locale)}">${esc(getCrossingLabel(best, locale))}</a>
+       · <span class="s-4sIcQF" data-bw-slot="minutes">${best.waitTimeMinutes} min</span>
      </div>`;
 }
 
@@ -418,15 +516,103 @@ export function renderTrafficFluidBanner(
 }
 
 /**
+ * Banner «fluido sui valichi misurati»: tutte le letture presenti sono a zero
+ * ma non coprono ogni valico in scope. «Fluido su tutti i valichi» sarebbe
+ * un'affermazione su valichi non misurati, «non abbiamo una lettura» sarebbe
+ * falso (le letture ci sono): la copy dice quanti valichi abbiamo misurato e
+ * che per gli altri manca il dato. I numeri stanno in slot che lo script di
+ * idratazione riscrive con le letture live.
+ */
+export function renderTrafficFluidMeasuredBanner(
+  measured: number,
+  total: number,
+  locale: 'it' | 'en' | 'de' | 'fr',
+): string {
+  const copy = {
+    it: {
+      title: 'Traffico fluido sui valichi misurati',
+      body: 'Nessuna coda rilevata sui valichi misurati ({n} su {total}). Per gli altri manca la lettura, che non equivale a zero minuti. I tempi si aggiornano ogni 15 minuti.',
+    },
+    en: {
+      title: 'Traffic flowing at the measured crossings',
+      body: 'No queues detected at the measured crossings ({n} of {total}). The others have no reading, which is not the same as zero minutes. Wait times refresh every 15 minutes.',
+    },
+    de: {
+      title: 'Flüssiger Verkehr an den gemessenen Übergängen',
+      body: 'Keine Staus an den gemessenen Übergängen ({n} von {total}). Für die übrigen fehlt die Messung, das sind nicht null Minuten. Wartezeiten werden alle 15 Minuten aktualisiert.',
+    },
+    fr: {
+      title: 'Circulation fluide aux passages mesurés',
+      body: "Aucune file aux passages mesurés ({n} sur {total}). Pour les autres, la mesure manque, ce qui n'équivaut pas à zéro minute. Mise à jour toutes les 15 minutes.",
+    },
+  }[locale];
+  const body = esc(copy.body)
+    .replace('{n}', `<span data-bw-slot="measured">${measured}</span>`)
+    .replace('{total}', `<span data-bw-slot="total">${total}</span>`);
+  return `<div class="s-7IQhM5">
+       <p class="s-m0_4f0">${esc(copy.title)}</p>
+       <p class="s-Dpu_t7">${body}</p>
+     </div>`;
+}
+
+export type HubHeroState = 'fastest' | 'fluid' | 'fluid-measured' | 'unavailable';
+
+/**
+ * A wait that counts as a measured crossing: a finite, non-negative number.
+ * The one predicate behind both the hero state and the fastest-card inputs
+ * (the hydration's `n()` already turns non-finite live values into null).
+ */
+export function isMeasuredWait(w: number | null | undefined): w is number {
+  return typeof w === 'number' && Number.isFinite(w) && w >= 0;
+}
+
+/**
+ * Stato del blocco hero dell'hub dalle attese dei valichi in scope (una voce
+ * per valico, `null` se manca la lettura). Gemello build-time di `hub()` nello
+ * script di idratazione, che applica la stessa regola alle letture live: una
+ * attesa mancante o negativa e' un valico NON misurato. Almeno una coda =>
+ * valico piu' veloce; tutte le misurate a zero => «fluido» se coprono ogni
+ * valico, «fluido sui misurati» altrimenti; nessuna misurata => non disponibile.
+ */
+export function hubHeroState(waits: ReadonlyArray<number | null | undefined>): HubHeroState {
+  const measured = waits.filter(isMeasuredWait);
+  if (measured.some((w) => w > 0)) return 'fastest';
+  if (measured.length === 0) return 'unavailable';
+  return measured.length === waits.length ? 'fluid' : 'fluid-measured';
+}
+
+/**
+ * Wraps a present-tense status block («adesso», «in questo momento») so the
+ * hydration asset can replace it with the variant that matches the live
+ * readings. The build-time variant renders inside `[data-bw-swap-out]`; every
+ * variant also ships as an inert `<template data-bw-state>`, so the markup has
+ * one source (this file) and the script only picks a state and fills
+ * `[data-bw-slot]` values.
+ */
+function renderLiveSwap(
+  kind: 'hub' | 'advice',
+  initialState: string,
+  initialHtml: string,
+  templates: Record<string, string>,
+  attrs = '',
+): string {
+  const variants = Object.entries(templates)
+    .map(([state, html]) => `<template data-bw-state="${esc(state)}">${html}</template>`)
+    .join('');
+  return `<div data-bw-swap="${kind}" data-bw-swap-state="${esc(initialState)}"${attrs}><div data-bw-swap-out>${initialHtml}</div>${variants}</div>`;
+}
+
+/**
  * Banner di dato non disponibile per l'hero dell'hub.
  *
  * Esiste perche' l'invariante dichiarata sopra il blocco hero — «o l'hero o il
  * fallback, mai entrambi e mai spazio vuoto» — non regge da sola quando le
  * letture assenti vengono scartate invece di essere contate come zero: se
- * nessun valico ha una lettura, o se le letture presenti sono tutte a zero ma
- * non coprono tutti i valichi in scope, «traffico fluido» sarebbe
- * un'affermazione su valichi che non abbiamo misurato. Assenza di dato e coda
- * pari a zero sono cose diverse e la copy le tiene separate.
+ * nessun valico ha una lettura, «traffico fluido» sarebbe un'affermazione su
+ * valichi che non abbiamo misurato. Assenza di dato e coda pari a zero sono
+ * cose diverse e la copy le tiene separate. Letture tutte a zero su copertura
+ * parziale vanno invece in `renderTrafficFluidMeasuredBanner`: lì le letture
+ * esistono e «non abbiamo una lettura» sarebbe falso.
  */
 export function renderBorderWaitUnavailableBanner(
   locale: 'it' | 'en' | 'de' | 'fr',
@@ -462,36 +648,47 @@ function crossingRegistry(slug: BorderCrossingSlug): BorderCrossing | undefined 
   );
 }
 
-// Color tokens — CSS custom properties so dark mode works automatically.
-const COLOR_OK_BG = 'var(--color-success-subtle)';
-const COLOR_OK_BORDER = 'var(--color-success-border)';
-const COLOR_OK_TEXT = 'var(--color-success)';
-const COLOR_WARN_BG = 'var(--color-warning-subtle)';
-const COLOR_WARN_BORDER = 'var(--color-warning-border)';
-const COLOR_WARN_TEXT = 'var(--color-warning)';
-const COLOR_BAD_BG = 'var(--color-danger-subtle)';
-const COLOR_BAD_BORDER = 'var(--color-danger-border)';
-const COLOR_BAD_TEXT = 'var(--color-danger)';
-const COLOR_UNKNOWN_BG = 'var(--color-surface-alt)';
-const COLOR_UNKNOWN_BORDER = 'var(--color-edge)';
-const COLOR_UNKNOWN_TEXT = 'var(--color-subtle)';
+/**
+ * Show a provider-approved webcam link in root/regional hub rows. The leaf
+ * page can render a frame only when `embedAllowed` is true; hubs always link to
+ * the official source page, so a link-only source is never hotlinked.
+ */
+function renderHubWebcamLink(slug: BorderCrossingSlug, copy: Copy): string {
+  const webcam = crossingRegistry(slug)?.webcams?.[0];
+  if (!webcam) return '';
+  const label = webcam.embedAllowed === false ? copy.webcamExternalLink : copy.webcamLabel;
+  return `<span class="bw-webcam-link"><a href="${esc(webcam.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(label)}: ${esc(webcam.label)}</a></span>`;
+}
 
+const BORDER_FRESHNESS_COPY = {
+  it: { observed: 'Ultima osservazione', generated: 'Pagina generata', snapshot: 'Snapshot osservato', stale: 'Dato scaduto: non descrive il traffico attuale', missing: 'Data osservazione non disponibile', status: 'Ultima lettura disponibile' },
+  en: { observed: 'Last observation', generated: 'Page generated', snapshot: 'Observed snapshot', stale: 'Outdated reading: not current traffic', missing: 'Observation date unavailable', status: 'Last available reading' },
+  de: { observed: 'Letzte Beobachtung', generated: 'Seite erstellt', snapshot: 'Beobachteter Stand', stale: 'Veraltete Messung: kein aktueller Verkehr', missing: 'Beobachtungsdatum nicht verfügbar', status: 'Letzte verfügbare Messung' },
+  fr: { observed: 'Dernière observation', generated: 'Page générée', snapshot: 'Instantané observé', stale: 'Mesure périmée : trafic actuel inconnu', missing: 'Date d’observation indisponible', status: 'Dernière mesure disponible' },
+};
+
+function observationBadge(value: string | null | undefined, locale: BorderWaitLocale, today: Date): string {
+  const copy = BORDER_FRESHNESS_COPY[locale];
+  const formatted = formatSourceDate(value, locale, today);
+  if (!formatted) return copy.missing;
+  return `${copy.snapshot}: ${formatted}${borderReadingState(value, today) === 'stale' ? ` · ${copy.stale}` : ''}`;
+}
+
+function sourceLink(source: WaitSource, label: string): string {
+  const url = BORDER_WAIT_SOURCE_URLS[source];
+  return `<a data-bw-field="source"${url ? ` href="${esc(url)}"` : ''} class="underline">${esc(label)} (${esc(source)})</a>`;
+}
+
+// Color tokens and thresholds live in `borderWaitTone.ts`, shared with the
+// hydration asset so a live reading repaints with the same rule.
 function statusColor(waitMinutes: number | null): {
   bg: string;
   border: string;
   text: string;
-  label: 'ok' | 'warn' | 'bad' | 'unknown';
+  label: BorderWaitTone;
 } {
-  if (waitMinutes === null) {
-    return { bg: COLOR_UNKNOWN_BG, border: COLOR_UNKNOWN_BORDER, text: COLOR_UNKNOWN_TEXT, label: 'unknown' };
-  }
-  if (waitMinutes < 5) {
-    return { bg: COLOR_OK_BG, border: COLOR_OK_BORDER, text: COLOR_OK_TEXT, label: 'ok' };
-  }
-  if (waitMinutes < 15) {
-    return { bg: COLOR_WARN_BG, border: COLOR_WARN_BORDER, text: COLOR_WARN_TEXT, label: 'warn' };
-  }
-  return { bg: COLOR_BAD_BG, border: COLOR_BAD_BORDER, text: COLOR_BAD_TEXT, label: 'bad' };
+  const label = borderWaitTone(waitMinutes);
+  return { ...BORDER_WAIT_TONE_COLORS[label], label };
 }
 
 // ── Localised copy ─────────────────────────────────────────────
@@ -532,6 +729,8 @@ interface Copy {
   webcamLabel: string;
   webcamNote: string;
   webcamSource: string;
+  webcamExternalLink: string;
+  webcamExternalNote: string;
   webcamDisclaimer: (sourceName: string) => string;
   webcamUnavailable: string;
   faqTitle: string;
@@ -540,6 +739,7 @@ interface Copy {
   regionalLabelTicinoVarese: string;
   regionalLabelTicinoVerbano: string;
   regionalLabelBasileaGermania: string;
+  regionalLabelBasileaFrancia: string;
   regionalLabelArgoviaGermania: string;
   regionalLabelZurigoGermania: string;
   regionalLabelSciaffusaGermania: string;
@@ -562,6 +762,7 @@ interface Copy {
   open24h: string;
   hoursLabel: string;
   historicalAvg: string;
+  monthlyArchivesTitle: string;
   /**
    * `isTicinoCorridor` is passed EXPLICITLY rather than inferred from
    * `country.name === 'Italia'`, which is what these answers used to do.
@@ -579,11 +780,11 @@ interface Copy {
 
 const COPY: Record<BorderWaitLocale, Copy> = {
   it: {
-    leafH1: (c, d) => `Tempi attesa alla dogana ${c} — oggi ${d}`,
+    leafH1: (c, _d) => `Tempi di attesa dogana ${c}: coda live oggi`,
     rootH1: 'Tempi di attesa alle dogane svizzere — live oggi',
     regionalH1: (r) => `Tempi attesa ai valichi ${r}`,
     intro: (c, s, d) =>
-      `Aggiornamento del ${d}: il valico di ${c} presenta un'attesa ${s}. Dati aggiornati ogni 15 minuti nelle ore di punta (06:00–10:00 e 16:00–20:00 CET) dalla nostra pipeline di monitoraggio.`,
+      `Aggiornamento del ${d}: alla dogana ${c} l'attesa è ${s}. Il tempo di coda al valico di frontiera si aggiorna ogni 15 minuti nelle ore di punta.`,
     advice: {
       eyebrow: 'Consiglio',
       ok: (bestHour) =>
@@ -596,7 +797,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         'Dato live non disponibile in questo momento. I numeri sotto sono medie storiche del valico — usali come riferimento.',
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. Questa pagina viene rigenerata automaticamente ad ogni deploy — i dati live provengono dalla collezione Firestore alimentata dal cron di traffico con provider a rotazione, gli stessi numeri usati nella mappa interattiva del sito. Se stai tornando in ${country.name} dopo il lavoro, ricorda che i picchi pendolari possono cambiare rapidamente: tra le 17 e le 19 anche ${c} può registrare code. Per i frontalieri abituali, conviene sempre tenere il documento d'identità a portata di mano: anche con l'area Schengen, il valico di ${c} può essere oggetto di controlli a campione su veicoli, merci e dichiarazioni doganali (importazioni di alimentari oltre la franchigia, valuta in contanti sopra 10.000 CHF, sostanze regolamentate). I controlli più mirati avvengono solitamente nelle fasce 6:00–8:00 e 17:00–19:30, sovrapposti ai picchi pendolari. Per chi guida un'auto aziendale registrata in Svizzera, ricorda di portare la lettera di autorizzazione del datore di lavoro e l'estratto del libretto di circolazione: in caso di controllo doganale ${country.customsAdjective} evita lunghi accertamenti.`,
+      `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. La fonte e l’ora di osservazione accompagnano le stime: controllale prima di partire e confrontale con la mappa interattiva. Se stai tornando in ${country.name} dopo il lavoro, ricorda che i picchi pendolari possono cambiare rapidamente: tra le 17 e le 19 anche ${c} può registrare code. Per i frontalieri abituali, conviene sempre tenere il documento d'identità a portata di mano: anche con l'area Schengen, il valico di ${c} può essere oggetto di controlli a campione su veicoli, merci e dichiarazioni doganali (importazioni di alimentari oltre la franchigia, valuta in contanti sopra 10.000 CHF, sostanze regolamentate). I controlli più mirati avvengono solitamente nelle fasce 6:00–8:00 e 17:00–19:30, sovrapposti ai picchi pendolari. Per chi guida un'auto aziendale registrata in Svizzera, ricorda di portare la lettera di autorizzazione del datore di lavoro e l'estratto del libretto di circolazione: in caso di controllo doganale ${country.customsAdjective} evita lunghi accertamenti.`,
     updatedLabel: 'Aggiornamento',
     currentStatusLabel: 'Stato attuale',
     waitMinutesLabel: 'Minuti di attesa',
@@ -621,6 +822,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Immagini aggiornate automaticamente ogni minuto quando la pagina è aperta. Usa il link \"Fonte\" per la versione ufficiale live.",
     webcamSource: 'Fonte',
+    webcamExternalLink: 'Apri la webcam ufficiale esterna',
+    webcamExternalNote: 'Questa fonte consente solo il collegamento esterno secondo i termini pubblicati; l’immagine non viene incorporata.',
     webcamDisclaimer: (sourceName) =>
       `Webcam gestita da ${sourceName}. Frontaliereticino.ch non è responsabile per disponibilità o contenuto.`,
     webcamUnavailable: 'Webcam non disponibile per questo valico. Nessuna immagine live è pubblicata al momento per questa frontiera.',
@@ -630,6 +833,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Ticino–Varese',
     regionalLabelTicinoVerbano: 'Ticino–Verbano',
     regionalLabelBasileaGermania: 'Basilea–Germania',
+    regionalLabelBasileaFrancia: 'Basilea–Francia',
     regionalLabelArgoviaGermania: 'Argovia–Germania',
     regionalLabelZurigoGermania: 'Zurigo–Germania',
     regionalLabelSciaffusaGermania: 'Sciaffusa–Germania',
@@ -655,6 +859,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     open24h: 'Aperto 24h',
     hoursLabel: 'Orari',
     historicalAvg: 'Media storica',
+    monthlyArchivesTitle: 'Archivi mensili dei tempi di attesa',
     faq: [
       {
         q: (c) => `A che ora passa meno coda a ${c}?`,
@@ -664,7 +869,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => "Come vengono calcolati i minuti di attesa?",
         a: () =>
-          "I tempi di attesa derivano da due misure routing: il segmento di avvicinamento (≈500 m prima del valico) e il segmento di passaggio (valico → checkpoint svizzero). Il tempo aggiuntivo rispetto alla percorrenza senza traffico è la coda. I dati vengono raccolti ogni 15 minuti nelle ore di punta e salvati in Firestore.",
+          "I tempi di attesa derivano da due misure routing: il segmento di avvicinamento (≈500 m prima del valico) e il segmento di passaggio (valico → checkpoint svizzero). Il tempo aggiuntivo rispetto alla percorrenza senza traffico è la coda. I dati vengono raccolti ogni 15 minuti nelle ore di punta.",
       },
       {
         q: () => 'Cosa fare se la coda supera i 40 minuti?',
@@ -702,7 +907,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         'Live data is currently unavailable. The numbers below are historical averages for this crossing — use them as a reference.',
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit has been ${bestHour}; the worst hour is ${worstHour}. This page is regenerated on every deploy — live data comes from the Firestore collection fed by a rotating traffic-provider cron, the same numbers used across the site's interactive map. If you are returning to ${country.name} after work, remember that commuter peaks can change quickly: between 17:00 and 19:00 ${c} may also show queues. For regular cross-border commuters, always keep your ID document at hand: even within the Schengen area, the ${c} crossing can be subject to spot checks on vehicles, goods and customs declarations (food imports above the personal allowance, cash above CHF 10,000, regulated substances). The most targeted checks usually fall between 06:00–08:00 and 17:00–19:30, overlapping with commuter peaks. If you drive a Switzerland-registered company car, keep the employer authorisation letter and a copy of the vehicle registration in the glovebox: this avoids prolonged customs questioning at ${country.customsAdjective} border checkpoints.`,
+      `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit has been ${bestHour}; the worst hour is ${worstHour}. Check the source and observation time before leaving, and compare the readings with the interactive map. If you are returning to ${country.name} after work, remember that commuter peaks can change quickly: between 17:00 and 19:00 ${c} may also show queues. For regular cross-border commuters, always keep your ID document at hand: even within the Schengen area, the ${c} crossing can be subject to spot checks on vehicles, goods and customs declarations (food imports above the personal allowance, cash above CHF 10,000, regulated substances). The most targeted checks usually fall between 06:00–08:00 and 17:00–19:30, overlapping with commuter peaks. If you drive a Switzerland-registered company car, keep the employer authorisation letter and a copy of the vehicle registration in the glovebox: this avoids prolonged customs questioning at ${country.customsAdjective} border checkpoints.`,
     updatedLabel: 'Updated',
     currentStatusLabel: 'Current status',
     waitMinutesLabel: 'Wait minutes',
@@ -727,6 +932,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Images refresh automatically every minute while the page is open. Use the "Source" link for the official live feed.',
     webcamSource: 'Source',
+    webcamExternalLink: 'Open the official external webcam',
+    webcamExternalNote: 'This source permits an external link only under its published terms; the image is not embedded.',
     webcamDisclaimer: (sourceName) =>
       `Webcam operated by ${sourceName}. Frontaliereticino.ch is not responsible for its availability or content.`,
     webcamUnavailable: 'No webcam available for this crossing. No live images are currently published for this border.',
@@ -736,6 +943,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Ticino–Varese',
     regionalLabelTicinoVerbano: 'Ticino–Verbano',
     regionalLabelBasileaGermania: 'Basel–Germany',
+    regionalLabelBasileaFrancia: 'Basel–France',
     regionalLabelArgoviaGermania: 'Aargau–Germany',
     regionalLabelZurigoGermania: 'Zurich–Germany',
     regionalLabelSciaffusaGermania: 'Schaffhausen–Germany',
@@ -761,6 +969,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     open24h: 'Open 24/7',
     hoursLabel: 'Hours',
     historicalAvg: 'Historical average',
+    monthlyArchivesTitle: 'Monthly wait-time archives',
     faq: [
       {
         q: (c) => `When is ${c} least congested?`,
@@ -770,7 +979,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => 'How are wait minutes calculated?',
         a: () =>
-          'Wait times are derived from two routing measurements: an approach segment (~500 m before the crossing) and the crossing segment (crossing → Swiss checkpoint). The excess time over the traffic-free baseline is the queue. Data is collected every 15 minutes during peak hours and persisted to Firestore.',
+          'Wait times are derived from two routing measurements: an approach segment (~500 m before the crossing) and the crossing segment (crossing → Swiss checkpoint). The excess time over the traffic-free baseline is the queue. Data is collected every 15 minutes during peak hours.',
       },
       {
         q: () => 'What should I do if the queue exceeds 40 minutes?',
@@ -808,7 +1017,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         'Live-Daten sind derzeit nicht verfügbar. Die Werte unten sind historische Mittelwerte für diesen Übergang — als Orientierung nutzen.',
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit ${bestHour}, die schlechteste ${worstHour}. Diese Seite wird bei jedem Deploy neu generiert — Live-Daten stammen aus der Firestore-Kollektion, die der rotierende Verkehrs-Cronjob füllt, dieselben Werte wie auf der interaktiven Karte der Seite. Wer abends nach ${country.name} zurückkehrt, sollte beachten, dass sich Pendlerstaus schnell verändern können: Zwischen 17:00 und 19:00 Uhr kann auch ${c} Rückstau aufweisen. Für regelmässige Grenzgänger empfiehlt es sich, das Ausweisdokument griffbereit zu halten: Auch innerhalb des Schengen-Raums kann ${c} Stichprobenkontrollen für Fahrzeuge, Waren und Zollanmeldungen unterliegen (Lebensmittelimporte über der Personenfreimenge, Bargeld über CHF 10'000, regulierte Substanzen). Die gezieltesten Kontrollen finden in der Regel zwischen 06:00–08:00 und 17:00–19:30 Uhr statt — also genau in den Pendler-Stosszeiten. Wer einen in der Schweiz zugelassenen Firmenwagen fährt, sollte das Schreiben des Arbeitgebers und eine Kopie der Fahrzeugausweispapiere im Handschuhfach mitführen, um langwierige Befragungen am ${country.customsAdjective} Zoll zu vermeiden.`,
+      `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit ${bestHour}, die schlechteste ${worstHour}. Prüfe vor der Abfahrt die Quelle und Beobachtungszeit und vergleiche die Werte mit der interaktiven Karte. Wer abends nach ${country.name} zurückkehrt, sollte beachten, dass sich Pendlerstaus schnell verändern können: Zwischen 17:00 und 19:00 Uhr kann auch ${c} Rückstau aufweisen. Für regelmässige Grenzgänger empfiehlt es sich, das Ausweisdokument griffbereit zu halten: Auch innerhalb des Schengen-Raums kann ${c} Stichprobenkontrollen für Fahrzeuge, Waren und Zollanmeldungen unterliegen (Lebensmittelimporte über der Personenfreimenge, Bargeld über CHF 10'000, regulierte Substanzen). Die gezieltesten Kontrollen finden in der Regel zwischen 06:00–08:00 und 17:00–19:30 Uhr statt — also genau in den Pendler-Stosszeiten. Wer einen in der Schweiz zugelassenen Firmenwagen fährt, sollte das Schreiben des Arbeitgebers und eine Kopie der Fahrzeugausweispapiere im Handschuhfach mitführen, um langwierige Befragungen am ${country.customsAdjective} Zoll zu vermeiden.`,
     updatedLabel: 'Aktualisiert',
     currentStatusLabel: 'Aktueller Stand',
     waitMinutesLabel: 'Wartezeit (Min.)',
@@ -833,6 +1042,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Bilder aktualisieren sich automatisch jede Minute, solange die Seite geöffnet ist. Klicken Sie auf „Quelle" für den offiziellen Feed.',
     webcamSource: 'Quelle',
+    webcamExternalLink: 'Offizielle externe Webcam öffnen',
+    webcamExternalNote: 'Diese Quelle erlaubt nach ihren veröffentlichten Bedingungen nur einen externen Link; das Bild wird nicht eingebettet.',
     webcamDisclaimer: (sourceName) =>
       `Webcam betrieben von ${sourceName}. Frontaliereticino.ch ist nicht verantwortlich für Verfügbarkeit oder Inhalt.`,
     webcamUnavailable: 'Keine Webcam für diesen Grenzübergang verfügbar. Für diese Grenze werden derzeit keine Live-Bilder veröffentlicht.',
@@ -842,6 +1053,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Tessin–Varese',
     regionalLabelTicinoVerbano: 'Tessin–Verbano',
     regionalLabelBasileaGermania: 'Basel–Deutschland',
+    regionalLabelBasileaFrancia: 'Basel–Frankreich',
     regionalLabelArgoviaGermania: 'Aargau–Deutschland',
     regionalLabelZurigoGermania: 'Zürich–Deutschland',
     regionalLabelSciaffusaGermania: 'Schaffhausen–Deutschland',
@@ -867,6 +1079,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     open24h: 'Rund um die Uhr geöffnet',
     hoursLabel: 'Öffnungszeiten',
     historicalAvg: 'Historischer Durchschnitt',
+    monthlyArchivesTitle: 'Monatliche Wartezeitarchive',
     faq: [
       {
         q: (c) => `Wann ist die Wartezeit bei ${c} am kürzesten?`,
@@ -876,7 +1089,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => 'Wie werden die Wartezeiten berechnet?',
         a: () =>
-          'Die Wartezeiten stammen aus zwei Routing-Messungen: einem Annäherungssegment (~500 m vor dem Übergang) und dem Übergangssegment (Übergang → Schweizer Kontrollpunkt). Die Mehrzeit gegenüber dem verkehrsfreien Referenzwert ist die Wartezeit. Die Daten werden während der Stosszeiten alle 15 Minuten erfasst und in Firestore persistiert.',
+          'Die Wartezeiten stammen aus zwei Routing-Messungen: einem Annäherungssegment (~500 m vor dem Übergang) und dem Übergangssegment (Übergang → Schweizer Kontrollpunkt). Die Mehrzeit gegenüber dem verkehrsfreien Referenzwert ist die Wartezeit. Die Daten werden während der Stosszeiten alle 15 Minuten erfasst.',
       },
       {
         q: () => 'Was tun, wenn die Wartezeit 40 Minuten überschreitet?',
@@ -914,7 +1127,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         "Données en direct indisponibles pour le moment. Les valeurs ci-dessous sont des moyennes historiques du poste — à utiliser comme référence.",
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par un cron de trafic à fournisseurs rotatifs, les mêmes chiffres que la carte interactive du site. Si vous rentrez ${country.frDestinationPreposition ?? 'en'} ${country.name} après le travail, notez que les files pendulaires peuvent évoluer rapidement : entre 17h et 19h ${c} peut aussi afficher des files. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 et 17h00–19h30, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers ${country.customsAdjective}.`,
+      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit a été ${bestHour}, la pire ${worstHour}. Vérifiez la source et l’heure de la mesure avant de partir et comparez les valeurs avec la carte interactive. Si vous rentrez ${country.frDestinationPreposition ?? 'en'} ${country.name} après le travail, notez que les files pendulaires peuvent évoluer rapidement : entre 17h et 19h ${c} peut aussi afficher des files. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 et 17h00–19h30, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers ${country.customsAdjective}.`,
     updatedLabel: 'Mis à jour',
     currentStatusLabel: 'État actuel',
     waitMinutesLabel: "Minutes d'attente",
@@ -939,6 +1152,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Les images se rafraîchissent automatiquement chaque minute tant que la page est ouverte. Cliquez sur « Source » pour la version officielle.",
     webcamSource: 'Source',
+    webcamExternalLink: 'Ouvrir la webcam officielle externe',
+    webcamExternalNote: 'Cette source autorise uniquement un lien externe selon ses conditions publiées ; l’image n’est pas intégrée.',
     webcamDisclaimer: (sourceName) =>
       `Webcam gérée par ${sourceName}. Frontaliereticino.ch n'est pas responsable de la disponibilité ou du contenu.`,
     webcamUnavailable: "Webcam non disponible pour ce poste frontière. Aucune image en direct n'est actuellement publiée pour cette frontière.",
@@ -948,6 +1163,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Tessin–Varèse',
     regionalLabelTicinoVerbano: 'Tessin–Verbano',
     regionalLabelBasileaGermania: 'Bâle–Allemagne',
+    regionalLabelBasileaFrancia: 'Bâle–France',
     regionalLabelArgoviaGermania: 'Argovie–Allemagne',
     regionalLabelZurigoGermania: 'Zurich–Allemagne',
     regionalLabelSciaffusaGermania: 'Schaffhouse–Allemagne',
@@ -973,6 +1189,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     open24h: 'Ouvert 24h/24',
     hoursLabel: 'Horaires',
     historicalAvg: 'Moyenne historique',
+    monthlyArchivesTitle: 'Archives mensuelles des temps d’attente',
     faq: [
       {
         q: (c) => `Quelle est l'heure la moins chargée à ${c} ?`,
@@ -982,7 +1199,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => "Comment les minutes d'attente sont-elles calculées ?",
         a: () =>
-          "Les temps d'attente dérivent de deux mesures de routage : un segment d'approche (≈500 m avant le poste) et le segment de passage (poste → point de contrôle suisse). Le temps supplémentaire par rapport à la référence sans trafic correspond à la file. Les données sont collectées toutes les 15 minutes en heures de pointe et persistées dans Firestore.",
+          "Les temps d'attente dérivent de deux mesures de routage : un segment d'approche (≈500 m avant le poste) et le segment de passage (poste → point de contrôle suisse). Le temps supplémentaire par rapport à la référence sans trafic correspond à la file. Les données sont collectées toutes les 15 minutes en heures de pointe.",
       },
       {
         q: () => "Que faire si la file dépasse 40 minutes ?",
@@ -1042,6 +1259,7 @@ function regionLabel(copy: Copy, region: BorderCrossingRegion): string {
     'ticino-varese': copy.regionalLabelTicinoVarese,
     'ticino-verbano': copy.regionalLabelTicinoVerbano,
     'basilea-germania': copy.regionalLabelBasileaGermania,
+    'basilea-francia': copy.regionalLabelBasileaFrancia,
     'argovia-germania': copy.regionalLabelArgoviaGermania,
     'zurigo-germania': copy.regionalLabelZurigoGermania,
     'sciaffusa-germania': copy.regionalLabelSciaffusaGermania,
@@ -1175,6 +1393,53 @@ function renderCommuterContextProse(
 }
 
 /**
+ * Compact replacement for the former multi-paragraph commuter essay. The
+ * page already exposes the live card, charts, webcam and comparison table;
+ * this sentence-sized editorial bridge keeps the useful interpretation while
+ * avoiding repeated pipeline, tax and employer claims on every leaf.
+ */
+function renderCompactCommuterContextProse(
+  locale: BorderWaitLocale,
+  crossingLabel: string,
+  region: BorderCrossingRegion,
+  bestHour: string,
+  worstHour: string,
+): string {
+  const regionDisplay = regionLabel(COPY[locale], region);
+  const ticinoNote = isTicinoRegion(region)
+    ? locale === 'it'
+      ? ` Sul corridoio Ticino–Italia, confronta il percorso dall'A2 e da Lugano o Mendrisio con alternative locali come Crociale dei Mulini.`
+      : locale === 'en'
+        ? ` On the Ticino–Italy corridor, compare the A2 route from Lugano or Mendrisio with local alternatives such as Crociale dei Mulini.`
+        : locale === 'de'
+          ? ` Auf der Strecke Tessin–Italien vergleiche die A2-Route ab Lugano oder Mendrisio mit lokalen Alternativen wie Crociale dei Mulini.`
+          : ` Sur le corridor Tessin–Italie, comparez l'itinéraire par l'A2 depuis Lugano ou Mendrisio avec des alternatives locales comme Crociale dei Mulini.`
+    : '';
+  const headline =
+    locale === 'it' ? `Pianificare la coda alla dogana ${crossingLabel}`
+    : locale === 'en' ? `Planning the queue at ${crossingLabel}`
+    : locale === 'de' ? `Die Warteschlange bei ${crossingLabel} planen`
+    : `Planifier la file au passage ${crossingLabel}`;
+  const paragraph =
+    locale === 'it'
+      ? `Il tempo di attesa alla dogana ${crossingLabel} segue il traffico dei frontalieri, i controlli e gli eventi sulla strada. Nella zona ${regionDisplay}, lo storico degli ultimi 30 giorni indica ${bestHour} come fascia con meno coda e ${worstHour} come fascia più congestionata. Controlla il dato live e la webcam prima di partire: la situazione alla frontiera può cambiare rapidamente.${ticinoNote}`
+      : locale === 'en'
+        ? `Wait time at ${crossingLabel} follows commuter traffic, checks and road events. In the ${regionDisplay} area, the last 30 days show ${bestHour} as the quietest window and ${worstHour} as the busiest. Check the live reading and webcam before leaving: border traffic can change quickly.${ticinoNote}`
+        : locale === 'de'
+          ? `Die Wartezeit bei ${crossingLabel} hängt von Pendlerverkehr, Kontrollen und Ereignissen auf der Strasse ab. Im Gebiet ${regionDisplay} waren ${bestHour} in den letzten 30 Tagen die ruhigste und ${worstHour} die stärkste Zeit. Prüfe Messwert und Webcam vor der Abfahrt: Der Grenzverkehr kann sich rasch ändern.${ticinoNote}`
+          : `Le temps d'attente à ${crossingLabel} dépend du trafic pendulaire, des contrôles et des événements routiers. Dans la zone ${regionDisplay}, les 30 derniers jours indiquent ${bestHour} comme créneau le plus calme et ${worstHour} comme le plus chargé. Vérifiez la mesure live et la webcam avant de partir : le trafic frontalier peut changer rapidement.${ticinoNote}`;
+  const comparisonNote =
+    locale === 'it'
+      ? ` Confronta rilevazioni raccolte a orari simili e aggiungi sempre il tempo necessario per raggiungere un valico alternativo: i minuti mostrati descrivono il tratto osservato, non l'intero viaggio.`
+      : locale === 'en'
+        ? ` Compare readings collected at similar times and always add the drive needed to reach an alternative crossing: the displayed minutes describe the observed segment, not the whole journey.`
+        : locale === 'de'
+          ? ` Vergleiche Messwerte aus ähnlichen Zeitpunkten und addiere immer die Fahrt zum Alternativübergang: Die angezeigten Minuten beschreiben den beobachteten Abschnitt, nicht die gesamte Reise.`
+          : ` Comparez des mesures prises à des heures proches et ajoutez toujours le trajet vers un autre passage : les minutes affichées décrivent le tronçon observé, pas le voyage entier.`;
+  return `<p class="s-KwuhOL"><strong>${esc(headline)}.</strong> ${esc(paragraph + comparisonNote)}</p>`;
+}
+
+/**
  * Renders an additional planning-oriented prose block for per-crossing leaf
  * pages. Compensates for the ~2 KB of HTML mass added by the live-hydration
  * data attributes (data-bw-crossing, data-bw-field, data-bw-live-badge) and
@@ -1206,29 +1471,29 @@ function renderLeafLivePlanningProse(
     : locale === 'de' ? `Den Übergang ${crossingLabel} planen: Snapshot, Live-Wert und Stosszeiten`
     : `Planifier le passage de ${crossingLabel} : instantané, valeur live et heures de pointe`;
   const paragraphs = locale === 'it' ? [
-    `Il numero che vedi nella card "Stato attuale" di ${crossingLabel} può cambiare anche dopo l'apertura della pagina. Al momento della build (l'orario indicato accanto alla pillola "snapshot") leggiamo lo stato dalla collezione Firestore alimentata dal cron TomTom; quando il browser carica la pagina, uno script di hydration di circa 2 KB richiede via REST la lettura più recente e sostituisce in-place i minuti, l'ora di aggiornamento e la pillola — che diventa "live (Firestore, agg. HH:MM)". Se il browser blocca la richiesta (estensioni privacy, rete aziendale restrittiva o offline), continui a vedere lo snapshot di build: è un dato reale, ma più vecchio. Per ${crossingLabel} la finestra di picco rilevata sulle ultime 4 settimane è ${peakWindow || '6:30–8:30 e 17:00–19:00'} CET, valore coerente con il pattern pendolare ${regionDisplay}.`,
-    `Se il dato live mostra una coda significativa, valuta i valichi della stessa zona: ${altSentence || 'i valichi alternativi listati sopra'}. Le pagine corrispondenti hanno la stessa pipeline di hydration, quindi puoi tenerne due aperte in tab separati e scegliere quella con il numero più basso al momento della partenza. ${
+    `Il valore di ${crossingLabel} può aggiornarsi dopo l’apertura della pagina. Controlla sempre l’ora della rilevazione e la fonte accanto ai minuti di attesa: un dato recente è più utile per decidere quando partire. Se non arriva un aggiornamento, resta visibile l’ultima lettura disponibile, che può essere scaduta. Una stima del traffico descrive il ritardo sul tratto stradale osservato e non garantisce la durata dei controlli doganali. Per confrontare due valichi, verifica che le letture si riferiscano a orari vicini e considera anche il tempo necessario per raggiungere il percorso alternativo.`,
+    `Se il dato live mostra una coda significativa, valuta i valichi della stessa zona: ${altSentence || 'i valichi alternativi listati sopra'}. Le pagine corrispondenti hanno lo stesso aggiornamento delle letture, quindi puoi tenerne due aperte in tab separati e scegliere quella con il numero più basso al momento della partenza. ${
       isTicinoCorridor
         ? `Ricorda che il valore "min di attesa" misura solo il segmento di approccio + checkpoint: il tempo di percorrenza dell'autostrada A2 da Lugano a ${crossingLabel} non è incluso, e va sommato a parte (tipicamente 12–25 minuti a seconda del punto di origine in Ticino). Per chi rientra di sera dal lavoro a Lugano, Mendrisio o Bellinzona, la differenza tra valico autostradale e valico locale può variare di 8–15 minuti complessivi anche quando il dato di coda è simile, perché lo svincolo locale evita le riconfigurazioni di corsia tipiche del lato italiano dell'autostrada.`
         : `Ricorda che il valore "min di attesa" misura solo il segmento di approccio + checkpoint: il tempo di percorrenza dal tuo punto di partenza fino a ${crossingLabel} non è incluso nel dato e va sommato a parte, in base alla distanza reale del tuo tragitto. Per chi rientra di sera dal lavoro, la differenza tra un valico principale e un valico locale della stessa zona può comunque valere alcuni minuti complessivi anche quando il dato di coda è simile, perché lo svincolo locale evita spesso le code improvvise tipiche dei valichi a maggior volume.`
     }`,
   ] : locale === 'en' ? [
-    `The number shown in the "Current status" card for ${crossingLabel} can change after you open the page. At build time (the timestamp next to the "snapshot" pill) we read the state from the Firestore collection fed by the TomTom cron; when the browser loads the page, a ~2 KB hydration script requests the freshest reading via REST and swaps the minute count, the update timestamp and the pill — which becomes "live (Firestore, upd. HH:MM)". If the browser blocks the request (privacy extensions, restrictive corporate network or offline), you keep seeing the build-time snapshot: it is a real measurement, just older. For ${crossingLabel} the peak window observed over the last 4 weeks is ${peakWindow || '6:30–8:30 and 17:00–19:00'} CET, consistent with the ${regionDisplay} commuter pattern.`,
-    `If the live reading shows a significant queue, consider the crossings in the same cluster: ${altSentence || 'the alternative crossings listed above'}. The corresponding pages share the same hydration pipeline, so you can keep two open in separate tabs and pick the one with the lowest number at departure time. ${
+    `The reading for ${crossingLabel} may update after opening the page. Always check the observation time and source beside the wait estimate: a recent reading is more useful when deciding when to leave. If no update arrives, the last available reading remains visible and may be expired. A traffic estimate describes delays on the observed road segment and does not guarantee the duration of customs checks. When comparing crossings, check that observations were taken at similar times and include the extra travel time needed to reach an alternative route.`,
+    `If the live reading shows a significant queue, consider the crossings in the same cluster: ${altSentence || 'the alternative crossings listed above'}. The corresponding pages share the same reading updates, so you can keep two open in separate tabs and pick the one with the lowest number at departure time. ${
       isTicinoCorridor
         ? `Remember that the "wait minutes" value only measures the approach + checkpoint segment: the A2 motorway travel time from Lugano to ${crossingLabel} is not included and must be added separately (typically 12–25 minutes depending on the Ticino starting point). For those returning in the evening from work in Lugano, Mendrisio or Bellinzona, the difference between motorway and local crossing can vary by 8–15 total minutes even when the queue figure is similar, because the local exit avoids the lane-reconfiguration patterns typical of the Italian side of the motorway.`
         : `Remember that the "wait minutes" value only measures the approach + checkpoint segment: the travel time from your own starting point to ${crossingLabel} is not included in the figure and must be added separately, depending on your actual route. For those returning in the evening, the difference between a main crossing and a local crossing in the same area can still be worth a few total minutes even when the queue figure is similar, because the local exit often avoids the sudden backups typical of higher-volume crossings.`
     }`,
   ] : locale === 'de' ? [
-    `Die in der Karte "Aktueller Stand" für ${crossingLabel} angezeigte Zahl kann sich auch nach dem Öffnen der Seite ändern. Beim Build-Zeitpunkt (der Zeitstempel neben der "Snapshot"-Pille) lesen wir den Zustand aus der Firestore-Kollektion, die der TomTom-Cron speist; sobald der Browser die Seite lädt, fordert ein etwa 2 KB grosses Hydration-Skript per REST die aktuellste Messung an und ersetzt die Minutenzahl, den Aktualisierungszeitstempel und die Pille — die zu "live (Firestore, akt. HH:MM)" wird. Wenn der Browser die Anfrage blockiert (Privacy-Erweiterungen, restriktives Firmennetzwerk oder offline), siehst du weiterhin den Build-Snapshot: ein echter, aber älterer Messwert. Für ${crossingLabel} liegt das Spitzenfenster der letzten 4 Wochen bei ${peakWindow || '6:30–8:30 und 17:00–19:00'} MEZ, im Einklang mit dem Pendlermuster ${regionDisplay}.`,
-    `Wenn der Live-Wert eine deutliche Warteschlange anzeigt, prüfe die Übergänge derselben Zone: ${altSentence || 'die oben gelisteten Alternativübergänge'}. Die zugehörigen Seiten teilen dieselbe Hydration-Pipeline, du kannst also zwei in getrennten Tabs offen lassen und beim Losfahren denjenigen mit dem kleinsten Wert wählen. ${
+    `Der Wert für ${crossingLabel} kann sich nach dem Öffnen der Seite aktualisieren. Prüfe die Beobachtungszeit und die Quelle neben der Wartezeit: Aktuelle Messwerte helfen bei der Wahl der Abfahrtszeit. Ohne Aktualisierung bleibt die letzte verfügbare Beobachtung sichtbar und kann veraltet sein. Die Verkehrsschätzung beschreibt die Verzögerung auf dem beobachteten Strassenabschnitt und garantiert keine Dauer der Zollkontrolle. Vergleiche Übergänge anhand zeitnaher Beobachtungen und berücksichtige die zusätzliche Fahrzeit zur Alternativroute.`,
+    `Wenn der Live-Wert eine deutliche Warteschlange anzeigt, prüfe die Übergänge derselben Zone: ${altSentence || 'die oben gelisteten Alternativübergänge'}. Die zugehörigen Seiten teilen dieselbe Aktualisierung der Messwerte, du kannst also zwei in getrennten Tabs offen lassen und beim Losfahren denjenigen mit dem kleinsten Wert wählen. ${
       isTicinoCorridor
         ? `Beachte, dass der Wert "Wartezeit (Min.)" nur das Annäherungs- + Kontrollsegment misst: Die Fahrzeit auf der A2 von Lugano nach ${crossingLabel} ist nicht enthalten und muss separat addiert werden (typischerweise 12–25 Minuten je nach Tessiner Ausgangspunkt). Für die Rückfahrer am Abend aus Lugano, Mendrisio oder Bellinzona kann der Unterschied zwischen Autobahn- und lokalem Übergang 8–15 Minuten Gesamtzeit ausmachen, auch wenn die Warteschlangenanzeige ähnlich ist — die lokale Ausfahrt umgeht die für die italienische Autobahnseite typischen Spurumbauten.`
         : `Beachte, dass der Wert "Wartezeit (Min.)" nur das Annäherungs- + Kontrollsegment misst: Die Fahrzeit von deinem Ausgangspunkt bis ${crossingLabel} ist darin nicht enthalten und muss je nach tatsächlicher Strecke separat addiert werden. Für Rückfahrer am Abend kann der Unterschied zwischen einem Hauptübergang und einem lokalen Übergang derselben Zone auch bei ähnlicher Warteschlangenanzeige noch einige Minuten insgesamt ausmachen, weil die lokale Ausfahrt die für stark frequentierte Übergänge typischen plötzlichen Rückstaus oft vermeidet.`
     }`,
   ] : [
-    `Le nombre affiché dans la carte « État actuel » pour ${crossingLabel} peut évoluer après l'ouverture de la page. Au moment de la build (l'horodatage à côté de la pastille « instantané »), nous lisons l'état depuis la collection Firestore alimentée par le cron TomTom ; quand le navigateur charge la page, un script d'hydratation d'environ 2 Ko interroge en REST la mesure la plus récente et remplace les minutes, l'heure de mise à jour et la pastille — qui devient « live (Firestore, maj HH:MM) ». Si le navigateur bloque la requête (extensions de confidentialité, réseau d'entreprise restrictif ou hors ligne), vous continuez à voir l'instantané de build : c'est une vraie mesure, simplement plus ancienne. Pour ${crossingLabel}, la fenêtre de pointe observée sur les 4 dernières semaines est ${peakWindow || '6h30–8h30 et 17h00–19h00'} CET, cohérente avec le motif pendulaire ${regionDisplay}.`,
-    `Si la valeur live affiche une file importante, regardez les passages du même secteur : ${altSentence || 'les passages alternatifs listés plus haut'}. Les pages correspondantes partagent le même pipeline d'hydratation : vous pouvez en garder deux ouvertes dans des onglets séparés et choisir celle avec la valeur la plus basse au moment du départ. ${
+    `La valeur pour ${crossingLabel} peut être actualisée après l’ouverture de la page. Vérifiez toujours l’heure de la mesure et la source près du temps d’attente : une mesure récente aide à choisir le moment du départ. Sans actualisation, la dernière valeur disponible reste visible et peut être périmée. Une estimation de trafic décrit le retard sur le tronçon observé et ne garantit pas la durée du contrôle douanier. Comparez des observations prises à des heures proches et ajoutez le trajet nécessaire pour rejoindre un autre passage.`,
+    `Si la valeur live affiche une file importante, regardez les passages du même secteur : ${altSentence || 'les passages alternatifs listés plus haut'}. Les pages correspondantes partagent le même actualisation des mesures : vous pouvez en garder deux ouvertes dans des onglets séparés et choisir celle avec la valeur la plus basse au moment du départ. ${
       isTicinoCorridor
         ? `Rappelez-vous que la valeur « minutes d'attente » mesure uniquement le segment d'approche + contrôle : le temps de trajet sur l'A2 entre Lugano et ${crossingLabel} n'est pas inclus et doit être additionné séparément (généralement 12–25 minutes selon le point de départ au Tessin). Pour ceux qui rentrent le soir depuis Lugano, Mendrisio ou Bellinzona, l'écart entre passage autoroutier et passage local peut atteindre 8–15 minutes au total même quand la file affichée est similaire, car la sortie locale évite les reconfigurations de voies typiques du côté italien de l'autoroute.`
         : `Rappelez-vous que la valeur « minutes d'attente » mesure uniquement le segment d'approche + contrôle : le temps de trajet depuis votre point de départ jusqu'à ${crossingLabel} n'est pas inclus et doit être additionné séparément selon votre itinéraire réel. Pour ceux qui rentrent le soir, l'écart entre un passage principal et un passage local du même secteur peut malgré tout représenter quelques minutes au total même quand la file affichée est similaire, car la sortie locale évite souvent les à-coups soudains typiques des passages à fort volume.`
@@ -1238,7 +1503,7 @@ function renderLeafLivePlanningProse(
     ? {
         title: 'Domande sul dato live',
         q1: `Ogni quanto si aggiorna il numero per ${crossingLabel}?`,
-        a1: `La pipeline TomTom interroga ${crossingLabel} ogni 10–15 minuti durante le fasce di picco (${peakWindow || '6:30–8:30 e 17:00–19:00'} CET) e ogni 30–60 minuti fuori picco. Lo snapshot pre-renderizzato risale all'ultimo deploy del sito (4–8 volte al giorno); il valore live nel browser è quello al momento dell'apertura della pagina, recuperato direttamente da Firestore.`,
+        a1: "Controlla la data e l’ora accanto alla lettura. La pagina prova a mostrare l’ultimo dato disponibile; se non arriva un aggiornamento, resta la lettura precedente. Non considerare attuale un dato segnalato come scaduto.",
         q2: `Perché vedo qualche minuto qui ma in autostrada non c'era coda?`,
         a2: `Il valore misura il tempo aggiuntivo sul segmento di approccio (~500 m prima del valico) rispetto alla percorrenza senza traffico. Anche con autostrada scorrevole, una manovra di controllo doganale, un'inversione di corsia o un veicolo pesante in avvicinamento possono temporaneamente alzare il numero. È normale che lo stesso valico oscilli di 5–10 minuti tra due polling consecutivi nelle fasce di picco di ${crossingLabel}.`,
       }
@@ -1246,7 +1511,7 @@ function renderLeafLivePlanningProse(
     ? {
         title: 'Live reading FAQ',
         q1: `How often is the ${crossingLabel} number refreshed?`,
-        a1: `The TomTom pipeline polls ${crossingLabel} every 10–15 minutes during peak windows (${peakWindow || '6:30–8:30 and 17:00–19:00'} CET) and every 30–60 minutes off peak. The pre-rendered snapshot dates back to the last site deploy (4–8 per day); the live value in the browser is the one at page open, fetched directly from Firestore.`,
+        a1: "Check the date and time beside the reading. The page attempts to show the latest available observation; if no update arrives, the previous reading remains. Do not treat an expired reading as current.",
         q2: `Why do I see a few minutes here but the motorway looked clear?`,
         a2: `The value measures the extra time on the approach segment (~500 m before the crossing) vs the traffic-free baseline. Even with a smooth motorway, a customs check, a lane switch or an approaching heavy vehicle can briefly bump the number. It is normal for ${crossingLabel} to oscillate by 5–10 minutes between two consecutive polls during peak windows.`,
       }
@@ -1254,21 +1519,21 @@ function renderLeafLivePlanningProse(
     ? {
         title: 'FAQ zum Live-Wert',
         q1: `Wie oft wird die Zahl für ${crossingLabel} aktualisiert?`,
-        a1: `Die TomTom-Pipeline ruft ${crossingLabel} alle 10–15 Minuten in den Spitzenzeiten (${peakWindow || '6:30–8:30 und 17:00–19:00'} MEZ) und alle 30–60 Minuten ausserhalb davon ab. Der vorgerenderte Snapshot stammt vom letzten Site-Deploy (4–8 pro Tag); der Live-Wert im Browser ist der zum Zeitpunkt des Seitenaufrufs, direkt aus Firestore geholt.`,
+        a1: "Prüfe Datum und Uhrzeit neben dem Messwert. Die Seite versucht, die neueste Beobachtung anzuzeigen. Ohne Aktualisierung bleibt der vorherige Wert sichtbar. Veraltete Werte beschreiben nicht die aktuelle Lage.",
         q2: `Warum sehe ich hier ein paar Minuten, obwohl die Autobahn frei wirkte?`,
         a2: `Der Wert misst die zusätzliche Zeit auf dem Annäherungssegment (~500 m vor dem Übergang) gegenüber der Referenz ohne Verkehr. Auch bei freier Autobahn können eine Zollkontrolle, ein Spurwechsel oder ein nahender Lastwagen den Wert kurz anheben. Es ist normal, dass ${crossingLabel} in den Spitzenzeiten zwischen zwei aufeinanderfolgenden Pollings um 5–10 Minuten schwankt.`,
       }
     : {
         title: 'FAQ valeur live',
         q1: `À quelle fréquence le nombre pour ${crossingLabel} est-il actualisé ?`,
-        a1: `Le pipeline TomTom interroge ${crossingLabel} toutes les 10–15 minutes dans les fenêtres de pointe (${peakWindow || '6h30–8h30 et 17h00–19h00'} CET) et toutes les 30–60 minutes hors pointe. L'instantané pré-rendu date du dernier déploiement du site (4–8 par jour) ; la valeur live dans le navigateur est celle au moment de l'ouverture, récupérée directement depuis Firestore.`,
+        a1: "Vérifiez la date et l’heure près de la mesure. La page essaie de montrer la dernière observation disponible. Sans actualisation, la valeur précédente reste visible. Une valeur périmée ne décrit pas la situation actuelle.",
         q2: `Pourquoi je vois quelques minutes ici alors que l'autoroute paraissait fluide ?`,
         a2: `La valeur mesure le temps supplémentaire sur le segment d'approche (~500 m avant le passage) par rapport à la référence sans trafic. Même avec une autoroute fluide, un contrôle douanier, un changement de voie ou un poids lourd qui approche peut faire monter brièvement le nombre. Il est normal que ${crossingLabel} oscille de 5–10 minutes entre deux polls consécutifs en heure de pointe.`,
       };
   return `<section class="s-fwhUlc">
     <h2 style="${H2_STYLE}">${esc(headline)}</h2>
     ${paragraphs.map((p) => `<p class="s-KwuhOL">${esc(p)}</p>`).join('\n    ')}
-    <h3 class="s-lGLtkq">${esc(faqLabels.title)}</h3>
+    <div class="s-lGLtkq"><strong>${esc(faqLabels.title)}</strong></div>
     <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(faqLabels.q1)}</summary>
       <p class="s-OCic8j">${esc(faqLabels.a1)}</p>
@@ -1278,6 +1543,38 @@ function renderLeafLivePlanningProse(
       <p class="s-OCic8j">${esc(faqLabels.a2)}</p>
     </details>
   </section>`;
+}
+
+/** Keep one concise, page-specific note below the comparison and FAQ blocks. */
+function renderCompactLeafLivePlanningProse(
+  locale: BorderWaitLocale,
+  crossingLabel: string,
+  region: BorderCrossingRegion,
+  peakWindow: string,
+  altLabels: readonly string[],
+): string {
+  const regionDisplay = regionLabel(COPY[locale], region);
+  const alternatives = altLabels.length > 0
+    ? altLabels.join(' · ')
+    : locale === 'it' ? 'i valichi alternativi della stessa zona'
+      : locale === 'de' ? 'die alternativen Übergänge derselben Zone'
+        : locale === 'fr' ? 'les passages alternatifs de la même zone'
+          : 'the alternative crossings in the same area';
+  const peak = peakWindow || (
+    locale === 'it' ? 'le fasce di punta indicate nello storico'
+      : locale === 'de' ? 'die im Verlauf angegebenen Spitzenzeiten'
+        : locale === 'fr' ? 'les heures de pointe indiquées dans l’historique'
+          : 'the peak windows shown in the history'
+  );
+  const paragraph =
+    locale === 'it'
+      ? `Il dato live della dogana ${crossingLabel} può cambiare dopo l'apertura: verifica l'ora e la fonte accanto ai minuti di attesa. La misura copre avvicinamento e checkpoint, non il tragitto fino alla frontiera. Nella zona ${regionDisplay} le fasce di punta sono ${peak}; se la coda aumenta, confronta ${alternatives} e scegli il valico con il tempo di attesa più basso.`
+      : locale === 'en'
+        ? `The live reading for ${crossingLabel} can change after the page opens: check the time and source beside the wait minutes. It covers the approach and checkpoint, not the journey to the border. In the ${regionDisplay} area, peak windows are ${peak}; if the queue grows, compare ${alternatives} and choose the crossing with the shortest wait.`
+        : locale === 'de'
+          ? `Der Live-Wert für ${crossingLabel} kann sich nach dem Öffnen ändern: Prüfe Uhrzeit und Quelle neben den Warteminuten. Er umfasst Annäherung und Kontrollpunkt, nicht die Fahrt bis zur Grenze. Im Gebiet ${regionDisplay} gelten ${peak} als Spitzenzeiten; bei wachsender Schlange vergleiche ${alternatives} und wähle den Übergang mit der kürzesten Wartezeit.`
+          : `La mesure live de ${crossingLabel} peut changer après l'ouverture : vérifiez l'heure et la source à côté des minutes d'attente. Elle couvre l'approche et le contrôle, pas le trajet jusqu'à la frontière. Dans la zone ${regionDisplay}, les pics sont ${peak} ; si la file augmente, comparez ${alternatives} et choisissez le passage le plus rapide.`;
+  return `<p class="s-KwuhOL">${esc(paragraph)}</p>`;
 }
 
 /**
@@ -1335,47 +1632,47 @@ function renderHubPlanningProse(
       ? `Pour choisir un passage, pondérez trois facteurs dans l'ordre : (1) temps de trajet depuis l'origine jusqu'à la sortie (Lugano–Brogeda ~12 minutes via l'A2 ; Mendrisio–Stabio ~6 minutes via l'E35) ; (2) file live affichée dans le tableau ; (3) type de passage — autoroute, route principale ou local. Un passage autoroutier avec 12 minutes de file est presque toujours plus rapide qu'un local avec 4 minutes, car la sortie de route principale a une capacité moindre et les tronçons urbains ajoutent 5 à 10 minutes. Règle empirique pour pendulaires : prendre l'autoroute en semaine entre 06h00 et 09h30 et après 16h00 uniquement si la file live est sous 8 minutes ; au-delà de 15 minutes, basculer sur un passage local comme Bizzarone, Stabio ou Crociale dei Mulini est presque toujours plus rapide.`
       : `Pour choisir un passage, pondérez trois facteurs dans l'ordre : (1) temps de trajet depuis l'origine jusqu'à la sortie frontalière ; (2) file live affichée dans le tableau ; (3) type de passage — autoroute, route principale ou local. Un passage principal avec une file plus longue est souvent malgré tout plus rapide qu'un passage local à la file apparemment plus courte, car la sortie secondaire a une capacité moindre et les accès urbains ajoutent du temps. Règle empirique pour pendulaires : en heures de pointe (06h00–09h30 et 16h00–19h00), privilégiez le passage affichant la file live la plus basse dans le tableau, pas nécessairement le plus proche géographiquement.`;
   const paragraphs = locale === 'it' ? [
-    `I numeri che vedi nella tabella di ${scopeLabel} (${rowCount} ${rowCount === 1 ? 'valico' : 'valichi'}) sono uno snapshot Firestore alimentato dal cron TomTom (workflow GitHub Actions traffic-scheduler.yml), aggiornato ogni 10–15 minuti nelle fasce di punta. Quando apri la pagina, un piccolo script di hydration richiede tramite REST la lettura più fresca e sostituisce ogni cella della colonna "Minuti di attesa" — la pillola accanto alla data passa da "snapshot" a "live (Firestore, agg. HH:MM)". Se l'hydration fallisce (browser offline, estensioni privacy aggressive, reti aziendali con CSP molto rigida), continui a vedere lo snapshot di build: ricarica la pagina o controlla la console se sospetti un blocco.`,
+    `La tabella di ${scopeLabel} comprende ${rowCount} valichi. Per ciascuna riga controlla la fonte e l’ora della rilevazione prima di confrontare i minuti di attesa. I valori possono aggiornarsi dopo l’apertura della pagina; se non è disponibile una lettura recente, considera il dato precedente come indicativo e consulta anche la webcam, quando presente. Il simbolo — non significa assenza di coda: indica che non è disponibile un valore utilizzabile. Verifica inoltre gli orari del valico e il tempo di viaggio necessario per raggiungerlo.`,
     howToChoose,
   ] : locale === 'en' ? [
-    `The numbers in the ${scopeLabel} table (${rowCount} crossing${rowCount === 1 ? '' : 's'}) are a Firestore snapshot fed by the TomTom cron (GitHub Actions workflow traffic-scheduler.yml), refreshed every 10–15 minutes during peak windows. When you open the page, a small hydration script requests the freshest reading via REST and swaps every "wait minutes" cell — the pill next to the date flips from "snapshot" to "live (Firestore, upd. HH:MM)". If hydration fails (browser offline, aggressive privacy extensions, corporate networks with strict CSP), you keep seeing the build-time snapshot: reload the page or check the console if you suspect a block.`,
+    `The ${scopeLabel} table covers ${rowCount} crossings. Check each observation time and source before comparing wait estimates. Values may update after opening the page; if a recent reading is unavailable, treat the previous value as indicative and check the webcam where available. A dash does not mean there is no queue: it means no usable value is available. Also check crossing opening hours and the travel time needed to reach an alternative crossing.`,
     howToChoose,
   ] : locale === 'de' ? [
-    `Die Zahlen in der Tabelle ${scopeLabel} (${rowCount} ${rowCount === 1 ? 'Übergang' : 'Übergänge'}) sind ein Firestore-Snapshot, gespeist vom TomTom-Cron (GitHub-Actions-Workflow traffic-scheduler.yml), in Spitzenzeiten alle 10–15 Minuten aktualisiert. Beim Öffnen der Seite fordert ein kleines Hydration-Skript per REST die jüngste Messung an und ersetzt jede Zelle der Spalte „Wartezeit (Min.)" — die Pille neben dem Datum wechselt von „Snapshot" zu „live (Firestore, akt. HH:MM)". Schlägt die Hydration fehl (offline, aggressive Privacy-Erweiterungen, Firmennetzwerk mit strenger CSP), siehst du weiterhin den Build-Snapshot: Seite neu laden oder Konsole prüfen, falls du einen Block vermutest.`,
+    `Die Tabelle für ${scopeLabel} umfasst ${rowCount} Übergänge. Prüfe vor dem Vergleich der Wartezeiten die Beobachtungszeit und Quelle jeder Zeile. Die Werte können sich nach dem Öffnen aktualisieren. Fehlt ein aktueller Messwert, dient der vorherige nur zur Orientierung; nutze gegebenenfalls die Webcam. Ein Strich bedeutet nicht freie Fahrt, sondern dass kein verwendbarer Wert vorliegt. Beachte ausserdem die Öffnungszeiten des Übergangs und die Fahrzeit zur Alternativroute.`,
     howToChoose,
   ] : [
-    `Les nombres du tableau ${scopeLabel} (${rowCount} passage${rowCount === 1 ? '' : 's'}) sont un instantané Firestore alimenté par le cron TomTom (workflow GitHub Actions traffic-scheduler.yml), rafraîchi toutes les 10–15 minutes en période de pointe. À l'ouverture de la page, un petit script d'hydratation demande la mesure la plus récente via REST et remplace chaque cellule de la colonne « minutes d'attente » — la pastille à côté de la date passe d'« instantané » à « live (Firestore, maj HH:MM) ». Si l'hydratation échoue (navigateur hors ligne, extensions de confidentialité agressives, réseau d'entreprise avec CSP stricte), vous continuez à voir l'instantané de build : rechargez la page ou vérifiez la console en cas de blocage.`,
+    `Le tableau de ${scopeLabel} présente ${rowCount} passages. Vérifiez la source et l’heure de chaque mesure avant de comparer les attentes. Les valeurs peuvent être actualisées après l’ouverture de la page. Sans mesure récente, utilisez la précédente à titre indicatif et consultez la webcam si elle est disponible. Un tiret ne signifie pas absence de file : aucune valeur exploitable n’est disponible. Vérifiez aussi les horaires du passage et le trajet pour rejoindre un itinéraire alternatif.`,
     howToChoose,
   ];
   const faqLabels = locale === 'it'
     ? {
         title: 'Domande sulla tabella',
         q1: 'Cosa significa "snapshot" rispetto a "live" nella pillola?',
-        a1: 'La pillola "snapshot di YYYY-MM-DD" è il valore presente al momento dell\'ultimo deploy (4–8 deploy al giorno). Quando l\'hydration completa la lettura Firestore, la pillola diventa "live (Firestore, agg. HH:MM)" e i numeri in tabella vengono aggiornati con le ultime misure (latenza ~5 minuti dalla rilevazione TomTom).',
-        q2: 'Perché alcune righe restano a "—" dopo l\'hydration?',
+        a1: "Controlla la data e l’ora accanto alla lettura. La pagina prova a mostrare l’ultimo dato disponibile; se non arriva un aggiornamento, resta la lettura precedente. Non considerare attuale un dato segnalato come scaduto.",
+        q2: 'Perché alcune righe restano a "—" dopo l’aggiornamento?',
         a2: 'I valichi minori senza copertura TomTom o BAZG mostrano "—" finché non maturano abbastanza dati statistici. In quel caso il valore è una media storica calcolata sugli ultimi 30 giorni di osservazioni: la pagina di dettaglio del valico mostra il banner "Dati statistici" giallo per segnalare che si tratta di una stima, non di una misura live.',
       }
     : locale === 'en'
     ? {
         title: 'Table FAQ',
         q1: 'What does "snapshot" vs "live" mean in the pill?',
-        a1: 'The "snapshot of YYYY-MM-DD" pill is the value at the time of the last deploy (4–8 deploys per day). When hydration completes the Firestore read, the pill flips to "live (Firestore, upd. HH:MM)" and the table numbers refresh to the latest measurements (~5-minute latency from the TomTom poll).',
-        q2: 'Why do some rows stay at "—" after hydration?',
+        a1: "Check the date and time beside the reading. The page attempts to show the latest available observation; if no update arrives, the previous reading remains. Do not treat an expired reading as current.",
+        q2: 'Why do some rows stay at "—" after updating?',
         a2: 'Minor crossings without TomTom or BAZG coverage show "—" until enough statistical data accumulates. In that case the value is a historical average over the last 30 days of observations: the crossing detail page shows the yellow "Historical averages" banner to flag that it is an estimate, not a live measurement.',
       }
     : locale === 'de'
     ? {
         title: 'FAQ zur Tabelle',
         q1: 'Was bedeutet „Snapshot" vs „live" in der Pille?',
-        a1: 'Die Pille „Snapshot vom YYYY-MM-DD" ist der Wert zum Zeitpunkt des letzten Deploys (4–8 Deploys pro Tag). Sobald die Hydration die Firestore-Lesung abschliesst, wechselt die Pille zu „live (Firestore, akt. HH:MM)" und die Tabellenwerte werden auf die jüngsten Messungen aktualisiert (etwa 5 Minuten Latenz vom TomTom-Polling).',
-        q2: 'Warum bleiben manche Zeilen nach der Hydration auf „—"?',
+        a1: "Prüfe Datum und Uhrzeit neben dem Messwert. Die Seite versucht, die neueste Beobachtung anzuzeigen. Ohne Aktualisierung bleibt der vorherige Wert sichtbar. Veraltete Werte beschreiben nicht die aktuelle Lage.",
+        q2: 'Warum bleiben manche Zeilen nach der Aktualisierung auf „—"?',
         a2: 'Kleinere Übergänge ohne TomTom- oder BAZG-Abdeckung zeigen „—" so lange, bis genügend statistische Daten vorliegen. In diesem Fall ist der Wert ein historischer Durchschnitt der letzten 30 Beobachtungstage: Die Detailseite des Übergangs zeigt das gelbe Banner „Historischer Durchschnitt" als Hinweis darauf, dass es sich um eine Schätzung handelt.',
       }
     : {
         title: 'FAQ tableau',
         q1: 'Que signifie « instantané » vs « live » dans la pastille ?',
-        a1: 'La pastille « instantané du YYYY-MM-DD » est la valeur au moment du dernier déploiement (4–8 par jour). Lorsque l\'hydratation termine la lecture Firestore, la pastille passe à « live (Firestore, maj HH:MM) » et les nombres du tableau sont rafraîchis avec les dernières mesures (latence ~5 minutes depuis le poll TomTom).',
-        q2: 'Pourquoi certaines lignes restent à « — » après l\'hydratation ?',
+        a1: "Vérifiez la date et l’heure près de la mesure. La page essaie de montrer la dernière observation disponible. Sans actualisation, la valeur précédente reste visible. Une valeur périmée ne décrit pas la situation actuelle.",
+        q2: 'Pourquoi certaines lignes restent à « — » après l’actualisation ?',
         a2: 'Les passages mineurs sans couverture TomTom ou BAZG affichent « — » tant que suffisamment de données statistiques ne sont pas accumulées. Dans ce cas, la valeur est une moyenne historique sur les 30 derniers jours d\'observations : la page de détail du passage affiche le bandeau jaune « Moyennes historiques » pour signaler qu\'il s\'agit d\'une estimation et non d\'une mesure live.',
       };
   return `<section class="s-GlcYCp">
@@ -1408,14 +1705,15 @@ function renderWebcamSection(
   }
   const figures = webcams
     .map((w) => {
+      const embeddable = w.embedAllowed !== false;
       const refreshMs = w.refreshIntervalMs ?? 60000;
-      const licenseHtml = w.license
-        ? `<div class="s-DEr6hT">${esc(w.license)}</div>`
+      const licenseHtml = w.licenseNote
+        ? `<div class="s-DEr6hT">${esc(w.licenseNote)}</div>`
         : '';
-      return `<figure class="s-WFzTLc">
-    <img
+      const mediaHtml = embeddable
+        ? `<img
       src="${esc(w.imageUrl)}"
-      alt="${esc(w.label)} — ${esc(copy.updatedLabel)} ${new Date().toISOString().slice(0, 16).replace('T', ' ')}"
+      alt="${esc(w.label)}"
       width="640"
       height="360"
       loading="lazy"
@@ -1426,11 +1724,15 @@ function renderWebcamSection(
       data-webcam-base-url="${esc(w.imageUrl)}"
       onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 360%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23475569%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22%3EWebcam temporaneamente non disponibile%3C%2Ftext%3E%3C%2Fsvg%3E';"
       style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid var(--color-edge);background:var(--color-surface-alt)"
-    >
+    >`
+        : `<p class="s-e9hRDW"><a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(copy.webcamExternalLink)}: ${esc(w.label)}</a></p>`;
+      return `<figure class="s-WFzTLc">
+    ${mediaHtml}
     <figcaption class="s-7GN3SP">
       <strong>${esc(w.label)}</strong> — ${esc(copy.webcamSource)}:
       <a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
       ${licenseHtml}
+      ${!embeddable ? `<div class="s-DEr6hT">${esc(copy.webcamExternalNote)}</div>` : ''}
       <div class="s-DEr6hT">${esc(copy.webcamDisclaimer(w.sourceName))}</div>
     </figcaption>
   </figure>`;
@@ -1634,6 +1936,7 @@ interface LeafInputs {
   crossing: BorderCrossingSlug;
   current: BorderWaitCurrent;
   history: BorderWaitHistoryDay[];
+  archiveMonths: readonly string[];
   today: Date;
   alternates: Record<BorderWaitLocale, string>;
   /** dist directory for entry-asset resolution (omit in tests). */
@@ -1641,7 +1944,7 @@ interface LeafInputs {
   /**
    * Absolute URL for the per-crossing OG image (webcam snapshot). When
    * provided and the snapshot exists on disk, the page emits it as
-   * `og:image` at 640×360 — a live preview of the crossing traffic
+   * `og:image` at 1200×675 — a live preview of the crossing traffic
    * state that drives viral social sharing. When omitted, the page
    * falls back to the site default OG image (`/og-image.png`).
    */
@@ -1659,22 +1962,23 @@ interface LeafInputs {
  * card below — both bind to the same OKLCH `--color-*-subtle/border`
  * variables and follow the user's dark-mode preference automatically.
  *
- * Hydratable: the wrapper carries `data-bw-advice` and per-status
- * sub-elements carry `data-bw-advice-status` / `data-bw-advice-text` so
- * the runtime hydration script can swap the visible state when the
- * live wait time changes (e.g. from "passa ora" to "evita") without a
- * full page repaint. The pre-hydration rendering is the build-time
- * snapshot and is correct for SEO/zero-JS visitors.
+ * Hydratable: the leaf wraps it in `renderLiveSwap('advice', …)`, one
+ * template per tone, and the runtime hydration swaps to the tone of the
+ * live wait (e.g. from "passa ora" to "meglio rinviare") without a full
+ * page repaint. The banner depends on the tone and the historical hours
+ * only — it never prints the wait itself — so a tone's template is the
+ * whole answer for any live wait in that band. The pre-hydration
+ * rendering is the build-time snapshot and is correct for SEO/zero-JS
+ * visitors.
  */
 function renderAdviceBanner(
-  status: 'ok' | 'warn' | 'bad' | 'unknown',
-  liveWait: number | null,
+  status: BorderWaitTone,
   bestHour: string,
   worstHour: string,
   copy: Copy,
 ): string {
   const tile =
-    liveWait === null || status === 'unknown'
+    status === 'unknown'
       ? STAT_TILE_WARNING
       : status === 'ok'
         ? STAT_TILE_SUCCESS
@@ -1682,7 +1986,7 @@ function renderAdviceBanner(
           ? STAT_TILE_WARNING
           : STAT_TILE_DANGER;
   const text =
-    liveWait === null || status === 'unknown'
+    status === 'unknown'
       ? copy.advice.unknown
       : status === 'ok'
         ? copy.advice.ok(bestHour)
@@ -1690,7 +1994,7 @@ function renderAdviceBanner(
           ? copy.advice.warn(worstHour)
           : copy.advice.bad(bestHour);
   const eyebrow = copy.advice.eyebrow;
-  const dataStatus = liveWait === null || status === 'unknown' ? 'unknown' : status;
+  const dataStatus = status;
   return `<aside data-bw-advice data-bw-advice-status="${esc(dataStatus)}" aria-label="${esc(eyebrow)}" style="${tile};margin:0 0 18px">
     <div class="s-a8IQOM">${esc(eyebrow)}</div>
     <p class="s-f49tDp" data-bw-advice-text>${esc(text)}</p>
@@ -1698,7 +2002,7 @@ function renderAdviceBanner(
 }
 
 function renderLeafPage(inp: LeafInputs): string {
-  const { locale, crossing, current, history, today, alternates, distDir, ogImageUrl } = inp;
+  const { locale, crossing, current, history, archiveMonths, today, alternates, distDir, ogImageUrl } = inp;
   const copy = COPY[locale];
   const crossingDisplay = BORDER_CROSSING_DISPLAY[crossing];
   const region = CROSSING_TO_REGION[crossing];
@@ -1713,10 +2017,13 @@ function renderLeafPage(inp: LeafInputs): string {
   // `components/guide/FrontierGuide.tsx`. Fallback to `waitTimeMinutes` for
   // legacy snapshots that did not record the total.
   const snapshot = current.perCrossing[crossing];
+  const observedAt = sourceDateIso(snapshot?.lastUpdate, today);
+  const readingState = borderReadingState(snapshot?.lastUpdate, today);
+  const freshnessCopy = BORDER_FRESHNESS_COPY[locale];
   const liveWait = snapshot?.totalCrossingMinutes ?? snapshot?.waitTimeMinutes ?? null;
   const liveSource: WaitSource = snapshot?.source ?? 'static';
   const staticFallback = liveWait === null;
-  const status = statusColor(liveWait);
+  const status = statusColor(readingState === 'live' ? liveWait : null);
   const statusWord =
     locale === 'it'
       ? liveWait === null
@@ -1776,14 +2083,40 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Content pieces
   let h1 = copy.leafH1(crossingDisplay, dateStamp);
-  const intro = copy.intro(crossingDisplay, statusWord, dateStamp);
-  const adviceBannerHtml = liveWait === null
-    ? renderBorderWaitUnavailableBanner(locale)
-    : renderAdviceBanner(status.label, liveWait, bestHour, worstHour, copy);
-  const paragraph = copy.paragraph(crossingDisplay, countryTokens, bestHour, worstHour);
+  const intro = readingState === 'live'
+    ? copy.intro(crossingDisplay, statusWord, formatSourceDate(snapshot?.lastUpdate, locale, today)!)
+    : `${crossingDisplay}: ${observationBadge(snapshot?.lastUpdate, locale, today)}.`;
+  // «Passa ora» is a present-tense claim: the hydration swaps it to the
+  // variant of the live reading's tone (same thresholds as the status tile).
+  const adviceTemplates: Record<string, string> = {
+    ok: renderAdviceBanner('ok', bestHour, worstHour, copy),
+    warn: renderAdviceBanner('warn', bestHour, worstHour, copy),
+    bad: renderAdviceBanner('bad', bestHour, worstHour, copy),
+    unavailable: renderBorderWaitUnavailableBanner(locale),
+  };
+  // statusColor(null) is 'unknown', which the leaf shows as «non disponibile».
+  const adviceState = readingState !== 'live' || status.label === 'unknown' ? 'unavailable' : status.label;
+  const adviceBannerHtml = renderLiveSwap(
+    'advice',
+    adviceState,
+    adviceTemplates[adviceState],
+    adviceTemplates,
+    ` data-bw-for="${esc(crossing)}"`,
+  );
+  const compactDecisionNote = locale === 'it'
+    ? `Prima di partire controlla il tempo di attesa live alla dogana ${crossingDisplay}, la webcam e la coda dei valichi vicini.`
+    : locale === 'de'
+      ? `Prüfe vor der Abfahrt die Live-Wartezeit bei ${crossingDisplay}, die Webcam und die Schlange an den nahegelegenen Übergängen.`
+      : locale === 'fr'
+        ? `Avant de partir, vérifiez le temps d'attente live à ${crossingDisplay}, la webcam et les files aux passages voisins.`
+        : `Before leaving, check the live wait at ${crossingDisplay}, the webcam and queues at nearby crossings.`;
+  const decisionNote = hasToday || hasWeekly
+    ? copy.paragraph(crossingDisplay, countryTokens, bestHour, worstHour)
+    : compactDecisionNote;
 
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
   const webcams = reg?.webcams ?? [];
+  const embeddableWebcams = webcams.filter((webcam) => webcam.embedAllowed !== false);
   const webcamHtml = renderWebcamSection(crossingDisplay, webcams, copy);
 
   // Current-status card
@@ -1813,38 +2146,31 @@ function renderLeafPage(inp: LeafInputs): string {
     'official+webcam': copy.sourceOfficialWebcam,
     webcam: copy.sourceWebcam,
   };
+  // `data-bw-unless-live`: the hydration hides this notice once a fresh
+  // reading for the crossing replaces the snapshot values below it.
   const staticBannerHtml = staticFallback
-    ? `<div class="s-rUEUjv">${esc(copy.staticFallbackBanner)}</div>`
+    ? `<div class="s-rUEUjv" data-bw-unless-live>${esc(copy.staticFallbackBanner)}</div>`
     : '';
 
-  // Live-badge pre-rendered text: defaults to "snapshot di {date}" so SEO/bot
-  // visitors and zero-JS users see an honest indicator that the value is the
-  // build-time snapshot. The hydration IIFE swaps it in-place to
-  // "live (Firestore, agg. HH:MM)" once the REST request resolves.
-  const snapshotBadgeText =
-    locale === 'it'
-      ? `snapshot di ${dateStamp}`
-      : locale === 'de'
-        ? `Snapshot vom ${dateStamp}`
-        : locale === 'fr'
-          ? `instantané du ${dateStamp}`
-          : `snapshot of ${dateStamp}`;
+  // Source observation time is independent of page generation. Hydration
+  // replaces this badge only with the reading for this crossing.
+  const snapshotBadgeText = observationBadge(snapshot?.lastUpdate, locale, today);
 
-  const currentCardHtml = `<section class="s-ziawP1" aria-labelledby="currentStatus" data-bw-crossing="${esc(crossing)}">
-    <h2 id="currentStatus" style="${H2_STYLE}">${esc(copy.currentStatusLabel)} <span class="s-k7sbVR" data-bw-live-badge>${esc(snapshotBadgeText)}</span></h2>
+  const currentCardHtml = `<section class="s-ziawP1" aria-labelledby="currentStatus" data-bw-crossing="${esc(crossing)}" data-bw-data-state="${readingState}" data-bw-observed-at="${observedAt ? Date.parse(observedAt) : ''}">
+    <h2 id="currentStatus" style="${H2_STYLE}">${esc(freshnessCopy.status)} <span class="s-k7sbVR" data-bw-live-badge data-bw-badge-crossing="${esc(crossing)}" data-bw-observed-at="${observedAt ? Date.parse(observedAt) : ''}">${esc(snapshotBadgeText)}</span></h2>
     ${staticBannerHtml}
     <div class="s-nzJw8o">
-      <div style="padding:18px;border-radius:18px;background:${status.bg};border:1px solid ${status.border}">
-        <div style="font-size:12px;color:${status.text};font-weight:700;text-transform:uppercase">${esc(copy.waitMinutesLabel)}</div>
-        <div data-bw-field="totalCrossingMinutes" style="margin-top:8px;font-size:36px;font-weight:800;color:${status.text}">${esc(waitFmt)}</div>
+      <div data-bw-tone-bg style="padding:18px;border-radius:18px;background:${status.bg};border:1px solid ${status.border}">
+        <div data-bw-tone-fg style="font-size:12px;color:${status.text};font-weight:700;text-transform:uppercase">${esc(copy.waitMinutesLabel)}</div>
+        <div data-bw-field="totalCrossingMinutes" data-bw-tone-fg style="margin-top:8px;font-size:36px;font-weight:800;color:${status.text}">${esc(waitFmt)}</div>
       </div>
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.sourceLabel)}</div>
-        <div class="s-iUCmjg" data-bw-field="source">${esc(sourceText)}</div>
+        <div class="s-iUCmjg">${sourceLink(liveSource, sourceText)}</div>
       </div>
       <div class="s-Zv0TZw">
-        <div class="s-QHHL-d">${esc(copy.updatedLabel)}</div>
-        <div class="s-54GADM" data-bw-field="lastUpdate">${esc(dateStamp)}</div>
+        <div class="s-QHHL-d">${esc(freshnessCopy.observed)}</div>
+        <div class="s-54GADM" data-bw-field="lastUpdate">${esc(formatSourceDate(snapshot?.lastUpdate, locale, today) ?? freshnessCopy.missing)}</div>
       </div>
     </div>
   </section>`;
@@ -1873,6 +2199,37 @@ function renderLeafPage(inp: LeafInputs): string {
   </section>`
     : `<p class="s-Wnl1Ux">${esc(copy.noHistory)}</p>`;
 
+  const archiveLinksHtml = archiveMonths.length > 0
+    ? `<section aria-labelledby="monthlyArchives">
+      <h2 id="monthlyArchives" style="${H2_STYLE}">${esc(copy.monthlyArchivesTitle)}</h2>
+      <ul>${archiveMonths.map((month) =>
+        `<li><a href="${buildArchivePath(locale, crossing, month)}">${esc(month)}</a></li>`,
+      ).join('')}</ul>
+    </section>`
+    : '';
+  const comparisonCandidates = getBorderComparisonCandidates(crossing);
+  const comparisonLabels = comparisonCandidates
+    .map(({ slug }) => BORDER_CROSSING_DISPLAY[slug])
+    .filter(Boolean);
+
+  // The route-specific explanation offsets the large SVG chart payload that
+  // caused #10844. Leaves without chart markup keep the concise variant.
+  const livePlanningHtml = hasToday || hasWeekly
+    ? renderLeafLivePlanningProse(
+        locale,
+        crossingDisplay,
+        region,
+        reg?.peak ?? '',
+        comparisonLabels,
+      )
+    : renderCompactLeafLivePlanningProse(
+        locale,
+        crossingDisplay,
+        region,
+        reg?.peak ?? '',
+        comparisonLabels,
+      );
+
   // Static crossing info
   const infoRows: string[] = [];
   if (reg) {
@@ -1881,6 +2238,13 @@ function renderLeafPage(inp: LeafInputs): string {
         locale === 'it' ? 'Tipo' : locale === 'de' ? 'Typ' : locale === 'fr' ? 'Type' : 'Type',
       )}:</strong> ${esc(copy.crossingTypeLabel[reg.type])}</li>`,
     );
+    if (reg.municipality) {
+      infoRows.push(
+        `<li class="s-IHVixW"><strong>${esc(
+          locale === 'it' ? 'Comune' : locale === 'de' ? 'Gemeinde' : locale === 'fr' ? 'Commune' : 'Municipality',
+        )}:</strong> ${esc(reg.municipality)}</li>`,
+      );
+    }
     infoRows.push(
       `<li class="s-IHVixW"><strong>${esc(copy.hoursLabel)}:</strong> ${esc(reg.open24h ? copy.open24h : reg.hours)}</li>`,
     );
@@ -1916,7 +2280,6 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // B.3 — Real alternatives: nearest crossings in the same regional
   // corridor, using the shared nearest-neighbour calculation.
-  const comparisonCandidates = getBorderComparisonCandidates(crossing);
   const alternativeRoutesHtml = renderBorderWaitComparison({
     locale,
     currentSlug: crossing,
@@ -1928,8 +2291,15 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // FAQ
   const faqItems = copy.faq;
+  const leafFaqTitle = locale === 'it'
+    ? `Domande frequenti sulla dogana ${crossingDisplay}`
+    : locale === 'de'
+      ? `Häufige Fragen zum Übergang ${crossingDisplay}`
+      : locale === 'fr'
+        ? `Questions fréquentes sur le passage ${crossingDisplay}`
+        : `Frequently asked questions about ${crossingDisplay}`;
   const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="bwFaq">
-    <h2 id="bwFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
+    <h2 id="bwFaq" style="${H2_STYLE}">${esc(leafFaqTitle)}</h2>
     ${faqItems
       .map(
         (f) =>
@@ -1979,31 +2349,23 @@ function renderLeafPage(inp: LeafInputs): string {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
+    ...(observedAt ? { dateModified: observedAt } : {}),
   });
 
-  // B.3 — Enhanced Place + TouristAttraction (@type array) schema with
-  // openingHoursSpecification, amenityFeature, publicAccess — richer signals
-  // for "valico" + "dogana" queries.
+  // Describe the border checkpoint, not a tourist attraction.
   const placeLd = reg
     ? inlineScriptJson({
         '@context': 'https://schema.org',
-        '@type': ['Place', 'TouristAttraction'],
+        '@type': 'Place',
         '@id': `${canonicalUrl}#place`,
         name: crossingDisplay,
         description: intro,
         url: canonicalUrl,
         address: {
           '@type': 'PostalAddress',
-          // Always 'CH': the Place being described is the Swiss-side
-          // checkpoint itself (hence addressRegion: reg.canton, a BFS
-          // canton code). addressLocality names the nearest foreign-side
-          // town for orientation only — reg.country (the foreign side's
-          // own country) does not apply to this address.
+          ...(reg.municipality ? { addressLocality: reg.municipality } : {}),
           addressCountry: 'CH',
           addressRegion: reg.canton,
-          addressLocality: reg.foreignSide,
         },
         geo: {
           '@type': 'GeoCoordinates',
@@ -2043,11 +2405,6 @@ function renderLeafPage(inp: LeafInputs): string {
           },
           {
             '@type': 'LocationFeatureSpecification',
-            name: 'Copertura BAZG (dati ufficiali)',
-            value: Boolean(reg.bazgCoverage),
-          },
-          {
-            '@type': 'LocationFeatureSpecification',
             name: 'Tipo strada',
             value: reg.type,
           },
@@ -2063,48 +2420,30 @@ function renderLeafPage(inp: LeafInputs): string {
   // ImageObject with the required fields, including the GSC-required
   // license-quartet (acquireLicensePage / copyrightNotice / license / creator),
   // sourced from the webcam provider when available.
-  const imageLd = webcams.length > 0
+  const imageLd = embeddableWebcams.length > 0
     ? inlineScriptJson(imageObjectLdDocument({
-        contentUrl: webcams[0].imageUrl,
+        contentUrl: embeddableWebcams[0].imageUrl,
         caption: `${copy.webcamLabel} — ${crossingDisplay}`,
-        creditText: webcams[0].sourceName,
-        license: webcams[0].license,
-        creator: webcams[0].sourceName
-          ? { '@type': 'Organization', name: webcams[0].sourceName }
+        creditText: embeddableWebcams[0].sourceName,
+        license: embeddableWebcams[0].license,
+        acquireLicensePage: embeddableWebcams[0].license,
+        creator: embeddableWebcams[0].sourceName
+          ? { '@type': 'Organization', name: embeddableWebcams[0].sourceName }
           : undefined,
-        copyrightNotice: webcams[0].sourceName
-          ? `© ${webcams[0].sourceName}`
+        copyrightNotice: embeddableWebcams[0].sourceName
+          ? `© ${embeddableWebcams[0].sourceName}`
           : undefined,
-        datePublished: `${dateStamp}T00:00:00Z`,
         inLanguage: locale,
       }))
     : '';
 
-  // Title — the h1 embeds an ISO date and a crossing name. Combined with
-  // the " | Frontaliere Ticino" suffix it can exceed the SERP-safe ~70 char
-  // budget. Truncation strategy:
-  //   1. If the full h1 fits TITLE_H1_MAX, use it as-is.
-  //   2. Otherwise, strip the " — <date suffix>" tail (date is already in
-  //      the URL /heute/, /today/ etc.) — preserves the crossing name in
-  //      full so multi-variant siblings (e.g. Maslianico-Pizzamiglio vs
-  //      Maslianico-Roggiana) emit distinct <title>s.
-  //   3. If still too long, fall back to a word-boundary truncation — the
-  //      shared `truncateToClauseNonEmpty` ladder, not an inline copy of it
-  //      (PR #5515 review: this was one of three hand-rolled duplicates). The
-  //      NonEmpty variant is required because `titleH1` feeds
-  //      `buildTitleWithBrand` right below, so a `''` refusal would emit a
-  //      brand-only `<title>` shared by every crossing — and h1 also seeds the
-  //      `differentiateH1FromTitle` comparison two lines down.
-  const TITLE_H1_MAX = 55;
-  const titleH1 = (() => {
-    if (h1.length <= TITLE_H1_MAX) return h1;
-    const dashIdx = h1.indexOf(' — ');
-    if (dashIdx > 0 && dashIdx <= TITLE_H1_MAX) return h1.slice(0, dashIdx);
-    return truncateToClauseNonEmpty(h1, TITLE_H1_MAX);
-  })();
-  // TITLE_H1_MAX (55) + brand suffix (22) can exceed the 66-char cap on its
-  // own — route through buildTitleWithBrand so the brand drops rather than
-  // overflowing.
+  // Keep the actual road/checkpoint token in the title.  The date is already
+  // represented by the /oggi/ (or localized equivalent) route, while a
+  // corridor can contain several distinct crossings whose labels share the
+  // same prefix (for example the three Basel–Weil am Rhein roads).
+  const titleH1 = buildBorderWaitLeafTitle(locale, crossingDisplay);
+  // The route-aware headline can use the full 66-character cap; route it
+  // through buildTitleWithBrand so the brand drops rather than overflowing.
   const title = buildTitleWithBrand(titleH1);
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
@@ -2123,7 +2462,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // Webcam refresh script is plugin-specific behaviour — append it inside
   // bodyHtml (after the closing </main>) so it loads on the static shell
   // without bypassing buildSeoPageHtml's templating.
-  const webcamRefreshScript = webcams.length > 0 ? `\n  ${WEBCAM_REFRESH_JS}` : '';
+  const webcamRefreshScript = embeddableWebcams.length > 0 ? `\n  ${WEBCAM_REFRESH_JS}` : '';
   // Border-wait hydration: replaces pre-rendered numbers with fresh
   // Firestore values once the page is interactive. Shared external asset.
   const hydrationScript = `\n  ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}`;
@@ -2139,7 +2478,7 @@ function renderLeafPage(inp: LeafInputs): string {
     <span>${esc(crossingDisplay)}</span>
   </nav>
   <header class="s-Nv0GaD">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(freshnessCopy.generated)} · <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time></p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
@@ -2149,22 +2488,15 @@ function renderLeafPage(inp: LeafInputs): string {
   ${webcamHtml}
   ${hourlyHtml}
   ${weeklyHtml}
+  ${archiveLinksHtml}
   ${infoHtml}
   ${alternativeRoutesHtml}
   ${DRIVEBY_AD_SNIPPET}
   ${faqHtml}
-  ${renderCommuterContextProse(locale, crossingDisplay, region, bestHour, worstHour)}
-  ${renderLeafLivePlanningProse(
-    locale,
-    crossingDisplay,
-    region,
-    reg?.peak ?? '',
-    comparisonCandidates
-      .map(({ slug }) => BORDER_CROSSING_DISPLAY[slug])
-      .filter(Boolean),
-  )}
-  <section class="s-GCEyQg" aria-label="${esc(copy.faqTitle ?? 'Contesto')}">
-    <p class="s-yOfiVn">${esc(paragraph)}</p>
+  ${renderCompactCommuterContextProse(locale, crossingDisplay, region, bestHour, worstHour)}
+  ${livePlanningHtml}
+  <section class="s-GCEyQg" aria-label="${esc(leafFaqTitle)}">
+    <p class="s-yOfiVn">${esc(decisionNote)}</p>
   </section>
   ${renderDiscoverMore(locale, BORDER_WAIT_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
@@ -2174,12 +2506,13 @@ function renderLeafPage(inp: LeafInputs): string {
 </article>${webcamRefreshScript}${hydrationScript}`;
 
   // Per-page OG image: when the build-time webcam snapshot is available, use
-  // the 640×360 JPEG so social shares show the REAL traffic state at the
-  // crossing. Fallback to the generic site OG image (1200×630) otherwise.
+  // the 1200×675 JPEG so social shares show the REAL traffic state at the
+  // crossing without falling below the minimum preview dimensions. Fallback
+  // to the generic site OG image (1200×630) otherwise.
   const hasWebcamOg = typeof ogImageUrl === 'string' && ogImageUrl.length > 0;
   const ogImageTag = hasWebcamOg ? ogImageUrl! : `${BASE_URL}/og-image.png`;
-  const ogImageWidth = hasWebcamOg ? '640' : '1200';
-  const ogImageHeight = hasWebcamOg ? '360' : '630';
+  const ogImageWidth = '1200';
+  const ogImageHeight = hasWebcamOg ? '675' : '630';
   const ogImageAlt = hasWebcamOg
     ? (locale === 'it'
         ? `Webcam live — ${crossingDisplay}`
@@ -2228,10 +2561,57 @@ interface HubInputs {
   distDir?: string;
 }
 
+/**
+ * Render the all-crossings root hub as compact cards rather than repeating the
+ * mobile table utility classes and column labels 143 times. Regional hubs keep
+ * the accessible table because their smaller scopes benefit from the explicit
+ * column layout; the root hub needs the card layout to stay within the shared
+ * page-weight budget as the crossing registry grows.
+ */
+function renderRootCrossingList(inp: {
+  locale: BorderWaitLocale;
+  crossings: ReadonlyArray<BorderCrossingSlug>;
+  current: BorderWaitCurrent;
+  today: Date;
+  copy: Copy;
+  freshnessCopy: typeof BORDER_FRESHNESS_COPY[BorderWaitLocale];
+  hubSourceLabelMap: string;
+}): string {
+  const { locale, crossings, current, today, copy, freshnessCopy, hubSourceLabelMap } = inp;
+  const rows = crossings.map((c) => {
+    const snap = current.perCrossing[c];
+    const wait = snap?.totalCrossingMinutes ?? snap?.waitTimeMinutes ?? null;
+    const src: WaitSource = snap?.source ?? 'static';
+    const waitFmt = wait === null ? '—' : `${wait} min`;
+    const updated = formatSourceDate(snap?.lastUpdate, locale, today) ?? freshnessCopy.missing;
+    const readingState = borderReadingState(snap?.lastUpdate, today);
+    const observedAt = sourceDateIso(snap?.lastUpdate, today);
+    const sc = statusColor(readingState === 'live' ? wait : null);
+    return `<li class="bw-crossing" data-bw-crossing="${esc(c)}" data-bw-data-state="${readingState}" data-bw-observed-at="${observedAt ? Date.parse(snap!.lastUpdate) : ''}">
+      <div class="bw-crossing-main">
+        <div class="bw-crossing-title">
+          <a class="bw-crossing-link" ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="open_crossing" href="${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE}">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
+        </div>
+        <div class="bw-crossing-readout">
+          <span class="bw-readout-label">${esc(copy.waitMinutesLabel)}</span>
+          <strong class="bw-wait-value" data-bw-field="totalCrossingMinutes" data-bw-tone-bg data-bw-tone-fg style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:14px;font-weight:700;white-space:nowrap;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</strong>
+        </div>
+      </div>
+      <div class="bw-crossing-meta">
+        <span>${esc(freshnessCopy.observed)} <time data-bw-field="lastUpdate"${observedAt ? ` datetime="${observedAt}"` : ''}>${esc(updated)}${readingState === 'stale' ? `<span class="block" data-bw-stale-note>${esc(freshnessCopy.stale)}</span>` : ''}</time></span>
+        <span>${esc(copy.sourceLabel)} ${sourceLink(src, sourceLabel(src, copy))}</span>
+        ${renderHubWebcamLink(c, copy)}
+      </div>
+    </li>`;
+  }).join('');
+
+  return `<ul class="bw-crossings" data-bw-source-labels="${esc(hubSourceLabelMap)}" aria-labelledby="crossingTable">${rows}</ul>`;
+}
+
 function renderHubPage(inp: HubInputs): string {
   const { locale, region, current, today, alternates, distDir } = inp;
   const copy = COPY[locale];
-  const dateStamp = today.toISOString().slice(0, 10);
+  const freshnessCopy = BORDER_FRESHNESS_COPY[locale];
   const canonicalPath = region ? buildRegionalHubPath(locale, region) : buildRootHubPath(locale);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
@@ -2258,12 +2638,13 @@ function renderHubPage(inp: HubInputs): string {
   };
   const introTagline = taglineByLocale[locale];
 
-  // Build live table of all crossings in scope. Each <tr> carries the
-  // data-bw-crossing attribute so the shared hydration asset can swap the
-  // pre-rendered minute count AND the source label with the fresh Firestore
-  // values at runtime. The source→label map is locale-invariant → build once
-  // here, not per row. Live sources only (no 'static' → "Dati statistici" copy
-  // never lands in the HTML).
+  // Build the live crossing surface. Regional hubs use a table; the root hub
+  // uses compact cards because repeating the responsive table classes and
+  // mobile labels for all 160 crossings exceeded the page-weight budget. Each
+  // item carries data-bw-crossing so the shared hydration asset can swap the
+  // pre-rendered minute count, date and source at runtime. The source→label
+  // map is locale-invariant → build once here, not per item. Live sources only
+  // (no 'static' → "Dati statistici" copy never lands in the HTML).
   const hubSourceLabelMap = JSON.stringify({
     bazg: copy.sourceBazg,
     here: copy.sourceHere,
@@ -2281,65 +2662,99 @@ function renderHubPage(inp: HubInputs): string {
     'official+webcam': copy.sourceOfficialWebcam,
     webcam: copy.sourceWebcam,
   });
-  const rows = crossingsInScope.map((c) => {
+  const rows = region ? crossingsInScope.map((c) => {
     const snap = current.perCrossing[c];
     const wait = snap?.totalCrossingMinutes ?? snap?.waitTimeMinutes ?? null;
     const src: WaitSource = snap?.source ?? 'static';
-    const sc = statusColor(wait);
     const waitFmt = wait === null ? '—' : `${wait} min`;
-    const updated = snap?.lastUpdate ? snap.lastUpdate.slice(0, 16).replace('T', ' ') : '—';
-    return `<tr data-bw-crossing="${esc(c)}">
-      <td class="s-tcl">
-        <a href="${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
+    const updated = formatSourceDate(snap?.lastUpdate, locale, today) ?? freshnessCopy.missing;
+    const readingState = borderReadingState(snap?.lastUpdate, today);
+    const sc = statusColor(readingState === 'live' ? wait : null);
+    return `<tr role="row" class="block border-b border-edge last:border-b-0 md:table-row" data-bw-crossing="${esc(c)}" data-bw-data-state="${readingState}" data-bw-observed-at="${sourceDateIso(snap?.lastUpdate, today) ? Date.parse(snap!.lastUpdate) : ''}">
+      <td role="cell" class="block px-4 pt-3 pb-2 text-base text-body md:table-cell md:py-3">
+        <a class="flex min-h-11 items-center break-words font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-accent" ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="open_crossing" href="${buildOggiPath(locale, c)}">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
       </td>
-      <td class="s-tcl" style="text-align:right">
-        <span data-bw-field="totalCrossingMinutes" style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
+      <td role="cell" class="block px-4 pb-3 text-base text-body md:table-cell md:py-3 md:text-right">
+        <span class="mr-2 md:hidden" aria-hidden="true">${esc(copy.waitMinutesLabel)}:</span>
+        <span data-bw-field="totalCrossingMinutes" data-bw-tone-bg data-bw-tone-fg style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:14px;font-weight:700;white-space:nowrap;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
-      <td class="s-tcl" data-bw-field="lastUpdate" style="font-size:12px;color:var(--color-subtle)">${esc(updated)}</td>
-      <td class="s-tcl" data-bw-field="source" style="font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
+      <td role="cell" class="block px-4 pb-3 text-sm text-subtle md:table-cell md:py-3">
+        <span class="block font-semibold md:hidden" aria-hidden="true">${esc(freshnessCopy.observed)}</span>
+        <span data-bw-field="lastUpdate">${esc(updated)}${readingState === 'stale' ? `<span class="block" data-bw-stale-note>${esc(freshnessCopy.stale)}</span>` : ''}</span>
+      </td>
+      <td role="cell" class="block break-words px-4 pb-4 text-sm text-subtle md:table-cell md:py-3">
+        <span class="block font-semibold md:hidden" aria-hidden="true">${esc(copy.sourceLabel)}</span>
+        ${sourceLink(src, sourceLabel(src, copy))}
+        ${renderHubWebcamLink(c, copy)}
+      </td>
     </tr>`;
-  });
+  }) : [];
 
-  const tableHtml = `<div class="s-card" data-bw-source-labels="${esc(hubSourceLabelMap)}" style="overflow-x:auto;padding:0"><table class="s-tbl" style="font-size:14px">
-    <thead><tr>
-      <th class="s-thd">${esc(
+  // One hydration contract serves both layouts. Regional tables retain explicit
+  // roles for their column headers; root cards use semantic list items.
+  const tableHtml = region
+    ? `<div class="s-card" data-bw-source-labels="${esc(hubSourceLabelMap)}" style="padding:0"><table role="table" aria-labelledby="crossingTable" class="block w-full border-collapse md:table">
+    <thead role="rowgroup" class="sr-only md:not-sr-only md:table-header-group"><tr role="row">
+      <th scope="col" role="columnheader" class="s-thd">${esc(
         locale === 'it' ? 'Valico' : locale === 'de' ? 'Grenzübergang' : locale === 'fr' ? 'Poste' : 'Crossing',
       )}</th>
-      <th class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
-      <th class="s-thd">${esc(copy.updatedLabel)}</th>
-      <th class="s-thd">${esc(copy.sourceLabel)}</th>
+      <th scope="col" role="columnheader" class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
+      <th scope="col" role="columnheader" class="s-thd">${esc(freshnessCopy.observed)}</th>
+      <th scope="col" role="columnheader" class="s-thd">${esc(copy.sourceLabel)}</th>
     </tr></thead>
-    <tbody>${rows.join('')}</tbody>
-  </table></div>`;
+    <tbody role="rowgroup" class="block md:table-row-group">${rows.join('')}</tbody>
+  </table></div>`
+    : renderRootCrossingList({
+        locale,
+        crossings: crossingsInScope,
+        current,
+        today,
+        copy,
+        freshnessCopy,
+        hubSourceLabelMap,
+      });
 
   // "Best crossing right now" hero, with a "traffico fluido" fallback
   // banner when every crossing reports 0 min (upstream data degenerate
   // case — either unmeasured or perfectly fluid). Either the hero OR the
-  // fallback renders; never both and never empty space. Tre casi, non due:
+  // fallback renders; never both and never empty space. Quattro casi:
   // copertura piena a zero => banner «fluido»; almeno una coda => hero;
-  // nessuna lettura, o letture a zero su copertura parziale => banner di dato
-  // non disponibile, che NON e' la stessa affermazione di «fluido».
-  const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.flatMap((c) => {
-    const waitTimeMinutes = current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes;
-    return waitTimeMinutes == null
-      ? []
-      : [{ slug: c, labelIt: BORDER_CROSSING_DISPLAY[c], waitTimeMinutes }];
+  // letture a zero su copertura parziale => «fluido sui valichi misurati»;
+  // nessuna lettura => banner di dato non disponibile, che NON e' la stessa
+  // affermazione di «fluido». La regola sta in `hubHeroState`; lo script di
+  // idratazione la ripete sulle letture live (`hub()`, vedi `renderLiveSwap`).
+  const scopeWaits = crossingsInScope.map(
+    (c) => borderReadingState(current.perCrossing[c]?.lastUpdate, today) === 'live'
+      ? current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? null
+      : null,
+  );
+  // Missing, negative or non-finite waits are unmeasured — same predicate as
+  // `hubHeroState`, so the fastest card never sees a wait the state ignored.
+  const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.flatMap((c, i) => {
+    const waitTimeMinutes = scopeWaits[i];
+    return isMeasuredWait(waitTimeMinutes)
+      ? [{ slug: c, labelIt: BORDER_CROSSING_DISPLAY[c], waitTimeMinutes }]
+      : [];
   });
-  // Copertura piena e tutte le letture a zero: «fluido» e' un'affermazione
-  // che possiamo fare, perche' abbiamo misurato ogni valico in scope.
-  const allZeros = heroInputs.length > 0
-    && heroInputs.length === crossingsInScope.length
-    && heroInputs.every((c) => c.waitTimeMinutes === 0);
-  // `renderFastestCrossingCard` rende '' quando nessuna lettura e' > 0, e
-  // `heroInputs` scarta i valichi senza dato: senza questo ramo, un solo
-  // valico non misurato con gli altri a zero produceva ne' hero ne' banner,
-  // cioe' il blocco vuoto che l'invariante sopra promette di non lasciare mai.
-  const positiveWait = hasPositiveWait(heroInputs);
-  const bestBannerHtml = allZeros
-    ? renderTrafficFluidBanner(true, locale)
-    : positiveWait
-      ? renderFastestCrossingCard(heroInputs, locale)
-      : renderBorderWaitUnavailableBanner(locale);
+  const heroState = hubHeroState(scopeWaits);
+  // The fastest-card template only carries the markup: link text, href and
+  // minutes are slots the hydration fills from the live table rows.
+  const templateSlug = crossingsInScope[0] ?? BORDER_WAIT_CROSSINGS[0];
+  const heroTemplates: Record<HubHeroState, string> = {
+    fastest: renderFastestCrossingCard(
+      [{ slug: templateSlug, labelIt: BORDER_CROSSING_DISPLAY[templateSlug], waitTimeMinutes: 1 }],
+      locale,
+    ),
+    fluid: renderTrafficFluidBanner(true, locale),
+    'fluid-measured': renderTrafficFluidMeasuredBanner(heroInputs.length, crossingsInScope.length, locale),
+    unavailable: renderBorderWaitUnavailableBanner(locale),
+  };
+  const bestBannerHtml = renderLiveSwap(
+    'hub',
+    heroState,
+    heroState === 'fastest' ? renderFastestCrossingCard(heroInputs, locale) : heroTemplates[heroState],
+    heroTemplates,
+  );
 
   const alternatesHtml = renderHreflangTags(alternates);
   const pickerHtml = renderBorderWaitPicker({
@@ -2381,7 +2796,7 @@ function renderHubPage(inp: HubInputs): string {
     url: canonicalUrl,
     description: introLong.slice(0, 200),
     inLanguage: locale,
-    dateModified: today.toISOString(),
+    ...(sourceDateIso(current.updatedAt, today) ? { dateModified: sourceDateIso(current.updatedAt, today) } : {}),
   });
 
   // Root hub h1 (no region) overflows the 66-char cap once the brand suffix
@@ -2545,14 +2960,7 @@ function renderHubPage(inp: HubInputs): string {
   </section>`;
 
   // Live-badge pre-rendered text (see leaf page for rationale).
-  const hubSnapshotBadgeText =
-    locale === 'it'
-      ? `snapshot di ${dateStamp}`
-      : locale === 'de'
-        ? `Snapshot vom ${dateStamp}`
-        : locale === 'fr'
-          ? `instantané du ${dateStamp}`
-          : `snapshot of ${dateStamp}`;
+  const hubSnapshotBadgeText = observationBadge(current.updatedAt, locale, today);
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr" aria-label="Breadcrumb">
@@ -2561,7 +2969,7 @@ function renderHubPage(inp: HubInputs): string {
     ${region ? `<a href="${buildRootHubPath(locale)}" class="s-bcl">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
   </nav>
   <header class="s-Nv0GaD">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp} <span class="s-k7sbVR" data-bw-live-badge>${esc(hubSnapshotBadgeText)}</span></p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(freshnessCopy.generated)} · <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time> <span class="s-k7sbVR" data-bw-live-badge data-bw-observed-at="${sourceDateIso(current.updatedAt, today) ? Date.parse(current.updatedAt!) : ''}">${esc(hubSnapshotBadgeText)}</span></p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(introTagline)}</p>
   </header>
@@ -2615,11 +3023,16 @@ function renderHubPage(inp: HubInputs): string {
 
 // ── Monthly archive ────────────────────────────────────────────
 
+interface BorderWaitArchiveDay {
+  date: string;
+  perCrossing: Partial<Record<BorderCrossingSlug, Array<null | { avg: number }>>>;
+}
+
 interface ArchiveInputs {
   locale: BorderWaitLocale;
   crossing: BorderCrossingSlug;
   monthKey: string;
-  history: BorderWaitHistoryDay[];
+  history: BorderWaitArchiveDay[];
   today: Date;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
@@ -2868,7 +3281,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: today.toISOString(),
+    ...(daysInMonth.length ? { dateModified: daysInMonth.map((day) => day.date).filter((date) => sourceDateIso(date, today)).sort().at(-1) } : {}),
   });
 
   // Methodology + commuter-context prose + FAQ. Structural insurance for the
@@ -2889,6 +3302,18 @@ function renderArchivePage(inp: ArchiveInputs): string {
     overallAvg,
     daysInMonth.length,
   );
+
+  // The month read by weekday and by date, plus the same-month ranking of the
+  // other archived crossings — the facts that belong to THIS cell of the
+  // crossing × month grid (see borderWaitArchiveInsights.ts for the
+  // information-gain measurement that motivated it).
+  const monthInsightsHtml = renderArchiveMonthInsights({
+    locale,
+    crossing,
+    monthKey,
+    history,
+    headingStyle: H2_STYLE,
+  });
 
   // Tagline above-the-fold (≤120 chars). Long intro migrates to the body
   // section above archiveProse, preserving text-to-HTML ratio.
@@ -2945,13 +3370,15 @@ function renderArchivePage(inp: ArchiveInputs): string {
         <section>
           <h2 style="${H2_STYLE}">${esc(copy.hourlyTodayLabel)}</h2>
           <table class="s-tbl" style="font-size:14px">
+            <caption class="sr-only">${esc(copy.hourlyTodayLabel)}</caption>
             <thead><tr>
-              <th class="s-thd">Ora</th>
-              <th class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
+              <th scope="col" class="s-thd">Ora</th>
+              <th scope="col" class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>
         </section>
+        ${monthInsightsHtml}
         <section class="s-Va7_33">
           <p class="s-E7ZJqo">${esc(intro)}</p>
         </section>
@@ -2967,7 +3394,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
     title,
     description,
     canonicalUrl,
-    robots: 'index,follow',
+    robots: overallAvg === null ? 'noindex,follow' : 'index,follow',
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     jsonLdScripts: [breadcrumbLd, webPageLd],
@@ -3071,6 +3498,8 @@ export function getWebcamOgImageUrl(
 export function generateBorderWaitPages(opts: {
   current: BorderWaitCurrent;
   history?: BorderWaitHistoryDay[];
+  /** Generated archive HTML; only indexable pages are linked from their leaf. */
+  archivePages?: Readonly<Record<string, string>>;
   today?: Date;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
@@ -3083,8 +3512,22 @@ export function generateBorderWaitPages(opts: {
 }): Record<string, string> {
   const current = opts.current;
   const history = opts.history ?? [];
+  const archivePages = opts.archivePages ?? {};
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
+  const archiveMonthsByLeaf = new Map<string, string[]>();
+  for (const [archivePath, html] of Object.entries(archivePages)) {
+    const parsed = parseBorderWaitPath(archivePath);
+    if (!parsed?.isArchive || !parsed.crossing || !parsed.monthKey) continue;
+    if (countHtmlBodyWords(html) < MIN_INDEXABLE_WORDS || !htmlHasIndexableRobots(html)) continue;
+    const key = `${parsed.locale}:${parsed.crossing}`;
+    const months = archiveMonthsByLeaf.get(key) ?? [];
+    months.push(parsed.monthKey);
+    archiveMonthsByLeaf.set(key, months);
+  }
+  for (const months of archiveMonthsByLeaf.values()) {
+    months.sort((a, b) => b.localeCompare(a));
+  }
   const resolveOgImage =
     opts.ogImageUrlResolver ?? ((c: BorderCrossingSlug) => getWebcamOgImageUrl(c, distDir));
   const pages: Record<string, string> = {};
@@ -3132,11 +3575,13 @@ export function generateBorderWaitPages(opts: {
 
     // Per-crossing leaf pages
     for (const crossing of BORDER_WAIT_CROSSINGS) {
+      const archiveMonths = archiveMonthsByLeaf.get(`${locale}:${crossing}`) ?? [];
       pages[buildOggiPath(locale, crossing)] = renderLeafPage({
         locale,
         crossing,
         current,
         history,
+        archiveMonths,
         today,
         alternates: buildCrossingAlternates(crossing),
         distDir,
@@ -3149,12 +3594,12 @@ export function generateBorderWaitPages(opts: {
 }
 
 export function generateBorderWaitArchives(opts: {
-  history: BorderWaitHistoryDay[];
+  history: BorderWaitArchiveDay[];
   today?: Date;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
 }): Record<string, string> {
-  const history = opts.history;
+  const history = [...new Map(opts.history.map((day) => [day.date, day])).values()];
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
   const currentMonth = today.toISOString().slice(0, 7);
@@ -3218,7 +3663,7 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
         perCrossing: {},
       });
       const history = readHistory(rootDir);
-      // BUILD_DATE_STAMP (deploy-wide, derived from DEPLOY_BUILD_ID), NOT a
+      // BUILD_ID (deploy-wide timestamp, derived from DEPLOY_BUILD_ID), NOT a
       // fresh `new Date()` — this "today" gates which past months qualify
       // for archive pages, and on the matrix deploy the it/en/de/fr shards
       // are independent processes. A per-shard `new Date()` could cross a
@@ -3226,8 +3671,8 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
       // "past" on one shard but not its siblings: the archive page (and its
       // sitemap-border-wait.xml entry, emitted from the same pass) exists on
       // one shard but not the others once merged (#6971, same class as #5911
-      // in eventsSeoPagesPlugin.ts). See build-plugins/constants.ts BUILD_DATE_STAMP doc.
-      const today = new Date(BUILD_DATE_STAMP);
+      // in eventsSeoPagesPlugin.ts). See build-plugins/constants.ts BUILD_ID doc.
+      const today = new Date(Number(BUILD_ID));
 
       // ── F8 social-virality: snapshot webcam frames for per-page og:image ──
       // Runs BEFORE page generation so `renderLeafPage` can detect the
@@ -3248,8 +3693,12 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
         );
       }
 
-      const pages = generateBorderWaitPages({ current, history, today, distDir });
-      const archives = generateBorderWaitArchives({ history, today, distDir });
+      const archivedHistory = readBorderWaitArchive(
+        np.join(rootDir, 'data', 'border-wait-archive'),
+        np.join(rootDir, 'data', 'border-wait-recovery-archive.json'),
+      );
+      const archives = generateBorderWaitArchives({ history: [...archivedHistory, ...history], today, distDir });
+      const pages = generateBorderWaitPages({ current, history, archivePages: archives, today, distDir });
 
       const collector = new WriteCollector({ distDir, pluginName: 'borderWaitPagesPlugin' });
       let pagesWritten = 0;
@@ -3285,7 +3734,7 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
         collector.add(np.join(outDir, 'index.html'), html);
-        sitemapPaths.push(path);
+        if (htmlHasIndexableRobots(html)) sitemapPaths.push(path);
         archivesWritten++;
       }
 
@@ -3294,12 +3743,12 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
       // ── Emit sitemap-border-wait.xml ───────────────────────
       if (sitemapPaths.length > 0) {
         try {
-          const dateStamp = today.toISOString().slice(0, 10);
           const urlEntries = sitemapPaths
-            .map(
-              (p) =>
-                `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>hourly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
-            )
+            .map((p) => {
+              const modifiedAt = /"dateModified":"([^"\\]+)"/.exec(pages[p] ?? archives[p] ?? '')?.[1];
+              const lastmod = modifiedAt ? `<lastmod>${esc(modifiedAt)}</lastmod>` : '';
+              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    ${lastmod}\n    <changefreq>hourly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
+            })
             .join('\n');
           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -13,4 +13,10 @@ describe('Tarchini Group dedicated crawler', () => {
       SCRIPT.indexOf('await assembleJobsDataset();'),
     );
   });
+
+  it('publishes the HTTPS detail page and keeps the source application email', () => {
+    expect(SCRIPT).toContain('applyUrl: row.detailUrl');
+    expect(SCRIPT).toContain('applicationEmail');
+    expect(SCRIPT).not.toContain('const applyUrl = `mailto:');
+  });
 });

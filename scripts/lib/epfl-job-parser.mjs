@@ -25,11 +25,16 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { JSDOM } from 'jsdom';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -58,14 +63,7 @@ function normalizeSpace(s = '') {
 }
 
 function decodeEntities(s = '') {
-  return String(s || '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#(\d+);/g, (_, c) => String.fromCharCode(Number(c)));
+  return decodeHTML(String(s || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -244,31 +242,34 @@ export function extractEpflDetailDescription(html = '') {
     html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
     html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
   if (!match) return '';
-  const text = stripHtml(decodeEntities(match[1]));
+  const text = stripHtml(match[1]);
   return text
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
-    .trim()
-    .slice(0, 4000);
+    .trim();
 }
 
 /**
- * Fetch the SuccessFactors detail page for an EPFL job and extract the body.
- * Returns plain text with `\n• ` bullets (preserved by crawler-template.stripHtml).
- * Empty string on failure.
+ * Fetch the existing detail response once for body and explicit publication.
+ * Returns empty body and unknown publication on failure.
  */
-async function fetchEpflDetailDescription(jobUrl) {
-  if (!jobUrl) return '';
+async function fetchEpflDetailFields(jobUrl) {
+  const empty = { description: '', ...successFactorsPostingDateFields('') };
+  if (!jobUrl) return empty;
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), DETAIL_TIMEOUT_MS);
   try {
     const res = await fetch(jobUrl, { headers: FETCH_HEADERS, signal: ctrl.signal, redirect: 'follow' });
-    if (!res.ok) return '';
+    if (!res.ok) return empty;
     const html = await res.text();
-    return extractEpflDetailDescription(html);
+    const dom = new JSDOM(html);
+    try {
+      const date = dom.window.document.querySelector('meta[itemprop="datePosted"]')?.getAttribute('content') || '';
+      return { description: extractEpflDetailDescription(html), ...successFactorsPostingDateFields(date) };
+    } finally { dom.window.close(); }
   } catch {
-    return '';
+    return empty;
   } finally {
     clearTimeout(timer);
   }
@@ -319,6 +320,7 @@ export async function fetchAllEpflJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = listing.title;
     if (!title || title.length < 3) continue;
@@ -327,32 +329,31 @@ export async function fetchAllEpflJobs() {
     const canton = inferSwissTargetCanton(location) || 'VD';
     const publicUrl = listing.jobUrl;
 
-    // Always prefer the real description from the EPFL SuccessFactors detail
-    // page. Rate-limited so we don't hammer careers.epfl.ch.
-    // Detail-page description can also be j2w page chrome (same widget bleed
-    // as the title); sanitize so a chrome-only body falls through to the
-    // fallbackBits synthesis below instead of being used verbatim.
-    const detailDescription = sanitizeSuccessFactorsField(await fetchEpflDetailDescription(publicUrl));
+    // The description is the EPFL SuccessFactors detail page, rate-limited so
+    // we don't hammer careers.epfl.ch. The page can also be j2w chrome (same
+    // widget bleed as the title): sanitize, so chrome never passes as a body.
+    const detail = await fetchEpflDetailFields(publicUrl);
+    const detailDescription = sanitizeSuccessFactorsField(detail.description);
     if (publicUrl) {
       await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
     }
 
-    // TEMPORARY fallback used only when the detail page is unreachable. The
-    // long-term fix is upstream (anti-bot/auth blocks); <1% of fetches should
-    // hit this branch in production.
-    const fallbackBits = [
-      `${title} — EPFL (${location}).`,
-      `Posizione pubblicata sul portale carriere ufficiale EPFL (SAP SuccessFactors).`,
-      '',
-      'Dettagli della posizione:',
-      `• Sede: ${location}, Canton ${canton}`,
-      `• Funzione: ${listing.department || 'n/d'}`,
-      `• Tipo contratto: ${listing.contractType || 'n/d'}`,
-      `• Datore di lavoro: EPFL — École polytechnique fédérale de Lausanne`,
-    ];
-    const fallbackDescription = detailDescription.length >= 100 ? detailDescription : fallbackBits.join('\n');
+    // Only the source's own text is published (issue 5253). An unreachable
+    // page, or an empty template ("Canevas EPFL (vide)": headings only), is
+    // not a body: the job stays out of this run, so the standard pipeline
+    // keeps the body stored from the source under its miss grace, and a job
+    // never read is not published. The listing fields (department, contract)
+    // are not a description.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      withoutBody += 1;
+      console.log(`  ⏭️ ${title}: no source body (${sourceBodyWordCount(detailDescription)} words) — not published in this run`);
+      continue;
+    }
 
-    const sourceLang = detectLang(`${title} ${listing.department}`, 'fr');
+    // Language of the body: titles are English research titles above French
+    // bodies and the other way round (36/68 jobs filed under the title's
+    // language on the 2026-09-29 slice).
+    const sourceLang = detectLang(detailDescription, 'fr');
     const jobSlug = slugify(`${title} epfl ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -366,8 +367,8 @@ export async function fetchAllEpflJobs() {
       companyDomain: EPFL_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: fallbackDescription,
-      descriptionByLocale: { [sourceLang]: fallbackDescription },
+      description: detailDescription,
+      descriptionByLocale: { [sourceLang]: detailDescription },
       location,
       canton,
       url: publicUrl,
@@ -386,7 +387,7 @@ export async function fetchAllEpflJobs() {
       sector: 'education',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -401,5 +402,6 @@ export async function fetchAllEpflJobs() {
   }
 
   console.log(`\n📋 Total EPFL jobs discovered: ${jobs.length}`);
+  if (withoutBody > 0) console.log(`   Without a source body: ${withoutBody}/${listings.length}`);
   return jobs;
 }

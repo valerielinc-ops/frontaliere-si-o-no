@@ -5,9 +5,14 @@
   "platform": "",
   "mode": "template",
   "seedUrls": [
-    "https://www.stellenpartner.ch/stellen/"
+    "https://www.stellenpartner.ch/stellen/?sort=title-asc"
   ],
   "detailTemplate": "/stellen/*/",
+  "pagination": {
+    "maxPages": 100,
+    "declaredTotalPattern": "([\\d'’.,]+)\\s*(?:<[^>]*>\\s*)*Resultate",
+    "countDuplicateRowsForCoverage": true
+  },
   "sampleVacancyCount": 708,
   "sampleTitles": [
     "Anlagen- und Apparatebauer/in (Hilfsarbeiter/in) für modernen Metallbau mit Montage",

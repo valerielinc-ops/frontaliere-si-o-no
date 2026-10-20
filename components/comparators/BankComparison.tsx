@@ -4,8 +4,9 @@ import Callout from '@/components/shared/Callout';
 import { Building2, CreditCard, Euro, TrendingDown, AlertCircle, CheckCircle2, XCircle } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import AffiliateLink from '@/components/shared/AffiliateLink';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
-import { isGoIdEnabled, resolveGoHref, type AffiliateLinkAttribution } from '@/services/affiliateService';
+import { resolveGoHref, partnerDisclosureKey, type AffiliateLinkAttribution } from '@/services/affiliateService';
 import ProviderLogo from '@/components/shared/ProviderLogo';
 import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -214,19 +215,10 @@ const BankComparison: React.FC = () => {
  const [filterCountry, setFilterCountry] = useState<'all' | 'CH' | 'IT'>('all');
  const [showOnlyFrontalieri, setShowOnlyFrontalieri] = useState<boolean>(true);
  const filtered = useMemo(() => {
- const sponsoredPriority = ['wise'];
  return banks
  .filter(b => filterCountry === 'all' || b.country === filterCountry)
  .filter(b => !showOnlyFrontalieri || b.acceptsFrontalieri)
  .sort((a, b) => {
- const aPriority = sponsoredPriority.indexOf(a.name.toLowerCase());
- const bPriority = sponsoredPriority.indexOf(b.name.toLowerCase());
- if (aPriority !== -1 || bPriority !== -1) {
- if (aPriority === -1) return 1;
- if (bPriority === -1) return -1;
- return aPriority - bPriority;
- }
-
  // Neutral ranking: objective costs first, deterministic lexical tie-breakers.
  // This avoids implicit ordering bias from array position (including affiliate entries).
  if (a.accountFee !== b.accountFee) return a.accountFee - b.accountFee;
@@ -287,15 +279,15 @@ const BankComparison: React.FC = () => {
 
  <div className="grid md:grid-cols-2 gap-6">
  {filtered.map((bank, index) => {
- const CardWrapper = bank.website ? 'a' : 'div';
- const attribution: AffiliateLinkAttribution = { surface: 'web', position: `banks-comparison-${index + 1}`, campaign: 'g4-contextual', variant: 'v1' };
+ const CardWrapper = bank.website ? AffiliateLink : 'div';
+ const attribution: AffiliateLinkAttribution = { surface: 'web', position: `banks-comparison-${index + 1}`, campaign: 'g4-contextual', variant: 'control' };
  const cardProps = bank.website ? {
+ partnerId: bank.goId, context: 'banks', attribution,
  href: resolveGoHref(bank.goId, bank.website, attribution),
  target: '_blank',
- rel: isGoIdEnabled(bank.goId) ? 'noopener noreferrer sponsored' : 'noopener noreferrer',
+
  onClick: () => {
  Analytics.trackBankComparison('link_click', bank.name, bank.country);
- if (bank.goId) Analytics.trackAffiliateClick(bank.goId, 'banks', attribution);
  },
  className: `block bg-surface rounded-stripe border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${bank.acceptsFrontalieri ? 'border-success ring-2 ring-success/20' : 'border-edge'}`
  } : {
@@ -362,6 +354,9 @@ const BankComparison: React.FC = () => {
  </ul>
  </div>
  </div>
+ <p className="text-sm text-muted mb-2">{t('affiliate.conditions.banks')}</p>
+ <span className="inline-flex items-center min-h-[44px] text-sm font-semibold text-link">{t('affiliate.cta.check')}</span>
+ {partnerDisclosureKey(bank.goId) && <p className="text-xs text-muted">{t(partnerDisclosureKey(bank.goId)!)}</p>}
  </CardWrapper>
  );
  })}

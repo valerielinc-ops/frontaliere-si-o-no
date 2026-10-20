@@ -66,15 +66,20 @@ vi.mock('../scripts/lib/dedicated-crawler-common.mjs', () => ({
 
 vi.mock('../scripts/lib/expired-jobs-archive.mjs', () => ({
   archiveRemovedJobsToSlice: mocks.archiveRemovedJobsToSlice,
+  readExpiredSlice: vi.fn(() => []),
 }));
 
-vi.mock('../scripts/lib/transient-fetch.mjs', () => ({
-  RETRYABLE_STATUS: new Set([500, 502, 503, 504]),
-  WAF_IP_BLOCK_STATUS: new Set([403]),
-  isTransientFetchError: vi.fn(() => false),
-  isConnectionLevelFetchError: mocks.isConnectionLevelFetchError,
-  fetchWithRetry: vi.fn(),
-}));
+vi.mock('../scripts/lib/transient-fetch.mjs', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../scripts/lib/transient-fetch.mjs')>();
+  return {
+    RETRYABLE_STATUS: new Set([500, 502, 503, 504]),
+    WAF_IP_BLOCK_STATUS: new Set([403]),
+    isTransientFetchError: vi.fn(() => false),
+    isConnectionLevelFetchError: mocks.isConnectionLevelFetchError,
+    fetchWithRetry: vi.fn(),
+    isRetryBudgetExhausted: actual.isRetryBudgetExhausted,
+  };
+});
 
 vi.mock('../scripts/lib/jina-proxy.mjs', () => ({
   fetchHtmlViaJinaWithRetry: vi.fn(),
@@ -93,7 +98,9 @@ import {
   evaluateAuthoritativeSnapshot,
   exitCrawlerOnError,
   runStandardCrawlerPipeline,
+  SNAPSHOT_VALIDATED_PARTIAL,
 } from '../scripts/lib/crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import {
   hasAuthoritativeListingPageEvidence,
   hasExplicitEmptyJobListing,
@@ -102,6 +109,7 @@ import { JSDOM } from 'jsdom';
 
 const COMPANY_KEY = 'authoritative-empty-test';
 const SCRATCH_PATH = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${COMPANY_KEY}.json`);
+const SOURCE_BODY = Array(60).fill('source').join(' ');
 
 afterEach(() => {
   vi.clearAllMocks();
@@ -195,6 +203,8 @@ describe('standard crawler authoritative-empty policy', () => {
     const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
     expect(counts.lastFetchOutcome).toBe('feed_endpoint_unavailable');
     expect(counts.abortKind).toBe('connection-level-fetch');
+    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(mocks.archiveRemovedJobsToSlice).not.toHaveBeenCalled();
   });
 
   it('records an exhausted retry response in the exit-guard counters (#7854)', async () => {
@@ -285,6 +295,27 @@ describe('standard crawler authoritative-empty policy', () => {
     })).toBe(true);
     expect(hasExplicitEmptyJobListing('No open positions are currently available.')).toBe(false);
     expect(hasExplicitEmptyJobListing('')).toBe(false);
+  });
+
+  it('recognizes the localized Italian no-open-positions marker', () => {
+    const visible = new JSDOM(
+      '<div id="listing"><p>Attualmente non ci sono posizioni aperte.</p></div>',
+    ).window.document.querySelector('#listing');
+    expect(hasExplicitEmptyJobListing(visible, {
+      scopedToListing: true,
+    })).toBe(true);
+  });
+
+  it('rejects localized conditional prose while keeping affirmative empty-state copy', () => {
+    const result = (text: string) => {
+      const document = new JSDOM(`<main><p>${text}</p></main>`).window.document;
+      return hasExplicitEmptyJobListing(document.querySelector('main'), { scopedToListing: true });
+    };
+
+    expect(result('Se non ci sono posizioni aperte, consulta le offerte.')).toBe(false);
+    expect(result('Attualmente non ci sono posizioni aperte')).toBe(true);
+    expect(result('Wenn es keine offenen Stellen gibt, informieren Sie sich über unsere Angebote.')).toBe(false);
+    expect(result('Derzeit haben wir keine offenen Stellen.')).toBe(true);
   });
 
   it('does not use hidden or template empty-state copy as source evidence', () => {
@@ -403,6 +434,7 @@ describe('standard crawler authoritative-empty policy', () => {
           id: 'test-new-1',
           slug: 'new-job',
           url: 'https://example.com/new-job',
+          description: SOURCE_BODY,
         }],
         isCompanyJob: () => true,
         validateAuthoritativeSnapshot: () => true,
@@ -453,8 +485,8 @@ describe('standard crawler authoritative-empty policy', () => {
     mocks.mergePreserveLocaleData.mockImplementationOnce(() => []);
     const parsedJobs = Object.assign(
       [
-        { id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' },
-        { id: 'test-new-2', slug: 'other-job', url: 'https://example.com/other-job' },
+        { id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY },
+        { id: 'test-new-2', slug: 'other-job', url: 'https://example.com/other-job', description: SOURCE_BODY },
       ],
       { discoveredCount: 7 },
     );
@@ -483,7 +515,7 @@ describe('standard crawler authoritative-empty policy', () => {
         companyLabel: 'Authoritative Empty Test',
         root,
         fetchJobs: async () => [
-          { id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' },
+          { id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY },
         ],
         isCompanyJob: (job: { id?: string }) => job.id === 'test-new-1',
       });
@@ -499,7 +531,7 @@ describe('standard crawler authoritative-empty policy', () => {
   it('carries a Coop detail-drop observation into the standard summary', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'detail-drop-summary-root-'));
     const parsedJobs = Object.assign(
-      [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+      [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY }],
       { detailDrop: { candidates: 10, gone: 1, rejected: 1 } },
     );
     try {
@@ -525,13 +557,19 @@ describe('standard crawler authoritative-empty policy', () => {
 
   it('preserves structured fetch metadata in the summary slice', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'structured-fetch-result-root-'));
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'test-old-1',
+      slug: 'old-job',
+      companyKey: COMPANY_KEY,
+      description: SOURCE_BODY,
+    }]);
     try {
       await runStandardCrawlerPipeline({
         companyKey: COMPANY_KEY,
         companyLabel: 'Structured Fetch Result Test',
         root,
         fetchJobs: async () => ({
-          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY }],
           fetchOutcome: 'selector_miss',
         }),
         isCompanyJob: () => true,
@@ -545,6 +583,33 @@ describe('standard crawler authoritative-empty policy', () => {
     );
   });
 
+  it('preserves an anti-bot verdict when the spec returns an unproven zero', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'anti-bot-empty-summary-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Anti-Bot Empty Summary Test',
+        root,
+        fetchJobs: async () => ({
+          jobs: [],
+          discoveredCount: 0,
+          fetchOutcome: 'anti_bot_block',
+        }),
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts).toMatchObject({
+      discovered: 0,
+      parsed: 0,
+      lastFetchOutcome: 'anti_bot_block',
+      abortKind: 'no-jobs-parsed',
+    });
+  });
+
   it('keeps the existing slice when missing detail URLs exceed the source-loss quota', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'missing-detail-url-root-'));
     try {
@@ -553,7 +618,7 @@ describe('standard crawler authoritative-empty policy', () => {
         companyLabel: 'Missing Detail URL Test',
         root,
         fetchJobs: async () => ({
-          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY }],
           missingDetailUrlCount: 1,
         }),
         isCompanyJob: () => true,
@@ -582,7 +647,7 @@ describe('standard crawler authoritative-empty policy', () => {
         companyLabel: 'Missing Detail URL Boundary Test',
         root,
         fetchJobs: async () => ({
-          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY }],
           missingDetailUrlCount: 2,
         }),
         isCompanyJob: () => true,
@@ -601,7 +666,7 @@ describe('standard crawler authoritative-empty policy', () => {
         companyKey: COMPANY_KEY,
         companyLabel: 'Authoritative Empty Test',
         root,
-        fetchJobs: async () => [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+        fetchJobs: async () => [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY }],
         isCompanyJob: () => true,
         validateAuthoritativeSnapshot: () => true,
         allowAuthoritativeEmptySnapshot: true,
@@ -625,11 +690,28 @@ describe('standard crawler authoritative-empty policy', () => {
     });
   });
 
-  it('does not let the opt-in replace source-specific validation', () => {
+  it('does not let the opt-in replace a proof: an unstamped zero stays unverified', () => {
     expect(evaluateAuthoritativeSnapshot([], {
       allowAuthoritativeEmptySnapshot: true,
       companyLabel: 'Test',
     })).toEqual({
+      authoritativeSnapshotVerified: false,
+      authoritativeEmptySnapshot: false,
+    });
+  });
+
+  it('honours a parser-stamped zero by default when the runner wires no validator', () => {
+    const stamped = markAuthoritativeEmptySnapshot([], 'listing states it has no open positions');
+    expect(evaluateAuthoritativeSnapshot(stamped, { companyLabel: 'Test' })).toEqual({
+      authoritativeSnapshotVerified: true,
+      authoritativeEmptySnapshot: true,
+    });
+    // The explicit opt-out, and a batch rebuilt after stamping, stay fail-closed.
+    expect(evaluateAuthoritativeSnapshot(stamped, {
+      allowAuthoritativeEmptySnapshot: false,
+      companyLabel: 'Test',
+    }).authoritativeEmptySnapshot).toBe(false);
+    expect(evaluateAuthoritativeSnapshot([...stamped], { companyLabel: 'Test' })).toEqual({
       authoritativeSnapshotVerified: false,
       authoritativeEmptySnapshot: false,
     });
@@ -653,13 +735,19 @@ describe('standard crawler authoritative-empty policy', () => {
 
   it('keeps miss grace for non-empty partial batches when authority is empty-only', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'authoritative-partial-root-'));
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'test-old-1',
+      slug: 'old-job',
+      companyKey: COMPANY_KEY,
+      description: SOURCE_BODY,
+    }]);
     const validator = vi.fn(() => true);
     const freshJob = {
       id: 'test-fresh-1',
       slug: 'fresh-job',
       companyKey: COMPANY_KEY,
       title: 'Fresh job',
-      description: 'A sufficiently detailed fresh job description for the fixture.',
+      description: SOURCE_BODY,
       location: 'Lugano',
       canton: 'TI',
       url: 'https://example.com/jobs/fresh',
@@ -685,7 +773,7 @@ describe('standard crawler authoritative-empty policy', () => {
       {},
     );
     expect(validator).not.toHaveBeenCalled();
-    expect(mocks.archiveRemovedJobsToSlice).not.toHaveBeenCalled();
+    expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith([], COMPANY_KEY);
     expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
       COMPANY_KEY,
       expect.arrayContaining([
@@ -694,5 +782,121 @@ describe('standard crawler authoritative-empty policy', () => {
       ]),
       expect.any(Object),
     );
+  });
+
+  it('classifies a validated partial verdict as neither authoritative nor empty-proof', () => {
+    expect(evaluateAuthoritativeSnapshot([{ id: 'job-1' }], {
+      validateAuthoritativeSnapshot: () => SNAPSHOT_VALIDATED_PARTIAL,
+      allowAuthoritativeEmptySnapshot: true,
+      companyLabel: 'Test',
+    })).toEqual({
+      authoritativeSnapshotVerified: false,
+      partialSnapshotValidated: true,
+      authoritativeEmptySnapshot: false,
+    });
+    // A partial read can never prove a zero.
+    expect(evaluateAuthoritativeSnapshot([], {
+      validateAuthoritativeSnapshot: () => SNAPSHOT_VALIDATED_PARTIAL,
+      allowAuthoritativeEmptySnapshot: true,
+      companyLabel: 'Test',
+    }).authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('keeps miss grace when the validator proves accounting but reports a partial snapshot', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'validated-partial-root-'));
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'test-old-1',
+      slug: 'old-job',
+      companyKey: COMPANY_KEY,
+      description: SOURCE_BODY,
+    }]);
+    const validator = vi.fn(() => SNAPSHOT_VALIDATED_PARTIAL);
+    const freshJob = {
+      id: 'test-fresh-1',
+      slug: 'fresh-job',
+      companyKey: COMPANY_KEY,
+      title: 'Fresh job',
+      description: SOURCE_BODY,
+      location: 'Lugano',
+      canton: 'TI',
+      url: 'https://example.com/jobs/fresh',
+    };
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Validated Partial Test',
+        root,
+        fetchJobs: async () => [freshJob],
+        isCompanyJob: () => true,
+        validateAuthoritativeSnapshot: validator,
+        allowAuthoritativeEmptySnapshot: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    // The validator ran (accounting stays fail-closed) …
+    expect(validator).toHaveBeenCalledTimes(1);
+    // … but the merge keeps the stored job under miss grace instead of
+    // retiring it with `retainMissingJobs: false`.
+    expect(mocks.mergePreserveLocaleData).toHaveBeenCalledWith(
+      expect.any(Array),
+      [freshJob],
+      {},
+    );
+    expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith([], COMPANY_KEY);
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
+      COMPANY_KEY,
+      expect.arrayContaining([
+        expect.objectContaining({ id: 'test-fresh-1' }),
+        expect.objectContaining({ id: 'test-old-1' }),
+      ]),
+      expect.objectContaining({ skipShrinkGuard: false }),
+    );
+    expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(
+      expect.objectContaining({
+        snapshotCoverage: 'partial',
+        authoritativeEmptySnapshot: false,
+        resurrectedJobs: 0,
+      }),
+    );
+  });
+
+  it('passes the stored company snapshot to source-specific fetchers', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'fetch-existing-snapshot-root-'));
+    const stored = {
+      id: 'test-old-1',
+      slug: 'old-job',
+      companyKey: COMPANY_KEY,
+      url: 'https://example.com/jobs/old',
+      description: SOURCE_BODY,
+    };
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([stored]);
+    let received: { existingJobs?: object[] } | undefined;
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Fetch Context Test',
+        root,
+        fetchJobs: async (context) => {
+          received = context;
+          return [{
+            id: 'test-new-1',
+            slug: 'new-job',
+            companyKey: COMPANY_KEY,
+            title: 'Fresh job',
+            description: SOURCE_BODY,
+            location: 'Lugano',
+            canton: 'TI',
+            url: 'https://example.com/jobs/fresh',
+          }];
+        },
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(received).toEqual({ existingJobs: [stored] });
   });
 });

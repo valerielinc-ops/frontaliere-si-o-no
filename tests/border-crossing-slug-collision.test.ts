@@ -17,8 +17,8 @@
  *     independent copy of the *general* rule (not by importing/calling
  *     slugifyCrossingName for the "expected" side), so a future accidental
  *     change to the general regex is caught here too, not only by the
- *     function testing itself. The one known override is applied on top.
- *  2. Explicitly pins the 5 public, indexed slugs so they can never move.
+ *     function testing itself. The known overrides are applied on top.
+ *  2. Explicitly pins the 6 stable slugs so they can never move.
  *  3. Asserts the full dataset produces zero duplicate slugs.
  *  4. Proves the duplicate-detection mechanism itself actually catches a
  *     collision, using a synthetic crossing name engineered to collide the
@@ -49,11 +49,17 @@ function generalSlugify(name: string): string {
 // the slug the general rule would produce unchanged.
 const KNOWN_OVERRIDES: Readonly<Record<string, string>> = {
   'Widnau-Lustenau (Schmitterbrücke)': 'widnau-lustenau-schmitterbrucke',
+  'Basel–Saint-Louis (A35)': 'basel-saint-louis-a35',
+  'Basel–Bourgfelden (Burgfelderstrasse)': 'basel-bourgfelden-burgfelderstrasse',
+  'Basel–Saint-Louis (Elsässerstrasse)': 'basel-saint-louis-elsasserstrasse',
+  'Basel–Saint-Louis (Flughafenstrasse)': 'basel-saint-louis-flughafenstrasse',
+  'Basel–Huningue (Kohlenstrasse)': 'basel-huningue-kohlenstrasse',
 };
 
 // The 5 crossings with a live, indexed /traffico-dogane/{slug}/oggi/ page
 // (see build-plugins/borderWaitData.ts#BORDER_WAIT_CROSSINGS) — their slug
-// must never move, or the already-indexed URL breaks.
+// must never move, or the already-indexed URL breaks. The five newly added
+// Basel-France overrides above are pinned too, before their first indexing.
 const PUBLIC_SLUGS: Readonly<Record<string, string>> = {
   'Chiasso Centro (Ponte Chiasso)': 'chiasso-centro',
   'Gaggiolo (Cantello-Stabio)': 'gaggiolo',

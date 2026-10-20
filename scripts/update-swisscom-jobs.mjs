@@ -19,6 +19,7 @@
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -27,6 +28,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -41,11 +43,13 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseSwisscomJobDescription } from './lib/swisscom-job-parser.mjs';
+import { parseSwisscomJobDescription, dropSwisscomFabricatedText } from './lib/swisscom-job-parser.mjs';
 import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -227,9 +231,11 @@ async function listSwissJobs() {
 
   console.log(`  📋 Fetched ${allPostings.length} job listings across all pages`);
 
-  // Keep jobs in any Swiss location.
+  // Keep jobs in any Swiss location. A row named after a Swiss locality
+  // outside the commune gazetteer is kept for its detail, whose structured
+  // country decides (shared Workday recovery in buildSwisscomJob).
   const relevantPostings = allPostings.filter(p =>
-    isSwissLocation(p.locationsText || '')
+    isSwissLocation(p.locationsText || '') || isWorkdaySwissPlaceCandidate(p.locationsText || '')
   );
 
   const tiCount = relevantPostings.filter(p => inferCanton(p.locationsText || '') === 'TI').length;
@@ -300,8 +306,14 @@ function detectEmploymentType(timeType = '') {
   return 'FULL_TIME';
 }
 
-function buildFallbackDescription(title, descriptionText, location) {
-  const base = descriptionText || `Posizione aperta presso Swisscom a ${location}.`;
+/**
+ * The raw Workday description under its title, used when the structured parse
+ * yields nothing. Without any Workday text there is no description: the runner
+ * used to publish "Posizione aperta presso Swisscom a <city>." instead, a
+ * sentence Swisscom never wrote.
+ */
+function buildFallbackDescription(title, descriptionText) {
+  const base = String(descriptionText || '').trim();
   if (!base) return '';
   if (base.startsWith('# ')) return base;
   if (!title) return base;
@@ -381,16 +393,27 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
   const title = normalizeSpace(info.title || listing.title || '');
   const externalPath = listing.externalPath || '';
   const locationRaw = info.location || listing.locationsText || '';
-  const city = parseWorkdayLocation(locationRaw);
-  const canton = inferCanton(city);
+  const parsedCity = parseWorkdayLocation(locationRaw);
+  const parsedCanton = inferCanton(parsedCity);
+  // A primary the commune gazetteer cannot place (a locality, an address)
+  // gets the shared Workday recovery: official directory or postal code, only
+  // on the req's structured Swiss country (workday-swiss-job-parser-common).
+  const recovered = parsedCanton ? null : recoverWorkdayPrimarySwissPlace(info);
+  const city = recovered ? recovered.location : parsedCity;
+  const canton = recovered ? recovered.canton : parsedCanton;
 
   const descriptionHtml = info.jobDescription || '';
   const descriptionText = stripHtml(descriptionHtml);
   const parsedDescription = parseSwisscomJobDescription(descriptionHtml, title);
   const publicUrl = buildPublicUrl(externalPath);
 
-  const descIt = parsedDescription.description || buildFallbackDescription(title, descriptionText, city);
-  const reqIt = Array.isArray(parsedDescription.requirements) ? parsedDescription.requirements : [];
+  const description = parsedDescription.description || buildFallbackDescription(title, descriptionText);
+  const requirements = Array.isArray(parsedDescription.requirements) ? parsedDescription.requirements : [];
+  // Swisscom's Ticino postings are published in German and French as well as
+  // Italian: the text goes in the slot of its own language (it used to be
+  // stored as `it` whatever its language, so the German text sat in the
+  // Italian slot and the German slot was never refreshed by the crawl).
+  const sourceLang = detectLang(description || title, 'it');
 
   const slug = buildSwisscomRegeneratedSlug({ title, url: publicUrl }, city);
   const employmentType = detectEmploymentType(info.timeType || '');
@@ -406,13 +429,13 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
     addressLocality: city,
     canton,
     country: 'CH',
-    description: descIt,
+    description,
     descriptionByLocale: {
-      it: descIt,
+      [sourceLang]: description,
     },
-    requirements: reqIt,
+    requirements,
     requirementsByLocale: {
-      it: reqIt,
+      [sourceLang]: requirements,
     },
     titleByLocale: {
       it: title,
@@ -423,13 +446,14 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
       en: slug,
     },
     category: detectCategory(title),
-    datePosted: info.startDate || new Date().toISOString().split('T')[0],
+    ...sourcePostingDateFields(info.startDate),
+    crawledAt: new Date().toISOString(),
     source: 'swisscom-workday-crawler',
     employmentType,
     experienceLevel: detectExperienceLevel(title),
     sector: 'Tecnologia & IT',
     _targetScope: { canton, location: city },
-    sourceLang: detectLang(descIt || title, 'it'),
+    sourceLang,
   };
 
   if (jobReqId) {
@@ -486,6 +510,8 @@ async function mergeSwisscomJobs(discoveredJobs) {
 
   const nonSwisscomJobs = allJobs.filter((j) => !isSwisscomJob(j));
   const existingSwisscomJobs = allJobs.filter(isSwisscomJob);
+  const fabricatedFossils = existingSwisscomJobs.filter((job) => dropSwisscomFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Swisscom job(s); they will be retranslated`);
 
   const existingKeys = new Set(existingSwisscomJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
@@ -664,6 +690,18 @@ function validateLocales() {
 // Main
 // ─────────────────────────────────────────────────────────────
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropSwisscomFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(SWISSCOM_KEY, DATA_JOBS).filter(isSwisscomJob),
+    companyKey: SWISSCOM_KEY,
+    companyLabel: SWISSCOM_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(SWISSCOM_KEY, jobs, options),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(SWISSCOM_KEY, 'Swisscom');
@@ -685,6 +723,7 @@ async function main() {
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
@@ -705,6 +744,7 @@ async function main() {
   const stats = logStats(beforeSnapshot);
   if (stats.total === 0) {
     console.log('ℹ️ No Swisscom jobs found after crawl. No error — exiting OK.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

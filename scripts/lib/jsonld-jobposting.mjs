@@ -6,10 +6,12 @@
  * so every JSON-LD board maps the same fields the same way.
  */
 import { decodeEntities, normalizeSpace } from './hospital-custom-html-helpers.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
-/** Find the first JobPosting object across all JSON-LD blocks in `html`. */
-export function extractJobPostingLd(html) {
-  if (!html || typeof html !== 'string') return null;
+/** Collect JobPosting objects across all JSON-LD blocks in `html`. */
+export function extractJobPostingsLd(html) {
+  if (!html || typeof html !== 'string') return [];
+  const postings = [];
   const rx = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
   let m;
   while ((m = rx.exec(html))) {
@@ -20,13 +22,14 @@ export function extractJobPostingLd(html) {
     } catch {
       continue;
     }
-    const items = Array.isArray(data) ? data : (Array.isArray(data?.['@graph']) ? data['@graph'] : [data]);
-    for (const it of items) {
-      const t = it?.['@type'];
-      if (t === 'JobPosting' || (Array.isArray(t) && t.includes('JobPosting'))) return it;
-    }
+    postings.push(...extractJobPostingNodesFromJson(data));
   }
-  return null;
+  return postings;
+}
+
+/** Find the first JobPosting object; preserves the existing caller contract. */
+export function extractJobPostingLd(html) {
+  return extractJobPostingsLd(html)[0] ?? null;
 }
 
 /** HTML description → plain text with bullets preserved. */

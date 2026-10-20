@@ -11,11 +11,15 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { jobUrlHost } from './job-url-host.mjs';
 import { stripHtml } from './crawler-template.mjs';
 import { buildSlug } from './regenerate-slugs-helpers.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 import { loadSpec } from './prospector/spec-crawler.mjs';
 import {
   getVerifiedIpersonalGeography,
@@ -120,10 +124,10 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
+async function fetchJobListings({ existingJobs = [] } = {}) {
   const spec = loadSpec(IPERSONAL_KEY);
   return /** @type {Promise<Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number }>} */ (
-    runIpersonalSpecInProduction(spec)
+    runIpersonalSpecInProduction(spec, { previousJobs: existingJobs })
   );
 }
 
@@ -134,11 +138,11 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllIpersonalJobs() {
+export async function fetchAllIpersonalJobs({ existingJobs = [] } = {}) {
   console.log(`🔍 Fetching MediPersonal jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchJobListings({ existingJobs });
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
@@ -160,10 +164,17 @@ export async function fetchAllIpersonalJobs() {
     // structured canton). Re-checking with the bare string alone drops rows
     // upstream already verified, silently reproducing the "snapshot incomplete"
     // fail-closed this quality gate exists to distinguish from.
-    const geography = getVerifiedIpersonalGeography(listing)
+    const resolvedGeography = getVerifiedIpersonalGeography(listing)
       || resolveSourceBackedSwissGeography(listing);
+    const geography = sourceBackedSwissGeographyFields(listing, resolvedGeography);
     if (!geography) continue;
-    const { location, canton } = geography;
+    const {
+      location,
+      canton,
+      addressLocality,
+      addressRegion,
+      addressCountry,
+    } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -193,10 +204,10 @@ export async function fetchAllIpersonalJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
+      addressLocality: normalizeSpace(addressLocality || listing.addressLocality),
+      addressRegion: normalizeSpace(addressRegion || listing.addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || "CH"),
+      country: normalizeSpace(addressCountry || "CH"),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
@@ -206,7 +217,7 @@ export async function fetchAllIpersonalJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, listing)),
       applyUrl: publicUrl,
     };
 
@@ -241,6 +252,22 @@ export async function fetchAllIpersonalJobs() {
   });
   Object.defineProperty(jobs, 'detailFailureCount', {
     value: listings.detailFailureCount ?? 0,
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'detailFailureUrls', {
+    value: listings.detailFailureUrls ?? [],
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'reusedDetailCount', {
+    value: listings.reusedDetailCount ?? 0,
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'reusedDetailUrls', {
+    value: listings.reusedDetailUrls ?? [],
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'previousSnapshotIdentityCollisionCount', {
+    value: listings.previousSnapshotIdentityCollisionCount ?? 0,
     enumerable: false,
   });
   Object.defineProperty(jobs, 'sourceIdentityCollisionCount', {

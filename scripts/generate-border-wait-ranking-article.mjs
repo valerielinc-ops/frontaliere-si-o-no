@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Register / refresh the EVERGREEN "best/worst dogane" wait-time ranking
  * blog article (chained on the border-wait feature, F8).
@@ -32,7 +33,12 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { computeRanking, computeTrend, computeFunFacts, computeWeekWindow, computeMovers } from './lib/border-wait-ranking.mjs';
 import { buildBorderWaitRankingArticle } from './lib/border-wait-ranking-content.mjs';
-import { registerArticleFiles, checkArticleIdExists, buildBodyFile } from './create-article.mjs';
+import {
+  registerArticleFiles,
+  checkArticleIdExists,
+  buildBodyFile,
+  assertTranslationsPassFactualityGates,
+} from './create-article.mjs';
 import { bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from './lib/evergreen-article-refresh.mjs';
 import { isTicinoCrossing } from '../build-plugins/borderWaitData.ts';
 
@@ -100,6 +106,7 @@ export function buildData(todayIso, historyDir = HISTORY_DIR) {
 
 /** Rewrite only the 4 body files (idempotent refresh; registration is append-only). */
 export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) {
+  assertTranslationsPassFactualityGates(data);
   for (const locale of LOCALES) {
     const dir = path.join(repoRoot, 'services', 'locales', 'blog-body', locale);
     mkdirSync(dir, { recursive: true });
@@ -183,7 +190,7 @@ async function main() {
 
 const invokedDirectly = (() => {
   try {
-    return import.meta.url === pathToFileURL(process.argv[1] || '').href;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

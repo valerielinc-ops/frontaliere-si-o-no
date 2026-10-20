@@ -10,14 +10,19 @@ import {
   parseActionsJobUrl,
   requiredVitestDecision,
   revalidateNativeAutoMerge,
+  revokeNativeAutoMergeSafely,
   reviewGateEvidenceDecision,
   reviewHasLgtm,
   reviewIsApproved,
   reviewHasZeroFindings,
   isTransientGithubReadError,
+  isRetryablePrFileSnapshot,
   withTransientGithubReadRetry,
+  isRetryableNativeAutoMergeMutationError,
+  withNativeAutoMergeMutationRetry,
   bodyRecoveryBarrierDecision,
   nativeAutoMergeLeaseDecision,
+  postMutationStateDecision,
 } from '../scripts/ci/native-automerge-gate.mjs';
 import { LOOP_FLEET_LEDGER_REVIEW_MARKER, TEST_REVIEW_MARKER } from '../scripts/ci/review-test-policy.mjs';
 import {
@@ -474,6 +479,105 @@ describe('native auto-merge gate (#8512)', () => {
     }).allow).toBe(false);
   });
 
+  // PR #10098 (2026-09-27): the review gate declassified the only 🔴 as
+  // outside the diff and approved at 17:47Z, but `post-review` runs inside the
+  // same `tests` run, which is still `in_progress` there. The proof demanded a
+  // completed run, so the in-job opt-in always declined and the PR waited for a
+  // `*/20` retry that GitHub had skipped since 17:44Z.
+  describe('prova outside-diff dalla run del chiamante (post-review, #10098)', () => {
+    const REPO = 'valerielinc-ops/frontaliere-si-o-no';
+    function inFlightEvidence(overrides: Record<string, any> = {}) {
+      const base = reviewGateEvidenceFor();
+      return {
+        ...base,
+        workflow: {
+          ...base.workflow,
+          status: 'in_progress',
+          conclusion: null,
+          // In flight, the run may not have been touched after the check closed.
+          updated_at: '2026-09-13T12:04:00Z',
+          ...overrides,
+        },
+      };
+    }
+    function decide(evidence: any, callerRunId: number | null) {
+      return reviewGateEvidenceDecision({
+        evidence,
+        repo: REPO,
+        head: HEAD,
+        review: review(OUTSIDE_FINDINGS_BODY),
+        reviewRevision: REVIEW_REVISION,
+        callerRunId,
+      });
+    }
+
+    it('accetta la run in corso quando è la run del chiamante', () => {
+      const result = decide(inFlightEvidence(), 700);
+      expect(result.allow).toBe(true);
+      expect(result.reason).toMatch(/run del chiamante in corso/);
+    });
+
+    it.each([
+      ['senza run del chiamante (retry schedulato)', null],
+      ['con la run di un altro chiamante', 701],
+    ])('rifiuta la run in corso %s', (_label, callerRunId) => {
+      expect(decide(inFlightEvidence(), callerRunId).allow).toBe(false);
+    });
+
+    it.each([
+      ['run del chiamante già completata ma rossa', { status: 'completed', conclusion: 'failure' }],
+      ['run del chiamante in coda', { status: 'queued' }],
+      ['run del chiamante con esito già scritto', { conclusion: 'cancelled' }],
+      ['run del chiamante su un\'altra HEAD', { head_sha: OLD_HEAD }],
+    ])('rifiuta %s', (_label, overrides) => {
+      expect(decide(inFlightEvidence(overrides), 700).allow).toBe(false);
+    });
+
+    it('tiene obbligatori job required, step review-gate e ordine anche nella run del chiamante', () => {
+      const evidence = inFlightEvidence();
+      expect(decide({ ...evidence, job: { ...evidence.job, status: 'in_progress', conclusion: null } }, 700).allow)
+        .toBe(false);
+      expect(decide({
+        ...evidence,
+        job: { ...evidence.job, steps: [{ ...evidence.job.steps[0], conclusion: 'failure' }] },
+      }, 700).allow).toBe(false);
+      expect(decide({
+        ...evidence,
+        job: {
+          ...evidence.job,
+          steps: [{
+            ...evidence.job.steps[0],
+            started_at: '2026-09-13T11:59:00Z',
+            completed_at: '2026-09-13T11:59:30Z',
+          }],
+        },
+      }, 700).allow).toBe(false);
+    });
+
+    it('evaluateNativeAutoMerge e revalidateNativeAutoMerge inoltrano callerRunId', () => {
+      const evidence = inFlightEvidence();
+      const input = {
+        pr: pr(),
+        reviews: [review(OUTSIDE_FINDINGS_BODY)],
+        checkRuns: [evidence.check],
+        reviewGateEvidence: evidence,
+        repository: REPO,
+      };
+      expect(evaluateNativeAutoMerge(input).allow).toBe(false);
+      expect(evaluateNativeAutoMerge({ ...input, callerRunId: 700 })).toMatchObject({ allow: true });
+      expect(revalidateNativeAutoMerge({ ...input, callerRunId: 700 }))
+        .toMatchObject({ allow: true, action: 'enable' });
+    });
+
+    it('il CLI passa GITHUB_RUN_ID a tutte e tre le rivalutazioni', () => {
+      const source = readFileSync('scripts/ci/native-automerge-gate.mjs', 'utf8');
+      expect(source).toMatch(/const CALLER_RUN_ID_ENV = 'GITHUB_RUN_ID';/);
+      const calls = source.match(/= revalidateNativeAutoMerge\(\{[\s\S]*?\n {2}\}\);/g) ?? [];
+      expect(calls).toHaveLength(3);
+      for (const call of calls) expect(call).toContain('callerRunId: callerRunIdFromEnv(),');
+    });
+  });
+
   it('rejects a proof tied to an older review id after a newer raw bot review', () => {
     const newer = review(OUTSIDE_FINDINGS_BODY, HEAD, '2026-09-13T12:04:00Z', { id: 2 });
     expect(evaluateNativeAutoMerge({
@@ -705,28 +809,104 @@ describe('native auto-merge gate (#8512)', () => {
     expect(gateSource).not.toContain('if (pr.autoMergeRequest !== null) return skip');
   });
 
+  it('treats a concurrent native auto-merge revocation as already satisfied', () => {
+    const snapshots = [
+      { state: 'OPEN', id: 'pr-node', autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' } },
+      { state: 'OPEN', id: 'pr-node', autoMergeRequest: null },
+    ];
+    let reads = 0;
+    let disableCalls = 0;
+
+    expect(revokeNativeAutoMergeSafely({
+      readPullRequest: () => snapshots[Math.min(reads++, snapshots.length - 1)],
+      disableAutoMerge: () => {
+        disableCalls += 1;
+        throw new Error('GraphQL: auto-merge was already disabled');
+      },
+    })).toBe('already-satisfied');
+    expect(reads).toBe(2);
+    expect(disableCalls).toBe(1);
+  });
+
   it('binds the native opt-in to the exact HEAD that passed the gate', () => {
     const gateSource = readFileSync(new URL('../scripts/ci/native-automerge-gate.mjs', import.meta.url), 'utf8');
 
-    expect(gateSource).toContain("nativeAutoMergeArgs({ repo, prNumber, headSha: beforeMutation.headRefOid })");
+    expect(gateSource).toContain('nativeAutoMergeArgs({');
+    expect(gateSource).toContain('title: beforeMutation.title');
     expect(nativeAutoMergeArgs({
       repo: 'valerielinc-ops/frontaliere-si-o-no',
       prNumber: '8517',
+      title: 'fix(ci): preserve squash subject',
       headSha: HEAD,
     })).toEqual([
       'pr', 'merge', '8517', '--repo', 'valerielinc-ops/frontaliere-si-o-no',
-      '--auto', '--squash', '--delete-branch', '--match-head-commit', HEAD,
+      '--auto', '--squash', '--subject', 'fix(ci): preserve squash subject (#8517)',
+      '--delete-branch', '--match-head-commit', HEAD,
     ]);
     expect(() => nativeAutoMergeArgs({
       repo: 'valerielinc-ops/frontaliere-si-o-no',
       prNumber: '8517',
       headSha: 'not-a-sha',
     })).toThrow(/HEAD SHA/);
+    expect(() => nativeAutoMergeArgs({
+      repo: 'valerielinc-ops/frontaliere-si-o-no',
+      prNumber: '8517',
+      title: '',
+      headSha: HEAD,
+    })).toThrow(/titolo PR/iu);
   });
 
   it('recognizes a concurrent GitHub auto-merge opt-in without treating other failures as benign', () => {
     expect(isAlreadyInProgressOutput('GraphQL: Merge already in progress (mergePullRequest)')).toBe(true);
     expect(isAlreadyInProgressOutput('GraphQL: Pull request is not mergeable')).toBe(false);
+  });
+
+  it('retries known base-branch and transient transport/API failures from the native mutation', () => {
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Base branch was modified. Review and try the merge again. (mergePullRequest)',
+    )).toBe(true);
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Head branch was modified. Review and try the merge again. (mergePullRequest)',
+    )).toBe(false);
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Pull request is not mergeable (mergePullRequest)',
+    )).toBe(false);
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Something went wrong while executing your query',
+    )).toBe(true);
+    expect(isRetryableNativeAutoMergeMutationError('HTTP 502: Bad Gateway')).toBe(true);
+    expect(isRetryableNativeAutoMergeMutationError('request timed out')).toBe(true);
+    expect(isRetryableNativeAutoMergeMutationError('HTTP 403: Forbidden')).toBe(false);
+  });
+
+  it('uses a bounded backoff for the known native mutation race and preserves other errors', () => {
+    const transient = Object.assign(new Error('mutation failed'), {
+      stderr: 'GraphQL: Base branch was modified. Review and try the merge again. (mergePullRequest)',
+    });
+    const sleeps: number[] = [];
+    const retries: Array<[number, number, number]> = [];
+    let attempts = 0;
+    const result = withNativeAutoMergeMutationRetry(() => {
+      attempts += 1;
+      if (attempts < 3) throw transient;
+      return 'accepted';
+    }, {
+      delaysMs: [11, 22],
+      sleep: (delay: number) => sleeps.push(delay),
+      onRetry: (next: number, limit: number, delay: number) => retries.push([next, limit, delay]),
+    });
+
+    expect(result).toBe('accepted');
+    expect(attempts).toBe(3);
+    expect(sleeps).toEqual([11, 22]);
+    expect(retries).toEqual([[2, 3, 11], [3, 3, 22]]);
+
+    let permanentAttempts = 0;
+    expect(() => withNativeAutoMergeMutationRetry(() => {
+      permanentAttempts += 1;
+      throw new Error('GraphQL: Pull request is not mergeable');
+    }, { sleep: () => undefined })).toThrow('not mergeable');
+    expect(permanentAttempts).toBe(1);
   });
 
   it('retries only transient GitHub read failures with a bounded schedule', () => {
@@ -750,6 +930,40 @@ describe('native auto-merge gate (#8512)', () => {
     expect(sleeps).toEqual([250, 750]);
     expect(isTransientGithubReadError(transient)).toBe(true);
     expect(isTransientGithubReadError(permanent)).toBe(false);
+  });
+
+  it('retries a transient incomplete PR file snapshot but keeps hard limits fail-closed', () => {
+    expect(isRetryablePrFileSnapshot({ complete: false, reason: 'short-of-oracle' })).toBe(true);
+    expect(isRetryablePrFileSnapshot({ complete: false, reason: 'graphql-cap' })).toBe(true);
+    expect(isRetryablePrFileSnapshot({ complete: false, reason: 'list-fetch-failed' })).toBe(true);
+    expect(isRetryablePrFileSnapshot({ complete: false, reason: 'rest-hard-limit' })).toBe(false);
+    expect(isRetryablePrFileSnapshot({ complete: false, reason: 'unknown' })).toBe(false);
+    expect(isRetryablePrFileSnapshot({ complete: true, reason: 'complete' })).toBe(false);
+
+    const snapshots = [
+      { complete: false, reason: 'short-of-oracle' },
+      { complete: false, reason: 'graphql-cap' },
+      { complete: true, reason: 'complete', files: ['scripts/ci/native-automerge-gate.mjs'] },
+    ];
+    const sleeps: number[] = [];
+    let attempts = 0;
+    const result = withTransientGithubReadRetry(() => snapshots[attempts++], {
+      delaysMs: [11, 22],
+      sleep: (delay: number) => sleeps.push(delay),
+      shouldRetryResult: isRetryablePrFileSnapshot,
+    });
+
+    expect(result.complete).toBe(true);
+    expect(attempts).toBe(3);
+    expect(sleeps).toEqual([11, 22]);
+
+    let hardLimitAttempts = 0;
+    const hardLimit = withTransientGithubReadRetry(() => {
+      hardLimitAttempts += 1;
+      return { complete: false, reason: 'rest-hard-limit' };
+    }, { sleep: () => undefined, shouldRetryResult: isRetryablePrFileSnapshot });
+    expect(hardLimit).toMatchObject({ complete: false, reason: 'rest-hard-limit' });
+    expect(hardLimitAttempts).toBe(1);
   });
 
   it('keeps a permanent GitHub read failure fail-closed without retrying it', () => {
@@ -796,6 +1010,9 @@ describe('native auto-merge gate (#8512)', () => {
     expect(gateSource).toContain('function ghJson(args)');
     expect(gateSource).toContain('function ghJsonOnce(args)');
     expect(gateSource).toContain('withTransientGithubReadRetry');
+    expect(gateSource).toContain('withNativeAutoMergeMutationRetry');
+    expect(gateSource).toContain('isRetryableNativeAutoMergeMutationError');
+    expect(gateSource).toContain('MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS');
     expect(gateSource).toContain('const response = ghJsonOnce');
     expect(gateSource).toContain("stdio: ['ignore', 'pipe', 'pipe']");
     expect(gateSource).toContain('function samePrMetadata');
@@ -893,6 +1110,89 @@ describe('native auto-merge gate (#8512)', () => {
     })).toMatchObject({ allow: false });
   });
 
+  it('ritenta solo la propagazione post-mutation e non una race gia verificata', () => {
+    const held = { allow: true, leaseId: 'run-1:1:7', reason: 'lease held' };
+    const merged = {
+      state: 'MERGED',
+      headRefOid: HEAD,
+      body: PR_BODY,
+    };
+
+    expect(postMutationStateDecision({
+      observed: merged,
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      lease: held,
+    })).toMatchObject({ allow: true, retryable: false });
+
+    expect(postMutationStateDecision({
+      observed: merged,
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      lease: { allow: false, reason: 'lease native auto-merge assente', status: null, leaseId: null },
+    })).toMatchObject({ allow: false, retryable: true });
+
+    expect(postMutationStateDecision({
+      observed: merged,
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      lease: { allow: false, reason: 'lease native auto-merge rilasciato', status: 'released', leaseId: held.leaseId },
+    })).toMatchObject({ allow: false, retryable: false });
+
+    expect(postMutationStateDecision({
+      observed: { ...merged, headRefOid: OLD_HEAD },
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      lease: held,
+    })).toMatchObject({ allow: false, retryable: false });
+
+    expect(postMutationStateDecision({
+      observed: { state: 'OPEN', isDraft: false, baseRefName: 'main', headRefOid: HEAD, autoMergeRequest: null },
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      barrier: { allow: true },
+      lease: held,
+    })).toMatchObject({ allow: false, retryable: true });
+
+    expect(postMutationStateDecision({
+      observed: {
+        state: 'OPEN',
+        isDraft: false,
+        baseRefName: 'main',
+        headRefOid: HEAD,
+        autoMergeRequest: { enabledAt: '2026-09-13T12:06:00Z' },
+      },
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      barrier: { allow: true },
+      lease: held,
+    })).toMatchObject({ allow: true, retryable: false });
+
+    expect(postMutationStateDecision({
+      observed: {
+        state: 'OPEN', isDraft: false, baseRefName: 'main', headRefOid: HEAD,
+      },
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      barrier: { allow: true },
+      lease: held,
+    })).toMatchObject({ allow: false, retryable: false });
+  });
+
   it('fails closed when the final same-HEAD snapshot gains a check failure', () => {
     const initial = revalidateNativeAutoMerge({
       pr: pr(),
@@ -942,6 +1242,8 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(evaluator).toContain("surface: 'pull-request'");
     expect(evaluator).not.toContain("labels.some((label) => String(label || '').toLowerCase() === 'needs-human')");
     expect(evaluator).not.toContain('needs-human-veto');
+    expect(evaluator).toContain("'--subject',");
+    expect(evaluator).toContain('formatSquashCommitSubject({ prNumber: PR, title: freshPr.title })');
     expect(evaluator).toContain("'--match-head-commit', freshPr.headRefOid");
   });
 
@@ -956,11 +1258,12 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     // confonderebbe quella prosa con la configurazione.
     expect(Object.keys((YAML.parse(workflow) as { on?: Record<string, unknown> }).on ?? {}))
       .toEqual(['workflow_dispatch']);
-    expect(workflow).not.toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY');
+    expect(workflow).toContain('echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=true" >> "$GITHUB_ENV"');
+    expect(workflow).toContain("if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'");
     expect(workflow).not.toContain('Static control-plane bootstrap guard');
     expect(workflow).not.toContain('control-plane path');
     expect(workflow).not.toContain('CONTROL_PLANE_GUARD_VERSION');
-    expect(workflow).toContain('uses: actions/checkout@v5');
+    expect(workflow).toContain('uses: actions/checkout@v7');
     expect(workflow).toContain('ref: main');
     expect(workflow).toContain('filter: blob:none');
     expect(workflow).toContain('sparse-checkout-cone-mode: false');
@@ -968,7 +1271,7 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(workflow).toContain('native-automerge-source.mjs');
     expect(workflow).not.toContain('contents/');
     expect(workflow).not.toContain('native-automerge-gate.mjs.tmp');
-    expect(workflow).not.toContain('if: env.NATIVE_AUTOMERGE_');
+    expect(workflow.match(/if: env\.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'/gu)).toHaveLength(3);
     expect(workflow).toContain('native-automerge-gate.mjs');
     expect(workflow).not.toContain('gh pr merge "$PR_NUMBER"');
   });
@@ -980,7 +1283,7 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(retry).not.toContain('control-plane path');
     expect(retry).not.toContain('CONTROL_PLANE_GUARD_VERSION');
     expect(retry).toContain('sort_by(.createdAt) | reverse | .[].number');
-    expect(retry).toContain('uses: actions/checkout@v5');
+    expect(retry).toContain('uses: actions/checkout@v7');
     expect(retry).toContain('ref: main');
     expect(retry).toContain('filter: blob:none');
     expect(retry).toContain('sparse-checkout-cone-mode: false');

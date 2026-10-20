@@ -9,7 +9,15 @@ import {
   coverageOf,
   parseWorkflow,
   REPORT_ACTION_USES,
+  SCOPED_TIMEOUT_CLOSER,
+  scriptReporterCoverage,
 } from '../scripts/ci/failure-issue-inventory.mjs';
+import {
+  JOB_TIMEOUT_REPORT_SIGNATURE,
+  SCOPED_TIMEOUT_TITLE_RE,
+  SCOPED_TITLE_EVENTS,
+  scopedTitle,
+} from '../scripts/ci/scan-job-timeouts.mjs';
 import {
   CLOSERS,
   findStepRun,
@@ -347,6 +355,14 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       // reconciler orario centrale, e il cron giornaliero garantisce che il
       // primo verde arrivi da solo entro 24h.
       'live-data-gates.yml': 'close-recovered-failure-issues',
+      // la sweep degli alert di secret scanning: prima la issue la apriva solo
+      // la scansione centrale, che nomina lo step rosso («Fail if any owner
+      // sweep failed») e non QUALE alert. L'adozione serve al `diag-file` con
+      // repository, numero e tipo. Il titolo resta `CI Failure: <name:>`, lo
+      // stesso che scrive la scansione centrale: un solo thread, chiuso dal
+      // reconciler al primo verde del cron giornaliero.
+      'secret-scanning-sweep.yml': 'close-recovered-failure-issues',
+      'sync-articles-sitemaps.yml': 'close-recovered-failure-issues',
     };
     // A workflow can keep an existing custom reporter and add the canonical
     // post-job reporter as a second adoption. Compare file + closer pairs so
@@ -354,9 +370,22 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
     const expectedRows = Object.entries(EXPECTED)
       .map(([file, closedBy]) => `${file}\t${closedBy}`);
     expectedRows.push(
-      ...Array.from({ length: 5 }, () => 'deploy-publish.yml\tclose-recovered-failure-issues'),
+      // deploy-publish.yml has five pre-existing caller reporters plus the
+      // non-IT tail and receipt reporters added with the deferred-tail split.
+      ...Array.from({ length: 7 }, () => 'deploy-publish.yml\tclose-recovered-failure-issues'),
       'issue-fix.yml\tclose-recovered-failure-issues',
       'issue-fix.yml\tclose-recovered-failure-issues',
+      'sync-articles-sitemaps.yml\tclose-recovered-failure-issues',
+      // settima adozione: la misura full-corpus del build jobs SEO (#9618),
+      // uscita dal cammino bloccante del deploy dopo che un'invariante
+      // sbagliata (#9754 → #9773) aveva fermato la pubblicazione. Come per i
+      // gate corpus-wide, l'adozione E' la condizione che rende il
+      // `continue-on-error` un trasloco e non un silenziatore. Lo step sta in
+      // un job che resta verde, quindi la jobs API non nomina lo step: qui NON
+      // e' la regressione descritta sopra per gli opener degli shard, perche'
+      // non c'e' un body scritto a mano da sostituire, e l'estratto arriva dal
+      // `diag-file` (lo stderr del validatore, solo righe `FAIL:`).
+      'deploy.yml\tsibling-resolve-step',
     );
     expect(adopted.map((r) => `${r.file}\t${r.closedBy}`).sort()).toEqual(expectedRows.sort());
   });
@@ -382,6 +411,79 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       }
     }
     expect(offenders).toEqual([]);
+  });
+
+  it('un reporter lato script che apre ha la sua metà di chiusura nello stesso workflow', () => {
+    // Gli opener lato script non sono nell'inventario dei workflow (titolo
+    // computato), ma `scan-job-timeouts.mjs` porta apertura e chiusura nello
+    // stesso file: l'accoppiamento sta nel workflow che lo esegue. Se lo step
+    // `--resolve` sparisce da `job-timeout-monitor.yml`, ogni `CI Failure
+    // (<evento>): …` torna immortale — caso misurato: la issue 10809.
+    const rows = scriptReporterCoverage(WORKFLOWS_DIR);
+    expect(rows.length).toBeGreaterThan(0);
+    const offenders: string[] = [];
+    for (const row of rows) {
+      if (row.openers.length === 0) offenders.push(`${row.script}: nessun workflow lo esegue per aprire`);
+      const closingFiles = new Set(row.closers.map((c) => c.split(':')[0]));
+      for (const opener of row.openers) {
+        if (!closingFiles.has(opener.split(':')[0])) {
+          offenders.push(`${opener} — apre con ${row.script} ma nello stesso workflow nessuno step lo esegue in chiusura`);
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
+  it('ogni titolo `CI Failure (<evento>)` dello scanner è coperto dal suo `--resolve`', () => {
+    const record = { closers: [] as { title: string }[] };
+    for (const event of SCOPED_TITLE_EVENTS) {
+      const title = scopedTitle({ head_branch: 'feat/x', event, name: 'W' });
+      expect(coverageOf({ title, signature: JOB_TIMEOUT_REPORT_SIGNATURE }, record), title)
+        .toEqual({ by: SCOPED_TIMEOUT_CLOSER });
+    }
+  });
+
+  it('un opener di workflow con la forma `CI Failure (<evento>)` ma senza firma NON risulta coperto', () => {
+    // `--resolve` esamina solo le issue con la firma dello scanner nel body: la
+    // sola forma del titolo farebbe sembrare coperto ciò che non chiude nessuno.
+    const record = parseWorkflow(
+      [
+        'name: W',
+        'jobs:',
+        '  x:',
+        '    steps:',
+        '      - name: Open',
+        '        if: failure()',
+        '        run: |',
+        '          node scripts/lib/github-issue-creator.mjs \\',
+        '            --title "CI Failure (push): W"',
+      ].join('\n'),
+      'w.yml',
+    );
+    expect(coverageOf(record.openers[0], record)).toBeNull();
+  });
+
+  it('la stessa forma con un gemello `--resolve` a titolo identico nel workflow è coperta da quello', () => {
+    const title = 'CI Failure (schedule): W';
+    expect(coverageOf({ title }, { closers: [{ title }] })).toEqual({ by: 'sibling-resolve-step' });
+  });
+
+  it('`CI Failure (deploy|build)` hanno UN solo chiuditore: quello del loro workflow', () => {
+    // Stessa forma del titolo dello scanner, ma `deploy`/`build` non sono eventi:
+    // un secondo chiuditore con un criterio sui timeout chiuderebbe un guasto
+    // di un altro genere.
+    const records = inventory(WORKFLOWS_DIR);
+    for (const title of [
+      'CI Failure (deploy): Publish to GitHub Pages (deploy + validate)',
+      'CI Failure (build): Deploy to GitHub Pages',
+    ]) {
+      expect(SCOPED_TIMEOUT_TITLE_RE.test(title), title).toBe(false);
+      const closingFiles = records.filter((rec) => rec.closers.some((c) => c.title === title)).map((rec) => rec.file);
+      expect(closingFiles, title).toHaveLength(1);
+    }
+    for (const row of coverageReport(WORKFLOWS_DIR).filter((r) => r.title.startsWith('CI Failure ('))) {
+      expect(row.closedBy, row.title).not.toBe(SCOPED_TIMEOUT_CLOSER);
+    }
   });
 
   it("l'inventario vede la composite action, non solo le invocazioni shell", () => {
@@ -434,6 +536,13 @@ describe('report-workflow-failure: cosa finisce nel body (#5437)', () => {
     // package.json, non da una mappa hardcoded che invecchia in silenzio.
     expect(repro.paths).toContain('scripts/audit-all.mjs');
     expect(repro.paths).toContain('scripts/rerender-article-hubs.mjs');
+  });
+
+  it('preserva i runner `npx` e il path del test diretto', () => {
+    const repro = reproFromRun('npx playwright test tests/e2e/seo-visual-regression.spec.ts');
+
+    expect(repro.commands).toContain('npx playwright test tests/e2e/seo-visual-regression.spec.ts');
+    expect(repro.paths).toContain('tests/e2e/seo-visual-regression.spec.ts');
   });
 
   it('il body non cita mai un path .github/workflows/** (il fixer morirebbe a zero token)', () => {

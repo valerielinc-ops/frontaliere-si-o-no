@@ -11,6 +11,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { withSourceLangRelabelFlags } from './lib/source-lang-relabel.mjs';
 import {
   fetchAllAirZermattJobs,
   isAirZermattJob,
@@ -26,7 +27,9 @@ runStandardCrawlerPipeline({
   companyKey: AIR_ZERMATT_KEY,
   companyLabel: AIR_ZERMATT_COMPANY_NAME,
   root: ROOT,
-  fetchJobs: fetchAllAirZermattJobs,
+  // The parser now reads the language from the body (issue 5253); jobs whose
+  // stored sourceLang changed get their stale non-source slots retranslated.
+  fetchJobs: withSourceLangRelabelFlags(fetchAllAirZermattJobs, AIR_ZERMATT_KEY),
   isCompanyJob: isAirZermattJob,
   isTrustedDomain,
   defaultSourceLang: 'de',

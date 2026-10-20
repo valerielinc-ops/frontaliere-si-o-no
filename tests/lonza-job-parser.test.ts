@@ -699,3 +699,122 @@ describe('Workday pagination integrity', () => {
     }
   });
 });
+
+// Only the req's own text is published (issue 5253). Shapes minimised from the
+// CXS payload of lonza.wd3.myworkdayjobs.com (2026-09-29): every body used to
+// end with an appended "Lonza is a global leader in pharma and biotech
+// manufacturing…" sentence the posting does not contain, and a req without a
+// body was published as "{title} position at Lonza in {city}".
+describe('fetchAllLonzaJobs — published text', () => {
+  it('publishes the Workday body as is and skips a req without one', async () => {
+    const body = '<p>Lonza is a preferred global partner to the pharmaceutical, biotech and nutrition markets.</p>'
+      + '<p><b>Key responsibilities:</b></p><ul><li>Operate downstream processing equipment</li><li>Document batch records</li>'
+      + '<li>Support deviations, change controls and continuous improvement projects in the plant</li></ul>'
+      + '<p><b>Key requirements:</b></p><ul><li>Apprenticeship or degree in biotechnology or a comparable field</li>'
+      + '<li>Experience in a GMP environment and good German and English skills</li></ul>';
+    const detail = (title: string, jobDescription: string) => ({
+      jobPostingInfo: { title, location: 'CH - Visp', jobDescription, timeType: 'Full time', startDate: '2026-09-20', jobReqId: title },
+    });
+    const fetchMock = vi.fn(async (url: string) => ({
+      ok: true,
+      async json() {
+        if (url.endsWith('/jobs')) {
+          return {
+            total: 2,
+            jobPostings: [
+              { title: 'Biotechnologist (m/f/d)', externalPath: '/job/CH---Visp/Biotechnologist--m-f-d-_R73688' },
+              { title: 'Operator (m/f/d)', externalPath: '/job/CH---Visp/Operator--m-f-d-_R70001' },
+            ],
+          };
+        }
+        if (url.includes('R73688')) return detail('Biotechnologist (m/f/d)', body);
+        return detail('Operator (m/f/d)', '');
+      },
+    }));
+    vi.stubGlobal('fetch', fetchMock);
+    try {
+      const { fetchAllLonzaJobs } = await import('../scripts/lib/lonza-job-parser.mjs');
+      const jobs = await fetchAllLonzaJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].title).toBe('Biotechnologist (m/f/d)');
+      expect(jobs[0].description).toMatch(/^Lonza is a preferred global partner/);
+      expect(jobs[0].description).toContain('• Operate downstream processing equipment');
+      expect(jobs[0].description).not.toMatch(/global leader in pharma and biotech manufacturing/);
+      expect(jobs[0].descriptionByLocale[jobs[0].sourceLang]).toBe(jobs[0].description);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  // 2026-09-29: R76184-1 and R76397 carry the same title, locations, time type
+  // and text; only their publication dates differ. Two identical pages to a
+  // reader: one page, the req with the lowest id. A req whose posting differs
+  // in a real attribute (here the time type) stays; so does the same req under
+  // a second URL, which collapses by its requisition id.
+  it('publishes one page for identical postings under different reqs, keeps a posting that differs', async () => {
+    const body = '<p>Lonza is a preferred global partner to the pharmaceutical, biotech and nutrition markets.</p>'
+      + '<p><b>Key responsibilities:</b></p><ul><li>Install and maintain electrical systems in the Visp plant</li><li>Document interventions</li>'
+      + '<li>Support shutdowns, change controls and continuous improvement projects in the plant</li></ul>'
+      + '<p><b>Key requirements:</b></p><ul><li>Apprenticeship as an electrician (EFZ) or a comparable qualification</li>'
+      + '<li>Experience in a GMP environment and good German and English skills</li></ul>';
+    const title = 'Elektroinstallateur EFZ 80-100% (m/w/d)';
+    const reqs: Record<string, { timeType: string; startDate: string }> = {
+      'R76184-1': { timeType: 'Full time', startDate: '2026-05-07' },
+      R76397: { timeType: 'Full time', startDate: '2026-05-18' },
+      R76400: { timeType: 'Part time', startDate: '2026-05-20' },
+    };
+    const fetchMock = vi.fn(async (url: string) => ({
+      ok: true,
+      async json() {
+        if (url.endsWith('/jobs')) {
+          return {
+            total: 4,
+            jobPostings: [
+              { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76184-1' },
+              { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76397' },
+              { title, externalPath: '/job/Visp/Elektroinstallateur-EFZ_R76397' },
+              { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76400' },
+            ],
+          };
+        }
+        const jobReqId = Object.keys(reqs).find((id) => url.endsWith(`_${id}`)) || 'R76397';
+        return { jobPostingInfo: { title, location: 'CH - Visp', jobDescription: body, ...reqs[jobReqId], jobReqId } };
+      },
+    }));
+    vi.stubGlobal('fetch', fetchMock);
+    try {
+      const { fetchAllLonzaJobs } = await import('../scripts/lib/lonza-job-parser.mjs');
+      const jobs = await fetchAllLonzaJobs();
+      expect(jobs.map((job: { jobReqId: string }) => job.jobReqId).sort()).toEqual(['R76184-1', 'R76400']);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+});
+
+describe('Lonza stored jobs — the company sentence the parser used to append', () => {
+  it('drops the sentence and the translations made from it, and leaves a clean job untouched', async () => {
+    const { LONZA_FABRICATED_DESCRIPTION_RE } = await import('../scripts/lib/lonza-job-parser.mjs');
+    const { dropFabricatedDescriptions } = await import('../scripts/lib/drop-fabricated-description.mjs');
+    const sentence = 'Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.';
+    const stored = {
+      sourceLang: 'en',
+      description: `Operate downstream processing equipment.\n\n${sentence}`,
+      descriptionByLocale: {
+        en: `Operate downstream processing equipment.\n\n${sentence}`,
+        de: 'Bedienen Sie die Anlagen der Aufarbeitung.\n\nLonza ist ein weltweit führender Hersteller in Pharma und Biotech.',
+      },
+    };
+    const clean = {
+      sourceLang: 'en',
+      description: 'Operate downstream processing equipment.',
+      descriptionByLocale: { en: 'Operate downstream processing equipment.', de: 'Bedienen Sie die Anlagen der Aufarbeitung.' },
+    };
+    const jobs = dropFabricatedDescriptions([stored, clean], LONZA_FABRICATED_DESCRIPTION_RE, 'Lonza');
+    expect(jobs).toHaveLength(2);
+    expect(stored.description).toBe('');
+    expect(stored.descriptionByLocale).toEqual({});
+    expect((stored as { needsRetranslation?: boolean }).needsRetranslation).toBe(true);
+    expect(clean.descriptionByLocale.de).toBe('Bedienen Sie die Anlagen der Aufarbeitung.');
+  });
+});

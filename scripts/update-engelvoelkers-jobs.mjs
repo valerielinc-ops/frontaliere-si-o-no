@@ -14,6 +14,7 @@
  * Listings may belong to any Engel & Völkers Swiss licensee.
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -41,15 +42,19 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import {
   parseEngelvoelkersListingPage,
   parseEngelvoelkersDetailPage,
   buildEngelvoelkersLocalizedContent,
+  engelvoelkersPublishableBody,
+  scrubEngelvoelkersLegacySlots,
   isEngelvoelkersSwissRelevant,
   inferEngelvoelkersCanton,
 } from './lib/engelvoelkers-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
@@ -166,6 +171,7 @@ async function fetchAllListings() {
   try {
     html = await fetchText(CAREERS_URL);
   } catch (err) {
+    // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
     console.log(`  ⚠️ Listing page fetch failed: ${err.message}`);
     return [];
   }
@@ -208,7 +214,7 @@ async function enrichWithDetails(listings) {
       enriched.push({
         ...item,
         description: '',
-        datePosted: new Date().toISOString().slice(0, 10),
+        ...sourcePostingDateFields(),
       });
     }
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
@@ -246,11 +252,14 @@ async function enrichWithDetails(listings) {
 function buildJob(row) {
   const canton = row.canton || inferEngelvoelkersCanton(row.location);
   const locationClean = String(row.location || '').replace(/,?\s*Switzerland$/i, '').trim();
-  const localized = buildEngelvoelkersLocalizedContent({ ...row, canton, location: locationClean });
+  // The language of the posting is the language of its body; the title
+  // ("Immobilienberater/in 100 % | Ascona") only decides without a body.
+  const sourceLang = detectLang(String(row.description || '').trim() || row.title, 'it');
+  const localized = buildEngelvoelkersLocalizedContent({ ...row, canton, location: locationClean, sourceLang });
 
   return {
-    title: localized.titleByLocale.it,
-    slug: localized.slugByLocale.it,
+    title: String(row.title || '').trim(),
+    slug: localized.slugByLocale[sourceLang] || localized.slugByLocale.it,
     url: row.detailUrl,
     applyUrl: row.detailUrl,
     company: row.company || COMPANY_NAME,
@@ -265,12 +274,12 @@ function buildJob(row) {
     category: inferCategory(row.title, row.department || ''),
     sector: 'Immobiliare',
     source: 'engelvoelkers-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
-    postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
+    sourceLang,
+    ...sourcePostingDateFields(row.datePosted),
     employmentType: inferEmploymentType(row.employmentType || ''),
     contractType: inferEmploymentType(row.employmentType || ''),
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[sourceLang] || '',
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -290,8 +299,30 @@ function mergeJobs(discoveredJobs) {
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
-    const prev = existingByKey.get(jobMatchKey(job));
+  let unpublished = 0;
+  const mergedTarget = discoveredJobs.map((fresh) => {
+    const storedPrev = existingByKey.get(jobMatchKey(fresh));
+    const prev = storedPrev ? scrubEngelvoelkersLegacySlots(storedPrev) : null;
+    // Source text only: this run's body over the 50-word floor, else the
+    // stored source body, else the job is not published this run.
+    // The stored record as it was: its source slot (block stripped) is the
+    // fallback body; the scrubbed copy is what gets merged.
+    const publishable = engelvoelkersPublishableBody(fresh, storedPrev);
+    if (!publishable) {
+      unpublished += 1;
+      return null;
+    }
+    const job = {
+      ...fresh,
+      sourceLang: publishable.sourceLang,
+      description: publishable.body,
+      ...sourceSlotTitleAndSlug(
+        String(fresh.title || '').trim(),
+        String(fresh.slugByLocale?.[fresh.sourceLang] || fresh.slug || '').trim(),
+        publishable.sourceLang,
+      ),
+      descriptionByLocale: { [publishable.sourceLang]: publishable.body },
+    };
     if (!prev) {
       added += 1;
       return job;
@@ -300,13 +331,18 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
-  });
+  }).filter(Boolean);
+  if (unpublished > 0) {
+    console.log(`  ⏭️  ${unpublished} job(s) without a source body of at least 50 words — not published this run.`);
+  }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
@@ -328,7 +364,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: job.company || COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -443,4 +479,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Engel & Völkers'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Engel & Völkers'));
+}

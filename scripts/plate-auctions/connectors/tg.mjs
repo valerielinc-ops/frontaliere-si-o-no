@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /** Turgovia official auction-card connector. */
 import { fetchCardCantonAuctions, parseCardCantonAuctions } from "./cards.mjs";
 
@@ -28,7 +30,7 @@ export async function fetchTgPlateAuctions() {
   });
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   fetchTgPlateAuctions()
     .then((auctions) => console.log(JSON.stringify(auctions, null, 2)))
     .catch((error) => {

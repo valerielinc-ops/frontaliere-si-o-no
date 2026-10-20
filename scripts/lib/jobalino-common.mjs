@@ -42,9 +42,11 @@
  *     gefunden"); its openings flow through `michel-gruppe-ag`.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, classAttrRx, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { fetchHtml, slugify, classAttrRx, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -64,27 +66,63 @@ function normalize(s = '') {
   return String(s || '').trim().toLowerCase();
 }
 
-async function fetchText(url, accept = 'application/javascript,text/html,*/*') {
+async function fetchText(
+  url,
+  accept = 'application/javascript,text/html,*/*',
+  { fallbackUrl = '', validateFallback } = {},
+) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  return fetchWithRetry(async () => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, {
-        headers: { Accept: accept, 'User-Agent': USER_AGENT },
-        signal: controller.signal,
-      });
-      if (!res.ok) {
-        const err = new Error(`HTTP ${res.status} from ${url}`);
-        err.status = res.status;
-        err.retryable = RETRYABLE_STATUS.has(res.status);
-        throw err;
+  try {
+    return await fetchWithRetry(async () => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetch(url, {
+          headers: { Accept: accept, 'User-Agent': USER_AGENT },
+          signal: controller.signal,
+        });
+        if (!res.ok) {
+          const err = new Error(`HTTP ${res.status} from ${url}`);
+          err.status = res.status;
+          err.retryable = RETRYABLE_STATUS.has(res.status);
+          throw err;
+        }
+        return await res.text();
+      } finally {
+        clearTimeout(timer);
       }
-      return await res.text();
-    } finally {
-      clearTimeout(timer);
+    }, { label: `jobalino ${url}` });
+  } catch (error) {
+    // Jobalino intermittently answers the GitHub Actions egress with 415 even
+    // though the same public resource is available through its HTML route.
+    // Exactly one alternate-source read is allowed here. fetchHtml supplies the
+    // bounded clean-IP recovery already used by the other HTML crawlers; the
+    // caller-specific validator prevents a proxy/error page from becoming data.
+    // Every other 4xx, and an unvalidated 415 recovery, rethrows the original
+    // source error so the crawler remains fail-closed.
+    if (Number(error?.status) !== 415 || !fallbackUrl || typeof validateFallback !== 'function') {
+      throw error;
     }
-  }, { label: `jobalino ${url}` });
+    try {
+      const recovered = await fetchHtml(fallbackUrl, {
+        timeoutMs,
+        retries: 0,
+        headers: { Accept: 'text/html,application/xhtml+xml,*/*', 'User-Agent': USER_AGENT },
+      });
+      if (validateFallback(recovered)) return recovered;
+    } catch {
+      // Preserve the authoritative direct-fetch status below.
+    }
+    throw error;
+  }
+}
+
+function isJobalinoExternalListingHtml(html = '') {
+  if (!html || typeof html !== 'string') return false;
+  return /\bid\s*=\s*["']ajaxjoblistresult["']/i.test(html)
+    && /\bclass\s*=\s*["'][^"']*\bjobalino-joblist\b[^"']*["']/i.test(html)
+    && /\/css\/externallist\.css(?:[?"'])/i.test(html)
+    && /function\s+jb_reloadframelist\s*\(/i.test(html);
 }
 
 /**
@@ -131,7 +169,7 @@ export function parseJobalinoListingHtml(html = '') {
   if (!html || typeof html !== 'string') return [];
   const out = [];
   const seen = new Set();
-  // Each opening is a single <a class="reflink" href="…/job/{HASH}/{slug}">…</a>.
+  // Each opening is a single <a class="reflink" href="…/job/{locale?}/{HASH}/{slug}">…</a>.
   // The href may carry a trailing query string (e.g. `?origin=joblist`) —
   // strip it so the captured URL stays canonical.
   // Jobalino appends `_NNNN` to disambiguate slugs that collide with an
@@ -139,12 +177,17 @@ export function parseJobalinoListingHtml(html = '') {
   // `[a-z0-9-]` alone drops every collision-suffixed tile, and on days
   // where most/all active openings happen to collide this silently zeroes
   // the whole listing (see #5998).
-  const tileRx = /<a\s+href="(https:\/\/my\.jobalino\.ch\/job\/([a-f0-9]+)\/([a-z0-9_-]+))(?:\?[^"]*)?"[^>]*class="reflink"[^>]*>([\s\S]*?)<\/a>/g;
+  const tileRx = /<a\s+href="https:\/\/my\.jobalino\.ch\/job\/(?:(de|fr|it|en)\/)?([a-f0-9]+)\/([a-z0-9_-]+)(?:\?[^"]*)?"[^>]*class="reflink"[^>]*>([\s\S]*?)<\/a>/g;
   let m;
   while ((m = tileRx.exec(html))) {
-    const url = m[1];
+    const locale = m[1] || '';
     const id = m[2];
     const slug = m[3];
+    // The HTML endpoint writes /job/de/...; the JSONP endpoint writes the
+    // equivalent German canonical as /job/.... Keep identity stable across a
+    // transport recovery, while retaining explicit non-default locales.
+    const localeSegment = locale && locale !== 'de' ? `${locale}/` : '';
+    const url = `${API_HOST}/job/${localeSegment}${id}/${slug}`;
     if (seen.has(id)) continue;
     seen.add(id);
     const body = m[4];
@@ -184,10 +227,8 @@ export function extractJobalinoJobPostingJsonLd(html = '') {
   while ((m = re.exec(html))) {
     try {
       const parsed = JSON.parse(m[1]);
-      const arr = Array.isArray(parsed) ? parsed : [parsed];
-      for (const obj of arr) {
-        if (obj && obj['@type'] === 'JobPosting') return obj;
-      }
+      const posting = extractJobPostingNodesFromJson(parsed)[0];
+      if (posting) return posting;
     } catch { /* keep trying */ }
   }
   return null;
@@ -216,8 +257,14 @@ export async function fetchJobalinoListing({ company, additionalCompanies = '', 
   }
   const localePrefix = /^(de|fr|it|en)$/.test(locale) && locale !== 'de' ? `${locale}/` : '';
   const url = `${API_HOST}/custel_jobExternalList/${localePrefix}${encodeURIComponent(company)}${params.toString() ? `?${params}` : ''}`;
-  const raw = await fetchText(url, 'application/javascript,*/*');
+  const fallbackLocale = /^(de|fr|it|en)$/.test(locale) ? locale : 'de';
+  const fallbackUrl = `${API_HOST}/jobExternalList/${fallbackLocale}/${encodeURIComponent(company)}${params.toString() ? `?${params}` : ''}`;
+  const raw = await fetchText(url, 'application/javascript,*/*', {
+    fallbackUrl,
+    validateFallback: isJobalinoExternalListingHtml,
+  });
   const obj = unwrapJobalinoJsonp(raw);
+  if (!obj && isJobalinoExternalListingHtml(raw)) return { html: raw, error: '' };
   if (!obj) return { html: '', error: raw.slice(0, 200) };
   return { html: String(obj.html || ''), error: String(obj.error || '') };
 }
@@ -308,7 +355,10 @@ export function createJobalinoParser(config) {
       });
     } catch (err) {
       console.warn(`⚠️ Jobalino listing fetch failed: ${err?.message || err}`);
-      return [];
+      // A fetch failure is not an empty listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a cause-less no-jobs-parsed abort.
+      throw err;
     }
     if (listing.error) {
       console.warn(`⚠️ Jobalino error for '${jobalinoCompanySlug}': ${listing.error}`);
@@ -324,7 +374,6 @@ export function createJobalinoParser(config) {
       : tiles;
     console.log(`  ✓ ${tiles.length} tiles parsed (${filteredTiles.length} after company filter)`);
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let detailHits = 0;
     let failed = 0;
@@ -333,7 +382,10 @@ export function createJobalinoParser(config) {
       const tile = filteredTiles[i];
       let detailHtml = '';
       try {
-        detailHtml = await fetchText(tile.url, 'text/html,*/*');
+        detailHtml = await fetchText(tile.url, 'text/html,*/*', {
+          fallbackUrl: tile.url,
+          validateFallback: (html) => Boolean(extractJobalinoJobPostingJsonLd(html)),
+        });
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed (${tile.url}): ${err?.message || err}`);
       }
@@ -372,9 +424,7 @@ export function createJobalinoParser(config) {
         && !/festanstellung|permanent|unbefristet/i.test(tile.jobtype || '');
       const contract = isTemporary ? 'temporary' : 'full-time';
 
-      const postedDate = jsonLd?.datePosted && /^\d{4}-\d{2}-\d{2}/.test(jsonLd.datePosted)
-        ? String(jsonLd.datePosted).slice(0, 10)
-        : todayIso;
+      const postingDates = sourcePostingDateFields(jsonLd?.datePosted);
 
       const jobSlug = slugify(`${title} ${companyKey} ${city}`);
       const urlHash = createHash('sha1')
@@ -413,7 +463,7 @@ export function createJobalinoParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...postingDates,
         applyUrl: publicUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

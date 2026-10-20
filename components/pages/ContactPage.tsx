@@ -11,6 +11,7 @@ import { recaptchaService } from '@/services/recaptchaService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
+import { PUBLIC_CONTACT_EMAIL } from '@/services/publicContact';
 import {
  getFirestore,
  collection,
@@ -105,7 +106,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
  topic: form.topic,
  message: form.message.trim(),
  recaptchaScore: verification.score ?? null,
- recipientEmail: 'valerielinc@gmail.com',
+ recipientEmail: PUBLIC_CONTACT_EMAIL,
  createdAt: serverTimestamp(),
  status: 'new',
  locale: document.documentElement.lang || 'it',
@@ -117,7 +118,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
  const body = encodeURIComponent(
  `Nome: ${form.name.trim()}\nEmail: ${form.email.trim()}\nArgomento: ${topicLabel}\n\n${form.message.trim()}`
  );
- window.open(`mailto:valerielinc@gmail.com?subject=${subject}&body=${body}`, '_self');
+ window.open(`mailto:${PUBLIC_CONTACT_EMAIL}?subject=${subject}&body=${body}`, '_self');
 
  setStatus('success');
  Analytics.trackUIInteraction('contact', 'form', 'submit', 'success');

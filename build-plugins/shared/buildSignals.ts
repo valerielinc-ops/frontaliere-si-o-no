@@ -70,6 +70,7 @@ const staticPagesSignal = makeSignal();
 const professionLandingsSignal = makeSignal();
 const salaryHubSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
+let activeJobSitemapLocs: ReadonlySet<string> | null = null;
 const sectorPagesSignal = makeSignal();
 const professionCantonsSignal = makeValueSignal<readonly string[]>();
 const professionCitiesSignal = makeValueSignal<readonly string[]>();
@@ -148,12 +149,41 @@ export function resolveJobsSeoPagesFlushed(): void {
 }
 
 /**
+ * FAST_BUILD deliberately omits jobsSeoPagesPlugin, so its completion signal
+ * has no producer in that mode. Full builds keep the existing barrier: the
+ * jobs sitemap must be final before downstream sitemap reconciliation reads
+ * it.
+ */
+export function shouldAwaitJobsSeoPagesFlushed(
+  fastBuild = Boolean(process.env.FAST_BUILD),
+): boolean {
+  return !fastBuild;
+}
+
+/**
+ * The exact self-canonical job-detail URLs admitted by the current jobs
+ * sitemap build.  Consumers use this registry to reject stale shard entries
+ * even when the corresponding foreign-locale HTML is absent from the current
+ * build tree by design.
+ *
+ * `null` means the jobs producer has not reached its sitemap decision yet;
+ * an empty set is a valid completed result for a corpus with no eligible jobs.
+ */
+export function setActiveJobSitemapLocs(paths: ReadonlySet<string> | null): void {
+  activeJobSitemapLocs = paths;
+}
+
+export function getActiveJobSitemapLocs(): ReadonlySet<string> | null {
+  return activeJobSitemapLocs;
+}
+
+/**
  * Resolves when {@link jobSectorPagesPlugin} has written every sector-hub
- * landing (49 sectors × 4 locales). Consumed by {@link sectorHubLinksPlugin},
+ * landing (each configured sector × 4 locales). Consumed by {@link sectorHubLinksPlugin},
  * which patches the 4 job-board hub pages with an `<aside>` listing the
  * highest-demand sector hubs so BFS from `/` reaches them (today the root hub
- * links the sector INDEX once but none of the 49 sector-hub canonicals → ~37
- * are orphaned with ~0 internal links). Awaiting this barrier guarantees the
+ * links the sector INDEX once but none of the sector-hub canonicals, leaving
+ * many with ~0 internal links). Awaiting this barrier guarantees the
  * link targets exist on disk before we inject anchors to them, mirroring the
  * salaryHubFlushed → salaryHubIndexLinkPlugin contract.
  */

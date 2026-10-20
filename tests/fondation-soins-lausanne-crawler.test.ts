@@ -1,3 +1,4 @@
+import { buildJobPostingSchema, buildJobPostingFacts } from '../build-plugins/shared/jobPostingSchema';
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import {
   FONDATION_SOINS_LAUSANNE_KEY,
@@ -190,6 +191,33 @@ describe('Fondation Soins Lausanne crawler parser (jobup.ch SERP)', () => {
       __resetJinaBreaker();
     });
 
+    it.each(['past', 'future', 'missing'])('retains listings with %s publication evidence without using the collection clock', async kind => {
+      const date = kind === 'missing' ? '' : new Date(Date.now() + (kind === 'past' ? -7 : 7) * 86400000).toISOString();
+      const detail = JOBUP_DETAIL_HTML.replace(/"datePosted": "[^"]+",/, date ? `"datePosted": ${JSON.stringify(date)},` : '');
+      globalThis.fetch = vi.fn(async (url: unknown) => new Response(String(url).startsWith('https://r.jina.ai/') ? SAMPLE_SERP_HTML : detail, { status: 200 }));
+      const jobs = await fetchAllFondationSoinsLausanneJobs();
+      expect(jobs).toHaveLength(3);
+      for (const job of jobs) {
+        expect(job.postedDate).toBe(kind === 'past' ? date : '');
+        expect(job.datePosted).toBe(job.postedDate);
+        expect(job.postingDateSource).toBe(kind === 'past' ? 'reported' : 'unknown');
+      // Unknown provenance preserves the vacancy/FAQ, not invented JobPosting data.
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const schema = buildJobPostingSchema(job, { locale, url: job.url });
+        if (kind === 'past') {
+          expect(schema).not.toBeNull();
+          expect(schema?.hiringOrganization.name).toBeTruthy();
+          expect(schema?.datePosted).toBe(job.datePosted);
+        } else {
+          expect(schema).toBeNull();
+        }
+        expect(buildJobPostingFacts(job, locale).hiringOrganization.name).toBeTruthy();
+      }
+      expect(job.url).toMatch(/^https:\/\//);
+      expect(job.description).toBeTruthy();
+      }
+    });
+
     it('fetches the jobup SERP via Jina, applies the strict filter, and enriches via jobup JSON-LD', async () => {
       globalThis.fetch = vi.fn(async (url: any) => {
         const u = String(url);
@@ -235,21 +263,27 @@ describe('Fondation Soins Lausanne crawler parser (jobup.ch SERP)', () => {
       }
     });
 
-    it('falls back to a >50-word description when jobup detail enrichment fails', async () => {
+    it('writes no text of its own when jobup detail enrichment fails (issue 5253)', async () => {
       globalThis.fetch = vi.fn(async (url: any) => {
         const u = String(url);
         if (u.startsWith('https://r.jina.ai/')) {
           return new Response(SAMPLE_SERP_HTML, { status: 200, headers: { 'content-type': 'text/html' } });
         }
-        // Detail fetch fails — parser must still produce jobs with a rich fallback.
+        // Detail fetch fails: the cards are still emitted, without a text the
+        // crawler would have to write itself.
         return new Response('', { status: 500 });
       }) as any;
 
       const jobs = await fetchAllFondationSoinsLausanneJobs();
       expect(jobs).toHaveLength(3);
-      const words = String(jobs[0].description || '').split(/\s+/).filter(Boolean).length;
-      expect(words).toBeGreaterThan(50);
-      expect(jobs[0].description).toContain('Fondation Soins Lausanne');
+      for (const job of jobs) {
+        expect(job.description).toBe('');
+        // The stored French body (kept by the merge) and the slug stay in the
+        // `fr` slot: no language guessed from the title alone.
+        expect(job.sourceLang).toBe('fr');
+        expect(job.descriptionByLocale).toEqual({ fr: '' });
+        expect(Object.keys(job.slugByLocale)).toEqual(['fr']);
+      }
     });
 
     it('returns [] (no throw) when the Jina SERP fetch is unusable', async () => {

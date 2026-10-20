@@ -8,14 +8,19 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, expectTypeOf, it } from 'vitest';
+import { describe, expect, expectTypeOf, it, vi } from 'vitest';
+import { fetch as undiciFetch } from 'undici';
 import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath, stripPublicSuffix } from '../scripts/lib/prospector/registrable.mjs';
 import { clearPoliteFetchStateForTests, parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
   sharedHostPlatforms, listingPathHints, recordExpansionAttempt,
 } from '../scripts/lib/prospector/platform-registry.mjs';
-import { prioritizeTraceCandidates } from '../scripts/lib/prospector/trace-priority.mjs';
+import {
+  hasRecentSecoDemand,
+  prioritizeTraceCandidates,
+  TRACE_SECO_FRESHNESS_DAYS,
+} from '../scripts/lib/prospector/trace-priority.mjs';
 import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, renderedWorkplaceLabelValues, renderedPostalAddressCandidates, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
 import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks, isDistinctCareerSurface } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
@@ -31,9 +36,12 @@ import {
   evaluatePromotion,
   selectForPromotion,
   summarizePromotionBlocks,
+  diagnosePromotionBlocks,
   clampMinDays,
   findOpenPromotionPr,
+  candidateStatusAfterValidation,
   GATE_DEFAULTS,
+  passesSourceBackedLocationRate,
 } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { createSpecUrlPolicy, geographyFieldsForDecision, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
@@ -56,6 +64,7 @@ import {
 } from '../scripts/lib/prospector/subdivision-inventory.mjs';
 import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
 import { fetchFollowingValidatedRedirects, fetchHtml } from '../scripts/lib/crawler-template.mjs';
+import { attributableTraceHosts, traceCandidate } from '../scripts/lib/prospector/trace-candidate.mjs';
 
 const emptyRegistry = () => loadRegistry('/prospector/does-not-exist.json');
 
@@ -213,20 +222,207 @@ describe('platform registry', () => {
 });
 
 describe('priorità della coda TRACE', () => {
-  it('porta davanti i datori con annunci attivi e conserva FIFO tra i pari', () => {
+  it('ordina URL carriere, dominio e annunci SECO recenti senza riusare conteggi vecchi', () => {
+    const now = Date.now();
     const ranked = prioritizeTraceCandidates([
-      { key: 'osm-domain', domain: 'map-employer.ch', adCount: 0, firstSeenAt: '2026-08-21T00:00:00Z' },
-      { key: 'seco-new', adCount: 1, firstSeenAt: '2026-09-14T00:00:00Z' },
-      { key: 'seco-old', adCount: 1, firstSeenAt: '2026-08-21T00:00:00Z' },
-      { key: 'seco-domain', domain: 'active-employer.ch', adCount: 1, firstSeenAt: '2026-09-14T00:00:00Z' },
-    ], 4);
+      {
+        key: 'z-stale-seco', adCount: 40,
+        sourceSeenAt: { seco: new Date(now - (TRACE_SECO_FRESHNESS_DAYS + 1) * 86_400_000).toISOString() },
+        firstSeenAt: new Date(now - 90 * 86_400_000).toISOString(),
+      },
+      {
+        key: 'legacy-count-only', adCount: 100,
+        firstSeenAt: new Date(now - 40 * 86_400_000).toISOString(),
+      },
+      {
+        key: 'recent-seco', adCount: 1,
+        sourceSeenAt: { seco: new Date(now - 2 * 86_400_000).toISOString() },
+        firstSeenAt: new Date(now - 20 * 86_400_000).toISOString(),
+      },
+      { key: 'known-domain', domain: 'map-employer.ch', firstSeenAt: new Date(now - 30 * 86_400_000).toISOString() },
+      { key: 'direct-careers', careersUrl: 'https://jobs.employer.ch/openings', firstSeenAt: new Date(now).toISOString() },
+    ], 5, now);
 
     expect(ranked.map((c) => c.key)).toEqual([
-      'seco-domain',
-      'seco-old',
-      'seco-new',
-      'osm-domain',
+      'direct-careers',
+      'known-domain',
+      'recent-seco',
+      'z-stale-seco',
+      'legacy-count-only',
     ]);
+  });
+
+  it('uses an explicit SECO freshness window and ignores apply hosts as employer domains', () => {
+    const now = Date.now();
+    const fresh = {
+      key: 'fresh-seco',
+      adCount: 2,
+      sourceSeenAt: { seco: new Date(now - TRACE_SECO_FRESHNESS_DAYS * 86_400_000).toISOString() },
+    };
+    const stale = {
+      key: 'stale-seco',
+      adCount: 2,
+      sourceSeenAt: { seco: new Date(now - (TRACE_SECO_FRESHNESS_DAYS + 1) * 86_400_000).toISOString() },
+    };
+    expect(hasRecentSecoDemand(fresh, now)).toBe(true);
+    expect(hasRecentSecoDemand(stale, now)).toBe(false);
+
+    const sameFirstSeenAt = new Date(now - 100 * 86_400_000).toISOString();
+    const ranked = prioritizeTraceCandidates([
+      { key: 'z-apply-host-only', applyHosts: ['jobs.vendor.example'], firstSeenAt: sameFirstSeenAt },
+      { key: 'a-name-only', firstSeenAt: sameFirstSeenAt },
+      fresh,
+    ], 3, now);
+    expect(ranked.map((candidate) => candidate.key)).toEqual([
+      'fresh-seco',
+      'a-name-only',
+      'z-apply-host-only',
+    ]);
+    expect(prioritizeTraceCandidates([
+      { key: 'z-apply-host-only', applyHosts: ['jobs.vendor.example'], firstSeenAt: sameFirstSeenAt },
+      { key: 'a-name-only', firstSeenAt: sameFirstSeenAt },
+      fresh,
+    ], 1, now).map((candidate) => candidate.key)).toEqual(['fresh-seco']);
+  });
+
+  it('allocates a 5/3/2/1 batch across direct careers, domains, recent SECO and fallback leads', () => {
+    const now = Date.now();
+    const direct = Array.from({ length: 7 }, (_, i) => ({
+      key: `careers-${i}`,
+      careersUrl: `https://jobs-${i}.example/openings`,
+      firstSeenAt: new Date(now - i * 60_000).toISOString(),
+    }));
+    const domains = Array.from({ length: 5 }, (_, i) => ({
+      key: `domain-${i}`,
+      domain: `employer-${i}.example`,
+      firstSeenAt: new Date(now - i * 60_000).toISOString(),
+    }));
+    const seco = Array.from({ length: 4 }, (_, i) => ({
+      key: `seco-${i}`,
+      adCount: i + 1,
+      sourceSeenAt: { seco: new Date(now - (i + 1) * 86_400_000).toISOString() },
+      firstSeenAt: new Date(now - 20 * 86_400_000).toISOString(),
+    }));
+    const fallback = [
+      {
+        key: 'stale-seco',
+        adCount: 80,
+        sourceSeenAt: { seco: new Date(now - (TRACE_SECO_FRESHNESS_DAYS + 1) * 86_400_000).toISOString() },
+      },
+      { key: 'apply-host-only', applyHosts: ['jobs.vendor.example'] },
+      { key: 'name-only' },
+    ];
+
+    const ranked = prioritizeTraceCandidates([...direct, ...domains, ...seco, ...fallback], 11, now);
+    expect(ranked.filter((candidate) => candidate.careersUrl)).toHaveLength(5);
+    expect(ranked.filter((candidate) => !candidate.careersUrl && candidate.domain)).toHaveLength(3);
+    expect(ranked.filter((candidate) => !candidate.careersUrl && !candidate.domain
+      && hasRecentSecoDemand(candidate, now))).toHaveLength(2);
+    expect(ranked.filter((candidate) => !candidate.careersUrl && !candidate.domain
+      && !hasRecentSecoDemand(candidate, now))).toHaveLength(1);
+    expect(ranked.filter((candidate) => candidate.key.startsWith('seco-')).map((candidate) => candidate.key))
+      .toEqual(['seco-0', 'seco-1']);
+  });
+
+  it('redistributes an empty careers bucket across domain, recent SECO and fallback buckets', () => {
+    const now = Date.now();
+    const domains = Array.from({ length: 12 }, (_, i) => ({
+      key: `domain-${i}`,
+      domain: `employer-${i}.example`,
+    }));
+    const seco = Array.from({ length: 12 }, (_, i) => ({
+      key: `seco-${i}`,
+      adCount: 1,
+      sourceSeenAt: { seco: new Date(now - (i + 1) * 86_400_000).toISOString() },
+    }));
+    const fallback = Array.from({ length: 12 }, (_, i) => ({ key: `fallback-${i}` }));
+
+    const ranked = prioritizeTraceCandidates([...domains, ...seco, ...fallback], 12, now);
+    expect(ranked.filter((candidate) => candidate.domain)).toHaveLength(6);
+    expect(ranked.filter((candidate) => !candidate.domain && hasRecentSecoDemand(candidate, now)))
+      .toHaveLength(4);
+    expect(ranked.filter((candidate) => !candidate.domain && !hasRecentSecoDemand(candidate, now)))
+      .toHaveLength(2);
+  });
+
+  it('does not synthesize or attribute a supplied careers URL without employer identity', async () => {
+    const candidate = {
+      key: 'direct-careers-only',
+      name: 'Employer without a known domain',
+      careersUrl: 'https://jobs.employer.example/openings',
+    };
+    const resolveDomain = vi.fn(async () => ({ domain: null, score: 0, evidence: [], tried: 0 }));
+    const traceCareers = vi.fn();
+    const traceFromCareersUrl = vi.fn(async (careersUrl: string, domain: string|null) => ({
+      domain,
+      reachable: true,
+      careersUrls: [careersUrl],
+      externalHosts: [{
+        host: 'tenant.ats-vendor.example',
+        url: 'https://tenant.ats-vendor.example/jobs',
+        text: 'Open positions',
+        score: 9,
+        vacancyCount: 2,
+      }],
+      failureStatuses: [200],
+      retryable: false,
+      selfHosted: false,
+      via: ['known-careers-url'],
+    }));
+
+    const result = await traceCandidate(candidate, { resolveDomain, traceCareers, traceFromCareersUrl });
+
+    expect(resolveDomain).toHaveBeenCalledWith({ name: candidate.name, city: undefined, zip: undefined });
+    expect(traceCareers).not.toHaveBeenCalled();
+    expect(traceFromCareersUrl).toHaveBeenCalledWith(candidate.careersUrl, null);
+    expect(result).toMatchObject({ verdict: 'retry', reason: 'dominio non risolto', domain: null });
+    expect(attributableTraceHosts(result)).toEqual([]);
+  });
+
+  it('keeps direct URL ownership unknown when its host differs from the resolved employer', async () => {
+    const candidate = {
+      key: 'ats-url-with-resolved-employer',
+      name: 'Employer with an ATS career URL',
+      domain: 'employer.example',
+      careersUrl: 'https://jobs.vendor.example/openings',
+    };
+    const result = await traceCandidate(candidate, {
+      traceFromCareersUrl: async (careersUrl: string, domain: string|null) => ({
+        domain,
+        reachable: true,
+        careersUrls: [careersUrl],
+        externalHosts: [],
+        failureStatuses: [200],
+        retryable: false,
+        selfHosted: true,
+        via: ['known-careers-url'],
+      }),
+    });
+
+    expect(result).toMatchObject({ verdict: 'traced', domain: 'employer.example', selfHosted: null });
+  });
+
+  it('uses the redirected careers URL when deciding whether a trail is self-hosted', async () => {
+    const candidate = {
+      key: 'redirected-careers-url',
+      name: 'Employer with a redirected career URL',
+      domain: 'employer.example',
+      careersUrl: 'https://careers.employer.example/openings',
+    };
+    const result = await traceCandidate(candidate, {
+      traceFromCareersUrl: async (careersUrl: string, domain: string|null) => ({
+        domain,
+        reachable: true,
+        careersUrls: ['https://jobs.vendor.example/openings'],
+        externalHosts: [],
+        failureStatuses: [200],
+        retryable: false,
+        selfHosted: true,
+        via: ['known-careers-url'],
+      }),
+    });
+
+    expect(result).toMatchObject({ verdict: 'traced', domain: 'employer.example', selfHosted: null });
   });
 });
 
@@ -266,6 +462,24 @@ describe('vacancy extraction', () => {
     expect(detail.description).toContain('Wir bieten Entwicklungsmöglichkeiten.');
   });
 
+  it('uses the listing title when a detail JobPosting title is generic chrome', () => {
+    const recordTitle = 'Dipl. Physiotherapeut/-in (40-100%)';
+    const pageUrl = 'https://physioswiss.ch/stelleninserate/157790/dipl-physiotherapeut-in-40-100/';
+    const html = `<h1>${recordTitle}</h1><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Header',
+      description: 'Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen.',
+      url: pageUrl,
+    })}</script>`;
+
+    const detail = extractRuntimeDetailFields({}, html, pageUrl, {
+      recordUrl: pageUrl,
+      recordTitle,
+    });
+
+    expect(detail.title).toBe(recordTitle);
+  });
+
   // jobs.admin.ch/agroscope (#7711). Il luogo di lavoro vero sta solo in un
   // campo etichettato renderizzato, che nessun record strutturato porta: senza
   // estrarne il VALORE la pagina non corrobora nulla e l'audit legge un
@@ -286,6 +500,30 @@ describe('vacancy extraction', () => {
       expect(renderedWorkplaceLabelValues(html), html).toEqual(expected);
       expect(extractDetailFields(html, 'https://jobs.admin.ch/x/y').workplaceLabels, html).toEqual(expected);
     }
+  });
+
+  it('does not promote workplace attributes from excluded vacancy chrome', () => {
+    expect(renderedWorkplaceLabelValues('<article><div data-formatted-address="Bioggio"></div><aside data-location="Bern"></aside></article>'))
+      .toEqual(['Bioggio']);
+    expect(renderedWorkplaceLabelValues('<article><div data-formatted-address="Bioggio"></div>'
+      + '<section class="similar-jobs"><div class="job-card"><div data-location="Bern"></div></div></section>'
+      + '<div class="widget"><div data-workplace="Zürich"></div></div></article>'))
+      .toEqual(['Bioggio']);
+  });
+
+  it('keeps multiline workplace labels and rendered formatted addresses intact', () => {
+    const coop = '<main><h1>Stv. Geschäftsführer:in Region Brig</h1>'
+      + '<h4>Arbeitsort</h4><p>Coop<br><br>Region Brig, Visp, Zermatt und Goms</p></main>';
+    expect(renderedWorkplaceLabelValues(coop)).toEqual([
+      'Coop, Region Brig, Visp, Zermatt und Goms',
+    ]);
+
+    const smartRecruiters = '<main><h1>Solution Manager</h1>'
+      + '<spl-job-location formattedAddress="Strada Regina 40, Bioggio, Canton Ticino, Switzerland"></spl-job-location>'
+      + '</main>';
+    expect(renderedWorkplaceLabelValues(smartRecruiters)).toEqual([
+      'Strada Regina 40, Bioggio, Canton Ticino, Switzerland',
+    ]);
   });
 
   // Regressione arsante.ch/gmo (#7322). Il JobPosting reale non ha alcun
@@ -314,6 +552,18 @@ describe('vacancy extraction', () => {
       .toMatchObject({ location: '1201 Genève', canton: 'GE' });
   });
 
+  it('uses a verified workplace label as location evidence', () => {
+    const html = `<main><article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Comptable</h1>`
+      + `<div itemprop="description"><p>Poste de comptable à pourvoir dans une équipe médicale.</p></div>`
+      + `<p>Lieu de travail : Genève</p></article></main>`;
+    const detail = extractDetailFields(html, 'https://www.arsante.ch/emploi/comptable-96');
+    expect(detail.workplaceLabels).toEqual(['Genève']);
+    expect(detail.locationCandidates).toEqual([{ location: 'Genève' }]);
+    expect(resolveDetailOrListingSwissGeography(detail, {}).geography)
+      .toMatchObject({ location: 'Genève', canton: 'GE' });
+  });
+
   // Regressione #7772. Una detail page che elenca anche altre posizioni porta
   // più di un container main/article: prendere il PRIMO in ordine di documento
   // corrobora la sede leggendo l'annuncio sbagliato, e il mismatch si spegne
@@ -332,9 +582,9 @@ describe('vacancy extraction', () => {
 
   // Il <main> avvolge sia la vacancy sia il blocco di annunci correlati: fra i
   // container ANNIDATI che contengono il titolo vince il più interno, l'unico
-  // che esclude i vicini. Senza titolo riconoscibile si ricade sul primo, come
-  // prima.
-  it('prefers the innermost title-bearing region and falls back to the first', () => {
+  // che esclude i vicini. Senza titolo riconoscibile nessun container diventa
+  // owner; i candidati top-level restano disponibili tutti insieme.
+  it('prefers the innermost title-bearing region and keeps all unowned siblings', () => {
     const html = `<main><article itemscope itemtype="https://schema.org/JobPosting">`
       + `<h1 itemprop="title">Comptable</h1>`
       + `<div itemprop="description"><p>Poste de comptable à pourvoir.</p></div>`
@@ -345,7 +595,8 @@ describe('vacancy extraction', () => {
       .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
     expect(extractDetailFields(html, 'https://www.arsante.ch/emploi/comptable-96').locationCandidates)
       .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
-    // Nessun titolo: comportamento invariato, primo container del documento.
+    // Nessun titolo: nessun owner viene scelto; i candidati top-level restano
+    // tutti visibili senza ridurli al primo container.
     expect(renderedPostalAddressCandidates(html))
       .toEqual([
         expect.objectContaining({ location: '1201 Genève' }),
@@ -399,6 +650,43 @@ describe('vacancy extraction', () => {
       + `</article></main>`;
     const detail = extractDetailFields(html, 'https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94');
     expect(detail.locationCandidates).toEqual([]);
+  });
+
+  it('resolves an official postal locality without treating a bare locality as Swiss', () => {
+    expect(resolveSourceBackedSwissGeography({
+      location: '1219 Le Lignon', addressLocality: 'Le Lignon', postalCode: '1219',
+    })).toMatchObject({ location: '1219 Le Lignon', canton: 'GE' });
+    expect(resolveSourceBackedSwissGeography('Le Lignon')).toBeNull();
+  });
+
+  it('accepts an official locality when structured canton evidence disambiguates it', () => {
+    for (const [locality, canton] of [['Alt St. Johann', 'SG'], ['Niederuzwil', 'SG']]) {
+      const evidence = {
+        location: locality,
+        addressLocality: locality,
+        addressRegion: canton,
+        addressCountry: 'CH',
+      };
+      expect(resolveSourceBackedSwissGeography(evidence), locality).toMatchObject({
+        location: locality,
+        canton,
+        addressCountry: 'CH',
+      });
+      expect(resolveDetailOrListingSwissGeography({ locationCandidates: [evidence] }, {}).geography)
+        .toMatchObject({ location: locality, canton });
+    }
+    expect(resolveSourceBackedSwissGeography('Alt St. Johann')).toBeNull();
+    expect(resolveSourceBackedSwissGeography({
+      location: 'Alt St. Johann', addressLocality: 'Alt St. Johann', addressCountry: 'CH',
+    })).toBeNull();
+    const mismatchedLocality = {
+      location: 'Niederuzwil',
+      addressLocality: 'Alt St. Johann',
+      addressRegion: 'SG',
+      addressCountry: 'CH',
+    };
+    expect(resolveSourceBackedSwissGeography(mismatchedLocality)).toBeNull();
+    expect(evaluateSourceBackedSwissGeography([mismatchedLocality]).geography).toBeNull();
   });
 
   // Regressione arsante.ch/gmo (#6372). Il markup microdata reale mette la
@@ -642,6 +930,27 @@ describe('vacancy extraction', () => {
     });
   });
 
+  it('accepts colliding Swiss canton codes only when the locality corroborates them', () => {
+    const herisau = {
+      location: 'Herisau', addressLocality: 'Herisau', addressRegion: 'AR', postalCode: '9102',
+    };
+    expect(evaluateSourceBackedSwissGeography([herisau])).toMatchObject({
+      geography: { location: 'Herisau', canton: 'AR' },
+      explicitlyForeign: false,
+    });
+
+    const foreignArkansas = {
+      location: 'North Little Rock',
+      addressLocality: 'North Little Rock',
+      addressRegion: 'AR',
+      postalCode: '72116',
+    };
+    expect(resolveDetailOrListingSwissGeography(
+      { locationCandidates: [foreignArkansas] },
+      herisau,
+    )).toMatchObject({ geography: null, explicitlyForeign: true });
+  });
+
   it('fails closed on a tenant-flagged locationGateRejected without falling back to listing evidence', () => {
     // A tenant-specific extractor (e.g. Apleona's canton-suffix gate) can
     // verify and explicitly refuse a candidate; that refusal must not be
@@ -847,6 +1156,107 @@ describe('vacancy extraction', () => {
     })}</script>`;
     const [job] = extractJsonLd(html, 'https://x.example/');
     expect(job).toMatchObject({ title: 'Autista CE', company: 'Trasporti SA', location: 'Chiasso', via: 'jsonld' });
+  });
+
+  it('keeps multiple inline JobPosting nodes distinct when the source omits URLs', () => {
+    const pageUrl = 'https://x.example/stellen/';
+    const posting = (title: string, datePosted: string) => ({
+      '@type': 'JobPosting',
+      title,
+      description: 'Eine ausreichend lange Stellenbeschreibung mit mehreren Worten und konkreten Aufgaben für die ausgeschriebene Position.',
+      datePosted,
+      jobLocation: { address: { addressLocality: 'Chur', addressCountry: 'CH' } },
+    });
+    const html = [posting('CAD-Zeichner', '2026-09-10'), posting('Bauführer', '2026-09-11')]
+      .map((node) => `<script type="application/ld+json">${JSON.stringify(node)}</script>`)
+      .join('');
+
+    const jobs = extractJsonLd(html, pageUrl);
+    expect(jobs).toHaveLength(2);
+    expect(new Set(jobs.map((job) => job.url)).size).toBe(2);
+    expect(jobs.every((job) => job.url.startsWith(`${pageUrl}#job-`))).toBe(true);
+    expect(jobs.every((job) => job.sourceUrl === pageUrl)).toBe(true);
+  });
+
+  it('keeps structured discriminators in URL-less identities while ignoring freshness fields', () => {
+    const pageUrl = 'https://x.example/stellen/';
+    const posting = (identifier: string, dateModified: string) => ({
+      '@type': 'JobPosting',
+      title: 'Fachperson Betreuung',
+      description: 'Eine ausreichend lange Stellenbeschreibung mit mehreren Worten und konkreten Aufgaben für die ausgeschriebene Position.',
+      datePosted: '2026-09-10',
+      dateModified,
+      validThrough: '2026-12-31',
+      identifier: { name: 'requisition', value: identifier },
+      employmentType: 'FULL_TIME',
+      hiringOrganization: { name: 'Grischa Personal AG' },
+      jobLocation: { address: { addressLocality: 'Chur', addressCountry: 'CH' } },
+    });
+    const html = [
+      posting('REQ-100', '2026-09-11'),
+      posting('REQ-100', '2026-09-12'),
+      posting('REQ-200', '2026-09-11'),
+    ].map((node) => `<script type="application/ld+json">${JSON.stringify(node)}</script>`).join('');
+
+    const jobs = extractJsonLd(html, pageUrl);
+    expect(jobs[0].url).toBe(jobs[1].url);
+    expect(jobs[0].url).not.toBe(jobs[2].url);
+  });
+
+  it('selects the matching inline record when a detail fetch returns the shared source page', () => {
+    const pageUrl = 'https://x.example/stellen/';
+    const posting = (identifier: string, title: string, location: string, description: string) => ({
+      '@type': 'JobPosting',
+      title,
+      description,
+      identifier,
+      jobLocation: { address: { addressLocality: location, addressCountry: 'CH' } },
+    });
+    const html = [
+      posting('REQ-100', 'Fachperson Betreuung', 'Chur', 'Erste Beschreibung mit eigenen Aufgaben und eigener Ortsangabe.'),
+      posting('REQ-200', 'Sachbearbeiter Einkauf', 'Zürich', 'Zweite Beschreibung mit anderen Aufgaben und anderer Ortsangabe.'),
+    ].map((node) => `<script type="application/ld+json">${JSON.stringify(node)}</script>`).join('');
+    const [first, second] = extractJsonLd(html, pageUrl);
+
+    const detail = extractRuntimeDetailFields({}, html, pageUrl, { recordUrl: second.url });
+    expect(detail.title).toBe('Sachbearbeiter Einkauf');
+    expect(detail.location).toBe('Zürich');
+    expect(detail.description).toContain('Zweite Beschreibung');
+    expect(detail.description).not.toContain('Erste Beschreibung');
+    expect(first.url).not.toBe(second.url);
+  });
+
+  it('does not merge an explicitly different same-title inline representation', () => {
+    const pageUrl = 'https://x.example/stellen/';
+    const html = `<h1>Careers</h1><script type="application/ld+json">${JSON.stringify([
+      {
+        '@type': 'JobPosting',
+        title: 'Primary Role',
+        description: 'Primary description with its own duties and location evidence.',
+        identifier: 'REQ-100',
+        jobLocation: { address: { addressLocality: 'Chur', addressCountry: 'CH' } },
+      },
+      {
+        '@type': 'JobPosting',
+        title: 'Secondary Role',
+        description: 'Secondary description with different duties and location evidence.',
+        identifier: 'REQ-200',
+        jobLocation: { address: { addressLocality: 'Zürich', addressCountry: 'CH' } },
+      },
+    ])}</script>` +
+      '<article itemscope itemtype="https://schema.org/JobPosting">'
+      + '<meta itemprop="title" content="Primary Role">'
+      + '<meta itemprop="url" content="https://x.example/stellen/other">'
+      + '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Lausanne">'
+      + '<meta itemprop="addressCountry" content="CH"></div></article>';
+    const [primary] = extractJsonLd(html, pageUrl);
+
+    const detail = extractRuntimeDetailFields({}, html, pageUrl, { recordUrl: primary.url });
+    expect(detail.title).toBe('Primary Role');
+    expect(detail.location).toBe('Chur');
+    expect(detail.description).toContain('Primary description');
+    expect(detail.description).not.toContain('Secondary description');
+    expect(detail.location).not.toContain('Lausanne');
   });
 
   it('preserves country evidence and every JSON-LD job location', () => {
@@ -1074,6 +1484,39 @@ describe('careers trail', () => {
     expect(isCareerLink(link)).toBe(true);
   });
 
+  it('reads a card heading for an aria-hidden overlay link', () => {
+    const html = '<li class="u-job-item"><a class="u-link-fit" href="/job/42/automaticien" aria-hidden="true"></a><div><h3>Automaticien de production</h3></div></li>';
+    const [link] = extractLinks(html, 'https://acme.ch/');
+    expect(link).toMatchObject({
+      url: 'https://acme.ch/job/42/automaticien',
+      text: 'Automaticien de production',
+    });
+  });
+
+  it('does not borrow an overlay heading from outside a balanced list item', () => {
+    const html = '<li><h3>Previous card</h3></li><a href="/job/42" aria-hidden="true"></a><h3>Unrelated heading</h3>';
+    const [link] = extractLinks(html, 'https://acme.ch/');
+    expect(link.text).toBe('');
+  });
+
+  it('does not bind a later closing tag to an earlier unclosed anchor', () => {
+    const html = `<a href="/first">First ${'x'.repeat(500)}<a href="/second">Second</a>`;
+    const links = extractLinks(html, 'https://acme.ch/');
+    expect(links[0].text).not.toContain('Second');
+    expect(links[1].text).toBe('Second');
+  });
+
+  it('keeps overlay link text bounded by a case-insensitive closing tag', () => {
+    const links = extractLinks(
+      '<A href="/jobs">Jobs</A><a href="/other">Other</a>',
+      'https://acme.ch/',
+    );
+    expect(links.map(({ url, text }) => ({ url, text }))).toEqual([
+      { url: 'https://acme.ch/jobs', text: 'Jobs' },
+      { url: 'https://acme.ch/other', text: 'Other' },
+    ]);
+  });
+
   it('only accepts unlabelled third-party links in relaxed mode', () => {
     const links = [{ url: 'https://acme.ats.example/', text: '', host: 'acme.ats.example' }];
     expect(externalAtsLinks(links, 'acme.ch')).toEqual([]);
@@ -1238,7 +1681,11 @@ describe('quality grading', () => {
     try {
       const report = await gradeExtraction(
         { companyKey: 'acme', seedUrls: [url] },
-        [{ title: 'Software Engineer', url }],
+        [{
+          title: 'Software Engineer',
+          url,
+          description: 'Acme is looking for a software engineer to join the engineering team and build reliable services for Swiss customers. Your role includes designing, implementing, testing and documenting features, collaborating with product and operations, reviewing code, and supporting production releases. Requirements include professional experience with software development, clear communication, and a practical approach to solving problems in a team. Apply now with your CV for this full-time position.',
+        }],
         {
           sampleSize: 4,
           fetchImpl: async (requestedUrl) => new Response(
@@ -1252,6 +1699,45 @@ describe('quality grading', () => {
       expect(report.sampled).toBe(1);
       expect(report.score).toBe(1);
       expect(report.verdict).toBe('good');
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
+  });
+
+  it('grades details through the source-specific extractor used by production', async () => {
+    const url = 'https://employer.example/jobs/software-engineer/';
+    const html = `<html><head><title>Software Engineer | Acme</title></head><body>`
+      + `<main><h1>Software Engineer</h1><article><p>Acme is looking for a software engineer to join the engineering team and build reliable services for Swiss customers.</p>`
+      + `<p>Your role includes designing, implementing, testing and documenting features, collaborating with product and operations, reviewing code, and supporting production releases.</p>`
+      + `<p>Requirements include professional experience with software development, clear communication, and a practical approach to solving problems in a team. Apply now with your CV for this full-time position.</p></article></main></body></html>`;
+    let extractorCalls = 0;
+    const publishableDescription = 'Software Engineer responsibilities and requirements include designing, implementing, testing and documenting reliable services for Swiss customers. The role collaborates with product and operations, reviews code and supports production releases. Apply with your CV for this full-time position.';
+    clearPoliteFetchStateForTests();
+    try {
+      const report = await gradeExtraction(
+        { companyKey: 'acme', seedUrls: [url] },
+        [{ title: 'Software Engineer', url, description: publishableDescription }],
+        {
+          sampleSize: 1,
+          detailExtractor: () => {
+            extractorCalls++;
+            return {
+              title: 'Software Engineer',
+              description: publishableDescription,
+              locationCandidates: [{ location: 'Lugano', addressCountry: 'CH' }],
+            };
+          },
+          fetchImpl: async (requestedUrl) => new Response(
+            requestedUrl.endsWith('/robots.txt') ? 'User-agent: *\\nAllow: /\\n' : html,
+            { status: 200, headers: { 'content-type': 'text/html' } },
+          ),
+          lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+          sleepImpl: async () => {},
+        },
+      );
+      expect(extractorCalls).toBe(1);
+      expect(report.contentfulRate).toBe(1);
+      expect(report.locationSourceRate).toBe(1);
     } finally {
       clearPoliteFetchStateForTests();
     }
@@ -1276,6 +1762,30 @@ describe('quality grading', () => {
 describe('crawler synthesis', () => {
   it('keys a crawler off the tenant label', () => {
     expect(crawlerKeyFor({ tenantHost: 'cippatrasporti.altamiraweb.com' })).toBe('cippatrasporti');
+  });
+
+  it('uses the employer name for generic hosted-ATS tenant labels', () => {
+    expect(crawlerKeyFor({ tenantHost: 'apply.refline.ch', name: 'BSZ Stiftung' }))
+      .toBe('bsz-stiftung');
+    expect(crawlerKeyFor({ tenantHost: 'careers.accor.com', name: 'Ibis Budget' }))
+      .toBe('ibis-budget');
+  });
+
+  it('uses the validated employer domain when a generic tenant has no usable name', () => {
+    const keys = ['', '   ', undefined, '!!!'].map((name) => crawlerKeyFor({
+      tenantHost: 'apply.refline.ch',
+      domain: 'leitpuls.example',
+      name,
+    }));
+    expect(keys).toEqual(['leitpuls-example', 'leitpuls-example', 'leitpuls-example', 'leitpuls-example']);
+  });
+
+  it('keeps the registrable-domain suffix in generic fallback keys', () => {
+    const acmeCh = crawlerKeyFor({ tenantHost: 'apply.refline.ch', domain: 'acme.ch' });
+    const acmeCom = crawlerKeyFor({ tenantHost: 'apply.refline.ch', domain: 'acme.com' });
+    expect(acmeCh).toBe('acme-ch');
+    expect(acmeCom).toBe('acme-com');
+    expect(acmeCh).not.toBe(acmeCom);
   });
 
   it('finds the template shared by a listing', () => {
@@ -1323,8 +1833,35 @@ describe('promotion gate', () => {
     ...over,
   });
 
+  it('keeps source-backed geography fail-closed across validation and promotion', () => {
+    expect(passesSourceBackedLocationRate(undefined)).toBe(false);
+    expect(passesSourceBackedLocationRate(0.749)).toBe(false);
+    expect(passesSourceBackedLocationRate(0.75)).toBe(true);
+    expect(passesSourceBackedLocationRate(1.01)).toBe(false);
+    expect(passesSourceBackedLocationRate(true)).toBe(false);
+    expect(passesSourceBackedLocationRate('0.75')).toBe(false);
+    expect(candidateStatusAfterValidation({ verdict: 'good', locationSourceRate: 0.5 })).toBe('validated');
+    expect(candidateStatusAfterValidation({ verdict: 'good', locationSourceRate: 1 })).toBe('promoted');
+    expect(candidateStatusAfterValidation({ verdict: 'bad', locationSourceRate: 1 })).toBe('rejected');
+  });
+
   it('ships a candidate proven on two distinct days', () => {
     expect(evaluatePromotion(graded(2)).passed).toBe(true);
+  });
+
+  it('requires both good days to come from the candidate source adapter', () => {
+    const mixed = graded(2, { sourceAdapterVersion: 'le-team-dedicated-v1' });
+    mixed.validationHistory[1].sourceAdapterVersion = 'le-team-dedicated-v1';
+    const mixedResult = evaluatePromotion(mixed);
+    expect(mixedResult.passed).toBe(false);
+    expect(mixedResult.checks.runs).toBe(false);
+    expect(mixedResult.checks.days).toBe(false);
+
+    const dedicated = graded(2, { sourceAdapterVersion: 'le-team-dedicated-v1' });
+    dedicated.validationHistory.forEach((entry) => {
+      entry.sourceAdapterVersion = 'le-team-dedicated-v1';
+    });
+    expect(evaluatePromotion(dedicated).passed).toBe(true);
   });
 
   it('refuses a candidate proven only once, however good', () => {
@@ -1804,6 +2341,57 @@ describe('promotion gate', () => {
     expect(summarizePromotionBlocks([{ checks: {} }])).toEqual({ stabilityOnly: 0, other: 1 });
   });
 
+  it('attribuisce ogni blocco other ai predicati falliti, per nome del check (#9680)', () => {
+    // Due candidati con la stessa causa ma valori diversi: il tally per testo
+    // della ragione li separerebbe ("qualita' 0.50 ..." vs "qualita' 0.60 ...").
+    const lowA = graded(2, { key: 'low-a', crawlerKey: 'low-a' });
+    lowA.validationHistory.at(-1).score = 0.5;
+    const lowB = graded(2, { key: 'low-b', crawlerKey: 'low-b' });
+    lowB.validationHistory.at(-1).score = 0.6;
+    lowB.validationHistory.at(-1).logoFound = false;
+    // Fallisce stabilita' E qualita': e' `other`, e `days` entra nel tally.
+    const mixed = graded(1, { key: 'mixed', crawlerKey: 'mixed' });
+    mixed.validationHistory.at(-1).contentfulRate = 0;
+    const waiting = graded(1, { key: 'waiting', crawlerKey: 'waiting' });
+    const { blocked } = selectForPromotion([lowB, waiting, lowA, mixed]);
+
+    const d = diagnosePromotionBlocks(blocked);
+    expect(d.stabilityOnly).toBe(1);
+    expect(d.other).toBe(3);
+    expect(d.stabilityOnlyKeys).toEqual(['waiting']);
+    expect(d.failedChecks).toEqual({ score: 2, contentful: 1, days: 1, logo: 1, runs: 1 });
+    // Ordine deterministico: frequenza decrescente, poi nome.
+    expect(Object.keys(d.failedChecks)).toEqual(['score', 'contentful', 'days', 'logo', 'runs']);
+    expect(d.unattributed).toEqual([]);
+    expect(d.candidateFailures).toEqual([
+      { key: 'low-a', failedChecks: ['score'] },
+      { key: 'low-b', failedChecks: ['score', 'logo'] },
+      { key: 'mixed', failedChecks: ['runs', 'days', 'contentful'] },
+      { key: 'waiting', failedChecks: ['runs', 'days'] },
+    ]);
+    // Coerente con la partizione gia' esistente.
+    expect({ stabilityOnly: d.stabilityOnly, other: d.other }).toEqual(summarizePromotionBlocks(blocked));
+  });
+
+  it('segnala come unattributed un blocco other senza check fallito o senza ragione', () => {
+    const d = diagnosePromotionBlocks([
+      { candidate: { key: 'no-checks' }, reasons: ['qualcosa'], checks: {} },
+      { candidate: { key: 'no-reason' }, reasons: [], checks: { score: false } },
+      { candidate: { key: 'ok' }, reasons: ['qualita\' bassa'], checks: { score: false } },
+      // Stability-only senza ragione non e' `other`: non entra in unattributed.
+      { candidate: { key: 'wait' }, reasons: [], checks: { runs: false, days: true } },
+    ]);
+    expect(d.other).toBe(3);
+    expect(d.unattributed).toEqual(['no-checks', 'no-reason']);
+    expect(d.stabilityOnlyKeys).toEqual(['wait']);
+    expect(d.candidateFailures).toEqual([
+      { key: 'no-checks', failedChecks: [] },
+      { key: 'no-reason', failedChecks: ['score'] },
+      { key: 'ok', failedChecks: ['score'] },
+      { key: 'wait', failedChecks: ['runs'] },
+    ]);
+  });
+
   it('ships the biggest inventory first', () => {
     const small = graded(2, { crawlerKey: 'small', vacancyCount: 2 });
     const big = graded(2, { crawlerKey: 'big', vacancyCount: 40 });
@@ -1819,6 +2407,26 @@ describe('production spec runtime', () => {
 
   it('accetta solo geografia svizzera estratta dalla sorgente', () => {
     expect(resolveSourceBackedSwissGeography('  Winterthur  ')).toEqual({ location: 'Winterthur', canton: 'ZH' });
+    expect(resolveSourceBackedSwissGeography('Zürich')).toBeNull();
+    expect(resolveSourceBackedSwissGeography({ location: 'Zürich', postalCode: '8000' })).toBeNull();
+    expect(resolveSourceBackedSwissGeography({ location: 'Zürich', addressLocality: 'Zürich' }))
+      .toMatchObject({ location: 'Zürich', canton: 'ZH' });
+    for (const [locality, postalCode, canton] of [
+      ['Court', '2738', 'BE'],
+      ['Sâles', '1625', 'FR'],
+      ['Concise', '1426', 'VD'],
+      ['Le Lignon', '1219', 'GE'],
+    ]) {
+      expect(resolveSourceBackedSwissGeography({
+        location: `${postalCode} ${locality}`,
+        addressLocality: locality,
+        postalCode,
+        addressCountry: 'CH',
+      }), locality).toMatchObject({ canton });
+    }
+    for (const bareAmbiguousLocality of ['Court', 'Sâles', 'Concise']) {
+      expect(resolveSourceBackedSwissGeography(bareAmbiguousLocality), bareAmbiguousLocality).toBeNull();
+    }
     expect(resolveSourceBackedSwissGeography('Geneva, Switzerland; Paris, France')).toEqual({
       location: 'Geneva, Switzerland; Paris, France',
       canton: 'GE',
@@ -1855,6 +2463,40 @@ describe('production spec runtime', () => {
       location: 'St. Gallen SG, CH',
       canton: 'SG',
     });
+    for (const [addressLocality, addressRegion] of [
+      ['Geneva', 'GE'],
+      ['Lucerne', 'LU'],
+      ['Berne', 'BE'],
+      ['Basle', 'BS'],
+    ]) {
+      const candidate = {
+        location: `${addressLocality}, ${addressRegion}`,
+        addressLocality,
+        addressRegion,
+        addressCountry: 'CH',
+      };
+      expect(resolveSourceBackedSwissGeography(candidate), addressLocality).toEqual({
+        location: candidate.location,
+        canton: addressRegion,
+        addressCountry: 'CH',
+      });
+    }
+    expect(resolveSourceBackedSwissGeography({
+      location: 'Zürich, ZH,CH',
+      addressLocality: 'Zürich',
+      addressRegion: 'ZH,CH',
+    })).toEqual({ location: 'Zürich, ZH,CH', canton: 'ZH' });
+    expect(resolveSourceBackedSwissGeography({
+      location: 'Geneva, NY',
+      addressLocality: 'Geneva',
+      addressRegion: 'NY',
+      addressCountry: 'CH',
+    })).toBeNull();
+    expect(resolveSourceBackedSwissGeography({
+      location: 'Geneva',
+      addressLocality: 'Geneva',
+      addressCountry: 'US',
+    })).toBeNull();
     for (const [location, canton] of [
       ['St. Gallen', 'SG'],
       ['St Gallen', 'SG'],
@@ -1978,6 +2620,16 @@ describe('production spec runtime', () => {
       postalCode: '4133',
       streetAddress: 'Grüssenweg 1',
     });
+    const missingCountryDecision = resolveDetailOrListingSwissGeography(
+      { locationCandidates: [{ location: 'Pratteln, BL', addressLocality: 'Pratteln', addressRegion: 'BL' }] },
+      {},
+    );
+    expect(geographyFieldsForDecision(missingCountryDecision, {
+      requireExplicitCountryEvidence: true,
+    })).not.toHaveProperty('addressCountry');
+    expect(geographyFieldsForDecision(missingCountryDecision, {
+      requireExplicitCountryEvidence: true,
+    })).not.toHaveProperty('country');
     expect(resolveSourceBackedSwissGeography('')).toBeNull();
     expect(resolveSourceBackedSwissGeography('Paris')).toBeNull();
     expect(resolveSourceBackedSwissGeography('Aix-en-Provence, France')).toBeNull();
@@ -2180,6 +2832,7 @@ describe('production spec runtime', () => {
     ) as any;
     try {
       await fetchFollowingValidatedRedirects(privateTargetUrl, {
+        fetchImpl: undiciFetch as any,
         validateUrl: privateTargetPolicy,
         requestOptions: { dispatcher: privateTargetPolicy.dispatcher } as any,
       });
@@ -2253,9 +2906,13 @@ describe('production spec runtime', () => {
     expect(parsers.length).toBeGreaterThan(0);
     for (const { name, source } of parsers) {
       expect(source, name).not.toMatch(/listing\.location\s*\|\|\s*['"]Lugano['"]/);
-      expect(source, name).toMatch(/resolveSourceBackedSwissGeography\(listing(?:\.location)?\)/);
+      // A structured spread is stricter than the legacy location-only call:
+      // the shared resolver also sees country, canton and postal evidence.
+      expect(source, name).toMatch(
+        /resolveSourceBackedSwissGeography\(\s*(?:listing(?:\.location)?|\{\s*\.\.\.listing(?:\s*[,}]))/,
+      );
       expect(source, name).toContain('listing.addressLocality');
-      expect(source, name).toContain('listing.addressRegion');
+      expect(source, name).toMatch(/listing\.addressRegion|addressRegion:\s*(?:geography\.)?canton/);
       expect(source, name).toContain('listing.postalCode');
       expect(source, name).toContain('listing.streetAddress');
       // I parseri prodotti devono scartare anche descrizioni vuote. La forma
@@ -2264,7 +2921,8 @@ describe('production spec runtime', () => {
       expect(
         source.includes('if (!descriptionText) continue;')
           || /if\s*\(\s*!descriptionText\s*\)\s*\{[^{}]*\bcontinue;\s*\}/.test(source)
-          || source.includes('if (descriptionText.split(/\\s+/).filter(Boolean).length < MIN_DESCRIPTION_WORDS) continue;'),
+          || source.includes('if (descriptionText.split(/\\s+/).filter(Boolean).length < MIN_DESCRIPTION_WORDS) continue;')
+          || source.includes('meetsSourceBodyFloor(descriptionText)'),
         `${name}: description guard`,
       ).toBe(true);
       expect(source, name).not.toMatch(/description(?:ByLocale)?:.*descriptionText\s*\|\|/);
@@ -2311,6 +2969,13 @@ describe('production spec runtime', () => {
   it('honours a numeric placeholder', () => {
     expect(templateToRegex('/job/#').test('/job/12345')).toBe(true);
     expect(templateToRegex('/job/#').test('/job/about')).toBe(false);
+  });
+
+  it('supports placeholders embedded in a path segment', () => {
+    const rx = templateToRegex('/stellen/*-#/');
+    expect(rx.test('/stellen/architekt-12345/')).toBe(true);
+    expect(rx.test('/stellen/jobs_cat-architekt/')).toBe(false);
+    expect(rx.test('/stellen/architekt-no-id/')).toBe(false);
   });
 
   it('accepts every shape of a multilingual template list', () => {

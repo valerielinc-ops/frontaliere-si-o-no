@@ -11,7 +11,15 @@
  * last shipped fix count toward `recurringDespiteRule`.
  */
 import { describe, it, expect } from 'vitest';
-import { lastEscalationClosedAt, examplesSinceFix, parseEscalationKey } from '../scripts/ci/harvest-agent-lessons.mjs';
+import {
+  lastEscalationClosedAt,
+  examplesSinceFix,
+  parseEscalationKey,
+  parseIssueEventLines,
+  lastClosedEventAt,
+  reopenedEscalationClosures,
+  measureBucket,
+} from '../scripts/ci/harvest-agent-lessons.mjs';
 
 describe('lastEscalationClosedAt — trova la chiusura più recente per lo stesso bucket', () => {
   const KEY = 'fix-outcome/fix-outcome:revenue-tracker-manual';
@@ -149,5 +157,127 @@ describe('integrazione: reviewer-finding ora filtra come fix-outcome (#5516)', (
       { pr: 5600, at: '2026-08-11T09:00:00Z' }, // post-fix, genuino
     ];
     expect(examplesSinceFix(mixed, cutoff)).toEqual([{ pr: 5600, at: '2026-08-11T09:00:00Z' }]);
+  });
+});
+
+// Escalation RIAPERTA (titolo «Harvester: escalation riaperta ricontata
+// sull'intera finestra (cutoff perso)»). Forma reale di 10112 il 2026-10-03:
+// `state: OPEN`, `closedAt: null`, evento `closed` del 27-09 e `reopened`
+// dell'01-10. Prima della fix il cutoff si leggeva solo dalle issue chiuse,
+// quindi tornava null e l'escalation si ricontava sugli esempi pre-fix.
+describe('cutoff di una escalation riaperta: viene dagli eventi', () => {
+  const KEY = 'reviewer-finding/canonical-sitemap';
+  const reopenedIssue = {
+    number: 10112,
+    title: `escalation(harvester): ${KEY} ricorre nonostante regola`,
+    state: 'OPEN',
+    closedAt: null,
+  };
+  const CLOSED_AT = '2026-09-27T20:19:47Z';
+  const eventLines = [
+    'labeled 2026-09-27T16:38:41Z',
+    'project_v2_item_status_changed 2026-09-27T16:38:43Z',
+    `closed ${CLOSED_AT}`,
+    'reopened 2026-10-01T11:44:16Z',
+    'labeled 2026-10-01T13:39:45Z',
+  ].join('\n');
+
+  it('le righe evento si leggono, nomi con cifre compresi', () => {
+    const events = parseIssueEventLines(eventLines);
+    expect(events).not.toBeNull();
+    expect(events?.map((e) => e.event)).toContain('project_v2_item_status_changed');
+    expect(lastClosedEventAt(events)).toBe(CLOSED_AT);
+  });
+
+  it('solo issue chiuse (il comportamento di prima) → cutoff null per la riaperta', () => {
+    expect(lastEscalationClosedAt(KEY, [reopenedIssue])).toBeNull();
+  });
+
+  it('unione chiuse + chiusure delle aperte → cutoff = evento closed', () => {
+    const { closures, unreadable } = reopenedEscalationClosures([reopenedIssue],
+      () => parseIssueEventLines(eventLines));
+    expect(unreadable).toEqual([]);
+    expect(closures).toEqual([{ number: 10112, title: reopenedIssue.title, closedAt: CLOSED_AT }]);
+    expect(lastEscalationClosedAt(KEY, [...closures])).toBe(Date.parse(CLOSED_AT));
+  });
+
+  it('più chiusure: vale l ultima', () => {
+    const events = parseIssueEventLines([
+      'closed 2026-09-10T00:00:00Z', 'reopened 2026-09-11T00:00:00Z',
+      `closed ${CLOSED_AT}`, 'reopened 2026-10-01T11:44:16Z',
+    ].join('\n'));
+    expect(lastClosedEventAt(events)).toBe(CLOSED_AT);
+  });
+
+  it('eventi illeggibili → nessun cutoff (l allarme resta) e il numero è dichiarato', () => {
+    for (const raw of ['', 'non è una riga evento', '[]']) {
+      expect(parseIssueEventLines(raw)).toBeNull();
+    }
+    const { closures, unreadable } = reopenedEscalationClosures([reopenedIssue], () => null);
+    expect(closures).toEqual([]);
+    expect(unreadable).toEqual([10112]);
+    expect(lastEscalationClosedAt(KEY, closures)).toBeNull();
+  });
+
+  it('mai chiusa → nessuna chiusura; titoli non di escalation ignorati senza leggere eventi', () => {
+    let reads = 0;
+    const { closures } = reopenedEscalationClosures([
+      reopenedIssue,
+      { number: 1, title: 'feat(seo): altro' },
+    ], () => { reads += 1; return parseIssueEventLines('labeled 2026-09-27T16:38:41Z'); });
+    expect(closures).toEqual([]);
+    expect(reads).toBe(1);
+  });
+});
+
+describe('measureBucket — conteggio dopo il cutoff, criterio invariato', () => {
+  const cutoff = Date.parse('2026-09-27T20:19:47Z');
+  const before = (i: number) => ({ pr: 9000 + i, at: '2026-09-20T10:00:00Z', snippet: `pre ${i}` });
+  const after = (i: number) => ({ pr: 10500 + i, at: '2026-09-30T10:00:00Z', snippet: `post ${i}` });
+  const window = (pre: number, post: number) => [
+    ...Array.from({ length: pre }, (_, i) => before(i)),
+    ...Array.from({ length: post }, (_, i) => after(i)),
+  ];
+
+  it('15 in finestra, 4 dopo il cutoff → effectiveCount 4, nessuna escalation', () => {
+    const examples = window(11, 4);
+    const m = measureBucket({ source: 'reviewer-finding', count: examples.length, examples,
+      escalationCutoff: cutoff, threshold: 3, factor: 2 });
+    expect(m.effectiveCount).toBe(4);
+    expect(m.aboveLimit).toBe(false);
+    expect(m.liveExamples.every((e: { snippet: string }) => e.snippet.startsWith('post'))).toBe(true);
+  });
+
+  it('15 in finestra, 7 dopo il cutoff → escalation', () => {
+    const examples = window(8, 7);
+    const m = measureBucket({ source: 'reviewer-finding', count: examples.length, examples,
+      escalationCutoff: cutoff, threshold: 3, factor: 2 });
+    expect(m.effectiveCount).toBe(7);
+    expect(m.aboveLimit).toBe(true);
+  });
+
+  it('invariante: senza escalation precedente né regola conta l intera finestra, come prima', () => {
+    const examples = window(11, 4);
+    const m = measureBucket({ source: 'reviewer-finding', count: examples.length, examples,
+      threshold: 3, factor: 2 });
+    expect(m.cutoff).toBeNull();
+    expect(m.effectiveCount).toBe(examples.length);
+    expect(m.aboveLimit).toBe(true);
+  });
+
+  it('cutoff = il più recente fra chiusura e regola registrata', () => {
+    const rule = Date.parse('2026-09-29T00:00:00Z');
+    const m = measureBucket({ source: 'fix-outcome', count: 3,
+      examples: [{ issue: 1, at: '2026-09-28T00:00:00Z' }, { issue: 2, at: '2026-09-30T00:00:00Z' }],
+      escalationCutoff: cutoff, ruleCutoff: rule });
+    expect(m.cutoff).toBe(rule);
+    expect(m.effectiveCount).toBe(1);
+  });
+
+  it('issue-class non ha timestamp: conteggio invariato anche con un cutoff', () => {
+    const m = measureBucket({ source: 'issue-class', count: 9, examples: [{ issue: 1 }],
+      escalationCutoff: cutoff });
+    expect(m.cutoff).toBeNull();
+    expect(m.effectiveCount).toBe(9);
   });
 });

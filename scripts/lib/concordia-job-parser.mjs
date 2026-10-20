@@ -31,12 +31,14 @@
  * subset. `addressRegion` and the locality are resolved with the shared
  * all-canton inference helper, regardless of the vacancy's source language.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from './jsonld-jobposting.mjs';
+import { selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 
 export const CONCORDIA_KEY = 'concordia';
@@ -234,7 +236,6 @@ export async function fetchAllConcordiaJobs({
   console.log(`  ✓ ${detailUrls.length} jobs from board listing`);
   if (!detailUrls.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailFetchFailures = 0;
   let missingPostingData = 0;
@@ -242,8 +243,9 @@ export async function fetchAllConcordiaJobs({
   let unresolvedLocations = 0;
   for (const url of detailUrls) {
     let ld;
+    let detailHtml = '';
     try {
-      const detailHtml = await fetchPage(url);
+      detailHtml = await fetchPage(url);
       ld = extractJobPostingLd(detailHtml);
     } catch (err) {
       detailFetchFailures += 1;
@@ -258,11 +260,19 @@ export async function fetchAllConcordiaJobs({
     }
 
     const title = normalizeSpace(ld.title);
-    const description = jobPostingDescriptionText(ld.description || '');
-    if (!description || description.split(/\s+/).length < 20) {
+    const ldDescription = jobPostingDescriptionText(ld.description || '');
+    if (!ldDescription || ldDescription.split(/\s+/).length < 20) {
       shortDescriptions += 1;
       continue;
     }
+    // The JSON-LD body is 39-44 % of the rendered vacancy (audit 2026-09-29):
+    // "Dein Arbeitsalltag", "Deine Vorteile" and the agency facts are
+    // page-only. The page is already in hand; the JSON-LD body stays the
+    // fallback when the page text does not contain it.
+    const description = selectProspectiveDetailDescription(detailHtml, {
+      title,
+      listingText: ldDescription,
+    }).text || ldDescription;
 
     const addr = jobPostingAddress(ld);
     const location = normalizeSpace(addr.addressLocality || '');
@@ -274,11 +284,11 @@ export async function fetchAllConcordiaJobs({
     const { postalCode, streetAddress } = resolveConcordiaAddress(addr, location, canton);
     const employmentType = /PART_TIME/i.test(ld.employmentType) ? 'PART_TIME'
       : /FULL_TIME/i.test(ld.employmentType) ? 'FULL_TIME' : 'OTHER';
-    const postedDate = /^\d{4}-\d{2}-\d{2}/.test(String(ld.datePosted || ''))
-      ? String(ld.datePosted).slice(0, 10) : todayIso;
+    const publication = sourcePostingDateFields(ld.datePosted);
 
     const hiringOrgName = normalizeSpace(ld?.hiringOrganization?.name || '') || CONCORDIA_COMPANY_NAME;
-    const sourceLang = detectLang(description || title, 'de');
+    // Language of the vacancy body (JSON-LD), not of the page template.
+    const sourceLang = detectLang(ldDescription || title, 'de');
     const jobSlug = slugify(`${title} ${CONCORDIA_KEY} ${location}`);
     const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
 
@@ -314,7 +324,7 @@ export async function fetchAllConcordiaJobs({
       sector: 'Assicurazioni',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

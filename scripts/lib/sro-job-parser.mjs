@@ -31,10 +31,13 @@
  *   - isTrustedDomain()
  *   - SRO_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { dropRepostedListings, selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -200,10 +203,7 @@ export function extractProspectiveJsonLd(html = '') {
   if (!m) return null;
   try {
     const obj = JSON.parse(m[1]);
-    if (obj && (obj['@type'] === 'JobPosting' || obj['@type'] === 'http://schema.org/JobPosting')) {
-      return obj;
-    }
-    return obj;
+    return extractJobPostingNodesFromJson(obj)[0] || obj;
   } catch {
     return null;
   }
@@ -230,8 +230,8 @@ export async function fetchAllSroJobs() {
   console.log(`  ✓ ${tiles.length} job tiles parsed from SRO listing`);
   if (!tiles.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
+  const pageDescribed = new Set();
   let detailHits = 0;
 
   for (const tile of tiles) {
@@ -270,8 +270,18 @@ export async function fetchAllSroJobs() {
 
     const canton = inferSwissTargetCanton(location) || 'BE';
 
-    const description = ldToDescription(ld) || `${title} — ${SRO_COMPANY_NAME}`;
-    const sourceLang = detectLang(description, 'de');
+    // The JSON-LD body flattens its lists and is 30-55 % of the rendered
+    // vacancy (audit 2026-09-29): "Ihre Vorteile" (training, staff rooms,
+    // holidays, fringe benefits) and the workplace are page-only. The page is
+    // already in hand; the JSON-LD text stays the fallback.
+    const ldDescription = ldToDescription(ld);
+    const pageDescription = detailHtml ? selectProspectiveDetailDescription(detailHtml, {
+      title,
+      listingText: ldDescription,
+    }).text : '';
+    const description = pageDescription || ldDescription || `${title} — ${SRO_COMPANY_NAME}`;
+    // Language of the vacancy body (JSON-LD), not of the page template.
+    const sourceLang = detectLang(ldDescription || description, 'de');
     const jobSlug = slugify(`${title} ${SRO_KEY} ${location}`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
 
@@ -281,12 +291,7 @@ export async function fetchAllSroJobs() {
       : 'OTHER';
 
     const pensum = pensumFromTitle(title);
-    const postedDate = (() => {
-      const raw = ld?.datePosted || ld?.dateCreated || '';
-      const d = new Date(String(raw || ''));
-      if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-      return todayIso;
-    })();
+    const publication = sourcePostingDateFields(ld?.datePosted);
     const validThrough = ld?.validThrough || '';
 
     const job = {
@@ -320,7 +325,7 @@ export async function fetchAllSroJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -335,8 +340,10 @@ export async function fetchAllSroJobs() {
     if (ld?.industry) job.department = normalizeSpace(String(ld.industry));
 
     jobs.push(job);
+    if (pageDescription) pageDescribed.add(job);
   }
 
-  console.log(`\n📋 Total ${SRO_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${tiles.length} enriched via JSON-LD)`);
-  return jobs;
+  const unique = dropRepostedListings(jobs, SRO_COMPANY_NAME, { pageDescribed });
+  console.log(`\n📋 Total ${SRO_COMPANY_NAME} jobs discovered: ${unique.length} (${detailHits}/${tiles.length} enriched via JSON-LD)`);
+  return unique;
 }

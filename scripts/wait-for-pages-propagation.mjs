@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
 /**
  * wait-for-pages-propagation.mjs — Poll the GitHub Pages CDN for the freshly
  * deployed build-id.txt. Returns as soon as the live URL serves the same value
@@ -115,7 +116,10 @@ function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
 
-async function fetchLiveBuildId(url) {
+// Shared with the post-deploy side-effect guard. Both callers must use the
+// same cache-busted GET semantics so a fresh identity check cannot accidentally
+// read an edge-cached marker while the propagation gate reads the origin.
+export async function fetchLiveBuildId(url) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), PER_REQUEST_TIMEOUT_MS);
   const cacheBustUrl = `${url}${url.includes('?') ? '&' : '?'}_=${Date.now()}`;
@@ -342,7 +346,7 @@ async function main() {
 // realpath-based guard as scripts/send-job-alerts.mjs.
 const isEntryPoint = (() => {
   try {
-    return process.argv[1] && realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
+    return process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

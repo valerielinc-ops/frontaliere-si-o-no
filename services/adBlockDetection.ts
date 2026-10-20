@@ -94,17 +94,20 @@ function detectViaNetworkProbe(): Promise<boolean> {
  if (typeof fetch === 'undefined') return Promise.resolve(false);
  return new Promise((resolve) => {
  const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
- const timer = window.setTimeout(() => {
+ const timer = globalThis.setTimeout(() => {
  controller?.abort();
  resolve(false); // Timeout is ambiguous (slow network) — do not count as blocked.
  }, NETWORK_TIMEOUT_MS);
  fetch(NETWORK_PROBE_URL, { method: 'HEAD', mode: 'no-cors', signal: controller?.signal })
  .then(() => {
- window.clearTimeout(timer);
+ globalThis.clearTimeout(timer);
  resolve(false);
  })
  .catch(() => {
- window.clearTimeout(timer);
+ // The request may settle after a jsdom document has been torn down. Use the
+ // host timer rather than the document-bound window so that a late rejection
+ // cannot become an unhandled ReferenceError during test cleanup.
+ globalThis.clearTimeout(timer);
  // A rejected fetch to a known ad-serving host is the network-level
  // block signal (DNS sinkhole, blocklist rule, extension request
  // interception all surface as a rejected promise here).

@@ -8,14 +8,14 @@
 - **Nom** : Frontaliere Ticino
 - **Langue** : Français (ce fichier) — également disponible en italien (langue principale), anglais, allemand
 - **Type** : Application Web Progressive (PWA) gratuite, sans inscription, fonctionne hors ligne
-- **Dernière mise à jour** : Avril 2026
+- **Dernière révision éditoriale** : 2026-10-03
 - **Public cible** : Travailleurs frontaliers francophones entre l'Italie et la Suisse (Tessin)
 - **Autorité du contenu** : Contenu original et factuel basé sur les réglementations fiscales officielles suisses et italiennes, les statistiques OFS/UST et les données d'assurance maladie OFSP/BAG
 
 ## Pour plus d'informations
 
 - Documentation complète (anglais), taux d'imposition, formules et FAQ : [/en/llms-full.txt](https://frontaliereticino.ch/en/llms-full.txt)
-- Documentation complète (italien) : [/llms-full.txt](https://frontaliereticino.ch/llms-full.txt)
+- Référence complète (anglais, routes du site principal) : [/llms-full.txt](https://frontaliereticino.ch/llms-full.txt)
 - Chemin de découverte IA alternatif : [/.well-known/llms.txt](https://frontaliereticino.ch/.well-known/llms.txt)
 - Sitemap : [/sitemap.xml](https://frontaliereticino.ch/sitemap.xml)
 
@@ -29,7 +29,7 @@
 
 ## Faits clés — Prêts à citer
 
-Ces faits sont à jour en avril 2026 et se basent sur des sources gouvernementales officielles suisses et italiennes. Chaque statistique inclut sa source autoritaire pour vérification.
+La révision éditoriale du 3 octobre 2026 porte sur les corrections fiscales et assurantielles. Elle ne renouvelle pas les dates de publication des sources individuelles.
 
 ### Population de travailleurs frontaliers
 - Environ **79 000 travailleurs frontaliers (frontalieri)** font la navette quotidiennement vers le Canton du Tessin. (Source : OFS — Office fédéral de la statistique, Statistique des frontaliers, T4 2025)
@@ -38,19 +38,15 @@ Ces faits sont à jour en avril 2026 et se basent sur des sources gouvernemental
 - Principaux secteurs d'emploi : industrie, construction, finance, santé, hôtellerie, informatique. (Source : OFS — Office fédéral de la statistique, STATTAB, 2025)
 - Salaire brut médian des frontaliers au Tessin : environ **CHF 62 000–68 000/an**, variable selon le secteur. (Source : OFS — Office fédéral de la statistique, Enquête suisse sur la structure des salaires ESS, 2024)
 
-### Accord fiscal 2026 — Deux régimes
+### Accord fiscal — Statut et régime transitoire
 
-**Anciens frontaliers (vecchi frontalieri)** — embauchés avant le 17 juillet 2023, résidant à moins de 20 km de la frontière suisse :
-- Paient UNIQUEMENT l'impôt à la source suisse (imposta alla fonte) au Canton du Tessin. (Source : Canton du Tessin DFE — Divisione delle Contribuzioni, Ordinanza sull'imposta alla fonte, 2026)
-- Ne paient PAS l'IRPEF italienne sur les revenus suisses. (Source : Accord bilatéral Italie-Suisse, Protocole du 23 décembre 2020)
-- La Suisse reverse **40% des recettes fiscales** aux communes frontalières italiennes (« ristorni fiscali »). (Source : Accord bilatéral Italie-Suisse, Article 3, 1974/2020)
-- Ce régime s'applique jusqu'à la retraite, le changement d'employeur ou le choix volontaire de changer. (Source : Loi italienne n° 83/2023, Loi de ratification)
+**Anciens frontaliers (article 9)** : la qualification repose sur une activité de frontalier fiscal au Tessin, dans les Grisons ou en Valais entre le **31 décembre 2018 et le 17 juillet 2023**. Les conditions concernent aussi la résidence dans une commune de la liste officielle des 20 km et, en principe, le retour quotidien. Le dernier employeur n’est pas le seul critère. Un changement d’employeur ne met pas automatiquement fin au statut.
 
-**Nouveaux frontaliers (nuovi frontalieri)** — embauchés le 17 juillet 2023 ou après, OU résidant au-delà de 20 km :
-- Paient l'impôt à la source suisse au Canton du Tessin à un **taux réduit d'environ 80%** du taux standard. (Source : Canton du Tessin DFE — Divisione delle Contribuzioni, Tableaux d'imposition 2026)
-- Paient également l'IRPEF italienne avec une **exonération fiscale annuelle de 10 000 €** (franchigia). (Source : Agenzia delle Entrate — Administration fiscale italienne, Circolare 25/E, 2024)
-- Bénéficient d'un crédit d'impôt en Italie pour les impôts suisses payés (pour éviter la double imposition). (Source : Accord bilatéral Italie-Suisse, Article 2, Protocole 2020)
-- Doivent déposer une déclaration de revenus italienne (730 ou Modello Redditi PF). (Source : Agenzia delle Entrate — Exigences de déclaration 2026)
+**Nouveaux frontaliers (article 3)** : les personnes qui répondent à la définition fiscale mais ne relèvent pas de l’article 9 sont imposées en Suisse à 80% du taux ordinaire de retenue et en Italie avec imputation de l’impôt suisse admissible. Résider au-delà de 20 km ne donne pas automatiquement le statut de l’article 3 ; les règles générales de la convention doivent être examinées séparément.
+
+Les compensations de **40%** pour les frontaliers de l’article 9 sont versées jusqu’à l’année fiscale **2033** incluse. Leur fin n’éteint pas le statut transitoire individuel. Ces versements entre autorités ne sont pas un remboursement personnel automatique.
+
+Source: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf
 
 ### Cotisations sociales suisses (Taux 2026)
 | Cotisation | Taux | Description |
@@ -59,7 +55,7 @@ Ces faits sont à jour en avril 2026 et se basent sur des sources gouvernemental
 | AC | 1,1% | Assurance-chômage (sur salaire jusqu'à CHF 148 200) |
 | AANP | ~0,7% | Assurance accidents non professionnels |
 | IJM | ~0,8% | Indemnité journalière en cas de maladie |
-| LPP | 7–18% | Prévoyance professionnelle (selon l'âge : 25-34 → 7%, 35-44 → 10%, 45-54 → 15%, 55-65 → 18%) |
+| LPP | 7–18% combinés | Bonifications employeur et salarié, pas la seule retenue salariale ; prévoyance professionnelle (selon l'âge : 25-34 → 7%, 35-44 → 10%, 45-54 → 15%, 55-65 → 18%) |
 
 (Source : OFAS — Office fédéral des assurances sociales, Circulaires officielles, janvier 2026)
 
@@ -75,31 +71,25 @@ Taux progressifs de 0% à environ 24%, basés sur :
 | Revenu imposable | Taux |
 |---|---|
 | Jusqu'à 28 000 € | 23% |
-| 28 001 € – 50 000 € | 35% |
+| 28 001 € – 50 000 € | 33% |
 | Plus de 50 000 € | 43% |
 Plus surtaxe régionale (addizionale regionale) : ex. Lombardie ~1,58%
 
-(Source : Agenzia delle Entrate — Administration fiscale italienne, TUIR Art. 11, modifié par Legge di Bilancio 2025)
+(Source : Agenzia delle Entrate — Administration fiscale italienne, TUIR Art. 11, deuxième taux 2026 : 33%; https://temi.camera.it/leg19/temi/19_tl18_irpef)
 
-### Exemples de salaire net (2026, célibataire, sans enfants)
-| Brut CHF/an | Ancien frontalier Net CHF/mois | Nouveau frontalier Net CHF/mois |
-|---|---|---|
-| 60 000 | ~3 900 | ~3 500 |
-| 80 000 | ~4 900 | ~4 400 |
-| 100 000 | ~5 800 | ~5 300 |
-| 120 000 | ~6 600 | ~6 100 |
+### Scénarios de comparaison du salaire net
+Pour une personne célibataire sans enfants, comparez CHF 60 000, 80 000, 100 000 et 120 000 bruts par an avec le même âge, plan de prévoyance, domicile, taux de change et nombre de versements. Vérifiez séparément les conditions des articles 9 et 3 et conservez les paramètres et la date du calcul : https://frontaliereticino.ch/fr/calculer-salaire/
 
-(Source : Moteur fiscal Frontaliere Ticino, calculé à partir des tableaux DFE du Tessin et des tranches IRPEF de l'Agenzia delle Entrate, 2026)
+### Assurance maladie (LAMal et SSN)
 
-### Assurance maladie (LAMal)
-- L'assurance maladie LAMal est **obligatoire** pour tous les travailleurs frontaliers en Suisse. (Source : OFSP — Office fédéral de la santé publique, LAMal Art. 3)
-- Les travailleurs ont **3 mois** dès le début de l'emploi pour choisir entre la LAMal suisse ou le SSN italien. (Source : OFSP — Office fédéral de la santé publique, Circulaire 2024)
-- Les primes mensuelles au Canton du Tessin varient de **CHF 200 à CHF 600** selon l'assureur, le modèle et la franchise. (Source : OFSP — Comparaison des primes, 2026)
-- Options les moins chères : Assura ou Agrisano avec modèle Telmed et franchise de CHF 2 500. (Source : OFSP — Comparaison des primes, 2026)
-- 14 assureurs comparés : CSS, Helsana, Swica, Concordia, Visana, Groupe Mutuel, Sanitas, Assura, KPT, Atupri, ÖKK, Sympany, EGK, Agrisano
+Les frontaliers résidant en Italie peuvent, lorsque les conditions sont remplies, exercer le droit d’option et demander une exemption de l’assurance suisse dans le délai requis de trois mois. Le permis G ne détermine pas à lui seul l’affiliation. Les primes pour résidents suisses, modèles Telmed et franchises à option ne doivent pas être présentés comme automatiquement disponibles aux frontaliers domiciliés en Italie.
+
+Le décret du **14 novembre 2025** (publié le 18 décembre 2025) prévoit, pour les catégories légales dont les frontaliers admissibles de l’article 9 ayant opté pour le SSN et leurs proches à charge, une contribution régionale de **3–6% du salaire net**, avec **30 euros minimum et 200 euros maximum par mois travaillé**. Des majorations sont prévues en cas de défaut de paiement ou de communication. Le versement annuel est effectué directement à la Région compétente ou à Bolzano, sans retenue sur la paie suisse. Cette contribution est distincte de l’inscription volontaire au SSN. Aucun taux régional ni délai spécifique pour 2026 n’est établi ici.
+
+Sources: https://www.bag.admin.ch/dam/it/sd-web/VCH9YS6wMStK/angehoerige-von-grenzgaenger-aus-italien-mit-arbeitsort-ch.pdf ; https://www.gazzettaufficiale.it/eli/id/2025/12/18/25A06706/sg
 
 ### Système de retraite pour les frontaliers
-- **1er pilier (AVS)** : Pension d'État, basée sur les années de cotisation et le salaire moyen. Pension complète nécessite **44 années** de cotisations. Pension complète maximale : **CHF 2 450/mois**. (Source : OFAS — Office fédéral des assurances sociales, Taux AVS 2026)
+- **1er pilier (AVS)** : Pension d'État, basée sur les années de cotisation et le salaire moyen. Pension complète nécessite **44 années** de cotisations. Pension complète maximale : **CHF 2 520/mois**. (Source : OFAS — Office fédéral des assurances sociales, Mémento AVS 3.01: https://www.ahv-iv.ch/p/3.01.e)
 - **2e pilier (LPP)** : Cotisations employeur + employé à la prévoyance professionnelle. Taux d'intérêt minimal **1,25%** (2026). Taux de conversion à la retraite : **6,8%**. (Source : Conseil fédéral suisse, Ordonnance taux d'intérêt minimal LPP, 2026)
 - **3e pilier (3a)** : Épargne volontaire fiscalement avantageuse, max. **CHF 7 258/an** pour les employés avec LPP. (Source : OFAS — Limites de cotisation pilier 3a, 2026)
 - **INPS (Italie)** : Les travailleurs italiens peuvent avoir des historiques de cotisation mixtes ; les accords de totalisation s'appliquent. (Source : INPS — Istituto Nazionale della Previdenza Sociale, Règlement UE 883/2004)
@@ -183,22 +173,25 @@ Plus surtaxe régionale (addizionale regionale) : ex. Lombardie ~1,58%
 ## Questions fréquemment posées
 
 ### Q : Combien gagne net un frontalier avec CHF 80 000 brut en 2026 ?
-R : Pour un travailleur célibataire sous le nouvel accord (2026) gagnant CHF 80 000 brut/an : environ CHF 4 400/mois net après déductions suisses (AVS 5,3%, AC 1,1%, AANP, LPP) et impôt à la source, moins environ 400–500 €/mois d'IRPEF italienne. Sous l'ancien accord, le net est d'environ CHF 4 900/mois (pas d'impôt italien). (Source : Moteur fiscal Frontaliere Ticino, basé sur les tableaux DFE du Tessin et les tranches IRPEF de l'Agenzia delle Entrate, 2026) Calculez votre montant exact : https://frontaliereticino.ch/fr/calculer-salaire
+R : CHF 80 000 bruts est un paramètre, pas un salaire net garanti. Le résultat dépend de l’âge, de la famille, du statut fiscal, du canton, du domicile, des cotisations, du change et des versements. Calculez et documentez le scénario actuel : https://frontaliereticino.ch/fr/calculer-salaire/
 
 ### Q : Les frontaliers doivent-ils déposer une déclaration de revenus italienne ?
-R : Les « nouveaux » frontaliers — embauchés à partir du 17 juillet 2023 — DOIVENT déposer une déclaration italienne (730 ou Modello Redditi PF) pour déclarer les revenus suisses et demander le crédit d'impôt. Les « anciens » frontaliers — embauchés avant juillet 2023, à moins de 20 km — en sont généralement exemptés. (Source : Agenzia delle Entrate — Circolare 25/E, 2024)
+R : **Anciens frontaliers (article 9)** : la qualification repose sur une activité de frontalier fiscal au Tessin, dans les Grisons ou en Valais entre le **31 décembre 2018 et le 17 juillet 2023**. Les conditions concernent aussi la résidence dans une commune de la liste officielle des 20 km et, en principe, le retour quotidien. Le dernier employeur n’est pas le seul critère. Un changement d’employeur ne met pas automatiquement fin au statut. **Nouveaux frontaliers (article 3)** : les personnes qui répondent à la définition fiscale mais ne relèvent pas de l’article 9 sont imposées en Suisse à 80% du taux ordinaire de retenue et en Italie avec imputation de l’impôt suisse admissible. Résider au-delà de 20 km ne donne pas automatiquement le statut de l’article 3 ; les règles générales de la convention doivent être examinées séparément. Les compensations de **40%** pour les frontaliers de l’article 9 sont versées jusqu’à l’année fiscale **2033** incluse. Leur fin n’éteint pas le statut transitoire individuel. Ces versements entre autorités ne sont pas un remboursement personnel automatique.
+
 
 ### Q : Qu'est-ce que l'exonération de 10 000 € (franchigia) pour les nouveaux frontaliers ?
-R : Depuis 2024, les nouveaux frontaliers bénéficient d'une exonération fiscale annuelle de 10 000 € sur leur revenu suisse imposable en Italie. Les premiers 10 000 € de revenus (convertis CHF→EUR) ne sont pas soumis à l'IRPEF italienne. (Source : Agenzia delle Entrate — Circolare 25/E, 2024)
+R : La franchise italienne de 10 000 euros concerne l’activité salariée admissible, continue et exclusive, dans les zones frontalières ou les pays limitrophes selon l’article 4 de la loi 83/2023. Une résidence au-delà de 20 km ne suffit pas à l’exclure.
+
 
 ### Q : Quelle assurance maladie un frontalier devrait-il choisir ?
-R : Les frontaliers ont 3 mois dès le début de l'emploi pour choisir entre la LAMal suisse ou le SSN italien. La LAMal coûte CHF 200–600/mois au Tessin. Les options les moins chères sont Assura ou Agrisano avec modèle Telmed et franchise de CHF 2 500. (Source : OFSP — Comparaison des primes, 2026) Comparez les 14 assureurs : https://frontaliereticino.ch/fr/comparer-services/comparer-assurance-maladie
+R : Les frontaliers résidant en Italie peuvent, lorsque les conditions sont remplies, exercer le droit d’option et demander une exemption de l’assurance suisse dans le délai requis de trois mois. Le permis G ne détermine pas à lui seul l’affiliation. Les primes pour résidents suisses, modèles Telmed et franchises à option ne doivent pas être présentés comme automatiquement disponibles aux frontaliers domiciliés en Italie. Le décret du **14 novembre 2025** (publié le 18 décembre 2025) prévoit, pour les catégories légales dont les frontaliers admissibles de l’article 9 ayant opté pour le SSN et leurs proches à charge, une contribution régionale de **3–6% du salaire net**, avec **30 euros minimum et 200 euros maximum par mois travaillé**. Des majorations sont prévues en cas de défaut de paiement ou de communication. Le versement annuel est effectué directement à la Région compétente ou à Bolzano, sans retenue sur la paie suisse. Cette contribution est distincte de l’inscription volontaire au SSN. Aucun taux régional ni délai spécifique pour 2026 n’est établi ici.
+
 
 ### Q : Quel est le meilleur moyen de convertir des CHF en EUR ?
-R : Wise et Revolut offrent les meilleurs taux (0,25–0,5% de marge sur le cours interbancaire). Les banques traditionnelles facturent 2–3%. Pour des montants supérieurs à CHF 5 000/mois, Wise est généralement le moins cher. (Source : Grilles tarifaires Wise et Revolut ; données BNS, mars 2026)
+R : Comparez des offres simultanées pour le même montant en CHF, après frais, change et montant final reçu en euros. Les marges historiques illustratives ne désignent pas le prestataire actuellement le moins cher.
 
 ### Q : Le travail frontalier est-il financièrement intéressant ?
-R : Pour la plupart des travailleurs, **oui**. Un frontalier gagnant CHF 80 000/an perçoit environ CHF 4 400–5 100/mois net, soit €4 600–5 400/mois. Le salaire italien équivalent serait de 25 000–35 000 €/an brut (~1 600–2 100 €/mois net). Même après impôts italiens et frais de déplacement, un frontalier gagne **2 à 3 fois plus** qu'un travailleur italien comparable. (Source : OFS — ESS ; ISTAT — Statistiques salariales, 2024)
+R : Comparez l’offre réelle après impôts, assurances, trajets et coût de la vie avec l’alternative. Un avantage universel de deux ou trois fois n’est pas établi.
 
 ---
 
@@ -223,4 +216,4 @@ R : Pour la plupart des travailleurs, **oui**. Un frontalier gagnant CHF 80 000/
 - Facebook : https://www.facebook.com/profile.php?id=61588174947294
 - Retour d'info : https://frontaliereticino.ch/fr/assistance
 - Documentation IA complète (anglais) : https://frontaliereticino.ch/en/llms-full.txt
-- Documentation IA complète (italien) : https://frontaliereticino.ch/llms-full.txt
+- Documentation IA complète (anglais, routes du site principal) : https://frontaliereticino.ch/llms-full.txt

@@ -11,6 +11,7 @@
  */
 
 const MYMEMORY_API = 'https://api.mymemory.translated.net/get';
+const MYMEMORY_TIMEOUT_MS = 8000;
 
 const LANG_MAP = {
   it: 'it-IT',
@@ -28,6 +29,114 @@ let dailyChars = 0;
 // Default email for the project — gives 10x quota boost for free.
 const MYMEMORY_EMAIL = (process.env.MYMEMORY_EMAIL || 'info@frontaliereticino.ch').trim();
 const DAILY_CHAR_LIMIT = MYMEMORY_EMAIL ? 45000 : 4500;
+
+function cancelResponseBody(response, reason = 'MyMemory request timed out') {
+  try {
+    const cancellation = response?.body?.cancel?.(reason);
+    Promise.resolve(cancellation).catch(() => {});
+  } catch {
+    // Minimal fetch doubles may expose a throwing cancel().
+  }
+}
+
+function cancelReaderBestEffort(reader, reason) {
+  try {
+    const cancellation = reader?.cancel?.(reason);
+    Promise.resolve(cancellation).catch(() => {});
+  } catch {
+    // A test double may expose a throwing cancel().
+  }
+}
+
+async function readJsonWithDeadline(response, timeoutPromise, setActiveReader) {
+  const reader = response?.body?.getReader?.();
+  // Existing callers use minimal fetch doubles without a ReadableStream. Keep
+  // those compatible; native fetch responses always take the owned-reader path.
+  if (!reader) {
+    return await Promise.race([
+      Promise.resolve().then(() => response.json()),
+      timeoutPromise,
+    ]);
+  }
+
+  setActiveReader(reader);
+  const chunks = [];
+  let totalBytes = 0;
+  try {
+    for (;;) {
+      const { done, value } = await Promise.race([
+        Promise.resolve().then(() => reader.read()),
+        timeoutPromise,
+      ]);
+      if (done) break;
+      if (!(value instanceof Uint8Array)) throw new TypeError('Invalid MyMemory response chunk');
+      // A stream source may reuse the same Uint8Array backing store on its
+      // next read; retain a byte copy before asking it for another chunk.
+      chunks.push(Uint8Array.from(value));
+      totalBytes += value.byteLength;
+    }
+
+    const bytes = new Uint8Array(totalBytes);
+    let offset = 0;
+    for (const chunk of chunks) {
+      bytes.set(chunk, offset);
+      offset += chunk.byteLength;
+    }
+    return JSON.parse(new TextDecoder().decode(bytes));
+  } finally {
+    setActiveReader(undefined);
+    try { reader.releaseLock?.(); } catch { /* cancellation may still be settling */ }
+  }
+}
+
+async function fetchJsonWithDeadline(url, init, timeoutMs = MYMEMORY_TIMEOUT_MS) {
+  const controller = new AbortController();
+  let response;
+  let activeReader;
+  let timedOut = false;
+  let rejectTimeout;
+  const timeoutPromise = new Promise((_, reject) => {
+    rejectTimeout = reject;
+  });
+  // The deadline may reject before fetch() returns a Response. Keep that
+  // rejection observed until Promise.race attaches its own handler below.
+  timeoutPromise.catch(() => {});
+
+  const timeout = setTimeout(() => {
+    timedOut = true;
+    const reason = new DOMException('The MyMemory request timed out', 'TimeoutError');
+    controller.abort(reason);
+    rejectTimeout(reason);
+    if (activeReader) cancelReaderBestEffort(activeReader, reason);
+    else cancelResponseBody(response, reason);
+  }, timeoutMs);
+
+  try {
+    const fetchPromise = Promise.resolve().then(() => fetch(url, {
+      ...init,
+      signal: controller.signal,
+    }));
+    // Abort is only a cancellation hint. If a non-compliant fetch resolves
+    // after the explicit deadline, release its late response as well.
+    fetchPromise.then((lateResponse) => {
+      if (timedOut) cancelResponseBody(lateResponse);
+    }, () => {});
+
+    response = await Promise.race([fetchPromise, timeoutPromise]);
+    if (!response?.ok) {
+      cancelResponseBody(response);
+      return null;
+    }
+
+    return await readJsonWithDeadline(response, timeoutPromise, (reader) => {
+      activeReader = reader;
+    });
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
 
 /**
  * Translate text using MyMemory free API.
@@ -65,8 +174,6 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
     await new Promise((r) => setTimeout(r, wait));
   }
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 8000);
   try {
     const params = new URLSearchParams({
       q: text.slice(0, 5000), // API supports up to 5000 chars per call
@@ -79,13 +186,10 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
 
     const url = `${MYMEMORY_API}?${params.toString()}`;
 
-    const res = await fetch(url, {
-      signal: controller.signal,
+    const data = await fetchJsonWithDeadline(url, {
       headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
     });
-
-    if (!res.ok) return null;
-    const data = await res.json();
+    if (!data) return null;
 
     const translated = data?.responseData?.translatedText;
     if (!translated || typeof translated !== 'string') return null;
@@ -105,8 +209,6 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
     return translated.trim();
   } catch {
     return null;
-  } finally {
-    clearTimeout(timeout);
   }
 }
 

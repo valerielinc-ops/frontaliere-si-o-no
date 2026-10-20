@@ -10,8 +10,8 @@
  * from disk"). A scheduled trigger living in `functions/src/*.js` that
  * bulk-selects `newsletter_subscribers` would not be caught there. Flagged as
  * a deferred item on #5721's adversarial check (#5736): verified by hand that
- * no such trigger exists today (the three `onSchedule` exports in
- * `functions/index.js` all operate on `publisher_jobs`/`applications`, never
+ * no such trigger exists today (the `onSchedule` exports in `functions/index.js`
+ * operate on `publisher_jobs`/`applications` or dispatch external workflows, never
  * `newsletter_subscribers`) — this file turns that one-time verification into
  * a standing guard against it regressing.
  *

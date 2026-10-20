@@ -9,20 +9,29 @@
  *
  * Previously used jobopportunity.ch (defunct as of early 2026).
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/helsinn-job-parser.mjs';
+import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, extractHelsinnJobBody } from './lib/helsinn-job-parser.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './lib/authoritative-empty-snapshot.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -56,14 +65,51 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'it,en;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
-    return await res.text();
+    return await fetchHtml(url, {
+      timeoutMs,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'it,en;q=0.9',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+    });
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
+}
+
+const DETAIL_DELAY_MS = 1000;
+
+/**
+ * Build one Helsinn job from its listing row and the vacancy text of its
+ * e-lavoro detail page (issue 5253). The crawler used to be listing-only and
+ * published an invented English sentence ("X position at Helsinn Healthcare
+ * SA in Lugano … a track record of over forty years.") as the whole
+ * description. Only the source text is published now; without at least 50
+ * words of it the job is not published (returns null) — the merge keeps a
+ * stored record.
+ */
+export function buildHelsinnJob(listing, body = '') {
+  const description = String(body || '').trim();
+  if (!meetsSourceBodyFloor(description)) return null;
+  const slug = slugify(listing.title, 'helsinn');
+  const sourceLang = detectLang(description, 'it');
+  return {
+    url: listing.url, applyUrl: listing.url, title: listing.title,
+    company: COMPANY_NAME, companyKey: COMPANY_KEY,
+    location: listing.location || 'Lugano', canton: HQ.canton, country: 'CH',
+    addressLocality: 'Lugano-Pambio Noranco', addressRegion: HQ.addressRegion, addressCountry: 'CH',
+    postalCode: HQ.postalCode, streetAddress: 'Via Pian Scairolo 9',
+    description,
+    ...sourceSlotTitleAndSlug(listing.title, slug, sourceLang),
+    descriptionByLocale: { [sourceLang]: description },
+    slug,
+    category: detectCategory(listing.title),
+    ...sourcePostingDateFields(),
+    source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, description),
+    sourceLang,
+    experienceLevel: detectExperienceLevel(listing.title),
+    sector: 'Farmaceutica / Biopharma',
+  };
 }
 
 async function fetchJobs() {
@@ -72,27 +118,22 @@ async function fetchJobs() {
   if (!html) { console.error('❌ Failed to fetch Helsinn careers page.'); return []; }
   const listings = parseListingPage(html);
   console.log(`  📋 Jobs found: ${listings.length}`);
-  if (!listings.length) return [];
+  if (!listings.length) {
+    if (isAuthoritativeEmptySnapshot(listings)) {
+      return markAuthoritativeEmptySnapshot([], listings.authoritativeEmptyEvidence);
+    }
+    return [];
+  }
 
   const jobs = [];
-  for (const listing of listings) {
-    const slug = slugify(listing.title, 'helsinn');
-    jobs.push({
-      url: listing.url, applyUrl: listing.url, title: listing.title,
-      company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: listing.location || 'Lugano', canton: HQ.canton, country: 'CH',
-      addressLocality: 'Lugano-Pambio Noranco', addressRegion: HQ.addressRegion, addressCountry: 'CH',
-      postalCode: HQ.postalCode, streetAddress: 'Via Pian Scairolo 9',
-      description: `${listing.title} position at Helsinn Healthcare SA in Lugano, Ticino. Helsinn is a fully integrated biopharma company with a track record of over forty years.`,
-      titleByLocale: { en: listing.title }, descriptionByLocale: {},
-      slug, slugByLocale: { en: slug, it: slug },
-      category: detectCategory(listing.title),
-      datePosted: new Date().toISOString().split('T')[0],
-      source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, listing.snippet || ''),
-      sourceLang: detectLang(listing.title, 'it'),
-      experienceLevel: detectExperienceLevel(listing.title),
-      sector: 'Farmaceutica / Biopharma',
-    });
+  for (const [index, listing] of listings.entries()) {
+    if (index > 0) await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+    const job = buildHelsinnJob(listing, extractHelsinnJobBody(await fetchPage(listing.url)));
+    if (!job) {
+      console.log(`  ⏭️ ${listing.title}: no readable vacancy text on the detail page — not published this run`);
+      continue;
+    }
+    jobs.push(job);
   }
   return jobs;
 }
@@ -112,7 +153,10 @@ async function mergeJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs).map((job) => {
+    dropStaleLocaleDescriptions(job);
+    return job;
+  });
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -137,7 +181,51 @@ async function main() {
   console.log('═══════════════════════════════════════════════\n');
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
   const discovered = await fetchJobs();
-  if (!discovered.length) { console.log('⚠️ No Helsinn jobs discovered.'); return; }
+  const authoritativeEmptySnapshot = isAuthoritativeEmptySnapshot(discovered);
+  if (!discovered.length && !authoritativeEmptySnapshot) {
+    console.log('⚠️ No Helsinn jobs discovered; keeping the previous slice.');
+    return;
+  }
+
+  if (authoritativeEmptySnapshot) {
+    const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob);
+    const beforeSnapshot = snapshotJobSlugs(priorJobs);
+    const emptyDiff = computeCrawlDiff(beforeSnapshot, new Map());
+    const archived = archiveRemovedJobsToSlice(priorJobs, COMPANY_KEY);
+    writeJobsCrawlerSlice(COMPANY_KEY, [], {
+      skipShrinkGuard: true,
+      preserveExistingSlugs: true,
+    });
+    printCrawlChangeSummary(emptyDiff, COMPANY_NAME);
+    writeCrawlChangeSummaryToGH(emptyDiff, COMPANY_NAME);
+    const durationMs = getCrawlerElapsedMs();
+    writeSummaryCrawlerSlice({
+      key: COMPANY_KEY,
+      label: COMPANY_NAME,
+      generatedAt: new Date().toISOString(),
+      total: 0,
+      discovered: 0,
+      parsed: 0,
+      written: 0,
+      lastFetchOutcome: 'ok',
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
+      newCount: 0,
+      updatedCount: 0,
+      removedCount: emptyDiff.removedJobs.length,
+      unchangedCount: 0,
+      durationMs,
+      avgDurationMs: durationMs,
+      durationHistory: [durationMs],
+      newJobs: [],
+      updatedJobs: [],
+      removedJobs: emptyDiff.removedJobs.slice(0, 30),
+      unchangedJobs: [],
+    });
+    await assembleJobsDataset();
+    console.log(`ℹ️ Persisted authoritative Helsinn zero; archived ${archived} expired route(s).`);
+    return;
+  }
   updateAdapterConfig(discovered.map((j) => j.url));
   await mergeJobs(discovered);
   console.log('\n🌐 Running base crawler for AI localization...');
@@ -149,9 +237,13 @@ async function main() {
   const _dur = getCrawlerElapsedMs();
   const _sliceJobs = (readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob);
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
   console.log('\n✅ Helsinn crawler complete.');
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Helsinn'));
+// Guarded so tests can import the helpers without running a live crawl that
+// writes the slice and the summary under data/.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Helsinn'));
+}

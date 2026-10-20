@@ -14,6 +14,8 @@ const mocks = vi.hoisted(() => ({
   getAdminDb: vi.fn(),
   resolveCvLink: vi.fn(),
   getStripe: vi.fn(),
+  retrieveSumUpCheckout: vi.fn(),
+  refundSumUpTransaction: vi.fn(),
 }));
 
 vi.mock('firebase-admin/auth', () => ({
@@ -28,10 +30,16 @@ vi.mock('../functions/src/publisherApplicationsCore.js', () => ({
 vi.mock('../functions/src/stripePublisherCore.js', () => ({
   getStripe: () => mocks.getStripe(),
 }));
+vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
+  retrieveSumUpCheckout: (...args: unknown[]) => mocks.retrieveSumUpCheckout(...args),
+  refundSumUpTransaction: (...args: unknown[]) => mocks.refundSumUpTransaction(...args),
+  SumUpApiError: class SumUpApiError extends Error {},
+}));
 
 type Store = Record<string, Record<string, any>>;
 
-function makeDb(initial: Record<string, any> = {}) {
+// `meta`: the server-only documents (meta/{id}); without it the collection is unknown here, as any other.
+function makeDb(initial: Record<string, any> = {}, meta: Record<string, any> | null = null) {
   const store: Store = { assisted_applications: { ...initial } };
   const events: Record<string, any[]> = {};
   let eventNumber = 0;
@@ -85,6 +93,9 @@ function makeDb(initial: Record<string, any> = {}) {
 
   const db = {
     collection(name: string) {
+      if (name === 'meta' && meta) {
+        return { doc: (id: string) => ({ id, get: async () => ({ id, exists: meta[id] != null, data: () => meta[id] }) }) };
+      }
       if (name !== 'assisted_applications') throw new Error(`unexpected collection ${name}`);
       return applicationCollection;
     },
@@ -146,6 +157,8 @@ describe('handleAssistedApplicationAdmin', () => {
     mocks.resolveCvLink.mockReset();
     mocks.resolveCvLink.mockResolvedValue('https://storage.example.test/signed-cv');
     mocks.getStripe.mockReset();
+    mocks.retrieveSumUpCheckout.mockReset();
+    mocks.refundSumUpTransaction.mockReset();
     signedStripe.refunds.create.mockReset();
     signedStripe.checkout.sessions.retrieve.mockReset();
     mocks.getStripe.mockResolvedValue(signedStripe);
@@ -155,7 +168,7 @@ describe('handleAssistedApplicationAdmin', () => {
     const database = makeDb({
       ready: {
         jobId: 'job-1', jobUrl: 'https://jobs.example.test/job-1', companyName: 'ACME SA',
-        jobTitle: 'Developer', paymentStatus: 'paid', amountTotal: 99, currency: 'eur',
+        jobTitle: 'Developer', paymentStatus: 'paid', amountTotal: 199, currency: 'eur',
         submissionStatus: 'ready_for_manual_submission', cvStorageKey: 'assisted-application-uploads/ready/cv.pdf',
         cvScanStatus: 'clean',
         consentVersion: 'assisted-application-v1', consentedAt: '2026-09-15T10:00:00.000Z',
@@ -179,33 +192,239 @@ describe('handleAssistedApplicationAdmin', () => {
     expect(mocks.resolveCvLink).toHaveBeenCalledWith('assisted-application-uploads/ready/cv.pdf');
   });
 
-  it('keeps unscanned, pending and infected CVs out of the admin queue', async () => {
+  it('returns the read-only order page state shown to the candidate', async () => {
+    const database = makeDb({
+      paid: {
+        jobTitle: 'Developer', companyName: 'ACME SA', paymentStatus: 'paid',
+        submissionStatus: 'awaiting_upload', cvStorageKey: 'assisted-application-uploads/paid/cv.pdf',
+        consentVersion: 'assisted-application-v2', consentedAt: '2026-09-15T10:00:00.000Z',
+        updatedAt: '2026-09-15T10:05:00.000Z', applicantEmail: 'candidate@example.test',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'candidateView', orderId: 'paid' },
+    }));
+
+    expect(result).toEqual({
+      status: 200,
+      body: {
+        ok: true,
+        candidateView: {
+          orderId: 'paid',
+          jobTitle: 'Developer',
+          companyName: 'ACME SA',
+          pageState: 'paid',
+          paymentStatus: 'paid',
+          submissionStatus: 'awaiting_upload',
+          hasCv: true,
+          hasConsent: true,
+          updatedAt: '2026-09-15T10:05:00.000Z',
+        },
+      },
+    });
+  });
+
+  it('maps the queued candidate page before payment and rejects an unknown order', async () => {
+    const database = makeDb({ queued: { paymentStatus: 'pending', submissionStatus: 'awaiting_payment' } });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const queued = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'candidateView', orderId: 'queued' },
+    }));
+    const missing = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'candidateView', orderId: 'missing' },
+    }));
+
+    expect(queued).toMatchObject({
+      status: 200,
+      body: { candidateView: { pageState: 'pending', paymentStatus: 'pending', submissionStatus: 'awaiting_payment' } },
+    });
+    expect(missing).toEqual({ status: 404, body: { ok: false, error: 'order_not_found' } });
+  });
+
+  it('keeps the candidate page precedence once submission is taken in charge', async () => {
+    const database = makeDb({
+      ready: {
+        paymentStatus: 'paid',
+        submissionStatus: 'ready_for_manual_submission',
+        updatedAt: '2026-09-15T10:05:00.000Z',
+      },
+      in_progress: { paymentStatus: 'paid', submissionStatus: 'in_progress' },
+      submitted: { paymentStatus: 'paid', submissionStatus: 'submitted' },
+      blocked: { paymentStatus: 'paid', submissionStatus: 'blocked' },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    for (const orderId of ['ready', 'in_progress', 'submitted', 'blocked']) {
+      const result = await handleAssistedApplicationAdmin(request({
+        method: 'POST',
+        body: { action: 'candidateView', orderId },
+      }));
+
+      expect(result).toMatchObject({
+        status: 200,
+        body: { candidateView: { orderId, pageState: 'submitted', submissionStatus: orderId === 'ready' ? 'ready_for_manual_submission' : orderId } },
+      });
+    }
+  });
+
+  it('never hides a paid order and withholds only CV links with a bad or pending verdict', async () => {
     const database = makeDb({
       clean: {
         paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
         cvStorageKey: 'assisted-application-uploads/clean/cv.pdf', cvScanStatus: 'clean',
+        createdAt: '2026-09-15T10:05:00.000Z',
       },
-      missing: {
+      unscanned: {
         paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
-        cvStorageKey: 'assisted-application-uploads/missing/cv.pdf',
+        cvStorageKey: 'assisted-application-uploads/unscanned/cv.pdf',
+        cvFileCheck: { key: 'assisted-application-uploads/unscanned/cv.pdf', verdict: 'ok', detectedType: 'pdf' },
+        createdAt: '2026-09-15T10:04:00.000Z',
       },
       pending: {
         paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
         cvStorageKey: 'assisted-application-uploads/pending/cv.pdf', cvScanStatus: 'pending',
+        createdAt: '2026-09-15T10:03:00.000Z',
       },
       infected: {
         paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
         cvStorageKey: 'assisted-application-uploads/infected/cv.pdf', cvScanStatus: 'infected',
+        createdAt: '2026-09-15T10:02:00.000Z',
+      },
+      mismatch: {
+        paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
+        cvStorageKey: 'assisted-application-uploads/mismatch/cv.pdf',
+        cvFileCheck: { key: 'assisted-application-uploads/mismatch/cv.pdf', verdict: 'type_mismatch', detectedType: null },
+        createdAt: '2026-09-15T10:01:00.000Z',
       },
     });
     mocks.getAdminDb.mockReturnValue(database.db);
 
     const result = await handleAssistedApplicationAdmin(request());
+    const byId = Object.fromEntries(result.body.orders.map((order: any) => [order.orderId, order]));
 
     expect(result.status).toBe(200);
-    expect(result.body.orders.map((order: any) => order.orderId)).toEqual(['clean']);
-    expect(mocks.resolveCvLink).toHaveBeenCalledTimes(1);
-    expect(mocks.resolveCvLink).toHaveBeenCalledWith('assisted-application-uploads/clean/cv.pdf');
+    expect(Object.keys(byId).sort()).toEqual(['clean', 'infected', 'mismatch', 'pending', 'unscanned']);
+    expect(byId.clean).toMatchObject({ hasCv: true, cvUrl: 'https://storage.example.test/signed-cv', cvScanStatus: 'clean' });
+    expect(byId.unscanned).toMatchObject({ hasCv: true, cvUrl: 'https://storage.example.test/signed-cv', cvScanStatus: 'unscanned', cvFileCheck: 'ok' });
+    expect(byId.pending).toMatchObject({ hasCv: true, cvUrl: null, cvScanStatus: 'pending' });
+    expect(byId.infected).toMatchObject({ hasCv: true, cvUrl: null, cvScanStatus: 'infected' });
+    expect(byId.mismatch).toMatchObject({ hasCv: true, cvUrl: null, cvFileCheck: 'type_mismatch' });
+    expect(mocks.resolveCvLink).toHaveBeenCalledTimes(2);
+  });
+
+  // The self-check of the PDF renderer (functions/src/assistedApplicationRendererCheck.js), read and never run here.
+  it('returns the last self-check of the PDF renderer next to the orders', async () => {
+    const check = {
+      status: 'failed', switch: 'typst', error: 'assisted-letter.typ: 0: file not found', node: 'v22.0.0',
+      service: 'sweepassistedapplicationfollowups', revision: 'sweepassistedapplicationfollowups-00042-abc', rssMb: 180, checkedAt: 2_000, failingSince: 1_000,
+    };
+    const order = { ready: { paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission', createdAt: '2026-09-15T10:00:00.000Z' } };
+
+    mocks.getAdminDb.mockReturnValue(makeDb(order, { assistedApplicationPdfRenderer: check }).db);
+    const stored = await handleAssistedApplicationAdmin(request());
+    mocks.getAdminDb.mockReturnValue(makeDb(order, {}).db);
+    const never = await handleAssistedApplicationAdmin(request());
+
+    expect(stored.body).toMatchObject({ ok: true, pdfRenderer: check, orders: [expect.objectContaining({ orderId: 'ready' })] });
+    // Before the first check.
+    expect(never.body).toMatchObject({ ok: true, pdfRenderer: null });
+  });
+
+  it('lists the queue when the self-check cannot be read', async () => {
+    // No `meta` here: the fake database throws on it, as a failing read would.
+    mocks.getAdminDb.mockReturnValue(makeDb({
+      ready: { paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission', createdAt: '2026-09-15T10:00:00.000Z' },
+    }).db);
+    const logged = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const result = await handleAssistedApplicationAdmin(request());
+
+    expect(result.status).toBe(200);
+    expect(result.body).toMatchObject({ ok: true, pdfRenderer: null, orders: [expect.objectContaining({ orderId: 'ready' })] });
+    expect(logged).toHaveBeenCalledWith('[manageAssistedApplicationAdmin] renderer check not read', 'unexpected collection meta');
+    logged.mockRestore();
+  });
+
+  it('lists paid orders still waiting for materials with the checkout email and email status', async () => {
+    const database = makeDb({
+      waiting: {
+        paymentStatus: 'paid', submissionStatus: 'awaiting_upload', customerEmail: 'buyer@example.com', locale: 'fr',
+        notifications: { customer_intro: { status: 'sent' } },
+        createdAt: '2026-09-24T09:21:59.000Z',
+      },
+      unpaid: { paymentStatus: 'pending', submissionStatus: 'awaiting_payment' },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const all = await handleAssistedApplicationAdmin(request());
+    const filtered = await handleAssistedApplicationAdmin(request({ query: { status: 'awaiting_upload' } }));
+
+    expect(all.body.orders.map((order: any) => order.orderId)).toEqual(['waiting']);
+    expect(all.body.orders[0]).toMatchObject({
+      submissionStatus: 'awaiting_upload',
+      customerEmail: 'buyer@example.com',
+      locale: 'fr',
+      hasCv: false,
+      cvScanStatus: null,
+      emails: { intro: 'sent', reminder: null, submitted: null },
+    });
+    expect(filtered.body.orders.map((order: any) => order.orderId)).toEqual(['waiting']);
+  });
+
+  it('keeps concierge orders out of the one-off queue and lists them through the concierge filter', async () => {
+    const database = makeDb({
+      oneOff: {
+        paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
+        createdAt: '2026-09-24T09:22:00.000Z',
+      },
+      concierge: {
+        billingMode: 'application_concierge', parentServiceId: 'service-1',
+        paymentStatus: 'paid', submissionStatus: 'awaiting_upload',
+        createdAt: '2026-09-24T09:21:00.000Z',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const oneOffQueue = await handleAssistedApplicationAdmin(request());
+    const conciergeQueue = await handleAssistedApplicationAdmin(request({ query: { billingMode: 'application_concierge' } }));
+
+    expect(oneOffQueue.body.orders.map((order: any) => order.orderId)).toEqual(['oneOff']);
+    expect(conciergeQueue.body.orders).toMatchObject([
+      { orderId: 'concierge', billingMode: 'application_concierge', parentServiceId: 'service-1' },
+    ]);
+  });
+
+  it('rejects unsupported billing mode filters', async () => {
+    mocks.getAdminDb.mockReturnValue(makeDb().db);
+
+    const result = await handleAssistedApplicationAdmin(request({ query: { billingMode: 'one_off' } }));
+
+    expect(result).toEqual({ status: 400, body: { ok: false, error: 'invalid_billing_mode' } });
+  });
+
+  it('records materials received by email as awaiting_upload → in_progress', async () => {
+    const database = makeDb({
+      waiting: { paymentStatus: 'paid', submissionStatus: 'awaiting_upload' },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'transitionStatus', orderId: 'waiting', submissionStatus: 'in_progress', submissionNotes: 'CV ricevuto via email.' },
+    }));
+
+    expect(result).toEqual({ status: 200, body: { ok: true, orderId: 'waiting', submissionStatus: 'in_progress' } });
+    expect(database.events.waiting[0].data).toMatchObject({
+      eventType: 'materials_received_by_email',
+      fromStatus: 'awaiting_upload',
+      toStatus: 'in_progress',
+    });
   });
 
   it('records a completed transition and rejects submitted → awaiting_upload', async () => {
@@ -266,6 +485,24 @@ describe('handleAssistedApplicationAdmin', () => {
     expect(database.events.blocked[0].data).toMatchObject({ eventType: 'refund_issued', refundId: 're_assisted_1' });
   });
 
+  it('requires a parent-service refund for a concierge order', async () => {
+    const database = makeDb({
+      concierge: {
+        billingMode: 'application_concierge', paymentStatus: 'paid', submissionStatus: 'in_progress',
+        stripePaymentIntentId: 'pi_concierge_1',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'refund', orderId: 'concierge' },
+    }));
+
+    expect(result).toEqual({ status: 409, body: { ok: false, error: 'parent_service_refund_required' } });
+    expect(mocks.getStripe).not.toHaveBeenCalled();
+  });
+
   it('does not mark an order refunded when Stripe returns a pending refund', async () => {
     const database = makeDb({
       blocked: {
@@ -280,7 +517,7 @@ describe('handleAssistedApplicationAdmin', () => {
       body: { action: 'refund', orderId: 'blocked' },
     }));
 
-    expect(result).toEqual({ status: 502, body: { ok: false, error: 'stripe_refund_failed' } });
+    expect(result).toEqual({ status: 502, body: { ok: false, error: 'payment_refund_failed' } });
     expect(database.store.assisted_applications.blocked).toMatchObject({
       paymentStatus: 'paid',
       submissionStatus: 'in_progress',
@@ -290,5 +527,90 @@ describe('handleAssistedApplicationAdmin', () => {
     });
     expect(database.store.assisted_applications.blocked).not.toHaveProperty('stripeRefundId');
     expect(database.events.blocked || []).toHaveLength(0);
+  });
+
+  it('refunds a SumUp order through its transaction reference', async () => {
+    const database = makeDb({
+      blocked: {
+        paymentProvider: 'sumup',
+        paymentStatus: 'paid',
+        submissionStatus: 'in_progress',
+        sumupCheckoutId: 'sumup_checkout_1',
+        sumupTransactionId: 'sumup_transaction_1',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+    mocks.refundSumUpTransaction.mockResolvedValue({
+      id: 'sumup_transaction_1',
+      status: 'REFUNDED',
+    });
+
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'refund', orderId: 'blocked' },
+    }));
+
+    expect(result).toMatchObject({
+      status: 200,
+      body: { ok: true, orderId: 'blocked', submissionStatus: 'refunded', refundId: 'sumup_transaction_1' },
+    });
+    expect(mocks.refundSumUpTransaction).toHaveBeenCalledWith('sumup_transaction_1');
+    expect(mocks.getStripe).not.toHaveBeenCalled();
+    expect(database.store.assisted_applications.blocked).toMatchObject({
+      paymentStatus: 'refunded',
+      submissionStatus: 'refunded',
+      sumupRefundId: 'sumup_transaction_1',
+    });
+  });
+
+  it('reconciles a SumUp refund after the provider accepts it but the first Firestore commit fails', async () => {
+    const database = makeDb({
+      blocked: {
+        paymentProvider: 'sumup',
+        paymentStatus: 'paid',
+        submissionStatus: 'in_progress',
+        sumupCheckoutId: 'sumup_checkout_1',
+        sumupTransactionId: 'sumup_transaction_1',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+    mocks.retrieveSumUpCheckout.mockResolvedValue({
+      transactions: [{ id: 'sumup_transaction_1', status: 'SUCCESSFUL' }],
+    });
+    mocks.refundSumUpTransaction.mockResolvedValue({ status: 204 });
+
+    const originalRunTransaction = database.db.runTransaction.bind(database.db);
+    let transactionCalls = 0;
+    database.db.runTransaction = async (callback: any) => {
+      transactionCalls += 1;
+      if (transactionCalls === 2) throw new Error('firestore_commit_failed');
+      return originalRunTransaction(callback);
+    };
+
+    await expect(handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'refund', orderId: 'blocked' },
+    }))).rejects.toThrow('firestore_commit_failed');
+
+    expect(database.store.assisted_applications.blocked).toMatchObject({
+      refundStatus: 'pending',
+      sumupRefundRequestId: 'sumup_transaction_1',
+      sumupRefundRequestStatus: 'accepted',
+    });
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'refund', orderId: 'blocked' },
+    }));
+
+    expect(result).toMatchObject({
+      status: 200,
+      body: { ok: true, orderId: 'blocked', submissionStatus: 'refunded', refundId: 'sumup_transaction_1' },
+    });
+    expect(mocks.refundSumUpTransaction).toHaveBeenCalledTimes(1);
+    expect(database.store.assisted_applications.blocked).toMatchObject({
+      paymentStatus: 'refunded',
+      submissionStatus: 'refunded',
+      sumupRefundId: 'sumup_transaction_1',
+    });
   });
 });

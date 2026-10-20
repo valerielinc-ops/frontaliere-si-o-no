@@ -28,17 +28,32 @@ import { parse } from 'yaml';
 
 const WORKFLOW = new URL('../.github/workflows/recover-prev-slugs.yml', import.meta.url);
 
-type Step = { name?: string; id?: string; if?: string; env?: Record<string, string>; run?: string };
+type Step = {
+  name?: string;
+  id?: string;
+  if?: string;
+  'timeout-minutes'?: number;
+  env?: Record<string, string>;
+  run?: string;
+  uses?: string;
+  with?: Record<string, unknown>;
+};
 let steps: Step[];
 let reconcile: Step;
 let scan: Step;
+let ownership: Step;
+let dataChanges: Step;
 let commit: Step;
+let workflow: { permissions?: Record<string, string> };
 
 beforeAll(() => {
   const doc = parse(readFileSync(WORKFLOW, 'utf8'));
+  workflow = doc as { permissions?: Record<string, string> };
   steps = doc.jobs.recover.steps as Step[];
   reconcile = steps.find((s) => s.id === 'reconcile')!;
   scan = steps.find((s) => s.id === 'scan')!;
+  ownership = steps.find((s) => s.name === 'Decontaminate confirmed previousSlugs ownership')!;
+  dataChanges = steps.find((s) => s.id === 'data_changes')!;
   commit = steps.find((s) => s.name === 'Commit and push restored slices')!;
 });
 
@@ -61,9 +76,125 @@ describe('recover-prev-slugs.yml — wiring del reconcile duplicate stable-id', 
     expect(reconcile.run).toMatch(/if \[ "\$DRY_RUN" = "true" \]; then APPLY_FLAG=""; fi/);
   });
 
-  it('il commit gate include anche il residuo del reconcile, non solo quello dello scan', () => {
+  it('il commit gate include backfill, reconcile e modifiche dati effettive', () => {
     expect(commit.if).toContain('steps.scan.outputs.recoverable_slugs');
     expect(commit.if).toContain('steps.reconcile.outputs.reconciled_dropped');
+    expect(commit.if).toContain("steps.data_changes.outputs.data_changed == 'true'");
+  });
+
+  it('decontamina anche senza backfill/reconcile e prima di rilevare le modifiche', () => {
+    expect(ownership).toBeTruthy();
+    expect(ownership.run).toContain('scripts/decontaminate-prev-slugs.mjs --apply');
+    expect(ownership.if).toBe("inputs.dry_run != true && inputs.dry_run != 'true'");
+    expect(ownership.if).not.toContain('steps.scan.outputs');
+    expect(ownership.if).not.toContain('steps.reconcile.outputs');
+    expect(steps.indexOf(ownership)).toBeGreaterThan(steps.findIndex((s) => s.name === 'Backfill recoverable slugs'));
+    expect(steps.indexOf(dataChanges)).toBeGreaterThan(steps.indexOf(ownership));
+    expect(steps.indexOf(dataChanges)).toBeLessThan(steps.indexOf(commit));
+    expect(dataChanges.run).toContain('git diff --quiet');
+    expect(dataChanges.run).toContain('data/jobs/by-crawler/');
+    expect(dataChanges.run).toContain('data/jobs/expired/by-crawler/');
+    expect(dataChanges.run).toContain('data/jobs-crawler-summaries/by-crawler/');
+  });
+
+  it('pubblica i dati tramite la PR stabile, non con un push diretto su main', () => {
+    expect(commit.run).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(commit.run).not.toContain('scripts/lib/git-commit-data.sh');
+    expect(commit.run).toContain('--branch chore/recover-prev-slugs');
+    expect(commit.run).toContain('--path data/jobs/by-crawler/');
+    expect(commit.run).toContain('## Non implementato (ancora)');
+    expect(commit.env?.GH_TOKEN).toContain('APP_TOKEN_DATA_REFRESH');
+    expect(commit.env?.GH_TOKEN).toContain('GITHUB_PAT');
+    expect(commit.run).toContain("cat <<'EOF'");
+    expect(commit.run).not.toContain('cat > "$body" <<EOF');
+  });
+
+  it('porta avanti il branch di recovery prima di riconciliare e scansionare', () => {
+    const carry = steps.find((step) => step.name === 'Carry forward pending previousSlugs recovery PR');
+    expect(carry?.run).toContain("branch='chore/recover-prev-slugs'");
+    expect(carry?.run).toContain('git ls-remote "$remote_url"');
+    expect(carry?.run).toContain('scripts/lib/restore-stable-refresh-files.sh');
+    expect(carry?.run).toContain('"refs/remotes/origin/${branch}"');
+    expect(carry?.run).not.toContain('git restore --source="refs/remotes/origin/${branch}" -- "$path"');
+    expect(carry?.run).toContain('data/jobs/by-crawler/');
+    expect(steps.indexOf(carry!)).toBeLessThan(steps.indexOf(reconcile));
+  });
+
+  it('abilita la pubblicazione PR e non conserva le credenziali checkout', () => {
+    const checkout = steps.find((step) => step.uses === 'actions/checkout@v7');
+    expect(workflow.permissions?.['pull-requests']).toBe('write');
+    expect(checkout?.with?.['persist-credentials']).toBe(false);
+    expect(steps.some((step) => step.run === 'node scripts/ci/mint-app-token.mjs')).toBe(true);
+  });
+
+  describe('rilevamento delle modifiche dati per il commit gate', () => {
+    function runDataChanges(cwd: string, diffExitCode: number) {
+      mkdirSync(path.join(cwd, 'bin'), { recursive: true });
+      const gitShim = path.join(cwd, 'bin', 'git');
+      writeFileSync(gitShim, '#!/bin/bash\nexit "$GIT_DIFF_EXIT_CODE"\n');
+      chmodSync(gitShim, 0o755);
+
+      const scriptPath = path.join(cwd, 'data-changes.sh');
+      writeFileSync(scriptPath, dataChanges.run!);
+      const outputPath = path.join(cwd, 'github-output.txt');
+      try {
+        const stdout = execFileSync('bash', [scriptPath], {
+          cwd,
+          encoding: 'utf-8',
+          env: {
+            ...process.env,
+            PATH: `${path.join(cwd, 'bin')}:${process.env.PATH}`,
+            GITHUB_OUTPUT: outputPath,
+            GIT_DIFF_EXIT_CODE: String(diffExitCode),
+          },
+          stdio: ['ignore', 'pipe', 'pipe'],
+        });
+        const output = readFileSync(outputPath, 'utf-8');
+        return { status: 0, stdout, output };
+      } catch (e) {
+        const err = e as { status?: number; stdout?: string; stderr?: string };
+        return { status: err.status ?? 1, stdout: `${err.stdout || ''}${err.stderr || ''}`, output: '' };
+      }
+    }
+
+    it('se git diff trova ownership cleanup, abilita la pubblicazione anche a contatori recovery zero', () => {
+      const dir = mkdtempSync(path.join(tmpdir(), 'prev-slug-data-changes-'));
+      const result = runDataChanges(dir, 1);
+      expect(result.status).toBe(0);
+      expect(result.output).toContain('data_changed=true');
+    });
+
+    it('nessuna modifica lascia il commit gate chiuso', () => {
+      const dir = mkdtempSync(path.join(tmpdir(), 'prev-slug-data-changes-'));
+      const result = runDataChanges(dir, 0);
+      expect(result.status).toBe(0);
+      expect(result.output).toContain('data_changed=false');
+    });
+
+    it('un errore di git diff fallisce loud invece di saltare la persistenza', () => {
+      const dir = mkdtempSync(path.join(tmpdir(), 'prev-slug-data-changes-'));
+      const result = runDataChanges(dir, 2);
+      expect(result.status).not.toBe(0);
+      expect(result.stdout).toContain('Unable to inspect previousSlugs recovery data diff');
+      expect(result.output).toBe('');
+    });
+  });
+});
+
+describe('recover-prev-slugs.yml — history-fetch budgets preserve complete scan coverage (#10777)', () => {
+  it('allows the repeated slow fetches to finish without shrinking the history window', () => {
+    const job = (parse(readFileSync(WORKFLOW, 'utf8')) as {
+      jobs: { recover: { 'timeout-minutes': number; steps: Step[] } };
+    }).jobs.recover;
+    const deepen = job.steps.find((step) => step.id === 'deepen');
+    const fallback = job.steps.find((step) => step.name === 'Fallback: unshallow checkout');
+
+    expect(job['timeout-minutes']).toBe(60);
+    expect(deepen?.['timeout-minutes']).toBe(15);
+    expect(fallback?.['timeout-minutes']).toBe(30);
+    expect(deepen?.run).toContain('git fetch --shallow-since="$SHALLOW_SINCE"');
+    expect(fallback?.run).toContain('git fetch --unshallow');
+    expect(deepen?.run).toContain('date -u -d "$SINCE - 1 day"');
   });
 });
 

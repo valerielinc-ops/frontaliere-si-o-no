@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
 
 import * as employerInsightsBuilder from '../scripts/build-employer-insights.mjs';
 import { validateD18Artifact } from '../scripts/ci/validate-employer-insights-d18-payload.mjs';
@@ -9,8 +10,150 @@ const REFRESH_WORKFLOW_SOURCE = readFileSync(
   new URL('../.github/workflows/employer-insights-refresh.yml', import.meta.url),
   'utf8',
 );
+const BUILDER_SOURCE = readFileSync(
+  new URL('../scripts/build-employer-insights.mjs', import.meta.url),
+  'utf8',
+);
+
+type WorkflowStep = {
+  name?: string;
+  id?: string;
+  if?: string;
+  run?: string;
+  uses?: string;
+  'continue-on-error'?: unknown;
+};
+type WorkflowJob = { needs?: string | string[]; steps?: WorkflowStep[]; 'continue-on-error'?: unknown };
+
+const LIVE_EVIDENCE_FLAG = '--require-live-ga4';
+const WRITER_CALL = 'writeEmployerInsightsDocuments(';
+const LEGACY_VALIDATOR = 'validate-employer-insights-payload.mjs';
+const FRESHNESS_SCRIPT = 'scripts/ci/check-employer-insights-freshness.mjs';
+
+function workflowJobs(source: string): Record<string, WorkflowJob> {
+  return (YAML.parse(source)?.jobs ?? {}) as Record<string, WorkflowJob>;
+}
+
+/** Every job the given job waits for, directly or through another job. */
+function upstreamJobs(jobs: Record<string, WorkflowJob>, jobId: string, seen = new Set<string>()): Set<string> {
+  for (const need of [jobs[jobId]?.needs ?? []].flat()) {
+    if (seen.has(need)) continue;
+    seen.add(need);
+    upstreamJobs(jobs, need, seen);
+  }
+  return seen;
+}
+
+/** The live D18 acceptance must fail before any Firestore write can start. */
+function gateOrderViolations(source: string): string[] {
+  const jobs = workflowJobs(source);
+  const located = Object.entries(jobs).flatMap(([jobId, job]) =>
+    (job.steps ?? []).map((step, index) => ({ jobId, step, index })));
+  const writers = located.filter(({ step }) => String(step.run ?? '').includes(WRITER_CALL));
+  const gates = located.filter(({ step }) => String(step.run ?? '').includes(LIVE_EVIDENCE_FLAG));
+  const violations: string[] = [];
+  if (writers.length === 0) violations.push('no step writes employer_insights');
+  if (gates.length === 0) violations.push(`no step runs ${LIVE_EVIDENCE_FLAG}`);
+  for (const writer of writers) {
+    const upstream = upstreamJobs(jobs, writer.jobId);
+    const blockingGate = gates.find((gate) =>
+      (gate.jobId === writer.jobId && gate.index < writer.index)
+      || (gate.jobId !== writer.jobId && upstream.has(gate.jobId)));
+    if (!blockingGate) {
+      violations.push(`"${writer.step.name}" is not preceded by ${LIVE_EVIDENCE_FLAG}`);
+    }
+  }
+  return violations;
+}
+
+describe('employer insights refresh: live D18 evidence fails closed before the write', () => {
+  const jobs = workflowJobs(REFRESH_WORKFLOW_SOURCE);
+  const steps = jobs.refresh?.steps ?? [];
+  const indexOf = (predicate: (step: WorkflowStep) => boolean) => steps.findIndex(predicate);
+  const writerIndex = indexOf((step) => String(step.run ?? '').includes(WRITER_CALL));
+  const gateIndex = indexOf((step) => String(step.run ?? '').includes(LIVE_EVIDENCE_FLAG));
+
+  const buildIndex = indexOf((step) => step.name === 'Build complete dry-run payload (no Firestore write)');
+
+  it('validates live evidence in the dry-run step before the write', () => {
+    expect(gateOrderViolations(REFRESH_WORKFLOW_SOURCE)).toEqual([]);
+    expect(buildIndex).toBeGreaterThanOrEqual(0);
+    expect(buildIndex).toBeLessThan(writerIndex);
+    expect(String(steps[buildIndex].run)).toContain('scripts/build-employer-insights.mjs');
+    expect(String(steps[buildIndex].run)).toContain('validate-employer-insights-d18-payload.mjs');
+    expect(String(steps[buildIndex].run)).toContain(LIVE_EVIDENCE_FLAG);
+  });
+
+  it('rejects the historical post-write live gate', () => {
+    const late = YAML.parse(REFRESH_WORKFLOW_SOURCE);
+    const lateSteps: WorkflowStep[] = late.jobs.refresh.steps;
+    const [build] = lateSteps.splice(buildIndex, 1);
+    const shiftedWriterIndex = lateSteps.findIndex((step) => String(step.run ?? '').includes(WRITER_CALL));
+    lateSteps.splice(shiftedWriterIndex + 1, 0, build);
+    expect(gateOrderViolations(YAML.stringify(late)).join('\n')).toMatch(/not preceded/);
+  });
+
+  it('rejects a dry-run that omits the live-evidence validator', () => {
+    const unchecked = REFRESH_WORKFLOW_SOURCE.replace(LIVE_EVIDENCE_FLAG, '--structural-only');
+    expect(gateOrderViolations(unchecked)).toContain(`no step runs ${LIVE_EVIDENCE_FLAG}`);
+  });
+
+  it('keeps the write behind both fail-closed validators with no error bypass', () => {
+    const validatorIndex = indexOf((step) => String(step.run ?? '').includes(LEGACY_VALIDATOR));
+    expect(validatorIndex).toBeGreaterThanOrEqual(0);
+    expect(buildIndex).toBeLessThan(validatorIndex);
+    expect(validatorIndex).toBeLessThan(writerIndex);
+    expect(steps[buildIndex].if).toBeUndefined();
+    expect(steps[validatorIndex].if).toBeUndefined();
+    expect(steps[writerIndex].if).toBeUndefined();
+    expect(steps[buildIndex]['continue-on-error']).toBeUndefined();
+    expect(steps[validatorIndex]['continue-on-error']).toBeUndefined();
+    expect(steps[writerIndex]['continue-on-error']).toBeUndefined();
+  });
+
+  it('does not lower the gate: the dry-run judges the emitted artifact', () => {
+    const gate = steps[gateIndex];
+    expect(gate['continue-on-error']).toBeUndefined();
+    expect(jobs.refresh['continue-on-error']).toBeUndefined();
+    expect(String(gate.run)).toContain('--payload /tmp/employer-insights-d18.json');
+  });
+
+  it('checks freshness on every run, before the credentials are removed', () => {
+    const freshnessIndex = indexOf((step) => String(step.run ?? '').includes(FRESHNESS_SCRIPT));
+    const cleanupIndex = indexOf((step) => String(step.run ?? '').includes('rm -f /tmp/firebase-sa.json'));
+    const uploadIndex = indexOf((step) => String(step.uses ?? '').startsWith('actions/upload-artifact@'));
+    expect(cleanupIndex).toBeGreaterThanOrEqual(0);
+    expect(uploadIndex).toBeGreaterThanOrEqual(0);
+    expect(freshnessIndex).toBeGreaterThan(writerIndex);
+    expect(cleanupIndex).toBeGreaterThan(freshnessIndex);
+    // Must run when an earlier step failed, timed out or was cancelled: those
+    // are exactly the stale cases.
+    expect(steps[freshnessIndex].if).toBe('always()');
+    expect(YAML.parse(REFRESH_WORKFLOW_SOURCE).permissions.issues).toBe('write');
+    expect(steps[uploadIndex].if).toBe('always()');
+    expect(steps[cleanupIndex].if).toBe('always()');
+  });
+});
 
 describe('employer insights refresh rollback', () => {
+  it('fingerprints the complete identity catalog without materializing one giant string', () => {
+    const jobs = Array.from({ length: 5_000 }, (_, index) => ({
+      id: `job-${index}`,
+      companyKey: `company-${index % 25}`,
+      company: `Company ${index % 25}`,
+      slug: `role-${index}`,
+      slugByLocale: { it: `role-${index}`, en: `role-${index}-en` },
+      previousSlugs: [`old-role-${index}`],
+    }));
+    const first = employerInsightsBuilder.buildIdentityCatalog(jobs);
+    const second = employerInsightsBuilder.buildIdentityCatalog([...jobs].reverse());
+
+    expect(first.identityCatalogSha).toMatch(/^[a-f0-9]{64}$/);
+    expect(second.identityCatalogSha).toBe(first.identityCatalogSha);
+    expect(BUILDER_SOURCE).toContain('sha256StableJson(identityRows)');
+    expect(BUILDER_SOURCE).not.toContain('sha256(stableJson(identityRows))');
+  });
+
   it('runs and validates the bounded D18 two-regime artifact beside the legacy writer', () => {
     expect(REFRESH_WORKFLOW_SOURCE).toContain('--d18-json-out /tmp/employer-insights-d18.json');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('--d18-include-applications');
@@ -20,6 +163,75 @@ describe('employer insights refresh rollback', () => {
     expect(REFRESH_WORKFLOW_SOURCE).toContain('/tmp/employer-insights-d18.json');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('/tmp/employer-insights-builder.log');
     expect(REFRESH_WORKFLOW_SOURCE).not.toMatch(/^\s+- posthog$/m);
+    expect(BUILDER_SOURCE).toContain('boundD18Artifact');
+    expect(BUILDER_SOURCE).toContain('D18_ARTIFACT_MAX_ADS_PER_COMPANY');
+  });
+
+  it('bounds by-ad detail before serializing while retaining declared coverage', () => {
+    const window = {
+      from: '2026-09-01T00:00:00+02:00',
+      to: '2026-09-12T00:00:00+02:00',
+      timezone: 'Europe/Zurich',
+      inclusive: '[from,to)',
+    };
+    const jobs = Array.from({ length: 3 }, (_, index) => ({
+      id: `job-${index}`,
+      companyKey: 'acme',
+      company: 'Acme SA',
+      title: `Role ${index}`,
+      slug: `role-${index}`,
+      slugByLocale: { it: `role-${index}` },
+      status: 'active',
+    }));
+    const catalog = employerInsightsBuilder.buildIdentityCatalog(jobs);
+    const rows = jobs.map((job) => ({
+      event: 'page_view',
+      timestamp: '2026-09-10T00:00:00.000Z',
+      employerKey: job.companyKey,
+      jobSlug: job.slug,
+      pageTemplate: 'job_detail',
+      locale: 'it',
+      observed: 1,
+      emissionId: `emission-${job.id}`,
+    }));
+    const payload = employerInsightsBuilder.buildD18PayloadFromQuerySnapshots({
+      window,
+      generatedAt: '2026-09-12T06:00:00.000Z',
+      catalog,
+      ga4Result: {
+        rows,
+        coverage: {
+          rowsReturned: rows.length,
+          totalRows: rows.length,
+          returnedRows: rows.length,
+          returned: rows.length,
+          sourceObserved: rows.length,
+          identityObserved: rows.length,
+          emissionIdDimensionRequested: true,
+          emissionIdObserved: rows.length,
+          emissionIdMissingObserved: 0,
+          pages: 1,
+          truncated: false,
+          snapshotId: 'ga4-fixture',
+          queryHash: 'ga4-query',
+        },
+      },
+      applicationRecords: [],
+    });
+
+    const bounded = employerInsightsBuilder.boundD18Artifact(payload, { maxAdsPerCompany: 2 });
+    expect(payload.companies[0].byAd).toHaveLength(3);
+    expect(bounded.companies[0].byAd).toHaveLength(2);
+    expect(bounded.companies[0].byAdCoverage).toMatchObject({
+      total: 3,
+      included: 2,
+      omitted: 1,
+      limitPerCompany: 2,
+      truncated: true,
+    });
+    expect(bounded.detailCoverage.byAd).toMatchObject({ total: 3, included: 2, omitted: 1, truncated: true });
+    expect(validateD18Artifact(bounded).ok).toBe(true);
+    expect(JSON.stringify(bounded)).toContain('canonicalSlug');
   });
 
   it('accepts a D18 fixture with both regimes and keeps the period total non-summable', () => {
@@ -205,6 +417,117 @@ describe('employer insights refresh rollback', () => {
     expect(validateD18Artifact(first).ok).toBe(true);
     expect(() => employerInsightsBuilder.parseEmployerInsightsReplay({ ...replayInput, sources: { posthog: replayInput.sources.posthog } }, 'ga4'))
       .toThrow(/missing the ga4 source result/);
+  });
+
+  it('keeps the settled report window separate from forward live GA4 evidence', () => {
+    const window = {
+      from: '2026-09-01T00:00:00+02:00',
+      to: '2026-09-12T00:00:00+02:00',
+      timezone: 'Europe/Zurich',
+      inclusive: '[from,to)',
+    };
+    const evidenceWindow = {
+      from: '2026-09-12T00:00:00+02:00',
+      to: '2026-09-14T00:00:00+02:00',
+      timezone: 'Europe/Zurich',
+      inclusive: '[from,to)',
+    };
+    const catalog = employerInsightsBuilder.buildIdentityCatalog([{
+      id: 'job-1',
+      companyKey: 'acme',
+      company: 'Acme SA',
+      title: 'Role',
+      slug: 'role-it',
+      slugByLocale: { it: 'role-it' },
+      status: 'active',
+    }]);
+    const queryResult = (timestamp: string, emissionId: string, snapshotId: string) => ({
+      rows: [{
+        event: 'page_view',
+        timestamp,
+        employerKey: 'acme',
+        jobSlug: 'role-it',
+        pageTemplate: 'job_detail',
+        locale: 'it',
+        observed: 2,
+        emissionId,
+      }],
+      coverage: {
+        rowsReturned: 1,
+        totalRows: 1,
+        returnedRows: 1,
+        returned: 2,
+        sourceObserved: 2,
+        identityObserved: 2,
+        emissionIdDimensionRequested: true,
+        emissionIdObserved: 2,
+        emissionIdMissingObserved: 0,
+        firstCompleteIdentityAt: timestamp,
+        pages: 1,
+        truncated: false,
+        snapshotId,
+        queryHash: `${snapshotId}-query`,
+      },
+    });
+    const payload = employerInsightsBuilder.buildD18PayloadFromQuerySnapshots({
+      window,
+      generatedAt: '2026-09-14T06:00:00.000Z',
+      catalog,
+      ga4Result: queryResult('2026-09-10T00:00:00.000Z', 'report-emission', 'report-snapshot'),
+      ga4EvidenceWindow: evidenceWindow,
+      ga4EvidenceResult: queryResult('2026-09-13T00:00:00.000Z', 'live-emission', 'live-snapshot'),
+      measurementWindow: window,
+      applicationRecords: [],
+      runMode: 'live',
+      primarySource: 'ga4',
+    });
+
+    expect(payload.evidence).toMatchObject({
+      status: 'live-first-run-ready',
+      measurementWindow: window,
+      evidenceWindow,
+    });
+    expect(payload.evidence.ga4.emissionId).toMatchObject({
+      status: 'complete',
+      withValue: 2,
+      withoutValue: 0,
+    });
+    expect(validateD18Artifact(payload, { requireLiveGa4: true }).ok).toBe(true);
+
+    const blocked = employerInsightsBuilder.buildD18PayloadFromQuerySnapshots({
+      window,
+      generatedAt: '2026-09-14T06:00:00.000Z',
+      catalog,
+      ga4Result: queryResult('2026-09-10T00:00:00.000Z', 'report-emission', 'report-snapshot'),
+      ga4EvidenceWindow: evidenceWindow,
+      ga4EvidenceUnavailableReason: 'live probe unavailable',
+      measurementWindow: window,
+      applicationRecords: [],
+      runMode: 'live',
+      primarySource: 'ga4',
+    });
+    expect(blocked.evidence.status).toBe('blocked');
+    expect(blocked.evidence.blockers.join('\n')).toMatch(/emission_id/);
+    expect(validateD18Artifact(blocked, { requireLiveGa4: true }).ok).toBe(false);
+  });
+
+  it('starts the live evidence probe at the settled report cutoff', () => {
+    const reportWindow = {
+      from: '2026-09-01T00:00:00+02:00',
+      to: '2026-09-12T00:00:00+02:00',
+      timezone: 'Europe/Zurich',
+      inclusive: '[from,to)',
+    };
+    const live = employerInsightsBuilder.d18LiveEvidenceWindow(reportWindow, '2026-09-14T06:00:00.000Z');
+
+    expect(Date.parse(live.from)).toBe(Date.parse(reportWindow.to));
+    expect(live.to).toBe('2026-09-14T06:00:00.000Z');
+    expect(live.timezone).toBe('Europe/Zurich');
+  });
+
+  it('lets only the live evidence probe read the current GA4 date', () => {
+    expect(BUILDER_SOURCE).toMatch(/queryGa4EmissionEvidence\(d18EvidenceWindow, \{[\s\S]*includeCurrentDate: true/);
+    expect(BUILDER_SOURCE).toContain('const endDate = includeCurrentDate');
   });
 
   it('runs the now-supported GA4 identity feed on the periodic trigger', () => {

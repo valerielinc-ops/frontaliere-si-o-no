@@ -209,24 +209,112 @@ export const PLATE_AUCTION_SALE_RECOGNITION = Object.freeze({
 });
 
 /**
+ * Per-canton calibration of the same knob, measured on the 45 production runs
+ * of 2026-09-17 → 2026-09-25 (`[collectPlateAuctions:<key>] sale-recognition`
+ * lines). These cantons republish their list once a day and drop every plate
+ * sold since the previous one, so a healthy update loses more than the global
+ * 1% / 95% allow and was preserved-as-live and reported degraded every day:
+ *
+ *   LU  previous 141-146, one update loses 11-22 (≤ 15%), keeps ≥ 85%
+ *   UR  previous 460, one update loses 13 (2.8%), keeps 97%
+ *   GL  previous 26-28, one update loses 5-6 (≤ 21%), keeps ≥ 79%
+ *   AI  previous 30-38, one update loses 6 (≤ 20%), keeps ≥ 84%
+ *
+ * Each value leaves headroom over the largest measured update and stays far
+ * from a truncated file: a PDF cut in half (keeps 50%) still trips the band.
+ * Keys are the registry keys (`sources.<key>`), lower case.
+ */
+export const PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE = Object.freeze({
+  lu: Object.freeze({ maxVanishedRatio: 0.2, minFetchedRatio: 0.8 }),
+  ur: Object.freeze({ maxVanishedRatio: 0.05 }),
+  gl: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  ai: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.8 }),
+});
+
+/**
+ * Card platforms publish rolling timed-auction boards. A card can disappear
+ * during a board refresh even while the next board is complete; the shared
+ * deadline is not enough to call that a truncated fetch. The 2026-10-07 TG
+ * run measured 9 missing cards out of 44 while the fetch returned 50. Keep a
+ * 25% / 75% band for this platform family: it accepts that observed turnover,
+ * but still rejects a feed that comes back materially short.
+ *
+ * This is deliberately separate from sale recognition. A timed card has no
+ * evidence of a sale, so the collectors preserve it with `missingSince` rather
+ * than closing it or assigning a final price.
+ */
+export const PLATE_AUCTION_TIMED_CATALOGUE_BY_SOURCE = Object.freeze({
+  ag: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  be: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  sh: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  tg: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  vd: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  zh: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+});
+
+/** The calibration for one source: its override on top of the global knob. */
+export function saleRecognitionPolicy(sourceKey) {
+  const key = typeof sourceKey === 'string' ? sourceKey.toLowerCase() : '';
+  return { ...PLATE_AUCTION_SALE_RECOGNITION, ...(PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE[key] || {}) };
+}
+
+/** The timed-card turnover calibration, or null for non-card sources. */
+export function timedCataloguePolicy(sourceKey) {
+  const key = typeof sourceKey === 'string' ? sourceKey.toLowerCase() : '';
+  const override = PLATE_AUCTION_TIMED_CATALOGUE_BY_SOURCE[key];
+  return override ? { ...PLATE_AUCTION_SALE_RECOGNITION, ...override } : null;
+}
+
+/**
+ * How long a row preserved by the band/cap guard may stay absent before its
+ * disappearance is recorded. The guard protects the FIRST run of a sudden loss
+ * (a truncated PDF must not become a batch of sales); it must not re-judge the
+ * same absence forever. 72h is twelve 6-hourly runs and three daily catalogue
+ * refreshes (LU/AI/UR publish once a day): long enough for a broken upstream to
+ * be seen, reported and fixed, short enough that a sold plate leaves the site.
+ * Shared by both collectors so the static snapshot and Firestore cannot drift.
+ */
+export const PLATE_AUCTION_MISSING_GRACE_MS = 72 * 60 * 60 * 1000;
+
+/**
  * Fail-closed toward never inventing a sale: when either test fails we keep
  * today's preserve-as-live behaviour. The accepted consequence is staying at
  * zero recorded sales until the calibration above is confirmed on real data —
  * which is the right direction, because a truncated PDF read as sales would
  * stamp hundreds of plates with a fabricated sale date and price.
  */
-export function recognizeCatalogueSales({ previousCount, fetchedCount, vanishedCount }) {
+function recognizeCatalogueShape({ policy, previousCount, fetchedCount, vanishedCount }) {
   const cap = Math.max(
-    PLATE_AUCTION_SALE_RECOGNITION.minVanishedCap,
-    Math.ceil(PLATE_AUCTION_SALE_RECOGNITION.maxVanishedRatio * previousCount),
+    policy.minVanishedCap,
+    Math.ceil(policy.maxVanishedRatio * previousCount),
   );
-  const withinBand = fetchedCount >= PLATE_AUCTION_SALE_RECOGNITION.minFetchedRatio * previousCount;
+  const withinBand = fetchedCount >= policy.minFetchedRatio * previousCount;
   const withinCap = vanishedCount <= cap;
   const blockedBy = [
     ...(withinBand ? [] : ['band']),
     ...(withinCap ? [] : ['cap']),
   ];
   return { recognized: withinBand && withinCap, cap, blockedBy };
+}
+
+export function recognizeCatalogueSales({ sourceKey, previousCount, fetchedCount, vanishedCount }) {
+  return recognizeCatalogueShape({
+    policy: saleRecognitionPolicy(sourceKey),
+    previousCount,
+    fetchedCount,
+    vanishedCount,
+  });
+}
+
+/**
+ * Decide whether a timed card catalogue has the shape of a healthy board
+ * refresh. The returned decision is null for sources without this contract.
+ */
+export function recognizeTimedCatalogueTurnover({ sourceKey, previousCount, fetchedCount, vanishedCount }) {
+  const policy = timedCataloguePolicy(sourceKey);
+  return policy
+    ? recognizeCatalogueShape({ policy, previousCount, fetchedCount, vanishedCount })
+    : null;
 }
 
 /**

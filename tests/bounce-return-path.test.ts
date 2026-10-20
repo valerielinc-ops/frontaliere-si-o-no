@@ -83,4 +83,11 @@ describe('the routing rule and the return_path agree', () => {
     }
     expect(BOUNCE_ADDRESS).toBe(`${BOUNCE_LOCAL_PART}@frontaliereticino.ch`);
   });
+
+  it('names one Email Worker: the wrangler name, for the setup script and the order aliases alike', async () => {
+    expect(/^name\s*=\s*"([^"]+)"/m.exec(read('infra/cloudflare-email-worker/wrangler.toml'))?.[1]).toBe(EMAIL_WORKER_NAME);
+    const { EMAIL_WORKER_NAME: aliasWorker } = await import('../functions/src/assistedApplicationAlias.js');
+    expect(aliasWorker).toBe(EMAIL_WORKER_NAME);
+    expect(read('functions/src/assistedApplicationAlias.js')).not.toContain("'frontaliere-stop-reply-handler'");
+  });
 });

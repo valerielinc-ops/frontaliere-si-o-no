@@ -148,6 +148,396 @@ else if (args[0] === 'issue' && args[1] === 'edit' && args.includes('--body-file
     expect(calls).toContain('"--add-label","agent:fix-queued"');
   });
 
+  it('recupera un daily con Sources cross-repository risolvendole nel repository gemello', () => {
+    // Forma reale del daily del sito #9443: accanto alle PR del sito, item
+    // instradati dal corpus con `Source: PR #1590` SENZA repository. Nel sito
+    // #1590 e' una issue: `gh pr view` risponde «Could not resolve to a
+    // PullRequest» e il recovery restava negato (`historical-triage-scan-unavailable`).
+    const item = (id: string, pr: number, token: string) => [
+      `### ${id} — proteggi il comportamento`,
+      '- State: open',
+      '- Target repository: site/r',
+      `- Sources: PR #${pr}`,
+      '- Target file: `scripts/example.mjs`',
+      '- Original text:',
+      '  > controllo non sempre applicato',
+      `- Suggested action: aggiungi \`${token}\``,
+      `- Acceptance token: \`${token}\``,
+      '',
+    ].join('\n');
+    const issue = {
+      number: 9443,
+      title: 'follow-up(daily:2026-09-09): 2 item — site/r',
+      body: [
+        '## Batch',
+        '- Daily key: 2026-09-09 (Europe/Zurich)',
+        '- State: collecting',
+        '- Target repository: site/r',
+        '',
+        '## Item',
+        '',
+        item('FU-2026-09-09-001', 8101, 'firstGuard()'),
+        item('FU-2026-09-09-002', 1590, 'secondGuard()'),
+      ].join('\n'),
+      labels: [],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'cross-repo-calls.log');
+    const state = join(binDir, 'cross-repo-state.json');
+    writeFileSync(log, '');
+    writeFileSync(state, JSON.stringify(issue));
+    const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+const repo = args.includes('--repo') ? args[args.indexOf('--repo') + 1] : '';
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify({ args, token: process.env.GH_TOKEN }) + '\\n');
+const issue = JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
+const marker = JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\\n\\nCreated/updated: 0 item.' }] });
+if (args[0] === 'api') process.stdout.write(JSON.stringify([[{ number: issue.number, title: issue.title, created_at: issue.createdAt }]]));
+else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(issue));
+else if (args[0] === 'pr' && args[1] === 'view') {
+  const n = args[2];
+  if (repo === 'site/r' && n === '8101') process.stdout.write(marker);
+  else if (repo === 'corpus/r' && n === '1590' && process.env.GH_TOKEN === 'corpus-token') process.stdout.write(marker);
+  else { process.stderr.write('GraphQL: Could not resolve to a PullRequest with the number of ' + n + '. (repository.pullRequest)\\n'); process.exit(1); }
+}
+else if (args[0] === 'issue' && args[1] === 'edit' && args.includes('--body-file')) {
+  const updated = JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
+  updated.body = fs.readFileSync(args[args.indexOf('--body-file') + 1], 'utf8');
+  const titleIndex = args.indexOf('--title');
+  if (titleIndex >= 0) updated.title = args[titleIndex + 1];
+  fs.writeFileSync(process.env.STATE, JSON.stringify(updated));
+}
+`;
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const run = (extra: Record<string, string>) => execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH}`,
+        BATCH_PRS: '',
+        TRIAGE_COMPLETE: 'false',
+        DRY_RUN: '1',
+        GH_REPO: 'site/r',
+        GH_TOKEN: 'site-token',
+        CALL_LOG: log,
+        STATE: state,
+        COLLECTION_OK: 'true',
+        GITHUB_STEP_SUMMARY: join(binDir, 'cross-repo-summary.md'),
+        ...extra,
+      },
+    });
+    // Senza repository gemello: comportamento di prima, recovery negato.
+    const before = run({});
+    expect(before).toContain('PR #1590 non è una PR in site/r → Source non verificabile');
+    expect(before).toContain('recovery per bucket negato (historical-triage-scan-unavailable)');
+    // Con il gemello dichiarato (lo step del sito in post-merge-followup.yml).
+    writeFileSync(log, '');
+    const after = run({ GATE_ALT_PR_REPO: 'corpus/r', GATE_ALT_PR_TOKEN: 'corpus-token' });
+    expect(after).toContain('PR #1590 non è una PR in site/r → Source risolta in corpus/r');
+    expect(after).toContain('marker storici verificati (PR #8101, PR #1590)');
+    expect(after).not.toContain('gh pr view 1590 → fallito');
+    const calls = readFileSync(log, 'utf-8').trim().split('\n').map((line) => JSON.parse(line));
+    const corpusCall = calls.find((call) => call.args.includes('corpus/r'));
+    expect(corpusCall?.token).toBe('corpus-token');
+    // La PR del sito non viene mai cercata nel corpus.
+    expect(calls.some((call) => call.args[2] === '8101' && call.args.includes('corpus/r'))).toBe(false);
+  });
+
+  it('demota un daily con Source cross-repository commentando la PR nel suo repository', () => {
+    // Stessa classe, lato scrittura: gli item demoti si conservano sulle PR
+    // sorgente. `gh pr comment 1590 --repo site/r` fallisce («non e' una PR»),
+    // e con un solo commento mancato la demozione era rinviata per sempre.
+    const tick = String.fromCharCode(96);
+    const issue = {
+      number: 9443,
+      title: 'follow-up(daily:2026-09-09): 2 items — site/r',
+      body: [
+        '## Batch',
+        '- Daily key: 2026-09-09 (Europe/Zurich)',
+        '- State: collecting',
+        '- Target repository: site/r',
+        '',
+        '## Item',
+        '',
+        '### FU-2026-09-09-001 — queue candidate',
+        '- State: open',
+        '- Sources: PR #8101',
+        `- Target file: ${tick}scripts/example.mjs${tick}`,
+        '- Original text:',
+        '  > il controllo non è sempre applicato',
+        `- Suggested action: aggiungi ${tick}firstGuard()${tick}`,
+        `- Acceptance token: ${tick}firstGuard()${tick}`,
+        '',
+        '### FU-2026-09-09-002 — missing acceptance',
+        '- State: open',
+        '- Sources: PR #1590',
+        `- Target file: ${tick}scripts/example.mjs${tick}`,
+        '- Suggested action: controllare il file',
+        '',
+      ].join('\n'),
+      labels: [{ name: 'follow-up' }],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'cross-repo-demote-calls.log');
+    const state = join(binDir, 'cross-repo-demote-state.json');
+    writeFileSync(log, '');
+    writeFileSync(state, JSON.stringify(issue));
+    const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+const repo = args.includes('--repo') ? args[args.indexOf('--repo') + 1] : '';
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify({ args, token: process.env.GH_TOKEN }) + '\\n');
+const readState = () => JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
+const notPr = (n) => { process.stderr.write('GraphQL: Could not resolve to a PullRequest with the number of ' + n + '. (repository.pullRequest)\\n'); process.exit(1); };
+const isPr = (n) => (repo === 'site/r' && n === '8101') || (repo === 'corpus/r' && n === '1590' && process.env.GH_TOKEN === 'corpus-token');
+if (args[0] === 'api') {
+  const current = readState();
+  process.stdout.write(JSON.stringify([[{ number: current.number, title: current.title, state: 'open', labels: current.labels, created_at: current.createdAt }]]));
+} else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(readState()));
+else if (args[0] === 'pr' && (args[1] === 'view' || args[1] === 'comment')) {
+  if (!isPr(args[2])) notPr(args[2]);
+  if (args[1] === 'view') process.stdout.write(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\\n\\nCreated/updated: 0 item.' }] }));
+} else if (args[0] === 'issue' && args[1] === 'edit' && args.includes('--body-file')) {
+  const updated = readState();
+  updated.body = fs.readFileSync(args[args.indexOf('--body-file') + 1], 'utf8');
+  const titleIndex = args.indexOf('--title');
+  if (titleIndex >= 0) updated.title = args[titleIndex + 1];
+  fs.writeFileSync(process.env.STATE, JSON.stringify(updated));
+}
+`;
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH}`,
+        BATCH_PRS: '',
+        TRIAGE_COMPLETE: 'true',
+        DRY_RUN: '0',
+        GH_REPO: 'site/r',
+        GH_TOKEN: 'site-token',
+        GATE_ALT_PR_REPO: 'corpus/r',
+        GATE_ALT_PR_TOKEN: 'corpus-token',
+        CALL_LOG: log,
+        STATE: state,
+        COLLECTION_OK: 'true',
+        GITHUB_STEP_SUMMARY: '',
+      },
+    });
+    const calls = readFileSync(log, 'utf-8').trim().split('\n').map((line) => JSON.parse(line));
+    const comments = calls.filter((call) => call.args[0] === 'pr' && call.args[1] === 'comment');
+    const posted = (n: string, repo: string) => comments.some((call) => call.args[2] === n && call.args.includes(repo));
+    expect(out).not.toContain('commento sulla PR');
+    // Solo la PR sorgente dell'item demoto riceve il commento: l'item di #8101
+    // e' valido e resta nel bucket, quindi #8101 non ha niente da conservare.
+    expect(posted('8101', 'site/r')).toBe(false);
+    expect(posted('1590', 'corpus/r')).toBe(true);
+    const body1590 = comments.find((call) => call.args[2] === '1590')!.args.at(-1)!;
+    expect(body1590).toContain('- Sources: PR #1590');
+    expect(body1590).not.toContain('PR #8101');
+    expect(comments.find((call) => call.args.includes('corpus/r'))?.token).toBe('corpus-token');
+    // La demozione e' avvenuta: il corpo e' stato riscritto senza l'item invalido.
+    expect(calls.some((call) => call.args[0] === 'issue' && call.args.includes('--body-file'))).toBe(true);
+    expect(JSON.parse(readFileSync(state, 'utf-8')).body).not.toContain('missing acceptance');
+  });
+
+  it('stesso numero di PR nei due repository: commenta solo la PR sorgente dell item, nel repository il cui marker cita il bucket', () => {
+    // Caso reale corpus #1742 (run 36214063543, 35973121007): il bucket del sito
+    // #9769 cita `Sources: PR #1742` della PR del CORPUS, ma anche il sito ha una
+    // PR #1742. La vecchia risoluzione «primo repository in cui N e' una PR»
+    // commentava la PR del sito, e il commento con TUTTI gli item demoti finiva
+    // su TUTTE le Sources: corpus #1742 riceveva gli item di #1740 ma mai il
+    // proprio, e la prova del collector non combaciava mai.
+    const tick = String.fromCharCode(96);
+    const validItem = [
+      '### FU-2026-09-25-001 — queue candidate',
+      '- State: open',
+      '- Sources: PR #9633',
+      `- Target file: ${tick}scripts/example.mjs${tick}`,
+      '- Original text:',
+      '  > il controllo non è sempre applicato',
+      `- Suggested action: aggiungi ${tick}firstGuard()${tick}`,
+      `- Acceptance token: ${tick}firstGuard()${tick}`,
+    ];
+    const vagueItem = (id: string, pr: number, what: string) => [
+      `### ${id} — ${what}`,
+      '- State: open',
+      `- Sources: PR #${pr}`,
+      `- Target file: ${tick}scripts/example.mjs${tick}`,
+      `- Suggested action: controllare ${what}`,
+    ];
+    const issue = {
+      number: 9769,
+      title: 'follow-up(daily:2026-09-25): 3 items — site/r',
+      body: [
+        '## Batch',
+        '- Daily key: 2026-09-25 (Europe/Zurich)',
+        '- State: collecting',
+        '- Target repository: site/r',
+        '',
+        '## Item',
+        '',
+        ...validItem,
+        '',
+        ...vagueItem('FU-2026-09-25-002', 1742, 'item-di-1742'),
+        '',
+        ...vagueItem('FU-2026-09-25-003', 1740, 'item-di-1740'),
+        '',
+      ].join('\n'),
+      labels: [{ name: 'follow-up' }],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'same-number-calls.log');
+    const state = join(binDir, 'same-number-state.json');
+    writeFileSync(log, '');
+    writeFileSync(state, JSON.stringify(issue));
+    const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+const repo = args.includes('--repo') ? args[args.indexOf('--repo') + 1] : '';
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify({ args, token: process.env.GH_TOKEN }) + '\\n');
+const readState = () => JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
+const notPr = (n) => { process.stderr.write('GraphQL: Could not resolve to a PullRequest with the number of ' + n + '. (repository.pullRequest)\\n'); process.exit(1); };
+const marker = (bucket) => ({ body: '## Post-merge follow-up triage\\nBucket giornaliero: #' + bucket + ' (follow-up(daily:2026-09-25)).\\nFollow-up item: FU-2026-09-25-002' });
+// PR del sito: #9633 e #1742 (vecchia, triagiata in un ALTRO bucket).
+// PR del corpus: #1742 e #1740, entrambe triagiate nel bucket #9769 del sito.
+const prs = {
+  'site/r': { '9633': [marker(9769)], '1742': [marker(1234)] },
+  'corpus/r': { '1742': [marker(9769)], '1740': [marker(9769)] },
+};
+if (args[0] === 'api') {
+  const current = readState();
+  process.stdout.write(JSON.stringify([[{ number: current.number, title: current.title, state: 'open', labels: current.labels, created_at: current.createdAt }]]));
+} else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(readState()));
+else if (args[0] === 'pr' && (args[1] === 'view' || args[1] === 'comment')) {
+  const comments = (prs[repo] || {})[args[2]];
+  if (!comments) notPr(args[2]);
+  if (args[1] === 'view') process.stdout.write(JSON.stringify({ comments }));
+} else if (args[0] === 'issue' && args[1] === 'edit' && args.includes('--body-file')) {
+  const updated = readState();
+  updated.body = fs.readFileSync(args[args.indexOf('--body-file') + 1], 'utf8');
+  const titleIndex = args.indexOf('--title');
+  if (titleIndex >= 0) updated.title = args[titleIndex + 1];
+  fs.writeFileSync(process.env.STATE, JSON.stringify(updated));
+}
+`;
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH}`,
+        BATCH_PRS: '',
+        TRIAGE_COMPLETE: 'true',
+        DRY_RUN: '0',
+        GH_REPO: 'site/r',
+        GH_TOKEN: 'site-token',
+        GATE_ALT_PR_REPO: 'corpus/r',
+        GATE_ALT_PR_TOKEN: 'corpus-token',
+        CALL_LOG: log,
+        STATE: state,
+        COLLECTION_OK: 'true',
+        GITHUB_STEP_SUMMARY: '',
+      },
+    });
+    const calls = readFileSync(log, 'utf-8').trim().split('\n').map((line) => JSON.parse(line));
+    const comments = calls.filter((call) => call.args[0] === 'pr' && call.args[1] === 'comment');
+    const repoOf = (call: { args: string[] }) => call.args[call.args.indexOf('--repo') + 1];
+    const bodyOf = (call: { args: string[] }) => call.args[call.args.indexOf('--body') + 1];
+    expect(comments.map((call) => `${repoOf(call)}#${call.args[2]}`).sort()).toEqual(['corpus/r#1740', 'corpus/r#1742']);
+    const on1742 = comments.find((call) => call.args[2] === '1742')!;
+    expect(bodyOf(on1742)).toContain('Issue #9769');
+    expect(bodyOf(on1742)).toContain('- Sources: PR #1742');
+    expect(bodyOf(on1742)).toContain('item-di-1742');
+    expect(bodyOf(on1742)).not.toContain('item-di-1740');
+    const on1740 = comments.find((call) => call.args[2] === '1740')!;
+    expect(bodyOf(on1740)).toContain('item-di-1740');
+    expect(bodyOf(on1740)).not.toContain('item-di-1742');
+    // La demozione e' avvenuta: il corpo e' stato riscritto senza gli item invalidi.
+    const after = JSON.parse(readFileSync(state, 'utf-8')).body;
+    expect(after).not.toContain('item-di-1742');
+    expect(after).not.toContain('item-di-1740');
+    expect(after).toContain('FU-2026-09-25-001');
+  });
+
+  it('suppress di un daily con conservazione fallita sulla PR sorgente: nessun close, issue aperta', () => {
+    // Review di #10070: il ramo `suppress` chiudeva la issue anche quando
+    // `preserveDemotedOnSourcePrs()` non era riuscito, perdendo l'unica copia
+    // integrale degli item demoti. Qui `gh pr comment` fallisce con un guasto
+    // (non «non e' una PR»): nessun `issue close`, nessun `issue comment`.
+    const tick = String.fromCharCode(96);
+    const issue = {
+      number: 9801,
+      title: 'follow-up(daily:2026-09-26): 1 item — site/r',
+      body: [
+        '## Batch',
+        '- Daily key: 2026-09-26 (Europe/Zurich)',
+        '- State: collecting',
+        '- Target repository: site/r',
+        '',
+        '## Item',
+        '',
+        '### FU-2026-09-26-001 — senza condizione di accettazione',
+        '- State: open',
+        '- Sources: PR #1742',
+        `- Target file: ${tick}scripts/example.mjs${tick}`,
+        '- Suggested action: controllare il file',
+        '',
+      ].join('\n'),
+      state: 'open',
+      labels: [{ name: 'follow-up' }],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'suppress-fail-calls.log');
+    const state = join(binDir, 'suppress-fail-state.json');
+    writeFileSync(log, '');
+    writeFileSync(state, JSON.stringify(issue));
+    const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify({ args }) + '\\n');
+const readState = () => JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
+if (args[0] === 'api') {
+  const c = readState();
+  process.stdout.write(JSON.stringify([[{ number: c.number, title: c.title, state: 'open', labels: c.labels, created_at: c.createdAt }]]));
+} else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(readState()));
+else if (args[0] === 'pr' && args[1] === 'view') process.stdout.write(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\\nCreated/updated: daily bucket #9801 con 1 item' }] }));
+else if (args[0] === 'pr' && args[1] === 'comment') { process.stderr.write('HTTP 502: Bad Gateway\\n'); process.exit(1); }
+else if (args[0] === 'issue' && args[1] === 'close') { const u = readState(); u.state = 'closed'; fs.writeFileSync(process.env.STATE, JSON.stringify(u)); }
+`;
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH}`,
+        BATCH_PRS: '',
+        TRIAGE_COMPLETE: 'true',
+        DRY_RUN: '0',
+        GH_REPO: 'site/r',
+        GH_TOKEN: 'site-token',
+        CALL_LOG: log,
+        STATE: state,
+        COLLECTION_OK: 'true',
+        GITHUB_STEP_SUMMARY: '',
+      },
+    });
+    const calls = readFileSync(log, 'utf-8').trim().split('\n').map((line) => JSON.parse(line));
+    expect(out).toContain('#9801 (daily:2026-09-26) → suppress');
+    // La conservazione e' stata tentata ed e' fallita...
+    expect(calls.some((call) => call.args[0] === 'pr' && call.args[1] === 'comment')).toBe(true);
+    // ...quindi nessuna chiusura e nessun commento di soppressione sulla issue.
+    expect(calls.some((call) => call.args[0] === 'issue' && call.args[1] === 'close')).toBe(false);
+    expect(calls.some((call) => call.args[0] === 'issue' && call.args[1] === 'comment')).toBe(false);
+    expect(JSON.parse(readFileSync(state, 'utf-8')).state).toBe('open');
+    expect(out).toContain('NON chiudo la issue');
+  });
+
   it('consolida un gruppo sealed+collecting senza lasciare il duplicate in starvation', () => {
     const makeBody = (id: string, state: string, pr: number, token: string) => [
       '## Batch',
@@ -217,7 +607,7 @@ else if (args[0] === 'issue' && args[1] === 'view') {
     expect(calls).toContain('follow-up(daily:2026-09-09): 2 items');
   });
 
-  it('non accoda un daily bucket sealed quando la snapshot porta needs-human', () => {
+  it('non riaccoda un daily bucket sealed già parcheggiato', () => {
     const tick = String.fromCharCode(96);
     const body = [
       '## Batch',
@@ -241,10 +631,10 @@ else if (args[0] === 'issue' && args[1] === 'view') {
       number: 601,
       title: 'follow-up(daily:2026-09-09): 1 item — o/r',
       body,
-      labels: [{ name: 'needs-human' }],
+      labels: [{ name: 'fu-parked' }],
       createdAt: new Date().toISOString(),
     };
-    const log = join(binDir, 'needs-human-calls.log');
+    const log = join(binDir, 'fu-parked-calls.log');
     writeFileSync(log, '');
     const fake = [
       '#!/usr/bin/env node',
@@ -270,8 +660,147 @@ else if (args[0] === 'issue' && args[1] === 'view') {
       },
     });
     const calls = readFileSync(log, 'utf-8');
-    expect(out).toContain('nessuna nuova agent:fix-queued (needs-human veto)');
+    expect(out).toContain('nessuna nuova agent:fix-queued (fu-parked handoff già parcheggiato)');
     expect(calls).not.toContain('"--add-label","agent:fix-queued"');
+  });
+
+  it('non riaccoda un padre già decomposto (bucket sealed con item open) e lo conta', () => {
+    // Il ramo «queue repair» gira a ogni run: senza il veto rimette `agent:fix-queued`
+    // su un tracker che il drainer ritoglie al tick dopo (#9443, #9508).
+    const tick = String.fromCharCode(96);
+    const body = [
+      '## Batch',
+      '- Daily key: 2026-09-09 (Europe/Zurich)',
+      '- State: sealed',
+      '- Target repository: o/r',
+      '',
+      '## Item',
+      '',
+      '### FU-2026-09-09-001 — proteggi il comportamento',
+      '- State: open',
+      '- Sources: PR #8101',
+      '- Target file: ' + tick + 'scripts/example.mjs' + tick,
+      '- Original text:',
+      '  > il controllo non è sempre applicato',
+      '- Suggested action: aggiungi ' + tick + 'firstGuard()' + tick,
+      '- Acceptance token: ' + tick + 'firstGuard()' + tick,
+      '',
+    ].join('\n');
+    const runWith = (labels: Array<{ name: string }>) => {
+      const issue = {
+        number: 603,
+        title: 'follow-up(daily:2026-09-09): 1 item — o/r',
+        body,
+        labels,
+        createdAt: new Date().toISOString(),
+      };
+      const log = join(binDir, 'decomposed-calls.log');
+      writeFileSync(log, '');
+      const fake = [
+        '#!/usr/bin/env node',
+        "const fs = require('node:fs');",
+        'const args = process.argv.slice(2);',
+        'const issue = ' + JSON.stringify(issue) + ';',
+        "fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');",
+        "if (args[0] === 'api') process.stdout.write(JSON.stringify([[{ number: issue.number, title: issue.title, created_at: issue.createdAt }]]));",
+        "else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(issue));",
+      ].join('\n') + '\n';
+      writeFileSync(join(binDir, 'gh'), fake);
+      chmodSync(join(binDir, 'gh'), 0o755);
+      const out = execFileSync('node', [GATE], {
+        encoding: 'utf-8',
+        env: {
+          ...process.env,
+          PATH: binDir + ':' + (process.env.PATH ?? ''),
+          BATCH_PRS: '',
+          COLLECTION_OK: 'false',
+          DRY_RUN: '0',
+          GH_REPO: 'o/r',
+          CALL_LOG: log,
+        },
+      });
+      return { out, calls: readFileSync(log, 'utf-8') };
+    };
+
+    const parent = runWith([{ name: 'follow-up' }, { name: 'decomposed:1' }]);
+    expect(parent.out).toContain('nessuna nuova agent:fix-queued (decomposed:1 padre già decomposto)');
+    expect(parent.out).toMatch(/MINT_GATE_TALLY repo=o\/r queue_vetoed=1 reason=decomposed\n/);
+    expect(parent.calls).not.toContain('"--add-label","agent:fix-queued"');
+
+    const staged = runWith([{ name: 'follow-up' }, { name: 'agent:decompose-queued' }]);
+    expect(staged.out).toMatch(/MINT_GATE_TALLY repo=o\/r queue_vetoed=1 reason=decompose-stage\n/);
+    expect(staged.calls).not.toContain('"--add-label","agent:fix-queued"');
+
+    // Controllo: lo stesso bucket senza le label di decomposizione viene riparato.
+    const plain = runWith([{ name: 'follow-up' }, { name: 'maybe-resolved' }]);
+    expect(plain.calls).toContain('"--add-label","agent:fix-queued"');
+    expect(plain.out).not.toContain('queue_vetoed=');
+  });
+
+  it('la riga MINT_GATE_TALLY conta done_preserved sul processo vero', () => {
+    // Misura del difetto di FU-064 (bucket 10677): un item già `done` la cui
+    // accettazione oggi non è falsificabile resta nel corpo e la riga contabile lo
+    // conta. Bucket SEALED: il ramo `keep` non richiede la prova dei marker, e
+    // `tally.push` gira prima della biforcazione keep/skip.
+    const tick = String.fromCharCode(96);
+    const body = [
+      '## Batch',
+      '- Daily key: 2026-09-09 (Europe/Zurich)',
+      '- State: sealed',
+      '- Target repository: o/r',
+      '',
+      '## Item',
+      '',
+      '### FU-2026-09-09-001 — proteggi il comportamento',
+      '- State: open',
+      '- Sources: PR #8101',
+      '- Target file: ' + tick + 'scripts/example.mjs' + tick,
+      '- Original text:',
+      '  > il controllo non è sempre applicato',
+      '- Suggested action: aggiungi ' + tick + 'firstGuard()' + tick,
+      '- Acceptance token: ' + tick + 'firstGuard()' + tick,
+      '',
+      '### FU-2026-09-09-002 — rischio da rivalutare',
+      '- State: done',
+      '- Sources: PR #8102',
+      '- Suggested action: valuta il rischio in futuro',
+      '',
+    ].join('\n');
+    const issue = {
+      number: 604,
+      title: 'follow-up(daily:2026-09-09): 2 items — o/r',
+      body,
+      labels: [{ name: 'follow-up' }],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'done-preserved-calls.log');
+    writeFileSync(log, '');
+    const fake = [
+      '#!/usr/bin/env node',
+      "const fs = require('node:fs');",
+      'const args = process.argv.slice(2);',
+      'const issue = ' + JSON.stringify(issue) + ';',
+      "fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');",
+      "if (args[0] === 'api') process.stdout.write(JSON.stringify([[{ number: issue.number, title: issue.title, created_at: issue.createdAt }]]));",
+      "else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(issue));",
+    ].join('\n') + '\n';
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: binDir + ':' + (process.env.PATH ?? ''),
+        BATCH_PRS: '',
+        COLLECTION_OK: 'false',
+        DRY_RUN: '0',
+        GH_REPO: 'o/r',
+        CALL_LOG: log,
+      },
+    });
+    expect(out).toMatch(/MINT_GATE_TALLY repo=o\/r pr=null issue=604 action=keep reason=already-sealed demoted=0 kept=2 done_preserved=1 born_satisfied=0 token_is_declaration=0 admission_unknown=0 closed_state=0 target_missing=0 target_in_twin=0 target_rewritten=0 target_identical_in_corpus=0\n/);
+    // Il corpo non viene riscritto: l'item done non è stato tolto.
+    expect(readFileSync(log, 'utf-8')).not.toContain('"--body-file"');
   });
 
   it('non accoda un daily bucket sealed quando una label è malformata', () => {

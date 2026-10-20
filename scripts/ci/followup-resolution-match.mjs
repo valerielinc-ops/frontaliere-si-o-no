@@ -618,10 +618,11 @@ export function hasFalsifiableAcceptance(itemText) {
 /**
  * Heading riconosciuti per gli item. Il primo ramo è il formato stabile dei bucket
  * giornalieri; il secondo mantiene la compatibilità con le follow-up già pubblicate.
- * La regex è intenzionalmente ancorata a `###` e a inizio riga: un heading citato dentro
- * un blocco fenced resta materia per il controllo lossless del mint gate.
+ * H3 resta il formato canonico del contratto; gli ID FU stabili sono accettati anche
+ * a H2 per leggere i bucket storici. Gli item numerati legacy restano limitati a H3.
+ * I candidati devono essere heading completi a inizio riga e non protetti da quote/fence.
  */
-const FOLLOWUP_ITEM_HEADING_LINE_RE = /^###\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—–-]\s*(.*?)|(\d+)\.\s*(.*))\s*$/i;
+const FOLLOWUP_ITEM_HEADING_LINE_RE = /^(#{2,3})\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—–-]\s*(.*?)|(\d+)\.\s*(.*))\s*$/i;
 
 /**
  * Split Markdown into lines while marking fenced/quoted lines as protected.
@@ -749,7 +750,8 @@ export function parseFollowupItems(body) {
   for (const record of markdownRecords(source)) {
     if (record.protected) continue;
     const match = FOLLOWUP_ITEM_HEADING_LINE_RE.exec(record.line);
-    if (match) matches.push({ ...match, index: record.start });
+    // Only stable IDs widen to H2. A generic H2 numbered section is not a follow-up item.
+    if (match && (match[1] === '###' || match[2])) matches.push({ ...match, index: record.start });
   }
   const parsed = matches.map((match, index) => {
     const heading = match[0];
@@ -758,13 +760,13 @@ export function parseFollowupItems(body) {
     // Legacy callers historically received the suffix immediately after `### N.`
     // (including its leading space). Stable headings own the short title, so their
     // text starts after the complete heading line.
-    const contentStart = match[3]
+    const contentStart = match[4]
       ? start + heading.indexOf('.') + 1
       : start + heading.length;
     const text = source.slice(contentStart, end);
-    const id = match[1] || null;
-    const number = match[3] ? Number(match[3]) : null;
-    const title = (match[2] ?? match[4] ?? '').trim();
+    const id = match[2] || null;
+    const number = match[4] ? Number(match[4]) : null;
+    const title = (match[3] ?? match[5] ?? '').trim();
     return {
       id,
       number,
@@ -923,6 +925,10 @@ export function mergeDailyItemSources(primary, duplicate) {
  * Deduplicate parsed daily items in production.  Items with no complete
  * fingerprint are retained: the caller must let the acceptance/state gates deal
  * with them rather than silently dropping work on an incomplete record.
+ *
+ * In ogni record di `duplicates`, `kept` è il superstite AL MOMENTO di
+ * quell'accorpamento, non quello finale: con tre o più gemelli un `done` arrivato
+ * dopo può sostituirlo. Il superstite finale si legge in `items`.
  */
 export function dedupeDailyItems(items, bucketTargetRepository = '') {
   const unique = [];
@@ -936,10 +942,22 @@ export function dedupeDailyItems(items, bucketTargetRepository = '') {
       continue;
     }
     const index = byFingerprint.get(fingerprint);
-    unique[index] = mergeDailyItemSources(unique[index], item);
+    const kept = unique[index];
+    // Stati diversi: vince il `done`. Scartarlo a favore del gemello `open`
+    // cancellerebbe il registro del lavoro fatto e riaprirebbe l'item. Il `done`
+    // resta al SUO posto nell'ordine sorgente, col suo ID stabile.
+    if (item?.state === 'done' && kept?.state !== 'done') {
+      const survivor = mergeDailyItemSources(item, kept);
+      unique[index] = null;
+      byFingerprint.set(fingerprint, unique.length);
+      unique.push(survivor);
+      duplicates.push({ item: kept, fingerprint, kept: survivor });
+      continue;
+    }
+    unique[index] = mergeDailyItemSources(kept, item);
     duplicates.push({ item, fingerprint, kept: unique[index] });
   }
-  return { items: unique, duplicates };
+  return { items: unique.filter(Boolean), duplicates };
 }
 
 /**
@@ -987,8 +1005,15 @@ export function dailyKeyFromBucketBody(body) {
     : null;
 }
 
+/** Remove only a complete Markdown inline-code delimiter from a repository field. */
+export function normalizeRepositoryFieldValue(value) {
+  const source = String(value ?? '').trim();
+  const codeSpan = /^(`+)([^`\r\n]+)\1$/u.exec(source);
+  return codeSpan ? codeSpan[2] : source;
+}
+
 function normalizeRepositoryPart(value) {
-  return String(value || '').trim().toLowerCase();
+  return normalizeRepositoryFieldValue(value).toLowerCase();
 }
 
 /** Return the single live bucket-level Target repository field, or null. */
@@ -997,7 +1022,7 @@ export function dailyBucketTargetRepository(body) {
   const firstItem = parseFollowupItems(source)[0];
   const head = source.slice(0, firstItem?.start ?? source.length);
   const values = headerFieldValuesOutsideMarkdownProtection(head, 'Target repository');
-  if (values.length === 1) return values[0].trim();
+  if (values.length === 1) return normalizeRepositoryFieldValue(values[0]);
   if (values.length) return null;
 
   // A bucket without a header is still safe to inspect when every item declares
@@ -1005,7 +1030,7 @@ export function dailyBucketTargetRepository(body) {
   // of items: that would let a mixed bucket cross the site/corpus boundary.
   const itemRepositories = parseFollowupItems(source).map((item) => {
     const declared = fieldValuesOutsideMarkdownProtection(item.text, 'Target repository');
-    return declared.length === 1 ? declared[0].trim() : null;
+    return declared.length === 1 ? normalizeRepositoryFieldValue(declared[0]) : null;
   });
   const normalized = [...new Set(itemRepositories.filter(Boolean).map(normalizeRepositoryPart))];
   if (!itemRepositories.length || itemRepositories.some((value) => !value) || normalized.length !== 1) return null;
@@ -1055,6 +1080,40 @@ export function bucketState(body) {
 /** The first stable item explicitly waiting for a fixer. */
 export function selectFirstOpenItem(body) {
   return parseFollowupItems(body).find((item) => item.id && item.state === 'open') || null;
+}
+
+/**
+ * Validate the frozen scope used by issue-fix before classifying a daily
+ * bucket as terminal. A missing/ambiguous item is not evidence that the
+ * bucket is complete: only a structurally valid sealed bucket with no open or
+ * in-progress item is terminal.
+ */
+export function dailyBucketScopeDecision(title, body) {
+  const info = dailyBucketInfo(title || '');
+  if (!info) return { isDaily: false, valid: true, terminal: false, reason: null, item: null };
+  const source = String(body || '');
+  const invalid = (reason) => ({ isDaily: true, valid: false, terminal: false, reason, item: null });
+  if (hasUnterminatedMarkdownFence(source)) return invalid('unterminated-markdown-fence');
+  if (bucketState(source) !== 'sealed') return invalid('bucket-not-sealed');
+  if (dailyKeyFromBucketBody(source) !== info.dailyKey) return invalid('mismatched-daily-key');
+  if (!hasDailyBucketRepositoryConsistency(source, info.targetRepository)) {
+    return invalid('mismatched-target-repository');
+  }
+
+  const items = parseFollowupItems(source);
+  if (items.length !== info.itemCount) return invalid('mismatched-item-count');
+  if (!hasStableItemIds(source)) return invalid('missing-stable-item-id');
+  if (!hasStableItemIdsForDailyKey(items, info.dailyKey)) return invalid('mismatched-stable-item-id');
+  if (items.some((item) => !['open', 'in-progress', 'done', 'blocked'].includes(item.state))) {
+    return invalid('invalid-item-state');
+  }
+
+  const item = items.find((entry) => entry.state === 'open') || null;
+  if (item) return { isDaily: true, valid: true, terminal: false, reason: null, item };
+  if (items.some((entry) => entry.state === 'in-progress')) {
+    return { isDaily: true, valid: true, terminal: false, reason: 'item-in-progress', item: null };
+  }
+  return { isDaily: true, valid: true, terminal: true, reason: 'no-open-item', item: null };
 }
 
 /** Replace one stable item's state without touching neighboring body text. */

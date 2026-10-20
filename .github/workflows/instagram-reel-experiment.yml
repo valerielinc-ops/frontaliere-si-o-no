@@ -1,0 +1,98 @@
+name: Instagram Reel Experiment
+
+# Two reserved experiment slots per week run before the daily carousel queue:
+# they consume one of the robot's two daily Instagram slots, never a third one.
+# Manual dispatch remains available for previews or an owner-selected cohort.
+on:
+  # GitHub exposes the exact cron string in github.event.schedule; keep the
+  # weekdays separate so KIND can distinguish article from job reliably.
+  schedule:
+    - cron: '30 7 * * 1' # Monday article, before the 08:20 UTC broadcast
+    - cron: '30 7 * * 5' # Friday job, before the 08:20 UTC broadcast
+  workflow_dispatch:
+    inputs:
+      kind:
+        description: 'Source cohort for the Reel'
+        required: true
+        default: article
+        type: choice
+        options: [article, job]
+      date:
+        description: 'GA4 report day (YYYY-MM-DD); empty means yesterday'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Preview only; do not upload or queue assets'
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
+
+concurrency:
+  group: instagram-reel-experiment
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      KIND: ${{ github.event_name == 'schedule' && github.event.schedule == '30 7 * * 5' && 'job' || inputs.kind || 'article' }}
+      REPORT_DATE: ${{ inputs.date || '' }}
+      DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || inputs.dry_run || 'true' }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with: { node-version: 22, cache: npm }
+      - name: Install dependencies
+        run: npm ci
+      - name: Ensure ffmpeg is available
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+
+      - name: Prepare Firebase credentials
+        if: env.DRY_RUN != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          printf 'GOOGLE_APPLICATION_CREDENTIALS=%s\n' "$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load Remote Config
+        if: env.DRY_RUN != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Render or queue controlled Reel
+        run: |
+          set -euo pipefail
+          args=("--kind=$KIND")
+          if [ -n "$REPORT_DATE" ]; then args+=("--date=$REPORT_DATE"); fi
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          npx --no-install tsx scripts/post-to-instagram-reel.mjs "${args[@]}"
+
+      - name: Commit Reel queue
+        if: env.DRY_RUN != 'true'
+        run: |
+          set -euo pipefail
+          if [ ! -f data/instagram-queue.json ]; then
+            echo 'no Instagram queue written — nothing to commit'
+            exit 0
+          fi
+          git add data/instagram-queue.json
+          if git diff --cached --quiet; then
+            echo 'no Reel queue changes'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore(instagram): queue controlled Reel experiment [skip ci]'
+          bash scripts/lib/git-push-with-retry.sh --max-attempts 20 --stash-dirty

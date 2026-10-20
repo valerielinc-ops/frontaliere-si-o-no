@@ -3,6 +3,11 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  GLOBAL_EMAIL_OPT_OUT_FIELDS,
+  isCrossChannelStop,
+} from '../functions/src/lib/emailSuppression.js';
+import { isNewsletterOptOutBinding } from '../functions/src/lib/newsletterOptOut.js';
+import {
   buildL1TelemetryExport,
   buildUnavailableL1TelemetryExport,
   buildUnavailableL3OutcomeExport,
@@ -11,40 +16,56 @@ import {
   buildL3OutcomeExport,
   buildL4OutcomeLedger,
   buildL5DecisionMomentExport,
-  buildL5DecisionMomentQuery,
-  buildL7ExperimentLedger,
-  buildL7ExperimentLedgerQuery,
   buildL9OutcomeLedger,
+  exportL1,
   exportL3,
   exportL4,
   exportL5,
-  exportL7,
+  fetchL4ReturnUsers,
+  fetchL5EventSessions,
   GoogleDataClient,
+  L1_GA4_EVENT_CONTRACT,
+  L4_GA4_RETURN_CONTRACT,
+  L4_DELIVERY_CONSENT_WINDOW_MS,
+  readDeliveryConsentEvidence,
+  L5_DECISION_EVENT_CONTRACT,
+  l5GatedDateRange,
 } from '../scripts/ci/export-loop-outcomes.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 const ROOT = 'projects/test/databases/(default)/documents';
-const L7_POLICY = JSON.parse(fs.readFileSync(
-  path.resolve('data/loop-fleet/loop-registry.json'),
-  'utf8',
-)).loops.find((loop: any) => loop.loopId === 'L7');
-
-function postHogClient() {
-  return {
-    remoteConfig: async () => ({
-      parameters: {
-        SERVER_POSTHOG_PERSONAL_API_KEY: { defaultValue: { value: 'test-key' } },
-        SERVER_POSTHOG_PROJECT_ID: { defaultValue: { value: 'test-project' } },
-      },
-    }),
-  };
-}
-
+// The fixtures use a fixed September window; the gate date is moved before it
+// so these cases exercise the counting, not the transition clamp.
+const L5_GATED_BEFORE_FIXTURES = { ...L5_DECISION_EVENT_CONTRACT, nextActionGateEffectiveFrom: '2026-09-01' };
 function row(path: string, data: Record<string, unknown>) {
   return { name: `${ROOT}/${path}`, data };
 }
 
 describe('read-only loop outcome exporters', () => {
+  it('accepts filter-time evidence inside the measured batch window and rejects older proof', () => {
+    const sentAt = '2026-10-06T12:00:00.000Z';
+    const proof = {
+      consent_checked: true,
+      consent_allowed: true,
+      outcome_contract_version: 1,
+      consent_basis: 'subscription',
+    };
+
+    expect(readDeliveryConsentEvidence({
+      ...proof,
+      consent_checked_at: new Date(
+        Date.parse(sentAt) - L4_DELIVERY_CONSENT_WINDOW_MS - 1_000,
+      ).toISOString(),
+    }, sentAt)).toEqual({ status: 'missing' });
+
+    expect(readDeliveryConsentEvidence({
+      ...proof,
+      consent_checked_at: new Date(
+        Date.parse(sentAt) - L4_DELIVERY_CONSENT_WINDOW_MS + 1_000,
+      ).toISOString(),
+    }, sentAt)).toMatchObject({ status: 'valid', basis: 'subscription' });
+  });
+
   it('parses Firestore runQuery streamed response records', async () => {
     const stream = [
       JSON.stringify({
@@ -67,6 +88,72 @@ describe('read-only loop outcome exporters', () => {
     }]);
   });
 
+  it('combines the delivery time filter with the job-alert collection path', async () => {
+    let requestBody: any;
+    const stream = [
+      JSON.stringify({
+        document: {
+          name: `${ROOT}/job_alert_subscribers/l4-fixture/campaign_deliveries/delivery`,
+          fields: { sent_at: { timestampValue: '2026-09-12T10:00:00.000Z' } },
+        },
+      }),
+      JSON.stringify({ done: true }),
+    ].join('\n');
+    const client = new GoogleDataClient({
+      serviceAccount: { project_id: 'test', client_email: 'fixture', private_key: 'fixture' },
+      fetchImpl: async (_url, init) => {
+        requestBody = JSON.parse(String(init?.body));
+        return { ok: true, text: async () => stream };
+      },
+    });
+    (client as any).token = { value: 'fixture', expiresAt: Date.now() + 120_000 };
+
+    await expect(client.runQuery({
+      collectionId: 'campaign_deliveries',
+      allDescendants: true,
+      pathPrefix: 'job_alert_subscribers',
+      where: {
+        fieldFilter: {
+          field: { fieldPath: 'sent_at' },
+          op: 'GREATER_THAN_OR_EQUAL',
+          value: { timestampValue: '2026-09-02T12:00:00.000Z' },
+        },
+      },
+    })).resolves.toHaveLength(1);
+
+    const where = requestBody.structuredQuery.where;
+    expect(where.compositeFilter.op).toBe('AND');
+    expect(where.compositeFilter.filters).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        fieldFilter: expect.objectContaining({
+          field: { fieldPath: 'sent_at' },
+          op: 'GREATER_THAN_OR_EQUAL',
+        }),
+      }),
+      expect.objectContaining({
+        compositeFilter: {
+          op: 'AND',
+          filters: expect.arrayContaining([
+            expect.objectContaining({
+              fieldFilter: expect.objectContaining({
+                field: { fieldPath: '__name__' },
+                op: 'GREATER_THAN_OR_EQUAL',
+                value: { referenceValue: `${ROOT}/job_alert_subscribers/__id-9223372036854775808__` },
+              }),
+            }),
+            expect.objectContaining({
+              fieldFilter: expect.objectContaining({
+                field: { fieldPath: '__name__' },
+                op: 'LESS_THAN',
+                value: { referenceValue: `${ROOT}/job_alert_subscribers\uf8ff/__id-9223372036854775808__` },
+              }),
+            }),
+          ]),
+        },
+      }),
+    ]));
+  });
+
   it('adds fresh L1 session fields without discarding the existing baseline', () => {
     const output = buildL1TelemetryExport({ _meta: { issue: 4304 }, oldFact: true }, {
       usefulSessions: 18595,
@@ -80,6 +167,116 @@ describe('read-only loop outcome exporters', () => {
       usefulSessions: 18595,
       errorFreeUsefulSessions: 7738,
       _meta: { issue: 4304, generatedAt: NOW.toISOString() },
+    });
+  });
+
+  describe('L1 useful sessions from GA4', () => {
+    const L1_POLICY = JSON.parse(fs.readFileSync(
+      path.resolve('data/loop-fleet/loop-registry.json'),
+      'utf8',
+    )).loops.find((loop: any) => loop.loopId === 'L1');
+
+    function l1Client({ useful, errors }: { useful: unknown; errors: unknown }) {
+      const calls: Array<{ url: string; body: any }> = [];
+      const client = {
+        request: async (url: string, init: RequestInit) => {
+          const body = JSON.parse(String(init.body));
+          calls.push({ url, body });
+          return body.dimensionFilter.filter.inListFilter ? errors : useful;
+        },
+      };
+      return { calls, client };
+    }
+
+    function inputPath() {
+      const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l1-export-test-'));
+      const input = path.join(dir, 'baseline.json');
+      fs.writeFileSync(input, JSON.stringify({ _meta: { issue: 4304 }, oldFact: true }));
+      return { dir, input };
+    }
+
+    it('counts useful and error sessions from two exact settled GA4 reports', async () => {
+      const { calls, client } = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }] },
+        errors: { rows: [{ metricValues: [{ value: '40' }, { value: '55' }] }] },
+      });
+      const { dir, input } = inputPath();
+      const outputPath = path.join(dir, 'l1.json');
+      const output = await exportL1({ inputPath: input, outputPath, now: NOW, client: client as any });
+
+      expect(output).toMatchObject({
+        oldFact: true,
+        usefulSessions: 1000,
+        errorFreeUsefulSessions: 960,
+        observedErrorEvents: 55,
+        telemetryWindow: { startDate: '2026-09-07', endDate: '2026-09-10', lagDays: 2, source: 'GA4 settled calendar dates' },
+        evidence: { errorSessions: 40, errorFreeIsLowerBound: true, sourceRefs: L1_POLICY.outcome.sourceRefs },
+        _meta: { issue: 4304, source: 'GA4 Data API, read-only live export' },
+      });
+      expect(output.evidence.method).toContain('lower bound');
+      expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toEqual(output);
+
+      expect(calls).toHaveLength(2);
+      for (const call of calls) {
+        expect(call.url).toBe('https://analyticsdata.googleapis.com/v1beta/properties/524485296:runReport');
+        expect(call.body.dateRanges).toEqual([{ startDate: '2026-09-07', endDate: '2026-09-10' }]);
+        // Native event names only: the property has no free EVENT-scoped slot.
+        expect(call.body.dimensions).toBeUndefined();
+        expect(JSON.stringify(call.body)).not.toContain('customEvent:');
+      }
+      const useful = calls.find((call) => call.body.dimensionFilter.filter.stringFilter);
+      const errors = calls.find((call) => call.body.dimensionFilter.filter.inListFilter);
+      expect(useful?.body).toMatchObject({
+        metrics: [{ name: 'sessions' }],
+        dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { value: 'page_view', matchType: 'EXACT' } } },
+      });
+      expect(errors?.body).toMatchObject({
+        metrics: [{ name: 'sessions' }, { name: 'eventCount' }],
+        dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: [...L1_GA4_EVENT_CONTRACT.errorEvents] } } },
+      });
+    });
+
+    it('never lets error sessions push the error-free lower bound below zero', async () => {
+      const { client } = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '30' }] }] },
+        errors: { rows: [{ metricValues: [{ value: '45' }, { value: '90' }] }] },
+      });
+      const { dir, input } = inputPath();
+      const output = await exportL1({ inputPath: input, outputPath: path.join(dir, 'l1.json'), now: NOW, client: client as any });
+      expect(output).toMatchObject({ usefulSessions: 30, errorFreeUsefulSessions: 0, observedErrorEvents: 90 });
+    });
+
+    it('fails the export instead of publishing a thresholded or split GA4 total', async () => {
+      const { dir, input } = inputPath();
+      const exact = { rows: [{ metricValues: [{ value: '40' }, { value: '55' }] }] };
+      const thresholded = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }], metadata: { subjectToThresholding: true } },
+        errors: exact,
+      });
+      await expect(exportL1({ inputPath: input, outputPath: path.join(dir, 'a.json'), now: NOW, client: thresholded.client as any }))
+        .rejects.toThrow('GA4 L1 report for page_view is incomplete or thresholded');
+      const split = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }] },
+        errors: { rows: [exact.rows[0], exact.rows[0]] },
+      });
+      await expect(exportL1({ inputPath: input, outputPath: path.join(dir, 'b.json'), now: NOW, client: split.client as any }))
+        .rejects.toThrow('GA4 L1 report for error events returned 2 rows');
+      // A row that carries fewer metrics than requested is malformed, not zero.
+      const truncated = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }] },
+        errors: { rows: [{ metricValues: [{ value: '40' }] }] },
+      });
+      await expect(exportL1({ inputPath: input, outputPath: path.join(dir, 'c.json'), now: NOW, client: truncated.client as any }))
+        .rejects.toThrow('GA4 L1 report for error events returned 1 metric values, expected 2');
+      expect(fs.existsSync(path.join(dir, 'a.json'))).toBe(false);
+      expect(fs.existsSync(path.join(dir, 'b.json'))).toBe(false);
+      expect(fs.existsSync(path.join(dir, 'c.json'))).toBe(false);
+    });
+
+    it('labels the unavailable placeholder with the registry source, not PostHog', () => {
+      const placeholder = buildUnavailableL1TelemetryExport({ generatedAt: NOW.toISOString() });
+      expect(placeholder.export.sourceRefs).toEqual(L1_POLICY.outcome.sourceRefs);
+      expect(JSON.stringify(placeholder)).not.toMatch(/posthog/i);
     });
   });
 
@@ -119,15 +316,16 @@ describe('read-only loop outcome exporters', () => {
       eligibleDecisionSessions: 120,
       nextUsefulActions: 45,
       generatedAt: NOW.toISOString(),
-      telemetryWindow: { start: '2026-09-04T00:00:00.000Z', end: '2026-09-12T00:00:00.000Z' },
+      telemetryWindow: { startDate: '2026-09-03', endDate: '2026-09-10', lagDays: 2, source: 'GA4 settled calendar dates' },
     });
     expect(output).toMatchObject({
       independent: true,
       eligibleDecisionSessions: 120,
       nextUsefulActions: 45,
       evidence: {
-        sourceRefs: ['decision-surfaces', 'posthog'],
-        sessionJoin: 'properties.$session_id',
+        sourceRefs: ['decision-surfaces', 'ga4-decision-surface'],
+        sessionMetric: 'sessions',
+        settledWindow: true,
         eventContract: {
           completionEvent: 'decision_moment_completed',
           nextActionEvent: 'decision_moment_next_action',
@@ -143,40 +341,44 @@ describe('read-only loop outcome exporters', () => {
     });
   });
 
-  it('exports L5 counts from a bounded PostHog session join without writing source data', async () => {
-    const calls: Array<{ query: string; config: Record<string, string> }> = [];
+  it('exports L5 counts from exact settled GA4 event-session counts without writing source data', async () => {
+    const calls: Array<{ url: string; init: RequestInit }> = [];
     const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
     const output = await exportL5({
       now: NOW,
       days: 8,
+      eventContract: L5_GATED_BEFORE_FIXTURES,
       outputPath: path.join(outputDir, 'outcomes.json'),
       client: {
-        remoteConfig: async () => ({
-          parameters: {
-            SERVER_POSTHOG_PERSONAL_API_KEY: { defaultValue: { value: 'test-key' } },
-            SERVER_POSTHOG_PROJECT_ID: { defaultValue: { value: '123' } },
-            SERVER_POSTHOG_HOST: { defaultValue: { value: 'https://posthog.test' } },
-          },
-        }),
+        request: async (url: string, init: RequestInit) => {
+          calls.push({ url, init });
+          const body = JSON.parse(String(init.body));
+          const eventName = body.dimensionFilter.filter.stringFilter.value;
+          const sessions = eventName === 'decision_moment_completed' ? 120 : 45;
+          return { rowCount: 1, rows: [{ metricValues: [{ value: String(sessions) }] }] };
+        },
       } as any,
-      posthogRunner: async (query: string, config: Record<string, string>) => {
-        calls.push({ query, config });
-        return { columns: ['eligibleDecisionSessions', 'nextUsefulActions'], results: [[120, 45]] };
-      },
     });
 
-    expect(calls).toHaveLength(1);
-    expect(calls[0].query).toContain("event = 'decision_moment_completed'");
-    expect(calls[0].query).toContain("event = 'decision_moment_next_action'");
-    expect(calls[0].query).toContain('GROUP BY properties.$session_id');
-    expect(calls[0].query).toContain('2026-09-04T00:00:00.000Z');
-    expect(calls[0].query).toContain('2026-09-12T00:00:00.000Z');
-    expect(calls[0].config).toMatchObject({ apiKey: 'test-key', projectId: '123', host: 'https://posthog.test' });
+    expect(calls).toHaveLength(2);
+    for (const call of calls) {
+      expect(call.url).toBe('https://analyticsdata.googleapis.com/v1beta/properties/524485296:runReport');
+      const body = JSON.parse(String(call.init.body));
+      expect(body).toMatchObject({
+        dateRanges: [{ startDate: '2026-09-03', endDate: '2026-09-10' }],
+        metrics: [{ name: 'sessions' }],
+        dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { matchType: 'EXACT' } } },
+      });
+      // The property has no free EVENT-scoped slot: the L5 report must be
+      // answerable without any dimension, custom or otherwise.
+      expect(body.dimensions).toBeUndefined();
+      expect(String(call.init.body)).not.toContain('customEvent:');
+    }
     expect(output).toMatchObject({
       independent: true,
       eligibleDecisionSessions: 120,
       nextUsefulActions: 45,
-      telemetryWindow: { start: '2026-09-04T00:00:00.000Z', end: '2026-09-12T00:00:00.000Z' },
+      telemetryWindow: { startDate: '2026-09-03', endDate: '2026-09-10', lagDays: 2, source: 'GA4 settled calendar dates' },
     });
     expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toMatchObject({
       independent: true,
@@ -272,11 +474,17 @@ describe('read-only loop outcome exporters', () => {
       newsletterRoots: [row('newsletter_subscribers/user@example.test', { status: 'confirmed' })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
-        sent_at: '2026-09-12T09:00:00.000Z',
-        scheduled_for: '2026-09-12T08:45:00.000Z',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-03T09:00:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-03T08:59:00.000Z',
+        outcome_contract_version: 1,
+        scheduled_for: '2026-09-03T08:45:00.000Z',
         send_time_source: 'personal',
-        delivered_at: '2026-09-12T09:01:00.000Z',
-        opened_at: '2026-09-12T10:00:00.000Z',
+        delivered_at: '2026-09-03T09:01:00.000Z',
+        opened_at: '2026-09-03T10:00:00.000Z',
         clicked_links: ['https://example.test/job'],
       })],
       predicates: {
@@ -286,6 +494,7 @@ describe('read-only loop outcome exporters', () => {
         readReturnVisitStamp: () => ({ atMs: Date.parse('2026-09-12T11:00:00.000Z') }),
         classifyReturnVisit: () => ({ returned: true }),
       },
+      ga4ReturnUsers7d: 1,
     });
     expect(output).toMatchObject({
       eligibleConsentedUsers: 1,
@@ -306,6 +515,773 @@ describe('read-only loop outcome exporters', () => {
         },
       },
     });
+  });
+
+  it('records a checked consent denial without conflating the deduplication ledger', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:00:00.000Z',
+        consent_checked: true,
+        consent_allowed: false,
+        consent_basis: 'no-subscription-basis',
+        consent_checked_at: '2026-09-12T08:59:00.000Z',
+        outcome_contract_version: 1,
+        scheduled_for: null,
+        send_time_source: 'global',
+        delivered_at: '2026-09-12T09:01:00.000Z',
+      })],
+      predicates: {
+        // The alert row itself is valid; the delivery proof is the failing
+        // source, which is the distinction the old exporter lost.
+        evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }),
+      },
+    });
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        deduplicationChecked: true,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { consentNotAllowed: 1 },
+      },
+    });
+  });
+
+  it('attributes a valid delivery when its current stop event happened after provider acceptance', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'confirmed',
+        unsubscribed_at: '2026-09-12T09:12:00.000Z',
+        resubscribed_at: '2026-09-12T09:00:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-1', {
+        event_type: 'unsubscribed',
+        occurred_at: '2026-09-12T09:12:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isNewsletterOptOutBinding,
+      },
+    });
+    expect(output).toMatchObject({
+      deliveredAlerts: 1,
+      consentViolations: 0,
+      export: {
+        consentChecked: true,
+        unattributedDeliveries: 0,
+        unattributedDeliveryReasons: { consentNotAllowed: 0 },
+      },
+    });
+  });
+
+  it('keeps a current cross-channel stop fail-closed without matching event evidence', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'unsubscribed',
+        unsubscribed_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+      },
+    });
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { consentNotAllowed: 1 },
+      },
+    });
+  });
+
+  it('rejects an incomplete pre-acceptance stop even when a complete matching event follows the send', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'bounced',
+        bounced_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      eventRows: [
+        row('newsletter_subscribers/user@example.test/events/bounce-incomplete', {
+          event_type: 'bounce',
+          timestamp: '2026-09-12T09:05:00.000Z',
+        }),
+        row('newsletter_subscribers/user@example.test/events/bounce-complete', {
+          event_type: 'bounce',
+          occurred_at: '2026-09-12T09:12:00.000Z',
+          timestamp: '2026-09-12T09:12:00.000Z',
+        }),
+      ],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isCrossChannelStop: () => true,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        deduplicationChecked: true,
+        unattributedDeliveries: 1,
+        postSendCrossChannelStopsProven: 0,
+        incompleteStopEventProofs: 1,
+        incompleteStopEventReasons: { 'bounce:missingOccurredAt': 1 },
+      },
+    });
+  });
+
+  it('uses an incomplete post-send event only when matching root server evidence completes its time proof', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'bounced',
+        bounced_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/bounce-1', {
+        event_type: 'bounce',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isCrossChannelStop,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 1,
+      consentViolations: 0,
+      export: {
+        consentChecked: true,
+        unattributedDeliveries: 0,
+        incompleteStopEventProofs: 0,
+        serverLedgerProvenIncompleteStops: 1,
+        postSendCrossChannelStopsProven: 1,
+      },
+    });
+  });
+
+  it('refuses a timestamp-less event excluded by Firestore when its root server ledger proves a pre-send stop', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'confirmed',
+        unsubscribed_at: '2026-09-12T09:05:00.000Z',
+        resubscribed_at: '2026-09-12T09:20:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+      })],
+      // Firestore's timestamp filter cannot return the malformed event. The
+      // canonical writer's server stamp on the subscriber root is the second
+      // ledger and must still make the consent interval fail closed.
+      eventRows: [],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }),
+        isCrossChannelStop,
+        isNewsletterOptOutBinding,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        preAcceptanceRootStops: 1,
+      },
+    });
+  });
+
+  it('classifies a complete global stop-all ledger after the send with the canonical sender contract', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'confirmed',
+        all_email_opted_out: true,
+        global_email_opt_out: true,
+        all_email_opted_out_at: '2026-09-12T09:12:00.000Z',
+        global_email_opt_out_at: '2026-09-12T09:12:00.000Z',
+        resubscribed_at: '2026-09-12T09:08:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-all-1', {
+        event_type: 'all_email_unsubscribed',
+        occurred_at: '2026-09-12T09:12:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isCrossChannelStop,
+        isNewsletterOptOutBinding,
+        globalEmailOptOutFields: GLOBAL_EMAIL_OPT_OUT_FIELDS,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 1,
+      consentViolations: 0,
+      export: {
+        consentChecked: true,
+        unattributedDeliveries: 0,
+        postSendCrossChannelStopsProven: 1,
+      },
+    });
+  });
+
+  it('keeps a global stop-all fail-closed when its root server stamps are incomplete', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'confirmed',
+        global_email_opt_out: true,
+        global_email_opt_out_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-all-1', {
+        event_type: 'all_email_unsubscribed',
+        occurred_at: '2026-09-12T09:12:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isCrossChannelStop,
+        globalEmailOptOutFields: GLOBAL_EMAIL_OPT_OUT_FIELDS,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        unprovenCurrentCrossChannelStops: 1,
+      },
+    });
+  });
+
+  it('keeps the consent violation when the stop occurred before acceptance but its webhook was persisted later', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'unsubscribed',
+        unsubscribed_at: '2026-09-12T09:05:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-1', {
+        event_type: 'unsubscribed',
+        occurred_at: '2026-09-12T09:05:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+      },
+    });
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { consentNotAllowed: 1 },
+      },
+    });
+  });
+
+  it('keeps other current-consent denials fail-closed even when a stop event is newer than the send', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'unsubscribed',
+        unsubscribed_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-1', {
+        event_type: 'unsubscribed',
+        occurred_at: '2026-09-12T09:12:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'no-subscription-basis' }),
+      },
+    });
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { consentNotAllowed: 1 },
+      },
+    });
+  });
+
+  it('classifies absent consent proof as missing while keeping a valid deduplication key checked', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:00:00.000Z',
+        consent_checked: false,
+        consent_allowed: false,
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:01:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }),
+      },
+    });
+    expect(output).toMatchObject({
+      consentViolations: 0,
+      duplicateSends: 0,
+      export: {
+        consentChecked: false,
+        deduplicationChecked: true,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { missingConsentEvidence: 1 },
+        noConsentedAlertCauses: { missingConsentEvidence: 1 },
+      },
+    });
+  });
+
+  it('keeps duplicate recipient-alert sends out of the deduplication check', () => {
+    const delivery = (id: string) => row(`job_alert_subscribers/user@example.test/campaign_deliveries/${id}`, {
+      campaign_id: 'a1',
+      ranking_delivery_id: `jer_job_alert_${(id === 'd2' ? 'b' : 'a').repeat(24)}`,
+      sent_at: '2026-09-12T09:00:00.000Z',
+      consent_checked: true,
+      consent_allowed: true,
+      consent_basis: 'explicit-alert',
+      consent_checked_at: '2026-09-12T08:59:00.000Z',
+      outcome_contract_version: 1,
+      scheduled_for: null,
+      send_time_source: 'global',
+      delivered_at: '2026-09-12T09:01:00.000Z',
+    });
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows: [delivery('d1'), delivery('d2')],
+      predicates: { evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }) },
+    });
+    expect(output).toMatchObject({
+      deliveredAlerts: 2,
+      duplicateSends: 1,
+      export: { consentChecked: true, deduplicationChecked: false, unattributedDeliveries: 0 },
+    });
+  });
+
+  it('keeps a delivered row without an alert id out of attribution', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: null,
+        sent_at: '2026-09-12T09:00:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T08:59:00.000Z',
+        outcome_contract_version: 1,
+        scheduled_for: null,
+        send_time_source: 'global',
+        delivered_at: '2026-09-12T09:01:00.000Z',
+      })],
+      predicates: { evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }) },
+    });
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      export: {
+        consentChecked: false,
+        deduplicationChecked: false,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { missingAlertId: 1 },
+      },
+    });
+  });
+
+  describe('L4 independent sender proof', () => {
+    const senderDelivery = ({
+      id = 'd1',
+      alertId = 'a1',
+      proofId = `jer_job_alert_${'a'.repeat(24)}`,
+      consent = true,
+      sentAt = '2026-09-12T09:00:00.000Z',
+    } = {}) => row(`job_alert_subscribers/user@example.test/campaign_deliveries/${id}`, {
+      campaign_id: alertId,
+      ranking_delivery_id: proofId,
+      sent_at: sentAt,
+      consent_checked: consent ? true : null,
+      consent_allowed: consent ? true : null,
+      consent_basis: consent ? 'explicit-alert' : null,
+      consent_checked_at: consent ? '2026-09-12T08:59:00.000Z' : null,
+      outcome_contract_version: 1,
+      scheduled_for: null,
+      send_time_source: 'global',
+      delivered_at: '2026-09-12T09:01:00.000Z',
+    });
+    const ledger = ({ alertRows = [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })], deliveryRows, predicates }:
+      { alertRows?: unknown[]; deliveryRows: unknown[]; predicates?: Record<string, unknown> }) => buildL4OutcomeLedger({
+      now: NOW,
+      alertRows,
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows,
+      predicates: predicates || { evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }) },
+    });
+
+    it('keeps missing consent evidence fail-closed even with valid sender provenance', () => {
+      const output = ledger({ deliveryRows: [senderDelivery({ consent: false })] });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 0,
+        export: {
+          consentChecked: false,
+          deduplicationChecked: true,
+          unattributedDeliveries: 1,
+          unattributedDeliveryReasons: { missingConsentEvidence: 1 },
+          senderProvenDeliveries: 1,
+        },
+      });
+    });
+
+    it.each([
+      ['missing', ''],
+      ['malformed', 'foreign-delivery-id'],
+    ])('keeps a known alert with %s sender provenance unattributed', (_label, proofId) => {
+      const output = ledger({ deliveryRows: [senderDelivery({ proofId })] });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 0,
+        export: {
+          consentChecked: false,
+          deduplicationChecked: true,
+          unattributedDeliveries: 1,
+          unattributedDeliveryReasons: { missingSenderEvidence: 1 },
+          noConsentedAlertCauses: { missingSenderEvidence: 1 },
+          senderProvenDeliveries: 0,
+          senderProofMissing: 1,
+        },
+      });
+    });
+
+    it('keeps duplicate sender-proven deliveries fail-closed', () => {
+      const output = ledger({
+        deliveryRows: [
+          senderDelivery(),
+          senderDelivery({ id: 'd2', proofId: `jer_job_alert_${'b'.repeat(24)}` }),
+        ],
+      });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 2,
+        duplicateSends: 1,
+        export: {
+          consentChecked: true,
+          deduplicationChecked: false,
+          unattributedDeliveries: 0,
+          senderProvenDeliveries: 2,
+        },
+      });
+    });
+
+    it('keeps a delivery without a current alert or valid sender proof unattributed', () => {
+      const output = ledger({
+        alertRows: [],
+        deliveryRows: [senderDelivery({ proofId: 'foreign-delivery-id' })],
+      });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 0,
+        export: {
+          consentChecked: false,
+          deduplicationChecked: true,
+          unattributedDeliveries: 1,
+          unattributedDeliveryReasons: { missingSenderEvidence: 1 },
+          noConsentedAlertCauses: { missingSenderEvidence: 1 },
+          senderProvenDeliveries: 0,
+          senderProofMissing: 1,
+        },
+      });
+    });
+
+    it('accepts only complete sender and consent proof when mutable rows no longer prove send-time state', () => {
+      const output = ledger({
+        alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', {
+          active: true,
+          backfilled_from: 'newsletter_subscribers',
+        })],
+        deliveryRows: [
+          senderDelivery(),
+          senderDelivery({
+            id: 'd2',
+            alertId: 'deleted-alert',
+            proofId: `jer_job_alert_${'c'.repeat(24)}`,
+          }),
+        ],
+        predicates: {
+          evaluateJobAlertConsent: () => ({ allowed: false, reason: 'no-subscription-basis' }),
+        },
+      });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 2,
+        duplicateSends: 0,
+        consentViolations: 0,
+        export: {
+          consentChecked: true,
+          deduplicationChecked: true,
+          unattributedDeliveries: 0,
+          senderProvenDeliveries: 2,
+          senderProofMissing: 0,
+          historicalAlertRowsRecovered: 1,
+          mutableConsentSnapshotsSuperseded: 1,
+        },
+      });
+    });
+  });
+
+  it('reads the return cohort from native GA4 sessionCampaignName and never from a custom dimension', async () => {
+    const calls: Array<{ url: string; body: any }> = [];
+    const returningUsers = await fetchL4ReturnUsers({
+      client: {
+        request: async (url: string, init: RequestInit) => {
+          calls.push({ url, body: JSON.parse(String(init.body)) });
+          return { rows: [{ metricValues: [{ value: '17' }] }] };
+        },
+      } as any,
+      startDate: '2026-09-01',
+      endDate: '2026-09-08',
+      campaignNames: ['alert-a1', 'alert-a2'],
+    });
+    expect(returningUsers).toBe(17);
+    expect(calls).toHaveLength(1);
+    expect(calls[0]).toMatchObject({
+      url: 'https://analyticsdata.googleapis.com/v1beta/properties/524485296:runReport',
+      body: {
+        dateRanges: [{ startDate: '2026-09-01', endDate: '2026-09-08' }],
+        metrics: [{ name: L4_GA4_RETURN_CONTRACT.metric }],
+        dimensionFilter: {
+          filter: {
+            fieldName: L4_GA4_RETURN_CONTRACT.dimension,
+            inListFilter: { values: ['alert-a1', 'alert-a2'] },
+          },
+        },
+      },
+    });
+    expect(calls[0].body.dimensions).toBeUndefined();
+    expect(JSON.stringify(calls[0].body)).not.toContain('customEvent:');
+  });
+
+  it('exports a mature L4 delivery cohort from GA4 instead of a Firestore visit stamp', async () => {
+    const analyticsCalls: Array<{ url: string; body: any }> = [];
+    const rows = {
+      alerts: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobs: [row('job_alert_subscribers/user@example.test', { status: 'confirmed' })],
+      newsletters: [row('newsletter_subscribers/user@example.test', { status: 'confirmed' })],
+      deliveries: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-03T09:00:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-03T08:59:00.000Z',
+        outcome_contract_version: 1,
+        scheduled_for: '2026-09-03T08:45:00.000Z',
+        send_time_source: 'personal',
+        delivered_at: '2026-09-03T09:01:00.000Z',
+      })],
+      events: [],
+    };
+    const firestore = {
+      runQuery: async (query: Record<string, unknown>) => {
+        const source = query.collectionId === 'alerts' ? rows.alerts
+          : query.collectionId === 'job_alert_subscribers' ? rows.jobs
+            : query.collectionId === 'newsletter_subscribers' ? rows.newsletters
+              : query.collectionId === 'campaign_deliveries' ? rows.deliveries
+                : rows.events;
+        return source;
+      },
+    };
+    const analytics = {
+      request: async (url: string, init: RequestInit) => {
+        analyticsCalls.push({ url, body: JSON.parse(String(init.body)) });
+        return { rows: [{ metricValues: [{ value: '23' }] }] };
+      },
+    };
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l4-ga4-export-test-'));
+    const output = await exportL4({
+      now: NOW,
+      outputPath: path.join(outputDir, 'outcomes.json'),
+      client: firestore as any,
+      analyticsClient: analytics as any,
+      propertyId: '987654',
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }),
+        isCrossChannelStop: () => false,
+        isJobAlertExcluded: () => false,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 1,
+      returningUsers7d: 23,
+      export: {
+        sourceRefs: ['firestore.job_alert_subscribers', 'firestore.newsletter_subscribers', 'firestore.campaign_deliveries', 'firestore.events', 'ga4-alert-return'],
+        returnMeasurement: {
+          status: 'observed',
+          source: 'GA4 Data API',
+          dimension: 'sessionCampaignName',
+          metric: 'totalUsers',
+          matureDeliveryRows: 1,
+          returningUsers7d: 23,
+        },
+      },
+    });
+    expect(analyticsCalls).toHaveLength(1);
+    expect(analyticsCalls[0]).toMatchObject({
+      url: 'https://analyticsdata.googleapis.com/v1beta/properties/987654:runReport',
+      body: {
+        dateRanges: [{ startDate: '2026-09-03', endDate: '2026-09-10' }],
+        metrics: [{ name: 'totalUsers' }],
+        dimensionFilter: {
+          filter: {
+            fieldName: 'sessionCampaignName',
+            inListFilter: { values: ['alert_a1'] },
+          },
+        },
+      },
+    });
+    expect(analyticsCalls[0].body.dimensions).toBeUndefined();
   });
 
   it('fails closed when an L4 delivery cannot be attributed or scheduled', () => {
@@ -340,7 +1316,13 @@ describe('read-only loop outcome exporters', () => {
       newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:00:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T08:59:00.000Z',
+        outcome_contract_version: 1,
         scheduled_for: '2026-09-12T08:45:00.000Z',
         send_time_source: 'personal',
         delivered_at: '2026-09-12T09:01:00.000Z',
@@ -368,42 +1350,252 @@ describe('read-only loop outcome exporters', () => {
     });
   });
 
-  it('exports the L5 completed-task to next-useful-action contract', async () => {
-    const query = buildL5DecisionMomentQuery({
-      start: '2026-09-05T12:00:00.000Z',
-      end: NOW.toISOString(),
+  describe('L4 delivery evidence join (#8409)', () => {
+    const USER = 'job_alert_subscribers/user@example.test';
+    const consented = { evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }) };
+    const delivery = (id: string, data: Record<string, unknown>) => {
+      const sentAt = String(data.sent_at || '2026-09-12T09:00:00.000Z');
+      const checkedAt = new Date(Date.parse(sentAt) - 60_000).toISOString();
+      return row(`${USER}/campaign_deliveries/${id}`, {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${(id === 'd2' ? 'b' : 'a').repeat(24)}`,
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: checkedAt,
+        outcome_contract_version: 1,
+        scheduled_for: null,
+        send_time_source: 'global',
+        ...data,
+      });
+    };
+    const event = (id: string, data: Record<string, unknown>) => row(`${USER}/events/${id}`, data);
+    const ledger = (deliveryRows: unknown[], eventRows: unknown[], alertRows = [row(`${USER}/alerts/a1`, { active: true })]) => buildL4OutcomeLedger({
+      now: NOW,
+      alertRows,
+      jobAlertRoots: [row(USER, {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows,
+      eventRows,
+      predicates: consented,
     });
-    expect(query).toContain("event = 'decision_moment_completed'");
-    expect(query).toContain("event = 'decision_moment_next_action'");
-    expect(query).toContain('count() AS eligibleDecisionSessions');
-    expect(query).toContain('countIf(nextUsefulActions > 0) AS nextUsefulActions');
-    expect(query).toContain('GROUP BY properties.$session_id');
-    expect(query).toContain('HAVING completedTasks > 0');
 
+    it('joins a Maileroo delivered event by recipient window when the provider id differs', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:10:00.000Z' })],
+      );
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin).toEqual({
+        deliveredAt: 0, messageId: 0, recipientWindow: 1, impliedByEngagement: 0, none: 0,
+      });
+      expect(output.export.deliveredByProvider).toEqual({ maileroo: 1 });
+      expect(output.export.deliveryRowsByProvider).toEqual({ maileroo: 1 });
+      expect(output.export.deliveryEvidenceJoin).toBe('joined');
+    });
+
+    it('counts an id-joined Mailjet open as delivery even without a delivered event', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'mj-1', provider: 'mailjet', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [
+          event('e1', { event_type: 'send', message_id: 'mj-1', provider: 'mailjet', occurred_at: '2026-09-12T09:00:05.000Z' }),
+          event('e2', { event_type: 'open', message_id: 'mj-1', provider: 'mailjet', occurred_at: '2026-09-12T09:30:00.000Z' }),
+        ],
+      );
+      expect(output).toMatchObject({ deliveredAlerts: 1, openedAlerts: 1, clickedAlerts: 0 });
+      expect(output.export.deliveryEvidenceByJoin.impliedByEngagement).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin.none).toBe(0);
+    });
+
+    it('lets one window event support a single delivery of the same recipient', () => {
+      const output = buildL4OutcomeLedger({
+        now: NOW,
+        alertRows: [row(`${USER}/alerts/a1`, { active: true }), row(`${USER}/alerts/a2`, { active: true })],
+        jobAlertRoots: [row(USER, {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [
+          delivery('d2', { campaign_id: 'a2', message_id: 'ref-2', provider: 'maileroo', sent_at: '2026-09-12T09:05:00.000Z' }),
+          delivery('d1', { campaign_id: 'a1', message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' }),
+        ],
+        eventRows: [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:06:00.000Z' })],
+        predicates: consented,
+      });
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin).toMatchObject({ recipientWindow: 1, none: 1 });
+    });
+
+    it('rejects window events past 72 hours or from another provider', () => {
+      const late = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-09T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T10:00:00.000Z' })],
+      );
+      const otherProvider = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'mailgun', occurred_at: '2026-09-12T09:10:00.000Z' })],
+      );
+      const early = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T08:58:00.000Z' })],
+      );
+      for (const output of [late, otherProvider, early]) {
+        expect(output.deliveredAlerts).toBe(0);
+        expect(output.export.deliveryEvidenceByJoin.none).toBe(1);
+      }
+    });
+
+    it('falls back to the server timestamp when occurred_at is unparseable', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '', timestamp: '2026-09-12T09:10:00.000Z' })],
+      );
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin.recipientWindow).toBe(1);
+    });
+
+    it('keeps events id-joined to operator or unattributed rows out of the window join', () => {
+      for (const owner of [
+        delivery('op', { is_operator_verification: true, message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T08:59:00.000Z' }),
+        delivery('ux', {
+          campaign_id: 'gone',
+          ranking_delivery_id: 'foreign-delivery-id',
+          message_id: 'msg-9',
+          provider: 'maileroo',
+          sent_at: '2026-09-12T08:59:00.000Z',
+        }),
+      ]) {
+        const output = ledger(
+          [owner, delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+          [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:06:00.000Z' })],
+        );
+        expect(output.deliveredAlerts).toBe(0);
+        expect(output.export.deliveryEvidenceByJoin).toMatchObject({ recipientWindow: 0, none: 1 });
+      }
+    });
+
+    it('does not reuse an event already joined by message id to another delivery', () => {
+      const output = buildL4OutcomeLedger({
+        now: NOW,
+        alertRows: [row(`${USER}/alerts/a1`, { active: true }), row(`${USER}/alerts/a2`, { active: true })],
+        jobAlertRoots: [row(USER, {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [
+          delivery('d1', { campaign_id: 'a1', message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' }),
+          delivery('d2', { campaign_id: 'a2', message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T09:05:00.000Z' }),
+        ],
+        eventRows: [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:06:00.000Z' })],
+        predicates: consented,
+      });
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin).toMatchObject({ messageId: 1, recipientWindow: 0, none: 1 });
+    });
+
+    it('flags an empty delivery-evidence join when sends exist but none is proven', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [],
+      );
+      expect(output.deliveredAlerts).toBe(0);
+      expect(output.export.deliveryRows).toBe(1);
+      expect(output.export.deliveryEvidenceJoin).toBe('empty');
+      expect(ledger([], []).export.deliveryEvidenceJoin).toBe('no-deliveries');
+    });
+
+    it('keeps an unknown campaign without valid sender provenance unattributed and the consent gates closed', () => {
+      const foreignId = 'x'.repeat(42);
+      const output = ledger(
+        [delivery('d1', {
+          campaign_id: foreignId,
+          ranking_delivery_id: 'foreign-delivery-id',
+          message_id: 'ref-1',
+          provider: 'maileroo',
+          sent_at: '2026-09-12T09:00:00.000Z',
+        })],
+        [event('e1', { event_type: 'delivered', message_id: 'ref-1', provider: 'maileroo', occurred_at: '2026-09-12T09:10:00.000Z' })],
+      );
+      expect(output.deliveredAlerts).toBe(0);
+      expect(output.export).toMatchObject({
+        consentChecked: false,
+        deduplicationChecked: true,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { missingSenderEvidence: 1 },
+        unattributedDeliveryShapes: { [String(foreignId.length)]: 1 },
+      });
+      expect(JSON.stringify(output.export)).not.toContain(foreignId);
+    });
+
+    it('splits noConsentedAlert into a missing alert row and a consent refusal without opening the gates', () => {
+      const output = buildL4OutcomeLedger({
+        now: NOW,
+        alertRows: [row(`${USER}/alerts/refused`, { active: true })],
+        jobAlertRoots: [row(USER, {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [
+          row(`${USER}/campaign_deliveries/d1`, {
+            campaign_id: 'refused',
+            ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+            sent_at: '2026-09-12T09:00:00.000Z',
+            consent_checked: true,
+            consent_allowed: false,
+            consent_basis: 'no-consent',
+            consent_checked_at: '2026-09-12T08:59:00.000Z',
+            outcome_contract_version: 1,
+          }),
+          row(`${USER}/campaign_deliveries/d2`, {
+            campaign_id: 'deleted',
+            ranking_delivery_id: `jer_job_alert_${'b'.repeat(24)}`,
+            sent_at: '2026-09-12T09:00:00.000Z',
+          }),
+        ],
+        predicates: { evaluateJobAlertConsent: () => ({ allowed: false, reason: 'no-consent' }) },
+      });
+      expect(output.export).toMatchObject({
+        consentChecked: false,
+        deduplicationChecked: true,
+        unattributedDeliveries: 2,
+        unattributedDeliveryReasons: { noConsentedAlert: 1, consentNotAllowed: 1 },
+        noConsentedAlertCauses: { alertRowMissing: 1, consentNotAllowed: 1 },
+      });
+    });
+  });
+
+  it('exports the L5 completed-task to next-useful-action contract', async () => {
     const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
     const calls: string[] = [];
+    const report = (sessions: number) => ({ rowCount: 1, rows: [{ metricValues: [{ value: String(sessions) }] }] });
+    const clientFor = (completed: number, nextAction: number) => ({
+      request: async (_url: string, init: RequestInit) => {
+        const eventName = JSON.parse(String(init.body)).dimensionFilter.filter.stringFilter.value;
+        calls.push(eventName);
+        return report(eventName === 'decision_moment_completed' ? completed : nextAction);
+      },
+    });
     const output = await (exportL5 as any)({
       now: NOW,
       outputPath: path.join(outputDir, 'outcomes.json'),
-      client: postHogClient() as any,
-      posthogRunner: async (query: string, config: any) => {
-        calls.push(query);
-        expect(config).toMatchObject({ apiKey: 'test-key', projectId: 'test-project' });
-        return { columns: ['eligibleDecisionSessions', 'nextUsefulActions'], results: [[123, 7]] };
-      },
+      client: clientFor(1598, 19),
+      eventContract: L5_GATED_BEFORE_FIXTURES,
     });
 
-    expect(calls).toHaveLength(1);
+    expect([...calls].sort()).toEqual(['decision_moment_completed', 'decision_moment_next_action']);
     expect(output).toMatchObject({
       loopId: 'L5',
       independent: true,
-      eligibleDecisionSessions: 123,
-      nextUsefulActions: 7,
+      eligibleDecisionSessions: 1598,
+      nextUsefulActions: 19,
       evidence: {
-        sourceRefs: ['decision-surfaces', 'posthog'],
+        sourceRefs: ['decision-surfaces', 'ga4-decision-surface'],
+        eventContract: { nextActionGate: 'emitted only after a completion in the same GA4 session' },
       },
     });
+    expect(output.evidence.eventContract).not.toHaveProperty('sessionDimension');
     expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toEqual(output);
+
+    // More next-action sessions than completion sessions contradicts the
+    // client gate: no outcome file may be written as a measurement.
+    const rejectedPath = path.join(outputDir, 'rejected.json');
+    await expect((exportL5 as any)({ now: NOW, outputPath: rejectedPath, client: clientFor(1, 2), eventContract: L5_GATED_BEFORE_FIXTURES }))
+      .rejects.toThrow('nextUsefulActions greater than eligibleDecisionSessions');
+    expect(fs.existsSync(rejectedPath)).toBe(false);
     expect(() => buildL5DecisionMomentExport({
       eligibleDecisionSessions: 1,
       nextUsefulActions: 2,
@@ -411,145 +1603,77 @@ describe('read-only loop outcome exporters', () => {
     })).toThrow('nextUsefulActions greater than eligibleDecisionSessions');
   });
 
-  it('keeps the L7 ledger fail-closed when canonical experiment evidence is absent or unsafe', async () => {
-    expect(() => buildL7ExperimentLedgerQuery({
-      start: '2026-09-05T12:00:00.000Z',
-      end: NOW.toISOString(),
-    })).toThrow('L7 policy is required');
-
-    const query = buildL7ExperimentLedgerQuery({
-      start: '2026-09-05T12:00:00.000Z',
-      end: NOW.toISOString(),
-      policy: L7_POLICY,
-    });
-    expect(query).toContain("event IN ('experiment_assignment', 'experiment_exposure', 'experiment_outcome', 'experiment_guardrail')");
-    expect(query).toContain("properties.loop_id = 'L7'");
-    expect(query).toContain("properties.assignment_method = 'stable-sha256'");
-    expect(query).toContain('invalidAssignmentRecords');
-    expect(query).toContain('invalidOutcomeRecords');
-    expect(query).toContain('invalidExpiryRecords');
-    expect(query).toContain('completeAssignmentSessions');
-    expect(query).toContain('assignmentRecords > 0 AND exposureRecords > 0 AND invalidExposureRecords = 0');
-    expect(query).toContain('assignmentRecords > 0 AND outcomeRecords > 0 AND invalidOutcomeRecords = 0');
-    expect(query).toContain('assignmentRecords > 0 AND guardrailRecords > 0 AND invalidGuardrailRecords = 0');
-    expect(query).toContain('toDateTime(if(match(properties.expires_at');
-    expect(query).toContain('match(properties.expires_at');
-    expect(query).toContain('addHours(timestamp, 168)');
-
-    const twelveHourQuery = buildL7ExperimentLedgerQuery({
-      start: '2026-09-05T12:00:00.000Z',
-      end: NOW.toISOString(),
-      policy: { ...L7_POLICY, lifecycle: { ...L7_POLICY.lifecycle, candidateTtlHours: 12 } },
-    } as any);
-    expect(twelveHourQuery).toContain('addHours(timestamp, 12)');
-
-    const completeAggregate = {
-      sourceEventCount: 1200,
-      eligibleCohort: 250,
-      assignments: 250,
-      exposures: 250,
-      completeAssignmentSessions: 250,
-      primaryOutcomes: 40,
-      guardrailBreaches: 0,
-      persistentAssignments: 250,
-      contaminatedAssignments: 0,
-      assignmentContract: 250,
-      exposureContract: 250,
-      outcomeContract: 250,
-      guardrailContract: 250,
-      contaminationContract: 250,
-      expiryContract: 250,
-      firstSeenAt: '2026-09-05T12:00:00.000Z',
-      lastSeenAt: NOW.toISOString(),
-    };
-    const complete = buildL7ExperimentLedger({
-      aggregate: completeAggregate,
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(complete).toMatchObject({
-      loopId: 'L7',
-      status: 'observed',
-      independent: true,
-      sourceEventCount: 1200,
-      eligibleCohort: 250,
-      assignments: 250,
-      exposures: 250,
-      completeAssignmentSessions: 250,
-      primaryOutcomes: 40,
-      assignmentLedger: { persistent: true, method: 'stable-sha256', key: 'experiment-session-id' },
-      contaminationPolicy: { controlled: true },
-      evidence: { status: 'verified', sourceRefs: ['experiment-assignment-exposure-outcome'] },
-    });
-
-    const missing = buildL7ExperimentLedger({
-      aggregate: { sourceEventCount: 0 },
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(missing).toMatchObject({
-      status: 'missing',
-      independent: false,
-      eligibleCohort: null,
-      assignments: null,
-      primaryOutcomes: null,
-      evidence: { status: 'missing' },
-      reason: 'no canonical L7 experiment ledger events were observed; allocation remains disabled',
-    });
-
-    const breached = buildL7ExperimentLedger({
-      aggregate: { ...completeAggregate, guardrailBreaches: 1 },
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(breached).toMatchObject({ status: 'unverified', independent: false, evidence: { status: 'unverified' } });
-
-    const maskedInvalidRecord = buildL7ExperimentLedger({
-      aggregate: { ...completeAggregate, exposureContract: 249 },
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(maskedInvalidRecord).toMatchObject({ status: 'unverified', independent: false });
-
-    const disjointContracts = buildL7ExperimentLedger({
-      aggregate: {
-        ...completeAggregate,
-        completeAssignmentSessions: 249,
-        exposureContract: 250,
-        outcomeContract: 250,
-        guardrailContract: 250,
+  it('keeps days before the client gate out of the L5 window', async () => {
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
+    const ranges: Array<{ startDate: string; endDate: string }> = [];
+    const client = {
+      request: async (_url: string, init: RequestInit) => {
+        const body = JSON.parse(String(init.body));
+        ranges.push(body.dateRanges[0]);
+        const completed = body.dimensionFilter.filter.stringFilter.value === 'decision_moment_completed';
+        return { rowCount: 1, rows: [{ metricValues: [{ value: completed ? '700' : '9' }] }] };
       },
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(disjointContracts).toMatchObject({ status: 'unverified', independent: false });
-
-    const expiredAssignment = buildL7ExperimentLedger({
-      aggregate: { ...completeAggregate, expiryContract: 249 },
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(expiredAssignment).toMatchObject({ status: 'unverified', independent: false });
-
-    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-export-test-'));
-    const output = await (exportL7 as any)({
+    };
+    // Settled window 2026-09-03..2026-09-10, gate live from 09-08: the five
+    // ungated days are dropped and the outcome says which window it measured.
+    const straddling = { ...L5_DECISION_EVENT_CONTRACT, nextActionGateEffectiveFrom: '2026-09-08' };
+    const output = await (exportL5 as any)({
       now: NOW,
       outputPath: path.join(outputDir, 'outcomes.json'),
-      client: postHogClient() as any,
-      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
-      posthogRunner: async () => ({
-        columns: Object.keys(completeAggregate),
-        results: [Object.values(completeAggregate)],
-      }),
+      client,
+      eventContract: straddling,
     });
-    expect(output).toMatchObject({ loopId: 'L7', status: 'observed', independent: true });
-    expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toEqual(output);
+    expect(ranges.length).toBeGreaterThan(0);
+    for (const range of ranges) expect(range).toEqual({ startDate: '2026-09-08', endDate: '2026-09-10' });
+    expect(output).toMatchObject({
+      independent: true,
+      telemetryWindow: { startDate: '2026-09-08', endDate: '2026-09-10' },
+      evidence: { eventContract: { nextActionGateEffectiveFrom: '2026-09-08' } },
+      _meta: { telemetryWindow: { startDate: '2026-09-08', endDate: '2026-09-10' } },
+    });
+
+    // The shipped contract: a window that ends before the gate date has no
+    // gated day, so nothing is read and nothing is written as a measurement.
+    const before = ranges.length;
+    const rejectedPath = path.join(outputDir, 'before-gate.json');
+    expect(L5_DECISION_EVENT_CONTRACT.nextActionGateEffectiveFrom > '2026-09-10').toBe(true);
+    await expect((exportL5 as any)({ now: NOW, outputPath: rejectedPath, client }))
+      .rejects.toThrow(`L5 next-action gate is effective from ${L5_DECISION_EVENT_CONTRACT.nextActionGateEffectiveFrom}`);
+    expect(ranges.length).toBe(before);
+    expect(fs.existsSync(rejectedPath)).toBe(false);
+
+    const settled = { startDate: '2026-09-03', endDate: '2026-09-10' };
+    expect(l5GatedDateRange(settled, '2026-08-01')).toEqual(settled);
+    expect(l5GatedDateRange(settled, '2026-09-10')).toEqual({ startDate: '2026-09-10', endDate: '2026-09-10' });
+    expect(() => l5GatedDateRange(settled, '2026-09-11')).toThrow('holds no gated day yet');
+    expect(() => l5GatedDateRange(settled, undefined)).toThrow('requires nextActionGateEffectiveFrom');
+  });
+
+  it('reads an absent L5 event as zero sessions and refuses approximated totals', async () => {
+    const range = { eventName: 'decision_moment_next_action', startDate: '2026-09-05', endDate: '2026-09-12' };
+    const clientReturning = (payload: unknown) => ({ request: async () => payload });
+
+    await expect(fetchL5EventSessions({ client: clientReturning({}), ...range })).resolves.toBe(0);
+    await expect(fetchL5EventSessions({
+      client: clientReturning({ rows: [{ metricValues: [{ value: '19' }] }] }),
+      ...range,
+    })).resolves.toBe(19);
+    await expect(fetchL5EventSessions({
+      client: clientReturning({ rows: [{ metricValues: [{ value: '19' }] }], metadata: { subjectToThresholding: true } }),
+      ...range,
+    })).rejects.toThrow('incomplete or thresholded');
+    await expect(fetchL5EventSessions({
+      client: clientReturning({ rows: [{ metricValues: [{ value: '19' }] }], metadata: { samplingMetadatas: [{}] } }),
+      ...range,
+    })).rejects.toThrow('incomplete or thresholded');
+    await expect(fetchL5EventSessions({
+      client: clientReturning({ rows: [{ metricValues: [{ value: '1' }] }, { metricValues: [{ value: '2' }] }] }),
+      ...range,
+    })).rejects.toThrow('2 rows for a dimensionless total');
+    await expect(fetchL5EventSessions({
+      client: clientReturning({ rows: [{ metricValues: [{ value: '1.5' }] }] }),
+      ...range,
+    })).rejects.toThrow('invalid sessions for decision_moment_next_action');
   });
 
   it('projects the affirmative consent field used by the live backfill predicate', async () => {
@@ -568,7 +1692,13 @@ describe('read-only loop outcome exporters', () => {
       })],
       deliveries: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:00:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'backfill-newsletter-registration',
+        consent_checked_at: '2026-09-12T08:59:00.000Z',
+        outcome_contract_version: 1,
         scheduled_for: '2026-09-12T08:45:00.000Z',
         send_time_source: 'personal',
         delivered_at: '2026-09-12T09:01:00.000Z',
@@ -599,6 +1729,20 @@ describe('read-only loop outcome exporters', () => {
 
     expect(calls.find((query) => query.collectionId === 'newsletter_subscribers')?.fieldPaths)
       .toContain('consent_given');
+    expect(calls.find((query) => query.collectionId === 'newsletter_subscribers')?.fieldPaths)
+      .toContain('bounced_at');
+    expect(calls.find((query) => query.collectionId === 'newsletter_subscribers')?.fieldPaths)
+      .toEqual(expect.arrayContaining([
+        ...GLOBAL_EMAIL_OPT_OUT_FIELDS,
+        'all_email_opted_out_at',
+        'global_email_opt_out_at',
+      ]));
+    expect(calls.find((query) => query.collectionId === 'campaign_deliveries')?.fieldPaths)
+      .toContain('ranking_delivery_id');
+    const eventQueries = calls.filter((query) => query.collectionId === 'events');
+    expect(eventQueries).toHaveLength(1);
+    expect((eventQueries.find((query) => (query.where as any)?.fieldFilter?.field?.fieldPath === 'timestamp')?.where as any)
+      ?.fieldFilter?.value?.timestampValue).toBe('2026-09-02T11:40:00.000Z');
     expect(output).toMatchObject({
       eligibleConsentedUsers: 1,
       deliveredAlerts: 1,
@@ -606,6 +1750,14 @@ describe('read-only loop outcome exporters', () => {
         consentChecked: true,
         deduplicationChecked: true,
         unattributedDeliveries: 0,
+        stopEvidenceContract: {
+          rootServerLedger: expect.arrayContaining([
+            'unsubscribed_at/unsubscribedAt',
+            'all_email_opted_out_at',
+            'global_email_opt_out_at',
+          ]),
+          timestamplessEventPolicy: expect.stringContaining('is refused'),
+        },
       },
     });
   });

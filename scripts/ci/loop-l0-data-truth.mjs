@@ -1,11 +1,12 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /** L0 — Data Truth & Freshness. */
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { ARTICLES_API_BASE } from '../lib/articles-api-base.mjs';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
@@ -16,6 +17,8 @@ import {
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L0';
+const ISSUE_TITLE = 'L0 Data Truth: corpus manifest is not usable';
+const ISSUE_WORKFLOW = 'Loop L0 Data Truth';
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 48;
 export const REQUIRED_COUNTS = Object.freeze([
@@ -200,7 +203,8 @@ export async function runL0({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -293,13 +297,18 @@ export async function runL0({
   }
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L0 Data Truth: corpus manifest is not usable',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'data-quality', 'loop-l0'],
-      workflow: 'Loop L0 Data Truth',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, quarantined });
   if (resultFile) files.push(resultFile);
@@ -346,7 +355,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[L0] fatal: ${error.message}`);
     process.exitCode = 1;

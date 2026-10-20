@@ -11,18 +11,23 @@
  * carried forward.
  */
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { realpathSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   isReviewerBot,
+  formatSquashCommitSubject,
   VITEST_CHECK_NAME,
 } from './lib/constants.mjs';
 import {
   findTestOnlyApproval,
   TEST_REVIEW_MARKER,
 } from './review-test-policy.mjs';
-import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
+import {
+  fetchPrFiles,
+  isRetryablePrFileSnapshot,
+} from './lib/fetchPrFiles.mjs';
 import {
   classifyAutomationRisk,
 } from './lib/automation-risk-policy.mjs';
@@ -56,9 +61,23 @@ const TESTS_WORKFLOW_EVENT = 'pull_request';
 // Explicit, verifiable entry point for the in-job opt-in: the caller declares
 // WHICH run it is, never THAT the tests passed. See `inJobRequiredVitestDecision`.
 const IN_JOB_RUN_ID_ENV = 'NATIVE_AUTOMERGE_IN_JOB_RUN_ID';
+// Scritto dal runner, non dal workflow: e' la run in cui questo processo gira.
+// Nel job `post-review` di tests.yml e' la stessa run che possiede il check
+// `vitest` gia' completato; nel retry schedulato e' la run del retry, che non
+// coincide mai con una run `tests`.
+const CALLER_RUN_ID_ENV = 'GITHUB_RUN_ID';
 const MAX_TRANSIENT_GH_READ_ATTEMPTS = 3;
 const TRANSIENT_GH_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
 const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
+// `gh pr merge --auto` can reach the immediate merge mutation when all
+// requirements are already green. A concurrent merge on `main` then makes
+// GitHub reject that otherwise valid, same-HEAD request with a base-branch
+// race. Retry only that exact transient mutation error; exhaustion remains a
+// failure so a real inability to opt in cannot be hidden.
+const MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS = 3;
+const NATIVE_AUTO_MERGE_MUTATION_RETRY_DELAYS_MS = Object.freeze([750, 2000]);
+const BASE_BRANCH_MODIFIED_MUTATION_ERROR_RE = /(?:GraphQL:\s*)?Base branch was modified\.\s*Review and try the merge again\.\s*\(mergePullRequest\)/iu;
+const TRANSIENT_NATIVE_AUTO_MERGE_MUTATION_ERROR_RE = /(?:GraphQL:\s*Something went wrong|\b(?:HTTP\s*)?50[23]\b|bad gateway|service unavailable|timeout|timed?\s*out|ETIMEDOUT|ECONNRESET|EAI_AGAIN|socket hang up)/iu;
 const BODY_RECOVERY_MARKER_PREFIX = '<!-- BODY_REVIEW_RECOVERY_PENDING:';
 const BODY_RECOVERY_STATUSES = new Set(['pending', 'queued', 'manual', 'completed']);
 const NATIVE_AUTO_MERGE_LEASE_PREFIX = '<!-- NATIVE_AUTO_MERGE_LEASE:';
@@ -376,6 +395,18 @@ function parseActionsCheckRunUrl(value, repo) {
  * The evidence is bound to the exact review id, HEAD, workflow/job and
  * completed check; reviewer author identity is deliberately not an admission
  * criterion for native auto-merge.
+ *
+ * `callerRunId` covers the one caller that can never see the `tests` run
+ * completed: the `post-review` job of that same run (`needs: vitest`). There
+ * the run is `in_progress` because the caller itself is still running, so the
+ * run-level `completed/success` and «run updated after the check» facts do not
+ * exist yet. Measured on PR #10098 (2026-09-27): review gate `DECLASSIFIED`
+ * outside the diff + `approved=true` at 17:47Z, opt-in declined in
+ * `post-review`, PR idle until a manual retry dispatch at 18:13Z; the 20-minute
+ * cron had last fired at 17:44Z (and before that at 13:02Z). Only when the run
+ * is the caller's own and still in flight are those two facts waived; the
+ * required job, its check, the review-gate step and every other ordering stay
+ * mandatory, exactly as for the raw-LGTM path, which never asks for them.
  */
 export function reviewGateEvidenceDecision({
   evidence,
@@ -383,6 +414,7 @@ export function reviewGateEvidenceDecision({
   head,
   review,
   reviewRevision,
+  callerRunId = null,
 } = {}) {
   const deny = (reason) => ({ allow: false, reason });
   if (!evidence || typeof evidence !== 'object' || Array.isArray(evidence)) {
@@ -420,12 +452,17 @@ export function reviewGateEvidenceDecision({
   }
 
   const workflow = evidence.workflow;
+  const inCallerRun = validPositiveInteger(callerRunId)
+    && workflow?.id === callerRunId
+    && workflow.status === 'in_progress'
+    && workflow.conclusion == null;
+  const workflowSettled = inCallerRun
+    || (workflow?.status === 'completed' && workflow?.conclusion === 'success');
   if (!workflow
       || !validPositiveInteger(workflow.id)
       || workflow.path !== TESTS_WORKFLOW_PATH
       || workflow.event !== TESTS_WORKFLOW_EVENT
-      || workflow.status !== 'completed'
-      || workflow.conclusion !== 'success'
+      || !workflowSettled
       || workflow.head_sha !== head
       || validTimestamp(workflow.run_started_at) === null
       || validTimestamp(workflow.updated_at) === null) {
@@ -477,13 +514,15 @@ export function reviewGateEvidenceDecision({
       && stepStartedAt <= stepCompletedAt
       && stepCompletedAt <= jobCompletedAt
       && jobCompletedAt <= checkCompletedAt
-      && checkCompletedAt <= workflowUpdatedAt)) {
+      && (inCallerRun || checkCompletedAt <= workflowUpdatedAt))) {
     return deny('ordine temporale review-gate non verificabile');
   }
 
   return {
     allow: true,
-    reason: 'step Require approving Codex review successivo alla review raw sulla stessa HEAD',
+    reason: inCallerRun
+      ? 'step Require approving Codex review successivo alla review raw sulla stessa HEAD (run del chiamante in corso)'
+      : 'step Require approving Codex review successivo alla review raw sulla stessa HEAD',
     runId: workflow.id,
     jobId: job.id,
     checkId: check.id,
@@ -502,6 +541,7 @@ export function evaluateNativeAutoMerge({
   changedFiles,
   changedFilesComplete,
   inJobRun = null,
+  callerRunId = null,
 } = {}) {
   if (!pr || pr.state !== 'OPEN' || pr.isDraft !== false || pr.baseRefName !== 'main') {
     return { allow: false, reason: 'PR non aperta, draft o non basata su main' };
@@ -589,6 +629,7 @@ export function evaluateNativeAutoMerge({
       head: pr.headRefOid,
       review,
       reviewRevision,
+      callerRunId,
     })
     : { allow: false, reason: 'review raw già approvante' };
   if (review && !reviewIsApproved(review) && !reviewGateException.allow) {
@@ -648,6 +689,7 @@ export function revalidateNativeAutoMerge({
   changedFiles,
   changedFilesComplete,
   inJobRun = null,
+  callerRunId = null,
 } = {}) {
   if (!pr || !Object.hasOwn(pr, 'autoMergeRequest')) {
     return { allow: false, action: 'skip', reason: 'stato auto-merge non verificabile' };
@@ -662,6 +704,7 @@ export function revalidateNativeAutoMerge({
     changedFiles,
     changedFilesComplete,
     inJobRun,
+    callerRunId,
   });
   if (pr.autoMergeRequest !== null) {
     return {
@@ -704,11 +747,14 @@ export function isTransientGithubReadError(error) {
   return TRANSIENT_GH_READ_ERROR_RE.test(transientGithubErrorText(error));
 }
 
-/** Retry only idempotent GitHub reads; mutations remain single-attempt and fail closed. */
+export { isRetryablePrFileSnapshot } from './lib/fetchPrFiles.mjs';
+
+/** Retry only idempotent GitHub reads and known transient incomplete snapshots; mutations remain single-attempt and fail closed. */
 export function withTransientGithubReadRetry(operation, {
   attemptLimit = MAX_TRANSIENT_GH_READ_ATTEMPTS,
   delaysMs = TRANSIENT_GH_READ_RETRY_DELAYS_MS,
   sleep = sleepForTransientReadRetry,
+  shouldRetryResult = () => false,
 } = {}) {
   if (typeof operation !== 'function') throw new TypeError('read retry operation must be a function');
   const attempts = Number.isSafeInteger(attemptLimit) && attemptLimit > 0
@@ -716,10 +762,14 @@ export function withTransientGithubReadRetry(operation, {
     : MAX_TRANSIENT_GH_READ_ATTEMPTS;
   const delays = Array.isArray(delaysMs) ? delaysMs : TRANSIENT_GH_READ_RETRY_DELAYS_MS;
   const wait = typeof sleep === 'function' ? sleep : sleepForTransientReadRetry;
+  const retryResult = typeof shouldRetryResult === 'function' ? shouldRetryResult : () => false;
 
   for (let attempt = 0; attempt < attempts; attempt += 1) {
     try {
-      return operation();
+      const result = operation();
+      if (attempt + 1 >= attempts || !retryResult(result)) return result;
+      const delayMs = Number(delays[attempt]);
+      if (Number.isFinite(delayMs) && delayMs > 0) wait(delayMs);
     } catch (error) {
       if (attempt + 1 >= attempts || !isTransientGithubReadError(error)) throw error;
       const delayMs = Number(delays[attempt]);
@@ -759,7 +809,10 @@ function loadVerifiedTestOnlyReview(repo, pr, head, reviews, reviewRevision) {
 }
 
 function loadChangedFiles(repo, pr) {
-  const snapshot = fetchPrFiles(pr, ghForTestOnlyReview, repo);
+  const snapshot = withTransientGithubReadRetry(
+    () => fetchPrFiles(pr, ghForTestOnlyReview, repo),
+    { shouldRetryResult: isRetryablePrFileSnapshot },
+  );
   if (!snapshot.complete) {
     throw new Error(`elenco file PR non completo (${snapshot.reason})`);
   }
@@ -894,6 +947,11 @@ function loadReviewGateEvidence(repo, head, checkRuns, review, reviewRevision) {
   };
 }
 
+function callerRunIdFromEnv() {
+  const runId = Number(process.env[CALLER_RUN_ID_ENV] || '');
+  return validPositiveInteger(runId) ? runId : null;
+}
+
 /**
  * Read the caller's own run id and resolve, from the API, the run and job that
  * id names. Absent env var → `null`, i.e. the ordinary post-hoc behaviour used
@@ -921,6 +979,44 @@ function loadInJobRun(repo, head, checkRuns) {
 const DISABLE_AUTO_MERGE_MUTATION =
   'mutation($pullRequestId:ID!){disablePullRequestAutoMerge(input:{pullRequestId:$pullRequestId}){pullRequest{number autoMergeRequest{enabledAt}}}}';
 
+function nativeAutoMergeRevocationSatisfied(pr) {
+  if (!pr || !['OPEN', 'CLOSED', 'MERGED'].includes(pr.state)) return false;
+  if (pr.state !== 'OPEN') return true;
+  return Object.hasOwn(pr, 'autoMergeRequest') && pr.autoMergeRequest === null;
+}
+
+/**
+ * Revoke an existing opt-in without turning a concurrent merge/disable into a
+ * failed workflow. A failed mutation is considered complete only after a
+ * fresh read proves the PR is closed/merged or has no native request; an open
+ * PR with an active or unverifiable request remains fail-closed.
+ */
+export function revokeNativeAutoMergeSafely({ readPullRequest, disableAutoMerge } = {}) {
+  if (typeof readPullRequest !== 'function' || typeof disableAutoMerge !== 'function') {
+    throw new TypeError('lettura PR e revoca auto-merge devono essere funzioni');
+  }
+
+  const current = readPullRequest();
+  if (nativeAutoMergeRevocationSatisfied(current)) return 'already-satisfied';
+
+  try {
+    disableAutoMerge(current);
+    return 'revoked';
+  } catch (error) {
+    let after;
+    try {
+      after = readPullRequest();
+    } catch (verificationError) {
+      throw new Error(
+        `revoca auto-merge non confermata; stato PR non verificabile dopo l'errore: ${String(verificationError).slice(0, 180)}`,
+        { cause: error },
+      );
+    }
+    if (nativeAutoMergeRevocationSatisfied(after)) return 'already-satisfied';
+    throw error;
+  }
+}
+
 function disableNativeAutoMerge(repo, pr) {
   if (!pr?.id) throw new Error('node ID della PR mancante');
   const response = ghJsonOnce([
@@ -939,8 +1035,17 @@ function disableNativeAutoMerge(repo, pr) {
 
 function revokeExistingAutoMerge(repo, pr, reason) {
   try {
-    disableNativeAutoMerge(repo, pr);
-    console.log(`Native auto-merge guard: opt-in revocato per PR #${pr.number} — ${reason}`);
+    const outcome = revokeNativeAutoMergeSafely({
+      readPullRequest: () => ghJson([
+        'pr', 'view', pr.number, '--repo', repo, '--json',
+        'number,id,state,autoMergeRequest',
+      ]),
+      disableAutoMerge: (current) => disableNativeAutoMerge(repo, current),
+    });
+    const message = outcome === 'revoked'
+      ? 'opt-in revocato'
+      : 'revoca già soddisfatta (PR chiusa o auto-merge assente)';
+    console.log(`Native auto-merge guard: ${message} per PR #${pr.number} — ${reason}`);
   } catch (error) {
     console.error(`::error::native auto-merge guard: revoca opt-in fallita per PR #${pr.number}: ${String(error).slice(0, 240)}`);
     process.exitCode = 1;
@@ -1210,12 +1315,14 @@ export function bodyRecoveryBarrierDecision({
 }
 
 /** Bind the native opt-in to the exact HEAD that passed the gate. */
-export function nativeAutoMergeArgs({ repo, prNumber, headSha } = {}) {
+export function nativeAutoMergeArgs({ repo, prNumber, title, headSha } = {}) {
   if (!/^[0-9a-f]{40}$/i.test(headSha || '')) {
     throw new Error('HEAD SHA verificato mancante o non valido');
   }
+  const subject = formatSquashCommitSubject({ prNumber, title });
   return [
-    'pr', 'merge', prNumber, '--repo', repo, '--auto', '--squash', '--delete-branch',
+    'pr', 'merge', prNumber, '--repo', repo, '--auto', '--squash', '--subject', subject,
+    '--delete-branch',
     '--match-head-commit', headSha,
   ];
 }
@@ -1225,16 +1332,144 @@ export function isAlreadyInProgressOutput(value) {
   return /merge already in progress/i.test(String(value || ''));
 }
 
+/** GitHub's immediate merge mutation can race `main` or a transient API outage. */
+export function isRetryableNativeAutoMergeMutationError(value) {
+  return BASE_BRANCH_MODIFIED_MUTATION_ERROR_RE.test(String(value || ''))
+    || TRANSIENT_NATIVE_AUTO_MERGE_MUTATION_ERROR_RE.test(String(value || ''));
+}
+
 function capturedErrorOutput(error) {
-  return [error?.stderr, error?.stdout]
-    .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value || ''))
+  return [error?.message, error?.stderr, error?.stdout, error?.status]
+    .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value ?? ''))
     .filter(Boolean)
     .join('\n');
+}
+
+/**
+ * Retry known transient failures around the side-effecting mutation. The
+ * expected HEAD remains bound by `nativeAutoMergeArgs`; all other errors are
+ * thrown on the first attempt and exhaustion stays fail-closed.
+ */
+export function withNativeAutoMergeMutationRetry(operation, {
+  attemptLimit = MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS,
+  delaysMs = NATIVE_AUTO_MERGE_MUTATION_RETRY_DELAYS_MS,
+  sleep = sleepForTransientReadRetry,
+  onRetry = () => {},
+} = {}) {
+  if (typeof operation !== 'function') throw new TypeError('mutation retry operation must be a function');
+  const attempts = Number.isSafeInteger(attemptLimit) && attemptLimit > 0
+    ? attemptLimit
+    : MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS;
+  const delays = Array.isArray(delaysMs) ? delaysMs : NATIVE_AUTO_MERGE_MUTATION_RETRY_DELAYS_MS;
+  const wait = typeof sleep === 'function' ? sleep : sleepForTransientReadRetry;
+  const notify = typeof onRetry === 'function' ? onRetry : () => {};
+
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    try {
+      return operation();
+    } catch (error) {
+      if (attempt + 1 >= attempts || !isRetryableNativeAutoMergeMutationError(capturedErrorOutput(error))) {
+        throw error;
+      }
+      const delayMs = Number(delays[attempt]);
+      notify(attempt + 2, attempts, delayMs);
+      if (Number.isFinite(delayMs) && delayMs > 0) wait(delayMs);
+    }
+  }
+  throw new Error('native auto-merge mutation retry exhausted without an attempt');
 }
 
 /** Confirm a concurrent opt-in only after the same body/HEAD/barrier read. */
 function concurrentOptInSucceeded(repo, prNumber, expectedHead, expectedBodyRevision, expectedLeaseId) {
   return verifyPostMutationState(repo, prNumber, expectedHead, expectedBodyRevision, expectedLeaseId);
+}
+
+/**
+ * Classify the read immediately after the native mutation. GitHub can expose
+ * the merged state before the source head or the comment-backed lease has
+ * reached every read replica; only that incomplete identity is retryable.
+ * An open PR with a visible native auto-merge request is the normal successful
+ * result of `gh pr merge --auto`. A changed review epoch, released lease, or
+ * different head remains a hard failure because the mutation cannot be undone
+ * safely.
+ */
+export function postMutationStateDecision({
+  observed,
+  observedRevision,
+  expectedHead,
+  expectedBodyRevision,
+  expectedLeaseId,
+  barrier,
+  lease,
+} = {}) {
+  const sameHead = observed?.headRefOid === expectedHead;
+  const headUnavailable = typeof observed?.headRefOid !== 'string'
+    || observed.headRefOid.length === 0;
+  const sameRevision = observedRevision === expectedBodyRevision;
+  const leaseMatches = lease?.allow === true && lease.leaseId === expectedLeaseId;
+  const autoMergeEnabled = observed?.autoMergeRequest !== null
+    && typeof observed?.autoMergeRequest === 'object'
+    && !Array.isArray(observed.autoMergeRequest);
+
+  if (observed?.state === 'MERGED'
+      && sameHead
+      && sameRevision
+      && leaseMatches) {
+    return { allow: true, retryable: false, reason: 'PR merged con body/HEAD/lease CAS verificati' };
+  }
+
+  // The mutation may complete the merge before the head ref or the newly
+  // written lease is visible to the next API read. Retry only an absent
+  // identity/lease; a different identity is evidence of a real race.
+  const leaseIsNotVisible = lease?.reason === 'lease native auto-merge assente'
+    && lease.status === null
+    && lease.leaseId === null;
+  if (observed?.state === 'MERGED'
+      && sameRevision
+      && (headUnavailable || sameHead)
+      && (headUnavailable || leaseIsNotVisible)) {
+    return {
+      allow: false,
+      retryable: true,
+      reason: 'stato MERGED osservato prima della propagazione di HEAD/lease',
+    };
+  }
+
+  if (observed?.state === 'OPEN'
+      && observed.isDraft === false
+      && observed.baseRefName === 'main'
+      && sameHead
+      && sameRevision
+      && autoMergeEnabled
+      && barrier?.allow === true
+      && leaseMatches) {
+    return {
+      allow: true,
+      retryable: false,
+      reason: 'native auto-merge request attivo sulla HEAD corrente',
+    };
+  }
+
+  if (observed?.state === 'OPEN'
+      && observed.isDraft === false
+      && observed.baseRefName === 'main'
+      && sameHead
+      && sameRevision
+      && observed.autoMergeRequest === null
+      && barrier?.allow === true
+      && leaseMatches) {
+    return {
+      allow: false,
+      retryable: true,
+      reason: 'opt-in non ancora visibile dopo la mutation',
+    };
+  }
+
+  return {
+    allow: false,
+    retryable: false,
+    reason: 'body/HEAD/lease diversa dal CAS finale',
+  };
 }
 
 /**
@@ -1247,39 +1482,44 @@ function concurrentOptInSucceeded(repo, prNumber, expectedHead, expectedBodyRevi
 function verifyPostMutationState(repo, prNumber, expectedHead, expectedBodyRevision, expectedLeaseId) {
   let observed;
   try {
-    observed = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
-      'number,id,body,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
-    const observedRevision = reviewInputRevisionFromBody(observed.body);
-    const lease = loadNativeAutoMergeLease(repo, prNumber, observed.headRefOid, observedRevision);
-    if (observed.state === 'MERGED') {
-      const safe = observed.headRefOid === expectedHead
-        && observedRevision === expectedBodyRevision
-        && lease.allow
-        && lease.leaseId === expectedLeaseId;
-      if (!safe) {
-        console.error('::error::native auto-merge guard: PR merged ma body/HEAD/lease diversa dal CAS finale');
-        process.exitCode = 1;
-      }
-      return safe;
-    }
-    const barrier = loadBodyRecoveryBarrier(
-      repo,
-      prNumber,
-      observed.headRefOid,
-      observedRevision,
-    );
-    const safe = observed.state === 'OPEN'
-      && observed.isDraft === false
-      && observed.baseRefName === 'main'
-      && observed.headRefOid === expectedHead
-      && observedRevision === expectedBodyRevision
-      && observed.autoMergeRequest !== null
-      && barrier.allow
-      && lease.allow
-      && lease.leaseId === expectedLeaseId;
-    if (safe) return true;
-    if (observed.autoMergeRequest !== null) {
-      revokeExistingAutoMerge(repo, observed, `body/HEAD/barrier/lease cambiati dopo la mutation: ${barrier.reason}; ${lease.reason}`);
+    const snapshot = withTransientGithubReadRetry(() => {
+      observed = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
+        'number,id,body,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
+      const observedRevision = reviewInputRevisionFromBody(observed.body);
+      const lease = loadNativeAutoMergeLease(repo, prNumber, observed.headRefOid, observedRevision);
+      const barrier = observed.state === 'MERGED'
+        ? null
+        : loadBodyRecoveryBarrier(
+          repo,
+          prNumber,
+          observed.headRefOid,
+          observedRevision,
+        );
+      const decision = postMutationStateDecision({
+        observed,
+        observedRevision,
+        expectedHead,
+        expectedBodyRevision,
+        expectedLeaseId,
+        barrier,
+        lease,
+      });
+      return { observed, decision, barrier, lease };
+    }, {
+      delaysMs: NATIVE_AUTO_MERGE_MUTATION_RETRY_DELAYS_MS,
+      shouldRetryResult: (result) => result?.decision?.retryable === true,
+    });
+    const { decision, barrier, lease } = snapshot;
+    if (decision.allow) return true;
+    const hasAutoMergeRequest = observed?.autoMergeRequest !== null
+      && observed?.autoMergeRequest !== undefined
+      && observed?.state !== 'MERGED';
+    if (hasAutoMergeRequest) {
+      revokeExistingAutoMerge(
+        repo,
+        observed,
+        `body/HEAD/barrier/lease cambiati dopo la mutation: ${barrier?.reason || 'non applicabile'}; ${lease?.reason || decision.reason}`,
+      );
     }
     console.error('::error::native auto-merge guard: opt-in post-mutation non più verificabile');
     process.exitCode = 1;
@@ -1387,6 +1627,7 @@ function main() {
     changedFiles: changedFileSnapshot.files,
     changedFilesComplete: changedFileSnapshot.complete,
     inJobRun,
+    callerRunId: callerRunIdFromEnv(),
   });
   console.log(`Native auto-merge guard PR #${prNumber} HEAD=${pr.headRefOid}: ${decision.reason}`);
   if (decision.action === 'revoke') {
@@ -1486,6 +1727,7 @@ function main() {
     changedFiles: finalChangedFileSnapshot.files,
     changedFilesComplete: finalChangedFileSnapshot.complete,
     inJobRun: finalInJobRun,
+    callerRunId: callerRunIdFromEnv(),
   });
   let freshRecoveryBarrier;
   try {
@@ -1645,6 +1887,7 @@ function main() {
     changedFiles: finalChangedFileSnapshot.files,
     changedFilesComplete: finalChangedFileSnapshot.complete,
     inJobRun: mutationInJobRun,
+    callerRunId: callerRunIdFromEnv(),
   });
   console.log(`Native auto-merge guard PR #${prNumber} mutation snapshot: ${mutationDecision.reason}`);
   if (!mutationDecision.allow) {
@@ -1655,11 +1898,24 @@ function main() {
   }
 
   try {
-    const output = execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: beforeMutation.headRefOid }), {
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'pipe'],
-      env: { ...process.env },
-    });
+    const output = withNativeAutoMergeMutationRetry(
+      () => execFileSync('gh', nativeAutoMergeArgs({
+        repo,
+        prNumber,
+        title: beforeMutation.title,
+        headSha: beforeMutation.headRefOid,
+      }), {
+        encoding: 'utf8',
+        maxBuffer: GH_EXEC_MAX_BUFFER,
+        stdio: ['ignore', 'pipe', 'pipe'],
+        env: { ...process.env },
+      }),
+      {
+        onRetry: (nextAttempt, attempts, delayMs) => {
+          console.warn(`::warning::native auto-merge mutation ha rilevato una race sul base branch; tentativo ${nextAttempt}/${attempts} tra ${delayMs}ms`);
+        },
+      },
+    );
     if (output) process.stdout.write(output);
     if (!verifyPostMutationState(
       repo,

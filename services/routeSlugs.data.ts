@@ -350,7 +350,7 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
 
  glossario: 'cross-border-glossary',
  dialetto: 'ticinese-dialect',
- faq: 'cross-border-faq',
+ faq: 'frequently-asked-questions',
  sitemap: 'site-map',
  contracts: 'swiss-employment-contracts',
  tfrCalculator: 'tfr-severance-pay-calculator',
@@ -459,7 +459,7 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
 
  glossario: 'grenzgaenger-glossar',
  dialetto: 'tessiner-dialekt',
- faq: 'grenzgaenger-faq',
+ faq: 'haeufige-fragen',
  sitemap: 'seitenplan',
  contracts: 'schweizer-arbeitsvertraege',
  tfrCalculator: 'tfr-abfindung-grenzgaenger-rechner',
@@ -568,7 +568,7 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
 
  glossario: 'glossaire-frontalier',
  dialetto: 'dialecte-tessinois',
- faq: 'faq-frontaliers',
+ faq: 'questions-frequentes',
  sitemap: 'plan-du-site',
  contracts: 'contrats-travail-suisses',
  tfrCalculator: 'tfr-indemnite-licenciement-frontalier',

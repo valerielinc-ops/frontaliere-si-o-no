@@ -26,7 +26,7 @@
  * for secondary sites, e.g. "Zermatt" / "Seewen-Schwyz" / "Delémont").
  * Department is embedded in the listing link's `title` attribute suffix
  * (`"... (Ref. : 2026-245) - Product"`). No posted date in the listing, so
- * we default to today. Detail page content lives under
+ * publication stays unknown without explicit detail metadata. Content lives under
  * `id="contenu-ficheoffre"` and holds structured German/French prose
  * (Beschreibung der Aufgaben / Profil / Benefits / Einsatzort der Stelle).
  *
@@ -39,6 +39,8 @@
  * table, since these secondary sites are well documented but their exact
  * street is not published per-posting).
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -49,6 +51,8 @@ import {
   normalizeSpace,
   htmlToText,
 } from './hospital-custom-html-helpers.mjs';
+import { extractTalentsoftOfferHtml } from './talentsoft-offer-detail.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -250,23 +254,27 @@ function parseVictorinoxListing(html = '') {
   return out;
 }
 
-async function fetchDetailDescription(detailUrl) {
+/**
+ * Vacancy text of a Talentsoft detail page: the `#contenu-ficheoffre`
+ * container, without the apply bar and footer menu that follow it.
+ */
+export function extractVictorinoxDetailDescription(html = '') {
+  return normalizeDescriptionBullets(normalizeSpace(htmlToText(extractTalentsoftOfferHtml(html))));
+}
+
+async function fetchDetailFields(detailUrl, expectedTitle) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return '';
-    // Job-detail block sits inside id="contenu-ficheoffre". Take everything
-    // up to the boilerplate footer panel.
-    const startMatch = html.match(/id="contenu-ficheoffre"[^>]*>([\s\S]+)/);
-    if (!startMatch) return '';
-    const block = startMatch[1].slice(0, 14000);
-    // Cut off boilerplate footer (Rechtliche Hinweise / Mentions légales / etc).
-    const cutMatch = block.match(/[\s\S]+?(?=Rechtliche\s+Hinweise|Mentions\s+l[ée]gales|<\/main>|<footer)/);
-    const trimmed = cutMatch ? cutMatch[0] : block;
-    const text = htmlToText(trimmed);
-    return normalizeDescriptionBullets(normalizeSpace(text).slice(0, 6000));
+    const records = extractJsonLd(html || '', detailUrl);
+    const matched = records.find(record => {
+      if (normalizeSpace(record.title || '').toLowerCase() !== normalizeSpace(expectedTitle).toLowerCase()) return false;
+      if (!record.urlExplicit) return records.length === 1;
+      try { return new URL(record.url, detailUrl).href === new URL(detailUrl).href; } catch { return false; }
+    });
+    return { description: extractVictorinoxDetailDescription(html), ...mergeSourcePostingDates({}, matched) };
   } catch (err) {
     console.warn(` ⚠️ Victorinox detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return '';
+    return { description: '', ...mergeSourcePostingDates() };
   }
 }
 
@@ -309,12 +317,12 @@ export async function fetchAllVictorinoxJobs() {
   console.log(`   ✓ ${rows.length} Talentsoft offers (deduped across pages)`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
-    const detailText = await fetchDetailDescription(r.detailUrl);
+    const detail = await fetchDetailFields(r.detailUrl, r.title);
+    const detailText = detail.description;
 
     const { city, postalCode, streetAddress, region } = resolveAddress(r.location);
     const hasLocationText = !!normalizeSpace(r.location);
@@ -330,17 +338,11 @@ export async function fetchAllVictorinoxJobs() {
     // HQ site above, so HQ.canton is the correct (not fabricated) fallback.
     const canton = inferredCanton || HQ.canton;
 
-    const summaryPieces = [
-      r.department ? `Bereich: ${r.department}` : '',
-      city ? `Standort: ${city}` : '',
-      r.ref ? `Referenz: ${r.ref}` : '',
-    ].filter(Boolean);
-    const description = detailText && detailText.split(/\s+/).length >= 30
-      ? detailText
-      : [
-        ...summaryPieces,
-        `${VICTORINOX_COMPANY_NAME} — Schweizer Familienunternehmen, Hersteller des Original Schweizer Offiziersmessers, Uhren und Reisegepäck (HQ Ibach-Schwyz, SZ).`,
-      ].filter(Boolean).join('\n\n');
+    // Only the vacancy's own text (issue 5253): no summary of labelled
+    // listing fields (Bereich/Standort/Referenz) plus a company sentence in
+    // place of a thin body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detailText) ? detailText : '';
 
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${VICTORINOX_KEY} ${city || 'ibach'}`);
@@ -381,7 +383,7 @@ export async function fetchAllVictorinoxJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.detailUrl,
       jobReqId: r.ref || null,
       requirements: [],

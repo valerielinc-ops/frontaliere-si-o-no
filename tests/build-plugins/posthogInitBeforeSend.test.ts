@@ -1,9 +1,12 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+// @vitest-environment jsdom
+// @vitest-environment-options { "url": "https://frontaliereticino.ch/" }
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import {
   POSTHOG_INIT_CONTENT,
 } from '../../build-plugins/constants.ts';
 import {
   POSTHOG_EVENT_SAMPLE_RATE,
+  POSTHOG_QUOTA_EXEMPT_EVENTS,
   POSTHOG_SESSION_REPLAY_SAMPLE_RATE,
   shouldCapturePostHogEvent,
 } from '../../services/posthogQuota.ts';
@@ -31,6 +34,25 @@ interface CapturedInit {
   [key: string]: unknown;
 }
 
+const CHROME_IOS_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/153.0.8010.24 Mobile/15E148 Safari/604.1';
+
+function googleIosInjectedStackOverflowEvent(filename = 'https://frontaliereticino.ch/cerca-lavoro-ticino/case-anziani/') {
+  return {
+    event: '$exception',
+    properties: {
+      $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+      $exception_list: [{
+        type: 'RangeError',
+        value: 'Maximum call stack size exceeded.',
+        stacktrace: { frames: [
+          { filename, lineno: 226, colno: 408 },
+          { filename, lineno: 226, colno: 63 },
+        ] },
+      }],
+    },
+  };
+}
+
 /**
  * POSTHOG_INIT_CONTENT is a bot-gated IIFE that installs the standard
  * PostHog stub loader (`window.posthog=e; e._i=[]; e.init=function(...){...
@@ -42,9 +64,13 @@ interface CapturedInit {
  * an isolated `vm` sandbox. This mirrors tests/build-plugins/earlyBootSelfHeal.test.ts's
  * `new Function(SELF_HEAL_SCRIPT_CONTENT)()` pattern.
  */
-function extractBeforeSend(): (event: unknown) => unknown {
+function lookLikeRealChrome(): void {
   // Look like a real desktop Chrome so BOT_GATE_FN doesn't skip the init
   // (mirrors tests/bot-gate-parity.test.ts's "real browser" navigator setup).
+  Object.defineProperty(window, 'location', {
+    configurable: true,
+    value: { ...window.location, hostname: 'frontaliereticino.ch' },
+  });
   Object.defineProperty(window.navigator, 'webdriver', { configurable: true, get: () => false });
   Object.defineProperty(window.navigator, 'userAgent', {
     configurable: true,
@@ -57,6 +83,10 @@ function extractBeforeSend(): (event: unknown) => unknown {
     get: () => ({ query: () => Promise.resolve({ state: 'prompt' }) }),
   });
   if (!('chrome' in window)) Object.defineProperty(window, 'chrome', { configurable: true, value: {} });
+}
+
+function extractBeforeSend(): (event: unknown) => unknown {
+  lookLikeRealChrome();
   delete (window as unknown as { posthog?: unknown }).posthog;
 
   // The snippet's stub-loader inserts its <script> tag via
@@ -77,6 +107,27 @@ function extractBeforeSend(): (event: unknown) => unknown {
   }
   return opts.before_send as (event: unknown) => unknown;
 }
+
+describe('POSTHOG_INIT_CONTENT local dev gate', () => {
+  const realLocation = window.location;
+
+  afterEach(() => {
+    Object.defineProperty(window, 'location', { configurable: true, value: realLocation });
+  });
+
+  it.each(['http://localhost:3000/', 'http://127.0.0.1:4173/', 'http://[::1]:4173/'])(
+    'never installs PostHog on %s',
+    (url) => {
+      lookLikeRealChrome();
+      delete (window as unknown as { posthog?: unknown }).posthog;
+      Object.defineProperty(window, 'location', { configurable: true, value: new URL(url) });
+
+      new Function(POSTHOG_INIT_CONTENT)();
+
+      expect((window as unknown as { posthog?: unknown }).posthog).toBeUndefined();
+    },
+  );
+});
 
 describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
   let beforeSend: (event: unknown) => unknown;
@@ -104,6 +155,14 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     expect(beforeSend(identify)).toBe(identify);
   });
 
+  it('keeps the L5 decision events outside static-page analytics sampling', () => {
+    for (const eventName of ['decision_moment_completed', 'decision_moment_next_action'] as const) {
+      expect(POSTHOG_QUOTA_EXEMPT_EVENTS).toContain(eventName);
+      const event = { event: eventName, properties: { $session_id: 'sampled-out' } };
+      expect(beforeSend(event)).toBe(event);
+    }
+  });
+
   it('matches the SPA sampler for deterministic session decisions', () => {
     for (let i = 0; i < 40; i += 1) {
       const event = { event: 'custom_event', properties: { $session_id: `parity-${i}` } };
@@ -127,6 +186,23 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
 
   it('keeps a real first-party TypeError', () => {
     const event = { event: '$exception', properties: { $exception_values: [{ type: 'TypeError', value: "Cannot read properties of undefined (reading 'foo')" }] } };
+    expect(beforeSend(event)).toBe(event);
+  });
+
+  it('drops the Google-injected stack overflow from Chrome for iOS (#8773)', () => {
+    Object.defineProperty(window.navigator, 'userAgent', {
+      configurable: true,
+      get: () => CHROME_IOS_UA,
+    });
+    expect(beforeSend(googleIosInjectedStackOverflowEvent())).toBeNull();
+  });
+
+  it('keeps a Chrome-iOS stack overflow that reaches a first-party asset (#8773)', () => {
+    Object.defineProperty(window.navigator, 'userAgent', {
+      configurable: true,
+      get: () => CHROME_IOS_UA,
+    });
+    const event = googleIosInjectedStackOverflowEvent('https://cdn.frontaliereticino.ch/assets/App.js');
     expect(beforeSend(event)).toBe(event);
   });
 
@@ -169,6 +245,50 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
             stacktrace: {
               frames: [
                 { filename: 'https://accounts.google.com/gsi/client', lineno: 193, colno: 71 },
+                { filename: 'https://frontaliereticino.ch/assets/index-entry.js', lineno: 12, colno: 4 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(beforeSend(event)).toBe(event);
+  });
+
+  it('drops an exception whose entire resolved stack is GPT', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'googletag error' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'googletag error',
+            stacktrace: {
+              frames: [
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 1, colno: 1 },
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 2, colno: 1 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(beforeSend(event)).toBeNull();
+  });
+
+  it('keeps a static GPT exception with a mixed first-party + third-party stack', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'googletag error' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'googletag error',
+            stacktrace: {
+              frames: [
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 1, colno: 1 },
                 { filename: 'https://frontaliereticino.ch/assets/index-entry.js', lineno: 12, colno: 4 },
               ],
             },
@@ -228,6 +348,59 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     ];
     const event = zeroFrameException('Maximum call stack size exceeded.');
     expect(beforeSend(event)).toBe(event);
+  });
+
+  // ── #8773 parity: Chrome-iOS / Google-app injected stack overflow ──
+  // The SPA twin lives in tests/google-ios-app-injected-stack-overflow.test.ts.
+  const CRIOS_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/154.0.8037.55 Mobile/15E148 Safari/604.1';
+  const GSA_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/436.4.969249353 Mobile/15E148 Safari/604.1';
+  const SAFARI_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1';
+  const JOB_PAGE = 'https://frontaliereticino.ch/de/jobs-in-bern/example-job/';
+  function injectedOverflow(userAgent: string, filenames: string[]) {
+    return {
+      event: '$exception',
+      properties: {
+        $raw_user_agent: userAgent,
+        $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+        $exception_list: [{
+          type: 'RangeError',
+          value: 'Maximum call stack size exceeded.',
+          stacktrace: { frames: filenames.map((filename) => ({ filename, lineno: 226, colno: 408 })) },
+        }],
+      },
+    };
+  }
+  const pageFrames = [JOB_PAGE, JOB_PAGE, JOB_PAGE, JOB_PAGE, JOB_PAGE, JOB_PAGE];
+  function withStaticUserAgent<T>(userAgent: string, callback: () => T): T {
+    const previous = Object.getOwnPropertyDescriptor(window.navigator, 'userAgent');
+    Object.defineProperty(window.navigator, 'userAgent', {
+      configurable: true,
+      get: () => userAgent,
+    });
+    try {
+      return callback();
+    } finally {
+      if (previous) Object.defineProperty(window.navigator, 'userAgent', previous);
+    }
+  }
+
+  it('drops the injected stack overflow from Chrome for iOS on a static page (#8773)', () => {
+    expect(withStaticUserAgent(CRIOS_UA, () => beforeSend(injectedOverflow(CRIOS_UA, pageFrames)))).toBeNull();
+  });
+
+  it('drops the injected stack overflow from the Google app on iOS (#8773)', () => {
+    expect(withStaticUserAgent(GSA_UA, () => beforeSend(injectedOverflow(GSA_UA, pageFrames)))).toBeNull();
+    expect(withStaticUserAgent(GSA_UA, () => beforeSend(injectedOverflow(GSA_UA, ['undefined'])))).toBeNull();
+  });
+
+  it('keeps the same stack overflow from plain iOS Safari (#8773)', () => {
+    const event = injectedOverflow(SAFARI_UA, pageFrames);
+    expect(withStaticUserAgent(SAFARI_UA, () => beforeSend(event))).toBe(event);
+  });
+
+  it('keeps a Chrome-iOS stack overflow with a frame in one of our chunks (#8773)', () => {
+    const event = injectedOverflow(CRIOS_UA, ['https://cdn.frontaliereticino.ch/assets/App.js', ...pageFrames]);
+    expect(withStaticUserAgent(CRIOS_UA, () => beforeSend(event))).toBe(event);
   });
 
   it('installs the raw-stack recorder before posthog.init in the snippet (#4173)', () => {

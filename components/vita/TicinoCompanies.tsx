@@ -9,6 +9,7 @@ import { buildPath } from '@/services/router';
 import { resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { reportCaughtError } from '@/services/errorReporter';
 import { cdnDataUrl } from '@/services/cdnDataBase';
+import { normalizeOrganizationIdentities } from '@/services/seo/organizationLd';
 import extraCompaniesData from '@/data/ticino-companies-extra.json';
 import crawlerCompaniesData from '@/data/crawler-companies-auto.json';
 import ProviderLogo from '@/components/shared/ProviderLogo';
@@ -681,7 +682,7 @@ const TicinoCompanies: React.FC = () => {
  const script = document.createElement('script');
  script.type = 'application/ld+json';
  script.id = scriptId;
- script.text = JSON.stringify(ld);
+ script.text = JSON.stringify(normalizeOrganizationIdentities(ld));
  document.head.appendChild(script);
 
  return () => {

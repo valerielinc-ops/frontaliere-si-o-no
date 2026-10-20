@@ -48,16 +48,33 @@
  *   - isTrustedDomain()             — Validate URLs belong to this company
  *   - slugify() / stripHtml()       — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const HESS_CARROSSERIE_KEY = 'hess-carrosserie';
 export const HESS_CARROSSERIE_COMPANY_NAME = 'Carrosserie HESS AG';
 export const HESS_CARROSSERIE_COMPANY_DOMAIN = 'hess-ag.ch';
+
+/**
+ * The WHOLE text the parser used to publish INSTEAD of a missing JobPosting
+ * body (issue 5253), and nothing else: "<title> bei Carrosserie HESS AG in
+ * <city>." followed by the fixed sentence about HESS. Anchored at both ends
+ * on purpose: a real posting opening with "HESS - Der Schweizer Pionier im
+ * Fahrzeugbau" must never be taken for it. Only ever recognised, to remove it
+ * from stored jobs before the merge (`prepareExistingJobs` in
+ * update-hess-carrosserie-jobs.mjs).
+ */
+export const HESS_CARROSSERIE_FABRICATED_DESCRIPTION_RE = new RegExp(
+  '^\\s*[^\\n]{1,200}? bei Carrosserie HESS AG in [^\\n]{1,80}?\\.\\s+'
+  + 'HESS ist der Schweizer Pionier im Fahrzeugbau \\(Bus- und Nutzfahrzeugbau\\) mit Sitz in Bellach \\(SO\\)\\.\\s*$',
+);
 
 const OSTENDIS_TOKEN = '1231f8098365463589a5f4e16a4031a3';
 const OSTENDIS_LIST_URL =
@@ -172,8 +189,6 @@ function detectEmploymentType(workloadMax, ldTypes = []) {
 
 /* ── Detail Page (JSON-LD) ────────────────────────────────────── */
 
-const JSON_LD_RX = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i;
-
 /**
  * Fetch a posting's public detail page and extract its embedded
  * `application/ld+json` JobPosting block (server-rendered, no JS needed).
@@ -183,11 +198,7 @@ const JSON_LD_RX = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*
 async function fetchJobPostingLd(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
-    const match = html.match(JSON_LD_RX);
-    if (!match) return null;
-    const data = JSON.parse(match[1]);
-    if (!data || data['@type'] !== 'JobPosting') return null;
-    return data;
+    return extractJobPostingNodes(html)[0] || null;
   } catch (err) {
     console.warn(`   ⚠️ Detail fetch failed for ${detailUrl}: ${err?.message || err}`);
     return null;
@@ -257,18 +268,22 @@ export async function fetchAllHessCarrosserieJobs() {
 
     const descriptionHtml = ld?.description || '';
     const descriptionText = stripHtml(descriptionHtml);
-    const description = descriptionText ||
-      `${title} bei ${HESS_CARROSSERIE_COMPANY_NAME} in ${city}. HESS ist der Schweizer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz in Bellach (SO).`;
+    // Only the posting's own text (issue 5253): no "<title> bei Carrosserie
+    // HESS AG in <city>." line and company sentence in place of a missing
+    // JobPosting body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} hess ${city}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(listing.workload_max, ld?.employmentType);
-    const postedDate =
-      (ld?.datePosted && String(ld.datePosted).slice(0, 10)) ||
-      (listing.timestamp && /^\d+$/.test(String(listing.timestamp))
-        ? new Date(Number(listing.timestamp) * 1000).toISOString().split('T')[0]
-        : new Date().toISOString().split('T')[0]);
+    let sameIdentity = normalizeSpace(ld?.title || '').toLowerCase() === title.toLowerCase();
+    if (ld?.url) {
+      try { sameIdentity = sameIdentity && new URL(ld.url, publicUrl).href === new URL(publicUrl).href; }
+      catch { sameIdentity = false; }
+    }
+    const publication = sourcePostingDateFields(sameIdentity ? ld?.datePosted : '');
 
     const job = {
       // ── Required fields ──
@@ -303,7 +318,7 @@ export async function fetchAllHessCarrosserieJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       jobReqId: listing.id != null ? String(listing.id) : null,
       requirements: [],

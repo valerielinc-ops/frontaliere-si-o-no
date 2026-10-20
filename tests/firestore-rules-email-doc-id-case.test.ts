@@ -36,7 +36,6 @@ const IDENTITY_COMPARISON_RE =
 
 /**
  * Il lato destro è accettabile in due forme sole:
- * - una costante già minuscola (`'valerielinc@gmail.com'` di `isSiteAdmin()`);
  * - una variabile su cui è chiamato `.lower()` (il segmento di path `{email}`).
  */
 function isCaseSafe(rhs: string): boolean {
@@ -69,8 +68,9 @@ describe('firestore.rules — confronti d\'identità case-insensitive su entramb
 
   it('sorveglia tutti i confronti presenti, non zero', () => {
     // Una regex che smette di matchare passerebbe verde a vuoto: al 2026-09-05
-    // i confronti sono 7 (isSiteAdmin + 6 rule keyate sull'indirizzo).
+    // i confronti sono 6 (l'admin gate usa il UID stabile, più 6 regole
+    // keyate sull'indirizzo).
     const found = [...rulesCode().matchAll(IDENTITY_COMPARISON_RE)];
-    expect(found.length).toBeGreaterThanOrEqual(7);
+    expect(found.length).toBeGreaterThanOrEqual(6);
   });
 });

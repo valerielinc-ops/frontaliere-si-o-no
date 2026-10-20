@@ -60,6 +60,7 @@
  *   - isTrustedDomain()            — Validate URLs belong to this company
  *   - slugify() / stripHtml()      — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -68,11 +69,13 @@ import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDetail,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
   getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -299,7 +302,7 @@ async function fetchJobListings() {
         title: id.title,
         locationRaw: posting.locationsText || id.location || '',
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -336,6 +339,7 @@ export async function fetchAllLindtSpruengliJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   const seen = new Set();
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
@@ -360,13 +364,19 @@ export async function fetchAllLindtSpruengliJobs() {
     const locationRaw = resolveLindtLocationText(info, listing.locationRaw);
     if (isLocationExplicitlyForeign(locationRaw)) continue;
 
-    const city = extractCityFromLocationText(locationRaw);
+    const extractedCity = extractCityFromLocationText(locationRaw);
+    const extractedCanton = extractedCity ? resolveLindtSpruengliCanton(extractedCity) : null;
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country.
+    const recovered = extractedCanton ? null : recoverWorkdayPrimarySwissPlace(info);
+    const city = recovered ? recovered.location : extractedCity;
     if (!city) {
       console.log(`   ⏭️ Skipped unresolved/ambiguous location: "${locationRaw || listing.locationRaw}" — ${title}`);
       continue;
     }
 
-    const canton = resolveLindtSpruengliCanton(city);
+    const canton = recovered ? recovered.canton : extractedCanton;
     if (canton === null) {
       console.warn(`   ⚠️ Skipping unresolvable location "${city}" (${title})`);
       continue;
@@ -381,24 +391,25 @@ export async function fetchAllLindtSpruengliJobs() {
             .replace(/[ \t]*\n[ \t]*/g, '\n')
             .replace(/\n{3,}/g, '\n\n')
             .trim(),
-        ).slice(0, 4000)
+        )
       : '';
 
-    const fallbackDescription = [
-      `${title} — ${LINDT_SPRUENGLI_COMPANY_NAME}, ${city}.`,
-      '',
-      'Key details:',
-      `• Location: ${city}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      `• Employer: ${LINDT_SPRUENGLI_COMPANY_NAME}.`,
-      `• Apply: ${LINDT_SPRUENGLI_COMPANY_NAME} Workday careers portal.`,
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} lindt spruengli ${city}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
-    const postedDate = listing.postedAt || new Date().toISOString().split('T')[0];
+    // The CXS listing row carries no `timeType`; the detail does.
+    const employmentType = detectEmploymentType(listing.timeType || info.timeType || '', title);
 
     const job = {
       // ── Required fields ──
@@ -433,7 +444,7 @@ export async function fetchAllLindtSpruengliJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: info })),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],
@@ -443,6 +454,9 @@ export async function fetchAllLindtSpruengliJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${LINDT_SPRUENGLI_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

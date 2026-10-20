@@ -6,6 +6,7 @@ import {
   runL4,
   validateAlertReturn,
 } from '../scripts/ci/loop-l4-alert-return.mjs';
+import { updateSnoozeState } from '../scripts/lib/alerts/snoozer.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 
@@ -51,6 +52,12 @@ function outcomes(overrides: Record<string, unknown> = {}) {
       quietHoursEvidence: 'test sender schedule',
       externalDeliveryUntouched: true,
       unattributedDeliveries: 0,
+      returnMeasurement: {
+        status: 'observed',
+        source: 'GA4 Data API',
+        dimension: 'sessionCampaignName',
+        metric: 'totalUsers',
+      },
     },
     ...overrides,
   };
@@ -111,6 +118,116 @@ describe('L4 Alert → Return', () => {
     expect(verdict.issues.join(' ')).toContain('unattributedDeliveries');
   });
 
+  it('reports a GA4 return cohort as insufficient until its settled date', () => {
+    const verdict = validateAlertReturn({
+      config: config(),
+      snoozes: snoozes(),
+      outcomes: outcomes({
+        returningUsers7d: null,
+        export: {
+          consentChecked: true,
+          deduplicationChecked: true,
+          quietHoursChecked: true,
+          quietHoursEvidence: 'test sender schedule',
+          externalDeliveryUntouched: true,
+          unattributedDeliveries: 0,
+          returnMeasurement: {
+            status: 'insufficient',
+            source: 'GA4 Data API',
+            dimension: 'sessionCampaignName',
+            metric: 'totalUsers',
+            insufficientUntil: '2026-09-21T09:00:00.000Z',
+          },
+        },
+      }),
+    }, { now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.quality).toBe('partial');
+    expect(verdict.awaitingReturnCohort).toBe(true);
+    expect(verdict.issues.join(' ')).toContain('insufficient until 2026-09-21T09:00:00.000Z');
+  });
+
+  it('keeps a maturing return cohort in the awaiting-sample issue state', async () => {
+    const cohortNow = new Date('2026-10-05T00:00:00.000Z');
+    const source = tempSource(outcomes({
+      generatedAt: cohortNow.toISOString(),
+      returningUsers7d: null,
+      export: {
+        consentChecked: true,
+        deduplicationChecked: true,
+        quietHoursChecked: true,
+        quietHoursEvidence: 'test sender schedule',
+        externalDeliveryUntouched: true,
+        unattributedDeliveries: 0,
+        returnMeasurement: {
+          status: 'insufficient',
+          source: 'GA4 Data API',
+          dimension: 'sessionCampaignName',
+          metric: 'totalUsers',
+          insufficientUntil: '2026-10-14T00:00:00.000Z',
+        },
+      },
+    }));
+    const issues: Array<Record<string, unknown>> = [];
+    const result = await runL4({
+      now: cohortNow,
+      configPath: source.configPath,
+      snoozesPath: source.snoozesPath,
+      outcomePath: source.outcomePath,
+      issue: true,
+      createIssueImpl: async (payload) => { issues.push(payload); },
+      logger: { log() {} },
+    });
+    expect(result.verdict.awaitingReturnCohort).toBe(true);
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toMatchObject({
+      state: 'awaiting-sample',
+      sample: { current: 1, minimum: 2, windowDays: 9 },
+    });
+  });
+
+  it('carries the validated return measurement into the public waiting sample', async () => {
+    const cohortNow = new Date('2026-10-05T00:00:00.000Z');
+    const insufficientUntil = '2026-10-14T00:00:00.000Z';
+    const source = tempSource(outcomes({
+      generatedAt: cohortNow.toISOString(),
+      returningUsers7d: null,
+      export: {
+        consentChecked: true,
+        deduplicationChecked: true,
+        quietHoursChecked: true,
+        quietHoursEvidence: 'test sender schedule',
+        externalDeliveryUntouched: true,
+        unattributedDeliveries: 0,
+        returnMeasurement: {
+          status: 'insufficient',
+          source: 'GA4 Data API',
+          dimension: 'sessionCampaignName',
+          metric: 'totalUsers',
+          insufficientUntil,
+        },
+      },
+    }));
+    const issues: Array<Record<string, unknown>> = [];
+    const result = await runL4({
+      now: cohortNow,
+      configPath: source.configPath,
+      snoozesPath: source.snoozesPath,
+      outcomePath: source.outcomePath,
+      issue: true,
+      createIssueImpl: async (payload) => { issues.push(payload); },
+      logger: { log() {} },
+    });
+
+    expect(result.observation.sourceSnapshot.outcomes).toMatchObject({
+      returnMeasurement: { status: 'insufficient', insufficientUntil },
+    });
+    expect(issues[0]).toMatchObject({
+      state: 'awaiting-sample',
+      sample: { windowDays: 9 },
+    });
+  });
+
   it('marks stale outcomes and keeps a future timestamp from starting the window', async () => {
     const verdict = validateAlertReturn({ config: config(), snoozes: snoozes(), outcomes: outcomes({ generatedAt: '2026-09-01T12:00:00.000Z' }) }, { now: NOW });
     expect(verdict.quality).toBe('stale');
@@ -159,7 +276,22 @@ describe('L4 Alert → Return', () => {
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l4-safe-actions.json'), 'utf8')))
       .toMatchObject({ appliesToExternalDelivery: false, actions: [{ autonomy: 'A4', reversible: true }] });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l4-result.json'), 'utf8')))
-      .toMatchObject({ ok: false, issued: true, actionsWritten: true });
+      .toMatchObject({
+        ok: false,
+        issued: true,
+        actionsWritten: true,
+        evidence: {
+          generatedAt: null,
+          consentChecked: false,
+          deduplicationChecked: false,
+          unattributedDeliveries: null,
+        },
+        closureCriterion: {
+          event: 'schedule',
+          consecutiveOkRuns: 3,
+          nonScheduleRunsAdvanceStreak: false,
+        },
+      });
     expect(issues).toHaveLength(1);
   });
 
@@ -190,5 +322,54 @@ describe('L4 Alert → Return', () => {
       logger: { log() {} },
     })).rejects.toThrow('issue service unavailable');
     expect(fs.existsSync(path.join(reportDir, 'l4-result.json'))).toBe(false);
+  });
+});
+
+describe('L4 Alert to Return: snoozedUntil null dello snoozer rifiutato dal validatore', () => {
+  // The writer is the real snoozer, not a fixture: an alert counted for fewer
+  // days than the threshold is stored with `snoozedUntil: null` ("not snoozed"),
+  // one that reached it gets a date. Both shapes must pass the validator.
+  const day = (iso: string) => Date.parse(`${iso}T00:00:00Z`);
+
+  function snoozerState(daysFired: number) {
+    let state = { version: 1, snoozes: {} as Record<string, unknown> };
+    const alerts = [{ id: 'B.2.gsc-fetch-failure' }];
+    for (let i = 0; i < daysFired; i += 1) {
+      state = updateSnoozeState(state, alerts, config(), { now: day('2026-09-10') + i * 86_400_000 });
+    }
+    return state;
+  }
+
+  it('accepts the counted-but-not-snoozed rows the snoozer writes (snoozedUntil: null)', () => {
+    const state = snoozerState(2);
+    expect(state.snoozes['B.2.gsc-fetch-failure']).toMatchObject({ consecutiveDays: 2, snoozedUntil: null });
+    const verdict = validateAlertReturn({ config: config(), snoozes: state, outcomes: outcomes() }, { now: NOW });
+    expect(verdict.issues).toEqual([]);
+    expect(verdict.candidates).toEqual([]);
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
+  });
+
+  it('accepts the snoozed rows the snoozer writes once the threshold is reached', () => {
+    const state = snoozerState(config().snooze_after_consecutive_days);
+    expect(state.snoozes['B.2.gsc-fetch-failure']).toMatchObject({ snoozedUntil: expect.any(String) });
+    const verdict = validateAlertReturn({ config: config(), snoozes: state, outcomes: outcomes() }, { now: NOW });
+    expect(verdict.issues).toEqual([]);
+  });
+
+  it('still rejects a missing, malformed or contradictory snoozedUntil', () => {
+    const state = {
+      version: 1,
+      snoozes: {
+        'a.missing': { consecutiveDays: 1, lastSeen: '2026-09-11' },
+        'b.garbage': { consecutiveDays: 1, lastSeen: '2026-09-11', snoozedUntil: 'not-a-date' },
+        'c.threshold': { consecutiveDays: config().snooze_after_consecutive_days, lastSeen: '2026-09-11', snoozedUntil: null },
+      },
+    };
+    const verdict = validateAlertReturn({ config: config(), snoozes: state, outcomes: outcomes() }, { now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.candidates.map((candidate: { key: string }) => candidate.key)).toEqual(['a.missing', 'b.garbage', 'c.threshold']);
+    expect(verdict.issues.join('\n')).toContain('snoozes.a.missing: snoozedUntil is missing or invalid');
+    expect(verdict.issues.join('\n')).toContain('snoozes.b.garbage: snoozedUntil is missing or invalid');
+    expect(verdict.issues.join('\n')).toContain('snoozes.c.threshold: snoozedUntil is null although consecutiveDays reached the snooze threshold');
   });
 });

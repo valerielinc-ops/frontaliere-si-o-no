@@ -1,4 +1,4 @@
-import admin from 'firebase-admin';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import crypto from 'crypto';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
@@ -7,9 +7,13 @@ import {
  positiveEventRecoveryFields,
  positiveEventStatusFields,
  mergeAccountDeletedSubscriberUpdate,
+ UNKNOWN_RECIPIENT,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { eraseJobEmailAffinityProfile, isAffinityErasingEvent } from './lib/jobEmailAffinityStore.js';
+import { parseAssistedCampaign, recordAssistedEmailEvent } from './assistedApplicationEmailEvents.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
  * Mailgun webhook handler — receives delivery events and stores them in Firestore.
@@ -93,11 +97,21 @@ export async function persistMailgunEvent(db, eventData) {
  const type = mapMailgunEvent(mgEvent);
  if (!type) return { skipped: true, reason: `unknown_event: ${mgEvent}` };
 
+ if (await isDeletedEmailAccount(db, email)) {
+   return { skipped: true, reason: 'account_deleted' };
+ }
+
  const campaignId = extractCampaignId(eventData);
  const messageId = extractMessageId(eventData);
  const timestamp = eventData.timestamp
  ? new Date(eventData.timestamp * 1000).toISOString()
  : new Date().toISOString();
+
+ // Candidate e-mails of an assisted application: recorded on the order, never
+ // as newsletter engagement or a job ranking click.
+ if (parseAssistedCampaign(campaignId)) {
+ return recordAssistedEmailEvent(db, { campaign: campaignId, type, provider: 'mailgun', messageId, occurredAt: timestamp, url: eventData.url });
+ }
 
  if (type === 'click' && eventData.url) {
  await recordJobEmailRankingClick(db, {
@@ -109,6 +123,12 @@ export async function persistMailgunEvent(db, eventData) {
  });
  }
 
+ // Complaint/unsubscribe = stop su ogni canale: il profilo di affinita' degli
+ // annunci va cancellato subito, come promette la privacy policy.
+ if (isAffinityErasingEvent(type)) {
+   await eraseJobEmailAffinityProfile(db, email);
+ }
+
  // Route job-alert events to job_alert_subscribers/{email}
  const mgTags = eventData.tags || [];
  if (mgTags.includes('job-alert') || mgTags.includes('job-alert-retry')) {
@@ -118,7 +138,6 @@ export async function persistMailgunEvent(db, eventData) {
  const subscriberRef = db.collection('newsletter_subscribers').doc(email);
 
  // Update subscriber-level fields for all event types (aligned with Resend handler)
- const FieldValue = admin.firestore.FieldValue;
  const subscriberUpdate = {
  updated_at: FieldValue.serverTimestamp(),
  };
@@ -166,7 +185,7 @@ export async function persistMailgunEvent(db, eventData) {
  // 'suppressed', or a 'bounced' that is NOT proven-permanent. It never
  // clears a human-declared 'complained'/'unsubscribed', nor a hard bounce.
  // The doc read happens only on these three event types.
- await mergeAccountDeletedSubscriberUpdate(
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  subscriberUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -179,6 +198,7 @@ export async function persistMailgunEvent(db, eventData) {
  : null,
  db,
  );
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -195,18 +215,18 @@ export async function persistMailgunEvent(db, eventData) {
  campaign_id: campaignId,
  message_id: messageId,
  provider: 'mailgun',
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
  };
 
- if (type === 'send') deliveryData.sent_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'delivered') deliveryData.delivered_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'open') deliveryData.opened_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'bounce') deliveryData.bounced_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'complaint') deliveryData.complained_at = admin.firestore.FieldValue.serverTimestamp();
+ if (type === 'send') deliveryData.sent_at = FieldValue.serverTimestamp();
+ if (type === 'delivered') deliveryData.delivered_at = FieldValue.serverTimestamp();
+ if (type === 'open') deliveryData.opened_at = FieldValue.serverTimestamp();
+ if (type === 'bounce') deliveryData.bounced_at = FieldValue.serverTimestamp();
+ if (type === 'complaint') deliveryData.complained_at = FieldValue.serverTimestamp();
  if (type === 'click') {
- deliveryData.clicked_at = admin.firestore.FieldValue.serverTimestamp();
+ deliveryData.clicked_at = FieldValue.serverTimestamp();
  deliveryData.last_clicked_url = eventData.url || '';
- deliveryData.clicked_links = admin.firestore.FieldValue.increment(1);
+ deliveryData.clicked_links = FieldValue.increment(1);
  }
 
  const deliveryDocId = `${campaignId}_${email}`.replace(/[/\\]/g, '_').slice(0, 200);
@@ -230,7 +250,7 @@ export async function persistMailgunEvent(db, eventData) {
  client_info: eventData['client-info'] || null,
  tags: eventData.tags || [],
  },
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: timestamp,
  });
 
@@ -249,7 +269,6 @@ export async function persistMailgunEvent(db, eventData) {
 // ── Job alert event handler (mirrors newsletter pattern) ────
 
 async function persistJobAlertMailgunEvent(db, { email, type, mgEvent, messageId, timestamp, eventData }) {
- const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
 
  const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };
@@ -271,7 +290,7 @@ async function persistJobAlertMailgunEvent(db, { email, type, mgEvent, messageId
  // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
  // which would overwrite 'complained' — a human's spam complaint — with a
  // machine's inference, and equally resurrect a proven-permanent hard bounce.
- await mergeAccountDeletedSubscriberUpdate(
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  topUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -284,6 +303,7 @@ async function persistJobAlertMailgunEvent(db, { email, type, mgEvent, messageId
  : null,
  db,
  );
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -336,9 +356,9 @@ export async function handleMailgunWebhookRequest({ body, signingKey }) {
  throw new Error('Invalid Mailgun webhook signature');
  }
 
- const db = admin.firestore();
+ const db = getFirestore();
  const result = await persistMailgunEvent(db, eventData);
 
- console.log(`[mailgunWebhook] ${eventData.event} → ${result.type || 'skipped'} for ${eventData.recipient || '?'}`);
+ console.log(`[mailgunWebhook] ${result.reason || result.type || 'skipped'}`);
  return result;
 }

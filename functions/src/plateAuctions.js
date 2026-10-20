@@ -5,6 +5,8 @@ import {
   fetchHtml,
   fetchPdfText,
   FIXED_PRICE_SOURCE_CONFIGS,
+  fetchGePlateAuctions,
+  GE_PLATE_AUCTION_SOURCE,
   resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
@@ -13,16 +15,26 @@ import {
   parseEcariAuctionRows,
   parseUrFixedPricePdfText,
   parseZhAuctionCards,
+  isExplicitlyEmptyCatalogue,
   SWISSSIGN_RSA_TLS_OV_ICA_2022_1,
+  withEcariEmptyState,
 } from './plateAuctionsCore.js';
+import { isDeepStrictEqual, promisify } from 'node:util';
+import { gunzip, gzip } from 'node:zlib';
+import { FieldValue } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
+import { GR_ECARI_CATALOGUE_URL } from './plateAuctionSourceUrls.js';
 import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
 import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
   observeCatalogueDisappearance,
+  PLATE_AUCTION_MISSING_GRACE_MS,
   recognizeCatalogueSales,
+  recognizeTimedCatalogueTurnover,
 } from './plateAuctionQualityCore.js';
 
 export const PLATE_AUCTION_COLLECTION = 'plate_auctions_current';
@@ -141,28 +153,40 @@ const CONNECTORS = {
   bl: makeEcariConnector({ canton: 'Basilea Campagna', plateCode: 'BL', url: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' }),
   bs: makeFixedPriceConnector({ sourceKey: 'bs', parse: parseBsFixedPricePdfText }),
   fr: makeEcariConnector({ canton: 'Friburgo', plateCode: 'FR', url: 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch' }),
+  // Ginevra: lista PDF dell'OCV su ge.ch (numeri e date, nessun prezzo);
+  // Ricardo è solo un link. Gira solo quando il registry la segna `active`.
+  ge: {
+    canton: GE_PLATE_AUCTION_SOURCE.canton,
+    plateCode: GE_PLATE_AUCTION_SOURCE.plateCode,
+    url: GE_PLATE_AUCTION_SOURCE.pageUrl,
+    parserVersion: GE_PLATE_AUCTION_SOURCE.parserVersion,
+    fetchSource({ fetchedAt, injectedFetcher } = {}) {
+      return fetchGePlateAuctions({ fetchedAt, now: new Date(fetchedAt), injectedFetcher });
+    },
+  },
   gl: makeFixedPriceConnector({ sourceKey: 'gl', parse: parseGlFixedPriceJson }),
   gr: {
     canton: 'Grigioni',
     plateCode: 'GR',
-    url: 'https://eauktion.gr.ch/',
+    url: GR_ECARI_CATALOGUE_URL,
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
-      return [
+      const tabs = [
         ['tabContent1', 'active', 'auction', 'gr'],
         ['tabContent2', 'upcoming', 'future-registration', 'gr-future'],
         ['tabContent3', 'active', 'fixed-price', 'gr-fixed'],
         ['tabContent4', 'upcoming', 'wanted', 'gr-wanted'],
-      ].flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
+      ];
+      return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Grigioni',
         plateCode: 'GR',
-        officialAuctionUrl: 'https://eauktion.gr.ch/',
+        officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
         fetchedAt,
         auctionStatus,
         listingType,
         idPrefix,
-        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://eauktion.gr.ch/', sourceRecordId),
-      }));
+        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_ECARI_CATALOGUE_URL, sourceRecordId),
+      })), html, tabs.map(([tab]) => tab));
     },
   },
   nw: makeEcariConnector({ canton: 'Nidvaldo', plateCode: 'NW', url: 'https://ecarinwprod.ilz.info/ecari-auction/' }),
@@ -174,11 +198,12 @@ const CONNECTORS = {
     url: 'https://ecari.vs.ch/ecari-auction/',
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
-      return [
+      const tabs = [
         ['tabContent1', 'active', 'auction', 'vs'],
         ['tabContent2', 'upcoming', 'future-registration', 'vs-future'],
         ['tabContent4', 'upcoming', 'wanted', 'vs-wanted'],
-      ].flatMap(([tab, status, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
+      ];
+      return withEcariEmptyState(tabs.flatMap(([tab, status, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Vallese',
         plateCode: 'VS',
         officialAuctionUrl: 'https://ecari.vs.ch/ecari-auction/',
@@ -187,7 +212,7 @@ const CONNECTORS = {
         listingType,
         idPrefix,
         detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://ecari.vs.ch/ecari-auction/', sourceRecordId),
-      }));
+      })), html, tabs.map(([tab]) => tab));
     },
   },
   vd: makeCardConnector({
@@ -202,12 +227,13 @@ const CONNECTORS = {
     url: 'https://www.carieauktion.ti.ch/ecari-auktion/',
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
-      return [
+      const tabs = [
         ['tabContent1', 'active', 'auction', 'ti'],
         ['tabContent2', 'upcoming', 'future-registration', 'ti-future'],
         ['tabContent3', 'active', 'fixed-price', 'ti-fixed'],
         ['tabContent4', 'upcoming', 'wanted', 'ti-wanted'],
-      ].flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
+      ];
+      return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Ticino',
         plateCode: 'TI',
         officialAuctionUrl: 'https://www.carieauktion.ti.ch/ecari-auktion/',
@@ -216,7 +242,7 @@ const CONNECTORS = {
         listingType,
         idPrefix,
         detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://www.carieauktion.ti.ch/ecari-auktion/', sourceRecordId),
-      }));
+      })), html, tabs.map(([tab]) => tab));
     },
   },
   lu: makeFixedPriceConnector({ sourceKey: 'lu', parse: parseLuFixedPricePdfText }),
@@ -302,7 +328,7 @@ const ECARI_TABS = [
 ];
 
 function parseEcariSource(html, { canton, plateCode, officialAuctionUrl, fetchedAt, tabs = ECARI_TABS }) {
-  return tabs.flatMap(([tabContentId, auctionStatus, listingType, idSuffix]) => parseEcariAuctionRows(
+  return withEcariEmptyState(tabs.flatMap(([tabContentId, auctionStatus, listingType, idSuffix]) => parseEcariAuctionRows(
     extractEcariTabSection(html, tabContentId),
     {
       canton,
@@ -314,7 +340,7 @@ function parseEcariSource(html, { canton, plateCode, officialAuctionUrl, fetched
       idPrefix: idSuffix === 'auction' ? plateCode.toLowerCase() : `${plateCode.toLowerCase()}-${idSuffix}`,
       detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(officialAuctionUrl, sourceRecordId),
     },
-  ));
+  )), html, tabs.map(([tabContentId]) => tabContentId));
 }
 
 function parseCardSource(html, { canton, plateCode, officialAuctionUrl, detailBaseUrl, fetchedAt }) {
@@ -544,6 +570,140 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
   };
 }
 
+/**
+ * How long one instance reuses a built snapshot: the same 5 minutes the
+ * response already declares in `Cache-Control: max-age=300`.
+ *
+ * One build reads the whole current collection (17'613 rows on 2026-10-01)
+ * plus 5'000 history rows, about 22'700 billed Firestore reads. Built per
+ * request, a crawler from Tencent Cloud (~500 calls/hour every night from
+ * 2026-09-29) turned that into 75-90 M reads a day, ~32-38 USD/day on the
+ * "Cloud Firestore Read Ops Zurich" SKU, while concurrent builds overran
+ * 256 MiB and ~80% of the calls ended 500/503 with their reads still billed.
+ *
+ * The refresh takes ~2.5 minutes, so a run triggered by
+ * scripts/ci/run-plate-auctions-function.mjs is visible here within ~7.5
+ * minutes, inside that script's 12-minute polling window.
+ */
+export const PLATE_AUCTION_SNAPSHOT_CACHE_MS = 5 * 60 * 1000;
+
+const gzipAsync = promisify(gzip);
+const gunzipAsync = promisify(gunzip);
+let cachedSnapshotBody = null;
+let pendingSnapshotBody = null;
+
+/**
+ * Where refreshPlateAuctions publishes the built public snapshot, gzip-
+ * compressed, in the project's default bucket (same region as the function).
+ *
+ * The per-instance cache above only helps warm instances. On 2026-10-02,
+ * with every page view already on the static CDN file, the calls left (~4 an
+ * hour from Googlebot rendering with a cached old bundle, ~3 from the corpus
+ * publisher) were minutes apart: most found a cold or expired instance and
+ * rebuilt the snapshot from Firestore, ~22'700 reads each, 140-180k reads an
+ * hour in total. Reading this object instead costs one storage operation.
+ */
+export const PLATE_AUCTION_SNAPSHOT_OBJECT = 'plate-auctions/public-snapshot.json.gz';
+/**
+ * Beyond this age the published object means a stopped refresh (four runs a
+ * day, 6 h apart): the function rebuilds from Firestore instead of serving it.
+ */
+export const PLATE_AUCTION_PUBLISHED_SNAPSHOT_MAX_AGE_MS = 8 * 60 * 60 * 1000;
+
+function snapshotFile(bucket) {
+  return (bucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET)).file(PLATE_AUCTION_SNAPSHOT_OBJECT);
+}
+
+/**
+ * Build the public snapshot and publish it for getPlateAuctions. Called at the
+ * end of every refresh, when the collection has just changed.
+ */
+export async function publishPublicPlateAuctionSnapshot({ db, bucket } = {}) {
+  const snapshot = await getPublicPlateAuctionSnapshot(db);
+  const compressed = await gzipAsync(Buffer.from(JSON.stringify(snapshot)));
+  await snapshotFile(bucket).save(compressed, { resumable: false, contentType: 'application/gzip' });
+  return { generatedAt: snapshot.generatedAt, auctions: snapshot.auctions.length, bytes: compressed.length };
+}
+
+/**
+ * The published snapshot as `{ body, gzip }`, or null when it is missing,
+ * unreadable, older than PLATE_AUCTION_PUBLISHED_SNAPSHOT_MAX_AGE_MS or dated
+ * in the future: the caller then rebuilds from Firestore, as before.
+ */
+export async function loadPublishedPlateAuctionSnapshot({ bucket, now = Date.now } = {}) {
+  let compressed;
+  try {
+    [compressed] = await snapshotFile(bucket).download();
+  } catch (error) {
+    if (error?.code !== 404) console.warn('[plateAuctions:snapshot]', error instanceof Error ? error.message : String(error));
+    return null;
+  }
+  let body;
+  try {
+    body = await gunzipAsync(compressed);
+  } catch {
+    return null;
+  }
+  // generatedAt is the third key JSON.stringify emits: no full parse needed.
+  const generatedMs = Date.parse(/"generatedAt":"([^"]+)"/.exec(body.subarray(0, 256).toString('utf8'))?.[1]);
+  const nowMs = now();
+  if (!Number.isFinite(generatedMs) || generatedMs > nowMs || nowMs - generatedMs > PLATE_AUCTION_PUBLISHED_SNAPSHOT_MAX_AGE_MS) return null;
+  return { body, gzip: compressed };
+}
+
+/**
+ * The serialized public snapshot, refreshed at most once per TTL per instance,
+ * as `{ body, gzip }`: from the object refreshPlateAuctions publishes, or, when
+ * that is unusable, built from Firestore. Concurrent callers share the load in
+ * flight (single-flight), so a burst costs one load instead of one per
+ * request. A failed load is not cached: the next request retries.
+ *
+ * The gzip copy is made once per build. Uncompressed, every answered call was
+ * ~16.5 MB of Cloud Run internet egress (25.6 GB on 2026-09-30); JSON rows
+ * with repeated keys compress by an order of magnitude.
+ *
+ * `bucket: null` skips the published object (tests that only exercise the
+ * Firestore build).
+ */
+export function getCachedPublicPlateAuctionSnapshotBody({ db, bucket, now = Date.now, ttlMs = PLATE_AUCTION_SNAPSHOT_CACHE_MS } = {}) {
+  if (cachedSnapshotBody && cachedSnapshotBody.expiresAt > now()) return Promise.resolve(cachedSnapshotBody.bodies);
+  if (!pendingSnapshotBody) {
+    pendingSnapshotBody = (async () => {
+      let bodies = bucket === null ? null : await loadPublishedPlateAuctionSnapshot({ bucket, now });
+      if (!bodies) {
+        const body = Buffer.from(JSON.stringify(await getPublicPlateAuctionSnapshot(db)));
+        bodies = { body, gzip: await gzipAsync(body) };
+      }
+      cachedSnapshotBody = { bodies, expiresAt: now() + ttlMs };
+      return bodies;
+    })().finally(() => {
+      pendingSnapshotBody = null;
+    });
+  }
+  return pendingSnapshotBody;
+}
+
+/**
+ * True when an Accept-Encoding header names gzip with a non-zero quality.
+ * Only the explicit token counts: a missing header or `*` gets the plain body,
+ * which every client can read.
+ */
+export function acceptsGzip(acceptEncoding) {
+  for (const part of String(acceptEncoding || '').split(',')) {
+    const [coding, ...params] = part.split(';').map((value) => value.trim().toLowerCase());
+    if (coding !== 'gzip') continue;
+    const quality = params.find((param) => param.startsWith('q='));
+    return !quality || Number(quality.slice(2)) > 0;
+  }
+  return false;
+}
+
+/** Test seam: forget the per-instance snapshot cache. */
+export function resetPublicPlateAuctionSnapshotCache() {
+  cachedSnapshotBody = null;
+  pendingSnapshotBody = null;
+}
+
 function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
   const registrySource = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[sourceKey] || {};
   return {
@@ -566,12 +726,68 @@ function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
 }
 
 /**
+ * Sources whose fetch and Firestore write dominate the run (BS: ~16'000 rows)
+ * go last, so a slow or failing heavy source can never leave the small
+ * catalogues after it — SZ, FR and TI among them, which the static collector
+ * reads through the API relay — on an old snapshot.
+ */
+const PLATE_AUCTION_HEAVY_SOURCES = new Set(['bs']);
+
+export function plateAuctionRefreshOrder(keys) {
+  return [
+    ...keys.filter((key) => !PLATE_AUCTION_HEAVY_SOURCES.has(key)),
+    ...keys.filter((key) => PLATE_AUCTION_HEAVY_SOURCES.has(key)),
+  ];
+}
+
+/**
  * @param {{db?: any, fetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, now?: Date}} options
  */
-export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = new Date() } = {}) {
+/**
+ * Fields every fetch rewrites even when nothing about the listing changed.
+ * Consecutive history copies of an unchanged plate differ only in these
+ * (measured 2026-10-01 on ag-58771 and ai-2952); a new bid also moves
+ * `bidCount`, `currentBidChf` and `rawSnapshotHash`.
+ */
+const PLATE_AUCTION_FETCH_STAMP_FIELDS = new Set(['id', 'sourceFetchedAt', 'lastVerifiedAt', 'lastSeenAt', 'firstSeenAt', 'missingSince']);
+
+/**
+ * Provenance links: where a row was read from, not what the auction says.
+ * Fixed-price sources read from a PDF put the URL of the current edition in
+ * `officialDetailUrl`. When Basilea Citta published a new catalogue
+ * (`wuko-pw-35.pdf` -> `wuko-pw-36.pdf`, 2026-10-02 11:47 UTC) it changed on
+ * every one of ~16'400 rows and the refresh copied 16'388 of them into
+ * plate_auctions_history. In a sample of 40 of those copies, 37 differed from
+ * the previous one only by `officialDetailUrl` (all BS); the other 3 were real
+ * bids on AG (`bidCount`, `currentBidChf`, `rawSnapshotHash`). The current row
+ * is still rewritten with merge on every refresh, so the new URL reaches
+ * plate_auctions_current anyway.
+ */
+const PLATE_AUCTION_SOURCE_LINK_FIELDS = new Set(['officialDetailUrl']);
+
+/**
+ * True when an observation differs from the stored current row in anything
+ * but the fetch stamps, or when there is no stored row. Each refresh used to
+ * copy every row into plate_auctions_history, four times a day: ~68'600
+ * documents a day, of which 19-26% differed from the previous copy (audit of
+ * 2026-10-01), and the collection had grown to 444'412 documents. A value the
+ * comparison cannot prove equal counts as a change, so the worst case is the
+ * old behaviour, never a lost observation.
+ */
+export function plateAuctionObservationChanged(record, old) {
+  if (!old) return true;
+  for (const key of new Set([...Object.keys(record), ...Object.keys(old)])) {
+    if (PLATE_AUCTION_FETCH_STAMP_FIELDS.has(key) || PLATE_AUCTION_SOURCE_LINK_FIELDS.has(key)) continue;
+    if (!isDeepStrictEqual(record[key], old[key])) return true;
+  }
+  return false;
+}
+
+export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = new Date(), bucket } = {}) {
   const fetchedAt = now.toISOString();
   const summaries = {};
-  for (const [key, config] of Object.entries(CONNECTORS)) {
+  for (const key of plateAuctionRefreshOrder(Object.keys(CONNECTORS))) {
+    const config = CONNECTORS[key];
     if (PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[key]?.status !== 'active') continue;
     try {
       const parsedRows = typeof config.fetchSource === 'function'
@@ -583,7 +799,10 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
       const sourceRef = db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key);
       const previous = { docs: await readSourceRows(db, config.plateCode) };
       const previousById = new Map(previous.docs.map((doc) => [doc.id, { id: doc.id, ...doc.data() }]));
-      if (parsedRows.length === 0) {
+      // eCari's own "no auction running" page is an answered, empty catalogue:
+      // it takes the normal path below. Only an empty parse WITHOUT that
+      // explicit state is a broken fetch and stays `zero_rows`.
+      if (parsedRows.length === 0 && !isExplicitlyEmptyCatalogue(parsedRows)) {
         // An empty upstream response is degraded, but it must not leave a
         // record visibly active after its official deadline. Close expired
         // observations in both current and history collections while keeping
@@ -629,8 +848,15 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         const old = previousById.get(row.id) || {};
         const ref = db.collection(PLATE_AUCTION_COLLECTION).doc(row.id);
         const record = { ...row, firstSeenAt: old.firstSeenAt || row.firstSeenAt || fetchedAt, lastSeenAt: fetchedAt };
-        writes.push({ ref, record, merge: true });
-        writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${row.id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}`), record });
+        // Listed again, so no longer missing. A merge keeps every field the
+        // record does not name, so the stamp has to be deleted explicitly —
+        // only on the current document: history is a plain set, where a
+        // delete sentinel is rejected.
+        const currentRecord = old.missingSince === undefined ? record : { ...record, missingSince: FieldValue.delete() };
+        writes.push({ ref, record: currentRecord, merge: true });
+        if (plateAuctionObservationChanged(record, previousById.get(row.id))) {
+          writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${row.id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}`), record });
+        }
       }
       const currentIds = new Set(rows.map((row) => row.id));
       // Same defect class as scripts/plate-auctions/ingest.mjs, in the other
@@ -645,35 +871,83 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
       const isSaleCandidate = (row) => row.listingType === 'fixed-price'
         && timestampMs(row.endsAt) === undefined
         && ['active', 'upcoming'].includes(row.auctionStatus);
-      const saleCandidates = vanished.filter(([, old]) => isSaleCandidate(old));
-      const protectedVanished = vanished.filter(([, old]) => !isSaleCandidate(old)
-        && ['active', 'upcoming'].includes(old.auctionStatus));
-      // Only LIVE observations may enter the denominator. This same path
-      // writes closed records back into PLATE_AUCTION_COLLECTION below, so
-      // `previousById.size` grows with every accumulated sale while
-      // `rows.length` only ever counts the live feed: the 95% band would
-      // tighten run after run until a healthy feed was classified
-      // preserve-as-live and sales stopped being recorded altogether.
+      const isLive = (row) => ['active', 'upcoming'].includes(row?.auctionStatus);
+      const isUnexpiredLive = (row) => isLive(row)
+        && (timestampMs(row.endsAt) === undefined || timestampMs(row.endsAt) > now.getTime());
+      // Same ratchet as scripts/plate-auctions/ingest.mjs: a vanished row this
+      // path neither sold nor archived stayed `active` in the collection, came
+      // back as `previous` on the next run and was judged again with the same
+      // numbers, forever. The run that first misses a row stamps it
+      // `missingSince`; a stamped row was already judged, so it leaves the
+      // denominator and the vanished count, and is resolved by the grace window.
+      const missingSinceOf = (row) => timestampMs(row?.missingSince);
+      const stillLive = vanished.filter(([, old]) => isUnexpiredLive(old));
+      const newlyMissing = stillLive.filter(([, old]) => missingSinceOf(old) === undefined);
+      const knownMissing = stillLive.filter(([, old]) => missingSinceOf(old) !== undefined);
+      const saleCandidates = newlyMissing.filter(([, old]) => isSaleCandidate(old));
+      // Only unexpired rows: a row past its deadline is archived below, as in
+      // ingest, and is not an upstream anomaly.
+      const protectedVanished = newlyMissing.filter(([, old]) => !isSaleCandidate(old));
+      // Only LIVE observations the LAST fetch still listed may enter the
+      // denominator. This same path writes closed records back into
+      // PLATE_AUCTION_COLLECTION below, so `previousById.size` grows with every
+      // accumulated sale while `rows.length` only ever counts the live feed:
+      // the 95% band would tighten run after run until a healthy feed was
+      // classified preserve-as-live and sales stopped being recorded
+      // altogether. A stamped row is the same trap: the upstream did not list
+      // it last time either.
       const previousLiveCount = [...previousById.values()]
-        .filter((row) => ['active', 'upcoming'].includes(row?.auctionStatus)).length;
+        .filter((row) => isLive(row) && missingSinceOf(row) === undefined).length;
       const saleDecision = recognizeCatalogueSales({
+        sourceKey: key,
         previousCount: previousLiveCount,
         fetchedCount: rows.length,
         vanishedCount: saleCandidates.length,
       });
+      const timedTurnoverDecision = recognizeTimedCatalogueTurnover({
+        sourceKey: key,
+        previousCount: previousLiveCount,
+        fetchedCount: rows.length,
+        vanishedCount: newlyMissing.length,
+      });
+      // The card-platform contract measures the whole timed-card turnover;
+      // fixed-price sources continue to use saleDecision only.
+      const healthyFetchDecision = timedTurnoverDecision || saleDecision;
+      // A stamped row still absent after the grace window is recorded, but
+      // only by a fetch that is itself healthy (non-empty, band and cap passed
+      // on the new losses): a run that may be truncated is no evidence an
+      // older absence is final, and an explicitly empty eCari page lists
+      // nothing to measure against. Same rule as ingest.
+      const expiredMissingIds = new Set(rows.length > 0 && healthyFetchDecision.recognized
+        ? knownMissing
+          .filter(([, old]) => now.getTime() - missingSinceOf(old) >= PLATE_AUCTION_MISSING_GRACE_MS)
+          .map(([id]) => id)
+        : []);
       console.log(
         `[refreshPlateAuctions:${key}] sale-recognition previous=${previousLiveCount} `
         + `fetched=${rows.length} vanished=${saleCandidates.length} protected=${protectedVanished.length} cap=${saleDecision.cap} `
-        + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
+        + `known-missing=${knownMissing.length} expired-missing=${expiredMissingIds.size} `
+        + (timedTurnoverDecision
+          ? (timedTurnoverDecision.recognized
+            ? `decision=timed-turnover accepted vanished=${newlyMissing.length}`
+            : `decision=timed-turnover preserve-as-live blocked-by=${timedTurnoverDecision.blockedBy.join('+')}`)
+          : (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`)),
       );
       const recognizedSaleIds = new Set(saleDecision.recognized ? saleCandidates.map(([id]) => id) : []);
       for (const [id, old] of vanished) {
         // A deadline that has passed archives the row; a catalogue removal in
-        // a healthy catalogue is a sale. Neither ever carries a final price.
-        const record = recognizedSaleIds.has(id)
+        // a healthy catalogue is a sale, and so is an absence that outlived
+        // the grace window. None of them ever carries a final price.
+        const record = recognizedSaleIds.has(id) || expiredMissingIds.has(id)
           ? observeCatalogueDisappearance({ ...old, id }, now)
           : closeExpiredObservation(old, now);
-        if (!record) continue;
+        if (!record) {
+          // Preserved as live: stamp the first run that missed it, once.
+          if (isUnexpiredLive(old) && missingSinceOf(old) === undefined) {
+            writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), record: { missingSince: fetchedAt }, merge: true });
+          }
+          continue;
+        }
         writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), record, merge: true });
         writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}-closed`), record });
       }
@@ -698,16 +972,21 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         }
         await batch.commit();
       }
-      // Same rule as ingest's sourceStatus(): recognized fixed-price sales
-      // leave `sourceDisappeared` true, so deriving the patch from that raw
-      // flag kept a healthy source `degraded` and could hide its active rows
-      // from consumers that require an active source. A single protected row
-      // still means an upstream anomaly, so it must NOT be laundered into
-      // `active` by one recognized sale.
-      const allLossesAreSales = saleDecision.recognized
+      // Same rule as ingest's sourceStatus(): recognized fixed-price sales and
+      // measured timed-card turnover leave `sourceDisappeared` true, so
+      // deriving the patch from that raw flag would keep a healthy source
+      // `degraded`. Card rows are still preserved with `missingSince`; the
+      // turnover decision only says that the replacement-shaped fetch is
+      // healthy. For fixed-price sources, a protected row still means an
+      // upstream anomaly and must not be laundered by one recognized sale.
+      const healthyDespiteDisappearance = (saleDecision.recognized
         && protectedVanished.length === 0
-        && recognizedSaleIds.size > 0;
-      const sourcePatch = sourceDisappeared && !allLossesAreSales
+        && recognizedSaleIds.size > 0)
+        || timedTurnoverDecision?.recognized === true;
+      // The raw `sourceDisappeared` flag still guards the delete block above;
+      // the source's health is judged on the NEW losses only, because a
+      // stamped row was reported by the run that first missed it.
+      const sourcePatch = newlyMissing.length > 0 && !healthyDespiteDisappearance
         ? { status: 'degraded', rowCount: rows.length, errorCode: 'source_disappeared' }
         : { status: 'active', rowCount: rows.length, lastSuccessAt: fetchedAt, errorCode: null };
       await sourceRef.set(sourceDocument(key, config, fetchedAt, sourcePatch), { merge: true });
@@ -758,7 +1037,19 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
     }, { merge: true });
     summaries[key] = { status: patch.status, rowCount: 0, ...(patch.errorCode ? { errorCode: patch.errorCode } : {}) };
   }
-  return { fetchedAt, summaries };
+  // The collection only changes here: publish the snapshot getPlateAuctions
+  // serves. A failure never fails the refresh; the function then rebuilds from
+  // Firestore until the next run publishes.
+  let publicSnapshot = null;
+  if (bucket !== null) {
+    try {
+      publicSnapshot = await publishPublicPlateAuctionSnapshot({ db, bucket });
+    } catch (error) {
+      publicSnapshot = { error: error instanceof Error ? error.message.slice(0, 180) : 'unknown_error' };
+      console.warn('[refreshPlateAuctions] snapshot not published:', publicSnapshot.error);
+    }
+  }
+  return { fetchedAt, summaries, publicSnapshot };
 }
 
 export function isPlateAuctionPublicRecord(value) {

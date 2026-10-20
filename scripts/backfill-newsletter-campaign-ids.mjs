@@ -50,12 +50,11 @@
  *
  * Initialization
  * ──────────────
- *   Uses Firebase Admin SDK with the service account at
- *   `mcp-gsc-main/service_account_credentials.json` (relative to repo root).
+ *   Uses the shared Firestore helper and the workflow service account.
  */
 
-import admin from 'firebase-admin';
-import { readFileSync } from 'fs';
+import { FieldValue } from 'firebase-admin/firestore';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 // ── Constants ─────────────────────────────────────────────────────────
 
@@ -94,14 +93,7 @@ if (!['deliveries', 'events', 'both'].includes(collectionArg)) {
 
 // ── Init Firebase Admin ───────────────────────────────────────────────
 
-const sa = JSON.parse(
-  readFileSync(
-    new URL('../mcp-gsc-main/service_account_credentials.json', import.meta.url),
-  ),
-);
-admin.initializeApp({ credential: admin.credential.cert(sa) });
-const db = admin.firestore();
-const FieldValue = admin.firestore.FieldValue;
+const db = await getFirestoreDb();
 
 // ── Helpers ───────────────────────────────────────────────────────────
 
@@ -132,7 +124,7 @@ function isoDate(date) {
 
 /**
  * Coerce various Firestore-ish timestamp shapes to a JS Date or null.
- * Accepts: admin.firestore.Timestamp, Date, ISO string, epoch ms number, null.
+ * Accepts: firebase-admin/firestore Timestamp, Date, ISO string, epoch ms number, null.
  */
 function toDate(v) {
   if (!v) return null;
@@ -263,7 +255,7 @@ function eventTimestamp(data) {
  * @property {number} deltaHours  |ts - sentAt| in hours
  * @property {string} kind        'delivery' | 'event'
  * @property {string} corruptionBucket
- * @property {admin.firestore.DocumentReference} ref
+ * @property {import('firebase-admin/firestore').DocumentReference} ref
  */
 
 /**

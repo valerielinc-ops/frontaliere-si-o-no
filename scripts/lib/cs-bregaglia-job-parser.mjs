@@ -10,6 +10,7 @@
  * reliable than scraping the HTML listing page.
  */
 import { createHash } from 'node:crypto';
+import { sourceRssPostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -21,6 +22,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 export const CS_BREGAGLIA_KEY = 'cs-bregaglia';
 export const CS_BREGAGLIA_COMPANY_NAME = 'Centro Sanitario Bregaglia';
@@ -63,6 +65,31 @@ export function parseRssFeed(xml) {
   return items;
 }
 
+// Joomla renders each obfuscated address as an empty `mailto:` anchor followed
+// by a `cloak…` span whose text is a "protected from spambots" notice and whose
+// real value is written by an inline script. Keep the address from the anchor
+// and drop the notice, so the body carries the contact instead of the warning.
+function uncloakJoomlaEmails(html = '') {
+  return String(html || '')
+    .replace(/<span\b[^>]*\bid=["']cloak[^"']*["'][^>]*>[\s\S]*?<\/span>/gi, '')
+    .replace(/<a\b[^>]*\bhref=["']mailto:([^"'?]+)[^"']*["'][^>]*>\s*<\/a>/gi, ' $1 ');
+}
+
+/**
+ * The RSS `<description>` is Joomla's intro text only — the "Offerta di lavoro
+ * in breve" facts list — while the vacancy page carries the whole posting
+ * (clinic presentation, `Requisiti`, `Offriamo`, application note). Read the
+ * `<article class="uk-article">` body after its title heading.
+ */
+export function parseCsBregagliaDetailBody(html = '') {
+  const start = String(html || '').search(/<article\b[^>]*\buk-article\b[^>]*>/i);
+  if (start < 0) return '';
+  const end = html.indexOf('</article>', start);
+  let body = html.slice(start, end > start ? end : undefined);
+  body = body.replace(/^<article\b[^>]*>/i, '').replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/i, '');
+  return htmlToTextLines(uncloakJoomlaEmails(body));
+}
+
 export async function fetchAllCsBregagliaJobs() {
   console.log(`🏥 Fetching ${CS_BREGAGLIA_COMPANY_NAME} jobs`);
   console.log(`   Feed: ${FEED_URL}\n`);
@@ -71,16 +98,23 @@ export async function fetchAllCsBregagliaJobs() {
   console.log(`  ✓ ${items.length} items from RSS feed`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of items) {
     const title = it.title.replace(/^Offerta di lavoro:\s*/i, '');
     if (!title || title.length < 3) continue;
-    const description = it.description || `${title} — Centro Sanitario Bregaglia, Promontogno (GR).`;
-    const postedDate = (() => {
-      const d = new Date(it.pubDate || '');
-      return Number.isNaN(d.getTime()) ? todayIso : d.toISOString().slice(0, 10);
-    })();
+    let detailBody = '';
+    try {
+      detailBody = parseCsBregagliaDetailBody(await fetchHtml(it.url));
+    } catch (err) {
+      console.warn(`  ⚠️ detail fetch failed for ${it.url}: ${err?.message || err}`);
+    }
+    // The source's own text only: the detail body or the RSS description.
+    // Without either the parser used to write "<titolo> — Centro Sanitario
+    // Bregaglia, Promontogno (GR)."; the job now takes the thin-source path.
+    const description = (detailBody.length > it.description.length ? detailBody : '')
+      || it.description
+      || '';
+    const publication = sourceRssPostingDateFields(it.pubDate);
     const sourceLang = detectLang(description || title, 'it');
     const jobSlug = slugify(`${title} ${CS_BREGAGLIA_KEY} promontogno`);
     const urlHash = createHash('sha1').update(it.url).digest('hex').slice(0, 12);
@@ -119,7 +153,7 @@ export async function fetchAllCsBregagliaJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -128,3 +162,10 @@ export async function fetchAllCsBregagliaJobs() {
   console.log(`📋 Total ${CS_BREGAGLIA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+/**
+ * The whole one-line description the parser used to write without a body:
+ * "<titolo> — Centro Sanitario Bregaglia, Promontogno (GR)." (anchored at both
+ * ends; a body that names the centre is not taken for it).
+ */
+export const CS_BREGAGLIA_FABRICATED_DESCRIPTION_RE = /^[^\n]{3,300} — Centro Sanitario Bregaglia, Promontogno \(GR\)\.\s*$/;

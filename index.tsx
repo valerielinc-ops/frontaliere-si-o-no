@@ -1,37 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
-import { installDomReconciliationGuard } from './services/domReconciliationGuard';
-import { maybeHandleCvDownload } from './services/cvDownloadIntercept';
-import { clearAssetCaches } from './services/resilientImport';
-
-// Harden the DOM against third-party mutation (Google Translate, extensions)
-// crashing React's reconciler with NotFoundError on insertBefore/removeChild.
-// Must run before any React render. See services/domReconciliationGuard.ts.
-installDomReconciliationGuard();
-
-// Auto-reload once when a deploy replaces JS/CSS chunks while user has stale index.html.
-// Vite fires this event before the error reaches React ErrorBoundary.
-window.addEventListener('vite:preloadError', (_event) => {
- const key = '_deployReload';
- const last = sessionStorage.getItem(key);
- // Allow one reload per 5-minute window to prevent infinite loops
- if (!last || Date.now() - Number(last) > 5 * 60 * 1000) {
- sessionStorage.setItem(key, String(Date.now()));
- // Clear both asset cache layers before reloading — a stale-but-200 preloaded
- // chunk would otherwise be re-served from the disk cache (#3097).
- void clearAssetCaches().finally(() => window.location.reload());
- }
-});
+import { waitForInitialPaintOpportunity } from './services/initialPaintBootstrap';
+import type { StaticFallbackKind } from './services/staticFallbackHandoff';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
  throw new Error("Could not find root element to mount to");
 }
-
-const root = ReactDOM.createRoot(rootElement);
-
-let mounted = false;
 
 /** Paths where i18n must be preloaded before render (avoid flash of untranslated text) */
 const HOME_CRITICAL_PATHS = new Set([
@@ -46,6 +20,10 @@ const HOME_CRITICAL_PATHS = new Set([
 ]);
 
 const isHomeCriticalPath = (pathname: string): boolean => HOME_CRITICAL_PATHS.has(pathname);
+
+const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
+ '#loading-shell, main.seo-static-content, main.cluster-seo-prose',
+);
 
 const waitForFirstPaint = () =>
  new Promise<void>((resolve) => {
@@ -121,12 +99,61 @@ const hasStaticContent = (): boolean => {
 const hasPlateAuctionStaticFallback = (): boolean =>
  !!document.querySelector('main.plate-auction-static');
 
-const mountApp = async () => {
+let recoverFromBootFailure: ((error: unknown) => void) | undefined;
+
+const bootstrapApp = async () => {
+ // Static SEO pages already contain useful HTML. Wait for its actual FCP before
+ // importing React's large shared runtime: two rAF callbacks can run before a
+ // contentful frame when mobile CPU work is saturated. Empty SPA shells keep
+ // the short frame-only wait so their runtime is never waiting for a paint it
+ // must create itself.
+ await waitForInitialPaintOpportunity({
+   waitForContentfulPaint: hasPreRenderedPaintContent(),
+ });
+
+ const [React, ReactDOM, { installDomReconciliationGuard }, { maybeHandleCvDownload }, resilientImport, staticHandoff] =
+   await Promise.all([
+     import('react'),
+     import('react-dom/client'),
+     import('./services/domReconciliationGuard'),
+     import('./services/cvDownloadIntercept'),
+     import('./services/resilientImport'),
+     import('./services/staticFallbackHandoff'),
+   ]);
+ recoverFromBootFailure = resilientImport.recoverFromBootFailure;
+
+ // Harden the DOM before the first React render. See
+ // services/domReconciliationGuard.ts.
+ installDomReconciliationGuard();
+
+ // Auto-reload once when a deploy replaces JS/CSS chunks while user has stale
+ // index.html. Vite fires this event before the error reaches React's boundary.
+ window.addEventListener('vite:preloadError', (event) => {
+   const key = '_deployReload';
+   const last = sessionStorage.getItem(key);
+   if (!last || Date.now() - Number(last) > 5 * 60 * 1000) {
+     sessionStorage.setItem(key, String(Date.now()));
+     void resilientImport.clearAssetCaches(event).finally(() => window.location.reload());
+   }
+ });
+
+ const root = ReactDOM.createRoot(rootElement);
+ if (maybeHandleCvDownload()) return;
+
+ let mounted = false;
+ const mountApp = async () => {
  if (mounted) return;
  mounted = true;
 
  const homeCritical = isHomeCriticalPath(window.location.pathname);
  let staticPage = hasStaticContent();
+ let keepStaticRootVisible = false;
+ // Let the browser present the static HTML once before anything below can
+ // hide it (adoption into #root + opacity crossfade). Started now so the wait
+ // overlaps the App chunk download; awaited right before the first hide.
+ // Without it the hide could win the race against the first frame and the
+ // page stayed blank until React rendered (issue 11666).
+ const staticFirstPaint = staticHandoff.waitForStaticFirstPaint();
 
  const [{ default: RootPage }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
  import('./App'),
@@ -148,43 +175,72 @@ const mountApp = async () => {
  await i18n.itReady;
  }
 
- // CLS handoff fix: SPA-takeover pages (router staticOverlay=false — job detail,
- // search, …) emit their crawler fallback <main class="seo-static-content"> as a
- // sibling OUTSIDE #root, which paints at SSG time then App.tsx hides post-
- // hydration — collapsing ~800px and jumping the footer (live desktop CLS ~0.2
- // job detail, up to ~0.9 thin search). MOVE the fallback into #root so React+s
- // createRoot().render() replaces it IN-PLACE (reusing the reserve+crossfade
- // below) instead of an external collapse. parsePath is dynamic-imported (NOT a
- // static entry import) so router+s heavy route registries stay out of the entry
- // chunk — it is already loaded with App above, so this resolves from cache.
- // Gated on staticOverlay so true static landings keep their overlay; crawlers
- // (no JS) still get the fallback verbatim.
+ // CLS handoff fix: most SPA-takeover pages (router staticOverlay=false — job
+ // detail, search, and legacy job-board HTML) emit their crawler fallback
+ // <main class="seo-static-content"> as a sibling OUTSIDE #root, which paints
+ // at SSG time then App.tsx hides post-hydration — collapsing ~800px and
+ // jumping the footer (live desktop CLS ~0.2 job detail, up to ~0.9 thin
+ // search). MOVE that fallback into #root so React+s createRoot().render()
+ // replaces it IN-PLACE (reusing the reserve+crossfade below) instead of an
+ // external collapse. The current job-board generator already emits its main
+ // inside #root, so it skips this move and keeps its painted DOM stable.
+ // parsePath is dynamic-imported (NOT a static entry import) so router+s heavy
+ // route registries stay out of the entry chunk — it is already loaded with App
+ // above, so this resolves from cache.
+ // Gated by the shared route/fallback ownership decision so true static
+ // landings and article/topic snapshots keep their body; crawlers (no JS)
+ // still get the fallback verbatim.
+ await staticFirstPaint;
+
  try {
+   const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
+   keepStaticRootVisible = staticHandoff.shouldKeepStaticRootVisible(rootElement, fallback);
    const { parsePath } = await import('./services/router');
-   if (!parsePath(window.location.pathname).route.staticOverlay
-     && !hasPlateAuctionStaticFallback()) {
-     const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
-     if (fallback && !rootElement.contains(fallback)) {
-       const railWrap = fallback.closest<HTMLElement>('.ft-rail-grid');
-       fallback.style.removeProperty('display');
-       // This move is what destroys — rather than merely hides — the article
-       // page of anything published since the last deploy: the SPA cannot
-       // resolve its slug, renders the hub list into #root, and the article
-       // that was here goes with it. Stash a clone first so the runtime
-       // resolver can put it back if it turns out we cannot render this one.
-       // Article pages only; nothing else changes about the handoff.
-       if (fallback.querySelector('article.ft-blog-article')) {
-         const { stashStaticArticleFallback } = await import('./services/staticArticleFallback');
-         // The URL is stashed WITH the clone: it is the only thing that later
-         // identifies which article this HTML is, once a client-side
-         // navigation has moved the visitor somewhere else.
-         stashStaticArticleFallback(fallback, window.location.pathname);
-       }
-       rootElement.appendChild(fallback);
-       if (railWrap) railWrap.style.display = 'none';
-       staticPage = hasStaticContent();
-     }
+   const parsedRoute = parsePath(window.location.pathname).route;
+   const fallbackKind: StaticFallbackKind = fallback?.querySelector('article.ft-blog-article')
+     ? 'article'
+     : parsedRoute.activeTab === 'blog' && parsedRoute.cantonTopic
+       ? 'canton-topic'
+       : 'generic';
+
+   // Keep the detached copy even when the static article is deliberately left
+   // outside #root. Its URL marker makes the guard fail closed after a
+   // client-side navigation, instead of treating the old landing page as the
+   // fallback for the next route.
+   if (fallback && !rootElement.contains(fallback) && fallbackKind === 'article') {
+     const { stashStaticArticleFallback } = await import('./services/staticArticleFallback');
+     stashStaticArticleFallback(fallback, window.location.pathname);
    }
+
+   if (fallback
+     && !rootElement.contains(fallback)
+   && staticHandoff.shouldAdoptStaticFallbackIntoRoot(
+       parsedRoute,
+       hasPlateAuctionStaticFallback(),
+       fallbackKind,
+       true,
+     )) {
+       const isJobBoardRoute = parsedRoute.activeTab === 'job-board';
+       fallback.style.removeProperty('display');
+       // Adopt the body-level static hub sub-nav together with the fallback,
+       // in painted order, so neither moves on screen (#8868).
+       staticHandoff.adoptStaticFallbackIntoRoot(rootElement, fallback);
+       staticPage = hasStaticContent();
+
+       // The static fallback is hidden in the served HTML until this handoff.
+       // Yield a paint opportunity before evaluating the large JobBoard module;
+       // otherwise that evaluation blocks the first visible LCP candidate and
+       // the old fallback becomes the mobile LCP only after the takeover.
+       if (isJobBoardRoute) {
+         await waitForFirstPaint();
+         try {
+           await import('@/components/community/JobBoard');
+         } catch {
+           // App's lazy boundary remains the final recovery path for a chunk
+           // that cannot be evaluated; do not hide the fallback indefinitely.
+         }
+       }
+     }
  } catch {
   /* router/DOM edge case — fall through to existing handling */
  }
@@ -203,17 +259,20 @@ const mountApp = async () => {
  // the layout SHIFT. Reserve #root's prerendered height as a min-height floor so
  // its transient collapse can't move the blocks below; released after the React
  // content paints (heights match — same page — so the release is shift-free).
- const reservedRootHeight = rootElement.offsetHeight;
- if (reservedRootHeight > 0) rootElement.style.minHeight = `${reservedRootHeight}px`;
- rootElement.style.transition = 'opacity 80ms ease-out';
- rootElement.style.opacity = '0';
+ if (keepStaticRootVisible) {
+   // The job-board static main is already inside #root and is the useful LCP
+   // candidate. Keep it visible while React takes over the same root.
+   staticHandoff.preserveRootForPaint(rootElement);
+ } else {
+   staticHandoff.hideRootForCrossfade(rootElement);
 
- // Wait for the fade-out to complete before React replaces content
- await new Promise<void>((resolve) => {
- rootElement.addEventListener('transitionend', () => resolve(), { once: true });
- // Safety timeout in case transitionend doesn't fire
- setTimeout(resolve, 100);
- });
+   // Wait for the fade-out to complete before React replaces content
+   await new Promise<void>((resolve) => {
+   rootElement.addEventListener('transitionend', () => resolve(), { once: true });
+   // Safety timeout in case transitionend doesn't fire
+   setTimeout(resolve, 100);
+   });
+ }
  }
 
  // On non-home pages with empty #root (collection/faq/hub lite-shell), wait
@@ -225,13 +284,11 @@ const mountApp = async () => {
  await waitForAsyncStylesheet();
  }
 
- root.render(
- <React.StrictMode>
- <ChunkLoadErrorBoundary>
- <RootPage />
- </ChunkLoadErrorBoundary>
- </React.StrictMode>
- );
+ root.render(React.createElement(
+   React.StrictMode,
+   null,
+   React.createElement(ChunkLoadErrorBoundary, null, React.createElement(RootPage)),
+ ));
 
  if (!homeCritical && staticPage) {
  await waitForAsyncStylesheet();
@@ -240,9 +297,11 @@ const mountApp = async () => {
  await waitForFirstPaint();
 
  if (staticPage) {
- // Fade the React content back in
- rootElement.style.transition = 'opacity 120ms ease-in';
- rootElement.style.opacity = '1';
+ if (!keepStaticRootVisible) {
+   // Fade the React content back in
+   rootElement.style.transition = 'opacity 120ms ease-in';
+   rootElement.style.opacity = '1';
+ }
  // Release the reserved min-height only once #root's height has settled
  // (see waitForHeightStable) instead of on a flat timer, so a still-
  // pending lazy Suspense chunk can finish growing #root before the floor
@@ -251,22 +310,25 @@ const mountApp = async () => {
  // floor for the whole SPA session (prefers-reduced-motion, DOM removal,
  // or a chunk that never resolves).
  await waitForHeightStable(rootElement);
- rootElement.style.transition = '';
- rootElement.style.opacity = '';
+ if (!keepStaticRootVisible) {
+   rootElement.style.transition = '';
+   rootElement.style.opacity = '';
+ }
  rootElement.style.minHeight = '';
  }
 
  document.getElementById('loading-shell')?.remove();
+ };
+
+ await mountApp();
 };
 
-// Canonical CV deep-links (/…/cv-uploads/<jobId>/<file>) are not real assets and
-// are not handled by the SPA router; intercept them here to resolve a signed,
-// owner-only download before mounting the app. On any other path this is a cheap
-// regex test that returns false and the app mounts normally.
-if (maybeHandleCvDownload()) {
- // Handled (redirecting to the signed URL or the dashboard) — do not mount.
-} else {
- // Mount React immediately on all paths for better LCP.
- // The loading shell provides instant visual feedback while JS loads.
- void mountApp();
-}
+void bootstrapApp().catch((error) => {
+ if (recoverFromBootFailure) {
+   recoverFromBootFailure(error);
+   return;
+ }
+ void import('./services/resilientImport')
+   .then(({ recoverFromBootFailure: recover }) => recover(error))
+   .catch((recoveryError) => console.error('App bootstrap and recovery failed', error, recoveryError));
+});

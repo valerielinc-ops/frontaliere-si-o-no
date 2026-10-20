@@ -296,10 +296,11 @@ describe('#5645 — collapsing duplicates merges the mark instead of taking one 
     // regression to prevent is someone re-inlining the old
     // `if (!existing || tagged.assembledAt >= existing.assembledAt)` loop,
     // which reads as a perfectly working dedup and silently deletes marks.
-    const source = fs.readFileSync(path.resolve(__dirname, '..', 'scripts', 'assemble-jobs-dataset.mjs'), 'utf8');
-    expect(source).toContain('dedupeByIdentityPreservingMarks(');
-    expect(source).toContain('carryForwardMarks(');
-    expect(source).not.toMatch(/byIdentity\.set\(identity,\s*tagged\)/);
+    const assemblerSource = fs.readFileSync(path.resolve(__dirname, '..', 'scripts', 'assemble-jobs-dataset.mjs'), 'utf8');
+    const helperSource = fs.readFileSync(path.resolve(__dirname, '..', 'scripts', 'lib', 'job-mark-persistence.mjs'), 'utf8');
+    expect(assemblerSource).toContain('dedupeByIdentityPreservingMarks(');
+    expect(helperSource).toContain('carryForwardMarks(');
+    expect(assemblerSource).not.toMatch(/byIdentity\.set\(identity,\s*tagged\)/);
   });
 });
 
@@ -467,5 +468,10 @@ describe('#5645 — the whole class of writers, not just the one in the issue', 
     // The direct atomic write is what made it clobberable: atomic per file,
     // blind to anything another writer committed since the read.
     expect(source).not.toContain('writeJsonAtomic(');
+  });
+
+  it('assembled-to-slice writers preserve an assembled retranslation mark', () => {
+    expect(read('scatter-jobs-to-slices.mjs')).toContain('carryForwardMarks(updatedJob, assembled)');
+    expect(read('relocalize-pending-jobs.mjs')).toContain('carryForwardMarks(crawlerJob, assembled)');
   });
 });

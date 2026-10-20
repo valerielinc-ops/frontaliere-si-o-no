@@ -444,6 +444,10 @@ const VERDICTS: Record<string, Verdict> = {
     verdict: 'newsletter-channel',
     why: 'the weekly campaign — its own channel, so the full NEWSLETTER_EXCLUDED_STATUSES, plus the stamp on both recipient paths (#5673)',
   },
+  'scripts/send-application-intent-reminders.mjs': {
+    verdict: 'cross-channel',
+    why: 'the one-shot application reminder is a separate purpose, but a newsletter-level global stop or hard address suppression still blocks delivery',
+  },
   'scripts/send-daily-brief.mjs': {
     verdict: 'cross-channel',
     why: 'its own daily-brief frequency is channel-scoped; the central document contributes recorded opt-outs and hard/global stops',

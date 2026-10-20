@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated TPL (Trasporti Pubblici Luganesi) crawler runner.
  *
@@ -14,6 +16,7 @@
  *   5. Runs base crawler in localize-existing-only mode (4 locales)
  *   6. Validates locale coverage
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -49,7 +52,9 @@ import {
   parseTplDetailPage,
   buildTplDescription,
   inferEmploymentType,
+  TPL_FABRICATED_DESCRIPTION_RE,
 } from './lib/tpl-lugano-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -218,9 +223,9 @@ export function buildTplAdapterSeedFields(sourceJobs = []) {
     // its intentionally generic detail-URL classifier.
     seedUrls: seedDetailUrls,
     seedDetailUrls,
-    seedMetaByUrl: Object.fromEntries(seedDetailUrls.map((url) => [
-      url,
-      { location: 'Lugano', canton: 'TI', company: TPL_COMPANY_NAME },
+    seedMetaByUrl: Object.fromEntries(sourceJobs.map((job) => [
+      job.url,
+      { location: 'Lugano', canton: 'TI', company: TPL_COMPANY_NAME, ...sourcePostingDateFields(job.datePosted) },
     ])),
   };
 }
@@ -288,7 +293,7 @@ function tplSlug(title = '') {
  * therefore materialised here, exactly as the sibling FART crawler does, and the
  * shared engine is used for localization only.
  */
-export function buildTplJobRow(source, postedDate = new Date().toISOString().slice(0, 10)) {
+export function buildTplJobRow(source, postedDate = source.datePosted || '') {
   const title = source.title;
   const description = source.body;
   return {
@@ -306,7 +311,8 @@ export function buildTplJobRow(source, postedDate = new Date().toISOString().sli
     employmentType: inferEmploymentType(title, description),
     source: 'tpl-lugano-crawler',
     sourceLang: detectLang(description || title, 'it'),
-    postedDate,
+    ...sourcePostingDateFields(postedDate),
+    crawledAt: new Date().toISOString(),
     addressLocality: 'Lugano',
     addressRegion: 'TI',
     postalCode: '6900',
@@ -325,8 +331,14 @@ export function buildTplJobRow(source, postedDate = new Date().toISOString().sli
  * listing is dropped, because the listing snapshot is the active set.
  */
 export function mergeTplJobRows(sourceJobs = [], existingJobs = [], postedDate = undefined) {
+  // The merge keeps stored locale slots: remove the former wrapper of the
+  // crawler from stored rows first, so they are retranslated from the source.
   const existingByUrl = new Map(
-    (Array.isArray(existingJobs) ? existingJobs : [])
+    dropFabricatedDescriptions(
+      Array.isArray(existingJobs) ? existingJobs : [],
+      TPL_FABRICATED_DESCRIPTION_RE,
+      TPL_COMPANY_NAME,
+    )
       .map((job) => [canonicalTplDetailUrl(job.url), job])
       .filter(([key]) => Boolean(key)),
   );
@@ -345,7 +357,7 @@ export function mergeTplJobRows(sourceJobs = [], existingJobs = [], postedDate =
     merged.push({
       ...existing,
       ...fresh,
-      postedDate: existing.postedDate || fresh.postedDate,
+      ...mergeSourcePostingDates(existing, fresh),
       titleByLocale: mergeLocaleTextMap(existing.titleByLocale, fresh.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(
         existing.descriptionByLocale,
@@ -487,7 +499,7 @@ async function main() {
       total: 0,
       discovered: 0,
       written: 0,
-      sourceProvenEmpty: true,
+      authoritativeEmptySnapshot: true,
       newCount: 0,
       updatedCount: 0,
       removedCount: crawlDiff.removedJobs.length,
@@ -600,6 +612,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => exitCrawlerOnError(err, 'TPL Lugano'));
 }

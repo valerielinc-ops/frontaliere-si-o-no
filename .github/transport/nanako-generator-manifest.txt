@@ -82,6 +82,20 @@ scripts/lib/extract-article-text.mjs
 scripts/lib/fact-check-consensus.mjs
 scripts/lib/fnv1a.mjs
 scripts/lib/free-translate.mjs
+# Added 2026-09-30: free-translate.mjs now imports the shared quality gate;
+# carry its local closure as well so the transported generator can resolve the
+# top-level import before main().
+scripts/lib/translation-quality.mjs
+# Added 2026-10-09: translation-quality.mjs rejects malformed localized
+# candidates through the shared mojibake repair detector; carry its pure
+# helper so transported generators resolve the top-level import.
+scripts/lib/repair-mojibake.mjs
+scripts/lib/ai-output-fidelity.mjs
+# Added 2026-10-05: free-translate.mjs and translation-quality.mjs import the
+# model meta-response detector (refusals, requests for the input); it has no
+# imports of its own and is `identical` in nanako's loop-sync manifest.
+scripts/lib/ai-meta-response.mjs
+scripts/lib/prospector/entities.mjs
 scripts/lib/haversine.mjs
 scripts/lib/html-attr.mjs
 scripts/lib/it-text-similarity.mjs
@@ -113,6 +127,13 @@ scripts/lib/unescape-ts-string.mjs
 # `import` di primo livello: sul corpus diventa ERR_MODULE_NOT_FOUND prima di
 # main(). Il file e' puro e non importa nulla.
 scripts/lib/escape-regexp.mjs
+# Added 2026-10-15: article-factuality-gates distinguishes a person's
+# political affiliation from a title-cased institution tail with the same
+# dataset-backed recognizer used by the Node name flow. Keep its pure helper
+# and its data in the transport closure; importing deriveNameFromEmail.mjs
+# directly would also pull the browser-facing newsletter template graph.
+scripts/lib/first-name-recognition.mjs
+scripts/lib/first-names.json
 # Added 2026-09-08: create-article.mjs imports these top-level helpers for the
 # #7291/#7344 safeguards; keeping them in the transport closure prevents the
 # corpus-side generator from failing before main().
@@ -122,6 +143,25 @@ scripts/lib/int-from-env.mjs
 # corpus already carries its generator-side twin, so the transport must carry
 # the site source at the same relative path.
 scripts/lib/sanitize-body-braces.mjs
+# Added 2026-10-04, stessa classe di unescape-ts-string.mjs sopra. La #10973
+# ha fatto importare `../scripts/lib/borderWaitSections.mjs` a
+# `build-plugins/borderWaitData.ts`, che e' in questo manifest (sezione
+# "Dependencies OUTSIDE scripts/") ed e' eseguito sul corpus: lo raggiungono
+# generate-border-wait-ranking-article.mjs e border-wait-ranking-content.mjs,
+# lanciati con tsx dal cron settimanale generate-border-wait-ranking-weekly.yml.
+# E' un `import` di primo livello: senza questa riga il prossimo transport
+# rompe quel run con ERR_MODULE_NOT_FOUND prima di main(). Il file e' puro e
+# non importa nulla.
+scripts/lib/borderWaitSections.mjs
+# Added 2026-10-07: batch-add-faq-to-articles.mjs performs the same
+# non-destructive history check before its checkpoint writer; carry the guard
+# and its lock closure so the transported generator resolves before main().
+scripts/lib/old-history-guard.mjs
+# Added 2026-10-18: the guard now imports this shared credential-safe Git
+# target resolver; transport its dependency with the guard so corpus writers
+# do not fail module loading before main().
+scripts/lib/git-fetch-target.mjs
+scripts/lib/single-flight-lock.mjs
 
 # --- !rewired: reachable by import, deliberately NOT moved -------------------
 #
@@ -146,11 +186,15 @@ scripts/lib/sanitize-body-braces.mjs
 # !rewired scripts/lib/cross-section-dedup.mjs -- nanako already has generator/scripts/lib/cross-section-dedup.mjs, copied FROM there in the same move (corpus PR #288, issue #251), registered `corpus-only` in nanako's scripts/ci/loop-sync-manifest.json, and its create-article.mjs imports `./lib/cross-section-dedup.mjs` from there. Same reason as the line above: the site copy exists because the site's create-article.mjs is a live twin, not because nanako lacks one.
 # !rewired scripts/lib/slug-prompt-leak-guard.mjs -- nanako's equivalent is generator/scripts/lib/prompt-placeholder-guard.mjs (`sanitizePromptPlaceholders`, corpus #121), which its create-article.mjs already imports. Two implementations of "a prompt placeholder may not become a slug" is the drift this manifest exists to avoid; reconciling them is its own piece of work, not a transport.
 # !rewired scripts/lib/slug-preservation-guard.mjs -- nanako's generator/scripts/lib/atomic-write-json.mjs is registered `adapted` precisely BECAUSE it drops this import: slug history is a job-crawler concern and nanako does not crawl jobs. Transporting it would also pull job-match-key.mjs, job-url-key.mjs and slug-history-journal.mjs behind it — the ~730-file widening the header of this file exists to prevent.
+# !rewired scripts/lib/crawler-slice-integrity.mjs -- Stessa disposizione della riga slug-preservation-guard.mjs sopra: il sito lo importa in atomic-write-json.mjs dalla #9994 (`assertCrawlerSliceWriteSafe`, `isCrawlerSlicePath`) per rifiutare le scritture che svuotano `data/jobs/by-crawler/*.json`, cioe' le slice del crawler dei job. nanako non fa crawling di job e non ha quei file; la sua generator/scripts/lib/atomic-write-json.mjs e' `adapted` e importa solo node:fs e node:path. Trasportarlo tirerebbe dietro accumulator-byte-floor-guard.mjs, crawler-grace-policy.mjs e prospector/country-inventory.mjs, l'allargamento che l'header di questo file esiste per impedire.
 # !rewired scripts/lib/prompt-placeholder-guard.mjs -- nanako already has generator/scripts/lib/prompt-placeholder-guard.mjs (corpus #121, extended by corpus PR #196), registered `corpus-only` in its scripts/ci/loop-sync-manifest.json, and its create-article.mjs imports `./lib/prompt-placeholder-guard.mjs` from there — the same file the `slug-prompt-leak-guard.mjs` line above already names as nanako's equivalent. Two listed files import it now (create-article.mjs and batch-add-faq-to-articles.mjs, the site's second FAQ producer); both specifiers are `./lib/prompt-placeholder-guard.mjs`, so both resolve to nanako's own copy under generator/scripts/lib/ with zero rewriting. Ours is NOT a copy of it: the literals are re-extracted from THIS repo's create-article.mjs prompt template and one of them genuinely diverges (`seo.ogDescription` is "OG desc (≤ 160 caratteri)" here, a longer 200-250 char literal there), which is exactly why it must not travel — transporting it would replace a corpus-only guard with one calibrated on the site's template, and the corpus-side LOCK test would go red on a template it no longer describes.
 # !rewired scripts/lib/exhaustion-disposition.mjs -- nanako already has generator/scripts/lib/exhaustion-disposition.mjs: il modulo e' NATO li' (corpus PR #357, esteso il 2026-08-14 con EXIT_NO_ARTICLE_DECLARED e isLegitimateQuotaDeferral), e' registrato nel suo scripts/ci/loop-sync-manifest.json con `sitePath: scripts/lib/exhaustion-disposition.mjs` gia' dichiarato, e la sua create-article.mjs importa `./lib/exhaustion-disposition.mjs` da li'. La nostra copia e' arrivata con l'issue #359 ed e' BYTE-IDENTICA a quella del corpus — il modulo non ha un solo import, quindi il porting non ha richiesto adattamenti. Stessa disposizione di it-microcopy-guard.mjs e headline-selection-protocol.mjs sopra: trasportarla sovrascriverebbe un file corpus-side con una copia che non ha ragione di essere piu' fresca. E' anche cio' che tiene aperta la promozione dell'entry a `identical` con baseline, che e' lavoro lato corpus.
 # !rewired scripts/lib/llm-payload-diagnostics.mjs -- nanako ha gia' generator/scripts/lib/llm-payload-diagnostics.mjs: il modulo e' NATO li' (corpus, 2026-08-18), la sua create-article.mjs importa `./lib/llm-payload-diagnostics.mjs` da li', ed e' registrato nel suo scripts/ci/loop-sync-manifest.json. La nostra copia NON e' byte-identica ed e' `adapted` per costruzione, non per trascuratezza: sul sito `repairLlmJson()` non e' esportata separatamente come sul corpus, e i test sono vitest invece di `node --test`. Trasportarla sovrascriverebbe l'originale con una copia adattata alle firme di QUESTO repo — che e' esattamente il danno che la riga prompt-placeholder-guard.mjs sopra descrive. Vedi #6027.
 # !rewired scripts/lib/news-url-key.mjs -- nanako ha gia' la stessa funzione, con lo stesso nome esportato, in generator/scripts/lib/source-url-ledger.mjs (`newsUrlKey`, insieme a `legacyNewsUrlKey` e alle viste del ledger che di qua non servono). Il suo create-article.mjs importa gia' da li' ed e' registrato `adapted` nel suo scripts/ci/loop-sync-manifest.json — diverso per costruzione, non allineato a questo — mentre source-url-ledger.mjs e' `corpus-only`. Trasportare questo file creerebbe una SECONDA implementazione della chiave d'identita' della fonte: e' la forma esatta del difetto che la fix toglie, perche' due copie che divergono fanno smettere di collassare un URL da un lato e continuare a collassarlo dall'altro, in silenzio e con la CI verde da entrambi.
-# !rewired scripts/ci/claude-codex-fallback.mjs -- nanako ha gia' il modulo equivalente nel proprio `scripts/ci/claude-codex-fallback.mjs`, e il suo `generator/scripts/lib/ai-models.mjs` lo importa con il percorso corpus-side `../../../scripts/ci/claude-codex-fallback.mjs`. Trasportare la copia del sito sotto `generator/scripts/ci/` introdurrebbe una seconda sorgente per il contratto Claude/Codex invece di rispettare il percorso adattato esistente.
+# !rewired scripts/lib/codex-fallback-contract.mjs -- Dalla #9887 il nostro `ai-models.mjs` prende `CODEX_FALLBACK_MODEL` da qui invece che da `scripts/ci/claude-codex-fallback.mjs` (la riga `!rewired` di quel file e' uscita con l'import). nanako ha lo stesso modulo in `scripts/lib/codex-fallback-contract.mjs`, gemello `identical` del suo `scripts/ci/loop-sync-manifest.json` dalla PR corpus #1892, e il suo `generator/scripts/lib/ai-models.mjs` (`adapted`) prende la costante dal percorso corpus-side `../../../scripts/ci/claude-codex-fallback.mjs`, che la riesporta da quel modulo. Trasportare la copia del sito sotto `generator/scripts/lib/` introdurrebbe una seconda sorgente per il contratto Claude/Codex invece di rispettare il percorso adattato esistente.
+# !rewired scripts/lib/google-service-account-token.mjs -- `free-translate.mjs` lo importa dinamicamente solo per il tier Google Cloud; nanako possiede gia' il proprio `generator/scripts/lib/google-service-account-token.mjs`, registrato `adapted` nel suo loop-sync manifest per i retry/quota OAuth specifici del corpus. Trasportare la copia del sito sovrascriverebbe quel gemello adattato invece di seguire il suo percorso locale.
+# !rewired scripts/lib/generated-image-engine.mjs -- E' il wrapper di compatibilita' del sito per `packages/articles/engine/`; nanako non deve riceverne una copia sotto `generator/scripts/lib/`, perche' il suo engine arriva come `engine/` dal mirror dedicato e il rewire del generatore deve importare quel percorso. La correzione del gemello adattato vive nel follow-up del corpus, non in questo manifest di trasporto strutturale.
+# !rewired packages/articles/engine/shared/generatedImageRegistry.mjs -- Il registro appartiene all'engine condiviso e non va duplicato sotto `generator/packages/articles/`; il mirror dedicato lo consegna come `engine/shared/generatedImageRegistry.mjs`. Il generatore nanako deve riallineare l'import nel follow-up del corpus dopo il mirror dell'engine.
 
 # --- discovery/** — topic discovery pipeline (fully reachable, safe to glob) --
 scripts/lib/discovery/**

@@ -13,6 +13,8 @@ const cascadeScript = fs.readFileSync(path.resolve('scripts/relocalize-pending-j
 const mopupScript = fs.readFileSync(path.resolve('scripts/local-mt-mopup.mjs'), 'utf8');
 const commitHelper = fs.readFileSync(path.resolve('scripts/lib/git-commit-data.sh'), 'utf8');
 const UPLOAD_ARTIFACT_V7_SHA = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
+const RUN_WIDE_TRANSLATION_DEADLINE_MS = 12_600_000;
+const PHASE_2C_DEADLINE_MS = 10_200_000;
 const RECOVERY_READY = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
 
 type YamlMapping = Record<string, unknown>;
@@ -111,12 +113,20 @@ describe('translation observability workflow', () => {
     });
     expect(steps.slice(mopupIndex + 1).some((step) => step.run === 'node scripts/scatter-jobs-to-slices.mjs')).toBe(false);
     expect(titleFixScript).toContain('BY_CRAWLER_DIR');
-    expect(titleFixScript).toContain('writeJson(path.join(BY_CRAWLER_DIR, file), sliceCache.get(file));');
+    expect(titleFixScript).toContain('export function persistTitleFixWork({');
+    expect(titleFixScript).toContain('writeJson(path.join(byCrawlerDir, file), sliceCache.get(file));');
+    expect(titleFixScript).toContain('const result = await runTitleFixCandidatePool({');
+    expect(titleFixScript).toContain('isTitleRepairQueueVerdict');
+    expect(titleFixScript).toContain('const currentVerdict = titleLooksUntranslated({');
+    expect(titleFixScript).toContain('const translatedVerdict = titleLooksUntranslated({');
+    expect(titleFixScript).toContain('if (translatedVerdict.untranslated)');
     expect(descriptionFixScript).toContain('BY_CRAWLER_DIR');
     expect(descriptionFixScript).toContain('writeJson(slicePath, sliceData)');
-    expect(descriptionFixScript).toContain("import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';");
-    expect(descriptionFixScript).toContain('const normalizedSourceDesc = normalizeForLengthComparison(sourceDesc).toLowerCase();');
-    expect(descriptionFixScript).toContain('if (normalizeForLengthComparison(existing).toLowerCase() !== normalizedSourceDesc) continue;');
+    expect(descriptionFixScript).toContain('isDescriptionSourceCopy,');
+    expect(descriptionFixScript).toContain('sourceLocaleTextCandidates(job, \'description\')');
+    expect(descriptionFixScript).toContain('sourceLocaleTextForTranslation(job, \'description\', 120)');
+    expect(descriptionFixScript).toContain('if (!sourceDescriptions.some((source) =>');
+    expect(descriptionFixScript).toContain('source.length >= 120 && isDescriptionSourceCopy(existing, source)');
     expect(descriptionFixScript).not.toContain('if (existing.toLowerCase() !== sourceDesc.toLowerCase()) continue;');
     expect(descriptionFixScript).toContain('if (isNewLanguage && isAcceptable && translated.length >= 120)');
 
@@ -134,17 +144,23 @@ describe('translation observability workflow', () => {
     expect(commitHelper).toContain('append_translation_stats_to_index');
     expect(commitHelper).toContain('TRANSLATION_STATS_AFTER_TREE');
     expect(commitHelper).toContain('git archive --format=tar "$tree_sha" data/jobs/by-crawler');
-    expect(commitHelper).toContain('GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo');
+    // The stats blob enters the PRIVATE index, through the helper that first
+    // proves the blob is in the local object store.
+    expect(commitHelper).toContain('stage_isolated_blob "$tmp_index" "100644" "$stats_blob" "data/translation-stats-history.json"');
+    expect(commitHelper).toContain('GIT_INDEX_FILE="$index_file" git update-index --add --cacheinfo');
     expect(commitHelper).toContain('Deliberately do NOT fast-forward refs/heads/main after the push');
   });
 
   it('bounds Phases 2d/2e from the shared clock and persists the current slice before stopping', () => {
     const source: any = YAML.parse(workflow);
     const timeoutMs = source.jobs.translate['timeout-minutes'] * 60 * 1000;
-    expect(timeoutMs - 16_800_000, 'translation deadline must leave 70min for the queue')
-      .toBe(70 * 60 * 1000);
-    expect(timeoutMs - 14_400_000, 'title-fix deadline must leave 110min for the final queue')
-      .toBe(110 * 60 * 1000);
+    // One run-wide envelope for every translation lane (Argos 2a/2c, title
+    // 2d, description 2e). 140min is the measured post-translation queue
+    // (up to five slice commits at 5-47min each) plus the ~6min spent before
+    // the run-clock marker; 70min/110min let runs 35871986449, 35897636278
+    // and 35726632397 hit the 350min cap before slugs, cache and deploy.
+    expect(timeoutMs - RUN_WIDE_TRANSLATION_DEADLINE_MS, 'translation deadline must leave 140min for the queue')
+      .toBe(140 * 60 * 1000);
 
     for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
       const steps = parseTranslationSteps(document);
@@ -167,43 +183,57 @@ describe('translation observability workflow', () => {
       const titleCommit = steps.find((step) => step.name === 'Commit title fixes');
       const descriptionFix = steps.find((step) => step.name === 'Phase 2e: Fix untranslated descriptions (free cascade)');
       const descriptionCommit = steps.find((step) => step.name === 'Commit description fixes');
+      const bulk = steps.find((step) => step.name === 'Phase 2a: Local MT bulk translate (Argos)');
+      expect(bulk, `${label}: Phase 2a missing`).toMatchObject({
+        env: { LOCAL_MT_MOPUP_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
+      });
+      // 2c stops at its own ceiling, inside the envelope: the rest belongs to
+      // the commit and the Phase 2d/2e lanes (budget test below).
       expect(mopup, `${label}: Phase 2c missing`).toMatchObject({
-        env: { LOCAL_MT_MOPUP_DEADLINE_MS: '16800000' },
+        env: { LOCAL_MT_MOPUP_DEADLINE_MS: String(PHASE_2C_DEADLINE_MS) },
       });
       expect(titleFix, `${label}: Phase 2d missing`).toMatchObject({
-        if: "github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
-        env: { UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '14400000' },
+        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
+        env: { UNTRANSLATED_TITLE_FIX_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
       });
       expect(titleCommit, `${label}: title commit missing`).toMatchObject({
-        if: "github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
+        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
       });
       expect(descriptionFix, `${label}: Phase 2e missing`).toMatchObject({
-        if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
-        env: { UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '14400000' },
+        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
+        env: { UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
       });
       expect(descriptionCommit, `${label}: description commit missing`).toMatchObject({
-        if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
+        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
       });
     }
 
-    expect(titleFixScript).toContain("import { resolveRunStartMs } from './lib/translate-run-clock.mjs';");
+    expect(titleFixScript).toContain("import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';");
     expect(titleFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);
     expect(titleFixScript).toContain('Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS)');
 
-    const loop = titleFixScript.slice(titleFixScript.indexOf('for (const file of files)'));
-    expect(loop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
+    const pool = titleFixScript.slice(titleFixScript.indexOf('export function runTitleFixCandidatePool'));
+    expect(pool.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
     expect(titleFixScript).toContain('let deadlineReached = false;');
-    const persisted = loop.indexOf('writeJson(path.join(BY_CRAWLER_DIR, file), sliceCache.get(file));');
-    const deadlineMarked = loop.indexOf('deadlineReached = true;');
-    expect(persisted).toBeGreaterThanOrEqual(0);
-    expect(deadlineMarked).toBeGreaterThanOrEqual(0);
-    expect(persisted).toBeGreaterThan(deadlineMarked);
+    const persistence = titleFixScript.slice(titleFixScript.indexOf('export function persistTitleFixWork'));
+    expect(persistence.indexOf('writeJson(path.join(byCrawlerDir, file), sliceCache.get(file));')).toBeGreaterThanOrEqual(0);
+    expect(pool.indexOf('deadlineReached = true;')).toBeGreaterThanOrEqual(0);
+    expect(titleFixScript.indexOf('const result = await runTitleFixCandidatePool({'))
+      .toBeGreaterThan(titleFixScript.indexOf('for (const file of files)'));
 
     expect(descriptionFixScript).toContain("import { resolveRunStartMs } from './lib/translate-run-clock.mjs';");
     expect(descriptionFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);
     expect(descriptionFixScript).toContain('Number(process.env.UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS)');
     const descriptionLoop = descriptionFixScript.slice(descriptionFixScript.indexOf('for (const file of files)'));
-    expect(descriptionLoop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(3);
+    // The deadline is checked before every slice, and before every slot by the
+    // pool that translates them (runDescriptionFixPool), which reports it back.
+    expect(descriptionLoop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
+    const descriptionPool = descriptionFixScript.slice(
+      descriptionFixScript.indexOf('export async function runDescriptionFixPool('),
+      descriptionFixScript.indexOf('async function main('),
+    );
+    expect(descriptionPool).toMatch(/while \(next < tasks\.length\) \{\s+if \(!budgetOk\(\)\) \{ outcome = 'deadline'; break; \}/);
+    expect(descriptionLoop).toContain("if (outcome === 'deadline') deadlineReached = true;");
     expect(descriptionFixScript).toContain('let deadlineReached = false;');
     const descriptionPersisted = descriptionLoop.indexOf('writeJson(slicePath, sliceData)');
     const descriptionStopAfterPersist = descriptionLoop.indexOf('if (deadlineReached) break;', descriptionPersisted);
@@ -224,6 +254,75 @@ describe('translation observability workflow', () => {
     expect(runs).toContain('node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"');
     expect(runs).toContain('node scripts/assemble-jobs-dataset.mjs');
     expect(runs).not.toContain('gh workflow run');
+  });
+
+  it('bounds the Argos semantic rollout: repair default on, kill-switch, finite cap and telemetry artifact (#9677)', () => {
+    const disabledWorkflow = fs.readFileSync(path.resolve('.github/workflows/translate-pending.yml'), 'utf8');
+    for (const [label, document] of [
+      ['source', workflow],
+      ['portable artifact', portableWorkflow],
+      ['disabled source', disabledWorkflow],
+    ]) {
+      const steps = parseTranslationSteps(document);
+      const phases = [
+        ['phase-2a', 'Phase 2a: Local MT bulk translate (Argos)'],
+        ['phase-2c', 'Phase 2c mop-up: local MT (Argos Translate, in-process)'],
+      ];
+      for (const [phase, name] of phases) {
+        const step = steps.find((candidate) => candidate.name === name);
+        const env = step?.env as Record<string, unknown> | undefined;
+        expect(env, `${label}: ${name} env missing`).toBeDefined();
+        // The bounded repair is enabled when the repo variable is unset; an
+        // explicit 0 remains the immediate shadow rollback.
+        expect(env?.LOCAL_MT_LANG_AWARE_OVERWRITE, `${label}: ${phase} kill-switch`)
+          .toBe("${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}");
+        // Cap: a finite default even when the repo variable is unset.
+        expect(env?.LOCAL_MT_SEMANTIC_MAX_OVERWRITES, `${label}: ${phase} semantic cap`)
+          .toBe("${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}");
+        // Rollback is the #9676 guard in the policy module: no second error stop.
+        expect(env, `${label}: ${phase} duplicate error stop`).not.toHaveProperty('LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS');
+        expect(env?.LOCAL_MT_SEMANTIC_TELEMETRY_PATH, `${label}: ${phase} telemetry path`)
+          .toBe(`\${{ runner.temp }}/local-mt-semantic-telemetry-${phase}.json`);
+        expect(env?.LOCAL_MT_SEMANTIC_CANDIDATES_PATH, `${label}: ${phase} candidate sample path`)
+          .toBe(`\${{ runner.temp }}/local-mt-semantic-candidates-${phase}.json`);
+      }
+      const upload = steps.find((step) => step.name === 'Upload Argos semantic telemetry');
+      expect(upload, `${label}: semantic telemetry upload missing`).toMatchObject({
+        'continue-on-error': true,
+        uses: `actions/upload-artifact@${UPLOAD_ARTIFACT_V7_SHA}`,
+      });
+      expect(String(upload?.if)).toContain('always()');
+      expect(upload?.with).toMatchObject({ 'if-no-files-found': 'warn' });
+      expect(String(upload?.with?.path)).toContain('${{ runner.temp }}/local-mt-semantic-telemetry-*.json');
+      expect(String(upload?.with?.path)).toContain('${{ runner.temp }}/local-mt-semantic-candidates-*.json');
+      // The e5 model shares .cache/transformers with Opus-MT: an immutable key
+      // that already hits would never save it, so the key must be one the
+      // e5-bearing directory was saved under.
+      const modelCache = steps.find((step) => step.uses === 'actions/cache@v6'
+        && (step.with as Record<string, unknown> | undefined)?.path === '.cache/transformers');
+      expect(modelCache?.with, `${label}: model cache`).toMatchObject({ key: 'local-mt-models-v2-opus-e5' });
+      expect(String((modelCache?.with as Record<string, unknown>)['restore-keys'])).toContain('opus-mt-models-');
+      expect(document, `${label}: stale model cache key`).not.toContain('key: opus-mt-models-v1');
+    }
+  });
+
+  it('routes the pre-description title repair through Codex Luna Max in its default position', () => {
+    for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
+      const steps = parseTranslationSteps(document);
+      const setupIndex = steps.findIndex((step) => step.id === 'setup_claude_haiku_fallback');
+      const titleIndex = steps.findIndex((step) => step.name === 'Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)');
+      expect(setupIndex, `${label}: Codex broker step missing`).toBeGreaterThanOrEqual(0);
+      expect(titleIndex, `${label}: pre-description title lane missing`).toBeGreaterThanOrEqual(0);
+      expect(setupIndex, `${label}: broker must start before title lane`).toBeLessThan(titleIndex);
+      expect(steps[titleIndex]?.env).toMatchObject({
+        CODEX_AUTH_BROKER_SOCKET: '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}',
+        FREE_TRANSLATE_CODEX_MAX_MS: '900000',
+        FREE_TRANSLATE_CODEX_LANES: '3',
+        FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10',
+        FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000',
+      });
+      expect(steps[titleIndex]?.env).not.toHaveProperty('FREE_TRANSLATE_CODEX_TIER');
+    }
   });
 
   it('wires only shadow preflight v2 through source, generated artifact, and hash contract', () => {

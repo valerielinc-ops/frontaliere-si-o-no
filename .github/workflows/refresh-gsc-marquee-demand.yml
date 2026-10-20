@@ -31,7 +31,7 @@ name: Refresh GSC marquee demand
 # ── WEEKLY, NOT DAILY ───────────────────────────────────────────────────────
 # The extractor reads a 90-day GSC window, so one day of new data moves ~1/90
 # of the corpus while costing one commit on `main`. `data/**` is NOT in
-# deploy.yml's paths-ignore (only a handful of named files are), so every
+# deploy-request.yml's paths-ignore (only a handful of named files are), so every
 # commit here is a potential full SEO build — median 130 min, on a queue
 # deploy.yml's own comment measures as saturated rather than starved. Weekly is
 # the cadence at which the artifact actually changes.
@@ -66,30 +66,12 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/docs/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -136,8 +118,14 @@ jobs:
             echo "No artifact produced (degraded run) — nothing to commit."
             exit 0
           fi
+          # Commit FIRST, integrate after: a `git pull --rebase --autostash`
+          # between the add and the `diff --cached` re-applies the staged
+          # table UNSTAGED whenever main moved since checkout, and the step
+          # then reports "unchanged" for a table that did change. The local
+          # commit survives the rebase git-push-with-retry.sh runs on a
+          # non-fast-forward rejection.
+          # tests/workflow-autostash-staged-state.test.ts guards the sequence.
           git add data/gsc-top-marquee-candidates.json
-          git pull --rebase --autostash origin main
           if git diff --cached --quiet; then
             echo "Demand table unchanged — nothing to commit."
             exit 0

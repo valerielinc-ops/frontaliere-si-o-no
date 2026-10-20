@@ -20,8 +20,10 @@
  * `karriere.adus-klinik.ch`.
  */
 import { createHash } from 'node:crypto';
+import { sourceRssPostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const ADUS_KLINIK_KEY = 'adus-klinik';
 export const ADUS_KLINIK_COMPANY_NAME = 'ADUS Klinik';
@@ -201,17 +203,11 @@ function buildParsedJob(item) {
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${title} ${ADUS_KLINIK_KEY} ${city}`);
 
-  const fallbackDesc =
-    `${title} — Stelle bei der ADUS Klinik in ${city} (${DEFAULT_CANTON}), Schweiz. ` +
-    'Die ADUS Klinik ist ein privatrechtlich geführtes Belegarztspital im Zürcher Unterland mit Schwerpunkt elektive Orthopädie (rund 2\'000 Eingriffe pro Jahr). Seit 2025 Teil der Epiona Gruppe.';
-  const desc = descText.length >= 80 ? descText : fallbackDesc;
-
-  const postedDate = (() => {
-    if (!item.pubDate) return new Date().toISOString().slice(0, 10);
-    const d = new Date(item.pubDate);
-    if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  })();
+  // Only the posting's own text (issue 5253): no "<title> — Stelle bei der
+  // ADUS Klinik …" line and clinic paragraph in place of a short feed body. A
+  // body under the common 50-word floor gives no description (the shared
+  // pipeline's thin-source path).
+  const desc = meetsSourceBodyFloor(descText) ? descText : '';
 
   return {
     id: `adus-klinik-${urlHash}`,
@@ -242,7 +238,7 @@ function buildParsedJob(item) {
     sector: 'Sanità',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...sourceRssPostingDateFields(item.pubDate),
     applyUrl: publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
@@ -262,7 +258,10 @@ export async function fetchAllAdusKlinikJobs() {
     xml = await fetchText(RSS_URL);
   } catch (err) {
     console.warn(`⚠️ ADUS Klinik RSS fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   const items = parseRssItems(xml);
   console.log(`   Parsed ${items.length} RSS items`);

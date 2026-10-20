@@ -7,7 +7,7 @@
   "seedUrls": [
     "https://anker-swiss.ch/stellen/"
   ],
-  "detailTemplate": "/stellen/*/",
+  "detailTemplate": "/stellen/*-#/",
   "sampleVacancyCount": 222,
   "sampleTitles": [
     "Betonwerker,Schaler 100%",

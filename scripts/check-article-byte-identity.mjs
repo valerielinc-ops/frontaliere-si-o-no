@@ -1,4 +1,6 @@
 #!/usr/bin/env -S npx -y tsx
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 // check-article-byte-identity.mjs (#4837 stream A — Deliverable 4)
 //
 // Byte-identity gate for scripts/publish-article-fast.mjs: renders one
@@ -123,7 +125,7 @@
 //     time — never present in origin-generated HTML — so it is expected to
 //     appear ONLY on the live side and never on the fast-path side.
 // CLI:
-//   npx -y tsx scripts/check-article-byte-identity.mjs --id <articleId> --section <frontaliere|svizzera>
+//   npx -y tsx scripts/check-article-byte-identity.mjs --id <articleId> --section <frontaliere|svizzera> [--read-only-audit]
 //
 // Exit code 0 = byte-identical (mod. trailing-newline) for all 4 locales.
 // Exit code 1 = at least one locale diverged — prints a unified-ish diff
@@ -138,14 +140,15 @@ import { spawnSync } from 'node:child_process';
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 function parseArgs(argv) {
-  const out = {};
+  const out = { readOnlyAudit: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--id') out.id = argv[++i];
     else if (a === '--section') out.section = argv[++i];
+    else if (a === '--read-only-audit') out.readOnlyAudit = true;
   }
   if (!out.id || !out.section) {
-    console.error('[byte-identity] usage: --id <articleId> --section <frontaliere|svizzera>');
+    console.error('[byte-identity] usage: --id <articleId> --section <frontaliere|svizzera> [--read-only-audit]');
     process.exit(1);
   }
   return out;
@@ -476,9 +479,14 @@ async function main() {
 
   try {
     const scriptPath = path.join(ROOT_DIR, 'scripts', 'publish-article-fast.mjs');
+    const publishArgs = [
+      '-y', 'tsx', scriptPath, '--id', args.id, '--section', args.section,
+      '--out', scratchDir, '--summary', summaryPath,
+    ];
+    if (args.readOnlyAudit) publishArgs.push('--read-only-audit');
     const result = spawnSync(
       'npx',
-      ['-y', 'tsx', scriptPath, '--id', args.id, '--section', args.section, '--out', scratchDir, '--summary', summaryPath],
+      publishArgs,
       { cwd: ROOT_DIR, stdio: 'inherit' },
     );
     if (result.status !== 0) {
@@ -597,7 +605,7 @@ const invokedDirectly = (() => {
   try {
     const entry = process.argv[1];
     if (!entry) return false;
-    return path.resolve(entry) === fileURLToPath(import.meta.url) || import.meta.url.endsWith(entry);
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

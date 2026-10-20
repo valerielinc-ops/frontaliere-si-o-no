@@ -18,6 +18,8 @@
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { workdayPostingDateFields } from './ats-clients/workday-client.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -26,6 +28,7 @@ import {
   firstLocationSegment,
   normalizeWorkdayLocationCandidate,
 } from './ats-clients/workday-client.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -288,16 +291,24 @@ export async function fetchAllSiegfriedJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) {
       console.log(`  ⏭️  Skipped — empty title`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
     // The country facet accepts a req when ANY cross-posted location is Swiss.
     // Publish only when the req's own primary location is concrete and Swiss;
     // never substitute the listing union, a description city, or Evionnaz HQ.
-    const resolvedLocation = resolveSiegfriedPublishLocation(info);
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country (workday-swiss-job-parser-common).
+    const publishLocation = resolveSiegfriedPublishLocation(info);
+    const recovered = publishLocation ? null : recoverWorkdayPrimarySwissPlace(info);
+    const resolvedLocation = publishLocation
+      || (recovered ? { city: recovered.location, canton: recovered.canton } : null);
     if (!resolvedLocation) {
       const primaryText = normalizeWorkdayLocationCandidate(info?.location);
       console.log(`  ⏭️  Skipped (no Swiss primary location): ${primaryText || '(empty)'} — ${title}`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
@@ -352,7 +363,7 @@ export async function fetchAllSiegfriedJobs() {
       sector: 'Farmaceutica / Biotecnologia',
       currency: 'CHF',
       featured: false,
-      postedDate: info.startDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(workdayPostingDateFields(listing), workdayPostingDateFields(detail)),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

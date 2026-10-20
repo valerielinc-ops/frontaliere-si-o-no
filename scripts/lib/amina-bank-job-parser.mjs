@@ -30,9 +30,12 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { isChCountry } from './ch-country-guard.mjs';
+import { withRenderedPersonioPage } from './ats-clients/personio-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -170,21 +173,28 @@ export async function fetchAllAminaBankJobs() {
     const isCh = officesList.some((o) => isChCountry(o));
     if (!isCh) continue; // skip AMINA India (and any other non-CH office)
 
-    const title = normalizeSpace(rec.name || '');
+    if (normalizeSpace(rec.name || '').length < 3) continue;
+
+    const publicUrl = `${CAREER_URL}job/${rec.id}`;
+    // `search.json` returns the job sections but not everything the published
+    // page renders; read the vacancy from that page (see
+    // `withRenderedPersonioPage`), keeping the listing fields as fallback.
+    const page = await withRenderedPersonioPage(rec, publicUrl);
+    const title = normalizeSpace(page.name || '');
     if (!title || title.length < 3) continue;
 
-    const descriptionHtml = rec.description || '';
+    const descriptionHtml = page.description || '';
     const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = `${CAREER_URL}job/${rec.id}`;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} amina bank zug`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const fallbackDesc =
-      `${title} — posizione presso AMINA Bank a ${DEFAULT_CITY} (${DEFAULT_CANTON}), Svizzera. ` +
-      'AMINA Bank è una banca svizzera regolamentata FINMA, pioniera nei servizi finanziari digitali e crypto.';
-    const desc = descriptionText.length >= 80 ? descriptionText : fallbackDesc;
+    // Only the posting's own text (issue 5253): no Italian "<title> —
+    // posizione presso AMINA Bank …" line and bank summary in place of a short
+    // page body. A body under the common 50-word floor gives no description
+    // (the shared pipeline's thin-source path).
+    const desc = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const employmentBasis = `${title} ${rec.schedule || ''} ${rec.employment_type || ''}`;
 
@@ -219,7 +229,7 @@ export async function fetchAllAminaBankJobs() {
       sector: 'Finanza',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, page),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

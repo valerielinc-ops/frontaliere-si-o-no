@@ -4,6 +4,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { cantonTaxBurdenPct } from '@/services/cantonSalary';
+import { calculateIrpefGross } from '@/services/calculationService';
 
 // ── PayslipSimulator: test withholding tax rate logic ──
 // We can't directly import internal functions, so we test the same logic here
@@ -101,34 +102,22 @@ describe('CarCostCalculator logic', () => {
 // ── PermitCompare: test IRPEF calculation ──
 
 describe('PermitCompare IRPEF logic', () => {
-  function calcIrpef(taxableEUR: number): number {
-    if (taxableEUR <= 0) return 0;
-    let tax = 0;
-    const brackets: [number, number][] = [[28000, 0.23], [50000, 0.35], [Infinity, 0.43]];
-    let remaining = taxableEUR;
-    let prev = 0;
-    for (const [limit, rate] of brackets) {
-      const slice = Math.min(remaining, limit - prev);
-      tax += slice * rate;
-      remaining -= slice;
-      prev = limit;
-      if (remaining <= 0) break;
-    }
-    return tax;
-  }
+  // PermitCompare calls calculateIrpefGross directly: test the shared function,
+  // not a local copy of the brackets that can drift from it (issue 9713).
+  const calcIrpef = calculateIrpefGross;
 
   it('calculates IRPEF for income under first bracket', () => {
     expect(calcIrpef(20000)).toBeCloseTo(4600, 0);
   });
 
   it('calculates IRPEF for income in second bracket', () => {
-    // 28000 * 0.23 + 12000 * 0.35
-    expect(calcIrpef(40000)).toBeCloseTo(10640, 0);
+    // 28000 * 0.23 + 12000 * 0.33 (2026)
+    expect(calcIrpef(40000)).toBeCloseTo(10400, 0);
   });
 
   it('calculates IRPEF for income in third bracket', () => {
-    // 28000*0.23 + 22000*0.35 + 10000*0.43
-    expect(calcIrpef(60000)).toBeCloseTo(18440, 0);
+    // 28000*0.23 + 22000*0.33 + 10000*0.43
+    expect(calcIrpef(60000)).toBeCloseTo(18000, 0);
   });
 
   it('handles zero income', () => {

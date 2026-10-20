@@ -535,7 +535,7 @@ export class SilentErrorBoundary extends Component<SilentBoundaryProps, SilentBo
  // redundant fetch, while a true positive stops the widget from re-throwing
  // the identical parse error on every subsequent SPA navigation this session.
  if (isChunkLoadError(error) || isVersionSkewError(error) || isModuleParseError(error)) {
- void clearAssetCaches();
+ void clearAssetCaches(error);
  }
  }
 

@@ -15,9 +15,12 @@
 
 import { JSDOM } from 'jsdom';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { ELAVORO_EMPTY_MESSAGE } from './elavoro-empty-state.mjs';
 
 const ELAVORO_HOST = 'www.e-lavoro.ch';
 const ELAVORO_BASE_URL = `https://${ELAVORO_HOST}`;
+const NON_JOB_NODE_IDS = new Set(['75', '76']);
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -53,8 +56,18 @@ export function slugify(value = '', suffix = '') {
   return truncateSlugAtWordBoundary(s, 200);
 }
 
-/** Minimum description length to accept. */
+/**
+ * Node-selection heuristic only: the first body block with this many
+ * characters is taken as the vacancy text. Whether that text is published is
+ * decided by the shared 50-word floor (source-body-floor.mjs).
+ */
 export const MIN_DESC_LENGTH = 100;
+
+function isJobDetailHref(href = '') {
+  const nodeMatch = href.match(/\/node\/(\d+)/);
+  if (nodeMatch) return !NON_JOB_NODE_IDS.has(nodeMatch[1]);
+  return href.includes('func=detail') && /[?&]id=\d+/.test(href);
+}
 
 /**
  * Parse the listing page from e-lavoro.ch (Helsinn's company page).
@@ -72,16 +85,21 @@ export function parseListingPage(html = '') {
   const jobs = [];
   const seen = new Set();
 
-  // Check for "no jobs" message
-  const bodyText = (document.body?.textContent || '').toLowerCase();
-  if (bodyText.includes('non ci sono offerte di lavoro') ||
-      bodyText.includes('nessuna offerta') ||
-      bodyText.includes('no job offers')) {
-    return [];
+  const links = document.querySelectorAll('a[href]');
+  const hasJobLink = Array.from(links).some((link) => isJobDetailHref(link.getAttribute('href') || ''));
+  const bodyText = normalizeSpace(document.body?.textContent || '').toLowerCase();
+
+  // Only the dedicated e-lavoro.ch empty-state message proves a zero. Generic
+  // no-offers copy can occur incidentally on a live listing page, and a job
+  // link must always take precedence over an empty-state marker.
+  if (bodyText.includes(ELAVORO_EMPTY_MESSAGE) && !hasJobLink) {
+    return markAuthoritativeEmptySnapshot(
+      [],
+      'e-lavoro.ch rendered its explicit no-open-offers message on the Helsinn listing page',
+    );
   }
 
   // Strategy 1: Find links to job detail pages (/node/{id} pattern)
-  const links = document.querySelectorAll('a[href]');
   for (const link of links) {
     const href = link.getAttribute('href') || '';
     // Match /node/{numeric_id} links (but skip known non-job nodes like /node/75 login, /node/76 listing)
@@ -89,7 +107,7 @@ export function parseListingPage(html = '') {
     if (!nodeMatch) continue;
     const id = nodeMatch[1];
     // Skip the listing page itself (node/76) and login (node/75)
-    if (id === '76' || id === '75') continue;
+    if (NON_JOB_NODE_IDS.has(id)) continue;
     if (seen.has(id)) continue;
 
     const title = normalizeSpace(link.textContent || '');
@@ -197,6 +215,35 @@ export function parseDetailPage(html = '') {
   }
 
   return { title, body, sourceBodyLength: body.length };
+}
+
+/**
+ * The vacancy text of a e-lavoro.ch (Helsinn) detail page, and nothing else (issue 5253).
+ *
+ * `parseDetailPage` above falls back to generic containers (`main`, the
+ * largest block of the page), which on the live template is the navigation
+ * mega-menu. The runner publishes only what this function returns: the first
+ * job-scoped container, tidied line by line, or '' when the page has none —
+ * a job without a real body is then not published instead of receiving
+ * invented text.
+ */
+const HELSINN_JOB_BODY_SELECTORS = ['.field--name-body', '.job-description', '.job-detail'];
+
+export function extractHelsinnJobBody(html = '') {
+  if (!html) return '';
+  const { document } = new JSDOM(html).window;
+  for (const sel of HELSINN_JOB_BODY_SELECTORS) {
+    const el = document.querySelector(sel);
+    if (!el) continue;
+    const text = stripTags(el.innerHTML || '')
+      .split('\n')
+      .map((line) => line.replace(/[ \t]+/g, ' ').trim())
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    if (text) return text;
+  }
+  return '';
 }
 
 /**

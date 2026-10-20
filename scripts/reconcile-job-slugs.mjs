@@ -1,9 +1,11 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * reconcile-job-slugs.mjs
  *
  * Reconciles orphan slugs (from GSC) and expired job slugs with active jobs
- * using Jaccard token similarity matching. Matched slugs are added as
+ * using Jaccard token similarity plus positive source-posting proof. Matched slugs are added as
  * `previousSlugs` on the active job so the build plugin generates full-content
  * pages instead of generic soft-landings.
  *
@@ -35,10 +37,22 @@ import {
   LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId, hasUsableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
+import {
+  archiveRecordNamesPosting,
+  hasSameJobSourcePosting,
+  sourcePostingUrlHref,
+  sourcePostingUrlHrefs,
+} from './lib/job-identity.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import {
+  buildGhostExpiredProofIndex,
+  findGhostExpiredReconciliationMatch,
+  writeHousekeepingProofFile,
+} from './lib/crawler-slice-integrity.mjs';
+import { decontaminateJobs, decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -234,6 +248,7 @@ function detectSlugLocale(slug) {
 function buildActiveIndex(activeJobs) {
   const byCompanyKey = Object.create(null); // companyKey → [job]
   const allSlugSet = new Set();             // all current + previous slugs
+  const activeSourceUrlHrefs = new Set();   // exact URL identities accepted by the alias guard
   const slugTokenCache = new WeakMap();     // job → Map<slugString, Set<token>>
   const titleTokenCache = new WeakMap();    // job → Map<locale, Set<token>>
   // Inverted index: slug-token → Set<job>. Used by findBestMatch's
@@ -260,6 +275,9 @@ function buildActiveIndex(activeJobs) {
   const titleTokenToJobs = new Map();       // token → Set<job>
 
   for (const job of activeJobs) {
+    const sourceUrlHref = sourcePostingUrlHref(job.url);
+    if (sourceUrlHref) activeSourceUrlHrefs.add(sourceUrlHref);
+
     // Index by company key
     const ck = job.companyKey || normalizeCompany(job.company);
     if (ck) {
@@ -359,6 +377,7 @@ function buildActiveIndex(activeJobs) {
   return {
     byCompanyKey,
     allSlugSet,
+    activeSourceUrlHrefs,
     slugTokenCache,
     titleTokenCache,
     slugTokenToJobs,
@@ -382,6 +401,19 @@ function loadCompanyKeys() {
     }
   } catch { /* adapters dir may not exist */ }
   return keys;
+}
+
+/**
+ * The fuzzy matcher cannot produce a persisted alias unless a historical
+ * source URL exactly identifies an active posting. Reject impossible matches
+ * before scoring candidates; this is especially important for the large GSC
+ * orphan ledger, where most records have no current posting identity.
+ */
+function hasPotentialSourcePostingMatch(historical, index) {
+  for (const href of sourcePostingUrlHrefs(historical)) {
+    if (index.activeSourceUrlHrefs.has(href)) return true;
+  }
+  return false;
 }
 
 /**
@@ -669,12 +701,8 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
     // INTENT (issue #1010 / #971 review): when the orphan has NO company
     // signal at all (`orphanCompanyKey` falsy), the title merge is allowed to
     // proceed — we refuse ONLY when the orphan company is KNOWN to differ.
-    // A same-title `title-*` win is already gated by title-Jaccard ≥ 0.70 +
-    // role-overlap, so the persisted 301 lands on a same-role active listing
-    // on the same aggregator: recovery vs a hard 404, net non-negative rather
-    // than a misroute. Hardening this to a hard reject on unknown company
-    // would re-introduce the 404 for legit recoveries and is intentionally
-    // NOT done absent evidence of cross-company misroutes in production.
+    // Candidate ranking still allows an unknown company here; the callers
+    // require positive source-posting identity before persisting any new alias.
     if (orphanCompanyKey) {
       // Asymmetric, NOT full Jaccard: `bestJob.companyKey` is already normalized
       // and often truncated to a stem (e.g. "acme"), while the orphan company can
@@ -886,6 +914,14 @@ export function reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, opti
     processed++;
     const enrichment = enrichmentBySlug[orphanSlug] || null;
 
+    // The positive source-posting guard below would reject every candidate
+    // when no active URL can match this record. Avoid the expensive fuzzy pass.
+    if (!hasPotentialSourcePostingMatch(enrichment, index)) {
+      skippedCount++;
+      remainingOrphans.push(entry);
+      continue;
+    }
+
     if (verbose) console.log(`\n🔎 [${processed}] "${orphanSlug}"`);
 
     // Try primary slug first, then any cross-locale slugs from enrichment
@@ -914,6 +950,14 @@ export function reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, opti
     }
 
     const { job, score, method } = match;
+
+    // A high text score is not evidence that two vacancies are the same posting.
+    // Keep unknown/conflicting orphan identities on the archive path instead.
+    if (!hasSameJobSourcePosting(enrichment || {}, job)) {
+      skippedCount++;
+      remainingOrphans.push(entry);
+      continue;
+    }
 
     // Verify slug isn't already in the job's previousSlugs
     const existingSlugs = new Set([
@@ -984,7 +1028,13 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
   const { dryRun = false, verbose = false, max = Infinity } = options;
 
   if (!activeJobs?.length || !expiredJobs?.length) {
-    return { mergedCount: 0, skippedCount: 0, updatedJobs: new Map(), updatedExpired: expiredJobs || [] };
+    return {
+      mergedCount: 0,
+      skippedCount: 0,
+      updatedJobs: new Map(),
+      updatedExpired: expiredJobs || [],
+      reconciledIds: new Set(),
+    };
   }
 
   const index = buildActiveIndex(activeJobs);
@@ -993,7 +1043,7 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
   let mergedCount = 0;
   let skippedCount = 0;
   const updatedJobs = new Map();
-  const reconciledIds = new Set();
+  const candidateReconciledIds = new Set();
   let processed = 0;
 
   for (const ej of expiredJobs) {
@@ -1008,7 +1058,15 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
 
     // Already reconciled: slugs are known to an active job — remove from expired
     if (expSlugs.some((s) => index.allSlugSet.has(s))) {
-      reconciledIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
+      const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
+      candidateReconciledIds.add(id);
+      skippedCount++;
+      continue;
+    }
+
+    // hasSameJobSourcePosting is required before any merge, so candidates
+    // without an exact active source URL cannot benefit from fuzzy scoring.
+    if (!hasPotentialSourcePostingMatch(ej, index)) {
       skippedCount++;
       continue;
     }
@@ -1049,6 +1107,16 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
     }
 
     const { job, score, method } = match;
+
+    // Same contract as assemble-jobs-dataset.reconcileGhostExpired (#11596): a
+    // fuzzy title/company match is not the same posting when the archive
+    // record names a different source posting. Merging it would hand `job`
+    // another posting's routes, hash-tailed slug included.
+    if (!archiveRecordNamesPosting(ej, job) || !hasSameJobSourcePosting(ej, job)) {
+      skippedCount++;
+      if (verbose) console.log('  ⏭️ Best match is a different source posting — not merging');
+      continue;
+    }
 
     // Collect all slugs from the expired entry to merge
     const existingSlugs = new Set([
@@ -1097,13 +1165,30 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
 
     for (const s of uniqueNew) index.allSlugSet.add(s);
     updatedJobs.set(resolveJobDiffKey(job), job);
-    reconciledIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
+    candidateReconciledIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
     mergedCount++;
 
     const prefix = dryRun ? '⏭️ [dry-run]' : '✅';
     console.log(
       `${prefix} expired "${primarySlug}" → "${job.slug || job.slugByLocale?.it}" (${job.company || 'unknown'}, score: ${score.toFixed(3)}, method: ${method}, +${uniqueNew.length} slugs)`,
     );
+  }
+
+  // Only remove entries whose final active owner satisfies the same exact
+  // title/company/location + route proof required by the slice byte guard.
+  // Build the index once after all merges; rebuilding it inside the loop made
+  // the 30k-job active dataset quadratic on large GSC sweeps.
+  const reconciledIds = new Set();
+  if (dryRun) {
+    for (const id of candidateReconciledIds) reconciledIds.add(id);
+  } else {
+    const finalIndex = buildGhostExpiredProofIndex(activeJobs);
+    for (const ej of expiredJobs) {
+      const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
+      if (candidateReconciledIds.has(id) && findGhostExpiredReconciliationMatch(ej, finalIndex)) {
+        reconciledIds.add(id);
+      }
+    }
   }
 
   // Remove reconciled entries from expired list
@@ -1255,26 +1340,53 @@ function updateCrawlerSlices(updatedJobs) {
  * Remove reconciled entries from expired per-crawler slice files.
  * Without this, reconciled expired jobs reappear on next assembleExpiredJobs().
  * @param {Set<string>} reconciledIds - IDs of expired entries that were reconciled
+ * @param {object[]} activeJobs - Active jobs used to prove the removal owner
  */
-function updateExpiredCrawlerSlices(reconciledIds) {
+function updateExpiredCrawlerSlices(reconciledIds, activeJobs) {
   if (!reconciledIds?.size) return;
 
   const files = listSliceFileNames(DATA_EXPIRED_SLICES_DIR);
+  const activeIndex = buildGhostExpiredProofIndex(activeJobs);
   let totalRemoved = 0;
 
   for (const file of files) {
     const slicePath = path.join(DATA_EXPIRED_SLICES_DIR, file);
+    const previousRaw = fs.readFileSync(slicePath, 'utf8');
     const entries = readJson(slicePath, []);
     if (!Array.isArray(entries) || entries.length === 0) continue;
 
+    const proofEntries = [];
     const filtered = entries.filter((ej) => {
       const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
-      return !reconciledIds.has(id);
+      if (!reconciledIds.has(id)) return true;
+      const proof = findGhostExpiredReconciliationMatch(ej, activeIndex);
+      if (!proof) return true;
+      proofEntries.push({ expired: ej, ...proof });
+      return false;
     });
 
     const removed = entries.length - filtered.length;
     if (removed > 0) {
-      writeJson(slicePath, filtered);
+      const candidateRaw = `${JSON.stringify(filtered, null, 2)}\n`;
+      const proofMetadata = {
+        schemaVersion: 1,
+        type: 'ghost-expired-reconciliation',
+        path: path.relative(ROOT, slicePath).split(path.sep).join('/'),
+        baseRaw: previousRaw,
+        candidateRaw,
+        entries: proofEntries,
+      };
+      writeJson(slicePath, filtered, { expiredGhostProof: proofMetadata });
+      if (process.env.GITHUB_RUN_ID && process.env.GITHUB_RUN_ATTEMPT) {
+        const committedCandidateRaw = fs.readFileSync(slicePath, 'utf8');
+        writeHousekeepingProofFile(slicePath, [
+          { operation: 'reconcile-expired-slugs', removedCount: removed },
+        ], {
+          baseRaw: previousRaw,
+          candidateRaw: committedCandidateRaw,
+          metadata: { ...proofMetadata, candidateRaw: committedCandidateRaw },
+        });
+      }
       totalRemoved += removed;
       console.log(`💾 Updated expired slice: ${file} (removed ${removed} reconciled)`);
     }
@@ -1288,7 +1400,7 @@ function updateExpiredCrawlerSlices(reconciledIds) {
 // ─── CLI Entry Point ─────────────────────────────────────────────────────────
 
 const isDirectRun =
-  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (isDirectRun) {
   const args = process.argv.slice(2);
@@ -1330,6 +1442,25 @@ if (isDirectRun) {
   console.log(`📈 Orphan reconciliation: ${orphanResult.mergedCount} merged, ${orphanResult.skippedCount} skipped`);
   console.log('');
 
+  // The assembled snapshot can contain a bridge added by a preceding
+  // reconciliation pass. Before this writer copies it back to per-crawler
+  // slices, re-run the fleet ownership ratchet so the copy cannot preserve a
+  // confirmed foreign hash-tailed alias on the claimant.
+  const activeOwnership = decontaminateJobs(activeJobs);
+  if (activeOwnership.moved > 0 || activeOwnership.emptyLocaleBucketsPruned > 0) {
+    console.log(
+      `🧭 Previous-slug ownership: redirected ${activeOwnership.moved} route(s), `
+      + `pruned ${activeOwnership.emptyLocaleBucketsPruned} empty locale bucket(s)`,
+    );
+  }
+  const sliceOwnership = decontaminateSliceDirectory(DATA_SLICES_DIR, { apply: !dryRun });
+  if (sliceOwnership.moved > 0 || sliceOwnership.emptyLocaleBucketsPruned > 0) {
+    console.log(
+      `🧭 Slice ownership ${dryRun ? '(dry-run)' : ''}: redirected ${sliceOwnership.moved} route(s), `
+      + `pruned ${sliceOwnership.emptyLocaleBucketsPruned} empty locale bucket(s)`,
+    );
+  }
+
   // ── Write results ──
   if (!dryRun) {
     const allUpdatedJobs = new Map([
@@ -1339,8 +1470,13 @@ if (isDirectRun) {
 
     const hasExpiredCleanup = expiredResult.reconciledIds?.size > 0;
 
-    if (allUpdatedJobs.size > 0 || hasExpiredCleanup) {
-      if (allUpdatedJobs.size > 0) {
+    const hasOwnershipCleanup = activeOwnership.moved > 0
+      || activeOwnership.emptyLocaleBucketsPruned > 0
+      || sliceOwnership.moved > 0
+      || sliceOwnership.emptyLocaleBucketsPruned > 0;
+
+    if (allUpdatedJobs.size > 0 || hasExpiredCleanup || hasOwnershipCleanup) {
+      if (allUpdatedJobs.size > 0 || activeOwnership.moved > 0 || activeOwnership.emptyLocaleBucketsPruned > 0) {
         // Write active jobs (only if previousSlugs changed)
         writeJson(DATA_JOBS, activeJobs);
         writeJson(PUBLIC_JOBS, activeJobs);
@@ -1359,7 +1495,7 @@ if (isDirectRun) {
       console.log(`💾 Wrote ${DATA_EXPIRED} (${expiredResult.updatedExpired.length} remaining)`);
 
       // Remove reconciled entries from expired per-crawler slices
-      updateExpiredCrawlerSlices(expiredResult.reconciledIds);
+      updateExpiredCrawlerSlices(expiredResult.reconciledIds, activeJobs);
     } else {
       console.log('ℹ️  No changes — all files untouched');
     }

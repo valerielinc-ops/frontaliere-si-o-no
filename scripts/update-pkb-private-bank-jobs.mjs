@@ -18,6 +18,7 @@ import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -37,9 +38,11 @@ import {
   PKB_KEY,
   COMPANY_NAME,
   COMPANY_DOMAIN,
+  dropPkbFabricatedText,
 } from './lib/pkb-private-bank-job-parser.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -133,6 +136,8 @@ function mergeParsedPkbJobs(parsedJobs) {
   const allJobs = Array.isArray(existing) ? existing : [];
   const nonPkb = allJobs.filter((job) => !isPkbJob(job));
   const pkbExisting = allJobs.filter(isPkbJob);
+  const fabricatedFossils = pkbExisting.filter((job) => dropPkbFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored PKB Private Bank job(s); they will be retranslated`);
 
   const byUrl = new Map();
   for (const job of parsedJobs) {
@@ -188,6 +193,18 @@ async function runBaseCrawler() {
 // Main
 // ──────────────────────────────────────────────────────────────
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropPkbFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(PKB_KEY, DATA_JOBS).filter(isPkbJob),
+    companyKey: PKB_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(PKB_KEY, jobs, options),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(PKB_KEY, 'PKB');
@@ -198,6 +215,7 @@ async function main() {
   const parsedJobs = await fetchAndParsePkbJobs();
   if (parsedJobs.length === 0) {
     console.log('⚠️ No valid jobs parsed — keeping existing PKB jobs unchanged.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

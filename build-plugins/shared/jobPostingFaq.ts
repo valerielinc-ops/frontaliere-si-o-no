@@ -10,13 +10,13 @@
  * (salary, employment type, company, canton) — deterministic, zero AI
  * cost, and naturally unique because those fields differ per job.
  *
- * Consumes the already-resolved `JobPostingSchema` (see jobPostingSchema.ts)
+ * Consumes the already-resolved `JobPostingFacts` (see jobPostingSchema.ts)
  * rather than re-deriving salary/address/employmentType itself, so there is
  * a single source of truth for those values and no duplicated resolution
  * logic between the two modules.
  */
 
-import type { EmploymentType, JobPostingSchema } from './jobPostingSchema';
+import type { EmploymentType, JobPostingFacts } from './jobPostingSchema';
 import { hostFromUrl } from './hostFromUrl';
 
 export type FaqLocale = 'it' | 'en' | 'de' | 'fr';
@@ -97,7 +97,7 @@ const LOCALE_INTL: Record<FaqLocale, string> = {
   fr: 'fr-CH',
 };
 
-function formatSalaryRange(schema: JobPostingSchema, locale: FaqLocale): string {
+function formatSalaryRange(schema: JobPostingFacts, locale: FaqLocale): string {
   const { currency, value } = schema.baseSalary;
   const fmt = new Intl.NumberFormat(LOCALE_INTL[locale], { maximumFractionDigits: 0 });
   const min = fmt.format(value.minValue);
@@ -112,7 +112,7 @@ const PER_YEAR_LABEL: Record<FaqLocale, string> = {
   fr: 'bruts par an',
 };
 
-function buildSalaryFaq(schema: JobPostingSchema, opts: BuildJobPostingFaqOptions): JobFaqPair {
+function buildSalaryFaq(schema: JobPostingFacts, opts: BuildJobPostingFaqOptions): JobFaqPair {
   const { locale } = opts;
   const company = schema.hiringOrganization.name;
   const range = formatSalaryRange(schema, locale);
@@ -141,7 +141,7 @@ function buildSalaryFaq(schema: JobPostingSchema, opts: BuildJobPostingFaqOption
   };
 }
 
-function buildContractFaq(schema: JobPostingSchema, opts: BuildJobPostingFaqOptions): JobFaqPair {
+function buildContractFaq(schema: JobPostingFacts, opts: BuildJobPostingFaqOptions): JobFaqPair {
   const { locale } = opts;
   const contractLabel = EMPLOYMENT_TYPE_FAQ_LABEL[locale][schema.employmentType];
   const company = schema.hiringOrganization.name;
@@ -223,7 +223,7 @@ function buildPermitFaq(opts: BuildJobPostingFaqOptions): JobFaqPair {
   };
 }
 
-function buildApplyFaq(schema: JobPostingSchema, opts: BuildJobPostingFaqOptions): JobFaqPair {
+function buildApplyFaq(schema: JobPostingFacts, opts: BuildJobPostingFaqOptions): JobFaqPair {
   const { locale, jobUrl } = opts;
   const company = schema.hiringOrganization.name;
   // Display the SOURCE HOSTNAME, not the raw jobUrl path: third-party ATS
@@ -266,7 +266,7 @@ function buildApplyFaq(schema: JobPostingSchema, opts: BuildJobPostingFaqOptions
  * so it is safe to call on every build without memoization.
  */
 export function buildJobPostingFaqPairs(
-  schema: JobPostingSchema,
+  schema: JobPostingFacts,
   opts: BuildJobPostingFaqOptions,
 ): JobFaqPair[] {
   return [

@@ -33,8 +33,32 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  * @property {string[]} seedUrls
  * @property {string[]} [allowedDetailOrigins] Exact extra origins reviewed for cross-origin ATS/CDN detail URLs
  * @property {string | string[]} [detailTemplate]    URL template(s) shared by the vacancy links
+ * @property {string} [listingCandidateText]         Normalised text required in a listing candidate
+ * @property {string} [detailCandidateText]          Normalised text required in an enriched detail record
+ * @property {{ nativeMarker: string, expectedText?: string, listingExpectedText?: string, foreignLocationOutOfScope?: boolean, listingMarker?: { tag?: string, class: string, containerTag?: string, containerClass: string } }} [tenantScope]
+ *   Explicit source-native tenant identity. `nativeMarker` names a field the
+ *   detail extractor returns; `listingMarker`, when present, names the source
+ *   element within its containerClass that can prove a non-target tenant
+ *   before enrichment. Neither a missing detail marker nor absent target text
+ *   is a positive mismatch.
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
+ * @property {Array<{ postalCode: string, locality: string, canton: string }>} [umantisListingCantonOverrides]
+ *   Reviewed exact Umantis listing postcode/locality pairs used only to
+ *   disambiguate the canton; the shared Swiss geography resolver still validates them.
+ * @property {boolean} [rescueOnEmptyListing] Retry a zero-candidate seed through the clean-IP rescue
+ * @property {'ok'|'filtered_empty'|'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
+ *   Outcome to attach when the spec has no accepted listing after its configured rescue path
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
+ * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, pageStateParams?: string[], selfNextIsTerminal?: boolean, countDuplicateRowsForCoverage?: boolean }} [pagination]
+ *   Follow the seed's `rel="next"` pages; with `declaredTotalPattern` the walk must
+ *   collect `minCoverage` of the count the source declares, or the run fails closed;
+ *   `pageStateParams` are stripped from detail URLs found on later pages;
+ *   `selfNextIsTerminal` is a source-specific declaration that a self-link on
+ *   the final page is an end marker rather than an incomplete listing
+ * @property {{ url: string, method?: 'GET', params?: Record<string, string|number|boolean>, pageParam?: string, maxPages?: number }} [listingEndpoint]
+ *   Fetch a source-owned JSON listing endpoint instead of assuming the seed HTML
+ *   contains the rendered vacancy cards. The endpoint response must expose the
+ *   source's listing HTML and `max_num_pages` so pagination remains fail-closed.
  * @property {number} sampleVacancyCount
  * @property {string[]} sampleTitles
  * @property {string} [canton]
@@ -76,6 +100,53 @@ export function commonUrlTemplate(urls = []) {
   return out.join('/');
 }
 
+// Hosted ATS vendors often expose every employer from an infrastructure label
+// such as `apply.refline.ch` or `jobs.vendor.example`. Using that label as the
+// crawler key collides with an existing hand-written crawler (and lets a later
+// synthesis overwrite its spec). Keep the tenant label for name-like hosts,
+// but derive the key from the employer name when the label is only platform
+// plumbing.
+const GENERIC_TENANT_LABELS = new Set([
+  'app', 'apps', 'apply', 'career', 'careers', 'job', 'jobboard',
+  'job-boards', 'jobs', 'karriere', 'portal', 'recruiting', 'recruitingapp',
+  'stellen', 'www',
+]);
+
+/**
+ * Turn a candidate-provided identity into the key form used by crawler files.
+ * Keeping the normalization in one place matters here: whitespace and names
+ * made only of punctuation must be rejected before the generic ATS fallback is
+ * selected, rather than becoming an empty key after the choice was made.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+function crawlerKeyToken(value) {
+  return String(value ?? '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 48);
+}
+
+/**
+ * The employer-owned domain is the safe identity fallback when an ATS tenant
+ * has no usable employer name. `registrableDomain` strips a vendor subdomain;
+ * preserve the complete normalized registrable domain so equal brand labels on
+ * different suffixes remain distinct crawler keys.
+ *
+ * @param {unknown} domain
+ * @returns {string}
+ */
+function employerDomainToken(domain) {
+  const normalized = registrableDomain(normalizeHost(String(domain ?? '')));
+  const labels = normalized.split('.');
+  if (!normalized || labels.some((label) => !/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(label))) return '';
+  return crawlerKeyToken(normalized);
+}
+
 /**
  * A crawler key that is stable, filesystem-safe and unique enough to sit
  * alongside the 580-odd existing crawler keys.
@@ -90,14 +161,17 @@ export function crawlerKeyFor(candidate) {
   // gruppi di workflow. Quando il vendor usa id anonimi, il nome dell'azienda
   // — che la pagina del tenant ci ha gia' dato — e' l'unica cosa leggibile.
   const opaqueLabel = /^[a-z]*[-_]?\d{2,}$/i.test(fromHost) || /^\d/.test(fromHost);
-  const preferred = opaqueLabel && candidate.name ? candidate.name : fromHost;
-  const base = preferred || candidate.domain?.split('.')[0] || candidate.name || 'unknown';
-  return String(base)
-    .toLowerCase()
-    .normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '')
-    .slice(0, 48);
+  const genericLabel = GENERIC_TENANT_LABELS.has(fromHost.toLowerCase());
+  const nameKey = crawlerKeyToken(candidate.name);
+  const domainKey = employerDomainToken(candidate.domain);
+  const hasEmployerName = Boolean(nameKey
+    && nameKey !== fromHost.toLowerCase()
+    && !GENERIC_TENANT_LABELS.has(nameKey));
+  const preferred = opaqueLabel || genericLabel
+    ? (hasEmployerName ? nameKey : domainKey)
+    : crawlerKeyToken(fromHost);
+  const base = preferred || (!opaqueLabel && !genericLabel ? domainKey || nameKey : '') || 'unknown';
+  return crawlerKeyToken(base);
 }
 
 /**
@@ -161,6 +235,11 @@ export async function synthesizeSpec(candidate, runtime = {}) {
   }
 
   const host = normalizeHost(new URL(res.url).hostname);
+  const hostDomain = registrableDomain(host);
+  const employerDomain = registrableDomain(candidate.domain || '');
+  const inferredPlatform = candidate.selfHosted === undefined
+    ? (hostDomain === employerDomain ? '' : hostDomain)
+    : (candidate.selfHosted === false && hostDomain !== employerDomain ? hostDomain : '');
   const listingNeedsDetail = vacancies.some(
     (vacancy) => !resolveDetailOrListingSwissGeography({}, vacancy).geography
       || !isSufficientVacancyDescription(vacancy.description),
@@ -170,7 +249,7 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     companyKey: crawlerKeyFor(candidate),
     companyName: candidate.name || tenantLabel(host) || host,
     companyHost: host,
-    platform: candidate.platform || (registrableDomain(host) === registrableDomain(candidate.domain || '') ? '' : registrableDomain(host)),
+    platform: candidate.platform || inferredPlatform,
     mode: /** @type {'jsonld'|'microdata'|'template'} */ (via),
     seedUrls: [res.url],
     detailTemplate: commonUrlTemplate(vacancies.map((v) => v.url)) || undefined,
@@ -214,7 +293,9 @@ export async function runSpec(spec, runtime = {}) {
       // recruitingapp-2924, che pubblica 6 annunci con geografia Rheinfelden AG
       // mentre la validazione ne misurava 0%.
       const listingEvidence = spec.platform === 'umantis.com'
-        ? extractUmantisListingEvidence(res.body, res.url)
+        ? extractUmantisListingEvidence(res.body, res.url, {
+          cantonOverrides: spec.umantisListingCantonOverrides,
+        })
         : new Map();
       const links = extractLinks(res.body, res.url);
       const { vacancies } = extractVacancies(res.body, res.url, links);

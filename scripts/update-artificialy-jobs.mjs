@@ -12,6 +12,7 @@
  * Specializes in finance, healthcare, manufacturing AI solutions.
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -29,6 +30,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -43,13 +45,19 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseArtificialyCareerPage,
+  parseArtificialyLinkedInJobPage,
   isArtificialySwissRelevant,
   inferArtificialyCanton,
   inferArtificialyCategory,
   buildArtificialyLocalizedContent,
+  isArtificialyLinkedInJobUrl,
 } from './lib/artificialy-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -73,6 +81,19 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 3000;
+const DETAIL_DELAY_MS = 250;
+
+/**
+ * A listing without at least the source-body floor is metadata, not an
+ * indexable job page. Keep it out of the dedicated pipeline so the locale
+ * validator can distinguish a listing-only source response from a parser
+ * regression; a zero usable-listing result takes the existing soft-exit path.
+ */
+export function filterArtificialyListingsWithIndexableSourceBody(listings = []) {
+  return (Array.isArray(listings) ? listings : []).filter((listing) =>
+    meetsSourceBodyFloor(listing?.description || ''),
+  );
+}
 
 function readJson(filePath, fallback) {
   try {
@@ -134,15 +155,62 @@ function isTrustedDomain(rawUrl = '') {
   }
 }
 
+/**
+ * The career page is a listing surface: its cards carry only short summaries.
+ * Resolve their LinkedIn detail pages before applying the source-body floor so
+ * a markup change cannot turn every otherwise-live vacancy into an empty crawl.
+ */
+async function enrichArtificialyListings(listings) {
+  const enriched = [];
+  const stats = { attempted: 0, fetchFailures: 0, selectorMisses: 0 };
+
+  for (const listing of listings) {
+    if (meetsSourceBodyFloor(listing?.description || '') || !isArtificialyLinkedInJobUrl(listing?.applyUrl)) {
+      enriched.push(listing);
+      continue;
+    }
+
+    stats.attempted += 1;
+    try {
+      const detailHtml = await fetchText(listing.applyUrl);
+      const detail = parseArtificialyLinkedInJobPage(detailHtml);
+      if (detail.description) {
+        enriched.push({ ...listing, description: detail.description });
+      } else {
+        stats.selectorMisses += 1;
+        enriched.push(listing);
+        console.warn(`  ⚠️ No publishable LinkedIn source body for ${listing.title}`);
+      }
+    } catch (err) {
+      stats.fetchFailures += 1;
+      enriched.push(listing);
+      console.warn(`  ⚠️ LinkedIn detail fetch failed for ${listing.title}: ${err.message}`);
+    }
+
+    if (DETAIL_DELAY_MS > 0) await sleep(DETAIL_DELAY_MS);
+  }
+
+  return { listings: enriched, stats };
+}
+
 async function fetchCareerPage() {
+  let fetchedPage = false;
+  let blockedPage = false;
+  let discoveredCount = 0;
+  let detailAttempts = 0;
+  let detailFetchFailures = 0;
+  let detailSelectorMisses = 0;
+
   for (const url of CAREER_URLS) {
     for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
       try {
         console.log(`  Fetching ${url} (attempt ${attempt + 1})...`);
         const html = await fetchText(url);
-        const { items, blocked } = parseArtificialyCareerPage(html);
+        fetchedPage = true;
+        const { items: parsedItems, blocked } = parseArtificialyCareerPage(html);
 
         if (blocked) {
+          blockedPage = true;
           console.log(`  Cloudflare challenge detected on ${url}`);
           if (attempt < MAX_RETRIES) {
             console.log(`  Retrying in ${RETRY_DELAY_MS / 1000}s...`);
@@ -152,12 +220,28 @@ async function fetchCareerPage() {
           break;
         }
 
+        discoveredCount = Math.max(discoveredCount, parsedItems.length);
+        const enriched = await enrichArtificialyListings(parsedItems);
+        detailAttempts += enriched.stats.attempted;
+        detailFetchFailures += enriched.stats.fetchFailures;
+        detailSelectorMisses += enriched.stats.selectorMisses;
+        const items = filterArtificialyListingsWithIndexableSourceBody(enriched.listings);
         if (items.length > 0) {
           console.log(`  Found ${items.length} jobs from ${url}`);
-          return items;
+          return {
+            items,
+            discovered: parsedItems.length,
+            parsed: items.length,
+            fetchOutcome: 'ok',
+            abortKind: null,
+          };
         }
 
-        console.log(`  No jobs extracted from ${url} (HTML length: ${html.length})`);
+        const thinCount = enriched.listings.length - items.length;
+        const reason = thinCount > 0
+          ? `${thinCount} listing(s) had no indexable source body (under 50 words)`
+          : 'no jobs extracted';
+        console.log(`  ${reason} from ${url} (HTML length: ${html.length})`);
         break;
       } catch (err) {
         console.log(`  Fetch failed for ${url}: ${err.message}`);
@@ -168,24 +252,52 @@ async function fetchCareerPage() {
       }
     }
   }
-  return [];
+
+  const fetchOutcome = !fetchedPage
+    ? 'connection_error'
+    : blockedPage && discoveredCount === 0
+      ? 'anti_bot_block'
+      : discoveredCount > 0 && detailFetchFailures === detailAttempts && detailAttempts > 0
+        ? 'connection_error'
+        : 'selector_miss';
+  const abortKind = fetchOutcome === 'connection_error' || fetchOutcome === 'anti_bot_block'
+    ? 'connection-level-fetch'
+    : 'no-jobs-parsed';
+  if (detailSelectorMisses > 0) {
+    console.warn(`  ⚠️ ${detailSelectorMisses} LinkedIn detail page(s) did not expose a publishable body`);
+  }
+  return {
+    items: [],
+    discovered: discoveredCount,
+    parsed: 0,
+    fetchOutcome,
+    abortKind,
+  };
 }
 
 async function fetchAllListings() {
   console.log('Fetching Artificialy career page...');
 
-  const items = await fetchCareerPage();
-  console.log(`Total jobs found: ${items.length}`);
+  const result = await fetchCareerPage();
+  console.log(`Total jobs found: ${result.items.length}`);
 
   // Keep only jobs with a location in one of the 26 target cantons.
-  const swissJobs = items.filter(isArtificialySwissRelevant);
+  const swissJobs = result.items.filter(isArtificialySwissRelevant);
   console.log(`Swiss target locations: ${swissJobs.length}`);
 
-  return swissJobs;
+  const filteredEmpty = result.items.length > 0 && swissJobs.length === 0;
+  return {
+    ...result,
+    items: swissJobs,
+    parsed: swissJobs.length,
+    fetchOutcome: filteredEmpty ? 'filtered_empty' : result.fetchOutcome,
+    abortKind: filteredEmpty ? null : result.abortKind,
+  };
 }
 
 function buildArtificialyJob(row) {
-  const localized = buildArtificialyLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, 'it');
+  const localized = buildArtificialyLocalizedContent({ ...row, sourceLang });
   const canton = inferArtificialyCanton(row);
   const detailUrl = row.applyUrl || `${CAREER_URLS[0]}`;
   return {
@@ -205,16 +317,35 @@ function buildArtificialyJob(row) {
     category: inferArtificialyCategory(row.title),
     sector: 'Intelligenza Artificiale',
     source: 'artificialy-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
-    postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
+    sourceLang,
+    ...sourcePostingDateFields(row.datePosted),
     validThrough: row.validThrough || '',
     employmentType: 'full-time',
     contractType: 'full-time',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
   };
+}
+
+// The sentence the builder used to write, in all four slots, for a posting without text:
+// "Artificialy cerca <title> con sede a <place>. Azienda svizzera specializzata…".
+// Only ever recognised, to be removed from stored records (issue 5253).
+const ARTIFICIALY_FABRICATED_RE = /Artificialy cerca [^\n]* con sede a [^\n]*\. Azienda svizzera specializzata in intelligenza artificiale/;
+
+/**
+ * Remove, from a stored job, the text this runner used to write itself
+ * (ARTIFICIALY_FABRICATED_RE): the slots that carry it, the flat
+ * `description`, and the translations made from it, flagging the job for
+ * retranslation (`dropFabricatedDescription`). The merge keeps stored locale
+ * slots, so without this they would outlive the fix; the runner calls it on
+ * its stored jobs right before the merge.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropArtificialyFabricatedText(job) {
+  return dropFabricatedDescription(job, ARTIFICIALY_FABRICATED_RE);
 }
 
 function jobMatchKey(job = {}) {
@@ -225,6 +356,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropArtificialyFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Removed the former invented description from ${fossils} stored Artificialy job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -240,6 +373,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -268,7 +402,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -300,19 +434,59 @@ function validateLocales() {
   });
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropArtificialyFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'Artificialy');
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Artificialy', counts);
   console.log('===============================================');
   console.log('  Artificialy — Dedicated Crawler');
   console.log('===============================================');
   console.log(`  URLs: ${CAREER_URLS.join(', ')}\n`);
 
-  const listings = await fetchAllListings();
+  const crawl = await fetchAllListings();
+  counts.discovered = crawl.discovered;
+  counts.parsed = crawl.parsed;
+  counts.lastFetchOutcome = crawl.fetchOutcome;
+  counts.abortKind = crawl.abortKind;
+  const listings = crawl.items;
   if (listings.length === 0) {
     console.log('No Artificialy Swiss-located jobs found — skipping merge.');
     console.log('(Site may be blocked by Cloudflare managed challenge)');
     printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'Artificialy');
+    if (crawl.fetchOutcome === 'filtered_empty') {
+      writeSummaryCrawlerSlice({
+        key: COMPANY_KEY,
+        label: COMPANY_NAME,
+        generatedAt: new Date().toISOString(),
+        total: 0,
+        discovered: crawl.discovered,
+        parsed: crawl.parsed,
+        written: 0,
+        lastFetchOutcome: crawl.fetchOutcome,
+        abortKind: null,
+        newCount: 0,
+        updatedCount: 0,
+        removedCount: 0,
+        unchangedCount: 0,
+        newJobs: [],
+        updatedJobs: [],
+        removedJobs: [],
+        unchangedJobs: [],
+      });
+    }
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
@@ -344,6 +518,11 @@ async function main() {
     label: 'Artificialy',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: _sliceJobs.length,
+    lastFetchOutcome: counts.lastFetchOutcome || 'ok',
+    abortKind: null,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
@@ -359,4 +538,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'Artificialy'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => exitCrawlerOnError(error, 'Artificialy'));
+}

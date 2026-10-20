@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "sg-6604",
+      "sourceKey": "SG",
+      "sourceRecordId": "6604",
+      "canton": "San Gallo",
+      "platePrefix": "SG",
+      "plateNumber": "102514",
+      "normalizedPlate": "SG102514",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 300,
+      "startingPriceChf": 300,
+      "bidCount": 0,
+      "minimumIncrementChf": 10,
+      "endsAt": "2026-09-30T17:30:00.000Z",
+      "closedAt": "2026-09-30T17:30:00.000Z",
+      "officialAuctionUrl": "https://egov.stva.sg.ch/ecari-auction/ui/app/init",
+      "officialDetailUrl": "https://egov.stva.sg.ch/ecari-auction/ui/app/details/app?id=6604",
+      "sourceFetchedAt": "2026-09-30T12:39:19.879Z",
+      "lastVerifiedAt": "2026-09-30T12:39:19.879Z",
+      "firstSeenAt": "2026-09-24T04:55:18.470Z",
+      "lastSeenAt": "2026-09-30T12:39:19.879Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "d18a0277df0b"
+    }
+  ]
+}

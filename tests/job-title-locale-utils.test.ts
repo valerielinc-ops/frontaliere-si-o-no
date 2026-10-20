@@ -8,6 +8,7 @@ import {
   TITLE_LANG_DECISION_CONFIDENCE,
   detectJobTitleLang,
   detectJobTitleLocaleDetails,
+  isTitleSourceCopy,
   pinnedTitleSourceLang,
   titleContainsLlmReasoning,
   titleLooksUntranslated,
@@ -15,6 +16,11 @@ import {
 } from '../scripts/lib/job-locale-utils.mjs';
 
 describe('job title locale utils', () => {
+  it('keeps punctuation-insensitive, diacritic-sensitive source-copy detection', () => {
+    expect(isTitleSourceCopy('CSV Requirements-Ingenieur', 'CSV Requirements Ingenieur')).toBe(true);
+    expect(isTitleSourceCopy('CSV Requirements Ingénieur', 'CSV Requirements Ingenieur')).toBe(false);
+  });
+
   it('detects english titles even when the description source is different', () => {
     expect(detectJobTitleLang('Banking All-Rounder', 'it')).toBe('en');
     expect(detectJobTitleLang('Quality Technician (80-100%)', 'it')).toBe('en');

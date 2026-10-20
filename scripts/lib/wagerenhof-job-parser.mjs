@@ -12,6 +12,7 @@
  * Custom TYPO3 page; vacancies render server-side as <li>…<a href="…vacancy-details?reference=…"> …
  * with <span class="job-title">TITLE</span> and a <span class="job-count">DATE</span>.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -25,6 +26,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const WAGERENHOF_KEY = 'wagerenhof';
 export const WAGERENHOF_COMPANY_NAME = 'Stiftung Wagerenhof';
@@ -124,20 +126,6 @@ function pickLocationHints(title = '', description = '') {
   return { city: DEFAULT_CITY, canton: inferred || DEFAULT_CANTON, postal: DEFAULT_POSTAL };
 }
 
-function buildFallbackDescription(title) {
-  return [
-    `${title} bei ${WAGERENHOF_COMPANY_NAME} in Uster (ZH).`,
-    '',
-    'Die Stiftung Wagerenhof ist eine Wohn-, Arbeits- und Lebensgemeinschaft für rund 1\'000 Menschen mit kognitiven Beeinträchtigungen. Im Wagerenhof leben und arbeiten Fachmitarbeitende, Mitarbeitende an geschützten Arbeitsplätzen sowie Bewohnerinnen und Bewohner Hand in Hand.',
-    '',
-    'Was der Wagerenhof bietet:',
-    '• Interdisziplinäre Zusammenarbeit über Bereiche und Stufen hinweg',
-    '• Sinnstiftende Tätigkeit in einem engagierten Team',
-    '• Vielfältige Aus- und Weiterbildungsmöglichkeiten',
-    '• Faire Anstellungsbedingungen',
-  ].join('\n');
-}
-
 export async function fetchAllWagerenhofJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   console.log(`🏡 Fetching ${WAGERENHOF_COMPANY_NAME} jobs`);
@@ -154,7 +142,6 @@ export async function fetchAllWagerenhofJobs() {
   console.log(`  📋 Found ${listings.length} positions on listing\n`);
   if (!listings.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of listings) {
     let detail = { title: '', description: '' };
@@ -166,9 +153,10 @@ export async function fetchAllWagerenhofJobs() {
     }
 
     const title = detail.title || it.title;
-    const description = detail.description && detail.description.split(/\s+/).length >= 40
-      ? detail.description
-      : buildFallbackDescription(title);
+    // Only the posting's own text (issue 5253): a detail body under the common
+    // 50-word floor gives no description (the shared pipeline's thin-source
+    // path), instead of a company paragraph and benefit list of the crawler's.
+    const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
 
     const hints = pickLocationHints(title, description);
     const haystack = `${title} ${description}`;
@@ -206,7 +194,7 @@ export async function fetchAllWagerenhofJobs() {
       sector: 'Sociale / Educazione',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

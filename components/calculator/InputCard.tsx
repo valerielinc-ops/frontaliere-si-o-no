@@ -4,14 +4,14 @@ import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@
 import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus, ChevronDown, ChevronUp, Check, TrainFront, Coins, Receipt, Car, Home, User, Heart, Briefcase, Ruler, Baby, Users, Sliders, Calculator, RotateCcw, Settings2, RefreshCw, X, Zap, Wifi, ShoppingBasket, Bus, Fuel, Info, Smartphone, Droplet, Tv, Shield, Landmark, AlertTriangle, ChevronRight } from 'lucide-react';
 import { SimulationInputs, ExpenseItem } from '../../types';
 import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSES_IT, calculateDynamicExpenses } from '../../constants';
+import { FRONTIER_SSN_MAX_RATE, FRONTIER_SSN_MIN_RATE, normalizeFrontierSsnRate } from '@/services/frontierHealthContribution';
 import { Analytics } from '../../services/analytics';
 import { useTranslation } from '../../services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
-import { resilientImport, isVersionSkewError, recoverFromStaleChunk } from '@/services/resilientImport';
+import type { useCalculatorExchangeRate } from '@/hooks/useCalculatorExchangeRate';
 import { SegmentControl as SharedSegmentControl } from '@/components/shared/SegmentControl';
 import CalculatorFormBoxAd from '@/components/shared/CalculatorFormBoxAd';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { reportCaughtError } from '@/services/errorReporter';
 import ProfessionPresetChips from '@/components/calculator/ProfessionPresetChips';
 // exchangeRateService is lazy-loaded to reduce main bundle size
 
@@ -19,6 +19,7 @@ interface Props {
  inputs: SimulationInputs;
  setInputs: React.Dispatch<React.SetStateAction<SimulationInputs>>;
  onCalculate: () => void;
+ exchangeRate: ReturnType<typeof useCalculatorExchangeRate>;
  focusField?: 'age' | 'maritalStatus' | 'children' | null;
  focusRequestId?: number;
  /** Optional result for desktop compact mode teaser preview */
@@ -194,18 +195,17 @@ const SALARY_MAX = 1_000_000;
 
 const DESKTOP_EXPANDED_KEY = 'calc_desktop_expanded';
 
-const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusField = null, focusRequestId = 0, result = null }) => {
+const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchangeRate, focusField = null, focusRequestId = 0, result = null }) => {
  const { t, locale } = useTranslation();
  const nav = useNavigationOptional();
  const isFocusMode = nav?.isFocusMode;
  const isDesktop = useMediaQuery('(min-width: 1024px)');
- const [loadingRate, setLoadingRate] = useState(false);
- const [lastRateUpdate, setLastRateUpdate] = useState<Date | null>(null);
+ const { fetchRate, loadingRate, lastRateUpdate } = exchangeRate;
  const [showPresets, setShowPresets] = useState<'CH' | 'IT' | null>(null);
  const [salaryError, setSalaryError] = useState<string | null>(null);
  const [easterEgg, setEasterEgg] = useState<string | null>(null);
  const [easterEggVisible, setEasterEggVisible] = useState(false);
- const easterEggTimer = useRef<ReturnType<typeof setTimeout>>();
+ const easterEggTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
  const inputStartTracked = useRef(false);
 
  // Desktop progressive disclosure: compact mode shows only 3 key fields
@@ -251,7 +251,8 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  general: true,
  expenses: false,
  settings: false, 
- rates: false
+ rates: false,
+ experimental: false,
  });
 
  const toggleSection = (key: keyof typeof openSections) => {
@@ -292,38 +293,6 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  const handleResetTech = () => {
  setInputs(prev => ({...prev, ...DEFAULT_TECH_PARAMS}));
  };
-
- const fetchRate = async () => {
- setLoadingRate(true);
- try {
- const { fetchExchangeRate } = await resilientImport(
- () => import('../../services/exchangeRateService'),
- (m) => typeof m.fetchExchangeRate === 'function',
- );
- const rate = await fetchExchangeRate();
- handleChange('customExchangeRate', rate);
- setLastRateUpdate(new Date());
- } catch (e) {
- console.error('Failed rate fetch', e);
- reportCaughtError(e, 'inputCard.fetchExchangeRate');
- // Cross-chunk version skew (stable filenames + re-lettered minified exports
- // after a deploy) throws a TypeError like "s is not a function" at call
- // time. This try/catch swallows it locally, so it never reaches
- // ErrorBoundary's own isVersionSkewError → recoverFromStaleChunk self-heal
- // (mirrors that same recovery here — see ErrorBoundary.tsx).
- if (isVersionSkewError(e)) {
- void recoverFromStaleChunk(`inputCard_exchange_rate:${(e as Error)?.message?.slice(0, 80) || ''}`);
- }
- } finally {
- setLoadingRate(false);
- }
- };
-
- useEffect(() => {
- fetchRate();
- const interval = setInterval(fetchRate, 300000);
- return () => clearInterval(interval);
- }, []);
 
  useEffect(() => {
  if (!focusField || focusRequestId === 0) return;
@@ -1036,11 +1005,11 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <input 
  type="number" 
  inputMode="decimal"
- value={inputs.ssnHealthTaxPercentage} 
- onChange={(e) => handleChange('ssnHealthTaxPercentage', Math.max(0, Math.min(100, parseFloat(e.target.value) || 0)))} 
+ value={normalizeFrontierSsnRate(inputs.ssnHealthTaxPercentage)}
+ onChange={(e) => handleChange('ssnHealthTaxPercentage', normalizeFrontierSsnRate(e.target.valueAsNumber))}
  step="0.1"
- min="0"
- max="100"
+ min={FRONTIER_SSN_MIN_RATE}
+ max={FRONTIER_SSN_MAX_RATE}
  aria-label={t('input.netIncomePercentage') || 'Percentuale reddito netto per contributo SSN'}
  className="w-14 text-right bg-surface-alt text-strong border border-edge rounded px-2 py-1 text-xs font-bold focus:outline-none focus-visible:ring-1 focus-visible:ring-warning" 
  />

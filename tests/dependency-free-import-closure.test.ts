@@ -17,13 +17,25 @@ describe('followup-drainer dependency-free import closure (#7341)', () => {
   it('walks the complete closure and reports only the documented guarded package', () => {
     const output = execFileSync(process.execPath, [SCRIPT], { cwd: ROOT, encoding: 'utf8' });
     expect(output).toMatch(/dependency-free import closure OK: \d+ files/);
-    expect(output).toContain('guarded package exception: scripts/load-rc-env.mjs -> firebase-admin');
+    expect(output).toContain('guarded package exception: scripts/load-rc-env.mjs -> firebase-admin/app');
+    expect(output).toContain('guarded package exception: scripts/load-rc-env.mjs -> firebase-admin/remote-config');
 
     const { files } = scanImportClosure();
     expect(files).toEqual(expect.arrayContaining([
       'scripts/lib/secrets-scope-detect.mjs',
       'scripts/lib/workflow-scope-detect.mjs',
     ]));
+  });
+
+  it('keeps social post confirmation dependency-free through the publication hold', () => {
+    const { files, packageImports } = scanImportClosure({
+      entries: ['scripts/social-robot/confirm.mjs'],
+    });
+
+    expect(files).toContain('scripts/lib/translation-publication-hold.mjs');
+    expect(files).toContain('scripts/lib/job-locale-core.mjs');
+    expect(files).not.toContain('scripts/lib/job-locale-utils.mjs');
+    expect(packageImports).toEqual([]);
   });
 
   it('runs the closure check before the zero-dependency drain entrypoint', () => {
@@ -73,7 +85,7 @@ describe('followup-drainer dependency-free import closure (#7341)', () => {
 const HEALTH_MONITOR_WORKFLOW = '.github/workflows/pharmacy-data-health-monitor.yml';
 
 describe('pharmacy data-health monitor dependency-free closure', () => {
-  it('keeps the monitor closure free of the crawler fetch stack', () => {
+  it('#8765 keeps optional pharmacy enrichment outside the monitor closure', () => {
     // pharmacy-data-health-monitor.yml runs this observer WITHOUT `npm ci`.
     // From 2026-09-14 its closure reached scripts/lib/crawler-template.mjs for
     // the single `slugify` helper, and that module imports
@@ -83,12 +95,23 @@ describe('pharmacy data-health monitor dependency-free closure', () => {
     // the exact failure class the monitor exists to close.
     const { files } = scanImportClosure();
     expect(files).toContain('scripts/check-pharmacy-data-health.mjs');
-    // The chain is walked for real, so the guard cannot pass vacuously.
-    expect(files).toContain('scripts/lib/pharmacy-ticino-parser.mjs');
-    expect(files).toContain('scripts/lib/slugify.mjs');
-    // The carrier of the npm import must stay out of the closure.
+    // The chain is walked for real, so the guard cannot pass vacuously: the
+    // monitor reaches the pure validators through check-pharmacy-border-data.
+    expect(files).toContain('scripts/check-pharmacy-border-data.mjs');
+    expect(files).toContain('services/pharmacies/release-contract-validator.mjs');
+    expect(files).toContain('scripts/lib/pharmacy-enrichment-validation.mjs');
+    expect(files).toContain('scripts/lib/pharmacy-border-release-validation.mjs');
+    // These modules carry optional npm/provider imports and must stay out of
+    // the closure. A static import back into either module makes scanImportClosure
+    // throw before this assertion can pass.
+    expect(files).not.toContain('scripts/lib/pharmacy-enrichment.mjs');
+    expect(files).not.toContain('scripts/import-pharmacies-border.mjs');
     expect(files).not.toContain('scripts/lib/crawler-template.mjs');
     expect(files).not.toContain('scripts/lib/prospector/public-fetch-policy.mjs');
+  });
+
+  it('#8765 treats literal dynamic npm imports as dependencies too', () => {
+    expect(importSpecifiers("async function load() { return import('jsdom'); }")).toEqual(['jsdom']);
   });
 
   it('verifies the closure before running the dashboard', () => {

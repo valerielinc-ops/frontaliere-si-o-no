@@ -1,0 +1,24 @@
+{
+  "companyKey": "ospena-group-ag",
+  "companyName": "Ospena Group AG",
+  "companyHost": "jobs.migros.ch",
+  "platform": "migros.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/ospena-group-ag/offene-stellen"
+  ],
+  "detailTemplate": "/de/unsere-unternehmen/job/pizzeria-ristorante-molino/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Pizzeria Ristorante Molino, Ospena Group AG Pizzaiolo (m/​w/​d) 100%, Bern ‧ 100% 3011 Bern Festanstellung (unbefristet)",
+    "Pizzeria Ristorante Molino, Ospena Group AG Sous-Chef (m/​w/​d) 100%, Molino Winterthur ‧ 100% 8400 Winterthur Festanstellung (unbefristet)",
+    "Pizzeria Ristorante Molino, Ospena Group AG Chef de Service 100% Molino Baden ‧ 100% 5400 Baden Festanstellung (unbefristet)",
+    "Pizzeria Ristorante Molino, Ospena Group AG Chef de Service 80% (m/​w/​d), Molino Bern ‧ 80% 3011 Bern Nebenerwerb / Auf Stundenbasis",
+    "Pizzeria Ristorante Molino, Ospena Group AG Pizzaiolo 100% Unbefristet (m/​w/​d) Molino Frauenfeld ‧ 100% 8500 Frauenfeld Festanstellung (unbefristet)"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-20T06:24:26.186Z"
+}

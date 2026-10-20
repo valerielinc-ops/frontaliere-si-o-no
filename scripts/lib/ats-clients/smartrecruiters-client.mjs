@@ -77,8 +77,10 @@
  * @property {string} title              Job title (whitespace-normalised), from `name`.
  * @property {string} location           `location.fullLocation` || `location.city`.
  * @property {string} company            Company display name (passed via options).
- * @property {string|null} postedAt      ISO date — prefers `releasedDate`,
- *                                       falls back to `createdOn`, else null.
+ * @property {string|null} postedAt      Compatibility alias of validated releasedDate, else null.
+ * @property {string} datePosted        Validated employer release timestamp, else empty.
+ * @property {string} postedDate        Same value as datePosted.
+ * @property {'reported'|'unknown'} postingDateSource Publication evidence marker.
  * @property {string} applyUrl           `applyUrl` (preferred) or composed
  *                                       `https://jobs.smartrecruiters.com/{tenant}/{id}`.
  * @property {string} [descriptionHtml]  Concatenated jobAd sections, if present.
@@ -89,6 +91,7 @@
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
+import { sourcePostingDateFields } from '../source-posting-date.mjs';
 
 /* ── Constants ───────────────────────────────────────────────── */
 
@@ -146,18 +149,6 @@ function slugify(input = '') {
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-/**
- * Best-effort ISO date conversion. Accepts ISO strings and date-only strings.
- * @param {string|null|undefined} raw
- * @returns {string|null}
- */
-function toIsoDate(raw) {
-  if (!raw || typeof raw !== 'string') return null;
-  const d = new Date(raw);
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toISOString();
 }
 
 /**
@@ -360,10 +351,69 @@ async function fetchPostingDetail(tenant, listingPosting, { timeoutMs, userAgent
     });
     if (!res.ok) return listingPosting;
     const full = await res.json();
-    return (full && typeof full === 'object') ? full : listingPosting;
+    if (!full || typeof full !== 'object' || Array.isArray(full)) return listingPosting;
+
+    // SmartRecruiters documents the detail response as a full PostingDetails
+    // object, but a partial/empty JSON object can still be returned while the
+    // listing endpoint remains usable (for example during a detail read race).
+    // Do not let that response erase the list row's identity: consumers use
+    // `name` to build the parsed job and otherwise turn a live posting into a
+    // false no-jobs-parsed result. Merge nested location fields as well, so a
+    // detail payload that only carries a city does not discard the list
+    // endpoint's country signal used by source-specific filters.
+    const merged = { ...listingPosting, ...full };
+    for (const field of ['location', 'typeOfEmployment']) {
+      merged[field] = mergePartialRecord(listingPosting[field], full[field]);
+    }
+    for (const field of ['id', 'name', 'applyUrl', 'releasedDate', 'createdOn']) {
+      const value = full[field];
+      if (value === undefined || value === null || (typeof value === 'string' && value.trim() === '')) {
+        merged[field] = listingPosting[field];
+      }
+    }
+    return merged;
   } catch {
     return listingPosting;
   }
+}
+
+/**
+ * Merge a JSON object from the detail endpoint without allowing partial or
+ * malformed fields to erase evidence from the listing endpoint. Nested
+ * records are merged recursively so e.g. `country: null` cannot discard a
+ * listing country code.
+ *
+ * @param {unknown} listingValue
+ * @param {unknown} detailValue
+ * @returns {unknown}
+ */
+function mergePartialRecord(listingValue, detailValue) {
+  const isRecord = (value) => value !== null
+    && typeof value === 'object'
+    && !Array.isArray(value);
+  const isUsableValue = (value) => value !== undefined
+    && value !== null
+    && !(typeof value === 'string' && value.trim() === '')
+    && !Array.isArray(value);
+
+  if (!isRecord(detailValue)) return listingValue;
+  if (!isRecord(listingValue)) return detailValue;
+
+  const merged = { ...listingValue };
+  for (const [key, value] of Object.entries(detailValue)) {
+    if (!isUsableValue(value)) continue;
+    const listingField = listingValue[key];
+    if (isRecord(listingField) && isRecord(value)) {
+      merged[key] = mergePartialRecord(listingField, value);
+    } else if (isUsableValue(listingField) && typeof listingField !== typeof value) {
+      // Keep a known listing shape when a detail response changes the field's
+      // JSON type instead of returning the same field partially populated.
+      continue;
+    } else {
+      merged[key] = value;
+    }
+  }
+  return merged;
 }
 
 /**
@@ -637,6 +687,42 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
 }
 
 /**
+ * Whether the `onComplete` proof of a strict walk covers the WHOLE tenant:
+ * the walk ended on its own terms, every page carried distinct posting IDs,
+ * and the unique rows seen equal the total the API declared.
+ *
+ * @param {{ terminationProven?: boolean, paginationIntegrityProven?: boolean, totalFound?: number|null, recordsSeen?: number, rawRecordsSeen?: number }|null|undefined} proof
+ * @returns {boolean}
+ */
+export function isCompleteSmartRecruitersSourceRead(proof) {
+  return proof?.terminationProven === true
+    && proof.paginationIntegrityProven === true
+    && Number.isSafeInteger(proof.totalFound)
+    && proof.recordsSeen === proof.totalFound
+    && proof.rawRecordsSeen === proof.recordsSeen;
+}
+
+/**
+ * Whether a complete walk proves that a FILTERED result (e.g. the Swiss
+ * postings of a group-wide tenant) is legitimately empty.
+ *
+ * Completeness alone is not enough. The postings endpoint answers
+ * `200 {"totalFound":0,"content":[]}` for a company identifier it does not
+ * know — verified live 2026-10-02 against a made-up identifier, the same
+ * envelope a live tenant with no postings returns — and a renamed or retired
+ * tenant (the `Imerys` identifier, whose careers page now redirects to the
+ * SmartRecruiters home) reads exactly like that. Only a walk that observed the
+ * tenant's own live postings shows that the source is the employer's board and
+ * that the zero is the filter's verdict, not an unknown company's empty list.
+ *
+ * @param {Parameters<typeof isCompleteSmartRecruitersSourceRead>[0]} proof
+ * @returns {boolean}
+ */
+export function provesSmartRecruitersFilteredEmpty(proof) {
+  return isCompleteSmartRecruitersSourceRead(proof) && proof.totalFound > 0;
+}
+
+/**
  * Concatenate available jobAd sections into a single HTML blob.
  * Order: jobDescription → qualifications → additionalInformation.
  *
@@ -655,6 +741,31 @@ function concatJobAdSections(posting) {
 }
 
 /**
+ * The public job-ad page of a SmartRecruiters posting, and its apply link.
+ *
+ * `applyUrl` is the application flow: it carries `?oga=true` and answers
+ * `302 → /oneclick-ui/company/<tenant>/publication/…`, which shows no job text
+ * and returns 403 to non-browser clients — so a crawler that published it as
+ * the vacancy URL linked readers to a form and left every source-detail check
+ * unreadable (HUG 4/4, ardentis and imad listed as `refused-by-source`,
+ * 2026-09-29). `postingUrl` is the ad itself. Both keep the numeric posting id
+ * in the path, so `extractStableJobId` matches records published under either.
+ *
+ * @param {SmartRecruitersPosting} posting detail payload
+ * @param {string} [tenant] company identifier, for the id-based fallback page
+ * @returns {{ pageUrl: string, applyUrl: string }} empty strings when unknown
+ */
+export function smartRecruitersPostingUrls(posting, tenant = '') {
+  const clean = (value) => (typeof value === 'string' ? value.trim() : '');
+  const id = String(posting?.id ?? '').trim();
+  const apply = clean(posting?.applyUrl);
+  const pageUrl = clean(posting?.postingUrl)
+    || (id && tenant ? `${SR_PUBLIC_JOBS_BASE}/${encodeURIComponent(tenant)}/${encodeURIComponent(id)}` : '')
+    || apply;
+  return { pageUrl, applyUrl: apply || pageUrl };
+}
+
+/**
  * Convert a single raw SmartRecruiters posting into the vendor-agnostic shape.
  *
  * @param {SmartRecruitersPosting} rawJob
@@ -669,7 +780,8 @@ export function normalizeSmartRecruitersJob(rawJob, options = {}) {
   const title = normalizeSpace(rawJob?.name || '');
   const loc = rawJob?.location || {};
   const location = normalizeSpace(loc.fullLocation || loc.city || '');
-  const postedAt = toIsoDate(rawJob?.releasedDate) || toIsoDate(rawJob?.createdOn) || null;
+  // Posting creation is not evidence of publication; preserve the release timestamp.
+  const postingDates = sourcePostingDateFields(rawJob?.releasedDate);
   const fallbackApply = id && tenant
     ? `${SR_PUBLIC_JOBS_BASE}/${encodeURIComponent(tenant)}/${encodeURIComponent(id)}`
     : '';
@@ -684,7 +796,8 @@ export function normalizeSmartRecruitersJob(rawJob, options = {}) {
     title,
     location,
     company,
-    postedAt,
+    postedAt: postingDates.postedDate || null,
+    ...postingDates,
     applyUrl,
     rawPosting: rawJob,
   };

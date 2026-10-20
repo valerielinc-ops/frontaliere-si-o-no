@@ -40,7 +40,7 @@
  * host-allowlisted and doesn't know this host; rather than touching the
  * shared client, this parser follows the in-tree sitemap-driven CSB idiom
  * (Mobiliar) with plain `fetchHtml()`. Only the shared date normalizer
- * (`parseSuccessFactorsPostedDate`) is imported from the client.
+ * (`successFactorsPostingDateFields`) is imported from the client.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBelimoJobs()   — Fetch and parse all Swiss jobs
@@ -51,8 +51,11 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -212,6 +215,20 @@ export function isSwissJobUrlCandidate(url = '') {
 }
 
 /**
+ * Some Belimo requisitions expose their workplace ONLY as the CSB
+ * `streetAddress` string "City, CC, Postal" ("Vaassen, NL, 8171 MG",
+ * "New Taipei City, TW, 234") with no addressLocality/addressCountry.
+ * Returns `{ city, country, postalCode }` from that shape, or null.
+ *
+ * @param {string} value
+ */
+export function parseCsbStreetAddressLocation(value = '') {
+  const m = normalizeSpace(value).match(/^([^,]+),\s*([A-Z]{2}),\s*([^,]+)$/);
+  if (!m) return null;
+  return { city: m[1].trim(), country: m[2], postalCode: m[3].trim() };
+}
+
+/**
  * Fetch the CSB sitemap and return every job detail URL.
  */
 async function fetchAllJobUrls() {
@@ -220,8 +237,11 @@ async function fetchAllJobUrls() {
     headers: { Accept: 'application/xml,text/xml,*/*' },
   });
 
+  // <loc> is XML text: `&` in a slug arrives as `&amp;`. Decode it, or the
+  // published URL reads "...Energy-&amp;-Metering..." and no longer equals
+  // the one stored on the previous run.
   const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)]
-    .map((m) => m[1].trim())
+    .map((m) => decodeEntities(m[1].trim()))
     .filter((url) => /\/job\/[^/]+\/\d+\/?$/.test(url))
     .map((url) => new URL(url, JOB_BASE).toString());
 
@@ -234,7 +254,7 @@ async function fetchAllJobUrls() {
  *
  * @param {string} html Raw detail-page HTML.
  * @returns {{title: string, city: string, region: string, postalCode: string,
- *            country: string, postedDate: string|null, descriptionHtml: string} | null}
+ *            country: string, postedDate: string, datePosted: string, postingDateSource: string, descriptionHtml: string} | null}
  *   `null` when the page carries no job microdata (challenge page, redirect
  *   stub, "The desired job cannot be found" template, expired posting).
  */
@@ -265,9 +285,20 @@ export function parseBelimoDetailPage(html = '') {
     descriptionHtml = (end !== -1 ? body.slice(0, end) : body.slice(0, 20000)).trim();
   }
 
-  const city = grabMeta('addressLocality');
-  const country = grabMeta('addressCountry');
+  // Workplace from microdata; when the page only carries the CSB
+  // "City, CC, Postal" streetAddress, read it from there. Without this the
+  // Dutch (Vaassen) and Taiwanese (New Taipei City) requisitions had no city
+  // and no country, passed the CH gate and were published under the Hinwil HQ.
+  const streetLocation = parseCsbStreetAddressLocation(grabMeta('streetAddress'));
+  const city = grabMeta('addressLocality') || streetLocation?.city || '';
+  const country = grabMeta('addressCountry') || streetLocation?.country || '';
   if (!title && !city && !country) return null;
+  // A requisition that is already filled stays in the CSB sitemap, but its
+  // page keeps only the title and the notice "Diese Stelle wurde leider
+  // bereits besetzt." — no description, no JobLocation microdata. It is not
+  // an open vacancy: publishing it produced the "{title} presso Belimo a
+  // Hinwil." stub (audit run 36528331656, 1163687855).
+  if (!descriptionHtml && !city && !country) return null;
 
   // SF CSB truncates region labels ("Züri" for Zürich) — expand the known one.
   let region = grabMeta('addressRegion');
@@ -277,9 +308,9 @@ export function parseBelimoDetailPage(html = '') {
     title,
     city,
     region,
-    postalCode: grabMeta('postalCode'),
+    postalCode: grabMeta('postalCode') || (streetLocation?.country === 'CH' ? streetLocation.postalCode : ''),
     country: country.toUpperCase(),
-    postedDate: parseSuccessFactorsPostedDate(grabMeta('datePosted')),
+    ...successFactorsPostingDateFields(grabMeta('datePosted')),
     descriptionHtml,
   };
 }
@@ -329,6 +360,7 @@ export async function fetchAllBelimoJobs() {
   const seen = new Set();
   let fetched = 0;
   let skippedByCap = 0;
+  let withoutBody = 0;
 
   for (const jobUrl of candidates) {
     if (fetched >= MAX_DETAIL_FETCHES) {
@@ -370,13 +402,21 @@ export async function fetchAllBelimoJobs() {
     const location = city;
     const canton = inferSwissTargetCanton(location) || inferSwissTargetCanton(region) || HQ.canton;
 
+    // Only the posting's own text is published (issue 5253): a page without
+    // a description block used to go out as "{title} presso Belimo a {city}.";
+    // it is not published any more.
     const descriptionText = stripHtml(parsed.descriptionHtml || '');
-    const description = descriptionText || `${title} presso ${BELIMO_COMPANY_NAME} a ${location}.`;
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.log(`  ⏭️ no vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      await new Promise((r) => setTimeout(r, DETAIL_FETCH_DELAY_MS));
+      continue;
+    }
+    const description = descriptionText;
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} belimo ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(title);
-    const postedDate = parsed.postedDate || new Date().toISOString().split('T')[0];
     const jobReqId = extractJobReqId(jobUrl) || null;
 
     const job = {
@@ -412,7 +452,7 @@ export async function fetchAllBelimoJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, parsed),
       applyUrl: publicUrl,
       jobReqId,
       requirements: [],
@@ -432,6 +472,9 @@ export async function fetchAllBelimoJobs() {
     );
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} page(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total ${BELIMO_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

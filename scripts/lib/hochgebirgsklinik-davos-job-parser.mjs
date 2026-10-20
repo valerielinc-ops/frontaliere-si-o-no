@@ -22,10 +22,14 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import {
   fetchJson,
+  fetchHtml,
   fetchWithRetry,
   RETRYABLE_STATUS,
   slugify,
@@ -182,15 +186,6 @@ function extractPensum(title = '') {
   return null;
 }
 
-/**
- * Parse DD.MM.YYYY, HH:MM:SS → YYYY-MM-DD.
- */
-function parseDate(raw = '') {
-  const m = String(raw || '').match(/^(\d{2})\.(\d{2})\.(\d{4})/);
-  if (!m) return '';
-  return `${m[3]}-${m[2]}-${m[1]}`;
-}
-
 /* ── Typesense API Key Extraction ────────────────────────── */
 
 /**
@@ -307,49 +302,40 @@ async function fetchTypesenseApiKeyFromSearchApi(nuxtArr) {
  */
 export async function fetchTypesenseApiKey() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const html = await fetchHtml(CAREER_URL, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': USER_AGENT,
+      'Accept-Language': 'de-CH,de;q=0.9',
+    },
+  });
 
-  try {
-    const res = await fetch(CAREER_URL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': USER_AGENT,
-        'Accept-Language': 'de-CH,de;q=0.9',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from career page`);
-    const html = await res.text();
+  // Extract __NUXT_DATA__ JSON array
+  const nuxtMatch = html.match(/<script[^>]*id="__NUXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+  if (!nuxtMatch) throw new Error('__NUXT_DATA__ not found in career page HTML');
 
-    // Extract __NUXT_DATA__ JSON array
-    const nuxtMatch = html.match(/<script[^>]*id="__NUXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
-    if (!nuxtMatch) throw new Error('__NUXT_DATA__ not found in career page HTML');
+  const nuxtArr = JSON.parse(nuxtMatch[1]);
 
-    const nuxtArr = JSON.parse(nuxtMatch[1]);
+  const apiKey = extractTypesenseApiKeyFromNuxtData(nuxtArr);
 
-    const apiKey = extractTypesenseApiKeyFromNuxtData(nuxtArr);
-
-    if (apiKey) {
-      console.log(`  🔑 Extracted Typesense API key (${apiKey.length} chars)`);
-      return apiKey;
-    }
-
-    // The current job-shop Nuxt client refreshes the key through this endpoint
-    // when the SSR payload contains a null ref. Follow the same public client
-    // contract instead of treating a valid-but-keyless page as a parser break.
-    console.warn('  ⚠️ Nuxt payload has no usable Typesense key; refreshing it through the public job-shop API');
-    const refreshedKey = await fetchTypesenseApiKeyFromSearchApi(nuxtArr);
-    if (refreshedKey) {
-      console.log(`  🔑 Refreshed Typesense API key (${refreshedKey.length} chars)`);
-      return refreshedKey;
-    }
-
-    const keyProp = `typesenseApiKey-${JOB_SHOP_ID}`;
-    throw new Error(`NUXT_DATA: ${keyProp} not found and public key refresh metadata is unavailable (array has ${nuxtArr.length} entries)`);
-  } finally {
-    clearTimeout(timer);
+  if (apiKey) {
+    console.log(`  🔑 Extracted Typesense API key (${apiKey.length} chars)`);
+    return apiKey;
   }
+
+  // The current job-shop Nuxt client refreshes the key through this endpoint
+  // when the SSR payload contains a null ref. Follow the same public client
+  // contract instead of treating a valid-but-keyless page as a parser break.
+  console.warn('  ⚠️ Nuxt payload has no usable Typesense key; refreshing it through the public job-shop API');
+  const refreshedKey = await fetchTypesenseApiKeyFromSearchApi(nuxtArr);
+  if (refreshedKey) {
+    console.log(`  🔑 Refreshed Typesense API key (${refreshedKey.length} chars)`);
+    return refreshedKey;
+  }
+
+  const keyProp = `typesenseApiKey-${JOB_SHOP_ID}`;
+  throw new Error(`NUXT_DATA: ${keyProp} not found and public key refresh metadata is unavailable (array has ${nuxtArr.length} entries)`);
 }
 
 /* ── Typesense Search ────────────────────────────────────── */
@@ -532,7 +518,10 @@ export async function fetchAllHochgebirgsklinikDavosJobs() {
 
     // Build full description
     const descriptionText = buildDescription(doc);
-    const fallbackDesc = `${title} — Hochgebirgsklinik Davos, ${location}`;
+    // Only the posting's own text (issue 5253): no "<title> — Hochgebirgsklinik Davos, <place>"
+    // line in place of a missing body. A body under the common 50-word floor
+    // gives no description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     // Public URL and apply URL
     const publicUrl = buildPublicUrl(doc);
@@ -555,7 +544,18 @@ export async function fetchAllHochgebirgsklinikDavosJobs() {
     const contract = pensum && pensum.max < 80 ? 'part-time' : 'full-time';
 
     // Dates
-    const postedDate = parseDate(doc.create_date) || new Date().toISOString().split('T')[0];
+    let publication = sourcePostingDateFields('');
+    // Typesense creation/start/modification are not publication evidence. The
+    // vacancy's public SSR page explicitly labels its JobPosting.datePosted.
+    try {
+      const detailUrl = new URL(publicUrl);
+      if (detailUrl.origin === new URL(CAREER_URL).origin && detailUrl.pathname.startsWith('/jobs/')) {
+        const detailHtml = await fetchHtml(detailUrl.href);
+        publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
+      }
+    } catch {
+      // Preserve the API's genuine body/application URL when publication is unavailable.
+    }
 
     // Postal code from full_address
     const fullAddress = (doc.full_address || [])[0] || '';
@@ -576,8 +576,8 @@ export async function fetchAllHochgebirgsklinikDavosJobs() {
       companyDomain: HOCHGEBIRGSKLINIK_DAVOS_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton,
       url: publicUrl,
@@ -597,7 +597,7 @@ export async function fetchAllHochgebirgsklinikDavosJobs() {
       sector: 'Sanità / Assistenza',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

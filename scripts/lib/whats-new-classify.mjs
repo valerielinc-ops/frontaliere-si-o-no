@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * whats-new-classify.mjs — decide whether a commit belongs in the What's New
  * modal, and pull its type/scope/description out of the subject line.
@@ -145,7 +147,7 @@ export function classifyCommit(subject) {
 const invokedDirectly =
   typeof process !== 'undefined' &&
   process.argv[1] !== undefined &&
-  process.argv[1].endsWith('whats-new-classify.mjs');
+  (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   let out;
   try {

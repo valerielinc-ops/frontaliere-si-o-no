@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43564",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43564",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "35797",
+      "normalizedPlate": "ZH35797",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 630,
+      "bidCount": 13,
+      "endsAt": "2026-10-07T17:00:00.000Z",
+      "closedAt": "2026-10-07T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43564",
+      "sourceFetchedAt": "2026-10-07T06:06:19.130Z",
+      "lastVerifiedAt": "2026-10-07T06:06:19.130Z",
+      "firstSeenAt": "2026-10-01T06:00:40.010Z",
+      "lastSeenAt": "2026-10-07T06:06:19.130Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "9c916e0b9d1e"
+    }
+  ]
+}

@@ -23,7 +23,7 @@ import {
 } from '../scripts/lib/albergo-gardenia-job-parser.mjs';
 import { buildExpiredEntry } from '../scripts/lib/expired-jobs-archive.mjs';
 import { HOST_DELAY_MS } from '../scripts/lib/prospector/config.mjs';
-import { isConnectionLevelFetchError } from '../scripts/lib/transient-fetch.mjs';
+import { isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from '../scripts/lib/transient-fetch.mjs';
 import { expiredJobSlugVariants } from '../build-plugins/shared/expiredSlugVariants';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -228,6 +228,66 @@ describe('Albergo Gardenia authoritative crawler', () => {
       .toBe(false);
   });
 
+  it('routes a direct HTTP WAF response through bounded Chromium without trying the host alias', async () => {
+    const fetchPage = vi.fn(async (url: string) => ({
+      ok: false,
+      status: 415,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    }));
+    const browserFetchPage = vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      url,
+      body: '<urlset />',
+      host: new URL(url).hostname,
+    }));
+
+    const response = await fetchAlbergoGardeniaSourcePage(ALBERGO_GARDENIA_SITEMAP_URL, {
+      kind: 'sitemap',
+      fetchPage,
+      browserFetchPage,
+    });
+
+    expect(response).toMatchObject({ ok: true, status: 200, url: ALBERGO_GARDENIA_SITEMAP_URL });
+    expect(fetchPage).toHaveBeenCalledOnce();
+    expect(browserFetchPage).toHaveBeenCalledTimes(1);
+    expect(browserFetchPage).toHaveBeenNthCalledWith(
+      1,
+      ALBERGO_GARDENIA_SITEMAP_URL,
+      expect.objectContaining({
+        ...ALBERGO_GARDENIA_FETCH_BUDGET.sitemap,
+        accept: 'application/xml,text/xml,*/*',
+      }),
+    );
+  });
+
+  it.each([
+    ['robots denial', { blockedByRobots: true }],
+    ['URL-policy denial', { policyBlocked: true }],
+  ])('does not bypass a deterministic %s marked as a WAF status', async (_label, denial) => {
+    const fetchPage = vi.fn(async (url: string) => ({
+      ok: false,
+      status: 415,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+      ...denial,
+    }));
+    const browserFetchPage = vi.fn();
+
+    const response = await fetchAlbergoGardeniaSourcePage(ALBERGO_GARDENIA_SITEMAP_URL, {
+      kind: 'sitemap',
+      fetchPage,
+      browserFetchPage,
+    });
+
+    expect(response).toMatchObject({ ok: false, status: 415, ...denial });
+    expect(fetchPage).toHaveBeenCalledOnce();
+    expect(browserFetchPage).not.toHaveBeenCalled();
+  });
+
   it('warns when the sticky transport budget margin thins as content pages accumulate', async () => {
     const sitemap = representativeSitemap();
     let now = 0;
@@ -298,6 +358,43 @@ describe('Albergo Gardenia authoritative crawler', () => {
     });
     expect(assertCompleteAlbergoGardeniaSnapshot(jobs)).toBe(true);
     expect(fetchPage).toHaveBeenCalledTimes(2);
+    expect(browserFetchPage).toHaveBeenCalledOnce();
+    expect(cleanEgressFetchPage).toHaveBeenCalledTimes(41);
+  });
+
+  it('routes a Chromium WAF response through clean egress', async () => {
+    const sitemap = representativeSitemap();
+    const failed = (url: string) => ({
+      ok: false,
+      status: 0,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    });
+    const fetchPage = vi.fn(async (url: string) => failed(url));
+    const browserFetchPage = vi.fn(async (url: string) => ({
+      ok: false,
+      status: 415,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    }));
+    const cleanEgressFetchPage = vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      url,
+      body: new URL(url).pathname === '/sitemap.xml' ? sitemap : gardeniaPage(),
+      host: new URL(url).hostname,
+    }));
+
+    expect(WAF_IP_BLOCK_STATUS.has(415)).toBe(true);
+    const jobs = await fetchAllAlbergoGardeniaJobs({
+      fetchPage,
+      browserFetchPage,
+      cleanEgressFetchPage,
+    });
+
+    expect(assertCompleteAlbergoGardeniaSnapshot(jobs)).toBe(true);
     expect(browserFetchPage).toHaveBeenCalledOnce();
     expect(cleanEgressFetchPage).toHaveBeenCalledTimes(41);
   });
@@ -617,6 +714,101 @@ describe('Albergo Gardenia authoritative crawler', () => {
     });
   });
 
+  it('uses the Cloudflare API token without requiring a GitHub identity lookup', async () => {
+    const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
+    const snapshot = {
+      homepageUrl: ALBERGO_GARDENIA_HOME_URL,
+      sitemap: {
+        status: 200,
+        url: ALBERGO_GARDENIA_SITEMAP_URL,
+        body: representativeSitemap(),
+      },
+      pages: [{
+        requestedUrl: sourceUrl,
+        status: 200,
+        url: sourceUrl,
+        body: gardeniaPage(),
+      }],
+    };
+    const escaped = JSON.stringify(snapshot)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({
+      success: true,
+      result: `<pre id="gardenia-clean-egress-source">${escaped}</pre>`,
+    }), { status: 200 }));
+    const transport = createAlbergoGardeniaCleanEgressTransport({
+      fetchImpl,
+      gardeniaCfAccount: 'account-123',
+      gardeniaCfToken: 'api-token',
+      gardeniaCfKey: 'global-key',
+      gardeniaGithubToken: 'github-token',
+    });
+
+    await expect(transport.fetchPage(sourceUrl)).resolves.toMatchObject({
+      ok: true,
+      status: 200,
+      url: sourceUrl,
+    });
+    expect(fetchImpl).toHaveBeenCalledOnce();
+    const [, options] = fetchImpl.mock.calls[0];
+    expect(options.headers).toMatchObject({
+      Authorization: 'Bearer api-token',
+    });
+    expect(options.headers).not.toHaveProperty('X-Auth-Email');
+    expect(options.headers).not.toHaveProperty('X-Auth-Key');
+  });
+
+  it('falls back to the Global API Key when the configured API token is rejected', async () => {
+    const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
+    const snapshot = {
+      homepageUrl: ALBERGO_GARDENIA_HOME_URL,
+      sitemap: {
+        status: 200,
+        url: ALBERGO_GARDENIA_SITEMAP_URL,
+        body: representativeSitemap(),
+      },
+      pages: [{
+        requestedUrl: sourceUrl,
+        status: 200,
+        url: sourceUrl,
+        body: gardeniaPage(),
+      }],
+    };
+    const escaped = JSON.stringify(snapshot)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    const fetchImpl = vi.fn()
+      .mockResolvedValueOnce(new Response('', { status: 401 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({
+        success: true,
+        result: `<pre id="gardenia-clean-egress-source">${escaped}</pre>`,
+      }), { status: 200 }));
+    const transport = createAlbergoGardeniaCleanEgressTransport({
+      fetchImpl,
+      gardeniaCfAccount: 'account-123',
+      gardeniaCfToken: 'rejected-api-token',
+      gardeniaCfKey: 'global-key',
+      gardeniaCfEmail: 'owner@example.test',
+    });
+
+    await expect(transport.fetchPage(sourceUrl)).resolves.toMatchObject({
+      ok: true,
+      status: 200,
+      url: sourceUrl,
+    });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(fetchImpl.mock.calls[0][1].headers).toMatchObject({
+      Authorization: 'Bearer rejected-api-token',
+    });
+    expect(fetchImpl.mock.calls[1][1].headers).toMatchObject({
+      'X-Auth-Email': 'owner@example.test',
+      'X-Auth-Key': 'global-key',
+    });
+  });
+
   it('does not memoize a failed loadInventory() across fetchPage() calls', async () => {
     const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
     const snapshot = {
@@ -877,6 +1069,14 @@ describe('Albergo Gardenia authoritative crawler', () => {
     await expect(fetchAllAlbergoGardeniaJobs({ fetchPage: sitemapRedirected })).rejects.toThrow(
       /sitemap identity mismatch/,
     );
+  });
+
+  it('detects a graph-wrapped JobPosting career signal', () => {
+    const graphJobPosting = `<script type="application/ld+json">${JSON.stringify({
+      '@graph': [{ '@type': ['JobPosting'], title: 'Chef de partie' }],
+    })}</script>`;
+    expect(() => assertNoGardeniaCareerSurface(gardeniaPage(graphJobPosting), 'https://www.albergo-gardenia.ch/story.php'))
+      .toThrow(/JobPosting detected/);
   });
 
   it('fails closed on missing source identity, career navigation, or JobPosting', () => {

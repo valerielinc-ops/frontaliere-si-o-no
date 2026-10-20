@@ -3,15 +3,23 @@ set -uo pipefail
 
 # shellcheck source=scripts/lib/rehydrate-trunk-guard.sh
 . "$(dirname "${BASH_SOURCE[0]}")/rehydrate-trunk-guard.sh"
+. "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"
 
-# Mirrors post-deploy-validate-dist.yml's rehydrate_section(): all sections
-# run concurrently (each writes a disjoint dist/ subtree, no cross-section
-# race), each tracked via its own PID and gated on its own SHARD_LIVE env
-# var. Shared by seed-bfs-depth-baseline.yml, seed-orphan-pages-baseline.yml,
+# Mirrors post-deploy-validate-dist.yml's rehydrate_section(): sections write
+# disjoint dist/ subtrees, but their workers are deliberately bounded. Each
+# worker still walks all four locales and can hold a shard download, tar
+# extraction, clone, and copy at the same time; launching all 27 sections
+# together exhausted the runner before the step could report an exit code
+# (issue #7421, run 36479391795). The cap uses the shared sliding-window
+# driver already proven for the section-shard push fan-outs, so a finished
+# worker immediately admits the next section without an unbounded resource
+# spike. Shared by seed-bfs-depth-baseline.yml, seed-orphan-pages-baseline.yml,
 # seed-text-html-ratio-baseline.yml, seed-title-baselines.yml — previously
 # 4x byte-identical copy-paste of a sequential loop (AGENTS.md #6).
 # Requires GH_TOKEN, DEPLOY_RUN_ID, and one <SECTION>_SHARD_LIVE env var per
 # entry in section-shard-slugs.json (set by the calling workflow step).
+# `SHARD_ARTIFACT_RUN_ID` optionally points at the post-build run that holds
+# non-IT section artifacts; IT continues to use DEPLOY_RUN_ID.
 #
 # REPLACE, NOT MERGE — and why that stays true (issue #5327, the class behind
 # #5290's incident). Every `rm -rf "dist/$sub"` below (tar/cache/clone paths)
@@ -39,30 +47,121 @@ set -uo pipefail
 # rehydrate_section() call for a given batch+locale wins an atomic `mkdir`
 # lock and downloads; every other concurrent call for the same batch+locale
 # polls for the "done" marker instead of re-downloading.
+# Both network edges in this fallback are bounded and retried once, matching
+# rehydrate-locale-shards.sh: an unavailable/slow artifact or shard repository
+# must reach the existing fail-soft path, not hold all four workers until the
+# job-level timeout (#7421).
+#
+# THE BATCH IS KEPT AS ITS ZIP; NO MEMBER TAR IS EVER WRITTEN TO DISK
+# (deploy-publish run 36810296662, cathedral-seo-gates-check run 36810296254,
+# both "No space left on device" inside this step on 2026-10-01). This used to
+# be `gh run download`, which inflates EVERY member tar of the batch before any
+# section reads its own: batch 5 is a ~2.3 GB zip around ~13 GB of tars
+# (ticino-dist-en.tar alone is 11 GB on run 36791017459), and its small
+# sections race ahead to the next locale, so two or three such inflated
+# batches sat beside a logical dist that already ends at 134 of 145 GB
+# (green run 36539937776: "/dev/root 145G 134G 11G"). The last ticino
+# extraction then needs dist + its own 11 GB tar: the step had no margin left.
+# Now the owner fetches the artifact zip as-is (same API pair as
+# .github/actions/fetch-pages-artifact) and every section STREAMS its tar out
+# of it (`unzip -p … | tar -x`), so the transient cost of a batch is its
+# compressed zip, released by batch_zip_release() once the last live section
+# of the batch has read it. Each attempt keeps the old 180-second budget
+# (30 s resolve + 150 s download), so the 390-second loser wait below still
+# covers both attempts.
+BATCH_ZIP="batch.zip"
 ensure_batch_downloaded() {
   local batch="$1" loc="$2"
   local dl="$RUNNER_TEMP/shard-batch-$batch-dist-$loc"
   local lock="$dl.lock"
   local done="$dl.done"
+  local artifact_run_id="$DEPLOY_RUN_ID"
+  case "$loc" in
+    en|de|fr) artifact_run_id="${SHARD_ARTIFACT_RUN_ID:-$DEPLOY_RUN_ID}" ;;
+  esac
+  local name="shard-batch-$batch-dist-$loc-$artifact_run_id"
+  local repo="${GH_REPO:-${GITHUB_REPOSITORY:-}}"
+  local id members
   if [ -f "$done" ]; then
     return 0
   fi
   if mkdir "$lock" 2>/dev/null; then
-    rm -rf "$dl"; mkdir -p "$dl"
-    gh run download "$DEPLOY_RUN_ID" --name "shard-batch-$batch-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null || true
+    local batch_download_ok=1
+    for attempt in 1 2; do
+      rm -rf "$dl"; mkdir -p "$dl"
+      # `.expired==false`: an expired artifact stays LISTED for a while and
+      # would only fail later, on the zip, as a 410 (#7392).
+      id=""
+      if [ -n "$repo" ]; then
+        id="$(timeout 30 gh api "repos/$repo/actions/runs/$artifact_run_id/artifacts?name=$name&per_page=100" \
+                --jq '[.artifacts[] | select(.expired == false)] | sort_by(.created_at) | reverse | .[0].id // empty' 2>/dev/null)"
+      fi
+      # The listing goes through a variable, not `unzip -Z1 | grep -q`: under
+      # pipefail an early-exiting grep can SIGPIPE the lister and fail a good
+      # zip (#9361). `unzip -Z1` reads the central directory, so a truncated
+      # download fails here and takes the retry.
+      if [ -n "$id" ] \
+          && timeout 150 gh api -H "Accept: application/vnd.github+json" \
+               "repos/$repo/actions/artifacts/$id/zip" > "$dl/$BATCH_ZIP" 2>/dev/null \
+          && members="$(unzip -Z1 "$dl/$BATCH_ZIP" 2>/dev/null)" \
+          && grep -q -- "-dist-$loc\.tar$" <<< "$members"; then
+        batch_download_ok=0
+        break
+      fi
+      if [ "$attempt" -eq 1 ]; then
+        echo "[rehydrate] section batch $batch $loc artifact download attempt 1 failed/stalled — retrying"
+        sleep 5
+      fi
+    done
+    if [ "$batch_download_ok" -ne 0 ]; then
+      rm -rf "$dl"
+      echo "[rehydrate] section batch $batch $loc artifact absent after retry — falling back to git clone"
+    fi
     touch "$done"
     return 0
   fi
   # Loser: another concurrent section in this batch is already downloading —
-  # poll for the marker instead of racing a second `gh run download`. Capped
-  # wait (not an infinite block): if the winner's download hangs/fails, every
-  # tar-path check below simply misses and falls through to the existing
+  # poll for the marker instead of racing a second download. Capped
+  # wait (not an infinite block): if the winner's bounded download fails,
+  # every tar-path check below simply misses and falls through to the existing
   # git-clone fallback, same as an absent artifact today.
   local waited=0
-  while [ ! -f "$done" ] && [ "$waited" -lt 120 ]; do
+  # The owner gets two 180-second attempts plus the five-second backoff above;
+  # wait long enough for that bounded operation to finish before starting a
+  # duplicate clone from a losing worker.
+  while [ ! -f "$done" ] && [ "$waited" -lt 390 ]; do
     sleep 1
     waited=$((waited + 1))
   done
+}
+
+# One batch zip is read by every LIVE section of its batch, once per locale.
+# Each reader calls this as soon as it no longer needs the zip — on EVERY path:
+# subtree already present, tar streamed, member absent, download failed — and
+# the last of them deletes the zip. Readers are counted from
+# $BATCH_READERS_DIR (written once, before the fan-out), so a section that has
+# not started yet still holds the zip it will need.
+#
+# The release ledger MUST NOT live below the download directory. A section can
+# already be complete in the trunk and release before the first other section
+# starts `ensure_batch_downloaded()`. That function deliberately `rm -rf`s the
+# directory before downloading; putting the early reader marker there loses it
+# and leaves the zip alive until the final sweep, defeating the disk bound.
+batch_zip_release() {
+  local batch="$1" loc="$2" section="$3"
+  local dl="$RUNNER_TEMP/shard-batch-$batch-dist-$loc"
+  local release_root="${BATCH_RELEASES_DIR:-${RUNNER_TEMP:-/tmp}/shard-batch-releases}"
+  local released="$release_root/shard-batch-$batch-dist-$loc"
+  local want got
+  mkdir -p "$released" 2>/dev/null || true
+  : > "$released/$section" 2>/dev/null || true
+  want="$(grep -c . "${BATCH_READERS_DIR:-/nonexistent}/$batch" 2>/dev/null || true)"
+  got="$(find "$released" -type f 2>/dev/null | wc -l | tr -d ' ')"
+  case "$want" in ''|*[!0-9]*) return 0 ;; esac
+  if [ "$want" -gt 0 ] && [ "${got:-0}" -ge "$want" ]; then
+    rm -rf "$dl" "$released"
+  fi
+  return 0
 }
 
 rehydrate_section() {
@@ -86,6 +185,7 @@ rehydrate_section() {
     # strip-section-subtree.sh:38-41 already refuses an empty slug the same way.
     if [ -z "$slug" ] || [ "$slug" = "null" ]; then
       echo "::warning::no $loc slug for section '$section' in section-shard-slugs.json — skipping (refusing to derive an empty dist subtree)"
+      batch_zip_release "$batch" "$loc" "$section"
       continue
     fi
     case "$loc" in
@@ -110,12 +210,18 @@ rehydrate_section() {
     # completeness signal a bare `-d` check is not.
     if [ -s "dist/$sub/index.html" ]; then
       echo "$section $loc ($sub) present in artifact — skip rehydrate"
+      batch_zip_release "$batch" "$loc" "$section"
       continue
     fi
 
     ensure_batch_downloaded "$batch" "$loc"
     dl="$RUNNER_TEMP/shard-batch-$batch-dist-$loc"
-    if [ -f "$dl/$section-dist-$loc.tar" ]; then
+    member="$section-dist-$loc.tar"
+    members=""
+    if [ -s "$dl/$BATCH_ZIP" ]; then
+      members="$(unzip -Z1 "$dl/$BATCH_ZIP" 2>/dev/null || true)"
+    fi
+    if grep -qxF -- "$member" <<< "$members"; then
       mkdir -p "dist/$(dirname "$sub")"
       # Was a bare `rm -rf "dist/$sub"`. Same removal, now recorded first:
       # whatever the trunk still holds here is about to be replaced by the
@@ -130,12 +236,20 @@ rehydrate_section() {
       # truncated/corrupted tar that a bare directory check would miss.
       # `|| true` throughout: any anomaly here must fall through to the
       # git-clone fallback below, not abort under `set -e`.
-      expected_n=$(tar -tf "$dl/$section-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
-      tar -C dist -xf "$dl/$section-dist-$loc.tar" || true
-      # Remove only this section's tar, not the whole `$dl` dir — it's the
-      # shared batch download, other sections in the same batch may still
-      # need to read their own tar out of it.
-      rm -f "$dl/$section-dist-$loc.tar"
+      # Both passes stream the member out of the batch zip (see
+      # ensure_batch_downloaded): the tar never exists as a file.
+      expected_n=$(unzip -p "$dl/$BATCH_ZIP" "$member" 2>/dev/null | tar -tf - 2>/dev/null | { grep -vc '/$' || true; })
+      unzip -p "$dl/$BATCH_ZIP" "$member" | tar -C dist -xf -
+      # unzip's verdict is the CRC-32 the zip carries for this member, the
+      # check `gh run download` used to make before any tar reached disk. It
+      # is NOT redundant with the count below: a corrupt stream is listed and
+      # extracted identically by both passes (measured: a flipped byte in
+      # obvaldo-dist-en.tar → "tar listed 1003", 1003 extracted, of 2009), so
+      # the counts agree and only the CRC says the subtree is short. 0 and 1
+      # (warning, #7503) are a good read; >= 2 is not.
+      unzip_rc="${PIPESTATUS[0]}"
+      # This section has read everything it needs from the batch zip.
+      batch_zip_release "$batch" "$loc" "$section"
       actual_n=0
       if [ -d "dist/$sub" ]; then
         actual_n=$(find "dist/$sub" -type f | wc -l)
@@ -153,7 +267,7 @@ rehydrate_section() {
       # the only check here that treats "extraction produced a different
       # count than the archive claims to hold" as a mismatch instead of a
       # pass, forcing the git-clone fallback below.
-      if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
+      if [ "${unzip_rc:-2}" -le 1 ] && [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
         echo "rehydrated $section $loc from tar artifact: $actual_n files (tar listed $expected_n)"
         trunk_replace_end "$section-$loc"
         continue
@@ -162,8 +276,9 @@ rehydrate_section() {
       # stays open so the fallback paths below still get reported against the
       # PRE-rehydrate state.
       rm -rf "dist/$sub"
-      echo "[rehydrate] $section-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
+      echo "[rehydrate] $section-$loc tar extraction incomplete (expected $expected_n files, got $actual_n, unzip rc=$unzip_rc) — falling back to git clone"
     else
+      batch_zip_release "$batch" "$loc" "$section"
       echo "[rehydrate] $section-$loc artifact absent — falling back to git clone"
     fi
 
@@ -215,17 +330,39 @@ rehydrate_section() {
     # checkout) for a verified ZERO reduction in transferred bytes on TODAY's
     # repo layout. Left as a plain clone; the real fix for this defect is the
     # cross-job cache above, which needs no change to this command at all.
-    if ! git clone --depth 1 --single-branch --branch main \
-         "https://github.com/$owner/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
-      echo "::warning::$section-$loc shard clone failed — validators may flag $loc $section pages missing"
+    clone_ok=1
+    for attempt in 1 2; do
+      rm -rf "$tmp"
+      if timeout 300 git clone --depth 1 --single-branch --branch main \
+           "https://github.com/$owner/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
+        clone_ok=0
+        break
+      fi
+      echo "[rehydrate] $section-$loc git clone attempt $attempt failed/stalled"
+      [ "$attempt" -eq 1 ] && sleep 5
+    done
+    if [ "$clone_ok" -ne 0 ]; then
+      echo "::warning::$section-$loc shard clone failed after retry — validators may flag $loc $section pages missing"
       # report what the tar path already emptied
       trunk_replace_end "$section-$loc"
+      rm -rf "$tmp"
       continue
     fi
     if [ -d "$tmp/$sub" ]; then
+      if ! ticino_tree_unfanout_stage "$section" "$tmp/$sub"; then
+        echo "::warning::$section-$loc shard tree fan-out could not be restored to canonical paths — leaving $loc $section missing"
+        trunk_replace_end "$section-$loc"
+        rm -rf "$tmp"
+        continue
+      fi
       mkdir -p "dist/$(dirname "$sub")"
       trunk_replace_begin "$section-$loc" "$sub"
-      cp -r "$tmp/$sub" "dist/$sub"
+      # A rename, not `cp -r`: the clone is deleted a few lines below anyway,
+      # and on the runner $RUNNER_TEMP and dist/ share one filesystem, so the
+      # copy only ever held the shard on disk twice for its duration — the
+      # same transient the batch-zip streaming above removes from the tar
+      # path (a ticino-sized shard is ~10 GB per locale).
+      mv "$tmp/$sub" "dist/$sub"
       echo "rehydrated $section $loc from frontaliere-$section-$loc: $(find "dist/$sub" -type f | wc -l) files"
       if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ]; then
         mkdir -p "$SHARD_CLONE_CACHE_DIR/$section-$loc/$(dirname "$sub")" 2>/dev/null \
@@ -244,18 +381,66 @@ rehydrate_section() {
 
 trunk_guard_init section
 
-SECTION_PIDS=()
-for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+# Keep the resource ceiling in one shared implementation. Four is the cap
+# already proven for the same runner's section-shard push fan-outs; unlike the
+# old PID list this bounds simultaneous clone/copy streams while preserving
+# the fail-soft worker contract below.
+# shellcheck source=scripts/lib/bounded-parallel.sh
+. "$(dirname "${BASH_SOURCE[0]}")/bounded-parallel.sh"
+
+SECTION_NAMES=()
+while IFS= read -r section; do
+  [ -n "$section" ] || continue
   live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
   if [ "${!live_var:-}" = "true" ]; then
-    rehydrate_section "$section" &
-    SECTION_PIDS+=("$!")
+    SECTION_NAMES+=("$section")
   fi
-done
-for pid in "${SECTION_PIDS[@]}"; do
-  wait "$pid" || true
-done
+done < <(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json)
+
+if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
+  rehydrate_max_parallel="${REHYDRATE_MAX_PARALLEL:-4}"
+  case "$rehydrate_max_parallel" in
+    ''|*[!0-9]*|0)
+      echo "::error::REHYDRATE_MAX_PARALLEL must be a positive integer (got '$rehydrate_max_parallel')"
+      exit 1
+      ;;
+  esac
+  if [ "$rehydrate_max_parallel" -gt 4 ]; then
+    echo "::warning::REHYDRATE_MAX_PARALLEL=$rehydrate_max_parallel exceeds the rehydrate safety cap; using 4"
+    rehydrate_max_parallel=4
+  fi
+
+  # Readers of each batch zip, for batch_zip_release(): one line per LIVE
+  # section, keyed by its batch number. Written before any worker starts, so
+  # the count already includes the sections still waiting for a slot.
+  BATCH_READERS_DIR="${RUNNER_TEMP:-/tmp}/shard-batch-readers"
+  BATCH_RELEASES_DIR="${RUNNER_TEMP:-/tmp}/shard-batch-releases"
+  rm -rf "$BATCH_READERS_DIR" "$BATCH_RELEASES_DIR"
+  mkdir -p "$BATCH_READERS_DIR" "$BATCH_RELEASES_DIR"
+  for section in "${SECTION_NAMES[@]}"; do
+    printf '%s\n' "$section" >> "$BATCH_READERS_DIR/$(jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json)"
+  done
+
+  # `bp_run_bounded` records worker failures but does not abort the fan-out;
+  # that preserves this script's existing fail-soft posture. The independent
+  # trunk_guard_verdict below remains the only new correctness failure.
+  export BP_FAILED_FILE="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures.txt"
+  section_rc=0
+  bp_run_bounded "$rehydrate_max_parallel" rehydrate_section "${SECTION_NAMES[@]}" || section_rc=$?
+  if [ "$section_rc" -ne 0 ]; then
+    echo "::warning::one or more section rehydrate workers failed — continuing with the existing fail-soft contract: $(paste -sd, "$BP_FAILED_FILE" 2>/dev/null || true)"
+  fi
+  # Every reader has released its zips by now; a worker that died mid-way
+  # would have left its batch behind for the whole validator run that follows.
+  # Nothing reads these after the fan-out.
+  rm -rf "${RUNNER_TEMP:-/tmp}"/shard-batch-*-dist-* "$BATCH_READERS_DIR" "$BATCH_RELEASES_DIR" 2>/dev/null || true
+else
+  echo "no live section shards to rehydrate"
+fi
+# Blocks AND inodes: the logical dist is ~5.2M files plus one directory per
+# job page, so either can be the wall that says "No space left on device".
 df -h / | tail -1
+df -i / | tail -1
 
 # The ONE new fatal condition in this deliberately fail-soft script, and it is
 # a correctness failure rather than an infrastructure one: a missing artifact,

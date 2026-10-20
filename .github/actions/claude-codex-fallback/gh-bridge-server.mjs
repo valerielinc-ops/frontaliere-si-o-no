@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import * as net from './bridge-transport.mjs';
 import os from 'node:os';
 import path from 'node:path';
@@ -203,6 +204,20 @@ export function isPullRequestReviewArgs(args) {
   return args[commandIndex] === 'pr' && firstOperationArg(args, commandIndex + 1) === 'review';
 }
 
+/**
+ * Return whether a request opens a pull request.  GitHub refuses a second
+ * open PR on the same head only once the first is stored: two concurrent
+ * POSTs both pass.  On 2026-10-01 (run 36884791182) Codex re-ran
+ * `gh pr create` while the first call was still inside the sibling gate,
+ * its `gh pr list --head` saw nothing yet, and both calls opened a PR on
+ * `fix/issue-10752` within the same second (#10780 and #10781).
+ */
+export function isPullRequestCreateArgs(args) {
+  if (!Array.isArray(args)) return false;
+  const commandIndex = commandIndexFor(args);
+  return args[commandIndex] === 'pr' && firstOperationArg(args, commandIndex + 1) === 'create';
+}
+
 /** Classify only a failed review POST with a recognizable transient 5xx. */
 export function isTransientReviewFailure({ code, stderr } = {}) {
   return Number(code) !== 0 && TRANSIENT_REVIEW_FAILURE_RE.test(String(stderr || ''));
@@ -236,6 +251,60 @@ function pullRequestReviewBody(args, commandIndex, context) {
 }
 
 /**
+ * Pin a PR review body to a host-private file and stamp the trusted revision.
+ * The expected revision and PR number come from the action host environment;
+ * malformed or missing values deliberately leave the model body untouched.
+ */
+export function materializePullRequestReviewBody(args, start, {
+  reviewRevision,
+  reviewPrNumber,
+  cwd,
+  allowedRoots = [],
+} = {}) {
+  const revision = normalizeBodyRevision(reviewRevision);
+  const configuredPrNumber = String(reviewPrNumber ?? '').trim();
+  if (!revision || !/^[1-9]\d*$/.test(configuredPrNumber) || !isPullRequestReviewArgs(args)) {
+    return { args, body: undefined, cleanup: () => {} };
+  }
+  const commandIndex = commandIndexFor(args);
+  const pullNumber = pullRequestReviewNumber(args, commandIndex);
+  if (pullNumber !== configuredPrNumber) return { args, body: undefined, cleanup: () => {} };
+
+  const inline = prBodyOption(args, start, prBodyInlineFlags);
+  const bodyFile = inline ? null : prBodyOption(args, start, prBodyFileFlags);
+  const option = inline || bodyFile;
+  if (!option) return { args, body: undefined, cleanup: () => {} };
+  let sourceBody = inline ? inline.value : '';
+  if (bodyFile) {
+    const source = bodyFilePath(bodyFile.value, { cwd: cwd || process.cwd(), allowedRoots });
+    if (source.error) throw new Error(source.error);
+    sourceBody = source.body;
+  }
+  const body = stampReviewInputRevision(sourceBody, revision);
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-gh-review-'));
+  let cleaned = false;
+  const cleanup = () => {
+    if (cleaned) return;
+    cleaned = true;
+    fs.rmSync(directory, { recursive: true, force: true });
+  };
+  try {
+    fs.chmodSync(directory, 0o700);
+    const bodyPath = path.join(directory, 'review.md');
+    fs.writeFileSync(bodyPath, body, { flag: 'wx', mode: 0o600 });
+    return {
+      args: replacePullRequestReviewBodyOption(args, option, bodyPath),
+      body,
+      cleanup,
+      bodyPath,
+    };
+  } catch (error) {
+    cleanup();
+    throw error;
+  }
+}
+
+/**
  * Build the minimum idempotency key for a review retry.  Without a numeric PR,
  * exact body and full HEAD SHA, a transient retry could duplicate an unknown
  * review, so the caller must leave it one-shot.
@@ -245,16 +314,146 @@ export function reviewRetryDetails(args, commandIndex, {
   workspaceRoot,
   scratchRoot,
   headSha,
+  bodyOverride,
 } = {}) {
   if (!isPullRequestReviewArgs(args)) return null;
   const pullNumber = pullRequestReviewNumber(args, commandIndex ?? commandIndexFor(args));
-  const body = pullRequestReviewBody(args, commandIndex ?? commandIndexFor(args), {
-    cwd: cwd || process.cwd(),
-    allowedRoots: [realRoot(workspaceRoot || cwd), realRoot(scratchRoot)].filter(Boolean),
-  });
+  const body = bodyOverride === undefined
+    ? pullRequestReviewBody(args, commandIndex ?? commandIndexFor(args), {
+      cwd: cwd || process.cwd(),
+      allowedRoots: [realRoot(workspaceRoot || cwd), realRoot(scratchRoot)].filter(Boolean),
+    })
+    : bodyOverride;
   const normalizedHead = String(headSha || '').trim();
   if (!/^\d+$/.test(pullNumber) || !body || !/^[0-9a-f]{40}$/i.test(normalizedHead)) return null;
   return { pullNumber, body, headSha: normalizedHead };
+}
+
+/**
+ * Identity of a review already posted in this bridge session.  PR #9705 got
+ * the same body twice on one HEAD: a successful `gh pr review` prints nothing
+ * without a TTY, so Codex read only the bridge error of a sibling command in
+ * the same shell line and posted again.  Same PR, HEAD and body (compared like
+ * the idempotency probe, trailing whitespace ignored) is the same review.
+ */
+export function postedReviewKey(details) {
+  if (!details) return '';
+  return JSON.stringify([details.pullNumber, details.headSha.toLowerCase(), details.body.trimEnd()]);
+}
+
+/*
+ * HOST-SIDE PR BODY CAS.
+ *
+ * `scripts/gh-pr-body-check.mjs` runs inside the Codex sandbox with the
+ * model's environment, so its `PR_BODY_EXPECTED_REVISION` check is only
+ * advisory there: in run 36302768673 (PR #9959) Codex ran
+ * `env -u PR_BODY_EXPECTED_REVISION ...` and `PR_BODY_EXPECTED_REVISION= ...`
+ * and the body write went through. The bridge server is started by the
+ * composite action before Codex, under `env -i`, with the expected revision
+ * read from the workflow step environment; the model can neither see nor
+ * change this process's environment. Every PR-body write that reaches the
+ * bridge is therefore re-checked here against the current body.
+ *
+ * The digest MUST stay equal to `reviewInputRevisionFromBody` in
+ * `scripts/ci/lib/review-input-revision.mjs` (schema `jq-newline`, the only
+ * one that module emits). The bridge is copied into a scratch tree and cannot
+ * import repository code; the parity is pinned by
+ * `tests/codex-file-transport.test.ts`.
+ */
+const BODY_REVISION_RE = /^body:[0-9a-f]{64}$/;
+const REVIEW_INPUT_MARKER_LINE_RE = /^[ \t]*<!--[ \t]*REVIEW_INPUT_REVISION:[^\r\n]*?(?:\r\n|\n|\r|\\r\\n|\\n|$)/gimu;
+
+/** Mirror of `normalizeReviewInputRevision`. */
+export function normalizeBodyRevision(value) {
+  const revision = String(value ?? '').trim().toLowerCase();
+  return BODY_REVISION_RE.test(revision) ? revision : '';
+}
+
+/** Stamp the trusted review revision after removing every model-supplied marker line. */
+export function stampReviewInputRevision(body, expectedRevision) {
+  const revision = normalizeBodyRevision(expectedRevision);
+  if (!revision) return body;
+  const withoutModelMarkers = String(body ?? '').replace(REVIEW_INPUT_MARKER_LINE_RE, '');
+  return `<!-- REVIEW_INPUT_REVISION: ${revision} -->\n${withoutModelMarkers}`;
+}
+
+/** Mirror of `reviewInputRevisionFromPullRequest`: null body is GitHub's empty body. */
+export function bodyRevisionFromPullRequest(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new TypeError('PR response is not an object');
+  }
+  if (!Object.hasOwn(value, 'body')) throw new Error('PR response has no body field');
+  if (value.body !== null && typeof value.body !== 'string') {
+    throw new TypeError('PR body is not a string or null');
+  }
+  const digest = createHash('sha256').update(`${value.body ?? ''}\n`, 'utf8').digest('hex');
+  return `body:${digest}`;
+}
+
+/**
+ * Parse the host-side CAS configuration. An empty revision means "no CAS"
+ * (unchanged behavior); a non-empty revision must be valid and must come with
+ * the PR number it belongs to, otherwise the bridge refuses to start.
+ */
+export function parseBodyCasConfig(rawRevision, rawPrNumber) {
+  const raw = String(rawRevision ?? '').trim();
+  if (!raw) return { config: null };
+  const revision = normalizeBodyRevision(raw);
+  if (!revision) return { error: 'PR body expected revision is malformed' };
+  const prNumber = String(rawPrNumber ?? '').trim();
+  if (!/^[1-9]\d*$/.test(prNumber)) return { error: 'PR body expected revision has no PR number' };
+  return { config: { revision, prNumber } };
+}
+
+const issueBodyFlags = new Set(['--body', '-b', '--body-file', '-F']);
+
+function hasBodyFlag(args, start, flags) {
+  return args.slice(start).some((arg) => [...flags].some((flag) => arg === flag || arg.startsWith(`${flag}=`)));
+}
+
+/**
+ * Every PR-body write the bridge admits, with the PR selector it targets:
+ * - `gh pr edit [<selector>] --body-file|-F <file>` (inline `--body` is
+ *   already rejected by validatePrBodyArgs, but is still classified here);
+ * - `gh issue edit <number> --body|-b|--body-file|-F ...`, since issues and
+ *   PRs share numbers and the issue endpoint can rewrite a PR body;
+ * - `gh api repos/<repo>/pulls/<n> --method PATCH ... --field body=@<file>`,
+ *   the conditional PATCH used by the in-sandbox body gate.
+ * Other API mutations (including PATCH on `issues/<n>`) are rejected by
+ * apiMethodError before this point. Returns null for non-body-writes.
+ */
+export function prBodyWriteTarget(args, repository) {
+  if (!Array.isArray(args)) return null;
+  const commandIndex = commandIndexFor(args);
+  const command = args[commandIndex];
+  if (command === 'api') {
+    if (!isConditionalPullRequestBodyPatch(args, commandIndex + 1, repository)) return null;
+    const endpoint = pullRequestApiEndpoint(args, commandIndex + 1, repository);
+    return { selector: endpoint.slice(`repos/${repository}/pulls/`.length) };
+  }
+  if (command !== 'pr' && command !== 'issue') return null;
+  if (firstOperationArg(args, commandIndex + 1) !== 'edit') return null;
+  const flags = command === 'pr' ? new Set([...prBodyFileFlags, ...prBodyInlineFlags]) : issueBodyFlags;
+  if (!hasBodyFlag(args, commandIndex + 1, flags)) return null;
+  return { selector: pullRequestReviewNumber(args, commandIndex) };
+}
+
+/**
+ * Decide whether a request needs the host-side body CAS. `check` names the
+ * PR whose current body must equal `config.revision`; `error` rejects the
+ * request outright. A write to another PR keeps its previous behavior.
+ */
+export function bodyCasDecision(args, { repository, scopeKind, config } = {}) {
+  if (!config || scopeKind !== 'site') return null;
+  const target = prBodyWriteTarget(args, repository);
+  if (!target) return null;
+  const selector = String(target.selector || '');
+  if (!selector) return { check: config.prNumber };
+  const number = /^#?(\d+)$/.exec(selector)?.[1] || '';
+  if (!number) {
+    return { error: `PR body CAS requires a numeric PR selector, got ${selector}` };
+  }
+  return number === config.prNumber ? { check: number } : null;
 }
 
 function hasExplicitOption(args, name) {
@@ -766,11 +965,22 @@ function prBodyOption(args, start, flags) {
   for (let index = start; index < args.length; index += 1) {
     const arg = args[index];
     for (const flag of flags) {
-      if (arg === flag) return { flag, value: args[index + 1] || '', next: index + 1 };
-      if (arg.startsWith(`${flag}=`)) return { flag, value: arg.slice(flag.length + 1), next: index };
+      if (arg === flag) return { flag, value: args[index + 1] || '', index, next: index + 1 };
+      if (arg.startsWith(`${flag}=`)) return { flag, value: arg.slice(flag.length + 1), index, next: index };
     }
   }
   return null;
+}
+
+function replacePullRequestReviewBodyOption(args, option, bodyPath) {
+  const replaced = args.slice();
+  if (option.next === option.index) {
+    replaced[option.index] = `--body-file=${bodyPath}`;
+  } else {
+    replaced[option.index] = '--body-file';
+    replaced[option.index + 1] = bodyPath;
+  }
+  return replaced;
 }
 
 function validatePrBodyArgs(args, commandIndex, context) {
@@ -895,8 +1105,17 @@ function main() {
   const repository = repositoryName(process.env.CODEX_GH_REPOSITORY);
   const host = normalizedHost(process.env.CODEX_GH_HOST);
   const corpusRepository = process.env.CODEX_GH_CORPUS_REPOSITORY || CORPUS_REPOSITORY;
+  const reviewInputRevision = normalizeBodyRevision(process.env.CODEX_GH_REVIEW_INPUT_REVISION);
+  const reviewPrNumber = String(process.env.CODEX_GH_REVIEW_PR_NUMBER || '').trim();
   if (!socketPath || !siteToken || !realGh || !cwd || !workspaceRoot || !scratchRoot || !repository || !host
     || corpusRepository !== CORPUS_REPOSITORY) process.exit(2);
+  // Read once at launch: the process environment is fixed by the action
+  // before Codex starts, and no client request can change it.
+  const bodyCas = parseBodyCasConfig(
+    process.env.CODEX_GH_PR_BODY_EXPECTED_REVISION,
+    process.env.CODEX_GH_PR_BODY_PR_NUMBER,
+  );
+  if (bodyCas.error) process.exit(2);
   const baseEnv = {
     PATH: process.env.PATH || '/usr/bin:/bin',
     HOME: process.env.HOME || '/tmp',
@@ -905,6 +1124,9 @@ function main() {
   let activeConnections = 0;
   const children = new Set();
   const clients = new Set();
+  const postedReviewKeys = new Set();
+  // One `gh pr create` at a time per repository (see isPullRequestCreateArgs).
+  const pullRequestCreatesInFlight = new Set();
   let shuttingDown = false;
   let shutdownFinalized = false;
   let shutdownTimer = null;
@@ -936,6 +1158,7 @@ function main() {
     let timedOut = false;
     let cleanupExecution = () => {};
     let reviewProbeChild = null;
+    let bodyCasProbeChild = null;
     const terminateChild = (reason) => {
       if (!child || childExited) return;
       if (reason === 'child-timeout' || reason === 'socket-timeout') timedOut = true;
@@ -946,6 +1169,7 @@ function main() {
     client.once('close', () => {
       if (child && !childExited) terminateChild('client-disconnected');
       if (reviewProbeChild && isChildRunning(reviewProbeChild)) requestChildTermination(reviewProbeChild);
+      if (bodyCasProbeChild && isChildRunning(bodyCasProbeChild)) requestChildTermination(bodyCasProbeChild);
       if (childExited) releaseSlot();
     });
     const finish = (result) => {
@@ -977,7 +1201,68 @@ function main() {
       }
       request += chunk;
     });
-    client.on('end', () => {
+    /**
+     * Read the current PR body with the host credential and compare it with
+     * the revision configured at launch. Any unreadable or unexpected answer
+     * rejects the write: the CAS fails closed.
+     */
+    const currentBodyRevisionError = (scope, prNumber) => new Promise((resolve) => {
+      const probe = spawn(realGh, ['api', `repos/${scope.repository}/pulls/${prNumber}`], {
+        cwd,
+        env: {
+          ...baseEnv,
+          GH_TOKEN: scope.token,
+          GH_REPO: scope.repository,
+        },
+      });
+      bodyCasProbeChild = probe;
+      children.add(probe);
+      let output = '';
+      let outputTooLarge = false;
+      let settled = false;
+      let probeTerminationTimer = null;
+      const settle = (error) => {
+        if (settled) return;
+        settled = true;
+        if (probeTerminationTimer) clearTimeout(probeTerminationTimer);
+        if (bodyCasProbeChild === probe) bodyCasProbeChild = null;
+        children.delete(probe);
+        resolve(error);
+        if (shuttingDown && children.size === 0) finalizeShutdown();
+      };
+      const probeTimeout = setTimeout(() => {
+        if (isChildRunning(probe)) probeTerminationTimer = requestChildTermination(probe);
+      }, 15_000);
+      probe.stdout.setEncoding('utf8');
+      probe.stdout.on('data', (chunk) => {
+        const bytes = Buffer.from(chunk);
+        const remaining = MAX_OUTPUT_BYTES - Buffer.byteLength(output);
+        if (bytes.length > remaining) outputTooLarge = true;
+        if (remaining > 0) output += bytes.subarray(0, remaining).toString('utf8');
+      });
+      probe.on('error', () => {
+        clearTimeout(probeTimeout);
+        settle(`PR body CAS: current body of PR #${prNumber} is not readable; write rejected`);
+      });
+      probe.on('close', (code) => {
+        clearTimeout(probeTimeout);
+        if (code !== 0 || outputTooLarge) {
+          settle(`PR body CAS: current body of PR #${prNumber} is not readable (exit ${code ?? 'signal'}); write rejected`);
+          return;
+        }
+        let current = '';
+        try {
+          current = bodyRevisionFromPullRequest(JSON.parse(output));
+        } catch {
+          settle(`PR body CAS: current body of PR #${prNumber} is not verifiable; write rejected`);
+          return;
+        }
+        settle(current === bodyCas.config.revision
+          ? ''
+          : `PR body CAS: body of PR #${prNumber} changed since the trusted read (${bodyCas.config.revision} != ${current}); write rejected`);
+      });
+    });
+    client.on('end', async () => {
       if (requestTooLarge) return;
       let args;
       let scope;
@@ -1005,9 +1290,67 @@ function main() {
         finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
         return;
       }
+      // Before the side-effect marker: a rejected CAS never reaches GitHub.
+      // The expectation comes only from this process's launch environment;
+      // an empty or missing revision on the client side cannot disable it.
+      const bodyCasCheck = bodyCasDecision(args, {
+        repository: scope.repository,
+        scopeKind: scope.kind,
+        config: bodyCas.config,
+      });
+      if (bodyCasCheck?.error) {
+        finish({ code: 2, stderr: `bridge request: ${bodyCasCheck.error}\n` });
+        return;
+      }
+      if (bodyCasCheck?.check) {
+        const casError = await currentBodyRevisionError(scope, bodyCasCheck.check);
+        if (casError) {
+          finish({ code: 2, stderr: `bridge request: ${casError}\n` });
+          return;
+        }
+        if (client.destroyed || shuttingDown) {
+          finish({ code: 1, stderr: 'Codex GitHub bridge request abandoned before the body write\n' });
+          return;
+        }
+      }
       const commandIndex = commandIndexFor(args);
+      // Checked and taken with no await in between, so two requests cannot
+      // both pass.  A sequential create after this one ends reaches GitHub,
+      // which then refuses a duplicate head on its own.
+      const createRepository = isPullRequestCreateArgs(args) ? scope.repository : '';
+      if (createRepository && pullRequestCreatesInFlight.has(createRepository)) {
+        finish({
+          code: 1,
+          stderr: `Codex GitHub bridge: a \`gh pr create\` for ${createRepository} is still running in this run; this one was not sent. `
+            + 'Wait for the running command to finish, then read the PR with `gh pr list --head <branch> --state open`. '
+            + 'Do not run `gh pr create` again.\n',
+        });
+        return;
+      }
+      if (createRepository) pullRequestCreatesInFlight.add(createRepository);
+      const releaseCreate = () => {
+        if (createRepository) pullRequestCreatesInFlight.delete(createRepository);
+      };
       if (isMutatingGhArgs(args)) markSideEffect(sideEffectFile);
       let executionArgs = args;
+      let reviewBodyOverride;
+      if (scope.kind === 'site' && isPullRequestReviewArgs(args)) {
+        try {
+          const materialized = materializePullRequestReviewBody(args, commandIndex + 1, {
+            reviewRevision: reviewInputRevision,
+            reviewPrNumber,
+            cwd,
+            allowedRoots: [realRoot(workspaceRoot), realRoot(scratchRoot)].filter(Boolean),
+          });
+          executionArgs = materialized.args;
+          reviewBodyOverride = materialized.body;
+          cleanupExecution = materialized.cleanup;
+        } catch (error) {
+          releaseCreate();
+          finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
+          return;
+        }
+      }
       if (isConditionalPullRequestBodyPatch(args, commandIndex + 1, scope.repository)) {
         try {
           const materialized = materializeConditionalBodyPatch(args, commandIndex + 1, {
@@ -1018,17 +1361,36 @@ function main() {
           executionArgs = materialized.args;
           cleanupExecution = materialized.cleanup;
         } catch (error) {
+          releaseCreate();
           finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
           return;
         }
       }
       client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
-      const reviewDetails = reviewRetryDetails(args, commandIndex, {
+      const reviewDetails = reviewRetryDetails(executionArgs, commandIndex, {
         cwd,
         workspaceRoot,
         scratchRoot,
         headSha: process.env.HEAD_SHA,
+        bodyOverride: reviewBodyOverride,
       });
+      const reviewKey = postedReviewKey(reviewDetails);
+      if (reviewKey && postedReviewKeys.has(reviewKey)) {
+        finish({
+          code: 0,
+          stdout: '',
+          stderr: `Codex GitHub bridge: this exact review is already posted on PR #${reviewDetails.pullNumber} for HEAD ${reviewDetails.headSha}; it was not posted again.\n`,
+        });
+        return;
+      }
+      const reviewPosted = (result) => {
+        if (reviewKey) postedReviewKeys.add(reviewKey);
+        const target = reviewDetails ? ` on PR #${reviewDetails.pullNumber}` : '';
+        return {
+          ...result,
+          stderr: `${result.stderr || ''}Codex GitHub bridge: review posted${target}. Do not post it again.\n`,
+        };
+      };
       let reviewAttempt = 0;
 
       const reviewWasPersisted = (details) => new Promise((resolve) => {
@@ -1143,12 +1505,14 @@ function main() {
         child.on('error', (error) => {
           childExited = true;
           children.delete(child);
+          releaseCreate();
           finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
           if (shuttingDown && children.size === 0) finalizeShutdown();
         });
         child.on('close', async (code) => {
           childExited = true;
           children.delete(child);
+          releaseCreate();
           if (childTimer) clearTimeout(childTimer);
           childTimer = null;
           if (childTerminationTimer) clearTimeout(childTerminationTimer);
@@ -1165,11 +1529,11 @@ function main() {
             && !client.destroyed
             && !shuttingDown) {
             if (await reviewWasPersisted(reviewDetails)) {
-              finish({
+              finish(reviewPosted({
                 code: 0,
                 stdout,
                 stderr: `${detail}Codex GitHub bridge confirmed the review after a transient response.\n`,
-              });
+              }));
               return;
             }
             const delay = REVIEW_RETRY_DELAYS_MS[reviewAttempt - 1] || REVIEW_RETRY_DELAYS_MS.at(-1);
@@ -1179,7 +1543,7 @@ function main() {
             }, delay);
             return;
           }
-          finish(result);
+          finish(result.code === 0 && isPullRequestReviewArgs(args) ? reviewPosted(result) : result);
           if (shuttingDown && children.size === 0) finalizeShutdown();
         });
       };

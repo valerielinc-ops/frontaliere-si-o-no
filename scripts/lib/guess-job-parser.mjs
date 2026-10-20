@@ -2,6 +2,7 @@ import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 import { isChCountry } from './ch-country-guard.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { sourceLangOfPosting } from './source-locale-slots.mjs';
 
 export const GUESS_WORKABLE_ACCOUNT_ID = '452934';
 export const GUESS_WORKABLE_ACCOUNT_SLUG = 'guess-europe-sagl';
@@ -173,4 +174,19 @@ export function parseGuessJobDetailPayload(detail = {}) {
     sourceLanguage: String(detail.language || 'en').trim() || 'en',
     publishedDate: String(detail.published || '').trim(),
   };
+}
+
+/**
+ * The language a Guess posting is written in, read from its body; the
+ * `language` Workable declares for it is the fallback when there is no body
+ * (the two agree on every published posting: 6 en, 1 de, 1 fr on
+ * 2026-09-29). The runner files title, body, slug and requirements under it —
+ * it used to file them under a fixed `en`, so the German and French postings
+ * had their own text in the English slot and nothing in their own.
+ *
+ * @param {{ description?: string, sourceLanguage?: string }} parsed
+ * @returns {'it'|'en'|'de'|'fr'}
+ */
+export function guessPostingSourceLang(parsed = {}) {
+  return sourceLangOfPosting(parsed.description, parsed.sourceLanguage, 'en');
 }

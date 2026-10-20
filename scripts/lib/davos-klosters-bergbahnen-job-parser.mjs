@@ -1,15 +1,19 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Davos Klosters Bergbahnen AG job parser — tourism/mountain railways.
  * Source: https://www.davosklostersmountains.ch/de/mountains/stellenangebote/jobs-berge
  *
- * The listing page uses rexx-systems: job cards are <div class="job-item">
- * with <h3 class="job-item__title">, metadata divs, and a detail link
- * matching /de/mountains/stellenangebote/{slug}_j_{id}.
+ * The listing page uses rexx-systems: older pages rendered job cards as
+ * <div class="job-item"> with <h3 class="job-item__title"> and metadata
+ * divs. The current page renders <li class="job-list-item"> cards with a
+ * plain <h3> and pipe-delimited metadata in a <p>. Both shapes are accepted
+ * because the source has changed markup without changing its job URLs.
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { readAttr } from './html-attr.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const HQ = getCompanyDefaults('davos-klosters-bergbahnen');
 
@@ -39,16 +43,14 @@ export function normalizeDavosKlostersBergbahnenJobUrl(rawUrl = '') {
 // ── shared utilities ──────────────────────────────────────────────────
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/\s+/g, ' ').trim();
 }
 
@@ -63,20 +65,44 @@ export function stripHtml(html = '') {
  * behaviour other callers rely on is unchanged.
  */
 export function richTextToLines(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/(?:li|p|h[1-6]|div|ul|ol|tr)>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/[ \t\f\v]+/g, ' ')
     .split('\n').map((l) => l.trim()).filter(Boolean).join('\n')
     .trim();
+}
+
+/**
+ * Drop the CMS template's untouched placeholder pairs from a rich-text body.
+ *
+ * An ad whose editor never filled the template renders every section as its
+ * heading followed by `Text <heading>` (`Einleitung` / `Text Einleitung`,
+ * `Wir bieten` / `Text wir bieten`, measured on `_j_3940215`, 2026-09-29; the
+ * ABACUS portal behind the apply button carries the same `Text Einleitung`).
+ * Publishing those 157 characters shipped a vacancy whose whole body is
+ * template filler. Each heading/`Text <heading>` pair is removed; real prose
+ * that merely starts with the word "Text" survives because it does not repeat
+ * the heading above it.
+ */
+export function stripTemplatePlaceholders(text = '') {
+  const fold = (value) => String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
+  const out = [];
+  for (const line of String(text || '').split('\n')) {
+    const placeholder = /^text\s+(.+)$/i.exec(line.trim());
+    if (placeholder && out.length && fold(out[out.length - 1]) === fold(placeholder[1])) {
+      out.pop();
+      continue;
+    }
+    out.push(line);
+  }
+  return out.join('\n').trim();
 }
 
 export function slugify(value = '') {
@@ -94,6 +120,10 @@ export function inferEmploymentType(title = '', description = '', percentage = '
     if (maxPct < 80) return 'PART_TIME';
   }
   return 'FULL_TIME';
+}
+
+export function isDavosKlostersBergbahnenSourceBodyPublishable(text = '') {
+  return meetsSourceBodyFloor(text);
 }
 
 // ── listing parsing ───────────────────────────────────────────────────
@@ -121,15 +151,20 @@ export function parseDavosKlostersBergbahnenListingHtml(html) {
   const seen = new Set();
   const jobs = [];
 
-  // Split on job-item blocks
-  const blocks = html.split(/(?=<div[^>]*class="[^"]*job-item[^"]*")/i);
+  // Split on either the legacy div cards or the current li cards. Do not
+  // match `job-list-item` as a legacy `job-item`: the two source shapes have
+  // different title/metadata markup and need separate extraction paths.
+  const blocks = html.split(/(?=<(?:div|li)\b[^>]*class="[^"]*\b(?:job-item|job-list-item)\b[^"]*")/i);
 
   for (const block of blocks) {
-    // Must contain a job-item class
-    if (!/class="[^"]*job-item/i.test(block)) continue;
+    const isLegacyCard = /<div\b[^>]*class="[^"]*\bjob-item\b[^"]*"/i.test(block);
+    const isCurrentCard = /<li\b[^>]*class="[^"]*\bjob-list-item\b[^"]*"/i.test(block);
+    if (!isLegacyCard && !isCurrentCard) continue;
 
-    // Extract title from <h3 class="... job-item__title">
-    const titleMatch = block.match(/<h3[^>]*class="[^"]*job-item__title[^"]*"[^>]*>([\s\S]*?)<\/h3>/i);
+    // Both source shapes put the card title in the first h3. The legacy
+    // class-specific selector was too strict for the current markup, whose
+    // h3 has only presentational classes (e.g. `h5 mb-0`).
+    const titleMatch = block.match(/<h3\b[^>]*>([\s\S]*?)<\/h3>/i);
     if (!titleMatch) continue;
     const title = stripHtml(titleMatch[1]).trim();
     if (!title || title.length < 3) continue;
@@ -149,13 +184,24 @@ export function parseDavosKlostersBergbahnenListingHtml(html) {
     const idMatch = rawUrl.match(/_j_(\d+)/);
     const jobId = idMatch ? idMatch[1] : '';
 
-    // Extract metadata from the three col-md divs (period, percentage, department)
-    const metaDivs = block.match(/<div[^>]*class="col-md vertical-gutter__item"[^>]*>([\s\S]*?)<\/div>/gi) || [];
-    const metaValues = metaDivs.map(d => stripHtml(d).trim()).filter(Boolean);
-
-    const period = metaValues[0] || '';
-    const percentage = metaValues[1] || '';
-    const department = metaValues[2] || '';
+    let period = '';
+    let percentage = '';
+    let department = '';
+    if (isCurrentCard) {
+      // Current rexx markup puts the three values in one description line:
+      // `period | percentage | department`. Keep the split bounded to the
+      // card so unrelated page text cannot become job metadata.
+      const metadataMatch = block.match(/<p\b[^>]*class="[^"]*\bdescription\b[^"]*"[^>]*>([\s\S]*?)<\/p>/i);
+      const metadata = metadataMatch ? stripHtml(metadataMatch[1]).trim() : '';
+      const values = metadata.split(/\s*\|\s*/).map(value => value.trim()).filter(Boolean);
+      [period, percentage, department] = values;
+    } else {
+      // Legacy markup uses one div per value (period, percentage,
+      // department).
+      const metaDivs = block.match(/<div[^>]*class="col-md vertical-gutter__item"[^>]*>([\s\S]*?)<\/div>/gi) || [];
+      const metaValues = metaDivs.map(d => stripHtml(d).trim()).filter(Boolean);
+      [period, percentage, department] = metaValues;
+    }
 
     jobs.push({
       id: slugify(title),
@@ -245,15 +291,21 @@ export function parseDavosKlostersBergbahnenDetailHtml(html) {
   // i.e. the job body immediately following the title/meta-list, never the
   // page-level alert banner above the title.
   let description = '';
+  let placeholderOnly = false;
   const wysiwygMatch = bodyScope.match(/<div[^>]*class="[^"]*\bwysiwyg\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|$)/i);
   if (wysiwygMatch) {
-    description = richTextToLines(wysiwygMatch[1]);
+    const raw = richTextToLines(wysiwygMatch[1]);
+    description = stripTemplatePlaceholders(raw);
+    placeholderOnly = Boolean(raw) && !description;
   }
 
   // Fallback: still bounded to the per-job scope — take the text after the
   // title but cut off at the first footer / nav / notification boundary so we
   // never re-absorb the shared page chrome the wysiwyg scoping just excluded.
-  if (!description || description.length < 30) {
+  // Not for a body that was ALL template placeholders: the region after the
+  // title is then only the contact teaser and the "Ähnliche Jobs" list, i.e.
+  // chrome, and an empty description is the truthful reading.
+  if (!placeholderOnly && (!description || description.length < 30)) {
     const cut = bodyScope.search(/<footer[\s>]|<nav[\s>]|class="[^"]*(?:footer|site-alert|notification|megamenu)/i);
     const region = cut >= 0 ? bodyScope.slice(0, cut) : bodyScope;
     const text = richTextToLines(region);
@@ -277,11 +329,13 @@ export async function fetchDavosKlostersBergbahnenJobUrls(timeoutMs = 15_000) {
       headers: { 'User-Agent': UA },
       signal: controller.signal,
     });
-    if (!res.ok) return [];
+    if (!res.ok) {
+      const error = new Error(`HTTP ${res.status} for ${CAREERS_URL}`);
+      error.status = res.status;
+      throw error;
+    }
     const html = await res.text();
     return parseDavosKlostersBergbahnenListingHtml(html);
-  } catch {
-    return [];
   } finally {
     clearTimeout(timeout);
   }

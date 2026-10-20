@@ -26,7 +26,15 @@ import { fetchOsmBusinesses } from './lib/prospector/sources/osm-overpass.mjs';
 import { censusFromOwnCrawls, listingPathsFromAdapters } from './lib/prospector/sources/known-crawlers.mjs';
 import { sweepSwissCareerPages } from './lib/prospector/sources/commoncrawl-careers.mjs';
 import { loadCoverage, isCovered } from './lib/prospector/coverage.mjs';
-import { loadCandidates, saveCandidates, upsertCandidate, statusCounts, pruneTerminal } from './lib/prospector/candidate-store.mjs';
+import {
+  loadCandidates,
+  saveCandidates,
+  upsertCandidate,
+  candidateKey,
+  reviveRetryableDeadCandidate,
+  statusCounts,
+  pruneTerminal,
+} from './lib/prospector/candidate-store.mjs';
 import { loadRegistry, saveRegistry, observePlatform } from './lib/prospector/platform-registry.mjs';
 import { registrableDomain, sameOrg } from './lib/prospector/registrable.mjs';
 import { CANTONS } from './lib/prospector/config.mjs';
@@ -79,6 +87,8 @@ function file(candidate, source) {
   if (filed >= limit) return;
   const cov = isCovered(coverage, candidate);
   if (cov.covered) { skippedCovered++; return; }
+  const key = candidate.key || candidateKey(candidate);
+  reviveRetryableDeadCandidate(store, key, candidate, dryRun ? null : undefined, source);
   const { created } = upsertCandidate(store, candidate, source);
   if (created) { filed++; perSource[source] = (perSource[source] || 0) + 1; }
 }

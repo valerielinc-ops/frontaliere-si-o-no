@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * check-cwv-field-criterion.mjs — the machine-readable acceptance criterion
  * for issue #5001, replacing "PageSpeed Insights score > 90 mobile".
@@ -521,7 +522,7 @@ async function main() {
 // Only run when invoked as a CLI. Importing this module (tests, other scripts)
 // must never fire a live CrUX call — same guard as scripts/cwv-monitor-check.mjs
 // and scripts/posthog-error-issue-sync.mjs.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error('check-cwv-field-criterion failed:', err?.stack || err);
     // Exit 2, not 1: an unexpected throw is "no verdict", not "criterion failed".

@@ -135,11 +135,10 @@
     <meta name="citation_date" content="2026-03-03" />
     <meta name="citation_online_date" content="2024-01-01" />
     <meta name="citation_keywords" content="frontaliere, cross-border worker, Grenzgänger, imposta alla fonte, withholding tax, IRPEF, Canton Ticino, LAMal, AVS, LPP, Permit G, fiscal simulation, Swiss-Italian taxation 2026" />
-    <!-- AI-readable knowledge files served at their conventional well-known paths:
-         /llms-full.txt and /.well-known/ai-plugin.json (auto-discovered, no <link> hint needed).
-         Removed the previous <link rel="ai-knowledge"> / rel="ai-plugin"> tags: those rel
-         values are not in the HTML link-relations registry, so validators/crawlers flag them
-         as an invalid rel attribute on every page. -->
+    <!-- AI-readable knowledge files served at their conventional paths:
+         /llms.txt and /llms-full.txt (and the mirrored /.well-known/llms.txt).
+         Removed the retired OpenAI plugin manifest and the previous
+         non-standard AI link relation tags. -->
 
     
     <!-- Hreflang for multilingual SEO -->
@@ -344,6 +343,9 @@
          body (full-viewport CLS score of 1.0 on mobile). See cls-live audit. */
       html { margin: 0; padding: 0; scrollbar-gutter: stable; }
       body { margin: 0; padding: 0; }
+      /* The initial H1 margin otherwise collapses through main/root/body before
+         async preflight arrives, shifting the whole viewport by ~21px. */
+      #homepage-static-h1 { margin: 0; }
       /* Reserve mobile widget area so deferred React widgets don't cause CLS when
          they mount. 160px matches min-h-[160px] on the .md:hidden mobile container
          in CalcolatoreTabContent.tsx; the inline value applies before Tailwind
@@ -405,16 +407,24 @@
          (the static-page twin). Pure space reservation. */
       .ft-rail-aside, .ft-rail-aside-x { display: none; }
       .ft-rail-grid-spa { display: contents; }
+      @media (min-width: 1200px) {
+        .xlc\:max-w-none { max-width: none; }
+      }
+      @media (min-width: 1200px) and (max-width: 1279.98px) {
+        .ft-blog-rail-grid-x { display: grid; grid-template-columns: var(--ft-rail-w-c-l,160px) minmax(0,1fr) var(--ft-rail-w-c-r,160px); gap: 1rem; }
+        .ft-blog-rail-aside-x { display: flex; flex-direction: column; min-height: 600px; }
+      }
       @media (min-width: 1280px) and (max-width: 1399.98px) {
-        .ft-rail-grid-x { display: grid; grid-template-columns: 180px 1fr 180px; gap: 1rem; }
+        .ft-rail-grid-x { display: grid; grid-template-columns: var(--ft-rail-w-m-l,180px) minmax(0,1fr) var(--ft-rail-w-m-r,180px); gap: 1rem; }
         .ft-rail-aside-x { display: block; }
+        .ft-blog-rail-aside-x { display: flex; flex-direction: column; min-height: 600px; }
       }
       @media (min-width: 1400px) {
         main:not(.seo-static-content):not(.cluster-seo-prose) { max-width: calc(100vw - 360px); }
         #main-content.plate-auctions-main { max-width: none !important; }
         .ft-rail-grid { display: grid; grid-template-columns: 300px minmax(0,1fr) 300px; gap: 1rem; margin-inline: auto; max-width: 1768px; }
         .ft-rail-grid-spa { display: grid; grid-template-columns: 160px minmax(0,1fr) 160px; gap: 1rem; }
-        .ft-rail-grid-x { display: grid; grid-template-columns: 300px minmax(0,1fr) 300px; gap: 1rem; }
+        .ft-rail-grid-x { display: grid; grid-template-columns: var(--ft-rail-w-l,300px) minmax(0,1fr) var(--ft-rail-w-r,300px); gap: 1rem; }
         .ft-rail-aside, .ft-rail-aside-x { display: flex; flex-direction: column; min-height: 600px; }
       }
       @media (min-width: 1800px) {
@@ -507,25 +517,192 @@
     <!-- Google AdSense: deferred until after page is interactive to avoid
          blocking critical resources and deprecated-API warnings (Fledge) -->
 
-    <!-- The Italian job board uses direct GPT Rewarded Web so the employer
-         redirect can wait for the rewarded lifecycle. Native Offerwall is
-         page-level and is filtered to avoid racing that flow. -->
+    <!-- Click-only Offerwall: the AdSense Offerwall (the site's only rewarded
+         demand) must appear only when the visitor clicks "Candidati" on a
+         job-board section. Funding Choices calls this twice per page view;
+         on the job board the call that carries OFFERWALL is held and released
+         by services/offerwallClickGate.ts, on every other page the Offerwall
+         alone is suppressed. Readable twin of FC_JOBBOARD_OFFERWALL_GATE_JS
+         (build-plugins/constants.ts); tests/offerwall-click-gate-parity.test.ts
+         executes both and pins this path regex to
+         JOB_BOARD_SECTION_PATHNAME_RX (scripts/lib/jobBoardSections.mjs). -->
     <script>
       (function(){
         var g = window.googlefc = window.googlefc || {};
-        if (g.controlledMessagingFunction) return;
-        g.controlledMessagingFunction = function(message){
-          var E = g.MessageTypeEnum || {};
+        if (g.__ftOfferwallGateInstalled) return;
+        var previousControlledMessagingFunction = g.controlledMessagingFunction;
+        function isJobBoardPath(){
           var p = window.location && window.location.pathname || '';
-          var isItalianJobBoard = /^\/cerca-lavoro-ticino(?:\/|$)/.test(p);
-          // Fail open if the enum is unavailable: never block the consent CMP
-          // because an older Funding Choices runtime lacks Offerwall filtering.
-          if (!isItalianJobBoard || E.OFFERWALL === undefined) {
+          return /^(?:\/(?:it|en|de|fr))?\/(?:cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[a-z][a-z-]*(?:\/|$)/.test(p);
+        }
+        function hasConsentDecision(){
+          var d = false;
+          try { d = !!window.localStorage.getItem('frontaliere_ads_consent'); } catch (e) {}
+          if (d) {
+            var c = (window.document && window.document.cookie || '').match(/(?:^|;\s*)FCCDCF=([^;]*)/), v = '';
+            try { v = c ? decodeURIComponent(c[1]) : ''; } catch (e) {}
+            d = /"C[A-Za-z0-9_-]{20,}/.test(v);
+          }
+          return d;
+        }
+        function captureDecision(allow, types){
+          return {
+            allow: allow !== false,
+            types: Array.isArray(types) ? types.slice() : undefined
+          };
+        }
+        function appendTypes(target, types){
+          for (var i = 0; i < (types || []).length; i++) {
+            if (target.indexOf(types[i]) === -1) target.push(types[i]);
+          }
+        }
+        function mergeDecisions(previous, gate){
+          var p = previous || { allow: true };
+          var q = gate || { allow: true };
+          if (p.allow && q.allow) return { allow: true };
+          if (!p.allow && (!p.types || !p.types.length)) return { allow: false };
+          if (!q.allow && (!q.types || !q.types.length)) return { allow: false };
+          var types = [];
+          appendTypes(types, p.types);
+          appendTypes(types, q.types);
+          return { allow: false, types: types };
+        }
+        function deliver(message, previous, gate){
+          var decision = mergeDecisions(previous, gate);
+          if (decision.allow) {
             message.proceed(true);
+          } else if (decision.types && decision.types.length) {
+            message.proceed(false, decision.types);
+          } else {
+            message.proceed(false);
+          }
+        }
+        function hold(w, entry, offerwall){
+          w.held = w.held || [];
+          w.held.push(entry);
+          w.offerwall = offerwall;
+          w.state = 'held';
+          w.release = function(){
+            if (w.state !== 'held') return false;
+            w.state = 'released';
+            var h = w.held.splice(0);
+            for (var i = 0; i < h.length; i++) {
+              try { deliver(h[i].message, h[i].previous, { allow: true }); } catch (e) {}
+            }
+            return true;
+          };
+        }
+        function syncRoute(){
+          var w = window.__ftOfferwallGate;
+          if (!w) return;
+          if (isJobBoardPath()) {
+            if (w.state === 'off_board' && w.reacquire) {
+              // The off-board callback was already completed with
+              // proceed(false). Wait for Funding Choices to deliver a fresh
+              // destination-route callback before exposing release().
+              w.reacquire = undefined;
+              w.state = hasConsentDecision() ? 'idle' : 'suppressed';
+              w.held = [];
+              w.release = undefined;
+              w.offerwall = undefined;
+            }
             return;
           }
-          message.proceed(false, [E.OFFERWALL]);
+          if (w.state === 'held') {
+            var h = w.held.splice(0), o = w.offerwall !== undefined
+              ? w.offerwall
+              : (g.MessageTypeEnum || {}).OFFERWALL;
+            for (var i = 0; i < h.length; i++) {
+              try { deliver(h[i].message, h[i].previous, o === undefined
+                ? { allow: false }
+                : { allow: false, types: [o] }); } catch (e) {}
+            }
+          }
+          w.state = 'off_board';
+          w.held = [];
+          w.release = undefined;
+          w.offerwall = undefined;
+          w.reacquire = undefined;
+        }
+        function watchRoutes(){
+          var h = window.history;
+          if (h) {
+            ['pushState', 'replaceState'].forEach(function(k){
+              var original = h[k];
+              if (typeof original !== 'function') return;
+              h[k] = function(){
+                var result = original.apply(this, arguments);
+                syncRoute();
+                return result;
+              };
+            });
+          }
+          if (typeof window.addEventListener === 'function') window.addEventListener('popstate', syncRoute);
+        }
+        function handleControlledMessaging(message, previous){
+          var E = g.MessageTypeEnum || {};
+          // The first call arrives with an empty enum and must proceed at
+          // once: holding it delays the CMP and the display ads. If a later
+          // call is still unclassified, fail closed because the Offerwall
+          // cannot be suppressed by type without its enum value. The live
+          // enum values are strings ("offerwall"); a number is accepted too.
+          if (typeof E.OFFERWALL !== 'number' && typeof E.OFFERWALL !== 'string') {
+            if (g.__ftOfferwallBootstrapComplete) {
+              deliver(message, previous, { allow: false });
+              return;
+            }
+            g.__ftOfferwallBootstrapComplete = true;
+            deliver(message, previous, { allow: true });
+            return;
+          }
+          syncRoute();
+          if (!isJobBoardPath()) {
+            var w = window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'off_board', held: [] };
+            w.reacquire = true;
+            deliver(message, previous, { allow: false, types: [E.OFFERWALL] });
+            return;
+          }
+          if (!hasConsentDecision()) {
+            window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'suppressed', held: [] };
+            deliver(message, previous, { allow: false, types: [E.OFFERWALL] });
+            return;
+          }
+          var w = window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'idle', held: [] };
+          if (w.state === 'released') {
+            deliver(message, previous, { allow: true });
+            return;
+          }
+          hold(w, { message: message, previous: previous }, E.OFFERWALL);
+        }
+        g.controlledMessagingFunction = function(message){
+          var self = this;
+          var done = false;
+          var finish = function(previous){
+            if (done) return;
+            done = true;
+            handleControlledMessaging(message, previous || { allow: false });
+          };
+          if (typeof previousControlledMessagingFunction !== 'function') {
+            finish({ allow: true });
+            return;
+          }
+          var delegated = Object.create(message);
+          delegated.proceed = function(allow, types){
+            finish(captureDecision(allow, types));
+          };
+          var result;
+          try {
+            result = previousControlledMessagingFunction.call(self, delegated);
+          } catch (e) {
+            finish({ allow: false });
+            return;
+          }
+          if (result && typeof result.then === 'function') {
+            result.then(function(){ if (!done) finish({ allow: false }); }, function(){ finish({ allow: false }); });
+          }
         };
+        g.__ftOfferwallGateInstalled = true;
+        watchRoutes();
       })();
     </script>
 
@@ -674,12 +851,12 @@
 
               <!-- Nav links — hidden mobile, flex md+ (6 icon placeholders, no pulse - hidden on mobile) -->
               <div class="sh-nav-links" style="align-items:center;gap:4px;margin:0 16px">
-                <a href="/calcola-stipendio/" style="display:block;width:40px;height:40px;background:#eff6ff;border-radius:8px;text-decoration:none" aria-label="Calcolatore stipendio"></a>
-                <a href="/compara-servizi/" style="display:block;width:40px;height:40px;background:#f1f5f9;border-radius:8px;text-decoration:none" aria-label="Confronti servizi"></a>
-                <a href="/tasse-e-pensione/" style="display:block;width:40px;height:40px;background:#f1f5f9;border-radius:8px;text-decoration:none" aria-label="Fisco e pensione"></a>
-                <a href="/guida-frontaliere/" style="display:block;width:40px;height:40px;background:#f1f5f9;border-radius:8px;text-decoration:none" aria-label="Guida frontaliere"></a>
-                <a href="/vivere-in-ticino/" style="display:block;width:40px;height:40px;background:#f1f5f9;border-radius:8px;text-decoration:none" aria-label="Vivere in Ticino"></a>
-                <a href="/statistiche/" style="display:block;width:40px;height:40px;background:#f1f5f9;border-radius:8px;text-decoration:none" aria-label="Statistiche"></a>
+                <a href="/calcola-stipendio/" style="display:block;width:44px;height:44px;background:#eff6ff;border-radius:8px;text-decoration:none" aria-label="Calcolatore stipendio"></a>
+                <a href="/compara-servizi/" style="display:block;width:44px;height:44px;background:#f1f5f9;border-radius:8px;text-decoration:none" aria-label="Confronti servizi"></a>
+                <a href="/tasse-e-pensione/" style="display:block;width:44px;height:44px;background:#f1f5f9;border-radius:8px;text-decoration:none" aria-label="Fisco e pensione"></a>
+                <a href="/guida-frontaliere/" style="display:block;width:44px;height:44px;background:#f1f5f9;border-radius:8px;text-decoration:none" aria-label="Guida frontaliere"></a>
+                <a href="/vivere-in-ticino/" style="display:block;width:44px;height:44px;background:#f1f5f9;border-radius:8px;text-decoration:none" aria-label="Vivere in Ticino"></a>
+                <a href="/statistiche/" style="display:block;width:44px;height:44px;background:#f1f5f9;border-radius:8px;text-decoration:none" aria-label="Statistiche"></a>
               </div>
 
               <!-- Action buttons — hidden mobile, flex md+ (no pulse - hidden on mobile) -->
@@ -861,7 +1038,7 @@
               <div>
                 <h3 style="font-size:15px;font-weight:600;color:#1e40af;margin:0 0 8px">Calcolatori</h3>
                 <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px">
-                  <li><a href="/calcola-stipendio/" style="color:#334155;text-decoration:none">Calcola Stipendio Netto</a></li>
+                  <li><a href="/calcola-stipendio/" style="color:#334155;text-decoration:underline;text-underline-offset:2px">Calcola Stipendio Netto</a></li>
                   <li><a href="/calcola-stipendio/cosa-cambia-se/" style="color:#334155;text-decoration:none">Simulatore What-If</a></li>
                   <li><a href="/calcola-stipendio/simula-busta-paga/" style="color:#334155;text-decoration:none">Simula Busta Paga</a></li>
                   <li><a href="/calcola-stipendio/confronta-retribuzione-ral/" style="color:#334155;text-decoration:none">Confronta RAL</a></li>
@@ -871,7 +1048,7 @@
               <div>
                 <h3 style="font-size:15px;font-weight:600;color:#1e40af;margin:0 0 8px">Confronta Servizi</h3>
                 <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px">
-                  <li><a href="/compara-servizi/cambio-franco-euro/" style="color:#334155;text-decoration:none">Cambio Franco-Euro</a></li>
+                  <li><a href="/compara-servizi/cambio-franco-euro/" style="color:#334155;text-decoration:underline;text-underline-offset:2px">Cambio Franco-Euro</a></li>
                   <li><a href="/compara-servizi/confronta-banche/" style="color:#334155;text-decoration:none">Confronta Banche</a></li>
                   <li><a href="/compara-servizi/confronta-casse-malati/" style="color:#334155;text-decoration:none">Confronta Casse Malati</a></li>
                   <li><a href="/compara-servizi/costo-della-vita/" style="color:#334155;text-decoration:none">Costo della Vita</a></li>
@@ -894,7 +1071,7 @@
                   <li><a href="/guida-frontaliere/" style="color:#334155;text-decoration:none">Guida Frontaliere</a></li>
                   <li><a href="/guida-frontaliere/primo-giorno-lavoro/" style="color:#334155;text-decoration:none">Primo Giorno di Lavoro</a></li>
                   <li><a href="/guida-frontaliere/permessi-di-lavoro/" style="color:#334155;text-decoration:none">Permessi di Lavoro</a></li>
-                  <li><a href="/guida-frontaliere/confronta-permesso-g-vs-b/" style="color:#334155;text-decoration:none">Permesso G vs B</a></li>
+                  <li><a href="/guida-frontaliere/confronta-permesso-g-vs-b/" style="color:#334155;text-decoration:none">Guida permesso G vs B</a></li>
                   <li><a href="/domande-frequenti-frontalieri/" style="color:#334155;text-decoration:none">FAQ Frontalieri</a></li>
                 </ul>
               </div>
@@ -928,7 +1105,7 @@
                   <li><a href="/vivere-in-ticino/" style="color:#334155;text-decoration:none">Vivere in Ticino</a></li>
                   <li><a href="/eventi/" style="color:#334155;text-decoration:none">Eventi in Svizzera</a></li>
                   <li><a href="/eventi/ticino/" style="color:#334155;text-decoration:none">Eventi in Ticino</a></li>
-                  <li><a href="/vivere-in-ticino/comuni-di-frontiera/" style="color:#334155;text-decoration:none">Comuni di Frontiera</a></li>
+                  <li><a href="/vivere-in-ticino/comuni-di-frontiera/" style="color:#334155;text-decoration:none">Mappa comuni di frontiera</a></li>
                   <li><a href="/vivere-in-ticino/trasporti-frontalieri/" style="color:#334155;text-decoration:none">Trasporti Frontalieri</a></li>
                 </ul>
               </div>
@@ -959,12 +1136,12 @@
 
         <!-- Mobile bottom navigation — matches React's fixed bottom-0 md:hidden grid-cols-6 h-14 -->
         <nav class="sh-mobile-nav" style="position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(255,255,255,0.95);border-top:1px solid rgba(226,232,240,0.5);height:56px;align-items:center;padding-bottom:env(safe-area-inset-bottom)">
-          <a href="/calcola-stipendio/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#3b82f6;border-radius:4px"></div><div style="font-size:12px;font-weight:600;color:#3b82f6">Calcola</div></a>
-          <a href="/compara-servizi/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Confronti</div></a>
-          <a href="/tasse-e-pensione/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Fisco</div></a>
-          <a href="/guida-frontaliere/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Guida</div></a>
-          <a href="/vivere-in-ticino/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Vita</div></a>
-          <a href="/statistiche/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Stats</div></a>
+          <a href="/calcola-stipendio/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#3b82f6;border-radius:4px"></div><div style="font-size:12px;font-weight:600;color:#3b82f6">Calcola</div></a>
+          <a href="/compara-servizi/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Confronti</div></a>
+          <a href="/tasse-e-pensione/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Fisco</div></a>
+          <a href="/guida-frontaliere/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Guida</div></a>
+          <a href="/vivere-in-ticino/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Vita</div></a>
+          <a href="/statistiche/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Stats</div></a>
         </nav>
 
       </div>
@@ -1211,9 +1388,9 @@
       // `/\bis not a function\b/`) — a lexical drift within the same pattern
       // class this comment already calls out (issue #3216 item 1; AGENTS.md
       // §Non-Negotiables #6). Aligned to `\b` on both sides for byte-parity.
-      // Two more patterns added for issue #4304 (undefined lazy-proxy import
-      // at call time, e.g. Analytics.trackCalculation) — see inline comment
-      // on `skewCall` below.
+      // The Analytics lazy-proxy and History-wrapper patterns cover call-time
+      // failures from stale chunks that loaded with HTTP 200 — see the inline
+      // comment on `skewCall` below.
       window.addEventListener('error', function(e) {
         // Resource (script/link) errors are handled by the capture-phase handler
         // above; this non-capture handler only inspects runtime errors.
@@ -1235,6 +1412,8 @@
                    /\bis not a function\b/.test(m) ||
                    /\bis not a constructor\b/.test(m) ||
                    /\bis not iterable\b/.test(m) ||
+                   /\bcannot read propert(?:y|ies) of undefined \(reading 'apply'\)/i.test(m) ||
+                   /\bundefined is not an object \(evaluating '[^']*\.apply'\)/i.test(m) ||
                    /\bcannot read propert(?:y|ies) of undefined \(reading '(?:track|init|set)[A-Za-z]*'\)/i.test(m) ||
                    /\bundefined is not an object \(evaluating '[^']*\.(?:track|init|set)[A-Za-z]*'\)/i.test(m));
         var skewLink = /does not provide an export named|import not found|indirect export|Importing binding name/.test(m);
@@ -1327,7 +1506,7 @@
     <script type="module" src="/index.tsx"></script>
     <!-- AdSense script is loaded only when an eligible ad unit is rendered. -->
     <!-- SEO: Visible content for crawlers that don't execute JavaScript -->
-    <noscript>
+    <noscript id="homepage-nojs">
       <div style="max-width:900px;margin:0 auto;padding:24px;font-family:Inter,sans-serif;line-height:1.6">
         <h2>Frontaliere Ticino 2026 — Simulatore Fiscale e Guida Completa</h2>
         <p>Calcola il tuo <strong>stipendio netto</strong> come <strong>frontaliere</strong> in <strong>Svizzera</strong>: simulatore fiscale per il <strong>reddito</strong> lordo-netto, confronto <strong>costo della vita</strong> <strong>Italia</strong> vs <strong>Ticino</strong>, pensione AVS/LPP/INPS, cambio CHF-EUR e guida completa con 200+ comuni frontalieri.</p>
@@ -1343,7 +1522,7 @@
           <li><a href="/calcola-stipendio/stima-bonus-frontaliere/">Calcolo Bonus</a> — Stima bonus e premi aziendali</li>
           <li><a href="/calcola-stipendio/verifica-congedo-parentale/">Congedo Genitoriale</a> — Calcola indennità maternità/paternità</li>
           <li><a href="/calcola-stipendio/simula-cambio-residenza/">Cambio Residenza</a> — Impatto fiscale del trasferimento</li>
-          <li><a href="/calcola-stipendio/confronta-permesso-g-vs-b/">Permesso G vs B</a> — Confronto fiscale tra permessi</li>
+          <li><a href="/calcola-stipendio/confronta-permesso-g-vs-b/">Simulatore permesso G vs B</a> — Confronto fiscale tra permessi</li>
         </ul>
 
         <h3>Simulazioni per fascia di stipendio</h3>
@@ -1384,11 +1563,11 @@
         <ul>
           <li><a href="/guida-frontaliere/">Guida completa frontalieri</a> — Permessi, tasse, vita quotidiana</li>
           <li><a href="/guida-frontaliere/permessi-di-lavoro/">Permessi di Lavoro</a> — Permesso G, B, L e procedura</li>
-          <li><a href="/guida-frontaliere/tempi-attesa-dogana/">Tempi Attesa Dogana</a> — Traffico ai valichi in tempo reale</li>
+          <li><a href="/traffico-dogane/">Tempi Attesa Dogana</a> — Traffico ai valichi in tempo reale</li>
           <li><a href="/guida-frontaliere/disoccupazione-transfrontaliera/">Disoccupazione</a> — Indennità e diritti per frontalieri</li>
           <li><a href="/guida-frontaliere/trasferire-auto-svizzera/">Trasferire Auto in CH</a> — Procedura immatricolazione svizzera</li>
           <li><a href="/guida-frontaliere/costo-auto-pendolare/">Costo Auto Pendolare</a> — Calcola spese viaggio e pedaggi</li>
-          <li><a href="/guida-frontaliere/comuni-di-frontiera/">Comuni di Frontiera</a> — 200+ comuni entro 20km dal confine</li>
+          <li><a href="/guida-frontaliere/comuni-di-frontiera/">Guida ai comuni di frontiera</a> — 200+ comuni entro 20km dal confine</li>
           <li><a href="/guida-frontaliere/mappa-confine/">Mappa Confine</a> — Visualizza valichi e comuni frontalieri</li>
         </ul>
 
@@ -1458,8 +1637,9 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "NewsMediaOrganization",
+      "@type": "Organization",
       "@id": "https://frontaliereticino.ch/#organization",
+      "additionalType": "https://schema.org/NewsMediaOrganization",
       "name": "Frontaliere Ticino",
       "url": "https://frontaliereticino.ch/",
       "logo": "https://frontaliereticino.ch/icons/icon-512x512.png",
@@ -1565,7 +1745,7 @@
         "query-input": "required name=search_term_string"
       },
       "isBasedOn": [
-        {"@type": "GovernmentService", "name": "Canton Ticino DFE - Tabelle imposta alla fonte 2026", "url": "https://www4.ti.ch/dfe/dc/imposte/imposta-alla-fonte/"},
+        {"@type": "GovernmentService", "name": "Canton Ticino DFE - Tabelle imposta alla fonte 2026", "url": "https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/informazioni-sullimposte-alla-fonte/"},
         {"@type": "LegislationObject", "name": "Legge n. 83/2023 - Nuovo Accordo Fiscale Italia-Svizzera", "url": "https://www.gazzettaufficiale.it/eli/id/2023/07/10/23G00098/sg"},
         {"@type": "Dataset", "name": "BFS Grenzgängerstatistik", "description": "Statistiche ufficiali sui lavoratori frontalieri in Svizzera, pubblicate trimestralmente dall'Ufficio federale di statistica (UST/BFS).", "url": "https://www.bfs.admin.ch/bfs/de/home/statistiken/arbeit-erwerb/erwerbstaetigkeit-arbeitszeit/erwerbspersonen/grenzgaenger.html", "license": "https://www.bfs.admin.ch/bfs/en/home/fso/legal-framework/terms-of-use.html", "creator": {"@type": "Organization", "name": "Bundesamt für Statistik (BFS)", "url": "https://www.bfs.admin.ch"}}
       ]
@@ -1595,7 +1775,7 @@
         <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qual è la differenza tra vecchio e nuovo frontaliere?","acceptedAnswer":{"@type":"Answer","text":"Il vecchio frontaliere (assunto prima del 17 luglio 2023 nei comuni entro 20 km dal confine) paga solo l'imposta alla fonte in Svizzera. Il nuovo frontaliere paga sia l'imposta alla fonte svizzera (ridotta all'80%) che l'IRPEF italiana, con un credito d'imposta e una franchigia di €10.000."}},{"@type":"Question","name":"Conviene lavorare come vecchio o nuovo frontaliere nel 2026?","acceptedAnswer":{"@type":"Answer","text":"Dipende dal salario, stato civile, figli e comune di residenza. Il vecchio regime è generalmente più vantaggioso per salari medio-alti (>CHF 60.000). Il nuovo regime può convenire con salari più bassi grazie alla franchigia €10.000. Usa il simulatore gratuito su frontaliereticino.ch per calcolare il tuo caso specifico."}},{"@type":"Question","name":"Come si calcola l'imposta alla fonte in Canton Ticino nel 2026?","acceptedAnswer":{"@type":"Answer","text":"L'imposta alla fonte in Ticino si calcola sul salario lordo annuo con aliquote progressive: 0% sotto CHF 18.000, dal 4% al 24% per redditi superiori, variando in base a stato civile (tabelle A singolo, B sposato mono-reddito, C sposato doppio reddito, H genitore solo) e numero di figli. Ogni figlio riduce l'aliquota di circa 1-2 punti percentuali."}},{"@type":"Question","name":"Quanto guadagna netto un frontaliere con CHF 80.000 lordi nel 2026?","acceptedAnswer":{"@type":"Answer","text":"Un frontaliere single senza figli con CHF 80.000 lordi/anno guadagna circa CHF 4.900-5.100/mese netti con il vecchio accordo (solo imposta alla fonte), oppure circa CHF 4.400-4.600/mese netti con il nuovo accordo (imposta alla fonte ridotta + IRPEF italiana con franchigia €10.000 e credito d'imposta). I contributi sociali svizzeri (AVS 5,3%, AC 1,1%, LAA, LPP) vengono detratti dal lordo."}},{"@type":"Question","name":"Quanto costa l'assicurazione sanitaria LAMal per frontalieri?","acceptedAnswer":{"@type":"Answer","text":"I premi LAMal per frontalieri in Canton Ticino variano da CHF 270 a CHF 560/mese a seconda dell'assicuratore, modello (Standard, Telmed, HMO) e franchigia (CHF 300-2.500). Le opzioni più economiche sono Assura e Agrisano con modello Telmed e franchigia CHF 2.500, a circa CHF 270-300/mese. Il comparatore su frontaliereticino.ch confronta 14 assicuratori in 7 cantoni."}},{"@type":"Question","name":"Come funziona la pensione per i frontalieri svizzeri?","acceptedAnswer":{"@type":"Answer","text":"I frontalieri contribuiscono a 3 pilastri: 1° pilastro AVS (pensione statale, contributo 5,3%, pensione max CHF 2.450/mese), 2° pilastro LPP (cassa pensione aziendale, contributo 7-18% secondo l'età), e possono versare nel 3° pilastro 3a (max CHF 7.258/anno nel 2026, deducibile fiscalmente). Al rientro in Italia il capitale LPP può essere prelevato come somma unica."}},{"@type":"Question","name":"Cos'è la franchigia di €10.000 per i nuovi frontalieri?","acceptedAnswer":{"@type":"Answer","text":"La franchigia è un'esenzione fiscale annuale di €10.000 introdotta dal nuovo accordo frontalieri 2024. Per i nuovi frontalieri, i primi €10.000 del reddito svizzero convertito in EUR sono esenti dall'IRPEF italiana. Su uno stipendio di CHF 60.000, questa esenzione fa risparmiare circa €2.000-2.500/anno di tasse italiane."}},{"@type":"Question","name":"Qual è il modo migliore per cambiare CHF in EUR?","acceptedAnswer":{"@type":"Answer","text":"Wise (ex TransferWise) e Revolut offrono i tassi migliori con markup dello 0,25-0,5% sul tasso interbancario. Le banche tradizionali (UBS, PostFinance) applicano markup del 2-3%. Per un frontaliere che cambia CHF 5.000/mese, Wise fa risparmiare circa CHF 100-150/mese rispetto alla banca tradizionale, ovvero CHF 1.200-1.800/anno."}},{"@type":"Question","name":"I frontalieri devono fare la dichiarazione dei redditi in Italia?","acceptedAnswer":{"@type":"Answer","text":"I nuovi frontalieri (assunti dal 17 luglio 2023) devono obbligatoriamente fare la dichiarazione dei redditi italiana (Modello 730 o Modello Redditi PF) per dichiarare il reddito svizzero e richiedere il credito d'imposta per le tasse pagate in Svizzera. I vecchi frontalieri (assunti prima del luglio 2023, entro 20 km) sono generalmente esenti per il reddito da lavoro svizzero."}},{"@type":"Question","name":"Quanti frontalieri lavorano in Canton Ticino?","acceptedAnswer":{"@type":"Answer","text":"Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (dati BFS 2025). Il Ticino è il cantone svizzero con la più alta concentrazione di frontalieri, che rappresentano circa il 30% della forza lavoro cantonale. Il numero cresce del 2-3% annuo. I settori principali sono manifattura, costruzioni, finanza, sanità, ospitalità e IT."}},{"@type":"Question","name":"Cosa sono i ristorni fiscali?","acceptedAnswer":{"@type":"Answer","text":"I ristorni sono compensazioni fiscali che la Svizzera versa ai comuni italiani di frontiera. Con il vecchio accordo, la Svizzera restituisce il 40% dell'imposta alla fonte riscossa dai vecchi frontalieri ai comuni dove risiedono. I ristorni vengono gradualmente eliminati nel periodo transitorio 2024-2033, poiché i nuovi frontalieri pagano le tasse direttamente in Italia."}}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Come calcolare lo stipendio netto da frontaliere Svizzera-Italia","description":"Guida passo-passo per calcolare il tuo stipendio netto come lavoratore frontaliere usando il simulatore fiscale gratuito di Frontaliere Ticino.","totalTime":"PT1M","step":[{"@type":"HowToStep","position":1,"name":"Inserisci il salario lordo annuo","text":"Inserisci il tuo salario lordo annuo in CHF nel campo dedicato.","url":"https://frontaliereticino.ch/calcola-stipendio/"},{"@type":"HowToStep","position":2,"name":"Seleziona stato civile e figli","text":"Scegli stato civile (single, coniugato, genitore solo) e numero di figli per determinare la tabella d'imposta corretta (A, B, C o H).","url":"https://frontaliereticino.ch/calcola-stipendio/"},{"@type":"HowToStep","position":3,"name":"Scegli vecchio o nuovo frontaliere","text":"Indica se sei stato assunto prima o dopo il 17 luglio 2023 e se risiedi entro o oltre 20 km dal confine svizzero.","url":"https://frontaliereticino.ch/calcola-stipendio/"},{"@type":"HowToStep","position":4,"name":"Analizza i risultati","text":"Visualizza il dettaglio di imposta alla fonte, contributi sociali (AVS, AC, LAA, LPP), eventuale IRPEF italiana e stipendio netto mensile in CHF e EUR.","url":"https://frontaliereticino.ch/calcola-stipendio/"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTermSet","name":"Glossario Frontalieri Svizzera-Italia","description":"Definizioni dei termini chiave per i lavoratori frontalieri tra Svizzera e Italia","url":"https://frontaliereticino.ch/glossario-frontaliere/","hasDefinedTerm":[{"@type":"DefinedTerm","name":"Frontaliere","description":"Lavoratore che risiede in Italia e lavora in Svizzera con permesso G, pendolando quotidianamente o settimanalmente attraverso il confine.","url":"https://frontaliereticino.ch/glossario-frontaliere/frontaliere/","inDefinedTermSet":"https://frontaliereticino.ch/glossario-frontaliere/"},{"@type":"DefinedTerm","name":"Imposta alla fonte","description":"Tassa trattenuta direttamente dallo stipendio dal datore di lavoro svizzero, con aliquote progressive dallo 0% al 24% in Canton Ticino, variabili per reddito, stato civile e figli.","url":"https://frontaliereticino.ch/glossario-frontaliere/imposta-alla-fonte/","inDefinedTermSet":"https://frontaliereticino.ch/glossario-frontaliere/"},{"@type":"DefinedTerm","name":"Franchigia €10.000","description":"Esenzione fiscale annuale di €10.000 per i nuovi frontalieri: i primi €10.000 del reddito svizzero convertito in EUR sono esenti dall'IRPEF italiana.","url":"https://frontaliereticino.ch/glossario-frontaliere/franchigia/","inDefinedTermSet":"https://frontaliereticino.ch/glossario-frontaliere/"},{"@type":"DefinedTerm","name":"LAMal","description":"Assicurazione malattia obbligatoria svizzera (Legge federale sull'assicurazione malattie). I frontalieri scelgono tra LAMal svizzera e SSN italiano entro 3 mesi dall'inizio del lavoro.","url":"https://frontaliereticino.ch/glossario-frontaliere/lamal/","inDefinedTermSet":"https://frontaliereticino.ch/glossario-frontaliere/"},{"@type":"DefinedTerm","name":"AVS","description":"Assicurazione Vecchiaia e Superstiti, il 1° pilastro del sistema pensionistico svizzero. Contributo del 5,3% sul salario lordo, pensione massima CHF 2.450/mese.","url":"https://frontaliereticino.ch/glossario-frontaliere/avs/","inDefinedTermSet":"https://frontaliereticino.ch/glossario-frontaliere/"},{"@type":"DefinedTerm","name":"LPP","description":"Legge sulla Previdenza Professionale, il 2° pilastro pensionistico svizzero. Contributi del 7-18% secondo l'età, accumulati come capitale individuale presso la cassa pensione aziendale.","url":"https://frontaliereticino.ch/glossario-frontaliere/lpp/","inDefinedTermSet":"https://frontaliereticino.ch/glossario-frontaliere/"},{"@type":"DefinedTerm","name":"Ristorni fiscali","description":"Compensazioni fiscali che la Svizzera versa ai comuni italiani di frontiera, pari al 40% dell'imposta alla fonte dei vecchi frontalieri. In fase di eliminazione graduale 2024-2033.","url":"https://frontaliereticino.ch/glossario-frontaliere/ristorni/","inDefinedTermSet":"https://frontaliereticino.ch/glossario-frontaliere/"},{"@type":"DefinedTerm","name":"Permesso G","description":"Permesso per lavoratori frontalieri (Grenzgängerbewilligung) rilasciato a chi risiede in un paese UE/AELS e lavora in Svizzera. Validità 5 anni, rinnovabile.","url":"https://frontaliereticino.ch/glossario-frontaliere/permesso-g/","inDefinedTermSet":"https://frontaliereticino.ch/glossario-frontaliere/"}]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Statistiche Frontalieri Canton Ticino","description":"Dati statistici sui lavoratori frontalieri in Canton Ticino: numero di frontalieri, stipendi mediani per settore, trend storici, traffico ai varchi doganali. Fonte: BFS/UST (Ufficio Federale di Statistica svizzero).","url":"https://frontaliereticino.ch/statistiche/","creator":{"@type":"Organization","name":"Frontaliere Ticino"},"license":"https://frontaliereticino.ch/privacy-policy/","temporalCoverage":"2020/2026","spatialCoverage":{"@type":"Place","name":"Canton Ticino, Switzerland"},"variableMeasured":[{"@type":"PropertyValue","name":"Numero frontalieri","value":"~79.000 (2025)"},{"@type":"PropertyValue","name":"Stipendio mediano","value":"CHF 62.000-68.000/anno"},{"@type":"PropertyValue","name":"Crescita annua","value":"2-3%"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Statistiche Frontalieri Canton Ticino","description":"Dati statistici sui lavoratori frontalieri in Canton Ticino: numero di frontalieri, stipendi mediani per settore, trend storici, traffico ai varchi doganali. Fonte: BFS/UST (Ufficio Federale di Statistica svizzero).","url":"https://frontaliereticino.ch/statistiche/","creator":{"@type":"Organization","@id":"https://frontaliereticino.ch/#organization","name":"Frontaliere Ticino","url":"https://frontaliereticino.ch/"},"license":"https://frontaliereticino.ch/privacy-policy/","temporalCoverage":"2020/2026","spatialCoverage":{"@type":"Place","name":"Canton Ticino, Switzerland"},"variableMeasured":[{"@type":"PropertyValue","name":"Numero frontalieri","value":"~79.000 (2025)"},{"@type":"PropertyValue","name":"Stipendio mediano","value":"CHF 62.000-68.000/anno"},{"@type":"PropertyValue","name":"Crescita annua","value":"2-3%"}]}</script>
 
   </body>
 </html>

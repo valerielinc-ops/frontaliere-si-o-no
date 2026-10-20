@@ -510,7 +510,13 @@ async function computeResendDynamicDailyLimit(nowMs = Date.now()) {
     console.warn(`⚠️  [resend] quota-cycle usage unverifiable — falling back to the ${provider.dailyLimit}/day free-plan ceiling`);
     return provider.dailyLimit;
   }
-  const daysRemaining = Math.max(1, Math.ceil((cycleEnd.getTime() - nowMs) / DAY_MS));
+  // The current UTC day is the send day, not a full future day. Excluding it
+  // from the pacing denominator keeps a fresh cycle at the provider's hard
+  // 100/day ceiling while the following days still share the remaining
+  // monthly budget. Without this, a 31-day cycle starts at floor(3000 / 31)
+  // = 96 and the daily hard cap is lowered merely because the calendar has 31
+  // dates, even though the account quota is 3000 messages per cycle.
+  const daysRemaining = Math.max(1, Math.ceil((cycleEnd.getTime() - nowMs) / DAY_MS) - 1);
   const remainingBudget = Math.max(0, provider.monthlyLimit - count);
   const dynamicLimit = Math.min(provider.dailyLimit, Math.floor(remainingBudget / daysRemaining));
   console.log(`   [resend] cycle ${cycleStart.toISOString().slice(0, 10)}→${cycleEnd.toISOString().slice(0, 10)}: used=${count}/${provider.monthlyLimit}, daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);
@@ -521,13 +527,11 @@ async function computeResendDynamicDailyLimit(nowMs = Date.now()) {
 // Docs: https://maileroo.com/docs/api-reference/statistics/summary
 // GET https://api.maileroo.com/v1/statistics/summary — aggregates the
 // CURRENT CALENDAR MONTH only (no date-range params, no billing-cycle anchor
-// day like Resend's). Docs list the required scope as `statistics.read`
-// under a distinct "Account API" section, separate from the sending-key auth
-// used by sendViaMaileroo — unconfirmed whether MAILEROO_API_KEY (a Domain
-// Sending Key) carries that scope. Tried with the same X-Api-Key header as
-// the send endpoint (the only credential this integration has); a 401/403
-// here just means the key lacks the scope and callers fall back to the
-// conservative static floor below — never a hard failure either way.
+// day like Resend's). Docs list the required scope as `statistics.read` under
+// a distinct "Account API" section, separate from the sending-key auth used
+// by sendViaMaileroo. A sending key is never sent to this endpoint: when the
+// dedicated Account API key is absent, callers fall back to the conservative
+// static floor below.
 //
 // The response has no raw "sent"/"accepted" counter, only terminal
 // delivery-outcome fields (`delivered`, `bounced`, `opens`, `clicks`,
@@ -544,10 +548,7 @@ export async function fetchMailerooCycleUsage(nowMs = Date.now()) {
   // is NOT valid here even with the correct header shape (401 "invalid or
   // revoked") — the Account API needs its own key, generated under
   // Maileroo's "Applications" dashboard section, not provisioned yet.
-  // MAILEROO_ACCOUNT_API_KEY is tried first when set; MAILEROO_API_KEY is
-  // tried as a fallback in case a future account/key setup grants it the
-  // statistics.read scope directly. Either way a 401 degrades safely below.
-  const apiKey = process.env.MAILEROO_ACCOUNT_API_KEY || process.env.MAILEROO_API_KEY;
+  const apiKey = process.env.MAILEROO_ACCOUNT_API_KEY;
   if (!apiKey) return { count: 0, verified: false };
   try {
     const res = await fetch('https://api.maileroo.com/v1/statistics/summary', {
@@ -940,6 +941,8 @@ async function sendViaMailjet(email, _scheduledAt, signal) {
         HTMLPart: email.html,
         TextPart: email.text || undefined,
         CustomID: campaignIdTag(email),
+        // No pixel for a message sent in a candidate's name (`openTracking: false`).
+        ...(email.openTracking === false ? { TrackOpens: 'disabled' } : {}),
         // Forward custom email headers (List-Unsubscribe, etc.) — parity with
         // the other 5 providers, all of which already forward email.headers.
         Headers: (email.headers && typeof email.headers === 'object') ? email.headers : undefined,
@@ -957,7 +960,22 @@ async function sendViaMailjet(email, _scheduledAt, signal) {
   if (msg?.Status === 'error') {
     throw new Error(`Mailjet error: ${JSON.stringify(msg.Errors).slice(0, 200)}`);
   }
-  return providerAck('mailjet', msg?.To?.[0]?.MessageID);
+  // `MessageUUID`, never `MessageID`. The Send API v3.1 acknowledges each
+  // recipient with both: `MessageID` is an integer around 1.15e18, past 2^53,
+  // so `res.json()` has already rounded it before any code of ours runs (until
+  // #8245, 2026-09-10, it was stored rounded — 214 confirmation records; since
+  // then it is refused and the send is labelled ambiguous — 144 in 30 days).
+  // And even exact it would join nothing: the Mailjet webhook stamps its events
+  // with `Message_GUID` (all 53,406 stored events carry it, see
+  // newsletterMailjetWebhookCore.js), which is the message's UUID: on
+  // 2026-09-25 the `UUID` that Mailjet's read-only /v3/REST/message listing
+  // gives for 120 of 120 recent messages equalled the `Message_GUID` stored
+  // for the same recipient. `MessageUUID` is that id as the Send API v3.1
+  // returns it («the internal Mailjet ID of your message»). Measured the same
+  // day: 0 of 358 Mailjet confirmation sends joined their provider events by
+  // id, against 595/595 on Mailgun. The UUID is a string, so it survives
+  // JSON.parse intact.
+  return providerAck('mailjet', msg?.To?.[0]?.MessageUUID);
 }
 
 // ── Mailgun API (v3) ─────────────────────────────────────────
@@ -983,9 +1001,11 @@ async function sendViaMailgun(email, scheduledAt, signal) {
   // with `tracking: false` (e.g. win-back CTAs that must point directly to
   // our canonical https origin). Mailgun is the FIRST provider in the cascade,
   // so this gate is what actually honors `tracking: false` on the primary path.
+  // `openTracking: false` drops the pixel too: an application sent in a
+  // candidate's name must not track the recruiter who opens it.
   form.append('o:tracking', 'yes');
   form.append('o:tracking-clicks', email.tracking !== false ? 'yes' : 'no');
-  form.append('o:tracking-opens', 'yes');
+  form.append('o:tracking-opens', email.openTracking === false ? 'no' : 'yes');
   if (email.tags?.length) {
     // Mailgun's API caps `o:tag` at 3 per message (docs, not the Help
     // Center's unrelated 10-tag figure); anything past the 3rd is silently
@@ -1085,7 +1105,8 @@ async function sendViaMaileroo(email, scheduledAt, signal) {
     // links through Maileroo's tracking domain; callers may opt out per-message
     // with `tracking: false` (e.g. win-back CTAs that must point directly to
     // our canonical https origin). Mirrors Mailgun's o:tracking-clicks behaviour.
-    tracking: email.tracking !== false,
+    // One flag covers clicks and opens here: `openTracking: false` turns both off.
+    tracking: email.tracking !== false && email.openTracking !== false,
   };
   if (email.text) body.plain = email.text;
   // Maileroo tags are an object map; cascade tags are [{name, value}].
@@ -1149,7 +1170,8 @@ async function sendViaResend(email, scheduledAt, signal) {
     // with `tracking: false` (e.g. win-back CTAs that must point directly to
     // our canonical https origin). Mirrors Mailgun's o:tracking-clicks behaviour.
     click_tracking: email.tracking !== false,
-    open_tracking: true,
+    // `openTracking: false`: no pixel (an application sent in a candidate's name).
+    open_tracking: email.openTracking !== false,
   };
   // Per-message scheduled send (feature #3798), ISO 8601 UTC. Omitted
   // entirely (no key at all, not even `undefined`) when resolveScheduledAt

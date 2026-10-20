@@ -41,6 +41,7 @@
  * Env gate: SKIP_COST_OF_LIVING=1 fast-exits (local builds only; CI always runs).
  */
 
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import fs from 'node:fs';
 import np from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -52,7 +53,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
@@ -181,6 +182,10 @@ export function renderFeaturedJobs(
       contract: j.contract ?? undefined,
       salaryMin: j.salaryMin,
       salaryMax: j.salaryMax,
+      salarySource: j.salarySource,
+      currency: j.currency,
+      postingDateSource: j.postingDateSource,
+      datePosted: j.datePosted ?? undefined,
       postedDate: j.postedDate,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
@@ -202,7 +207,7 @@ export function renderFeaturedJobs(
   return `<section class="s-KZc0LQ">
     <h2 class="s-8dKmAe">${esc(view.featuredJobsTitle)}</h2>
     ${listHtml}
-    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
+    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-flex;align-items:center;min-height:44px;padding:8px 0;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
   </section>`;
 }
 
@@ -261,6 +266,53 @@ interface RenderResult {
   readonly wordCount: number;
 }
 
+/**
+ * Build the place entity used by a cost-of-living landing.
+ *
+ * These pages compare city-level data. They do not represent a Frontaliere
+ * Ticino office or storefront, so the schema must remain a City (or the
+ * regional AdministrativeArea) rather than claiming a LocalBusiness at an
+ * invented address. A city postal address is emitted only when the source
+ * dataset supplies a locality; the Ticino roll-up has no physical address.
+ */
+export function buildCostOfLivingPlaceSchema(opts: {
+  locale: ColLocale;
+  city: ColCityId;
+  canonicalUrl: string;
+}): Record<string, unknown> {
+  const { locale, city, canonicalUrl } = opts;
+  const cityName = COL_CITY_DISPLAY[city][locale];
+  const geo = COL_CITY_GEO[city];
+  const place: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': city === 'ticino' ? 'AdministrativeArea' : 'City',
+    '@id': `${canonicalUrl}#place`,
+    name: cityName,
+    url: canonicalUrl,
+  };
+
+  if (geo.addressLocality !== null) {
+    const address: Record<string, unknown> = {
+      '@type': 'PostalAddress',
+      addressCountry: 'CH',
+      addressRegion: 'TI',
+      addressLocality: geo.addressLocality,
+    };
+    if (geo.postalCode !== null) address.postalCode = geo.postalCode;
+    place.address = address;
+  }
+
+  if (geo.lat !== null && geo.lon !== null) {
+    place.geo = {
+      '@type': 'GeoCoordinates',
+      latitude: geo.lat,
+      longitude: geo.lon,
+    };
+  }
+
+  return place;
+}
+
 function renderPage(opts: {
   locale: ColLocale;
   city: ColCityId;
@@ -285,7 +337,6 @@ function renderPage(opts: {
   // <title> only (see COL_CITY_TITLE_DISPLAY's doc comment, issue #5355) —
   // h1/description/JSON-LD keep the full `cityName` above.
   const titleCityName = COL_CITY_TITLE_DISPLAY[city]?.[locale] ?? cityName;
-  const geo = COL_CITY_GEO[city];
   const urlPath = buildCostOfLivingLandingPath(locale, city);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const pairedProvince = CITY_PAIRED_PROVINCE[city][locale];
@@ -333,17 +384,16 @@ function renderPage(opts: {
 
   const articleLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: h1,
     description: guardArticleJsonLdDescription(description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -355,55 +405,12 @@ function renderPage(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   };
 
-  // Place JSON-LD — city = AdministrativeArea (TI rollup) or City.
-  const placeLd = {
-    '@context': 'https://schema.org',
-    '@type': city === 'ticino' ? 'AdministrativeArea' : 'City',
-    name: cityName,
-    ...(geo.addressLocality !== null && geo.lat !== null
-      ? {
-          address: {
-            '@type': 'PostalAddress',
-            addressCountry: 'CH',
-            addressRegion: 'TI',
-            addressLocality: geo.addressLocality,
-            postalCode: geo.postalCode ?? undefined,
-          },
-          geo: { '@type': 'GeoCoordinates', latitude: geo.lat, longitude: geo.lon },
-        }
-      : {
-          address: { '@type': 'PostalAddress', addressCountry: 'CH', addressRegion: 'TI' },
-          geo:
-            geo.lat !== null && geo.lon !== null
-              ? { '@type': 'GeoCoordinates', latitude: geo.lat, longitude: geo.lon }
-              : undefined,
-        }),
-    url: canonicalUrl,
-  };
-
-  // LocalBusiness JSON-LD — our org serving this area.
-  const localBusinessLd = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Frontaliere Ticino',
-    url: `${BASE_URL}/`,
-    image: `${BASE_URL}/og-image.png`,
-    areaServed: { '@type': city === 'ticino' ? 'AdministrativeArea' : 'City', name: cityName },
-    description:
-      locale === 'it'
-        ? 'Consulenza frontalieri: simulazione stipendio, costo vita, permessi'
-        : locale === 'en'
-          ? 'Cross-border worker services: salary simulation, cost of living, permits'
-          : locale === 'de'
-            ? 'Grenzgänger-Service: Gehaltssimulation, Lebenshaltungskosten, Bewilligungen'
-            : 'Services frontaliers : simulation salaire, coût de la vie, permis',
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'CH',
-      addressRegion: 'TI',
-      addressLocality: geo.addressLocality ?? 'Lugano',
-    },
-  };
+  // Place JSON-LD — city = AdministrativeArea (TI rollup) or City. The
+  // landing describes a place and its cost data; it is not a branch of a
+  // local business. Do not emit LocalBusiness or fabricate a street address
+  // for the editorial site. The page-scoped ID keeps each city entity
+  // distinct when crawlers compare the generated pages.
+  const placeLd = buildCostOfLivingPlaceSchema({ locale, city, canonicalUrl });
 
   // ── Long-form prose sections (existing rent / basket / comparison /
   //    frontaliere / sources blocks). We need the FSO rent median number
@@ -526,7 +533,7 @@ function renderPage(opts: {
     ${city in HERO_BADGES
       ? renderLandingHero(city, locale, {
           openings: snapshot.liveCount,
-          medianSalary: snapshot.medianSalaryChf ?? undefined,
+          // Salary provenance is explained alongside the sample statistic below.
           city: cityName,
         }, h1, denseLede)
       : `<header class="s-YcUNX5">
@@ -534,8 +541,9 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p class="col-lede">${esc(denseLede)}</p>
     </header>`}
-    <p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${statTilesHtml}
+    ${reportedSalaryNote(locale, snapshot.reportedSalary)}
     ${primaryCtaHtml}
     ${featuredHtml}
     ${employerGridHtml}
@@ -555,7 +563,10 @@ function renderPage(opts: {
     </section>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  // `buildSeoPageHtml` supplies the page's single outer `<main>`. Keep the
+  // static landing content on a neutral wrapper so the SEO shell does not
+  // emit nested main landmarks (a11y/landmark-regions).
+  const bodyHtml = `<div class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,
@@ -571,7 +582,6 @@ function renderPage(opts: {
       JSON.stringify(articleLd),
       JSON.stringify(faqLd),
       JSON.stringify(placeLd),
-      JSON.stringify(localBusinessLd),
     ],
     bodyHtml,
     distDir,
@@ -679,7 +689,7 @@ function buildSitemapXml(
           return `    <xhtml:link rel="alternate" hreflang="${lang}" href="${rest.join('|')}" />`;
         })
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
@@ -849,3 +859,10 @@ export {
   renderCostOfLivingFeaturedJobsForTest,
   renderCostOfLivingEmployerGridForTest,
 } from './costOfLivingLandingsTestExports';
+
+/** @internal Exported only so schema tests can inspect the generated JSON-LD. */
+export function renderCostOfLivingPageForTest(
+  opts: Parameters<typeof renderPage>[0],
+): ReturnType<typeof renderPage> {
+  return renderPage(opts);
+}

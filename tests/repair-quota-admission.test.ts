@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
   collectRepairQuotaStats,
+  GH_READ_RETRY_DELAYS_MS,
+  GH_READ_TIMEOUT_MS,
   INITIAL_REPAIR_ALLOWANCE,
   main,
   realRunCount,
@@ -10,6 +12,7 @@ import {
   repairWorkflowFromRef,
   REPAIR_TO_ISSUE_RATIO_MAX,
   REPAIR_WORKFLOWS,
+  runGhJsonBounded,
 } from '../scripts/ci/repair-quota-admission.mjs';
 
 const ACTION = readFileSync(
@@ -18,6 +21,10 @@ const ACTION = readFileSync(
 );
 const ISSUE_FIX = readFileSync(
   resolve(__dirname, '..', '.github', 'workflows', 'issue-fix.yml'),
+  'utf8',
+);
+const DRAINER = readFileSync(
+  resolve(__dirname, '..', '.github', 'workflows', 'followup-drainer.yml'),
   'utf8',
 );
 
@@ -103,6 +110,87 @@ describe('telemetry helpers', () => {
     expect(seen).toHaveLength(REPAIR_WORKFLOWS.length + 3);
   });
 
+  it('retries a transient paginated Actions 504 within a per-read deadline', () => {
+    const calls: string[][] = [];
+    const timeouts: number[] = [];
+    const delays: number[] = [];
+    let failedOnce = false;
+    const runJson = (args: string[]) => runGhJsonBounded(args, {
+      execute: (_binary: string, cliArgs: string[], options: { timeout?: number }) => {
+        calls.push(cliArgs);
+        timeouts.push(options.timeout || 0);
+        if (!failedOnce && cliArgs[0] === 'run' && cliArgs.includes('pr-redflag-fixer.yml')) {
+          failedOnce = true;
+          throw Object.assign(new Error('Command failed: gh run list'), {
+            status: 1,
+            stderr: Buffer.from('failed to get runs: HTTP 504: upstream timed out'),
+          });
+        }
+        return JSON.stringify([]);
+      },
+      sleep: (delayMs: number) => { delays.push(delayMs); },
+      warn: () => {},
+    });
+
+    const stats = collectRepairQuotaStats({ repo: 'owner/repo', since: '2026-10-08', runJson });
+
+    expect(stats).toMatchObject({ ok: true, repairRuns: 0, issueFixRuns: 0, queuedIssues: 0 });
+    expect(calls).toHaveLength(REPAIR_WORKFLOWS.length + 4);
+    expect(calls[0]).toEqual(calls[1]);
+    expect(timeouts).toEqual(Array(calls.length).fill(GH_READ_TIMEOUT_MS));
+    expect(delays).toEqual([GH_READ_RETRY_DELAYS_MS[0]]);
+  });
+
+  it('fails quota admission closed after the bounded retries are exhausted', () => {
+    let attempts = 0;
+    const delays: number[] = [];
+    const runJson = (args: string[]) => runGhJsonBounded(args, {
+      execute: () => {
+        attempts += 1;
+        throw Object.assign(new Error('Command failed: gh run list'), {
+          status: 1,
+          stderr: Buffer.from('failed to get runs: HTTP 504: upstream timed out'),
+        });
+      },
+      sleep: (delayMs: number) => { delays.push(delayMs); },
+      warn: () => {},
+    });
+
+    const result = main({
+      env: {
+        GITHUB_WORKFLOW_REF: 'owner/repo/.github/workflows/pr-redcheck-fixer.yml@refs/heads/main',
+        GITHUB_REPOSITORY: 'owner/repo',
+        PR_NUMBER: '7310',
+      },
+      runJson,
+      runCommand: () => { throw new Error('must not mutate'); },
+    });
+
+    expect(result).toMatchObject({ admit: false, held: false });
+    expect(result.reason).toContain('HTTP 504');
+    expect(attempts).toBe(GH_READ_RETRY_DELAYS_MS.length + 1);
+    expect(delays).toEqual([...GH_READ_RETRY_DELAYS_MS]);
+  });
+
+  it.each(['403: Resource not accessible', '501: Not Implemented'])(
+    'does not retry non-transient GitHub read failures (%s)',
+    (failure) => {
+      let attempts = 0;
+      expect(() => runGhJsonBounded(['run', 'list'], {
+        execute: () => {
+          attempts += 1;
+          throw Object.assign(new Error(`HTTP ${failure}`), {
+            status: 1,
+            stderr: Buffer.from(`HTTP ${failure}`),
+          });
+        },
+        sleep: () => {},
+        warn: () => {},
+      })).toThrow(new RegExp(`HTTP ${failure.split(':')[0]}`, 'u'));
+      expect(attempts).toBe(1);
+    },
+  );
+
   it('fails closed when a telemetry listing is malformed', () => {
     expect(collectRepairQuotaStats({
       repo: 'owner/repo',
@@ -175,7 +263,7 @@ describe('telemetry helpers', () => {
         GITHUB_RUN_ATTEMPT: '1',
       },
       runJson,
-      runCommand: (args) => { commands.push(args); },
+      runCommand: (args) => { commands.push(args); return JSON.stringify({ id: 88 }); },
       now: Date.parse('2026-09-12T12:00:00Z'),
     });
 
@@ -184,6 +272,53 @@ describe('telemetry helpers', () => {
     expect(commands).toHaveLength(1);
     expect(commands[0].join(' ')).toContain('QUOTA_FLOOR_LEASE');
     expect(commands[0].join(' ')).toContain('subject=pr-123');
+  });
+
+  it.each([
+    ['redflag', 'current body', 'HEAD_BODY', 'current', 'current', 'trusted', true],
+    ['redcheck', 'current body', 'HEAD_BODY', 'current', 'current', 'trusted', true],
+    ['redflag', 'head-only compatibility', 'HEAD', 'current', '', 'trusted', true],
+    ['redcheck', 'head-only compatibility', 'HEAD', 'current', '', 'trusted', true],
+    ['redflag', 'different head', 'HEAD_BODY', 'other', 'current', 'trusted', false],
+    ['redflag', 'different body', 'HEAD_BODY', 'current', 'other', 'trusted', false],
+    ['redflag', 'missing expected body', 'MISSING_EXPECTED_REVISION', 'current', 'current', 'trusted', false],
+    ['redflag', 'untrusted author', 'HEAD_BODY', 'current', 'current', 'human', false],
+    ['redcheck', 'different round', 'ROUND_10', 'current', 'current', 'trusted', false],
+    ['redflag', 'malformed head', 'HEAD_BODY', 'malformed', 'current', 'trusted', false],
+    ['redflag', 'malformed body', 'HEAD_BODY', 'current', 'malformed', 'trusted', false],
+    ['redflag', 'legacy marker cannot override a different scoped head', 'LEGACY_AND_OTHER', 'other', 'current', 'trusted', false],
+  ] as const)('holds %s safely: %s', (kind, _case, format, head, revision, author, held) => {
+    const sha = 'a'.repeat(40);
+    const expectedRevision = `body:${'b'.repeat(64)}`;
+    const markerHead = head === 'current' ? sha : head === 'other' ? 'c'.repeat(40) : 'not-a-sha';
+    const markerRevision = revision === 'current' ? expectedRevision : revision === 'other' ? `body:${'d'.repeat(64)}` : 'invalid';
+    const marker = kind === 'redcheck' ? 'REDCHECK_FIX_ROUND' : 'REDFLAG_FIX_ROUND';
+    const round = format === 'ROUND_10' ? 10 : 1;
+    const body = `<!-- ${marker}: ${round} HEAD: ${markerHead}${format === 'HEAD' ? '' : ` BODY: ${markerRevision}`} -->\n_round started_`;
+    const comments = [{ id: 77, body, user: { login: author === 'trusted' ? 'github-actions[bot]' : 'someone', type: author === 'trusted' ? 'Bot' : 'User' } }];
+    if (format === 'LEGACY_AND_OTHER') comments.push({ ...comments[0], id: 88, body: `<!-- ${marker}: 1 -->\n_old unscoped round_` });
+    const commands: string[][] = [];
+    const result = main({
+      env: { GITHUB_WORKFLOW_REF: `owner/repo/.github/workflows/pr-${kind}-fixer.yml@refs/heads/main`, GITHUB_REPOSITORY: 'owner/repo', PR_NUMBER: '123', FIX_ROUND: '1', PR_BODY_EXPECTED_REVISION: format === 'MISSING_EXPECTED_REVISION' ? undefined : expectedRevision },
+      runJson: (args: string[]) => {
+        if (args[0] === 'run') return args.includes('pr-redflag-fixer.yml') ? Array.from({ length: 14 }, () => ({ conclusion: 'success' })) : [];
+        if (args[0] === 'issue') return [{ number: 1 }];
+        if (args[0] === 'pr') return { headRefOid: sha };
+        if (args[0] === 'api') return [comments];
+        throw new Error(`unexpected read: ${args.join(' ')}`);
+      },
+      runCommand: (args: string[]) => { commands.push(args); },
+      now: Date.now(),
+    });
+    expect(result).toMatchObject({ admit: false, held });
+    if (held) {
+      expect(commands).toHaveLength(4);
+      expect(commands[0]).toContain('stale-review');
+      expect(commands[2]).toEqual(['api', '--method', 'DELETE', 'repos/owner/repo/issues/comments/77']);
+    } else {
+      expect(commands).toEqual([]);
+      expect(result.reason).toContain('current round marker missing');
+    }
   });
 
   it('blocks a repair when the shared ledger cannot be read', () => {
@@ -220,6 +355,9 @@ describe('provider-neutral action wiring', () => {
 
   it('gates issue-fix before npm/provider work and keeps max-turns and Auto Ads unchanged', () => {
     expect(ISSUE_FIX).toContain("QUOTA_FLOOR_REQUIRED: '1'");
+    expect(ISSUE_FIX).not.toContain('QUOTA_FLOOR_LEDGER_ISSUE:');
+    expect(ACTION).not.toContain('QUOTA_FLOOR_LEDGER_ISSUE:');
+    expect(DRAINER).not.toContain('QUOTA_FLOOR_LEDGER_ISSUE:');
     expect(ISSUE_FIX).toContain('Enforce shared quota-floor lease (fail-closed)');
     expect(ISSUE_FIX.indexOf('Enforce shared quota-floor lease (fail-closed)'))
       .toBeLessThan(ISSUE_FIX.indexOf('- name: Install dependencies'));

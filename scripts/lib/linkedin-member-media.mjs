@@ -9,8 +9,12 @@
  * to the cron. The post still goes out with title+description.
  */
 
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import sharp from 'sharp';
 import { LINKEDIN_REST_VERSION } from './linkedin-links.mjs';
+import { loadPublishedImagePolicy } from './published-image-policy.mjs';
 import {
   extractOgFromHtml,
   resolveMaybeAbsoluteUrl,
@@ -21,6 +25,8 @@ export const LINKEDIN_IMAGES_VERSION = LINKEDIN_REST_VERSION;
 
 const FETCH_TIMEOUT_MS = 15000;
 const MAX_EDGE_PX = 1920;
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const DEFAULT_IMAGE_POLICY = loadPublishedImagePolicy({ root: ROOT });
 
 // Tetto in byte per il buffer che finisce nel PUT su Images API.
 //
@@ -111,7 +117,7 @@ export async function convertImageForLinkedIn(buffer, meta = {}) {
  * Download og:image, convert, initializeUpload, PUT. Returns the image URN
  * or null. Never throws.
  *
- * @param {{ accessToken: string, ownerUrn: string, imageUrl: string, fetchImpl?: typeof fetch }} opts
+ * @param {{ accessToken: string, ownerUrn: string, imageUrl: string, fetchImpl?: typeof fetch, imageGate?: Function }} opts
  * @returns {Promise<string|null>}
  */
 export async function uploadLinkedInImage({
@@ -119,11 +125,29 @@ export async function uploadLinkedInImage({
   ownerUrn,
   imageUrl,
   fetchImpl = fetch,
+  imageGate = DEFAULT_IMAGE_POLICY.check,
 } = {}) {
   const token = String(accessToken || '').trim();
   const owner = String(ownerUrn || '').trim();
   const src = String(imageUrl || '').trim();
   if (!token || !owner || !src) return null;
+
+  // LinkedIn is a third-party publication boundary. Validate the URL before
+  // the first fetch so an arbitrary page's og:image can never be downloaded,
+  // converted or uploaded by this channel.
+  let verdict;
+  try {
+    verdict = imageGate(src, { requireCdn: true });
+  } catch (error) {
+    console.warn(`⚠️  LinkedIn thumbnail gate failed closed: ${error.message} — posting without image`);
+    return null;
+  }
+  if (!verdict?.valid) {
+    console.warn(
+      `⚠️  LinkedIn thumbnail blocked before download (${verdict?.reason || 'unvalidated-image'}): ${src} — posting without image`,
+    );
+    return null;
+  }
 
   try {
     const imgRes = await fetchImpl(src, {

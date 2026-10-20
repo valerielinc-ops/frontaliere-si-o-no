@@ -16,6 +16,7 @@ import path from 'node:path';
 
 import {
   classifySurface,
+  classifyCfErrorUrl,
   isSynthesizedByEdge,
   couldServeStaleHaveHelped,
   SURFACES,
@@ -29,7 +30,9 @@ import {
   appendSnapshot,
   loadHistory,
   renderReport,
+  checkUrlClean,
 } from '../scripts/ci/cf-5xx-snapshot.mjs';
+import { CF_ANALYTICS_MAX_ROWS } from '../scripts/lib/cf-analytics.mjs';
 
 describe('classifySurface — the split that was missing', () => {
   it('separates the three origins that shared one label', () => {
@@ -74,6 +77,20 @@ describe('classifySurface — the split that was missing', () => {
     expect(classifySurface({ host: 'CDN.FrontaliereTicino.CH', path: '/a' })).toBe('cdn-r2');
   });
 
+  it('separates the webhook tunnel hosts from the locale shard page in this issue cluster', () => {
+    expect(classifyCfErrorUrl('gh-default.frontaliereticino.ch/github/webhook')).toBe('github-webhook-default');
+    expect(classifyCfErrorUrl('gh-default-agenti.frontaliereticino.ch/github/webhook')).toBe('github-webhook-default-agenti');
+    expect(classifyCfErrorUrl('gh-nanako.frontaliereticino.ch/github/webhook')).toBe('github-webhook-nanako');
+    expect(classifyCfErrorUrl('frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-kurs-basel/')).toBe('worker-shard');
+  });
+
+  it('classifies the new nanako agents webhook host as its own tunnel surface', () => {
+    expect(classifyCfErrorUrl('gh-nanako-agenti.frontaliereticino.ch/github/webhook')).toBe('github-webhook-nanako-agenti');
+    expect(classifySurface({ host: 'gh-nanako-agenti.frontaliereticino.ch', path: '/github/webhook' })).toBe(
+      'github-webhook-nanako-agenti',
+    );
+  });
+
   it('marks serve_stale as present ONLY on the surface that actually has the rule', () => {
     // If this ever flips silently, the "could serve_stale have helped" metric starts lying.
     expect(SURFACES['cdn-r2'].serveStale).toBe(true);
@@ -85,6 +102,7 @@ describe('classifySurface — the split that was missing', () => {
 describe('isSynthesizedByEdge — origin dead vs origin erroring', () => {
   it('treats originResponseStatus 0 as synthesised', () => {
     expect(isSynthesizedByEdge({ edgeStatus: 502, originStatus: 0 })).toBe(true);
+    expect(isSynthesizedByEdge({ edgeStatus: 520, originStatus: 0 })).toBe(true);
     expect(isSynthesizedByEdge({ edgeStatus: 503, originStatus: null })).toBe(true);
   });
 
@@ -175,6 +193,18 @@ describe('summarizeSurfaces', () => {
     }))).topPaths;
     expect(topPaths).toHaveLength(50);
   });
+
+  it('retains the full returned path set alongside the top-50 display sample', () => {
+    const result = summarizeSurfaces(Array.from({ length: 65 }, (_, i) => ({
+      status: 503,
+      host: 'frontaliereticino.ch',
+      path: `/fr/page-${String(i).padStart(2, '0')}/`,
+      count: 65 - i,
+    })));
+    expect(result.topPaths).toHaveLength(50);
+    expect(result.errorPaths).toHaveLength(65);
+    expect(result.errorPaths.some((row) => row.url.endsWith('/page-64/'))).toBe(true);
+  });
 });
 
 describe('history file', () => {
@@ -207,6 +237,24 @@ describe('history file', () => {
     expect(history[1].total5xx).toBe(9);
     expect(history[1].bySurface['cdn-r2'].total).toBe(9);
     expect(history[1].topN).toBe(50);
+    expect(history[1].errorPathsComplete).toBe(true);
+    expect(history[1].errorPaths).toEqual(history[1].topPaths);
+  });
+
+  it('marks a path query that reaches Cloudflare’s row cap incomplete', () => {
+    const snapshot = buildSnapshot({
+      diagnostics: [],
+      paths: Array.from({ length: CF_ANALYTICS_MAX_ROWS }, (_, i) => ({
+        status: 503,
+        host: 'frontaliereticino.ch',
+        path: `/fr/page-${i}/`,
+        count: 1,
+      })),
+      windowHours: 23,
+      until: new Date('2026-10-01T10:00:00Z'),
+      zoneName: 'frontaliereticino.ch',
+    });
+    expect(snapshot.errorPathsComplete).toBe(false);
   });
 
   it('skips a truncated line instead of making the whole history unreadable', () => {
@@ -232,6 +280,51 @@ describe('history file', () => {
     ] as never);
     expect(rendered).toContain('cdn-r2=35');
     expect(rendered).toContain('worker-shard=6');
+  });
+});
+
+describe('checkUrlClean — omitted top-50 paths are unknown, never clean', () => {
+  const endpoints = [
+    'gh-default.frontaliereticino.ch/github/webhook',
+    'gh-nanako.frontaliereticino.ch/github/webhook',
+    'frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-kurs-basel/',
+  ];
+  const now = Date.parse('2026-10-01T12:00:00Z');
+  const completeCleanSnapshots = (url: string) => [
+    { ts: '2026-09-19T10:00:00Z', topN: 50, topPaths: [{ url }], errorPaths: [{ url }], errorPathsComplete: true },
+    ...Array.from({ length: 7 }, (_, i) => ({
+      ts: new Date(Date.parse('2026-09-25T10:00:00Z') + i * 86_400_000).toISOString(),
+      topN: 50,
+      topPaths: [],
+      errorPaths: [],
+      errorPathsComplete: true,
+    })),
+  ];
+
+  it.each(endpoints)('requires complete path evidence before treating %s as clean', (url) => {
+    const history = [
+      { ts: '2026-09-19T10:00:00Z', topN: 50, topPaths: [{ url }] },
+      ...Array.from({ length: 7 }, (_, i) => ({
+        ts: new Date(Date.parse('2026-09-25T10:00:00Z') + i * 86_400_000).toISOString(),
+        topN: 50,
+        topPaths: [],
+      })),
+    ];
+    const result = checkUrlClean(history, url, { snapshots: 7, now });
+    expect(result.ok).toBe(false);
+    expect(result.reason).toContain('assenza dal top-50 non prova zero 5xx');
+  });
+
+  it.each(endpoints)('accepts %s only after seven complete snapshots omit it', (url) => {
+    expect(checkUrlClean(completeCleanSnapshots(url), url, { snapshots: 7, now }).ok).toBe(true);
+  });
+
+  it.each(endpoints)('keeps %s open when any complete snapshot still lists it', (url) => {
+    const history = completeCleanSnapshots(url);
+    history.at(-1)!.errorPaths = [{ url, status: 503, count: 1 }];
+    const result = checkUrlClean(history, url, { snapshots: 7, now });
+    expect(result.ok).toBe(false);
+    expect(result.reason).toContain('ancora fra i path 5xx');
   });
 });
 

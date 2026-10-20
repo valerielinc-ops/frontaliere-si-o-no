@@ -27,8 +27,11 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
@@ -38,6 +41,22 @@ import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './succe
 export const STADLER_RAIL_KEY = 'stadler-rail';
 export const STADLER_RAIL_COMPANY_NAME = 'Stadler Rail';
 export const STADLER_RAIL_COMPANY_DOMAIN = 'stadlerrail.com';
+
+/**
+ * The WHOLE text the parser used to publish INSTEAD of a detail body under
+ * 50 words (issue 5253), and nothing else: "<title> bei Stadler Rail in
+ * <city>." followed by the three fixed sentences about Stadler. Anchored at
+ * both ends on purpose: a real posting that quotes the same company sentence
+ * inside its own text must never be taken for it. Only ever recognised, to
+ * remove it from stored jobs before the merge (`prepareExistingJobs` in
+ * update-stadler-rail-jobs.mjs).
+ */
+export const STADLER_RAIL_FABRICATED_DESCRIPTION_RE = new RegExp(
+  '^\\s*[^\\n]{1,200}? bei Stadler Rail in [^\\n]{1,120}?\\.\\s+'
+  + 'Stadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang \\(Kanton Thurgau\\)\\.\\s+'
+  + 'Das 1942 gegründete Unternehmen entwickelt und produziert Voll-, Regional- und S-Bahnen, Strassenbahnen, Lokomotiven sowie Zahnradbahnen und beschäftigt mehrere tausend Mitarbeitende in der Schweiz\\.\\s+'
+  + 'Stadler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in einem innovativen Schweizer Industrieunternehmen\\.\\s*$',
+);
 
 const BASE_URL = 'https://careers.stadlerrail.com';
 const SEARCH_URL = `${BASE_URL}/search/`;
@@ -255,7 +274,7 @@ export function parseDetailPage(html) {
   const postalCode = getMicrodataContent(html, 'postalCode');
   const addressCountry = getMicrodataContent(html, 'addressCountry') || 'CH';
   const rawDate = getMicrodataContent(html, 'datePosted');
-  const postedDate = parseDetailDate(rawDate);
+  const publication = successFactorsPostingDateFields(rawDate);
 
   // Description: itemprop="description" class="jobdescription"
   let descriptionHtml = '';
@@ -282,24 +301,8 @@ export function parseDetailPage(html) {
     addressRegion: rawRegion,
     postalCode,
     addressCountry: (addressCountry || 'CH').toUpperCase().slice(0, 2),
-    postedDate,
+    ...publication,
   };
-}
-
-/**
- * Parse the RMK microdata datePosted, e.g. "Wed Jun 10 02:00:00 UTC 2026".
- * Returns ISO `YYYY-MM-DD` or null.
- */
-function parseDetailDate(raw = '') {
-  if (!raw) return null;
-  const d = new Date(raw);
-  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
-}
-
-/* ── Fallback description ─────────────────────────────────── */
-
-function buildFallbackDescription(title, location) {
-  return `${title} bei Stadler Rail in ${location || 'der Schweiz'}.\n\nStadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang (Kanton Thurgau). Das 1942 gegründete Unternehmen entwickelt und produziert Voll-, Regional- und S-Bahnen, Strassenbahnen, Lokomotiven sowie Zahnradbahnen und beschäftigt mehrere tausend Mitarbeitende in der Schweiz. Stadler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in einem innovativen Schweizer Industrieunternehmen.`;
 }
 
 /* ── Fetch listings ───────────────────────────────────────── */
@@ -399,19 +402,18 @@ export async function fetchAllStadlerRailJobs() {
       ? HQ_REGION
       : (detail?.addressRegion || '').split(/\s+/)[0] || '';
 
-    let description = '';
-    if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-      description = detail.description;
-    } else {
-      description = buildFallbackDescription(title, location);
-    }
+    // The detail text only (issue 5253). A body under 50 words used to be
+    // DISCARDED for "<title> bei Stadler Rail in <city>." and a company
+    // paragraph we wrote. Now a body under the shared 50-word floor is not
+    // published: the job gets no description and takes the thin-source path
+    // (quarantine) of the pipeline.
+    const body = String(detail?.description || '').trim();
+    const description = meetsSourceBodyFloor(body) ? body : '';
 
     const sourceLang = detectLang(description || title, 'de');
     const publicUrl = listing.url;
     const jobSlug = slugify(`${title} stadler-rail ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const postedDate =
-      detail?.postedDate || new Date().toISOString().slice(0, 10);
 
     const job = {
       // ── Required fields ──
@@ -424,7 +426,7 @@ export async function fetchAllStadlerRailJobs() {
       title,
       titleByLocale: { [sourceLang]: title },
       description,
-      descriptionByLocale: { [sourceLang]: description },
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
       location,
       canton,
       url: publicUrl,
@@ -445,7 +447,7 @@ export async function fetchAllStadlerRailJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

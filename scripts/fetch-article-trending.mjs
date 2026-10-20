@@ -33,6 +33,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -115,32 +116,23 @@ async function writeJournalistAnalyticsBack(db, entries) {
 }
 
 async function main() {
-  let admin;
   try {
-    admin = await import('firebase-admin');
+    await import('firebase-admin/app');
+    await import('firebase-admin/firestore');
   } catch {
     console.warn('⚠️  firebase-admin not installed — writing empty trending data');
     writeFallback();
     return;
   }
 
-  const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-  if (!credPath || !fs.existsSync(credPath)) {
+  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && !process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
     console.warn('⚠️  GOOGLE_APPLICATION_CREDENTIALS not set — writing empty trending data');
     writeFallback();
     return;
   }
 
   try {
-    if (!admin.default.apps?.length) {
-      admin.default.initializeApp({
-        credential: admin.default.credential.cert(
-          JSON.parse(fs.readFileSync(credPath, 'utf-8')),
-        ),
-      });
-    }
-
-    const db = admin.default.firestore();
+    const db = await getFirestoreDb();
 
     // The loop below keeps a document only if it was viewed inside the 30-day
     // half-weight window, so the window belongs in the query. Documents with

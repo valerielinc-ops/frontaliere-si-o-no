@@ -4,6 +4,9 @@
  * Tests both the new zambon.com/en/open-positions format and
  * legacy jobopportunity.ch format for backward compatibility.
  */
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 
 import {
@@ -13,7 +16,10 @@ import {
   detectCategory,
   detectExperienceLevel,
   MIN_DESC_LENGTH,
+  extractZambonJobBody,
 } from '@/scripts/lib/zambon-job-parser.mjs';
+import { buildZambonJob, classifyZambonApiRows, classifyZambonHtmlListings, computeZambonCrawlResult, mergeZambonJobs, parseZambonApiPayload, restoreZambonArchivedJobs, ZAMBON_FABRICATED_DESCRIPTION_RE } from '@/scripts/update-zambon-jobs.mjs';
+import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -176,8 +182,43 @@ describe('parseListingPage — guards', () => {
     expect(parseListingPage(FIXTURE_EMPTY_LISTING)).toHaveLength(0);
   });
 
+  it('keeps a discovered listing when no-position copy is incidental page text', () => {
+    const jobs = parseListingPage(
+      '<main><p>No open positions</p>'
+      + '<a href="https://app.ncoreplat.com/jobposition/112500/quality-control-analyst">Quality Control Analyst</a></main>',
+    );
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].id).toBe('112500');
+  });
+
   it('returns empty array for empty input', () => {
     expect(parseListingPage('')).toHaveLength(0);
+  });
+});
+
+describe('Zambon location outcome guard', () => {
+  it('fails closed for an unknown API country instead of proving filtered_empty', () => {
+    const data = parseZambonApiPayload({ status: 200, data: [{ id: 1, country: 'XX', country_label: 'mystery' }] });
+    const result = classifyZambonApiRows(data);
+    expect(result).toMatchObject({ lastFetchOutcome: 'selector_miss', abortKind: 'no-jobs-parsed' });
+    expect(result.lastFetchOutcome).not.toBe('filtered_empty');
+  });
+
+  it('fails closed for an unknown HTML location instead of proving filtered_empty', () => {
+    const result = classifyZambonHtmlListings([{ id: '1', location: 'mystery' }]);
+    expect(result).toMatchObject({ lastFetchOutcome: 'selector_miss', abortKind: 'no-jobs-parsed' });
+    expect(result.lastFetchOutcome).not.toBe('filtered_empty');
+  });
+
+  it('keeps filtered_empty for rows with explicit foreign country evidence', () => {
+    expect(classifyZambonApiRows([{ id: 1, country: 'IT', country_label: 'Italy' }])).toMatchObject({
+      lastFetchOutcome: 'filtered_empty',
+      abortKind: null,
+    });
+    expect(classifyZambonHtmlListings([{ id: '1', location: 'Milan, Italy' }])).toMatchObject({
+      lastFetchOutcome: 'filtered_empty',
+      abortKind: null,
+    });
   });
 });
 
@@ -254,5 +295,168 @@ describe('detectExperienceLevel', () => {
 
   it('detects MID for regular title', () => {
     expect(detectExperienceLevel('Quality Assurance Specialist')).toBe('MID');
+  });
+});
+
+// ─── Source text only (issue 5253) ──────────────────────────────────────────
+// Minimized from the live NcorePlat page of job 811390 (2026-09-29). The
+// careers API carries only metadata; the runner used to publish a description
+// it wrote itself from those fields (3/3 stored jobs).
+const NCOREPLAT_PAGE = `
+<html><body>
+<div class="row paddedIn"><div class="col-lg-12 singlePosition">
+  <h1 class="iniziacon nCore_branding_heading"><strong>Buyer Procurement Indirect</strong></h1>
+  <div class="pTesto"><div class="nCore_branding_text break-word">
+    <p><strong>Zambon Switzerland SA</strong>, the Swiss affiliate of the multinational pharmaceutical group Zambon, based in Cadempino (Canton Ticino), is looking for a <strong>Buyer</strong> to join its <strong>Indirect Procurement</strong> team.</p>
+    <p>We are looking for a highly challenge-driven individual with a strong appetite for change and continuous improvement, who will contribute to the evolution of purchasing strategies and processes while developing valuable partnerships with suppliers and internal stakeholders.</p>
+    <p><strong>Key responsibilities:</strong></p>
+    <ul><li>Proactively conduct supplier scouting, qualification and evaluation activities at both national and international level.</li>
+    <li>Negotiate commercial agreements, contracts, Service Level Agreements (SLAs) and Key Performance Indicators (KPIs).</li></ul>
+  </div></div>
+</div></div>
+</body></html>`;
+const STORED_INVENTED = 'Buyer Procurement Indirect: opportunità professionale presso Zambon Svizzera SA, azienda farmaceutica internazionale con sede a Cadempino, Canton TI (Svizzera). Zambon è un gruppo farmaceutico fondato nel 1906, leader nel settore delle malattie respiratorie, del dolore e delle malattie rare, con oltre 2.800 dipendenti e presenza in più di 20 paesi.';
+const JOB_URL = 'https://app.ncoreplat.com/jobposition/811390/buyer-procurement-indirect-ch/hr-switzerland';
+const STORED = {
+  id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect', companyKey: 'zambon', sourceLang: 'it',
+  description: STORED_INVENTED,
+  descriptionByLocale: { it: STORED_INVENTED, en: 'Buyer Procurement Indirect: professional opportunity at Zambon Switzerland SA, an international pharmaceutical company.' },
+  titleByLocale: { it: 'Buyer Procurement Indirect' },
+  slugByLocale: { it: 'buyer-procurement-indirect-zambon' },
+};
+
+describe('Zambon source text only (issue 5253)', () => {
+  it('reads the vacancy text of the NcorePlat page, lists included', () => {
+    const body = extractZambonJobBody(NCOREPLAT_PAGE);
+    expect(body).toContain('Zambon Switzerland SA , the Swiss affiliate');
+    expect(body).toContain('• Proactively conduct supplier scouting');
+    expect(body).not.toContain('Buyer Procurement Indirect\n');
+    expect(extractZambonJobBody('<html><body><div>AWS WAF challenge</div></body></html>')).toBe('');
+  });
+
+  it('builds the job from that text, in its own language', () => {
+    const job = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, extractZambonJobBody(NCOREPLAT_PAGE));
+    expect(job.sourceLang).toBe('en');
+    expect(job.descriptionByLocale).toEqual({ en: job.description });
+    expect(ZAMBON_FABRICATED_DESCRIPTION_RE.test(job.description)).toBe(false);
+  });
+
+  it('replaces the stored invented description and drops its translations', () => {
+    const fresh = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, extractZambonJobBody(NCOREPLAT_PAGE));
+    const [merged] = mergeZambonJobs([STORED], [fresh]);
+    expect(merged.description).toBe(fresh.description);
+    expect(merged.descriptionByLocale).toEqual({ en: fresh.description });
+    expect(merged.needsRetranslation).toBe(true);
+    expect(merged.slugByLocale.it).toBe('buyer-procurement-indirect-zambon');
+  });
+
+  it('drops the stored invented description when it lives only in the flat field, with its translations (main slice shape)', () => {
+    // The three stored Zambon jobs on main: sourceLang it, no `it` slot, the
+    // invented text in `description` and en/de/fr translated from it.
+    const flatOnly = { ...STORED, descriptionByLocale: { en: STORED.descriptionByLocale.en, de: 'Buyer Procurement Indirekt: Berufsmöglichkeit bei Zambon Switzerland SA.' } };
+    const fresh = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, extractZambonJobBody(NCOREPLAT_PAGE));
+    const [merged] = mergeZambonJobs([flatOnly], [fresh]);
+    expect(merged.descriptionByLocale).toEqual({ en: fresh.description });
+    expect(merged.needsRetranslation).toBe(true);
+    expect(mergeZambonJobs([flatOnly], [buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, '')])).toEqual([]);
+    // Pure: the caller's stored record is untouched.
+    expect(flatOnly.description).toBe(STORED_INVENTED);
+  });
+
+  it('does not publish a job whose page gives no text and whose stored text is invented', () => {
+    const fresh = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, '');
+    expect(fresh.description).toBe('');
+    expect(mergeZambonJobs([STORED], [fresh])).toEqual([]);
+  });
+
+  it('leaves the stored slice unchanged when no row was read from the source (review #10396)', () => {
+    // readZambonBodies() returns [] when no NcorePlat page is readable (a WAF):
+    // a total read failure never unpublishes the stored jobs, legacy text included.
+    const legacy = { url: 'https://app.ncoreplat.com/jobposition/1', description: 'Ruolo: opportunità professionale presso Zambon Svizzera SA' };
+    const merged = mergeZambonJobs([legacy], []);
+    expect(merged.map((job: { url: string }) => job.url)).toEqual(['https://app.ncoreplat.com/jobposition/1']);
+    expect(merged).toEqual([legacy]);
+    expect(merged[0]).not.toBe(legacy);
+  });
+
+  it('recognizes only the successful API empty envelope as an authoritative zero', () => {
+    const empty = parseZambonApiPayload({ status: 200, data: [] });
+    expect(empty).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(empty)).toBe(true);
+    expect(Object.keys(empty)).toEqual([]);
+
+    expect(isAuthoritativeEmptySnapshot(parseZambonApiPayload([]))).toBe(false);
+    expect(isAuthoritativeEmptySnapshot(parseZambonApiPayload({ status: 503, data: [] }))).toBe(false);
+    expect(isAuthoritativeEmptySnapshot(parseZambonApiPayload({ status: 200, data: [{ id: 12, country: 'IT' }] }))).toBe(false);
+    expect(() => parseZambonApiPayload({ status: 200, data: null })).toThrow('API response is not an array');
+  });
+
+  it('retires stored Zambon jobs only for the source-stamped empty envelope', () => {
+    const authoritativeEmpty = parseZambonApiPayload({ status: 200, data: [] });
+    expect(mergeZambonJobs([STORED], authoritativeEmpty)).toEqual([]);
+    expect(mergeZambonJobs([STORED], [])).toEqual([STORED]);
+  });
+
+  it('archives routes retired by the slice produced by an authoritative empty snapshot', () => {
+    const retired = buildZambonJob(
+      { id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' },
+      extractZambonJobBody(NCOREPLAT_PAGE),
+    );
+    const archiveDir = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-zambon-expired-'));
+    try {
+      const { diff, archived } = computeZambonCrawlResult([retired], [], {
+        archiveRemoved: true,
+        archiveDir,
+      });
+      expect(diff.removedJobs.map((job) => job.url)).toEqual([JOB_URL]);
+      expect(archived).toBe(1);
+      const entries = JSON.parse(fs.readFileSync(path.join(archiveDir, 'zambon.json'), 'utf8'));
+      expect(entries.map((entry: { slug: string }) => entry.slug)).toEqual([retired.slug]);
+    } finally {
+      fs.rmSync(archiveDir, { recursive: true, force: true });
+    }
+  });
+
+  it('publishes a body only from the shared 50-word floor (review #10396)', () => {
+    const words = (count: number) => Array.from({ length: count }, (_, index) => `parola${index}`).join(' ');
+    const row = { id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' };
+    expect(buildZambonJob(row, words(49)).description).toBe('');
+    expect(buildZambonJob(row, words(50)).description).toBe(words(50));
+  });
+
+  it('keeps the source text an earlier run read when the page gives none', () => {
+    const real = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, extractZambonJobBody(NCOREPLAT_PAGE));
+    const [first] = mergeZambonJobs([STORED], [real]);
+    const [second] = mergeZambonJobs([first], [buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, '')]);
+    expect(second.description).toBe(real.description);
+    expect(second.sourceLang).toBe('en');
+  });
+
+  it('restores a current row from its source-backed expired record after detail blocking', () => {
+    const source = buildZambonJob(
+      { id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' },
+      extractZambonJobBody(NCOREPLAT_PAGE),
+    );
+    const [restored] = restoreZambonArchivedJobs(
+      [{ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }],
+      [{
+        sourceIdentity: `url:${JOB_URL}`,
+        slug: 'buyer-procurement-indirect-zambon',
+        descriptionByLocale: { en: source.description },
+      }],
+    );
+    expect(restored.description).toBe(source.description);
+    expect(restored.sourceLang).toBe('en');
+    expect(restored.descriptionByLocale).toEqual({ en: source.description });
+    expect(restored.url).toBe(JOB_URL);
+  });
+
+  it('does not choose an arbitrary archived locale or publish a thin archive body', () => {
+    const words = (count: number) => Array.from({ length: count }, (_, index) => `parola${index}`).join(' ');
+    const row = { id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' };
+    expect(restoreZambonArchivedJobs([row], [{
+      sourceIdentity: `url:${JOB_URL}`,
+      descriptionByLocale: { it: words(80), en: words(49) },
+    }])).toEqual([]);
   });
 });

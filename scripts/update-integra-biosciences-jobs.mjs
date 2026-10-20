@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllIntegraBiosciencesJobs,
   isIntegraBiosciencesJob,
@@ -25,6 +26,14 @@ runStandardCrawlerPipeline({
   root: ROOT,
   fetchJobs: fetchAllIntegraBiosciencesJobs,
   isCompanyJob: isIntegraBiosciencesJob,
+  // Publish a zero only when the complete jobsAllData array of the listing
+  // has no Swiss offer (see fetchAllIntegraBiosciencesJobs). A failed or
+  // unrecognised fetch stays a bare `[]` that keeps the previous slice and
+  // stays visible to crawler-health (no EMPTY_OK_CRAWLERS entry any more:
+  // it hid this parser reading an always-empty table for months).
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(INTEGRA_BIOSCIENCES_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   isTrustedDomain,
   defaultSourceLang: 'en',
 }).catch((err) => {

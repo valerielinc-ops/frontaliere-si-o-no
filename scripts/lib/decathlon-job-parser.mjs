@@ -10,12 +10,13 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import { extractJobPostingDescription } from './jobposting-jsonld.mjs';
+import { extractJobPostingDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
 import { coerceCountryField, CH_COUNTRY_RX } from './ch-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -177,17 +178,46 @@ async function fetchJobListings() {
  * SSR detail page carries the full description in a JSON-LD <script>. Returns
  * '' on any failure so the caller falls back to the title.
  */
-async function fetchDecathlonDetailDescription(url) {
-  if (!url || !/^https?:\/\//.test(url)) return '';
+async function fetchDecathlonDetail(url) {
+  if (!url || !/^https?:\/\//.test(url)) return { description: '', ...sourcePostingDateFields('') };
   try {
     const html = await fetchHtml(url, {
       timeoutMs: 15000,
       headers: { 'User-Agent': REQUEST_HEADERS['User-Agent'] },
     });
-    return extractJobPostingDescription(html);
+    return { description: extractDecathlonDetailDescription(html), ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')) };
   } catch {
-    return ''; // network/timeout → caller falls back to the title
+    return { description: '', ...sourcePostingDateFields('') }; // network/timeout → caller falls back to the title
   }
+}
+
+/**
+ * The advertisement as the DigitalRecruiters page renders it: one
+ * `<section data-logic-value="html_block">` per part of the ad — «Mission»
+ * and «Profil», each an `<h2>` title and a `.rich-text` body. The JSON-LD
+ * `description` holds only the first of them, so reading it alone dropped the
+ * profile, the offer («Was wir dir bieten») and the application steps:
+ * velo-verkaufer Baar on 2026-09-29 published 1 136 of the page's 3 141 chars,
+ * and the two Baar postings shared that same mission text (issue 5253).
+ * The location, share and catch-phrase blocks are other `data-logic-value`s
+ * and are not read. When the page has no html_block, or they are shorter than
+ * the JSON-LD body, the JSON-LD body is kept.
+ */
+export function extractDecathlonDetailDescription(html = '') {
+  const source = String(html || '');
+  // Text, not markup: headings become their own lines and list items `• `
+  // lines (the marker the pipeline's normalizeDescriptionBullets restores
+  // after the caller collapses whitespace), no tag survives.
+  const toText = (fragment) => stripHtml(fragment)
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  const fromBlocks = [...source.matchAll(/<section\b[^>]*\bdata-logic-value="html_block"[^>]*>([\s\S]*?)<\/section>/gi)]
+    .map((match) => toText(match[1]))
+    .filter(Boolean)
+    .join('\n\n');
+  const fromJsonLd = toText(extractJobPostingDescription(source));
+  return fromBlocks.length >= fromJsonLd.length ? fromBlocks : fromJsonLd;
 }
 
 /**
@@ -245,7 +275,8 @@ export async function fetchAllDecathlonJobs() {
     // JSON-LD <script> (verified live ~1.5k chars). Fetch it so jobs aren't
     // thin → boilerplate-padded → boilerplate-guard failure (#1719). Falls back
     // to the title on any failure (fail-per-record, never fake content).
-    const detailDescHtml = await fetchDecathlonDetailDescription(publicUrl);
+    const detail = await fetchDecathlonDetail(publicUrl);
+    const detailDescHtml = detail.description;
     // Strip THEN fall back: a truthy-but-whitespace-only JSON-LD body (e.g.
     // `<p> </p>`/`<br>`) strips to '' — a `detailDescHtml ? strip : title`
     // ternary would keep that empty string (the raw HTML is truthy so the
@@ -253,7 +284,12 @@ export async function fetchAllDecathlonJobs() {
     // catches the empty-after-strip case (Liebherr/Implenia use the same idiom).
     const descriptionText = normalizeSpace(stripHtml(detailDescHtml)) || title;
 
-    const sourceLang = detectLang(title, 'fr');
+    // The language is read from the body we publish, not from the title:
+    // titles such as "CANDIDATURE SPONTANEE - STAGE SPORT LEADER" or
+    // "Mécanicien⸱ne … - BIENNE" detected as en/it and filed French ads in a
+    // foreign source slot (5/54 jobs, #5253). `descriptionText` already falls
+    // back to the title when the detail body is missing.
+    const sourceLang = detectLang(descriptionText, 'fr');
     const jobSlug = slugify(`${title} decathlon ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -291,7 +327,7 @@ export async function fetchAllDecathlonJobs() {
       sector: 'retail',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

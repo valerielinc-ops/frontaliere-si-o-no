@@ -3,6 +3,7 @@ import {
   isAcceptableTranslation,
   MIN_TRANSLATION_RATIO,
   MIN_TRANSLATION_CHARS,
+  translationRejectionReason,
 } from '../scripts/lib/translation-quality.mjs';
 
 // Guards the source-length-ratio gate shared by the three writers of
@@ -51,5 +52,33 @@ describe('isAcceptableTranslation length-ratio gate', () => {
     // Empty source disables the ratio check; a >= floor candidate passes.
     expect(isAcceptableTranslation('', 'b'.repeat(MIN_TRANSLATION_CHARS))).toBe(true);
     expect(isAcceptableTranslation('', 'b'.repeat(MIN_TRANSLATION_CHARS - 1))).toBe(false);
+  });
+});
+
+// The 2e diagnostic names the rule that refused a translation. On run
+// 38609788214 every refusal was logged as «truncated» at 87–119% of the source
+// length, i.e. by a rule other than the length ratio.
+describe('translationRejectionReason', () => {
+  const source = 'a'.repeat(300);
+  const listSource = ['Ihre Aufgaben:', '- Pflege der Bewohnerinnen und Bewohner im Alltag', '- Dokumentation der Pflegeleistungen im System', '- Zusammenarbeit mit Ärzten und Angehörigen'].join('\n');
+  const flattened = 'Le sue mansioni: cura dei residenti nella vita quotidiana, documentazione delle prestazioni infermieristiche nel sistema, collaborazione con medici e familiari.';
+
+  it('is null exactly when isAcceptableTranslation accepts', () => {
+    for (const candidate of ['b'.repeat(290), 'b'.repeat(181), 'b'.repeat(179), 'b'.repeat(50), flattened]) {
+      for (const src of [source, listSource]) {
+        expect(translationRejectionReason(src, candidate) === null).toBe(isAcceptableTranslation(src, candidate));
+      }
+    }
+  });
+
+  it('names the length rules', () => {
+    expect(translationRejectionReason(source, 'b'.repeat(50))).toBe('too-short');
+    expect(translationRejectionReason(source, 'b'.repeat(179))).toBe('below-source-ratio');
+    expect(translationRejectionReason(source, 42 as unknown as string)).toBe('not-text');
+  });
+
+  it('names a refusal for lost list items, at any length ratio', () => {
+    expect(flattened.length / listSource.length).toBeGreaterThan(MIN_TRANSLATION_RATIO);
+    expect(translationRejectionReason(listSource, flattened)).toBe('lost-list-items');
   });
 });

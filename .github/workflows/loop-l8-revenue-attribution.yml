@@ -11,12 +11,19 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l8-revenue-attribution.mjs'
       - 'scripts/ci/export-l8-affiliate-outcomes.mjs'
+      - 'scripts/ci/fetch-authorized-affiliate-export.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/affiliateRevenue.mjs'
+      - 'functions/src/lib/affiliatePartnersRegistry.js'
+      - 'functions/src/lib/exchangePartners.js'
       - 'scripts/lib/google-service-account-token.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/load-rc-env.mjs'
       - '.github/workflows/loop-l8-revenue-attribution.yml'
@@ -27,12 +34,19 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l8-revenue-attribution.mjs'
       - 'scripts/ci/export-l8-affiliate-outcomes.mjs'
+      - 'scripts/ci/fetch-authorized-affiliate-export.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/affiliateRevenue.mjs'
+      - 'functions/src/lib/affiliatePartnersRegistry.js'
+      - 'functions/src/lib/exchangePartners.js'
       - 'scripts/lib/google-service-account-token.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/load-rc-env.mjs'
       - '.github/workflows/loop-l8-revenue-attribution.yml'
@@ -58,7 +72,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout revenue inputs
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
@@ -67,18 +81,25 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l8-revenue-attribution.mjs
             /scripts/ci/export-l8-affiliate-outcomes.mjs
+            /scripts/ci/fetch-authorized-affiliate-export.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/affiliateRevenue.mjs
+            /functions/src/lib/affiliatePartnersRegistry.js
+            /functions/src/lib/exchangePartners.js
             /scripts/lib/google-service-account-token.mjs
+            /scripts/lib/ga4-service-account.mjs
+            /scripts/lib/app-error-recency.mjs
+            /scripts/lib/analytics-settled-window.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/loop-fleet-issue.mjs
             /scripts/lib/posthog-client.mjs
             /scripts/load-rc-env.mjs
             /.github/workflows/loop-l8-revenue-attribution.yml
           sparse-checkout-cone-mode: false
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Start loop operational telemetry
@@ -105,7 +126,7 @@ jobs:
         if: github.event_name != 'pull_request'
         run: |
           if [ -z "${GOOGLE_APPLICATION_CREDENTIALS:-}" ]; then
-            echo 'L8 Remote Config unavailable; PostHog export will use the fail-closed fallback.' | tee -a "$GITHUB_STEP_SUMMARY"
+            echo 'L8 Remote Config unavailable; GA4 export will use the fail-closed fallback.' | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           set +e
@@ -113,17 +134,30 @@ jobs:
           rc_code=$?
           set -e
           if [ "$rc_code" -ne 0 ]; then
-            echo 'L8 Remote Config load failed; PostHog export will use the fail-closed fallback.' | tee -a "$GITHUB_STEP_SUMMARY"
+            echo 'L8 Remote Config load failed; GA4 export will use the fail-closed fallback.' | tee -a "$GITHUB_STEP_SUMMARY"
           fi
       - name: Export fresh L8 attribution outcome
         if: github.event_name != 'pull_request'
         run: |
           set +e
-          node scripts/ci/export-l8-affiliate-outcomes.mjs --days 8 --commercial data/revenue-authorized-export.json --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
+          node scripts/ci/fetch-authorized-affiliate-export.mjs --out "$RUNNER_TEMP/l8-commercial-export.json"
+          fetch_code=$?
+          set -e
+          if [ "$fetch_code" -ne 0 ]; then
+            echo 'L8 authorised commercial export fetch failed; continuing fail-closed without commercial amounts.' | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -n "${AFFILIATE_REVENUE_EXPORT_URL:-}" ]; then
+            commercial_path="$RUNNER_TEMP/l8-commercial-export.json"
+          else
+            commercial_path='data/revenue-authorized-export.json'
+          fi
+          echo "L8_COMMERCIAL_EXPORT_PATH=$commercial_path" >> "$GITHUB_ENV"
+          set +e
+          node scripts/ci/export-l8-affiliate-outcomes.mjs --days 8 --commercial "$commercial_path" --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
           export_code=$?
           set -e
           if [ "$export_code" -ne 0 ]; then
-            node scripts/ci/export-l8-affiliate-outcomes.mjs --unavailable --days 8 --reason 'live PostHog or authorised commercial export unavailable' --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
+            node scripts/ci/export-l8-affiliate-outcomes.mjs --unavailable --days 8 --commercial "$commercial_path" --reason 'live GA4 or authorised commercial export unavailable' --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
             echo 'L8 live attribution export failed; continuing with an explicitly unavailable outcome.' | tee -a "$GITHUB_STEP_SUMMARY"
           fi
       - name: Build unavailable L8 attribution input for pull requests
@@ -168,7 +202,7 @@ jobs:
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L8 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L8 observation and actions
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: loop-l8-revenue-attribution-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l8/

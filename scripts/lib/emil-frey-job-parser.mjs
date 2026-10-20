@@ -11,6 +11,9 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -184,7 +187,7 @@ function parseListingArticle(block) {
  * Fetch one schema.org JobPosting JSON-LD object from a rexx detail page.
  * Returns null if the page can't be fetched or has no JobPosting block.
  */
-async function fetchDetailJsonLd(url) {
+async function fetchDetailJsonLd(url, expectedTitle) {
   let html;
   try {
     html = await fetchHtml(url, { headers: { 'User-Agent': BROWSER_UA } });
@@ -192,24 +195,15 @@ async function fetchDetailJsonLd(url) {
     console.warn(`   ⚠️ detail fetch failed (${url}): ${err && err.message ? err.message : err}`);
     return null;
   }
-  const scripts = html.match(
-    /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
-  );
-  if (!scripts) return null;
-  for (const script of scripts) {
-    const inner = script.replace(/^[\s\S]*?>/, '').replace(/<\/script>$/i, '').trim();
-    let data;
-    try {
-      data = JSON.parse(inner);
-    } catch {
-      continue;
-    }
-    const candidates = Array.isArray(data) ? data : [data];
-    for (const c of candidates) {
-      if (c && c['@type'] === 'JobPosting') return c;
-    }
-  }
-  return null;
+  const postings = extractJobPostingsLd(html);
+  const posting = postings[0];
+  if (!posting) return null;
+
+  // Preserve the existing body selection; a date requires one identified vacancy.
+  const publication = postings.length === 1
+    ? identifiedPostingPublication(html, url, expectedTitle)
+    : sourcePostingDateFields();
+  return { ...posting, ...publication };
 }
 
 /**
@@ -233,7 +227,7 @@ async function fetchJobListings() {
       html = await fetchHtml(pageUrl, { headers: { 'User-Agent': BROWSER_UA } });
     } catch (err) {
       console.warn(`   ⚠️ listing page fetch failed (${pageUrl}): ${err && err.message ? err.message : err}`);
-      break;
+      throw err;
     }
 
     const blocks = html.match(/<article class="joboffer_container"[\s\S]*?<\/article>/gi) || [];
@@ -262,7 +256,7 @@ async function fetchJobListings() {
   // Enrich each with its detail JSON-LD (full address, datePosted, org name).
   const listings = [];
   for (const stub of stubs) {
-    const ld = await fetchDetailJsonLd(stub.url);
+    const ld = await fetchDetailJsonLd(stub.url, stub.title);
     listings.push({ ...stub, ld });
     await new Promise((r) => setTimeout(r, 200));
   }
@@ -361,9 +355,7 @@ export async function fetchAllEmilFreyJobs() {
       sector: 'Automotive retail / dealership group',
       currency: 'CHF',
       featured: false,
-      postedDate:
-        (ld && ld.datePosted ? String(ld.datePosted).slice(0, 10) : '') ||
-        new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, ld || {}),
       applyUrl: publicUrl,
       hiringOrganizationName: hiringOrg || EMIL_FREY_COMPANY_NAME,
       requirements: [],

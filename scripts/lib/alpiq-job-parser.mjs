@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Alpiq — career page parser
@@ -29,8 +30,9 @@ import {
   normalizeDescriptionSpace,
   stripScriptsAndStyles,
 } from './crawler-template.mjs';
-import { decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { readClosedElement } from './html-balanced-element.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 const CAREERS_URL = 'https://www.alpiq.com/career/open-jobs';
 const CAREERS_BASE = 'https://www.alpiq.com';
@@ -52,7 +54,7 @@ function alpiqListingPageUrl(page) {
 
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -60,15 +62,8 @@ export function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -216,14 +211,22 @@ function extractAlpiqRoleContentHtml(html) {
     /<(?:p|div)[^>]*>\s*<(?:strong|b)[^>]*>\s*Mission\s*<\/(?:strong|b)>/i,
   );
   const mainStart = cleanedHtml.search(/<main\b/i);
-  const start = missionMatch?.index ?? (mainStart >= 0 ? mainStart : 0);
+  // Without a length cap (issue 5253) the role block must be delimited on
+  // both sides. Archived pages without a Mission heading or <main> keep the
+  // role in their own <div class="job-detail">, read to its closing tag;
+  // anything else without a start or an end marker (facts/footer/</main>)
+  // gives no role text (the caller keeps the listing text) instead of a sweep
+  // of the page head or tail.
+  if (!missionMatch && mainStart < 0) return readClosedElement(cleanedHtml, 'class="job-detail"');
+  const start = missionMatch?.index ?? mainStart;
   const endCandidates = [
     cleanedHtml.indexOf('data-content-element="facts_container"', start),
     cleanedHtml.indexOf("data-content-element='facts_container'", start),
     cleanedHtml.indexOf('<footer', start),
     cleanedHtml.indexOf('</main>', start),
   ].filter((position) => position > start);
-  const end = endCandidates.length ? Math.min(...endCandidates) : cleanedHtml.length;
+  if (endCandidates.length === 0) return '';
+  const end = Math.min(...endCandidates);
   let roleHtml = cleanedHtml.slice(start, end);
 
   // The role block is followed by a legal disclaimer before the generic
@@ -252,14 +255,14 @@ export function parseAlpiqDetailHtml(html) {
   const h1Match = cleanedHtml.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const h2Match = cleanedHtml.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
   const titleHtml = h1Match?.[1] || h2Match?.[1] || '';
-  const title = normalizeSpace(decodeHtmlEntities(stripHtml(titleHtml)));
+  const title = normalizeSpace(stripHtml(titleHtml));
 
   // Extract description from main content sections
   const sections = [];
   const strongRe = /<(?:strong|b)[^>]*>([\s\S]*?)<\/(?:strong|b)>/gi;
   let m;
   while ((m = strongRe.exec(roleHtml)) !== null) {
-    const heading = normalizeSpace(decodeHtmlEntities(stripHtml(m[1])));
+    const heading = normalizeSpace(stripHtml(m[1]));
     if (heading.length > 3 && heading.length < 100) {
       sections.push(heading);
     }
@@ -269,17 +272,15 @@ export function parseAlpiqDetailHtml(html) {
   const bullets = [];
   const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
   while ((m = liRe.exec(roleHtml)) !== null) {
-    const text = normalizeDescriptionSpace(decodeHtmlEntities(stripHtml(m[1])));
+    const text = normalizeDescriptionSpace(stripHtml(m[1]));
     if (text.length > 5) bullets.push(text);
   }
 
   // Build full description
-  const bodyText = normalizeDescriptionSpace(decodeHtmlEntities(stripHtml(roleHtml)));
-  const description = bodyText.slice(0, 3000);
-
+  const bodyText = normalizeDescriptionSpace(stripHtml(roleHtml));
   return {
     title,
-    description,
+    description: bodyText,
     sections,
     bullets,
   };
@@ -487,7 +488,10 @@ export async function fetchAlpiqListingPages(maxPages = 10, timeoutMs = 15000) {
       }
     } catch (err) {
       console.warn(`\u26a0\ufe0f Failed to fetch Alpiq page ${page}: ${err.message}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     } finally {
       clearTimeout(timer);
     }
@@ -513,4 +517,19 @@ export function inferEmploymentType(title = '', description = '', percentage = '
     if (maxPct < 80) return 'PART_TIME';
   }
   return 'FULL_TIME';
+}
+
+// The text this crawler used to write itself: the paragraph the runner wrote without a posting text ("Posizione aperta presso Alpiq (…). Alpiq è uno dei principali produttori di energia…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const ALPIQ_FABRICATED_RE = /Posizione aperta presso Alpiq \(/;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropAlpiqFabricatedText(job) {
+  return dropFabricatedDescription(job, ALPIQ_FABRICATED_RE);
 }

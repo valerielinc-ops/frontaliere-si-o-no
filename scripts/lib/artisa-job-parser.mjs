@@ -2,6 +2,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { sourceLocaleDescription } from './source-locale-description.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -325,25 +327,19 @@ export function buildArtisaLocalizedContent(job = {}) {
     fr: title,
   };
 
-  // If we have a rich description from the Smartsheet form, use it for IT
-  // and provide placeholder translations that will be replaced by AI translation.
-  const itDesc = detailDescription ||
-    `## Posizione aperta\nArtisa Group ha aperto una selezione per il ruolo ${title} con base ${location}. La vacancy fa parte delle opportunità attive pubblicate nella pagina carriera del gruppo in Ticino.\n\n## Candidatura\nPer candidarti utilizza il modulo ufficiale Artisa Group e verifica direttamente dal form eventuali requisiti o dettagli aggiuntivi sul processo di selezione.`;
+  // The Smartsheet form text is the posting: it is published in its own
+  // language slot and the translation step fills the others. Without it there
+  // is no description — this used to return "## Posizione aperta / Artisa
+  // Group ha aperto una selezione per il ruolo …" (and English, German and
+  // French twins in the other slots), text Artisa never published, which the
+  // runner also wrote into every locale the translation step had not filled.
+  const source = sourceLocaleDescription(detailDescription, { defaultLang: 'it' });
 
   return {
     titleByLocale,
-    descriptionByLocale: {
-      it: itDesc,
-      en: detailDescription
-        ? '' // leave empty so AI translation fills it from rich IT content
-        : `## Open position\nArtisa Group is currently hiring for the ${title} role based in ${location}. This vacancy is part of the active opportunities published on the group's careers page for Southern Switzerland.\n\n## Application\nApply through the official Artisa Group form and review the form carefully for any additional requirements or hiring process details.`,
-      de: detailDescription
-        ? ''
-        : `## Offene Stelle\nArtisa Group rekrutiert derzeit für die Position ${title} am Standort ${location}. Diese Stelle gehört zu den aktuell veröffentlichten Karrieremöglichkeiten der Gruppe in der Südschweiz.\n\n## Bewerbung\nBewirb dich über das offizielle Formular von Artisa Group und prüfe dort die zusätzlichen Anforderungen sowie die nächsten Schritte im Auswahlprozess.`,
-      fr: detailDescription
-        ? ''
-        : `## Poste ouvert\nArtisa Group recrute actuellement pour le poste ${title} basé à ${location}. Cette offre fait partie des opportunités actives publiées sur la page carrière du groupe pour la Suisse italienne.\n\n## Candidature\nPostulez via le formulaire officiel Artisa Group et consultez le formulaire pour vérifier les éventuelles conditions supplémentaires ainsi que les étapes du recrutement.`,
-    },
+    description: source.description,
+    sourceLang: source.sourceLang,
+    descriptionByLocale: source.description ? source.descriptionByLocale : {},
     slugByLocale: {
       it: slugify(`${titleByLocale.it} Artisa Group ${location}`),
       en: slugify(`${titleByLocale.en} Artisa Group ${location}`),
@@ -351,4 +347,19 @@ export function buildArtisaLocalizedContent(job = {}) {
       fr: slugify(`${titleByLocale.fr} Artisa Group ${location}`),
     },
   };
+}
+
+// The text this crawler used to write itself: the four templates the builder (and the locale repair) wrote ("## Posizione aperta / Artisa Group ha aperto una selezione…", "## Open position…", "## Offene Stelle…", "## Poste ouvert…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const ARTISA_FABRICATED_RE = /Artisa Group (?:ha aperto una selezione per il ruolo |is currently hiring for the |rekrutiert derzeit für die Position |recrute actuellement pour le poste )/;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropArtisaFabricatedText(job) {
+  return dropFabricatedDescription(job, ARTISA_FABRICATED_RE);
 }

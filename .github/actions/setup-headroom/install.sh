@@ -34,10 +34,10 @@ run_bounded() {
 
 # pipx is preinstalled on GitHub-hosted runners; fall back to pip --user for
 # self-hosted / externally-managed environments.
-if run_bounded pipx install "headroom-ai[${EXTRAS}]"; then
+if run_bounded pipx install "headroom-ai[${EXTRAS}]==0.39.1"; then
   :
 else
-  run_bounded python3 -m pip install --user --break-system-packages "headroom-ai[${EXTRAS}]" || true
+  run_bounded python3 -m pip install --user --break-system-packages "headroom-ai[${EXTRAS}]==0.39.1" || true
 fi
 
 echo "$HOME/.local/bin" >> "${GITHUB_PATH:-/dev/null}"

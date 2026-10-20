@@ -63,6 +63,44 @@ describe('REDFLAG_IMPORTANT_RE (markdown-tolerant 🔴 Important detector)', () 
   });
 });
 
+describe('REDFLAG_IMPORTANT_RE — regressioni source-backed dal corpus (#977/#1106/#1120/#2350)', () => {
+  it('mantiene rossi i marker veri anche con label adiacenti o un finding precedente', () => {
+    for (const line of [
+      '`a.mjs:L1`🔴 Important: la sitemap perde gli slug.',
+      '- `a.mjs:L1`🔴 **Important —** guard mancante',
+      '- `a.mjs:L1`: 🟡 Nit: x. 🔴 Important: y',
+      '- `a.mjs:L1`: 🟡 Nit: rinomina `x`. 🔴 Important: la sitemap perde gli slug',
+      '- `a.mjs:L1: 🟡 Nit: a. 🔴 Important: b',
+    ]) {
+      expect(REDFLAG_IMPORTANT_RE.test(line), line).toBe(true);
+    }
+  });
+
+  it('non promuove citazioni a marker e non perde un finding dopo backtick dispari', () => {
+    for (const line of [
+      '- `a.mjs:L1`: 🟡 Nit: la review diceva «🔴 Important: y».',
+      '- `a.mjs:L1`: 🟡 Nit: il pattern `🔴 Important:` va documentato.',
+      '- `a.mjs:L1`: 🟡 Nit: `Due 🟡 nit, nessun 🔴 Important — merge libero.` era false',
+    ]) {
+      expect(REDFLAG_IMPORTANT_RE.test(line), line).toBe(false);
+    }
+    expect(REDFLAG_IMPORTANT_RE.test('🟡 Nit: cita `🔴 Important: no` e `🔴 Important: yes')).toBe(true);
+    expect(REDFLAG_IMPORTANT_RE.test('🟡 Nit: cita `🔴 Important: no`')).toBe(false);
+  });
+
+  it('accetta ancore di posizione numerate e multiple senza punteggiatura dopo Important (#2350)', () => {
+    for (const line of [
+      '1. scripts/ci/x.mjs:L12: 🔴 Important il ramo non chiude',
+      '2) `a.mjs:L1`: 🔴 **Important** guard mancante',
+      '- 3. PR body:L9: 🔴 Important il claim non ha una misura',
+      'a.mjs:L1, b.mjs:L2: 🔴 Important i due lati divergono',
+      '`a.mjs:L1`, `b.mjs:L2-4`: 🔴 Important i due lati divergono',
+    ]) {
+      expect(REDFLAG_IMPORTANT_RE.test(line), line).toBe(true);
+    }
+  });
+});
+
 // ---------------------------------------------------------------------------
 // Terza variante della stessa classe (corpus#909, 2026-09-05): il marker CITATO.
 //
@@ -186,11 +224,11 @@ describe('REDFLAG_IMPORTANT_RE — coerenza col conteggio dichiarato', () => {
 // Il difetto è stato riparato tre volte perché la logica vive in TRE copie: questa
 // regex e i due `grep -qP` bash (un `if:`/`run:` YAML non può importare un modulo
 // JS). Il guard deriva il pattern atteso dalla `.source` — grep è già orientato alla
-// riga, quindi l'unica differenza legittima è il `\n` nella classe negata — e lo
+// riga, quindi la source JS va resa senza ogni `\n` nelle classi negate — e lo
 // pretende verbatim in entrambi i workflow: una quarta variante applicata a una sola
 // copia rende rosso qui invece di restare in silenzio per mesi.
 describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
-  const bashPattern = `(*UTF)${REDFLAG_IMPORTANT_RE.source.replace('[^\\n', '[^')}`;
+  const bashPattern = `(*UTF)${REDFLAG_IMPORTANT_RE.source.replaceAll('\\n', '')}`;
 
   // Il pattern atteso è scritto per ESTESO, non ri-derivato dalla `.source`: un
   // `expect(x).toBe(<la stessa espressione che ha prodotto x>)` è vero per
@@ -199,11 +237,11 @@ describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
   // è esattamente il momento in cui si deve guardare anche i due workflow.
   // NB: stringa singola, non `String.raw`: gli escape `\\x60`, `\\s` e `\\*`
   // diventano rispettivamente `\x60`, `\s` e `\*`, come nella `.source` JS.
-  const BASH_PATTERN_ATTESO = '(*UTF)^(?:[^🟡🟢]*(?<!\\x60)🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]|[ \\t]*(?:[-*+>][ \\t]*)?(?:\\x60[^\\x60\\n]*:L?\\d+(?:[-–]\\d+)?\\x60?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?):[ \\t]*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}(?=\\s+\\S))';
+  const BASH_PATTERN_ATTESO = "(*UTF)^(?!(?=(?:[^\\x60]*\\x60[^\\x60]*\\x60)*[^\\x60]*$)(?:[^\\x60«🟡🟢❓]|\\x60[^\\x60]*\\x60|«[^»]*»|«(?![^»]*»))*[🟡🟢❓](?:(?![.!?;][ \\t])(?:[^\\x60«]|\\x60[^\\x60]*\\x60|«[^»]*»|«(?![^»]*»)))*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-])(?:(?:(?=(?:[^`]*`[^`]*`)*[^`]*`[^`]*$)(?:(?:[^«🟡🟢❓]|«[^»]*»|«(?![^»]*»))*|(?:[^«]|«[^»]*»|«(?![^»]*»))*[🟡🟢❓](?:[^«]|«[^»]*»|«(?![^»]*»))*|(?:[^`«🟡🟢❓]|`[^`]*`|«[^»]*»|«(?![^»]*»))*)|(?:(?:[^«🟡🟢❓]|«[^»]*»|«(?![^»]*»))*|(?:[^`«]|`[^`]*`|«[^»]*»|«(?![^»]*»)|`(?![^`]*`))*[🟡🟢❓](?:[^`«]|`[^`]*`|«[^»]*»|«(?![^»]*»)|`(?![^`]*`))*|(?:[^`«🟡🟢❓]|`[^`]*`|«[^»]*»|«(?![^»]*»))*)(?<!\\s`)(?<!^`))🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]|[ \\t]*(?:(?:[-*+>]|\\d+[.)])[ \\t]*){0,3}(?:`[^`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?)(?:[ \\t]*[,;][ \\t]*(?:`[^`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?))*:[ \\t]*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}(?=[ \\t]+[^ \\t\\r]))";
 
-  it('il pattern bash è la source JS senza il `\\n` della classe negata', () => {
-    expect(bashPattern).toBe(BASH_PATTERN_ATTESO);
-    expect(REDFLAG_IMPORTANT_RE.source).toBe('^(?:[^\\n🟡🟢]*(?<!\\x60)🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]|[ \\t]*(?:[-*+>][ \\t]*)?(?:\\x60[^\\x60\\n]*:L?\\d+(?:[-–]\\d+)?\\x60?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?):[ \\t]*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}(?=\\s+\\S))');
+  it('il pattern bash è la source JS senza i `\\n` delle classi negate', () => {
+    expect(bashPattern).toBe(BASH_PATTERN_ATTESO.replaceAll('\\n', ''));
+    expect(REDFLAG_IMPORTANT_RE.source).toBe("^(?!(?=(?:[^\\n\\x60]*\\x60[^\\n\\x60]*\\x60)*[^\\n\\x60]*$)(?:[^\\n\\x60«🟡🟢❓]|\\x60[^\\n\\x60]*\\x60|«[^\\n»]*»|«(?![^\\n»]*»))*[🟡🟢❓](?:(?![.!?;][ \\t])(?:[^\\n\\x60«]|\\x60[^\\n\\x60]*\\x60|«[^\\n»]*»|«(?![^\\n»]*»)))*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-])(?:(?:(?=(?:[^\\n`]*`[^\\n`]*`)*[^\\n`]*`[^\\n`]*$)(?:(?:[^\\n«🟡🟢❓]|«[^\\n»]*»|«(?![^\\n»]*»))*|(?:[^\\n«]|«[^\\n»]*»|«(?![^\\n»]*»))*[🟡🟢❓](?:[^\\n«]|«[^\\n»]*»|«(?![^\\n»]*»))*|(?:[^\\n`«🟡🟢❓]|`[^\\n`]*`|«[^\\n»]*»|«(?![^\\n»]*»))*)|(?:(?:[^\\n«🟡🟢❓]|«[^\\n»]*»|«(?![^\\n»]*»))*|(?:[^\\n`«]|`[^\\n`]*`|«[^\\n»]*»|«(?![^\\n»]*»)|`(?![^\\n`]*`))*[🟡🟢❓](?:[^\\n`«]|`[^\\n`]*`|«[^\\n»]*»|«(?![^\\n»]*»)|`(?![^\\n`]*`))*|(?:[^\\n`«🟡🟢❓]|`[^\\n`]*`|«[^\\n»]*»|«(?![^\\n»]*»))*)(?<!\\s`)(?<!^`))🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]|[ \\t]*(?:(?:[-*+>]|\\d+[.)])[ \\t]*){0,3}(?:`[^\\n`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?)(?:[ \\t]*[,;][ \\t]*(?:`[^\\n`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?))*:[ \\t]*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}(?=[ \\t]+[^\\n \\t\\r]))");
   });
 
   for (const wf of ['pr-redflag-fixer.yml', 'stale-pr-rescuer.yml']) {
@@ -212,6 +250,10 @@ describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
       expect(yaml).toContain(`grep -qP '${bashPattern}'`);
     });
   }
+
+  it('non promuove una citazione plain-text nella prosa di un Nit', () => {
+    expect(REDFLAG_IMPORTANT_RE.test('🟡 Nit: la review cita 🔴 Important: manca il canonical')).toBe(false);
+  });
 
   const pcreRunner = (() => {
     try {
@@ -233,6 +275,9 @@ describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
       ['🔴 Important: manca il canonical', true],
       ['.github/workflows/tests.yml:L2199: 🔴 Important path non trusted', true],
       ['- `scripts/ci/review-gate.mjs:L188`: 🔴 Important parser drift', true],
+      ['«🟢 Nit: quoted» 🔴 Important: real', true],
+      ['`🟡 Nit: cited` 🔴 Important: real', true],
+      ['«🔴 Important: quoted»', false],
       ['🟡 Nit: la review cita 🔴 Important: manca il canonical', false],
       ['Il test usa `🔴 Important: manca il canonical` come fixture', false],
       ['zero 🔴 Important findings (both nits are non-blocking)', false],
@@ -310,9 +355,9 @@ describe('pr-redflag-fixer — preflight esplicito del supporto PCRE (#8015)', (
     // della pipeline poteva venire dal SIGPIPE di printf e il preflight leggeva
     // un exit != 1 come «grep -P rotto», uscendo 1 su un runner sano.
     const start = workflow.indexOf("          if grep -qP '(*UTF)a' < /dev/null; then");
-    // Il marker guard e' l'ALTRO `grep -qP`, quello con la regex `(*UTF)^(?:`:
+    // Il marker guard e' l'ALTRO `grep -qP`, quello con la regex `(*UTF)^`:
     // cercarlo dal solo prefisso ritroverebbe la riga del preflight stesso.
-    const end = workflow.indexOf("          if grep -qP '(*UTF)^(?:", start);
+    const end = workflow.indexOf("          if grep -qP '(*UTF)^", start);
     expect(start, 'pr-redflag-fixer PCRE preflight not found').toBeGreaterThanOrEqual(0);
     expect(
       workflow,

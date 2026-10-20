@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -72,7 +74,7 @@ export function generateJobBoardStats(now = new Date().toISOString()) {
   return { history, summary };
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const result = generateJobBoardStats();
   console.log(`📈 Job board stats updated: ${result.summary.totals.activeJobs} active jobs, ${result.summary.history.length} daily points`);
 }

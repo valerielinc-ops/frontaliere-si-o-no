@@ -60,6 +60,43 @@ const parser = createSoliqueParser({
   categoryFn: ottosCategoryFn,
 });
 
-export const fetchAllOttosJobs = parser.fetchAllJobs;
+function soliqueJobNumber(url = '') {
+  const match = /\/job\/details\/(\d+)/.exec(String(url || ''));
+  return match ? Number(match[1]) : Number.POSITIVE_INFINITY;
+}
+
+/**
+ * OTTO'S sometimes opens a second Solique requisition for a store role that
+ * is already online: "Aushilfe Verkäufer:in Food/Non-Food 60-80%" in
+ * Interlaken is published as both `/job/details/3927347/` and
+ * `/job/details/4039251/` with the same body and pensum (2026-09-29), i.e.
+ * the same vacancy twice on the site. Keep one job per identical
+ * (title, location, body); the older requisition (lower id) wins so the
+ * surviving id is stable. The same role at DIFFERENT stores is the chain's
+ * per-store template and stays one job per store.
+ *
+ * @param {object[]} jobs
+ * @returns {object[]}
+ */
+export function dedupeRepostedOttosJobs(jobs = []) {
+  const fold = (value) => String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
+  const byKey = new Map();
+  for (const job of jobs) {
+    const key = [job.title, job.location, job.description].map(fold).join('|');
+    const kept = byKey.get(key);
+    if (!kept || soliqueJobNumber(job.url) < soliqueJobNumber(kept.url)) byKey.set(key, job);
+  }
+  const survivors = new Set(byKey.values());
+  return jobs.filter((job) => survivors.has(job));
+}
+
+export async function fetchAllOttosJobs() {
+  const jobs = await parser.fetchAllJobs();
+  const unique = dedupeRepostedOttosJobs(jobs);
+  if (unique.length < jobs.length) {
+    console.log(`  🧹 ${jobs.length - unique.length} re-posted duplicate(s) dropped (same title, store and body)`);
+  }
+  return unique;
+}
 export const isOttosJob = parser.isCompanyJob;
 export const isTrustedDomain = parser.isTrustedDomain;

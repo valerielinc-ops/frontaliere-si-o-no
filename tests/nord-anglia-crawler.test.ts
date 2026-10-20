@@ -504,8 +504,57 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
     const [job] = await fetchAllNordAngliaJobs();
     expect(job.location).toBe('St Moritz');
     expect(job.canton).toBe('GR');
-    expect(job.streetAddress).toBeTruthy();
-    expect(job.postalCode).toMatch(/^\d{4}$/);
+    // La località pubblicata è quella della vacancy, con il suo NPA BFS: prima
+    // usciva la tupla del capoluogo (`Chur`, Poststrasse 33, 7000), cioè un
+    // JobPosting a Chur per una scuola di St. Moritz (issue 5253). La via, che
+    // la fonte non dà, la completa l'emitter JobPosting sulla località vera.
+    expect(job.addressLocality).toBe('St Moritz');
+    expect(job.postalCode).toBe('7500');
+    expect(job.streetAddress).not.toBe('Poststrasse 33');
+  });
+
+  it('publishes the vacancy locality instead of the canton capital (Pully, not Lausanne)', async () => {
+    const pullyFeed = validRssItem({
+      title: '<title><![CDATA[Teachers Primary (Pully, CH)]]></title>',
+      link: '<link>https://careers.nordanglia.com/job/Pully-Teachers-Primary/1145234101/</link>',
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(pullyFeed, { status: 200 })));
+
+    const [job] = await fetchAllNordAngliaJobs();
+    expect(job.location).toBe('Pully');
+    expect(job.canton).toBe('VD');
+    expect(job.addressLocality).toBe('Pully');
+    expect(job.streetAddress).not.toBe('Place de la Palud 2');
+  });
+
+  it.each([
+    {
+      shape: 'route-only (live slice: Collège Beau Soleil)',
+      title: '<title><![CDATA[Boarding Assistant 2026.2027]]></title>',
+      location: 'Villars sur Ollon',
+    },
+    {
+      shape: 'title suffix',
+      title: '<title><![CDATA[Boarding Assistant 2026.2027 (Villars-sur-Ollon, CH)]]></title>',
+      location: 'Villars-sur-Ollon',
+    },
+  ])('keeps Villars-sur-Ollon instead of the Lausanne tuple, $shape (issue 9838)', async ({ title, location }) => {
+    // Villars-sur-Ollon is a locality of the commune Ollon (VD), not a BFS
+    // commune: it used to fall to the canton-capital tuple (`Lausanne`,
+    // `Place de la Palud 2`, `1003`) — audit run 36019508926, sample #695.
+    const villarsFeed = validRssItem({
+      title,
+      link: '<link>https://careers.nordanglia.com/job/Villars-sur-Ollon-Boarding-Assistant-2026_2027/1436026633/</link>',
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(villarsFeed, { status: 200 })));
+
+    const [job] = await fetchAllNordAngliaJobs();
+    expect(job.location).toBe(location);
+    expect(job.canton).toBe('VD');
+    expect(job.addressLocality).toBe(location);
+    expect(job.addressLocality).not.toBe('Lausanne');
+    expect(job.postalCode).not.toBe('1003');
+    expect(job.streetAddress).not.toBe('Place de la Palud 2');
   });
 
   it('keeps Swiss locations returned by the national full-text search', async () => {

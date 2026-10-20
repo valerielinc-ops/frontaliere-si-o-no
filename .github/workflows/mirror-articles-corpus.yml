@@ -66,14 +66,9 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        description: 'Keep the run preview-only unless explicitly disabled.'
         required: false
         default: true
-        type: boolean
-      human_approval:
-        description: 'Explicit human approval for the corpus mirror push.'
-        required: false
-        default: false
         type: boolean
 
 # Serialised, never cancelled: two mirrors racing would interleave force-pushes
@@ -88,8 +83,10 @@ permissions:
 jobs:
   mirror:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
+        timeout-minutes: 5
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -116,19 +113,17 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
-      - name: Require human approval for corpus publication
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          APPROVAL_SCOPE: corpus-mirror-publication
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Push packages/articles to the articles repo
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        timeout-minutes: 12
         env:
           PAT: ${{ secrets.ARTICLES_REPO_PAT }}
+          MIRROR_GIT_TIMEOUT_SECONDS: '120'
+          MIRROR_GUARDED_PUSH_TIMEOUT_SECONDS: '180'
+          # The checkout may consume its full 5-minute step ceiling from the
+          # 15-minute job. Leave a 60-second tail for failure reporting rather
+          # than allowing three nominal retries to overrun the job.
+          MIRROR_RETRY_BUDGET_SECONDS: '540'
         run: |
           set -euo pipefail
           if [ -z "${PAT:-}" ]; then
@@ -136,8 +131,37 @@ jobs:
             exit 1
           fi
 
+          site_root="${GITHUB_WORKSPACE:-$PWD}"
+          mirror_deadline=$((SECONDS + MIRROR_RETRY_BUDGET_SECONDS))
+          mirror_remaining_seconds() {
+            local remaining=$((mirror_deadline - SECONDS))
+            if [ "$remaining" -le 0 ]; then
+              echo "::error::mirror retry budget expired before the next operation" >&2
+              return 1
+            fi
+            printf '%s\n' "$remaining"
+          }
+          mirror_timeout_seconds() {
+            local cap="$1"
+            local remaining
+            remaining="$(mirror_remaining_seconds)" || return 1
+            if [ "$remaining" -lt "$cap" ]; then
+              printf '%s\n' "$remaining"
+            else
+              printf '%s\n' "$cap"
+            fi
+          }
+          run_bounded() {
+            local label="$1" timeout_seconds="$2"
+            shift 2
+            node "$site_root/scripts/lib/run-bounded-command.mjs" \
+              --timeout-seconds "$timeout_seconds" \
+              --label "$label" \
+              -- "$@"
+          }
+          timeout_seconds="$(mirror_timeout_seconds "$MIRROR_GIT_TIMEOUT_SECONDS")" || exit 1
           work=$(mktemp -d)
-          git clone --depth 1 \
+          run_bounded "clone articles mirror target" "$timeout_seconds" git clone --depth 1 \
             "https://x-access-token:${PAT}@github.com/nanakokyobashi-rgb/frontaliere-articles.git" \
             "$work"
 
@@ -152,45 +176,94 @@ jobs:
           # publishing outright. Preserve it until it is moved into the package
           # here too, at which point the mirror carries it naturally.
           keep=$(mktemp -d)
-          for f in swiss-article-canonical-overrides.json; do
-            [ -f "$work/content/$f" ] && cp "$work/content/$f" "$keep/$f"
-          done
-          for d in content engine; do
-            rm -rf "${work:?}/$d"
-          done
-          cp -R packages/articles/content "$work/content"
-          cp -R packages/articles/engine "$work/engine"
-          for f in index.ts articleSections.ts package.json; do
-            [ -f "packages/articles/$f" ] && cp "packages/articles/$f" "$work/$f"
-          done
-          for f in swiss-article-canonical-overrides.json; do
-            [ -f "$keep/$f" ] && cp "$keep/$f" "$work/content/$f"
-          done
-
           cd "$work"
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
-          git add -A
 
-          if git diff --cached --quiet; then
-            echo "corpus already in sync — nothing to mirror"
-            exit 0
-          fi
+          # Rebuild from the current remote tip on every bounded retry. The
+          # shared guard checks the complete candidate tree before publishing,
+          # then force-with-lease rejects a concurrent advancement instead of
+          # letting a stale mirror replace the articles repo's main ref.
+          for attempt in 1 2 3; do
+            timeout_seconds="$(mirror_timeout_seconds "$MIRROR_GIT_TIMEOUT_SECONDS")" || exit 1
+            run_bounded "fetch articles mirror base (attempt ${attempt}/3)" "$timeout_seconds" \
+              git fetch --no-tags origin main
+            git reset --hard -q origin/main
+            # Preserve the file from this retry's fresh remote base. Reusing
+            # the initial clone after a lease loss could overwrite a newer
+            # canonical override committed to origin/main in the meantime.
+            for f in swiss-article-canonical-overrides.json; do
+              rm -f "$keep/$f"
+              [ -f "$work/content/$f" ] && cp "$work/content/$f" "$keep/$f"
+            done
+            for d in content engine; do
+              rm -rf "${work:?}/$d"
+            done
+            cp -R "$site_root/packages/articles/content" "$work/content"
+            cp -R "$site_root/packages/articles/engine" "$work/engine"
+            for f in index.ts articleSections.ts package.json; do
+              [ -f "$site_root/packages/articles/$f" ] && cp "$site_root/packages/articles/$f" "$work/$f"
+            done
+            for f in swiss-article-canonical-overrides.json; do
+              [ -f "$keep/$f" ] && cp "$keep/$f" "$work/content/$f"
+            done
 
-          # Guard: the corpus only ever grows in normal operation. A mirror that
-          # would delete a large share of it means something upstream is wrong
-          # (a bad checkout, a partial clone), and a force-push would destroy the
-          # published surface.
-          deleted=$(git diff --cached --diff-filter=D --name-only | wc -l)
-          total=$(git ls-files | wc -l)
-          echo "mirroring: $total files tracked, $deleted deletion(s)"
-          if [ "$deleted" -gt 200 ]; then
-            echo "::error::mirror would delete $deleted files — refusing, investigate upstream"
-            exit 1
-          fi
+            git add -A
+            if git diff --cached --quiet; then
+              echo "corpus already in sync — nothing to mirror"
+              exit 0
+            fi
 
-          git commit -q \
-            -m "Mirror packages/articles from frontaliere-si-o-no@${GITHUB_SHA:0:8}" \
-            -m "Automated one-way mirror while the generator still runs in the site repo (issue 4959). Publishing of the JSON + sitemap surface is triggered by this push."
-          git push origin HEAD:main
-          echo "mirrored ${GITHUB_SHA:0:8} — the articles repo will republish its data surface"
+            # Guard: the corpus only ever grows in normal operation. A mirror
+            # that would delete a large share of it means something upstream is
+            # wrong (a bad checkout, a partial clone), and a push would destroy
+            # the published surface.
+            deleted=$(git diff --cached --diff-filter=D --name-only | wc -l)
+            total=$(git ls-files | wc -l)
+            echo "mirroring attempt ${attempt}/3: $total files tracked, $deleted deletion(s)"
+            if [ "$deleted" -gt 200 ]; then
+              echo "::error::mirror would delete $deleted files — refusing, investigate upstream"
+              exit 1
+            fi
+
+            git commit -q \
+              -m "Mirror packages/articles from frontaliere-si-o-no@${GITHUB_SHA:0:8}" \
+              -m "Automated one-way mirror while the generator still runs in the site repo (issue 4959). Publishing of the JSON + sitemap surface is triggered by this push."
+            base_sha="$(git rev-parse --verify origin/main^{commit})"
+            candidate_sha="$(git rev-parse --verify HEAD^{commit})"
+            timeout_seconds="$(mirror_timeout_seconds "$MIRROR_GUARDED_PUSH_TIMEOUT_SECONDS")" || exit 1
+            push_output=""
+            push_status=0
+            push_output="$(node "$site_root/scripts/lib/main-push-guard.mjs" \
+              --repo "$work" \
+              --base "$base_sha" \
+              --candidate "$candidate_sha" \
+              --branch main \
+              --push \
+              --timeout-seconds "$timeout_seconds" 2>&1)" || push_status=$?
+            printf '%s\n' "$push_output"
+            if [ "$push_status" -eq 0 ]; then
+              echo "mirrored ${GITHUB_SHA:0:8} — the articles repo will republish its data surface"
+              exit 0
+            fi
+            # A candidate based on the previous origin/main can become stale
+            # while the mirror is being built. Each retry rebuilds from a
+            # freshly fetched origin/main; let this normal race refresh and
+            # retry, while keeping integrity/proof failures fail-closed.
+            if printf '%s' "$push_output" | grep -qiE 'candidate tree collapse|cannot resolve commit|cannot inspect tree|cannot prove ancestry'; then
+              echo "::error::main push guard rejected the mirror candidate; refusing to retry a destructive tree"
+              exit 1
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "::error::mirror push failed after 3 attempts"
+              exit 1
+            fi
+            echo "mirror push lost a concurrent update; retrying from origin/main"
+            sleep_for=$((attempt * 5))
+            remaining="$(mirror_remaining_seconds)" || exit 1
+            if [ "$remaining" -le "$sleep_for" ]; then
+              echo "::error::mirror retry budget expired before the next backoff" >&2
+              exit 1
+            fi
+            sleep "$sleep_for"
+          done

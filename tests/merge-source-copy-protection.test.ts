@@ -51,6 +51,51 @@ const IT_TRANSLATION = 'The North Face EMEA cerca un Coordinatore di Influencer 
 const QUALITY_CFG = {};
 
 describe('mergeAndDeduplicate source-copy protection', () => {
+  it('uses the long source-locale slot when the legacy source field is short', () => {
+    const prevJob = {
+      id: 'job-source-slot',
+      slug: 'source-slot-fallback',
+      title: 'Influencer Marketing Coordinator',
+      company: 'VF International',
+      location: 'Stabio',
+      sourceLang: 'en',
+      description: 'Short legacy source.',
+      url: 'https://vfc.com/jobs/source-slot-fallback',
+      crawledAt: '2026-03-30T10:00:00Z',
+      titleByLocale: {
+        en: 'Influencer Marketing Coordinator',
+        it: 'Coordinatore di Influencer Marketing',
+        de: 'Influencer Marketing Koordinator',
+        fr: 'Coordinateur de Marketing Influenceur',
+      },
+      descriptionByLocale: {
+        en: EN_DESC_LONG,
+        it: IT_TRANSLATION,
+        de: EN_DESC_LONG,
+        fr: EN_DESC_LONG,
+      },
+      slugByLocale: {
+        en: 'influencer-marketing-coordinator',
+        it: 'coordinatore-marketing-influencer',
+        de: 'influencer-marketing-koordinator',
+        fr: 'coordinateur-marketing-influenceur',
+      },
+    };
+    const freshCrawl = {
+      ...prevJob,
+      crawledAt: '2026-03-31T09:00:00Z',
+      descriptionByLocale: {
+        en: EN_DESC_LONG,
+        it: EN_DESC_LONG,
+        de: EN_DESC_LONG,
+        fr: EN_DESC_LONG,
+      },
+    };
+
+    const merged = mergeAndDeduplicate([prevJob], [freshCrawl], QUALITY_CFG).merged[0];
+    expect(merged.descriptionByLocale.it).toBe(IT_TRANSLATION);
+  });
+
   it('preserves real IT translation even when fresh crawl brings longer EN source copy', () => {
     const prevJob = {
       id: 'job-1',

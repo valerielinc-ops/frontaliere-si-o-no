@@ -17,14 +17,15 @@
  *
  * Default is dry-run — prints the planned merge. Pass `--apply` to commit.
  */
-import admin from 'firebase-admin';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 
 const APPLY = process.argv.includes('--apply');
 
-if (!admin.apps?.length) {
-  admin.initializeApp({ credential: admin.credential.applicationDefault() });
+if (!getApps().length) {
+  initializeApp({ credential: applicationDefault() });
 }
-const db = admin.firestore();
+const db = getFirestore();
 
 console.log(APPLY ? '🟢 APPLY mode — will write to Firestore' : '🟡 DRY RUN — no writes (pass --apply to commit)');
 

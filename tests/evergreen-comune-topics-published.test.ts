@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { buildComuneEvergreenTopics } from '../scripts/lib/evergreen-topic-generator.mjs';
+import {
+  buildComuneEvergreenTopics,
+  MIN_PUBLISHED_COMUNE_TOPICS,
+} from '../scripts/lib/evergreen-topic-generator.mjs';
 import { MUNICIPALITIES } from '../data/municipalities';
 
 const PUBLISHED = path.resolve(__dirname, '../public/evergreen-comune-topics.json');
@@ -29,9 +32,9 @@ describe('published evergreen comune topics', () => {
     // file that trips its own floor would be silently ignored in production.
     // Keep in step with readPublishedComuneTopics() in
     // scripts/lib/evergreen-topic-generator.mjs and with the writer's refusal
-    // in scripts/build-evergreen-comune-topics.mjs — all three were 50, which
-    // covered 59% of the old 85-topic file and only 11% of today's 437.
-    expect(published.topics.length).toBeGreaterThanOrEqual(300);
+    // in scripts/build-evergreen-comune-topics.mjs. The shared floor rejects
+    // the old 437-topic asset while allowing small drift below the current 466.
+    expect(published.topics.length).toBeGreaterThanOrEqual(MIN_PUBLISHED_COMUNE_TOPICS);
     for (const t of published.topics) {
       expect(typeof t.keyword).toBe('string');
       expect(t.keyword.length).toBeGreaterThan(0);

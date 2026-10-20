@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Pflegezentrum Sonnweid (Wetzikon, ZH) job parser — Custom HTML.
  *
@@ -41,6 +43,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const SONNWEID_KEY = 'sonnweid';
 export const SONNWEID_COMPANY_NAME = 'Pflegezentrum Sonnweid';
@@ -111,16 +114,16 @@ function extractDetailBody(html) {
   // Drop the related-jobs block (`<div class="jobs">…</div>`) — it lists OTHER
   // openings and would pollute every job's description identically.
   const cleaned = raw.replace(/<div[^>]*class="[^"]*\bjobs\b[^"]*"[^>]*>[\s\S]*$/i, '');
-  return normalizeSpace(htmlToText(cleaned)).slice(0, 6000);
+  return normalizeSpace(htmlToText(cleaned));
 }
 
 async function fetchDetail(url) {
   try {
     const html = await fetchHtml(url);
-    return { body: extractDetailBody(html) };
+    return { body: extractDetailBody(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed (${url}): ${err?.message || err}`);
-    return { body: '' };
+    return { body: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -133,25 +136,23 @@ export async function fetchAllSonnweidJobs() {
     listingHtml = await fetchHtml(LISTING_URL);
   } catch (err) {
     console.warn(`  ⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const rows = parseListing(listingHtml);
   console.log(`  ✓ listing: ${rows.length} jobs`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
     const detail = await fetchDetail(r.url);
 
-    const pensumText = r.pensum ? ` Pensum: ${r.pensum}.` : '';
-    const eintrittText = r.eintritt ? ` Eintritt: ${r.eintritt}.` : '';
-    const fallback = `${r.title} im ${SONNWEID_COMPANY_NAME}, ${SONNWEID_CITY} (${SONNWEID_CANTON}).${pensumText}${eintrittText}`.trim();
-    const description = detail.body && detail.body.split(/\s+/).length >= 30
-      ? detail.body
-      : [fallback, detail.body].filter(Boolean).join('\n\n');
+    // Only source text (issue 5253): no "<title> im Pflegezentrum Sonnweid,
+    // Wetzikon (ZH). Pensum: … Eintritt: …" line in place of, or in front of,
+    // a thin body. A body under the common 50-word floor gives no description
+    // (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detail.body) ? detail.body : '';
 
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${SONNWEID_KEY} ${SONNWEID_CITY}`);
@@ -195,7 +196,7 @@ export async function fetchAllSonnweidJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

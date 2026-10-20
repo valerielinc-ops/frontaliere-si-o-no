@@ -149,3 +149,28 @@ export function selectSharedPoolBrandJobs(companyKey, allJobs) {
     .filter((job) => isSharedSwatchPoolJob(job) && pattern.test(String(job?.company || '')))
     .map((job) => (normalizeKey(job?.companyKey || '') === key ? job : { ...job, companyKey: companyKey }));
 }
+
+/**
+ * Return true only when the current crawl observed a usable shared pool and
+ * proved that this brand has no matching employer in it.
+ *
+ * The caller must pass jobs extracted by the current run, not the merged
+ * scratch slice: a failed/empty fetch may deliberately keep yesterday's jobs
+ * on disk, and those retained records are not proof that today's source was
+ * observed. A populated `company` field is part of the proof because the
+ * brand discriminator depends on the hiring organisation extracted from the
+ * posting itself; missing identity must remain unknown.
+ *
+ * @param {string} companyKey
+ * @param {Array<object>} observedJobs jobs emitted by the current crawl
+ * @returns {boolean}
+ */
+export function hasAuthoritativeSharedPoolEmpty(companyKey, observedJobs) {
+  const key = normalizeKey(companyKey);
+  if (!SHARED_POOL_BRAND_PATTERNS.has(key)) return false;
+  const poolJobs = (Array.isArray(observedJobs) ? observedJobs : [])
+    .filter((job) => isSharedSwatchPoolJob(job));
+  if (poolJobs.length === 0) return false;
+  if (poolJobs.some((job) => !String(job?.company || '').trim())) return false;
+  return filterSharedPoolJobsByBrand(key, poolJobs).length === 0;
+}

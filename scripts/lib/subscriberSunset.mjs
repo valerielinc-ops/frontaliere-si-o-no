@@ -31,6 +31,7 @@ import { toMillis } from './firestoreTimestamp.mjs';
 import { isReprobeDue, REPROBE_AFTER_INACTIVE_DAYS, REPROBE_MAX_ATTEMPTS } from './reprobeGuard.mjs';
 import { isNewsletterOptOutBinding } from '../../services/newsletterOptOut.mjs';
 import { isCrossChannelStop } from '../../services/emailSuppression.mjs';
+import { hasSubscriptionBasis } from '../../services/subscriberConsent.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -133,6 +134,13 @@ export function classifySunset(sub, nowMs) {
     return { action: 'none', reason: 'recorded opt-out — not a lifecycle candidate' };
   }
 
+  // A profile-only sign-in document has no subscription to wind down: its
+  // empty status would otherwise read as the legacy mailable `''` and earn a
+  // win-back email (or a status write) for a relationship that never existed.
+  if (!hasSubscriptionBasis(sub)) {
+    return { action: 'none', reason: 'no subscription basis — not a lifecycle candidate' };
+  }
+
   // Already sunset: only ever resurrect on real engagement; otherwise leave be.
   if (status === 'inactive') {
     // A doc sunset by the dormant win-back track
@@ -188,8 +196,8 @@ export function classifySunset(sub, nowMs) {
 
   // Explicit re-consent: the win-back CTA hits ?action=resubscribe, whose handler
   // stamps `resubscribed_at` (status → 'confirmed'). A click is NOT necessarily
-  // recorded as an ESP `click_count` (the win-back is sent click-tracking-free),
-  // so honor the resubscribe timestamp directly — otherwise a user who clicked
+  // recorded as an ESP `click_count` (win-backs sent before 2026-10 were
+  // click-tracking-free, and a webhook can be lost), so honor the resubscribe timestamp directly — otherwise a user who clicked
   // "yes, keep me" would still be sunset at grace expiry. Provider-independent.
   const reengagedAt = toMillis(
     sub?.resubscribed_at ?? sub?.resubscribedAt ?? sub?.reactivated_at ?? sub?.reactivatedAt,

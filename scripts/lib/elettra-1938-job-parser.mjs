@@ -13,10 +13,18 @@
  *   - isTrustedDomain()          — Validate URLs belong to this company
  *   - slugify() / stripHtml()    — Re-exported from crawler-template.mjs
  */
+import { extractJobPostingDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
+import {
+  slugify,
+  stripHtml,
+  fetchHtml,
+  fetchJson,
+  normalizeDescriptionSpace,
+} from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -169,6 +177,55 @@ function parseCareerPage(html = '', pageUrl = '') {
   return { jobs, totalCards: cards.length };
 }
 
+function htmlBlockToText(html = '') {
+  return normalizeDescriptionSpace(stripHtml(html)).replace(/\n{2,}(?=• )/g, '\n');
+}
+
+/**
+ * Full vacancy text of an InRecruiting detail page (`/fiammcomponents/jobs/…`).
+ * The career-page card only carries a teaser cut at ~230 characters and ending
+ * in `...`; the detail page renders every section under `#description__body`
+ * as `h3.body__headings` + `div.body__text` pairs ("Descrizione azienda",
+ * "Posizione", "Requisiti", "Altre informazioni"). The application form that
+ * follows (`#vacancy__form`) is chrome and stays out. Falls back to the
+ * JobPosting JSON-LD description (the "Posizione" section alone), then ''.
+ */
+export function parseElettraDetailDescription(html = '') {
+  if (!html) return '';
+  const { document } = new JSDOM(html).window;
+  const sections = [];
+  const body = document.querySelector('#description__body');
+  if (body) {
+    let heading = '';
+    for (const element of body.children) {
+      if (element.matches('h3.body__headings')) {
+        heading = normalizeSpace(element.textContent || '');
+        continue;
+      }
+      if (!element.matches('.body__text')) continue;
+      const text = htmlBlockToText(element.innerHTML);
+      if (text) sections.push(heading ? `${heading}\n${text}` : text);
+      heading = '';
+    }
+  }
+  if (sections.length) return normalizeDescriptionSpace(sections.join('\n\n'));
+
+  const description = htmlBlockToText(extractJobPostingDescription(html));
+  if (description) return description;
+  return '';
+}
+
+async function fetchDetail(url) {
+  if (!url || url === CAREER_URL || !/\/fiammcomponents\/jobs\//.test(url)) return { description: '', ...sourcePostingDateFields('') };
+  try {
+    const html = await fetchHtml(url, { timeoutMs: 20000 });
+    return { description: parseElettraDetailDescription(html), ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')) };
+  } catch (err) {
+    console.warn(`  ⚠️ Elettra 1938 detail fetch failed for ${url}: ${err?.message || err}`);
+    return { description: '', ...sourcePostingDateFields('') };
+  }
+}
+
 function extractAjaxScaffold(html = '') {
   const { document } = new JSDOM(html).window;
   const hasMountContainer = Boolean(document.querySelector('#vacancyList'));
@@ -279,8 +336,11 @@ export async function fetchAllElettra1938Jobs() {
 
     const location = normalizeSpace(listing.location || '') || HQ?.city || 'Stabio';
     const canton = HQ?.canton || 'TI';
-    const descriptionText = stripHtml(listing.description || '');
     const publicUrl = listing.url || CAREER_URL;
+    // The card teaser is truncated ("…attività su linea di..."): read the
+    // detail page and keep the teaser only when the detail yields nothing.
+    const detail = await fetchDetail(publicUrl);
+    const descriptionText = detail.description || stripHtml(listing.description || '');
 
     const sourceLang = detectLang(descriptionText || title, 'it');
     const jobSlug = slugify(`${title} elettra-1938 ch`);
@@ -317,7 +377,7 @@ export async function fetchAllElettra1938Jobs() {
       sector: 'Impiantistica elettrica / Automazione',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

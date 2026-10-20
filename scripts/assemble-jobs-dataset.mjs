@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
+import { hasPostingDateProvenance, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 /**
  * scripts/assemble-jobs-dataset.mjs
  *
@@ -25,13 +28,17 @@
  *   node scripts/assemble-jobs-dataset.mjs                 # assemble only
  *   node scripts/assemble-jobs-dataset.mjs --stats         # assemble + regenerate stats
  *   node scripts/assemble-jobs-dataset.mjs --no-summaries  # assemble, skip jobs-crawler-summaries.json
+ *   node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries
+ *                                                            # active jobs only
  *
  * Module API (for crawlers):
  *   writeJobsCrawlerSlice(crawlerKey, jobs)    → write data/jobs/by-crawler/<key>.json
  *   writeSummaryCrawlerSlice(summaryEntry)     → write data/jobs-crawler-summaries/by-crawler/<key>.json
- *   assembleJobsDataset({ withStats?, withSummaries? })  → run full assembly
+ *   assembleJobsDataset({ withStats?, withSummaries?, withExpired? })
+ *                                                            → run assembly
  */
 
+import { repairJobTranslationSemanticsInPlace } from './lib/job-title-semantic-repair.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -39,6 +46,7 @@ import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 import { normalizeAbortKind, normalizeFetchOutcome } from './lib/crawler-fetch-outcome.mjs';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
 import {
@@ -46,33 +54,225 @@ import {
   readCrawlerSummaryStore,
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
-import { buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
-import { applyDeclaredBrandRelabel } from './lib/crawler-brand-relabel.mjs';
+import { archiveRecordNamesPosting, buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
+import { createAssemblerDedupIdentity } from './lib/assembler-dedup-identity.mjs';
+import { deduplicateAssembledJobsBySlug } from './lib/assemble-job-slug-dedup.mjs';
+import {
+  applyDeclaredBrandRelabel,
+  refreshDeclaredBrandSlugs,
+  declaredBrandLabels,
+  BRAND_RELABELLED_CRAWLER_KEYS,
+} from './lib/crawler-brand-relabel.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
-import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-mark-persistence.mjs';
+import { dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
-import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { reconcileDuplicateIdJobs } from './reconcile-duplicate-stable-id-jobs.mjs';
+import { repairJobMojibakeInPlace } from './lib/repair-mojibake.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissLocationFieldToken, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, normalizeSwissTargetLocationText, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
+import { createCrawlerLocationRecordIndex } from './lib/crawler-location-record-index.mjs';
 import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import {
+  isSafeSourceGeographyPruneJobs,
+  writeHousekeepingProofFile,
+} from './lib/crawler-slice-integrity.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { absoluteJobUrl } from './lib/job-url-host.mjs';
-import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
+import {
+  archiveFilteredJobsToSlices,
+  archiveRemovedJobsToSlice,
+  collapseDuplicateRouteEntries,
+  normalizeExpiredAtEntries,
+  repairExpiredRoutesAgainstActive,
+} from './lib/expired-jobs-archive.mjs';
 import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
-import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
+import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
+import { alignSummaryWithPublishedSlice, publishedSliceFor, recordPublishedSlice } from './lib/crawler-summary-partition.mjs';
+import { decontaminateEntries, decontaminateJobs, readFleetForSingleOwner } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
+import { migrateLegacyCantonPins } from './lib/job-canton-pin-migration.mjs';
+import {
+  applyTranslationHold,
+  formatTranslationHoldSummary,
+  includeTranslationHeldFromEnv,
+  partitionHeldFromPublication,
+  summarizeTranslationHold,
+} from './lib/translation-publication-hold.mjs';
+import { countPopulationSlots } from './lib/job-locale-population.mjs';
+import {
+  dropSpuriousRetranslationFlags,
+  getRetranslationBaseline,
+  recordRetranslationBaseline,
+} from './lib/crawler-retranslation-baseline.mjs';
+import { previousRunSliceJobs, recordPreviousRunSlice } from './lib/crawler-previous-run-slice.mjs';
+import { isIncomplete } from './lib/translation-incomplete.mjs';
+import { officialPostalCodeForLocation } from './lib/swiss-locality-directory.mjs';
+import { startPipelinePhase } from './lib/pipeline-phase-timing.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export { inferCantonFromJobEvidence };
+
+const SOURCE_BACKED_IPERSONAL_PARSERS = new Set([
+  'med-ipersonal:iPersonal AG Dedicated Parser',
+  'ipersonal:MediPersonal Dedicated Parser',
+]);
+
+/**
+ * Return only the structured canton already verified by the iPersonal source
+ * resolver. This is intentionally not inferred from `location`: the generic
+ * BFS path below remains responsible for every other crawler.
+ *
+ * @param {Record<string, any>} job
+ * @returns {string}
+ */
+export function resolveSourceBackedIpersonalCanton(job = {}) {
+  const identity = `${String(job?.companyKey || '').trim()}:${String(job?.source || '').trim()}`;
+  if (!SOURCE_BACKED_IPERSONAL_PARSERS.has(identity)) return '';
+  const region = String(job?.addressRegion || '').trim().toUpperCase().replace(/^CH-/, '');
+  return isTargetCanton(region) ? region : '';
+}
+
+/**
+ * Preserve the assembled canton when the raw source identity is ambiguous
+ * or its matched record has no canton.
+ * Conflicting source rows cannot nominate one crawler stamp safely, but the
+ * assembled row still carries the best per-record fallback for downstream
+ * locality inference.
+ *
+ * @param {{sourceLookup?: {status?: string, record?: {canton?: string}|null}, jobCanton?: string, sourceBackedCanton?: string}} input
+ * @returns {string}
+ */
+export function resolveCrawlerCantonForAssembly({
+  sourceLookup = {},
+  jobCanton = '',
+  sourceBackedCanton = '',
+} = {}) {
+  const sourceRecord = sourceLookup?.status === 'found' ? sourceLookup.record : null;
+  if (sourceBackedCanton) return sourceBackedCanton;
+  if (sourceLookup?.status === 'ambiguous') return jobCanton || '';
+  return sourceRecord?.canton || jobCanton || '';
+}
+
+function isHttpsJobUrl(value) {
+  if (typeof value !== 'string' || !value.trim()) return false;
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === 'https:' && Boolean(parsed.hostname);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Restore the minimum trusted handoff when a crawler omitted applyUrl.
+ *
+ * The canonical job URL is allowed as a handoff only when the URL classifier
+ * proves that it is a job-detail page. Listing/search pages are deliberately
+ * excluded: a syntactically valid HTTPS URL is not evidence of an individual
+ * vacancy or an application destination. If a source supplied a mailto CTA,
+ * keep its address as provenance while publishing the HTTPS detail page so
+ * the L3 validator can distinguish a navigable handoff from a broken href.
+ *
+ * @param {object} job job being normalized in place
+ * @returns {boolean} whether applyUrl was repaired
+ */
+function backfillApplyUrlFromDetail(job) {
+  if (!job || typeof job !== 'object') return false;
+
+  const absoluteUrl = absoluteJobUrl(job.url);
+  if (absoluteUrl && absoluteUrl !== job.url && isHttpsJobUrl(absoluteUrl)) {
+    job.url = absoluteUrl;
+  }
+  if (isHttpsJobUrl(job.applyUrl)) return false;
+  if (!isHttpsJobUrl(job.url) || !isLikelyJobDetailUrl(job.url)) return false;
+
+  const rawApplyUrl = String(job.applyUrl || '').trim();
+  if (/^mailto:/i.test(rawApplyUrl)) {
+    const email = rawApplyUrl.slice('mailto:'.length).split('?')[0].trim();
+    if (email && !job.applicationEmail && !job.contactEmail) {
+      job.applicationEmail = email;
+    }
+  }
+  job.applyUrl = job.url;
+  return true;
+}
+
+function observationIdentityKeys(job) {
+  const keys = [];
+  const id = String(job?.id || '').trim();
+  if (id) keys.push(`id:${id}`);
+  const url = absoluteJobUrl(job?.url);
+  if (isHttpsJobUrl(url)) keys.push(`url:${url}`);
+  return keys;
+}
+
+/**
+ * Refresh the liveness heartbeat only for records present in this successful
+ * source observation. The persisted slice can also contain retained records
+ * from a partial crawl, so stamping every row at write time would falsely
+ * make unseen vacancies look live.
+ *
+ * @param {object[]} jobs persisted slice rows, mutated in place
+ * @param {object[]} observedJobs rows returned by the current source fetch
+ * @param {Date|string|number} observedAt time of the successful observation
+ * @returns {number} number of persisted rows whose heartbeat was updated
+ */
+export function stampObservedCrawledAt(jobs, observedJobs, observedAt = new Date()) {
+  if (!Array.isArray(jobs) || !Array.isArray(observedJobs) || observedJobs.length === 0) return 0;
+  const observedDate = observedAt instanceof Date ? observedAt : new Date(observedAt);
+  if (!Number.isFinite(observedDate.getTime())) {
+    throw new TypeError('stampObservedCrawledAt: observedAt must be a valid date');
+  }
+  const timestamp = observedDate.toISOString();
+  const observedKeys = new Set(observedJobs.flatMap(observationIdentityKeys));
+  let refreshed = 0;
+  for (const job of jobs) {
+    if (!job || typeof job !== 'object' || !observationIdentityKeys(job).some((key) => observedKeys.has(key))) continue;
+    if (job.crawledAt !== timestamp) {
+      job.crawledAt = timestamp;
+      refreshed++;
+    }
+  }
+  return refreshed;
+}
+
+const EXPLICIT_SWISS_COUNTRY_LABELS = new Set([
+  'ch', 'che', 'schweiz', 'suisse', 'svizzera', 'switzerland',
+]);
+
+function normalizeExplicitCountryEvidence(job) {
+  let canonicalized = 0;
+  let emptyRemoved = 0;
+  for (const field of ['country', 'addressCountry']) {
+    const value = job[field];
+    if (value === null || (typeof value === 'string' && !value.trim())) {
+      if (field in job) {
+        delete job[field];
+        emptyRemoved++;
+      }
+      continue;
+    }
+    if (typeof value !== 'string') continue;
+    if (EXPLICIT_SWISS_COUNTRY_LABELS.has(value.trim().toLowerCase())) {
+      if (value !== 'CH') canonicalized++;
+      job[field] = 'CH';
+    }
+  }
+  return { canonicalized, emptyRemoved };
+}
 
 /* ── Summary guard — ensures every crawler writes a summary on exit ──── */
 
@@ -93,7 +293,7 @@ export function markCrawlerSummaryAbortKind(kind) {
  *
  * @param {string} key   - Crawler key (same as COMPANY_KEY)
  * @param {string} label - Human-readable label (company name)
- * @param {{discovered?: number|null, parsed?: number|null, lastFetchOutcome?: string|null, abortKind?: string|null}|null} [counts] - Optional mutable
+ * @param {{discovered?: number|null, parsed?: number|null, lastFetchOutcome?: string|null, abortKind?: string|null, sourceBodyFailures?: object[]}|null} [counts] - Optional mutable
  *   counter the crawler updates as it discovers candidates (issue #5945):
  *   `counts.discovered` set right after the pre-filter fetch lets an early
  *   return (e.g. "0 Swiss jobs after filtering") report a non-zero
@@ -121,6 +321,9 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
         normalizeAbortKind(counts?.abortKind) ??
         _summaryAbortKind ??
         (code === 0 ? null : 'crash');
+      const sourceBodyFailures = Array.isArray(counts?.sourceBodyFailures)
+        ? counts.sourceBodyFailures.slice(0, 100)
+        : [];
       writeSummaryCrawlerSlice({
         ...detailDropFields,
         key,
@@ -130,6 +333,8 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
         discovered,
         parsed,
         lastFetchOutcome,
+        sourceBodyFailureCount: sourceBodyFailures.length,
+        sourceBodyFailures,
         abortKind,
         written: 0,
         newCount: 0,
@@ -215,6 +420,10 @@ function sanitizeJobLocationField(rawValue, fallbackLocality = 'Ticino') {
     // Shared with alten-job-parser.mjs — see swiss-locality-sentence-split.mjs.
     .split(SWISS_LOCALITY_SENTENCE_SPLIT_RX)[0]
     .replace(/^[\s:]+/, '')
+    // `Worblaufen & Homeoffice`: un suffisso di lavoro ibrido dopo la città non
+    // è prosa. Senza toglierlo, la regola «home office» qui sotto buttava la
+    // città vera e pubblicava il nome del cantone (issue 5253).
+    .replace(/\s*[&+\/,]\s*home[\s-]?off(?:ice)?\.?\s*$/i, '')
     .trim();
   if (s.length > 60 || /\b(availability|offer you|requirements|inspektionen|home ?office|company address|posizione esclusivamente|ottima conoscenza|befristet)\b/i.test(s)) {
     return fallback;
@@ -364,9 +573,9 @@ export function sanitizeJobTitleField(rawValue) {
   return inner;
 }
 
-/** Apply {@link sanitizeJobTitleField} to `title` and every `titleByLocale`. */
-function sanitizeJobTitlesInPlace(job) {
-  let fixed = 0;
+/** Repair source-backed display semantics, then sanitize title formatting. */
+function sanitizeJobDisplayFieldsInPlace(job) {
+  let fixed = repairJobTranslationSemanticsInPlace(job);
   if (typeof job.title === 'string') {
     const cleaned = sanitizeJobTitleField(job.title);
     if (cleaned !== job.title) { job.title = cleaned; fixed++; }
@@ -415,10 +624,11 @@ function humanizeCompanyKey(key) {
  *
  * Also deliberately does NOT default `addressCountry` / `country` to 'CH'
  * when absent (#5384): an undeclared country and a declared-Swiss one are
- * different pieces of evidence, and stamping the former as the latter at
- * persist time destroys that distinction at rest — it is unrecoverable once
- * the source listing expires (see #5380, where 898 already-expired jobs could
- * no longer be re-checked because the original absence had been overwritten).
+ * different pieces of evidence. Exact, explicit Swiss labels are canonicalized
+ * to `CH`, while blank values are removed as absent evidence; foreign values
+ * are preserved. Stamping an undeclared country as Swiss would destroy that
+ * distinction at rest — it is unrecoverable once the source listing expires
+ * (see #5380, where 898 already-expired jobs could no longer be re-checked).
  * The "if undeclared, treat as CH" assumption belongs at the point of
  * consumption (`job.addressCountry || 'CH'`), where it is a local, reversible
  * read-time choice, not a persisted assertion.
@@ -435,16 +645,24 @@ function humanizeCompanyKey(key) {
  * authority is exactly the one the source wrote, only spelled absolutely.
  *
  * @param {object[]} jobs jobs about to be persisted in a slice (mutated in place)
- * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, urlNormalized: number }}
+ * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, sourceGeographyReconciled: number, urlNormalized: number, applyUrlBackfilled: number, countryEvidenceCanonicalized: number, emptyCountryEvidenceRemoved: number }}
  */
 export function normalizeParsedJobsForSlice(jobs) {
   let locationFixed = 0;
   let companyFixed = 0;
   let localityBackfilled = 0;
   let regionDefaulted = 0;
+  let sourceGeographyReconciled = 0;
   let urlNormalized = 0;
+  let applyUrlBackfilled = 0;
+  let countryEvidenceCanonicalized = 0;
+  let emptyCountryEvidenceRemoved = 0;
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
+
+    const countryEvidence = normalizeExplicitCountryEvidence(job);
+    countryEvidenceCanonicalized += countryEvidence.canonicalized;
+    emptyCountryEvidenceRemoved += countryEvidence.emptyRemoved;
 
     if (typeof job.url === 'string' && job.url.trim()) {
       const absoluteUrl = absoluteJobUrl(job.url);
@@ -453,6 +671,8 @@ export function normalizeParsedJobsForSlice(jobs) {
         urlNormalized++;
       }
     }
+
+    if (backfillApplyUrlFromDetail(job)) applyUrlBackfilled++;
 
     const localityFallback = cantonFallbackLocality(job);
 
@@ -475,7 +695,7 @@ export function normalizeParsedJobsForSlice(jobs) {
       }
     }
 
-    sanitizeJobTitlesInPlace(job);
+    sanitizeJobDisplayFieldsInPlace(job);
     // Guard on .trim(): an empty/whitespace addressLocality is `typeof string`
     // but carries no city, so it must fall through to the backfill branch
     // rather than persisting an empty locality (which propagates to
@@ -491,13 +711,30 @@ export function normalizeParsedJobsForSlice(jobs) {
       localityBackfilled++;
     }
 
-    if (!job.addressRegion && job.canton) {
+    const sourceCanton = resolveSourceBackedIpersonalCanton(job);
+    if (sourceCanton) {
+      const changed = job.canton !== sourceCanton || job.addressRegion !== sourceCanton;
+      job.canton = sourceCanton;
+      job.addressRegion = sourceCanton;
+      if (changed) sourceGeographyReconciled++;
+    } else if (!job.addressRegion && job.canton) {
       job.addressRegion = String(job.canton).toUpperCase();
       regionDefaulted++;
     }
   }
-  return { locationFixed, localityBackfilled, regionDefaulted, urlNormalized };
+  return {
+    locationFixed,
+    localityBackfilled,
+    regionDefaulted,
+    sourceGeographyReconciled,
+    urlNormalized,
+    applyUrlBackfilled,
+    countryEvidenceCanonicalized,
+    emptyCountryEvidenceRemoved,
+  };
 }
+
+const assemblerDedupIdentity = createAssemblerDedupIdentity();
 
 function assemblerIdentity(job = {}) {
   return buildAssembledJobIdentity(job);
@@ -668,10 +905,14 @@ export function computeAssembleInputFingerprint() {
 export const ASSEMBLE_AUX_DATA_INPUTS = Object.freeze([
   'data/job-canton-pins.json',
   'data/swiss-postal-codes.json',
+  'data/swiss-locality-postal-codes.json',
+  'data/swiss-postal-code-index.json',
   'data/orphan-indexed-job-slugs.json',
   'data/orphan-enriched-data.json',
   'data/orphan-enriched-data',
   'data/prev-slug-restore-denylist.json',
+  'data/gsc-job-urls.json',
+  'data/gsc-orphan-job-slugs.json',
   'data/canton-url-slugs.json',
   'data/canton-municipalities.json',
   'data/crawler-companies-auto.json',
@@ -748,16 +989,20 @@ function hashRepoFile(hasher, abs) {
  * `--print-cache-key`, so a workflow can key `actions/cache` on exactly the
  * value the script checks — no second, weaker `hashFiles()` definition.
  */
-export function computeAssembleCacheKey({ withStats = false, withSummaries = true } = {}) {
+export function computeAssembleCacheKey({ withStats = false, withSummaries = true, withExpired = true } = {}) {
   const inputFingerprint = computeAssembleInputFingerprint();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
+  const includeHeld = includeTranslationHeldFromEnv();
   // The suffix is part of the key because the snapshot below copies whatever is
   // on disk: a `--no-summaries` run stores the PREVIOUS jobs-crawler-summaries
   // .json, so sharing a key with a full run would let a later full run restore
-  // that stale file from cache instead of regenerating it.
+  // that stale file from cache instead of regenerating it. The active-only
+  // mode likewise gets its own key because its snapshot intentionally omits
+  // the expired archive. The translate-pending projection (held agency jobs
+  // included) must never be restored by a publishing run, hence `_withheld`.
   return {
     inputFingerprint,
-    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${skipReconciliation ? '_noreconcile' : ''}`,
+    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}${includeHeld ? '_withheld' : ''}`,
   };
 }
 
@@ -885,10 +1130,25 @@ async function parseSlicesInParallel(paths) {
  */
 export function readExistingCrawlerJobs(crawlerKey, dataJobsPath) {
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
+  // The previous run's slice, before the seed can replace it
+  // (lib/crawler-previous-run-slice.mjs). Later reads never replace it.
+  recordPreviousRunSlice(slicePath);
   if (fs.existsSync(slicePath)) {
     const data = readJson(slicePath);
-    const jobs = data?.jobs || (Array.isArray(data) ? data : []);
-    if (jobs.length > 0) return jobs;
+    // Do not turn an unreadable or wrong-shaped slice into an empty baseline:
+    // that would misclassify every retained flag as a new record. The
+    // previous-run registry has the same fail-closed distinction, and the
+    // writer will report the missing baseline explicitly below.
+    const jobs = Array.isArray(data)
+      ? data
+      : (Array.isArray(data?.jobs) ? data.jobs : null);
+    if (jobs) {
+      // First read of the run = the previous run's committed slice: the
+      // baseline writeJobsCrawlerSlice judges this run's new flags against
+      // (lib/crawler-retranslation-baseline.mjs). Later reads never replace it.
+      recordRetranslationBaseline(crawlerKey, jobs);
+      if (jobs.length > 0) return jobs;
+    }
   }
   // Fallback: data/jobs.json (gitignored, only available locally)
   if (dataJobsPath && fs.existsSync(dataJobsPath)) {
@@ -1056,7 +1316,7 @@ function shrinkJobKey(job) {
  *   multi-brand medium contamination — e.g. a `company: "Coop Genossenschaft"`
  *   entry stamped `companyKey: "fust"` before the source got a proper
  *   per-company filter, #5975). Self-corroborated, zero network cost.
- * @returns {Promise<{corroborated: boolean, checked: number, dead: number, alive: number, unverifiable: number, evidence: Array<{url: string, reason: string}>, survivors: Array<{url: string, reason: string}>}>}
+ * @returns {Promise<{corroborated: boolean, checked: number, dead: number, alive: number, unverifiable: number, evidence: Array<{id: string, url: string, reason: string, definitive: boolean}>, survivors: Array<{url: string, reason: string}>}>}
  */
 export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}) {
   const validate = options.validate || validateJobUrls;
@@ -1136,7 +1396,12 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
       )
     : [];
 
-  const evidence = offTarget.map((job) => ({ url: job?.url || '', reason: 'off-target-company' }));
+  const evidence = offTarget.map((job) => ({
+    id: shrinkJobKey(job),
+    url: job?.url || '',
+    reason: 'off-target-company',
+    definitive: false,
+  }));
   const survivors = [];
   results.forEach((result, i) => {
     const url = probeable[i]?.url || '';
@@ -1144,7 +1409,12 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
     // `definitive` never occurs today, but treating it as non-evidence keeps
     // this correct if the validator gains softer signals later.
     if (result && result.valid === false && result.definitive === true) {
-      evidence.push({ url, reason: result.reason });
+      evidence.push({
+        id: shrinkJobKey(probeable[i]),
+        url,
+        reason: result.reason,
+        definitive: true,
+      });
     } else {
       survivors.push({ url, reason: result?.reason || 'unknown' });
     }
@@ -1166,12 +1436,122 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
 }
 
 /**
+ * Validate explicit thin-source quarantine evidence and resolve the
+ * disappearing jobs it covers. Full-proof callers enforce complete coverage;
+ * partial-proof callers source-check the remaining disappearing jobs.
+ */
+function buildProvidedHousekeepingProofSubset(priorJobs, newJobs, proofEntries) {
+  if (!Array.isArray(proofEntries) || proofEntries.length === 0) return null;
+  const keptKeys = new Set((newJobs || []).map(shrinkJobKey));
+  const disappeared = (priorJobs || []).filter((job) => !keptKeys.has(shrinkJobKey(job)));
+  if (disappeared.length === 0) return null;
+
+  const disappearedByKey = new Map();
+  for (const job of disappeared) {
+    const key = shrinkJobKey(job);
+    if (!key || disappearedByKey.has(key)) return null;
+    disappearedByKey.set(key, job);
+  }
+
+  const proofByKey = new Map();
+  for (const entry of proofEntries) {
+    if (
+      entry?.definitive !== true
+      || typeof entry.job?.url !== 'string'
+      || !entry.job.url.trim()
+    ) return null;
+    const key = shrinkJobKey(entry.job);
+    const disappearedJob = disappearedByKey.get(key);
+    if (!key || !disappearedJob || proofByKey.has(key)) return null;
+    if (entry.job.url !== disappearedJob.url) return null;
+    proofByKey.set(key, entry);
+  }
+
+  return { disappeared, proofByKey };
+}
+
+function buildProvidedHousekeepingVerdict(priorJobs, newJobs, proofEntries) {
+  const subset = buildProvidedHousekeepingProofSubset(priorJobs, newJobs, proofEntries);
+  if (!subset || subset.proofByKey.size !== subset.disappeared.length) return null;
+
+  return {
+    corroborated: true,
+    checked: subset.disappeared.length,
+    dead: subset.disappeared.length,
+    alive: 0,
+    unverifiable: 0,
+    evidence: subset.disappeared.map((job) => ({
+      id: shrinkJobKey(job),
+      url: job.url,
+      reason: subset.proofByKey.get(shrinkJobKey(job)).reason || 'thin-source-quarantine',
+      definitive: true,
+    })),
+    survivors: [],
+    disappearedJobs: subset.disappeared,
+  };
+}
+
+/**
+ * Combine deterministic quarantine evidence with source verification for the
+ * removals it does not cover. The validator is deliberately called with only
+ * the unproven jobs, so a known thin-source quarantine is never re-probed as
+ * if it were an ordinary source removal.
+ *
+ * @param {object[]} priorJobs
+ * @param {object[]} newJobs
+ * @param {object[]} proofEntries definitive proof for a subset of removals
+ * @param {object} [options] verifyShrinkAgainstSource options
+ * @returns {Promise<object>} combined shrink verdict
+ */
+export async function verifyShrinkWithProvidedHousekeepingProof(
+  priorJobs,
+  newJobs,
+  proofEntries,
+  options = {},
+) {
+  const subset = buildProvidedHousekeepingProofSubset(priorJobs, newJobs, proofEntries);
+  if (!subset) return verifyShrinkAgainstSource(priorJobs, newJobs, options);
+
+  const unprovenJobs = subset.disappeared.filter(
+    (job) => !subset.proofByKey.has(shrinkJobKey(job)),
+  );
+  if (unprovenJobs.length === 0) {
+    return buildProvidedHousekeepingVerdict(priorJobs, newJobs, proofEntries);
+  }
+
+  // `expectedNewCount` belongs to the full measured array. The reduced
+  // source-verification input intentionally has no survivors, so forwarding
+  // that count would manufacture an array-mismatch refusal.
+  const { expectedNewCount: _expectedNewCount, ...sourceOptions } = options;
+  const sourceVerdict = await verifyShrinkAgainstSource(unprovenJobs, [], sourceOptions);
+  const providedEvidence = subset.disappeared
+    .filter((job) => subset.proofByKey.has(shrinkJobKey(job)))
+    .map((job) => {
+      const entry = subset.proofByKey.get(shrinkJobKey(job));
+      return {
+        id: shrinkJobKey(job),
+        url: job.url,
+        reason: entry.reason || 'thin-source-quarantine',
+        definitive: true,
+      };
+    });
+
+  return {
+    ...sourceVerdict,
+    dead: providedEvidence.length + sourceVerdict.dead,
+    evidence: [...providedEvidence, ...sourceVerdict.evidence],
+    disappearedJobs: subset.disappeared,
+  };
+}
+
+/**
  * Async wrapper around `writeJobsCrawlerSlice` that gives a genuinely-shrunk
  * source a way through the guard, with proof.
  *
  * Behaviour is identical to calling `writeJobsCrawlerSlice` directly except
- * when the guard would block: then it probes the disappearing jobs and, only
- * if EVERY one of them is provably gone at its own source URL, retries the
+ * that an explicit housekeeping proof is carried through the write and
+ * archived, while a guard-blocked shrink is either accepted from that proof
+ * or probed against the source. Only a fully corroborated removal retries the
  * write with the guard bypassed for that single write. Otherwise the original
  * guard error is rethrown unchanged, so a degraded scrape still fails loudly
  * and still keeps the prior slice.
@@ -1179,12 +1559,49 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
  * @param {string} crawlerKey
  * @param {object[]} jobs
  * @param {object} [options] Passed through to `writeJobsCrawlerSlice`; also
- *   accepts `validate` / `concurrency` / `timeoutMs` for the probe.
+ *   accepts `validate` / `concurrency` / `timeoutMs` for the probe and an
+ *   optional `housekeepingProof` array for deliberate source-backed housekeeping
+ *   (including thin-source quarantine or a parser/fetch failure).
+ * @param {boolean} [options.verifyUnprovenHousekeeping] When true, the
+ *   housekeeping proof may cover only a deterministic subset; if the shrink
+ *   guard trips, the remaining removals are verified at their source URLs.
  */
 export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = {}) {
-  const { validate, concurrency, timeoutMs, isTargetJob, ...writeOptions } = options;
+  const {
+    validate,
+    concurrency,
+    timeoutMs,
+    isTargetJob,
+    housekeepingProof: requestedHousekeepingProof,
+    verifyUnprovenHousekeeping = false,
+    ...writeOptions
+  } = options;
+  const hasRequestedHousekeepingProof = Array.isArray(requestedHousekeepingProof)
+    && requestedHousekeepingProof.length > 0;
   try {
-    writeJobsCrawlerSlice(crawlerKey, jobs, writeOptions);
+    writeJobsCrawlerSlice(crawlerKey, jobs, {
+      ...writeOptions,
+      ...(hasRequestedHousekeepingProof && !verifyUnprovenHousekeeping
+        ? { housekeepingProof: requestedHousekeepingProof }
+        : {}),
+      // This wrapper owns the evidence decision. Do not file a parser-health
+      // issue until the deterministic housekeeping proof/source probe says
+      // whether the shrink is real; a proven quarantine is an accepted write,
+      // not a parser failure.
+      deferShrinkGuardIssue: true,
+    });
+    if (hasRequestedHousekeepingProof) {
+      const archived = archiveRemovedJobsToSlice(
+        requestedHousekeepingProof
+          .filter((entry) => entry?.definitive === true && entry.job?.slug)
+          .map((entry) => entry.job),
+        crawlerKey,
+      );
+      if (archived > 0) {
+        console.warn(`  📦 Archived ${archived} housekeeping job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
+      }
+      return { written: true, shrinkAccepted: false, archived };
+    }
     return { written: true, shrinkAccepted: false };
   } catch (err) {
     if (err?.code !== SHRINK_GUARD_ERROR_CODE) throw err;
@@ -1203,19 +1620,70 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       );
       throw err;
     }
+    const shrinkReport = {
+      crawlerKey,
+      priorCount: measured.priorCount,
+      newCount: measured.newCount,
+      ratio: measured.priorCount > 0 ? measured.newCount / measured.priorCount : 0,
+    };
     const priorJobs = measured.priorJobs;
-    console.log(
-      `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — probing the disappearing job(s) against the source before deciding.`,
+    const suppliedVerdict = buildProvidedHousekeepingVerdict(
+      priorJobs,
+      measured.finalJobs,
+      requestedHousekeepingProof,
     );
-    const verdict = await verifyShrinkAgainstSource(priorJobs, measured.finalJobs, {
-      validate,
-      concurrency,
-      timeoutMs,
-      expectedNewCount: measured.newCount,
-      isTargetJob,
-    });
+    const providedProofIds = new Set(
+      (Array.isArray(requestedHousekeepingProof) ? requestedHousekeepingProof : [])
+        .filter((entry) => entry?.definitive === true && entry.job)
+        .map((entry) => shrinkJobKey(entry.job)),
+    );
+    if (suppliedVerdict) {
+      console.log(
+        `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — housekeeping proof covers every removed job.`,
+      );
+    } else if (verifyUnprovenHousekeeping && providedProofIds.size > 0) {
+      console.log(
+        `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — housekeeping proof covers ${providedProofIds.size} removed job(s); probing the remaining removal(s) against the source before deciding.`,
+      );
+    } else {
+      console.log(
+        `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — probing the disappearing job(s) against the source before deciding.`,
+      );
+    }
+    let verdict;
+    try {
+      verdict = suppliedVerdict || (verifyUnprovenHousekeeping
+        ? await verifyShrinkWithProvidedHousekeepingProof(
+          priorJobs,
+          measured.finalJobs,
+          requestedHousekeepingProof,
+          {
+            validate,
+            concurrency,
+            timeoutMs,
+            expectedNewCount: measured.newCount,
+            isTargetJob,
+          },
+        )
+        : await verifyShrinkAgainstSource(priorJobs, measured.finalJobs, {
+          validate,
+          concurrency,
+          timeoutMs,
+          expectedNewCount: measured.newCount,
+          isTargetJob,
+        }));
+    } catch (probeError) {
+      // Preserve the alert if source verification itself fails unexpectedly;
+      // an unverifiable shrink must remain visible and fail closed.
+      _createShrinkGuardIssue(crawlerKey, shrinkReport);
+      throw probeError;
+    }
 
     if (!verdict.corroborated) {
+      // The initial writer call deliberately deferred the alert. Only an
+      // uncorroborated shrink is a parser-health incident; proven housekeeping
+      // must not create a false-positive issue before this branch is reached.
+      _createShrinkGuardIssue(crawlerKey, shrinkReport);
       console.error(
         `  🚫 ${crawlerKey}: shrink NOT corroborated — ${verdict.alive} of ${verdict.checked} disappearing job(s) are still live at the source` +
           (verdict.unverifiable ? `, ${verdict.unverifiable} have no URL to probe` : '') +
@@ -1228,11 +1696,18 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       throw err;
     }
 
+    const acceptedProvidedProofCount = verdict.evidence.filter(
+      (entry) => entry.definitive === true && providedProofIds.has(entry.id),
+    ).length;
     console.warn(
-      `  ✅ ${crawlerKey}: shrink CORROBORATED — all ${verdict.dead} disappearing job(s) are provably gone at the source. Accepting the smaller slice.`,
+      suppliedVerdict
+        ? `  ✅ ${crawlerKey}: shrink CORROBORATED by deliberate housekeeping proof — ${verdict.dead} removed job(s) have route-preserving evidence. Accepting the smaller slice.`
+        : acceptedProvidedProofCount > 0
+        ? `  ✅ ${crawlerKey}: shrink CORROBORATED — ${acceptedProvidedProofCount} removed job(s) have housekeeping proof and ${verdict.dead - acceptedProvidedProofCount} are provably gone at the source. Accepting the smaller slice.`
+        : `  ✅ ${crawlerKey}: shrink CORROBORATED — all ${verdict.dead} disappearing job(s) are provably gone at the source. Accepting the smaller slice.`,
     );
     for (const e of verdict.evidence.slice(0, 10)) {
-      console.warn(`     ↳ gone: ${e.url} (${e.reason})`);
+      console.warn(`     ↳ ${providedProofIds.has(e.id) ? 'quarantined' : 'gone'}: ${e.url} (${e.reason})`);
     }
 
     // SEO continuity: a job leaving the slice without an expired entry turns
@@ -1246,7 +1721,23 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       console.warn(`  📦 Archived ${archived} expired job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
     }
 
-    writeJobsCrawlerSlice(crawlerKey, jobs, { ...writeOptions, skipShrinkGuard: true });
+    const evidenceByIdentity = new Map(verdict.evidence.map((entry) => [entry.id, entry]));
+    const housekeepingProof = verdict.disappearedJobs.map((job) => {
+      const evidence = evidenceByIdentity.get(shrinkJobKey(job));
+      return {
+        job,
+        reason: evidence?.reason || 'source-confirmed',
+        definitive: evidence?.definitive === true,
+      };
+    });
+    // Retry with the exact post-hardening array measured by the semantic
+    // guard. Reusing the caller's pre-filter array could make the byte guard
+    // validate proof for a different payload (e.g. after quarantine).
+    writeJobsCrawlerSlice(crawlerKey, measured.finalJobs, {
+      ...writeOptions,
+      skipShrinkGuard: true,
+      housekeepingProof,
+    });
     return { written: true, shrinkAccepted: true, verdict, archived };
   }
 }
@@ -1520,10 +2011,242 @@ export function isSwissPostalCode(pc) {
  * @param {string} haystack - job description text (all locales) + street.
  * @returns {boolean}
  */
-export function acceptBadLocalityViaCanton(canton, postalCode, haystack) {
+export function acceptBadLocalityViaCanton(canton, postalCode, haystack, rescueOptions = {}) {
   if (!isTargetCanton(canton)) return false;
   if (isSwissPostalCode(postalCode)) return true;
-  return Boolean(rescueSwissCityFromText(haystack));
+  return Boolean(rescueSwissCityFromText(haystack, rescueOptions));
+}
+
+/**
+ * Description-rescue options for a job whose primary locality is neither a
+ * known Swiss city nor a canton-only label (whitelist step 4). When that
+ * locality carries no Swiss signal at all — no country word, no canton name or
+ * code, no municipality — and the record has no Swiss postal code either, the
+ * job is unknown geography, which the owner's rule keeps fail-closed (#9846):
+ * "Mississauga", "Penzberg", "Venlo", and also "Baden-Württemberg" on a Ticino
+ * record, where the Aargau Baden is only glued to a foreign word. The
+ * description may then rescue it only with a city that is not inside a foreign
+ * compound, is written as a proper noun, is not the employer's headquarters and
+ * is not one entry of a list of sites.
+ *
+ * @param {string} primaryLoc
+ * @param {string|number|null|undefined} postalCode
+ * @param {string} [canton] - the record's own canton, see locationFieldHasSwissSignal()
+ * @returns {{ foreignContext: boolean, isForeignPlace: (item: string) => boolean }}
+ */
+export function textRescueOptionsForLocality(primaryLoc, postalCode, canton) {
+  const knownGeography = locationFieldHasSwissSignal(primaryLoc, canton, {
+    includeOfficialLocality: true,
+  }) || isSwissPostalCode(postalCode);
+  return { foreignContext: !knownGeography, isForeignPlace: isLocationExplicitlyForeign };
+}
+
+// Match: 5-digit ZIP within ~40 chars of an unambiguous foreign-country
+// word. Avoids false positives on lone numbers in tax/salary text.
+const FOREIGN_ADDRESS_RE = /\b\d{5}\b[\s\S]{0,40}?\b(?:Italy|Italia|Italie|Italien|France|Frankreich|Francia|Germany|Deutschland|Allemagne|Germania|Austria|Österreich|Autriche|Spagna|España|Spain|Espagne|Portugal|United Kingdom|UK\b|Belgium|Belgio|Belgien|Belgique|Netherlands|Nederland|Pays-Bas)\b/i;
+
+/**
+ * A location field can be an office list rather than the job's locality
+ * ("Paris, Geneva, London"). Once an English/French/German exonym is added to
+ * the Swiss whitelist, blindly extracting the first Swiss token would make
+ * that list look like a Swiss address. Keep the existing description-rescue
+ * path for such mixed lists; a single foreign segment is enough to make the
+ * field ambiguous, while "Geneva, Switzerland" remains a valid decorated
+ * Swiss locality.
+ */
+function locationFieldContainsForeignSegment(value = '') {
+  return String(value || '')
+    .split(/[,;|/]/)
+    .map((segment) => segment.trim())
+    .filter(Boolean)
+    .some((segment) => isLocationExplicitlyForeign(segment));
+}
+
+/**
+ * Foreign filter + Swiss-municipality whitelist of the assembly, as a pure
+ * function over the deduped jobs. Mutates the locality of a job the whitelist
+ * rescues (step 4) and returns the survivors with per-reason counts plus the
+ * full dropped rows. The dropped rows are retained by the caller for the
+ * expired archive; filtering an indexed job must never silently delete its
+ * soft-landing page.
+ *
+ * Jobs in explicitly foreign locations (London, Luxembourg, Singapore, etc.)
+ * should not appear on the Swiss job board, so they are dropped before they
+ * reach the frontend or static page generation.
+ *
+ * The blacklist only catches jobs whose location *string* names a known
+ * foreign place. Swatch Group's Italian retail jobs slipped through because
+ * the crawler hardcoded `location: "Ticino"`, `postalCode: "6500"`,
+ * `addressCountry: "CH"` (all forged HQ defaults) while the actual city
+ * ("Forte dei Marmi, 55042") only appeared in the description body. Hence the
+ * whitelist:
+ *   1. Negative signal first: if the description body contains explicit
+ *      foreign markers (5-digit postal codes — Italian/DE/FR format — next to
+ *      a country word like "Italy/Italia/Italie"), drop. This overrides any
+ *      potentially-forged metadata fields.
+ *   2. Positive signal: primary location must resolve to a known Swiss
+ *      municipality (BFS dataset, 2,110 entries + aliases). A canton-only
+ *      label ("Ticino", "TI") needs a Swiss anchor: Swiss postal code on the
+ *      record OR a known Swiss city of ≥4 chars in description.
+ *
+ * @param {object[]} jobs
+ * @returns {{ jobs: object[], foreignCount: number, droppedBadSwissCity: number, droppedCantonOnlyNoCity: number, droppedForeignAddress: number, dropped: Array<{ job: object, reason: string }> }}
+ */
+export function applySwissLocationGate(jobs) {
+  const dropped = [];
+  const foreignFiltered = jobs.filter((job) => {
+    const loc = String(job.addressLocality || job.location || '');
+    if (isLocationExplicitlyForeign(loc)) {
+      dropped.push({ job, reason: 'foreign-location' });
+      return false;
+    }
+    return true;
+  });
+  const foreignCount = jobs.length - foreignFiltered.length;
+
+  let droppedBadSwissCity = 0;
+  let droppedCantonOnlyNoCity = 0;
+  let droppedForeignAddress = 0;
+  const swissValidated = foreignFiltered.filter((job) => {
+    const haystack = `${job.description || ''} ${job.descriptionByLocale?.it || ''} ${job.descriptionByLocale?.en || ''} ${job.descriptionByLocale?.de || ''} ${job.descriptionByLocale?.fr || ''} ${job.streetAddress || ''}`;
+
+    // (1) Strong negative: description body explicitly states a foreign
+    // address (5-digit ZIP next to a non-Swiss country name). Drop even
+    // if metadata fields claim Switzerland — those are likely forged.
+    if (FOREIGN_ADDRESS_RE.test(haystack)) {
+      droppedForeignAddress++;
+      dropped.push({ job, reason: 'foreign-address-in-description' });
+      return false;
+    }
+
+    const primaryLoc = String(job.addressLocality || job.location || '').trim();
+    if (!primaryLoc) {
+      dropped.push({ job, reason: 'missing-locality' });
+      return false;
+    }
+
+    // (2) Strong positive: primary location names a known Swiss city. The
+    // record's canton disambiguates BFS names stored as "City (XX)"
+    // (Bremgarten, Gossau, Altdorf, …); omitting it caused the false-negative
+    // class measured on 2026-10-05.
+    if (isKnownSwissCity(primaryLoc, job.canton)) {
+      // Official locality directories also contain quarters/sub-localities
+      // (e.g. Estavayer-le-Lac). Keep the published schema at the canonical
+      // municipality level, as the decorated-locality path already does.
+      const canonicalLocality = swissCityFromLocationField(primaryLoc, job.canton);
+      if (canonicalLocality) {
+        job.addressLocality = canonicalLocality;
+        job.location = canonicalLocality;
+      }
+      return true;
+    }
+
+    // (3) Canton-only labels need a Swiss anchor.
+    // The canton keyword table deliberately remains conservative for parsers
+    // and free text. An explicit locality field is stronger evidence: the
+    // official postal directory rescues real localities such as Biel that are
+    // also used as a canton keyword, without weakening isCantonOnlyLabel()
+    // for source parsers that must reject a bare canton-like label. Let those
+    // field values continue into step (4), where stale-canton reconciliation
+    // can still prefer a city named in the job's own-canton description.
+    if (isCantonOnlyLabel(primaryLoc) && !isKnownSwissLocationFieldToken(primaryLoc, job.canton)) {
+      if (isSwissPostalCode(job.postalCode)) return true;
+      // Look for a real Swiss city in the description. rescueSwissCityFromText
+      // is the single source of truth for description scanning: it applies both
+      // the ≥4-char rule and the everyday-word blocklist. Calling the raw
+      // findSwissCityInText here used to bypass the blocklist, which is exactly
+      // how "alle"/"rolle" descriptions anchored non-Swiss postings.
+      if (rescueSwissCityFromText(haystack)) return true;
+      droppedCantonOnlyNoCity++;
+      dropped.push({ job, reason: 'canton-only-without-anchor' });
+      return false;
+    }
+
+    // (4) primaryLoc is neither a known city nor a canton-only label —
+    // likely a decorated locality or garbage (e.g. a company name leaking
+    // through a free-text intake field). A Swiss-signed decorated locality is
+    // authoritative on its own: `Switzerland (Mex)` must not depend on a
+    // description or postal code. Mixed office lists remain ambiguous so a
+    // Swiss exonym cannot mask a foreign segment.
+    const listedLocalityCity = swissCityFromLocationField(primaryLoc, job.canton);
+    const mixedForeignLocality = locationFieldContainsForeignSegment(primaryLoc);
+    const directLocalityCity = !mixedForeignLocality
+      && locationFieldHasSwissSignal(primaryLoc, job.canton, {
+        includeOfficialLocality: true,
+      })
+      ? listedLocalityCity
+      : '';
+    if (directLocalityCity) {
+      // A stale canton can coexist with a real Swiss locality in the field
+      // (the Roche replay has Rotkreuz on a BS record). If the description
+      // explicitly names a city owned by that record canton, retain the
+      // established rescue result; otherwise the authoritative field wins.
+      const localityBelongsToAnotherCanton = Boolean(job.canton)
+        && !isKnownSwissMunicipalityInCanton(primaryLoc, job.canton, {
+          allowOfficialLocality: true,
+        });
+      if (localityBelongsToAnotherCanton) {
+        const cantonCity = rescueSwissCityFromText(haystack);
+        if (cantonCity && isKnownSwissCity(cantonCity, job.canton)) {
+          job.addressLocality = cantonCity;
+          job.location = cantonCity;
+          markLocationDerivedFromVacancyText(job);
+          return true;
+        }
+      }
+      job.addressLocality = directLocalityCity;
+      job.location = directLocalityCity;
+      return true;
+    }
+
+    // Give the structured `canton` field the same second chance as a
+    // canton-only label. When primaryLoc carries no Swiss signal it is
+    // unknown geography, and the description rescue runs with the
+    // foreign-context guards (#9846).
+    const rescueOptions = textRescueOptionsForLocality(primaryLoc, job.postalCode, job.canton);
+    if (acceptBadLocalityViaCanton(job.canton, job.postalCode, haystack, rescueOptions)) {
+      // Sanitize: never ship the garbage primaryLoc verbatim — it would
+      // leak into the JobPosting schema, sitemap slug, and search/filter
+      // UI (e.g. Hirslanden Arbeitsort leak: "Bern - Futsal Minerva…
+      // Besetzung per: 1").
+      //
+      // Order matters. Prefer a city recovered from primaryLoc ITSELF: the
+      // field usually still contains the true city with a suffix that stopped
+      // isKnownSwissCity from matching the whole string ("Geneva, Switzerland",
+      // "Baden, Aargau", "Luzern / hybrid", "2540 Grenchen Phone"). The
+      // description is a much weaker signal and is only consulted when the
+      // locality yields nothing — reaching for it first is what published
+      // Geneva postings as Root (LU) and Baden postings as Alle (JU).
+      //
+      // No blocklist on primaryLoc: an explicit locality field naming "Rolle"
+      // or "Fully" is a location the author typed on purpose. The blocklist
+      // exists for free-text description scanning only.
+      const cityFromLocalityField = mixedForeignLocality ? '' : listedLocalityCity;
+      const cityFromVacancyText = cityFromLocalityField
+        ? ''
+        : rescueSwissCityFromText(haystack, {
+          ...rescueOptions,
+          ...(mixedForeignLocality && listedLocalityCity
+            ? { skipTokens: new Set([normalizeSwissTargetLocationText(listedLocalityCity)]) }
+            : {}),
+        });
+      const rescuedCity = cityFromLocalityField || cityFromVacancyText;
+      if (rescuedCity) {
+        job.addressLocality = rescuedCity;
+        job.location = rescuedCity;
+        if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
+      }
+      return true;
+    }
+
+    // Neither a known Swiss city, canton-only label, nor an anchored
+    // canton — likely a non-Swiss locality that escaped the explicit-
+    // foreign blacklist (e.g. small Italian town).
+    droppedBadSwissCity++;
+    dropped.push({ job, reason: 'unknown-locality' });
+    return false;
+  });
+  return { jobs: swissValidated, foreignCount, droppedBadSwissCity, droppedCantonOnlyNoCity, droppedForeignAddress, dropped };
 }
 
 /**
@@ -1752,7 +2475,7 @@ function _createBoilerplateGuardIssue(crawlerKey, report) {
     const searchResult = execFileSync(
       'gh',
       ['issue', 'list', '--label', 'parser-broken', '--state', 'open', '--search', crawlerKey, '--json', 'number,title', '--limit', '5'],
-      { encoding: 'utf8', timeout: 15000 },
+      { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
     ).trim();
 
     const existing = JSON.parse(searchResult || '[]');
@@ -1772,7 +2495,7 @@ function _createBoilerplateGuardIssue(crawlerKey, report) {
           '--body',
           `Updated: ${dateStr} — still detecting ${report.boilerplateCount}/${report.totalJobs} boilerplate jobs.`,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Updated existing issue #${existingIssue.number}`);
     } else {
@@ -1816,7 +2539,7 @@ ${jobsTable}
           '--body',
           body,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Created new GitHub Issue for ${crawlerKey}`);
     }
@@ -1834,7 +2557,7 @@ function _createShrinkGuardIssue(crawlerKey, report) {
     const searchResult = execFileSync(
       'gh',
       ['issue', 'list', '--label', 'parser-broken', '--state', 'open', '--search', crawlerKey, '--json', 'number,title', '--limit', '5'],
-      { encoding: 'utf8', timeout: 15000 },
+      { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
     ).trim();
 
     const existing = JSON.parse(searchResult || '[]');
@@ -1853,7 +2576,7 @@ function _createShrinkGuardIssue(crawlerKey, report) {
           '--body',
           `Updated: ${dateStr} — slice shrunk again: ${report.newCount}/${report.priorCount} jobs (${ratioPercent}% of prior).`,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Updated existing issue #${existingIssue.number}`);
     } else {
@@ -1887,7 +2610,7 @@ The write was refused — the prior slice on disk was kept, no data was lost.
           '--body',
           body,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Created new GitHub Issue for ${crawlerKey}`);
     }
@@ -1955,7 +2678,44 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   hand-over, where this crawler is MEANT to take vacancies from the key that
  *   currently holds them; the reconciler does not need it, since it writes
  *   slices directly. Env equivalent: SKIP_OWNERSHIP_GUARD=1.
+ * @param {boolean} [options.deferShrinkGuardIssue] - Internal: defer creation
+ *   of the shrink issue until `writeJobsCrawlerSliceVerified` has corroborated
+ *   the removal. The anti-shrink refusal itself is never bypassed.
+ * @param {object[]} [options.observedJobs] - Rows returned by this run's
+ *   successful source fetch; only matching persisted rows get a fresh
+ *   `crawledAt` heartbeat.
+ * @param {unknown[]} [options.housekeepingProof] - Definitive route-preserving
+ *   evidence for every removed job when accepting a source-verified shrink or
+ *   a deliberate thin-source quarantine. Internal callers only; unproven
+ *   removals remain blocked by the byte guard.
  */
+/**
+ * The description as writeJobsCrawlerSlice stores it: artifact clean-up, then
+ * line-start bullet recovery, both idempotent. One helper for the in-place
+ * normalization and for the views that judge a record before it runs.
+ */
+function writtenDescriptionText(text) {
+  return normalizeDescriptionBullets(cleanCrawlerArtifacts(text));
+}
+
+/** A copy of `job` whose descriptions read as writeJobsCrawlerSlice will store them. */
+function withWrittenDescriptions(job) {
+  if (!job || typeof job !== 'object') return job;
+  const view = { ...job };
+  if (typeof job.description === 'string' && job.description) {
+    view.description = writtenDescriptionText(job.description);
+  }
+  if (job.descriptionByLocale && typeof job.descriptionByLocale === 'object') {
+    view.descriptionByLocale = Object.fromEntries(
+      Object.entries(job.descriptionByLocale).map(([locale, text]) => [
+        locale,
+        typeof text === 'string' && text ? writtenDescriptionText(text) : text,
+      ]),
+    );
+  }
+  return view;
+}
+
 export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!crawlerKey || typeof crawlerKey !== 'string') {
     throw new TypeError('writeJobsCrawlerSlice: crawlerKey must be a non-empty string');
@@ -1964,13 +2724,24 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     throw new TypeError('writeJobsCrawlerSlice: jobs must be an array');
   }
 
+  // The writer is the final common funnel for dedicated and legacy callers.
+  // Capture the previous slice here as a safety net for callers that did not
+  // pass through readExistingCrawlerJobs/seedCrawlerSlicesFromDataJobs. The
+  // raw previous-run registry is first-write-wins, so this never reads the
+  // current run's seeded or written slice as a baseline.
+  const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
+  recordPreviousRunSlice(slicePath);
+
   // ── Upstream normalization (write-time) ───────────────────────────────
   // Harden location + backfill safe metadata defaults BEFORE any downstream
   // gate so corrupted location strings never reach the assemble-time Swiss
   // whitelist (the biggest dropper). Idempotent with the assemble-time net.
+  // Only refresh crawledAt for rows supplied by this run's successful source
+  // fetch; retained jobs in a partial slice are not proof of current liveness.
+  const observedCrawledAtRefreshed = stampObservedCrawledAt(jobs, options.observedJobs);
   const norm = normalizeParsedJobsForSlice(jobs);
-  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.urlNormalized > 0) {
-    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, url absolutized ${norm.urlNormalized}`);
+  if (observedCrawledAtRefreshed > 0 || norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.sourceGeographyReconciled > 0 || norm.urlNormalized > 0 || norm.applyUrlBackfilled > 0 || norm.countryEvidenceCanonicalized > 0 || norm.emptyCountryEvidenceRemoved > 0) {
+    console.log(`  🧭 Upstream normalize: observed crawledAt refreshed ${observedCrawledAtRefreshed}, location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, source geography reconciled ${norm.sourceGeographyReconciled}, country evidence canonicalized ${norm.countryEvidenceCanonicalized}, empty country evidence removed ${norm.emptyCountryEvidenceRemoved}, url absolutized ${norm.urlNormalized}, applyUrl backfilled ${norm.applyUrlBackfilled}`);
   }
 
   // Quality gate: flag jobs where any locale has content in the wrong language.
@@ -2036,6 +2807,61 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   }
   if (flagged > 0) console.log(`🔍 Quality gate: flagged ${flagged} jobs with wrong-language content${nearDupFlagged > 0 ? ` (${nearDupFlagged} near-duplicate titles, cap ${nearDupFlagCap}/run)` : ''}`);
 
+  // ── Crawler flags on unchanged, complete records (RETRANS-FLAG, 2026-10-04) ──
+  // Every flagger above and upstream (localization with SKIP_AI_TRANSLATION,
+  // hardenJobLocaleFields, the word-list gate just run) re-judges translations
+  // the previous crawl already published. translate-pending clears any flag on
+  // a record that passes isIncomplete() before translating it, so such a flag
+  // is erased unrepaired one run later and re-raised on the next crawl — 98,7%
+  // of the 9.223 flags of the 2026-09-26 wave had unchanged source text. Keep
+  // a flag only when it is not new, the source text changed, or the
+  // translations are incomplete; see lib/crawler-retranslation-baseline.mjs.
+  // The baseline is the slice as this process first read it, or an explicit
+  // `options.retranslationBaseline` (records or snapshot) from the caller.
+  {
+    // The line is printed whenever this slice carries flags, not only when some
+    // are dropped: on 2026-10-14 Senevita kept 91 flags on unchanged, complete
+    // records and the log said nothing, so the rule that kept them was unknown.
+    let baseline = options.retranslationBaseline ?? getRetranslationBaseline(crawlerKey);
+    if (!baseline) {
+      // A missing slice is a valid empty previous snapshot: every incoming
+      // record is new and its flag remains kept. An invalid slice is null and
+      // must stay unknown/fail-closed instead of being guessed as new.
+      const previousJobs = previousRunSliceJobs(slicePath);
+      if (Array.isArray(previousJobs)) {
+        recordRetranslationBaseline(crawlerKey, previousJobs);
+        baseline = getRetranslationBaseline(crawlerKey);
+      }
+    }
+    if (!baseline) {
+      const flagged = jobs.filter((job) => job?.needsRetranslation === true).length;
+      if (flagged > 0) {
+        console.log(
+          `  🧮 Retranslation flags: ${flagged} kept, no baseline recorded for ${crawlerKey} `
+            + `(classification: baseline-unavailable=${flagged}; source changed/incomplete/already flagged/new=unknown)`,
+        );
+      }
+    } else {
+      // Completeness is judged on the record as this writer will store it:
+      // the description clean-up below runs after this point. On the raw
+      // crawl, a repeated paragraph makes the description longer than its
+      // source-locale slot and isIncomplete reads a missing translation
+      // (2026-10-15, Senevita live: 192 of 207 records incomplete raw, 0 of
+      // those 192 once cleaned; the run kept 103 flags as «incomplete»).
+      const retrans = dropSpuriousRetranslationFlags(jobs, baseline, {
+        isIncomplete: (job) => isIncomplete(withWrittenDescriptions(job)),
+      });
+      if (retrans.flagged > 0) {
+        console.log(
+          `  🧮 Retranslation flags: dropped ${retrans.dropped}/${retrans.flagged} raised on unchanged, complete records `
+            + `(kept: ${retrans.keptSourceChanged} source changed, ${retrans.keptIncomplete} incomplete, `
+            + `${retrans.keptAlreadyFlagged} already flagged, ${retrans.keptNoBaseline} new, `
+            + `${retrans.keptUnattributed} unknown identity)`,
+        );
+      }
+    }
+  }
+
   // Boilerplate guard: detect parsers that silently fell back to generic descriptions.
   if (!process.env.SKIP_BOILERPLATE_GUARD) {
     const bpReport = detectBoilerplateDescriptions(jobs, crawlerKey);
@@ -2081,6 +2907,18 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
 
   const hardened = hardenJobsWithStructuredSalary(jobs);
 
+  // Repair recoverable malformed UTF-8 before the crawler slice is persisted.
+  // Ambiguous fragments stay in the source slice and receive
+  // needsRetranslation so the queue can inspect them; the assembly copy drops
+  // those unresolved values before publication.
+  const writeTimeMojibakeRepairs = hardened.jobs.reduce(
+    (count, job) => count + repairJobMojibakeInPlace(job),
+    0,
+  );
+  if (writeTimeMojibakeRepairs > 0) {
+    console.log(`  🔤 Encoding normalize: repaired ${writeTimeMojibakeRepairs} malformed job text field(s)`);
+  }
+
   // ── Truncated "St" locality heal (issue #1158) ────────────────────────
   // A bare "St"/"St." addressLocality is a textContent artifact (e.g.
   // "St. Moritz" split on the period). It must never reach the committed
@@ -2117,15 +2955,13 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // sees clean line boundaries. Both are idempotent.
   for (const job of hardened.jobs) {
     if (typeof job.description === 'string' && job.description) {
-      let normalized = cleanCrawlerArtifacts(job.description);
-      normalized = normalizeDescriptionBullets(normalized);
+      const normalized = writtenDescriptionText(job.description);
       if (normalized !== job.description) job.description = normalized;
     }
     if (job.descriptionByLocale && typeof job.descriptionByLocale === 'object') {
       for (const [locale, text] of Object.entries(job.descriptionByLocale)) {
         if (typeof text !== 'string' || !text) continue;
-        let normalized = cleanCrawlerArtifacts(text);
-        normalized = normalizeDescriptionBullets(normalized);
+        const normalized = writtenDescriptionText(text);
         if (normalized !== text) job.descriptionByLocale[locale] = normalized;
       }
     }
@@ -2135,8 +2971,33 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // Carry forward firstSeenAt from existing slice; fall back to crawledAt
   // (the original discovery time) for genuinely new jobs.
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
-  const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
+  // The slice the previous run committed. In the dedicated-runner path the
+  // seed (seedCrawlerSlicesFromDataJobs) has already replaced the file on disk
+  // with this run's working set, so `existingSlice` would compare the run
+  // with itself: the record taken before the seed is the one to compare with
+  // (lib/crawler-previous-run-slice.mjs). Every check below that carries
+  // something over from the previous run, or measures this run against it,
+  // reads `priorJobs`: firstSeenAt and postedDate carry-forward, the
+  // prev-slug safety net, the anti-shrink guard, the slug-identity restore
+  // and the admission threshold. Without a record it is the file on disk, as
+  // before. Measured over 7 days of crawler-group commits (234.900 continuing
+  // jobs) while these checks read the seeded file: 1.789 firstSeenAt moved and
+  // 1.527 postedDate moved later; reproduced, together with a 40→5 collapse
+  // the shrink guard let through, in tests/scripts/assemble-translation-hold.
+  const previousRunJobs = previousRunSliceJobs(slicePath);
+  const priorJobs = previousRunJobs ?? (Array.isArray(existingSlice?.jobs) ? existingSlice.jobs : null);
+  // The slice this process started from, kept untouched for the summary
+  // partition (scripts/lib/crawler-summary-partition.mjs). Only the first
+  // write of a key in a process defines it, so later writes skip the copy.
+  // Its own parse: the checks below may hand prior objects on to the jobs
+  // being written, and the partition must compare two independent sets.
+  const beforeJobsForSummary = publishedSliceFor(crawlerKey)
+    ? null
+    : (previousRunSliceJobs(slicePath) ?? structuredClone(Array.isArray(existingSlice?.jobs) ? existingSlice.jobs : []));
+  const previousSliceRaw = options.housekeepingProof && fs.existsSync(slicePath)
+    ? fs.readFileSync(slicePath, 'utf8')
+    : null;
   const existingFirstSeen = new Map();
   // ── postedDate churn guard (#1720 item 4) ─────────────────────────────
   // Listing-only parsers without a source date set `postedDate: new Date()…`
@@ -2150,17 +3011,31 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // never up; brand-new jobs keep their fresh date untouched. Centralized
   // here (not in 90 parsers) so the whole class is fixed by-construction.
   const existingPostedDate = new Map();
-  for (const ej of (existingSlice?.jobs || [])) {
-    const identity = buildStableJobIdentity(ej);
+  const existingPostingEvidence = new Map();
+  const expiredSlice = readJson(path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`), []);
+  const firstSeenHistory = carryForwardFirstSeenAt(hardened.jobs, {
+    existingJobs: priorJobs || [],
+    archivedJobs: Array.isArray(expiredSlice) ? expiredSlice : [],
+  });
+  // The carry-forward key. A stable identity shared by several postings (a
+  // crawler that writes the listing page as every job's URL — Galenica,
+  // État de Vaud, …) names a page, not a posting: keyed on it, every NEW
+  // posting inherited the firstSeenAt/postedDate of whichever prior posting
+  // was indexed last, so it was never "new" for the CompanyAlert sender. Such
+  // an identity falls back to the posting's own id (scripts/lib/first-seen-history.mjs).
+  const carryKey = (job) => {
+    const identity = buildStableJobIdentity(job);
+    if (!identity || !firstSeenHistory.ambiguousIdentities.has(identity)) return identity;
+    const id = String(job?.id ?? '').trim();
+    return id ? `id:${id}` : '';
+  };
+  for (const ej of (priorJobs || [])) {
+    const identity = carryKey(ej);
     if (!identity) continue;
     if (ej.firstSeenAt) existingFirstSeen.set(identity, ej.firstSeenAt);
     if (ej.postedDate) existingPostedDate.set(identity, ej.postedDate);
+    existingPostingEvidence.set(identity, ej);
   }
-  const expiredSlice = readJson(path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`), []);
-  const firstSeenHistory = carryForwardFirstSeenAt(hardened.jobs, {
-    existingJobs: existingSlice?.jobs || [],
-    archivedJobs: Array.isArray(expiredSlice) ? expiredSlice : [],
-  });
   if (firstSeenHistory.restored > 0 || firstSeenHistory.suppressed > 0) {
     console.log(
       `  🕰️ firstSeenAt history: restored ${firstSeenHistory.restored}, `
@@ -2169,11 +3044,14 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   }
   const now = new Date().toISOString();
   for (const job of hardened.jobs) {
-    const identity = buildStableJobIdentity(job);
+    const identity = carryKey(job);
     if (!job.firstSeenAt && !firstSeenHistory.suppressedJobs.has(job)) {
       job.firstSeenAt = (identity && existingFirstSeen.get(identity)) || job.crawledAt || now;
     }
-    if (identity && job.postedDate) {
+    const previousPosting = identity ? existingPostingEvidence.get(identity) : undefined;
+    if (hasPostingDateProvenance(job) || hasPostingDateProvenance(previousPosting)) {
+      Object.assign(job, mergeSourcePostingDates(previousPosting, job));
+    } else if (identity && job.postedDate) {
       const prior = existingPostedDate.get(identity);
       // Pin to the earliest known posting date for the same job (date-only
       // lexicographic compare is correct for ISO YYYY-MM-DD strings).
@@ -2187,10 +3065,11 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // Even with the writer fixes (shared-jobs-crawler.ensureLocaleFields →
   // addPreviousSlugForLocale, pre-AI captureLostSlugs), a missed mutation
   // site or future regression could drop a historical slug. Compare the
-  // jobs we are about to persist against the prior slice on disk and
-  // restore any previousSlugs the new payload would otherwise lose.
-  if (existingSlice && Array.isArray(existingSlice.jobs) && existingSlice.jobs.length > 0) {
-    const drift = trackSlugHistoryDrift(existingSlice.jobs, hardened.jobs);
+  // jobs we are about to persist against the previous run's slice
+  // (`priorJobs`) and restore any previousSlugs the new payload would
+  // otherwise lose.
+  if (priorJobs && priorJobs.length > 0) {
+    const drift = trackSlugHistoryDrift(priorJobs, hardened.jobs);
     if (drift.mergedSlugs > 0) {
       console.log(`  🛟 prev-slug safety-net: restored ${drift.mergedSlugs} slugs across ${drift.driftCount} jobs from prior slice`);
     }
@@ -2203,13 +3082,19 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // returning a degraded/error result (broken pagination, changed markup)
   // still exits 0. Observed: axa-svizzera 152→5 jobs in one run. Centralized
   // here (not in 90 parsers) so the whole class is fixed by-construction.
-  if (!process.env.SKIP_SHRINK_GUARD && !options.skipShrinkGuard && existingSlice && Array.isArray(existingSlice.jobs)) {
-    const priorCount = existingSlice.jobs.length;
+  if (!process.env.SKIP_SHRINK_GUARD && !options.skipShrinkGuard && priorJobs) {
+    const priorCount = priorJobs.length;
     const newCount = hardened.jobs.length;
-    if (shouldBlockShrink(priorCount, newCount)) {
+    const shrinkWouldBlock = shouldBlockShrink(priorCount, newCount);
+    const safeSourceGeographyPrune = shrinkWouldBlock && isSafeSourceGeographyPruneJobs(
+      slicePath,
+      priorJobs,
+      hardened.jobs,
+    );
+    if (shrinkWouldBlock && !safeSourceGeographyPrune) {
       const report = { crawlerKey, priorCount, newCount, ratio: newCount / priorCount };
       console.error(`\n🚨 Shrink guard FAILED for ${crawlerKey}: ${newCount}/${priorCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to persist, prior slice on disk kept\n`);
-      _createShrinkGuardIssue(crawlerKey, report);
+      if (!options.deferShrinkGuardIssue) _createShrinkGuardIssue(crawlerKey, report);
       const shrinkErr = new Error(`[shrink-guard] ${crawlerKey}: slice would shrink from ${priorCount} to ${newCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to write, source likely returned degraded results. Override with SKIP_SHRINK_GUARD=1 if this is a legitimate drop.`);
       // Carry the EXACT arrays the guard measured. `jobs` is reassigned inside
       // this function (`quarantineBoilerplateJobs` returns a new filtered
@@ -2224,15 +3109,22 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
         crawlerKey,
         priorCount,
         newCount,
-        priorJobs: existingSlice.jobs,
+        priorJobs,
         finalJobs: hardened.jobs,
       };
       throw shrinkErr;
     }
+    if (safeSourceGeographyPrune) {
+      console.warn(
+        `  ✅ ${crawlerKey}: accepting the proven source-geography migration `
+        + `(${priorCount} → ${newCount}); retained jobs are source-backed Swiss locations `
+        + `and removed rows match the crawler-specific legacy foreign/HQ-fallback signature.`,
+      );
+    }
   }
 
-  const mergedJobs = options.preserveExistingSlugs && Array.isArray(existingSlice?.jobs)
-    ? restoreExistingSlugIdentity(existingSlice.jobs, hardened.jobs).jobs
+  const mergedJobs = options.preserveExistingSlugs && priorJobs
+    ? restoreExistingSlugIdentity(priorJobs, hardened.jobs).jobs
     : hardened.jobs;
 
   // ── Duplicate-identity guard (issue #6759) ────────────────────────────
@@ -2291,35 +3183,140 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     }
   }
 
+  // -- One id per posting within the slice --------------------------------
+  // Several parsers derive the id from data an employer can reuse for distinct
+  // postings (Emmi's reference code, a shared ostendis token on Vista, PwC):
+  // the slice then holds two postings under one id and translate-pending's
+  // scatter parity refuses to publish (`duplicateAssembledKeys`, runs
+  // 38854975768 and 38937686046, 2026-10-16). reconcile-duplicate-stable-id-
+  // jobs.mjs already repairs this, but only when recover-prev-slugs.yml runs
+  // it, after the duplicate has been published. The same function runs here,
+  // on every write: distinct postings keep one id each (the first seen keeps
+  // it, the others get a stable id derived from their own identity), true
+  // duplicates collapse with their slugs carried over. Unlike the guards
+  // above it is fatal: a slice it cannot reconcile is not written, so the last
+  // verified slice stays on disk instead of a duplicate id reaching the
+  // scatter parity (review of PR 13609).
+  try {
+    const reconciled = reconcileDuplicateIdJobs(finalJobs);
+    if (reconciled.groups > 0) {
+      finalJobs = reconciled.jobs;
+      console.log(`  🪪 Duplicate ids in ${crawlerKey}: ${reconciled.groups} group(s), ${reconciled.rekeyed} distinct posting(s) re-keyed, ${reconciled.collapsed} duplicate(s) collapsed`);
+      for (const line of reconciled.report.slice(0, 5)) console.log(`     ${line}`);
+    }
+  } catch (err) {
+    throw new Error(`Duplicate-id reconciliation failed for ${crawlerKey}; slice not written: ${err.message}`);
+  }
+
+  // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──
+  // Timbra qui, sui job che stanno davvero per essere scritti e contro lo slice
+  // del run precedente, chi arriva non tradotto: resta nello slice (coda di
+  // translate-pending) ma l'assemblatore non lo pubblica finché i titoli non
+  // sono tradotti. I job già presenti non vengono mai ritirati. Vedi
+  // scripts/lib/translation-publication-hold.mjs. Non il file su disco: dopo
+  // il seed contiene già ogni arrivo di questo run.
+  const hold = applyTranslationHold(crawlerKey, finalJobs, priorJobs || []);
+  if (hold.gated) {
+    console.log(
+      `  ⏸️  Soglia di ammissione: ${hold.held} job trattenuti in attesa di traduzione `
+        + `(${hold.newlyHeld} nuovi), ${hold.released} rilasciati, ${hold.admittedOnArrival} ammessi già tradotti`,
+    );
+  }
+
+  // A crawler rerun can carry a previously published brand-bearing slug
+  // through the merge's identity-preservation net. Keep the declared brand
+  // and its active routes atomic at the slice-write boundary; waiting for the
+  // separate post-translation regeneration pass leaves live-data gates with a
+  // window in which company and slug disagree.
+  if (BRAND_RELABELLED_CRAWLER_KEYS.includes(crawlerKey)) {
+    const writerBrandLabels = declaredBrandLabels();
+    const writerRelabel = applyDeclaredBrandRelabel(finalJobs, writerBrandLabels);
+    const writerSlugRefresh = refreshDeclaredBrandSlugs(finalJobs, writerBrandLabels);
+    if (writerRelabel.relabelled > 0 || writerSlugRefresh.refreshed > 0) {
+      console.log(
+        `  🏷️  Write-time brand relabel: ${writerRelabel.relabelled} label(s), `
+          + `${writerSlugRefresh.refreshed} active slug(s) refreshed`,
+      );
+    }
+  }
+
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
     jobs: finalJobs,
   };
-  writeJson(slicePath, payload);
+  writeJson(slicePath, payload, { housekeepingProof: options.housekeepingProof || null });
   // A normal atomic write must run first so its anti-loss guard can preserve
   // any history the fresh payload would otherwise drop. The ownership pass is
   // intentionally second: removing a confirmed foreign route before that
   // guard runs would make the guard recapture the same contamination onto the
   // claimant. Include every existing slice in the owner index so the writer
   // covers cross-file owners as well as the current payload's same-file ones.
-  // The fresh payload is the only source entry: unrelated claimant slices are
-  // not rewritten by every crawler run, while a target slice is written first
-  // by decontaminateEntries before the claimant's deliberate guard-off write.
-  const fleetEntries = listSliceFilePaths(JOBS_SLICES_DIR)
-    .filter((filePath) => filePath !== slicePath)
-    .map((filePath) => ({ filePath, slice: readJson(filePath, null) }))
-    .filter((entry) => Array.isArray(entry.slice?.jobs));
+  // Scan every active slice as a source as well as an owner namespace. A new
+  // posting can appear after its old alias was attached to a sibling slice;
+  // restricting the source set to the fresh payload leaves that stale claimant
+  // in place forever. The pass only writes entries with a redirect or pruned
+  // bucket, so the fleet-wide scan is order-independent without rewriting
+  // unrelated slices.
+  //
+  // This writer owns one file. Its group siblings run in the same checkout and
+  // own theirs: a sibling's slice is written here only to carry out a redirect
+  // that involves this slice, and only if it is still the file that was read
+  // (issue 12467 — a sibling read in its seed state and written back after it
+  // had published reverted its master slugs to the raw parser form).
+  const fleet = readFleetForSingleOwner(listSliceFilePaths(JOBS_SLICES_DIR), {
+    ownPath: slicePath,
+    readSlice: (filePath) => readJson(filePath, null),
+    write: (filePath, slice) => writeJson(filePath, slice),
+  });
   const currentEntry = { filePath: slicePath, slice: payload };
   const ownership = decontaminateEntries(
-    [...fleetEntries, currentEntry],
-    { sourceEntries: [currentEntry], apply: true },
+    [...fleet.entries, currentEntry],
+    {
+      sourceEntries: [...fleet.entries, currentEntry],
+      ownedEntries: [currentEntry],
+      apply: true,
+      writeSlice: fleet.writeSlice,
+    },
   );
   if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
     console.log(`  🧭 prev-slug ownership: redirected ${ownership.moved} confirmed foreign route(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s)`);
   }
+  if (fleet.refused.length > 0) {
+    console.log(`  🧭 prev-slug ownership: left ${fleet.refused.length} sibling slice(s) untouched because their owner rewrote them meanwhile (${fleet.refused.map((filePath) => path.basename(filePath)).join(', ')})`);
+  }
+  if (Array.isArray(options.housekeepingProof) && options.housekeepingProof.length > 0) {
+    // The isolated commit helper validates the bytes after its own merge, not
+    // the in-process write above. Persist the same definitive evidence in its
+    // external sidecar only after ownership/decontamination has produced the
+    // final candidate bytes, so a later candidate digest check remains exact.
+    writeHousekeepingProofFile(slicePath, options.housekeepingProof, {
+      baseRaw: previousSliceRaw,
+      candidateRaw: fs.readFileSync(slicePath, 'utf8'),
+    });
+  }
+  // `currentEntry.slice.jobs` is the array decontamination rewrote in place:
+  // exactly the jobs now in the slice file.
+  recordPublishedSlice(crawlerKey, { beforeJobs: beforeJobsForSummary, afterJobs: currentEntry.slice.jobs });
   const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';
   console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${finalJobs.length} jobs${hardeningSuffix})`);
+}
+
+function publishedSliceForSummary(summaryKey, publishedSliceKeys) {
+  if (!Array.isArray(publishedSliceKeys)) return publishedSliceFor(summaryKey);
+  const beforeJobs = [];
+  const afterJobs = [];
+  for (const key of publishedSliceKeys) {
+    let record = publishedSliceFor(key);
+    if (!record) {
+      const onDisk = readJson(path.join(JOBS_SLICES_DIR, `${key}.json`), null);
+      const jobs = Array.isArray(onDisk?.jobs) ? onDisk.jobs : [];
+      record = { beforeJobs: jobs, afterJobs: jobs };
+    }
+    beforeJobs.push(...record.beforeJobs);
+    afterJobs.push(...record.afterJobs);
+  }
+  return { beforeJobs, afterJobs };
 }
 
 /**
@@ -2329,8 +3326,14 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
  * can be assembled without clobbering concurrent writes.
  *
  * @param {object} summaryEntry - Summary entry object (key, label, generatedAt, ...)
+ * @param {object} [options]
+ * @param {string[]} [options.publishedSliceKeys] - the job slices this summary
+ *   describes, when they are not just `summaryEntry.key` (an aggregate such as
+ *   `swatchgroup`, or a sub-brand whose slice write may have been refused).
+ *   A listed key this process did not write contributes its slice on disk as
+ *   unchanged: that is exactly what the run left published for it.
  */
-export function writeSummaryCrawlerSlice(summaryEntry) {
+export function writeSummaryCrawlerSlice(summaryEntry, options = {}) {
   _summaryWritten = true;
   if (!summaryEntry?.key || typeof summaryEntry.key !== 'string') {
     throw new TypeError('writeSummaryCrawlerSlice: summaryEntry.key must be a non-empty string');
@@ -2342,6 +3345,7 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
   const HEAVY_FIELDS = ['descriptionByLocale', 'titleByLocale', 'slugByLocale', 'description', 'baseSalary', 'previousSlugs', 'previousSlugsByLocale', 'requirementsByLocale', 'requirements'];
   const stripJob = (job) => {
     if (!job || typeof job !== 'object') return job;
+    backfillApplyUrlFromDetail(job);
     // Compute quality score while full data is still available
     if (computeJobQualityScore) {
       try {
@@ -2355,7 +3359,23 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
     }
     return slim;
   };
-  const stripped = { ...summaryEntry };
+  // `codeCommit`: il commit del checkout che ha prodotto questa summary (anche
+  // quando la scrive la guardia di uscita, che passa da qui). Assente se non
+  // determinabile.
+  // total/written and new+updated+unchanged describe ONE set: the slice this
+  // process published for the key, whatever set the caller computed its diff
+  // on (L3 Job Quality partition, issue 8407). Without a slice write in this
+  // process the declared values stay as they are.
+  let entryForSlice = summaryEntry;
+  const published = publishedSliceForSummary(summaryEntry.key, options.publishedSliceKeys);
+  if (published) {
+    const aligned = alignSummaryWithPublishedSlice(summaryEntry, published);
+    entryForSlice = aligned.summary;
+    if (aligned.changed.length > 0) {
+      console.log(`  🧮 Summary partition aligned with the published slice of ${summaryEntry.key}: ${aligned.changed.join(', ')}`);
+    }
+  }
+  const stripped = stampCodeCommit(entryForSlice);
   for (const listKey of ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs']) {
     if (Array.isArray(stripped[listKey])) {
       stripped[listKey] = stripped[listKey].map(stripJob);
@@ -2390,17 +3410,21 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
  * Returns the assembled jobs array, or null if no slices exist.
  */
 async function assembleJobs() {
+  const finishAssemblyTiming = startPipelinePhase('jobs-dataset', 'active-jobs assembly');
   const sliceFiles = listSliceFiles(JOBS_SLICES_DIR);
 
   if (sliceFiles.length === 0) {
     console.log('ℹ️  No per-crawler job slices found — data/jobs.json left unchanged.');
+    finishAssemblyTiming();
     return null;
   }
 
   // Parse all slices in parallel (read+JSON.parse only — dedup stays sequential
   // below, in the same alphabetical input order, so output is byte-identical
   // to the legacy single-threaded path).
+  const finishParseTiming = startPipelinePhase('jobs-dataset', 'read and parse crawler slices');
   const parsed = await parseSlicesInParallel(sliceFiles);
+  finishParseTiming();
   const slices = [];
   const malformed = [];
   for (const { path: slicePath, parsed: slice, error } of parsed) {
@@ -2424,7 +3448,34 @@ async function assembleJobs() {
     );
   }
 
-  if (slices.length === 0) return null;
+  if (slices.length === 0) {
+    finishAssemblyTiming();
+    return null;
+  }
+
+  const finishMergeTiming = startPipelinePhase('jobs-dataset', 'merge, dedupe, and normalize active jobs');
+  // Keep raw crawler location evidence attached to the stable source identity
+  // before any assembly-time normalization or deduplication changes the row.
+  // The assembled copy can inherit fields from a different duplicate; the
+  // source record is the only safe authority for the canton decision.
+  const crawlerLocationRecords = createCrawlerLocationRecordIndex();
+  for (const slice of slices) {
+    for (const job of slice.jobs) crawlerLocationRecords.add(job);
+  }
+
+  // Existing slices may have been written by a producer before the shared
+  // handoff contract was hardened. Repair only source-backed detail URLs at
+  // assembly too, so a deploy does not keep publishing a broken apply CTA
+  // until that crawler happens to run again.
+  let assembledApplyUrlBackfilled = 0;
+  for (const slice of slices) {
+    for (const job of slice.jobs) {
+      if (backfillApplyUrlFromDetail(job)) assembledApplyUrlBackfilled++;
+    }
+  }
+  if (assembledApplyUrlBackfilled > 0) {
+    console.log(`  🔗 Assembly handoff normalize: applyUrl backfilled ${assembledApplyUrlBackfilled}`);
+  }
 
   // Collect the set of crawlerKeys that have been migrated
   const migratedKeys = new Set(slices.map((s) => s.crawlerKey).filter(Boolean));
@@ -2468,7 +3519,7 @@ async function assembleJobs() {
   // forever. That is the #5637 failure re-entering through the dedup.
   const { winners: sliceJobs, marksCarried, collapsed } = dedupeByIdentityPreservingMarks(
     allTagged,
-    assemblerIdentity
+    assemblerDedupIdentity
   );
   if (marksCarried > 0) {
     console.log(
@@ -2479,9 +3530,9 @@ async function assembleJobs() {
 
   // Merge baseline + slice jobs
   // Deduplicate across them: slice jobs take precedence over baseline
-  const sliceIdentities = new Set(sliceJobs.map(assemblerIdentity));
-  const baselineFiltered = baseline.filter((job) => !sliceIdentities.has(assemblerIdentity(job)));
-  const merged = [...baselineFiltered, ...sliceJobs];
+  // Publication evidence is independent of slice precedence; a baseline
+  // clock must not survive through the later sort/slug collision winner.
+  const merged = mergeBaselinePublicationEvidence(baseline, sliceJobs, assemblerDedupIdentity);
 
   // Stable sort: newest postedDate first, then stable by identity string
   const sorted = merged.sort((a, b) => {
@@ -2495,38 +3546,19 @@ async function assembleJobs() {
     return idA.localeCompare(idB);
   });
 
-  // ── Final slug dedup pass ────────────────────────────────────────────
-  // The URL-based identity dedup above handles most duplicates, but
-  // different URLs (or baseline entries from pre-migration data) can map
-  // to the same slug. Since slugs are used as the unique page identifier
-  // by the build system, we must guarantee no duplicate slugs.
-  // Keep the first occurrence (newest postedDate thanks to sort above).
-  // Two records with DIFFERENT identities can still share a slug (37 such
-  // slugs on b10e8eed). Dropping one of them here has the same consequence as
-  // the identity dedup above, so it gets the same per-record treatment: the
-  // discarded copy's `needsRetranslation` is carried onto the kept one instead
-  // of leaving with it.
-  const keptBySlug = new Map();
-  let slugDupeCount = 0;
-  let slugDupeMarksCarried = 0;
-  const deduped = sorted.filter((job) => {
-    const slug = String(job.slug || '').trim();
-    if (!slug) return true; // keep slugless jobs (shouldn't happen, but safe)
-    const kept = keptBySlug.get(slug);
-    if (kept) {
-      slugDupeCount++;
-      slugDupeMarksCarried += carryForwardMarks(kept, job);
-      return false;
+  // ── Final slug reconciliation ───────────────────────────────────────
+  // Same-identity repeats collapse; distinct postings that share a slug get
+  // a town-specific route instead of disappearing from the published set.
+  const slugDedup = deduplicateAssembledJobsBySlug(sorted);
+  const deduped = slugDedup.jobs;
+  if (slugDedup.duplicates.length > 0) {
+    console.log(`  🧹 Slug dedup: removed ${slugDedup.duplicates.length} confirmed same-identity entries (${deduped.length} remaining)`);
+    if (slugDedup.marksCarried > 0) {
+      console.log(`     ↳ carried ${slugDedup.marksCarried} needsRetranslation mark(s) onto the kept copy`);
     }
-    keptBySlug.set(slug, job);
-    return true;
-  });
-
-  if (slugDupeCount > 0) {
-    console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
-    if (slugDupeMarksCarried > 0) {
-      console.log(`     ↳ carried ${slugDupeMarksCarried} needsRetranslation mark(s) onto the kept copy`);
-    }
+  }
+  if (slugDedup.distinctCollisions.length > 0) {
+    console.log(`  🔀 Kept ${slugDedup.distinctPostingCount} distinct posting(s) with colliding slugs active under Italian town-specific routes.`);
   }
 
   // ── Per-locale slug collision guard (translator-hallucination defense) ─
@@ -2579,7 +3611,7 @@ async function assembleJobs() {
   // 0-tolerance audit:no-literal-markdown gate stays red until every crawler
   // happens to re-run.
   let sanitizedTitles = 0;
-  for (const job of deduped) sanitizedTitles += sanitizeJobTitlesInPlace(job);
+  for (const job of deduped) sanitizedTitles += sanitizeJobDisplayFieldsInPlace(job);
   if (sanitizedTitles > 0) {
     console.log(`  🧼 Title sanitize: stripped a markdown bold wrapper from ${sanitizedTitles} job title(s)`);
   }
@@ -2598,119 +3630,37 @@ async function assembleJobs() {
   // 404 on an indexed route plus a sitemap exit. Reconciling at assembly makes
   // the swap atomic: one deploy flips both slices, whatever order the crawlers
   // happen to run in. See scripts/lib/crawler-brand-relabel.mjs.
-  const relabel = applyDeclaredBrandRelabel(deduped);
-  if (relabel.relabelled > 0) {
+  const brandLabels = declaredBrandLabels();
+  const relabel = applyDeclaredBrandRelabel(deduped, brandLabels);
+  const slugRefresh = refreshDeclaredBrandSlugs(deduped, brandLabels);
+  if (relabel.relabelled > 0 || slugRefresh.refreshed > 0) {
     const perKey = Object.entries(relabel.byKey).map(([k, n]) => `${k}×${n}`).join(', ');
-    console.log(`  🏷️  Brand relabel: realigned ${relabel.relabelled} job(s) to the label their parser declares (${perKey})`);
+    const refreshed = slugRefresh.refreshed > 0 ? `; refreshed ${slugRefresh.refreshed} slug(s)` : '';
+    console.log(`  🏷️  Brand relabel: realigned ${relabel.relabelled} job(s) to the label their parser declares (${perKey || 'slug-only'})${refreshed}`);
   }
+  finishMergeTiming();
 
-  // ── Filter out foreign jobs ─────────────────────────────────────────
-  // Jobs in explicitly foreign locations (London, Luxembourg, Singapore, etc.)
-  // should not appear on the Swiss job board. Filter them out at assembly time
-  // so they never reach the frontend or static page generation.
-  const beforeForeignFilter = deduped.length;
-  const foreignFiltered = deduped.filter((job) => {
-    const loc = String(job.addressLocality || job.location || '');
-    return !isLocationExplicitlyForeign(loc);
-  });
-  const foreignCount = beforeForeignFilter - foreignFiltered.length;
+  // ── Foreign filter + Swiss-municipality whitelist ───────────────────
+  // See applySwissLocationGate() for the rules; the gate itself remains pure so
+  // replay tests run the exact filtering logic, while this assembly boundary
+  // preserves an expired route for every filtered job.
+  const finishSwissGateTiming = startPipelinePhase('jobs-dataset', 'Swiss location filter');
+  const swissGate = applySwissLocationGate(deduped);
+  finishSwissGateTiming();
+  let swissValidated = swissGate.jobs;
+  const { foreignCount, droppedBadSwissCity, droppedCantonOnlyNoCity, droppedForeignAddress } = swissGate;
   if (foreignCount > 0) {
-    console.log(`  🌍 Foreign location filter: excluded ${foreignCount} non-Swiss jobs (${foreignFiltered.length} remaining)`);
+    console.log(`  🌍 Foreign location filter: excluded ${foreignCount} non-Swiss jobs (${deduped.length - foreignCount} remaining)`);
   }
-
-  // ── Swiss-municipality whitelist (BFS) ─────────────────────────────
-  // The blacklist above only catches jobs whose location *string* names a
-  // known foreign city. Swatch Group's Italian retail jobs slipped through
-  // because the crawler hardcoded `location: "Ticino"`, `postalCode: "6500"`,
-  // `addressCountry: "CH"` (all forged HQ defaults) while the actual city
-  // ("Forte dei Marmi, 55042") only appeared in the description body.
-  //
-  // Two-stage validation:
-  //   1. Negative signal first: if the description body contains explicit
-  //      foreign markers (5-digit postal codes — Italian/DE/FR format —
-  //      next to a country word like "Italy/Italia/Italie"), drop. This
-  //      overrides any potentially-forged metadata fields.
-  //   2. Positive signal: primary location must resolve to a known Swiss
-  //      municipality (BFS dataset, 2,110 entries + aliases). A canton-only
-  //      label ("Ticino", "TI") needs a Swiss anchor: Swiss postal code on
-  //      the record OR a known Swiss city of ≥4 chars in description.
-  // Match: 5-digit ZIP within ~30 chars of an unambiguous foreign-country
-  // word. Avoids false positives on lone numbers in tax/salary text.
-  const FOREIGN_ADDRESS_RE = /\b\d{5}\b[\s\S]{0,40}?\b(?:Italy|Italia|Italie|Italien|France|Frankreich|Francia|Germany|Deutschland|Allemagne|Germania|Austria|Österreich|Autriche|Spagna|España|Spain|Espagne|Portugal|United Kingdom|UK\b|Belgium|Belgio|Belgien|Belgique|Netherlands|Nederland|Pays-Bas)\b/i;
-  let droppedBadSwissCity = 0;
-  let droppedCantonOnlyNoCity = 0;
-  let droppedForeignAddress = 0;
-  let swissValidated = foreignFiltered.filter((job) => {
-    const haystack = `${job.description || ''} ${job.descriptionByLocale?.it || ''} ${job.descriptionByLocale?.en || ''} ${job.descriptionByLocale?.de || ''} ${job.descriptionByLocale?.fr || ''} ${job.streetAddress || ''}`;
-
-    // (1) Strong negative: description body explicitly states a foreign
-    // address (5-digit ZIP next to a non-Swiss country name). Drop even
-    // if metadata fields claim Switzerland — those are likely forged.
-    if (FOREIGN_ADDRESS_RE.test(haystack)) {
-      droppedForeignAddress++;
-      return false;
-    }
-
-    const primaryLoc = String(job.addressLocality || job.location || '').trim();
-    if (!primaryLoc) return false; // no location at all → drop
-
-    // (2) Strong positive: primary location names a known Swiss city.
-    if (isKnownSwissCity(primaryLoc)) return true;
-
-    // (3) Canton-only labels need a Swiss anchor.
-    if (isCantonOnlyLabel(primaryLoc)) {
-      if (isSwissPostalCode(job.postalCode)) return true;
-      // Look for a real Swiss city in the description. rescueSwissCityFromText
-      // is the single source of truth for description scanning: it applies both
-      // the ≥4-char rule and the everyday-word blocklist. Calling the raw
-      // findSwissCityInText here used to bypass the blocklist, which is exactly
-      // how "alle"/"rolle" descriptions anchored non-Swiss postings.
-      if (rescueSwissCityFromText(haystack)) return true;
-      droppedCantonOnlyNoCity++;
-      return false;
-    }
-
-    // (4) primaryLoc is neither a known city nor a canton-only label —
-    // likely garbage (e.g. a company name leaking through a free-text
-    // intake field instead of a real location). Give the structured
-    // `canton` field the same second chance as a canton-only label.
-    if (acceptBadLocalityViaCanton(job.canton, job.postalCode, haystack)) {
-      // Sanitize: never ship the garbage primaryLoc verbatim — it would
-      // leak into the JobPosting schema, sitemap slug, and search/filter
-      // UI (e.g. Hirslanden Arbeitsort leak: "Bern - Futsal Minerva…
-      // Besetzung per: 1").
-      //
-      // Order matters. Prefer a city recovered from primaryLoc ITSELF: the
-      // field usually still contains the true city with a suffix that stopped
-      // isKnownSwissCity from matching the whole string ("Geneva, Switzerland",
-      // "Baden, Aargau", "Luzern / hybrid", "2540 Grenchen Phone"). The
-      // description is a much weaker signal and is only consulted when the
-      // locality yields nothing — reaching for it first is what published
-      // Geneva postings as Root (LU) and Baden postings as Alle (JU).
-      //
-      // No blocklist on primaryLoc: an explicit locality field naming "Rolle"
-      // or "Fully" is a location the author typed on purpose. The blocklist
-      // exists for free-text description scanning only.
-      const cityFromLocalityField = swissCityFromLocationField(primaryLoc);
-      const cityFromVacancyText = cityFromLocalityField ? '' : rescueSwissCityFromText(haystack);
-      const rescuedCity = cityFromLocalityField || cityFromVacancyText;
-      if (rescuedCity) {
-        job.addressLocality = rescuedCity;
-        job.location = rescuedCity;
-        if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
-      }
-      return true;
-    }
-
-    // Neither a known Swiss city, canton-only label, nor an anchored
-    // canton — likely a non-Swiss locality that escaped the explicit-
-    // foreign blacklist (e.g. small Italian town).
-    droppedBadSwissCity++;
-    return false;
-  });
   const totalDropped = droppedBadSwissCity + droppedCantonOnlyNoCity + droppedForeignAddress;
   if (totalDropped > 0) {
     console.log(`  🇨🇭 Swiss whitelist: excluded ${totalDropped} jobs (${droppedBadSwissCity} unknown locality, ${droppedCantonOnlyNoCity} canton-only without anchor, ${droppedForeignAddress} foreign address in description; ${swissValidated.length} remaining)`);
+  }
+  const finishFilteredArchiveTiming = startPipelinePhase('jobs-dataset', 'archive Swiss-filtered jobs');
+  const filteredArchive = archiveFilteredJobsToSlices(swissGate.dropped);
+  finishFilteredArchiveTiming();
+  if (filteredArchive.added > 0) {
+    console.log(`  📦 Archived ${filteredArchive.added} Swiss-gate exclusion(s) → data/jobs/expired/by-crawler (soft-landing pages preserved).`);
   }
 
   // ── Publisher supersedes crawled (anti double-listing) ───────────────
@@ -2718,6 +3668,7 @@ async function assembleJobs() {
   // those filters would drop must NOT supersede (and bridge onto) a crawled twin
   // that survives — that would orphan the already-indexed crawled URL. See
   // scripts/lib/publisher-supersede.mjs.
+  const finishPublisherSupersedeTiming = startPipelinePhase('jobs-dataset', 'publisher supersede');
   {
     const before = swissValidated.length;
     const res = supersedeCrawledByPublisher(swissValidated);
@@ -2726,6 +3677,7 @@ async function assembleJobs() {
       console.log(`  🏷️  Publisher supersede: dropped ${res.superseded} crawled duplicate(s) of employer-published ads (${before} → ${swissValidated.length})`);
     }
   }
+  finishPublisherSupersedeTiming();
 
   // ── Canton validation — fix mismatches using BFS data ──────────────
   // Some crawlers assign HQ canton instead of the actual city's canton.
@@ -2737,15 +3689,29 @@ async function assembleJobs() {
   // DB grew or job.location text varied between crawls → the previously-emitted
   // (and Google-indexed) URL orphaned → 404. This is the #1 source of residual
   // Cloudflare 404s (canton drift). The pin freezes each job's canton, keyed by
-  // its URL-first stable identity, the first time the location yields a CONFIDENT
-  // canton (inferred != null). Murky-location jobs stay flexible until their city
-  // resolves, then pin. Once pinned, the pin always wins — the URL section can
-  // never drift again. Recovery of ALREADY-orphaned URLs lives on the
-  // emit/resolver side (build-plugins/searchConsoleCompat.ts).
+  // the assembly identity, the first time the location yields a CONFIDENT
+  // canton (inferred != null). The assembly identity retains meaningful URL
+  // fragments, which is required for listing portals such as Galenica where all
+  // jobs share one apply-page URL and the requisition ID lives in `#job.id`.
+  // Murky-location jobs stay flexible until their city resolves, then pin. Once
+  // pinned, the pin always wins — the URL section can never drift again.
+  // Recovery of ALREADY-orphaned URLs lives on the emit/resolver side
+  // (build-plugins/searchConsoleCompat.ts).
+  const finishCantonTiming = startPipelinePhase('jobs-dataset', 'canton resolution and pin migration');
   const cantonPinsPath = path.join(ROOT, 'data', 'job-canton-pins.json');
   let cantonPins = {};
   try { cantonPins = JSON.parse(fs.readFileSync(cantonPinsPath, 'utf-8')) || {}; }
   catch { cantonPins = {}; }
+  const legacyPinMigration = migrateLegacyCantonPins(cantonPins, swissValidated);
+  if (legacyPinMigration.legacyKeysRemoved > 0 || legacyPinMigration.fragmentPinsWritten > 0) {
+    console.log(
+      `  🔑 Canton pin migration: split ${legacyPinMigration.legacyKeysRemoved} legacy key(s) `
+        + `into ${legacyPinMigration.fragmentPinsWritten} fragment pin(s)`,
+    );
+  }
+  if (legacyPinMigration.skippedGroups > 0) {
+    console.warn(`  ⚠️  Canton pin migration: left ${legacyPinMigration.skippedGroups} ambiguous/incomplete legacy group(s) untouched`);
+  }
   let cantonPinsFrozen = 0;
   let cantonPinsAdded = 0;
   let cantonPinsCorrected = 0;
@@ -2772,10 +3738,30 @@ async function assembleJobs() {
     // overwrites it. resolveCantonAgainstPin needs the provenance to tell a
     // stale pin (which the crawler may heal) from a drifting inference (which
     // it may not) — see the precedence note there.
-    const crawlerCanton = job.canton || '';
+    const sourceLookup = crawlerLocationRecords.getWithStatus(job);
+    // The raw index supplies the crawler's own stamp by stable identity. Keep
+    // the assembled locality fields for inference: the Swiss gate may have
+    // rescued/sanitized a raw marker into a real city ("Suisse" → "Bern"),
+    // and throwing that derived evidence away would reintroduce stale cantons
+    // across the corpus. Conflicting source rows cannot safely nominate a
+    // crawler stamp, so the assembled field remains the only inference input.
+    const sourceBackedCanton = resolveSourceBackedIpersonalCanton(job);
+    const crawlerCanton = resolveCrawlerCantonForAssembly({
+      sourceLookup,
+      jobCanton: job.canton,
+      sourceBackedCanton,
+    });
     const city = String(job.addressLocality || job.location || '').trim();
+    const location = job.location;
     const hasCity = city.length >= 2 && city !== 'CH';
-    const rawInferred = hasCity ? inferAnyCanton(city) : null;
+    const rawInferred = sourceBackedCanton || (hasCity
+      ? inferCantonFromJobEvidence({
+        cityText: city,
+        locationText: location,
+        crawlerCanton,
+        sourceLocationCanton: job.sourceLocationCanton,
+      })
+      : null);
     // Guard: only accept the inference if it lands in a canton the funnel
     // actually serves (has a URL section). Otherwise leave the canton as-is
     // (empty stays empty — recognizable — rather than silently becoming an
@@ -2800,7 +3786,14 @@ async function assembleJobs() {
     // EXCEPT when the only evidence is a bare canton-name label overriding an
     // already-different, non-empty canton — see isWeakCantonOnlyLabelOverride
     // (#4570).
-    if (inferred && job.canton !== inferred && !isWeakCantonOnlyLabelOverride(job.canton, city)) {
+    if (sourceBackedCanton) {
+      // The structured region was already verified by the iPersonal source
+      // resolver. Keep it paired with `canton`; a BFS lookup must not invent a
+      // replacement for source evidence at the assembly boundary.
+      if (job.canton !== sourceBackedCanton) cantonFixes++;
+      job.canton = sourceBackedCanton;
+      job.addressRegion = sourceBackedCanton;
+    } else if (inferred && job.canton !== inferred && !isWeakCantonOnlyLabelOverride(job.canton, city)) {
       if (job.canton) cantonFixes++;
       else cantonFilled++;
       job.canton = inferred;
@@ -2811,19 +3804,17 @@ async function assembleJobs() {
     // Freeze/restore via the pin ledger so an already-indexed URL never migrates
     // sections. The freeze applies to EVERY job (even one whose city dropped out
     // of this crawl); a NEW pin is recorded only with a confident inferred canton.
-    const pinId = buildStableJobIdentity(job);
+    const pinId = buildAssembledJobIdentity(job);
     if (pinId) {
       // Precedence + ledger self-healing live in resolveCantonAgainstPin: the
       // pin fills a canton the job does not have, and is REWRITTEN whenever the
-      // job resolved one of its own that contradicts it. buildStableJobIdentity
-      // keys on the apply URL, which COLLIDES when a crawler reuses one listing
-      // URL across postings (galenica ships every role as
-      // https://jobs.galenica.com/it/jobs): a single early TI pin froze 220
-      // non-TI jobs (Bern/Vaud/ZH…) onto the TI section — wrong canton, wrong
-      // addressRegion, buried in sitemap-jobs-ticino (the 2026-06
-      // max-bfs-depth regression). Same shape as #4838's Obbürgen freeze; both
-      // are resolved by treating per-job evidence as authoritative over the
-      // ledger.
+      // job resolved one of its own that contradicts it. Do not use
+      // buildStableJobIdentity here: it strips the fragment and COLLIDES when
+      // a crawler reuses one listing URL across postings (Galenica ships every
+      // role as https://jobs.galenica.com/it/jobs). The shared pin would then
+      // freeze unrelated jobs to the first requisition's canton. The assembly
+      // identity keeps the requisition fragment while retaining stable fallback
+      // behaviour for jobs without one.
       const pinned = cantonPins[pinId];
       const decision = resolveCantonAgainstPin({
         jobCanton: job.canton,
@@ -2840,6 +3831,21 @@ async function assembleJobs() {
       else if (decision.outcome === 'pin-corrected') cantonPinsCorrected++;
       else if (decision.outcome === 'pin-added') cantonPinsAdded++;
     }
+  }
+  // A job may have carried an empty/stale canton before the resolution pass
+  // above, so it could not participate in the pre-lookup migration. Retry
+  // after resolution to remove the legacy shared key once every fragment has
+  // a usable current canton; this remains idempotent for already-migrated
+  // groups.
+  const resolvedLegacyPinMigration = migrateLegacyCantonPins(cantonPins, swissValidated);
+  if (resolvedLegacyPinMigration.legacyKeysRemoved > 0 || resolvedLegacyPinMigration.fragmentPinsWritten > 0) {
+    console.log(
+      `  🔑 Canton pin migration (post-resolution): split ${resolvedLegacyPinMigration.legacyKeysRemoved} legacy key(s) `
+        + `into ${resolvedLegacyPinMigration.fragmentPinsWritten} fragment pin(s)`,
+    );
+  }
+  if (resolvedLegacyPinMigration.skippedGroups > 0) {
+    console.warn(`  ⚠️  Canton pin migration (post-resolution): left ${resolvedLegacyPinMigration.skippedGroups} ambiguous/incomplete legacy group(s) untouched`);
   }
   try {
     fs.writeFileSync(cantonPinsPath, JSON.stringify(cantonPins) + '\n', 'utf-8');
@@ -2861,6 +3867,7 @@ async function assembleJobs() {
     // manual triage (bad crawler field mapping) rather than silently persisting.
     console.warn(`  ⚠️  Canton no-signal orphans: ${cantonEmptyNoSignal} job(s) with empty canton AND no location text at all (cannot self-heal) — sample: ${cantonEmptyNoSignalSamples.join(', ')}`);
   }
+  finishCantonTiming();
 
   // ── Backfill empty description from descriptionByLocale ────────────
   // Some crawlers (skip_ai_translation=1 mode) write jobs with empty
@@ -2900,9 +3907,23 @@ async function assembleJobs() {
   // this gate, fixture jobs end up persisted into data/jobs.json and
   // downstream consumers (newsletter, jobsSeoPagesPlugin, GSC orphan
   // tracking) propagate them to production. See scripts/lib/fixture-data-filter.mjs.
+  const finishPostFilterTiming = startPipelinePhase('jobs-dataset', 'post-filter normalization and assembly output');
   const cleaned = filterFixtureJobs(swissValidated, 'assemble-jobs-dataset');
 
-  return hardenJobsWithStructuredSalary(cleaned).jobs;
+  // Existing slices can predate the write-time funnel above. Normalize the
+  // assembled copy as well, so a deploy repairs already-published jobs before
+  // data/jobs.json and the SEO pages are generated.
+  const assembled = hardenJobsWithStructuredSalary(cleaned).jobs;
+  const assembleTimeMojibakeRepairs = assembled.reduce(
+    (count, job) => count + repairJobMojibakeInPlace(job, { dropUnrecoverable: true }),
+    0,
+  );
+  if (assembleTimeMojibakeRepairs > 0) {
+    console.log(`  🔤 Assembly encoding normalize: repaired ${assembleTimeMojibakeRepairs} malformed job text field(s)`);
+  }
+  finishPostFilterTiming();
+  finishAssemblyTiming();
+  return assembled;
 }
 
 /**
@@ -2934,6 +3955,19 @@ function assembleSummaries() {
       malformedSummary.map((m) => `  - ${m}`).join('\n') +
       `\nResolve before re-running.`,
     );
+  }
+
+  let assembledSummaryApplyUrlBackfilled = 0;
+  for (const entry of sliceEntries) {
+    for (const listKey of ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs']) {
+      if (!Array.isArray(entry[listKey])) continue;
+      for (const job of entry[listKey]) {
+        if (backfillApplyUrlFromDetail(job)) assembledSummaryApplyUrlBackfilled++;
+      }
+    }
+  }
+  if (assembledSummaryApplyUrlBackfilled > 0) {
+    console.log(`  🔗 Summary handoff normalize: applyUrl backfilled ${assembledSummaryApplyUrlBackfilled}`);
   }
 
   // Merge with existing global summaries: slice entries take precedence over
@@ -2992,11 +4026,12 @@ function assembleSummaries() {
 
 /**
  * Normalize a source slice and persist the repair before aggregation can cap it.
- * Returns the number of entries repaired, including zero for an already-clean
+ * Returns the number of date/title/description repairs, including zero for an already-clean
  * slice so callers can keep their existing aggregation flow unchanged.
  */
 export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}) {
-  const repaired = normalizeExpiredAtEntries(entries, options);
+  const repaired = normalizeExpiredAtEntries(entries, options)
+    + entries.reduce((count, job) => count + repairJobTranslationSemanticsInPlace(job), 0);
   // `writeJson` is the writeJsonAtomic import above. Keep the repair atomic:
   // this helper runs before the aggregate cap and must not leave a truncated
   // source slice if the process is interrupted during persistence.
@@ -3005,16 +4040,66 @@ export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}
 }
 
 /**
+ * Repair persisted expired routes after active assembly has established the
+ * current route owners. The caller runs this before aggregate assembly and
+ * applies the same pure repair to the in-memory aggregate for legacy entries
+ * that exist only in the old aggregate file.
+ */
+function repairExpiredArchiveSlicesAgainstActive(activeJobs) {
+  if (!Array.isArray(activeJobs) || activeJobs.length === 0) {
+    return { changed: 0, repairedRoutes: 0, details: [] };
+  }
+  let changed = 0;
+  let repairedRoutes = 0;
+  const details = [];
+  for (const slicePath of listSliceFiles(EXPIRED_SLICES_DIR)) {
+    const entries = readJson(slicePath, null);
+    if (!Array.isArray(entries)) continue;
+    const result = repairExpiredRoutesAgainstActive(entries, activeJobs);
+    if (result.changed === 0) continue;
+    writeJson(slicePath, entries);
+    changed += result.changed;
+    repairedRoutes += result.repairedRoutes;
+    if (details.length < 20) details.push(...result.details);
+  }
+  return { changed, repairedRoutes, details };
+}
+
+/**
  * Assemble all per-crawler expired job slices into data/expired-jobs.json.
  * Each slice is an array of expired job entries with slugs as unique keys.
- * Returns the assembled array, or null if no slices exist.
+ * When no slice exists, carry the legacy aggregate through the same caller
+ * path so active-route ownership repair can still run before persistence.
+ * Returns the assembled array, or null if neither slices nor a legacy
+ * aggregate exists.
+ *
+ * The path overrides are used by the isolated regression test; production
+ * callers use the repository defaults.
  */
-function assembleExpiredJobs() {
-  const sliceFiles = listSliceFiles(EXPIRED_SLICES_DIR);
+function relabelExpiredArchiveEntries(entries) {
+  const expiredBrandLabels = declaredBrandLabels();
+  applyDeclaredBrandRelabel(entries, expiredBrandLabels);
+  refreshDeclaredBrandSlugs(entries, expiredBrandLabels);
+}
+
+export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePath = DATA_EXPIRED } = {}) {
+  const sliceFiles = listSliceFiles(sliceDir);
 
   if (sliceFiles.length === 0) {
-    console.log('ℹ️  No per-crawler expired job slices found — data/expired-jobs.json left unchanged.');
-    return null;
+    const legacyEntries = readJson(aggregatePath, null);
+    if (!Array.isArray(legacyEntries)) {
+      console.log('ℹ️  No per-crawler expired job slices or readable legacy archive found — expired archive left unchanged.');
+      return null;
+    }
+
+    // The legacy aggregate is still a live source when slice generation is
+    // absent (for example during a partial crawler rollout). Keep it in the
+    // normal return path so the caller repairs route ownership against the
+    // active dataset and persists the repaired archive below.
+    normalizeExpiredAtEntries(legacyEntries, { source: 'assemble/legacy-aggregate' });
+    relabelExpiredArchiveEntries(legacyEntries);
+    console.log(`  📄 No per-crawler expired slices: carried ${legacyEntries.length} legacy archive entries into assembly`);
+    return legacyEntries;
   }
 
   // Keyed by companyKey+slug, not bare slug — this aggregates EVERY
@@ -3064,7 +4149,7 @@ function assembleExpiredJobs() {
   }
 
   // Also merge any existing aggregated expired-jobs.json (from deploy-time cleanup)
-  const existingAgg = readJson(DATA_EXPIRED, []);
+  const existingAgg = readJson(aggregatePath, []);
   if (Array.isArray(existingAgg)) {
     normalizeExpiredAtEntries(existingAgg, { source: 'assemble/existing-aggregate' });
     for (const entry of existingAgg) {
@@ -3095,10 +4180,19 @@ function assembleExpiredJobs() {
   // sit under the same employer brand. Reconcile them in the same pass so a
   // corrected label does not read one way on the active page and another on
   // the expired one.
-  applyDeclaredBrandRelabel(assembled);
+  relabelExpiredArchiveEntries(assembled);
 
   console.log(`  📄 ${sliceFiles.length} expired slices: ${totalSliceEntries} entries → ${assembled.length} unique slugs`);
   return assembled;
+}
+
+export function persistExpiredArchive(entries, {
+  aggregatePath = DATA_EXPIRED,
+  publicPath = PUBLIC_EXPIRED,
+} = {}) {
+  writeJson(aggregatePath, entries, { streamArray: true });
+  fs.mkdirSync(path.dirname(publicPath), { recursive: true });
+  writeJson(publicPath, entries, { streamArray: true });
 }
 
 /* ── Auto slug-history tracking ────────────────────────────────────── */
@@ -3123,7 +4217,16 @@ function assembleExpiredJobs() {
  * Returns: { driftCount, mergedSlugs }.
  */
 export function trackSlugHistoryDrift(priorJobs, activeJobs) {
+  if (!Array.isArray(activeJobs)) {
+    return { driftCount: 0, mergedSlugs: 0 };
+  }
+
   if (!Array.isArray(priorJobs) || priorJobs.length === 0) {
+    // The assembled writer can receive a snapshot without a prior run (or a
+    // partially recovered one). Still apply the ownership ratchet: an alias
+    // whose URL-derived hash identifies a different active job must never be
+    // left on the claimant merely because there was no carry-forward pass.
+    decontaminateJobs(activeJobs);
     return { driftCount: 0, mergedSlugs: 0 };
   }
 
@@ -3204,6 +4307,12 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
     if (driftedThisJob) driftCount++;
   }
 
+  // Carry-forward is deliberately defensive and may replay a contaminated
+  // assembled snapshot. Reconcile after the whole fleet is present, so the
+  // stable URL-derived owner wins regardless of crawler/job iteration order.
+  // The helper is idempotent: a second writer pass sees no redirect plan.
+  decontaminateJobs(activeJobs);
+
   return { driftCount, mergedSlugs };
 }
 
@@ -3238,40 +4347,140 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     return { cleanedExpired: expiredJobs || [], ghostCount: 0, mergedSlugs: 0 };
   }
 
+  const jobTclKey = (job) => `${(job.title || '').toLowerCase().trim()}||${(job.company || '').toLowerCase().trim()}||${(job.location || '').toLowerCase().trim()}`;
+  const hasEqualNonEmptyLocaleSlug = (left, right) => {
+    const leftSlugs = left?.slugByLocale;
+    const rightSlugs = right?.slugByLocale;
+    if (
+      !leftSlugs
+      || typeof leftSlugs !== 'object'
+      || Array.isArray(leftSlugs)
+      || !rightSlugs
+      || typeof rightSlugs !== 'object'
+      || Array.isArray(rightSlugs)
+    ) return false;
+    return Object.entries(leftSlugs).some(([locale, value]) => {
+      if (typeof value !== 'string' || typeof rightSlugs[locale] !== 'string') return false;
+      const leftValue = value.trim();
+      const rightValue = rightSlugs[locale].trim();
+      return Boolean(leftValue && rightValue && leftValue === rightValue);
+    });
+  };
+  const expiredGhostIdentity = (job) => {
+    const url = String(job?.url ?? '').trim();
+    if (url) return `url:${url}`;
+    const id = String(job?.id ?? '').trim();
+    if (id) return `id:${id}`;
+    const slug = String(job?.slug ?? '').trim();
+    if (slug) return `slug:${slug}`;
+    const slugByLocale = job?.slugByLocale;
+    if (
+      slugByLocale
+      && typeof slugByLocale === 'object'
+      && !Array.isArray(slugByLocale)
+      && Object.values(slugByLocale).some((value) => typeof value === 'string' && value.trim())
+    ) {
+      return `slug-map:${localeMapKey(slugByLocale)}`;
+    }
+    return null;
+  };
+
   // Build active lookup: title+company+location → first matching job
   const activeByTCL = Object.create(null);
   for (const j of activeJobs) {
-    const key = `${(j.title || '').toLowerCase().trim()}||${(j.company || '').toLowerCase().trim()}||${(j.location || '').toLowerCase().trim()}`;
+    const key = jobTclKey(j);
     if (!activeByTCL[key]) activeByTCL[key] = j;
   }
 
-  // Build set of all active slugs (current + previous)
-  const activeSlugSet = new Set();
+  // Build an index of all active slugs (current + previous), retaining the
+  // owning job so the byte guard can verify the exact overlap that justified
+  // each expired-record removal.
+  const activeSlugOwners = new Map();
+  const registerActiveSlug = (slug, job) => {
+    if (typeof slug !== 'string' || !slug) return;
+    if (!activeSlugOwners.has(slug)) activeSlugOwners.set(slug, job);
+  };
   for (const j of activeJobs) {
-    if (j.slugByLocale) Object.values(j.slugByLocale).forEach(s => activeSlugSet.add(s));
-    if (j.previousSlugs) j.previousSlugs.forEach(s => activeSlugSet.add(s));
+    registerActiveSlug(j.slug, j);
+    if (j.slugByLocale) Object.values(j.slugByLocale).forEach(s => registerActiveSlug(s, j));
+    if (j.previousSlugs) j.previousSlugs.forEach(s => registerActiveSlug(s, j));
     if (j.previousSlugsByLocale && typeof j.previousSlugsByLocale === 'object') {
       for (const arr of Object.values(j.previousSlugsByLocale)) {
-        if (Array.isArray(arr)) arr.forEach(s => activeSlugSet.add(s));
+        if (Array.isArray(arr)) arr.forEach(s => registerActiveSlug(s, j));
       }
     }
   }
 
   const ghostIds = new Set();
+  const ghostEvidenceById = new Map();
   let mergedSlugs = 0;
 
   for (const ej of expiredJobs) {
-    const expSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
-    const hasSlugOverlap = expSlugs.some(s => activeSlugSet.has(s));
-    const key = `${(ej.title || '').toLowerCase().trim()}||${(ej.company || '').toLowerCase().trim()}||${(ej.location || '').toLowerCase().trim()}`;
-    const match = activeByTCL[key];
+    const localeSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
+    // Prefer locale slugs when the archive has them: a top-level slug can be
+    // shared by distinct URLs, while a locale slug is the established route
+    // identity. Use the canonical top-level slug only for legacy entries that
+    // carry no usable locale slug map at all.
+    const expSlugs = localeSlugs.some((slug) => typeof slug === 'string' && slug.trim())
+      ? localeSlugs
+      : [ej.slug];
+    const overlapCandidate = expSlugs.find(s => activeSlugOwners.has(s)) || null;
+    const overlapJob = overlapCandidate ? activeSlugOwners.get(overlapCandidate) : null;
+    const key = jobTclKey(ej);
+    // When a shared title/company/location key has multiple active jobs, the
+    // overlapping slug is the evidence that identifies the actual owner.
+    // Prefer that owner for both the proof and the previous-slug merge;
+    // otherwise the first active job can inherit another job's route history.
+    const match = overlapJob && jobTclKey(overlapJob) === key
+      ? overlapJob
+      : activeByTCL[key];
+    // Keep the first active owner in the proof even when it belongs to a
+    // different TCL. That makes a foreign locale slug an explicit negative
+    // proof instead of allowing the locale-only fallback to hide it.
+    const overlapSlug = overlapCandidate;
+    const hasSlugOverlap = Boolean(overlapSlug && overlapJob && jobTclKey(overlapJob) === key);
 
     // Ghost: slug overlap + title match, or exact same IT slug
-    const sameItSlug = match && (ej.slugByLocale?.it === match.slugByLocale?.it);
-    if (!match || (!hasSlugOverlap && !sameItSlug)) continue;
+    const expiredItSlug = String(ej.slugByLocale?.it ?? '').trim();
+    const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
+    const hasSameItSlug = Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
+    // Legacy archives sometimes carry only de/fr/en locale maps. Without an
+    // Italian slug, require one equal non-empty locale value as the durable
+    // same-posting evidence; a shared locale key alone is not proof.
+    const hasMatchingLocaleSlug = hasEqualNonEmptyLocaleSlug(ej, match);
+    // An exact Italian slug is independent, decisive evidence. Do not let an
+    // unrelated non-Italian owner turn that valid proof into a rejection.
+    const proofOverlapSlug = hasSameItSlug ? null : overlapSlug;
+    const legacySamePosting = Boolean(
+      match
+      && !expiredItSlug
+      && !matchItSlug
+      && hasMatchingLocaleSlug
+      && !overlapCandidate,
+    );
+    if (!match || (!hasSlugOverlap && !hasSameItSlug && !legacySamePosting)) continue;
+    // A ghost is the SAME posting under another slug. An archive record that
+    // names its source posting (url, sourceIdentity, or the history a dedup
+    // merge leaves) and does not name the matched job is a different posting
+    // that happens to share title/company/location — typically a sibling
+    // vacancy housekeeping archived as a duplicate. Merging it would hand the
+    // active job another posting's routes, including its hash-tailed slug,
+    // which becomes cross-job contamination once that posting is re-listed
+    // (#11596). An identity-less archive record is therefore ambiguous when
+    // the active match has a stable URL; the shared helper fails closed there.
+    // The bounded legacy evidence rules remain only when neither side has a
+    // stable identity.
+    if (!archiveRecordNamesPosting(ej, match)) continue;
 
     // Mark as ghost
-    ghostIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
+    const ghostId = expiredGhostIdentity(ej);
+    if (!ghostId) continue;
+    ghostIds.add(ghostId);
+    ghostEvidenceById.set(ghostId, {
+      match,
+      overlapSlug: proofOverlapSlug,
+      overlapJob: proofOverlapSlug ? overlapJob : null,
+    });
 
     // Merge expired slugs into active job's previousSlugs (journaled + capped,
     // matching the write path everywhere else — see addPreviousSlugForLocale).
@@ -3299,7 +4508,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
 
   // Filter out ghosts
   const cleanedExpired = expiredJobs.filter(ej => {
-    const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
+    const id = expiredGhostIdentity(ej);
     return !ghostIds.has(id);
   });
 
@@ -3320,12 +4529,60 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     for (const fp of sliceFiles) {
       const slice = readJson(fp, null);
       if (!Array.isArray(slice)) continue;
+      const removed = [];
       const cleaned = slice.filter(ej => {
-        const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
-        return !ghostIds.has(id);
+        const id = expiredGhostIdentity(ej);
+        if (ghostIds.has(id)) {
+          removed.push(ej);
+          return false;
+        }
+        return true;
       });
       if (cleaned.length < slice.length) {
-        writeJson(fp, cleaned);
+        const previousRaw = fs.readFileSync(fp, 'utf8');
+        const candidateRaw = `${JSON.stringify(cleaned, null, 2)}\n`;
+        const proofEntries = removed.map((ej) => {
+          const id = expiredGhostIdentity(ej);
+          const evidence = ghostEvidenceById.get(id);
+          return {
+            expired: ej,
+            match: evidence?.match,
+            overlapSlug: evidence?.overlapSlug || null,
+            overlapJob: evidence?.overlapJob || null,
+          };
+        });
+        writeJson(fp, cleaned, {
+          housekeepingProof: {
+            schemaVersion: 1,
+            type: 'ghost-expired-reconciliation',
+            path: path.relative(ROOT, fp).split(path.sep).join('/'),
+            baseRaw: previousRaw,
+            candidateRaw,
+            entries: proofEntries,
+          },
+        });
+        // The in-process proof above protects assembly itself. Persist the
+        // same exact evidence for the later grouped-isolated commit, which
+        // sees only the checkout blob and the post-merge candidate.
+        if (process.env.GITHUB_RUN_ID && process.env.GITHUB_RUN_ATTEMPT) {
+          const committedCandidateRaw = fs.readFileSync(fp, 'utf8');
+          const ghostProof = {
+            schemaVersion: 1,
+            type: 'ghost-expired-reconciliation',
+            path: path.relative(ROOT, fp).split(path.sep).join('/'),
+            baseRaw: previousRaw,
+            candidateRaw: committedCandidateRaw,
+            entries: proofEntries,
+          };
+          writeHousekeepingProofFile(fp, [{
+            operation: 'reconcile-ghost-expired',
+            removedCount: slice.length - cleaned.length,
+          }], {
+            baseRaw: previousRaw,
+            candidateRaw: committedCandidateRaw,
+            metadata: ghostProof,
+          });
+        }
       }
     }
   }
@@ -3338,12 +4595,23 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
 /**
  * Generate data/jobs-meta.json from the assembled jobs array.
  */
-function generateMeta(jobCount) {
+function generateMeta(jobCount, holdSummary = null) {
   const existing = readJson(DATA_META, {});
   return {
     ...existing,
     lastUpdated: new Date().toISOString(),
     totalJobs: jobCount,
+    // Agency jobs kept out of publication until translated: still inventory
+    // (they stay in their slices), read by check-active-jobs-regression.mjs so
+    // the deploy gate counts published + held. Internal file, never served.
+    translationHold: {
+      held: holdSummary?.held || 0,
+      byCrawler: { ...(holdSummary?.byCrawler || {}) },
+      oldestHeldSince: holdSummary?.oldestHeldSince || null,
+      // Same slot filters as the job-locale ratchets: their population guard
+      // adds these back (tests/job-locale-consistency.test.ts).
+      populationSlots: { ...(holdSummary?.populationSlots || { titles: 0, descriptions: 0 }) },
+    },
     sources: {
       ...(existing.sources || {}),
       arbeitSwiss: 0,
@@ -3374,16 +4642,16 @@ async function persistQualityScoresToFirestore(summaries) {
   if (entriesWithScores.length === 0) return;
 
   try {
-    const adminMod = await import('firebase-admin');
-    const admin = adminMod.default || adminMod;
-    if (!admin.apps.length) {
+    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+    const { getFirestore } = await import('firebase-admin/firestore');
+    if (!getApps().length) {
       if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
         console.log('ℹ️  [QualityScores] No GOOGLE_APPLICATION_CREDENTIALS — skipping Firestore persistence');
         return;
       }
-      admin.initializeApp({ credential: admin.credential.applicationDefault() });
+      initializeApp({ credential: applicationDefault() });
     }
-    const db = admin.firestore();
+    const db = getFirestore();
     const now = new Date().toISOString();
 
     // Chunk the write so it scales past the Firestore 500-op batch cap (one
@@ -3407,10 +4675,12 @@ async function persistQualityScoresToFirestore(summaries) {
   }
 }
 
-export async function assembleJobsDataset({ withStats = false, withSummaries = true } = {}) {
+export async function assembleJobsDataset({ withStats = false, withSummaries = true, withExpired = true } = {}) {
+  const finishDatasetTiming = startPipelinePhase('jobs-dataset', 'dataset orchestration');
   // In slice-only mode crawlers skip assembly — it runs during deploy instead.
   if (String(process.env.CRAWLER_SLICE_ONLY || '0') === '1') {
     console.log('📦 Slice-only mode: skipping assembly (will run at deploy time)');
+    finishDatasetTiming('skipped');
     return;
   }
 
@@ -3418,7 +4688,9 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // Skip the 58 s assembly when the slice fingerprint matches a previous run.
   // Inputs change on a few cron hours per day; between those events, ~80 % of
   // deploys feed identical bytes through the same pipeline.
-  const { inputFingerprint, cacheKey } = computeAssembleCacheKey({ withStats, withSummaries });
+  const finishFingerprintTiming = startPipelinePhase('jobs-dataset', 'input fingerprint and cache lookup');
+  const { inputFingerprint, cacheKey } = computeAssembleCacheKey({ withStats, withSummaries, withExpired });
+  finishFingerprintTiming();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
   const cacheDir = path.join(CACHE_ROOT, cacheKey);
   const manifestPath = path.join(cacheDir, 'manifest.json');
@@ -3428,11 +4700,15 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     const restorePairs = [
       [path.join(cacheDir, 'jobs.json'), DATA_JOBS],
       [path.join(cacheDir, 'jobs.json'), PUBLIC_JOBS],
-      [path.join(cacheDir, 'expired-jobs.json'), DATA_EXPIRED],
-      [path.join(cacheDir, 'expired-jobs.json'), PUBLIC_EXPIRED],
       [path.join(cacheDir, 'jobs-meta.json'), DATA_META],
-      [path.join(cacheDir, 'jobs-crawler-summaries.json'), DATA_SUMMARIES],
     ];
+    if (withExpired) {
+      restorePairs.push([path.join(cacheDir, 'expired-jobs.json'), DATA_EXPIRED]);
+      restorePairs.push([path.join(cacheDir, 'expired-jobs.json'), PUBLIC_EXPIRED]);
+    }
+    // Preserve the existing --no-summaries contract: a cache hit may restore
+    // the previous summary snapshot, while a cache miss leaves the file as-is.
+    restorePairs.push([path.join(cacheDir, 'jobs-crawler-summaries.json'), DATA_SUMMARIES]);
     if (withStats) {
       restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), DATA_STATS]);
       restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), PUBLIC_STATS]);
@@ -3442,6 +4718,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     // a full miss rather than half-restoring outputs.
     const allPresent = restorePairs.every(([src]) => fs.existsSync(src));
     if (allPresent) {
+      const finishRestoreTiming = startPipelinePhase('jobs-dataset', 'restore cached artifacts');
       for (const [src, dst] of restorePairs) {
         fs.mkdirSync(path.dirname(dst), { recursive: true });
         fs.copyFileSync(src, dst);
@@ -3453,6 +4730,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       }
       const dt = ((Date.now() - t0) / 1000).toFixed(2);
       console.log(`✅ assemble-jobs cache HIT (key=${cacheKey.slice(0, 12)}..., restored ${restorePairs.length} files in ${dt}s)`);
+      finishRestoreTiming();
+      finishDatasetTiming();
       return;
     }
     console.log(`⚠️  assemble-jobs cache partial (key=${cacheKey.slice(0, 12)}..., missing snapshot files) — running full assembly`);
@@ -3469,7 +4748,33 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   const priorJobsSnapshot = readJson(DATA_JOBS, []);
 
   // --- Jobs ---
-  const assembled = await assembleJobs();
+  const finishActiveAssemblyTiming = startPipelinePhase('jobs-dataset', 'assemble active dataset');
+  const assembledAll = await assembleJobs();
+  finishActiveAssemblyTiming();
+  // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──
+  // Il taglio della pubblicazione è QUI: data/jobs.json e public/data/jobs.json
+  // alimentano il build (jobsSeoPagesPlugin, hub, sitemap, conteggi), gli
+  // alert e i feed, quindi un job trattenuto che non c'è non genera niente a
+  // valle per costruzione. I pochi lettori diretti degli slice che pubblicano
+  // (mining degli slug, archivio scaduti, unioni slice dei plugin, fallback)
+  // applicano lo stesso predicato isHeldFromPublication. Restare negli slice lo tiene
+  // nella coda di translate-pending; translate-pending, che legge ANCHE
+  // data/jobs.json (fase 2b, marcatori), lo assembla con
+  // JOBS_INCLUDE_TRANSLATION_HELD=1. Le riconciliazioni con l'archivio degli
+  // scaduti girano sempre sui soli pubblicati: un job trattenuto non è mai
+  // stato pubblico e non deve assorbire né generare route storiche.
+  const finishActiveOutputTiming = startPipelinePhase('jobs-dataset', 'active dataset reconciliation and writes');
+  const includeHeld = includeTranslationHeldFromEnv();
+  let assembled = assembledAll;
+  let publishedJobs = assembledAll;
+  let holdSummary = null;
+  if (assembledAll !== null) {
+    const hold = partitionHeldFromPublication(assembledAll);
+    publishedJobs = hold.published;
+    if (!includeHeld) assembled = hold.published;
+    holdSummary = { ...summarizeTranslationHold(hold.held), populationSlots: countPopulationSlots(hold.held) };
+    console.log(`  ${formatTranslationHoldSummary(holdSummary)}${includeHeld ? ' — inclusi in data/jobs.json per translate-pending' : ''}`);
+  }
   if (assembled !== null) {
     // --- Auto slug-history tracking (translation/hash drift) ---
     const drift = trackSlugHistoryDrift(priorJobsSnapshot, assembled);
@@ -3569,36 +4874,44 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       console.log(`  🧷 slugByLocale backfill: filled ${slugBackfilled} missing locale entries from canonical slug`);
     }
 
-    writeJson(DATA_JOBS, assembled, { compact: true });
+    writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
     fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-    writeJson(PUBLIC_JOBS, assembled, { compact: true });
+    writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
     console.log(`✅ data/jobs.json assembled: ${assembled.length} jobs from ${listSliceFiles(JOBS_SLICES_DIR).length} slices`);
 
     // --- PostalCode enrichment (ensures 100% postalCode for JobPosting schema) ---
     const plzPath = path.join(ROOT, 'data', 'swiss-postal-codes.json');
-    if (fs.existsSync(plzPath)) {
-      const plz = JSON.parse(fs.readFileSync(plzPath, 'utf-8'));
-      const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000', SO: '4500', BL: '4001', BS: '4001', AR: '9100', AI: '9050', GL: '8750', SH: '8200', TG: '8500', ZG: '6300', SZ: '6430', NW: '6370', OW: '6060', UR: '6460', FR: '1700', NE: '2000', JU: '2800', VD: '1003', GE: '1201' };
-      let postalFilled = 0;
-      for (const job of assembled) {
-        if (job.postalCode) continue;
-        const loc = (job.addressLocality || job.location || '').trim();
-        if (!loc) continue;
-        if (plz[loc]) { job.postalCode = plz[loc]; postalFilled++; continue; }
-        const parts = loc.split(/[,·\-/]/).map(s => s.trim()).filter(Boolean);
-        let found = false;
-        for (const p of parts) { if (plz[p]) { job.postalCode = plz[p]; postalFilled++; found = true; break; } }
-        if (found) continue;
-        const m = loc.match(/\b(\d{4})\b/);
-        if (m && !(Number(m[1]) >= 2020 && Number(m[1]) <= 2039)) { job.postalCode = m[1]; postalFilled++; continue; }
-        const canton = (job.canton || '').toUpperCase();
-        if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
+    const plz = fs.existsSync(plzPath)
+      ? JSON.parse(fs.readFileSync(plzPath, 'utf-8'))
+      : {};
+    const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000', SO: '4500', BL: '4001', BS: '4001', AR: '9100', AI: '9050', GL: '8750', SH: '8200', TG: '8500', ZG: '6300', SZ: '6430', NW: '6370', OW: '6060', UR: '6460', FR: '1700', NE: '2000', JU: '2800', VD: '1003', GE: '1201' };
+    let postalFilled = 0;
+    for (const job of assembled) {
+      const loc = (job.addressLocality || job.location || '').trim();
+      if (!loc) continue;
+      const official = officialPostalCodeForLocation(loc, job.canton);
+      if (official.postalCode) {
+        if (job.postalCode !== official.postalCode) {
+          job.postalCode = official.postalCode;
+          postalFilled++;
+        }
+        continue;
       }
-      if (postalFilled > 0) {
-        writeJson(DATA_JOBS, assembled, { compact: true });
-        writeJson(PUBLIC_JOBS, assembled, { compact: true });
-        console.log(`  📮 PostalCode enrichment: filled ${postalFilled}/${assembled.length} jobs`);
-      }
+      if (official.known || job.postalCode) continue;
+      if (plz[loc]) { job.postalCode = plz[loc]; postalFilled++; continue; }
+      const parts = loc.split(/[,·\-/]/).map(s => s.trim()).filter(Boolean);
+      let found = false;
+      for (const p of parts) { if (plz[p]) { job.postalCode = plz[p]; postalFilled++; found = true; break; } }
+      if (found) continue;
+      const m = loc.match(/\b(\d{4})\b/);
+      if (m && !(Number(m[1]) >= 2020 && Number(m[1]) <= 2039)) { job.postalCode = m[1]; postalFilled++; continue; }
+      const canton = (job.canton || '').toUpperCase();
+      if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
+    }
+    if (postalFilled > 0) {
+      writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+      writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
+      console.log(`  📮 PostalCode enrichment: corrected/filled ${postalFilled}/${assembled.length} jobs`);
     }
 
     // --- Quality score enrichment (persisted for frontend sorting) ---
@@ -3609,83 +4922,121 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       job.qualityScore = total;
     }
     if (qsChanged > 0) {
-      writeJson(DATA_JOBS, assembled, { compact: true });
-      writeJson(PUBLIC_JOBS, assembled, { compact: true });
+      writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+      writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
       console.log(`  📊 Quality score: computed for ${assembled.length} jobs (${qsChanged} changed)`);
     }
 
     // --- Meta (derived from assembled jobs) ---
-    const meta = generateMeta(assembled.length);
+    // Meta counts what the site publishes, also in the translate-pending projection.
+    const meta = generateMeta(publishedJobs.length, holdSummary);
     writeJson(DATA_META, meta);
-    console.log(`✅ data/jobs-meta.json generated: ${assembled.length} total jobs`);
+    console.log(`✅ data/jobs-meta.json generated: ${publishedJobs.length} total jobs`);
   }
+
+  finishActiveOutputTiming();
 
   // --- Expired jobs ---
-  const expiredJobs = assembleExpiredJobs();
-  if (expiredJobs !== null) {
-    // --- Ghost reconciliation: remove expired entries that match active jobs ---
-    if (assembled) {
-      const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(assembled, expiredJobs);
-      if (ghostCount > 0) {
-        console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
-        // Write back active jobs with merged previousSlugs
-        writeJson(DATA_JOBS, assembled, { compact: true });
-        writeJson(PUBLIC_JOBS, assembled, { compact: true });
-      }
-      writeJson(DATA_EXPIRED, cleanedExpired);
-      fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-      writeJson(PUBLIC_EXPIRED, cleanedExpired);
-      console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
-
-      // --- Orphan + Expired slug reconciliation (Jaccard similarity) ---
-      // Translation runs assemble the same slices several times. The first,
-      // post-mop-up, and true-final passes only need the dataset projection;
-      // the expensive historical-slug sweep belongs to a full assembly pass.
-      // The cache key carries the flag so a no-reconcile snapshot can never
-      // satisfy a later full-reconciliation request.
-      if (skipReconciliation) {
-        console.log('⏭️  Slug reconciliation skipped (JOBS_SKIP_RECONCILIATION=1)');
-      } else try {
-        const { reconcileOrphanSlugs, reconcileExpiredSlugs } = await import('./reconcile-job-slugs.mjs');
-
-        // Reconcile orphan slugs → merge into active jobs' previousSlugs
-        const orphanFile = path.join(ROOT, 'data', 'orphan-indexed-job-slugs.json');
-        if (fs.existsSync(orphanFile)) {
-          const orphanSlugs = JSON.parse(fs.readFileSync(orphanFile, 'utf8'));
-          // Sharded ledger (#4248); returns [] when absent, which is what the
-          // previous `fs.existsSync ? parse : {}` degraded to for a missing file.
-          const enrichedData = readOrphanEnriched(ROOT);
-          // reconcile* mutano `assembled` in place (aggiungono previousSlugs);
-          // NON scrivono slice (l'opzione `writeSlices` non è implementata in
-          // reconcile-job-slugs.mjs — vi si legge solo { dryRun, verbose, max }).
-          // La persistenza canonica è il writeJson sotto, gated su mergedCount.
-          const orphanResult = reconcileOrphanSlugs(assembled, orphanSlugs, enrichedData, { dryRun: false });
-          if (orphanResult.mergedCount > 0) {
-            console.log(`  🔗 Orphan reconciliation: ${orphanResult.mergedCount} slugs merged into active jobs' previousSlugs`);
-            writeJson(DATA_JOBS, assembled, { compact: true });
-            writeJson(PUBLIC_JOBS, assembled, { compact: true });
+  // Some consumers (for example the 404-risk audit) only need the active
+  // dataset. Keep the expired archive and its write-time integrity guards out
+  // of that read-only consumer path; the default remains the full assembly.
+  const finishExpiredTiming = startPipelinePhase('jobs-dataset', 'expired archive and orphan reconciliation');
+  if (withExpired) {
+    let sliceRepair = { changed: 0, repairedRoutes: 0, details: [] };
+    if (assembled) sliceRepair = repairExpiredArchiveSlicesAgainstActive(publishedJobs);
+    const expiredJobs = assembleExpiredJobs();
+    if (expiredJobs !== null) {
+      let repairedExpiredJobs = expiredJobs;
+      if (assembled) {
+        const aggregateRepair = repairExpiredRoutesAgainstActive(expiredJobs, publishedJobs);
+        repairedExpiredJobs = aggregateRepair.entries;
+        const repairedRoutes = sliceRepair.repairedRoutes + aggregateRepair.repairedRoutes;
+        if (repairedRoutes > 0) {
+          console.log(
+            `  🧭 Expired route ownership: disambiguated ${repairedRoutes} routes across `
+            + `${sliceRepair.changed + aggregateRepair.changed} archive entries`,
+          );
+          if (sliceRepair.details.length > 0) {
+            console.log(`     ${sliceRepair.details.slice(0, 5).join('; ')}`);
           }
         }
-
-        // Reconcile expired slugs → merge into active jobs' previousSlugs
-        const expResult = reconcileExpiredSlugs(assembled, cleanedExpired, { dryRun: false });
-        if (expResult.mergedCount > 0) {
-          console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
-          writeJson(DATA_JOBS, assembled, { compact: true });
-          writeJson(PUBLIC_JOBS, assembled, { compact: true });
-          writeJson(DATA_EXPIRED, cleanedExpired);
-          writeJson(PUBLIC_EXPIRED, cleanedExpired);
-        }
-      } catch (err) {
-        console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
       }
-    } else {
-      writeJson(DATA_EXPIRED, expiredJobs);
-      fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-      writeJson(PUBLIC_EXPIRED, expiredJobs);
-      console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
+      // --- Ghost reconciliation: remove expired entries that match active jobs ---
+      if (assembled) {
+        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(publishedJobs, repairedExpiredJobs);
+        if (ghostCount > 0) {
+          console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
+          // Write back active jobs with merged previousSlugs
+          writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+          writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
+        }
+        persistExpiredArchive(cleanedExpired);
+        console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
+
+        // --- Orphan + Expired slug reconciliation (Jaccard similarity) ---
+        // Translation runs assemble the same slices several times. The first,
+        // post-mop-up, and true-final passes only need the dataset projection;
+        // the expensive historical-slug sweep belongs to a full assembly pass.
+        // The cache key carries the flag so a no-reconcile snapshot can never
+        // satisfy a later full-reconciliation request.
+        if (skipReconciliation) {
+          console.log('⏭️  Slug reconciliation skipped (JOBS_SKIP_RECONCILIATION=1)');
+        } else try {
+          const { reconcileOrphanSlugs, reconcileExpiredSlugs } = await import('./reconcile-job-slugs.mjs');
+
+          // Reconcile orphan slugs → merge into active jobs' previousSlugs
+          const orphanFile = path.join(ROOT, 'data', 'orphan-indexed-job-slugs.json');
+          if (fs.existsSync(orphanFile)) {
+            const orphanSlugs = JSON.parse(fs.readFileSync(orphanFile, 'utf8'));
+            // Sharded ledger (#4248); returns [] when absent, which is what the
+            // previous `fs.existsSync ? parse : {}` degraded to for a missing file.
+            const enrichedData = readOrphanEnriched(ROOT);
+            // reconcile* mutano `assembled` in place (aggiungono previousSlugs);
+            // NON scrivono slice (l'opzione `writeSlices` non è implementata in
+            // reconcile-job-slugs.mjs — vi si legge solo { dryRun, verbose, max }).
+            // La persistenza canonica è il writeJson sotto, gated su mergedCount.
+            const orphanResult = reconcileOrphanSlugs(publishedJobs, orphanSlugs, enrichedData, { dryRun: false });
+            if (orphanResult.mergedCount > 0) {
+              console.log(`  🔗 Orphan reconciliation: ${orphanResult.mergedCount} slugs merged into active jobs' previousSlugs`);
+              writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+              writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
+            }
+          }
+
+          // Reconcile expired slugs → merge into active jobs' previousSlugs
+          const expResult = reconcileExpiredSlugs(publishedJobs, cleanedExpired, { dryRun: false });
+          if (expResult.mergedCount > 0) {
+            console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
+            writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+            writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
+            persistExpiredArchive(cleanedExpired);
+          }
+        } catch (err) {
+          console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
+        }
+
+        // Ghost/orphan reconciliation runs after the first active write and
+        // can append a bridge from an archive or GSC snapshot. Re-apply the
+        // fleet ownership ratchet after every such writer so a stale snapshot
+        // cannot reintroduce a hash-tailed alias on the wrong current job.
+        const ownership = decontaminateJobs(assembled);
+        if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
+          console.log(
+            `  🧭 Final previous-slug ownership: redirected ${ownership.moved} route(s), `
+            + `pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s)`,
+          );
+          writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+          writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
+        }
+      } else {
+        persistExpiredArchive(repairedExpiredJobs);
+        console.log(`✅ data/expired-jobs.json assembled: ${repairedExpiredJobs.length} expired jobs`);
+      }
     }
+  } else {
+    console.log('⏭️  Expired jobs skipped (--active-only): archive and expired-slug reconciliation left as-is');
   }
+  finishExpiredTiming();
 
   // --- Summaries ---
   // `withSummaries: false` skips the SECOND full read of data/jobs/by-crawler/*
@@ -3696,6 +5047,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // keeps the default full assembly because its baseline and cascade consume
   // the post-Argos dataset before the later final re-assembles. The option stays
   // opt-in for callers that explicitly accept a stale summary aggregate.
+  const finishSummariesTiming = startPipelinePhase('jobs-dataset', 'crawler summary aggregation');
   if (withSummaries) {
     const summaryStore = assembleSummaries();
     if (summaryStore !== null) {
@@ -3708,26 +5060,30 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   } else {
     console.log('⏭️  Summaries skipped (--no-summaries): data/jobs-crawler-summaries.json left as-is');
   }
+  finishSummariesTiming();
 
   // --- Stats (optional) ---
+  const finishStatsTiming = startPipelinePhase('jobs-dataset', 'optional job statistics');
   if (withStats) {
     const { generateJobBoardStats } = await import('./generate-job-board-stats.mjs');
     const result = generateJobBoardStats();
     console.log(`📈 Stats regenerated: ${result.summary.totals.activeJobs} active jobs`);
   }
+  finishStatsTiming();
 
   // --- Snapshot to cache for next run ---
   // Wrapped in try/catch — cache write failures must never fail the deploy;
   // worst case the next run pays the 58 s assembly cost again.
+  const finishSnapshotTiming = startPipelinePhase('jobs-dataset', 'cache snapshot and pruning');
   try {
     fs.rmSync(cacheDir, { recursive: true, force: true });
     fs.mkdirSync(cacheDir, { recursive: true });
     const snapshotPairs = [
       [DATA_JOBS, 'jobs.json'],
-      [DATA_EXPIRED, 'expired-jobs.json'],
       [DATA_META, 'jobs-meta.json'],
-      [DATA_SUMMARIES, 'jobs-crawler-summaries.json'],
     ];
+    if (withExpired) snapshotPairs.push([DATA_EXPIRED, 'expired-jobs.json']);
+    snapshotPairs.push([DATA_SUMMARIES, 'jobs-crawler-summaries.json']);
     if (withStats) {
       snapshotPairs.push([DATA_STATS, 'jobs-stats.json']);
     }
@@ -3746,6 +5102,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     fs.writeFileSync(manifestPath, JSON.stringify({
       inputFingerprint,
       withStats,
+      withSummaries,
+      withExpired,
       snapshotAt: new Date().toISOString(),
       fileCount: snapshotted,
     }, null, 2));
@@ -3770,9 +5128,12 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     }
   } catch (err) {
     console.warn(`⚠️  assemble-jobs cache snapshot failed (non-fatal): ${err.message}`);
+    finishSnapshotTiming('failure');
   }
 
   console.log('✅ Assembly complete.');
+  finishSnapshotTiming();
+  finishDatasetTiming();
 }
 
 /* ── CLI entry point ──────────────────────────────────────────────────── */
@@ -3782,8 +5143,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
  *
  * Exported so the OPT-IN contract of `--no-summaries` is checkable by a test
  * without running an assembly (which writes into tracked data/ files): the
- * default arm must stay `withSummaries: true` for every caller that does not
- * pass the flag.
+ * default arms must stay `withSummaries: true` and `withExpired: true` for
+ * every caller that does not pass an explicit opt-out.
  *
  * @param {string[]} argv  argv WITHOUT the node/script prefix
  */
@@ -3791,16 +5152,17 @@ export function parseAssembleCliArgs(argv = []) {
   return {
     withStats: argv.includes('--stats'),
     withSummaries: !argv.includes('--no-summaries'),
+    withExpired: !argv.includes('--active-only'),
   };
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes('--print-cache-key')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })() && process.argv.includes('--print-cache-key')) {
   // Prints ONLY the key on stdout (last line), assembles nothing. Workflows
   // use it as the actions/cache key: see .github/workflows/send-*.yml.
   const { cacheKey } = computeAssembleCacheKey(parseAssembleCliArgs(process.argv.slice(2)));
   process.stdout.write(`${cacheKey}\n`);
   process.exit(0);
-} else if (process.argv[1] === fileURLToPath(import.meta.url)) {
+} else if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   assembleJobsDataset(parseAssembleCliArgs(process.argv.slice(2)))
     .then(() => {
       // Some optional SDKs imported during assembly can leave idle handles

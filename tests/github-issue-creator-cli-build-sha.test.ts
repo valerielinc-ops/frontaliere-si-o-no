@@ -62,6 +62,64 @@ process.stdout.write('');
   return { dir, log };
 }
 
+function makeCreateFailureGhStub() {
+  const dir = mkdtempSync(join(tmpdir(), 'gh-create-failure-stub-'));
+  dirs.push(dir);
+  writeFileSync(join(dir, 'gh'), `#!/usr/bin/env node
+const args = process.argv.slice(2);
+if (args[0] === 'issue' && args[1] === 'list') {
+  process.stdout.write('[]');
+  process.exit(0);
+}
+if (args[0] === 'label' && args[1] === 'create') process.exit(0);
+if (args[0] === 'issue' && args[1] === 'create') {
+  process.stderr.write('simulated issue rejection');
+  process.exit(1);
+}
+process.exit(0);
+`, { mode: 0o755 });
+  chmodSync(join(dir, 'gh'), 0o755);
+  return { dir };
+}
+
+function makeCreateCaptureGhStub() {
+  const dir = mkdtempSync(join(tmpdir(), 'gh-create-capture-stub-'));
+  dirs.push(dir);
+  const log = join(dir, 'calls.log');
+  writeFileSync(join(dir, 'gh'), `#!/usr/bin/env node
+const fs = require('fs');
+const args = process.argv.slice(2);
+fs.appendFileSync(${JSON.stringify(log)}, JSON.stringify(args) + '\\n');
+if (args[0] === 'issue' && args[1] === 'list') {
+  process.stdout.write('[]');
+  process.exit(0);
+}
+if (args[0] === 'label' && args[1] === 'create') process.exit(0);
+if (args[0] === 'issue' && args[1] === 'create') {
+  process.stdout.write('https://github.com/o/r/issues/123');
+  process.exit(0);
+}
+process.exit(0);
+`, { mode: 0o755 });
+  chmodSync(join(dir, 'gh'), 0o755);
+  return { dir, log };
+}
+
+function runCreateFailureCli(stub: { dir: string }, strict: boolean) {
+  return spawnSync(process.execPath, [
+    SCRIPT,
+    '--title', 'Strict owner persistence test',
+    '--description', 'owner write rejected',
+    '--priority', '3',
+    '--label', 'Bug',
+    '--no-reopen',
+    ...(strict ? ['--require-persisted'] : []),
+  ], {
+    encoding: 'utf8',
+    env: { ...process.env, PATH: `${stub.dir}:${process.env.PATH}`, GH_REPO: 'o/r' },
+  });
+}
+
 function runCli(stub: { dir: string; log: string }, extraArgs: string[]) {
   const res = spawnSync(process.execPath, [
     SCRIPT,
@@ -126,6 +184,45 @@ describe('github-issue-creator CLI: --build-sha reaches the reopen guard', () =>
 
     expect(reopened(calls)).toBe(true);
     expect(calls.some((a) => a[0] === 'api' && String(a[1]).includes('/commits/'))).toBe(false);
+  });
+});
+
+describe('github-issue-creator CLI: strict owner persistence is opt-in', () => {
+  it('returns non-zero when the issue create is rejected, without changing the default', () => {
+    const strictStub = makeCreateFailureGhStub();
+    expect(runCreateFailureCli(strictStub, true).status).toBe(1);
+
+    const bestEffortStub = makeCreateFailureGhStub();
+    expect(runCreateFailureCli(bestEffortStub, false).status).toBe(0);
+  });
+});
+
+describe('github-issue-creator CLI: --description-file avoids argv limits', () => {
+  it('accepts a multi-megabyte report and still applies the body cap', () => {
+    const stub = makeCreateCaptureGhStub();
+    const report = join(stub.dir, 'large-report.md');
+    writeFileSync(report, `BING-LARGE-DESCRIPTION-MARKER\n${'x'.repeat(3 * 1024 * 1024)}`);
+
+    const res = spawnSync(process.execPath, [
+      SCRIPT,
+      '--title', 'Large report persistence test',
+      '--description-file', report,
+      '--priority', '3',
+      '--label', 'Bug',
+      '--no-reopen',
+    ], {
+      encoding: 'utf8',
+      env: { ...process.env, PATH: `${stub.dir}:${process.env.PATH}`, GH_REPO: 'o/r' },
+    });
+
+    expect(res.status).toBe(0);
+    const calls: string[][] = readFileSync(stub.log, 'utf8')
+      .split('\n').filter(Boolean).map((line) => JSON.parse(line));
+    const create = calls.find((args) => args[0] === 'issue' && args[1] === 'create');
+    expect(create).toBeDefined();
+    const body = String(create![create!.indexOf('--body') + 1]);
+    expect(body).toContain('BING-LARGE-DESCRIPTION-MARKER');
+    expect(body.length).toBeLessThanOrEqual(60000);
   });
 });
 

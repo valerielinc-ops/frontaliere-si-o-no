@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Vallese (VS) eCari connector.
  *
@@ -11,6 +13,7 @@ import {
   extractEcariTabSection,
   fetchHtml,
   parseEcariAuctionRows,
+  withEcariEmptyState,
 } from '../../../functions/src/plateAuctionsCore.js';
 
 export const VS_CANTON = 'Vallese';
@@ -46,12 +49,12 @@ export function parseVsAuctionRows(
 export async function fetchVsPlateAuctions() {
   const html = await fetchHtml(VS_AUCTION_URL);
   const fetchedAt = new Date().toISOString();
-  return VS_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, listingType, idPrefix }) =>
+  return withEcariEmptyState(VS_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, listingType, idPrefix }) =>
     parseVsAuctionRows(extractTabSection(html, tabContentId), { fetchedAt, auctionStatus, listingType, idPrefix }),
-  );
+  ), html, VS_TAB_SECTIONS.map(({ tabContentId }) => tabContentId));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   fetchVsPlateAuctions()
     .then((auctions) => {
       console.log(JSON.stringify(auctions, null, 2));

@@ -1,0 +1,24 @@
+{
+  "companyKey": "le-team",
+  "candidateKey": "le-team@delemont",
+  "companyName": "le team sa",
+  "companyHost": "team.jobs",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://team.jobs/fr/jobs?professionCategoryIds=5",
+    "https://team.jobs/fr/offres-demplois/-/macon-b-h-f-d/Hagz1kmEzkUfZnEz9JwcJO"
+  ],
+  "detailTemplate": "/fr/offres-demplois/*/*/*",
+  "listingCandidateText": "maçon",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 3,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Maçon B H/F/D",
+    "Maçon qualifié / Maçonne qualifiée (H/F/D)",
+    "Chef d'équipe en maçonnerie / Cheffe d'équipe en maçonnerie (H/F/D)"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-12T00:00:00.000Z"
+}

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated Medacta International SA crawler runner.
  * Runs only Medacta jobs from their Allibo ATS-powered careers portal
@@ -20,6 +22,7 @@
  * Castel San Pietro, Canton Ticino, Switzerland.  Listed on SIX Swiss Exchange.
  * ~2 200 employees globally, ~800 in Ticino.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -31,14 +34,24 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
+import {
+  runDedicatedBaseCrawler,
+  validateDedicatedLocaleCoverage,
+  translateMissingJobLocales,
+  detectLang,
+} from './lib/dedicated-crawler-common.mjs';
 import {
   decodeHtmlEntities,
   inferMedactaCategory,
   inferMedactaContract,
-  buildMedactaBaseDescription,
-  buildMedactaLocalizedDescriptions,
+  extractMedactaDetailMarkdown,
+  isMedactaDetailBacked,
+  detailBackedMedactaLocales,
+  resolveMedactaDescriptionAction,
+  MEDACTA_DETAIL_SOURCE,
 } from './lib/medacta-job-enrichment.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './lib/jobposting-jsonld.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
@@ -341,18 +354,7 @@ async function fetchPage(url, timeoutMs = 15000) {
   }
 }
 
-/**
- * Fetch a job description from an Allibo detail page.
- * The detail pages are CAPTCHA-protected, so full descriptions are NOT
- * available via server-side fetch. We extract whatever meta description
- * is available from the static HTML (og:description or meta description).
- */
-async function fetchJobDescription(detailUrl) {
-  if (!detailUrl) return '';
-  const html = await fetchPage(detailUrl, 12000);
-  if (!html) return '';
-
-  // If CAPTCHA page, extract from meta tags (still available)
+function metaDescriptionFromHtml(html = '') {
   const ogMatch = html.match(/<meta\s+property="og:description"\s+content="([^"]+)"/i);
   if (ogMatch) return decodeHtmlEntities(ogMatch[1]).trim();
 
@@ -365,6 +367,42 @@ async function fetchJobDescription(detailUrl) {
   if (stdRaw !== null) return decodeHtmlEntities(stdRaw).trim();
 
   return '';
+}
+
+/**
+ * Fetch an Allibo detail page and read both the vacancy body
+ * (`itemprop="description"`, see extractMedactaDetailMarkdown) and the meta
+ * teaser. The body used to be assumed CAPTCHA-protected and never read, so
+ * every job was published with an invented category template; the teaser only
+ * feeds the contract inference, it is never published.
+ */
+async function fetchJobDescription(detailUrl) {
+  if (!detailUrl) return { detailMarkdown: '', metaDescription: '' };
+  const html = await fetchPage(detailUrl, 12000);
+  if (!html) return { detailMarkdown: '', metaDescription: '' };
+  const detailMarkdown = extractMedactaDetailMarkdown(html);
+  return {
+    detailMarkdown: meetsSourceBodyFloor(detailMarkdown) ? detailMarkdown : '',
+    metaDescription: metaDescriptionFromHtml(html),
+  };
+}
+
+/**
+ * Refresh the description of an already-known job with the vacancy body read
+ * this run. The body replaces the stored one and — when it changed — resets
+ * the locale slots to the body alone, so translation regenerates them from
+ * the real text instead of keeping translations of an older (or invented)
+ * text. Callers only reach this with a body ('detail' action): without one the
+ * stored source body is kept as is, or the job is dropped.
+ */
+function applyMedactaDescriptionUpdate(existing, { detailMarkdown, detailLang }) {
+  const changed = String(existing.description || '').trim() !== detailMarkdown.trim();
+  existing.description = detailMarkdown;
+  existing.source = MEDACTA_DETAIL_SOURCE;
+  existing.sourceLang = detailLang;
+  existing.descriptionByLocale = changed
+    ? { [detailLang]: detailMarkdown }
+    : { ...(existing.descriptionByLocale || {}), [detailLang]: detailMarkdown };
 }
 
 /**
@@ -428,6 +466,10 @@ async function injectMedactaJobs(alliboJobs) {
   console.log(`\n📥 Injecting ${alliboJobs.length} Medacta jobs into jobs.json...`);
   let injected = 0;
   let updated = 0;
+  let dropped = 0;
+  // Stored records with no source text left after this run (see
+  // resolveMedactaDescriptionAction): removed before the write-back.
+  const droppedIdx = new Set();
   const batchSize = 3;
 
   for (let i = 0; i < alliboJobs.length; i++) {
@@ -441,14 +483,16 @@ async function injectMedactaJobs(alliboJobs) {
       .replace(/^-+|-+$/g, '')
       .slice(0, 200);
 
-    // Fetch meta description from detail page (with rate limiting).
-    // Full detail body is CAPTCHA-protected on Allibo; enrich deterministically.
+    // Fetch the vacancy body (and the meta teaser) from the detail page, with
+    // rate limiting. There is no fallback text for a body that could not be
+    // read: see resolveMedactaDescriptionAction below.
     let metaDescription = '';
+    let detailMarkdown = '';
     if (aj.detailLink) {
       if (i > 0 && i % batchSize === 0) {
         await new Promise((r) => setTimeout(r, 800));
       }
-      metaDescription = await fetchJobDescription(aj.detailLink);
+      ({ metaDescription, detailMarkdown } = await fetchJobDescription(aj.detailLink));
     }
 
     const normalizedSource = normalizeMedactaSourceCategory({
@@ -466,30 +510,16 @@ async function injectMedactaJobs(alliboJobs) {
     const canonicalContract = inferMedactaContract({
       rawContract: aj.contract || '',
       title: aj.title,
-      description: metaDescription,
+      description: detailMarkdown || metaDescription,
       jobCategory: aj.jobCategory,
     });
     const departmentLabel = decodeHtmlEntities(
       String(normalizedSource.categoryLabel || aj.jobCategory || aj.category || 'Operations')
     ).trim();
-    const localizedDescriptions = buildMedactaLocalizedDescriptions({
-      title: aj.title,
-      location: aj.location || DEFAULT_CITY,
-      category: canonicalCategory,
-      categoryLabel: aj.categoryLabel,
-      departmentLabel,
-      isUrgent: aj.isUrgent,
-      metaDescription,
-    });
-    const description = localizedDescriptions.it || buildMedactaBaseDescription({
-      title: aj.title,
-      location: aj.location || DEFAULT_CITY,
-      category: canonicalCategory,
-      categoryLabel: aj.categoryLabel,
-      departmentLabel,
-      isUrgent: aj.isUrgent,
-      metaDescription,
-    });
+    // The vacancy body is the description. Its language is the posting's own
+    // (Medacta writes most roles in English, some in Italian): only that
+    // locale is filled here, the others come from translateMissingJobLocales.
+    const detailLang = detailMarkdown ? detectLang(`${aj.title} ${detailMarkdown}`, 'en') : '';
     const titleByLocale = { en: aj.title };
 
     const jobEntry = {
@@ -505,7 +535,7 @@ async function injectMedactaJobs(alliboJobs) {
       department: departmentLabel,
       contract: canonicalContract,
       currency: 'CHF',
-      description,
+      description: detailMarkdown,
       requirements: [],
       // `featured` is the PAID sponsored-placement flag (publisher tier='sponsored');
       // the JobBoard renders the "Sponsorizzato" badge + top-of-list ranking boost on
@@ -514,17 +544,17 @@ async function injectMedactaJobs(alliboJobs) {
       // is preserved in its own `isUrgent` field (feeds the "Ricerca urgente:" intro).
       featured: false,
       isUrgent: Boolean(aj.isUrgent),
-      postedDate: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(''),
       url,
-      source: 'Allibo ATS API + structured enrichment',
+      source: MEDACTA_DETAIL_SOURCE,
       companyDomain: MEDACTA_COMPANY_HOST,
       sector: 'Dispositivi medici',
       titleByLocale,
-      descriptionByLocale: localizedDescriptions,
+      descriptionByLocale: { [detailLang]: detailMarkdown },
       requirementsByLocale: {},
       crawledAt: new Date().toISOString(),
       slugByLocale: {},
-      sourceLang: detectLang(description || aj.title, 'en'),
+      sourceLang: detailLang,
       addressLocality: aj.location || DEFAULT_CITY,
       addressCountry: aj.country || 'CH',
     };
@@ -535,10 +565,26 @@ async function injectMedactaJobs(alliboJobs) {
     const existingIdx = idIdx !== undefined ? idIdx : urlIndex.get(url.toLowerCase());
     const titleKey = normalizeKey(`${aj.title}-medacta`);
     const titleIdx = titleIndex.get(titleKey);
+    const matchedIdx = existingIdx !== undefined ? existingIdx : titleIdx;
+    const action = resolveMedactaDescriptionAction({
+      detailMarkdown,
+      existing: matchedIdx !== undefined ? jobs[matchedIdx] : null,
+      clean: cleanMedactaDescription,
+    });
+
+    if (action === 'drop') {
+      // No body this run and no body read on an earlier run: nothing from the
+      // source to publish, so the vacancy is left out of this run.
+      if (matchedIdx !== undefined) droppedIdx.add(matchedIdx);
+      dropped++;
+      console.log(`  ⏭️ ${aj.title} (${aj.location || DEFAULT_CITY}) — detail body unavailable, not published this run`);
+      continue;
+    }
 
     if (existingIdx !== undefined) {
       // Update existing job
       const existing = jobs[existingIdx];
+      Object.assign(existing, mergeSourcePostingDates(existing, jobEntry));
       // Matched via idIndex may carry a rewritten URL (Allibo's DetailLink
       // embeds the title text ahead of the stable id) — refresh it so the
       // stored record doesn't keep pointing at a stale vendor URL.
@@ -555,13 +601,13 @@ async function injectMedactaJobs(alliboJobs) {
       existing.featured = false;
       existing.isUrgent = Boolean(aj.isUrgent);
       existing.crawledAt = new Date().toISOString();
-      if (description && description.length > 120) existing.description = description;
+      if (action === 'detail') applyMedactaDescriptionUpdate(existing, { detailMarkdown, detailLang });
       existing.titleByLocale = { ...(existing.titleByLocale || {}), ...titleByLocale };
-      existing.descriptionByLocale = { ...(existing.descriptionByLocale || {}), ...localizedDescriptions };
       updated++;
     } else if (titleIdx !== undefined) {
       // Update existing job found by title
       const existing = jobs[titleIdx];
+      Object.assign(existing, mergeSourcePostingDates(existing, jobEntry));
       existing.url = url;
       existing.title = aj.title;
       existing.location = aj.location || existing.location;
@@ -575,9 +621,8 @@ async function injectMedactaJobs(alliboJobs) {
       existing.featured = false;
       existing.isUrgent = Boolean(aj.isUrgent);
       existing.crawledAt = new Date().toISOString();
-      if (description && description.length > 120) existing.description = description;
+      if (action === 'detail') applyMedactaDescriptionUpdate(existing, { detailMarkdown, detailLang });
       existing.titleByLocale = { ...(existing.titleByLocale || {}), ...titleByLocale };
-      existing.descriptionByLocale = { ...(existing.descriptionByLocale || {}), ...localizedDescriptions };
       updated++;
     } else {
       // New job — append
@@ -591,6 +636,7 @@ async function injectMedactaJobs(alliboJobs) {
     console.log(`  ${existingIdx !== undefined || titleIdx !== undefined ? '🔄' : '✅'} ${aj.title} (${aj.location || DEFAULT_CITY})`);
   }
 
+  if (droppedIdx.size > 0) jobs = jobs.filter((_job, idx) => !droppedIdx.has(idx));
   const dedupedState = dedupeMedactaJobsForPersistence(jobs);
   jobs = dedupedState.jobs;
 
@@ -599,7 +645,7 @@ async function injectMedactaJobs(alliboJobs) {
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
   writeJsonAtomic(PUBLIC_JOBS, jobs);
 
-  console.log(`\n📊 Injection summary: ${injected} new, ${updated} updated`);
+  console.log(`\n📊 Injection summary: ${injected} new, ${updated} updated, ${dropped} without source body (not published)`);
   if (dedupedState.removed > 0) {
     console.log(`🧯 Medacta hard-dedup removed ${dedupedState.removed} duplicate rows.`);
   }
@@ -695,8 +741,8 @@ function extractAlliboEmbeddedData(html = '') {
   let match;
   while ((match = jsonLdRe.exec(html)) !== null) {
     try {
-      const ld = JSON.parse(match[1]);
-      if (ld['@type'] === 'JobPosting') {
+      const postings = extractJobPostingNodesFromJson(JSON.parse(match[1]));
+      for (const ld of postings) {
         jobs.push({
           title: ld.title || '',
           location: ld.jobLocation?.address?.addressLocality || '',
@@ -788,6 +834,7 @@ async function fetchAlliboJobsForCategory(category) {
     }
     payload = await res.json();
   } catch (err) {
+    // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
     console.warn(`     ⚠️ Allibo connector fetch failed for ${category}: ${err?.message || err}`);
     return [];
   }
@@ -1032,6 +1079,7 @@ function postProcessMedactaJobs() {
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
+  const withoutSourceBody = new Set();
 
   for (const job of jobs) {
     if (!isMedactaJob(job)) continue;
@@ -1121,45 +1169,22 @@ function postProcessMedactaJobs() {
       fixed++;
     }
 
-    // Build rich structured descriptions if source text is missing/too short.
-    const localizedDescriptions = buildMedactaLocalizedDescriptions({
-      title: job.title,
-      location: job.location || DEFAULT_CITY,
-      category: canonicalCategory,
-      categoryLabel: departmentLabel,
-      departmentLabel,
-      // Read urgency from its own field, no longer from the (monetization-only) featured flag.
-      isUrgent: Boolean(job.isUrgent),
-      metaDescription: job.description || '',
-    });
-
-    const cleanedDesc = cleanMedactaDescription(job.description || '');
-    const shouldReplaceBaseDescription =
-      !cleanedDesc ||
-      cleanedDesc.length < 220 ||
-      !/^## /m.test(cleanedDesc);
-
-    if (shouldReplaceBaseDescription) {
-      job.description = localizedDescriptions.it;
+    // A job with the real vacancy body keeps it; stale template locales are
+    // dropped so translateMissingJobLocales() regenerates them from the body.
+    // A job without any body read from the source (a record written by the
+    // retired category template, or a base-crawler row with no vacancy text)
+    // is not published: there is no source text to show for it.
+    if (!isMedactaDetailBacked(job, cleanMedactaDescription)) {
+      withoutSourceBody.add(job);
+      continue;
+    }
+    const cleanedBody = cleanMedactaDescription(job.description || '');
+    if (job.description !== cleanedBody) { job.description = cleanedBody; fixed++; }
+    const locales = detailBackedMedactaLocales(job, cleanMedactaDescription);
+    if (JSON.stringify(locales) !== JSON.stringify(job.descriptionByLocale || {})) {
+      job.descriptionByLocale = locales;
       fixed++;
-    } else {
-      job.description = cleanedDesc;
     }
-
-    // Ensure locale coverage with rich markdown sections.
-    const currentDescByLocale = (job.descriptionByLocale && typeof job.descriptionByLocale === 'object')
-      ? { ...job.descriptionByLocale }
-      : {};
-    for (const locale of LOCALES) {
-      const cleaned = cleanMedactaDescription(String(currentDescByLocale[locale] || ''));
-      if (!cleaned || cleaned.length < 220 || !/^## /m.test(cleaned)) {
-        currentDescByLocale[locale] = localizedDescriptions[locale];
-        fixed++;
-      } else {
-        currentDescByLocale[locale] = cleaned;
-      }
-    }
-    job.descriptionByLocale = currentDescByLocale;
 
     // Ensure locale titles exist (non-empty for strict validation).
     const currentTitles = (job.titleByLocale && typeof job.titleByLocale === 'object')
@@ -1187,10 +1212,13 @@ function postProcessMedactaJobs() {
     }
   }
 
-  const dedupedState = dedupeMedactaJobsForPersistence(jobs);
+  const dedupedState = dedupeMedactaJobsForPersistence(jobs.filter((job) => !withoutSourceBody.has(job)));
   const finalJobs = dedupedState.jobs;
+  if (withoutSourceBody.size > 0) {
+    console.log(`⏭️ ${withoutSourceBody.size} Medacta job(s) without a source body left out of this run.`);
+  }
 
-  if (fixed > 0 || dedupedState.removed > 0) {
+  if (fixed > 0 || dedupedState.removed > 0 || withoutSourceBody.size > 0) {
     writeJsonAtomic(DATA_JOBS, finalJobs);
     fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
     writeJsonAtomic(PUBLIC_JOBS, finalJobs);
@@ -1304,6 +1332,9 @@ async function main() {
   // 3. Post-process: fix company name, location, canton, description
   postProcessMedactaJobs();
 
+  // 3b. Fill the locales of detail-backed jobs from the real vacancy body.
+  await translateMissingJobLocales({ dataJobsPath: DATA_JOBS, isTargetJob: isMedactaJob });
+
   // 4. Strict locale validation (IT/EN/DE/FR)
   validateMedactaLocaleCoverage();
 
@@ -1350,7 +1381,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isDirectRun = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (isDirectRun) {
   main().catch((err) => exitCrawlerOnError(err, 'Medacta'));

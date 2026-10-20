@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-sibling-patterns.mjs — surface untouched sibling files that share the
  * code constructs your branch just changed (zero-Claude, deterministico).
@@ -100,9 +102,8 @@
  *   node scripts/ci/check-sibling-patterns.mjs --json
  *
  * Nessuna dipendenza Node aggiuntiva: usa il TypeScript già presente nel
- * progetto e git in PATH. `tar` è usato solo per l'ottimizzazione `--head`;
- * se manca, il checker torna al percorso Git storico. Cerca sempre solo file
- * tracked.
+ * progetto e git in PATH. Se lo snapshot `--head` non si può creare, il
+ * checker torna al percorso Git storico. Cerca sempre solo file tracked.
  */
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
@@ -119,8 +120,8 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { dirname, join, resolve } from 'node:path';
+
 import { resolveMergeBase, formatUnresolvableMergeBaseVerdict } from './lib/resolve-merge-base.mjs';
 import {
   astMatchLabels,
@@ -129,7 +130,10 @@ import {
   factsContainingToken,
   isActionableAstFact,
   isAstSourceFile,
+  isBareFunctionHeader,
+  isExternalBinding,
   matchAstFacts,
+  projectBindingKey,
 } from './lib/sibling-ast-graph.mjs';
 
 const argv = process.argv.slice(2);
@@ -222,11 +226,12 @@ const MAX_PATTERN_CLASS_HITS = 15;
 // analisi `--head` immutabili: il working tree può cambiare tra due chiamate.
 // Incrementare quando cambiano le semantiche dei candidati, per non riusare
 // JSON prodotti da una versione precedente.
-const CHECK_CACHE_VERSION = '2026-09-23-v3';
+const CHECK_CACHE_VERSION = '2026-10-03-v5';
 const CHECK_CACHE_WAIT_MS = 240_000;
 const CHECK_CACHE_STALE_MS = 600_000;
 const CHECK_CACHE_POLL_MS = 100;
 const CHECK_CACHE_DISABLED = process.env.CHECK_SIBLING_PATTERNS_CACHE === '0';
+const HEAD_SNAPSHOT_TIMEOUT_MS = 60_000;
 const SLEEP_CELL = new Int32Array(new SharedArrayBuffer(4));
 let HEAD_SNAPSHOT_ROOT = null;
 
@@ -407,54 +412,83 @@ function cleanupHeadSnapshot() {
 }
 
 /**
- * Materializza il solo albero di codice del ref in un file temporaneo.
- * `git grep` ricrea un processo che può arrivare a centinaia di MB per ogni
- * token; un archive estratto una volta permette al pass lessicale di leggere
- * ogni file direttamente e poi rilasciarne il contenuto.
- *
- * Se archive/tar non sono disponibili, il chiamante usa il percorso Git
- * storico come fallback: la riduzione della memoria è opzionale, non cambia
- * il verdetto del checker.
+ * Materializza il tree con una sola richiesta batch al object database. È il
+ * fallback per i clone parziali in cui `git archive` può restare bloccato
+ * mentre Git risolve i pack promisor: una `git grep` per ogni token sarebbe
+ * molto più lenta e ripeterebbe la stessa scansione dell'albero.
  */
-function createHeadSnapshot() {
-  if (!HEAD_REF) return null;
+function createHeadSnapshotFromObjects() {
   let root;
-  let archiveFd;
   try {
     root = mkdtempSync(join(tmpdir(), 'frontaliere-sibling-patterns-'));
-    const archivePath = join(root, 'tree.tar');
-    archiveFd = openSync(archivePath, 'w');
-    const archive = spawnSync(
+    const treeResult = spawnSync(
       'git',
-      ['archive', '--format=tar', HEAD_REF, '--', ...CODE_DIRS],
-      { stdio: ['ignore', archiveFd, 'ignore'] },
+      ['ls-tree', '-r', '-z', '--full-tree', HEAD_REF, '--', ...CODE_DIRS],
+      {
+        encoding: 'buffer',
+        maxBuffer: 16 * 1024 * 1024,
+        timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+        killSignal: 'SIGTERM',
+      },
     );
-    closeSync(archiveFd);
-    archiveFd = undefined;
-    if (archive.error || archive.status !== 0) {
-      throw archive.error ?? new Error('git archive failed');
+    if (treeResult.error || treeResult.status !== 0) {
+      throw treeResult.error ?? new Error('git ls-tree failed');
+    }
+    const tree = treeResult.stdout;
+    const files = tree
+      .toString('utf8')
+      .split('\0')
+      .filter(Boolean)
+      .map((entry) => {
+        const tab = entry.indexOf('\t');
+        if (tab < 0) return null;
+        const metadata = entry.slice(0, tab).split(' ');
+        const file = entry.slice(tab + 1);
+        if (metadata[1] !== 'blob' || !metadata[2] || !isCodeFile(file)) return null;
+        return { oid: metadata[2], file };
+      })
+      .filter(Boolean);
+    if (files.length === 0) throw new Error('git tree contains no code blobs');
+
+    const requests = Buffer.from(files.map(({ oid }) => `${oid}\n`).join(''));
+    const packedResult = spawnSync('git', ['cat-file', '--batch'], {
+      input: requests,
+      encoding: 'buffer',
+      maxBuffer: 256 * 1024 * 1024,
+      timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+      killSignal: 'SIGTERM',
+    });
+    if (packedResult.error || packedResult.status !== 0) {
+      throw packedResult.error ?? new Error('git cat-file failed');
+    }
+    const packed = packedResult.stdout;
+    let offset = 0;
+    for (const { oid, file } of files) {
+      const headerEnd = packed.indexOf(0x0a, offset);
+      if (headerEnd < 0) throw new Error('git cat-file returned an incomplete header');
+      const [returnedOid, type, sizeText] = packed
+        .subarray(offset, headerEnd)
+        .toString('ascii')
+        .split(' ');
+      const size = Number.parseInt(sizeText, 10);
+      if (returnedOid !== oid || type !== 'blob' || !Number.isSafeInteger(size) || size < 0) {
+        throw new Error(`git cat-file returned an invalid blob header for ${file}`);
+      }
+      const contentStart = headerEnd + 1;
+      const contentEnd = contentStart + size;
+      if (contentEnd >= packed.length || packed[contentEnd] !== 0x0a) {
+        throw new Error(`git cat-file returned an incomplete blob for ${file}`);
+      }
+      const target = join(root, file);
+      mkdirSync(dirname(target), { recursive: true });
+      writeFileSync(target, packed.subarray(contentStart, contentEnd));
+      offset = contentEnd + 1;
     }
 
-    const extracted = spawnSync(
-      'tar',
-      ['-xf', archivePath, '-C', root],
-      { stdio: ['ignore', 'ignore', 'ignore'] },
-    );
-    if (extracted.error || extracted.status !== 0) {
-      throw extracted.error ?? new Error('tar failed');
-    }
-    rmSync(archivePath, { force: true });
     HEAD_SNAPSHOT_ROOT = root;
     process.once('exit', cleanupHeadSnapshot);
     return root;
   } catch {
-    if (archiveFd !== undefined) {
-      try {
-        closeSync(archiveFd);
-      } catch {
-        // Best effort: cleanup below covers the temporary directory.
-      }
-    }
     if (root) {
       try {
         rmSync(root, { recursive: true, force: true });
@@ -463,6 +497,119 @@ function createHeadSnapshot() {
       }
     }
     return null;
+  }
+}
+
+function isPartialClone() {
+  const promisor = git(['config', '--get-regexp', '^remote\\..*\\.promisor$'], { allowFail: true });
+  const filter = git(['config', '--get-regexp', '^remote\\..*\\.partialclonefilter$'], { allowFail: true });
+  const extension = git(['config', '--get', 'extensions.partialClone'], { allowFail: true });
+  return /\s+true\s*$/m.test(promisor) || Boolean(filter.trim()) || Boolean(extension.trim());
+}
+
+/**
+ * Materializza i blob di codice del ref in una directory temporanea.
+ * `git grep` ricrea un processo che può arrivare a centinaia di MB per ogni
+ * token; un indice estratto una volta permette al pass lessicale di leggere
+ * ogni file direttamente e poi rilasciarne il contenuto.
+ *
+ * Non usare `git archive` qui: in questo clone la storia contiene migliaia di
+ * packfile e un pathspec che nomina una sola sorgente può comunque traversare
+ * l'albero generato prima di emettere il primo byte. `ls-tree` individua i
+ * blob di codice e `cat-file --batch` li legge in una sola sessione Git, senza
+ * cambiare il verdetto e senza dipendere dalla dimensione degli asset esclusi.
+ */
+function createHeadSnapshot(files) {
+  if (!HEAD_REF) return null;
+  let root;
+  try {
+    root = mkdtempSync(join(tmpdir(), 'frontaliere-sibling-patterns-'));
+    const trackedTree = execFileSync(
+      'git',
+      ['ls-tree', '-rz', '--full-tree', HEAD_REF, '--', ...CODE_DIRS],
+      {
+        encoding: null,
+        maxBuffer: 128 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'ignore'],
+        timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+        killSignal: 'SIGTERM',
+      },
+    );
+
+    const wantedFiles = files instanceof Set ? files : files ? new Set(files) : null;
+    const entries = [];
+    for (const record of trackedTree.toString('utf8').split('\0')) {
+      if (!record) continue;
+      const tab = record.indexOf('\t');
+      if (tab < 0) continue;
+      const [mode, type, oid] = record.slice(0, tab).split(' ');
+      const file = record.slice(tab + 1);
+      if (type !== 'blob' || !oid || (wantedFiles && !wantedFiles.has(file)) || !isCodeFile(file)) continue;
+      // Un symlink (mode 120000) ha come blob il testo del path, non codice.
+      // Quelli nelle CODE_DIRS puntano a `packages/articles/**`, fuori dallo
+      // snapshot: con `git archive` + `tar` restavano pendenti e `readTracked`
+      // restituiva null. Scritti come file, il loro path entrava nel pass
+      // lessicale e nei conteggi MAX_FILES (`blog-body-ch`: 15 file reali + il
+      // symlink = token scartato). Saltarli conserva il verdetto precedente.
+      if (mode === '120000') continue;
+      entries.push({ file, oid });
+    }
+
+    // Keep the batch protocol here: a later refactor must not accidentally
+    // reintroduce one `git show` per file and recreate the multi-pack lookup
+    // cost.
+    const blobs = spawnSync(
+      'git',
+      ['cat-file', '--batch'],
+      {
+        input: Buffer.from(`${entries.map(({ oid }) => oid).join('\n')}\n`),
+        stdio: ['pipe', 'pipe', 'ignore'],
+        maxBuffer: 256 * 1024 * 1024,
+        timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+        killSignal: 'SIGTERM',
+      },
+    );
+    if (blobs.error || blobs.status !== 0) {
+      throw blobs.error ?? new Error('git cat-file --batch failed');
+    }
+
+    let offset = 0;
+    for (const { file, oid } of entries) {
+      const headerEnd = blobs.stdout.indexOf(0x0a, offset);
+      if (headerEnd < 0) throw new Error(`missing cat-file header for ${file}`);
+      const [returnedOid, type, sizeText] = blobs.stdout
+        .subarray(offset, headerEnd)
+        .toString('utf8')
+        .split(' ');
+      const size = Number(sizeText);
+      const start = headerEnd + 1;
+      const end = start + size;
+      if (
+        returnedOid !== oid ||
+        type !== 'blob' ||
+        !Number.isSafeInteger(size) ||
+        end + 1 > blobs.stdout.length
+      ) {
+        throw new Error(`invalid cat-file record for ${file}`);
+      }
+      const destination = join(root, file);
+      mkdirSync(dirname(destination), { recursive: true });
+      writeFileSync(destination, blobs.stdout.subarray(start, end));
+      offset = end + 1; // `--batch` terminates every blob with LF.
+    }
+
+    HEAD_SNAPSHOT_ROOT = root;
+    process.once('exit', cleanupHeadSnapshot);
+    return root;
+  } catch {
+    if (root) {
+      try {
+        rmSync(root, { recursive: true, force: true });
+      } catch {
+        // Optional optimization only; Git fallback remains available.
+      }
+    }
+    return createHeadSnapshotFromObjects();
   }
 }
 
@@ -648,12 +795,22 @@ const GENERIC_REMOVED_GUARD_PATTERNS = Object.freeze([
   /^\s*if\s*\([^)]*\btypeof\s+(?:html|body|rawHtml)\s*!==?\s*['"]string['"][^)]*\)\s*return\b/i,
 ]);
 
-export function isGenericRemovedExpression(expression) {
+export function isGenericRemovedExpression(expression, externalCalls = new Set()) {
   const value = String(expression || '');
+  // A declaration header alone carries a name/signature, not behavior.
+  if (isBareFunctionHeader(value)) return true;
+  // Returning the truthy value just tested is a generic fallback idiom,
+  // regardless of the local variable name; it is not a domain relationship.
+  if (/^if\s*\(\s*([A-Za-z_$][\w$]*)\s*\)\s*return\s+\1$/.test(value)) return true;
+  // A removed block opener containing only a resolved infrastructure call
+  // carries no domain operation. Keep comparisons, compound conditions and
+  // complete branch bodies: those can contain a real antipattern.
+  const opener = /^if\s*\(\s*([\s\S]+?)\s*\)\s*\{$/.exec(value);
+  if (opener && externalCalls.has(opener[1])) return true;
   return GENERIC_REMOVED_GUARD_PATTERNS.some((pattern) => pattern.test(value));
 }
 
-export function extractRemovedExpressions(diffText) {
+export function extractRemovedExpressions(diffText, { externalCalls = new Set() } = {}) {
   const exprs = new Set();
   for (const line of diffText.split('\n')) {
     if (!line.startsWith('-') || line.startsWith('---')) continue;
@@ -673,7 +830,7 @@ export function extractRemovedExpressions(diffText) {
       // diff changed an unrelated domain rule (observed on PR #9501). Keep
       // the pass for semantic expressions, but do not turn generic plumbing
       // into a repository-wide sibling sweep.
-      if (isGenericRemovedExpression(cleaned)) continue;
+      if (isGenericRemovedExpression(cleaned, externalCalls)) continue;
       exprs.add(cleaned);
     }
   }
@@ -974,9 +1131,9 @@ function emitReport({ base, changedFiles, changedCode, candidates }) {
   );
   if (weak) {
     console.log(
-      `[debole] = agganciato a UN solo identificatore nudo (${weak}/${candidates.length} qui). ` +
-        'Storicamente la gran parte di questi è rumore: un nome di variabile o di campo ' +
-        'reimplementato in file scorrelati. Vanno comunque guardati, ma parti dai [forte].',
+      `[debole] = evidenza limitata, senza un binding condiviso risolto o una classe del registro (${weak}/${candidates.length} qui). ` +
+        'Leggi i costrutti riportati: può essere una chiamata AST, un literal o una espressione rimossa. ' +
+        'Il livello non identifica il costrutto e non prova un bug; verifica il contesto.',
     );
   }
   process.exit(STRICT ? 1 : 0);
@@ -1098,16 +1255,21 @@ function main() {
     if (isAstSourceFile(file)) {
       for (const tok of changedTokens) astParsedTokens.add(tok);
     }
+    const baseSource = readTrackedAt(mergeBase, file);
+    const baseFacts = baseSource ? collectAstFacts(file, baseSource, { files: astFiles }) : [];
+    const projectCalls = new Set(baseFacts
+      .filter((fact) => fact.kind === 'call' && !isExternalBinding(fact.binding))
+      .map((fact) => fact.fingerprint));
+    const externalCalls = new Set(baseFacts
+      .filter((fact) => fact.kind === 'call' && isExternalBinding(fact.binding) &&
+        !projectCalls.has(fact.fingerprint))
+      .map((fact) => fact.fingerprint));
     const changedRanges = diffLineRanges(diff, 'new');
     if (source && changedRanges.length > 0) {
       const changedFacts = collectAstFacts(file, source, {
         lineRanges: changedRanges,
         files: astFiles,
       });
-      const baseSource = readTrackedAt(mergeBase, file);
-      const baseFacts = baseSource
-        ? collectAstFacts(file, baseSource, { files: astFiles })
-        : [];
       const unchangedFacts = new Set(baseFacts.map(astFactSignature));
       for (const tok of changedTokens) {
         const facts = factsContainingToken(changedFacts, tok);
@@ -1121,7 +1283,7 @@ function main() {
       }
     }
     // Pass verbatim: raccogli espressioni significative dalle sole righe rimosse
-    for (const expr of extractRemovedExpressions(diff)) {
+    for (const expr of extractRemovedExpressions(diff, { externalCalls })) {
       removedExprs.add(expr);
     }
   }
@@ -1145,7 +1307,7 @@ function main() {
   // A --head scan reads a single temporary tree instead of asking Git to
   // rescan the object database once per token. Working-tree checks read the
   // already tracked files directly and keep the same file boundaries.
-  createHeadSnapshot();
+  createHeadSnapshot(astFiles);
   const searchIndex = createSearchIndex(
     astFiles,
     [...tokenToChangedFiles.keys(), ...removedExprs],
@@ -1216,9 +1378,12 @@ function main() {
     if (astChecks.length > 0) {
       const source = readTracked(file);
       const factKeys = new Set();
+      const bindingKeys = new Set();
       for (const [, changedFacts] of astChecks) {
         for (const fact of changedFacts) {
           factKeys.add(`${fact.kind}|${fact.key}|${fact.role}`);
+          const bindingKey = projectBindingKey(fact);
+          if (bindingKey) bindingKeys.add(bindingKey);
           if (fact.kind === 'identifier' && fact.role === 'declaration' && fact.exported) {
             for (const role of ['call', 'reference', 'declaration']) {
               factKeys.add(`${fact.kind}|${fact.key}|${role}`);
@@ -1231,6 +1396,7 @@ function main() {
           files: astFiles,
           candidateOnly: true,
           factKeys,
+          bindingKeys,
         })
         : [];
       for (const [token, changedFacts] of astChecks) {
@@ -1297,7 +1463,7 @@ function main() {
 }
 
 // Only run when executed directly (e.g. as a PreToolUse hook), not on import.
-const isMain = process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   main();
 }

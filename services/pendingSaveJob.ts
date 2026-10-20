@@ -34,8 +34,13 @@ export type PendingSaveJobIntent =
   | { kind: 'save_job'; entry: Omit<SavedJobEntry, 'savedAt'>; surface: SaveJobSurface }
   | { kind: 'show_saved_only' };
 
-export function savePendingSaveJobIntent(intent: PendingSaveJobIntent): void {
-  saveIntent(KEY, intent);
+/**
+ * Returns whether the intent is readable back after the auth round-trip
+ * (issue 9575, same class as pendingJobAlert.ts): `false` means private mode /
+ * quota / a storage shim, and the caller must keep its own recovery path.
+ */
+export function savePendingSaveJobIntent(intent: PendingSaveJobIntent): boolean {
+  return saveIntent(KEY, intent);
 }
 
 /**

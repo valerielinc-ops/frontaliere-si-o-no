@@ -243,7 +243,7 @@ const IT_CONCORSI: CareerLandingCopy = {
     },
     {
       label: 'Portale concorsi.ti.ch — schede di dettaglio dei bandi',
-      href: "https://www.concorsi.ti.ch/offerte-d'impieghi.html",
+      href: 'https://www.concorsi.ti.ch/',
     },
     {
       label:
@@ -262,9 +262,8 @@ const IT_CONCORSI: CareerLandingCopy = {
     {
       title: 'I concorsi attualmente aperti (snapshot ufficiale)',
       paragraphs: [
-        'Al momento dell\'ultimo aggiornamento da concorsi.ti.ch, sono aperti in particolare: il concorso 23/26 per Medico capo clinica in psichiatria all\'OSC di Mendrisio (scadenza 31.12.2026), il concorso 25/26 per Infermieri/e con specialità in salute mentale OSC Mendrisio (scadenza 31.10.2026), il concorso 26/26 per Personale ai servizi generali OSC Mendrisio (scadenza 31.10.2026), il concorso 30/26 per Medici assistenti OSC Mendrisio (scadenza 31.12.2026).',
-        'Sempre attivi il concorso 02/26 per Aiuto cucina all\'Ufficio della refezione e dei trasporti scolastici (DECS, Bellinzona, scadenza 31.12.2026) e il bando 04/26 per candidature spontanee a stage universitari e post-universitari nell\'Amministrazione cantonale (scadenza 31.12.2026). Il concorso 180/25 per Collaboratori amministrativi, addetti accoglienza, tassatori e simili chiude il 30.10.2026.',
-        'L\'elenco è uno snapshot: la pagina ufficiale www4.ti.ch/index.php?id=147427 è l\'unica fonte sempre aggiornata. Consigliamo di impostare un\'allerta mensile sul sito per non perdere nuovi bandi.',
+        'L\'elenco dei bandi aperti viene ricostruito a ogni pubblicazione a partire dallo snapshot ufficiale e mostra solo i record ancora presenti nella fonte. Per ogni posizione trovi titolo, ente, scadenza e collegamento alla scheda originale.',
+        'Le scadenze e i riferimenti possono cambiare: verifica sempre il bando prima di candidarti. La pagina ufficiale www4.ti.ch/index.php?id=147427 resta l\'unica fonte sempre aggiornata.',
       ],
     },
     {
@@ -413,6 +412,8 @@ const IT_CONTRATTI: CareerLandingCopy = {
   faqTitle: 'Domande frequenti',
   sourcesLabel: 'Fonti',
   sources: [
+ // locale-segment-ok: official external SECO source used across locales
+    { label: 'SECO — PD U1', href: 'https://www.arbeit.swiss/it/persone-in-cerca-dimpiego/prestazioni-dellassicurazione' },
     {
       label:
         'Accordo Italia-Svizzera sui frontalieri del 23 dicembre 2020 (AFC)',
@@ -431,7 +432,7 @@ const IT_CONTRATTI: CareerLandingCopy = {
     {
       label:
         'Ufficio Popolazione Ticino — Permesso G per frontalieri',
-      href: 'https://www4.ti.ch/di/sp/',
+      href: 'https://www4.ti.ch/di/spop/stranieri/dettaglio-permesso-g/',
     },
   ],
   sections: [
@@ -463,7 +464,7 @@ const IT_CONTRATTI: CareerLandingCopy = {
       title: 'Diritti specifici dei frontalieri',
       paragraphs: [
         'Oltre ai diritti del CCL, il frontaliere italiano ha alcune tutele specifiche: diritto di opzione LAMal (l\'obbligo di assicurazione sanitaria svizzera può essere sostituito dall\'iscrizione al SSN italiano, usando il modulo S1); tassazione della retribuzione di fine rapporto con regole specifiche (trattamento del 2° pilastro al momento del ritiro); accesso al Fondo Nazionale Assicurazione Disoccupazione svizzero (DI) anche per i frontalieri che lavorano in Svizzera.',
-        'In caso di licenziamento, il frontaliere italiano richiede l\'indennità di disoccupazione in Italia (NASpI) secondo il principio del paese di residenza, ma il calcolo si basa sugli ultimi salari svizzeri. Il trasferimento dei contributi richiede il modulo U1/U2. È una procedura spesso complessa: in caso di dubbio, contattare i sindacati OCST o UNIA (hanno sedi ticinesi ed esperienza specifica sul segmento frontalieri).',
+        'In caso di licenziamento, il frontaliere italiano richiede l\'indennità di disoccupazione in Italia (NASpI) secondo il principio del paese di residenza, ma il calcolo si basa sugli ultimi salari svizzeri. Il PD U1 certifica i periodi assicurativi e lavorativi svizzeri: non trasferisce i contributi. Il PD U2 riguarda invece l’esportazione di prestazioni durante la ricerca di lavoro all’estero, una procedura distinta. È una procedura spesso complessa: in caso di dubbio, contattare i sindacati OCST o UNIA (hanno sedi ticinesi ed esperienza specifica sul segmento frontalieri).',
       ],
     },
     {
@@ -723,8 +724,8 @@ const CONDENSED_SECTIONS: Record<
       {
         title: 'Currently open competitions (official snapshot)',
         paragraphs: [
-          'At the last sync with concorsi.ti.ch the main open bids are: chief clinical psychiatrist at OSC Mendrisio (ref 23/26, deadline 31.12.2026), mental-health nurses at OSC Mendrisio (ref 25/26, 31.10.2026), general-service staff at OSC Mendrisio (ref 26/26, 31.10.2026), assistant doctors at OSC Mendrisio (ref 30/26, 31.12.2026).',
-          'Permanent-open bids: kitchen helper at the school catering office (ref 02/26, 31.12.2026), spontaneous internship applications (ref 04/26, 31.12.2026), administrative collaborators and reception staff (ref 180/25, 30.10.2026). Always verify at www4.ti.ch/index.php?id=147427 — it is the only always-current source.',
+          'The open-bid list is rebuilt at every publication from the official snapshot and includes only records still present in the source. Each row shows the title, employer, deadline and a link to the original notice.',
+          'Deadlines and references can change: check the notice before applying. The official page at www4.ti.ch/index.php?id=147427 remains the only always-current source.',
         ],
       },
       {
@@ -847,8 +848,8 @@ const CONDENSED_SECTIONS: Record<
       {
         title: 'Aktuell offene Concorsi (offizielle Momentaufnahme)',
         paragraphs: [
-          'Zum letzten Sync mit concorsi.ti.ch sind die wichtigsten offenen Ausschreibungen: Chefarzt/-ärztin Psychiatrie OSC Mendrisio (Ref 23/26, Frist 31.12.2026), psychiatrische Pflegefachpersonen OSC (Ref 25/26, 31.10.2026), Servicepersonal OSC (Ref 26/26, 31.10.2026), Assistenzärzte OSC (Ref 30/26, 31.12.2026).',
-          'Dauerhaft offen: Küchenhilfe DECS Bellinzona (Ref 02/26, 31.12.2026), Spontanbewerbungen für Hochschulpraktika (Ref 04/26, 31.12.2026), Verwaltungsmitarbeitende und Empfangspersonal (Ref 180/25, 30.10.2026). Immer auch direkt auf www4.ti.ch/index.php?id=147427 prüfen — dort ist der aktuelle Stand.',
+          'Die Liste der offenen Ausschreibungen wird bei jeder Veröffentlichung aus dem offiziellen Snapshot aufgebaut und enthält nur Datensätze, die in der Quelle noch vorhanden sind. Jede Zeile zeigt Titel, Arbeitgeber, Frist und den Link zur Originalausschreibung.',
+          'Fristen und Referenzen können sich ändern: Bitte vor der Bewerbung die Ausschreibung prüfen. Die offizielle Seite www4.ti.ch/index.php?id=147427 bleibt die einzige stets aktuelle Quelle.',
         ],
       },
       {
@@ -970,8 +971,8 @@ const CONDENSED_SECTIONS: Record<
       {
         title: 'Concorsi actuellement ouverts (instantané officiel)',
         paragraphs: [
-          "Au dernier sync avec concorsi.ti.ch, les principaux concours ouverts sont: médecin-chef clinique psychiatrie OSC Mendrisio (réf 23/26, délai 31.12.2026), infirmiers en santé mentale OSC (réf 25/26, 31.10.2026), personnel des services généraux OSC (réf 26/26, 31.10.2026), médecins assistants OSC (réf 30/26, 31.12.2026).",
-          "En permanence: aide-cuisine DECS Bellinzona (réf 02/26, 31.12.2026), candidatures spontanées pour stages universitaires (réf 04/26, 31.12.2026), collaborateurs administratifs et agents d'accueil (réf 180/25, 30.10.2026). Toujours vérifier sur www4.ti.ch/index.php?id=147427 — source unique toujours à jour.",
+          "La liste des concours ouverts est reconstruite à chaque publication depuis l'instantané officiel et ne contient que les données encore présentes dans la source. Chaque ligne indique le titre, l'employeur, l'échéance et le lien vers l'avis original.",
+          "Les échéances et les références peuvent changer : vérifiez l'avis avant de postuler. La page officielle www4.ti.ch/index.php?id=147427 reste la seule source toujours à jour.",
         ],
       },
       {
@@ -1448,13 +1449,13 @@ const DENSE_LEDE: Record<CareerLandingId, Record<CareerLocale, (i: DenseLedeInpu
   },
   'contratti-lavoro-frontalieri': {
     it: (i) =>
-      `${fmtIntLocale(i.liveCount, 'it')} offerte aperte in Svizzera per permesso G · ${i.fresh30Count} nuove in 30 giorni · stipendio mediano CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'it') : '—'}/anno.`,
+      `${fmtIntLocale(i.liveCount, 'it')} offerte aperte in Ticino per permesso G · ${i.fresh30Count} nuove in 30 giorni · mediana delle fasce dichiarate CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'it') : '—'}/anno.`,
     en: (i) =>
-      `${fmtIntLocale(i.liveCount, 'en')} G-permit openings across Switzerland · ${i.fresh30Count} new in 30 days · median gross salary CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'en') : '—'}/year.`,
+      `${fmtIntLocale(i.liveCount, 'en')} G-permit openings in Ticino · ${i.fresh30Count} new in 30 days · median reported range CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'en') : '—'}/year.`,
     de: (i) =>
-      `${fmtIntLocale(i.liveCount, 'de')} offene Stellen für G-Bewilligung in der Schweiz · ${i.fresh30Count} neu in 30 Tagen · Medianlohn CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'de') : '—'}/Jahr.`,
+      `${fmtIntLocale(i.liveCount, 'de')} offene Stellen für G-Bewilligung im Tessin · ${i.fresh30Count} neu in 30 Tagen · Median gemeldeter Lohnspannen CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'de') : '—'}/Jahr.`,
     fr: (i) =>
-      `${fmtIntLocale(i.liveCount, 'fr')} offres ouvertes en Suisse pour permis G · ${i.fresh30Count} nouveaux en 30 jours · salaire médian CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'fr') : '—'}/an.`,
+      `${fmtIntLocale(i.liveCount, 'fr')} offres ouvertes au Tessin pour permis G · ${i.fresh30Count} nouveaux en 30 jours · médiane des fourchettes déclarées CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'fr') : '—'}/an.`,
   },
 };
 
@@ -1551,7 +1552,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
   'stage-lugano': {
     it: {
       tile1Label: 'Stage attivi a Lugano',
-      tile2Label: 'Indennità mediana',
+      tile2Label: 'Mediana delle fasce dichiarate',
       tile3Label: 'Nuovi negli ultimi 30 gg',
       primaryCtaLabel: 'Calcola netto da stagista frontaliere',
       featuredJobsTitle: 'Stage in evidenza a Lugano',
@@ -1560,7 +1561,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     en: {
       tile1Label: 'Active internships in Lugano',
-      tile2Label: 'Median allowance',
+      tile2Label: 'Median of reported ranges',
       tile3Label: 'New in last 30 days',
       primaryCtaLabel: 'Calculate cross-border intern net pay',
       featuredJobsTitle: 'Featured internships — Lugano',
@@ -1569,7 +1570,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     de: {
       tile1Label: 'Aktive Praktika in Lugano',
-      tile2Label: 'Median-Entschädigung',
+      tile2Label: 'Median gemeldeter Lohnspannen',
       tile3Label: 'Neu in 30 Tagen',
       primaryCtaLabel: 'Grenzgänger-Praktikum-Nettolohn berechnen',
       featuredJobsTitle: 'Empfohlene Praktika — Lugano',
@@ -1578,7 +1579,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     fr: {
       tile1Label: 'Stages actifs à Lugano',
-      tile2Label: 'Indemnité médiane',
+      tile2Label: 'Médiane des fourchettes déclarées',
       tile3Label: 'Nouveaux en 30 j',
       primaryCtaLabel: 'Calculer net stagiaire frontalier',
       featuredJobsTitle: 'Stages mis en avant — Lugano',
@@ -1589,7 +1590,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
   'contratti-lavoro-frontalieri': {
     it: {
       tile1Label: 'Offerte CH per permesso G',
-      tile2Label: 'Stipendio mediano',
+      tile2Label: 'Mediana delle fasce dichiarate',
       tile3Label: 'Nuove negli ultimi 30 gg',
       primaryCtaLabel: 'Simula il tuo netto frontaliere',
       employerGridReplacement:
@@ -1597,7 +1598,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     en: {
       tile1Label: 'Swiss openings (G-permit)',
-      tile2Label: 'Median salary',
+      tile2Label: 'Median of reported ranges',
       tile3Label: 'New in last 30 days',
       primaryCtaLabel: 'Simulate your cross-border net',
       employerGridReplacement:
@@ -1605,7 +1606,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     de: {
       tile1Label: 'CH-Stellen (G-Bewilligung)',
-      tile2Label: 'Medianlohn',
+      tile2Label: 'Median gemeldeter Lohnspannen',
       tile3Label: 'Neu in 30 Tagen',
       primaryCtaLabel: 'Grenzgänger-Nettolohn simulieren',
       employerGridReplacement:
@@ -1613,7 +1614,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     fr: {
       tile1Label: 'Offres CH (permis G)',
-      tile2Label: 'Salaire médian',
+      tile2Label: 'Médiane des fourchettes déclarées',
       tile3Label: 'Nouveaux en 30 j',
       primaryCtaLabel: 'Simuler votre net frontalier',
       employerGridReplacement:
@@ -1711,10 +1712,10 @@ export function buildCareerTemplateBCopy(
 
   if (id === 'stage-lugano') {
     const indemnitaLabel: Record<CareerLocale, string> = {
-      it: 'Stage non pagato / variabile',
-      en: 'Unpaid / variable',
-      de: 'Unbezahlt / variabel',
-      fr: 'Non rémunéré / variable',
+      it: 'Campione salariale insufficiente',
+      en: 'Insufficient salary sample',
+      de: 'Unzureichende Lohnstichprobe',
+      fr: 'Échantillon salarial insuffisant',
     };
     return {
       eyebrow: shell.eyebrow,

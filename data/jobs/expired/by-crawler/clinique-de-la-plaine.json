@@ -27,13 +27,11 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-14T23:49:10.738Z",
     "previousSlugs": [
-      "responsable-du-bloc-operatoire-et-des-soins-100-clinique-de-la-plaine-geneve",
-      "responsabile-del-blocco-operatorio-e-delle-cure-100-clinique-de-la-plaine-geneve"
+      "responsable-du-bloc-operatoire-et-des-soins-100-clinique-de-la-plaine-geneve"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "responsable-du-bloc-operatoire-et-des-soins-100-clinique-de-la-plaine-geneve",
-        "responsabile-del-blocco-operatorio-e-delle-cure-100-clinique-de-la-plaine-geneve"
+        "responsable-du-bloc-operatoire-et-des-soins-100-clinique-de-la-plaine-geneve"
       ],
       "en": [
         "responsable-du-bloc-operatoire-et-des-soins-100-clinique-de-la-plaine-geneve"
@@ -46,6 +44,8 @@
     "salaryMin": 116500,
     "salaryMax": 162500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://laplaine.ch/emploi/responsable-du-bloc-operatoire-et-des-soins-100",
+    "firstSeenAt": "2026-06-29T12:49:26.145Z"
   }
 ]

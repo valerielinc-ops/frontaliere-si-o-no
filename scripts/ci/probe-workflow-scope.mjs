@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * probe-workflow-scope.mjs — scrive `PAT_WORKFLOWS_SCOPE` in `$GITHUB_ENV`
  * leggendo la capacità REALE dell'identità con cui `gh` sta girando.
@@ -91,4 +93,4 @@ function write(granted) {
   catch (e) { console.log(`::warning::scrittura in GITHUB_ENV fallita: ${String(e).slice(0, 120)}`); }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

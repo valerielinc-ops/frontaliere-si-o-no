@@ -1,5 +1,119 @@
 import { describe, it, expect, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { officialPostalCodeForLocation } from '../scripts/lib/swiss-locality-directory.mjs';
+import { OSCAM_CASTELROTTO_ADDRESS } from '../scripts/lib/oscam-castelrotto-job-parser.mjs';
+import { getCantonPostalFallback } from '../scripts/lib/canton-postal-fallback.mjs';
 import { normalizePdfJobText, buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
+import { extractOscamApplicationUrlFromPdfText } from '../scripts/update-oscam-jobs.mjs';
+import {
+  oscamCastelrottoMatchKey,
+  parseOscamCastelrottoListing,
+} from '../scripts/lib/oscam-castelrotto-job-parser.mjs';
+
+describe('OSCAM source-backed application handoff', () => {
+  it('canonicalizes the official HTTPS route when the PDF specifies online application', () => {
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Le candidature sono ammesse esclusivamente online tramite www.oscam.ch/candidature.',
+    )).toBe('https://www.oscam.ch/candidature/');
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Per inviare la candidatura in modalità elettronica: www.oscam.ch /lavoraconnoi/.',
+    )).toBe('https://www.oscam.ch/lavoraconnoi/');
+  });
+
+  it('fails closed for HTTP, unrelated hosts/routes, and email-only instructions', () => {
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Candidatura online su http://www.oscam.ch/candidature.',
+    )).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Candidatura online via HTTP oscam.ch/candidature/',
+    )).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Candidatura online su https://example.org/candidature.',
+    )).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Candidatura online su https://www.oscam.ch/altro.',
+    )).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Inviare documentazione completa a info@oscam.ch.',
+    )).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(FIXTURE_VICE_PDF)).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(FIXTURE_GENERALE_PDF)).toBeNull();
+  });
+});
+
+describe('OSCAM structured address', () => {
+  it('uses the official Ospedale Malcantonese address for every locale payload', () => {
+    expect(OSCAM_CASTELROTTO_ADDRESS).toEqual({
+      streetAddress: 'Nucleo 30',
+      addressLocality: 'Castelrotto',
+      addressRegion: 'TI',
+      postalCode: '6980',
+      addressCountry: 'CH',
+    });
+  });
+
+  it('resolves named localities before any canton-capital fallback', () => {
+    expect(officialPostalCodeForLocation('Castelrotto', 'TI')).toEqual({
+      postalCode: '6980',
+      known: true,
+    });
+    expect(officialPostalCodeForLocation('Caslano', 'TI')).toEqual({
+      postalCode: '6987',
+      known: true,
+    });
+    expect(getCantonPostalFallback('TI', 'Castelrotto')).toBe('6980');
+    expect(getCantonPostalFallback('TI', 'Caslano')).toBe('6987');
+    expect(getCantonPostalFallback('TI', 'Bern')).toBe('');
+  });
+
+  it('archives stale source rows instead of deleting their SEO landing data', () => {
+    const runner = readFileSync(new URL('../scripts/update-oscam-jobs.mjs', import.meta.url), 'utf8');
+    expect(runner).toContain("streetAddress: 'Nucleo 30'");
+    expect(runner).toContain("postalCode: '6980'");
+    expect(runner).toContain("streetAddress: 'Via Mera 9'");
+    expect(runner).toContain("postalCode: '6987'");
+    expect(runner).toContain("archiveRemovedJobsToSlice(removedJobs, COMPANY_KEY)");
+    expect(runner).toContain('Archived (stale)');
+  });
+});
+
+describe('oscamCastelrottoMatchKey', () => {
+  it('matches the legacy anchor record with the fresh PDF record by listing id', () => {
+    const stored = {
+      id: 'oscam-castelrotto-concorso-generale-2026-d6feb03013ef',
+      url: 'https://www.oscam.ch/lavoraconnoi/#concorso-generale-2026',
+    };
+    const fresh = {
+      id: 'oscam-castelrotto-concorso-generale-2026-4f4f6c1a8b2e',
+      url: 'https://www.oscam.ch/wp-content/uploads/2026/02/Concorso-generale-2026.pdf',
+    };
+
+    expect(oscamCastelrottoMatchKey(stored)).toBe(
+      oscamCastelrottoMatchKey(fresh),
+    );
+  });
+});
+
+describe('OSCAM listing URLs', () => {
+  it('uses the vacancy PDF instead of inventing a missing page anchor', () => {
+    const listings = parseOscamCastelrottoListing(`
+      <h2>CONCORSI ATTIVI</h2>
+      <h3>Concorso generale 2026</h3>
+      <h4>Apri il <a href="/wp-content/uploads/2026/02/Concorso-generale-2026.pdf">bando</a></h4>
+      <h3>Concorso generale per medici assistenti 2025-2026</h3>
+      <h4>Apri il <a href="/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf">bando</a></h4>
+      <h3>Certificato medico da compilare</h3>`);
+
+    expect(listings.map((listing) => listing.pdfUrl)).toEqual([
+      '/wp-content/uploads/2026/02/Concorso-generale-2026.pdf',
+      '/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf',
+    ]);
+    expect(listings.map((listing) => listing.id)).toEqual([
+      'concorso-generale-2026',
+      'concorso-generale-2025-per-medici-assistenti',
+    ]);
+  });
+});
 
 // ──────────────────────────────────────────────────────────────
 // Real PDF text fixture: Vice-responsabile finanze

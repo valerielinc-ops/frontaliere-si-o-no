@@ -45,19 +45,24 @@
  * a named HR contact + direct phone number (e.g. "Diana Schmutz / Personal-
  * abteilung / +41 62 387 96 30"). This parser NEVER reads `.contact` /
  * `.contact-wrapper` — only `.intro`, `.tasks-back`, `.profile-back`,
- * `.benefit-back` and `.company-portrait` are extracted.
+ * `.benefit-back`, `.company-portrait` and their section headings are
+ * extracted.
  *
  * Group brands: the tenant lists postings for several Planzer-group
  * subsidiaries (Schönholzer, Marti, Röösli, "Tz", "Planzer Paket") under one
  * board — all surfaced here under the single `Planzer` company/companyKey so
- * the site's per-company grouping stays coherent; the specific subsidiary
- * brand (when present) is folded into the description, never dropped.
+ * the site's per-company grouping stays coherent. The subsidiary brand is a
+ * listing-tile field; the parser does not write it into the description as a
+ * sentence of its own ("Marke der Planzer-Gruppe: X.", issue 5253).
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, fetchHtml, normalizeSpace as templateNormalizeSpace } from './crawler-template.mjs';
 import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -69,7 +74,6 @@ const TENANT = 'planzer';
 const LISTING_URL = `https://live.solique.ch/${TENANT}/`;
 const PORTAL_BASE = 'https://live.solique.ch';
 const DETAIL_DELAY_MS = 300;
-const MAX_DETAIL_CHARS = 6000;
 
 function normalizeSpace(s = '') {
   return templateNormalizeSpace(String(s ?? ''));
@@ -271,6 +275,19 @@ function parsePlanzerListing(html = '') {
 
 /* ── Detail page parse ─────────────────────────────────────── */
 
+function extractAllHeadingClass(html, className) {
+  const re = new RegExp(`<h[1-6][^>]*class="[^"]*\\b${className}\\b[^"]*"[^>]*>([\\s\\S]*?)<\\/h[1-6]>`, 'g');
+  const out = [];
+  let m;
+  while ((m = re.exec(html))) out.push(normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' '))));
+  return out;
+}
+
+/** A section under the page's own heading; no heading of the crawler's. */
+function headedSection(heading, body) {
+  return heading ? `${heading}\n${body}` : body;
+}
+
 function extractDivClass(html, className) {
   const re = new RegExp(`<div class="${className}"[^>]*>([\\s\\S]*?)<\\/div>`);
   const m = html.match(re);
@@ -320,38 +337,73 @@ function parseLocationBlock(html = '') {
 /**
  * Extract detail-page content. Deliberately EXCLUDES `.contact` /
  * `.contact-wrapper` (named HR contact + direct phone — PII, see header).
+ *
+ * Only the page's text (issue 5253): sections keep the headings the page
+ * shows ("Was du bewegst", "Weshalb es dir gelingt", "Deine Benefits",
+ * "Wer wir sind") instead of the crawler's "Aufgaben:/Profil:/Benefits:",
+ * and each benefit keeps its title.
  */
-function extractDetailContent(html = '') {
+export function extractPlanzerDetailContent(html = '') {
   const intro = htmlBlockToText(extractDivClass(html, 'intro'));
   const tasks = htmlBlockToText(extractDivClass(html, 'tasks-back'));
   const profile = htmlBlockToText(extractDivClass(html, 'profile-back'));
+  const benefitTitles = extractAllHeadingClass(html, 'benefit-title');
   const benefitBacks = extractAllDivClass(html, 'benefit-back').map((b) => htmlBlockToText(b));
   const companyPortrait = htmlBlockToText(extractDivClass(html, 'company-portrait'));
+  const [tasksTitle = ''] = extractAllHeadingClass(html, 'tasks-title');
+  const [profileTitle = ''] = extractAllHeadingClass(html, 'profile-title');
+  const [benefitsTitle = ''] = extractAllHeadingClass(html, 'benefits-title');
+  const [portraitTitle = ''] = extractAllHeadingClass(html, 'company-portrait-title');
+
+  const benefits = benefitBacks
+    .map((back, i) => [benefitTitles[i], back].filter(Boolean).join(': '))
+    .filter(Boolean);
 
   const sections = [];
   if (intro) sections.push(intro);
-  if (tasks) sections.push(`Aufgaben:\n${tasks}`);
-  if (profile) sections.push(`Profil:\n${profile}`);
-  if (benefitBacks.length) sections.push(`Benefits:\n${benefitBacks.map((b) => `• ${b}`).join('\n')}`);
-  if (companyPortrait) sections.push(companyPortrait);
+  if (tasks) sections.push(headedSection(tasksTitle, tasks));
+  if (profile) sections.push(headedSection(profileTitle, profile));
+  if (benefits.length) sections.push(headedSection(benefitsTitle, benefits.map((b) => `• ${b}`).join('\n')));
+  if (companyPortrait) sections.push(headedSection(portraitTitle, companyPortrait));
 
   const locationText = parseLocationBlock(html);
 
   return {
-    description: sections.join('\n\n').slice(0, MAX_DETAIL_CHARS),
+    description: sections.join('\n\n'),
     locationText,
   };
 }
 
-async function fetchDetail(detailUrl) {
+async function fetchDetail(detailUrl, expectedTitle) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return { description: '', locationText: '' };
-    return extractDetailContent(html);
+    const records = extractJsonLd(html, detailUrl);
+    const matched = records.find(record => {
+      if (normalizeSpace(record.title || '').toLowerCase() !== normalizeSpace(expectedTitle).toLowerCase()) return false;
+      if (!record.urlExplicit) return records.length === 1;
+      try { return new URL(record.url, detailUrl).href === new URL(detailUrl).href; } catch { return false; }
+    });
+    return { ...extractPlanzerDetailContent(html), ...mergeSourcePostingDates({}, matched) };
   } catch (err) {
     console.warn(` ⚠️ Planzer detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return { description: '', locationText: '' };
   }
+}
+
+/* ── Stored text written by the old builder ─────────────────── */
+
+// Each alternative is a complete line the former builder emitted. Keeping
+// the anchors matters: "Profil:" and "Benefits:" can occur in source prose,
+// while these standalone labels were the crawler's section headings.
+export const PLANZER_FABRICATED_DESCRIPTION_RE = /^(?:Marke der Planzer-Gruppe: [^\r\n]+|(?:Aufgaben|Profil|Benefits):|Planzer Transport AG — Schweizer Familienunternehmen für Transport- und Lagerlogistik seit 1936 \(HQ Dietikon, ZH\)\.)[ \t]*\r?$/m;
+const PLANZER_FABRICATED_LINE_RE = /^(?:Marke der Planzer-Gruppe: [^\r\n]+|(?:Aufgaben|Profil|Benefits):|Planzer Transport AG — Schweizer Familienunternehmen für Transport- und Lagerlogistik seit 1936 \(HQ Dietikon, ZH\)\.)[ \t]*\r?\n?/gm;
+
+export function stripPlanzerFabricatedDescription(text = '') {
+  return String(text)
+    .replace(PLANZER_FABRICATED_LINE_RE, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 }
 
 /* ── Fetch all jobs ────────────────────────────────────────── */
@@ -372,14 +424,14 @@ export async function fetchAllPlanzerJobs() {
   console.log(`   ✓ ${rows.length} Solique tiles parsed`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
 
-    const { description: detailDescription, locationText } = await fetchDetail(r.detailUrl);
+    const detail = await fetchDetail(r.detailUrl, r.title);
+    const { description: detailDescription, locationText } = detail;
     const { city, postalCode, streetAddress, region } = resolveAddress(r.location, locationText);
 
     const hasLocationText = !!(normalizeSpace(r.location) || normalizeSpace(locationText));
@@ -394,22 +446,11 @@ export async function fetchAllPlanzerJobs() {
     const canton = inferredCanton || HQ.canton;
 
     const workload = parseWorkload(r.workloadRaw);
-    const brandNote = r.brand && r.brand.toLowerCase() !== PLANZER_COMPANY_NAME.toLowerCase()
-      ? `Marke der Planzer-Gruppe: ${r.brand}.`
-      : '';
-
-    const summaryPieces = [
-      brandNote,
-      city ? `Standort: ${city}` : '',
-      workload.label ? `Pensum: ${workload.label}` : '',
-    ].filter(Boolean);
-
-    const description = detailDescription && detailDescription.split(/\s+/).length >= 30
-      ? [brandNote, detailDescription].filter(Boolean).join('\n\n')
-      : [
-        ...summaryPieces,
-        `${PLANZER_COMPANY_NAME} Transport AG — Schweizer Familienunternehmen für Transport- und Lagerlogistik seit 1936 (HQ Dietikon, ZH).`,
-      ].filter(Boolean).join('\n\n');
+    // Only the posting's own text (issue 5253): no "Marke der Planzer-Gruppe:
+    // X." sentence in front of it and no Standort/Pensum/company summary in
+    // place of a thin page. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detailDescription) ? detailDescription : '';
 
     const sourceLang = detectLang(description || r.title, r.lang === 'de' ? 'de' : 'de');
     const jobSlug = slugify(`${r.title} ${PLANZER_KEY} ${city || 'dietikon'}`);
@@ -450,7 +491,7 @@ export async function fetchAllPlanzerJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.detailUrl,
       externalId: r.id,
       requirements: [],

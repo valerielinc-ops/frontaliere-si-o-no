@@ -6,14 +6,16 @@ import {
   extractPdfUrl,
   fetchHtml,
   FIXED_PRICE_SOURCE_CONFIGS,
+  isEcariCatalogueExplicitlyEmpty,
+  isExplicitlyEmptyCatalogue,
   resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
-  parseGlFixedPriceJson,
   parseLuFixedPricePdfText,
   parseUrFixedPricePdfText,
 } from '../functions/src/plateAuctionsCore.js';
-import { parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
+import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
+import { fetchGrPlateAuctions, parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
 import { parseShAuctionRows } from '../scripts/plate-auctions/connectors/sh.mjs';
 import {
@@ -50,6 +52,15 @@ const ZH_SAMPLE = `
   <div class="auction-ends-at-text">Endet am:</div><div>16.09.2026, 19:00:00</div></div>
 </a>`;
 
+const ZH_EMPTY_SAMPLE = `
+<div class="auction-grid">
+  <div class="auctions">
+    <h2>Herzlich willkommen</h2>
+    <label>Kontrollschild</label><button>Suchen</button>
+    <p>Keine Ergebnisse für Ihre Suche.</p>
+  </div>
+</div>`;
+
 const TI_SAMPLE = `
 <div id="tabContent1"><table><tbody><tr class="L">
   <td><a onclick="openDetails(1532)" href="#"><div class="number">13457</div></a></td>
@@ -72,6 +83,13 @@ const CARD_SAMPLE = `
 
 const EXPANDED_ECARI_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-ecari-auction-sample.html'), 'utf8');
 const EXPANDED_CARD_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-auction-sample.html'), 'utf8');
+const EXPANDED_CARD_EMPTY_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-empty-sample.html'), 'utf8');
+const EXPANDED_CARD_NO_RESULTS_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-no-results-sample.html'), 'utf8');
+// NW/OW between two rounds: eCari's own empty state in every tab.
+const ECARI_NO_RUNNING_AUCTION = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction.html'), 'utf8');
+// Stesso stato vuoto in fr_ch (FR, VS) e it_CH (TI), catturato il 2026-09-25.
+const ECARI_NO_RUNNING_AUCTION_FR = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction-fr.html'), 'utf8');
+const ECARI_NO_RUNNING_AUCTION_IT = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction-it.html'), 'utf8');
 
 describe('expanded plate-auction connectors', () => {
   it('does not substitute an unrelated PDF when a configured pattern misses', () => {
@@ -119,9 +137,23 @@ describe('expanded plate-auction connectors', () => {
     expect(row).toMatchObject({
       id: 'gr-2230', sourceKey: 'GR', normalizedPlate: 'GR12219', startingPriceChf: 500,
       minimumIncrementChf: 50, currentBidChf: 900, bidCount: 4, endsAt: '2026-09-13T18:00:00.000Z',
+      officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
+      officialDetailUrl: 'https://eauktion.gr.ch/ecari-auction/ui/app/details/app?id=2230&locale=de_ch',
     });
     expect(JSON.stringify(row)).not.toContain('hidden-bidder');
     expect(validatePlateAuction(row)).toEqual([]);
+  });
+
+  it('fetches GR from the stable eCari catalogue path', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response(GR_SAMPLE, { status: 200 }));
+
+    try {
+      await expect(fetchGrPlateAuctions()).resolves.toHaveLength(1);
+      expect(fetchMock.mock.calls[0]?.[0]).toBe(GR_ECARI_CATALOGUE_URL);
+    } finally {
+      fetchMock.mockRestore();
+    }
   });
 
   it('parses the ZH public card into a detail URL and Zurich UTC timestamp', () => {
@@ -132,6 +164,28 @@ describe('expanded plate-auction connectors', () => {
       endsAt: '2026-09-16T17:00:00.000Z',
     });
     expect(validatePlateAuction(row)).toEqual([]);
+  });
+
+  it('accepts only the complete ZH no-results shell as an explicit empty catalogue', () => {
+    const empty = parseZhAuctions(ZH_EMPTY_SAMPLE, { fetchedAt: '2026-10-15T01:20:18.887Z' });
+    expect(empty).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(empty)).toBe(true);
+
+    const noLegacyContainers = `<form><label>Kontrollschildtyp</label><button>Suchen</button></form>
+      <p>Keine Ergebnisse f\u00fcr Ihre Suche.</p>`;
+    const emptyWithoutLegacyShell = parseZhAuctions(noLegacyContainers);
+    expect(emptyWithoutLegacyShell).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(emptyWithoutLegacyShell)).toBe(true);
+
+    const unparsedCard = parseZhAuctions(`${ZH_EMPTY_SAMPLE}
+      <a class="auction-element-link" href="/de/auction/99999">changed card markup</a>`);
+    expect(unparsedCard).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(unparsedCard)).toBe(false);
+
+    const unparsedCardWithoutLegacyShell = parseZhAuctions(`${noLegacyContainers}
+      <a class="auction-element-link" href="/de/auction/99998">changed card markup</a>`);
+    expect(unparsedCardWithoutLegacyShell).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(unparsedCardWithoutLegacyShell)).toBe(false);
   });
 
   it('keeps direct-sale and wanted tabs public even when price/deadline cells are absent', () => {
@@ -288,7 +342,46 @@ describe('expanded plate-auction connectors', () => {
     }
   });
 
-  it('parses the five newly covered official fixed-price catalogues without auction fields', () => {
+  it('recognizes the complete card-platform shell after a round closes', () => {
+    const rows = parseExpandedCard('vd', EXPANDED_CARD_EMPTY_SAMPLE, { fetchedAt: '2026-10-04T21:30:00.000Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+  });
+
+  it('recognizes the card-platform no-results shell for BE after a round closes', () => {
+    const beNoResultsSample = `<div class="auction-grid"><div class="auctions">
+      <h1>Herzlich willkommen</h1>
+      <div class="auction-filters"><span>Kontrollschildtyp</span><button>Suchen</button></div>
+      <p>Keine Ergebnisse f&uuml;r Ihre Suche.</p>
+    </div></div>`;
+    const rows = parseExpandedCard('be', beNoResultsSample, { fetchedAt: '2026-10-14T21:30:00.000Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+
+    const parserDrift = `${beNoResultsSample}
+      <a href="/de/auction/231118" class="auction-element-link">changed card markup</a>`;
+    const driftRows = parseExpandedCard('be', parserDrift);
+    expect(driftRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(driftRows)).toBe(false);
+  });
+
+  it('recognizes the official no-results page between SH auction rounds', () => {
+    const rows = parseShAuctionRows(EXPANDED_CARD_NO_RESULTS_SAMPLE, { fetchedAt: '2026-10-14T22:30:00.000Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+  });
+
+  it('does not turn a changed card link into an empty catalogue', () => {
+    const parserDrift = EXPANDED_CARD_EMPTY_SAMPLE.replace(
+      '<div class="auction-grid"><div class="auctions"></div></div>',
+      '<div class="auction-grid"><div class="auctions"><a href="/de/auction/1768" class="auction-card">VD 691</a></div></div>',
+    );
+    const rows = parseExpandedCard('vd', parserDrift);
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
+  });
+
+  it('parses the four newly covered official fixed-price catalogues without auction fields', () => {
     const options = {
       officialUrl: 'https://example.test/official',
       officialDetailUrl: 'https://example.test/source.pdf',
@@ -297,13 +390,12 @@ describe('expanded plate-auction connectors', () => {
     const ai = parseAiFixedPricePdfText('Fr. 2000 2674 3854 Fr. 1200 5367 | 6394 Fr. 300 10310', options);
     const aiMotorcycle = parseAiFixedPricePdfText('Fr. 200 153 204 249', { ...options, vehicleType: 'motorcycle' });
     const bs = parseBsFixedPricePdfText('BS 186 4,000.00 Nein Siehe Hinweis 1 BS 213 4,000.00 Ja', options);
-    const gl = parseGlFixedPriceJson({ data: [{ id: 1523, number: 3681, price: 800, available: 1, deleted: 0, registered: 0, platetype: 'car_long_plate' }] }, options);
     const lu = parseLuFixedPricePdfText({ pages: [
       'Wunschkontrollschilder Motorwagen; an Lager\nHochformat\nFr 1’000.- Fr 800.- Fr 800.- Fr 600.-\n21 694 30 129 58 139 65 032',
       'Wunschkontrollschilder Motorrad; an Lager\nFr 200.- Fr 150.- Fr 150.-\n4 157 7 389 9 723',
     ] }, options);
     const ur = parseUrFixedPricePdfText("UR 2296 50 x 11 cm 1'000.--SFr. UR 3086 50 x 11 cm 700.--SFr.", options);
-    for (const [sourceKey, rows] of [['AI', ai], ['BS', bs], ['GL', gl], ['LU', lu], ['UR', ur]] as const) {
+    for (const [sourceKey, rows] of [['AI', ai], ['BS', bs], ['LU', lu], ['UR', ur]] as const) {
       expect(rows.length, sourceKey).toBeGreaterThan(0);
       expect(rows.every((row) => row.sourceKey === sourceKey && row.listingType === 'fixed-price')).toBe(true);
       expect(rows.every((row) => row.bidCount === undefined && row.currentBidChf === undefined)).toBe(true);
@@ -366,5 +458,100 @@ describe('fixed-price PDF url resolution', () => {
       expect(variant.fallbackPdfUrl).toBeUndefined();
       expect(variant.pdfUrlPattern).toBeInstanceOf(RegExp);
     }
+  });
+});
+
+describe('eCari explicit empty catalogue', () => {
+  it('reads the NW/OW "Keine laufende Versteigerung" page as an empty catalogue, not a failed parse', () => {
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION)).toBe(true);
+    for (const sourceKey of ['nw', 'ow']) {
+      const rows = parseExpandedEcari(sourceKey, ECARI_NO_RUNNING_AUCTION);
+      expect(rows, sourceKey).toEqual([]);
+      expect(isExplicitlyEmptyCatalogue(rows), sourceKey).toBe(true);
+    }
+    // Same portal, own parsers: the class, not just the two cantons.
+    for (const rows of [parseGrAuctionRows(ECARI_NO_RUNNING_AUCTION), parseSgAuctionRows(ECARI_NO_RUNNING_AUCTION), parseSzAuctionRows(ECARI_NO_RUNNING_AUCTION), parseTiAuctionRows(ECARI_NO_RUNNING_AUCTION)]) {
+      expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+    }
+  });
+
+  it('reads the French and Italian empty pages the same way (FR and VS serve fr_ch, TI it_CH)', () => {
+    // Con il solo tedesco il catalogo vuoto di FR, VS e TI restava `zero_rows`.
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_FR)).toBe(true);
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_IT)).toBe(true);
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_FR, ['tabContent1', 'tabContent2', 'tabContent4'])).toBe(true);
+    const frRows = parseExpandedEcari('fr', ECARI_NO_RUNNING_AUCTION_FR);
+    expect(frRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(frRows)).toBe(true);
+    const tiRows = parseTiAuctionRows(ECARI_NO_RUNNING_AUCTION_IT);
+    expect(tiRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(tiRows)).toBe(true);
+    // Fail-closed invariato: senza etichetta, o troncata, non è vuota.
+    for (const [page, label] of [
+      [ECARI_NO_RUNNING_AUCTION_FR, 'Aucune enchère en cours'],
+      [ECARI_NO_RUNNING_AUCTION_IT, 'Nessuna targa disponibile'],
+    ] as const) {
+      expect(isEcariCatalogueExplicitlyEmpty(page.replaceAll(label, ''))).toBe(false);
+      expect(isEcariCatalogueExplicitlyEmpty(page.slice(0, page.indexOf('<div id="tabContent2"')))).toBe(false);
+    }
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_FR.replaceAll('Plaques indisponibles', ''))).toBe(false);
+  });
+
+  it('keeps an empty parse WITHOUT the explicit label a failed parse', () => {
+    // The page shell answered 200 but the auction tab lost its label: that is
+    // a truncated or changed page, and must stay `zero_rows` downstream.
+    const shell = ECARI_NO_RUNNING_AUCTION.replaceAll('Keine laufende Versteigerung', '');
+    expect(isEcariCatalogueExplicitlyEmpty(shell)).toBe(false);
+    expect(isExplicitlyEmptyCatalogue(parseExpandedEcari('nw', shell))).toBe(false);
+    expect(isExplicitlyEmptyCatalogue(parseExpandedEcari('nw', ''))).toBe(false);
+    // A tab without its own empty label is not known to be empty either.
+    const unlabelledFixedPriceTab = ECARI_NO_RUNNING_AUCTION.replace(
+      /<div id="tabContent3"[\s\S]*?(?=<div id="tabContent4")/,
+      (section) => section.replaceAll('Kontrollschilder nicht verfügbar', ''),
+    );
+    expect(unlabelledFixedPriceTab).not.toBe(ECARI_NO_RUNNING_AUCTION);
+    expect(isEcariCatalogueExplicitlyEmpty(unlabelledFixedPriceTab)).toBe(false);
+  });
+
+  it('never calls a truncated page empty when a tab the connector reads is missing', () => {
+    // Review #9715: a response cut after `tabContent1` still carries the
+    // auction tab's own empty label. Validating only the tabs that survived
+    // accepted it as an authoritative empty catalogue, so live rows in the
+    // lost tabs would be closed as absent instead of failing `zero_rows`.
+    const truncated = ECARI_NO_RUNNING_AUCTION.slice(0, ECARI_NO_RUNNING_AUCTION.indexOf('<div id="tabContent2"'));
+    expect(truncated).toContain('Keine laufende Versteigerung');
+    expect(isEcariCatalogueExplicitlyEmpty(truncated)).toBe(false);
+    for (const sourceKey of ['nw', 'ow']) {
+      expect(isExplicitlyEmptyCatalogue(parseExpandedEcari(sourceKey, truncated)), sourceKey).toBe(false);
+    }
+    for (const rows of [parseGrAuctionRows(truncated), parseSgAuctionRows(truncated), parseSzAuctionRows(truncated), parseTiAuctionRows(truncated)]) {
+      expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
+    }
+    // Only the last tab lost: still not a complete observation.
+    const withoutWanted = ECARI_NO_RUNNING_AUCTION.replace(/<div id="tabContent4"[\s\S]*$/, '');
+    expect(isEcariCatalogueExplicitlyEmpty(withoutWanted)).toBe(false);
+    // A connector that reads fewer tabs (VS: 1, 2, 4) is judged on its own set.
+    const withoutFixedPrice = ECARI_NO_RUNNING_AUCTION.replace(/<div id="tabContent3"[\s\S]*?(?=<div id="tabContent4")/, '');
+    expect(isEcariCatalogueExplicitlyEmpty(withoutFixedPrice, ['tabContent1', 'tabContent2', 'tabContent4'])).toBe(true);
+    expect(isEcariCatalogueExplicitlyEmpty(withoutFixedPrice)).toBe(false);
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION, [])).toBe(false);
+  });
+
+  it('never calls a page empty when it holds rows the parser cannot read', () => {
+    // A markup change that breaks the row parser while one section still
+    // shows the empty label must not become "nothing is listed".
+    const unreadableRow = ECARI_NO_RUNNING_AUCTION.replace(
+      '<div class="bikeContent"',
+      '<table><tbody><tr class="L"><td><a onclick="showAuction(1768)">OW 691</a></td><td>CHF 950</td></tr></tbody></table><div class="bikeContent"',
+    );
+    const rows = parseExpandedEcari('ow', unreadableRow);
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
+  });
+
+  it('leaves a catalogue with rows untouched', () => {
+    const rows = parseExpandedEcari('nw', EXPANDED_ECARI_SAMPLE);
+    expect(rows).toHaveLength(1);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
   });
 });

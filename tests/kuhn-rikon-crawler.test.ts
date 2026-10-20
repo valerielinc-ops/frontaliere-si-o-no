@@ -63,7 +63,7 @@ function jobPostingJsonLd(overrides: Record<string, unknown> = {}) {
       + 'Kundinnen und Kunden. Wir bieten Ihnen eine vielseitige Tätigkeit in einem '
       + 'traditionsreichen Schweizer Familienunternehmen, attraktive Personalrabatte sowie ein '
       + 'motiviertes Team.</div>',
-    datePosted: '2026-06-15T08:00:00.000000+00:00',
+    datePosted: `${new Date().getUTCFullYear() - 1}-06-15T08:00:00.000000+00:00`,
     validThrough: '2026-12-31',
     hiringOrganization: { '@type': 'Organization', name: 'Kuhn Rikon AG', sameAs: 'https://www.kuhnrikon.com' },
     employmentType: ['FULL_TIME'],
@@ -318,7 +318,7 @@ describe('Kuhn Rikon crawler parser', () => {
       expect(job.postalCode).toBe('7302');
       expect(job.streetAddress).toBe('Bahnhofstrasse 12');
       expect(job.employmentType).toBe('PART_TIME'); // title carries "(50% - 80%)"
-      expect(job.postedDate).toBe('2026-06-15');
+      expect(job.postedDate).toBe(jsonLd.datePosted);
       expect(job.hiringOrganizationName).toBe(KUHN_RIKON_COMPANY_NAME);
       expect(job.sector).not.toMatch(/sanit|ospedal/i);
     });
@@ -339,15 +339,14 @@ describe('Kuhn Rikon crawler parser', () => {
       expect(jobs).toEqual([]);
     });
 
-    it('returns an empty array when the listing fetch throws', async () => {
+    it('propagates a listing fetch failure instead of returning an empty array', async () => {
       const fetchMock = vi.fn(async () => { throw new Error('network unreachable'); });
       vi.stubGlobal('fetch', fetchMock);
 
-      const jobs = await fetchAllKuhnRikonJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllKuhnRikonJobs()).rejects.toThrow(/network unreachable/);
     });
 
-    it('still builds a job when the detail-page fetch fails (falls back to the listing tile)', async () => {
+    it('does not publish a title-only job when the detail-page fetch fails (issue 5253)', async () => {
       const tile = jobalinoTile({
         id: 'f0f0f0f0f0f0', slug: 'produktionsmitarbeiter',
         title: 'Produktionsmitarbeiter/in 100%', workload: '100%', jobtype: 'Festanstellung',
@@ -359,12 +358,11 @@ describe('Kuhn Rikon crawler parser', () => {
       });
       vi.stubGlobal('fetch', fetchMock);
 
+      // The tile title plus an invented Italian company paragraph used to be
+      // published here; the pipeline now keeps the stored record instead,
+      // with the body an earlier run read from the source.
       const jobs = await fetchAllKuhnRikonJobs();
-      expect(jobs).toHaveLength(1);
-      expect(jobs[0].title).toBe('Produktionsmitarbeiter/in 100%');
-      expect(jobs[0].streetAddress).toBe('Neschwilerstrasse 4');
-      expect(jobs[0].postalCode).toBe('8486');
-      expect(jobs[0].employmentType).toBe('FULL_TIME');
+      expect(jobs).toHaveLength(0);
     });
 
     it('deduplicates tiles sharing the same Jobalino id', async () => {
@@ -454,7 +452,7 @@ describe('Kuhn Rikon crawler parser', () => {
       expect(zhJob?.postalCode).toBe('');
     });
 
-    it('enriches thin (<50 word) descriptions instead of leaving them indexable as-is', async () => {
+    it('leaves a thin (<50 word) source body out instead of padding it with invented company text (issue 5253)', async () => {
       const thinJsonLd = jobPostingJsonLd({ description: '<div>Kurze Stelle.</div>' });
       const tile = jobalinoTile({
         id: 'beef00000001', slug: 'kurze-stelle', title: thinJsonLd.title as string, city: 'Landquart',
@@ -467,9 +465,10 @@ describe('Kuhn Rikon crawler parser', () => {
       vi.stubGlobal('fetch', fetchMock);
 
       const jobs = await fetchAllKuhnRikonJobs();
-      expect(jobs).toHaveLength(1);
-      const wordCount = jobs[0].description.split(/\s+/).filter(Boolean).length;
-      expect(wordCount).toBeGreaterThanOrEqual(50);
+      // Not published this run: the standard pipeline keeps the stored record
+      // (with the body an earlier run read from the source) under its grace
+      // policy, and a new job without a real body never reaches the site.
+      expect(jobs).toHaveLength(0);
     });
 
     it('never leaks recruiter email/phone PII through the parsed description', async () => {
@@ -586,4 +585,21 @@ describe('Kuhn Rikon crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
+});
+
+describe('Kuhn Rikon fractional publication precision', () => {
+  for (const fraction of ['120000', '120001', '1200001']) {
+    it(`preserves supported publication precision: ${fraction}`, async () => {
+      const year = new Date().getUTCFullYear() - 1;
+      const source = `${year}-06-15T08:00:00.${fraction}+02:00`;
+      const ld = jobPostingJsonLd({ datePosted: source });
+      const tile = jobalinoTile({ id: 'a1b2c3d4e5f6', slug: 'fachperson', title: ld.title as string, city: 'Landquart', zip: '7302' });
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => textResponse(200, url === LISTING_URL ? listingJsonp(tile) : detailHtml(ld))));
+      const jobs = await fetchAllKuhnRikonJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject(fraction.length <= 6
+        ? { datePosted: source, postedDate: source, postingDateSource: 'reported' }
+        : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+    });
+  }
 });

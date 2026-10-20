@@ -8,12 +8,12 @@
  * only emits paid|published). reCAPTCHA + the 50-word floor are the other layers.
  */
 
-import admin from 'firebase-admin';
+import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
 
 const FREE_ADS_PER_DAY = 5;
 
 function db() {
-  return admin.firestore();
+  return getFirestore();
 }
 
 /**
@@ -29,7 +29,7 @@ export async function enforceFreeTierCap(jobData, jobId, nowMs = Date.now()) {
   const uid = jobData.publisherUid;
   if (!uid) return { capped: false };
 
-  const cutoff = admin.firestore.Timestamp.fromMillis(nowMs - 24 * 3600 * 1000);
+  const cutoff = Timestamp.fromMillis(nowMs - 24 * 3600 * 1000);
   const snap = await db()
     .collection('publisher_jobs')
     .where('publisherUid', '==', uid)
@@ -40,7 +40,7 @@ export async function enforceFreeTierCap(jobData, jobId, nowMs = Date.now()) {
   // Includes the just-created doc. Over the daily cap → reject this one.
   if (snap.size > FREE_ADS_PER_DAY) {
     await db().collection('publisher_jobs').doc(String(jobId)).set(
-      { status: 'rejected', rejectedReason: 'free_daily_cap', updatedAt: admin.firestore.FieldValue.serverTimestamp() },
+      { status: 'rejected', rejectedReason: 'free_daily_cap', updatedAt: FieldValue.serverTimestamp() },
       { merge: true },
     );
     return { capped: true, count: snap.size };

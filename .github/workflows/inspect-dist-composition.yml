@@ -20,7 +20,7 @@ jobs:
       # LOCAL composite action has to exist on disk to be used. Sparse and
       # cone-mode off: `.github/actions/` only, a few KB, not the 6.7 GB tree.
       - name: Checkout the composite action only
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           sparse-checkout: .github/actions/fetch-pages-artifact/
           sparse-checkout-cone-mode: false

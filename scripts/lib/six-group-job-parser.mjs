@@ -7,8 +7,8 @@
  * https://jobs.six-group.com/ (SF CSB tenant code `SIXGroupAG`).
  *
  * Most postings are in Zürich (HQ) and Olten; the tenant also lists a few
- * international roles, filtered downstream by the canton-quorum gate. Canton ZH,
- * postal 8005 (Pfingstweidstrasse 110, Zürich).
+ * international roles, which the shared factory drops from the source-backed
+ * country/canton checks. Canton ZH, postal 8005 (Pfingstweidstrasse 110, Zürich).
  *
  * Uses the shared SuccessFactors factory — see
  * scripts/lib/successfactors-shared-job-parser-common.mjs.

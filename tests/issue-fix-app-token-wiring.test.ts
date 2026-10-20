@@ -100,8 +100,10 @@ describe('issue-fix.yml — App token wiring', () => {
     // Trap #2 is LATER and was missed for weeks: claude-code-action rewrites this same
     // remote when it starts. It is pinned by the `github_token` block further down — this
     // step alone does NOT make the App token survive to `git push`.
-    expect(git).toContain('--unset-all');
-    expect(git).toContain('http.https://github.com/.extraheader');
+    // Since actions/checkout v6 (v7 here) the header is no longer in .git/config but
+    // in an includeIf'd `git-credentials-*.config`, which `--unset-all` never sees:
+    // the step must go through the shared helper that removes both shapes.
+    expect(git).toContain('bash scripts/lib/clear-checkout-git-credentials.sh');
     // And it must stay conditional: with no token, rewriting the remote to
     // `x-access-token:@github.com` would break pushes that work today.
     expect(git).toMatch(/if \[ -n "\$\{APP_TOKEN:-\}" \]/);
@@ -232,8 +234,13 @@ describe('il token della App deve SOPRAVVIVERE fino al `git push` (#5595)', () =
     // origin è già autenticato con l'App token», affermazione che la action smentiva
     // riscrivendo il remote un istante prima che l'agente la leggesse.
     const text = readFileSync(resolve(wfDir, 'pr-redflag-fixer.yml'), 'utf8');
-    expect(text).toMatch(/PUSH_TOKEN: \$\{\{ env\.APP_TOKEN \|\| env\.GITHUB_PAT \}\}/);
-    expect(text).toMatch(/github_token: \$\{\{ env\.APP_TOKEN \|\| env\.GITHUB_PAT \}\}/);
+    // Prefer the App token only when its data-refresh write capability was
+    // verified; otherwise fall back to the PAT instead of selecting a token
+    // that cannot push this class of changes.
+    const writeCapableToken = /\$\{\{ env\.APP_TOKEN_DATA_REFRESH == 'true' && env\.APP_TOKEN \|\| env\.GITHUB_PAT \}\}/;
+    expect(text).toMatch(new RegExp(`PUSH_TOKEN: ${writeCapableToken.source}`));
+    expect(text).toMatch(new RegExp(`github_token: ${writeCapableToken.source}`));
+    expect(text).toMatch(new RegExp(`codex_github_token: ${writeCapableToken.source}`));
   });
 
   it('INVARIANTE DI CLASSE: chi autentica un remote e poi lancia la action deve passarle il token', () => {
@@ -273,7 +280,7 @@ describe('i sibling che assumevano l\'assenza dello scope (review round 1)', () 
     // #5288, il verso opposto e più costoso: sulla sola PRESENZA il guard lasciava
     // PROCEDERE un fix che il push avrebbe poi rifiutato — un turno Codex intero speso e
     // buttato, cioè esattamente ciò che il guard esiste per evitare.
-    expect(redflag).toMatch(/HAS_PAT: \$\{\{ env\.APP_TOKEN_WORKFLOWS == 'true' \|\| env\.GITHUB_PAT != '' \}\}/);
+    expect(redflag).toMatch(/HAS_WORKFLOW_WRITE_TOKEN: \$\{\{ env\.APP_TOKEN_WORKFLOWS == 'true' \|\| env\.GITHUB_PAT != '' \}\}/);
   });
 
   it('capacità e identità restano due domande distinte nel 🔴-fixer', () => {
@@ -281,8 +288,8 @@ describe('i sibling che assumevano l\'assenza dello scope (review round 1)', () 
     // Il push step chiede «con quale identità pusho?» → basta il token, perché l'App
     // ri-triggera pr-review-loop anche senza lo scope `workflows`. Confondere le due
     // (in un verso o nell'altro) è la classe di bug di #5288.
-    expect(redflag).toMatch(/PUSH_TOKEN: \$\{\{ env\.APP_TOKEN \|\| env\.GITHUB_PAT \}\}/);
-    expect(redflag).toMatch(/if: steps\.guard\.outputs\.proceed == 'true' && \(env\.APP_TOKEN != '' \|\| env\.GITHUB_PAT != ''\)/);
+    expect(redflag).toMatch(/PUSH_TOKEN: \$\{\{ env\.APP_TOKEN_DATA_REFRESH == 'true' && env\.APP_TOKEN \|\| env\.GITHUB_PAT \}\}/);
+    expect(redflag).toMatch(/if: steps\.guard\.outputs\.proceed == 'true' && \(env\.APP_TOKEN_DATA_REFRESH == 'true' && env\.APP_TOKEN != '' \|\| env\.GITHUB_PAT != ''\)/);
   });
 
   it('il drainer non parcheggia più come terminale quando issue-fix può DAVVERO pushare', () => {

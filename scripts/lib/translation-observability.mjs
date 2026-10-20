@@ -1,9 +1,13 @@
 import { createHash } from 'node:crypto';
 import { digestDocument } from './canonical-json-digest.mjs';
 import { buildAssembledJobIdentity } from './job-identity.mjs';
-import { isIncomplete, summarizeJobs, finalizeEntry } from '../log-translation-stats.mjs';
+import { isIncomplete, summarizeJobs, finalizeEntry, predicateVersionOrNull } from '../log-translation-stats.mjs';
 import { detectLanguageWithConfidence } from './detect-language.mjs';
-import { titleLooksUntranslated } from './job-locale-utils.mjs';
+import {
+  isDescriptionSourceCopy,
+  sourceLocaleTextCandidates,
+  titleLooksUntranslated,
+} from './job-locale-utils.mjs';
 import { measureDescriptionLocales, measureTitleLocales } from './job-locale-population.mjs';
 import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from './translation-observability-limits.mjs';
 
@@ -51,14 +55,17 @@ function slotReasons(job, incomplete) {
   if (job.needsRetranslation) reasons.push('needs_retranslation');
   if (job.localeMismatchSuppressed) reasons.push('locale_mismatch_suppressed');
   if (!incomplete) return reasons;
-  const source = normalized(job.description);
   const sourceLang = normalized(job.sourceLang) || 'it';
+  const sourceDescriptions = sourceLocaleTextCandidates(job, 'description');
   for (const locale of LOCALES) {
     const title = String(job.titleByLocale?.[locale] || '').trim();
     const description = String(job.descriptionByLocale?.[locale] || '').trim();
     if (title.length < 3) reasons.push(`title_missing:${locale}`);
     if (description.length < 120) reasons.push(`description_missing:${locale}`);
-    if (locale !== sourceLang && source && normalized(description) === source) reasons.push(`source_copy_description:${locale}`);
+    if (locale !== sourceLang
+        && sourceDescriptions.some((source) => isDescriptionSourceCopy(description, source))) {
+      reasons.push(`source_copy_description:${locale}`);
+    }
   }
   return reasons;
 }
@@ -82,6 +89,10 @@ function canonicalMetrics(jobs, now) {
     verifiedTranslated: summarized.verifiedTranslated,
     suppressed: summarized.suppressed,
     missingByLocale: summarized.missingByLocale,
+    // Same fingerprint as data/translation-stats-history.json: `incomplete`
+    // here is counted by the same `isIncomplete()`, so a predicate change moves
+    // this series too and must be told apart from a data change.
+    predicateVersion: predicateVersionOrNull(),
   };
 }
 

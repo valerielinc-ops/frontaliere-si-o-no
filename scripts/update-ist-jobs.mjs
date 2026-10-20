@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated International School of Ticino (IST) crawler runner.
  *
@@ -31,6 +33,7 @@
  * postings from the group's worldwide portal are discarded after parsing;
  * missing or unresolved locations are never assigned a historical default.
  */
+import { sourcePostingDateFields, withLegacyPostingDay } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -44,6 +47,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -53,17 +57,45 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergePreserveLocaleData,
-  detectLang,
   isLocationExplicitlyForeign,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
+import {
+  dropFabricatedLocaleText,
+  dropTranslationsOfFabricatedSource,
+  sourceLocaleDescription,
+} from './lib/source-locale-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
-import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
+import {
+  inferAnyCanton,
+  isCantonRelevant,
+  isTargetSwissLocation,
+  locationFieldHasSwissSignal,
+} from './lib/target-swiss-locations.mjs';
+import { ISO_ALPHA2_COUNTRY_CODES } from './lib/prospector/country-inventory.mjs';
+import {
+  exitCrawlerOnError,
+  fetchHtml as fetchHtmlShared,
+  fetchJson as fetchJsonShared,
+  isConnectionLevelFetchError,
+  WAF_IP_BLOCK_STATUS,
+} from './lib/crawler-template.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './lib/authoritative-empty-snapshot.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
-import { locateTagByAttribute, extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
+import {
+  decodeEntities,
+  extractBalancedTagBlock,
+} from './lib/hospital-custom-html-helpers.mjs';
+import { readAttr, scanStartTags } from './lib/html-attr.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -80,7 +112,34 @@ const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const IST_COMPANY_NAME = 'International School of Ticino';
 const IST_COMPANY_HOST = 'jobs.inspirededu.com';
 const IST_SITEMAP_URL = 'https://jobs.inspirededu.com/sitemap.xml';
+const IST_FACET_URL = 'https://jobs.inspirededu.com/services/jobs/options/facetValues/';
+const IST_FACET_QUERY = {
+  page: 0,
+  keywords: '',
+  locationsearch: '',
+  sortby: 'referencedate',
+  sortdir: 'desc',
+  sortfield: 'title',
+  recordsperpage: 25,
+  startrow: 0,
+  facetquery: {
+    facet: true,
+    mincount: 1,
+    limit: 5000,
+    fields: ['location', 'facility', 'title', 'customfield2'],
+    sort: 'index',
+    showPicklistAllLocales: true,
+  },
+};
+const IST_FACET_LIMIT = IST_FACET_QUERY.facetquery.limit;
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const SUMMARY_COUNTS = {
+  discovered: null,
+  parsed: null,
+  lastFetchOutcome: null,
+  abortKind: null,
+  authoritativeEmptySnapshot: false,
+};
 
 // Stable discovery seed recorded in the adapter config. The sitemap stays
 // valid as postings rotate — NOT the per-job `/job/<id>/` URLs, which 404 the
@@ -103,16 +162,62 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+function normalizeFacilityName(value = '') {
+  return normalizeSpace(value)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+const IST_FACILITY_SIGNAL_RE = /\b(?:ticino|lugano|cadempino|ist)\b|\binternational school of ticino\b|\bscuola internazionale\b/i;
+const IST_SITEMAP_HINT_TOKENS = new Set(['ticino', 'lugano', 'cadempino', 'ist']);
+
 const IST_SHARED_PORTAL_COMPANIES = new Set([
   'inspired education',
   'inspired education group',
 ]);
 const IST_DETAIL_TENANT_RE = /\b(?:international\s+school\s+of\s+ticino|scuola\s+internazionale\s+(?:di|del)\s+ticino|école\s+internationale\s+du\s+tessin|internationale\s+schule\s+des\s+tessins)\b/i;
 const IST_ROLE_TENANT_SIGNAL_RE = /(?:\b(?:the\s+)?international\s+school\s+of\s+ticino\s+(?:\([^)]*\)\s+)?(?:is\s+(?:seeking|looking\s+for|recruiting|hiring))\b|\bscuola\s+internazionale\s+(?:di|del)\s+ticino\s+(?:cerca|sta\s+cercando)\b|\bécole\s+internationale\s+du\s+tessin\s+(?:recherche|cherche)\b|\binternationale\s+schule\s+des\s+tessins\s+sucht\b)/i;
+const TRAILING_COUNTRY_CODE_RE = /,\s*([A-Za-z]{2})\s*$/;
+const IST_DETAIL_REDIRECT_STATUSES = new Set([301, 302, 303, 307, 308]);
+const IST_NATIVE_FIELD_ALIASES = {
+  title: ['title', 'job-title', 'jobtitle'],
+  location: ['location', 'job-location', 'joblocation'],
+  city: ['city', 'locality', 'address-locality', 'addresslocality'],
+  region: ['region', 'address-region', 'addressregion'],
+  country: ['country', 'address-country', 'addresscountry'],
+  description: ['description', 'job-description', 'jobdescription'],
+  datePosted: ['datePosted', 'date-posted', 'dateposted'],
+  hiringOrganization: ['hiringOrganization', 'hiring-organization', 'organization', 'employer'],
+  company: ['company', 'employer'],
+  tenant: ['tenant', 'tenantName', 'tenant-name'],
+  facility: ['facility', 'facilityName', 'facility-name', 'school', 'schoolName', 'school-name', 'campus'],
+};
+const IST_NATIVE_FIELD_ATTRIBUTES = [
+  'itemprop',
+  'data-careersite-propertyid',
+  'data-field',
+  'data-job-field',
+  'data-job-property',
+  'data-field-name',
+];
+const IST_NATIVE_FILLED_MESSAGE_RE = /^sorry,\s*this\s+position\s+has\s+been\s+filled\.?$/i;
 
 function hasVerifiedIstRoleTenantSignal(detail = {}) {
   return IST_ROLE_TENANT_SIGNAL_RE.test(normalizeSpace(detail.description));
 }
+
+function normalizeIstFieldMarker(value = '') {
+  return normalize(value).replace(/[^a-z0-9]+/g, '');
+}
+
+const IST_ACTIVE_DETAIL_FIELD_MARKERS = new Set(
+  Object.values(IST_NATIVE_FIELD_ALIASES)
+    .flat()
+    .map(normalizeIstFieldMarker),
+);
 
 function slugify(text = '', suffix = '') {
   let s = text
@@ -170,6 +275,165 @@ function isLegacyIstJob(job) {
   return isIstJob(job) || String(job?.url || '').toLowerCase().includes(IST_COMPANY_HOST);
 }
 
+/**
+ * Parse the portal's native School Name and location facets. The endpoint is
+ * a complete active-facility/location map (`mincount=1`, limit 5000) only when
+ * the response explicitly proves completeness and has not selected a later
+ * page/offset, hit the facet cap, or reported truncation. The request shape
+ * alone does not prove that the endpoint returned every facet row.
+ */
+function readIstFacetNumber(payload, keys) {
+  for (const key of keys) {
+    const value = payload?.[key];
+    if (value === undefined || value === null || value === '') continue;
+    const number = Number(value);
+    return Number.isFinite(number) ? number : Number.NaN;
+  }
+  return null;
+}
+
+function hasIstFacetTruncationSignal(payload) {
+  return [
+    'truncated',
+    'isTruncated',
+    'partial',
+    'hasMore',
+    'has_more',
+  ].some((key) => {
+    const value = payload?.[key];
+    return value === true || value === 1 || value === 'true' || value === '1';
+  });
+}
+
+function parseIstFacetCoverage(payload, facetRows) {
+  const page = readIstFacetNumber(payload, ['page', 'pageNumber']);
+  const startrow = readIstFacetNumber(payload, ['startrow', 'startRow', 'start', 'offset']);
+  const total = readIstFacetNumber(payload, ['total', 'totalCount', 'totalRecords', 'recordCount']);
+  const limit = readIstFacetNumber(payload, ['limit', 'pageSize', 'pageLimit'])
+    ?? IST_FACET_LIMIT;
+  const pageIsInitial = page === null || (Number.isInteger(page) && page === 0);
+  const startIsInitial = startrow === null || (Number.isInteger(startrow) && startrow === 0);
+  const totalIsValid = total === null || (Number.isInteger(total) && total >= 0);
+  const limitIsValid = Number.isInteger(limit) && limit > 0;
+  const facetRowsBelowLimit = limitIsValid && facetRows.every((rows) => rows.length < limit);
+
+  return {
+    coverageComplete: payload?.complete === true
+      && pageIsInitial
+      && startIsInitial
+      && totalIsValid
+      && facetRowsBelowLimit
+      && !hasIstFacetTruncationSignal(payload),
+    page,
+    startrow,
+    total,
+    facetLimit: limit,
+  };
+}
+
+export function parseIstFacilityFacetResponse(payload = {}) {
+  const facilityRows = payload?.facets?.map?.facility;
+  const locationRows = payload?.facets?.map?.location;
+  const facilityCount = Array.isArray(facilityRows) ? facilityRows.length : 0;
+  const locationCount = Array.isArray(locationRows) ? locationRows.length : 0;
+  const base = {
+    facilityCount,
+    locationCount,
+    activeListingCount: 0,
+    hasIstFacility: false,
+    hasTicinoLocation: false,
+  };
+  if (facilityCount === 0 || locationCount === 0) {
+    return {
+      complete: false,
+      ...base,
+    };
+  }
+
+  const normalizedFacilityRows = facilityRows.map((row) => ({
+    name: normalizeSpace(row?.name),
+    count: Number(row?.count),
+  }));
+  const normalizedLocationRows = locationRows.map((row) => ({
+    name: normalizeSpace(row?.name),
+    count: Number(row?.count),
+  }));
+  const rowsAreComplete = (rows) => rows.every(({ name, count }) => (
+    name && Number.isInteger(count) && count > 0
+  ));
+  if (!rowsAreComplete(normalizedFacilityRows) || !rowsAreComplete(normalizedLocationRows)) {
+    return {
+      complete: false,
+      ...base,
+    };
+  }
+
+  const coverage = parseIstFacetCoverage(payload, [facilityRows, locationRows]);
+
+  return {
+    complete: coverage.coverageComplete,
+    ...base,
+    activeListingCount: normalizedFacilityRows.reduce((sum, row) => sum + row.count, 0),
+    hasIstFacility: normalizedFacilityRows.some(({ name }) => (
+      IST_FACILITY_SIGNAL_RE.test(normalizeFacilityName(name))
+    )),
+    hasTicinoLocation: normalizedLocationRows.some(({ name }) => (
+      isCantonRelevant(name, 'TI', { includeBorderProximity: false })
+    )),
+    page: coverage.page,
+    startrow: coverage.startrow,
+    total: coverage.total,
+    facetLimit: coverage.facetLimit,
+  };
+}
+
+/**
+ * Stamp only the native-facet proof. A missing/partial facet or an IST/Ticino
+ * row returns null so the caller must continue with the detail walk.
+ */
+export function markIstFacilityFacetEmptySnapshot(payload = {}) {
+  const parsed = parseIstFacilityFacetResponse(payload);
+  if (!parsed.complete || parsed.hasIstFacility || parsed.hasTicinoLocation) return null;
+  return markAuthoritativeEmptySnapshot(
+    [],
+    `Inspired Education native School Name facet is complete (${parsed.facilityCount} active facilities, `
+      + `${parsed.locationCount} active locations, ${parsed.activeListingCount} listings) with no `
+      + `${IST_COMPANY_NAME} entry or Ticino location signal`,
+  );
+}
+
+/**
+ * A sitemap path can be positive IST evidence before any detail page is read.
+ * Tokenize each path segment so `international-school-of-ticino` and
+ * `Lugano-Teacher` match without treating a substring such as `list` as `ist`.
+ */
+export function hasIstSitemapPositiveHint(jobUrls = []) {
+  return (Array.isArray(jobUrls) ? jobUrls : []).some((rawUrl) => {
+    let pathname;
+    try {
+      pathname = new URL(String(rawUrl)).pathname;
+    } catch {
+      return false;
+    }
+
+    return pathname.split('/').filter(Boolean).some((segment) => {
+      let decodedSegment;
+      try {
+        decodedSegment = decodeURIComponent(segment);
+      } catch {
+        decodedSegment = segment;
+      }
+      const tokens = decodedSegment
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .split(/[^a-z0-9]+/)
+        .filter(Boolean);
+      return tokens.some((token) => IST_SITEMAP_HINT_TOKENS.has(token));
+    });
+  });
+}
+
 export function isIstDetailJob(detail = {}) {
   const detailIdentityValues = [
     detail.hiringOrganization,
@@ -218,30 +482,100 @@ function isTrustedDomain(rawUrl = '') {
 
 /* ── HTML fetching ─────────────────────────────────────────── */
 
-async function fetchHtml(url) {
+function createIstRedirectTrackingFetch(redirectTrace) {
+  return async (requestUrl, requestOptions = {}) => {
+    let currentUrl = requestUrl;
+    for (let hop = 0; hop <= 5; hop += 1) {
+      const response = await fetch(currentUrl, {
+        ...requestOptions,
+        redirect: 'manual',
+      });
+      if (!IST_DETAIL_REDIRECT_STATUSES.has(response.status)) return response;
+
+      const location = response.headers.get('location');
+      let target = null;
+      if (location) {
+        try {
+          target = new URL(location, currentUrl).toString();
+        } catch {
+          target = null;
+        }
+      }
+      redirectTrace.push({ status: response.status, from: currentUrl, to: target });
+      await response.arrayBuffer().catch(() => {});
+      if (!target) return response;
+      currentUrl = target;
+    }
+    throw new Error(`Too many redirects (>5) fetching ${requestUrl}`);
+  };
+}
+
+async function fetchHtml(url, { redirectTrace = null } = {}) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+    return await fetchHtmlShared(url, {
+      timeoutMs,
       headers: {
         Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'en,it-CH;q=0.9',
         'User-Agent': UA,
       },
+      ...(Array.isArray(redirectTrace)
+        ? { fetchImpl: createIstRedirectTrackingFetch(redirectTrace) }
+        : {}),
     });
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return null;
-    }
-    return await res.text();
   } catch (err) {
-    console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
-    return null;
-  } finally {
-    clearTimeout(timer);
+    if (WAF_IP_BLOCK_STATUS.has(err?.status)) {
+      SUMMARY_COUNTS.lastFetchOutcome = 'anti_bot_block';
+    } else if (err?.retryExhausted === true || err?.response?.retryBudgetExhausted === true) {
+      SUMMARY_COUNTS.lastFetchOutcome = 'exhausted_retry';
+    } else if (isConnectionLevelFetchError(err)) {
+      SUMMARY_COUNTS.lastFetchOutcome = 'connection_error';
+    } else if (Number.isFinite(err?.status)) {
+      SUMMARY_COUNTS.lastFetchOutcome = 'feed_endpoint_unavailable';
+    }
+    throw err;
   }
+}
+
+/**
+ * Parse the flat sitemap contract used by the Inspired portal.
+ *
+ * A reachable but non-sitemap response, or a sitemap with URL entries whose
+ * links no longer match the known `/job/` shape, is parser drift — never a
+ * legitimate empty source. Only an empty `<urlset>` is authoritative zero.
+ */
+export function parseIstSitemapJobUrls(xml = '') {
+  const source = String(xml || '');
+  if (!/<urlset\b/i.test(source)) {
+    const error = new Error('IST sitemap response is not a flat <urlset> document');
+    error.fetchOutcome = 'selector_miss';
+    error.abortKind = 'no-jobs-parsed';
+    throw error;
+  }
+
+  const locPattern = /<loc>\s*(https?:\/\/[^<]*\/job\/[^<]+?)\s*<\/loc>/gi;
+  const allJobUrls = [];
+  let match;
+  while ((match = locPattern.exec(source)) !== null) {
+    // The live XML sitemap escapes ampersands and apostrophes in slugs
+    // (`&amp;`, `&apos;`). Decode the URL text before the detail fetch; the
+    // escaped entities are XML markup, not part of the source URL path.
+    allJobUrls.push(decodeEntities(match[1].trim()));
+  }
+
+  const sitemapUrlCount = (source.match(/<url(?:\s|>)/gi) || []).length;
+  if (sitemapUrlCount > 0 && allJobUrls.length === 0) {
+    const error = new Error('IST sitemap contains URL entries but no /job/ links');
+    error.fetchOutcome = 'selector_miss';
+    error.abortKind = 'no-jobs-parsed';
+    throw error;
+  }
+
+  return {
+    urls: [...new Set(allJobUrls)],
+    authoritativeEmptySnapshot: sitemapUrlCount === 0,
+  };
 }
 
 /**
@@ -257,102 +591,438 @@ async function discoverIstJobUrls() {
   console.log(`🔍 Reading IST job sitemap: ${IST_SITEMAP_URL}`);
 
   const xml = await fetchHtml(IST_SITEMAP_URL);
-  if (!xml) {
-    console.warn('⚠️ Could not fetch IST sitemap.xml — keeping existing data.');
-    return [];
+  let parsed;
+  try {
+    parsed = parseIstSitemapJobUrls(xml);
+  } catch (error) {
+    SUMMARY_COUNTS.lastFetchOutcome = error.fetchOutcome || SUMMARY_COUNTS.lastFetchOutcome;
+    SUMMARY_COUNTS.abortKind = error.abortKind || SUMMARY_COUNTS.abortKind;
+    throw error;
   }
 
-  const locPattern = /<loc>\s*(https?:\/\/[^<]*\/job\/[^<]+?)\s*<\/loc>/gi;
-  const allJobUrls = [];
-  let match;
-  while ((match = locPattern.exec(xml)) !== null) {
-    allJobUrls.push(match[1].trim());
-  }
-  console.log(`  🗺️  Sitemap lists ${allJobUrls.length} total job URLs`);
-
-  const urls = new Set(allJobUrls);
-  console.log(`  📋 Discovered ${urls.size} job URLs for detail-level Swiss filtering`);
-  if (urls.size === 0) {
+  SUMMARY_COUNTS.discovered = parsed.urls.length;
+  SUMMARY_COUNTS.authoritativeEmptySnapshot = parsed.authoritativeEmptySnapshot;
+  SUMMARY_COUNTS.lastFetchOutcome = 'ok';
+  console.log(`  🗺️  Sitemap lists ${parsed.urls.length} total job URLs`);
+  console.log(`  📋 Discovered ${parsed.urls.length} job URLs for detail-level Swiss filtering`);
+  if (parsed.urls.length === 0) {
     console.log('  ℹ️ No live job URLs in the portal sitemap.');
   }
-  return [...urls];
+  return parsed.urls;
+}
+
+/**
+ * Read the portal-native School Name facet before walking 325 global details.
+ * A transport/schema failure is deliberately non-authoritative: the sitemap
+ * detail walk remains the fallback and can still prove a zero independently.
+ */
+async function discoverIstFacilityEmptySnapshot(jobUrls = []) {
+  if (hasIstSitemapPositiveHint(jobUrls)) {
+    console.log('  🏫 Sitemap contains a positive IST/Ticino hint; skipping the native facet and continuing with detail-level filtering.');
+    return null;
+  }
+
+  try {
+    const payload = await fetchJsonShared(IST_FACET_URL, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'User-Agent': UA,
+      },
+      body: JSON.stringify(IST_FACET_QUERY),
+      timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000,
+    });
+    const parsed = parseIstFacilityFacetResponse(payload);
+    if (!parsed.complete) {
+      console.warn('⚠️ IST School Name facet response was incomplete; falling back to detail walk.');
+      return null;
+    }
+    if (parsed.hasIstFacility) {
+      console.log('  🏫 Native School Name facet contains IST; continuing with detail-level filtering.');
+      return null;
+    }
+    return markIstFacilityFacetEmptySnapshot(payload);
+  } catch (error) {
+    console.warn(
+      `⚠️ IST School Name facet unavailable; falling back to detail walk (${error?.message || error}).`,
+    );
+    return null;
+  }
 }
 
 /* ── Job detail parsing ────────────────────────────────────── */
 
-function extractMicrodata(html) {
-  const get = (prop) => {
-    // Try <meta itemprop="prop" content="...">
-    const metaRe = new RegExp(`itemprop="${prop}"\\s+content="([^"]*)"`, 'i');
-    const metaMatch = html.match(metaRe);
-    if (metaMatch) return metaMatch[1].trim();
+const VOID_HTML_TAGS = new Set([
+  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+  'link', 'meta', 'param', 'source', 'track', 'wbr',
+]);
 
-    // Try <span itemprop="prop">...</span>
-    const spanRe = new RegExp(`itemprop="${prop}"[^>]*>([^<]+)`, 'i');
-    const spanMatch = html.match(spanRe);
-    if (spanMatch) return spanMatch[1].trim();
+function decodeIstField(raw = '') {
+  return normalizeSpace(decodeEntities(stripHtml(String(raw || ''))));
+}
+
+function stripIstPortalTitleSuffix(raw = '') {
+  return decodeEntities(String(raw || ''))
+    .trim()
+    .replace(/\s+Job Details\s*\|\s*Inspired Education(?:\s+Group)?\s*$/iu, '')
+    .replace(/\s*\|\s*Inspired Education(?:\s+Group)?\s*$/iu, '')
+    .trim();
+}
+
+/**
+ * Build one quote/order-tolerant reader for the SuccessFactors detail HTML.
+ *
+ * The portal has emitted all of these equivalent forms over time:
+ * `itemprop="title" content="..."`, `content="..." itemprop='title'`,
+ * and `data-careersite-propertyid = "title"`. The former regexes required
+ * one exact spelling and turned a reachable detail page into a selector miss.
+ * Attribute matching stays exact by name/value; no free-text first-match is
+ * used for a job field.
+ */
+function createIstHtmlFieldReader(html) {
+  const source = String(html || '');
+  const tags = scanStartTags(source);
+
+  const matchingTags = (attribute, expected) => {
+    const wanted = String(expected || '').trim().toLowerCase();
+    return tags.filter(({ raw }) => readAttr(raw, attribute).trim().toLowerCase() === wanted);
+  };
+
+  const readHtml = (attribute, expected) => {
+    for (const tag of matchingTags(attribute, expected)) {
+      if (tag.selfClosing || VOID_HTML_TAGS.has(tag.name)) continue;
+      const inner = extractBalancedTagBlock(source.slice(tag.end), tag.name);
+      if (inner) return inner;
+    }
     return '';
   };
 
-  const getPropertyId = (propId) => {
-    const re = new RegExp(`data-careersite-propertyid="${propId}"[^>]*>([\\s\\S]*?)(?=<\\/span>|<span)`, 'i');
-    const m = html.match(re);
-    return m ? normalizeSpace(stripHtml(m[1])) : '';
+  const readText = (attribute, expected) => {
+    for (const tag of matchingTags(attribute, expected)) {
+      const content = readAttr(tag.raw, 'content');
+      if (content) return decodeEntities(normalizeSpace(content));
+      if (tag.selfClosing || VOID_HTML_TAGS.has(tag.name)) continue;
+      const value = decodeIstField(extractBalancedTagBlock(source.slice(tag.end), tag.name));
+      if (value) return value;
+    }
+    return '';
   };
 
+  const readNativeText = (field) => {
+    const aliases = new Set(
+      (IST_NATIVE_FIELD_ALIASES[field] || [field]).map(normalizeIstFieldMarker),
+    );
+    for (const tag of tags) {
+      const marker = IST_NATIVE_FIELD_ATTRIBUTES
+        .map((attribute) => readAttr(tag.raw, attribute))
+        .map(normalizeIstFieldMarker)
+        .find((value) => aliases.has(value));
+      if (!marker) continue;
+      const content = readAttr(tag.raw, 'content');
+      if (content) return decodeEntities(normalizeSpace(content));
+      if (tag.selfClosing || VOID_HTML_TAGS.has(tag.name)) continue;
+      const value = decodeIstField(extractBalancedTagBlock(source.slice(tag.end), tag.name));
+      if (value) return value;
+    }
+    return '';
+  };
+
+  const readMeta = (expected) => {
+    const wanted = String(expected || '').trim().toLowerCase();
+    for (const tag of tags) {
+      if (tag.name !== 'meta') continue;
+      const property = readAttr(tag.raw, 'property').trim().toLowerCase();
+      const name = readAttr(tag.raw, 'name').trim().toLowerCase();
+      if (property !== wanted && name !== wanted) continue;
+      const content = readAttr(tag.raw, 'content');
+      if (content) return decodeEntities(normalizeSpace(content));
+    }
+    return '';
+  };
+
+  const readFirstTagText = (tagName) => {
+    const wanted = String(tagName || '').trim().toLowerCase();
+    for (const tag of tags) {
+      if (tag.name !== wanted || tag.selfClosing || VOID_HTML_TAGS.has(tag.name)) continue;
+      const value = decodeIstField(extractBalancedTagBlock(source.slice(tag.end), tag.name));
+      if (value) return value;
+    }
+    return '';
+  };
+
+  return { readHtml, readMeta, readNativeText, readText, readFirstTagText };
+}
+
+function readJsonLdName(value) {
+  if (typeof value === 'string') return normalizeSpace(value);
+  if (!value || typeof value !== 'object') return '';
+  return normalizeSpace(value.name || value.title || '');
+}
+
+function readIstJsonLd(html = '') {
+  const scripts = String(html || '').matchAll(
+    /<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
+  );
+  for (const match of scripts) {
+    let payload;
+    try {
+      payload = JSON.parse(decodeEntities(match[1].trim()));
+    } catch {
+      continue;
+    }
+    const entries = [];
+    const collect = (value) => {
+      if (Array.isArray(value)) {
+        value.forEach(collect);
+      } else if (value && typeof value === 'object') {
+        entries.push(value);
+        if (Array.isArray(value['@graph'])) value['@graph'].forEach(collect);
+      }
+    };
+    collect(payload);
+    const jobPosting = entries.find((entry) => {
+      const types = Array.isArray(entry['@type']) ? entry['@type'] : [entry['@type']];
+      return types.some((type) => normalize(type) === 'jobposting');
+    });
+    if (!jobPosting) continue;
+
+    const jobLocations = Array.isArray(jobPosting.jobLocation)
+      ? jobPosting.jobLocation
+      : [jobPosting.jobLocation];
+    const locationRecord = jobLocations.find((value) => value && typeof value === 'object') || {};
+    const address = locationRecord.address && typeof locationRecord.address === 'object'
+      ? locationRecord.address
+      : {};
+    const location = normalizeSpace(
+      address.streetAddress
+      || [address.addressLocality, address.addressRegion, address.addressCountry]
+        .filter(Boolean)
+        .map(readJsonLdName)
+        .filter(Boolean)
+        .join(', ')
+      || readJsonLdName(locationRecord.name),
+    );
+    return {
+      title: readJsonLdName(jobPosting.title),
+      location,
+      datePosted: readJsonLdName(jobPosting.datePosted),
+      hiringOrganization: readJsonLdName(jobPosting.hiringOrganization),
+      company: readJsonLdName(jobPosting.company) || readJsonLdName(jobPosting.employer),
+      tenant: readJsonLdName(jobPosting.tenant),
+      facility: readJsonLdName(jobPosting.facility) || readJsonLdName(jobPosting.school),
+      description: typeof jobPosting.description === 'string'
+        ? decodeEntities(stripHtml(jobPosting.description))
+        : '',
+    };
+  }
+  return {};
+}
+
+export function extractIstMicrodata(html = '') {
+  const reader = createIstHtmlFieldReader(html);
+  const get = (prop) => reader.readText('itemprop', prop);
+  const getPropertyId = (propId) => reader.readText('data-careersite-propertyid', propId);
+  const getPropertyHtml = (propId) => reader.readHtml('data-careersite-propertyid', propId);
+  const getNative = (field) => reader.readNativeText(field);
+  const jsonLd = readIstJsonLd(html);
+
+  const structuredTitle = get('title') || getPropertyId('title') || getNative('title') || jsonLd.title;
+  const title = stripIstPortalTitleSuffix(
+    structuredTitle
+      || reader.readMeta('og:title')
+      || reader.readFirstTagText('title')
+      || reader.readFirstTagText('h1'),
+  );
+
+  const streetAddress = get('streetAddress');
+  const locality = get('addressLocality') || getPropertyId('city') || getNative('city');
+  const region = get('addressRegion') || getPropertyId('region') || getNative('region');
+  const country = get('addressCountry') || getPropertyId('country') || getNative('country');
+  const locationMarker = getPropertyId('location') || getNative('location');
+  const locationContainsLocality = locationMarker && locality
+    ? normalizeIstFieldMarker(locationMarker).includes(normalizeIstFieldMarker(locality))
+    : !locality || !locationMarker;
+  const composedLocation = [locality, region, country].filter(Boolean).join(', ');
+  const location = streetAddress
+    || (locationMarker && locationContainsLocality ? locationMarker : composedLocation)
+    || jsonLd.location;
+
+  const descriptionHtml = getPropertyHtml('description') || reader.readHtml('itemprop', 'description');
+  const description = descriptionHtml
+    ? decodeEntities(stripHtml(descriptionHtml))
+    : getPropertyId('description') || get('description') || getNative('description') || jsonLd.description;
+
   return {
-    title: get('title') || getPropertyId('title'),
-    location: get('streetAddress') || getPropertyId('location'),
-    datePosted: get('datePosted'),
-    hiringOrganization: get('hiringOrganization'),
-    company: get('company') || getPropertyId('company') || getPropertyId('employer'),
-    tenant: get('tenant') || getPropertyId('tenant') || getPropertyId('tenantName'),
-    facility: get('facility') || get('schoolName') || getPropertyId('facility'),
-    description: getPropertyId('description'),
+    title,
+    location,
+    datePosted: get('datePosted') || getNative('datePosted') || jsonLd.datePosted,
+    hiringOrganization: get('hiringOrganization') || getNative('hiringOrganization') || jsonLd.hiringOrganization,
+    company: get('company') || getPropertyId('company') || getPropertyId('employer') || getNative('company') || jsonLd.company,
+    tenant: get('tenant') || getPropertyId('tenant') || getPropertyId('tenantName') || getNative('tenant') || jsonLd.tenant,
+    facility: get('facility') || get('schoolName') || getPropertyId('facility') || getNative('facility') || jsonLd.facility,
+    description,
+  };
+}
+
+function hasIstActiveDetailMarkers(html = '') {
+  return scanStartTags(String(html || '')).some(({ raw }) => (
+    IST_NATIVE_FIELD_ATTRIBUTES.some((attribute) => (
+      IST_ACTIVE_DETAIL_FIELD_MARKERS.has(normalizeIstFieldMarker(readAttr(raw, attribute)))
+    ))
+  ));
+}
+
+function hasIstClass(tag, className) {
+  return new RegExp(`(?:^|\\s)${className}(?:\\s|$)`, 'i').test(readAttr(tag.raw, 'class'));
+}
+
+function readIstNativeClassBlocks(html = '', className = '') {
+  const source = String(html || '');
+  return scanStartTags(source, 'div')
+    .filter((tag) => hasIstClass(tag, className))
+    .map((tag) => extractBalancedTagBlock(source.slice(tag.end), tag.name))
+    .filter(Boolean);
+}
+
+/**
+ * The live SuccessFactors portal renders a filled detail as:
+ * jobDisplayShell > jobDisplay > content > job > "Sorry, ... filled.".
+ * Keep this proof tied to that native container and refuse it when any active
+ * native field marker is present, so a sidebar or template text cannot certify
+ * a removed detail.
+ */
+function hasIstRemovedPageEvidence(html = '') {
+  const source = String(html || '');
+  if (hasIstActiveDetailMarkers(source)) return false;
+
+  const jobBlocks = readIstNativeClassBlocks(source, 'jobDisplayShell')
+    .flatMap((shell) => readIstNativeClassBlocks(shell, 'jobDisplay'))
+    .flatMap((display) => readIstNativeClassBlocks(display, 'content'))
+    .flatMap((content) => readIstNativeClassBlocks(content, 'job'));
+
+  return jobBlocks.some((job) => (
+    IST_NATIVE_FILLED_MESSAGE_RE.test(normalizeSpace(stripHtml(job)))
+  ));
+}
+
+function addIstRoleTenantEvidence(detail) {
+  if (!detail.tenant && !detail.tenantName && hasVerifiedIstRoleTenantSignal(detail)) {
+    detail.tenant = IST_COMPANY_NAME;
+  }
+  return detail;
+}
+
+/**
+ * Classify one detail response without guessing through a missing template.
+ * Removed entries are evidence that a sitemap URL is no longer active; every
+ * other response needs native title/location/identity evidence before it can
+ * count toward the complete detail walk.
+ */
+export function classifyIstDetailPage({
+  sourceUrl = '',
+  status = 200,
+  finalUrl = sourceUrl,
+  redirects = [],
+  html = '',
+  error = null,
+} = {}) {
+  const responseStatus = Number(error?.status ?? status);
+  if (responseStatus === 404 || responseStatus === 410) {
+    return { outcome: 'removed', evidence: `http-${responseStatus}`, sourceUrl };
+  }
+  if (error || responseStatus >= 500 || responseStatus < 200) {
+    return {
+      outcome: 'incomplete',
+      evidence: Number.isFinite(responseStatus) && responseStatus > 0
+        ? `http-${responseStatus}`
+        : 'network-error',
+      sourceUrl,
+      finalUrl,
+    };
+  }
+  if (hasIstRemovedPageEvidence(html)) {
+    return { outcome: 'removed', evidence: 'native-filled-message', sourceUrl, finalUrl };
+  }
+  if (responseStatus >= 300) {
+    return {
+      outcome: 'incomplete',
+      evidence: Number.isFinite(responseStatus) && responseStatus > 0
+        ? `http-${responseStatus}`
+        : 'network-error',
+      sourceUrl,
+      finalUrl,
+    };
+  }
+
+  const detail = addIstRoleTenantEvidence({
+    ...extractIstMicrodata(html),
+    sourceUrl,
+  });
+  if (!hasCompleteIstDetailEvidence(detail)) {
+    return {
+      outcome: 'incomplete',
+      evidence: 'unknown-template',
+      sourceUrl,
+      finalUrl,
+      detail,
+    };
+  }
+  return {
+    outcome: 'classified',
+    evidence: 'native-detail-fields',
+    sourceUrl,
+    finalUrl,
+    detail,
+    isIst: isIstDetailJob(detail),
   };
 }
 
 async function fetchJobDetail(url) {
   console.log(`  📄 Fetching: ${url.split('/').slice(-3, -1).join('/')}`);
-  const html = await fetchHtml(url);
-  if (!html) return null;
+  const redirects = [];
+  try {
+    const html = await fetchHtml(url, { redirectTrace: redirects });
+    const finalUrl = redirects.at(-1)?.to || url;
+    const result = classifyIstDetailPage({
+      sourceUrl: url,
+      status: 200,
+      finalUrl,
+      redirects,
+      html,
+    });
+    if (result.outcome !== 'classified') {
+      console.log(`  ⏭️  Skipped — ${result.evidence}`);
+      return result;
+    }
 
-  const data = extractMicrodata(html);
+    const data = result.detail;
 
-  // Extract the full description from the description block. The block is
-  // heavily nested (`<span data-careersite-propertyid="description">` wraps
-  // an inner `<span class="jobdescription">` with many nested `<p>`/`<span>`
-  // paragraphs), so a naive non-greedy `[\s\S]*?</span>` regex stops at the
-  // FIRST inner close tag and truncates to a short generic intro instead of
-  // the real job-specific content — use the shared balanced-tag walker.
-  const descLoc = locateTagByAttribute(html, 'data-careersite-propertyid="description"', { skipVoidTags: true });
-  if (descLoc) {
-    const descBlock = extractBalancedTagBlock(descLoc.rest, descLoc.tagName);
-    if (descBlock) data.description = stripHtml(descBlock);
+    // Get canonical URL if available
+    const canonicalRe = /rel="canonical"\s+href="([^"]+)"/i;
+    const canonicalMatch = html.match(canonicalRe);
+    if (canonicalMatch) {
+      data.canonicalUrl = canonicalMatch[1];
+    }
+
+    // Extract job ID from URL
+    const idMatch = url.match(/\/(\d+)\/?$/);
+    data.jobId = idMatch ? idMatch[1] : '';
+
+    data.sourceUrl = url;
+
+    return result;
+  } catch (error) {
+    const result = classifyIstDetailPage({
+      sourceUrl: url,
+      status: error?.status || 0,
+      finalUrl: redirects.at(-1)?.to || url,
+      redirects,
+      error,
+    });
+    console.log(`  ⏭️  Skipped — ${result.evidence}`);
+    return result;
   }
-
-  // Historic generic `/job/<city>-<role>/<id>/` URLs can omit the tenant
-  // marker while the detail body still contains the official hiring sentence.
-  // Promote only that exact school-specific sentence to a tenant signal; a
-  // generic mention of an international school is deliberately insufficient.
-  if (!data.tenant && !data.tenantName && hasVerifiedIstRoleTenantSignal(data)) {
-    data.tenant = IST_COMPANY_NAME;
-  }
-
-  // Get canonical URL if available
-  const canonicalRe = /rel="canonical"\s+href="([^"]+)"/i;
-  const canonicalMatch = html.match(canonicalRe);
-  if (canonicalMatch) {
-    data.canonicalUrl = canonicalMatch[1];
-  }
-
-  // Extract job ID from URL
-  const idMatch = url.match(/\/(\d+)\/?$/);
-  data.jobId = idMatch ? idMatch[1] : '';
-
-  data.sourceUrl = url;
-
-  return data;
 }
 
 /* ── Location & canton mapping ─────────────────────────────── */
@@ -370,10 +1040,20 @@ function parseLocation(locText = '') {
  * ambiguous city names that the shared location table can recognize.
  */
 export function parseCountryCode(locText = '') {
-  const parts = String(locText || '').split(',');
-  if (parts.length < 2) return '';
-  const tail = parts[parts.length - 1].trim().toUpperCase();
-  if (!/^[A-Z]{2}$/.test(tail)) return '';
+  const source = String(locText || '');
+  if (/^[A-Za-z]{2}$/.test(source.trim())) {
+    const code = source.trim().toUpperCase();
+    if (code === 'CH') return 'CH';
+    // The portal sometimes emits only a country code for a global posting.
+    // Prefer that native country evidence over a coincident canton code (GR,
+    // SG, BE, or FR) when no locality is present.
+    if (ISO_ALPHA2_COUNTRY_CODES.has(code)) return code;
+    return inferAnyCanton(code) === code ? 'CH' : '';
+  }
+  const suffixMatch = source.match(TRAILING_COUNTRY_CODE_RE);
+  if (!suffixMatch) return '';
+  const parts = source.split(',');
+  const tail = suffixMatch[1].toUpperCase();
   // Inspired's location field also uses the final component for Swiss
   // canton codes (for example, "St. Gallen, SG" and "Fribourg, FR"). A
   // matching canton is Swiss evidence, not a foreign-country code. Resolve
@@ -381,6 +1061,88 @@ export function parseCountryCode(locText = '') {
   // (for example, "Zurich, FR").
   const locality = parts.slice(0, -1).join(',').trim();
   return inferAnyCanton(locality) === tail ? 'CH' : tail;
+}
+
+/**
+ * A detail walk can prove that the global portal has no IST opening only when
+ * every fetched page is classifiable. A title alone is not enough: a missing
+ * location or tenant marker can be selector drift on an IST posting and must
+ * keep the run fail-closed.
+ */
+export function hasCompleteIstDetailEvidence(detail = {}) {
+  const location = normalizeSpace(detail.location);
+  if (!normalizeSpace(detail.title) || !location) return false;
+
+  const resolvedCanton = inferAnyCanton(location);
+  const suffixMatch = location.match(TRAILING_COUNTRY_CODE_RE);
+  const suffix = suffixMatch?.[1]?.toUpperCase() || '';
+  // `parseCountryCode` is intentionally permissive for the publication
+  // filter, but an unassigned/malformed suffix is not evidence that a detail
+  // was classified. Keep it fail-closed for the empty-source receipt. A
+  // recognized Swiss canton suffix is valid even when it is not an ISO country
+  // code (for example `Lugano, TI`).
+  if (suffix && !ISO_ALPHA2_COUNTRY_CODES.has(suffix) && suffix !== resolvedCanton) return false;
+
+  const countryCode = parseCountryCode(location);
+  const explicitlyForeign = (countryCode && countryCode !== 'CH')
+    || isLocationExplicitlyForeign(location);
+
+  const identityValues = [
+    detail.company,
+    detail.tenant,
+    detail.tenantName,
+    detail.facility,
+    detail.facilityName,
+    detail.school,
+    detail.schoolName,
+    detail.organization,
+    detail.site,
+    detail.siteName,
+    detail.hiringOrganization,
+  ]
+    .map((value) => normalize(value))
+    .filter(Boolean);
+  const hasIstTenantEvidence = isIstDetailJob(detail);
+
+  // A foreign location is not enough on its own: if tenant/identity fields
+  // disappear after a schema change, the detail must remain fail-closed.
+  // Keep the shared portal identity as evidence for the global foreign walk;
+  // Swiss rows still require a non-shared tenant below.
+  if (explicitlyForeign) return identityValues.length > 0 || hasIstTenantEvidence;
+
+  // A generic country signal such as `Switzerland` is insufficient: the
+  // detail walk must resolve the actual Swiss canton before it can certify
+  // that a page was classifiable.
+  if (!resolvedCanton || !locationFieldHasSwissSignal(location)) return false;
+  if (hasIstTenantEvidence) return true;
+
+  // `Inspired Education` is the shared portal owner, not a tenant identity.
+  // Any other populated identity field is enough to prove that a Swiss row
+  // was classified as another school rather than silently discarded.
+  return identityValues.some((value) => !IST_SHARED_PORTAL_COMPANIES.has(value));
+}
+
+/**
+ * Classify the source/detail boundary for the crawler-health receipt.
+ *
+ * A complete global detail walk with zero IST jobs is a source-backed empty
+ * snapshot. If any detail was not classifiable, keep `selector_miss` so a
+ * changed detail schema cannot be mistaken for a quiet school.
+ */
+export function classifyIstDetailWalk({ discoveredCount, parsedCount, completeDetailCount }) {
+  const validCounts = [discoveredCount, parsedCount, completeDetailCount]
+    .every((value) => Number.isInteger(value) && value >= 0);
+  if (!validCounts || completeDetailCount > discoveredCount || parsedCount > discoveredCount) {
+    return { authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' };
+  }
+  const complete = discoveredCount === 0 || completeDetailCount === discoveredCount;
+  if (!complete) {
+    return { authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' };
+  }
+  return {
+    authoritativeEmptySnapshot: parsedCount === 0 && complete,
+    lastFetchOutcome: parsedCount > 0 ? 'ok' : 'filtered_empty',
+  };
 }
 
 /* ── Job building ──────────────────────────────────────────── */
@@ -406,38 +1168,76 @@ function detectExperienceLevel(title = '') {
   return 'MID';
 }
 
-function buildDescription(title, descriptionText, location, canton) {
-  const region = getCantonDisplayName(canton, 'en') || 'Switzerland';
-  const place = location || region;
-  const base = descriptionText || `${title} position at the International School of Ticino in ${place}, Switzerland.`;
-  return `${base}\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in ${place}, IST offers a stimulating international learning environment in ${region}.`.trim();
+/**
+ * Description fields of one posting: the detail page's own text in its own
+ * language. The runner used to append an English paragraph about IST and
+ * Inspired Education to it and to write an Italian company blurb of its own
+ * into `descriptionByLocale.it` ("Posizione aperta presso la International
+ * School of Ticino a …"); neither was published by the source.
+ * Under the shared word floor (50 words) nothing is emitted: the merge keeps
+ * the stored source body, or the job is not published this run.
+ */
+export function buildIstDescriptionFields(title, descriptionText, location, canton) {
+  // Only the posting's own text over the shared word floor: nothing under it
+  // (the merge keeps the stored source body, or omits the job this run).
+  return sourceLocaleDescription(meetsSourceBodyFloor(descriptionText) ? descriptionText : '');
 }
 
-function buildDescriptionIt(title, location, canton) {
-  const region = getCantonDisplayName(canton, 'it') || 'Svizzera';
-  const place = location || region;
-  return `Posizione aperta presso la International School of Ticino a ${place}.\nRuolo: ${title}.\n\nLa International School of Ticino (IST) fa parte di Inspired Education Group, uno dei principali gruppi scolastici premium al mondo. Situata a ${place}, IST offre un ambiente di apprendimento internazionale stimolante in ${region}.`.trim();
+// Fossils of the removed builders in stored jobs (see source-locale-description.mjs).
+const IST_IT_BLURB_RE = /^Posizione aperta presso la International School of Ticino\b[\s\S]*Inspired Education Group/;
+const IST_APPENDED_BLURB_RE = /The International School of Ticino \(IST\) is part of the Inspired Education Group/;
+
+/** Remove the fabricated text of the former builders from a stored job. */
+export function dropIstFabricatedText(job) {
+  const it = dropFabricatedLocaleText(job, 'it', IST_IT_BLURB_RE);
+  const derived = dropTranslationsOfFabricatedSource(job, IST_APPENDED_BLURB_RE);
+  return it || derived;
 }
 
 /* ── Fetch and build all IST jobs ──────────────────────────── */
 
-async function fetchIstJobs() {
+export async function fetchIstJobs() {
   console.log(`🏫 Fetching International School of Ticino jobs`);
   console.log(`   Portal: ${IST_COMPANY_HOST}\n`);
 
   const jobUrls = await discoverIstJobUrls();
   if (jobUrls.length === 0) {
     console.warn('⚠️ No IST job URLs discovered.');
+    SUMMARY_COUNTS.parsed = 0;
+    if (SUMMARY_COUNTS.authoritativeEmptySnapshot) {
+      return markAuthoritativeEmptySnapshot(
+        [],
+        'IST sitemap response was a valid empty <urlset> with no job entries',
+      );
+    }
     return [];
   }
 
+  const nativeEmptySnapshot = await discoverIstFacilityEmptySnapshot(jobUrls);
+  if (nativeEmptySnapshot) {
+    SUMMARY_COUNTS.parsed = 0;
+    SUMMARY_COUNTS.lastFetchOutcome = 'filtered_empty';
+    SUMMARY_COUNTS.authoritativeEmptySnapshot = true;
+    console.log(`  ✅ ${nativeEmptySnapshot.authoritativeEmptyEvidence}.`);
+    return nativeEmptySnapshot;
+  }
+
   const jobs = [];
+  let titledDetails = 0;
+  let completeDetailCount = 0;
   for (const url of jobUrls) {
-    const detail = await fetchJobDetail(url);
-    if (!detail || !detail.title) {
-      console.log(`  ⏭️  Skipped — no title extracted`);
+    const detailResult = await fetchJobDetail(url);
+    if (detailResult?.outcome === 'removed') {
+      completeDetailCount++;
       continue;
     }
+    if (detailResult?.outcome !== 'classified') {
+      console.log(`  ⏭️  Skipped — detail walk evidence incomplete`);
+      continue;
+    }
+    const detail = detailResult.detail;
+    titledDetails++;
+    completeDetailCount++;
 
     if (!isIstDetailJob(detail)) {
       console.log(`  ⏭️  Skipped — detail belongs to another Inspired tenant: ${detail.title}`);
@@ -473,8 +1273,7 @@ async function fetchIstJobs() {
     }
     const publicUrl = detail.canonicalUrl || url;
 
-    const descEn = buildDescription(title, detail.description, city, canton);
-    const descIt = buildDescriptionIt(title, city, canton);
+    const { description, descriptionByLocale, sourceLang } = buildIstDescriptionFields(title, detail.description, city, canton);
 
     const slug = slugify(title, 'ist');
 
@@ -487,25 +1286,15 @@ async function fetchIstJobs() {
       location: city,
       canton,
       country: 'CH',
-      description: descEn,
-      descriptionByLocale: {
-        en: descEn,
-        it: descIt,
-      },
-      titleByLocale: {
-        en: title,
-      },
+      description,
+      descriptionByLocale,
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
-      slugByLocale: {
-        en: slug,
-        it: slugify(title, 'ist'),
-      },
       category: detectCategory(title),
-      datePosted: detail.datePosted
-        ? new Date(detail.datePosted).toISOString().split('T')[0]
-        : new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(sourcePostingDateFields(detail.datePosted)),
       source: 'ist-inspirededu-crawler',
-      sourceLang: detectLang(descEn || title, 'en'),
+      sourceLang,
       employmentType: 'FULL_TIME',
       experienceLevel: detectExperienceLevel(title),
       sector: 'Istruzione / Scuola internazionale',
@@ -517,7 +1306,27 @@ async function fetchIstJobs() {
     jobs.push(job);
   }
 
+  SUMMARY_COUNTS.parsed = jobs.length;
+  const detailWalk = classifyIstDetailWalk({
+    discoveredCount: jobUrls.length,
+    parsedCount: jobs.length,
+    completeDetailCount,
+  });
+  SUMMARY_COUNTS.authoritativeEmptySnapshot = detailWalk.authoritativeEmptySnapshot;
+  SUMMARY_COUNTS.lastFetchOutcome = detailWalk.lastFetchOutcome;
+  if (jobs.length === 0 && titledDetails > 0 && !detailWalk.authoritativeEmptySnapshot) {
+    console.warn(
+      `⚠️ IST detail walk was incomplete (${completeDetailCount}/${jobUrls.length} pages classifiable); `
+      + 'keeping the empty result fail-closed.',
+    );
+  }
   console.log(`\n📋 Total unique IST jobs discovered: ${jobs.length}`);
+  if (detailWalk.authoritativeEmptySnapshot) {
+    return markAuthoritativeEmptySnapshot(
+      [],
+      `complete IST detail walk classified ${completeDetailCount}/${jobUrls.length} pages with zero IST jobs`,
+    );
+  }
   return jobs;
 }
 
@@ -538,6 +1347,15 @@ async function mergeIstJobs(discoveredJobs) {
 
   const nonIstJobs = allJobs.filter((j) => !isLegacyIstJob(j));
   const existingIstJobs = allJobs.filter(isLegacyIstJob);
+  const fossils = existingIstJobs.filter((job) => dropIstFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped fabricated IST text from ${fossils} stored job(s); they will be retranslated`);
+  // Under the shared word floor the builder emits no body: keep the stored
+  // source body (fossils already dropped above), or omit the job this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingIstJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(
     existingIstJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
@@ -555,12 +1373,15 @@ async function mergeIstJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = mergePreserveLocaleData(existingIstJobs, discoveredJobs).map((job) => ({
-    ...job,
+    ...withLegacyPostingDay(job),
     company: IST_COMPANY_NAME,
     companyKey: IST_KEY,
     country: 'CH',
     source: 'ist-inspirededu-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonIstJobs, ...merged];
 
@@ -727,11 +1548,76 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: IST_KEY,
+    companyLabel: IST_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(IST_KEY, jobs, {
+      isTargetJob: isIstJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
+/**
+ * Publish a source-proven zero and retire the previous IST slice. The native
+ * facet stamp is the only path allowed to bypass the N→0 shrink guard; an
+ * unproven empty result continues through the soft-exit path below.
+ */
+async function publishAuthoritativeEmptySnapshot(beforeSnapshot, evidence) {
+  const priorJobs = readExistingCrawlerJobs(IST_KEY, DATA_JOBS).filter(isIstJob);
+  const emptyDiff = computeCrawlDiff(beforeSnapshot, new Map());
+  const archived = archiveRemovedJobsToSlice(priorJobs, IST_KEY);
+
+  writeJobsCrawlerSlice(IST_KEY, [], {
+    skipShrinkGuard: true,
+    preserveExistingSlugs: true,
+  });
+  writeJsonAtomic(DATA_JOBS, []);
+  writeJsonAtomic(PUBLIC_JOBS, []);
+  printCrawlChangeSummary(emptyDiff, 'IST');
+  writeCrawlChangeSummaryToGH(emptyDiff, 'IST');
+
+  const durationMs = getCrawlerElapsedMs();
+  writeSummaryCrawlerSlice({
+    key: IST_KEY,
+    label: 'International School of Ticino',
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: SUMMARY_COUNTS.discovered,
+    parsed: 0,
+    written: 0,
+    lastFetchOutcome: 'filtered_empty',
+    abortKind: null,
+    authoritativeEmptySnapshot: true,
+    authoritativeSnapshotVerified: true,
+    authoritativeEmptyEvidence: evidence,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: emptyDiff.removedJobs.length,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: emptyDiff.removedJobs.slice(0, 30),
+    unchangedJobs: [],
+  });
+  await assembleJobsDataset();
+  console.log(
+    `ℹ️ Persisted authoritative IST zero; archived ${archived} expired route(s).`,
+  );
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(IST_KEY, 'International School of Ticino');
+  registerCrawlerSummaryGuard(IST_KEY, 'International School of Ticino', SUMMARY_COUNTS);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  International School of Ticino — Crawler');
@@ -744,15 +1630,51 @@ async function main() {
   // Phase 1: Discover job URLs
   const discoveredJobs = await fetchIstJobs();
 
+  if (isAuthoritativeEmptySnapshot(discoveredJobs)) {
+    console.log('\n✅ IST source proves there are no active IST postings.');
+    updateAdapterConfig();
+    await publishAuthoritativeEmptySnapshot(
+      beforeSnapshot,
+      discoveredJobs.authoritativeEmptyEvidence,
+    );
+    return;
+  }
+
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No IST jobs discovered.');
     console.log('   The careers portal may have no current Swiss openings.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(IST_KEY, DATA_JOBS).filter(isIstJob),
+    );
     // Refresh adapter metadata even on the empty path so its stable discovery
     // seeds never drift back to a frozen per-job URL between live openings.
     updateAdapterConfig();
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
+    const _durationMs = getCrawlerElapsedMs();
+    writeSummaryCrawlerSlice({
+      key: IST_KEY,
+      label: 'International School of Ticino',
+      generatedAt: new Date().toISOString(),
+      total: _cdResult.total,
+      discovered: SUMMARY_COUNTS.discovered,
+      parsed: SUMMARY_COUNTS.parsed,
+      lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
+      authoritativeEmptySnapshot: SUMMARY_COUNTS.authoritativeEmptySnapshot === true,
+      written: _cdResult.total,
+      newCount: crawlDiff.newJobs.length,
+      updatedCount: crawlDiff.updatedJobs.length,
+      removedCount: crawlDiff.removedJobs.length,
+      unchangedCount: crawlDiff.unchangedCount,
+      durationMs: _durationMs,
+      avgDurationMs: _durationMs,
+      durationHistory: [_durationMs],
+      newJobs: crawlDiff.newJobs.slice(0, 30),
+      updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
+      removedJobs: crawlDiff.removedJobs.slice(0, 30),
+      unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+    });
     return;
   }
 
@@ -791,6 +1713,11 @@ async function main() {
     label: 'International School of Ticino',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: SUMMARY_COUNTS.discovered,
+    parsed: SUMMARY_COUNTS.parsed,
+    lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
+    authoritativeEmptySnapshot: false,
+    authoritativeSnapshotVerified: false,
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,
     removedCount: crawlDiff.removedJobs.length,
@@ -806,7 +1733,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isDirectRun = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (isDirectRun) {
   main().catch((err) => exitCrawlerOnError(err, 'International School of Ticino'));

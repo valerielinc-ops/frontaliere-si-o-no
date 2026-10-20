@@ -11,6 +11,7 @@
  * 6. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -226,7 +227,7 @@ export async function fetchAllListings() {
   return listings;
 }
 
-async function enrichWithDetails(listings) {
+export async function enrichWithDetails(listings) {
   const enriched = [];
   const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'AMAG');
 
@@ -263,25 +264,24 @@ async function enrichWithDetails(listings) {
       const canton = inferAmagCanton(location, region) || inferAmagCanton(item.location, '');
       if (!canton) {
         console.log(`  ⏭️ [${i + 1}/${toFetch.length}] ${item.jobId}: Skipped (not a resolvable Swiss location: ${location})`);
-        continue;
+      } else {
+        const displayLocation = location || region || canton;
+
+        enriched.push({
+          ...item,
+          title: detail.title || item.title,
+          location: displayLocation,
+          region: region || canton,
+          _canton: canton,
+          postalCode: detail.postalCode || '',
+          streetAddress: detail.streetAddress || '',
+          description: detail.description || '',
+          datePosted: detail.datePosted || '',
+          validThrough: detail.validThrough || '',
+          employmentType: detail.employmentType || '',
+        });
+        console.log(`  ✅ [${i + 1}/${toFetch.length}] ${item.jobId}: ${detail.title || item.title} — ${location}`);
       }
-
-      const displayLocation = location || region || canton;
-
-      enriched.push({
-        ...item,
-        title: detail.title || item.title,
-        location: displayLocation,
-        region: region || canton,
-        _canton: canton,
-        postalCode: detail.postalCode || '',
-        streetAddress: detail.streetAddress || '',
-        description: detail.description || '',
-        datePosted: detail.datePosted || '',
-        validThrough: detail.validThrough || '',
-        employmentType: detail.employmentType || '',
-      });
-      console.log(`  ✅ [${i + 1}/${toFetch.length}] ${item.jobId}: ${detail.title || item.title} — ${location}`);
     } catch (err) {
       const msg = String(err?.message || err);
       // 404/410 mean the job was delisted upstream while still in the listing cache.
@@ -293,7 +293,7 @@ async function enrichWithDetails(listings) {
         enriched.push({
           ...item,
           description: '',
-          datePosted: new Date().toISOString().slice(0, 10),
+          ...sourcePostingDateFields(''),
           validThrough: '',
           employmentType: 'FULL_TIME',
         });
@@ -336,7 +336,7 @@ function buildAmagJob(row) {
     sector: 'Automotive & Mobilità',
     source: 'amag-dedicated-crawler',
     sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
-    postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(row.datePosted),
     employmentType: empType,
     contractType: empType,
     validThrough: row.validThrough || '',
@@ -369,12 +369,12 @@ function mergeJobs(discoveredJobs) {
     updated += 1;
     return {
       ...prev,
+      ...mergeSourcePostingDates(prev, job),
       title: job.title || prev.title,
       description: job.description || prev.description,
       location: job.location || prev.location,
       addressLocality: job.addressLocality || prev.addressLocality,
       applyUrl: job.applyUrl || prev.applyUrl,
-      postedDate: job.postedDate || prev.postedDate,
       validThrough: job.validThrough || prev.validThrough,
       contractType: job.contractType || prev.contractType,
       employmentType: job.employmentType || prev.employmentType,
@@ -407,7 +407,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

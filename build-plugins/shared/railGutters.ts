@@ -4,9 +4,10 @@
  *   - build-plugins/htmlTemplate.ts (buildSimplePage / seoContentOutsideRoot)
  *   - build-plugins/staticPagesPlugin.ts (hubChromeSplit editorial landings)
  *
- * The static `<main>` becomes the centre column of a 3-col grid that only
- * materialises at the `xlw` (≥1400px) tier — below that the page stays a single,
- * unchanged column. The two `<aside>` elements are PORTAL TARGETS: App.tsx mounts
+ * The static `<main>` becomes the centre column of a 3-col grid from the
+ * desktop reading tier (1200px; 160px rails) and widens at `xlw` (≥1400px;
+ * 300px rails). Below that the page stays a single column. The two `<aside>`
+ * elements are PORTAL TARGETS: App.tsx mounts
  * `<ArticleRailAdStack>` into `#rail-left-root` / `#rail-right-root` on
  * staticOverlay pages (same portal mechanism as `#footer-root`), so the GPT
  * half-page rail units + Remote Config kill-switch match the article/job rails.
@@ -24,11 +25,27 @@ export interface RailGutters {
   close: string;
 }
 
+export type RailGutterVariant = 'default' | 'job-board';
+
 const RAIL_GUTTERS: RailGutters = {
   open: ` <div class="ft-rail-grid xlw:grid xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-4 xlw:mx-auto xlw:max-w-[1768px]">
  <aside id="rail-left-root" class="ft-rail-aside hidden xlw:flex xlw:flex-col" aria-hidden="true"></aside>`,
   close: `
  <aside id="rail-right-root" class="ft-rail-aside hidden xlw:flex xlw:flex-col" aria-hidden="true"></aside>
+ </div>`,
+};
+
+/**
+ * Job-board static fallbacks use the same three-tier grid as
+ * `components/shared/useRailGridCollapse.ts`. Keep the legacy
+ * `ft-rail-grid` hook as well: the handoff uses it to identify the wrapper,
+ * while the `-x` hook supplies the 180/300px tiers used by the SPA.
+ */
+const JOB_BOARD_RAIL_GUTTERS: RailGutters = {
+  open: ` <div class="ft-rail-grid ft-rail-grid-x job-board-static-rail-shell xl:grid xl:max-xlw:grid-cols-[var(--ft-rail-w-m-l,180px)_minmax(0,1fr)_var(--ft-rail-w-m-r,180px)] xl:gap-4 xlw:grid-cols-[var(--ft-rail-w-l,300px)_minmax(0,1fr)_var(--ft-rail-w-r,300px)]">
+ <aside id="rail-left-root" class="ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col" aria-hidden="true"></aside>`,
+  close: `
+ <aside id="rail-right-root" class="ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col" aria-hidden="true"></aside>
  </div>`,
 };
 
@@ -41,6 +58,7 @@ const EMPTY_GUTTERS: RailGutters = { open: '', close: '' };
  *   no-ad pages (`disableAutoAds`) opt out by passing `false`; mirrors the
  *   `seoContentOutsideRoot && !disableAutoAds` gate in htmlTemplate.ts.
  */
-export function railGutters(enabled: boolean): RailGutters {
-  return enabled ? RAIL_GUTTERS : EMPTY_GUTTERS;
+export function railGutters(enabled: boolean, variant: RailGutterVariant = 'default'): RailGutters {
+  if (!enabled) return EMPTY_GUTTERS;
+  return variant === 'job-board' ? JOB_BOARD_RAIL_GUTTERS : RAIL_GUTTERS;
 }

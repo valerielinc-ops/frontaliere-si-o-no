@@ -1,6 +1,6 @@
 name: Follow-up drainer (queue → agent:fix, no-Claude)
 
-# Drena la coda dei follow-up `agent:fix-queued` riempiendo fino a 7 slot per
+# Drena la coda dei follow-up `agent:fix-queued` riempiendo fino a 15 slot per
 # issue diverse. La chiave per-issue di `issue-fix.yml` serializza solo gli
 # eventi dello stesso numero, quindi le run distinte non si sfrattano a vicenda.
 # Rescue+park degli agent:fix orfani (run morta, nessuna PR) per terminazione
@@ -22,25 +22,35 @@ on:
     workflows: ['Issue fix (Codex Luna Max → PR)']
     types: [completed]
 
-# Il gruppo della run è il mutex repo-scoped condiviso con i writer daily:
-# nessun wake-up può leggere lo stesso bucket mentre viene appeso o sigillato.
-# cancel:false e il cron rendono recuperabile una pending sostituita durante
-# un burst.
-concurrency:
-  group: followup-daily-${{ github.repository }}
-  cancel-in-progress: false
-
 permissions:
   contents: read
   actions: read
   issues: write
+  # Lo stale-claim detector legge le PR aperte per non liberare un claim vivo.
+  pull-requests: read
 
 jobs:
   drain:
+    # Un issue-fix SKIPPED (es. label diversa da agent:fix) non libera slot né
+    # riaccoda nulla: non vale un wake-up.
     if: >-
-      github.event_name != 'issues' ||
-      github.event.label.name == 'agent:fix-queued' ||
-      github.event.label.name == 'agent:decompose-queued'
+      (github.event_name != 'issues' ||
+       github.event.label.name == 'agent:fix-queued' ||
+       github.event.label.name == 'agent:decompose-queued') &&
+      (github.event_name != 'workflow_run' ||
+       github.event.workflow_run.conclusion != 'skipped')
+    # Il gruppo è il mutex repo-scoped condiviso con i writer daily
+    # (post-merge-followup.yml, followup-reconcile.yml, a livello di workflow):
+    # nessun wake-up può leggere lo stesso bucket mentre viene appeso o sigillato.
+    # Sta sul JOB, non sulla run: un job saltato dal suo `if:` non entra nel
+    # gruppo. A livello di run ogni `issues: labeled` irrilevante e ogni
+    # `workflow_run` di un issue-fix skipped entrava nel gruppo e sostituiva la
+    # pending utile, per poi essere skippato (misurato: 708 run cancellate
+    # contro 173 riuscite in 31h). cancel:false e il cron rendono recuperabile
+    # una pending sostituita durante un burst.
+    concurrency:
+      group: followup-daily-${{ github.repository }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     # NON alzare questo cap. Il drain gira in ~5s: i due timeout visti finora
     # erano il setup, non il lavoro — il #5162 era il Checkout, il #7309 era
@@ -81,7 +91,7 @@ jobs:
       # questo no.
       - name: Checkout
         timeout-minutes: 5
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -108,7 +118,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -148,6 +158,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
+        id: load_rc_env
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
@@ -169,7 +180,7 @@ jobs:
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
       # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT. Scatta solo se né App né PAT.
       - name: Alert token-down (dedup, zero-Claude)
-        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        if: always() && steps.load_rc_env.outcome != 'skipped' && env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -195,6 +206,36 @@ jobs:
           PUSH_TOKEN: ${{ env.APP_TOKEN }}
         run: node scripts/ci/probe-workflow-scope.mjs
 
+      # Rilascia i claim morti PRIMA di promuovere. Il detector girava solo nello
+      # sweep di issue-triage (cron ogni 4h, in pratica 4-6h), e il rilascio è un
+      # `unlabeled` che non sveglia questo workflow: una issue liberata aspettava
+      # il cron successivo del drainer, anch'esso diradato da GitHub. Con tutta la
+      # coda reclamata nessun issue-fix finisce, quindi nessun `workflow_run`
+      # riaccende il drainer (misurato il 2026-09-25: zero fixer 01:00→04:47 con
+      # 32 issue in coda, 26 sotto `agent:local`). Qui ogni drain libera e
+      # promuove nello stesso run. Best-effort: il detector esce 0 anche su errori
+      # di lettura e non tocca i claim che non sa giudicare.
+      - name: Release stale claims (zero-Claude)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/stale-claim-detector.mjs
+
+      # Chiude gli hand-off di conflitto di pr-autorebase il cui lavoro e' gia'
+      # fatto (PR di origine mergiata o di nuovo mergeable, riapplicazione
+      # mergiata, duplicati) PRIMA che il drain li promuova. Senza, l'unica
+      # chiusura era il `Closes` della riapplicazione: il 2026-10-01 5 hand-off
+      # aperti su 8 avevano la PR di origine gia' mergiata. GITHUB_TOKEN basta:
+      # chiudere una issue non deve avviare nessun workflow. Best-effort come lo
+      # step sopra: esce 0 e non tocca cio' che non sa leggere.
+      - name: Reconcile conflict hand-offs (zero-Claude)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/reconcile-conflict-handoffs.mjs
+
       - name: Drain follow-up queue (deterministic, no Claude)
         env:
           # App (o PAT) OBBLIGATORIO: il `labeled` agent:fix deve triggerare
@@ -202,13 +243,12 @@ jobs:
           # l'App slug è allowlistato in #2881). Senza token → exit warning (inerte).
           GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          # Sette issue diverse in parallelo: il workflow issue-fix è per-issue
+          # Quindici issue diverse in parallelo: il workflow issue-fix è per-issue
           # e il cap resta bounded; claim e quota Codex evitano collisioni con
           # la flotta locale. Il default del modulo resta 5 per run manuali.
-          FOLLOWUP_MAX_INFLIGHT_FIX: '7'
-          # Ledger append-only condiviso con issue-fix e con l'adapter dei due
-          # PR fixer; lease scaduti non bloccano il tick successivo.
-          QUOTA_FLOOR_LEDGER_ISSUE: '8306'
+          FOLLOWUP_MAX_INFLIGHT_FIX: '15'
+          # Ledger condiviso con issue-fix e con l'adapter dei due PR fixer;
+          # lease scaduti non bloccano il tick successivo.
           QUOTA_FLOOR_LEASE_TTL_SEC: '21600'
           # Fairness di quota (2026-08-21): la quota Claude è condivisa coi run
           # del corpus, e il beacon peer è a senso unico (il corpus cede al

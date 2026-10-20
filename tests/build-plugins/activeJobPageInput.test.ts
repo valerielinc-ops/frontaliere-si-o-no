@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   buildActiveJobPageInput,
+  buildActiveJobPageReuseInput,
+  activePageHreflangDigest,
   canonicalizeInput,
   computeInputHash,
   relatedArticlesFeedDigest,
@@ -27,6 +29,14 @@ const feedHtml = (firstSlug: string, firstTitle: string) => (
 
 const YESTERDAY_FEED = feedHtml('bollettino-frontaliere-2026-09-19', 'Bollettino Frontaliere 2026-09-19');
 const TODAY_FEED = feedHtml('bollettino-frontaliere-2026-09-20', 'Bollettino Frontaliere 2026-09-20');
+const HREFLANG_A = '<link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/cerca-lavoro-argovia/social-worker/">';
+const HREFLANG_B = '<link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/cerca-lavoro-argovia/social-worker-v2/">';
+const EMPLOYER_HUB_A = '/aziende/psychiatrische-dienste-aargau/';
+const EMPLOYER_HUB_B = '/aziende/psychiatrische-dienste-aargau-v2/';
+type ActiveInputOptions = {
+  hreflangHtml?: string;
+  employerHubPath?: string;
+};
 
 const JOB = Object.freeze({
   id: 'job-42',
@@ -37,7 +47,10 @@ const JOB = Object.freeze({
   canton: 'AG',
 });
 
-const activeInput = (relatedArticlesHtml: string) => buildActiveJobPageInput({
+const activeInput = (
+  relatedArticlesHtml: string,
+  { hreflangHtml = HREFLANG_A, employerHubPath = EMPLOYER_HUB_A }: ActiveInputOptions = {},
+) => buildActiveJobPageInput({
   job: JOB,
   locale: 'it',
   slug: JOB.slug,
@@ -46,11 +59,13 @@ const activeInput = (relatedArticlesHtml: string) => buildActiveJobPageInput({
   canton: 'AG',
   canonicalUrl: `https://frontaliereticino.ch/cerca-lavoro-argovia/${JOB.slug}/`,
   relatedArticlesHtml,
+  hreflangHtml,
+  employerHubPath,
   renderDateBucket: '2026-09-20',
 });
 
-const activeHash = (relatedArticlesHtml: string) => computeInputHash(
-  activeInput(relatedArticlesHtml),
+const activeHash = (relatedArticlesHtml: string, options?: ActiveInputOptions) => computeInputHash(
+  activeInput(relatedArticlesHtml, options),
   'active-job',
 );
 
@@ -70,6 +85,43 @@ describe('active job page input carries the related-articles feed', () => {
     expect(activeHash(YESTERDAY_FEED)).toBe(
       activeHash(feedHtml('bollettino-frontaliere-2026-09-19', 'Bollettino Frontaliere 2026-09-19')),
     );
+  });
+
+  it('keeps the reuse key stable across feed and build-day changes', () => {
+    const yesterday = activeInput(YESTERDAY_FEED);
+    const today = activeInput(TODAY_FEED);
+    const yesterdayReuse = buildActiveJobPageReuseInput(yesterday);
+    const todayReuse = buildActiveJobPageReuseInput({
+      ...today,
+      renderDateBucket: '2026-09-21',
+    });
+
+    expect(computeInputHash(yesterday, 'active-job')).not.toBe(
+      computeInputHash(today, 'active-job'),
+    );
+    expect(yesterdayReuse).not.toHaveProperty('relatedArticlesDigest');
+    expect(yesterdayReuse).not.toHaveProperty('renderDateBucket');
+    expect(yesterdayReuse).toEqual(todayReuse);
+    expect(computeInputHash(yesterdayReuse, 'active-job')).toBe(
+      computeInputHash(todayReuse, 'active-job'),
+    );
+  });
+
+  it('keys active reuse on emitted hreflang and employer-profile links', () => {
+    expect(activeHash(YESTERDAY_FEED)).not.toBe(
+      activeHash(YESTERDAY_FEED, { hreflangHtml: HREFLANG_B }),
+    );
+    expect(activeHash(YESTERDAY_FEED)).not.toBe(
+      activeHash(YESTERDAY_FEED, { employerHubPath: EMPLOYER_HUB_B }),
+    );
+
+    const input = activeInput(YESTERDAY_FEED);
+    expect(input.hreflangDigest).toBe(activePageHreflangDigest(HREFLANG_A));
+    expect(input.employerHubPath).toBe(EMPLOYER_HUB_A);
+    expect(buildActiveJobPageReuseInput(input)).toMatchObject({
+      hreflangDigest: input.hreflangDigest,
+      employerHubPath: EMPLOYER_HUB_A,
+    });
   });
 
   it('stores a short digest, never the feed itself', () => {
@@ -99,20 +151,24 @@ describe('jobsSeoPagesPlugin wires the feed the renderer actually emits', () => 
   const source = fs.readFileSync(JOBS_SEO_PLUGIN, 'utf8');
 
   it('feeds the active page input with the memoized rendered block', () => {
-    expect(source).toContain('relatedArticlesHtml: recentArticlesHtmlFor(locale),');
+    expect(source).toContain('const recentArticlesHtml = recentArticlesHtmlFor(locale);');
+    expect(source).toContain('relatedArticlesHtml: recentArticlesHtml,');
+    expect(source).toContain('hreflangHtml,');
+    expect(source).toContain('employerHubPath,');
+    expect(source).toContain('buildActiveJobPageReuseInput(activeJobManifestInput)');
     expect(source).toContain('buildActiveJobPageInput({');
   });
 
   it('does not widen the other reuse blocks with a feed they never render', () => {
-    // `recentArticlesHtmlFor` has exactly two call sites: the active template
-    // and the active page input. The expired-soft-landing, previous-slug-legacy
+    // `recentArticlesHtmlFor` has exactly one call site: the active page loop.
+    // The expired-soft-landing, previous-slug-legacy
     // and cross-locale-reconciliation templates never render the block, so
     // adding the digest to their inputs would cost reuse for nothing.
     const callSites = source
       .split('\n')
       .filter((line) => !/^\s*(\/\/|\*)/.test(line))
       .filter((line) => line.includes('recentArticlesHtmlFor(locale)'));
-    expect(callSites).toHaveLength(2);
+    expect(callSites).toHaveLength(1);
     expect(source.match(/relatedArticlesHtml:/g) || []).toHaveLength(1);
   });
 });

@@ -4,7 +4,11 @@ name: Lessons harvester (auto-improve agent docs)
 # blocked-outcomes (deterministic, zero Codex), drop anything already in the
 # doc-contracts, and — only when a GENUINELY NEW recurring pattern survives —
 # spend ONE Codex Luna Max turn to draft a surgical rule addition and open a docs PR.
-# Human-gated: the PR is never auto-merged (instructions are high-leverage).
+# Gate = lo stesso di ogni PR (DECISIONS.md): `tests` verde, `## LGTM` del
+# reviewer sulla stessa HEAD, poi auto-merge nativo. Nessun gate umano: le 6
+# proposte del harvester nei due repo sono state auto-mergiate in 4-26 minuti.
+# Ogni decisione sui cluster finisce in scripts/ci/lessons-harvester-registry.json
+# e l'esito della proposta in lessons-harvester-outcome.txt, verificato sotto.
 # Contract: ISSUES.md → "Auto-improvement loop (lessons-harvester)".
 
 on:
@@ -35,12 +39,25 @@ jobs:
   harvest:
     runs-on: ubuntu-latest
     # 12→18 (2026-07-17): headroom per il cap turni alzato 20→30.
-    timeout-minutes: 18
+    # 18→32 (2026-09-27): da #10104 l'harvester legge la finestra INTERA
+    # (1239 PR, 667 fix-issue invece di 40/120) e l'aggregazione dura ~5,5 min
+    # invece di ~1,2; con 5 cluster NOVEL la proposta Codex ha superato i 12
+    # min dello step (run 36334623872, cancellata al cap del job). Il gemello
+    # del corpus, 1 cluster, chiude la proposta in ~6,5 min.
+    # 32→36 (2026-09-27, stesso giorno): watchdog Codex esplicito a 20 min
+    # (sotto) + install di typescript; vedi il conto sullo step Codex.
+    timeout-minutes: 36
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
-          fetch-depth: 1
+          # Storia completa: la proposta Codex pusha un branch, e da un clone
+          # shallow il push via bridge muore (`Failed to traverse parents of
+          # commit`, `remote end hung up`) e il sibling pre-push non trova la
+          # merge-base (run 36339448967: 7 tentativi di push, 0 PR). Niente
+          # `filter:` esplicito: in actions/checkout sovrascrive lo
+          # sparse-checkout sotto, che imposta gia' da solo `blob:none`.
+          fetch-depth: 0
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -67,7 +84,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -81,8 +98,8 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
-      # One pending proposal at a time: if a harvest PR is already open and
-      # awaiting human review, don't pile up a duplicate every day.
+      # One pending proposal at a time: if a harvest PR is already open (still
+      # in review/auto-merge), don't pile up a duplicate every day.
       - name: Guard — existing open proposal
         id: guard
         env:
@@ -90,6 +107,8 @@ jobs:
         run: |
           OPEN=$(gh pr list --state open --search 'head:lessons/auto-harvest' --json number --jq 'length')
           echo "open_proposals=$OPEN" >> "$GITHUB_OUTPUT"
+          # Istante di partenza: la verifica dell'esito conta solo le PR nate dopo.
+          echo "started_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
           if [ "$OPEN" != "0" ]; then
             echo "A harvest proposal PR is already open — skipping today's run."
           fi
@@ -102,7 +121,10 @@ jobs:
           WINDOW_DAYS: ${{ github.event.inputs.window_days || '14' }}
           THRESHOLD: ${{ github.event.inputs.threshold || '3' }}
           HARVEST_OUT: harvest-clusters.json
-          FOLLOWUP_NO_AUTOCLOSE: '1'
+          # Niente FOLLOWUP_NO_AUTOCLOSE qui: il self-heal chiude un'escalation solo
+          # senza pin/claim, con la finestra letta per intero e il bucket misurato
+          # sotto soglia dopo il cutoff (selfHealDecision). Il kill switch resta
+          # nello script per un'emergenza.
           # Escalation issues are filed deterministically BY THIS SCRIPT (canonical
           # title + code-level dedup) — no Claude turn, no LLM title drift.
           HARVEST_EMIT_ESCALATIONS: 'true'
@@ -117,6 +139,30 @@ jobs:
           ln -sf "$GITHUB_WORKSPACE/scripts/gh-pr-body-check.mjs" "$gate_dir/gh"
           echo "$gate_dir" >> "$GITHUB_PATH"
           echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
+
+      # Il bridge Git della lane Codex esegue host-side il sibling pre-push
+      # (`scripts/ci/check-sibling-patterns.mjs`), che importa `typescript` da
+      # `scripts/ci/lib/sibling-ast-graph.mjs`. Questo job non fa `npm ci`
+      # (non serve all'aggregazione), quindi il push moriva con
+      # ERR_MODULE_NOT_FOUND (run 36339448967). Si installa SOLO typescript,
+      # alla versione del lockfile, fuori dal workspace, e lo si espone con un
+      # package in node_modules/ (gitignorato): il sandbox Codex puo' leggere il
+      # workspace ma non seguire un symlink verso RUNNER_TEMP. E' l'unico
+      # pacchetto non-builtin del grafo dei gate (check-sibling-patterns,
+      # sibling-check-gate, gh-pr-body-check, pr-body-check-gate).
+      - name: Provide sibling-checker dependency (typescript only)
+        if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
+        run: |
+          set -euo pipefail
+          ts_version=$(node -p "require('./package-lock.json').packages['node_modules/typescript'].version")
+          deps_dir="$RUNNER_TEMP/sibling-deps"
+          mkdir -p "$deps_dir"
+          npm install --prefix "$deps_dir" --no-audit --no-fund --ignore-scripts "typescript@$ts_version"
+          mkdir -p node_modules
+          rm -rf -- node_modules/typescript
+          cp -a -- "$deps_dir/node_modules/typescript" node_modules/typescript
+          test ! -L node_modules/typescript
+          node --input-type=module -e "import ts from 'typescript'; console.log('typescript', ts.version)"
 
       - name: Pre-flight — Codex lane quota telemetry
         id: quota
@@ -135,7 +181,11 @@ jobs:
         # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
         # 12min = cap del job meno il setup pre-Codex misurato (~105s
         # sulle ultime run) e una coda per gli step `if: always()`.
-        timeout-minutes: 12
+        # 12→22 (2026-09-27): stessa regola, setup pre-Codex ora ~6 min
+        # (finestra intera, run 36334623872): 32 − 6 − coda ≈ 22.
+        # 22→24: deve stare sopra `exec_timeout_minutes` (20) + setup
+        # dell'action. 36 − ~7 min pre-Codex − coda ≈ 24.
+        timeout-minutes: 24
         # Escalations are auto-filed by the harvest step above → Codex is spent
         # ONLY when a genuinely-new (novel) recurring pattern needs a doc rule.
         if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
@@ -149,6 +199,11 @@ jobs:
           # host-side per push/PR usa solo App/PAT e fallisce chiuso se vuoto.
           github_token: ${{ secrets.GITHUB_TOKEN }}
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # Watchdog interno di Codex: il default 15 min e' tarato sulle review.
+          # Con 5 cluster NOVEL la proposta ha chiuso a 900s (run 36336838172)
+          # e alla run 36339448967 e' morta al watchdog a 905s: 20 min, sotto
+          # il `timeout-minutes` dello step come negli altri fixer.
+          exec_timeout_minutes: "20"
           # Schedule/manual-dispatch → actor umano (owner) oggi, ma stesso
           # class-fix dei sibling: se un'automation interna dispatchasse questo
           # workflow via GITHUB_TOKEN (actor `github-actions[bot]`) o via App token
@@ -183,13 +238,15 @@ jobs:
             **Vincoli (CRITICI):**
             - CHIRURGICO: poche righe, nello stile esistente. No drive-by, no riscritture. AGENTS.md è iniettato ogni sessione → ogni riga costa token: massima densità.
             - DEDUP: se rileggendo i doc la regola è di fatto già presente (anche con parole diverse) → NON aggiungerla. Meglio zero modifiche che rumore.
-            - Se NESSUN cluster `novel` produce una regola nuova utile → **NON aprire PR**, esci. Va benissimo "niente da migliorare oggi". (Le escalation sono già gestite dallo step harvest, non da te.)
-            - Mai abbassare gate/quality. Nel ramo PR: SOLO file `.md`. Il fix strutturale di un'escalation si propone via la issue auto-creata, non si committa qui.
+            - **REGISTRO (OBBLIGATORIO):** ogni cluster `novel` che decidi va registrato in `scripts/ci/lessons-harvester-registry.json` (`entries[]`): `key` = il campo `registryKey` del cluster, `outcome` = `added` (regola scritta) o `declined` (scartato per scelta), `decidedAt` = `date -u +%Y-%m-%dT%H:%M:%SZ`, `ref` = PR/issue di riferimento, `reason` = una frase. Una voce con la stessa `key` si aggiorna, non si duplica. Senza registro l'harvester ripropone lo stesso cluster ogni giorno: un cluster registrato torna `novel` solo con ≥ soglia esempi successivi alla decisione (campo `registry` nel JSON).
+            - Anche se NESSUN cluster `novel` produce una regola utile, apri comunque la PR con le sole voci `declined` del registro: è la decisione che evita di ridecidere domani. (Le escalation sono già gestite dallo step harvest, non da te.)
+            - Mai abbassare gate/quality. Nel ramo PR: solo file `.md` e il registro `scripts/ci/lessons-harvester-registry.json`. Il fix strutturale di un'escalation si propone via la issue auto-creata, non si committa qui.
 
-            **Se (e solo se) hai ≥1 regola `novel` nuova utile → apri una PR doc:**
+            **Apri la PR doc (regole `novel` utili e/o voci di registro):**
+            **Questo container CI è GIÀ un checkout isolato monouso** (`actions/checkout@v7` fresh a ogni run). **NON creare un worktree (`git worktree add`, `.worktrees/**`, `.claude/worktrees/**`)**: la regola "worktree-first" di `AGENTS.md` vale per le sessioni interattive locali, non qui. Lavora nella root del checkout con `git checkout -b`: il bridge Git host-side pusha SOLO il branch checked-out nella root (da un worktree risponde `Git push requires a checked-out current work branch under refs/heads`), e anche il wrapper `gh pr create` va eseguito dalla root. Misurato sulla run 36336838172: proposta committata in `.worktrees/`, push rifiutato dal bridge, `gh pr create` in exit 3, 0 PR.
             1. `git config user.name "Valerie Linc"; git config user.email "valerielinc@gmail.com"`.
             2. `git checkout -b lessons/auto-harvest-$(date -u +%Y%m%d)`.
-            3. Applica gli edit `.md` (Edit/Write). Nessun path home assoluto, nessuna email personale.
+            3. Applica gli edit `.md` e aggiorna il registro (Edit/Write). Nessun path home assoluto, nessuna email personale. Non committare `harvest-clusters.json` né `lessons-harvester-outcome.txt`.
             4. Commit conventional (`docs(process): auto-harvested lessons — <temi>`). In fondo: `Co-Authored-By: Codex Luna Max <noreply@openai.com>`.
             5. `git push -u origin HEAD`.
             6. Prepara il body completo nel file assoluto `$RUNNER_TEMP/lessons-harvester-pr-body.md` (imposta `BODY_FILE` a quel path; non usare un body inline), esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e solo con exit 0 chiama `gh pr create --body-file "$BODY_FILE"`. Il wrapper deterministico su `gh` blocca comunque ogni create senza body-file o con body non conforme prima della chiamata remota.
@@ -202,8 +259,79 @@ jobs:
                Lo stato letterale (`per scelta` qui, o `in questa PR` / `PR concatenata #N` /
                `by construction` / `blocked: <causa>`) è obbligatorio su ogni bullet: senza,
                `scripts/ci/followup-has-candidates.mjs` riapre il cluster scartato come issue.
-               Aggiungi in fondo: "⚠️ Proposta auto-generata dal lessons-harvester. Human-gated: rivedere prima di mergere. Se modifica `.github/workflows/` non è prevista (solo `.md`)."
-            7. NON mergiare. È una proposta: la rivede un umano.
+               Aggiungi in fondo: "⚠️ Proposta auto-generata dal lessons-harvester. Solo `.md` e registro, mai `.github/workflows/`."
+            7. NON mergiare a mano: la PR entra da sola in `tests` → review → `## LGTM` sulla stessa HEAD → auto-merge nativo, come ogni altra PR.
+
+            **ESITO (OBBLIGATORIO, ultima azione):** scrivi una sola riga nel file `lessons-harvester-outcome.txt` nella root del checkout (non committarlo):
+            - `pr:<N>` → hai aperto la PR numero `<N>` in questa run;
+            - `none:<motivo>` → hai DECISO di non aprire una PR (motivo concreto);
+            - `failed:<causa>` → volevi aprirla ma push o `gh pr create` sono falliti (es. exit 3).
+            Lo step successivo confronta il file con le PR davvero aperte: file assente, `failed:`, un `pr:<N>` che non esiste o un `none:` con un branch `lessons/auto-harvest-*` pushato in questa run rendono la run rossa.
+
+      # Verde falso (run 36336838172): `gh pr create` e' uscito con codice 3,
+      # 0 PR aperte, run verde. Niente distingueva «Codex ha deciso di non
+      # aprire la PR» da «non ci e' riuscito». Codex dichiara l'esito in
+      # `lessons-harvester-outcome.txt`; qui lo si confronta con GitHub. Gira
+      # anche se lo step Codex e' fallito (`always()`): un esito mancante e'
+      # l'informazione da rendere visibile, e il rosso apre la issue sotto.
+      - name: Verify proposal outcome (deterministic, zero-agent)
+        if: always() && steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          STARTED_AT: ${{ steps.guard.outputs.started_at }}
+        run: |
+          set -euo pipefail
+          outcome_file=lessons-harvester-outcome.txt
+          if [ ! -s "$outcome_file" ]; then
+            echo "::error::$outcome_file assente o vuoto: la proposta Codex non ha dichiarato l'esito (PR aperta, scelta o fallimento)."
+            exit 1
+          fi
+          outcome=$(head -n 1 "$outcome_file" | tr -d '\r')
+          echo "Esito dichiarato: $outcome"
+          # Branch della proposta pushati in questa run (ultimo commit dopo l'avvio):
+          # una PR richiede un branch, quindi un `none:` con un branch nuovo e'
+          # una PR tentata e non aperta. Niente search API: indicizza in ritardo.
+          : > /tmp/lessons-branches.txt
+          gh api --paginate "repos/$REPO/git/matching-refs/heads/lessons/auto-harvest" --jq '.[] | "\(.ref)\t\(.object.sha)"' |
+            while IFS=$'\t' read -r ref sha; do
+              committed=$(gh api "repos/$REPO/commits/$sha" --jq '.commit.committer.date')
+              if [[ ! "$committed" < "$STARTED_AT" ]]; then echo "${ref#refs/heads/}" >> /tmp/lessons-branches.txt; fi
+            done
+          echo "Branch lessons/auto-harvest-* pushati dopo $STARTED_AT:"; cat /tmp/lessons-branches.txt
+          case "$outcome" in
+            pr:*)
+              n="${outcome#pr:}"
+              if ! [[ "$n" =~ ^[0-9]+$ ]]; then echo "::error::Esito '$outcome': numero PR non valido."; exit 1; fi
+              gh pr view "$n" --repo "$REPO" --json state,headRefName,createdAt,headRepositoryOwner \
+                --jq '[.state, .headRefName, .createdAt, .headRepositoryOwner.login] | @tsv' > /tmp/lessons-pr.tsv
+              IFS=$'\t' read -r state head created owner < /tmp/lessons-pr.tsv
+              echo "PR #$n: state=$state head=$head created=$created owner=$owner"
+              if [[ "$owner" != "${REPO%%/*}" || "$head" != lessons/auto-harvest* || "$created" < "$STARTED_AT" ]]; then
+                echo "::error::Esito '$outcome' ma #$n non e' una PR lessons/auto-harvest-* di questo repo aperta in questa run."
+                exit 1
+              fi
+              case "$state" in
+                OPEN|MERGED) echo "OK: PR #$n ($state) aperta in questa run." ;;
+                *) echo "::error::Esito '$outcome' ma la PR #$n e' $state."; exit 1 ;;
+              esac
+              ;;
+            none:?*)
+              if [ -s /tmp/lessons-branches.txt ]; then
+                echo "::error::Esito '$outcome' ma un branch lessons/auto-harvest-* e' stato pushato in questa run: la PR e' stata tentata e non risulta dichiarata."
+                exit 1
+              fi
+              echo "OK: nessuna PR per scelta (${outcome#none:})."
+              ;;
+            failed:*)
+              echo "::error::La proposta non e' riuscita ad aprire la PR: ${outcome#failed:}"
+              exit 1
+              ;;
+            *)
+              echo "::error::Esito '$outcome' non riconosciuto: atteso pr:<N>, none:<motivo> o failed:<causa>."
+              exit 1
+              ;;
+          esac
 
       - name: Report failure to GitHub Issues
         if: failure()

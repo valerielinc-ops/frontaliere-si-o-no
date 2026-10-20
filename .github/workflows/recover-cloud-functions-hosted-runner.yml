@@ -1,0 +1,100 @@
+name: Recover Cloud Functions deploy after hosted runner allocation failure
+
+# A hosted-runner allocation failure is reported after the job has been
+# cancelled, so the deploy workflow cannot run its own failure/retry step.
+# Observe the completed run from a separate workflow and replay only the exact
+# platform signature. API-only recovery keeps the source checkout out of the
+# decision and never retries a Firebase/API failure.
+on:
+  workflow_run:
+    workflows: [Deploy Cloud Functions]
+    types: [completed]
+
+permissions:
+  actions: write
+  checks: read
+  contents: read
+
+concurrency:
+  # Each source run has its own completion event. The deploy workflow itself
+  # serializes production deploys; keeping recovery events independent avoids
+  # dropping a later event behind an unrelated recovery job.
+  group: recover-cloud-functions-hosted-runner-${{ github.event.workflow_run.id || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  retry:
+    if: >-
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.path == '.github/workflows/deploy-cloud-functions.yml' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout trusted recovery predicate
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: scripts/ci/cloud-functions-hosted-runner-recovery.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Retry only an unassigned hosted-runner deploy
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { pathToFileURL } = require('node:url');
+            const { shouldRetryCloudFunctionsRun } = await import(pathToFileURL(
+              `${process.env.GITHUB_WORKSPACE}/scripts/ci/cloud-functions-hosted-runner-recovery.mjs`,
+            ).href);
+            const run = context.payload.workflow_run;
+            const runAttempt = run?.run_attempt;
+            if (!Number.isSafeInteger(runAttempt) || runAttempt !== 1) {
+              core.info(`Run ${run?.id || '<unknown>'} has no explicit first attempt; refusing recovery.`);
+              return;
+            }
+            const jobs = await github.paginate(
+              github.rest.actions.listJobsForWorkflowRunAttempt,
+              {
+                ...context.repo,
+                run_id: Number(run.id),
+                attempt_number: runAttempt,
+                per_page: 100,
+              },
+            );
+            const workflowRuns = await github.paginate(
+              github.rest.actions.listWorkflowRuns,
+              {
+                ...context.repo,
+                workflow_id: 'deploy-cloud-functions.yml',
+                branch: 'main',
+                per_page: 100,
+              },
+            );
+            const annotationsByJob = {};
+            for (const job of jobs) {
+              if (!Number.isSafeInteger(Number(job.id))) continue;
+              annotationsByJob[String(job.id)] = await github.paginate(
+                github.rest.checks.listAnnotations,
+                {
+                  ...context.repo,
+                  check_run_id: Number(job.id),
+                  per_page: 100,
+                },
+              );
+            }
+            if (!shouldRetryCloudFunctionsRun({ run, jobs, annotationsByJob, workflowRuns })) {
+              core.info(`Run ${run.id} does not match the bounded hosted-runner recovery signature.`);
+              return;
+            }
+            core.warning(
+              `Run ${run.id} failed before acquiring a hosted runner; `
+              + 'requesting one bounded replay of the same deploy run.',
+            );
+            await github.rest.actions.reRunWorkflow({
+              ...context.repo,
+              run_id: Number(run.id),
+            });

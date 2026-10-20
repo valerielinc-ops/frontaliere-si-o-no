@@ -22,12 +22,27 @@ async function probe() {
   out.esc = c.esc('a & b < c > d " e \' f');
   out.escEmpty = c.esc('');
 
-  out.stripLiteralMarkdown = c.stripLiteralMarkdown('**Onkologie___Ärzte** ~~x~~ ==y==');
+  out.stripLiteralMarkdown = c.stripLiteralMarkdown('## **Onkologie___Ärzte** *[guida](https://example.com)*');
+  out.stripLiteralMarkdownArithmetic = c.stripLiteralMarkdown('Calcolo: 8 * 5 * 4');
+  out.stripLiteralMarkdownBalancedLink = c.stripLiteralMarkdown('[Età](https://en.wikipedia.org/wiki/Function_(mathematics))');
+  out.stripLiteralMarkdownNestedLink = c.stripLiteralMarkdown('[A [B](https://example.com/(inner))](https://example.com/(outer))');
+  out.stripLiteralMarkdownEvenEscapedLink = c.stripLiteralMarkdown(String.raw`\\[Età](https://example.com)`);
+  out.stripLiteralMarkdownReferenceLink = c.stripLiteralMarkdown('[Età][ref]');
+  out.stripLiteralMarkdownWhitespaceReferenceLink = c.stripLiteralMarkdown('[x] [ref]');
+  out.stripLiteralMarkdownQuotedLink = c.stripLiteralMarkdown('[x](url "a)")');
+  out.stripLiteralMarkdownAngleLink = c.stripLiteralMarkdown('[x](<url(a)> "title)")');
+  out.stripLiteralMarkdownMarkupBoundaries = c.stripLiteralMarkdown('## Titolo ##');
+  out.stripLiteralMarkdownPunctuation = c.stripLiteralMarkdown('Titolo:*term*—nota __Strong__');
 
   out.clampMetaDescription = c.clampMetaDescription('x'.repeat(400));
   out.clampMetaDescriptionShort = c.clampMetaDescription('breve');
 
   out.truncateHeadline = c.truncateHeadline('Un titolo molto lungo che deve essere troncato', 20);
+  out.truncateHeadlineToMeasuredBudget = c.truncateHeadlineToMeasuredBudget(
+    `${'N'.repeat(70)} &A<Z>\"`,
+    66,
+    (value: string) => c.esc(value).length,
+  );
   out.buildTitleWithBrand = c.buildTitleWithBrand('Titolo');
   out.truncateCodeUnits = c.truncateCodeUnits('abcdefghij', 4);
 

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Audit per-crawler job data for silent parser failures.
  *
@@ -19,27 +21,36 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
-import { extractDetailFields, extractJsonLd } from './lib/prospector/extract.mjs';
+import {
+  extractDetailFields,
+  extractJsonLd,
+  selectDetailStructuredRecords,
+} from './lib/prospector/extract.mjs';
 import { decodeEntities as decodeScrapedHtmlEntities } from './lib/prospector/entities.mjs';
 import { resolveSourceBackedSwissGeography } from './lib/prospector/location-evidence.mjs';
-import { readAttr } from './lib/html-attr.mjs';
+import { readAttr, readVacancySummaryLocation } from './lib/html-attr.mjs';
 import {
   canonicalSwissCityName,
   findSwissCityInText,
   isCantonOnlyLabel,
   isKnownSwissMunicipality,
+  normalizeCantonCode,
   swissMunicipalityCantons,
 } from './lib/target-swiss-locations.mjs';
 import { isLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
+import { identityUrlKey } from './lib/job-url-key.mjs';
 import {
   FOREIGN_COUNTRY_NAME_LABELS,
   ISO_ALPHA2_COUNTRY_CODES,
   SWISS_COUNTRY_LABELS,
 } from './lib/prospector/country-inventory.mjs';
+import { fetch as undiciFetch } from 'undici';
 import { isRobotsDeniedError, mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
+import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { isPublicFetchPolicyError } from './lib/prospector/public-fetch-policy.mjs';
 import { transportErrorKind } from './lib/transient-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
+import { hasStructuredContent } from './lib/translation-quality.mjs';
 import {
   COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS,
   classifySourceDetailObservation,
@@ -53,8 +64,29 @@ const ROOT = path.join(__dirname, '..');
 const SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const BASELINE_PATH = path.join(ROOT, 'data', 'parser-quality-no-structure-baseline.json');
 
+/**
+ * The modules the source-detail pass calls to read a page. Their static
+ * relative-import closure IS the extractor: a test requires
+ * SOURCE_DETAIL_EXTRACTOR_VERSION_FILES to equal the union of those closures,
+ * so a module one of them starts importing cannot change the reading while
+ * leaving the fingerprint (and old evidence) valid.
+ */
+export const SOURCE_DETAIL_EXTRACTOR_ENTRYPOINTS = Object.freeze([
+  // extractJsonLd / selectDetailStructuredRecords / extractDetailFields.
+  'scripts/lib/prospector/extract.mjs',
+  // Reads the vacancy PDF a detail page links or embeds (fetchVacancyPdfText).
+  'scripts/lib/pdf-job-content.mjs',
+]);
+
+// The union of the import closures of SOURCE_DETAIL_EXTRACTOR_ENTRYPOINTS,
+// held to exactly that set by a test in tests/scripts/audit-parser-quality.test.ts.
 export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/prospector/extract.mjs',
+  'scripts/lib/pdf-job-content.mjs',
+  'scripts/lib/source-body-floor.mjs',
+  'scripts/lib/source-body-failure.mjs',
+  'scripts/lib/transient-fetch.mjs',
+  'scripts/lib/jina-proxy.mjs',
   'scripts/lib/prospector/registrable.mjs',
   'scripts/lib/prospector/entities.mjs',
   'scripts/lib/decode-html-entities.mjs',
@@ -64,7 +96,11 @@ export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/crawler-location-config.mjs',
   'scripts/lib/prospector/country-inventory.mjs',
   'scripts/lib/prospector/subdivision-inventory.mjs',
+  'scripts/lib/job-url-host.mjs',
+  'scripts/lib/job-posting-date.mjs',
+  'scripts/lib/source-posting-date.mjs',
   'data/canton-municipalities.json',
+  'data/swiss-locality-postal-codes.json',
 ]);
 export const SOURCE_DETAIL_NORMALIZER_VERSION_FILES = Object.freeze([
   'scripts/audit-parser-quality.mjs',
@@ -75,6 +111,7 @@ export const SOURCE_DETAIL_NORMALIZER_VERSION_FILES = Object.freeze([
   // recorded before a municipality merge must not silently compare differently.
   'scripts/lib/target-swiss-locations.mjs',
   'data/canton-municipalities.json',
+  'data/swiss-locality-postal-codes.json',
 ]);
 
 function filesSha256(filePaths, readFile) {
@@ -279,6 +316,12 @@ const SOURCE_DETAIL_SAMPLE_SIZE = 2;
 const crawlerFlag = args.find((a) => a.startsWith('--crawler='));
 const onlyCrawler = crawlerFlag ? crawlerFlag.split('=')[1] : null;
 const rebaseline = args.includes('--rebaseline');
+// Issue 5253: a strict failure must reach the failure issue with its REASON.
+// The reporter (.github/actions/report-failure) runs in-job and cannot read
+// the log of the job it belongs to, so the only way to get an excerpt is a
+// file written here. See formatStrictFailureDiagnostic().
+const diagFileFlag = args.find((a) => a.startsWith('--diag-file='));
+const diagFilePath = diagFileFlag ? diagFileFlag.slice('--diag-file='.length) : null;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function stripHtml(html) {
@@ -309,6 +352,8 @@ const LOCATION_TOKEN_ALIASES = new Map([
   ['lucerne', 'luzern'], ['lucerna', 'luzern'],
   ['zurigo', 'zurich'],
   ['argovia', 'aargau'],
+  // Esonimo italiano: `San Gallo` (→ `st gallo` dopo `san`→`st`) è St. Gallen.
+  ['gallo', 'gallen'],
 ]);
 const LOCATION_NOISE_TOKENS = new Set([
   'ch', 'che', 'suisse', 'schweiz', 'svizzera', 'switzerland',
@@ -316,6 +361,9 @@ const LOCATION_NOISE_TOKENS = new Set([
   'ne', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs',
   'zg', 'zh', 'gva', 'gt', 'country', 'region', 'canton', 'sede',
   'headquarter', 'headquarters', 'office', 'plant', 'site', 'standort',
+  // `Worblaufen & Homeoffice` (SuccessFactors helsana): il suffisso di lavoro
+  // ibrido non fa parte della località.
+  'homeoffice',
 ]);
 const SWISS_REGION_NAMES = new Set([
   'aargau', 'appenzell', 'basel', 'bern', 'fribourg', 'geneve', 'glarus',
@@ -330,6 +378,10 @@ const SOURCE_LOCATION_PLACEHOLDERS = new Set([
   'where', 'lieu de travail', 'arbeitsort', 'dein kontakt',
   'labellocation locale',
 ]);
+// `Switzerland, Remote` (Workday) dice COME si lavora, non DOVE: quando è
+// l'unico contenuto oltre al paese non smentisce nessuna località pubblicata.
+// Solo come valore intero: `Worblaufen, Remote` nomina ancora un luogo.
+const SOURCE_LOCATION_TYPE_ONLY_TOKENS = new Set(['remote']);
 const SOURCE_LOCATION_NON_TOPONYM_TOKENS = new Set([
   'any', 'available', 'eor', 'campus', 'location', 'locations', 'region',
   'regions', 'headquarter', 'headquarters', 'office', 'plant', 'site',
@@ -370,6 +422,15 @@ function tokensEqual(left, right) {
 function endsWithTokens(value, suffix) {
   return suffix.length > 0 && suffix.length <= value.length
     && suffix.every((token, index) => value[value.length - suffix.length + index] === token);
+}
+
+function sharesPostalCodeAndLocality(published, source, publishedTokens, sourceTokens) {
+  const publishedPostalCodes = String(published).match(/\b\d{4,5}\b/g) || [];
+  const sourcePostalCodes = String(source).match(/\b\d{4,5}\b/g) || [];
+  if (!sourcePostalCodes.some((code) => publishedPostalCodes.includes(code))) return false;
+  const sourceLocalityTokens = sourceTokens.filter((token) => !SWISS_REGION_NAMES.has(token));
+  return sourceLocalityTokens.length > 0
+    && sourceLocalityTokens.every((token) => publishedTokens.includes(token));
 }
 
 function hasCoherentCantonSuffix(value, locality) {
@@ -419,6 +480,7 @@ function isUsableSourceLocation(value, context = {}) {
   if (!normalized || SOURCE_LOCATION_PLACEHOLDERS.has(normalized)) return false;
   const tokens = canonicalLocationTokens(value);
   if (!tokens.some((token) => token.length >= 3)) return false;
+  if (tokens.every((token) => SOURCE_LOCATION_TYPE_ONLY_TOKENS.has(token))) return false;
   const swissPlace = Boolean(swissMunicipalityKey(value));
   const foreignPlace = hasExplicitForeignCountry(value, context.addressCountry);
   if (SOURCE_LOCATION_REGION_LABELS.has(normalized)) return false;
@@ -447,9 +509,22 @@ function isUsableSourceLocation(value, context = {}) {
  */
 function swissMunicipalityKey(value) {
   const text = plainText(value);
-  if (!text || isCantonOnlyLabel(text)) return '';
-  const found = findSwissCityInText(text);
-  return found ? normalizePlace(canonicalSwissCityName(found)) : '';
+  if (!text) return '';
+  if (!isCantonOnlyLabel(text)) {
+    const found = findSwissCityInText(text);
+    if (found) return normalizePlace(canonicalSwissCityName(found));
+  }
+  // Esonimi (`San Gallo`, `Zurigo`): il gazetteer BFS non li conosce, gli
+  // alias sì. `San Gallo` è anche il nome italiano del cantone, lo stesso
+  // omonimo città/cantone di `St. Gallen`: vale la città, come per la forma
+  // tedesca. Solo come corrispondenza ESATTA del valore intero: una scansione
+  // a finestre del testo aliasato rifarebbe `Freiburg im Breisgau` → Fribourg,
+  // il falso positivo per cui il contenimento fu revertito.
+  const aliased = aliasedPlaceTokens(text).join(' ');
+  return aliased && aliased !== normalizePlace(text)
+    && !isCantonOnlyLabel(aliased) && isKnownSwissMunicipality(aliased)
+    ? normalizePlace(canonicalSwissCityName(aliased))
+    : '';
 }
 
 /**
@@ -464,10 +539,10 @@ function municipalityKeyWithDescriptor(value) {
   // `isCantonOnlyLabel` deliberately treats bare ambiguous municipality names
   // such as Carouge as canton-like. An exact BFS municipality membership is
   // stronger evidence and is safe to use here.
-  const exactCantons = swissMunicipalityCantons(text);
-  if (isCantonOnlyLabel(text) && exactCantons.length === 0) return '';
   const exact = swissMunicipalityKey(text);
   if (exact) return exact;
+  const exactCantons = swissMunicipalityCantons(text);
+  if (isCantonOnlyLabel(text) && exactCantons.length === 0) return '';
   if (exactCantons.length > 0) return normalizePlace(canonicalSwissCityName(text));
   const words = text.split(/\s+/).filter(Boolean);
   for (let length = words.length - 1; length > 0; length -= 1) {
@@ -538,6 +613,8 @@ export function sourceLocationMatches(published, source) {
       if (tokensEqual(sourceTokens, publishedTokens)) return true;
       if (candidateHasPostalCode && endsWithTokens(sourceTokens, publishedTokens)) return true;
       if (publishedHasPostalCode && endsWithTokens(publishedTokens, sourceTokens)) return true;
+      if (candidateHasPostalCode && publishedHasPostalCode
+        && sharesPostalCodeAndLocality(publishedCandidate, rawSourceCandidate, publishedTokens, sourceTokens)) return true;
       if (hasCoherentCantonSuffix(sourceTokens, publishedTokens)
         || hasCoherentCantonSuffix(publishedTokens, sourceTokens)) return true;
     }
@@ -620,8 +697,17 @@ function withLocationEvidenceCounts(observation, beforeGate, afterGate, includeD
  */
 export function extractSourceLocationObservation(html = '', pageUrl = '', {
   includeDiagnostics = false,
+  recordUrl = '',
+  recordTitle = '',
 } = {}) {
-  const structuredItems = extractJsonLd(html, pageUrl);
+  const allStructuredItems = extractJsonLd(html, pageUrl);
+  const renderedTitle = plainText(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
+  const structuredItems = recordUrl
+    ? selectDetailStructuredRecords(allStructuredItems, pageUrl, renderedTitle, recordUrl, recordTitle)
+    : allStructuredItems;
+  const recordIdentityUnresolved = Boolean(recordUrl)
+    && allStructuredItems.length > 0
+    && structuredItems.length === 0;
   const rawStructuredCandidates = structuredItems
     .flatMap((item) => item.locationCandidates || [])
     .filter((candidate) => plainText(candidate.location));
@@ -639,6 +725,37 @@ export function extractSourceLocationObservation(html = '', pageUrl = '', {
   const structured = structuredCandidates.find((candidate) => (
     resolveSourceBackedSwissGeography(candidate)
   )) || structuredCandidates.at(0);
+  // A shared listing/detail response may contain authoritative markup for more
+  // than one vacancy. Once the requested row cannot be matched, the remaining
+  // DOM is page-wide evidence and must not be attributed to that row.
+  if (recordIdentityUnresolved) {
+    return withLocationEvidenceCounts(
+      { location: '', evidence: 'generic' },
+      { jsonld: Number(rawStructuredCandidates.length > 0), 'strong-markup': 0 },
+      { jsonld: 0, 'strong-markup': 0 },
+      includeDiagnostics,
+    );
+  }
+
+  // SBB's vacancy-specific social summary carries the workplace, while its
+  // JobPosting JSON-LD can repeat the company's Bern headquarters. Accept the
+  // summary only on the canonical detail host and only in its date/workload
+  // shape; generic page descriptions remain non-authoritative.
+  let sbbSummaryLocation = '';
+  try {
+    if (new URL(pageUrl).hostname.toLowerCase() === 'jobs.sbb.ch') {
+      sbbSummaryLocation = plainText(readVacancySummaryLocation(html));
+    }
+  } catch {}
+  if (sbbSummaryLocation && isUsableSourceLocation(sbbSummaryLocation)) {
+    return withLocationEvidenceCounts(
+      { location: sbbSummaryLocation, evidence: 'job-summary' },
+      structuredBeforeGate,
+      structuredAfterGate,
+      includeDiagnostics,
+    );
+  }
+
   if (structured) {
     return withLocationEvidenceCounts(
       { location: structured.location, evidence: 'jsonld' },
@@ -774,6 +891,26 @@ function structuredAddressNamesLocality(detail, publishedLocation) {
 }
 
 /**
+ * A structured JobPosting address can use a hamlet, neighbourhood or historical
+ * locality that is not in the current BFS municipality list. When its exact
+ * postal code is also present in the published location, the page still gives
+ * per-vacancy evidence for the same Swiss postal area. Keep this narrower than
+ * a free-text alias: only the structured `jobLocation` candidate is eligible.
+ */
+function structuredAddressSharesPublishedPostalCode(detail, publishedLocation) {
+  const publishedPostalCodes = new Set(
+    plainText(publishedLocation).match(/\b\d{4}\b/g) || [],
+  );
+  if (!publishedPostalCodes.size) return false;
+  const candidates = Array.isArray(detail?.locationCandidates) ? detail.locationCandidates : [];
+  return candidates.some((candidate) => {
+    const sourcePostalCode = plainText(candidate?.postalCode || '').match(/\b\d{4}\b/)?.[0];
+    return structuredAddressIsCoherent(candidate)
+      && Boolean(sourcePostalCode && publishedPostalCodes.has(sourcePostalCode));
+  });
+}
+
+/**
  * `jobLocation` in an ATS JSON-LD is not always the workplace: on the postings
  * an organisation publishes on behalf of another one it carries the POSTING
  * organisation's seat, constant across vacancies that are worked in different
@@ -854,6 +991,239 @@ export function sourceCorroboratesPublishedLocation(detail, publishedLocation, {
   return ` ${haystack} `.includes(` ${publishedTokens.join(' ')} `);
 }
 
+/**
+ * A structured location and an independent visible workplace can both be
+ * authoritative while disagreeing: ATS templates often stamp the employer's
+ * registered address into JSON-LD/microdata and render the vacancy workplace
+ * separately. Such a page contradicts itself; it cannot prove a crawler
+ * mismatch. Keep the check general and evidence-based, rather than teaching
+ * it one employer key.
+ */
+function visibleFieldMatchesLocation(field, location) {
+  const value = plainText(field);
+  const targetTokens = canonicalLocationTokens(location);
+  if (!value || !targetTokens.length) return false;
+  if (sourceLocationMatches(location, value)) return true;
+  const haystack = ` ${aliasedPlaceTokens(value).join(' ')} `;
+  return haystack.includes(` ${targetTokens.join(' ')} `);
+}
+
+function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLocation, locationEvidence) {
+  if (!['jsonld', 'strong-markup', 'job-summary'].includes(locationEvidence)
+    || !isUsableSourceLocation(sourceLocation)
+    || !publishedLocation) return false;
+  const visibleFields = [
+    ...(Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : []),
+    ...(Array.isArray(detail?.headingSublineFields) ? detail.headingSublineFields : []),
+    ...(Array.isArray(detail?.headingIntroFields) ? detail.headingIntroFields : []),
+    detail?.title,
+  ].filter(Boolean);
+  // Un paese pubblicato non ha token di località da cercare nei campi
+  // visibili: lo nomina, come portata, solo un titolo della vacancy che
+  // dichiara il lavoro in tutta la Svizzera (vacancyNationwideScopeHeadings).
+  const publishedIsSwissCountry = SWISS_COUNTRY_LABELS.has(normalizePlace(publishedLocation));
+  const nationwideHeadings = publishedIsSwissCountry && Array.isArray(detail?.nationwideScopeHeadings)
+    ? detail.nationwideScopeHeadings
+    : [];
+  if (nationwideHeadings.length > 0) {
+    return !nationwideHeadings.some((field) => visibleFieldMatchesLocation(field, sourceLocation));
+  }
+  const visibleMatchesPublished = visibleFields.some((field) => (
+    visibleFieldMatchesLocation(field, publishedLocation)
+  ));
+  if (!visibleMatchesPublished) return false;
+  const visibleMatchesStructured = visibleFields.some((field) => (
+    visibleFieldMatchesLocation(field, sourceLocation)
+  ));
+  return !visibleMatchesStructured;
+}
+
+/**
+ * Località primaria di una vacancy Workday letta dal suo URL pubblico.
+ *
+ * Il JSON-LD delle pagine Workday riporta `jobRequisitionLocation`, cioè
+ * l'unità organizzativa della richiesta (`CHE-BE Bern`, `GA Glarus-Rheintal`),
+ * non il luogo di lavoro: misurato il 2026-09-24 su medtronic (primaria
+ * `Luzern, Luzern, Switzerland`, JSON-LD `CHE-BE Bern`) e swiss-life (primaria
+ * `Buchs SG`, JSON-LD `GA Glarus-Rheintal`). Il luogo primario Workday è
+ * invece nel percorso stesso che Workday genera per la vacancy,
+ * `/job/{PrimaryLocation}/{slug}_{req}`: dato per-vacancy della fonte, non
+ * un'inferenza del crawler dalla prosa.
+ */
+export function workdayPrimaryLocationFromUrl(rawUrl = '') {
+  let url;
+  try { url = new URL(String(rawUrl || '')); } catch { return ''; }
+  if (!/(?:^|\.)myworkdayjobs\.com$/i.test(url.hostname)) return '';
+  const parts = url.pathname.split('/').filter(Boolean);
+  const jobIndex = parts.findIndex((part) => part.toLowerCase() === 'job');
+  // Serve anche il segmento dello slug dopo la località: `/job/{slug}` da solo
+  // non porta nessuna località.
+  if (jobIndex < 0 || parts.length < jobIndex + 3) return '';
+  let segment = parts[jobIndex + 1];
+  try { segment = decodeURIComponent(segment); } catch { /* segmento già in chiaro */ }
+  return segment.replace(/-+/g, ' ').trim();
+}
+
+/**
+ * Campi della riga subito sotto il titolo della vacancy (`Oensingen,
+ * 01.06.2027, 100%` su jobs.sbb.ch, `Gérance <br> Genève | Taux…` su
+ * jobs.livit.ch). Su questi template il JSON-LD dichiara la sede dell'azienda
+ * (Hilfikerstrasse 1, 3000 Bern; Altstetterstrasse 124, 8048 Zürich) per ogni
+ * vacancy, mentre la località della vacancy è un campo della riga di titolo.
+ * Solo se l'H1 è il titolo della vacancy e il campo è breve: una tagline del
+ * sito non è un campo della vacancy.
+ */
+export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
+  const source = String(html || '');
+  const title = normalizePlace(vacancyTitle);
+  if (!title) return [];
+  const fields = [];
+  // Ogni H1 col titolo della vacancy: jobs.sbb.ch lo ripete nell'header
+  // sticky prima del blocco titolo che porta la riga della località.
+  const headingRx = /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/gi;
+  let heading;
+  while ((heading = headingRx.exec(source))) {
+    const headingText = normalizePlace(heading[1]);
+    if (!headingText || !(headingText.includes(title) || title.includes(headingText))) continue;
+    const after = source.slice(headingRx.lastIndex, headingRx.lastIndex + 1500);
+    const next = /^\s*<(div|p|h2|h3|span)\b[^>]*>([\s\S]{0,600}?)<\/\1>/i.exec(after);
+    if (!next) continue;
+    fields.push(...plainText(next[2].replace(/<br\s*\/?>/gi, ' | '))
+      .split(/\s*[|,;·•]\s*/)
+      .map((field) => field.trim())
+      .filter((field) => field && field.length <= 60));
+  }
+  return fields;
+}
+
+/**
+ * Il blocco subito PRIMA dell'H1 della vacancy: sul template delle società
+ * affiliate di jobs.sbb.ch la riga sotto il titolo è vuota e il luogo di lavoro
+ * sta nella frase che lo precede («Steig ein bei uns – in Stansstad – per
+ * 1. Dezember 2026»), mentre il JSON-LD dichiara la sede SBB (Hilfikerstrasse
+ * 1, 3000 Bern) per ogni vacancy. Misurato il 2026-10-04 (issue 5253): era
+ * l'unico campo della pagina che nominava il luogo pubblicato, e senza leggerlo
+ * l'audit dava per contraddetta una località giusta. Stesse condizioni della
+ * riga sotto il titolo: solo accanto all'H1 che È il titolo della vacancy, e
+ * solo un blocco foglia (senza elementi annidati dello stesso tipo), così un
+ * contenitore di pagina o una tagline lontana non diventano un campo della
+ * vacancy. È prosa: vale per l'incoerenza interna della pagina
+ * (sourceHasInternalLocationConflict), non come corrispondenza esatta.
+ */
+export function vacancyHeadingIntroFields(html = '', vacancyTitle = '') {
+  const source = String(html || '');
+  const title = normalizePlace(vacancyTitle);
+  if (!title) return [];
+  const fields = [];
+  const headingRx = /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/gi;
+  let heading;
+  while ((heading = headingRx.exec(source))) {
+    const headingText = normalizePlace(heading[1]);
+    if (!headingText || !(headingText.includes(title) || title.includes(headingText))) continue;
+    const before = source.slice(Math.max(0, heading.index - 1500), heading.index);
+    const previous = /<(div|p|span)\b[^>]*>((?:(?!<\/?(?:div|p|span|h[1-6])\b)[\s\S]){1,600})<\/\1>\s*$/i.exec(before);
+    if (!previous) continue;
+    const text = plainText(previous[2]);
+    if (text) fields.push(text);
+  }
+  return fields;
+}
+
+/**
+ * Portata nazionale dichiarata dalla vacancy: «Jobs in der ganzen Schweiz»,
+ * «dans toute la Suisse», «in tutta la Svizzera», «throughout Switzerland».
+ * Un datore che lavora a domicilio dei clienti (premiumpflege24, issue 5253)
+ * pubblica il paese come località perché la pagina non ha un luogo di lavoro,
+ * e il suo JobPosting porta la sede (4553 Subingen, la stessa del footer).
+ * Si leggono solo i titoli h1-h3 FUORI da header, nav e footer: il logo, il
+ * menu e l'elenco delle aree servite in fondo alla pagina descrivono
+ * l'azienda, non la vacancy, e un paese pubblicato senza questa dichiarazione
+ * resta il ripiego generico che il controllo esiste a sollevare. «in der
+ * Schweiz» da solo non è una portata: lo dice ogni vacancy svizzera.
+ */
+const NATIONWIDE_SCOPE_RX = /\b(?:(?:in\s+der\s+)?(?:ganzen|gesamten)\s+Schweiz|schweizweit|(?:dans\s+)?toute\s+la\s+Suisse|(?:in\s+)?tutta\s+(?:la\s+)?Svizzera|(?:throughout|across|all\s+over)\s+Switzerland|Switzerland-wide)\b/i;
+
+export function vacancyNationwideScopeHeadings(html = '') {
+  const content = String(html || '')
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<(header|nav|footer)\b[\s\S]*?<\/\1>/gi, ' ');
+  const headings = [];
+  const headingRx = /<(h[1-3])\b[^>]*>([\s\S]{0,500}?)<\/\1>/gi;
+  let heading;
+  while ((heading = headingRx.exec(content))) {
+    const text = plainText(heading[2]);
+    if (text && NATIONWIDE_SCOPE_RX.test(text)) headings.push(text);
+  }
+  return headings;
+}
+
+/**
+ * Una fonte che dice solo il cantone (`Graubünden`, Workday capri-holdings)
+ * non può smentire un comune di quel cantone (`Landquart`, lo store «MK
+ * Landquart» della stessa vacancy): è meno precisa, non contraria. Resta
+ * un'osservazione inconcludente; un comune di un ALTRO cantone resta invece
+ * una contraddizione autorevole.
+ */
+function sourceIsCoarserCantonOfPublished(published, source) {
+  const sourceText = plainText(source);
+  if (!sourceText || !isCantonOnlyLabel(sourceText)) return false;
+  const canton = normalizeCantonCode(sourceText);
+  if (!canton) return false;
+  const locality = plainText(published).split(',')[0]?.trim() || '';
+  return swissMunicipalityCantons(locality).includes(canton);
+}
+
+/**
+ * Plain text of the source description without the `- ` markers the
+ * extractor writes for list items. `extractDetailFields` keeps a vacancy's
+ * lists as `- item` lines (so the crawlers that publish its text keep them);
+ * those markers are formatting it adds, not text of the source, and counted
+ * as characters they grew a source with 50 list items by 100 characters and
+ * moved the length ratio of every published text measured against it. The
+ * published side is measured exactly as before.
+ */
+function sourceContentText(value) {
+  return plainText(value)
+    .replace(/(^|\s)-(?=\s|$)/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * A detail page may publish two source-language bodies separated by an
+ * explicit `***` marker (for example a bilingual FR/DE HES-SO ad). The
+ * rendered extractor quite correctly sees one page, but the crawler's
+ * source-locale slot contains one of those bodies. Compare against the block
+ * that materially overlaps the published source text, and only do so when two
+ * substantive blocks make that interpretation unambiguous. Thin heading/title
+ * fragments around the marker are ignored; unrelated pages remain measured as
+ * one source document.
+ */
+function comparableSourceDescription(value, publishedDescription) {
+  const source = sourceContentText(value);
+  const blocks = source
+    .split(/\*{3,}/)
+    .map((block) => sourceContentText(block))
+    .filter((block) => block.length >= COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS);
+  if (blocks.length < 2) return source;
+
+  const publishedWords = wordSet(publishedDescription);
+  if (!publishedWords.size) return source;
+  const ranked = blocks.map((block) => {
+    const blockWords = wordSet(block);
+    let overlap = 0;
+    for (const word of publishedWords) if (blockWords.has(word)) overlap += 1;
+    const denominator = Math.min(publishedWords.size, blockWords.size);
+    return { block, overlap, score: denominator ? overlap / denominator : 0 };
+  }).sort((a, b) => b.score - a.score || b.overlap - a.overlap);
+  const [best, runnerUp] = ranked;
+  if (!best || !runnerUp || best.overlap < 10 || best.score < 0.35 || best.score - runnerUp.score < 0.1) {
+    return source;
+  }
+  return best.block;
+}
+
 export function compareSourceDetail(job, detail, {
   locationEvidence = 'jsonld',
   crawlerKey = job?.crawlerKey,
@@ -861,7 +1231,7 @@ export function compareSourceDetail(job, detail, {
   const publishedLocation = job?.addressLocality || job?.location || '';
   const sourceLocation = detail?.location || '';
   const publishedDescription = plainText(sourceDescription(job));
-  const sourceDescriptionText = plainText(detail?.description || '');
+  const sourceDescriptionText = comparableSourceDescription(detail?.description || '', publishedDescription);
   const publishedWords = wordSet(publishedDescription);
   const sourceWords = wordSet(sourceDescriptionText);
   let overlap = 0;
@@ -870,13 +1240,40 @@ export function compareSourceDetail(job, detail, {
   const corroborationFields = locationFromVacancyText
     ? ['title']
     : ['title', 'description'];
+  // Campi per-vacancy della stessa fonte che il JSON-LD (sede dell'azienda o
+  // unità organizzativa) non riporta: il luogo primario nel percorso Workday e
+  // la riga sotto il titolo. Come la corroborazione da titolo/descrizione,
+  // valgono solo contro il JSON-LD; un markup job-scoped resta una
+  // dichiarazione del luogo di lavoro.
+  const workdayPrimaryLocation = locationEvidence === 'jsonld'
+    ? workdayPrimaryLocationFromUrl(job?.url)
+    : '';
+  const headingFields = locationEvidence === 'jsonld' && !locationFromVacancyText
+    && Array.isArray(detail?.headingSublineFields)
+    ? detail.headingSublineFields
+    : [];
   const publishedCorroboratedBySource = locationEvidence === 'jsonld'
-    && sourceCorroboratesPublishedLocation(detail, publishedLocation, {
+    && (sourceCorroboratesPublishedLocation(detail, publishedLocation, {
       fields: corroborationFields,
-    });
+    })
+      || Boolean(workdayPrimaryLocation && sourceLocationMatches(publishedLocation, workdayPrimaryLocation))
+      || headingFields.some((field) => sourceLocationMatches(publishedLocation, field)));
   const sourceFieldsAgree = sourceLocationMatches(publishedLocation, sourceLocation);
-  const locationMatchesPublished = sourceFieldsAgree || publishedCorroboratedBySource;
+  const sourceCoarserCanton = !sourceFieldsAgree && !publishedCorroboratedBySource
+    && sourceIsCoarserCantonOfPublished(publishedLocation, sourceLocation);
+  const structuredPostalCodeAgrees = !sourceFieldsAgree
+    && structuredAddressSharesPublishedPostalCode(detail, publishedLocation);
+  const locationMatchesPublished = sourceFieldsAgree
+    || structuredPostalCodeAgrees
+    || publishedCorroboratedBySource;
+  const sourceInternalLocationConflict = sourceHasInternalLocationConflict(
+    detail,
+    publishedLocation,
+    sourceLocation,
+    locationEvidence,
+  );
   const circularCorroboration = !sourceFieldsAgree
+    && !structuredPostalCodeAgrees
     && !publishedCorroboratedBySource
     && locationEvidence === 'jsonld'
     && locationFromVacancyText
@@ -884,7 +1281,9 @@ export function compareSourceDetail(job, detail, {
   const locationChecked = Boolean(publishedLocation)
     && isUsableSourceLocation(sourceLocation)
     && locationEvidence !== 'generic'
-    && !circularCorroboration;
+    && !circularCorroboration
+    && !sourceCoarserCanton
+    && !sourceInternalLocationConflict;
   const foreignMistralLocation = crawlerKey === 'mistral-ai'
     && locationChecked
     && hasExplicitForeignCountry(sourceLocation, detail?.addressCountry);
@@ -900,6 +1299,8 @@ export function compareSourceDetail(job, detail, {
       evidence: locationEvidence,
       authority: circularCorroboration
         ? 'circular'
+        : sourceInternalLocationConflict
+          ? 'source-internal-conflict'
         : foreignMistralLocation
           ? 'foreign-source-exempt'
           : (publishedCorroboratedBySource ? 'source-corroborated' : 'source-detail'),
@@ -910,6 +1311,7 @@ export function compareSourceDetail(job, detail, {
       publishedDescriptionLength: publishedDescription.length,
       sourceDescriptionLength: sourceDescriptionText.length,
       publishedWordCount: publishedWords.size,
+      sourceWordCount: sourceWords.size,
       overlapWordCount: overlap,
     },
   };
@@ -949,13 +1351,474 @@ function sourceDetailReportReference(value) {
   }
 }
 
+/**
+ * Words with which a page names a PDF as its job advertisement. Vocabulary of
+ * the document, not of any one site: gemeinde-st-moritz links
+ * «Stelleninserat herunterladen» (…/stellenausschreibungen/…pdf) next to two
+ * «Download PDF» links to vote results that are not the vacancy.
+ */
+const VACANCY_DOCUMENT_WORDS = /stelleninserat|inserat|stellenausschreibung|ausschreibung|stellenbeschrieb|stellenbeschreibung|stellenangebot|jobbeschreibung|job[\s_-]*(?:ad|description|offer)|vacanc|annonce|offre[\s_-]+d[’']?emploi|mise[\s_-]+au[\s_-]+concours|bando|concorso|annuncio/i;
+const MAX_VACANCY_PDF_BYTES = 10 * 1024 * 1024;
+
+function isPdfReference(value = '') {
+  return /\.pdf(?:[?#]|$)/i.test(String(value));
+}
+
+/**
+ * The PDF a detail page presents as its vacancy, or null. Either the page
+ * EMBEDS it as its content (`iframe`/`embed` src, `object` data — csvm-mustair
+ * shows the ad in an iframe and nothing else), or a link names it the job ad
+ * in its text, title, aria-label or path. Any other PDF on the page (price
+ * lists, vote results, privacy notices) is not the vacancy and is ignored.
+ *
+ * @returns {{ url: string, embedded: boolean } | null}
+ */
+export function vacancyPdfLink(html = '', pageUrl = '') {
+  const source = String(html || '');
+  const resolve = (reference) => {
+    try {
+      const url = new URL(decodeScrapedHtmlEntities(reference).trim(), pageUrl);
+      return /^https?:$/.test(url.protocol) ? url.href : '';
+    } catch {
+      return '';
+    }
+  };
+  for (const match of source.matchAll(/<(iframe|embed|object)\b[^>]*>/gi)) {
+    const reference = readAttr(match[0], match[1].toLowerCase() === 'object' ? 'data' : 'src');
+    if (reference && isPdfReference(reference)) {
+      const url = resolve(reference);
+      if (url) return { url, embedded: true };
+    }
+  }
+  for (const match of source.matchAll(/<a\b([^>]*)>([\s\S]{0,400}?)<\/a>/gi)) {
+    const opening = `<a${match[1]}>`;
+    const href = readAttr(opening, 'href');
+    if (!href || !isPdfReference(href)) continue;
+    let pathLabel = '';
+    try { pathLabel = decodeURIComponent(new URL(decodeScrapedHtmlEntities(href), pageUrl).pathname); } catch { pathLabel = href; }
+    const label = [plainText(match[2]), readAttr(opening, 'title'), readAttr(opening, 'aria-label'), pathLabel].join(' ');
+    if (VACANCY_DOCUMENT_WORDS.test(label)) {
+      const url = resolve(href);
+      if (url) return { url, embedded: false };
+    }
+  }
+  return null;
+}
+
+const PDF_SIGNATURE = '%PDF-';
+const PDF_BASE64_PREFIX = Buffer.from(PDF_SIGNATURE, 'latin1').toString('base64').slice(0, 6);
+
+/**
+ * `politeFetch` reads every body as text, which mangles PDF bytes. This
+ * transport keeps its URL policy, robots, throttle and redirects (it is the
+ * `fetchImpl` politeFetch calls for each hop) and decides on the BYTES, not
+ * on the headers or the URL: a body that starts with `%PDF-` comes back as
+ * base64, anything else — robots.txt, an HTML error page — as UTF-8 text.
+ * Neither the final Content-Type nor the final path is evidence: a `.pdf`
+ * link that redirects to `/download?id=…` served as
+ * `application/octet-stream` is still the PDF.
+ */
+export function createPdfSafeFetch(baseFetch = undiciFetch) {
+  return async function pdfSafeFetch(url, init) {
+    const response = await baseFetch(url, init);
+    if (response.status >= 300 && response.status < 400) return response;
+    const bytes = Buffer.from(await response.arrayBuffer());
+    const isPdf = bytes.subarray(0, PDF_SIGNATURE.length).toString('latin1') === PDF_SIGNATURE;
+    return {
+      ok: response.ok,
+      status: response.status,
+      url: response.url || url,
+      headers: response.headers,
+      body: null,
+      text: async () => (isPdf ? bytes.toString('base64') : bytes.toString('utf8')),
+    };
+  };
+}
+
+/**
+ * Text of the vacancy PDF, fetched through the same politeFetch contract as
+ * the page. `baseFetch` and `extractTextImpl` exist for tests.
+ */
+export async function fetchVacancyPdfText(pdfUrl, {
+  fetchPage = politeFetch,
+  baseFetch = undiciFetch,
+  extractTextImpl,
+} = {}) {
+  const fetched = await fetchPage(pdfUrl, {
+    timeoutMs: 20000,
+    retries: 1,
+    accept: 'application/pdf,*/*;q=0.8',
+    fetchImpl: createPdfSafeFetch(baseFetch),
+  });
+  if (!fetched?.ok || !fetched.body) {
+    const refusal = fetched?.blockedByRobots ? 'robots.txt disallows it' : fetched?.policyBlocked ? 'fetch policy refused it' : `status ${fetched?.status || 0}`;
+    return { text: '', error: refusal };
+  }
+  if (!String(fetched.body).startsWith(PDF_BASE64_PREFIX)) return { text: '', error: 'not a pdf' };
+  const bytes = Buffer.from(fetched.body, 'base64');
+  if (bytes.length > MAX_VACANCY_PDF_BYTES) return { text: '', error: 'pdf too large' };
+  if (bytes.subarray(0, PDF_SIGNATURE.length).toString('latin1') !== PDF_SIGNATURE) return { text: '', error: 'not a pdf' };
+  const extracted = await extractPdfJobContentFromUrl(pdfUrl, {
+    fetchImpl: async () => ({
+      ok: true,
+      status: 200,
+      arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength),
+    }),
+    ...(extractTextImpl ? { extractTextImpl } : {}),
+  });
+  return {
+    text: extracted.text || '',
+    bodySha256: createHash('sha256').update(bytes).digest('hex'),
+    ...(extracted.error ? { error: extracted.error } : {}),
+  };
+}
+
+/**
+ * A page that presents its vacancy as a PDF carries only a teaser in HTML
+ * (gemeinde-st-moritz: 233 chars, «Schalter-Öffnungszeiten» included), so a
+ * parser that publishes the PDF read as «unrelated» to it. The PDF is one
+ * more candidate description of the SAME page and, as for the page's own
+ * blocks in `extractDetailFields`, the longest candidate wins — which also
+ * keeps the check able to fail: a parser that publishes only the teaser is
+ * now compared with the whole ad.
+ *
+ * When the PDF cannot be read, a LINKED one leaves the HTML reading as it was.
+ * An EMBEDDED one is the page's content, so what the HTML still offers is
+ * chrome (csvm-mustair: the news-page frame, «Dein Browser unterstützt kein
+ * PDF»): that reading is dropped and the sample proves nothing, instead of
+ * reporting the published ad as unrelated to the frame around it. csvm's
+ * robots.txt disallows /images/, where its PDFs live, so this is the path the
+ * audit takes there by its own robots rule.
+ */
+async function vacancyPdfDescription(html, pageUrl, detail, fetchVacancyPdf) {
+  const link = vacancyPdfLink(html, pageUrl);
+  if (!link || typeof fetchVacancyPdf !== 'function') return { linkedDocument: null, vacancyPdf: null };
+  let pdf;
+  try {
+    pdf = await fetchVacancyPdf(link.url);
+  } catch (error) {
+    pdf = { text: '', error: sanitizeProcessingError(error) };
+  }
+  const text = String(pdf?.text || '').trim();
+  const readable = Boolean(text) && /^[a-f0-9]{64}$/.test(String(pdf?.bodySha256 || ''));
+  if (!readable) {
+    if (link.embedded) detail.description = '';
+    return {
+      linkedDocument: null,
+      vacancyPdf: { outcome: 'unreadable', embedded: link.embedded, reason: String(pdf?.error || 'no text layer').slice(0, 120) },
+    };
+  }
+  if (text.length <= String(detail.description || '').length) {
+    return { linkedDocument: null, vacancyPdf: { outcome: 'shorter-than-page', embedded: link.embedded } };
+  }
+  detail.description = text;
+  return {
+    linkedDocument: { url: link.url, bodySha256: pdf.bodySha256 },
+    vacancyPdf: { outcome: 'read', embedded: link.embedded },
+  };
+}
+
+function withoutFragment(url = '') {
+  const value = String(url || '');
+  const at = value.indexOf('#');
+  return at < 0 ? value : value.slice(0, at);
+}
+
+function queryOf(url = '') {
+  try {
+    return new URL(withoutFragment(url)).search.replace(/^\?/, '');
+  } catch {
+    return '';
+  }
+}
+
+function urlFragment(url = '') {
+  const value = String(url || '');
+  const at = value.indexOf('#');
+  if (at < 0) return '';
+  try {
+    return decodeURIComponent(value.slice(at + 1));
+  } catch {
+    return value.slice(at + 1);
+  }
+}
+
+/**
+ * Documents several postings of one crawler point into, told apart only by
+ * the URL fragment. The fragment never reaches the server, so fetching any of
+ * those URLs returns the same document: a client-side route (Johdi Suite
+ * `emplois#offer/4094/…` on ehnv, daler-hopital, h-ju; pi-asp
+ * `#position,id=…`; etat-de-vaud `#fr/sites/CX_1/job/5725`) or one page
+ * listing every ad (grischapersonal, im-bethesda-spital, oscam `#concorso-…`).
+ * On run 36528331656 14 crawlers published such URLs for all their postings.
+ * A URL with a fragment that no other posting shares is left alone.
+ *
+ * @returns {Set<string>} the shared documents, fragment removed
+ */
+export function sharedSourceDocuments(jobs = []) {
+  const byDocument = new Map();
+  for (const job of jobs) {
+    const url = String(job?.url || '');
+    if (!url.includes('#')) continue;
+    const document = withoutFragment(url);
+    const urls = byDocument.get(document) || new Set();
+    urls.add(url);
+    byDocument.set(document, urls);
+  }
+  return new Set([...byDocument].filter(([, urls]) => urls.size > 1).map(([document]) => document));
+}
+
+/** `origin + pathname` of a URL, without query or fragment; '' when unparseable. */
+function bareDocumentUrl(url = '') {
+  try {
+    const parsed = new URL(String(url || ''));
+    return `${parsed.origin}${parsed.pathname}`;
+  } catch {
+    return '';
+  }
+}
+
+/** Comparable form of a bare document URL: lowercase host, no trailing slash. */
+function comparableDocumentUrl(url = '') {
+  try {
+    const parsed = new URL(String(url || ''));
+    return `${parsed.protocol}//${parsed.host.toLowerCase()}${parsed.pathname.replace(/\/+$/, '') || '/'}`;
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Documents several postings of one crawler point into, told apart only by a
+ * query parameter: la-fonte `inizia-con-noi?role=stagiaire-…` and
+ * `?role=apprendisti-…`, dxt-commodities `careers/?panel=20897_1` and
+ * `?panel=20897_2` (run 36571839273). Unlike a fragment, a query reaches the
+ * server and may well select a vacancy (`?jobid=`, `?id=` on most ATS), so a
+ * query-only difference is a CANDIDATE: the fetched page has to say it is the
+ * bare document (see `pageDeclaresBareDocument`) before the sample is read as
+ * a page several postings share.
+ *
+ * @returns {Set<string>} the candidate documents, as `origin + pathname`
+ */
+export function querySharedDocumentCandidates(jobs = []) {
+  const byDocument = new Map();
+  for (const job of jobs) {
+    const url = withoutFragment(job?.url || '');
+    if (!url.includes('?')) continue;
+    const document = bareDocumentUrl(url);
+    if (!document) continue;
+    const urls = byDocument.get(document) || new Set();
+    urls.add(url);
+    byDocument.set(document, urls);
+  }
+  return new Set([...byDocument].filter(([, urls]) => urls.size > 1).map(([document]) => document));
+}
+
+/**
+ * Whether the page fetched for `pageUrl` declares, through its canonical link,
+ * that it is the document without the query: then the query addressed nothing
+ * and every posting whose URL differs only by that query landed on the same
+ * page. la-fonte serves byte-identical pages for `?role=…` of both roles and
+ * for no query at all, canonical `https://www.lafonte.ch/inizia-con-noi`;
+ * dxt-commodities' `?panel=…` pages declare `https://dxt.com/careers/`.
+ * A canonical that keeps a query, or names another path, confirms nothing.
+ */
+export function pageDeclaresBareDocument(html = '', pageUrl = '') {
+  const source = String(html || '');
+  for (const match of source.matchAll(/<link\b[^>]*>/gi)) {
+    const rel = readAttr(match[0], 'rel').toLowerCase().split(/\s+/);
+    if (!rel.includes('canonical')) continue;
+    const href = readAttr(match[0], 'href');
+    if (!href) return false;
+    let canonical;
+    try {
+      canonical = new URL(href, pageUrl);
+    } catch {
+      return false;
+    }
+    if (canonical.search) return false;
+    return comparableDocumentUrl(canonical.toString()) === comparableDocumentUrl(bareDocumentUrl(pageUrl));
+  }
+  return false;
+}
+
+/**
+ * Whether a query candidate landed on a page that several postings share:
+ * the page declares the bare document as canonical AND lists this posting and
+ * at least one other posting of that document under their own titles. The
+ * canonical alone is not enough: a single-page app (a BrassRing
+ * `HomeWithPreLoad?jobid=…`) may declare its shell canonical and still read
+ * the query in the browser — its static page lists no posting at all, so it
+ * stays a per-vacancy URL measured as before.
+ */
+export function pageListsSharedPostings(html = '', pageUrl = '', title = '', siblingTitles = []) {
+  if (!pageDeclaresBareDocument(html, pageUrl)) return false;
+  if (!headingSectionBlock(html, title)) return false;
+  return (Array.isArray(siblingTitles) ? siblingTitles : [])
+    .some((sibling) => plainText(sibling).toLowerCase() !== plainText(title).toLowerCase()
+      && Boolean(headingSectionBlock(html, sibling)));
+}
+
+/**
+ * What a fragment on a shared document is, once `fragmentAnchoredBlock` has
+ * found no element with that id in the fetched page (an HTML id may contain
+ * `/`, `=`, `?`, `&` or start with a digit, so the syntax alone never decides
+ * that a fragment is not an element). A fragment written as a path or a
+ * key=value pair (`offer/4094/…`, `fr/sites/CX_1/job/5725`, `position,id=…`,
+ * `job.id=…`, `!/…`) and absent from the page is the route of a single-page
+ * app: the page has no static place for the posting. Anything else absent
+ * from the page is an anchor the page does not have.
+ */
+export function fragmentKind(url = '') {
+  const fragment = urlFragment(url);
+  if (!fragment) return 'none';
+  if (fragment.startsWith(':~:text=')) return 'text-fragment';
+  return /[/=]/.test(fragment) || fragment.startsWith('!') ? 'client-route' : 'anchor';
+}
+
+/**
+ * The section a text fragment (`#:~:text=…`, the browsers' scroll-to-text
+ * address) opens: from the heading whose text is the fragment's start text to
+ * the next heading of the same level. It is how a page that lists every ad
+ * under its own heading but gives none of them an id or a URL — klinik-
+ * seeschau's Joomla list, «the listing IS the detail» — can still address
+ * one posting. Returns '' when no heading carries that text.
+ */
+export function textFragmentBlock(html = '', url = '') {
+  const fragment = String(url || '').split('#')[1] || '';
+  if (!fragment.startsWith(':~:text=')) return '';
+  const directive = fragment.slice(':~:text='.length).split('&')[0];
+  const parts = directive.split(',').filter((part) => part && !part.endsWith('-') && !part.startsWith('-'));
+  let start = '';
+  try {
+    start = decodeURIComponent(parts[0] || '');
+  } catch {
+    return '';
+  }
+  return headingSectionBlock(html, start);
+}
+
+/**
+ * The section a heading whose text is `text` opens, to the next heading of
+ * the same or a higher rank (at most 30 000 characters when none follows),
+ * scripts and styles removed, or ''. The place of one posting on a page that
+ * lists several under their titles — what a text fragment addresses, and
+ * where a posting whose URL addresses nothing on the page still has its own
+ * text: la-fonte lists each role under an `<h4>`, dxt-commodities under the
+ * `<h4>` of its accordion panel, grischapersonal under an `<h1>` per table
+ * row. A higher-rank heading closes the section too: the last dxt panel is
+ * followed by the page's `<h2>`/`<h3>` footer, not by another `<h4>`.
+ */
+export function headingSectionBlock(html = '', text = '') {
+  const wanted = plainText(text).toLowerCase();
+  if (!wanted) return '';
+  const source = String(html || '');
+  for (const match of source.matchAll(/<(h([1-6]))\b[^>]*>([\s\S]*?)<\/\1>/gi)) {
+    if (plainText(match[3]).toLowerCase() !== wanted) continue;
+    const after = match.index + match[0].length;
+    const next = source.slice(after).search(new RegExp(`<h[1-${match[2]}]\\b`, 'i'));
+    return source.slice(match.index, next < 0 ? Math.min(source.length, after + 30000) : after + next)
+      .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style\b[\s\S]*?<\/style>/gi, ' ');
+  }
+  return '';
+}
+
+/**
+ * The element a URL fragment names (`id="…"`) inside the fetched page, as the
+ * inner HTML of that element, or ''. klinik-gut (`#drz-accordion-id-4367`)
+ * and klinik-schuetzen (`#job-PLUT7122`) list every ad on one page but give
+ * each its own element: that element IS the vacancy's source.
+ */
+export function fragmentAnchoredBlock(html = '', url = '') {
+  const fragment = urlFragment(url);
+  // An HTML id is any non-empty string without whitespace: `offer/4094`,
+  // `4367` and `a&b` are all valid, so the id is looked up in the page for
+  // every fragment that is not a text directive. In the markup `&` may be
+  // written `&amp;`.
+  if (!fragment || fragment.startsWith(':~:') || /\s/.test(fragment)) return '';
+  const source = String(html || '');
+  const escape = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const spellings = [...new Set([fragment, fragment.replace(/&/g, '&amp;')])].map(escape).join('|');
+  const opening = new RegExp(`<([a-z][a-z0-9]*)\\b[^>]*\\bid\\s*=\\s*["'](?:${spellings})["'][^>]*>`, 'i').exec(source);
+  if (!opening || /\/\s*>$/.test(opening[0])) return '';
+  const tag = opening[1].toLowerCase();
+  const tags = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
+  tags.lastIndex = opening.index + opening[0].length;
+  let depth = 1;
+  let match;
+  while ((match = tags.exec(source))) {
+    if (match[0][1] === '/') {
+      depth -= 1;
+      if (depth === 0) return source.slice(opening.index + opening[0].length, match.index);
+    } else if (!/\/\s*>$/.test(match[0])) {
+      depth += 1;
+    }
+  }
+  return '';
+}
+
+/**
+ * A posting whose published URL IS the PDF of its advertisement (oscam-
+ * castelrotto's «bando di concorso»): the source text is the PDF, read like a
+ * linked one and bound by digest in the evidence. A PDF that cannot be read
+ * is a fetch failure with its reason, never an empty «match».
+ */
+async function checkPdfSourceDetail(item, fetchVacancyPdf, evidenceContext) {
+  let pdf;
+  try {
+    pdf = await fetchVacancyPdf(item.url);
+  } catch (error) {
+    pdf = { text: '', error: sanitizeProcessingError(error) };
+  }
+  const text = String(pdf?.text || '').trim();
+  if (!text || !/^[a-f0-9]{64}$/.test(String(pdf?.bodySha256 || ''))) {
+    const reason = String(pdf?.error || 'no text layer');
+    return {
+      ...item,
+      fetchFailed: true,
+      status: 0,
+      fetchError: reason.slice(0, 240),
+      blockedByRobots: /robots/i.test(reason) || undefined,
+      policyBlocked: /policy/i.test(reason) || undefined,
+    };
+  }
+  try {
+    const comparison = compareSourceDetail(item.job, { title: '', location: '', description: text }, {
+      locationEvidence: 'generic',
+      crawlerKey: item.crawlerKey,
+    });
+    const sourceDetailEvidence = evidenceContext
+      ? createSourceDetailEvidence({
+        crawlerKey: item.crawlerKey,
+        sourceUrl: item.url,
+        body: `application/pdf sha256:${pdf.bodySha256}`,
+        observation: comparison.replayObservation,
+        provenance: evidenceContext.provenance,
+        versions: evidenceContext.versions,
+        linkedDocument: { url: item.url, bodySha256: pdf.bodySha256 },
+      })
+      : null;
+    return {
+      ...item,
+      ...comparison,
+      vacancyPdf: { outcome: 'read', embedded: false, direct: true },
+      ...(sourceDetailEvidence ? { sourceDetailEvidence } : {}),
+    };
+  } catch (error) {
+    return processingFailureResult(item, error);
+  }
+}
+
 export async function checkSourceDetailsBatch(items, concurrency = 3, {
   fetchPage = politeFetch,
   extractDetail = extractDetailFields,
   observeLocation = extractSourceLocationObservation,
+  fetchVacancyPdf = fetchVacancyPdfText,
   evidenceContext = null,
 } = {}) {
   const results = await mapPool(items, concurrency, async (item) => {
+    if (isPdfReference(withoutFragment(item.url))) return checkPdfSourceDetail(item, fetchVacancyPdf, evidenceContext);
     let fetched;
     try {
       fetched = await fetchPage(item.url, { timeoutMs: 10000, retries: 1 });
@@ -992,14 +1855,78 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
       };
     }
     try {
-      const detail = extractDetail(fetched.body, fetched.url || item.url);
+      const recordUrl = item.job?.url || item.url;
+      const recordTitle = item.job?.title || '';
+      const detail = extractDetail(fetched.body, fetched.url || item.url, { recordUrl, recordTitle });
+      detail.headingSublineFields = vacancyHeadingSublineFields(fetched.body, detail.title);
+      detail.headingIntroFields = vacancyHeadingIntroFields(fetched.body, detail.title);
+      detail.nationwideScopeHeadings = vacancyNationwideScopeHeadings(fetched.body);
       const locationObservation = observeLocation(
         fetched.body,
         fetched.url || item.url,
-        { includeDiagnostics: true },
+        { includeDiagnostics: true, recordUrl, recordTitle },
       );
       if (locationObservation.location) detail.location = locationObservation.location;
-      const locationEvidence = locationObservation.evidence;
+      // A document shared by several postings (see sharedSourceDocuments and
+      // querySharedDocumentCandidates) is the vacancy's source only where the
+      // posting has a place of its own on it: the element or the text its URL
+      // fragment names, or else the section under its own title. The whole
+      // page is every posting at once, so it is never measured against one.
+      let sourceScope = null;
+      let sharedBy = null;
+      let locationEvidence = locationObservation.evidence;
+      const jobUrl = item.job?.url || item.url;
+      if (item.sharedDocument) sharedBy = 'fragment';
+      else if (item.sharedDocumentCandidate === 'query'
+        && pageListsSharedPostings(fetched.body, fetched.url || item.url, item.job?.title, item.siblingTitles)) sharedBy = 'query';
+      // Whether the published URL itself leads to the posting on that page.
+      // A query the page ignores, or an anchor it does not have, does not:
+      // the reader lands on the top of a page listing several postings.
+      let urlAddressesPosting = true;
+      if (sharedBy) {
+        // The fragment addresses the posting on the shared page whatever made
+        // the page shared: la-fonte keeps its `?role=` identity and adds the
+        // text fragment of the role's title, dxt its `?panel=` and the id of
+        // the accordion panel.
+        const kind = fragmentKind(jobUrl);
+        const clientRoute = kind === 'client-route';
+        let addressed = '';
+        if (kind === 'text-fragment') addressed = textFragmentBlock(fetched.body, jobUrl);
+        else if (kind !== 'none') addressed = fragmentAnchoredBlock(fetched.body, jobUrl);
+        if (!addressed && !clientRoute) urlAddressesPosting = false;
+        const titled = !addressed && !clientRoute
+          ? headingSectionBlock(fetched.body, item.job?.title || '')
+          : '';
+        const block = addressed || titled;
+        if (block) {
+          sourceScope = addressed ? 'fragment-anchor' : 'title-heading';
+          detail.description = plainText(block);
+          const anchoredLocation = observeLocation(block, fetched.url || item.url, { recordUrl });
+          detail.location = anchoredLocation.location || '';
+          locationEvidence = anchoredLocation.evidence;
+        } else {
+          // Nothing on the page is this posting's: an app route has no
+          // static place for it (informational), an anchor or a query that
+          // addresses nothing, on a page without the posting's title, is a
+          // defect of the published URL (visible issue).
+          sourceScope = clientRoute ? 'client-route' : 'anchor-missing';
+          detail.description = '';
+          detail.location = '';
+          detail.headingSublineFields = [];
+          detail.headingIntroFields = [];
+          detail.nationwideScopeHeadings = [];
+          locationEvidence = 'generic';
+        }
+      }
+      const unattributable = sourceScope === 'client-route' || sourceScope === 'anchor-missing';
+      const { linkedDocument, vacancyPdf } = unattributable
+        ? { linkedDocument: null, vacancyPdf: null }
+        : await vacancyPdfDescription(
+          fetched.body,
+          fetched.url || item.url,
+          detail,
+          fetchVacancyPdf,
+        );
       const comparison = compareSourceDetail(item.job, detail, {
         locationEvidence,
         crawlerKey: item.crawlerKey,
@@ -1012,11 +1939,16 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
           observation: comparison.replayObservation,
           provenance: evidenceContext.provenance,
           versions: evidenceContext.versions,
+          linkedDocument,
         })
         : null;
       return {
         ...item,
         ...comparison,
+        ...(vacancyPdf ? { vacancyPdf } : {}),
+        ...(sourceScope ? { sourceScope } : {}),
+        ...(sharedBy ? { sharedBy } : {}),
+        ...(urlAddressesPosting ? {} : { urlAddressesPosting: false }),
         // Attached to the RESULT, deliberately not routed through
         // `comparison.replayObservation`: the replay-evidence schema and its
         // strict validator in `classifySourceDetailObservation` would have to
@@ -1054,6 +1986,21 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
 export function sourceDetailUnobserved(result) {
   return !result.sourceLocation
     && Number(result.sourceDescriptionLength || 0) < COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS;
+}
+
+/**
+ * What one identical-description bucket sample proved. `matched` is the only
+ * outcome that says "template": the source body was long enough to contradict
+ * the published one and did not. A page with less than
+ * COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS of body proves neither template nor
+ * fallback, so it is counted as `notComparable`, never as a match.
+ */
+export function duplicateBucketSampleOutcome(result) {
+  if (result?.fetchFailed) return 'fetchFailed';
+  if (result?.processingFailed) return 'processingFailed';
+  if (result?.descriptionMismatch) return 'mismatched';
+  if (Number(result?.sourceDescriptionLength || 0) < COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS) return 'notComparable';
+  return 'matched';
 }
 
 /**
@@ -1232,6 +2179,28 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     circularCorroborationObservations: 0,
     inconclusiveLocationObservations: 0,
     descriptionMismatches: 0,
+    // Outcomes of the identical-description bucket samples (see
+    // duplicateBucketSourceSample). Every requested bucket sample lands in
+    // exactly one of the five outcomes, so the hidden signal stays measured
+    // on every run even though it no longer makes a crawler WARNING.
+    duplicateBucketSamples: {
+      requested: 0,
+      matched: 0,
+      mismatched: 0,
+      notComparable: 0,
+      fetchFailed: 0,
+      processingFailed: 0,
+    },
+    // Detail pages that present the vacancy as a PDF (see vacancyPdfLink):
+    // read and used, unreadable (robots, fetch, no text layer), or shorter
+    // than what the page already carried.
+    vacancyPdfPages: { read: 0, unreadable: 0, shorterThanPage: 0 },
+    // Samples on a document several postings share (see sharedSourceDocuments
+    // and querySharedDocumentCandidates): read from the element their fragment
+    // names, read from the section under their own title, on an app route with
+    // no static page for the posting, or behind an anchor or a query that does
+    // not lead to the posting (counted whether or not its title was found).
+    sharedDocumentSamples: { fragmentAnchored: 0, titleHeading: 0, clientRoute: 0, anchorMissing: 0 },
   };
   const byKey = {};
   for (const result of sourceResults) {
@@ -1242,10 +2211,27 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       descriptionMismatches: 0, unobserved: 0, unobservedSourceMute: 0,
       circularCorroborationObservations: 0,
       unobservedDetails: [], details: [], failureFamilies: {},
+      bucketVerification: null,
+      unattributable: 0, anchorMissing: 0, anchorMissingDetails: [],
     };
     const info = byKey[key];
     const sourceReference = sourceDetailReportReference(result.url);
     info.checked++;
+    if (result.vacancyPdf) {
+      const pdfOutcome = result.vacancyPdf.outcome === 'shorter-than-page' ? 'shorterThanPage' : result.vacancyPdf.outcome;
+      if (pdfOutcome in sourceDetailSummary.vacancyPdfPages) sourceDetailSummary.vacancyPdfPages[pdfOutcome]++;
+    }
+    const bucketSample = result.sampleReason === DUPLICATE_BUCKET_SAMPLE_REASON;
+    if (bucketSample) {
+      const outcome = duplicateBucketSampleOutcome(result);
+      sourceDetailSummary.duplicateBucketSamples.requested++;
+      sourceDetailSummary.duplicateBucketSamples[outcome]++;
+      info.bucketVerification = {
+        outcome,
+        bucketSize: Number.isInteger(result.bucketSize) ? result.bucketSize : null,
+        source: sourceReference,
+      };
+    }
     if (result.fetchFailed) {
       info.fetchFailed++;
       sourceDetailSummary.fetchFailed++;
@@ -1263,6 +2249,29 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       continue;
     }
     sourceDetailSummary.fetched++;
+    if (result.sourceScope === 'fragment-anchor') sourceDetailSummary.sharedDocumentSamples.fragmentAnchored++;
+    if (result.sourceScope === 'title-heading') sourceDetailSummary.sharedDocumentSamples.titleHeading++;
+    // Neither is «unobserved»: the page may well carry a JobPosting, just not
+    // this posting's. No verdict on description or location either way.
+    if (result.sourceScope === 'client-route') {
+      sourceDetailSummary.sharedDocumentSamples.clientRoute++;
+      info.unattributable++;
+      continue;
+    }
+    // The published URL does not lead to the posting: a visible defect of
+    // the URL. When the page still carries the posting under its own title
+    // (`title-heading`), that section is compared below like any source;
+    // without it there is nothing of this posting's to compare.
+    if (result.sourceScope === 'anchor-missing' || result.urlAddressesPosting === false) {
+      sourceDetailSummary.sharedDocumentSamples.anchorMissing++;
+      info.anchorMissing++;
+      const publishedUrl = result.job?.url || result.url;
+      const titled = result.sourceScope === 'title-heading' ? '; the section under its title was compared instead' : '';
+      info.anchorMissingDetails.push(result.sharedBy === 'query'
+        ? `${sourceReference}?${queryOf(publishedUrl)}: the page this URL shares with other postings ignores the query (it declares the URL without it as canonical)${titled}`
+        : `${sourceReference}#${urlFragment(publishedUrl)}: the page this URL shares with other postings has no element with that id${titled}`);
+      if (result.sourceScope === 'anchor-missing') continue;
+    }
     addLocationEvidenceCounts(
       sourceDetailSummary.locationEvidenceBeforeGateByEvidence,
       result.locationEvidenceCounts?.beforeGate,
@@ -1325,11 +2334,30 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     if (result.descriptionMismatch) {
       info.descriptionMismatches++;
       sourceDetailSummary.descriptionMismatches++;
-      info.details.push(`${sourceReference}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars`);
+      const bucketNote = bucketSample && Number.isInteger(result.bucketSize)
+        ? ` (body shared verbatim by ${result.bucketSize} jobs)`
+        : '';
+      info.details.push(`${sourceReference}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars${bucketNote}`);
     }
   }
   for (const [key, info] of Object.entries(byKey)) {
     const entry = report[key] || (report[key] = { total: 0, issues: [] });
+    if (info.bucketVerification) {
+      const bucketIssue = entry.issues.find((issue) => issue.type === 'duplicate-descriptions-desc-only');
+      if (bucketIssue) bucketIssue.sourceVerification = info.bucketVerification;
+    }
+    // Informational, never an issue: the source is an app with no static
+    // page per posting, so these samples could not be checked at all.
+    if (info.unattributable > 0) entry.sourceDetailUnattributable = info.unattributable;
+    if (info.anchorMissing > 0) {
+      entry.issues.push({
+        type: 'source-detail-anchor-missing',
+        count: info.anchorMissing,
+        total: info.checked,
+        details: info.anchorMissingDetails,
+        message: `${info.anchorMissing}/${info.checked} published URLs point into a page several postings share with an anchor that is not on it or a query it ignores — the link does not lead to the posting; publish a per-vacancy URL, an anchor that exists or a text fragment of its title`,
+      });
+    }
     if (info.processingFailed > 0) {
       entry.issues.push({
         type: 'parse-error', count: info.processingFailed, total: info.checked,
@@ -1444,6 +2472,24 @@ export function formatSourceDetailObservationLines(summary = {}) {
   if (unobserved > 0) {
     lines.push(`Source detail unobserved split: ${sourceMute} source served no JobPosting structured data (no issue raised), ${unobserved - sourceMute} served one and still read as nothing (parser finding)`);
   }
+  // Same reasoning for the identical-description buckets: the hidden signal
+  // stopped producing WARNINGs, so what the source said about each bucket is
+  // printed here on every run instead of disappearing with the WARNING.
+  if (count(summary.duplicateRequestsDropped) > 0) {
+    lines.push(`Source detail requests dropped as duplicates of a request of the same crawler: ${count(summary.duplicateRequestsDropped)} (same URL sampled twice — a sampler defect)`);
+  }
+  const shared = summary.sharedDocumentSamples;
+  if (shared && count(shared.fragmentAnchored) + count(shared.titleHeading) + count(shared.clientRoute) + count(shared.anchorMissing) > 0) {
+    lines.push(`Source detail samples on a page several postings share: ${count(shared.fragmentAnchored)} read from the element their URL fragment names, ${count(shared.titleHeading)} read from the section under their title, ${count(shared.clientRoute)} on an app route with no static page per posting (informational), ${count(shared.anchorMissing)} behind an anchor or a query that does not lead to the posting (source-detail-anchor-missing)`);
+  }
+  const pdfPages = summary.vacancyPdfPages;
+  if (pdfPages && count(pdfPages.read) + count(pdfPages.unreadable) + count(pdfPages.shorterThanPage) > 0) {
+    lines.push(`Source detail pages presenting the vacancy as a PDF: ${count(pdfPages.read)} compared with the PDF, ${count(pdfPages.unreadable)} PDF unreadable (an embedded one leaves the sample unobserved), ${count(pdfPages.shorterThanPage)} PDF shorter than the page body`);
+  }
+  const bucket = summary.duplicateBucketSamples;
+  if (bucket && count(bucket.requested) > 0) {
+    lines.push(`Identical-description buckets checked against the source: ${count(bucket.requested)} sampled — ${count(bucket.matched)} carry their source body (template), ${count(bucket.mismatched)} contradicted by it (source-detail-mismatch), ${count(bucket.notComparable)} source body < ${COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS} chars (proves nothing), ${count(bucket.fetchFailed)} fetch failed, ${count(bucket.processingFailed)} processing failed`);
+  }
   return lines;
 }
 
@@ -1496,19 +2542,28 @@ export async function runSourceDetailChecks(report, sourceDetailsToCheck, {
   concurrency = 3,
   checkBatch = checkSourceDetailsBatch,
 } = {}) {
+  // Last line of defence behind the samplers: the same crawler asking for the
+  // same URL twice is one observation, not two, and a single duplicate makes
+  // the evidence bundle refuse the whole run. Kept once, counted, printed.
+  const seenRequests = new Set();
+  const requests = sourceDetailsToCheck.filter(({ crawlerKey, url }) => {
+    const identity = `${crawlerKey}\u0000${url}`;
+    if (seenRequests.has(identity)) return false;
+    seenRequests.add(identity);
+    return true;
+  });
+  const duplicateRequestsDropped = sourceDetailsToCheck.length - requests.length;
   const evidenceContext = {
     provenance,
     versions,
-    requestedCount: sourceDetailsToCheck.length,
-    requestedSamples: sourceDetailsToCheck.map(({ crawlerKey, url }) => ({ crawlerKey, url })),
+    requestedCount: requests.length,
+    requestedSamples: requests.map(({ crawlerKey, url }) => ({ crawlerKey, url })),
   };
-  const sourceResults = await checkBatch(sourceDetailsToCheck, concurrency, { evidenceContext });
+  const sourceResults = await checkBatch(requests, concurrency, { evidenceContext });
+  const sourceDetailSummary = applySourceDetailResults(report, sourceResults, requests.length);
+  sourceDetailSummary.duplicateRequestsDropped = duplicateRequestsDropped;
   return {
-    sourceDetailSummary: applySourceDetailResults(
-      report,
-      sourceResults,
-      sourceDetailsToCheck.length,
-    ),
+    sourceDetailSummary,
     sourceDetailEvidence: finalizeSourceDetailEvidence(report, sourceResults, evidenceContext),
   };
 }
@@ -1520,9 +2575,57 @@ export async function runSourceDetailChecks(report, sourceDetailsToCheck, {
  * is the rule a reclassification has to be measured against — a source that
  * must stop being a WARNING has to emit NO issue, and a test can only prove
  * that by running the same rule the audit runs, not by reading the chain.
+ *
+ * A `hidden` issue is not a finding: it is an input to a ratchet (today only
+ * `duplicate-descriptions-desc-only`, which feeds the ≥95 % chrome ratchet and
+ * picks the bucket the source-detail pass verifies) and the report never
+ * prints it. Counting it here made 55 crawlers WARNING on run 36528331656 with
+ * no line under their name to say why. An `informational` issue is printed as
+ * INFO but likewise cannot make a crawler WARNING; source-distinct duplicate
+ * listings use that path. What the hidden signal can prove is proved
+ * elsewhere, visibly: the chrome ratchet synthesizes a visible issue, and a
+ * bucket whose body the source contradicts becomes a `source-detail-mismatch`.
  */
 export function issueDrivenSeverity(entry) {
-  return (entry?.issues?.length || 0) > 0 ? 'WARNING' : 'OK';
+  const visible = (entry?.issues || []).filter((issue) => !issue?.hidden && !issue?.informational);
+  return visible.length > 0 ? 'WARNING' : 'OK';
+}
+
+/**
+ * Severity chain of one crawler entry, before the two ratchets. Exported so a
+ * replay or a test derives severity with the rule the audit runs instead of a
+ * hand-copied subset of it.
+ */
+export function assignSeverity(entry) {
+  const types = new Set(entry.issues.map((i) => i.type));
+  const thin = entry.issues.find((i) => i.type === 'thin-description');
+  const thinRatio = thin ? thin.count / thin.total : 0;
+  const formChromeCount = thin?.reasons?.['form-chrome'] || 0;
+  const urlFail = types.has('stale-urls');
+  const sourceIssue = entry.issues.find((i) => i.type === 'source-detail-mismatch');
+  const sourceProcessingIssue = entry.issues.find((i) => i.type === 'parse-error' && i.processingFailed > 0);
+  const detailSeverity = sourceDetailSeverity(entry);
+  if (types.has('parse-error')) entry.severity = 'CRITICAL';
+  else if (detailSeverity === 'CRITICAL') entry.severity = 'CRITICAL';
+  // Form-chrome is a hard signal: even one row means the parser is
+  // leaking the surrounding page (form, footer, contact info) into the
+  // job description. There is no benign source of these phrases — never
+  // a false positive — so skip the ratio gate.
+  else if (formChromeCount > 0) entry.severity = 'CRITICAL';
+  else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
+  else if (detailSeverity === 'WARNING') entry.severity = 'WARNING';
+  else entry.severity = issueDrivenSeverity(entry);
+  if (entry.severity === 'CRITICAL') {
+    const h = [];
+    if (formChromeCount > 0) h.push(`${formChromeCount} description(s) contain form/footer/contact chrome — parser is sweeping page boundaries (most likely an unbounded HTML split). Bound extraction to the per-job DOM subtree`);
+    if (thinRatio >= 0.5) h.push('Most descriptions are thin — parser likely scraping nav/boilerplate instead of job content');
+    if (urlFail) h.push('Detail URLs returning errors — likely site migration or URL structure change');
+    if (sourceIssue?.locationMismatches > 0) h.push('Published locations disagree with sampled source detail pages — inspect the crawler location selector and remove generic-city fallbacks');
+    if (sourceIssue?.descriptionMismatches > 0) h.push('Published descriptions are materially shorter or unrelated to sampled source detail pages — bound extraction to the job-detail content');
+    if (sourceProcessingIssue) h.push('Source detail pages were fetched but the audit could not process them — inspect the sanitized per-page errors in the JSON report');
+    else if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');
+    entry.action = h.join('. ') + '.';
+  }
 }
 
 export function sourceDetailSeverity(entry) {
@@ -1622,15 +2725,6 @@ function isThinDescription(desc) {
   return false;
 }
 
-function hasStructuredContent(desc) {
-  const text = stripHtml(desc);
-  // Bullet points, numbered lists, <li> tags
-  if (/<li[\s>]/i.test(desc)) return true;
-  if (/^\s*[-•*]\s/m.test(text)) return true;
-  if (/^\s*\d+[.)]\s/m.test(text)) return true;
-  return false;
-}
-
 const EMPTY_LOCALE_PLACEHOLDER_RE = /^(?:[-–—_.*?]+|n\/?a|none|null|undefined|todo|tbd|pending|placeholder|segnaposto|translation pending|pending translation)$/i;
 
 export function filledLocaleCount(byLocale, { minLength = 11 } = {}) {
@@ -1641,44 +2735,12 @@ export function filledLocaleCount(byLocale, { minLength = 11 } = {}) {
   }).length;
 }
 
-function descFingerprint(desc) {
-  return plainText(desc).toLowerCase().slice(0, 500);
-}
-
-/**
- * Estimate the length of a shared boilerplate prefix across jobs of the same
- * crawler. We sort plain-text descriptions and take the longest common prefix
- * of any adjacent pair: if the crawler leaks a company intro into every job,
- * that intro will show up as a long prefix on most neighbouring pairs.
- *
- * We only strip the prefix when it looks like real boilerplate — short enough
- * compared to the full description. If a pair is essentially identical end to
- * end (prefix ≈ description length), those are real duplicates and should be
- * flagged, not masked.
- */
-function estimateBoilerplateLength(plain) {
-  if (plain.length < 2) return 0;
-  const sorted = [...plain].sort();
-  let maxPrefix = 0;
-  for (let i = 1; i < sorted.length; i++) {
-    const a = sorted[i - 1];
-    const b = sorted[i];
-    const max = Math.min(a.length, b.length);
-    let j = 0;
-    while (j < max && a.charCodeAt(j) === b.charCodeAt(j)) j++;
-    // Guard: if the pair is nearly identical end-to-end, treat as a real
-    // duplicate (don't let it inflate the boilerplate estimate).
-    if (j >= Math.min(a.length, b.length) * 0.9) continue;
-    if (j > maxPrefix) maxPrefix = j;
-  }
-  return maxPrefix;
-}
-
 /**
  * Build per-job fingerprints for duplicate detection.
  *
  * Two modes are supported because the original "all-jobs-share-the-same-500-char
- * description-slice" heuristic conflates two very different parser problems:
+ * description-slice" heuristic (since replaced by the whole body in both
+ * modes) conflates two very different parser problems:
  *
  *   1. CHROME SCRAPING — the parser grabs nav/footer/megamenu instead of the
  *      job body, so dozens of UNRELATED jobs (different titles, different
@@ -1689,12 +2751,12 @@ function estimateBoilerplateLength(plain) {
  *      many cities (reboot-monkey: 142 "Data Center Technician — Switzerland —
  *      <city>" listings; lidl-svizzera: 8 apprendistato in 8 filiali;
  *      fielmann: 37 "Augenoptiker (w/m/d)" across 35 Workday store locations).
- *      The body is templated so post-boilerplate slices collide. The parser is
+ *      The body is templated so templated bodies collide. The parser is
  *      doing the right thing — flagging it as a duplicate listing is a false
  *      positive.
  *
  * We separate the two:
- *   - mode 'title-aware'  : title || location || desc-slice. Catches real
+ *   - mode 'title-aware'  : title || location || whole body. Catches real
  *                           duplicate listings where multiple postings share the
  *                           same title AND body AT THE SAME LOCATION (bitfinex's
  *                           Recruitee feed publishes 9× the same role; a feed
@@ -1708,29 +2770,147 @@ function estimateBoilerplateLength(plain) {
  *                           for store-chain feeds. Same role at distinct cities →
  *                           distinct fingerprints → not a duplicate. Same role
  *                           re-posted at the same city → still collides → flagged.
- *   - mode 'desc-only'    : the original desc-only slice. Used at a stricter
- *                           threshold to keep chrome-scraping detection alive
- *                           (chrome makes ALL descriptions identical regardless
- *                           of title).
+ *   - mode 'desc-only'    : the WHOLE normalized body, no slice. Used at a
+ *                           stricter threshold to keep chrome-scraping
+ *                           detection alive (chrome makes ALL descriptions
+ *                           identical regardless of title).
+ *
+ * Why desc-only no longer shares the title-aware slice: the slice starts at a
+ * crawler-wide offset taken from the longest common prefix of ANY adjacent
+ * pair (the former `estimateBoilerplateLength`), and that offset was cut from EVERY
+ * job, including the jobs that do not start with it. On run 36528331656 the
+ * offset was 911 chars on klinik-lengg (two variants of one role) and 2 588 on
+ * helvetia, so the 500-char window of the other jobs landed on their shared
+ * closing paragraph: 15 of the 55 crawlers WARNING only for this signal had no
+ * two jobs with the same body at all (the Praktikum Neuropsychologie and the
+ * FaGe apprenticeship "collided" on the clinic's footer). The same offset ran
+ * past the end of shorter bodies and emptied their window, so identical bodies
+ * went unseen: jumbo had 30 byte-identical bodies and a count of 2. "Identical
+ * body regardless of title" is what this signal documents, so it compares the
+ * body — the ≥95 % ratchet sees the same maximum on every crawler of that run
+ * (54 %, new-yorker) and 119 → 99 crawlers carry the hidden issue.
+ *
+ * Why title-aware compares the whole body too (run 36571839273): the same
+ * crawler-wide offset plus a 500-character window called two postings "the
+ * same" when they differed only outside the window. reboot-monkey publishes
+ * each Data Center Technician role twice per city, full-time and freelance
+ * (`…-on-site` / `…-on-site-1`): the two bodies differ at character 94
+ * («this is a full-time» / «this is a freelance»), before the offset, or at
+ * character 3 078 (the requirements list), after the window — 28/106
+ * "duplicates", none identical. selecta's two «Chauffeur Kat. C und E» at
+ * Kirchberg (Job/4600, Job/4601) differ at character 878: shift 05:00-15:00
+ * against 12:00-22:00. A posting that differs in its employment type, shift,
+ * rate, street address or reference number is another posting; a re-posting
+ * is the same text, and the whole text still collides. Measured on the main
+ * slices of 2026-09-29: 32 → 26 crawlers flagged; every bucket that splits
+ * differs in its body, and no crawler gains a flag (a whole-body match is
+ * also a window match, so the new key can only split buckets).
  */
 function jobLocationKey(job) {
   return plainText(job?.location || job?.addressLocality || job?.city || '').toLowerCase();
 }
 
+const SOURCE_UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
+
+function sourceIdentifierValue(value, depth = 0) {
+  if (depth > 2 || value == null) return '';
+  if (typeof value === 'object') {
+    for (const key of ['value', 'id', 'identifier', 'requisitionId', 'externalId']) {
+      const nested = sourceIdentifierValue(value[key], depth + 1);
+      if (nested) return nested;
+    }
+    return '';
+  }
+  return String(value).replace(/\s+/g, ' ').trim();
+}
+
+function looksLikeGeneratedJobId(value) {
+  const id = String(value || '').trim();
+  return /^(?:[a-z0-9-]+)-[a-f0-9]{12}$/i.test(id)
+    || /^company-[a-z0-9]+$/i.test(id);
+}
+
+function normalizeSourceIdentifier(value) {
+  const normalized = sourceIdentifierValue(value).toLowerCase();
+  if (!normalized) return '';
+  // Workday and long numeric requisitions use -N for a re-publication. UUIDs
+  // are deliberately not passed through this rule: their final hyphen is part
+  // of the UUID, not a repost suffix.
+  return normalized.replace(/^(?:r\d+|\d{6,})-\d+$/i, (id) => id.replace(/-\d+$/, ''));
+}
+
+function sourceIdFromUrl(url) {
+  let value = String(url || '').trim();
+  if (!value) return '';
+  try {
+    value = decodeURIComponent(value);
+  } catch {
+    // Keep the raw URL when a source contains a malformed percent escape.
+  }
+
+  const workday = value.match(/_(R\d+(?:-\d+)?|\d{6,}(?:-\d+)?)(?=[/?#]|$)/i);
+  if (workday) return normalizeSourceIdentifier(workday[1]);
+
+  const successFactors = [...value.matchAll(/\/(\d{8,})(?=\/?(?:[?#]|$))/g)];
+  if (successFactors.length > 0) {
+    return normalizeSourceIdentifier(successFactors.at(-1)[1]);
+  }
+
+  const uuid = value.match(SOURCE_UUID_RE);
+  return uuid ? normalizeSourceIdentifier(uuid[0]) : '';
+}
+
+/**
+ * Extract the source identity used to distinguish two otherwise identical
+ * listings. Explicit requisition/reference fields win; a non-generated source
+ * `id` and then the public URL are the next sources of evidence. A generated
+ * application id is deliberately ignored, because it is not proof that the
+ * source published two distinct vacancies.
+ *
+ * @param {Record<string, any>} job
+ * @returns {string} normalized source id without a Workday/long-numeric -N
+ *   repost suffix, or an empty string when the source identity is unknown
+ */
+export function extractSourceId(job = {}) {
+  const explicit = [
+    job?.identifier,
+    job?.requisitionId,
+    job?.jobReqId,
+    job?.sourceId,
+    job?.externalId,
+    job?.sourceIdentifier,
+    job?.sourceReference,
+    job?.sza_reference_code,
+    job?.szas?.sza_reference_code,
+    job?._meta?.sourceIdentifier,
+    job?.source?.identifier,
+    job?.source?.requisitionId,
+    job?.source?.id,
+  ];
+  for (const candidate of explicit) {
+    const id = normalizeSourceIdentifier(candidate);
+    if (id) return id;
+  }
+
+  // Some source parsers preserve the source id as `id`; generated crawler ids
+  // (for example `otis-<sha1-prefix>` and `company-<hash>`) are not evidence.
+  const rawId = sourceIdentifierValue(job?.id);
+  if (rawId && !looksLikeGeneratedJobId(rawId)) return normalizeSourceIdentifier(rawId);
+
+  const urlId = sourceIdFromUrl(job?.url);
+  return urlId || '';
+}
+
 export function fingerprintsForCrawler(jobs, mode = 'title-aware') {
   const plain = jobs.map((j) => plainText(j.description).toLowerCase());
-  const boilerLen = estimateBoilerplateLength(plain);
-  // Only strip when the boilerplate is long enough to be meaningful and not
-  // so long that stripping it leaves no signal.
-  const stripLen = boilerLen >= 120 ? Math.max(boilerLen - 20, 0) : 0;
+  if (mode === 'desc-only') return plain;
   return plain.map((p, i) => {
-    const slice = p.slice(stripLen, stripLen + 500);
-    if (mode === 'title-aware') {
-      const title = plainText(jobs[i]?.title || '').toLowerCase();
-      const location = jobLocationKey(jobs[i]);
-      return `${title}||${location}||${slice}`;
-    }
-    return slice;
+    // An empty body is no evidence of a re-posting: without it the key is
+    // title + location alone.
+    if (!p) return '';
+    const title = plainText(jobs[i]?.title || '').toLowerCase();
+    const location = jobLocationKey(jobs[i]);
+    return `${title}||${location}||${p}`;
   });
 }
 
@@ -1741,6 +2921,88 @@ export function countDuplicates(fps) {
     counts.set(fp, (counts.get(fp) || 0) + 1);
   }
   return [...counts.values()].filter((c) => c > 1).reduce((s, c) => s + c, 0);
+}
+
+function declaredPostalCode(job) {
+  return String(job?.postalCode || '').replace(/\s+/g, '').trim();
+}
+
+/**
+ * Classify title-aware fingerprint buckets as true duplicate listings or as
+ * source-distinct postings that happen to carry the same content. A source
+ * identity is stronger than the address heuristic: the same canonical URL or
+ * the same source id/requisition remains a true duplicate even when the two
+ * records disagree on workplace fields.
+ *
+ * Owner decision 2026-09-30 (#5253): identical title, body and locality with
+ * distinct source ids (Hirslanden, Lonza, Otis and Volg/fenaco examples) stays
+ * published and is informational; an identical URL, source id/requisition, or
+ * an unidentifiable source remains a warning.
+ *
+ * @returns {Array<{ members: number[], sourceIds: string[], sourceDistinct: boolean, duplicateCount: number, sourceDistinctCount: number }>}
+ */
+export function classifyDuplicateListingGroups(jobs, fps) {
+  const buckets = new Map();
+  fps.forEach((fp, index) => {
+    if (fp.length < 20) return; // skip empty/tiny
+    const members = buckets.get(fp);
+    if (members) members.push(index);
+    else buckets.set(fp, [index]);
+  });
+  const declaredStreetAddress = (job) => plainText(job?.streetAddress || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+  const mayBeSamePosting = (left, right) => {
+    const leftPostal = declaredPostalCode(left);
+    const rightPostal = declaredPostalCode(right);
+    if (leftPostal && rightPostal && leftPostal !== rightPostal) return false;
+    const leftStreet = declaredStreetAddress(left);
+    const rightStreet = declaredStreetAddress(right);
+    if (leftStreet && rightStreet && leftStreet !== rightStreet) return false;
+    return true;
+  };
+
+  const groups = [];
+  for (const members of buckets.values()) {
+    if (members.length < 2) continue;
+    const sourceIds = members.map((index) => extractSourceId(jobs[index]));
+    const canonicalUrls = members
+      .map((index) => identityUrlKey(jobs[index]?.url))
+      .filter(Boolean);
+    const hasSameCanonicalUrl = canonicalUrls.length > 1
+      && new Set(canonicalUrls).size < canonicalUrls.length;
+    const allSourceIdsPresent = sourceIds.every(Boolean);
+    const allSourceIdsDistinct = new Set(sourceIds).size === sourceIds.length;
+    const sourceDistinct = allSourceIdsPresent && allSourceIdsDistinct && !hasSameCanonicalUrl;
+    const sourceIdByIndex = new Map(members.map((index, offset) => [index, sourceIds[offset]]));
+    const canonicalUrlByIndex = new Map(members.map((index) => [index, identityUrlKey(jobs[index]?.url)]));
+    const samePostingIndices = members.filter((index) => members.some((other) => {
+      if (other === index) return false;
+      const sameCanonicalUrl = canonicalUrlByIndex.get(index)
+        && canonicalUrlByIndex.get(index) === canonicalUrlByIndex.get(other);
+      const sameSourceId = sourceIdByIndex.get(index)
+        && sourceIdByIndex.get(index) === sourceIdByIndex.get(other);
+      return sameCanonicalUrl || sameSourceId || mayBeSamePosting(jobs[index], jobs[other]);
+    }));
+    groups.push({
+      members,
+      sourceIds,
+      sourceDistinct,
+      duplicateCount: sourceDistinct ? 0 : samePostingIndices.length,
+      sourceDistinctCount: sourceDistinct ? members.length : 0,
+    });
+  }
+  return groups;
+}
+
+/**
+ * Count only warning-producing duplicate records. Informational source-distinct
+ * buckets remain available through classifyDuplicateListingGroups().
+ */
+export function countDuplicateListings(jobs, fps) {
+  return classifyDuplicateListingGroups(jobs, fps)
+    .reduce((count, group) => count + group.duplicateCount, 0);
 }
 
 /**
@@ -1760,16 +3022,123 @@ export function countDuplicates(fps) {
  * but the largest bucket is only 50/55 (91%), correctly below it.
  */
 export function largestDuplicateBucket(fps) {
-  const counts = new Map();
-  for (const fp of fps) {
-    if (fp.length < 20) continue; // skip empty/tiny
-    counts.set(fp, (counts.get(fp) || 0) + 1);
+  return largestDuplicateBucketMembers(fps).length;
+}
+
+/**
+ * Indices of the jobs in the largest fingerprint bucket (the first one in job
+ * order on a tie; a single job when no fingerprint repeats). Same bucket that
+ * largestDuplicateBucket() measures — kept as one function so the bucket the
+ * source-detail pass verifies is by construction the one the ratchet counts.
+ */
+export function largestDuplicateBucketMembers(fps) {
+  const buckets = new Map();
+  fps.forEach((fp, index) => {
+    if (fp.length < 20) return; // skip empty/tiny
+    const members = buckets.get(fp);
+    if (members) members.push(index);
+    else buckets.set(fp, [index]);
+  });
+  let largest = [];
+  for (const members of buckets.values()) {
+    if (members.length > largest.length) largest = members;
   }
-  let max = 0;
-  for (const c of counts.values()) {
-    if (c > max) max = c;
+  return largest;
+}
+
+export const DUPLICATE_BUCKET_SAMPLE_REASON = 'identical-description-bucket';
+
+/**
+ * The job of the largest identical-description bucket that the source-detail
+ * pass should fetch, or null when that pass already covers the bucket.
+ *
+ * Identical bodies under different titles are two different things that the
+ * published data alone cannot tell apart: the source publishing one template
+ * for many postings (fachkraft's trades, a retailer's stores, tether's two
+ * research roles that share one Recruitee text) or the parser writing the same
+ * fallback — a company blurb, a listing teaser — for postings whose detail it
+ * did not read (engel-voelkers kept only the Lever intro paragraph and
+ * published it for its Senior and its Junior broker). Only the source decides,
+ * so one member of the bucket goes through the same comparison as the regular
+ * sample: a template matches its own page, a fallback is materially shorter
+ * than or unrelated to it and becomes a `source-detail-mismatch`.
+ *
+ * `jobs.slice(0, sampledCount)` is what the regular sample already fetches:
+ * a bucket member there is verified already, and a URL fetched there is not
+ * fetched twice (the evidence bundle refuses a duplicate request identity).
+ */
+export function duplicateBucketSourceSample(jobs, fps, regularIndices = regularSourceSampleIndices(jobs)) {
+  const members = largestDuplicateBucketMembers(fps);
+  if (members.length < 2) return null;
+  const regular = new Set(regularIndices);
+  if (members.some((index) => regular.has(index))) return null;
+  const regularUrls = new Set(regularIndices.map((index) => jobs[index]?.url));
+  const index = members.find((candidate) => jobs[candidate]?.url && !regularUrls.has(jobs[candidate].url));
+  return index === undefined ? null : { index, bucketSize: members.length };
+}
+
+/**
+ * Indices of the regular source-detail sample: the first `size` jobs, in
+ * slice order, whose URL no earlier sampled job already has. The evidence
+ * bundle binds each request by `crawlerKey:sha256(url)` and refuses a
+ * duplicate identity; pwc on 2026-09-29 published the same internship twice
+ * as its first two jobs (same URL), `jobs.slice(0, 2)` requested it twice and
+ * the refused bundle turned all 589 sampled crawlers into CRITICAL
+ * parse-errors (run 36562995006). A repeated URL is skipped for the next job.
+ */
+export function regularSourceSampleIndices(jobs = [], size = SOURCE_DETAIL_SAMPLE_SIZE) {
+  const indices = [];
+  const urls = new Set();
+  for (let index = 0; index < jobs.length && indices.length < size; index += 1) {
+    const url = jobs[index]?.url;
+    if (!url || urls.has(url)) continue;
+    urls.add(url);
+    indices.push(index);
   }
-  return max;
+  return indices;
+}
+
+/**
+ * Every source-detail request of one crawler: the regular sample plus, when
+ * a body repeats, one member of the largest identical-body bucket. Each URL
+ * is requested at most once (see regularSourceSampleIndices), and a posting
+ * on a document other postings share (a URL fragment tells them apart) is
+ * marked so — its full URL, fragment included, stays its identity. One that
+ * only a query tells apart is marked a candidate, confirmed or not by the
+ * page it fetches (see pageDeclaresBareDocument).
+ */
+export function sourceDetailSamplesForCrawler(crawlerKey, jobs = []) {
+  const sharedDocuments = sharedSourceDocuments(jobs);
+  const queryCandidates = querySharedDocumentCandidates(jobs);
+  const sharedDocumentMark = (job) => {
+    if (sharedDocuments.has(withoutFragment(job.url))) return { sharedDocument: true };
+    const document = bareDocumentUrl(withoutFragment(job.url));
+    if (!queryCandidates.has(document)) return {};
+    const siblingTitles = [...new Set(jobs
+      .filter((other) => other !== job && other?.url !== job.url
+        && bareDocumentUrl(withoutFragment(other?.url || '')) === document)
+      .map((other) => String(other?.title || '').trim())
+      .filter(Boolean))].slice(0, 20);
+    return { sharedDocumentCandidate: 'query', siblingTitles };
+  };
+  const regularIndices = regularSourceSampleIndices(jobs);
+  const samples = regularIndices.map((index) => {
+    const job = jobs[index];
+    return { crawlerKey, job, url: job.url, ...sharedDocumentMark(job) };
+  });
+  const bucketSample = duplicateBucketSourceSample(jobs, fingerprintsForCrawler(jobs, 'desc-only'), regularIndices);
+  if (bucketSample) {
+    const job = jobs[bucketSample.index];
+    samples.push({
+      crawlerKey,
+      job,
+      url: job.url,
+      sampleReason: DUPLICATE_BUCKET_SAMPLE_REASON,
+      bucketSize: bucketSample.bucketSize,
+      ...sharedDocumentMark(job),
+    });
+  }
+  return samples;
 }
 
 /* ── URL checker with concurrency limit ────────────────────── */
@@ -1890,10 +3259,7 @@ async function main() {
       }
     }
 
-    if (checkSourceDetails) {
-      const sampled = jobs.slice(0, SOURCE_DETAIL_SAMPLE_SIZE).filter((j) => j.url);
-      for (const job of sampled) sourceDetailsToCheck.push({ crawlerKey: key, job, url: job.url });
-    }
+    if (checkSourceDetails) sourceDetailsToCheck.push(...sourceDetailSamplesForCrawler(key, jobs));
 
     // 4. Missing locale coverage — skip in-flight translations
     const missingLocales = jobs.filter((j) => {
@@ -1936,8 +3302,13 @@ async function main() {
     // below) keeps the original Moncucco-class detection alive — when ALL
     // descriptions are byte-identical regardless of title, the parser is
     // probably grabbing nav/footer chrome instead of the per-job body.
+    // Owner decision 2026-09-30 (#5253): the same title/body/location with
+    // distinct source ids remains published as INFO (Hirslanden, Lonza, Otis,
+    // Volg/fenaco); the same canonical URL, source id/requisition, or missing
+    // source id remains a duplicate warning.
     const fps = fingerprintsForCrawler(jobs, 'title-aware');
-    const dupeCount = countDuplicates(fps);
+    const duplicateGroups = classifyDuplicateListingGroups(jobs, fps);
+    const dupeCount = duplicateGroups.reduce((count, group) => count + group.duplicateCount, 0);
     if (dupeCount > 1) {
       issues.push({
         type: 'duplicate-descriptions',
@@ -1946,8 +3317,24 @@ async function main() {
         message: `${dupeCount}/${jobs.length} duplicate descriptions`,
       });
     }
+    const sourceDistinctGroups = duplicateGroups.filter((group) => group.sourceDistinct);
+    const sourceDistinctCount = sourceDistinctGroups
+      .reduce((count, group) => count + group.sourceDistinctCount, 0);
+    if (sourceDistinctCount > 1) {
+      issues.push({
+        type: 'source-distinct-duplicates',
+        count: sourceDistinctCount,
+        total: jobs.length,
+        message: `${sourceDistinctCount}/${jobs.length} duplicate descriptions with distinct source IDs (informational)`,
+        informational: true,
+        groups: sourceDistinctGroups.map((group) => ({
+          count: group.sourceDistinctCount,
+          sourceIds: group.sourceIds,
+        })),
+      });
+    }
 
-    // 5b. Chrome-scraping signal — desc-only slice at a stricter threshold.
+    // 5b. Chrome-scraping signal — identical bodies at a stricter threshold.
     // Stored separately so applyChromeScrapingRatchet() can escalate without
     // double-flagging templated content (which the title-aware check above
     // already filters out). Uses the LARGEST single bucket, not the sum
@@ -1961,11 +3348,16 @@ async function main() {
         type: 'duplicate-descriptions-desc-only',
         count: chromeDupes,
         total: jobs.length,
-        // No user-facing message: this issue exists only to feed
-        // applyChromeScrapingRatchet(). We don't render warnings for it.
+        // No user-facing message and no severity (issueDrivenSeverity skips
+        // hidden issues): this issue feeds applyChromeScrapingRatchet() and
+        // chooses the bucket the source-detail pass verifies below. Whether
+        // the shared body is the source's template or the parser's fallback
+        // is decided there, against the source, never from this count.
         message: '',
         hidden: true,
       });
+      // Its source-detail sample is requested with the regular one, by
+      // sourceDetailSamplesForCrawler (step 3 above).
     }
 
     report[key] = { total: jobs.length, population, issues };
@@ -2017,37 +3409,7 @@ async function main() {
   }
 
   // Assign severity + action hints
-  for (const entry of Object.values(report)) {
-    const types = new Set(entry.issues.map((i) => i.type));
-    const thin = entry.issues.find((i) => i.type === 'thin-description');
-    const thinRatio = thin ? thin.count / thin.total : 0;
-    const formChromeCount = thin?.reasons?.['form-chrome'] || 0;
-    const urlFail = types.has('stale-urls');
-    const sourceIssue = entry.issues.find((i) => i.type === 'source-detail-mismatch');
-    const sourceProcessingIssue = entry.issues.find((i) => i.type === 'parse-error' && i.processingFailed > 0);
-    const detailSeverity = sourceDetailSeverity(entry);
-    if (types.has('parse-error')) entry.severity = 'CRITICAL';
-    else if (detailSeverity === 'CRITICAL') entry.severity = 'CRITICAL';
-    // Form-chrome is a hard signal: even one row means the parser is
-    // leaking the surrounding page (form, footer, contact info) into the
-    // job description. There is no benign source of these phrases — never
-    // a false positive — so skip the ratio gate.
-    else if (formChromeCount > 0) entry.severity = 'CRITICAL';
-    else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
-    else if (detailSeverity === 'WARNING') entry.severity = 'WARNING';
-    else entry.severity = issueDrivenSeverity(entry);
-    if (entry.severity === 'CRITICAL') {
-      const h = [];
-      if (formChromeCount > 0) h.push(`${formChromeCount} description(s) contain form/footer/contact chrome — parser is sweeping page boundaries (most likely an unbounded HTML split). Bound extraction to the per-job DOM subtree`);
-      if (thinRatio >= 0.5) h.push('Most descriptions are thin — parser likely scraping nav/boilerplate instead of job content');
-      if (urlFail) h.push('Detail URLs returning errors — likely site migration or URL structure change');
-      if (sourceIssue?.locationMismatches > 0) h.push('Published locations disagree with sampled source detail pages — inspect the crawler location selector and remove generic-city fallbacks');
-      if (sourceIssue?.descriptionMismatches > 0) h.push('Published descriptions are materially shorter or unrelated to sampled source detail pages — bound extraction to the job-detail content');
-      if (sourceProcessingIssue) h.push('Source detail pages were fetched but the audit could not process them — inspect the sanitized per-page errors in the JSON report');
-      else if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');
-      entry.action = h.join('. ') + '.';
-    }
-  }
+  for (const entry of Object.values(report)) assignSeverity(entry);
 
   // ── Ratchet: regression in no-structured-content escalates to CRITICAL ──
   const noStructBaseline = loadNoStructureBaseline();
@@ -2087,7 +3449,76 @@ async function main() {
     sourceDetailChecksEnabled: checkSourceDetails,
     sourceDetailSummary,
     sourceDetailEvidence,
+    diagPath: diagFilePath,
   });
+}
+
+// The failure reporter keeps the LAST 40 non-empty lines of a diag file
+// (scripts/ci/report-workflow-failure.mjs MAX_EXCERPT_LINES). The diagnostic
+// stays well under that so the verdict line, written last, is never cut.
+const STRICT_DIAG_MAX_LINES = 36;
+const STRICT_DIAG_MAX_LINES_PER_CRAWLER = 6;
+const STRICT_DIAG_MAX_DETAILS = 2;
+const STRICT_DIAG_MAX_LINE = 300;
+
+function clipDiagLine(value) {
+  const text = String(value ?? '');
+  const indent = text.match(/^ */)[0];
+  const line = indent + text.slice(indent.length).replace(/\s+/g, ' ').trim();
+  return line.length > STRICT_DIAG_MAX_LINE ? `${line.slice(0, STRICT_DIAG_MAX_LINE - 1)}…` : line;
+}
+
+/**
+ * Compact, bounded text naming WHY `--strict` failed: every CRITICAL crawler
+ * with its blocking (non-informational) findings, the first concrete source
+ * details and the suggested action, the unexplained fetch-failure rate when
+ * that is a reason, and the verdict line last. Pure: testable without I/O.
+ */
+export function formatStrictFailureDiagnostic(report, failures, sourceDetailSummary = null) {
+  const tail = [];
+  if (sourceDetailSummary && sourceDetailSummary.unexplainedFetchFailureRatePct > SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT) {
+    const causes = Object.entries(sourceDetailSummary.fetchFailureCauses || {})
+      .sort((a, b) => b[1] - a[1])
+      .map(([cause, count]) => `${cause} ${count}`)
+      .join(', ');
+    tail.push(clipDiagLine(
+      `Source detail fetches: ${sourceDetailSummary.unexplainedFetchFailures}/${sourceDetailSummary.requested} unexplained `
+      + `(${sourceDetailSummary.unexplainedFetchFailureRatePct} %, ceiling ${SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT} %)`
+      + `${causes ? ` — causes: ${causes}` : ''}`,
+    ));
+  }
+  tail.push(clipDiagLine(`❌ --strict: ${failures.join('; ')}. Failing.`));
+
+  const lines = [];
+  const critical = Object.entries(report)
+    .filter(([, entry]) => entry?.severity === 'CRITICAL')
+    .sort((a, b) => (b[1].total || 0) - (a[1].total || 0) || a[0].localeCompare(b[0]));
+  if (critical.length > 0) {
+    lines.push(`CRITICAL crawlers (${critical.length}):`);
+    // Header, the optional "+N more" line and the tail are reserved up front.
+    const budget = STRICT_DIAG_MAX_LINES - 2 - tail.length;
+    let shown = 0;
+    for (const [key, entry] of critical) {
+      const block = [clipDiagLine(`- ${key} (${entry.total ?? '?'} jobs)`)];
+      const blocking = (entry.issues || []).filter((issue) => !issue.informational && !issue.hidden && issue.message);
+      for (const issue of blocking) {
+        block.push(clipDiagLine(`  ${issue.message}`));
+        for (const detail of (issue.details || []).slice(0, STRICT_DIAG_MAX_DETAILS)) {
+          block.push(clipDiagLine(`    ${detail}`));
+        }
+      }
+      if (entry.action) block.push(clipDiagLine(`  ACTION: ${entry.action}`));
+      const kept = block.slice(0, STRICT_DIAG_MAX_LINES_PER_CRAWLER);
+      if (lines.length - 1 + kept.length > budget) break;
+      lines.push(...kept);
+      shown += 1;
+    }
+    if (shown < critical.length) {
+      lines.push(`- +${critical.length - shown} more CRITICAL crawler(s): see the parser-quality-report artifact`);
+    }
+  }
+  lines.push(...tail);
+  return `${lines.join('\n')}\n`;
 }
 
 /**
@@ -2103,6 +3534,7 @@ export function finishAudit(report, {
   sourceDetailChecksEnabled = false,
   sourceDetailSummary = null,
   sourceDetailEvidence = null,
+  diagPath = null,
 } = {}) {
   printReport(report);
   const summary = {
@@ -2137,6 +3569,16 @@ export function finishAudit(report, {
   }
   if (strict && failures.length > 0) {
     console.error(`\n❌ --strict: ${failures.join('; ')}. Failing.`);
+    if (diagPath) {
+      // Best effort: a diag write error must not turn a clear strict verdict
+      // into a crash, and the JSON report is already on disk.
+      try {
+        fs.mkdirSync(path.dirname(diagPath), { recursive: true });
+        fs.writeFileSync(diagPath, formatStrictFailureDiagnostic(report, failures, sourceDetailSummary));
+      } catch (err) {
+        console.error(`⚠️ could not write strict diagnostic to ${diagPath}: ${err.message}`);
+      }
+    }
     return 1;
   }
   return 0;
@@ -2187,6 +3629,18 @@ function printReport(report) {
     }
   }
 
+  const informational = Object.entries(report)
+    .filter(([, entry]) => entry.issues.some((issue) => issue.informational && !issue.hidden))
+    .sort((a, b) => b[1].total - a[1].total);
+  if (informational.length > 0) {
+    console.log(`\nINFO (source-distinct duplicate listings):`);
+    for (const [key, entry] of informational) {
+      for (const issue of entry.issues) {
+        if (issue.informational && !issue.hidden) console.log(`  ${key} (${entry.total} jobs): ${issue.message}`);
+      }
+    }
+  }
+
   console.log(`\nOK: ${okCount} crawlers passing all checks`);
 
   if (excluded.length > 0) {
@@ -2205,10 +3659,18 @@ function printReport(report) {
 
 export { stripHtml };
 
-const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   main().catch((err) => {
     console.error('Audit failed:', err);
+    // A crash before the strict verdict must reach the failure issue too:
+    // without this the reporter would again say "no excerpt available".
+    if (diagFilePath) {
+      try {
+        fs.mkdirSync(path.dirname(diagFilePath), { recursive: true });
+        fs.writeFileSync(diagFilePath, `Audit failed before the strict verdict:\n${String(err?.stack || err).split('\n').slice(0, 20).join('\n')}\n`);
+      } catch { /* the stderr line above is the fallback */ }
+    }
     process.exit(1);
   });
 }

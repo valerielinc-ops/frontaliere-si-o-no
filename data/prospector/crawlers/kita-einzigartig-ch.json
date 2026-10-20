@@ -1,0 +1,22 @@
+{
+  "companyKey": "kita-einzigartig-ch",
+  "companyName": "Kita einzigartig Nürensdorf",
+  "companyHost": "kita-einzigartig.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://kita-einzigartig.ch/de/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Mehr zur Stelle",
+    "Mehr zur Stelle",
+    "Mehr zur Stelle"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-02T11:37:58.726Z"
+}

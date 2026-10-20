@@ -15,6 +15,7 @@
  *   6. Runs locale fill + validation.
  *   7. Exits OK with 0 jobs when no Swiss vacancies are active.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -42,16 +43,20 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseAplusListings,
+  classifyAplusListings,
+  isAplusClassifiableLocation,
+  isAplusEmptyListingPage,
   parseAplusJobDetail,
-  isAplusSwissLocation,
   inferAplusCanton,
   buildAplusLocalizedContent,
 } from './lib/a-plus-plus-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { createAplusPageFetcher } from './lib/a-plus-plus-fetch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -74,6 +79,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const BROWSER_UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36';
+const fetchText = createAplusPageFetcher({ listingUrl: LISTING_URL, userAgent: BROWSER_UA });
 
 /* ── Utilities ─────────────────────────────────────────────── */
 
@@ -97,17 +103,6 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
-  return fetchHtml(url, {
-    timeoutMs,
-    headers: {
-      Accept: 'text/html,application/xhtml+xml',
-      'Accept-Language': 'en-US,en;q=0.9',
-      'User-Agent': BROWSER_UA,
-    },
-  });
 }
 
 /* ── Matchers ──────────────────────────────────────────────── */
@@ -150,19 +145,72 @@ function inferCategory(detail = {}) {
   return 'architecture';
 }
 
+async function resolveUnclassifiedAplusListing(listing) {
+  if (isAplusClassifiableLocation(listing.location)) return listing;
+
+  const detailUrl = absoluteUrl(listing.href);
+  try {
+    const detailHtml = await fetchText(detailUrl);
+    const detail = parseAplusJobDetail(detailHtml, detailUrl);
+    const location = String(detail.location || listing.location || '').trim();
+    if (!location || location === listing.location) return listing;
+    console.log(`  🔎 Resolved ${listing.title} location from detail page: ${location}`);
+    return { ...listing, location, detailHtml };
+  } catch (error) {
+    console.warn(`⚠️  Could not resolve ${listing.title} location from detail page: ${error.message}`);
+    return listing;
+  }
+}
+
+async function resolveUnclassifiedAplusListings(listings) {
+  const resolved = [];
+  for (const listing of listings) {
+    resolved.push(await resolveUnclassifiedAplusListing(listing));
+  }
+  return resolved;
+}
+
 /* ── Fetch listings ────────────────────────────────────────── */
 
-async function fetchListings() {
+async function fetchListings(summaryCounts = null) {
   console.log(`🔍 Fetching A++ Group jobs from InRecruiting: ${LISTING_URL}`);
   const html = await fetchText(LISTING_URL);
-  const all = parseAplusListings(html);
-  const target = all.filter((row) => !row.location || isAplusSwissLocation(row.location));
-  console.log(`📋 Total listing cards: ${all.length}`);
-  console.log(`📋 Swiss-located cards: ${target.length}`);
-  for (const row of target) {
+  const all = await resolveUnclassifiedAplusListings(parseAplusListings(html));
+  const discovery = classifyAplusListings(all, {
+    sourceEmpty: isAplusEmptyListingPage(html, all),
+  });
+  if (summaryCounts) {
+    summaryCounts.discovered = discovery.discovered;
+    summaryCounts.parsed = discovery.listings.length;
+    summaryCounts.lastFetchOutcome = discovery.lastFetchOutcome;
+  }
+  console.log(`📋 Total listing cards: ${discovery.discovered}`);
+  console.log(`📋 Swiss-located cards: ${discovery.listings.length}`);
+  if (discovery.authoritativeEmptySnapshot) {
+    console.log('ℹ️ A++ Group listing page explicitly reports no vacancies; publishing a verified empty snapshot.');
+  }
+  for (const row of discovery.listings) {
     console.log(`  📄 ${row.title}${row.location ? ` (${row.location})` : ''}`);
   }
-  return target;
+  if (discovery.discovered === 0 && !discovery.authoritativeEmptySnapshot) {
+    if (summaryCounts) {
+      summaryCounts.parsed = 0;
+      summaryCounts.lastFetchOutcome = 'selector_miss';
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
+    throw new Error('A++ Group listing page produced no vacancy cards; refusing to publish an empty snapshot.');
+  }
+  if (discovery.listings.length === 0 && discovery.unclassifiedLocationCount > 0) {
+    if (summaryCounts) {
+      summaryCounts.parsed = 0;
+      summaryCounts.lastFetchOutcome = 'selector_miss';
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
+    throw new Error(
+      `A++ Group listing page left ${discovery.unclassifiedLocationCount}/${discovery.discovered} vacancy location(s) unclassified; refusing to publish a filtered-empty snapshot.`,
+    );
+  }
+  return discovery;
 }
 
 /* ── Build individual job ──────────────────────────────────── */
@@ -175,7 +223,7 @@ function absoluteUrl(raw = '') {
 
 async function buildAplusJob(listing) {
   const detailUrl = absoluteUrl(listing.href);
-  const html = await fetchText(detailUrl);
+  const html = listing.detailHtml || await fetchText(detailUrl);
   const detail = parseAplusJobDetail(html, detailUrl);
   if (!detail.title) {
     throw new Error(`Missing title while parsing ${detailUrl}`);
@@ -187,7 +235,8 @@ async function buildAplusJob(listing) {
   const canton = inferAplusCanton(rawLocation);
   const postalCode = rawLocation.toLowerCase().includes('massagno') || !rawLocation ? HQ.postalCode : '6900';
   const streetAddress = rawLocation.toLowerCase().includes('massagno') || !rawLocation ? 'Via Molinazzo 4' : '';
-  const localized = buildAplusLocalizedContent(detail);
+  const sourceLang = detectLang(detail.description || listing.teaser || '', 'it');
+  const localized = buildAplusLocalizedContent(detail, sourceLang);
   const canonicalTitle = detail.title;
   const canonicalSlug =
     localized.slugByLocale.en ||
@@ -214,8 +263,8 @@ async function buildAplusJob(listing) {
     category: inferCategory(detail),
     sector: 'Architettura & Design',
     source: 'a-plus-plus-dedicated-crawler',
-    sourceLang: detectLang(detail.description || listing.teaser || '', 'it'),
-    postedDate: new Date().toISOString().slice(0, 10),
+    sourceLang,
+    ...sourcePostingDateFields(''),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
@@ -251,10 +300,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -281,7 +333,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || HQ.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -320,24 +372,18 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'a-plus-plus-group');
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'a-plus-plus-group', summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  A++ Group — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
   console.log(`  Portal: ${LISTING_URL}\n`);
 
-  const listings = await fetchListings();
-
-  if (listings.length === 0) {
-    console.log('\nℹ️  No Swiss-located A++ Group jobs found. Skipping merge & translation.');
-    updateAdapterConfig([]);
-    printCrawlChangeSummary(
-      { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
-      COMPANY_NAME,
-    );
-    console.log('✅ A++ Group crawler complete (0 Swiss jobs).');
-    return;
-  }
+  const discovery = await fetchListings(summaryCounts);
+  const listings = discovery.listings;
+  summaryCounts.discovered = discovery.discovered;
+  summaryCounts.parsed = listings.length;
+  summaryCounts.lastFetchOutcome = discovery.lastFetchOutcome;
 
   const jobs = [];
   let skipped = 0;
@@ -352,10 +398,11 @@ async function main() {
     }
   }
   if (skipped > 0) {
-    console.warn(`  ⚠️  Skipped ${skipped}/${listings.length} detail pages due to errors`);
+    throw new Error(`Failed to fetch complete A++ Group job details (${skipped}/${listings.length} skipped)`);
   }
 
-  if (jobs.length === 0) {
+  const verifiedEmpty = discovery.authoritativeEmptySnapshot || discovery.lastFetchOutcome === 'filtered_empty';
+  if (jobs.length === 0 && !verifiedEmpty) {
     console.warn('⚠️  All detail fetches failed — preserving existing data.');
     printCrawlChangeSummary(
       { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
@@ -369,10 +416,12 @@ async function main() {
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for A++ Group jobs...');
-  await translateMissingJobLocales({
-    dataJobsPath: DATA_JOBS,
-    isTargetJob,
-  });
+  if (jobs.length > 0) {
+    await translateMissingJobLocales({
+      dataJobsPath: DATA_JOBS,
+      isTargetJob,
+    });
+  }
 
   validateLocales();
 
@@ -384,12 +433,24 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  // A non-empty source filtered to zero Swiss rows is a verified geography
+  // result, not a degraded fetch. The same exception applies to the source's
+  // explicit company-wide empty marker; a bare parser-empty result still fails
+  // in fetchListings() above.
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, {
+    skipShrinkGuard: verifiedEmpty,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'a-plus-plus-group',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: summaryCounts.discovered,
+    parsed: summaryCounts.parsed,
+    written: _sliceJobs.length,
+    lastFetchOutcome: summaryCounts.lastFetchOutcome,
+    authoritativeEmptySnapshot: discovery.authoritativeEmptySnapshot === true,
+    authoritativeSnapshotVerified: discovery.authoritativeEmptySnapshot === true,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

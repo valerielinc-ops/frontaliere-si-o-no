@@ -1,4 +1,4 @@
-import admin from 'firebase-admin';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import crypto from 'crypto';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
@@ -7,10 +7,15 @@ import { campaignIdFromTags, tagValue } from './lib/mailerooRef.js';
 import {
   positiveEventRecoveryFields,
   positiveEventStatusFields,
+  protectAccountDeletedSubscriberUpdate,
   mergeAccountDeletedSubscriberUpdate,
+  UNKNOWN_RECIPIENT,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { eraseJobEmailAffinityProfile, isAffinityErasingEvent } from './lib/jobEmailAffinityStore.js';
+import { parseAssistedCampaign, recordAssistedEmailEvent } from './assistedApplicationEmailEvents.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
  * Maileroo webhook handler — receives delivery events and stores them in Firestore.
@@ -118,6 +123,60 @@ function getOccurredAt(event) {
   return new Date().toISOString();
 }
 
+function mailerooEventDocumentId(eventId) {
+  return `maileroo_${crypto.createHash('sha256').update(String(eventId)).digest('hex').slice(0, 40)}`;
+}
+
+/**
+ * Persist the subscriber projection, delivery row and event log atomically for
+ * webhook payloads carrying Maileroo's event_id. The deterministic event doc
+ * is the idempotency boundary: a retry sees it and does not increment counters
+ * or append a second event. Legacy payloads without event_id keep the existing
+ * auto-id event path below, because inventing a key from message/type would
+ * incorrectly collapse legitimate repeated opens and clicks.
+ */
+async function persistMailerooEventAtomically({
+  db,
+  subscriberRef,
+  eventRef,
+  subscriberUpdate,
+  buildDynamicUpdate,
+  deliveryRef,
+  deliveryData,
+  eventData,
+}) {
+  const firestore = db?.runTransaction ? db : subscriberRef?.firestore;
+  if (!firestore || typeof firestore.runTransaction !== 'function') {
+    throw new Error('Maileroo event persistence requires a Firestore transaction');
+  }
+
+  let outcome = 'recorded';
+  await firestore.runTransaction(async (tx) => {
+    const subscriberSnapshot = await tx.get(subscriberRef);
+    const eventSnapshot = await tx.get(eventRef);
+
+    if (!subscriberSnapshot?.exists) {
+      outcome = UNKNOWN_RECIPIENT;
+      return;
+    }
+    if (eventSnapshot?.exists) {
+      outcome = 'duplicate';
+      return;
+    }
+
+    const current = subscriberSnapshot.data() || {};
+    const update = { ...(subscriberUpdate || {}) };
+    if (typeof buildDynamicUpdate === 'function') {
+      Object.assign(update, buildDynamicUpdate(current));
+    }
+    tx.set(subscriberRef, protectAccountDeletedSubscriberUpdate(update, current), { merge: true });
+    if (deliveryRef && deliveryData) tx.set(deliveryRef, deliveryData, { merge: true });
+    tx.create(eventRef, eventData);
+  });
+
+  return outcome;
+}
+
 // ── Resolve the refId → recipient lookup record ──────────────
 // Primary location is newsletter_subscribers/_meta_/maileroo_refs/{refId} (aligned
 // with the rest of the tracking). The legacy top-level maileroo_message_meta is read
@@ -139,7 +198,6 @@ export async function persistMailerooEvent(db, event) {
   const type = mapMailerooEvent(event.event_type);
   if (!type) return { skipped: true, reason: `unknown_event: ${event.event_type}` };
 
-  const FieldValue = admin.firestore.FieldValue;
   const refId = event.message_reference_id || event.message_id || '';
 
   // Maileroo 'opened'/'clicked' events carry NEITHER the recipient nor tags —
@@ -155,14 +213,25 @@ export async function persistMailerooEvent(db, event) {
   const meta = (metaDoc && typeof metaDoc.email === 'string' && metaDoc.email.includes('@')) ? metaDoc : null;
   const email = meta ? meta.email : getRecipient(event);
   if (!email || !email.includes('@')) return { skipped: true, reason: 'invalid_email' };
+  if (await isDeletedEmailAccount(db, email)) {
+    return { skipped: true, reason: 'account_deleted' };
+  }
 
   const isJobAlert = meta ? !!meta.is_job_alert : isJobAlertEvent(event);
   const campaignId = (meta && meta.campaign_id) ? meta.campaign_id : extractCampaignId(event);
   const messageId = event.message_id || event.message_reference_id || '';
+  const eventId = String(event.event_id || '').trim();
   const occurredAt = getOccurredAt(event);
   const data = event.event_data || {};
   const clickedUrl = data.original_url || data.url || '';
   const bounceReason = data.reason || data.reject_reason || '';
+
+  // Candidate e-mails of an assisted application: recorded on the order, never
+  // as newsletter engagement or a job ranking click.
+  // Opens and clicks find the campaign in the reference record written at send.
+  if (parseAssistedCampaign(campaignId)) {
+    return recordAssistedEmailEvent(db, { campaign: campaignId, type, provider: 'maileroo', messageId, occurredAt, url: clickedUrl });
+  }
 
   if (type === 'click' && clickedUrl) {
     await recordJobEmailRankingClick(db, {
@@ -174,8 +243,14 @@ export async function persistMailerooEvent(db, event) {
     });
   }
 
+  // Complaint/unsubscribe = stop su ogni canale: il profilo di affinita' degli
+  // annunci va cancellato subito, come promette la privacy policy.
+  if (isAffinityErasingEvent(type)) {
+    await eraseJobEmailAffinityProfile(db, email);
+  }
+
   if (isJobAlert) {
-    return persistJobAlertMailerooEvent(db, { email, type, event, messageId, occurredAt, clickedUrl, campaignId });
+    return persistJobAlertMailerooEvent(db, { email, type, event, eventId, messageId, occurredAt, clickedUrl, campaignId });
   }
 
   const subscriberRef = db.collection('newsletter_subscribers').doc(email);
@@ -213,29 +288,6 @@ export async function persistMailerooEvent(db, event) {
   // 'suppressed', or a 'bounced' that is NOT proven-permanent. It never
   // clears a human-declared 'complained'/'unsubscribed', nor a hard bounce.
   // The doc read happens only on these three event types.
-  await mergeAccountDeletedSubscriberUpdate(
-    subscriberRef,
-    subscriberUpdate,
-    type === 'delivered' || type === 'open' || type === 'click'
-      ? (current) => positiveEventRecoveryFields({
-      subscriber: current,
-      currentStatus: current.status,
-      bounceSeverity: current.bounce_severity,
-      event: type,
-      })
-      : null,
-    db,
-  );
-
-  if (bounceSeverity === 'soft') {
-    await maybeEscalateSoftBounce(subscriberRef, bounceReason);
-  }
-
-  // Refresh engagement score after counter changes (FRO-17)
-  if (type === 'open' || type === 'click' || type === 'send') {
-    await refreshEngagementScore(subscriberRef, FieldValue);
-  }
-
   const deliveryData = {
     email,
     campaign_id: campaignId,
@@ -256,9 +308,8 @@ export async function persistMailerooEvent(db, event) {
   }
 
   const deliveryDocId = `${campaignId}_${email}`.replace(/[/\\]/g, '_').slice(0, 200);
-  await subscriberRef.collection('campaign_deliveries').doc(deliveryDocId).set(deliveryData, { merge: true });
-
-  await subscriberRef.collection('events').add({
+  const deliveryRef = subscriberRef.collection('campaign_deliveries').doc(deliveryDocId);
+  const eventData = {
     email,
     event_type: type,
     maileroo_event: event.event_type,
@@ -275,7 +326,55 @@ export async function persistMailerooEvent(db, event) {
     },
     timestamp: FieldValue.serverTimestamp(),
     occurred_at: occurredAt,
-  });
+  };
+
+  const buildSubscriberRecoveryUpdate = type === 'delivered' || type === 'open' || type === 'click'
+    ? (current) => positiveEventRecoveryFields({
+      subscriber: current,
+      currentStatus: current.status,
+      bounceSeverity: current.bounce_severity,
+      event: type,
+    })
+    : null;
+
+  if (eventId) {
+    const outcome = await persistMailerooEventAtomically({
+      db,
+      subscriberRef,
+      eventRef: subscriberRef.collection('events').doc(mailerooEventDocumentId(eventId)),
+      subscriberUpdate,
+      buildDynamicUpdate: buildSubscriberRecoveryUpdate,
+      deliveryRef,
+      deliveryData,
+      eventData,
+    });
+    if (outcome === 'duplicate') return { skipped: true, reason: 'duplicate' };
+    if (outcome === UNKNOWN_RECIPIENT) return { skipped: true, reason: UNKNOWN_RECIPIENT };
+  } else {
+    const merged = await mergeAccountDeletedSubscriberUpdate(
+      subscriberRef,
+      subscriberUpdate,
+      buildSubscriberRecoveryUpdate,
+      db,
+    );
+    if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
+    await deliveryRef.set(deliveryData, { merge: true });
+    await subscriberRef.collection('events').add(eventData);
+  }
+
+  if (bounceSeverity === 'soft') {
+    try {
+      await maybeEscalateSoftBounce(subscriberRef, bounceReason);
+    } catch (error) {
+      if (!eventId) throw error;
+      console.warn('[mailerooWebhook] soft-bounce escalation failed after atomic event:', error?.message || error);
+    }
+  }
+
+  // Refresh engagement score after counter changes (FRO-17)
+  if (type === 'open' || type === 'click' || type === 'send') {
+    await refreshEngagementScore(subscriberRef, FieldValue);
+  }
 
   // Refresh preferred send hour (#3798) — only open/click carry a time-of-day
   // signal. Runs AFTER the events.add() above so the just-arrived event is
@@ -291,8 +390,7 @@ export async function persistMailerooEvent(db, event) {
 
 // ── Job alert event handler (mirrors newsletter pattern) ─────
 
-async function persistJobAlertMailerooEvent(db, { email, type, event, messageId, occurredAt, clickedUrl }) {
-  const FieldValue = admin.firestore.FieldValue;
+async function persistJobAlertMailerooEvent(db, { email, type, event, eventId, messageId, occurredAt, clickedUrl }) {
   const subscriberRef = db.collection('job_alert_subscribers').doc(email);
 
   const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };
@@ -315,37 +413,60 @@ async function persistJobAlertMailerooEvent(db, { email, type, event, messageId,
   // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
   // which would overwrite 'complained' — a human's spam complaint — with a
   // machine's inference, and equally resurrect a proven-permanent hard bounce.
-  await mergeAccountDeletedSubscriberUpdate(
-    subscriberRef,
-    topUpdate,
-    type === 'delivered' || type === 'open' || type === 'click'
-      ? (current) => positiveEventStatusFields({
-      subscriber: current,
-      currentStatus: current.status,
-      bounceSeverity: current.bounce_severity,
-      event: type,
-      })
-      : null,
-    db,
-  );
-
-  if (bounceSeverity === 'soft') {
-    await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
-  }
-
-  await subscriberRef.collection('events').add({
+  const eventData = {
     email,
     event_type: type,
     maileroo_event: event.event_type,
     message_id: messageId,
     provider: 'maileroo',
     metadata: {
+      event_id: event.event_id || null,
       original_url: clickedUrl || null,
       tags: event.tags || null,
     },
     timestamp: FieldValue.serverTimestamp(),
     occurred_at: occurredAt,
-  });
+  };
+
+  const buildJobAlertStatusUpdate = type === 'delivered' || type === 'open' || type === 'click'
+    ? (current) => positiveEventStatusFields({
+      subscriber: current,
+      currentStatus: current.status,
+      bounceSeverity: current.bounce_severity,
+      event: type,
+    })
+    : null;
+
+  if (eventId) {
+    const outcome = await persistMailerooEventAtomically({
+      db,
+      subscriberRef,
+      eventRef: subscriberRef.collection('events').doc(mailerooEventDocumentId(eventId)),
+      subscriberUpdate: topUpdate,
+      buildDynamicUpdate: buildJobAlertStatusUpdate,
+      eventData,
+    });
+    if (outcome === 'duplicate') return { skipped: true, reason: 'duplicate' };
+    if (outcome === UNKNOWN_RECIPIENT) return { skipped: true, reason: UNKNOWN_RECIPIENT };
+  } else {
+    const merged = await mergeAccountDeletedSubscriberUpdate(
+      subscriberRef,
+      topUpdate,
+      buildJobAlertStatusUpdate,
+      db,
+    );
+    if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
+    await subscriberRef.collection('events').add(eventData);
+  }
+
+  if (bounceSeverity === 'soft') {
+    try {
+      await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
+    } catch (error) {
+      if (!eventId) throw error;
+      console.warn('[mailerooWebhook] job-alert soft-bounce escalation failed after atomic event:', error?.message || error);
+    }
+  }
 
   // Refresh preferred send hour (#3798) — job_alert_subscribers/{email} has the
   // same events subcollection shape as newsletter_subscribers. Runs AFTER the
@@ -359,14 +480,16 @@ async function persistJobAlertMailerooEvent(db, { email, type, event, messageId,
 
 // ── Request handler ──────────────────────────────────────────
 
-export async function handleMailerooWebhookRequest({ payload, headers, signingSecret }) {
+export async function handleMailerooWebhookRequest({ payload, headers, signingSecret, db: injectedDb }) {
   const sigHeader = headers?.['x-maileroo-signature'] || headers?.['X-Maileroo-Signature'];
+  const configuredSecret = String(signingSecret || '').trim();
 
-  if (signingSecret) {
-    if (!verifyMailerooSignature({ payload, signature: sigHeader, signingSecret })) {
-      console.warn('[mailerooWebhook] Signature mismatch or missing');
-      throw new Error('Invalid Maileroo webhook signature');
-    }
+  if (!configuredSecret) {
+    throw new Error('Maileroo webhook secret is not configured');
+  }
+  if (!verifyMailerooSignature({ payload, signature: sigHeader, signingSecret: configuredSecret })) {
+    console.warn('[mailerooWebhook] Signature mismatch or missing');
+    throw new Error('Invalid Maileroo webhook signature');
   }
 
   const body = typeof payload === 'string' ? JSON.parse(payload) : (payload || {});
@@ -378,16 +501,16 @@ export async function handleMailerooWebhookRequest({ payload, headers, signingSe
     return { ok: true, ping: true };
   }
 
-  const db = admin.firestore();
+  const db = injectedDb || getFirestore();
   const results = [];
   for (const event of events) {
     try {
       const result = await persistMailerooEvent(db, event);
       results.push(result);
-      console.log(`[mailerooWebhook] ${event.event_type} → ${result.type || 'skipped'} for ${getRecipient(event) || '?'}`);
+      console.log(`[mailerooWebhook] ${result.reason || result.type || 'skipped'}`);
     } catch (err) {
       console.error(`[mailerooWebhook] Error processing ${event.event_type}: ${err.message}`);
-      results.push({ error: err.message, event: event.event_type });
+      throw err;
     }
   }
 

@@ -13,6 +13,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { performance } from 'node:perf_hooks';
 import { fileURLToPath } from 'node:url';
 import {
   validateJobUrls,
@@ -25,14 +26,26 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
+import { decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import {
   collapseDuplicateRouteEntries,
   mergeSourceIdentityHistory,
+  normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
-import { isSliceFile } from './lib/crawler-slice-files.mjs';
+import { isSliceFile, listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { deduplicateJobsBySlug } from './lib/job-slug-dedup.mjs';
+import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
+import { dropHousekeepingDuplicatePostings } from './lib/housekeeping-duplicate-postings.mjs';
+import {
+  clearCrossCrawlerDedupProofFile,
+  writeCrossCrawlerDedupProofFile,
+  writeHousekeepingProofFile,
+} from './lib/crawler-slice-integrity.mjs';
+import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs';
+import { MIN_REPAIRED_DESCRIPTION_CHARS, repairShortDescriptions } from './lib/job-locale-slot-repair.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -48,6 +61,7 @@ const EXPIRED_JOBS_PATH = process.env.JOBS_EXPIRED_JOBS_PATH
 const EXPIRED_SLICES_DIR = process.env.JOBS_EXPIRED_SLICES_DIR
   ? path.resolve(process.env.JOBS_EXPIRED_SLICES_DIR)
   : path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler');
+const ACTIVE_SLICES_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
 
 const MAX_CONCURRENCY = Math.max(1, Math.min(20, intFromEnv('JOBS_HOUSEKEEPING_CONCURRENCY', DEFAULT_CONCURRENCY)));
 const TIMEOUT_MS = Math.max(2000, Math.min(15000, intFromEnv('JOBS_HOUSEKEEPING_TIMEOUT_MS', DEFAULT_TIMEOUT_MS)));
@@ -68,6 +82,91 @@ const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 function readJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(raw);
+}
+
+function dedupProofJob(job) {
+  return {
+    id: job?.id ?? null,
+    url: String(job?.url ?? '').trim(),
+    title: job?.title ?? '',
+    company: job?.company ?? '',
+    location: job?.location ?? '',
+    slug: String(job?.slug ?? '').trim(),
+  };
+}
+
+function dedupProofSourceKeys(job) {
+  const keys = new Set();
+  const url = String(job?.url ?? '').trim();
+  if (url) keys.add(`url:${url}`);
+  const stableIdentity = buildStableJobIdentity(job);
+  if (stableIdentity) keys.add(`identity:${stableIdentity}`);
+  const id = String(job?.id ?? '').trim().toLowerCase();
+  if (id) keys.add(`id:${id}`);
+  const slug = String(job?.slug ?? '').trim().toLowerCase();
+  if (slug) keys.add(`slug:${slug}`);
+  return keys;
+}
+
+/**
+ * Index the exact records still present in the active slices.
+ *
+ * Assembly intentionally normalizes records before cleanup-jobs sees them
+ * (absolute URLs, titles, companies, locations and generated IDs). The later
+ * slice-pruning phase needs evidence for the pre-assembly record, so a proof
+ * entry carries every raw source snapshot sharing the loser identity.
+ */
+function buildDedupProofSourceIndex() {
+  const index = new Map();
+  for (const slicePath of listSliceFilePaths(ACTIVE_SLICES_DIR)) {
+    let slice;
+    try {
+      slice = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
+    } catch {
+      continue;
+    }
+    if (!Array.isArray(slice?.jobs)) continue;
+    for (const sourceJob of slice.jobs) {
+      const snapshot = dedupProofJob(sourceJob);
+      for (const key of dedupProofSourceKeys(sourceJob)) {
+        const entries = index.get(key) || [];
+        const duplicate = entries.some((entry) => JSON.stringify(entry) === JSON.stringify(snapshot));
+        if (!duplicate) entries.push(snapshot);
+        index.set(key, entries);
+      }
+    }
+  }
+  return index;
+}
+
+function dedupProofSourceJobs(index, job) {
+  if (!index) return [];
+  const keys = [...dedupProofSourceKeys(job)];
+  const directKeys = keys.filter((key) => !key.startsWith('identity:'));
+  const collect = (lookupKeys) => {
+    const candidates = [];
+    const seen = new Set();
+    for (const key of lookupKeys) {
+      for (const sourceJob of index.get(key) || []) {
+        const serialized = JSON.stringify(sourceJob);
+        if (seen.has(serialized)) continue;
+        seen.add(serialized);
+        candidates.push(sourceJob);
+      }
+    }
+    return candidates;
+  };
+
+  // Prefer the least ambiguous source key. In particular, identityUrlKey
+  // strips fragments by design, while some vendors use the fragment for the
+  // per-posting identity; falling back to it too early would copy unrelated
+  // records into every proof entry for that vendor.
+  for (const key of directKeys) {
+    const direct = collect([key]);
+    if (direct.length > 0) return direct;
+  }
+
+  return collect(keys);
 }
 
 function normalizeScopeValue(value) {
@@ -126,7 +225,7 @@ function buildExpiredEntry(job) {
   const entry = {
     slug: job.slug,
     title: job.title || '',
-    titleByLocale: job.titleByLocale || {},
+    titleByLocale: { ...(job.titleByLocale || {}) },
     company: job.company || '',
     companyKey: job.companyKey || '',
     location: job.location || '',
@@ -162,6 +261,7 @@ function buildExpiredEntry(job) {
         ? JSON.parse(JSON.stringify(job.sourceIdentityHistory))
         : undefined,
   };
+  normalizeExpiredEntryTitles(entry);
   // Clean up empty fields
   if (!entry.postalCode) delete entry.postalCode;
   if (!entry.streetAddress) delete entry.streetAddress;
@@ -254,6 +354,30 @@ function disambiguateDedupLoser(loser, collidingSlug) {
 }
 
 /**
+ * Archive only records with matching source identity. Distinct jobs that
+ * happen to share a route stay active and receive town-bearing Italian slugs.
+ */
+function deduplicateWithinSliceSlugs(jobs) {
+  const deduped = deduplicateJobsBySlug(jobs, {
+    preferCurrent: (current, previous) => {
+      const currentTimestamp = jobRecencyTimestamp(current);
+      const previousTimestamp = jobRecencyTimestamp(previous);
+      return currentTimestamp > previousTimestamp
+        || (currentTimestamp === previousTimestamp
+          && String(current.id || current.url || '') < String(previous.id || previous.url || ''));
+    },
+  });
+  return {
+    ...deduped,
+    archived: deduped.duplicates.map(({ loser, winner, slug }) => ({
+      loser: disambiguateDedupLoser(loser, slug),
+      winner,
+      slug,
+    })),
+  };
+}
+
+/**
  * Archive removed jobs to data/expired-jobs.json (aggregated, used during deploy).
  *
  * Only jobs with a slug are archived (slugless jobs have no page to land on).
@@ -283,6 +407,9 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
   for (const r of removedJobs) {
     const job = allJobsById.get(r.id);
     if (!job || !job.slug) continue;
+    // Held out of publication for translation: never had a public URL, so no
+    // expired soft-landing either (scripts/lib/translation-publication-hold.mjs).
+    if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
     const key = archiveKey(job);
     mergeSourceIdentityHistory(entry, bySlug.get(key));
@@ -338,6 +465,8 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
   for (const r of removedJobs) {
     const job = allJobsById.get(r.id);
     if (!job || !job.slug) continue;
+    // Same rule as the aggregate archive above: a held job was never public.
+    if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
     mergeSourceIdentityHistory(entry, bySlug.get(job.slug));
     bySlug.set(job.slug, entry);
@@ -388,9 +517,9 @@ async function main() {
     const slicePath = path.resolve(SLICE_FILE);
     // The caller is a shell glob over `data/jobs/by-crawler/*.json`
     // (cleanup-stale-jobs.yml), and that directory also holds crawler scratch
-    // companions that are NOT slices: `update-coop-jobs.mjs` parks its
-    // translation cache in `coop-ticino-locale-cache.json` (a bare array, by its
-    // own contract), and a housekeeping run killed mid-write leaves a
+    // companions that are NOT slices: `update-coop-jobs.mjs` used to park its
+    // translation cache in `coop-ticino-locale-cache.json` (a bare array, still
+    // tracked on main as `[]`), and a housekeeping run killed mid-write leaves a
     // `<key>.json.cleanup-tmp.json`. Without this guard the bare array fell
     // through `sliceJobs` below as if it were a job list: housekeeping pruned
     // the Coop cache down to `[]` on 2026-08-31, and the `crawlerKey` basename
@@ -406,7 +535,8 @@ async function main() {
       return;
     }
     console.log(`📦 Slice-only housekeeping: ${SLICE_FILE}`);
-    const sliceData = readJson(slicePath);
+    const sliceRaw = fs.readFileSync(slicePath, 'utf8');
+    const sliceData = JSON.parse(sliceRaw);
     const sliceJobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : (Array.isArray(sliceData) ? sliceData : []);
     if (sliceJobs.length === 0) {
       console.log('ℹ️  Slice is empty — skip housekeeping');
@@ -424,10 +554,23 @@ async function main() {
     writeJson(tempPath, sliceJobs);
     try {
       if (!skipHardening) {
-        const lh = hardenJobLocaleFields({ dataJobsPath: tempPath });
+        // This slice goes back to git: an empty locale slot must stay empty
+        // ("to translate"), never become a source copy that looks translated.
+        // The publish-gate fill happens on the build-time dataset (standard
+        // mode below, deploy.yml prep), which is not committed.
+        const lh = hardenJobLocaleFields({ dataJobsPath: tempPath, fillEmptyWithSourceCopy: false });
         if (lh.changed) console.log(`🛡️ Locale hardening: repaired ${lh.repaired}/${lh.total} jobs in slice.`);
       }
       const hardenedJobs = readJson(tempPath);
+      const decontamination = decontaminateJobs(hardenedJobs);
+      const decontaminationChanged = decontamination.moved > 0
+        || decontamination.emptyLocaleBucketsPruned > 0;
+      if (decontaminationChanged) {
+        console.log(
+          `🧼 Previous-slug decontamination: moved ${decontamination.moved} claim(s), `
+          + `pruned ${decontamination.emptyLocaleBucketsPruned} empty locale bucket(s).`,
+        );
+      }
 
       // Age-based pruning
       const now = Date.now();
@@ -466,7 +609,12 @@ async function main() {
             const fallback = fallbackById.get(resolveJobDiffKey(job));
             if (fallback && fallback.valid !== false) return true;
             if (isFreshProtected(job) && !c.definitive) return true;
-            urlRemoved.push({ id: resolveJobDiffKey(job), reason: c.reason });
+            urlRemoved.push({
+              job,
+              id: resolveJobDiffKey(job),
+              reason: c.reason,
+              definitive: c.definitive === true,
+            });
             return false;
           }
           return true;
@@ -474,57 +622,40 @@ async function main() {
         if (urlRemoved.length > 0) console.log(`🧹 Removed ${urlRemoved.length} invalid-URL jobs from slice.`);
       }
 
-      // Within-slice dedup (slug). Losers are NOT silently dropped — they get a
-      // disambiguated slug and are archived to the expired pipeline so the
-      // build plugin can serve enriched soft-landing pages on the original URL.
-      const seenSlug = new Map();
-      const deduped = [];
-      const dedupLosers = []; // disambiguated loser jobs to be archived
-      const dedupCollisions = []; // { removedId, keptId, slug }
-      for (const job of kept) {
-        const slug = String(job.slug || '').trim();
-        if (!slug) { deduped.push(job); continue; }
-        const prev = seenSlug.get(slug);
-        if (prev) {
-          // Tiebreak by recency: datePosted (employer-published timestamp)
-          // wins over crawledAt because a job posted on 2026-05-10 that we
-          // crawled on 2026-05-04 should beat a job posted on 2026-04-01
-          // that we crawled on 2026-05-04 — even though both share the
-          // same crawledAt minute, the user wants the freshest LISTING.
-          const prevTs = jobRecencyTimestamp(prev);
-          const currTs = jobRecencyTimestamp(job);
-          if (currTs > prevTs) {
-            const idx = deduped.indexOf(prev);
-            if (idx !== -1) deduped[idx] = job;
-            seenSlug.set(slug, job);
-            // Newer job wins; the previously-kept job is the loser.
-            dedupCollisions.push({ removedId: prev.id, keptId: job.id, slug });
-            dedupLosers.push(disambiguateDedupLoser(prev, slug));
-          } else {
-            // Existing kept job stays; current job is the loser.
-            dedupCollisions.push({ removedId: job.id, keptId: prev.id, slug });
-            dedupLosers.push(disambiguateDedupLoser(job, slug));
-          }
-          continue;
-        }
-        seenSlug.set(slug, job);
-        deduped.push(job);
+      const slugDedup = deduplicateWithinSliceSlugs(kept);
+      const dedupLosers = slugDedup.archived.map((entry) => entry.loser);
+      const dedupCollisions = slugDedup.archived.map((entry) => ({
+        removedId: entry.loser.id,
+        keptId: entry.winner.id,
+        slug: entry.slug,
+      }));
+      const archivedIdentityMismatches = slugDedup.archived.filter((entry) =>
+        buildStableJobIdentity(entry.loser) !== buildStableJobIdentity(entry.winner),
+      ).length;
+      if (archivedIdentityMismatches !== 0) {
+        throw new Error(`slug dedup attempted to archive ${archivedIdentityMismatches} job(s) with a different stable identity`);
       }
-      const dedupCount = kept.length - deduped.length;
-      if (dedupCount > 0) {
-        console.log(`🧹 Archived ${dedupCount} within-slice duplicate-slug jobs from slice (preserved in expired/).`);
+      if (dedupLosers.length > 0) {
+        console.log(`🧹 Archived ${dedupLosers.length} within-slice same-identity duplicate-slug jobs from slice (winner identity differs: ${archivedIdentityMismatches}; preserved in expired/).`);
         for (const c of dedupCollisions.slice(0, 5)) {
           console.log(`   - ${c.removedId} (duplicate of ${c.keptId}) slug=${c.slug}`);
         }
       }
-      kept = deduped;
+      if (slugDedup.distinctCollisions.length > 0) {
+        console.log(`🔀 Kept ${slugDedup.distinctPostingCount} distinct posting(s) with colliding slugs active under Italian town-specific routes.`);
+      }
+      kept = slugDedup.jobs;
 
       // Archive removed jobs to per-crawler expired slice (not the shared file).
       // Combines URL/age-prune removals (`sliceRemoved`) with dedup losers
       // (`dedupLosers`). Dedup losers are NOT in the original `hardenedJobs`
       // map under their disambiguated slug, so they're tracked separately.
-      const keptSlugs = new Set(kept.map((j) => j.slug).filter(Boolean));
-      const sliceRemoved = hardenedJobs.filter((j) => j.slug && !keptSlugs.has(j.slug));
+      const keptKeys = new Set(kept.map((job) => resolveJobDiffKey(job)));
+      const archivedDedupKeys = new Set(dedupLosers.map((job) => resolveJobDiffKey(job)));
+      const sliceRemoved = hardenedJobs.filter((job) => {
+        const key = resolveJobDiffKey(job);
+        return job.slug && !keptKeys.has(key) && !archivedDedupKeys.has(key);
+      });
       // Keyed by resolveJobDiffKey() not bare j.id — see comment above on the
       // checkById Map for why bare id-less-slice ids collide (#3411).
       const archiveJobsById = new Map(hardenedJobs.map((j) => [resolveJobDiffKey(j), j]));
@@ -536,23 +667,27 @@ async function main() {
         archiveJobsById.set(loserKey, loser);
         archiveRefs.push({ id: loserKey });
       }
-      if (archiveRefs.length > 0) {
-        const crawlerKey = sliceData?.crawlerKey || path.basename(slicePath, '.json');
-        const sliceArchived = archiveExpiredJobsPerCrawler(
-          archiveRefs,
-          archiveJobsById,
-          crawlerKey,
-        );
-        if (sliceArchived > 0) console.log(`📦 Archived ${sliceArchived} expired jobs → data/jobs/expired/by-crawler/${crawlerKey}.json`);
-      }
+      // Run even with no removals: the archive helper also repairs legacy
+      // title/timestamp values already on disk during a clean crawler run.
+      const crawlerKey = sliceData?.crawlerKey || path.basename(slicePath, '.json');
+      const sliceArchived = archiveExpiredJobsPerCrawler(
+        archiveRefs,
+        archiveJobsById,
+        crawlerKey,
+      );
+      if (sliceArchived > 0) console.log(`📦 Archived ${sliceArchived} expired jobs → data/jobs/expired/by-crawler/${crawlerKey}.json`);
 
       // Write back to slice file (preserve envelope)
       const totalRemoved = hardenedJobs.length - kept.length;
-      if (totalRemoved > 0) {
+      if (totalRemoved > 0 || decontaminationChanged || slugDedup.distinctCollisions.length > 0) {
         const envelope = (sliceData && typeof sliceData === 'object' && !Array.isArray(sliceData))
           ? { ...sliceData, jobs: kept, assembledAt: new Date().toISOString() }
           : kept;
-        writeJson(slicePath, envelope);
+        writeJson(slicePath, envelope, { housekeepingProof: urlRemoved });
+        writeHousekeepingProofFile(slicePath, urlRemoved, {
+          baseRaw: sliceRaw,
+          candidateRaw: fs.readFileSync(slicePath, 'utf8'),
+        });
         console.log(`✅ Slice cleaned: ${hardenedJobs.length} → ${kept.length} jobs (-${totalRemoved})`);
       } else {
         console.log('✅ Slice clean — no jobs removed.');
@@ -564,6 +699,10 @@ async function main() {
   }
 
   // ── Standard mode: operate on monolithic data/jobs.json ──────────────────
+  // A proof belongs to exactly one cleanup pass. Remove any residue before
+  // reading the next candidate so a failed/empty run can never authorize a
+  // later slice write with stale duplicate decisions.
+  clearCrossCrawlerDedupProofFile();
   if (!fs.existsSync(DATA_JOBS_PATH) || !fs.existsSync(PUBLIC_JOBS_PATH)) {
     console.log('ℹ️  jobs.json non trovato in data/ o public/data — skip housekeeping');
     return;
@@ -580,79 +719,23 @@ async function main() {
   // (e.g. search widget text scraped instead of real content), replace it with
   // a minimal viable description built from title + company + location.
   // This prevents deploy failures from the validate-jobs-quality gate.
+  // tests/job-locale-slot-gate-contract.test.ts binds step 0 + 0b to the
+  // blocking predicate of validate:translation-completeness.
   {
-    const MIN_DESC_CHARS = 150;
-    const GARBAGE_PATTERNS = [
-      /Suche nach Stichwort/i,
-      /Benachrichtigung erstellen/i,
-      /Search by keyword/i,
-      /Create Alert/i,
-      /Select how often/i,
-      /cookie.*policy/i,
-    ];
-
-    const BOILERPLATE = {
-      de: (company, location, canton) =>
-        `${company} mit Sitz in ${location}${canton ? ` (${canton})` : ''}, Schweiz, bietet vielfältige Karrieremöglichkeiten und moderne Arbeitsbedingungen. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur weiteren Entwicklung unseres Unternehmens beitragen möchten. Bewerben Sie sich jetzt für diese spannende Position.`,
-      it: (company, location, canton) =>
-        `${company} con sede a ${location}${canton ? ` (${canton})` : ''}, Svizzera, offre diverse opportunità di carriera e condizioni di lavoro moderne. Cerchiamo professionisti motivati che desiderino contribuire con competenza e passione allo sviluppo della nostra azienda. Candidatevi ora per questa interessante posizione.`,
-      en: (company, location, canton) =>
-        `${company} based in ${location}${canton ? ` (${canton})` : ''}, Switzerland, offers diverse career opportunities and modern working conditions. We are looking for motivated professionals who want to contribute to the further development of our company with competence and passion. Apply now for this exciting position.`,
-      fr: (company, location, canton) =>
-        `${company} basé à ${location}${canton ? ` (${canton})` : ''}, Suisse, offre des opportunités de carrière diversifiées et des conditions de travail modernes. Nous recherchons des professionnels motivés qui souhaitent contribuer avec compétence et passion au développement de notre entreprise. Postulez maintenant pour ce poste passionnant.`,
-    };
-
     const raw = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
     const jobsArr = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
     const isWrapped = !Array.isArray(raw) && Array.isArray(raw?.jobs);
-    let enriched = 0;
 
     if (jobsArr) {
-      for (const job of jobsArr) {
-        // Check ALL 4 required locales — the validation gate requires complete
-        // coverage. Only checking existing keys misses locales that were never
-        // populated (e.g. descriptionByLocale is {} after garbage cleanup).
-        const locales = ['it', 'en', 'de', 'fr'];
-
-        for (const locale of locales) {
-          const desc = (job.descriptionByLocale?.[locale] || '').trim();
-          const isShort = desc.length > 0 && desc.length < MIN_DESC_CHARS;
-          const isEmpty = desc.length === 0;
-          const isGarbage = desc.length > 0 && GARBAGE_PATTERNS.some((re) => re.test(desc));
-
-          if (isShort || isEmpty || isGarbage) {
-            const title = job.titleByLocale?.[locale] || job.title || '';
-            const company = job.company || '';
-            const location = job.addressLocality || job.location || '';
-            const canton = job.canton || job.addressRegion || '';
-            const boilerplateFn = BOILERPLATE[locale] || BOILERPLATE.de;
-            const fallback = `${title} — ${boilerplateFn(company, location, canton)}`;
-            if (fallback.length >= MIN_DESC_CHARS) {
-              job.descriptionByLocale = job.descriptionByLocale || {};
-              job.descriptionByLocale[locale] = fallback;
-              if (locale === (job.sourceLang || 'de')) {
-                job.description = fallback;
-              }
-              job.needsRetranslation = true;
-              // We just rewrote the description (genuine content change) → lift any
-              // prior give-up so the fresh text gets a new translation attempt and
-              // the suppressed counter isn't inflated by a now-stale marker.
-              delete job.localeMismatchSuppressed;
-              delete job.localeMismatchSuppressedLen;
-              enriched++;
-            }
-          }
-        }
-      }
-
+      const { jobs: repairedJobs, enriched } = repairShortDescriptions(jobsArr);
       if (enriched > 0) {
-        const out = isWrapped ? { ...raw, jobs: jobsArr } : jobsArr;
+        const out = isWrapped ? { ...raw, jobs: repairedJobs } : repairedJobs;
         writeJson(DATA_JOBS_PATH, out);
         // Keep public copy in sync
         if (fs.existsSync(PUBLIC_JOBS_PATH)) {
           writeJson(PUBLIC_JOBS_PATH, out);
         }
-        console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_DESC_CHARS} chars.`);
+        console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_REPAIRED_DESCRIPTION_CHARS} chars.`);
       }
     }
   }
@@ -709,6 +792,8 @@ async function main() {
 
   // ── 2. URL validation ─────────────────────────────────────────────────
   const removed = [...ageRemoved];
+  const dedupProofEntries = [];
+  const dedupProofSourceIndex = buildDedupProofSourceIndex();
   let kept = [];
 
   if (SKIP_URL_VALIDATION) {
@@ -753,70 +838,56 @@ async function main() {
     }
   }
 
-  // ── 3. Title+Company+Location dedup (same position posted with different URLs) ──
-  const seenTitleCompany = new Map();
-  const afterTcDedup = [];
-  for (const job of kept) {
-    const tcKey = `${(job.title || '').toLowerCase().replace(/\s+/g, ' ').trim()}|${(job.company || '').toLowerCase().replace(/\s+/g, ' ').trim()}|${(job.location || '').toLowerCase().replace(/\s+/g, ' ').trim()}`;
-    const prev = seenTitleCompany.get(tcKey);
-    if (prev) {
-      // Keep the one with a more recent crawledAt
-      const prevTs = prev.crawledAt ? new Date(prev.crawledAt).getTime() : 0;
-      const currTs = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
-      if (currTs > prevTs) {
-        // Replace prev with current (newer)
-        const idx = afterTcDedup.indexOf(prev);
-        if (idx !== -1) afterTcDedup[idx] = job;
-        seenTitleCompany.set(tcKey, job);
-      }
-      removed.push({ id: job.id, title: job.title, url: job.url, reason: 'duplicate title+company' });
-      continue;
-    }
-    seenTitleCompany.set(tcKey, job);
-    afterTcDedup.push(job);
+  // ── 3. Same posting published twice (dropHousekeepingDuplicatePostings) ──
+  // Only a proof from the source groups two records: the same title, company
+  // and location plus a full workplace (postal code AND street) or the same
+  // source identity. Title+company+location alone deleted distinct vacancies
+  // that are still online (stores of one city, one Workday req per vacancy).
+  const { kept: afterTcDedup, removed: tcDuplicates } = dropHousekeepingDuplicatePostings(kept);
+  for (const { loser, retained, duplicateKey } of tcDuplicates) {
+    dedupProofEntries.push({
+      job: dedupProofJob(loser),
+      retainedJob: dedupProofJob(retained),
+      sourceJobs: dedupProofSourceJobs(dedupProofSourceIndex, loser),
+      reason: 'duplicate title+company',
+      duplicateKey,
+    });
+    removed.push({ id: loser.id, title: loser.title, url: loser.url, reason: 'duplicate title+company' });
   }
   kept = afterTcDedup;
 
-  // ── 4. Slug dedup (different URLs mapping to the same slug) ──
-  // Losers are NOT silently dropped — they get a disambiguated slug and are
-  // archived to the expired pipeline so the build plugin can serve enriched
-  // soft-landing pages on the original URL.
-  const seenSlug = new Map();
-  const afterSlugDedup = [];
-  const slugDedupCount0 = removed.length;
-  const standardDedupLosers = []; // disambiguated loser jobs to be archived
-  for (const job of kept) {
-    const slug = String(job.slug || '').trim();
-    if (!slug) { afterSlugDedup.push(job); continue; }
-    const prev = seenSlug.get(slug);
-    if (prev) {
-      // Recency tiebreak: prefer datePosted (employer publish time) over
-      // crawledAt — see jobRecencyTimestamp() comment for why both signals.
-      const prevTs = jobRecencyTimestamp(prev);
-      const currTs = jobRecencyTimestamp(job);
-      let loser;
-      if (currTs > prevTs) {
-        const idx = afterSlugDedup.indexOf(prev);
-        if (idx !== -1) afterSlugDedup[idx] = job;
-        seenSlug.set(slug, job);
-        loser = prev;
-      } else {
-        loser = job;
-      }
-      standardDedupLosers.push(disambiguateDedupLoser(loser, slug));
-      removed.push({ id: loser.id, url: loser.url, reason: 'duplicate slug' });
-      continue;
-    }
-    seenSlug.set(slug, job);
-    afterSlugDedup.push(job);
+  // ── 4. Slug collisions: archive only confirmed duplicate postings. ──
+  const slugDedup = deduplicateWithinSliceSlugs(kept);
+  const standardDedupLosers = slugDedup.archived.map((entry) => entry.loser);
+  const archivedIdentityMismatches = slugDedup.archived.filter((entry) =>
+    buildStableJobIdentity(entry.loser) !== buildStableJobIdentity(entry.winner),
+  ).length;
+  if (archivedIdentityMismatches !== 0) {
+    throw new Error(`slug dedup attempted to archive ${archivedIdentityMismatches} job(s) with a different stable identity`);
   }
-  const slugDedupCount = removed.length - slugDedupCount0;
-  if (slugDedupCount > 0) {
-    console.log(`🧹 Archived ${slugDedupCount} within-slice duplicate-slug jobs (preserved in expired/).`);
+  for (const entry of slugDedup.archived) {
+    dedupProofEntries.push({
+      job: dedupProofJob(entry.loser),
+      retainedJob: dedupProofJob(entry.winner),
+      sourceJobs: dedupProofSourceJobs(dedupProofSourceIndex, entry.loser),
+      reason: 'duplicate slug',
+      duplicateKey: entry.slug,
+    });
+    removed.push({ id: entry.loser.id, url: entry.loser.url, reason: 'duplicate slug' });
   }
-  kept = afterSlugDedup;
+  if (standardDedupLosers.length > 0) {
+    console.log(`🧹 Archived ${standardDedupLosers.length} within-slice same-identity duplicate-slug jobs (winner identity differs: ${archivedIdentityMismatches}; preserved in expired/).`);
+  }
+  if (slugDedup.distinctCollisions.length > 0) {
+    console.log(`🔀 Kept ${slugDedup.distinctPostingCount} distinct posting(s) with colliding slugs active under Italian town-specific routes.`);
+  }
+  kept = slugDedup.jobs;
 
   if (removed.length === 0) {
+    // A clean run must still persist repairs to the existing aggregate archive.
+    // Otherwise legacy malformed entries survive indefinitely until a removal
+    // happens to trigger the archival path again.
+    archiveExpiredJobs([], new Map());
     console.log('✅ Nessun job da rimuovere (nessun segnale forte rilevato)');
     return;
   }
@@ -849,6 +920,9 @@ async function main() {
   writeJson(DATA_JOBS_PATH, finalJobs);
   writeJson(PUBLIC_JOBS_PATH, finalJobs);
   updateMeta(finalJobs.length);
+  writeCrossCrawlerDedupProofFile(dedupProofEntries, {
+    candidateRaw: fs.readFileSync(DATA_JOBS_PATH, 'utf8'),
+  });
 
   // Basic reference sanity checks (expected: no per-job routes/translations/sitemap entries)
   const suspiciousFiles = [
@@ -870,7 +944,32 @@ async function main() {
   console.log(`✅ jobs.json aggiornati (data/ + public/data) e meta aggiornato${HOUSEKEEPING_SCOPE ? ` — scope ${HOUSEKEEPING_SCOPE}` : ''}`);
 }
 
-main().catch((err) => {
-  console.error('❌ Job housekeeping error:', err);
-  process.exitCode = 1;
-});
+main()
+  .then(() => {
+    // Dataset mode only, and after main() on EVERY exit path — including the
+    // early return when nothing was removed, which skips the final writes.
+    // Re-read data/jobs.json from disk (what prep's snapshot carries to the
+    // build) and name, per crawler, the records the dist gate
+    // validate:translation-completeness would block. Report only: no record
+    // is removed and the exit code does not change (see the module header).
+    if (!SLICE_FILE) {
+      // Post-merge RSS measure is read from this notice; the threshold is in the PR body.
+      const reparseStartedAt = performance.now();
+      try {
+        reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, slicesDir: ACTIVE_SLICES_DIR });
+      } finally {
+        try {
+          // maxRSS is in kilobytes (libuv) and is the process peak, not a delta.
+          const peakMb = Math.round(process.resourceUsage().maxRSS / 1024);
+          const seconds = ((performance.now() - reparseStartedAt) / 1000).toFixed(1);
+          console.log(`::notice::cleanup-jobs report: peak RSS ${peakMb} MB (reparse ${seconds} s)`);
+        } catch {
+          /* the probe must never change the outcome or the exit code */
+        }
+      }
+    }
+  })
+  .catch((err) => {
+    console.error('❌ Job housekeeping error:', err);
+    process.exitCode = 1;
+  });

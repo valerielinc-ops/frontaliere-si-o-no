@@ -137,16 +137,19 @@ export function normalizeSourceHost(raw = '') {
  * @property {Map<string, Set<string>>} activeUrlsByKey crawler key -> URLs seen in
  *   the latest crawl (`crawlerMissStreak` absent/zero), excluding grace-period carry-over
  * @property {Map<string, number>} assembledAtByKey crawler key -> slice timestamp
+ * @property {Map<string, Set<string>>} routeOwners     active/history slug -> crawler keys
  */
 
 /**
  * @param {string} root  repo root
- * @param {{ urls?: boolean }} [opts]  `urls: true` also collects per-job-URL
- *   overlap, which is what the audit needs and what nobody else should pay for.
+ * @param {{ urls?: boolean, routes?: boolean }} [opts]  `urls: true` also collects
+ *   per-job-URL overlap and `routes: true` collects active/history slug ownership;
+ *   both are opt-in because most host callers do not need either full index.
  * @returns {SourceHostOwnership}
  */
 export function loadSourceHostOwnership(root, opts = {}) {
   const collectUrls = opts.urls === true;
+  const collectRoutes = opts.routes === true;
   const dir = path.join(root, 'data', 'jobs', 'by-crawler');
 
   /** @type {SliceScan[]} */
@@ -161,6 +164,8 @@ export function loadSourceHostOwnership(root, opts = {}) {
   const activeUrlsByKey = new Map();
   /** @type {Map<string, number>} */
   const assembledAtByKey = new Map();
+  /** @type {Map<string, Set<string>>} */
+  const routeOwners = new Map();
 
   let files;
   try {
@@ -170,7 +175,7 @@ export function loadSourceHostOwnership(root, opts = {}) {
     // caller fall back to its other signals rather than assert a wrong answer.
     return {
       slices: [], byHost, dedicatedHosts: new Set(), sharedHosts: new Set(),
-      sharedUrls: new Map(), urlsByKey, activeUrlsByKey, assembledAtByKey,
+      sharedUrls: new Map(), urlsByKey, activeUrlsByKey, assembledAtByKey, routeOwners,
     };
   }
 
@@ -195,27 +200,48 @@ export function loadSourceHostOwnership(root, opts = {}) {
 
     let jobCount = 0;
     let assembledAtMs = null;
-    if (collectUrls) {
+    if (collectUrls || collectRoutes) {
       const mine = new Set();
       const activeMine = new Set();
+      let parsedJobs = null;
       try {
         const payload = JSON.parse(text);
-        const jobs = Array.isArray(payload) ? payload : (Array.isArray(payload?.jobs) ? payload.jobs : []);
+        parsedJobs = Array.isArray(payload) ? payload : (Array.isArray(payload?.jobs) ? payload.jobs : []);
         const assembledAt = Array.isArray(payload) ? '' : (payload?.assembledAt || payload?.generatedAt || '');
         const parsedAt = Date.parse(String(assembledAt));
         if (Number.isFinite(parsedAt)) {
           assembledAtMs = parsedAt;
           assembledAtByKey.set(key, parsedAt);
         }
-        for (const job of jobs) {
-          const u = normalizeJobUrl(job?.url || '');
-          if (!u) continue;
-          jobCount += 1;
-          mine.add(u);
-          if (crawlerJobActivity(job) === 'active') activeMine.add(u);
-          let owners = byUrl.get(u);
-          if (!owners) byUrl.set(u, (owners = new Set()));
-          owners.add(key);
+        if (collectUrls) {
+          for (const job of parsedJobs) {
+            const u = normalizeJobUrl(job?.url || '');
+            if (!u) continue;
+            jobCount += 1;
+            mine.add(u);
+            if (crawlerJobActivity(job) === 'active') activeMine.add(u);
+            let owners = byUrl.get(u);
+            if (!owners) byUrl.set(u, (owners = new Set()));
+            owners.add(key);
+          }
+        }
+        if (collectRoutes) {
+          for (const job of parsedJobs) {
+            const routes = [
+              job?.slug,
+              ...Object.values(job?.slugByLocale || {}),
+              ...(Array.isArray(job?.previousSlugs) ? job.previousSlugs : []),
+              ...Object.values(job?.previousSlugsByLocale || {})
+                .flatMap((slugs) => Array.isArray(slugs) ? slugs : []),
+            ];
+            for (const rawRoute of routes) {
+              const route = String(rawRoute ?? '').trim();
+              if (!route) continue;
+              let owners = routeOwners.get(route);
+              if (!owners) routeOwners.set(route, (owners = new Set()));
+              owners.add(key);
+            }
+          }
         }
       } catch {
         // Preserve the old text-scan behaviour for a partially written or
@@ -231,8 +257,10 @@ export function loadSourceHostOwnership(root, opts = {}) {
           owners.add(key);
         }
       }
-      urlsByKey.set(key, mine);
-      activeUrlsByKey.set(key, activeMine);
+      if (collectUrls) {
+        urlsByKey.set(key, mine);
+        activeUrlsByKey.set(key, activeMine);
+      }
     } else {
       for (const _ of text.matchAll(URL_FULL_RE)) jobCount += 1;
     }
@@ -254,7 +282,7 @@ export function loadSourceHostOwnership(root, opts = {}) {
 
   return {
     slices, byHost, dedicatedHosts, sharedHosts, sharedUrls, urlsByKey,
-    activeUrlsByKey, assembledAtByKey,
+    activeUrlsByKey, assembledAtByKey, routeOwners,
   };
 }
 

@@ -41,6 +41,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { fetchCsodJobs } from './ats-clients/csod-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -174,15 +175,10 @@ function buildPublicUrl(requisitionId) {
 }
 
 function parsePostingDate(raw = '') {
-  // CSOD "postingEffectiveDate" format observed: "M/D/YYYY"
-  const parts = String(raw || '').split('/');
-  if (parts.length === 3) {
-    const [m, d, y] = parts;
-    const mm = m.padStart(2, '0');
-    const dd = d.padStart(2, '0');
-    if (y.length === 4) return `${y}-${mm}-${dd}`;
-  }
-  return '';
+  // Tenant en-US reports publication as M/D/YYYY; validate the complete date.
+  const match = typeof raw === 'string' ? raw.trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/) : null;
+  return sourcePostingDateFields(match
+    ? `${match[3]}-${match[1].padStart(2, '0')}-${match[2].padStart(2, '0')}` : '');
 }
 
 /**
@@ -249,8 +245,7 @@ export async function fetchAllChopardJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(`${title} ${descriptionText}`);
 
-    const postedDate =
-      parsePostingDate(raw?.postingEffectiveDate) || new Date().toISOString().split('T')[0];
+    const publication = parsePostingDate(raw?.postingEffectiveDate);
 
     const job = {
       // ── Required fields ──
@@ -285,7 +280,7 @@ export async function fetchAllChopardJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(publication),
       applyUrl: publicUrl,
       jobReqId: String(requisitionId),
       requirements: [],

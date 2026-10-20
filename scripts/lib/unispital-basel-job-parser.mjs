@@ -18,9 +18,11 @@
  *   - isTrustedDomain()             — Validate URLs (USB / Prospective tenant)
  *   - UNISPITAL_BASEL_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { dropRepostedListings, enrichProspectiveJobsFromDetailPages } from './prospective-ch-job-parser-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -238,12 +240,9 @@ export async function fetchAllUnispitalBaselJobs() {
     const jobSlug = slugify(`${title} ${UNISPITAL_BASEL_KEY} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const raw = listing?.start_date || listing?.last_modification_timestamp || '';
-      const d = new Date(String(raw || ''));
-      if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-      return new Date().toISOString().slice(0, 10);
-    })();
+    // This tenant has no verified listing publication field.
+    // start_date and modification timestamps are not publication evidence.
+    const publication = sourcePostingDateFields();
 
     const job = {
       id: `${UNISPITAL_BASEL_KEY}-${urlHash}`,
@@ -275,7 +274,7 @@ export async function fetchAllUnispitalBaselJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: applyLink || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -284,6 +283,11 @@ export async function fetchAllUnispitalBaselJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${UNISPITAL_BASEL_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  // The listing payload is 11-21 % of the rendered vacancy (audit 2026-09-29):
+  // "Benefits dieser Stelle", "Ihre Benefits am USB" and the workplace text exist only on the directlink page, which becomes the description
+  // source; the listing text stays the per-job fallback.
+  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: UNISPITAL_BASEL_COMPANY_NAME });
+  const unique = dropRepostedListings(jobs, UNISPITAL_BASEL_COMPANY_NAME, { pageDescribed });
+  console.log(`\n📋 Total ${UNISPITAL_BASEL_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
 }

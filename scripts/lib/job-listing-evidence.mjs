@@ -1,4 +1,4 @@
-const EXPLICIT_EMPTY_JOB_LISTING_RE = /\b(no\s+(?:open\s+)?(?:jobs|positions|vacancies)|no\s+openings|nessun(?:a)?\s+(?:posizione|offerta)|keine\s+(?:offene\s+)?stellen|aucun(?:e)?\s+(?:poste|offre))/i;
+const EXPLICIT_EMPTY_JOB_LISTING_RE = /\b(no\s+(?:open\s+)?(?:jobs|positions|vacancies)|no\s+openings|(?:non\s+ci\s+sono)\s+(?:posizioni?|offerte?)\s+aperte|nessun(?:a)?\s+(?:posizione|offerta)|keine\s+(?:offen(?:e|en)?\s+)?stellen|aucun(?:e)?\s+(?:poste|offre))/i;
 
 const HIDDEN_EMPTY_STATE_SELECTOR = [
   '[hidden]',
@@ -13,6 +13,10 @@ const HIDDEN_EMPTY_STATE_SELECTOR = [
 const HIDDEN_EMPTY_STATE_CLASS_RE = /(?:^|\s)(?:d-none|display-none|hidden|invisible|is-hidden|sr-only|u-hidden|visually-hidden)(?:\s|$)/i;
 const HIDDEN_EMPTY_STATE_STYLE_RE = /(?:^|;)\s*(?:display|visibility|content-visibility)\s*:\s*(?:none|hidden)\b/i;
 const EMPTY_STATE_HINT_RE = /(?:empty|no[-_ ]?(?:jobs?|positions?|vacancies?|openings?|results?))/i;
+const ITALIAN_EMPTY_STATE_MARKER_RE = /(?:non\s+ci\s+sono\s+(?:posizioni?|offerte?)\s+aperte|nessun(?:a)?\s+(?:posizione|offerta))/i;
+const ITALIAN_AFFIRMATIVE_EMPTY_STATE_RE = /^(?:(?:attualmente|al\s+momento|in\s+questo\s+momento)\s+)?(?:non\s+ci\s+sono\s+(?:posizioni?|offerte?)\s+aperte|nessun(?:a)?\s+(?:posizione|offerta))\b/i;
+const GERMAN_EMPTY_STATE_MARKER_RE = /keine\s+(?:offen(?:e|en)?\s+)?stellen\b/i;
+const GERMAN_AFFIRMATIVE_EMPTY_STATE_RE = /^(?:(?:derzeit|aktuell|momentan)\s+)?(?:(?:haben\s+wir|gibt\s+es|es\s+gibt)\s+)?keine\s+(?:offen(?:e|en)?\s+)?stellen\b/i;
 
 function isHiddenEmptyStateNode(node) {
   if (!node || typeof node.matches !== 'function') return true;
@@ -33,10 +37,26 @@ function visibleEmptyStateText(node) {
   return [...(node.childNodes || [])].map(visibleEmptyStateText).join(' ');
 }
 
+function hasAffirmativeLocalizedEmptyState(text) {
+  const normalized = String(text || '').replace(/\s+/g, ' ').trim();
+  if (ITALIAN_EMPTY_STATE_MARKER_RE.test(normalized)) {
+    return ITALIAN_AFFIRMATIVE_EMPTY_STATE_RE.test(normalized);
+  }
+  if (GERMAN_EMPTY_STATE_MARKER_RE.test(normalized)) {
+    return GERMAN_AFFIRMATIVE_EMPTY_STATE_RE.test(normalized);
+  }
+  return true;
+}
+
 function isActiveEmptyStateNode(node) {
   if (isHiddenEmptyStateNode(node)) return false;
   const text = visibleEmptyStateText(node);
   if (!EXPLICIT_EMPTY_JOB_LISTING_RE.test(text)) return false;
+  // The Italian/German markers are also common inside conditional or
+  // editorial prose. A visible leaf is evidence only when that localized
+  // text starts with an affirmative empty-state sentence, not merely because
+  // it contains the marker somewhere in the sentence.
+  if (!hasAffirmativeLocalizedEmptyState(text)) return false;
 
   // A generic listing root may include hidden/template copy in its textContent.
   // Accept a leaf marker, or a wrapper whose attributes explicitly identify it

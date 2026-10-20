@@ -3,7 +3,9 @@ import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 const workflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
-const workflowJobs = (YAML.parse(workflow) as { jobs?: Record<string, { if?: string }> }).jobs ?? {};
+const workflowJobs = (YAML.parse(workflow) as {
+  jobs?: Record<string, { if?: string; steps?: Array<{ name?: string; if?: string }> }>;
+}).jobs ?? {};
 const reviewGate = readFileSync(new URL('../scripts/ci/review-gate.mjs', import.meta.url), 'utf8');
 const staleRescuer = readFileSync(new URL('../.github/workflows/stale-pr-rescuer.yml', import.meta.url), 'utf8');
 const autorebase = readFileSync(new URL('../scripts/ci/pr-autorebase.mjs', import.meta.url), 'utf8');
@@ -47,7 +49,7 @@ describe('review → autorebase ordering', () => {
 
   it('lets stale-review reach autorebase even when the review gate is red', () => {
     const reviewGate = workflow.indexOf('id: review_gate');
-    const autorebase = workflow.indexOf('Rebase near-merge PRs after review or stale rescue');
+    const autorebase = workflow.indexOf('      - name: Rebase near-merge PRs after review or stale rescue');
     const pullRequestTypes = workflow.match(
       /pull_request:\s+branches: \[main\][\s\S]*?types: \[([^\]]+)\]/,
     )?.[1];
@@ -65,8 +67,15 @@ describe('review → autorebase ordering', () => {
     expect(decisionStart).toBeGreaterThan(reviewGate);
     expect(decisionBlock).toContain(`AUTOREBASE: \${{ ${expectedIf} }}`);
     expect(decisionBlock).toMatch(/if: .*always\(\) && !cancelled\(\)/);
-    const autorebaseBlock = workflow.slice(autorebase, workflow.indexOf('\n      - name:', autorebase + 1));
-    expect(autorebaseBlock).toContain("if: ${{ needs.vitest.outputs.autorebase == 'true' }}");
+    const autorebaseStep = workflowJobs['post-review']?.steps?.find(
+      ({ name }) => name === 'Rebase near-merge PRs after review or stale rescue',
+    );
+    const expectedAutorebaseIf = [
+      "needs.vitest.outputs.autorebase == 'true'",
+      "steps.post_review_write_capability.outputs.write_capable == 'true'",
+      "steps.post_review_write_capability.outputs.workflow_write_capable == 'true'",
+    ].join(' && ');
+    expect(autorebaseStep?.if).toBe(`\${{ ${expectedAutorebaseIf} }}`);
     expect(workflowJobs['post-review']?.if).toContain("needs.vitest.outputs.autorebase == 'true'");
     expect(workflowJobs['post-review']?.if).toContain('always()');
 
@@ -139,6 +148,23 @@ describe('review → autorebase ordering', () => {
     expect(abortBlock).not.toContain('NOT failing');
     expect(abortBlock).not.toContain('shared Max quota');
     expect(workflow).not.toContain('QUOTA_LEASE_ACTION');
+  });
+
+  it('classifies nested structured 429/5xx markers before generic review failure', () => {
+    const abortStart = workflow.indexOf('id: review_abort');
+    const gateStart = workflow.indexOf('id: review_gate');
+    const abortBlock = workflow.slice(abortStart, gateStart);
+    const structuredMarker = abortBlock.indexOf('structured_marker=$(');
+    const genericFailure = abortBlock.indexOf('if [ "${REVIEW_OUTCOME}" = "failure" ]');
+
+    expect(structuredMarker).toBeGreaterThanOrEqual(0);
+    expect(genericFailure).toBeGreaterThan(structuredMarker);
+    expect(abortBlock).toContain('rate_limit_info.status');
+    expect(abortBlock).toContain("if (status === 429) rateLimit = true;");
+    expect(abortBlock).toContain("if (status >= 500 && status <= 599) retryable5xx = true;");
+    expect(abortBlock).toContain('visit(child);');
+    expect(abortBlock).toContain('retryable_5xx');
+    expect(abortBlock).toContain('overageStatus');
   });
 
   it('lets the red-flag fixer act only when scope is blocking or unverifiable', () => {

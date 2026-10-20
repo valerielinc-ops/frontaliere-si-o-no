@@ -22,12 +22,17 @@
 
 import { readNewsletterDataset } from './newsletter-datasets.mjs';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
-import { locTokenHit, normalizeLocToken } from './locToken.mjs';
+import { locationTokenVariants, normalizeLocToken } from './locToken.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
-import { sameCompanyDisplayIdentity } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { companyDisplayIdentityKeys } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { JOB_BOARD_SECTION_RX } from '../scripts/lib/jobBoardSections.mjs';
 import { nlNormLocale } from './newsletter-template.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
+import {
+  activeApplicationIntentJobKeys,
+  buildApplicationIntentJobKey,
+  PERSONAL_APPLICATION_INTENT_BOOST,
+} from './applicationIntentRanking.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -443,23 +448,52 @@ function parseSourceField(source) {
 /**
  * Score a job against a set of subscriber interest keywords.
  * Returns 0–10 relevance score.
+ *
+ * Takes a prepared-context entry, not a bare job (#9314): the job-side
+ * answers — title/category tokens, normalized location (`entry.locationSearch`),
+ * display-identity keys — are computed once per entry for the whole run
+ * instead of once per subscriber, and the subscriber side once per subscriber
+ * (`subscriberCompanyKeys`, `subscriberLocationTokens`). The score is the one
+ * the previous per-call `extractKeywords` / `locTokenHit` /
+ * `sameCompanyDisplayIdentity` produced.
+ *
+ * @param {object} entry Entry of {@link prepareNewsletterJobContext}.
+ * @param {Set<string>} subscriberKeywords
+ * @param {string[]} subscriberCompanyKeys `companyDisplayIdentityKeys(subscriberCompany)`.
+ * @param {string[]} subscriberLocationTokens normalized location aliases.
+ * @returns {number}
  */
-function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany, subscriberLocation = '') {
-  if (subscriberKeywords.size === 0 && !subscriberCompany && !subscriberLocation) return 0;
+function keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationTokens, applicationIntentJobKeys = new Set()) {
+  if (subscriberKeywords.size === 0 && subscriberCompanyKeys === null && subscriberLocationTokens.length === 0 && applicationIntentJobKeys.size === 0) return 0;
   let score = 0;
-  const jobTitle = String(job.titleByLocale?.it || job.title || '').toLowerCase();
-  const jobCategory = String(job.category || job.sector || '').toLowerCase();
+
+  // An exact application-intent source job is stronger than passive browsing,
+  // but remains a single bounded boost. The profile helper already enforces
+  // the opt-out and 90-day retention boundary.
+  if (applicationIntentJobKeys.has(buildApplicationIntentJobKey(entry.job))) {
+    score += PERSONAL_APPLICATION_INTENT_BOOST;
+  }
 
   // Company match: strong signal. Compare canonical display identities only:
   // one crawler key can cover unrelated employer labels (e.g. Migros/Galaxus).
-  if (subscriberCompany && sameCompanyDisplayIdentity(subscriberCompany, job.company)) score += 4;
+  if (subscriberCompanyKeys !== null) {
+    if (entry.companyIdentityKeys === undefined) {
+      entry.companyIdentityKeys = new Set(companyDisplayIdentityKeys(entry.job.company));
+    }
+    if (subscriberCompanyKeys.some((key) => entry.companyIdentityKeys.has(key))) score += 4;
+  }
 
   // Keyword overlap with job title
   if (subscriberKeywords.size > 0) {
-    const jobTokens = extractKeywords(`${jobTitle} ${jobCategory}`);
+    if (entry.relevanceTokens === undefined) {
+      const job = entry.job;
+      const jobTitle = String(job.titleByLocale?.it || job.title || '').toLowerCase();
+      const jobCategory = String(job.category || job.sector || '').toLowerCase();
+      entry.relevanceTokens = extractKeywords(`${jobTitle} ${jobCategory}`);
+    }
     let overlap = 0;
     for (const kw of subscriberKeywords) {
-      if (jobTokens.has(kw)) overlap++;
+      if (entry.relevanceTokens.has(kw)) overlap++;
     }
     // Normalize: up to 6 points based on overlap ratio
     if (subscriberKeywords.size > 0 && overlap > 0) {
@@ -470,11 +504,11 @@ function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany, subsc
   // Location match: the job's town/canton matches the subscriber's saved job
   // location/interest. Location is also used as a pre-filter, but ranking it
   // here lets same-town jobs win over far ones when the pre-filter is skipped
-  // (too few in-location results to fill the limit).
-  if (subscriberLocation) {
-    const subLoc = subscriberLocation.toLowerCase();
-    const jobLoc = `${String(job.location || '')} ${String(job.addressLocality || '')} ${String(job.addressRegion || '')} ${String(job.canton || '')}`.toLowerCase();
-    if (locTokenHit(jobLoc, subLoc)) score += 2;
+  // (too few in-location results to fill the limit). Same test as
+  // `locTokenHit(jobLoc, subscriberLocation)`, with both sides pre-normalized.
+  if (subscriberLocationTokens.length > 0 && entry.locationSearch
+    && subscriberLocationTokens.some((token) => ` ${entry.locationSearch} `.includes(` ${token} `))) {
+    score += 2;
   }
 
   return score;
@@ -685,10 +719,13 @@ function locationMatches(context, rawLocation) {
   const query = normalizeLocToken(rawLocation);
   if (!query) return null;
   return memoizedMatchSet(context.locationMatchesByQuery, query, () => {
-    const needle = ` ${query} `;
+    const needles = locationTokenVariants(query).map((variant) => ` ${variant} `);
     return new Set(
       context.entries
-        .filter((entry) => ` ${entry.locationSearch} `.includes(needle))
+        .filter((entry) => {
+          const haystack = ` ${entry.locationSearch} `;
+          return needles.some((needle) => haystack.includes(needle));
+        })
         .map((entry) => entry.job),
     );
   });
@@ -747,6 +784,16 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   const sourceJobCategoryKeywords = sourceJob?.category || sourceJob?.sector
     ? extractKeywords(`${sourceJob.category || ''} ${sourceJob.sector || ''}`)
     : new Set();
+  const applicationIntentJobKeys = activeApplicationIntentJobKeys(subscriber?.applicationIntent);
+  const applicationIntentSourceJobs = context.entries
+    .filter((entry) => applicationIntentJobKeys.has(buildApplicationIntentJobKey(entry.job)))
+    .map((entry) => entry.job);
+  const applicationIntentKeywords = new Set();
+  for (const job of applicationIntentSourceJobs) {
+    for (const keyword of extractKeywords(`${job.titleByLocale?.it || job.title || ''} ${job.category || ''} ${job.sector || ''}`)) {
+      applicationIntentKeywords.add(keyword);
+    }
+  }
   const parsedSource = parseSourceField(sourceField);
   const sourceTitleKeywords = parsedSource?.title ? extractKeywords(parsedSource.title) : new Set();
   // Merge all keyword sources (slug is primary, source title is secondary).
@@ -758,12 +805,19 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     ...sourceJobTitleKeywords,
     ...sourceJobCategoryKeywords,
     ...sourceTitleKeywords,
+    ...applicationIntentKeywords,
   ]);
   // Company from the explicit field or the parsed legacy source string.
   const subscriberCompany = jobCompany || parsedSource?.company || '';
   const hasInterestProfile = subscriberKeywords.size > 0 || subscriberCompany;
 
-  const savedJobLocation = subscriber?.job_location || sourceJob?.location || sourceJob?.addressLocality || '';
+  const applicationIntentLocation = applicationIntentSourceJobs[0]?.location
+    || applicationIntentSourceJobs[0]?.addressLocality
+    || '';
+  const savedJobLocation = subscriber?.job_location
+    || sourceJob?.location
+    || sourceJob?.addressLocality
+    || applicationIntentLocation;
   const location = String(subscriber?.locationInterest || savedJobLocation || '').toLowerCase().trim();
   const sector = String(subscriber?.sectorInterest || jobCategory || '').toLowerCase().trim();
   const usableSector = sector && sector !== 'other';
@@ -781,15 +835,19 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   }
 
   // Score: subscriber relevance, age-decayed popularity, then recency.
+  // Subscriber-side answers once per subscriber (#9314), see keywordRelevanceScore.
+  const subscriberCompanyKeys = subscriberCompany ? companyDisplayIdentityKeys(subscriberCompany) : null;
+  const subscriberLocationTokens = location ? locationTokenVariants(location) : [];
   const scored = candidateEntries.map((entry) => ({
     job: entry.job,
     relevance: hasInterestProfile
-      ? keywordRelevanceScore(entry.job, subscriberKeywords, subscriberCompany, location)
+      ? keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationTokens, applicationIntentJobKeys)
       : 0,
     decayedViews: entry.decayedViews,
     date: entry.date,
   }));
   const relevanceByJob = new Map(scored.map((entry) => [entry.job, entry.relevance]));
+  const newnessByJob = new Map(context.entries.map((entry) => [entry.job, entry.date]));
   const companyKey = (job) => (job.companyKey || job.company || '').toLowerCase();
 
   let ordered;
@@ -844,8 +902,9 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   const fallbackBoardPath = JOB_BOARD_PATH[locale] || JOB_BOARD_PATH.it;
   return finalJobs.slice(0, limit).map((job, index) => {
     const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug;
+    const resolvedCanton = context.resolvers ? context.resolvers.resolveJobCanton(job) : '';
     const boardPath = context.resolvers
-      ? context.resolvers.resolveCantonSection(locale, context.resolvers.resolveJobCanton(job))
+      ? context.resolvers.resolveCantonSection(locale, resolvedCanton)
       : fallbackBoardPath;
     return {
       title: job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title,
@@ -857,14 +916,27 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
       contract: normalizeContract(job.contract, locale),
       sector: job.sector || job.category || '',
       rawContract: job.contract || '',
+      // Listing attributes for the delivery manifest (jobManifestEntry): a
+      // job_id no longer resolves once the listing expires. The explicit
+      // canton wins (BS/BL stay themselves, the resolver folds them into a
+      // URL group); the location-derived one covers jobs without it.
+      category: job.category || '',
+      canton: job.canton || resolvedCanton || '',
+      rawSector: job.sector || '',
       logoUrl: resolveLogoUrl(job),
       companyUrl: companyHubUrlIfEmitted(job.company, locale, context.emittedCompanyHubs),
+      // The ranking treatment uses the immutable first-seen/published date
+      // already parsed by the prepared context. Never use crawledAt here:
+      // re-crawling an old listing must not make it look new.
+      newnessAt: Number.isFinite(newnessByJob.get(job)) && newnessByJob.get(job) > 0
+        ? newnessByJob.get(job)
+        : null,
       // Keep the matcher score with the normalized card so downstream email
-      // ranking can combine CTR without reconstructing subscriber signals.
-      // A no-profile match has no keyword score; its existing popularity /
-      // freshness order becomes a monotonic relevance proxy so treatment
-      // ranking does not discard the matcher order and let CTR/randomness
-      // become the only signal.
+      // ranking can weigh it by the reader's affinity without reconstructing
+      // subscriber signals. A no-profile match has no keyword score; its
+      // existing popularity / freshness order becomes a monotonic relevance
+      // proxy so a ranking treatment does not discard the matcher order and
+      // let its secondary signal become the only signal.
       relevanceScore: Number(relevanceByJob.get(job)) > 0
         ? Number(relevanceByJob.get(job))
         : Math.max(1, finalJobs.length - index),
@@ -955,17 +1027,12 @@ const LOCALE_NAMES = { it: 'Italian', en: 'English', de: 'German', fr: 'French' 
  * @param {object} ctx.featuredTool — { title, description }
  * @returns {{ system: string, user: string }}
  */
-export function buildBriefingPrompt(ctx) {
-  const locale = nlNormLocale(ctx.subscriber?.locale);
-  const langName = LOCALE_NAMES[locale] || 'Italian';
-  const prefs = ctx.subscriber?.preferences || {};
-  const interests = [];
-  if (prefs.jobs) interests.push('job opportunities');
-  if (prefs.taxUpdates || prefs.tax) interests.push('tax/fiscal updates');
-  if (prefs.exchangeRate) interests.push('exchange rate');
-  if (prefs.tips) interests.push('practical tips');
-  if (prefs.traffic) interests.push('border traffic');
-
+/**
+ * Data lines shared by every briefing prompt: today's date, exchange rate,
+ * market insight, weekly fact and featured tool. Identical for every reader of
+ * a locale — only the job lines and reader interests are per reader.
+ */
+function briefingSharedData(ctx, locale) {
   // Provide the actual date so the AI never needs to invent one
   const todayStr = new Date().toLocaleDateString(locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : locale === 'en' ? 'en-GB' : 'it-CH', {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
@@ -987,6 +1054,30 @@ export function buildBriefingPrompt(ctx) {
     ? `Market insight: CHF/EUR ${cardPct > 0.2 ? 'strengthening' : cardPct < -0.2 ? 'weakening' : 'stable'} (${cardPctStr} weekly). ${ctx.exchangeInsight.summary}`
     : '';
 
+  const factLine = ctx.weeklyFact
+    ? `Weekly fact: "${ctx.weeklyFact.text}" (Source: ${ctx.weeklyFact.source || 'N/A'})`
+    : '';
+
+  const toolLine = ctx.featuredTool
+    ? `Featured tool: ${ctx.featuredTool.title} — ${ctx.featuredTool.description}${ctx.featuredTool.toolUrl ? ` → URL: ${BASE_URL}${ctx.featuredTool.toolUrl}` : ''}`
+    : '';
+
+  return { todayStr, rateTrend, insightLine, factLine, toolLine };
+}
+
+export function buildBriefingPrompt(ctx) {
+  const locale = nlNormLocale(ctx.subscriber?.locale);
+  const langName = LOCALE_NAMES[locale] || 'Italian';
+  const prefs = ctx.subscriber?.preferences || {};
+  const interests = [];
+  if (prefs.jobs) interests.push('job opportunities');
+  if (prefs.taxUpdates || prefs.tax) interests.push('tax/fiscal updates');
+  if (prefs.exchangeRate) interests.push('exchange rate');
+  if (prefs.tips) interests.push('practical tips');
+  if (prefs.traffic) interests.push('border traffic');
+
+  const { todayStr, rateTrend, insightLine, factLine, toolLine } = briefingSharedData(ctx, locale);
+
   const jobLines = (ctx.matchedJobs || []).slice(0, 3)
     .map((j) => {
       const url = j.url ? `${BASE_URL}${j.url.startsWith('/') ? j.url : '/' + j.url}` : '';
@@ -1005,14 +1096,6 @@ export function buildBriefingPrompt(ctx) {
     })
     .filter(Boolean)
     .join('\n');
-
-  const factLine = ctx.weeklyFact
-    ? `Weekly fact: "${ctx.weeklyFact.text}" (Source: ${ctx.weeklyFact.source || 'N/A'})`
-    : '';
-
-  const toolLine = ctx.featuredTool
-    ? `Featured tool: ${ctx.featuredTool.title} — ${ctx.featuredTool.description}${ctx.featuredTool.toolUrl ? ` → URL: ${BASE_URL}${ctx.featuredTool.toolUrl}` : ''}`
-    : '';
 
   const locationLine = ctx.subscriber?.locationInterest
     ? `Reader location interest: ${ctx.subscriber.locationInterest}`
@@ -1046,7 +1129,7 @@ export function buildBriefingPrompt(ctx) {
     `CRITICAL EXCHANGE RATE RULE: Use ONLY the weekly change percentage provided in the data below. Do NOT calculate or invent a different percentage.`,
     `Naturally weave in the exchange rate, any relevant job or fiscal context, and the weekly fact if interesting. Do NOT list everything — pick what matters most for this reader.`,
     `CRITICAL: Only mention dates that are explicitly provided in the data below. NEVER invent, guess, or assume dates for events, job postings, or facts. If no date is given for something, do not add one. Today's date is ${todayStr}.`,
-    `Keep total length under 200 words. Be concise but engaging.`,
+    `Write between 80 and 200 words in total. Be concise but engaging.`,
   ].join(' ');
 
   const userParts = [
@@ -1064,43 +1147,105 @@ export function buildBriefingPrompt(ctx) {
 }
 
 /**
- * Build ONE prompt that asks the AI to generate N independent briefings in a
- * single call instead of N separate calls — cuts total AI request volume
- * roughly N-fold on high-cohort-count days. All items MUST share the same
- * locale: the system prompt (language rules, structure rules) is built once
- * from the first item and reused verbatim for the whole batch, so mixing
- * languages in one batch would risk the phrasing bleed that the per-locale
- * system prompt exists to prevent (see tests/newsletter-locale-leakage.test.ts).
+ * Build the prompt for the ONE editorial briefing shared by every reader of a
+ * locale: exchange rate, weekly fact and featured tool, i.e. the only part of
+ * the briefing that does not depend on the reader. The reader's own jobs are
+ * not in the prompt: send-newsletter.mjs prepends them per cohort as a
+ * deterministic, linked paragraph (injectJobAndCompanyLinks), the same code
+ * that already re-linked every AI job mention because sanitizeAIBriefingHtml
+ * strips all AI anchors.
  *
- * @param {Array<{ id: string, ctx: object }>} items — same ctx shape as buildBriefingPrompt
+ * @param {object} ctx — { locale, exchangeRate, exchangeInsight, weeklyFact, featuredTool }
  * @returns {{ system: string, user: string }}
  */
-export function buildBriefingBatchPrompt(items) {
-  if (!items.length) throw new Error('buildBriefingBatchPrompt: items must be non-empty');
-  const first = buildBriefingPrompt(items[0].ctx);
-  const readerBlocks = items.map((item, idx) => {
-    const { user } = idx === 0 ? first : buildBriefingPrompt(item.ctx);
-    return `===READER ${item.id}===\n${user}`;
-  });
+export function buildLocaleBriefingPrompt(ctx) {
+  const locale = nlNormLocale(ctx.locale);
+  const langName = LOCALE_NAMES[locale] || 'Italian';
+  const { todayStr, rateTrend, insightLine, factLine, toolLine } = briefingSharedData(ctx, locale);
+
   const system = [
-    first.system,
-    `BATCH MODE: below are ${items.length} independent readers, each starting with a "===READER <id>===" marker. Apply every rule above separately to EACH reader, using ONLY that reader's own data — never mix jobs, facts, or details between readers.`,
-    `Output EXACTLY ${items.length} blocks, one per reader, in the SAME ORDER as the readers below. Each block starts with "===BRIEFING <id>===" on its own line (the same id as that reader's marker) followed immediately by that reader's briefing HTML. No text outside these blocks.`,
+    `You write the opening section of a weekly email newsletter for "Frontaliere Ticino", a platform for cross-border workers (frontalieri) between Italy and Switzerland. The same text goes to every ${langName}-speaking reader.`,
+    `Write in ${langName}. Be warm, conversational, and practical. Like a knowledgeable friend sharing useful updates.`,
+    `ABSOLUTE LANGUAGE RULE: Every word in your output MUST be in ${langName}. ${locale === 'it' ? '' : `NEVER copy Italian phrasings from any reference material into your ${langName} output. `}Tool names, brand names, and proper nouns are the only exceptions.`,
+    `Output 2 short paragraphs. Use simple HTML ONLY: <p> tags for paragraphs, <strong> for emphasis. Do not write links or URLs: they are added automatically. No greetings, no sign-offs, no subject line.`,
+    `CRITICAL: NEVER use Markdown syntax. Do NOT use **bold**, *italic*, [text](link), or any asterisks for emphasis. Always use the HTML tags above. Asterisks will render as literal characters in the email.`,
+    `JOBS RULE: each reader's own matching job openings are inserted automatically in a separate paragraph right above your text. Do NOT mention any specific job, company, number of openings, or "the jobs above".`,
+    `If a Featured tool name is provided, use it EXACTLY as written in the data — never translate, never substitute. The tool name comes pre-localized.`,
+    `CRITICAL EXCHANGE RATE RULE: Use ONLY the weekly change percentage provided in the data below. Do NOT calculate or invent a different percentage.`,
+    `Start with the exchange rate context, then weave in the weekly fact if interesting and the featured tool. Do NOT list everything — pick what matters most.`,
+    `CRITICAL: Only mention dates that are explicitly provided in the data below. NEVER invent, guess, or assume dates for events or facts. If no date is given for something, do not add one. Today's date is ${todayStr}.`,
+    `Write between 80 and 150 words in total. Be concise but engaging.`,
   ].join(' ');
-  return { system, user: readerBlocks.join('\n\n') };
+
+  const userParts = [rateTrend, insightLine, factLine, toolLine].filter(Boolean);
+  return { system, user: userParts.join('\n\n') };
 }
 
 /**
- * Build a prompt for AI to generate a personalized email subject line.
+ * Build the single locale-level AI request used by the weekly newsletter.
+ * The response contains the shared editorial briefing and A/B subject
+ * templates in one structured object. Subject templates may use the exact
+ * `{{job_count}}`, `{{job_title}}`, `{{company}}`, and `{{location}}`
+ * placeholders; the sender fills those from the recipient's own matched jobs
+ * after the locale response is received.
  *
- * @param {object} ctx
- * @param {object} ctx.subscriber — { locale, preferences, locationInterest }
- * @param {object} ctx.exchangeRate — { rate }
- * @param {Array}  ctx.matchedJobs — [{ title }]
- * @param {string} [ctx.briefingSummary] — First line of the AI briefing, if available
- * @returns {{ system: string, user: string }}
+ * @param {object} ctx — buildLocaleBriefingPrompt context plus `variants`
+ * @returns {{ system: string, user: string, jsonSchema: { name: string, schema: object } }}
  */
-export function buildSubjectPrompt(ctx) {
+export function buildLocaleNewsletterContentPrompt(ctx) {
+  const variants = [...new Set(ctx.variants || [])];
+  const briefing = buildLocaleBriefingPrompt(ctx);
+  const subjects = buildSubjectVariantsPrompt({
+    subscriber: { locale: ctx.locale },
+    exchangeRate: ctx.exchangeRate,
+    variants,
+    sharedAcrossLocale: true,
+    subjectTemplate: true,
+  });
+
+  const system = [
+    'Generate the weekly newsletter content for one locale in a single structured response.',
+    'The briefing and every subject template must be based on the same editorial data below. Do not introduce a topic in a subject that is absent from the briefing data.',
+    'The briefing is shared by every reader of the locale. Subject templates are also shared, but the sender replaces the permitted placeholders with each reader\'s own matched jobs before sending.',
+    `BRIEFING REQUIREMENTS:\n${briefing.system}`,
+    `SUBJECT TEMPLATE REQUIREMENTS:\n${subjects.system}`,
+    `OUTPUT CONTRACT: return exactly one JSON object with the keys "briefing" and "subjects". "briefing" must contain only the HTML briefing requested above. "subjects" must be an object with exactly these variant keys: ${variants.map((id) => `"${id}"`).join(', ')}. Each subject value must be a plain-text template, not HTML.`,
+  ].join('\n\n');
+
+  const user = [
+    `EDITORIAL DATA:\n${briefing.user}`,
+    `Use the same editorial data for the subject templates. Allowed personalization placeholders are exactly: {{job_count}}, {{job_title}}, {{company}}, {{location}}. Never put a real employer, job title, or location into the shared template; use a placeholder instead.`,
+    `SUBJECT CONTEXT:\n${subjects.user}`,
+  ].join('\n\n');
+
+  return {
+    system,
+    user,
+    jsonSchema: {
+      name: 'newsletter_locale_content',
+      schema: {
+        type: 'object',
+        properties: {
+          briefing: { type: 'string' },
+          subjects: {
+            type: 'object',
+            properties: subjects.jsonSchema.schema.properties,
+            required: variants,
+            additionalProperties: false,
+          },
+        },
+        required: ['briefing', 'subjects'],
+        additionalProperties: false,
+      },
+    },
+  };
+}
+
+/**
+ * The parts buildSubjectPrompt and buildSubjectVariantsPrompt share: language,
+ * proven patterns, voice and the user hints.
+ */
+function subjectPromptParts(ctx) {
   const locale = nlNormLocale(ctx.subscriber?.locale);
   const langName = LOCALE_NAMES[locale] || 'Italian';
 
@@ -1144,7 +1289,25 @@ export function buildSubjectPrompt(ctx) {
       `- News peg: "📰 ${today} : ce qui change entre l'Italie et la Suisse"`,
     ],
   };
-  const examples = (examplesByLocale[locale] || examplesByLocale.it).join('\n');
+  const exampleLines = examplesByLocale[locale] || examplesByLocale.it;
+  const templateJobExamples = {
+    it: '- Job template: "📊 {{job_count}} aziende assumono a {{location}}"',
+    en: '- Job template: "📊 {{job_count}} companies hiring in {{location}}"',
+    de: '- Job template: "📊 {{job_count}} Firmen stellen in {{location}} ein"',
+    fr: '- Job template: "📊 {{job_count}} entreprises recrutent à {{location}}"',
+  };
+  // Variant subjects are shared by every reader of a locale. Keep the
+  // location/job-count pattern only for the placeholder-template prompt;
+  // the ordinary shared prompt must not offer it as a concrete fact to copy.
+  const exampleLinesForPrompt = ctx.subjectTemplate
+    ? [
+      ...exampleLines.filter((line) => !line.startsWith('- Number + location:')),
+      templateJobExamples[locale] || templateJobExamples.it,
+    ]
+    : (ctx.sharedAcrossLocale
+      ? exampleLines.filter((line) => !line.startsWith('- Number + location:'))
+      : exampleLines);
+  const examples = exampleLinesForPrompt.join('\n');
 
   // Voice pronouns per locale to avoid "tu/you" instruction being misread
   const voiceByLocale = {
@@ -1153,30 +1316,6 @@ export function buildSubjectPrompt(ctx) {
     de: `Use "du" voice, never "wir"`,
     fr: `Use "tu" voice, never "nous"`,
   };
-
-  // A/B test: bias the subject toward the assigned variant's style (concrete vs
-  // curious). Empty string when ctx.variant is unset/unknown → prompt unchanged.
-  const variantDirective = getVariantStyleDirective(ctx.variant, locale);
-
-  const system = [
-    `You are a world-class email copywriter for "Frontaliere Ticino", a fintech app for Swiss-Italian cross-border workers.`,
-    `Write ONE email subject line in ${langName}. STRICTLY 35-50 characters including emoji. Count carefully.`,
-    `ABSOLUTE LANGUAGE RULE: The subject MUST be written in ${langName} — NOT Italian, NOT English, NOT any other language. If the target is ${langName} and you output Italian (or any other language), the output will be rejected. All example phrasings below are in ${langName} to make this unambiguous.`,
-    ``,
-    `PROVEN PATTERNS (pick one and adapt — stay in ${langName}):`,
-    examples,
-    ...(variantDirective ? [``, variantDirective] : []),
-    ``,
-    `RULES:`,
-    `- Start with ONE emoji (⚡💰📊🔥🤔📰🏦💼)`,
-    `- MUST be a complete phrase — NEVER end with "..." or a cut-off word`,
-    `- ${voiceByLocale[locale] || voiceByLocale.it}`,
-    `- NO exact numbers (exchange rates, percentages)`,
-    `- NO generic words like "update", "newsletter", "weekly" or their ${langName} equivalents`,
-    `- Do not label the reader or audience as "frontaliere", "frontalier", "Grenzgänger", "cross-border worker" or any local equivalent; lead with the topic or benefit instead`,
-    `- ONE hook only. Make the reader NEED to open the email.`,
-    `- Output ONLY the subject line in ${langName}. No quotes, no translation, no explanation.`,
-  ].join('\n');
 
   const hints = [];
   if (ctx.exchangeRate) {
@@ -1194,7 +1333,133 @@ export function buildSubjectPrompt(ctx) {
   if (ctx.subscriber?.locationInterest) hints.push(`Reader location: ${ctx.subscriber.locationInterest}`);
   if (ctx.briefingSummary) hints.push(`Theme: ${ctx.briefingSummary.slice(0, 80)}`);
 
-  return { system, user: hints.join(' | ') || 'Generate a compelling subject for cross-border workers' };
+  return {
+    locale,
+    langName,
+    examples,
+    sharedAcrossLocale: ctx.sharedAcrossLocale === true,
+    subjectTemplate: ctx.subjectTemplate === true,
+    voice: voiceByLocale[locale] || voiceByLocale.it,
+    user: hints.join(' | ') || 'Generate a compelling subject for cross-border workers',
+  };
+}
+
+/** The rules every subject line follows, whether a call asks for one or several. */
+function subjectRules({ langName, voice, sharedAcrossLocale, subjectTemplate }) {
+  return [
+    ...(subjectTemplate ? [
+      '- This is a locale-wide subject template. If it refers to a matched job, use only these exact placeholders: {{job_count}}, {{job_title}}, {{company}}, {{location}}.',
+      '- Never invent or write a real employer, job title, or specific location in the template. The sender fills placeholders from the recipient\'s own matched jobs.',
+    ] : sharedAcrossLocale ? [
+      `- This subject is reused for every ${langName}-speaking reader. Do not mention any employer, job title, individual vacancy, vacancy count, or specific job location. Use only newsletter-wide topics and benefits.`,
+    ] : []),
+    `- Start with ONE emoji (⚡💰📊🔥🤔📰🏦💼)`,
+    `- MUST be a complete phrase — NEVER end with "..." or a cut-off word`,
+    `- ${voice}`,
+    `- NO exact numbers (exchange rates, percentages)`,
+    ...(subjectTemplate ? ['- The {{job_count}} placeholder is allowed for the number of matched job offers; do not invent any other exact number.'] : []),
+    `- NO generic words like "update", "newsletter", "weekly" or their ${langName} equivalents`,
+    `- Do not label the reader or audience as "frontaliere", "frontalier", "Grenzgänger", "cross-border worker" or any local equivalent; lead with the topic or benefit instead`,
+    `- ONE hook only. Make the reader NEED to open the email.`,
+  ];
+}
+
+/**
+ * Build a prompt for AI to generate a personalized email subject line.
+ *
+ * @param {object} ctx
+ * @param {object} ctx.subscriber — { locale, preferences, locationInterest }
+ * @param {object} ctx.exchangeRate — { rate }
+ * @param {Array}  ctx.matchedJobs — [{ title }]
+ * @param {string} [ctx.briefingSummary] — First line of the AI briefing, if available
+ * @returns {{ system: string, user: string }}
+ */
+export function buildSubjectPrompt(ctx) {
+  const parts = subjectPromptParts(ctx);
+  const { locale, langName, examples } = parts;
+
+  // A/B test: bias the subject toward the assigned variant's style (concrete vs
+  // curious). Empty string when ctx.variant is unset/unknown → prompt unchanged.
+  const variantDirective = getVariantStyleDirective(ctx.variant, locale);
+
+  const system = [
+    `You are a world-class email copywriter for "Frontaliere Ticino", a fintech app for Swiss-Italian cross-border workers.`,
+    `Write ONE email subject line in ${langName}. STRICTLY 35-50 characters including emoji. Count carefully.`,
+    `ABSOLUTE LANGUAGE RULE: The subject MUST be written in ${langName} — NOT Italian, NOT English, NOT any other language. If the target is ${langName} and you output Italian (or any other language), the output will be rejected. All example phrasings below are in ${langName} to make this unambiguous.`,
+    ``,
+    `PROVEN PATTERNS (pick one and adapt — stay in ${langName}):`,
+    examples,
+    ...(variantDirective ? [``, variantDirective] : []),
+    ``,
+    `RULES:`,
+    ...subjectRules(parts),
+    `- Output ONLY the subject line in ${langName}. No quotes, no translation, no explanation.`,
+  ].join('\n');
+
+  return { system, user: parts.user };
+}
+
+/**
+ * ONE prompt for every A/B variant of a locale's subject (`ctx.variants`, ids
+ * from newsletter-subject-variants.mjs): the model writes one subject per
+ * variant, each in that variant's style only, and returns them as a JSON
+ * object keyed by variant id. Patterns, rules and hints are those of
+ * buildSubjectPrompt. `jsonSchema` is the callLLM option with which
+ * schema-capable providers (Codex `--output-schema`, Gemini, OpenAI strict)
+ * return exactly those keys.
+ *
+ * @param {object} ctx — as buildSubjectPrompt, plus `variants: string[]` and
+ * optional `subjectTemplate: true`. Subject variants are shared by every
+ * reader of the locale; with `subjectTemplate`, job personalization is
+ * expressed only through the permitted placeholders.
+ * @returns {{ system: string, user: string, jsonSchema: { name: string, schema: object } }}
+ */
+export function buildSubjectVariantsPrompt(ctx) {
+  // `composeLocaleSubjects` selects the largest cohort only to coordinate one
+  // call per locale. Never let that representative's jobs or preferences leak
+  // into a subject that will be sent to every reader of the locale; a combined
+  // content call may opt into placeholders instead.
+  const parts = subjectPromptParts({
+    ...ctx,
+    sharedAcrossLocale: true,
+    subjectTemplate: ctx.subjectTemplate === true,
+    matchedJobs: [],
+    briefingSummary: '',
+    subscriber: { locale: ctx.subscriber?.locale },
+  });
+  const { locale, langName, examples } = parts;
+  const variants = [...new Set(ctx.variants || [])];
+  const keys = variants.map((id) => `"${id}"`).join(', ');
+  const lengthRule = parts.subjectTemplate
+    ? 'Write a subject template for each variant. After the sender replaces any placeholders, each rendered subject must be STRICTLY 35-50 characters including the emoji. Do not count the placeholder token spelling itself.'
+    : `Write ${variants.length} email subject lines in ${langName}, one for each A/B variant below. Each one STRICTLY 35-50 characters including emoji. Count carefully.`;
+
+  const system = [
+    `You are a world-class email copywriter for "Frontaliere Ticino", a fintech app for Swiss-Italian cross-border workers.`,
+    lengthRule,
+    `ABSOLUTE LANGUAGE RULE: Every subject MUST be written in ${langName} — NOT Italian, NOT English, NOT any other language. If the target is ${langName} and you output Italian (or any other language), the output will be rejected. All example phrasings below are in ${langName} to make this unambiguous.`,
+    ``,
+    `PROVEN PATTERNS (pick one for each subject and adapt — stay in ${langName}):`,
+    examples,
+    ``,
+    `A/B VARIANTS — write each subject in its own variant's style only:`,
+    ...variants.map((id) => `- key "${id}": ${getVariantStyleDirective(id, locale)}`),
+    ``,
+    `RULES (for every subject):`,
+    ...subjectRules(parts),
+    `- Output ONLY a JSON object with exactly the keys ${keys}; each value is that variant's subject line in ${langName}, with no surrounding quotes, no translation, no explanation.`,
+  ].join('\n');
+
+  const jsonSchema = {
+    name: 'newsletter_subjects',
+    schema: {
+      type: 'object',
+      properties: Object.fromEntries(variants.map((id) => [id, { type: 'string' }])),
+      required: variants,
+      additionalProperties: false,
+    },
+  };
+  return { system, user: parts.user, jsonSchema };
 }
 
 /**

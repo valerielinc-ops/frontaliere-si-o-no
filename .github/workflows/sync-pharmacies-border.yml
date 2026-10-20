@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: sync-pharmacy-data
@@ -22,82 +23,194 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout main
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: main
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '22'
       - name: Install PDF tooling
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends poppler-utils
       - name: Install dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
-      - name: Prepare Firebase credentials for push auth
+      - name: Prepare Firebase credentials for PR publishing
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for the pharmacy refresh PR"
             exit 1
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-      - name: Load push credentials from Remote Config
+      - name: Load publishing credentials from Remote Config
         run: node scripts/load-rc-env.mjs
+      - name: Reserve serialized Google Places monthly budget
+        id: google_budget
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RESERVATION_BRANCH: chore/pharmacy-google-usage-reservation
+        run: |
+          set -euo pipefail
+          reservation_path="data/pharmacy-google-usage-reservation.json"
+          reservation_input="$RUNNER_TEMP/pharmacy-google-usage-reservation.json"
+          reservation_output="$RUNNER_TEMP/pharmacy-google-usage-reservation-next.json"
+          plan_output="$RUNNER_TEMP/pharmacy-google-budget-plan.json"
+          remote_url="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          remote_head="$(git ls-remote "$remote_url" "refs/heads/${RESERVATION_BRANCH}" | awk 'NR == 1 { print $1 }')"
+          if [ -n "$remote_head" ]; then
+            git fetch --no-tags --depth=1 "$remote_url" \
+              "+refs/heads/${RESERVATION_BRANCH}:refs/remotes/reservation/${RESERVATION_BRANCH}"
+            git show "refs/remotes/reservation/${RESERVATION_BRANCH}:${reservation_path}" > "$reservation_input"
+          fi
+
+          api_key_configured=false
+          if [ -n "${GOOGLE_MAPS_API_KEY:-}" ]; then api_key_configured=true; fi
+          node scripts/ci/reserve-pharmacy-google-budget.mjs \
+            --config data/pharmacy-enrichment-sources.json \
+            --snapshot data/pharmacy-enrichment.json \
+            --ticino-catalogue data/pharmacies-ticino-complete.json \
+            --italy-catalogue data/pharmacies-italy-border.json \
+            --plan-output "$plan_output" \
+            --reservation "$reservation_input" \
+            --reservation-output "$reservation_output" \
+            --api-key-configured "$api_key_configured" \
+            --github-output "$GITHUB_OUTPUT"
+
+          google_pharmacy_ids="$(node -e "const fs=require('node:fs'); const plan=JSON.parse(fs.readFileSync(process.argv[1], 'utf8')); process.stdout.write(JSON.stringify(plan.pharmacyIds || []));" "$plan_output")"
+          echo "PHARMACY_GOOGLE_PLACES_IDS_JSON=$google_pharmacy_ids" >> "$GITHUB_ENV"
+          allow_google="$(node -e "const fs=require('node:fs'); const plan=JSON.parse(fs.readFileSync(process.argv[1], 'utf8')); process.stdout.write(plan.allowGoogle ? 'true' : 'false');" "$plan_output")"
+          if [ "$allow_google" != 'true' ]; then
+            echo "PHARMACY_SKIP_GOOGLE_PLACES=1" >> "$GITHUB_ENV"
+            echo "Google Places skipped: the serialized reservation is pending, exhausted, unnecessary, or unavailable."
+            exit 0
+          fi
+
+          cp "$reservation_output" "$reservation_path"
+          node scripts/ci/validate-workflow-data.mjs \
+            --kind pharmacy-google-usage-reservation \
+            --file data/pharmacy-google-usage-reservation.json
+          git add -- "$reservation_path"
+          git config user.name "frontaliere-automation[bot]"
+          git config user.email "296434481+frontaliere-automation[bot]@users.noreply.github.com"
+          git commit -m "chore(pharmacy): reserve Google Places monthly budget"
+          if [ -n "$remote_head" ]; then
+            git -c http.https://github.com/.extraheader= push \
+              --force-with-lease="refs/heads/${RESERVATION_BRANCH}:${remote_head}" \
+              "$remote_url" "HEAD:${RESERVATION_BRANCH}"
+          else
+            git -c http.https://github.com/.extraheader= push "$remote_url" "HEAD:${RESERVATION_BRANCH}"
+          fi
       - name: Fetch and stage Ticino duties for atomic finalization
         continue-on-error: true
         env:
           PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
         run: node scripts/sync-pharmacy-duties.mjs
+      - name: Discover public Facebook pharmacy pages
+        env:
+          PHARMACY_FACEBOOK_DISCOVERY_PATH: ${{ runner.temp }}/pharmacy-facebook-discovery.json
+        run: |
+          node scripts/discover-pharmacy-facebook.mjs --output "$PHARMACY_FACEBOOK_DISCOVERY_PATH"
+          echo "PHARMACY_FACEBOOK_DISCOVERY_PATH=$PHARMACY_FACEBOOK_DISCOVERY_PATH" >> "$GITHUB_ENV"
+      - name: Fetch Geneva duty release
+        id: geneva
+        continue-on-error: true
+        run: |
+          set +e
+          node scripts/import-pharmacy-duties-geneva.mjs
+          geneva_exit=$?
+          set -e
+          echo "exit=$geneva_exit" >> "$GITHUB_OUTPUT"
+          echo "unexpected=false" >> "$GITHUB_OUTPUT"
+          case "$geneva_exit" in
+            0) echo "Geneva duty release is fresh and publishable." ;;
+            1) echo "Geneva duty importer reported a data-quality diagnostic; committing its fail-closed snapshot for the health monitor." ;;
+            *) echo "unexpected=true" >> "$GITHUB_OUTPUT"; echo "::error::Geneva duty importer failed unexpectedly with exit=$geneva_exit"; exit 1 ;;
+          esac
+      - name: Fail on unexpected Geneva importer failure
+        if: steps.geneva.outputs.unexpected == 'true'
+        run: exit 1
+      - name: Fetch verified Swiss canton duty release
+        id: swiss_cantons
+        continue-on-error: true
+        run: |
+          set +e
+          node scripts/import-pharmacy-duties-swiss-cantons.mjs
+          swiss_exit=$?
+          set -e
+          echo "exit=$swiss_exit" >> "$GITHUB_OUTPUT"
+          echo "unexpected=false" >> "$GITHUB_OUTPUT"
+          case "$swiss_exit" in
+            0) echo "Swiss canton duty release is fresh and publishable." ;;
+            1) echo "Swiss canton duty importer reported a data-quality diagnostic; committing its fail-closed snapshot for the health monitor." ;;
+            *) echo "unexpected=true" >> "$GITHUB_OUTPUT"; echo "::error::Swiss canton duty importer failed unexpectedly with exit=$swiss_exit"; exit 1 ;;
+          esac
+      - name: Fail on unexpected Swiss canton importer failure
+        if: steps.swiss_cantons.outputs.unexpected == 'true'
+        run: exit 1
       - name: Import and finalize official border catalogue release
         env:
           PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
         run: npm run pharmacies:import
       - name: Validate border catalogue
         run: npm run pharmacies:check
-      - name: Commit atomic catalogue-duty-status snapshots
+      - name: Preserve observed Ticino duty weeks before the next feed replacement
+        run: npx --no-install tsx scripts/archive-pharmacy-duty-weeks.mts
+      # Riassunto per gruppo cantonale dei turni appena validati, pubblico sul
+      # CDN per il corpus (refresh-canton-services-data.mjs, P9f). Non e' un
+      # gate dei turni: se fallisce, il rilascio delle farmacie parte lo stesso
+      # e l'artefatto resta quello del giro precedente.
+      - name: Publish per-canton duty summary for the corpus
+        id: duty_cantons
+        continue-on-error: true
+        run: node scripts/publish-pharmacy-duty-cantons.mjs
+      - name: Open PR with atomic catalogue-duty-status snapshots
         env:
-          PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
+          GH_TOKEN: ${{ env.GITHUB_PAT }}
         run: |
           set -euo pipefail
-          if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json; then
+          if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-enrichment.json data/pharmacy-enrichment-sources.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json data/pharmacy-duties-geneva.json data/pharmacy-duties-geneva-status.json data/pharmacy-duties-swiss-cantons.json data/pharmacy-sources-registry.json public/data/pharmacy-duty-cantons.json \
+            && [ -z "$(git status --porcelain -- public/data/pharmacy-duty-cantons.json data/pharmacy-duty-week-history)" ]; then
             echo "No cross-border pharmacy data changes."
             exit 0
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json
-          git commit -m "chore(data): refresh atomic cross-border pharmacy release"
-          bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd '
-              (
-              duty_exit=0
-              node scripts/sync-pharmacy-duties.mjs || duty_exit=$?
-              case "$duty_exit" in
-                0|1|2) echo "[pharmacy-retry] duty fetch diagnostic exit=$duty_exit; continuing to atomic finalizer" ;;
-                *) echo "[pharmacy-retry] unexpected duty fetch exit=$duty_exit" ; exit "$duty_exit" ;;
-              esac
-              npm run pharmacies:import
-              finalizer_exit=$?
-              if [ "$finalizer_exit" -ne 0 ]; then
-                echo "::error::[pharmacy-retry] pharmacies:import failed with exit=$finalizer_exit"
-                return "$finalizer_exit"
-              fi
-              npm run pharmacies:check
-              check_exit=$?
-              if [ "$check_exit" -ne 0 ]; then
-                echo "::error::[pharmacy-retry] pharmacies:check failed with exit=$check_exit"
-                return "$check_exit"
-              fi
-              git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json
-              stage_exit=$?
-              if [ "$stage_exit" -ne 0 ]; then
-                echo "::error::[pharmacy-retry] git add failed with exit=$stage_exit"
-                return "$stage_exit"
-              fi
-              if [ "$duty_exit" -ne 0 ]; then echo "[pharmacy-retry] atomic finalizer completed after duty diagnostic exit=$duty_exit" ; fi
-              )
-            '
+          duty_cantons=()
+          duty_history=()
+          if [ -f public/data/pharmacy-duty-cantons.json ]; then
+            duty_cantons=(--path public/data/pharmacy-duty-cantons.json)
+          fi
+          if [ -d data/pharmacy-duty-week-history ]; then
+            duty_history=(--path data/pharmacy-duty-week-history)
+          fi
+          body="$RUNNER_TEMP/pharmacy-border-refresh-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
+
+          ## Implementato
+
+          - Publishes the validated atomic cross-border pharmacy catalogue and duty/status snapshots through a PR so the required Vitest check runs before they reach main.
+
+          ## Non implementato (ancora)
+
+          Nessuno
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --path data/pharmacies-ticino-complete.json \
+            --path data/pharmacies-italy-border.json \
+            --path data/pharmacy-enrichment.json \
+            --path data/pharmacy-enrichment-sources.json \
+            --path data/pharmacy-duties-ticino.json \
+            --path data/pharmacy-duties-ticino-status.json \
+            --path data/pharmacy-duties-geneva.json \
+            --path data/pharmacy-duties-geneva-status.json \
+            --path data/pharmacy-duties-swiss-cantons.json \
+            --path data/pharmacy-sources-registry.json \
+            "${duty_cantons[@]}" \
+            "${duty_history[@]}" \
+            --branch chore/refresh-pharmacies-border \
+            --commit-message "chore(data): refresh atomic cross-border pharmacy release" \
+            --title "chore(data): refresh atomic cross-border pharmacy release" \
+            --body-file "$body"

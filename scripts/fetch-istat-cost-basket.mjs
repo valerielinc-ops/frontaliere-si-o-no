@@ -8,7 +8,7 @@
  * Data source
  * -----------
  *   Primary: ISTAT — "Prezzi al consumo per l'intera collettività nazionale"
- *            https://www.istat.it/it/dati-analisi-e-prodotti/banche-dati/indice-prezzi-consumo
+ *            https://www.istat.it/statistiche-per-temi/economia/prezzi/
  *   SDMX:    https://esploradati.istat.it/databrowser/#/en/dw/categories
  *   Rent:    "Quotazioni immobiliari OMI" — Agenzia delle Entrate OMI data
  *            (second semester 2024 release). OMI is the Italian counterpart
@@ -48,7 +48,7 @@ const ROOT = path.resolve(__dirname, '..');
 const OUT_PATH = path.join(ROOT, 'data', 'seo', 'istat-cost-basket.json');
 
 const ISTAT_CPI_URL =
-  'https://www.istat.it/it/dati-analisi-e-prodotti/banche-dati/indice-prezzi-consumo';
+  'https://www.istat.it/statistiche-per-temi/economia/prezzi/';
 const OMI_URL =
   'https://wwwt.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm';
 const ISTAT_RELEASE = '2024-H2 (OMI residential rents) + 2024-12 (ISTAT CPI)';
@@ -61,7 +61,7 @@ const ISTAT_SNAPSHOT = {
   citations: [
     {
       label: 'ISTAT — Indice prezzi al consumo NIC per province',
-      url: 'https://www.istat.it/it/dati-analisi-e-prodotti/banche-dati/indice-prezzi-consumo',
+      url: 'https://www.istat.it/statistiche-per-temi/economia/prezzi/',
     },
     {
       label: 'Agenzia delle Entrate — Osservatorio Mercato Immobiliare (OMI)',

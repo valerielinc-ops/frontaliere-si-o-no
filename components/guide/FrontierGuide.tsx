@@ -1,10 +1,12 @@
+// locale-segment-ok: official external SECO Italian source, independent of app locale
+const U1_SECO_SOURCE = 'https://www.arbeit.swiss/it/persone-in-cerca-dimpiego/prestazioni-dellassicurazione';
 import React, { useState, useEffect, useMemo, useCallback, useRef, useDeferredValue, Suspense } from 'react';
 import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useTranslation } from '../../services/i18n';
 import { PROVINCE_NAMES } from '../../services/provinceList';
 import { lazyRetry } from '@/services/lazyRetry';
-import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
+import { requestSlot, releaseSlot, isActive, subscribe, markSlotShown, POPUP_PRIORITY } from '@/services/popupQueue';
 // NaspiCalculator pulls Recharts (~vendor-charts ~150KB gzip). Lazy-load it so the
 // FrontierGuide chunk stays chart-free until the unemployment section is rendered.
 const NaspiCalculator = lazyRetry(() => import('@/components/calculator/NaspiCalculator'));
@@ -30,6 +32,8 @@ const FaqSection = lazyRetry(() => import('@/components/pages/FaqSection'));
 import { borderCrossings as centralizedBorderCrossings, type BorderCrossing } from '../../data/borderCrossings';
 import borderWaitCurrent from '../../data/border-wait-current.json';
 import { MUNICIPALITIES as BORDER_MUNICIPALITIES } from '@/data/municipalities';
+import { borderMunicipalityPathFor } from '@/build-plugins/borderMunicipalityData';
+import { TICINO_VITA_CORRIDOR_PROVINCES } from '@/build-plugins/shared/borderMunicipalityCorridors';
 import { slugifyCrossingName } from '../../services/borderCrossingSlug';
 import { nearestOpenCrossing } from '@/services/nearestBorderCrossing';
 
@@ -57,24 +61,18 @@ const LiveWaitContext = React.createContext<WaitSnapshot>(CURRENT_BORDER_WAIT);
 const LIVE_BORDER_WAIT_URL =
   'https://raw.githubusercontent.com/valerielinc-ops/frontaliere-si-o-no/main/data/border-wait-current.json';
 
-function slugifyPath(value: string): string {
- return value
- .normalize('NFD')
- .replace(/[\u0300-\u036f]/g, '')
- .toLowerCase()
- .replace(/['’]/g, '')
- .replace(/[^a-z0-9]+/g, '-')
- .replace(/^-+|-+$/g, '');
-}
-
 function crossingSlug(crossing: BorderCrossing): string {
  if (crossing.name.startsWith('Gaggiolo')) return 'gaggiolo';
  if (crossing.name.startsWith('San Pietro')) return 'san-pietro';
  return slugifyCrossingName(crossing.name);
 }
 
-function municipalityProfilePath(name: string): string {
- return `/vivere-in-ticino/comuni-di-frontiera/${slugifyPath(name)}/`;
+function municipalityProfilePath(municipality: { name: string; province: string }): string | null {
+ // The searchable Italian catalog is wider than the Ticino living guides.
+ // Use the publisher's corridor and path builder, not a guessed destination.
+ return TICINO_VITA_CORRIDOR_PROVINCES.has(municipality.province)
+ ? borderMunicipalityPathFor('it', municipality.name)
+ : null;
 }
 
 // Determine nearest border crossing based on province and coordinates
@@ -208,6 +206,7 @@ const SectionHeader = ({ icon: Icon, title, subtitle }: any) => (
 interface Municipality {
  name: string;
  province: string;
+ profilePath: string | null;
  distance: number;
  borderCrossing: string;
  borderCrossingSlug: string;
@@ -231,7 +230,7 @@ interface FrontierGuideProps {
  activeSection?: string;
 }
 
-type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment' | 'first-day' | 'car-transfer' | 'quiz';
+type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment' | 'first-day' | 'car-transfer' | 'quiz' | 'glossary' | 'faq';
 
 interface MunicipalityDetailPanelProps {
  municipality: Municipality;
@@ -542,14 +541,14 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = React.me
  <Timer size={16} />
  {t('guide.municipalities.detail.borderWaitCta')}
  </a>
- <a
- href={municipalityProfilePath(municipality.name)}
+ {municipality.profilePath && <a
+ href={municipality.profilePath}
  onClick={() => Analytics.trackUIInteraction('guida', 'municipalities', 'cta_profile', 'click', municipality.name)}
  className="inline-flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-xl border border-accent-border bg-accent-subtle px-4 py-2 text-sm font-bold text-accent hover:bg-accent-subtle/70"
  >
  <ArrowRight size={16} />
  {t('guide.municipalities.detail.profileCta')}
- </a>
+ </a>}
  </div>
  </div>
 
@@ -706,8 +705,8 @@ const MunicipalityCard: React.FC<MunicipalityCardProps> = React.memo(({ m, isSel
  <Timer size={13} />
  {t('guide.municipalities.detail.borderWaitCta')}
  </a>
- <a
- href={municipalityProfilePath(m.name)}
+ {m.profilePath && <a
+ href={m.profilePath}
  onClick={(event) => {
  event.stopPropagation();
  Analytics.trackUIInteraction('guida', 'municipalities', 'card_profile', 'click', m.name);
@@ -716,7 +715,7 @@ const MunicipalityCard: React.FC<MunicipalityCardProps> = React.memo(({ m, isSel
  >
  <ArrowRight size={13} />
  {t('guide.municipalities.detail.profileCta')}
- </a>
+ </a>}
  </div>
  </div>
  </div>
@@ -864,8 +863,12 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  requestSlot('guide-banner', POPUP_PRIORITY.GUIDE_BANNER);
  const unsub = subscribe(() => setBannerQueueActive(isActive('guide-banner')));
  setBannerQueueActive(isActive('guide-banner'));
- return () => { unsub(); };
+ return () => { unsub(); releaseSlot('guide-banner'); };
  }, [showBanner]);
+
+ useEffect(() => {
+ if (showBanner && bannerQueueActive && bannerVisible) markSlotShown('guide-banner');
+ }, [showBanner, bannerQueueActive, bannerVisible]);
 
  // Only start slide-in + auto-dismiss when queue gives us the slot
  useEffect(() => {
@@ -943,6 +946,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  return {
  name: m.name,
  province: PROVINCE_NAMES[m.province] || m.province,
+ profilePath: municipalityProfilePath(m),
  distance: m.distanceKm,
  borderCrossing: crossing.name || getBorderCrossing(m.province, m.lat, m.lng, m.name),
  borderCrossingSlug: slug,
@@ -2793,7 +2797,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <ul className="text-sm text-subtle space-y-1.5">
  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri1')}</li>
  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri2')}</li>
- <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri3')}</li>
+ <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri3')} <a href={U1_SECO_SOURCE} className="underline" target="_blank" rel="noopener noreferrer">SECO — PD U1</a></li>
  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri4')}</li>
  </ul>
  </div>

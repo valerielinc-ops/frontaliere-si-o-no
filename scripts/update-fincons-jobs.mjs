@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -27,6 +28,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseFinconsListingsPage,
   parseFinconsJobDetail,
@@ -185,8 +187,8 @@ async function buildFinconsJob(listing) {
     return null;
   }
   const localized = buildFinconsLocalizedContent(detail);
-  const description = localized.descriptionByLocale.en || detail.description || '';
-  const sourceTitle = localized.titleByLocale.en || detail.title || listing.title;
+  const description = localized.descriptionByLocale[localized.sourceLang] || detail.description || '';
+  const sourceTitle = localized.titleByLocale[localized.sourceLang] || detail.title || listing.title;
   const address = resolveSwissStructuredAddress({
     city: resolved.location,
     canton: resolved.canton,
@@ -195,7 +197,7 @@ async function buildFinconsJob(listing) {
   });
   return {
     title: sourceTitle,
-    slug: localized.slugByLocale.en,
+    slug: localized.slug,
     url: detail.canonicalUrl || detailUrl,
     applyUrl: detail.applyUrl || detail.canonicalUrl || detailUrl,
     company: COMPANY_NAME,
@@ -212,8 +214,8 @@ async function buildFinconsJob(listing) {
     category: inferCategory(detail),
     sector: 'Tecnologia & IT',
     source: 'fincons-dedicated-crawler',
-    sourceLang: detectLang(description, 'en'),
-    postedDate: detail.datePosted ? detail.datePosted.slice(0, 10) : new Date().toISOString().slice(0, 10),
+    sourceLang: localized.sourceLang,
+    ...sourcePostingDateFields(detail.datePosted),
     validThrough: detail.validThrough ? detail.validThrough.slice(0, 10) : '',
     employmentType: normalizeEmploymentType(detail.employmentType),
     contractType: normalizeEmploymentType(detail.employmentType),
@@ -247,11 +249,14 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
       metadata: { ...(prev.metadata || {}), ...(job.metadata || {}) },
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -276,7 +281,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -295,7 +300,7 @@ function updateAdapterConfig(jobs) {
 
 function isRecognizedFinconsSourceLocation(raw = '') {
   const value = String(raw || '').trim();
-  return Boolean(value && (isLocationExplicitlyForeign(value) || isTargetSwissLocation(value)));
+  return Boolean(value && classifyFinconsLocation(value) !== 'unresolved');
 }
 
 // Keep the source validator and the filtered target path on the same

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Backfill the base job-alert relationship for existing registrations.
  *
@@ -14,6 +15,10 @@
  *   - --write applies the exact same idempotent handler used by the live
  *     Firestore trigger;
  *   - no consent checkbox/DOI proof is consulted for the base relationship;
+ *   - a row that is not a subscription at all is skipped by the same
+ *     `hasNewsletterSubscriberRecord` gate the live trigger applies before it
+ *     calls the handler (functions/index.js): a profile-only sign-in row, or
+ *     the saved-jobs digest record (functions/src/lib/subscriberConsent.js);
  *   - explicit unsubscribe, hard address suppression, stop-all and the
  *     newsletter lifecycle exclusions remain exclusion gates.
  *
@@ -24,7 +29,6 @@
  *     node scripts/backfill-jobalerts-from-newsletter.mjs --write
  */
 
-import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { handleNewsletterSubscriberCreated } from '../functions/src/jobAlertBackfillTrigger.js';
 import {
@@ -35,9 +39,11 @@ import {
   shouldSkipSubscriber,
   consentNamesJobAlerts,
   hasAffirmativeJobAlertConsent,
+  hasNewsletterSubscriberRecord,
   buildAlertPayload,
   resolveSignalTier,
 } from './lib/jobalert-backfill-core.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 export {
   MAX_ALERTS_PER_USER,
@@ -54,17 +60,7 @@ export {
 let _db = null;
 async function getFirestoreAdmin() {
   if (_db) return _db;
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) {
-      throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    }
-    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-    initializeApp({ credential: cert(cred), projectId: cred.project_id });
-  }
-  _db = getFirestore();
+  _db = await getFirestoreDb();
   return _db;
 }
 
@@ -96,6 +92,7 @@ export async function runBackfill({
     wouldWrite: 0,
     failed: 0,
     'invalid-email': 0,
+    'no-subscriber-record': 0,
     suppressed: 0,
     capped: 0,
   };
@@ -114,6 +111,15 @@ export async function runBackfill({
     if (!data.consent_text) consent.noConsentTextAtAll += 1;
     if (consentNamesJobAlerts(data.consent_text)) consent.namesJobAlerts += 1;
     if (hasAffirmativeJobAlertConsent(data)) consent.affirmative += 1;
+
+    // The live trigger's own gate, applied before the handler exactly as
+    // functions/index.js does: without it this batch manufactured alerts the
+    // trigger refuses to create, on rows that hold no subscription.
+    if (!hasNewsletterSubscriberRecord(data)) {
+      incrementReason(counts, 'no-subscriber-record');
+      byChannel[channel].skipped += 1;
+      continue;
+    }
 
     // Tier 3 is read lazily. A flat field is enough to classify the initial
     // alert, while a no-signal registration may have browsing data in the
@@ -175,6 +181,7 @@ export async function runBackfill({
   log(write
     ? ' ✍️  Applied idempotent alerts: ' + counts.written
     : ' 🧪 Would apply alerts: ' + counts.wouldWrite);
+  log(' ⏭️  Skipped (no subscription record): ' + (counts['no-subscriber-record'] || 0));
   log(' ⏭️  Skipped (suppressed): ' + (counts.suppressed || 0));
   log(' ⏭️  Skipped (capped): ' + (counts.capped || 0));
   log(' ❌ Failed: ' + counts.failed);
@@ -192,7 +199,7 @@ export async function runBackfill({
   return { counts, consent, byChannel };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runBackfill()
     .then(() => process.exit(0))
     .catch((err) => {

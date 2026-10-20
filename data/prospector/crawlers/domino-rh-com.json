@@ -1,0 +1,21 @@
+{
+  "companyKey": "domino-rh-com",
+  "companyName": "DOMINO SWISS RH",
+  "companyHost": "domino-rh.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://domino-rh.com/offres-interim-cdd-cdi/"
+  ],
+  "detailTemplate": "/offres-emploi/pays-de-la-loire/44-loire-atlantique/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Agent de soin (F/H)",
+    "Accompagnement individuel de jeunes (F/H)"
+  ],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-16T10:20:33.687Z"
+}

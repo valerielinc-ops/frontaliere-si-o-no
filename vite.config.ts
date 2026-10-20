@@ -13,7 +13,9 @@ import { buildIdPlugin } from './build-plugins/buildIdPlugin';
 import { seoBlogShardIndexPlugin, RESOLVED_SEO_BLOG_SHARD_INDEX_ID } from './build-plugins/seoBlogShardIndexPlugin';
 import { newsTickerDataPlugin } from './build-plugins/newsTickerDataPlugin';
 import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
+import { assetIntegrityManifestPlugin } from './build-plugins/shared/assetIntegrity';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
+import { minifyCriticalIndexCssPlugin } from './build-plugins/minifyCriticalIndexCss';
 import { prepareOutDirPlugin } from './build-plugins/prepareOutDirPlugin';
 import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
 import { ogPagesPlugin } from './build-plugins/ogPagesPlugin';
@@ -26,6 +28,7 @@ import { orphanQueryLandingPlugin } from './build-plugins/orphanQueryLandingPlug
 import { relatedSearchClustersPlugin } from './build-plugins/relatedSearchClustersPlugin';
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
+import { newsletterPreferencesPagesPlugin } from './build-plugins/newsletterPreferencesPagesPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
 import { cantonOrphanRedirectsPlugin } from './build-plugins/cantonOrphanRedirectsPlugin';
 import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
@@ -109,6 +112,7 @@ import { professionCantonLandingsLinksPlugin } from './build-plugins/professionC
 import { salaryProfessionCantonLinksPlugin } from './build-plugins/salaryProfessionCantonLinksPlugin';
 import { salaryHubIndexLinkPlugin } from './build-plugins/salaryHubIndexLinkPlugin';
 import { sectorHubLinksPlugin } from './build-plugins/sectorHubLinksPlugin';
+import { autoSectorHubPagesPlugin } from './build-plugins/autoSectorHubPagesPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
@@ -161,6 +165,7 @@ export default defineConfig(({ mode }) => {
  // individually by withProfile() — most lack a closeBundle hook so the
  // wrapper just returns them unchanged.
  ...react(),
+ minifyCriticalIndexCssPlugin(),
  prepareOutDirPlugin(__dirname),
  // Emits `virtual:seo-blog-shard-index` (blog-<id> → seo-blog shard ordinal).
  // Core, not SEO-gated: services/seoService.ts imports the virtual module, so
@@ -177,13 +182,13 @@ export default defineConfig(({ mode }) => {
  // To re-enable: restore the bootstrap+finalize plugins below and the
  // `Cache content-hash manifest` step in .github/workflows/deploy.yml.
  buildIdPlugin(__dirname),
+ assetIntegrityManifestPlugin(__dirname),
  staticScriptsPlugin(__dirname),
  asyncCssPlugin(),
  // Slim homepage news-ticker payload (5 latest articles, per-locale title+slug)
  // served in place of data/news-ticker-data.ts — dev + FAST_BUILD + full builds.
  newsTickerDataPlugin(__dirname),
  preloadLocalePlugin(__dirname),
- sitemapAliasPlugin(__dirname),
  adminDataPlugin(__dirname),
  crawlerRegistryPlugin(__dirname),
  localeJobsSplitPlugin(__dirname), // SPA reads per-locale job JSONs at runtime
@@ -221,6 +226,7 @@ export default defineConfig(({ mode }) => {
  ...(process.env.SKIP_JOB_OG_IMAGES !== '1' ? [jobOgImagesPlugin()] : []),
  jobRecencyPagesPlugin(__dirname),
  jobSectorPagesPlugin(__dirname),
+ autoSectorHubPagesPlugin(__dirname),
  fuelDailyPagesPlugin(__dirname),
  weatherCityPagesPlugin(__dirname),
  weatherAlertPagesPlugin(__dirname),
@@ -365,6 +371,7 @@ export default defineConfig(({ mode }) => {
  // typical agent sessions via .claude/settings.json env block.
  relatedSearchClustersPlugin(__dirname),
  salaryHubPlugin(__dirname),
+ newsletterPreferencesPagesPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),
  // Canton-orphan redirects: emits HTTP-200 canonical-bridge HTML at every
  // /cerca-lavoro-{canton}/{foreign-editorial-slug}/ combination (TI long-
@@ -570,11 +577,15 @@ export default defineConfig(({ mode }) => {
  // build-plugins/precompressHtmlPlugin.ts for future revival.
  // precompressHtmlPlugin(__dirname),
  ]),
- // Blog-image CDN offload — MUST be last: rewrites full /images/blog refs in
- // emitted HTML/XML to jsDelivr (SHA-pinned), guards against any survivor,
- // then deletes the full images from dist (keeps 480w thumbnails). Runs after
- // postWalkCoordinator so it sees the final HTML. ~224 MB off the Pages artifact.
+ // Blog-image CDN offload: rewrites full /images/blog refs in emitted
+ // HTML/XML to jsDelivr (SHA-pinned), guards against any survivor, then
+ // deletes the full images from dist (keeps 480w thumbnails). It runs after
+ // postWalkCoordinator so it sees the final HTML.
  blogImageCdnFinalizePlugin(__dirname),
+ // Keep the sitemap writer after every page emitter and the CDN rewrite. Its
+ // final cluster dist-truth pass is the last protection against a late
+ // closeBundle overwrite reintroducing a noindex URL into a sitemap shard.
+ sitemapAliasPlugin(__dirname),
  // ── Content-hash manifest finalize DISABLED 2026-04-28 ──────
  // Paired with the disabled bootstrap above. Code retained for future
  // revival once a use-case (rollback / hotfix-only chains) emerges.
@@ -670,14 +681,13 @@ export default defineConfig(({ mode }) => {
  },
  build: {
  emptyOutDir: false,
- // Emitted alongside the bundle in dist/assets so PostHog can resolve
- // minified stack frames (owner decision 2026-08-15, issue #5607: exposing
- // reconstructible source is accepted in exchange for automatic exception
- // diagnosis — PostHog was getting frames=[] on every in-app-webview
- // RangeError because no .map existed to fetch). dist/assets is copied to
- // the CDN as-is (scripts/lib/deploy-it-pages-prep.sh) so no separate
- // upload step is needed — the .map rides along with its .js/.css.
- sourcemap: true,
+ // Public source maps made the complete application source downloadable from
+ // the CDN. Keep them opt-in for a controlled symbolication build instead of
+ // shipping them with the normal production artifact. `dist/assets` is copied
+ // to the CDN as-is, so leaving this enabled would publish every map emitted by
+ // Vite (and would also keep old maps reachable through additive R2 syncs).
+ // Use PUBLIC_SOURCEMAPS=1 only for a deliberately private/short-lived build.
+ sourcemap: process.env.PUBLIC_SOURCEMAPS === '1',
  // Rollup's default reportCompressedSize gzip-compresses EVERY emitted JS/CSS
  // chunk purely to print the "gzip: NN kB" console column. With the many vendor
  // splits + per-locale data chunks that's pure wall-time on the build job for

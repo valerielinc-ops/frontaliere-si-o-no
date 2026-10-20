@@ -113,6 +113,42 @@ export function missingData(subscriber, events = []) {
   return gaps;
 }
 
+const AFFINITY_LABELS = Object.freeze({
+  category: 'Categorie',
+  canton: 'Cantoni',
+  company_key: 'Aziende',
+  sector: 'Settori',
+});
+
+/**
+ * Il profilo ricavato dai clic sugli annunci delle email (privacy policy,
+ * «Ordine degli annunci in base ai clic»): le quattro caratteristiche, col
+ * peso attuale di ciascun valore, e le date che ne decidono la cancellazione.
+ */
+export function describeAffinityProfile(affinity) {
+  if (affinity === undefined) {
+    return ['Non verificato: questa estrazione è stata prodotta senza la chiave che collega l\'indirizzo al profilo pseudonimo.'];
+  }
+  if (!affinity) {
+    return ['Nessun profilo: non conserviamo interessi ricavati dai clic sugli annunci per questo indirizzo.'];
+  }
+  const rows = [
+    'Profilo associato a un identificativo pseudonimo, usato solo per ordinare gli annunci già selezionati nelle email.',
+    '',
+    line('Clic sugli annunci considerati', affinity.clicks ?? null),
+    line('Ultimo clic', toIso(affinity.last_click_at)),
+    line('Cancellazione automatica prevista il', toIso(affinity.expires_at)),
+  ];
+  for (const [dimension, label] of Object.entries(AFFINITY_LABELS)) {
+    const entries = Array.isArray(affinity.dimensions?.[dimension]) ? affinity.dimensions[dimension] : [];
+    const values = entries
+      .filter((entry) => entry && entry.key)
+      .map((entry) => `${entry.key} (peso ${Number(entry.weight || 0).toFixed(2)})`);
+    rows.push(line(label, values.length ? values.join(', ') : null));
+  }
+  return rows;
+}
+
 const line = (label, value) => `- **${label}:** ${value === null || value === undefined || value === '' ? '(non registrato)' : value}`;
 
 /**
@@ -125,6 +161,9 @@ const line = (label, value) => `- **${label}:** ${value === null || value === un
  * @param {object[]} data.deliveries           la sua sottocollezione campaign_deliveries
  * @param {object|null} data.jobAlert          job_alert_subscribers/{email}
  * @param {object[]} data.alerts               le sue ricerche salvate
+ * @param {object|null} [data.affinity]        job_email_affinity/{pseudonimo}, il profilo
+ *                                             di interessi per l'ordine degli annunci;
+ *                                             `undefined` = non verificato (manca il segreto)
  * @param {object} opts
  * @param {string} opts.generatedAt            ISO string — mai Date.now() qui dentro
  * @param {string} [opts.controller]           titolare del trattamento
@@ -132,7 +171,7 @@ const line = (label, value) => `- **${label}:** ${value === null || value === un
  * @returns {string} markdown
  */
 export function buildSubscriberExport(data, opts) {
-  const { email, subscriber, events = [], deliveries = [], jobAlert, alerts = [] } = data || {};
+  const { email, subscriber, events = [], deliveries = [], jobAlert, alerts = [], affinity } = data || {};
   const generatedAt = opts?.generatedAt;
   if (!email) throw new Error('email mancante');
   if (!generatedAt) throw new Error('generatedAt mancante — questo modulo non legge l\'orologio');
@@ -146,7 +185,7 @@ export function buildSubscriberExport(data, opts) {
   out.push(`Titolare del trattamento: ${controller} — ${contact}`);
   out.push('');
 
-  if (!subscriber && !jobAlert) {
+  if (!subscriber && !jobAlert && !affinity) {
     out.push('## Esito');
     out.push('');
     out.push('**Non conserviamo alcun dato associato a questo indirizzo.** Nessuna iscrizione alla newsletter, nessun avviso di lavoro.');
@@ -239,6 +278,11 @@ export function buildSubscriberExport(data, opts) {
       out.push(`  - \`${a.id || '(senza id)'}\` — parole chiave: ${kw || '(nessuna)'}; luoghi: ${(a.locations || []).join(', ') || '(nessuno)'}; frequenza: ${a.frequency || '(non impostata)'}; creata il ${toIso(a.createdAt) || '(data non registrata)'}`);
     }
   }
+  out.push('');
+
+  out.push("## 7. Profilo di interessi per l'ordine degli annunci");
+  out.push('');
+  out.push(...describeAffinityProfile(affinity));
   out.push('');
   out.push('---');
   out.push('');

@@ -20,6 +20,9 @@ import { fileURLToPath } from 'node:url';
 import { createCantonResolvers, AGGREGATE_KEY } from '../../build-plugins/shared/cantonResolvers.mjs';
 import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
+import { excludeHeldFromPublication } from './translation-publication-hold.mjs';
+import { parseLedger } from './social-publish-queue.mjs';
+import { GRAPH_API, GRAPH_API_VERSION } from './instagram-graph-constants.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -31,14 +34,13 @@ const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ canto
 
 export const SITE_URL = 'https://frontaliereticino.ch';
 
-// Meta Graph API base — ONE literal for the four call sites that talk to it
-// (the two Facebook schedulers, the Instagram publish layer, the readiness
-// prober). It was copy-pasted in each of them, which meant a version bump had
-// to be remembered four times and a missed one would fail only for that single
-// channel, at its own cron hour. Check
+// Meta Graph API base — ONE literal for all call sites that talk to it
+// (the Facebook schedulers, Instagram publishing/community automation and the
+// readiness prober). It was copy-pasted in each of them, which meant a version
+// bump had to be remembered in several places and a missed one would fail only
+// for that single channel, at its own cron hour. Check
 // developers.facebook.com/docs/graph-api/changelog before bumping.
-export const GRAPH_API_VERSION = 'v21.0';
-export const GRAPH_API = `https://graph.facebook.com/${GRAPH_API_VERSION}`;
+export { GRAPH_API, GRAPH_API_VERSION };
 
 // ── Canton naming ───────────────────────────────────────────
 // Canton ISO 2-letter code → Italian display name. Used both as prose (FB
@@ -317,7 +319,8 @@ export function loadJobIndex() {
     if (existsSync(dir)) {
       for (const file of listSliceFileNames(dir)) {
         try {
-          ingest(JSON.parse(readFileSync(path.join(dir, file), 'utf-8')).jobs);
+          // Slices also hold agency jobs not yet published (translation hold).
+          ingest(excludeHeldFromPublication(JSON.parse(readFileSync(path.join(dir, file), 'utf-8')).jobs));
         } catch {
           /* one unreadable crawler file must not void the whole index */
         }
@@ -373,6 +376,81 @@ export function buildCarouselCaption({ kind, dayLabel, picks }) {
     '',
     hashtags,
   ].join('\n');
+}
+
+/**
+ * Build the shared cover and item copy for the Instagram/TikTok carousel
+ * renderer. Keeping these strings here prevents the two posters from drifting.
+ *
+ * @param {{ kind: 'job'|'article'|'border', dayLabel: string, items: Array<{title:string, statLabel?:string, statValue?:string, footerNote?:string}> }} params
+ */
+export function buildCarouselSlideCopy({ kind, dayLabel, items }) {
+  const isJob = kind === 'job';
+  const isBorder = kind === 'border';
+  return {
+    kicker: isBorder ? 'CLASSIFICA DOGANE' : isJob ? 'LAVORI PIÙ CLICCATI' : 'ARTICOLI PIÙ LETTI',
+    title: isBorder ? 'Le dogane più veloci' : isJob ? 'I lavori più cliccati' : 'Gli articoli più letti',
+    subtitle: dayLabel,
+    items,
+  };
+}
+
+export const TIKTOK_CAPTION_MAX_CHARS = 2_200;
+
+const TIKTOK_HASHTAGS = Object.freeze({
+  job: Object.freeze(['#frontalieri', '#ticino', '#svizzera', '#lavoroinsvizzera', '#offertedilavoro', '#cercalavoro']),
+  article: Object.freeze(['#frontalieri', '#ticino', '#svizzera', '#lavoroinsvizzera', '#notizie', '#informazione']),
+  border: Object.freeze(['#frontalieri', '#ticino', '#dogane', '#confine', '#svizzera', '#traffico']),
+});
+
+function normalizeTikTokHashtag(value) {
+  const clean = String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/^#+/, '')
+    .replace(/[^\p{L}\p{N}_]/gu, '');
+  return clean ? `#${clean}` : null;
+}
+
+function tiktokHashtags(kind, hashtags) {
+  const source = Array.isArray(hashtags) ? hashtags : TIKTOK_HASHTAGS[kind] || TIKTOK_HASHTAGS.article;
+  return [...new Set(source.map(normalizeTikTokHashtag).filter(Boolean))].slice(0, 6);
+}
+
+function tiktokLead(kind) {
+  if (kind === 'job') return '💼 Lavoro in Svizzera: offerte per frontalieri Ticino';
+  if (kind === 'border') return '🛂 Dogane Ticino: attese e traffico al confine';
+  return '📰 Frontalieri Ticino: notizie e lavoro in Svizzera';
+}
+
+function tiktokSummary(kind, dayLabel) {
+  if (kind === 'job') return `Le offerte di lavoro più cliccate dai frontalieri il ${dayLabel}, in una classifica rapida.`;
+  if (kind === 'border') return `La classifica delle dogane più veloci del Ticino nella settimana ${dayLabel}.`;
+  return `Gli articoli e gli aggiornamenti più letti dai frontalieri il ${dayLabel}, in sintesi.`;
+}
+
+/**
+ * TikTok-specific discovery copy. Instagram keeps buildCarouselCaption's
+ * established format; only the video transport uses this keyword-first copy.
+ *
+ * @param {{ kind: 'job'|'article'|'border', dayLabel: string, picks: Array<{title:string, statValue: string|number}>, hashtags?: string[] }} params
+ */
+export function buildTikTokCaption({ kind, dayLabel, picks, hashtags }) {
+  const lead = tiktokLead(kind);
+  const summary = tiktokSummary(kind, dayLabel);
+  const itemLines = (picks || []).map((p, i) => `${i + 1}. ${String(p.title || '').replace(/\s+/g, ' ').trim()} — ${p.statValue}`);
+  const footer = [
+    '👉 Link in bio: frontaliereticino.ch',
+    '',
+    tiktokHashtags(kind, hashtags).join(' '),
+  ].join('\n');
+  const prefix = `${lead}\n\n${summary}\n\n`;
+  const available = TIKTOK_CAPTION_MAX_CHARS - prefix.length - footer.length - 1;
+  let items = itemLines.join('\n');
+  if (items.length > available) {
+    items = `${items.slice(0, Math.max(0, available - 1)).trimEnd()}…`;
+  }
+  return `${prefix}${items}\n\n${footer}`.slice(0, TIKTOK_CAPTION_MAX_CHARS);
 }
 
 // ── URL building ────────────────────────────────────────────
@@ -447,18 +525,10 @@ export function withUtm(url, { source, medium, campaign, content } = {}) {
  */
 export function loadLedger(filePath) {
   try {
-    if (!existsSync(filePath)) return { schemaVersion: 1, posted: [] };
-    const raw = readFileSync(filePath, 'utf-8');
-    const parsed = JSON.parse(raw);
-    if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.posted)) {
-      return { schemaVersion: 1, posted: [] };
-    }
-    return {
-      schemaVersion: Number(parsed.schemaVersion) || 1,
-      posted: parsed.posted,
-    };
+    if (!existsSync(filePath)) return parseLedger('');
+    return parseLedger(readFileSync(filePath, 'utf-8'));
   } catch {
-    return { schemaVersion: 1, posted: [] };
+    return parseLedger('');
   }
 }
 

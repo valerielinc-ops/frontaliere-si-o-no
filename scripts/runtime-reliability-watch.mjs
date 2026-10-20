@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Runtime reliability watchdog for the public HTML/CDN build pair.
  *
@@ -10,18 +11,40 @@
  * purges only the divergent URLs through the existing, variant-aware
  * Cloudflare purge helper.
  *
+ * Since 2026-09-25 the probe also walks the WHOLE chunk graph the four locales
+ * load (scripts/ci/cdn-chunk-graph.mjs): every JS/CSS chunk reachable from the
+ * entry pages, edge vs origin in both cache variants, plus a link check of
+ * every named import against what the edge serves. The five critical assets
+ * below stay as the cheap, always-available core of the verdict.
+ * The runtime public-config endpoint is also checked at its stable and fresh
+ * URLs: a fail-open 200 with no Firebase API key cannot initialize Auth.
+ *
  * No credentials are needed to probe. The script never prints response bodies;
  * it emits only status, sizes, hashes and URLs safe for a GitHub issue.
  */
 
 import { createHash } from 'node:crypto';
-import { pathToFileURL } from 'node:url';
+import fs from 'node:fs';
+import {
+  chunkGraphSignature,
+  crawlChunkGraph,
+  defaultRotation,
+  evaluateChunkGraph,
+  purgeUrlsInBatches,
+} from './ci/cdn-chunk-graph.mjs';
 
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 export const CDN_ORIGIN = 'https://cdn.frontaliereticino.ch';
 export const SITE_BUILD_ID_PATH = '/build-id.txt';
 export const CDN_BUILD_ID_PATH = '/cdn-build-id.txt';
+export const CDN_PUBLISH_START_ID_PATH = '/cdn-publish-start-id.txt';
+export const CDN_PUBLISH_COMPLETE_ID_PATH = '/cdn-publish-complete-id.txt';
+export const PUBLIC_CONFIG_URL = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPublicConfig';
 export const RUNTIME_CIRCUIT_COOLDOWN_MS = 15 * 60 * 1000;
+// The deploy step has a 45-minute hard timeout. Five extra minutes distinguish
+// a still-running upload from an abandoned publish window without ever
+// authorizing a purge against a partial origin.
+export const CDN_PUBLISH_STALL_MS = 50 * 60 * 1000;
 
 // These are the stable bundle files involved in the observed version-skew
 // family. Keep the list short: the goal is a cheap liveness/coherence signal,
@@ -67,18 +90,27 @@ export function runtimeFailureFingerprint(result) {
       state: asset.state,
     })),
     cdnBuildId: result?.cdnBuildId || null,
+    cdnPublishCompleteId: result?.cdnPublishCompleteId || null,
+    cdnPublishStartId: result?.cdnPublishStartId || null,
+    cdnPublishState: result?.cdnPublishState || 'legacy',
+    // Only the failing part of the graph: a new divergence or a new broken
+    // link must reopen the repair path, a healthy chunk must not churn it.
+    chunkGraph: chunkGraphSignature(result?.chunkGraph),
     markerState: result?.markerState || 'unknown',
+    publicConfig: result?.publicConfig || null,
     siteBuildId: result?.siteBuildId || null,
-    version: 'runtime-reliability/v1',
+    version: 'runtime-reliability/v4',
   };
   return sha256(JSON.stringify(signature)).slice(0, 16);
 }
 
 /**
- * Decide whether an exact-URL purge is safe and useful.  The state is stored
- * by the workflow in an Actions cache, so repeated schedule/deploy triggers
- * do not spend Cloudflare quota on the same unchanged divergence.  A marker
- * mismatch remains blocked: there is no safe generation to purge against.
+ * Decide whether an exact-URL purge is useful.  The state is stored by the
+ * workflow in an Actions cache, so repeated schedule/deploy triggers do not
+ * spend Cloudflare quota on the same unchanged divergence.  evaluateProbe
+ * emits purge candidates only while the markers are coherent or a rollout is
+ * in progress; a marker regression or an unreadable marker yields none and is
+ * reported as `blocked_marker`.
  */
 export function evaluateRepairPolicy({
   probe,
@@ -87,6 +119,24 @@ export function evaluateRepairPolicy({
   cooldownMs = RUNTIME_CIRCUIT_COOLDOWN_MS,
 } = {}) {
   const fingerprint = probe?.fingerprint || runtimeFailureFingerprint(probe);
+  if (probe?.deferred) {
+    return {
+      action: 'defer',
+      circuit: 'closed',
+      fingerprint,
+      reason: probe.deferReason || 'cdn_publish_in_progress',
+    };
+  }
+  if (probe?.cdnPublishState && !['legacy', 'stable'].includes(probe.cdnPublishState)) {
+    return {
+      action: 'blocked_publish',
+      circuit: 'closed',
+      fingerprint,
+      reason: `cdn_publish_${probe.cdnPublishState}`,
+    };
+  }
+  const markerAllowsPurge = probe?.markerState === 'coherent'
+    || probe?.markerState === 'rollout_in_progress';
   const previousAt = Date.parse(previousState?.lastActionAt || '');
   const sameFailure = previousState?.fingerprint === fingerprint;
   const cooldownActive = sameFailure
@@ -95,10 +145,10 @@ export function evaluateRepairPolicy({
     && nowMs - previousAt < Math.max(0, Number(cooldownMs) || 0);
   if (!probe?.purgeUrls?.length) {
     return {
-      action: probe?.markerState === 'coherent' ? 'none' : 'blocked_marker',
+      action: markerAllowsPurge ? 'none' : 'blocked_marker',
       circuit: 'closed',
       fingerprint,
-      reason: probe?.markerState === 'coherent' ? 'no_targeted_assets' : 'marker_not_coherent',
+      reason: markerAllowsPurge ? 'no_targeted_assets' : 'marker_not_coherent',
     };
   }
   if (cooldownActive) {
@@ -135,6 +185,114 @@ export function formatMarkerSkew(siteBehindMs) {
 function validBuildId(value) {
   const id = String(value || '').trim();
   return /^\d{10,20}$/.test(id) ? id : null;
+}
+
+/**
+ * Classify the R2 mutation window independently from the site/CDN generation
+ * pair. A start token newer than the last completed token means stable asset
+ * URLs are being overwritten and origin bytes are not yet one generation.
+ */
+export function classifyCdnPublishWindow({
+  startMarker,
+  completeMarker,
+  nowMs = Date.now(),
+  stallMs = CDN_PUBLISH_STALL_MS,
+} = {}) {
+  const startId = startMarker?.ok ? validBuildId(startMarker.body) : null;
+  const completeId = completeMarker?.ok ? validBuildId(completeMarker.body) : null;
+  const startAbsent = startMarker?.status === 404;
+  const completeAbsent = completeMarker?.status === 404;
+
+  if (startAbsent && completeAbsent) {
+    return { state: 'legacy', startId: null, completeId: null, ageMs: null };
+  }
+  if (!startId || (!completeId && !completeAbsent)) {
+    return { state: 'unavailable', startId, completeId, ageMs: null };
+  }
+  if (completeId && startId === completeId) {
+    return { state: 'stable', startId, completeId, ageMs: Math.max(0, nowMs - Number(startId)) };
+  }
+  if (completeId && BigInt(startId) < BigInt(completeId)) {
+    return { state: 'marker_regression', startId, completeId, ageMs: null };
+  }
+
+  const ageMs = nowMs - Number(startId);
+  return {
+    state: Number.isFinite(ageMs) && ageMs > Math.max(0, Number(stallMs) || 0)
+      ? 'stalled'
+      : 'in_progress',
+    startId,
+    completeId,
+    ageMs: Number.isFinite(ageMs) ? ageMs : null,
+  };
+}
+
+/**
+ * Revalidate the exact generation represented by a purge report immediately
+ * before contacting Cloudflare. The probe and the purge are separate workflow
+ * steps, so an R2 upload can start after the probe's closing marker read.
+ * Reading the start marker last makes every publish that began during this
+ * check visible; a publish beginning after this read is the irreducible
+ * network boundary between two independent systems.
+ */
+export async function purgeFromReport(report, {
+  fetchImpl = fetch,
+  timeoutMs = DEFAULT_TIMEOUT_MS,
+  now = new Date(),
+  purgeImpl = purgeUrlsInBatches,
+} = {}) {
+  const urls = Array.isArray(report?.purgeUrls) ? report.purgeUrls : [];
+  if (!urls.length) {
+    return { deferred: false, report, outcome: null };
+  }
+
+  const nonce = `purge-${now instanceof Date ? now.getTime() : Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+  const [cdnMarker, cdnPublishComplete] = await Promise.all([
+    readUrl(cacheBust(`${CDN_ORIGIN}${CDN_BUILD_ID_PATH}`, nonce), { fetchImpl, timeoutMs }),
+    readUrl(cacheBust(`${CDN_ORIGIN}${CDN_PUBLISH_COMPLETE_ID_PATH}`, nonce), { fetchImpl, timeoutMs }),
+  ]);
+  const cdnPublishStart = await readUrl(
+    cacheBust(`${CDN_ORIGIN}${CDN_PUBLISH_START_ID_PATH}`, `${nonce}-last`),
+    { fetchImpl, timeoutMs },
+  );
+  const currentPublish = classifyCdnPublishWindow({
+    startMarker: cdnPublishStart,
+    completeMarker: cdnPublishComplete,
+    nowMs: now instanceof Date ? now.getTime() : Date.now(),
+  });
+  const currentBuildId = cdnMarker?.ok ? validBuildId(cdnMarker.body) : null;
+  const expectedPublishState = report?.cdnPublishState || 'legacy';
+  const unchanged = ['legacy', 'stable'].includes(currentPublish.state)
+    && currentPublish.state === expectedPublishState
+    && currentBuildId === (report?.cdnBuildId || null)
+    && currentPublish.startId === (report?.cdnPublishStartId || null)
+    && currentPublish.completeId === (report?.cdnPublishCompleteId || null);
+
+  if (unchanged) {
+    return { deferred: false, report, outcome: purgeImpl(urls) };
+  }
+
+  const deferReason = ['unavailable', 'marker_regression', 'stalled'].includes(currentPublish.state)
+    ? `cdn_publish_${currentPublish.state}_before_purge`
+    : 'cdn_publish_changed_before_purge';
+  const reason = `CDN publish markers changed before purge (build ${report?.cdnBuildId || 'unavailable'} → ${currentBuildId || 'unavailable'}, window ${expectedPublishState} → ${currentPublish.state}); purge skipped`;
+  const deferredReport = {
+    ...report,
+    ok: false,
+    deferred: true,
+    deferReason,
+    cdnBuildId: currentBuildId,
+    cdnPublishState: currentPublish.state,
+    cdnPublishStartId: currentPublish.startId,
+    cdnPublishCompleteId: currentPublish.completeId,
+    purgeUrls: [],
+    reasons: [...new Set([...(report?.reasons || []), reason])],
+    repair: {
+      action: 'defer',
+      reason: deferReason,
+    },
+  };
+  return { deferred: true, report: deferredReport, outcome: null };
 }
 
 async function readUrl(url, { fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS } = {}) {
@@ -191,24 +349,87 @@ export function classifyAssetResponses(cached, fresh) {
   return 'unavailable';
 }
 
+/** Only retain the public key's presence and syntax, never its value or a hash. */
+export function classifyPublicConfig(response) {
+  const result = {
+    status: response?.status || 0,
+    state: 'unavailable',
+    apiKeyPresent: false,
+    apiKeyFormatValid: false,
+  };
+  if (!response?.ok) return result;
+  let config;
+  try { config = JSON.parse(response.body); } catch {
+    return { ...result, state: 'invalid_json' };
+  }
+  if (!config || typeof config !== 'object' || Array.isArray(config)) {
+    return { ...result, state: 'invalid_payload' };
+  }
+  const key = typeof config.FIREBASE_API_KEY === 'string' ? config.FIREBASE_API_KEY.trim() : '';
+  result.apiKeyPresent = key.length > 0;
+  // This checks the Google API-key format, not the key's IAM restrictions or
+  // authorization. A 200 with {} is the endpoint's fail-open response and is
+  // not sufficient to initialize Firebase Auth in the browser.
+  result.apiKeyFormatValid = /^AIza[A-Za-z0-9_-]{35}$/.test(key);
+  result.state = !result.apiKeyPresent ? 'missing_api_key'
+    : result.apiKeyFormatValid ? 'healthy' : 'invalid_api_key_format';
+  return result;
+}
+
+export async function probePublicConfig({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, nonce = Date.now() } = {}) {
+  const [cached, fresh] = await Promise.all([
+    readUrl(PUBLIC_CONFIG_URL, { fetchImpl, timeoutMs }),
+    readUrl(cacheBust(PUBLIC_CONFIG_URL, String(nonce)), { fetchImpl, timeoutMs }),
+  ]);
+  const result = { cached: classifyPublicConfig(cached), fresh: classifyPublicConfig(fresh) };
+  return { ok: result.cached.state === 'healthy' && result.fresh.state === 'healthy', ...result };
+}
+
 /**
  * Pure verdict used by the CLI and unit tests.
  *
- * Purging is allowed only when both build markers agree. If the CDN marker is
- * behind/ahead, invalidating its assets could make the edge refill from the
- * wrong generation; that condition is reported for human/issue automation,
- * never “fixed” by a blind purge.
+ * WHICH URLS MAY BE PURGED — coherent AND rollout in progress.
+ *
+ * A targeted purge can only make the edge refill from R2, the single origin of
+ * cdn.frontaliereticino.ch. The deploy itself uploads the new generation to R2
+ * in its build leg and immediately purges every key it re-uploaded
+ * (deploy-it-pages-prep.sh → scripts/ci/purge-changed-cdn-assets.mjs), hours
+ * before the apex HTML goes live. So while the CDN marker is ahead of the apex
+ * ("rollout in progress") the INTENDED edge state is already R2's generation,
+ * and a key whose edge copy still differs from R2 is one that purge missed —
+ * exactly the mixed generation that breaks module linking (2026-09-25: 3945
+ * changed keys, 1000 purged, `JobBoard.js` new next to an old
+ * `shared-services.js`). Until 2026-09-25 this function withheld the purge
+ * outside the coherent state; run 36096588819 (04:58Z, rollout in progress)
+ * saw `/assets/index.css: stale`, blocked the repair, and at 11:55Z the edge
+ * still served the 24-09 21:21 object while R2 held the 25-09 04:55 one. The
+ * coherent window is the exception (the rollout lasts about as long as the
+ * deploy period), so that gate meant "never".
+ *
+ * The purge stays withheld when the markers carry no authority: with the apex
+ * AHEAD of the CDN (`marker_regression`, e.g. after an R2 rollback) or a marker
+ * that cannot be read, R2 may hold an older or unknown generation than the one
+ * the live HTML wants, and refilling the edge from it could replace the right
+ * object with the wrong one. Those states are reported, never "repaired".
  *
  * The marker pair has three meanings, not two. The deploy uploads CDN assets
  * and mints `cdn-build-id.txt` in the build leg, while the apex `build-id.txt`
- * only goes live once deploy-publish.yml has pushed the ~13 GB Pages artifact
- * — hours later. `cdnBuildId > siteBuildId` is therefore the *normal* state of
- * a healthy rollout (measured 2.61h–7.03h on 2026-09-18, and the deploy period
- * is of the same order, so coherence is the exception rather than the rule).
- * `siteBuildId > cdnBuildId` is the break worth failing on: the apex is serving
- * HTML for a generation whose assets the CDN never received.
+ * only goes live once deploy-publish.yml has pushed the ~13 GB Pages artifact —
+ * hours later. `cdnBuildId > siteBuildId` is therefore the *normal* state of a
+ * healthy rollout (measured 2.61h–7.03h on 2026-09-18). `siteBuildId >
+ * cdnBuildId` is the break worth failing on: the apex is serving HTML for a
+ * generation whose assets the CDN never received.
  */
-export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
+export function evaluateProbe({
+  siteCached,
+  siteFresh,
+  cdnMarker,
+  assets,
+  chunkGraph = null,
+  publicConfig = null,
+  cdnPublish = { state: 'legacy', startId: null, completeId: null },
+  deferReason = null,
+}) {
   // The cache-busted site marker is the authoritative current origin value.
   // Falling back to the normal cached marker would turn an origin/network
   // failure into a false green and could authorize a purge against an old
@@ -249,39 +470,52 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
     error: cached.error || fresh.error || null,
   }));
 
-  const purgeUrls = markerState === 'coherent'
-    ? assetResults
+  const graph = chunkGraph ? evaluateChunkGraph(chunkGraph) : null;
+  const cdnPublishState = cdnPublish?.state || 'legacy';
+  const deferred = Boolean(deferReason);
+  const publishAllowsObservation = ['legacy', 'stable'].includes(cdnPublishState);
+  // Critical assets first (they boot every page), then the graph's own order
+  // (chunks on a broken link first). Only states a purge can repair — the edge
+  // disagrees with an R2 copy that exists — and only while the markers say R2
+  // holds the generation the site is moving to (see the docblock).
+  const purgeAllowed = !deferred
+    && publishAllowsObservation
+    && (markerState === 'coherent' || markerState === 'rollout_in_progress');
+  const purgeUrls = !purgeAllowed ? [] : [...new Set([
+    ...assetResults
       .filter((asset) => asset.state === 'stale' || asset.state === 'cached_failure')
-      .map((asset) => `${CDN_ORIGIN}${asset.path}`)
-    : [];
+      .map((asset) => `${CDN_ORIGIN}${asset.path}`),
+    ...(graph?.purgeUrls || []),
+  ])];
   const unhealthyAssets = assetResults.filter((asset) => asset.state !== 'healthy');
-  // The failure mode this watchdog exists for is scoped, by its own contract,
-  // to the coherent state: a stable asset URL still serving the previous edge
-  // object *after the current build marker is live*. While the CDN marker is
-  // ahead the apex is still serving the previous generation's HTML, which wants
-  // the previous asset — so an edge/origin hash difference is the intended
-  // state there, and purging it would break the live page. Timeliness of the
-  // rollout is owned by pages-publish-lag-watchdog.yml, which files its own
-  // issue; post-deploy-validate-live.yml likewise records an apex that has not
-  // caught up as "an older VALID build (not broken)". Only the reverse skew is
-  // a coherence break: apex HTML referencing a generation the CDN never got.
-  // A rollout explains the MARKER skew and nothing else. It is tempting to also
-  // excuse a `stale` asset — the edge holding the object the live HTML still
-  // references — but `classifyAssetResponses` only proves that two 200s hash
-  // differently: it cannot show the cached body is the generation the apex HTML
-  // actually wants, so an even older generation or an incompatible 200 would
-  // pass as "explained". Every asset therefore has to be healthy in both marker
-  // states, and `assetResults.length` is required because observing nothing is
-  // not the same as observing health.
-  const ok = (markerState === 'coherent' || markerState === 'rollout_in_progress')
+  // A rollout explains the marker skew, not which generation a stable asset
+  // belongs to: `classifyAssetResponses` only proves that two 200s hash
+  // differently, so an even older generation or an incompatible 200 would pass
+  // as "explained". Every non-healthy asset therefore stays blocking in both
+  // marker states — and is purgeable in both (see the docblock above): the
+  // verdict turns green only once the post-purge probe finds the edge equal to
+  // R2. `assetResults.length` is required because observing nothing is not the
+  // same as observing health. The chunk graph, when walked, has to be clean
+  // too: that is the part a browser actually links.
+  const blockingAssets = unhealthyAssets;
+  const ok = !deferred
+    && publishAllowsObservation
+    && (markerState === 'coherent' || markerState === 'rollout_in_progress')
     && assetResults.length > 0
-    && unhealthyAssets.length === 0;
+    && blockingAssets.length === 0
+    && (graph ? graph.ok : true)
+    && (publicConfig ? publicConfig.ok : true);
 
   const result = {
     ok,
     markerState,
     siteBuildId,
     cdnBuildId,
+    cdnPublishState,
+    cdnPublishStartId: cdnPublish?.startId || null,
+    cdnPublishCompleteId: cdnPublish?.completeId || null,
+    deferred,
+    deferReason,
     siteBehindMs,
     siteCachedStatus: siteCached?.status || 0,
     siteFreshStatus: siteFresh?.status || 0,
@@ -292,7 +526,25 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
     siteCachedBuildId: validBuildId(siteCached?.body),
     siteFreshBuildId: validBuildId(siteFresh?.body),
     assets: assetResults,
+    publicConfig,
+    chunkGraph: graph ? {
+      ok: graph.ok,
+      checked: graph.checked,
+      entries: chunkGraph.entries,
+      families: chunkGraph.families || [],
+      namedImports: chunkGraph.namedImports || null,
+      colos: chunkGraph.colos || [],
+      durationMs: chunkGraph.durationMs ?? null,
+      truncated: Boolean(chunkGraph.truncated),
+      divergent: graph.divergent,
+      broken: graph.broken,
+      purgeUrls: graph.purgeUrls,
+      reasons: graph.reasons,
+      warnings: graph.warnings,
+      chunks: chunkGraph.chunks,
+    } : null,
     purgeUrls,
+    warnings: graph?.warnings || [],
     reasons: [
       markerState !== 'coherent' ? `build markers: ${markerState}` : null,
       // Print the measured skew on every run so the next tightening of this
@@ -300,7 +552,23 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
       Number.isFinite(siteBehindMs) && siteBehindMs !== 0
         ? formatMarkerSkew(siteBehindMs)
         : null,
-      ...unhealthyAssets.map((asset) => `${asset.path}: ${asset.state}`),
+      deferReason === 'cdn_publish_in_progress'
+        ? `CDN publish in progress (start ${cdnPublish?.startId || 'unavailable'}, complete ${cdnPublish?.completeId || 'unavailable'}): origin coherence observation deferred`
+        : deferReason === 'cdn_publish_changed_during_probe'
+          ? 'CDN publish markers changed during the probe: origin coherence observation deferred'
+          : null,
+      cdnPublishState === 'stalled'
+        ? `CDN publish stalled with no completion marker for ${((cdnPublish?.ageMs || 0) / 60_000).toFixed(1)} min`
+        : cdnPublishState === 'unavailable'
+          ? 'CDN publish-window marker unavailable or invalid'
+          : cdnPublishState === 'marker_regression'
+            ? 'CDN publish-window markers regressed'
+            : null,
+      ...blockingAssets.map((asset) => `${asset.path}: ${asset.state}`),
+      ...['cached', 'fresh'].flatMap((variant) => publicConfig?.[variant]?.state && publicConfig[variant].state !== 'healthy'
+        ? [`public config (${variant}): ${publicConfig[variant].state}, HTTP ${publicConfig[variant].status}`]
+        : []),
+      ...(graph?.reasons || []),
     ].filter(Boolean),
   };
   result.fingerprint = runtimeFailureFingerprint(result);
@@ -312,15 +580,42 @@ export async function probeRuntime({
   now = new Date(),
   timeoutMs = DEFAULT_TIMEOUT_MS,
   assetPaths = CRITICAL_ASSET_PATHS,
+  // `false` skips the full walk (unit tests of the marker/critical-asset core).
+  chunkGraph = true,
+  chunkGraphOptions = {},
 } = {}) {
   const nonce = `${now instanceof Date ? now.getTime() : Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
   const siteBuildUrl = `${SITE_ORIGIN}${SITE_BUILD_ID_PATH}`;
   const cdnMarkerUrl = `${CDN_ORIGIN}${CDN_BUILD_ID_PATH}`;
-  const [siteCached, siteFresh, cdnMarker] = await Promise.all([
+  const cdnPublishStartUrl = `${CDN_ORIGIN}${CDN_PUBLISH_START_ID_PATH}`;
+  const cdnPublishCompleteUrl = `${CDN_ORIGIN}${CDN_PUBLISH_COMPLETE_ID_PATH}`;
+  const [siteCached, siteFresh, cdnMarker, cdnPublishStart, cdnPublishComplete, publicConfig] = await Promise.all([
     readUrl(siteBuildUrl, { fetchImpl, timeoutMs }),
     readUrl(cacheBust(siteBuildUrl, nonce), { fetchImpl, timeoutMs }),
     readUrl(cacheBust(cdnMarkerUrl, nonce), { fetchImpl, timeoutMs }),
+    readUrl(cacheBust(cdnPublishStartUrl, nonce), { fetchImpl, timeoutMs }),
+    readUrl(cacheBust(cdnPublishCompleteUrl, nonce), { fetchImpl, timeoutMs }),
+    probePublicConfig({ fetchImpl, timeoutMs, nonce }),
   ]);
+  const initialPublish = classifyCdnPublishWindow({
+    startMarker: cdnPublishStart,
+    completeMarker: cdnPublishComplete,
+    nowMs: now instanceof Date ? now.getTime() : Date.now(),
+  });
+  if (initialPublish.state !== 'legacy' && initialPublish.state !== 'stable') {
+    return {
+      checkedAt: new Date().toISOString(),
+      ...evaluateProbe({
+        siteCached,
+        siteFresh,
+        cdnMarker,
+        assets: [],
+        publicConfig,
+        cdnPublish: initialPublish,
+        deferReason: initialPublish.state === 'in_progress' ? 'cdn_publish_in_progress' : null,
+      }),
+    };
+  }
   const assets = await Promise.all(assetPaths.map(async (path) => {
     const url = `${CDN_ORIGIN}${path}`;
     const [cached, fresh] = await Promise.all([
@@ -329,35 +624,232 @@ export async function probeRuntime({
     ]);
     return { path, cached, fresh };
   }));
+  let graph = null;
+  if (chunkGraph) {
+    try {
+      graph = await crawlChunkGraph({ fetchImpl, nonce, ...chunkGraphOptions });
+    } catch (error) {
+      // A crash of the walk must degrade the verdict (and reach the issue),
+      // not kill the step and leave a red run with no report.
+      graph = { entries: [], chunks: [], broken: [], error: String(error?.message || error) };
+    }
+  }
+  // Close the time-of-check/time-of-use window. A publish can start after the
+  // first marker read while the graph walk is in flight; in that case every
+  // edge/origin comparison from this pass is discarded and never purgeable.
+  const endNonce = `${nonce}-end`;
+  const [cdnMarkerAfter, cdnPublishStartAfter, cdnPublishCompleteAfter] = await Promise.all([
+    readUrl(cacheBust(cdnMarkerUrl, endNonce), { fetchImpl, timeoutMs }),
+    readUrl(cacheBust(cdnPublishStartUrl, endNonce), { fetchImpl, timeoutMs }),
+    readUrl(cacheBust(cdnPublishCompleteUrl, endNonce), { fetchImpl, timeoutMs }),
+  ]);
+  const finalPublish = classifyCdnPublishWindow({
+    startMarker: cdnPublishStartAfter,
+    completeMarker: cdnPublishCompleteAfter,
+    nowMs: now instanceof Date ? now.getTime() : Date.now(),
+  });
+  const markerId = (response) => response?.ok ? validBuildId(response.body) : null;
+  // Only call this a changed generation when both observations are readable.
+  // A failed closing read is `unavailable` and must fail closed, never become a
+  // successful deferral merely because null differs from the opening value.
+  const publishChanged = Boolean(markerId(cdnMarker) && markerId(cdnMarkerAfter))
+    && ['legacy', 'stable'].includes(finalPublish.state)
+    && (markerId(cdnMarkerAfter) !== markerId(cdnMarker)
+      || finalPublish.startId !== initialPublish.startId
+      || finalPublish.completeId !== initialPublish.completeId);
+  if (publishChanged || (finalPublish.state !== 'legacy' && finalPublish.state !== 'stable')) {
+    const activePublish = publishChanged
+      ? { ...finalPublish, state: 'in_progress' }
+      : finalPublish;
+    return {
+      checkedAt: new Date().toISOString(),
+      ...evaluateProbe({
+        siteCached,
+        siteFresh,
+        cdnMarker: cdnMarkerAfter,
+        assets: [],
+        publicConfig,
+        cdnPublish: activePublish,
+        deferReason: activePublish.state === 'in_progress' ? 'cdn_publish_changed_during_probe' : null,
+      }),
+    };
+  }
   return {
     checkedAt: new Date().toISOString(),
-    ...evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }),
+    ...evaluateProbe({ siteCached, siteFresh, cdnMarker: cdnMarkerAfter, assets, chunkGraph: graph, publicConfig, cdnPublish: finalPublish }),
   };
 }
 
+/**
+ * The rotation step of the chunk graph's content sample. The workflow pins it
+ * once per job (CHUNK_GRAPH_ROTATION) so the post-purge verification walks
+ * the SAME window the first probe did.
+ */
+export function rotationFromEnv(env = process.env, nowMs = Date.now()) {
+  const raw = env.CHUNK_GRAPH_ROTATION;
+  return raw !== undefined && /^\d+$/.test(String(raw).trim())
+    ? Number(String(raw).trim())
+    : defaultRotation(nowMs);
+}
+
+function pathOf(url) {
+  try { return new URL(url).pathname; } catch { return String(url); }
+}
+
+/**
+ * Markdown body of the reliability issue. Only paths, states, validators and
+ * counts — never response bodies.
+ */
+export function formatIssueDescription(final, { first = null, runUrl = '' } = {}) {
+  const lines = ['## Runtime degradation', ''];
+  if (runUrl) lines.push(`- Run: ${runUrl}`);
+  lines.push(
+    `- Marker state: ${final?.markerState || 'unknown'}`,
+    `- Site build: ${final?.siteBuildId || 'unavailable'}`,
+    `- CDN build: ${final?.cdnBuildId || 'unavailable'}`,
+    `- CDN publish window: ${final?.cdnPublishState || 'legacy'} (start ${final?.cdnPublishStartId || 'unavailable'}, complete ${final?.cdnPublishCompleteId || 'unavailable'})`,
+  );
+  if (final?.publicConfig) {
+    for (const variant of ['cached', 'fresh']) {
+      const config = final.publicConfig[variant];
+      lines.push(`- Public config (${variant}): ${config.state}, HTTP ${config.status}, API key present: ${config.apiKeyPresent}, format valid: ${config.apiKeyFormatValid}`);
+    }
+  }
+  const graph = final?.chunkGraph;
+  if (graph) {
+    const families = (graph.families || [])
+      .map((f) => `${f.loader}: ${f.sampled}/${f.total} content chunks (rotating window ${f.window + 1} of ${f.windows})`)
+      .join('; ');
+    lines.push(
+      `- Chunk graph: ${graph.checked} chunk(s) from ${(graph.entries || []).length} entry page(s) in it/en/de/fr, both cache variants, ${graph.namedImports?.browser ?? 0} named import(s) link-checked, edge colo ${(graph.colos || []).join(', ') || 'unknown'}${families ? `; ${families}` : ''}`,
+    );
+  }
+  const repair = first?.repair;
+  if (repair) {
+    const count = (first?.purgeUrls || []).length;
+    lines.push(`- Repair: ${repair.action}${repair.action === 'purge' ? ` of ${count} URL(s) (exact files, both cache variants)` : ''} — ${repair.reason}`);
+  }
+  const verificationRepair = final?.repair;
+  if (verificationRepair) {
+    const count = verificationRepair.urls ?? (final?.purgeUrls || []).length;
+    lines.push(`- Verification repair: ${verificationRepair.action}${verificationRepair.action === 'purge' ? ` of ${count} URL(s) (exact files, both cache variants)` : ''} — ${verificationRepair.reason}`);
+  }
+  lines.push('', '### Reasons', '');
+  for (const reason of final?.reasons || []) lines.push(`- ${reason}`);
+  if (!(final?.reasons || []).length) lines.push('- (none recorded)');
+
+  const divergent = graph?.divergent || [];
+  if (divergent.length) {
+    lines.push('', `### Chunks differing edge vs origin in the final probe (${divergent.length})`, '');
+    const byUrl = new Map((graph.chunks || []).map((c) => [c.url, c]));
+    for (const d of divergent.slice(0, 40)) {
+      const rec = byUrl.get(d.url);
+      const edge = d.variants
+        .map((v) => `${v} ${rec?.variants?.[v]?.lastModified || rec?.variants?.[v]?.status || '?'}`)
+        .join(', ');
+      lines.push(`- \`${d.path}\` — edge: ${edge}; origin: ${rec?.origin?.lastModified || rec?.origin?.status || '?'}`);
+    }
+    if (divergent.length > 40) lines.push(`- … ${divergent.length - 40} more in the run artifact`);
+  }
+  const broken = (graph?.broken || []).filter((b) => b.reason === 'missing_export');
+  if (broken.length) {
+    lines.push('', `### Broken named imports on the edge graph (${broken.length})`, '');
+    for (const b of broken.slice(0, 25)) {
+      lines.push(`- \`${pathOf(b.from)}\` imports \`${b.name}\` from \`${pathOf(b.to)}\`, which does not export it (${b.variant} variant)`);
+    }
+  }
+  const targetedPurgeAttempted = [repair, verificationRepair]
+    .some((attempt) => attempt?.action === 'purge');
+  lines.push('', targetedPurgeAttempted
+    ? 'The watchdog attempted only exact CDN URL purges (scripts/cf-purge-cache.mjs `--files=`, batches of at most 30, both cache variants). No zone-wide purge was performed.'
+    : 'The watchdog did not perform a targeted purge. No zone-wide purge was performed.');
+  return lines.join('\n');
+}
+
+function readJson(path) {
+  return JSON.parse(fs.readFileSync(path, 'utf8'));
+}
+
+function argValue(flag) {
+  const idx = process.argv.indexOf(flag);
+  return idx >= 0 && idx + 1 < process.argv.length ? process.argv[idx + 1] : undefined;
+}
+
 async function main() {
+  // --purge-from <report.json>: exact-URL purge of the report's candidates.
+  const purgeFrom = argValue('--purge-from');
+  if (purgeFrom) {
+    const report = readJson(purgeFrom);
+    const urls = report.purgeUrls || [];
+    if (!urls.length) {
+      console.log('Runtime reliability: no purge candidates.');
+      return;
+    }
+    const guarded = await purgeFromReport(report);
+    if (guarded.deferred) {
+      fs.writeFileSync(purgeFrom, `${JSON.stringify(guarded.report, null, 2)}\n`);
+      console.log(`Runtime reliability: purge deferred — ${guarded.report.deferReason}.`);
+      return;
+    }
+    const outcome = guarded.outcome;
+    console.log(`Runtime reliability: purge dispatched for ${outcome.purged}/${urls.length} URL(s) in ${outcome.batches} batch(es).`);
+    for (const failure of outcome.failed) {
+      console.log(`::warning title=Runtime reliability purge batch failed::batch ${failure.index + 1}/${outcome.batches}: ${failure.error}`);
+    }
+    if (outcome.failed.length) process.exitCode = 1;
+    return;
+  }
+  // --issue-body <final.json> [--first <first.json>]: markdown for the issue.
+  const issueBody = argValue('--issue-body');
+  if (issueBody) {
+    const first = argValue('--first');
+    const runUrl = process.env.GITHUB_SERVER_URL && process.env.GITHUB_REPOSITORY && process.env.GITHUB_RUN_ID
+      ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
+      : '';
+    process.stdout.write(formatIssueDescription(readJson(issueBody), {
+      first: first && fs.existsSync(first) ? readJson(first) : null,
+      runUrl,
+    }));
+    return;
+  }
+  // --annotate <report.json>: surface reasons/warnings as run annotations, so
+  // a degraded graph is visible on the run page even when nobody opens a log.
+  const annotate = argValue('--annotate');
+  if (annotate) {
+    const report = readJson(annotate);
+    for (const reason of report.reasons || []) console.log(`::warning title=Runtime reliability::${reason}`);
+    for (const warning of report.warnings || []) console.log(`::warning title=Runtime reliability (coverage)::${warning}`);
+    return;
+  }
+
   const json = process.argv.includes('--json');
-  const result = await probeRuntime();
+  const result = await probeRuntime({ chunkGraphOptions: { rotation: rotationFromEnv() } });
   if (json) {
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
     // stdout is redirected to the report file, so keep the measured skew on
     // stderr: it has to be readable in the run log of every run, not only in
     // the uploaded artifact.
+    const graph = result.chunkGraph;
     console.error(
-      `Runtime reliability: ${result.ok ? 'healthy' : 'degraded'} — ${result.markerState}`
+      `Runtime reliability: ${result.deferred ? 'deferred' : result.ok ? 'healthy' : 'degraded'} — ${result.markerState}`
       + ` (site=${result.siteBuildId || '—'}, cdn=${result.cdnBuildId || '—'},`
-      + ` ${formatMarkerSkew(result.siteBehindMs)})`,
+      + ` ${formatMarkerSkew(result.siteBehindMs)})`
+      + (graph ? `; chunk graph ${graph.checked} chunk(s), ${graph.namedImports?.browser ?? 0} named imports checked, ${graph.divergent.length} divergent, ${graph.broken.filter((b) => b.reason === 'missing_export').length} broken import(s), ${graph.durationMs}ms` : ''),
     );
   } else {
-    console.log(`Runtime reliability: ${result.ok ? 'healthy' : 'degraded'}`);
+    console.log(`Runtime reliability: ${result.deferred ? 'deferred' : result.ok ? 'healthy' : 'degraded'}`);
     console.log(`Markers: ${result.markerState} (site=${result.siteBuildId || '—'}, cdn=${result.cdnBuildId || '—'})`);
+    if (result.chunkGraph) {
+      console.log(`Chunk graph: ${result.chunkGraph.checked} chunk(s), colo ${result.chunkGraph.colos.join(', ') || '?'}, ${result.chunkGraph.durationMs}ms`);
+    }
     for (const reason of result.reasons) console.log(`- ${reason}`);
-    if (result.purgeUrls.length) console.log(`Targeted purge candidates: ${result.purgeUrls.join(',')}`);
+    for (const warning of result.warnings || []) console.log(`- (coverage) ${warning}`);
+    if (result.purgeUrls.length) console.log(`Targeted purge candidates (${result.purgeUrls.length}): ${result.purgeUrls.join(',')}`);
   }
-  if (!result.ok) process.exitCode = 1;
+  if (!result.ok && !result.deferred) process.exitCode = 1;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`runtime-reliability-watch failed: ${error.message}`);
     process.exitCode = 1;

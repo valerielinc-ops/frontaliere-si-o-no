@@ -25,9 +25,10 @@ describe('buildClaimReview', () => {
     expect(cr.datePublished).toBe(BASE_INPUT.datePublished);
   });
 
-  it('author is Frontaliere Ticino Organization with canonical URL', () => {
+  it('author is the canonical Frontaliere Ticino news organization', () => {
     const cr = buildClaimReview({ ...BASE_INPUT, rating: 'true' });
     expect(cr.author['@type']).toBe('Organization');
+    expect(cr.author['@id']).toBe('https://frontaliereticino.ch/#organization');
     expect(cr.author.name).toBe('Frontaliere Ticino');
     expect(cr.author.url).toBe('https://frontaliereticino.ch/');
   });
@@ -82,13 +83,21 @@ describe('buildClaimReview', () => {
     expect(cr.itemReviewed.appearance.name).toBe(BASE_INPUT.sourceName);
   });
 
-  it('claimAuthor and claimDatePublished default to page + review date', () => {
+  it('unknown original publication is omitted while review publication remains explicit', () => {
     const cr = buildClaimReview({ ...BASE_INPUT, rating: 'true' });
     expect(cr.itemReviewed.author.name).toBe(BASE_INPUT.pageUrl);
-    expect(cr.itemReviewed.datePublished).toBe(BASE_INPUT.datePublished);
+    expect(cr.itemReviewed).not.toHaveProperty('datePublished');
+    expect(cr.datePublished).toBe(BASE_INPUT.datePublished);
   });
 
-  it('explicit claimAuthor / claimDatePublished override defaults', () => {
+  it.each(['', '   '])('omits blank original date %j instead of copying review date', (claimDatePublished) => {
+    const cr = buildClaimReview({ ...BASE_INPUT, rating: 'true', claimDatePublished });
+    expect(cr.itemReviewed).not.toHaveProperty('datePublished');
+    expect(cr.datePublished).toBe(BASE_INPUT.datePublished);
+    expect(cr.itemReviewed.appearance.url).toBe(BASE_INPUT.sourceUrl);
+  });
+
+  it('explicit claimAuthor / claimDatePublished preserve the independently supplied date', () => {
     const cr = buildClaimReview({
       ...BASE_INPUT,
       rating: 'true',

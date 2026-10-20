@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * Collect the read-only GitHub Actions side of the L10 oracle.
@@ -11,8 +12,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { createdSinceFilter } from './lib/run-listing-window.mjs';
+import { resolveLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
 import { LOOP_WORKFLOWS } from './loop-fleet-status.mjs';
-import { buildIndependentFleetControlOutcome } from '../lib/independent-fleet-outcome.mjs';
+import {
+  buildIndependentFleetControlOutcome,
+  topReconciliationErrorClasses,
+} from '../lib/independent-fleet-outcome.mjs';
 import { findLoopPolicy, validateLoopRegistry } from '../lib/loop-fleet-contract.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -36,15 +42,22 @@ function readJson(file, label) {
 
 function readJsonl(file) {
   const absolute = path.resolve(file);
-  if (!fs.existsSync(absolute)) return { records: [], errors: [`health ledger is missing: ${file}`] };
+  const isCanonicalHealthPath = path.basename(absolute) === 'loop-health-history.jsonl';
+  const isLedgerDirectory = fs.existsSync(absolute) && fs.statSync(absolute).isDirectory();
+  const files = isCanonicalHealthPath || isLedgerDirectory
+    ? resolveLoopFleetLedgerFiles(absolute, 'loop-health-history.jsonl')
+    : (fs.existsSync(absolute) ? [absolute] : []);
+  if (!files.length) return { records: [], errors: [`health ledger is missing: ${file}`] };
   const records = [];
   const errors = [];
-  for (const [index, line] of fs.readFileSync(absolute, 'utf8').split(/\r?\n/u).entries()) {
-    if (!line.trim()) continue;
-    try {
-      records.push(JSON.parse(line));
-    } catch {
-      errors.push(`health ledger line ${index + 1} is invalid JSON`);
+  for (const ledgerFile of files) {
+    for (const [index, line] of fs.readFileSync(ledgerFile, 'utf8').split(/\r?\n/u).entries()) {
+      if (!line.trim()) continue;
+      try {
+        records.push(JSON.parse(line));
+      } catch {
+        errors.push(`health ledger ${path.basename(ledgerFile)} line ${index + 1} is invalid JSON`);
+      }
     }
   }
   return { records, errors };
@@ -68,9 +81,16 @@ export function listCompletedRuns({
   repo,
   workflow,
   maxRecords = DEFAULT_MAX_RECORDS,
+  windowHours = DEFAULT_WINDOW_HOURS,
+  now = new Date(),
   execFileSyncImpl = execFileSync,
   sleep = sleepForRetry,
 }) {
+  // Finestra `created` contro l'elenco fermo che l'API puo' restituire per
+  // `branch` (scripts/ci/lib/run-listing-window.mjs). L'esito guarda le run
+  // delle ultime `windowHours`: un giorno in piu' copre una run creata prima
+  // della finestra e conclusa dentro (il limite di un job e' 6 ore).
+  const created = createdSinceFilter(windowHours / 24 + 1, now.getTime());
   for (let attempt = 0; attempt < GITHUB_READ_ATTEMPTS; attempt += 1) {
     try {
       const raw = execFileSyncImpl('gh', [
@@ -79,8 +99,11 @@ export function listCompletedRuns({
         '--workflow', workflow,
         '--branch', 'main',
         '--status', 'completed',
+        '--created', created,
         '--limit', String(maxRecords),
-        '--json', 'databaseId,status,conclusion,createdAt,updatedAt,headSha,url',
+        // workflowName/event let a reconciliation error name its source in
+        // the log instead of a bare count (issue 8400).
+        '--json', 'databaseId,status,conclusion,createdAt,updatedAt,headSha,url,workflowName,event',
       ], {
         encoding: 'utf8',
         maxBuffer: 16 * 1024 * 1024,
@@ -97,6 +120,24 @@ export function listCompletedRuns({
     }
   }
   return { runs: [], error: `GitHub Actions run inventory unavailable for ${workflow}` };
+}
+
+/** One-line log summary: the counts plus the most frequent error classes. */
+export function summarizeIndependentFleetOutcome(result) {
+  const classes = result.metrics.reconciliationErrorClasses || {};
+  const errorClasses = topReconciliationErrorClasses(classes);
+  const shown = Object.values(errorClasses).reduce((sum, count) => sum + count, 0);
+  return {
+    loopId: result.loopId,
+    status: result.outcome.status,
+    independent: result.outcome.independent,
+    numerator: result.outcome.numerator,
+    denominator: result.outcome.denominator,
+    sourceErrors: result.metrics.sourceErrors,
+    reconciliationErrors: result.metrics.reconciliationErrors,
+    errorClasses,
+    errorsInOmittedClasses: result.metrics.reconciliationErrors - shown,
+  };
 }
 
 export function collectIndependentFleetOutcome({
@@ -117,9 +158,14 @@ export function collectIndependentFleetOutcome({
     sourceErrors.push('GitHub repository is not configured');
   } else {
     for (const workflow of Object.values(LOOP_WORKFLOWS)) {
-      const result = listRunsImpl({ repo, workflow, maxRecords });
+      const result = listRunsImpl({ repo, workflow, maxRecords, windowHours, now });
       if (result.error) sourceErrors.push(result.error);
-      runs.push(...(Array.isArray(result.runs) ? result.runs : []));
+      // Tag each run with the workflow file it was listed under, so every
+      // reconciliation error can be classified per workflow. Non-object rows
+      // stay untouched: the helper must still reject them.
+      runs.push(...(Array.isArray(result.runs) ? result.runs : []).map((run) => (
+        run && typeof run === 'object' && !Array.isArray(run) ? { ...run, workflowFile: workflow } : run
+      )));
     }
   }
   const result = buildIndependentFleetControlOutcome({
@@ -162,19 +208,11 @@ function main(argv = process.argv.slice(2)) {
   });
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(result, null, 2)}\n`);
-  console.log(JSON.stringify({
-    loopId: result.loopId,
-    status: result.outcome.status,
-    independent: result.outcome.independent,
-    numerator: result.outcome.numerator,
-    denominator: result.outcome.denominator,
-    sourceErrors: result.metrics.sourceErrors,
-    reconciliationErrors: result.metrics.reconciliationErrors,
-  }));
+  console.log(JSON.stringify(summarizeIndependentFleetOutcome(result)));
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

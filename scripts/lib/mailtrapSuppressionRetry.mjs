@@ -28,6 +28,8 @@
  * next bounce (self-healing, no extra bookkeeping needed here).
  */
 
+import { isSavedJobsDigestAnchorOnly } from '../../services/subscriberConsent.mjs';
+
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 // Mailbox-full is usually resolved within days; 21 days is a conservative
@@ -67,4 +69,21 @@ export function isRetryable(subscriberData, nowMs) {
   if (!Number.isFinite(effectiveAt)) return true;
   const ageDays = (nowMs - effectiveAt) / DAY_MS;
   return ageDays >= SUPPRESSION_RETRY_GRACE_DAYS;
+}
+
+/**
+ * Activity flags written next to `status: 'pending'` when a suppression is
+ * lifted. The saved-jobs digest record (owner decision 2026-10-03,
+ * `isSavedJobsDigestAnchorOnly`) is not a subscription: lifting the provider
+ * suppression lets the digest resume on its own, while `isActive`/`active`
+ * would only make the admin panel and the signup monitor count it as a
+ * subscriber. scripts/suppression-decay.mjs already writes them `false` for a
+ * row restored to `pending`; this keeps the retry from writing them `true`.
+ *
+ * @param {Record<string, unknown> | null | undefined} subscriberData
+ * @returns {{ isActive?: true, active?: true }}
+ */
+export function reactivationActivityFields(subscriberData) {
+  if (isSavedJobsDigestAnchorOnly(subscriberData)) return {};
+  return { isActive: true, active: true };
 }

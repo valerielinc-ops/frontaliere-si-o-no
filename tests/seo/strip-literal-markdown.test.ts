@@ -39,9 +39,36 @@ describe('stripLiteralMarkdown', () => {
     expect(once).not.toContain('**');
   });
 
+  it('removes body-markdown syntax from plain descriptions', () => {
+    expect(stripLiteralMarkdown('## In breve - aggiornamenti per i frontalieri')).toBe(
+      'In breve - aggiornamenti per i frontalieri',
+    );
+    expect(stripLiteralMarkdown('## Titolo ##')).toBe('Titolo');
+    expect(stripLiteralMarkdown('Scopri *La mia impresa, il mio futuro*.')).toBe(
+      'Scopri La mia impresa, il mio futuro.',
+    );
+    expect(stripLiteralMarkdown('Titolo:*term*—nota __Strong__')).toBe('Titolo:term—nota Strong');
+    expect(stripLiteralMarkdown('[Riforma disoccupazione frontalieri](https://example.com)')).toBe(
+      'Riforma disoccupazione frontalieri',
+    );
+    expect(stripLiteralMarkdown('[Età](https://en.wikipedia.org/wiki/Function_(mathematics))')).toBe('Età');
+    expect(stripLiteralMarkdown('[Età][ref]')).toBe('Età');
+    expect(stripLiteralMarkdown('[x] [ref]')).toBe('x');
+    expect(stripLiteralMarkdown('[A [B](https://example.com/(inner))](https://example.com/(outer))')).toBe('A B');
+    expect(stripLiteralMarkdown(String.raw`[Età](https://example.com/a_\(b\))`)).toBe('Età');
+    expect(stripLiteralMarkdown(String.raw`\\[Età](https://example.com)`)).toBe(String.raw`\\Età`);
+    expect(stripLiteralMarkdown('[x](url "a)")')).toBe('x');
+    expect(stripLiteralMarkdown('[x](<url(a)> "title)")')).toBe('x');
+  });
+
   it('passes through clean strings and empty input untouched', () => {
     expect(stripLiteralMarkdown('Offerte di Lavoro in Ticino')).toBe('Offerte di Lavoro in Ticino');
     expect(stripLiteralMarkdown('')).toBe('');
+  });
+
+  it('keeps multiplication operators in plain descriptions', () => {
+    expect(stripLiteralMarkdown('Calcolo: 8 * 5 * 4')).toBe('Calcolo: 8 * 5 * 4');
+    expect(stripLiteralMarkdown('a * b * c')).toBe('a * b * c');
   });
 });
 

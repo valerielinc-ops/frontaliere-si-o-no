@@ -198,6 +198,8 @@ export function isModuleParseError(err: unknown): boolean {
  *     attacks the cause; this is the runtime safety net.)
  *       - "ls(...).then is not a function" / "n is not a function"
  *       - "Ze is not a constructor" / "e is not iterable"
+ *       - "Cannot read properties of undefined (reading 'apply')" from a
+ *         stale navigation-tracking chunk that still wraps History methods
  *
  * (b) LINK-TIME (SyntaxError, issue #3097): the dependency chunk's EXPORT SET
  *     changes between deploys (e.g. lucide-react tree-shaking adds/removes icons
@@ -229,6 +231,13 @@ export const CALL_TIME_SKEW_PATTERNS: readonly RegExp[] = [
   /\bis not a function\b/,
   /\bis not a constructor\b/,
   /\bis not iterable\b/,
+  // A pre-#5606 navigation-tracking chunk can keep a stale History wrapper
+  // and call `.apply` on an unavailable implementation. Fresh chunks use
+  // callNativeHistory, so this exact runtime shape is a mixed chunk set, not
+  // a reason to leave the session on a broken deep link. Keep the Safari form
+  // beside the Chromium wording because this classifier feeds all browsers.
+  /\bcannot read propert(?:y|ies) of undefined \(reading 'apply'\)/i,
+  /\bundefined is not an object \(evaluating '[^']*\.apply'\)/i,
   // Cross-chunk skew can also leave a lazy-proxy singleton import (e.g. the
   // `Analytics` object from services/analyticsProxy.ts) bound to `undefined`
   // at the call site, so `Analytics.trackCalculation(...)` throws instead of
@@ -349,6 +358,42 @@ const BUST_TIMEOUT_MS = 4000;
 // sync across all three, none of the non-module copies can import this file).
 const RESOURCE_TIMING_BUFFER_SIZE = 1000;
 
+const ASSET_CHUNK_URL_RE = /^https?:\/\/[^/]+\/assets\/[^?#\s]+\.(?:js|css)(?:[?#].*)?$/i;
+
+function isAssetChunkUrl(value: string): boolean {
+  return ASSET_CHUNK_URL_RE.test(value);
+}
+
+/**
+ * Recover the first-party asset URL carried by a dynamic-import rejection.
+ * Native `import()` does not create a DOM node, and a failed request may not
+ * produce a Resource Timing entry, so the error message is the only reliable
+ * source for the exact chunk that must be refetched (#9465).
+ */
+export function extractAssetChunkUrl(error: unknown): string | null {
+  const value = error as {
+    message?: unknown;
+    payload?: { message?: unknown };
+    detail?: { message?: unknown };
+  } | null | undefined;
+  const messages = [
+    typeof error === 'string' ? error : undefined,
+    value?.message,
+    value?.payload?.message,
+    value?.detail?.message,
+  ]
+    .filter((message): message is string => typeof message === 'string');
+
+  for (const message of messages) {
+    const candidates = message.match(/https?:\/\/[^\s"'<>]+/g) || [];
+    for (const candidate of candidates) {
+      const cleaned = candidate.replace(/[),.;]+$/, '');
+      if (isAssetChunkUrl(cleaned)) return cleaned;
+    }
+  }
+  return null;
+}
+
 /**
  * Overwrite the STALE entries the skewed chunks occupy in the browser's HTTP
  * disk cache, so the subsequent reload loads a consistent, current chunk set.
@@ -368,7 +413,7 @@ const RESOURCE_TIMING_BUFFER_SIZE = 1000;
  * batch races a {@link BUST_TIMEOUT_MS} timer, so recovery never hangs. Resolves
  * once the cache has been refreshed (or the timer fires); the caller then reloads.
  */
-export async function bustAssetHttpCache(): Promise<void> {
+export async function bustAssetHttpCache(additionalUrls: readonly string[] = []): Promise<void> {
   if (typeof window === 'undefined' || typeof fetch !== 'function') return;
 
   try {
@@ -379,25 +424,28 @@ export async function bustAssetHttpCache(): Promise<void> {
     /* unsupported — proceed with whatever entries the buffer already holds. */
   }
 
-  let urls: string[] = [];
+  let urls: string[] = additionalUrls.filter(isAssetChunkUrl);
   try {
     const entries =
       typeof performance !== 'undefined' && typeof performance.getEntriesByType === 'function'
         ? performance.getEntriesByType('resource')
         : [];
-    urls = entries
+    urls.push(
+      ...entries
       .map((e) => (e as PerformanceResourceTiming).name)
-      .filter((u) => /\/assets\/.+\.(?:js|css)(?:\?|$)/.test(u));
+      .filter((u) => /\/assets\/.+\.(?:js|css)(?:\?|$)/.test(u)),
+    );
   } catch {
     /* Resource Timing unavailable — the DOM scan below still runs. */
   }
   // Second, INDEPENDENT enumeration path — always unioned with Resource Timing
   // (not just when it comes back empty), so a partial eviction that dropped
   // only SOME entries still recovers the ones still present as DOM nodes. Note
-  // this cannot cover chunks loaded via dynamic import(): a native ES module
-  // dynamic import never leaves a <script>/<link> element in the DOM, so an
-  // evicted Resource Timing entry for one is unrecoverable by this path — the
-  // buffer-size raise above is the actual mitigation for that case.
+  // this cannot enumerate chunks loaded via dynamic import(): a native ES
+  // module dynamic import never leaves a <script>/<link> element in the DOM.
+  // `clearAssetCaches(reason)` supplies the exact URL from the import error;
+  // the raised Resource Timing cap remains the fallback for browser errors
+  // that omit the URL.
   if (typeof document !== 'undefined') {
     try {
       document
@@ -448,7 +496,7 @@ export async function bustAssetHttpCache(): Promise<void> {
  * CacheStorage is usually empty for `/assets`, while the browser HTTP cache
  * is not; every dynamic-import recovery path must clear both before retrying.
  */
-export async function clearAssetCaches(): Promise<void> {
+export async function clearAssetCaches(reason?: unknown): Promise<void> {
   if (typeof window === 'undefined') return;
 
   if ('caches' in window) {
@@ -460,7 +508,8 @@ export async function clearAssetCaches(): Promise<void> {
     }
   }
 
-  await bustAssetHttpCache();
+  const failedAssetUrl = extractAssetChunkUrl(reason);
+  await bustAssetHttpCache(failedAssetUrl ? [failedAssetUrl] : []);
 }
 
 /**
@@ -494,9 +543,29 @@ export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
   } catch {
     /* storage unavailable */
   }
-  await clearAssetCaches();
+  await clearAssetCaches(reason);
   window.location.reload();
   return true;
+}
+
+/**
+ * Rejection handler for the app boot in index.tsx (`mountApp()`). A failed
+ * chunk in the static App graph (for example a short network drop) rejects
+ * `mountApp()`; without a handler it escapes as an unhandled rejection. Chunk
+ * and link-skew errors go to the same clear-caches + budgeted reload as the
+ * early-boot self-heal script, keyed on the same message signature. Ad-blocker
+ * URLs, other errors and an exhausted budget rethrow unchanged.
+ */
+export async function recoverFromBootFailure(err: unknown): Promise<void> {
+  const reason = (err as Error)?.message || String(err || '');
+  if (
+    (isChunkLoadError(err) || isVersionSkewError(err))
+    && !isAdBlockerTriggerUrl(reason)
+    && (await recoverFromStaleChunk(reason))
+  ) {
+    return;
+  }
+  throw err;
 }
 
 /**
@@ -556,7 +625,7 @@ export async function resilientImport<T>(
     // Clear both cache layers before retrying. Stable asset URLs can otherwise
     // serve the same stale bytes from the browser HTTP cache even when
     // CacheStorage is empty.
-    await clearAssetCaches();
+    await clearAssetCaches(err);
     // Retry once after cache clear.
     try {
       return await attempt();
@@ -570,7 +639,7 @@ export async function resilientImport<T>(
           // chunk (HTML served for a purged name, or a skewed dependency)
           // would otherwise be re-served from the disk cache and the reload
           // wasted.
-          await clearAssetCaches();
+          await clearAssetCaches(err2);
           window.location.reload();
         }
       }

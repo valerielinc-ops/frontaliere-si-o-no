@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * backfill-ai-search-optimization.mjs — Retrofit existing blog articles
  * with AI Search optimization signals (TL;DR + Fatti chiave) so that the
@@ -51,6 +53,7 @@ import {
   unescapeTsString as sharedUnescapeTsString,
   tsStringEscapesWithNewlineAs,
 } from './lib/unescape-ts-string.mjs';
+import { assertOldHistorySafe, isOldHistoryBlockedError } from './lib/old-history-guard.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -224,9 +227,13 @@ export function listItBodyFiles(dir = BODY_DIR_IT) {
 }
 
 /**
- * Returns the list of body files that DO NOT yet have AI-search optimization.
+ * Returns the list of body files that DO NOT yet have AI-search optimization
+ * in the requested locale. A complete block in another locale is not enough:
+ * it is commonly the residue of a translation fallback.
+ * @param {string[]} files
+ * @param {'it'|'en'|'de'|'fr'} [locale='it']
  */
-export function findArticlesNeedingBackfill(files) {
+export function findArticlesNeedingBackfill(files, locale = 'it') {
   const needing = [];
   const skipped = [];
   for (const filePath of files) {
@@ -235,7 +242,7 @@ export function findArticlesNeedingBackfill(files) {
       skipped.push({ filePath, reason: 'unparseable' });
       continue;
     }
-    if (hasAiSearchOptimization(parsed.body1)) {
+    if (hasAiSearchOptimization(parsed.body1, locale)) {
       skipped.push({ filePath, reason: 'already-optimized' });
       continue;
     }
@@ -272,7 +279,7 @@ async function main() {
   for (const locale of LOCALES) {
     const dir = bodyDirFor(locale);
     const files = listItBodyFiles(dir);
-    const { needing, skipped } = findArticlesNeedingBackfill(files);
+    const { needing, skipped } = findArticlesNeedingBackfill(files, locale);
     const alreadyOptimized = skipped.filter((s) => s.reason === 'already-optimized').length;
     console.log(`[${locale}] Total: ${files.length} | Already optimized: ${alreadyOptimized} | Need backfill: ${needing.length}`);
     if (skipped.some((s) => s.reason === 'unparseable')) {
@@ -324,7 +331,7 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
   const dir = bodyDirFor(locale);
   const relDir = resolveGitAddPath(ROOT, path.relative(ROOT, dir));
   const files = listItBodyFiles(dir);
-  const { needing, skipped } = findArticlesNeedingBackfill(files);
+  const { needing, skipped } = findArticlesNeedingBackfill(files, locale);
   const alreadyOptimized = skipped.filter((s) => s.reason === 'already-optimized').length;
   console.log(`\n[${locale}] ${files.length} files | ${alreadyOptimized} already optimized | ${needing.length} need backfill`);
   if (needing.length === 0) return { locale, written: 0, failed: 0 };
@@ -353,12 +360,18 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
   }
   const COMMIT_BATCH = parseInt(process.env.BACKFILL_COMMIT_BATCH || '25', 10);
   const AUTO_PUSH = process.env.BACKFILL_AUTO_PUSH !== '0';
+  const MAIN_PUSH_HELPER = path.join(ROOT, 'scripts/lib/git-push-with-retry.sh');
   const { execSync } = await import('node:child_process');
   const safeExec = (cmd) => {
     try { return execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim(); }
     catch (err) { return `__ERR__:${(err.stderr || err.message || '').toString().trim().slice(0, 200)}`; }
   };
   const commitBatch = (count, total) => {
+    if (AUTO_PUSH) {
+      // Check before staging/committing: --no-verify must not let this writer
+      // pull or push a checkout that still belongs to the old history.
+      assertOldHistorySafe({ cwd: ROOT, refreshBase: true });
+    }
     const status = safeExec(`git status --porcelain ${relDir}/`);
     if (!status || status.startsWith('__ERR__:')) return;
     const lines = status.split('\n').filter(Boolean);
@@ -368,12 +381,10 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
     const r = safeExec(`git commit --no-verify -m ${JSON.stringify(msg)}`);
     if (r.startsWith('__ERR__:')) return;
     if (AUTO_PUSH) {
-      const pr = safeExec('git pull --rebase --autostash origin main 2>&1');
-      if (!pr.startsWith('__ERR__:')) safeExec('git push --no-verify origin main 2>&1');
-      // A conflicting rebase leaves an in-progress state that wedges later batches on
-      // the same runner; abort it so the next commitBatch isn't blocked (mirrors the
-      // `git rebase --abort` recovery added to the bash loops in #2721).
-      else safeExec('git rebase --abort 2>&1');
+      // The shared wrapper repeats the guard before any retry rebase and owns
+      // the authenticated main push; this path must not use --no-verify.
+      const pushResult = safeExec(`bash ${JSON.stringify(MAIN_PUSH_HELPER)} --max-attempts 3 2>&1`);
+      if (isOldHistoryBlockedError(pushResult)) throw new Error(pushResult);
     }
     process.stdout.write(`💾 [${locale}] committed batch (${lines.length} files)\n`);
   };
@@ -508,7 +519,7 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
 
 // Allow import without execution (for tests)
 const isDirectRun = (() => {
-  try { return process.argv[1] && path.resolve(process.argv[1]) === __filename; }
+  try { return process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })(); }
   catch { return false; }
 })();
 

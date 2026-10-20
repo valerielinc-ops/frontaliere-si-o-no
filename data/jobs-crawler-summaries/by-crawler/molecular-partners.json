@@ -1,27 +1,31 @@
 {
   "key": "molecular-partners",
   "label": "Molecular Partners",
-  "generatedAt": "2026-09-24T14:23:18.052Z",
+  "generatedAt": "2026-10-19T21:14:50.516Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4952,
-  "avgDurationMs": 4952,
+  "unchangedCount": 1,
+  "durationMs": 5104,
+  "avgDurationMs": 5104,
   "durationHistory": [
-    4952
+    5104
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "molecular-partners-749786a2a588",
-      "slug": "executive-assistant-80-7-month-fixed-term-assignment-molecular-partners-schlieren",
+      "slug": "executive-assistant-80-assegnazione-a-7-mesi-a-tempo-determinato-molecular-partners-switzerland-zurich-schlieren",
       "company": "Molecular Partners",
       "companyKey": "molecular-partners",
       "companyDomain": "molecularpartners.com",
@@ -31,7 +35,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:23:07.531Z",
+      "crawledAt": "2026-10-19T21:14:34.020Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -44,20 +48,29 @@
       "sector": "Biotecnologie / Farmaceutica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T19:50:29.070Z",
-      "_qualityScore": 87,
+      "salaryMin": 58800,
+      "salaryMax": 89200,
+      "salarySource": "estimated",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "molecular-partners-99c11a77cd35",
-      "slug": "senior-accounting-manager-molecular-partners-schlieren",
+      "slug": "responsabile-contabilita-senior-molecular-partners-switzerland-zurich-schlieren",
       "company": "Molecular Partners",
       "companyKey": "molecular-partners",
       "companyDomain": "molecularpartners.com",
@@ -67,7 +80,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:23:08.506Z",
+      "crawledAt": "2026-10-19T21:14:34.584Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,18 +93,23 @@
       "sector": "Biotecnologie / Farmaceutica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T12:32:19.008Z",
-      "_qualityScore": 87,
+      "salaryMin": 189000,
+      "salaryMax": 331500,
+      "salarySource": "estimated",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

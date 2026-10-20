@@ -6,15 +6,17 @@ name: Crawl Ticino + nationwide + Genève pilot events (tio.ch, guidle, myswitze
 # tio.ch agenda (Ticino only), guidle.com and myswitzerland.com (all of
 # Switzerland), and geneve.ch/agenda (GE — pilot canton validating the
 # reusable createAgendaCrawler factory, scripts/lib/agenda-crawler-factory.mjs).
+# Cantonal agendas on the same factory (P9a, 2026-10-05): fr.ch (FR, event RSS)
+# and the iCMS agendas nw.ch (NW), ow.ch (OW), stadtluzern.ch (LU) — one
+# isolated step each, surfaced after publication like the GE pilot.
 # Each writes its own per-source slice
 # (data/events/by-source/<key>.json); scripts/assemble-events-dataset.mjs
 # merges them (by-id, then a cross-source fuzzy dedup pass) into
-# data/events.json. Commits data/events.json + every per-source slice + the
+# data/events.json. Publishes data/events.json + every per-source slice + the
 # mirrored-image INDEX (data/events-image-manifest.json — the images
 # themselves are pushed to the CDN by this job and are NOT tracked since
-# #6163) straight to main; the events test runs BEFORE commit
-# as a gate so a malformed dataset can never turn main red (AGENTS.md:
-# "data-refresh che committa su main = stesso gate test di una PR").
+# #6163) through a stable PR; the events test runs BEFORE publication
+# as a gate so a malformed dataset can never turn main red.
 #
 # NOTE: named crawl-events.yml (NOT update-jobs-*.yml) on purpose, so the jobs
 # orchestrator/health-monitor never sweeps it into the jobs pipeline.
@@ -31,22 +33,32 @@ on:
         required: false
         default: '21'
       dry_run:
-        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        description: 'Keep the run preview-only unless explicitly disabled.'
         required: false
         default: true
         type: boolean
-      human_approval:
-        description: 'Explicit human approval for the dataset/CDN side-effect path.'
+      myswitzerland_ids:
+        description: 'Comma-separated MySwitzerland IDs to revisit; empty runs all sources normally.'
         required: false
-        default: false
-        type: boolean
-
+        default: ''
+        type: string
+      guidle_ids:
+        description: 'Comma-separated Guidle codes to revisit; mutually exclusive with myswitzerland_ids.'
+        required: false
+        default: ''
+        type: string
 concurrency:
   group: crawl-events
   cancel-in-progress: true
 
+env:
+  # The events dataset is regenerated from merged source slices and caches
+  # when the refresh publisher reconciles it with a moving main branch.
+  EVENTS_DERIVED_DATASET_RECONCILIATION: events
+
 permissions:
   contents: write
+  pull-requests: write
   issues: write
 
 jobs:
@@ -62,56 +74,234 @@ jobs:
     # (data/events-geocode-cache.json, data/events-translation-cache.json —
     # see the "Persist geo/translation caches" step below) are populated,
     # only that day's genuinely new events need enrichment and tio-agenda
-    # should return close to its 12min baseline. 60 min gives headroom for
-    # today's one-time backlog plus nationwide guidle/myswitzerland, whose
-    # real full-catalog duration is still not independently measured.
-    timeout-minutes: 60
+    # should return close to its 12min baseline. Run 36029589003 consumed
+    # ~56min before the GE pilot started, so 60min cancelled before
+    # assemble/commit. Run 36707880973 then reached the 90min cap while the
+    # final dataset push was retrying (#10544); keep headroom for the full
+    # crawl, publication gate, and the main-writer convoy.
+    timeout-minutes: 120
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
-          persist-credentials: true
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
 
-      - name: Require human approval for dataset side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          APPROVAL_SCOPE: events-dataset-publication
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci --no-audit --no-fund --ignore-scripts
 
+      - name: Configure private event-description export path
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: echo "EVENT_DESCRIPTION_SOURCE_EXPORT_PATH=$RUNNER_TEMP/event-description-sources.jsonl" >> "$GITHUB_ENV"
+
       - name: Prepare Firebase credentials for push auth
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load refresh-PR credentials"
             exit 1
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
+      - name: Prepare stable private artifact key
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/ensure-event-description-artifact-key.mjs --out "$RUNNER_TEMP/event-description-artifact-key"
+
       - name: Load push credentials from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           test -f scripts/load-rc-env.mjs
           node scripts/load-rc-env.mjs
 
+      # The App identity re-triggers pull-request checks. If the installation
+      # is unavailable, the long-lived PAT loaded above remains the fallback.
+      - name: Mint App token (primary PR identity, PAT fallback)
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # A stable PR branch can still be in flight when the next daily run
+      # starts. Carry its append-only data forward before crawling, otherwise
+      # a new branch from main would silently discard the pending refresh.
+      - name: Carry forward pending events refresh PR
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          # actions/checkout uses persist-credentials=false in this workflow;
+          # probe and fetch the stable branch through the same authenticated
+          # refresh identity used by the publisher below.
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
+        run: |
+          set -euo pipefail
+          run_bounded() {
+            node scripts/lib/run-bounded-command.mjs --timeout-seconds "$1" --label "$2" -- "${@:3}"
+          }
+          [ -n "$GH_TOKEN" ] || {
+            echo "::error::No authenticated refresh token is available to probe the stable events refresh branch"
+            exit 1
+          }
+          refresh_prs="$(run_bounded 60 'gh pr list events refresh branches' \
+            gh pr list --repo "$GITHUB_REPOSITORY" --base main --state all --limit 1000 \
+              --json number,title,headRefName,headRepository,state,createdAt,mergedAt)" || {
+            echo "::error::Unable to inspect the events refresh PR history"
+            exit 1
+          }
+          branch_plan="$(printf '%s' "$refresh_prs" | node scripts/ci/select-crawl-events-refresh-branch.mjs \
+            --repository "$GITHUB_REPOSITORY" \
+            --run-id "$GITHUB_RUN_ID" \
+            --run-attempt "${GITHUB_RUN_ATTEMPT:-1}")" || {
+            echo "::error::Unable to select a safe events refresh branch"
+            exit 1
+          }
+          branch="$(printf '%s' "$branch_plan" | jq -r '.branch')"
+          require_new_branch="$(printf '%s' "$branch_plan" | jq -r '.requireNewBranch')"
+          require_existing_branch="$(printf '%s' "$branch_plan" | jq -r '.requireExistingBranch')"
+          echo "Selected events refresh branch ${branch}: $(printf '%s' "$branch_plan" | jq -r '.reason')"
+          remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          probe="$RUNNER_TEMP/crawl-events-refresh-remote-head"
+          if ! run_bounded 60 'git ls-remote events refresh refs' \
+            git ls-remote "$remote_url" refs/heads/main "refs/heads/${branch}" >"$probe" 2>/dev/null; then
+            echo "::error::Unable to authenticate or probe the stable events refresh branch"
+            exit 1
+          fi
+          remote_main="$(awk '$2 == "refs/heads/main" { print $1; exit }' "$probe")"
+          remote_refresh="$(awk -v ref="refs/heads/${branch}" '$2 == ref { print $1; exit }' "$probe")"
+          if [ "$require_new_branch" = true ] && [ -n "$remote_refresh" ]; then
+            echo "::error::The selected fresh events refresh branch already exists; refusing to carry its state."
+            exit 1
+          fi
+          if [ -z "$remote_refresh" ] && [ "$require_existing_branch" = true ]; then
+            branch="chore/crawl-events-refresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT:-1}"
+            require_new_branch=true
+            echo "The latest open refresh PR branch is missing remotely; starting a fresh branch ${branch}."
+          fi
+          echo "EVENTS_REFRESH_BRANCH=${branch}" >> "$GITHUB_ENV"
+          echo "EVENTS_REFRESH_REQUIRE_NEW_BRANCH=${require_new_branch}" >> "$GITHUB_ENV"
+          [ -n "$remote_main" ] || {
+            echo "::error::Unable to resolve current main while probing the stable events refresh branch"
+            exit 1
+          }
+          fetch_refs=(+refs/heads/main:refs/remotes/origin/main)
+          if [ -n "$remote_refresh" ]; then
+            fetch_refs+=("+refs/heads/${branch}:refs/remotes/origin/${branch}")
+          fi
+          if ! run_bounded 300 'git fetch events refresh and main refs' \
+            git fetch --no-tags --depth=1 "$remote_url" "${fetch_refs[@]}" >/dev/null 2>&1; then
+            echo "::error::Unable to fetch current main and the stable events refresh branch"
+            exit 1
+          fi
+          main_sha="$(git rev-parse --verify 'refs/remotes/origin/main^{commit}')"
+          if [ -z "$remote_refresh" ]; then
+            echo "No in-flight events refresh PR branch found; starting from current main."
+            git checkout --detach "$main_sha"
+            exit 0
+          fi
+          refresh_sha="$(git rev-parse --verify "refs/remotes/origin/${branch}^{commit}")"
+          merge_base="$(run_bounded 60 'gh api events refresh merge base' \
+            gh api "repos/${GITHUB_REPOSITORY}/compare/${main_sha}...${refresh_sha}" --jq '.merge_base_commit.sha')"
+          [ -n "$merge_base" ] && [ "$merge_base" != null ] || {
+            echo "::error::GitHub did not return a merge base for the pending events refresh"
+            exit 1
+          }
+          if ! GIT_NO_LAZY_FETCH=1 git cat-file -e "${merge_base}^{commit}" 2>/dev/null; then
+            run_bounded 300 'git fetch events refresh merge base' \
+              git fetch --no-tags --depth=1 "$remote_url" "$merge_base" >/dev/null 2>&1 || {
+                echo "::error::Unable to fetch the pending events refresh merge base"
+                exit 1
+              }
+          fi
+
+          probe_root="$(mktemp -d "$RUNNER_TEMP/crawl-events-refresh-preflight.XXXXXX")"
+          probe_worktree="$probe_root/worktree"
+          cleanup_probe() {
+            git worktree remove --force "$probe_worktree" >/dev/null 2>&1 || true
+            rm -rf -- "$probe_root"
+          }
+          trap cleanup_probe EXIT
+          if ! git worktree add --detach --no-checkout "$probe_worktree" "$refresh_sha" >/dev/null; then
+            echo "::error::Unable to create an isolated worktree for the pending events refresh preflight"
+            exit 1
+          fi
+          preflight_log="$probe_root/reconcile.log"
+          if (
+            cd "$probe_worktree"
+            GIT_AUTHOR_NAME='frontaliere-automation[bot]' \
+              GIT_AUTHOR_EMAIL='296434481+frontaliere-automation[bot]@users.noreply.github.com' \
+              GIT_COMMITTER_NAME='frontaliere-automation[bot]' \
+              GIT_COMMITTER_EMAIL='296434481+frontaliere-automation[bot]@users.noreply.github.com' \
+            EVENTS_DERIVED_DATASET_RECONCILIATION=events \
+              EVENTS_REFRESH_CARRIED_REF='' \
+              RECONCILE_SOURCE_ROOT="$GITHUB_WORKSPACE" \
+              node "$GITHUB_WORKSPACE/scripts/ci/reconcile-data-refresh-main.mjs" \
+                --base "$merge_base" --main "$main_sha" --message 'events refresh carry-forward preflight'
+          ) >"$preflight_log" 2>&1; then
+            cat "$preflight_log"
+            carry_sha="$(git -C "$probe_worktree" rev-parse --verify HEAD)"
+            echo "Pending events refresh can be reconciled with current main."
+          elif grep -Eq 'Not a continuation of the refresh this crawl started from|No starting refresh was recorded \(EVENTS_REFRESH_CARRIED_REF\)' "$preflight_log"; then
+            cat "$preflight_log"
+            echo "::warning::Pending events refresh has an unreconcilable source slice/checkpoint conflict; preserving its remote branch and starting this crawl from current main on a new branch."
+            branch="chore/crawl-events-refresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT:-1}"
+            echo "EVENTS_REFRESH_BRANCH=${branch}" >> "$GITHUB_ENV"
+            echo "EVENTS_REFRESH_REQUIRE_NEW_BRANCH=true" >> "$GITHUB_ENV"
+            git checkout --detach "$main_sha"
+            exit 0
+          else
+            cat "$preflight_log"
+            echo "::error::Pending events refresh preflight failed for a reason other than an unreconcilable source slice/checkpoint conflict"
+            exit 1
+          fi
+
+          # The reconciler ran only in the disposable worktree. Use the exact
+          # main tip checked above as this crawl's base before restoring carry.
+          git checkout --detach "$main_sha"
+          # Restore from the preflight merge result, not the stale branch tip:
+          # a clean merge may include source/checkpoint updates that landed on
+          # main after the pending branch was created. Keep this exact start
+          # state reachable while the publisher moves the remote-tracking ref.
+          git update-ref refs/crawl-events/carried-forward "$carry_sha"
+          echo "EVENTS_REFRESH_CARRIED_REF=refs/crawl-events/carried-forward" >> "$GITHUB_ENV"
+          # Restore only blobs present in the reconciled refresh. A directory
+          # restore would also delete files added to current main after that
+          # branch was created, turning stale branch absence into data loss.
+          bash scripts/lib/restore-stable-refresh-files.sh \
+            refs/crawl-events/carried-forward \
+            data/events.json \
+            public/data/events.json \
+            data/events-geocode-cache.json \
+            data/events-translation-cache.json \
+            data/events-image-manifest.json \
+            data/events/by-source/ \
+            data/events/checkpoints/
+
+      - name: Validate targeted source inputs
+        env:
+          INPUT_MYSWITZERLAND_IDS: ${{ inputs.myswitzerland_ids || '' }}
+          INPUT_GUIDLE_IDS: ${{ inputs.guidle_ids || '' }}
+        run: |
+          if [ -n "$INPUT_MYSWITZERLAND_IDS" ] && [ -n "$INPUT_GUIDLE_IDS" ]; then
+            echo '::error::Select only one targeted source per run.'
+            exit 1
+          fi
+
       - name: Crawl tio.ch agenda
         id: crawl-tio
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
         env:
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_DAYS: ${{ github.event.inputs.days || '21' }}
@@ -127,49 +317,73 @@ jobs:
         # 2026-07-03) throws away the whole enrichment backlog and every
         # future run redoes it from scratch. if: always() so it still fires
         # even if a later step gets cancelled by timeout-minutes.
-        if: always() && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
-        # continue-on-error: this is a best-effort optimization, not the main
-        # deliverable (that's the "Commit dataset" step below) — a push
-        # failure here (e.g. 5 retries genuinely exhausted under heavy
-        # concurrent-push contention on main) must never abort the job and
-        # skip-cascade guidle/myswitzerland/assemble/gate/commit, which is
-        # exactly the bug this step exists to prevent (run 28687792336,
-        # 2026-07-04 — the step's own rebase failure, not a real exhaustion,
-        # cascaded into zero net progress; see scripts/lib/git-push-with-retry.sh
-        # for the root cause and --stash-dirty fix).
+        if: always() && !inputs.myswitzerland_ids && !inputs.guidle_ids && inputs.dry_run != true && inputs.dry_run != 'true'
+        # Best effort: a temporary PR-publisher failure must not skip the
+        # remaining crawlers and the final dataset publication.
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
-          set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           [ -f data/events-geocode-cache.json ] || exit 0
           [ -f data/events-translation-cache.json ] || exit 0
-          git add data/events-geocode-cache.json data/events-translation-cache.json
-          if git diff --cached --quiet; then
-            echo "No cache diff, skipping commit"
-            exit 0
-          fi
+          body="$RUNNER_TEMP/crawl-events-refresh-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
 
-          git commit -m "🗺️ Persist tio-agenda geo/translation cache"
-          # --stash-dirty: crawl-tio-agenda.mjs also writes
-          # data/events/by-source/tio-agenda.json (staged later, by "Commit
-          # dataset"), which the default `git reset --hard HEAD` recovery
-          # would discard on a rebase retry — losing today's crawl output.
-          bash scripts/lib/git-push-with-retry.sh --stash-dirty
+          ## Implementato
+          - Il crawler aggiorna le cache geo/traduzioni tramite il branch eventi selezionato dal control plane, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
+
+          ## Non implementato (ancora)
+          - Nessun altro cambiamento applicativo in questa PR; il publisher limita il commit ai dati generati dal crawler.
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --reconcile-main \
+            --path data/events-geocode-cache.json \
+            --path data/events-translation-cache.json \
+            --branch "$EVENTS_REFRESH_BRANCH" \
+            --commit-message "chore(events): persist crawl caches" \
+            --title "chore(data): refresh crawl events" \
+            --body-file "$body"
 
       - name: Crawl guidle.com (nationwide)
         id: crawl-guidle
-        run: node scripts/crawl-guidle-events.mjs
+        if: ${{ !inputs.myswitzerland_ids }}
+        env:
+          INPUT_GUIDLE_IDS: ${{ inputs.guidle_ids || '' }}
+        run: |
+          args=()
+          if [ -n "$INPUT_GUIDLE_IDS" ]; then
+            args+=(--ids "$INPUT_GUIDLE_IDS")
+          fi
+          node scripts/crawl-guidle-events.mjs "${args[@]}"
 
       - name: Crawl myswitzerland.com (nationwide)
         id: crawl-myswitzerland
-        run: node scripts/crawl-myswitzerland-events.mjs
+        if: ${{ !inputs.guidle_ids }}
+        # continue-on-error: one source must not freeze the whole dataset.
+        # From 2026-10-04 the www.myswitzerland.com CDN answers HTTP 406 to
+        # every uncached detail page; the fail-closed detail-failure policy
+        # (scripts/lib/detail-failure-reuse-policy.mjs, 15%, unchanged) then
+        # rejects the batch and the crawler exits 1 BEFORE writing its slice or
+        # advancing its cursor (commitMySwitzerlandBatch). Without this line
+        # that rejection skipped geneve, assemble, gate and publish for every
+        # other source too. The failure is NOT swallowed: "Surface
+        # MySwitzerland crawl failures" below fails the job after publication
+        # so "Report failure to GitHub Issues" still fires. Same pattern as the
+        # GE pilot step.
+        continue-on-error: true
+        env:
+          INPUT_MYSWITZERLAND_IDS: ${{ inputs.myswitzerland_ids || '' }}
+        run: |
+          args=()
+          if [ -n "$INPUT_MYSWITZERLAND_IDS" ]; then
+            args+=(--ids "$INPUT_MYSWITZERLAND_IDS")
+          fi
+          node scripts/crawl-myswitzerland-events.mjs "${args[@]}"
 
       - name: Crawl geneve.ch agenda (GE, pilot)
         id: crawl-ge
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
         # continue-on-error: geneve.ch is the newest, least battle-tested of
         # the four sources (own DOM-drift guard exists specifically because
         # selector drift is plausible on a brand-new source) and sits
@@ -180,6 +394,93 @@ jobs:
         # already exists to hedge against for tio-agenda's own caches.
         continue-on-error: true
         run: node scripts/crawl-ge-agenda.mjs
+
+      # OpenAgenda API v2 (Ville de Genève, communes genevoises, Région de
+      # Nyon), Licence Ouverte 2.0. The public key OPENAGENDA_PUBLIC_KEY comes
+      # from Remote Config, loaded above only in real runs: without it (dry_run
+      # dispatches, or before the owner creates the key) the crawler prints a
+      # ::notice:: and exits 0 without touching its slice. Runs next to the
+      # geneve.ch HTML pilot above; assemble keeps the OpenAgenda record of a
+      # duplicate pair (SUPERSEDED_EVENT_SOURCES). Same isolation contract as
+      # the GE pilot, with its own "Surface …" twin below.
+      - name: Crawl OpenAgenda (GE/VD)
+        id: crawl-openagenda
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        run: node scripts/crawl-openagenda-events.mjs
+
+      # Cantonal agendas (P9a). Same isolation contract as the GE pilot: a
+      # failing source never blocks assemble/gate/publish for the others, and
+      # its "Surface …" twin below fails the job after publication.
+      - name: Crawl fr.ch agenda (FR)
+        id: crawl-fr
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        run: node scripts/crawl-fr-agenda.mjs
+
+      - name: Crawl nw.ch agenda (NW)
+        id: crawl-nw
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        run: node scripts/crawl-icms-agenda.mjs --source nw-agenda
+
+      - name: Crawl ow.ch agenda (OW)
+        id: crawl-ow
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        run: node scripts/crawl-icms-agenda.mjs --source ow-agenda
+
+      - name: Crawl stadtluzern.ch agenda (LU)
+        id: crawl-lu
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        run: node scripts/crawl-icms-agenda.mjs --source lu-stadt-agenda
+
+      # Organizer JSON-LD (owner decision D3, 2026-10-05): classicAscona
+      # concerts, facts only — no organizer text, no images. Same isolation
+      # contract as the agendas above, surfaced by its own "Surface …" step.
+      - name: Crawl classicAscona concerts (TI, organizer JSON-LD)
+        id: crawl-classicascona
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        # ~60 pages at 2 s each: a stuck host must not eat the job budget.
+        timeout-minutes: 10
+        run: node scripts/crawl-classicascona-events.mjs
+
+      - name: Encrypt private event-description rewrite input
+        if: always() && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          source_file="$RUNNER_TEMP/event-description-sources.jsonl"
+          encrypted_file="$RUNNER_TEMP/event-description-sources.jsonl.enc"
+          key_file="$RUNNER_TEMP/event-description-artifact-key"
+          format_file="$RUNNER_TEMP/event-description-sources.jsonl.key-version"
+          trap 'rm -f -- "$key_file"' EXIT
+          if [ ! -s "$source_file" ]; then
+            exit 0
+          fi
+          if [ ! -s "$key_file" ]; then
+            echo '::error::Stable event-description artifact key is unavailable'
+            exit 1
+          fi
+          openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -salt \
+            -in "$source_file" -out "$encrypted_file" \
+            -pass file:"$key_file"
+          printf '%s\n' 'event-description-artifact-v2' > "$format_file"
+          chmod 600 "$format_file"
+          chmod 600 "$encrypted_file"
+          rm -f "$source_file"
+
+      - name: Upload encrypted event-description rewrite input
+        if: always() && inputs.dry_run != true && inputs.dry_run != 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: event-description-sources-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/event-description-sources.jsonl.enc
+            ${{ runner.temp }}/event-description-sources.jsonl.key-version
+          if-no-files-found: ignore
+          retention-days: 7
 
       - name: Persist nationwide checkpoints + slices (survives downstream failures)
         id: persist-nationwide
@@ -201,37 +502,41 @@ jobs:
         # if: always() and continue-on-error for the same reasons as the caches
         # step above — this is a progress ratchet, not the deliverable, and it
         # must never skip-cascade assemble/gate/commit.
-        if: always() && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: always() && inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
-          set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          node scripts/ci/sanitize-event-translation-cache.mjs
+          body="$RUNNER_TEMP/crawl-events-refresh-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
 
-          # All guarded: a crawler cancelled before its first write leaves these
-          # missing, and `git add` on a missing path errors under `set -e`.
-          [ -d data/events/checkpoints ] && git add data/events/checkpoints/ || true
-          [ -f data/events/by-source/guidle.json ] && git add data/events/by-source/guidle.json || true
-          [ -f data/events/by-source/myswitzerland.json ] && git add data/events/by-source/myswitzerland.json || true
-          [ -f data/events-translation-cache.json ] && git add data/events-translation-cache.json || true
-          [ -f data/events-geocode-cache.json ] && git add data/events-geocode-cache.json || true
-          if git diff --cached --quiet; then
-            echo "No nationwide progress diff, skipping commit"
-            exit 0
-          fi
+          ## Implementato
+          - Il crawler aggiorna checkpoint e slice nationwide tramite il branch eventi selezionato dal control plane, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
 
-          git commit -m "🧭 Persist guidle/myswitzerland crawl checkpoints and slices"
-          # --stash-dirty for the same reason as the caches step: the events
-          # dataset and article-surface files this run also wrote are staged
-          # later, by "Commit dataset", and a plain `git reset --hard HEAD`
-          # recovery on a rebase retry would throw them away.
-          bash scripts/lib/git-push-with-retry.sh --stash-dirty
+          ## Non implementato (ancora)
+          - Nessun altro cambiamento applicativo in questa PR; il publisher limita il commit ai dati generati dal crawler.
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --reconcile-main \
+            --path data/events/checkpoints/ \
+            --path data/events/by-source/guidle.json \
+            --path data/events/by-source/myswitzerland.json \
+            --path data/events-translation-cache.json \
+            --path data/events-geocode-cache.json \
+            --branch "$EVENTS_REFRESH_BRANCH" \
+            --commit-message "chore(events): persist nationwide crawl progress" \
+            --title "chore(data): refresh crawl events" \
+            --body-file "$body"
 
       - name: Assemble events dataset
         id: assemble
         run: node scripts/assemble-events-dataset.mjs --stats
+
+      - name: Gate — every published event image is registered and allowed
+        id: event_image_gate
+        run: npm run validate:event-images
 
       - name: Refresh weekend-digest article body (evergreen, body-only)
         id: digest
@@ -273,7 +578,7 @@ jobs:
       # is simply never committed and tomorrow re-mirrors those images — wasted
       # bandwidth, never a broken image. That is the safe direction of failure.
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -283,7 +588,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # Non-fatal like every other caller: without R2_* the push script
         # reports the miss, prunes the manifest back and the images are
         # re-mirrored next run. Nothing is committed that claims otherwise.
@@ -295,77 +600,58 @@ jobs:
           fi
 
       - name: Push this run's mirrored event images to the CDN
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/push-mirrored-event-images-cdn.mjs
 
-      - name: Commit dataset (rebase-retry pattern)
+      - name: Publish dataset refresh through PR
         id: commit
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
-        # Best-effort: a permanently-exhausted push (heavy concurrent-push
-        # contention on main) must not hard-fail the job — next scheduled run
-        # retries with fresh data. Matches the original inline retry loop's
-        # `exit 0` on exhaustion.
-        continue-on-error: true
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        # The required Vitest check runs on the PR head before generated data
+        # can enter main. The shared publisher also resolves article symlinks.
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
-          set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          set -euo pipefail
+          body="$RUNNER_TEMP/crawl-events-refresh-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
 
-          # git-add-resolved, not plain `git add`: the article-corpus paths below
-          # are symlinks into packages/articles/content/. A path through the
-          # symlinked blog-body DIRECTORY aborts with "pathspec is beyond a
-          # symbolic link" (taking the events data down with it under `set -e`),
-          # and a path that IS a file symlink (seo-blog-5.ts, blog-articles-data.ts)
-          # stages nothing at all while still exiting 0 — which would silently
-          # drop the dateModified/updatedAt bumps this job just wrote.
-          # public/data/events.json is the SAME dataset, written in the same call
-          # by assemble-events-dataset.mjs. It is staged because `data/` is not
-          # deployed, so without the published copy the events digest — which now
-          # runs in the articles repo — has no way to read this at all (#4974
-          # item 3). Same both-places pattern as border-wait-averages.json.
-          node scripts/lib/git-add-resolved.mjs data/events.json \
-            public/data/events.json \
-            data/events/by-source/tio-agenda.json \
-            data/events/by-source/guidle.json \
-            data/events/by-source/myswitzerland.json \
-            services/locales/blog-body/it/eventi-weekend-ticino.ts \
-            services/locales/blog-body/en/eventi-weekend-ticino.ts \
-            services/locales/blog-body/de/eventi-weekend-ticino.ts \
-            services/locales/blog-body/fr/eventi-weekend-ticino.ts \
-            data/blog-articles-data.ts services/seo/seo-blog-5.ts public/sitemap-blog.xml
-          # data/events/by-source/ge-agenda.json (geneve.ch pilot, #3644): guarded
-          # like the paths below, NOT added to the fixed list above — unlike the
-          # three long-committed slices above, this file won't exist on disk
-          # until the crawler's first-ever successful run, and `git add` on a
-          # missing path errors under `set -e`, which would otherwise abort the
-          # commit of tio/guidle/myswitzerland's data too on a day geneve.ch's
-          # crawl transiently fails before ever having produced a slice.
-          [ -f data/events/by-source/ge-agenda.json ] && git add data/events/by-source/ge-agenda.json || true
-          # The no-hotlink mirrored images themselves are NOT committed any
-          # more (#6163): public/images/events is gitignored and the bytes are
-          # served from cdn.frontaliereticino.ch, pushed by the step above.
-          # What IS committed is the index of them — without it
-          # mirrorEventImage has nothing to dedup against (the on-disk probe it
-          # used to run only ever sees this run's own downloads now), so every
-          # scheduled run would re-download the entire back catalogue and
-          # re-create the directory this issue deleted.
-          # Unguarded, like the fixed list above: the manifest is tracked, so
-          # it is always present in the checkout.
-          git add data/events-image-manifest.json
-          # Cross-run cursors for the checkpointed nationwide crawlers
-          # (scripts/lib/crawl-checkpoint.mjs) — must persist between
-          # scheduled runs so guidle/myswitzerland resume instead of
-          # restarting the catalog walk from 0 every day.
-          [ -d data/events/checkpoints ] && git add data/events/checkpoints/ || true
-          if git diff --cached --quiet; then
-            echo "No events diff, skipping commit"
-            exit 0
-          fi
+          ## Implementato
+          - Il crawler pubblica dataset, slice, checkpoint, manifest e superfici articolo tramite il branch eventi selezionato dal control plane, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
 
-          git commit -m "📅 Refresh Ticino + nationwide events agenda + weekend-digest article (tio.ch, guidle, myswitzerland)"
-          bash scripts/lib/git-push-with-retry.sh
+          ## Non implementato (ancora)
+          - Nessun altro cambiamento applicativo in questa PR; il publisher limita il commit ai dati generati dal crawler.
+          EOF
+
+          paths=(
+            --path data/events.json
+            --path public/data/events.json
+            --path data/events/by-source/tio-agenda.json
+            --path data/events/by-source/guidle.json
+            --path data/events/by-source/myswitzerland.json
+            --path services/locales/blog-body/it/eventi-weekend-ticino.ts
+            --path services/locales/blog-body/en/eventi-weekend-ticino.ts
+            --path services/locales/blog-body/de/eventi-weekend-ticino.ts
+            --path services/locales/blog-body/fr/eventi-weekend-ticino.ts
+            --path data/blog-articles-data.ts
+            --path services/seo/seo-blog-5.ts
+            --path public/sitemap-blog.xml
+            --path data/events-image-manifest.json
+            --path data/events/checkpoints/
+          )
+          for source in ge-agenda openagenda fr-agenda nw-agenda ow-agenda lu-stadt-agenda classicascona; do
+            if [ -f "data/events/by-source/${source}.json" ]; then
+              paths+=(--path "data/events/by-source/${source}.json")
+            fi
+          done
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --reconcile-main \
+            --resolve-symlinks \
+            "${paths[@]}" \
+            --branch "$EVENTS_REFRESH_BRANCH" \
+            --commit-message "📅 Refresh Ticino + nationwide events agenda" \
+            --title "chore(data): refresh crawl events" \
+            --body-file "$body"
 
       - name: Surface GE pilot crawl failures (review nit — continue-on-error swallows the signal)
         # `continue-on-error: true` on "Crawl geneve.ch agenda" (added so a
@@ -373,8 +659,8 @@ jobs:
         # commit) has a side effect: it also stops a GE failure from ever
         # making the JOB fail, so "Report failure to GitHub Issues" below
         # (if: failure()) would never fire for it — the pilot source could
-        # regress silently and indefinitely (assemble prunes past events, so
-        # nothing shows expired data, it's just an invisible freshness gap).
+        # regress silently and indefinitely (the event archive is append-only,
+        # so a source failure must not erase old URLs or hide a freshness gap).
         # This step runs after the commit either way (if: always()) and only
         # fails the job — deliberately, on purpose — to re-surface that one
         # step's own outcome, separate from the cascade gate above.
@@ -382,6 +668,56 @@ jobs:
         run: |
           if [ "${{ steps.crawl-ge.outcome }}" = "failure" ]; then
             echo "::error::Crawl geneve.ch agenda (GE, pilot) failed this run — dataset commit still proceeded via continue-on-error, but this needs investigation."
+            exit 1
+          fi
+
+      - name: Surface OpenAgenda crawl failures (continue-on-error must not hide them)
+        # Twin of the GE pilot step above for "Crawl OpenAgenda (GE/VD)". A
+        # missing key is a notice and exit 0, so it never lands here; a
+        # rejected key, an unreachable API or a run with zero events does.
+        if: always()
+        run: |
+          if [ "${{ steps.crawl-openagenda.outcome }}" = "failure" ]; then
+            echo "::error::Crawl OpenAgenda (GE/VD) failed this run — previous openagenda slice kept, the other sources were published via continue-on-error; this needs investigation."
+            exit 1
+          fi
+
+      - name: Surface MySwitzerland crawl failures (continue-on-error must not hide them)
+        # Twin of the GE step above for "Crawl myswitzerland.com (nationwide)".
+        # Runs after publication either way and fails the job when that step
+        # failed, so the myswitzerland slice cannot age silently while the
+        # rest of the dataset keeps publishing.
+        if: always()
+        run: |
+          if [ "${{ steps.crawl-myswitzerland.outcome }}" = "failure" ]; then
+            echo "::error::Crawl myswitzerland.com (nationwide) failed this run — previous myswitzerland slice and cursor kept, the other sources were published via continue-on-error; this needs investigation."
+            exit 1
+          fi
+
+      - name: Surface classicAscona crawl failures (continue-on-error must not hide them)
+        # Twin of the GE/MySwitzerland steps for "Crawl classicAscona concerts":
+        # runs after publication either way and fails the job when that step
+        # failed, so the classicascona slice cannot age silently.
+        if: always()
+        run: |
+          if [ "${{ steps.crawl-classicascona.outcome }}" = "failure" ]; then
+            echo "::error::Crawl classicAscona concerts (TI, organizer JSON-LD) failed this run — previous classicascona slice kept, the other sources were published via continue-on-error; this needs investigation."
+            exit 1
+          fi
+
+      - name: Surface cantonal agenda crawl failures (continue-on-error must not hide them)
+        # Twin of the GE/MySwitzerland steps above for the P9a cantonal
+        # agendas: runs after publication either way and fails the job when
+        # any of them failed, naming which.
+        if: always()
+        run: |
+          failed=""
+          [ "${{ steps.crawl-fr.outcome }}" = "failure" ] && failed="$failed fr.ch"
+          [ "${{ steps.crawl-nw.outcome }}" = "failure" ] && failed="$failed nw.ch"
+          [ "${{ steps.crawl-ow.outcome }}" = "failure" ] && failed="$failed ow.ch"
+          [ "${{ steps.crawl-lu.outcome }}" = "failure" ] && failed="$failed stadtluzern.ch"
+          if [ -n "$failed" ]; then
+            echo "::error::Cantonal agenda crawl failed this run:${failed} — previous slices kept, the other sources were published via continue-on-error; this needs investigation."
             exit 1
           fi
 
@@ -414,6 +750,12 @@ jobs:
           - Crawl guidle.com (nationwide): ${{ steps.crawl-guidle.outcome }}
           - Crawl myswitzerland.com (nationwide): ${{ steps.crawl-myswitzerland.outcome }}
           - Crawl geneve.ch agenda (GE, pilot): ${{ steps.crawl-ge.outcome }}
+          - Crawl OpenAgenda (GE/VD): ${{ steps.crawl-openagenda.outcome }}
+          - Crawl fr.ch agenda (FR): ${{ steps.crawl-fr.outcome }}
+          - Crawl nw.ch agenda (NW): ${{ steps.crawl-nw.outcome }}
+          - Crawl ow.ch agenda (OW): ${{ steps.crawl-ow.outcome }}
+          - Crawl stadtluzern.ch agenda (LU): ${{ steps.crawl-lu.outcome }}
+          - Crawl classicAscona concerts (TI): ${{ steps.crawl-classicascona.outcome }}
           - Assemble events dataset: ${{ steps.assemble.outcome }}
           - Refresh weekend-digest article: ${{ steps.digest.outcome }}
           - Gate (vitest): ${{ steps.gate.outcome }}

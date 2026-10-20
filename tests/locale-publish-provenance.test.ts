@@ -1,0 +1,566 @@
+import { afterEach, describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import YAML from 'yaml';
+import {
+  createLocalePublishProvenance,
+  validateLocalePublishProvenance,
+  validateLocaleSourceProvenance,
+} from '../scripts/ci/locale-publish-provenance.mjs';
+import { resolveLocalePublishPlan } from '../scripts/ci/resolve-locale-publish-plan.mjs';
+import { resolveNonItPublishPlan } from '../scripts/ci/resolve-nonit-publish-plan.mjs';
+import {
+  localeHomeUrl,
+  validateLocaleHomes,
+} from '../scripts/ci/validate-locale-publish-live.mjs';
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from '../scripts/lib/live-link-check.mjs';
+
+const SOURCE_RUN_ID = '36850086638';
+const SOURCE_SHA = 'a'.repeat(40);
+const BUILD_ID = '1770000000000';
+const tempDirs: string[] = [];
+
+function tempDist(buildId = BUILD_ID) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'locale-publish-provenance-'));
+  tempDirs.push(dir);
+  fs.writeFileSync(path.join(dir, 'build-id.txt'), `${buildId}\n`);
+  return dir;
+}
+
+function jobs(overrides: Record<string, string> = {}) {
+  const conclusions = { it: 'success', en: 'success', de: 'success', fr: 'success', ...overrides };
+  return {
+    jobs: [
+      { name: 'validate production promotion trigger', conclusion: 'success' },
+      { name: 'matrix-setup', conclusion: 'success' },
+      { name: 'prep', conclusion: 'success' },
+      ...(['it', 'en', 'de', 'fr'] as const).map((locale) => ({
+        name: `build-locale (${locale})`,
+        conclusion: conclusions[locale],
+      })),
+    ],
+  };
+}
+
+function receipt(locale: 'it' | 'en' | 'de' | 'fr', buildId = BUILD_ID) {
+  const outcomes = locale === 'it'
+    ? { build: 'success', validate: 'success', itPrep: 'success', pagesArtifact: 'success' }
+    : {
+      build: 'success',
+      validate: 'success',
+      offload: 'success',
+      sectionPush: 'success',
+      cdnGate: 'success',
+      localePush: 'success',
+      localePack: 'success',
+      localeArtifact: 'success',
+      tailBudget: 'success',
+    };
+  const runnerTemp = fs.mkdtempSync(path.join(os.tmpdir(), 'locale-publish-runner-'));
+  tempDirs.push(runnerTemp);
+  if (locale !== 'it') fs.writeFileSync(path.join(runnerTemp, `shard-ok-${locale}`), '');
+  return createLocalePublishProvenance({
+    locale,
+    sourceRunId: SOURCE_RUN_ID,
+    sourceSha: SOURCE_SHA,
+    deployBuildId: buildId,
+    distDir: tempDist(buildId),
+    runnerTemp,
+    outcomes,
+  });
+}
+
+function legacyReceipt(locale: 'en' | 'de' | 'fr') {
+  const current = receipt(locale);
+  const { sourceArtifact: _sourceArtifact, tailBudget: _tailBudget, ...outcomes } = current.outcomes;
+  return {
+    ...current,
+    outputBuildId: '',
+    buildId: '',
+    cdnBuildId: '',
+    cdnStatus: 'unknown',
+    payloadStatus: 'incomplete',
+    publishStatus: 'not-published',
+    published: false,
+    stale: true,
+    fallback: 'last-known-good',
+    crossLocaleSkew: 'not-admitted',
+    outcomes,
+  };
+}
+
+function manifests(...locales: Array<'it' | 'en' | 'de' | 'fr'>) {
+  return locales.map((locale) => ({ file: `${locale}.json`, manifest: receipt(locale) }));
+}
+
+afterEach(() => {
+  while (tempDirs.length) fs.rmSync(tempDirs.pop()!, { recursive: true, force: true });
+});
+
+describe('locale publish provenance', () => {
+  it('requires every critical IT step and records a coherent CDN id', () => {
+    const manifest = receipt('it');
+    expect(manifest.published).toBe(true);
+    expect(manifest.payloadStatus).toBe('complete');
+    expect(manifest.cdnBuildId).toBe(BUILD_ID);
+    expect(manifest.cdnStatus).toBe('coherent');
+    expect(validateLocalePublishProvenance(manifest, {
+      locale: 'it',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      expectedBuildId: BUILD_ID,
+    }).valid).toBe(true);
+  });
+
+  it('marks a failed non-IT leg stale instead of advertising a partial payload', () => {
+    const manifest = createLocalePublishProvenance({
+      locale: 'en',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      deployBuildId: BUILD_ID,
+      distDir: tempDist(),
+      outcomes: { build: 'failure' },
+    });
+    expect(manifest.published).toBe(false);
+    expect(manifest.stale).toBe(true);
+    expect(manifest.fallback).toBe('last-known-good');
+    expect(manifest.reasons).toContain('build outcome is "failure"');
+  });
+
+  it('marks a validated non-IT source artifact ready for the deferred tail', () => {
+    const manifest = createLocalePublishProvenance({
+      locale: 'en',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      deployBuildId: BUILD_ID,
+      artifactRunId: SOURCE_RUN_ID,
+      distDir: tempDist(),
+      outcomes: { build: 'success', validate: 'success', sourceArtifact: 'success' },
+    });
+    expect(manifest.payloadStatus).toBe('source-ready');
+    expect(manifest.publishStatus).toBe('ready-for-tail');
+    expect(manifest.artifactName).toBe(`locale-shard-source-en-${SOURCE_RUN_ID}`);
+    expect(validateLocaleSourceProvenance(manifest, {
+      locale: 'en',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      expectedBuildId: BUILD_ID,
+      expectedArtifactRunId: SOURCE_RUN_ID,
+    }).valid).toBe(true);
+  });
+
+  it('does not call a skipped shard push a successful publish', () => {
+    const runnerTemp = fs.mkdtempSync(path.join(os.tmpdir(), 'locale-publish-runner-'));
+    tempDirs.push(runnerTemp);
+    const manifest = createLocalePublishProvenance({
+      locale: 'fr',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      deployBuildId: BUILD_ID,
+      distDir: tempDist(),
+      runnerTemp,
+      outcomes: {
+        build: 'success',
+        validate: 'success',
+        offload: 'success',
+        sectionPush: 'success',
+        cdnGate: 'success',
+        localePush: 'success',
+        localePack: 'success',
+        localeArtifact: 'success',
+        tailBudget: 'success',
+      },
+    });
+    expect(manifest.published).toBe(false);
+    expect(manifest.reasons).toContain('locale shard success marker is missing');
+  });
+
+  it('rejects a build-id mismatch between the leg and its shared deploy id', () => {
+    const manifest = receipt('de', '1770000000001');
+    expect(manifest.published).toBe(true);
+    expect(validateLocalePublishProvenance(manifest, { expectedBuildId: BUILD_ID }).valid).toBe(false);
+  });
+});
+
+describe('locale publish admission plan', () => {
+  it('publishes all proven locales for a green run', () => {
+    const plan = resolveLocalePublishPlan({
+      runConclusion: 'success',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      jobs: jobs(),
+      provenance: manifests('it', 'en', 'de', 'fr'),
+    });
+    expect(plan).toMatchObject({
+      allowed: true,
+      mode: 'full',
+      buildId: BUILD_ID,
+      healthyLocales: ['it', 'en', 'de', 'fr'],
+      staleLocales: [],
+      recoveryRequired: false,
+    });
+  });
+
+  it('blocks a legacy non-IT receipt and requests a current build', () => {
+    const plan = resolveLocalePublishPlan({
+      runConclusion: 'success',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      jobs: jobs(),
+      provenance: [
+        { file: 'it.json', manifest: receipt('it') },
+        ...(['en', 'de', 'fr'] as const).map((locale) => ({
+          file: `${locale}.json`,
+          manifest: legacyReceipt(locale),
+        })),
+      ],
+    });
+    expect(plan).toMatchObject({
+      allowed: false,
+      mode: 'blocked',
+      healthyLocales: [],
+      tailLocales: [],
+      recoveryRequired: true,
+      legacySourceLocales: ['en', 'de', 'fr'],
+    });
+    expect(plan.reason).toContain('dispatch a current build to replay the split handoff');
+  });
+
+  it('blocks the snapshot when one matrix leg is cancelled', () => {
+    const plan = resolveLocalePublishPlan({
+      runConclusion: 'cancelled',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      jobs: jobs({ en: 'cancelled' }),
+      provenance: manifests('it', 'de', 'fr'),
+    });
+    expect(plan.allowed).toBe(false);
+    expect(plan.mode).toBe('blocked');
+    expect(plan.healthyLocales).toEqual([]);
+    expect(plan.staleLocales).toEqual(['it', 'en', 'de', 'fr']);
+    expect(plan.staleReasons.en).toContain('source job concluded cancelled');
+    expect(plan.reason).toContain('source locale handoff is incomplete for en');
+  });
+
+  it('hands source-ready non-IT locales to the post-build tail', () => {
+    const source = createLocalePublishProvenance({
+      locale: 'en',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      deployBuildId: BUILD_ID,
+      artifactRunId: SOURCE_RUN_ID,
+      distDir: tempDist(),
+      outcomes: { build: 'success', validate: 'success', sourceArtifact: 'success' },
+    });
+    const plan = resolveLocalePublishPlan({
+      runConclusion: 'success',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      jobs: jobs(),
+      provenance: [
+        { file: 'it.json', manifest: receipt('it') },
+        { file: 'en.json', manifest: source },
+        { file: 'de.json', manifest: receipt('de') },
+        { file: 'fr.json', manifest: receipt('fr') },
+      ],
+    });
+    expect(plan.allowed).toBe(true);
+    expect(plan.healthyLocales).toEqual(['it', 'de', 'fr']);
+    expect(plan.tailLocales).toEqual(['en']);
+    expect(plan.staleLocales).toEqual(['en']);
+  });
+
+  it('does not publish around a failed IT leg even when other locales are proven', () => {
+    const plan = resolveLocalePublishPlan({
+      runConclusion: 'failure',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      jobs: jobs({ it: 'failure' }),
+      provenance: manifests('en', 'de', 'fr'),
+    });
+    expect(plan.allowed).toBe(false);
+    expect(plan.mode).toBe('blocked');
+    expect(plan.healthyLocales).toEqual([]);
+    expect(plan.reason).toContain('IT locale is not a successful source job');
+  });
+
+  it('keeps a successful locale stale when its provenance receipt is missing', () => {
+    const plan = resolveLocalePublishPlan({
+      runConclusion: 'failure',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      jobs: jobs({ en: 'failure' }),
+      provenance: manifests('it', 'fr'),
+    });
+    expect(plan.allowed).toBe(false);
+    expect(plan.mode).toBe('blocked');
+    expect(plan.healthyLocales).toEqual([]);
+    expect(plan.staleLocales).toEqual(['it', 'en', 'de', 'fr']);
+    expect(plan.staleReasons.de).toContain('no provenance receipt');
+  });
+
+  it('fails closed when a prerequisite is not successful', () => {
+    const sourceJobs = jobs();
+    sourceJobs.jobs.find((job) => job.name === 'prep')!.conclusion = 'failure';
+    const plan = resolveLocalePublishPlan({
+      runConclusion: 'failure',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      jobs: sourceJobs,
+      provenance: manifests('it', 'en', 'de', 'fr'),
+    });
+    expect(plan.allowed).toBe(false);
+    expect(plan.reason).toContain('prep conclusion is "failure"');
+  });
+
+  it('promotes only a complete post-build receipt into the healthy set', () => {
+    const plan = resolveNonItPublishPlan({
+      sourceHealthyLocales: ['it'],
+      sourceStaleLocales: ['en', 'de', 'fr'],
+      tailLocales: ['en'],
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      expectedBuildId: BUILD_ID,
+      artifactRunId: '36850086639',
+      provenance: [{
+        file: 'en.json',
+        manifest: {
+          ...receipt('en'),
+          sourceRunId: SOURCE_RUN_ID,
+          artifactRunId: '36850086639',
+          artifactName: 'locale-dist-en-36850086639',
+        },
+      }],
+    });
+    // A stale non-IT locale is reported, not a veto (owner rule 2026-10-07):
+    // run 37728960699 skipped Pages for the whole site because GitHub refused
+    // the ticino-de push (one git tree past 50 MiB), which never self-clears.
+    expect(plan.allowed).toBe(true);
+    expect(plan.healthyLocales).toEqual(['it', 'en']);
+    expect(plan.staleLocales).toEqual(['de', 'fr']);
+    expect(plan.staleReasons.de).toBeTruthy();
+    expect(plan.reason).toBe('admitted post-build tail for en; stale fallback for de, fr');
+    expect(plan.readyLocales).toEqual(['en']);
+  });
+
+  it('publishes IT with a stale locale whose post-build receipt was rejected (the ticino-de shape)', () => {
+    const published = (locale: string) => ({
+      file: `${locale}.json`,
+      manifest: {
+        ...receipt(locale),
+        sourceRunId: SOURCE_RUN_ID,
+        artifactRunId: '36850086639',
+        artifactName: `locale-dist-${locale}-36850086639`,
+      },
+    });
+    const plan = resolveNonItPublishPlan({
+      sourceHealthyLocales: ['it'],
+      sourceStaleLocales: ['en', 'de', 'fr'],
+      tailLocales: ['en', 'de', 'fr'],
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      expectedBuildId: BUILD_ID,
+      artifactRunId: '36850086639',
+      provenance: [
+        published('en'),
+        published('fr'),
+        {
+          file: 'de.json',
+          manifest: {
+            ...published('de').manifest,
+            cdnBuildId: '',
+            cdnStatus: 'deferred',
+            artifactName: 'locale-shard-source-de-36850086639',
+            payloadStatus: 'source-ready',
+            publishStatus: 'ready-for-tail',
+            published: false,
+            stale: true,
+            fallback: 'post-build-shard-tail',
+            crossLocaleSkew: 'deferred',
+          },
+        },
+      ],
+    });
+    expect(plan.allowed).toBe(true);
+    expect(plan.healthyLocales).toEqual(['it', 'en', 'fr']);
+    expect(plan.staleLocales).toEqual(['de']);
+    expect(plan.staleReasons.de).toContain('post-build provenance rejected');
+    expect(plan.reason).toBe('admitted post-build tail for en, fr; stale fallback for de');
+  });
+
+  it('NEGATIVE CASE — still blocks when the IT snapshot itself was not admitted', () => {
+    const plan = resolveNonItPublishPlan({
+      sourceHealthyLocales: [],
+      sourceStaleLocales: ['it', 'en', 'de', 'fr'],
+      tailLocales: [],
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      expectedBuildId: BUILD_ID,
+      artifactRunId: '36850086639',
+      provenance: [],
+    });
+    expect(plan.allowed).toBe(false);
+    expect(plan.reason).toContain('incomplete for it');
+  });
+
+  it('NEGATIVE CASE — still blocks on unreadable receipts, which are unknown state rather than stale', () => {
+    const plan = resolveNonItPublishPlan({
+      sourceHealthyLocales: ['it'],
+      sourceStaleLocales: ['en', 'de', 'fr'],
+      tailLocales: ['en'],
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      expectedBuildId: BUILD_ID,
+      artifactRunId: '36850086639',
+      provenance: [],
+      provenanceErrors: ['en.json: invalid JSON'],
+    });
+    expect(plan.allowed).toBe(false);
+    expect(plan.failures).toEqual(['en.json: invalid JSON']);
+  });
+});
+
+describe('locale publish workflow wiring', () => {
+  const root = path.resolve(import.meta.dirname, '..');
+  const deploy = YAML.parse(fs.readFileSync(path.join(root, '.github/workflows/deploy.yml'), 'utf8')) as any;
+  const publish = YAML.parse(fs.readFileSync(path.join(root, '.github/workflows/deploy-publish.yml'), 'utf8')) as any;
+  const localeSteps = deploy.jobs['build-locale'].steps as Array<Record<string, any>>;
+  const provenanceSource = fs.readFileSync(path.join(root, 'scripts/ci/locale-publish-provenance.mjs'), 'utf8');
+
+  it('emits and uploads one receipt per matrix leg after all publish-critical steps', () => {
+    const write = localeSteps.find((step) => step.name === 'Write locale publish provenance');
+    const upload = localeSteps.find((step) => step.name === 'Upload locale publish provenance');
+    const cache = localeSteps.find((step) => step.name === 'Save incremental manifest cache');
+    expect(write?.if).toBe('always()');
+    expect(String(write?.run)).toContain('locale-publish-provenance.mjs');
+    expect(upload?.uses).toBe('actions/upload-artifact@v7');
+    expect(upload?.with?.name).toContain('locale-publish-provenance-');
+    expect(localeSteps.indexOf(write!)).toBeLessThan(localeSteps.indexOf(cache!));
+  });
+
+  it.each(['success', 'failure', 'skipped', 'cancelled'])('admits source artifacts only after a successful pack and upload (pack=%s)', (packOutcome) => {
+    const write = localeSteps.find((step) => step.name === 'Write locale publish provenance');
+    // Evaluate the actual workflow expression: && / || / == and these
+    // nonempty outcome strings have the same semantics in Actions and JS.
+    const expression = String(write?.env.PROVENANCE_SOURCE_ARTIFACT_OUTCOME)
+      .replace(/^\$\{\{\s*|\s*\}\}$/g, '')
+      .replace(/steps\.([\w-]+)\.outcome/g, 'steps["$1"].outcome');
+    const evaluate = new Function('matrix', 'steps', `return (${expression});`);
+    for (const locale of ['en', 'de', 'fr']) {
+      for (const uploadOutcome of ['success', 'failure', 'skipped', 'cancelled']) {
+        const steps = {
+          'pack-locale-source': { outcome: packOutcome },
+          'upload-locale-source': { outcome: uploadOutcome },
+        };
+        const admitted = packOutcome === 'success' && uploadOutcome === 'success';
+        const sourceArtifact = evaluate({ locale }, steps);
+        expect(sourceArtifact).toBe(admitted ? 'success' : 'failure');
+        expect(evaluate({ locale: 'it' }, steps)).toBe('deferred');
+        const source = createLocalePublishProvenance({
+          locale, sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
+          deployBuildId: BUILD_ID, artifactRunId: SOURCE_RUN_ID, distDir: tempDist(),
+          outcomes: { build: 'success', validate: 'success', sourceArtifact },
+        });
+        expect(validateLocaleSourceProvenance(source, {
+          locale, sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
+          expectedBuildId: BUILD_ID, expectedArtifactRunId: SOURCE_RUN_ID,
+        }).valid).toBe(admitted);
+        const plan = resolveLocalePublishPlan({
+          runConclusion: 'success', sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
+          jobs: jobs(), provenance: [
+            { file: 'it.json', manifest: receipt('it') },
+            { file: `${locale}.json`, manifest: source },
+            ...(['en', 'de', 'fr'] as const)
+              .filter((supportingLocale) => supportingLocale !== locale)
+              .map((supportingLocale) => ({
+                file: `${supportingLocale}.json`,
+                manifest: receipt(supportingLocale),
+              })),
+          ],
+        });
+        expect(plan.tailLocales.includes(locale)).toBe(admitted);
+      }
+    }
+  });
+
+  it('routes publish through the plan and keeps missing IT provenance fail-closed', () => {
+    const resolver = publish.jobs['resolve-publish-plan'];
+    const deployJob = publish.jobs.deploy;
+    const validateDist = publish.jobs['validate-dist'];
+    expect(resolver).toBeDefined();
+    expect(resolver.outputs.allowed).toContain('steps.plan.outputs.allowed');
+    expect(resolver.outputs.recovery_required).toContain('steps.plan.outputs.recovery_required');
+    expect(deployJob.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
+    expect(String(deployJob.if)).toContain('outputs.allowed');
+    expect(String(deployJob.if)).toContain("needs.resolve-publish-plan.outputs.it_admitted == 'true'");
+    expect(String(deployJob.if)).toContain("needs.resolve-nonit-publish.outputs.allowed == 'true'");
+    expect(String(deployJob.if)).not.toContain('workflow_run.conclusion');
+    expect(validateDist.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
+    expect(validateDist.with.shard_artifact_run_id).toContain('github.run_id');
+    expect(publish.jobs['resolve-nonit-publish'].needs).toEqual(['resolve-publish-plan', 'publish-nonit-shards']);
+    const recovery = publish.jobs['recover-legacy-publish-contract'];
+    expect(recovery.needs).toBe('resolve-publish-plan');
+    expect(String(recovery.if)).toContain('outputs.recovery_required');
+    expect(recovery.permissions.actions).toBe('write');
+    expect((recovery.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Dispatch a current build')?.run)
+      .toContain('gh workflow run deploy.yml');
+    expect((publish.jobs['resolve-nonit-publish'].steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Checkout current publish resolver')?.with?.ref)
+      .toBe('refs/heads/main');
+    const tailJob = publish.jobs['publish-nonit-shards'];
+    expect(String(tailJob.strategy.matrix.locale)).toContain(
+      'fromJSON(needs.resolve-publish-plan.outputs.tail_locales)',
+    );
+    expect(String(tailJob.if)).not.toContain('matrix.locale');
+    expect(publish.jobs['validate-live'].needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish', 'deploy']);
+    expect(publish.jobs['validate-live'].with.healthy_locales).toContain('resolve-nonit-publish');
+    const recheck = (deployJob.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Enforce IT provenance identity');
+    expect(String(recheck?.run)).toContain('--validate-dir');
+  });
+
+  it('records the deferred tail budget outcome in the final receipt', () => {
+    expect(provenanceSource).toContain('tailBudget: process.env.PROVENANCE_TAIL_BUDGET_OUTCOME');
+  });
+});
+
+describe('locale live smoke observer', () => {
+  it('uses the canonical trailing-slash home for IT and each shard locale', () => {
+    expect(localeHomeUrl('https://frontaliereticino.ch/', 'it')).toBe('https://frontaliereticino.ch/');
+    expect(localeHomeUrl('https://frontaliereticino.ch/', 'en')).toBe('https://frontaliereticino.ch/en/');
+  });
+
+  it('checks healthy publishes and declared stale fallbacks together', async () => {
+    const calls: string[] = [];
+    const requestOptions: Array<{ headers?: Record<string, string>; redirect?: string }> = [];
+    const verdict = await validateLocaleHomes({
+      baseUrl: 'https://example.test',
+      healthyLocales: ['it', 'de'],
+      staleLocales: ['en'],
+      attempts: 1,
+      intervalMs: 0,
+      fetchImpl: async (url, options) => {
+        calls.push(url);
+        requestOptions.push(options);
+        return { status: 200 } as Response;
+      },
+    });
+    expect(verdict.ok).toBe(true);
+    expect(verdict.entries.map((entry) => [entry.locale, entry.classification])).toEqual([
+      ['it', 'healthy-publish'],
+      ['de', 'healthy-publish'],
+      ['en', 'stale-fallback'],
+    ]);
+    expect(calls).toEqual([
+      'https://example.test/',
+      'https://example.test/de/',
+      'https://example.test/en/',
+    ]);
+    expect(requestOptions).toHaveLength(3);
+    expect(requestOptions.every((options) => options.redirect === 'manual')).toBe(true);
+    expect(requestOptions.every((options) => options.headers?.['User-Agent'] === DEFAULT_LIVE_CHECK_USER_AGENT)).toBe(true);
+    expect(requestOptions.every((options) => options.headers?.['cache-control'] === 'no-cache')).toBe(true);
+  });
+});

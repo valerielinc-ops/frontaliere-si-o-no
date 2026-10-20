@@ -45,13 +45,19 @@
  * - VISIONAPARTMENTS_KEY / VISIONAPARTMENTS_COMPANY_NAME /
  *   VISIONAPARTMENTS_COMPANY_DOMAIN
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
-import { collectJobsChVacancyUrls, parseVacancyLinks } from './jobs-ch-company-pages.mjs';
+import {
+  collectJobsChVacancyUrls,
+  fetchJobsChVacancyInOriginalLanguage,
+  parseVacancyLinks,
+} from './jobs-ch-company-pages.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -93,20 +99,7 @@ export { parseVacancyLinks };
 
 export function extractJobPostingJsonLd(html = '') {
   if (!html) return null;
-  const re = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    const raw = m[1].trim();
-    try {
-      const obj = JSON.parse(raw);
-      if (obj && (obj['@type'] === 'JobPosting' || (Array.isArray(obj) && obj.find((o) => o && o['@type'] === 'JobPosting')))) {
-        return Array.isArray(obj) ? obj.find((o) => o && o['@type'] === 'JobPosting') : obj;
-      }
-    } catch {
-      // try next script block
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**
@@ -234,9 +227,18 @@ export async function fetchAllVisionapartmentsJobs({ fetchPage = fetchHtml } = {
   const jobs = [];
   for (const jobUrl of vacancyUrls) {
     let posting = null;
+    // The profile links the `/en/` route, where jobs.ch serves a machine
+    // translation of a German/French vacancy; read the original-language route
+    // instead and publish THAT page as the vacancy URL (its visible body is the
+    // text we publish). The id stays hashed on the profile link so existing
+    // records keep their identity; the merge key is the UUID either way.
+    let sourceUrl = jobUrl;
+    let declaredLang = null;
     try {
-      const detailHtml = await fetchHtml(jobUrl);
-      posting = extractJobPostingJsonLd(detailHtml);
+      const vacancy = await fetchJobsChVacancyInOriginalLanguage(jobUrl, { fetchPage });
+      posting = extractJobPostingJsonLd(vacancy.html);
+      sourceUrl = vacancy.url;
+      declaredLang = vacancy.sourceLang;
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${jobUrl}: ${err?.message || err}`);
     }
@@ -266,12 +268,7 @@ export async function fetchAllVisionapartmentsJobs({ fetchPage = fetchHtml } = {
     const workHours = posting.workHours || '';
     const employmentType = detectEmploymentType(title, workHours);
 
-    const postedDate = (() => {
-      const raw = posting.datePosted;
-      if (!raw) return new Date().toISOString().slice(0, 10);
-      const d = new Date(raw);
-      return Number.isNaN(d.getTime()) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
-    })();
+
 
     let validThrough;
     if (posting.validThrough) {
@@ -279,7 +276,7 @@ export async function fetchAllVisionapartmentsJobs({ fetchPage = fetchHtml } = {
       if (!Number.isNaN(vd.getTime())) validThrough = vd.toISOString().slice(0, 10);
     }
 
-    const sourceLang = detectLang(`${title} ${description}`, 'de');
+    const sourceLang = declaredLang || detectLang(`${title} ${description}`, 'de');
 
     const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} ${VISIONAPARTMENTS_KEY} ${city}`);
@@ -298,7 +295,7 @@ export async function fetchAllVisionapartmentsJobs({ fetchPage = fetchHtml } = {
       needsRetranslation: true,
       location: city,
       canton,
-      url: jobUrl,
+      url: sourceUrl,
       source: 'VISIONAPARTMENTS Dedicated Parser (jobs.ch)',
       sourceLang,
       crawledAt: new Date().toISOString(),
@@ -316,9 +313,9 @@ export async function fetchAllVisionapartmentsJobs({ fetchPage = fetchHtml } = {
       sector: 'Immobiliare / Ospitalità',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(posting?.datePosted),
       ...(validThrough ? { validThrough } : {}),
-      applyUrl: jobUrl,
+      applyUrl: sourceUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     });

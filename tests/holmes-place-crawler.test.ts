@@ -8,11 +8,21 @@ import {
   resolveAddress,
   resolveCantonFallback,
   normalizeHolmesPlaceListing,
-  buildDescription,
   detectCategory,
   detectEmploymentType,
+  __testables,
 } from '../scripts/lib/holmes-place-job-parser.mjs';
 import { stripContactPII } from '../scripts/lib/strip-contact-pii.mjs';
+
+const SOURCE_DESCRIPTION = `
+  <p>Als Personal Trainer begleitest du unsere Mitglieder mit fundierten Trainingsplänen,
+  motivierenden Gesprächen und einer aufmerksamen Betreuung auf der Trainingsfläche.</p>
+  <p>Du führst Einführungstrainings durch, dokumentierst Fortschritte und arbeitest eng
+  mit dem Clubteam zusammen, damit jedes Mitglied seine persönlichen Ziele sicher erreicht.</p>
+  <p>Wir suchen eine qualifizierte, serviceorientierte Persönlichkeit mit Freude an Bewegung,
+  zuverlässiger Arbeitsweise und Bereitschaft für flexible Einsätze. Dich erwarten ein
+  modernes Arbeitsumfeld, interne Weiterbildung und attraktive Trainingsmöglichkeiten.</p>
+`;
 
 describe('Holmes Place crawler parser', () => {
   // ── Constants ──
@@ -205,25 +215,174 @@ describe('Holmes Place crawler parser', () => {
     });
   });
 
-  // ── buildDescription (safe-default description, no per-job detail page) ──
-  describe('buildDescription', () => {
-    it('builds a description referencing the resolved city when a branch/city is known', () => {
-      const description = buildDescription({ title: 'Personal Trainer', location: 'Lausanne', category: 'Fitness' });
-      expect(description).toContain('Personal Trainer');
-      expect(description).toContain('Holmes Place');
-      expect(description).toContain('Lausanne');
-      expect(description).toContain('Fitness');
+  describe('rendered career markup extraction', () => {
+    it('extracts card headings and detail URLs instead of CTA labels', () => {
+      const html = `
+        <section class="career-list">
+          <article class="career-card">
+            <div class="location">Lausanne</div>
+            <h2>Personal Trainer (m/f/d)</h2>
+            <a href="/jobs/personal-trainer-m-f-d">Mehr erfahren</a>
+            <a href="/jobs/personal-trainer-m-f-d">sich bewerben</a>
+          </article>
+          <a href="/karriere/#apply">sich bewerben</a>
+        </section>`;
+
+      const listings = __testables.extractHolmesPlaceListingsFromHtml(html);
+
+      expect(listings).toEqual([
+        {
+          title: 'Personal Trainer (m/f/d)',
+          location: 'Lausanne',
+          category: '',
+          url: 'https://www.holmesplace.ch/jobs/personal-trainer-m-f-d/',
+        },
+      ]);
     });
 
-    it('is at least a few sentences long (avoids thin-content indexation, Non-Negotiable #4)', () => {
-      const description = buildDescription({ title: 'Club Manager', location: 'Genève', category: 'Management' });
-      expect(description.split(/\s+/).length).toBeGreaterThan(20);
+    it('reads the current CareerTable row shape and deduplicates repeated table/card probes', () => {
+      const html = `
+        <table class="c-careerTable">
+          <thead><tr><th>Berufsbezeichnung</th><th>Standort</th><th>Club</th></tr></thead>
+          <tbody>
+            <tr class="c-careerTable__row">
+              <td><a href="/jobs/fitness-manager-m-f-d">Fitness Manager (m/f/d)</a></td>
+              <td>Geneva</td>
+              <td>Holmes Place Geneva</td>
+            </tr>
+          </tbody>
+        </table>`;
+
+      const listings = __testables.extractHolmesPlaceListingsFromHtml(html);
+
+      expect(listings).toHaveLength(1);
+      expect(listings[0]).toMatchObject({
+        title: 'Fitness Manager (m/f/d)',
+        location: 'Geneva',
+        url: 'https://www.holmesplace.ch/jobs/fitness-manager-m-f-d/',
+      });
+      expect(__testables.hasHolmesPlaceCareerMarkup(html)).toBe(true);
     });
 
-    it('still produces a sane description when location/category are missing', () => {
-      const description = buildDescription({ title: 'Reception', location: '', category: '' });
-      expect(description).toContain('Reception');
-      expect(description).toContain('Holmes Place');
+    it('does not turn a standalone application CTA into a job', () => {
+      expect(
+        __testables.extractHolmesPlaceListingsFromHtml(
+          '<a href="/jobs/apply-now">sich bewerben</a>',
+        ),
+      ).toEqual([]);
+    });
+
+    it('ignores unrelated tables without a CareerTable marker', () => {
+      expect(
+        __testables.extractHolmesPlaceListingsFromHtml(
+          '<table><tr><td>Club Membership</td><td>CHF 100</td></tr></table>',
+        ),
+      ).toHaveLength(0);
+    });
+
+    it('keeps URL identity distinct when a table row has no detail link', () => {
+      const listings = __testables.extractHolmesPlaceListingsFromHtml(`
+        <table class="c-careerTable">
+          <tbody>
+            <tr><td>Club Manager</td><td>Lausanne</td></tr>
+            <tr><td>Club Manager</td><td>Geneva</td></tr>
+          </tbody>
+        </table>`);
+
+      expect(listings).toHaveLength(2);
+      expect(listings[0].url).not.toBe(listings[1].url);
+    });
+
+    it('derives generated slugs from stable detail URLs', () => {
+      const first = __testables.buildHolmesPlaceJobSlug(
+        'Personal Trainer',
+        'Lausanne',
+        'https://www.holmesplace.ch/jobs/a/',
+      );
+      const second = __testables.buildHolmesPlaceJobSlug(
+        'Personal Trainer',
+        'Lausanne',
+        'https://www.holmesplace.ch/jobs/b/',
+      );
+
+      expect(first).not.toBe(second);
+      expect({ de: first }).not.toEqual({ de: second });
+    });
+  });
+
+  describe('source-backed career-page extraction', () => {
+    it('combines the authored card summary and career context instead of fabricating copy', () => {
+      const listings = __testables.extractHolmesPlaceListingsFromHtml(`
+        <section class="section-two-text-wrapper">
+          <p>Holmes Place bietet Personal Trainern, Verkaufsteams und Clubmitarbeitenden
+          eine langfristige Karriere in einem internationalen Fitness- und Wellness-Team.
+          Als Teil unseres Teams profitierst du von internen Weiterbildungen, modernen
+          Trainingsbereichen, attraktiven Clubleistungen und einer Community, die Menschen
+          bei ihren Gesundheitszielen unterstützt. Bewerbungen werden ausschließlich über
+          unser Online-Tool berücksichtigt, damit das Recruiting-Team jede Kandidatur
+          zuverlässig prüfen und dem passenden Schweizer Club zuordnen kann.</p>
+        </section>
+        <article class="jobcard">
+          <div class="location">Lausanne</div>
+          <h2>Personal Trainer (m/w/d)</h2>
+          ${SOURCE_DESCRIPTION}
+          <a href="/jobs/personal-trainer-m-f-d">Mehr erfahren</a>
+        </article>
+      `);
+
+      expect(listings).toHaveLength(1);
+      expect(listings[0]).toMatchObject({
+        title: 'Personal Trainer (m/w/d)',
+        location: 'Lausanne',
+      });
+      expect(listings[0].description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+      expect(listings[0].description).toContain('Als Personal Trainer begleitest du');
+      expect(listings[0].description).toContain('Bewerbungen werden ausschließlich');
+    });
+  });
+
+  describe('source-backed detail-page extraction', () => {
+    it('extracts the vacancy body while removing page chrome and application UI', () => {
+      const description = __testables.extractHolmesPlaceDetailDescriptionFromHtml(`
+        <header>Holmes Place navigation with unrelated marketing copy.</header>
+        <main class="job-detail">
+          <h1>Personal Trainer (m/w/d)</h1>
+          <div class="job-detail__description">${SOURCE_DESCRIPTION}</div>
+          <aside class="related-jobs">Other open roles and club links.</aside>
+          <form class="job-application"><button>Jetzt bewerben</button></form>
+        </main>
+        <footer>Cookie settings and legal links.</footer>
+      `);
+
+      expect(description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+      expect(description).toContain('Als Personal Trainer begleitest du');
+      expect(description).not.toContain('Jetzt bewerben');
+      expect(description).not.toContain('Other open roles');
+    });
+
+    it('rejects a detail page that has no source body of 50 words', () => {
+      expect(
+        __testables.extractHolmesPlaceDetailDescriptionFromHtml(
+          '<main class="job-detail"><h1>Club Manager</h1><p>Nur wenige Wörter.</p></main>',
+        ),
+      ).toBe('');
+    });
+
+    it('rejects generic page chrome when no vacancy-scoped container or JobPosting exists', () => {
+      const chrome = Array.from(
+        { length: 60 },
+        (_, index) => `Careers navigation and company information ${index + 1}`,
+      ).join(' ');
+
+      expect(
+        __testables.extractHolmesPlaceDetailDescriptionFromHtml(`
+          <main>
+            <h1>Club Manager</h1>
+            <p>Nur wenige Wörter.</p>
+            <p>${chrome}</p>
+          </main>
+        `),
+      ).toBe('');
     });
   });
 
@@ -274,25 +433,23 @@ describe('Holmes Place crawler parser', () => {
   // ── PII stripping (gym-branch manager contact leakage, shared helper reuse) ──
   describe('stripContactPII applied to a Holmes Place description', () => {
     it('strips a branch manager name + direct phone in a German-language description', () => {
-      const withLeak =
-        `${buildDescription({ title: 'Empfang', location: 'Genève', category: 'Club Admin' })} ` +
-        `Bei Fragen wende dich an Max Mustermann (Tel. 044 123 45 67).`;
+      const withLeak = `${SOURCE_DESCRIPTION} Bei Fragen wende dich an Max Mustermann (Tel. 044 123 45 67).`;
       const cleaned = stripContactPII(withLeak);
       expect(cleaned).not.toContain('Max Mustermann');
       expect(cleaned).not.toContain('044 123 45 67');
       // The rest of the description survives intact.
-      expect(cleaned).toContain('Empfang');
-      expect(cleaned).toContain('Genève');
+      expect(cleaned).toContain('Personal Trainer');
+      expect(cleaned).toContain('Trainingsplänen');
     });
 
     it('strips a bare standalone Swiss phone number even without a captured name', () => {
-      const withLeak = `${buildDescription({ title: 'Club Manager', location: 'Lausanne', category: 'Management' })} Telefon: 021 123 45 67.`;
+      const withLeak = `${SOURCE_DESCRIPTION} Telefon: 021 123 45 67.`;
       const cleaned = stripContactPII(withLeak);
       expect(cleaned).not.toContain('021 123 45 67');
     });
 
     it('is idempotent and a no-op when there is nothing to strip', () => {
-      const description = buildDescription({ title: 'Personal Trainer', location: 'Oberrieden', category: 'Fitness' });
+      const description = SOURCE_DESCRIPTION;
       const once = stripContactPII(description);
       const twice = stripContactPII(once);
       expect(once).toBe(description);

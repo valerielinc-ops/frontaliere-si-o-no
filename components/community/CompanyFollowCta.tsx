@@ -39,10 +39,13 @@ import { BellRing, Loader2, X } from 'lucide-react';
 import { useTranslation, type Locale } from '@/services/i18n';
 import { getAuthEmail, useAuth } from '@/services/authService';
 import { Analytics } from '@/services/analytics';
-import { companyAlertKey, findCompanyAlert } from '@/services/jobAlertService';
+import { companyAlertKey, type findCompanyAlert } from '@/services/jobAlertService';
 import { invalidateUserAlertsCache } from '@/services/userAlertsCache';
+import { findCompanyAlertCached } from '@/services/userAlertsCache';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
-import { POPUP_PRIORITY } from '@/services/popupQueue';
+import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
+import { canShowJobAlertPrompt, markJobAlertPromptShown, dismissJobAlertPrompt } from '@/services/jobAlertPromptPolicy';
+import { POPUP_PRIORITY, canShowPromotionalPrompt } from '@/services/popupQueue';
 import CompanyFollowButton from './CompanyFollowButton';
 import CompanyFollowPlaceholder from './CompanyFollowPlaceholder';
 
@@ -85,13 +88,9 @@ export interface CompanyFollowCtaProps {
    * "Is this employer already followed?", answered by the CALLER.
    *
    * `CompanyFollowButton` resolves its initial follow/unfollow state by calling
-   * `findCompanyAlert`, which runs `getUserAlerts` — an uncached collectionGroup
-   * query, one per mounted button. That is right for the six surfaces that know
-   * nothing about the visitor's alerts, and redundant for a caller that just
-   * read the whole list and derived what to render FROM it: the suggestions on
-   * /aziende-seguite/ are, by construction, the employers that list says are
-   * not followed. Five buttons there would otherwise re-ask Firestore five
-   * times for a list already sitting in the page's state.
+   * `findCompanyAlertCached`, sharing the page's `getUserAlerts` read. Callers
+   * that already own the list can answer directly: /aziende-seguite/ derives
+   * its suggestions from employers that list says are not followed.
    *
    * Pass a STABLE function reference. It reaches the button's `lookup` prop,
    * which is in its effect's dependency array, so a fresh closure on every
@@ -128,9 +127,8 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
       // A reserving fallback, not `null`. Nothing under this boundary suspends
       // today — `CompanyFollowButton` is a plain import — so this is the
       // defensive half: the reservation that actually fires is the button's own
-      // `loading` return (the findCompanyAlert round trip) plus the Suspense
-      // JobBoard puts around the `lazyRetry` import of THIS component. Kept
-      // consistent so the three boundaries cannot disagree about what an
+      // `loading` return (the shared alerts round trip). Kept
+      // consistent so the boundaries cannot disagree about what an
       // unresolved follow CTA looks like — which matters now that it renders in
       // the job-detail header, above the fold, where an unreserved insertion
       // shoves the whole article down.
@@ -147,8 +145,7 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
           sourceJobUrl={sourceJobUrl}
           sourceJobTitle={sourceJobTitle}
           // `undefined` falls through to the button's own default
-          // (`findCompanyAlert`), so the six surfaces that pass nothing keep
-          // querying exactly as before.
+          // (`findCompanyAlertCached`), sharing the page/popup eligibility read.
           lookup={lookupAlert}
           onSubscribed={() => {
             Analytics.trackJobAlertCtaClick(surface, 'success', String(company));
@@ -183,8 +180,6 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
 export default CompanyFollowCta;
 
 const COMPANY_FOLLOW_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
-const COMPANY_FOLLOW_AUTO_OPEN_DELAY_MS = 900;
-const COMPANY_FOLLOW_LOOKUP_SLOW_MS = 1200;
 const COMPANY_FOLLOW_COOLDOWN_PREFIX = 'company_follow_prompt_dismissed:';
 const COMPANY_FOLLOW_TITLE_ID = 'company-follow-prompt-title';
 
@@ -259,7 +254,7 @@ export const CompanyFollowPopup: React.FC<CompanyFollowPopupProps> = ({
   userId,
   email,
   authLoading,
-  lookupAlert = findCompanyAlert,
+  lookupAlert = findCompanyAlertCached,
   onShown,
 }) => {
   const { user, loading: hookAuthLoading } = useAuth();
@@ -275,6 +270,7 @@ export const CompanyFollowPopup: React.FC<CompanyFollowPopupProps> = ({
     () => companyFollowCooldownKey(String(company || ''), companyKey),
     [company, companyKey],
   );
+  const readingIntent = useJobReadingIntent(followKey);
   const slotId = `company-follow-prompt:${followKey}`;
   const signedIn = Boolean(uid && mail);
   const [eligibility, setEligibility] = useState<CompanyFollowPopupEligibility>('auth-loading');
@@ -282,12 +278,20 @@ export const CompanyFollowPopup: React.FC<CompanyFollowPopupProps> = ({
   const [actionError, setActionError] = useState(false);
   const autoOpenedRef = useRef(false);
 
+  useEffect(() => {
+    const onOtherPrompt = (event: Event) => {
+      if ((event as CustomEvent).detail !== slotId) setOpen(false);
+    };
+    window.addEventListener('ft-job-alert-prompt-shown', onOtherPrompt);
+    return () => window.removeEventListener('ft-job-alert-prompt-shown', onOtherPrompt);
+  }, [slotId]);
+
   const openIfEligible = useCallback(() => {
-    if (!followKey || autoOpenedRef.current || hasCompanyFollowCooldown(cooldownKey)) return;
+    if (!followKey || !readingIntent || autoOpenedRef.current || hasCompanyFollowCooldown(cooldownKey) || !canShowJobAlertPrompt() || !canShowPromotionalPrompt()) return;
     autoOpenedRef.current = true;
     setActionError(false);
     setOpen(true);
-  }, [cooldownKey, followKey]);
+  }, [cooldownKey, followKey, readingIntent]);
 
   // A company route can change in-place on a JobBoard SPA navigation. Reset the
   // popup state for the new company, but keep a company-level dismissal cooldown.
@@ -306,29 +310,16 @@ export const CompanyFollowPopup: React.FC<CompanyFollowPopupProps> = ({
       return () => { cancelled = true; };
     }
 
-    const showAfter = (delayMs: number) => {
-      const timer = window.setTimeout(() => {
-        if (!cancelled) openIfEligible();
-      }, delayMs);
-      return () => window.clearTimeout(timer);
-    };
-
     if (!signedIn) {
       setEligibility('eligible');
-      return showAfter(COMPANY_FOLLOW_AUTO_OPEN_DELAY_MS);
+      openIfEligible();
+      return () => { cancelled = true; };
     }
 
     setEligibility('lookup');
-    let slowTimer: number | null = window.setTimeout(() => {
-      slowTimer = null;
-      if (!cancelled) openIfEligible();
-    }, COMPANY_FOLLOW_LOOKUP_SLOW_MS);
-
     lookupAlert(uid as string, { name: String(company), companyKey })
       .then((existing) => {
         if (cancelled) return;
-        if (slowTimer !== null) window.clearTimeout(slowTimer);
-        slowTimer = null;
         if (existing) {
           setEligibility('following');
           setOpen(false);
@@ -339,22 +330,19 @@ export const CompanyFollowPopup: React.FC<CompanyFollowPopupProps> = ({
       })
       .catch(() => {
         if (cancelled) return;
-        if (slowTimer !== null) window.clearTimeout(slowTimer);
-        slowTimer = null;
-        // Fail closed for subscription eligibility, but make the failure
-        // visible once so a lookup outage cannot silently look like an opt-out.
+        // A failed lookup must not interrupt the reader with a promotion.
         setEligibility('error');
-        openIfEligible();
+        setOpen(false);
       });
 
     return () => {
       cancelled = true;
-      if (slowTimer !== null) window.clearTimeout(slowTimer);
     };
   }, [company, companyKey, effectiveAuthLoading, followKey, lookupAlert, openIfEligible, signedIn, uid]);
 
   const closeWithCooldown = useCallback(() => {
     saveCompanyFollowCooldown(cooldownKey);
+    dismissJobAlertPrompt();
     setOpen(false);
     Analytics.trackJobAlertCtaClick(surface, 'dismiss', String(company));
   }, [company, cooldownKey, surface]);
@@ -380,9 +368,10 @@ export const CompanyFollowPopup: React.FC<CompanyFollowPopupProps> = ({
   const handleShown = useCallback(() => {
     // BottomPromptShell calls this only after this slot wins and renders. A
     // queued request therefore cannot create an impression.
+    markJobAlertPromptShown(slotId);
     Analytics.trackJobAlertCtaShown('company_follow_button', String(company));
     onShown?.();
-  }, [company, onShown]);
+  }, [company, onShown, slotId]);
 
   if (!company || !followKey || !open || eligibility === 'following') return null;
 

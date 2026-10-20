@@ -1,8 +1,9 @@
 # Cloudflare zone rules — `frontaliereticino.ch` (zone `435c32ec15993fe826d2bb5eb62d3d43`)
 
 Tracking doc for zone-level Cloudflare **Cache Rules** / **Response Header
-Transform Rules** that are applied directly via the Cloudflare API (not
-declared in a repo script, unlike `scripts/cf-locale-failover-setup.mjs`).
+Transform Rules** that are applied directly via the Cloudflare API. The CDN
+cache/header rules below remain foreign rules documented here; the apex security
+rule is managed idempotently by `scripts/cf-locale-failover-setup.mjs`.
 Added for issue #3216 item 3: two `cdn.frontaliereticino.ch/assets/early-boot.js`
 rules existed live with no in-repo record. While auditing them, a third
 rule in the same response-headers ruleset (`cdn-assets-revalidate`) was found
@@ -140,6 +141,30 @@ purpose/rollback. Rule 3 is the subject of this doc:
 - **Rollback:** managed by `scripts/cf-locale-failover-setup.mjs` — re-run that
   script to restore, do not hand-edit.
 
+## Ruleset `http_request_firewall_custom` — managed rules
+
+### `locale-bot-throttle-noindex-scrapers` (managed by `scripts/cf-locale-failover-setup.mjs`)
+
+- **Expression:** the managed block is the OR of the crawler-bot condition on
+  `frontaliereticino.ch` and `(http.host eq "cdn.frontaliereticino.ch" and
+  starts_with(http.request.uri.path, "/assets/") and
+  ends_with(http.request.uri.path, ".map"))`.
+- **Action:** block
+- **Purpose:** production builds no longer emit public Vite source maps, but
+  the R2 asset sync is additive and an older `.map` object can remain until
+  the owner-gated janitor removes it. Keeping the CDN path in this existing
+  block closes the source disclosure immediately without adding a sixth rule
+  to a zone whose five-rule limit already includes two foreign rules. Normal
+  JavaScript/CSS delivery is untouched.
+- **Observability trade-off:** the normal public build leaves PostHog browser
+  error stacks minified because its source maps are deliberately not uploaded
+  to the CDN. If private symbolication is required, create a short-lived
+  `PUBLIC_SOURCEMAPS=1` artifact for the symbolication workflow and keep its
+  maps out of the public R2 sync.
+- **Rollback:** revert the combined expression in
+  `MANAGED_FIREWALL_RULES` and rerun the setup script. A map object can then be
+  removed separately through the owner-gated CDN janitor.
+
 ## Ruleset `ea906d4f1c7d46f099ad16c15864896b` — phase `http_response_headers_transform`
 
 ### `cdn-assets-revalidate` (pre-existing, undocumented before this doc)
@@ -194,6 +219,31 @@ purpose/rollback. Rule 3 is the subject of this doc:
   Effect of rollback: `early-boot.js` falls back to the `cdn-assets-revalidate`
   10-minute browser cache — reopens (a smaller version of) the same
   stale-self-heal-script window the edge-bypass rule closes.
+
+### `apex-security-headers` (managed by `scripts/cf-locale-failover-setup.mjs`)
+
+- **Rule id:** `7fa697e157b54c11bb179ad8c8086b94` (the existing live rule is
+  migrated in place; Cloudflare may issue a new id if the ruleset is recreated)
+- **Expression:** `(http.host eq "frontaliereticino.ch")`
+- **Action:** rewrite response headers:
+  - `Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; img-src 'self' data: blob: https:; connect-src 'self' https: wss:; frame-src 'self' https:; worker-src 'self' blob:; manifest-src 'self'; form-action 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests`
+  - `Referrer-Policy: strict-origin-when-cross-origin`
+  - `Strict-Transport-Security: max-age=31536000`
+  - `X-Content-Type-Options: nosniff`
+  - `X-Frame-Options: SAMEORIGIN`
+- **Purpose:** closes the live missing-CSP, missing-clickjacking-protection,
+  and short-HSTS findings while preserving the site's first-party, consent,
+  analytics, advertising, and CDN integrations. The scheme source is
+  intentional: Partnerize selects a rotating hostname at runtime and the site
+  has multiple user-triggered API integrations. A stricter host list requires a
+  browser inventory plus a nonce/hash migration for existing inline scripts.
+- **Migration:** the script recognizes the previous description ending in
+  `CSP/XFO deliberately excluded pending AdSense validation` and replaces it
+  in place while preserving every unrelated response-header rule.
+- **Rollback:** run the previous version of
+  `scripts/cf-locale-failover-setup.mjs`, or restore this rule's previous header
+  values through the same read-modify-write path. Do not delete the whole
+  response-header ruleset: it also owns the CDN cache-header rules above.
 
 ## Why these three matter together
 

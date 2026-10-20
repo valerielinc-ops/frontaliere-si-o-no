@@ -99,11 +99,31 @@
  *   ALARM_RUN_CONCLUSION conclusion della run osservata
  *   ALARM_REPO           owner/name (default: GITHUB_REPOSITORY)
  *   ALARM_DESCRIPTION_FILE  dove scrivere il body (default: alarm-description.md)
+ *   ALARM_OBSERVER       `external` (default) oppure `in-run`
+ *
+ * ─── La seconda rete: lo stesso script DENTRO la run osservata ───────────
+ *
+ * `workflow_run` ha un buco che nessun osservatore esterno può chiudere: GitHub
+ * non emette l'evento di completamento per una run avviata con il
+ * `GITHUB_TOKEN` (actor `github-actions[bot]`), per la sua regola
+ * anti-ricorsione. La run 36065965021 del 2026-09-24, dispatchata dal job
+ * `rearm` col token interno perché quello dell'App non era disponibile, è
+ * fallita nel leg IT e questo osservatore non è mai partito. Per quelle run il
+ * job `in-run-alarm` del workflow di deploy chiama QUESTO script con
+ * `ALARM_OBSERVER=in-run` e la conclusion `failure` già provata dal suo `if:`,
+ * e apre lo STESSO titolo: una run è vista da uno solo dei due osservatori, e
+ * se capitasse da entrambi il dedup sul titolo li collassa sulla stessa issue.
+ *
+ * Due differenze, e solo due: il body dice da dove arriva l'allarme, e la run
+ * osservata è ancora `in_progress` quando lo script la legge, quindi la streak
+ * la conta con la conclusion passata invece di saltarla
+ * (`consecutiveFailureStreak`, opzione `observedConclusion`).
  */
 
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { redactWorkflowPaths } from './report-validate-dist-failure.mjs';
+import { createdSinceFilter } from './lib/run-listing-window.mjs';
 
 /** Conclusioni che sono un guasto del workflow osservato. */
 export const FAILING_CONCLUSIONS = new Set(['failure', 'timed_out', 'startup_failure']);
@@ -182,23 +202,37 @@ export function firstFailure(payload) {
  * che dicesse «29» senza dire «almeno» farebbe sembrare il guasto più corto
  * di quanto è.
  *
+ * `observedConclusion` serve all'osservatore INTERNO (`ALARM_OBSERVER=in-run`):
+ * lì la run ancorata è quella che sta girando, quindi è ancora `in_progress` e
+ * la regola «le run non completate si saltano» la toglierebbe dal conteggio,
+ * sottostimando la serie di uno. Quando la run ancorata non è completata le si
+ * attribuisce la conclusion passata; le ALTRE run non completate restano
+ * saltate, e una run ancorata già completata tiene la sua conclusion vera.
+ *
  * @param {Array<{databaseId?: number, status?: string, conclusion?: string|null}>} runs newest-first
- * @param {{ fromRunId?: string|number|null }} [opts]
+ * @param {{ fromRunId?: string|number|null, observedConclusion?: string|null }} [opts]
  * @returns {{ streak: number, saturated: boolean }}
  */
 export function consecutiveFailureStreak(runs, opts = {}) {
   if (!Array.isArray(runs)) return { streak: 0, saturated: false };
   let window = runs;
   const from = opts?.fromRunId == null ? null : String(opts.fromRunId);
+  let anchored = false;
   if (from) {
     const at = runs.findIndex((r) => String(r?.databaseId ?? '') === from);
-    if (at >= 0) window = runs.slice(at);
+    if (at >= 0) {
+      window = runs.slice(at);
+      anchored = true;
+    }
   }
+  const observed = String(opts?.observedConclusion ?? '').toLowerCase();
   let streak = 0;
   let sawGreen = false;
-  for (const r of window) {
-    if (String(r?.status ?? 'completed') !== 'completed') continue;
-    const c = String(r?.conclusion ?? '').toLowerCase();
+  for (const [i, r] of window.entries()) {
+    const completed = String(r?.status ?? 'completed') === 'completed';
+    const isRunningAnchor = anchored && i === 0 && !completed && observed !== '';
+    if (!completed && !isRunningAnchor) continue;
+    const c = isRunningAnchor ? observed : String(r?.conclusion ?? '').toLowerCase();
     if (TRANSPARENT_CONCLUSIONS.has(c) || c === '') continue;
     if (FAILING_CONCLUSIONS.has(c)) {
       streak++;
@@ -229,7 +263,9 @@ export function buildAlarmDescription({
   failure,
   streak,
   streakSaturated,
+  observer = 'external',
 }) {
+  const inRun = observer === 'in-run';
   const where = failure
     ? (failure.step
       ? `job \`${failure.job}\`, step ${failure.stepNumber ?? '?'} \`${failure.step}\``
@@ -240,11 +276,37 @@ export function buildAlarmDescription({
     ? `**almeno ${streak}** (la serie copre tutto lo storico letto senza un solo verde: potrebbe essere più lunga)`
     : `**${streak}**`;
 
+  // L'osservatore interno esiste per UN caso solo, e il body lo dice: chi legge
+  // deve sapere che per questa run l'osservatore esterno non partirà mai.
+  const intro = inRun
+    ? [
+      `Il workflow **${workflowName}** è rosso su \`main\` in una run avviata dal`,
+      'token interno di GitHub Actions (`github-actions[bot]`). Per queste run',
+      'GitHub non emette l\'evento di completamento che l\'osservatore esterno',
+      'ascolta, quindi questo allarme arriva dal job di allarme interno della run',
+      'stessa, che parte dopo i job del deploy anche quando sono falliti.',
+    ]
+    : [
+      `Il workflow **${workflowName}** è rosso su \`main\` e nessuno step del suo`,
+      'stesso run può segnalarlo: quando il guasto è a monte del build, i job a',
+      'valle risultano `skipped` e i loro reporter `if: failure()` non vengono mai',
+      'valutati. Questo allarme arriva da un osservatore esterno.',
+    ];
+  const closing = inRun
+    ? [
+      'Automatica, senza intervento: questa issue si chiude da sola al primo run',
+      `di **${workflowName}** con esito \`success\` — dall'osservatore esterno in`,
+      'pochi secondi se quella run ne emette l\'evento, e comunque dal reconciler',
+      'orario, che legge lo storico delle run senza dipendere da quell\'evento.',
+    ]
+    : [
+      'Automatica, senza intervento: questa issue si chiude da sola al primo run',
+      `di **${workflowName}** con esito \`success\` — dall'osservatore stesso in`,
+      'pochi secondi, e comunque dal reconciler orario come seconda rete.',
+    ];
+
   const lines = [
-    `Il workflow **${workflowName}** è rosso su \`main\` e nessuno step del suo`,
-    'stesso run può segnalarlo: quando il guasto è a monte del build, i job a',
-    'valle risultano `skipped` e i loro reporter `if: failure()` non vengono mai',
-    'valutati. Questo allarme arriva da un osservatore esterno.',
+    ...intro,
     '',
     '## Dove',
     '',
@@ -267,9 +329,7 @@ export function buildAlarmDescription({
     '',
     '## Chiusura',
     '',
-    'Automatica, senza intervento: questa issue si chiude da sola al primo run',
-    `di **${workflowName}** con esito \`success\` — dall'osservatore stesso in`,
-    'pochi secondi, e comunque dal reconciler orario come seconda rete.',
+    ...closing,
   ];
   return redactWorkflowPaths(lines.join('\n'));
 }
@@ -289,6 +349,53 @@ function gh(args, { allowFailure = true } = {}) {
 /** Quante run di storico leggiamo per la streak. Una pagina piena di `gh run list`. */
 export const RUN_HISTORY_LIMIT = 100;
 
+/**
+ * Finestra `created` dello storico. Un elenco per `-b main` senza finestra
+ * torna a tratti fermo a settimane prima (scripts/ci/lib/run-listing-window.mjs)
+ * e falserebbe la serie. 35 giorni e' la vita massima di una run: la finestra
+ * non toglie nulla a una serie in corso; se taglia lo storico prima di un
+ * verde, `saturated` lo dichiara («almeno N»).
+ */
+export const RUN_HISTORY_WINDOW_DAYS = 35;
+
+/**
+ * Conclusion populations that can decide this alarm. Splitting them server-side keeps
+ * queue cancellations from consuming the only page; `cancelled` remains transparent by
+ * construction in `consecutiveFailureStreak` and is not queried here.
+ */
+export const RUN_HISTORY_STATUS_FILTERS = Object.freeze([
+  'success',
+  'failure',
+  'timed_out',
+  'startup_failure',
+]);
+
+/** Pure argument builder for one server-filtered history population. */
+export function buildRunHistoryArgs(workflowName, status, nowMs = Date.now()) {
+  return [
+    'run', 'list', '-w', workflowName, '-b', 'main',
+    '--created', createdSinceFilter(RUN_HISTORY_WINDOW_DAYS, nowMs),
+    '--status', status,
+    '-L', String(RUN_HISTORY_LIMIT),
+    '--json', 'databaseId,status,conclusion,createdAt',
+  ];
+}
+
+/** Merge server-filtered pages without changing the streak's newest-first contract. */
+export function mergeRunHistoryRuns(results) {
+  if (!Array.isArray(results) || results.length === 0 || results.some((runs) => !Array.isArray(runs))) return [];
+  const byId = new Map();
+  results.flat().forEach((run) => {
+    const key = run?.databaseId == null
+      ? `${run?.createdAt ?? ''}\n${run?.conclusion ?? ''}`
+      : String(run.databaseId);
+    if (!byId.has(key)) byId.set(key, run);
+  });
+  return [...byId.values()].sort((a, b) => (
+    Date.parse(b?.createdAt ?? '') - Date.parse(a?.createdAt ?? '')
+  ));
+}
+
 function main() {
   const argv = process.argv.slice(2);
   const modeIdx = argv.indexOf('--mode');
@@ -307,6 +414,9 @@ function main() {
   let conclusion = process.env.ALARM_RUN_CONCLUSION || '';
   const outFile = process.env.ALARM_DESCRIPTION_FILE || 'alarm-description.md';
   const repoForFetch = process.env.ALARM_REPO || process.env.GITHUB_REPOSITORY || '';
+  // Qualunque valore diverso da `in-run` è l'osservatore esterno: è il default
+  // storico, e un refuso nel workflow non deve cambiare il testo dell'allarme.
+  const observer = process.env.ALARM_OBSERVER === 'in-run' ? 'in-run' : 'external';
 
   // `workflow_dispatch` non porta `github.event.workflow_run`: la conclusion va
   // letta dalla run indicata. È il modo in cui questo osservatore si verifica a
@@ -333,7 +443,7 @@ function main() {
   }
 
   const verdict = mode === 'resolve' ? 'resolve' : alarmVerdict({ conclusion });
-  console.log(`[deploy-alarm] workflow="${workflowName}" conclusion="${conclusion}" → ${verdict}`);
+  console.log(`[deploy-alarm] workflow="${workflowName}" conclusion="${conclusion}" observer=${observer} → ${verdict}`);
 
   if (verdict === 'ignore') {
     console.log('[deploy-alarm] nessun allarme: la run non è un guasto del workflow.');
@@ -360,27 +470,40 @@ function main() {
     }
   }
 
-  const listArgs = ['run', 'list', '-w', workflowName, '-b', 'main', '-L', String(RUN_HISTORY_LIMIT),
-    '--json', 'databaseId,status,conclusion,createdAt'];
-  if (repo) listArgs.push('--repo', repo);
-  const listRaw = gh(listArgs);
   let streak = 0;
   let streakSaturated = false;
-  if (listRaw) {
-    try {
-      ({ streak, saturated: streakSaturated } = consecutiveFailureStreak(
-        JSON.parse(listRaw), { fromRunId: runId || null },
-      ));
-    } catch {
-      console.error('[deploy-alarm] listing dello storico illeggibile: streak non calcolata.');
+  const historyPages = [];
+  let historyReadable = true;
+  for (const status of RUN_HISTORY_STATUS_FILTERS) {
+    const listArgs = buildRunHistoryArgs(workflowName, status);
+    if (repo) listArgs.push('--repo', repo);
+    const listRaw = gh(listArgs);
+    if (!listRaw) {
+      historyReadable = false;
+      continue;
     }
+    try {
+      const parsed = JSON.parse(listRaw);
+      if (!Array.isArray(parsed)) throw new Error('history non-array');
+      historyPages.push(parsed);
+    } catch {
+      historyReadable = false;
+    }
+  }
+  if (historyReadable) {
+    ({ streak, saturated: streakSaturated } = consecutiveFailureStreak(
+      mergeRunHistoryRuns(historyPages),
+      { fromRunId: runId || null, observedConclusion: conclusion || null },
+    ));
+  } else {
+    console.error('[deploy-alarm] listing dello storico illeggibile: streak non calcolata.');
   }
   // Lo storico può non contenere ancora QUESTA run (indicizzazione): la serie
   // è comunque almeno 1, perché il guasto che stiamo osservando esiste.
   if (streak < 1) streak = 1;
 
   const description = buildAlarmDescription({
-    workflowName, runUrl, runId, conclusion, failure, streak, streakSaturated,
+    workflowName, runUrl, runId, conclusion, failure, streak, streakSaturated, observer,
   });
 
   const summary = failure

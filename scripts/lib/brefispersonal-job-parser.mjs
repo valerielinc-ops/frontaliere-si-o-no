@@ -2,7 +2,7 @@
 /**
  * brefis personal ag job parser — Fetcher and job builder.
  *
- * Source: https://brefispersonal.ch/Vacancyboard/Detail/46980
+ * Source: https://brefis.ch/Vacancyboard/Detail/46980
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBrefispersonalJobs()  — Fetch and parse all jobs
@@ -11,9 +11,10 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
@@ -21,9 +22,23 @@ import { resolveSourceBackedSwissGeography } from './prospector/location-evidenc
 
 export const BREFISPERSONAL_KEY = 'brefispersonal';
 export const BREFISPERSONAL_COMPANY_NAME = 'brefis personal ag';
-export const BREFISPERSONAL_COMPANY_DOMAIN = 'brefispersonal.ch';
+export const BREFISPERSONAL_COMPANY_DOMAIN = 'brefis.ch';
 
-const CAREER_URL = 'https://brefispersonal.ch/Vacancyboard/Detail/46980';
+const BREFISPERSONAL_LEGACY_DOMAIN = 'brefispersonal.ch';
+const CAREER_URL = 'https://brefis.ch/Vacancyboard/Detail/46980';
+
+// A free-text city is usable for this source only when the vacancy itself
+// labels it as a workplace.  Employer HQ/office prose is not a job location.
+const BREFIS_WORKPLACE_CONTEXT_RE = /(?:\b(?:arbeitsort|einsatzort|arbeitsplatz|t[aä]tigkeitsort|dienstort|lieu\s+de\s+travail|lieu\s+d['’]affectation|luogo\s+di\s+lavoro|sede\s+di\s+lavoro|posto\s+di\s+lavoro|localit[aà]\s+di\s+lavoro|work(?:place|ing\s+location)|based\s+(?:in|at)|location)\b\s*(?:(?:ist|is|[=:–—-])\s*)?|\b(?:einsatz|eins[aä]tze|t[aä]tigkeit|arbeiten|arbeit)\b\s+(?:in|am|bei)\s+|\b(?:im|in\s+der|aus\s+dem|in)\s+(?:raum|region|grossraum)\s+|\b(?:poste|posto|lavoro|travail)\b\s+(?:a|in|à)\s+)([^.;!?\n]{0,160})/giu;
+
+function rescueBrefisWorkplaceCity(descriptionText = '') {
+  if (!descriptionText) return '';
+  for (const match of descriptionText.matchAll(BREFIS_WORKPLACE_CONTEXT_RE)) {
+    const city = rescueSwissCityFromText(match[1] || '');
+    if (city) return city;
+  }
+  return '';
+}
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -33,6 +48,12 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isBrefispersonalHost(rawHost = '') {
+  const host = normalize(rawHost).replace(/\.$/, '');
+  return [BREFISPERSONAL_COMPANY_DOMAIN, BREFISPERSONAL_LEGACY_DOMAIN]
+    .some((domain) => host === domain || host.endsWith(`.${domain}`));
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -54,7 +75,7 @@ export function isBrefispersonalJob(job) {
     key === BREFISPERSONAL_KEY ||
     key.startsWith('brefispersonal-') ||
     company.includes('brefis personal ag') ||
-    url.includes('brefispersonal.ch')
+    isTrustedDomain(url)
   );
 }
 
@@ -64,7 +85,7 @@ export function isBrefispersonalJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'brefispersonal.ch' || host.endsWith('.brefispersonal.ch');
+    return isBrefispersonalHost(host);
   } catch {
     return false;
   }
@@ -114,6 +135,47 @@ async function fetchJobListings() {
 }
 
 /**
+ * Resolve the source-backed geography for a Brefis listing.
+ *
+ * Brefis currently emits the canton code (`ZH`) in both `location` and
+ * `addressLocality`. The shared resolver correctly rejects that as a
+ * municipality, so use a city from the same vacancy description only when it
+ * corroborates the structured canton. If the description has no city, retain
+ * the structured canton-only evidence instead of inventing an employer HQ.
+ *
+ * @param {Record<string, any>} listing
+ * @param {string} descriptionText
+ * @returns {{ location: string, canton: string, addressCountry?: string }|null}
+ */
+export function resolveBrefispersonalGeography(listing, descriptionText = '') {
+  const addressLocality = normalizeSpace(listing?.addressLocality || '');
+  const addressRegion = normalizeSpace(listing?.addressRegion || '');
+  const structuredCanton = inferSwissTargetCanton(addressRegion || listing?.location || '');
+  const cantonOnlyLocality = Boolean(
+    addressLocality
+    && structuredCanton
+    && /^[A-Za-z]{2}$/.test(addressLocality)
+    && inferSwissTargetCanton(addressLocality) === structuredCanton,
+  );
+  const structured = cantonOnlyLocality
+    ? resolveSourceBackedSwissGeography({ ...listing, addressLocality: '' })
+    : resolveSourceBackedSwissGeography(listing);
+  if (!cantonOnlyLocality) return structured;
+
+  const city = rescueBrefisWorkplaceCity(descriptionText);
+  if (city && inferSwissTargetCanton(city) === structuredCanton) {
+    const fromDescription = resolveSourceBackedSwissGeography({
+      location: city,
+      addressLocality: city,
+      addressRegion,
+      addressCountry: listing?.addressCountry || 'CH',
+    });
+    if (fromDescription) return fromDescription;
+  }
+  return structured;
+}
+
+/**
  * Fetch all brefis personal ag jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
@@ -139,14 +201,14 @@ export async function fetchAllBrefispersonalJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing);
+    const descriptionHtml = listing.description || '';
+    const descriptionText = stripHtml(descriptionHtml);
+    if (!descriptionText) continue;
+    const geography = resolveBrefispersonalGeography(listing, descriptionText);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
     const { location, canton } = geography;
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) continue;
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
@@ -179,7 +241,7 @@ export async function fetchAllBrefispersonalJobs() {
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressLocality: normalizeSpace(geography.location || listing.addressLocality || location.split(/[,;/|]/)[0]),
       addressRegion: normalizeSpace(listing.addressRegion || canton),
       addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
       country: normalizeSpace(listing.addressCountry || 'CH'),
@@ -194,9 +256,8 @@ export async function fetchAllBrefispersonalJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      // Preserve the source date; the shared merge assigns a stable first-seen
-      // date when the source does not publish one.
-      postedDate: listing.postedAt || null,
+      // Publication evidence is distinct from the collection timestamp.
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

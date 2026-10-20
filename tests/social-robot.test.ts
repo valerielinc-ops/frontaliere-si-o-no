@@ -1,0 +1,1370 @@
+// @vitest-environment node
+import { execFileSync, spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { afterAll, describe, expect, it, vi } from 'vitest';
+import YAML from 'yaml';
+
+import { RC_TO_ENV, isTrivialSecret } from '../scripts/load-rc-env.mjs';
+import { importSpecifiers } from '../scripts/ci/check-dependency-free-import-closure.mjs';
+import {
+  DEFAULT_SOCIAL_ROBOT_MODE,
+  QUEUE_TTL_HOURS,
+  ROBOT_LEDGER_VIA,
+  SOCIAL_ROBOT_MODES,
+  buildQueueEntry,
+  confirmQueueEntry,
+  deliverSocialPost,
+  dequeuePosts,
+  enqueuePost,
+  isPublishedForKindDay,
+  ledgerPathFor,
+  loadQueue,
+  queuePathFor,
+  resolveSocialRobotMode,
+  selectNextPending,
+  socialPublishRoute,
+  upsertPending,
+} from '../scripts/lib/social-publish-queue.mjs';
+import {
+  CONFIRM_REDISPATCH_AFTER_HOURS,
+  MAX_POSTS_PER_DAY_PER_PLATFORM,
+  PAUSE_AFTER_BLOCK_HOURS,
+  emptyJournal,
+  localDay,
+  pausedUntil,
+  pressedToday,
+} from '../scripts/social-robot/lib/cadence.mjs';
+import {
+  DEFAULT_TIMEOUTS,
+  DEFAULT_TIKTOK_MUSIC_MODE,
+  acceptsInstagramImageUpload,
+  extractTikTokAuthenticatedUsername,
+  hasVisibleDialogLoading,
+  resolveTikTokMusicVariant,
+  RobotError,
+  waitForDialogControl,
+} from '../scripts/social-robot/lib/flows.mjs';
+import {
+  DEFAULT_TIKTOK_VIDEO_CREATIVE_MODE,
+  TIKTOK_VIDEO_CREATIVE_VARIANTS,
+  resolveTikTokVideoCreativeVariant,
+} from '../scripts/lib/tiktok-video-creative.mjs';
+import { STALE_PACK_AGE_MS } from '../scripts/lib/stale-fetch-pack-sweep.mjs';
+import { buildIssueDescription, displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
+import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
+import { diagnosticsDir, downloadsDir, pruneRobotState, resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
+import { runHasErrors } from '../scripts/social-robot/run.mjs';
+
+describe('Instagram image upload accept guard', () => {
+  it('accepts standard image MIME tokens and rejects a non-image field', () => {
+    expect(acceptsInstagramImageUpload('image/jpeg,image/png,image/heic')).toBe(true);
+    expect(acceptsInstagramImageUpload('image/*')).toBe(true);
+    expect(acceptsInstagramImageUpload('application/pdf')).toBe(false);
+  });
+});
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const tempDirs: string[] = [];
+const tempDir = () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'social-robot-test-'));
+  tempDirs.push(dir);
+  return dir;
+};
+afterAll(() => {
+  for (const dir of tempDirs) fs.rmSync(dir, { recursive: true, force: true });
+});
+
+const NOW = Date.parse('2026-10-04T09:30:00Z');
+const HOUR = 3600_000;
+const cdn = (name: string) => `https://cdn.frontaliereticino.ch/images/social/instagram/${name}`;
+const tiktokVideo = (name: string, bytes = 4) => {
+  const body = Buffer.from(Array.from({ length: bytes }, (_, i) => i + 1));
+  return {
+    url: `https://cdn.frontaliereticino.ch/images/social/tiktok/${name}.mp4`,
+    bytes: body.length,
+    sha256: createHash('sha256').update(body).digest('hex'),
+    durationMs: 7_750,
+    width: 1080,
+    height: 1920,
+    body,
+  };
+};
+
+function entry(kind = 'article', day = '2026-10-03', { channel = 'instagram', now = NOW } = {}) {
+  return buildQueueEntry({
+    channel,
+    kind,
+    day,
+    caption: `${kind} ${day}\n\n#frontalieri`,
+    imageUrls: [cdn(`${kind}-${day}-0.jpg`), cdn(`${kind}-${day}-1.jpg`)],
+    ledgerEntries: [{ id: `${kind}-slug-a`, kind, url: 'https://frontaliereticino.ch/a/', day }],
+    now,
+  });
+}
+
+function reelEntry(overrides: Record<string, unknown> = {}) {
+  return buildQueueEntry({
+    channel: 'instagram',
+    kind: 'reel',
+    day: '2026-10-09',
+    caption: 'reel 2026-10-09\n\n#frontalieri',
+    imageUrls: [cdn('reel-2026-10-09-0.jpg')],
+    ledgerEntries: [{
+      id: 'article:reel-source',
+      kind: 'reel',
+      sourceKind: 'article',
+      sourceId: 'reel-source',
+      day: '2026-10-09',
+      creativeId: 'reel-number',
+      primaryMetric: 'shares',
+      ...overrides,
+    }],
+    now: NOW,
+  });
+}
+
+function absentLocator() {
+  const locator = {
+    first: () => locator,
+    count: async () => 0,
+    isVisible: async () => false,
+  };
+  return locator;
+}
+
+function dialogLocator(isLoading: () => boolean) {
+  const indicator = { isVisible: async () => isLoading() };
+  return {
+    isVisible: async () => true,
+    getAttribute: async () => null,
+    locator: () => ({
+      count: async () => (isLoading() ? 1 : 0),
+      nth: () => indicator,
+    }),
+  };
+}
+
+describe('Instagram dialog loading wait', () => {
+  it('keeps observing after a marker-free probe and reports upload loading timeout past t.ui', async () => {
+    vi.useFakeTimers();
+    try {
+      const startedAt = Date.now();
+      const dialog = dialogLocator(() => Date.now() - startedAt >= 100);
+      const pending = waitForDialogControl({ locator: () => ({ count: async () => 0 }) }, [absentLocator()], {
+        dialog,
+        state: 'attached',
+        timeout: DEFAULT_TIMEOUTS.dialogLoading,
+        step: 'upload',
+        name: 'upload',
+      });
+      let settled = false;
+      pending.then(() => { settled = true; }, () => { settled = true; });
+
+      await vi.advanceTimersByTimeAsync(DEFAULT_TIMEOUTS.ui + 100);
+      expect(settled).toBe(false);
+      await vi.advanceTimersByTimeAsync(DEFAULT_TIMEOUTS.dialogLoading - DEFAULT_TIMEOUTS.ui - 100);
+
+      await expect(pending).rejects.toMatchObject({ errorClass: 'ui-loading-timeout', step: 'upload' });
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('ignores a spinner in a secondary dialog when the composer selector is missing', async () => {
+    vi.useFakeTimers();
+    try {
+      const composer = dialogLocator(() => false);
+      const secondary = dialogLocator(() => true);
+      expect(await hasVisibleDialogLoading(composer)).toBe(false);
+      expect(await hasVisibleDialogLoading(secondary)).toBe(true);
+
+      const page = {
+        locator: (selector: string) => selector.includes(':visible')
+          ? { first: () => composer }
+          : { count: async () => 2, nth: (index: number) => [composer, secondary][index] },
+      };
+      const pending = waitForDialogControl(page, [absentLocator()], {
+        state: 'attached',
+        timeout: 100,
+        step: 'upload',
+        name: 'upload',
+      });
+      await vi.advanceTimersByTimeAsync(100);
+
+      await expect(pending).resolves.toBeNull();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+});
+
+describe('Remote Config switch SOCIAL_ROBOT_MODE', () => {
+  it('reads absent, empty and unknown values as the safe dry run', () => {
+    expect(DEFAULT_SOCIAL_ROBOT_MODE).toBe('dry');
+    for (const value of [undefined, '', '  ', 'publish', 'dry-run', 'LIVE!']) {
+      expect(resolveSocialRobotMode({ SOCIAL_ROBOT_MODE: value }), String(value)).toBe('dry');
+    }
+    expect(resolveSocialRobotMode({ SOCIAL_ROBOT_MODE: ' Live ' })).toBe('live');
+    expect(resolveSocialRobotMode({ SOCIAL_ROBOT_MODE: 'off' })).toBe('off');
+  });
+
+  it('is exported by the loader and never masked in CI logs', () => {
+    expect((RC_TO_ENV as Record<string, string[]>).SOCIAL_ROBOT_MODE).toEqual(['SOCIAL_ROBOT_MODE']);
+    for (const value of SOCIAL_ROBOT_MODES) expect(isTrivialSecret(value), value).toBe(true);
+  });
+
+  it('routes the posters: off = API only, dry = API then queue, live = queue only', () => {
+    expect(socialPublishRoute({ mode: 'off', apiReady: false })).toEqual({ api: false, enqueue: false, render: false });
+    expect(socialPublishRoute({ mode: 'off', apiReady: true })).toEqual({ api: true, enqueue: false, render: true });
+    expect(socialPublishRoute({ mode: 'dry', apiReady: false })).toEqual({ api: false, enqueue: true, render: true });
+    expect(socialPublishRoute({ mode: 'dry', apiReady: true })).toEqual({ api: true, enqueue: true, render: true });
+    expect(socialPublishRoute({ mode: 'live', apiReady: true })).toEqual({ api: false, enqueue: true, render: true });
+  });
+});
+
+describe('Firebase-configured TikTok native-sound experiment', () => {
+  it('defaults to the no-sound control arm and maps the RC parameters', () => {
+    expect(DEFAULT_TIKTOK_MUSIC_MODE).toBe('off');
+    expect(resolveTikTokMusicVariant({ queueId: 'job-1', env: {} })).toBe('control');
+    expect((RC_TO_ENV as Record<string, string[]>).TIKTOK_MUSIC_MODE).toEqual(['TIKTOK_MUSIC_MODE']);
+    expect((RC_TO_ENV as Record<string, string[]>).TIKTOK_MUSIC_ROLLOUT_PERCENT).toEqual(['TIKTOK_MUSIC_ROLLOUT_PERCENT']);
+  });
+
+  it('assigns a stable queue id to one arm and respects rollout bounds', () => {
+    const env = { TIKTOK_MUSIC_MODE: 'trend', TIKTOK_MUSIC_ROLLOUT_PERCENT: '50' };
+    const first = resolveTikTokMusicVariant({ queueId: 'job-2026-10-10', env });
+    expect(first).toBe(resolveTikTokMusicVariant({ queueId: 'job-2026-10-10', env }));
+    expect(resolveTikTokMusicVariant({ queueId: 'job-2026-10-10', env: { ...env, TIKTOK_MUSIC_ROLLOUT_PERCENT: '0' } })).toBe('control');
+    expect(resolveTikTokMusicVariant({ queueId: 'job-2026-10-10', env: { ...env, TIKTOK_MUSIC_ROLLOUT_PERCENT: '100' } })).toBe('treatment');
+    expect(resolveTikTokMusicVariant({ queueId: '', env: { ...env, TIKTOK_MUSIC_ROLLOUT_PERCENT: '100' } })).toBe('control');
+  });
+});
+
+describe('Firebase-configured TikTok video creative experiment', () => {
+  it('defaults to the existing slide video and maps the RC parameters', () => {
+    expect(DEFAULT_TIKTOK_VIDEO_CREATIVE_MODE).toBe('off');
+    expect(resolveTikTokVideoCreativeVariant({ queueId: 'job-1', env: {} }))
+      .toBe(TIKTOK_VIDEO_CREATIVE_VARIANTS.CONTROL);
+    expect((RC_TO_ENV as Record<string, string[]>).TIKTOK_VIDEO_CREATIVE_MODE)
+      .toEqual(['TIKTOK_VIDEO_CREATIVE_MODE']);
+    expect((RC_TO_ENV as Record<string, string[]>).TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT)
+      .toEqual(['TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT']);
+  });
+
+  it('assigns the same queue id to the same arm and respects rollout bounds', () => {
+    const env = {
+      TIKTOK_VIDEO_CREATIVE_MODE: 'motion',
+      TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '50',
+    };
+    const first = resolveTikTokVideoCreativeVariant({ queueId: 'job-2026-10-12', env });
+    expect(first).toBe(resolveTikTokVideoCreativeVariant({ queueId: 'job-2026-10-12', env }));
+    expect(resolveTikTokVideoCreativeVariant({
+      queueId: 'job-2026-10-12',
+      env: { ...env, TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '0' },
+    })).toBe(TIKTOK_VIDEO_CREATIVE_VARIANTS.CONTROL);
+    expect(resolveTikTokVideoCreativeVariant({
+      queueId: 'job-2026-10-12',
+      env: { ...env, TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '100' },
+    })).toBe(TIKTOK_VIDEO_CREATIVE_VARIANTS.TREATMENT);
+    expect(resolveTikTokVideoCreativeVariant({
+      queueId: '',
+      env: { ...env, TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '100' },
+    })).toBe(TIKTOK_VIDEO_CREATIVE_VARIANTS.CONTROL);
+  });
+});
+
+describe('deliverSocialPost', () => {
+  const quiet = { log: () => {}, error: () => {} };
+  it('records an API publish and queues nothing', async () => {
+    const recordPublished = vi.fn();
+    const enqueue = vi.fn();
+    const dequeue = vi.fn();
+    const out = await deliverSocialPost({ route: { api: true, enqueue: true }, label: 'X', publish: async () => ({ ok: true }), recordPublished, enqueue, dequeue, log: quiet });
+    expect(out).toBe('api');
+    expect(recordPublished).toHaveBeenCalledOnce();
+    expect(dequeue).toHaveBeenCalledOnce();
+    expect(enqueue).not.toHaveBeenCalled();
+  });
+
+  it('queues a post the API failed to publish, and never records it', async () => {
+    const recordPublished = vi.fn();
+    const enqueue = vi.fn();
+    const dequeue = vi.fn();
+    const out = await deliverSocialPost({ route: { api: true, enqueue: true }, label: 'X', publish: async () => ({ ok: false, reason: '400' }), recordPublished, enqueue, dequeue, log: quiet });
+    expect(out).toBe('queued');
+    expect(recordPublished).not.toHaveBeenCalled();
+    expect(dequeue).not.toHaveBeenCalled();
+    expect(enqueue).toHaveBeenCalledOnce();
+  });
+
+  it('never calls the API in live mode', async () => {
+    const publish = vi.fn();
+    const out = await deliverSocialPost({ route: socialPublishRoute({ mode: 'live', apiReady: true }), label: 'X', publish, recordPublished: vi.fn(), enqueue: vi.fn(), dequeue: vi.fn(), log: quiet });
+    expect(out).toBe('queued');
+    expect(publish).not.toHaveBeenCalled();
+  });
+
+  it('drops the pending post of that channel and kind once the API published, so the robot never replays it', async () => {
+    const root = tempDir();
+    fs.mkdirSync(path.join(root, 'data'));
+    const queuePath = queuePathFor(root, 'instagram');
+    const ledgerPath = ledgerPathFor(root, 'instagram');
+    // A token-less run of yesterday queued article-2026-10-03 for the robot.
+    const stale = entry('article', '2026-10-03');
+    const job = entry('job', '2026-10-03');
+    const tiktok = entry('article', '2026-10-03', { channel: 'tiktok' });
+    fs.writeFileSync(queuePath, JSON.stringify({ schemaVersion: 1, pending: [stale, job, tiktok] }));
+    const out = await deliverSocialPost({
+      route: socialPublishRoute({ mode: 'dry', apiReady: true }),
+      label: 'Instagram',
+      publish: async () => ({ ok: true }),
+      // Today's API post carries a different article key than the queued one.
+      recordPublished: () => fs.writeFileSync(ledgerPath, JSON.stringify({ schemaVersion: 1, posted: [{ id: 'article-slug-b', kind: 'article', day: '2026-10-04' }] })),
+      enqueue: () => { throw new Error('an API publish must not queue'); },
+      dequeue: () => dequeuePosts(queuePath, { channel: 'instagram', kind: 'article' }),
+      log: quiet,
+    });
+    expect(out).toBe('api');
+    const left = loadQueue(queuePath).pending;
+    expect(left.some((e: { channel: string; kind: string }) => e.channel === 'instagram' && e.kind === 'article')).toBe(false);
+    expect(left.map((e: { id: string; channel: string }) => `${e.channel}/${e.id}`).sort()).toEqual(['instagram/job-2026-10-03', 'tiktok/article-2026-10-03']);
+  });
+
+  it('refuses to run without a dequeue step, before anything is published', async () => {
+    const publish = vi.fn(async () => ({ ok: true }));
+    await expect(deliverSocialPost({ route: { api: true, enqueue: true }, label: 'X', publish, recordPublished: vi.fn(), enqueue: vi.fn(), log: quiet } as never)).rejects.toThrow(/dequeue/);
+    expect(publish).not.toHaveBeenCalled();
+  });
+
+  it('both posters remove the queued post of the kind they published through the API', () => {
+    for (const [file, channel] of [['scripts/post-to-instagram.mjs', 'instagram'], ['scripts/post-to-tiktok.mjs', 'tiktok']]) {
+      const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+      expect(src).toMatch(new RegExp(`dequeue: \\(\\) => dequeuePosts\\(QUEUE_PATH, \\{ channel: '${channel}', kind \\}\\)`));
+    }
+  });
+});
+
+describe('the queue', () => {
+  it('builds an entry keyed like the CDN slides, expiring with its kind', () => {
+    const e = entry('article');
+    expect(e.id).toBe('article-2026-10-03');
+    expect(Date.parse(e.expiresAt) - Date.parse(e.createdAt)).toBe(QUEUE_TTL_HOURS.article * HOUR);
+    expect(() => buildQueueEntry({ ...e, imageUrls: ['https://evil.example/x.jpg'] })).toThrow(/outside/);
+    expect(() => buildQueueEntry({ ...e, caption: ' ' })).toThrow(/caption/);
+  });
+
+  it('replaces the pending post of the same kind and drops expired ones', () => {
+    const old = entry('article', '2026-10-02', { now: NOW - 24 * HOUR });
+    const stale = entry('job', '2026-09-30', { now: NOW - 72 * HOUR });
+    const border = entry('border', '2026-09-28', { now: NOW - 72 * HOUR });
+    const next = upsertPending({ pending: [old, stale, border] }, entry('article'), NOW);
+    expect(next.pending.map((e: { id: string }) => e.id).sort()).toEqual(['article-2026-10-03', 'border-2026-09-28']);
+  });
+
+  it('removes one stale queue id without deleting a newer entry of the same kind', () => {
+    const root = tempDir();
+    const file = path.join(root, 'instagram-queue.json');
+    const stale = entry('article', '2026-10-03');
+    const newer = entry('article', '2026-10-04');
+    fs.writeFileSync(file, JSON.stringify({ schemaVersion: 1, pending: [stale, newer] }));
+
+    dequeuePosts(file, { channel: 'instagram', kind: 'article', queueId: stale.id });
+
+    expect(loadQueue(file).pending.map((item: { id: string }) => item.id)).toEqual([newer.id]);
+  });
+
+  it('recognizes a published kind-day for API and robot ledger rows', () => {
+    const ledger = {
+      posted: [
+        { id: 'card-a', kind: 'article', day: '2026-10-03' },
+        { id: 'card-b', kind: 'article', day: '2026-10-03', queueId: 'article-2026-10-03' },
+      ],
+    };
+    expect(isPublishedForKindDay(ledger, { kind: 'article', day: '2026-10-03' })).toBe(true);
+    expect(isPublishedForKindDay(ledger, { kind: 'article', day: '2026-10-04' })).toBe(false);
+    expect(isPublishedForKindDay(ledger, { kind: 'job', day: '2026-10-03' })).toBe(false);
+  });
+
+  it('guards both daily posters against a same-day replay', () => {
+    for (const [file, channel] of [['post-to-instagram.mjs', 'instagram'], ['post-to-tiktok.mjs', 'tiktok']]) {
+      const src = fs.readFileSync(path.join(ROOT, 'scripts', file), 'utf8');
+      expect(src).toContain('isPublishedForKindDay(ledger, { kind, day })');
+      expect(src).toContain(`dequeuePosts(QUEUE_PATH, { channel: '${channel}', kind, queueId })`);
+    }
+  });
+
+  it('writes the queue file the workflow commits', () => {
+    const dir = tempDir();
+    const file = path.join(dir, 'instagram-queue.json');
+    enqueuePost(file, entry('article'), NOW);
+    enqueuePost(file, entry('job'), NOW);
+    expect(loadQueue(file).pending.map((e: { id: string }) => e.id)).toEqual(['article-2026-10-03', 'job-2026-10-03']);
+  });
+
+  it('selects the oldest post the robot may still press', () => {
+    const a = entry('article', '2026-10-03', { now: NOW - 2 * HOUR });
+    const j = entry('job', '2026-10-03', { now: NOW - HOUR });
+    const b = entry('border', '2026-09-28', { now: NOW - 3 * HOUR });
+    const t = entry('article', '2026-10-03', { channel: 'tiktok' });
+    const queue = { pending: [j, a, b, t] };
+    expect(selectNextPending(queue, { channel: 'instagram', now: NOW })?.id).toBe(b.id);
+    expect(selectNextPending(queue, { channel: 'instagram', now: NOW, blockedIds: new Set([b.id]) })?.id).toBe(a.id);
+    const ledger = { posted: [{ id: 'x', queueId: b.id }, { id: 'y', queueId: a.id }] };
+    expect(selectNextPending(queue, { channel: 'instagram', now: NOW, ledger })?.id).toBe(j.id);
+    const replacement = entry('article', '2026-10-04');
+    expect(selectNextPending({ pending: [replacement] }, {
+      channel: 'instagram',
+      now: NOW,
+      ledger: { posted: [{ id: 'article-slug-a', kind: 'article' }] },
+    })).toBeNull();
+    expect(selectNextPending(queue, { channel: 'instagram', now: NOW + 40 * HOUR, ledger })).toBeNull();
+    expect(selectNextPending({ pending: [{ ...a, imageUrls: ['https://evil.example/a.jpg'] }] }, { channel: 'instagram', now: NOW })).toBeNull();
+  });
+});
+
+describe('confirmation → ledger', () => {
+  it('moves the entry into the ledger with the robot marker, once', () => {
+    const e = entry('article');
+    const first = confirmQueueEntry({ queue: { pending: [e] }, ledger: { posted: [] }, queueId: e.id, confirmedAt: '2026-10-04T10:00:00Z', evidence: 'Post condiviso' });
+    expect(first.queue.pending).toEqual([]);
+    expect(first.ledgerEntries).toEqual([{ ...e.ledgerEntries[0], ts: '2026-10-04T10:00:00.000Z', queueId: e.id, via: ROBOT_LEDGER_VIA, instagramStoryImageUrl: e.imageUrls[0], robotEvidence: 'Post condiviso' }]);
+    const again = confirmQueueEntry({ queue: { pending: [] }, ledger: { posted: first.ledgerEntries }, queueId: e.id, confirmedAt: '2026-10-04T10:05:00Z' });
+    expect(again.alreadyConfirmed).toBe(true);
+    expect(again.ledgerEntries).toEqual([]);
+  });
+
+  it('uses the entries sent with the confirmation when a newer ranking replaced the queue entry', () => {
+    const res = confirmQueueEntry({ queue: { pending: [] }, ledger: { posted: [] }, queueId: 'job-2026-10-03', confirmedAt: '2026-10-04T10:00:00Z', fallbackLedgerEntries: [{ id: 's', kind: 'job' }] });
+    expect(res.source).toBe('confirmation');
+    expect(res.ledgerEntries[0]).toMatchObject({ id: 's', kind: 'job', queueId: 'job-2026-10-03' });
+    expect(() => confirmQueueEntry({ queue: { pending: [] }, ledger: { posted: [] }, queueId: 'job-2026-10-03', confirmedAt: '2026-10-04T10:00:00Z' })).toThrow(/no ledger entries/);
+  });
+
+  it('records the entries the robot actually published even when a same-day re-run replaced the queue entry under the same id', () => {
+    const replacement = { ...entry('article', '2026-10-04'), ledgerEntries: [{ id: 'new', kind: 'article' }] };
+    const res = confirmQueueEntry({
+      queue: { pending: [replacement] },
+      ledger: { posted: [] },
+      queueId: replacement.id,
+      confirmedAt: '2026-10-04T01:00:00Z',
+      fallbackLedgerEntries: [{ id: 'old', kind: 'article' }],
+    });
+    expect(res.source).toBe('confirmation');
+    expect(res.ledgerEntries.map((e: { id: string }) => e.id)).toEqual(['old']);
+    expect(res.queue.pending).toEqual([]);
+  });
+
+  it('backfills the CTA mechanic for a legacy Reel queue entry without touching carousels', () => {
+    const reel = reelEntry();
+    const reelResult = confirmQueueEntry({
+      queue: { pending: [reel] },
+      ledger: { posted: [] },
+      queueId: reel.id,
+      confirmedAt: '2026-10-10T10:00:00Z',
+    });
+    expect(reelResult.ledgerEntries[0]).toMatchObject({
+      creativeId: 'reel-number',
+      primaryMetric: 'shares',
+      engagementMechanic: 'direct-share',
+    });
+
+    const futureReel = reelEntry({ creativeId: 'reel-future', primaryMetric: 'shares' });
+    const futureResult = confirmQueueEntry({
+      queue: { pending: [futureReel] },
+      ledger: { posted: [] },
+      queueId: futureReel.id,
+      confirmedAt: '2026-10-10T10:00:00Z',
+    });
+    expect(futureResult.ledgerEntries[0].engagementMechanic).toBeUndefined();
+
+    const carousel = entry('article');
+    const carouselResult = confirmQueueEntry({
+      queue: { pending: [carousel] },
+      ledger: { posted: [] },
+      queueId: carousel.id,
+      confirmedAt: '2026-10-10T10:00:00Z',
+    });
+    expect(carouselResult.ledgerEntries[0].engagementMechanic).toBeUndefined();
+  });
+
+  it('confirm.mjs writes queue and ledger files and validates its inputs', () => {
+    const root = tempDir();
+    fs.mkdirSync(path.join(root, 'data'));
+    const e = entry('article');
+    fs.writeFileSync(path.join(root, 'data', 'instagram-queue.json'), JSON.stringify({ schemaVersion: 1, pending: [e] }));
+    const args = parseConfirmArgs(['--channel=instagram', `--queue-id=${e.id}`, '--confirmed-at=2026-10-04T10:00:00Z', '--evidence=ok']);
+    applyConfirmation({ root, ...args });
+    const ledger = JSON.parse(fs.readFileSync(path.join(root, 'data', 'instagram-posted.json'), 'utf8'));
+    expect(ledger.posted.map((p: { queueId: string }) => p.queueId)).toEqual([e.id]);
+    expect(JSON.parse(fs.readFileSync(path.join(root, 'data', 'instagram-queue.json'), 'utf8')).pending).toEqual([]);
+    expect(() => parseConfirmArgs(['--channel=facebook', `--queue-id=${e.id}`, '--confirmed-at=2026-10-04T10:00:00Z'])).toThrow(/channel/);
+    expect(() => parseConfirmArgs(['--channel=tiktok', '--queue-id=../../etc', '--confirmed-at=2026-10-04T10:00:00Z'])).toThrow(/queue-id/);
+    expect(() => parseConfirmArgs(['--channel=tiktok', `--queue-id=${e.id}`, '--confirmed-at=ieri'])).toThrow(/confirmed-at/);
+  });
+
+  it('confirms an Instagram Reel in the ledger once and treats duplicate dispatches as a no-op', () => {
+    const root = tempDir();
+    fs.mkdirSync(path.join(root, 'data'));
+    const reel = reelEntry();
+    fs.writeFileSync(path.join(root, 'data', 'instagram-queue.json'), JSON.stringify({ schemaVersion: 1, pending: [reel] }));
+    const args = parseConfirmArgs([
+      '--channel=instagram',
+      `--queue-id=${reel.id}`,
+      '--confirmed-at=2026-10-10T10:00:00Z',
+      '--evidence=Instagram confirmed the Reel',
+    ]);
+
+    const first = applyConfirmation({ root, ...args });
+    expect(first).toMatchObject({ alreadyConfirmed: false, source: 'queue' });
+    expect(first.ledgerEntries).toHaveLength(1);
+
+    const duplicate = applyConfirmation({ root, ...args });
+    expect(duplicate).toMatchObject({ alreadyConfirmed: true, source: 'ledger', ledgerEntries: [] });
+    expect(JSON.parse(fs.readFileSync(path.join(root, 'data', 'instagram-queue.json'), 'utf8')).pending).toEqual([]);
+    const ledger = JSON.parse(fs.readFileSync(path.join(root, 'data', 'instagram-posted.json'), 'utf8'));
+    expect(ledger.posted).toHaveLength(1);
+    expect(ledger.posted[0]).toMatchObject({ queueId: reel.id, kind: 'reel', via: ROBOT_LEDGER_VIA });
+  });
+
+  it('backfills known Instagram creative metadata at confirmation time', () => {
+    const root = tempDir();
+    fs.mkdirSync(path.join(root, 'data'));
+    const e = buildQueueEntry({
+      channel: 'instagram',
+      kind: 'article',
+      day: '2026-10-09',
+      caption: 'question',
+      imageUrls: [cdn('question.jpg')],
+      ledgerEntries: [{
+        id: 'article-card',
+        kind: 'article',
+        day: '2026-10-09',
+        creativeId: 'question-choice',
+        primaryMetric: 'comments',
+      }],
+    });
+    fs.writeFileSync(path.join(root, 'data', 'instagram-queue.json'), JSON.stringify({ schemaVersion: 1, pending: [e] }));
+    const result = applyConfirmation({
+      root,
+      ...parseConfirmArgs([
+        '--channel=instagram',
+        `--queue-id=${e.id}`,
+        '--confirmed-at=2026-10-10T10:00:00Z',
+        '--evidence=Post condiviso',
+      ]),
+    });
+    expect(result.ledgerEntries[0]).toMatchObject({
+      creativeId: 'question-choice',
+      hookType: 'forced-choice',
+      attentionMechanic: 'low-friction-choice',
+      engagementLoop: 'comment-to-poll',
+      followUpFormat: 'story-result',
+      engagementMechanic: 'keyword-comment',
+    });
+  });
+});
+
+describe('social robot exit status', () => {
+  it('fails the unattended run when the community worker returns an API error or partial result', () => {
+    expect(runHasErrors({ results: [], community: { status: 'api-error', errors: ['x'] } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'partial', errors: ['x'] } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'credentials-missing' } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'completed', errors: [] } })).toBe(false);
+  });
+});
+
+describe('cadence', () => {
+  it('counts only the presses of the local (Zurich) day', () => {
+    const journal = emptyJournal();
+    journal.attempts.push(
+      { channel: 'instagram', outcome: 'published', at: '2026-10-04T06:00:00Z', queueId: 'a' },
+      { channel: 'instagram', outcome: 'unconfirmed', at: '2026-10-04T07:00:00Z', queueId: 'b' },
+      { channel: 'instagram', outcome: 'dry-run', at: '2026-10-04T08:00:00Z', queueId: 'c' },
+      { channel: 'instagram', outcome: 'published', at: '2026-10-03T21:59:00Z', queueId: 'd' }, // 23:59 in Zurich
+      { channel: 'tiktok', outcome: 'published', at: '2026-10-04T08:00:00Z', queueId: 'e' },
+    );
+    expect(localDay('2026-10-03T22:30:00Z')).toBe('2026-10-04');
+    expect(pressedToday(journal, 'instagram', NOW)).toBe(2);
+    expect(pressedToday(journal, 'tiktok', NOW)).toBe(1);
+  });
+
+  it('counts a press with an unreadable time as today instead of aborting the robot', () => {
+    const journal = emptyJournal();
+    journal.attempts.push(
+      { channel: 'instagram', outcome: 'published', at: 'not-a-date', queueId: 'a' },
+      { channel: 'instagram', outcome: 'unconfirmed', queueId: 'b' } as never,
+      { channel: 'instagram', outcome: 'dry-run', at: 'garbage', queueId: 'c' },
+    );
+    expect(pressedToday(journal, 'instagram', NOW)).toBe(2);
+  });
+
+  it('releases the pending Reel on the next Zurich day after the Instagram cap', async () => {
+    const journal = emptyJournal();
+    journal.attempts.push(
+      { channel: 'instagram', outcome: 'published', at: new Date(NOW - HOUR).toISOString(), queueId: 'article-2026-10-03', confirmDispatched: true },
+      { channel: 'instagram', outcome: 'published', at: new Date(NOW - 2 * HOUR).toISOString(), queueId: 'job-2026-10-03', confirmDispatched: true },
+    );
+    const reel = entry('reel', '2026-10-03', { now: NOW - 3 * HOUR });
+    const queue = { pending: [reel] };
+    const reader = {
+      readQueue: () => queue,
+      readLedger: () => ({ posted: [{ queueId: 'article-2026-10-03' }, { queueId: 'job-2026-10-03' }] }),
+    };
+    const h = harness({ queue, journal });
+
+    const capped = await runRobot(h.deps({ reader }));
+    expect(capped.results[0]).toMatchObject({ channel: 'instagram', outcome: 'cap' });
+    expect(h.calls.flow).toEqual([]);
+
+    h.advance(24 * HOUR);
+    const nextDay = await runRobot(h.deps({ reader }));
+    expect(nextDay.results[0]).toMatchObject({ channel: 'instagram', outcome: 'published', queueId: reel.id });
+    expect(h.calls.flow).toEqual([{ dryRun: false, id: reel.id }]);
+    expect(pressedToday(h.journal(), 'instagram', NOW)).toBe(2);
+    expect(pressedToday(h.journal(), 'instagram', NOW + 24 * HOUR)).toBe(1);
+  });
+});
+
+type Deps = Parameters<typeof runRobot>[0];
+
+function harness({ queue = { pending: [entry('article')] }, journal = emptyJournal(), flow = async (_c: string, _e: unknown, _f: string[], o: { dryRun: boolean }) => ({ status: o.dryRun ? 'dry-run' : 'published', evidence: 'Post condiviso' }) } = {}) {
+  let stored = journal;
+  let clock = NOW;
+  const calls = { flow: [] as Array<{ dryRun: boolean; id: string }>, dispatch: [] as Array<Record<string, unknown>>, issues: [] as Array<{ title: string; description: string; labels: string[] }>, order: [] as string[], logs: [] as string[] };
+  const deps = (over: Partial<Deps> = {}): Deps => ({
+    cliMode: 'publish',
+    rcMode: 'live',
+    platforms: ['instagram'],
+    now: () => clock,
+    rng: () => 0,
+    sleep: async () => {},
+    reader: { readQueue: () => queue, readLedger: () => ({ posted: [] }) },
+    journalStore: { load: () => JSON.parse(JSON.stringify(stored)), save: (j: typeof stored) => { stored = JSON.parse(JSON.stringify(j)); } },
+    fetchImages: async () => ['/tmp/slide-1.jpg'],
+    diagnosticsFor: () => path.join(os.homedir(), 'Library', 'Application Support', 'frontaliere', 'social-robot', 'diagnostics', 'x'),
+    publishWith: async (c: string, e: { id: string }, f: string[], o: { dryRun: boolean }) => {
+      calls.flow.push({ dryRun: o.dryRun, id: e.id });
+      calls.order.push('flow');
+      return flow(c, e, f, o);
+    },
+    dispatchConfirm: async (args: Record<string, unknown>) => { calls.dispatch.push(args); calls.order.push('dispatch'); return { ok: true }; },
+    reportIssue: async (issue: { title: string; description: string; labels: string[] }) => { calls.issues.push(issue); },
+    log: { log: (message: string) => { calls.logs.push(message); }, warn: () => {}, error: () => {} },
+    ...over,
+  }) as Deps;
+  return { deps, calls, journal: () => stored, advance: (ms: number) => { clock += ms; } };
+}
+
+describe('runRobot', () => {
+  it('cleans the queue download directory after a flow outcome', async () => {
+    const cleaned: string[] = [];
+    const h = harness();
+    await runRobot(h.deps({
+      cleanupFiles: ({ entry: queued }) => { cleaned.push(queued.id); },
+    } as Partial<Deps>));
+    expect(cleaned).toEqual(['article-2026-10-03']);
+  });
+
+  it('skips a legacy TikTok queue entry without video and continues to the next one without an issue', async () => {
+    const legacy = entry('article', '2026-10-03', { channel: 'tiktok' });
+    const video = tiktokVideo('job-2026-10-04');
+    const next = buildQueueEntry({
+      channel: 'tiktok',
+      kind: 'job',
+      day: '2026-10-04',
+      caption: 'lavoro in Svizzera\n\n#frontalieri',
+      imageUrls: [cdn('job-2026-10-04-0.jpg')],
+      video,
+      ledgerEntries: [{ id: 'job-slug', kind: 'job' }],
+      now: NOW + 1,
+    });
+    const h = harness({ queue: { pending: [legacy, next] } });
+    const out = await runRobot(h.deps({ platforms: ['tiktok'] }));
+    expect(out.results).toEqual(expect.arrayContaining([
+      { channel: 'tiktok', outcome: 'skipped', reason: 'no-video', queueId: legacy.id },
+      expect.objectContaining({ channel: 'tiktok', outcome: 'published', queueId: next.id }),
+    ]));
+    expect(h.calls.flow.map((call) => call.id)).toEqual([next.id]);
+    expect(h.calls.issues).toEqual([]);
+  });
+
+  it('closes the platform failure issue after a real publish, once per run, and never after a dry run (#11755)', async () => {
+    const first = entry('article', '2026-10-03');
+    const second = entry('job', '2026-10-03');
+    const resolved: Array<{ title: string; channel: string; queueId: string }> = [];
+    const resolveIssue = async (args: { title: string; channel: string; queueId: string }) => { resolved.push(args); };
+
+    const live = harness({ queue: { pending: [first, second] } });
+    await runRobot(live.deps({ resolveIssue } as Partial<Deps>));
+    expect(live.calls.flow.length).toBeGreaterThan(0);
+    expect(resolved).toEqual([{ title: issueTitleFor('instagram'), channel: 'instagram', queueId: first.id }]);
+
+    resolved.length = 0;
+    const dry = harness({ queue: { pending: [first] } });
+    await runRobot(dry.deps({ resolveIssue, cliMode: 'dry-run' } as Partial<Deps>));
+    expect(dry.calls.flow.map((c) => c.dryRun)).toEqual([true]);
+    expect(resolved).toEqual([]);
+  });
+
+  it('keeps publishing when closing the issue fails', async () => {
+    const warnings: string[] = [];
+    const h = harness();
+    const out = await runRobot(h.deps({
+      resolveIssue: async () => { throw new Error('lookup unreliable'); },
+      log: { log: () => {}, warn: (m: string) => { warnings.push(m); }, error: () => {} },
+    } as Partial<Deps>));
+    expect(out.results[0]).toMatchObject({ channel: 'instagram', outcome: 'published' });
+    expect(warnings.join('\n')).toContain('could not close the instagram issue: lookup unreliable');
+  });
+
+  it('stays a dry run unless the command line AND Remote Config allow publishing', async () => {
+    for (const [cliMode, rcMode] of [['dry-run', 'live'], ['publish', 'dry'], ['dry-run', 'dry']] as const) {
+      const h = harness();
+      const out = await runRobot(h.deps({ cliMode, rcMode }));
+      expect(out.dryRun, `${cliMode}/${rcMode}`).toBe(true);
+      expect(h.calls.flow.map((c) => c.dryRun)).toEqual([true]);
+      expect(h.calls.dispatch).toEqual([]);
+      expect(h.journal().attempts.map((a: { outcome: string }) => a.outcome)).toEqual(['dry-run']);
+    }
+  });
+
+  it('prints the automatic engagement brief for an Instagram creative', async () => {
+    const creative = buildQueueEntry({
+      channel: 'instagram',
+      kind: 'article',
+      day: '2026-10-10',
+      caption: 'Quale tema scegli: tasse, sanità o permessi?',
+      imageUrls: [cdn('article-2026-10-10-0.jpg')],
+      ledgerEntries: [{
+        id: 'article-slug',
+        kind: 'article',
+        creativeId: 'question-choice',
+        primaryMetric: 'comments',
+        engagementMechanic: 'keyword-comment',
+        hookType: 'forced-choice',
+        attentionMechanic: 'low-friction-choice',
+        engagementLoop: 'comment-to-poll',
+        followUpFormat: 'story-result',
+      }],
+      now: NOW,
+    });
+    const h = harness({ queue: { pending: [creative] } });
+
+    await runRobot(h.deps({ cliMode: 'dry-run', rcMode: 'dry' }));
+
+    const output = h.calls.logs.join('\n');
+    expect(output).toContain('Instagram engagement — article-2026-10-10 · question-choice · comments');
+    expect(output).toContain('24h');
+    expect(output).toContain('48h');
+    expect(output).toContain('3 osservazioni');
+    expect(output).toContain('commenti e DM consentiti vengono gestiti dal worker Chrome');
+  });
+
+  it('does nothing when Remote Config says off', async () => {
+    const h = harness();
+    await runRobot(h.deps({ rcMode: 'off' }));
+    expect(h.calls.flow).toEqual([]);
+  });
+
+  it('dispatches the ledger confirmation only after the flow saw the platform confirm', async () => {
+    const h = harness();
+    const out = await runRobot(h.deps());
+    expect(out.results).toEqual([{ channel: 'instagram', outcome: 'published', queueId: 'article-2026-10-03', confirmDispatched: true }]);
+    expect(h.calls.order).toEqual(['flow', 'dispatch']);
+    expect(h.calls.dispatch[0]).toMatchObject({ channel: 'instagram', queueId: 'article-2026-10-03', evidence: 'Post condiviso' });
+    // never pressed twice, even before the confirm commit reaches origin/main
+    const again = await runRobot(h.deps());
+    expect(again.results[0].outcome).toBe('empty');
+    expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('keeps a sent publish click without confirmation as unconfirmed and blocked for a human', async () => {
+    const h = harness({ flow: async () => { throw new RobotError('confirmation-missing', 'no confirmation', { step: 'confirmation', pressed: true }); } });
+    const out = await runRobot(h.deps());
+    expect(out.results[0]).toMatchObject({ outcome: 'unconfirmed', errorClass: 'confirmation-missing' });
+    expect(h.calls.dispatch).toEqual([]);
+    expect(h.calls.issues).toHaveLength(1);
+    expect(h.calls.issues[0].labels).toContain('needs-human');
+    await runRobot(h.deps());
+    expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('records a publish click intercepted before dispatch as error and retries it', async () => {
+    const h = harness({ flow: async () => { throw new RobotError('interstitial-unknown', 'Post click was intercepted', { step: 'publish', pressed: false }); } });
+    const out = await runRobot(h.deps());
+    expect(out.results[0]).toMatchObject({ outcome: 'error', errorClass: 'interstitial-unknown' });
+    expect(h.journal().attempts[0]).toMatchObject({ outcome: 'error', step: 'publish' });
+    expect(h.calls.issues[0].labels).not.toContain('needs-human');
+
+    const retry = await runRobot(h.deps());
+    expect(retry.results[0]).toMatchObject({ outcome: 'error', errorClass: 'interstitial-unknown' });
+    expect(h.calls.flow).toHaveLength(2);
+  });
+
+  it('treats a UI loading timeout as a retryable platform error with the stable issue', async () => {
+    const h = harness({ flow: async () => { throw new RobotError('ui-loading-timeout', 'the upload dialog stayed busy', { step: 'upload' }); } });
+    const first = await runRobot(h.deps());
+    expect(first.results[0]).toMatchObject({ outcome: 'error', errorClass: 'ui-loading-timeout', queueId: 'article-2026-10-03' });
+    expect(h.calls.issues[0].title).toBe(issueTitleFor('instagram'));
+    expect(h.calls.issues[0].description).toContain('`ui-loading-timeout`');
+    expect(h.calls.issues[0].description).toContain('ritenta al giro successivo');
+    expect(h.calls.issues[0].labels).not.toContain('needs-human');
+
+    const retry = await runRobot(h.deps());
+    expect(retry.results[0]).toMatchObject({ outcome: 'error', errorClass: 'ui-loading-timeout' });
+    expect(h.calls.flow).toHaveLength(2);
+    expect(h.calls.issues.map((issue) => issue.title)).toEqual([issueTitleFor('instagram'), issueTitleFor('instagram')]);
+  });
+
+  it('opens the issue with a stable title on any error, with the home folder hidden', async () => {
+    const h = harness({ flow: async () => { throw new RobotError('selector-missing', 'no control found for step "caption"', { step: 'caption' }); } });
+    await runRobot(h.deps());
+    h.advance(6 * HOUR);
+    await runRobot(h.deps());
+    expect(h.calls.issues.map((i) => i.title)).toEqual([issueTitleFor('instagram'), issueTitleFor('instagram')]);
+    expect(h.calls.issues[0].description).toContain('`selector-missing`');
+    expect(h.calls.issues[0].description).not.toContain(os.homedir());
+    expect(h.calls.issues[0].labels).not.toContain('needs-human');
+    expect(h.calls.dispatch).toEqual([]);
+  });
+
+  it('pauses TikTok after an account mismatch and gives the owner a safe recovery path', async () => {
+    const videoEntry = entry('article', '2026-10-03', { channel: 'tiktok' });
+    videoEntry.video = tiktokVideo(videoEntry.id);
+    const h = harness({
+      queue: { pending: [videoEntry] },
+      flow: async () => { throw new RobotError('account-mismatch', 'authenticated as @valerie.linc', { step: 'account' }); },
+    });
+
+    const first = await runRobot(h.deps({ platforms: ['tiktok'] }));
+    expect(first.results[0]).toMatchObject({ channel: 'tiktok', outcome: 'error', errorClass: 'account-mismatch' });
+    expect(pausedUntil(h.journal(), 'tiktok', NOW)).toBe(new Date(NOW + PAUSE_AFTER_BLOCK_HOURS * HOUR).toISOString());
+    expect(h.calls.issues[0].labels).toContain('needs-human');
+    expect(h.calls.issues[0].description).toContain('--login --platform=tiktok');
+
+    const second = await runRobot(h.deps({ platforms: ['tiktok'] }));
+    expect(second.results[0]).toMatchObject({ channel: 'tiktok', outcome: 'paused' });
+    expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('pauses a platform after a login wall instead of insisting', async () => {
+    const h = harness({ flow: async () => { throw new RobotError('login-required', 'login page', { step: 'open' }); } });
+    await runRobot(h.deps());
+    expect(pausedUntil(h.journal(), 'instagram', NOW)).toBe(new Date(NOW + PAUSE_AFTER_BLOCK_HOURS * HOUR).toISOString());
+    const second = await runRobot(h.deps());
+    expect(second.results[0].outcome).toBe('paused');
+    expect(h.calls.flow).toHaveLength(1);
+    h.advance(PAUSE_AFTER_BLOCK_HOURS * HOUR + 1);
+    await runRobot(h.deps());
+    expect(h.calls.flow).toHaveLength(2);
+  });
+
+  it('respects the daily cap per platform', async () => {
+    const journal = emptyJournal();
+    for (let i = 0; i < MAX_POSTS_PER_DAY_PER_PLATFORM; i++) {
+      journal.attempts.push({ channel: 'instagram', outcome: 'published', at: new Date(NOW - (i + 1) * HOUR).toISOString(), queueId: `old-${i}`, confirmDispatched: true });
+    }
+    const h = harness({ journal });
+    const out = await runRobot(h.deps());
+    expect(out.results[0].outcome).toBe('cap');
+    expect(h.calls.flow).toEqual([]);
+  });
+
+  it('treats ANY error after the press as a press: unconfirmed, paused, never pressed again', async () => {
+    // A challenge seen while waiting for the confirmation: the flow marks it
+    // pressed (lib/flows.mjs); robot.mjs also treats the step as a press when
+    // the flag is missing, which is the case this test pins.
+    const h = harness({ flow: async () => { throw new RobotError('challenge', 'identity check', { step: 'confirmation' }); } });
+    const out = await runRobot(h.deps());
+    expect(out.results[0]).toMatchObject({ outcome: 'unconfirmed', errorClass: 'challenge' });
+    expect(pausedUntil(h.journal(), 'instagram', NOW)).not.toBeNull();
+    expect(h.calls.issues[0].labels).toContain('needs-human');
+    expect(h.calls.issues[0].description).toContain('**sì**');
+    h.advance(PAUSE_AFTER_BLOCK_HOURS * HOUR + 1);
+    const later = await runRobot(h.deps());
+    expect(later.results[0].outcome).toBe('held');
+    expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('holds the platform after an unconfirmed press, even for the next day\'s post with a new id', async () => {
+    const day1 = entry('article', '2026-10-03');
+    const day2 = entry('article', '2026-10-04', { now: NOW + 20 * HOUR }); // same slug, new id
+    let queue = { pending: [day1] };
+    const h = harness({ flow: async () => { throw new RobotError('confirmation-missing', 'no confirmation', { step: 'confirmation', pressed: true }); } });
+    const reader = { readQueue: () => queue, readLedger: () => ({ posted: [] }) };
+    await runRobot(h.deps({ reader }));
+    queue = { pending: [day2] };
+    h.advance(24 * HOUR);
+    const held = await runRobot(h.deps({ reader }));
+    expect(held.results[0]).toMatchObject({ outcome: 'held', queueId: day1.id });
+    expect(h.calls.flow).toHaveLength(1);
+    // A human settles the line as "not online": the hold lifts and the same
+    // articles may go out under the new id; the old id is never pressed again.
+    const settled = h.journal();
+    settled.attempts[0].resolvedAt = new Date(NOW + 25 * HOUR).toISOString();
+    const h2 = harness({ journal: settled, queue: { pending: [day1, day2] } });
+    h2.advance(24 * HOUR);
+    const after = await runRobot(h2.deps());
+    expect(after.results[0]).toMatchObject({ outcome: 'published', queueId: day2.id });
+    expect(h2.calls.flow.map((c) => c.id)).toEqual([day2.id]);
+  });
+
+  it('lifts the hold by itself once the ledger on main holds the unconfirmed post', async () => {
+    const journal = emptyJournal();
+    journal.attempts.push({ channel: 'instagram', outcome: 'unconfirmed', at: new Date(NOW - 30 * HOUR).toISOString(), queueId: 'article-2026-10-02', ledgerEntries: [{ id: 'old-slug', kind: 'article' }] });
+    const h = harness({ journal });
+    const reader = { readQueue: () => ({ pending: [entry('article')] }), readLedger: () => ({ posted: [{ id: 'old-slug', kind: 'article', queueId: 'article-2026-10-02' }] }) };
+    const out = await runRobot(h.deps({ reader }));
+    expect(out.results[0]).toMatchObject({ outcome: 'published', queueId: 'article-2026-10-03' });
+  });
+
+  it('does not press a new entry that repeats the articles of a press still missing from the ledger', async () => {
+    const journal = emptyJournal();
+    journal.attempts.push({ channel: 'instagram', outcome: 'published', at: new Date(NOW - HOUR).toISOString(), confirmDispatched: true, confirmDispatchedAt: new Date(NOW - HOUR).toISOString(), queueId: 'article-2026-10-02', ledgerEntries: [{ id: 'article-slug-a', kind: 'article' }] });
+    const other = buildQueueEntry({ channel: 'instagram', kind: 'job', day: '2026-10-03', caption: 'job', imageUrls: [cdn('job-0.jpg')], ledgerEntries: [{ id: 'job-slug', kind: 'job' }], now: NOW });
+    const h = harness({ journal, queue: { pending: [entry('article'), other] } });
+    const out = await runRobot(h.deps());
+    expect(h.calls.flow.map((c) => c.id)).toEqual([other.id]);
+    expect(out.results[0]).toMatchObject({ outcome: 'published', queueId: other.id });
+  });
+
+  it('re-dispatches a confirm that has not reached the ledger after the grace period', async () => {
+    const sentAt = NOW - (CONFIRM_REDISPATCH_AFTER_HOURS + 1) * HOUR;
+    const pressed = { channel: 'instagram', outcome: 'published', at: new Date(sentAt).toISOString(), confirmDispatched: true, confirmDispatchedAt: new Date(sentAt).toISOString(), queueId: 'article-2026-10-02', evidence: 'ok', ledgerEntries: [{ id: 'x', kind: 'article' }] };
+    const fresh = { ...pressed, queueId: 'job-2026-10-02', at: new Date(NOW - HOUR).toISOString(), confirmDispatchedAt: new Date(NOW - HOUR).toISOString() };
+    const landed = { ...pressed, queueId: 'border-2026-09-28' };
+    const journal = emptyJournal();
+    journal.attempts.push(pressed, fresh, landed);
+    const h = harness({ journal, queue: { pending: [] } });
+    await runRobot(h.deps({ reader: { readQueue: () => ({ pending: [] }), readLedger: () => ({ posted: [{ id: 'b', queueId: 'border-2026-09-28' }] }) } }));
+    expect(h.calls.dispatch.map((d) => d.queueId)).toEqual(['article-2026-10-02']);
+    expect(h.journal().attempts[0].confirmDispatchedAt).toBe(new Date(NOW).toISOString());
+  });
+
+  it('takes each queue entry to the button once in an unattended dry run, every time by hand', async () => {
+    const h = harness();
+    await runRobot(h.deps({ cliMode: 'publish', rcMode: 'dry', repeatDryRun: false }));
+    const second = await runRobot(h.deps({ cliMode: 'publish', rcMode: 'dry', repeatDryRun: false }));
+    expect(second.results[0].outcome).toBe('empty');
+    expect(h.calls.flow).toHaveLength(1);
+    await runRobot(h.deps({ cliMode: 'dry-run', rcMode: 'dry' }));
+    expect(h.calls.flow).toHaveLength(2);
+  });
+
+  it('retries a confirm dispatch that failed before doing anything new', async () => {
+    const journal = emptyJournal();
+    journal.attempts.push({ channel: 'tiktok', outcome: 'published', at: new Date(NOW - HOUR).toISOString(), queueId: 'job-2026-10-03', confirmDispatched: false, evidence: 'ok', ledgerEntries: [{ id: 'j', kind: 'job' }] });
+    const h = harness({ journal, queue: { pending: [] } });
+    await runRobot(h.deps());
+    expect(h.calls.dispatch).toEqual([expect.objectContaining({ channel: 'tiktok', queueId: 'job-2026-10-03', ledgerEntries: [{ id: 'j', kind: 'job' }] })]);
+    expect(h.journal().attempts[0].confirmDispatched).toBe(true);
+  });
+});
+
+describe('robot helpers', () => {
+  it('documents the account-mismatch recovery without suggesting an account switch', () => {
+    const description = buildIssueDescription({
+      channel: 'tiktok',
+      error: new RobotError('account-mismatch', 'authenticated as @valerie.linc', { step: 'account' }),
+      entry: { id: 'job-2026-10-03' },
+      diagnostics: '/Users/tester/Library/Application Support/frontaliere/social-robot/diagnostics/x',
+      mode: 'publish',
+    });
+    expect(description).toContain('--login --platform=tiktok');
+    expect(description).toContain('non cambia account');
+  });
+
+  it('extracts the authenticated TikTok handle from escaped Studio context', () => {
+    expect(extractTikTokAuthenticatedUsername('&quot;user&quot;:{&quot;uniqueId&quot;:&quot;Frontaliereticino&quot;}')).toBe('frontaliereticino');
+    expect(extractTikTokAuthenticatedUsername('{"user":{"uniqueId":"valerie.linc"}}')).toBe('valerie.linc');
+    expect(extractTikTokAuthenticatedUsername('')).toBe('');
+  });
+
+  it('downloads only images from the site CDN', async () => {
+    const dir = tempDir();
+    const ok = async () => new Response(new Uint8Array([0xff, 0xd8]), { status: 200, headers: { 'content-type': 'image/jpeg' } });
+    const files = await downloadImages(entry('article'), dir, { fetchImpl: ok as typeof fetch });
+    expect(files.map((f: string) => path.basename(f))).toEqual(['slide-1.jpg', 'slide-2.jpg']);
+    const html = async () => new Response('<html>', { status: 200, headers: { 'content-type': 'text/html' } });
+    await expect(downloadImages(entry('article'), dir, { fetchImpl: html as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
+    await expect(downloadImages({ imageUrls: ['https://evil.example/a.jpg'] }, dir, { fetchImpl: ok as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
+  });
+
+  it('downloads TikTok video only after checking content type, bytes and sha256', async () => {
+    const dir = tempDir();
+    const video = tiktokVideo('article-2026-10-03', 8);
+    const videoEntry = { ...entry('article', '2026-10-03', { channel: 'tiktok' }), video };
+    const fetchImpl = async (url: string) => url.endsWith('.mp4')
+      ? new Response(video.body, { status: 200, headers: { 'content-type': 'video/mp4' } })
+      : new Response(new Uint8Array([0xff, 0xd8]), { status: 200, headers: { 'content-type': 'image/jpeg' } });
+    const files = await downloadEntryFiles(videoEntry, dir, { fetchImpl: fetchImpl as typeof fetch });
+    expect(files.map((file: string) => path.basename(file))).toEqual(['article-2026-10-03.mp4']);
+    await expect(downloadEntryFiles({ ...videoEntry, video: { ...video, bytes: video.bytes + 1 } }, dir, { fetchImpl: fetchImpl as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
+    const wrongType = async () => new Response(video.body, { status: 200, headers: { 'content-type': 'image/jpeg' } });
+    await expect(downloadEntryFiles(videoEntry, dir, { fetchImpl: wrongType as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
+  });
+
+  it('hides the home folder in paths it publishes', () => {
+    expect(displayPath('/home/tester/Library/x', '/home/tester')).toBe('~/Library/x');
+  });
+
+  it('prefers real Chrome, then the newest cached Chromium, never a download', () => {
+    const chrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+    const home = '/home/tester';
+    const cached = `${home}/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`;
+    const base = { env: {}, home, platform: 'darwin', listDir: () => ['chromium-1208', 'chromium-1234', 'ffmpeg-1011'] };
+    expect(resolveBrowserLaunch({ ...base, exists: (p: string) => p === chrome || p === cached })).toEqual({ channel: 'chrome', kind: 'chrome' });
+    expect(resolveBrowserLaunch({ ...base, exists: (p: string) => p === cached })).toEqual({ executablePath: cached, kind: 'cached-chromium' });
+    expect(resolveBrowserLaunch({ ...base, env: { SOCIAL_ROBOT_BROWSER_PATH: '/x/chrome' }, exists: () => true })).toEqual({ executablePath: '/x/chrome', kind: 'explicit' });
+  });
+
+  it('removes transient downloads and bounds retained diagnostics', () => {
+    const state = tempDir();
+    const downloads = path.join(downloadsDir(state), 'instagram', 'old-entry');
+    const oldDiagnostic = path.join(diagnosticsDir(state), 'old');
+    const newDiagnostic = path.join(diagnosticsDir(state), 'new');
+    fs.mkdirSync(downloads, { recursive: true });
+    fs.mkdirSync(oldDiagnostic, { recursive: true });
+    fs.mkdirSync(newDiagnostic, { recursive: true });
+    fs.writeFileSync(path.join(downloads, 'slide.jpg'), 'temporary');
+    const now = Date.parse('2026-10-15T12:00:00Z');
+    fs.utimesSync(oldDiagnostic, new Date(now - 15 * 24 * HOUR), new Date(now - 15 * 24 * HOUR));
+    fs.utimesSync(newDiagnostic, new Date(now - HOUR), new Date(now - HOUR));
+
+    const result = pruneRobotState(state, { now, maxDiagnosticRuns: 1 });
+
+    expect(result.errors).toEqual([]);
+    expect(result.removed).toEqual({ downloads: true, diagnostics: 1 });
+    expect(fs.existsSync(downloadsDir(state))).toBe(false);
+    expect(fs.existsSync(oldDiagnostic)).toBe(false);
+    expect(fs.existsSync(newDiagnostic)).toBe(true);
+  });
+});
+
+describe('Mac host launch agent', () => {
+  const script = path.join(ROOT, 'scripts', 'social-robot', 'launchd.sh');
+
+  type LaunchFixture = {
+    root: string;
+    repo: string;
+    state: string;
+    installed: string;
+    stateLauncher: string;
+    logs: string;
+    runLog: string;
+    sha: string;
+    extraPath: string;
+  };
+
+  function gitFixture(repo: string, args: string[]) {
+    execFileSync('git', ['-C', repo, ...args], { stdio: 'ignore' });
+  }
+
+  function createLaunchFixture({
+    missingDependency = false,
+    runBody,
+    copySourceFiles = [],
+  }: { missingDependency?: boolean; runBody?: string; copySourceFiles?: string[] } = {}): LaunchFixture {
+    const root = tempDir();
+    const repo = path.join(root, 'repo');
+    const scriptsDir = path.join(repo, 'scripts');
+    const socialDir = path.join(scriptsDir, 'social-robot');
+    const libDir = path.join(scriptsDir, 'lib');
+    fs.mkdirSync(socialDir, { recursive: true });
+    fs.mkdirSync(libDir, { recursive: true });
+
+    const launcherSource = fs.readFileSync(script, 'utf8');
+    const declared = (launcherSource.match(/^snapshot_paths="([^"]+)"/m)?.[1] ?? '').split(/\s+/).filter(Boolean);
+    const extraPath = 'scripts/lib/social-robot-test-dependency.mjs';
+    const destinationPaths = missingDependency ? declared : [...declared, extraPath];
+    const destinationLauncher = launcherSource.replace(
+      /^snapshot_paths="[^"]+"/m,
+      `snapshot_paths="${destinationPaths.join(' ')}"`,
+    );
+    fs.writeFileSync(path.join(socialDir, 'launchd.sh'), destinationLauncher);
+    fs.copyFileSync(path.join(ROOT, 'scripts', 'social-robot', 'verify-snapshot.mjs'), path.join(socialDir, 'verify-snapshot.mjs'));
+    fs.writeFileSync(
+      path.join(socialDir, 'run.mjs'),
+      runBody ?? [
+        `import '../lib/${path.basename(extraPath)}';`,
+        "import { appendFileSync } from 'node:fs';",
+        "appendFileSync(process.env.SOCIAL_ROBOT_RUN_LOG, 'ran\\n');",
+      ].join('\n'),
+    );
+    for (const rel of destinationPaths) {
+      if (rel === 'scripts/social-robot') continue;
+      const file = path.join(repo, rel);
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      if (!fs.existsSync(file)) {
+        if (copySourceFiles.includes(rel)) {
+          fs.copyFileSync(path.join(ROOT, rel), file);
+        } else {
+          fs.writeFileSync(file, 'export const fixture = true;\n');
+        }
+      }
+    }
+    if (!missingDependency) fs.writeFileSync(path.join(repo, extraPath), 'export const fixture = true;\n');
+
+    gitFixture(repo, ['init', '-q', '-b', 'main']);
+    gitFixture(repo, ['config', 'user.email', 'test@example.invalid']);
+    gitFixture(repo, ['config', 'user.name', 'social-robot-test']);
+    gitFixture(repo, ['add', '.']);
+    gitFixture(repo, ['commit', '-qm', 'social robot snapshot fixture']);
+    const sha = execFileSync('git', ['-C', repo, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+
+    const state = path.join(root, 'state');
+    const stateLauncher = path.join(state, 'launchd.sh');
+    const installed = path.join(root, 'installed-launchd.sh');
+    fs.mkdirSync(state, { recursive: true });
+    fs.writeFileSync(installed, launcherSource);
+    fs.writeFileSync(stateLauncher, launcherSource);
+
+    return {
+      root,
+      repo,
+      state,
+      stateLauncher,
+      installed,
+      logs: path.join(root, 'logs'),
+      runLog: path.join(root, 'run.log'),
+      sha,
+      extraPath,
+    };
+  }
+
+  function launchEnv(fixture: LaunchFixture, overrides: Record<string, string> = {}) {
+    return {
+      ...process.env,
+      HOME: path.join(fixture.root, 'home'),
+      PATH: process.env.PATH,
+      SR_SITE_REPO: fixture.repo,
+      SR_REF: fixture.sha,
+      SR_LOG_DIR: fixture.logs,
+      SOCIAL_ROBOT_STATE_DIR: fixture.state,
+      SR_SERVICE_ACCOUNT: path.join(fixture.root, 'missing-service-account.json'),
+      SOCIAL_ROBOT_RUN_LOG: fixture.runLog,
+      GH_REPO: 'valerielinc-ops/frontaliere-si-o-no',
+      ...overrides,
+    };
+  }
+
+  function runLauncher(fixture: LaunchFixture, env: Record<string, string>, launcher = fixture.installed) {
+    return execFileSync('bash', [launcher, 'run'], { env, encoding: 'utf8' });
+  }
+
+  function fakeGh(root: string, existingIssue = '', exitCode = 0) {
+    const bin = path.join(root, 'bin');
+    const calls = path.join(root, 'gh-calls.log');
+    fs.mkdirSync(bin, { recursive: true });
+    fs.writeFileSync(path.join(bin, 'gh'), [
+      '#!/bin/sh',
+      'printf "%s\\n" "$*" >> "$GH_CALLS"',
+      'if [ "$1" = "issue" ] && [ "$2" = "list" ]; then',
+      existingIssue ? `  printf '%s\\n' '${existingIssue}'` : '  :',
+      'fi',
+      `exit ${exitCode}`,
+      '',
+    ].join('\n'));
+    fs.chmodSync(path.join(bin, 'gh'), 0o755);
+    return { bin, calls };
+  }
+
+  it('writes a plist with one calendar entry per window that runs the copy in the state folder', () => {
+    const dir = tempDir();
+    const env = { ...process.env, SR_NO_LAUNCHCTL: '1', SR_LAUNCH_AGENTS_DIR: path.join(dir, 'agents'), SR_LOG_DIR: path.join(dir, 'logs'), SOCIAL_ROBOT_STATE_DIR: path.join(dir, 'state'), SR_WINDOWS: '09:05 17:45' };
+    const plistPath = execFileSync('bash', [script, 'install'], { env, encoding: 'utf8' }).trim();
+    const plist = fs.readFileSync(plistPath, 'utf8');
+    const windows = [...plist.matchAll(/<key>Hour<\/key><integer>(\d+)<\/integer><key>Minute<\/key><integer>(\d+)<\/integer>/g)].map((m) => `${m[1]}:${m[2]}`);
+    expect(windows).toEqual(['9:5', '17:45']);
+    expect(plist).toContain(`<string>${path.join(dir, 'state', 'launchd.sh')}</string>`);
+    expect(fs.existsSync(path.join(dir, 'state', 'launchd.sh'))).toBe(true);
+    expect(fs.readFileSync(path.join(dir, 'state', 'site.path'), 'utf8').trim()).toBe(ROOT);
+    const bad = spawnSync('bash', [script, 'install'], { env: { ...env, SR_WINDOWS: '24:61' }, encoding: 'utf8' });
+    expect(bad.status).not.toBe(0);
+  });
+
+  it('extracts every relative import of the robot and of the loader into its snapshot', () => {
+    const source = fs.readFileSync(script, 'utf8');
+    const declared = (source.match(/^snapshot_paths="([^"]+)"/m)?.[1] ?? '').split(/\s+/).filter(Boolean);
+    const covered = (rel: string) => declared.some((p) => rel === p || rel.startsWith(`${p}/`));
+    const seen = new Set<string>();
+    const walk = (rel: string) => {
+      if (seen.has(rel)) return;
+      seen.add(rel);
+      const abs = path.join(ROOT, rel);
+      for (const spec of importSpecifiers(fs.readFileSync(abs, 'utf8'))) {
+        if (!spec.startsWith('.')) continue;
+        walk(path.relative(ROOT, path.resolve(path.dirname(abs), spec)));
+      }
+    };
+    walk('scripts/social-robot/run.mjs');
+    walk('scripts/social-robot/persist-browser-insights.mjs');
+    walk('scripts/load-rc-env.mjs');
+    const missing = [...seen].filter((rel) => !covered(rel));
+    expect(missing).toEqual([]);
+  });
+
+  it('materializes only the declared files instead of archiving the partial clone', () => {
+    const source = fs.readFileSync(script, 'utf8');
+    expect(source).toContain('g ls-tree -r --name-only');
+    expect(source).toContain('g show "${sha}:${snapshot_file}"');
+    expect(source).not.toContain('g archive --format=tar');
+  });
+
+  it('sweeps stale fetch packs before the Mac host fetches main', () => {
+    const fixture = createLaunchFixture({
+      // launchd executes this helper from the checkout before materializing
+      // the snapshot, so this fixture needs its real implementation and its
+      // direct-entry dependency rather than placeholder modules.
+      copySourceFiles: [
+        'scripts/lib/is-invoked-directly.mjs',
+        'scripts/lib/stale-fetch-pack-sweep.mjs',
+      ],
+    });
+    const packDir = path.resolve(fixture.repo, execFileSync('git', ['-C', fixture.repo, 'rev-parse', '--git-path', 'objects/pack'], { encoding: 'utf8' }).trim());
+    const stalePack = path.join(packDir, 'tmp_pack_stale');
+    fs.writeFileSync(stalePack, 'stale');
+    const old = new Date(Date.now() - STALE_PACK_AGE_MS - 1_000);
+    fs.utimesSync(stalePack, old, old);
+
+    runLauncher(fixture, launchEnv(fixture));
+
+    expect(fs.existsSync(stalePack)).toBe(false);
+  });
+
+  it('uses the destination SHA snapshot list even when the installed copy is old', () => {
+    const fixture = createLaunchFixture();
+    expect(fs.readFileSync(fixture.installed, 'utf8')).not.toContain(fixture.extraPath);
+    runLauncher(fixture, launchEnv(fixture));
+    expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('ran');
+    expect(fs.existsSync(path.join(fixture.state, 'runner', fixture.sha, '.snapshot-verified'))).toBe(true);
+    expect(fs.readFileSync(fixture.stateLauncher, 'utf8')).toContain(fixture.extraPath);
+  });
+
+  it('replaces runner/current instead of writing current.tmp inside the old snapshot', () => {
+    const fixture = createLaunchFixture();
+    const runner = path.join(fixture.state, 'runner');
+    const oldSnapshot = path.join(runner, 'old-snapshot');
+    const current = path.join(runner, 'current');
+    fs.mkdirSync(oldSnapshot, { recursive: true });
+    fs.symlinkSync(oldSnapshot, current);
+
+    runLauncher(fixture, launchEnv(fixture));
+
+    expect(fs.realpathSync(current)).toBe(fs.realpathSync(path.join(runner, fixture.sha)));
+    expect(fs.existsSync(path.join(oldSnapshot, 'current.tmp'))).toBe(false);
+  });
+
+  it('uses the persisted checkout when the installed launcher has no repo env', () => {
+    const fixture = createLaunchFixture();
+    const installEnv = launchEnv(fixture, {
+      SR_NO_LAUNCHCTL: '1',
+      SR_LAUNCH_AGENTS_DIR: path.join(fixture.root, 'agents'),
+      SR_WINDOWS: '11:30',
+    });
+    execFileSync('bash', [script, 'install'], { env: installEnv, encoding: 'utf8' });
+    const installedEnv = launchEnv(fixture, { SR_SITE_REPO: '' });
+    runLauncher(fixture, installedEnv, fixture.stateLauncher);
+    expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('ran');
+    expect(fs.readFileSync(path.join(fixture.state, 'site.path'), 'utf8').trim()).toBe(fixture.repo);
+  });
+
+  it('does not cache or execute an incomplete snapshot and alerts through gh', () => {
+    const fixture = createLaunchFixture({
+      missingDependency: true,
+      runBody: [
+        "import '../lib/missing-social-robot-dependency.mjs';",
+        "import { appendFileSync } from 'node:fs';",
+        "appendFileSync(process.env.SOCIAL_ROBOT_RUN_LOG, 'ran\\n');",
+      ].join('\n'),
+    });
+    const gh = fakeGh(fixture.root, '9876');
+    const env = launchEnv(fixture, { GH_CALLS: gh.calls, PATH: `${gh.bin}:${process.env.PATH}` });
+    expect(() => runLauncher(fixture, env)).not.toThrow();
+    expect(fs.existsSync(fixture.runLog)).toBe(false);
+    expect(fs.existsSync(path.join(fixture.state, 'runner', fixture.sha))).toBe(false);
+    const calls = fs.readFileSync(gh.calls, 'utf8');
+    expect(calls).toContain('issue list');
+    expect(calls).toContain('issue comment 9876');
+  });
+
+  it('alerts on a non-zero robot exit without letting gh failure fail cmd_run', () => {
+    const fixture = createLaunchFixture({
+      runBody: [
+        "import '../lib/social-robot-test-dependency.mjs';",
+        "console.error('Error: TOKEN=SECRET');",
+        'process.exit(7);',
+      ].join('\n'),
+    });
+    const gh = fakeGh(fixture.root, '', 1);
+    const env = launchEnv(fixture, { GH_CALLS: gh.calls, PATH: `${gh.bin}:${process.env.PATH}` });
+    expect(() => runLauncher(fixture, env)).not.toThrow();
+    const calls = fs.readFileSync(gh.calls, 'utf8');
+    expect(calls).toContain('issue create');
+    expect(calls).not.toContain('SECRET');
+  });
+
+  it('writes the verification marker and reuses the cached snapshot', () => {
+    const fixture = createLaunchFixture();
+    runLauncher(fixture, launchEnv(fixture));
+    const cachedRun = path.join(fixture.state, 'runner', fixture.sha, 'scripts', 'social-robot', 'run.mjs');
+    fs.appendFileSync(cachedRun, "\nappendFileSync(process.env.SOCIAL_ROBOT_RUN_LOG, 'cached\\n');\n");
+    runLauncher(fixture, launchEnv(fixture), fixture.stateLauncher);
+    expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('cached');
+    expect(fs.readFileSync(path.join(fixture.state, 'runner', fixture.sha, '.snapshot-verified'), 'utf8').trim()).toBe(fixture.sha);
+  });
+});
+
+describe('workflows', () => {
+  const wf = (name: string) => YAML.parse(fs.readFileSync(path.join(ROOT, '.github', 'workflows', name), 'utf8'));
+
+  it('serialises the confirm job with the daily poster of the same channel', () => {
+    const group = String(wf('social-robot-confirm.yml').concurrency.group);
+    for (const channel of wf('social-robot-confirm.yml').on.workflow_dispatch.inputs.channel.options) {
+      const resolved = group.replace('${{ inputs.channel }}', channel);
+      expect(resolved).toBe(String(wf(`${channel}-daily-broadcast.yml`).concurrency.group));
+    }
+  });
+
+  it('warns on a token-less Instagram run unless the robot is live', () => {
+    const steps = wf('instagram-daily-broadcast.yml').jobs.post.steps as Array<{ name?: string; if?: string }>;
+    const warn = steps.find((s) => /credentials are absent/.test(s.name ?? ''));
+    expect(warn?.if).toBe("env.INSTAGRAM_ACCESS_TOKEN == '' && env.SOCIAL_ROBOT_MODE != 'live'");
+  });
+
+  it('commits the queue file in the same step that commits the ledger', () => {
+    for (const channel of ['instagram', 'tiktok']) {
+      const steps = wf(`${channel}-daily-broadcast.yml`).jobs.post.steps as Array<{ name?: string; run?: string }>;
+      const commit = steps.find((s) => /git commit/.test(s.run ?? ''));
+      expect(commit?.run, channel).toContain(`data/${channel}-queue.json`);
+      expect(commit?.run, channel).toContain(`data/${channel}-posted.json`);
+    }
+  });
+
+  it('regenerates the confirmation on the newest main after a concurrent push', () => {
+    const steps = wf('social-robot-confirm.yml').jobs.confirm.steps as Array<{ name?: string; run?: string }>;
+    const commit = steps.find((s) => /git commit/.test(s.run ?? ''));
+    expect(commit?.run).toContain('--regenerate-cmd');
+    expect(commit?.run).toContain('scripts/social-robot/confirm.mjs');
+    expect(commit?.run).toContain('$LEDGER_ENTRIES');
+    expect(commit?.run).toContain('git add -- "$f"');
+  });
+
+  it('does not hide a failed social ledger push', () => {
+    for (const workflow of [
+      'instagram-daily-broadcast.yml',
+      'tiktok-daily-broadcast.yml',
+      'linkedin-member-daily.yml',
+    ]) {
+      const steps = wf(workflow).jobs.post.steps as Array<{ name?: string; run?: string }>;
+      const commit = steps.find((s) => /git commit/.test(s.run ?? ''));
+      expect(commit?.run, workflow).toContain('git-push-with-retry.sh');
+      expect(commit?.run, workflow).toContain('--stash-dirty');
+      expect(commit?.run, workflow).not.toContain('ledger push skipped (non-fatal)');
+    }
+  });
+});

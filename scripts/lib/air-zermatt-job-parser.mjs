@@ -8,6 +8,9 @@
  * Each job is in a `.listing_entry` div inside `div#mixItUp`.
  * Detail pages are at /de/service/offene-stellen/{slug}-{id}
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -24,6 +27,11 @@ export const AIR_ZERMATT_KEY = 'air-zermatt';
 export const AIR_ZERMATT_COMPANY_NAME = 'Air Zermatt AG';
 export const AIR_ZERMATT_COMPANY_DOMAIN = 'air-zermatt.ch';
 
+/**
+ * Node-selection heuristic only: the first body block with this many
+ * characters is taken as the vacancy text. Whether that text is published is
+ * decided by the shared 50-word floor (source-body-floor.mjs).
+ */
 export const MIN_DESC_LENGTH = 100;
 
 /* ── Job identification ───────────────────────────────────── */
@@ -180,12 +188,17 @@ export async function fetchAllAirZermattJobs() {
   if (!listings.length) return [];
 
   const jobs = [];
+  let belowFloor = 0;
   for (const listing of listings) {
     let description = listing.snippet || '';
+    let publication = sourcePostingDateFields();
     if (listing.url) {
       try {
         const detailHtml = await fetchHtml(listing.url);
         const detailBody = parseDetailPage(detailHtml);
+        const posting = extractJobPostingLd(detailHtml);
+        const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === listing.title.toLowerCase();
+        publication = sourcePostingDateFields(sameTitle ? posting?.datePosted : '');
         if (detailBody && detailBody.length > description.length) {
           description = detailBody;
         }
@@ -194,8 +207,21 @@ export async function fetchAllAirZermattJobs() {
       }
     }
 
+    // The shared 50-word floor (source-body-floor.mjs): a shorter text — a
+    // listing snippet when the detail page failed — is not published this run;
+    // the standard pipeline keeps the stored record for its grace runs.
+    if (!meetsSourceBodyFloor(description)) {
+      belowFloor += 1;
+      console.warn(`  ⏭️ ${listing.title}: source body under 50 words — not published this run (${listing.url})`);
+      continue;
+    }
+
     const location = listing.location || 'Raron';
-    const sourceLang = detectLang(listing.title, 'de');
+    // Language of the published body, not of the title (issue 5253): titles
+    // are loanword soup ("Candidatura spontanea", "Junior Logistics
+    // Specialist", "Guest Experience Specialist") and filed the body under a
+    // foreign source slot. The title is only the fallback when no body exists.
+    const sourceLang = detectLang(description || listing.title, 'de');
     const jobSlug = buildJobSlug(`${listing.title} ${location}`, 'air-zermatt');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
 
@@ -223,7 +249,7 @@ export async function fetchAllAirZermattJobs() {
       employmentType: inferEmploymentType(listing.title, description),
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...publication,
       url: listing.url,
       applyUrl: listing.url,
       source: 'Air Zermatt Dedicated Parser',
@@ -232,6 +258,11 @@ export async function fetchAllAirZermattJobs() {
     });
   }
 
+  // Not one vacancy with a publishable body is a source-level failure: fail
+  // the run so the previous slice stays.
+  if (jobs.length === 0 && belowFloor > 0) {
+    throw new Error(`Air Zermatt: no detail page with a source body of 50 words (${belowFloor} below the floor)`);
+  }
   console.log(`  Total Air Zermatt jobs discovered: ${jobs.length}`);
   return jobs;
 }

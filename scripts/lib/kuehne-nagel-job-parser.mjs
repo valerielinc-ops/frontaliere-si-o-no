@@ -27,11 +27,13 @@
  *   - isTrustedDomain()          — Validate URLs belong to this company
  *   - KUEHNE_NAGEL_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -269,19 +271,12 @@ async function fetchJobDetail(jobSeqNo, title, timeoutMs) {
     let postalCode = '';
     let addressLocality = '';
     let addressCountry = '';
-    const ldMatch = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s);
-    if (ldMatch) {
-      try {
-        const ld = JSON.parse(ldMatch[1]);
-        descriptionHtml = ld.description || '';
-        const addr = ld.jobLocation?.address || {};
-        postalCode = (addr.postalCode || '').trim();
-        addressLocality = (addr.addressLocality || '').trim();
-        addressCountry = (addr.addressCountry || '').trim();
-      } catch {
-        // Malformed JSON-LD — fall through to raw-HTML regex fallback below.
-      }
-    }
+    const ld = extractJobPostingNodes(html)[0];
+    descriptionHtml = ld?.description || '';
+    const addr = ld?.jobLocation?.address || {};
+    postalCode = (addr.postalCode || '').trim();
+    addressLocality = (addr.addressLocality || '').trim();
+    addressCountry = (addr.addressCountry || '').trim();
 
     const stateMatch = html.match(/"standardisedStateCode":"([A-Z]{2})"/);
     const cantonCode = stateMatch ? stateMatch[1] : '';
@@ -365,8 +360,7 @@ export async function fetchAllKuehneNagelJobs() {
     const apiCategory = Array.isArray(stub.multi_category) ? stub.multi_category[0] : (stub.category || '');
     const employmentLabel = `${stub.type || ''} ${stub.WorkType || ''}`;
     const employmentType = detectEmploymentType(employmentLabel);
-    const postedDate = (stub.postedDate && String(stub.postedDate).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(stub.postedDate);
 
     const isHqCity = /schindellegi/i.test(city);
     const postalCode = detail.postalCode || (isHqCity ? HQ.postalCode : '');
@@ -405,7 +399,7 @@ export async function fetchAllKuehneNagelJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       jobReqId: stub.reqId || stub.jobId || null,
       requirements: [],

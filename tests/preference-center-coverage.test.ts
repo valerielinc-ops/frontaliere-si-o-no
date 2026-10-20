@@ -26,7 +26,7 @@ import { buildWinbackEmail } from '../services/winbackEmail.mjs';
 import { buildDormantWinbackStage1Email } from '../services/dormantWinbackStage1Email.mjs';
 import { buildDripEmail } from '../services/newsletter/onboardingDrip.mjs';
 import { makePreferencesUrl, PREFERENCES_SLUG } from '../services/newsletterUrls.mjs';
-import { DATA_CONTROLLER_EMAIL } from '../functions/src/lib/dataControllerIdentity.js';
+import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
 import { buildAlertPayload } from '../functions/src/jobAlertBackfillCore.js';
 import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
 import { ADVERTISING_NAMED_FROM_PAGE_VERSION } from '../services/communicationChannels';
@@ -65,6 +65,7 @@ const SENDERS: Array<{ file: string; kind: 'recurring' | 'transactional' | 'outr
   { file: 'services/dormantWinbackStage1Email.mjs', kind: 'recurring', what: 'dormant win-back stage 1' },
   { file: 'services/companyAlertEmail.mjs', kind: 'recurring', what: 'followed-employer alert' },
   { file: 'scripts/send-saved-jobs-digest.mjs', kind: 'recurring', what: 'saved-jobs digest' },
+  { file: 'scripts/send-application-intent-reminders.mjs', kind: 'recurring', what: 'application-intent reminder' },
   // Reclassified `outreach` → `recurring` by #5759. It is a subscriber-facing
   // channel with its own optional advertising purpose and preference-centre
   // control; the channel's email must carry a link back to that control.
@@ -115,6 +116,11 @@ const CHANNELS: Array<{ what: string; controlStrings: string[]; sender: string }
     sender: 'scripts/send-saved-jobs-digest.mjs',
   },
   {
+    what: 'application-intent reminder',
+    controlStrings: ['applicationReminderTitle', 'authSetApplicationIntentReminderOptOut', 'handleToggleApplicationReminder'],
+    sender: 'scripts/send-application-intent-reminders.mjs',
+  },
+  {
     // #5759. Listed here as a subscriber-facing channel with a separate,
     // affirmative advertising purpose. Its switch must remain available even
     // while the sender is suspended, so a future reactivation cannot treat an
@@ -142,7 +148,7 @@ describe('#5684 point 1 — every recurring channel has a switch in the preferen
     // is a key translated everywhere. A key added to `it` alone would not
     // typecheck, but a key added to the interface and then left out of the
     // rendered card would — this pins the rendered side.
-    for (const key of ['newsletterTitle', 'briefTitle', 'alertsTitle', 'digestTitle', 'adsTitle']) {
+    for (const key of ['newsletterTitle', 'briefTitle', 'alertsTitle', 'digestTitle', 'applicationReminderTitle', 'adsTitle']) {
       const occurrences = controllerSrc.split(`${key}:`).length - 1;
       // once in the interface declaration + once per locale
       expect(occurrences, `${key} should be declared once and translated ${LOCALES.length}×`).toBe(
@@ -245,6 +251,7 @@ describe('#5684 point 2 — what "off" means is stated, and the all-off case is 
     const body = stopAll.slice(0, stopAll.indexOf('\n const handleTogglePause'));
     expect(body, 'the token-mode call').toContain('setAdvertisingEnabled(email, token, false)');
     expect(body, 'the auth-mode call').toContain('authSetAdvertisingOptOut(email, false)');
+    expect(body, 'the application-reminder call').toContain('authSetApplicationIntentReminderOptOut(userId, true)');
     for (const marker of [
       'annunci di inserzionisti',
       'advertiser announcements',
@@ -350,12 +357,17 @@ describe('#5684 point 3 — a preference set in the centre survives what comes a
   });
 
   it('the digest opt-out is not re-defaulted by a later login', () => {
-    // ensureUserProfileDoc writes savedJobsDigest only on first creation. The
-    // centre now writes the same key, so the guarantee has a second reason to
-    // keep holding — and a second way to be broken.
-    expect(read('services/savedJobsService.ts')).toMatch(
-      /savedJobsDigest[\s\S]{0,400}?NEVER touched again after creation/,
-    );
+    // ensureUserProfileDoc never writes savedJobsDigest — since 2026-10-02 not
+    // even on first creation, which merges: the centre, the digest's own link
+    // and the save activation own the key. The centre writes it too, so the
+    // guarantee has a second reason to keep holding — and a second way to be
+    // broken. Behaviour: tests/services/savedJobsService.test.ts.
+    const src = read('services/savedJobsService.ts');
+    const start = src.indexOf('async function ensureUserProfileDoc');
+    expect(start).toBeGreaterThan(-1);
+    const body = src.slice(start, src.indexOf('\n}\n', start));
+    expect(body).not.toMatch(/savedJobsDigest\s*:/);
+    expect(body).toMatch(/\{\s*merge:\s*true\s*\}/);
   });
 });
 
@@ -429,11 +441,11 @@ describe('#5684 point 4 — the centre can be found', () => {
     // last step before writing to the provider's abuse desk.
     const page = read('components/pages/NewsletterPreferences.tsx');
     expect(page).toContain('invalidHelpSignIn');
-    expect(page).toContain('DATA_CONTROLLER_EMAIL');
+    expect(page).toContain('PUBLIC_CONTACT_EMAIL');
     expect(page.split('invalidHelpTitle:').length - 1).toBe(LOCALES.length + 1);
-    // The contact must be the monitored controller address, never the automated
-    // send mailbox — the distinction #5675 exists to make.
-    expect(DATA_CONTROLLER_EMAIL).not.toMatch(/^alerts@/);
+    // Public pages must use the shared mailbox, never a personal delivery
+    // mailbox or the automated send mailbox.
+    expect(PUBLIC_CONTACT_EMAIL).toBe('redazione@frontaliereticino.ch');
   });
 
   it('the authenticated profile renders the centre', () => {

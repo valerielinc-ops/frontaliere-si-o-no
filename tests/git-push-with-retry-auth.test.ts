@@ -84,6 +84,9 @@ describe('git-push-with-retry.sh main-push auth', () => {
       writeFileSync(join(repoDir, 'seed.txt'), 'seed\n');
       execFileSync('git', ['add', 'seed.txt'], { cwd: repoDir });
       execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      // The anti-collapse guard consumes the checkout's captured remote tip;
+      // model that ref without contacting the dummy GitHub URL below.
+      execFileSync('git', ['update-ref', 'refs/remotes/origin/main', 'HEAD'], { cwd: repoDir });
       execFileSync(
         'git',
         ['remote', 'add', 'origin', `https://github.com/${REPO}.git`],
@@ -98,20 +101,28 @@ describe('git-push-with-retry.sh main-push auth', () => {
 
       const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
       const wrapPath = join(wrapDir, 'git');
+      // The shipped retry script also runs the old-history guard before the
+      // push. Its marker probe is unrelated to this auth assertion and the
+      // dummy GitHub origin must not turn that probe into a real network call.
       writeFileSync(
         wrapPath,
         `#!/usr/bin/env bash
 set -euo pipefail
-if [ "\${1:-}" = "push" ]; then
-  echo "wrapped-push $*"
-  exit 0
-fi
+for arg in "$@"; do
+  if [ "$arg" = "fetch" ]; then
+    exit 0
+  fi
+  if [ "$arg" = "push" ]; then
+    echo "wrapped-push $*"
+    exit 0
+  fi
+done
 exec "${realGit}" "$@"
 `,
       );
       execFileSync('chmod', ['+x', wrapPath]);
 
-      execFileSync('bash', [SCRIPT_PATH, '--max-attempts', '1'], {
+      const pushOutput = execFileSync('bash', [SCRIPT_PATH, '--max-attempts', '1'], {
         cwd: repoDir,
         env: {
           ...process.env,
@@ -123,6 +134,9 @@ exec "${realGit}" "$@"
         },
         encoding: 'utf8',
       });
+      expect(pushOutput).toContain('pack.window=0');
+      expect(pushOutput).toContain('pack.threads=1');
+      expect(pushOutput).toContain('push --no-thin --no-verify');
 
       const url = execFileSync('git', ['remote', 'get-url', 'origin'], {
         cwd: repoDir,

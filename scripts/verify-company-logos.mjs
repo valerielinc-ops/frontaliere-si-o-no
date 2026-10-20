@@ -42,6 +42,7 @@ async function main() {
     resolveLogo: resolveCompanyLogoUrl,
     assetBaseUrl: process.env.COMPANY_LOGO_AUDIT_ASSET_BASE_URL || DEFAULT_ASSET_BASE_URL,
     timeoutMs: positiveIntFromEnv('COMPANY_LOGO_AUDIT_TIMEOUT_MS', 8_000),
+    localAssetRoot: ROOT,
   });
   const brokenReferences = audit.references
     .filter((reference) => reference.status === 'broken')
@@ -55,6 +56,33 @@ async function main() {
       status: statusCode || 0,
       contentType,
     }));
+  const qualityReferences = audit.references
+    .filter((reference) => reference.qualityStatus === 'low-quality'
+      || reference.qualityStatus === 'unverified')
+    .map((entry) => ({
+      reference: entry.reference,
+      kind: entry.kind,
+      jobs: entry.jobs,
+      companyKeys: entry.companyKeys,
+      url: entry.url,
+      qualityStatus: entry.qualityStatus,
+      qualityReason: entry.qualityReason,
+      width: entry.width,
+      height: entry.height,
+    }));
+  const pendingDeployReferences = audit.references
+    .filter((reference) => reference.status === 'pending-deploy')
+    .map(({ reference, kind, jobs, companyKeys, url, reason, cdnStatus, cdnReason, localPath }) => ({
+      reference,
+      kind,
+      jobs,
+      companyKeys,
+      url,
+      reason,
+      cdnStatus,
+      cdnReason,
+      localPath,
+    }));
   const payload = {
     generatedAt: new Date().toISOString(),
     source: {
@@ -63,22 +91,35 @@ async function main() {
     },
     checked: audit.referenceCount,
     ok: audit.validReferenceCount,
+    qualityOk: audit.qualityOkReferenceCount,
     broken: brokenReferences.length,
     brokenJobCount: audit.brokenJobCount,
+    pendingDeploy: audit.pendingDeploy,
+    pendingDeployJobCount: audit.pendingDeployJobCount,
+    pendingDeployUrls: pendingDeployReferences,
     missing: audit.missing,
     missingJobCount: audit.missingJobCount,
     partial: audit.partial,
     partialJobCount: audit.partialJobCount,
     unverified: audit.unverified,
+    unverifiedJobCount: audit.unverifiedJobCount,
+    lowQuality: audit.lowQuality,
+    lowQualityJobCount: audit.lowQualityJobCount,
+    qualityUnverified: audit.qualityUnverified,
+    qualityUnverifiedJobCount: audit.qualityUnverifiedJobCount,
     urls: brokenReferences,
+    quality: qualityReferences,
   };
 
   await mkdir(path.dirname(OUTPUT), { recursive: true });
   await writeFile(OUTPUT, `${JSON.stringify(payload, null, 2)}\n`);
   console.log(
     `[verify-company-logos] ${payload.source.jobCount} annunci — riferimenti verificati: ${payload.checked}, `
-    + `ok: ${payload.ok}, broken: ${payload.broken} (${payload.brokenJobCount} annunci), `
-    + `missing: ${payload.missing} (${payload.missingJobCount} annunci). Scritto ${OUTPUT}`,
+    + `ok: ${payload.ok}, quality-ok: ${payload.qualityOk}, `
+    + `broken: ${payload.broken} (${payload.brokenJobCount} annunci), `
+    + `pending-deploy: ${payload.pendingDeployJobCount} annunci (${pendingDeployReferences.length} riferimenti), `
+    + `missing: ${payload.missing} (${payload.missingJobCount} annunci), `
+    + `low-quality: ${payload.lowQuality} (${payload.lowQualityJobCount} annunci). Scritto ${OUTPUT}`,
   );
 }
 

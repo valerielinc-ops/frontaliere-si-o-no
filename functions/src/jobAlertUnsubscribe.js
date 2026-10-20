@@ -22,9 +22,10 @@
  */
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { forensicsFields } from './lib/requestForensics.js';
+import { eraseJobEmailAffinityProfileIfNoEmailLeft } from './lib/jobEmailAffinityStore.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -148,6 +149,9 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  .get();
 
  if (alertsSnap.empty) {
+ // All alerts off: the click-affinity profile goes only if the newsletter
+ // no longer mails this address either (otherwise a partial opt-out).
+ await eraseJobEmailAffinityProfileIfNoEmailLeft(db, email.toLowerCase().trim(), { secret });
  return {
  status: 200,
  html: buildConfirmationHtml({
@@ -163,12 +167,15 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  for (const doc of alertsSnap.docs) {
  batch.update(doc.ref, {
  active: false,
- unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ unsubscribed_at: FieldValue.serverTimestamp(),
  unsubscribe_source: 'email_link_all',
  ...forensicFields,
  });
  }
  await batch.commit();
+ // All alerts off: the click-affinity profile goes only if the newsletter
+ // no longer mails this address either (otherwise a partial opt-out).
+ await eraseJobEmailAffinityProfileIfNoEmailLeft(db, email.toLowerCase().trim(), { secret });
 
  return {
  status: 200,
@@ -239,7 +246,7 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  // Deactivate the alert
  await alertRef.update({
  active: false,
- unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ unsubscribed_at: FieldValue.serverTimestamp(),
  unsubscribe_source: 'email_link',
  ...forensicFields,
  });

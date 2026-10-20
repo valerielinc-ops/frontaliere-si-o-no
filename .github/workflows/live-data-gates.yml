@@ -1,7 +1,8 @@
 name: live-data gates
 
-# I 118 file di test che leggono DATI VIVI, tolti dal job bloccante delle PR il
-# 2026-09-19. Questo file è l'indirizzo nuovo: non è una cancellazione, è un
+# I file di test che leggono DATI VIVI (elenco calcolato da
+# `scripts/ci/live-data-test-guard.mjs --monitor-files`), tolti dal job
+# bloccante delle PR il 2026-09-19. Questo file è l'indirizzo nuovo: non è una cancellazione, è un
 # trasloco, e la differenza sta tutta in chi paga il rosso.
 #
 # ─── PERCHÉ NON POSSONO STARE NEL GATE DELLE PR ───────────────────────────
@@ -48,6 +49,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: read # per censire i percorsi delle PR automatiche nell’audit radici
   issues: write # per github-issue-creator sul fallimento
   actions: read # la jobs API che il reporter usa per il body diagnostico
 
@@ -61,15 +63,28 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: 'npm'
 
       - name: npm ci
         run: npm ci
+
+      # The live snapshot can contain aliases restored by a data-recovery run
+      # before its fleet-wide ownership pass. Repair only the disposable CI
+      # checkout, then prove the pass converges before feeding the data to
+      # assembly and the observer. The recovery workflow persists the same
+      # repair through its normal data PR path.
+      - name: Repair previous-slug ownership before live assertions
+        run: |
+          set -euo pipefail
+          node scripts/decontaminate-prev-slugs.mjs --apply \
+            | tee "$RUNNER_TEMP/live-prev-slug-ownership-apply.log"
+          node scripts/decontaminate-prev-slugs.mjs \
+            | tee "$RUNNER_TEMP/live-prev-slug-ownership-check.log"
 
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
@@ -79,7 +94,7 @@ jobs:
 
       - name: Cache assemble-jobs output
         if: steps.assemble_cache_key.outputs.key != ''
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
@@ -102,6 +117,7 @@ jobs:
       # la sfiori, e la suite intera a un worker non sta nel limite del job
       # (misurato: run 35481674287 cancellata a 6 ore).
       - name: vitest run (solo i test su dati vivi)
+        id: vitest
         env:
           NODE_OPTIONS: --max-old-space-size=8192
         run: |
@@ -116,7 +132,55 @@ jobs:
             exit 1
           fi
           # shellcheck disable=SC2046
-          npx vitest run $(cat live-data-files.txt) --reporter=default 2>&1 | tee live-data-vitest.log
+          # Il report json e' l'input del reporter per file qui sotto: dice
+          # QUALE file e' rosso e quale e' verde, cosa che il log testuale
+          # troncato nell'estratto della issue non permette di ricostruire.
+          npx vitest run $(cat live-data-files.txt) --reporter=default --reporter=json --outputFile.json=live-data-vitest.json 2>&1 | tee live-data-vitest.log
+
+      # Una issue per FILE di test rosso (titolo `Live-data test rosso: <path>`),
+      # chiusa alla prima run in cui QUEL file torna verde. Prima esisteva solo
+      # la issue di workflow qui sotto: tre rossi con tre riparazioni diverse
+      # finivano nello stesso thread e nessuno aveva un proprietario (issue 9453,
+      # run 37198123353). Gira sul rosso E sul verde, perche' e' il verde di un
+      # file a chiudere la sua issue: `!cancelled()` esplicito, altrimenti un
+      # `if:` senza funzione di stato sottintende `success()` e lo step
+      # salterebbe proprio sui rossi.
+      - name: Report live-data reds per test file
+        if: ${{ !cancelled() && (steps.vitest.outcome == 'success' || steps.vitest.outcome == 'failure') }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: >-
+          node scripts/ci/report-live-data-test-files.mjs
+          --report live-data-vitest.json
+          --files live-data-files.txt
+          --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      # La radice dei dati vivi si misura sulla storia completa della finestra,
+      # non solo sui test che lo scanner conosce già. È un osservatore: segnala
+      # il drift in una issue stabile e non amplia mai l’inventario da solo.
+      # Gira DOPO i test e anche quando sono rossi: un audit fallito tiene
+      # rosso il job, ma non deve mai impedire ai test sui dati vivi di girare
+      # (dall’11 al 13-10 il suo errore li ha saltati tutti e le issue per file
+      # non potevano né aprirsi né chiudersi).
+      - name: Audit 30-day live-data roots
+        if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
+        timeout-minutes: 21
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+          # Il job ha 45 minuti; questo limite lascia spazio al reporter di
+          # consegnare un audit lento come failure leggibile, non come timeout
+          # muto dell’intero job.
+          timeout --signal=TERM --kill-after=30s 20m \
+            node scripts/ci/audit-live-data-roots.mjs --since-days 30
+          status=$?
+          if [ "$status" -eq 124 ] || [ "$status" -eq 137 ]; then
+            echo "::error::Audit 30-day live-data roots ha superato il timeout di 20 minuti"
+          fi
+          exit "$status"
 
       - name: Report failure to GitHub Issues
         if: failure()
@@ -130,6 +194,11 @@ jobs:
           diag-file: live-data-vitest.log
           context: |
             Uno o più test su DATI VIVI sono rossi su `main`.
+
+            Questa issue è l'INDICE del workflow. Ogni file di test rosso ha
+            anche una issue propria, `Live-data test rosso: <path del test>`,
+            che si chiude da sola alla prima run in cui quel file torna verde:
+            la riparazione si segue lì, un file alla volta.
 
             Questi test NON girano nel job bloccante `vitest` delle PR: leggono
             file che la pipeline riscrive da sola (slice dei crawler, dataset

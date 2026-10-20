@@ -1,7 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
+
+const require = createRequire(import.meta.url);
 
 /**
  * Observer for issue #5784 — «Chiude #N» reaches GitHub as prose, not as a
@@ -89,6 +92,14 @@ async function runContractCheck(body: string): Promise<ContractResult> {
     paginate: async () => [] as unknown[],
     rest: {
       pulls: { get: async () => ({ data: { body } }) },
+      repos: {
+        getContent: async ({ path }: { path: string }) => ({
+          data: {
+            content: Buffer.from(readFileSync(resolve(ROOT, path), 'utf8')).toString('base64'),
+            encoding: 'base64',
+          },
+        }),
+      },
       issues: {
         listComments: async () => ({ data: [] }),
         createComment: async ({ body: b }: { body: string }) => { calls.comments.push(b); },
@@ -104,8 +115,8 @@ async function runContractCheck(body: string): Promise<ContractResult> {
     payload: { pull_request: { number: 1, body: 'stale event snapshot' } },
   };
   // eslint-disable-next-line no-new-func -- deliberately sandboxing the real workflow script, see file header
-  const fn = new Function('github', 'context', 'core', `return (async () => {\n${script}\n})();`);
-  await fn(github, context, core);
+  const fn = new Function('require', 'github', 'context', 'core', `return (async () => {\n${script}\n})();`);
+  await fn(require, github, context, core);
   return calls;
 }
 
@@ -138,6 +149,21 @@ describe('tests.yml contract job — ineffective closing keyword (issue #5784)',
       const { setFailed } = await runContractCheck(wrap(line));
       expect(setFailed.join(' '), `false positive on: ${line}`).not.toMatch(/ineffective closing keyword/);
     }
+  });
+
+  it('flags an unvalidated performance claim through the remote contract gate (#11675)', async () => {
+    const { setFailed, comments } = await runContractCheck(wrap(
+      '- Ridotto il wall-time del build a 5 s grazie al nuovo percorso.',
+    ));
+    expect(setFailed.join(' ')).toMatch(/unvalidated performance claim/i);
+    expect(comments.join(' ')).toMatch(/Claim di prestazione senza prova/i);
+  });
+
+  it('accepts a performance claim when the same bullet carries measured evidence', async () => {
+    const { setFailed } = await runContractCheck(wrap(
+      '- Ridotto il wall-time del build da 65 s a 5 s. Misura: baseline 65 s, nuovo percorso 5 s.',
+    ));
+    expect(setFailed.join(' ')).not.toMatch(/unvalidated performance claim/i);
   });
 
   it('does NOT flag when `Closes #N` already covers the same ref (redundant prose, not a missed closure)', async () => {

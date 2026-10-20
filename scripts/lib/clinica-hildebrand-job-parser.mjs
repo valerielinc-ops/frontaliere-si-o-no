@@ -23,6 +23,7 @@
  * concorsi the moment they are uploaded.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -30,6 +31,7 @@ import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
+  extractPdfLinks,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
@@ -52,6 +54,14 @@ export const MIN_HILDEBRAND_DESC_LENGTH = 400;
 
 // Skip non-job PDFs (privacy notices, regolamenti, statuti).
 const NON_JOB_PDF_RE = /(informativa|privacy|protezione|regolamento|statuto|formulario|policy)/i;
+
+function decodeFilename(raw = '') {
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return raw;
+  }
+}
 
 /* ── Company matchers ──────────────────────────────────────── */
 
@@ -118,28 +128,14 @@ export function parseClinicaHildebrandListing(html = '') {
   const out = [];
   const seen = new Set();
 
-  // Match every <a href="...*.pdf" ...> reference. Weebly hosts PDFs under
-  // /uploads/<…ids…>/<filename>.pdf relative to root.
-  const anchorRe = /href="([^"]+\.pdf)"/gi;
-  let m;
-  while ((m = anchorRe.exec(html)) !== null) {
-    let href = m[1];
-    if (!href) continue;
+  // Weebly hosts PDFs under /uploads/<…ids…>/<filename>.pdf relative to root.
+  for (const { href, filename } of extractPdfLinks(html, PUBLIC_CAREER_URL)) {
+    if (!isTrustedDomain(href)) continue;
     if (NON_JOB_PDF_RE.test(href)) continue;
-
-    // Normalise to absolute URL.
-    if (href.startsWith('//')) {
-      href = `https:${href}`;
-    } else if (href.startsWith('/')) {
-      href = `https://www.clinica-hildebrand.ch${href}`;
-    } else if (!/^https?:\/\//i.test(href)) {
-      href = `https://www.clinica-hildebrand.ch/${href.replace(/^\.?\/?/, '')}`;
-    }
 
     if (seen.has(href)) continue;
     seen.add(href);
 
-    const filename = decodeURIComponent(href.split('/').pop() || '');
     const title =
       normalizeSpace(decodeEntities(humanizeHildebrandFilename(filename))) ||
       filename.replace(/\.pdf$/i, '');
@@ -154,21 +150,17 @@ export function parseClinicaHildebrandListing(html = '') {
 
 /* ── Description builder ───────────────────────────────────── */
 
-function buildHildebrandDescription({ title, pdfText = '', pdfUrl = '' }) {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `${title} presso ${CLINICA_HILDEBRAND_COMPANY_NAME}, Brissago (Locarnese, Canton Ticino).`,
-      'La Clinica Hildebrand è un centro di riabilitazione neurologica, ortopedica e cardiovascolare situato sul Lago Maggiore. Eroga prestazioni stazionarie e ambulatoriali per pazienti adulti e collabora con il sistema sanitario ticinese e nazionale.',
-    ],
-    pdfText,
-    fallbackText: `Posto vacante ${title} presso ${CLINICA_HILDEBRAND_COMPANY_NAME}. I dettagli completi su requisiti, mansioni e modalità di candidatura sono disponibili nel documento PDF ufficiale.`,
-    footerLines: [
-      `Annuncio ufficiale (PDF): ${pdfUrl}`,
-      `Pagina collaborazione: ${PUBLIC_CAREER_URL}`,
-      'Settore: Sanità / Riabilitazione',
-      'Candidature: candidature@clinica-hildebrand.ch (CV completo via e-mail)',
-    ],
-  });
+/**
+ * The description of one posting is the text of its PDF and nothing else. The
+ * crawler used to wrap it in lines of its own about the clinic ("<titolo>
+ * presso Clinica Hildebrand, Brissago…", a paragraph on the clinic), "Annuncio
+ * ufficiale (PDF): …", "Pagina collaborazione: …", "Settore: …", "Candidature:
+ * …", and to substitute a sentence of its own when the PDF had no text. A PDF
+ * without readable text now gives no description and the job takes the
+ * pipeline's thin-source path.
+ */
+export function buildHildebrandDescription({ title, pdfText = '' }) {
+  const description = buildPdfBackedDescription({ pdfText });
 
   const warnings = [];
   if (pdfText && description.length < MIN_HILDEBRAND_DESC_LENGTH) {
@@ -178,6 +170,10 @@ function buildHildebrandDescription({ title, pdfText = '', pdfUrl = '' }) {
   }
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former intro, fallback and footer wrote (see `buildHildebrandDescription`). */
+export const CLINICA_HILDEBRAND_FABRICATED_DESCRIPTION_RE =
+  /La Clinica Hildebrand è un centro di riabilitazione neurologica|sono disponibili nel documento PDF ufficiale\.|(?:^|\n)Pagina collaborazione: https?:|(?:^|\n)Candidature: candidature@clinica-hildebrand\.ch/;
 
 /* ── Main fetch ────────────────────────────────────────────── */
 
@@ -201,7 +197,6 @@ export async function fetchAllClinicaHildebrandJobs() {
     return [];
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (const listing of listings) {
@@ -260,7 +255,9 @@ export async function fetchAllClinicaHildebrandJobs() {
       sector: 'Sanità / Riabilitazione',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // The PDF/attachment offers no verified publication field. File dates,
+      // deadlines and employment start do not establish publication.
+      ...sourcePostingDateFields(''),
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     });

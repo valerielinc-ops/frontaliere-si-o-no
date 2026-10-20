@@ -52,10 +52,13 @@
  *   - isTrustedDomain()            — Validate URLs belong to this company
  *   - TOTALENERGIES_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -229,13 +232,6 @@ function detectContractLabel(employmentType) {
   return 'full-time';
 }
 
-// The listing card's "list-item-jobCreationDate" field is DD-MM-YYYY.
-function parseTotalEnergiesDate(raw = '') {
-  const m = String(raw || '').trim().match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/);
-  if (!m) return '';
-  return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
-}
-
 /* ── Address Resolution ───────────────────────────────────────
  * Every currently-open Swiss posting on this ATS resolves to Geneva (the
  * "GENEVE-WTC1" workplace code), so the canton-gated HQ fallback mirrors
@@ -371,8 +367,8 @@ function extractJobDescriptionHtml(html) {
 
 /**
  * Fetch one detail page and pull out the structured fields + description.
- * Returns null (never throws) if the fetch fails — the caller falls back
- * to listing-only stub data.
+ * Returns null (never throws) if the fetch fails; a listing without source
+ * body text is not enough to publish a vacancy.
  */
 async function fetchJobDetail(url) {
   let html;
@@ -384,6 +380,7 @@ async function fetchJobDetail(url) {
   }
 
   return {
+    datePosted: extractJobPostingField(html, 'datePosted'),
     country: extractField(html, 'Country'),
     city: extractField(html, 'City'),
     workplace: extractField(html, 'Workplace location'),
@@ -416,7 +413,10 @@ async function fetchJobListings() {
       html = await fetchHtml(pageUrl, { headers: { 'User-Agent': BROWSER_UA } });
     } catch (err) {
       console.warn(`   ⚠️ listing page fetch failed (${pageUrl}): ${err && err.message ? err.message : err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
 
     const legendMatch = html.match(/list-controls__text__legend"[^>]*>([\s\S]{0,200}?)<\/div>/i);
@@ -458,6 +458,7 @@ async function fetchJobListings() {
     // (a Madrid VIE role that only text-matched the keyword search).
     if (detail && detail.country && !isSwissLocation(detail.country)) {
       console.log(`   ⏭️  skipping non-Swiss job (Country="${detail.country}"): ${stub.title}`);
+      await new Promise((r) => setTimeout(r, 200));
       continue;
     }
 
@@ -496,18 +497,16 @@ export async function fetchAllTotalEnergiesJobs() {
     const location = normalizeSpace(city || HQ.city);
 
     const descriptionText = normalizeSpace(detail.description || '');
-    const description = descriptionText.split(/\s+/).length >= 50
-      ? descriptionText
-      : `${title} presso TotalEnergies a ${location}, Svizzera. TotalEnergies è una multinazionale energetica francese con attività di trading, shipping e gas & power a livello globale; questa posizione opera dall'ufficio di ${location} (World Trade Center). Candidati direttamente su jobs.totalenergies.com. ${descriptionText}`.trim();
+    if (!meetsSourceBodyFloor(descriptionText)) continue;
+    const description = descriptionText;
 
     const publicUrl = listing.url || CAREER_URL;
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} totalenergies ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(detail.contract || listing.listContract || '');
-    const postedDate =
-      parseTotalEnergiesDate(listing.listDateRaw) ||
-      new Date().toISOString().split('T')[0];
+    // The listing's jobCreationDate is not proven publication evidence.
+
 
     const job = {
       // ── Required fields ──
@@ -542,7 +541,7 @@ export async function fetchAllTotalEnergiesJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       hiringOrganizationName: detail.employer || listing.listEmployer || TOTALENERGIES_COMPANY_NAME,

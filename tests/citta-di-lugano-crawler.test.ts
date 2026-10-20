@@ -9,11 +9,17 @@ import { describe, it, expect } from 'vitest';
 import {
   parseListingPage,
   parseDetailPage,
-  buildJob,
+  buildJob as buildCittaJob,
   parseSwissDate,
   stripHtml,
   normalizeSpace,
+  CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE,
 } from '@/scripts/lib/citta-di-lugano-job-parser.mjs';
+
+const OBSERVED_AT = new Date('2026-10-04T12:00:00.000Z');
+const buildJob = (raw: any, options?: { description?: string; sourceLang?: string }) => raw && typeof raw === 'object'
+  ? buildCittaJob({ ...raw, crawlObservedAt: OBSERVED_AT }, options)
+  : buildCittaJob(raw, options);
 
 // ─── Fixture: Concorsi pubblici listing page ───────────────
 const LISTING_HTML = `
@@ -92,6 +98,18 @@ describe('parseListingPage', () => {
   it('extracts PDF URLs', () => {
     const jobs = parseListingPage(LISTING_HTML);
     expect((jobs[0] as any).pdfUrl).toContain('downloadConcorsi');
+    expect((jobs[0] as any).applyUrl).toBe((jobs[0] as any).pdfUrl);
+  });
+
+  it('does not publish a listing that exposes only the generic e-government service', () => {
+    const html = `
+      <ul>
+        <li>
+          <strong>Concorso senza bando individuale</strong>
+          <a href="https://egov.lugano.ch/it/services/3">Partecipa</a>
+        </li>
+      </ul>`;
+    expect(parseListingPage(html)).toHaveLength(0);
   });
 
   it('sets location to Lugano for all jobs', () => {
@@ -135,6 +153,16 @@ describe('parseSwissDate', () => {
 // ═══════════════════════════════════════════════════════════════
 
 describe('buildJob', () => {
+  it('requires an explicit crawl observation and never substitutes the competition date', () => {
+    const raw = { title: 'Architetto/a progettista', url: 'https://www.lugano.ch/downloadConcorsi/architetto.pdf', datePosted: '2026-03-30' };
+    expect(buildCittaJob(raw)).toBeNull();
+    expect(buildCittaJob({ ...raw, crawlObservedAt: new Date(Number.NaN) })).toBeNull();
+
+    const job = buildCittaJob({ ...raw, crawlObservedAt: OBSERVED_AT });
+    expect(job!.crawledAt).toBe(OBSERVED_AT.toISOString());
+    expect(job!.crawledAt).not.toBe(job!.datePosted);
+  });
+
   it('builds a complete job object', () => {
     const job = buildJob({
       title: 'Architetto/a progettista',
@@ -146,6 +174,17 @@ describe('buildJob', () => {
     expect(job!.companyKey).toBe('citta-di-lugano');
     expect(job!.location).toBe('Lugano');
     expect(job!.canton).toBe('TI');
+    expect(job!.applyUrl).toBe('');
+  });
+
+  it('uses the job-specific PDF as a handoff when the raw apply URL is generic', () => {
+    const job = buildJob({
+      title: 'Architetto/a progettista',
+      url: 'https://www.lugano.ch/downloadConcorsi/architetto.pdf',
+      pdfUrl: 'https://www.lugano.ch/downloadConcorsi/architetto.pdf',
+      applyUrl: 'https://egov.lugano.ch/it/services/3',
+    });
+    expect(job!.applyUrl).toBe('https://www.lugano.ch/downloadConcorsi/architetto.pdf');
   });
 
   it('generates slug with company name', () => {
@@ -161,10 +200,30 @@ describe('buildJob', () => {
     expect(job!.slugByLocale.fr).toBeUndefined();
   });
 
-  it('sets default description when none provided', () => {
+  it('writes no description of its own when the source has none', () => {
     const job = buildJob({ title: 'Test Position' });
-    expect(job!.description).toContain('Città di Lugano');
-    expect(job!.description.length).toBeGreaterThan(50);
+    expect(job!.description).toBe('');
+    expect(job!.descriptionByLocale).toEqual({ it: '' });
+  });
+
+  it('keeps a short source description as it is', () => {
+    const job = buildJob({ title: 'Test Position', description: 'Concorso valido per il 2026.' });
+    expect(job!.description).toBe('Concorso valido per il 2026.');
+    expect(job!.description).not.toMatch(CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE);
+  });
+
+  it('keys the locale maps on the language of the bando the runner passes, with the same slug', () => {
+    const listing = { title: 'Architetto progettista', description: 'Concorso pubblico.' };
+    const bando = 'Stellenausschreibung\n\nDie Stadt Lugano sucht eine Architektin oder einen Architekten.';
+    const job = buildJob(listing, { description: bando, sourceLang: 'de' });
+    expect(job!.description).toBe(bando);
+    expect(job!.sourceLang).toBe('de');
+    expect(job!.descriptionByLocale).toEqual({ de: bando });
+    expect(job!.titleByLocale).toEqual({ de: 'Architetto progettista' });
+    expect(job!.slugByLocale).toEqual({ de: buildJob(listing)!.slug });
+    expect(job!.slug).toBe(buildJob(listing)!.slug);
+    // Category and contract still come from the listing, as before.
+    expect(job!.category).toBe(buildJob(listing)!.category);
   });
 
   it('returns null for empty or missing title', () => {

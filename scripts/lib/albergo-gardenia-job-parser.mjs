@@ -13,7 +13,9 @@ import { ENTITY_MAP, ENTITY_PATTERN, decodeHtmlEntities } from './decode-html-en
 import { launchChromium } from './ensure-chromium.mjs';
 import { CAREER_TOKEN_RX, HOST_DELAY_MS, UA } from './prospector/config.mjs';
 import { NAMED, decodeEntities } from './prospector/entities.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
+import { WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 
 export const ALBERGO_GARDENIA_KEY = 'albergo-gardenia';
 export const ALBERGO_GARDENIA_COMPANY_NAME = 'Albergo Gardenia';
@@ -357,11 +359,12 @@ function gardeniaCloudflareInventoryScript() {
  * session and the usual host delay. The returned URLs and every page body are
  * still validated by the source-specific identity and zero-vacancy contract.
  *
- * @param {{ fetchImpl?: typeof fetch, gardeniaCfAccount?: string, gardeniaCfKey?: string, gardeniaGithubToken?: string, gardeniaCfEmail?: string }} [runtime]
+ * @param {{ fetchImpl?: typeof fetch, gardeniaCfAccount?: string, gardeniaCfToken?: string, gardeniaCfKey?: string, gardeniaGithubToken?: string, gardeniaCfEmail?: string }} [runtime]
  */
 export function createAlbergoGardeniaCleanEgressTransport({
   fetchImpl = fetch,
   gardeniaCfAccount = process.env.CF_ACCOUNT_ID,
+  gardeniaCfToken = process.env.CF_API_TOKEN,
   gardeniaCfKey = process.env.CF_GLOBAL_API_KEY,
   gardeniaGithubToken = process.env.GITHUB_PAT,
   gardeniaCfEmail,
@@ -392,38 +395,61 @@ export function createAlbergoGardeniaCleanEgressTransport({
   }
 
   async function loadInventory() {
-    if (!gardeniaCfAccount || !gardeniaCfKey) {
+    if (!gardeniaCfAccount || (!gardeniaCfToken && !gardeniaCfKey)) {
       throw Object.assign(new Error('Cloudflare clean-egress credentials are missing'), { status: 401 });
     }
-    const email = await loadAuthEmail();
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), ALBERGO_GARDENIA_MAX_DEADLINE_OVERHANG_MS);
     try {
-      const response = await fetchImpl(
-        `https://api.cloudflare.com/client/v4/accounts/${gardeniaCfAccount}/browser-rendering/content`,
-        {
-          method: 'POST',
-          headers: {
-            'X-Auth-Email': email,
-            'X-Auth-Key': gardeniaCfKey,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            url: ALBERGO_GARDENIA_HOME_URL,
-            actionTimeout: CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS,
-            gotoOptions: {
-              waitUntil: 'domcontentloaded',
-              timeout: 60_000,
-            },
-            addScriptTag: [{ content: gardeniaCloudflareInventoryScript() }],
-            waitForSelector: {
-              selector: `#${GARDENIA_CLEAN_EGRESS_SOURCE_ID}, #${GARDENIA_CLEAN_EGRESS_ERROR_ID}`,
-              timeout: CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS,
-            },
-          }),
-          signal: controller.signal,
+      const requestOptions = (authHeaders) => ({
+        method: 'POST',
+        headers: {
+          ...authHeaders,
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          url: ALBERGO_GARDENIA_HOME_URL,
+          actionTimeout: CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS,
+          gotoOptions: {
+            waitUntil: 'domcontentloaded',
+            timeout: 60_000,
+          },
+          addScriptTag: [{ content: gardeniaCloudflareInventoryScript() }],
+          waitForSelector: {
+            selector: `#${GARDENIA_CLEAN_EGRESS_SOURCE_ID}, #${GARDENIA_CLEAN_EGRESS_ERROR_ID}`,
+            timeout: CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS,
+          },
+        }),
+        signal: controller.signal,
+      });
+      const authAttempts = [];
+      if (gardeniaCfToken) {
+        authAttempts.push({
+          label: 'Cloudflare API token',
+          getHeaders: async () => ({ Authorization: `Bearer ${gardeniaCfToken}` }),
+        });
+      }
+      if (gardeniaCfKey) {
+        authAttempts.push({
+          label: 'Cloudflare Global API Key',
+          getHeaders: async () => ({
+            'X-Auth-Email': await loadAuthEmail(),
+            'X-Auth-Key': gardeniaCfKey,
+          }),
+        });
+      }
+
+      let response;
+      for (const [index, attempt] of authAttempts.entries()) {
+        response = await fetchImpl(
+          `https://api.cloudflare.com/client/v4/accounts/${gardeniaCfAccount}/browser-rendering/content`,
+          requestOptions(await attempt.getHeaders()),
+        );
+        const authRejected = response.status === 401 || response.status === 403;
+        const hasFallback = index < authAttempts.length - 1;
+        if (!authRejected || !hasFallback) break;
+        console.warn(`  ⚠️ ${attempt.label} rejected by Cloudflare (${response.status}); trying the configured fallback credential.`);
+      }
       if (!response.ok) {
         throw Object.assign(new Error(`Cloudflare browser rendering failed (${response.status})`), {
           status: response.status,
@@ -582,7 +608,10 @@ function gardeniaDeadlineError(sourceUrl) {
  * connection-level exhaustion (status 0), retry the byte-identical apex/www
  * host alias. HTTP responses, robots denials and URL-policy failures never
  * cross the alias boundary: those are authoritative failures, not transport
- * noise. The caller still validates resource identity and source content.
+ * noise. An IP-reputation WAF response uses the bounded browser fallback
+ * instead, because the alternate transport is specifically meant to change
+ * egress identity. The caller still validates resource identity and source
+ * content.
  *
  * @param {string} rawUrl
  * @param {{ kind?: 'sitemap'|'content', fetchPage?: typeof politeFetch, browserFetchPage?: typeof politeFetch, transportState?: { preferred?: 'browser', preferredHost?: string }, deadlineAt?: number, nowImpl?: () => number }} [runtime]
@@ -626,10 +655,23 @@ export async function fetchAlbergoGardeniaSourcePage(
       return response;
     }
 
-    const connectionFailure = Number(response?.status || 0) === 0
+    const responseStatus = Number(response?.status || 0);
+    const connectionFailure = responseStatus === 0
       && !response?.blockedByRobots
       && !response?.policyBlocked;
-    if (!connectionFailure) return response;
+    const wafBlock = WAF_IP_BLOCK_STATUS.has(responseStatus)
+      && !response?.blockedByRobots
+      && !response?.policyBlocked;
+    if (!connectionFailure && !wafBlock) return response;
+    if (wafBlock) {
+      if (!browserFetchPage) return response;
+      if (nowImpl() >= deadlineAt) throw gardeniaDeadlineError(rawUrl);
+      console.warn(`  ⚠️ Gardenia HTTP WAF response (${responseStatus}) for ${rawUrl}; trying bounded Chromium transport.`);
+      const browserResponse = await browserFetchPage(rawUrl, fetchOptions);
+      if (nowImpl() >= deadlineAt) throw gardeniaDeadlineError(rawUrl);
+      if (browserResponse?.ok && transportState) transportState.preferred = 'browser';
+      return browserResponse;
+    }
     if (index < candidates.length - 1) {
       console.warn(`  ⚠️ Gardenia origin connection exhausted for ${candidateUrl}; trying the canonical host alias.`);
     }
@@ -725,10 +767,8 @@ export function assertNoGardeniaCareerSurface(html = '', pageUrl = '') {
       throw new Error(`Albergo Gardenia source identity is missing at ${pageUrl}`);
     }
 
-    for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
-      if (/"@type"\s*:\s*"JobPosting"/i.test(script.textContent || '')) {
-        throw new Error(`Albergo Gardenia JobPosting detected at ${pageUrl}`);
-      }
+    if (extractJobPostingNodes(html).length > 0) {
+      throw new Error(`Albergo Gardenia JobPosting detected at ${pageUrl}`);
     }
 
     const semanticNodes = document.querySelectorAll('title, h1, h2, h3, a[href]');
@@ -832,10 +872,12 @@ export async function fetchAllAlbergoGardeniaJobs({
           return cleanEgressFetch(rawUrl, options);
         }
         const response = await browserFetch(rawUrl, options);
-        const connectionFailure = Number(response?.status || 0) === 0
+        const responseStatus = Number(response?.status || 0);
+        const connectionFailure = responseStatus === 0
           && !response?.blockedByRobots
           && !response?.policyBlocked;
-        if (!connectionFailure || !cleanEgressFetch) return response;
+        const wafBlock = WAF_IP_BLOCK_STATUS.has(responseStatus);
+        if ((!connectionFailure && !wafBlock) || !cleanEgressFetch) return response;
         console.warn(`  ⚠️ Gardenia runner Chromium exhausted for ${rawUrl}; trying bounded clean-egress transport.`);
         const rescued = await cleanEgressFetch(rawUrl, options);
         if (rescued?.ok) preferredFallback = 'clean-egress';

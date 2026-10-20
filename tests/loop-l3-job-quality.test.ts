@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+// @ts-expect-error — the recorder is a dependency-free ESM CI script.
+import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs';
 import {
   runL3,
   validateJobSummaries,
@@ -72,10 +74,125 @@ function tempSource(summaryValue: unknown, outcomeValue: unknown = null) {
 }
 
 describe('L3 Job Quality → Apply', () => {
+  it('keeps malformed summary entries visible instead of throwing while reading aggregate metadata', () => {
+    const verdict = validateJobSummaries([null], { outcomes: outcomes(), now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('summary is not an object');
+  });
+
   it('accepts complete summaries and keeps the handoff metric explicit', () => {
     const verdict = validateJobSummaries([summary()], { outcomes: outcomes(), now: NOW });
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
     expect(verdict.snapshot.outcomes).toMatchObject({ eligibleJobSessions: 120, validHandoffs: 90 });
+  });
+
+  it('keeps a source-backed handoff independent when only a sibling summary is stale', async () => {
+    const source = tempSource(summary().data, outcomes());
+    fs.writeFileSync(path.join(source.summaryDir, 'stale.json'), `${JSON.stringify({
+      ...summary().data,
+      key: 'stale',
+      generatedAt: '2026-09-01T12:00:00.000Z',
+      total: 0,
+      newCount: 0,
+      newJobs: [],
+    })}\n`);
+    const result = await runL3({
+      now: NOW,
+      summaryDir: source.summaryDir,
+      outcomePath: source.outcomePath,
+      reportDir: source.dir,
+      logger: { log() {} },
+    });
+
+    expect(result.verdict).toMatchObject({
+      ok: false,
+      quality: 'partial',
+      issues: [],
+      snapshot: { freshSummaries: 1, staleSummaries: 1, invalidJobs: 0 },
+    });
+    expect(result.outcome).toMatchObject({
+      status: 'observed',
+      independent: true,
+      numerator: 90,
+      denominator: 120,
+    });
+    expect(result.observation).toMatchObject({ numerator: null, denominator: null });
+    expect(result.decision.decision).toBe('candidate');
+
+    const recorded = recordLoopEvidence({ loopId: 'L3', reportDir: source.dir, now: NOW });
+    expect(recorded.health).toMatchObject({
+      ok: false,
+      outcome: { status: 'observed', independent: true, numerator: 90, denominator: 120 },
+      outcomeErrors: [],
+    });
+  });
+
+  it('excludes retired crawler summaries from the active freshness verdict', async () => {
+    const source = tempSource(summary().data, outcomes());
+    const retired = ['bally', 'knowledge-lab', 'pzm-muensingen'];
+    for (const key of retired) {
+      fs.writeFileSync(path.join(source.summaryDir, `${key}.json`), `${JSON.stringify({
+        ...summary().data,
+        key,
+        generatedAt: '2026-09-01T12:00:00.000Z',
+      })}\n`);
+    }
+    const quarantinePath = path.join(source.dir, 'crawler-quarantine.json');
+    fs.writeFileSync(quarantinePath, `${JSON.stringify({
+      schemaVersion: 1,
+      retired: Object.fromEntries(retired.map((key) => [key, { reason: 'fixture' }])),
+    })}\n`);
+
+    const result = await runL3({
+      now: NOW,
+      summaryDir: source.summaryDir,
+      outcomePath: source.outcomePath,
+      quarantinePath,
+      reportDir: source.dir,
+      logger: { log() {} },
+    });
+
+    expect(result.verdict).toMatchObject({
+      ok: true,
+      quality: 'observed',
+      candidates: [],
+      snapshot: {
+        discoveredSummaryCount: 4,
+        summaryCount: 1,
+        ignoredRetiredSummaries: 3,
+        retiredSummaryKeys: retired,
+        freshSummaries: 1,
+        staleSummaries: 0,
+        invalidJobs: 0,
+      },
+    });
+    expect(result.outcome).toMatchObject({
+      status: 'observed',
+      independent: true,
+      numerator: 90,
+      denominator: 120,
+    });
+    expect(fs.readFileSync(path.join(source.dir, 'l3-report.md'), 'utf8'))
+      .toContain('- Retired summaries ignored: 3');
+  });
+
+  it('requires the CH country field for the three quarantined Swiss-only producers', () => {
+    for (const key of ['yellowshark', 'tether', 'bitfinex']) {
+      const verdict = validateJobSummaries([
+        summary({ key, newJobs: [job({ country: undefined })] }),
+      ], { outcomes: outcomes(), now: NOW });
+
+      expect(verdict.ok).toBe(false);
+      expect(verdict.issues.join(' ')).toContain('country is missing or not CH');
+    }
+  });
+
+  it('keeps country optional for unrelated crawler summaries', () => {
+    const verdict = validateJobSummaries([
+      summary({ newJobs: [job({ country: undefined })] }),
+    ], { outcomes: outcomes(), now: NOW });
+
+    expect(verdict.ok).toBe(true);
   });
 
   it('does not treat a numerically complete export as independent without its provenance contract', () => {
@@ -122,6 +239,48 @@ describe('L3 Job Quality → Apply', () => {
     expect(verdict.ok).toBe(false);
     expect(verdict.issues.join(' ')).toContain('does not match');
     expect(verdict.issues.join(' ')).toContain('duplicate identity');
+  });
+
+  it('rejects a duplicate identity inside one evidence list', () => {
+    const verdict = validateJobSummaries([summary({
+      total: 2,
+      newCount: 0,
+      updatedCount: 2,
+      newJobs: [],
+      updatedJobs: [job(), job({ title: 'Operatore logistico aggiornato' })],
+    })], { outcomes: outcomes(), now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('duplicate identity id:job-1');
+  });
+
+  it('accepts an identical record repeated by an explicitly declared Swatch aggregate', () => {
+    const member = summary({ key: 'eta-sa-swatch-group' });
+    const aggregate = summary({ key: 'swatchgroup', aggregateOf: ['eta-sa-swatch-group'] });
+    member.file = 'eta-sa-swatch-group.json';
+    aggregate.file = 'swatchgroup.json';
+
+    const verdict = validateJobSummaries([member, aggregate], { outcomes: outcomes(), now: NOW });
+
+    expect(verdict.ok).toBe(true);
+    expect(verdict.snapshot.duplicateIdentities).toBe(0);
+    expect(verdict.issues).toEqual([]);
+  });
+
+  it('still rejects aggregate rows that differ from the declared owner posting', () => {
+    const member = summary({ key: 'eta-sa-swatch-group' });
+    const aggregate = summary({
+      key: 'swatchgroup',
+      aggregateOf: ['eta-sa-swatch-group'],
+      newJobs: [job({ url: 'https://jobs.example.test/other' })],
+    });
+    member.file = 'eta-sa-swatch-group.json';
+    aggregate.file = 'swatchgroup.json';
+
+    const verdict = validateJobSummaries([member, aggregate], { outcomes: outcomes(), now: NOW });
+
+    expect(verdict.ok).toBe(false);
+    expect(verdict.snapshot.duplicateIdentities).toBe(1);
+    expect(verdict.issues.join(' ')).toContain('duplicate identity id:job-1');
   });
 
   it('rejects an inconsistent active total and never measures its outcome', async () => {

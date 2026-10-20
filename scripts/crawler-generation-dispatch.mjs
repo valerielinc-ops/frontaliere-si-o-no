@@ -1,9 +1,12 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { cancelReaderWithDeadline } from './lib/bounded-response-body.mjs';
 import { assertSafeRunnerReportOutput } from './lib/crawler-generation-receipt.mjs';
 import {
   CALLER_REPOSITORY,
@@ -29,7 +32,6 @@ import {
 } from './lib/crawler-generation-group-ids.mjs';
 
 export const GITHUB_API_VERSION = CRAWLER_GENERATION_GITHUB_API_VERSION;
-const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const OBSERVER_WORKFLOW_FILE = 'crawler-generation-observer-shadow.yml';
 const OBSERVER_TARGET = `.github/workflows/${OBSERVER_WORKFLOW_FILE}`;
 const MAX_RESPONSE_BYTES = 1024 * 1024;
@@ -42,6 +44,7 @@ const PREFLIGHT_READ_ATTEMPTS = 3;
 const PREFLIGHT_READ_CONCURRENCY = 4;
 const PREFLIGHT_READ_DELAY_MS = 250;
 const MAX_PREFLIGHT_READ_DELAY_MS = 5_000;
+const MAX_SITE_CONTRACT_HISTORY_CANDIDATES = 32;
 // Site -> corpus workflow delivery is asynchronous. Give the corpus mirror a
 // bounded window to catch up after a trusted lineage-only skew; never turn a
 // mismatch into readiness without rereading the pinned tree and its hashes.
@@ -55,6 +58,7 @@ const SHA256_RE = /^[a-f0-9]{64}$/;
 const ACCEPTED_STATUSES = new Set(['direct', 'reconciled_transport_error']);
 const DISPATCH_STATUS_SET = new Set(CRAWLER_GENERATION_DISPATCH_STATUSES);
 const ORCHESTRATOR_WORKFLOW_PATH = '.github/workflows/orchestrate-crawlers.yml';
+const SITE_CONTRACT_PATH = '.github/corpus-workflows/contract.json';
 const TERMINAL_CONCLUSIONS = new Set([
   'success', 'failure', 'cancelled', 'timed_out', 'action_required',
   'neutral', 'skipped', 'stale', 'startup_failure',
@@ -106,13 +110,22 @@ async function boundedResponseBody(response) {
       if (done) break;
       size += value.byteLength;
       if (size > MAX_RESPONSE_BYTES) {
-        try { await reader.cancel(); } catch { /* preserve the bounded-size error */ }
         throw new Error('response_too_large');
       }
-      chunks.push(Buffer.from(value));
+      // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
+      // shares the producer's memory, which a reader may reuse (#7483).
+      chunks.push(Buffer.from(value instanceof ArrayBuffer
+        ? value.slice(0)
+        : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
     }
+  } catch (error) {
+    await cancelReaderWithDeadline(reader);
+    throw error;
   } finally {
-    reader.releaseLock();
+    // Releasing the lock is cleanup and must never replace the verdict: older
+    // WHATWG streams and polyfilled bodies throw from releaseLock(), which
+    // would turn a completed read or `response_too_large` into that error (#9729).
+    try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }
   }
   const bytes = Buffer.concat(chunks, size);
   if (bytes.length === 0) return null;
@@ -792,6 +805,22 @@ function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifac
   return reasons;
 }
 
+function crawlerArtifactLineageMatches(localContract, remoteArtifacts, groupIds) {
+  const localArtifacts = new Map(
+    Array.isArray(localContract?.artifacts)
+      ? localContract.artifacts.map((entry) => [entry?.file, entry])
+      : [],
+  );
+  return Array.isArray(groupIds) && groupIds.every((group) => {
+    const file = `crawler-group-${group}.yml`;
+    const bytes = remoteArtifacts?.[file];
+    const artifact = localArtifacts.get(file);
+    return Buffer.isBuffer(bytes)
+      && SHA256_RE.test(artifact?.artifactSha256 ?? '')
+      && sha256(bytes) === artifact.artifactSha256;
+  });
+}
+
 // Il mirror di `.github/corpus-workflows/**` e il tree del repo corpus sono
 // allineati da un lockstep ASINCRONO (site → corpus, ~6 min: il merge site
 // 4b614a72 delle 12:41:01 è arrivato sul corpus alle 12:46:45). Una wave che
@@ -805,11 +834,13 @@ function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifac
 // che stiamo per pinnare: è quel tree che eseguirà, quindi è contro di lui che
 // vanno verificati gli hash di ogni artifact di gruppo e dell'observer (binding integrity,
 // #6806/#6933 — invariata, anzi ora verificata sull'oggetto giusto). Il mirror
-// locale resta l'ancora di LINEAGE: uno skew è tollerato solo se il contratto
-// remoto dichiara lo stesso `sourceRepository` e lo stesso `generatorSha256`
-// del nostro, cioè è una generazione precedente prodotta dallo STESSO
-// generatore che abbiamo in checkout. Qualsiasi altra divergenza resta
-// fail-closed come prima.
+// locale resta l'ancora di LINEAGE: uno skew con lo stesso
+// `sourceRepository` e `generatorSha256` è compatibile; uno skew di generatore
+// viene prima riconciliato dal chiamante entro una finestra bounded. Se il
+// il contratto remoto è rintracciabile byte per byte nella storia del sito,
+// la wave può usare quel commit storico compatibile con un warning, senza
+// eseguire codice del sito che il corpus non ha ancora ricevuto. Qualsiasi
+// altro motivo di divergenza resta fail-closed come prima.
 export function evaluateCrawlerGenerationPreflight({
   corpusCodeCommit,
   localContract,
@@ -818,6 +849,8 @@ export function evaluateCrawlerGenerationPreflight({
   remoteObserver,
   remoteWorkflow,
   remoteArtifacts,
+  verifiedSiteCodeCommit = null,
+  siteCodeFallback = null,
 }) {
   const reasons = [];
   if (!COMMIT_RE.test(corpusCodeCommit ?? '')) reasons.push('corpus_commit_invalid');
@@ -854,7 +887,33 @@ export function evaluateCrawlerGenerationPreflight({
       && remoteContract?.sourceRepository === SITE_REPOSITORY
       && SHA256_RE.test(remoteContract?.generatorSha256 ?? '')
       && remoteContract.generatorSha256 === localContract?.generatorSha256;
-    if (!sameLineage) reasons.push('contract_mismatch');
+    if (!sameLineage) {
+      reasons.push('contract_mismatch');
+      const sameGroupSet = localGroupIds !== null && remoteGroupIds !== null
+        && canonicalJson(localGroupIds) === canonicalJson(remoteGroupIds);
+      if (sameGroupSet && !crawlerArtifactLineageMatches(localContract, remoteArtifacts, remoteGroupIds)) {
+        // A different generator plus different pinned workflow bytes is a real
+        // lineage change, not a mirror read that can converge on the next
+        // attempt. Keep the gate closed and avoid spending the retry window.
+        reasons.push('crawler_artifact_lineage_mismatch');
+      }
+    }
+  }
+  if (canUseSiteContractFallback({
+    reasons,
+    localContract,
+    remoteContract,
+    siteCodeCommit: verifiedSiteCodeCommit,
+  })) {
+    return {
+      ready: true,
+      dispatchMode: 'shadow',
+      corpusCodeCommit,
+      siteCodeCommit: verifiedSiteCodeCommit,
+      reasons: [],
+      warnings: ['site_contract_compatibility_fallback'],
+      ...(siteCodeFallback ? { siteCodeFallback } : {}),
+    };
   }
   const ready = reasons.length === 0;
   return {
@@ -916,15 +975,182 @@ export async function mapWithConcurrency(items, concurrency, mapper) {
 }
 
 function isPotentialTransientLineageMismatch(result, localContract, remoteContract) {
+  const reasons = new Set(Array.isArray(result?.reasons) ? result.reasons : []);
+  // A generator change can legitimately make every generated workflow byte
+  // change before the site->corpus lockstep catches up. The artifact-lineage
+  // reason is retryable only in this exact shape: evaluate... has already
+  // verified the pinned remote contract, observer, workflow set and artifact
+  // hashes, and there are no other blocking reasons to hide.
   return result?.ready === false
-    && Array.isArray(result.reasons)
-    && result.reasons.length === 1
-    && result.reasons[0] === 'contract_mismatch'
+    && hasRecoverableContractMismatch([...reasons])
     && localContract?.sourceRepository === SITE_REPOSITORY
     && remoteContract?.sourceRepository === SITE_REPOSITORY
     && SHA256_RE.test(localContract?.generatorSha256 ?? '')
     && SHA256_RE.test(remoteContract?.generatorSha256 ?? '')
     && localContract.generatorSha256 !== remoteContract.generatorSha256;
+}
+
+function hasRecoverableContractMismatch(reasons) {
+  const unique = new Set(Array.isArray(reasons) ? reasons : []);
+  return (unique.size === 1 && unique.has('contract_mismatch'))
+    || (unique.size === 2
+      && unique.has('contract_mismatch')
+      && unique.has('crawler_artifact_lineage_mismatch'));
+}
+
+function canUseSiteContractFallback({ reasons, localContract, remoteContract, siteCodeCommit }) {
+  return COMMIT_RE.test(siteCodeCommit ?? '')
+    && hasRecoverableContractMismatch(reasons)
+    && localContract?.sourceRepository === SITE_REPOSITORY
+    && remoteContract?.sourceRepository === SITE_REPOSITORY
+    && SHA256_RE.test(localContract?.generatorSha256 ?? '')
+    && SHA256_RE.test(remoteContract?.generatorSha256 ?? '')
+    && localContract.generatorSha256 !== remoteContract.generatorSha256;
+}
+
+async function readSiteContractAt({ request, sleep, ref }) {
+  let response;
+  try {
+    response = await requestPreflightRead({
+      request,
+      sleep,
+      input: {
+        method: 'GET',
+        path: `/repos/${SITE_REPOSITORY}/contents/${SITE_CONTRACT_PATH}?ref=${encodeURIComponent(ref)}`,
+        apiVersion: GITHUB_API_VERSION,
+      },
+    });
+  } catch {
+    return null;
+  }
+  if (response?.status !== 200) return null;
+  try {
+    return JSON.parse(decodeContentsResponse(response).toString('utf8'));
+  } catch {
+    return null;
+  }
+}
+
+// La cronologia `commits?path=contract.json` elenca SOLO i commit che hanno
+// cambiato il contratto: il primo che coincide col corpus è quello che lo ha
+// INTRODOTTO, cioè il commit più vecchio possibile con quel contratto. Le
+// ondate lanciate su quel commit perdono tutte le fix mergiate fra
+// l'introduzione e il cambio di contratto successivo (run corpus 37112857893:
+// checkout a 4b0f33de, 21 ore prima del contratto successivo). L'ultimo commit
+// di `main` che ha ancora il contratto compatibile è il genitore del commit
+// che lo ha sostituito: lo si usa solo dopo aver riletto il contratto a quel
+// ref, così una storia non lineare ricade sul commit introduttivo invece di
+// eseguire codice che presuppone workflow diversi.
+// LIMITE noto: `parents[0]` è l'ultimo commit di `main` con quel contratto
+// solo se il commit che lo ha sostituito sta sulla first-parent di `main`
+// (squash merge, la regola del repo). Se il cambio arrivasse con un merge
+// commit non squash, la cronologia elencherebbe il commit del BRANCH e il suo
+// genitore sarebbe uno stato intermedio della PR con lo stesso contratto:
+// supera la rilettura e viene scelto con `stale: false`. Il contratto resta
+// compatibile, quindi l'ondata è corretta ma può essere più arretrata del
+// necessario; la misura affidabile del ritardo è `commitsBehindMain`.
+async function resolveLatestCompatibleSiteCodeCommit({ request, sleep, remoteContract, supersedingEntry }) {
+  const parentCommit = supersedingEntry?.parents?.[0]?.sha;
+  if (!COMMIT_RE.test(parentCommit ?? '')) return { reason: 'superseding_parent_unavailable' };
+  const parentContract = await readSiteContractAt({ request, sleep, ref: parentCommit });
+  if (parentContract === null) return { reason: 'superseding_parent_contract_unreadable' };
+  try {
+    if (canonicalJson(parentContract) !== canonicalJson(remoteContract)) {
+      return { reason: 'superseding_parent_contract_mismatch' };
+    }
+  } catch {
+    return { reason: 'superseding_parent_contract_mismatch' };
+  }
+  return { siteCodeCommit: parentCommit, reason: 'parent_of_superseding_contract_change' };
+}
+
+async function resolveCompatibleSiteCodeCommit({ request, remoteContract, sleep }) {
+  let historyResponse;
+  try {
+    historyResponse = await requestPreflightRead({
+      request,
+      sleep,
+      input: {
+        method: 'GET',
+        path: `/repos/${SITE_REPOSITORY}/commits?path=${encodeURIComponent(SITE_CONTRACT_PATH)}&sha=main&per_page=${MAX_SITE_CONTRACT_HISTORY_CANDIDATES}`,
+        apiVersion: GITHUB_API_VERSION,
+      },
+    });
+  } catch {
+    return null;
+  }
+  if (historyResponse?.status !== 200 || !Array.isArray(historyResponse.body)) return null;
+  const history = historyResponse.body.slice(0, MAX_SITE_CONTRACT_HISTORY_CANDIDATES);
+  for (const [index, entry] of history.entries()) {
+    const introducingCommit = entry?.sha;
+    if (!COMMIT_RE.test(introducingCommit ?? '')) continue;
+    const siteContract = await readSiteContractAt({ request, sleep, ref: introducingCommit });
+    if (siteContract === null) continue;
+    try {
+      if (canonicalJson(siteContract) !== canonicalJson(remoteContract)) continue;
+    } catch {
+      return null;
+    }
+    if (index === 0) {
+      return {
+        siteCodeCommit: introducingCommit,
+        strategy: 'contract_introducing_commit',
+        reason: 'latest_contract_change_on_main',
+        contractIntroducedBy: introducingCommit,
+        supersededBy: null,
+        stale: false,
+      };
+    }
+    const supersedingEntry = history[index - 1];
+    const supersededBy = COMMIT_RE.test(supersedingEntry?.sha ?? '') ? supersedingEntry.sha : null;
+    const latest = await resolveLatestCompatibleSiteCodeCommit({
+      request, sleep, remoteContract, supersedingEntry,
+    });
+    if (latest.siteCodeCommit) {
+      return {
+        siteCodeCommit: latest.siteCodeCommit,
+        strategy: 'latest_compatible_main_commit',
+        reason: latest.reason,
+        contractIntroducedBy: introducingCommit,
+        supersededBy,
+        stale: false,
+      };
+    }
+    // Il commit introduttivo resta un'ondata valida (#10474: meglio codice
+    // vecchio che nessuna ondata), ma è più arretrato del genitore atteso:
+    // `stale` è il segnale che l'orchestratore trasforma in issue.
+    return {
+      siteCodeCommit: introducingCommit,
+      strategy: 'contract_introducing_commit',
+      reason: latest.reason,
+      contractIntroducedBy: introducingCommit,
+      supersededBy,
+      stale: true,
+    };
+  }
+  return null;
+}
+
+// Quanto è arretrato il commit scelto rispetto a `main` del sito. Solo
+// diagnostica: una lettura fallita lascia `null`, mai un numero inventato, e
+// non cambia la decisione di dispatch.
+async function measureSiteCodeLag({ request, sleep, siteCodeCommit, siteMainCommit }) {
+  const head = COMMIT_RE.test(siteMainCommit ?? '') ? siteMainCommit : 'main';
+  try {
+    const response = await requestPreflightRead({
+      request,
+      sleep,
+      input: {
+        method: 'GET',
+        path: `/repos/${SITE_REPOSITORY}/compare/${encodeURIComponent(siteCodeCommit)}...${encodeURIComponent(head)}?per_page=1`,
+        apiVersion: GITHUB_API_VERSION,
+      },
+    });
+    const aheadBy = response?.status === 200 ? response.body?.ahead_by : null;
+    return Number.isSafeInteger(aheadBy) && aheadBy >= 0 ? aheadBy : null;
+  } catch {
+    return null;
+  }
 }
 
 async function readPreflightSnapshot({ request, localContract, localObserver, sleep }) {
@@ -971,6 +1197,10 @@ async function readPreflightSnapshot({ request, localContract, localObserver, sl
       remoteWorkflow: workflow.body,
     }),
     remoteContract,
+    corpusCodeCommit,
+    remoteObserver,
+    remoteArtifacts,
+    remoteWorkflow: workflow.body,
   };
 }
 
@@ -980,13 +1210,48 @@ export async function runPreflight({
   observerPath,
   sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay)),
   onTransientMismatch = () => {},
+  siteMainCommit = null,
 }) {
   const localContract = JSON.parse(fs.readFileSync(contractPath, 'utf8'));
   const localObserver = fs.readFileSync(observerPath);
   const maxAttempts = PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1;
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     const snapshot = await readPreflightSnapshot({ request, localContract, localObserver, sleep });
-    const { result } = snapshot;
+    let { result } = snapshot;
+    if (!result.ready && hasRecoverableContractMismatch(result.reasons)) {
+      const compatible = await resolveCompatibleSiteCodeCommit({
+        request,
+        remoteContract: snapshot.remoteContract,
+        sleep,
+      });
+      const siteCodeCommit = compatible?.siteCodeCommit ?? null;
+      if (canUseSiteContractFallback({
+        reasons: result.reasons,
+        localContract,
+        remoteContract: snapshot.remoteContract,
+        siteCodeCommit,
+      })) {
+        result = evaluateCrawlerGenerationPreflight({
+          siteCodeFallback: {
+            strategy: compatible.strategy,
+            reason: compatible.reason,
+            contractIntroducedBy: compatible.contractIntroducedBy,
+            supersededBy: compatible.supersededBy,
+            stale: compatible.stale,
+            siteMainCommit: COMMIT_RE.test(siteMainCommit ?? '') ? siteMainCommit : null,
+            commitsBehindMain: await measureSiteCodeLag({ request, sleep, siteCodeCommit, siteMainCommit }),
+          },
+          corpusCodeCommit: snapshot.corpusCodeCommit,
+          localContract,
+          remoteContract: snapshot.remoteContract,
+          localObserver,
+          remoteObserver: snapshot.remoteObserver,
+          remoteArtifacts: snapshot.remoteArtifacts,
+          remoteWorkflow: snapshot.remoteWorkflow,
+          verifiedSiteCodeCommit: siteCodeCommit,
+        });
+      }
+    }
     const retryable = isPotentialTransientLineageMismatch(result, localContract, snapshot.remoteContract);
     if (!retryable || attempt === maxAttempts) {
       if (attempt === 1) return result;
@@ -1010,6 +1275,21 @@ export async function runPreflight({
     await sleep(delayMs);
   }
   throw new Error('crawler_generation_preflight_reconciliation_unreachable');
+}
+
+// Output dello step di preflight letti da orchestrate-crawlers.yml. Le chiavi
+// `site_code_fallback_*` alimentano lo step che apre o chiude la issue
+// «Ondata crawler su codice arretrato»: `stale` è vero solo per un'ondata
+// PRONTA lanciata sul commit introduttivo mentre esiste un contratto successivo.
+export function formatPreflightStepOutputs(result) {
+  const reasonText = result.reasons?.length > 0 ? result.reasons.join(',') : 'none';
+  const fallback = result.siteCodeFallback ?? null;
+  return `ready=${result.ready}\ndispatch_mode=${result.dispatchMode}\ncorpus_commit=${result.corpusCodeCommit ?? ''}`
+    + `\nsite_code_commit=${result.siteCodeCommit ?? ''}\nreasons=${reasonText}`
+    + `\nsite_code_fallback_stale=${result.ready === true && fallback?.stale === true}`
+    + `\nsite_code_fallback_reason=${fallback?.reason ?? ''}`
+    + `\nsite_code_fallback_superseded_by=${fallback?.supersededBy ?? ''}`
+    + `\nsite_code_commits_behind_main=${fallback?.commitsBehindMain ?? ''}\n`;
 }
 
 function parseArguments(argv) {
@@ -1067,6 +1347,7 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
         request,
         contractPath: path.resolve(values['--contract']),
         observerPath: path.resolve(values['--observer']),
+        siteMainCommit: env.GITHUB_SHA,
         onTransientMismatch: ({ attempt, nextAttempt, maxAttempts, delayMs, reasons }) => {
           process.stderr.write(
             `::notice::crawler generation preflight transient lineage skew on attempt ${attempt}/${maxAttempts}`
@@ -1083,12 +1364,8 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
       };
     }
     const reasonText = result.reasons?.length > 0 ? result.reasons.join(',') : 'none';
-    if (env.GITHUB_OUTPUT) {
-      fs.appendFileSync(
-        env.GITHUB_OUTPUT,
-        `ready=${result.ready}\ndispatch_mode=${result.dispatchMode}\ncorpus_commit=${result.corpusCodeCommit ?? ''}\nreasons=${reasonText}\n`,
-      );
-    }
+    const fallback = result.siteCodeFallback ?? null;
+    if (env.GITHUB_OUTPUT) fs.appendFileSync(env.GITHUB_OUTPUT, formatPreflightStepOutputs(result));
     if (env.GENERATION_PREFLIGHT_OUTPUT) {
       writeJsonAtomic(env.GENERATION_PREFLIGHT_OUTPUT, result, { compact: true });
     }
@@ -1096,6 +1373,14 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
       process.stderr.write(
         `::warning::crawler generation mirror ahead of ${CALLER_REPOSITORY}@${result.corpusCodeCommit}`
         + ' — lockstep still propagating, dispatching the corpus generation pinned at that commit\n',
+      );
+    }
+    if (result.ready && (result.warnings ?? []).includes('site_contract_compatibility_fallback')) {
+      process.stderr.write(
+        `::warning::crawler generation contract mismatch; dispatching compatible site commit ${result.siteCodeCommit}`
+        + ` against ${CALLER_REPOSITORY}@${result.corpusCodeCommit}`
+        + ` (site main=${fallback?.siteMainCommit ?? 'unknown'}, commits behind main=${fallback?.commitsBehindMain ?? 'unknown'},`
+        + ` strategy=${fallback?.strategy ?? 'unknown'}, reason=${fallback?.reason ?? 'unknown'})\n`,
       );
     }
     if (!result.ready) {
@@ -1228,7 +1513,7 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
   return outcome;
 }
 
-if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runCrawlerGenerationDispatchCli().catch((error) => {
     process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
     process.exitCode = 2;

@@ -38,8 +38,9 @@ interface RenderOpts {
   cantonCode?: string | null;
 }
 
-function renderCta(opts: RenderOpts = {}) {
+function renderCta(opts: RenderOpts & { onAccepted?: () => void } = {}) {
   const onSubscribed = vi.fn();
+  const onAccepted = opts.onAccepted ?? vi.fn();
   const onErrored = vi.fn();
   const subscribe = opts.subscribe ?? vi.fn<SubscribeFn>(async () => baseAlert());
   const cantonCode = 'cantonCode' in opts ? opts.cantonCode : 'TI';
@@ -51,11 +52,12 @@ function renderCta(opts: RenderOpts = {}) {
       categoryLabel="💻 Tecnologia"
       cantonCode={cantonCode}
       onSubscribed={onSubscribed}
+      onAccepted={onAccepted}
       onErrored={onErrored}
       subscribe={subscribe}
     />,
   );
-  return { onSubscribed, onErrored, subscribe };
+  return { onSubscribed, onAccepted, onErrored, subscribe };
 }
 
 describe('JobMatchAlertCta', () => {
@@ -69,7 +71,7 @@ describe('JobMatchAlertCta', () => {
   });
 
   it('calls subscribe with category, locale, canton code, and attribution metadata', async () => {
-    const { onSubscribed, subscribe } = renderCta({ cantonCode: 'TI' });
+    const { onSubscribed, onAccepted, onErrored, subscribe } = renderCta({ cantonCode: 'TI' });
     await act(async () => {
       fireEvent.click(screen.getByText(/Avvisami per ruoli come questo/));
     });
@@ -77,7 +79,9 @@ describe('JobMatchAlertCta', () => {
       'user-1', 'foo@example.com', '💻 Tecnologia', 'it', undefined, 'TI',
       expect.objectContaining({ source: 'job_alert_match_cta', sourceComponent: 'JobMatchAlertCta' }),
     );
+    expect(onAccepted).toHaveBeenCalledTimes(1);
     expect(onSubscribed).toHaveBeenCalledTimes(1);
+    expect(onErrored).not.toHaveBeenCalled();
     await waitFor(() => {
       expect(screen.getByText(/Alert attivato/)).toBeTruthy();
     });
@@ -95,14 +99,21 @@ describe('JobMatchAlertCta', () => {
   });
 
   it('transitions to error when subscribe rejects', async () => {
-    const subscribe = vi.fn<SubscribeFn>().mockRejectedValueOnce(new Error('boom'));
-    const { onErrored } = renderCta({ subscribe });
+    let subscribeStarted = false;
+    const onAccepted = vi.fn(() => expect(subscribeStarted).toBe(false));
+    const subscribe = vi.fn<SubscribeFn>(async () => {
+      subscribeStarted = true;
+      throw new Error('boom');
+    });
+    const { onAccepted: accepted, onErrored, onSubscribed } = renderCta({ subscribe, onAccepted });
     await act(async () => {
       fireEvent.click(screen.getByText(/Avvisami per ruoli come questo/));
     });
     await waitFor(() => {
       expect(screen.getByText(/Non sono riuscito a creare l'alert/)).toBeTruthy();
     });
+    expect(accepted).toHaveBeenCalledTimes(1);
     expect(onErrored).toHaveBeenCalledTimes(1);
+    expect(onSubscribed).not.toHaveBeenCalled();
   });
 });

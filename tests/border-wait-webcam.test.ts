@@ -137,6 +137,26 @@ describe('webcam rendering — attribution + accessibility', () => {
     expect(html).toContain("data:image/svg+xml");
     expect(html).not.toContain("style.display='none'");
   });
+
+  it('SITG webcam keeps its note and emits URL license fields in ImageObject JSON-LD', () => {
+    const crossing = borderCrossings.find((c) => c.name === 'Ferney-Voltaire / Grand-Saconnex');
+    const webcam = crossing?.webcams?.[0];
+    expect(webcam).toBeDefined();
+    if (!webcam) throw new Error('SITG webcam fixture is missing');
+
+    const html = pages[buildOggiPath('it', 'ferney-voltaire-grand-saconnex')];
+    const imageLd = Array.from(
+      html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g),
+    )
+      .map(([, body]) => JSON.parse(body) as Record<string, unknown>)
+      .find((node) => node['@type'] === 'ImageObject');
+
+    expect(imageLd).toBeDefined();
+    expect(imageLd?.license).toBe(webcam.license);
+    expect(imageLd?.acquireLicensePage).toBe(webcam.license);
+    expect(webcam.licenseNote).toBeTruthy();
+    if (webcam.licenseNote) expect(html).toContain(webcam.licenseNote);
+  });
 });
 
 describe('webcam rendering — refresh script injection', () => {

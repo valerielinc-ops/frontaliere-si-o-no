@@ -4,7 +4,8 @@
  * updatedAt bump is idempotent (insert once, then update in place — never
  * duplicates, which would corrupt the ARTICLES entry).
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+import fs from 'node:fs';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -28,6 +29,20 @@ describe('events digest article generator', () => {
       expect(src).toContain('export default');
       expect(src).toContain('blog.article.eventi-weekend-ticino.body1');
     }
+  });
+
+  it('rejects translated prompt scaffolding before refreshing any body file', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-gen-reject-'));
+    const contaminated = {
+      ...data,
+      content: {
+        ...data.content,
+        en: { ...data.content.en, body1: 'ARTICLE TITLE: Weekend events in Ticino' },
+      },
+    };
+    expect(() => refreshBodyFiles(contaminated, root, () => {}))
+      .toThrow(/leaked-prompt-scaffolding/i);
+    expect(existsSync(path.join(root, 'services'))).toBe(false);
   });
 
   it('bumpUpdatedAt inserts updatedAt then updates it in place (idempotent, never duplicates)', () => {
@@ -93,6 +108,91 @@ describe('events digest article generator', () => {
     expect(bumpUpdatedAt('does-not-exist', '2027-01-09', root)).toBe(false);
   });
 
+  it('bumpUpdatedAt reads top-level fields structurally and leaves nested lookalikes untouched', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-bump-structural-'));
+    mkdirSync(path.join(root, 'data'), { recursive: true });
+    const file = path.join(root, 'data', 'blog-articles-data.ts');
+    writeFileSync(file, [
+      'const RAW_ARTICLES = [',
+      '  {',
+      "    id: 'eventi-weekend-ticino',",
+      "    metadata: { date: '1900-01-01', updatedAt: '1900-01-02' },",
+      "    date: '2026-07-04T00:00:00.000Z',",
+      '  },',
+      '];',
+      '',
+    ].join('\n'));
+
+    expect(bumpUpdatedAt('eventi-weekend-ticino', '2027-01-09', root)).toBe(true);
+    const source = readFileSync(file, 'utf-8');
+    expect(source).toContain("metadata: { date: '1900-01-01', updatedAt: '1900-01-02' }");
+    expect(source).toContain("date: '2026-07-04T00:00:00.000Z',\n    updatedAt: '2027-01-09',");
+  });
+
+  it('rejects duplicate registry entries before writing either one', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-bump-duplicate-'));
+    mkdirSync(path.join(root, 'data'), { recursive: true });
+    const file = path.join(root, 'data', 'blog-articles-data.ts');
+    const source = [
+      'const RAW_ARTICLES = [',
+      "  { id: 'eventi-weekend-ticino', date: '2026-07-04' },",
+      "  { id: 'eventi-weekend-ticino', date: '2026-07-05' },",
+      '];',
+      '',
+    ].join('\n');
+    writeFileSync(file, source);
+
+    expect(() => bumpUpdatedAt('eventi-weekend-ticino', '2027-01-09', root))
+      .toThrow(/entry 'eventi-weekend-ticino' duplicata \(2 occorrenze\)/);
+    expect(readFileSync(file, 'utf-8')).toBe(source);
+  });
+
+  it('reports invalid control characters and leaves the final registry untouched', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-bump-control-char-'));
+    mkdirSync(path.join(root, 'data'), { recursive: true });
+    const file = path.join(root, 'data', 'blog-articles-data.ts');
+    const source = [
+      'const RAW_ARTICLES = [',
+      '  {',
+      "    id: 'eventi-weekend-ticino',",
+      "    date: '2026-07-04',",
+      `    image: '/bad${String.fromCharCode(0x08)}.webp',`,
+      '  },',
+      '];',
+      '',
+    ].join('\n');
+    writeFileSync(file, source);
+
+    expect(() => bumpUpdatedAt('eventi-weekend-ticino', '2027-01-09', root))
+      .toThrow(/1 XML-invalid control character.*0x08@/s);
+    expect(readFileSync(file, 'utf-8')).toBe(source);
+    expect(fs.readdirSync(path.dirname(file))).toEqual(['blog-articles-data.ts']);
+  });
+
+  it('keeps the final registry intact when the atomic rename fails', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-bump-atomic-'));
+    mkdirSync(path.join(root, 'data'), { recursive: true });
+    const file = path.join(root, 'data', 'blog-articles-data.ts');
+    const source = [
+      'const RAW_ARTICLES = [',
+      "  { id: 'eventi-weekend-ticino', date: '2026-07-04' },",
+      '];',
+      '',
+    ].join('\n');
+    writeFileSync(file, source);
+    const rename = vi.spyOn(fs, 'renameSync').mockImplementationOnce(() => {
+      throw new Error('simulated atomic rename failure');
+    });
+    try {
+      expect(() => bumpUpdatedAt('eventi-weekend-ticino', '2027-01-09', root))
+        .toThrow('simulated atomic rename failure');
+    } finally {
+      rename.mockRestore();
+    }
+    expect(readFileSync(file, 'utf-8')).toBe(source);
+    expect(fs.readdirSync(path.dirname(file))).toEqual(['blog-articles-data.ts']);
+  });
+
   it('bumpDateModified updates only the target article entry, not its siblings', () => {
     const root = mkdtempSync(path.join(os.tmpdir(), 'digest-dm-'));
     mkdirSync(path.join(root, 'services', 'seo'), { recursive: true });
@@ -146,6 +246,26 @@ describe('events digest article generator', () => {
     const src = readFileSync(file, 'utf-8');
     expect(src).toContain('"dateModified": "2026-06-29T19:07:39+02:00"');
     expect(src).not.toContain('"dateModified": "2026-06-29T00:00:00+02:00"');
+  });
+
+  it('bumpDateModified rejects duplicate SEO keys before writing', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-dm-duplicate-'));
+    mkdirSync(path.join(root, 'services', 'seo'), { recursive: true });
+    const file = path.join(root, 'services', 'seo', 'seo-blog-5.ts');
+    const source = [
+      "  'blog-eventi-weekend-ticino': {",
+      '    "dateModified": "2026-06-29T19:07:39+02:00",',
+      '  },',
+      "  'blog-eventi-weekend-ticino': {",
+      '    "dateModified": "2026-06-30T19:07:39+02:00",',
+      '  },',
+      '',
+    ].join('\n');
+    writeFileSync(file, source);
+
+    expect(() => bumpDateModified('eventi-weekend-ticino', '2027-01-09T00:00:00+02:00', root))
+      .toThrow(/entry 'blog-eventi-weekend-ticino' duplicata \(2 occorrenze\)/);
+    expect(readFileSync(file, 'utf-8')).toBe(source);
   });
 
   it('bumpSitemapLastmod rewrites only the target url block lastmod', () => {

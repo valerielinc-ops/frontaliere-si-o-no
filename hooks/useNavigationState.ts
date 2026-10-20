@@ -14,22 +14,32 @@
  * - Gamification tab tracking
  * - API status URL parameter check
  */
-import { useState, useEffect, useRef, useCallback, type Dispatch, type SetStateAction, type MutableRefObject } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef, useCallback, type Dispatch, type SetStateAction, type MutableRefObject } from 'react';
 import {
  parsePath, parseHashToPath, pushRoute, getSeoSection,
  updatePathForLocale, scrollToAnchor, AppRoute,
  preloadBlogData, resolveBlogSlug, getLocalizedJobSlug,
  preloadSwissData, resolveSwissSlug,
- learnRuntimeBlogSlugs, learnRuntimeSwissSlugs, buildPath,
+ learnRuntimeBlogSlugs, learnRuntimeSwissSlugs, learnRuntimeCantonSlugs, buildPath,
 } from '@/services/router';
 import type {
  ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab,
  GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, SeoLandingId,
  GlossaryTermId, BorderCrossingId,
 } from '@/services/router';
+import type { ArticleSection } from '@/services/articleSections';
 import type { PharmacyPath } from '@/services/pharmacies/paths';
 import { setLocale, onLocaleChange, type Locale } from '@/services/i18n';
-import { hasStaticArticleFallback, restoreStaticArticleFallback } from '@/services/staticArticleFallback';
+import { hasStaticArticleFallback, isStaticArticleFallbackInDocument, restoreStaticArticleFallback } from '@/services/staticArticleFallback';
+import {
+ afterRootCrossfade,
+ pendingArticleSlug,
+ removeOwnedStaticSnapshot,
+ shouldKeepStaticFallbackOutsideRoot,
+ STATIC_SNAPSHOT_OWNER_ATTR,
+ staticArticleFallbackKey as buildStaticArticleFallbackKey,
+ staticArticleFallbackRouteKey,
+} from '@/services/staticFallbackHandoff';
 import { prefetchTab } from '@/services/prefetch';
 import { enableRuntimeSeo, updateMetaTags, trackSectionView, loadSeoService } from '@/hooks/seoHelpers';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -52,37 +62,6 @@ function jobBoardCompanySlugFromPath(pathname: string): string | null {
  return JOB_BOARD_COMPANY_PREFIX_RE.test(slug) ? slug : null;
 }
 
-/**
- * The article slug of a route the bundled slug map has not turned into an id.
- *
- * `parsePath` returns `blogSlug`/`swissSlug` instead of `blogArticle`/
- * `swissArticle` in exactly two situations: the lazy `routerBlogData` chunk has
- * not landed yet (transient, every article page passes through it), or this
- * build simply does not contain that article — which is the permanent state of
- * every article published since the last successful deploy.
- */
-function pendingArticleSlug(route: AppRoute): { section: 'frontaliere' | 'svizzera'; slug: string } | null {
- if (route.activeTab !== 'blog') return null;
- if (route.blogSection === 'svizzera') {
- return route.swissSlug && !route.swissArticle ? { section: 'svizzera', slug: route.swissSlug } : null;
- }
- return route.blogSlug && !route.blogArticle ? { section: 'frontaliere', slug: route.blogSlug } : null;
-}
-
-/**
- * Whether the shard's own static article is available for this URL.
- *
- * This is the guard's precondition and the reason it is safe. Standing aside is
- * only an improvement when there is something correct underneath: `ogPagesPlugin`
- * emits the full article into `<main class="seo-static-content">`, so on a real
- * article URL it is there before React runs. If it is not — a route that never
- * had a static twin, or a client-side arrival — falling back to it would leave
- * a blank page, so we don't.
- */
-function staticArticleAvailable(): boolean {
- return hasStaticArticleFallback();
-}
-
 export interface NavigationState {
  // State
  activeTab: ActiveTab;
@@ -94,10 +73,16 @@ export interface NavigationState {
  pharmacyPath: PharmacyPath | null;
  statsSubTab: StatsSubTab;
  blogArticle: BlogArticleId | null;
- /** Active article section for the `blog` tab: cross-border or Switzerland-wide. */
- blogSection: 'frontaliere' | 'svizzera';
+ /** Active article section for the `blog` tab, including live canton sections. */
+ blogSection: ArticleSection;
  /** Selected svizzera-section article id (when blogSection === 'svizzera'). */
  swissArticle: string | null;
+ /** Selected canton-section article id (resolved from the corpus at runtime). */
+ cantonArticle: string | null;
+ /** Stable thematic-hub id for a hydrated canton topic route. */
+ cantonTopic: string | null;
+ /** One-based page in a canton archive. */
+ blogPage: number | null;
  seoLanding: SeoLandingId | null;
  glossaryTerm: GlossaryTermId | null;
  borderCrossing: BorderCrossingId | null;
@@ -115,6 +100,8 @@ export interface NavigationState {
   * SEO content stays visible without React's SPA tab content overwriting it.
   */
  staticOverlay: boolean;
+ /** Stable route key while the static article owns the body during hydration. */
+ articleStaticFallbackKey: string | null;
 
  // Setters
  setActiveTab: Dispatch<SetStateAction<ActiveTab>>;
@@ -125,9 +112,12 @@ export interface NavigationState {
  setVitaSubTab: Dispatch<SetStateAction<VitaSubTab>>;
  setPharmacyPath: Dispatch<SetStateAction<PharmacyPath | null>>;
  setStatsSubTab: Dispatch<SetStateAction<StatsSubTab>>;
- setBlogArticle: Dispatch<SetStateAction<BlogArticleId | null>>;
- setBlogSection: Dispatch<SetStateAction<'frontaliere' | 'svizzera'>>;
+ setBlogArticle: Dispatch<SetStateAction<string | null>>;
+ setBlogSection: Dispatch<SetStateAction<ArticleSection>>;
  setSwissArticle: Dispatch<SetStateAction<string | null>>;
+ setCantonArticle: Dispatch<SetStateAction<string | null>>;
+ setCantonTopic: Dispatch<SetStateAction<string | null>>;
+ setBlogPage: Dispatch<SetStateAction<number | null>>;
  setSeoLanding: Dispatch<SetStateAction<SeoLandingId | null>>;
  setGlossaryTerm: Dispatch<SetStateAction<GlossaryTermId | null>>;
  setBorderCrossing: Dispatch<SetStateAction<BorderCrossingId | null>>;
@@ -138,13 +128,21 @@ export interface NavigationState {
  setNotFoundPath: Dispatch<SetStateAction<string | undefined>>;
  setJobBoardFilterParams: Dispatch<SetStateAction<{ location?: string; query?: string } | null>>;
  setStaticOverlay: Dispatch<SetStateAction<boolean>>;
+ markStaticArticleReady: (key: string) => void;
+ clearStaticArticleFallback: () => void;
 
  // Refs
  suppressNextRouteSyncForTabRef: MutableRefObject<ActiveTab | null>;
 
  // Handlers
  handleTabChange: (tab: ActiveTab) => void;
- handleSearchNavigate: (tab: string, subTab?: string, filterParams?: { location?: string; query?: string }) => void;
+ handleSearchNavigate: (
+  tab: string,
+  subTab?: string,
+  filterParams?: { location?: string; query?: string },
+  blogSection?: ArticleSection,
+  blogSlug?: string,
+ ) => void;
 }
 
 export function useNavigationState(): NavigationState {
@@ -173,9 +171,12 @@ export function useNavigationState(): NavigationState {
  const [vitaSubTab, setVitaSubTab] = useState<VitaSubTab>(initialRoute.route.vitaSubTab || 'living-ch');
  const [pharmacyPath, setPharmacyPath] = useState<PharmacyPath | null>(initialRoute.route.pharmacyPath || null);
  const [statsSubTab, setStatsSubTab] = useState<StatsSubTab>(initialRoute.route.statsSubTab || 'overview');
- const [blogArticle, setBlogArticle] = useState<BlogArticleId | null>(initialRoute.route.blogArticle || null);
- const [blogSection, setBlogSection] = useState<'frontaliere' | 'svizzera'>(initialRoute.route.blogSection || 'frontaliere');
+ const [blogArticle, setBlogArticle] = useState<BlogArticleId | null>(initialRoute.route.blogArticle as BlogArticleId | undefined || null);
+ const [blogSection, setBlogSection] = useState<ArticleSection>(initialRoute.route.blogSection || 'frontaliere');
  const [swissArticle, setSwissArticle] = useState<string | null>(initialRoute.route.swissArticle || null);
+ const [cantonArticle, setCantonArticle] = useState<string | null>(initialRoute.route.cantonArticle || null);
+ const [cantonTopic, setCantonTopic] = useState<string | null>(initialRoute.route.cantonTopic || null);
+ const [blogPage, setBlogPage] = useState<number | null>(initialRoute.route.blogPage || null);
  const [seoLanding, setSeoLanding] = useState<SeoLandingId | null>(initialRoute.route.seoLanding || null);
  const [glossaryTerm, setGlossaryTerm] = useState<GlossaryTermId | null>(initialRoute.route.glossaryTerm || null);
  const [borderCrossing, setBorderCrossing] = useState<BorderCrossingId | null>(initialRoute.route.borderCrossing || null);
@@ -185,6 +186,19 @@ export function useNavigationState(): NavigationState {
  const [showApiStatus, setShowApiStatus] = useState(false);
  const [notFoundPath, setNotFoundPath] = useState<string | undefined>(() => parsePath(window.location.pathname).notFoundPath);
  const [jobBoardFilterParams, setJobBoardFilterParams] = useState<{ location?: string; query?: string } | null>(null);
+ const initialHasStaticArticleFallback = hasStaticArticleFallback();
+ // The static article owns the body only while it is on the page: the stashed
+ // clone alone (a return to the landing URL after it was removed) owns nothing.
+ const initialKeepsStaticArticle = shouldKeepStaticFallbackOutsideRoot(
+  initialRoute.route,
+  'article',
+  isStaticArticleFallbackInDocument(),
+ );
+ const [articleStaticFallbackKey, setArticleStaticFallbackKey] = useState<string | null>(() => (
+  initialKeepsStaticArticle
+   ? staticArticleFallbackRouteKey(initialRoute.route, initialRoute.locale)
+   : null
+ ));
  // Lite-shell mode: driven by the router only. When the URL resolves to a
  // staticOverlay route (SEO landing with no SPA equivalent: fuel-daily,
  // weekly-employers, health-premiums, border-wait, jobs-observatory,
@@ -207,7 +221,7 @@ export function useNavigationState(): NavigationState {
  // that every article page already paid while that chunk was in flight.
  const [staticOverlay, setStaticOverlay] = useState<boolean>(
  () => !!initialRoute.route.staticOverlay
- || (!!pendingArticleSlug(initialRoute.route) && staticArticleAvailable()),
+ || (!!pendingArticleSlug(initialRoute.route) && initialHasStaticArticleFallback),
  );
 
  // Refs
@@ -218,6 +232,55 @@ export function useNavigationState(): NavigationState {
  // scroll) from a fresh entry to the job-board list from an external page
  // (e.g. clicking a career-landing link). Fresh entries must scroll to top.
  const prevAppliedRouteRef = useRef<AppRoute | null>(null);
+
+ const clearStaticArticleFallback = useCallback(() => {
+  setArticleStaticFallbackKey(null);
+  setStaticOverlay(false);
+  if (typeof document === 'undefined') return;
+  const root = document.getElementById('root');
+  for (const main of Array.from(document.querySelectorAll<HTMLElement>('main.seo-static-content'))) {
+   if (main.querySelector('article.ft-blog-article') && !root?.contains(main)) main.remove();
+  }
+ }, []);
+
+ // The route can change while a release waits for the mount's fade: what is
+ // released is the owner that asked, never whichever one is current by then.
+ const articleStaticFallbackKeyRef = useRef(articleStaticFallbackKey);
+ articleStaticFallbackKeyRef.current = articleStaticFallbackKey;
+ const markStaticArticleReady = useCallback((key: string) => {
+  if (articleStaticFallbackKeyRef.current !== key) return;
+  afterRootCrossfade(() => {
+   if (articleStaticFallbackKeyRef.current !== key) return;
+   setArticleStaticFallbackKey(null);
+   setStaticOverlay(false);
+  });
+ }, []);
+
+ // A direct state navigation can bypass applyRoute (for example a CTA using
+ // NavigationContext). Do not let the landing article survive that route
+ // change. The explicit clear helper handles the normal path; this layout
+ // guard is the last pre-paint safety net for callers that set article state
+ // directly.
+ useLayoutEffect(() => {
+  if (!articleStaticFallbackKey || staticOverlay) return;
+  const currentRoute = parsePath(window.location.pathname).route;
+  const pending = pendingArticleSlug(currentRoute);
+  const selected = currentRoute.blogSection === 'svizzera'
+   ? currentRoute.swissArticle
+   : currentRoute.blogSection?.startsWith('canton-')
+     ? currentRoute.cantonArticle
+     : currentRoute.blogArticle;
+  if (!selected && !pending) clearStaticArticleFallback();
+ }, [
+  activeTab,
+  articleStaticFallbackKey,
+  blogArticle,
+  blogSection,
+  cantonArticle,
+  clearStaticArticleFallback,
+  staticOverlay,
+  swissArticle,
+ ]);
 
  // Prefetch the active route, including the Vita subtab's lazy component.
  // In particular, /vivere-in-ticino/comuni-di-frontiera/ resolves to
@@ -258,20 +321,38 @@ export function useNavigationState(): NavigationState {
  if (!pending) return;
  const { section, slug } = pending;
  const isSwiss = section === 'svizzera';
+ const isCanton = section.startsWith('canton-');
 
  // Put the article back on screen BEFORE flipping to overlay mode: the CLS
  // handoff in index.tsx may already have moved it inside #root, where React
  // has since replaced it. Restoring first means App's layout effect finds it
  // where it expects it on the very render that stops drawing the SPA <main>.
- const guard = () => { if (restoreStaticArticleFallback()) setStaticOverlay(true); };
+ const guard = () => {
+  if (restoreStaticArticleFallback()) {
+   setStaticOverlay(true);
+   return;
+  }
+  // A client-side arrival has no static owner. Keep the SPA route alive rather
+  // than switching to an empty overlay when the runtime resolver fails.
+  setArticleStaticFallbackKey(null);
+  setStaticOverlay(false);
+ };
  const adopt = (id: string) => {
- setStaticOverlay(false);
- if (isSwiss) setSwissArticle(id); else setBlogArticle(id as BlogArticleId);
+  // Hold the SPA view back only behind a static article that is on the page.
+  // With nothing there, the article view draws its own loading state at once.
+  const staticOnPage = isStaticArticleFallbackInDocument();
+  setArticleStaticFallbackKey(
+   staticOnPage ? buildStaticArticleFallbackKey(section, id, urlLocale) : null,
+  );
+  setStaticOverlay(false);
+ if (isSwiss) setSwissArticle(id);
+ else if (isCanton) setCantonArticle(id);
+ else setBlogArticle(id as BlogArticleId);
  };
 
- (isSwiss ? preloadSwissData() : preloadBlogData())
+ (isSwiss ? preloadSwissData() : isCanton ? Promise.resolve() : preloadBlogData())
  .then(() => {
- const bundled = isSwiss ? resolveSwissSlug(slug, urlLocale) : resolveBlogSlug(slug, urlLocale);
+ const bundled = isSwiss ? resolveSwissSlug(slug, urlLocale) : isCanton ? undefined : resolveBlogSlug(slug, urlLocale);
  if (bundled) { adopt(bundled); return; }
  // Split out so the corpus-API client is a chunk the common path never
  // downloads: it is only ever needed once the bundle has already missed.
@@ -286,7 +367,9 @@ export function useNavigationState(): NavigationState {
  // Learn the pair even when we won't render: it is what keeps
  // buildPath, the language switcher and the canonical URL pointing
  // at the real article instead of the hub.
- (isSwiss ? learnRuntimeSwissSlugs : learnRuntimeBlogSlugs)(adopted.id, adopted.slugs);
+ if (isSwiss) learnRuntimeSwissSlugs(adopted.id, adopted.slugs);
+ else if (isCanton) learnRuntimeCantonSlugs(section, adopted.id, adopted.slugs);
+ else learnRuntimeBlogSlugs(adopted.id, adopted.slugs);
  if (adopted.renderable) adopt(adopted.id); else guard();
  });
  })
@@ -303,7 +386,8 @@ export function useNavigationState(): NavigationState {
  // activeTab==='blog' effect below.
  useEffect(() => {
  const r = initialRoute.route;
- if (r.activeTab === 'blog' || r.blogSlug || r.blogArticle) {
+ if ((r.activeTab === 'blog' || r.blogSlug || r.blogArticle || r.cantonSlug || r.cantonArticle)
+   && !r.blogSection?.startsWith('canton-')) {
  preloadBlogData().catch(() => {});
  }
  if (r.blogSection === 'svizzera') {
@@ -329,7 +413,7 @@ export function useNavigationState(): NavigationState {
  // `_blogSlugs` as soon as the user lands on the blog so buildPath emits
  // canonical localized article URLs everywhere.
  useEffect(() => {
- if (activeTab === 'blog') preloadBlogData().catch(() => {});
+ if (activeTab === 'blog' && !blogSection.startsWith('canton-')) preloadBlogData().catch(() => {});
  }, [activeTab]);
 
  // Apply noindex SEO immediately on mount for 404 pages (soft-404 protection)
@@ -340,7 +424,7 @@ export function useNavigationState(): NavigationState {
  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
  // Auto-scroll active sub-tab chip into view on mobile (YouTube/Spotify peek pattern)
- const activeSubTab = activeTab === 'calcolatore' ? calcolatoreSubTab
+ const activeSubTab = activeTab === 'calculator' ? calcolatoreSubTab
  : activeTab === 'confronti' ? confrontiSubTab
  : activeTab === 'fisco' ? fiscoSubTab
  : activeTab === 'guida' ? guidaSubTab
@@ -377,9 +461,20 @@ export function useNavigationState(): NavigationState {
  // resolution is a full reload so the browser fetches the canonical
  // static page. This keeps URL/content always consistent and is rare in
  // practice (back-button after navigating away from an SEO landing).
- if (route.staticOverlay && typeof document !== 'undefined' && !document.querySelector('main.seo-static-content')) {
-   window.location.reload();
-   return;
+ if (route.staticOverlay && typeof document !== 'undefined') {
+   // A snapshot that owned the body of the page we are leaving (an article,
+   // a canton topic hub) is not the static landing we are going to.
+   const root = document.getElementById('root');
+   for (const main of Array.from(document.querySelectorAll<HTMLElement>('main.seo-static-content'))) {
+     if (root?.contains(main)) continue;
+     if (main.hasAttribute(STATIC_SNAPSHOT_OWNER_ATTR) || main.querySelector('article.ft-blog-article')) {
+       removeOwnedStaticSnapshot(main);
+     }
+   }
+   if (!document.querySelector('main.seo-static-content')) {
+     window.location.reload();
+     return;
+   }
  }
  setNotFoundPath(parsedNotFoundPath);
  // Toggle lite-shell mode based on the new route. When leaving a static
@@ -390,13 +485,21 @@ export function useNavigationState(): NavigationState {
  // here: the SPA must not render the hub list over the article, AND the
  // removal below must not happen, or the guard would have nothing left to
  // fall back to when resolution fails.
+ const hasArticleFallback = hasStaticArticleFallback();
+ const keepsStaticArticle = shouldKeepStaticFallbackOutsideRoot(route, 'article', isStaticArticleFallbackInDocument());
  const nextOverlay = !!route.staticOverlay
- || (!!pendingArticleSlug(route) && staticArticleAvailable());
+ || (!!pendingArticleSlug(route) && hasArticleFallback);
+ setArticleStaticFallbackKey(
+  keepsStaticArticle ? staticArticleFallbackRouteKey(route, urlLocale) : null,
+ );
  setStaticOverlay(nextOverlay);
- if (!nextOverlay && typeof document !== 'undefined') {
+ if (!nextOverlay && !keepsStaticArticle && typeof document !== 'undefined') {
    const staticMain = document.querySelector('main.seo-static-content');
    if (staticMain && staticMain.parentElement) {
-     staticMain.parentElement.removeChild(staticMain);
+     // A snapshot left outside #root can sit in the build-time rail grid:
+     // removed on its own it would leave that grid as an empty band.
+     if (staticMain.hasAttribute(STATIC_SNAPSHOT_OWNER_ATTR)) removeOwnedStaticSnapshot(staticMain);
+     else staticMain.parentElement.removeChild(staticMain);
    }
  }
  setActiveTab(route.activeTab);
@@ -408,9 +511,12 @@ export function useNavigationState(): NavigationState {
  if (route.vitaSubTab) setVitaSubTab(route.vitaSubTab);
  setPharmacyPath(route.pharmacyPath || null);
  if (route.statsSubTab) setStatsSubTab(route.statsSubTab);
- setBlogArticle(route.blogArticle || null);
+ setBlogArticle((route.blogArticle as BlogArticleId | undefined) || null);
  setBlogSection(route.blogSection || 'frontaliere');
  setSwissArticle(route.swissArticle || null);
+ setCantonArticle(route.cantonArticle || null);
+ setCantonTopic(route.cantonTopic || null);
+ setBlogPage(route.blogPage || null);
  // Deferred slug → article id (bundle first, corpus API second, guard last).
  resolvePendingArticle(route, urlLocale);
  setSeoLanding(route.seoLanding || null);
@@ -424,7 +530,7 @@ export function useNavigationState(): NavigationState {
  applyNotFoundSeo(parsedNotFoundPath);
  } else {
  const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
+ if (!route.blogSection?.startsWith('canton-')) updateMetaTags(seoKey);
  trackSectionView(seoKey);
  }
  // Skip auto-scroll only on a true detail→list back-nav: previous route was
@@ -473,6 +579,12 @@ export function useNavigationState(): NavigationState {
  const onClick = (e: MouseEvent) => {
  // Skip if modifier keys are held (user wants new tab/window)
  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+
+ // A component-level link handler may already own this click (for example an
+ // article card that selects a live canton article). Do not reinterpret its
+ // href a second time: doing so races the component state update with the
+ // generic route parser and can send the user to a different section.
+ if (e.defaultPrevented) return;
 
  // Walk up from target to find the nearest <a> element
  let anchor = e.target as HTMLElement | null;
@@ -527,6 +639,7 @@ export function useNavigationState(): NavigationState {
  const onSamePath = window.location.pathname.replace(/\/$/, '') === pathname.replace(/\/$/, '');
  if (targetIsStaticOverlay && companyFilterSlug) {
  e.preventDefault();
+ clearStaticArticleFallback();
  const hydratedCompanyRoute: AppRoute = { activeTab: 'job-board', jobSlug: companyFilterSlug };
  history.pushState({ route: hydratedCompanyRoute }, '', pathname + search + (hash ? `#${hash}` : ''));
  setStaticOverlay(false);
@@ -579,7 +692,7 @@ export function useNavigationState(): NavigationState {
  };
  document.addEventListener('click', onClick);
  return () => document.removeEventListener('click', onClick);
- }, [applyRoute]);
+ }, [applyRoute, clearStaticArticleFallback]);
 
  // Handle in-page hash navigation
  useEffect(() => {
@@ -596,6 +709,7 @@ export function useNavigationState(): NavigationState {
  const onNavigateTab = (e: Event) => {
  const detail = (e as CustomEvent).detail;
  if (detail?.tab) {
+ clearStaticArticleFallback();
  let tab = detail.tab as string;
  let subTab = detail.subTab as string | undefined;
  let guideSec = detail.guideSection as string | undefined;
@@ -627,7 +741,7 @@ export function useNavigationState(): NavigationState {
  };
  window.addEventListener('navigate-tab', onNavigateTab);
  return () => window.removeEventListener('navigate-tab', onNavigateTab);
- }, []);
+ }, [clearStaticArticleFallback]);
 
  // Migrate legacy hash-based URLs
  useEffect(() => {
@@ -662,6 +776,7 @@ export function useNavigationState(): NavigationState {
  // handleTabChange — uses functional setter to capture previousTab without stale closure
  const handleTabChange = useCallback((tab: ActiveTab) => {
  enableRuntimeSeo();
+ clearStaticArticleFallback();
  setPharmacyPath(null);
  setActiveTab(prevTab => {
  Analytics.trackTabNavigation(prevTab, tab);
@@ -676,7 +791,14 @@ export function useNavigationState(): NavigationState {
  if (tab !== 'glossario') setGlossaryTerm(null);
  if (tab !== 'job-board') setJobSlug(null);
  if (tab !== 'autore') setAuthor(null);
- if (tab === 'blog') { setBlogArticle(null); setSwissArticle(null); setBlogSection('frontaliere'); }
+ if (tab === 'blog') {
+  setBlogArticle(null);
+  setSwissArticle(null);
+  setCantonArticle(null);
+  setCantonTopic(null);
+  setBlogPage(null);
+  setBlogSection('frontaliere');
+ }
 
  // Build route and push to history
  const route: AppRoute = { activeTab: tab };
@@ -701,17 +823,30 @@ export function useNavigationState(): NavigationState {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- }, [confrontiSubTab, fiscoSubTab, taxReturnCountry, guidaSubTab, vitaSubTab, calcolatoreSubTab, seoLanding, statsSubTab, glossaryTerm, jobSlug]);
+ }, [clearStaticArticleFallback, confrontiSubTab, fiscoSubTab, taxReturnCountry, guidaSubTab, vitaSubTab, calcolatoreSubTab, seoLanding, statsSubTab, glossaryTerm, jobSlug]);
 
  // handleSearchNavigate
- const handleSearchNavigate = useCallback((tab: string, subTab?: string, filterParams?: { location?: string; query?: string }) => {
+ const handleSearchNavigate = useCallback((
+  tab: string,
+  subTab?: string,
+  filterParams?: { location?: string; query?: string },
+  targetBlogSection?: ArticleSection,
+  targetBlogSlug?: string,
+ ) => {
  enableRuntimeSeo();
+ clearStaticArticleFallback();
  setPharmacyPath(null);
  suppressNextRouteSyncForTabRef.current = tab as ActiveTab;
  setActiveTab(tab as ActiveTab);
  if (tab !== 'calculator') setSeoLanding(null);
  if (tab !== 'glossario') setGlossaryTerm(null);
- if (tab !== 'blog') setBlogArticle(null);
+ if (tab !== 'blog') {
+  setBlogArticle(null);
+  setSwissArticle(null);
+  setCantonArticle(null);
+  setCantonTopic(null);
+  setBlogPage(null);
+ }
 
  // Forward filter params to JobBoard when navigating to job-board
  if (tab === 'job-board' && filterParams) {
@@ -726,7 +861,15 @@ export function useNavigationState(): NavigationState {
  else if (tab === 'guida' && subTab) setGuidaSubTab(subTab as GuidaSubTab);
  else if (tab === 'vita' && subTab) setVitaSubTab(subTab as VitaSubTab);
  else if (tab === 'stats' && subTab) setStatsSubTab(subTab as StatsSubTab);
- else if (tab === 'blog' && subTab) setBlogArticle(subTab as BlogArticleId);
+ else if (tab === 'blog') {
+  const section = targetBlogSection ?? 'frontaliere';
+  setBlogSection(section);
+  setBlogArticle(section === 'frontaliere' ? (subTab as BlogArticleId || null) : null);
+  setSwissArticle(section === 'svizzera' ? (subTab || null) : null);
+  setCantonArticle(section.startsWith('canton-') ? (subTab || null) : null);
+  setCantonTopic(null);
+  setBlogPage(null);
+ }
  else if (tab === 'glossario') setGlossaryTerm((subTab as GlossaryTermId) || null);
 
  const route: AppRoute = { activeTab: tab as ActiveTab };
@@ -736,16 +879,24 @@ export function useNavigationState(): NavigationState {
  if (tab === 'guida') route.guidaSubTab = (subTab || guidaSubTab) as GuidaSubTab;
  if (tab === 'vita') route.vitaSubTab = (subTab || vitaSubTab) as VitaSubTab;
  if (tab === 'stats') route.statsSubTab = (subTab || statsSubTab) as StatsSubTab;
- if (tab === 'blog') route.blogArticle = (subTab as BlogArticleId) || undefined;
+ if (tab === 'blog') {
+  const section = targetBlogSection ?? 'frontaliere';
+  route.blogSection = section;
+  if (section === 'svizzera') route.swissArticle = subTab || undefined;
+  else if (section.startsWith('canton-')) {
+   route.cantonArticle = subTab || undefined;
+   route.cantonSlug = targetBlogSlug || undefined;
+  } else route.blogArticle = (subTab as BlogArticleId) || undefined;
+ }
  if (tab === 'glossario') route.glossaryTerm = (subTab as GlossaryTermId) || undefined;
  pushRoute(route);
  const seoKey = getSeoSection(route);
- updateMetaTags(seoKey);
+ if (!(route.blogSection?.startsWith('canton-'))) updateMetaTags(seoKey);
  trackSectionView(seoKey);
  if (!window.location.hash) {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
- }, [calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab]);
+ }, [calcolatoreSubTab, clearStaticArticleFallback, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab]);
 
  // ── Sub-tab SEO effects ──
 
@@ -912,6 +1063,19 @@ export function useNavigationState(): NavigationState {
  swissArticle: swissArticle || undefined,
  ...(pendingSlug ? { swissSlug: pendingSlug } : {}),
  };
+ } else if (blogSection.startsWith('canton-')) {
+ const pendingSlug = cantonArticle
+  ? undefined
+  : parsePath(window.location.pathname).route.cantonSlug;
+ route = {
+  activeTab: 'blog',
+  blogSection,
+  cantonTopic: cantonTopic || undefined,
+  cantonArticle: cantonArticle || undefined,
+  blogArchive: parsePath(window.location.pathname).route.blogArchive,
+  blogPage: blogPage || undefined,
+  ...(pendingSlug ? { cantonSlug: pendingSlug } : {}),
+ };
  } else {
  // When the lazy-loaded blog data hasn't resolved the URL slug yet,
  // the URL contains `/articoli-frontaliere/<slug>/` but `blogArticle`
@@ -938,7 +1102,7 @@ export function useNavigationState(): NavigationState {
  // `blogArticle`/`swissArticle` lands.
  const seoKey = getSeoSection(route);
  if (!pendingArticleSlug(route)) {
-  updateMetaTags(seoKey);
+  if (!route.blogSection?.startsWith('canton-')) updateMetaTags(seoKey);
   trackSectionView(seoKey);
  }
  if (!isInitialMount.current && !staticOverlay) pushRoute(route);
@@ -946,7 +1110,7 @@ export function useNavigationState(): NavigationState {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
  }
- }, [blogArticle, swissArticle, blogSection]);
+ }, [blogArticle, swissArticle, cantonArticle, cantonTopic, blogSection, blogPage]);
 
  // Clear initial-mount flag AFTER all sub-tab effects have fired
  useEffect(() => { isInitialMount.current = false; }, []);
@@ -979,15 +1143,16 @@ export function useNavigationState(): NavigationState {
  return {
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
- blogArticle, blogSection, swissArticle, seoLanding, glossaryTerm, borderCrossing,
+ blogArticle, blogSection, swissArticle, cantonArticle, cantonTopic, blogPage, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus,
- notFoundPath, jobBoardFilterParams, staticOverlay,
+ notFoundPath, jobBoardFilterParams, staticOverlay, articleStaticFallbackKey,
 
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setPharmacyPath, setStatsSubTab,
- setBlogArticle, setBlogSection, setSwissArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
+ setBlogArticle, setBlogSection, setSwissArticle, setCantonArticle, setCantonTopic, setBlogPage, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
  setNotFoundPath, setJobBoardFilterParams, setStaticOverlay,
+ markStaticArticleReady, clearStaticArticleFallback,
 
  suppressNextRouteSyncForTabRef,
 

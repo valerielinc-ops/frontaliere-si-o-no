@@ -39,6 +39,7 @@
 import { describe, it, expect } from 'vitest';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import {
   SCAN_TEST_TIMEOUT_MS,
   assertScanCompleted,
@@ -60,13 +61,10 @@ const BREADCRUMB_JSONLD_RE = /"@type"\s*:\s*"BreadcrumbList"/;
 // `name=robots` does not). Match both shapes.
 const NOINDEX_RE =
   /<meta[^>]*\bname\s*=\s*["']?robots["']?[^>]*\bcontent\s*=\s*["']?[^"'>]*noindex/i;
-// Canonical bridge pages (built via `buildCanonicalBridgePage` in
-// build-plugins/constants.ts) ship the signature hero string
-// "Questa URL legacy" (or its localised variant) + a `<link rel="canonical">`
-// pointing at a different URL. They exist only to consolidate crawl signals
-// from legacy slugs/redirects into the primary canonical — BreadcrumbList on
-// them would confuse SERPs because they never surface directly. The
-// canonical target already carries the breadcrumb.
+// Canonical bridge pages consolidate crawl signals into their canonical
+// target and never surface directly in SERPs — exempt. Prefer the shared
+// structural marker; keep the phrase matcher for old artifacts emitted before
+// every redirect-stub producer adopted the marker.
 const BRIDGE_PAGE_RE = /Questa URL\s+(?:legacy|azienda|alias|di ricerca|dell[’'\\s]annuncio)/i;
 
 function fileToUrlPath(relPath: string): string {
@@ -104,7 +102,7 @@ describe('SEO: breadcrumb coverage (D.2)', () => {
       if (NOINDEX_RE.test(html)) return;
       // Canonical bridge pages consolidate signals into their canonical target
       // and are therefore exempt from the breadcrumb coverage requirement.
-      if (BRIDGE_PAGE_RE.test(html)) return;
+      if (html.includes(REDIRECT_STUB_MARKER) || BRIDGE_PAGE_RE.test(html)) return;
       if (!BREADCRUMB_JSONLD_RE.test(html)) {
         missing.push({ url, file: `dist${relPath}` });
       }

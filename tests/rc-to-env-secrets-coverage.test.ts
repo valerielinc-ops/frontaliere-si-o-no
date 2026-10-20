@@ -2,6 +2,9 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { RC_TO_ENV } from '../scripts/load-rc-env.mjs';
+import { INPLACE_KEY } from '../functions/src/assistedApplicationDocxInPlace.js';
+import { RENDERER_KEY } from '../functions/src/assistedApplicationPdfRenderer.js';
+import { DOSSIER_KEY } from '../scripts/assisted-application/lib/dossier.mjs';
 
 /**
  * Structural coverage check for #5737.
@@ -166,5 +169,23 @@ describe('RC_TO_ENV covers every dual-read Remote Config param (#5737)', () => {
         `they stay \`undefined\` in process.env no matter what Remote Config ` +
         `holds — add them to RC_TO_ENV in scripts/load-rc-env.mjs.`,
     ).toEqual([]);
+  });
+});
+
+/**
+ * The scan above cannot see the switches of the assisted application: the
+ * GitHub Actions runner reads them from process.env in its own modules, none
+ * through remoteConfigSecrets.js. Without its RC_TO_ENV entry a switch never
+ * reaches the runner, which then takes the default (typst, separate files,
+ * in-place off) without a trace. The keys come from the readers themselves, so
+ * a renamed variable fails here too.
+ */
+describe('RC_TO_ENV keeps the switches the assisted-application runner reads from process.env', () => {
+  it.each([
+    ['PDF renderer', RENDERER_KEY],
+    ['dossier mode', DOSSIER_KEY],
+    ['in-place DOCX', INPLACE_KEY],
+  ])('%s: %s is exported under the name its reader uses', (_switch, key) => {
+    expect((RC_TO_ENV as Record<string, string[]>)[key]).toContain(key);
   });
 });

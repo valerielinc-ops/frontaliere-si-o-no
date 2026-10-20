@@ -35,6 +35,7 @@ export function appendJobRankingParams(url, {
   newsletterId,
   rankingScore,
   relevanceScore,
+  // Accepted for the links of the CTR experiment; current senders omit them.
   ctrShrink,
   randomBoost,
 } = {}) {
@@ -66,6 +67,18 @@ export function optionalParam(params, key) {
   return value ? value : null;
 }
 
+/**
+ * A numeric attribution field, or null when the link does not carry it.
+ * finiteParam alone would read an absent parameter as 0 (Number(null) === 0):
+ * links built after the CTR experiment no longer carry ctr_shrink and
+ * random_boost, and a click on them must record "absent", not a zero score.
+ */
+function optionalNumberParam(params, key, bounds) {
+  const value = params.get(key);
+  if (value === null || value.trim() === '') return null;
+  return finiteParam(value, null, bounds);
+}
+
 /** Parse only our attribution fields; arbitrary URLs remain ignored. */
 export function parseJobRankingClick(url) {
   if (!url) return null;
@@ -91,10 +104,11 @@ export function parseJobRankingClick(url) {
     variant: optionalParam(parsed.searchParams, 'variant') || 'unknown',
     alertId: optionalParam(parsed.searchParams, 'job_alert_id') || optionalParam(parsed.searchParams, 'alert_id'),
     newsletterId: optionalParam(parsed.searchParams, 'newsletter_id'),
-    rankingScore: finiteParam(parsed.searchParams.get('ranking_score'), null, { min: 0, max: MAX_SAFE_SCORE }),
-    relevanceScore: finiteParam(parsed.searchParams.get('relevance_score'), null, { min: 0, max: MAX_SAFE_SCORE }),
-    ctrShrink: finiteParam(parsed.searchParams.get('ctr_shrink'), null, { min: 0, max: 1 }),
-    randomBoost: finiteParam(parsed.searchParams.get('random_boost'), null, { min: 0, max: 1 }),
+    rankingScore: optionalNumberParam(parsed.searchParams, 'ranking_score', { min: 0, max: MAX_SAFE_SCORE }),
+    relevanceScore: optionalNumberParam(parsed.searchParams, 'relevance_score', { min: 0, max: MAX_SAFE_SCORE }),
+    // Only on links of emails sent during the CTR experiment (until 2026-10).
+    ctrShrink: optionalNumberParam(parsed.searchParams, 'ctr_shrink', { min: 0, max: 1 }),
+    randomBoost: optionalNumberParam(parsed.searchParams, 'random_boost', { min: 0, max: 1 }),
   };
 }
 

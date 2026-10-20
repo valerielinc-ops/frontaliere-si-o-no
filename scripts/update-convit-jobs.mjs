@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Convit Holding GmbH — Dedicated Swiss Crawler
  *
@@ -11,6 +13,7 @@
  * 6. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -26,7 +29,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -41,8 +44,12 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseConvitListingPage,
+  isConvitListingPage,
+  extractConvitListingCodes,
+  createConvitListingSourceValidator,
   parseConvitDetailPage,
   buildConvitLocalizedContent,
+  dropConvitFabricatedText,
   isConvitSwissRelevant,
   inferConvitCanton,
 } from './lib/convit-job-parser.mjs';
@@ -52,6 +59,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
 
@@ -104,6 +112,30 @@ async function fetchText(url, timeoutMs = TIMEOUT_MS) {
   return fetchHtml(url, { timeoutMs, headers: { Accept: 'text/html,application/xhtml+xml' } });
 }
 
+// Manatal's own public career-page API, the endpoint the ATS exposes for this
+// tenant. Used ONLY as a count to corroborate that the server-rendered listing
+// is the whole inventory; the vacancies themselves still come from the HTML.
+const MANATAL_OPEN_JOBS_URL = 'https://core.api.manatal.com/open/v3/career-page/convit-holding-gmbh/jobs/?page_size=1';
+
+/** Official vacancy count published by Manatal for the Convit career page. */
+export async function fetchManatalListingCount(fetchJson = (url) => fetchHtml(url, {
+  timeoutMs: TIMEOUT_MS,
+  headers: { Accept: 'application/json' },
+})) {
+  const body = JSON.parse(await fetchJson(MANATAL_OPEN_JOBS_URL));
+  const count = body?.count;
+  if (!Number.isSafeInteger(count) || count < 0) {
+    throw new Error(`Manatal open API returned an invalid Convit vacancy count: ${JSON.stringify(count)}`);
+  }
+  return count;
+}
+
+function sameCodeSet(a = [], b = []) {
+  if (a.length !== b.length) return false;
+  const left = new Set(a);
+  return left.size === new Set(b).size && b.every((code) => left.has(code));
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -138,38 +170,77 @@ function inferCategory(title = '') {
   return 'finance';
 }
 
-async function fetchAllListings() {
+export async function fetchAllListings({
+  fetchPage = fetchText,
+  sleepFn = sleep,
+  fetchListingCount = fetchManatalListingCount,
+} = {}) {
   console.log('🔍 Fetching Convit listing page...');
 
-  // Manatal paginates — fetch multiple pages until no more jobs
+  // Walk `?page=N` until an empty terminal page. Since 2026-09 the live
+  // Manatal career page server-renders the WHOLE inventory and ignores
+  // `?page`: page 2 is byte-identical to page 1 (37 codes on 2026-09-28). A
+  // page that repeats page 1's exact code set is therefore the end of the
+  // walk — but only when Manatal's own count agrees with the codes listed, so
+  // a truncated server render can never pass as a complete snapshot.
   const allItems = [];
+  const listedCodes = new Set();
   const seenCodes = new Set();
+  let firstPageCodes = null;
   let page = 1;
+  let terminalPageFound = false;
 
   while (true) {
     const url = page === 1 ? CAREERS_URL : `${CAREERS_URL}?page=${page}`;
     console.log(`  📄 Page ${page}: ${url}`);
     let html;
     try {
-      html = await fetchText(url);
+      html = await fetchPage(url);
     } catch (err) {
       console.log(`  ⚠️ Page ${page} fetch failed: ${err.message}`);
+      // A partial page walk is not an authoritative source snapshot. Let the
+      // crawler boundary preserve the previous slice instead of treating the
+      // pages fetched so far as the employer's complete inventory.
+      throw err;
+    }
+    if (!isConvitListingPage(html)) {
+      throw new Error(`Convit listing page ${page} returned an unrecognized or degraded HTML document`);
+    }
+    const pageCodes = extractConvitListingCodes(html);
+    if (page === 1) firstPageCodes = pageCodes;
+    if (page > 1 && pageCodes.length > 0 && sameCodeSet(pageCodes, firstPageCodes)) {
+      const officialCount = await fetchListingCount();
+      if (officialCount !== listedCodes.size) {
+        throw new Error(
+          `Convit listing page ${page} repeated page 1, and the official Manatal count (${officialCount}) `
+            + `does not match the ${listedCodes.size} listed vacancy codes`,
+        );
+      }
+      console.log(`     Page ${page} repeats page 1; Manatal count ${officialCount} confirms a single-page listing`);
+      terminalPageFound = true;
       break;
     }
+    for (const code of pageCodes) listedCodes.add(code);
     const items = parseConvitListingPage(html);
     const newItems = items.filter((item) => !seenCodes.has(item.code));
-    if (newItems.length === 0) break;
+    if (pageCodes.length === 0) {
+      terminalPageFound = true;
+      break;
+    }
+    if (newItems.length === 0) {
+      throw new Error(`Convit listing page ${page} was non-empty but added no new vacancy codes`);
+    }
     for (const item of newItems) {
       seenCodes.add(item.code);
       allItems.push(item);
     }
     console.log(`     Found ${newItems.length} new jobs (total: ${allItems.length})`);
     page += 1;
-    await sleep(DETAIL_DELAY_MS);
+    await sleepFn(DETAIL_DELAY_MS);
   }
 
   console.log(`📋 Total unique listings: ${allItems.length}`);
-  return allItems;
+  return { items: allItems, complete: terminalPageFound, listedCodes: [...listedCodes] };
 }
 
 async function enrichWithDetails(listings) {
@@ -195,7 +266,7 @@ async function enrichWithDetails(listings) {
       }
     } catch (err) {
       console.log(`  ⚠️ Detail fetch failed for ${item.code}: ${err.message}`);
-      enriched.push({ ...item, location: '', description: '', datePosted: new Date().toISOString().slice(0, 10) });
+      enriched.push({ ...item, location: '', description: '', ...sourcePostingDateFields('') });
     }
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
@@ -229,7 +300,8 @@ async function enrichWithDetails(listings) {
 
 function buildConvitJob(row) {
   const canton = row.canton || inferConvitCanton(row.location) || DEFAULT_CANTON;
-  const localized = buildConvitLocalizedContent({ ...row, canton });
+  const sourceLang = detectLang(`${row.title} ${row.description}`, 'it');
+  const localized = buildConvitLocalizedContent({ ...row, canton, sourceLang });
   const defaultCity = getCantonDisplayName(canton, 'it') || canton || 'Svizzera';
   const urlHash = createHash('sha1').update(row.detailUrl || row.title || '').digest('hex').slice(0, 12);
   return {
@@ -250,12 +322,12 @@ function buildConvitJob(row) {
     category: inferCategory(row.title),
     sector: 'Finanza & Previdenza',
     source: 'convit-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
-    postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
+    sourceLang,
+    ...sourcePostingDateFields(row.datePosted),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -270,6 +342,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropConvitFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former builder's sentences from ${fossils} stored Convit job(s); they will be translated from the posting`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -285,6 +359,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -313,7 +388,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -353,9 +428,23 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const listings = await fetchAllListings();
+  const {
+    items: listings,
+    complete: listingSnapshotComplete,
+    listedCodes,
+  } = await fetchAllListings();
   if (listings.length === 0) {
     console.log('⚠️ No listings found on Convit careers page — skipping.');
+    // The stored jobs are kept, without the text the crawler once wrote
+    // into them (the merge would have removed it).
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => { jobs.forEach(dropConvitFabricatedText); },
+      storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+      companyKey: COMPANY_KEY,
+      companyLabel: 'Convit Holding',
+      write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, { isTargetJob, ...options }),
+      assemble: () => assembleJobsDataset(),
+    });
     return;
   }
 
@@ -407,7 +496,16 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    // The listing walk is complete only when every requested page was fetched
+    // and every response had the Convit source shell. This source-level proof
+    // handles stale detail URLs without weakening the global shrink threshold.
+    validate: createConvitListingSourceValidator(listings, {
+      complete: listingSnapshotComplete,
+      listedCodes,
+    }),
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Convit Holding',
@@ -428,4 +526,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Convit Holding'));
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
+  main().catch((err) => exitCrawlerOnError(err, 'Convit Holding'));
+}

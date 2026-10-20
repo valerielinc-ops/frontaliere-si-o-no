@@ -222,22 +222,20 @@ describe('Etat de Fribourg crawler parser', () => {
       delete process.env.JOBS_CRAWLER_DELAY_MS;
     });
 
-    it('returns [] (no throw) on total network failure', async () => {
+    it('propagates a total network failure instead of returning []', async () => {
       globalThis.fetch = vi.fn(async () => {
         throw new Error('ENOTFOUND jobs.fr.ch');
       }) as any;
 
-      const jobs = await fetchAllEtatDeFribourgJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllEtatDeFribourgJobs()).rejects.toThrow(/ENOTFOUND/);
     });
 
-    it('returns [] (no throw) when the listing page errors', async () => {
+    it('propagates a listing page error instead of returning []', async () => {
       globalThis.fetch = vi.fn(async () => {
         return new Response('', { status: 500 });
       }) as any;
 
-      const jobs = await fetchAllEtatDeFribourgJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllEtatDeFribourgJobs()).rejects.toThrow();
     });
 
     it('parses a listing tile + detail page into a valid job object', async () => {
@@ -295,6 +293,21 @@ describe('Etat de Fribourg crawler parser', () => {
       expect(jobs[0].contract).toBe('full-time');
       expect(jobs[0].pensumMin).toBe(80);
       expect(jobs[0].pensumMax).toBe(100);
+    });
+
+    // Only the posting's own text is published (issue 5253): a detail page
+    // that could not be read used to be replaced by a stub of listing
+    // metadata ("Juriste -- Etat de Fribourg. Service: … Lieu de travail: …").
+    it('does not publish a listing whose detail page yields no vacancy text', async () => {
+      globalThis.fetch = vi.fn(async (url: any) => {
+        const u = String(url);
+        if (u.includes('/search/?startrow=0')) return new Response(listingHtml, { status: 200 });
+        if (u.includes('/search/?startrow=')) return new Response('<html><body><ul></ul></html>', { status: 200 });
+        return new Response('<html lang="fr-FR"><body><span data-careersite-propertyid="title">Juriste</span></body></html>', { status: 200 });
+      }) as any;
+
+      const jobs = await fetchAllEtatDeFribourgJobs();
+      expect(jobs).toEqual([]);
     });
   });
 });

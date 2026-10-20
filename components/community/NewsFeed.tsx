@@ -5,6 +5,7 @@ import { TICKER_ARTICLES, type TickerArticle } from '@/data/news-ticker-data';
 import { ChevronRight, ChevronLeft, Newspaper } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 import { cdnFreshUrl } from '@/services/cdnDataBase';
+import { articleSourceDate } from '@/services/articleSourceDates';
 
 interface NewsFeedProps {
  /**
@@ -112,9 +113,11 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
  if (count === 0) return <div className="animate-pulse h-[34px] bg-surface-raised rounded-xl" />;
 
  const formatDate = (dateStr: string) => {
- const d = new Date(dateStr);
+ const sourceDate = articleSourceDate(dateStr);
+ if (!sourceDate) return '';
+ const d = new Date(sourceDate);
  return d.toLocaleDateString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : 'en-GB', {
- day: 'numeric', month: 'short',
+ day: 'numeric', month: 'short', ...(sourceDate.length === 10 ? { timeZone: 'UTC' } : {}),
  });
  };
 
@@ -154,7 +157,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
  tabIndex={i === idx ? 0 : -1}
  {...(i !== idx ? { inert: true } : {})}
  >
- <span className="text-muted mr-1.5 flex-shrink-0">{formatDate(art.date)}</span>
+ {articleSourceDate(art.date) && <span className="text-muted mr-1.5 flex-shrink-0">{formatDate(art.date)}</span>}
  <span className="line-clamp-1">{artTitle}</span>
  </a>
  );

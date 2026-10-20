@@ -1,28 +1,34 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /** L3 — Job Quality → Apply. */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
-import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
+import { isHttpsUrl as httpsUrl } from '../lib/https-url.mjs';
 import {
   actionClassForPolicy,
   buildDecision,
   buildObservation,
+  buildOutcome,
   loadLoopPolicy,
   loadLoopPolicyForRun,
   validateActionClassAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L3';
+const ISSUE_TITLE = 'L3 Job Quality: apply handoff cannot be trusted';
+const ISSUE_WORKFLOW = 'Loop L3 Job Quality to Apply';
 export const DEFAULT_SUMMARY_DIR = path.join('data', 'jobs-crawler-summaries', 'by-crawler');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'job-apply-outcome-baseline.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
+export const DEFAULT_QUARANTINE_PATH = path.join('data', 'crawler-quarantine.json');
 export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 100;
 export const MAX_CANDIDATES = 50;
+const SWISS_COUNTRY_REQUIRED_SUMMARY_KEYS = new Set(['yellowshark', 'tether', 'bitfinex']);
 
 function finiteDate(value) {
   const time = Date.parse(value);
@@ -43,16 +49,6 @@ function text(value) {
 
 function object(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
-}
-
-function httpsUrl(value) {
-  if (!text(value)) return false;
-  try {
-    const url = new URL(value);
-    return url.protocol === 'https:' && text(url.hostname);
-  } catch {
-    return false;
-  }
 }
 
 function identityFor(job) {
@@ -120,7 +116,7 @@ function validateActivePartition(summary, prefix, issues) {
   }
 }
 
-function jobIssues(job, prefix, now) {
+function jobIssues(job, prefix, now, requireSwissCountry = false) {
   const issues = [];
   if (!job || typeof job !== 'object' || Array.isArray(job)) {
     return ['job is not an object'];
@@ -131,7 +127,11 @@ function jobIssues(job, prefix, now) {
   if (!text(job.title)) issues.push('title is missing');
   if (!text(job.company) && !text(job.companyKey)) issues.push('company identity is missing');
   if (!text(job.source)) issues.push('source is missing');
-  if (job.country !== undefined && job.country !== 'CH') issues.push('country is not CH');
+  if (requireSwissCountry) {
+    if (job.country !== 'CH') issues.push('country is missing or not CH');
+  } else if (job.country !== undefined && job.country !== 'CH') {
+    issues.push('country is not CH');
+  }
   const crawledAt = finiteDate(job.crawledAt);
   if (job.crawledAt !== undefined && !crawledAt) issues.push('crawledAt is invalid');
   const firstSeenAt = finiteDate(job.firstSeenAt);
@@ -258,6 +258,7 @@ export function validateJobSummaries(summaries, {
   minimumSample = MINIMUM_SAMPLE,
   candidateActionClass = null,
   registryPath = DEFAULT_REGISTRY_PATH,
+  retiredSummaryKeys = [],
 } = {}) {
   const resolvedCandidateActionClass = candidateActionClass || defaultCandidateActionClass(registryPath);
   if (!Array.isArray(summaries)) {
@@ -274,8 +275,17 @@ export function validateJobSummaries(summaries, {
   let validJobs = 0;
   let invalidJobs = 0;
   let duplicateIdentities = 0;
+  const retiredKeys = new Set(retiredSummaryKeys);
+  const ignoredRetiredSummaries = [];
+  const activeSummaries = summaries.filter((entry, summaryIndex) => {
+    const file = entry?.file || `summary[${summaryIndex}]`;
+    const fileKey = path.basename(file, path.extname(file));
+    if (!retiredKeys.has(fileKey)) return true;
+    ignoredRetiredSummaries.push(fileKey);
+    return false;
+  });
 
-  for (const [summaryIndex, entry] of summaries.entries()) {
+  for (const [summaryIndex, entry] of activeSummaries.entries()) {
     const file = entry?.file || `summary[${summaryIndex}]`;
     const summary = entry?.data ?? entry;
     const parseError = entry?.error;
@@ -290,6 +300,10 @@ export function validateJobSummaries(summaries, {
       issues.push(`${prefix}: summary is not an object`);
       continue;
     }
+    const summaryKey = text(summary.key) ? summary.key.trim() : file;
+    const aggregateOf = new Set(Array.isArray(summary.aggregateOf)
+      ? summary.aggregateOf.filter(text).map((key) => key.trim())
+      : []);
     const generatedAt = finiteDate(summary.generatedAt);
     if (!text(summary.key)) issues.push(`${prefix}: key is missing`);
     if (!generatedAt) issues.push(`${prefix}: generatedAt is missing or invalid`);
@@ -318,15 +332,31 @@ export function validateJobSummaries(summaries, {
       for (const [index, job] of (summary[section] || []).entries()) {
         jobsInspected += 1;
         const jobPrefix = `${prefix}.${section}[${index}]`;
-        const rowIssues = jobIssues(job, jobPrefix, now);
+        const rowIssues = jobIssues(
+          job,
+          jobPrefix,
+          now,
+          SWISS_COUNTRY_REQUIRED_SUMMARY_KEYS.has(summaryKey),
+        );
         const identity = identityFor(job);
         if (identity) {
           const previous = identities.get(identity);
           if (previous) {
-            duplicateIdentities += 1;
-            rowIssues.push(`${jobPrefix}: duplicate identity ${identity} also appears in ${previous}`);
+            const sameAggregateRecord = text(job?.id)
+              && text(previous.job?.id)
+              && job.id.trim() === previous.job.id.trim()
+              && text(job?.url)
+              && text(previous.job?.url)
+              && job.url.trim() === previous.job.url.trim();
+            const declaredAggregateAlias = summaryKey !== previous.summaryKey
+              && sameAggregateRecord
+              && (aggregateOf.has(previous.summaryKey) || previous.aggregateOf.has(summaryKey));
+            if (!declaredAggregateAlias) {
+              duplicateIdentities += 1;
+              rowIssues.push(`${jobPrefix}: duplicate identity ${identity} also appears in ${previous.prefix}`);
+            }
           } else {
-            identities.set(identity, jobPrefix);
+            identities.set(identity, { prefix: jobPrefix, summaryKey, aggregateOf, job });
           }
         }
         if (rowIssues.length) {
@@ -349,13 +379,16 @@ export function validateJobSummaries(summaries, {
     minimumSample,
   });
   issues.push(...outcomeVerdict.issues);
-  const summaryCount = summaries.length;
+  const summaryCount = activeSummaries.length;
   if (summaryCount === 0) issues.push('crawler summary directory is explicitly empty');
   const snapshot = {
     source: 'job-crawler-summaries',
     path: sourcePath,
     outcomePath,
+    discoveredSummaryCount: summaries.length,
     summaryCount,
+    ignoredRetiredSummaries: ignoredRetiredSummaries.length,
+    retiredSummaryKeys: ignoredRetiredSummaries.sort(),
     freshSummaries,
     staleSummaries,
     malformedSummaries,
@@ -418,6 +451,16 @@ function readOptionalJson(filePath) {
   return JSON.parse(fs.readFileSync(absolute, 'utf8'));
 }
 
+function readRetiredSummaryKeys(filePath) {
+  const absolute = path.resolve(filePath);
+  if (!fs.existsSync(absolute)) throw new Error(`crawler quarantine registry is missing: ${filePath}`);
+  const registry = JSON.parse(fs.readFileSync(absolute, 'utf8'));
+  if (!object(registry) || !object(registry.retired)) {
+    throw new Error(`crawler quarantine registry has an invalid retired map: ${filePath}`);
+  }
+  return Object.keys(registry.retired).sort();
+}
+
 function reportMarkdown(verdict, observation, decision) {
   const lines = [
     `## L3 Job Quality → Apply — ${verdict.ok ? 'OK' : 'ACTION REQUIRED'}`,
@@ -425,6 +468,7 @@ function reportMarkdown(verdict, observation, decision) {
     `- Quality: **${verdict.quality}**`,
     `- Source: ${verdict.sourcePath}`,
     `- Reason: ${verdict.reason}`,
+    `- Retired summaries ignored: ${verdict.snapshot?.ignoredRetiredSummaries ?? 0}`,
     `- Inspected jobs: ${verdict.snapshot?.jobsInspected ?? 'n/a'}`,
     `- Invalid jobs: ${verdict.snapshot?.invalidJobs ?? 'n/a'}`,
     `- Warnings: ${verdict.warnings.length}`,
@@ -438,7 +482,7 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
-function buildJobQualityOutcome({ verdict, policy, registry, now }) {
+function buildJobQualityOutcome({ verdict, policy, now }) {
   const outcomeSnapshot = verdict.snapshot?.outcomes || {};
   const generatedAt = finiteDate(outcomeSnapshot.generatedAt);
   const eligibleJobSessions = integer(outcomeSnapshot.eligibleJobSessions)
@@ -457,7 +501,13 @@ function buildJobQualityOutcome({ verdict, policy, registry, now }) {
       && Array.isArray(evidence.sourceRefs)
       && evidence.sourceRefs.length > 0,
   );
-  const measurable = verdict.ok
+  const summaryContractValid = verdict.issues.length === 0
+    && verdict.snapshot?.summaryCount > 0
+    && verdict.snapshot?.freshSummaries > 0
+    && verdict.snapshot?.malformedSummaries === 0
+    && verdict.snapshot?.invalidJobs === 0
+    && verdict.snapshot?.duplicateIdentities === 0;
+  const measurable = summaryContractValid
     && outcomeSnapshot.quality === 'observed'
     && outcomeSnapshot.independent === true
     && evidenceComplete
@@ -467,18 +517,27 @@ function buildJobQualityOutcome({ verdict, policy, registry, now }) {
   const status = measurable
     ? 'observed'
     : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
-  const outcome = buildValidatedLoopOutcome({
-    registry,
-    loopId: LOOP_ID,
-    quality: status,
+  const requiredFieldsPresent = [
+    generatedAt ? 'generatedAt' : null,
+    measurable ? 'numerator' : null,
+    measurable ? 'denominator' : null,
+  ].filter(Boolean);
+  const outcome = buildOutcome({
+    outcomeId: policy.outcome.outcomeId,
+    status,
     independent: measurable,
-    numerator: validHandoffs,
-    denominator: eligibleJobSessions,
+    sourceRefs: policy.outcome.sourceRefs,
+    primaryMetric: policy.primaryMetric,
+    numerator: measurable ? validHandoffs : null,
+    denominator: measurable ? eligibleJobSessions : null,
+    requiredFieldsPresent,
+    missingFields: policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field)),
     observedAt: generatedAt?.toISOString() || null,
     reason: measurable
       ? 'explicit independent apply-handoff export with eligible-session and valid-handoff counts'
       : `job apply outcome is ${status}; no application event is inferred from crawler counts, URLs or clicks`,
-    now,
+    allowNumeratorExceedDenominator: policy.outcome.allowNumeratorExceedDenominator,
+    recordedAt: now.toISOString(),
   });
   return {
     ...outcome,
@@ -592,12 +651,14 @@ export async function runL3({
   summaryDir = DEFAULT_SUMMARY_DIR,
   outcomePath = DEFAULT_OUTCOME_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
+  quarantinePath = DEFAULT_QUARANTINE_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -611,6 +672,7 @@ export async function runL3({
   try {
     const summaries = readSummaries(summaryDir);
     sourceOutcomes = readOptionalJson(outcomePath);
+    const retiredSummaryKeys = readRetiredSummaryKeys(quarantinePath);
     verdict = validateJobSummaries(summaries, {
       outcomes: sourceOutcomes,
       now,
@@ -619,6 +681,7 @@ export async function runL3({
       outcomePath,
       minimumSample: policyMinimumSample,
       candidateActionClass,
+      retiredSummaryKeys,
     });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: summaryDir, now, quality: 'unmeasurable', ok: false, reason: error.message });
@@ -646,7 +709,7 @@ export async function runL3({
       },
     },
   };
-  const outcome = buildJobQualityOutcome({ verdict, policy: loopPolicy, registry: loopRegistry, now });
+  const outcome = buildJobQualityOutcome({ verdict, policy: loopPolicy, now });
   // A zero-sized outcome cohort is not evidence of a zero handoff rate. Keep
   // metrics null until the observed outcome sample is complete and usable.
   const measurable = verdict.quality === 'observed' && verdict.ok;
@@ -685,7 +748,10 @@ export async function runL3({
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
-    decision: verdict.ok ? 'observing' : 'candidate',
+    // A measured outcome is still a candidate in the evidence lifecycle. The
+    // recorder links this decision to its recordId before promoting the
+    // independent outcome; `observing` would fail that provenance contract.
+    decision: 'candidate',
     reason: verdict.reason,
     actionClass,
     rollbackPlan: 'discard runner-local actions/quarantine artifacts; leave published job records unchanged',
@@ -707,13 +773,18 @@ export async function runL3({
   let issued = false;
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L3 Job Quality: apply handoff cannot be trusted',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'jobs', 'loop-l3'],
-      workflow: 'Loop L3 Job Quality to Apply',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten, outcome });
   if (resultFile) files.push(resultFile);
@@ -742,6 +813,7 @@ function parseArgs(argv) {
     summaryDir: valueAfter('--summary-dir', DEFAULT_SUMMARY_DIR),
     outcomePath: valueAfter('--outcomes', DEFAULT_OUTCOME_PATH),
     registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
+    quarantinePath: valueAfter('--quarantine', DEFAULT_QUARANTINE_PATH),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP
@@ -767,7 +839,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[L3] fatal: ${error.message}`);
     process.exitCode = 1;

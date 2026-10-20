@@ -1,7 +1,9 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
@@ -414,7 +416,7 @@ async function main() {
 export { parseLatestUnemployment, extractRate, extractPeriod, isPlausibleRate };
 
 // Only fetch + write when run directly (not when imported by tests).
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error('[unemployment] ERROR', err);
     process.exit(1);

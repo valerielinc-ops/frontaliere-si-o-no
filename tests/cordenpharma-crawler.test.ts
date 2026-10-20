@@ -1,10 +1,11 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   CORDENPHARMA_KEY,
   CORDENPHARMA_COMPANY_NAME,
   isCordenpharmaJob,
   isTrustedDomain,
   resolveAddress,
+  fetchAllCordenpharmaJobs,
 } from '../scripts/lib/cordenpharma-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -195,5 +196,69 @@ describe('CordenPharma crawler parser', () => {
       expect(result.postalCode).toBe('');
       expect(result.streetAddress).toBe('');
     });
+  });
+});
+
+// Issue 5253: under 50 words the parser used to add "<title> — CordenPharma,
+// <location>." and a CordenPharma paragraph it wrote ("With around 3,000
+// employees worldwide, CordenPharma helps…"); a failed detail fetch published
+// those lines alone. Text: the opening of the live "Analytical Project Leader
+// (APL)" posting (career.cordenpharma.com, 2026-09-29), trimmed below and above
+// 50 words: a text under the shared 50-word floor is not published.
+describe('fetchAllCordenpharmaJobs — the detail text only', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  const URL_20922 = 'https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd';
+  const SHORT_TEXT = 'CordenPharma ist eine der führenden Contract Development and Manufacturing Organizations (CDMO) und entwickelt und produziert im Auftrag ihrer Kunden als „Full-Service“-Dienstleister pharmazeutische Wirkstoffe, Arzneimittel und damit verbundene Verpackungsdienstleistungen.';
+  const LONG_TEXT = `${SHORT_TEXT} Die Gruppe beschäftigt rund 3.500 Mitarbeiter. Unser Netzwerk in Europa, Asien und den USA bietet flexible und spezialisierte Lösungen für sechs Technologieplattformen: Peptides, Lipids & Carbohydrates, Injectables, Highly Potent & Oncology, Small Molecules und Oligonucleotides.`;
+  const LISTING = `<html><body><script>DvinciData = ${JSON.stringify({
+    jobPublications: [{
+      position: 'Analytical Project Leader (APL), 100% (m/w/d)',
+      jobPublicationURL: URL_20922,
+      language: 'de',
+      jobOpening: { location: 'Liestal', locations: [{ id: 'LIESTAL', name: 'Liestal', address: { city: 'Liestal' } }] },
+    }],
+  })};</script></body></html>`;
+
+  function stubSite(detailHtml: string) {
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      text: () => Promise.resolve(String(url) === URL_20922 ? detailHtml : LISTING),
+    })));
+  }
+
+  it('publishes a detail text from 50 words up as the source wrote it', async () => {
+    expect(LONG_TEXT.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+    stubSite(`<div id="liquidDesignIntroductionPublication"><p>${LONG_TEXT}</p></div>`);
+
+    const jobs = await fetchAllCordenpharmaJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe(LONG_TEXT);
+    expect(jobs[0].descriptionByLocale).toEqual({ de: LONG_TEXT });
+  });
+
+  it('gives a detail text under 50 words no indexable text, not a padded one', async () => {
+    expect(SHORT_TEXT.split(/\s+/).length).toBeLessThan(50);
+    stubSite(`<div id="liquidDesignIntroductionPublication"><p>${SHORT_TEXT}</p></div>`);
+
+    const jobs = await fetchAllCordenpharmaJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe('');
+    expect(jobs[0].descriptionByLocale).toEqual({});
+  });
+
+  it('gives a posting whose detail has no text no description', async () => {
+    stubSite('<html><body><p>Cookie settings</p></body></html>');
+
+    const jobs = await fetchAllCordenpharmaJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe('');
+    expect(jobs[0].descriptionByLocale).toEqual({});
   });
 });

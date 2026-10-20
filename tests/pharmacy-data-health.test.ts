@@ -16,13 +16,20 @@ import {
   findBorderOutOfScopeRecords,
   findBorderSourceMismatches,
   normalizeIdentityField,
+  observeItalyDutyHorizon,
+  observeSwissCantonDutyCoverage,
+  ITALY_REQUIRED_DUTY_HORIZON_DAYS,
   formatReport,
+  loadDatasets,
   parseIsoDurationMs,
 } from '../scripts/check-pharmacy-data-health.mjs';
 import ticino from '../data/pharmacies-ticino-complete.json';
 import italy from '../data/pharmacies-italy-border.json';
 import borderSources from '../data/pharmacy-border-sources.json';
 import borderDuties from '../data/pharmacy-duties-ticino.json';
+import italyDuties from '../data/pharmacy-duties-italy.json';
+import italyDutySources from '../data/pharmacy-duties-italy-sources.json';
+import liveSourceRegistry from '../data/pharmacy-sources-registry.json';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const PHARMACY_WORKFLOW = join(__dirname, '..', '.github', 'workflows', 'pharmacy-data-health-monitor.yml');
@@ -92,6 +99,13 @@ describe('evaluateCoverage', () => {
   });
 });
 
+describe('loadDatasets', () => {
+  it('loads a shared Swiss canton duty snapshot through its registry path and key', () => {
+    const loaded = loadDatasets(liveSourceRegistry);
+    expect(loaded.duties.jura?.duties.length).toBeGreaterThan(0);
+  });
+});
+
 describe('evaluateFreshness', () => {
   it('holds the anagrafica to the monthly SLA, not to the daily duty cadence', () => {
     const fresh = evaluateFreshness(registry, { ticino: anagrafica() }, {}, NOW);
@@ -114,6 +128,220 @@ describe('evaluateFreshness', () => {
   });
 });
 
+describe('observeSwissCantonDutyCoverage', () => {
+  const sourceRegistry = { sources: { jura: { canton: 'Giura', status: 'active' } } };
+  const release = (overrides: Record<string, unknown> = {}) => ({
+    _fetchedAt: '2026-09-29T12:00:00.000Z',
+    _scope: { country: 'CH', canton: 'JU', coverageType: 'canton' },
+    _coverage: { coverage: 'covered' },
+    _releaseReady: true,
+    _state: 'fresh',
+    _release: { state: 'fresh' },
+    _errors: [],
+    _unresolvedIdentities: [],
+    duties: [{
+      status: 'verified',
+      startsAt: '2026-09-26T06:00:00.000Z',
+      endsAt: '2026-10-03T06:00:00.000Z',
+    }],
+    ...overrides,
+  });
+
+  it('anchors coverage to the release fetch week, not a later fixed week', () => {
+    const observed = observeSwissCantonDutyCoverage(sourceRegistry, { jura: release() });
+
+    expect(observed.entries[0]).toMatchObject({
+      key: 'jura',
+      weekStart: '2026-09-28',
+      verifiedDutyCount: 1,
+      covered: true,
+      signalled: false,
+    });
+    expect(observed.unreportedGaps).toEqual([]);
+  });
+
+  it('fails the health report for a fresh release with no fetch-week coverage', () => {
+    const duties = {
+      jura: release({
+        duties: [{
+          status: 'expired',
+          startsAt: '2026-09-19T06:00:00.000Z',
+          endsAt: '2026-09-26T06:00:00.000Z',
+        }],
+      }),
+    };
+    const observed = observeSwissCantonDutyCoverage(sourceRegistry, duties);
+    const report = buildReport({
+      registry: sourceRegistry,
+      duties,
+      knownCantonCount: 1,
+      nowMs: Date.parse('2026-09-29T12:00:00.000Z'),
+    });
+
+    expect(observed.unreportedGaps).toMatchObject([{
+      key: 'jura',
+      weekStart: '2026-09-28',
+      verifiedDutyCount: 0,
+      covered: false,
+      signalled: false,
+    }]);
+    expect(report.healthy).toBe(false);
+    expect(report.problems).toContain('release turni jura fuori copertura nella settimana del fetch 2026-09-28 senza segnale di errore');
+  });
+
+  it('does not duplicate a gap already marked by the release state', () => {
+    const observed = observeSwissCantonDutyCoverage(sourceRegistry, {
+      jura: release({ _state: 'stale', _releaseReady: false, _errors: ['fetch failed'], duties: [] }),
+    });
+
+    expect(observed.entries[0]).toMatchObject({ covered: false, signalled: true });
+    expect(observed.unreportedGaps).toEqual([]);
+  });
+});
+
+describe('observeItalyDutyHorizon', () => {
+  const sources = {
+    scope: { country: 'IT', provinces: ['CO', 'VA', 'VB'] },
+    sources: [
+      { province: 'CO' },
+      { province: 'VA' },
+      { province: 'VB', publication: 'best-effort' },
+    ],
+  };
+  const release = (duties: Array<Record<string, unknown>>) => ({
+    _fetchedAt: '2026-10-14T09:44:15.672Z',
+    _release: { state: 'fresh' },
+    duties,
+  });
+
+  it('allows empty weeks between verified duties when the final horizon is long', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([
+        { province: 'CO', status: 'verified', endsAt: '2026-10-20T06:30:00.000Z' },
+        { province: 'CO', status: 'verified', endsAt: '2027-01-10T06:30:00.000Z' },
+        { province: 'VA', status: 'verified', endsAt: '2027-01-12T06:30:00.000Z' },
+      ]),
+      sources,
+    });
+
+    expect(observed.problems).toEqual([]);
+    expect(observed.entries).toMatchObject([
+      { province: 'CO', verifiedDutyCount: 2, horizonDays: ITALY_REQUIRED_DUTY_HORIZON_DAYS, healthy: true },
+      { province: 'VA', verifiedDutyCount: 1, horizonDays: ITALY_REQUIRED_DUTY_HORIZON_DAYS, healthy: true },
+    ]);
+  });
+
+  it('flags a fresh required province whose final verified duty is too close to the fetch', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([
+        { province: 'CO', status: 'verified', endsAt: '2026-11-01T06:30:00.000Z' },
+        { province: 'VA', status: 'verified', endsAt: '2027-01-12T06:30:00.000Z' },
+      ]),
+      sources,
+    });
+
+    expect(observed.problems).toHaveLength(1);
+    expect(observed.problems[0]).toContain('CO: ultimo turno verificato');
+    expect(observed.problems[0]).toContain(`soglia di ${ITALY_REQUIRED_DUTY_HORIZON_DAYS} giorni`);
+  });
+
+  it('flags a fresh required province with no verified duty', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([{ province: 'VA', status: 'verified', endsAt: '2027-01-12T06:30:00.000Z' }]),
+      sources,
+    });
+
+    expect(observed.problems).toContain('CO: release fresh senza turni verificati');
+    expect(observed.entries.find((entry) => entry.province === 'CO')).toMatchObject({
+      verifiedDutyCount: 0,
+      latestVerifiedAt: null,
+      healthy: false,
+    });
+  });
+
+  it('treats a scoped province missing from the source registry as required', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([]),
+      sources: { scope: { country: 'IT', provinces: ['CO'] }, sources: [] },
+    });
+
+    expect(observed.problems).toContain('CO: release fresh senza turni verificati');
+    expect(observed.entries).toMatchObject([{ province: 'CO', healthy: false }]);
+  });
+
+  it('treats duplicate source declarations as required, even when the last is best-effort', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([]),
+      sources: {
+        scope: { country: 'IT', provinces: ['CO'] },
+        sources: [
+          { province: 'CO', publication: 'required' },
+          { province: 'CO', publication: 'best-effort' },
+        ],
+      },
+    });
+
+    expect(observed.problems).toContain('CO: release fresh senza turni verificati');
+    expect(observed.problems).toContain('CO: registro fonti Italia duplicato; la provincia resta required');
+    expect(observed.entries).toMatchObject([{ province: 'CO', healthy: false }]);
+  });
+
+  it('does not narrow the canonical scope around a non-string province value', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([]),
+      sources: { scope: { country: 'IT', provinces: ['CO', null] }, sources: [] },
+    });
+
+    expect(observed.entries.map((entry) => entry.province)).toEqual(['CO', 'VA', 'VB']);
+  });
+
+  it('falls back to the canonical Italy scope when the source registry has no usable scope', () => {
+    const observed = observeItalyDutyHorizon({ duties: release([]), sources: { sources: [] } });
+
+    expect(observed.entries.map((entry) => entry.province)).toEqual(['CO', 'VA', 'VB']);
+    expect(observed.problems).toEqual([
+      'CO: release fresh senza turni verificati',
+      'VA: release fresh senza turni verificati',
+      'VB: release fresh senza turni verificati',
+    ]);
+  });
+
+  it('makes the monitor unhealthy for every required province in a stale release', () => {
+    const report = buildReport({
+      registry: { sources: {} },
+      border: {
+        sources: { sources: [] },
+        ticino: { _fetchedAt: '2026-10-14T00:00:00Z', pharmacies: [] },
+        italy: { _fetchedAt: '2026-10-14T00:00:00Z', pharmacies: [] },
+        duties: { duties: [] },
+        italyDuties: {
+          _release: { state: 'stale' },
+          _fetchedAt: '2026-10-14T00:00:00Z',
+          duties: [{ province: 'CO', status: 'verified', endsAt: '2027-01-01T00:00:00Z' }],
+        },
+        italySources: {
+          scope: { country: 'IT', provinces: ['CO', 'VA'] },
+          sources: [
+            { province: 'CO', publication: 'required' },
+            { province: 'VA', publication: 'required' },
+          ],
+        },
+      },
+    });
+
+    expect(report.healthy).toBe(false);
+    expect(report.problems.filter((problem) => problem.startsWith('orizzonte turni Italia:'))).toEqual([
+      'orizzonte turni Italia: CO: release stale non fresca',
+      'orizzonte turni Italia: VA: release stale non fresca',
+    ]);
+  });
+});
+
+// Derived from the same nightly snapshot the monitor reads (see the comment
+// on the first live-data case): pinned literals went red at 749 -> 751.
+const italyCount = (code: string) => (italy.pharmacies as Array<{ province?: string }>).filter((p) => p.province === code).length;
+const BORDER_TOTAL = ticino.pharmacies.length + italy.pharmacies.length;
+
 describe('evaluateBorderHealth', () => {
   // conta i record reali di data/pharmacies-*.json, risincronizzati ogni notte: rosso possibile senza cambi di codice
   it.skipIf(SKIP_LIVE_DATA)('reports all four policy jurisdictions and their real record counts', () => {
@@ -122,21 +350,28 @@ describe('evaluateBorderHealth', () => {
       ticino,
       italy,
       duties: borderDuties,
+      italyDuties,
+      italySources: italyDutySources,
       nowMs: Date.parse(ticino._fetchedAt) + 3600e3,
     });
     expect(health.jurisdictions).toMatchObject([
-      { key: 'CH-TI', sourceStatus: 'active', recordCount: 207 },
-      { key: 'IT-CO', sourceStatus: 'active', recordCount: 193 },
-      { key: 'IT-VA', sourceStatus: 'active', recordCount: 266 },
-      { key: 'IT-VB', sourceStatus: 'active', recordCount: 83 },
+      { key: 'CH-TI', sourceStatus: 'active', recordCount: ticino.pharmacies.length },
+      { key: 'IT-CO', sourceStatus: 'active', recordCount: italyCount('CO') },
+      { key: 'IT-VA', sourceStatus: 'active', recordCount: italyCount('VA') },
+      { key: 'IT-VB', sourceStatus: 'active', recordCount: italyCount('VB') },
     ]);
-    expect(health.totalRecords).toBe(749);
+    expect(health.totalRecords).toBe(BORDER_TOTAL);
     expect(health.fetchErrors).toEqual([]);
     expect(health.outOfScopeRecords).toEqual([]);
     expect(health.sourceMismatches).toEqual([]);
     expect(health.identityCollisions).toEqual([]);
     expect(health.missingSecondaryProvenance).toEqual([]);
     expect(health.validationErrors).toEqual([]);
+    expect(health.italyDutyHorizon.problems).toEqual([]);
+    expect(health.italyDutyHorizon.entries).toMatchObject([
+      { province: 'CO', healthy: true },
+      { province: 'VA', healthy: true },
+    ]);
     expect(health.jurisdictions[1].maxAgeHours).toBe(24 * BORDER_SLA_TOLERANCE);
   });
 
@@ -246,13 +481,30 @@ describe('conflict detection', () => {
     expect(types).toContain('duplicate-identity');
   });
 
-  it('flags a duty still "verified" past its endsAt — the state the policy forbids publishing', () => {
+  it('flags a verified row that was already expired when the snapshot was fetched', () => {
     const conflicts = detectDutyConflicts(
       'ticino',
-      { duties: [{ id: 'd1', status: 'verified', endsAt: iso(1), coverageName: 'Lugano' }] },
+      { duties: [{ id: 'd1', status: 'verified', endsAt: iso(1), fetchedAt: iso(0), coverageName: 'Lugano' }] },
       NOW,
     );
     expect(conflicts.map((c) => c.type)).toEqual(['duty-expired-but-verified']);
+  });
+
+  it('does not call a verified snapshot row a conflict after it naturally expires', () => {
+    const conflicts = detectDutyConflicts(
+      'jura',
+      {
+        duties: [{
+          id: 'd-fetched-before-expiry',
+          status: 'verified',
+          endsAt: '2026-09-30T06:00:00.000Z',
+          fetchedAt: '2026-09-29T23:28:35.341Z',
+          coverageName: 'Moutier',
+        }],
+      },
+      Date.parse('2026-09-30T12:00:00.000Z'),
+    );
+    expect(conflicts).toEqual([]);
   });
 
   it('flags conflicting duties', () => {
@@ -287,6 +539,74 @@ describe('buildReport', () => {
     expect(joined).toContain('stale');
     expect(joined).toContain('errore/i di fetch');
     expect(report.fetchErrors[0]).toMatchObject({ key: 'ticino', count: 1 });
+  });
+
+  describe('audit verdicts (#8705)', () => {
+    const audited = (status: string, verdict: string, auditedDaysAgo: number) => ({
+      canton: 'Vaud',
+      status,
+      sourceType: 'association',
+      fetchFrequency: 'P1D',
+      audit: {
+        verdict,
+        auditedAt: iso(auditedDaysAgo),
+        reason: 'Lettura della pagina della fonte.',
+        evidenceUrl: 'https://garde.svph.ch/',
+      },
+    });
+    const withVaud = (vaud: Record<string, unknown>) => ({
+      sources: { ...registry.sources, vaud, bern: { canton: 'Berna', status: 'unverified' } },
+    });
+    const build = (vaud: Record<string, unknown>) =>
+      buildReport({ registry: withVaud(vaud), datasets: { ticino: anagrafica(), vaud: anagrafica() }, knownCantonCount: 26, nowMs: NOW });
+
+    it('lists non-active entries without an audit as unaudited and counts the verdicts', () => {
+      const coverage = evaluateCoverage(withVaud(audited('unverified', 'partial-or-proximity', 5)), {}, {}, 26);
+      expect(coverage.unaudited).toEqual(['bern']);
+      expect(coverage.auditVerdicts).toEqual({ 'complete-feed': 0, 'partial-or-proximity': 1, 'no-machine-readable': 0 });
+      expect(coverage.entries.find((e) => e.key === 'vaud')).toMatchObject({ audit: 'partial-or-proximity' });
+      expect(coverage.entries.find((e) => e.key === 'bern')).toMatchObject({ audit: null });
+    });
+
+    it('keeps an unaudited source out of the problems', () => {
+      expect(build(audited('unverified', 'no-machine-readable', 5)).problems).toEqual([]);
+    });
+
+    it('asks for onboarding when a complete feed has no connector, not when it is active', () => {
+      const pending = build(audited('unverified', 'complete-feed', 5));
+      expect(pending.problems.join('\n')).toContain('fonte vaud ha un feed completo verificato il');
+      expect(pending.problems.join('\n')).toContain('onboarding da aprire');
+      expect(build(audited('active', 'complete-feed', 5)).problems).toEqual([]);
+    });
+
+    it('flags an audit older than 90 days, not one inside the window', () => {
+      expect(build(audited('unverified', 'partial-or-proximity', 91)).problems.join('\n')).toContain('audit vaud scaduto');
+      expect(build(audited('unverified', 'partial-or-proximity', 89)).problems).toEqual([]);
+    });
+
+    it('prints the unaudited count and the verdict counts on the dashboard', () => {
+      const lines = formatReport(build(audited('unverified', 'partial-or-proximity', 5))).join('\n');
+      expect(lines).toContain('Cantoni non attivi senza verdetto di audit: 1');
+      expect(lines).toContain('Verdetti di audit: complete-feed=0 partial-or-proximity=1 no-machine-readable=0');
+    });
+
+    it('flags an audit dated more than a day in the future', () => {
+      expect(build(audited('unverified', 'partial-or-proximity', -30)).problems.join('\n')).toContain('audit vaud nel futuro');
+      expect(build(audited('unverified', 'partial-or-proximity', 0)).problems).toEqual([]);
+    });
+
+    it('does not count an out-of-list verdict as an audit', () => {
+      const coverage = evaluateCoverage(withVaud(audited('unverified', 'looks-fine', 5)), {}, {}, 26);
+      expect(coverage.unaudited).toEqual(['bern', 'vaud']);
+      expect(Object.keys(coverage.auditVerdicts)).toEqual(['complete-feed', 'partial-or-proximity', 'no-machine-readable']);
+    });
+
+    // giudica il registry reale con l'orologio vero (audit oltre 90 giorni): rosso possibile senza cambi di codice
+    it.skipIf(SKIP_LIVE_DATA)('raises no audit problem on the real registry', () => {
+      const report = buildReport({ registry: liveSourceRegistry, knownCantonCount: 26, nowMs: Date.now() });
+      expect(report.problems.filter((p) => p.startsWith('audit ') || p.includes('onboarding da aprire'))).toEqual([]);
+      expect(report.dashboard.join('\n')).toContain(`senza verdetto di audit: ${report.coverage.unaudited.length}`);
+    });
   });
 
   it('formats a dashboard that names every dimension', () => {
@@ -353,7 +673,7 @@ describe('report payload consumed by the workflow', () => {
     expect(report.problems.join('\n')).toContain('sync-pharmacies-border');
   });
 
-  // asserisce i conteggi reali (749 record, 193 IT-CO) delle snapshot farmacie: rosso possibile senza cambi di codice
+  // asserisce i conteggi reali (751 record, 193 IT-CO) delle snapshot farmacie: rosso possibile senza cambi di codice
   it.skipIf(SKIP_LIVE_DATA)('includes the border health panel in the machine-readable report and dashboard', () => {
     const report = buildReport({
       registry,
@@ -366,12 +686,16 @@ describe('report payload consumed by the workflow', () => {
         ticino: { ...ticino, _fetchedAt: iso(1) },
         italy: { ...italy, _fetchedAt: iso(1) },
         duties: borderDuties,
+        italyDuties,
+        italySources: italyDutySources,
       },
     });
     expect(report.healthy).toBe(true);
-    expect(report.border).toMatchObject({ totalRecords: 749, outOfScopeRecords: [], identityCollisions: [], missingSecondaryProvenance: [] });
-    expect(report.dashboard.join('\n')).toContain('Perimetro operativo: 4 giurisdizioni · 749 record');
-    expect(report.dashboard.join('\n')).toContain('IT-CO [active] — 193 record');
+    expect(report.border).toMatchObject({ totalRecords: BORDER_TOTAL, outOfScopeRecords: [], identityCollisions: [], missingSecondaryProvenance: [] });
+    expect(report.dashboard.join('\n')).toContain(`Perimetro operativo: 4 giurisdizioni · ${BORDER_TOTAL} record`);
+    expect(report.dashboard.join('\n')).toContain(`IT-CO [active] — ${italyCount('CO')} record`);
+    expect(report.dashboard.join('\n')).toContain(`Orizzonte turni Italia: soglia ${ITALY_REQUIRED_DUTY_HORIZON_DAYS}g`);
+    expect(report.dashboard.join('\n')).toContain('IT-CO [required] — ultimo turno');
     expect(report.dashboard.join('\n')).toContain('Errori fetch perimetro: 0');
     expect(report.dashboard.join('\n')).toContain('Record nella snapshot della fonte errata: 0');
   });

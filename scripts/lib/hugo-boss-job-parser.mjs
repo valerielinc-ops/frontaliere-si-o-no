@@ -18,6 +18,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { JSDOM } from 'jsdom';
 import { isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { extractJsonLd, selectDetailStructuredRecords } from './prospector/extract.mjs';
 
 const HUGO_BOSS_HOST = 'careers.hugoboss.com';
 
@@ -179,26 +180,35 @@ export function parseDetailPage(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
 
-  // Try JSON-LD
-  let jsonLd = null;
-  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
-    try {
-      const parsed = JSON.parse(script.textContent || '');
-      const items = Array.isArray(parsed) ? parsed : [parsed];
-      jsonLd = items.find((item) => item?.['@type'] === 'JobPosting') || jsonLd;
-    } catch { /* ignore */ }
-  }
+  // Use the shared JSON-LD reader so Phenom pages that wrap the posting in
+  // `@graph` or publish `@type` as an array keep their complete detail body.
+  // Select by the rendered/Phenom title before accepting structured evidence;
+  // a related-job posting must never become this detail page by position.
+  const structuredRecords = extractJsonLd(html, '');
+  const renderedTitle = normalizeSpace(rawJob?.title || document.querySelector('h1')?.textContent || '');
+  const [jsonLd] = selectDetailStructuredRecords(
+    structuredRecords,
+    '',
+    renderedTitle,
+    '',
+    renderedTitle,
+  );
 
   const title = normalizeSpace(
     rawJob?.title || jsonLd?.title || document.querySelector('h1')?.textContent || ''
   );
 
-  // Description: prefer DDO job description, then JSON-LD
-  let body = '';
-  const rawDesc = rawJob?.description || jsonLd?.description || '';
-  if (rawDesc) {
-    body = stripTags(rawDesc);
-  }
+  // The DDO can contain a short teaser while JSON-LD carries the complete
+  // posting. Compare both structured candidates instead of letting the DDO
+  // shadow the detail-page body merely because it appears first.
+  const structuredBodies = [rawJob?.description, jsonLd?.description]
+    .filter(Boolean)
+    .map((description) => stripTags(description))
+    .filter(Boolean);
+  let body = structuredBodies.reduce(
+    (longest, candidate) => candidate.length > longest.length ? candidate : longest,
+    '',
+  );
 
   // Fallback: try main content area
   if (body.length < MIN_DESC_LENGTH) {

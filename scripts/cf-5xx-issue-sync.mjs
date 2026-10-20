@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * cf-5xx-issue-sync.mjs — zone-wide Cloudflare 5xx watchdog.
  *
@@ -61,11 +62,19 @@
  * still `on` first; a recurrence with it on is a genuinely new signal.
  */
 import { execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { sanitizeUrlLikeText } from './lib/sanitizeTrackedDiagnostics.mjs';
+import { classifyCfErrorUrl, isWebhookTunnelSurface, SURFACES } from './lib/cf-error-surface.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import {
+  CHECK_URL_DEFAULT_SNAPSHOTS,
+  checkUrlClean,
+  historyUrlKey,
+  loadHistory,
+} from './ci/cf-5xx-snapshot.mjs';
 
 const HOURS = process.env.CF_5XX_HOURS || '23';
 const MIN_COUNT = intFromEnv('CF_5XX_MIN_COUNT', 20);
@@ -87,7 +96,7 @@ const MAX_AGE_HOURS = Number(process.env.CF_5XX_MAX_AGE_HOURS ?? 2);
  *
  * @param {Array<{url:string,hour:string,count:number}>} rows
  * @param {Date} [now]
- * @returns {Map<string,{lastHour:string,hoursSinceLast:number,activeHours:number,total:number,peakHour:string,peakCount:number,peakShare:number}>}
+ * @returns {Map<string,{lastHour:string,hoursSinceLast:number,activeHours:number,total:number,peakHour:string,peakCount:number,peakShare:number,endpointEvidence:Array<{edgeStatus:string,originStatus:string,cacheStatus:string,count:number}>}>}
  */
 export function summarizeBursts(rows, now = new Date()) {
   const byUrl = new Map();
@@ -97,9 +106,22 @@ export function summarizeBursts(rows, now = new Date()) {
     const url = String(r?.url ?? '');
     const hour = String(r?.hour ?? '');
     if (!url || !hour || Number.isNaN(Date.parse(hour))) continue;
-    const b = byUrl.get(url) || { hours: new Map(), total: 0 };
+    const b = byUrl.get(url) || { hours: new Map(), total: 0, endpointEvidence: new Map() };
     b.hours.set(hour, (b.hours.get(hour) || 0) + n);
     b.total += n;
+    const evidenceKey = [
+      `edge=${r.status == null ? 'unknown' : String(r.status)}`,
+      `origin=${r.originResponseStatus == null ? 'unknown' : String(r.originResponseStatus)}`,
+      `cache=${r.cacheStatus == null ? 'unknown' : String(r.cacheStatus)}`,
+    ].join('|');
+    const evidence = b.endpointEvidence.get(evidenceKey) || {
+      edgeStatus: r.status == null ? 'unknown' : String(r.status),
+      originStatus: r.originResponseStatus == null ? 'unknown' : String(r.originResponseStatus),
+      cacheStatus: r.cacheStatus == null ? 'unknown' : String(r.cacheStatus),
+      count: 0,
+    };
+    evidence.count += n;
+    b.endpointEvidence.set(evidenceKey, evidence);
     byUrl.set(url, b);
   }
 
@@ -117,6 +139,7 @@ export function summarizeBursts(rows, now = new Date()) {
       peakHour,
       peakCount,
       peakShare: b.total ? peakCount / b.total : 0,
+      endpointEvidence: [...b.endpointEvidence.values()].sort((a, z) => z.count - a.count),
     });
   }
   return out;
@@ -134,6 +157,48 @@ export function isStaleBurst(shape, maxAgeHours = MAX_AGE_HOURS) {
   return shape.hoursSinceLast > maxAgeHours;
 }
 
+/**
+ * Lo status che Cloudflare restituisce quando un Tunnel non ha nessun
+ * connettore attivo («Argo Tunnel error»).
+ */
+export const TUNNEL_OFFLINE_STATUS = 530;
+
+/**
+ * Vero solo per un 530 su una superficie del tunnel webhook riconosciuta dalla tassonomia
+ * condivisa (`scripts/lib/cf-error-surface.mjs`), che mantiene l'elenco esplicito degli host.
+ *
+ * ─── Perche' questa riga non conia una issue del sito (site#8839, site#8840) ─
+ * Questi host non servono visitatori: il chiamante e' GitHub, e il tunnel
+ * termina sui receiver del coordinatore sul laptop. Il 530 e' il tunnel senza
+ * connettore, cioe' il Mac in stop: snapshot del 2026-10-03, 5.365 dei 5.386
+ * 5xx dei receiver webhook osservati, fra cui 5.365 dei 5.386 di `gh-default` e
+ * 1.487 dei 1.493 di `gh-nanako`, ora per ora sovrapposti
+ * ai periodi di sonno di `pmset -g log`. Nessuna modifica a questo repo puo'
+ * farlo cessare, e il criterio di chiusura («assente da 7 snapshot») resta
+ * insoddisfacibile finche' il Mac dorme: le due issue sono state rilavorate 41
+ * e 21 volte senza una PR. Decisione del proprietario del 2026-10-04 (D1):
+ * il 530 da sonno resta nel controllo di salute locale del coordinatore
+ * (`tunnel_not_ready` / `webhook_receiver_down` / `host_slept` in
+ * `bin/github-coordinator-health.mjs` del workspace), non nel sito.
+ *
+ * La regola e' volutamente stretta: qualunque altro status su queste superfici webhook
+ * (502/503/524: tunnel su, receiver rotto) e un 530 su qualunque altra
+ * superficie continuano a coniare. Lo snapshot (`scripts/ci/cf-5xx-snapshot.mjs`)
+ * registra comunque tutto in `bySurface`.
+ *
+ * Conseguenza voluta: `checkUrlClean` e `cf5xxSeenNow` contano ogni status,
+ * 530 compreso, quindi una issue webhook aperta per un 502/503 non viene
+ * chiusa dalla fase di riconciliazione finche' il 530 compare nel report o
+ * nello snapshot; la sua chiusura resta manuale (orchestratore, con evidenza)
+ * finche' una decisione del proprietario non cambia il criterio.
+ *
+ * @param {{url?:string,status?:number|string}} entry
+ */
+export function isTunnelOffline530(entry) {
+  if (Number(entry?.status) !== TUNNEL_OFFLINE_STATUS) return false;
+  return isWebhookTunnelSurface(classifyCfErrorUrl(entry?.url));
+}
+
 /** One-line burst description for the issue body. */
 function describeBurst(shape, hours) {
   if (!shape) return `**Burst shape:** unavailable (no hourly rows in this report run)`;
@@ -142,6 +207,17 @@ function describeBurst(shape, hours) {
     `**Last 5xx:** ${shape.lastHour} (${shape.hoursSinceLast.toFixed(1)}h ago)`,
     `**Spread:** ${shape.activeHours} of ${hours} hours had 5xx; peak hour ${shape.peakHour} carried ${shape.peakCount} (${pct}%)`,
   ].join('\n');
+}
+
+/** Endpoint-correlated fields; unlike host totals, these stay attached to this URL. */
+function describeEndpointEvidence(shape) {
+  if (!shape) return '**Endpoint diagnostics:** unavailable (no complete hourly endpoint rows)';
+  const evidence = shape.endpointEvidence || [];
+  if (!evidence.length) return '**Endpoint diagnostics:** unavailable (no endpoint rows)';
+  const summary = evidence
+    .map((r) => `edge=${r.edgeStatus}/origin=${r.originStatus}/cache=${r.cacheStatus} (${r.count})`)
+    .join('; ');
+  return `**Endpoint diagnostics:** ${summary}`;
 }
 
 /**
@@ -164,43 +240,183 @@ function describeBurst(shape, hours) {
  */
 export function buildIssueBody(e, hours = HOURS) {
   const url = sanitizeUrlLikeText(e.url);
+  const surfaceKey = classifyCfErrorUrl(url);
+  const surfaceOrigin = SURFACES[surfaceKey]?.origin || 'unknown';
+  const recencyCause = e.shape
+    ? `The complete hourly report places the last sampled 5xx at ${e.shape.lastHour} (${e.shape.hoursSinceLast.toFixed(1)}h ago); this is recency evidence, not proof of which component returned it.`
+    : 'Complete hourly endpoint rows are unavailable. The URL was retained because its window total met the reporting threshold; a current failure is unverified.';
   return [
     `**Status:** ${e.status}`,
     `**URL:** ${url}`,
     `**5xx responses (last ${hours}h):** ${e.count}`,
     describeBurst(e.shape, hours),
+    describeEndpointEvidence(e.shape),
     '',
     '_Source: Cloudflare GraphQL Analytics (`httpRequestsAdaptiveGroups`), zone-wide eyeball 5xx — see scripts/cf-status-report.mjs._',
     '',
     buildScheda({
       causa: [
-        "(ipotesi, da confermare.) Questo URL sta rispondendo 5xx adesso, non in un burst gia'",
-        "finito: il gate di recency lo ha tenuto. Su quale delle tre superfici stia — CDN,",
-        'shard per-locale, apex — decide il rimedio e NON si assume: la partizione e il triage',
-        'stanno in `docs/CF-5XX-TRIAGE.md`. Se lo stato di origine e\' zero, l\'origine non ha',
-        "risposto affatto e l'errore lo sintetizza l'edge; se e' un codice vero, lo ha",
-        'restituito l\'origine, e i due rimedi sono opposti.',
+        `(ipotesi, da confermare.) Host/path classification: \`${surfaceKey}\` (${surfaceOrigin}).`,
+        'Questa classificazione identifica il percorso atteso, non attribuisce il 5xx al tunnel,',
+        'al Worker, alla pagina shard o all\'edge. I campi origin/cache nel report valgono solo',
+        `per questo URL quando sono presenti. ${recencyCause}`,
       ],
-      fix: [
-        'Dipende dalla superficie; non preassegnata qui. | **REPO**: sito | **MODE**: nessun',
-        'vincolo di mirror: le regole di cache della zona sono possedute dallo script che le',
-        'configura, e il triage dice quale.',
-      ],
+      fix: isWebhookTunnelSurface(surfaceKey)
+        ? [
+            'Host del tunnel webhook: il sito non puo\' correggerlo. | **REPO**: workspace | **MODE**:',
+            'nessun vincolo di mirror: receiver `bin/github-webhook-receiver.mjs`, rilascio e riavvio',
+            '`bin/github-coordinator-release`, controllo di salute `bin/github-coordinator-health.mjs`',
+            '(i log timestampati del receiver dicono fase e causa del 5xx).',
+          ]
+        : [
+            'Dipende dalla superficie; non preassegnata qui. | **REPO**: sito | **MODE**: nessun',
+            'vincolo di mirror: le regole di cache della zona sono possedute dallo script che le',
+            'configura, e il triage dice quale.',
+          ],
       metrica: `prima=${e.count} risposte 5xx in ${hours}h atteso=0 negli ultimi 7 snapshot`,
       comando: `node scripts/ci/cf-5xx-snapshot.mjs --check-url '${url}' --snapshots 7`,
       note: [
         'Il comando legge `data/cf-5xx-history.jsonl` e non tocca la rete: exit 0 solo se',
-        "l'URL e' assente dai path 5xx degli ultimi 7 snapshot PRESENTI, con la serie fresca.",
-        'Serie corta o ferma = exit 1 con la ragione, mai un verde per assenza di dati.',
+        "l'URL e' assente dall'elenco COMPLETO dei path 5xx negli ultimi 7 snapshot freschi.",
+        'Top-50, storia incompleta o query satura = exit 1: assenza di dati non prova zero 5xx.',
       ],
       osservatore: [
         '`.github/workflows/cf-5xx-monitor.yml`, che ogni giorno alle 03:50 UTC riconia questa',
         "issue se l'URL torna sopra soglia e appende uno snapshot a",
         '`data/cf-5xx-history.jsonl` — la serie su cui il COMANDO qui sopra si verifica.',
+        "Lo stesso passo chiude questa issue quando il COMANDO esce 0 e l'URL manca anche dai",
+        'primi 50 path del report del giorno, guardia in più (`scripts/lib/monitor-issue-reconcile.mjs`).',
       ],
       fallimento: `\`CF 5xx: ${url.slice(0, 80)}\``,
     }),
   ].join('\n');
+}
+
+/** La serie su cui si misura il criterio di chiusura: quella gia' mergiata su main. */
+const HISTORY_FILE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'cf-5xx-history.jsonl');
+const ISSUE_TITLE_PREFIX = 'CF 5xx: ';
+const ISSUE_FAMILY_LABEL = 'cloudflare-5xx';
+/** Righe di `detail` chieste a cf-status-report: un `detail` pieno al limite è un top-N troncato. */
+const DETAIL_LIMIT = 50;
+/** Il verdetto «non so» quando il report corrente non è una misura (`cf5xxSeenNow` → `null`). */
+const INCOMPLETE_REPORT_EVIDENCE =
+  'report corrente incompleto: `detail` assente, non array o pieno al limite di ' +
+  `${DETAIL_LIMIT} righe senza un \`detailByHour\` completo — l'assenza di un URL non prova zero 5xx`;
+/** Le ragioni di `checkUrlClean` che sono una MISURA; tutte le altre dicono «non so». */
+const COMPLETE_CHECK_CODES = new Set(['clean', 'still-failing']);
+
+/**
+ * L'URL della issue, dalla riga `**URL:** …` del corpo. Non dal titolo: il
+ * titolo e' tagliato a 80 caratteri, e una chiave tagliata non fa mai match
+ * con la storia (`checkUrlClean` la rifiuterebbe come «mai osservato»).
+ */
+export function issueUrlFromBody(body) {
+  const m = String(body ?? '').match(/^\*\*URL:\*\*[ \t]*(\S+)[ \t\r]*$/m);
+  return m ? m[1] : '';
+}
+
+/**
+ * Il verdetto del chiuditore per UNA issue `CF 5xx:` — lo stesso del comando
+ * della scheda (`cf-5xx-snapshot.mjs --check-url <url> --snapshots 7`), piu' un
+ * vincolo che il comando non puo' vedere: la storia letta qui e' quella gia'
+ * mergiata, e lo snapshot di oggi arriva su main DOPO questo passo. Un URL
+ * presente nel report corrente (`detail`, qualunque conteggio) non e' pulito,
+ * anche se i 7 snapshot precedenti lo sono.
+ *
+ * `complete` e' vero solo quando la risposta e' una misura (`clean` o
+ * `still-failing`): storia corta, serie ferma, dettagli troncati, URL mai
+ * osservato o URL illeggibile dal corpo sono «non so» → nessuna scrittura.
+ * `seenNow` e' il report corrente (`cf5xxSeenNow`): `null` o assente = report
+ * non misurato → `complete: false`, mai «nessun URL in errore adesso».
+ *
+ * @param {{body?:string}} issue
+ * @param {{history:Array<object>, seenNow?:Map<string,number>|null, hours?:string|number, now?:number}} ctx
+ */
+export function cf5xxVerdict(issue, { history, seenNow = null, hours = HOURS, now = Date.now() } = {}) {
+  const url = issueUrlFromBody(issue?.body);
+  if (!url) {
+    return { clean: false, complete: false, evidence: 'URL non leggibile dal corpo della issue (riga `**URL:**` assente)' };
+  }
+  if (!(seenNow instanceof Map)) {
+    return { clean: false, complete: false, evidence: INCOMPLETE_REPORT_EVIDENCE };
+  }
+  const command = `node scripts/ci/cf-5xx-snapshot.mjs --check-url '${url}' --snapshots ${CHECK_URL_DEFAULT_SNAPSHOTS}`;
+  const live = seenNow.get(historyUrlKey(url));
+  if (live) {
+    return {
+      clean: false,
+      complete: true,
+      evidence: `ancora nel report corrente: ${live} risposte 5xx nelle ultime ${hours}h`,
+      command,
+    };
+  }
+  const res = checkUrlClean(history, url, { now });
+  const lastTs = (history || []).filter((s) => s && s.ts).at(-1)?.ts;
+  return {
+    clean: res.ok === true,
+    complete: COMPLETE_CHECK_CODES.has(res.code),
+    evidence: res.reason,
+    command,
+    measure: lastTs,
+    measuredAt: lastTs,
+  };
+}
+
+/**
+ * Gli URL con 5xx nel report corrente, o `null` quando il report non e' una
+ * misura completa. Completo = `detailByHour` dichiarato completo (righe
+ * (url, ora) fino al tetto del dataset), oppure `detail` presente e SOTTO il
+ * limite di righe chiesto a cf-status-report. Un `detail` mancante, nullo,
+ * non array o pieno al limite (top-N troncato: un URL oltre l'ultima riga
+ * fallisce adesso ma non compare) non prova che un URL sia a zero → `null`.
+ *
+ * @returns {Map<string, number>|null}
+ */
+export function cf5xxSeenNow(data, { detailLimit = DETAIL_LIMIT } = {}) {
+  let rows = null;
+  if (data?.detailByHourComplete === true && Array.isArray(data?.detailByHour)) rows = data.detailByHour;
+  else if (Array.isArray(data?.detail) && data.detail.length < detailLimit) rows = data.detail;
+  if (!rows) return null;
+  const seenNow = new Map();
+  for (const r of rows) {
+    const n = Number(r?.count) || 0;
+    if (n <= 0 || !r?.url) continue;
+    const k = historyUrlKey(r.url);
+    seenNow.set(k, (seenNow.get(k) || 0) + n);
+  }
+  return seenNow;
+}
+
+/**
+ * La configurazione della fase «riconcilia» per questa famiglia.
+ * `confirmations: 1` perche' `checkUrlClean` e' gia' un criterio sostenuto
+ * (7 snapshot completi e freschi): una seconda conferma sarebbe un'ottava.
+ * Un report corrente non misurato (`cf5xxSeenNow` → `null`) rende ogni
+ * verdetto `complete: false`: nessuna chiusura, nessuna scrittura, e la storia
+ * non viene nemmeno letta.
+ */
+export function cf5xxReconcile(data, { historyFile = HISTORY_FILE, hours = HOURS } = {}) {
+  const base = {
+    family: 'cf-5xx',
+    labels: [ISSUE_FAMILY_LABEL],
+    titlePrefix: ISSUE_TITLE_PREFIX,
+    confirmations: 1,
+  };
+  const seenNow = cf5xxSeenNow(data);
+  if (!seenNow) {
+    return {
+      ...base,
+      verdictFor: () => ({ clean: false, complete: false, evidence: INCOMPLETE_REPORT_EVIDENCE }),
+    };
+  }
+  let history = null;
+  return {
+    ...base,
+    verdictFor: (issue) => {
+      history ??= loadHistory(historyFile);
+      return cf5xxVerdict(issue, { history, seenNow, hours });
+    },
+  };
 }
 
 export async function main() {
@@ -213,7 +429,7 @@ export async function main() {
   try {
     const out = execFileSync(
       'node',
-      ['scripts/cf-status-report.mjs', '--json', '--class=5', `--hours=${HOURS}`, '--limit=50', '--by-hour'],
+      ['scripts/cf-status-report.mjs', '--json', '--class=5', `--hours=${HOURS}`, `--limit=${DETAIL_LIMIT}`, '--by-hour'],
       { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 },
     );
     data = JSON.parse(out);
@@ -222,26 +438,68 @@ export async function main() {
     return;
   }
 
-  const overThreshold = (data.detail || [])
+  // Da qui in poi i dati di Cloudflare sono stati letti: ogni ramo, anche
+  // quello che non conia niente, passa dalla fase «riconcilia». Il caso
+  // «nessun path sopra soglia» e' proprio quello in cui le issue guarite si
+  // chiudono; con un `return` secco non si chiuderebbero mai.
+  const syncOptions = {
+    dryRun: process.argv.includes('--dry-run'),
+    maxIssues: MAX_ISSUES,
+    labels: ['stability', ISSUE_FAMILY_LABEL],
+    source: `Cloudflare 5xx Monitor — last ${HOURS}h (zone-wide)`,
+    priorityFor: (e) => (e.count >= MIN_COUNT * 5 ? 2 : 3),
+    titleFor: (e) => `${ISSUE_TITLE_PREFIX}${sanitizeUrlLikeText(e.url).slice(0, 80)}`,
+    bodyFor: (e) => buildIssueBody(e, HOURS),
+    reconcile: cf5xxReconcile(data),
+  };
+  const reconcileOnly = () => syncErrorIssues({ ...syncOptions, entries: [] });
+
+  const overThresholdAll = (data.detail || [])
     .filter((r) => r.count >= MIN_COUNT)
     .sort((a, b) => b.count - a.count);
 
+  // Il 530 delle superfici del tunnel webhook non e' un difetto del sito: vedi
+  // `isTunnelOffline530`. Resta visibile nel log del run e nello snapshot.
+  const overThreshold = [];
+  const tunnelOffline = [];
+  for (const r of overThresholdAll) (isTunnelOffline530(r) ? tunnelOffline : overThreshold).push(r);
+  for (const r of tunnelOffline) {
+    console.log(
+      `::notice title=cf-5xx webhook tunnel offline::${sanitizeUrlLikeText(r.url)} ${r.count} risposte ` +
+        `${TUNNEL_OFFLINE_STATUS} in ${HOURS}h: connettore del tunnel assente (Mac in stop); allarme a Mac ` +
+        'sveglio: tunnel_not_ready in bin/github-coordinator-health.mjs',
+    );
+  }
+
   if (!overThreshold.length) {
-    console.log(`[cf-5xx-issue-sync] no path with >= ${MIN_COUNT} 5xx in last ${HOURS}h — nothing to sync`);
+    console.log(
+      tunnelOffline.length
+        ? `[cf-5xx-issue-sync] solo ${TUNNEL_OFFLINE_STATUS} del tunnel webhook sopra soglia ` +
+            `(${tunnelOffline.length} riga/e) — nessun path del sito con >= ${MIN_COUNT} 5xx in last ${HOURS}h`
+        : `[cf-5xx-issue-sync] no path with >= ${MIN_COUNT} 5xx in last ${HOURS}h — nothing to sync`,
+    );
+    await reconcileOnly();
     return;
   }
 
   // Recency gate. See the docblock: without it a 60-second blip from yesterday
   // afternoon is indistinguishable from an outage happening right now.
   const hourly = data.detailByHour;
-  if (!Array.isArray(hourly)) {
+  const hourlyComplete = Array.isArray(hourly) && data.detailByHourComplete === true;
+  if (!hourlyComplete) {
     console.log(
-      '::warning title=cf-5xx recency gate inactive::cf-status-report.mjs returned no `detailByHour` ' +
-        '(is --by-hour still wired?) — filing on the flat 23h total, so a burst that already ended ' +
-        'can be reported as a live defect. This is the #5231/#5232 failure mode.',
+      '::warning title=cf-5xx recency gate inactive::cf-status-report.mjs returned no complete `detailByHour` ' +
+        '(missing rows, row cap reached, or older report version) — entries stay open on the flat window total; ' +
+        'current failure and endpoint origin are unverified.',
     );
   }
-  const shapes = Array.isArray(hourly) ? summarizeBursts(hourly) : new Map();
+  // `summarizeBursts` raggruppa per URL mescolando gli status: le righe orarie
+  // del 530 del tunnel webhook escono anche da qui, altrimenti un 530 dell'ora
+  // del run (Mac in stop) terrebbe «vivo» un 502/503 finito ore prima sullo
+  // stesso URL, con `Last 5xx` ed evidenza edge=530 nella scheda.
+  const shapes = hourlyComplete
+    ? summarizeBursts(hourly.filter((r) => !isTunnelOffline530(r)))
+    : new Map();
 
   const entries = [];
   for (const e of overThreshold) {
@@ -262,25 +520,17 @@ export async function main() {
       `[cf-5xx-issue-sync] ${overThreshold.length} path(s) over threshold, all with no 5xx in the ` +
         `last ${MAX_AGE_HOURS}h — nothing live to sync`,
     );
+    await reconcileOnly();
     return;
   }
 
-  return syncErrorIssues({
-    entries,
-    dryRun: process.argv.includes('--dry-run'),
-    maxIssues: MAX_ISSUES,
-    labels: ['stability', 'cloudflare-5xx'],
-    source: `Cloudflare 5xx Monitor — last ${HOURS}h (zone-wide)`,
-    priorityFor: (e) => (e.count >= MIN_COUNT * 5 ? 2 : 3),
-    titleFor: (e) => `CF 5xx: ${sanitizeUrlLikeText(e.url).slice(0, 80)}`,
-    bodyFor: (e) => buildIssueBody(e, HOURS),
-  });
+  return syncErrorIssues({ ...syncOptions, entries });
 }
 
 // Run only when invoked directly (not when imported by the test suite), so
 // importing main() never triggers a live CF/gh call — same guard as
 // scripts/dmarc-monitor.mjs.
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   const results = await main();
   if (results) {
     console.log(`[cf-5xx-issue-sync] synced ${results.filter(Boolean).length}/${results.length} issue(s)`);

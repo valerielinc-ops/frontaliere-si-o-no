@@ -37,7 +37,7 @@ describe('portable crawler generation observer workflow', () => {
     expect(doc.permissions).toEqual({ actions: 'read', contents: 'read' });
     const job: any = doc.jobs.sentinel;
     expect(job['timeout-minutes']).toBeLessThanOrEqual(15);
-    const checkout = job.steps.find((step: any) => step.uses === 'actions/checkout@v5');
+    const checkout = job.steps.find((step: any) => step.uses === 'actions/checkout@v7');
     expect(checkout.with.repository).toBe('valerielinc-ops/frontaliere-si-o-no');
     expect(checkout.with.ref).toBe('${{ inputs.site_code_commit }}');
     expect(checkout.with['persist-credentials']).toBe(false);
@@ -48,7 +48,7 @@ describe('portable crawler generation observer workflow', () => {
     });
     expect(prepare.run).toContain('--expected-generation-token "$EXPECTED_GENERATION_TOKEN"');
     expect(prepare.run).toContain('--expected-site-code-commit "$EXPECTED_SITE_CODE_COMMIT"');
-    expect(doc.jobs.probe.steps.some((step: any) => step.uses === 'actions/checkout@v5')).toBe(false);
+    expect(doc.jobs.probe.steps.some((step: any) => step.uses === 'actions/checkout@v7')).toBe(false);
     expect(doc.jobs.observe_event.concurrency).toEqual({
       group: 'crawler-generation-observer-${{ needs.probe.outputs.generation_token }}',
       'cancel-in-progress': true,
@@ -85,17 +85,54 @@ describe('portable crawler generation observer workflow', () => {
 
   it('sparse-checkout contains the complete observer import closure plus the generated roster', () => {
     const doc = YAML.parse(fs.readFileSync(WORKFLOW_PATH, 'utf8'));
+    const observerImportClosure = collectRelativeImportClosure(ROOT, 'scripts/crawler-generation-observer.mjs');
+    expect(observerImportClosure).toContain('scripts/lib/crawler-slice-integrity.mjs');
+    const requiredPaths = [...observerImportClosure, 'scripts/ci/crawler-generation-roster.json'].sort();
     for (const job of [doc.jobs.sentinel, doc.jobs.observe_event, doc.jobs.reconcile_scheduled]) {
-      const checkout = job.steps.find((step: any) => step.uses === 'actions/checkout@v5');
+      const checkout = job.steps.find((step: any) => step.uses === 'actions/checkout@v7');
       const sparsePaths = checkout.with['sparse-checkout']
         .split('\n')
         .map((value: string) => value.trim().replace(/^\//, ''))
         .filter(Boolean)
         .sort();
-      expect(sparsePaths).toEqual([
-        ...collectRelativeImportClosure(ROOT, 'scripts/crawler-generation-observer.mjs'),
-        'scripts/ci/crawler-generation-roster.json',
-      ].sort());
+      expect(sparsePaths).toEqual(requiredPaths);
+    }
+  });
+
+  it('every site-observer checkout is pinned to the commit under observation and keeps the minimal clone options', () => {
+    const doc = YAML.parse(fs.readFileSync(WORKFLOW_PATH, 'utf8'));
+    // Each job must read the site code that produced the observed generation,
+    // never a moving branch: a drifted ref would let the observer report
+    // success against code different from the generator's.
+    const expectedRefs: Array<[string, string]> = [
+      ['sentinel', '${{ inputs.site_code_commit }}'],
+      ['observe_event', '${{ needs.probe.outputs.site_code_commit }}'],
+      ['reconcile_scheduled', '${{ matrix.generation.site_code_commit }}'],
+    ];
+    for (const [jobId, expectedRef] of expectedRefs) {
+      const steps: any[] = doc.jobs[jobId]?.steps ?? [];
+      // A second, differently named checkout of the site repo (e.g. `ref: main`
+      // into the same path) must not be able to bypass the pinned one.
+      const siteCheckouts = steps.filter(
+        (step) =>
+          typeof step.uses === 'string' &&
+          step.uses.startsWith('actions/checkout@') &&
+          step.with?.repository === 'valerielinc-ops/frontaliere-si-o-no',
+      );
+      expect(siteCheckouts, `${jobId}: exactly one checkout of the site repository`).toHaveLength(1);
+      const checkouts = steps.filter((step) => step.name === 'Checkout immutable site observer runtime');
+      expect(checkouts, `${jobId}: exactly one named site-observer checkout`).toHaveLength(1);
+      const [checkout] = checkouts;
+      expect(checkout.uses, jobId).toBe('actions/checkout@v7');
+      expect(checkout.with, jobId).toMatchObject({
+        repository: 'valerielinc-ops/frontaliere-si-o-no',
+        ref: expectedRef,
+        'fetch-depth': 1,
+        filter: 'blob:none',
+        'persist-credentials': false,
+        path: 'site-observer',
+        'sparse-checkout-cone-mode': false,
+      });
     }
   });
 });

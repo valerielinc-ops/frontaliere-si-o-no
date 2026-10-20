@@ -37,6 +37,7 @@ import {
   pickLayoutShiftAudit,
   compactShiftItems,
   isInconclusivePsiError,
+  runPsiRequest,
   shouldFailOpenForPsiErrors,
 } from '../scripts/audit-cls-live.mjs';
 
@@ -119,26 +120,73 @@ describe('compactShiftItems — forma stabile e compatta', () => {
 });
 
 describe('PSI provider failures — gate inconclusive, not CLS regression', () => {
-  it('recognizes auth and quota responses without hiding malformed requests', () => {
+  it('recognizes auth, quota, and exhausted transient 5xx responses without hiding malformed requests', () => {
     expect(isInconclusivePsiError('PSI 401 for https://example.test')).toBe(true);
     expect(isInconclusivePsiError(new Error('PSI 403 for https://example.test'))).toBe(true);
     expect(isInconclusivePsiError({ error: 'PSI 429 for https://example.test' })).toBe(true);
+    expect(isInconclusivePsiError('PSI 500 for https://example.test')).toBe(true);
+    expect(isInconclusivePsiError('PSI 503 for https://example.test')).toBe(true);
+    expect(isInconclusivePsiError('PSI 599 for https://example.test')).toBe(true);
     expect(isInconclusivePsiError('PSI 400 for https://example.test')).toBe(false);
     expect(isInconclusivePsiError('PSI network error for https://example.test')).toBe(false);
     expect(isInconclusivePsiError('PSI 400 for target (keyed PSI request was rejected with PSI 403 for target)')).toBe(false);
   });
 
-  it('fails open only when every target is rejected by auth or quota', () => {
+  it('fails open only when every target is rejected by auth, quota, or transient provider failure', () => {
     expect(shouldFailOpenForPsiErrors([
       { error: 'PSI 403 for target A' },
       { error: 'PSI 429 for target B' },
+      { error: 'PSI 500 for target C' },
     ])).toBe(true);
     expect(shouldFailOpenForPsiErrors([
       { error: 'PSI 403 for target A' },
-      { error: 'PSI 400 for target B' },
+      { error: 'PSI 500 for target B' },
+      { error: 'PSI 400 for target C' },
     ])).toBe(false);
     expect(shouldFailOpenForPsiErrors([{ error: 'PSI network error for target A' }])).toBe(false);
     expect(shouldFailOpenForPsiErrors([])).toBe(false);
+  });
+});
+
+describe('PSI response streams', () => {
+  it('survives repeated terminated response bodies within the bounded retry budget', async () => {
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      if (attempts <= 4) {
+        return {
+          ok: true,
+          text: async () => { throw new TypeError('terminated'); },
+        };
+      }
+      return {
+        ok: true,
+        text: async () => JSON.stringify({
+          lighthouseResult: {
+            audits: { 'cumulative-layout-shift': { numericValue: 0.12 } },
+          },
+        }),
+      };
+    };
+
+    const result = await runPsiRequest('https://example.test', 'desktop', '', fetchImpl, async () => {});
+
+    expect(attempts).toBe(5);
+    expect(result.effective).toBe(0.12);
+    expect(result.source).toBe('lab');
+  });
+
+  it('does not retry a malformed successful payload', async () => {
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      return { ok: true, text: async () => '{not-json' };
+    };
+
+    await expect(
+      runPsiRequest('https://example.test', 'desktop', '', fetchImpl, async () => {}),
+    ).rejects.toThrow('PSI malformed JSON');
+    expect(attempts).toBe(1);
   });
 });
 

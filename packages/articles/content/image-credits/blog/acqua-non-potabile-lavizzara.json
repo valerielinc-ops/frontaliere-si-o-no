@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "cover": "/images/blog/acqua-non-potabile-lavizzara.webp",
+  "source": "generated-provider",
+  "commons": {
+    "title": "Generated editorial illustration",
+    "pageUrl": "https://openai.com/policies/terms-of-use/",
+    "width": 1200,
+    "height": 675,
+    "revision": "2026-10-06T19:06:20.433Z"
+  },
+  "author": {
+    "text": "frontaliereticino.ch",
+    "name": "frontaliereticino.ch",
+    "url": null,
+    "type": "Organization"
+  },
+  "attribution": null,
+  "licence": {
+    "name": "Generated media — provider terms apply",
+    "url": "https://openai.com/policies/terms-of-use/",
+    "family": "other-attribution",
+    "attributionRequired": true
+  },
+  "restrictions": [
+    "illustrative-only",
+    "no-real-recognizable-foreground-person",
+    "no-public-figure-face",
+    "no-logo-brand-or-text",
+    "no-specific-real-event-photojournalism"
+  ],
+  "modified": "resized",
+  "fetchedAt": "2026-10-06",
+  "status": "ok",
+  "curation": null,
+  "generated": {
+    "schema": 1,
+    "assetId": "acqua-non-potabile-lavizzara",
+    "provider": "openai-codex",
+    "model": "gpt-image-2.5",
+    "executorModel": "gpt-5.6-luna",
+    "promptVersion": "frontaliereticino.generated-image-policy.v1",
+    "promptHash": "e4e42596fac291bcb04b08822f89fe54a3360488748dcecdc5bfe585cdae0403",
+    "license": "generated-provider",
+    "licenseUrl": "https://openai.com/policies/terms-of-use/",
+    "credit": "frontaliereticino.ch",
+    "sha256": "ed11342730785151677f41bb9a7a5affc104dd2d49c74b4013f4afaadda31974",
+    "bytes": 204232,
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "generatedAt": "2026-10-06T19:06:20.433Z",
+    "verifiedAt": "2026-10-06T19:06:30.852Z",
+    "restrictions": [
+      "illustrative-only",
+      "no-real-recognizable-foreground-person",
+      "no-public-figure-face",
+      "no-logo-brand-or-text",
+      "no-specific-real-event-photojournalism"
+    ],
+    "scope": "article-hero",
+    "imageUrl": "/images/blog/acqua-non-potabile-lavizzara.webp",
+    "category": "fiscale",
+    "area": "Ticino, Lombardy and the Swiss Italian border region",
+    "season": "all seasons",
+    "variant": "historical-cover-repair-acqua-non-potabile-lavizzara",
+    "vision": {
+      "ok": true,
+      "contains_text": false,
+      "contains_logo": false,
+      "contains_recognizable_face": false,
+      "looks_like_specific_real_event": false,
+      "notes": "Generic illustrative alpine village scene with no text, logos, recognizable faces, or documentary-event cues."
+    }
+  }
+}

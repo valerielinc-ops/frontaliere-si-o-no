@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "bl-1147",
+      "sourceKey": "BL",
+      "sourceRecordId": "1147",
+      "canton": "Basilea Campagna",
+      "platePrefix": "BL",
+      "plateNumber": "3100",
+      "normalizedPlate": "BL3100",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 2100,
+      "startingPriceChf": 920,
+      "bidCount": 4,
+      "minimumIncrementChf": 1,
+      "endsAt": "2026-10-11T18:00:00.000Z",
+      "closedAt": "2026-10-11T18:00:00.000Z",
+      "officialAuctionUrl": "https://eauktion.bl.ch/ecari-auction/ui/app/init",
+      "officialDetailUrl": "https://eauktion.bl.ch/ecari-auction/ui/app/details/app?id=1147",
+      "sourceFetchedAt": "2026-10-11T12:54:41.785Z",
+      "lastVerifiedAt": "2026-10-11T12:54:41.785Z",
+      "firstSeenAt": "2026-10-05T14:45:17.629Z",
+      "lastSeenAt": "2026-10-11T12:54:41.785Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "cf362c371834"
+    }
+  ]
+}

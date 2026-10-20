@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * check-journalist-article-links.mjs — Per-article live internal-link health
  * check for journalist-published content (issue #3174).
@@ -48,6 +49,7 @@
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { checkPageBodyLive, runWithConcurrency, DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const FETCH_TIMEOUT_MS = 10_000;
@@ -56,14 +58,7 @@ const HEAD_CONCURRENCY = 5;
 const MAX_BROKEN_URLS_STORED = 10;
 
 async function initDb() {
-  const admin = (await import('firebase-admin')).default;
-  if (!admin.apps?.length) {
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return admin.firestore();
+  return getFirestoreDb();
 }
 
 /** Same-quote-flexible <a href> extraction as scripts/validate-internal-links.mjs,
@@ -183,7 +178,7 @@ async function main() {
 
 const invokedDirectly = (() => {
   try {
-    return import.meta.url === pathToFileURL(process.argv[1] || '').href;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

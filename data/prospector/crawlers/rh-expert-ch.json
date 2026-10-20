@@ -1,0 +1,20 @@
+{
+  "companyKey": "rh-expert-ch",
+  "candidateKey": "rh-expert@geneve",
+  "revalidateRejectedWithSourceAdapter": true,
+  "companyName": "RH-Expert",
+  "companyHost": "rh-expert.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://rh-expert.ch/fr/offres-demploi"
+  ],
+  "detailTemplate": "/fr/offres-demploi/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 1,
+  "sampleVacancyCount": 16,
+  "sampleTitles": ["Pâtissier", "Commis de cuisine", "Commis de salle", "Maîtres d'hôtel", "Femme de chambre"],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-01T11:41:49.013Z"
+}

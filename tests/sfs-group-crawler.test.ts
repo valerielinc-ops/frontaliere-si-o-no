@@ -321,11 +321,11 @@ describe('fetchAllSfsGroupJobs', () => {
     const href2 = '/ch/en/vacancies/mitarbeiter-in-kommissionierung-50-(m-f-d).html';
     const listingHtml = buildListingHtml([
       listingRow(href1, 'Digital Process Manager (m/f/d) 100%', 'Heerbrugg, Schweiz', 'SFS Group Schweiz AG'),
-      listingRow(href2, 'Mitarbeiter/in Kommissionierung 50 % (m/f/d) 50%', 'Rebstein, Schweiz', 'SFS Group Schweiz AG'),
+      listingRow(href2, 'Mitarbeiter/in Kommissionierung 50 % (m/f/d) 50%', 'Neuchâtel et Vallées, Schweiz', 'SFS Group Schweiz AG'),
     ]);
     stubFetch(listingHtml, {
       [href1]: buildDetailHtml({ vacancyId: '2956' }),
-      [href2]: buildDetailHtml({ vacancyId: '3010', intro: 'Kommissionierung am Standort Rebstein.' }),
+      [href2]: buildDetailHtml({ vacancyId: '3010', intro: 'Kommissionierung am Standort Neuchâtel et Vallées.' }),
     });
 
     const jobs = await fetchAllSfsGroupJobs();
@@ -346,11 +346,11 @@ describe('fetchAllSfsGroupJobs', () => {
 
     const commissioning = jobs.find((j) => j.url.includes(href2));
     expect(commissioning).toBeTruthy();
-    expect(commissioning.location).toBe('Rebstein');
-    // Rebstein is NOT Heerbrugg — must NOT inherit the HQ street address.
-    expect(commissioning.streetAddress).toBeUndefined();
-    // But postalCode must still get a safe canton-level default (never blank).
-    expect(commissioning.postalCode).toBe('9000');
+    expect(commissioning.location).toBe('Neuchâtel et Vallées');
+    // An unresolved source locality keeps its own name as street fallback and
+    // receives the verified canton representative ZIP.
+    expect(commissioning.streetAddress).toBe('Neuchâtel et Vallées');
+    expect(commissioning.postalCode).toBe('2000');
     expect(commissioning.employmentType).toBe('PART_TIME');
   });
 
@@ -369,7 +369,7 @@ describe('fetchAllSfsGroupJobs', () => {
     expect(jobs[0].canton).toBe('SH');
   });
 
-  it('falls back to a synthesized description when the detail fetch fails, without dropping the job', async () => {
+  it('keeps the job without inventing a description when the detail fetch fails (thin-source path)', async () => {
     const href = '/ch/en/vacancies/some-role-(m-f-d).html';
     const listingHtml = buildListingHtml([
       listingRow(href, 'Some Role (m/f/d) 100%', 'Heerbrugg, Schweiz', 'SFS Group Schweiz AG'),
@@ -383,9 +383,15 @@ describe('fetchAllSfsGroupJobs', () => {
     }));
 
     const jobs = await fetchAllSfsGroupJobs();
+    // The parser still emits the job — it does not vanish silently — but with
+    // no text of its own: the former "<Titel> bei <Gesellschaft> (SFS Group) in
+    // <Ort>." is gone, and validateDedicatedLocaleCoverage quarantines the
+    // empty description (empty_source_description) instead of publishing it.
     expect(jobs).toHaveLength(1);
-    expect(jobs[0].description).toMatch(/Some Role/);
-    expect(jobs[0].description).toMatch(/SFS Group/);
+    expect(jobs[0].url).toContain('/ch/en/vacancies/some-role-(m-f-d).html');
+    expect(jobs[0].description).toBe('');
+    expect(Object.values(jobs[0].descriptionByLocale)).toEqual(['']);
+    expect(jobs[0].description).not.toMatch(/SFS Group|Some Role/);
   });
 
   it('returns [] (no throw) when the listing itself fails', async () => {

@@ -6,11 +6,14 @@ import {
  getBehaviorData,
  readBehaviorAndMarkVisit,
  trackJobViewBehavior,
+ trackApplicationIntent,
   trackSearch,
   trackFilterUsage,
   getLastVisitTimestamp,
   updateLastVisit,
   mergeBehavior,
+  setApplicationIntentAccount,
+  setApplicationIntentOptOut,
   type BehaviorData,
 } from '@/services/behaviorTracker';
 
@@ -88,6 +91,69 @@ describe('trackJobViewBehavior', () => {
     expect(data.viewedJobs.length).toBeLessThanOrEqual(100);
     // Most recent entries should be preserved
     expect(data.viewedJobs.some((v) => v.slug === 'job-109')).toBe(true);
+  });
+});
+
+describe('application-intent ranking projection', () => {
+  it('stores only a bounded redirect-only key and its 90-day retention', () => {
+    const now = Date.parse('2026-09-26T12:00:00.000Z');
+    expect(trackApplicationIntent('acme:software-engineer-lugano', now)).toBe(true);
+    const intent = getBehaviorData().applicationIntent?.intents[0];
+    expect(intent).toEqual({
+      jobKey: 'acme:software-engineer-lugano',
+      application_status: 'redirect_only',
+      timestamp: now,
+      retentionUntil: now + 90 * 24 * 60 * 60 * 1000,
+    });
+    expect(JSON.stringify(intent)).not.toContain('application_completed');
+  });
+
+  it('does not record a ranking signal after applicationIntent.optedOut', () => {
+    localStorage.setItem('frontaliere_job_personalization', JSON.stringify({
+      ...emptyBehavior(),
+      applicationIntent: { optedOut: true, intents: [] },
+    }));
+    expect(trackApplicationIntent('acme:software-engineer-lugano')).toBe(false);
+    expect(getBehaviorData().applicationIntent?.optedOut).toBe(true);
+    expect(getBehaviorData().applicationIntent?.intents).toEqual([]);
+  });
+
+  it('clears anonymous and previous-account signals at an Auth boundary', () => {
+    expect(trackApplicationIntent('anonymous:role', Date.now())).toBe(true);
+    setApplicationIntentAccount('uid-current');
+    expect(getBehaviorData().applicationIntent).toBeUndefined();
+    expect(getBehaviorData().applicationIntentAuthUid).toBe('uid-current');
+
+    expect(trackApplicationIntent('current:role', Date.now(), 'uid-current')).toBe(true);
+    setApplicationIntentAccount('uid-other');
+    expect(getBehaviorData().applicationIntent).toBeUndefined();
+    expect(getBehaviorData().applicationIntentAuthUid).toBe('uid-other');
+  });
+
+  it('applies the account opt-out locally and clears ranking signals', () => {
+    expect(trackApplicationIntent('acme:role', Date.now(), 'uid-current')).toBe(true);
+    setApplicationIntentOptOut(true, 'uid-current');
+    expect(trackApplicationIntent('acme:another-role', Date.now(), 'uid-current')).toBe(false);
+    expect(getBehaviorData().applicationIntent).toEqual({ optedOut: true, intents: [] });
+  });
+
+  it('prunes expired application intents while merging opt-out fail-closed', () => {
+    const now = Date.now();
+    const local = emptyBehavior();
+    local.applicationIntent = {
+      optedOut: false,
+      intents: [{
+        jobKey: 'acme:expired',
+        application_status: 'redirect_only',
+        timestamp: now - 91 * 24 * 60 * 60 * 1000,
+        retentionUntil: now - 24 * 60 * 60 * 1000,
+      }],
+    };
+    const cloud = emptyBehavior();
+    cloud.applicationIntent = { optedOut: true, intents: [] };
+    const merged = mergeBehavior(local, cloud);
+    expect(merged.applicationIntent?.optedOut).toBe(true);
+    expect(merged.applicationIntent?.intents).toEqual([]);
   });
 });
 

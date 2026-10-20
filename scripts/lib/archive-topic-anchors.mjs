@@ -40,7 +40,7 @@
  *
  * That keeps the probe under bare `node`. Recomputing the expectation instead
  * — `computeEligibleTopicKeys` from `packages/articles/engine` — is TypeScript
- * (`npx -y tsx@4` would do, no `npm ci`, as `rerender-article-corpus.yml`
+ * (`npx -y tsx@4.23.15` would do, no `npm ci`, as `rerender-article-corpus.yml`
  * already shows), but it answers a different question: what the WATCHDOG's
  * checkout would emit, from the site repo's copy of the corpus, not what the
  * site published. Two extra HTTP GETs beat both a TypeScript loader and a

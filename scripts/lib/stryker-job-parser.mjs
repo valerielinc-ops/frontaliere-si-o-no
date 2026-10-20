@@ -25,15 +25,17 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
-  parseWorkdayPostedDate,
+  fetchWorkdayJobDetailParts,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -146,7 +148,7 @@ async function fetchJobListings() {
         title: id.title,
         location: id.location,
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -176,13 +178,13 @@ export async function fetchAllStrykerJobs() {
   console.log(`  📋 Swiss listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.location || 'Selzach';
-    // Skip if Workday returned a clearly-foreign location despite the country filter
-    // (Workday sometimes returns "N Locations" rollups — handled by fallback to Selzach).
+    const rawLocation = normalizeSpace(listing.location || '');
+    // Skip if Workday returned a clearly-foreign location despite the country filter.
     if (isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
       continue;
@@ -192,29 +194,41 @@ export async function fetchAllStrykerJobs() {
     const cleanedLocation = String(rawLocation)
       .replace(/,?\s*(switzerland|schweiz|suisse|svizzera)\s*$/i, '')
       .trim();
-    const location = cleanedLocation && !/\d+\s+location/i.test(cleanedLocation) ? cleanedLocation : 'Selzach';
-    const canton = inferSwissTargetCanton(location) || 'SO';
+    // An "N Locations" roll-up (or an empty location) names no site: only the
+    // req's own primary workplace may place it in Switzerland. The Selzach HQ
+    // used to fill the gap, so a req worked abroad and cross-posted to a Swiss
+    // site went out as `Selzach/SO` (issue 9842).
+    const location = cleanedLocation && !/\d+\s+location/i.test(cleanedLocation)
+      ? cleanedLocation
+      : await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = location ? await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location) : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
 
     // Workday listing endpoint NEVER returns the job body — fetch detail.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
+    // One detail request: the body, and the `timeType` the CXS listing row
+    // never carries.
+    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
     );
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${STRYKER_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Employer: Stryker — global leader in medical technology (orthopaedics, medical & surgical, neurotechnology).',
-      '• Swiss footprint: R&D + manufacturing hubs in Selzach (SO) and Biberist (SO).',
-      '• Apply: Stryker Workday careers portal.',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} ${STRYKER_KEY} ch`);
@@ -253,7 +267,7 @@ export async function fetchAllStrykerJobs() {
       sector: 'Medtech / Dispositivi medici',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: detailInfo })),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -264,6 +278,9 @@ export async function fetchAllStrykerJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${STRYKER_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

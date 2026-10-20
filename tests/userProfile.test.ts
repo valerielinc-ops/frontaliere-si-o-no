@@ -34,8 +34,8 @@ describe('UserProfile helpers', () => {
       expect(profile.familySituation).toBe('');
       expect(profile.frontaliereType).toBe('');
       expect(profile.municipality).toBe('');
-      expect(profile.children).toBe('0');
-      expect(profile.familyMembers).toBe('1');
+      expect(profile.children).toBe('');
+      expect(profile.familyMembers).toBe('');
     });
 
     it('loads saved profile from localStorage', () => {
@@ -50,7 +50,7 @@ describe('UserProfile helpers', () => {
         familyMembersList: [],
         ...BASE_FIELDS,
       };
-      localStorage.setItem('frontaliere_user_profile', JSON.stringify(saved));
+      localStorage.setItem('frontaliere_user_profile:anonymous', JSON.stringify(saved));
       const profile = loadUserProfile();
       expect(profile.workPosition).toBe('Software Engineer');
       expect(profile.age).toBe('26-35');
@@ -61,18 +61,49 @@ describe('UserProfile helpers', () => {
       expect(profile.familyMembers).toBe('4');
     });
 
+    it('keeps the ownerless legacy profile hidden until explicit recovery', () => {
+      localStorage.setItem('frontaliere_user_profile', JSON.stringify({ familySituation: 'married' }));
+
+      const profile = loadUserProfile();
+
+      expect(profile.familySituation).toBe('');
+      expect(localStorage.getItem('frontaliere_user_profile')).not.toBeNull();
+      expect(localStorage.getItem('frontaliere_user_profile:anonymous')).toBeNull();
+    });
+
+    it('does not expose an ownerless legacy profile to a signed-in account', () => {
+      localStorage.setItem('frontaliere_user_profile', JSON.stringify({ familySituation: 'married' }));
+
+      const profile = loadUserProfile('account-123');
+
+      expect(profile.familySituation).toBe('');
+      expect(localStorage.getItem('frontaliere_user_profile')).not.toBeNull();
+      expect(localStorage.getItem('frontaliere_user_profile:anonymous')).toBeNull();
+      expect(localStorage.getItem('frontaliere_user_profile:account-123')).toBeNull();
+    });
+
+    it('keeps the anonymous scoped profile and the ownerless legacy copy separate', () => {
+      localStorage.setItem('frontaliere_user_profile', JSON.stringify({ familySituation: 'married' }));
+      localStorage.setItem('frontaliere_user_profile:anonymous', JSON.stringify({ familySituation: 'single' }));
+
+      const profile = loadUserProfile();
+
+      expect(profile.familySituation).toBe('single');
+      expect(localStorage.getItem('frontaliere_user_profile')).not.toBeNull();
+    });
+
     it('handles corrupted localStorage gracefully', () => {
-      localStorage.setItem('frontaliere_user_profile', 'not-json');
+      localStorage.setItem('frontaliere_user_profile:anonymous', 'not-json');
       const profile = loadUserProfile();
       expect(profile.workPosition).toBe('');
     });
 
     it('merges partial data with defaults', () => {
-      localStorage.setItem('frontaliere_user_profile', JSON.stringify({ workPosition: 'Dev' }));
+      localStorage.setItem('frontaliere_user_profile:anonymous', JSON.stringify({ workPosition: 'Dev' }));
       const profile = loadUserProfile();
       expect(profile.workPosition).toBe('Dev');
-      expect(profile.children).toBe('0');
-      expect(profile.familyMembers).toBe('1');
+      expect(profile.children).toBe('');
+      expect(profile.familyMembers).toBe('');
     });
   });
 
@@ -123,22 +154,22 @@ describe('UserProfile helpers', () => {
       expect(result.maritalStatus).toBe('SINGLE');
     });
 
-    it('maps permit-g → NEW', () => {
+    it('does not infer the tax regime from permit-g', () => {
       const profile: UserProfileData = {
         workPosition: '', age: '', familySituation: '', frontaliereType: 'permit-g',
         municipality: '', children: '0', familyMembers: '1', ...BASE_FIELDS,
       };
       const result = profileToSimInputs(profile);
-      expect(result.frontierWorkerType).toBe('NEW');
+      expect(result.frontierWorkerType).toBeUndefined();
     });
 
-    it('maps permit-b → OLD', () => {
+    it('does not infer the tax regime from permit-b', () => {
       const profile: UserProfileData = {
         workPosition: '', age: '', familySituation: '', frontaliereType: 'permit-b',
         municipality: '', children: '0', familyMembers: '1', ...BASE_FIELDS,
       };
       const result = profileToSimInputs(profile);
-      expect(result.frontierWorkerType).toBe('OLD');
+      expect(result.frontierWorkerType).toBeUndefined();
     });
 
     it('maps children count correctly', () => {
@@ -249,7 +280,7 @@ describe('UserProfile helpers', () => {
           { id: '1', relationship: 'child', birthYear: '2020', liveTogether: true, dependent: true },
         ],
       };
-      localStorage.setItem('frontaliere_user_profile', JSON.stringify(profile));
+      localStorage.setItem('frontaliere_user_profile:anonymous', JSON.stringify(profile));
       const loaded = loadUserProfile();
       expect(loaded.familyMembersList).toHaveLength(1);
       expect(loaded.familyMembersList![0].relationship).toBe('child');

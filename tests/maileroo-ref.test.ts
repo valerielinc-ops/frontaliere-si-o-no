@@ -169,6 +169,8 @@ const CF_SENDERS_REQUIRING_REF = [
   'newsletterWelcomeEmail.js',
   'newsletterConfirmationEmail.js',
   'sendCalculatorReport.js',
+  // Its candidate e-mails report opens and clicks to the admin panel (assistedApplicationEmailEvents.js).
+  'assistedApplicationNotifications.js',
 ];
 
 const CF_SENDERS_EXEMPT: Record<string, string> = {

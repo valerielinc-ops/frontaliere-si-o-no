@@ -4,14 +4,15 @@ import { persistMailtrapEvent } from '../functions/src/newsletterMailtrapWebhook
 /**
  * `existingEvents` seeds the `events` subcollection per doc (keyed by
  * `${collection}/${docId}`) so refreshPreferredSendHour's
- * `.collection('events').orderBy('occurred_at', 'desc').limit(300).get()`
+ * `.collection('events').where('event_type', 'in', ['open', 'click'])`
+ * `.orderBy('occurred_at', 'desc').limit(300).get()`
  * query (FRO — #3798) has something to read. Real Firestore query semantics
  * (actual ordering/limiting) aren't reproduced — these tests only need the
  * seeded docs to come back so the sample count/hour computation runs.
  * Mirrors tests/newsletter-mailjet-webhook-core.test.ts.
  */
 function createFakeDb(
-  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  existingDocs: Record<string, Record<string, Record<string, unknown> | null>> = {},
   existingEvents: Record<string, Array<Record<string, unknown>>> = {},
 ) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
@@ -24,7 +25,15 @@ function createFakeDb(
           sets.push({ collection: name, docId, data });
         },
         get: async () => {
-          const docData = existingDocs[name]?.[docId];
+          // A recipient is a known subscriber unless the test says otherwise:
+          // a provider event never creates the subscriber record
+          // (mergeAccountDeletedSubscriberUpdate, lib/subscriberReactivation.js),
+          // so a test about what an event WRITES needs the document to exist.
+          // Seed `null` for a recipient with no document.
+          const seeded = existingDocs[name] || {};
+          const docData = docId in seeded
+            ? seeded[docId]
+            : (name === 'newsletter_subscribers' || name === 'job_alert_subscribers' ? {} : undefined);
           return {
             exists: !!docData,
             data: () => docData || {},
@@ -43,12 +52,14 @@ function createFakeDb(
             },
             // Minimal query shim: only `events` collections are queried
             // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
-            orderBy: () => ({
-              limit: () => ({
-                get: async () => {
-                  const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
-                  return { docs: seeded.map((d) => ({ data: () => d })) };
-                },
+            where: () => ({
+              orderBy: () => ({
+                limit: () => ({
+                  get: async () => {
+                    const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+                    return { docs: seeded.map((d) => ({ data: () => d })) };
+                  },
+                }),
               }),
             }),
           };
@@ -312,5 +323,23 @@ describe('newsletterMailtrapWebhookCore — campaign attribution', () => {
       message_id: 'mt-message-id',
     } as any);
     expect(campaignOf(db)).toBe('winback-2026-08-20');
+  });
+});
+
+describe('newsletterMailtrapWebhookCore — a provider event never creates the subscriber record', () => {
+  it.each([
+    ['newsletter', undefined, 'newsletter_subscribers'],
+    ['job alert', { type: 'job-alert' }, 'job_alert_subscribers'],
+  ])('writes nothing for a recipient with no %s document', async (_label, customVariables, collection) => {
+    const db = createFakeDb({ [collection]: { 'nobody@example.com': null } });
+    for (const event of ['delivery', 'open', 'click', 'bounce', 'spam_complaint', 'unsubscribe']) {
+      const result = await persistMailtrapEvent(db as any, {
+        event, email: 'nobody@example.com', message_id: 'm1', timestamp: 1700000000,
+        ...(customVariables ? { custom_variables: customVariables } : {}),
+      });
+      expect(result, event).toEqual({ skipped: true, reason: 'unknown_recipient' });
+    }
+    expect(db.__sets).toEqual([]);
+    expect(db.__adds).toEqual([]);
   });
 });

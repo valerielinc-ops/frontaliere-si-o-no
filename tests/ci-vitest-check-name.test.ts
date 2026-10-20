@@ -105,7 +105,7 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
   });
 
   it('keeps the full commit history treeless and gates both assemble steps', () => {
-    const checkoutStart = TESTS_YML.indexOf('- uses: actions/checkout@v5');
+    const checkoutStart = TESTS_YML.indexOf('- uses: actions/checkout@v7');
     const setupStart = TESTS_YML.indexOf('- name: Setup Node.js', checkoutStart);
     const checkout = TESTS_YML.slice(checkoutStart, setupStart);
     const cacheStart = TESTS_YML.indexOf('- name: Cache assemble-jobs output');
@@ -436,7 +436,8 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(RELATED_RUNNER).toContain('file !== \'scripts/ci/run-related-tests.mjs\'');
     expect(RELATED_RUNNER).toContain('sourceRe.test(file)');
     expect(RELATED_RUNNER).not.toContain('implicitTestDependencyRe');
-    expect(RELATED_RUNNER).toContain('No static related edge found');
+    expect(RELATED_RUNNER).toContain('The conservative full-suite fallback is disabled');
+    expect(RELATED_RUNNER).toContain('stopWithoutFullSuite');
     expect(RELATED_RUNNER).toContain('const visited = new Set()');
     expect(RELATED_RUNNER).toContain('function stripComments');
     expect(RELATED_RUNNER).toContain('CHANGED_PATHS_STATUS_FILE');
@@ -455,8 +456,14 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain('/REVIEW.md');
     expect(TESTS_YML).toContain('/AGENTS.md');
     expect(TESTS_YML).toContain('/firestore.rules');
-    expect(TESTS_YML).toContain('/docs/preferred-sources-checklist.md');
+    // Tutti i markdown di docs/, compreso docs/preferred-sources-checklist.md:
+    // i test li leggono a runtime e un carve-out per file arrivava sempre dopo
+    // il primo ENOENT in CI.
+    expect(TESTS_YML).toContain('/docs/**/*.md');
+    // Non l'intera cartella: 140 MB su 142,8 sono artefatti di docs/newsletter-qa.
+    expect(TESTS_YML).not.toMatch(/^\s+\/docs\/\s*$/m);
     expect(TESTS_YML).toContain('/packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts');
+    expect(TESTS_YML).toContain('/packages/articles/content/blog-body/*/como-fai-giornate-autunno.ts');
     expect(TESTS_YML).toContain('hard repository-tool budget');
   });
 
@@ -464,8 +471,28 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain(
       'if [ ! -s changed-paths.txt ] && [ -z "$PR_NUMBER" ] && [ -n "${compare_base:-}" ] && [ -n "$AFTER_SHA" ]; then',
     );
-    expect(TESTS_YML).toContain('git diff --name-only "$compare_base" "$AFTER_SHA" > changed-paths.txt');
+    expect(TESTS_YML).toContain('git diff --name-only "$compare_base" "$AFTER_SHA" > "$local_diff_file"');
+    expect(TESTS_YML).toContain('if ! mv "$local_diff_file" changed-paths.txt 2>/dev/null; then');
+    expect(TESTS_YML).toContain('return 1');
+    expect(TESTS_YML).toContain(
+      'if [ "$(cat changed-paths-status.txt 2>/dev/null || true)" = "complete" ]; then',
+    );
     expect(TESTS_YML).toContain('fallback su diff locale degli SHA');
+  });
+
+  it('recupera il diff locale quando compare raggiunge il cap dei 300 file', () => {
+    const start = TESTS_YML.indexOf('- name: Collect changed paths');
+    const end = TESTS_YML.indexOf('\n      - name:', start + 1);
+    const collector = TESTS_YML.slice(start, end < 0 ? undefined : end);
+    const capFallback = collector.slice(collector.indexOf('if [ "$count" -ge "$cap" ]'));
+
+    expect(collector).toContain('use_local_sha_diff()');
+    expect(collector).toContain('local_sha_diff_complete=false');
+    expect(collector).toContain('local_sha_diff_complete=true');
+    expect(capFallback).toContain('use_local_sha_diff true');
+    expect(capFallback).toContain('diff locale completo: $count path toccati');
+    expect(capFallback).toContain('[ "$local_sha_diff_complete" != "true" ]');
+    expect(capFallback).toContain("printf '%s\\n' partial > changed-paths-status.txt");
   });
 
   it('materializza gli artifact del diff sul solo percorso PR trusted', () => {

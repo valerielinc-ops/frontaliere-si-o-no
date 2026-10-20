@@ -1,0 +1,316 @@
+/**
+ * The follow-up sweep (rules in assistedApplicationFollowup.js):
+ *
+ *   scheduled ──due──▶ Codex drafts follow-up n ──▶ awaiting_candidate
+ *        (the candidate gets it; it leaves at the deadline, 12 h, or on "send")
+ *   awaiting_candidate ──deadline / "send"──▶ sending ──▶ sent n
+ *        ──▶ scheduled (day 14) | done (after the 2nd)
+ *   any ──employer replied / "stop" / not sendable──▶ stopped
+ *
+ * A send is claimed in a transaction (awaiting_candidate → sending), so the
+ * candidate's click and the sweep can never send the same follow-up twice;
+ * a send whose outcome is unknown is never retried (career-ops).
+ */
+
+import { checkDraftFacts } from './assistedApplicationAiDraftCore.js';
+import { draftRefFor, flowRefFor, isAutomationEnabled, orderRefFor } from './assistedApplicationAutomation.js';
+import { candidateWithEdits, factSourcesNow } from './assistedApplicationCandidateEdits.js';
+import { buildCandidateAutomationEmail } from './assistedApplicationAutomationEmails.js';
+import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { EMPLOYER_MAIL_FROM, senderName, textToHtml, replySubject } from './assistedApplicationEmployerMail.js';
+import { assistedEmailTracking, assistedMailerooRefOnSent } from './assistedApplicationEmailEvents.js';
+import {
+  DAY_MS,
+  FOLLOWUP_REVIEW_MS,
+  FOLLOWUP_SCHEMA,
+  MAX_FOLLOWUPS,
+  employerReplied,
+  followupDueAt,
+  followupRefFor,
+  followupSystemPrompt,
+  followupUserText,
+  inboxUnclassified,
+  sanitizeFollowup,
+} from './assistedApplicationFollowup.js';
+import { ASSISTED_APPLICATION_SENDER, buildReviewPageUrl, customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
+import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
+
+const SENDING_STALE_MS = 30 * 60 * 1000;
+// Next look at an order whose inbox holds a message still being classified.
+const UNCLASSIFIED_WAIT_MS = 30 * 60 * 1000;
+const MAX_SEND_ATTEMPTS = 2;
+const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
+
+function formatAppliedOn(ms, language) {
+  try {
+    return new Intl.DateTimeFormat(INTL[language] || 'it-CH', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Zurich' }).format(new Date(ms));
+  } catch {
+    return new Date(ms).toISOString().slice(0, 10);
+  }
+}
+
+async function loadContext(db, orderId, sinceMs = 0) {
+  const [orderSnapshot, followupSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([
+    orderRefFor(db, orderId).get(),
+    followupRefFor(db, orderId).get(),
+    draftRefFor(db, orderId).get(),
+    // The candidate's corrections from the review page (name) sign the follow-ups.
+    flowRefFor(db, orderId).get(),
+  ]);
+  const followup = followupSnapshot.exists ? followupSnapshot.data() || null : null;
+  const inboxSnapshot = await orderRefFor(db, orderId).collection('inbox').where('receivedAt', '>=', Number(followup?.submittedAt ?? sinceMs)).get();
+  return {
+    order: orderSnapshot.data() || {},
+    followup,
+    draft: draftSnapshot.exists ? draftSnapshot.data() || {} : {},
+    flow: flowSnapshot.exists ? flowSnapshot.data() || {} : {},
+    inbox: (inboxSnapshot.docs || []).map((doc) => doc.data() || {}),
+  };
+}
+
+async function update(db, orderId, followup, patch, event, nowMs, dueAt = null) {
+  const history = [...(followup.history || []), { at: nowMs, ...event }].slice(-20);
+  await followupRefFor(db, orderId).set({ ...patch, history }, { merge: true });
+  await orderRefFor(db, orderId).set({ followupDueAt: dueAt }, { merge: true });
+}
+
+async function stop(db, orderId, followup, reason, nowMs) {
+  await update(db, orderId, followup, { state: 'stopped', stopReason: reason, dueAt: null }, { event: 'stopped', reason }, nowMs, null);
+  return { ok: true, stopped: reason };
+}
+
+const FOLLOWUP_TIMEOUT_MS = 420_000;
+// The one repair of a follow-up the fact gate stops: shorter than a first writing.
+const REPAIR_TIMEOUT_MS = 120_000;
+// The scheduled function has 540 s for the whole sweep (functions/index.js), whatever the number of
+// follow-ups due. A follow-up is drafted only while the sweep has the time for a first writing and its
+// repair; a call never gets more time than the sweep has left; what is written and sent after it has its
+// margin. A follow-up that is not started stays due: the next sweep, 30 minutes later, takes it.
+export const SWEEP_BUDGET_MS = 510_000;
+const DRAFT_NEEDS_MS = 300_000;
+const WRITE_MARGIN_MS = 15_000;
+
+/** Codex drafts follow-up n; the candidate gets it with the 12-hour clock. */
+async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, getSecret, timeLeft = () => Infinity }) {
+  const { order, followup, draft, flow } = context;
+  const n = Number(followup.sent || 0) + 1;
+  const language = draft.language || 'it';
+  const appliedOn = formatAppliedOn(followup.submittedAt, language);
+  const days = Math.max(1, Math.round((nowMs - followup.submittedAt) / DAY_MS));
+  const previous = [...(followup.history || [])].reverse().find((item) => item.event === 'sent')?.body || null;
+  // The date and the day count the model was given are facts too. The
+  // follow-up is a claim field (CLAIM_FIELDS): it leaves in the candidate's
+  // name, so a figure only the posting gives is not the candidate's.
+  // With the candidate's permit status of now (decision 8).
+  const sources = { ...factSourcesNow({ order, draft, flow }), order: `${draft.factSources?.order || ''}\n${appliedOn}\n${days}` };
+  const write = async (factCheckFindings = [], timeoutMs = FOLLOWUP_TIMEOUT_MS) => {
+    const raw = await codex({
+      systemPrompt: followupSystemPrompt(language, n),
+      userText: followupUserText({
+        companyName: order.companyName,
+        roleTitle: draft.job?.title || order.jobTitle,
+        contactPerson: draft.contactPerson,
+        appliedOn,
+        days,
+        application: { subject: followup.subject, body: draft.applicationEmail?.body || '' },
+        previousFollowup: previous,
+        evidence: (draft.matches || []).filter((item) => item.status === 'met' && item.evidence).slice(0, 4).map((item) => item.evidence),
+        postingExcerpt: draft.factSources?.posting || '',
+        factCheckFindings,
+      }),
+      schema: FOLLOWUP_SCHEMA,
+      name: 'followup',
+      timeoutMs,
+    });
+    const written = sanitizeFollowup(raw, { n });
+    return { ...written, facts: checkDraftFacts({ followup: written.body }, sources) };
+  };
+  let { body, violations, facts } = await write([], Math.min(FOLLOWUP_TIMEOUT_MS, Math.max(1000, timeLeft() - WRITE_MARGIN_MS)));
+  // Self-repair (2026-10-07, as scripts/assisted-application/lib/draft.mjs does for the letter): a follow-up
+  // the fact gate stops is written once more, the model told what the gate did not find, and kept only when
+  // the gate passes it. Only while the sweep has the time for it (SWEEP_BUDGET_MS).
+  if (!violations.length && !facts.ok && timeLeft() >= REPAIR_TIMEOUT_MS + WRITE_MARGIN_MS) {
+    const findings = facts.unsupported.slice(0, 12).map(({ kind, token, context }) => ({ kind, token, context }));
+    const again = await write(findings, REPAIR_TIMEOUT_MS).catch(() => null);
+    if (again && !again.violations.length && again.facts.ok) ({ body, violations, facts } = again);
+  }
+  const pending = { n, body, subject: replySubject(followup.subject), createdAt: nowMs, deadlineAt: nowMs + FOLLOWUP_REVIEW_MS, attempts: 0 };
+  if (violations.length || !facts.ok) {
+    // Not sendable as written: kept for the owner queue, never sent.
+    await update(db, orderId, followup, { state: 'stopped', stopReason: violations[0] || 'fact_check', pending, dueAt: null }, { event: 'held', n, reason: violations.join(',') || 'fact_check' }, nowMs, null);
+    return { ok: true, held: violations.length ? violations : ['fact_check'] };
+  }
+  await update(db, orderId, followup, { state: 'awaiting_candidate', pending, dueAt: pending.deadlineAt }, { event: 'drafted', n }, nowMs, pending.deadlineAt);
+
+  const to = customerEmailFor(order);
+  if (to) {
+    const locale = resolveOrderLocale(order);
+    const token = mintReviewToken({ secret: await getSecret(), orderId, round: n, kind: 'followup', nowMs, ttlMs: 14 * DAY_MS });
+    const email = buildCandidateAutomationEmail('candidate_followup_review', {
+      locale,
+      name: candidateWithEdits({ order, draft, flow }).identity.name,
+      job: draft.job?.title || order.jobTitle,
+      company: order.companyName,
+      jobUrl: order.jobUrl,
+      reviewUrl: buildReviewPageUrl(order, token, locale),
+      deadlineAt: pending.deadlineAt,
+      days,
+      followupText: body,
+      orderId,
+    });
+    await sendCascade([{
+      payload: { from: ASSISTED_APPLICATION_SENDER, to: [to], subject: email.subject, html: email.html, text: email.text, ...assistedEmailTracking(orderId, `followup_review_${n}`) },
+      recipient: { email: to },
+      meta: { orderId, key: `followup_review_${n}` },
+    }], { delayMs: 0, onSent: assistedMailerooRefOnSent(db) });
+  }
+  return { ok: true, drafted: n };
+}
+
+/**
+ * Sends the pending follow-up to the employer (claimed in a transaction).
+ * @param {'candidate'|'deadline'} by
+ */
+export async function sendFollowup({ db, orderId, nowMs, sendCascade, by }) {
+  const ref = followupRefFor(db, orderId);
+  let claimed = null;
+  await db.runTransaction(async (transaction) => {
+    // Firestore retries a contended transaction: a retry that finds the
+    // follow-up already claimed must not keep the first attempt's claim, or the
+    // click and the sweep would both send it.
+    claimed = null;
+    const snapshot = await transaction.get(ref);
+    const current = snapshot.data();
+    if (current?.state !== 'awaiting_candidate' || !current.pending) return;
+    transaction.set(ref, { state: 'sending', sendingSince: nowMs }, { merge: true });
+    claimed = current;
+  });
+  if (!claimed) return { ok: false, error: 'not_pending' };
+  const { order, draft, flow } = await loadContext(db, orderId);
+  const pending = claimed.pending;
+  const { identity } = candidateWithEdits({ order, draft, flow });
+  // career-ops: never a phone number in a generated message.
+  const text = `${pending.body}\n\n${[identity.name, identity.email].filter(Boolean).join('\n')}`;
+  const messageId = claimed.messageId;
+  const { failed, sent } = await sendCascade([{
+    payload: {
+      from: `${senderName(identity.name)} <${EMPLOYER_MAIL_FROM}>`,
+      to: [claimed.to],
+      subject: pending.subject,
+      text,
+      html: textToHtml(text),
+      ...(identity.email ? { replyTo: identity.email } : {}),
+      ...(messageId ? { headers: { 'In-Reply-To': messageId, References: messageId } } : {}),
+      // Sent in the candidate's name: no link rewriting and no open pixel.
+      tracking: false,
+      openTracking: false,
+    },
+    recipient: { email: claimed.to },
+    meta: { orderId, key: `employer_followup_${pending.n}` },
+  }], { delayMs: 0, forceProvider: 'resend' });
+
+  if (failed.length) {
+    if (failed[0].ambiguousDelivery || pending.attempts + 1 >= MAX_SEND_ATTEMPTS) {
+      return stop(db, orderId, claimed, failed[0].ambiguousDelivery ? 'send_ambiguous' : 'send_failed', nowMs);
+    }
+    const retryAt = nowMs + 60 * 60 * 1000;
+    await update(db, orderId, claimed, { state: 'awaiting_candidate', pending: { ...pending, attempts: pending.attempts + 1 }, dueAt: retryAt }, { event: 'send_failed', n: pending.n }, nowMs, retryAt);
+    return { ok: false, error: 'send_failed' };
+  }
+  const next = followupDueAt(claimed.submittedAt, pending.n + 1);
+  // A follow-up approved late never makes the next one leave the same day.
+  const nextDue = next ? Math.max(next, nowMs + 3 * DAY_MS) : null;
+  await update(db, orderId, claimed, {
+    state: next ? 'scheduled' : 'done',
+    sent: pending.n,
+    pending: null,
+    dueAt: nextDue,
+    lastSentAt: nowMs,
+  }, { event: 'sent', n: pending.n, by, body: pending.body, provider: sent[0]?.provider || null }, nowMs, nextDue);
+  return { ok: true, sent: pending.n };
+}
+
+/** The candidate's decision from the follow-up page. */
+export async function decideFollowup({ db, orderId, n, decision, nowMs, sendCascade }) {
+  const snapshot = await followupRefFor(db, orderId).get();
+  const followup = snapshot.data();
+  if (followup?.state !== 'awaiting_candidate' || Number(followup.pending?.n) !== Number(n)) return { ok: false, error: 'not_pending' };
+  if (decision === 'skip') return stop(db, orderId, followup, 'candidate_stopped', nowMs);
+  if (decision === 'send') return sendFollowup({ db, orderId, nowMs, sendCascade, by: 'candidate' });
+  return { ok: false, error: 'invalid_decision' };
+}
+
+/** What the follow-up page shows (af1 link). */
+export function followupReviewPayload({ order, draft, followup, n }) {
+  const pending = followup?.pending && Number(followup.pending.n) === Number(n) ? followup.pending : null;
+  const sentItem = (followup?.history || []).find((item) => item.event === 'sent' && Number(item.n) === Number(n));
+  const state = pending && followup.state === 'awaiting_candidate' ? 'awaiting_candidate'
+    : sentItem ? 'sent'
+      : followup?.state === 'stopped' ? 'stopped' : followup?.state || 'unknown';
+  return {
+    ok: true,
+    kind: 'followup',
+    n: Number(n),
+    of: MAX_FOLLOWUPS,
+    state,
+    locale: order?.locale || 'it',
+    deadlineAt: state === 'awaiting_candidate' ? pending.deadlineAt : null,
+    body: pending?.body || sentItem?.body || '',
+    job: { title: draft?.job?.title || order?.jobTitle || '', company: order?.companyName || '' },
+    can: { send: state === 'awaiting_candidate', skip: state === 'awaiting_candidate' },
+  };
+}
+
+async function processFollowup({ db, orderId, nowMs, codex, sendCascade, getSecret, timeLeft = () => Infinity }) {
+  const context = await loadContext(db, orderId);
+  const { order, followup } = context;
+  if (!followup || ['done', 'stopped'].includes(followup.state)) {
+    await orderRefFor(db, orderId).set({ followupDueAt: null }, { merge: true });
+    return { ok: true, idle: true };
+  }
+  if (order.submissionStatus !== 'submitted') return stop(db, orderId, followup, 'order_not_submitted', nowMs);
+  if (employerReplied(context.inbox, followup.submittedAt, nowMs)) return stop(db, orderId, followup, 'employer_replied', nowMs);
+  if (Number(followup.dueAt) > nowMs) {
+    await orderRefFor(db, orderId).set({ followupDueAt: followup.dueAt }, { merge: true });
+    return { ok: true, notDue: true };
+  }
+  if (inboxUnclassified(context.inbox, followup.submittedAt)) {
+    // Neither drafted nor sent while a message that may be the reply is classified.
+    await orderRefFor(db, orderId).set({ followupDueAt: nowMs + UNCLASSIFIED_WAIT_MS }, { merge: true });
+    return { ok: true, waiting: 'inbox_unclassified' };
+  }
+  if (followup.state === 'scheduled') {
+    // No time left for a first writing and its repair: nothing is written, the follow-up stays due.
+    if (timeLeft() < DRAFT_NEEDS_MS) return { ok: true, deferred: 'sweep_budget' };
+    return draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, getSecret, timeLeft });
+  }
+  if (followup.state === 'awaiting_candidate') return sendFollowup({ db, orderId, nowMs, sendCascade, by: 'deadline' });
+  if (followup.state === 'sending' && nowMs - Number(followup.sendingSince || 0) > SENDING_STALE_MS) {
+    // A send interrupted half-way has an unknown outcome: never sent twice.
+    return stop(db, orderId, followup, 'send_ambiguous', nowMs);
+  }
+  return { ok: true, waiting: followup.state };
+}
+
+/**
+ * Scheduled every 30 minutes (functions/index.js), behind the automation flag.
+ * @param {{db, nowMs?:number, codex:Function, sendCascade:Function, getSecret?:Function, isEnabled?:Function, limit?:number,
+ *   clock?:()=>number, budgetMs?:number}} deps clock: the time that passes while the sweep runs (tests pass
+ *   their own); budgetMs: what the sweep may take in all
+ */
+export async function runFollowupSweep({ db, nowMs = Date.now(), codex, sendCascade, getSecret = getReviewTokenSecret, isEnabled = isAutomationEnabled, limit = 5, clock = Date.now, budgetMs = SWEEP_BUDGET_MS }) {
+  if (!(await isEnabled())) return { skipped: 'flag_off' };
+  const deadline = clock() + budgetMs;
+  const timeLeft = () => deadline - clock();
+  const snapshot = await db.collection(ASSISTED_APPLICATIONS_COLLECTION).where('followupDueAt', '<=', nowMs).limit(limit).get();
+  const results = [];
+  for (const doc of snapshot.docs || []) {
+    try {
+      results.push({ orderId: doc.id, ...(await processFollowup({ db, orderId: doc.id, nowMs, codex, sendCascade, getSecret, timeLeft })) });
+    } catch (error) {
+      console.warn('[followupSweep]', doc.id, error instanceof Error ? error.message.slice(0, 120) : String(error));
+      results.push({ orderId: doc.id, ok: false, error: 'exception' });
+    }
+  }
+  return { processed: results.length, results };
+}

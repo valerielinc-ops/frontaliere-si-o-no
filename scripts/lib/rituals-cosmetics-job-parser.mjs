@@ -33,18 +33,21 @@
  *   - isTrustedDomain()              — Validate URLs belong to Rituals / Workday tenant
  *   - RITUALS_COSMETICS_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
-import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { appendSlugDisambiguator, detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, findSwissCityInText, canonicalSwissCityName } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
-  parseWorkdayPostedDate,
+  fetchWorkdayJobDetailParts,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -59,8 +62,19 @@ const WORKDAY_PUBLIC_BASE = `https://${WORKDAY_TENANT_HOST}/en-US/${WORKDAY_SITE
 
 const CAREER_URL = 'https://www.rituals.com/en-ch/careers';
 
+// Swiss legal-entity seat, quoted in the fallback description only: it is
+// never a vacancy's location or canton (issue 9842).
 const DEFAULT_CITY = 'Landquart';
 const DEFAULT_CANTON = 'GR';
+
+// Store localities the federal register does not list as municipalities, so
+// the gazetteer cannot resolve them: Shoppyland Schönbühl lies in
+// Urtenen-Schönbühl (BE). The GR legal seat used to fill this gap and
+// published 30 Bernese store vacancies as Grisons ones.
+const RITUALS_STORE_LOCALITY_CANTONS = new Map([
+  ['schönbühl', 'BE'],
+  ['schoenbuehl', 'BE'],
+]);
 
 // Switzerland country UUID is consistent across most Workday tenants.
 const SWISS_LOCATION_IDS = ['187134fccb084a0ea9b4b95f23890dbe'];
@@ -90,8 +104,9 @@ function cleanRitualsLocation(raw = '') {
   if (!trimmed) return '';
   if (/\d+\s+location/i.test(trimmed)) return '';
   const stripped = trimmed.replace(/^\s*(manor|coop|migros|globus|jelmoli)\s+/i, '').trim() || trimmed;
-  const cityToken = findSwissCityInText(stripped) || findSwissCityInText(trimmed);
-  if (cityToken) return canonicalSwissCityName(cityToken) || cityToken;
+  const city = swissCityFromLocationField(stripped, { allowUnqualifiedEnglishExonyms: true })
+    || swissCityFromLocationField(trimmed, { allowUnqualifiedEnglishExonyms: true });
+  if (city) return city;
   return stripped.split(/\s+/)[0] || trimmed.split(/\s+/)[0] || '';
 }
 
@@ -177,7 +192,7 @@ async function fetchJobListings() {
         title: id.title,
         locationRaw: posting.locationsText || id.location || '',
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -193,7 +208,59 @@ async function fetchJobListings() {
   return out;
 }
 
-export async function fetchAllRitualsCosmeticsJobs() {
+/* ── Slug identity ─────────────────────────────────────────── */
+
+/**
+ * Stable per-requisition slug suffix (crawler-template `slugDisambiguator`).
+ *
+ * Rituals runs several concurrent reqs for the same role in the same city,
+ * often at the same store (see the "Job ID" note below). Their routes are
+ * built from title + company (+ city once localized), so without a per-req
+ * suffix those reqs collided on one slug, and the slice housekeeping kept one
+ * req per slug and archived the others as within-slice duplicates. On
+ * 2026-09-30 that filed 159 of the 665 live reqs under
+ * data/jobs/expired/by-crawler/rituals-cosmetics.json; they came back as
+ * "new" on the next crawl and were archived again, so the archive swung
+ * between ~40 KB and ~1 MB twice a day while the downstream ghost
+ * reconciliation removed them, and the accumulator byte guard aborted the
+ * writers that saw the swing.
+ *
+ * The Workday requisition ID is the req's own identity; the URL hash only
+ * covers a posting Workday serves without one.
+ */
+export function ritualsSlugDisambiguator(jobReqId = '', publicUrl = '') {
+  const fromReqId = String(jobReqId || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  if (fromReqId) return fromReqId;
+  return publicUrl ? createHash('sha1').update(publicUrl).digest('hex').slice(0, 8) : '';
+}
+
+function normalizeReqId(value) {
+  return String(value || '').trim().toUpperCase();
+}
+
+/** Index the published Rituals slice by requisition ID and by job id. */
+function indexPublishedRitualsJobs(existingJobs = []) {
+  const byReqId = new Map();
+  const byId = new Map();
+  for (const job of Array.isArray(existingJobs) ? existingJobs : []) {
+    if (!job || typeof job !== 'object' || !isRitualsCosmeticsJob(job)) continue;
+    const reqId = normalizeReqId(job.jobReqId);
+    if (reqId && !byReqId.has(reqId)) byReqId.set(reqId, job);
+    const id = String(job.id || '').trim();
+    if (id && !byId.has(id)) byId.set(id, job);
+  }
+  return { byReqId, byId };
+}
+
+/**
+ * @param {{ existingJobs?: object[] }} [options] `existingJobs` is the
+ *   published slice: a req already in it keeps the route it is indexed under
+ *   (and the suffix it was minted with, if any). Only an unpublished req gets
+ *   a new `slugDisambiguator`, because a new suffix on a published job is an
+ *   explicit route migration for the slug pipeline.
+ */
+export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [] } = {}) {
+  const published = indexPublishedRitualsJobs(existingJobs);
   console.log(`🏭 Fetching ${RITUALS_COSMETICS_COMPANY_NAME} jobs`);
   console.log(`   Source: ${CAREER_URL}`);
   console.log(`   Workday: ${WORKDAY_API_BASE}\n`);
@@ -207,39 +274,54 @@ export async function fetchAllRitualsCosmeticsJobs() {
   console.log(`  📋 Swiss listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.locationRaw || DEFAULT_CITY;
+    const rawLocation = normalizeSpace(listing.locationRaw || '');
     if (isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
       continue;
     }
-    const cleaned = cleanRitualsLocation(rawLocation);
-    const location = cleaned || DEFAULT_CITY;
-    const canton = inferSwissTargetCanton(location) || inferSwissTargetCanton(rawLocation) || DEFAULT_CANTON;
+    // An "N Locations" roll-up (or an empty location) cleans to '': only the
+    // req's own primary workplace may place it in Switzerland, never the
+    // Landquart legal seat (issue 9842).
+    const location = cleanRitualsLocation(rawLocation)
+      || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = location
+      ? (RITUALS_STORE_LOCALITY_CANTONS.get(normalize(location).normalize('NFC'))
+        || inferSwissTargetCanton(location)
+        || inferSwissTargetCanton(rawLocation)
+        || await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location))
+      : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
 
     // Workday listing endpoint never returns the body — fetch detail.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
+    // One detail request: the body, and the `timeType` the CXS listing row
+    // never carries.
+    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
     );
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
     await new Promise((r) => setTimeout(r, 350));
 
-    const fallbackDescription = [
-      `${title} — ${RITUALS_COSMETICS_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${rawLocation}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Employer: Rituals Cosmetics — cosmetica / home & body / profumeria di lusso olandese.',
-      `• Swiss footprint: sede legale a ${DEFAULT_CITY} (${DEFAULT_CANTON}) + rete retail in tutta la Svizzera.`,
-      '• Apply: Rituals Workday careers portal.',
-    ].join('\n');
-    const baseDescription = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const baseDescription = detailDescription;
 
     const sourceLang = detectLang(baseDescription || title, 'de');
 
@@ -274,13 +356,25 @@ export async function fetchAllRitualsCosmeticsJobs() {
       ? `Store: ${rawLocation}${canton ? `, ${canton}` : ''}, Switzerland. Job ID: ${jobRefId}.\n\n`
       : '';
     const descriptionText = `${storeLine}${baseDescription}`;
-    const jobSlug = slugify(`${title} ${RITUALS_COSMETICS_KEY} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const id = `${RITUALS_COSMETICS_KEY}-${urlHash}`;
+    // Same role in the same city is the normal case on this board, so an
+    // unpublished req is minted with its own suffix; a published one keeps
+    // its indexed route (see ritualsSlugDisambiguator).
+    const publishedJob = published.byReqId.get(normalizeReqId(listing.jobReqId)) || published.byId.get(id);
+    const slugDisambiguator = publishedJob
+      ? String(publishedJob.slugDisambiguator || '').trim()
+      : ritualsSlugDisambiguator(listing.jobReqId, publicUrl);
+    const jobSlug = appendSlugDisambiguator(
+      slugify(`${title} ${RITUALS_COSMETICS_KEY} ch`),
+      slugDisambiguator,
+    );
 
     const job = {
-      id: `${RITUALS_COSMETICS_KEY}-${urlHash}`,
+      id,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
+      ...(slugDisambiguator ? { slugDisambiguator } : {}),
       company: RITUALS_COSMETICS_COMPANY_NAME,
       companyKey: RITUALS_COSMETICS_KEY,
       companyDomain: RITUALS_COSMETICS_COMPANY_DOMAIN,
@@ -310,7 +404,7 @@ export async function fetchAllRitualsCosmeticsJobs() {
       sector: 'Cosmetica / Retail',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: detailInfo })),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -321,6 +415,9 @@ export async function fetchAllRitualsCosmeticsJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${RITUALS_COSMETICS_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

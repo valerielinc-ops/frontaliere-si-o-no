@@ -26,16 +26,26 @@ import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergePreserveLocaleData,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
+import { crawledAtFromObservation } from './lib/source-crawl-observation.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, isConnectionLevelFetchError } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import {
+  dropFabricatedLocaleText,
+  dropTranslationsOfFabricatedSource,
+  sourceLocaleDescription,
+} from './lib/source-locale-description.mjs';
 import {
   isSwissLocationText,
   isTargetSwissLocation,
@@ -44,7 +54,11 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
+import { firstLocationSegment, workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -233,7 +247,10 @@ async function listSwissJobs() {
       const locText = posting.locationsText || '';
       // Multi-location postings ("N Locations") hide individual sites — keep as
       // candidate and let fetchBraccoJobs() confirm via the detail page.
-      if (/^\s*\d+\s+location/i.test(locText) || isSwissLocationText(locText)) {
+      // A row named after a Swiss locality outside the commune gazetteer is
+      // kept for its detail, whose structured country decides.
+      if (/^\s*\d+\s+location/i.test(locText) || isSwissLocationText(locText)
+        || isWorkdaySwissPlaceCandidate(locText)) {
         candidates.push(posting);
       }
     }
@@ -322,13 +339,30 @@ function detectEmploymentType(timeType = '') {
   return 'FULL_TIME';
 }
 
-function buildDescription(title, descriptionText, location) {
-  const base = descriptionText || `${title} position at Bracco Suisse S.A. in ${location}, Switzerland.`;
-  return `${base}\n\nBracco Suisse S.A. is part of the Bracco Group, an international leader in diagnostic imaging and healthcare. Its Swiss vacancies are published from the complete Swiss source feed; Cadempino (Ticino) and Plan-les-Ouates (Geneva) are among its known offices, while the location on each vacancy is authoritative.`.trim();
+/**
+ * Description fields of one posting: the Workday `jobDescription` text in its
+ * own language. The runner used to append an English paragraph about Bracco
+ * Suisse to it and to write an Italian company blurb of its own into
+ * `descriptionByLocale.it` ("Posizione aperta presso Bracco Suisse S.A. a …");
+ * neither was published by the source.
+ * Under the shared word floor (50 words) nothing is emitted: the merge keeps
+ * the stored source body, or the job is not published this run.
+ */
+export function buildBraccoDescriptionFields(title, descriptionText, location) {
+  // Only the posting's own text over the shared word floor: nothing under it
+  // (the merge keeps the stored source body, or omits the job this run).
+  return sourceLocaleDescription(meetsSourceBodyFloor(descriptionText) ? descriptionText : '');
 }
 
-function buildDescriptionIt(title, location) {
-  return `Posizione aperta presso Bracco Suisse S.A. a ${location}.\nRuolo: ${title}.\n\nBracco Suisse S.A. fa parte del Gruppo Bracco, leader internazionale nell'imaging diagnostico e nella sanità. Le offerte svizzere provengono dall'intero feed nazionale; Cadempino (Ticino) e Plan-les-Ouates (Ginevra) sono tra le sedi note, mentre la località indicata nell'annuncio resta il riferimento autorevole.`.trim();
+// Fossils of the removed builders in stored jobs (see source-locale-description.mjs).
+const BRACCO_IT_BLURB_RE = /^Posizione aperta presso Bracco Suisse S\.A\. a [\s\S]*Gruppo Bracco/;
+const BRACCO_APPENDED_BLURB_RE = /Bracco Suisse S\.A\. is part of the Bracco Group, an international leader in diagnostic imaging and healthcare\./;
+
+/** Remove the fabricated text of the former builders from a stored job. */
+export function dropBraccoFabricatedText(job) {
+  const it = dropFabricatedLocaleText(job, 'it', BRACCO_IT_BLURB_RE);
+  const derived = dropTranslationsOfFabricatedSource(job, BRACCO_APPENDED_BLURB_RE);
+  return it || derived;
 }
 
 /**
@@ -344,7 +378,7 @@ function buildPublicUrl(externalPath) {
 // Fetch and build all Bracco Swiss jobs
 // ─────────────────────────────────────────────────────────────
 
-async function fetchBraccoJobs() {
+export async function fetchBraccoJobs() {
   console.log(`🔍 Fetching Bracco Suisse S.A. jobs from Workday API`);
   console.log(`   API: ${BRACCO_API_BASE}/jobs`);
   console.log(`   Keeping concrete Swiss locations across all 26 cantons by location text\n`);
@@ -354,6 +388,9 @@ async function fetchBraccoJobs() {
     console.warn('⚠️ No Swiss job listings returned from Workday API.');
     return [];
   }
+
+  const crawledAt = crawledAtFromObservation(new Date());
+  if (!crawledAt) return [];
 
   console.log(`  📋 Swiss job listings found: ${listings.length}`);
 
@@ -385,20 +422,26 @@ async function fetchBraccoJobs() {
     ];
 
     const swissLoc = locationCandidates.find((l) => isSwissLocationText(l));
-    if (!swissLoc) {
+    const parsedCity = swissLoc ? parseWorkdayLocation(swissLoc) : '';
+    const parsedConcrete = parsedCity && isTargetSwissLocation(parsedCity, { includeBorderProximity: false });
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country (workday-swiss-job-parser-common).
+    const recovered = parsedConcrete && inferCanton(parsedCity) ? null : recoverWorkdayPrimarySwissPlace(info);
+    if (!swissLoc && !recovered) {
       console.log(`  ⏭️  Skipped — not a Swiss location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
       continue;
     }
 
-    const city = parseWorkdayLocation(swissLoc);
+    const city = recovered ? recovered.location : parsedCity;
     // A country-only descriptor proves Switzerland but does not identify the
     // vacancy's locality. Never turn that incomplete source data into a fixed
     // Cadempino address.
-    if (!city || !isTargetSwissLocation(city, { includeBorderProximity: false })) {
+    if (!recovered && !parsedConcrete) {
       console.log(`  ⏭️  Skipped — no concrete Swiss locality (${city || 'unknown'})`);
       continue;
     }
-    const canton = inferCanton(city);
+    const canton = recovered ? recovered.canton : inferCanton(city);
     if (!canton) {
       console.log(`  ⏭️  Skipped — Swiss locality has no inferable canton (${city})`);
       continue;
@@ -409,8 +452,7 @@ async function fetchBraccoJobs() {
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = buildPublicUrl(externalPath);
 
-    const descEn = buildDescription(title, descriptionText, city);
-    const descIt = buildDescriptionIt(title, city);
+    const { description, descriptionByLocale, sourceLang } = buildBraccoDescriptionFields(title, descriptionText, city);
 
     const slug = slugify(title, 'bracco-suisse');
     const employmentType = detectEmploymentType(info.timeType || '');
@@ -425,25 +467,18 @@ async function fetchBraccoJobs() {
       location: city,
       canton,
       country,
-      description: descEn,
-      descriptionByLocale: {
-        en: descEn,
-        it: descIt,
-      },
-      titleByLocale: {
-        en: title,
-      },
+      description,
+      descriptionByLocale,
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
-      slugByLocale: {
-        en: slug,
-        it: slugify(title, 'bracco-suisse'),
-      },
       category: detectCategory(title),
-      datePosted: info.startDate || new Date().toISOString().split('T')[0],
+      ...workdayPostingDateFields(detail),
+      crawledAt,
       source: 'bracco-workday-crawler',
       employmentType,
       experienceLevel: detectExperienceLevel(title),
-      sourceLang: detectLang(descEn || title, 'en'),
+      sourceLang,
       sector: 'Healthcare / Imaging diagnostico',
       _targetScope: { canton, location: city },
     };
@@ -478,6 +513,15 @@ async function mergeBraccoJobs(discoveredJobs) {
 
   const nonBraccoJobs = allJobs.filter((j) => !isBraccoJob(j));
   const existingBraccoJobs = allJobs.filter(isBraccoJob);
+  const fossils = existingBraccoJobs.filter((job) => dropBraccoFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped fabricated Bracco text from ${fossils} stored job(s); they will be retranslated`);
+  // Under the shared word floor the builder emits no body: keep the stored
+  // source body (fossils already dropped above), or omit the job this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingBraccoJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(
     existingBraccoJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
@@ -501,6 +545,9 @@ async function mergeBraccoJobs(discoveredJobs) {
     country: 'CH',
     source: 'bracco-workday-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonBraccoJobs, ...merged];
 
@@ -650,6 +697,20 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: BRACCO_KEY,
+    companyLabel: BRACCO_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(BRACCO_KEY, jobs, {
+      isTargetJob: isBraccoJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 // ─────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────
@@ -667,12 +728,28 @@ async function main() {
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(BRACCO_KEY, DATA_JOBS).filter(isBraccoJob))
 
   // Phase 1: Fetch jobs from Workday API
-  const discoveredJobs = await fetchBraccoJobs();
+  let discoveredJobs;
+  try {
+    discoveredJobs = await fetchBraccoJobs();
+  } catch (err) {
+    if (!isConnectionLevelFetchError(err)) throw err;
+    markCrawlerSummaryAbortKind('connection-level-fetch');
+    console.log(
+      `\n⚠️ Bracco Suisse: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(BRACCO_KEY, DATA_JOBS).filter(isBraccoJob),
+    );
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No Bracco jobs discovered.');
     console.log('   The Workday API may be unreachable or have no Swiss openings.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(BRACCO_KEY, DATA_JOBS).filter(isBraccoJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
@@ -707,7 +784,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isBraccoJob) : [];
-  writeJobsCrawlerSlice(BRACCO_KEY, _sliceJobs);
+  writeJobsCrawlerSlice(BRACCO_KEY, _sliceJobs, { observedJobs: discoveredJobs });
   writeSummaryCrawlerSlice({
     key: BRACCO_KEY,
     label: 'Bracco Suisse',
@@ -728,4 +805,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Bracco Suisse'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Bracco Suisse'));
+}

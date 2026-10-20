@@ -14,7 +14,9 @@ import {
   isTrustedDomain,
   ERGOLZ_KLINIK_KEY,
   ERGOLZ_KLINIK_COMPANY_NAME,
+  ERGOLZ_KLINIK_FABRICATED_DESCRIPTION_RE,
 } from './lib/ergolz-klinik-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +29,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isErgolzKlinikJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, ERGOLZ_KLINIK_FABRICATED_DESCRIPTION_RE, ERGOLZ_KLINIK_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Ergolz Klinik crawler failed: ${err?.message || err}`);
   process.exit(1);

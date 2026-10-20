@@ -1,0 +1,24 @@
+{
+  "companyKey": "glauspersonal-ch",
+  "companyName": "glaus personal",
+  "companyHost": "glauspersonal.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://glauspersonal.ch/job-page/"
+  ],
+  "detailTemplate": "/job-listing/job_id/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 80,
+  "sampleTitles": [
+    "Operative:r Einkäufer:in 60 - 80 % Glarus / Linthgebiet Kaufmännisch -",
+    "Technischer Projektleiter / Einkäufer (m/w/d) 100% Stadt Zürich / Zürichsee Technisch -",
+    "Geschäftsführer:in Gastronomie (100 %) Mittelland (AG / SO / BE / BS / BL) Dienstleistung Stadthof, Bremgarten",
+    "Leiter/in Serviceorganisation & Kundendienst (m/w/d) Innerschweiz (LU / ZG / SZ / NW / OW) Technisch -",
+    "Schreiner/in EFZ - Lust auf etwas anderes? Innerschweiz (LU / ZG / SZ / NW / OW) Technisch -"
+  ],
+  "canton": "ZG",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-29T05:44:01.509Z"
+}

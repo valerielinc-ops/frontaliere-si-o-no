@@ -13,7 +13,8 @@
  *   but the LISTING side is fully fetchable as JSON — no Playwright needed.
  *
  * Detail page: `links.directlink` returns an HTTPS URL on `jobs.usz.ch/...` —
- * we don't fetch it (the API already ships the full description in `szas.*`).
+ * the description source: the `szas.*` listing text is only part of the
+ * rendered vacancy (see the end of `fetchAllUszJobs`).
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllUszJobs()  — Fetch and parse all jobs across pages
@@ -21,9 +22,11 @@
  *   - isTrustedDomain()  — Validate URLs belong to USZ / Prospective tenant
  *   - USZ_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { dropRepostedListings, enrichProspectiveJobsFromDetailPages } from './prospective-ch-job-parser-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -256,12 +259,9 @@ export async function fetchAllUszJobs() {
     const jobSlug = slugify(`${title} ${USZ_KEY} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const raw = listing?.start_date || listing?.last_modification_timestamp || '';
-      const d = new Date(String(raw || ''));
-      if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-      return new Date().toISOString().slice(0, 10);
-    })();
+    // This tenant has no verified listing publication field.
+    // start_date and modification timestamps are not publication evidence.
+    const publication = sourcePostingDateFields();
 
     const job = {
       id: `${USZ_KEY}-${urlHash}`,
@@ -293,7 +293,7 @@ export async function fetchAllUszJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: applyLink || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -302,6 +302,11 @@ export async function fetchAllUszJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${USZ_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  // The listing payload is 34-41 % of the rendered vacancy (audit 2026-09-29):
+  // "Unsere Benefits" and the "Weitere Auskünfte" details exist only on the directlink page, which becomes the description
+  // source; the listing text stays the per-job fallback.
+  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: USZ_COMPANY_NAME, includePostingDate: true });
+  const unique = dropRepostedListings(jobs, USZ_COMPANY_NAME, { pageDescribed });
+  console.log(`\n📋 Total ${USZ_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
 }

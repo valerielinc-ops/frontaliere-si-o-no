@@ -87,6 +87,8 @@ export interface RawJob {
   contract?: string;
   postedDate?: string;
   datePosted?: string;
+  salarySource?: string;
+  currency?: string;
   salaryMin?: number | string | null;
   salaryMax?: number | string | null;
   needsRetranslation?: boolean | Partial<Record<Locale, boolean>>;

@@ -37,8 +37,6 @@ const parser = createJohdiSuiteParser({
   defaultCity: 'Delémont',
   defaultPostalCode: '2800',
   sourceLabel: 'H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)',
-  fallbackBrandBlurb:
-    "L'Hôpital du Jura (H-JU) est le réseau hospitalier public du canton du Jura, avec les sites de Delémont, Porrentruy et Saignelégier. Plus de 1'200 collaboratrices et collaborateurs assurent la prise en charge médicale et soignante de la population jurassienne.",
 });
 
 export const fetchAllHJuJobs = parser.fetchAllJobs;

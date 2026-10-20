@@ -37,12 +37,13 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
+import { resolveLocalityAddress } from './swiss-structured-address.mjs';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
+import { mergeSourcePostingDates, sourceRssPostingDateFields } from './source-posting-date.mjs';
 import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
 import {
   assertFeedBodyLooksLikeXml,
@@ -188,12 +189,6 @@ function jobUrlForDiagnostic(rawUrl = '') {
   } catch {
     return '[missing or invalid URL]';
   }
-}
-
-function toIsoDate(raw) {
-  if (!raw) return null;
-  const d = new Date(raw);
-  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
 }
 
 /** Strip the trailing "(City, CH)" location suffix jobs2web appends to RSS titles. */
@@ -789,7 +784,9 @@ export async function fetchAllNordAngliaJobs() {
       );
       continue;
     }
-    const fallbackAddress = resolveFallbackAddress(undefined, location, canton);
+    // La località della vacancy, non il capoluogo di ripiego: `Pully` usciva
+    // come `addressLocality: Lausanne` (audit-parser-quality, issue 5253).
+    const fallbackAddress = resolveLocalityAddress({ city: location, canton });
     const description = descriptionText || `${jobTitle} presso ${NORD_ANGLIA_COMPANY_NAME} a ${location}, Svizzera.`;
     const sourceLang = detail?.language || detectLang(descriptionText || jobTitle, 'en');
     const jobSlug = slugify(`${jobTitle} nord-anglia ${location}`);
@@ -800,7 +797,9 @@ export async function fetchAllNordAngliaJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobReqId = extractJobReqId(publicUrl);
     const employmentType = detectEmploymentType(`${detail?.rateText || ''} ${descriptionText} ${jobTitle}`);
-    const postedDate = toIsoDate(detail?.postedDate) || toIsoDate(item.pubDate) || new Date().toISOString().split('T')[0];
+    const detailPublication = mergeSourcePostingDates({}, detail);
+    const publication = detailPublication.postingDateSource === 'reported'
+      ? detailPublication : sourceRssPostingDateFields(item.pubDate);
 
     const job = {
       // ── Required fields ──
@@ -837,7 +836,7 @@ export async function fetchAllNordAngliaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: trustedApplyUrl(detail?.applyUrl, publicUrl),
       jobReqId: jobReqId || null,
       requirements: [],

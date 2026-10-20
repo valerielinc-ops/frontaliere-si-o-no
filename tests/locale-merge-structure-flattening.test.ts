@@ -26,8 +26,13 @@ import {
   resetHardenCache,
 } from '../scripts/lib/dedicated-crawler-common.mjs';
 import {
+  hasStructuredContent,
+  countListItems,
+  hasStructureParity,
+  isAcceptableTranslation,
   isStructureFlattenedCopy,
   countBullets,
+  preserveStructuredTranslation,
 } from '../scripts/lib/translation-quality.mjs';
 
 const STRUCTURED_DE = [
@@ -88,16 +93,74 @@ describe('mergeLocaleTextMap — newline preservation (issue #3836 root cause)',
 });
 
 describe('isStructureFlattenedCopy', () => {
-  it('flags a non-empty copy that lost a >=3-bullet source list', () => {
+  it('flags a non-empty copy that lost an audited structured source list', () => {
     expect(isStructureFlattenedCopy(STRUCTURED_DE, FLATTENED_DE)).toBe(true);
   });
 
-  it('does not flag when the copy kept at least one bullet', () => {
-    const partiallyStructured = 'Intro\n• Solo un punto rimasto della lista originale';
-    expect(isStructureFlattenedCopy(STRUCTURED_DE, partiallyStructured)).toBe(false);
+  it('uses the audit predicate for a single bullet, ordered list, and HTML list', () => {
+    expect(hasStructuredContent('Aufgaben\n- Eine Aufgabe')).toBe(true);
+    expect(isStructureFlattenedCopy('Aufgaben\n- Eine Aufgabe', 'Aufgaben Eine Aufgabe')).toBe(true);
+    expect(isStructureFlattenedCopy('Aufgaben\n1) Eine Aufgabe', 'Aufgaben Eine Aufgabe')).toBe(true);
+    expect(isStructureFlattenedCopy('<ul><li>Eine Aufgabe</li></ul>', 'Eine Aufgabe')).toBe(true);
   });
 
-  it('does not flag legitimately bullet-free sources (< 3 bullets)', () => {
+  it('requires complete list-item parity instead of accepting one surviving bullet', () => {
+    const source = [
+      'Introduzione tradotta con contenuto sufficiente per il controllo di qualità.',
+      '- Prima voce con responsabilità e dettagli operativi del ruolo.',
+      '- Seconda voce con responsabilità e dettagli operativi del ruolo.',
+      '- Terza voce con responsabilità e dettagli operativi del ruolo.',
+    ].join('\n');
+    const candidate = [
+      'Translated introduction with enough content for the quality ratio.',
+      '- Only one surviving item with translated operational details for the role.',
+    ].join('\n');
+
+    expect(countListItems(source)).toBe(3);
+    expect(countListItems(candidate)).toBe(1);
+    expect(hasStructureParity(source, candidate)).toBe(false);
+    expect(isStructureFlattenedCopy(source, candidate)).toBe(true);
+    expect(isAcceptableTranslation(source, candidate)).toBe(false);
+  });
+
+  it('normalizes an inline flattened run without counting title hyphens', () => {
+    const source = [
+      'Bouchère - Boucher / Charcutière - Charcutier (f/h/d)',
+      'Mission',
+      '- Premier item avec assez de contenu pour le rôle.',
+      '- Deuxième item avec assez de contenu pour le rôle.',
+      '- Troisième item avec assez de contenu pour le rôle.',
+    ].join('\n');
+    const candidate = [
+      'Macellaio - Macellaio / Macellaio - Macellaio (m/f/d)',
+      'Missione',
+      '- Primo item tradotto con contenuto sufficiente. - Secondo item tradotto con contenuto sufficiente. - Terzo item tradotto con contenuto sufficiente.',
+    ].join('\n');
+
+    expect(countListItems(source)).toBe(3);
+    expect(countListItems(candidate)).toBe(3);
+    expect(hasStructureParity(source, candidate)).toBe(true);
+    expect(countListItems('Benefits: - Primo elemento - Secondo elemento')).toBe(2);
+  });
+
+  it('does not treat a numbered heading ending in a colon as a list item', () => {
+    expect(countListItems('1. Analyze User Input:\n- One real list item')).toBe(1);
+  });
+
+  it('accepts a translation that preserves the complete number of list items', () => {
+    const candidate = STRUCTURED_IT.replace(/•/g, '-');
+    expect(countListItems(candidate)).toBe(countListItems(STRUCTURED_DE));
+    expect(hasStructureParity(STRUCTURED_DE, candidate)).toBe(true);
+    expect(isStructureFlattenedCopy(STRUCTURED_DE, candidate)).toBe(false);
+  });
+
+  it('counts only complete list markers and ignores blank lines', () => {
+    const source = '\n- First\n\n• Second\n* Third\n1. Fourth\n1) Fifth\n';
+    expect(countListItems(source)).toBe(5);
+    expect(countListItems('Inline text - not a list\n1.no separating space')).toBe(0);
+  });
+
+  it('does not flag legitimately list-free sources', () => {
     const proseSource = 'Testo descrittivo senza alcuna lista puntata, solo prosa.\n\nSecondo paragrafo.';
     expect(isStructureFlattenedCopy(proseSource, 'Descriptive text without any list.')).toBe(false);
   });
@@ -105,6 +168,32 @@ describe('isStructureFlattenedCopy', () => {
   it('does not flag empty/missing copies (handled by the coverage/empty-slot paths)', () => {
     expect(isStructureFlattenedCopy(STRUCTURED_DE, '')).toBe(false);
     expect(isStructureFlattenedCopy(STRUCTURED_DE, undefined as unknown as string)).toBe(false);
+  });
+});
+
+describe('preserveStructuredTranslation', () => {
+  it('translates only line content and retains markers plus blank lines', async () => {
+    const source = [
+      '## Aufgaben',
+      '- Erste Aufgabe',
+      '',
+      '• Zweite Aufgabe',
+      '* Dritte Aufgabe',
+      '1. Vierte Aufgabe',
+      '1) Fünfte Aufgabe',
+    ].join('\n');
+    const translated = await preserveStructuredTranslation(source, async (line) => `TR:${line}`);
+
+    expect(translated).toBe([
+      '## TR:Aufgaben',
+      '- TR:Erste Aufgabe',
+      '',
+      '• TR:Zweite Aufgabe',
+      '* TR:Dritte Aufgabe',
+      '1. TR:Vierte Aufgabe',
+      '1) TR:Fünfte Aufgabe',
+    ].join('\n'));
+    expect(hasStructuredContent(translated)).toBe(true);
   });
 });
 

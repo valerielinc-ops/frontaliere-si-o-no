@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * failure-issue-inventory.mjs — chi APRE una issue di fallimento, e chi la CHIUDE.
  *
@@ -36,9 +38,16 @@
  *   3. Uno step gemello `--resolve` (o questa stessa composite action con
  *      `mode: resolve`) NELLO STESSO workflow, con titolo IDENTICO — modello
  *      `rpm-canary.yml`, step "Resolve open issue on green".
+ *   4. `scripts/ci/scan-job-timeouts.mjs --resolve` — chiude i
+ *      `CI Failure (<evento>): <workflow>` che lo scanner dei timeout conia per
+ *      una run fuori da `main` (`SCOPED_TIMEOUT_TITLE_RE`, eventi in elenco
+ *      chiuso), SOLO se il body porta la firma dello scanner: un opener di
+ *      workflow con quella forma di titolo non la porta, e non lo chiude
+ *      nessuno. Gli opener lato script non sono nell'inventario dei workflow:
+ *      il loro accoppiamento lo enumera `scriptReporterCoverage()`.
  *
- * Non ce ne sono altri. Se un titolo non ricade in nessuno dei tre, nessuno lo
- * chiude: è un fatto, non una stima.
+ * Non ce ne sono altri. Se un titolo non ricade in nessuno dei quattro, nessuno
+ * lo chiude: è un fatto, non una stima.
  *
  * ─── Cosa NON vede (dichiarato, non nascosto) ────────────────────────────
  *
@@ -66,6 +75,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TITLE_RE } from './close-recovered-failure-issues.mjs';
 import { TITLE_PREFIX } from './report-validate-dist-failure.mjs';
+import { JOB_TIMEOUT_REPORT_SIGNATURE, SCOPED_TIMEOUT_TITLE_RE } from './scan-job-timeouts.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -367,10 +377,67 @@ export function coverageOf(opener, record) {
   if (opener.title.startsWith(TITLE_PREFIX.trimEnd())) {
     return { by: 'report-validate-dist-failure' };
   }
+  if (SCOPED_TIMEOUT_TITLE_RE.test(opener.title)) {
+    // Uno step gemello `--resolve` con titolo identico nello stesso workflow lo
+    // chiude gia': coperto, a prescindere dalla firma.
+    if (record.closers.some((c) => c.title === opener.title)) return { by: 'sibling-resolve-step' };
+    // `--resolve` esamina solo le issue con la firma dello scanner nel body.
+    // Un opener che non la dichiara SEMBRA coperto dalla forma del titolo ma
+    // non si chiude: l'inventory deve restituirlo come scoperto, non inventare
+    // un `closedBy` con un dettaglio diagnostico.
+    if (opener.signature !== JOB_TIMEOUT_REPORT_SIGNATURE) return null;
+    return { by: SCOPED_TIMEOUT_CLOSER };
+  }
   if (record.closers.some((c) => c.title === opener.title)) {
     return { by: 'sibling-resolve-step' };
   }
   return null;
+}
+
+/** Il nome del quarto chiuditore, come compare in `coverageOf(...).by`. */
+export const SCOPED_TIMEOUT_CLOSER = 'scan-job-timeouts-resolve';
+
+/**
+ * Gli opener LATO SCRIPT di cui l'accoppiamento è comunque enumerabile: titolo
+ * computato (quindi fuori dal parser dei workflow), ma chiuditore nello stesso
+ * script, attivato da un flag nello stesso workflow che lo apre.
+ */
+export const SCRIPT_REPORTERS = Object.freeze([
+  Object.freeze({
+    script: 'scripts/ci/scan-job-timeouts.mjs',
+    closer: SCOPED_TIMEOUT_CLOSER,
+    resolveFlag: '--resolve',
+    signature: JOB_TIMEOUT_REPORT_SIGNATURE,
+  }),
+]);
+
+/**
+ * Per ogni reporter lato script: gli step di workflow che lo eseguono per APRIRE
+ * e quelli che lo eseguono col flag di chiusura. Un reporter con opener ma senza
+ * closer nello stesso file apre issue che nessuno chiude — il test lo vieta.
+ *
+ * @returns {{ script: string, closer: string, openers: string[], closers: string[] }[]}
+ */
+export function scriptReporterCoverage(dir = WORKFLOWS_DIR) {
+  const files = fs.readdirSync(dir).filter((f) => /\.ya?ml$/.test(f)).sort();
+  return SCRIPT_REPORTERS.map((reporter) => {
+    const openers = [];
+    const closers = [];
+    const escaped = reporter.script.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // `node <script> <argomenti fino a fine riga>`: gli argomenti dicono se apre o chiude.
+    const invocation = new RegExp(`\\bnode\\s+${escaped}\\b([^\\n]*)`, 'g');
+    for (const file of files) {
+      const source = fs.readFileSync(path.join(dir, file), 'utf8');
+      for (const block of stepBlocks(source)) {
+        for (const m of block.text.matchAll(invocation)) {
+          const where = `${file}:${block.line}`;
+          if (m[1].split(/\s+/).includes(reporter.resolveFlag)) closers.push(where);
+          else openers.push(where);
+        }
+      }
+    }
+    return { script: reporter.script, closer: reporter.closer, openers, closers };
+  });
 }
 
 /** Ogni opener failure-gated, con il suo chiuditore (o `null`). */
@@ -398,30 +465,31 @@ export function coverageReport(dir = WORKFLOWS_DIR) {
 /* ── CLI ─────────────────────────────────────────────────────────────── */
 
 const isMain = process.argv[1]
-  && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (isMain) {
   const rows = coverageReport();
+  // Nessun process.exit(): chiamato subito dopo write() taglia l'output a
+  // 65536 byte quando stdout e' una pipe (lo legge un altro script).
   if (process.argv.includes('--json')) {
     process.stdout.write(JSON.stringify(rows, null, 2) + '\n');
-    process.exit(0);
-  }
-  const uncovered = rows.filter((r) => !r.closedBy);
-  const adopted = rows.filter((r) => r.via === 'action');
-  const all = process.argv.includes('--all');
-  if (all) {
-    for (const r of rows) {
-      console.log(`${r.closedBy ? '✅' : '❌'} ${r.file}:${r.line}\t${r.title}\t→ ${r.closedBy || 'NESSUNO'}${r.detail ? ` (${r.detail})` : ''}`);
+  } else {
+    const uncovered = rows.filter((r) => !r.closedBy);
+    const adopted = rows.filter((r) => r.via === 'action');
+    const all = process.argv.includes('--all');
+    if (all) {
+      for (const r of rows) {
+        console.log(`${r.closedBy ? '✅' : '❌'} ${r.file}:${r.line}\t${r.title}\t→ ${r.closedBy || 'NESSUNO'}${r.detail ? ` (${r.detail})` : ''}`);
+      }
+      console.log('');
     }
-    console.log('');
+    console.log(`issue di fallimento aperte da un ramo failure(): ${rows.length}`);
+    console.log(`  con un chiuditore: ${rows.length - uncovered.length}`);
+    console.log(`  SENZA chiuditore:  ${uncovered.length}`);
+    console.log(`  già sul reporter diagnostico (${REPORT_ACTION_USES}): ${adopted.length}`);
+    if (!all && uncovered.length > 0) {
+      console.log('\nSenza chiuditore — adottarne uno PRIMA di montarci il reporter (#5437):');
+      for (const r of uncovered) console.log(`  ${r.file}:${r.line}\t${r.title}`);
+    }
   }
-  console.log(`issue di fallimento aperte da un ramo failure(): ${rows.length}`);
-  console.log(`  con un chiuditore: ${rows.length - uncovered.length}`);
-  console.log(`  SENZA chiuditore:  ${uncovered.length}`);
-  console.log(`  già sul reporter diagnostico (${REPORT_ACTION_USES}): ${adopted.length}`);
-  if (!all && uncovered.length > 0) {
-    console.log('\nSenza chiuditore — adottarne uno PRIMA di montarci il reporter (#5437):');
-    for (const r of uncovered) console.log(`  ${r.file}:${r.line}\t${r.title}`);
-  }
-  process.exit(0);
 }

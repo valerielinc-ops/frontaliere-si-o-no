@@ -47,6 +47,15 @@ vi.mock('firebase-admin', () => ({
   },
 }));
 
+vi.mock('firebase-admin/firestore', () => ({
+  getFirestore: () => firestore(),
+  FieldValue: firestore.FieldValue,
+}));
+
+vi.mock('firebase-admin/auth', () => ({
+  getAuth: () => ({ verifyIdToken }),
+}));
+
 const getRemoteConfigValueMock = vi.fn(async (key: string) => {
   if (key === 'STRIPE_SECRET_KEY') return 'sk_test_assisted';
   if (key === 'STRIPE_WEBHOOK_SECRET') return 'whsec_assisted';
@@ -61,16 +70,37 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 const stripeCheckoutSessionsCreate = vi.fn(async () => ({
   id: 'cs_assisted_1',
   url: 'https://checkout.stripe.com/cs_assisted_1',
+  expires_at: 4102444800,
+}));
+const stripeCheckoutSessionsRetrieve = vi.fn(async () => ({
+  id: 'cs_assisted_1',
+  status: 'open',
+  expires_at: 4102444800,
 }));
 const stripeConstructEvent = vi.fn();
+const assistedApplicationPaymentProvider = vi.fn(async () => 'stripe');
+const sumUpCheckoutCreate = vi.fn(async () => ({
+  id: 'sumup_checkout_1',
+}));
 
 vi.mock('stripe', () => {
   class MockStripe {
-    checkout = { sessions: { create: stripeCheckoutSessionsCreate } };
+    checkout = {
+      sessions: {
+        create: stripeCheckoutSessionsCreate,
+        retrieve: stripeCheckoutSessionsRetrieve,
+      },
+    };
     webhooks = { constructEvent: stripeConstructEvent };
   }
   return { default: MockStripe };
 });
+
+vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
+  getAssistedApplicationPaymentProvider: (...args: unknown[]) => assistedApplicationPaymentProvider(...args),
+  createSumUpAssistedApplicationCheckout: (...args: unknown[]) => sumUpCheckoutCreate(...args),
+  SUMUP_PAYMENT_PROVIDER: 'sumup',
+}));
 
 function request(overrides: Record<string, unknown> = {}) {
   return {
@@ -82,6 +112,7 @@ function request(overrides: Record<string, unknown> = {}) {
       companyName: 'ACME SA',
       jobTitle: 'Software Developer',
       experimentVariant: 'assisted_application',
+      copyVariant: 'time_saved',
       successUrl: 'https://frontaliereticino.ch/lavoro/job-42',
       cancelUrl: 'https://frontaliereticino.ch/lavoro/job-42',
       requestKey: 'assisted-request-key-42',
@@ -108,10 +139,41 @@ beforeEach(() => {
   stripeCheckoutSessionsCreate.mockImplementation(async () => ({
     id: 'cs_assisted_1',
     url: 'https://checkout.stripe.com/cs_assisted_1',
+    expires_at: 4102444800,
+  }));
+  stripeCheckoutSessionsRetrieve.mockImplementation(async () => ({
+    id: 'cs_assisted_1',
+    status: 'open',
+    expires_at: 4102444800,
+  }));
+  assistedApplicationPaymentProvider.mockResolvedValue('stripe');
+  sumUpCheckoutCreate.mockImplementation(async () => ({
+    id: 'sumup_checkout_1',
   }));
 });
 
 describe('handleCreateAssistedApplicationCheckout', () => {
+  it('rejects crawler and automation user-agents before authentication or Stripe', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const userAgents = ['Googlebot/2.1', 'Mozilla/5.0 HeadlessChrome/140.0.0.0'];
+
+    for (const userAgent of userAgents) {
+      const result = await handleCreateAssistedApplicationCheckout(request({
+        get: (name: string) => {
+          if (name.toLowerCase() === 'user-agent') return userAgent;
+          return name.toLowerCase() === 'authorization' ? 'Bearer good-token' : '';
+        },
+      }));
+      expect(result).toEqual({
+        status: 403,
+        body: { ok: false, error: 'automation_not_allowed' },
+      });
+    }
+
+    expect(verifyIdToken).not.toHaveBeenCalled();
+    expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
   it('requires an authenticated POST', async () => {
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
 
@@ -127,7 +189,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     });
   });
 
-  it('creates a pending owner-bound order and fixes the Checkout amount at 99 EUR cents', async () => {
+  it('creates a pending owner-bound order and fixes the Checkout amount at 199 EUR cents', async () => {
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
 
     const result = await handleCreateAssistedApplicationCheckout(request());
@@ -143,7 +205,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(expect.objectContaining({
       mode: 'payment',
       line_items: [{
-        price_data: expect.objectContaining({ currency: 'eur', unit_amount: 99 }),
+        price_data: expect.objectContaining({ currency: 'eur', unit_amount: 199 }),
         quantity: 1,
       }],
       metadata: expect.objectContaining({
@@ -166,7 +228,115 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       stripeCheckoutSessionId: 'cs_assisted_1',
       consentVersion: null,
       consentedAt: null,
+      cvFileName: null,
+      copyVariant: 'time_saved',
     }));
+  });
+
+  it('can create one SumUp widget checkout without changing the one-application order', async () => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    const result = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(result).toEqual({
+      status: 200,
+      body: {
+        ok: true,
+        paymentProvider: 'sumup',
+        checkoutId: 'sumup_checkout_1',
+        orderId: 'order-1',
+      },
+    });
+    expect(sumUpCheckoutCreate).toHaveBeenCalledWith({
+      orderId: 'order-1',
+      redirectUrl: 'https://frontaliereticino.ch/lavoro/job-42?assisted_application_order_id=order-1',
+    });
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      sumupCheckoutId: 'sumup_checkout_1',
+      paymentStatus: 'pending',
+      customerEmail: 'candidate@example.com',
+    }));
+    expect(Object.values(store.assisted_application_checkout_requests)[0]).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      sumupCheckoutId: 'sumup_checkout_1',
+      checkoutUrl: null,
+    }));
+    expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
+  it('reuses the persisted SumUp widget checkout on a retry', async () => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    const second = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(second).toEqual(first);
+    expect(sumUpCheckoutCreate).toHaveBeenCalledTimes(1);
+    expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
+  it('rotates an expired Stripe checkout when its expiration webhook was missed', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    stripeCheckoutSessionsCreate.mockImplementationOnce(async () => ({
+      id: 'cs_assisted_1',
+      url: 'https://checkout.stripe.com/cs_assisted_1',
+    }));
+    await handleCreateAssistedApplicationCheckout(request());
+
+    stripeCheckoutSessionsRetrieve.mockResolvedValueOnce({
+      id: 'cs_assisted_1',
+      status: 'expired',
+      expires_at: 1760000000,
+    });
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const second = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(second).toEqual({
+      status: 200,
+      body: {
+        ok: true,
+        paymentProvider: 'sumup',
+        checkoutId: 'sumup_checkout_1',
+        orderId: 'order-2',
+      },
+    });
+    expect(stripeCheckoutSessionsRetrieve).toHaveBeenCalledWith('cs_assisted_1');
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentStatus: 'failed',
+      checkoutSessionStatus: 'expired',
+      paymentFailureReason: 'checkout_session_expired',
+    }));
+    expect(store.assisted_applications['order-2']).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      paymentStatus: 'pending',
+      checkoutSessionStatus: 'open',
+      checkoutAttempt: 2,
+    }));
+  });
+
+  it('stores the concierge locale and resume link, and accepts the Offerwall-fallback variant', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    await handleCreateAssistedApplicationCheckout(request({
+      body: {
+        ...request().body,
+        experimentVariant: 'offerwall_fallback',
+        successUrl: 'https://frontaliereticino.ch/fr/trouver-emploi-tessin/job-42/',
+        cancelUrl: 'https://frontaliereticino.ch/fr/trouver-emploi-tessin/job-42/',
+      },
+    }));
+
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      locale: 'fr',
+      orderPageUrl: 'https://frontaliereticino.ch/fr/trouver-emploi-tessin/job-42/?assisted_application_order_id=order-1',
+      experimentVariant: 'offerwall_fallback',
+    }));
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(expect.objectContaining({
+      metadata: expect.objectContaining({ locale: 'fr', experimentVariant: 'offerwall_fallback', copyVariant: 'time_saved' }),
+    }), expect.anything());
   });
 
   it('reuses the persisted request key, order and Stripe session on a retry', async () => {
@@ -279,7 +449,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           metadata: { product: 'assisted_application', orderId: first.body.orderId },
         },
@@ -326,6 +496,19 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     expect(stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(1);
   });
 
+  it('keeps copy attribution out of checkout identity for existing request keys', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    const resumed = await handleCreateAssistedApplicationCheckout(request({
+      body: { ...request().body, copyVariant: 'portal_relief' },
+    }));
+
+    expect(resumed).toEqual(first);
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(1);
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({ copyVariant: 'time_saved' }));
+  });
+
   it('rejects non-HTTPS job and redirect URLs before contacting Stripe', async () => {
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
 
@@ -348,7 +531,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           customer_details: { email: 'candidate@example.com' },
@@ -366,6 +549,66 @@ describe('handleAssistedApplicationWebhookEvent', () => {
     }));
   });
 
+  it('allows a later SumUp success to upgrade a failed attempt on the same checkout', async () => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const {
+      handleCreateAssistedApplicationCheckout,
+      handleAssistedApplicationWebhookEvent,
+    } = await loadCheckout();
+    await handleCreateAssistedApplicationCheckout(request());
+
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.async_payment_failed',
+      data: {
+        object: {
+          id: 'sumup_checkout_1',
+          amount_total: 199,
+          currency: 'eur',
+          payment_status: 'unpaid',
+          metadata: {
+            product: 'assisted_application',
+            paymentProvider: 'sumup',
+            orderId: 'order-1',
+          },
+          sumupTransactionId: 'sumup_failed_transaction',
+        },
+      },
+    }, { db: firestore, ts: '__failed_timestamp__' });
+
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentStatus: 'failed',
+      submissionStatus: 'awaiting_payment',
+    }));
+
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'sumup_checkout_1',
+          amount_total: 199,
+          currency: 'eur',
+          payment_status: 'paid',
+          metadata: {
+            product: 'assisted_application',
+            paymentProvider: 'sumup',
+            orderId: 'order-1',
+          },
+          sumupTransactionId: 'sumup_successful_transaction',
+        },
+      },
+    }, { db: firestore, ts: '__paid_timestamp__' });
+
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      paymentStatus: 'paid',
+      submissionStatus: 'awaiting_upload',
+      sumupCheckoutId: 'sumup_checkout_1',
+      sumupTransactionId: 'sumup_successful_transaction',
+      paidAt: '__paid_timestamp__',
+      paymentFailureReason: null,
+    }));
+  });
+
   it('preserves a paid order when a stale failure event arrives later', async () => {
     const {
       handleCreateAssistedApplicationCheckout,
@@ -378,7 +621,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },
@@ -415,7 +658,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_stale_session',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },
@@ -439,7 +682,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_unpaid',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'unpaid',
           metadata: { product: 'assisted_application', orderId: 'order-unpaid' },
@@ -483,7 +726,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_async',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-async' },
@@ -521,7 +764,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },
@@ -534,7 +777,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'ch_assisted_1',
-          amount: 99,
+          amount: 199,
           amount_refunded: 50,
           refunded: false,
           payment_intent: 'pi_assisted_1',
@@ -559,7 +802,7 @@ describe('signed project-wide Stripe webhook wiring', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },

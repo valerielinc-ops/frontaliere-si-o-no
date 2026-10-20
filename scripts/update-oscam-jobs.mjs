@@ -16,11 +16,12 @@
  *   3. Filter out non-job entries (forms, certificates)
  *   4. Deduplicate across both pages by PDF URL
  *   5. Build job objects with structured descriptions
- *   6. Merge into data/jobs.json (add new, update existing, prune stale)
+ *   6. Merge into data/jobs.json (add new, update existing, archive stale)
  *   7. Run the base crawler for AI localization (4 locales)
  *   8. Post-process: fix company name, location, canton
  *   9. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -35,7 +36,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -54,9 +55,17 @@ import {
 } from './lib/pdf-job-content.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import {
+  buildObservedHttpsApplyUrlHousekeepingProof,
+  partitionByHttpsApplyUrl,
+} from './lib/https-url.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -78,6 +87,20 @@ const CAREERS_URLS = [
   'https://www.oscam.ch/lavoraconnoi-cam/',
 ];
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const OSCAM_HOSPITAL_ADDRESS = Object.freeze({
+  streetAddress: 'Nucleo 30',
+  addressLocality: 'Castelrotto',
+  addressRegion: 'TI',
+  postalCode: '6980',
+  addressCountry: 'CH',
+});
+const OSCAM_CASA_ANZIANA_ADDRESS = Object.freeze({
+  streetAddress: 'Via Mera 9',
+  addressLocality: 'Caslano',
+  addressRegion: 'TI',
+  postalCode: '6987',
+  addressCountry: 'CH',
+});
 
 // ─────────────────────────────────────────────────────────────
 // Helpers
@@ -91,6 +114,28 @@ function normalizeSpace(text = '') {
   return String(text || '')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+/** Extract an official OSCAM application route only when the PDF says it is electronic. */
+export function extractOscamApplicationUrlFromPdfText(text = '') {
+  const source = String(text || '');
+  const routePattern = /(?<![a-z0-9@.-])(?:(https?):\/\/)?(?:www\.)?oscam\.ch\s*\/\s*(candidature|lavoraconnoi)(?:\s*\/)?/gi;
+  let match;
+  while ((match = routePattern.exec(source)) !== null) {
+    const scheme = (match[1] || '').toLowerCase();
+    if (scheme && scheme !== 'https') continue;
+    const prefix = source.slice(Math.max(0, match.index - 40), match.index);
+    // A bare "HTTP oscam.ch/..." is an explicit, malformed HTTP handoff—not
+    // evidence that the source intended HTTPS. Do not repair it by guessing.
+    if (!scheme && /\bhttps?\s*:?\s*$/i.test(prefix)) continue;
+
+    const context = source.slice(Math.max(0, match.index - 240), match.index + match[0].length + 100);
+    if (!/(?:candidatur|application|apply)/i.test(context)
+      || !/(?:online|elettronic|digitale)/i.test(context)) continue;
+
+    return `https://www.oscam.ch/${match[2].toLowerCase()}/`;
+  }
+  return null;
 }
 
 function slugify(text = '', suffix = '') {
@@ -209,7 +254,7 @@ async function fetchPage(url, timeoutMs = 20_000) {
  *
  * Non-job entries (Certificato medico, Autocertificazioni) must be skipped.
  */
-function parseListingPage(html) {
+function parseListingPage(html, careerPageUrl = '') {
   const jobs = [];
 
   // Extract the CONCORSI ATTIVI section
@@ -277,6 +322,7 @@ function parseListingPage(html) {
     jobs.push({
       title: anchorTitle || rawTitle,
       pdfUrl: pdfUrl.startsWith('http') ? pdfUrl : `https://www.oscam.ch${pdfUrl}`,
+      careerPageUrl,
     });
   }
 
@@ -287,23 +333,22 @@ function parseListingPage(html) {
 // Description building (PDF-backed)
 // ─────────────────────────────────────────────────────────────
 
-function buildDescription(title, pdfText = '') {
-  return buildPdfBackedDescription({
-    introLines: [
-      `## Concorso`,
-      `${COMPANY_NAME} pubblica il seguente concorso: ${title}.`,
-    ],
-    pdfText,
-    fallbackText: 'Per i dettagli completi del concorso, consultare il bando PDF allegato.',
-    footerLines: [
-      '---',
-      '**Settore:** Sanità pubblica / Assistenza anziani',
-      '**Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Svizzera',
-      '**Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Svizzera',
-      '**Contatto:** info@oscam.ch | Tel. +41 (0)91 611 37 00',
-    ],
-  });
+/**
+ * The description of one concorso is the text of its PDF bando and nothing
+ * else. The crawler used to wrap it in lines of its own ("## Concorso",
+ * "OSCAM … pubblica il seguente concorso: <titolo>.", **Settore**, **Sede**
+ * and **Contatto** footers) and to write "Per i dettagli completi del
+ * concorso, consultare il bando PDF allegato." when the PDF had no text; a
+ * bando without readable text now gets no description and takes the
+ * pipeline's thin-source path.
+ */
+export function buildDescription(pdfText = '') {
+  return buildPdfBackedDescription({ pdfText });
 }
+
+/** Fragments only the crawler's former wrapper wrote (see `buildDescription`). */
+export const OSCAM_FABRICATED_DESCRIPTION_RE =
+  /pubblica il seguente concorso: |Per i dettagli completi del concorso, consultare il bando PDF allegato\.|(?:^|\n)\*\*Sede Ospedale:\*\* Via Cantonale 4/;
 
 /**
  * Validate OSCAM job description quality.
@@ -379,7 +424,7 @@ function detectEmploymentType(title = '') {
 // Main discovery
 // ─────────────────────────────────────────────────────────────
 
-async function fetchOscamJobs() {
+export async function fetchOscamJobs() {
   const seenPdfUrls = new Set();
   const allJobs = [];
 
@@ -391,7 +436,7 @@ async function fetchOscamJobs() {
       continue;
     }
 
-    const listings = parseListingPage(html);
+    const listings = parseListingPage(html, url);
     console.log(`📋 Found ${listings.length} concorso(i) on ${url}`);
 
     for (const listing of listings) {
@@ -415,7 +460,9 @@ async function fetchOscamJobs() {
         console.log(`    ✅ PDF text: ${pdfText.length} chars (${pdfContent.totalPages} pages)`);
       }
 
-      const description = buildDescription(listing.title, pdfText);
+      const description = buildDescription(pdfText);
+      // The bando's text is keyed by its own language.
+      const sourceLang = detectLang(description || listing.title, 'it');
 
       // Validate quality
       const validation = validateOscamDescription(description, pdfText);
@@ -425,29 +472,34 @@ async function fetchOscamJobs() {
       }
 
       const slug = slugify(listing.title, COMPANY_KEY);
+      const address = listing.careerPageUrl?.includes('lavoraconnoi-cam')
+        ? OSCAM_CASA_ANZIANA_ADDRESS
+        : OSCAM_HOSPITAL_ADDRESS;
 
       const job = {
         title: listing.title,
         slug,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
-        location: 'Castelrotto',
+        location: address.addressLocality,
         canton: HQ.canton,
         country: 'CH',
+        ...address,
         url: listing.pdfUrl,
-        applyUrl: 'mailto:info@oscam.ch',
+        applyUrl: extractOscamApplicationUrlFromPdfText(pdfText),
         description,
         category: detectCategory(listing.title),
         sector: 'Sanità pubblica / Assistenza anziani',
         employmentType: detectEmploymentType(listing.title),
         experienceLevel: detectExperienceLevel(listing.title),
         source: 'oscam-crawler',
-        postedDate: new Date().toISOString().slice(0, 10),
-        titleByLocale: { it: listing.title },
-        descriptionByLocale: { it: description },
-        slugByLocale: { it: slug },
-        sourceLang: detectLang(description || listing.title, 'it'),
-        _targetScope: { canton: HQ.canton, location: 'Castelrotto' },
+        ...sourcePostingDateFields(''),
+        crawledAt: new Date().toISOString(),
+        titleByLocale: { [sourceLang]: listing.title },
+        descriptionByLocale: { [sourceLang]: description },
+        slugByLocale: { [sourceLang]: slug },
+        sourceLang,
+        _targetScope: { canton: HQ.canton, location: address.addressLocality },
       };
 
       allJobs.push(job);
@@ -466,11 +518,23 @@ function jobMatchKey(job) {
 }
 
 async function mergeJobs(discoveredJobs) {
+  const { publishable, quarantined } = partitionByHttpsApplyUrl(discoveredJobs);
+  if (quarantined.length > 0) {
+    console.warn(
+      `  ⛔ OSCAM: quarantining ${quarantined.length} job(s) without a verified HTTPS application route in the official PDF.`,
+    );
+  }
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
-  const existingTargetJobs = allJobs.filter(isTargetJob);
+  // The merge keeps stored locale slots and only replaces the description
+  // with a LONGER one: remove the former wrapper from stored jobs first.
+  const existingTargetJobs = dropFabricatedDescriptions(
+    allJobs.filter(isTargetJob),
+    OSCAM_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
 
   const existingByKey = new Map();
   for (const job of existingTargetJobs) {
@@ -478,7 +542,7 @@ async function mergeJobs(discoveredJobs) {
   }
 
   const discoveredByKey = new Map();
-  for (const job of discoveredJobs) {
+  for (const job of publishable) {
     discoveredByKey.set(jobMatchKey(job), job);
   }
 
@@ -487,8 +551,8 @@ async function mergeJobs(discoveredJobs) {
   // Iterate the deduped Map values (last occurrence wins) instead of the
   // raw discovered list.
   const dedupedDiscovered = [...discoveredByKey.values()];
-  if (dedupedDiscovered.length !== discoveredJobs.length) {
-    console.log(`  ↺ Intra-run dedup: ${discoveredJobs.length} discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
+  if (dedupedDiscovered.length !== publishable.length) {
+    console.log(`  ↺ Intra-run dedup: ${publishable.length} publishable → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
   }
 
   let added = 0;
@@ -503,14 +567,21 @@ async function mergeJobs(discoveredJobs) {
     if (ex) {
       const updatedJob = {
         ...ex,
+        ...mergeSourcePostingDates(ex, discovered),
+        crawledAt: discovered.crawledAt,
         title: discovered.title || ex.title,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
         location: discovered.location || ex.location,
         canton: HQ.canton,
         country: 'CH',
+        streetAddress: discovered.streetAddress || ex.streetAddress,
+        postalCode: discovered.postalCode || ex.postalCode,
+        addressLocality: discovered.addressLocality || ex.addressLocality,
+        addressRegion: discovered.addressRegion || ex.addressRegion || HQ.addressRegion,
+        addressCountry: discovered.addressCountry || ex.addressCountry || 'CH',
         url: discovered.url || ex.url,
-        applyUrl: discovered.applyUrl || ex.applyUrl,
+        applyUrl: discovered.applyUrl,
         category: discovered.category || ex.category,
         sector: discovered.sector || ex.sector,
         source: 'oscam-crawler',
@@ -541,9 +612,11 @@ async function mergeJobs(discoveredJobs) {
     }
   }
 
-  for (const [key] of existingByKey) {
-    if (!discoveredByKey.has(key)) removed++;
-  }
+  const removedJobs = [...existingByKey.entries()]
+    .filter(([key]) => !discoveredByKey.has(key))
+    .map(([, job]) => job);
+  removed = removedJobs.length;
+  const archived = archiveRemovedJobsToSlice(removedJobs, COMPANY_KEY);
 
   const final = [...nonTargetJobs, ...merged];
 
@@ -554,7 +627,7 @@ async function mergeJobs(discoveredJobs) {
   console.log(`\n📦 Merge results:`);
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
-  console.log(`  🗑️  Removed (stale): ${removed}`);
+  console.log(`  📦 Archived (stale): ${archived}/${removed}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
 
   return { added, updated, removed, total: final.length };
@@ -629,9 +702,18 @@ function postProcessJobs() {
     }
     job.canton = HQ.canton;
     job.country = 'CH';
-    if (!job.location) {
-      job.location = 'Castelrotto';
+    const address = normalize(job.addressLocality || job.location) === 'caslano'
+      ? OSCAM_CASA_ANZIANA_ADDRESS
+      : OSCAM_HOSPITAL_ADDRESS;
+    if (job.location !== address.addressLocality) {
+      job.location = address.addressLocality;
       fixed++;
+    }
+    for (const [field, value] of Object.entries(address)) {
+      if (job[field] !== value) {
+        job[field] = value;
+        fixed++;
+      }
     }
   }
 
@@ -706,7 +788,8 @@ async function main() {
   console.log('🔍 Fetching OSCAM jobs...');
 
   // Snapshot before
-  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob))
+  const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(priorJobs);
 
   // Phase 1: Fetch and parse jobs
   const discoveredJobs = await fetchOscamJobs();
@@ -717,6 +800,16 @@ async function main() {
       '   The career pages may have changed structure or have no current concorsi.'
     );
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    // The stored jobs are kept, without the text the crawler once wrote
+    // into them (the merge would have removed it).
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => dropFabricatedDescriptions(jobs, OSCAM_FABRICATED_DESCRIPTION_RE, COMPANY_NAME),
+      storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+      companyKey: COMPANY_KEY,
+      companyLabel: COMPANY_NAME,
+      write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+      assemble: () => assembleJobsDataset(),
+    });
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
@@ -739,23 +832,31 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
-  if (stats.total === 0) {
-    console.log(
-      'ℹ️ No OSCAM jobs found after crawl. No error — exiting OK.'
-    );
-    return;
-  }
 
   // Phase 7: Validate locale coverage
-  validateLocales();
+  if (stats.total > 0) validateLocales();
+  else console.log('ℹ️ No OSCAM jobs have a verified HTTPS application handoff.');
 
   console.log('\n✅ OSCAM crawler complete.');
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  const _sliceJobs = Array.isArray(_sliceRaw)
+    ? partitionByHttpsApplyUrl(_sliceRaw.filter(isTargetJob)).publishable
+    : [];
+  const observedPublishableJobs = partitionByHttpsApplyUrl(discoveredJobs).publishable;
+  const applyUrlHousekeepingProof = buildObservedHttpsApplyUrlHousekeepingProof({
+    priorJobs,
+    observedJobs: discoveredJobs,
+    keyFor: jobMatchKey,
+  });
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    observedJobs: observedPublishableJobs,
+    housekeepingProof: applyUrlHousekeepingProof,
+    verifyUnprovenHousekeeping: true,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'OSCAM',
@@ -776,4 +877,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'OSCAM'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'OSCAM'));
+}

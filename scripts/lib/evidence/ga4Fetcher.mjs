@@ -1,6 +1,6 @@
 // GA4 fetcher for the evidence layer — runReport on `pagePath`, returns
-// per-page sessions and engagement time. Resilient: never throws, returns
-// `{ pages, error? }`.
+// per-page sessions, views and engagement time. Resilient: never throws,
+// returns `{ pages, coverage?, error? }`.
 //
 // Auth: same Firebase SA as GSC; verifies the SA has GA4 viewer access.
 // On 403 we return a clear actionable error string.
@@ -12,7 +12,7 @@
 
 import { GA4_MIN_SESSIONS } from './constants.mjs';
 import { classifyByRegex } from '../cluster-classifier-prompt.mjs';
-import { GA4_READONLY_SCOPE, getServiceAccountToken } from '../ga4-service-account.mjs';
+import { GA4_READONLY_SCOPE, getServiceAccountToken, paginateGa4Report } from '../ga4-service-account.mjs';
 
 function normalizePropertyId(raw) {
   if (!raw) return null;
@@ -89,20 +89,26 @@ async function loadPublishedDates() {
 }
 
 /**
- * Fetch per-page sessions + engagement, last `startDate..endDate` window.
- * Newsletter-sourced sessions are excluded so we measure SEO traffic only.
+ * Fetch per-page sessions, views and engagement, last `startDate..endDate` window.
+ * Excludes newsletter-sourced sessions; direct, paid and referral traffic remain included.
  * @param {object} options
  * @param {string} options.propertyId - GA4 property id (with or without `properties/` prefix)
  * @param {string} options.startDate - YYYY-MM-DD
  * @param {string} options.endDate - YYYY-MM-DD
+ * @param {number} [options.minSessions=GA4_MIN_SESSIONS] - Minimum sessions retained per page.
  * @param {Function} [options.fetchImpl=fetch]
  * @param {Function} [options.getTokenImpl=getServiceAccountToken]
- * @returns {Promise<{pages: object, error?: string}>}
+ * @returns {Promise<{
+ *   pages: Record<string, {sessions: number, pageviews: number, engageTime: number, publishedAt: string|null, cluster: string}>,
+ *   coverage?: {complete: boolean, returnedRows: number, reportedRows: number|null},
+ *   error?: string
+ * }>}
  */
 export async function fetchGa4Pages({
   propertyId,
   startDate,
   endDate,
+  minSessions = GA4_MIN_SESSIONS,
   fetchImpl = fetch,
   getTokenImpl = () => getServiceAccountToken([GA4_READONLY_SCOPE]),
 } = {}) {
@@ -132,32 +138,44 @@ export async function fetchGa4Pages({
           },
         },
       },
-      limit: 100000,
     };
 
-    const res = await fetchImpl(url, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(requestBody),
+    // Paginato con offset fino a rowCount: un limit fisso senza offset
+    // troncava a 100000 righe una finestra di 138.894 pagePath e
+    // seo-health-loop leggeva GA4 come fonte assente a ogni run (issue 11423).
+    let accessDenied = null;
+    const report = await paginateGa4Report({
+      body: requestBody,
+      fetchPage: async (body) => {
+        const res = await fetchImpl(url, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        if (res.status === 403) {
+          accessDenied = (await res.text()).slice(0, 200);
+          return null;
+        }
+        if (!res.ok) throw new Error(`ga4 ${res.status}: ${await res.text()}`);
+        return res.json();
+      },
     });
-    if (res.status === 403) {
-      const text = await res.text();
+    if (accessDenied !== null) {
       return {
         pages: {},
-        error: `GA4 access denied — service account needs Viewer role on property (${text.slice(0, 200)})`,
+        error: `GA4 access denied — service account needs Viewer role on property (${accessDenied})`,
       };
     }
-    if (!res.ok) throw new Error(`ga4 ${res.status}: ${await res.text()}`);
-    const data = await res.json();
-    const rows = data.rows || [];
+    const { rows } = report;
 
     const pages = {};
     for (const r of rows) {
       const path = r.dimensionValues?.[0]?.value || '';
       if (!path) continue;
       const sessions = Number(r.metricValues?.[0]?.value || 0);
-      if (sessions < GA4_MIN_SESSIONS) continue;
+      if (sessions < minSessions) continue;
       const engageDur = Number(r.metricValues?.[1]?.value || 0);
+      const pageviews = Number(r.metricValues?.[2]?.value || 0);
       const engageTime = sessions > 0 ? Number((engageDur / sessions).toFixed(2)) : 0;
       const cluster = attachClusterFromPath(path, blogMetaIt);
       const slugMatch = path.match(/\/articoli-frontaliere\/([^/?#]+)/);
@@ -165,12 +183,22 @@ export async function fetchGa4Pages({
       const publishedAt = slug && publishedDates.has(slug) ? publishedDates.get(slug) : null;
       pages[path] = {
         sessions,
+        pageviews,
         engageTime,
         publishedAt,
         cluster,
       };
     }
-    return { pages };
+    const reportedRows = report.rowCount;
+    const metadata = report.metadata;
+    const limited = !report.complete || metadata.dataLossFromOtherRow || metadata.subjectToThresholding
+      || metadata.dataTruncationReasons?.length || metadata.schemaRestrictionResponse?.activeMetricRestrictions?.length
+      || metadata.samplingMetadatas?.some((sample) => Number(sample.samplesReadCount) < Number(sample.samplingSpaceSize));
+    return {
+      pages,
+      coverage: { complete: !limited, returnedRows: rows.length, reportedRows },
+      ...(limited ? { error: `GA4 incomplete or restricted response (${rows.length}/${reportedRows ?? 'unknown'} rows); observed pages retained, absence is not zero traffic` } : {}),
+    };
   } catch (err) {
     const reason = err && err.message ? err.message : String(err);
     return { pages: {}, error: reason };

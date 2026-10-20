@@ -1,9 +1,15 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import {
+  evaluateAuthoritativeSnapshot,
+  exitCrawlerOnError,
+  fetchHtml,
+  fetchHtmlWithCookies,
+} from './lib/crawler-template.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -29,6 +35,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseSunriseSearchPage,
   parseSunriseJobDetail,
@@ -88,8 +95,7 @@ function normalizeKey(value = '') {
 
 function toIsoDate(value = '') {
   const parsed = new Date(String(value || '').trim());
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
+  return Number.isNaN(parsed.getTime()) ? '' : parsed.toISOString().slice(0, 10);
 }
 
 function deriveLocationLabel(detail, listing) {
@@ -125,6 +131,14 @@ async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
   });
 }
 
+async function fetchTextWithCookies(url, cookieJar, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
+  return fetchHtmlWithCookies(url, {
+    timeoutMs,
+    cookieJar,
+    headers: { Accept: 'text/html,application/xhtml+xml' },
+  });
+}
+
 function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
@@ -148,13 +162,19 @@ async function fetchSunriseListings() {
   let malformedRecordCount = 0;
   let payloadPresent = false;
   let terminationProven = false;
+  // Phenom assigns a result ordering to the PLAY_SESSION it creates for the
+  // first listing request. Native fetch does not persist Set-Cookie between
+  // separate calls, so without this jar offset pages can be evaluated against
+  // different orderings and overlap (for example page 3 repeating the last
+  // row of page 2). Keep one session for the complete listing snapshot.
+  const listingCookieJar = new Map();
   const paginationIntegrity = createListingPaginationIntegrity({
     getRowKey: (row) => row?.reqId || row?.jobId,
   });
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const offset = page * PAGE_SIZE;
     const url = offset ? `${CAREERS_URL}?from=${offset}&s=1` : CAREERS_URL;
-    const html = await fetchText(url);
+    const html = await fetchTextWithCookies(url, listingCookieJar);
     const rows = parseSunriseSearchPage(html);
     if (rows.sunriseSearchPayloadPresent !== true) {
       throw new Error(`Sunrise search payload missing at offset ${offset}`);
@@ -267,7 +287,7 @@ function assertCompleteSunriseSnapshot(jobs = []) {
 async function buildSunriseJob(listing) {
   const detailUrl = buildSunriseDetailUrl(listing);
   const html = await fetchText(detailUrl);
-  const detail = parseSunriseJobDetail(html);
+  const detail = parseSunriseJobDetail(html, detailUrl, listing.title);
   const canton = inferSunriseCanton({ ...listing, ...detail });
   const locationLabel = deriveLocationLabel(detail, listing);
   const localized = buildSunriseLocalizedContent(detail);
@@ -277,10 +297,9 @@ async function buildSunriseJob(listing) {
     de: normalizeKey(`${detail.title} Sunrise ${locationLabel}`),
     fr: normalizeKey(`${detail.title} Sunrise ${locationLabel}`),
   };
-  const itDescription = localized.descriptionByLocale.it || '';
-  const enDescription = localized.descriptionByLocale.en || '';
+  const { sourceLang } = localized;
   return {
-    title: localized.titleByLocale.it || detail.title || listing.title,
+    title: localized.titleByLocale[sourceLang] || detail.title || listing.title,
     slug: localized.slugByLocale.it,
     url: detailUrl,
     applyUrl: detail.applyUrl,
@@ -297,8 +316,9 @@ async function buildSunriseJob(listing) {
     category: inferSunriseCategory(detail),
     sector: 'Tecnologia & IT',
     source: 'sunrise-dedicated-crawler',
-    sourceLang: detectLang(enDescription || itDescription || detail.description || '', 'en'),
-    postedDate: toIsoDate(detail.postedDate || listing.postedDate),
+    sourceLang,
+    ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
+    crawledAt: new Date().toISOString(),
     employmentType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
     contractType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
     validThrough: detail.validThrough ? toIsoDate(detail.validThrough) : '',
@@ -332,10 +352,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...withLegacyPostingDay(mergeSourcePostingDates(prev, job)),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -360,7 +383,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {

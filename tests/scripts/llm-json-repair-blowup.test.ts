@@ -38,10 +38,135 @@
 // mai» non ha bisogno di precisione.
 
 import { describe, expect, it } from 'vitest';
-import { fixJsonStringBody, findMatchingClose } from '../../scripts/lib/llm-json-repair.mjs';
+import {
+  fixJsonStringBody,
+  findMatchingClose,
+  getLlmJsonRepairScanMetrics,
+  repairLlmJsonArray,
+  resetLlmJsonRepairScanMetrics,
+} from '../../scripts/lib/llm-json-repair.mjs';
 
 /** La forma esatta che fa esplodere la ricorsione. */
 const pseudoJsonInProse = (n: number) => `{"body1":"${'"chiave": "valore", '.repeat(n)}fine"}`;
+
+describe('llm-json-repair: raccolta dei root JSON', () => {
+  it('raccoglie un wrapper faq dopo un root array non bilanciato', () => {
+    const raw = 'preamble [unbalanced {"faq":[{"q":"Q","a":"A"}]}';
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual({ faq: [{ q: 'Q', a: 'A' }] });
+  });
+
+  it('non seleziona un array dentro una stringa quotata prima del payload reale', () => {
+    const raw = 'meta {"note":"x"} "quoted [1]", [{"q":"real","a":"A"}]';
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'real', a: 'A' }]);
+  });
+
+  it('scansiona molti opener non bilanciati in tempo quasi lineare', () => {
+    const measure = (openerCount: number) => {
+      const raw = `preamble [unbalanced ${'['.repeat(openerCount)}`;
+      const startedAt = performance.now();
+      const repaired = repairLlmJsonArray(raw);
+      return { ms: performance.now() - startedAt, repaired };
+    };
+
+    const small = measure(4_000);
+    const large = measure(16_000);
+    expect(typeof large.repaired).toBe('string');
+    expect(large.ms, `16.000 opener non bilanciati hanno richiesto ${large.ms.toFixed(0)} ms`).toBeLessThan(2_000);
+    expect(
+      large.ms,
+      `la crescita non e' quasi lineare: 4.000=${small.ms.toFixed(0)} ms, 16.000=${large.ms.toFixed(0)} ms`,
+    ).toBeLessThan(small.ms * 10 + 250);
+  });
+
+  it('estrae un payload FAQ reale dopo prosa corrotta con un opener annidato non bilanciato', () => {
+    const raw = '[[ prosa corrotta [{"q":"real","a":"A"}]';
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'real', a: 'A' }]);
+  });
+
+  it('collassa i contenitori malformati oltre il budget prima dei candidati e resta lineare', () => {
+    const measure = (depth: number) => {
+      const raw = `${'['.repeat(depth + 1)} prosa corrotta [{"q":"real","a":"A"}]`;
+      const startedAt = performance.now();
+      const parsed = JSON.parse(repairLlmJsonArray(raw));
+      return { ms: performance.now() - startedAt, parsed };
+    };
+
+    const shallow = measure(97);
+    const deep = measure(388);
+    expect(shallow.parsed).toEqual([{ q: 'real', a: 'A' }]);
+    expect(deep.parsed).toEqual([{ q: 'real', a: 'A' }]);
+    expect(
+      deep.ms,
+      `la crescita non e' quasi lineare: 97=${shallow.ms.toFixed(0)} ms, 388=${deep.ms.toFixed(0)} ms`,
+    ).toBeLessThan(shallow.ms * 10 + 250);
+  });
+
+  it('ignora una chiusura di tipo errato mentre un altro frame e\' aperto', () => {
+    const raw = 'preamble {"broken":[1} , 2]} prose Risposta finale: [{"q":"real","a":"A"}]';
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'real', a: 'A' }]);
+  });
+
+  it('risincronizza dopo un closer incompatibile prima di un root FAQ successivo', () => {
+    const cases = [
+      '{"bad":[1} [{"q":"Q","a":"A"}]',
+      '[1} [{"q":"Q","a":"A"}]',
+      '{"bad":1] [{"q":"Q","a":"A"}]',
+      '{"bad":{"deeper":{"deepest":[1} [{"q":"Q","a":"A"}]',
+    ];
+
+    for (const raw of cases) {
+      expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'Q', a: 'A' }]);
+    }
+  });
+
+  it('mantiene un closer incompatibile fuori da un root incompleto a EOF', () => {
+    const cases = ['[1}', '{"bad":1]'];
+
+    for (const raw of cases) {
+      const repaired = repairLlmJsonArray(raw);
+      expect(repaired).toBe(raw);
+      expect(() => JSON.parse(repaired)).toThrow(SyntaxError);
+    }
+  });
+
+  it('ignora delimitatori ambigui dentro un valore quotato', () => {
+    const raw = 'meta {"note":"prosa "chiave": [1,2] e } ancora"} [{"q":"real","a":"A"}]';
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual([{ q: 'real', a: 'A' }]);
+  });
+
+  it('documenta il budget di scansione di 24 root', () => {
+    const preamble = Array.from({ length: 25 }, (_, i) => `{"q":"noise-${i}","a":"N"}`).join(' ');
+    const raw = `${preamble} Risposta finale: {"q":"real","a":"A"}`;
+    // By construction, the 25th later balanced root is outside the bounded
+    // candidate scan; the first valid root remains the safe fallback.
+    expect(JSON.parse(repairLlmJsonArray(raw))).toEqual({ q: 'noise-0', a: 'N' });
+  });
+
+  it('non consuma il budget dei root con gli opener annidati in un candidato laterale', () => {
+    const nestedOpenerCount = 96;
+    const lateralCandidate = `${'['.repeat(nestedOpenerCount + 1)}1${']'.repeat(nestedOpenerCount + 1)}`;
+    const raw = `{"meta":"noise"} ${lateralCandidate} [{"q":"real","a":"A"}]`;
+    const repaired = repairLlmJsonArray(raw, {
+      validateCandidate: (candidate) => candidate?.[0]?.q === 'real',
+    });
+    expect(JSON.parse(repaired)).toEqual([{ q: 'real', a: 'A' }]);
+  });
+
+  it('esamina linearmente il suffisso di quote malformate', () => {
+    const measure = (quoteCount: number) => {
+      const raw = `preamble [${'"'.repeat(quoteCount)}x`;
+      resetLlmJsonRepairScanMetrics();
+      repairLlmJsonArray(raw);
+      const metrics = getLlmJsonRepairScanMetrics();
+      expect(metrics.charactersExamined).toBeGreaterThan(0);
+      return metrics.charactersExamined;
+    };
+
+    const n = measure(256);
+    const fourN = measure(1_024);
+    expect(fourN, `la scansione dei quote cresce oltre il lineare: N=${n}, 4N=${fourN}`).toBeLessThanOrEqual(n * 5);
+  });
+});
 
 function millis<T>(fn: () => T): { ms: number; out: T } {
   const t0 = performance.now();

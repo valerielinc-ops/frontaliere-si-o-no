@@ -8,8 +8,9 @@
  *
  * Careers page: https://bitfinex.recruitee.com/
  *
- * Bitfinex is registered in Lugano, TI but all positions are remote.
- * We include ALL offers (no Swiss location filtering) per user request.
+ * Bitfinex is registered in Lugano, TI but the Recruitee board also exposes
+ * worldwide offers. The Swiss slice keeps only offers with source-backed Swiss
+ * location evidence; foreign and unresolved offers are quarantined.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBitfinexJobs()  — Fetch and parse all jobs
@@ -17,12 +18,19 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
-import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import {
+  attachRecruiteeCountrySnapshot,
+  findSwissRecruiteeLocation,
+  hasOnlyExplicitlyForeignRecruiteeLocations,
+} from './recruitee-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -186,13 +194,14 @@ function dedupeBitfinexJobs(jobs) {
   jobs.forEach((job, index) => {
     const fp = fingerprint(job);
     const existing = groups.get(fp);
+    const publishedAt = job.postingDateSource === 'reported' ? Date.parse(job.datePosted) : -Infinity;
     if (!existing) {
-      groups.set(fp, { job, index, postedDate: job.datePosted || '' });
+      groups.set(fp, { job, index, publishedAt });
       return;
     }
     // Keep the most-recent posting; tie-break on lowest original index.
-    if ((job.datePosted || '') > existing.postedDate) {
-      groups.set(fp, { job, index, postedDate: job.datePosted || '' });
+    if (publishedAt > existing.publishedAt) {
+      groups.set(fp, { job, index, publishedAt });
     }
   });
 
@@ -268,7 +277,10 @@ export async function fetchAllBitfinexJobs() {
   const { offers, origin } = await fetchJobListings();
   if (!offers || offers.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return attachRecruiteeCountrySnapshot([], {
+      complete: Boolean(origin),
+      offerCount: 0,
+    });
   }
 
   const detailUrlBase = `${origin || API_ORIGINS[0]}/o`;
@@ -276,25 +288,60 @@ export async function fetchAllBitfinexJobs() {
   console.log(`  📋 Offers found: ${offers.length}`);
 
   const jobs = [];
+  const acceptedDetailUrls = [];
+  const rejectedDetailUrls = [];
+  const unclassifiedDetailUrls = [];
+  let acceptedOfferCount = 0;
+  let rejectedOfferCount = 0;
+  let unclassifiedOfferCount = 0;
   for (const offer of offers) {
     const title = normalizeSpace(offer.title || '');
-    if (!title || title.length < 3) continue;
+    const slug = normalizeSpace(offer.slug);
+    const sourceDetailUrl = slug ? detailUrlBase + '/' + slug : '';
+    if (!title || title.length < 3) {
+      unclassifiedOfferCount += 1;
+      if (sourceDetailUrl) unclassifiedDetailUrls.push(sourceDetailUrl);
+      continue;
+    }
+
+    if (!Array.isArray(offer.locations)) {
+      unclassifiedOfferCount += 1;
+      if (sourceDetailUrl) unclassifiedDetailUrls.push(sourceDetailUrl);
+      continue;
+    }
 
     // Combine all description sections (description + requirements + education + experience)
     const combinedHtml = combineDescriptionSections(offer);
     const descriptionText = stripHtml(combinedHtml || offer.description || '');
 
-    // Extract location — remote company, default to Lugano HQ
-    const firstLoc = offer.locations?.[0] || {};
-    const city = normalizeSpace(firstLoc.city || HQ.city);
-    const state = normalizeSpace(firstLoc.state || 'Ticino');
-    const location = `${city}, ${state}`;
+    // Extract a source-backed Swiss location. Do not use the employer HQ as a
+    // country fallback for a worldwide/ambiguous remote offer.
+    const firstLoc = findSwissRecruiteeLocation(offer.locations);
+    if (!firstLoc) {
+      if (hasOnlyExplicitlyForeignRecruiteeLocations(offer.locations)) {
+        rejectedOfferCount += 1;
+        if (sourceDetailUrl) rejectedDetailUrls.push(sourceDetailUrl);
+      } else {
+        unclassifiedOfferCount += 1;
+        if (sourceDetailUrl) unclassifiedDetailUrls.push(sourceDetailUrl);
+      }
+      console.log(`  ⏭️  Skipped non-Swiss or unresolved location: ${title}`);
+      continue;
+    }
+    acceptedOfferCount += 1;
+    if (sourceDetailUrl) acceptedDetailUrls.push(sourceDetailUrl);
+    const city = normalizeSpace(firstLoc.city);
+    const sourceState = normalizeSpace(firstLoc.state || '');
+    const state = sourceState;
+    const location = state ? `${city}, ${state}` : city;
 
-    // Infer actual canton from job city — don't hardcode HQ canton for foreign locations
-    const inferredCanton = inferAnyCanton(city) || inferAnyCanton(location);
-    const isForeignCity = isLocationExplicitlyForeign(city) || isLocationExplicitlyForeign(location);
-    const jobCanton = inferredCanton || (isForeignCity ? '' : HQ.canton);
-    const jobRegion = inferredCanton || (isForeignCity ? state : HQ.addressRegion);
+    // Infer the canton from the selected Swiss source location only.
+    const inferredCanton = inferCantonFromJobEvidence({
+      cityText: city,
+      locationText: sourceState ? location : city,
+    });
+    const jobCanton = inferredCanton;
+    const jobRegion = inferredCanton || sourceState;
 
     // Work model — Bitfinex is remote-first
     let workModel = 'remote';
@@ -305,9 +352,7 @@ export async function fetchAllBitfinexJobs() {
     const employmentType = EMPLOYMENT_TYPE_MAP[offer.employment_type_code] || 'FULL_TIME';
 
     // Date
-    const datePosted = offer.published_at
-      ? String(offer.published_at).slice(0, 10)
-      : new Date().toISOString().slice(0, 10);
+    const publication = sourcePostingDateFields(offer.published_at);
 
     // Build detail + apply URLs
     const detailUrl = `${detailUrlBase}/${offer.slug}`;
@@ -317,7 +362,11 @@ export async function fetchAllBitfinexJobs() {
     const jobSlug = slugify(`${title} bitfinex ch`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
 
-    const fallbackDesc = `${title} — open position at Bitfinex. Bitfinex is one of the world's largest cryptocurrency exchanges, registered in Lugano, Canton Ticino. Remote-first company at the forefront of digital finance. Apply through the official Bitfinex careers page.`;
+    // Only the posting's own text (issue 5253): no "<title> — open position at
+    // Bitfinex." line and company summary in place of a short Recruitee body.
+    // A body under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const job = {
       // ── Required fields ──
@@ -329,8 +378,8 @@ export async function fetchAllBitfinexJobs() {
       companyDomain: BITFINEX_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton: jobCanton,
       url: detailUrl,
@@ -341,9 +390,9 @@ export async function fetchAllBitfinexJobs() {
       // ── Recommended fields ──
       addressLocality: city,
       addressRegion: jobRegion,
-      addressCountry: isForeignCity ? '' : 'CH',
-      postalCode: inferredCanton ? HQ.postalCode : '',
-      country: isForeignCity ? '' : 'CH',
+      addressCountry: 'CH',
+      postalCode: normalizeSpace(firstLoc.postal_code || ''),
+      country: 'CH',
       category: detectCategory(title),
       contract: workModel === 'remote' ? 'remote' : 'full-time',
       employmentType,
@@ -352,8 +401,7 @@ export async function fetchAllBitfinexJobs() {
       sector: 'Fintech / Blockchain',
       currency: 'CHF',
       featured: false,
-      datePosted,
-      postedDate: datePosted,
+      ...publication,
       applyUrl,
       department: offer.department || '',
       requirements: [],
@@ -368,5 +416,14 @@ export async function fetchAllBitfinexJobs() {
     console.log(`  🧹 Deduplicated ${jobs.length - deduped.length} duplicate listing(s) (kept most-recent per role)`);
   }
   console.log(`\n📋 Total Bitfinex jobs discovered: ${deduped.length}`);
-  return deduped;
+  return attachRecruiteeCountrySnapshot(deduped, {
+    complete: Boolean(origin),
+    offerCount: offers.length,
+    acceptedOfferCount,
+    rejectedOfferCount,
+    unclassifiedOfferCount,
+    acceptedDetailUrls,
+    rejectedDetailUrls,
+    unclassifiedDetailUrls,
+  });
 }

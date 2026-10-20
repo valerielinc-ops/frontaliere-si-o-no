@@ -19,7 +19,7 @@ import {
   parseDate,
   detectCategory,
   detectEmploymentType,
-  buildFallbackDescription,
+  wuerthDescriptionFromDetail,
   isWuerthInternationalJob,
   isTrustedDomain,
   WUERTH_INTERNATIONAL_KEY,
@@ -516,34 +516,31 @@ describe('isTrustedDomain', () => {
 });
 
 // ═══════════════════════════════════════════════════════════════════
-// buildFallbackDescription
+// wuerthDescriptionFromDetail (issue 5253)
 // ═══════════════════════════════════════════════════════════════════
+// These cases used to test buildFallbackDescription, which replaced a detail
+// text under 50 words with "<title> bei Würth International AG in <location>…"
+// and a paragraph about the Würth group written by the parser (>= 50 words,
+// title, location, company, entry level). That ripiego is gone: the detail
+// text is published from the shared 50-word floor up, and a shorter text or
+// none gives no description (the pipeline's thin-source path).
 
-describe('buildFallbackDescription', () => {
-  it('generates description with >=50 words', () => {
-    const desc = buildFallbackDescription('Steuerexperte', 'Chur', 'Berufserfahrene');
-    const wordCount = desc.split(/\s+/).length;
-    expect(wordCount).toBeGreaterThanOrEqual(50);
+describe('wuerthDescriptionFromDetail', () => {
+  it('publishes the detail text of the live fixture as it is', () => {
+    const detail = parseDetailPage(DETAIL_HTML);
+    expect(wuerthDescriptionFromDetail(detail)).toBe(detail!.description.trim());
+    expect(wuerthDescriptionFromDetail(detail)).toContain('Beratung');
   });
 
-  it('includes job title', () => {
-    const desc = buildFallbackDescription('Einkäufer', 'Chur');
-    expect(desc).toContain('Einkäufer');
+  it('gives a detail text under 50 words no indexable text instead of replacing it', () => {
+    // The first task of the fixture posting (Steuerexperte, Chur).
+    const short = '• Beratung der Geschaeftspartner und der Geschaeftsleitungen sowie Unterstuetzung in allen direktsteuerlichen Belangen';
+    expect(wuerthDescriptionFromDetail({ description: short })).toBe('');
   });
 
-  it('includes location', () => {
-    const desc = buildFallbackDescription('Test Job', 'Chur');
-    expect(desc).toContain('Chur');
-  });
-
-  it('includes company info', () => {
-    const desc = buildFallbackDescription('Test Job', 'Chur');
-    expect(desc).toContain('Würth International');
-  });
-
-  it('includes entry level when provided', () => {
-    const desc = buildFallbackDescription('Test Job', 'Chur', 'Auszubildende');
-    expect(desc).toContain('Auszubildende');
+  it('gives a posting without detail text no description', () => {
+    expect(wuerthDescriptionFromDetail(null)).toBe('');
+    expect(wuerthDescriptionFromDetail({ description: '' })).toBe('');
   });
 });
 

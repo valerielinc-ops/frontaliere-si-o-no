@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109782",
+      "sourceKey": "TG",
+      "sourceRecordId": "109782",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "681999",
+      "normalizedPlate": "TG681999",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-10-07T17:00:00.000Z",
+      "closedAt": "2026-10-07T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109782",
+      "sourceFetchedAt": "2026-10-07T06:06:06.221Z",
+      "lastVerifiedAt": "2026-10-07T06:06:06.221Z",
+      "firstSeenAt": "2026-09-30T22:21:29.517Z",
+      "lastSeenAt": "2026-10-07T06:06:06.221Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "11fe0dbb5443"
+    }
+  ]
+}

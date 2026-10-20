@@ -225,6 +225,35 @@ const actualKeys = Object.keys(RETIRED_TABLE).sort();
 const expectedKeys = [...expected.keys()].sort();
 
 describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => {
+  it('pins all locale URLs of the 2026-10-07 upstream-aborted articles', () => {
+    const groups = pinnedRetiredGroups().groups;
+    const expected = new Map<string, string[]>([
+      ['frontaliere/abort-saint-nicolas-non-frontaliero', [
+        '/articoli-frontaliere/abort-saint-nicolas-non-frontaliero/',
+        '/en/cross-border-articles/moving-to-saint-nicolas-as-a-cross-border-worker-pros-and-cons/',
+        '/de/grenzgaenger-artikel/umzug-nach-saint-nicolas-als-grenzgaenger-vor-und-nachteile/',
+        '/fr/articles-frontalier/demenager-a-saint-nicolas-en-tant-que-frontalier-avantages-et-inconvenients/',
+      ]],
+      ['frontaliere/abort-topical-relevance-pre-saint-didier', [
+        '/articoli-frontaliere/abort-topical-relevance-pre-saint-didier/',
+        '/en/cross-border-articles/living-pre-saint-didier-working-valais/',
+        '/de/grenzgaenger-artikel/leben-pre-saint-didier-arbeiten-wallis/',
+        '/fr/articles-frontalier/vivre-pre-saint-didier-travailler-valais/',
+      ]],
+      ['svizzera/abort-topical-relevance-trump-health', [
+        '/articoli-svizzera/abort-topical-relevance-trump-health/',
+        '/en/swiss-articles/news-not-relevant/',
+        '/de/schweiz-artikel/nicht-zutreffende-nachrichten/',
+        '/fr/articles-suisse/information-non-pertinente/',
+      ]],
+    ]);
+
+    for (const [key, paths] of expected) {
+      expect(groups.get(key), `${key}: missing persistent retirement pin`).toEqual(paths);
+      for (const path of paths) expect(RETIRED_TABLE[path], `${path}: missing edge 410`).toBeNull();
+    }
+  });
+
   it('has no declared retirement missing from the edge table', () => {
     const missing = expectedKeys.filter((k) => !(k in RETIRED_TABLE));
     expect(
@@ -344,16 +373,17 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
   it('pins the measured shape of the 2026-08-14 repair', () => {
     const gone = actualKeys.filter((k) => RETIRED_TABLE[k] === null);
     const moved = actualKeys.filter((k) => RETIRED_TABLE[k] !== null);
-    // 4 retired-with-no-substitute + 20 alias orphans; 34 declared redirects
-    // under the eight prefixes + 3 from data/article-redirects.json + 12 for
-    // the nanako#356 cross-section duplicate retirements (bridge in
-    // legacyRedirectsPlugin.ts, same day) + 8 for the nanako#915 / nanako#943
+    // 4 retired-with-no-substitute + 20 alias orphans; 36 declared redirects
+    // under the eight prefixes + 6 from data/article-redirects.json + 13 for
+    // nanako#356 (the original 12 cross-section paths plus this observed DE
+    // alias) + 8 for the nanako#915 / nanako#943
     // same-section duplicate retirements of 2026-09-05 + 1 for the historical
-    // unsuffixed FR transit-fee URL bridged by #8730 (Bing closed loop).
+    // unsuffixed FR transit-fee URL bridged by #8730 (Bing closed loop) + 12
+    // upstream-aborted article URLs from the 2026-10-07 corpus sync.
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 82,
-      gone: 24,
-      moved: 58,
+      total: 100,
+      gone: 36,
+      moved: 64,
     });
   });
 });
@@ -540,6 +570,96 @@ describe('retiredEdgeResponse behaviour', () => {
       if (!underSectionPrefix(to)) continue;
       expect(live.has(lastSegment(to)), `${from} → ${to}, absent from the corpus registries`).toBe(true);
     }
+  });
+
+  it('keeps Courmayeur retirement targets aligned with current locale slugs', () => {
+    const source = fs.readFileSync(path.join(REPO, REGISTRY_BY_SECTION.frontaliere.file), 'utf-8');
+    const registry = parseSlugRegistry(source, 'BLOG_SLUGS') as Record<
+      string,
+      Record<'it' | 'en' | 'de' | 'fr', string>
+    >;
+    const article = Object.values(registry).find(
+      (slugs) => slugs.it === 'vivere-courmayeur-e-lavorare-vallese-da-frontaliere',
+    );
+    expect(article, 'current Courmayeur article missing from BLOG_SLUGS').toBeDefined();
+    if (!article) throw new Error('current Courmayeur article missing from BLOG_SLUGS');
+
+    const prefixes = {
+      it: '/articoli-frontaliere',
+      en: '/en/cross-border-articles',
+      de: '/de/grenzgaenger-artikel',
+      fr: '/fr/articles-frontalier',
+    } as const;
+    const retiredPaths = {
+      it: '/articoli-frontaliere/courmayeur-lavora-vallese-frontaliere/',
+      en: '/en/cross-border-articles/courmayeur-work-vallese-frontalier/',
+      de: '/de/grenzgaenger-artikel/courmayeur-arbeitet-vallese-frontalier/',
+      fr: '/fr/articles-frontalier/courmayeur-travaille-vallese-frontalier/',
+    } as const;
+    const redirects = declaredRedirects();
+
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const target = `${prefixes[locale]}/${article[locale]}/`;
+      const retiredPath = retiredPaths[locale];
+      expect(redirects.get(retiredPath), `${retiredPath} build target`).toBe(target);
+      expect(RETIRED_TABLE[retiredPath], `${retiredPath} Worker target`).toBe(target);
+    }
+  });
+
+  it('keeps Tovo legacy aliases aligned with current locale slugs', () => {
+    const source = fs.readFileSync(path.join(REPO, REGISTRY_BY_SECTION.frontaliere.file), 'utf-8');
+    const registry = parseSlugRegistry(source, 'BLOG_SLUGS') as Record<
+      string,
+      Record<'it' | 'en' | 'de' | 'fr', string>
+    >;
+    const article = Object.values(registry).find(
+      (slugs) => slugs.it === 'vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere',
+    );
+    expect(article, 'current Tovo article missing from BLOG_SLUGS').toBeDefined();
+    if (!article) throw new Error('current Tovo article missing from BLOG_SLUGS');
+
+    const prefixes = {
+      it: '/articoli-frontaliere',
+      en: '/en/cross-border-articles',
+      de: '/de/grenzgaenger-artikel',
+      fr: '/fr/articles-frontalier',
+    } as const;
+    const retiredPaths = {
+      it: '/articoli-frontaliere/vivere-tovo-lavorare-grigioni/',
+      en: '/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/',
+      de: '/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/',
+      fr: '/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/',
+    } as const;
+    const redirects = declaredRedirects();
+
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const target = `${prefixes[locale]}/${article[locale]}/`;
+      const retiredPath = retiredPaths[locale];
+      expect(redirects.get(retiredPath), `${retiredPath} build target`).toBe(target);
+      expect(RETIRED_TABLE[retiredPath], `${retiredPath} Worker target`).toBe(target);
+    }
+  });
+
+  it('keeps the observed German A2 alias aligned with its current locale slug', () => {
+    const source = fs.readFileSync(path.join(REPO, REGISTRY_BY_SECTION.frontaliere.file), 'utf-8');
+    const registry = parseSlugRegistry(source, 'BLOG_SLUGS') as Record<
+      string,
+      Record<'it' | 'en' | 'de' | 'fr', string>
+    >;
+    const article = Object.values(registry).find(
+      (slugs) => slugs.it === 'autostrada-a2-mezzovico-interrogazione',
+    );
+    expect(article, 'current A2 article missing from BLOG_SLUGS').toBeDefined();
+    if (!article) throw new Error('current A2 article missing from BLOG_SLUGS');
+
+    const from = '/de/schweiz-artikel/autostrada-riapertura-ticino/';
+    const target = `/de/grenzgaenger-artikel/${article.de}/`;
+    expect(declaredRedirects().get(from), `${from} build target`).toBe(target);
+    expect(RETIRED_TABLE[from], `${from} Worker target`).toBe(target);
+
+    const response = retiredEdgeResponse(new URL(`${APEX}${from}?utm_source=gsc`)) as Response | null;
+    expect(response?.status).toBe(301);
+    expect(response?.headers.get('Location')).toBe(`${target}?utm_source=gsc`);
   });
 });
 

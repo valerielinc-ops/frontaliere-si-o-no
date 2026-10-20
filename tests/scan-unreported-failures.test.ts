@@ -19,10 +19,14 @@
  * uno step in un YAML.
  */
 
-import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { describe, it, expect, vi } from 'vitest';
 import {
   isReportableRun,
   isReportableScope,
+  isIntentionalFailureWorkflow,
   cronFieldValues,
   maxCronGapMinutes,
   dormancyThresholdMinutes,
@@ -33,11 +37,23 @@ import {
   SIGNATURE_MAX_LEN,
   workflowScheduleFromSource,
   workflowNameFromIssue,
+  issueMatchSource,
   latestIssuePerWorkflow,
+  latestDomainIssuePerWorkflow,
+  domainIssueCoverage,
+  latestClosedIssuePerWorkflow,
+  closedFailureIssueWorkflows,
+  closedIssueCoversRun,
   runBody,
   dormantBody,
+  isHandledExpectedFailure,
+  workflowSourceForRun,
+  recoveryVerdict,
+  RECOVERY_LISTING_SIZE,
 } from '../scripts/ci/scan-unreported-failures.mjs';
 import { TITLE_RE } from '../scripts/ci/close-recovered-failure-issues.mjs';
+
+const TEST_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const NOW = Date.now();
 const since = new Date(NOW - 75 * 60_000).toISOString();
@@ -98,7 +114,67 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
     })).toBeNull();
   });
 
-  it('sceglie la issue aggiornata piu recente indipendentemente dall ordine del listing', () => {
+  it('classifica il titolo della famiglia prima del campo nel corpo', () => {
+    expect(issueMatchSource({
+      title: 'CI Failure: sync-pharmacy-duties',
+      body: '**Workflow:** altro-workflow',
+    })).toBe('failure-title');
+    expect(issueMatchSource({
+      title: 'Content grounding: claim non verificati',
+      body: '**Workflow:** sync-pharmacy-duties',
+    })).toBe('workflow-field');
+  });
+
+  it('elenca separatamente la canonica di dominio per poterla citare nel thread di failure', () => {
+    const domains = latestDomainIssuePerWorkflow([
+      {
+        number: 5661,
+        title: 'Content grounding: claim non verificati',
+        updatedAt: '2026-10-06T18:22:16Z',
+        url: 'https://github.com/o/r/issues/5661',
+        body: '**Workflow:** Sync article sitemaps, feeds and ticker from the articles API',
+      },
+      {
+        number: 7421,
+        title: 'CI Failure: Sync article sitemaps, feeds and ticker from the articles API',
+        updatedAt: '2026-10-06T19:00:00Z',
+        url: 'https://github.com/o/r/issues/7421',
+        body: '**Workflow:** Sync article sitemaps, feeds and ticker from the articles API',
+      },
+    ]);
+    expect(domains.get('Sync article sitemaps, feeds and ticker from the articles API')).toMatchObject({
+      number: 5661,
+      url: 'https://github.com/o/r/issues/5661',
+    });
+  });
+
+  it('mantiene il thread failure canonico davanti a una lane di dominio aggiornata dopo', () => {
+    const issues = [
+      {
+        number: 12670,
+        title: 'Live-data test rosso: tests/slug-leak-allowlist-liveness.test.ts',
+        updatedAt: '2026-10-10T11:51:57Z',
+        body: '**Workflow:** live-data gates',
+      },
+      {
+        number: 9453,
+        title: 'Workflow Failure: live-data gates',
+        updatedAt: '2026-10-10T11:42:33Z',
+        body: '**Workflow:** live-data gates',
+      },
+    ];
+
+    expect(latestIssuePerWorkflow(issues).get('live-data gates')).toEqual({
+      number: 9453,
+      updatedAt: '2026-10-10T11:42:33Z',
+    });
+    expect(latestIssuePerWorkflow([...issues].reverse()).get('live-data gates')).toEqual({
+      number: 9453,
+      updatedAt: '2026-10-10T11:42:33Z',
+    });
+  });
+
+  it('fra issue della stessa famiglia sceglie ancora la piu recente', () => {
     const issues = [
       {
         number: 9195,
@@ -107,8 +183,8 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
         body: '**Workflow:** cathedral-seo-gates-check',
       },
       {
-        number: 7421,
-        title: 'CI Failure: cathedral-seo-gates-check',
+        number: 9194,
+        title: 'SEO gates regression: previous signal',
         updatedAt: '2026-09-19T11:46:18Z',
         body: '**Workflow:** cathedral-seo-gates-check',
       },
@@ -122,6 +198,197 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
       number: 9195,
       updatedAt: '2026-09-19T12:39:07Z',
     });
+  });
+
+  it('conserva la chiusura piu recente di una issue di failure', () => {
+    const issues = [
+      {
+        number: 10260,
+        title: 'User-value canary: ARPU crash detected',
+        closedAt: '2026-09-29T11:34:09Z',
+        body: '**Workflow:** user-value-canary',
+      },
+      {
+        number: 9000,
+        title: 'CI Failure: user-value-canary',
+        closedAt: '2026-09-28T12:00:00Z',
+        body: '**Workflow:** user-value-canary',
+      },
+    ];
+
+    expect(latestClosedIssuePerWorkflow([...issues].reverse()).get('user-value-canary')).toEqual({
+      number: 10260,
+      closedAt: '2026-09-29T11:34:09Z',
+    });
+  });
+
+  // Run 36798138310: `gh issue list --state closed --limit 1000` su un repo con
+  // più di 1.000 issue chiuse raggiungeva il cap a ogni passata, e 13 rossi
+  // senza issue aperta non venivano consegnati («storico delle issue chiuse
+  // illeggibile»). Lo storico che serve è quello chiuso dopo l'orizzonte, letto
+  // per intero dalla REST paginata.
+  it('legge per intero le issue chiuse dopo l\'orizzonte, oltre 1.000 righe, senza le PR', () => {
+    const horizon = '2026-09-29T23:50:05Z';
+    const filler = (n: number) => ({ number: n, title: `Altro ${n}`, closed_at: '2026-09-30T10:00:00Z', body: '' });
+    const pages = Array.from({ length: 12 }, (_, p) => Array.from({ length: 100 }, (_, i) => filler(20_000 + p * 100 + i)));
+    pages[11] = pages[11].slice(0, 37);
+    pages[10][50] = {
+      number: 10706,
+      title: 'CI Failure: Rerender Article Hubs',
+      closed_at: '2026-09-30T21:00:00Z',
+      body: '',
+    };
+    pages[3][7] = { number: 10650, title: 'CI Failure: Rerender Article Hubs', closed_at: '2026-09-30T08:00:00Z', body: '', pull_request: { url: 'x' } } as never;
+    const requested: number[] = [];
+    const closed = closedFailureIssueWorkflows(horizon, {
+      fetchPage: (page: number) => { requested.push(page); return pages[page - 1] ?? []; },
+    });
+    expect(requested).toEqual(Array.from({ length: 12 }, (_, i) => i + 1));
+    expect(closed?.get('Rerender Article Hubs')).toEqual({ number: 10706, closedAt: '2026-09-30T21:00:00Z' });
+    expect(closedIssueCoversRun(closed?.get('Rerender Article Hubs'), '2026-09-30T20:00:00Z')).toBe(true);
+  });
+
+  it('una pagina illeggibile o un listing senza fondo non provano l\'assenza della canonica', () => {
+    const horizon = '2026-09-29T23:50:05Z';
+    const full = Array.from({ length: 100 }, (_, i) => ({ number: i + 1, title: 'x', closed_at: horizon, body: '' }));
+    expect(closedFailureIssueWorkflows(horizon, { fetchPage: (page: number) => (page === 2 ? null : full) })).toBeNull();
+    expect(closedFailureIssueWorkflows(horizon, { fetchPage: () => full, maxPages: 3 })).toBeNull();
+    expect(closedFailureIssueWorkflows('not-a-date', { fetchPage: () => [] })).toBeNull();
+    expect(closedFailureIssueWorkflows(horizon, { fetchPage: () => [] })?.size).toBe(0);
+  });
+
+  it('non usa una issue di dominio chiusa come copertura storica di un failure', () => {
+    const domain = {
+      number: 5661,
+      title: 'Content grounding: claim non verificati',
+      closed_at: '2026-09-30T21:00:00Z',
+      body: '**Workflow:** sync-articles-sitemaps',
+    };
+    expect(closedFailureIssueWorkflows('2026-09-29T23:50:05Z', {
+      fetchPage: () => [domain],
+    })?.get('sync-articles-sitemaps')).toBeUndefined();
+  });
+
+  it('non riapre uno storico già coperto ma lascia passare una run nuova', () => {
+    const closed = { number: 10260, closedAt: '2026-09-29T11:34:09Z' };
+    expect(closedIssueCoversRun(closed, '2026-09-28T18:31:07Z')).toBe(true);
+    expect(closedIssueCoversRun(closed, '2026-09-29T11:34:09Z')).toBe(false);
+    expect(closedIssueCoversRun(closed, '2026-09-29T11:35:00Z')).toBe(false);
+    expect(closedIssueCoversRun(closed, 'not-a-date')).toBe(false);
+  });
+});
+
+describe('copertura legata allo step-verdetto del monitor', () => {
+  const crashJobs = JSON.parse(fs.readFileSync(
+    path.join(TEST_ROOT, 'tests/fixtures/scan-unreported-failures-domain-coverage/run-37339354134-jobs.json'),
+    'utf8',
+  ));
+  const verdictJobs = JSON.parse(fs.readFileSync(
+    path.join(TEST_ROOT, 'tests/fixtures/verdict-step-registry/run-37121059160-jobs.json'),
+    'utf8',
+  ));
+  const domainIssue = {
+    number: 5661,
+    title: 'Content grounding: articoli sincronizzati con claim non verificati',
+    body: '**Workflow:** Sync article sitemaps, feeds and ticker from the articles API',
+    url: 'https://github.com/valerielinc-ops/frontaliere-si-o-no/issues/5661',
+  };
+
+  it('fixture reale #5661: il crash fuori dal verdetto va al thread CI standard', () => {
+    const signature = failureSignature(crashJobs);
+    const result = domainIssueCoverage({
+      issue: domainIssue,
+      workflowPath: '.github/workflows/sync-articles-sitemaps.yml',
+      jobs: crashJobs,
+      knownTexts: [`<!-- ${SIGNATURE_MARKER} sync — step: Pull published sitemaps -->`],
+      ownerPersisted: false,
+    });
+
+    expect(signature).toBe('sync — step: Pull the article corpus');
+    expect(result).toMatchObject({ action: 'failure-issue', reason: 'new-signature', signature });
+  });
+
+  it('fixture reale del monitor: il rosso sullo step-verdetto resta coperto', () => {
+    const result = domainIssueCoverage({
+      issue: {
+        number: 11887,
+        title: '[crawler-health] stellenpartner: crawler unhealthy',
+        body: '**Workflow:** crawler-health-monitor',
+      },
+      workflowPath: '.github/workflows/crawler-health-monitor.yml',
+      jobs: verdictJobs,
+      knownTexts: [],
+      ownerPersisted: true,
+    });
+
+    expect(result).toMatchObject({ action: 'covered', reason: 'verdict-step' });
+  });
+
+  it('invariante: una firma nuova non può essere scartata dalla copertura di dominio', () => {
+    for (const scenario of [
+      {
+        issue: domainIssue,
+        workflowPath: '.github/workflows/sync-articles-sitemaps.yml',
+        jobs: crashJobs,
+      },
+      {
+        issue: domainIssue,
+        workflowPath: '.github/workflows/unknown-monitor.yml',
+        jobs: {
+          total_count: 1,
+          jobs: [{ name: 'monitor', conclusion: 'failure', steps: [{ name: 'Run monitor', conclusion: 'failure' }] }],
+        },
+      },
+    ]) {
+      const result = domainIssueCoverage({
+        ...scenario,
+        knownTexts: [],
+        ownerPersisted: false,
+      });
+      expect(result.signature).toBeTruthy();
+      expect(result.action).toBe('failure-issue');
+      expect(result.action).not.toBe('covered');
+    }
+  });
+
+  it('dati dei job incompleti non autorizzano un duplicato', () => {
+    const result = domainIssueCoverage({
+      issue: domainIssue,
+      workflowPath: '.github/workflows/sync-articles-sitemaps.yml',
+      jobs: null,
+      knownTexts: null,
+      ownerPersisted: false,
+    });
+    expect(result).toMatchObject({ action: 'defer', reason: 'signature-undetermined' });
+  });
+
+  it('payload incompleto: solo una firma nuova autorizza la consegna', () => {
+    const incompleteVerdict = {
+      total_count: 1,
+      jobs: [{
+        name: 'check',
+        conclusion: 'failure',
+        steps: [
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Step without conclusion' },
+        ],
+      }],
+    };
+    const signature = failureSignature(incompleteVerdict);
+    expect(domainIssueCoverage({
+      issue: { title: '[crawler-health] x', body: '**Workflow:** crawler-health-monitor' },
+      workflowPath: '.github/workflows/crawler-health-monitor.yml',
+      jobs: incompleteVerdict,
+      knownTexts: [`<!-- ${SIGNATURE_MARKER} ${signature} -->`],
+      ownerPersisted: false,
+    })).toMatchObject({ action: 'defer', reason: 'signature-not-new-and-verdict-undetermined', signature });
+    expect(domainIssueCoverage({
+      issue: { title: '[crawler-health] x', body: '**Workflow:** crawler-health-monitor' },
+      workflowPath: '.github/workflows/crawler-health-monitor.yml',
+      jobs: incompleteVerdict,
+      knownTexts: [],
+      ownerPersisted: false,
+    })).toMatchObject({ action: 'failure-issue', signature });
   });
 });
 
@@ -167,6 +434,51 @@ describe('isReportableRun — cosa suona l\'allarme', () => {
 
   it('IGNORE_WORKFLOWS esclude per nome', () => {
     expect(isReportableRun(run(), { since, ignore: new Set(['sync-pharmacy-duties']) })).toBe(false);
+  });
+
+  it('non riporta il rosso intenzionale di Quality alerts', () => {
+    expect(isIntentionalFailureWorkflow({
+      workflow_name: 'Quality alerts',
+      workflow_path: '.github/workflows/quality-alerts.yml',
+    })).toBe(true);
+    expect(isReportableRun(run({
+      workflow_name: 'Quality alerts',
+      workflow_path: '.github/workflows/quality-alerts.yml',
+    }), { since, ignore: new Set() })).toBe(false);
+  });
+
+  it('riconosce il contratto per path anche se il nome è cambiato', () => {
+    expect(isIntentionalFailureWorkflow({
+      workflow_name: 'Renamed quality signal',
+      workflow_path: '.github/workflows/quality-alerts.yml',
+    })).toBe(true);
+  });
+
+  it('non riporta il rosso atteso della misura full-suite dispatch', () => {
+    const fullSuite = run({
+      workflow_name: 'full-suite dispatch',
+      workflow_path: '.github/workflows/full-suite-dispatch.yml',
+    });
+    expect(isIntentionalFailureWorkflow(fullSuite)).toBe(true);
+    expect(isReportableRun(fullSuite, { since, ignore: new Set() })).toBe(false);
+  });
+
+  it('mantiene il fallback sul nome per la misura full-suite senza path', () => {
+    expect(isIntentionalFailureWorkflow({
+      workflow_name: 'full-suite dispatch',
+      workflow_path: null,
+    })).toBe(true);
+  });
+
+  it('non nasconde un normale workflow che fallisce', () => {
+    expect(isIntentionalFailureWorkflow({
+      workflow_name: 'Quality alerts copy',
+      workflow_path: '.github/workflows/quality-alerts-copy.yml',
+    })).toBe(false);
+    expect(isReportableRun(run({
+      workflow_name: 'Quality alerts copy',
+      workflow_path: '.github/workflows/quality-alerts-copy.yml',
+    }), { since, ignore: new Set() })).toBe(true);
   });
 });
 
@@ -463,6 +775,95 @@ describe('corpo della issue: job illeggibili vs nessun job fallito', () => {
   });
 });
 
+describe('failure atteso già trattato dal monitor', () => {
+  const workflowSource = fs.readFileSync(
+    path.join(process.cwd(), '.github', 'workflows', 'crawler-health-monitor.yml'),
+    'utf8',
+  );
+
+  function jobs(overrides: Record<string, unknown> = {}) {
+    return {
+      total_count: 1,
+      jobs: [{
+        name: 'check',
+        conclusion: 'failure',
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'success' },
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'skipped' },
+        ],
+        ...overrides,
+      }],
+    };
+  }
+
+  it('non apre una CI Failure quando il failgate è l’unico rosso e il reporter interno è skipped', () => {
+    expect(isHandledExpectedFailure({ source: workflowSource, jobs: jobs() })).toBe(true);
+  });
+
+  it('resta fail-closed se l’opener della issue per-crawler fallisce', () => {
+    expect(isHandledExpectedFailure({
+      source: workflowSource,
+      jobs: jobs({
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'failure' },
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'skipped' },
+        ],
+      }),
+    })).toBe(false);
+  });
+
+  it('resta fail-closed se un altro step fallisce o i job sono illeggibili', () => {
+    expect(isHandledExpectedFailure({
+      source: workflowSource,
+      jobs: jobs({
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'success' },
+          { name: 'Commit updated health state', conclusion: 'failure' },
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'skipped' },
+        ],
+      }),
+    })).toBe(false);
+    expect(isHandledExpectedFailure({ source: workflowSource, jobs: null })).toBe(false);
+  });
+
+  it('non sopprime un reporter eseguito per un crash fuori dal failgate', () => {
+    expect(isHandledExpectedFailure({
+      source: workflowSource,
+      jobs: jobs({
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'success' },
+          { name: 'Fail if any crawler stale', conclusion: 'skipped' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'success' },
+        ],
+      }),
+    })).toBe(false);
+  });
+
+  it('usa il workflow al head_sha della run, non quello corrente', () => {
+    const currentSource = workflowSource;
+    const historicalSource = currentSource.replace(/\bid:\s*failgate\b/, 'id: historical-gate');
+    const headSha = 'a'.repeat(40);
+    const repo = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '{owner}/{repo}';
+    const read = vi.fn(() => Buffer.from(historicalSource, 'utf8').toString('base64'));
+    const resolved = workflowSourceForRun({
+      workflowPath: '.github/workflows/crawler-health-monitor.yml',
+      head_sha: headSha,
+    }, { read });
+
+    expect(resolved).toBe(historicalSource);
+    expect(isHandledExpectedFailure({ source: currentSource, jobs: jobs() })).toBe(true);
+    expect(isHandledExpectedFailure({ source: resolved, jobs: jobs() })).toBe(false);
+    expect(read).toHaveBeenCalledWith([
+      'api', '-X', 'GET',
+      `repos/${repo}/contents/.github/workflows/crawler-health-monitor.yml?ref=${headSha}`,
+      '--jq', '.content // empty',
+    ], { allowFailure: true });
+  });
+});
+
 describe('la finestra di lookback non è tarata sulla cadenza del cron', () => {
   // Difetto da NON ereditare dal gemello del corpus (#1569): lookback di 40 min
   // contro un cron strozzato da GitHub a 3,4-5,2 h, due fallimenti mancati per
@@ -640,5 +1041,72 @@ describe('la firma resta iniettiva anche quando è troppo lunga per essere leggi
       total_count: 1,
       jobs: [{ name: 'a', conclusion: 'failure', steps: [{ name: 'b', conclusion: 'failure' }] }],
     })).toBe('a — step: b');
+  });
+});
+
+describe('rientro dopo il rosso (#9478 riaperta con sette verdi nel perimetro)', () => {
+  const ago = (min: number) => new Date(NOW - min * 60_000).toISOString();
+  // Forma reale del 2026-09-24: rosso push su main, poi sette verdi push/schedule.
+  const red = { id: '903', created_at: ago(17 * 60), html_url: 'https://example.invalid/r/903' };
+  const listing = [
+    { id: '910', status: 'completed', conclusion: 'success', created_at: ago(7), event: 'schedule', head_branch: 'main' },
+    { id: '909', status: 'completed', conclusion: 'success', created_at: ago(5 * 60), event: 'push', head_branch: 'main' },
+    { id: '908', status: 'completed', conclusion: 'success', created_at: ago(6 * 60), event: 'push', head_branch: 'main' },
+    { id: '907', status: 'completed', conclusion: 'success', created_at: ago(7 * 60), event: 'schedule', head_branch: 'main' },
+    { id: '906', status: 'completed', conclusion: 'success', created_at: ago(14 * 60), event: 'schedule', head_branch: 'main' },
+    { id: '905', status: 'completed', conclusion: 'success', created_at: ago(15 * 60), event: 'push', head_branch: 'main' },
+    { id: '904', status: 'completed', conclusion: 'success', created_at: ago(16 * 60), event: 'push', head_branch: 'main' },
+    { id: '903', status: 'completed', conclusion: 'failure', created_at: red.created_at, event: 'push', head_branch: 'main' },
+  ];
+  const opts = { workflowName: 'Sync crawler workflows to the corpus repo', ignore: new Set<string>() };
+
+  it('sette verdi nel perimetro dopo il rosso: rientrato, decide il piu recente', () => {
+    const v = recoveryVerdict(listing, red, opts);
+    expect(v.recovered).toBe(true);
+    expect(v.green?.id).toBe('910');
+  });
+
+  it('un listing vuoto o illeggibile non prova niente: inconcludente, non «ancora rosso»', () => {
+    expect(recoveryVerdict([], red, opts)).toMatchObject({ recovered: false, inconclusive: true });
+    expect(recoveryVerdict(null, red, opts)).toMatchObject({ recovered: false, inconclusive: true });
+  });
+
+  it('un listing corto che salta la run rossa e incoerente', () => {
+    const v = recoveryVerdict(listing.slice(0, 1).map((r) => ({ ...r, conclusion: 'cancelled' })), red, opts);
+    expect(v).toMatchObject({ recovered: false, inconclusive: true });
+    expect(v.reason).toContain('903');
+  });
+
+  it('una pagina piena di run piu recenti puo non contenere il rosso: non e incoerente', () => {
+    const full = Array.from({ length: RECOVERY_LISTING_SIZE }, (_, i) => ({
+      id: String(1000 + i), status: 'completed', conclusion: 'failure', created_at: ago(10 + i), event: 'push', head_branch: 'main',
+    }));
+    expect(recoveryVerdict(full, red, opts)).toMatchObject({ recovered: false, inconclusive: false });
+  });
+
+  it('un cancelled o una run in corso DOPO il verde non nasconde il rientro', () => {
+    const v = recoveryVerdict([
+      { id: '912', status: 'in_progress', conclusion: null, created_at: ago(1), event: 'schedule', head_branch: 'main' },
+      { id: '911', status: 'completed', conclusion: 'cancelled', created_at: ago(3), event: 'push', head_branch: 'main' },
+      ...listing,
+    ], red, opts);
+    expect(v.recovered).toBe(true);
+    expect(v.green?.id).toBe('910');
+  });
+
+  it('un nuovo rosso dopo il verde resta rosso', () => {
+    const v = recoveryVerdict([
+      { id: '911', status: 'completed', conclusion: 'failure', created_at: ago(3), event: 'schedule', head_branch: 'main' },
+      ...listing,
+    ], red, opts);
+    expect(v).toMatchObject({ recovered: false, inconclusive: false });
+  });
+
+  it('un verde fuori perimetro (branch di feature) non guarisce main', () => {
+    const v = recoveryVerdict([
+      { id: '904', status: 'completed', conclusion: 'success', created_at: ago(60), event: 'push', head_branch: 'fix/issue-1' },
+      { id: '903', status: 'completed', conclusion: 'failure', created_at: red.created_at, event: 'push', head_branch: 'main' },
+    ], red, opts);
+    expect(v).toMatchObject({ recovered: false, inconclusive: false });
   });
 });

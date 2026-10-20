@@ -26,6 +26,11 @@ afterEach(() => {
 });
 
 describe('recommendedBlock selection', () => {
+  it('labels existing referral links without claiming an active commercial partnership', () => {
+    const rec = pickNewsletterRecommendation({ locale: 'it', interest: 'general' });
+    expect(rec?.disclosure).toContain('nessun accordo di affiliazione attivo');
+    expect(rec?.disclosure).not.toContain('In collaborazione');
+  });
   it('picks an enabled affiliate partner and never an empty box', () => {
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       for (const interest of ['general', 'jobs', 'utility', 'articles']) {
@@ -35,6 +40,24 @@ describe('recommendedBlock selection', () => {
         expect(rec!.cta).toBeTruthy();
         expect(rec!.disclosure).toBeTruthy();
       }
+    }
+  });
+
+  it('uses the assisted-application service for weekly newsletter and job-alert campaigns', () => {
+    for (const campaign of ['jobalert', 'weekly_2026-10-12']) {
+      const rec = pickNewsletterRecommendation({ locale: 'it', interest: 'jobs', campaign });
+      expect(rec?.kind).toBe('internal');
+      expect(rec?.id).toBe('application-concierge');
+
+      const href = buildRecommendedHref(rec!, { campaign, acquisitionSource: 'job-alert' });
+      const parsed = new URL(href);
+      expect(parsed.pathname).toBe('/automatizza-ricerca-lavoro-svizzera');
+      expect(parsed.searchParams.get('application_concierge')).toBeNull();
+      expect(parsed.searchParams.get('utm_source')).toBe('newsletter');
+      expect(parsed.searchParams.get('utm_medium')).toBe('email');
+      expect(parsed.searchParams.get('utm_campaign')).toBe(campaign);
+      expect(parsed.searchParams.get('as')).toBe('job-alert');
+      expect(href).not.toContain('/go/');
     }
   });
 
@@ -105,9 +128,19 @@ describe('recommendedBlock render', () => {
     const html = renderRecommendedBlock({ locale: 'it', interest: 'general', acquisitionSource: 'weather-hub' });
     expect(html).toContain('Consigliato per te');
     expect(html).toContain('/go/');
-    expect(html).toContain('link affiliato');
+    expect(html).toContain('Link con codice di invito o referral');
+    expect(html).toContain('nessun accordo di affiliazione attivo');
+    expect(html).not.toContain('In collaborazione con un partner');
     // Policy: never AdSense / Google Ads in email.
     expect(html).not.toMatch(/adsbygoogle|googlesyndication|adsense|data-ad-client/i);
+  });
+
+  it('renders the first-party service link without a sponsored rel', () => {
+    const html = renderRecommendedBlock({ locale: 'it', interest: 'jobs', campaign: 'jobalert' });
+    expect(html).toContain('/automatizza-ricerca-lavoro-svizzera');
+    expect(html).toContain('Automatizza la ricerca di lavoro in Svizzera');
+    expect(html).toContain('Servizio di Frontaliere Ticino');
+    expect(html).not.toContain('rel="noopener noreferrer sponsored"');
   });
 
   it('renders locale-correct copy (no IT leak into EN)', () => {

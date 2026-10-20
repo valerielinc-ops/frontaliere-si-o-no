@@ -29,6 +29,7 @@
  *   - isTrustedDomain()        — Validate URLs belong to CSL / Workday tenant
  *   - CSL_BEHRING_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -37,11 +38,13 @@ import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDetail,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
   workdayPrimaryLocationState,
 } from './ats-clients/workday-client.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -243,7 +246,7 @@ async function fetchJobListings() {
         title: id.title,
         locationRaw: posting.locationsText || id.location || '',
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -273,6 +276,7 @@ export async function fetchAllCslBehringJobs() {
   console.log(`  📋 Swiss listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -299,8 +303,13 @@ export async function fetchAllCslBehringJobs() {
     // Swiss workplace named only among the additional locations — is not
     // exhibited by a single record in the slice.
     const resolvedDetailLocation = resolveCslPublishLocation(info);
+    // A primary the commune gazetteer cannot place (a locality such as
+    // `EMEA, CH, Rotkreuz, CSL Behring`, an address) gets the shared Workday
+    // recovery — directory or postal code, on the req's structured Swiss
+    // country only — before any foreign or listing-row fallback is considered.
+    const recovered = resolvedDetailLocation ? null : recoverWorkdayPrimarySwissPlace(info);
     const detailLocationText = detailLocations.join(' | ');
-    if (!resolvedDetailLocation && isLocationExplicitlyForeign(detailLocationText)) {
+    if (!resolvedDetailLocation && !recovered && isLocationExplicitlyForeign(detailLocationText)) {
       console.log(`  ⏭️  Skipped foreign location: ${detailLocationText} — ${title}`);
       await new Promise((r) => setTimeout(r, 400));
       continue;
@@ -320,14 +329,15 @@ export async function fetchAllCslBehringJobs() {
     // misreads its empty answer.
     const primaryState = workdayPrimaryLocationState(info);
     const rawLocation = resolvedDetailLocation
+      || recovered?.location
       || (primaryState.present ? '' : (listing.locationRaw || ''));
     if (!rawLocation || isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped (no Swiss primary location): ${detailLocationText || rawLocation} — ${title}`);
       await new Promise((r) => setTimeout(r, 400));
       continue;
     }
-    const cleaned = cleanCslLocation(rawLocation);
-    const canton = cleaned ? inferSwissTargetCanton(cleaned) : '';
+    const cleaned = recovered ? recovered.location : cleanCslLocation(rawLocation);
+    const canton = recovered ? recovered.canton : (cleaned ? inferSwissTargetCanton(cleaned) : '');
     if (!cleaned || !canton) {
       console.log(`  ⏭️  Skipped (Swiss canton not resolvable from "${rawLocation}"): ${title}`);
       await new Promise((r) => setTimeout(r, 400));
@@ -335,7 +345,8 @@ export async function fetchAllCslBehringJobs() {
     }
     const location = cleaned;
     const publicUrl = listing.url || CAREER_URL;
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
+    // The CXS listing row carries no `timeType`; the detail does.
+    const employmentType = detectEmploymentType(listing.timeType || info.timeType || '', title);
 
     // Workday listing endpoint never returns the body; reuse the detail
     // response already fetched for the authoritative location fields.
@@ -345,20 +356,19 @@ export async function fetchAllCslBehringJobs() {
         .replace(/[ \t]*\n[ \t]*/g, '\n')
         .replace(/\n{3,}/g, '\n\n')
         .trim()
-        .slice(0, 4000)
       : '';
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${CSL_BEHRING_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Employer: CSL Behring — global biotech leader in plasma-derived and recombinant therapies (immunology, haematology, cardiovascular, transplant).',
-      '• Swiss footprint: Bern HQ for tech-ops & manufacturing; R&D + commercial functions across CH.',
-      '• Apply: CSL Behring Workday careers portal.',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} ${CSL_BEHRING_KEY} ch`);
@@ -397,7 +407,7 @@ export async function fetchAllCslBehringJobs() {
       sector: 'Biotech / Farmaceutico',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: info })),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -408,6 +418,9 @@ export async function fetchAllCslBehringJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${CSL_BEHRING_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

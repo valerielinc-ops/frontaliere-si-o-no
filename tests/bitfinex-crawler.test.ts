@@ -1,11 +1,31 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   BITFINEX_KEY,
   BITFINEX_COMPANY_NAME,
+  fetchAllBitfinexJobs,
   isBitfinexJob,
   isTrustedDomain,
 } from '../scripts/lib/bitfinex-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  createRecruiteeCountryRefreshHooks,
+  validateRecruiteeSwissEmptySnapshot,
+} from '../scripts/lib/recruitee-country-guard.mjs';
+import {
+  evaluateAuthoritativeSnapshot,
+  SNAPSHOT_VALIDATED_PARTIAL,
+  slugify,
+} from '../scripts/lib/crawler-template.mjs';
+
+const sourceText = 'Engineering teams design reliable systems and maintain high quality through planning testing documentation and collaboration with colleagues and customers. '.repeat(5);
+const offer = (location: Record<string, unknown>, slug = 'systems-engineer') => ({
+  id: slug,
+  slug,
+  title: 'Systems Engineer',
+  description: `<p>${sourceText}</p>`,
+  locations: [location],
+});
+const response = (offers: unknown[]) => new Response(JSON.stringify({ offers }), { headers: { 'Content-Type': 'application/json' } });
+afterEach(() => vi.unstubAllGlobals());
 
 describe('Bitfinex crawler parser', () => {
   // ── Constants ──
@@ -77,6 +97,92 @@ describe('Bitfinex crawler parser', () => {
     it('respects max length', () => {
       const long = 'a'.repeat(200);
       expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  describe('source-backed Swiss location gate', () => {
+    it('uses explicit ISO country codes to verify a foreign-only empty slice', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => response([
+        offer({ city: 'Bangalore', state: 'Karnātaka', country: 'India', country_code: 'IN' }, 'transaction-monitoring-analyst-9'),
+        offer({ city: 'Caracas', state: 'Distrito Capital', country: 'Venezuela, Bolivarian Republic of', country_code: 'VE' }, 'transaction-monitoring-analyst'),
+      ])));
+
+      const hooks = createRecruiteeCountryRefreshHooks(
+        fetchAllBitfinexJobs,
+        BITFINEX_KEY,
+        SNAPSHOT_VALIDATED_PARTIAL,
+      );
+      const jobs = await hooks.fetchJobs();
+
+      expect(jobs).toEqual([]);
+      expect(jobs.recruiteeCountrySnapshot).toMatchObject({
+        complete: true,
+        offerCount: 2,
+        acceptedOfferCount: 0,
+        rejectedOfferCount: 2,
+        unclassifiedOfferCount: 0,
+        rejectedDetailPaths: [
+          '/o/transaction-monitoring-analyst-9',
+          '/o/transaction-monitoring-analyst',
+        ],
+      });
+      expect(hooks.validateAuthoritativeSnapshot(jobs)).toBe(true);
+      expect(evaluateAuthoritativeSnapshot(jobs, {
+        validateAuthoritativeSnapshot: hooks.validateAuthoritativeSnapshot,
+        allowAuthoritativeEmptySnapshot: true,
+        authoritativeSnapshotScope: 'empty-only',
+      })).toEqual({
+        authoritativeSnapshotVerified: true,
+        authoritativeEmptySnapshot: true,
+      });
+      expect(hooks.prepareExistingJobs([{
+        companyKey: BITFINEX_KEY,
+        url: 'https://bitfinex.recruitee.com/o/transaction-monitoring-analyst-9',
+      }])).toEqual([]);
+    });
+
+    it('quarantines foreign and unresolved offers instead of assigning the Lugano HQ', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => response([
+        offer({ city: 'Bangalore', state: 'Karnātaka', country: 'India', country_code: 'IN' }, 'foreign'),
+        offer({ city: 'Remote', state: 'Worldwide', country_code: 'ZZ' }, 'unresolved'),
+      ])));
+
+      const jobs = await fetchAllBitfinexJobs();
+
+      expect(jobs).toEqual([]);
+      expect(jobs.recruiteeCountrySnapshot).toMatchObject({
+        complete: true,
+        offerCount: 2,
+        acceptedOfferCount: 0,
+        rejectedOfferCount: 1,
+        unclassifiedOfferCount: 1,
+        rejectedDetailPaths: ['/o/foreign'],
+        unclassifiedDetailPaths: ['/o/unresolved'],
+      });
+      expect(validateRecruiteeSwissEmptySnapshot(jobs, SNAPSHOT_VALIDATED_PARTIAL))
+        .toBe(SNAPSHOT_VALIDATED_PARTIAL);
+    });
+
+    it('keeps a source-backed Swiss offer and emits CH fields', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => response([
+        offer({ city: 'Lugano', state: 'Ticino', country: 'Switzerland', country_code: 'CH' }),
+        offer({ city: 'Bangalore', state: 'Karnātaka', country: 'India', country_code: 'IN' }, 'foreign'),
+      ])));
+
+      const jobs = await fetchAllBitfinexJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ location: 'Lugano, Ticino', addressCountry: 'CH', country: 'CH', canton: 'TI' });
+    });
+
+    it('uses the selected Swiss location postal code instead of the Lugano HQ', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => response([
+        offer({ city: 'Zürich', state: 'ZH', country: 'Switzerland', country_code: 'CH', postal_code: '8000' }),
+      ])));
+
+      const jobs = await fetchAllBitfinexJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ addressRegion: 'ZH', postalCode: '8000' });
+      expect(jobs[0].postalCode).not.toBe('6900');
     });
   });
 

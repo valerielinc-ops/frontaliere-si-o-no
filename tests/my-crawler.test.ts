@@ -1,17 +1,37 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+const fixture = vi.hoisted(() => ({
+  listing: {
+    title: 'Consulente vendita',
+    description: '<p>Una descrizione inventata per il test del parser.</p>',
+    location: 'Lugano',
+    addressLocality: 'Lugano',
+    addressRegion: 'Ticino',
+    addressCountry: 'CH',
+    postalCode: ' 6900 ',
+    streetAddress: ' Via   Ceresio  1 ',
+    url: 'https://my.jobalino.ch/public/job/synthetic-geography-fixture/',
+  },
+}));
+
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => ({
+  loadSpec: () => ({}),
+  runSpecInProduction: async () => [fixture.listing],
+}));
+
 import {
   MY_KEY,
   MY_COMPANY_NAME,
   isMyJob,
   isTrustedDomain,
+  fetchAllMyJobs,
 } from '../scripts/lib/my-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
-describe('Bellevue Parkhotel & Spa crawler parser', () => {
+describe('Teo Jakob AG crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(MY_KEY).toBe('my');
-    expect(MY_COMPANY_NAME).toBe('Bellevue Parkhotel & Spa');
+    expect(MY_COMPANY_NAME).toBe('Teo Jakob AG');
   });
 
   // ── isCompanyJob ──
@@ -21,7 +41,7 @@ describe('Bellevue Parkhotel & Spa crawler parser', () => {
     });
 
     it('matches by company name', () => {
-      expect(isMyJob({ company: 'Bellevue Parkhotel & Spa' })).toBe(true);
+      expect(isMyJob({ company: 'Teo Jakob AG' })).toBe(true);
     });
 
     it('matches by URL domain', () => {
@@ -87,7 +107,7 @@ describe('Bellevue Parkhotel & Spa crawler parser', () => {
       id: 'my-abc123',
       slug: 'test-position-my-ch',
       slugByLocale: { de: 'test-position-my-ch' },
-      company: 'Bellevue Parkhotel & Spa',
+      company: 'Teo Jakob AG',
       companyKey: 'my',
       title: 'Test Position',
       titleByLocale: { de: 'Test Position' },
@@ -96,7 +116,7 @@ describe('Bellevue Parkhotel & Spa crawler parser', () => {
       location: 'Lugano',
       canton: 'TI',
       url: 'https://my.jobalino.ch/jobs/test',
-      source: 'Bellevue Parkhotel & Spa Dedicated Parser',
+      source: 'Teo Jakob AG Dedicated Parser',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),
     };
@@ -116,6 +136,19 @@ describe('Bellevue Parkhotel & Spa crawler parser', () => {
       const locales = Object.keys(validJob.slugByLocale);
       expect(locales).toHaveLength(1);
       expect(locales[0]).toBe(validJob.sourceLang);
+    });
+
+    it('projects normalized source geography instead of raw address fields', async () => {
+      const [job] = await fetchAllMyJobs();
+
+      expect(job).toMatchObject({
+        location: 'Lugano',
+        canton: 'TI',
+        addressLocality: 'Lugano',
+        addressRegion: 'TI',
+        postalCode: '6900',
+        streetAddress: 'Via Ceresio 1',
+      });
     });
 
     it('id starts with company key', () => {

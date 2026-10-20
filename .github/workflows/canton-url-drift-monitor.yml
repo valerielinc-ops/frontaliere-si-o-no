@@ -69,12 +69,12 @@ jobs:
     timeout-minutes: 25
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
-          # Storia intera: il confronto e' con lo stato di N giorni fa, e main
-          # prende ~9.700 commit a settimana dai bot, quindi qualunque --depth
-          # fisso atterrerebbe in un punto arbitrario. Blobless (#4120) tiene il
-          # costo giu': i blob dei soli shard richiesti arrivano su domanda.
+          # Il checkout operativo resta shallow: fetch-depth: 0 chiedeva a
+          # actions/checkout tutti i branch e tag, e il fetch e' scaduto a 12m.
+          # La storia del solo branch necessario viene recuperata a blob lazy
+          # nello step successivo, dopo che i file correnti sono disponibili.
           #
           # NIENTE sparse-checkout, deliberatamente: scripts/ci/apply-checkout-profiles.mjs
           # (--only canton-url-drift-monitor.yml) segue la chiusura transitiva
@@ -87,33 +87,26 @@ jobs:
           # dipendenze reali di QUESTO job) — non e' chirurgico ripulirli qui solo
           # per questo job. Rigenerare con lo stesso comando se main cambia quei
           # moduli in un modo che abbassa il residuo sotto la soglia.
-          fetch-depth: 0
-          filter: blob:none
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/public/data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
+          fetch-depth: 1
         # Tetto sullo step: senza, un fetch degenere consuma il budget del job e
         # muore `cancelled`, stato invisibile agli `if: failure()`.
         timeout-minutes: 12
 
+      - name: Fetch blobless history for the drift window
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          # Il monitor confronta snapshot di N giorni fa. Recupera i commit e
+          # gli alberi del solo branch osservato senza scaricare tutti i blob;
+          # Git recupera on-demand quelli dei pochi shard letti dall'audit.
+          git config remote.origin.promisor true
+          git config remote.origin.partialclonefilter blob:none
+          git fetch --no-tags --filter=blob:none --unshallow origin \
+            "+refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}"
+        timeout-minutes: 12
+
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -188,7 +181,7 @@ jobs:
           # misure vanno nel corpo, che sulle ripetizioni diventa un commento.
           node scripts/lib/github-issue-creator.mjs \
             --title "Canton URL drift: il tasso settimanale non scende sotto la soglia" \
-            --description "$(cat /tmp/canton-url-drift-alert.md)" \
+            --description-file /tmp/canton-url-drift-alert.md \
             --priority 2 \
             --label Bug \
             --workflow "Canton URL Drift Monitor (weekly, read-only)"

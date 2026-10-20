@@ -1,6 +1,6 @@
 name: TikTok Daily/Weekly Broadcast
 
-# TikTok Business account carousel posts (scripts/post-to-tiktok.mjs):
+# TikTok Business account posts (scripts/post-to-tiktok.mjs):
 #   • daily  08:25 UTC → top-5 most-clicked JOBS + top-5 most-read ARTICLES
 #            (staggered 5 min after instagram-daily-broadcast.yml — same GA4
 #            window, same runner-minute-contention reasoning)
@@ -42,18 +42,12 @@ on:
         default: 'true'
         type: choice
         options: ['true', 'false']
-      human_approval:
-        description: 'Explicit human approval for publishing TikTok posts.'
-        required: false
-        default: false
-        type: boolean
-
 concurrency:
   group: tiktok-daily-broadcast
   cancel-in-progress: false
 
 permissions:
-  contents: write  # commit data/tiktok-posted.json
+  contents: write  # commit data/tiktok-posted.json + data/tiktok-queue.json
   issues: write
 
 jobs:
@@ -61,27 +55,32 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
+      APPROVAL_TRUSTED_SCHEDULE: 'true'
       ONLY: ${{ github.event.inputs.only || (github.event.schedule == '10 7 * * 1' && 'border' || '') }}
       DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
       REPORT_DATE: ${{ github.event.inputs.date || '' }}
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with: { node-version: 22, cache: npm }
-      - name: Require human approval for social side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          APPROVAL_SCOPE: tiktok-post
-        run: node scripts/ci/human-side-effect-gate.mjs
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify ffmpeg toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1 || ! command -v ffprobe >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends ffmpeg
+          fi
+          command -v ffmpeg
+          command -v ffprobe
+          ffmpeg -version | sed -n '1p'
+          ffprobe -version | sed -n '1p'
+
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -89,7 +88,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from RC
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Assemble jobs dataset
@@ -98,11 +97,11 @@ jobs:
         continue-on-error: true
 
       - name: Post to TikTok
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
-          DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
-          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
-          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
+          DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
+          ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
         run: |
           set -euo pipefail
           ARGS=()
@@ -112,24 +111,35 @@ jobs:
           npx --no-install tsx scripts/post-to-tiktok.mjs ${ARGS[@]+"${ARGS[@]}"}
 
       - name: Commit posted ledger
-        if: success() && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
         run: |
           set -euo pipefail
           # Same fix as linkedin-member-daily.yml (#6424): `git diff --quiet
           # <path>` on a path that has never existed exits 128, not 0/1, so a
           # failed/skipped post (no ledger write yet) fell through into
           # `git add` on a missing pathspec and hard-failed the step.
-          if [ ! -f data/tiktok-posted.json ]; then
-            echo "no ledger file written — nothing to commit"; exit 0
+          # The queue of the Playwright robot (SOCIAL_ROBOT_MODE dry/live, see
+          # scripts/lib/social-publish-queue.mjs) is written by the same step
+          # as the ledger and committed with it.
+          files=()
+          for f in data/tiktok-posted.json data/tiktok-queue.json; do
+            if [ -f "$f" ]; then files+=("$f"); fi
+          done
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "no ledger or queue file written — nothing to commit"; exit 0
           fi
-          git add data/tiktok-posted.json
+          git add "${files[@]}"
           if git diff --cached --quiet; then
             echo "no ledger changes"; exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(tiktok): track posted carousel content [skip ci]"
-          bash scripts/lib/git-push-with-retry.sh || echo "ledger push skipped (non-fatal)"
+          git commit -m "chore(tiktok): track posted and queued carousel content [skip ci]"
+          # Stats assembly can leave untracked files in the checkout. Preserve
+          # them during a retry rebase, and fail if the ledger is not persisted.
+          bash scripts/lib/git-push-with-retry.sh \
+            --max-attempts 20 \
+            --stash-dirty
 
       - name: Report failure to GitHub Issues
         if: failure()

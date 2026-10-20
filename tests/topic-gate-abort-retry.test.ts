@@ -112,7 +112,7 @@ describe('topic-gate abort cross-run tracker persistence (#3242)', () => {
     const block = evergreenCatch![0];
     // isTopicGateAbort must appear before the tracker-write condition.
     const topicGatePos = block.indexOf('isTopicGateAbort');
-    const trackerWritePos = block.indexOf('_appendEvergreenRejected');
+    const trackerWritePos = block.indexOf('rememberConfirmedEvergreenDuplicate');
     expect(topicGatePos).toBeGreaterThan(-1);
     expect(trackerWritePos).toBeGreaterThan(-1);
     expect(topicGatePos, 'isTopicGateAbort must be computed before tracker-write').toBeLessThan(trackerWritePos);
@@ -133,8 +133,8 @@ describe('topic-gate abort cross-run tracker persistence (#3242)', () => {
     expect(evergreenCatch, 'evergreen catch block not found').toBeTruthy();
     const block = evergreenCatch![0];
     const conditionLine = block.slice(
-      block.lastIndexOf('if (', block.indexOf('_appendEvergreenRejected')),
-      block.indexOf('\n', block.lastIndexOf('if (', block.indexOf('_appendEvergreenRejected'))),
+      block.lastIndexOf('if (', block.indexOf('rememberConfirmedEvergreenDuplicate')),
+      block.indexOf('\n', block.lastIndexOf('if (', block.indexOf('rememberConfirmedEvergreenDuplicate'))),
     );
     // isQualityReject alone must NOT be the sole condition for tracker-write.
     expect(conditionLine).not.toMatch(/^\s*if\s*\(\s*isQualityReject\b/);

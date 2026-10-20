@@ -101,6 +101,18 @@ describe('Bellinzona crawler — generic title guard', () => {
 });
 
 describe('Bellinzona crawler — date parsing', () => {
+  it('rejects invalid calendar dates and partial date strings', () => {
+    for (const raw of ['30.02.2025', '31.13.2025', '01.01.2025junk', 'prefix01.01.2025', '01.01.202']) {
+      expect(parseBellinzonaDate(raw)).toBe('');
+    }
+  });
+
+  it('keeps a valid future deadline without treating it as publication evidence', () => {
+    const deadline = new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10);
+    const [year, month, day] = deadline.split('-');
+    expect(parseBellinzonaDate(`${day}.${month}.${year}`)).toBe(deadline);
+  });
+
   it('parses short year format (dd.mm.yy)', () => {
     expect(parseBellinzonaDate('06.03.26')).toBe('2026-03-06');
   });
@@ -109,14 +121,12 @@ describe('Bellinzona crawler — date parsing', () => {
     expect(parseBellinzonaDate('27.03.2026')).toBe('2026-03-27');
   });
 
-  it('returns today for empty input', () => {
-    const today = new Date().toISOString().split('T')[0];
-    expect(parseBellinzonaDate('')).toBe(today);
+  it('leaves an empty source date unknown', () => {
+    expect(parseBellinzonaDate('')).toBe('');
   });
 
-  it('returns today for invalid input', () => {
-    const today = new Date().toISOString().split('T')[0];
-    expect(parseBellinzonaDate('not-a-date')).toBe(today);
+  it('leaves an invalid source date unknown', () => {
+    expect(parseBellinzonaDate('not-a-date')).toBe('');
   });
 });
 
@@ -150,9 +160,51 @@ describe('Bellinzona crawler — listing HTML parsing', () => {
     expect(jobs[0].pdfUrl).toContain('bando-vicedirettore.pdf');
   });
 
+  it('extracts the extension-less bando document link (bellinzona.ch, 2026-09-29)', () => {
+    // Minimized from the live listing: the bando is served from
+    // "<titolo>-<id>" (Content-Disposition …pdf), linked as "Scarica il
+    // documento" under the "Bando di concorso" label, before the pi-asp form.
+    const html = `<table class="ListOpenClose"><tr valign="top"><td><div class="ListBtApri"><table><tr><td><h3>un/a Agente di polizia, presso la Polizia comunale</h3></td></tr></table></div></td></tr>
+      <tr valign="top"><td><div class="ListContChiuso"><table class="AssunzioniTab"><tr><td><p>Pubbl.</p></td><td>18.09.26</td></tr>
+      <tr><td><p>Termine</p></td><td>05.10.2026 23:59</td></tr>
+      <tr><td colspan="2"><table><tr><td><div class="">Bando di concorso</div></td></tr>
+      <tr><td><table><tr><td class=""><div class=""><a href="una-Agente-di-polizia-presso-la-Polizia-comunale-47a46100" class="" target="_"></a></div></td>
+      <td class=""><div class=""><a href="una-Agente-di-polizia-presso-la-Polizia-comunale-47a46100" class="" target="_">Scarica il documento</a></div></td></tr></table></td></tr></table></td></tr>
+      <tr><td><div class="ObjListBtRosso"><a href="https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=64ce8328-085b-4978-8175-2d7c37391d5e,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140">Modulo di candidatura online</a></div></td><td></td></tr></table></div></td></tr></table>`;
+    const jobs = parseBellinzonaListingHtml(html);
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].pdfUrl).toBe('https://www.bellinzona.ch/una-Agente-di-polizia-presso-la-Polizia-comunale-47a46100');
+    expect(jobs[0].applyUrl).toContain('bellinz.pi-asp.de');
+  });
+
   it('extracts apply URLs from pi-asp.de', () => {
     const jobs = parseBellinzonaListingHtml(LISTING_HTML_FIXTURE);
     expect(jobs[0].applyUrl).toContain('bellinz.pi-asp.de');
+    expect(jobs[0].applyUrl).toMatch(/^https:\/\/bellinz\.pi-asp\.de\/bewerber-web\//);
+  });
+
+  it('recognizes an icon-only official application CTA by aria-label or title', () => {
+    const iconOnly = (attribute: string) => LISTING_HTML_FIXTURE.replace(
+      '<a href="https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&id=100&pId=100">Modulo di candidatura online</a>',
+      `<a href="https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&id=100&pId=100" ${attribute}></a>`,
+    );
+
+    expect(parseBellinzonaListingHtml(iconOnly('aria-label="Candidatura online"'))[0].applyUrl)
+      .toBe('https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&id=100&pId=100');
+    expect(parseBellinzonaListingHtml(iconOnly('title="Candidatura online"'))[0].applyUrl)
+      .toBe('https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&id=100&pId=100');
+  });
+
+  it('fails closed for HTTP, lookalike hosts, and missing application links', () => {
+    const withHref = (href: string) => LISTING_HTML_FIXTURE.replace(
+      /https:\/\/bellinz\.pi-asp\.de\/bewerber-web\/[^"']+/,
+      href,
+    );
+    expect(parseBellinzonaListingHtml(withHref('http://bellinz.pi-asp.de/bewerber-web/apply'))[0].applyUrl).toBeNull();
+    expect(parseBellinzonaListingHtml(withHref('https://bellinz.pi-asp.de.example.com/bewerber-web/apply'))[0].applyUrl).toBeNull();
+
+    const withoutLink = LISTING_HTML_FIXTURE.replace(/<a href="https:\/\/bellinz\.pi-asp\.de[\s\S]*?<\/a>/i, '');
+    expect(parseBellinzonaListingHtml(withoutLink)[0].applyUrl).toBeNull();
   });
 
   it('sets location to Bellinzona', () => {

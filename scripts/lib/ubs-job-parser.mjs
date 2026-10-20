@@ -28,12 +28,14 @@
  *   - isTrustedDomain()  — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { inferAnyCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -55,6 +57,16 @@ const MATCHED_JOBS_URL = 'https://jobs.ubs.com/TgNewUI/Search/Ajax/MatchedJobs';
  * (which the live tenant ignores, always returning page 1; issue #3259).
  */
 const SHOW_MORE_JOBS_URL = 'https://jobs.ubs.com/TgNewUI/Search/Ajax/ProcessSortAndShowMoreJobs';
+
+/**
+ * Taleo job-details endpoint — what the site's own job page posts to
+ * (`t.post("/TgNewUI/Search/Ajax/JobDetails", {partnerId, siteId, jobid,
+ * configMode, jobSiteId, turnOffHttps})` in TGNewUI search.min.js). The
+ * search endpoints only carry the FIRST text section (`jobdescription`, the
+ * "Your role" block); team, expertise, program, "About us", "Join us" and
+ * the policy statement live in the other `jobDetailTextArea` questions.
+ */
+const JOB_DETAILS_URL = 'https://jobs.ubs.com/TgNewUI/Search/Ajax/JobDetails';
 
 /** Deterministic sort so page boundaries stay stable across requests. */
 const SORT_TYPE = 'LastUpdated';
@@ -81,8 +93,33 @@ const SITE_IDS = ['5012', '5054', '5131'];
  * list.
  */
 
-/** Taleo language code → ISO 639-1 */
-const TALEO_LANG_MAP = { 1: 'en', 23: 'de', 34: 'fr', 6: 'it' };
+/** Taleo language code → ISO 639-1 (52 is the Italian code the tenant's
+ * locale table declares; 6 kept for older payloads). */
+const TALEO_LANG_MAP = { 1: 'en', 23: 'de', 34: 'fr', 6: 'it', 52: 'it' };
+
+/**
+ * Each Taleo board is a group of locale sites: its search lists every Swiss
+ * posting, but a posting lives on the site of its own language. Opened
+ * through another site the job page renders another language version of the
+ * requisition — the French "Spécialiste Crédits" (jobid 350552) came back as
+ * the German "Spezialist/in Hypotheken und Grundbuchwesen" through 5012,
+ * overlap 0.01 in audit run 36528331656 — and the job-details endpoint
+ * returns nothing unless `jobSiteId` names the posting's locale site.
+ *
+ * Main tenant 5012 (`TGLocales`): 5012 English, 5050 Deutsch, 5049
+ * Français, 5048 Italiano. Apprenticeship board 5054: 5054 Deutsch, 5055
+ * Français, 5056 Italiano — verified on 2026-09-29 with jobids 348480,
+ * 348474 and 348468, which return their body only on these sites. The
+ * graduate board 5131 lists English postings only, served by 5131.
+ */
+const LOCALE_SITE_IDS = {
+  5012: { en: '5012', de: '5050', fr: '5049', it: '5048' },
+  5054: { de: '5054', fr: '5055', it: '5056' },
+};
+
+function detailSiteIdFor(siteId, taleoLang) {
+  return LOCALE_SITE_IDS[siteId]?.[taleoLang] || siteId;
+}
 
 /** Postal codes for Valais cities */
 const VS_POSTAL_CODES = {
@@ -125,18 +162,6 @@ function normalize(value = '') {
 function getField(questions = [], name = '') {
   const q = questions.find((q) => q.QuestionName === name);
   return q?.Value || '';
-}
-
-/**
- * Parse Taleo date format "DD-MMM-YYYY" → "YYYY-MM-DD".
- * e.g. "08-Apr-2026" → "2026-04-08"
- */
-function parseTaleoDate(raw = '') {
-  const s = String(raw || '').trim();
-  if (!s) return '';
-  const d = new Date(s);
-  if (isNaN(d.getTime())) return '';
-  return d.toISOString().slice(0, 10);
 }
 
 /**
@@ -479,6 +504,70 @@ async function searchMoreJobs(cookies, rft, pageNumber, siteId) {
   }
 }
 
+/**
+ * Compose the full vacancy text from Taleo `JobDetailQuestions`: every
+ * `jobDetailTextArea` question with a value, in the order the job page shows
+ * them, each under its own heading ("Your role", "Your team", "Your
+ * expertise", …). Returns '' when the payload has no such section.
+ *
+ * @param {Array<{QuestionName?: string, AnswerValue?: string, ClassName?: string|null}>} questions
+ * @returns {string}
+ */
+export function composeTaleoJobDetailDescription(questions = []) {
+  if (!Array.isArray(questions)) return '';
+  const sections = [];
+  for (const q of questions) {
+    if (!/\bjobDetailTextArea\b/.test(String(q?.ClassName || ''))) continue;
+    const body = normalizeDescriptionSpace(stripHtml(String(q?.AnswerValue || '')));
+    if (!body) continue;
+    const heading = normalizeSpace(stripHtml(String(q?.QuestionName || '')));
+    sections.push(heading ? `${heading}\n${body}` : body);
+  }
+  return sections.join('\n\n');
+}
+
+/**
+ * POST the Taleo job-details endpoint within an established site session.
+ * `jobSiteId` is the posting's locale site (see `detailSiteIdFor`). Returns
+ * the composed description, or '' on any failure (the posting is then not
+ * published: the search-result "Your role" teaser alone is incomplete).
+ */
+async function fetchTaleoJobDetailDescription(session, siteId, reqId, jobSiteId = siteId) {
+  if (!session || !reqId) return '';
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(JOB_DETAILS_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        Accept: 'application/json',
+        Cookie: session.cookies,
+        RFT: session.rft,
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+      body: JSON.stringify({
+        partnerId: PARTNER_ID,
+        siteId,
+        jobid: String(reqId),
+        configMode: '',
+        jobSiteId,
+        turnOffHttps: false,
+      }),
+      signal: controller.signal,
+    });
+    if (!res.ok) return '';
+    const data = await res.json();
+    return composeTaleoJobDetailDescription(data?.ServiceResponse?.Jobdetails?.JobDetailQuestions);
+  } catch {
+    return '';
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /* ── Job Builder ──────────────────────────────────────────── */
 
 /**
@@ -495,7 +584,6 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
   const department = normalizeSpace(getField(questions, 'department'));
   const categoryStr = normalizeSpace(getField(questions, 'formtext21'));
   const jobType = normalizeSpace(getField(questions, 'formtext22'));
-  const lastUpdated = getField(questions, 'lastupdated');
   const langCode = getField(questions, 'jobreqlanguage');
 
   if (!title || title.length < 3) return null;
@@ -520,15 +608,15 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
   })());
   if (!resolvedLocation) return null;
   const { city, canton, fromVacancyText } = resolvedLocation;
-  const publicUrl = buildJobUrl(reqId, siteId);
 
   // Detect source language: use Taleo's language code, fallback to content detection
   const taleoLang = TALEO_LANG_MAP[Number(langCode)];
+  const detailSiteId = detailSiteIdFor(siteId, taleoLang);
+  const publicUrl = buildJobUrl(reqId, detailSiteId);
   const sourceLang = taleoLang || detectLang(descriptionText || title, 'de');
 
   const jobSlug = slugify(`${title} ubs ${city}`);
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-  const postedDate = parseTaleoDate(lastUpdated) || new Date().toISOString().slice(0, 10);
 
   const job = {
     // ── Required fields ──
@@ -540,8 +628,11 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
     companyDomain: UBS_COMPANY_DOMAIN,
     title,
     titleByLocale: { [sourceLang]: title },
-    description: descriptionText || `${title} — UBS`,
-    descriptionByLocale: { [sourceLang]: descriptionText || `${title} — UBS` },
+    // Only the posting's own text (issue 5253): the search-row teaser, or
+    // nothing — never a "{title} — UBS" stand-in. fetchAllUbsJobs replaces it
+    // with the job-details text and does not publish a posting without one.
+    description: descriptionText,
+    descriptionByLocale: { [sourceLang]: descriptionText },
     location: city,
     canton,
     url: publicUrl,
@@ -561,7 +652,8 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
     sector: 'Finanza / Banca',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    // Taleo exposes lastupdated, which is not evidence of first publication.
+    ...sourcePostingDateFields(''),
     applyUrl: publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
@@ -569,6 +661,7 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
     // ── Internal metadata ──
     _ubsMeta: {
       reqId,
+      detailSiteId,
       department,
       region,
       cities: cityStr,
@@ -603,6 +696,7 @@ export async function fetchAllUbsJobs() {
   // and merge them in a loop rather than a single request.
   const allEntries = []; // { taleoJob, siteId }
   const seenReqIds = new Set();
+  const sessions = new Map(); // siteId → { cookies, rft }
 
   for (const siteId of SITE_IDS) {
     console.log(`  🌐 Site ${siteId}: ${buildSearchPageUrl(siteId)}`);
@@ -618,6 +712,7 @@ export async function fetchAllUbsJobs() {
       console.warn(`  ⚠️ Site ${siteId} session bootstrap failed: ${err?.message || err}`);
       continue;
     }
+    sessions.set(siteId, { cookies, rft });
     console.log('  ✅ Session established\n');
 
     // Step 2: Paginated walk of this site's tenant.
@@ -676,15 +771,44 @@ export async function fetchAllUbsJobs() {
     return [];
   }
 
-  // Step 3: Build ParsedJob objects
+  // Step 3: Build ParsedJob objects, then read each Swiss posting's full
+  // text from the job-details endpoint. The search rows only carry "Your
+  // role": UBS postings were published at 6-7 % of their source page
+  // (audit run 36528331656) and templated programmes collapsed onto the same
+  // teaser (duplicate descriptions).
   const jobs = [];
+  let withoutBody = 0;
   for (const { taleoJob, siteId } of allEntries) {
     const job = buildJobFromTaleo(taleoJob, siteId);
-    if (job) {
-      jobs.push(job);
+    if (!job) continue;
+    // eslint-disable-next-line no-await-in-loop
+    const full = await fetchTaleoJobDetailDescription(
+      sessions.get(siteId),
+      siteId,
+      job._ubsMeta.reqId,
+      job._ubsMeta.detailSiteId,
+    );
+    // Only the whole posting is published (issue 5253): the search row
+    // carries only the "Your role" teaser, 6-7 % of the source page, so a
+    // posting whose job-details text cannot be read is not published — the
+    // teaser alone would be an incomplete vacancy.
+    if (!meetsSourceBodyFloor(full)) {
+      console.log(`  ⏭️ no job-details text, not published (the search-row teaser alone is incomplete): ${job.title}`);
+      withoutBody += 1;
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise((r) => setTimeout(r, 250));
+      continue;
     }
+    job.description = full;
+    job.descriptionByLocale = { [job.sourceLang]: full };
+    jobs.push(job);
+    // Polite delay between detail requests.
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((r) => setTimeout(r, 250));
   }
-
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} posting(s) without job-details text — not published.`);
+  }
   console.log(`\n📋 Total UBS Swiss jobs: ${jobs.length}`);
   return jobs;
 }
@@ -692,6 +816,7 @@ export async function fetchAllUbsJobs() {
 export const __internals = {
  extractRequestVerificationToken,
  buildJobFromTaleo,
+ composeTaleoJobDetailDescription,
  inferCanton,
  isSwissRegion,
  resolveSwissLocation,

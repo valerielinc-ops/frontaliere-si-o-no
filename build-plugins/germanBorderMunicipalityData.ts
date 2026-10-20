@@ -110,8 +110,9 @@ export const GERMAN_REGIME_TAX = {
   /** Health-insurance Optionsrecht (legal basis Art. 2 cpv. 6 OAMal): a
    *  Grenzgänger may opt out of Swiss compulsory health insurance in favour
    *  of the German system within a fixed deadline; the choice must be
-   *  exercised explicitly (tacit exercise is invalid) and is generally
-   *  irrevocable once made. */
+   *  exercised explicitly (tacit exercise is invalid). The BAG page on
+   *  frontier workers' health insurance states the deadline and the explicit
+   *  form, not that the choice is final, so the pages do not claim it. */
   healthInsuranceOptionDeadlineMonths: 3,
   source:
     'Lettera BMF (Bundesministerium der Finanzen) del 2023-12-07; art. 15a DBA Germania-Svizzera; art. 2 cpv. 6 OAMal (Optionsrecht assicurazione malattia).',

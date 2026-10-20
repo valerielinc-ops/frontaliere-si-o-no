@@ -92,10 +92,9 @@ describe('JobPosting description guard', () => {
     expect(failures).toEqual([]);
   });
 
-  it('active IT JobPosting descriptions must be at least 50 characters', () => {
+  it('active JobPosting descriptions in all locales must be at least 50 characters', () => {
     const tooShort: string[] = [];
     for (const { rel, jobPostings } of allPages) {
-      if (rel.startsWith('en/') || rel.startsWith('de/') || rel.startsWith('fr/')) continue;
       for (const jp of jobPostings) {
         if (jp.validThrough && new Date(jp.validThrough) < new Date()) continue;
         const desc = String(jp.description || '');
@@ -107,22 +106,20 @@ describe('JobPosting description guard', () => {
     expect(tooShort).toEqual([]);
   });
 
-  it('archive/bridge pages must NOT contain active JobPosting schema (IT only)', () => {
+  it('archive/bridge pages must NOT contain active JobPosting schema in any locale', () => {
     const archiveWithJobPosting: string[] = [];
     for (const { rel, isArchive, jobPostings } of allPages) {
       if (!isArchive) continue;
-      if (rel.startsWith('en/') || rel.startsWith('de/') || rel.startsWith('fr/')) continue;
       const activeJPs = jobPostings.filter(jp => !jp.validThrough || new Date(jp.validThrough) > new Date());
       if (activeJPs.length > 0) archiveWithJobPosting.push(rel);
     }
     expect(archiveWithJobPosting).toEqual([]);
   });
 
-  it('IT JobPosting descriptions should use HTML format (>=50%)', () => {
+  it('JobPosting descriptions in all locales should use HTML format (>=50%)', () => {
     let htmlFormatCount = 0;
     let totalJobPostings = 0;
     for (const { rel, jobPostings } of allPages) {
-      if (rel.startsWith('en/') || rel.startsWith('de/') || rel.startsWith('fr/')) continue;
       for (const jp of jobPostings) {
         totalJobPostings++;
         const desc = String(jp.description || '');
@@ -170,11 +167,10 @@ describe('JobPosting streetAddress guard', () => {
     expect(failures).toEqual([]);
   });
 
-  it('>=50% of active IT job pages should have a streetAddress', () => {
+  it('>=50% of active job pages in all locales should have a streetAddress', () => {
     let total = 0;
     let withStreet = 0;
     for (const { rel, jobPostings } of allPages) {
-      if (rel.startsWith('en/') || rel.startsWith('de/') || rel.startsWith('fr/')) continue;
       for (const jp of jobPostings) {
         if (jp.validThrough && new Date(jp.validThrough) < new Date()) continue;
         total++;
@@ -190,10 +186,9 @@ describe('JobPosting streetAddress guard', () => {
 });
 
 describe('JobPosting postalCode guard', () => {
-  it('active IT job pages must have a postalCode', () => {
+  it('active job pages in all locales must have a postalCode', () => {
     const missing: string[] = [];
     for (const { rel, jobPostings } of allPages) {
-      if (rel.startsWith('en/') || rel.startsWith('de/') || rel.startsWith('fr/')) continue;
       for (const jp of jobPostings) {
         if (jp.validThrough && new Date(jp.validThrough) < new Date()) continue;
         const pc = jp.jobLocation?.address?.postalCode;
@@ -223,11 +218,10 @@ describe('JobPosting postalCode guard', () => {
     expect(failures).toEqual([]);
   });
 
-  it('100% of active IT job pages should have a postalCode', () => {
+  it('100% of active job pages in all locales should have a postalCode', () => {
     let total = 0;
     let withPostal = 0;
     for (const { rel, jobPostings } of allPages) {
-      if (rel.startsWith('en/') || rel.startsWith('de/') || rel.startsWith('fr/')) continue;
       for (const jp of jobPostings) {
         if (jp.validThrough && new Date(jp.validThrough) < new Date()) continue;
         total++;

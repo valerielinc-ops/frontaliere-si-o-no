@@ -20,6 +20,7 @@ import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { readFile, stat } from 'node:fs/promises';
 import { relative } from 'node:path';
+import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 
@@ -32,9 +33,10 @@ const BREADCRUMB_JSONLD_RE = /"@type"\s*:\s*"BreadcrumbList"/;
 // `name=robots` does not). Match both shapes.
 const NOINDEX_RE =
   /<meta[^>]*\bname\s*=\s*["']?robots["']?[^>]*\bcontent\s*=\s*["']?[^"'>]*noindex/i;
-// Canonical bridge pages (built via `buildCanonicalBridgePage` in
-// build-plugins/constants.ts) consolidate crawl signals into their
-// canonical target and never surface directly in SERPs — exempt.
+// Canonical bridge pages consolidate crawl signals into their canonical
+// target and never surface directly in SERPs — exempt. Prefer the shared
+// structural marker; keep the phrase matcher for old artifacts emitted before
+// every redirect-stub producer adopted the marker.
 const BRIDGE_PAGE_RE = /Questa URL\s+(?:legacy|azienda|alias|di ricerca|dell[’'\\s]annuncio)/i;
 
 function fileToUrlPath(relPath) {
@@ -64,7 +66,7 @@ export function createAuditor(opts = {}) {
       const url = fileToUrlPath(toDistRelPath(file));
       if (ALLOWED_MISSING.has(url)) return;
       if (NOINDEX_RE.test(html)) return;
-      if (BRIDGE_PAGE_RE.test(html)) return;
+      if (html.includes(REDIRECT_STUB_MARKER) || BRIDGE_PAGE_RE.test(html)) return;
       if (!BREADCRUMB_JSONLD_RE.test(html)) {
         offenders.push({ path: relative(ROOT, file), url, metric: 1 });
       }

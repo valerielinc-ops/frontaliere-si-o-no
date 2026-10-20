@@ -1,4 +1,6 @@
 import { JSDOM } from 'jsdom';
+import { parseJsonLdText } from './json-ld-text.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '')
@@ -102,8 +104,9 @@ function extractJsonLdJob(html = '') {
   const matches = [...String(html).matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
   for (const match of matches) {
     try {
-      const parsed = JSON.parse(match[1]);
-      if (parsed?.['@type'] === 'JobPosting') return parsed;
+      const parsed = parseJsonLdText(match[1]);
+      const [posting] = extractJobPostingNodesFromJson(parsed);
+      if (posting) return posting;
     } catch {
       // ignore malformed blocks
     }

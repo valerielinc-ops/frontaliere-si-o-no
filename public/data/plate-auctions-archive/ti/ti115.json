@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ti-1537",
+      "sourceKey": "TI",
+      "sourceRecordId": "1537",
+      "canton": "Ticino",
+      "platePrefix": "TI",
+      "plateNumber": "115",
+      "normalizedPlate": "TI115",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 27000,
+      "startingPriceChf": 3000,
+      "bidCount": 24,
+      "minimumIncrementChf": 100,
+      "endsAt": "2026-10-14T18:00:00.000Z",
+      "closedAt": "2026-10-14T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.carieauktion.ti.ch/ecari-auktion/",
+      "officialDetailUrl": "https://www.carieauktion.ti.ch/ecari-auktion/ui/app/details/app?id=1537",
+      "sourceFetchedAt": "2026-10-14T17:47:04.786Z",
+      "lastVerifiedAt": "2026-10-14T17:47:04.786Z",
+      "firstSeenAt": "2026-10-04T23:47:05.860Z",
+      "lastSeenAt": "2026-10-14T17:47:04.786Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "8f91be6a2d3d"
+    }
+  ]
+}

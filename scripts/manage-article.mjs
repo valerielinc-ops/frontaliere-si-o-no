@@ -49,7 +49,7 @@
 import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
-import { ARTICLE_SECTION_CORE_LIST } from '../build-plugins/shared/articleSectionCore.mjs';
+import { SITE_RENDERED_ARTICLE_SECTIONS } from '../build-plugins/shared/articleSectionCore.mjs';
 import {
   ARTICLE_LOCALES,
   ARTICLE_REDIRECTS_FILE,
@@ -194,11 +194,11 @@ async function ask(question) {
 // printed "Nessun articolo trovato" — and services/i18n.ts never held static
 // per-article title strings (titles live in blog-meta-it.ts, loaded at
 // runtime). Fixed to read each section's real registryFile
-// (ARTICLE_SECTION_CORE_LIST) and its own IT meta file for titles.
+// (SITE_RENDERED_ARTICLE_SECTIONS) and its own IT meta file for titles.
 function listArticles() {
   const articleRegex = /\{\s*id:\s*["']([^"']+)["'],\s*category:\s*["']([^"']+)["'],\s*date:\s*["']([^"']+)["'],\s*image:\s*["']([^"']+)["']/g;
   const articles = [];
-  for (const { section, registryFile, metaPrefix } of ARTICLE_SECTION_CORE_LIST) {
+  for (const { section, registryFile, metaPrefix } of SITE_RENDERED_ARTICLE_SECTIONS) {
     if (!existsSync(resolve(registryFile))) continue;
     const src = read(registryFile);
     const metaFile = `services/locales/${metaPrefix}-it.ts`;
@@ -273,14 +273,14 @@ function removeFromRouter(articleId) {
 // behind the /articoli-frontaliere/ list rendering raw `blog.article.<id>.title`
 // keys: i18n + body were correctly deleted by removeI18nKeys, but the
 // registry entry survived every "remove" that ran before this fix. Fixed to
-// target the current registryFile from ARTICLE_SECTION_CORE_LIST, checking
+// target the current registryFile from SITE_RENDERED_ARTICLE_SECTIONS, checking
 // BOTH sections (an id lives in exactly one, but checking only frontaliere
 // would silently no-op a svizzera-section removal the same way).
 function removeFromBlogArticles(articleId) {
   const escaped = escapeRegex(articleId);
   const blockRegex = new RegExp(`\\s*\\{[^}]*id:\\s*'${escaped}'[^}]*\\},?`, 's');
   let removedFromAny = false;
-  for (const { registryFile } of ARTICLE_SECTION_CORE_LIST) {
+  for (const { registryFile } of SITE_RENDERED_ARTICLE_SECTIONS) {
     if (!existsSync(resolve(registryFile))) continue;
     let src = read(registryFile);
     if (!blockRegex.test(src)) continue;
@@ -290,7 +290,7 @@ function removeFromBlogArticles(articleId) {
     removedFromAny = true;
   }
   if (!removedFromAny) {
-    console.error(`  ⚠️  ATTENZIONE: nessuna voce registry trovata per '${articleId}' in ${ARTICLE_SECTION_CORE_LIST.map(s => s.registryFile).join(', ')}`);
+    console.error(`  ⚠️  ATTENZIONE: nessuna voce registry trovata per '${articleId}' in ${SITE_RENDERED_ARTICLE_SECTIONS.map(s => s.registryFile).join(', ')}`);
   }
 }
 
@@ -399,7 +399,7 @@ function parseSectionSlugs(slugDataFile, slugConst) {
 // Finds which section's registry contains `articleId` (an id lives in
 // exactly one section). Returns the ARTICLE_SECTION_CORE entry, or undefined.
 function findOwningSection(articleId) {
-  return ARTICLE_SECTION_CORE_LIST.find(({ registryFile }) => {
+  return SITE_RENDERED_ARTICLE_SECTIONS.find(({ registryFile }) => {
     if (!existsSync(resolve(registryFile))) return false;
     return new RegExp(`id:\\s*['"]${escapeRegex(articleId)}['"]`).test(read(registryFile));
   });
@@ -560,7 +560,7 @@ function pathIsTrackedOrExists(relPath) {
 // services/seoService.ts / public/sitemap-blog.xml only (missing the real
 // seo-blog*.ts shards, the registry files, sitemap-blog-ch.xml, and every
 // per-locale body-file DELETION, since existsSync filtered those out — see
-// pathIsTrackedOrExists). Rebuilt from ARTICLE_SECTION_CORE_LIST so it can't
+// pathIsTrackedOrExists). Rebuilt from SITE_RENDERED_ARTICLE_SECTIONS so it can't
 // silently drift out of sync with the removal functions above again.
 function gitAddAll(articleId) {
   const files = [
@@ -571,7 +571,7 @@ function gitAddAll(articleId) {
     ...listBlogSeoShardFiles(),
     'services/seoService.ts',
   ];
-  for (const { registryFile, bodyDir, metaPrefix } of ARTICLE_SECTION_CORE_LIST) {
+  for (const { registryFile, bodyDir, metaPrefix } of SITE_RENDERED_ARTICLE_SECTIONS) {
     files.push(registryFile);
     for (const locale of ['it', 'en', 'de', 'fr']) {
       files.push(`services/locales/${metaPrefix}-${locale}.ts`);
@@ -619,7 +619,7 @@ function verifyRemovalClean(articleId) {
   const escaped = escapeRegex(articleId);
   const problems = [];
 
-  for (const { registryFile } of ARTICLE_SECTION_CORE_LIST) {
+  for (const { registryFile } of SITE_RENDERED_ARTICLE_SECTIONS) {
     if (existsSync(resolve(registryFile)) && new RegExp(`id:\\s*['"]${escaped}['"]`).test(read(registryFile))) {
       problems.push(`registry: ${registryFile} still has an entry for '${articleId}'`);
     }

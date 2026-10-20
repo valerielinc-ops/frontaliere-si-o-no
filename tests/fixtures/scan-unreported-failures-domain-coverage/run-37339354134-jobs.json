@@ -1,0 +1,28 @@
+{
+  "total_count": 2,
+  "jobs": [
+    {
+      "name": "replay-after-article-sync",
+      "conclusion": "skipped",
+      "steps": []
+    },
+    {
+      "name": "sync",
+      "conclusion": "failure",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify publisher provenance via read-only metadata API",
+          "conclusion": "success"
+        },
+        {
+          "name": "Pull the article corpus",
+          "conclusion": "failure"
+        }
+      ]
+    }
+  ]
+}

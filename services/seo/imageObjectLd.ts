@@ -24,9 +24,15 @@
  */
 
 export const SITE_LICENSE_PAGE = 'https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini';
+export const SITE_ORGANIZATION_ID = 'https://frontaliereticino.ch/#organization';
 
 const SITE_ORG = Object.freeze({
+  // Keep repeated site image creators attached to the canonical graph node.
+  // A bare Organization with the same name was emitted inside every article
+  // ImageObject, so crawlers saw a second anonymous publisher entity beside
+  // `https://frontaliereticino.ch/#organization`.
   '@type': 'Organization' as const,
+  '@id': SITE_ORGANIZATION_ID,
   name: 'Frontaliere Ticino',
   url: 'https://frontaliereticino.ch/',
 });
@@ -45,19 +51,63 @@ function defaultCopyrightNotice(): string {
     : `© ${COPYRIGHT_YEAR_START}–${year} Frontaliere Ticino. Tutti i diritti riservati.`;
 }
 
+export function resolveHttpUrl(value: unknown, fallback: unknown, field: string): string {
+  const candidate = value === undefined ? fallback : value;
+  if (typeof candidate !== 'string') {
+    throw new Error(`imageObjectLd: ${field} must be an absolute http(s) URL`);
+  }
+  try {
+    const parsed = new URL(candidate);
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return parsed.href;
+  } catch {
+    // Fall through to the field-specific error below.
+  }
+  throw new Error(`imageObjectLd: ${field} must be an absolute http(s) URL`);
+}
+
 export interface OrganizationCreator {
-  '@type': 'Organization';
+  '@type': 'Organization' | 'NewsMediaOrganization' | readonly ('Organization' | 'NewsMediaOrganization')[];
+  '@id'?: string;
   name: string;
   url?: string;
 }
 
 export interface PersonCreator {
   '@type': 'Person';
+  '@id'?: string;
   name: string;
   url?: string;
 }
 
 export type ImageCreator = OrganizationCreator | PersonCreator;
+
+/** JSON-LD permits either a single type or an array of types. */
+export function isOrganizationCreatorType(value: unknown): boolean {
+  const types = Array.isArray(value) ? value : [value];
+  return types.some((type) => type === 'Organization' || type === 'NewsMediaOrganization');
+}
+
+export function isSiteOrganizationCreator(value: { '@type'?: unknown; '@id'?: unknown; name?: unknown; url?: unknown }): boolean {
+  return isOrganizationCreatorType(value['@type'])
+    && (value['@id'] === SITE_ORGANIZATION_ID
+      || (value.name === SITE_ORG.name
+        && (value.url === SITE_ORG.url || value.url === SITE_ORG.url.replace(/\/$/, ''))));
+}
+
+/** Repair identity fields only after the record is proven to be the site entity. */
+export function canonicalizeSiteOrganizationCreator(
+  value: { '@type'?: unknown; '@id'?: unknown; name?: unknown; url?: unknown },
+): boolean {
+  if (!isSiteOrganizationCreator(value)) return false;
+
+  const changed = value['@type'] !== SITE_ORG['@type']
+    || value['@id'] !== SITE_ORGANIZATION_ID
+    || value.name !== SITE_ORG.name;
+  value['@type'] = SITE_ORG['@type'];
+  value['@id'] = SITE_ORGANIZATION_ID;
+  value.name = SITE_ORG.name;
+  return changed;
+}
 
 export interface ImageObjectInput {
   /**
@@ -75,9 +125,9 @@ export interface ImageObjectInput {
   creator?: ImageCreator;
   /** Override default copyright notice. */
   copyrightNotice?: string;
-  /** Override default license URL (e.g. point to source license page). */
+  /** Override default license URL; must be an absolute HTTP(S) URL. */
   license?: string;
-  /** Override default acquire-license URL. */
+  /** Override default acquire-license URL; must be an absolute HTTP(S) URL. */
   acquireLicensePage?: string;
   /** Optional creditText (e.g. webcam source name). */
   creditText?: string;
@@ -134,15 +184,25 @@ export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
     throw new Error('imageObjectLd: contentUrl (or url) is required');
   }
 
-  const resolvedCreator: ImageCreator = creator ?? { ...SITE_ORG };
+  if (creator && Array.isArray(creator['@type']) && creator['@type'].length === 0) {
+    throw new TypeError('imageObjectLd: creator.@type must contain at least one type');
+  }
+
+  const resolvedCreator: ImageCreator = creator
+    ? {
+      ...creator,
+      '@type': isOrganizationCreatorType(creator['@type']) ? 'Organization' : creator['@type'],
+    }
+    : { ...SITE_ORG };
+  canonicalizeSiteOrganizationCreator(resolvedCreator);
 
   const out: ImageObjectLd = {
     '@type': 'ImageObject',
     contentUrl: resolvedUrl,
     url: resolvedUrl,
-    acquireLicensePage: acquireLicensePage ?? SITE_LICENSE_PAGE,
+    acquireLicensePage: resolveHttpUrl(acquireLicensePage, SITE_LICENSE_PAGE, 'acquireLicensePage'),
     copyrightNotice: copyrightNotice ?? defaultCopyrightNotice(),
-    license: license ?? SITE_LICENSE_PAGE,
+    license: resolveHttpUrl(license, SITE_LICENSE_PAGE, 'license'),
     creator: resolvedCreator,
     creditText: creditText ?? resolvedCreator.name,
   };

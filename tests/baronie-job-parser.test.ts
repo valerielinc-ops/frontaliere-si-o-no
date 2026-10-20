@@ -10,7 +10,16 @@
  * fall back to (often-empty) location-text detection and report 0 jobs.
  */
 import { describe, expect, it } from 'vitest';
-import { parseBaronieDetailHtml, isSwissJob } from '../scripts/lib/baronie-job-parser.mjs';
+import {
+  buildBaronieLocalizedContent,
+  isBaronieDetailComplete,
+  parseBaronieDetailHtml,
+  isSwissJob,
+} from '../scripts/lib/baronie-job-parser.mjs';
+import {
+  classifyBaronieEmptyResult,
+  dropBaronieFabricatedText,
+} from '../scripts/update-baronie-jobs.mjs';
 
 function detailHtml({
   title = 'IT Infrastructure Engineer',
@@ -132,5 +141,85 @@ describe('baronie-job-parser / parseBaronieDetailHtml — @graph JSON-LD', () =>
     expect(result?.addressCountry).toBe('CH');
     expect(result?.location).toBe('Caslano');
     expect(isSwissJob(result)).toBe(true);
+  });
+});
+
+// Issue 5253: the builder keyed the detail text as `it` whatever its
+// language, and replaced a text of 100 characters or less with a paragraph
+// about Baronie that it wrote. Now a text under the shared 50-word floor
+// gives no description (thin-source path). Text: the opening of the live
+// "Plant Manager" posting (baronie.com/en/jobs/plant-manager-caslano,
+// 2026-09-29).
+describe('buildBaronieLocalizedContent — the posting text only, in its own slot', () => {
+  const SHORT_TEXT = 'As the Plant Manager of Chocolat Alprose, you oversee and coordinate the daily operations.';
+  const LONG_TEXT = 'As the Plant Manager of Chocolat Alprose, you oversee and coordinate the daily operations of our production site in Caslano. With strong leadership skills and guided by our code of conduct, you act as a role model and motivate your team to achieve the production and quality targets of the company. You empower people to excel, ensuring that all safety measures are followed.';
+
+  it('keeps an English text from 50 words up as it is, under `en`', () => {
+    const content = buildBaronieLocalizedContent({ title: 'Plant Manager', location: 'Caslano', detailMarkdown: LONG_TEXT, sourceLang: 'en' });
+    expect(content.description).toBe(LONG_TEXT);
+    expect(content.descriptionByLocale).toEqual({ en: LONG_TEXT });
+  });
+
+  it('gives a text under 50 words no indexable text, not the old paragraph', () => {
+    const content = buildBaronieLocalizedContent({ title: 'Plant Manager', location: 'Caslano', detailMarkdown: SHORT_TEXT, sourceLang: 'en' });
+    expect(content.description).toBe('');
+    expect(content.descriptionByLocale).toEqual({});
+  });
+
+  it('gives a posting without text no description', () => {
+    const content = buildBaronieLocalizedContent({ title: 'Plant Manager', location: 'Caslano', detailMarkdown: '', sourceLang: 'en' });
+    expect(content.description).toBe('');
+    expect(content.descriptionByLocale).toEqual({});
+  });
+});
+
+// Stored records of the former fallback paragraph (issue 5253): dropped
+// before the merge with the translations made from it.
+describe('dropBaronieFabricatedText', () => {
+  const INVENTED = 'Chocolat Alprose SA, azienda svizzera del gruppo Baronie specializzata nella produzione di cioccolato premium, cerca un profilo Plant Manager per la sede di Caslano. Candidati tramite il portale ufficiale.';
+
+  it('leaves no invented entry in a stored job', () => {
+    const job: any = { sourceLang: 'it', description: INVENTED, descriptionByLocale: { it: INVENTED, en: 'Chocolat Alprose SA, a Swiss company of the Baronie group…' } };
+    expect(dropBaronieFabricatedText(job)).toBe(true);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+  });
+
+  it('leaves a stored job with the posting text alone', () => {
+    const job: any = { sourceLang: 'en', description: 'As the Plant Manager…', descriptionByLocale: { en: 'As the Plant Manager…', it: 'Come Responsabile…' } };
+    expect(dropBaronieFabricatedText(job)).toBe(false);
+  });
+});
+
+describe('classifyBaronieEmptyResult', () => {
+  it('names a zero-detail run as source extraction failure', () => {
+    expect(classifyBaronieEmptyResult(5)).toBe('source-extraction-failed');
+  });
+
+  it('names an observed zero without detail failures as no-jobs-parsed', () => {
+    expect(classifyBaronieEmptyResult(0)).toBe('no-jobs-parsed');
+  });
+});
+
+describe('isBaronieDetailComplete', () => {
+  it('accepts a detail page with identity, body, and location evidence', () => {
+    const result = parseBaronieDetailHtml(detailHtml({ jsonLd: GRAPH_JSON_LD_SWISS }));
+    expect(isBaronieDetailComplete(result)).toBe(true);
+  });
+
+  it('rejects an intro-only detail when the body container is missing', () => {
+    const result = parseBaronieDetailHtml(`<!DOCTYPE html>
+      <html><head><script type="application/ld+json">${GRAPH_JSON_LD_SWISS}</script></head>
+      <body><article class="s-entry__content s-text-markup">
+        <h1 class="s-text-medium-large">Production Operator</h1>
+        <p class="s-text-medium">Intro text that is not the posting body.</p>
+      </article></body></html>`);
+
+    expect(result?.bodyMarkdown).toBe('');
+    expect(isBaronieDetailComplete(result)).toBe(false);
+  });
+
+  it('rejects a detail-shaped response that cannot be classified safely', () => {
+    expect(isBaronieDetailComplete({ detailTitle: 'Unknown', markdown: '', location: '' })).toBe(false);
   });
 });

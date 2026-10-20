@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-below-floor-bridge.mjs — advisory surfacer for the below-floor-bridge
  * omission (zero-Claude, deterministic).
@@ -73,8 +75,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { resolve as resolvePath } from 'node:path';
+
 import { resolveMergeBase, formatUnresolvableMergeBaseVerdict } from './lib/resolve-merge-base.mjs';
 
 // ---------------------------------------------------------------------------
@@ -275,7 +276,13 @@ if (HELP) {
 
 function git(args, { allowFail = false } = {}) {
   try {
-    return execFileSync('git', args, { encoding: 'utf8', maxBuffer: 128 * 1024 * 1024 });
+    return execFileSync('git', args, {
+      encoding: 'utf8',
+      maxBuffer: 128 * 1024 * 1024,
+      // Keep Git's streams detached from the managed agent runtime. This
+      // runtime can report EPERM after an inherited-stdio child exits cleanly.
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
   } catch (e) {
     if (allowFail) return '';
     throw e;
@@ -407,7 +414,7 @@ function main() {
 
 // Only run when executed directly (CLI/CI), not on import (unit tests import
 // the pure functions above without triggering the git-backed CLI).
-const isMain = process.argv[1] && fileURLToPath(import.meta.url) === resolvePath(process.argv[1]);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   main();
 }

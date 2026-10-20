@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Daily Facebook scheduler for Ticino job listings.
  *
@@ -78,6 +80,12 @@ const VOLUME_MINUTES = {
   72: [5, 25, 45],
   144: [5, 15, 25, 35, 45, 55],
 };
+
+// Keep enough Graph API work in flight to avoid the serial scheduler
+// consuming the whole workflow budget, without turning a daily batch into a
+// rate-limit burst. The ledger write remains synchronous after each success,
+// so partial progress is still durable if a later request fails.
+export const FB_SCHEDULE_CONCURRENCY = 4;
 
 // employmentType → user-facing label now lives in ./lib/social-post-utils.mjs
 // (EMPLOYMENT_TYPE_LABEL) and is imported above — was duplicated verbatim in the
@@ -632,7 +640,9 @@ export async function run(opts = {}) {
   }
 
   // 7. POST one per slot. Append to ledger after each success so a partial
-  //    failure still records what got through.
+  //    failure still records what got through. Run bounded batches: each
+  //    payload still waits for its own OG rescrape/verification before the
+  //    /feed POST, but unrelated jobs no longer serialize their Graph calls.
   // Transient FB error codes that get one retry after 2s:
   //   1  — generic "Please reduce data" (often FB's OG scraper timed out)
   //   2  — temporary service issue
@@ -641,8 +651,7 @@ export async function run(opts = {}) {
   const TRANSIENT_FB_ERROR_CODES = new Set([1, 2, 4, 17]);
   const sleepMs = (ms) => new Promise(r => setTimeout(r, ms));
 
-  let scheduled = 0;
-  for (const p of payloads) {
+  const scheduleOne = async (p) => {
     // See the articles scheduler: tag before the rescrape, keep `p.url` bare
     // because it is the ledger's dedup key.
     const link = facebookUrl(p.url, FACEBOOK_CAMPAIGN_JOB, p.jobId);
@@ -683,7 +692,6 @@ export async function run(opts = {}) {
     }
 
     if (res?.ok && data?.id) {
-      scheduled += 1;
       appendPosted(repoRoot, [{
         id: p.jobId,
         url: p.url,
@@ -692,9 +700,18 @@ export async function run(opts = {}) {
         scheduledFor: new Date(p.scheduled_publish_time * 1000).toISOString(),
       }]);
       log('✅', `${p.jobId} → ${data.id} @ ${new Date(p.scheduled_publish_time * 1000).toISOString()}`);
+      return true;
     } else {
       warn('⚠️', `FB API error for ${p.jobId}: ${JSON.stringify(data).slice(0, 300)}`);
+      return false;
     }
+  };
+
+  let scheduled = 0;
+  for (let start = 0; start < payloads.length; start += FB_SCHEDULE_CONCURRENCY) {
+    const batch = payloads.slice(start, start + FB_SCHEDULE_CONCURRENCY);
+    const results = await Promise.all(batch.map(scheduleOne));
+    scheduled += results.filter(Boolean).length;
   }
 
   log('🏁', `scheduled ${scheduled}/${payloads.length} posts`);
@@ -703,7 +720,7 @@ export async function run(opts = {}) {
 
 // ── CLI ─────────────────────────────────────────────────────
 
-const isDirectInvocation = import.meta.url === `file://${process.argv[1]}`;
+const isDirectInvocation = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectInvocation) {
   run().then(
     () => process.exit(0),

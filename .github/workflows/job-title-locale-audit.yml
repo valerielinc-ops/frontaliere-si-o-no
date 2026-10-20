@@ -72,9 +72,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
 
@@ -233,7 +233,7 @@ jobs:
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Job title locale quality: weekly snapshot" \
-            --description "$(cat /tmp/jtl/body.md)" \
+            --description-file /tmp/jtl/body.md \
             --priority 3 \
             --label job-title-locale \
             --label bug \

@@ -59,7 +59,10 @@ describe('SEO health contract', () => {
     ]);
     expect(isJobDetailPath('/cerca-lavoro-ticino/software-engineer-acme/')).toBe(true);
     expect(isJobDetailPath('/en/find-jobs-zurich/software-engineer-acme/')).toBe(true);
+    expect(isJobDetailPath('/de/jobs-im-tessin/software-engineer-acme/')).toBe(true);
     expect(isJobDetailPath('/cerca-lavoro-ticino/')).toBe(false);
+    expect(isJobDetailPath('/de/jobs-im-tessin/alle/')).toBe(false);
+    expect(isJobDetailPath('/de/jobs-im-tessin/alle/page-1022/')).toBe(false);
     expect(isJobDetailPath('/cerca-lavoro-ticino/azienda-acme/')).toBe(false);
     expect(isJobDetailPath('/cerca-lavoro-ticino/infermieri-in-ticino/')).toBe(false);
   });
@@ -111,6 +114,41 @@ describe('SEO health contract', () => {
     ]);
   });
 
+  it('reports missing JobPosting for German details, not the all-jobs archive', () => {
+    const archiveUrl = `${ORIGIN}/de/jobs-im-tessin/alle/`;
+    const detailUrl = `${ORIGIN}/de/jobs-im-tessin/software-engineer-acme/`;
+    const canonicalOnly = (url: string) => `<link rel="canonical" href="${url}">`;
+
+    expect(findingsForProbe({
+      url: archiveUrl,
+      status: 200,
+      finalUrl: archiveUrl,
+      body: canonicalOnly(archiveUrl),
+    }).map(({ code }) => code)).toEqual([]);
+    expect(findingsForProbe({
+      url: detailUrl,
+      status: 200,
+      finalUrl: detailUrl,
+      body: canonicalOnly(detailUrl),
+    }).map(({ code }) => code)).toEqual(['jobposting-missing']);
+  });
+
+  it('withholds unknown-date JobPosting pages as an observation only when the seed proves provenance', () => {
+    const url = 'https://fixture.test/cerca-lavoro-ticino/job/';
+    const canonical = `<link rel="canonical" href="${url}">`;
+    const withheld = `${canonical}<script>window.__JOB_SEED__=${JSON.stringify({ postingDateSource: 'unknown' })};</script>`;
+    expect(findingsForProbe({ url, status: 200, body: withheld })).toMatchObject([
+      { code: 'jobposting-withheld-unverified-date', postingDateSource: 'unknown' },
+    ]);
+    expect(isSeoIssueActionable({ code: 'jobposting-withheld-unverified-date' })).toBe(false);
+
+    const reported = `${canonical}<script>window.__JOB_SEED__=${JSON.stringify({ postingDateSource: 'reported' })};</script>`;
+    expect(findingsForProbe({ url, status: 200, body: reported })).toMatchObject([
+      { code: 'jobposting-missing', postingDateSource: 'reported' },
+    ]);
+    expect(findingsForProbe({ url, status: 200, body: canonical }).map(({ code }) => code)).toEqual(['jobposting-missing']);
+  });
+
   it('does not turn an unavailable source into a healthy empty source', () => {
     expect(sourceResult({ name: 'ga4', rows: 0 })).toMatchObject({ available: false, error: 'empty result' });
     expect(sourceResult({ name: 'ga4', rows: 10, skipped: true })).toMatchObject({ available: false, error: 'skipped' });
@@ -129,8 +167,10 @@ describe('SEO health contract', () => {
     expect(afterGap.findings[`${finding.code}|${finding.url}`].consecutiveRuns).toBe(1);
   });
 
-  it('keeps the PostHog no-slash query time-bounded and locale-complete', () => {
-    expect(NOSLASH_SOURCE).toMatch(/AND \(\s*properties\.\$pathname LIKE '\/cerca-lavoro-%'[\s\S]*OR properties\.\$pathname LIKE '\/de\/jobs-in-%'[\s\S]*\)\s*AND timestamp/s);
+  it('reads no-slash traffic from GSC + GA4 only, time-bounded (PostHog retired by decisione H9 2026-10-05)', () => {
+    expect(NOSLASH_SOURCE).not.toMatch(/HogQLQuery|POSTHOG_|\/api\/projects\//);
+    expect(NOSLASH_SOURCE).toMatch(/dateRanges: \[\{ startDate, endDate \}\]/);
+    expect(NOSLASH_SOURCE).toMatch(/metrics: \[\{ name: 'screenPageViews' \}\]/);
   });
 
   it('keeps the autonomous workflow conservative and resolver-gated', () => {
@@ -140,7 +180,7 @@ describe('SEO health contract', () => {
     expect(WORKFLOW_SOURCE).toContain('tests/search-console-compat.test.ts');
     expect(WORKFLOW_SOURCE).toContain('--in-place-resolver-cmd');
     expect(WORKFLOW_SOURCE).not.toContain("--in-place-resolver-cmd 'node scripts/lib/resolve-404-compat-conflict.mjs && git add -A'");
-    expect(WORKFLOW_SOURCE).toContain('actions/upload-artifact@v6');
+    expect(WORKFLOW_SOURCE).toContain('actions/upload-artifact@v7');
     expect(WORKFLOW_SOURCE).toContain('if-no-files-found: error');
     expect(WORKFLOW_SOURCE).toContain('always() && inputs.dry_run != true && (steps.health.outcome');
     expect(WORKFLOW_SOURCE).toContain('EXPECTED_SHA=');
@@ -180,6 +220,7 @@ describe('SEO health contract', () => {
 
   it('keeps sampled-out Cloudflare evidence observable without opening an SEO issue', () => {
     expect(isSeoIssueActionable({ code: 'cloudflare-5xx-unverified' })).toBe(false);
+    expect(isSeoIssueActionable({ code: 'jobposting-withheld-unverified-date' })).toBe(false);
     expect(isSeoIssueActionable({ code: 'cloudflare-5xx-persistent' })).toBe(true);
   });
 });
@@ -249,6 +290,49 @@ describe('SEO health live runner', () => {
       expect(readFileSync(join(root, 'reports', 'latest.json'), 'utf8')).toContain('"dryRun": true');
       expect(existsSync(join(root, 'state.json'))).toBe(false);
       expect(existsSync(join(root, 'history.jsonl'))).toBe(false);
+    } finally {
+      if (previousRunId === undefined) delete process.env.GITHUB_RUN_ID;
+      else process.env.GITHUB_RUN_ID = previousRunId;
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('uses the shared job-detail contract when selecting sampled job URLs', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'seo-health-job-sample-'));
+    const previousRunId = process.env.GITHUB_RUN_ID;
+    const sitemap = `${ORIGIN}/sitemap.xml`;
+    const archiveUrl = `${ORIGIN}/de/jobs-im-tessin/alle/`;
+    const detailUrl = `${ORIGIN}/de/jobs-im-tessin/software-engineer-acme/`;
+    const bodies = new Map<string, string>([
+      [`${ORIGIN}/robots.txt`, `Sitemap: ${sitemap}`],
+      [sitemap, `<urlset><url><loc>${archiveUrl}</loc></url><url><loc>${detailUrl}</loc></url></urlset>`],
+      [archiveUrl, `<link rel="canonical" href="${archiveUrl}">`],
+      [detailUrl, `<link rel="canonical" href="${detailUrl}"><script type="application/ld+json">{"@type":"JobPosting"}</script>`],
+    ]);
+    const fetchImpl = async (url: string) => response(url, bodies.has(url) ? 200 : 404, bodies.get(url) || '');
+    delete process.env.GITHUB_RUN_ID;
+    try {
+      const report = await runSeoHealthLoop({
+        options: {
+          origin: ORIGIN,
+          sitemap,
+          sample: 10,
+          jobSample: 10,
+          dryRun: true,
+          reportDir: join(root, 'reports'),
+          statePath: join(root, 'state.json'),
+          historyPath: join(root, 'history.jsonl'),
+        },
+        fetchImpl,
+        collectAnalytics: false,
+        root,
+        now: new Date('2026-09-13T00:00:00Z'),
+      });
+      expect(report.pageAudit.jobCandidateCount).toBe(1);
+      expect(report.pageAudit.sampledJobCount).toBe(1);
+      expect(report.findings.observed).not.toEqual(expect.arrayContaining([
+        expect.objectContaining({ code: 'jobposting-missing', url: archiveUrl }),
+      ]));
     } finally {
       if (previousRunId === undefined) delete process.env.GITHUB_RUN_ID;
       else process.env.GITHUB_RUN_ID = previousRunId;

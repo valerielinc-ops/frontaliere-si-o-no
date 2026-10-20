@@ -1,22 +1,24 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-09-24T14:30:34.300Z",
+  "generatedAt": "2026-10-19T21:19:25.066Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 8,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4739,
-  "avgDurationMs": 4739,
+  "unchangedCount": 8,
+  "durationMs": 3153,
+  "avgDurationMs": 3153,
   "durationHistory": [
-    4739
+    3153
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Product Manager – Critical Power",
-      "slug": "product-manager-critical-power-centiel-ticino",
+      "slug": "responsabile-prodotto-potenza-critica-centiel-cadro-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/07/2026.06-JD-EG-Product-Manager-Critical-Power.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/07/2026.06-JD-EG-Product-Manager-Critical-Power.pdf",
       "company": "Centiel",
@@ -32,7 +34,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-24",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -44,17 +46,20 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.06-jd-eg-product-manager-critical-power.pdf",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
       "title": "Specialista Ufficio Tecnico",
-      "slug": "specialista-ufficio-tecnico-centiel-ticino",
+      "slug": "specialista-ufficio-tecnico-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/07/2026.06-JD-IT-Specialista-ufficio-tecnico.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/07/2026.06-JD-IT-Specialista-ufficio-tecnico.pdf",
       "company": "Centiel",
@@ -69,8 +74,8 @@
       "category": "other",
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-24",
+      "sourceLang": "it",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -82,17 +87,20 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.06-jd-it-specialista-ufficio-tecnico.pdf",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
       "title": "Operatore di produzione",
-      "slug": "operatore-di-produzione-centiel-ticino",
+      "slug": "operatore-di-produzione-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/07/2026.03-JD-IT-operatore-di-produzione.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/07/2026.03-JD-IT-operatore-di-produzione.pdf",
       "company": "Centiel",
@@ -107,8 +115,8 @@
       "category": "other",
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-24",
+      "sourceLang": "it",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -120,17 +128,20 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-operatore-di-produzione.pdf",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
       "title": "Tecnico Collaudatore",
-      "slug": "tecnico-collaudatore-centiel-ticino",
+      "slug": "tecnico-collaudatore-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/07/2026.03-JD-IT-tecnico-collaudatore.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/07/2026.03-JD-IT-tecnico-collaudatore.pdf",
       "company": "Centiel",
@@ -145,8 +156,8 @@
       "category": "other",
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-24",
+      "sourceLang": "it",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -158,17 +169,20 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-tecnico-collaudatore.pdf",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
       "title": "Project Manager – Critical Power",
-      "slug": "project-manager-critical-power-centiel-ticino",
+      "slug": "project-manager-potenza-critica-centiel-cadro-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/05/2026.02-JD-EG-Project-Manager-Critical-Power.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/05/2026.02-JD-EG-Project-Manager-Critical-Power.pdf",
       "company": "Centiel",
@@ -184,7 +198,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-24",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -196,17 +210,20 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-05T10:19:57.725Z",
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/05/2026.02-jd-eg-project-manager-critical-power.pdf",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
       "title": "Pre-Sales Application Engineer – Critical Power",
-      "slug": "pre-sales-application-engineer-critical-power-centiel-ticino",
+      "slug": "ingegnere-di-applicazione-pre-sales-potere-critico-centiel-cadro-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/05/2026.02-JD-EG-Pre-sales-Application-Engineer-CP.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/05/2026.02-JD-EG-Pre-sales-Application-Engineer-CP.pdf",
       "company": "Centiel",
@@ -222,7 +239,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-24",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -234,17 +251,20 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-05T10:19:57.725Z",
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/05/2026.02-jd-eg-pre-sales-application-engineer-cp.pdf",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
       "title": "Research & Development Engineer",
-      "slug": "research-development-engineer-centiel-ticino",
+      "slug": "ricerca-development-ingegnere-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
       "applyUrl": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
       "company": "Centiel",
@@ -260,7 +280,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-24",
+      "postedDate": "",
       "employmentType": "100%",
       "contractType": "full-time",
       "validThrough": "",
@@ -272,12 +292,15 @@
       "id": "centiel-ced8dc312c7e",
       "firstSeenAt": "2026-04-13T21:21:09.576Z",
       "salarySource": "reported",
-      "_qualityScore": 90,
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2025/11/2025.11-jd-eg-rd-engineer-rev1.pdf",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -298,7 +321,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-24",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -310,15 +333,17 @@
       "id": "centiel-31fb67bd3d47",
       "firstSeenAt": "2026-04-13T21:21:09.576Z",
       "salarySource": "reported",
-      "_qualityScore": 90,
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2025/05/job_profile_after_sales_technician.pdf",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

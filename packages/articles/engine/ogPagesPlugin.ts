@@ -8,22 +8,115 @@
  */
 
 import path from 'path';
+import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
+import { decodeHtmlText } from './shared/htmlEntities';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
-import { getSiteShell } from './siteShell';
-import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
+import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './siteShell';
+import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml, renderArticleInlineMarkup } from './articleSeoFallback';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
 import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared/articleReviewOverrides';
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
-import { ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId } from './shared/articleSectionDescriptors';
+import { ARTICLE_SECTION_DESCRIPTORS, SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId, type OgSection as OgSectionDescriptor } from './shared/articleSectionDescriptors';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
+import { hasArticleBodyPromptPlaceholder } from './shared/articleBodyQuality';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
+import { createImageCreditReader, imageObjectCreditFields, renderImageCreditHtml } from './shared/imageCredits.mjs';
 import { computeSectionTopicAssignment } from './articleHubPagesPlugin';
 import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxonomy';
+import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath, cantonTopicHubLabel, cantonTopicHubPath } from './shared/cantonSectionCopy.mjs';
+import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
+
+/**
+ * Rich author identity supplied by the site shell at runtime. The package
+ * contract deliberately keeps ArticleAuthor minimal so the corpus host can
+ * consume this engine while its author registry is migrated in lockstep.
+ * Missing `kind` is treated as a legacy real-author record when personal
+ * identity fields are present.
+ */
+type ArticleAuthorIdentity = ArticleAuthor & {
+  kind?: 'editorial-profile' | 'real-author';
+  linkedin?: string;
+  social?: { linkedin?: string; twitter?: string; mastodon?: string; wikidataId?: string };
+  uid?: string;
+  cvPath?: string;
+};
+
+function isRealArticleAuthor(author: ArticleAuthorIdentity | undefined): boolean {
+  return author?.kind === 'real-author'
+    || (!author?.kind && Boolean(author?.uid || author?.cvPath || author?.social?.linkedin));
+}
+
+/** Strip the publisher suffix before title equality/collision checks and HTML output. */
+export function normalizeArticleTitle(raw: string): string {
+ return raw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
+}
+
+/** Resolve the visible article title while keeping the social title as fallback. */
+export function resolveArticleTitle(
+ title: string | undefined,
+ ogTitle: string,
+ useOgTitle = false,
+): string {
+ return normalizeArticleTitle(useOgTitle || !title ? ogTitle : title);
+}
+
+/**
+ * Count how many DISTINCT articles share each title key.
+ *
+ * The unit is the article, not the SEO entry: a section's seo files are
+ * concatenated verbatim (frontaliere reads seo-blog.ts + seo-blog-2..10.ts)
+ * and an id listed in two chunks is still ONE page at ONE URL. Counting
+ * entries made every such article collide with itself — 983 of the 4 165
+ * frontaliere ids on 2026-10-07 — which would hand a spurious disambiguator
+ * to an Event page and deny the real headline to an Italian one.
+ */
+export function countArticlesByTitleKey<T extends { articleId: string }>(
+ entries: readonly T[],
+ titleKey: (entry: T) => string,
+): Map<string, number> {
+ const articleIdsByKey = new Map<string, Set<string>>();
+ for (const entry of entries) {
+  const key = titleKey(entry);
+  const ids = articleIdsByKey.get(key);
+  if (ids) ids.add(entry.articleId);
+  else articleIdsByKey.set(key, new Set([entry.articleId]));
+ }
+ const counts = new Map<string, number>();
+ for (const [key, ids] of articleIdsByKey) counts.set(key, ids.size);
+ return counts;
+}
+
+/**
+ * Build the resolver of the headline a page shows in one locale, before brand
+ * and disambiguator. ONE formula: html() and the title-collision map both call
+ * the resolver, so they cannot drift apart.
+ *
+ * `requireUniqueHeadline` (Italian): the real headline is shown only when no
+ * other article of the section carries it. Two articles that share a headline
+ * each keep their own ogTitle, so moving <title>/H1/headline from ogTitle to
+ * the real headline can never hand two pages the same <title>. The other
+ * locales predate the rule and keep showing their localized headline as it is.
+ */
+export function createArticleTitleResolver<T extends { articleId: string; ogT: string }>(
+ entries: readonly T[],
+ headlineOf: (entry: T) => string | undefined,
+ requireUniqueHeadline: boolean,
+): (entry: T) => string {
+ const articlesByHeadline = requireUniqueHeadline
+  ? countArticlesByTitleKey(entries, (entry) => normalizeArticleTitle(headlineOf(entry) || entry.ogT))
+  : null;
+ return (entry) => {
+  const headline = headlineOf(entry);
+  const sharedHeadline = Boolean(headline)
+   && (articlesByHeadline?.get(normalizeArticleTitle(headline as string)) || 0) > 1;
+  return resolveArticleTitle(headline, entry.ogT, sharedHeadline);
+ };
+}
 
 /**
  * Empty SPA mount point, mirroring build-plugins/htmlTemplate.ts `rootShell`.
@@ -128,10 +221,42 @@ export interface RenderedArticleEntry {
  img: string;
 }
 
+type OgSectionId = OgSectionDescriptor['name'];
+
+/**
+ * Where each section kind's hub slugs come from. The two historical kinds keep
+ * reading the site shell (same values, same source as before the table); a
+ * canton section reads the core entry carried by its descriptor, because
+ * SiteShellContract deliberately has no per-canton field (changing it would
+ * force the corpus `host/` half to ship in the same round).
+ */
+const SHELL_INDEX_SLUGS_BY_KIND: Record<OgSectionDescriptor['kind'], (shell: SiteShellContract, section: OgSectionDescriptor) => Record<string, string>> = {
+ frontaliere: (shell) => ({ ...shell.blogIndexSlugs }),
+ national: (shell) => ({ ...shell.swissBlogIndexSlugs }),
+ canton: (_shell, section) => ({ ...section.indexSlug }),
+};
+
+/** Root-relative section path, with the locale prefix used by non-Italian routes. */
+function localizedArticleSectionPath(indexSlug: string, locale: string): string {
+ const prefix = locale === 'it' ? '' : `/${locale}`;
+ return `${prefix}/${indexSlug}`;
+}
+
+/**
+ * Feed advertised by an article page. Canton feeds intentionally keep the
+ * historical root feed until the canton feed contract is published.
+ */
+function articleRssAlternatePath(section: OgSectionDescriptor, locale: string): string {
+ if (section.kind === 'canton') return '/rss.xml';
+ const baseName = section.kind === 'frontaliere' ? 'rss' : `rss-${section.name}`;
+ return `/${baseName}${locale === 'it' ? '' : `-${locale}`}.xml`;
+}
+
 export interface RenderArticlePagesOptions {
  rootDir: string;
  distDir: string;
- section: 'frontaliere' | 'svizzera';
+ /** Section id (`frontaliere`, `svizzera`, or an active `canton-<code>`). */
+ section: OgSectionId;
  /**
  * When set, render/write ONLY this article's 4 locale pages instead of the
  * whole section (near-instant single-article publish, #4837 stream A).
@@ -205,15 +330,17 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  WriteCollector,
  buildTitleWithBrand,
  truncateHeadline,
+ truncateHeadlineToMeasuredBudget,
  titleBrandSuffix: TITLE_BRAND_SUFFIX,
  titleMaxChars: TITLE_MAX_CHARS,
  clampMetaDescription,
  repairSerpSnippet,
+ stripLiteralMarkdown,
  truncateCodeUnits,
  stableChunkFile,
  stableChunkFiles,
- differentiateH1FromTitle,
  inlineScriptJson,
+ differentiateH1FromTitle,
  criticalCssLink: CRITICAL_CSS_LINK,
  imageObjectLd,
  resolveSpaBundle,
@@ -258,14 +385,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  'data/swiss-articles-data.ts',
  'content/blog-articles-data.ts',
  'content/swiss-articles-data.ts',
- 'components/community/BlogArticles.tsx',
  ]) {
  try {
  const src = fs.readFileSync(np.resolve(rootDir, rel), 'utf-8');
- const re = /\{\s*id:\s*'([^']+)'\s*,[\s\S]*?\bimage:\s*'([^']+)'/g;
- let m: RegExpExecArray | null;
- while ((m = re.exec(src)) !== null) {
- if (!blogImageById[m[1]]) blogImageById[m[1]] = m[2];
+ for (const article of readArticleRegistryMetadata(src)) {
+ if (article.image && !blogImageById[article.id]) blogImageById[article.id] = article.image;
  }
  } catch (err) {
  if (!isMissingPathError(err)) throw err;
@@ -333,38 +457,35 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  np.resolve(rootDir, 'engine/shared/article-reviewed-by.json'),
  ]);
 
+ // P14: credit records of the Wikimedia Commons covers, one per cover file
+ // (shared/imageCredits.mjs). A credited cover gets the photo's own creator and
+ // licence in its ImageObject and a credit line at the end of the article; any
+ // other cover renders exactly as before. Same two-layout candidate list as
+ // above: the corpus keeps the records under content/, the site pulls them
+ // under packages/articles/content/.
+ const imageCredits = createImageCreditReader(fs, [
+ np.resolve(rootDir, 'packages/articles/content/image-credits'),
+ np.resolve(rootDir, 'content/image-credits'),
+ ]);
+
  // Parse article categories from blog-articles-data.ts for FAQ schema filtering
  const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
  const articleCategoryById: Record<string, string> = {};
+ const articlePublishedAtById: Record<string, string> = {};
  const articleUpdatedAtById: Record<string, string> = {};
- // Per-article author (E-E-A-T): was hardcoded to a single Person for every
+ // Per-article editorial profile (E-E-A-T): was hardcoded to a single
  // article (JSON-LD + visible byline) — real values live alongside each
  // entry in SECTION.registry, resolved against data/authors.ts below.
  const articleAuthorSlugById: Record<string, string> = {};
  const articleAuthorNameById: Record<string, string> = {};
  try {
  const articleDataSrc = fs.readFileSync(np.resolve(rootDir, SECTION.registry), 'utf-8');
- const catRx = /id:\s*'([^']+)'[\s\S]*?category:\s*'([^']+)'/g;
- let cm: RegExpExecArray | null;
- while ((cm = catRx.exec(articleDataSrc)) !== null) {
- articleCategoryById[cm[1]] = cm[2];
- }
- // Parse updatedAt for dateModified support
- const uaRx = /id:\s*'([^']+)'[\s\S]*?updatedAt:\s*'([^']+)'/g;
- let um: RegExpExecArray | null;
- while ((um = uaRx.exec(articleDataSrc)) !== null) {
- articleUpdatedAtById[um[1]] = um[2];
- }
- // Parse authorSlug/authorName (E-E-A-T byline + JSON-LD author, #author-eeat)
- const asRx = /id:\s*'([^']+)'[\s\S]*?authorSlug:\s*'([^']*)'/g;
- let asm: RegExpExecArray | null;
- while ((asm = asRx.exec(articleDataSrc)) !== null) {
- articleAuthorSlugById[asm[1]] = asm[2];
- }
- const anRx = /id:\s*'([^']+)'[\s\S]*?authorName:\s*'([^']*)'/g;
- let anm: RegExpExecArray | null;
- while ((anm = anRx.exec(articleDataSrc)) !== null) {
- articleAuthorNameById[anm[1]] = anm[2];
+ for (const article of readArticleRegistryMetadata(articleDataSrc)) {
+ if (article.category !== undefined) articleCategoryById[article.id] = article.category;
+ if (article.date !== undefined) articlePublishedAtById[article.id] = article.date;
+ if (article.updatedAt !== undefined) articleUpdatedAtById[article.id] = article.updatedAt;
+ if (article.authorSlug !== undefined) articleAuthorSlugById[article.id] = article.authorSlug;
+ if (article.authorName !== undefined) articleAuthorNameById[article.id] = article.authorName;
  }
  } catch (err) {
  if (!isMissingPathError(err)) throw err;
@@ -514,7 +635,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  seoSrc = seoSrc === null ? chunk : seoSrc + '\n' + chunk;
  }
  if (seoSrc === null) {
- if (SECTION.name === 'frontaliere') {
+ if (SECTION.kind === 'frontaliere') {
  try {
  seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seoService.ts'), 'utf-8');
  } catch (err) {
@@ -592,7 +713,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // Measured here, next to the resolution that produced the path, so the
  // size and the URL can never be computed from two different candidates.
  const imSize = resolveHeroSize(im);
- const datePub = b.match(/"datePublished":\s*"([^"]+)"/)?.[1] ?? '';
+ // The SEO entry is the preferred source when it carries an explicit editorial
+ // date. Older entries may omit that literal even though the article registry
+ // has one; use the registry as the fallback, and keep `''` when both sources
+ // say the publication date is unknown.
+ const datePub = b.match(/"datePublished":\s*"([^"]+)"/)?.[1]
+ || articlePublishedAtById[articleId]
+ || '';
  // dateModified: prefer updatedAt from blog-articles-data.ts, then sitemap <lastmod>,
  // then the SEO metadata literal (if any). BUILD_DATE_ISO in seo-blog.ts is a variable
  // reference that the regex can't capture, so we need these external sources.
@@ -736,9 +863,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // site shell's narrowed SLUG_TABLES projection (#4315 originally, #4881
  // Fase 6 routed through SiteShellContract instead of importing
  // routeSlugs.data directly). `blogIndexSlugs` for the frontaliere section,
- // `swissBlogIndexSlugs` for svizzera.
- const blogIndexSlug: Record<string, string> =
- SECTION.name === 'frontaliere' ? { ...shell.blogIndexSlugs } : { ...shell.swissBlogIndexSlugs };
+ // `swissBlogIndexSlugs` for svizzera — looked up by kind. A canton section
+ // is not in SiteShellContract (deliberately: no host/ round-trip in the
+ // corpus) and reads its slugs from the core entry the descriptor carries.
+ const blogIndexSlug: Record<string, string> = SHELL_INDEX_SLUGS_BY_KIND[SECTION.kind](shell, SECTION);
 
  // Both were chains of .replace() until 2026-08-11, which cannot decode
  // escapes: each pass re-reads the previous pass's output, and `\\` — the
@@ -755,7 +883,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const unescapeTsStringRaw = (value: string): string =>
  decodeTsStringEscapes(value, { newlineAs: '\n' });
 
- const parseBlogMetaLocale = (locale: 'en' | 'de' | 'fr') => {
+ const parseBlogMetaLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
  const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
  const p = np.resolve(rootDir, `services/locales/${SECTION.metaPrefix}-${locale}.ts`);
  let src = '';
@@ -808,7 +936,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  throw err;
  }
  }
- const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+ // Body and FAQ values are emitted both as ordinary quoted strings and as
+ // template literals. The latter are valid corpus output (and are used by
+ // recent articles); ignoring them silently removes the visible body and
+ // prevents the corresponding FAQPage schema from being rendered.
+ const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*(?:'((?:[^'\\]|\\.)*)'|`((?:[^`\\]|\\.)*)`)/g;
  for (const file of files) {
  if (!file.endsWith('.ts')) continue;
  let src = '';
@@ -825,7 +957,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // `faq` is JSON and keeps its escapes verbatim for JSON.parse; body text
  // is markdown, where a leftover literal `\n` is legacy corpus damage that
  // renders as a visible backslash. See repairLegacyDoubleEscapedBreaks.
- const decoded = unescapeTsStringRaw(m[3]);
+ const decoded = unescapeTsStringRaw(m[3] ?? m[4]);
  const value = field === 'faq' ? decoded : repairLegacyDoubleEscapedBreaks(decoded);
  if (!out[articleId]) out[articleId] = {};
  out[articleId][field] = value;
@@ -835,23 +967,31 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  };
 
  const blogMetaByLocale = {
+ it: parseBlogMetaLocale('it'),
  en: parseBlogMetaLocale('en'),
  de: parseBlogMetaLocale('de'),
  fr: parseBlogMetaLocale('fr'),
  } as const;
 
- // Populate the title-collision map now that locale meta is available.
- // Mirror the title formula used inside html(): localizedTitle stripped of
- // the publisher suffix, then re-joined with the canonical brand suffix.
- for (const en of entries) {
-  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
-   const localeMeta = locale === 'it' ? null : blogMetaByLocale[locale][en.articleId];
-   const titleRaw = localeMeta?.title || en.ogT;
-   const titlePure = titleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
-   const baseT = buildTitleWithBrand(titlePure);
-   const m = articleTitleCollisions[locale];
-   m.set(baseT, (m.get(baseT) || 0) + 1);
-  }
+ // Headline shown per locale. Italian reads its real headline from
+ // blog-meta-it like the other three locales read theirs (owner decision,
+ // 2026-10-07, corpus issue 2281), but only where that headline is unique.
+ const articleTitleFor = {
+  it: createArticleTitleResolver(entries, (article) => blogMetaByLocale.it[article.articleId]?.title, true),
+  en: createArticleTitleResolver(entries, (article) => blogMetaByLocale.en[article.articleId]?.title, false),
+  de: createArticleTitleResolver(entries, (article) => blogMetaByLocale.de[article.articleId]?.title, false),
+  fr: createArticleTitleResolver(entries, (article) => blogMetaByLocale.fr[article.articleId]?.title, false),
+ } as const;
+
+ // Populate the title-collision map now that locale meta is available. It is
+ // keyed by the headline html() actually shows (same resolver), re-joined with
+ // the canonical brand suffix, and it counts ARTICLES, not SEO entries — see
+ // countArticlesByTitleKey.
+ for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+  articleTitleCollisions[locale] = countArticlesByTitleKey(
+   entries,
+   (article) => buildTitleWithBrand(articleTitleFor[locale](article)),
+  );
  }
 
  const blogBodyByLocale = {
@@ -925,12 +1065,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const modIso = normalizeDateTime(dateModIso);
  const pubDay = pubIso.split('T')[0];
  const modDay = modIso.split('T')[0];
- const pubHtml = `${labels.published} <time datetime="${esc(pubDay)}" itemprop="datePublished">${esc(formatHumanDate(pubIso, locale))}</time>`;
+ const parts: string[] = [];
+ if (pubDay) parts.push(`${labels.published} <time datetime="${esc(pubDay)}" itemprop="datePublished">${esc(formatHumanDate(pubIso, locale))}</time>`);
  if (modDay && modDay !== pubDay) {
- const modHtml = `${labels.updated} <time datetime="${esc(modDay)}" itemprop="dateModified">${esc(formatHumanDate(modIso, locale))}</time>`;
- return `${pubHtml} · ${modHtml}`;
+ parts.push(`${labels.updated} <time datetime="${esc(modDay)}" itemprop="dateModified">${esc(formatHumanDate(modIso, locale))}</time>`);
  }
- return pubHtml;
+ return parts.join(' · ');
  };
 
  /* ── 3. Write OG landing pages ──────────────────────────────── */
@@ -939,6 +1079,21 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
  const LOC_TAG: Record<string, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
+
+ // Keep the key trust pages reachable in the static article HTML. The React
+ // footer is portaled into ARTICLE_FOOTER_ROOT after hydration, but crawlers
+ // that inspect the pre-hydration document still need these links to establish
+ // the site's publisher, contact, and privacy evidence.
+ const ARTICLE_LEGAL_NAV: Record<string, { aria: string; about: string; contact: string; privacy: string }> = {
+  it: { aria: 'Informazioni sul sito', about: '<a href="/chi-siamo/">Chi siamo</a>', contact: '<a href="/contattaci/">Contatti</a>', privacy: '<a href="/privacy/">Privacy</a>' },
+  en: { aria: 'Site information', about: '<a href="/en/about-us/">About us</a>', contact: '<a href="/en/contact-us/">Contact</a>', privacy: '<a href="/en/privacy/">Privacy</a>' },
+  de: { aria: 'Website-Informationen', about: '<a href="/de/ueber-uns/">Über uns</a>', contact: '<a href="/de/kontakt/">Kontakt</a>', privacy: '<a href="/de/datenschutz/">Datenschutz</a>' },
+  fr: { aria: 'Informations sur le site', about: '<a href="/fr/a-propos/">À propos</a>', contact: '<a href="/fr/contactez-nous/">Contact</a>', privacy: '<a href="/fr/confidentialite/">Confidentialité</a>' },
+ };
+ const buildArticleLegalNav = (locale: string): string => {
+  const links = ARTICLE_LEGAL_NAV[locale] || ARTICLE_LEGAL_NAV.it;
+  return `<nav class="ft-static-legal-links" aria-label="${links.aria}">${links.about} | ${links.contact} | ${links.privacy}</nav>`;
+ };
 
  // Race-free SPA bundle hash extraction (SiteShellContract.resolveSpaBundle —
  // see build-plugins/spaBundleResolver.ts for the real site-side implementation).
@@ -1013,9 +1168,18 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const topic = topicByKey.get(topicAssignment.topicOf.get(currentId) ?? '');
  if (!topic) return '';
  const loc: TopicLocale = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
+ // A canton section has no `/<section>/argomenti/<topic>/` hubs: its themes
+ // are the 6 direct children of the section (D2). Link the canton hub the
+ // article's topic feeds, or nothing (eventi/servizi have no cluster).
+ if (SECTION.kind === 'canton') {
+ const cantonTopic = cantonHubTopicForCluster(topic.key);
+ if (!cantonTopic) return '';
+ const cantonHref = cantonTopicHubPath(SECTION.name, cantonTopic, loc);
+ const cantonLabel = `${topicHubLinkPrefix[loc] ?? topicHubLinkPrefix.it}${cantonTopicHubLabel(SECTION.name, cantonTopic, loc)}`;
+ return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(cantonHref)}">${esc(cantonLabel)}</a></li>`;
+ }
  const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[loc] ?? SECTION.indexSlug.it;
- const prefix = locale === 'it' ? '' : `/${locale}`;
- const href = `${prefix}/${indexSlug}/${TOPIC_HUB_SEGMENT[loc]}/${topic.slug[loc]}/`;
+ const href = `${localizedArticleSectionPath(indexSlug, loc)}/${TOPIC_HUB_SEGMENT[loc]}/${topic.slug[loc]}/`;
  const label = `${topicHubLinkPrefix[loc] ?? topicHubLinkPrefix.it}${topic.label[loc]}`;
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(label)}</a></li>`;
  };
@@ -1029,8 +1193,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const items = hubItem + picks.map(art => {
  const slug = blogSlugs[art.articleId]?.[locale] ?? art.articleId;
  const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[locale as 'it' | 'en' | 'de' | 'fr'] ?? SECTION.indexSlug.it;
- const prefix = locale === 'it' ? '' : `/${locale}`;
- const href = `${prefix}/${indexSlug}/${slug}/`;
+ const href = `${localizedArticleSectionPath(indexSlug, locale)}/${slug}/`;
  const title = art.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(title)}</a></li>`;
  }).join('');
@@ -1045,6 +1208,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // narrows down to the requested id set.
  if (onlyArticleIdSet && !onlyArticleIdSet.has(en.articleId)) continue;
  const locSlugs = blogSlugs[en.articleId];
+ // Keyed by the RESOLVED hero, not the SEO literal's candidate: a cover that
+ // fell back to /og-image.png is not the photo the record credits.
+ const imageCredit = imageCredits.get(en.img);
 
  const writtenPaths: Record<string, string> = {};
  const writtenFlatPaths: Record<string, string> = {};
@@ -1054,7 +1220,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (locSlugs) {
  for (const l of ['en', 'de', 'fr']) {
  const as = locSlugs[l], bs = blogIndexSlug[l];
- if (as && bs) lp[l] = `/${l}/${bs}/${as}`;
+ if (as && bs) lp[l] = `${localizedArticleSectionPath(bs, l)}/${as}`;
  }
  }
 
@@ -1067,9 +1233,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  /** Extract plain-text excerpt from HTML body for structured data articleBody */
  const extractExcerpt = (htmlBody: string | undefined, maxChars = 500): string => {
  if (!htmlBody) return '';
- return htmlBody
- .replace(/<[^>]+>/g, ' ') // strip HTML tags
- .replace(/&[a-z]+;/gi, ' ') // strip HTML entities
+ return decodeHtmlText(htmlBody.replace(/<[^>]+>/g, ' '))
  .replace(/\s+/g, ' ') // normalize whitespace
  .trim()
  .slice(0, maxChars)
@@ -1083,14 +1247,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  };
 
  const html = (locale: string, urlPath: string) => {
+ const articleLocale: 'it' | 'en' | 'de' | 'fr' = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localeForMeta: 'en' | 'de' | 'fr' | null =
  (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : null;
  const localizedMeta = localeForMeta ? blogMetaByLocale[localeForMeta][en.articleId] : null;
- const localizedTitleRaw = localizedMeta?.title || en.ogT;
  // Pure headline without publisher suffix — Google News requires <title>, <h1>, and
  // headline structured data to match (Publisher Center answer/9607104)
  // Headline VERBATIM — no truncation. Brand applied conditionally below.
- const localizedTitle = localizedTitleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
+ // Same resolver the title-collision map is keyed by.
+ const localizedTitle = articleTitleFor[articleLocale](en);
  // Repair descriptions the corpus generator already amputated mid-clause
  // BEFORE they reach this render layer. `scripts/create-article.mjs` cut the
  // stored excerpt to a fixed budget without peeling the tail, so 2 936 entries
@@ -1099,15 +1264,20 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // so no downstream truncation ever inspects them: without this call they ship
  // to the SERP broken. No-ops on text that already reads as complete.
  // Applied at the single definition point so <meta name="description">,
- // og:description, the visible <p> lede and JSON-LD all stay identical.
- const localizedDesc = repairSerpSnippet(localizedMeta?.excerpt || en.ogD);
+ // og:description, the visible <p> lede and JSON-LD all stay identical. The
+ // corpus still contains a small but live family of excerpts exported from
+ // Markdown (`## In breve`, `*emphasis*`, and links). Descriptions are plain
+ // text fields, so carrying that syntax into the lede makes it visible rather
+ // than rendered; strip it before every surface receives the value.
+ const localizedDesc = repairSerpSnippet(stripLiteralMarkdown(localizedMeta?.excerpt || en.ogD));
  // Hero alt text. The corpus already carries a per-locale `imageAlt` (parsed
  // out of the blog-meta chunks alongside title/excerpt) and nothing consumed
  // it — og:image:alt fell back to the headline. Prefer the real alt, keep the
  // headline as the floor so the attribute is never empty: an <img> without an
  // accessible name fails the repo's own accessibility contract, and a decorative
  // alt="" would tell Discover this image is not about the article.
- const heroAlt = localizedMeta?.imageAlt || localizedTitle;
+ const socialTitle = articleLocale === 'it' ? normalizeArticleTitle(en.ogT) : localizedTitle;
+ const heroAlt = localizedMeta?.imageAlt || socialTitle;
  // Pad short descriptions to ≥150 chars for Bing (locale variant excerpts are often <150)
  const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
  en: ' Practical guide and free tools for cross-border workers (frontalieri) between Switzerland and Italy. Frontaliere Ticino.',
@@ -1142,13 +1312,18 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // preserved to satisfy audit:title-uniqueness -- and even then, we drop the
  // brand first (it's "nice-to-have", not a ranking signal) before resorting
  // to mid-headline truncation.
- const articleLocale: 'it' | 'en' | 'de' | 'fr' = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
+ const isEvent = en.sdType === 'Event';
  const baseTitleProbe = buildTitleWithBrand(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
  const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale, localizedTitle) : '';
  let htmlPageTitle: string;
- if (!disamb) {
+ if (!isEvent) {
+  // NewsArticle has a stricter invariant than the generic SERP title cap:
+  // <title>, the visible H1 and NewsArticle.headline must remain the source
+  // headline byte-for-byte. The brand/disambiguator cap is Event-only.
+  htmlPageTitle = localizedTitle;
+ } else if (!disamb) {
   // No collision: trust buildTitleWithBrand to either keep brand or drop it.
   // It never truncates -- long headlines emit verbatim and the audit baseline
   // ratchets them down at source.
@@ -1160,21 +1335,28 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   // only path where ellipsis truncation is acceptable because the alternative
   // is dropping the (#hash) and breaking the title-uniqueness audit).
   const withBrandAndDisamb = `${localizedTitle}${disamb}${TITLE_BRAND_SUFFIX}`;
-  if (withBrandAndDisamb.length <= TITLE_MAX_CHARS) {
+  if (esc(withBrandAndDisamb).length <= TITLE_MAX_CHARS) {
    htmlPageTitle = withBrandAndDisamb;
   } else {
    const headlinePlusDisamb = `${localizedTitle}${disamb}`;
-   if (headlinePlusDisamb.length <= TITLE_MAX_CHARS) {
+   if (esc(headlinePlusDisamb).length <= TITLE_MAX_CHARS) {
     htmlPageTitle = headlinePlusDisamb;
    } else {
-    const headlineBudget = TITLE_MAX_CHARS - disamb.length;
-    const truncated = truncateHeadline(localizedTitle, Math.max(1, headlineBudget));
+    const truncated = truncateHeadlineToMeasuredBudget(
+      localizedTitle,
+      TITLE_MAX_CHARS,
+      (candidate) => esc(`${candidate}${disamb}`).length,
+    );
     htmlPageTitle = `${truncated}${disamb}`;
    }
   }
  }
+ const h1Display = isEvent
+  ? differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale)
+  : localizedTitle;
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
+ const articleBodyHasPromptPlaceholder = hasArticleBodyPromptPlaceholder(localizedBody);
  const allBodyKeys = localizedBody ? Object.keys(localizedBody).filter(k => /^body\d+$/.test(k)).sort((a, b) => {
  const na = parseInt(a.replace('body', ''), 10);
  const nb = parseInt(b.replace('body', ''), 10);
@@ -1197,30 +1379,44 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  .concat([` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withTrailingSlash(lp.it)}">`])
  .join('\n');
 
- // Determine author: real per-article Person from data/authors.ts via
- // authorSlug (SECTION.registry field), Organization fallback when unset —
+ // Determine author: a Person or editorial-profile Organization from
+ // data/authors.ts via authorSlug (SECTION.registry field), Organization
+ // fallback when unset —
  // mirrors the SPA's mergeArticleByline (services/authorProfileService.ts)
  // + JSON-LD in components/community/BlogArticles.tsx (~1331-1351) and the
  // visible byline below, so static build + client hydration match (was:
  // hardcoded to a single author for every article, all sections).
- const resolvedAuthor = en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined;
+ const resolvedAuthor = (en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined) as ArticleAuthorIdentity | undefined;
  // The one author surface #author-eeat left behind: `article:author` below
  // stayed hardcoded to /chi-siamo/ while byline, JSON-LD and hreflang all
- // moved to the per-article Person. Every OG consumer (Facebook, LinkedIn,
+ // moved to the per-article editorial profile. Every OG consumer (Facebook,
  // aggregators) therefore read *every* article — guest-authored ones
  // included — as attributed to the Redazione. Reported 2026-09-03 by the
  // guest author of the 2026-09-02 article, whose byline was correct on the
  // page and wrong in the metadata. Organization fallback keeps /chi-siamo/,
  // which is exactly `authorObj.url` in that branch, so the tag and the
  // JSON-LD author can never disagree again.
- const authorObj: Record<string, unknown> = resolvedAuthor
+ const authorObj: Record<string, unknown> = isRealArticleAuthor(resolvedAuthor)
  ? {
  '@type': 'Person' as const,
+ '@id': `${BASE_URL}/autori/${resolvedAuthor.slug}/#person`,
  name: resolvedAuthor.name,
- jobTitle: resolvedAuthor.role,
  url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
- worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
- ...(resolvedAuthor.social?.linkedin ? { sameAs: [resolvedAuthor.social.linkedin] } : {}),
+ jobTitle: resolvedAuthor.role,
+ sameAs: [resolvedAuthor.social?.linkedin, resolvedAuthor.social?.twitter, resolvedAuthor.social?.mastodon,
+ resolvedAuthor.social?.wikidataId ? `https://www.wikidata.org/wiki/${resolvedAuthor.social.wikidataId}` : undefined]
+ .filter((value): value is string => typeof value === 'string' && value.length > 0),
+ worksFor: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino' },
+ }
+ : resolvedAuthor
+ ? {
+ '@type': 'Organization' as const,
+ '@id': `${BASE_URL}/autori/${resolvedAuthor.slug}/#profile`,
+ name: resolvedAuthor.name,
+ url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
+ description: resolvedAuthor.role,
+ ...(resolvedAuthor.linkedin ? { sameAs: [resolvedAuthor.linkedin] } : {}),
+ parentOrganization: { '@type': 'Organization', name: 'Redazione Frontaliere Ticino', '@id': `${BASE_URL}/chi-siamo/#team`, url: `${BASE_URL}/chi-siamo/` },
  }
  : {
  '@type': 'Organization' as const,
@@ -1233,19 +1429,32 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // article has an explicit entry in articleReviewOverrides (nothing
  // reviewed by default, see shared/articleReviewOverrides.ts header).
  const reviewerSlug = resolveArticleReviewerSlug(en.articleId, articleReviewOverrides);
- const reviewerAuthor = reviewerSlug ? getAuthorBySlug(reviewerSlug) : undefined;
- const reviewedByObj: Record<string, unknown> | undefined = reviewerAuthor
+ const reviewerAuthor = (reviewerSlug ? getAuthorBySlug(reviewerSlug) : undefined) as ArticleAuthorIdentity | undefined;
+ const reviewedByObj: Record<string, unknown> | undefined = isRealArticleAuthor(reviewerAuthor)
  ? {
  '@type': 'Person' as const,
+ '@id': `${BASE_URL}/autori/${reviewerAuthor.slug}/#person`,
  name: reviewerAuthor.name,
- jobTitle: reviewerAuthor.role,
  url: `${BASE_URL}/autori/${reviewerAuthor.slug}/`,
- ...(reviewerAuthor.social?.linkedin ? { sameAs: [reviewerAuthor.social.linkedin] } : {}),
+ jobTitle: reviewerAuthor.role,
+ sameAs: [reviewerAuthor.social?.linkedin, reviewerAuthor.social?.twitter, reviewerAuthor.social?.mastodon,
+ reviewerAuthor.social?.wikidataId ? `https://www.wikidata.org/wiki/${reviewerAuthor.social.wikidataId}` : undefined]
+ .filter((value): value is string => typeof value === 'string' && value.length > 0),
+ worksFor: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino' },
+ }
+ : reviewerAuthor
+ ? {
+ '@type': 'Organization' as const,
+ '@id': `${BASE_URL}/autori/${reviewerAuthor.slug}/#profile`,
+ name: reviewerAuthor.name,
+ url: `${BASE_URL}/autori/${reviewerAuthor.slug}/`,
+ description: reviewerAuthor.role,
+ ...(reviewerAuthor.linkedin ? { sameAs: [reviewerAuthor.linkedin] } : {}),
+ parentOrganization: { '@type': 'Organization', name: 'Redazione Frontaliere Ticino', '@id': `${BASE_URL}/chi-siamo/#team`, url: `${BASE_URL}/chi-siamo/` },
  }
  : undefined;
 
  // Build the JSON-LD object, respecting source @type (Event vs NewsArticle)
- const isEvent = en.sdType === 'Event';
  let ldObj: Record<string, unknown>;
 
  if (isEvent) {
@@ -1286,14 +1495,16 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  ldObj = {
  '@context': 'https://schema.org',
  '@type': 'Event',
+ '@id': `${full}#event`,
  name: sdStr('name') || localizedTitle,
  // repairSerpSnippet anche qui: `localizedDesc` e' gia' riparata al punto di
  // definizione unico, ma questo fallback rilegge structuredData.description
  // GREZZA dal registro e la scavalcava — la riparazione applicata una volta e
  // poi aggirata da un ramo che torna alla sorgente (issue #5453).
- description: repairSerpSnippet(sdStr('description') || '') || localizedDesc,
+ description: repairSerpSnippet(stripLiteralMarkdown(sdStr('description') || '')) || localizedDesc,
  image: imageObjectLd({
  url: imgU,
+ ...(imageCredit ? imageObjectCreditFields(imageCredit) : {}),
  width: en.imgW,
  height: en.imgH,
  }),
@@ -1339,7 +1550,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // NewsArticle — Google News eligibility (Publisher Center answer/9607104)
  ldObj = {
  '@context': 'https://schema.org',
- '@type': 'NewsArticle',
+ // A corpus entry without an editorial publication date is an evergreen
+ // document. Keep it as WebPage until the registry supplies a real date.
+ '@type': en.datePub ? 'NewsArticle' : 'WebPage',
+ '@id': `${full}#article`,
+ name: localizedTitle,
  headline: localizedTitle,
  description: localizedDesc,
  // ImageObject, not the bare URL string this used to be. Google's
@@ -1349,8 +1564,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // makes that a fetch-and-hope. The Event branch above already builds its
  // image through this exact helper; this branch, which covers every real
  // news article, did not.
+ //
+ // A Wikimedia Commons cover with a credit record (P14) carries the photo's
+ // creator, credit, copyright notice and licence here instead of the site
+ // defaults, which would claim the photo as the site's own.
  image: imageObjectLd({
  url: imgU,
+ ...(imageCredit ? imageObjectCreditFields(imageCredit) : {}),
  width: en.imgW,
  height: en.imgH,
  caption: heroAlt,
@@ -1358,8 +1578,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  url: full,
  inLanguage: locale,
  // Author matches the visible "Di {authorName}" byline below and the
- // SPA-side Person schema (#3520) — Google's guidance: structured-data
- // author must match the byline. Person/Organization object defined once
+ // SPA-side Organization schema (#3520) — Google's guidance: structured-data
+ // author must match the byline. Organization object defined once
  // above (authorObj), resolved from the article's real authorSlug.
  author: authorObj,
  // Same canonical entity as index.html / SPA (#3524); ORGANIZATION_LD is
@@ -1376,7 +1596,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // of attached directly to this NewsArticle node — the placement schema.org
  // actually defines, not the type this PR happens to be building.
  mainEntityOfPage: reviewedByObj
- ? { '@type': 'WebPage', '@id': full, reviewedBy: reviewedByObj }
+ ? { '@type': 'WebPage', '@id': full, name: localizedTitle, url: full, reviewedBy: reviewedByObj }
  : full,
  isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website`, name: 'Frontaliere Ticino' },
  speakable: {
@@ -1388,15 +1608,17 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  articleSection: 'Frontalieri Ticino',
  };
  }
- const buildDateIso = new Date().toISOString();
- const todayIso = buildDateIso.slice(0, 10);
+ // A missing editorial date is unknown, not the render time or the other
+ // date's event. Keep the same source values in JSON-LD, Open Graph and byline.
+ const publishedDate = normalizeDateTime(en.datePub);
+ const modifiedDate = normalizeDateTime(en.dateMod);
+ const dateByline = buildDateByline(publishedDate, modifiedDate, locale);
 
  // Article-specific fields (datePublished, dateModified, articleBody, wordCount)
  // are not applicable to Event schema
  if (!isEvent) {
- ldObj.datePublished = normalizeDateTime(en.datePub || en.dateMod || todayIso);
- // Use datePublished for dateModified — avoids false freshness signals on every deploy
- ldObj.dateModified = normalizeDateTime(en.dateMod || en.datePub || todayIso);
+ if (publishedDate) ldObj.datePublished = publishedDate;
+ if (modifiedDate) ldObj.dateModified = modifiedDate;
 
  // articleBody excerpt + wordCount (Google Discover uses this for topic relevance)
  const fullBodyHtml = bodySections.map((s) => s.html).join('\n');
@@ -1418,14 +1640,23 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const ldJsonStr = inlineScriptJson(ldObj);
 
  // BreadcrumbList for article pages (enables rich result breadcrumbs in Google)
- const sectionName = locale === 'en' ? 'Articles' : locale === 'de' ? 'Artikel' : locale === 'fr' ? 'Articles' : 'Articoli';
- const sectionSlug = blogIndexSlug[locale] || SECTION.indexSlug[(locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it'];
+ const breadcrumbLocale = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
+ // A canton section names itself («Articoli Ticino») and points at its
+ // landing in THIS locale (`/en/ticino-articles/`). The two historical
+ // sections keep their generic label and point at their localized landing.
+ const sectionName = SECTION.kind === 'canton'
+ ? cantonSectionLabel(SECTION.name, breadcrumbLocale)
+ : locale === 'en' ? 'Articles' : locale === 'de' ? 'Artikel' : locale === 'fr' ? 'Articles' : 'Articoli';
+ const sectionSlug = blogIndexSlug[locale] || SECTION.indexSlug[breadcrumbLocale];
+ const sectionCrumbUrl = SECTION.kind === 'canton'
+ ? `${BASE_URL}${cantonSectionLandingPath(SECTION.name, breadcrumbLocale)}`
+ : `${BASE_URL}${localizedArticleSectionPath(sectionSlug, breadcrumbLocale)}/`;
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
  { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
- { '@type': 'ListItem', position: 2, name: sectionName, item: `${BASE_URL}/${sectionSlug}/` },
+ { '@type': 'ListItem', position: 2, name: sectionName, item: sectionCrumbUrl },
  { '@type': 'ListItem', position: 3, name: localizedTitle },
  ],
  });
@@ -1503,7 +1734,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  : 'Domande frequenti';
  visibleFaqHtml = `<details class="s-lfB4Bo"><summary class="s-qAjSfB">${faqLabel}</summary><dl class="s-4vhLHi">` +
  useFaqPairs.slice(0, 10).map(pair =>
- `<dt class="s-fG2BFJ">${esc(pair.question)}</dt><dd class="s-nrPIRx">${esc(pair.answer).substring(0, 500)}</dd>`
+ `<dt class="s-fG2BFJ">${esc(pair.question)}</dt><dd class="s-nrPIRx">${renderArticleInlineMarkup(pair.answer)}</dd>`
  ).join('') +
  `</dl></details>`;
  }
@@ -1512,27 +1743,27 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${FAVICON_LINKS}
  <title>${esc(htmlPageTitle)}</title>
- <meta name="description" content="${esc(clampMetaDescription(metaDesc))}">
+ <meta name="description" content="${esc(clampMetaDescription(metaDesc, undefined, articleLocale))}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
  <meta property="og:type" content="article">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
- <meta property="og:title" content="${esc(localizedTitle)}">
- <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc))}">
+ <meta property="og:title" content="${esc(socialTitle)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc, undefined, articleLocale))}">
  <meta property="og:image" content="${imgU}">
  <meta property="og:image:width" content="${en.imgW}">
  <meta property="og:image:height" content="${en.imgH}">
  <meta property="og:image:type" content="${en.img?.includes('.webp') ? 'image/webp' : 'image/jpeg'}">
- <meta property="og:image:alt" content="${esc(localizedTitle)}">
+ <meta property="og:image:alt" content="${esc(socialTitle)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
- <meta name="robots" content="${ARTICLE_ROBOTS_INDEX_ENHANCED}">
+ <meta name="robots" content="${articleBodyHasPromptPlaceholder ? 'noindex,follow' : ARTICLE_ROBOTS_INDEX_ENHANCED}">${SECTION.kind === 'canton' ? `\n ${CORPUS_ROUTE_OWNER_META_TAG}` : ''}
  <meta property="fb:app_id" content="891036063797338">
- <meta property="article:published_time" content="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">
- <meta property="article:modified_time" content="${esc(normalizeDateTime(en.dateMod || en.datePub || todayIso))}">
+ ${publishedDate ? `<meta property="article:published_time" content="${esc(publishedDate)}">` : ''}
+ ${modifiedDate ? `<meta property="article:modified_time" content="${esc(modifiedDate)}">` : ''}
  <meta property="article:section" content="Frontalieri Ticino">
  <meta property="article:author" content="${esc(String(authorObj.url))}">
 ${href}
- <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}/rss.xml">
+ <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}${articleRssAlternatePath(SECTION, articleLocale)}">
  <script type="application/ld+json">${ldJsonStr}</script>
  <script type="application/ld+json">${breadcrumbLd}</script>${faqLdTag}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">`;
@@ -1562,6 +1793,16 @@ ${href}
  // therefore already covers src= exactly as it covers the preload's href=.
  const heroFigureHtml =
  `<figure class="my-4"><img src="${en.img}" alt="${esc(heroAlt)}" width="${en.imgW}" height="${en.imgH}" fetchpriority="high" decoding="async" class="w-full h-auto rounded-lg"></figure>`;
+
+ // P14: the cover's credit, at the end of the article (owner decision), after
+ // the FAQ and before the related articles. Empty for an uncredited cover, so
+ // those pages stay byte-identical. No caption on the hero above.
+ const imageCreditHtml = imageCredit ? renderImageCreditHtml(imageCredit, articleLocale) : '';
+ // Historical sections have a locale-aware article landing. Keep the canton
+ // fallback unchanged until its separate route/feed contract is published.
+ const articleSectionNavPath = SECTION.kind === 'canton'
+  ? `/${SECTION.indexSlug.it}/`
+  : `${localizedArticleSectionPath(blogIndexSlug[articleLocale] ?? SECTION.indexSlug[articleLocale], articleLocale)}/`;
 
  const blogPreloads = [
  `<link rel="preload" as="image" href="${en.img}" fetchpriority="high">`,
@@ -1620,7 +1861,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1644,7 +1885,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${imageCreditHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  </body>
 </html>`;
  };
@@ -1751,20 +1992,36 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  async closeBundle() {
  const np = await import('node:path');
  const distDir = np.resolve(rootDir, 'dist');
- const skipFrontaliere = process.env.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP === 'true';
- const skipSvizzera = process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true';
- const frontaliere = skipFrontaliere
+ // One render per active Pages-shard section, in core order (frontaliere,
+ // svizzera), keyed by the section's shardKey. The flags stay literal,
+ // strict `=== 'true'` reads (tests/build-emit-skip-gate.test.ts pins both),
+ // so a shard section without its own flag fails loudly instead of being
+ // emitted or skipped by guesswork. Canton sections have no shard (shardKey
+ // null): the corpus prerenders them to R2, so the monolith build never
+ // emits them.
+ const emitSkipByShard: Record<string, boolean> = {
+ articolifrontaliere: process.env.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP === 'true',
+ articolisvizzera: process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true',
+ };
+ const results: Array<{ name: string; skipped: boolean; written: number; entries: number }> = [];
+ for (const descriptor of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS) {
+ if (descriptor.shardKey === null) continue;
+ if (!Object.prototype.hasOwnProperty.call(emitSkipByShard, descriptor.shardKey)) {
+ throw new Error(`[og-pages] nessun flag BUILD_EMIT_SKIP per lo shard "${descriptor.shardKey}" (sezione ${descriptor.name})`);
+ }
+ const skipped = emitSkipByShard[descriptor.shardKey];
+ const out = skipped
  ? { written: 0, entries: [] }
- : await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });
- const svizzera = skipSvizzera
- ? { written: 0, entries: [] }
- : await renderArticlePages({ rootDir, distDir, section: 'svizzera' });
- const written = frontaliere.written + svizzera.written;
- const totalArticles = frontaliere.entries.length + svizzera.entries.length;
- const skipNote = skipFrontaliere || skipSvizzera
- ? ` (build-time emit SKIPPED for ${[skipFrontaliere && 'frontaliere', skipSvizzera && 'svizzera'].filter(Boolean).join(', ')} — served from shard, see ARTICOLI*_BUILD_EMIT_SKIP)`
+ : await renderArticlePages({ rootDir, distDir, section: descriptor.name });
+ results.push({ name: descriptor.name, skipped, written: out.written, entries: out.entries.length });
+ }
+ const written = results.reduce((sum, r) => sum + r.written, 0);
+ const totalArticles = results.reduce((sum, r) => sum + r.entries, 0);
+ const skippedNames = results.filter((r) => r.skipped).map((r) => r.name);
+ const skipNote = skippedNames.length > 0
+ ? ` (build-time emit SKIPPED for ${skippedNames.join(', ')} — served from shard, see ARTICOLI*_BUILD_EMIT_SKIP)`
  : '';
- console.log(`\x1b[36m[og-pages]\x1b[0m Done — wrote ${written} files across ${totalArticles} article(s) total (frontaliere + svizzera).${skipNote}`);
+ console.log(`\x1b[36m[og-pages]\x1b[0m Done — wrote ${written} files across ${totalArticles} article(s) total (${results.map((r) => r.name).join(' + ')}).${skipNote}`);
  },
  };
 }

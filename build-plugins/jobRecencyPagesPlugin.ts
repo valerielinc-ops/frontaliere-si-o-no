@@ -29,7 +29,7 @@ import {
   robotsMetaEnhancedForContent,
 } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
-import { GPT_BOOTSTRAP_TAG } from './jobBoardGpt';
+import { jobBoardHeadTags } from './jobBoardGpt';
 import {
   JOB_RECENCY_LANDING_SLUGS,
   type JobRecencyVariant,
@@ -37,7 +37,7 @@ import {
 } from './jobRecencyLanding';
 import type { JobLandingLocale } from './jobEditorialLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { formatUpdatedSentence } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import {
   H1_STYLE,
   LEDE_STYLE,
@@ -54,7 +54,6 @@ import {
 import { renderRecencyHubProse } from './shared/jobListingProse';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { windowDaysForVariant } from './jobRecencyLanding';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
@@ -276,9 +275,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
             description: model.description,
             inLanguage: locale,
             isPartOf: sectionRootUrl,
-            // Day-granularity, not a full build timestamp — see
-            // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
-            dateModified: buildDayStampIso(),
+
           });
 
           const faqLd = model.faq.length > 0
@@ -329,12 +326,12 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
-    <meta name="description" content="${esc(clampMetaDescription(model.description))}">${recencyRobotsTag}
+    <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${recencyRobotsTag}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
     <meta property="og:title" content="${esc(model.title)}">
-    <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
+    <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -352,7 +349,7 @@ ${alternates}
     ${GTAG_SNIPPET}
     ${ADSENSE_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}
-    ${GPT_BOOTSTRAP_TAG}
+    ${jobBoardHeadTags(canonicalUrl)}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     ${rootShell(hasSpaBundle)}
@@ -366,7 +363,7 @@ ${alternates}
         <span>${esc(model.timeframeLabel)}</span>
       </nav>
       <header class="s-sy52lX">
-        <p style="${HERO_EYEBROW_STYLE}">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+        <p style="${HERO_EYEBROW_STYLE}">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
         <h1 style="${H1_STYLE}">${esc(model.heading)}</h1>
         <p style="${LEDE_STYLE};max-width:860px">${esc(model.description)}</p>
         <p style="${BODY_STYLE};max-width:860px">${esc(model.intro)}</p>
@@ -427,7 +424,7 @@ ${alternates}
           )}`;
           const priority = variant === 'last-3-days' ? '0.9' : '0.8';
           sitemapEntries.push(
-            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>hourly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <changefreq>hourly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
           );
         }
       }

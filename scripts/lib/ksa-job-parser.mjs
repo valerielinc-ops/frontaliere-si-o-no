@@ -27,8 +27,9 @@
  *   Aufgaben/Anforderungen/company-profile sections. We keep the Umantis
  *   listing as the source of truth (stable IDs/URLs) and join the Prospective
  *   feed on that key to enrich descriptions. Listings without a Prospective
- *   match (mostly one-day "Berufswahlpraktikum" taster events) fall back to
- *   the listing snippet, as before.
+ *   match (mostly one-day "Berufswahlpraktikum" taster events) keep their
+ *   listing teaser only when it is a body (≥ 50 words); a title-only record
+ *   is not published (thin content, Non-Negotiable #4).
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllKsaJobs()  — Fetch and parse all jobs across pages
@@ -36,6 +37,7 @@
  *   - isTrustedDomain()  — Validate URLs belong to KSA / Umantis tenant 122706
  *   - KSA_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import {
   slugify,
@@ -45,6 +47,7 @@ import {
   fetchJson,
   fetchHtmlWithCookies,
 } from './crawler-template.mjs';
+import { meetsSourceBodyFloor, MIN_SOURCE_BODY_WORDS } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -56,6 +59,33 @@ const UMANTIS_TENANT = '122706';
 const BASE_URL = `https://recruitingapp-${UMANTIS_TENANT}.umantis.com`;
 const LISTING_URL = `${BASE_URL}/Jobs/All?lang=ger`;
 const PUBLIC_CAREER_URL = 'https://www.ksa.ch/de/kantonsspital-aarau/karriere-bildung/bewerben/offene-stellen';
+
+// Below the shared 50-word floor (source-body-floor.mjs) a text is not a
+// vacancy body (Non-Negotiable #4), whether it comes from the careercenter
+// join or from the listing teaser.
+
+/**
+ * The publishable body of one Umantis vacancy: its careercenter text when it
+ * is a body (≥ 50 words), else a listing teaser that is one, else '' (not
+ * published). The careercenter text passes the same floor as the teaser: a
+ * short or malformed join is thin content too.
+ *
+ * A vacancy missing from the careercenter has no public body anywhere: its
+ * Umantis Description page redirects to a 404 and CheckLogin is an
+ * application form. Its record used to be the title alone ("<title> —
+ * Kantonsspital Aarau (KSA), Aarau", audit 2026-09-29: thin + a single
+ * locale) or a one-line teaser — thin content on an indexable URL
+ * (Non-Negotiable #4), the same floor the Coop-family enricher applies.
+ *
+ * @param {{ snippet?: string }} listing
+ * @param {string} [richDesc]  careercenter description joined on the vacancy id
+ * @returns {string}
+ */
+export function resolveKsaVacancyBody(listing = {}, richDesc = '') {
+  if (meetsSourceBodyFloor(richDesc)) return richDesc;
+  const snippet = normalizeSpace(listing?.snippet || '');
+  return meetsSourceBodyFloor(snippet) ? snippet : '';
+}
 
 // Hard cap on pagination walk (10 rows/page → 200 vacancies max).
 const MAX_PAGES = 20;
@@ -269,6 +299,15 @@ export function parseKsaListingPage(html = '') {
  */
 export function buildKsaDetailDescription(szas = {}) {
   const parts = [];
+  // The ward/department and the start/contract line are what tells two KSA
+  // postings of the same role apart: the two "Fachexpertin / Fachexperte
+  // Pflege" vacancies 4369 and 4319 share every other field shown here but
+  // are on "Urologie, Hand- und Plastische Chirurgie" vs "Traumatologie und
+  // Orthopädie" (audit 2026-09-29 read them as one duplicate listing).
+  const subtitle = normalizeSpace(stripHtml(szas.sza_subtitle || ''));
+  if (subtitle) parts.push(subtitle);
+  const start = normalizeSpace(stripHtml(szas.sza_starting_date || ''));
+  if (start) parts.push(`Stellenantritt: ${start}`);
   const intro = normalizeSpace(stripHtml(szas.sza_introduction || ''));
   if (intro) parts.push(intro);
   const tasks = stripHtml(szas.sza_tasks || '');
@@ -331,6 +370,7 @@ async function fetchProspectiveJobs() {
       all.push(...items);
       if (items.length < PROSPECTIVE_PAGE_SIZE) break;
     } catch (err) {
+      // fetch-failure-empty-ok: optional enrichment may fail while the authoritative listing rows remain usable.
       console.warn(`  ⚠️ Prospective enrichment fetch failed at offset=${offset}: ${err?.message || err}`);
       break;
     }
@@ -389,7 +429,7 @@ export async function fetchAllKsaJobs() {
         pageHtml = await fetchPage(pageUrl, cookieJar);
       } catch (err) {
         console.warn(`  ⚠️ Page ${pageNum} fetch failed: ${err?.message}`);
-        break;
+        throw err;
       }
       const pageListings = parseKsaListingPage(pageHtml);
       let added = 0;
@@ -417,19 +457,30 @@ export async function fetchAllKsaJobs() {
   console.log(`  📖 Fetching rich bodies from Prospective medium ${PROSPECTIVE_MEDIUM_ID}…`);
   const prospectiveJobs = await fetchProspectiveJobs();
   const descriptionByVacancyId = buildProspectiveDescriptionMap(prospectiveJobs);
+  // KSA medium 1003009 start_date matches the linked JobPosting.datePosted.
+  // Join by this tenant's explicit Umantis application ID, never by array index.
+  const publicationByVacancyId = new Map();
+  for (const source of prospectiveJobs) {
+    const vacancyId = String(source?.szas?.sza_apply_link || '').trim();
+    if (/^\d+$/.test(vacancyId)) publicationByVacancyId.set(vacancyId, sourcePostingDateFields(source?.start_date));
+  }
   console.log(`  📖 Prospective bodies indexed: ${descriptionByVacancyId.size} (from ${prospectiveJobs.length} listings)\n`);
 
   const jobs = [];
   let enriched = 0;
+  const withoutBody = [];
   for (const listing of allListings) {
     const title = listing.title;
     const location = 'Aarau';
     const canton = 'AG';
 
-    const fallbackDesc = `${title} — ${KSA_COMPANY_NAME}, Aarau`;
     const richDesc = descriptionByVacancyId.get(listing.vacancyId) || '';
-    if (richDesc) enriched += 1;
-    const descriptionText = richDesc || listing.snippet || fallbackDesc;
+    const descriptionText = resolveKsaVacancyBody(listing, richDesc);
+    if (!descriptionText) {
+      withoutBody.push(listing.vacancyId);
+      continue;
+    }
+    if (richDesc && descriptionText === richDesc) enriched += 1;
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} ksa ch`);
@@ -472,7 +523,7 @@ export async function fetchAllKsaJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...(publicationByVacancyId.get(listing.vacancyId) || sourcePostingDateFields('')),
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -484,6 +535,17 @@ export async function fetchAllKsaJobs() {
   }
 
   console.log(`  ✓ Rich descriptions joined: ${enriched}/${jobs.length}`);
+  if (withoutBody.length) {
+    console.log(`  ⏭️  Skipped ${withoutBody.length} vacancies with no public body (careercenter text and teaser both < ${MIN_SOURCE_BODY_WORDS} words): ${withoutBody.join(', ')}`);
+  }
+  // A failed or drifted careercenter join is not "these vacancies have no
+  // body": refuse to publish a gutted slice instead of dropping the batch.
+  if (allListings.length > 0 && withoutBody.length > allListings.length * 0.5) {
+    throw new Error(
+      `KSA careercenter join covered ${allListings.length - withoutBody.length}/${allListings.length} vacancies; `
+      + 'refusing to publish a slice without bodies (Prospective medium unreachable or reshaped?)',
+    );
+  }
   console.log(`\n📋 Total ${KSA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

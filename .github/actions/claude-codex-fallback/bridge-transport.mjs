@@ -58,6 +58,25 @@ class Connection extends EventEmitter {
   }
 }
 
+/**
+ * Print a bridge result and exit with its code only once both streams took
+ * the whole output. `process.exit()` right after `write()` drops what a pipe
+ * has not accepted yet: piped into `jq` or `node`, a `gh` read stopped at
+ * 65536 bytes (the Linux pipe buffer), and a follow-up agent wrote the first
+ * 64 KiB of the 75 KB daily bucket #10433 back over the whole body.
+ */
+export function writeResultAndExit(result) {
+  const code = Number.isInteger(result?.code) ? result.code : 1;
+  const flush = (stream, data) => new Promise((resolve) => {
+    if (!data) { resolve(); return; }
+    // A reader that went away (EPIPE) must not turn into an uncaught error.
+    stream.once('error', resolve);
+    stream.write(data, resolve);
+  });
+  return Promise.all([flush(process.stdout, result?.stdout), flush(process.stderr, result?.stderr)])
+    .then(() => process.exit(code));
+}
+
 export function createConnection(endpoint) {
   if (process.env.CODEX_BRIDGE_TRANSPORT !== 'files') return net.createConnection(endpoint);
   const client = new Connection();

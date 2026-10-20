@@ -10,14 +10,17 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson, fetchHtml, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
 import {
   resolveDetailOrListingSwissGeography,
   schemaJobLocationCandidates,
 } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -144,7 +147,10 @@ async function fetchJobListings() {
       data = await fetchJson(url, { headers });
     } catch (err) {
       console.warn(`   ⚠️ Listing fetch failed at offset=${offset}: ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
 
     const items = assertJsonListShape(data, { key: 'items', source: 'sika' });
@@ -172,6 +178,64 @@ async function fetchJobListings() {
 }
 
 /**
+ * Read the vacancy body rendered by the AEM `cmp-job-posting-details`
+ * component: "Über die Rolle" (description), "Ihre Fähigkeiten und
+ * Erfahrungen" (qualifications), "Warum Sie zu uns kommen sollten"
+ * (additional-information, i.e. benefits) and "Über Sika" (company). The
+ * listing JSON and the JSON-LD only carry the first block, so the published
+ * rows lost profile, benefits and company paragraph (source-detail audit
+ * 2026-09-29: 393 of 952 chars published) and `<li>` came through as prose.
+ *
+ * Each heading is kept on its own line above its section; a heading followed
+ * by an empty section (the component renders an empty
+ * `additional-information` div before the filled one) attaches to the next
+ * non-empty section. Returns '' when the component is absent.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function parseSikaJobPostingDetails(html = '') {
+  const src = String(html || '');
+  const start = src.search(/<div class="cmp-job-posting-details">/);
+  if (start < 0) return '';
+  const tokenPattern = /<(h[23]) class="cmp-job-posting-details__title[^"]*">([\s\S]*?)<\/\1>|<div class="cmp-job-posting-details__(?:description|qualifications|additional-information|company-description)">/g;
+  tokenPattern.lastIndex = start;
+  const componentEnd = balancedDivEnd(src, src.indexOf('>', start) + 1);
+  const parts = [];
+  let pendingHeading = '';
+  let token;
+  while ((token = tokenPattern.exec(src)) !== null && token.index < componentEnd) {
+    if (token[1]) {
+      pendingHeading = normalizeSpace(decodeEntities(stripHtml(token[2])));
+      continue;
+    }
+    const contentEnd = balancedDivEnd(src, tokenPattern.lastIndex);
+    const text = normalizeDescriptionSpace(
+      decodeEntities(stripHtml(src.slice(tokenPattern.lastIndex, contentEnd))).replace(/\u00a0/g, ' '),
+    );
+    tokenPattern.lastIndex = contentEnd;
+    if (!text) continue;
+    parts.push(pendingHeading ? `${pendingHeading}\n${text}` : text);
+    pendingHeading = '';
+  }
+  return parts.join('\n\n').trim();
+}
+
+/** Index of the `</div>` closing a div whose opening tag ends at `from`. */
+function balancedDivEnd(src, from) {
+  const tagPattern = /<\/?div\b[^>]*>/gi;
+  tagPattern.lastIndex = from;
+  let depth = 1;
+  let tag;
+  while ((tag = tagPattern.exec(src)) !== null) {
+    if (tag[0][1] === '/') depth -= 1;
+    else if (!tag[0].endsWith('/>')) depth += 1;
+    if (depth === 0) return tag.index;
+  }
+  return src.length;
+}
+
+/**
  * Fetch a job-detail page and extract the schema.org JobPosting JSON-LD.
  * Returns { datePosted, employmentType, addressLocality, postalCode,
  * streetAddress, addressRegion } or {} on any failure (safe defaults applied
@@ -180,6 +244,7 @@ async function fetchJobListings() {
 async function fetchJobDetail(url) {
   try {
     const html = await fetchHtml(url, { headers: { 'User-Agent': UA } });
+    const bodyText = parseSikaJobPostingDetails(html);
     const blocks = html.match(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi) || [];
     for (const block of blocks) {
       const json = block.replace(/^<script[^>]*>/i, '').replace(/<\/script>$/i, '').trim();
@@ -189,11 +254,12 @@ async function fetchJobDetail(url) {
       } catch {
         continue;
       }
-      const node = Array.isArray(parsed) ? parsed.find((n) => n?.['@type'] === 'JobPosting') : parsed;
-      if (!node || node['@type'] !== 'JobPosting') continue;
+      const [node] = extractJobPostingNodesFromJson(parsed);
+      if (!node) continue;
       const locationCandidates = schemaJobLocationCandidates(node.jobLocation);
       const primaryLocation = locationCandidates[0];
       return {
+        bodyText,
         datePosted: node.datePosted || '',
         employmentType: node.employmentType || '',
         addressLocality: primaryLocation?.addressLocality || '',
@@ -204,6 +270,7 @@ async function fetchJobDetail(url) {
         locationCandidates,
       };
     }
+    if (bodyText) return { bodyText };
   } catch (err) {
     console.warn(`   ⚠️ Detail fetch failed for ${url}: ${err?.message || err}`);
   }
@@ -246,14 +313,20 @@ export async function fetchAllSikaJobs() {
     if (!title || title.length < 3) continue;
 
     const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
 
-    // Enrich from the detail-page JSON-LD (datePosted, employmentType, address).
+    // Enrich from the detail page: full vacancy body + JSON-LD (datePosted,
+    // employmentType, address). The listing snippet is only the fallback when
+    // the detail component cannot be read.
     const detail = await fetchJobDetail(publicUrl);
+    const descriptionText = detail.bodyText
+      || normalizeDescriptionSpace(decodeEntities(stripHtml(descriptionHtml)));
     const decision = resolveSikaListingGeography(listing, detail);
     const geography = decision.geography;
-    if (!geography) continue;
+    if (!geography) {
+      await new Promise((r) => setTimeout(r, 200));
+      continue;
+    }
     const { location, canton } = geography;
     const evidence = decision.candidate;
 
@@ -271,7 +344,7 @@ export async function fetchAllSikaJobs() {
     const employmentType = detail.employmentType
       ? detectEmploymentType(detail.employmentType)
       : detectEmploymentType((listing.tags || []).join(' ') || title);
-    const postedDate = detail.datePosted || new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(detail.datePosted);
 
     const job = {
       // ── Required fields ──
@@ -306,7 +379,7 @@ export async function fetchAllSikaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

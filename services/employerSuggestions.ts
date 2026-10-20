@@ -100,6 +100,7 @@
  */
 
 import { MIN_ACTIVE_JOBS } from '@/build-plugins/shared/employerProfileConfig.mjs';
+import { companyFollowGroupMembers } from '@/build-plugins/shared/companyFollowGroups.mjs';
 
 /** One proposed employer, in the order it should be shown. */
 export interface EmployerSuggestion {
@@ -231,7 +232,12 @@ export function rankEmployerSuggestions(
   const universe = Object.keys(counts);
   if (universe.length === 0) return [];
 
-  const alreadyFollowed = new Set(followed.filter(Boolean).map((s) => String(s)));
+  // Following one member of a follow group follows all of them
+  // (build-plugins/shared/companyFollowGroups.mjs): suggesting `coop-genossenschaft`
+  // to a `coop` follower would offer the jobs they already receive.
+  const alreadyFollowed = new Set(
+    followed.filter(Boolean).flatMap((s) => companyFollowGroupMembers(String(s))),
+  );
 
   const candidates = universe.filter((slug) => {
     const n = counts[slug];

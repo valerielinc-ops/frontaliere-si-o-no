@@ -34,6 +34,7 @@
  * - isEvamVaudJob()        — match jobs belonging to this company
  * - isTrustedDomain()      — validate URLs belong to this company
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { htmlToMarkdown } from './axpo-job-parser.mjs';
 import { jobPostingAddress } from './jsonld-jobposting.mjs';
@@ -161,11 +162,13 @@ function buildJob(item) {
 
   const rawHtml = ld.description || item.content_html || '';
   const detail = htmlToMarkdown(rawHtml);
-  const description = (detail.markdown || '').slice(0, 5000);
+  const description = detail.markdown || '';
 
   const stableId = extractNumericId(url) || createHash('sha1').update(url).digest('hex').slice(0, 12);
   const slug = slugify(`${title} evam vaud ch`);
-  const postedDate = String(ld.datePosted || item.date_published || '').slice(0, 10) || todayIso();
+  const structuredPublication = sourcePostingDateFields(ld.datePosted);
+  const publication = structuredPublication.postingDateSource === 'reported'
+    ? structuredPublication : sourcePostingDateFields(item.date_published);
 
   return {
     id: `${EVAM_VAUD_KEY}-${stableId}`,
@@ -189,8 +192,7 @@ function buildJob(item) {
     url,
     source: 'EVAM Dedicated Parser',
     sourceLang: 'fr',
-    postedDate,
-    datePosted: postedDate,
+    ...publication,
     crawledAt: new Date().toISOString(),
     category: inferCategory(title),
     experienceLevel: detectExperienceLevel(title),
@@ -206,10 +208,6 @@ function buildJob(item) {
 function extractNumericId(url = '') {
   const m = String(url || '').match(/\/jobs\/(\d{5,})-/);
   return m ? m[1] : '';
-}
-
-function todayIso() {
-  return new Date().toISOString().slice(0, 10);
 }
 
 /**

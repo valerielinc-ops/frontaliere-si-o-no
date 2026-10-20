@@ -3,7 +3,7 @@
  *
  * The net-salary calculator at CALC_HREF is hardwired to the ITALY-Switzerland
  * regime: Ticino withholding tables A/B/C/H (services/calculationService.ts
- * getTicinoTaxRate), Italian IRPEF brackets 23/35/43% with addizionali, and
+ * getTicinoTaxRate), Italian IRPEF brackets 23/33/43% (2026, L. 199/2025) with addizionali, and
  * FRANCHIGIA_NUOVI_FRONTALIERI (EUR 10'000, Art. 1 c.175 L.147/2013). There is
  * no country-of-residence input: every run returns an Italian-regime net.
  *

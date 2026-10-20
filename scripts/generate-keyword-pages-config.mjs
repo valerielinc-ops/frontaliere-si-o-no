@@ -304,9 +304,10 @@ if (fs.existsSync(OPPORTUNITIES_PATH)) {
       // stale opportunities file written before the field existed still gates
       // correctly instead of failing open.
       if (!isPromotable(o)) continue;
-      // Literal-match support: jobsSeoPagesPlugin filters with
-      // `filterKeywords: [feedFilter]` (single substring) and skips pages
-      // with <3 matching jobs — feeding below that produces a page that
+      // Page-listing support: `feedFilterJobCount` is the number of ads the
+      // Italian page will list, computed with the page's own matcher
+      // (scripts/lib/keyword-page-match.mjs, #7915). jobsSeoPagesPlugin skips
+      // pages with <3 matching jobs — feeding below that produces a page that
       // silently never emits. Missing field (stale file) → treat as 0.
       if ((Number(o.feedFilterJobCount) || 0) < 3) continue;
       // Shared with the weekly report (lib/keyword-page-paths.mjs) so the URL
@@ -328,6 +329,12 @@ if (fs.existsSync(OPPORTUNITIES_PATH)) {
         allQueries: [query],
         source: 'profession-gap',
         professionId: o.id,
+        // List by the taxonomy matcher on each locale's title, the same
+        // predicate that produced `feedFilterJobCount` above (#7915).
+        // `filterKeywords` stays for coverage bookkeeping. Pages carried
+        // forward from `prevConfigPages` keep whatever they were published
+        // with: switching an indexed page's listing rule is not this loop's call.
+        professionMatch: true,
         copy: buildKeywordPageCopy(query),
       });
       usedSlugs.add(slug);

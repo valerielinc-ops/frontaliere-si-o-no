@@ -431,8 +431,10 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
   });
 
   it('reads the real map without hitting either guard', () => {
-    // 177 since #8730 added the FR `frais-de-transit-suisse` Bing remediation redirect.
-    expect(Object.keys(HARDCODED).length).toBe(177);
+    // The immutable base contains 197 literal pairs (the old 195 plus the
+    // cookie and French NASpI aliases). This observed A2 alias and the two
+    // explicit legacy nav aliases bring the inventory to 200.
+    expect(Object.keys(HARDCODED).length).toBe(200);
   });
 });
 
@@ -445,9 +447,9 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
  *
  * Measured live before the fix (2026-08-10):
  *
- *   /comparatori/traffico-valichi/        200 noindex,follow → canonical /statistiche/traffico-dogane/
- *   /statistiche/traffico-dogane/         200 noindex,follow → canonical /guida-frontaliere/tempi-attesa-dogana/
- *   /guida-frontaliere/tempi-attesa-dogana/  200 index,follow  ← the real page
+ *   /comparatori/traffico-valichi/        200 noindex,follow → canonical /traffico-dogane/
+ *   /statistiche/traffico-dogane/         200 noindex,follow → canonical /traffico-dogane/
+ *   /traffico-dogane/  200 index,follow  ← the real page
  *
  * and the FR twin on health-insurance premiums. Same defect this PR describes,
  * already shipped. Disclosing them in the PR body was not repairing them.
@@ -497,7 +499,7 @@ describe('internal redirect chains (PR #5537 review round 3)', () => {
    * shape that happens not to chain.
    */
   it.each([
-    ['/comparatori/traffico-valichi/', '/guida-frontaliere/tempi-attesa-dogana/'],
+    ['/comparatori/traffico-valichi/', '/traffico-dogane/'],
     ['/fr/primes-assurance-maladie/ticino/', '/fr/statistiques/primes-assurance-maladie-communes/'],
   ])('%s points straight at the final page', (from, to) => {
     expect(HARDCODED[from]).toBe(to);
@@ -510,6 +512,22 @@ describe('every entry is in a valid phase of a rename (see the truth table above
   const redirects = existsSync(REDIRECTS_ABS) ? loadArticleRedirects(ROOT) : {};
   const published = readPublishedArticlePaths(ROOT);
   const entries = Object.entries(redirects);
+
+  it('bridges the three Basel prompt-leak paths to the sanitizer output', () => {
+    expect(redirects).toMatchObject({
+      '/en/swiss-articles/slug-terzo-pilastro-3a-vantaggi-2026-basel/':
+        '/en/swiss-articles/terzo-pilastro-3a-vantaggi-2026-basel/',
+      '/de/schweiz-artikel/slug-terzo-pilastro-3a-vantaggi-2026-basel/':
+        '/de/schweiz-artikel/terzo-pilastro-3a-vantaggi-2026-basel/',
+      '/fr/articles-suisse/slug-terzo-pilastro-3a-vantaggi-2026-bale/':
+        '/fr/articles-suisse/terzo-pilastro-3a-vantaggi-2026-bale/',
+    });
+  });
+
+  it('maps the historical GSC French slug to the same 2024 Locarnese arrests story', () => {
+    expect(redirects['/fr/articles-frontalier/appels-shock-arrestations/'])
+      .toBe('/fr/articles-frontalier/appels-chocs-arrestations-locarnese-2024/');
+  });
 
   it('reads the published slugs from both section registries', () => {
     // These live under packages/articles/content/ and are present in EVERY

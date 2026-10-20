@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 // Tiene il checkout BASE (non-worktree) di questo repo allineato a origin/main.
 // Pensato per girare in CODA a prune-merged-worktrees.mjs nello stesso hook
 // SessionStart: riusa il fetch che quello ha già fatto, quindi qui non c'è
@@ -66,4 +68,4 @@ function run() {
   });
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) run();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) run();

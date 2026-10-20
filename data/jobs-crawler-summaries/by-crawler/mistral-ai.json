@@ -1,24 +1,30 @@
 {
   "key": "mistral-ai",
   "label": "Mistral AI",
-  "generatedAt": "2026-09-24T14:42:53.345Z",
+  "generatedAt": "2026-10-19T21:49:19.196Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2575,
-  "avgDurationMs": 2575,
+  "unchangedCount": 1,
+  "durationMs": 3148,
+  "avgDurationMs": 3148,
   "durationHistory": [
-    2575
+    3148
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "mistral-ai-01b2b0d2cc89",
       "slug": "ai-scientist-mistral-ai-ch",
@@ -31,7 +37,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:42:46.731Z",
+      "crawledAt": "2026-10-19T21:49:02.392Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -42,18 +48,24 @@
       "sector": "Intelligenza Artificiale / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "datePosted": "2026-07-10T14:03:48.234+00:00",
+      "postedDate": "2026-07-10T14:03:48.234+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "firstSeenAt": "2026-07-14T22:36:36.714Z",
-      "_qualityScore": 84,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

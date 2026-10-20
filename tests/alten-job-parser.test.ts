@@ -1,12 +1,29 @@
 import { describe, expect, it } from 'vitest';
 import {
   parseAltenListingHtml,
+  getAltenListingSnapshot,
+  isAltenListingPageReady,
   parseAltenDetailHtml,
   isAltenSwissLocation,
 } from '../scripts/lib/alten-job-parser.mjs';
+import {
+  CAREERS_URL,
+  isTransientAltenBrowserError,
+} from '../scripts/update-alten-jobs.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from '../scripts/lib/swiss-locality-sentence-split.mjs';
 
 describe('alten-job-parser', () => {
+  it('uses the canonical careers listing URL without a query string', () => {
+    expect(CAREERS_URL).toBe('https://www.alten.ch/career/jobs/');
+    expect(new URL(CAREERS_URL).search).toBe('');
+  });
+
+  it('classifies browser transport failures as transient', () => {
+    expect(isTransientAltenBrowserError(new Error('net::ERR_CONNECTION_RESET'))).toBe(true);
+    expect(isTransientAltenBrowserError(new Error('ALTEN listing did not become available'))).toBe(true);
+    expect(isTransientAltenBrowserError(new Error('HTTP 404'))).toBe(false);
+  });
+
   it('recognizes Swiss locations CH-wide', () => {
     expect(isAltenSwissLocation('Ticino')).toBe(true);
     expect(isAltenSwissLocation('Switzerland Ticino')).toBe(true);
@@ -39,6 +56,68 @@ describe('alten-job-parser', () => {
     expect(parsed).toHaveLength(2);
     expect(parsed[0].title).toBe('Full Stack .Net Developer');
     expect(parsed[0].location).toBe('Ticino');
+  });
+
+  it('recognizes a ready listing page when localized copy changes', () => {
+    const html = `
+      <html><head><title>Careers | ALTEN Switzerland</title></head><body>
+        <main class="wp-block-webfactory-card">
+          <div class="card-inner offer-item">
+            <a class="card-title" href="/jobs/903-pipe-project-manager-it/">Project Manager</a>
+            <div class="card-location"><span class="location-list">Ticino</span></div>
+          </div>
+        </main>
+      </body></html>`;
+    const snapshot = getAltenListingSnapshot({
+      html,
+      title: 'Careers | ALTEN Switzerland',
+      content: '2 Job assignments',
+    });
+    expect(isAltenListingPageReady({ snapshot })).toBe(false);
+    expect(isAltenListingPageReady({ snapshot, previousSnapshot: snapshot })).toBe(true);
+  });
+
+  it('waits for the terminal listing snapshot after hydration adds cards', () => {
+    const firstSnapshot = getAltenListingSnapshot({
+      html: `
+        <main class="wp-block-webfactory-card">
+          <div class="card-inner offer-item">
+            <a class="card-title" href="/jobs/903-pipe-project-manager-it/">Project Manager</a>
+            <div class="card-location"><span class="location-list">Ticino</span></div>
+          </div>
+        </main>`,
+    });
+    const expandedSnapshot = getAltenListingSnapshot({
+      html: `
+        <main class="wp-block-webfactory-card">
+          <div class="card-inner offer-item">
+            <a class="card-title" href="/jobs/903-pipe-project-manager-it/">Project Manager</a>
+            <div class="card-location"><span class="location-list">Ticino</span></div>
+          </div>
+          <div class="card-inner offer-item">
+            <a class="card-title" href="/jobs/904-cloud-engineer/">Cloud Engineer</a>
+            <div class="card-location"><span class="location-list">Bern</span></div>
+          </div>
+        </main>`,
+    });
+
+    expect(isAltenListingPageReady({ snapshot: firstSnapshot })).toBe(false);
+    expect(isAltenListingPageReady({
+      snapshot: expandedSnapshot,
+      previousSnapshot: firstSnapshot,
+    })).toBe(false);
+    expect(isAltenListingPageReady({
+      snapshot: expandedSnapshot,
+      previousSnapshot: expandedSnapshot,
+    })).toBe(true);
+  });
+
+  it('does not treat an unrelated page as a ready listing', () => {
+    expect(isAltenListingPageReady({
+      html: '<html><head><title>ALTEN</title></head><body>Welcome to ALTEN</body></html>',
+      title: 'ALTEN',
+      content: 'Welcome to ALTEN',
+    })).toBe(false);
   });
 
   it('parses detail body into description blocks', () => {

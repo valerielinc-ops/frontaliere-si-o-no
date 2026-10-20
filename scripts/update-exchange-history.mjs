@@ -11,15 +11,16 @@
  * Client-side code reads from Firestore only — never writes history.
  */
 
-import admin from 'firebase-admin';
+import { applicationDefault, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { FRANKFURTER_ENDPOINTS } from './lib/frankfurter-endpoints.mjs';
 
-admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
+initializeApp({
+  credential: applicationDefault(),
   projectId: process.env.GCLOUD_PROJECT || 'frontaliere-ticino',
 });
-const db = admin.firestore();
+const db = getFirestore();
 
 const PERIODS = [
   { id: '1m', months: 1 },

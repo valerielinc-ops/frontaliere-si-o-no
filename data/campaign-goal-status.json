@@ -2,38 +2,83 @@
   "goals": {
     "alert_funnel_conversion": {
       "title": "Alert funnel conversion (shown→created)",
-      "source": "posthog",
+      "source": "ga4",
       "issueRef": "#4298",
       "matureAt": "2026-07-31",
       "state": "failing",
       "lastValue": {
-        "rate": 0.02154509079716836,
-        "created": 70,
-        "shown": 3249,
-        "ctaSurfaceNotSetShare": 0.0015008576329331046
+        "rate": 0.01347914547304171,
+        "created": 53,
+        "shown": 3932,
+        "ctaSurfaceNotSetShare": 0,
+        "surfaceBreakdown": [
+          {
+            "surface": "inline_card",
+            "shown": 1527,
+            "created": 9,
+            "rate": 0.005893909626719057
+          },
+          {
+            "surface": "job_detail_button",
+            "shown": 383,
+            "created": 1,
+            "rate": 0.0026109660574412533
+          },
+          {
+            "surface": "job_detail_prompt",
+            "shown": 1630,
+            "created": 35,
+            "rate": 0.02147239263803681
+          },
+          {
+            "surface": "job_board_filters",
+            "shown": 1950,
+            "created": 10,
+            "rate": 0.005128205128205128
+          },
+          {
+            "surface": "job_match_pill",
+            "shown": 556,
+            "created": 3,
+            "rate": 0.00539568345323741
+          },
+          {
+            "surface": "sticky_banner",
+            "shown": 486,
+            "created": 1,
+            "rate": 0.00205761316872428
+          },
+          {
+            "surface": "end_card",
+            "shown": 752,
+            "created": 2,
+            "rate": 0.0026595744680851063
+          }
+        ]
       },
-      "detail": "70/3249 utenti = 2.15%, cta_surface (not set) 0.15% [GA4 fallback — PostHog non misurabile]",
-      "targetDescription": ">= 5% (utenti job_alert_created / utenti job_alert_cta_shown, 14gg, fallback GA4)",
-      "lastCheckAt": "2026-09-20T10:04:35.897Z",
+      "detail": "53/3932 utenti = 1.35%, cta_surface (not set) 0.00% [GA4]\n\nLe righe per superficie possono sovrapporsi; l’aggregato è calcolato separatamente.\n\n| cta_surface | shown users | created users | rate |\n| --- | ---: | ---: | ---: |\n| aggregate | 3932 | 53 | 1.35% |\n| inline_card | 1527 | 9 | 0.59% |\n| job_detail_button | 383 | 1 | 0.26% |\n| job_detail_prompt | 1630 | 35 | 2.15% |\n| job_board_filters | 1950 | 10 | 0.51% |\n| job_match_pill | 556 | 3 | 0.54% |\n| sticky_banner | 486 | 1 | 0.21% |\n| end_card | 752 | 2 | 0.27% |",
+      "targetDescription": ">= 5% (utenti job_alert_created / utenti job_alert_cta_shown, 14gg, GA4)",
+      "lastCheckAt": "2026-10-18T09:53:19.235Z",
       "note": "sorgente non misurabile: posthog ingested < 500 events/day on 9 of 14 complete day(s) in the 14d window: 2026-08-21 (10), 2026-08-22 (15), 2026-08-23 (14), 2026-08-24 (29), 2026-08-25 (26), 2026-08-26 (21), 2026-08-27 (11), 2026-08-28 (12), 2026-08-29 (11)"
     },
     "dead_clicks_reduction": {
       "title": "Dead click $dead_click -50% (14gg)",
-      "source": "posthog",
+      "source": "none",
       "issueRef": "#4304",
       "matureAt": "2026-07-31",
-      "state": "passed",
+      "state": "unmeasurable",
       "lastValue": {
         "deadClicks": 0
       },
       "detail": "0 $dead_click (14gg)",
       "targetDescription": "< 5991 $dead_click events (14gg, -50% su baseline riproporzionata da 25.675/30gg)",
-      "lastCheckAt": "2026-08-09T06:13:33.259Z",
-      "passedAt": "2026-08-09T06:13:33.259Z"
+      "lastCheckAt": "2026-10-18T09:53:19.235Z",
+      "passedAt": "2026-08-09T06:13:33.259Z",
+      "note": "nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): $dead_click e' autocapture nativo PostHog; il dead_click custom in GA4 e' un'altra metrica"
     },
     "error_rate": {
       "title": "Error rate < 1% (30gg)",
-      "source": "posthog",
+      "source": "ga4",
       "issueRef": "#4304",
       "matureAt": "2026-08-16",
       "state": "passed",
@@ -50,12 +95,12 @@
     },
     "calc_deeplink_input_start": {
       "title": "Calcolatore deep-link → input start >= 25%",
-      "source": "posthog",
+      "source": "none",
       "issueRef": "#4307",
       "matureAt": "2026-08-16",
       "state": "unmeasurable",
-      "lastCheckAt": "2026-09-20T10:04:35.897Z",
-      "note": "sorgente non misurabile: posthog ingested < 500 events/day on 22 of 30 complete day(s) in the 30d window: 2026-08-21 (10), 2026-08-22 (15), 2026-08-23 (14), 2026-08-24 (29), 2026-08-25 (26), 2026-08-26 (21), 2026-08-27 (11), 2026-08-28 (12), 2026-08-29 (11), 2026-08-30 (12), 2026-08-31 (55), 2026-09-01 (21), 2026-09-02 (8), 2026-09-03 (16), 2026-09-04 (5), 2026-09-05 (15), 2026-09-06 (32), 2026-09-07 (18), 2026-09-08 (18), 2026-09-17 (36), 2026-09-18 (9), 2026-09-19 (8)"
+      "lastCheckAt": "2026-10-18T09:53:19.235Z",
+      "note": "nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): funnel per sessione senza dimensione session id in GA4 (dimensioni EVENT piene, decisione H4)"
     },
     "canton_hub_positions": {
       "title": "Hub cantonali: svizzera<20 E zurigo<14",
@@ -96,23 +141,45 @@
       "source": "ga4",
       "issueRef": "#4299",
       "matureAt": "2026-10-15",
-      "state": "observing"
+      "state": "passed",
+      "lastValue": {
+        "sessions": 17626
+      },
+      "detail": "17626 sessioni",
+      "targetDescription": ">= 7350 sessioni canale Email (90gg, 3x baseline 2.449)",
+      "lastCheckAt": "2026-10-18T09:53:19.235Z",
+      "passedAt": "2026-10-18T09:53:19.235Z"
     },
     "ai_sessions": {
       "title": "Sessioni canale AI Assistant >= 4.839 (90gg)",
       "source": "ga4",
       "issueRef": "#4305",
       "matureAt": "2026-10-15",
-      "state": "observing"
+      "state": "passed",
+      "lastValue": {
+        "sessions": 6085
+      },
+      "detail": "6085 sessioni",
+      "targetDescription": ">= 4839 sessioni canale AI Assistant (90gg, 3x baseline 1.613)",
+      "lastCheckAt": "2026-10-18T09:53:19.235Z",
+      "passedAt": "2026-10-18T09:53:19.235Z"
     },
     "bing_clicks": {
       "title": "Click Bing >= 500 (90gg)",
       "source": "bing",
       "issueRef": "#4305",
       "matureAt": "2026-10-15",
-      "state": "observing"
+      "state": "passed",
+      "lastValue": {
+        "clicks": 6013,
+        "daysReturned": 88
+      },
+      "detail": "6013 click su 88 giorni restituiti",
+      "targetDescription": ">= 500 click organici Bing (90gg, baseline 48)",
+      "lastCheckAt": "2026-10-18T09:53:19.235Z",
+      "passedAt": "2026-10-18T09:53:19.235Z"
     }
   },
-  "generatedAt": "2026-09-20T10:04:35.897Z",
+  "generatedAt": "2026-10-18T09:53:19.235Z",
   "campaignStart": "2026-07-17"
 }

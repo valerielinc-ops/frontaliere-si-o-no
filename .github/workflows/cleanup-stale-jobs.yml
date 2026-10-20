@@ -13,6 +13,11 @@ on:
         description: 'Remove jobs older than N days (default: 60)'
         required: false
         type: string
+      benchmark_only:
+        description: 'Run the per-slice cleanup without credentials, commits or pushes'
+        required: false
+        type: boolean
+        default: false
 
 concurrency:
   group: jobs-data-pipeline
@@ -28,17 +33,26 @@ env:
 
 jobs:
   cleanup-stale-jobs:
+    if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.benchmark_only != 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 30 min cancelled the last four Sunday runs (2026-08-30, 09-06, 09-13,
+    # 09-20) inside a commit step, so Phase 2 (cross-crawler dedup) and Phase 3
+    # (#4057 source-copy bonifica) never reached main. Measured on run
+    # 35502930752: work up to the Phase 2 commit took 13m20s; one
+    # git-commit-data.sh attempt (fetch + 3-way merge of every touched slice +
+    # push) took 8m55s, was rejected because main had moved, and the second
+    # attempt (of 14) was killed at the 30-min cap. Two commit phases at up to
+    # several attempts each need headroom, not a tighter loop.
+    timeout-minutes: 120
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 50
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
@@ -61,7 +75,9 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       # #9142: remove the one expired archive emitted when the Coop translation
-      # cache was mistaken for a crawler slice. The command is an explicit
+      # cache was mistaken for a crawler slice, and the active-side `[]`
+      # sentinel left behind once PR 11295 retired that cache (deleted only
+      # while it is still an empty array). The command is an explicit
       # allowlist with validation, so normal crawler-owned archives remain
       # untouched and the absent/already-clean case is idempotent.
       - name: Remove legacy crawler scratch archives
@@ -70,9 +86,12 @@ jobs:
       # The full slice pass has repeatedly reached the job timeout after this
       # deletion but before Phase 1. Push the allowlisted one-shot cleanup now,
       # so a later timeout cannot resurrect the retired archive on main.
+      # The paths must equal LEGACY_CRAWLER_RESIDUE_PATHS in the purge script
+      # (tests/data-workflow-contracts.test.ts): --extra-only publishes only
+      # the deletions it names.
       - name: Commit legacy crawler residue cleanup
         id: legacy_residue_commit
-        run: bash scripts/lib/git-commit-data.sh --extra-only "🧹 Housekeeping — purge retired Coop scratch archive" data/jobs/expired/by-crawler/coop-ticino-locale-cache.json
+        run: bash scripts/lib/git-commit-data.sh --extra-only "🧹 Housekeeping — purge retired Coop scratch residues" data/jobs/expired/by-crawler/coop-ticino-locale-cache.json data/jobs/by-crawler/coop-ticino-locale-cache.json
 
       - name: Cleanup each per-crawler slice
         env:
@@ -81,18 +100,7 @@ jobs:
           # weekly pass must stay bounded by local JSON work, not remote URL
           # latency on every job in every slice.
           JOBS_SKIP_URL_VALIDATION: '1'
-        run: |
-          set -euo pipefail
-          # Iterate over all per-crawler slice files. A malformed slice is a
-          # hard failure: do not commit a partial cleanup as if it succeeded.
-          slices=0
-          for slice in data/jobs/by-crawler/*.json; do
-            [ -f "$slice" ] || continue
-            echo "──── Cleaning: $slice ────"
-            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs
-            slices=$((slices + 1))
-          done
-          echo "✅ Bounded per-slice cleanup complete: $slices slice(s), URL validation delegated to housekeeping"
+        run: bash scripts/cleanup-stale-job-slices.sh
 
       - name: Commit Phase 1 (per-slice expired jobs)
         id: phase1_commit
@@ -145,3 +153,28 @@ jobs:
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+  benchmark-cleanup-slices:
+    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.benchmark_only == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Safe performance proof: same script and repository slice population as
+      # production, but no credentials and no commit/push steps in this job.
+      - name: Cleanup each per-crawler slice
+        env:
+          JOBS_STALE_DAYS: ${{ github.event.inputs.stale_days || '' }}
+          JOBS_SKIP_URL_VALIDATION: '1'
+        run: bash scripts/cleanup-stale-job-slices.sh

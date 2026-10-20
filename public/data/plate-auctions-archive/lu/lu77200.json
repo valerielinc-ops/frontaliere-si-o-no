@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "lu-car-long-format-77200",
+      "sourceKey": "LU",
+      "sourceRecordId": "car-long-format-77200",
+      "canton": "Lucerna",
+      "platePrefix": "LU",
+      "plateNumber": "77200",
+      "normalizedPlate": "LU77200",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 450,
+      "closedAt": "2026-10-15T04:44:05.254Z",
+      "officialAuctionUrl": "https://strassenverkehrsamt.lu.ch/strassenverkehr/fahrzeug/kontrollschilderboerse_wunschkontrollschild",
+      "officialDetailUrl": "https://strassenverkehrsamt.lu.ch/downloads/strassenverkehrsamt/kontrollschilder/wunschschilder.pdf",
+      "sourceFetchedAt": "2026-10-15T04:44:05.254Z",
+      "lastVerifiedAt": "2026-10-15T04:44:05.254Z",
+      "firstSeenAt": "2026-10-14T11:57:12.164Z",
+      "lastSeenAt": "2026-10-15T04:44:05.254Z",
+      "sourceCategory": "fixed-price-long-format",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "d7be2942a67b"
+    }
+  ]
+}

@@ -99,6 +99,118 @@ export const BOT_UA_PATTERNS: readonly string[] = [
 ];
 
 /**
+ * Screen size of the automation fleet that hit the job gate from Singapore
+ * (GA4, 2026-09-01 → 09-12, back in bursts from 09-24: ~1,650 "people"/day,
+ * direct arrival, ~1 s on page, 100% new, zero conversions).
+ *
+ * Measured on GA4 2026-06-01 → 09-24: 100,855 people had a 1280x1200 screen
+ * from Singapore and 267 from other countries — every one of them Windows +
+ * desktop Chrome with an English UI, and ZERO from Italy or Switzerland.
+ * 1280x1200 (16:15) is not the CSS size of any shipping display at any
+ * Windows scale factor (the real 1280-wide ones are 1280x720/800/1024, all
+ * present in the same data): it is a headless/VM window size. The Chrome
+ * major version rotates across the fleet (106 → 133), so the UA string alone
+ * cannot pin it — the screen can.
+ *
+ * Time zone: GA4 does not expose it, and the fleet never reached PostHog, so
+ * it is not measured. The rule accepts the zone of the fleet's city
+ * (`Asia/Singapore`) and the bare UTC zones a cloud VM reports by default —
+ * never a zone a visitor in Ticino/Lombardy (or anywhere a person sets a
+ * local clock) would have.
+ */
+export const AUTOMATION_SCREEN_WIDTH = 1280;
+export const AUTOMATION_SCREEN_HEIGHT = 1200;
+export const AUTOMATION_TIME_ZONES: readonly string[] = ['Asia/Singapore', 'UTC', 'Etc/UTC', 'Etc/GMT', 'GMT'];
+
+/**
+ * Conservative match for that fleet. ALL of these must hold:
+ *  - screen exactly 1280x1200 CSS px;
+ *  - a Windows desktop Chrome UA (`windows nt` + `chrome/`, no `mobile`);
+ *  - English UI language AND a data-center time zone (`AUTOMATION_TIME_ZONES`).
+ * A real visitor would need a display size no hardware ships AND this exact
+ * browser AND an English UI AND a Singapore/UTC clock, so the rule cannot
+ * reach the site's audience: an English-speaking reader in Zurich on a
+ * 1280x1200 virtual screen still passes. Unknown time zone (Intl missing) →
+ * no match. `ua` is the lowercased user agent, as in `isLikelyBot()`.
+ */
+export function matchesAutomationScreenSignature(ua: string): boolean {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') return false;
+  const screen = window.screen;
+  if (!screen || screen.width !== AUTOMATION_SCREEN_WIDTH || screen.height !== AUTOMATION_SCREEN_HEIGHT) return false;
+  if (!ua.includes('windows nt') || !ua.includes('chrome/') || ua.includes('mobile')) return false;
+  if (!String(navigator.language || '').toLowerCase().startsWith('en')) return false;
+  let timeZone = '';
+  try {
+    timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+  } catch {
+    // Intl unavailable: time zone unknown, the rule does not fire.
+  }
+  return AUTOMATION_TIME_ZONES.includes(timeZone);
+}
+
+/**
+ * UI language of the desktop Chrome fleet PostHog recorded from its first day
+ * of capture (2026-09-09 → 09-14, before sampling cut capture on 09-15): ~22.5k
+ * distinct ids, ~1.04 pageviews each, ~94% direct arrival on `/en/` and `/de/`
+ * pages, conversion to a third pageview <2% (real traffic: 28-36%). Every one
+ * of them reported `zh-CN`, desktop Chrome split evenly Windows/macOS, and a
+ * clock rotating across Asia/Shanghai, Asia/Hong_Kong, Asia/Singapore and
+ * America/Los_Angeles — ZERO from Italy or Switzerland. It grew from 61% to
+ * 78% of daily entrants and alone explains the fall of the three-pageview
+ * funnel over that week. Screens are randomised (near-square ~1200-1400 px),
+ * so unlike the 1280x1200 fleet above the screen cannot pin it. What does pin
+ * it, beyond geography: the fleet ran only Chrome 144/148/149/150 (99.9% of
+ * it), while ordinary desktop Chrome visitors that week were on 151-153.
+ */
+export const AUTOMATION_LANGUAGE = 'zh-cn';
+/** The four time zones observed in the measured zh-CN desktop Chrome fleet. */
+export const AUTOMATION_LANGUAGE_TIME_ZONES: readonly string[] = [
+  'Asia/Shanghai',
+  'Asia/Hong_Kong',
+  'Asia/Singapore',
+  'America/Los_Angeles',
+];
+/**
+ * Chrome major versions the fleet pinned. Real Chrome auto-updates past them,
+ * so an ordinary visitor on current stable never matches; if the fleet ever
+ * updates, the rule fails open (stops matching) instead of widening.
+ */
+export const AUTOMATION_LANGUAGE_CHROME_MAJORS: readonly number[] = [144, 148, 149, 150];
+/** Chromium UA tokens that identify a browser other than Google Chrome. */
+export const AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS: readonly string[] = ['edg/', 'opr/'];
+
+/**
+ * Conservative match for that fleet. ALL of these must hold:
+ *  - a desktop Chrome UA on Windows or macOS (`chrome/`, no `mobile`, `edg/`
+ *    or `opr/` token);
+ *  - a Chrome major version the fleet pinned (`AUTOMATION_LANGUAGE_CHROME_MAJORS`);
+ *  - `navigator.language` exactly `zh-CN`;
+ *  - one of the four time zones observed in that fleet.
+ * A Chinese-speaking frontaliere in Ticino or Lombardy has a European clock
+ * and still passes, as does any mobile or non-Chrome visitor. Unknown time
+ * zone (Intl missing) → no match. `ua` is the lowercased user agent, as in
+ * `isLikelyBot()`.
+ */
+export function matchesAutomationLanguageSignature(ua: string): boolean {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') return false;
+  if (
+    !ua.includes('chrome/') ||
+    AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS.some((token) => ua.includes(token)) ||
+    ua.includes('mobile')
+  ) return false;
+  if (!ua.includes('windows nt') && !ua.includes('macintosh')) return false;
+  if (!AUTOMATION_LANGUAGE_CHROME_MAJORS.includes(Number.parseInt(ua.split('chrome/')[1] || '', 10))) return false;
+  if (String(navigator.language || '').toLowerCase() !== AUTOMATION_LANGUAGE) return false;
+  let timeZone = '';
+  try {
+    timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+  } catch {
+    // Intl unavailable: time zone unknown, the rule does not fire.
+  }
+  return AUTOMATION_LANGUAGE_TIME_ZONES.includes(timeZone);
+}
+
+/**
  * Layered bot detection. Each layer cuts a different population:
  *  1. SSR / no UA      — never an ad-eligible session.
  *  2. webdriver flag   — Playwright/Selenium/Puppeteer base.
@@ -108,6 +220,11 @@ export const BOT_UA_PATTERNS: readonly string[] = [
  *     (empty languages, missing plugins on a real Chrome UA, missing
  *     `permissions` API). False-positive risk on iframes / restricted
  *     contexts is bounded by REQUIRING the UA to claim a "real" browser.
+ *  6. Automation screen signature — the 1280x1200 Windows/Chrome fleet
+ *     (`matchesAutomationScreenSignature`), which passes every layer above.
+ *  7. Automation language signature — the zh-CN desktop Chrome fleet on its
+ *     pinned Chrome majors and one of its four observed clocks
+ *     (`matchesAutomationLanguageSignature`).
  *
  * On purpose NOT here: WebGL renderer / canvas fingerprint / TLS JA3.
  * Those add weight but are bypassable by `puppeteer-extra-plugin-stealth`
@@ -156,6 +273,9 @@ export function isLikelyBot(): boolean {
       return true;
     }
   }
+
+  if (matchesAutomationScreenSignature(ua)) return true;
+  if (matchesAutomationLanguageSignature(ua)) return true;
 
   return false;
 }

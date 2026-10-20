@@ -1,93 +1,63 @@
 const bodyDumpingSalarialeDirittiLavoratoreTicino: Record<string, string> = {
- 'blog.article.dumping-salariale-diritti-lavoratore-ticino.body1': `## Wage Dumping in the 2026 Ticino Labor Market
+ 'blog.article.dumping-salariale-diritti-lavoratore-ticino.body1': `## Wage dumping in Ticino: the figures that matter
 
-Wage dumping — the practice of paying workers below the legally or contractually established minimum — remains one of the most persistent problems in the Ticino labor market. Despite strengthened inspections and new cantonal legislation, cross-border workers continue to be disproportionately affected. Understanding the forms it takes, the rights you have, and the concrete steps to protect yourself is not optional: it is essential financial self-defense.
+Wage dumping is not the same as every salary that feels low. The correct comparison is the rule that applies to the employment relationship: the cantonal minimum wage, a normal employment contract (CNL), a generally binding collective labour agreement (CCL), or the usual wage assessed by the authorities.
 
-### How Wage Dumping Manifests in Practice
+## Verified facts
 
-The days of blatant underpayment on the payslip are largely over. Modern wage dumping in Ticino is more subtle and takes several recognizable forms:
+- **Regional median wage**: the Swiss Earnings Structure Survey (ESS) 2024 reports a gross median of **CHF 5,708 per month** for a full-time job in the Ticino region. It is a regional statistical indicator, not a legal minimum and not a rate for every occupation.
+- **Cantonal minimum in 2026**: the Ticino executive decree effective 1 January 2026 sets gross hourly minimums by economic sector. The table runs between **CHF 20.00 and CHF 20.50 per hour**, with intermediate values. The exact minimum depends on the sector, so it should not be converted into one standard monthly amount.
+- **CCLs and CNLs**: a generally binding collective agreement or a normal employment contract may set a different and more favourable floor. Check the applicable agreement and job classification before calculating a shortfall.
 
-- **Hybrid contracts:** Employees are formally hired as part-time workers but are expected to work full-time hours. The contract shows 80 %, but the actual schedule demands 100 % — effectively paying 80 % of the correct salary for full output.
-- **Fake part-time arrangements:** Similar to hybrid contracts, but the employee's schedule is officially listed as, say, 32 hours per week while they consistently work 42 or more. Overtime is neither recorded nor compensated.
-- **Unpaid overtime:** The employment contract specifies standard hours, but the workplace culture makes it clear that leaving "on time" is unacceptable. No overtime log is kept, and no additional compensation is provided.
-- **Deliberate under-classification:** A worker performing the duties of a "specialist" or "team leader" is classified as a "junior" or "assistant" in the contract, placing them in a lower salary band than their actual responsibilities warrant.
+The decree also says that, where pay is hourly, holiday and public-holiday allowances may be added. A proper comparison therefore separates basic gross pay, allowances, the thirteenth salary, actual hours and the employment percentage. A cross-border worker does not have a “reduced” minimum because they live in Italy: the workplace and the applicable rules matter.
 
-These practices thrive because cross-border workers are often unfamiliar with Swiss labor law, may have limited German or French skills for navigating federal resources, and fear losing their position if they raise concerns.
+Common warning signs include actual hours above the recorded hours, a classification below the work performed, unexplained deductions, failure to pay a binding CCL/CNL minimum, or a part-time contract used to cover a full-time schedule. A salary below the regional median does not by itself prove an offence: the median is a benchmark, not a universal threshold.
 
-### Salary Benchmarks for Ticino (2025–2026)
+Use the [salary calculator](nav:calculator) for an initial estimate, then keep the contract and records needed to compare it with the correct legal source.`,
+ 'blog.article.dumping-salariale-diritti-lavoratore-ticino.body2': `## How to identify and report a wage problem
 
-According to the most recent cantonal statistics, the **median gross salary in Ticino is 5,487 CHF per month** (2025 data, 13th-month salary included pro-rata). However, this median masks enormous sector-level variation. The **retail sector** averages around 4,200 CHF, **hospitality** comes in at approximately 3,900 CHF, and **construction** sits at roughly 5,100 CHF. Sectors covered by a **Contratto Collettivo di Lavoro (CCL)** have binding minimum salaries — for example, the construction CCL sets a minimum of **5,184 CHF per month** for unskilled workers. If your contract falls below the applicable CCL minimum, that is not a negotiation point: it is a legal violation.
+### Five practical checks
 
-Use the [salary calculator](nav:calculator) to compare your actual pay against Ticino benchmarks for your sector and experience level.`,
+1. **Identify the applicable floor.** Find the employer’s NOGA sector in the cantonal decree, check for a CNL, and ask which CCL applies to the role. “The Swiss average wage” is not a substitute for this check.
+2. **Calculate the effective hourly rate.** Relate the pay to the hours actually worked and separate allowances. Keep a daily record of start, finish, breaks, required travel and overtime.
+3. **Compare the contract with reality.** Keep the contract, payslips, rosters, time records, messages and instructions about extra hours. Check the professional category and deductions too.
+4. **Ask for a written explanation.** A calculation error may be corrected without litigation; a dated request also shows when the difference was raised.
+5. **Choose the right body.** In sectors covered by a generally binding CCL, contact the relevant joint committee. In sectors without a CCL, the cantonal tripartite commission and labour inspectorate monitor the market and minimum wages.
 
- 'blog.article.dumping-salariale-diritti-lavoratore-ticino.body2': `## How to Recognize Wage Dumping — Five Red Flags
+SECO describes the accompanying measures as a system in which joint committees and the cantons check wage conditions, including for foreign companies. In Ticino’s 11 February 2026 release about checks carried out in 2025, **4,164 companies** and **17,667 people** were examined in the stated programme; minimum-wage violations numbered **186** and concerned **463 workers**. The figures show why a documented report matters, but they do not prove that every wage difference is dumping.
 
-Knowing the theory is one thing; recognizing dumping in your own payslip and work conditions is another. Here are the five most common patterns that cross-border workers should watch for:
+You can report a suspected violation through the cantonal services listed at [ti.ch/lavoro](https://www.ti.ch/lavoro). For a CCL, the joint committee is usually the first contact; for a minimum-wage or usual-wage question, the cantonal labour-market office, labour inspectorate or tripartite commission may be involved. A union can help read the contract and quantify arrears. Do not promise anonymity: ask the receiving office what information is required and how it is handled.
 
-**1. Correct base salary but excessive hours.** Your monthly salary matches the CCL minimum or seems reasonable, but you work 45–50 hours per week instead of the 42 hours specified in your contract. The effective hourly rate drops below the legal floor. Always divide your gross monthly pay by your actual hours worked (including any systematic unpaid overtime) to find your real hourly rate.
+The same rules apply to residents and cross-border workers when the work is performed in Ticino. Citizenship does not replace checking the applicable CCL, CNL and decree.`,
+ 'blog.article.dumping-salariale-diritti-lavoratore-ticino.body3': `## What to do when the pay does not add up
 
-**2. Lower professional classification than your actual role.** You were hired as a "project manager" but your contract says "administrative assistant" — a category with a lower CCL minimum. If your daily tasks involve responsibilities that match a higher classification, you have grounds for a correction.
+### A cautious procedure
 
-**3. Fake part-time contracts.** Your contract states 60 % or 80 %, but your employer expects full-time presence. Check whether your actual working hours, averaged over a quarter, exceed the contractual percentage by more than 10 %. Consistent overwork on a part-time contract is a classic dumping signal.
+**Phase 1 — Document.** Download payslips and the contract, record actual hours, and keep rosters, emails and messages. Do not alter originals or share colleagues’ personal data unnecessarily.
 
-**4. Illegitimate deductions.** Some employers deduct costs for uniforms, tools, mandatory training, or "administrative fees" from the salary. Under Swiss labor law (OR Art. 327–327c), the employer must bear the cost of tools and materials necessary for the job. Deductions that reduce your effective pay below the CCL minimum are illegal.
+**Phase 2 — Verify.** Compare the relationship with the 2026 Ticino decree, the applicable CCL/CNL and the professional classification. The cantonal minimum is sector-specific: the right reference is the relevant row of the table, not automatically CHF 20.00 or CHF 20.50.
 
-**5. No cost-of-living adjustments.** Many CCLs include annual indexation clauses tied to the Swiss Consumer Price Index (LIK). If your salary has not been adjusted for two or more years despite applicable CCL provisions, your employer may be in violation.
+**Phase 3 — Raise it in writing.** Ask the employer to explain the calculation and, if pay is missing, request payment within a reasonable period. Have a union or adviser review the letter before signing a waiver or settlement.
 
-### Where to Report Wage Dumping
+**Phase 4 — Report or conciliate.** If dialogue fails, contact the relevant joint committee, cantonal labour services or a union. Authorities may ask for contracts, payslips and time records; a precise report is more useful than a general accusation.
 
-If you suspect your salary or working conditions violate Swiss labor law or an applicable CCL, you have several channels:
+**Phase 5 — Consider court.** For employment disputes up to a value of **CHF 30,000**, the Swiss Code of Civil Procedure excludes court fees in conciliation and decision proceedings. That does not mean every consultation, representation or financial risk is free: ask the court or adviser what costs remain.
 
-- **CPC (Commissione paritetica cantonale):** The joint employer-employee commission responsible for enforcing CCL compliance in your sector. They can conduct salary audits and impose penalties on non-compliant employers.
-- **Tripartite Commission (Commissione tripartita):** Monitors the labor market for systematic dumping trends and can recommend sector-specific minimum wages.
-- **Trade Unions:** **UNIA** (the largest Swiss union, with a strong presence in Ticino), **OCST** (Christian-social workers' union), and **SIT** (Sindacato indipendente dei trasporti) all offer free initial consultations to cross-border workers. UNIA in particular provides legal assistance in Italian and has offices in Bellinzona, Lugano, and Mendrisio.
-- **Labor Inspectorate (Ispettorato del lavoro):** The cantonal authority responsible for enforcing workplace safety and labor law compliance.
+### If dismissal follows a complaint
 
-Swiss law provides **whistleblower protection** for employees who report labor law violations in good faith. Your employer cannot legally terminate you in retaliation for filing a complaint with the CPC, a union, or the Labor Inspectorate.
+Swiss law does not automatically make every dismissal after a wage report void. A dismissal can nevertheless be abusive, for example if it is given in bad faith to punish a worker who asserts claims arising from the employment relationship. Objection and court deadlines are strict, so act quickly. Compensation for an abusive dismissal can reach six months’ salary depending on the circumstances, but it is not automatic. Do not sign a termination or waiver without advice.
 
-### Cantonal Minimum Wage
+### Official sources
 
-Since 2021, Canton Ticino has had a **cantonal minimum wage** law. For 2026, the minimum is set at **19.75 CHF per hour**, which translates to approximately **3,530 CHF per month** for a full-time position (42.5 hours/week). This minimum applies to all workers in Ticino, regardless of nationality or permit type, and it overrides any lower contractual agreements. If your effective hourly rate falls below this threshold, your employer is breaking cantonal law.`,
+- [Ticino 2026 minimum-wage decree](https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/pdfatto/atto/11806)
+- [Swiss Earnings Structure Survey 2024](https://dam-api.bfs.admin.ch/hub/api/dam/assets/36195849/master)
+- [SECO: implementation of accompanying measures](https://www.seco.admin.ch/it/esecuzione-delle-misure-collaterali)
+- [SECO: posting costs and sanctions](https://www.seco.admin.ch/it/distacco-spese-e-sanzioni)
+- [Ticino 2025 minimum-wage checks](https://www4.ti.ch/tich/area-media/comunicati/dettaglio-comunicato/?NEWS_ID=257720)
+- [Swiss Code of Civil Procedure](https://www.fedlex.admin.ch/eli/cc/2010/262/it) and [SECO dismissal FAQ](https://www.seco.admin.ch/it/faq-disdetta)
 
- 'blog.article.dumping-salariale-diritti-lavoratore-ticino.body3': `## What to Do If You Are a Victim of Wage Dumping
-
-Discovering that you are being underpaid is stressful, but Swiss law provides a structured path to remedy the situation. Follow these five phases:
-
-### Phase 1 — Document Everything
-
-Before raising any formal complaint, gather evidence. Save your employment contract, all payslips (at least the last 12 months), records of actual hours worked (use a personal log or time-tracking app if your employer does not provide one), any written communications (emails, WhatsApp messages) about overtime, schedules, or role responsibilities, and a copy of the applicable CCL for your sector. Documentation is the foundation of any successful claim.
-
-### Phase 2 — Verify Your Position
-
-Use the [salary calculator](nav:calculator) to compare your effective hourly rate against Ticino benchmarks. Then check whether your sector has a binding CCL — if it does, verify that your base salary, classification, overtime compensation, and annual adjustments comply with the collective agreement. If your sector has no CCL, the cantonal minimum wage of 19.75 CHF/hour applies as the absolute floor.
-
-### Phase 3 — Internal Dialogue
-
-Approach your HR department or direct supervisor with your documented findings. In many cases, especially in smaller companies, discrepancies are the result of administrative errors or ignorance rather than intentional exploitation. A factual, non-confrontational conversation — "I noticed my effective hourly rate is below the CCL minimum for my classification; could we review this?" — resolves many situations without escalation.
-
-### Phase 4 — External Escalation
-
-If internal dialogue fails or retaliation occurs, contact your trade union (UNIA offers the most comprehensive Italian-language services) or file a complaint with the CPC for your sector. The union can negotiate on your behalf, and the CPC has the authority to audit the employer's payroll records. You may also contact the cantonal Labor Inspectorate if you believe the violation is systemic (affecting multiple employees).
-
-### Phase 5 — Labor Tribunal
-
-If all else fails, you can file a claim with the Ticino Labor Tribunal (Pretura del lavoro). Proceedings are **free of charge for claims under 30,000 CHF**, which covers the vast majority of salary disputes. The tribunal can order the employer to pay back wages, interest, and damages. Proceedings are conducted in Italian, and you have the right to legal representation (though it is not mandatory for claims under 30,000 CHF).
-
-## Political and Legal Context
-
-In 2024, the MPS (Movimento per il Socialismo) anti-dumping initiative was rejected by Ticino voters, but the political debate led to meaningful improvements: the cantonal Labor Inspectorate received additional resources and enforcement powers, fines for wage dumping violations were increased to **up to 50,000 CHF** per infraction, and the obligation for employers to report worker classifications was strengthened. These changes mean that cross-border workers have more institutional support today than at any point in the last decade.
-
-### Your Rights Checklist
-
-- **Verify your pay** against sector benchmarks using the [calculator](nav:calculator)
-- **Check your classification** — does your contract title match your actual duties?
-- **Save every payslip** and keep a personal log of actual hours worked
-- **Know the CCL** that applies to your sector and employer
-- **Contact UNIA or OCST** for a free initial consultation if anything seems wrong
-- **Explore opportunities** on the [job board](nav:job-board) — sometimes the best response to dumping is finding an employer who values fair pay
-
-Wage dumping is not a fact of life. It is a violation of Swiss law, and you have concrete, accessible tools to fight it.`,
- 'blog.article.dumping-salariale-diritti-lavoratore-ticino.faq': '[{"q":"How can I recognize if I\'m under wage dumping?","a":"Wage dumping may occur in the form of correct basic wages but actual hours higher than contract, lower professional framework, fake part-time, illegitimate deductions or no adjustments to relapse. Check your salary with your salary calculator and compare it to the CCL minimums in your industry."},{"q":"What is the minimum wage time guaranteed by the Cantonal minimum wage law in Ticino in 2026?","a":"The minimum wage guaranteed is 19.75 CHF/hour, equivalent to approximately 3.530 CHF/month at 100% employment."},{"q":"What are the penalties for employers violating the Collective Work Contracts in Ticino?","a":"Employers\' sanctions in Ticino may reach CHF 50,000 for repeated violations. This strengthening of sanctions has been introduced to improve compliance with regulations and protect workers from wage dumping practices."},{"q":"How can I correctly record my working hours as a front panel?","a":"To correctly record your working hours, use an Excel app or sheet to track actual hours worked daily. Keep these recordings in digital format along with pay envelopes and contracts, which will help you document any discrepancies between contractual hours and those actually processed."},{"q":"What are the resources available for frontier workers who want to report wage irregularities?","a":"Frontiers may report wage irregularities anonymously to the Cantonal Parthetic Commission (CPC) of construction, the Tripartite Commission for sectors without CCL, trade unions such as UNIA, OCST, SIT, or the Canton Ticino Labour Inspectorate. UNIA also offers free Italian advice at Lugano, Bellinzona and Mendrisio."}]',
+This is general information: a concrete dispute requires the contract, the correct CCL/CNL and professional advice.`,
+ 'blog.article.dumping-salariale-diritti-lavoratore-ticino.faq': `[{"q":"How can I tell whether my pay is below the applicable minimum?","a":"Compare the contract, actual hours, classification and payslips with the 2026 Ticino decree and the applicable CCL or CNL. The regional median wage is a benchmark, not an automatic threshold."},{"q":"What is Ticino’s cantonal minimum wage in 2026?","a":"The decree effective 1 January 2026 sets gross hourly minimums by sector, between CHF 20.00 and CHF 20.50 with intermediate values. Check the row for your sector; there is no single monthly amount for everyone."},{"q":"What sanctions can apply to wage violations?","a":"SECO states that breaches of the minimum working and wage conditions under the Posted Workers Act can lead to an administrative fine of up to CHF 30,000 or a service ban. CCL, CNL and cantonal consequences depend on the case and competent body."},{"q":"Is an employment claim below CHF 30,000 completely free?","a":"The Swiss Code of Civil Procedure excludes court fees for employment disputes up to CHF 30,000. Advice, representation and other costs are not automatically zero, so check the specific case with the court or an adviser."},{"q":"Where can I report a possible wage violation?","a":"Start with ti.ch/lavoro and the cantonal labour-market services. For a CCL contact the joint committee; other cases may involve the labour inspectorate, labour-market office or tripartite commission. Ask what information is needed and how the report is handled."}]`,
 };
 
 export default bodyDumpingSalarialeDirittiLavoratoreTicino;

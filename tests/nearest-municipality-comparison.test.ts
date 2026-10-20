@@ -154,6 +154,16 @@ describe('renderNearestComparison', () => {
     expect(html).not.toContain('href="/x/centro/"'); // la riga di questa pagina non è un link a se stessa
   });
 
+  it('rende i nomi dei comuni come celle dati sotto l’intestazione della colonna', () => {
+    const html = render('it');
+    // The municipality name is a value in this record table, not a row
+    // header. Keeping it as <td> gives the "Comune" <th> real data cells and
+    // prevents a11y/th-has-data-cells from treating the column as orphaned.
+    expect(html).toContain('<th scope="col" class="px-3 py-2 text-left font-semibold">Comune</th>');
+    expect(html).toContain('<td class="px-3 py-2 text-left font-semibold text-heading">Centro');
+    expect(html).not.toContain('<th scope="row"');
+  });
+
   it('mette la tabella in un contenitore scrollabile', () => {
     // AGENTS.md: contenuto largo scrolla dentro il suo contenitore, il body
     // della pagina non scrolla in orizzontale.
@@ -251,6 +261,27 @@ describe('sui dataset reali il blocco è diverso su ogni pagina', () => {
     expect(b).toContain('data-nearest-comparison');
     const block = (h: string) => h.slice(h.indexOf('data-nearest-comparison'));
     expect(block(a)).not.toBe(block(b));
+  });
+
+  it('comuni di frontiera: il profilo relazionale è tradotto in tutti i locali', () => {
+    const municipality = MUNICIPALITIES.find((m) => TICINO_VITA_CORRIDOR_PROVINCES.has(m.province));
+    if (!municipality) return;
+    const labels = {
+      it: 'Per la popolazione, questo comune è al posto',
+      en: 'By population, this town ranks',
+      de: 'Nach Einwohnerzahl liegt diese Gemeinde auf Rang',
+      fr: 'Pour la population, cette commune est',
+    } as const;
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const { html } = renderItalianPage({
+        municipality,
+        locale,
+        dateStamp: '2026-08-24',
+        distDir: '/tmp/does-not-need-to-exist',
+        waitSnapshot: {},
+      });
+      expect(html).toContain(labels[locale]);
+    }
   });
 
   it('non trasforma l’assenza dello snapshot corrente in una media storica live', () => {

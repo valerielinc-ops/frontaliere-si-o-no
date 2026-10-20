@@ -18,6 +18,7 @@
  */
 
 import { assignSubjectVariant } from '../../services/newsletter-subject-assign.mjs';
+import { LEGACY_SUBJECT_VARIANTS } from '../../services/newsletter-subject-variants.mjs';
 import { buildDeliveryDocId } from '../../functions/src/lib/deliveryDocId.js';
 import { toMillis } from './firestoreTimestamp.mjs';
 // One definition, in the module that already owned it — the same drift this
@@ -90,7 +91,12 @@ export async function loadCampaignVariantTotals(db, campaignId) {
     const provider = d.provider || 'unknown';
     if (EXPERIMENT_EXCLUDED_PROVIDERS.has(provider)) continue; // e.g. mailtrap sandbox — untracked opens pollute the rate
     // Persisted variant is authoritative; recompute only as a legacy fallback.
-    const variant = d.variant || assignSubjectVariant(email, campaignId);
+    // Legacy records predate persisted assignment and were generated while the
+    // experiment had exactly two arms. Keep that historical hash stable now
+    // that the live test has four arms, otherwise old sends would be silently
+    // reclassified into `pratico`/`novita`.
+    const legacyVariant = assignSubjectVariant(email, campaignId, { variants: LEGACY_SUBJECT_VARIANTS });
+    const variant = d.variant || legacyVariant;
     if (d.variant && d.variant !== assignSubjectVariant(email, campaignId)) mismatchVariant++;
 
     const cell = ensure(provider, variant);

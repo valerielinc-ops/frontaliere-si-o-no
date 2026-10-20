@@ -14,39 +14,21 @@ compatibility_date = "2026-01-01"
 # (deploy-worker.yml runs it; after a MANUAL `npx wrangler deploy`, run it too).
 # NB: the account is on Workers Paid (10M req/mo included, overage ~$0.30/M), so
 # the old free 100k/day invocation cap no longer binds — Worker-routed traffic
-# volume is no longer a scoping constraint (the section routes below add three of
-# the IT bulk's largest sections deliberately).
+# volume is no longer a scoping constraint.
 #
-# The Worker is scoped to the locale paths PLUS the ticino/svizzera/zurigo section
-# IT prefixes. The locale scope uses three exact patterns (subtree /*, bare, .html)
-# so look-alikes like /enterprise never match; each section's IT scope uses one
-# wildcard (see its comment below) so query-string hits are covered — a look-alike
-# like /cerca-lavoro-ticino-altro matches that CF route but is rejected in-code.
-# The in-code LOCALE_RE + matchSection are the authoritative matching guards.
-# Non-section IT paths stay pure Cloudflare passthrough with no Worker subrequest.
+# The apex wildcard brings every apex page, including the Italian home and paths
+# outside the named sections, through the stale-SRI response filter. In-code
+# LOCALE_RE + matchSection remain authoritative for locale/shard selection; all
+# other paths use the existing apex-origin passthrough and zone cache rules.
+# Explicit locale/section routes below remain as the route inventory.
 #
-# THE THREE `/xx.html` ROUTES STAY EXACT — DO NOT WILDCARD THEM.
-# The EDGE_PUSHED_FILES routes further down were given a trailing `*` (see the
-# /sitemap-blog-ch.xml comment for the full rationale) so a query string cannot
-# change which origin answers. The same reasoning does NOT carry over here, and
-# applying it would make things worse. Measured 2026-08-08:
-#
-#   /en.html  bare → 404      /en.html?cb=1 → 200
-#   /de.html  bare → 404      /de.html?cb=1 → 200
-#   /fr.html  bare → 404      /fr.html?cb=1 → 200
-#
-# The bare request is already routed here (these exact patterns), LOCALE_RE
-# matches, and serveShard sends it to origin-{loc}, which has no such file —
-# confirmed directly: origin-en.frontaliereticino.ch/en.html → 404 while
-# origin-en.frontaliereticino.ch/index.html → 200. The 200 comes from the
-# BYPASS: without the Worker the request lands on the Pages trunk, which does
-# carry en.html. So here the query-string variant is the one that works, and
-# wildcarding these routes would route it to the shard too and turn the last
-# working variant into a third 404. The real defect is that the locale shards do
-# not carry `<loc>.html`, or that the Worker does not fold `/en.html` onto the
-# locale root — a Worker-code/shard-content fix, not a routing one. Left open
-# deliberately; do not "make it consistent" by widening the route.
+# The three `/xx.html` routes below stay exact. The apex wildcard also captures
+# their query-string variants; locale-router explicitly sends those requests to
+# the apex origin because locale shards do not carry `<loc>.html`. This preserves
+# the existing 200 response for query variants while the bare exact routes keep
+# their current shard behavior.
 routes = [
+  { pattern = "frontaliereticino.ch/*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en",      zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en.html", zone_name = "frontaliereticino.ch" },
@@ -56,43 +38,73 @@ routes = [
   { pattern = "frontaliereticino.ch/fr/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr",      zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr.html", zone_name = "frontaliereticino.ch" },
-  # Ticino section (IT apex prefix) → origin-ticino-it (one shard repo per locale;
-  # see locale-router.js SECTION_ORIGIN.ticino). The en/de/fr Ticino subpaths
-  # (/en/find-jobs-ticino, /de/jobs-im-tessin, /fr/trouver-emploi-tessin) already
-  # reach the Worker via the /en|/de|/fr routes above and are re-targeted to
-  # origin-ticino-<loc> in-code (matchSection), so only the IT prefix needs a new
-  # route here — the IT apex otherwise bypasses the Worker entirely.
-  #
-  # ONE wildcard `…/cerca-lavoro-ticino*` (NOT bare + /* + .html exact routes): a
-  # CF route without a trailing `*` matches only the exact URL with NO query
-  # string (#2611), so the busiest section's `?utm_*`/`?fbclid=` ad/social/
-  # newsletter hits would bypass the Worker and — after the strip flip — 404 at
-  # the apex. The wildcard covers the bare path, /, .html, deep paths, AND query
-  # strings. Look-alikes like /cerca-lavoro-ticino-altro also match the CF route
-  # but matchSection returns null for them in-code → harmless apex passthrough.
-  # Same pattern as the disiscrivi-* proxies above.
+  # Apex legacy aliases. These paths are outside the /en|/de|/fr locale routes
+  # and therefore need their own wildcard route so query-string variants reach
+  # the same deterministic 301/410 response in locale-router.js.
+  { pattern = "frontaliereticino.ch/cookie*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/farmacie/ticino/castagnola/di-turno*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/pharmacies/ticino/castagnola/on-duty*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/apotheken/ticino/castagnola/notdienst*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/pharmacies/ticino/castagnola/de-garde*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/articles-frontalier/naspi-disoccupazione-frontalieri*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/jobs-im-tessin*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/grenzgaenger-artikel*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/trouver-emploi-tessin*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/nav:pension*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/nav:health*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/calcolatore-5x1000*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/servizi-partner*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/partner-services*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/partner-dienste*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/services-partenaires*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/job-board*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/calcola-stipendio/confronta-permesso-g-vs-b*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/guida-frontaliere/comuni-di-frontiera*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/vivere-in-ticino/vivere-in-svizzera*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/statistiche/traffico-dogane*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/border-traffic/gaggiolo/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/border-traffic/chiasso-brogeda/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/border-traffic/oria-gandria/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/border-traffic/rodero-stabio/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/border-traffic/ponte-tresa/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/grenze-verkehr/chiasso-brogeda/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/grenze-verkehr/oria-gandria/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/grenze-verkehr/rodero-stabio/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/grenze-verkehr/gaggiolo/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/grenze-verkehr/ponte-tresa/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/trafic-frontalier/chiasso-brogeda/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/trafic-frontalier/oria-gandria/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/trafic-frontalier/rodero-stabio/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/trafic-frontalier/gaggiolo/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/trafic-frontalier/ponte-tresa/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/events/ticino/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/veranstaltungen/tessin/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/evenements/tessin/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/guida-frontaliere/diritto-lavoro-frontalieri*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/tfr-calculator*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/calcolatore*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/guida-frontaliere/diritto-opzione-lamal*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/statistiche/confronta-premi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/stipendi-frontalieri-ticino*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/tredicesima-svizzera*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/comparatori/cambio-valuta*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/costo-della-vita*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/guida-frontaliere/nuova-legge-frontalieri-2024*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fisco-frontalieri*", zone_name = "frontaliereticino.ch" },
+  # Explicit Ticino section entry (IT apex prefix) → origin-ticino-it (one shard
+  # repo per locale; see locale-router.js SECTION_ORIGIN.ticino). The apex
+  # wildcard also covers this prefix; matchSection remains authoritative, so
+  # look-alikes pass through to the apex origin.
   { pattern = "frontaliereticino.ch/cerca-lavoro-ticino*", zone_name = "frontaliereticino.ch" },
-  # Svizzera section (IT apex prefix, nationwide aggregator) → origin-svizzera-it
-  # (one shard repo per locale; see locale-router.js SECTION_ORIGIN.svizzera). Same
-  # rationale as the Ticino route above: the en/de/fr svizzera subpaths
-  # (/en/find-jobs-switzerland, /de/jobs-in-schweiz, /fr/trouver-emploi-suisse)
-  # already reach the Worker via the /en|/de|/fr routes above and are re-targeted
-  # to origin-svizzera-<loc> in-code (matchSection), so only the IT prefix needs a
-  # new route here. Wildcard for the same reason as Ticino's: a CF route without a
-  # trailing `*` matches only the exact URL with NO query string (#2611), and this
-  # is a high-traffic section that gets `?utm_*`/`?fbclid=` ad/social/newsletter
-  # hits. Look-alikes match the CF route but matchSection rejects them in-code.
+  # Explicit Svizzera section entry (IT apex prefix, nationwide aggregator) →
+  # origin-svizzera-it (one shard repo per locale; see SECTION_ORIGIN.svizzera).
+  # The apex wildcard also covers this prefix; matchSection remains authoritative.
   { pattern = "frontaliereticino.ch/cerca-lavoro-svizzera*", zone_name = "frontaliereticino.ch" },
-  # Zurigo section (IT apex prefix, Zurich canton) → origin-zurigo-it (one shard
-  # repo per locale; see locale-router.js SECTION_ORIGIN.zurigo). Same rationale as
-  # the Ticino route above: the en/de/fr zurigo subpaths (/en/find-jobs-zurich,
-  # /de/jobs-in-zurich, /fr/trouver-emploi-zurich) already reach the Worker via the
-  # /en|/de|/fr routes above and are re-targeted to origin-zurigo-<loc> in-code
-  # (matchSection), so only the IT prefix needs a new route here. Wildcard for the
-  # same reason as Ticino's: a CF route without a trailing `*` matches only the
-  # exact URL with NO query string (#2611), and this is a high-traffic section that
-  # gets `?utm_*`/`?fbclid=` ad/social/newsletter hits. Look-alikes match the CF
-  # route but matchSection rejects them in-code.
+  # Explicit Zurigo section entry (IT apex prefix) → origin-zurigo-it (one shard
+  # repo per locale; see SECTION_ORIGIN.zurigo). The apex wildcard also covers
+  # this prefix; matchSection remains authoritative.
   { pattern = "frontaliereticino.ch/cerca-lavoro-zurigo*", zone_name = "frontaliereticino.ch" },
   # Remaining 22 canton sections + the 2 article hubs (all-cantons shard wave,
   # 2026-07-26): same rationale as Ticino/Svizzera/Zurigo above — one shard repo
@@ -127,6 +139,28 @@ routes = [
   { pattern = "frontaliereticino.ch/cerca-lavoro-san-gallo*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/articoli-frontaliere*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/articoli-svizzera*", zone_name = "frontaliereticino.ch" },
+  # Canton article sections served by the CORPUS from R2 (locale-router.js
+  # CORPUS_SECTION_ROUTES / serveCorpusSection): 24 IT apex prefixes
+  # /articoli-<canton>/, the en/de/fr ones already reach the Worker through the
+  # /en|/de|/fr routes above. ONE wildcard on the shared `/articoli-` stem
+  # instead of 24 routes, so the closed set lives in one place (the Worker's
+  # table, parity-tested against the generated section core) and not in a
+  # third copy here.
+  #
+  # It also matches /articoli-frontaliere* and /articoli-svizzera*, which keep
+  # their own (more specific) routes above to the SAME Worker: matchSection
+  # still sends them to their shards, unchanged. Any other /articoli-* path —
+  # a canton still `draft`, no registry yet, a look-alike — is fail-closed in
+  # code (serveCorpusSection returns null) and falls through to the apex
+  # passthrough, i.e. the same Pages answer it got before this route existed.
+  { pattern = "frontaliereticino.ch/articoli-*", zone_name = "frontaliereticino.ch" },
+  # Corpus sitemaps (serveCorpusEdgeFile): the index declared in robots.txt and
+  # one /sitemap-articles-<canton-id>.xml per section. Wildcards for the same
+  # query-string reason as every sitemap route below. /sitemap-articles-* also
+  # matches /sitemap-articles-archive.xml, which keeps its explicit route and its
+  # exact EDGE_PUSHED_FILES entry (checked first in code).
+  { pattern = "frontaliereticino.ch/sitemap-cantons*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/sitemap-articles-*", zone_name = "frontaliereticino.ch" },
   # Job-alert one-click unsubscribe (RFC 8058). Deliberate non-locale exception to
   # the "locale paths only" scoping above: the unsubscribe links + List-Unsubscribe
   # header in job-alert emails MUST live on the sending domain (frontaliereticino.ch)
@@ -178,6 +212,15 @@ routes = [
   # a non-wildcard route would silently miss all real traffic (#2611).
   # Look-alike paths rejected by the in-code guard.
   { pattern = "frontaliereticino.ch/disiscrivi-promemoria-salvati*", zone_name = "frontaliereticino.ch" },
+  # Application-intent reminder one-click unsubscribe (RFC 8058). Scoped to
+  # `users/{uid}.applicationIntentReminder`, never the saved-jobs digest or
+  # the underlying application-intent signal. Wildcard preserves uid/email/
+  # token query parameters for GET and one-click POST requests.
+  { pattern = "frontaliereticino.ch/disiscrivi-promemoria-candidature*", zone_name = "frontaliereticino.ch" },
+  # Apple Pay domain verification. The Worker checks the repository/Pages
+  # origin first and uses its R2 copy only when the repository file is absent.
+  # Wildcard keeps query-string probes on the same deterministic path.
+  { pattern = "frontaliereticino.ch/.well-known/apple-developer-merchantid-domain-association*", zone_name = "frontaliereticino.ch" },
   # Pushable-origin edge file, rollout step 1 of N (issue #4881 Fase 3, see
   # locale-router.js EDGE_PUSHED_FILES). Adding the next pushed path is a
   # one-line addition here + one object-literal entry in EDGE_PUSHED_FILES, no
@@ -295,4 +338,3 @@ routes = [
 [observability]
 enabled = true
 head_sampling_rate = 1
-

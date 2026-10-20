@@ -22,6 +22,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
+import { sourceLocaleDescription } from './source-locale-description.mjs';
 
 const BASE_URL = 'https://www.find-your-future.ch';
 
@@ -333,39 +334,30 @@ export function parseAgieCharmillesDetailPage(html = '') {
 }
 
 /**
- * Build localized content for an AGIE Charmilles job.
+ * Build localized content for an AGIE Charmilles job. The description is the
+ * find-your-future detail text, whatever its length, published in its own
+ * language slot only (`job.language` when the listing states it); the
+ * translation step fills the other locales.
+ *
+ * This used to put a line of its own in front of the text ("<title> — AGIE
+ * Charmilles SA (GF Machining Solutions), <city> (<canton>).") and copy the
+ * result — German, for the Biel postings — into all four slots, so the
+ * Italian/English/French pages showed the German posting and were never
+ * translated; under 50 words it published a company paragraph of its own in
+ * four languages instead. A posting without text now gets no description and
+ * takes the pipeline's thin-source path.
  */
 export function buildAgieCharmillesLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const city = String(job.city || 'Losone').trim();
-  const detailDescription = String(job.detailDescription || '').trim();
-  const canton = inferAgieCharmillesCanton(job);
-
-  // If we have a rich detail description (>= 50 words), use it
-  if (detailDescription && detailDescription.split(/\s+/).length >= 50) {
-    const metaLine = `${title} — AGIE Charmilles SA (GF Machining Solutions), ${city} (${canton}).`;
-    const description = `${metaLine}\n\n${detailDescription}`;
-    return {
-      titleByLocale: { it: title, en: title, de: title, fr: title },
-      descriptionByLocale: { it: description, en: description, de: description, fr: description },
-      slugByLocale: {
-        it: slugify(`${title}-agie-charmilles-${city}`),
-        en: slugify(`${title}-agie-charmilles-${city}`),
-        de: slugify(`${title}-agie-charmilles-${city}`),
-        fr: slugify(`${title}-agie-charmilles-${city}`),
-      },
-    };
-  }
-
-  // Richer fallback descriptions (>50 words each)
-  const itDesc = `AGIE Charmilles SA (GF Machining Solutions) cerca ${title} a ${city}. L'azienda è leader mondiale nelle macchine utensili ad alta precisione, specializzata in elettroerosione (EDM), fresatura ad alta velocità, tecnologia laser e produzione additiva (AM). Con sede a Losone (TI) e parte del gruppo internazionale Georg Fischer, AGIE Charmilles offre un ambiente di lavoro innovativo e tecnologicamente avanzato, con opportunità di crescita professionale in un contesto multinazionale. Candidati tramite il portale find-your-future.ch.`;
-  const enDesc = `AGIE Charmilles SA (GF Machining Solutions) is hiring for ${title} in ${city}. The company is a global leader in high-precision machine tools, specializing in electrical discharge machining (EDM), high-speed milling, laser technology, and additive manufacturing (AM). Based in Losone (TI) and part of the international Georg Fischer group, AGIE Charmilles offers an innovative and technologically advanced work environment with professional growth opportunities in a multinational context. Apply through the find-your-future.ch portal.`;
-  const deDesc = `AGIE Charmilles SA (GF Machining Solutions) sucht ${title} in ${city}. Das Unternehmen ist Weltmarktführer für hochpräzise Werkzeugmaschinen, spezialisiert auf Funkenerosion (EDM), Hochgeschwindigkeitsfräsen, Lasertechnologie und additive Fertigung (AM). Mit Sitz in Losone (TI) und als Teil der internationalen Georg Fischer Gruppe bietet AGIE Charmilles ein innovatives und technologisch fortschrittliches Arbeitsumfeld mit Möglichkeiten zur beruflichen Weiterentwicklung in einem multinationalen Kontext. Bewerben Sie sich über das Portal find-your-future.ch.`;
-  const frDesc = `AGIE Charmilles SA (GF Machining Solutions) recrute ${title} à ${city}. L'entreprise est un leader mondial des machines-outils de haute précision, spécialisée dans l'électroérosion (EDM), le fraisage à grande vitesse, la technologie laser et la fabrication additive (AM). Basée à Losone (TI) et faisant partie du groupe international Georg Fischer, AGIE Charmilles offre un environnement de travail innovant et technologiquement avancé avec des opportunités de développement professionnel dans un contexte multinational. Postulez via le portail find-your-future.ch.`;
+  const source = sourceLocaleDescription(job.detailDescription, { defaultLang: 'en' });
+  const sourceLang = String(job.language || '').trim().toLowerCase() || source.sourceLang;
 
   return {
+    description: source.description,
+    sourceLang,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: source.description ? { [sourceLang]: source.description } : {},
     slugByLocale: {
       it: slugify(`${title}-agie-charmilles-${city}`),
       en: slugify(`${title}-agie-charmilles-${city}`),
@@ -373,4 +365,31 @@ export function buildAgieCharmillesLocalizedContent(job = {}) {
       fr: slugify(`${title}-agie-charmilles-${city}`),
     },
   };
+}
+
+// Fossils of the former builder in stored jobs: the header line in front of
+// the posting, or the substituted company paragraph (four languages).
+const AGIE_HEADER_RE = /^[^\n]{1,300}? — AGIE Charmilles SA \(GF Machining Solutions\), [^\n]{1,80}? \([A-Z]{2}\)\.\s*/;
+const AGIE_FALLBACK_RE = /^AGIE Charmilles SA \(GF Machining Solutions\) (?:cerca|is hiring for|sucht|recrute) /;
+
+/**
+ * Remove the former builder's text from a stored job. Every locale slot held
+ * the prefixed source (a copy, not a translation) or the substituted
+ * paragraph, and the runner's merge keeps existing non-source slots, so all
+ * slots are dropped and rebuilt by the translation step; the description keeps
+ * only the posting text (nothing, when it was the substituted paragraph).
+ *
+ * @returns {boolean} true when the job carried the former text.
+ */
+export function dropAgieCharmillesFabricatedText(job) {
+  if (!job || typeof job !== 'object') return false;
+  const texts = [job.description, ...Object.values(job.descriptionByLocale || {})].map((t) => String(t || '').trim());
+  if (!texts.some((t) => AGIE_HEADER_RE.test(t) || AGIE_FALLBACK_RE.test(t))) return false;
+  const description = String(job.description || '').trim();
+  const body = AGIE_FALLBACK_RE.test(description) ? '' : description.replace(AGIE_HEADER_RE, '').trim();
+  const sourceLang = String(job.sourceLang || '').trim() || sourceLocaleDescription(body).sourceLang;
+  job.description = body;
+  job.descriptionByLocale = body ? { [sourceLang]: body } : {};
+  job.needsRetranslation = true;
+  return true;
 }

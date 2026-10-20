@@ -13,6 +13,9 @@ import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBou
 import { reportCaughtError } from '@/services/errorReporter';
 import { fetchCommitHash } from '@/services/buildInfo';
 import { getContextualConversionContext } from '@/services/conversionContext';
+import { userProfileStorageKey } from '@/services/userProfileStorage';
+import { DEFAULT_INPUTS } from '@/constants';
+import type { SimulationInputs } from '@/types';
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 // Newsletter/community popups are NON-CRITICAL overlays. Use React.lazy (NOT
 // lazyRetry) + SilentErrorBoundary (see SafeLazy below) so a chunk-load failure
@@ -25,8 +28,6 @@ const GamificationWidget = lazyRetry(() => import('@/components/community/Gamifi
 const NewsletterPopup = React.lazy(() => import('@/components/community/NewsletterPopup'));
 // Gates [data-pdf-gate] anchor downloads (self-certification forms) behind email/social signup.
 const PdfDownloadGate = React.lazy(() => import('@/components/shared/PdfDownloadGate'));
-// AdBlock detection gate + A/B bucket (#3654). Client-only overlay, never SSR.
-const AdBlockGate = React.lazy(() => import('@/components/community/AdBlockGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
 const ContextualConversionCard = React.lazy(() => import('@/components/shared/ContextualConversionCard'));
 const NewsletterMount = React.lazy(() => import('@/components/community/NewsletterMount'));
@@ -134,6 +135,7 @@ const PreferredSourceCTA = lazyRetry(() => import('@/components/shared/Preferred
 const ConsultingPage = lazyRetry(() => import('@/components/pages/ConsultingPage'));
 const PressKit = lazyRetry(() => import('@/components/pages/PressKit'));
 const JobBoard = lazyRetry(() => import('@/components/community/JobBoard'));
+const ApplicationConciergePortal = lazyRetry(() => import('@/components/community/ApplicationConciergePortal'));
 const GptJobBoardBootstrap = React.lazy(() => import('@/components/shared/GptJobBoardBootstrap'));
 const PlateAuctionsPage = lazyRetry(() => import('@/components/pages/PlateAuctionsPage').then(m => ({ default: m.PlateAuctionsPage })));
 const FooterWeather = lazyRetry(() => import('@/components/shared/FooterWeather'));
@@ -141,6 +143,7 @@ const MorningDashboard = lazyRetry(() => import('@/components/vita/MorningDashbo
 const PharmacyDirectory = lazyRetry(() => import('@/components/pages/PharmacyDirectory'));
 // UserProfile component is lazy-loaded; utility functions loaded on demand
 const UserProfile = lazyRetry(() => import('@/components/pages/UserProfile'));
+const PaidAssistedApplicationsPage = lazyRetry(() => import('@/components/pages/PaidAssistedApplicationsPage'));
 const BlogArticles = lazyRetry(() => {
  // Prefetch blog meta translations + slug map in parallel with component
  // chunk. preloadBlogData is paired with every loadBlogMeta call site so
@@ -185,9 +188,13 @@ import { useNavigationState } from '@/hooks/useNavigationState';
 import { setDefaultConsent } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 import { installBlogImageCdnFallback } from '@/services/seo/blogImageCdn';
+import { getAutoAdOverlayClearance, subscribeToAutoAdOverlay } from '@/services/autoAdOverlay';
+import { installNavOverlayGuard } from '@/services/navOverlayGuard';
 import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
+import { useAdPageDiag } from '@/hooks/useAdPageDiag';
 import { useJobAlertReturnVisit } from '@/hooks/useJobAlertReturnVisit';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
+import { peekPendingJobAlert } from '@/services/pendingJobAlert';
 // CookieBanner removed — consent is silently granted by default (see consentService.ts).
 // It has NOT come back. AdsConsentBanner (the #5842 custom advertising prompt) is
 // gone too (CMP-single-surface rework): the blocking Google Funding Choices
@@ -222,14 +229,21 @@ import { buildHealthPremiumsCantonPath } from '@/build-plugins/shared/healthPrem
 import { HUB_SLUGS as SEO_HUB_SLUGS, FOOTER_TOP_SECTORS as SEO_FOOTER_TOP_SECTORS, FOOTER_TOP_CITIES as SEO_FOOTER_TOP_CITIES, HUB_SECTORS as SEO_HUB_SECTORS, hubSlugFor as seoHubSlugFor, svizzeraArticlesArchiveBasePaths as seoSvizzeraArticlesArchiveBasePaths, type HubLocale as SeoHubLocale } from '@/build-plugins/seoHubsData';
 import { resolveCantonSection as resolveSeoCantonSection, legacyTiSectionRoot } from '@/build-plugins/shared/cantonSection';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from '@/build-plugins/shared/jobSectorPaths';
-import { pushRoute, buildPath, getSeoSection, AppRoute, parsePath } from '@/services/router';
+import { pushRoute, buildPath, getSeoSection, AppRoute, parsePath, isApplicationConciergePath } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, GlossaryTermId } from '@/services/router';
+import {
+  afterRootCrossfade,
+  removeOwnedStaticSnapshot,
+  shouldKeepStaticFallbackOutsideRoot,
+  STATIC_SNAPSHOT_OWNER_ATTR,
+} from '@/services/staticFallbackHandoff';
 import { NavigationContext } from '@/services/NavigationContext';
 import type { NavigationContextType } from '@/services/NavigationContext';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { ContactPrefill } from '@/components/pages/ContactPage';
 import { SubTabNav } from '@/components/navigation/SubTabNav';
 import type { SubTabItem } from '@/components/navigation/SubTabNav';
+import { ArticleSectionNavigation } from '@/components/navigation/ArticleSectionNav';
 import {
  useAuth,
  getUserPhotoURL,
@@ -243,6 +257,10 @@ import {
  exchangeLinkedInCode,
  saveUserProfileToFirestore,
  consumeAuthJobContext,
+ consumeAuthAttributionContext,
+ resolveAuthConsentSurface,
+ jobGateSubscriberVariantFor,
+ sanitizeAuthReturnPath,
 } from '@/services/authService';
 import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
@@ -276,13 +294,14 @@ import {
  Banknote, Fuel, Scale, Loader2, Menu, X, ScrollText, Info, Send, Gavel
 } from 'lucide-react';
 import { TELEGRAM_CHANNEL_URL, isTelegramChannelConfigured } from '@/services/telegramChannel';
+import { isSiteAdminUid } from '@/services/adminIdentity';
+import { FOOTER_LINK_GROUP_CLASS } from '@/components/footer/footerLinkGroup';
 import type { FuelStationMapPayload } from '@/components/pages/FuelStationMap';
 
+import StaticPrefooterSlot from '@/components/shared/StaticPrefooterSlot';
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
 
 const LazyFallback = () => <SkeletonFallback />;
-const ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com'];
-
 type CompanyFollowFollowup = {
  required: true;
  sourcePath: string | null;
@@ -345,6 +364,17 @@ function safeCompanyFollowPath(value: unknown): string | null {
  }
 }
 
+/**
+ * The assistant's fallback Google button (the one App.tsx hands to the chat as
+ * `onSignIn` when the GIS button is not ready). Its own cta keeps it apart from
+ * the rendered button's `ai_chatbot_social`; the component names the surface,
+ * so the registration records `ai_chatbot` rather than an anonymous login.
+ */
+const AI_CHATBOT_FALLBACK_AUTH_ATTRIBUTION = Object.freeze({
+ cta: 'ai_chatbot_fallback_google',
+ component: 'AiChatbot',
+});
+
 const App: React.FC = () => {
  const { t, locale } = useTranslation();
  const companyFollowupCopy = COMPANY_FOLLOWUP_COPY[locale] || COMPANY_FOLLOWUP_COPY.it;
@@ -365,17 +395,50 @@ const App: React.FC = () => {
  const {
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
- blogArticle, blogSection, swissArticle, seoLanding, glossaryTerm, borderCrossing,
+ blogArticle, blogSection, swissArticle, cantonArticle, cantonTopic, blogPage, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus, notFoundPath,
- jobBoardFilterParams, staticOverlay,
+ jobBoardFilterParams, staticOverlay, articleStaticFallbackKey,
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,
- setBlogArticle, setBlogSection, setSwissArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
+ setBlogArticle, setBlogSection, setSwissArticle, setCantonArticle, setCantonTopic, setBlogPage, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
  setNotFoundPath, setJobBoardFilterParams, setStaticOverlay,
+ markStaticArticleReady, clearStaticArticleFallback,
  suppressNextRouteSyncForTabRef,
  handleTabChange: navHandleTabChange, handleSearchNavigate,
  } = useNavigationState();
+
+ // A direct canton hub already contains a complete corpus-rendered body. Keep
+ // that body visible until the version-matched HTTP payload has painted the
+ // React equivalent; this makes the hydration handoff atomic and avoids both
+ // a blank frame and a layout shift on slow mobile connections.
+ const [cantonTopicReadyKey, setCantonTopicReadyKey] = useState<string | null>(null);
+ // Same release rule as the article: never while the mount's fade still has
+ // #root transparent. A key that lands late simply no longer matches the route.
+ const markCantonTopicReady = useCallback((key: string) => {
+   afterRootCrossfade(() => setCantonTopicReadyKey(key));
+ }, []);
+ const cantonTopicRouteKey = blogSection.startsWith('canton-') && cantonTopic
+   ? `${blogSection}:${cantonTopic}:${locale}`
+   : null;
+ const cantonTopicStaticFallback = !!cantonTopicRouteKey
+   && cantonTopicReadyKey !== cantonTopicRouteKey
+   && shouldKeepStaticFallbackOutsideRoot(
+     { activeTab: 'blog', blogSection, cantonTopic: cantonTopic || undefined, staticOverlay },
+     'canton-topic',
+     typeof document !== 'undefined' && !!document.querySelector('main.seo-static-content'),
+   );
+ const cantonTopicDeferUntilReady = cantonTopicStaticFallback
+   && typeof document !== 'undefined'
+   && !!document.querySelector('main.seo-static-content');
+ const articleStaticFallback = !!articleStaticFallbackKey;
+ // A static snapshot (article, or canton topic hub) still owns the body. The
+ // SPA <main> has to be mounted, or its view could never load and say it is
+ // ready, but until then it must take no space and paint nothing: left in the
+ // flow it pushed the snapshot down by its own padding and showed the "last
+ // updated" line above it (0.05 of layout shift on a desktop article, and
+ // 0.86 more when that line jumped below the article at the swap).
+ const staticSnapshotOwnsBody = articleStaticFallback || cantonTopicStaticFallback;
 
  const contextualPath = typeof window !== 'undefined' ? window.location.pathname : '/';
  const contextualConversion = useMemo(
@@ -385,7 +448,16 @@ const App: React.FC = () => {
 
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
+ const [autoAdOverlayClearance, setAutoAdOverlayClearance] = useState(() => getAutoAdOverlayClearance());
+ useEffect(() => subscribeToAutoAdOverlay(setAutoAdOverlayClearance), []);
+ // Keeps floating third-party overlays (AdSense ad-intents chip) off the
+ // sticky nav by moving them just below it — never hiding them (#7).
+ const mainNavRef = useRef<HTMLElement>(null);
+ useEffect(() => (mainNavRef.current ? installNavOverlayGuard(mainNavRef.current) : undefined), []);
  useSeoPageTracking();
+ // One GA4 `ad_page_diag` per page view (services/adPageDiag.ts); on static
+ // pages the AdSense loader owns the first one and this takes over on navigation.
+ useAdPageDiag();
  // "This person came back to the site" — the single fact a decayed job alert
  // needs to come back to life (#5705, owner's decision of 2026-08-14). Records
  // only; the sender decides, and refuses on seven grounds. One write per browser
@@ -511,13 +583,30 @@ const App: React.FC = () => {
        staticMain.style.removeProperty('display');
        continue;
      }
+     // An article has a React equivalent, and so does a canton topic hub, but
+     // the first HTML of both is the corpus snapshot. Do not take that
+     // snapshot away until the SPA view has rendered (for the hub: the runtime
+     // payload with the matching edge commit); on a soft navigation the old
+     // static main has already been removed, so the React loading shell is
+     // allowed to own the viewport.
+     if (staticSnapshotOwnsBody) {
+       staticMain.style.removeProperty('display');
+       staticMain.setAttribute(STATIC_SNAPSHOT_OWNER_ATTR, '');
+       continue;
+     }
+     // The SPA view took over in this very commit: the snapshot that owned
+     // the body goes, for good (see removeOwnedStaticSnapshot).
+     if (staticMain.hasAttribute(STATIC_SNAPSHOT_OWNER_ATTR) && !staticOverlay) {
+       removeOwnedStaticSnapshot(staticMain);
+       continue;
+     }
      if (staticOverlay) {
        staticMain.style.removeProperty('display');
      } else {
        staticMain.style.setProperty('display', 'none', 'important');
      }
    }
- }, [activeTab, staticOverlay]);
+ }, [activeTab, staticSnapshotOwnsBody, staticOverlay]);
 
  // Static sub-nav deduplication: build plugins (staticPagesPlugin via
  // `renderHubChromeSplit`) ship a server-rendered `<nav class="seo-hub-subnav">`
@@ -557,9 +646,13 @@ const App: React.FC = () => {
  navHandleTabChange(tab);
  }, [navHandleTabChange]);
 
- const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
+ const [scopedUserProfile, setScopedUserProfile] = useState<{ uid: string | null; profile: UserProfileData | null }>({ uid: null, profile: null });
+ const userProfile = scopedUserProfile.uid === (authUser?.uid ?? null) ? scopedUserProfile.profile : null;
+ const profileAppliedInputsRef = useRef<{ uid: string | null; values: Partial<SimulationInputs> } | null>(null);
  const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
  const [enablePersonalization, setEnablePersonalization] = useState(false);
+ const [enableApplicationIntentRanking, setEnableApplicationIntentRanking] = useState(false);
+ const [behaviorHydrationRevision, setBehaviorHydrationRevision] = useState(0);
  const [adminGoogleButtonReady, setAdminGoogleButtonReady] = useState(false);
  const adminGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const [linkedInCallbackProcessing, setLinkedInCallbackProcessing] = useState(false);
@@ -567,43 +660,82 @@ const App: React.FC = () => {
 
  // Load user profile for prefilling simulator inputs (deferred to idle)
  // Skipped when URL params already hydrated the inputs
- useEffect(() => {
- const loadProfile = () => {
+ useLayoutEffect(() => {
+ const nextUid = authUser?.uid ?? null;
+ const previousPrefill = profileAppliedInputsRef.current;
+ if (previousPrefill && previousPrefill.uid !== nextUid) {
+  profileAppliedInputsRef.current = null;
+  setInputs(prev => {
+   const next = { ...prev };
+   for (const key of Object.keys(previousPrefill.values) as Array<keyof SimulationInputs>) {
+    if (Object.is(prev[key], previousPrefill.values[key])) {
+     (next as unknown as Record<string, unknown>)[key] = DEFAULT_INPUTS[key];
+    }
+   }
+   return next;
+  });
+ }
+ setScopedUserProfile({ uid: nextUid, profile: null });
+ setResult(null);
+ let cancelled = false;
+ let idleRequest: number | null = null;
+ let timeoutRequest: ReturnType<typeof setTimeout> | null = null;
+ const loadProfile = async () => {
  // If URL params set the inputs, don't overwrite with profile
- if (urlHydrated.current) return;
- import('@/components/pages/UserProfile').then(({ loadUserProfile, profileToSimInputs }) => {
- const profile = loadUserProfile();
- const hasData = profile.familySituation || profile.children !== '0' || profile.age || profile.frontaliereType;
+ if (cancelled || urlHydrated.current) return;
+ try {
+ const [{ loadUserProfile, profileToSimInputs }, { loadUserProfile: loadPrivateUserProfile }] = await Promise.all([
+  import('@/components/pages/UserProfile'),
+  import('@/services/profileFirestore'),
+ ]);
+ if (cancelled) return;
+ let profile = loadUserProfile(authUser?.uid);
+ let hasData = Boolean(profile.familySituation || profile.children || profile.age || profile.frontaliereType);
+ if (!hasData && authUser?.uid) {
+  const privateProfile = await loadPrivateUserProfile(authUser.uid);
+  if (cancelled) return;
+  if (privateProfile) {
+   profile = { ...profile, ...privateProfile } as UserProfileData;
+   hasData = Boolean(profile.familySituation || profile.children || profile.age || profile.frontaliereType);
+  }
+ }
+ if (cancelled) return;
+ setScopedUserProfile({ uid: authUser?.uid ?? null, profile: hasData ? profile : null });
  if (hasData) {
- setUserProfile(profile);
- // Prefill simulation inputs from profile
- const prefilled = profileToSimInputs(profile);
- if (Object.keys(prefilled).length > 0) {
- setInputs(prev => ({ ...prev, ...prefilled }));
+  const prefilled = profileToSimInputs(profile);
+  if (Object.keys(prefilled).length > 0) {
+   profileAppliedInputsRef.current = { uid: authUser?.uid ?? null, values: prefilled };
+   setInputs(prev => ({ ...prev, ...prefilled }));
+  }
  }
- }
- }).catch((e) => { reportCaughtError(e, 'app.loadUserProfile'); });
+ } catch (e) { reportCaughtError(e, 'app.loadUserProfile'); }
  };
  const idleWindow = window as Window & {
  requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ cancelIdleCallback?: (handle: number) => void;
  };
  if (typeof idleWindow.requestIdleCallback === 'function') {
- idleWindow.requestIdleCallback(loadProfile, { timeout: 4000 });
+ idleRequest = idleWindow.requestIdleCallback(() => { void loadProfile(); }, { timeout: 4000 });
  } else {
- setTimeout(loadProfile, 2000);
+ timeoutRequest = setTimeout(() => { void loadProfile(); }, 2000);
  }
  // Listen for profile updates via storage events
  const onStorage = (e: StorageEvent) => {
- if (e.key === 'frontaliere_user_profile' && e.newValue) {
+ if (e.key === userProfileStorageKey(authUser?.uid) && e.newValue) {
  try {
  const updated = JSON.parse(e.newValue) as UserProfileData;
- setUserProfile(updated);
+ setScopedUserProfile({ uid: authUser?.uid ?? null, profile: updated });
  } catch { /* ignore */ }
  }
  };
  window.addEventListener('storage', onStorage);
- return () => window.removeEventListener('storage', onStorage);
- }, []);
+ return () => {
+  cancelled = true;
+  if (idleRequest != null) idleWindow.cancelIdleCallback?.(idleRequest);
+  if (timeoutRequest != null) clearTimeout(timeoutRequest);
+  window.removeEventListener('storage', onStorage);
+ };
+ }, [authUser?.uid]);
 
  // Auto-login via HMAC autologin code or legacy custom token in newsletter URL
  useEffect(() => {
@@ -711,6 +843,9 @@ const App: React.FC = () => {
  return;
  }
  if (!decodedState.startsWith('/')) return;
+ // Same-origin paths only: `//host` or `/\host` would make the final
+ // location.replace an open redirect.
+ if (!sanitizeAuthReturnPath(decodedState)) return;
 
  // Only handle on expected callback path OR on root (fallback when the
  // sessionStorage-based SPA restoration from /auth/linkedin/callback/ fails).
@@ -718,6 +853,10 @@ const App: React.FC = () => {
  if (path !== '/auth/linkedin/callback' && path !== '/') return;
 
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'callback-return');
+
+ // The surface that started the login, parked by signInWithLinkedIn under
+ // this exact `state`; without it the origin page is the state path itself.
+ const linkedInAttribution = consumeAuthAttributionContext({ linkedinState: state }) || { page: decodedState };
 
  if (errorParam) {
  // User cancelled or LinkedIn returned an error
@@ -730,7 +869,20 @@ const App: React.FC = () => {
 
  setLinkedInCallbackProcessing(true);
 
- const customToken = await exchangeLinkedInCode(code);
+ // Read before the exchange: the job context also names the consent
+ // surface (the job gate) of the registration the Cloud Function writes.
+ const savedJobCtx = consumeAuthJobContext();
+ const linkedInConsentSurface = resolveAuthConsentSurface({
+  provider: 'linkedin',
+  attribution: linkedInAttribution,
+  jobContext: savedJobCtx,
+ });
+ const customToken = await exchangeLinkedInCode(code, linkedInAttribution, {
+  surface: linkedInConsentSurface,
+  // jobgate arm of an enrolled gate login: the Cloud Function creates the
+  // subscriber, so the readout's join key has to reach it.
+  variant: jobGateSubscriberVariantFor(savedJobCtx, linkedInConsentSurface),
+ });
 
  if (cancelled) return;
 
@@ -746,11 +898,11 @@ const App: React.FC = () => {
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', user ? 'success' : 'no-user');
 
  if (user) {
- // Best-effort: save/update user profile in Firestore for personalization
- saveUserProfileToFirestore(user, 'linkedin').catch(() => {});
+ // Best-effort: save/update user profile in Firestore for personalization,
+ // with the job and surface contexts that started this LinkedIn login.
+ saveUserProfileToFirestore(user, 'linkedin', savedJobCtx, linkedInAttribution).catch(() => {});
 
  const email = getAuthEmail(user);
- const savedJobCtx = consumeAuthJobContext();
 
  // Google/Email emit job_auth_funnel:auth_success inline; LinkedIn lands here
  // after a full-page OAuth redirect so the success event must be emitted from
@@ -932,9 +1084,14 @@ const App: React.FC = () => {
  }
  localCompanyFollowPath = safeCompanyFollowPath(localCompanyFollows[0]?.sourceJobUrl);
  const serverFollowup = result.companyFollowFollowup;
+ // The endpoint already turned the server-recorded follow into the alert:
+ // nothing to complete here, and the local queue (replayed below) converges
+ // on that same alert instead of signalling a company-only signup.
+ const serverFulfilledFollow = Boolean(result.companyFollowFulfilled) && !serverFollowup;
  const companyOnlyFollowup = serverFollowup?.newsletterActive === false
-  || (!serverFollowup && localCompanyFollows.length > 0);
- followupForUi = serverFollowup || localCompanyFollows.length > 0
+  || result.companyFollowFulfilled?.newsletterActive === false
+  || (!serverFollowup && !serverFulfilledFollow && localCompanyFollows.length > 0);
+ followupForUi = serverFollowup || (!serverFulfilledFollow && localCompanyFollows.length > 0)
   ? {
    required: true,
    sourcePath: safeCompanyFollowPath(serverFollowup?.sourcePath) || localCompanyFollowPath,
@@ -1349,28 +1506,44 @@ const App: React.FC = () => {
  // an explicit form or a gate that renders the communications notice; this
  // listener only derives account state and must not write the subscriber record.
  const authEmail = useMemo(() => authUser ? getAuthEmail(authUser) : null, [authUser]);
- const isPrivilegedAdmin = useMemo(() => ADMIN_EMAIL_WHITELIST.includes(authEmail?.toLowerCase() ?? ''), [authEmail]);
+ const isPrivilegedAdmin = useMemo(() => isSiteAdminUid(authUser?.uid), [authUser?.uid]);
  useEffect(() => {
  if (activeTab === 'admin') eagerAuth();
  }, [activeTab]);
 
  // ── Personalization feature flag (Firebase Remote Config) ──
  useEffect(() => {
- import('@/services/firebase').then(({ getConfigValue }) =>
- getConfigValue('ENABLE_JOB_PERSONALIZATION').then((v) => setEnablePersonalization(v === 'true'))
- ).catch(() => {});
+ import('@/services/firebase').then(({ getConfigValue }) => Promise.all([
+  getConfigValue('ENABLE_JOB_PERSONALIZATION').catch(() => 'false'),
+  getConfigValue('APPLICATION_INTENT_RANKING_ENABLED').catch(() => 'false'),
+ ])).then(([personalization, applicationIntentRanking]) => {
+  setEnablePersonalization(personalization === 'true');
+  setEnableApplicationIntentRanking(applicationIntentRanking === 'true');
+ }).catch(() => {});
  }, []);
 
  // ── Personalization: Firestore sync on auth ──
+ const authUid = authUser?.uid || null;
  useEffect(() => {
- if (!enablePersonalization || !authEmail) return;
+ if (!enablePersonalization && !enableApplicationIntentRanking) return;
+ let cancelled = false;
  let cleanup: (() => void) | undefined;
- import('@/services/behaviorTracker').then(({ hydrateFromFirestore, syncToFirestore, startSyncInterval }) => {
- hydrateFromFirestore(authEmail).then(() => syncToFirestore(authEmail)).catch(() => {});
- cleanup = startSyncInterval(authEmail);
+ import('@/services/behaviorTracker').then(({ hydrateFromFirestore, syncToFirestore, startSyncInterval, setApplicationIntentAccount }) => {
+  if (cancelled) return;
+  setApplicationIntentAccount(authUid);
+  if (!authEmail) {
+   setBehaviorHydrationRevision((revision) => revision + 1);
+   return;
+  }
+  hydrateFromFirestore(authEmail, authUid).then(async (hydrated) => {
+   if (cancelled) return;
+   setBehaviorHydrationRevision((revision) => revision + 1);
+   if (hydrated) await syncToFirestore(authEmail, authUid);
+   if (!cancelled) cleanup = startSyncInterval(authEmail, hydrated, authUid);
+  }).catch(() => {});
  }).catch(() => {});
- return () => { cleanup?.(); };
- }, [enablePersonalization, authEmail]);
+ return () => { cancelled = true; cleanup?.(); };
+ }, [enablePersonalization, enableApplicationIntentRanking, authEmail, authUid]);
 
  useEffect(() => {
  let cancelled = false;
@@ -1406,7 +1579,9 @@ const App: React.FC = () => {
  }, [activeTab, authLoading, authUser, isPrivilegedAdmin, locale]);
 
  const chatbotGoogleSignIn = async (): Promise<any | null> => {
- return googleSignIn();
+ // The assistant's fallback button: attributed to the assistant, so its
+ // registration names the surface it came from.
+ return googleSignIn(AI_CHATBOT_FALLBACK_AUTH_ATTRIBUTION);
  };
 
  const chatbotFacebookSignIn = async (): Promise<any | null> => {
@@ -2106,6 +2281,7 @@ const App: React.FC = () => {
  // Navigation context value — shared with child components via useNavigation()
  // navigateTo() is the canonical one-call navigation: sets tab + sub-tab + pushes URL.
  const navigateTo = useCallback((tab: ActiveTab, subTab?: string, canton?: string) => {
+ clearStaticArticleFallback();
  setActiveTab(tab);
  if (tab === 'calculator' && subTab) setCalcolatoreSubTab(subTab as CalcolatoreSubTab);
  else if (tab === 'confronti' && subTab) setConfrontiSubTab(subTab as ConfrontiSubTab);
@@ -2117,7 +2293,7 @@ const App: React.FC = () => {
  else if (tab === 'job-board' && subTab) setJobSlug(subTab);
  else if (tab === 'autore' && subTab) setAuthor(subTab);
  // Programmatic nav into the blog tab defaults to the cross-border section.
- if (tab === 'blog') { setSwissArticle(null); setBlogSection('frontaliere'); }
+ if (tab === 'blog') { setSwissArticle(null); setCantonArticle(null); setCantonTopic(null); setBlogPage(null); setBlogSection('frontaliere'); }
  const route: AppRoute = { activeTab: tab };
  if (tab === 'calculator') route.calcolatoreSubTab = (subTab || calcolatoreSubTab) as CalcolatoreSubTab;
  if (tab === 'confronti') route.confrontiSubTab = (subTab || confrontiSubTab) as ConfrontiSubTab;
@@ -2138,7 +2314,15 @@ const App: React.FC = () => {
  if (!(tab === 'job-board' && !subTab)) {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
- }, [calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab, author]);
+ }, [calcolatoreSubTab, clearStaticArticleFallback, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab, author]);
+
+ // JobAlertForm parks a guest's criteria before sending them to the existing
+ // profile auth screen. Re-enter the board after auth so the mounted form can
+ // consume and replay that intent instead of leaving the visitor on profile.
+ useEffect(() => {
+  if (activeTab !== 'profile' || !authUser?.uid || !peekPendingJobAlert()) return;
+  navigateTo('job-board');
+ }, [activeTab, authUser?.uid, navigateTo]);
 
  const navContextValue = useMemo<NavigationContextType>(() => ({
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
@@ -2202,7 +2386,7 @@ const App: React.FC = () => {
  }, []);
 
  // Same collapse-on-empty behaviour as the SPA rail above, applied to the
- // staticOverlay 300px rail gutter. `.ft-rail-grid` is build-time HTML
+ // staticOverlay rail gutter. `.ft-rail-grid` is build-time HTML
  // outside #root (build-plugins/shared/railGutters.ts), not a React element,
  // so the width is driven by direct DOM mutation instead of a style prop.
  // Scoped out as a follow-up when the SPA rails were fixed — #2830: "300px
@@ -2212,7 +2396,13 @@ const App: React.FC = () => {
  if (!staticOverlay) return;
  const grid = document.querySelector<HTMLElement>('.ft-rail-grid');
  if (!grid) return;
- grid.style.gridTemplateColumns = `${railsCollapsed.left ? '0px' : '300px'} minmax(0,1fr) ${railsCollapsed.right ? '0px' : '300px'}`;
+ const applyRailColumns = () => {
+   const railWidth = window.innerWidth >= 1400 ? '300px' : '160px';
+   grid.style.gridTemplateColumns = `${railsCollapsed.left ? '0px' : railWidth} minmax(0,1fr) ${railsCollapsed.right ? '0px' : railWidth}`;
+ };
+ applyRailColumns();
+ window.addEventListener('resize', applyRailColumns);
+ return () => window.removeEventListener('resize', applyRailColumns);
  }, [staticOverlay, railsCollapsed]);
 
  return (
@@ -2241,13 +2431,13 @@ const App: React.FC = () => {
      sticky descendant (the rails went blank past the first screenful on long
      articles). overflow-y stays visible (the min-h-screen column grows with
      content, so nothing vertical was ever clipped). */}
- <div className={`app-shell-col ${staticOverlay ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-x-clip`}>
+ <div className={`app-shell-col ${(staticOverlay || staticSnapshotOwnsBody) ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-x-clip`}>
  {/* Skip-to-content: first focusable element so keyboard users — and browser
   * AI agents reading the accessibility tree — can bypass the nav/header chrome
   * and jump straight to <main id="main-content"> (WCAG 2.4.1 Bypass Blocks;
   * Google AI agent-readiness guidance). Rendered only on SPA routes where the
   * React <main> is mounted, so the anchor target always resolves. */}
- {!staticOverlay && (
+ {!staticOverlay && !staticSnapshotOwnsBody && (
  <a
  href="#main-content"
  className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[300] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accent focus:text-on-accent focus:text-sm focus:font-semibold focus:shadow-lg focus:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent"
@@ -2402,7 +2592,7 @@ const App: React.FC = () => {
  )}
 
  {/* Navbar */}
- <nav aria-label="Navigazione principale" className="sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm transition-colors duration-300">
+ <nav ref={mainNavRef} aria-label="Navigazione principale" className="sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm transition-colors duration-300">
  <div className="max-w-[2400px] w-[95%] mx-auto px-4 sm:px-6">
  <div className="flex justify-between h-14 md:h-20 items-center">
  {/* Logo Section */}
@@ -2851,23 +3041,20 @@ const App: React.FC = () => {
  />
  )}
 
- {/* Sub-navigation for Articoli: cross-border vs Switzerland-wide */}
- {activeTab === 'blog' && (
- <SubTabNav
- items={[
- { key: 'frontaliere' as const, icon: Newspaper, label: t('blog.section.frontalieri') },
- { key: 'svizzera' as const, icon: Newspaper, label: t('blog.section.svizzera') },
- ] satisfies SubTabItem<'frontaliere' | 'svizzera'>[]}
- activeKey={blogSection}
- hubKey="frontaliere"
- hrefFor={(key) => buildPath(key === 'svizzera' ? { activeTab: 'blog', blogSection: 'svizzera' } : { activeTab: 'blog' })}
- onSelect={(key) => {
- if (key === 'svizzera') { setSwissArticle(null); setBlogSection('svizzera'); }
- else { setBlogArticle(null); setBlogSection('frontaliere'); }
- Analytics.trackUIInteraction('articoli', 'navigazione', 'tab_sezione', 'cambio', key);
- }}
- />
- )}
+ {/* Sub-navigation for Articoli: cross-border vs Switzerland-wide and canton sections. */}
+ {!staticSnapshotOwnsBody && <ArticleSectionNavigation
+  route={{ activeTab }}
+  activeSection={blogSection}
+  onSelect={(section) => {
+   clearStaticArticleFallback();
+   setBlogArticle(null);
+   setSwissArticle(null);
+   setCantonArticle(null);
+   setBlogPage(null);
+   setBlogSection(section);
+   Analytics.trackUIInteraction('articoli', 'navigazione', 'tab_sezione', 'cambio', section);
+  }}
+ />}
  </>)}
 
  {/* GPT ad surfaces need the framework on every job-board route, including
@@ -2893,7 +3080,12 @@ const App: React.FC = () => {
   */}
  {!staticOverlay && (
  <div
- className={sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:gap-4' : 'contents'}
+ className={staticSnapshotOwnsBody
+   // Collapsed on the wrapper, not on <main>: <main> keeps its real width and
+   // padding, so what mounts inside measures the layout it will be shown in,
+   // and nothing of <main> changes (or transitions) at the swap.
+   ? 'h-0 overflow-hidden invisible'
+   : sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:gap-4' : 'contents'}
  // Track widths are JS-driven so an unfilled rail collapses to 0 (see
  // railsCollapsed). Default 160px keeps the gutter reserved for SSR /
  // pre-verdict / no-JS, matching the old fixed grid-cols. Ignored below the
@@ -2906,9 +3098,9 @@ const App: React.FC = () => {
  </aside>
  )}
  <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10${activeTab === 'plate-auctions' ? ' plate-auctions-main' : ''} ${
- activeTab === 'admin' ? 'w-full px-3 sm:px-6' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${(sideRailEligible || activeTab === 'job-board' || activeTab === 'plate-auctions') ? ' xlw:!w-full' : ''}`
+ activeTab === 'admin' ? 'w-full px-3 sm:px-6' : activeTab === 'job-board' ? '!max-w-[2400px] !w-full px-3 sm:px-4' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${(sideRailEligible || activeTab === 'plate-auctions') ? ' xlw:!w-full' : ''}`
  }`}>
- <Suspense fallback={<LazyFallback />}>
+ <Suspense fallback={staticSnapshotOwnsBody ? null : <LazyFallback />}>
  {notFoundPath ? (
  <div className="max-w-2xl mx-auto">
  <NotFoundSuggestions
@@ -2952,17 +3144,30 @@ const App: React.FC = () => {
  ) : activeTab === 'stats' ? (
  <StatsTabContent />
  ) : activeTab === 'blog' ? (
- // Widen past max-w-7xl (1280) at ≥1400px so the article view's own
- // 1440px cap can take effect — otherwise the 300px side-rail ad gutters
- // never get room and stay collapsed to 180px. Mutually-exclusive ranges
- // (`max-xlw:` < 1400, `xlw:` ≥ 1400) so the cascade order can't pin it to
- // 7xl. Inner views self-cap (list at max-w-6xl), so only the article
+ // Widen past max-w-7xl (1280) at ≥1400px: the article view fills this
+ // wrapper, so its two 300px side-rail gutters plus a ~800-970px reading
+ // column fit without leaving blank margins around the grid. Mutually-exclusive
+ // ranges (`max-xlw:` < 1400, `xlw:` ≥ 1400) so the cascade order can't pin it
+ // to 7xl. Inner views self-cap (list at max-w-5xl), so only the article
  // detail actually uses the extra width.
- <div className="max-xlw:max-w-7xl xlw:max-w-[1440px] mx-auto">
+ <div className="max-xlw:max-w-7xl xlw:max-w-[1600px] mx-auto">
  <BlogArticles
  section={blogSection}
- selectedArticle={blogSection === 'svizzera' ? (swissArticle as BlogArticleId | null) : blogArticle}
- onSelectArticle={(id) => { if (blogSection === 'svizzera') setSwissArticle(id); else setBlogArticle(id); }}
+ topic={cantonTopic}
+ onCantonTopicReady={markCantonTopicReady}
+ deferUntilCantonTopicReady={cantonTopicDeferUntilReady}
+  articleReadyKey={articleStaticFallbackKey ?? undefined}
+  onArticleReady={markStaticArticleReady}
+  deferUntilArticleReady={articleStaticFallback}
+ selectedArticle={blogSection === 'svizzera' ? swissArticle : blogSection.startsWith('canton-') ? cantonArticle : blogArticle}
+ page={blogPage ?? undefined}
+ onPageChange={(nextPage) => setBlogPage(nextPage)}
+ onSelectArticle={(id) => {
+   clearStaticArticleFallback();
+   if (blogSection === 'svizzera') setSwissArticle(id);
+   else if (blogSection.startsWith('canton-')) setCantonArticle(id);
+   else setBlogArticle(id as BlogArticleId);
+ }}
  />
  </div>
  ) : activeTab === 'petition' ? (
@@ -3069,7 +3274,22 @@ const App: React.FC = () => {
  // 1400) so the v4 cascade can't pin it to 7xl. Inner list view self-caps
  // (max-w-6xl), so only the rail'd detail/gate views use the full width.
  <div className="max-xlw:max-w-7xl xlw:max-w-none mx-auto">
- <JobBoard
+ {(typeof window !== 'undefined' && (() => {
+  const searchParams = new URLSearchParams(window.location.search);
+  return Boolean(searchParams.get('application_concierge_service_id'))
+   || searchParams.get('application_concierge') === '1'
+   || isApplicationConciergePath(window.location.pathname);
+ })()) ? (
+ <ApplicationConciergePortal
+  key={authUser?.uid ?? 'anonymous'}
+  serviceId={typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('application_concierge_service_id') : null}
+  entry={typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('application_concierge') === '1' || isApplicationConciergePath(window.location.pathname))}
+  authUser={authUser}
+  authLoading={authLoading}
+  onRequireAuth={() => navigateTo('profile' as any)}
+ />
+ ) : <JobBoard
+ key={authUser?.uid ?? 'anonymous'}
  initialJobSlug={jobSlug || undefined}
  initialFilterParams={jobBoardFilterParams}
  initialFilterCanton={typeof window !== 'undefined' ? (parsePath(window.location.pathname).route.jobBoardCanton ?? null) : null}
@@ -3078,6 +3298,8 @@ const App: React.FC = () => {
  authUser={authUser}
  authLoading={authLoading}
  enablePersonalization={enablePersonalization}
+ enableApplicationIntentRanking={enableApplicationIntentRanking}
+ behaviorHydrationRevision={behaviorHydrationRevision}
  userProfile={userProfile}
  onGoogleAuthRequired={googleSignIn}
  onFacebookAuthRequired={facebookSignIn}
@@ -3098,11 +3320,13 @@ const App: React.FC = () => {
  onPostJob={() => {
  navigateTo('for-employers' as any);
  }}
- />
+ />}
  </div>
  ) : activeTab === 'profile' ? (
  <div className="max-w-7xl mx-auto">
- <UserProfile currentInputs={inputs} currentResult={result} />
+ {authUser && typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('profile_view') === 'applications'
+  ? <PaidAssistedApplicationsPage user={authUser} />
+  : <UserProfile />}
  </div>
  ) : activeTab === 'morning' ? (
  <div className="max-w-7xl mx-auto">
@@ -3180,7 +3404,7 @@ const App: React.FC = () => {
  <div ref={adminGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl" />
  {!adminGoogleButtonReady && (
  <button
- onClick={googleSignIn}
+ onClick={() => { void googleSignIn(); }}
  className="w-full px-6 py-2 bg-accent hover:bg-accent-hover text-on-accent rounded-lg font-medium transition-colors"
  >
  Accedi con Google
@@ -3255,16 +3479,16 @@ const App: React.FC = () => {
    * #rail-right-root gutter asides emitted by build-plugins/htmlTemplate.ts
    * (same portal mechanism as the footer below). Reuses ArticleRailAdStack so
    * the GAM rail units + Remote Config kill-switch match the article/job rails.
-   * Both the static aside and the stack itself are CSS-gated to ≥1400px (xlw),
-   * so narrower viewports render a single unchanged column. */}
+   * The static aside and stack are enabled from 1200px; the 1200–1399px tier
+   * uses 160px creatives and the ≥1400px tier uses the full 300px rail. */}
  {staticOverlay && (() => {
    const leftTarget = document.getElementById('rail-left-root');
    const rightTarget = document.getElementById('rail-right-root');
    if (!leftTarget && !rightTarget) return null;
    return (
  <SafeLazy boundary="rail-ad-static">
- {leftTarget && createPortal(<ArticleRailAdStack side="left" onEmptyResolved={handleLeftRailEmpty} />, leftTarget)}
- {rightTarget && createPortal(<ArticleRailAdStack side="right" onEmptyResolved={handleRightRailEmpty} />, rightTarget)}
+ {leftTarget && createPortal(<ArticleRailAdStack side="left" desktopRail onEmptyResolved={handleLeftRailEmpty} />, leftTarget)}
+ {rightTarget && createPortal(<ArticleRailAdStack side="right" desktopRail onEmptyResolved={handleRightRailEmpty} />, rightTarget)}
  </SafeLazy>
    );
  })()}
@@ -3296,10 +3520,11 @@ const App: React.FC = () => {
    return <FuelStationMapPortal target={target} />;
  })()}
 
- {/* Footer — on staticOverlay pages it is portalled into #footer-root which
-   * lives AFTER <main class="seo-static-content"> in the DOM, so the footer
-   * appears below the SEO content rather than above it (Bug A fix).
-   * On normal SPA pages the footer renders inline inside #root as before.
+ {/* Footer — on staticOverlay pages and on the route-driven job-board
+   * static→SPA handoff it is portalled into #footer-root, which lives AFTER
+   * the crawler fallback in the emitted body. This keeps the footer in the
+   * same flow position before and after React takes ownership. On normal SPA
+   * pages the footer renders inline inside #root as before.
    *
    * Portal target: build-plugins/htmlTemplate.ts emits
    *   <div id="root"></div>
@@ -3307,20 +3532,31 @@ const App: React.FC = () => {
    *   <div id="footer-root"></div>   ← portal target
    * so the footer flows naturally after the SEO content in visual order. */}
  {(() => {
-   const footerPortalTarget = staticOverlay ? document.getElementById('footer-root') : null;
+   const footerPortalTarget = (staticOverlay || staticSnapshotOwnsBody || activeTab === 'job-board')
+     ? document.getElementById('footer-root')
+     : null;
    // CLS fix (Phase 6 — 2026-05-18): removed content-visibility:auto +
    // containIntrinsicSize 'auto 1600px'. Lighthouse desktop attributed score
    // 0.61+0.26=0.87 on /cerca-lavoro-ticino/ to this footer because the real
    // rendered height (lazy weather/newsletter/donation/sponsor logos) diverged
    // too much from the 1600px intrinsic-size. Widgets stay Suspense-lazy.
    const footerJsx = (
+ <>
+ {/* I blocchi statici che il build emette dopo #root (rail di discovery,
+     pannello SEO) vengono adottati qui, subito sopra il footer: restano
+     nell'HTML servito per i crawler ma non compaiono piu' dopo il copyright. */}
+ <StaticPrefooterSlot pathname={typeof window !== 'undefined' ? window.location.pathname : '/'} />
  <footer className="border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10">
  <div className="max-w-7xl mx-auto px-4 space-y-6">
  {/* Footer weather widget */}
  <SafeLazy boundary="footer-weather" fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></SafeLazy>
 
+ {/* Support and conversion actions share one responsive rail: two columns on
+     wide screens, one readable stack on mobile. Each child keeps its original
+     component, lazy boundary, and analytics contract. */}
+ <div className="grid w-full max-w-5xl mx-auto grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
  {/* Newsletter signup — inline in footer for persistent visibility */}
- <div id="footer-newsletter" className="max-w-xl mx-auto scroll-mt-24">
+ <div id="footer-newsletter" className="w-full max-w-xl mx-auto scroll-mt-24">
  <SafeLazy boundary="footer-newsletter">
   <NewsletterInline
    compact
@@ -3332,7 +3568,7 @@ const App: React.FC = () => {
  </div>
 
  {/* Donation banner */}
- <div className="max-w-xl mx-auto">
+ <div className="w-full max-w-xl mx-auto">
  <SafeLazy boundary="footer-donation" fallback={<SkeletonFooterSlot height="min-h-[48px]" />}><DonationBanner variant="inline" /></SafeLazy>
  </div>
 
@@ -3340,7 +3576,7 @@ const App: React.FC = () => {
    * tecnica (schema, robots, sitemap, entita' organization) e' completa, ma
    * la selezione come fonte preferita la fa l'utente dal proprio account
    * Google: senza un deep link visibile non la fa nessuno. */}
- <div className="max-w-xl mx-auto">
+ <div className="w-full max-w-xl mx-auto">
  <SafeLazy boundary="footer-preferred-source" fallback={<SkeletonFooterSlot height="min-h-[48px]" />}><PreferredSourceCTA variant="inline" /></SafeLazy>
  </div>
 
@@ -3348,7 +3584,7 @@ const App: React.FC = () => {
    * data-employer-cta feeds the PostHog funnel (employer_cta_view /
    * employer_cta_click via the global hook in services/analytics.ts).
    * Fixed min-height reserves space → zero CLS. */}
- <div className="max-w-xl mx-auto mt-3">
+ <div className="w-full max-w-xl mx-auto">
  <a
  href={buildPath({ activeTab: 'for-employers' })}
  data-employer-cta="spa_footer"
@@ -3358,6 +3594,7 @@ const App: React.FC = () => {
  <Briefcase className="w-4 h-4 shrink-0" aria-hidden="true" />
  <span>{t('seoLinks.footer.employerCta')}</span>
  </a>
+ </div>
  </div>
 
  {/* Version badge with GitHub link */}
@@ -3685,8 +3922,13 @@ const App: React.FC = () => {
      </nav>
    );
  })()}
- {/* Footer links — desktop: flat flex-wrap, mobile: accordion */}
- <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+ {/* Footer links — grouped by purpose so the full link inventory stays
+     discoverable without becoming one undifferentiated ribbon. */}
+ <nav aria-label={t('footer.linksTitle')} className="mt-8 pt-6 border-t border-edge/50 text-left">
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+ <section aria-labelledby="footer-project-links" className="rounded-md border border-edge/70 bg-surface p-4">
+ <h3 id="footer-project-links" className="text-sm font-semibold text-strong mb-3">{t('footer.projectLinks')}</h3>
+ <div className={FOOTER_LINK_GROUP_CLASS}>
  <a
  href={buildPath({ activeTab: 'chi-siamo' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }}
@@ -3758,6 +4000,11 @@ const App: React.FC = () => {
  {t('footer.apiStatus')}
  </a>
  <span className="text-edge">·</span>
+ </div>
+ </section>
+ <section aria-labelledby="footer-services-links" className="rounded-md border border-edge/70 bg-surface p-4">
+ <h3 id="footer-services-links" className="text-sm font-semibold text-strong mb-3">{t('footer.servicesLinks')}</h3>
+ <div className={FOOTER_LINK_GROUP_CLASS}>
  <a
  href={buildPath({ activeTab: 'partners' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }}
@@ -3809,6 +4056,11 @@ const App: React.FC = () => {
  {t('footer.morningDashboard')}
  </a>
  <span className="text-edge">·</span>
+ </div>
+ </section>
+ <section aria-labelledby="footer-guides-links" className="rounded-md border border-edge/70 bg-surface p-4">
+ <h3 id="footer-guides-links" className="text-sm font-semibold text-strong mb-3">{t('footer.guidesLinks')}</h3>
+ <div className={FOOTER_LINK_GROUP_CLASS}>
  <a
  href={buildPath({ activeTab: 'faq' })}
  onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }}
@@ -3909,10 +4161,14 @@ const App: React.FC = () => {
  Facebook
  </a>
  </div>
+ </section>
+ </div>
+ </nav>
 
  {/* SEO Sitemap — desktop: full grid, mobile: collapsed accordion */}
- <nav aria-label="Mappa del sito" className="mt-6 pt-4 border-t border-edge/50">
- <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 text-left">
+ <nav aria-label={t('sitemap.title')} aria-labelledby="footer-sitemap-title" className="mt-8 pt-6 border-t border-edge/50 text-left">
+ <h3 id="footer-sitemap-title" className="text-sm font-semibold text-strong mb-4">{t('sitemap.title')}</h3>
+ <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-x-5 gap-y-6 text-left">
  {/* Calcolatore */}
  <div>
  <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.simulator')}</a>
@@ -4081,6 +4337,7 @@ const App: React.FC = () => {
  </div>
  </div>
  </footer>
+ </>
    );
    return footerPortalTarget ? createPortal(footerJsx, footerPortalTarget) : footerJsx;
  })()}
@@ -4088,7 +4345,11 @@ const App: React.FC = () => {
      identified visitor without stored proof — renders null for everyone else */}
  <CommunicationsConsentBanner email={authEmail} />
  {/* Mobile Bottom Navigation Bar */}
- <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
+ <nav
+ aria-label="Navigazione mobile"
+ className="mobile-bottom-nav fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]"
+ style={{ '--mobile-nav-ad-clearance': `${autoAdOverlayClearance}px` } as React.CSSProperties}
+ >
  <div className="grid grid-cols-6 h-14">
  {([
  { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator.mobile') },
@@ -4104,7 +4365,7 @@ const App: React.FC = () => {
  key={tab}
  href={buildPath({ activeTab: tab })}
  onClick={(e) => { e.preventDefault(); handleTabChange(tab); }}
- className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 ${
+ className={`relative flex min-h-[44px] flex-col items-center justify-center gap-0.5 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 ${
  isActive ? 'text-accent' : 'text-tab-inactive-text'
  }`}
  >
@@ -4121,7 +4382,6 @@ const App: React.FC = () => {
 
  <SafeLazy boundary="newsletter-popup"><NewsletterPopup /></SafeLazy>
  <SafeLazy boundary="pdf-download-gate"><PdfDownloadGate /></SafeLazy>
- <SafeLazy boundary="adblock-gate"><AdBlockGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
  <SafeLazy boundary="company-follow-mount"><CompanyFollowMount /></SafeLazy>
  {showWhatsNew && (

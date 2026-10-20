@@ -24,6 +24,7 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -378,10 +379,8 @@ export async function fetchAllJumboJobs() {
 
     const jobSlug = slugify(`${title} jumbo ${city || canton}`);
 
-    // Posted date from API start_date
-    const postedDate = listing.start_date
-      ? new Date(listing.start_date).toISOString().slice(0, 10)
-      : new Date().toISOString().split('T')[0];
+    // This tenant's start_date is not verified publication evidence.
+    const publication = sourcePostingDateFields();
 
     const job = {
       // ── Required fields ──
@@ -426,7 +425,7 @@ export async function fetchAllJumboJobs() {
       sector: 'Commercio al dettaglio',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       ...(pensum ? { pensum } : {}),
       ...(applyUrl ? { applyUrl } : { applyUrl: publicUrl }),
 

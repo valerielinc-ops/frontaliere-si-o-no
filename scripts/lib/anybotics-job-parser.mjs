@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
 /**
  * ANYbotics job parser — Fetcher and job builder.
  *
@@ -14,6 +15,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { fetchIdentifiedPostingPublication } from './identified-posting-publication.mjs';
 import {
   fetchLeverJobs,
   extractLeverCompanySlug,
@@ -137,7 +139,7 @@ async function fetchJobListings() {
     title: j.title,
     location: j.location,
     url: j.applyUrl,
-    postedAt: j.postedAt,
+    ...sourcePostingDateFields(j.postedAt),
     description: j.descriptionHtml || '',
     jobReqId: j.jobReqId,
   }));
@@ -169,11 +171,19 @@ export async function fetchAllAnyboticsJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Zurich'; // ANYbotics HQ (postings pre-filtered to CH)
-    const canton = inferAnyCanton(location) || 'ZH';
+    // The listing is filtered to Swiss vacancies above; a location that still
+    // resolves to no canton is dropped rather than filed under the Zurich HQ
+    // (issue 9842: no HQ fallback on unknown geography).
+    const location = normalizeSpace(listing.location || '');
+    const canton = location ? inferAnyCanton(location) : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${location || '(none)'} — ${title}`);
+      continue;
+    }
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
+    const detailPublication = await fetchIdentifiedPostingPublication(publicUrl, title);
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} anybotics ch`);
@@ -209,7 +219,7 @@ export async function fetchAllAnyboticsJobs() {
       sector: 'Robotica / Automazione',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, detailPublication),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

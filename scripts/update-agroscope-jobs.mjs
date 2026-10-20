@@ -23,10 +23,12 @@
  *    The listing is already national (CH-wide, all 26 cantons).
  * 2. Keeps every job whose location resolves to a Swiss canton (inferAnyCanton);
  *    drops foreign "Estero" postings. Agroscope is a national federal research org.
- * 3. All data is in the API response (no detail page fetching needed)
+ * 3. Listing fields come from the API; each description is read from the
+ *    vacancy's jobs.admin.ch page (the API carries only tasks + requirements)
  * 4. Merges into data/jobs.json
  */
 
+import { mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -56,6 +58,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseAgroscopeApiResponse,
   isAgroscopeSwissRelevant,
@@ -63,7 +66,8 @@ import {
   inferAgroscopeCategory,
   buildAgroscopeLocalizedContent,
 } from './lib/agroscope-job-parser.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { enrichProspectiveJobsFromDetailPages } from './lib/prospective-ch-job-parser-common.mjs';
+import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -106,26 +110,6 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        Origin: 'https://jobs.admin.ch',
-        Referer: 'https://jobs.admin.ch/',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
@@ -165,7 +149,13 @@ async function fetchAllListings() {
     const url = `${API_BASE}?lang=it&offset=${offset}&limit=${limit}`;
     console.log(`  API: ${url}`);
 
-    const data = await fetchJson(url);
+    const data = await fetchJson(url, {
+      timeoutMs: TIMEOUT_MS,
+      headers: {
+        Origin: 'https://jobs.admin.ch',
+        Referer: 'https://jobs.admin.ch/',
+      },
+    });
     if (!data || !Array.isArray(data.jobs)) {
       throw new Error('Agroscope Prospective response has no jobs array');
     }
@@ -212,7 +202,7 @@ function buildAgroscopeJob(row) {
   // link that *claims* precision it can't deliver would be worse than none.
   const detailUrl = row.directLink || 'https://jobs.admin.ch/?lang=it';
   return {
-    title: localized.titleByLocale.it,
+    title: localized.titleByLocale[localized.sourceLang],
     slug: localized.slugByLocale.it,
     url: detailUrl,
     applyUrl: row.applyUrl || detailUrl,
@@ -229,12 +219,12 @@ function buildAgroscopeJob(row) {
     category: inferAgroscopeCategory(row),
     sector: 'Pubblica amministrazione',
     source: 'agroscope-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, row.language || 'it'),
-    postedDate: row.startDate ? row.startDate.slice(0, 10) : new Date().toISOString().slice(0, 10),
+    sourceLang: localized.sourceLang,
+    ...mergeSourcePostingDates({}, row),
     validThrough: row.endDate ? row.endDate.slice(0, 10) : '',
     employmentType: row.pensumMax === '100' ? 'full-time' : 'part-time',
     contractType: row.pensumMax === '100' ? 'full-time' : 'part-time',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[localized.sourceLang],
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -264,10 +254,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -292,7 +285,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -303,7 +296,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['api'],
     seedUrls: [`${API_BASE}?lang=it`],
-    notes: 'Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000624 — fixed 2026-07-27 for #4799, was stale 1000626 which silently returned {total:0,jobs:[]} for every query after a jobs.admin.ch platform migration). No server-side org-unit filter exists for Agroscope specifically (the old numeric verwaltungseinheit:1083812 filter no longer resolves anything); fetches the whole federal portal (~370 jobs) and filters client-side via isAgroscopeApiRecord matching the verwaltungseinheit_* sub-facet text "Agroscope" (see scripts/lib/agroscope-job-parser.mjs). Listing is already national since the whole portal is scanned. Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign "Estero" postings. Full job data in API response, no detail page fetching needed.',
+    notes: 'Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000624 — fixed 2026-07-27 for #4799, was stale 1000626 which silently returned {total:0,jobs:[]} for every query after a jobs.admin.ch platform migration). No server-side org-unit filter exists for Agroscope specifically (the old numeric verwaltungseinheit:1083812 filter no longer resolves anything); fetches the whole federal portal (~370 jobs) and filters client-side via isAgroscopeApiRecord matching the verwaltungseinheit_* sub-facet text "Agroscope" (see scripts/lib/agroscope-job-parser.mjs). Listing is already national since the whole portal is scanned. Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign "Estero" postings. Listing from the API; description from each jobs.admin.ch vacancy page (the API carries only tasks + requirements).',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -340,6 +333,10 @@ async function main() {
   }
 
   const jobs = listings.map(buildAgroscopeJob);
+  // The listing payload is only tasks + requirements: 13-27 % of the rendered
+  // vacancy (audit 2026-09-29). "Auf den Punkt gebracht", the unit text, the
+  // Agroscope paragraph and the benefits exist only on the jobs.admin.ch page.
+  await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: 'Agroscope' });
 
   const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);

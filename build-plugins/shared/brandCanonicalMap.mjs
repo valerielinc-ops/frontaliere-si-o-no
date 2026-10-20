@@ -48,6 +48,28 @@ export const BRAND_CANONICAL_MAP = {
     canonical: 'spital-zollikerberg',
     aliases: ['diakoniewerk-neumuenster'],
   },
+  // Capri Holdings: dal 2026-10-01 Versace è nel gruppo Prada e il crawler
+  // legge solo Michael Kors. Il proprietario (2026-10-03) ha scelto il nome
+  // del marchio; il vecchio nome visualizzato resta un ponte verso l'hub nuovo,
+  // e chi seguiva l'azienda col vecchio nome continua a ricevere gli alert.
+  'michael-kors': { canonical: 'michael-kors', aliases: ['capri-holdings-michael-kors-versace'] },
+  // Stessa continuità per i follower di un'etichetta che il crawler non emette
+  // più (misurato su Firestore il 2026-10-05: alert attivi su queste chiavi,
+  // zero job corrispondenti). `usi` veniva da un annuncio pubblicato come
+  // «USI»; il crawler oggi scrive «USI – Università della Svizzera italiana».
+  // L'Ospedale Malcantonese (Fondazione Giuseppe Rossi) è l'OSCAM di
+  // Castelrotto: stesso sito oscam.ch, due crawler storici con due etichette.
+  // Zurich Insurance (sede Ticino) è l'etichetta precedente dello stesso
+  // crawler `zurich-insurance-sede-ticino`, che oggi scrive «Zurich Insurance».
+  'usi-universita-della-svizzera-italiana': {
+    canonical: 'usi-universita-della-svizzera-italiana',
+    aliases: ['usi'],
+  },
+  'oscam-ospedale-e-casa-anziani-malcantonese': {
+    canonical: 'oscam-ospedale-e-casa-anziani-malcantonese',
+    aliases: ['ospedale-malcantonese-oscam-fondazione-giuseppe-rossi'],
+  },
+  'zurich-insurance': { canonical: 'zurich-insurance', aliases: ['zurich-insurance-sede-ticino'] },
 };
 
 /** aliasSlug → canonical slug, built once with the same fail-fast validation. */

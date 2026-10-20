@@ -33,20 +33,28 @@ const parser = createProspectiveChParser({
   defaultCanton: 'BS',
   defaultCity: 'Basel',
   defaultPostalCode: '4051',
+  // Home care for the city of Basel only (see fetchAllSpitexBaselJobs below):
+  // most listings carry no location field at all, and the shared factory
+  // drops those unless the tenant declares its single locality (issue 9844).
+  singleLocality: true,
   publicCareerUrl: 'https://www.spitexbasel.ch/Stellen-und-Bildung/Offene-Stellen/',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.spitexbasel.ch', 'www.spitexbasel.ch'],
+  // Listing payload = 32 % of the rendered vacancy (audit 2026-09-29):
+  // "Was du bei uns findest" and the employer paragraph exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 /**
  * SPITEX BASEL specific quirk: this tenant uses Prospective `attribute[10]`
  * for a *profession category* (e.g. "Pflege", "Weitere Berufsgruppen")
- * rather than a city/site label. The shared factory falls back to that field
- * when `sza_location.city` is empty, which produces a category-as-location.
+ * rather than a city/site label. The shared factory reads that field when a
+ * listing has no location field; a category never resolves to a canton, so
+ * without `singleLocality` the listing would be dropped (issue 9844).
  *
  * All SPITEX BASEL positions are physically based in the city of Basel
  * (Kanton Basel-Stadt, single-municipality canton), so we normalize the
- * locality fields to the defaults without touching the shared factory.
+ * locality fields to the defaults.
  */
 async function fetchAllSpitexBaselJobs() {
   const jobs = await parser.fetchAllJobs();

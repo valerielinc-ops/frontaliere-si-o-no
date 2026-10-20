@@ -31,6 +31,8 @@
  * always reads "Mendrisio" for OSC; some DSS jobs may sit in Bellinzona/Lugano.
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -44,6 +46,7 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { isCantonTicinoOscPosting } from './crawler-company-ownership.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -184,18 +187,6 @@ export function parseConcorsiDetail(html = '') {
   return { dept, title, text };
 }
 
-/* ── Description fallback ──────────────────────────────────── */
-
-function buildFallbackDescription(title, city) {
-  return [
-    `${title} presso l'Amministrazione cantonale del Ticino (sede di ${city}).`,
-    '',
-    "Il concorso è pubblicato dalla Sezione delle risorse umane del Cantone Ticino sul portale ufficiale www.concorsi.ti.ch (Foglio Ufficiale). L'Organizzazione sociopsichiatrica cantonale (OSC) gestisce la Clinica psichiatrica cantonale (CPC) di Mendrisio e i servizi psichiatrici e psicosociali ambulatoriali su tutto il territorio ticinese, inseriti nel Dipartimento della sanità e della socialità (DSS).",
-    '',
-    "Il dettaglio completo (compiti, requisiti, condizioni d'impiego, scadenza e modalità di candidatura) è disponibile sul bando ufficiale linkato. Le candidature avvengono tramite il portale concorsi.ti.ch oppure secondo le istruzioni del bando.",
-  ].join('\n');
-}
-
 /* ── Main fetch ────────────────────────────────────────────── */
 
 export async function fetchAllCantonTicinoOscJobs() {
@@ -216,7 +207,6 @@ export async function fetchAllCantonTicinoOscJobs() {
   if (candidates.length === 0) return [];
 
   const jobs = [];
-  const todayIso = new Date().toISOString().slice(0, 10);
 
   for (const cand of candidates) {
     if (SKIP_TITLE_RE.test(cand.anchorText)) {
@@ -230,12 +220,18 @@ export async function fetchAllCantonTicinoOscJobs() {
       detailHtml = await fetchHtml(detailUrl, { timeoutMs });
     } catch (err) {
       console.warn(`  ⚠️  yid=${cand.yid} detail fetch failed: ${err?.message || err}`);
+      if (requestDelayMs > 0) {
+        await new Promise((resolve) => setTimeout(resolve, requestDelayMs));
+      }
       continue;
     }
 
     const detail = parseConcorsiDetail(detailHtml);
     if (!detail) {
       console.warn(`  ⚠️  yid=${cand.yid} no structured detail`);
+      if (requestDelayMs > 0) {
+        await new Promise((resolve) => setTimeout(resolve, requestDelayMs));
+      }
       continue;
     }
 
@@ -244,17 +240,19 @@ export async function fetchAllCantonTicinoOscJobs() {
     const haystack = `${detail.dept} ${detail.title} ${detail.text}`;
     if (!isCantonTicinoOscPosting(detail)) {
       console.log(`  ⏭  yid=${cand.yid} skipped (not OSC: ${detail.dept || 'no dept'})`);
+      if (requestDelayMs > 0) {
+        await new Promise((resolve) => setTimeout(resolve, requestDelayMs));
+      }
       continue;
     }
 
     const title = detail.title;
     const loc = inferLocation(`${title} ${detail.text}`);
-    let description = detail.text && detail.text.split(/\s+/).length >= 80
-      ? detail.text
-      : buildFallbackDescription(title, loc.city);
-    if (description.split(/\s+/).length < 100) {
-      description = `${description}\n\n${buildFallbackDescription(title, loc.city)}`;
-    }
+    // Only the bando's own text (issue 5253): no title/OSC/portal paragraphs
+    // in place of a thin body nor appended to one under 100 words; a body
+    // under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detail.text) ? detail.text : '';
 
     const sourceLang = 'it';
     const jobSlug = slugify(`${title} ${CANTON_TICINO_OSC_KEY} ${loc.city}`);
@@ -292,7 +290,7 @@ export async function fetchAllCantonTicinoOscJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted),
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

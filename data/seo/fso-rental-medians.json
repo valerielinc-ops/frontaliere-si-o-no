@@ -1,7 +1,7 @@
 {
   "source": {
     "name": "Swiss Federal Statistical Office (FSO / BFS / OFS)",
-    "url": "https://www.bfs.admin.ch/bfs/en/home/statistics/construction-housing/dwellings/rent.html",
+    "url": "https://www.bfs.admin.ch/bfs/en/home/statistics/construction-housing/dwellings.html",
     "pxWebTableId": "je-d-09.03.01.02",
     "release": "2024-12 (reference year 2023, published Dec 2024)",
     "accessedAt": "2026-04-23T17:31:47.966Z",
@@ -15,7 +15,7 @@
   "citations": [
     {
       "label": "FSO — Loyer par pièce selon le canton, la commune, la classe de taille et l'année",
-      "url": "https://www.pxweb.bfs.admin.ch/pxweb/fr/px-x-0902030000_101/"
+      "url": "https://stats.swiss/"
     },
     {
       "label": "FSO — Indice des loyers (IPL)",

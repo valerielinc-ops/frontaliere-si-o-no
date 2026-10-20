@@ -38,7 +38,9 @@
  * any time (idempotent no-op once the backlog is cleared); left in place
  * for any future one-off catch-up need.
  */
-import admin from 'firebase-admin';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
+import { FieldValue } from 'firebase-admin/firestore';
 // The hard-bounce/human gate, no longer a bare regex test here.
 //
 // This script used to decide "is this an unambiguous hard bounce?" with
@@ -61,11 +63,10 @@ import { classifySuppressionDecay, maskAddress, publishableReason, recoveredStat
 
 const APPLY = process.argv.includes('--apply');
 
-if (!admin.apps?.length) {
-  admin.initializeApp({ credential: admin.credential.applicationDefault() });
+if (!getApps().length) {
+  initializeApp({ credential: applicationDefault() });
 }
-const db = admin.firestore();
-const FieldValue = admin.firestore.FieldValue;
+const db = getFirestore();
 
 console.log(APPLY ? '🟢 APPLY mode — will write to Firestore' : '🟡 DRY RUN — no writes (pass --apply to commit)');
 

@@ -14,7 +14,15 @@ vi.mock('../scripts/lib/github-issue-creator.mjs', () => ({
 }));
 
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSyncMock(...args) };
+  const mock = {
+    execFileSync: (cmd: string, args: string[], ...rest: unknown[]) => {
+      if (cmd === 'gh' && args[0] === 'api'
+        && String(args[1]).includes('/runs?status=success&event=schedule')) {
+        return JSON.stringify({ workflow_runs: [] });
+      }
+      return execFileSyncMock(cmd, args, ...rest);
+    },
+  };
   return { ...mock, default: mock };
 });
 
@@ -88,6 +96,45 @@ describe('scan-job-timeouts — conserva lo stato restituito dal creator (#8032)
     await main();
 
     expect(createGithubIssueMock).toHaveBeenCalledTimes(2);
+    expect(commentOnGithubIssueMock).not.toHaveBeenCalled();
+  });
+
+  it('passa l\'inizio della run al creator e accetta il salto di una run anteriore alla chiusura (#9761)', async () => {
+    execFileSyncMock.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'api') {
+        const endpoint = String(args[1]);
+        if (endpoint.includes('actions/runs?status=cancelled')) {
+          return JSON.stringify({ total_count: 1, workflow_runs: [runs[0]] });
+        }
+        if (endpoint.includes('actions/runs?status=failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
+        if (endpoint.includes('/actions/runs/1/jobs')) {
+          return JSON.stringify({ jobs: [{
+            name: 'lighthouse-1',
+            conclusion: 'cancelled',
+            check_run_url: 'https://api.github.com/repos/o/r/check-runs/1',
+          }] });
+        }
+        if (endpoint.endsWith('/annotations')) {
+          return JSON.stringify([[{
+            message: 'The job exceeded the maximum execution time of 45 minutes.',
+          }]]);
+        }
+        return '{}';
+      }
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      return '';
+    });
+    createGithubIssueMock.mockResolvedValue({
+      number: 42, title: 'CI Failure: Lighthouse CI', state: 'CLOSED', predatesClose: true, persisted: true,
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await expect(main()).resolves.toBeUndefined();
+
+    expect(createGithubIssueMock).toHaveBeenCalledTimes(1);
+    expect(createGithubIssueMock.mock.calls[0][0]).toMatchObject({ occurredAt: runs[0].created_at });
     expect(commentOnGithubIssueMock).not.toHaveBeenCalled();
   });
 

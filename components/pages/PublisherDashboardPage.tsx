@@ -29,6 +29,10 @@ import {
   Archive,
   RotateCcw,
   ExternalLink,
+  Search,
+  Mail,
+  CalendarDays,
+  X,
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
@@ -67,7 +71,7 @@ interface DashboardRow {
   pendingPaymentAt: number | null;
 }
 
-interface ApplicationRow {
+export interface PublisherApplicationRow {
   id: string;
   jobId: string;
   candidateName: string;
@@ -77,8 +81,49 @@ interface ApplicationRow {
   createdAt: number | null;
 }
 
-export function countPublisherApplications(applications: readonly ApplicationRow[] | null): number | null {
+export function countPublisherApplications(applications: readonly PublisherApplicationRow[] | null): number | null {
   return applications === null ? null : applications.length;
+}
+
+function normalizeApplicationSearchText(value: string): string {
+  return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
+
+export function filterPublisherApplications(
+  applications: readonly PublisherApplicationRow[] | null,
+  query: string,
+  jobTitles: ReadonlyMap<string, string>,
+): PublisherApplicationRow[] | null {
+  if (applications === null) return null;
+  const needle = normalizeApplicationSearchText(query.trim());
+  if (!needle) return [...applications];
+  return applications.filter((application) => {
+    const searchableText = [
+      application.candidateName,
+      application.candidateEmail,
+      application.message || '',
+      jobTitles.get(application.jobId) || '',
+    ].map(normalizeApplicationSearchText).join(' ');
+    return searchableText.includes(needle);
+  });
+}
+
+export function formatPublisherApplicationDate(timestamp: number | null, locale: string): string | null {
+  if (timestamp === null || !Number.isFinite(timestamp)) return null;
+  const date = new Date(timestamp);
+  if (Number.isNaN(date.getTime())) return null;
+  const formatLocale = locale === 'it'
+    ? 'it-CH'
+    : locale === 'de'
+      ? 'de-CH'
+      : locale === 'fr'
+        ? 'fr-CH'
+        : 'en-CH';
+  return new Intl.DateTimeFormat(formatLocale, {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(date);
 }
 
 function tsToMillis(value: unknown): number | null {
@@ -501,7 +546,7 @@ const PublisherDashboardPage: React.FC = () => {
   const { t, locale } = useTranslation();
   const { user, loading, signIn } = useAuth();
   const [rows, setRows] = useState<DashboardRow[]>([]);
-  const [apps, setApps] = useState<ApplicationRow[] | null>(null);
+  const [apps, setApps] = useState<PublisherApplicationRow[] | null>(null);
   const [crawledTraffic, setCrawledTraffic] = useState<CrawledTrafficState>({ status: 'loading' });
   const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const [billingBusy, setBillingBusy] = useState(false);
@@ -510,6 +555,7 @@ const PublisherDashboardPage: React.FC = () => {
   const [restoringId, setRestoringId] = useState<string | null>(null);
   const [resumingCheckoutId, setResumingCheckoutId] = useState<string | null>(null);
   const [cvOpeningId, setCvOpeningId] = useState<string | null>(null);
+  const [applicationFilter, setApplicationFilter] = useState('');
   // Unused prepaid location-credits (pay-first funnel) — null while loading/no user,
   // remainingUnits null = azienda plan (unlimited), otherwise a number ≥ 0.
   const [credits, setCredits] = useState<PublisherCredits | null>(null);
@@ -706,7 +752,7 @@ const PublisherDashboardPage: React.FC = () => {
         result.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
 
         // Applications received (in-house/forward) — the publisher owns these by publisherUid.
-        let appRows: ApplicationRow[] | null = [];
+        let appRows: PublisherApplicationRow[] | null = [];
         try {
           const aSnap = await getDocs(query(collection(db, 'applications'), where('publisherUid', '==', user.uid)));
           appRows = aSnap.docs.map((d) => {
@@ -820,6 +866,16 @@ const PublisherDashboardPage: React.FC = () => {
     for (const a of apps ?? []) m.set(a.jobId, (m.get(a.jobId) ?? 0) + 1);
     return m;
   }, [apps]);
+
+  const applicationJobTitles = useMemo(
+    () => new Map(rows.map((row) => [row.id, row.title])),
+    [rows],
+  );
+
+  const visibleApplications = useMemo(
+    () => filterPublisherApplications(apps, applicationFilter, applicationJobTitles) || [],
+    [apps, applicationFilter, applicationJobTitles],
+  );
 
   const applicationCount = countPublisherApplications(apps);
 
@@ -1250,60 +1306,181 @@ const PublisherDashboardPage: React.FC = () => {
 
       {/* Applications received (in-house / forward) */}
       {state === 'ready' && (
-        <section className="mt-10">
-          <h2 className="flex items-center gap-2 text-lg font-bold font-display text-strong mb-3">
-            {t('publisherDashboard.applications.title')}
-            {apps !== null && apps.length > 0 && (
-              <span className="inline-flex items-center justify-center min-w-6 h-6 px-2 rounded-full text-xs font-semibold bg-accent-subtle text-link">
-                {apps.length}
+        <section aria-labelledby="dash-applications-heading" className="mt-12">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div className="flex items-start gap-3">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-subtle text-link">
+                <FileText className="h-5 w-5" aria-hidden="true" />
               </span>
-            )}
-          </h2>
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h2 id="dash-applications-heading" className="text-lg font-bold font-display text-strong">
+                    {t('publisherDashboard.applications.title')}
+                  </h2>
+                  {apps !== null && (
+                    <span
+                      className="inline-flex min-w-6 items-center justify-center rounded-full bg-accent-subtle px-2 py-1 text-xs font-semibold text-link"
+                      aria-label={t('publisherDashboard.applications.countAria', { count: apps.length })}
+                    >
+                      {apps.length}
+                    </span>
+                  )}
+                </div>
+                <p className="mt-1 max-w-xl text-sm leading-6 text-subtle">
+                  {t('publisherDashboard.applications.helper')}
+                </p>
+              </div>
+            </div>
+          </div>
+
           {apps === null ? (
-            <div className="rounded-2xl border border-dashed border-edge bg-surface-alt p-6 text-center">
-              <Sparkles className="w-5 h-5 text-muted mx-auto mb-2" />
+            <div className="mt-5 flex items-center gap-3 rounded-xl border border-dashed border-edge bg-surface-alt p-5" role="status">
+              <Sparkles className="h-5 w-5 shrink-0 text-muted" aria-hidden="true" />
               <p className="text-sm text-subtle">{metricUnavailableLabel}</p>
             </div>
           ) : apps.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-edge bg-surface-alt p-6 text-center">
-              <Sparkles className="w-5 h-5 text-muted mx-auto mb-2" />
+            <div className="mt-5 flex flex-col items-center rounded-xl border border-dashed border-edge bg-surface-alt p-8 text-center">
+              <Sparkles className="mb-2 h-5 w-5 text-muted" aria-hidden="true" />
               <p className="text-sm text-subtle">{t('publisherDashboard.applications.empty')}</p>
             </div>
           ) : (
-            <ul className="space-y-3">
-              {apps.map((a) => {
-                const adTitle = rows.find((r) => r.id === a.jobId)?.title;
-                return (
-                  <li key={a.id} className="rounded-2xl border border-edge bg-surface-alt p-4">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <span className="font-semibold text-strong">{a.candidateName}</span>
-                      {adTitle && <span className="text-xs text-muted">{adTitle}</span>}
-                    </div>
-                    <div className="mt-1 text-sm text-body">
-                      <a href={`mailto:${a.candidateEmail}`} className="text-link hover:underline">{a.candidateEmail}</a>
-                      {a.cvUrl && (
-                        <>
-                          {' · '}
-                          {isExternalCvLink(a.cvUrl) ? (
-                            <a href={a.cvUrl} target="_blank" rel="noopener noreferrer" className="text-link hover:underline">CV</a>
-                          ) : (
-                            <button
-                              type="button"
-                              onClick={() => { void handleOpenCv(a.id); }}
-                              disabled={!!cvOpeningId}
-                              className="text-link hover:underline disabled:opacity-60 disabled:cursor-wait"
-                            >
-                              {cvOpeningId === a.id ? '…' : 'CV'}
-                            </button>
-                          )}
-                        </>
-                      )}
-                    </div>
-                    {a.message && <p className="mt-2 text-sm text-subtle whitespace-pre-line">{a.message}</p>}
-                  </li>
-                );
-              })}
-            </ul>
+            <>
+              <div className="mt-5 rounded-xl border border-edge bg-surface p-3 sm:p-4">
+                <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                  <label htmlFor="publisher-applications-search" className="sr-only">
+                    {t('publisherDashboard.applications.searchLabel')}
+                  </label>
+                  <div className="relative w-full md:max-w-md">
+                    <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" aria-hidden="true" />
+                    <input
+                      id="publisher-applications-search"
+                      type="search"
+                      value={applicationFilter}
+                      onChange={(event) => setApplicationFilter(event.target.value)}
+                      placeholder={t('publisherDashboard.applications.searchPlaceholder')}
+                      className="min-h-11 w-full rounded-xl border border-edge bg-surface-alt pl-10 pr-10 text-sm text-strong outline-none transition-colors placeholder:text-muted focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/30"
+                    />
+                    {applicationFilter && (
+                      <button
+                        type="button"
+                        onClick={() => setApplicationFilter('')}
+                        className="absolute right-2 top-1/2 inline-flex min-h-8 min-w-8 -translate-y-1/2 items-center justify-center rounded-lg text-muted hover:bg-surface-raised hover:text-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        aria-label={t('publisherDashboard.applications.clearSearch')}
+                      >
+                        <X className="h-4 w-4" aria-hidden="true" />
+                      </button>
+                    )}
+                  </div>
+                  <p className="text-xs text-subtle" role="status" aria-live="polite">
+                    {t('publisherDashboard.applications.showing', { visible: visibleApplications.length, total: apps.length })}
+                  </p>
+                </div>
+              </div>
+
+              {visibleApplications.length === 0 ? (
+                <div className="mt-4 flex flex-col items-center rounded-xl border border-dashed border-edge bg-surface-alt p-8 text-center">
+                  <Search className="mb-2 h-5 w-5 text-muted" aria-hidden="true" />
+                  <p className="text-sm text-subtle">{t('publisherDashboard.applications.noMatch')}</p>
+                  <button
+                    type="button"
+                    onClick={() => setApplicationFilter('')}
+                    className="mt-3 inline-flex min-h-10 items-center rounded-xl px-3 py-2 text-sm font-semibold text-link hover:bg-accent-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >
+                    {t('publisherDashboard.applications.clearSearch')}
+                  </button>
+                </div>
+              ) : (
+                <ul className="mt-4 space-y-3" aria-label={t('publisherDashboard.applications.title')}>
+                  {visibleApplications.map((a) => {
+                    const adTitle = applicationJobTitles.get(a.jobId);
+                    const candidateName = a.candidateName.trim() || t('publisherDashboard.applications.candidateFallback');
+                    const dateLabel = formatPublisherApplicationDate(a.createdAt, locale);
+                    return (
+                      <li key={a.id} className="rounded-xl border border-edge bg-surface p-4 sm:p-5">
+                        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                          <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                              <h3 className="text-base font-semibold text-strong">{candidateName}</h3>
+                              {dateLabel && (
+                                <time
+                                  dateTime={a.createdAt !== null ? new Date(a.createdAt).toISOString() : undefined}
+                                  className="inline-flex items-center gap-1 text-xs text-muted"
+                                >
+                                  <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
+                                  {t('publisherDashboard.applications.receivedOn', { date: dateLabel })}
+                                </time>
+                              )}
+                            </div>
+                            {a.candidateEmail ? (
+                              <p className="mt-1 flex items-start gap-1.5 break-all text-sm text-body">
+                                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-muted" aria-hidden="true" />
+                                <a href={`mailto:${a.candidateEmail}`} className="text-link hover:underline">
+                                  {a.candidateEmail}
+                                </a>
+                              </p>
+                            ) : (
+                              <p className="mt-1 text-sm text-muted">{t('publisherDashboard.applications.emailMissing')}</p>
+                            )}
+                            <p className="mt-3 inline-flex max-w-full items-center gap-1.5 rounded-lg bg-surface-alt px-2.5 py-1.5 text-xs font-medium text-body">
+                              <Briefcase className="h-3.5 w-3.5 shrink-0 text-muted" aria-hidden="true" />
+                              <span className="truncate">{adTitle || t('publisherDashboard.applications.unknownJob')}</span>
+                            </p>
+                          </div>
+
+                          <div className="flex w-full flex-wrap gap-2 md:w-auto md:justify-end">
+                            {a.candidateEmail && (
+                              <a
+                                href={`mailto:${a.candidateEmail}`}
+                                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-xl bg-accent px-3 py-2 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                                aria-label={`${t('publisherDashboard.applications.emailAction')} ${candidateName}`}
+                              >
+                                <Mail className="h-4 w-4" aria-hidden="true" />
+                                {t('publisherDashboard.applications.emailAction')}
+                              </a>
+                            )}
+                            {a.cvUrl && (
+                              isExternalCvLink(a.cvUrl) ? (
+                                <a
+                                  href={a.cvUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-edge bg-surface px-3 py-2 text-sm font-semibold text-link transition-colors hover:border-accent hover:bg-accent-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                                  aria-label={`${t('publisherDashboard.applications.cvAction')} ${candidateName}`}
+                                >
+                                  <FileText className="h-4 w-4" aria-hidden="true" />
+                                  {t('publisherDashboard.applications.cvAction')}
+                                </a>
+                              ) : (
+                                <button
+                                  type="button"
+                                  onClick={() => { void handleOpenCv(a.id); }}
+                                  disabled={!!cvOpeningId}
+                                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-edge bg-surface px-3 py-2 text-sm font-semibold text-link transition-colors hover:border-accent hover:bg-accent-subtle disabled:cursor-wait disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                                  aria-label={`${t('publisherDashboard.applications.cvAction')} ${candidateName}`}
+                                  aria-busy={cvOpeningId === a.id}
+                                >
+                                  <FileText className="h-4 w-4" aria-hidden="true" />
+                                  {cvOpeningId === a.id
+                                    ? t('publisherDashboard.applications.cvLoading')
+                                    : t('publisherDashboard.applications.cvAction')}
+                                </button>
+                              )
+                            )}
+                          </div>
+                        </div>
+
+                        {a.message && (
+                          <div className="mt-4 border-t border-edge pt-4">
+                            <p className="text-xs font-semibold text-subtle">{t('publisherDashboard.applications.messageLabel')}</p>
+                            <p className="mt-1.5 whitespace-pre-line text-sm leading-6 text-body">{a.message}</p>
+                          </div>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </>
           )}
         </section>
       )}

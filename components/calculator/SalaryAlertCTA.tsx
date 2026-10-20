@@ -57,7 +57,18 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
   const { t, locale } = useTranslation();
   const { user } = useAuth();
   const rootRef = useRef<HTMLDivElement | null>(null);
+  const shownTrackedRef = useRef(false);
   const completingPendingRef = useRef(false);
+  // Issue 9575 (sibling of the job-alert form): when localStorage cannot hold
+  // the pending alert, keep it here. The visitor stays on this card for both
+  // sign-in paths, so an in-tab sign-in (social popup, or a link opened in
+  // this same tab) still replays it; only a different tab has no channel.
+  const inMemoryPendingRef = useRef<Parameters<typeof savePendingSalaryAlert>[0] | null>(null);
+  const stashPendingAlert = useCallback((config: Parameters<typeof savePendingSalaryAlert>[0]): boolean => {
+    const stored = savePendingSalaryAlert(config);
+    inMemoryPendingRef.current = stored ? null : config;
+    return stored;
+  }, []);
   const [status, setStatus] = useState<Status>('idle');
   const [captureStatus, setCaptureStatus] = useState<CaptureStatus>('idle');
   const [captureEmail, setCaptureEmail] = useState('');
@@ -66,7 +77,17 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
   const threshold = floorToHundred(netMonthlyCHF);
   const alertLocale = (locale as 'it' | 'en' | 'de' | 'fr') || 'it';
 
+  const trackShown = useCallback(() => {
+    if (shownTrackedRef.current) return;
+    shownTrackedRef.current = true;
+    // This is a calculator-specific salary-alert funnel, not one of the seven
+    // surfaces in alert_funnel_conversion; keep the raw GA4 pair observable
+    // without changing that campaign's denominator.
+    Analytics.trackJobAlertCtaShown('calculator_results');
+  }, []);
+
   const persistCreatedAlert = useCallback(async (uid: string, email: string, config: ReturnType<typeof buildSalaryAlertConfig>) => {
+    trackShown();
     await subscribeSalaryAlert(uid, email, {
       profession: config.keywords[0] || null,
       cantonCode: config.cantonFilter?.[0] || null,
@@ -84,27 +105,28 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
       /* storage unavailable */
     }
     setStatus('success');
-  }, [alertLocale]);
+  }, [alertLocale, trackShown]);
 
   // Social sign-in and the email magic-link flow both update the global user.
   // Replay the exact criteria once, and put it back if the Firestore write
   // fails so the visitor can retry without rebuilding the simulation.
   useEffect(() => {
     if (!user?.uid || !user.email || completingPendingRef.current) return;
-    const pending = consumePendingSalaryAlert();
+    const pending = consumePendingSalaryAlert() ?? inMemoryPendingRef.current;
+    inMemoryPendingRef.current = null;
     if (!pending) return;
     completingPendingRef.current = true;
     setStatus('submitting');
     void persistCreatedAlert(user.uid, user.email, pending)
       .catch((error) => {
-        savePendingSalaryAlert(pending);
+        stashPendingAlert(pending);
         reportCaughtError(error, 'salaryAlert.pendingReplay');
         setStatus('error');
       })
       .finally(() => {
         completingPendingRef.current = false;
       });
-  }, [persistCreatedAlert, user]);
+  }, [persistCreatedAlert, stashPendingAlert, user]);
 
   // Fire the funnel view event once per session when the card is seen.
   useEffect(() => {
@@ -124,6 +146,7 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
         for (const entry of entries) {
           if (!entry.isIntersecting || fired) continue;
           fired = true;
+          trackShown();
           Analytics.trackFunnelStep('salary_alert_view', { funnel: 'salary_alert' });
           try {
             sessionStorage.setItem(VIEW_SESSION_KEY, '1');
@@ -137,10 +160,11 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [trackShown]);
 
   const handleAccept = useCallback(async () => {
     if (status === 'submitting' || status === 'success') return;
+    trackShown();
     Analytics.trackCtaClick(CTA_ID, {
       component: 'SalaryAlertCTA',
       section: 'calculator_results',
@@ -163,13 +187,15 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
     // Anonymous: keep the visitor at the result and make the next action
     // explicit. The alert is written only after authentication completes.
     if (!uid || !email) {
-      savePendingSalaryAlert(config);
+      const stored = stashPendingAlert(config);
       setCaptureStatus('idle');
       setCaptureError('');
       setStatus('capture');
       Analytics.trackFunnelStep('salary_alert_capture_view', {
         funnel: 'salary_alert',
         capture_surface: 'calculator_results',
+        // false = the replay can only happen in this tab (in-memory fallback).
+        pending_stored: stored,
       });
       return;
     }
@@ -180,7 +206,7 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
     } catch {
       setStatus('error');
     }
-  }, [alertLocale, persistCreatedAlert, status, threshold, user]);
+  }, [alertLocale, persistCreatedAlert, stashPendingAlert, status, threshold, trackShown, user]);
 
   const handleCaptureSubmit = useCallback(async (event: React.FormEvent) => {
     event.preventDefault();

@@ -5,18 +5,16 @@ name: Apply generator REWIRE patch to nanako
 #
 # WHY A SECOND WORKFLOW INSTEAD OF FOLDING THIS INTO THE TRANSPORT
 #
-# transport-generator-to-nanako.yml does `rm -rf generator` and rebuilds the
-# directory from the manifest on every run. That is correct and deliberate — it
-# is what makes a file dropped from the manifest disappear from nanako instead
-# of lingering as an orphan. But it means anything that exists ONLY on the
-# nanako side is destroyed by the next transport: corpus-paths.mjs, the vendored
-# whitelist, the tests, the CI workflow, and the edits that repoint the
-# transported files at nanako's layout are all in that category. They cannot
-# live in the manifest, because they do not exist in this repository.
+# transport-generator-to-nanako.yml overlays the directory from the manifest on
+# every run. That is deliberately non-destructive: nanako may already own
+# corpus-paths.mjs, the vendored whitelist, tests, its CI workflow, and edits
+# that repoint transported files at nanako's layout. They cannot live in the
+# manifest because they do not exist in this repository, so the structural
+# transport must preserve them rather than deleting the whole directory.
 #
 # So the pipeline is ordered, and the order is not optional:
 #
-#   1. transport-generator-to-nanako.yml   — structural copy (idempotent, destructive)
+#   1. transport-generator-to-nanako.yml   — structural copy (idempotent, additive)
 #   2. this workflow                       — behavioural REWIRE (idempotent, additive)
 #
 # Run 1 then 2. Running 1 alone leaves nanako with code that does not load.
@@ -42,7 +40,7 @@ on:
         type: boolean
         default: true
       patch_file:
-        description: 'Patch under .github/transport/ to apply. Default = the full transport→rewire patch, correct for a branch that has just been transported. Use a delta patch when the branch is ALREADY rewired: the full patch cannot re-apply there, because the transport rebuilds only generator/ and leaves .gitignore / package.json / generator-ci.yml carrying the previous rewire.'
+        description: 'Patch under .github/transport/ to apply. Default = the full transport→rewire patch, correct for a branch that has just been transported. Use a delta patch when the branch is ALREADY rewired: the full patch cannot re-apply there, because the transport updates only generator/ and leaves .gitignore / package.json / generator-ci.yml carrying the previous rewire.'
         required: false
         default: 'nanako-generator-rewire.patch'
 
@@ -60,7 +58,7 @@ jobs:
   apply:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |

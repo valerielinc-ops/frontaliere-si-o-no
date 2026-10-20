@@ -82,19 +82,21 @@ jobs:
       AI_CACHE_PATH: .cache/jobs-ai-cache.json
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 50
+      - name: Validate crawler generation token before crawling
+        run: node scripts/check-crawler-generation-token.mjs
       - name: Restore crawler AI cache
         id: restore_crawler_ai_cache
         continue-on-error: true
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/jobs-ai-cache.json
           key: jobs-ai-cache-v1-crawler-group-01-${{ github.repository }}-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: jobs-ai-cache-v1-crawler-group-01-${{ github.repository }}-${{ runner.os }}-
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
@@ -103,7 +105,7 @@ jobs:
       - name: Restore per-company translation cache
         id: translation_cache_restore
         continue-on-error: true
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-crawler-group-01-${{ github.run_id }}-${{ github.run_attempt }}
@@ -121,17 +123,18 @@ jobs:
             echo "ℹ️ Per-company translation cache miss; translations will repopulate it."
             echo "translation-cache: miss" >> "$GITHUB_STEP_SUMMARY"
           fi
-      - name: Prepare Firebase credentials (optional)
+      - name: Prepare Firebase credentials and global data lease
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |-
           if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           else
-            echo "ℹ️ Firebase secrets not set — crawler will use file config only."
-            exit 0
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON is required to acquire the global data pipeline lease; refusing to continue to shared crawler commits."
+            exit 1
           fi
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          echo "DATA_PIPELINE_LEASE=1" >> "$GITHUB_ENV"
       - name: Load secrets from Remote Config
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -174,7 +177,9 @@ jobs:
           pid_path="$state_dir/coop.pid"
           status_path="$state_dir/coop.status"
           started_path="$state_dir/coop.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/coop-ticino.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/coop-ticino.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -182,7 +187,15 @@ jobs:
           # ---- coop: run crawler (verbatim from original workflow) ----
           npm run jobs:update:coop
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::coop: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- coop: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -196,8 +209,8 @@ jobs:
           fi
 
           # ---- coop: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run coop" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -206,6 +219,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run coop"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed coop"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::coop: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -226,21 +240,24 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-01/coop.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-01/coop.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-01/coop.status.tmp.$$"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-01/coop.worker.status"
+          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-01/coop.worker.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-01/coop.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-01/coop-ticino.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-01/coop.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
-          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
-          mv "$status_tmp" "$status_file"
+          printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
+          mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -248,38 +265,58 @@ jobs:
           worker_path="$RUNNER_TEMP/crawler-generation/group-01/coop.worker.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-01/coop.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-01/coop.status.tmp.$$"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-01/coop.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-01/coop.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-01/coop-ticino.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-330}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 330)"
             worker_watchdog_minutes=330
           fi
+          resolveCrawlerTerminalStatus() {
+            local wrapper_exit="$1"
+            local worker_status=""
+            local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
+            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
+              terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
+            else
+              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
+            fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
+            if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
+              echo "::error::could not publish the crawler terminal status" >&2
+              return 1
+            fi
+            printf '\''%s\n'\'' "$terminal_exit"
+          }
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
-            printf '\''1\n'\'' > "$status_tmp"
-            mv "$status_tmp" "$status_file"
-            exit 1
+            terminal_exit="$(resolveCrawlerTerminalStatus 1)"
+            exit "$terminal_exit"
           fi
           if ! command -v timeout >/dev/null 2>&1; then
             echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
-            printf '\''127\n'\'' > "$status_tmp"
-            mv "$status_tmp" "$status_file"
-            exit 127
+            terminal_exit="$(resolveCrawlerTerminalStatus 127)"
+            exit "$terminal_exit"
           fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
             timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
             flock_exit=$?
-            if [ -s "$status_file" ]; then
-              status="$(cat "$status_file" 2>/dev/null || true)"
-              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
-            fi
-            terminal_exit="$flock_exit"
-            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-            printf "%s\n" "$terminal_exit" > "$status_tmp"
-            mv "$status_tmp" "$status_file"
+            terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
             exit "$terminal_exit"
           fi
           while :; do
@@ -288,30 +325,24 @@ jobs:
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
-                exit 0
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
               fi
-              if [ -s "$status_file" ]; then
-                status="$(cat "$status_file" 2>/dev/null || true)"
-                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
-                printf '\''1\n'\'' > "$status_tmp"
-                mv "$status_tmp" "$status_file"
-                exit 1
+              if [ -s "$worker_status_file" ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
                 # A worker that acquired a slot but disappeared before its atomic
                 # status write must not be retried or waited on for the full budget.
                 # Preserve the child status when available; 143 is the conventional
                 # fallback for a SIGTERM from the runner/host.
-                terminal_exit="$flock_exit"
-                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
-                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
-                mv "$status_tmp" "$status_file"
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
               if [ "$flock_exit" -ne 1 ]; then
-                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
-                mv "$status_tmp" "$status_file"
-                exit "$flock_exit"
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
               fi
             done
             sleep 1
@@ -393,30 +424,53 @@ jobs:
           systemic_count=0
           printf '%s\n' '### Crawler group 01 outcome' >> "$summary_file"
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
-          status_file="$state_dir/coop.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::coop: no terminal status was published"
-            printf '%s\n' '| coop | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::coop: invalid terminal status: $status"
-              printf '%s\n' '| coop | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::coop: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| coop | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| coop | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
+          aggregate_crawler_member() {
+            slug="$1"
+            crawler_id="${2:-$slug}"
+            status_file="$state_dir/$slug.status"
+            if [ ! -s "$status_file" ]; then
+              echo "::warning::$slug: no terminal status was published"
+              printf '%s\n' "| $slug | missing status |" >> "$summary_file"
+              missing_count=$((missing_count + 1))
             else
-              echo "::error::coop: crawler exited with status $status"
-              printf '| coop | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+                echo "::error::$slug: invalid terminal status: $status"
+                printf '%s\n' "| $slug | invalid status |" >> "$summary_file"
+                failure_count=$((failure_count + 1))
+              elif [ "$status" -eq 45 ]; then
+                echo "::error::$slug: global data-pipeline lease hit consecutive transient Firestore errors (exit 45); this generation will not retry and no per-crawler issue will be filed (systemic class)"
+                printf '%s\n' "| $slug | global lease transient error (45) |" >> "$summary_file"
+                failure_count=$((failure_count + 1))
+              elif [ "$status" -eq 124 ]; then
+                echo "::error::$slug: target timeout recorded as an actionable failure (exit 124)"
+                printf '%s\n' "| $slug | target timeout (124) |" >> "$summary_file"
+                failure_count=$((failure_count + 1))
+              elif [ "$status" -eq 143 ]; then
+                echo "::warning::$slug: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+                printf '%s\n' "| $slug | systemic runner shutdown (143) |" >> "$summary_file"
+                systemic_count=$((systemic_count + 1))
+              elif [ "$status" -eq 0 ]; then
+                printf '%s\n' "| $slug | success |" >> "$summary_file"
+                success_count=$((success_count + 1))
+              else
+                echo "::error::$slug: crawler exited with status $status"
+                printf '| %s | failed (%s) |\n' "$slug" "$status" >> "$summary_file"
+                failure_count=$((failure_count + 1))
+              fi
             fi
-          fi
+            watchdog_file="$state_dir/$crawler_id.watchdog"
+            watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
+            if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+              watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+              echo "::error::$slug: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+              watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+              if ! node scripts/lib/github-issue-creator.mjs --title "Crawler Failure: Run $slug" --description "$watchdog_description" --log-excerpt-file "$state_dir/$slug.log" --priority 2 --label Bug --workflow "Run $slug"; then
+                echo "::warning::$slug: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+              fi
+            fi
+          }
+          aggregate_crawler_member 'coop' 'coop-ticino'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
@@ -426,33 +480,44 @@ jobs:
           printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "systemic_count=$systemic_count" "wait_outcome=$wait_outcome" >> "$output_file"
           exit 0
       - name: Commit crawler group data atomically
-        if: always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'
+        if: always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'
         run: |-
           set +e
-          bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group 01 jobs"
-          git_commit_exit=$?
-          if [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::group commit: push lost the ref race after all retries (contention) on the final aggregated commit. Cycle lost, self-heals next scheduled run — group not failed (systemic class)."
-            echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          if [ "$git_commit_exit" -eq 44 ]; then
-            echo "::warning::group commit: global data-pipeline lease is busy (exit 44); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."
-            echo "⚠️ group commit: global data-pipeline lease busy (exit 44) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          exit "$git_commit_exit"
+          commit_attempt=1
+          commit_max_attempts=3
+          while true; do
+            bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group 01 jobs"
+            git_commit_exit=$?
+            if [ "$git_commit_exit" -eq 0 ]; then
+              exit 0
+            fi
+            if [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; then
+            echo "::error::group commit failed (exit $git_commit_exit); token-bound output was not published"
+            echo "❌ group commit failed (exit $git_commit_exit)" >> "$GITHUB_STEP_SUMMARY"
+              exit "$git_commit_exit"
+            fi
+            if [ "$commit_attempt" -ge "$commit_max_attempts" ]; then
+              echo "::error::group commit: same-generation retry budget exhausted after $commit_attempt/$commit_max_attempts attempts (exit $git_commit_exit)"
+              echo "❌ group commit: same-generation retry budget exhausted (exit $git_commit_exit); group remains failed" >> "$GITHUB_STEP_SUMMARY"
+              exit "$git_commit_exit"
+            fi
+            retry_delay=$((commit_attempt * 15))
+            echo "::warning::group commit: retryable commit exit $git_commit_exit; retrying the same generation in $retry_delay seconds (attempt $commit_attempt/$commit_max_attempts)"
+            echo "⚠️ group commit: retrying the same generation after exit $git_commit_exit in $retry_delay seconds" >> "$GITHUB_STEP_SUMMARY"
+            sleep "$retry_delay"
+            commit_attempt=$((commit_attempt + 1))
+          done
       - name: Save crawler AI cache
         if: always() && hashFiles('.cache/jobs-ai-cache.json') != ''
         continue-on-error: true
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .cache/jobs-ai-cache.json
           key: jobs-ai-cache-v1-crawler-group-01-${{ github.repository }}-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Save per-company translation cache
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-crawler-group-01-${{ github.run_id }}-${{ github.run_attempt }}
@@ -487,34 +552,45 @@ jobs:
           echo "❌ crawler generation finalizer failed; ledger persistence skipped (no false-success ledger entry)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
       - name: Persist crawler generation ledger
         if: always() && steps.crawler-generation-finalizer.outcome == 'success'
-        continue-on-error: true
         env:
           CRAWLER_GENERATION_RECEIPT_DIR: ""
           SKIP_AI_TRANSLATION: "1"
         run: |-
           set +e
-          bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
-          git_commit_exit=$?
-          if [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::crawler generation ledger: push lost the ref race after all retries (contention); this cycle ledger entry was not committed and the next scheduled cycle records its own ledger state."
-            echo "⚠️ crawler generation ledger: push contention loss (exit 42) — this cycle ledger entry was not committed; next scheduled cycle records its own state" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-            exit 0
-          fi
-          if [ "$git_commit_exit" -eq 44 ]; then
-            echo "::warning::crawler generation ledger: global data-pipeline lease is busy (exit 44); this cycle ledger entry was not committed and the next scheduled cycle records its own state."
-            echo "⚠️ crawler generation ledger: global data-pipeline lease busy (exit 44) — this cycle ledger entry was not committed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-            exit 0
-          fi
-          if [ "$git_commit_exit" -ne 0 ]; then
-            if [ "$git_commit_exit" -eq 43 ]; then
-              echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit 43)"
-              echo "❌ crawler generation ledger: shared deferred-commit precondition failed (exit 43)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-            else
-              echo "::error::crawler generation ledger persistence failed (exit $git_commit_exit)"
-              echo "❌ crawler generation ledger persistence failed (exit $git_commit_exit)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          commit_attempt=1
+          commit_max_attempts=3
+          while true; do
+            if ! node scripts/ci/validate-workflow-data.mjs --kind crawler-generation-ledger --file data/crawler-generation-ledger.jsonl; then
+              echo "::error::crawler generation ledger validation failed; data/crawler-generation-ledger.jsonl was not committed"
+              echo "❌ crawler generation ledger validation failed; data/crawler-generation-ledger.jsonl was not committed" >> "$GITHUB_STEP_SUMMARY"
+              exit 1
             fi
-          fi
-          exit "$git_commit_exit"
+            bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
+            git_commit_exit=$?
+            if [ "$git_commit_exit" -eq 0 ]; then
+              exit 0
+            fi
+            if [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; then
+              if [ "$git_commit_exit" -eq 43 ]; then
+                echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit 43)"
+                echo "❌ crawler generation ledger: shared deferred-commit precondition failed (exit 43)" >> "$GITHUB_STEP_SUMMARY"
+              else
+                echo "::error::crawler generation ledger persistence failed (exit $git_commit_exit)"
+                echo "❌ crawler generation ledger persistence failed (exit $git_commit_exit)" >> "$GITHUB_STEP_SUMMARY"
+              fi
+              exit "$git_commit_exit"
+            fi
+            if [ "$commit_attempt" -ge "$commit_max_attempts" ]; then
+              echo "::error::crawler generation ledger: same-generation retry budget exhausted after $commit_attempt/$commit_max_attempts attempts (exit $git_commit_exit)"
+              echo "❌ crawler generation ledger: same-generation retry budget exhausted (exit $git_commit_exit); group remains failed" >> "$GITHUB_STEP_SUMMARY"
+              exit "$git_commit_exit"
+            fi
+            retry_delay=$((commit_attempt * 15))
+            echo "::warning::crawler generation ledger: retryable commit exit $git_commit_exit; retrying the same generation in $retry_delay seconds (attempt $commit_attempt/$commit_max_attempts)"
+            echo "⚠️ crawler generation ledger: retrying the same generation after exit $git_commit_exit in $retry_delay seconds" >> "$GITHUB_STEP_SUMMARY"
+            sleep "$retry_delay"
+            commit_attempt=$((commit_attempt + 1))
+          done
       - name: Upload crawler generation manifest (shadow)
         if: always()
         continue-on-error: true

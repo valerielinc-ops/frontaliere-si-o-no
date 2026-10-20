@@ -23,11 +23,13 @@
  *   - isTrustedDomain()              — Validate URLs belong to Lindenhofgruppe
  *   - LINDENHOFGRUPPE_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { dropRepostedListings, enrichProspectiveJobsFromDetailPages } from './prospective-ch-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -224,12 +226,9 @@ export async function fetchAllLindenhofgruppeJobs() {
     const jobSlug = slugify(`${title} ${LINDENHOFGRUPPE_KEY} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const raw = listing?.start_date || listing?.last_modification_timestamp || '';
-      const d = new Date(String(raw || ''));
-      if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-      return new Date().toISOString().slice(0, 10);
-    })();
+    // This tenant has no verified listing publication field.
+    // start_date and modification timestamps are not publication evidence.
+    const publication = sourcePostingDateFields();
 
     const job = {
       id: `${LINDENHOFGRUPPE_KEY}-${urlHash}`,
@@ -261,7 +260,7 @@ export async function fetchAllLindenhofgruppeJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: applyLink || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -270,6 +269,16 @@ export async function fetchAllLindenhofgruppeJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${LINDENHOFGRUPPE_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  // The listing text hides what tells postings apart: the two "Dipl.
+  // Pflegefachfrau/-mann FH/HF" at the Lindenhofspital share it, but only one
+  // page carries the "Gut zu wissen" ward section (audit 2026-09-29 read them
+  // as one duplicate). The rendered vacancy page is the description source,
+  // and only identical rendered pages count as a re-post.
+  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, {
+    isTrustedDomain,
+    label: LINDENHOFGRUPPE_COMPANY_NAME,
+  });
+  const unique = dropRepostedListings(jobs, LINDENHOFGRUPPE_COMPANY_NAME, { pageDescribed });
+  console.log(`\n📋 Total ${LINDENHOFGRUPPE_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
 }

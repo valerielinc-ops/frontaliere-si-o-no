@@ -1,14 +1,17 @@
+import { buildReportedJobPostingFixture as buildJobPostingSchema } from '../helpers/reported-job-schema';
 /**
  * Unit tests for the canonical JobPosting schema builder at
  * `build-plugins/shared/jobPostingSchema.ts`.
  *
  * Verifies CLAUDE.md rule #3: every JobPosting schema must always contain
  * all 9 mandatory fields with realistic, non-empty values — even when the
- * source job data is sparse or entirely missing.
+ * other source fields are sparse, provided publication provenance is verified.
  */
 import { describe, it, expect } from 'vitest';
 import {
-  buildJobPostingSchema,
+  buildJobPostingSchema as buildRawJobPostingSchema,
+  buildCompanyOrganization,
+  buildJobPostingFacts,
   isEmployerOwnedApplyUrl,
   MANDATORY_JOBPOSTING_FIELDS,
   type JobInput,
@@ -19,6 +22,13 @@ import { SLIM_INDEX_FIELDS } from '../../build-plugins/shared/slimJobIndex';
 const OPTS = {
   locale: 'it',
   url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/dettaglio-offerta/test-slug/',
+  knownSlugs: new Set([
+    'eoc-ente-ospedaliero-cantonale',
+    'acme-corp',
+    'axa-svizzera',
+    'bkw',
+    'coop-genossenschaft',
+  ]),
 };
 
 /** Helper: assert a schema has every mandatory field non-empty & well-formed. */
@@ -48,8 +58,10 @@ function assertComplete(schema: JobPostingSchema) {
   // 5. hiringOrganization.name
   expect(schema.hiringOrganization).toBeTruthy();
   expect(schema.hiringOrganization['@type']).toBe('Organization');
+  expect(schema.hiringOrganization['@id']).toMatch(/^https:\/\//);
   expect(schema.hiringOrganization.name).toBeTruthy();
   expect(schema.hiringOrganization.name.length).toBeGreaterThan(0);
+  expect(schema.hiringOrganization.url).toMatch(/^https:\/\//);
 
   // 6. jobLocation
   expect(schema.jobLocation).toBeTruthy();
@@ -113,6 +125,64 @@ describe('buildJobPostingSchema — complete input', () => {
     expect(schema.baseSalary.value.maxValue).toBe(96000);
     expect(schema.employmentType).toBe('FULL_TIME');
     expect(schema.identifier?.value).toBe('eoc-infermiere-123');
+    expect(schema.hiringOrganization['@id']).toBe(
+      'https://frontaliereticino.ch/aziende/eoc-ente-ospedaliero-cantonale/#organization',
+    );
+    expect(schema.hiringOrganization.url).toBe('https://frontaliereticino.ch/aziende/eoc-ente-ospedaliero-cantonale/');
+    expect(schema.hiringOrganization.sameAs).toBe('https://eoc.ch');
+  });
+
+  it('shares one first-party Organization identity across all locales', () => {
+    const job: JobInput = {
+      title: 'Software Engineer',
+      description: 'Ruolo di sviluppo software con responsabilità su prodotti digitali e automazione dei processi del team.',
+      company: 'Acme Corp',
+      companyKey: 'acme',
+      city: 'Lugano',
+      postingDateSource: 'reported',
+      postedDate: '2026-09-01',
+      companyDomain: 'acme.example',
+    };
+    const schemas = (['it', 'en', 'de', 'fr'] as const).map((locale) => buildJobPostingSchema(job, {
+      locale,
+      url: `https://frontaliereticino.ch${locale === 'it' ? '' : `/${locale}`}/cerca-lavoro-ticino/acme/`,
+      knownSlugs: OPTS.knownSlugs,
+    }));
+    const organizations = schemas.map((schema) => schema!.hiringOrganization);
+    expect(new Set(organizations.map((organization) => organization['@id']))).toHaveLength(1);
+    expect(new Set(organizations.map((organization) => organization.url))).toHaveLength(1);
+    expect(organizations[0]['@id']).toBe('https://frontaliereticino.ch/aziende/acme-corp/#organization');
+    expect(organizations[0].url).toBe('https://frontaliereticino.ch/aziende/acme-corp/');
+    expect(organizations.every((organization) => organization.sameAs === 'https://acme.example')).toBe(true);
+  });
+
+  it.each([
+    { company: 'AXA Svizzera', companyKey: 'axa-svizzera', domain: 'www.axa.ch' },
+    { company: 'BKW', companyKey: 'bkw', domain: 'www.bkw.ch' },
+    { company: 'Coop Genossenschaft', companyKey: 'coop-ticino', domain: 'www.coop.ch' },
+  ])('keeps a corpus employer identity stable for $company', ({ company, companyKey, domain }) => {
+    const organizations = (['it', 'en', 'de', 'fr'] as const).map((locale) => buildJobPostingSchema({
+      title: 'Specialista',
+      description: `Posizione aperta presso ${company} con attività operative, collaborazione e responsabilità definite dal team aziendale.`,
+      company,
+      companyKey,
+      companyDomain: domain,
+      city: 'Lugano',
+      postingDateSource: 'reported',
+      postedDate: '2026-09-01',
+    }, {
+      locale,
+      url: `https://frontaliereticino.ch${locale === 'it' ? '' : `/${locale}`}/cerca-lavoro-ticino/${companyKey}/`,
+      knownSlugs: OPTS.knownSlugs,
+    })!.hiringOrganization);
+
+    expect(new Set(organizations.map((organization) => organization['@id']))).toHaveLength(1);
+    expect(new Set(organizations.map((organization) => organization.url))).toHaveLength(1);
+    expect(organizations[0]['@id']).toBe(
+      `https://frontaliereticino.ch/aziende/${company.toLowerCase().replace(/[^a-z0-9]+/g, '-')}/#organization`,
+    );
+    expect(organizations[0].url).toBe(organizations[0]['@id'].replace(/#organization$/, ''));
+    expect(organizations.every((organization) => organization.sameAs === `https://${domain}`)).toBe(true);
   });
 
   it('recovers a real title when the localized source contains an AI translation narrative', () => {
@@ -151,24 +221,12 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
   });
 });
 
-describe('buildJobPostingSchema — deterministic SSG clock', () => {
-  it('renders identical fallback dates in separate fixed-clock renders', () => {
-    const job: JobInput = {
-      id: 'clock-fixture',
-      title: 'Operatore amministrativo',
-      description: 'Descrizione sufficientemente lunga per il test del clock di build statico.',
-      company: 'Azienda Fixture SA',
-      city: 'Lugano',
-    };
-    const buildDay = new Date('2026-09-18T00:00:00.000Z');
-    const first = buildJobPostingSchema(job, { ...OPTS, now: buildDay });
-    const second = buildJobPostingSchema(job, { ...OPTS, now: new Date(buildDay) });
-    expect(JSON.stringify(first)).toBe(JSON.stringify(second));
-    expect(first.datePosted).toBe('2026-09-18T00:00:00.000Z');
-    expect(first.validThrough).toBe('2026-12-17T00:00:00.000Z');
-    expect(JSON.stringify(first)).not.toBe(JSON.stringify(
-      buildJobPostingSchema(job, { ...OPTS, now: new Date('2026-09-19T00:00:00.000Z') }),
-    ));
+describe('buildJobPostingSchema — missing publication under different build clocks', () => {
+  it('never turns a build date into an employer publication date', () => {
+    const job: JobInput = { title: 'Operatore amministrativo', company: 'Fixture SA', city: 'Lugano', postingDateSource: 'unknown' };
+    const now = new Date();
+    expect(buildRawJobPostingSchema(job, { ...OPTS, now })).toBeNull();
+    expect(buildRawJobPostingSchema(job, { ...OPTS, now: new Date(now.getTime() + 86400000) })).toBeNull();
   });
 });
 
@@ -255,6 +313,66 @@ describe('buildJobPostingSchema — empty-minimum input', () => {
     expect(schema.hiringOrganization.name.length).toBeGreaterThan(0);
   });
 
+  it.each(['it', 'en', 'de', 'fr'] as const)(
+    'anchors a reserved employer to the canonical job URL in locale `%s`',
+    (locale) => {
+      const url = `https://frontaliereticino.ch${locale === 'it' ? '' : `/${locale}`}/cerca-lavoro-ticino/dettaglio-offerta/confidential-${locale}/`;
+      const schema = buildJobPostingSchema({}, {
+        locale,
+        url,
+        knownSlugs: new Set<string>(),
+      });
+
+      expect(schema.hiringOrganization.url).toBe(url);
+      expect(schema.hiringOrganization['@id']).toBe(`${url}#organization`);
+      expect(schema.hiringOrganization['@id']).not.toBe(
+        'https://frontaliereticino.ch/#organization',
+      );
+    },
+  );
+
+  it.each(['it', 'en', 'de', 'fr'] as const)(
+    'does not invent an employer profile URL for an unknown employer in locale `%s`',
+    (locale) => {
+      const url = `https://frontaliereticino.ch${locale === 'it' ? '' : `/${locale}`}/cerca-lavoro-ticino/dettaglio-offerta/unknown-employer-${locale}/`;
+      const schema = buildJobPostingSchema({
+        company: 'Unknown Employer',
+        companyKey: 'unknown-employer',
+        city: 'Lugano',
+      }, {
+        locale,
+        url,
+        knownSlugs: new Set(['known-employer']),
+      });
+
+      expect(schema.hiringOrganization.url).toBe(url);
+      expect(schema.hiringOrganization['@id']).toBe(`${url}#organization`);
+      expect(schema.hiringOrganization.url).not.toContain('/aziende/unknown-employer/');
+    },
+  );
+
+  it('omits organization identity when no real page or canonical fallback is available', () => {
+    const organization = buildCompanyOrganization({}, {
+      locale: 'it',
+      baseUrl: 'https://frontaliereticino.ch',
+      knownSlugs: new Set<string>(),
+    });
+
+    expect(organization['@id']).toBeUndefined();
+    expect(organization.url).toBeUndefined();
+  });
+
+  it('uses an explicit canonical fallback for runtime FAQ facts', () => {
+    const canonicalUrl = 'https://frontaliereticino.ch/en/cerca-lavoro-ticino/dettaglio-offerta/runtime-facts/';
+    const facts = buildJobPostingFacts({ company: 'Unknown Employer', city: 'Lugano' }, 'en', {
+      fallbackUrl: canonicalUrl,
+      knownSlugs: new Set<string>(),
+    });
+
+    expect(facts.hiringOrganization.url).toBe(canonicalUrl);
+    expect(facts.hiringOrganization['@id']).toBe(`${canonicalUrl}#organization`);
+  });
+
   it('MANDATORY_JOBPOSTING_FIELDS lists all 9 required paths', () => {
     expect(MANDATORY_JOBPOSTING_FIELDS).toContain('title');
     expect(MANDATORY_JOBPOSTING_FIELDS).toContain('description');
@@ -303,31 +421,20 @@ describe('buildJobPostingSchema — salary defaults never zero', () => {
 });
 
 describe('buildJobPostingSchema — per-locale output', () => {
-  const base: JobInput = {
-    title: 'Cameriere',
-    description: '', // empty — force the locale-aware fallback to kick in
-    company: 'Ristorante Demo',
+  const sparseJob: JobInput = {
     city: 'Locarno',
   };
-  it('emits an Italian fallback description for locale `it`', () => {
-    const schema = buildJobPostingSchema(base, { locale: 'it', url: 'https://frontaliereticino.ch/' });
+
+  it.each([
+    { locale: 'it', url: 'https://frontaliereticino.ch/', descriptionPattern: /presso|candidatura/ },
+    { locale: 'en', url: 'https://frontaliereticino.ch/en/', descriptionPattern: /apply|at/ },
+    { locale: 'de', url: 'https://frontaliereticino.ch/de/', descriptionPattern: /bei|bewerbung/ },
+    { locale: 'fr', url: 'https://frontaliereticino.ch/fr/', descriptionPattern: /chez|candidature/ },
+  ] as const)('emits a complete sparse schema for locale `$locale`', ({ locale, url, descriptionPattern }) => {
+    const schema = buildJobPostingSchema(sparseJob, { locale, url });
+    assertComplete(schema);
     expect('inLanguage' in schema).toBe(false);
-    expect(schema.description.toLowerCase()).toMatch(/presso|candidatura/);
-  });
-  it('emits an English fallback description for locale `en`', () => {
-    const schema = buildJobPostingSchema(base, { locale: 'en', url: 'https://frontaliereticino.ch/en/' });
-    expect('inLanguage' in schema).toBe(false);
-    expect(schema.description.toLowerCase()).toMatch(/apply|at/);
-  });
-  it('emits a German fallback description for locale `de`', () => {
-    const schema = buildJobPostingSchema(base, { locale: 'de', url: 'https://frontaliereticino.ch/de/' });
-    expect('inLanguage' in schema).toBe(false);
-    expect(schema.description.toLowerCase()).toMatch(/bei|bewerbung/);
-  });
-  it('emits a French fallback description for locale `fr`', () => {
-    const schema = buildJobPostingSchema(base, { locale: 'fr', url: 'https://frontaliereticino.ch/fr/' });
-    expect('inLanguage' in schema).toBe(false);
-    expect(schema.description.toLowerCase()).toMatch(/chez|candidature/);
+    expect(schema.description.toLowerCase()).toMatch(descriptionPattern);
   });
 });
 

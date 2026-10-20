@@ -94,7 +94,13 @@ export function publisherAdLinksPlugin(rootDir: string): Plugin {
     name: 'publisher-ad-links',
     apply: 'build',
     enforce: 'post',
-    async closeBundle() {
+    // This hook consumes both publisherAdsFlushed and staticPagesFlushed.
+    // Keep it in Rollup's post ObjectHook bucket so it follows the two
+    // producers even when the profiling build serializes closeBundle hooks.
+    closeBundle: {
+      order: 'post',
+      sequential: true,
+      handler: async () => {
       if (process.env.SKIP_PUBLISHER_AD_PAGES === '1') return;
 
       const distDir = np.resolve(rootDir, 'dist');
@@ -146,6 +152,7 @@ export function publisherAdLinksPlugin(rootDir: string): Plugin {
             'or had no <main>/</main>/</body> anchor. See build-plugins/shared/injectAfterMain.ts.',
         );
       }
+      },
     },
   };
 }

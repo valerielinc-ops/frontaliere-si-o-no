@@ -1,3 +1,4 @@
+import { JSDOM } from 'jsdom';
 /**
  * Tests for D-2A fuel-station granular pages.
  *
@@ -463,9 +464,11 @@ describe('generateFuelStationPages() — Ticino only', () => {
     expect(sample).toMatch(/Recensione editoriale della stazione/);
   });
 
-  it('uses the stated 6 L/100 km commute assumption for monthly context', () => {
+  it('labels monthly consumption as hypothetical and calculates the stated assumptions exactly', () => {
     const sample = pages['/prezzi-benzina/chiasso/stazioni/eni-via-compolongo/'];
-    expect(sample).toContain('106 litri');
+    expect(sample).toContain('Esempio ipotetico di consumo: 80 km al giorno, 6 litri per 100 km e 22 giorni');
+    expect(sample).toContain('105,6 litri al mese');
+    expect(sample).toContain('Questi valori sono ipotesi, non una distanza o un consumo tipico misurato dei frontalieri');
     expect(sample).not.toContain('200 litri');
     expect(sample).not.toContain('4 pieni × prezzo');
   });
@@ -552,5 +555,70 @@ describe('generateFuelStationPages() — sibling links', () => {
   it('page includes a related-links nav block', () => {
     const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
     expect(sample).toMatch(htmlTagWithAttrs('nav', { id: 'seoRelatedLinks' }));
+  });
+});
+
+
+describe('Swiss station diesel coverage', () => {
+  const today = new Date('2026-04-20T06:00:00.000Z');
+  const stations = [
+    { id: 'only-petrol', name: 'Alpha', brand: 'ALPHA', address: 'Via Prima 1, 6830 Chiasso', sp95PriceChf: 1.7 },
+    { id: 'real-diesel', name: 'Beta', brand: 'BETA', address: 'Via Seconda 2, 6830 Chiasso', sp95PriceChf: 1.8, dieselPriceChf: 1.9 },
+  ];
+  const pages = generateFuelStationPages({ dataset: { municipalities: [{ swiss: { nearbyStations: stations } }] }, today });
+
+  it('uses only observed diesel for the average, ranking and related station links', () => {
+    const html = pages[buildFuelStationPath('it', 'diesel', 'chiasso', buildStationSlug(stations[1]))];
+    expect(html).toContain('1,900');
+    expect(html).toContain('1/1');
+    expect(html).not.toContain('1,780');
+    expect(html).not.toContain(buildFuelStationPath('it', 'diesel', 'chiasso', buildStationSlug(stations[0])));
+    for (const station of stations) {
+      const petrol = pages[buildFuelStationPath('it', 'benzina', 'chiasso', buildStationSlug(station))];
+      expect(petrol).toContain('1,750');
+      expect(petrol).not.toContain('noindex,follow');
+    }
+  });
+
+  it('preserves the formerly synthetic diesel URL with a noindex bridge to the stats hub', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const html = pages[buildFuelStationPath(locale, 'diesel', 'chiasso', buildStationSlug(stations[0]))];
+      expect(html).toContain('noindex,follow');
+      expect(html).toContain('http-equiv="refresh"');
+      expect(html).not.toContain('1,780');
+      expect(html).not.toContain('GasStation');
+    }
+  });
+
+  it('keeps an observed diesel station even when petrol is missing', () => {
+    const station = { id: 'diesel-only', name: 'Gamma', brand: 'GAMMA', address: 'Via Terza 3, 6830 Chiasso', dieselPriceChf: 2.1 };
+    const generated = generateFuelStationPages({ dataset: { municipalities: [{ swiss: { nearbyStations: [station] } }] }, today });
+    const slug = buildStationSlug(station);
+    expect(generated[buildFuelStationPath('it', 'diesel', 'chiasso', slug)]).toContain('2,100');
+    expect(generated[buildFuelStationPath('it', 'benzina', 'chiasso', slug)]).toContain('noindex,follow');
+  });
+});
+
+
+describe('station metadata dates', () => {
+  it('does not publish a rebuild as a new publication or content update', () => {
+    const initial = new Date();
+    const later = new Date(initial.getTime() + 2 * 86_400_000);
+    const schemas = [initial, later].map((today) => {
+      const pages = generateFuelStationPages({ dataset: DATASET, today, maxPages: 1 });
+      const html = Object.values(pages)[0];
+      expect(html).toBeTruthy();
+      const dom = new JSDOM(html);
+      const doc = dom.window.document;
+      const schema = [...doc.querySelectorAll('script[type="application/ld+json"]')]
+        .map((script) => JSON.parse(script.textContent || '{}'))
+        .find((entry) => entry['@type'] === 'WebPage');
+      expect(schema).toBeDefined();
+      expect(schema).not.toHaveProperty('datePublished');
+      expect(schema).not.toHaveProperty('dateModified');
+      dom.window.close();
+      return schema;
+    });
+    expect(schemas[1]).toEqual(schemas[0]);
   });
 });

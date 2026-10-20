@@ -7,17 +7,17 @@
  * separately-consented talent pool.
  */
 
-import admin from 'firebase-admin';
-import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
+import { ASSISTED_APPLICATIONS_COLLECTION, FOLLOWUP_DOC_ID, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
+import { SUBMISSION_DOC_ID } from './assistedApplicationSubmissionGuard.js';
 
 export const ASSISTED_APPLICATION_RETENTION_DAYS = 90;
 
 const ASSISTED_STORAGE_PREFIX = 'assisted-application-uploads/';
 const RETENTION_PAGE_SIZE = 500;
-const STORAGE_BUCKET =
-  process.env.FIREBASE_STORAGE_BUCKET ||
-  process.env.STORAGE_BUCKET ||
-  'frontaliere-ticino.firebasestorage.app';
+const STORAGE_BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 
 function timestampMillis(value) {
   if (value && typeof value.toMillis === 'function') {
@@ -35,6 +35,30 @@ function retentionAnchor(order) {
     return order.submittedAt;
   }
   return order?.cvUploadedAt ?? null;
+}
+
+/**
+ * The order is kept for the talent pool: the consent is given and the purge has not run. The «inviata»
+ * link of such an order lasts while this holds (owner decision 2026-10-05, «Fino a fine consenso»).
+ * As of 2026-10-05 no code writes `talentPoolConsent`: the consent, its withdrawal and its duration are
+ * not modelled yet (one boolean, no end date). Withdrawn = no longer true; the order then falls back to
+ * the retention below.
+ */
+export function talentPoolConsentActive(order) {
+  return order?.talentPoolConsent === true && order.retentionPurgedAt == null;
+}
+
+/**
+ * When the purge below is due to delete the order's files and data (its anchor plus the retention days),
+ * or null when it never is (no anchor, the talent pool). The «inviata» e-mail's link to the candidate's
+ * documents lasts until then (owner decision 2026-10-03); for the talent pool, as long as the consent
+ * (talentPoolConsentActive, owner decision 2026-10-05).
+ * @returns {number|null} epoch ms
+ */
+export function retentionPurgeDueAt(order, retentionDays = ASSISTED_APPLICATION_RETENTION_DAYS) {
+  if (order?.talentPoolConsent === true) return null;
+  const anchorMillis = timestampMillis(retentionAnchor(order));
+  return anchorMillis === null ? null : anchorMillis + retentionDays * 86400000;
 }
 
 function storageKeyForOrder(orderId, value) {
@@ -66,6 +90,28 @@ async function candidateDocs(collection, field, cutoff) {
 }
 
 /**
+ * The automated flow (assistedApplicationAutomation.js) adds more personal
+ * data next to the CV: generated cover letters and encrypted run evidence in
+ * the order's Storage folder, the AI draft (profile, CV text) and the flow
+ * (answers, feedback) in private subcollections, and the opens and clicks of
+ * the candidate's e-mails (assistedApplicationEmailEvents.js). They share the
+ * CV's retention: the whole order folder and those documents go with it.
+ */
+async function purgeAutomationData(bucket, orderRef, orderId) {
+  if (typeof bucket.deleteFiles === 'function') {
+    await bucket.deleteFiles({ prefix: `${ASSISTED_STORAGE_PREFIX}${orderId}/` });
+  }
+  if (typeof orderRef?.collection !== 'function') return;
+  for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID], ['automation', 'intake'], ['automation', PORTAL_ACCOUNTS_DOC_ID], ['automation', FOLLOWUP_DOC_ID]]) {
+    await orderRef.collection(collection).doc(id).delete();
+  }
+  for (const name of ['automation_events', 'inbox', 'email_events']) {
+    const docs = await orderRef.collection(name).get();
+    for (const doc of docs.docs || []) await doc.ref.delete();
+  }
+}
+
+/**
  * Delete expired assisted-application files and clear their references.
  * @param {number} [retentionDays]
  * @param {number} [nowMs]
@@ -78,9 +124,9 @@ export async function purgeExpiredAssistedApplicationFiles(
   if (!Number.isFinite(retentionDays) || retentionDays < 0) {
     throw new Error('invalid_assisted_application_retention_days');
   }
-  const firestore = admin.firestore();
+  const firestore = getFirestore();
   const cutoffMillis = nowMs - retentionDays * 86400000;
-  const cutoff = admin.firestore.Timestamp.fromMillis(cutoffMillis);
+  const cutoff = Timestamp.fromMillis(cutoffMillis);
   const collection = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION);
   const [submittedDocs, refundedDocs, uploadedDocs] = await Promise.all([
     candidateDocs(collection, 'submittedAt', cutoff),
@@ -97,7 +143,7 @@ export async function purgeExpiredAssistedApplicationFiles(
     candidates.set(snapshot.id, snapshot);
   }
 
-  const bucket = admin.storage().bucket(STORAGE_BUCKET);
+  const bucket = getStorage().bucket(STORAGE_BUCKET);
   let purged = 0;
   let skipped = 0;
   let failed = 0;
@@ -129,12 +175,22 @@ export async function purgeExpiredAssistedApplicationFiles(
       for (const key of keys) {
         await bucket.file(key).delete({ ignoreNotFound: true });
       }
+      await purgeAutomationData(bucket, snapshot.ref, snapshot.id);
+      if (order.candidateAlias?.address) {
+        const { removeOrderAlias } = await import('./assistedApplicationAlias.js');
+        await removeOrderAlias({ db: firestore, order });
+      }
       await snapshot.ref.set({
         cvStorageKey: null,
         cvUploadedAt: null,
         coverLetterStorageKey: null,
-        retentionPurgedAt: admin.firestore.FieldValue.serverTimestamp(),
-        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+        automationDueAt: null,
+        followupDueAt: null,
+        interviewPrep: null,
+        candidateAlias: null,
+        emailEngagement: null,
+        retentionPurgedAt: FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });
       purged += 1;
     } catch (error) {

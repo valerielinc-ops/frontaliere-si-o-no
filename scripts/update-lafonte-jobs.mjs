@@ -20,6 +20,7 @@
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -35,7 +36,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -51,12 +52,23 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   htmlToMarkdown,
+  extractLaFonteApplyUrlFromCardHtml,
+  resolveLaFonteApplicationHandoffUrl,
   validateLaFonteDescription,
+  buildLaFonteDescription,
+  scrubLaFonteLegacyFrame,
+  laFonteHasSourceBody,
+  laFonteRoleUrl,
 } from './lib/lafonte-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import {
+  buildObservedHttpsApplyUrlHousekeepingProof,
+  partitionByHttpsApplyUrl,
+} from './lib/https-url.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -239,45 +251,17 @@ function parseListingPage(html) {
       for (const w of validation.warnings) console.warn(`    - ${w}`);
     }
 
-    jobs.push({ title, location, rawDesc, _descDetail: detail });
+    jobs.push({
+      title,
+      location,
+      rawDesc,
+      applyUrl: extractLaFonteApplyUrlFromCardHtml(block),
+      _applicationCardHtml: block,
+      _descDetail: detail,
+    });
   }
 
   return jobs;
-}
-
-// ─────────────────────────────────────────────────────────────
-// Description building
-// ─────────────────────────────────────────────────────────────
-
-function buildDescription(title, location, rawDesc) {
-  const parts = [];
-
-  parts.push(`## Descrizione`);
-  parts.push(
-    `${COMPANY_NAME}, con sede a Lugano (TI), è alla ricerca di: ${title}.`
-  );
-  parts.push('');
-
-  if (rawDesc) {
-    // Insert the structured markdown content
-    parts.push(rawDesc);
-    parts.push('');
-  }
-
-  parts.push(`## Mansioni`);
-  if (!rawDesc || rawDesc.length < 100) {
-    parts.push(`Contattare ${COMPANY_NAME} per i dettagli della posizione.`);
-  }
-
-  parts.push('');
-  parts.push(`**Settore:** Servizi sociali / Assistenza disabilità`);
-  parts.push(`**Sede:** Via A. Giacometti 1, 6900 Lugano (TI), Svizzera`);
-  if (location && location !== 'Lugano') {
-    parts.push(`**Luogo di lavoro:** ${location}`);
-  }
-  parts.push(`**Candidatura:** recruiting@lafonte.ch`);
-
-  return parts.join('\n').trim();
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -340,11 +324,9 @@ async function fetchLaFonteJobs() {
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.title} (${listing.location})`);
 
-    const description = buildDescription(
-      listing.title,
-      listing.location,
-      listing.rawDesc
-    );
+    // Only the role card of the page is published; a card without a body
+    // carries no text of its own (see mergeJobs).
+    const description = buildLaFonteDescription(listing.rawDesc);
 
     // Normalize location to the primary city
     const locationCity = listing.location
@@ -359,8 +341,11 @@ async function fetchLaFonteJobs() {
     const slug = slugify(listing.title, locationSuffix);
 
     // Each job needs a unique URL for dedup in the base crawler's fingerprintJob(),
-    // which uses canonicalizeJobUrl (strips hashes but preserves query params).
-    const jobUrl = `${CAREERS_URL}?role=${encodeURIComponent(slug)}`;
+    // which uses canonicalizeJobUrl (strips hashes but preserves query params);
+    // the text fragment of the title takes the reader to the card.
+    const jobUrl = laFonteRoleUrl(CAREERS_URL, slug, listing.title);
+    const applicationHandoffUrl =
+      listing.applyUrl || resolveLaFonteApplicationHandoffUrl(listing._applicationCardHtml, jobUrl);
 
     const job = {
       title: listing.title,
@@ -371,20 +356,21 @@ async function fetchLaFonteJobs() {
       canton: HQ.canton,
       country: 'CH',
       url: jobUrl,
-      applyUrl: 'mailto:recruiting@lafonte.ch',
+      applyUrl: applicationHandoffUrl,
       description,
       category: detectCategory(listing.title),
       sector: 'Servizi sociali / Non-profit',
       employmentType: detectEmploymentType(listing.title, listing.rawDesc),
       experienceLevel: detectExperienceLevel(listing.title, listing.rawDesc),
       source: 'la-fonte-crawler',
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...sourcePostingDateFields(),
       titleByLocale: { it: listing.title },
-      descriptionByLocale: { it: description },
+      descriptionByLocale: description ? { it: description } : {},
       slugByLocale: { it: slug },
       sourceLang: detectLang(description || listing.title, 'it'),
       _targetScope: { canton: HQ.canton, location: 'Lugano' },
     };
+    if (!description) job._noSourceBody = true;
 
     jobs.push(job);
   }
@@ -402,6 +388,12 @@ function jobMatchKey(job) {
 }
 
 async function mergeJobs(discoveredJobs) {
+  const { publishable, quarantined } = partitionByHttpsApplyUrl(discoveredJobs);
+  if (quarantined.length > 0) {
+    console.warn(
+      `  ⛔ La Fonte: quarantining ${quarantined.length} job(s) without an explicit HTTPS application link.`,
+    );
+  }
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
@@ -414,7 +406,7 @@ async function mergeJobs(discoveredJobs) {
   }
 
   const discoveredByKey = new Map();
-  for (const job of discoveredJobs) {
+  for (const job of publishable) {
     discoveredByKey.set(jobMatchKey(job), job);
   }
 
@@ -423,52 +415,71 @@ async function mergeJobs(discoveredJobs) {
   // Iterate the deduped Map values (last occurrence wins) instead of the
   // raw discovered list.
   const dedupedDiscovered = [...discoveredByKey.values()];
-  if (dedupedDiscovered.length !== discoveredJobs.length) {
-    console.log(`  ↺ Intra-run dedup: ${discoveredJobs.length} discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
+  if (dedupedDiscovered.length !== publishable.length) {
+    console.log(`  ↺ Intra-run dedup: ${publishable.length} publishable → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
   }
 
   let added = 0;
   let updated = 0;
   let removed = 0;
+  let withoutSourceBody = 0;
   const merged = [];
 
   for (const discovered of dedupedDiscovered) {
     const key = jobMatchKey(discovered);
     const ex = existingByKey.get(key);
 
+    if (discovered._noSourceBody) {
+      // Card without a body this run: keep the body read from the page on an
+      // earlier run, or leave the job out — never a made-up text.
+      if (ex && laFonteHasSourceBody(ex)) {
+        merged.push(scrubLaFonteLegacyFrame({
+          ...ex,
+          ...mergeSourcePostingDates(ex, discovered),
+          url: discovered.url || ex.url,
+          applyUrl: discovered.applyUrl,
+        }));
+        updated++;
+      } else {
+        withoutSourceBody++;
+        console.log(`  ⏭️ ${discovered.title} — no role text on the page, not published this run`);
+      }
+      continue;
+    }
+
     if (ex) {
       const updatedJob = {
         ...ex,
+        ...mergeSourcePostingDates(ex, discovered),
         title: discovered.title || ex.title,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
         location: discovered.location || ex.location,
         canton: HQ.canton,
         country: 'CH',
-        applyUrl: discovered.applyUrl || ex.applyUrl,
+        // The card's URL as this run builds it (same `?role=` identity).
+        url: discovered.url || ex.url,
+        applyUrl: discovered.applyUrl,
         category: discovered.category || ex.category,
         sector: discovered.sector || ex.sector,
         source: 'la-fonte-crawler',
-        titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3),
+        // The page title is the source-language title: it replaces the `it`
+        // slot (a stored "Apprendistato" for the page's "Stagiaire" was a
+        // translation into the source language itself). Slugs keep their merge.
+        titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3, discovered.sourceLang),
         descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(ex.slugByLocale, discovered.slugByLocale, 3),
       };
 
-      if (
-        discovered.description &&
-        discovered.description.length > (ex.description || '').length
-      ) {
-        // Sibling of issue #3453 (Coop crawler): this used to reset
-        // descriptionByLocale to `filterEmpty(discovered.descriptionByLocale)`
-        // (source-locale only) whenever the description grew by >100 chars,
-        // discarding the safe merge computed above via mergeLocaleTextMap
-        // (which preserves existing translated locales and only fills gaps)
-        // and wiping any already-translated en/de/fr entries. The merge above
-        // already reflects the fresh source text — no separate reset needed.
-        updatedJob.description = discovered.description;
-      }
+      // The fresh card body is the description, also when it is shorter than
+      // the stored one: the old frame padded every description with lines the
+      // page does not carry, so "longer wins" kept the padding forever.
+      // Sibling of issue #3453 (Coop crawler): descriptionByLocale is still the
+      // safe merge above (existing translations kept, source slot refreshed);
+      // the scrub only drops translations of the old frame.
+      updatedJob.description = discovered.description;
 
-      merged.push(updatedJob);
+      merged.push(scrubLaFonteLegacyFrame(updatedJob));
       updated++;
     } else {
       merged.push(discovered);
@@ -478,6 +489,9 @@ async function mergeJobs(discoveredJobs) {
 
   for (const [key] of existingByKey) {
     if (!discoveredByKey.has(key)) removed++;
+  }
+  if (withoutSourceBody > 0) {
+    console.log(`  ⏭️ ${withoutSourceBody} La Fonte job(s) without role text left out of this run.`);
   }
 
   const final = [...nonTargetJobs, ...merged];
@@ -625,6 +639,20 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, {
+      isTargetJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 // ─────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────
@@ -641,7 +669,8 @@ async function main() {
   console.log('🔍 Fetching La Fonte jobs...');
 
   // Snapshot before
-  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob))
+  const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(priorJobs);
 
   // Phase 1: Fetch and parse jobs
   const discoveredJobs = await fetchLaFonteJobs();
@@ -651,7 +680,10 @@ async function main() {
     console.log(
       '   The careers page may have changed structure or have no current openings.'
     );
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
@@ -679,23 +711,31 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
-  if (stats.total === 0) {
-    console.log(
-      'ℹ️ No La Fonte jobs found after crawl. No error — exiting OK.'
-    );
-    return;
-  }
 
   // Phase 7: Validate locale coverage
-  validateLocales();
+  if (stats.total > 0) validateLocales();
+  else console.log('ℹ️ No La Fonte jobs have a verified HTTPS application handoff.');
 
   console.log('\n✅ Fondazione La Fonte crawler complete.');
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  const _sliceJobs = Array.isArray(_sliceRaw)
+    ? partitionByHttpsApplyUrl(_sliceRaw.filter(isTargetJob)).publishable
+    : [];
+  const observedPublishableJobs = partitionByHttpsApplyUrl(discoveredJobs).publishable;
+  const applyUrlHousekeepingProof = buildObservedHttpsApplyUrlHousekeepingProof({
+    priorJobs,
+    observedJobs: discoveredJobs,
+    keyFor: jobMatchKey,
+  });
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    observedJobs: observedPublishableJobs,
+    housekeepingProof: applyUrlHousekeepingProof,
+    verifyUnprovenHousekeeping: true,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'La Fonte',

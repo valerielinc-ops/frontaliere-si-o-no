@@ -20,7 +20,9 @@ on:
       - 'data/loop-fleet/ledger/**'
       - 'scripts/ci/loop-fleet-ledger-audit.mjs'
       - 'scripts/ci/loop-fleet-ledger-reconcile.mjs'
+      - 'scripts/ci/overlay-durable-loop-fleet-ledger.sh'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-ledger-files.mjs'
       - '.github/workflows/loop-fleet-ledger-audit.yml'
 
 permissions:
@@ -37,33 +39,31 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout audit contract
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
             /data/loop-fleet/loop-registry.json
-            /data/loop-fleet/ledger/
+            /data/loop-fleet/ledger/loop-observations*.jsonl
+            /data/loop-fleet/ledger/loop-decisions*.jsonl
+            /data/loop-fleet/ledger/loop-health-history*.jsonl
+            /data/loop-fleet/ledger/lifecycle-events*.jsonl
             /scripts/ci/loop-fleet-ledger-audit.mjs
+            /scripts/ci/overlay-durable-loop-fleet-ledger.sh
             /scripts/ci/loop-fleet-ledger-reconcile.mjs
+            /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/canonical-json-digest.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-ledger-files.mjs
             /.github/workflows/
           sparse-checkout-cone-mode: false
-      - name: Overlay durable ledger branch
+      - name: Overlay bounded ledger audit inputs
+        id: overlay_durable_ledger
         env:
           LEDGER_BRANCH: ledger/loop-fleet
-        run: |
-          set -euo pipefail
-          if ! git ls-remote --exit-code --heads origin "refs/heads/$LEDGER_BRANCH" >/dev/null 2>&1; then
-            echo "::notice::durable ledger branch $LEDGER_BRANCH does not exist yet; using the in-tree ledger."
-            exit 0
-          fi
-          git fetch --depth 1 origin "$LEDGER_BRANCH"
-          mkdir -p data/loop-fleet/ledger
-          git checkout FETCH_HEAD -- data/loop-fleet/ledger
-          echo "::notice::overlaid data/loop-fleet/ledger from $LEDGER_BRANCH"
+        run: bash scripts/ci/overlay-durable-loop-fleet-ledger.sh full
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -82,6 +82,7 @@ jobs:
           fi
 
       - name: Build read-only coverage report
+        if: ${{ steps.overlay_durable_ledger.outputs.overlay_status == 'ready' }}
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-ledger-audit

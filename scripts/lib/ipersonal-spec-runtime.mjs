@@ -4,9 +4,29 @@ import { decodeEntities } from './prospector/entities.mjs';
 import { extractRuntimeDetailFields } from './prospector/detail-extract.mjs';
 import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import { resolveDetailOrListingSwissGeography } from './prospector/location-evidence.mjs';
+import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
 import { runSpecInProduction, templateToRegex } from './prospector/spec-crawler.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import {
+  applyDetailFailureReuse,
+  isDetailFailureWithinGrace,
+} from './detail-failure-reuse-policy.mjs';
 
 const VERIFIED_SOURCE_GEOGRAPHY = Symbol('ipersonal-source-backed-geography');
+const IPERSONAL_MAINTENANCE_PAGE_RE = /(?:\bun momento,\s*per favore\b|\b(?:wartungsarbeiten|under maintenance)\b|\btemporarily unavailable\b)/iu;
+
+/**
+ * A 200 maintenance page is not an authoritative empty listing. Keep the
+ * last good slice through the standard `feedEndpointUnavailable` path instead
+ * of letting the empty parser archive every current offer.
+ *
+ * @param {string} html
+ * @returns {boolean}
+ */
+export function isIpersonalMaintenancePage(html = '') {
+  const text = stripHtml(String(html || '')).replace(/\s+/g, ' ').trim();
+  return IPERSONAL_MAINTENANCE_PAGE_RE.test(text);
+}
 
 /**
  * Recover the exact geography already accepted by the shared Prospector gate.
@@ -35,6 +55,51 @@ function canonicalUrl(value = '') {
   } catch {
     return String(value || '');
   }
+}
+
+/**
+ * Build a listing-shaped row from a previously published source row. This is
+ * deliberately narrow: the URL must be the attempted detail identity and the
+ * stored body must satisfy the same rich-body contract as a fresh detail.
+ *
+ * @param {Record<string, any>} job
+ * @returns {Record<string, any>|null}
+ */
+function previousDetailFallbackRow(job = {}) {
+  const url = String(job?.url || '').trim();
+  const sourceLang = String(job?.sourceLang || '').trim();
+  const description = String(
+    (sourceLang && job?.descriptionByLocale?.[sourceLang]) || job?.description || '',
+  ).trim();
+  const title = String(
+    (sourceLang && job?.titleByLocale?.[sourceLang]) || job?.title || '',
+  ).trim();
+  const location = String(job?.location || job?.addressLocality || '').trim();
+  const canton = String(job?.canton || job?.addressRegion || '').trim();
+  if (!url || !title || !location || !canton
+    || !isSufficientVacancyDescription(description)
+    || !/^\s*[-•*]\s/m.test(description)) return null;
+
+  // The reuse policy admits this row only for its exact attempted URL identity.
+  // A stored date without explicit source evidence must remain unknown.
+  const publication = mergeSourcePostingDates({}, job);
+  return {
+    title,
+    url,
+    sourceUrl: url,
+    location,
+    canton,
+    addressLocality: String(job?.addressLocality || location).trim(),
+    addressRegion: String(job?.addressRegion || canton).trim(),
+    addressCountry: String(job?.addressCountry || job?.country || 'CH').trim(),
+    country: String(job?.country || job?.addressCountry || 'CH').trim(),
+    ...(job?.postalCode ? { postalCode: String(job.postalCode).trim() } : {}),
+    ...(job?.streetAddress ? { streetAddress: String(job.streetAddress).trim() } : {}),
+    description,
+    ...publication,
+    postedAt: publication.postedDate || null,
+    company: String(job?.company || '').trim(),
+  };
 }
 
 function removeFromBoundary(root, boundary) {
@@ -137,6 +202,10 @@ export function extractIpersonalDescription(html = '') {
  *   parsedDetailCount: number,
  *   qualityDroppedCount: number,
  *   detailFailureCount: number,
+ *   detailFailureUrls: string[],
+ *   reusedDetailCount: number,
+ *   reusedDetailUrls: string[],
+ *   previousSnapshotIdentityCollisionCount: number,
  *   sourceIdentityCollisionCount: number,
  *   unaccountedReturnedCount: number,
  * }>}
@@ -154,14 +223,43 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   );
   const loadedSeedUrls = new Set();
   const detailTemplateRx = spec?.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
-  const upstreamFetch = runtime.fetchImpl || globalThis.fetch;
+  // `runSpecInProduction` sends every request with the spec policy's
+  // npm-undici dispatcher; Node's bundled fetch rejects it under undici 8
+  // ("invalid onRequestStart method"), so the default is the paired fetch.
+  const upstreamFetch = resolveProspectorFetch(runtime.fetchImpl);
+  const recordRescuedPage = (page, requestedUrl) => {
+    // `fetchRuntimePage()` normally observes the direct response through
+    // `capturingFetch`. A Jina/browser rescue bypasses that function, so the
+    // direct-only accounting below would otherwise call a successfully parsed
+    // rescue an unresolved seed/detail. Keep the rescue evidence in the same
+    // maps as a direct response; the callback is optional for every other spec.
+    if (!page?.proxiedBy) return;
+    const requestedPageUrl = canonicalUrl(requestedUrl || page.url || '');
+    const pageUrl = canonicalUrl(page.url || '');
+    const body = String(page.body || '');
+    if (!requestedPageUrl || !pageUrl || !body.trim()) return;
+    pages.set(requestedPageUrl, body);
+    pages.set(pageUrl, body);
+    if (expectedSeedUrls.has(requestedPageUrl)) loadedSeedUrls.add(requestedPageUrl);
+    if (!attemptedDetailUrls.has(requestedPageUrl)) return;
+    // A direct HTTP 200 challenge is recorded by `capturingFetch` before the
+    // shared transport recognises the body and invokes this rescue callback.
+    // The clean-IP/browser body is the authoritative evidence for that same
+    // requested attempt, so it must replace the challenge entry.
+    successfulDetailAttempts.set(requestedPageUrl, {
+      sequence: detailAttemptSequence++,
+      resolvedUrl: pageUrl,
+      html: body,
+    });
+    resolvedDetailsByAttempt.set(requestedPageUrl, pageUrl);
+  };
   // Explicit composition: without a caller-supplied extractor the base is the
   // very chain `runSpecInProduction` would have used on its own, not a
   // hard-coded generic cascade. Instrumenting a run must not change which
   // extractor decides — see `extractRuntimeDetailFields`, where a wrapper
   // handed in as `detailExtractor` is the whole verdict.
   const upstreamDetailExtractor = runtime.detailExtractor
-    || ((html, pageUrl) => extractRuntimeDetailFields(spec, html, pageUrl));
+    || ((html, pageUrl, opts = {}) => extractRuntimeDetailFields(spec, html, pageUrl, opts));
   const capturingFetch = async (input, init = {}) => {
     const headers = new Headers(init.headers || {});
     headers.set('Accept-Encoding', 'identity');
@@ -222,8 +320,21 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     }
     return response;
   };
-  const capturingDetailExtractor = (html, pageUrl) => {
-    const base = upstreamDetailExtractor(html, pageUrl);
+  const capturingDetailExtractor = (html, pageUrl, opts = {}) => {
+    // iPersonal's Simple Job Board uses a marketing-rich H1/listing title
+    // (for example, `Elektroplaner 100% in der Region Mels – Direkte
+    // Festanstellung`) while its schema.org JobPosting carries the shorter
+    // source identity (`Elektroplaner – Region Mels`). The title is therefore
+    // not a safe identity key here. The resolved detail URL is the document
+    // actually fetched for this row, and the shared selector uses it to
+    // discard related/recommended JobPosting nodes with another URL. Keep
+    // that URL match explicit while bypassing only the incompatible rendered
+    // title check; the selector remains fail-closed for ambiguous records.
+    const base = upstreamDetailExtractor(html, pageUrl, {
+      ...opts,
+      recordUrl: canonicalUrl(pageUrl),
+      recordTitle: undefined,
+    });
     // The Simple Job Board body is the description this runtime publishes (see
     // the `enriched` map below), so it belongs to the verdict this extractor
     // returns, not to a later fill. Returning the generic reading and counting
@@ -241,8 +352,18 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   const rows = await runSpecInProduction(spec, {
     ...runtime,
     fetchImpl: capturingFetch,
+    onPageFetched: recordRescuedPage,
     detailExtractor: capturingDetailExtractor,
   });
+  const maintenanceSeed = [...expectedSeedUrls].find((seedUrl) =>
+    isIpersonalMaintenancePage(pages.get(seedUrl) || ''),
+  );
+  if (maintenanceSeed) {
+    throw Object.assign(
+      new Error(`iPersonal source unavailable: maintenance page at ${maintenanceSeed}`),
+      { feedEndpointUnavailable: true, sourceUnavailableKind: 'maintenance' },
+    );
+  }
   const enriched = rows.map((row) => {
     const attemptedUrl = canonicalUrl(row.url);
     const description = extractIpersonalDescription(pages.get(attemptedUrl) || '');
@@ -315,15 +436,80 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
       || isSufficientVacancyDescription(extractIpersonalDescription(sourceMarkup));
     if (!geography || !descriptionProven) qualityDroppedUrls.add(attemptedUrl);
   }
-  Object.defineProperty(enriched, 'qualityDroppedCount', {
+  const detailReuse = applyDetailFailureReuse({
+    freshRows: enriched,
+    failedIdentities: detailFailureUrls,
+    attemptedCount: attemptedDetailUrls.size,
+    previousRows: runtime.previousJobs,
+    identityOf: (row) => row?.url,
+    normalizeIdentity: canonicalUrl,
+    requireReuse: true,
+    fallbackOf: (previous) => {
+      const fallback = previousDetailFallbackRow(previous || {});
+      if (!fallback) return null;
+      const location = String(fallback.location || '').trim();
+      const canton = String(fallback.canton || '').trim();
+      if (location && canton) {
+        const addressCountry = String(fallback.addressCountry || fallback.country || '').trim();
+        Object.defineProperty(fallback, VERIFIED_SOURCE_GEOGRAPHY, {
+          value: Object.freeze({ location, canton, ...(addressCountry ? { addressCountry } : {}) }),
+          enumerable: false,
+        });
+      }
+      return fallback;
+    },
+  });
+  if (!detailReuse.canPublish) {
+    throw new Error(
+      `[${spec.companyKey}] detail failure/reuse policy rejected ${detailReuse.detailFailureCount}/`
+      + `${detailReuse.attemptedCount} attempted detail(s)`,
+    );
+  }
+  const outputRows = detailReuse.rows;
+  const reusedDetailUrls = detailReuse.reusedDetailIdentities;
+  for (const key of [
+    'discoveredCount',
+    'expectedSeedCount',
+    'loadedSeedCount',
+    'resolvedDetailCount',
+    'parsedDetailCount',
+  ]) {
+    Object.defineProperty(outputRows, key, {
+      value: enriched[key],
+      enumerable: false,
+    });
+  }
+  if (reusedDetailUrls.length > 0) {
+    console.warn(
+      `[prospector:${spec.companyKey}] riuso di ${reusedDetailUrls.length}/${detailFailureUrls.size} detail `
+      + 'dallo snapshot precedente; il validator manterrà il limite di failure e identità.',
+    );
+  }
+  Object.defineProperty(outputRows, 'qualityDroppedCount', {
     value: qualityDroppedUrls.size,
     enumerable: false,
   });
-  Object.defineProperty(enriched, 'detailFailureCount', {
-    value: detailFailureUrls.size,
+  Object.defineProperty(outputRows, 'detailFailureCount', {
+    value: detailReuse.detailFailureCount,
     enumerable: false,
   });
-  Object.defineProperty(enriched, 'sourceIdentityCollisionCount', {
+  Object.defineProperty(outputRows, 'detailFailureUrls', {
+    value: detailReuse.detailFailureIdentities,
+    enumerable: false,
+  });
+  Object.defineProperty(outputRows, 'reusedDetailCount', {
+    value: detailReuse.reusedDetailCount,
+    enumerable: false,
+  });
+  Object.defineProperty(outputRows, 'reusedDetailUrls', {
+    value: reusedDetailUrls,
+    enumerable: false,
+  });
+  Object.defineProperty(outputRows, 'previousSnapshotIdentityCollisionCount', {
+    value: detailReuse.previousSnapshotIdentityCollisionCount,
+    enumerable: false,
+  });
+  Object.defineProperty(outputRows, 'sourceIdentityCollisionCount', {
     value: [...responseIdentityCounts.values()].reduce((total, count) => total + Math.max(0, count - 1), 0),
     enumerable: false,
   });
@@ -331,12 +517,12 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     ...attemptedDetailUrls,
     ...resolvedDetailsByAttempt.values(),
   ]);
-  Object.defineProperty(enriched, 'unaccountedReturnedCount', {
+  Object.defineProperty(outputRows, 'unaccountedReturnedCount', {
     value: [...returnedUrls].filter((url) => !attemptedIdentities.has(url)).length,
     enumerable: false,
   });
-  return /** @type {Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number, resolvedDetailCount: number, parsedDetailCount: number, qualityDroppedCount: number, detailFailureCount: number, sourceIdentityCollisionCount: number, unaccountedReturnedCount: number }} */ (
-    /** @type {unknown} */ (enriched)
+  return /** @type {Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number, resolvedDetailCount: number, parsedDetailCount: number, qualityDroppedCount: number, detailFailureCount: number, detailFailureUrls: string[], reusedDetailCount: number, reusedDetailUrls: string[], previousSnapshotIdentityCollisionCount: number, sourceIdentityCollisionCount: number, unaccountedReturnedCount: number }} */ (
+    /** @type {unknown} */ (outputRows)
   );
 }
 
@@ -354,6 +540,10 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
  *   parsedDetailCount?: number,
  *   qualityDroppedCount?: number,
  *   detailFailureCount?: number,
+ *   detailFailureUrls?: string[],
+ *   reusedDetailCount?: number,
+ *   reusedDetailUrls?: string[],
+ *   previousSnapshotIdentityCollisionCount?: number,
  *   sourceIdentityCollisionCount?: number,
  *   unaccountedReturnedCount?: number,
  * }} jobs
@@ -367,6 +557,10 @@ export function assertCompleteIpersonalSnapshot(jobs) {
   const parsedDetailCount = Number(jobs?.parsedDetailCount);
   const qualityDroppedCount = jobs?.qualityDroppedCount ?? 0;
   const detailFailureCount = jobs?.detailFailureCount ?? 0;
+  const detailFailureUrls = Array.isArray(jobs?.detailFailureUrls) ? jobs.detailFailureUrls : [];
+  const reusedDetailCount = jobs?.reusedDetailCount ?? 0;
+  const reusedDetailUrls = Array.isArray(jobs?.reusedDetailUrls) ? jobs.reusedDetailUrls : [];
+  const previousSnapshotIdentityCollisionCount = jobs?.previousSnapshotIdentityCollisionCount ?? 0;
   const sourceIdentityCollisionCount = jobs?.sourceIdentityCollisionCount ?? 0;
   const unaccountedReturnedCount = jobs?.unaccountedReturnedCount ?? 0;
   if (!Number.isInteger(expectedSeedCount) || expectedSeedCount <= 0) {
@@ -387,15 +581,47 @@ export function assertCompleteIpersonalSnapshot(jobs) {
   }
   if (!Number.isInteger(detailFailureCount)
     || detailFailureCount < 0
-    || detailFailureCount !== 0) {
+    || detailFailureCount > discoveredCount
+    || !Number.isInteger(reusedDetailCount)
+    || reusedDetailCount < 0
+    || reusedDetailCount > discoveredCount
+    || !isDetailFailureWithinGrace(detailFailureCount, discoveredCount)) {
     throw new Error('iPersonal snapshot incomplete: detail fetch/parse failure');
+  }
+  const normalizeDetailIdentity = (url) => {
+    if (typeof url !== 'string' || !url.trim()) return '';
+    try {
+      return canonicalUrl(new URL(url).toString());
+    } catch {
+      return '';
+    }
+  };
+  const normalizedFailureUrls = detailFailureUrls.map(normalizeDetailIdentity);
+  const normalizedReusedUrls = reusedDetailUrls.map(normalizeDetailIdentity);
+  const failureIdentitySet = new Set(normalizedFailureUrls.filter(Boolean));
+  const reusedIdentitySet = new Set(normalizedReusedUrls.filter(Boolean));
+  if (failureIdentitySet.size !== detailFailureCount
+    || reusedIdentitySet.size !== reusedDetailCount
+    || normalizedFailureUrls.some((url) => !url)
+    || normalizedReusedUrls.some((url) => !url)
+    || reusedDetailCount !== detailFailureCount
+    || [...failureIdentitySet].some((url) => !reusedIdentitySet.has(url))
+    || [...reusedIdentitySet].some((url) => !failureIdentitySet.has(url))) {
+    throw new Error('iPersonal snapshot incomplete: detail fetch/parse failure');
+  }
+  if (!Number.isInteger(previousSnapshotIdentityCollisionCount)
+    || previousSnapshotIdentityCollisionCount < 0
+    || previousSnapshotIdentityCollisionCount !== 0) {
+    throw new Error('iPersonal snapshot incomplete: detail identity accounting mismatch');
   }
   if (!Number.isInteger(resolvedDetailCount)
     || !Number.isInteger(parsedDetailCount)
-    || resolvedDetailCount !== discoveredCount
-    || parsedDetailCount !== discoveredCount) {
+    || resolvedDetailCount < 0
+    || parsedDetailCount < 0
+    || resolvedDetailCount + reusedDetailCount !== discoveredCount
+    || parsedDetailCount + reusedDetailCount !== discoveredCount) {
     throw new Error(
-      `iPersonal snapshot incomplete: resolved ${resolvedDetailCount}/${discoveredCount}, parsed ${parsedDetailCount}/${discoveredCount} details`,
+      `iPersonal snapshot incomplete: resolved ${resolvedDetailCount + reusedDetailCount}/${discoveredCount}, parsed ${parsedDetailCount + reusedDetailCount}/${discoveredCount} details`,
     );
   }
   if (!Number.isInteger(sourceIdentityCollisionCount)

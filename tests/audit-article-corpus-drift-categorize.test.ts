@@ -14,9 +14,25 @@
  * Hence these tests assert the precedence directly rather than the happy
  * path only: the mixed cases are where the bug lived both times.
  */
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import { categorizeLocaleVerdicts, DIVERGENT_CATEGORIES } from '../scripts/audit-article-corpus-drift.mjs';
 import { assertCorpusObserved } from '../scripts/lib/assert-corpus-observed.mjs';
+
+const auditDriver = readFileSync(resolve(__dirname, '..', 'scripts/audit-article-corpus-drift.mjs'), 'utf8');
+const byteIdentityDriver = readFileSync(resolve(__dirname, '..', 'scripts/check-article-byte-identity.mjs'), 'utf8');
+const fastPublishDriver = readFileSync(resolve(__dirname, '..', 'scripts/publish-article-fast.mjs'), 'utf8');
+
+describe('audit renderer mode', () => {
+  it('keeps the publication freshness gate out of the read-only byte audit only', () => {
+    expect(auditDriver).toContain("'--read-only-audit'");
+    expect(byteIdentityDriver).toContain("if (args.readOnlyAudit) publishArgs.push('--read-only-audit');");
+    expect(fastPublishDriver).toContain("else if (a === '--read-only-audit') out.readOnlyAudit = true;");
+    expect(fastPublishDriver).toContain('if (!args.readOnlyAudit) {');
+    expect(fastPublishDriver).toContain('corpus/client handoff is not publishable');
+  });
+});
 
 describe('categorizeLocaleVerdicts — precedence', () => {
   it('reports no-locale-verdicts when the checker printed nothing', () => {

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * audit-job-content-plausibility.mjs — filtro deterministico che produce la
  * LISTA CORTA dei record `data/jobs/by-crawler/*.json` che non sembrano
@@ -157,7 +159,7 @@ function renderHuman(report) {
   return lines.join('\n');
 }
 
-if (process.argv[1] && process.argv[1].endsWith('audit-job-content-plausibility.mjs')) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const args = parseArgs(process.argv.slice(2));
   let report;
   try {
@@ -169,5 +171,7 @@ if (process.argv[1] && process.argv[1].endsWith('audit-job-content-plausibility.
   if (args.out) fs.writeFileSync(args.out, JSON.stringify(report, null, 2));
   if (args.json) process.stdout.write(JSON.stringify(report, null, 2));
   else console.log(renderHuman(report));
-  process.exit(args.failOnFindings && report.findings.length ? 1 : 0);
+  // exitCode, not process.exit(): exiting right after the write cuts piped
+  // output (`| tee scan-summary.txt`) at 65536 bytes.
+  process.exitCode = args.failOnFindings && report.findings.length ? 1 : 0;
 }

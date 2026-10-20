@@ -23,8 +23,10 @@
  * Rettungsdienst, Walk-in-Clinic. All in canton Bern.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { fetchHtml, slugify } from './crawler-template.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import {
   USER_AGENT,
   decodeEntities,
@@ -103,19 +105,13 @@ async function postListing({ offset = 0, limit = 100, lang = 'de', timeoutMs } =
 
 async function fetchDetail(url, { timeoutMs } = {}) {
   const t = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), t);
   try {
-    const res = await fetch(url, {
+    return await fetchHtml(url, {
+      timeoutMs: t,
       headers: { Accept: 'text/html,application/xhtml+xml,*/*', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
   } catch (err) {
     return '';
-  } finally {
-    clearTimeout(timer);
   }
 }
 
@@ -157,20 +153,7 @@ export function parseFmiListing(html) {
 }
 
 function extractJsonLd(html) {
-  // Find the JobPosting JSON-LD block. fmi pages embed it as a single
-  // <script type="application/ld+json"> tag with one JSON object.
-  const rx = /<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = rx.exec(html))) {
-    const raw = m[1].trim();
-    if (!/"@type"\s*:\s*"JobPosting"/i.test(raw)) continue;
-    try {
-      return JSON.parse(raw);
-    } catch {
-      // ignore malformed; keep scanning
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 function mapSiteLocation(siteLabel = '') {
@@ -250,7 +233,6 @@ export async function fetchAllFmiJobs() {
   console.log(`  ✓ ${items.length} Stellen aus dem Stellenmarkt`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const it of items) {
@@ -263,7 +245,7 @@ export async function fetchAllFmiJobs() {
     const { city, postalCode } = pickLocation(jsonLd, it.site);
     const description = buildDescription(jsonLd, title, it.site);
     const employmentType = pickEmploymentType(jsonLd, `${title} ${it.category}`);
-    const datePosted = String(jsonLd?.datePosted || '').slice(0, 10) || todayIso;
+    const publication = sourcePostingDateFields(jsonLd?.datePosted);
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${FMI_KEY} ${city}`);
@@ -302,7 +284,7 @@ export async function fetchAllFmiJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: datePosted,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

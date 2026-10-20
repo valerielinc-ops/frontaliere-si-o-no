@@ -28,14 +28,34 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { withRenderedPersonioPage } from './ats-clients/personio-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const KELLERHALS_CARRARD_KEY = 'kellerhals-carrard';
 export const KELLERHALS_CARRARD_COMPANY_NAME = 'Kellerhals Carrard';
 export const KELLERHALS_CARRARD_COMPANY_DOMAIN = 'kellerhals-carrard.ch';
+
+/**
+ * The WHOLE text the parser used to publish INSTEAD of a Personio body under
+ * 80 characters (issue 5253), and nothing else: "<title> — Stelle bei
+ * Kellerhals Carrard in <city> (<canton>), Schweiz." followed by the fixed
+ * sentence about the firm. The stored source slots also carry it with a
+ * leading "Beschreibung" heading or with "Stelle" machine-translated into
+ * another word, so both are accepted; nothing may follow or precede it.
+ * Anchored at both ends on purpose: a real posting that quotes the same firm
+ * sentence inside its own text must never be taken for it. Only ever
+ * recognised, to remove it from stored jobs before the merge
+ * (`prepareExistingJobs` in update-kellerhals-carrard-jobs.mjs).
+ */
+export const KELLERHALS_CARRARD_FABRICATED_DESCRIPTION_RE = new RegExp(
+  '^\\s*(?:Beschreibung\\s*\\n+)?[^\\n]{1,200}? — \\S+ bei Kellerhals Carrard in [^\\n]{1,60}? \\([A-Z]{2}\\), Schweiz\\.\\s+'
+  + 'Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf\\.\\s*$',
+);
 
 const CAREER_URL = 'https://kellerhals-carrard.jobs.personio.com';
 const PERSONIO_API_URL = 'https://kellerhals-carrard.jobs.personio.com/search.json?language=de';
@@ -51,6 +71,10 @@ const OFFICE_INFO = {
   Bern: { city: 'Bern', canton: 'BE', postalCode: '3011' },
   Zürich: { city: 'Zürich', canton: 'ZH', postalCode: '8001' },
   Genève: { city: 'Genève', canton: 'GE', postalCode: '1204' },
+  // Place Saint-François 1, 1003 Lausanne (JobPosting address of the
+  // Lausanne-only posting 2437629). Missing from this table, a Lausanne
+  // vacancy fell through to DEFAULT_OFFICE and was published in Bern.
+  Lausanne: { city: 'Lausanne', canton: 'VD', postalCode: '1003' },
 };
 const DEFAULT_OFFICE = OFFICE_INFO.Bern;
 
@@ -139,22 +163,6 @@ function detectEmploymentType(text = '') {
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-async function fetchJson(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': USER_AGENT, Accept: 'application/json,*/*' },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 function buildParsedJob(rec) {
   const title = normalizeSpace(rec.name || '');
   if (!title || title.length < 3) return null;
@@ -168,13 +176,12 @@ function buildParsedJob(rec) {
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${title} kellerhals-carrard ${office.city}`);
 
-  const fallbackDesc =
-    `${title} — Stelle bei Kellerhals Carrard in ${office.city} (${office.canton}), Schweiz. ` +
-    'Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in ' +
-    'Bern, Zürich, Basel und Genf.';
-  const desc = descText.length >= 80 ? descText : fallbackDesc;
+  // Only the posting's own text (issue 5253): no "<title> — Stelle bei
+  // Kellerhals Carrard …" line and firm summary in place of a short body. A
+  // body under the common 50-word floor gives no description (the shared
+  // pipeline's thin-source path).
+  const desc = meetsSourceBodyFloor(descText) ? descText : '';
 
-  const postedDate = new Date().toISOString().slice(0, 10);
   const employmentBasis = `${title} ${rec.schedule || ''} ${rec.employment_type || ''}`;
 
   return {
@@ -206,7 +213,7 @@ function buildParsedJob(rec) {
     sector: 'Legale',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...mergeSourcePostingDates({}, rec),
     applyUrl: publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
@@ -228,10 +235,15 @@ export async function fetchAllKellerhalsCarrardJobs() {
 
   let records = [];
   try {
-    records = await fetchJson(PERSONIO_API_URL);
+    records = await fetchJson(PERSONIO_API_URL, {
+      headers: { 'User-Agent': USER_AGENT, Accept: 'application/json,*/*' },
+    });
   } catch (err) {
     console.warn(`⚠️ Personio search.json fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   if (!Array.isArray(records)) {
     console.warn(`⚠️ Personio search.json: expected array, got ${typeof records}`);
@@ -242,8 +254,13 @@ export async function fetchAllKellerhalsCarrardJobs() {
   const jobs = [];
   for (const rec of records) {
     try {
-      const job = buildParsedJob(rec);
-      if (job) jobs.push(job);
+      const kept = buildParsedJob(rec);
+      if (!kept) continue;
+      // The listing's `description` omits the company block and is empty for
+      // a position that only exists in another language; the published job
+      // page renders the whole vacancy (see `withRenderedPersonioPage`).
+      const job = buildParsedJob(await withRenderedPersonioPage(rec, kept.url)) || kept;
+      jobs.push(job);
     } catch (err) {
       console.warn(`⚠️ Skipping id=${rec?.id || '<?>'}: ${err?.message || err}`);
     }

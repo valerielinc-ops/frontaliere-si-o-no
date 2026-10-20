@@ -81,12 +81,14 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
   isKnownSwissMunicipality,
+  isKnownSwissMunicipalityInCanton,
   inferAnyCanton,
   isCantonRelevant,
   swissCityFromLocationField,
 } from './lib/target-swiss-locations.mjs';
-import { buildStableJobIdentity } from './lib/job-identity.mjs';
-import { splitJobLocation } from './lib/job-location-display.mjs';
+import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
+import { createCrawlerLocationRecordIndex } from './lib/crawler-location-record-index.mjs';
+import { cantonNamedByLocation, splitJobLocation } from './lib/job-location-display.mjs';
 import { descriptionRepeatsRegion, implausibilityReasons } from './lib/job-location-plausibility.mjs';
 import { isLocationExplicitlyForeign, geocodeCountry } from './lib/dedicated-crawler-common.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
@@ -118,6 +120,9 @@ const results = {
   companyDefaultFallback: [], // cantonMismatch subset where stored canton == company's modal canton
   crawlerLocationRewritten: [], // assemble replaced the locality the crawler recorded (BFS-independent)
   crawlerCantonStampDiffers: [], // same place, crawler's per-company canton stamp is stale — context only
+  hirslandenCorrelation: [], // one source-to-published row per Hirslanden job
+  hirslandenCorrelationMissing: [], // no unambiguous source URL/stable ID
+  hirslandenCorrelationAmbiguous: [], // source identity maps to conflicting records
   redundantLocationMarker: [],   // layer 5: location already names its canton/country
   locationCantonConflict: [],    // layer 5: location names a DIFFERENT canton than the field
   descriptionCantonDuplicated: [], // layer 5: the description text repeats the canton after the location
@@ -151,7 +156,11 @@ function norm(v = '') {
 /* ── Crawler-recorded location index ──────────────────────────
  * `data/jobs/by-crawler/<key>.json` is what each crawler actually wrote for a
  * posting, before any assemble-time inference or pin-ledger reconciliation.
- * Keyed by the same stable identity the pin ledger uses.
+ * Match by the record's stable `id` first. Some providers publish many jobs
+ * under one detail-page URL with a per-job hash fragment; the stats identity
+ * intentionally strips that fragment, so using it as a primary key associates
+ * every job with whichever crawler row happened to be read last. The URL-based
+ * identity remains a fallback only when it identifies one consistent record.
  *
  * Indexes the crawler's LOCALITY as well as its canton, because the two carry
  * very different amounts of signal:
@@ -170,19 +179,16 @@ function norm(v = '') {
  * rather than failing the audit. */
 function loadCrawlerRecords() {
   const dir = join(ROOT, 'data', 'jobs', 'by-crawler');
-  const index = new Map();
+  const index = createCrawlerLocationRecordIndex({ includeProvenance: true });
   if (!existsSync(dir)) return index;
   for (const file of listSliceFileNames(dir)) {
+    const crawler = file.replace(/\.json$/i, '');
     let doc;
     try { doc = JSON.parse(readFileSync(join(dir, file), 'utf8')); } catch { continue; }
     const slice = Array.isArray(doc) ? doc : (doc.jobs || []);
     for (const job of slice) {
       if (!job || typeof job !== 'object') continue;
-      const canton = norm(job.canton).toUpperCase();
-      const city = norm(job.addressLocality || job.location);
-      if (!canton && !city) continue;
-      const id = buildStableJobIdentity(job);
-      if (id) index.set(id, { canton, city });
+      index.add(job, { crawler });
     }
   }
   return index;
@@ -200,6 +206,71 @@ function sameRecordedPlace(crawlerCity, publishedCity) {
   if (a === b) return true;
   const inner = swissCityFromLocationField(crawlerCity);
   return Boolean(inner) && inner.toLowerCase() === b;
+}
+
+function crawlerEvidence(crawlerRecord) {
+  if (!crawlerRecord) return {};
+  return {
+    crawler: crawlerRecord.crawler || '(unknown)',
+    crawlerCanton: crawlerRecord.canton || '(none)',
+    crawlerCity: crawlerRecord.city || '(none)',
+    crawlerLocation: crawlerRecord.location || '(none)',
+    sourceStableId: crawlerRecord.sourceStableId || null,
+    sourceJobId: crawlerRecord.sourceJobId || null,
+    sourceUrl: crawlerRecord.sourceUrl || null,
+    sourceRegion: crawlerRecord.sourceRegion || null,
+    sourcePostalCode: crawlerRecord.sourcePostalCode || null,
+  };
+}
+
+function hirslandenCorrelationEntry({ job, id, company, city, rawLocation, cantonUpper, lookup }) {
+  const record = lookup.record;
+  let correlationStatus = lookup.status;
+  if (correlationStatus === 'found' && !record?.sourceUrl) correlationStatus = 'source-missing';
+  if (correlationStatus === 'found' && !record?.sourceStableId) correlationStatus = 'stable-id-missing';
+
+  const sourceLocation = record?.city || record?.location || '';
+  const locationRelation = correlationStatus !== 'found'
+    ? 'unresolved'
+    : (sourceLocation && city && sameRecordedPlace(sourceLocation, city) ? 'same-place' : 'rewritten');
+
+  return {
+    company,
+    stableJobId: record?.sourceStableId || '',
+    sourceJobId: record?.sourceJobId || '',
+    sourceUrl: record?.sourceUrl || '',
+    sourceLocation,
+    sourceRegion: record?.sourceRegion || '',
+    sourceCanton: record?.canton || '',
+    sourcePostalCode: record?.sourcePostalCode || '',
+    publishedJobId: id,
+    publishedUrl: norm(job.url),
+    publishedLocation: rawLocation,
+    publishedRegion: norm(job.addressRegion || cantonUpper),
+    publishedCanton: cantonUpper,
+    publishedPostalCode: norm(job.postalCode),
+    correlationStatus,
+    locationRelation,
+  };
+}
+
+function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
+  if (!crawlerRecord?.canton || !city || !storedCanton) return false;
+  if (crawlerRecord.canton !== storedCanton) return false;
+  const sourceLocation = crawlerRecord.location || crawlerRecord.city;
+  const sourceCanton = crawlerRecord.sourceLocationCanton || cantonNamedByLocation(sourceLocation);
+  // The source adapter may have preserved an explicit per-posting canton
+  // marker that the assembled locality normalizer stripped from the public
+  // city field. It is valid evidence for a homonym only when it agrees with
+  // the crawler's own stamp; do not let it hide a source conflict.
+  if (sourceCanton === storedCanton && sameRecordedPlace(sourceLocation, city)) return true;
+  if (!isKnownSwissMunicipalityInCanton(city, storedCanton)) return false;
+  return inferCantonFromJobEvidence({
+    cityText: city,
+    locationText: sourceLocation,
+    crawlerCanton: crawlerRecord.canton,
+    sourceLocationCanton: crawlerRecord.sourceLocationCanton,
+  }) === storedCanton;
 }
 
 /* ── Pass 0: per-company modal canton ─────────────────────────
@@ -245,6 +316,9 @@ for (const job of jobsToAudit) {
   const storedCanton = norm(job.canton || '');
   const company = norm(job.company || job.companyKey || '');
   const id = job.id || job.slug || '?';
+  const crawlerLookup = crawlerRecordById.getWithStatus(job);
+  const crawlerRecord = crawlerLookup.record;
+  const crawler = norm(job.companyKey || '') || crawlerRecord?.crawler || company || 'unknown';
 
   // Data quality: lowercase canton
   if (storedCanton && storedCanton !== storedCanton.toUpperCase()) {
@@ -261,9 +335,25 @@ for (const job of jobsToAudit) {
   // `addressLocality` fallback `city` above, because it is the rendered string
   // whose shape is in question.
   const rawLocation = norm(job.location || '');
+  if (crawler === 'hirslanden' || crawlerRecord?.crawler === 'hirslanden') {
+    const correlation = hirslandenCorrelationEntry({
+      job,
+      id,
+      company,
+      city,
+      rawLocation,
+      cantonUpper,
+      lookup: crawlerLookup,
+    });
+    results.hirslandenCorrelation.push(correlation);
+    if (correlation.correlationStatus === 'ambiguous') {
+      results.hirslandenCorrelationAmbiguous.push(correlation);
+    } else if (correlation.correlationStatus !== 'found') {
+      results.hirslandenCorrelationMissing.push(correlation);
+    }
+  }
   if (rawLocation) {
     const parts = splitJobLocation(rawLocation, cantonUpper);
-    const crawler = norm(job.companyKey || '') || company || 'unknown';
     if (parts.conflict) {
       results.locationCantonConflict.push({
         id, crawler, company, location: rawLocation, storedCanton: cantonUpper,
@@ -314,26 +404,40 @@ for (const job of jobsToAudit) {
   // changed LOCALITY means the pipeline invented a location, so that is what
   // lands in the alarming bucket; a bare canton-stamp difference is recorded
   // separately as context and never trips the "must never produce" verdict.
-  const crawlerRecord = crawlerRecordById.get(buildStableJobIdentity(job) || '');
-  if (crawlerRecord && cantonUpper) {
+  if (crawlerRecord) {
     const crawlerCity = crawlerRecord.city;
     const entry = {
-      id, company, city: city || '(empty)',
+      id,
+      stableId: id,
+      company,
+      city: city || '(empty)',
+      publishedCity: city || '(empty)',
+      publishedLocation: rawLocation || '(empty)',
       storedCanton: cantonUpper,
-      crawlerCanton: crawlerRecord.canton || '(none)',
-      crawlerCity: crawlerCity || '(none)',
+      publishedCanton: cantonUpper || '(none)',
+      ...crawlerEvidence(crawlerRecord),
       inferredCanton: city ? inferAnyCanton(city) || '(none)' : '(none)',
     };
     if (crawlerCity && city && !sameRecordedPlace(crawlerCity, city)) {
       results.crawlerLocationRewritten.push(entry);
-    } else if (crawlerRecord.canton && crawlerRecord.canton !== cantonUpper) {
+    } else if (crawlerRecord.canton && cantonUpper && crawlerRecord.canton !== cantonUpper) {
       results.crawlerCantonStampDiffers.push(entry);
     }
   }
 
   // Empty location
   if (!city || city === 'CH' || city.length < 2) {
-    results.emptyLocation.push({ id, company, city, storedCanton });
+    results.emptyLocation.push({
+      id,
+      stableId: id,
+      company,
+      city,
+      storedCanton,
+      publishedCity: city || '(empty)',
+      publishedLocation: rawLocation || '(empty)',
+      publishedCanton: cantonUpper || '(none)',
+      ...crawlerEvidence(crawlerRecord),
+    });
     continue;
   }
 
@@ -348,7 +452,7 @@ for (const job of jobsToAudit) {
 
   if (isSwiss && inferredCanton) {
     // BFS knows this city
-    if (inferredCanton === cantonUpper) {
+    if (inferredCanton === cantonUpper || crawlerBacksStoredCanton(crawlerRecord, city, cantonUpper)) {
       results.correct.push({ id, company, city, storedCanton });
     } else if (!cantonUpper) {
       // No canton stored but we know it
@@ -434,6 +538,7 @@ console.log(`🔤 Lowercase canton:      ${results.lowercaseCanton.length}`);
 console.log(`🏢 Company-default fallback (suspected): ${results.companyDefaultFallback.length}`);
 console.log(`📌 Crawler locality rewritten by dataset: ${results.crawlerLocationRewritten.length}${crawlerRecordById.size ? '' : ' (by-crawler slices unavailable — check skipped)'}`);
 console.log(`ℹ️  Crawler canton stamp differs (same place, benign): ${results.crawlerCantonStampDiffers.length}`);
+console.log(`🔗 Hirslanden source correlations: ${results.hirslandenCorrelation.length} (missing=${results.hirslandenCorrelationMissing.length}, ambiguous=${results.hirslandenCorrelationAmbiguous.length})`);
 console.log(`🔁 Location already names its canton/country: ${results.redundantLocationMarker.length}`);
 console.log(`❗ Location names a DIFFERENT canton than the field: ${results.locationCantonConflict.length}`);
 console.log(`📝 Description text repeats the canton: ${results.descriptionCantonDuplicated.length}`);
@@ -467,12 +572,12 @@ if (results.crawlerLocationRewritten.length > 0) {
   console.log('\n' + '─'.repeat(70));
   console.log('📌 PUBLISHED LOCALITY CONTRADICTS THE CRAWLER RECORD');
   console.log('─'.repeat(70));
-  const byCompany = {};
+  const byCrawler = {};
   for (const o of results.crawlerLocationRewritten) {
-    const key = `${o.company} — crawler="${o.crawlerCity}" (${o.crawlerCanton}) → published="${o.city}" (${o.storedCanton})`;
-    byCompany[key] = (byCompany[key] || 0) + 1;
+    const key = `${o.crawler} — ${o.company} — source="${o.crawlerLocation}" (${o.crawlerCanton}) → published="${o.publishedLocation}" (${o.storedCanton})`;
+    byCrawler[key] = (byCrawler[key] || 0) + 1;
   }
-  for (const [key, count] of Object.entries(byCompany).sort((a, b) => b[1] - a[1])) {
+  for (const [key, count] of Object.entries(byCrawler).sort((a, b) => b[1] - a[1])) {
     console.log(`  ${count.toString().padStart(4)} × ${key}`);
   }
 
@@ -731,6 +836,9 @@ writeFileSync(reportPath, JSON.stringify({
     companyDefaultFallback: results.companyDefaultFallback.length,
     crawlerLocationRewritten: results.crawlerLocationRewritten.length,
     crawlerCantonStampDiffers: results.crawlerCantonStampDiffers.length,
+    hirslandenCorrelation: results.hirslandenCorrelation.length,
+    hirslandenCorrelationMissing: results.hirslandenCorrelationMissing.length,
+    hirslandenCorrelationAmbiguous: results.hirslandenCorrelationAmbiguous.length,
     geocodeResults: results.geocodeResults.length,
     redundantLocationMarker: results.redundantLocationMarker.length,
     locationCantonConflict: results.locationCantonConflict.length,
@@ -767,6 +875,9 @@ writeFileSync(reportPath, JSON.stringify({
   companyDefaultFallback: results.companyDefaultFallback,
   crawlerLocationRewritten: results.crawlerLocationRewritten,
   crawlerCantonStampDiffers: results.crawlerCantonStampDiffers,
+  hirslandenCorrelation: results.hirslandenCorrelation,
+  hirslandenCorrelationMissing: results.hirslandenCorrelationMissing,
+  hirslandenCorrelationAmbiguous: results.hirslandenCorrelationAmbiguous,
   geocodeResults: results.geocodeResults,
   redundantLocationMarker: results.redundantLocationMarker,
   locationCantonConflict: results.locationCantonConflict,

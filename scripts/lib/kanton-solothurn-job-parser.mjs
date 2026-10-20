@@ -60,10 +60,13 @@
  *   - isKantonSolothurnJob()        — Match jobs belonging to this employer
  *   - isTrustedDomain()             — Validate URLs belong to this employer
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -250,7 +253,7 @@ async function collectAllJobEntries() {
       html = await fetchHtml(listUrl, { headers: { Accept: 'text/html,application/xhtml+xml' } });
     } catch (err) {
       console.warn(`  ⚠️  Listing fetch failed at offset=${offset}: ${err?.message || err}`);
-      break;
+      throw err;
     }
 
     const entries = extractListingEntries(html);
@@ -277,20 +280,7 @@ async function collectAllJobEntries() {
  * detail page.
  */
 function parseJobPostingJsonLd(html = '') {
-  const re = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
-  let match;
-  while ((match = re.exec(html)) !== null) {
-    try {
-      const payload = JSON.parse(match[1]);
-      const candidates = Array.isArray(payload) ? payload : [payload];
-      for (const candidate of candidates) {
-        if (candidate && candidate['@type'] === 'JobPosting') return candidate;
-      }
-    } catch {
-      // Malformed JSON-LD block — try the next <script> tag, if any.
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /* ── Main Fetcher ─────────────────────────────────────────── */
@@ -333,26 +323,17 @@ export async function fetchAllKantonSolothurnJobs() {
     const address = jsonLd.jobLocation?.address || {};
     const { city, canton, postalCode, streetAddress, region } = resolveAddress(address);
 
-    let descriptionText = stripHtml(
+    // The JSON-LD text only (issue 5253). Under 50 words it used to get
+    // "<title> — Kanton Solothurn, <city>." and a paragraph about the canton
+    // we wrote. A posting without text, or under the shared 50-word floor,
+    // now gets no description and takes the thin-source path (quarantine).
+    const sourceText = stripHtml(
       [jsonLd.description, jsonLd.responsibilities, jsonLd.qualifications]
         .filter(Boolean)
         .join('\n\n'),
     );
+    const descriptionText = meetsSourceBodyFloor(sourceText) ? sourceText : '';
     const sourceLang = detectLang(descriptionText || title, 'de');
-
-    // Thin-content guard (Non-Negotiable #4): never index < 50 words —
-    // mirrors the enrichment pattern used by sibling parsers (e.g.
-    // css-versicherung-job-parser.mjs) rather than dropping the job outright.
-    const wordCount = descriptionText.split(/\s+/).filter(Boolean).length;
-    if (wordCount < 50) {
-      descriptionText = [
-        descriptionText || `${title} — ${KANTON_SOLOTHURN_COMPANY_NAME}, ${city}.`,
-        'Der Kanton Solothurn ist Arbeitgeber für tausende Mitarbeitende in der kantonalen Verwaltung — von der Informatik über Bildung, Sicherheit und Justiz bis zu Umwelt, Finanzen und zentralen Verwaltungsfunktionen. Er bietet flexible Arbeitsmodelle, faire Anstellungsbedingungen auf Basis eines Gesamtarbeitsvertrags (GAV) und Weiterbildungsmöglichkeiten in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz.',
-        'Bewirb dich direkt online über job.so.ch.',
-      ]
-        .filter(Boolean)
-        .join('\n\n');
-    }
 
     const employmentType =
       String(jsonLd.employmentType || '').toUpperCase().trim() || detectEmploymentType(title);
@@ -360,12 +341,7 @@ export async function fetchAllKantonSolothurnJobs() {
     const jobSlug = slugify(`${title} kanton solothurn ${city}`);
     const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const parsed = new Date(String(jsonLd.datePosted || ''));
-      return Number.isNaN(parsed.getTime())
-        ? new Date().toISOString().slice(0, 10)
-        : parsed.toISOString().slice(0, 10);
-    })();
+    const postingDates = sourcePostingDateFields(jsonLd.datePosted);
 
     const job = {
       id: `${KANTON_SOLOTHURN_KEY}-${urlHash}`,
@@ -377,7 +353,7 @@ export async function fetchAllKantonSolothurnJobs() {
       title,
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
+      descriptionByLocale: descriptionText ? { [sourceLang]: descriptionText } : {},
       needsRetranslation: true,
       location: city,
       canton,
@@ -399,7 +375,7 @@ export async function fetchAllKantonSolothurnJobs() {
       sector: 'Amministrazione pubblica',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

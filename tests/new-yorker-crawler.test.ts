@@ -264,7 +264,7 @@ Bern
 </head><body></body></html>`;
 
     it('extracts title, dates, employment type and hiring organization', () => {
-      const detail = extractNewYorkerJsonLd(detailHtml);
+      const detail = extractNewYorkerJsonLd(detailHtml, 'https://jobs.newyorker.de/karriere-schweiz/aushilfe-de-j18471.html', 'AUSHILFE (M/W/D) IM VERKAUF');
       expect(detail).not.toBeNull();
       expect(detail!.title).toBe('AUSHILFE (M/W/D) IM VERKAUF');
       expect(detail!.datePosted).toBe('2025-12-28');

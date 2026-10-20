@@ -44,6 +44,9 @@ export const PAYWALL_DISMISS_DAYS = 30;
 
 import { SEND_CALCULATOR_REPORT_URL } from '@/services/functionsBase';
 
+/** Last-touch attribution for a login started from this box (see authService). */
+const CALCULATOR_PAYWALL_AUTH_ATTRIBUTION = { cta: 'calculator_paywall_social', component: 'CalculatorPaywall' } as const;
+
 /**
  * Returns true when the paywall dismissal is still active (ISO timestamp <30 days old).
  * Accepts legacy numeric timestamps too (older builds used Date.now()).
@@ -165,6 +168,7 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
           text: 'continue_with',
           width: 320,
           locale,
+          attribution: CALCULATOR_PAYWALL_AUTH_ATTRIBUTION,
         });
         if (!cancelled) setGoogleButtonReady(ready);
       } catch (error) {
@@ -370,7 +374,7 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
                   {linkedInAvailable && (
                     <button
                       type="button"
-                      onClick={() => signInWithLinkedIn()}
+                      onClick={() => signInWithLinkedIn(undefined, CALCULATOR_PAYWALL_AUTH_ATTRIBUTION)}
                       className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors"
                       aria-label="Continue with LinkedIn"
                     >

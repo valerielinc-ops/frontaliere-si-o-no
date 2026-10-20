@@ -7,6 +7,7 @@
  */
 
 import { validatePharmacyReleaseContract } from './release-contract-validator.mjs';
+import { PHARMACY_SOURCE_AUDIT_VERDICTS } from './sourceAudit.mjs';
 
 export { validatePharmacyReleaseContract };
 
@@ -18,7 +19,14 @@ export interface OpeningHours {
   isClosed?: boolean;
 }
 
-export type PharmacySourceType = 'official' | 'association' | 'pharmacy' | 'verified_partner' | 'directory';
+export type PharmacySourceType =
+  | 'official'
+  | 'association'
+  | 'pharmacy'
+  | 'verified_partner'
+  | 'directory'
+  | 'google_business_profile'
+  | 'facebook';
 
 export type PharmacyCountry = 'CH' | 'IT';
 
@@ -101,6 +109,57 @@ export interface PharmacyDataAvailability {
   coordinates?: PharmacyFieldStatus;
   openingHours?: PharmacyFieldStatus;
   services?: PharmacyFieldStatus;
+  contactEmail?: PharmacyFieldStatus;
+  vatNumber?: PharmacyFieldStatus;
+}
+
+export type PharmacyEnrichmentField =
+  | 'address'
+  | 'phone'
+  | 'website'
+  | 'openingHours'
+  | 'services'
+  | 'contactEmail'
+  | 'vatNumber';
+
+export type PharmacyExternalSourceStatus = 'verified' | 'unavailable' | 'not_found';
+
+/** A public page or authorised provider result used for optional facts. */
+export interface PharmacyExternalSource {
+  url: string;
+  label: string;
+  sourceType: PharmacySourceType;
+  checkedAt: string;
+  fields: PharmacyEnrichmentField[];
+  /** Google Places IDs are the only provider content retained indefinitely. */
+  placeId?: string;
+  status?: PharmacyExternalSourceStatus;
+  /** Source-published modification time, when exposed by the page/API. */
+  sourceUpdatedAt?: string;
+  license?: string;
+}
+
+/** Separate snapshot for optional facts so the official catalogue release stays atomic. */
+export interface PharmacyEnrichmentRecord {
+  checkedAt: string;
+  phone?: string;
+  website?: string;
+  openingHours?: OpeningHours[];
+  services?: string[];
+  contactEmail?: string;
+  /** Public legal identifier accepted only from a matched source. */
+  vatNumber?: string;
+  /** Google Places exception: retain the stable place ID, not place content. */
+  googlePlaceId?: string;
+  fieldSources?: Partial<Record<PharmacyEnrichmentField, PharmacyFieldSource>>;
+  externalSources?: PharmacyExternalSource[];
+}
+
+export interface PharmacyEnrichmentSnapshot {
+  schemaVersion: 1;
+  generatedAt: string;
+  records: Record<string, PharmacyEnrichmentRecord>;
+  warnings: string[];
 }
 
 /**
@@ -140,8 +199,14 @@ export interface Pharmacy {
   sourceType: PharmacySourceType;
   lastVerifiedAt: string;
   /** Provenance for optional fields enriched from a second public source. */
-  fieldSources?: Partial<Record<'address' | 'phone' | 'website' | 'coordinates' | 'openingHours' | 'services', PharmacyFieldSource>>;
+  fieldSources?: Partial<Record<'address' | 'phone' | 'website' | 'coordinates' | 'openingHours' | 'services' | 'contactEmail' | 'vatNumber', PharmacyFieldSource>>;
   dataAvailability?: PharmacyDataAvailability;
+  contactEmail?: string;
+  /** Italian VAT number, when a public source identifies the legal entity. */
+  vatNumber?: string;
+  /** Stable Google Places ID; no Google place content is stored in the catalogue. */
+  googlePlaceId?: string;
+  externalSources?: PharmacyExternalSource[];
   /** Historical detail URLs retained by the data pipeline for redirects. */
   urlAliases?: PharmacyUrlAlias[];
 }
@@ -198,9 +263,42 @@ export type PharmacySourceAccessMethod = 'html-scrape' | 'json-api' | 'pdf' | 'r
 
 export type PharmacySourceStatus = 'unverified' | 'active' | 'blocked' | 'degraded';
 
+/**
+ * Outcome of a human audit of a canton's duty source (#8705). It records
+ * WHETHER and HOW the source was examined, which `status` alone cannot say:
+ * an `unverified` entry with an `audit` means "examined, not publishable",
+ * one without means "never examined".
+ *
+ * - `complete-feed`: the page, or a document it links, lists without any user
+ *   input the on-duty pharmacies with date AND time interval for every day of
+ *   at least 7 days, for ALL regions of the canton. Only this verdict can back
+ *   an `active` entry; on a non-active entry it means a connector is owed.
+ * - `partial-or-proximity`: some data exists but it covers only today, only
+ *   some regions, or requires a search by position (e.g. a proximity list).
+ * - `no-machine-readable`: only a phone number, a brochure or an orientation
+ *   page.
+ */
+export type PharmacySourceAuditVerdict = (typeof PHARMACY_SOURCE_AUDIT_VERDICTS)[number];
+
+export interface PharmacySourceAudit {
+  verdict: PharmacySourceAuditVerdict;
+  /** Day of the audit, as `YYYY-MM-DDT00:00:00.000Z`. */
+  auditedAt: string;
+  /** Why the source got this verdict (max 400 characters). */
+  reason: string;
+  /** HTTPS page or document the verdict was read from. */
+  evidenceUrl: string;
+}
+
 /** Shared source contract used by canton entries and regional duty feeds. */
 export interface PharmacySourceConfig {
   officialSourceUrl: string;
+  /**
+   * Machine-readable representation of the official source (JSON, HTML or
+   * PDF). This is provenance for future connectors, not proof of a complete
+   * duty feed and never enables publication on its own.
+   */
+  machineReadableUrl?: string;
   accessMethod: PharmacySourceAccessMethod;
   fetchFrequency: string;
   timezone: string;
@@ -223,6 +321,12 @@ export interface PharmacySourceEntry extends PharmacySourceConfig {
   anagraficaPath?: string;
   /** Official source URL for the canonical anagraphic snapshot. */
   anagraficaSourceUrl?: string;
+  /** Canonical duty snapshot when the source uses a shared multi-canton file. */
+  dutiesPath?: string;
+  /** Snapshot key inside `dutiesPath`, when the file wraps several releases. */
+  dutiesKey?: string;
+  /** Latest audit of the canton source; see `PharmacySourceAuditVerdict`. */
+  audit?: PharmacySourceAudit;
 }
 
 export interface PharmacySourcesRegistry {
@@ -270,8 +374,50 @@ const SOURCE_TYPES: readonly PharmacySourceType[] = [
   'pharmacy',
   'verified_partner',
   'directory',
+  'google_business_profile',
+  'facebook',
 ];
 const SOURCE_STATUSES: readonly PharmacySourceStatus[] = ['unverified', 'active', 'blocked', 'degraded'];
+// Single source shared with scripts/check-pharmacy-data-health.mjs.
+export { PHARMACY_SOURCE_AUDIT_VERDICTS };
+const AUDIT_REASON_MAX_LENGTH = 400;
+const AUDIT_DAY_PATTERN = /^\d{4}-\d{2}-\d{2}T00:00:00\.000Z$/;
+
+function validatePharmacySourceAudit(key: string, audit: unknown, status: unknown): string[] {
+  if (typeof audit !== 'object' || audit === null || Array.isArray(audit)) {
+    return [`${key}: "audit" must be an object`];
+  }
+  const a = audit as Record<string, unknown>;
+  const errors: string[] = [];
+  if (!(PHARMACY_SOURCE_AUDIT_VERDICTS as readonly unknown[]).includes(a.verdict)) {
+    errors.push(`${key}: invalid audit.verdict "${String(a.verdict)}"`);
+  }
+  const auditedAt = typeof a.auditedAt === 'string' ? a.auditedAt : '';
+  // The round trip rejects calendar-impossible days such as 2026-02-30.
+  const parsed = Date.parse(auditedAt);
+  if (!AUDIT_DAY_PATTERN.test(auditedAt) || !Number.isFinite(parsed) || new Date(parsed).toISOString() !== auditedAt) {
+    errors.push(`${key}: audit.auditedAt must be a valid day as YYYY-MM-DDT00:00:00.000Z`);
+  }
+  if (typeof a.reason !== 'string' || a.reason.trim() === '') {
+    errors.push(`${key}: audit.reason must not be empty`);
+  } else if (a.reason.length > AUDIT_REASON_MAX_LENGTH) {
+    errors.push(`${key}: audit.reason exceeds ${AUDIT_REASON_MAX_LENGTH} characters`);
+  }
+  if (safePharmacyUrl(a.evidenceUrl) === undefined) {
+    errors.push(`${key}: audit.evidenceUrl must be an absolute https:// URL`);
+  }
+  if (status === 'active' && a.verdict !== 'complete-feed') {
+    errors.push(`${key}: an "active" source cannot carry audit.verdict "${String(a.verdict)}" (only complete-feed)`);
+  }
+  return errors;
+}
+
+function validateOptionalMachineReadableUrl(key: string, entry: Record<string, unknown>): string[] {
+  if (entry.machineReadableUrl === undefined) return [];
+  return safePharmacyUrl(entry.machineReadableUrl) === undefined
+    ? [`${key}: invalid optional "machineReadableUrl" (expected an absolute https:// URL)`]
+    : [];
+}
 
 /** Accept only absolute HTTPS URLs from public directory enrichment. */
 export function safePharmacyUrl(value: unknown): string | undefined {
@@ -282,6 +428,31 @@ export function safePharmacyUrl(value: unknown): string | undefined {
   } catch {
     return undefined;
   }
+}
+
+/** Builds a Google Maps deep link from the only Places value we retain. */
+export function pharmacyGoogleMapsUrl(placeId: unknown): string | undefined {
+  if (typeof placeId !== 'string' || !/^[A-Za-z0-9_-]+$/.test(placeId.trim())) return undefined;
+  return `https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${encodeURIComponent(placeId.trim())}`;
+}
+
+/**
+ * Builds a Google Maps search link from the verified catalogue identity.
+ *
+ * This is a navigation link, not a cached Google result: it deliberately
+ * carries no provider facts, ratings, reviews or inferred coordinates.
+ */
+export function pharmacyGoogleMapsSearchUrl(
+  pharmacy: Pick<Pharmacy, 'name' | 'address' | 'postalCode' | 'city' | 'country'>,
+): string | undefined {
+  const parts = [
+    pharmacy.name,
+    pharmacy.address,
+    `${pharmacy.postalCode} ${pharmacy.city}`,
+    pharmacy.country === 'IT' ? 'Italy' : pharmacy.country === 'CH' ? 'Switzerland' : '',
+  ].map((part) => String(part || '').trim()).filter(Boolean);
+  if (parts.length < 2) return undefined;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(parts.join(', '))}`;
 }
 
 /**
@@ -305,6 +476,8 @@ export function validatePharmacySourceEntry(key: string, entry: unknown): string
       errors.push(`${key}: missing or empty required field "${field}"`);
     }
   }
+
+  errors.push(...validateOptionalMachineReadableUrl(key, e));
 
   if (typeof e.accessMethod === 'string' && !ACCESS_METHODS.includes(e.accessMethod as PharmacySourceAccessMethod)) {
     errors.push(`${key}: invalid accessMethod "${e.accessMethod}"`);
@@ -332,6 +505,10 @@ export function validatePharmacySourceEntry(key: string, entry: unknown): string
     }
   }
 
+  if (e.audit !== undefined) {
+    errors.push(...validatePharmacySourceAudit(key, e.audit, e.status));
+  }
+
   return errors;
 }
 
@@ -347,6 +524,7 @@ function validatePharmacySourceConfig(key: string, entry: unknown): string[] {
       errors.push(`${key}: missing or empty required field "${field}"`);
     }
   }
+  errors.push(...validateOptionalMachineReadableUrl(key, e));
   if (typeof e.accessMethod === 'string' && !ACCESS_METHODS.includes(e.accessMethod as PharmacySourceAccessMethod)) {
     errors.push(`${key}: invalid accessMethod "${e.accessMethod}"`);
   }
@@ -410,6 +588,14 @@ export function validatePharmacy(index: number | string, entry: unknown): string
     errors.push(`pharmacy[${index}]: invalid optional "dataAvailability"`);
   }
 
+  if (e.contactEmail !== undefined && (typeof e.contactEmail !== 'string' || !e.contactEmail.trim())) {
+    errors.push(`pharmacy[${index}]: invalid optional "contactEmail"`);
+  }
+
+  if (e.googlePlaceId !== undefined && (typeof e.googlePlaceId !== 'string' || !/^[A-Za-z0-9_-]+$/.test(e.googlePlaceId))) {
+    errors.push(`pharmacy[${index}]: invalid optional "googlePlaceId"`);
+  }
+
   if (e.website !== undefined && !safePharmacyUrl(e.website)) {
     errors.push(`pharmacy[${index}]: invalid optional "website" (expected an absolute HTTPS URL)`);
   }
@@ -424,6 +610,29 @@ export function validatePharmacy(index: number | string, entry: unknown): string
       || !candidate.slug.trim();
   }))) {
     errors.push(`pharmacy[${index}]: invalid optional "urlAliases"`);
+  }
+
+  if (e.externalSources !== undefined) {
+    if (!Array.isArray(e.externalSources)) {
+      errors.push(`pharmacy[${index}]: invalid optional "externalSources"`);
+    } else {
+      e.externalSources.forEach((source, sourceIndex) => {
+        if (typeof source !== 'object' || source === null || Array.isArray(source)) {
+          errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: expected an object`);
+          return;
+        }
+        const candidate = source as Record<string, unknown>;
+        if (!safePharmacyUrl(candidate.url)) errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: invalid URL`);
+        if (typeof candidate.label !== 'string' || !candidate.label.trim()) errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: missing label`);
+        if (typeof candidate.checkedAt !== 'string' || !Number.isFinite(Date.parse(candidate.checkedAt))) errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: invalid checkedAt`);
+        if (!Array.isArray(candidate.fields) || candidate.fields.some((field) => !['address', 'phone', 'website', 'openingHours', 'services', 'contactEmail'].includes(String(field))) || (!candidate.fields.length && candidate.sourceType !== 'google_business_profile')) {
+          errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: invalid fields`);
+        }
+        if (candidate.sourceType === 'google_business_profile' && (typeof candidate.placeId !== 'string' || !candidate.placeId.trim())) {
+          errors.push(`pharmacy[${index}].externalSources[${sourceIndex}]: Google source is missing placeId`);
+        }
+      });
+    }
   }
 
   return errors;

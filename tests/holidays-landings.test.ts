@@ -3,6 +3,7 @@
  * Path builders/parsers, dataset invariants, and render smoke tests.
  */
 import { describe, it, expect } from 'vitest';
+import { expectGenerationDateLabel } from './helpers/generationDateAssertions';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
@@ -20,6 +21,7 @@ import {
 } from '@/build-plugins/holidaysLandingsPlugin';
 import { MIN_INDEXABLE_WORDS } from '@/build-plugins/constants';
 import { expectIndexableWithLargePreview } from './helpers/robotsAssertions';
+import { SECTION_EDITORIAL } from '../build-plugins/editorialContent';
 
 const DATASET = JSON.parse(
   readFileSync(resolve(__dirname, '..', 'data', 'seo', 'frontaliere-holidays.json'), 'utf8'),
@@ -106,6 +108,7 @@ describe('holidays landings — render smoke', () => {
         const r = __renderHolidayPageForTest({ locale, page, dateStamp: '2026-07-19' });
         expect(r.wordCount, `${locale}/${page} thin`).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
         expect(r.html).toContain('<h1');
+        expectGenerationDateLabel(r.html, locale);
         expect(r.html).toContain(`https://frontaliereticino.ch${r.urlPath}`);
         expectIndexableWithLargePreview(r.html, `${locale}/${page}`);
       }
@@ -116,6 +119,22 @@ describe('holidays landings — render smoke', () => {
     const r = __renderHolidayPageForTest({ locale: 'it', page: 'ch-vs-it', dateStamp: '2026-07-19' });
     expect(r.html).toContain('Venerdì Santo');
     expect(r.html).toContain('Anniversario della Liberazione');
+    expect((r.html.match(/<main\b/g) ?? []).length).toBe(1);
+    expect(r.html).toContain('aria-label="Giorni festivi: Svizzera (Ticino) vs Italia');
+  });
+
+  it('gives both Ticino calendar tables explicit accessible names', () => {
+    const r = __renderHolidayPageForTest({ locale: 'it', page: 'ticino', dateStamp: '2026-07-19' });
+
+    expect((r.html.match(/<main\b/g) ?? []).length).toBe(1);
+    expect(r.html).toContain('aria-label="Calendario festivi 2026"');
+    expect(r.html).toContain('aria-label="Calendario festivi 2027"');
+  });
+
+  it('does not expose a null placeholder in the German editorial holiday copy', () => {
+    const copy = SECTION_EDITORIAL['/tasse-e-pensione/festivita-ticino'].de.join(' ');
+    expect(copy).toContain('keine Ferientage');
+    expect(copy).not.toContain('null Ferientage');
   });
 });
 

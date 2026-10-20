@@ -6,7 +6,8 @@
  * Credential load = load-rc-env.mjs (GITHUB_PAT) and/or mint-app-token.mjs
  * (APP_TOKEN). Shared helpers fail-closed on those env vars; inline `git push`
  * writers must also call configure-main-push-auth.sh (or the equivalent
- * extraheader-unset + x-access-token rewrite) before the push line.
+ * clear-checkout-git-credentials.sh + x-access-token rewrite) before the push
+ * line.
  */
 import { describe, expect, it } from 'vitest';
 import { readdirSync, readFileSync } from 'node:fs';
@@ -84,8 +85,11 @@ function hasCredentialLoad(code: string): boolean {
 
 function hasInlineConfigure(code: string): boolean {
   if (code.includes('configure-main-push-auth.sh')) return true;
+  // A bare `--unset-all …extraheader` no longer counts: with actions/checkout
+  // v6+ the header lives in an includeIf'd git-credentials-*.config that the
+  // unset never sees. The credential strip must be the shared helper.
   return (
-    /unset-all/.test(code) &&
+    code.includes('clear-checkout-git-credentials.sh') &&
     /x-access-token:/.test(code) &&
     /APP_TOKEN|GITHUB_PAT/.test(code)
   );
@@ -110,7 +114,7 @@ export function missingAuthBeforePushes(
       missing.push({
         line: site.line,
         kind: site.kind,
-        reason: 'configure-main-push-auth.sh (or extraheader unset + x-access-token) must appear BEFORE this push',
+        reason: 'configure-main-push-auth.sh (or clear-checkout-git-credentials.sh + x-access-token) must appear BEFORE this push',
         text: site.text,
       });
     }
@@ -167,6 +171,19 @@ describe('this-repo main writers have a ruleset-bypass credential path before th
     expect(mintLine).toBeGreaterThan(pushLine);
   });
 
+  it('does not let checkout credentials shadow the prospector push identity', () => {
+    const src = readFileSync(resolve(WORKFLOWS_DIR, 'prospector-loop.yml'), 'utf8');
+    const checkoutLine = src.split('\n').findIndex((line) => line.includes('actions/checkout@v7'));
+    expect(checkoutLine).toBeGreaterThan(0);
+    expect(src.split('\n').slice(checkoutLine, checkoutLine + 10).join('\n'))
+      .toMatch(/persist-credentials:\s*false/);
+    expect(src).toContain('Verify main push identity');
+    expect(src).toContain('git remote set-url origin \\');
+    expect(src).toContain(
+      '"https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"',
+    );
+  });
+
   it('does not treat GITHUB_TOKEN as a push identity in the shared helpers', () => {
     const commit = readFileSync(resolve(import.meta.dirname, '../scripts/lib/git-commit-data.sh'), 'utf8');
     const retry = readFileSync(resolve(import.meta.dirname, '../scripts/lib/git-push-with-retry.sh'), 'utf8');
@@ -178,6 +195,16 @@ describe('this-repo main writers have a ruleset-bypass credential path before th
     expect(retry).toContain('configure-main-push-auth.sh');
     expect(configure).toContain('GITHUB_PAT:-${APP_TOKEN:-}');
     expect(configure).not.toMatch(/GITHUB_TOKEN:-\}/);
-    expect(configure).toContain('--unset-all http.https://github.com/.extraheader');
+    // The checkout credential strip is the shared helper, which covers both the
+    // direct extraheader (checkout <= v5) and the includeIf'd
+    // git-credentials-*.config of checkout v6+/v7.
+    expect(configure).toContain('clear-checkout-git-credentials.sh');
+    const clear = readFileSync(
+      resolve(import.meta.dirname, '../scripts/lib/clear-checkout-git-credentials.sh'),
+      'utf8',
+    );
+    expect(clear).toContain('--unset-all http.https://github.com/.extraheader');
+    expect(clear).toContain("'^includeif\\.gitdir:'");
+    expect(clear).toContain('git-credentials-');
   });
 });

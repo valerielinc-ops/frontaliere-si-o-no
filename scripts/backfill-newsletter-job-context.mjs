@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Backfill missing job context fields on newsletter_subscribers/{email}.
  *
@@ -15,6 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -319,16 +322,9 @@ function maskEmail(email) {
 }
 
 async function getFirestoreAdmin() {
-  const admin = await import('firebase-admin');
-  if (!admin.default.apps?.length) {
-    admin.default.initializeApp({
-      credential: admin.default.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
   return {
-    db: admin.default.firestore(),
-    FieldValue: admin.default.firestore.FieldValue,
+    db: await getFirestoreDb(),
+    FieldValue: (await import('firebase-admin/firestore')).FieldValue,
   };
 }
 
@@ -419,7 +415,7 @@ async function main() {
   if (!args.apply) console.log('\nRe-run with --apply to commit.');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error('Fatal error:', err);
     process.exit(1);

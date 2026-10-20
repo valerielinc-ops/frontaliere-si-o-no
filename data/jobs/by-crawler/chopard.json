@@ -1,6 +1,6 @@
 {
   "crawlerKey": "chopard",
-  "assembledAt": "2026-09-24T14:23:12.263Z",
+  "assembledAt": "2026-10-19T21:22:30.088Z",
   "jobs": [
     {
       "id": "chopard-5dded0f8e2fc",
@@ -33,7 +33,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:23:05.917Z",
+      "crawledAt": "2026-10-19T21:22:23.978Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -47,78 +47,14 @@
       "sector": "Orologeria / Gioielleria",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-10",
       "postedDate": "2026-07-10",
+      "postingDateSource": "reported",
       "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "jobReqId": "2555",
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-10T22:09:12.285Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "chopard-34282272bd03",
-      "slug": "programmeur-cnc-h-f-d-chopard-fleurier",
-      "slugByLocale": {
-        "it": "programmeur-cnc-h-f-d-chopard-fleurier",
-        "en": "cnc-programmer-h-f-d-chopard-fleurier",
-        "de": "cnc-programmierer-h-f-d-chopard-fleurier",
-        "fr": "programmeur-cnc-h-f-d-chopard-fleurier"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Programmeur CNC (H/F/D)",
-      "titleByLocale": {
-        "it": "Programmeur CNC (f/m/d)",
-        "en": "CNC programmer (H/F/D)",
-        "de": "CNC-Programmierer (H/F/D)",
-        "fr": "Programmeur CNC (H/F/D)"
-      },
-      "description": "Votre mission Participer au développement et à l’optimisation des processus d’usinage en programmant et en améliorant les programmes CNC afin de garantir une production performante, fiable et conforme aux exigences qualité. \n• Vos responsabilités majeures Programmer de nouvelles pièces et optimiser en continu les programmes CNC à l’aide de logiciels de FAO (CAM). Mettre en service et valider les programmes sur des centres d’usinage CNC 3 axes et 5 axes. Analyser et optimiser les nouveaux procédés de fabrication afin d’assurer un fonctionnement stable et efficace de la production. Participer aux améliorations techniques et à l’industrialisation des nouveaux produits. Assurer le support technique auprès des régleurs et opérateurs. Garantir le respect des standards qualité, productivité et sécurité. Documenter les programmes, les stratégies d’usinage et les données techniques. Intégrer les données techniques dans Windchill en respectant les standards de désignation ainsi que le flux d’archivage. Suivre le développement et assurer la mise au point des post-processeurs. Créer et maintenir : les outils de coupe spécifiques ainsi que les posages. les bases de données outils. les plans de phase. les fichiers DXF. les volumes industriels.",
-      "descriptionByLocale": {
-        "it": "La vostra missione partecipa allo sviluppo e all'ottimizzazione dei processi di lavorazione programmando e migliorando i programmi CNC per garantire una produzione efficiente, affidabile e conforme alla qualità.\n• Le tue principali responsabilità Programmano nuove parti e ottimizzano continuamente i programmi CNC utilizzando il software FAO (CAM). Implementare e convalidare i programmi sui centri di lavoro CNC a 3 assi e a 5 assi. Analizzare e ottimizzare nuovi processi produttivi per garantire un funzionamento produttivo stabile ed efficiente. Partecipazione a miglioramenti tecnici e industrializzazione di nuovi prodotti. Fornire supporto tecnico a regolatori e operatori. Garantire il rispetto di qualità, produttività e standard di sicurezza. Programmi di documentazione, strategie di lavorazione e dati tecnici. Integrare i dati tecnici in Windchill in conformità con gli standard di designazione e il flusso di archivio. Monitorare lo sviluppo e garantire lo sviluppo dei postprocessori. Creare e mantenere: strumenti di taglio specifici e posate. strumenti di database. piani di fase. File DXF. volumi industriali.",
-        "en": "Your mission Participate in the development and optimization of machining processes by programming and improving CNC programs to ensure efficient, reliable and quality-compliant production.\n• Your major responsibilities Program new parts and continuously optimize CNC programs using FAO software (CAM). Implement and validate programs on 3-axis and 5-axis CNC machining centres. Analyse and optimize new manufacturing processes to ensure stable and efficient production operation. Participate in technical improvements and industrialisation of new products. Provide technical support to regulators and operators. Ensure compliance with quality, productivity and safety standards. Document programs, machining strategies and technical data. Integrate technical data into Windchill in accordance with designation standards and archive flow. Monitor development and ensure development of postprocessors. Create and maintain: specific cutting tools as well as posages. database tools. phase plans. DXF files. industrial volumes.",
-        "de": "Ihre Mission Beteiligen Sie sich an der Entwicklung und Optimierung von Bearbeitungsprozessen durch Programmierung und Verbesserung von CNC-Programmen, um eine effiziente, zuverlässige und qualitätskonforme Produktion zu gewährleisten.\n• Ihre Hauptverantwortung Programm neue Teile und kontinuierlich zu optimieren CNC-Programme mit FAO-Software (CAM). Implementieren und validieren Sie Programme auf 3-Achsen- und 5-Achsen-CNC-Bearbeitungszentren. Analysieren und optimieren Sie neue Fertigungsprozesse, um einen stabilen und effizienten Produktionsbetrieb zu gewährleisten. Beteiligen Sie sich an technischen Verbesserungen und der Industrialisierung neuer Produkte. Bereitstellung technischer Unterstützung für Regulierungsbehörden und Betreiber. Gewährleistung der Einhaltung von Qualitäts-, Produktivitäts- und Sicherheitsstandards. Dokumentation von Programmen, Bearbeitungsstrategien und technischen Daten. Integrieren Sie technische Daten in Windchill gemäß den Bezeichnungsstandards und dem Archivfluss. Überwachung der Entwicklung und Sicherstellung der Entwicklung von Postprozessoren. Erstellen und pflegen: spezifische Schneidwerkzeuge sowie Posagen. Datenbankwerkzeuge. Phasenpläne. DXF Dateien. Industrievolumen.",
-        "fr": "Votre mission Participer au développement et à l’optimisation des processus d’usinage en programmant et en améliorant les programmes CNC afin de garantir une production performante, fiable et conforme aux exigences qualité. \n• Vos responsabilités majeures Programmer de nouvelles pièces et optimiser en continu les programmes CNC à l’aide de logiciels de FAO (CAM). Mettre en service et valider les programmes sur des centres d’usinage CNC 3 axes et 5 axes. Analyser et optimiser les nouveaux procédés de fabrication afin d’assurer un fonctionnement stable et efficace de la production. Participer aux améliorations techniques et à l’industrialisation des nouveaux produits. Assurer le support technique auprès des régleurs et opérateurs. Garantir le respect des standards qualité, productivité et sécurité. Documenter les programmes, les stratégies d’usinage et les données techniques. Intégrer les données techniques dans Windchill en respectant les standards de désignation ainsi que le flux d’archivage. Suivre le développement et assurer la mise au point des post-processeurs. Créer et maintenir : les outils de coupe spécifiques ainsi que les posages. les bases de données outils. les plans de phase. les fichiers DXF. les volumes industriels."
-      },
-      "location": "Fleurier",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:23:05.910Z",
-      "addressLocality": "Fleurier",
-      "addressRegion": "Genève",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-16",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
-      "jobReqId": "2572",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-16T22:17:04.829Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -139,7 +75,7 @@
       "slugByLocale": {
         "it": "agent-qualite-production-h-f-d-chopard-fleurier",
         "en": "production-quality-officer-m-f-d-chopard-fleurier",
-        "de": "produktionsqualitat-officer-m-w-d-chopard-fleurier",
+        "de": "produktionsqualitatsbeauftragter-m-w-d-chopard-fleurier",
         "fr": "agent-qualite-production-h-f-d-chopard-fleurier"
       },
       "company": "Chopard",
@@ -149,14 +85,14 @@
       "titleByLocale": {
         "it": "Agent Qualité Production (f/m/d)",
         "en": "Production Quality Officer (M/F/D)",
-        "de": "Produktionsqualität Officer (M/W/D)",
+        "de": "Produktionsqualitätsbeauftragter (M/W/D)",
         "fr": "Agent Qualité Production (H/F/D)"
       },
       "description": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques.",
       "descriptionByLocale": {
-        "it": "La tua missione Essere il garante della garanzia di qualità nella produzione in conformità con le scadenze e le istruzioni di sicurezza.\n• Analizzare e gestire la non conformità del settore. Definire e rendere disponibili standard di controllo in collaborazione con le funzioni di supporto. Progetti di piombo. Impostazione e supporto autocontrollo. Gestione e monitoraggio degli indicatori di qualità. Assicurarsi che le attrezzature metrologiche siano soddisfatte. Condurre e allenare sessioni di problem solving. Coltivare e pilotare opportunità di miglioramento. Crea intervalli di controllo in base a intervalli generici.",
-        "en": "Your Mission To be the guarantor of quality assurance in production in accordance with deadlines and safety instructions.\n• Your major responsibilities Analyze and manage industry non-compliance. Define and make available control standards in collaboration with support functions. Lead projects. Set up and support self-control. Managing and monitoring quality indicators. Ensure that metrological equipment needs are met. Conduct and coach problem-solving sessions. Remount and pilot opportunities for improvement. Create control ranges according to generic ranges.",
-        "de": "Deine Mission Gewährleistung der Qualitätssicherung in der Produktion gemäß den Fristen und Sicherheitsanweisungen.\n• Ihre Hauptverantwortlichkeiten Analysieren und verwalten Sie die Nichteinhaltung von Industrievorschriften. Definieren und Bereitstellen von Steuerungsstandards in Zusammenarbeit mit Supportfunktionen. Leitprojekte. Aufbau und Unterstützung der Selbstkontrolle. Verwaltung und Überwachung von Qualitätsindikatoren. Gewährleistung, dass der Bedarf an messtechnischer Ausrüstung gedeckt wird. Durchführung und Coaching von Problemlösungssitzungen. Remount- und Pilotmöglichkeiten für Verbesserungen. Erstellen Sie Kontrollbereiche nach generischen Bereichen.",
+        "it": "La tua missione Essere il garante della garanzia di qualità nella produzione in conformità con le scadenze e le istruzioni di sicurezza.\n• Analizzare e gestire la non conformità del settore. Definire e rendere disponibili standard di controllo in collaborazione con le funzioni di supporto. Progetti di piombo. Impostazione e supporto autocontrollo. Gestione e monitoraggio degli indicatori di qualità. Assicurarsi che le attrezzature metrologiche siano soddisfatte. Incoraggiare e allenare sessioni di problem solving. Rimontare e gestire le opportunità di miglioramento. Crea intervalli di controllo in base a intervalli generici.",
+        "en": "Your Mission To be the guarantor of quality assurance in production in accordance with deadlines and safety instructions.\n• Your major responsibilities Analyze and manage industry non-compliance. Define and make available control standards in collaboration with support functions. Lead projects. Set up and support self-control. Manage and monitor quality indicators. Ensure that metrological equipment needs are met. Encourage and coach problem-solving sessions. Remount and manage opportunities for improvement. Create control ranges according to generic ranges.",
+        "de": "Deine Mission Gewährleistung der Qualitätssicherung in der Produktion gemäß den Fristen und Sicherheitsanweisungen.\n• Ihre Hauptaufgaben Analysieren und verwalten Sie die Nichtkonformität der Branche. Definieren und Bereitstellen von Steuerungsstandards in Zusammenarbeit mit Supportfunktionen. Leitprojekte. Aufbau und Unterstützung der Selbstkontrolle. Verwalten und überwachen Sie Qualitätsindikatoren. Gewährleistung, dass der Bedarf an messtechnischer Ausrüstung gedeckt wird. Ermutigen und coachen Sie Problemlösungssitzungen. Remount und Verwaltung von Verbesserungsmöglichkeiten. Erstellen Sie Kontrollbereiche nach generischen Bereichen.",
         "fr": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques."
       },
       "location": "Fleurier",
@@ -164,7 +100,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:23:05.904Z",
+      "crawledAt": "2026-10-19T21:22:23.974Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -178,12 +114,14 @@
       "sector": "Orologeria / Gioielleria",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-13",
       "postedDate": "2026-08-13",
+      "postingDateSource": "reported",
       "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
       "jobReqId": "2570",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-14T10:22:43.317Z",
+      "firstSeenAt": "2026-09-26T13:57:03.838Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -200,10 +138,10 @@
     },
     {
       "id": "chopard-c5cb572704b6",
-      "slug": "apprenti-hologer-h-f-chopard-fleurier",
+      "slug": "apprendista-hologer-m-f-chopard-fleurier",
       "slugByLocale": {
-        "it": "apprenti-hologer-h-f-chopard-fleurier",
-        "en": "apprenti-hologer-h-f-chopard-fleurier",
+        "it": "apprendista-hologer-m-f-chopard-fleurier",
+        "en": "apprentice-hologer-m-f-chopard-fleurier",
         "de": "auszubildender-hologer-m-w-chopard-fleurier",
         "fr": "apprenti-hologer-h-f-chopard-fleurier"
       },
@@ -212,8 +150,8 @@
       "companyDomain": "chopard.com",
       "title": "Apprenti Hologer (H/F)",
       "titleByLocale": {
-        "it": "Apprenti Hologer (M/F)",
-        "en": "Apprenti Hologer (M/F)",
+        "it": "Apprendista Hologer (M/F)",
+        "en": "Apprentice Hologer (M/F)",
         "de": "Auszubildender Hologer (M/W)",
         "fr": "Apprenti Hologer (H/F)"
       },
@@ -229,7 +167,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:23:05.899Z",
+      "crawledAt": "2026-10-19T21:22:23.969Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -243,23 +181,32 @@
       "sector": "Orologeria / Gioielleria",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-25",
       "postedDate": "2026-08-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
       "jobReqId": "2604",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-26T10:06:48.594Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "previousSlugs": [
+        "apprenti-hologer-h-f-chopard-fleurier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-hologer-h-f-chopard-fleurier"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T13:57:03.835Z",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 51100,
+          "maxValue": 77500,
           "unitText": "YEAR"
         }
       }
@@ -295,7 +242,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:23:05.852Z",
+      "crawledAt": "2026-10-19T21:22:23.964Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -309,24 +256,18 @@
       "sector": "Orologeria / Gioielleria",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-26",
       "postedDate": "2026-08-26",
+      "postingDateSource": "reported",
       "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
       "jobReqId": "2608",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-        "apprentice-micromechanic-m-f-d-chopard-fleurier"
+        "apprenti-micromecanicien-h-f-d-chopard-fleurier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-          "apprentice-micromechanic-m-f-d-chopard-fleurier"
-        ],
-        "en": [
-          "apprenti-micromecanicien-h-f-d-chopard-fleurier"
-        ],
-        "de": [
           "apprenti-micromecanicien-h-f-d-chopard-fleurier"
         ]
       },
@@ -376,7 +317,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2233?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:23:05.797Z",
+      "crawledAt": "2026-10-19T21:22:23.959Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -390,24 +331,18 @@
       "sector": "Orologeria / Gioielleria",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-14",
       "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
       "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2233?c=chopard&lang=en-US",
       "jobReqId": "2233",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-of-crm-chopard-meyrin",
-        "global-responsabile-crm-chopard-meyrin"
+        "global-head-of-crm-chopard-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-crm-chopard-meyrin",
-          "global-responsabile-crm-chopard-meyrin"
-        ],
-        "de": [
-          "global-head-of-crm-chopard-meyrin"
-        ],
-        "fr": [
           "global-head-of-crm-chopard-meyrin"
         ]
       },
@@ -427,72 +362,219 @@
       }
     },
     {
-      "id": "chopard-51dd98312b73",
-      "slug": "financial-controlling-tirocinante-chopard-meyrin",
+      "id": "chopard-cbc25eff9178",
+      "slug": "assistente-esecutivo-di-comunicazione-m-f-chopard-meyrin",
       "slugByLocale": {
-        "it": "financial-controlling-tirocinante-chopard-meyrin",
-        "en": "financial-controlling-intern-chopard-meyrin",
-        "de": "financial-controlling-praktikant-chopard-meyrin",
-        "fr": "financial-controlling-stagiaire-chopard-meyrin"
+        "it": "assistente-esecutivo-di-comunicazione-m-f-chopard-meyrin",
+        "en": "communication-executive-assistant-h-f-chopard-meyrin",
+        "de": "communication-executive-assistent-h-f-chopard-meyrin",
+        "fr": "communication-executive-assistant-h-f-chopard-meyrin"
       },
       "company": "Chopard",
       "companyKey": "chopard",
       "companyDomain": "chopard.com",
-      "title": "Financial Controlling Intern",
+      "title": "Communication Executive Assistant (H/F) - 50%",
       "titleByLocale": {
-        "it": "Financial Controlling Tirocinante",
-        "en": "Financial Controlling Intern",
-        "de": "Financial Controlling Praktikant",
-        "fr": "Financial Controlling Stagiaire"
+        "it": "Assistente esecutivo di comunicazione (M/F)",
+        "en": "Communication Executive Assistant (M/F)",
+        "de": "Communication Executive Assistent (H/F)",
+        "fr": "Communication Executive Assistant (H/F) - 50%"
       },
-      "description": "Your role You will provide your support for the following tasks: Monitoring performances and provide recommendations in case of major deviations vs. agreed financial targets; Managing the yearly subsidiaries budget cycle and the monthly / yearly performance review vs targets; Bringing structure and managing financial reporting cycle, consolidate financial information and deliver relevant key performance indicators; Monitoring Retail construction and renovation budget; Monitoring operational marketing expenses vs. budgets; Monitoring and providing financial support to the High Jewellery division Preparing financial projections for new boutiques projects and provide recommendation; Contributing to the implementation of new data solutions (Business Intelligence) and to the improvements of processes; Maintaining the Group Pricing Strategy by preparing reporting, providing prices, making benchmarks and contributing to the price adjustment cycles; Communicating and providing directions and support to the operations to improve financial performance.",
+      "description": "Mission du poste Au sein du pôle Communication, le/la Communication Executive Assistant assiste la Directrice de la Communication dans ses activités administratives quotidiennes, et contribue au déploiement des projets transversaux liés aux pôles RP, Talents Influence Social Media et Events. Il/elle participe à la coordination opérationnelle du pole communication et de son équipe, et contribue à la préparation des grands rendez‑vous de la Maison. Tâches principales Assistance de la Directrice de la Communication au quotidien : organisation agenda, prise de rendez-vous, organisation de voyages, notes de frais… Soutien de la Directrice de la Communication pour le suivi des budgets de communication en lien direct avec les pôles Soutien de la Directrice de la Communication pour la préparation de présentations Coordination du reporting des projets de communication Participation à la gestion opérationnelle des projets de communication : suivi des plannings, préparation des livrables, mise à jour des outils internes Contribution à la coordination interne du pôle Communication et relai d’information : organisation de réunions, rédaction de comptes rendus Tâches spécifiques Mise en place et coordination interne du suivi du budget de communication avec les différents pôles de l’équipe Création, mise en forme et update de présentations PowerPoint pour les projets, les réunions internes et les besoins transversaux du pôle Communication Rédaction de rapports post‑projets, synthèses et documents d’archives internes Participation à la préparation des grands projets de communication internationaux (Watches Wonders, Festival de Cannes, Mille Miglia, lancements etc.) Présence sur certains événements pour soutien logistique et coordination",
       "descriptionByLocale": {
-        "it": "Il tuo ruolo Fornirete il vostro supporto per i seguenti compiti: Monitorare le prestazioni e fornire raccomandazioni in caso di deviazioni principali vs. obiettivi finanziari concordati; Gestire il ciclo di bilancio delle filiali annuali e la revisione mensile/annuale delle performance rispetto agli obiettivi; Portare la struttura e gestire il ciclo di rendicontazione finanziaria, consolidare le informazioni finanziarie e fornire indicatori chiave rilevanti per le prestazioni; Monitorare il budget di costruzione e ristrutturazione al dettaglio; Monitoraggio e sostegno finanziario alla divisione High Jewellery Preparazione di proiezioni finanziarie per nuovi progetti di boutique e raccomandazione; Contribuire all'implementazione di nuove soluzioni di dati (Business Intelligence) e al miglioramento dei processi; Mantenere la strategia di posizionamento del Gruppo preparando report, fornendo prezzi, facendo benchmark e contribuendo ai cicli di regolazione dei prezzi; Comunicare e fornire indicazioni e supporto alle operazioni per migliorare le prestazioni finanziarie.",
-        "en": "Your role You will provide your support for the following tasks: Monitoring performances and provide recommendations in case of major deviations vs. agreed financial targets; Managing the yearly subsidiaries budget cycle and the monthly / yearly performance review vs targets; Bringing structure and managing financial reporting cycle, consolidate financial information and deliver relevant key performance indicators; Monitoring Retail construction and renovation budget; Monitoring operational marketing expenses vs. budgets; Monitoring and providing financial support to the High Jewellery division Preparing financial projections for new boutiques projects and provide recommendation; Contributing to the implementation of new data solutions (Business Intelligence) and to the improvements of processes; Maintaining the Group Pricing Strategy by preparing reporting, providing prices, making benchmarks and contributing to the price adjustment cycles; Communicating and providing directions and support to the operations to improve financial performance.",
-        "de": "Deine Rolle Sie unterstützen Sie bei folgenden\n• Aufgaben: Überwachung der Leistung und Abgabe von Empfehlungen bei größeren Abweichungen gegenüber vereinbarten finanziellen Zielen; Verwaltung des jährlichen Budgetzyklus der Tochtergesellschaften und der monatlichen / jährlichen Leistungsüberprüfung gegenüber den Zielen; Bereitstellung von Struktur und Verwaltung des Finanzberichterstattungszyklus, Konsolidierung der Finanzinformationen und Bereitstellung relevanter wesentlicher Leistungsindikatoren; Überwachung des Bau- und Renovierungsbudgets für den Einzelhandel; Überwachung der operativen Marketingausgaben im Vergleich zu den Budgets; Überwachung und Bereitstellung finanzieller Unterstützung für die Division High Jewellery Vorbereitung finanzieller Projektionen für neue Boutiquenprojekte und Bereitstellung von Empfehlungen; Beitrag zur Implementierung neuer Datenlösungen (Business Intelligence) und zur Verbesserung der Prozesse; Aufrechterhaltung der Gruppenpreisstrategie durch Erstellung von Berichten, Bereitstellung von Preisen, Erstellung von Benchmarks und Beitrag zu den Preisanpassungszyklen; Kommunikation und Bereitstellung von Anweisungen und Unterstützung für die Operationen zur Verbesserung der finanziellen Leistung.",
-        "fr": "Votre rôle Vous fournirez votre soutien pour les tâches suivantes: surveiller les performances et formuler des recommandations en cas d'écarts majeurs par rapport aux objectifs financiers convenus; gérer le cycle budgétaire annuel des filiales et l'examen mensuel / annuel du rendement par rapport aux objectifs; Mettre en place une structure et gérer le cycle de rapports financiers, consolider l'information financière et fournir des indicateurs de rendement clés pertinents; surveiller le budget de construction et de rénovation du commerce de détail; surveiller les dépenses opérationnelles de commercialisation par rapport aux budgets; Suivi et soutien financier à la division Haute Joaillerie Préparer des projections financières pour les nouveaux projets de boutiques et formuler des recommandations; Contribuer à la mise en oeuvre de nouvelles solutions de données (Business Intelligence) et à l'amélioration des processus; Maintenir la stratégie de tarification du groupe en préparant des rapports, en fournissant des prix, en établissant des repères et en contribuant aux cycles d'ajustement des prix; Communiquer et fournir des orientations et un soutien aux opérations pour améliorer la performance financière."
+        "it": "All'interno della divisione Comunicazione, l'Assistente di Comunicazione assiste il Direttore della Comunicazione nelle sue attività amministrative quotidiane e contribuisce alla diffusione di progetti di taglio trasversale relativi a RP, Talents Influence Social Media and Events. Partecipa al coordinamento operativo del polo di comunicazione e del suo team, e contribuisce alla preparazione delle principali riunioni del Parlamento. Principali compiti Assistenza dal Direttore della Comunicazione su base giornaliera: pianificazione, pianificazione, modalità di viaggio, note di spesa... Sostegno del Direttore della Comunicazione per il monitoraggio dei bilanci di comunicazione direttamente collegati ai poli Sostegno del Direttore della Comunicazione per la preparazione delle presentazioni Coordinamento del reporting dei progetti di comunicazione Partecipazione alla gestione operativa dei progetti di comunicazione: follow-up della pianificazione, preparazione dei progetti di consegna, aggiornamento degli strumenti interni Contributo al coordinamento interno della Comunicazione e relè delle informazioni: organizzazione degli incontri, scrittura dei rapporti Presenza su alcuni eventi per il supporto logistico e il coordinamento",
+        "en": "Post mission Within the Communication division, the Communication Executive Assistant assists the Director of Communication in her day-to-day administrative activities and contributes to the deployment of cross-cutting projects related to RP, Talents Influence Social Media and Events. He/she participates in the operational coordination of the communication pole and his/her team, and contributes to the preparation of the major meetings of the House. Main tasks Assistance from the Director of Communication on a daily basis: scheduling, scheduling, travel arrangements, expense notes... Support from the Director of Communication for the monitoring of communication budgets directly linked to the poles Support from the Director of Communication for the preparation of presentations Coordination of the reporting of communication projects Participation in the operational management of communication projects: follow-up of planning, preparation of deliverables, updating of internal tools Contribution to the internal coordination of the Communication and relaying of information: organization of meetings, writing of reports Specific tasks Implementation and internal coordination of the monitoring of the communication budget with the various poles of the team Creation, formatting and updating of PowerPoint presentations for projects, internal meetings and cross-cutting needs of the Communication Centre Drafting of post-project reports, synthesises and internal archival documents Participation in the preparation of major international communication projects (Watches Wonders, Cannes Festival, Mille Miglia, launches etc.) Presence on certain events for logistical support and coordination",
+        "de": "Post Mission Innerhalb der Kommunikationsabteilung unterstützt die Communication Executive Assistant die Director of Communication bei ihren täglichen administrativen Aktivitäten und trägt zur Bereitstellung von Querschnittsprojekten im Zusammenhang mit RP, Talents Influence Social Media und Events bei. Er nimmt an der operativen Koordinierung der Kommunikationsmast und seines Teams teil und trägt zur Vorbereitung der wichtigsten Sitzungen des Hauses bei. Hauptaufgaben Unterstützung durch den Direktor der Kommunikation auf einer täglichen Basis: Planung, Planung, Reisevorbereitungen, Spesenabrechnungen... Unterstützung durch den Kommunikationsdirektor für die Überwachung der Kommunikationsbudgets direkt mit den Polen verbunden Unterstützung durch den Kommunikationsdirektor für die Vorbereitung von Präsentationen Koordination der Berichterstattung von Kommunikationsprojekten Teilnahme am operativen Management von Kommunikationsprojekten: Nachbereitung der Planung, Vorbereitung der Ergebnisse, Aktualisierung der internen Tools Beitrag zur internen Koordination der Kommunikation und Weiterleitung von Informationen: Organisation von Sitzungen, Schreiben von Berichten Spezifische\n• Aufgaben Durchführung und interne Koordination der Überwachung des Kommunikationsbudgets mit den verschiedenen Polen des Teams Erstellung, Formatierung und Aktualisierung von PowerPoint-Präsentationen für Projekte, interne Sitzungen und Querschnittsbedarf des Kommunikationszentrums Erstellung von Post-Projektberichten, Synthesen und interne Archivdokumente Teilnahme an der Vorbereitung von großen internationalen Kommunikationsprojekten (Watches Wonders, Cannes Festival, Mille Miglia, Starts usw.) Präsenz bei bestimmten Veranstaltungen zur logistischen Unterstützung und Koordination",
+        "fr": "Mission du poste Au sein du pôle Communication, le/la Communication Executive Assistant assiste la Directrice de la Communication dans ses activités administratives quotidiennes, et contribue au déploiement des projets transversaux liés aux pôles RP, Talents Influence Social Media et Events. Il/elle participe à la coordination opérationnelle du pole communication et de son équipe, et contribue à la préparation des grands rendez‑vous de la Maison. Tâches principales Assistance de la Directrice de la Communication au quotidien : organisation agenda, prise de rendez-vous, organisation de voyages, notes de frais… Soutien de la Directrice de la Communication pour le suivi des budgets de communication en lien direct avec les pôles Soutien de la Directrice de la Communication pour la préparation de présentations Coordination du reporting des projets de communication Participation à la gestion opérationnelle des projets de communication : suivi des plannings, préparation des livrables, mise à jour des outils internes Contribution à la coordination interne du pôle Communication et relai d’information : organisation de réunions, rédaction de comptes rendus Tâches spécifiques Mise en place et coordination interne du suivi du budget de communication avec les différents pôles de l’équipe Création, mise en forme et update de présentations PowerPoint pour les projets, les réunions internes et les besoins transversaux du pôle Communication Rédaction de rapports post‑projets, synthèses et documents d’archives internes Participation à la préparation des grands projets de communication internationaux (Watches Wonders, Festival de Cannes, Mille Miglia, lancements etc.) Présence sur certains événements pour soutien logistique et coordination"
       },
       "location": "Meyrin",
       "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-US",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2607?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-19T22:49:40.394Z",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:22:23.957Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
       "postalCode": "1217",
       "addressCountry": "CH",
       "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2607?c=chopard&lang=en-US",
+      "jobReqId": "2607",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "communication-executive-assistant-h-f-chopard-meyrin",
+        "communication-executive-assistant-h-f-50-chopard-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "communication-executive-assistant-h-f-chopard-meyrin",
+          "communication-executive-assistant-h-f-50-chopard-meyrin"
+        ],
+        "de": [
+          "communication-executive-assistant-h-f-chopard-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-09-29T21:11:42.946Z",
+      "salaryMin": 30800,
+      "salaryMax": 54500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 30800,
+          "maxValue": 54500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-cc64eb02f9cf",
+      "slug": "constructeur-mouvements-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "constructeur-mouvements-h-f-d-chopard-fleurier",
+        "en": "manufacturer-movements-m-f-d-chopard-fleurier",
+        "de": "hersteller-uhrwerke-m-w-d-chopard-fleurier",
+        "fr": "constructeur-mouvements-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Constructeur Mouvements (H/F/D)",
+      "titleByLocale": {
+        "it": "Constructeur Mouvements (f/m/d)",
+        "en": "Manufacturer Movements (M/F/D)",
+        "de": "Hersteller Uhrwerke (M/W/D)",
+        "fr": "Constructeur Mouvements (H/F/D)"
+      },
+      "description": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation.",
+      "descriptionByLocale": {
+        "it": "La tua missione Sviluppare movimenti di orologi al fine di tradurli in documentazione e piani per consentire loro di essere realizzati, in conformità con i processi SQS in vigore.\n• Costruire e sviluppare calibri di orologi meccanici e moduli aggiuntivi. Eseguire calcoli operativi e simulazioni. Stabilire, monitorare e gestire i file di piano. Partecipate allo sviluppo dei prodotti fino alla loro produzione. Miglioramento tecnico dei nostri calibri esistenti. Partecipa a varie fasi di sviluppo e collabora con i vari dipartimenti interessati. Scrivi report e report di stato.",
+        "en": "Your mission To develop watch movements in order to translate them into documentation and plans to enable them to be realized, in accordance with the SQS processes in force.\n• Your major responsibilities Build and develop mechanical watch calibres and additional modules. Perform operating calculations and simulations. Establish, track and manage plan files. Participate in the development of products until they are put into production. Make technical improvements on our existing calibres. Participate in various stages of development and collaborate with the various departments concerned. Write reports and status reports.",
+        "de": "Deine Mission Entwicklung von Uhrwerken, um sie in Dokumentationen und Pläne zu übersetzen, damit sie gemäß den geltenden SQS-Prozessen realisiert werden können.\n• Ihre Hauptaufgaben Bauen und entwickeln mechanische Uhrenkaliber und zusätzliche Module. Durchführung von Betriebsberechnungen und Simulationen. Erstellen, verfolgen und verwalten Sie Plandateien. Beteiligen Sie sich an der Entwicklung von Produkten, bis sie in Produktion gehen. Führen Sie technische Verbesserungen an unseren vorhandenen Kalibern durch. Beteiligen Sie sich an verschiedenen Entwicklungsphasen und arbeiten Sie mit den verschiedenen betroffenen Abteilungen zusammen. Schreiben Sie Berichte und Statusberichte.",
+        "fr": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:22:23.956Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
       "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06",
+      "postedDate": "2026-10-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-US",
+      "jobReqId": "2644",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-07T09:23:31.807Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-fe9c0dc7d197",
+      "slug": "apprendistato-gioielli-joaillier-cfc-chopard-meyrin",
+      "slugByLocale": {
+        "it": "apprendistato-gioielli-joaillier-cfc-chopard-meyrin",
+        "en": "apprenticeship-jewellery-joaillier-cfc-chopard-meyrin",
+        "de": "lehrling-schmuck-joaillier-cfc-chopard-meyrin",
+        "fr": "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Apprenti(e) Bijoutier(ère)-Joaillier(ère) CFC",
+      "titleByLocale": {
+        "it": "Apprendistato Gioielli-Joaillier CFC",
+        "en": "Apprenticeship Jewellery-Joaillier CFC",
+        "de": "Lehrling Schmuck-Joaillier CFC",
+        "fr": "Apprenti(e) Bijoutier(ère)-Joaillier(ère) CFC"
+      },
+      "description": "Information importante au préalable : Les communications quant au suivi de votre dossier se font essentiellement par courriel. Dès lors, nous vous demandons de régulièrement contrôler votre boîte de réception ainsi que les courriers indésirables. Les candidatures seront reçues jusqu'au 15.03.2027 et le processus de recrutement se terminera à la fin du mois de mai 2027. Vous êtes à la recherche d'une formation ? Nous vous proposons une formation dans le métier suivant : Bijoutier/Bijoutière CFC Le travail des bijoutiers/bijoutières regroupe différentes facettes allant de la création d'objets à la réalisation de bijoux. Leur travail est réalisé à l'aide de dessins et/ou de plans techniques. En plus de compétences techniques avérées, la créativité est un élément-clé de ce métier, permettant d'embellir l'objet travaillé avec finesse et élégance. Une vidéo explicative du métier est présente via le lien ci-dessous : Apprenti artisan en joaillerie de luxe - Benjamin | Chopard®",
+      "descriptionByLocale": {
+        "it": "Informazioni importanti in anticipo: Le comunicazioni relative al follow-up del file sono essenzialmente via e-mail. Pertanto, vi chiediamo di controllare regolarmente la vostra casella di posta e qualsiasi posta indesiderata. Le domande saranno ricevute fino al 15.03.2027 e il processo di reclutamento terminerà alla fine del maggio 2027. Stai cercando un allenamento?\n• Offriamo la formazione nel seguente commercio: Gioielli/CWC Gioielli Il lavoro di gioiellieri/gioielli riunisce diverse sfaccettature dalla creazione di oggetti alla creazione di gioielli. Il loro lavoro è fatto utilizzando disegni e/o disegni tecnici. Oltre a comprovate capacità tecniche, la creatività è un elemento chiave di questa professione, permettendo di abbellire l'oggetto lavorato con finezza ed eleganza. Un video esplicativo del mestiere è presentato attraverso il link qui sotto: Apprenti artigiani in gioielli di lusso - Benjamin - Chopard®",
+        "en": "Important information in advance: Communications regarding the follow-up of your file are essentially via email. Therefore, we ask you to check your inbox and any unwanted mail regularly. Applications will be received until 15.03.2027 and the recruitment process will end at the end of May 2027. Are you looking for training?\n• We offer training in the following trade: Jewellery/CWC Jewellery The work of jewellers/jewelers brings together different facets from the creation of objects to the creation of jewellery. Their work is done using drawings and/or technical drawings. In addition to proven technical skills, creativity is a key element of this profession, allowing to embellish the object worked with finesse and elegance. An explanatory video of the trade is presented via the link below: Apprenti artisan in luxury jewellery - Benjamin - Chopard®",
+        "de": "Wichtige Informationen vorab: Die Kommunikation über die Nachverfolgung Ihrer Datei erfolgt im Wesentlichen per E-Mail. Daher bitten wir Sie, Ihren Posteingang und unerwünschte Post regelmäßig zu überprüfen. Bewerbungen gehen bis zum 15.03.2027 ein und das Rekrutierungsverfahren endet Ende Mai 2027. Suchen Sie eine Ausbildung?\n• Wir bieten Schulungen in folgenden Berufen an: Schmuck / CWC Schmuck Die Arbeit von Juwelieren / Juwelieren vereint verschiedene Facetten von der Schaffung von Objekten bis zur Schaffung von Schmuck. Ihre Arbeit erfolgt unter Verwendung von Zeichnungen und/oder technischen Zeichnungen. Neben bewährten technischen Fähigkeiten ist Kreativität ein Schlüsselelement dieses Berufes, so dass das Objekt mit Finesse und Eleganz verschönert werden kann. Ein erklärendes Video des Handels wird über den folgenden Link präsentiert: Auszubildender in Luxusschmuck - Benjamin - Chopard®",
+        "fr": "Information importante au préalable : Les communications quant au suivi de votre dossier se font essentiellement par courriel. Dès lors, nous vous demandons de régulièrement contrôler votre boîte de réception ainsi que les courriers indésirables. Les candidatures seront reçues jusqu'au 15.03.2027 et le processus de recrutement se terminera à la fin du mois de mai 2027. Vous êtes à la recherche d'une formation ? Nous vous proposons une formation dans le métier suivant : Bijoutier/Bijoutière CFC Le travail des bijoutiers/bijoutières regroupe différentes facettes allant de la création d'objets à la réalisation de bijoux. Leur travail est réalisé à l'aide de dessins et/ou de plans techniques. En plus de compétences techniques avérées, la créativité est un élément-clé de ce métier, permettant d'embellir l'objet travaillé avec finesse et élégance. Une vidéo explicative du métier est présente via le lien ci-dessous : Apprenti artisan en joaillerie de luxe - Benjamin | Chopard®"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2583?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:22:23.932Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "Genève",
+      "streetAddress": "Route de Veyrot 8",
+      "postalCode": "1217",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione / Manifattura",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "intern",
       "sector": "Orologeria / Gioielleria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-14",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-US",
-      "jobReqId": "2351",
+      "datePosted": "2026-10-13",
+      "postedDate": "2026-10-13",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2583?c=chopard&lang=en-US",
+      "jobReqId": "2583",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "financial-controlling-intern-chopard-meyrin",
-        "financial-controlling-tirocinante-chopard-meyrin"
+        "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "financial-controlling-intern-chopard-meyrin",
-          "financial-controlling-tirocinante-chopard-meyrin"
+          "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin"
+        ],
+        "en": [
+          "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin"
         ],
         "de": [
-          "financial-controlling-intern-chopard-meyrin"
-        ],
-        "fr": [
-          "financial-controlling-intern-chopard-meyrin"
+          "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:22:43.269Z",
+      "firstSeenAt": "2026-10-13T21:17:23.966Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -505,8 +587,386 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "chopard-80b28dd23a0d",
+      "slug": "apprentice-clothes-machine-cfc-watchmaker-macchine-di-lucidatura-chopard-meyrin",
+      "slugByLocale": {
+        "it": "apprentice-clothes-machine-cfc-watchmaker-macchine-di-lucidatura-chopard-meyrin",
+        "en": "apprentice-clothes-machine-cfc-watchmaker-polishing-machines-chopard-meyrin",
+        "de": "auszubildende-bekleidungsmaschine-cfc-uhrmacher-poliermaschinen-chopard-meyrin",
+        "fr": "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
       },
-      "crawlerMissStreak": 2
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Apprenti(e) Termineur(euse) en Habillage Horloger CFC (Métiers du polissage)",
+      "titleByLocale": {
+        "it": "Apprentice Clothes machine CFC Watchmaker (macchine di lucidatura)",
+        "en": "Apprentice Clothes machine CFC Watchmaker (polishing machines)",
+        "de": "Auszubildende Bekleidungsmaschine CFC Uhrmacher (Poliermaschinen)",
+        "fr": "Apprenti(e) Termineur(euse) en Habillage Horloger CFC (Métiers du polissage)"
+      },
+      "description": "Information importante au préalable Les communications quant au suivi de votre dossier se font essentiellement par courriel. Dès lors, nous vous demandons de régulièrement contrôler votre boîte de réception ainsi que les courriers indésirables. Les candidatures seront reçues jusqu'au 15.03.2027 et le processus de recrutement se terminera à la fin du mois de mai 2027. Vous êtes à la recherche d'une formation ? Vous êtes habile, patient(e) et avez un très bon sens esthétique. Vous êtes amené(e) à effectuer des opérations de terminaison telles que polissage et avivage sur les différentes pièces d'une montre ou d'un bijou pour leur donner leur aspect esthétique final. \n• Vos responsabilités majeures Réaliser des opérations manuelles de préparation et de finition de surface telles que bouchonnage/perlage, satinage, polissage, avivage, etc. Réaliser des opérations simples de préparation de surface à l'aide de machines CNC de terminaison et sur différents matériaux : or jaune, or rouge, or gris, platine, acier, titane, laiton, etc. Effectuer le contrôle esthétique de ses réalisations Participer à la réalisation et l'évaluation des processus, ce qui permet d'être innovant et de se développer continuellement Concevoir et réaliser des outillages et des posages Une vidéo de présentation du métier est disponible en cliquant sur le lien suivant : http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
+      "descriptionByLocale": {
+        "it": "Informazioni importanti in anticipo Le comunicazioni relative al follow-up del file sono essenzialmente via e-mail. Pertanto, vi chiediamo di controllare regolarmente la vostra casella di posta e qualsiasi posta indesiderata. Le domande saranno ricevute fino al 15.03.2027 e il processo di reclutamento terminerà alla fine del maggio 2027. Stai cercando un allenamento? Sei esperto, paziente e hai un buon senso estetico. È necessario eseguire operazioni di finitura come lucidatura e avivage sulle diverse parti di un orologio o gioiello per dare loro il loro aspetto estetico finale.\n• Le vostre principali responsabilità Eseguire la preparazione manuale della superficie e le operazioni di finitura come tappatura / guida, raso, lucidatura, vibrante, ecc. Eseguire semplici operazioni di preparazione della superficie utilizzando macchine di terminazione CNC e materiali diversi: oro giallo, oro rosso, oro grigio, platino, acciaio, titanio, ottone, ecc. Eseguire il controllo estetico delle sue realizzazioni Partecipare alla realizzazione e alla valutazione dei processi, che permette di essere innovativi e di sviluppare continuamente strumenti di progettazione e realizzazione e positing Una presentazione video del mestiere è disponibile cliccando sul seguente link: http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
+        "en": "Important information in advance Communications regarding the follow-up of your file are essentially via email. Therefore, we ask you to check your inbox and any unwanted mail regularly. Applications will be received until 15.03.2027 and the recruitment process will end at the end of May 2027. Are you looking for training? You are skilled, patient and have a very good aesthetic sense. You are required to perform finishing operations such as polishing and avivage on the different parts of a watch or jewel to give them their final aesthetic appearance.\n• Your major responsibilities Carry out manual surface preparation and finishing operations such as capping/drilling, satining, polishing, vibrating, etc. Perform simple surface preparation operations using CNC termination machines and different materials: yellow gold, red gold, grey gold, platinum, steel, titanium, brass, etc. Performing aesthetic control of its achievements Participate in the realization and evaluation of processes, which allows to be innovative and to continually develop Design and realize tools and positing A video presentation of the trade is available by clicking on the following link: http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
+        "de": "Wichtige Informationen im Voraus Kommunikationen über die Nachverfolgung Ihrer Datei sind im Wesentlichen per E-Mail. Daher bitten wir Sie, Ihren Posteingang und unerwünschte Post regelmäßig zu überprüfen. Bewerbungen gehen bis zum 15.03.2027 ein und das Rekrutierungsverfahren endet Ende Mai 2027. Suchen Sie eine Ausbildung? Sie sind geschickt, geduldig und haben einen sehr guten ästhetischen Sinn. Sie müssen Finishing-Operationen wie Polieren und Avivage an den verschiedenen Teilen einer Uhr oder eines Juwels durchführen, um ihnen ihr endgültiges ästhetisches Aussehen zu verleihen.\n• Ihre Hauptaufgaben Führen Sie manuelle Oberflächenvorbereitungs- und Endbearbeitungsoperationen wie Kappen / Bohren, Satinieren, Polieren, Vibrieren usw. durch. Führen Sie einfache Oberflächenvorbereitungsoperationen mit CNC-Terminierungsmaschinen und verschiedenen Materialien durch: Gelbgold, Rotgold, Graugold, Platin, Stahl, Titan, Messing usw. Ästhetische Kontrolle seiner Leistungen Beteiligen Sie sich an der Realisierung und Bewertung von Prozessen, die es ermöglichen, innovativ zu sein und das Design und die Realisierung von Werkzeugen kontinuierlich zu entwickeln und zu postulieren Eine Videopräsentation des Handels ist verfügbar, indem Sie auf den folgenden Link klicken: http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
+        "fr": "Information importante au préalable Les communications quant au suivi de votre dossier se font essentiellement par courriel. Dès lors, nous vous demandons de régulièrement contrôler votre boîte de réception ainsi que les courriers indésirables. Les candidatures seront reçues jusqu'au 15.03.2027 et le processus de recrutement se terminera à la fin du mois de mai 2027. Vous êtes à la recherche d'une formation ? Vous êtes habile, patient(e) et avez un très bon sens esthétique. Vous êtes amené(e) à effectuer des opérations de terminaison telles que polissage et avivage sur les différentes pièces d'une montre ou d'un bijou pour leur donner leur aspect esthétique final. \n• Vos responsabilités majeures Réaliser des opérations manuelles de préparation et de finition de surface telles que bouchonnage/perlage, satinage, polissage, avivage, etc. Réaliser des opérations simples de préparation de surface à l'aide de machines CNC de terminaison et sur différents matériaux : or jaune, or rouge, or gris, platine, acier, titane, laiton, etc. Effectuer le contrôle esthétique de ses réalisations Participer à la réalisation et l'évaluation des processus, ce qui permet d'être innovant et de se développer continuellement Concevoir et réaliser des outillages et des posages Une vidéo de présentation du métier est disponible en cliquant sur le lien suivant : http://www.lemanbleu.ch/replay/video.html?VideoID=44242"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2584?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:22:23.931Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "Genève",
+      "streetAddress": "Route de Veyrot 8",
+      "postalCode": "1217",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione / Manifattura",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-13",
+      "postedDate": "2026-10-13",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2584?c=chopard&lang=en-US",
+      "jobReqId": "2584",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+        ],
+        "en": [
+          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+        ],
+        "de": [
+          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-10-13T21:17:23.966Z",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-ac8da6d82d35",
+      "slug": "high-jewels-assistant-m-f-d-chopard-meyrin",
+      "slugByLocale": {
+        "it": "high-jewels-assistant-m-f-d-chopard-meyrin",
+        "en": "high-jewelery-assistant-m-f-d-chopard-meyrin",
+        "de": "high-jewellery-assistent-m-f-d-chopard-meyrin",
+        "fr": "high-jewellery-assistant-m-f-d-chopard-meyrin"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "High Jewellery Assistant (m/f/d)",
+      "titleByLocale": {
+        "it": "High Jewels Assistant (m/f/d)",
+        "en": "High Jewelery Assistant (m/f/d)",
+        "de": "High Jewellery Assistent (m/f/d)",
+        "fr": "High Jewellery Assistant (m/f/d)"
+      },
+      "description": "Mission du poste Support du Head of High Jewellery Operations Lien entre le département de Haute Joaillerie et le département Marketing Communication afin d’assurer le suivi des projets communs. Etablir et développer les outils statistiques nécessaire au bon fonctionnement du département Tâches principales Mise à jour régulière et amélioration de PSP Haute Joaillerie (descriptif, certificat et photos) ; Coordination avec le département Marketing de toutes les activités digitales liée à la Haute Joaillerie. Coordonner et mettre en place l’outil CRM pour le département de Haute Joaillerie. Gestion de la banque de données clients du département Mise en place et optimisation des rapports mensuels sur le stock, les ventes et les marges : vérifier et analyser les résultats - établissements de divers tableaux et statistiques ; Communication par lettre et courriel avec les clients et suivi; Etablir les offres commerciales sous la supervision des membres du département; Aide à la création et mise à jour des supports de présentation d’aide à la vente Assurer le suivi des demandes spécifiques et traitements des demandes d’images, support presse, etc. ; Communication avec nos distributeurs au niveau international concernant les informations centralisées dans nos systèmes internes ; Participation à la mise en place des collections Haute Joaillerie (Cannes et divers événements Haute Joaillerie); Assurer un support et une permanence (téléphone et mail) en l’absence du Head of High Jewellery Operations; Participer à l’animation des présentations des collections Haute Joaillerie lors des visites clients ; Organisation et participation potentielle aux événements Haute-Joaillerie internationaux Aide à l’élaboration de divers rapports ; Interface et relais d’information aux différents départements; Collaboration étroite avec nos filiales et nos boutiques – renseignement par courriel et téléphone.",
+      "descriptionByLocale": {
+        "it": "Post Mission Head of High Jewellery Operations Support Link tra il Dipartimento di Alta Gioielleria e il Dipartimento di Comunicazione Marketing per monitorare i progetti congiunti. Stabilire e sviluppare gli strumenti statistici necessari per il corretto funzionamento del reparto Principali compiti Aggiornamento e miglioramento regolare di PSP High Jewellery (descrittivo, certificato e foto); Coordinamento con il Dipartimento Marketing di tutte le attività digitali relative ad Alta Gioielleria. Coordinare e implementare lo strumento CRM per il dipartimento di alta gioielleria. Gestione del database clienti del dipartimento Impostazione e ottimizzazione delle relazioni mensili su azioni, vendite e margini: verifica e analisi dei risultati - istituzioni di varie tabelle e statistiche; Comunicazione lettera e-mail con i clienti e follow-up; Stabilire offerte commerciali sotto la supervisione dei membri del dipartimento; Supporto per la creazione e l'aggiornamento dei supporti di presentazione per aiutare con le vendite Seguire le richieste specifiche e l'elaborazione delle richieste di immagini, supporti stampa, ecc; Comunicazione con i nostri distributori a livello internazionale sull'informazione centralizzata nei nostri sistemi interni; Partecipazione alla creazione delle collezioni Haute Joaillerie (Cannes e vari eventi Haute Joaillerie); Fornire supporto e permanenza (telefono ed e-mail) in assenza del Capo di Alta Gioielleria Operazioni; Partecipare all'animazione delle presentazioni delle collezioni Haute Joaillerie durante le visite dei clienti; Organizzazione e partecipazione potenziale agli eventi internazionali di alta gioielleria Assistenza nella preparazione di varie relazioni; Interfaccia e relè di informazione a diversi dipartimenti; Chiudi la collaborazione con le nostre filiali e negozi – email e informazioni telefoniche.",
+        "en": "Post Mission Head of High Jewellery Operations Support Link between the Department of High Jewellery and the Department of Marketing Communication to monitor joint projects. Establish and develop the statistical tools necessary for the proper functioning of the department Main tasks Regular updating and improvement of PSP High Jewellery (descriptive, certificate and photos); Coordination with the Marketing Department of all digital activities related to High Jewellery. Coordinate and implement the CRM tool for the department of High Jewellery. Management of the department's customer database Setting up and optimizing monthly reports on stock, sales and margins: checking and analysing results - institutions of various tables and statistics; Letter and e-mail communication with clients and follow-up; Establish commercial offers under the supervision of department members; Support for the creation and updating of presentation media to help with sales Follow-up of specific requests and processing of requests for images, press media, etc.; Communication with our distributors at international level concerning centralized information in our internal systems; Participation in the establishment of the Haute Joaillerie collections (Cannes and various Haute Joaillerie events); Provide support and permanence (telephone and e-mail) in the absence of the Head of High Jewellery Operations; Participate in the animation of the presentations of the Haute Joaillerie collections during customer visits; Organization and potential participation in International High Jewellery events Assistance in the preparation of various reports; Interface and information relays to different departments; Close collaboration with our subsidiaries and stores – email and telephone information.",
+        "de": "Post Mission Head of High Jewellery Operations Support Link zwischen der Abteilung für Hochschmuck und der Abteilung für Marketingkommunikation zur Überwachung gemeinsamer Projekte. Erstellung und Entwicklung der statistischen Werkzeuge, die für das ordnungsgemäße Funktionieren der Abteilung erforderlich sind Hauptaufgaben Regelmäßige Aktualisierung und Verbesserung von PSP High Jewellery (Beschreibung, Zertifikat und Fotos); Koordination mit der Marketingabteilung aller digitalen Aktivitäten im Zusammenhang mit High Jewellery. Koordinieren und implementieren Sie das CRM-Tool für die Abteilung Hochschmuck. Verwaltung der Kundendatenbank der Abteilung Einrichtung und Optimierung monatlicher Berichte über Lagerbestände, Verkäufe und Margen: Überprüfung und Analyse der Ergebnisse - Institutionen verschiedener Tabellen und Statistiken; Brief- und E-Mail-Kommunikation mit Kunden und Follow-up; Einrichtung von kommerziellen Angeboten unter der Aufsicht von Abteilungsmitgliedern; Unterstützung bei der Erstellung und Aktualisierung von Präsentationsmedien zur Unterstützung der Verkaufsverfolgung spezifischer Anfragen und der Bearbeitung von Anfragen für Bilder, Pressemedien usw.; Kommunikation mit unseren Vertriebspartnern auf internationaler Ebene über zentrale Informationen in unseren internen Systemen; Teilnahme an der Einrichtung der Haute Joaillerie-Kollektionen (Cannes und verschiedene Haute Joaillerie-Veranstaltungen); Unterstützung und Dauerhaftigkeit (Telefon und E-Mail) in Abwesenheit des Leiters der Hochschmuckbetriebe; Teilnahme an der Animation der Präsentationen der Haute Joaillerie-Kollektionen bei Kundenbesuchen; Organisation und mögliche Teilnahme an internationalen Hochschmuckveranstaltungen Unterstützung bei der Erstellung verschiedener Berichte; Schnittstellen- und Informationsrelais an verschiedene Abteilungen; Enge Zusammenarbeit mit unseren Tochtergesellschaften und Filialen – E-Mail- und Telefoninformationen.",
+        "fr": "Mission du poste Support du Head of High Jewellery Operations Lien entre le département de Haute Joaillerie et le département Marketing Communication afin d’assurer le suivi des projets communs. Etablir et développer les outils statistiques nécessaire au bon fonctionnement du département Tâches principales Mise à jour régulière et amélioration de PSP Haute Joaillerie (descriptif, certificat et photos) ; Coordination avec le département Marketing de toutes les activités digitales liée à la Haute Joaillerie. Coordonner et mettre en place l’outil CRM pour le département de Haute Joaillerie. Gestion de la banque de données clients du département Mise en place et optimisation des rapports mensuels sur le stock, les ventes et les marges : vérifier et analyser les résultats - établissements de divers tableaux et statistiques ; Communication par lettre et courriel avec les clients et suivi; Etablir les offres commerciales sous la supervision des membres du département; Aide à la création et mise à jour des supports de présentation d’aide à la vente Assurer le suivi des demandes spécifiques et traitements des demandes d’images, support presse, etc. ; Communication avec nos distributeurs au niveau international concernant les informations centralisées dans nos systèmes internes ; Participation à la mise en place des collections Haute Joaillerie (Cannes et divers événements Haute Joaillerie); Assurer un support et une permanence (téléphone et mail) en l’absence du Head of High Jewellery Operations; Participer à l’animation des présentations des collections Haute Joaillerie lors des visites clients ; Organisation et participation potentielle aux événements Haute-Joaillerie internationaux Aide à l’élaboration de divers rapports ; Interface et relais d’information aux différents départements; Collaboration étroite avec nos filiales et nos boutiques – renseignement par courriel et téléphone."
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2665?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:22:23.930Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "Genève",
+      "streetAddress": "Route de Veyrot 8",
+      "postalCode": "1217",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione / Manifattura",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-14",
+      "postedDate": "2026-10-14",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2665?c=chopard&lang=en-US",
+      "jobReqId": "2665",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "high-jewellery-assistant-m-f-d-chopard-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "high-jewellery-assistant-m-f-d-chopard-meyrin"
+        ],
+        "en": [
+          "high-jewellery-assistant-m-f-d-chopard-meyrin"
+        ],
+        "de": [
+          "high-jewellery-assistant-m-f-d-chopard-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-10-14T21:17:24.052Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-6a9180685d9e",
+      "slug": "apprentice-clockmaker-cfc-chopard-meyrin",
+      "slugByLocale": {
+        "it": "apprentice-clockmaker-cfc-chopard-meyrin",
+        "en": "apprentice-clockmaker-cfc-chopard-meyrin",
+        "de": "auszubildender-uhrmacher-cfc-chopard-meyrin",
+        "fr": "apprenti-e-horloger-ere-cfc-chopard-meyrin"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Apprenti(e) Horloger(ère) CFC",
+      "titleByLocale": {
+        "it": "Apprentice Clockmaker CFC",
+        "en": "Apprentice Clockmaker CFC",
+        "de": "Auszubildender Uhrmacher CFC",
+        "fr": "Apprenti(e) Horloger(ère) CFC"
+      },
+      "description": "Information importante au préalable Les communications quant au suivi de votre dossier se font essentiellement par courriel. Dès lors, nous vous demandons de régulièrement contrôler votre boîte de réception ainsi que les courriers indésirables. Les candidatures seront reçues jusqu'au 15.03.2027 et le processus de recrutement se terminera à la fin du mois de mai 2027. Vous êtes à la recherche d'une formation ? Nous vous proposons une formation dans le métier suivant : Horloger/Horlogère CFC Les horlogers/horlogères assemblent les différents composants constituant une montre afin que celle-ci fonctionne correctement. De plus, grâce à leurs compétences en micromécanique, les horlogers/horlogères sont amené(e)s à fabriquer et ajuster certains composants de mouvements ainsi qu’à fabriquer une partie de leur outillage et à l’entretenir. Une vidéo de présentation du métier est disponible en cliquant sur le lien suivant : Apprentie Artisan en Horlogerie de Luxe - Mégane | Chopard®",
+      "descriptionByLocale": {
+        "it": "Informazioni importanti in anticipo Le comunicazioni relative al follow-up del file sono essenzialmente via e-mail. Pertanto, vi chiediamo di controllare regolarmente la vostra casella di posta e qualsiasi posta indesiderata. Le domande saranno ricevute fino al 15.03.2027 e il processo di reclutamento terminerà alla fine del maggio 2027. Stai cercando un allenamento?\n• Offriamo formazione nel seguente commercio: orologiai / orologiai CWC Watchmakers/horlogers assemblare i diversi componenti di un orologio in modo che funzioni correttamente. Inoltre, grazie alle loro competenze micromeccaniche, orologiai / orologiai sono tenuti a produrre e regolare alcuni componenti di movimento così come per produrre parte dei loro strumenti e mantenerli. Una presentazione video del commercio è disponibile cliccando sul seguente link: Artisan Apprenticeship in Orologi di lusso - Megane - Chopard®",
+        "en": "Important information in advance Communications regarding the follow-up of your file are essentially via email. Therefore, we ask you to check your inbox and any unwanted mail regularly. Applications will be received until 15.03.2027 and the recruitment process will end at the end of May 2027. Are you looking for training?\n• We offer training in the following trade: Clockmaker/CWC watchmaker Watchmakers/horlogers assemble the different components of a watch so that it works properly. In addition, thanks to their micromechanical skills, watchmakers/horlogers are required to manufacture and adjust certain movement components as well as to manufacture part of their tools and maintain them. A video presentation of the trade is available by clicking on the following link: Artisan Apprenticeship in Luxury Watches - Megane - Chopard®",
+        "de": "Wichtige Informationen im Voraus Kommunikationen über die Nachverfolgung Ihrer Datei sind im Wesentlichen per E-Mail. Daher bitten wir Sie, Ihren Posteingang und unerwünschte Post regelmäßig zu überprüfen. Bewerbungen gehen bis zum 15.03.2027 ein und das Rekrutierungsverfahren endet Ende Mai 2027. Suchen Sie eine Ausbildung?\n• Wir bieten Schulungen in folgenden Berufen an: Uhrmacher/CWC-Uhrmacher Uhrmacher/Horloge montieren die verschiedenen Komponenten einer Uhr so, dass sie richtig funktioniert. Darüber hinaus sind Uhrmacher/Horloge dank ihrer mikromechanischen Fähigkeiten verpflichtet, bestimmte Bewegungskomponenten herzustellen und einzustellen sowie einen Teil ihrer Werkzeuge herzustellen und zu warten. Eine Video-Präsentation des Gewerbes ist unter folgendem Link verfügbar: Artisan Apprenticeship in Luxury Watches - Megane - Chopard®",
+        "fr": "Information importante au préalable Les communications quant au suivi de votre dossier se font essentiellement par courriel. Dès lors, nous vous demandons de régulièrement contrôler votre boîte de réception ainsi que les courriers indésirables. Les candidatures seront reçues jusqu'au 15.03.2027 et le processus de recrutement se terminera à la fin du mois de mai 2027. Vous êtes à la recherche d'une formation ? Nous vous proposons une formation dans le métier suivant : Horloger/Horlogère CFC Les horlogers/horlogères assemblent les différents composants constituant une montre afin que celle-ci fonctionne correctement. De plus, grâce à leurs compétences en micromécanique, les horlogers/horlogères sont amené(e)s à fabriquer et ajuster certains composants de mouvements ainsi qu’à fabriquer une partie de leur outillage et à l’entretenir. Une vidéo de présentation du métier est disponible en cliquant sur le lien suivant : Apprentie Artisan en Horlogerie de Luxe - Mégane | Chopard®"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2640?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:22:23.930Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "Genève",
+      "streetAddress": "Route de Veyrot 8",
+      "postalCode": "1217",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione / Manifattura",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-13",
+      "postedDate": "2026-10-13",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2640?c=chopard&lang=en-US",
+      "jobReqId": "2640",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "apprenti-e-horloger-ere-cfc-chopard-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-horloger-ere-cfc-chopard-meyrin"
+        ],
+        "en": [
+          "apprenti-e-horloger-ere-cfc-chopard-meyrin"
+        ],
+        "de": [
+          "apprenti-e-horloger-ere-cfc-chopard-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-10-13T21:17:23.962Z",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-d63ba48aea54",
+      "slug": "operateur-en-polissage-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "operateur-en-polissage-h-f-d-chopard-fleurier",
+        "en": "polishing-operator-m-f-d-chopard-fleurier",
+        "de": "polieroperator-m-w-d-chopard-fleurier",
+        "fr": "operateur-en-polissage-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Opérateur en polissage (H/F/D)",
+      "titleByLocale": {
+        "it": "Opérateur en polissage (f/m/d)",
+        "en": "Polishing operator (M/F/D)",
+        "de": "Polieroperator (M/W/D)",
+        "fr": "Opérateur en polissage (H/F/D)"
+      },
+      "description": "Votre mission Assurer le polissage de composants acier relatifs à la montre (attache, raccord, lunette simple, carrure simple) dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Maitriser la réalisation des diverses opérations du polissage (polissage, feutrage, avivage). Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Participer aux AIC.",
+      "descriptionByLocale": {
+        "it": "La vostra missione di lucidatura dei componenti in acciaio (attacco, raccordo, lunetta singola, singola piastrelle) in conformità con le scadenze e le istruzioni di sicurezza.\n• Padroneggiare l'esecuzione delle varie operazioni di lucidatura ( lucidatura, feltro, vibrante). Visivamente e dimensionalmente (comparatore, micrometro, panca di controllo, piede di scorrimento) controllano le parti prima e/o dopo l'operazione. Partecipare agli AIC.",
+        "en": "Your mission Polishing of watch-related steel components (attachment, fitting, single bezel, single tile) in accordance with deadlines and safety instructions.\n• Your major responsibilities Master the execution of the various polishing operations (polishing, felting, vibrating). Visually and dimensionally (comparator, micrometer, control bench, slide foot) control the parts before and/or after operation. Participate in AICs.",
+        "de": "Ihre Mission Polieren von uhrbezogenen Stahlkomponenten (Anbau, Montage, einzelne Lünette, einzelne Fliese) in Übereinstimmung mit Fristen und Sicherheitsanweisungen.\n• Ihre Hauptaufgaben Meistern Sie die Ausführung der verschiedenen Polieroperationen (Polieren, Filzen, Vibrieren). Visuell und dimensioniert (Vergleicher, Mikrometer, Bedienstand, Schieberfuß) steuern die Teile vor und/oder nach dem Betrieb. Nehmen Sie an AICs teil.",
+        "fr": "Votre mission Assurer le polissage de composants acier relatifs à la montre (attache, raccord, lunette simple, carrure simple) dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Maitriser la réalisation des diverses opérations du polissage (polissage, feutrage, avivage). Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Participer aux AIC."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2685?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:22:23.927Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-16",
+      "postedDate": "2026-10-16",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2685?c=chopard&lang=en-US",
+      "jobReqId": "2685",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-16T21:17:28.484Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-8c4868344700",
+      "slug": "termineur-en-habillage-horloger-h-f-d-chopard-meyrin",
+      "slugByLocale": {
+        "fr": "termineur-en-habillage-horloger-h-f-d-chopard-meyrin",
+        "it": "termineur-en-habillage-horloger-h-f-d-chopard-meyrin",
+        "en": "finisher-in-watchmaker-m-f-d-chopard-meyrin",
+        "de": "finisher-im-uhrmacher-m-w-d-chopard-meyrin"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Termineur en Habillage Horloger (H/F/D)",
+      "titleByLocale": {
+        "fr": "Termineur en Habillage Horloger (H/F/D)",
+        "it": "Termineur en Habillage Horloger (f/m/d)",
+        "en": "Finisher in Watchmaker (M/F/D)",
+        "de": "Finisher im Uhrmacher (M/W/D)"
+      },
+      "description": "Votre mission Polissage complet de tous composants relatifs à la boite de montre (carrures, fonds, lunettes, couronne, etc…) toutes matières (acier et métaux précieux) en respectant les critères de qualité et de productivité en place. \n• Vos responsabilités majeures Maitriser la réalisation des opérations suivantes en toutes autonomie (brosser, lapider, cabronner, feutrer, polir, satiner, aviver) Satiner : tous types de satinage (soleil, vertical, horizontal) avec maitrise de différentes techniques (main levée, toboggan, cabron, brosse) Préparer matériel et outillage nécessaire. Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Assurer le suivi informatique de l’OF. Participer aux projets d’amélioration continue du secteur. Assurer l’entretien de premier niveau des équipements et outillages. Savoir former et transmettre dans le cadre de la polyvalence de l’atelier.",
+      "descriptionByLocale": {
+        "fr": "Votre mission Polissage complet de tous composants relatifs à la boite de montre (carrures, fonds, lunettes, couronne, etc…) toutes matières (acier et métaux précieux) en respectant les critères de qualité et de productivité en place. \n• Vos responsabilités majeures Maitriser la réalisation des opérations suivantes en toutes autonomie (brosser, lapider, cabronner, feutrer, polir, satiner, aviver) Satiner : tous types de satinage (soleil, vertical, horizontal) avec maitrise de différentes techniques (main levée, toboggan, cabron, brosse) Préparer matériel et outillage nécessaire. Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Assurer le suivi informatique de l’OF. Participer aux projets d’amélioration continue du secteur. Assurer l’entretien de premier niveau des équipements et outillages. Savoir former et transmettre dans le cadre de la polyvalence de l’atelier.",
+        "it": "La vostra missione La lucidatura completa di tutti i componenti relativi alla scatola dell'orologio (carri, fondi, occhiali, corona, ecc...) tutti i materiali (acciaio e metalli preziosi) rispettando i criteri di qualità e produttività in atto.\n• Padroneggiare l'attuazione delle seguenti operazioni in completa autonomia (brush, stone, rubinetti, feltro, lucida, raso, aviver) Satiner: tutti i tipi di raso (sun, verticale, orizzontale) con padronanza di diverse tecniche (ascensore manuale, scivolo, cabron, pennello) Preparare materiale e strumenti necessari. Visivamente e dimensionalmente (comparatore, micrometro, panca di controllo, piede di scorrimento) controllano le parti prima e/o dopo l'operazione. Assicurare il monitoraggio dell'O. Partecipazione a progetti di miglioramento continuo del settore. Assicurare il primo livello di manutenzione di attrezzature e strumenti. Essere in grado di formare e trasmettere nel quadro della versatilità del workshop.",
+        "en": "Your mission Complete polishing of all components related to the watch box (carriages, bottoms, glasses, crown, etc...) all materials (steel and precious metals) respecting the quality and productivity criteria in place.\n• Your major responsibilities Master the implementation of the following operations in complete autonomy (brush, stone, rub, felt, polish, satin, aviver) Satiner: all types of satining (sun, vertical, horizontal) with mastery of different techniques (hand lift, slide, cabron, brush) Prepare material and tools necessary. Visually and dimensionally (comparator, micrometer, control bench, slide foot) control the parts before and/or after operation. Ensure IT monitoring of the OF. Participate in projects for continuous improvement of the sector. Ensure the first level maintenance of equipment and tools. Be able to train and transmit within the framework of the workshop's versatility.",
+        "de": "Ihre Mission Vollständiges Polieren aller Komponenten im Zusammenhang mit dem Uhrenkasten (Wagen, Böden, Gläser, Krone usw.) aller Materialien (Stahl und Edelmetalle) unter Berücksichtigung der vorhandenen Qualitäts- und Produktivitätskriterien.\n• Ihre Hauptaufgaben Meistern Sie die Durchführung der folgenden Operationen in völliger Autonomie (Pinsel, Stein, Reiben, Filz, Polieren, Satin, Aviver) Satiner: alle Arten von Satining (Sonne, vertikal, horizontal) mit Beherrschung der verschiedenen Techniken (Handlift, Rutsche, Cabron, Bürste) Bereiten Sie Material und Werkzeuge notwendig. Visuell und dimensioniert (Vergleicher, Mikrometer, Bedienstand, Schieberfuß) steuern die Teile vor und/oder nach dem Betrieb. Gewährleistung der IT-Überwachung des OF. Nehmen Sie an Projekten zur kontinuierlichen Verbesserung des Sektors teil. Gewährleistung der Wartung von Ausrüstung und Werkzeugen auf der ersten Ebene. In der Lage sein, im Rahmen der Vielseitigkeit des Workshops zu trainieren und zu übertragen."
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2662?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:22:23.893Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "Genève",
+      "streetAddress": "Route de Veyrot 8",
+      "postalCode": "1217",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione / Manifattura",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-19",
+      "postedDate": "2026-10-19",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2662?c=chopard&lang=en-US",
+      "jobReqId": "2662",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-19T21:22:23.893Z"
     }
   ]
 }

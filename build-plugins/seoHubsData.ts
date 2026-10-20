@@ -14,6 +14,7 @@
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import { ARTICLE_SECTIONS } from '../services/articleSections';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
+import { ARTICLES_PAGE_SIZE as SHARED_ARTICLES_PAGE_SIZE } from '../packages/articles/engine/shared/articleArchiveConfig.mjs';
 
 export type HubLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -70,7 +71,7 @@ export const JOBS_PAGE_SIZE = 100;
 // the long-archive navigator now links page ranges through bounded index
 // pages rather than placing every page-N URL on the parent HTML.
 export const COMPANIES_PAGE_SIZE = 100;
-export const ARTICLES_PAGE_SIZE = 100;
+export const ARTICLES_PAGE_SIZE = SHARED_ARTICLES_PAGE_SIZE;
 
 // ── Per-locale slug tables. Mirrors patterns already in services/router.ts ──
 // Top-level slugs match the existing job-board / aziende / articoli families.

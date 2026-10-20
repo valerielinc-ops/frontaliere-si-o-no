@@ -11,6 +11,7 @@
  */
 import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { parseAttributes } from './lib/meta-description-extract.mjs';
 
 const [, , rawUrl, expectedOgTitle = '', expectedOgImage = ''] = process.argv;
 
@@ -27,17 +28,6 @@ const url = rawUrl.trim();
 const timeoutMs = intFromEnv('LIVE_ARTICLE_WAIT_TIMEOUT_MS', 5 * 60 * 1000);
 const intervalMs = intFromEnv('LIVE_ARTICLE_WAIT_INTERVAL_MS', 10 * 1000);
 const deadline = Date.now() + timeoutMs;
-
-function parseAttributes(tag) {
-  const attributes = {};
-  const attrRx = /([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
-  let match;
-  while ((match = attrRx.exec(tag))) {
-    const [, rawName, doubleQuoted = '', singleQuoted = ''] = match;
-    attributes[String(rawName || '').toLowerCase()] = doubleQuoted || singleQuoted || '';
-  }
-  return attributes;
-}
 
 function findTagAttributeValue(html, tagName, predicate, attributeName) {
   const tagRx = new RegExp(`<${tagName}\\b[^>]*>`, 'gi');

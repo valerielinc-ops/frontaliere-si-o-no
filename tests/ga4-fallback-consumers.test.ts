@@ -14,7 +14,7 @@ const response = (json: unknown) => ({
   text: async () => '',
 });
 
-describe('fallback GA4 dei monitor PostHog (#6948)', () => {
+describe('GA4 come sorgente dei monitor (fallback da #6948, primaria da H9)', () => {
   it('provisiona le dimensioni web_vitals prima di interrogarle', () => {
     const analyticsReport = readFileSync(resolve(import.meta.dirname, '../scripts/analytics-report.mjs'), 'utf8');
     for (const parameter of ['metric_name', 'metric_value', 'metric_rating']) {
@@ -36,7 +36,10 @@ describe('fallback GA4 dei monitor PostHog (#6948)', () => {
 
   it('rende verificabile il percorso auth di ogni consumer migrato', () => {
     const root = resolve(import.meta.dirname, '..');
-    const conditionalFallback = [
+    // Decisione H9 (2026-10-05): GA4 non e' piu' il fallback di PostHog ma la
+    // sorgente primaria. Questi monitor leggono GA4 col proprio token e
+    // consultano la guardia GA4 prima di giudicare.
+    const ga4Primary = [
       'scripts/posthog-error-issue-sync.mjs',
       'scripts/cwv-monitor-check.mjs',
       'scripts/profession-keyword-opportunities.mjs',
@@ -50,11 +53,11 @@ describe('fallback GA4 dei monitor PostHog (#6948)', () => {
     ];
     const byConstruction = [
       'scripts/funnel-metrics-snapshot.mjs',
-      'scripts/lib/source-liveness.mjs',
     ];
-    for (const file of conditionalFallback) {
+    for (const file of ga4Primary) {
       const source = readFileSync(resolve(root, file), 'utf8');
-      expect(source, file).toMatch(/checkPostHogLiveness\(|checkLivenessImpl\s*=\s*checkPostHogLiveness/);
+      expect(source, file).toMatch(/checkLivenessImpl\s*=\s*checkGa4Liveness/);
+      expect(source, file).not.toMatch(/checkPostHogLiveness/);
       expect(source, file).toMatch(/getServiceAccountToken\(/);
     }
     for (const file of independentGa4Mirror) {
@@ -63,6 +66,10 @@ describe('fallback GA4 dei monitor PostHog (#6948)', () => {
     for (const file of byConstruction) {
       expect(readFileSync(resolve(root, file), 'utf8'), file).not.toMatch(/getServiceAccountToken\(/);
     }
+    // La guardia stessa interroga GA4 (token iniettabile, default il service account).
+    const liveness = readFileSync(resolve(root, 'scripts/lib/source-liveness.mjs'), 'utf8');
+    expect(liveness).toMatch(/export async function checkGa4Liveness/);
+    expect(liveness).toMatch(/getTokenImpl = getServiceAccountToken/);
   });
 
   it('mantiene la firma degli errori e usa totalUsers come distinti', async () => {
@@ -113,6 +120,32 @@ describe('fallback GA4 dei monitor PostHog (#6948)', () => {
       { name: 'customEvent:metric_value' },
       { name: 'deviceCategory' },
     ]);
+  });
+
+  it('rifiuta un p75 troncato in entrambi i consumer e limita CWV alle URL monitorate', async () => {
+    const fetchImpl = vi.fn(async () => response({
+      rowCount: 2,
+      rows: [{ dimensionValues: [{ value: '/' }, { value: 'CLS' }, { value: '100' }, { value: 'mobile' }], metricValues: [{ value: '40' }] }],
+    }));
+    expect(await fetchGa4CwvFallback({ windowDays: 7, getTokenImpl: async () => 'test', fetchImpl })).toBeNull();
+    const request = JSON.parse(fetchImpl.mock.calls[0][1].body);
+    expect(request.dimensionFilter.andGroup.expressions[1].filter).toMatchObject({
+      fieldName: 'pagePath', inListFilter: { values: expect.arrayContaining(['/', '/cerca-lavoro-svizzera/']) },
+    });
+    expect(await fetchGa4ClsFallback({ windowDays: 7, getTokenImpl: async () => 'test', fetchImpl })).toBeNull();
+  });
+
+  it.each([
+    { dataLossFromOtherRow: true },
+    { samplingMetadatas: [{ samplesReadCount: '10', samplingSpaceSize: '100' }] },
+    { dataTruncationReasons: [{ dataTruncationType: 'DATA_TRUNCATION_TYPE_DATE_RANGE' }] },
+    { subjectToThresholding: true },
+  ])('si astiene sui segnali metadata di distribuzione incompleta: %j', async (metadata) => {
+    const fetchImpl = vi.fn(async () => response({ metadata, rowCount: 1,
+      rows: [{ dimensionValues: [{ value: '/' }, { value: 'INP' }, { value: '100' }, { value: 'mobile' }], metricValues: [{ value: '40' }] }],
+    }));
+    expect(await fetchGa4CwvFallback({ windowDays: 7, getTokenImpl: async () => 'test', fetchImpl })).toBeNull();
+    expect(await fetchGa4ClsFallback({ windowDays: 7, getTokenImpl: async () => 'test', fetchImpl })).toBeNull();
   });
 
   it('mantiene separati mobile e desktop nel fallback revenue', async () => {

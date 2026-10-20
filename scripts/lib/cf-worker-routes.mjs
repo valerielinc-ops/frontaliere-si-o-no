@@ -4,7 +4,8 @@
  *
  * THE DEFECT THIS EXISTS FOR. `infra/cloudflare-worker/locale-router.js`'s
  * serveShard() rewrites the upstream Host to a shard origin and fetches it with
- * `cf: { cacheEverything: true, cacheTtl: ORIGIN_CACHE_TTL }`. The entry that
+ * `cf: { cacheEverything: true, cacheTtlByStatus: ... }`, using the positive
+ * status TTL configured by `ORIGIN_CACHE_TTL`. The entry that
  * then serves the user is keyed on
  * `https://origin-<shard>.frontaliereticino.ch/<path>`, NOT on the apex URL the
  * browser asked for. So a `files: ['https://frontaliereticino.ch/de/']` purge
@@ -37,9 +38,15 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import {
+  CDN_BASE,
+  EDGE_PUSHED_FILES,
   SECTION_ROUTES,
   SECTION_ORIGIN,
   SHARD_ORIGIN,
+  corpusEdgeFileForPath,
+  corpusSectionCanonicalDir,
+  corpusSectionCdnKey,
+  matchCorpusSection,
 } from '../../infra/cloudflare-worker/locale-router.js';
 
 export const APEX_HOST = 'frontaliereticino.ch';
@@ -99,6 +106,10 @@ export function workerRouteForUrl(url, patterns = readWorkerRoutePatterns()) {
  */
 export function shardOriginForApexUrl(url) {
   if (url.hostname !== APEX_HOST) return null;
+  // Corpus-owned canton sections are served from R2, not from a shard. Checked
+  // first because the en/de/fr prefixes would otherwise read as origin-<loc>
+  // paths.
+  if (matchCorpusSection(url.pathname)) return null;
   const section = SECTION_ROUTES.find(
     (route) =>
       url.pathname === route.prefix ||
@@ -106,9 +117,33 @@ export function shardOriginForApexUrl(url) {
       url.pathname.startsWith(`${route.prefix}/`),
   );
   if (section) return SECTION_ORIGIN[section.section]?.[section.locale] ?? null;
+  // The Worker deliberately keeps query variants of these legacy aliases on
+  // the apex Pages origin, even though the no-query forms are shard routes.
+  // Mirror that exception before the locale regex below.
+  if (url.search && /^\/(?:en|de|fr)\.html$/u.test(url.pathname)) return null;
   const locale = /^\/(en|de|fr)(\/|$|\.html$)/.exec(url.pathname);
   if (locale) return SHARD_ORIGIN[locale[1]] ?? null;
   return null;
+}
+
+/**
+ * The `cdn.frontaliereticino.ch` URL whose cached copy a corpus-served apex
+ * path is answered from, or null for any other path. Canton section pages map
+ * onto `edge/sections/<dir>/index.html` (the Worker's own key function, not a
+ * restatement of it). Sitemap keys are release-versioned and can only be
+ * resolved after reading the registry, so this static helper deliberately has
+ * no companion for them. A path the Worker would never serve (bad shape) also
+ * has no companion.
+ */
+export function corpusEdgeUrlForApexUrl(url) {
+  if (url.hostname !== APEX_HOST) return null;
+  const pushed = EDGE_PUSHED_FILES[url.pathname];
+  if (pushed) return new URL(pushed.cdnKey, CDN_BASE).toString();
+  if (corpusEdgeFileForPath(url.pathname)) return null;
+  const route = matchCorpusSection(url.pathname);
+  if (!route) return null;
+  const dir = corpusSectionCanonicalDir(url.pathname, route);
+  return dir ? new URL(corpusSectionCdnKey(dir), CDN_BASE).toString() : null;
 }
 
 /**
@@ -141,15 +176,28 @@ export function apexPurgeBlindSpots(urls, patterns = readWorkerRoutePatterns()) 
     if (url.hostname !== APEX_HOST) continue;
     const pattern = workerRouteForUrl(url, patterns);
     if (!pattern) continue; // apex passthrough — this purge is the real one
+    const expectedCompanion = corpusEdgeUrlForApexUrl(url);
+    const expectedOrigin = shardOriginForApexUrl(url);
+    const corpusEdgeFile = corpusEdgeFileForPath(url.pathname);
+    // The broad apex route also admits ordinary pages to the Worker so its
+    // response filter can run, but the router forwards those pages to the
+    // apex origin. They remain apex-keyed, so an apex purge is not blind.
+    // Corpus sitemaps are the one R2 family whose key is versioned by the
+    // release registry and therefore cannot be named by the static helper.
+    if (!expectedOrigin && !expectedCompanion && !corpusEdgeFile) continue;
     const covered = companions.some(
       (companion) =>
-        companion.pathname === url.pathname || companion.pathname.endsWith(url.pathname),
+        companion.pathname === url.pathname ||
+        companion.pathname.endsWith(url.pathname) ||
+        (expectedCompanion !== null && companion.toString() === expectedCompanion),
     );
     if (covered) continue;
     gaps.push({
       url: url.toString(),
       pattern,
-      expectedOrigin: shardOriginForApexUrl(url),
+      expectedOrigin,
+      expectedCompanion,
+      expectedCorpusFile: corpusEdgeFile?.name ?? null,
     });
   }
   return gaps;

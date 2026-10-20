@@ -79,6 +79,23 @@ describe('collapsifySeoBlock', () => {
     expect(summaryOpens).toBe(summaryCloses);
     expect(summaryOpens).toBe(3);
   });
+
+  it('groups title+intro and the collapsible sections into two layout wrappers', () => {
+    expect(out).toContain(
+      '<div class="seo-fb-head"><h2 id="hpSeoTitle" class="seo-fb-title">Titolo principale</h2><p class="seo-fb-intro">Paragrafo intro con prosa specifica del frontaliere.</p></div>',
+    );
+    const sections = out.match(/<div class="seo-fb-sections">([\s\S]*)<\/div><p class="seo-fb-disclaimer">/)?.[1] ?? '';
+    expect(sections.match(/<details>/g)).toHaveLength(3);
+    expect(sections.startsWith('<details>')).toBe(true);
+    expect(sections.endsWith('</details>')).toBe(true);
+    // Il disclaimer resta fuori dai due contenitori.
+    expect(out).toMatch(/<\/div><p class="seo-fb-disclaimer">Disclaimer finale\.<\/p><\/aside>$/);
+  });
+
+  it('is idempotent: a second pass does not nest the wrappers again', () => {
+    const twice = collapsifySeoBlock(out);
+    expect(twice).toBe(out);
+  });
 });
 
 // Regression guard for #1804 item 1: the homepage `#root` content extraction

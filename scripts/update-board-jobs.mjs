@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { normalizeSourceExpiryDate } from './lib/source-expiry-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -27,6 +29,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { JSDOM } from 'jsdom';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
@@ -83,9 +86,7 @@ function normalizeKey(value = '') {
 }
 
 function toIsoDate(value = '') {
-  const parsed = new Date(String(value || '').trim());
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
+  return sourcePostingDateFields(value).postedDate;
 }
 
 async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
@@ -279,7 +280,7 @@ async function buildBoardJob(listing) {
   return {
     title,
     slug:
-      localized.slugByLocale.en ||
+      localized.slug ||
       normalizeKey(`${title} ${COMPANY_NAME} ${location}`),
     url: sourceUrl,
     applyUrl: sourceUrl,
@@ -295,11 +296,11 @@ async function buildBoardJob(listing) {
     category: inferBoardCategory(title, detail),
     sector: 'Tecnologia & IT',
     source: 'board-dedicated-crawler',
-    sourceLang: detectLang(detail.description || '', 'en'),
-    postedDate: toIsoDate(detail.postedDate),
+    sourceLang: localized.sourceLang,
+    ...sourcePostingDateFields(toIsoDate(detail.postedDate)),
     employmentType: normalize(detail.employmentType).replace(/_/g, '-') || 'full-time',
     contractType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
-    validThrough: toIsoDate(detail.validThrough),
+    validThrough: normalizeSourceExpiryDate(detail.validThrough),
     description: detail.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
@@ -330,10 +331,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -358,7 +362,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

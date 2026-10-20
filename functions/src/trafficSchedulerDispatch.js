@@ -1,38 +1,20 @@
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
+import { isTrafficCollectionSlot, toValidDate } from './lib/trafficCollectionCalendar.js';
 
 export const TRAFFIC_SCHEDULER_WORKFLOW = 'traffic-scheduler.yml';
 
-function validDate(value) {
-  const date = value instanceof Date ? new Date(value.getTime()) : new Date(value);
-  if (!Number.isFinite(date.getTime())) throw new TypeError('scheduledAt must be a valid date');
-  return date;
-}
-
-/**
- * Keep the existing UTC collection calendar while moving its clock from the
- * delayed GitHub scheduler to Cloud Scheduler.
- */
-export function isTrafficCollectionSlot(scheduledAt) {
-  const date = validDate(scheduledAt);
-  const day = date.getUTCDay();
-  const hour = date.getUTCHours();
-  const minute = date.getUTCMinutes();
-  const weekend = day === 0 || day === 6;
-
-  if (weekend) return minute === 0 && [6, 10, 14, 18].includes(hour);
-  if (minute !== 0 && minute !== 30) return false;
-  return (hour >= 4 && hour <= 7)
-    || (hour === 11 && minute === 0)
-    || (hour >= 14 && hour <= 17);
-}
+// Il calendario vive in un modulo senza dipendenze perché lo riusa anche il
+// controllo di freschezza (scripts/check-border-data-health.mjs), che gira senza
+// `npm ci` e non può caricare firebase-admin.
+export { isTrafficCollectionSlot };
 
 export async function dispatchTrafficScheduler({
   scheduledAt = new Date(),
   fetchImpl = fetch,
   getRepoConfigImpl = getRepoConfig,
 } = {}) {
-  const slot = validDate(scheduledAt);
+  const slot = toValidDate(scheduledAt);
   if (!isTrafficCollectionSlot(slot)) {
     return { dispatched: false, reason: 'not_collection_slot', scheduledAt: slot.toISOString() };
   }

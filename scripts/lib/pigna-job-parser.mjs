@@ -17,6 +17,8 @@
  *   <a href="https://app.reflinejobs.io/1531/{posId}/pub/{rev}/index.html">TITLE</a>
  *   <div class="item workName">{Arbeitsort}</div>
  */
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -29,8 +31,9 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
-import { extractReflineDetailTitle } from './refline-common.mjs';
+import { extractReflineDetailTitle, preferRicherReflineBody } from './refline-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const PIGNA_KEY = 'pigna';
 export const PIGNA_COMPANY_NAME = 'Stiftung Pigna';
@@ -112,7 +115,7 @@ export function parseReflineDetail(html = '') {
       parts.push(tag === 'li' ? `• ${text}` : text);
     }
   }
-  return { title, description: parts.join('\n') };
+  return { title, description: preferRicherReflineBody(html, parts.join('\n')) };
 }
 
 function pickLocationHints(workplace = '') {
@@ -123,19 +126,6 @@ function pickLocationHints(workplace = '') {
   const inferred = inferSwissTargetCanton(cityPart);
   if (inferred) return { city: cityPart || DEFAULT_CITY, canton: inferred, postal: '' };
   return { city: cityPart || DEFAULT_CITY, canton: DEFAULT_CANTON, postal: '' };
-}
-
-function buildFallbackDescription(title, workplace) {
-  return [
-    `${title} bei ${PIGNA_COMPANY_NAME}${workplace ? ` in ${workplace}` : ''}.`,
-    '',
-    'Die Stiftung Pigna ist eine Wohn-, Arbeits- und Beschäftigungsstätte für Menschen mit kognitiven und mehrfachen Beeinträchtigungen in Kloten (ZH).',
-    '',
-    'Was Pigna bietet:',
-    '• Sinnstiftende agogische Tätigkeit in einem engagierten Team',
-    '• Vielfältige Aus- und Weiterbildungsmöglichkeiten',
-    '• Faire Anstellungsbedingungen und attraktive Sozialleistungen',
-  ].join('\n');
 }
 
 export async function fetchAllPignaJobs() {
@@ -154,22 +144,22 @@ export async function fetchAllPignaJobs() {
   console.log(`  📋 Found ${listings.length} positions on Refline listing\n`);
   if (!listings.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of listings) {
     let detail = { title: '', description: '' };
     try {
       const detailHtml = await fetchHtml(it.url, { timeoutMs });
-      detail = parseReflineDetail(detailHtml);
+      detail = { ...parseReflineDetail(detailHtml), ...sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted')) };
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${it.title}: ${err?.message || err}`);
     }
 
     const title = detail.title || it.title;
     const hints = pickLocationHints(it.workplace);
-    const description = detail.description && detail.description.split(/\s+/).length >= 40
-      ? detail.description
-      : buildFallbackDescription(title, it.workplace);
+    // Only the posting's own text (issue 5253): a detail body under the common
+    // 50-word floor gives no description (the shared pipeline's thin-source
+    // path), instead of a company paragraph and benefit list of the crawler's.
+    const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
 
     const haystack = `${title} ${description}`;
     const sourceLang = detectLang(description || title, 'de');
@@ -206,7 +196,7 @@ export async function fetchAllPignaJobs() {
       sector: 'Sociale / Educazione',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

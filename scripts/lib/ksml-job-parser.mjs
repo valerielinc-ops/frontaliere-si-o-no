@@ -49,9 +49,11 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { appendSlugDisambiguator } from './dedicated-crawler-common.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -180,14 +182,6 @@ function buildDescription({ firmenportrait, aufgaben, anforderungen, wirBieten }
   return normalizeDescriptionSpace(normalizeDescriptionBullets(raw));
 }
 
-/* ── Date helper ──────────────────────────────────────────── */
-
-function parseKsmlTimestamp(raw = '') {
-  // "2026-06-23 06:57:25.495" → "2026-06-23"
-  const m = String(raw || '').trim().match(/^(\d{4}-\d{2}-\d{2})/);
-  return m ? m[1] : new Date().toISOString().split('T')[0];
-}
-
 /* ── HTTP ─────────────────────────────────────────────────── */
 
 async function fetchStellenList() {
@@ -287,10 +281,12 @@ export async function fetchAllKsmlJobs() {
       },
       sourceLang,
     );
-    const fallbackDesc = sourceLang === 'fr'
-      ? `${title} — poste auprès de ${organisation}, ${city} (Kanton Bern). Publié sur le marché cantonal de l'emploi pour les enseignant(e)s (KSML).`
-      : `${title} — Stelle bei ${organisation}, ${city} (Kanton Bern). Publiziert auf dem Kantonalen Stellenmarkt für Lehrerinnen und Lehrer (KSML).`;
-    const finalDescription = description.split(/\s+/).filter(Boolean).length >= 30 ? description : fallbackDesc;
+    // Only the posting's own text (issue 5253): no "<title> — Stelle bei
+    // <Schule>, <Ort> (Kanton Bern). Publiziert auf dem Kantonalen
+    // Stellenmarkt …" line (or its French twin) in place of a short body. A
+    // body under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const finalDescription = meetsSourceBodyFloor(description) ? description : '';
 
     const jobSlug = appendSlugDisambiguator(
       slugify(`${title} ${organisation} ${city}`),
@@ -332,7 +328,8 @@ export async function fetchAllKsmlJobs() {
       sector: 'Istruzione / Scuola pubblica',
       currency: 'CHF',
       featured: false,
-      postedDate: parseKsmlTimestamp(sb.erfassungTs),
+      // erfassungTs records creation, not publication.
+      ...sourcePostingDateFields(),
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

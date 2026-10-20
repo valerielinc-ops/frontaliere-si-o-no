@@ -201,3 +201,67 @@ describe('concurrent section strip is a pure scheduling change', () => {
     expect(left.some((p) => p.startsWith(`${otherSub}/`))).toBe(false);
   });
 });
+
+/**
+ * en/de/fr: a section subtree left in the locale dist after a failed section
+ * push is not a fallback — the Worker reads a section path from the section
+ * origin only (measured 2026-10-08: /de/jobs-im-tessin/ is 200 on the apex and
+ * on origin-ticino-de, 404 on origin-de). It only inflated the locale shard:
+ * the rejected ticino-de push left 573k files in dist/de and GitHub then
+ * refused the `de` shard too, freezing the whole locale (runs 37728960699 and
+ * 37754770528).
+ */
+describe('non-IT strip does not keep an unreachable copy after a failed section push', () => {
+  function makeLocaleFixture(loc: 'en' | 'de' | 'fr') {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'strip-locale-'));
+    tmpDirs.push(tmp);
+    const distDir = path.join(tmp, 'dist');
+    const runnerTemp = path.join(tmp, 'runner-temp');
+    fs.mkdirSync(runnerTemp, { recursive: true });
+    const counts: Record<string, number> = {};
+    for (const section of ['ticino', 'glarona']) {
+      const sub = (SLUGS[section] as Record<string, string>)[loc];
+      const n = section === 'ticino' ? 6 : 2;
+      for (let k = 0; k < n; k++) {
+        const d = path.join(distDir, loc, sub, `p${k}`);
+        fs.mkdirSync(d, { recursive: true });
+        fs.writeFileSync(path.join(d, 'index.html'), 'x');
+      }
+      counts[section] = n;
+    }
+    fs.writeFileSync(path.join(distDir, loc, 'index.html'), 'locale home');
+    // glarona pushed fine, ticino was rejected: no ok-marker for it.
+    fs.writeFileSync(path.join(runnerTemp, `shard-ok-glarona-${loc}`), '');
+    return { distDir, runnerTemp, counts };
+  }
+
+  const stripBoth = (loc: string) => `
+set -uo pipefail
+bash scripts/lib/strip-section-subtree.sh ticino ${loc} "$TARGET"
+bash scripts/lib/strip-section-subtree.sh glarona ${loc} "$TARGET"
+bash scripts/lib/tally-stripped-sections.sh ${loc} >/dev/null
+`;
+
+  for (const loc of ['en', 'de', 'fr'] as const) {
+    it(`${loc}: strips the rejected section, keeps the rest of the locale, and tallies both`, () => {
+      const f = makeLocaleFixture(loc);
+      runBash(stripBoth(loc), { ...liveEnv(f.runnerTemp), TARGET: f.distDir });
+
+      expect(survivors(f.distDir)).toEqual([`${loc}/index.html`]);
+      // The tally must include the failed section too: push-locale-shard.sh's
+      // shrink guard rebuilds the pre-strip size from it.
+      const tallied = Number(fs.readFileSync(path.join(f.runnerTemp, `shard-stripped-${loc}`), 'utf8'));
+      expect(tallied).toBe(f.counts.ticino + f.counts.glarona);
+    });
+  }
+
+  it('NEGATIVE CASE — a section that is not LIVE yet is still kept (seed phase), marker or not', () => {
+    const f = makeLocaleFixture('de');
+    const env = { ...liveEnv(f.runnerTemp), TARGET: f.distDir, TICINO_SHARD_LIVE: 'false' };
+    runBash(stripBoth('de'), env);
+
+    const ticinoSub = (SLUGS.ticino as Record<string, string>).de;
+    const left = survivors(f.distDir);
+    expect(left.filter((p) => p.startsWith(`de/${ticinoSub}/`))).toHaveLength(f.counts.ticino);
+  });
+});

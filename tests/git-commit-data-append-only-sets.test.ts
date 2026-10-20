@@ -34,6 +34,7 @@ import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync
 import { tmpdir } from 'node:os';
 import { join, resolve, dirname } from 'node:path';
 import { digestDocument } from '../scripts/lib/crawler-generation-contract.mjs';
+import { localeRouteKeys } from '../scripts/lib/expired-jobs-archive.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
@@ -101,6 +102,24 @@ function runScript(h: Harness, extraPaths: string[], sliceFile?: string): void {
     },
   });
 }
+function runLegacyScript(h: Harness, extraPaths: string[]): string {
+  return execFileSync(BASH_BIN, [SCRIPT_PATH, 'test commit', ...extraPaths], {
+    cwd: h.repoDir,
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      JOBS_SLICE_FILE: '',
+      DATA_PIPELINE_LEASE: '0',
+      SKIP_AI_TRANSLATION: '1',
+      SLUG_HISTORY_SUMMARY_FILE: join(h.repoDir, 'no-such-slug-history-summary.txt'),
+      GH_TOKEN: '',
+      GITHUB_TOKEN: '',
+      GITHUB_RUN_ID: '',
+      GITHUB_REPOSITORY: '',
+      GITHUB_OUTPUT: '',
+    },
+  });
+}
 function runExtraOnlyScript(h: Harness, extraPaths: string[]): void {
   execFileSync(BASH_BIN, [SCRIPT_PATH, '--extra-only', 'record generation ledger', ...extraPaths], {
     cwd: h.repoDir,
@@ -113,6 +132,10 @@ function readFromOrigin<T>(h: Harness, relPath: string): T {
   const out = execFileSync('git', ['show', `main:${relPath}`], {
     cwd: h.originDir,
     encoding: 'utf8',
+    // Real crawler slices can exceed Node's 1 MiB default (acme.json is
+    // currently ~1.4 MiB). The test must inspect the complete JSON, not turn a
+    // valid large slice into an unrelated ENOBUFS failure.
+    maxBuffer: 32 * 1024 * 1024,
   });
   return JSON.parse(out) as T;
 }
@@ -150,6 +173,87 @@ function job(overrides: Partial<JobRecord> = {}): JobRecord {
 const SLICE = 'data/jobs/by-crawler/acme.json';
 
 describe('git-commit-data.sh 3-way merge — append-only slug/path registries (#4887)', () => {
+  it('canonicalizes expired routes after a successful stash pop', () => {
+    const h = initHarness();
+    const expiredSlice = 'data/jobs/expired/by-crawler/fachkraft.json';
+    const expiredEntry = (slug: string, expiredAt: string) => ({
+      companyKey: 'fachkraft',
+      slug,
+      slugByLocale: { it: slug, de: `${slug}-de` },
+      previousSlugs: ['shared-fachkraft-route'],
+      previousSlugsByLocale: {
+        it: ['shared-fachkraft-route'],
+        de: ['shared-fachkraft-route'],
+      },
+      expiredAt,
+    });
+
+    try {
+      writeJson(h.repoDir, expiredSlice, []);
+      commitAndPush(h.repoDir, 'seed expired archive');
+      pushFromConcurrentWriter(
+        h,
+        (dir) => writeFileSync(join(dir, 'remote-only.txt'), 'remote change\n'),
+        'remote non-conflicting update',
+      );
+
+      writeJson(h.repoDir, expiredSlice, [
+        expiredEntry('fachkraft-older', daysAgo(5)),
+        expiredEntry('fachkraft-newer', daysAgo(1)),
+      ]);
+
+      const output = runLegacyScript(h, [expiredSlice]);
+      const published = readFromOrigin<Array<{ slug: string }>>(h, expiredSlice);
+      expect(published).toHaveLength(1);
+      expect(published[0].slug).toBe('fachkraft-newer');
+      expect(output).toContain(`canonicalized expired archive slice ${expiredSlice}`);
+    } finally {
+      cleanup(h);
+    }
+  });
+
+  it('re-canonicalizes expired routes after a concurrent 3-way slice merge', () => {
+    const h = initHarness();
+    const expiredSlice = 'data/jobs/expired/by-crawler/fachkraft.json';
+    const daysAgo = (days: number): string => new Date(Date.now() - days * 86_400_000).toISOString();
+    const expiredEntry = (slug: string, expiredAt: string) => ({
+      companyKey: 'fachkraft',
+      slug,
+      slugByLocale: { it: slug, de: `${slug}-de` },
+      previousSlugs: ['shared-fachkraft-route'],
+      previousSlugsByLocale: {
+        it: ['shared-fachkraft-route'],
+        de: ['shared-fachkraft-route'],
+      },
+      expiredAt,
+    });
+
+    try {
+      // The checkout base is empty. Two writers independently add different
+      // current slugs that still claim the same historical route.
+      writeJson(h.repoDir, expiredSlice, []);
+      commitAndPush(h.repoDir, 'seed expired archive');
+      const older = expiredEntry('fachkraft-older', daysAgo(5));
+      const newer = expiredEntry('fachkraft-newer', daysAgo(1));
+      pushFromConcurrentWriter(h, (dir) => writeJson(dir, expiredSlice, [older]), 'remote expired archive update');
+      writeJson(h.repoDir, expiredSlice, [newer]);
+
+      runScript(h, [], expiredSlice);
+
+      const published = readFromOrigin<typeof older[]>(h, expiredSlice);
+      expect(published).toHaveLength(1);
+      expect(published[0].slug).toBe('fachkraft-newer');
+      const routes = [...localeRouteKeys(published[0])];
+      expect(new Set(routes).size).toBe(routes.length);
+      expect(routes).toContain('it:fachkraft-older');
+      expect(routes).toContain('de:fachkraft-older-de');
+      expect(routes).toContain('it:shared-fachkraft-route');
+      expect(routes).toContain('de:shared-fachkraft-route');
+    } finally {
+      cleanup(h);
+    }
+  });
+
   it('preserves concurrent crawler generation ledger appends', () => {
     const h = initHarness();
     const ledger = 'data/crawler-generation-ledger.jsonl';
@@ -395,6 +499,51 @@ describe('git-commit-data.sh 3-way merge — append-only slug/path registries (#
       const merged = readFromOrigin<Array<{ tags: string[] }>>(h, FILE);
       expect(merged[0].tags).not.toContain('b');
       expect(merged[0].tags).toEqual(expect.arrayContaining(['a', 'c', 'd']));
+    } finally {
+      cleanup(h);
+    }
+  });
+
+  it('refuses a catastrophic crawler-slice shrink at the isolated commit boundary', () => {
+    const h = initHarness();
+    try {
+      const large = 'x'.repeat(700_000);
+      writeJson(h.repoDir, SLICE, [
+        { ...job({ url: 'https://example.ch/jobs/acme-1' }), description: large },
+        { ...job({ url: 'https://example.ch/jobs/acme-2' }), description: large },
+      ]);
+      commitAndPush(h.repoDir, 'seed large crawler slice');
+
+      writeJson(h.repoDir, SLICE, [
+        { ...job({ url: 'https://example.ch/jobs/acme-1' }), description: 'short' },
+      ]);
+
+      expect(() => runScript(h, [SLICE], SLICE)).toThrow();
+      expect(readFromOrigin<JobRecord[]>(h, SLICE)).toHaveLength(2);
+    } finally {
+      cleanup(h);
+    }
+  });
+
+  it('allows only the proven Swiss Re foreign-listing prune at that boundary', () => {
+    const h = initHarness();
+    const swissReSlice = 'data/jobs/by-crawler/swiss-re.json';
+    try {
+      const large = 'x'.repeat(700_000);
+      writeJson(h.repoDir, swissReSlice, [
+        { url: 'https://jobs.swissre.com/bratislava', companyKey: 'swiss-re', location: 'Bratislava, SK', description: large },
+        { url: 'https://jobs.swissre.com/mexico-city', companyKey: 'swiss-re', location: 'Mexico City, MX', description: large },
+      ]);
+      commitAndPush(h.repoDir, 'seed Swiss Re global listing');
+
+      writeJson(h.repoDir, swissReSlice, [
+        { url: 'https://jobs.swissre.com/zurich', companyKey: 'swiss-re', location: 'Zurich, CH', description: 'short' },
+      ]);
+
+      runScript(h, [swissReSlice], swissReSlice);
+      expect(readFromOrigin<Array<{ location: string }>>(h, swissReSlice)).toEqual([
+        expect.objectContaining({ location: 'Zurich, CH' }),
+      ]);
     } finally {
       cleanup(h);
     }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "buersten-technik",
-  "assembledAt": "2026-09-23T23:52:17.922Z",
+  "assembledAt": "2026-10-19T21:31:12.775Z",
   "jobs": [
     {
       "id": "buersten-technik-3feb89202caa",
@@ -33,7 +33,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
       "source": "buersten-technik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:13.850Z",
+      "crawledAt": "2026-10-19T21:31:06.311Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -57,7 +57,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "2026-08-01",
+      "postedDate": "2026-08-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
       "requirements": [],
       "requirementsByLocale": {},
@@ -65,20 +67,12 @@
       "salaryMax": 73000,
       "salarySource": "estimated",
       "previousSlugs": [
-        "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch",
         "apprendistato-come-produktionsmechaniker-in-cfc-buersten-technik-wattwil",
-        "apprendistato-come-meccanico-di-produzione-efz-buersten-technik-wattwil-sg"
+        "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch",
           "apprendistato-come-produktionsmechaniker-in-cfc-buersten-technik-wattwil",
-          "apprendistato-come-meccanico-di-produzione-efz-buersten-technik-wattwil-sg"
-        ],
-        "en": [
-          "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch"
-        ],
-        "fr": [
           "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch"
         ]
       },

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Batched purge URL lists for SECTION shards just pushed, apex AND origin
  * (#5513, following the same shape locale-shard-purge-urls.mjs established
@@ -39,7 +41,7 @@
  * something the caller should ever pass (the CI caller only names sections
  * that just pushed successfully), so a typo surfaces immediately.
  */
-import path from 'node:path';
+
 import { SECTION_ORIGIN, SECTION_ROUTES } from '../../infra/cloudflare-worker/locale-router.js';
 import { MAX_TARGETED_FILES } from '../lib/cf-purge-limits.mjs';
 import { APEX_HOST } from '../lib/cf-worker-routes.mjs';
@@ -91,4 +93,4 @@ function main() {
   for (const urls of batches) process.stdout.write(`${urls.join(',')}\n`);
 }
 
-if (process.argv[1] && import.meta.url === `file://${path.resolve(process.argv[1])}`) main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

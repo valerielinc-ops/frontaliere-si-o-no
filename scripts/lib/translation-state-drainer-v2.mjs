@@ -133,7 +133,11 @@ async function createMainCommit(git, parent, slicePath, content) {
     await checked(git, ['read-tree', parent], { env });
     const blob = await checked(git, ['hash-object', '-w', '--', sliceFile]);
     await checked(git, ['update-index', '--add', '--cacheinfo', `100644,${blob},${slicePath}`], { env });
-    const tree = await checked(git, ['write-tree'], { env });
+    // `--missing-ok`: the index is main's whole tree plus the one blob written
+    // two lines up. A plain `write-tree` checks every entry, and once
+    // unshallowMain has made this checkout a partial clone that check
+    // downloads every blob of the tree it does not have.
+    const tree = await checked(git, ['write-tree', '--missing-ok'], { env });
     // Same class of defect as the state store's writeTree: `commit-tree` takes
     // the author from git config when the environment carries none, and a CI
     // runner has no `user.email` — so this would die with `Author identity

@@ -1,0 +1,21 @@
+{
+  "companyKey": "aoz-ch",
+  "companyName": "AOZ",
+  "companyHost": "aoz.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://aoz.ch/de/jobs-und-karriere"
+  ],
+  "detailTemplate": "/de/jobs-und-karriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Die AOZ als Arbeitgeberin",
+    "FAQ - häufig gestellte Fragen"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-29T13:42:50.514Z"
+}

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * The bounded purge list for ONE locale shard, apex AND origin (#5483).
  *
@@ -156,4 +158,4 @@ function main() {
   process.stdout.write(urls.join(','));
 }
 
-if (process.argv[1] && import.meta.url === `file://${path.resolve(process.argv[1])}`) main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * Append independently observed lifecycle events to the durable ledger.
@@ -14,9 +15,11 @@ import { pathToFileURL } from 'node:url';
 import {
   appendJsonlSerialized,
   validateLifecycleCandidateTerminalChain,
+  validateHistoricalLifecycleEvent,
   validateLifecycleEvent,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
+import { ledgerShardName, listLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 const OBSERVED_EVENT_TYPES = new Set([
@@ -140,14 +143,14 @@ function readJsonl(file, label) {
     });
 }
 
-function validateDurableEvent(registry, event, label) {
+function validateDurableEvent(registry, event, label, lifecycleValidator = validateLifecycleEvent) {
   if (!object(event)) throw new Error(`${label} is not an object`);
   if (!text(event.recordId)) throw new Error(`${label} has no recordId`);
   if (event.eventType && OBSERVED_EVENT_TYPES.has(event.eventType) === false
       && !['candidate', 'owner_assigned'].includes(event.eventType)) {
     throw new Error(`${label} has unsupported eventType ${event.eventType}`);
   }
-  validateLifecycleEvent(registry, event.loopId, event);
+  lifecycleValidator(registry, event.loopId, event);
   if (!object(event.execution)
       || String(event.execution.loopId || '') !== String(event.loopId || '')
       || !text(event.execution.runId)
@@ -156,6 +159,10 @@ function validateDurableEvent(registry, event, label) {
     throw new Error(`${label} has no durable observer/source execution identity`);
   }
   return event;
+}
+
+function validateHistoricalDurableEvent(registry, event, label) {
+  return validateDurableEvent(registry, event, label, validateHistoricalLifecycleEvent);
 }
 
 /**
@@ -281,6 +288,7 @@ export function appendLoopFleetLifecycle({
   eventsFile,
   ledgerDir,
   registryPath = DEFAULT_REGISTRY_PATH,
+  shardId = null,
 } = {}) {
   if (!eventsFile) throw new Error('eventsFile is required');
   if (!ledgerDir) throw new Error('ledgerDir is required');
@@ -293,12 +301,13 @@ export function appendLoopFleetLifecycle({
     }
   }
 
-  const target = path.resolve(ledgerDir, 'lifecycle-events.jsonl');
-  const existing = readJsonl(target, 'durable lifecycle ledger');
+  const existingFiles = listLoopFleetLedgerFiles(ledgerDir, 'lifecycle-events.jsonl');
+  const target = path.resolve(ledgerDir, ledgerShardName('lifecycle-events.jsonl', shardId));
+  const existing = existingFiles.flatMap((file) => readJsonl(file, `ledger ${path.basename(file)}`));
   const byId = new Map();
   const existingByCandidate = new Map();
   for (const [index, event] of existing.entries()) {
-    validateDurableEvent(registry, event, `durable lifecycle event ${index + 1}`);
+    validateHistoricalDurableEvent(registry, event, `durable lifecycle event ${index + 1}`);
     const previous = byId.get(event.recordId);
     if (previous && !sameRecord(previous, event)) {
       throw new Error(`durable lifecycle ledger has conflicting duplicate ${event.recordId}`);
@@ -386,12 +395,13 @@ export function main({ argv = process.argv.slice(2), logger = console } = {}) {
     eventsFile: valueAfter(argv, '--events-file'),
     ledgerDir: valueAfter(argv, '--ledger-dir'),
     registryPath: valueAfter(argv, '--registry', DEFAULT_REGISTRY_PATH),
+    shardId: valueAfter(argv, '--shard-id'),
   });
   logger.log(JSON.stringify(result, null, 2));
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

@@ -21,12 +21,14 @@
  *
  * Exports the 4 required functions for the crawler template.
  */
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
-import { extractReflineDetailTitle } from './refline-common.mjs';
-import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { extractReflineDetailTitle, preferRicherReflineBody } from './refline-common.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -160,25 +162,15 @@ function pickLocationHints(workplace = '') {
 /* ── HTTP fetch ────────────────────────────────────────────── */
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': USER_AGENT,
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'de-CH,de;q=0.9,fr;q=0.7,it;q=0.5,en;q=0.3',
-        Referer: PUBLIC_CAREER_URL,
-      },
-      signal: controller.signal,
-      redirect: 'follow',
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
-    return await rescueHtmlIfChallenged(await res.text(), url, { timeoutMs });
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: {
+      'User-Agent': USER_AGENT,
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Language': 'de-CH,de;q=0.9,fr;q=0.7,it;q=0.5,en;q=0.3',
+      Referer: PUBLIC_CAREER_URL,
+    },
+  });
 }
 
 /* ── Listing parser ────────────────────────────────────────── */
@@ -245,25 +237,10 @@ export function parseReflineDetail(html = '') {
       parts.push(tag === 'li' ? `• ${text}` : text);
     }
   }
-  return { title, description: parts.join('\n') };
+  return { title, description: preferRicherReflineBody(html, parts.join('\n')) };
 }
 
 /* ── Fallback description ──────────────────────────────────── */
-
-function buildFallbackDescription(title, section, workplace) {
-  const sectionLabel = section ? ` (${section})` : '';
-  return [
-    `${title} bei Caritas Schweiz${sectionLabel}${workplace ? ` in ${workplace}` : ''}.`,
-    '',
-    'Caritas Schweiz ist die nationale Hilfsorganisation der katholischen Kirche und engagiert sich seit über 120 Jahren in der Schweiz und weltweit für Menschen in Not.',
-    '',
-    'Was Caritas bietet:',
-    '• Sinnstiftende Tätigkeit für eine soziale Schweiz',
-    '• Engagierte und kompetente Kolleginnen und Kollegen',
-    '• Vielfältige Aus- und Weiterbildungsmöglichkeiten',
-    '• Faire und sozial verträgliche Anstellungsbedingungen',
-  ].join('\n');
-}
 
 /* ── Main fetch ────────────────────────────────────────────── */
 
@@ -292,7 +269,7 @@ export async function fetchAllCaritasSchweizJobs() {
     let detail = { title: '', description: '' };
     try {
       const detailHtml = await fetchPage(listing.url, timeoutMs);
-      detail = parseReflineDetail(detailHtml);
+      detail = { ...parseReflineDetail(detailHtml), ...sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted')) };
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
     }
@@ -303,12 +280,10 @@ export async function fetchAllCaritasSchweizJobs() {
     const canton = hints.canton;
     const postalCode = hints.postal || DEFAULT_POSTAL;
 
-    let description = '';
-    if (detail.description && detail.description.split(/\s+/).length >= 50) {
-      description = detail.description;
-    } else {
-      description = buildFallbackDescription(title, listing.section, listing.workplace);
-    }
+    // Only the posting's own text (issue 5253): a detail body under the common
+    // 50-word floor gives no description (the shared pipeline's thin-source
+    // path), instead of a company paragraph and benefit list of the crawler's.
+    const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${CARITAS_SCHWEIZ_KEY} ${location}`);
@@ -347,7 +322,7 @@ export async function fetchAllCaritasSchweizJobs() {
       sector: 'Sociale / NGO',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: listing.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -13,6 +13,7 @@
  *   5. Run scoped localization for the Guess company key
  *   6. Validate locale coverage in strict mode
  */
+import { sourcePostingDateCandidatesFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -52,7 +53,9 @@ import {
   parseGuessJobDetailPayload,
   resolveGuessCanton,
   resolveGuessBackfillCanton,
+  guessPostingSourceLang,
 } from './lib/guess-job-parser.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
@@ -113,14 +116,6 @@ function readJson(filePath, fallback) {
   } catch {
     return fallback;
   }
-}
-
-function toIsoDate(value = '') {
-  const raw = String(value || '').trim();
-  if (!raw) return new Date().toISOString().slice(0, 10);
-  const parsed = new Date(raw);
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
 }
 
 function inferCategory({ title = '', department = [] } = {}) {
@@ -239,7 +234,8 @@ function buildGuessJob(listing, detail) {
   const slug = slugify(`${title} ${COMPANY_NAME} ${safeLocationToken(city, 'Bioggio')} Switzerland`);
   const detailUrl = buildGuessDetailUrl(listing.shortcode);
   const applyUrl = buildGuessApplyUrl(listing.shortcode);
-  const publishedDate = toIsoDate(parsed.publishedDate || listing.published_on || listing.created_at);
+  const postingDates = sourcePostingDateCandidatesFields([parsed.publishedDate, listing.published_on]);
+  const sourceLang = guessPostingSourceLang(parsed);
 
   return {
     title,
@@ -260,15 +256,16 @@ function buildGuessJob(listing, detail) {
     category: inferCategory({ title, department: parsed.department }),
     sector: 'Lusso & Moda',
     source: 'guess-europe-dedicated-crawler',
-    sourceLang: parsed.sourceLanguage || 'en',
-    postedDate: publishedDate,
+    sourceLang,
+    ...postingDates,
     validThrough: '',
     description: parsed.description,
-    titleByLocale: { en: title },
-    descriptionByLocale: { en: parsed.description },
-    slugByLocale: { en: slug },
+    // Everything in the posting's own language slot (not a fixed `en`).
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: parsed.description },
+    slugByLocale: { [sourceLang]: slug },
     requirements: parsed.requirements,
-    requirementsByLocale: parsed.requirements.length ? { en: parsed.requirements } : {},
+    requirementsByLocale: parsed.requirements.length ? { [sourceLang]: parsed.requirements } : {},
     benefits: parsed.benefits,
   };
 }
@@ -307,10 +304,12 @@ async function mergeJobs(discoveredJobs) {
     const key = jobMatchKey(discovered);
     const existingJob = existingByKey.get(key);
     if (existingJob) {
-      merged.push({
+      const job = {
         ...existingJob,
         ...discovered,
-        titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
+        ...mergeSourcePostingDates(existingJob, discovered),
+        // Fresh text wins in the SOURCE slot only; translations are kept.
+        titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3, discovered.sourceLang),
         descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
         // cap explicit: this job's flat previousSlugs is the SAME field
@@ -319,7 +318,9 @@ async function mergeJobs(discoveredJobs) {
         // which now uses LEGACY_PREV_SLUGS_CAP too — the module default
         // (20) would re-collapse it on this crawler's next run (#3630).
         previousSlugs: mergePreviousSlugsCapped(existingJob.previousSlugs, discovered.previousSlugs, { jobId: existingJob.id || discovered.id, source: 'update-guess-jobs.mjs', cap: LEGACY_PREV_SLUGS_CAP }),
-      });
+      };
+      dropStaleLocaleDescriptions(job);
+      merged.push(job);
       updated += 1;
     } else {
       merged.push(discovered);
@@ -360,7 +361,7 @@ function updateAdapterConfig(discoveredJobs) {
         location: job.location,
         canton: inferAnyCanton(job.location) || DEFAULT_CANTON,
         company: COMPANY_NAME,
-        postedDate: job.postedDate || '',
+        ...mergeSourcePostingDates({}, job),
       },
     ])
   );

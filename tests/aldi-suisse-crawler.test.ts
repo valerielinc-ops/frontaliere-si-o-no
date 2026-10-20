@@ -15,6 +15,9 @@ import {
   ALDI_SUCCESSFACTORS_BASE,
 } from '@/scripts/lib/aldi-suisse-job-parser.mjs';
 import { buildAldiJobRecord } from '@/scripts/update-aldi-suisse-jobs.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // --- Fixture: live TYPO3 REST job-search response ---
 const SEARCH_JSON = {
@@ -271,6 +274,16 @@ describe('parseAldiDetailPage', () => {
     expect(result.title).toBe('Area Manager (100%)');
   });
 
+  it('extracts only the matching source JobPosting publication date', () => {
+    const datePosted = new Date(Date.now() - 86_400_000).toISOString();
+    const html = `${DETAIL_HTML}<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting', title: 'Area Manager (100%)', datePosted,
+    })}</script>`;
+    const pageUrl = 'https://www.jobs.aldi.ch/job/fixture';
+    expect(parseAldiDetailPage(html, pageUrl)?.datePosted).toBe(datePosted);
+    expect(parseAldiDetailPage(html.replace('Area Manager (100%)', 'Different vacancy'), pageUrl)?.datePosted).toBe('');
+  });
+
   it('extracts location', () => {
     const result = parseAldiDetailPage(DETAIL_HTML);
     expect(result.location).toBe('Bellinzona');
@@ -393,15 +406,102 @@ describe('buildAldiJobRecord', () => {
         address: 'Via Stazione 1',
         workload: '100%',
       },
-      parsed: { body: 'Responsabilità e requisiti.', requirements: ['Esperienza'] },
+      parsed: { body: 'Responsabilità e requisiti. ' + 'Gestisci la filiale, guidi il team e curi la presentazione della merce con attenzione al cliente. '.repeat(4), requirements: ['Esperienza'] },
       now: new Date('2026-09-22T00:00:00.000Z'),
     });
 
     expect(job).toMatchObject({
       url,
       applyUrl: url,
-      postedDate: '2026-09-22',
+      postedDate: '',
+      postingDateSource: 'unknown',
       crawledAt: '2026-09-22T00:00:00.000Z',
     });
+  });
+
+  it('publishes the detail page date instead of crawl time', () => {
+    const datePosted = new Date(Date.now() - 86_400_000).toISOString();
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/1', title: 'Verkauf', city: 'St. Gallen' },
+      parsed: { body: 'Aufgaben und Anforderungen. '.repeat(20), datePosted },
+      now: new Date('2026-09-22T00:00:00.000Z'),
+    });
+    expect(job).toMatchObject({ datePosted, postedDate: datePosted, postingDateSource: 'reported' });
+  });
+});
+
+// Pinned fixture minimised from jobs.aldi.ch/job/1389180133 (2026-09-29).
+// The parser published the `<div class="description">` block alone (~1.2k of
+// ~3.5k unique characters on the page), without the workload, the employer
+// intro, the "Unsere Benefits für dich" list and "Über ALDI SUISSE AG", and
+// ran headings into their values ("Arbeitsort6203 Sempach Station").
+describe('parseAldiDetailPage — whole posting', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'aldi-suisse-typo3-detail-sempach.html'),
+    'utf8',
+  );
+
+  it('carries workload, intro, tasks/profile/offer, benefits and the company paragraph in page order', () => {
+    const { body } = parseAldiDetailPage(fixture);
+    const order = ['70 - 80%', 'Bei uns gilt:', 'Aufgaben', 'Profil', 'Unser Angebot', 'UNSERE BENEFITS FÜR DICH', 'Über ALDI SUISSE AG']
+      .map((marker) => body.indexOf(marker));
+    expect(order.every((index) => index >= 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(body).toMatch(/^• Mehr Mobilität$/m);
+    expect(body).toMatch(/^Arbeitsort\n6203 Sempach Station, Mettenwilstrasse 10$/m);
+  });
+
+  it('leaves out the recruiting-team blurb and page chrome', () => {
+    const { body } = parseAldiDetailPage(fixture);
+    expect(body).not.toContain('Recruiting-Team');
+    expect(body).not.toContain('Diese Stelle teilen');
+  });
+});
+
+describe('buildAldiJobRecord — no invented text', () => {
+  it('returns null when the detail page yielded no posting body', () => {
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/1', title: 'Mitarbeiter Verkauf (m/w/d)', city: 'Sempach Station', zip: '6203' },
+      parsed: { body: '' },
+    });
+    expect(job).toBeNull();
+  });
+
+  it('returns null for a body under the shared 50-word floor', () => {
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/3', title: 'Mitarbeiter Verkauf (m/w/d)', city: 'Sempach Station', zip: '6203' },
+      parsed: { body: 'Aufgaben\n• Mitarbeit in der Filiale' },
+    });
+    expect(job).toBeNull();
+  });
+
+  it('does not cut a long body', () => {
+    const body = `Aufgaben\n${'• Mitarbeit in der Filiale\n'.repeat(400)}`;
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/2', title: 'Mitarbeiter Verkauf (m/w/d)', city: 'Sempach Station', zip: '6203' },
+      parsed: { body },
+    });
+    expect(job.description.length).toBe(body.length);
+  });
+});
+
+// ── #5253: every field keyed by the language the ad is written in ─────────
+describe('buildAldiJobRecord — source-language slots', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'aldi-suisse-typo3-detail-sempach.html'),
+    'utf8',
+  );
+
+  it('files the German posting under de, not under a fixed it', () => {
+    const parsed = parseAldiDetailPage(fixture);
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/1389180133', title: 'Filialleiter/in Stv. (m/w/d)', city: 'Sempach Station', zip: '6203' },
+      parsed,
+    });
+    expect(job.sourceLang).toBe('de');
+    expect(job.descriptionByLocale).toEqual({ de: parsed.body });
+    expect(Object.keys(job.titleByLocale)).toEqual(['de']);
+    expect(job.slugByLocale).toEqual({ de: job.slug });
+    expect(Object.keys(job.requirementsByLocale)).toEqual(['de']);
   });
 });

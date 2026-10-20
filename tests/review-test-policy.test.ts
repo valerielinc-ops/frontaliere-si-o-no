@@ -24,11 +24,14 @@ import { codeContributionFingerprint } from '../scripts/ci/auto-merge-eval.mjs';
 const head = 'a'.repeat(40);
 const reviewRevision = `body:${'c'.repeat(64)}`;
 const reviewRevisionMarker = `<!-- REVIEW_INPUT_REVISION: ${reviewRevision} -->`;
-function fixture({ files = ['tests/a.test.ts'], complete = true, changedHead = false, previous = '', reviews = [] as any[] } = {}) {
+function fixture({ files = ['tests/a.test.ts'], complete = true, changedHead = false, previous = '', reviews = [] as any[], postAuthorType = 'Bot', postAuthorLogin = 'frontaliere-automation[bot]' } = {}) {
   const posts: any[] = [];
   let reads = 0;
   const ghFn = (args: string[], options: any = {}) => {
-    if (args.includes('POST')) { posts.push(JSON.parse(options.input)); return {}; }
+    if (args.includes('POST')) {
+      posts.push(JSON.parse(options.input));
+      return { user: { type: postAuthorType, login: postAuthorLogin } };
+    }
     if (args[0] === 'pr') return { changedFiles: complete ? files.length : files.length + 1, files };
     if (args[1].endsWith('/files')) return args.includes('--slurp') ? [files.map(filename => ({ filename, previous_filename: previous }))] : files.join('\n');
     if (args[1].endsWith('/reviews')) return reviews;
@@ -49,9 +52,9 @@ const ledgerRegistry = JSON.parse(readFileSync('data/loop-fleet/loop-registry.js
 const ledgerPolicy = ledgerRegistry.loops.find((loop: any) => loop.loopId === 'L6');
 
 function ledgerRecordType(filename: string) {
-  return filename.endsWith('loop-observations.jsonl') ? 'observation'
-    : filename.endsWith('loop-decisions.jsonl') ? 'decision'
-      : filename.endsWith('loop-health-history.jsonl') ? 'health'
+  return /(?:^|\/)loop-observations(?:-[A-Za-z0-9][A-Za-z0-9_-]*)?\.jsonl$/u.test(filename) ? 'observation'
+    : /(?:^|\/)loop-decisions(?:-[A-Za-z0-9][A-Za-z0-9_-]*)?\.jsonl$/u.test(filename) ? 'decision'
+      : /(?:^|\/)loop-health-history(?:-[A-Za-z0-9][A-Za-z0-9_-]*)?\.jsonl$/u.test(filename) ? 'health'
         : 'lifecycle-event';
 }
 
@@ -227,6 +230,11 @@ describe('owner policy excluding test files from review', () => {
     expect(f.posts[0].body).toContain(reviewRevisionMarker);
     expect(f.posts[0].body).toContain('## LGTM');
   });
+  it('fails closed when the review API reports a non-App author', () => {
+    const f = fixture({ postAuthorLogin: 'github-actions[bot]' });
+    expect(() => postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn }))
+      .toThrow(/identità della review App non verificabile/i);
+  });
   it('does not publish an automatic LGTM when the reviews API is malformed', () => {
     const f = fixture({ reviews: null as any });
     expect(() => postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn }))
@@ -239,32 +247,37 @@ describe('owner policy excluding test files from review', () => {
     expect(f.posts).toEqual([]);
   });
   it('accepts the marked bot review only after independently verifying the current complete file list', () => {
-    const review = { commit_id: head, user: { type: 'Bot', login: 'github-actions[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
+    const review = { commit_id: head, user: { type: 'Bot', login: 'frontaliere-automation[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
     expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBe(review);
     expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1, reviewRevision })).toBe(review);
     expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1, reviewRevision: `body:${'d'.repeat(64)}` })).toBeNull();
     expect(findTestOnlyApproval([review], head, { ...fixture({ files: ['src/a.ts'] }), repo: 'owner/repo', pr: 1 })).toBeNull();
+    expect(findTestOnlyApproval([{ ...review, user: { type: 'Bot', login: 'github-actions[bot]' } }], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBeNull();
     expect(findTestOnlyApproval([{ ...review, user: { type: 'User', login: 'someone' } }], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBeNull();
     expect(findTestOnlyApproval([{ ...review, commit_id: 'b'.repeat(40) }], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBeNull();
   });
   it('does not repost on the same head and keeps test-only changes out of the code fingerprint', () => {
-    const review = { commit_id: head, user: { type: 'Bot', login: 'github-actions[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
+    const review = { commit_id: head, user: { type: 'Bot', login: 'frontaliere-automation[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
     const f = fixture({ reviews: [review] });
     postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn });
     expect(f.posts).toEqual([]);
     expect(codeContributionFingerprint([{ filename: 'tests/huge.test.ts' }])).toBe(codeContributionFingerprint([]));
     expect(codeContributionFingerprint([{ filename: 'tests/a.test.ts', previous_filename: 'src/a.ts', patch: '-production', status: 'renamed' }])).not.toBe(codeContributionFingerprint([]));
   });
-  it('allows only the four canonical ledger JSONL paths and rejects unknown or duplicate paths', () => {
+  it('allows canonical ledger JSONL paths and validated shards, rejecting unknown or duplicate paths', () => {
     for (const path of LOOP_FLEET_LEDGER_FILES) expect(isLoopFleetLedgerPath(path), path).toBe(true);
+    const shards = LOOP_FLEET_LEDGER_FILES.map((path) => path.replace(/\.jsonl$/u, '-run-123.jsonl'));
+    for (const path of shards) expect(isLoopFleetLedgerPath(path), path).toBe(true);
     for (const path of [
       'data/loop-fleet/ledger/unknown.jsonl',
       'data/loop-fleet/ledger/loop-observations.jsonl.bak',
+      'data/loop-fleet/ledger/loop-observations--run-123.jsonl',
       'data/loop-fleet/ledger/loop-observations.jsonl/child',
       'data/loop-fleet/ledger/../loop-observations.jsonl',
       'src/production.ts',
     ]) expect(isLoopFleetLedgerPath(path), path).toBe(false);
     expect(isLoopFleetLedgerSnapshot({ complete: true, files: LOOP_FLEET_LEDGER_FILES.slice(0, 2) })).toBe(true);
+    expect(isLoopFleetLedgerSnapshot({ complete: true, files: shards.slice(0, 2) })).toBe(true);
     for (const value of [
       { complete: false, files: LOOP_FLEET_LEDGER_FILES.slice(0, 2) },
       { complete: true, files: [] },
@@ -292,6 +305,7 @@ describe('owner policy excluding test files from review', () => {
       execution: { loopId: 'L6', runId: '123', sha: ledgerHead },
     });
     expect(validateLoopFleetLedgerJsonl(`${valid}\n`, LOOP_FLEET_LEDGER_FILES[0])).toMatchObject({ ok: true, count: 1 });
+    expect(validateLoopFleetLedgerJsonl(`${valid}\n`, `${LOOP_FLEET_LEDGER_FILES[0].replace(/\.jsonl$/u, '-run-123.jsonl')}`)).toMatchObject({ ok: true, count: 1 });
     for (const [content, path] of [
       ['{broken', LOOP_FLEET_LEDGER_FILES[0]],
       [JSON.stringify({ ...JSON.parse(valid), recordType: 'decision' }), LOOP_FLEET_LEDGER_FILES[0]],
@@ -524,6 +538,15 @@ describe('owner policy excluding test files from review', () => {
     for (const id of ['prefetch', 'codex_review']) expect(steps.find((s: any) => s.id === id).if).toContain("tier != 'tests-only'");
     for (const step of steps.filter((s: any) => String(s.name).startsWith('vitest '))) expect(step.if ?? '').not.toContain('tests-only');
   });
+  it('publishes the tests-only review with the App identity and fails closed without it', () => {
+    const workflow = YAML.parse(readFileSync('.github/workflows/tests.yml', 'utf8'));
+    const review = workflow.jobs.vitest.steps.find((step: any) => step.id === 'test_only_review');
+    expect(review.env?.GH_TOKEN).toBeUndefined();
+    expect(review.run).toContain('if [ -z "${APP_TOKEN:-}" ]');
+    expect(review.run).toContain('GH_TOKEN="$APP_TOKEN" node');
+    expect(review.run).toContain('Token App assente');
+    expect(review.run).toContain('exit 1');
+  });
   it('mantiene un solo tests.yml/check e porta il ledger-only prima del checkout', () => {
     const workflow = YAML.parse(readFileSync('.github/workflows/tests.yml', 'utf8')) as any;
     const pullRequest = workflow.on?.pull_request ?? workflow.true?.pull_request;
@@ -557,7 +580,7 @@ describe('owner policy excluding test files from review', () => {
     expect(source).toContain('LOOP_FLEET_REGISTRY_PATH=');
     const ledgerScope = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_scope');
     const ledgerPolicy = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_policy');
-    const checkoutIndex = workflow.jobs.vitest.steps.findIndex((step: any) => step.uses === 'actions/checkout@v5');
+    const checkoutIndex = workflow.jobs.vitest.steps.findIndex((step: any) => step.uses === 'actions/checkout@v7');
     const setupIndex = workflow.jobs.vitest.steps.findIndex((step: any) => step.id === undefined && step.name === 'Setup Node.js + npm ci (una volta per tutte e quattro le famiglie)');
     expect(workflow.jobs.vitest.steps.findIndex((step: any) => step.id === 'ledger_policy')).toBeLessThan(checkoutIndex);
     expect(workflow.jobs.vitest.steps.findIndex((step: any) => step.id === 'ledger_scope')).toBeLessThan(checkoutIndex);
@@ -569,7 +592,7 @@ describe('owner policy excluding test files from review', () => {
     const unknownExit = ledgerScope.run.slice(ledgerScope.run.indexOf('*)'));
     expect(unknownExit).toContain('exit "$status"');
     expect(unknownExit).not.toContain('ledger_only=false');
-    expect(workflow.jobs.vitest.steps.find((step: any) => step.uses === 'actions/checkout@v5').if).toContain("steps.ledger_scope.outputs.ledger_only != 'true'");
+    expect(workflow.jobs.vitest.steps.find((step: any) => step.uses === 'actions/checkout@v7').if).toContain('!cancelled()');
     expect(workflow.jobs.vitest.steps[setupIndex].if).toContain("steps.ledger_scope.outputs.ledger_only != 'true'");
     for (const id of ['source-guards', 'independent-gates', 'assemble', 'collect-independent-gates', 'resolve', 'review_gate']) {
       expect(workflow.jobs.vitest.steps.find((step: any) => step.id === id).if, id).toContain("steps.ledger_scope.outputs.ledger_only != 'true'");

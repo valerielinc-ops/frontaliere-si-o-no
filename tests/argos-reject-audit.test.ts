@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   buildMopupRequest,
-  classifyMopupWrite,
+  classifyMopupStructure,
   finalizeMopupTranslation,
   languageAwareOverwriteEnabled,
   missingSlots,
@@ -17,10 +17,10 @@ import {
   companyKey,
 } from '../scripts/research/argos-reject-audit.mjs';
 
-describe('classifyMopupWrite() — the mop-up rejection chain, made observable', () => {
+describe('classifyMopupStructure() — the mop-up rejection chain, made observable', () => {
   it('writes a genuinely missing title', () => {
     const job = { sourceLang: 'de', title: 'Metzger 60-100%', titleByLocale: { de: 'Metzger 60-100%' } };
-    const out = classifyMopupWrite({ job, locale: 'it', field: 'title', rawText: 'Macellaio 60-100%' });
+    const out = classifyMopupStructure({ job, locale: 'it', field: 'title', rawText: 'Macellaio 60-100%' });
     expect(out.decision).toBe('write');
     expect(out.incoming).toBe('Macellaio 60-100%');
     expect(shouldApplyMopupWrite({ decision: out.decision, langAwareOverwrite: false })).toBe(true);
@@ -33,7 +33,7 @@ describe('classifyMopupWrite() — the mop-up rejection chain, made observable',
       title: sourceTitle,
       titleByLocale: { de: sourceTitle },
     };
-    const out = classifyMopupWrite({
+    const out = classifyMopupStructure({
       job,
       locale: 'it',
       field: 'title',
@@ -54,26 +54,26 @@ describe('classifyMopupWrite() — the mop-up rejection chain, made observable',
 
   it('rejects an output that is just a copy of the source', () => {
     const job = { sourceLang: 'de', title: 'Metzger 60-100%', titleByLocale: { de: 'Metzger 60-100%' } };
-    const out = classifyMopupWrite({ job, locale: 'it', field: 'title', rawText: 'Metzger 60-100%' });
+    const out = classifyMopupStructure({ job, locale: 'it', field: 'title', rawText: 'Metzger 60-100%' });
     expect(out.decision).toBe('skip:source-copy');
   });
 
   it('rejects an output with no letters or digits left after finalize', () => {
     const job = { sourceLang: 'de', title: 'Metzger 60-100%', titleByLocale: { de: 'Metzger 60-100%' } };
-    const out = classifyMopupWrite({ job, locale: 'it', field: 'title', rawText: '— ** —' });
+    const out = classifyMopupStructure({ job, locale: 'it', field: 'title', rawText: '— ** —' });
     expect(out.decision).toBe('skip:finalize-empty');
     expect(out.incoming).toBe('');
   });
 
   it('rejects an empty Argos output before finalize runs', () => {
     const job = { sourceLang: 'de', title: 'Metzger 60-100%', titleByLocale: { de: 'Metzger 60-100%' } };
-    expect(classifyMopupWrite({ job, locale: 'it', field: 'title', rawText: '   ' }).decision)
+    expect(classifyMopupStructure({ job, locale: 'it', field: 'title', rawText: '   ' }).decision)
       .toBe('skip:empty-raw');
   });
 
   it('never writes into the source locale', () => {
     const job = { sourceLang: 'de', title: 'Metzger', titleByLocale: { de: 'Metzger' } };
-    expect(classifyMopupWrite({ job, locale: 'de', field: 'title', rawText: 'Butcher' }).decision)
+    expect(classifyMopupStructure({ job, locale: 'de', field: 'title', rawText: 'Butcher' }).decision)
       .toBe('skip:source-locale');
   });
 
@@ -86,7 +86,7 @@ describe('classifyMopupWrite() — the mop-up rejection chain, made observable',
     };
     // Not even queued for IT any more — and the guard agrees.
     expect(missingSlots(job)).not.toContainEqual({ locale: 'it', field: 'title' });
-    const out = classifyMopupWrite({ job, locale: 'it', field: 'title', rawText: 'Qualcosa altro 60-100%' });
+    const out = classifyMopupStructure({ job, locale: 'it', field: 'title', rawText: 'Qualcosa altro 60-100%' });
     expect(out.decision).toBe('skip:existing-good');
     expect(out.languageDriven).toBeFalsy();
   });
@@ -97,7 +97,7 @@ describe('classifyMopupWrite() — the mop-up rejection chain, made observable',
       title: 'Metzger 60-100%',
       titleByLocale: { de: 'Metzger 60-100%', it: 'Macellaio 60-100%' },
     };
-    expect(classifyMopupWrite({
+    expect(classifyMopupStructure({
       job,
       locale: 'it',
       field: 'title',
@@ -117,7 +117,7 @@ describe('classifyMopupWrite() — the mop-up rejection chain, made observable',
 // blanket re-enable and would fall straight into the objection at
 // fix-untranslated-titles.mjs:78 — overwriting a half-good title with, at best,
 // the same half-good title. The second is what makes it a comparison.
-describe('classifyMopupWrite() — language arm (workspace issue 16)', () => {
+describe('classifyMopupStructure() — language arm (workspace issue 16)', () => {
   const wrongLanguageSlot = () => ({
     sourceLang: 'de',
     title: 'Metzger 60-100%',
@@ -130,7 +130,7 @@ describe('classifyMopupWrite() — language arm (workspace issue 16)', () => {
   it('WRITES when the existing title is wrong-language and the candidate is not', () => {
     const job = wrongLanguageSlot();
     expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'title' });
-    const out = classifyMopupWrite({ job, locale: 'it', field: 'title', rawText: 'Macellaio 60-100%' });
+    const out = classifyMopupStructure({ job, locale: 'it', field: 'title', rawText: 'Macellaio 60-100%' });
     expect(out.decision).toBe('write');
     expect(out.incoming).toBe('Macellaio 60-100%');
     expect(out.languageDriven).toBe(true);
@@ -140,14 +140,14 @@ describe('classifyMopupWrite() — language arm (workspace issue 16)', () => {
   it('still REJECTS when the candidate is itself wrong-language', () => {
     const job = wrongLanguageSlot();
     expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'title' });
-    const out = classifyMopupWrite({ job, locale: 'it', field: 'title', rawText: 'Metzger Aushilfe 60-100%' });
+    const out = classifyMopupStructure({ job, locale: 'it', field: 'title', rawText: 'Metzger Aushilfe 60-100%' });
     expect(out.decision).toBe('skip:candidate-untranslated');
     expect(out.languageDriven).toBe(true);
   });
 
   it('the rollout flag gates only a predicate-approved existing-title repair', () => {
     const job = wrongLanguageSlot();
-    const approved = classifyMopupWrite({
+    const approved = classifyMopupStructure({
       job, locale: 'it', field: 'title', rawText: 'Macellaio 60-100%',
     });
     expect(approved.languageDriven).toBe(true);
@@ -162,7 +162,7 @@ describe('classifyMopupWrite() — language arm (workspace issue 16)', () => {
       langAwareOverwrite: true,
     })).toBe(true);
 
-    const rejected = classifyMopupWrite({
+    const rejected = classifyMopupStructure({
       job, locale: 'it', field: 'title', rawText: 'Metzger Aushilfe 60-100%',
     });
     expect(shouldApplyMopupWrite({
@@ -174,7 +174,7 @@ describe('classifyMopupWrite() — language arm (workspace issue 16)', () => {
 
   it('falls back to the pre-issue-16 behaviour when langAware is off', () => {
     const job = wrongLanguageSlot();
-    const out = classifyMopupWrite({
+    const out = classifyMopupStructure({
       job, locale: 'it', field: 'title', rawText: 'Macellaio 60-100%', langAware: false,
     });
     expect(out.decision).toBe('skip:existing-good');
@@ -194,17 +194,15 @@ describe('classifyMopupWrite() — language arm (workspace issue 16)', () => {
       titleByLocale: { de: 'Metzger' },
       descriptionByLocale: { de: longDe, it: longIt },
     };
-    const out = classifyMopupWrite({ job, locale: 'it', field: 'description', rawText: 'Testo nuovo qualsiasi.' });
+    const out = classifyMopupStructure({ job, locale: 'it', field: 'description', rawText: 'Testo nuovo qualsiasi.' });
     expect(out.decision).toBe('skip:existing-good');
     expect(out.languageDriven).toBeFalsy();
   });
 });
 
-// The rollout switch. Default OFF is the safety property of this PR: the guard
-// is measured in shadow on a real run before it is allowed to write. A default
-// that silently read as ON would turn "observe one run first" into "rewrite
-// ~9'400 production fields first", so both halves get pinned — the parse and
-// the wiring.
+// The rollout switch. The library remains fail-closed when invoked without a
+// workflow environment, while the live pipeline defaults to the bounded,
+// semantic-gated repair. An explicit repo variable of 0 remains the rollback.
 describe('LOCAL_MT_LANG_AWARE_OVERWRITE default', () => {
   it('is OFF unless the repo variable is exactly "1"', () => {
     expect(languageAwareOverwriteEnabled(undefined)).toBe(false);
@@ -214,22 +212,22 @@ describe('LOCAL_MT_LANG_AWARE_OVERWRITE default', () => {
     expect(languageAwareOverwriteEnabled('1')).toBe(true);
   });
 
-  it('is wired into both live mop-up phases with an OFF default', () => {
+  it('is wired into both live mop-up phases with an ON default', () => {
     const wf = readFileSync(
       new URL('../.github/corpus-workflows/translate-pending.yml', import.meta.url),
       'utf-8',
     );
-    const wired = wf.match(/LOCAL_MT_LANG_AWARE_OVERWRITE: \$\{\{ vars\.LOCAL_MT_LANG_AWARE_OVERWRITE \|\| '0' \}\}/g);
+    const wired = wf.match(/LOCAL_MT_LANG_AWARE_OVERWRITE: \$\{\{ vars\.LOCAL_MT_LANG_AWARE_OVERWRITE \|\| '1' \}\}/g);
     // Phase 2a (Argos bulk) and Phase 2c (mop-up) both run local-mt-mopup.mjs.
     expect(wired?.length).toBe(2);
   });
 
-  it('logs the same OFF default consumed by Phase 2a in the live logic workflow', () => {
+  it('logs the same ON default consumed by Phase 2a in the live logic workflow', () => {
     const wf = readFileSync(
       new URL('../.github/workflows/translate-pending-logic.yml', import.meta.url),
       'utf-8',
     );
-    const fallback = "${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}";
+    const fallback = "${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}";
     const rolloutStart = wf.indexOf('name: Record translation rollout context');
     const phase2aStart = wf.indexOf('name: "Phase 2a: Local MT bulk translate (Argos)"');
     const phase2aEnd = wf.indexOf('name: Re-assemble dataset after Argos bulk', phase2aStart);

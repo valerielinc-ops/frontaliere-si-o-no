@@ -82,7 +82,7 @@ jobs:
       # Every pattern is anchored with a leading slash. Unanchored, `scripts`
       # in gitignore syntax matches a directory of that name at ANY depth,
       # which would drag in packages/**/scripts too.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
@@ -202,8 +202,8 @@ jobs:
           # gets misread as "the PAT expired".
           #
           # Fetching the branch (when present) and resetting onto it also makes
-          # the zero-deletions guard mean what it says: it compares against what
-          # is really on the branch, not against a default branch that never had
+          # the ownership-aware deletion guard compare against what is really
+          # on the branch, not against a default branch that never had
           # generator/ at all.
           if git ls-remote --exit-code --heads origin "$TARGET_BRANCH" >/dev/null 2>&1; then
             echo "side branch '$TARGET_BRANCH' exists — continuing it"
@@ -221,21 +221,24 @@ jobs:
           # the moved code resolving correctly with zero path rewriting — this
           # step is a structural transport, not the REWIRE work (§5 step 3).
           #
-          # The directory is rebuilt from scratch every run (rm -rf then
-          # recopy) rather than overlaid, so a file dropped from the manifest
-          # disappears from nanako too on the next run instead of lingering as
-          # an orphan nobody notices. That is intentional and is exactly what
-          # the zero-deletions guard below is watching for: it should only ever
-          # fire because a human edited the manifest, never as a surprise.
-          rm -rf generator
-          while IFS= read -r f; do
-            mkdir -p "generator/$(dirname "$f")"
-            cp "$GITHUB_WORKSPACE/$f" "generator/$f"
-          done < /tmp/resolved-manifest.txt
+          # nanako's default branch can already own files under generator/.
+          # Those files include corpus-only guards and repository-specific
+          # rewires, so deleting the directory before copying the site-owned
+          # manifest would erase code that this transport does not own. The
+          # reconciler overlays the resolved files, removes only paths recorded
+          # by the previous transport ledger that are absent now, and writes the
+          # current ledger back into the branch. The separate guard below still
+          # fails closed for every deletion outside that exact stale set.
+          transport_ledger=".github/transport/nanako-generator-site-owned-manifest.txt"
+          previous_manifest="$(mktemp)"
+          node "$GITHUB_WORKSPACE/scripts/ci/reconcile-nanako-generator-transport.mjs" \
+            --stage "$GITHUB_WORKSPACE" "$work" /tmp/resolved-manifest.txt "$previous_manifest"
+          echo "previous_manifest=$previous_manifest" >> "$GITHUB_OUTPUT"
 
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
           git add -A -- generator
+          git add -f -- "$transport_ledger"
 
           if git diff --cached --quiet; then
             echo "nothing to stage — nanako's generator/ already matches the manifest"
@@ -244,25 +247,41 @@ jobs:
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Guard - refuse any deletion
+      - name: Reconcile identical-twin closure
+        id: reconcile
         env:
-          TARGET_BRANCH: ${{ steps.guard-branch.outputs.target_branch }}
+          WORK: ${{ steps.stage.outputs.work }}
+        run: |
+          set -euo pipefail
+          # Structural transport and loop-sync classification are one closure:
+          # the former stages the moved files, while this reconciler registers
+          # their exact identical dependencies and keeps adapted files out of
+          # the pull-side identical-twin path. Recompute the change flag after
+          # staging the manifest, so a manifest-only repair is never skipped.
+          node "$GITHUB_WORKSPACE/scripts/ci/prepare-nanako-identical-twin-closure.mjs" "$WORK"
+          cd "$WORK"
+          git add -- scripts/ci/loop-sync-manifest.json
+          if git diff --cached --quiet; then
+            echo "nothing to stage — nanako's generator/ and loop-sync manifest already match"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Guard - refuse any unowned deletion
+        env:
+          PREVIOUS_MANIFEST: ${{ steps.stage.outputs.previous_manifest }}
         run: |
           set -euo pipefail
           cd "${{ steps.stage.outputs.work }}"
-          # This transport only ever adds or updates files under generator/ on
-          # a purpose-built side branch — there is no legitimate reason for it
-          # to delete anything, unlike the mirror (which tolerates some churn
-          # and only trips at >200 deletions). Any deletion here means the
-          # manifest shrank or the clone is wrong; either way, stop and let a
-          # human look rather than silently narrowing what nanako has staged.
-          deleted=$(git diff --cached --diff-filter=D --name-only | wc -l)
-          echo "deletions staged: $deleted"
-          if [ "$deleted" -gt 0 ]; then
-            echo "::error::transport would delete $deleted file(s) in nanako — refusing. Files:"
-            git diff --cached --diff-filter=D --name-only
-            exit 1
-          fi
+          # A manifest shrink is intentional only for a path the previous
+          # transport ledger proves was site-owned. The guard is implemented
+          # in the same dependency-free script as reconciliation so the exact
+          # acceptance fixture is executable outside Actions too.
+          staged_deletions="$(mktemp)"
+          git diff --cached --diff-filter=D --name-only -z -- > "$staged_deletions"
+          node "$GITHUB_WORKSPACE/scripts/ci/reconcile-nanako-generator-transport.mjs" \
+            --guard "${{ steps.stage.outputs.work }}" /tmp/resolved-manifest.txt "$PREVIOUS_MANIFEST" "$staged_deletions"
 
       - name: Show staged diff (dry run)
         if: ${{ inputs.dry_run }}
@@ -285,7 +304,7 @@ jobs:
           set -euo pipefail
           cd "${{ steps.stage.outputs.work }}"
 
-          if [ "${{ steps.stage.outputs.has_changes }}" != "true" ]; then
+          if [ "${{ steps.reconcile.outputs.has_changes }}" != "true" ]; then
             echo "nothing changed — skipping commit/push"
             exit 0
           fi

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-cls-ad-slots.mjs — zero-Claude, deterministic CI gate that forbids
  * hard-coded AdSense `<ins>` markup in build-plugin static HTML.
@@ -42,7 +44,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { isGitGrepNoMatch } from './lib/git-grep.mjs';
 
 const argv = process.argv.slice(2);
@@ -66,11 +68,15 @@ if (HELP) {
 //   - constants.ts      : the AdSense loader script + its `ins.adsbygoogle`
 //                         IntersectionObserver selectors + docs (no page <ins>).
 //   - htmlTemplate.ts   : `bodyHtml.includes('adsbygoogle')` static-slot detection.
+//   - shared/adPageDiagInline.ts : the loader's per-page ad diagnosis, which only
+//                         READS `ins.adsbygoogle` / `window.adsbygoogle` to count
+//                         slots (interpolated into constants.ts's loader; no <ins>).
 // Every OTHER build-plugin emitting the literal is hard-coding an ad slot.
 export const ALLOWED = new Set([
   'build-plugins/lib/adSlotHtml.ts',
   'build-plugins/constants.ts',
   'build-plugins/htmlTemplate.ts',
+  'build-plugins/shared/adPageDiagInline.ts',
 ]);
 
 // The distinctive marker of an AdSense unit. adSlotHtml() and the React
@@ -78,12 +84,12 @@ export const ALLOWED = new Set([
 // only ever appear inside the sanctioned helper.
 export const AD_MARKER = 'adsbygoogle';
 
-function gitGrepFiles(marker, pathspec) {
+function gitGrepFiles(marker, pathspec, cwd) {
   try {
     const out = execFileSync(
       'git',
       ['grep', '-lF', '--', marker, '--', pathspec],
-      { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 },
+      { cwd, encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 },
     );
     return out.split('\n').map((s) => s.trim()).filter(Boolean);
   } catch (e) {
@@ -135,12 +141,13 @@ export function stripComments(src) {
  * #2010 no-false-clean discipline).
  *
  * @param {string} file repo-relative path
+ * @param {string} cwd repo root the path is relative to
  * @returns {boolean}
  */
-function fileHasMarkerInCode(file) {
+function fileHasMarkerInCode(file, cwd) {
   let src;
   try {
-    src = fs.readFileSync(file, 'utf-8');
+    src = fs.readFileSync(path.join(cwd, file), 'utf-8');
   } catch {
     return true;
   }
@@ -151,14 +158,20 @@ function fileHasMarkerInCode(file) {
  * Tracked build-plugin TS/TSX files that contain the raw `adsbygoogle` ins
  * literal IN CODE but are NOT the sanctioned emitter — i.e. hard-coded ad slots.
  * Returns a sorted, de-duplicated list (empty = clean).
+ *
+ * `cwd` is the repository to inspect (default: the current directory, as the
+ * CLI uses it). The tests pass a throwaway git repository in os.tmpdir(), so
+ * they never create or stage files in the real checkout.
+ *
+ * @param {{ cwd?: string }} [options]
  */
-export function findViolations() {
+export function findViolations({ cwd = process.cwd() } = {}) {
   // Grep the whole build-plugins/ tree (a directory pathspec recurses reliably),
   // then keep TS/TSX. NB: a `build-plugins/**/*.ts` git pathspec is a trap — git's
   // default fnmatch makes the `/` after `**` literal, so it matches ONLY nested
   // (lib/, shared/) files and silently SKIPS every top-level build-plugins/*.ts
   // (where #1910's hard-coded <ins> lived). Filtering extensions in JS avoids it.
-  const raw = gitGrepFiles(AD_MARKER, 'build-plugins/');
+  const raw = gitGrepFiles(AD_MARKER, 'build-plugins/', cwd);
 
   // Positive control against a silent false-clean (#2010): the sanctioned emitter
   // build-plugins/lib/adSlotHtml.ts — plus the ad-loader infra in constants.ts /
@@ -187,7 +200,7 @@ export function findViolations() {
   const candidates = raw.filter((f) => f.endsWith('.ts') || f.endsWith('.tsx'));
   return [...new Set(candidates)]
     .filter((f) => !ALLOWED.has(f))
-    .filter(fileHasMarkerInCode)
+    .filter((f) => fileHasMarkerInCode(f, cwd))
     .sort();
 }
 
@@ -226,6 +239,6 @@ function main() {
 
 // Run only as a CLI entrypoint — importing the pure helpers (findViolations,
 // ALLOWED, AD_MARKER) for tests must not trigger the gate's process.exit.
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

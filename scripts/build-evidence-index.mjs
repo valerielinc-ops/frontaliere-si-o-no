@@ -1,30 +1,37 @@
 #!/usr/bin/env node
-// Build the daily evidence index — aggregates GSC + GA4 + PostHog data into
-// one JSON file consumed by the cascaded scoring + discovery pool layers.
+import { realpathSync } from 'node:fs';
+// Build the daily evidence index — aggregates GSC + GA4 data into one JSON
+// file consumed by the cascaded scoring + discovery pool layers.
+//
+// PostHog is no longer read (decisione H9 del 2026-10-05, «rimpiazza PostHog
+// con GA4»): it is under quota by choice and its two per-page signals were
+// already covered or empty — `pageviews` duplicates GA4 `screenPageViews` /
+// `sessions` per pagePath, and `newsletterSignups` counted a
+// `newsletter_signup` event the client no longer emits. The output carries no
+// `posthog` block; its readers (trafficEvidenceFilter, alert detectors B.4 and
+// C.5) already treat it as optional.
 //
 // Output: data/evidence-index.json
 //
 // Failure semantics:
 //   - 0 fetcher failures → exit 0
 //   - 1 fetcher failure  → exit 0 (degraded — log warning)
-//   - 2 fetcher failures → exit 0 (still degraded but not catastrophic)
-//   - 3 fetcher failures → exit 1 (full data outage)
+//   - 2 fetcher failures → exit 1 only when both results are empty
+//     (a full data outage); preserved partial observations remain degraded
 //
 // Optional flag: `--embeddings` triggers `scripts/build-article-embeddings.mjs`
 // at the end (delegated to keep this script focused on the JSON ETL).
 
 import { writeFileSync, renameSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawn } from 'node:child_process';
 
 import { fetchGscQueries } from './lib/evidence/gscFetcher.mjs';
 import { fetchGa4Pages } from './lib/evidence/ga4Fetcher.mjs';
-import { fetchPosthogPages } from './lib/evidence/posthogFetcher.mjs';
 import { buildClusterStats } from './lib/evidence/clusterStatsBuilder.mjs';
 import { DEFAULT_WINDOW_DAYS } from './lib/evidence/constants.mjs';
 import { GA4_READONLY_SCOPE, getServiceAccountToken } from './lib/ga4-service-account.mjs';
-import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..');
@@ -50,6 +57,31 @@ function atomicWriteJson(path, obj) {
   renameSync(tmp, path);
 }
 
+function hasEntries(value) {
+  return value != null && typeof value === 'object' && Object.keys(value).length > 0;
+}
+
+/**
+ * A fetcher can report incomplete coverage after preserving rows it observed.
+ * Those rows are still usable evidence; only an empty result is an outage.
+ */
+export function hasObservedEvidence(result) {
+  if (!result || typeof result !== 'object') return false;
+  return hasEntries(result.queries)
+    || hasEntries(result.pages)
+    || (Array.isArray(result.orphanQueries) && result.orphanQueries.length > 0);
+}
+
+/**
+ * Keep the build fail-closed for a genuine outage while allowing degraded,
+ * explicitly-marked partial snapshots to reach the quota tuner.
+ */
+export function isFullDataOutage(results) {
+  return Array.isArray(results)
+    && results.length > 0
+    && results.every((result) => !hasObservedEvidence(result));
+}
+
 async function runEmbeddingsBuild() {
   return new Promise((resolveProc) => {
     const proc = spawn(
@@ -70,51 +102,49 @@ async function main() {
 
   console.error(`EVIDENCE_BUILD start=${startDate} end=${endDate} window=${windowDays}d`);
 
-  const posthogLiveness = await checkPostHogLiveness({ windowDays });
-  if (!posthogLiveness.alive) declareNotMeasurable('build-evidence-index', posthogLiveness);
-
   // Run fetchers in parallel — each is internally resilient (returns error key on failure).
-  const [gscResult, ga4Result, posthogResult] = await Promise.all([
+  const [gscResult, ga4Result] = await Promise.all([
     fetchGscQueries({ startDate, endDate }),
-    // GA4 stays an independent source when PostHog is unavailable; the
-    // explicit token call here makes that fallback visible at this consumer,
-    // not only buried in the fetcher implementation.
+    // GA4 is the analytics source (H9); the explicit token call keeps the
+    // auth path visible at this consumer, not only inside the fetcher.
     fetchGa4Pages({
       startDate,
       endDate,
       getTokenImpl: () => getServiceAccountToken([GA4_READONLY_SCOPE]),
     }),
-    posthogLiveness.alive
-      ? fetchPosthogPages({ startDate, endDate })
-      : Promise.resolve({ pages: {}, error: `posthog non misurabile: ${posthogLiveness.reason}` }),
   ]);
 
   const failures = [];
   if (gscResult.error) failures.push(`gsc: ${gscResult.error}`);
   if (ga4Result.error) failures.push(`ga4: ${ga4Result.error}`);
-  if (posthogResult.error) failures.push(`posthog: ${posthogResult.error}`);
+  const fetcherResults = [gscResult, ga4Result];
 
   for (const f of failures) console.error(`EVIDENCE_FETCHER_FAIL ${f}`);
 
-  // Compute cluster stats from GA4 pages (may be empty if GA4 failed).
-  const clusterStats = buildClusterStats(ga4Result.pages || {});
+  // A truncated population must not become the cluster percentile baseline.
+  const clusterStats = ga4Result.error ? {} : buildClusterStats(ga4Result.pages || {});
 
   const index = {
     version: 1,
     builtAt: new Date().toISOString(),
     windowDays,
-    // Multi-pass fetchers (gsc, posthog) isolate their sub-passes and return
+    // Paginated fetchers isolate failures and return
     // partial data alongside `error`, so write whatever they returned rather
     // than dropping every source on any error — dropping would over-thin pages
     // a surviving pass still confirmed. `failures` below still logs/gates the
-    // error. ga4 is single-pass (error ⇒ empty), so its guard stays as-is.
+    // error. Persist that status too: an absent URL in an incomplete source
+    // cannot prove zero traffic to the thinning filter.
     gsc: {
       queries: gscResult.queries || {},
       orphanQueries: gscResult.orphanQueries || [],
       pages: gscResult.pages || {},
+      ...(gscResult.error ? { error: gscResult.error } : {}),
     },
-    ga4: ga4Result.error ? {} : { pages: ga4Result.pages },
-    posthog: { pages: posthogResult.pages || {} },
+    ga4: {
+      pages: ga4Result.pages || {},
+      ...(ga4Result.error ? { error: ga4Result.error } : {}),
+      ...(ga4Result.coverage ? { coverage: ga4Result.coverage } : {}),
+    },
     clusterStats,
     publishedArticleEmbeddings: EMBEDDINGS_PATH,
   };
@@ -124,12 +154,11 @@ async function main() {
   const queryCount = Object.keys(gscResult.queries || {}).length;
   const gscPageCount = Object.keys(gscResult.pages || {}).length;
   const ga4PageCount = Object.keys(ga4Result.pages || {}).length;
-  const posthogPageCount = Object.keys(posthogResult.pages || {}).length;
   const clusterCount = Object.keys(clusterStats).length;
 
   console.error(
     `EVIDENCE_BUILD_DONE queries=${queryCount} gscPages=${gscPageCount} ga4Pages=${ga4PageCount} `
-    + `posthogPages=${posthogPageCount} clusters=${clusterCount} failures=${failures.length}`,
+    + `clusters=${clusterCount} failures=${failures.length}`,
   );
 
   if (buildEmbeddings) {
@@ -138,14 +167,31 @@ async function main() {
     console.error(`EVIDENCE_BUILD_EMBEDDINGS exit=${code}`);
   }
 
-  if (failures.length >= 3) {
-    console.error('EVIDENCE_BUILD_FATAL all 3 fetchers failed — exiting 1');
+  if (failures.length === fetcherResults.length && isFullDataOutage(fetcherResults)) {
+    console.error(`EVIDENCE_BUILD_FATAL all ${fetcherResults.length} fetchers failed — exiting 1`);
     process.exit(1);
+  }
+  if (failures.length === fetcherResults.length) {
+    const observed = fetcherResults.filter(hasObservedEvidence).length;
+    console.error(
+      `EVIDENCE_BUILD_DEGRADED all ${fetcherResults.length} fetchers reported incomplete results; `
+      + `observed evidence retained from ${observed} source(s) — continuing`,
+    );
   }
   process.exit(0);
 }
 
-main().catch((err) => {
-  console.error('EVIDENCE_BUILD_UNCAUGHT', err);
-  process.exit(1);
-});
+function isMain() {
+  try {
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
+  } catch {
+    return false;
+  }
+}
+
+if (isMain()) {
+  main().catch((err) => {
+    console.error('EVIDENCE_BUILD_UNCAUGHT', err);
+    process.exit(1);
+  });
+}

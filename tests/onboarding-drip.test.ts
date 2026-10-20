@@ -16,6 +16,7 @@ import {
   resolveDripCards,
   resolveDripSegment,
   computeNextStep,
+  DRIP_MIN_SPACING_DAYS,
   buildDripEmail,
 } from '../services/newsletter/onboardingDrip.mjs';
 
@@ -65,6 +66,19 @@ describe('computeNextStep (no double sends, stops when complete)', () => {
   it('returns null once the sequence is complete', () => {
     expect(computeNextStep({ startedAtMs: started, lastStep: 3, nowMs: started + 100 * DAY })).toBeNull();
   });
+
+  it('spaces out a subscriber who fell behind instead of sending on consecutive days', () => {
+    // 40 days late: steps 2 and 3 are both overdue, but step 1 went out yesterday.
+    const now = started + 40 * DAY;
+    expect(DRIP_MIN_SPACING_DAYS).toBe(2);
+    expect(computeNextStep({ startedAtMs: started, lastStep: 1, nowMs: now, lastSentAtMs: now - 1 * DAY })).toBeNull();
+    expect(computeNextStep({ startedAtMs: started, lastStep: 1, nowMs: now, lastSentAtMs: now - 2 * DAY })).toBe(2);
+  });
+
+  it('never delays an on-time schedule (its gaps exceed the minimum spacing)', () => {
+    expect(computeNextStep({ startedAtMs: started, lastStep: 0, nowMs: started + 3 * DAY, lastSentAtMs: started })).toBe(1);
+    expect(computeNextStep({ startedAtMs: started, lastStep: 1, nowMs: started + 7 * DAY, lastSentAtMs: started + 3 * DAY })).toBe(2);
+  });
 });
 
 describe('buildDripEmail', () => {
@@ -96,7 +110,13 @@ describe('buildDripEmail', () => {
     // day-3 job-alert card for an EN utility subscriber → /en/find-jobs-switzerland/
     const enJobs = buildDripEmail({ step: 1, locale: 'en', interest: 'utility', unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe' });
     expect(enJobs.cardId).toBe('jobalert');
-    expect(enJobs.html).toMatch(/href="https:\/\/frontaliereticino\.ch\/en\/find-jobs-switzerland\/"/);
+    expect(enJobs.html).toMatch(/href="https:\/\/frontaliereticino\.ch\/en\/find-jobs-switzerland\/\?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=drip&amp;utm_content=onboarding_step_2_cta"/);
+  });
+
+  it('attributes the primary CTA and footer homepage link to the drip email', () => {
+    const { html } = buildDripEmail({ step: 0, locale: 'it', interest: 'utility' });
+    expect(html).toContain('href="https://frontaliereticino.ch/calcola-stipendio/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=drip&amp;utm_content=onboarding_step_1_cta"');
+    expect(html).toContain('href="https://frontaliereticino.ch/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=drip&amp;utm_content=onboarding_footer_home"');
   });
 
   it('swaps the day-3 card for a jobs-arrival subscriber', () => {

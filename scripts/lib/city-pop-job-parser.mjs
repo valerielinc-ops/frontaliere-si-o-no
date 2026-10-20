@@ -46,6 +46,7 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
@@ -53,6 +54,7 @@ import { detectEmploymentTypeFromOccupation } from './jobup-ch-feed-common.mjs';
 import {
   fetchJobsChCompanyListings,
   fetchJobsChJobPostingLd,
+  jobsChAuthoritativeEmptyOrNull,
   jobsChDetailUrl,
 } from './jobs-ch-search-common.mjs';
 
@@ -171,6 +173,11 @@ export async function fetchAllCityPopJobs() {
 
   const listings = await fetchJobsChCompanyListings({ companyIds: COMPANY_IDS });
   if (!listings || listings.length === 0) {
+    // A zero the jobs.ch API itself declares (`totalHits: 0`) is a healthy
+    // empty employer, not a broken parser (issue #11653). Returned AS IS: the
+    // stamp lives on this array instance.
+    const proven = jobsChAuthoritativeEmptyOrNull(listings, CITY_POP_COMPANY_NAME);
+    if (proven) return proven;
     console.warn('⚠️ No job listings returned.');
     return [];
   }
@@ -232,9 +239,8 @@ export async function fetchAllCityPopJobs() {
     seenSlugs.add(jobSlug);
 
     const employmentType = resolveEmploymentType(ld?.employmentType || '', listing.employmentGrades);
-    const postedDate = (listing.publicationDate && String(listing.publicationDate).slice(0, 10))
-      || (listing.initialPublicationDate && String(listing.initialPublicationDate).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
+    // The detail explicitly identifies publication; discovery aliases are not evidence.
+    const publication = sourcePostingDateFields(ld?.datePosted);
 
     const hiringOrganizationName = ld?.hiringOrganization?.name || listing.company?.name || CITY_POP_COMPANY_NAME;
 
@@ -271,7 +277,7 @@ export async function fetchAllCityPopJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: detailUrl,
       hiringOrganizationName,
       requirements: [],

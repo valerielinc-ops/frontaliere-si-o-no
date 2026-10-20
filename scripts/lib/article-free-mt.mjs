@@ -126,6 +126,8 @@ function describeNumericLoss(losses) {
     .join('; ');
 }
 
+const lineCount = (value) => String(value ?? '').trim().split('\n').length;
+
 /**
  * Translate a single article text field via the injected free MT translator,
  * preserving internal nav-links. Returns '' on any failure (empty input, MT
@@ -236,5 +238,18 @@ export async function translateFieldFreeMt({
     onWarn(`free-MT ${targetLang}:${fieldType} ha perso cifre dell'originale — ${describeNumericLoss(lost)}`);
     return '';
   }
-  return balanceMarkdown(restored);
+  const balanced = balanceMarkdown(restored, { sourceText: src });
+  // The markdown repair runs on the whole field, after every engine guard, and
+  // no later check looks at lines: it may not change their number. It used to
+  // merge list items here (`**a**\n- **b**` → one line). The comparison is
+  // with the text it was handed, not with the source: a block comes back from
+  // the engine with its blank runs collapsed, so the field is often not
+  // line-aligned with the raw source, and a guard that waited for that
+  // alignment did not look at exactly the fields where the repair could still
+  // drop a line.
+  if (lineCount(balanced) !== lineCount(restored)) {
+    onWarn(`free-MT ${targetLang}:${fieldType} markdown repair changed the line count (${lineCount(restored)} → ${lineCount(balanced)})`);
+    return '';
+  }
+  return balanced;
 }

@@ -9,15 +9,18 @@ const readWorkflow = (name: string) => YAML.parse(readFileSync(new URL(`../.gith
 const workflow = readWorkflow('tests.yml');
 const job = workflow.jobs.vitest;
 const recovery = readWorkflow('retry-code-check-after-body-edit.yml');
-const recoveryScriptStep = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/github-script@v8') as { with: Record<string, string> };
+const recoveryScriptStep = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/github-script@v9') as { with: Record<string, string> };
 const script = recoveryScriptStep.with.script;
 const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 const require = createRequire(import.meta.url);
 
-async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false } = {}) {
+async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false, markerExtra = {} as Record<string, unknown>, bodyEditedAt = null as string | null, attemptJobs = null as Array<{ conclusion: string; started_at?: string }> | null, concurrentEdit = null as { body?: string; editedAt?: string } | null } = {}) {
   const reruns: number[] = [];
   const dispatches: unknown[] = [];
   const callOrder: string[] = [];
+  const attemptRequests: Array<{ run_id: number; attempt_number: number }> = [];
+  let prBody = body;
+  let lastEditedAt = bodyEditedAt;
   let nativeAutoMergeRevoked = false;
   let reads = 0;
   const run = { id: 42, status, conclusion, run_attempt: changedAttempt ? 2 : 1, event: 'pull_request', head_sha: 'head' };
@@ -29,6 +32,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
       version: 1, status: pendingStatus, prNumber: 1, runId: 42, runAttempt: 1,
         headSha: 'head', bodyRevision: reviewInputRevisionFromBody(body),
         ...(pendingStatus === 'manual' ? { runAttempt: 2, reconcileAttempts: 1, sourceEvent: 'rerun-ambiguous' } : {}),
+        ...markerExtra,
       })} -->`,
   }] : [];
   if (codexAuthBlocked) comments.push({
@@ -56,7 +60,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
     rest: {
       pulls: {
         list: 'pulls',
-        get: async () => ({ data: { state: 'open', body, head: { sha: ++reads > 1 && changedHead ? 'new' : 'head', ref: 'fork-branch' }, base: { ref: 'main' } } }),
+        get: async () => ({ data: { state: 'open', body: prBody, head: { sha: ++reads > 1 && changedHead ? 'new' : 'head', ref: 'fork-branch' }, base: { ref: 'main' } } }),
       },
       issues: {
         listComments: 'comments',
@@ -74,7 +78,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
         },
       },
       actions: {
-        listWorkflowRuns: 'runs', listJobsForWorkflowRun: 'jobs',
+        listWorkflowRuns: 'runs', listJobsForWorkflowRun: 'jobs', listJobsForWorkflowRunAttempt: 'attemptJobs',
         getWorkflowRun: async ({ run_id }: { run_id: number }) => ({ data: { ...run, id: run_id, status: finishing ? 'completed' : status, conclusion: finishing ? 'failure' : conclusion, run_attempt: changedAttempt ? 2 : 1, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { sha: 'head' } }] } }),
         reRunWorkflow: async ({ run_id }: { run_id: number }) => {
           if (rerunFails) throw new Error('rerun failed');
@@ -98,6 +102,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
           pullRequest: {
             id: 'PRID',
             state: 'OPEN',
+            lastEditedAt,
             autoMergeRequest: nativeAutoMerge && !nativeAutoMergeRevoked
               ? { enabledAt: '2026-09-19T08:00:00Z' }
               : null,
@@ -105,8 +110,15 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
         },
       };
     },
-    paginate: async (endpoint: string) => {
+    paginate: async (endpoint: string, params: { run_id?: number; attempt_number?: number } = {}) => {
       if (endpoint === 'pulls') return [{ number: 1, draft: false, base: { ref: 'main' } }];
+      if (endpoint === 'attemptJobs') {
+        attemptRequests.push({ run_id: Number(params.run_id), attempt_number: Number(params.attempt_number) });
+        // An edit landing while the jobs are listed, after the first snapshot.
+        if (concurrentEdit?.body !== undefined) prBody = concurrentEdit.body;
+        if (concurrentEdit?.editedAt !== undefined) lastEditedAt = concurrentEdit.editedAt;
+        return attemptJobs ?? [];
+      }
       if (endpoint === 'runs') {
         return workflowRuns === 'none'
           ? []
@@ -128,8 +140,10 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   };
   let error = '';
   const previousAppToken = process.env.APP_TOKEN;
+  const previousGithubPat = process.env.GITHUB_PAT;
   if (trustedToken) process.env.APP_TOKEN = trustedToken;
   else delete process.env.APP_TOKEN;
+  delete process.env.GITHUB_PAT;
   try {
     await new AsyncFunction('github', 'context', 'core', 'require', script)(github, {
       eventName,
@@ -144,10 +158,13 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   } finally {
     if (previousAppToken === undefined) delete process.env.APP_TOKEN;
     else process.env.APP_TOKEN = previousAppToken;
+    if (previousGithubPat === undefined) delete process.env.GITHUB_PAT;
+    else process.env.GITHUB_PAT = previousGithubPat;
   }
   if (rerunFails || dispatchFails) return { reruns, dispatches, comments, error };
   if (nativeAutoMerge) return { reruns, dispatches, callOrder, ...(returnComments ? { comments } : {}) };
-  return { reruns, dispatches };
+  if (attemptJobs) return { reruns, dispatches, attemptRequests, ...(returnComments ? { comments } : {}) };
+  return { reruns, dispatches, ...(returnComments ? { comments } : {}) };
 }
 
 describe('one code verdict and metadata-triggered review recovery', () => {
@@ -168,7 +185,10 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     // quella.
     expect(workflow.on.pull_request.types).not.toContain('edited');
     expect(workflow.on.pull_request.types).toContain('synchronize');
-    expect(workflow.on.workflow_dispatch).toBeUndefined();
+    // Il retest manuale/rebase identifica la PR, mentre il producer redcheck
+    // lega la run risultante alla HEAD corrente prima di dispatchare il fixer.
+    // Non accettare mai una SHA libera come input del workflow trusted.
+    expect(workflow.on.workflow_dispatch.inputs.pr.required).toBe(true);
     expect(readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8')).not.toContain('inputs.head_sha');
     expect(workflow.concurrency.group).not.toContain('inputs.head_sha');
     const recoveryWorkflowCheckout = job.steps.find((step: { uses?: string }) => step.uses?.startsWith('actions/checkout@')) as { with?: Record<string, string> } | undefined;
@@ -186,7 +206,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
   it('rejects the current PR body before checkout and guards independent steps after failure', () => {
     const first = job.steps[0];
     expect(first.id).toBe('body_contract');
-    expect(first.uses).toBe('actions/github-script@v8');
+    expect(first.uses).toBe('actions/github-script@v9');
     expect(first.with.script).toContain('github.rest.pulls.get');
     expect(first.with.script).toContain('currentPr.body');
     expect(job.steps.findIndex((step: { uses?: string }) => step.uses?.startsWith('actions/checkout@'))).toBeGreaterThan(0);
@@ -274,6 +294,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(launchScript).toContain('expected_labels+=(input-injection)');
     expect(launchScript).toContain('expected_labels+=(locale-segments)');
     expect(launchScript).toContain('expected_labels+=(evergreen-topics)');
+    expect(launchScript).toContain('expected_labels+=(twin-imports)');
     expect(launchScript).not.toContain('>> "$state_dir/labels"');
     expect(collectScript).toContain('expected_file="$state_dir/expected-labels"');
     expect(collectScript).toContain('expected roster is missing or empty');
@@ -292,7 +313,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(recovery.jobs.recover.if).toContain("github.event_name == 'workflow_run'");
     expect(recovery.jobs.recover.if).toContain('github.event.changes.body != null');
     expect(recovery.jobs.recover.steps).toHaveLength(4);
-    const trustedCheckout = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/checkout@v5') as { with?: Record<string, string | boolean> } | undefined;
+    const trustedCheckout = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/checkout@v7') as { with?: Record<string, string | boolean> } | undefined;
     expect(trustedCheckout?.with?.ref).toBe('main');
     expect(trustedCheckout?.with?.path).toBe('.trusted-main');
     expect(trustedCheckout?.with?.['persist-credentials']).toBe(false);
@@ -384,6 +405,82 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(await runRecovery({ body: 'skipped' })).toEqual({ reruns: [], dispatches: [] });
   });
 
+  it('consumes a green attempt that started after the last body edit instead of rerunning it', async () => {
+    // PR #10127: the edit raced the queued run, whose jobs all started later
+    // and read the edited body, so the completion dispatches native auto-merge.
+    const result = await runRecovery({
+      body: 'success', conclusion: 'success', eventName: 'workflow_run', pendingStatus: 'pending',
+      bodyEditedAt: '2026-09-19T09:00:10Z',
+      attemptJobs: [
+        { conclusion: 'success', started_at: '2026-09-19T09:01:54Z' },
+        { conclusion: 'skipped', started_at: '2026-09-19T09:00:00Z' },
+        { conclusion: 'success', started_at: '2026-09-19T09:13:18Z' },
+      ],
+      returnComments: true,
+    });
+    expect(result.reruns).toEqual([]);
+    expect(result.dispatches).toEqual([{
+      owner: 'owner', repo: 'repo', workflow_id: 'enable-native-automerge.yml',
+      ref: 'main', inputs: { pr_number: '1' },
+    }]);
+    expect(result.attemptRequests).toEqual([{ run_id: 42, attempt_number: 1 }]);
+    expect(result.comments!.at(-1)?.body).toContain('"status":"completed"');
+  });
+
+  it('still reruns a green attempt that may have read the body before its last edit', async () => {
+    const pending = { body: 'success', conclusion: 'success', eventName: 'workflow_run', pendingStatus: 'pending' };
+    const after = { conclusion: 'success', started_at: '2026-09-19T09:01:54Z' };
+    for (const [bodyEditedAt, attemptJobs] of [
+      ['2026-09-19T09:01:54Z', [after]],
+      ['2026-09-19T09:01:54Z', [{ conclusion: 'success', started_at: '2026-09-19T09:00:30Z' }, after]],
+      ['2026-09-19T09:00:10Z', [{ conclusion: 'success' }, after]],
+      ['2026-09-19T09:00:10Z', [{ conclusion: 'skipped', started_at: '2026-09-19T09:01:00Z' }]],
+      [null, [after]],
+    ] as const) {
+      const result = await runRecovery({ ...pending, bodyEditedAt, attemptJobs: [...attemptJobs] });
+      expect(result.reruns).toEqual([42]);
+      expect(result.dispatches).toEqual([]);
+    }
+    // A marker for another body means an edit whose handler has not run yet.
+    const staleMarker = await runRecovery({
+      ...pending, bodyEditedAt: '2026-09-19T09:00:10Z', attemptJobs: [after],
+      markerExtra: { bodyRevision: reviewInputRevisionFromBody('older body') },
+    });
+    expect(staleMarker.reruns).toEqual([42]);
+    expect(staleMarker.attemptRequests).toEqual([]);
+    // Without a durable marker the edit handler has just revoked native
+    // auto-merge: only the rerun's completion brings the PR back to a merge.
+    const unmarked = await runRecovery({
+      body: 'success', conclusion: 'success', bodyEditedAt: '2026-09-19T09:00:10Z', attemptJobs: [after],
+    });
+    expect(unmarked.reruns).toEqual([42]);
+    expect(unmarked.attemptRequests).toEqual([]);
+  });
+
+  it('leaves the epoch pending for a rerun when the body changes while the attempt is checked', async () => {
+    const markerState = (comments: Array<{ body: string }>) => {
+      const last = comments.at(-1)?.body || '';
+      return JSON.parse(last.slice(last.indexOf('{'), last.indexOf('-->')));
+    };
+    for (const concurrentEdit of [
+      { body: 'edited again', editedAt: '2026-09-19T09:05:00Z' },
+      { editedAt: '2026-09-19T09:05:00Z' },
+    ]) {
+      const result = await runRecovery({
+        body: 'success', conclusion: 'success', eventName: 'workflow_run', pendingStatus: 'pending',
+        bodyEditedAt: '2026-09-19T09:00:10Z',
+        attemptJobs: [{ conclusion: 'success', started_at: '2026-09-19T09:01:54Z' }],
+        concurrentEdit, returnComments: true,
+      });
+      expect(result.dispatches).toEqual([]);
+      expect(result.reruns).toEqual([42]);
+      expect(markerState(result.comments!)).toMatchObject({
+        status: 'queued', runId: 42, runAttempt: 2,
+        bodyRevision: reviewInputRevisionFromBody(concurrentEdit.body ?? 'success'),
+      });
+    }
+  });
+
   it('does not retry a completed code failure after a body edit', async () => {
     expect(await runRecovery({
       body: 'success',
@@ -425,6 +522,76 @@ describe('one code verdict and metadata-triggered review recovery', () => {
         ref: 'main', inputs: { pr_number: '1' },
       }],
     });
+  });
+
+  it('retries a cancelled or timed-out run once per HEAD and body digest after an edit', async () => {
+    const markerState = (comments: Array<{ body: string }>) => {
+      const last = comments.at(-1)?.body || '';
+      return JSON.parse(last.slice(last.indexOf('{'), last.indexOf('-->')));
+    };
+    for (const conclusion of ['cancelled', 'timed_out']) {
+      const first = await runRecovery({ body: 'success', conclusion, returnComments: true });
+      expect(first.reruns).toEqual([42]);
+      expect(markerState(first.comments!)).toMatchObject({
+        status: 'queued', headSha: 'head', runId: 42, runAttempt: 2, interruptedRetry: true,
+      });
+      // A repeated edit delivery for the same HEAD + body digest, after the
+      // bounded retry was already spent: no second rerun, no loop.
+      expect(await runRecovery({
+        body: 'success', conclusion, pendingStatus: 'completed', markerExtra: { interruptedRetry: true },
+      })).toMatchObject({ reruns: [] });
+      // A new body digest on the same HEAD earns its own single retry.
+      expect(await runRecovery({
+        body: 'success', conclusion, pendingStatus: 'completed',
+        markerExtra: { interruptedRetry: true, bodyRevision: reviewInputRevisionFromBody('older body') },
+      })).toMatchObject({ reruns: [42] });
+    }
+  });
+
+  it('retries an interrupted run that was still active at the edit, but not its interrupted retry', async () => {
+    expect(await runRecovery({
+      body: 'success', conclusion: 'cancelled', eventName: 'workflow_run', pendingStatus: 'pending',
+    })).toEqual({ reruns: [42], dispatches: [] });
+    const retried = await runRecovery({
+      body: 'success', conclusion: 'timed_out', eventName: 'workflow_run', pendingStatus: 'queued',
+      markerExtra: { interruptedRetry: true },
+    });
+    expect(retried.reruns).toEqual([]);
+    expect(retried.dispatches).toHaveLength(1);
+  });
+
+  it('keeps the one-retry flag when a duplicate edit arrives while the interrupted retry is active', async () => {
+    const markerState = (comments: Array<{ body: string }>) => {
+      const last = comments.at(-1)?.body || '';
+      return JSON.parse(last.slice(last.indexOf('{'), last.indexOf('-->')));
+    };
+    const duplicate = await runRecovery({
+      body: 'success', status: 'in_progress', conclusion: '', pendingStatus: 'queued',
+      markerExtra: { interruptedRetry: true }, returnComments: true,
+    });
+    expect(duplicate.reruns).toEqual([]);
+    expect(markerState(duplicate.comments!)).toMatchObject({ status: 'pending', interruptedRetry: true });
+    // The retry then ends cancelled again: its completion consumes the pending
+    // marker without a second rerun for the same HEAD + body digest.
+    const completion = await runRecovery({
+      body: 'success', conclusion: 'cancelled', eventName: 'workflow_run', pendingStatus: 'pending',
+      markerExtra: { interruptedRetry: true },
+    });
+    expect(completion.reruns).toEqual([]);
+    expect(completion.dispatches).toHaveLength(1);
+    // A different body digest does not inherit the spent flag.
+    const newBody = await runRecovery({
+      body: 'success', status: 'in_progress', conclusion: '', pendingStatus: 'queued',
+      markerExtra: { interruptedRetry: true, bodyRevision: reviewInputRevisionFromBody('older body') },
+      returnComments: true,
+    });
+    expect(markerState(newBody.comments!).interruptedRetry).toBeUndefined();
+  });
+
+  it('keeps every other non-failure conclusion without a body-recovery rerun', async () => {
+    for (const conclusion of ['skipped', 'neutral', 'action_required', 'stale']) {
+      expect(await runRecovery({ body: 'success', conclusion })).toEqual({ reruns: [], dispatches: [] });
+    }
   });
 
   it('preserves a newer queued attempt instead of rerunning an older failed body', async () => {
@@ -492,6 +659,20 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       returnComments: true,
     });
     expect(result.error).toMatch(/dispatch failed/u);
+    expect(result.comments.at(-1)?.body).toContain('"status":"completed"');
+    expect(result.comments.at(-1)?.body).toContain('"nativeMergeStatus":"pending"');
+  });
+
+  it('keeps a completed recovery pending when the trusted dispatch token is unavailable', async () => {
+    const result = await runRecovery({
+      eventName: 'workflow_run',
+      pendingStatus: 'queued',
+      status: 'completed',
+      trustedToken: '',
+      returnComments: true,
+    });
+    expect(result.reruns).toEqual([]);
+    expect(result.dispatches).toEqual([]);
     expect(result.comments.at(-1)?.body).toContain('"status":"completed"');
     expect(result.comments.at(-1)?.body).toContain('"nativeMergeStatus":"pending"');
   });

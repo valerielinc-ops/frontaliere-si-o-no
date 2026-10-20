@@ -1,0 +1,239 @@
+import { describe, it, expect } from 'vitest';
+import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import YAML from 'yaml';
+
+/**
+ * rerender-article-corpus.yml is the template-drift safety net for article
+ * pages, and its `push.paths` filter is the only thing that makes it reactive.
+ * A path filter sees the files a commit CHANGED — so naming a re-export shim
+ * or a symlink is naming a file that never changes.
+ *
+ * That is what the filter did after the #4881 Fase 6 colocation: it listed
+ * `build-plugins/ogPagesPlugin.ts` (a shim), `blogContextualLinksPlugin.ts`
+ * (a shim) and `shared/articleSectionDescriptors.ts` (a symlink), while the
+ * renderer lived in `packages/articles/engine/` and the head snippets came from
+ * `build-plugins/constants.ts` through the site-shell bootstrap. Renderer and
+ * shell changes re-rendered nothing, and the weekly drift audit (run
+ * 36312753890) found the live corpus a template behind.
+ *
+ * These assertions follow the render path from the driver instead of trusting
+ * a hand-kept list: whatever the driver loads, whatever a shim forwards to, and
+ * whatever the bootstrap hands the engine must be matched by the filter.
+ */
+
+const ROOT = process.cwd();
+const WORKFLOW = '.github/workflows/rerender-article-corpus.yml';
+const HUB_WORKFLOW = '.github/workflows/rerender-article-hubs.yml';
+const DRIVER = 'scripts/rerender-article-corpus.mjs';
+const BOOTSTRAP = 'build-plugins/articlesSiteShellBootstrap.ts';
+const RUNTIME_DEPS_INSTALLER = 'scripts/lib/install-article-renderer-runtime-deps.sh';
+const CORPUS_OVERLAY_SOURCES = [
+  'scripts/lib/article-corpus-overlay.mjs',
+  'scripts/lib/article-image-postcondition.mjs',
+  'scripts/lib/corpus-canton-exclusion.mjs',
+  'scripts/lib/corpus-local-preserve.mjs',
+];
+const HUB_OVERLAY_SOURCES = [
+  'scripts/lib/article-corpus-overlay.mjs',
+  'scripts/lib/corpus-canton-exclusion.mjs',
+  'scripts/lib/corpus-local-preserve.mjs',
+];
+const EXTENSIONS = ['', '.ts', '.tsx', '.mjs', '.js', '/index.ts'];
+
+const RENDER_WORKFLOWS = [
+  {
+    file: WORKFLOW,
+    job: 'rerender',
+    renderStep: /^Rerender and push /,
+  },
+  {
+    file: '.github/workflows/fast-publish-article.yml',
+    job: 'fast-publish',
+    renderStep: /^Render article \(fast path\)$/,
+  },
+  {
+    file: '.github/workflows/audit-article-corpus-drift.yml',
+    job: 'audit',
+    renderStep: /^Run the drift audit$/,
+  },
+];
+
+function readPushPaths(workflow = WORKFLOW): string[] {
+  const doc = YAML.parse(fs.readFileSync(path.join(ROOT, workflow), 'utf8'));
+  const paths = doc?.on?.push?.paths;
+  if (!Array.isArray(paths) || paths.length === 0) throw new Error(`${workflow} has no on.push.paths`);
+  return paths;
+}
+
+// GitHub filter syntax as used by this workflow: literal paths and `**`/`*`.
+// Anything else (negation, braces, `?`) would need a real matcher, so it is
+// rejected rather than silently mis-matched.
+function globToRegExp(glob: string): RegExp {
+  if (/[!?{}[\]]/.test(glob)) throw new Error(`unsupported filter syntax in ${glob}`);
+  const source = glob
+    .split('**')
+    .map((part) => part.split('*').map((s) => s.replace(/[.+^$()|\\]/g, '\\$&')).join('[^/]*'))
+    .join('.*');
+  return new RegExp(`^${source}$`);
+}
+
+const FILTERS = readPushPaths().map((glob) => ({ glob, re: globToRegExp(glob) }));
+const HUB_FILTERS = readPushPaths(HUB_WORKFLOW).map((glob) => ({ glob, re: globToRegExp(glob) }));
+const isCovered = (rel: string) => FILTERS.some(({ re }) => re.test(rel));
+const isHubCovered = (rel: string) => HUB_FILTERS.some(({ re }) => re.test(rel));
+
+// Tracked-file lookups go through git, not the disk: an agent worktree is a
+// sparse checkout without `data/`, and `data/authors.ts` is a render input.
+function isTracked(rel: string): boolean {
+  const out = execFileSync('git', ['ls-files', '--', rel], { cwd: ROOT, encoding: 'utf8' });
+  return out.split('\n').includes(rel);
+}
+
+function resolveModule(fromRel: string, spec: string): string {
+  const base = path.posix.normalize(path.posix.join(path.posix.dirname(fromRel), spec));
+  for (const ext of EXTENSIONS) {
+    if (isTracked(base + ext)) return base + ext;
+  }
+  throw new Error(`${fromRel}: cannot resolve ${spec}`);
+}
+
+/**
+ * The file whose CHANGE alters what `rel` provides: a symlink resolves to its
+ * target, a colocation shim (`export * from '…'`) to the module it forwards.
+ * Also returns the shim's side-effect imports (the site-shell bootstrap).
+ */
+function renderSources(rel: string): string[] {
+  const abs = path.join(ROOT, rel);
+  if (fs.lstatSync(abs).isSymbolicLink()) {
+    const target = path.posix.normalize(path.posix.join(path.posix.dirname(rel), fs.readlinkSync(abs)));
+    return [rel, target];
+  }
+  const src = fs.readFileSync(abs, 'utf8');
+  const forwarded = [...src.matchAll(/^export \* from '([^']+)';$/gm)].map((m) => resolveModule(rel, m[1]));
+  if (forwarded.length === 0) return [rel];
+  const sideEffects = [...src.matchAll(/^import '(\.[^']+)';$/gm)].map((m) => resolveModule(rel, m[1]));
+  return [rel, ...forwarded, ...sideEffects];
+}
+
+describe('rerender-article-corpus.yml push filter covers the real article render path', () => {
+  it('gives the full corpus rerender a separate bounded entrypoint timeout', () => {
+    const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, WORKFLOW), 'utf8'));
+    const steps = workflow?.jobs?.rerender?.steps;
+    const renderStep = steps?.find((step: { name?: string }) => /^Rerender and push /.test(step.name ?? ''));
+    const shellAssetsStep = steps?.find((step: { name?: string }) =>
+      step.name === 'Ensure the static shell scripts are on the CDN',
+    );
+
+    expect(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBe('1800');
+    expect(shellAssetsStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBeUndefined();
+  });
+
+  it('names only files that exist, so a rename cannot silently empty the filter', () => {
+    const stale = FILTERS.filter(({ glob }) => !glob.includes('*') && !isTracked(glob)).map(({ glob }) => glob);
+    expect(stale).toEqual([]);
+    expect(isCovered(RUNTIME_DEPS_INSTALLER)).toBe(true);
+    for (const source of CORPUS_OVERLAY_SOURCES) expect(isCovered(source)).toBe(true);
+  });
+
+  it('keeps the hub workflow reactive to every source of its shared overlay', () => {
+    const stale = HUB_FILTERS
+      .filter(({ glob }) => !glob.includes('*') && !isTracked(glob))
+      .map(({ glob }) => glob);
+    expect(stale).toEqual([]);
+    for (const source of HUB_OVERLAY_SOURCES) expect(isHubCovered(source)).toBe(true);
+  });
+
+  it('rerenders articles and hubs when their shared ad-slot markup changes', () => {
+    const source = 'build-plugins/lib/adSlotHtml.ts';
+    expect(isCovered(source)).toBe(true);
+    expect(isHubCovered(source)).toBe(true);
+  });
+
+  it('covers every module the driver renders with, behind shims and symlinks', () => {
+    const driver = fs.readFileSync(path.join(ROOT, DRIVER), 'utf8');
+    const loaded = [...driver.matchAll(/await import\('(\.\.\/build-plugins\/[^']+)'\)/g)].map((m) =>
+      resolveModule(DRIVER, m[1]),
+    );
+    // ogPagesPlugin, flatHtmlRedirect, blogContextualLinks, hreflang,
+    // blogImageCdnFinalize, constants, articleSectionDescriptors.
+    expect(loaded.length).toBeGreaterThanOrEqual(7);
+    const sources = [...new Set(loaded.flatMap(renderSources))];
+    // The two colocation shims must have been followed, or this proves nothing.
+    expect(sources).toContain('packages/articles/engine/ogPagesPlugin.ts');
+    expect(sources).toContain(BOOTSTRAP);
+    expect(sources.filter((rel) => !isCovered(rel))).toEqual([]);
+  });
+
+  it('covers every module the site-shell bootstrap hands to the engine', () => {
+    const src = fs.readFileSync(path.join(ROOT, BOOTSTRAP), 'utf8');
+    const imports = [...src.matchAll(/from '(\.{1,2}\/[^']+)'/g)].map((m) => resolveModule(BOOTSTRAP, m[1]));
+    // constants.ts carries the GTAG/AdSense/Offerwall/Partnerize head snippets
+    // the drift run caught out of date; it must stay in this set.
+    expect(imports).toContain('build-plugins/constants.ts');
+    expect(imports.filter((rel) => !isCovered(rel))).toEqual([]);
+  });
+
+  it('installs the locked article-engine runtime dependency before each article render', () => {
+    const packageJson = JSON.parse(fs.readFileSync(path.join(ROOT, 'packages/articles/package.json'), 'utf8'));
+    const packageLock = JSON.parse(fs.readFileSync(path.join(ROOT, 'package-lock.json'), 'utf8'));
+    const installer = fs.readFileSync(path.join(ROOT, RUNTIME_DEPS_INSTALLER), 'utf8');
+
+    // The list stays EXACT, so the next dependency is examined instead of
+    // absorbed. `sharp` (PR 11879) belongs to the image-generation engine,
+    // which no module of the article engine loads: it is deliberately not
+    // installed before a render. The assertion below read ['html-entities']
+    // until then and has been red on main since, unseen by related-only runs.
+    const NOT_LOADED_BY_THE_RENDERER = ['sharp'];
+    expect(Object.keys(packageJson.dependencies ?? {}).sort()).toEqual(
+      ['html-entities', ...NOT_LOADED_BY_THE_RENDERER].sort(),
+    );
+    const IMAGE_ENGINE = 'packages/articles/engine/shared/generatedImageEngine.mjs';
+    const engineFiles = execFileSync('git', ['ls-files', '--', 'packages/articles/engine'], { cwd: ROOT, encoding: 'utf8' })
+      .split('\n')
+      .filter((rel) => /\.(ts|tsx|mjs|js)$/.test(rel));
+    const engineSource = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
+    expect(engineFiles.filter((rel) => /(?:from|import\()\s*['"]sharp['"]/.test(engineSource(rel)))).toEqual([IMAGE_ENGINE]);
+    expect(
+      engineFiles.filter((rel) => rel !== IMAGE_ENGINE && engineSource(rel).includes('generatedImageEngine')),
+    ).toEqual([]);
+    expect(packageLock.packages?.['node_modules/html-entities']?.version).toBeTruthy();
+    expect(installer).toContain('node_modules/html-entities');
+    expect(installer).toContain('--workspaces=false');
+    expect(installer).toContain('--omit=peer');
+    expect(installer).toContain('--ignore-scripts');
+    expect(installer).toContain('--no-save');
+    expect(installer).toContain('--package-lock=false');
+    expect(installer).not.toContain('npm ci');
+
+    for (const { file, job, renderStep } of RENDER_WORKFLOWS) {
+      const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));
+      const steps = workflow?.jobs?.[job]?.steps;
+      expect(Array.isArray(steps), `${file} is missing jobs.${job}.steps`).toBe(true);
+
+      const installIndex = steps.findIndex((step: { name?: string }) =>
+        step.name === 'Install article renderer runtime dependencies',
+      );
+      const renderIndex = steps.findIndex((step: { name?: string }) => renderStep.test(step.name ?? ''));
+      expect(installIndex, `${file} does not install renderer runtime dependencies`).toBeGreaterThanOrEqual(0);
+      expect(renderIndex, `${file} has no expected renderer step`).toBeGreaterThanOrEqual(0);
+      expect(installIndex, `${file} must install dependencies before rendering`).toBeLessThan(renderIndex);
+      expect(steps[installIndex].run).toContain(`bash ${RUNTIME_DEPS_INSTALLER}`);
+    }
+  });
+});
+
+describe('rerender-article-hubs entrypoint budget', () => {
+  it('gives the side-effecting hub fan-out a bounded timeout without extending bootstrap', () => {
+    const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, HUB_WORKFLOW), 'utf8'));
+    const steps = workflow?.jobs?.rerender?.steps;
+    const renderStep = steps?.find((step: { name?: string }) => /^Rerender .* hubs$/.test(step.name ?? ''));
+    const shellAssetsStep = steps?.find((step: { name?: string }) =>
+      step.name === 'Ensure the static shell scripts are on the CDN',
+    );
+
+    expect(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBe('600');
+    expect(shellAssetsStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBeUndefined();
+  });
+});

@@ -17,6 +17,8 @@
  * Stiftung entero runs 3 addiction-treatment sites in canton Aargau:
  *   Egliswil (5704), Niederlenz (5702), Neuenhof (5432).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -28,6 +30,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -37,6 +40,16 @@ export const ENTERO_COMPANY_DOMAIN = 'entero.ch';
 export const ENTERO_CAREERS_URL = 'https://www.entero.ch/de/karriere';
 
 const DETAIL_DELAY_MS = 450;
+
+function canonicalPostingUrl(rawUrl = '', baseUrl = '') {
+  try {
+    const parsed = new URL(rawUrl, baseUrl || undefined);
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
 
 const ENTERO_SITES = [
   { match: /egliswil/i, city: 'Egliswil', postalCode: '5704' },
@@ -112,6 +125,35 @@ export function parseListing(html = '') {
 
 /* ── Detail parsing ───────────────────────────────────────── */
 
+/**
+ * The posting part of a detail page: intro block (`jobs-show-intro`: lead
+ * paragraphs + "Arbeitsort"), `jobs-content-description` (Deine Aufgaben) and
+ * `jobs-content-profile` (Anforderungsprofil). It ends where the contact
+ * card (`jobs-contact`, "Fragen zur Bewerbung"), the overview/apply buttons and
+ * the application form begin. Pages without that markup fall back to `<main>`.
+ */
+function postingHtml(html) {
+  const introAt = html.search(/<div\b[^>]*\bclass="[^"]*\bjobs-show-intro\b/i);
+  let scope = '';
+  if (introAt >= 0) {
+    scope = html.slice(introAt);
+  } else {
+    const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+    scope = mainMatch ? mainMatch[1] : '';
+  }
+  const stopAt = scope.search(
+    /<div\b[^>]*\bclass="[^"]*\b(?:jobs-contact|button-wrapper|jobs-form|jobs-similar)\b|<h2[^>]*>\s*Fragen zur Bewerbung/i,
+  );
+  if (stopAt > 0) return scope.slice(0, stopAt);
+  // From the intro there is no closing tag to rely on: without a stop marker,
+  // stop at the page footer/main end, or give no body — the text has no length
+  // cap (issue 5253), so the page tail is never published. The <main> scope
+  // above is already closed by </main>.
+  if (introAt < 0) return scope;
+  const pageEnd = scope.search(/<footer\b|<\/main>/i);
+  return pageEnd > 0 ? scope.slice(0, pageEnd) : '';
+}
+
 export function parseDetail(html = '') {
   if (!html) return { title: '', body: '', siteText: '' };
   const titleSource = stripScriptsAndStyles(html);
@@ -119,25 +161,35 @@ export function parseDetail(html = '') {
   const title = titleMatch
     ? normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, ' ')))
     : '';
-  // Body lives in <main>…</main>.
-  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-  let body = '';
-  if (mainMatch) {
-    let text = decodeEntities(mainMatch[1].replace(/<[^>]+>/g, ' '));
-    text = normalizeSpace(text);
-    // Cut trailing apply-form chatter starting at "Fragen zur Bewerbung"
-    // or "Jetzt bewerben!" — that's contact + form scaffolding, not job text.
-    const cutMarkers = ['Fragen zur Bewerbung', 'Jetzt bewerben!', 'zur Übersicht'];
-    for (const marker of cutMarkers) {
-      const idx = text.indexOf(marker);
-      if (idx > 200) text = text.slice(0, idx).trim();
-    }
-    body = text.slice(0, 6000);
+  // Keep the posting's sections and bullet lists: the previous whole-`<main>`
+  // flatten turned "Deine Aufgaben"/"Anforderungsprofil" and their `<li>`
+  // items into one run-on paragraph.
+  let body = htmlToTextLines(
+    stripScriptsAndStyles(postingHtml(html)).replace(/<h1[^>]*>[\s\S]*?<\/h1>/i, ''),
+  );
+  // Safety net for markup without the section classes.
+  const cutMarkers = ['Fragen zur Bewerbung', 'Jetzt bewerben!', 'zur Übersicht'];
+  for (const marker of cutMarkers) {
+    const idx = body.indexOf(marker);
+    if (idx > 200) body = body.slice(0, idx).trim();
   }
-  // Site marker: "Arbeitsort: …" line.
-  const siteMatch = body.match(/Arbeitsort\s*[:：]\s*([^.]+?)(?=\s+(?:Deine|Anforderung|Wir|$))/i);
+  // Site marker: the intro renders `<span>Arbeitsort: </span><span>{site}</span>`,
+  // which becomes one "Arbeitsort: {site}" line.
+  const siteMatch = body.match(/Arbeitsort\s*[:：]\s*([^\n.]+)/i);
   const siteText = siteMatch ? siteMatch[1].trim() : '';
   return { title, body, siteText };
+}
+
+/**
+ * The "Arbeitsort" marker names THE site of this vacancy. The intro prose
+ * lists all three ("mit den Standorten Niederlenz, Neuenhof und Egliswil"), so
+ * resolving from the first 300 body chars picked Egliswil — first in the table
+ * — for a Niederlenz posting. Body/title text is only the fallback.
+ */
+export function resolveDetailSite(detail = {}, title = '') {
+  const siteText = String(detail?.siteText || '');
+  return ENTERO_SITES.find((site) => site.match.test(siteText))
+    || resolveSite(`${String(detail?.body || '').slice(0, 300)} ${title}`);
 }
 
 /* ── Fetcher ───────────────────────────────────────────────── */
@@ -151,29 +203,37 @@ export async function fetchAllEnteroJobs() {
     listingHtml = await fetchHtml(ENTERO_CAREERS_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const rows = parseListing(listingHtml);
   console.log(`  ✓ ${rows.length} listing rows parsed`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
     let detail = { title: '', body: '', siteText: '' };
+    let posting = null;
     try {
       const html = await fetchHtml(row.url);
       detail = parseDetail(html);
+      posting = extractJobPostingLd(html);
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${row.url}: ${err?.message || err}`);
     }
     const title = detail.title || row.title;
-    const site = resolveSite(`${detail.siteText} ${detail.body.slice(0, 300)} ${title}`);
+    const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === title.toLowerCase();
+    let sameUrl = !posting?.url;
+    if (posting?.url) {
+      sameUrl = canonicalPostingUrl(posting.url, row.url) === canonicalPostingUrl(row.url, row.url);
+    }
+    const site = resolveDetailSite(detail, title);
+    // Our own foundation summary only stands in when the page gave no body;
+    // it is not part of the posting and must not pad a real description.
     const intro = `Stiftung entero — Klinik und Therapiezentrum für Suchtbehandlung im Kanton Aargau. Standorte: Entzug Neuenhof, Entwöhnung Egliswil, Entwöhnung Niederlenz. Stelle: ${title} (${site.city}, AG).`;
     const description = (detail.body && detail.body.length > 200)
-      ? `${intro}\n\n${detail.body}`
+      ? detail.body
       : intro;
 
     const sourceLang = detectLang(description || title, 'de');
@@ -213,7 +273,7 @@ export async function fetchAllEnteroJobs() {
       sector: 'Suchtmedizin / Psychiatrie',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(sameTitle && sameUrl ? posting?.datePosted : ''),
       applyUrl: row.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

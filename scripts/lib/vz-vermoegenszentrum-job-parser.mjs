@@ -39,7 +39,8 @@
  *   - isTrustedDomain()                 — Validate URLs belong to this company
  *   - slugify() / stripHtml()           — Re-exported from crawler-template.mjs
  */
-import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { assignProspectiveListingIds } from './prospective-reference-ids.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -157,17 +158,6 @@ function detectEmploymentType(text = '') {
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
- * Convert a prospective.ch `start_date` / `last_modification_timestamp`
- * (ISO 8601 string) to a YYYY-MM-DD posted date.
- */
-function toPostedDate(value) {
-  if (!value) return null;
-  const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toISOString().split('T')[0];
-}
-
-/**
  * Is this OHWS job located in Switzerland? VZ's careercenter also lists a
  * handful of German postings (München, Frankfurt am Main) — this site
  * targets Swiss/cross-border commuting jobs only, so those are excluded.
@@ -238,7 +228,7 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllVzVermoegenszentrumJobs() {
+export async function fetchAllVzVermoegenszentrumJobs({ existingJobs = [] } = {}) {
   console.log(`🔍 Fetching VZ VermögensZentrum jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
@@ -253,7 +243,11 @@ export async function fetchAllVzVermoegenszentrumJobs() {
   const jobs = [];
   const seen = new Set();
 
-  for (const listing of listings) {
+  // A reference code shared by distinct postings gets one id per posting
+  // (lib/prospective-reference-ids.mjs).
+  const idByListing = assignProspectiveListingIds(listings, 'vz-vermoegenszentrum', CAREER_URL, { existingJobs });
+
+  for (const [listingIndex, listing] of listings.entries()) {
     const szas = listing.szas || {};
 
     // Germany/CH-only guard (board mixes CH + a few DE postings).
@@ -292,24 +286,16 @@ export async function fetchAllVzVermoegenszentrumJobs() {
     // ── Canonical job-detail URL (links.directlink) ──
     const publicUrl = listing.links?.directlink || CAREER_URL;
 
-    // Stable reference: prefer prospective viewkey/reference, fallback URL hash.
-    const stableRef =
-      String(szas.sza_reference_code || listing.viewkey || listing.id || '').trim();
-    const urlHash = stableRef
-      ? createHash('sha1').update(`vz-vermoegenszentrum:${stableRef}`).digest('hex').slice(0, 12)
-      : createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const id = `vz-vermoegenszentrum-${urlHash}`;
+    const id = idByListing[listingIndex];
     if (seen.has(id)) continue;
     seen.add(id);
 
     const sourceLang = detectLang(descriptionText || title, SOURCE_LANG);
     const jobSlug = slugify(`${title} vz vermoegenszentrum ch`);
 
-    // ── Posted date: prefer OHWS start_date, fall back to last-modified ──
-    const postedDate =
-      toPostedDate(listing.start_date) ||
-      toPostedDate(listing.last_modification_timestamp) ||
-      new Date().toISOString().split('T')[0];
+    // OHWS publication start is corroborated by the employer's JobPosting.
+    // Preserve its full timestamp; modification time is not publication evidence.
+    const postingDates = sourcePostingDateFields(listing.start_date);
 
     // ── Employment type: pensum + sza_employment_type label ──
     const pensumMax = Number(szas['sza_pensum.max']);
@@ -373,7 +359,7 @@ export async function fetchAllVzVermoegenszentrumJobs() {
       sector: SECTOR,
       currency: normalizeSpace(szas['sza_salary.currency'] || '') || 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: normalizeSpace(szas.sza_apply_link || '') || publicUrl,
       requirements,
       requirementsByLocale: { [sourceLang]: requirements },

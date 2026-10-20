@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 // scripts/tune-discovery-quota.mjs
 //
 // Phase 4 auto-tune entrypoint. Reads the freshly-built evidence index and
@@ -257,9 +259,7 @@ export function runTune(opts = {}) {
 
 function isMain() {
   try {
-    const entry = process.argv[1] ? resolve(process.argv[1]) : '';
-    const here = fileURLToPath(import.meta.url);
-    return entry === here;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

@@ -18,6 +18,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   buildListingHubTitle,
+  buildCantonLandingTitle,
   buildCityHubTitle,
   buildRoleHubTitle,
   buildEmployerHubTitle,
@@ -71,15 +72,22 @@ describe('buildListingHubTitle — listing hub (home)', () => {
       .toContain('Offerte di lavoro Ticino');
   });
 
-  it('stays within 50-60 visible chars across all locales and counts', () => {
+  it('stays within the 50-60 visible-character SERP target across all locales and counts', () => {
     for (const locale of LOCALES) {
       for (const count of SAMPLE_COUNTS) {
         const title = buildListingHubTitle({ locale, count, year: YEAR });
         expect(
-          isValidTitleLength(title),
+          visibleLength(title) >= TITLE_MIN_CHARS && visibleLength(title) <= 60,
           `${locale} count=${count}: "${title}" length=${visibleLength(title)}`,
         ).toBe(true);
       }
+    }
+  });
+
+  it('keeps the current high live-count title within 60 visible chars', () => {
+    for (const locale of LOCALES) {
+      const title = buildListingHubTitle({ locale, count: 12582, year: YEAR });
+      expect(visibleLength(title), `${locale}: "${title}"`).toBeLessThanOrEqual(60);
     }
   });
 
@@ -130,6 +138,54 @@ describe('buildListingHubTitle — listing hub (home)', () => {
   });
 });
 
+describe('buildCantonLandingTitle — per-canton job-board hub', () => {
+  const CANTONS: Record<JobPageLocale, string> = {
+    it: 'Zurigo',
+    en: 'Zurich',
+    de: 'Zürich',
+    fr: 'Zurich',
+  };
+
+  it('includes the live count and year for every locale', () => {
+    for (const locale of LOCALES) {
+      const title = buildCantonLandingTitle({
+        locale,
+        cantonDisplay: CANTONS[locale],
+        count: 137,
+        year: YEAR,
+      });
+      expect(title, `${locale}: ${title}`).toContain('137');
+      expect(title, `${locale}: ${title}`).toContain(String(YEAR));
+      expect(isValidTitleLength(title), `${locale}: ${title}`).toBe(true);
+    }
+  });
+
+  it('keeps long canton labels complete while staying in the SERP budget', () => {
+    for (const locale of LOCALES) {
+      const title = buildCantonLandingTitle({
+        locale,
+        cantonDisplay: locale === 'it' ? 'Appenzello Esterno' : 'Appenzell Rhodes-Extérieures',
+        count: 137,
+        year: YEAR,
+      });
+      expect(isValidTitleLength(title), `${locale}: ${title}`).toBe(true);
+      expect(title).toContain(locale === 'it' ? 'Appenzello Esterno' : 'Appenzell Rhodes-Extérieures');
+    }
+  });
+
+  it('pads short English canton titles to the floor before the brand budget', () => {
+    const title = buildCantonLandingTitle({
+      locale: 'en',
+      cantonDisplay: 'Uri',
+      count: 10,
+      year: YEAR,
+    });
+
+    expect(visibleLength(title)).toBeGreaterThanOrEqual(TITLE_MIN_CHARS);
+    expect(visibleLength(title)).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+  });
+});
+
 describe('buildCityHubTitle — per-city hub', () => {
   it('stays within 50-60 chars across all locales, cities, counts', () => {
     for (const locale of LOCALES) {
@@ -177,6 +233,26 @@ describe('buildCityHubTitle — per-city hub', () => {
       titles.add(buildCityHubTitle({ locale: 'it', cityDisplay: city, count: 50, year: YEAR }));
     }
     expect(titles.size).toBe(CITIES.length);
+  });
+
+  it('keeps a repeated city unique across non-TI cantons', () => {
+    const lucerne = buildCityHubTitle({
+      locale: 'it',
+      cityDisplay: 'Eschenbach',
+      count: 3,
+      year: YEAR,
+      cantonDisplay: 'Lucerna',
+    });
+    const stGallen = buildCityHubTitle({
+      locale: 'it',
+      cityDisplay: 'Eschenbach',
+      count: 3,
+      year: YEAR,
+      cantonDisplay: 'San Gallo',
+    });
+    expect(lucerne).not.toBe(stGallen);
+    expect(lucerne).toContain('Lucerna');
+    expect(stGallen).toContain('San Gallo');
   });
 });
 
@@ -233,6 +309,80 @@ describe('buildEmployerHubTitle — employer hub', () => {
       const t = buildEmployerHubTitle({ locale: 'it', companyDisplay: co, count: 20, year: YEAR });
       expect(t).toContain(co);
     }
+  });
+
+  it('keeps a real canton/city discriminator for scoped employer hubs', () => {
+    const longCrawlerName = 'KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)';
+    const bern = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: longCrawlerName,
+      location: 'Berna',
+      count: 12,
+      year: YEAR,
+    });
+    const zurich = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: longCrawlerName,
+      location: 'Zurigo',
+      count: 12,
+      year: YEAR,
+    });
+
+    expect(bern).not.toBe(zurich);
+    expect(bern).toContain('Berna');
+    expect(zurich).toContain('Zurigo');
+    expect(bern).toContain('KSML');
+    expect(zurich).toContain('KSML');
+    expect(isValidTitleLength(bern), bern).toBe(true);
+    expect(isValidTitleLength(zurich), zurich).toBe(true);
+  });
+
+  it('preserves identity when long employer names share a prefix', () => {
+    const sharedPrefix = 'International Research and Development Corporation ';
+    const sharedSuffix = ' Global Holdings';
+    const alpha = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: `${sharedPrefix}Alpha${sharedSuffix}`,
+      location: 'Berna',
+      count: 12,
+      year: YEAR,
+    });
+    const beta = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: `${sharedPrefix}Beta${sharedSuffix}`,
+      location: 'Berna',
+      count: 12,
+      year: YEAR,
+    });
+
+    expect(alpha).not.toBe(beta);
+    expect(alpha).toContain('International');
+    expect(beta).toContain('International');
+    expect(isValidTitleLength(alpha), alpha).toBe(true);
+    expect(isValidTitleLength(beta), beta).toBe(true);
+  });
+
+  it('keeps long scoped employer fallback titles distinct when counts differ', () => {
+    const company = 'Arsanté (Clinique de Carouge)';
+    const three = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: company,
+      location: 'Ginevra',
+      count: 3,
+      year: YEAR,
+    });
+    const six = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: company,
+      location: 'Ginevra',
+      count: 6,
+      year: YEAR,
+    });
+    expect(three).not.toBe(six);
+    expect(three).toContain('3');
+    expect(six).toContain('6');
+    expect(isValidTitleLength(three), three).toBe(true);
+    expect(isValidTitleLength(six), six).toBe(true);
   });
 });
 

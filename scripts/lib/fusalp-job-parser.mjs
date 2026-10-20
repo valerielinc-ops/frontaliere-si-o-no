@@ -10,8 +10,10 @@
  * Source: https://fusalp.welcomekit.co/
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -155,19 +157,78 @@ function parseListingPage(html) {
  * Extract JSON-LD JobPosting data from a detail page.
  * WelcomeKit embeds a JSON-LD <script> block with rich job data.
  */
-function extractJsonLd(html) {
-  const ldMatch = html.match(
-    /<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i,
-  );
-  if (!ldMatch) return null;
+function publicationFields(posting, detailUrl) {
+  const rawIdentities = [posting?.url, posting?.sameAs].flat().filter((value) => value != null);
+  // A date belongs to this vacancy only when every declared identity matches it.
+  const matches = rawIdentities.length > 0 && rawIdentities.every((value) => {
+    if (typeof value !== 'string' || !value.trim()) return false;
+    try {
+      const candidate = new URL(value, detailUrl);
+      const expected = new URL(detailUrl);
+      candidate.hash = '';
+      expected.hash = '';
+      return candidate.href.replace(/\/$/, '') === expected.href.replace(/\/$/, '');
+    } catch {
+      return false;
+    }
+  });
+  return sourcePostingDateFields(matches ? posting?.datePosted : '');
+}
 
-  try {
-    // WelcomeKit sometimes has control characters in the JSON
-    const cleaned = ldMatch[1].replace(/[\x00-\x1f]/g, ' ');
-    return JSON.parse(cleaned);
-  } catch {
-    return null;
+function readBalancedDiv(html, contentStart) {
+  const tags = /<\/?div\b[^>]*>/gi;
+  tags.lastIndex = contentStart;
+  let depth = 1;
+  let match;
+  while ((match = tags.exec(html))) {
+    if (match[0][1] === '/') {
+      depth -= 1;
+      if (depth === 0) return { content: html.slice(contentStart, match.index), end: tags.lastIndex };
+    } else if (!/\/\s*>$/.test(match[0])) {
+      depth += 1;
+    }
   }
+  return { content: html.slice(contentStart), end: html.length };
+}
+
+// One line per list item: WelcomeKit wraps item text in `<p>` and splits the
+// "Additional Information" values over several lines inside `<strong>`.
+function htmlBlockToText(html = '') {
+  const flatItems = String(html || '').replace(
+    /<li\b([^>]*)>([\s\S]*?)<\/li>/gi,
+    (_, attrs, inner) => `<li${attrs}>${inner.replace(/<\/?p\b[^>]*>|<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ')}</li>`,
+  );
+  return normalizeDescriptionSpace(stripHtml(flatItems))
+    .replace(/•[ \t]*\n+[ \t]*/g, '• ')
+    .replace(/\n{2,}(?=• )/g, '\n');
+}
+
+/**
+ * Full vacancy text of a WelcomeKit detail page, in page order: every
+ * `div.block-job-text` block ("About" — company and role context —, "Job
+ * Description", "Preferred Experience", "Recruitment Process", "Additional
+ * Information") as `Heading` + body, lists kept as `• ` lines. The apply block
+ * and the photo carousel are chrome. The JSON-LD `description` +
+ * `qualifications` pair used before carries only two of those blocks, and the
+ * old whitespace collapse flattened every list into one paragraph (#5253).
+ */
+export function parseFusalpDetailDescription(html = '') {
+  const source = String(html || '');
+  const sections = [];
+  const openings = /<div\b[^>]*\bclass\s*=\s*["']([^"']*)["'][^>]*>/gi;
+  let match;
+  while ((match = openings.exec(source))) {
+    const classes = match[1].split(/\s+/);
+    if (!classes.includes('block-job-text') || classes.includes('block-job-apply')) continue;
+    const { content, end } = readBalancedDiv(source, openings.lastIndex);
+    openings.lastIndex = end;
+    const heading = normalizeSpace(stripHtml(/<h[23]\b[^>]*class\s*=\s*["'][^"']*block-title[^"']*["'][^>]*>([\s\S]*?)<\/h[23]>/i.exec(content)?.[1] || ''));
+    const bodyStart = content.search(/<div\b[^>]*class\s*=\s*["'][^"']*block-content/i);
+    const body = bodyStart >= 0 ? htmlBlockToText(content.slice(bodyStart)) : '';
+    if (!body) continue;
+    sections.push(heading ? `${heading}\n${body}` : body);
+  }
+  return normalizeDescriptionSpace(sections.join('\n\n'));
 }
 
 /**
@@ -200,7 +261,7 @@ export async function fetchAllFusalpJobs() {
 
     try {
       const detailHtml = await fetchPage(detailUrl);
-      const jsonLd = extractJsonLd(detailHtml);
+      const jsonLd = extractJobPostingLd(detailHtml);
 
       // Extract location from JSON-LD or URL slug
       const jobLocation = jsonLd?.jobLocation?.[0]?.address || jsonLd?.jobLocation?.address || {};
@@ -224,23 +285,25 @@ export async function fetchAllFusalpJobs() {
       // Skip non-Swiss jobs — this is a Swiss frontaliere board
       if (country !== 'CH') {
         console.log(`  ⏭️  Skipped non-Swiss: ${listing.title} in ${city}, ${country || '?'}`);
+        await new Promise((r) => setTimeout(r, 500));
         continue;
       }
 
-      // Description from JSON-LD
+      // Description: the rendered vacancy blocks; JSON-LD only as fallback.
       const rawDescription = jsonLd?.description || '';
       const qualifications = jsonLd?.qualifications || '';
-      const descriptionText = normalizeSpace(
-        stripHtml(rawDescription) +
-        (qualifications ? `\n\n${stripHtml(qualifications)}` : ''),
+      const descriptionText = parseFusalpDetailDescription(detailHtml) || htmlBlockToText(
+        rawDescription + (qualifications ? `\n\n${qualifications}` : ''),
       );
 
       const title = normalizeSpace(jsonLd?.title || listing.title || '');
-      if (!title || title.length < 3) continue;
+      if (!title || title.length < 3) {
+        await new Promise((r) => setTimeout(r, 500));
+        continue;
+      }
 
       const empType = jsonLd?.employmentType || listing.contract || '';
-      const datePosted = jsonLd?.datePosted || '';
-      const postedDate = datePosted ? datePosted.split('T')[0] : new Date().toISOString().split('T')[0];
+      const publication = publicationFields(jsonLd, detailUrl);
 
       const publicUrl = detailUrl;
       const sourceLang = detectLang(descriptionText || title, 'fr');
@@ -278,7 +341,7 @@ export async function fetchAllFusalpJobs() {
         sector: 'Moda / Abbigliamento sportivo',
         currency: country === 'CH' ? 'CHF' : 'EUR',
         featured: false,
-        postedDate,
+        ...withLegacyPostingDay(publication),
         applyUrl: publicUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

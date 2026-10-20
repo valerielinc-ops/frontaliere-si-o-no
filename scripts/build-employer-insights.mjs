@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Build the employer-insights snapshot from a complete, documentable
  * analytics period.
@@ -25,6 +27,7 @@ import { fileURLToPath } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { writeEmployerInsightsDocuments } from './lib/employer-insights-firestore.mjs';
 import { assertEmployerInsightsSource } from './lib/employer-insights-contract.mjs';
+import { excludeHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import {
   GA4_READONLY_SCOPE,
   getServiceAccountToken,
@@ -57,6 +60,7 @@ import {
   buildD18RunEvidence,
   deriveD18Windows,
   isWithinD18Window,
+  localDayKey,
   listD18Days,
   metricFromObservation,
   metricValue,
@@ -70,6 +74,7 @@ export const INSIGHTS_SCHEMA_VERSION = 2;
 export const DELIVERY_UNAVAILABLE = 'non disponibile';
 export const EVENT_QUERY_PAGE_SIZE = 10_000;
 export const GA4_EVENT_QUERY_PAGE_SIZE = 100_000;
+export const D18_ARTIFACT_MAX_ADS_PER_COMPANY = 5;
 const DAY_MS = 86_400_000;
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -151,6 +156,42 @@ function stableJson(value) {
   return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableJson(value[key])}`).join(',')}}`;
 }
 
+// The identity catalog contains the complete retained job corpus. Hash its
+// canonical representation incrementally so a growing corpus cannot exceed
+// V8's maximum string length while calculating the catalog fingerprint.
+function sha256StableJson(value) {
+  const hash = crypto.createHash('sha256');
+  const append = (current, inArray = false) => {
+    if (current === undefined) {
+      if (!inArray) hash.update('undefined');
+      return;
+    }
+    if (current === null || typeof current !== 'object') {
+      hash.update(JSON.stringify(current));
+      return;
+    }
+    if (Array.isArray(current)) {
+      hash.update('[');
+      for (let index = 0; index < current.length; index += 1) {
+        if (index > 0) hash.update(',');
+        append(current[index], true);
+      }
+      hash.update(']');
+      return;
+    }
+    hash.update('{');
+    for (const [index, key] of Object.keys(current).sort().entries()) {
+      if (index > 0) hash.update(',');
+      hash.update(JSON.stringify(key));
+      hash.update(':');
+      append(current[key]);
+    }
+    hash.update('}');
+  };
+  append(value);
+  return hash.digest('hex');
+}
+
 function sha256(value) {
   return crypto.createHash('sha256').update(String(value)).digest('hex');
 }
@@ -225,7 +266,9 @@ export function loadJsonJobs() {
   for (const directory of directories) {
     if (!fs.existsSync(directory)) continue;
     for (const file of fs.readdirSync(directory).filter((name) => name.endsWith('.json')).sort()) {
-      try { jobs.push(...unwrapList(JSON.parse(fs.readFileSync(path.join(directory, file), 'utf8')))); } catch { /* one broken slice is residual input */ }
+      // Agency jobs held out of publication for translation live in the
+      // slices but never in the assembled dataset this fallback stands in for.
+      try { jobs.push(...excludeHeldFromPublication(unwrapList(JSON.parse(fs.readFileSync(path.join(directory, file), 'utf8'))))); } catch { /* one broken slice is residual input */ }
     }
   }
   if (!jobs.length) throw new Error('job dataset not found');
@@ -371,7 +414,7 @@ export function buildIdentityCatalog(inputJobs = [], inputCompanies = []) {
       companyAliases: companyCollisions.collidingAliases,
       companyAliasBindings: companyCollisions.collisionBindings,
     },
-    identityCatalogSha: sha256(stableJson(identityRows)),
+    identityCatalogSha: sha256StableJson(identityRows),
   };
 }
 
@@ -1310,6 +1353,23 @@ function d18Surface(row) {
   return null;
 }
 
+/**
+ * The live D18 identity proof must cover the event population consumed by
+ * Employer Insights, not unrelated site page views. A page view with explicit
+ * employer/job identity remains relevant even when its route is not available
+ * in a provider fixture; apply events are relevant by event type.
+ */
+function isD18EvidenceRow(row) {
+  if (d18Surface(row)) return true;
+  if (!isPageview(row)) return false;
+  return Boolean(
+    normalizeText(row?.jobSlug)
+    || normalizeText(row?.jobId)
+    || normalizeText(row?.providerId)
+    || normalizeText(row?.employerKey),
+  );
+}
+
 function d18SourceUnavailable(meta) {
   if (!meta || Object.keys(meta).length === 0) return true;
   const coverage = meta.sourceCoverage || meta.coverage || meta;
@@ -2149,6 +2209,9 @@ export function buildCumulativeInsightsPayload({
   runMode = 'replay',
   primarySource = 'ga4',
   measurementWindow = null,
+  evidenceWindow = null,
+  ga4EvidenceSource = null,
+  ga4EvidenceRows = null,
   validate = true,
 } = {}) {
   const window = normalizeD18Window(requestedWindow, { kind: 'cumulative' });
@@ -2314,10 +2377,13 @@ export function buildCumulativeInsightsPayload({
   const evidence = buildD18RunEvidence({
     requestedWindow: window,
     measurementWindow: measurementWindow || window,
+    evidenceWindow: evidenceWindow || measurementWindow || window,
     runMode,
     primarySource,
     ga4Source,
     ga4Rows,
+    ga4EvidenceSource,
+    ga4EvidenceRows,
     posthogSource,
     posthogRows,
   });
@@ -2694,17 +2760,25 @@ function exactGa4EventExpression(eventName) {
  * Keep the GA4 report contract in one place. `pagePath` is intentional: the
  * static gtag pageview has no custom employer parameters, so the existing
  * explicit route aliases can still attribute that signal without guessing.
- * `emission_id` is requested only by the D18 evidence probe. The ordinary
- * employer snapshot keeps the supported dimension set, while the probe can
- * fail closed until the GA4 custom dimension is registered and populated.
+ * `emission_id` is requested for the D18 artifact's primary GA4 report and
+ * live evidence probe. Ordinary employer snapshots keep the supported
+ * dimension set, while the D18 path can fail closed until the custom
+ * dimension is registered and populated.
  */
 export function buildGa4EventQueryBody(window, {
   limit = GA4_EVENT_QUERY_PAGE_SIZE,
   offset = 0,
   includeEmissionId = false,
+  includeCurrentDate = false,
 } = {}) {
   const startDate = ga4DateForValue(window?.from, 'window.from');
-  const endDate = ga4DateForWindowEnd(window);
+  // Settled reports stop at the previous property-local day. The live D18
+  // identity probe is the one deliberate exception: it must be able to see
+  // events emitted after today's deploy, even while today's report is still
+  // open. Pagination and missing-emission checks remain fail-closed below.
+  const endDate = includeCurrentDate
+    ? ga4DateForValue(window?.to, 'window.to')
+    : ga4DateForWindowEnd(window);
   if (Date.parse(`${startDate}T00:00:00.000Z`) >= Date.parse(`${endDate}T00:00:00.000Z`) + DAY_MS) {
     throw new Error('GA4 window has no complete date');
   }
@@ -2768,6 +2842,51 @@ export function normalizeGa4EventRows(rows = [], { includeEmissionId = false } =
   });
 }
 
+function nextGa4CalendarDay(day) {
+  const [year, month, date] = String(day).split('-').map(Number);
+  if (![year, month, date].every(Number.isInteger)) return null;
+  return new Date(Date.UTC(year, month - 1, date) + DAY_MS).toISOString().slice(0, 10);
+}
+
+/**
+ * Find the first calendar day of a complete forward-only emission_id suffix.
+ * GA4 custom dimensions are not backfilled: an incomplete historical day is
+ * therefore removable only as a whole. Missing identity after the frontier
+ * remains a real blocker and returns null instead of being silently trimmed.
+ */
+export function findFirstCompleteGa4IdentityAt(rows = [], window) {
+  const windowFrom = Date.parse(window?.from || '');
+  const windowTo = Date.parse(window?.to || '');
+  if (!Number.isFinite(windowFrom) || !Number.isFinite(windowTo) || windowFrom >= windowTo) return null;
+
+  const byDay = new Map();
+  for (const row of rows) {
+    const timestamp = Date.parse(row?.timestamp || '');
+    const observed = Math.max(0, numberOr(row?.observed, 0));
+    if (!Number.isFinite(timestamp) || timestamp < windowFrom || timestamp >= windowTo || observed <= 0) continue;
+    const day = ga4DateForValue(row.timestamp, 'row.timestamp');
+    const bucket = byDay.get(day) || { observed: 0, missing: 0 };
+    bucket.observed += observed;
+    if (!normalizeText(row?.emissionId)) bucket.missing += observed;
+    byDay.set(day, bucket);
+  }
+
+  const observedDays = [...byDay.keys()].sort();
+  if (!observedDays.length) return null;
+  const incompleteDays = observedDays.filter((day) => byDay.get(day).missing > 0);
+  if (!incompleteDays.length) return new Date(windowFrom).toISOString();
+
+  const frontierDay = nextGa4CalendarDay(incompleteDays.at(-1));
+  if (!frontierDay) return null;
+  const frontierTime = Date.parse(`${frontierDay}T00:00:00.000Z`);
+  if (!Number.isFinite(frontierTime) || frontierTime >= windowTo) return null;
+
+  const suffixDays = observedDays.filter((day) => day >= frontierDay);
+  const suffixObserved = suffixDays.reduce((sum, day) => sum + byDay.get(day).observed, 0);
+  if (!suffixObserved || suffixDays.some((day) => byDay.get(day).missing > 0)) return null;
+  return new Date(Math.max(windowFrom, frontierTime)).toISOString();
+}
+
 /**
  * Read the complete selected GA4 event set. GA4 paginates with offset rather
  * than the PostHog keyset used above; rowCount and the data-loss marker are
@@ -2781,13 +2900,19 @@ export async function queryGa4EventRows(
     report = runGa4Report,
     pageSize = GA4_EVENT_QUERY_PAGE_SIZE,
     includeEmissionId = false,
+    includeCurrentDate = false,
   } = {},
 ) {
   if (!token) throw new Error('GA4 service-account token is required');
   if (!Number.isInteger(pageSize) || pageSize <= 0 || pageSize > GA4_EVENT_QUERY_PAGE_SIZE) {
     throw new Error(`GA4 pageSize must be an integer between 1 and ${GA4_EVENT_QUERY_PAGE_SIZE}`);
   }
-  const firstBody = buildGa4EventQueryBody(window, { limit: pageSize, offset: 0, includeEmissionId });
+  const firstBody = buildGa4EventQueryBody(window, {
+    limit: pageSize,
+    offset: 0,
+    includeEmissionId,
+    includeCurrentDate,
+  });
   const queryHash = sha256(stableJson({ ...firstBody, offset: 0 }));
   const rawRows = [];
   let totalRows = null;
@@ -2826,6 +2951,9 @@ export async function queryGa4EventRows(
   const identityObserved = identityRows.reduce((sum, row) => sum + row.observed, 0);
   const emissionRows = rows.filter((row) => row.emissionId);
   const emissionIdObserved = emissionRows.reduce((sum, row) => sum + row.observed, 0);
+  const firstCompleteIdentityAt = includeEmissionId
+    ? findFirstCompleteGa4IdentityAt(rows, window)
+    : undefined;
   return {
     rows,
     coverage: {
@@ -2846,11 +2974,91 @@ export async function queryGa4EventRows(
       emissionIdObserved,
       emissionIdMissingRows: Math.max(0, rows.length - emissionRows.length),
       emissionIdMissingObserved: Math.max(0, returned - emissionIdObserved),
+      ...(includeEmissionId ? { firstCompleteIdentityAt } : {}),
       queryHash,
       snapshotId: sha256(`${queryHash}:${window.from}:${window.to}`),
       sourceObserved: returned,
     },
   };
+}
+
+/**
+ * Scope the live emission proof to rows that can feed an Employer Insights
+ * metric. Provider pagination/data-loss state is preserved and still blocks
+ * the gate; only unrelated rows are excluded from the identity denominator.
+ */
+function scopeGa4EmissionEvidence(result, window) {
+  const providerRows = Array.isArray(result?.rows) ? result.rows : [];
+  const rows = providerRows.filter(isD18EvidenceRow);
+  const coverage = result?.coverage || {};
+  const observed = rows.reduce((sum, row) => sum + Math.max(0, numberOr(row?.observed, 0)), 0);
+  const identityRows = rows.filter((row) => normalizeText(row?.employerKey));
+  const identityObserved = identityRows.reduce((sum, row) => sum + Math.max(0, numberOr(row?.observed, 0)), 0);
+  const emissionRows = rows.filter((row) => normalizeText(row?.emissionId));
+  const emissionIdObserved = emissionRows.reduce((sum, row) => sum + Math.max(0, numberOr(row?.observed, 0)), 0);
+  const providerQueryHash = String(coverage.queryHash || '');
+  const providerSnapshotId = String(coverage.snapshotId || '');
+
+  return {
+    ...result,
+    rows,
+    coverage: {
+      ...coverage,
+      selection: 'employer-insights',
+      providerRowsReturned: providerRows.length,
+      providerTotalRows: coverage.totalRows ?? providerRows.length,
+      providerObserved: coverage.sourceObserved ?? coverage.returned ?? null,
+      totalRows: rows.length,
+      groupRowsBeforeCut: rows.length,
+      totalBeforeCut: observed,
+      rowsReturned: rows.length,
+      returned: observed,
+      returnedRows: rows.length,
+      sourceObserved: observed,
+      identityRows: identityRows.length,
+      identityObserved,
+      emissionIdDimensionRequested: true,
+      emissionIdRows: emissionRows.length,
+      emissionIdObserved,
+      emissionIdMissingRows: Math.max(0, rows.length - emissionRows.length),
+      emissionIdMissingObserved: Math.max(0, observed - emissionIdObserved),
+      firstCompleteIdentityAt: findFirstCompleteGa4IdentityAt(rows, window),
+      queryHash: sha256(`${providerQueryHash}:employer-insights`),
+      snapshotId: sha256(`${providerSnapshotId}:employer-insights`),
+    },
+  };
+}
+
+/**
+ * Probe GA4 emission identity and, when necessary, re-query only the first
+ * complete forward-only suffix. The narrowed query is authoritative: it
+ * rechecks pagination and emission coverage instead of slicing a mixed report
+ * in memory.
+ */
+export async function queryGa4EmissionEvidence(window, options = {}) {
+  const queryOptions = { ...options, includeEmissionId: true };
+  const initial = scopeGa4EmissionEvidence(
+    await queryGa4EventRows(window, queryOptions),
+    window,
+  );
+  const firstCompleteIdentityAt = initial.coverage?.firstCompleteIdentityAt;
+  const firstCompleteTime = Date.parse(firstCompleteIdentityAt || '');
+  const requestedFrom = Date.parse(window?.from || '');
+  if (!Number.isFinite(firstCompleteTime) || !Number.isFinite(requestedFrom) || firstCompleteTime <= requestedFrom) {
+    return { result: initial, window };
+  }
+
+  const narrowedWindow = d18ReportWindow({
+    from: firstCompleteIdentityAt,
+    to: window.to,
+    timezone: D18_TIMEZONE,
+    inclusive: '[from,to)',
+  });
+  const narrowed = scopeGa4EmissionEvidence(
+    await queryGa4EventRows(narrowedWindow, queryOptions),
+    narrowedWindow,
+  );
+  return { result: narrowed, window: narrowedWindow };
 }
 
 function d18ReportWindow(window) {
@@ -2870,6 +3078,27 @@ function d18CurrentEvidenceWindow(window) {
   return d18ReportWindow({
     from: new Date(from).toISOString(),
     to: normalized.to,
+    timezone: D18_TIMEZONE,
+    inclusive: '[from,to)',
+  });
+}
+
+/**
+ * Probe the forward interval after the settled report cutoff. The report must
+ * stay on settled GA4 days, while the first live identity proof must be
+ * allowed to observe the next settled/provider-visible day after a deploy.
+ * The evidence query remains fail-closed on missing IDs or incomplete rows.
+ */
+export function d18LiveEvidenceWindow(window, now = new Date()) {
+  const normalized = d18ReportWindow(window);
+  const nowTime = typeof now === 'string' ? Date.parse(now) : now?.getTime?.();
+  const from = Math.max(Date.parse(normalized.to), Date.parse(D18_J0));
+  if (!Number.isFinite(nowTime) || !Number.isFinite(from) || from >= nowTime) {
+    return d18CurrentEvidenceWindow(normalized) || normalized;
+  }
+  return d18ReportWindow({
+    from: new Date(from).toISOString(),
+    to: new Date(nowTime).toISOString(),
     timezone: D18_TIMEZONE,
     inclusive: '[from,to)',
   });
@@ -2925,6 +3154,12 @@ export function d18SourceMetadataFromQuery(source, window, result) {
   const queryHash = String(coverage.queryHash || d18Sha256(d18StableJson({ source, window, query: coverage })));
   const status = truncated ? 'parziale' : 'observed';
   const identityObserved = Number(coverage.identityObserved);
+  const hasExplicitFirstCompleteIdentity = Object.prototype.hasOwnProperty.call(coverage, 'firstCompleteIdentityAt');
+  const firstCompleteIdentityAt = source === 'ga4'
+    ? Number.isFinite(identityObserved) && identityObserved > 0
+      ? hasExplicitFirstCompleteIdentity ? coverage.firstCompleteIdentityAt : D18_J0
+      : null
+    : window.from;
   const identityAvailable = source !== 'ga4' || Number.isFinite(identityObserved) && identityObserved > 0;
   return {
     source,
@@ -2946,12 +3181,12 @@ export function d18SourceMetadataFromQuery(source, window, result) {
     identityCoverage: source === 'ga4'
       ? {
         eligibleFrom: D18_J0,
-        firstCompleteIdentityAt: identityAvailable ? D18_J0 : null,
-        coverageStart: D18_J0,
+        firstCompleteIdentityAt,
+        coverageStart: firstCompleteIdentityAt || D18_J0,
         coverageEnd: window.to,
-        completeThrough: identityAvailable && !truncated ? window.to : null,
+        completeThrough: identityAvailable && firstCompleteIdentityAt && !truncated ? window.to : null,
         queried: true,
-        status: identityAvailable && !truncated ? 'complete' : 'parziale',
+        status: identityAvailable && firstCompleteIdentityAt && !truncated ? 'complete' : 'parziale',
       }
       : {
         eligibleFrom: window.from,
@@ -2973,20 +3208,72 @@ export function d18SourceMetadataFromQuery(source, window, result) {
 }
 
 export function buildD18DailyCoverage(window, sources = {}) {
-  const sourceState = (meta) => {
-    const coverage = meta?.sourceCoverage;
-    if (!coverage || coverage.queried === false || meta?.status === 'sorgente non disponibile') {
+  const sourceState = (meta, day) => {
+    const coverage = meta?.sourceCoverage || meta?.coverage;
+    if (!coverage
+      || coverage.queried === false
+      || coverage.status === 'sorgente non disponibile'
+      || meta?.status === 'sorgente non disponibile') {
       return { queried: false, available: false, partial: false };
     }
-    const partial = coverage.truncated === true
-      || coverage.status === 'parziale'
-      || meta.status === 'parziale'
-      || !coverage.completeThrough;
-    return { queried: true, available: true, partial };
+
+    const dayKey = (value) => {
+      if (typeof value !== 'string' || !Number.isFinite(Date.parse(value))) return null;
+      try {
+        return localDayKey(value);
+      } catch {
+        return null;
+      }
+    };
+    const exactDayKey = (value) => (
+      typeof value === 'string' && value.length === 10 ? dayKey(value) : null
+    );
+    const coverageStart = dayKey(coverage.coverageStart);
+    const coverageEnd = dayKey(coverage.coverageEnd || coverage.completeThrough);
+    const completeThrough = dayKey(coverage.completeThrough);
+    if (!coverageStart || !coverageEnd || coverageStart >= coverageEnd) {
+      return { queried: false, available: false, partial: false };
+    }
+
+    const inCoverage = day >= coverageStart && day < coverageEnd;
+    if (!inCoverage) return { queried: true, available: false, partial: false };
+
+    const gapState = (gap) => {
+      if (typeof gap === 'string') {
+        const exactDay = exactDayKey(gap);
+        if (exactDay) return exactDay === day ? 'full' : 'none';
+        return 'unknown';
+      }
+      if (!gap || typeof gap !== 'object' || Array.isArray(gap)) return 'unknown';
+      const exactDay = exactDayKey(gap.day ?? gap.date);
+      if (exactDay) return exactDay === day ? 'full' : 'none';
+      const gapStart = exactDayKey(gap.from ?? gap.start);
+      const gapEnd = exactDayKey(gap.to ?? gap.end);
+      if (gapStart && gapEnd && gapStart < gapEnd) {
+        return day >= gapStart && day < gapEnd ? 'full' : 'none';
+      }
+      if (gapStart && gapEnd && gapStart === gapEnd) {
+        return gapStart === day ? 'partial' : 'none';
+      }
+      return 'unknown';
+    };
+    const gapStates = (Array.isArray(coverage.gaps) ? coverage.gaps : []).map(gapState);
+    const fullGap = gapStates.includes('full');
+    const uncertainGap = gapStates.some((state) => state === 'partial' || state === 'unknown');
+    const complete = completeThrough
+      && day < completeThrough
+      && coverage.truncated !== true
+      && coverage.status !== 'parziale'
+      && meta?.status !== 'parziale'
+      && !uncertainGap
+      && !fullGap;
+    return { queried: true, available: !fullGap, partial: !complete };
   };
-  const ga4 = sourceState(sources.ga4);
-  const posthog = sourceState(sources.posthog);
-  return listD18Days(window).map((day) => ({ day, ga4, posthog }));
+  return listD18Days(window).map((day) => ({
+    day,
+    ga4: sourceState(sources.ga4, day),
+    posthog: sourceState(sources.posthog, day),
+  }));
 }
 
 export function buildD18PayloadFromQuerySnapshots({
@@ -3002,12 +3289,38 @@ export function buildD18PayloadFromQuerySnapshots({
   runMode = 'replay',
   primarySource = 'ga4',
   ga4EvidenceWindow = null,
+  ga4EvidenceResult = null,
+  ga4EvidenceUnavailableReason = null,
+  measurementWindow = null,
 } = {}) {
   const requestedWindow = d18ReportWindow(window);
-  const measuredGa4Window = ga4EvidenceWindow ? d18ReportWindow(ga4EvidenceWindow) : requestedWindow;
-  const ga4Source = ga4Result
+  const hasSeparateGa4Evidence = Boolean(ga4EvidenceResult || ga4EvidenceUnavailableReason);
+  const measuredGa4Window = measurementWindow
+    ? d18ReportWindow(measurementWindow)
+    : ga4EvidenceWindow && !hasSeparateGa4Evidence
+      ? d18ReportWindow(ga4EvidenceWindow)
+      : requestedWindow;
+  const evidenceGa4Window = hasSeparateGa4Evidence && ga4EvidenceWindow
+    ? d18ReportWindow(ga4EvidenceWindow)
+    : measuredGa4Window;
+  const reportGa4Source = ga4Result
     ? d18SourceMetadataFromQuery('ga4', measuredGa4Window, ga4Result)
     : d18UnavailableSource('ga4', measuredGa4Window, ga4UnavailableReason);
+  const evidenceGa4Source = ga4EvidenceResult
+    ? d18SourceMetadataFromQuery('ga4', evidenceGa4Window, ga4EvidenceResult)
+    : hasSeparateGa4Evidence
+      ? d18UnavailableSource(
+        'ga4',
+        evidenceGa4Window,
+        ga4EvidenceUnavailableReason || 'GA4 live emission_id evidence non disponibile',
+      )
+      : reportGa4Source;
+  const ga4Source = hasSeparateGa4Evidence && ga4Result
+    ? {
+      ...reportGa4Source,
+      identityCoverage: evidenceGa4Source.identityCoverage,
+    }
+    : reportGa4Source;
   const posthogSource = posthogResult
     ? d18SourceMetadataFromQuery('posthog', requestedWindow, posthogResult)
     : d18UnavailableSource('posthog', requestedWindow, posthogUnavailableReason);
@@ -3046,8 +3359,10 @@ export function buildD18PayloadFromQuerySnapshots({
     generatedAt,
     catalog,
     ga4Rows: ga4Result?.rows || [],
+    ga4EvidenceRows: hasSeparateGa4Evidence ? ga4EvidenceResult?.rows || [] : null,
     posthogRows: posthogResult?.rows || [],
     ga4Source,
+    ga4EvidenceSource: hasSeparateGa4Evidence ? evidenceGa4Source : null,
     posthogSource,
     applicationsSource,
     deliverySource,
@@ -3057,6 +3372,7 @@ export function buildD18PayloadFromQuerySnapshots({
     runMode,
     primarySource,
     measurementWindow: measuredGa4Window,
+    evidenceWindow: evidenceGa4Window,
     sourceSnapshot: {
       ga4: ga4Source.sourceSnapshot,
       posthog: posthogSource.sourceSnapshot,
@@ -3067,10 +3383,90 @@ export function buildD18PayloadFromQuerySnapshots({
   return payload;
 }
 
-function writeJsonAtomically(filePath, value) {
+function d18AdMetricActivityScore(metric) {
+  return [
+    metric?.value,
+    metric?.parts?.historicalBackup?.value,
+    metric?.parts?.currentPrimary?.value,
+  ].reduce((score, value) => {
+    const number = Number(value);
+    return Number.isFinite(number) && number > 0 ? score + number : score;
+  }, 0);
+}
+
+function d18AdActivityScore(ad) {
+  return Object.values(ad?.metrics || {}).reduce((score, metric) => score + d18AdMetricActivityScore(metric), 0);
+}
+
+/**
+ * Keep the uploaded D18 artifact bounded without changing the in-memory
+ * calculation or the company-level totals. The complete by-ad breakdown stays
+ * in the in-memory D18 payload; the artifact retains the most active
+ * deterministic sample and declares the omitted detail explicitly.
+ */
+export function boundD18Artifact(payload, {
+  maxAdsPerCompany = D18_ARTIFACT_MAX_ADS_PER_COMPANY,
+} = {}) {
+  if (!payload || typeof payload !== 'object' || !Array.isArray(payload.companies)) {
+    throw new Error('D18 payload companies are required before bounding the artifact');
+  }
+  if (!Number.isInteger(maxAdsPerCompany) || maxAdsPerCompany < 1) {
+    throw new Error('D18 artifact ad limit must be a positive integer');
+  }
+
+  let totalAds = 0;
+  let includedAds = 0;
+  let companiesTruncated = 0;
+  const selection = 'observed_activity_desc_then_job_id';
+  const companies = payload.companies.map((company) => {
+    const allAds = Array.isArray(company.byAd) ? company.byAd : [];
+    const selectedAds = [...allAds]
+      .sort((left, right) => (
+        d18AdActivityScore(right) - d18AdActivityScore(left)
+        || String(left?.jobId || left?.canonicalSlug || '').localeCompare(String(right?.jobId || right?.canonicalSlug || ''))
+      ))
+      .slice(0, maxAdsPerCompany);
+    const selectedSet = new Set(selectedAds);
+    const byAd = allAds.filter((ad) => selectedSet.has(ad));
+    const omitted = allAds.length - byAd.length;
+    totalAds += allAds.length;
+    includedAds += byAd.length;
+    if (omitted > 0) companiesTruncated += 1;
+    return {
+      ...company,
+      byAd,
+      byAdCoverage: {
+        limitPerCompany: maxAdsPerCompany,
+        selection,
+        total: allAds.length,
+        included: byAd.length,
+        omitted,
+        truncated: omitted > 0,
+      },
+    };
+  });
+
+  return {
+    ...payload,
+    companies,
+    detailCoverage: {
+      byAd: {
+        limitPerCompany: maxAdsPerCompany,
+        selection,
+        total: totalAds,
+        included: includedAds,
+        omitted: totalAds - includedAds,
+        companiesTruncated,
+        truncated: totalAds !== includedAds,
+      },
+    },
+  };
+}
+
+function writeJsonAtomically(filePath, value, { space = 2 } = {}) {
   const temporaryPath = `${filePath}.${process.pid}.tmp`;
   try {
-    fs.writeFileSync(temporaryPath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+    fs.writeFileSync(temporaryPath, `${JSON.stringify(value, null, space)}\n`, 'utf8');
     fs.renameSync(temporaryPath, filePath);
   } catch (error) {
     try { fs.unlinkSync(temporaryPath); } catch { /* preserve the original error */ }
@@ -3333,7 +3729,10 @@ async function main() {
     const queried = replay
       ? replay.sources[source]
       : source === 'ga4'
-        ? await queryGa4EventRows(window, ga4Options)
+        ? await queryGa4EventRows(window, {
+          ...ga4Options,
+          includeEmissionId: Boolean(d18JsonOutputPath && label === 'primary'),
+        })
         : await queryEventRows(window);
     if (!queried) throw new Error(`missing ${source} result in employer-insights replay`);
     if (!replay) assertCompleteEventCoverage(queried.coverage);
@@ -3381,10 +3780,12 @@ async function main() {
 
   if (d18JsonOutputPath) {
     const d18Window = d18ReportWindow(primary.window);
-    const d18EvidenceWindow = replay?.measurementWindow
-      || d18CurrentEvidenceWindow(d18Window)
+    let d18EvidenceWindow = replay?.measurementWindow
+      || (source === 'ga4' ? d18LiveEvidenceWindow(d18Window, now) : d18CurrentEvidenceWindow(d18Window))
       || d18Window;
-    let d18Ga4Result = replay ? replay.sources.ga4 || null : null;
+    let d18Ga4Result = replay ? replay.sources.ga4 || null : source === 'ga4' ? primary.queried : null;
+    let d18Ga4EvidenceResult = null;
+    let d18Ga4EvidenceUnavailableReason = null;
     let d18PosthogResult = replay ? replay.sources.posthog || null : source === 'posthog' ? primary.queried : null;
     let ga4UnavailableReason = 'GA4 query non eseguita';
     let posthogUnavailableReason = 'PostHog backup non interrogato';
@@ -3394,16 +3795,19 @@ async function main() {
       if (!d18PosthogResult) posthogUnavailableReason = 'PostHog backup non presente nel replay deterministico';
     } else if (source === 'ga4') {
       try {
-        // The legacy GA4 query intentionally remains unchanged. This separate
-        // probe is the observable first-run check for the registered
-        // emission_id dimension and never gets silently replaced by PostHog.
-        d18Ga4Result = await queryGa4EventRows(d18EvidenceWindow, {
+        // Keep the settled report window separate from the live forward-only
+        // probe, so a just-deployed emitter can be observed without widening
+        // the report data. An incomplete suffix still fails closed.
+        const evidence = await queryGa4EmissionEvidence(d18EvidenceWindow, {
           ...d18Ga4Options,
-          includeEmissionId: true,
+          includeCurrentDate: true,
         });
-      } catch {
-        d18Ga4Result = null;
-        ga4UnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';
+        d18Ga4EvidenceResult = evidence.result;
+        d18EvidenceWindow = evidence.window;
+      } catch (error) {
+        d18Ga4EvidenceUnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';
+        ga4UnavailableReason = d18Ga4EvidenceUnavailableReason;
+        console.warn(`::warning::D18 GA4 emission_id probe failed: ${String(error?.message || error).split('\n')[0]}`);
       }
       if (process.env.POSTHOG_PERSONAL_API_KEY && process.env.POSTHOG_PROJECT_ID) {
         try {
@@ -3418,15 +3822,19 @@ async function main() {
     } else if (!d18Ga4Options?.token || !d18Ga4Options.propertyId) {
       d18Ga4Result = null;
       ga4UnavailableReason = 'credenziali o proprietà GA4 non disponibili nel refresh';
+      d18Ga4EvidenceUnavailableReason = ga4UnavailableReason;
     } else {
       try {
-        d18Ga4Result = await queryGa4EventRows(d18EvidenceWindow, {
+        const evidence = await queryGa4EmissionEvidence(d18EvidenceWindow, {
           ...d18Ga4Options,
-          includeEmissionId: true,
+          includeCurrentDate: true,
         });
-      } catch {
-        d18Ga4Result = null;
-        ga4UnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';
+        d18Ga4EvidenceResult = evidence.result;
+        d18EvidenceWindow = evidence.window;
+      } catch (error) {
+        d18Ga4EvidenceUnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';
+        ga4UnavailableReason = d18Ga4EvidenceUnavailableReason;
+        console.warn(`::warning::D18 GA4 emission_id probe failed: ${String(error?.message || error).split('\n')[0]}`);
       }
     }
 
@@ -3448,8 +3856,12 @@ async function main() {
       primarySource: 'ga4',
       deliveryRecords: replay?.deliveryRecords || [],
       ga4EvidenceWindow: d18EvidenceWindow,
+      ga4EvidenceResult: d18Ga4EvidenceResult,
+      ga4EvidenceUnavailableReason: d18Ga4EvidenceUnavailableReason,
+      measurementWindow: replay ? d18EvidenceWindow : d18Window,
     });
-    writeJsonAtomically(d18JsonOutputPath, d18Payload);
+    const d18Artifact = boundD18Artifact(d18Payload);
+    writeJsonAtomically(d18JsonOutputPath, d18Artifact, { space: 0 });
     console.log(`D18 JSON written to ${d18JsonOutputPath}.`);
     console.log(`D18 regimes: GA4 ${d18Payload.sourceRegimes.ga4.status}; PostHog ${d18Payload.sourceRegimes.posthog.status}.`);
     console.log(`D18 evidence: ${d18Payload.evidence.status} (${runMode}); GA4 emission_id ${d18Payload.evidence.ga4.emissionId.status}.`);
@@ -3485,6 +3897,6 @@ function hasFlag(flag) {
   return argv.includes(flag);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => { console.error(error.message || error); process.exit(1); });
 }

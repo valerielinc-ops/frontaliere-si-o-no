@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   POSTAUTO_KEY,
   POSTAUTO_COMPANY_NAME,
@@ -117,7 +117,7 @@ describe('PostAuto crawler parser', () => {
         return {
           ok: true,
           status: 200,
-          json: async () => ({
+          text: async () => JSON.stringify({
             totalJobs: body.pageNumber === 0 ? 40 : 0,
             jobSearchResult: body.pageNumber === 0 ? pageRecords : [],
           }),
@@ -147,7 +147,7 @@ describe('PostAuto crawler parser', () => {
         return {
           ok: true,
           status: 200,
-          json: async () => ({
+          text: async () => JSON.stringify({
             totalJobs: 2,
             jobSearchResult: body.pageNumber === 0
               ? [{ response: firstRecord }]
@@ -165,6 +165,58 @@ describe('PostAuto crawler parser', () => {
       }
     });
 
+    it('re-reads a mutable no-progress page before failing the feed', async () => {
+      const firstRecord = { id: 'postauto-retry-first', cust_brandCompanyJobSearch: ['PostAuto'] };
+      const secondRecord = { id: 'postauto-retry-second', cust_brandCompanyJobSearch: ['PostAuto'] };
+      const thirdRecord = { id: 'postauto-retry-third', cust_brandCompanyJobSearch: ['PostAuto'] };
+      let pageOneReads = 0;
+      const fetchMock = vi.fn(async (_url: string, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body || '{}')) as { locale?: string; pageNumber?: number };
+        if (body.locale !== 'de_DE') {
+          return {
+            ok: true,
+            status: 200,
+            text: async () => JSON.stringify({ totalJobs: 0, jobSearchResult: [] }),
+          };
+        }
+        if (body.pageNumber === 0) {
+          return {
+            ok: true,
+            status: 200,
+            text: async () => JSON.stringify({
+              totalJobs: 3,
+              jobSearchResult: [{ response: firstRecord }, { response: secondRecord }],
+            }),
+          };
+        }
+        pageOneReads += 1;
+        return {
+          ok: true,
+          status: 200,
+          text: async () => JSON.stringify({
+            totalJobs: 3,
+            jobSearchResult: pageOneReads === 1
+              ? [{ response: firstRecord }, { response: secondRecord }]
+              : [{ response: secondRecord }, { response: thirdRecord }],
+          }),
+        };
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      try {
+        const listings = await postAutoTestables.fetchPostAutoListings(1000);
+        expect(listings.fetchOutcome).toBe('ok');
+        expect(listings.map((listing) => listing.id)).toEqual([
+          'postauto-retry-first',
+          'postauto-retry-second',
+          'postauto-retry-third',
+        ]);
+        expect(pageOneReads).toBe(2);
+      } finally {
+        vi.unstubAllGlobals();
+      }
+    });
+
     it('stops at the declared row count instead of requesting the out-of-range page', async () => {
       const firstRecord = { id: 'postauto-row-one', cust_brandCompanyJobSearch: ['PostAuto'] };
       const secondRecord = { id: 'postauto-row-two', cust_brandCompanyJobSearch: ['PostAuto'] };
@@ -176,7 +228,7 @@ describe('PostAuto crawler parser', () => {
         return {
           ok: true,
           status: 200,
-          json: async () => ({
+          text: async () => JSON.stringify({
             totalJobs: 4,
             jobSearchResult: body.pageNumber === 0
               ? [{ response: firstRecord }, { response: secondRecord }]
@@ -198,6 +250,40 @@ describe('PostAuto crawler parser', () => {
         ]);
         expect(requestedPages).not.toContain(2);
       } finally {
+        vi.unstubAllGlobals();
+      }
+    });
+
+    it('retries a transient API connection before reporting connection_error', async () => {
+      const record = { id: 'postauto-retried', cust_brandCompanyJobSearch: ['PostAuto'] };
+      const previousRetryBase = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      let attempts = 0;
+      const fetchMock = vi.fn(async (_url: string, init?: RequestInit) => {
+        attempts += 1;
+        if (attempts === 1) {
+          throw Object.assign(new TypeError('fetch failed'), { cause: { code: 'ECONNRESET' } });
+        }
+        const body = JSON.parse(String(init?.body || '{}')) as { locale?: string };
+        return {
+          ok: true,
+          status: 200,
+          text: async () => JSON.stringify({
+            totalJobs: body.locale === 'de_DE' ? 1 : 0,
+            jobSearchResult: body.locale === 'de_DE' ? [{ response: record }] : [],
+          }),
+        };
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      try {
+        const listings = await postAutoTestables.fetchPostAutoListings(1000);
+        expect(listings.fetchOutcome).toBe('ok');
+        expect(listings.map((listing) => listing.id)).toEqual(['postauto-retried']);
+        expect(fetchMock).toHaveBeenCalledTimes(5);
+      } finally {
+        if (previousRetryBase === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+        else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousRetryBase;
         vi.unstubAllGlobals();
       }
     });

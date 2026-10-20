@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Audit deterministico dell'intero inventario GitHub Actions.
  *
@@ -24,11 +26,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { fileURLToPath } from 'node:url';
 import { parseDocument } from 'yaml';
 import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creator.mjs';
 import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 import { auditLoopFleetBindings } from './loop-fleet-registry-audit.mjs';
+import { lineAt } from './line-at.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
@@ -59,7 +63,7 @@ const SHELL_OUTPUT_ALIAS_RE = /(?:^|[;\n])\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_
 const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["'`]([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
 const OUTPUT_HELPER_KV_CALL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["'`]([A-Za-z_][A-Za-z0-9_-]*)["'`]\s*,/g;
 const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
-const OUTPUT_ACTIONS_FILE_RE = /\bappendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
+const OUTPUT_ACTIONS_FILE_RE = /\bappend(?:Actions|GitHub)File\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
 const LOCAL_MODULE_RE = /\b(?:from\s*|import\s*\(\s*|require\s*\(\s*)["'](\.{1,2}\/[^"']+)["']/g;
 const INVOKED_COMMAND_RE = /\b(?:node|bash|sh|tsx|bun|deno)\s+["']?((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
 const SCRIPT_DIR_COMMAND_RE = /\b(?:bash|sh|source|\.)\s+["']?\$\{SCRIPT_DIR\}\/([^"'\s]+)/g;
@@ -72,7 +76,13 @@ function isRecord(value) {
 
 function lineFor(source, needle) {
   const index = typeof needle === 'string' ? source.indexOf(needle) : source.search(needle);
-  return index < 0 ? 1 : source.slice(0, index).split(/\r?\n/).length;
+  if (index < 0) return 1;
+
+  // Workflow files are generated in the hundreds of kilobytes and this helper
+  // is called once per step, including for steps that produce no finding. The
+  // shared helper indexes each source once and resolves matches with a binary
+  // search instead of rescanning the whole prefix for every call.
+  return lineAt(source, index);
 }
 
 function finding(file, rule, severity, message, line = 1, evidence = null) {
@@ -240,12 +250,88 @@ function isShellComment(source, offset) {
   return false;
 }
 
+const PRINT_COMMANDS = new Set(['echo', 'printf']);
+const SHELL_COMMAND_PREFIX_WORDS = new Set(['!', '{', 'do', 'elif', 'else', 'if', 'then', 'time', 'until', 'while']);
+
+/**
+ * Ranges of quoted shell strings that are arguments of `echo`/`printf`: text
+ * the step prints (a PR body, a summary line), not a command it executes. A
+ * double-quoted string with `$(...)` or a backtick still runs that command and
+ * is therefore excluded. The current simple command survives a backslash-newline
+ * continuation, so `printf '%s\n' \` followed by a quoted line is still printf.
+ */
+function printedQuotedRanges(source) {
+  const raw = String(source || '');
+  const ranges = [];
+  let command = '';
+  let quote = null;
+  let start = -1;
+  let escaped = false;
+  let comment = false;
+  const commandWord = () => command.trim().split(/\s+/)
+    .find((word) => !SHELL_COMMAND_PREFIX_WORDS.has(word) && !/^[A-Za-z_][A-Za-z0-9_]*=/.test(word)) || '';
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    if (quote) {
+      if (quote === '"' && escaped) {
+        escaped = false;
+        continue;
+      }
+      if (quote === '"' && char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char !== quote) continue;
+      const content = raw.slice(start, index);
+      const executes = quote === '"' && /\$\(|`/.test(content);
+      if (PRINT_COMMANDS.has(commandWord()) && !executes) ranges.push({ start, end: index });
+      quote = null;
+      continue;
+    }
+    if (comment) {
+      if (char === '\n') {
+        comment = false;
+        command = '';
+      }
+      continue;
+    }
+    if (escaped) {
+      escaped = false;
+      command += char === '\n' ? ' ' : char;
+      continue;
+    }
+    if (char === '\\') {
+      escaped = true;
+      continue;
+    }
+    if (char === '#' && (index === 0 || /[\s;&|()]/.test(raw[index - 1]))) {
+      comment = true;
+      continue;
+    }
+    if (char === "'" || char === '"') {
+      quote = char;
+      start = index + 1;
+      command += 'Q';
+      continue;
+    }
+    if (char === '\n' || char === ';' || char === '|' || char === '&' || char === '(' || char === ')') {
+      command = '';
+      continue;
+    }
+    command += char;
+  }
+  return ranges;
+}
+
 function extractCommandPaths(run) {
   const paths = [];
   const source = String(run || '');
+  const printed = printedQuotedRanges(source);
   for (const match of source.matchAll(PATH_RE)) {
     const candidate = match[1].replace(/[),;:'"`]+$/g, '');
-    if (!candidate.includes('${{') && !isShellComment(source, match.index ?? 0)) paths.push(candidate);
+    const offset = match.index ?? 0;
+    if (printed.some(({ start, end }) => offset >= start && offset < end)) continue;
+    if (!candidate.includes('${{') && !isShellComment(source, offset)) paths.push(candidate);
   }
   return [...new Set(paths)];
 }
@@ -273,9 +359,128 @@ function extractDataPaths(run) {
   return [...new Set([...String(run || '').matchAll(DATA_PATH_RE)].map((match) => match[1]))];
 }
 
+function shellDataPathAssignments(source) {
+  const assignments = new Map();
+  const { commands } = parseShellCommands(source);
+  for (const command of commands) {
+    const words = command.name === 'export' ? command.args : [command.nameToken, ...command.args];
+    for (const token of words) {
+      if (!token || token.type !== 'word' || token.quotedOnly) break;
+      const assignment = /^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/.exec(token.value);
+      if (!assignment) break;
+      assignments.set(assignment[1], assignment[2]);
+    }
+  }
+  return assignments;
+}
+
+function resolveShellDataPath(value, assignments, seen = new Set()) {
+  const token = String(value || '').trim();
+  const variable = /^\$(?:\{([A-Za-z_][A-Za-z0-9_]*)\}|([A-Za-z_][A-Za-z0-9_]*))(\/.*)?$/.exec(token);
+  if (variable) {
+    const name = variable[1] || variable[2];
+    if (seen.has(name) || !assignments.has(name)) return null;
+    seen.add(name);
+    return resolveShellDataPath(`${assignments.get(name)}${variable[3] || ''}`, assignments, seen);
+  }
+  const match = /^(?:\.\/)?((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts))$/i.exec(token);
+  return match?.[1] || null;
+}
+
+function isKnownNonDataShellTarget(value, assignments, seen = new Set()) {
+  const token = String(value || '').trim();
+  const variable = /^\$(?:\{([A-Za-z_][A-Za-z0-9_]*)\}|([A-Za-z_][A-Za-z0-9_]*))(\/.*)?$/.exec(token);
+  if (variable) {
+    const name = variable[1] || variable[2];
+    if (seen.has(name)) return false;
+    if (assignments.has(name)) {
+      seen.add(name);
+      return isKnownNonDataShellTarget(`${assignments.get(name)}${variable[3] || ''}`, assignments, seen);
+    }
+    return ['GITHUB_ENV', 'GITHUB_OUTPUT', 'RUNNER_TEMP', 'TMPDIR'].includes(name);
+  }
+  if (/^(?:\.\/)?(?:data|public\/data)(?:\/|$)/i.test(token) || token.includes('$')) return false;
+  return true;
+}
+
+function extractDataWritePaths(run, operationalRun) {
+  const dataPaths = extractDataPaths(operationalRun);
+  if (dataPaths.length === 0 || !/(?:\bgit\s+(?:add|commit)\b|(?:>>?|>\|))/i.test(operationalRun)) return [];
+
+  const assignments = shellDataPathAssignments(run);
+  const { commands } = parseShellCommands(operationalRun);
+  const written = new Set();
+  const staged = new Set();
+  let broadStage = false;
+  let unresolvedTarget = false;
+  let commitWithoutKnownTargets = false;
+
+  for (const command of commands) {
+    if (['>', '>>', '>|'].includes(command.operatorBefore)) {
+      const target = resolveShellDataPath(command.name, assignments);
+      if (target) written.add(target);
+      else if (!isKnownNonDataShellTarget(command.name, assignments)
+        && (/\$|(?:^|\/)data\//.test(command.name) || /\$|(?:^|\/)data\//.test(command.args.map((token) => token.value).join(' ')))) {
+        unresolvedTarget = true;
+      }
+    }
+
+    const words = [command.nameToken, ...command.args]
+      .filter((token) => token?.type === 'word');
+    let commandIndex = 0;
+    while (commandIndex < words.length && /^[A-Za-z_][A-Za-z0-9_]*=/.test(words[commandIndex].value)) {
+      commandIndex += 1;
+    }
+    if (words[commandIndex]?.value !== 'git') continue;
+
+    const subcommand = words[commandIndex + 1]?.value;
+    const args = words.slice(commandIndex + 2).map((token) => token.value);
+    if (subcommand === 'add') {
+      let afterSeparator = false;
+      for (const arg of args) {
+        if (arg === '--' && !afterSeparator) {
+          afterSeparator = true;
+          continue;
+        }
+        if (!afterSeparator && arg.startsWith('-')) {
+          if (['-A', '--all', '-u', '--update'].includes(arg)) broadStage = true;
+          continue;
+        }
+        const target = resolveShellDataPath(arg, assignments);
+        if (target) staged.add(target);
+        else if (arg === '.' || arg === '..' || arg.includes('*') || arg.startsWith('$')) broadStage = true;
+      }
+    }
+
+    if (subcommand === 'commit') {
+      const separator = args.indexOf('--');
+      const commitPathArgs = separator >= 0 ? args.slice(separator + 1) : [];
+      for (const arg of commitPathArgs) {
+        const target = resolveShellDataPath(arg, assignments);
+        if (target) written.add(target);
+        else unresolvedTarget = true;
+      }
+      if (commitPathArgs.length === 0) {
+        if (args.some((arg) => arg === '-a' || arg === '--all') || staged.size === 0) {
+          commitWithoutKnownTargets = true;
+        } else {
+          for (const target of staged) written.add(target);
+        }
+      }
+    }
+  }
+
+  for (const target of staged) written.add(target);
+  if (broadStage || unresolvedTarget || commitWithoutKnownTargets) {
+    for (const candidate of dataPaths) written.add(candidate);
+  }
+  return [...written];
+}
+
 const SHELL_KEYWORDS = new Set(['case', 'do', 'done', 'elif', 'else', 'esac', 'fi', 'for', 'if', 'in', 'then', 'until', 'while']);
 const SHELL_COMMENT_PRECEDERS = new Set([';', '&', '|', '(', ')', '{', '}', '<', '>']);
 const SHELL_OPERATORS = [';&', ';;&', '||', '&&', '|&', ';;', '>>', '<<', '>&', '<&', '>|', ';', '|', '&', '(', ')', '{', '}', '<', '>'];
+const DATA_WRITE_VALIDATION_RE = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i;
 
 function shellTokens(source) {
   const raw = String(source || '');
@@ -333,6 +538,14 @@ function shellTokens(source) {
     }
     if (escaped) {
       if (char !== '\n') append(char, true, index);
+      else if (value.length === 0) {
+        // A standalone `\` before a continued line is syntax, not an empty
+        // shell word. Keep a preceding word open when the continuation joins
+        // tokens (for example `foo\\\nbar`), but discard this empty token so
+        // a redirection target on the next indented line remains the target.
+        start = -1;
+        unquoted = false;
+      }
       escaped = false;
       continue;
     }
@@ -453,6 +666,54 @@ function shellConditionalBranches(parsed) {
   return branches.filter((branch) => branch.then && branch.bodyEnd);
 }
 
+function shellErrexitChange(command) {
+  if (command.name !== 'set') return null;
+  const values = command.args
+    .filter((token) => token.type === 'word')
+    .map((token) => token.value);
+  for (let index = 0; index < values.length; index += 1) {
+    const value = values[index];
+    if (value === '+e' || (value === '+o' && values[index + 1] === 'errexit')) return false;
+    if (value === '-e' || (/^-[^-]*e/.test(value) && value !== '-o')
+      || (value === '-o' && values[index + 1] === 'errexit')) return true;
+  }
+  return null;
+}
+
+function shellErrexitEnabledBefore(parsed, target) {
+  let enabled = true;
+  for (const command of parsed.commands) {
+    if (command.start >= target.start) break;
+    const change = shellErrexitChange(command);
+    if (change !== null) enabled = change;
+  }
+  return enabled;
+}
+
+function shellValidationIsGuarded(source, parsed, command) {
+  if (command.name === '!' && command.prefixKeywords.includes('if')) {
+    const branch = shellConditionalBranches(parsed)
+      .filter((candidate) => command.start > candidate.conditionStart.end
+        && command.end <= candidate.then.start)
+      .sort((left, right) => right.conditionStart.start - left.conditionStart.start)[0];
+    return Boolean(branch && /\bexit(?:\s|;|$)/.test(source.slice(branch.then.end, branch.bodyEnd.start)));
+  }
+  if (command.operatorAfter !== '||') return false;
+  const commandIndex = parsed.commands.indexOf(command);
+  if (parsed.commands[commandIndex + 1]?.name === 'exit') return true;
+  const block = /^\s*\|\|\s*\{([\s\S]*?)\}/.exec(source.slice(command.end));
+  return Boolean(block && /\bexit(?:\s|;|$)/.test(block[1]));
+}
+
+function hasEffectiveDataValidation(operationalRun) {
+  const parsed = parseShellCommands(operationalRun);
+  const validationCommands = parsed.commands.filter((command) =>
+    DATA_WRITE_VALIDATION_RE.test(operationalRun.slice(command.start, command.end)));
+  if (validationCommands.length === 0) return false;
+  return validationCommands.every((command) =>
+    shellErrexitEnabledBefore(parsed, command) || shellValidationIsGuarded(operationalRun, parsed, command));
+}
+
 function fileExistencePath(command) {
   if (command.nameToken.quotedOnly) return null;
   const values = command.args.map((token) => token.value);
@@ -561,9 +822,14 @@ function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
   };
   const mask = (text) => append([...text].map((char) => char === '\n' ? '\n' : ' ').join(''));
   const quotedPathIsOperational = (content) => {
-    if (!preserveQuotedWritePaths || !/^((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts))$/i.test(content)) return false;
+    if (!preserveQuotedWritePaths) return false;
     const command = quotePrefix.split(/&&|\|\||[;|]/).at(-1) || '';
-    return /\bgit\s+add\b[^\n]*$|(?:>>|>)\s*$/i.test(command);
+    const writeTarget = /\bgit\s+add\b[^\n]*$|(?:>>|>)\s*$/i.test(command);
+    const literalDataPath = /^(?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts)$/i.test(content);
+    const variableReference = /^\$\{?[A-Za-z_][A-Za-z0-9_]*\}?$/.test(content);
+    const assignmentValue = /^\s*(?:export\s+)?[A-Za-z_][A-Za-z0-9_]*=$/.test(command);
+    return (writeTarget && (literalDataPath || variableReference))
+      || (assignmentValue && literalDataPath);
   };
 
   for (const char of source) {
@@ -1030,7 +1296,11 @@ function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
       'g',
     );
     const entries = [...raw.slice(closingIndex + 1).matchAll(entriesRe)];
-    const reachesOutputSink = entries.some((entry) => {
+    // `Object.entries(map)` may also sit inline inside the writer call.
+    const inlineEntriesRe = new RegExp(`\\bObject\\.entries\\(\\s*${escapedVariable}\\s*\\)`);
+    const inlineReachesSink = sinkRanges.some(({ start, end }) => start > closingIndex
+      && inlineEntriesRe.test(raw.slice(start, end)));
+    const reachesOutputSink = inlineReachesSink || entries.some((entry) => {
       const derivedVariable = entry[1];
       const entriesStart = closingIndex + 1 + (entry.index ?? 0);
       const entriesEnd = entriesStart + entry[0].length;
@@ -1066,6 +1336,151 @@ function directOutputWriterRanges(source) {
   return ranges;
 }
 
+/**
+ * Splits a JS argument list at its top-level commas. Quotes, template literals
+ * and nested brackets are skipped; the offsets are relative to `source`.
+ */
+function splitTopLevelArguments(source) {
+  const raw = String(source || '');
+  const parts = [];
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let start = 0;
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (char === '\\') escaped = true;
+      else if (char === quote) quote = null;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') quote = char;
+    else if ('([{'.includes(char)) depth += 1;
+    else if (')]}'.includes(char)) depth -= 1;
+    else if (char === ',' && depth === 0) {
+      parts.push({ text: raw.slice(start, index), start });
+      start = index + 1;
+    }
+  }
+  parts.push({ text: raw.slice(start), start });
+  return parts;
+}
+
+/**
+ * End offset of the JS expression that starts at `start` (a `return` value):
+ * the first top-level `;`, the brace that closes the enclosing block, or a
+ * newline after which the expression does not continue with an operator.
+ */
+function expressionEnd(source, start) {
+  const raw = String(source || '');
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  for (let index = start; index < raw.length; index += 1) {
+    const char = raw[index];
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (char === '\\') escaped = true;
+      else if (char === quote) quote = null;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') quote = char;
+    else if ('([{'.includes(char)) depth += 1;
+    else if (')]}'.includes(char)) {
+      if (depth === 0) return index;
+      depth -= 1;
+    } else if (depth === 0 && char === ';') return index;
+    else if (depth === 0 && char === '\n' && !/^\s*[+.?:|&]/.test(raw.slice(index + 1))) return index;
+  }
+  return raw.length;
+}
+
+function splitTopLevelConcatenation(source) {
+  const raw = String(source || '');
+  const parts = [];
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+  let start = 0;
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (char === '\\') escaped = true;
+      else if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      continue;
+    }
+    if ('([{'.includes(char)) {
+      depth += 1;
+      continue;
+    }
+    if (')]}'.includes(char)) {
+      depth -= 1;
+      continue;
+    }
+    if (char === '+' && depth === 0 && raw[index - 1] !== '+' && raw[index + 1] !== '+') {
+      parts.push(raw.slice(start, index));
+      start = index + 1;
+    }
+  }
+  parts.push(raw.slice(start));
+  return parts;
+}
+
+function stripOuterGrouping(source) {
+  let value = String(source || '').trim();
+  while (value.startsWith('(')) {
+    const closingIndex = matchingParen(value, 0);
+    if (closingIndex !== value.length - 1) break;
+    value = value.slice(1, -1).trim();
+  }
+  return value;
+}
+
+function returnedStringLiteralOperands(source) {
+  const expression = stripOuterGrouping(source);
+  const literals = [];
+  for (const operand of splitTopLevelConcatenation(expression)) {
+    const candidate = stripOuterGrouping(operand);
+    const found = stringLiterals(candidate);
+    if (found.length !== 1) continue;
+    const [literal] = found;
+    const openingIndex = literal.start - 1;
+    if (candidate.slice(0, openingIndex).trim() !== '' || candidate.slice(literal.end).trim() !== '') continue;
+    literals.push(literal);
+  }
+  return literals;
+}
+
 function returnedOutputArrayKeys(source) {
   const raw = String(source || '');
   const keys = new Set();
@@ -1083,17 +1498,151 @@ function returnedOutputArrayKeys(source) {
       if (closingIndex < 0) continue;
       const body = raw.slice(openingIndex + 1, closingIndex);
       const returned = body.match(/\breturn\s*\[([\s\S]*?)\]\s*(?:\.join\b|;)/);
-      if (!returned) continue;
-      for (const key of outputKeysFromText(returned[1])) keys.add(key);
+      if (returned) {
+        for (const key of outputKeysFromText(returned[1])) keys.add(key);
+        continue;
+      }
+      // The helper may instead return the output block as a string: a
+      // template `k=${...}\nk2=${...}` or a concatenation of literals. Only the
+      // literals of the returned expression count, so a key computed at
+      // runtime stays unknown and keeps its warning.
+      for (const statement of body.matchAll(/\breturn\s*(?=[`'"])/g)) {
+        const expressionStart = (statement.index ?? 0) + statement[0].length;
+        const expression = body.slice(expressionStart, expressionEnd(body, expressionStart));
+        for (const literal of returnedStringLiteralOperands(expression)) {
+          for (const key of outputKeysFromText(literal.value)) keys.add(key);
+        }
+      }
     }
   }
   return keys;
 }
 
-function outputKeysFromSource(source) {
+// A step may hand $GITHUB_OUTPUT to a first-party script as a flag value
+// (`--github-output "$GITHUB_OUTPUT"`): the script never names GITHUB_OUTPUT,
+// it writes to whatever file the flag carries.
+const OUTPUT_FLAG_RE = /--([A-Za-z][A-Za-z0-9-]*)(?:=|\s+)(?:"\$\{?GITHUB_OUTPUT\}?"|\$\{?GITHUB_OUTPUT\}?(?![A-Za-z0-9_./-]))/g;
+
+/**
+ * The text of the simple command that starts at `start`, across
+ * backslash-newline continuations and up to the first unquoted command
+ * separator.
+ */
+function shellCommandSegment(source, start) {
   const raw = String(source || '');
-  if (!/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|appendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return new Set();
-  const keys = new Set([...raw.matchAll(OUTPUT_RE)].map((match) => match[1]));
+  let quote = null;
+  let escaped = false;
+  for (let index = start; index < raw.length; index += 1) {
+    const char = raw[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (char === '\\' && quote !== "'") {
+      escaped = true;
+      continue;
+    }
+    if (quote) {
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === "'" || char === '"') quote = char;
+    else if ('\n;|&'.includes(char)) return raw.slice(start, index);
+  }
+  return raw.slice(start);
+}
+
+/** Map script path -> flags that receive $GITHUB_OUTPUT on its invocation. */
+function outputFlagsByCommandPath(run) {
+  const source = String(run || '');
+  const flagsByPath = new Map();
+  const printed = printedQuotedRanges(source);
+  for (const reference of extractInvokedCommandReferences(source)) {
+    if (isShellComment(source, reference.index)) continue;
+    if (printed.some(({ start, end }) => reference.index >= start && reference.index < end)) continue;
+    const segment = shellCommandSegment(source, reference.index);
+    for (const match of segment.matchAll(OUTPUT_FLAG_RE)) {
+      if (!flagsByPath.has(reference.path)) flagsByPath.set(reference.path, new Set());
+      flagsByPath.get(reference.path).add(match[1]);
+    }
+  }
+  return flagsByPath;
+}
+
+function fileWriterCalls(source, start = 0, end = String(source || '').length) {
+  const raw = String(source || '');
+  const writers = [];
+  const writerRe = /\b(?:appendFileSync|writeFileSync)\s*\(/g;
+  writerRe.lastIndex = start;
+  for (let match = writerRe.exec(raw); match && match.index < end; match = writerRe.exec(raw)) {
+    const openingIndex = match.index + match[0].length - 1;
+    const closingIndex = matchingParen(raw, openingIndex);
+    if (closingIndex < 0) continue;
+    const [target] = splitTopLevelArguments(raw.slice(openingIndex + 1, closingIndex));
+    writers.push({ start: match.index, end: closingIndex + 1, target: target.text.trim() });
+  }
+  return writers;
+}
+
+/**
+ * Sink ranges of a script that receives its output file through one of
+ * `flags`: a writer whose target reads the flag directly
+ * (`appendFileSync(args['github-output'], ...)`), or a writer inside a
+ * function declaration whose target is the parameter bound to the flag at a
+ * call site (`writeGithubOutputs(args['github-output'], plan)`). A writer to
+ * any other file is not a sink, so a map written to a report stays unproven.
+ */
+function flagOutputSinkRanges(source, flags) {
+  const raw = String(source || '');
+  if (!flags || flags.size === 0) return [];
+  const flagLiteralRes = [...flags].map((flag) => new RegExp(
+    `(["'\`])(?:--)?${flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1`,
+  ));
+  const readsFlag = (text) => flagLiteralRes.some((re) => re.test(text));
+  const ranges = fileWriterCalls(raw).filter((writer) => readsFlag(writer.target));
+  for (const declaration of raw.matchAll(/\bfunction\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*\(/g)) {
+    const name = declaration[1];
+    const paramsOpen = (declaration.index ?? 0) + declaration[0].length - 1;
+    const paramsClose = matchingParen(raw, paramsOpen);
+    if (paramsClose < 0) continue;
+    const bodyOpen = raw.indexOf('{', paramsClose);
+    const bodyClose = matchingBrace(raw, bodyOpen);
+    if (bodyOpen < 0 || bodyClose < 0) continue;
+    const params = splitTopLevelArguments(raw.slice(paramsOpen + 1, paramsClose))
+      .map((param) => param.text.split('=')[0].trim());
+    const boundParams = new Set();
+    const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    for (const call of raw.matchAll(new RegExp(`(?<!\\bfunction\\s+)\\b${escapedName}\\s*\\(`, 'g'))) {
+      const callOpen = (call.index ?? 0) + call[0].length - 1;
+      const callClose = matchingParen(raw, callOpen);
+      if (callClose < 0) continue;
+      splitTopLevelArguments(raw.slice(callOpen + 1, callClose)).forEach((argument, position) => {
+        if (readsFlag(argument.text) && /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(params[position] || '')) {
+          boundParams.add(params[position]);
+        }
+      });
+    }
+    if (boundParams.size === 0) continue;
+    for (const writer of fileWriterCalls(raw, bodyOpen, bodyClose)) {
+      if (boundParams.has(writer.target)) ranges.push({ start: writer.start, end: writer.end });
+    }
+  }
+  return ranges;
+}
+
+function outputKeysFromSource(source, { outputFlags = null } = {}) {
+  const raw = String(source || '');
+  const keys = new Set();
+  // A script that received $GITHUB_OUTPUT through a flag proves its keys only
+  // through the writers bound to that flag.
+  const flagRanges = flagOutputSinkRanges(raw, outputFlags);
+  if (flagRanges.length > 0) {
+    for (const key of literalOutputKeys(raw, flagRanges)) keys.add(key);
+    for (const key of objectEntryOutputKeys(raw, flagRanges)) keys.add(key);
+  }
+  if (outputFlags && outputFlags.size > 0) return keys;
+  if (!/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|append(?:Actions|GitHub)File\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return keys;
+  for (const match of raw.matchAll(OUTPUT_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_KV_CALL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
@@ -1126,8 +1675,9 @@ function stepOutputKeys(run, {
   const source = String(run || '');
   const keys = outputKeysFromSource(source);
   if (!followReferences || workingRoot === null) return keys;
+  const outputFlags = outputFlagsByCommandPath(source);
   const visited = new Set();
-  const visit = (absolute, depth) => {
+  const visit = (absolute, depth, flags = null) => {
     if (depth > 4 || visited.size >= MAX_OUTPUT_REFERENCE_FILES || visited.has(absolute) || !exists(absolute)) return;
     visited.add(absolute);
     let delegated;
@@ -1138,7 +1688,7 @@ function stepOutputKeys(run, {
       // contract. Leave the key unknown so the existing warning is retained.
       return;
     }
-    const delegatedKeys = outputKeysFromSource(delegated);
+    const delegatedKeys = outputKeysFromSource(delegated, { outputFlags: flags });
     for (const key of delegatedKeys) keys.add(key);
     // Once a delegated writer exposes literal keys, traversing all of its
     // dependencies adds cost without making the contract more certain. Keep
@@ -1157,7 +1707,9 @@ function stepOutputKeys(run, {
       if (exists(modulePath)) visit(modulePath, depth + 1);
     }
   };
-  for (const candidate of extractCommandPaths(source)) visit(path.resolve(workingRoot, candidate), 0);
+  for (const candidate of extractCommandPaths(source)) {
+    visit(path.resolve(workingRoot, candidate), 0, outputFlags.get(candidate) || null);
+  }
   return keys;
 }
 
@@ -1531,12 +2083,10 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
           }
         }
         const operationalRun = shellOperationalText(rawStep.run, { preserveQuotedWritePaths: true });
-        const operationalDataPaths = extractDataPaths(operationalRun);
-        const dataPaths = operationalDataPaths;
-        const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*(?:\\\r?\n\s*)*["']?(?:data|public\/data)\//i.test(operationalRun);
-        const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(operationalRun);
-        if (writesData && dataPaths.length > 0 && !hasValidation) {
-          for (const dataPath of dataPaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));
+        const dataWritePaths = extractDataWritePaths(rawStep.run, operationalRun);
+        const hasValidation = hasEffectiveDataValidation(operationalRun);
+        if (dataWritePaths.length > 0 && !hasValidation) {
+          for (const dataPath of dataWritePaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));
         }
       }
 
@@ -1578,11 +2128,12 @@ export function auditWorkflowText(file, source, {
   readFile = fs.readFileSync,
   knownWorkflowNames = new Set(),
   reusableWorkflowOutputs = new Map(),
+  parsedDocument = null,
 } = {}) {
   const findings = [];
-  let document;
+  let document = parsedDocument;
   try {
-    document = parseDocument(String(source || ''), { prettyErrors: true });
+    document ??= parseDocument(String(source || ''), { prettyErrors: true });
   } catch (error) {
     findings.push(finding(file, 'yaml.parse', 'error', `YAML non parsabile: ${error.message}`, 1));
     return findings;
@@ -1609,6 +2160,7 @@ export function auditWorkflowText(file, source, {
 export function auditWorkflowFiles(root = ROOT) {
   const files = workflowFiles(root);
   const contents = new Map();
+  const parsedDocuments = new Map();
   const names = new Set();
   const reusableWorkflowOutputs = new Map();
   const parseFindings = [];
@@ -1619,6 +2171,7 @@ export function auditWorkflowFiles(root = ROOT) {
     try {
       const document = parseDocument(source, { prettyErrors: true });
       if ((document.errors || []).length === 0) {
+        parsedDocuments.set(file, document);
         const workflow = document.toJS({ mapAsMap: false });
         if (isRecord(workflow)) {
           if (typeof workflow.name === 'string' && workflow.name.trim()) names.add(workflow.name.trim());
@@ -1638,6 +2191,7 @@ export function auditWorkflowFiles(root = ROOT) {
       root,
       knownWorkflowNames: names,
       reusableWorkflowOutputs,
+      parsedDocument: parsedDocuments.get(file) ?? null,
     }));
   }
   return {
@@ -1907,7 +2461,7 @@ function syncAuditIssueContract(issueNumber, contract, fallbackBody) {
     const currentJson = execFileSync('gh', [
       'issue', 'view', String(issueNumber), '--json', 'body',
       ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
-    ], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    ], { cwd: ROOT, encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] });
     const current = JSON.parse(currentJson).body || '';
     const body = L11_ISSUE_CONTRACT_RE.test(current)
       ? current.replace(L11_ISSUE_CONTRACT_RE, marker)
@@ -1918,7 +2472,7 @@ function syncAuditIssueContract(issueNumber, contract, fallbackBody) {
     execFileSync('gh', [
       'issue', 'edit', String(issueNumber), '--body', boundedBody,
       ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
-    ], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    ], { cwd: ROOT, encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] });
     console.log(`Issue audit #${issueNumber}: contratto L11 aggiornato nel body`);
   } catch (error) {
     // The issue/comment remains durable even if this reconciliation is
@@ -1948,7 +2502,7 @@ function syncAuditIssueRouting(issueNumber, summary, metadata) {
       '--add-label', routing.add,
       '--remove-label', routing.remove,
       ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
-    ], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    ], { cwd: ROOT, encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] });
     console.log(`Issue audit #${issueNumber}: routing=${routing.route}`);
   } catch (error) {
     // The issue itself is already persisted by createGithubIssue. A label-sync
@@ -2117,7 +2671,7 @@ async function main() {
   if (argv.includes('--strict') && summary.error > 0 && !issuePersisted) process.exitCode = 1;
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) main().catch((error) => {
   console.error(error.stack || error.message);
   process.exitCode = 2;

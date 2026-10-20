@@ -3,9 +3,10 @@ import { Key, AlertCircle, ArrowLeft } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 import { getLocale, type Locale } from '@/services/i18n';
 import SubscriptionPreferencesController from '@/components/preferences/SubscriptionPreferencesController';
-// The published data-controller contact (#5675) — reused here rather than
-// re-typed so the page and the email footers can never name two addresses.
-import { DATA_CONTROLLER_EMAIL } from '../../functions/src/lib/dataControllerIdentity.js';
+// Public pages use the shared mailbox explicitly. Keeping this dependency
+// separate from the email-template identity makes future sender changes unable
+// to leak into this route accidentally.
+import { PUBLIC_CONTACT_EMAIL } from '@/services/publicContact';
 
 type Status = 'loading' | 'ready' | 'invalid';
 
@@ -148,10 +149,10 @@ export const NewsletterPreferences: React.FC = () => {
  <li>
  {S.invalidHelpContact}{' '}
  <a
- href={`mailto:${DATA_CONTROLLER_EMAIL}`}
+ href={`mailto:${PUBLIC_CONTACT_EMAIL}`}
  className="text-accent font-semibold hover:underline break-all"
  >
- {DATA_CONTROLLER_EMAIL}
+ {PUBLIC_CONTACT_EMAIL}
  </a>
  </li>
  </ul>

@@ -1,7 +1,8 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   HELSANA_KEY,
   HELSANA_COMPANY_NAME,
+  fetchAllHelsanaJobs,
   isHelsanaJob,
   isTrustedDomain,
 } from '../scripts/lib/helsana-job-parser.mjs';
@@ -180,7 +181,61 @@ describe('Helsana crawler parser', () => {
 
     it('still extracts datePosted via the content attribute (no regression)', () => {
       const detail = parseCsbDetailPage(microdataOnlyHtml);
-      expect(detail.postedDate).toBe('2026-07-03');
+      expect(detail).toMatchObject({ postedDate: '2026-07-03T02:00:00Z', datePosted: '2026-07-03T02:00:00Z', postingDateSource: 'reported' });
     });
+  });
+});
+
+describe('Helsana — hybrid-work location suffix (issue 5253)', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  const row = (id: string, title: string, location: string) => `
+    <tr class="data-row">
+      <td class="colTitle"><span class="jobTitle hidden-phone"><a href="/job/${encodeURIComponent(location)}-${id}/${id}/" class="jobTitle-link">${title}</a></span></td>
+      <td class="colLocation hidden-phone" headers="hdrLocation"><span class="jobLocation"> ${location} </span></td>
+      <td class="colDate hidden-phone"><span class="jobDate">24.09.2026</span></td>
+    </tr>`;
+
+  it('publishes the city before "& Homeoffice" with its own canton, not the HQ canton label', async () => {
+    // Forme reali di careers.helsana.ch (2026-09-24): prima uscivano `Zurigo`
+    // (Worblaufen, cantone di ripiego ZH) e `Grigioni` (Chur).
+    const search = `<table><tbody>
+      ${row('1429174233', 'Beratende Ärztin Krankentaggeld (a) 10-20%', 'Worblaufen &amp; Homeoffice')}
+      ${row('1410914233', 'Versicherungsberater im Aussendienst (a) 80-100%', 'Chur &amp; Homeoffice')}
+      ${row('1419913533', 'Junior IT Security Architect (a) 80-100%', 'Dübendorf-Stettbach &amp; Homeoff')}
+      ${row('1430015533', 'Kundenberater Privatkunden (a) 80-100%', 'Biel &amp; Homeoffice')}
+    </tbody></table>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const href = String(url);
+      if (href.includes('/search/')) {
+        return new Response(href.includes('startrow=0') ? search : '<table></table>', { status: 200 });
+      }
+      // A real vacancy body: the factory publishes only the posting's own
+      // text and skips a detail page without one (issue 5253).
+      return new Response('<html lang="de-DE"><body><h1>Stelle</h1><div data-careersite-propertyid="description">'
+        + '<p>In dieser Funktion beraten Sie unsere Versicherten kompetent und freundlich zu Leistungen, Prämien und Produkten.</p>'
+        + '<p>Sie bearbeiten Anfragen telefonisch und schriftlich, klären Abrechnungen ab und arbeiten eng mit Fachstellen zusammen.</p>'
+        + '<p>Sie bringen eine kaufmännische Ausbildung, Freude am Kundenkontakt sowie sehr gute Deutschkenntnisse mit.</p>'
+        + '<p>Wir bieten flexible Arbeitszeiten, die Möglichkeit zum Homeoffice und gezielte Weiterbildungen.</p>'
+        + '</div></body></html>', { status: 200 });
+    }));
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const jobs = await fetchAllHelsanaJobs();
+    const byLocation = Object.fromEntries(jobs.map((job: any) => [job.location, job.canton]));
+    expect(byLocation).toEqual({ Worblaufen: 'BE', Chur: 'GR', 'Dübendorf-Stettbach': 'ZH', Biel: 'BE' });
+
+    // #9841: the HQ postal code (8600 Dübendorf) belongs to the HQ, not to a
+    // Chur or Worblaufen vacancy; the detail page exposes no CAP of its own,
+    // so those jobs carry none and the assembler derives it from the city.
+    // "Biel" is ambiguous for the assembler's municipality whitelist, which
+    // then needs a Swiss CAP on record: it keeps 8600, which the job page
+    // does not print next to Biel (tests/seo/job-detail-html-snapshot.test.ts).
+    const postalByLocation = Object.fromEntries(jobs.map((job: any) => [job.location, job.postalCode || '']));
+    expect(postalByLocation).toEqual({ Worblaufen: '', Chur: '', 'Dübendorf-Stettbach': '8600', Biel: '8600' });
   });
 });

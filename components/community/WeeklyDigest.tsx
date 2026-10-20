@@ -17,6 +17,7 @@ import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
+import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { useAuth, getAuthEmail, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
@@ -84,6 +85,13 @@ const WeeklyDigest: React.FC = () => {
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
  const googleButtonRef = useRef<HTMLDivElement>(null);
  const [pendingSocialMethod, setPendingSocialMethod] = useState<'google_oauth' | 'linkedin_oauth' | null>(null);
+ // Visibility denominator for `weekly_digest.subscribe.success.<domain>`.
+ const impressionRef = useCaptureImpression({
+  page: 'weekly_digest',
+  section: 'form',
+  variant: 'weekly_digest',
+  enabled: !user && !alreadySubscribed,
+ });
 
  const today = new Date();
  const dateStr = today.toLocaleDateString('it-CH', {
@@ -341,7 +349,7 @@ const WeeklyDigest: React.FC = () => {
  )}
 
  {/* Subscribe Form */}
- <div className="bg-surface rounded-2xl border border-edge p-6">
+ <div ref={impressionRef} className="bg-surface rounded-2xl border border-edge p-6">
  <h3 className="font-bold text-strong mb-1 flex items-center gap-2">
  <Mail size={18} className="text-accent" />
  {t('weeklyDigest.subscribe')}

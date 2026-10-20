@@ -58,13 +58,18 @@
  *   - isTrustedDomain()      — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { fetchJson, slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { parsePostJobDetail, extractPostJobIdFromUrl } from './postch-job-parser.mjs';
 import { dedicatedPostOwner } from './crawler-company-ownership.mjs';
-import { createMutableFeedPaginationTracker } from './pagination-identity.mjs';
+import {
+  createMutableFeedPaginationTracker,
+  recordMutableFeedPageWithRetry,
+} from './pagination-identity.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -221,12 +226,10 @@ export function resolveAddress(cityRaw = '', _regionRaw = '') {
  * @returns {Promise<{totalJobs:number|null, jobs:object[], fetchOutcome:string}>}
  */
 async function fetchJobsApiPage(locale, pageNumber, timeoutMs) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(JOBS_API_URL, {
+    const data = await fetchJson(JOBS_API_URL, {
       method: 'POST',
-      signal: controller.signal,
+      timeoutMs,
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -236,17 +239,9 @@ async function fetchJobsApiPage(locale, pageNumber, timeoutMs) {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
-      body: JSON.stringify({ locale, pageNumber, sortBy: 'date' }),
+      body: { locale, pageNumber, sortBy: 'date' },
+      label: `PostAuto jobs API (${locale} page ${pageNumber})`,
     });
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for jobs API (${locale} page ${pageNumber})`);
-      return {
-        totalJobs: null,
-        jobs: [],
-        fetchOutcome: res.status === 403 || res.status === 429 ? 'anti_bot_block' : 'feed_endpoint_unavailable',
-      };
-    }
-    const data = await res.json();
     if (!Array.isArray(data?.jobSearchResult)) {
       console.warn(`⚠️ Jobs API response changed for ${locale} page ${pageNumber} (missing jobSearchResult)`);
       return { totalJobs: null, jobs: [], fetchOutcome: 'selector_miss' };
@@ -259,10 +254,14 @@ async function fetchJobsApiPage(locale, pageNumber, timeoutMs) {
       fetchOutcome: 'ok',
     };
   } catch (err) {
+    const status = Number(err?.status);
+    const fetchOutcome = status === 403 || status === 429
+      ? 'anti_bot_block'
+      : Number.isFinite(status)
+        ? 'feed_endpoint_unavailable'
+        : 'connection_error';
     console.warn(`⚠️ Jobs API fetch failed (${locale} page ${pageNumber}): ${err.message}`);
-    return { totalJobs: null, jobs: [], fetchOutcome: 'connection_error' };
-  } finally {
-    clearTimeout(timer);
+    return { totalJobs: null, jobs: [], fetchOutcome };
   }
 }
 
@@ -347,8 +346,25 @@ async function fetchPostAutoListings(timeoutMs) {
         complete = true;
         break;
       }
-      const pageIds = progress.record(jobs, pageNumber);
-      for (const [index, record] of jobs.entries()) {
+      const recorded = await recordMutableFeedPageWithRetry({
+        tracker: progress,
+        items: jobs,
+        page: pageNumber,
+        reload: async () => {
+          const retry = await fetchJobsApiPage(apiLocale, pageNumber, timeoutMs);
+          if (retry.fetchOutcome !== 'ok') {
+            throw new Error(
+              `PostAuto ${apiLocale} pagination failed at page ${pageNumber} on retry: ${retry.fetchOutcome}.`,
+            );
+          }
+          if (totalJobs === null && Number.isFinite(retry.totalJobs) && retry.totalJobs > 0) {
+            totalJobs = retry.totalJobs;
+          }
+          return retry.jobs;
+        },
+      });
+      const pageIds = recorded.pageIdentities;
+      for (const [index, record] of recorded.items.entries()) {
         const id = pageIds[index];
         if (isPostAutoRecord(record)) byId.set(id, record);
       }
@@ -442,7 +458,7 @@ export async function fetchAllPostAutoJobs() {
       if (!html) continue;
       const parsed = parsePostJobDetail(html, url);
       const looksLikePlaceholder = /^stellendetails$/i.test(String(parsed?.title || '').trim());
-      const hasBody = (parsed?.description || '').length > 80;
+      const hasBody = meetsSourceBodyFloor(parsed?.description || '');
       if (parsed?.title && !looksLikePlaceholder && hasBody) {
         detail = parsed;
         sourceUrl = url;
@@ -468,13 +484,17 @@ export async function fetchAllPostAutoJobs() {
     const { city, canton, postalCode, streetAddress, region } = address;
     const location = city;
 
-    const descriptionText = detail.description || '';
-    const description = descriptionText || `${title} bei ${POSTAUTO_COMPANY_NAME} in ${location}.`;
+    // A detail is accepted above only with a body over the shared 50-word
+    // floor (source-body-floor.mjs; it used to be 80 characters), so the
+    // published text is always the posting's own; the "{title} bei PostAuto
+    // in {city}." stand-in could never be reached and is gone (issue 5253).
+    const descriptionText = detail.description;
+    const description = descriptionText;
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} postauto ${location}`);
     const urlHash = createHash('sha1').update(sourceUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(detail.employmentType || title);
-    const postedDate = detail.datePosted || new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(detail.datePosted);
 
     const job = {
       // ── Required fields ──
@@ -509,7 +529,7 @@ export async function fetchAllPostAutoJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(publication),
       ...(detail.validThrough ? { validThrough: detail.validThrough } : {}),
       ...(detail.workload ? { pensum: detail.workload } : {}),
       applyUrl: sourceUrl,

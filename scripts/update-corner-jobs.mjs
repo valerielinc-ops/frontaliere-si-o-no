@@ -16,6 +16,7 @@
  * The API returns full job data including multi-locale translations (it, en, de),
  * descriptions, requirements, locations, and employment details.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -112,10 +113,7 @@ function slugify(value = '') {
 
 function toIsoDate(raw = '') {
   const value = String(raw || '').trim();
-  if (!value) return new Date().toISOString().slice(0, 10);
-  const date = new Date(value);
-  if (!Number.isNaN(date.getTime())) return date.toISOString().slice(0, 10);
-  return new Date().toISOString().slice(0, 10);
+  return sourcePostingDateFields(value).postedDate;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -183,6 +181,7 @@ async function fetchRecruiteeOffers() {
     }
     body = await res.text();
   } catch (err) {
+    // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
     console.error(`❌ Fetch failed for ${RECRUITEE_API}: ${err.message}`);
     return [];
   } finally {
@@ -222,7 +221,7 @@ export function parseCornerOffer(offer) {
   const parsed = parseCornerOfferFull(offer);
   if (!parsed) return null;
 
-  const { title, titleByLocale, description, descriptionByLocale, requirements } = parsed;
+  const { title, titleByLocale, description, descriptionByLocale, requirements, officialLocales = [] } = parsed;
 
   // Location
   const loc = (offer.locations || [])[0] || {};
@@ -267,7 +266,20 @@ export function parseCornerOffer(offer) {
     fr: slugify(`${titleByLocale.fr}-corner-banca-${slugCity}`),
   };
 
-  return {
+  const sourceLang = detectLang(description || title, 'en');
+  // Company-written alternates whose text really is in that locale (the
+  // apprenticeship's `en`/`de` alternates are Italian copies and do not count).
+  const verifiedOfficial = Object.fromEntries(
+    officialLocales
+      .filter((locale) => locale !== sourceLang && detectLang(descriptionByLocale[locale], locale) === locale)
+      .map((locale) => [locale, descriptionByLocale[locale]]),
+  );
+  // The page renders the primary-language text: file it under the language
+  // it is written in. Any other language is left empty for translation.
+  const localizedDescriptions = { ...verifiedOfficial };
+  if (description && LOCALES_WITH_SLOTS.includes(sourceLang)) localizedDescriptions[sourceLang] = description;
+
+  const job = {
     id,
     slug: slugify(`${title}-corner-banca-${slugCity}`),
     slugByLocale,
@@ -277,7 +289,7 @@ export function parseCornerOffer(offer) {
     title,
     titleByLocale,
     description,
-    descriptionByLocale,
+    descriptionByLocale: localizedDescriptions,
     requirements,
     requirementsByLocale,
     location: city,
@@ -288,12 +300,74 @@ export function parseCornerOffer(offer) {
     contract: inferContract(offer),
     currency: 'CHF',
     featured: false,
-    postedDate: toIsoDate(offer.published_at || offer.created_at),
+    ...sourcePostingDateFields(toIsoDate(offer.published_at)),
     url: careersUrl,
     source: 'Corner Dedicated Parser (Recruitee API)',
-    sourceLang: detectLang(description || title, 'en'),
+    sourceLang,
     crawledAt: new Date().toISOString(),
   };
+  OFFICIAL_DESCRIPTIONS.set(job, verifiedOfficial);
+  return job;
+}
+
+const LOCALES_WITH_SLOTS = ['it', 'en', 'de', 'fr'];
+// Parsed job → company-written non-source descriptions. Kept beside the job
+// (not on it) so it never reaches the persisted slice.
+const OFFICIAL_DESCRIPTIONS = new WeakMap();
+
+/**
+ * `mergePreserveLocaleData` treats every non-source locale as a translation
+ * and keeps the stored one. For Cornèr the Italian (and sometimes German)
+ * alternates are written by the bank itself on Recruitee, so they must win
+ * over a stored machine translation — otherwise an edit the bank makes to its
+ * Italian text never reaches the Italian site once the source is English.
+ */
+export function applyOfficialCornerDescriptions(mergedJobs, freshJobs) {
+  const officialByUrl = new Map();
+  for (const job of freshJobs) {
+    const official = OFFICIAL_DESCRIPTIONS.get(job);
+    const key = String(job?.url || '').trim().replace(/\/+$/, '');
+    if (key && official && Object.keys(official).length) officialByUrl.set(key, official);
+  }
+  for (const job of mergedJobs) {
+    const official = officialByUrl.get(String(job?.url || '').trim().replace(/\/+$/, ''));
+    if (!official) continue;
+    job.descriptionByLocale = { ...(job.descriptionByLocale || {}), ...official };
+  }
+  return mergedJobs;
+}
+
+const normalizedText = (text) => String(text || '').replace(/\s+/g, ' ').trim().toLowerCase();
+
+/**
+ * Earlier parser versions filled a language the bank did not write with
+ * another language's text (`de`/`fr` = the English body) and the merge keeps
+ * stored non-source slots. Drop every non-source slot that is a verbatim copy
+ * of another slot — unless it is a verified bank-written alternate — and flag
+ * the job so the translation step fills it.
+ */
+export function dropCornerLocaleCopies(mergedJobs, freshJobs = []) {
+  const officialByUrl = new Map(freshJobs.map((job) => [
+    String(job?.url || '').trim().replace(/\/+$/, ''),
+    OFFICIAL_DESCRIPTIONS.get(job) || {},
+  ]));
+  for (const job of mergedJobs) {
+    const official = officialByUrl.get(String(job?.url || '').trim().replace(/\/+$/, '')) || {};
+    const slots = job.descriptionByLocale || {};
+    let dropped = false;
+    for (const [locale, text] of Object.entries(slots)) {
+      if (locale === job.sourceLang || official[locale]) continue;
+      const value = normalizedText(text);
+      const isCopy = Object.entries(slots)
+        .some(([other, otherText]) => other !== locale && normalizedText(otherText) === value);
+      if (value && isCopy) {
+        delete slots[locale];
+        dropped = true;
+      }
+    }
+    if (dropped) job.needsRetranslation = true;
+  }
+  return mergedJobs;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -322,7 +396,10 @@ function mergeParsedCornerJobs(parsedJobs) {
   const deduped = [...byUrl.values()];
 
   // Preserve existing AI translations and slugs
-  const cleanCornerJobs = mergePreserveLocaleData(cornerExisting, deduped).sort(
+  const cleanCornerJobs = dropCornerLocaleCopies(applyOfficialCornerDescriptions(
+    mergePreserveLocaleData(cornerExisting, deduped),
+    deduped,
+  ), deduped).sort(
     (a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
   const merged = [...nonCorner, ...cleanCornerJobs];

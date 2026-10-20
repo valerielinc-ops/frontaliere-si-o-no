@@ -53,7 +53,7 @@ describe('article pages emit a real hero image element (#5005)', () => {
     // alt="" would be a decorative-image assertion — it would tell Discover
     // this image is not about the article, which is the opposite of the point.
     expect(SOURCE).toMatch(/heroFigureHtml\s*=\s*[\s\S]{0,400}?alt="\$\{esc\(heroAlt\)\}"/);
-    expect(SOURCE).toContain('const heroAlt = localizedMeta?.imageAlt || localizedTitle');
+    expect(SOURCE).toContain('const heroAlt = localizedMeta?.imageAlt || socialTitle');
   });
 
   it('renders the hero in BOTH emit branches, not just the rich one', () => {
@@ -80,7 +80,7 @@ describe('article NewsArticle JSON-LD carries image dimensions (#5001)', () => {
     // used the helper; the NewsArticle branch — every real article — did not.
     expect(SOURCE).not.toMatch(/^\s*image: imgU,\s*$/m);
     expect(SOURCE).toMatch(
-      /'@type': 'NewsArticle',[\s\S]{0,900}?image: imageObjectLd\(\{[\s\S]{0,300}?url: imgU,/,
+      /'@type': en\.datePub \? 'NewsArticle' : 'WebPage',[\s\S]{0,900}?image: imageObjectLd\(\{[\s\S]{0,300}?url: imgU,/,
     );
   });
 
@@ -137,5 +137,43 @@ describe('Tailwind scans the source that emits article HTML', () => {
     // The engine emits class="..." literals; whichever directory they live in
     // has to be covered, or the utilities are purged from the built CSS.
     expect(globs.some((g) => g.startsWith('packages/articles/engine/'))).toBe(true);
+  });
+
+  it('scans the engine .mjs modules, where the cover credit markup lives (P14)', () => {
+    // shared/imageCredits.mjs emits `mt-8 text-sm text-subtle underline
+    // underline-offset-2`; `{js,ts}` does not match `.mjs`.
+    const config = readFileSync(resolve(__dirname, '..', 'tailwind.config.js'), 'utf-8');
+    expect(config).toContain('"./packages/articles/engine/**/*.mjs"');
+  });
+});
+
+/**
+ * The credit of a Wikimedia Commons cover (P14), at the end of the article:
+ * owner decision «se dobbiamo mostrare un testo facciamo lo vedere in fondo
+ * all'articolo». Behavioural coverage: tests/article-hero-image-integrity.test.ts.
+ */
+describe('the cover credit closes the article (P14)', () => {
+  it('sits after the FAQ and before the related articles in the rich branch', () => {
+    expect(SOURCE).toContain(
+      '${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId,',
+    );
+  });
+
+  it('is kept in parity in the bundle-less branch, and only there besides', () => {
+    expect(SOURCE).toContain('${heroFigureHtml}<p>${esc(localizedDesc)}</p>${imageCreditHtml}<nav>');
+    expect(SOURCE.match(/\$\{imageCreditHtml\}/g) ?? []).toHaveLength(2);
+    // The hero itself carries no caption: the credit is not under the photo.
+    expect(SOURCE).not.toMatch(/heroFigureHtml\s*=\s*[\s\S]{0,400}?<figcaption/);
+  });
+
+  it('feeds both ImageObjects from the record, after `url: imgU,`', () => {
+    const spreads = SOURCE.match(
+      /image: imageObjectLd\(\{\s*url: imgU,\s*\.\.\.\(imageCredit \? imageObjectCreditFields\(imageCredit\) : \{\}\),/g,
+    ) ?? [];
+    expect(spreads).toHaveLength(2);
+  });
+
+  it('keys the credit by the RESOLVED hero, so a fallback image is never credited', () => {
+    expect(SOURCE).toContain('const imageCredit = imageCredits.get(en.img);');
   });
 });

@@ -1,24 +1,30 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-09-24T14:44:21.623Z",
+  "generatedAt": "2026-10-19T21:46:44.864Z",
   "total": 1,
-  "discovered": 14,
+  "discovered": 17,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4802,
-  "avgDurationMs": 4802,
+  "unchangedCount": 1,
+  "durationMs": 6068,
+  "avgDurationMs": 6068,
   "durationHistory": [
-    4802
+    6068
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "kudelski-nagra-362f31b80bbf",
       "slug": "security-operations-engineer-kudelski-nagra-ch",
@@ -30,8 +36,8 @@
       "canton": "ZH",
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "source": "Kudelski NAGRA Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:44:14.484Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-19T21:46:30.863Z",
       "addressLocality": "Zurich, Switzerland (Hybrid, onsite with client)",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -45,18 +51,22 @@
       "sector": "Sicurezza digitale / Media technology",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "firstSeenAt": "2026-09-19T23:09:21.794Z",
-      "_qualityScore": 73,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 3,
+        "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

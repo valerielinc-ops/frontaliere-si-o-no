@@ -31,9 +31,13 @@ import {
 } from '@/services/newsletterSubscribers';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
-import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
+import { useAuth, getAuthEmail, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { useCaptureImpression } from '@/hooks/useCaptureImpression';
+
+/** Last-touch attribution for a login started from this box (see authService). */
+const LEAD_MAGNET_AUTH_ATTRIBUTION = { cta: 'lead_magnet_social', component: 'LeadMagnetCTA' } as const;
 
 // ─── Types ───────────────────────────────────────────────────────────────
 
@@ -159,7 +163,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Contributi LPP (2o pilastro): deducibili fino al limite previsto dalla normativa italiana',
  'Premio LAMal: deducibile come onere sanitario (quadro E del 730, rigo E1)',
  'Spese di trasporto: deducibili fino a EUR 2.500/anno (abbonamento treno, pedaggi, carburante)',
- 'Pilastro 3a: i versamenti volontari (max CHF 7.056/anno) sono deducibili in Svizzera ma NON in Italia',
+ 'Pilastro 3a: i versamenti volontari (max CHF 7.258/anno) sono deducibili in Svizzera ma NON in Italia',
  ]},
  { heading: 'Imposta alla Fonte in Canton Ticino', items: [
  'Tabella A (80%): Celibi/nubili senza figli a carico',
@@ -272,7 +276,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  ]},
  { heading: 'FASE 2: Assicurazione Sanitaria (entro 3 mesi)', items: [
  'SCELTA CRUCIALE: LAMal svizzera oppure SSN italiano (diritto di opzione)',
- 'La scelta e\' IRREVERSIBILE per tutta la durata del rapporto di lavoro attuale',
+ 'Per restare al SSN serve una domanda formale di esenzione dalla LAMal entro 3 mesi; poi la scelta non si cambia liberamente',
  'Se scegli LAMal svizzera:',
  ' - Confronta almeno 5 casse malati (i premi variano fino al 40%)',
  ' - Scegli il modello: Telmed (miglior rapporto qualita\'/prezzo, sconto 10-12%)',
@@ -306,7 +310,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  ]},
  { heading: 'FASE 5: Dopo i Primi 3 Mesi', items: [
  'Verifica il primo cedolino: controlla che le trattenute corrispondano alla tua tabella',
- 'Iscriviti al Pilastro 3a per il risparmio previdenziale agevolato (max CHF 7.056/anno)',
+ 'Iscriviti al Pilastro 3a per il risparmio previdenziale agevolato (max CHF 7.258/anno)',
  'Apri un conto Wise o Revolut per il cambio CHF/EUR a tassi vantaggiosi',
  'Verifica i ristorni comunali: controlla quanto il tuo comune riceve dalla Svizzera',
  'Inizia a raccogliere i documenti per la dichiarazione redditi italiana',
@@ -329,8 +333,8 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Come frontaliere hai 3 MESI dall\'inizio lavoro per scegliere',
  'Opzione 1 - LAMal svizzera: paghi un premio mensile, copertura completa in CH',
  'Opzione 2 - SSN italiano: mantieni il servizio sanitario nazionale, limiti in CH',
- 'ATTENZIONE: la scelta e\' IRREVERSIBILE per tutto il rapporto di lavoro attuale',
- 'Se cambi datore, puoi cambiare scelta (nuovo diritto di opzione)',
+ 'ATTENZIONE: per restare al SSN serve una domanda formale di esenzione dalla LAMal entro 3 mesi; poi la scelta non si cambia liberamente',
+ 'Un cambio di datore non riapre da solo l\'opzione: verifica con l\'autorità del Cantone di lavoro',
  'Se non comunichi nulla entro 3 mesi: vieni assegnato d\'ufficio alla LAMal',
  ]},
  { heading: 'Quando Conviene la LAMal', items: [
@@ -397,8 +401,8 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  sections: [
  { heading: '1o Pilastro: AVS/AI (Rendita Base Svizzera)', items: [
  'Contributo: 5.3% del lordo a carico tuo + 5.3% a carico del datore = 10.6% totale',
- 'Rendita massima 2026: CHF 2.450/mese (per 44 anni di contributi completi)',
- 'Rendita minima: CHF 1.225/mese (almeno 1 anno di contributi)',
+ 'Rendita massima 2026: CHF 2.520/mese (per 44 anni di contributi completi)',
+ 'Rendita minima completa: CHF 1.260/mese (con 44 anni di contributi; con anni mancanti la rendita è parziale)',
  'Eta\' pensionabile: 65 anni (uomini); 64 anni e 3 mesi (donne, graduale aumento a 65 entro 2028)',
  'Pensione anticipata: possibile a 63 anni con riduzione del 6.8% per anno',
  'Pensione posticipata: possibile fino a 70 anni con aumento del 5.2-31.5%',
@@ -407,7 +411,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'La rendita AVS viene pagata mensilmente sul tuo conto anche se vivi in Italia',
  ]},
  { heading: '2o Pilastro: LPP (Cassa Pensione Aziendale)', items: [
- 'Obbligatoria per stipendi > CHF 22.050/anno (soglia d\'ingresso 2026)',
+ 'Obbligatoria per stipendi > CHF 22.680/anno (soglia d\'ingresso 2026)',
  'Contributi a carico dipendente (meta\' del totale):',
  ' - 25-34 anni: 3.5% del salario coordinato',
  ' - 35-44 anni: 5.0%',
@@ -429,7 +433,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Puoi scegliere tra rendita mensile o prelievo in capitale (dipende dal regolamento della cassa)',
  ]},
  { heading: 'Pilastro 3a: Risparmio Previdenziale Volontario', items: [
- 'Versamento massimo 2026: CHF 7.056/anno (per dipendenti con 2o pilastro)',
+ 'Versamento massimo 2026: CHF 7.258/anno (per dipendenti con 2o pilastro)',
  'Completamente deducibile dal reddito imponibile SVIZZERO',
  'NON deducibile dal reddito imponibile italiano',
  'Prelievo possibile: 5 anni prima dell\'eta\' pensionabile, per acquisto abitazione, o se lasci la CH',
@@ -453,7 +457,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  ' - AVS: circa CHF 1.950/mese (35/44 della rendita piena)',
  ' - LPP: capitale stimato CHF 350.000-450.000 (rendita o prelievo)',
  ' - INPS (se ha 10 anni Italia): rendita proporzionale circa EUR 300-500/mese',
- ' - Pilastro 3a (se versa CHF 7.056/anno per 25 anni): circa CHF 220.000',
+ ' - Pilastro 3a (se versa CHF 7.258/anno per 25 anni): circa CHF 226.000',
  'TOTALE STIMATO: CHF 2.500-3.500/mese di rendita + capitale 3a',
  'Usa il simulatore pensione su frontaliereticino.ch per una stima personalizzata',
  ]},
@@ -492,7 +496,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Usa il calcolatore su frontaliereticino.ch per una stima precisa della tua situazione',
  ]},
  { heading: 'Assicurazione Sanitaria', items: [
- 'Diritto di opzione: LAMal svizzera OPPURE SSN italiano (scelta irreversibile)',
+ 'Diritto di opzione: per scegliere la copertura italiana, chiedi formalmente l’esenzione dalla LAMal all’autorità del Cantone di lavoro entro 3 mesi dall’inizio del contratto; l’iscrizione al SSN da sola non vale come opzione',
  'Hai 3 mesi dall\'inizio lavoro per decidere',
  'LAMal: premio mensile CHF 280-350, copertura completa in CH',
  'Modello Telmed: miglior rapporto qualita\'/prezzo per frontalieri (sconto 10-12%)',
@@ -501,9 +505,9 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Confronta sempre almeno 3-5 casse prima di scegliere',
  ]},
  { heading: 'Pensione e Previdenza', items: [
- 'AVS (1o pilastro): rendita base, max CHF 2.450/mese, eta\' 65 anni',
+ 'AVS (1o pilastro): rendita base, max CHF 2.520/mese, eta\' 65 anni',
  'LPP (2o pilastro): cassa pensione aziendale, capitale personale e portatile',
- 'Pilastro 3a: risparmio volontario fino a CHF 7.056/anno, deducibile in CH',
+ 'Pilastro 3a: risparmio volontario fino a CHF 7.258/anno, deducibile in CH',
  'Se torni in Italia: la parte obbligatoria LPP resta in Svizzera come rendita futura',
  'Totalizzazione INPS: gli anni svizzeri contano per i requisiti pensionistici italiani',
  'Riceverai DUE pensioni separate: una AVS (dalla Svizzera) + una INPS (dall\'Italia)',
@@ -791,6 +795,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  try {
  const ready = await renderGoogleButtonWithReadiness(googleButtonRef.current, {
  theme: 'outline', size: 'large', text: 'continue_with', width: 280, locale,
+ attribution: LEAD_MAGNET_AUTH_ATTRIBUTION,
  });
  if (!cancelled) setGoogleButtonReady(ready);
  } catch {
@@ -801,23 +806,20 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  return () => { cancelled = true; };
  }, [visible, user, locale]);
 
- // Pre-fill from auth
+ // Shared auth owns persisted-session restoration and deferred startup.
  useEffect(() => {
- const tryAuth = async () => {
- try {
- const [{ getAuth }, { getApp }] = await Promise.all([
- resilientImport(() => import('firebase/auth'), (m) => typeof m.getAuth === 'function'),
- resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
- ]);
- const auth = getAuth(await getApp());
- const unsub = auth.onAuthStateChanged((u) => {
- if (u?.email && !email) setEmail(u.email);
- unsub();
+ const authEmail = getAuthEmail(user);
+ if (authEmail) setEmail((current) => current || authEmail);
+ }, [user]);
+
+ // Visibility denominator, same shape as the existing `lead_magnet.banner.dismiss.<variant>`
+ // and paired on the variant with `lead_magnet.form.subscribe.success_<variant>`.
+ const impressionRef = useCaptureImpression({
+  page: 'lead_magnet',
+  section: 'banner',
+  variant,
+  enabled: visible && !user,
  });
- } catch { /* silent */ }
- };
- tryAuth();
- }, []);
 
  const handleDismiss = useCallback(() => {
  localStorage.setItem(DISMISSED_KEY, String(Date.now()));
@@ -932,7 +934,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  // ─── Compact variant ───────────────────────────────────────────────
  if (compact) {
  return (
- <div className={`relative mt-4 p-4 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-xl`}>
+ <div ref={impressionRef} className={`relative mt-4 p-4 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-xl`}>
  <button
  onClick={handleDismiss}
  className="absolute top-2 right-2 p-1 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body rounded-lg transition-colors"
@@ -990,7 +992,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  <div>
  <div ref={googleButtonRef} className="flex min-h-[40px] w-full items-center justify-center overflow-hidden rounded-lg" />
  {!googleButtonReady && (
- <button type="button" onClick={() => googleSignIn()} className="w-full min-h-[44px] grid grid-cols-[16px_1fr_16px] items-center px-3 py-1.5 bg-surface border border-edge rounded-lg text-body text-xs font-semibold hover:bg-surface-raised transition-colors">
+ <button type="button" onClick={() => googleSignIn(LEAD_MAGNET_AUTH_ATTRIBUTION)} className="w-full min-h-[44px] grid grid-cols-[16px_1fr_16px] items-center px-3 py-1.5 bg-surface border border-edge rounded-lg text-body text-xs font-semibold hover:bg-surface-raised transition-colors">
  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
  <span className="text-center">Google</span>
  <span aria-hidden="true" />
@@ -998,7 +1000,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  )}
  </div>
  {linkedInAvailable && (
- <button type="button" onClick={() => signInWithLinkedIn()} className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-lg bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-xs font-semibold transition-colors">
+ <button type="button" onClick={() => signInWithLinkedIn(undefined, LEAD_MAGNET_AUTH_ATTRIBUTION)} className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-lg bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-xs font-semibold transition-colors">
  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  LinkedIn
  </button>
@@ -1016,7 +1018,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
 
  // ─── Full variant ──────────────────────────────────────────────────
  return (
- <div className={`relative mt-6 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-2xl overflow-hidden`}>
+ <div ref={impressionRef} className={`relative mt-6 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-2xl overflow-hidden`}>
  <button
  onClick={handleDismiss}
  className="absolute top-3 right-3 p-1 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body rounded-lg transition-colors z-10"
@@ -1107,6 +1109,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  googleFallbackVariant="sm"
  linkedInResponsiveLabel
  errorContext="leadMagnetCta"
+ attribution={LEAD_MAGNET_AUTH_ATTRIBUTION}
  />
 
  {/* Errors */}

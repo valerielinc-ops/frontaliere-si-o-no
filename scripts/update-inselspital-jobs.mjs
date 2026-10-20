@@ -27,6 +27,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isInselspitalJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  preserveExistingSlugs: true,
 }).catch((err) => {
   console.error(`❌ Inselspital Bern crawler failed: ${err?.message || err}`);
   process.exit(1);

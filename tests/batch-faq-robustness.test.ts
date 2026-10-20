@@ -104,7 +104,7 @@ describe('SIGTERM — la bomba che publish-journalist-article armava ogni 15 min
   });
 
   it('installSigtermCheckpoint viene CHIAMATA solo dentro la guardia sull entry point', () => {
-    const guardia = SCRIPT_SRC.indexOf('if (import.meta.url ===');
+    const guardia = SCRIPT_SRC.indexOf('pathToFileURL(realpathSync(process.argv[1])).href');
     expect(guardia).toBeGreaterThan(0);
     // Le CHIAMATE, non la definizione: `function installSigtermCheckpoint()`
     // sta per forza sopra la guardia, ed e' giusto che ci stia.
@@ -118,6 +118,15 @@ describe('SIGTERM — la bomba che publish-journalist-article armava ogni 15 min
     for (const m of SCRIPT_SRC.matchAll(/^\s*process\.on\(/gm)) {
       expect(m.index!).toBeGreaterThan(guardia);
     }
+  });
+});
+
+describe('checkpoint main — guardia della storia precedente', () => {
+  it('controlla prima di committare e usa il wrapper comune per il push', () => {
+    expect(SCRIPT_SRC).toContain('assertOldHistorySafe({ cwd: ROOT, refreshBase: true });');
+    expect(SCRIPT_SRC).toContain('scripts/lib/git-push-with-retry.sh');
+    expect(SCRIPT_SRC).not.toMatch(/execSync\('git push origin main'/);
+    expect(SCRIPT_SRC).not.toMatch(/execSync\('git pull --rebase origin main'/);
   });
 });
 

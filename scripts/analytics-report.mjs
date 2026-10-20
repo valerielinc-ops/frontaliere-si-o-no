@@ -41,7 +41,14 @@ import {
   clusterTopQueries,
 } from './lib/analytics-opportunity-utils.mjs';
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
+import { buildTrafficFilter, fetchTrafficQuality } from './lib/ga4-traffic-quality.mjs';
+import { fetchRuntimeIncidentHistory } from './lib/runtime-incident-history.mjs';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
+import {
+  EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS,
+  ensureGa4CustomDimensions,
+} from './lib/ga4-employer-insights-dimensions.mjs';
+import { fetchAppErrorsWithRecency } from './lib/app-error-recency.mjs';
 import {
   engagementConsistency,
   dailyEngagementConsistency,
@@ -1078,6 +1085,25 @@ async function reportGA4(token) {
     log('⚠️', `GA4 application funnel: ${e.message}`);
   }
 
+  // C4: two explicit populations on the same settled dates, beside the raw ranking.
+  if (hasSettledWindow) {
+    result.trafficQuality = await fetchTrafficQuality({
+      runReport: (body) => fetchRetry(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
+        method: 'POST', headers, body: JSON.stringify(body),
+      }),
+      dateRanges: settledRequest.dateRanges,
+      build: process.env.GITHUB_SHA || null,
+    });
+    try {
+      result.runtimeIncidents = await fetchRuntimeIncidentHistory({ startDate: fmtDate(startDate), endDate: settledEnd, recentDays: 7 });
+    } catch {
+      result.runtimeIncidents = { status: 'unavailable', reason: 'unsupported_report_window' };
+    }
+  } else {
+    result.trafficQuality = { status: 'unavailable', reason: 'No settled date range' };
+    result.runtimeIncidents = { status: 'unavailable', reason: 'No settled date range' };
+  }
+
   // ── 3b. Top pages + top articles + keyword intent ─────────
   try {
     const topPagesRes = await fetchRetry(
@@ -1088,19 +1114,21 @@ async function reportGA4(token) {
         body: JSON.stringify({
           ...baseRequest,
           dimensions: [{ name: 'pagePath' }],
+          dimensionFilter: buildTrafficFilter(),
           metrics: [
             { name: 'screenPageViews' },
             { name: 'totalUsers' },
             { name: 'averageSessionDuration' },
           ],
           orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
-          limit: 20,
+          limit: 50,
         }),
       }
     );
 
     if (topPagesRes.ok) {
       const data = await topPagesRes.json();
+      result.topPagesScope = { hostname: 'frontaliereticino.ch', dateRanges: baseRequest.dateRanges, limit: 50, totalRows: data.rowCount ?? null, metadata: data.metadata || {} };
       result.topPages = (data.rows || []).map((r) => ({
         path: r.dimensionValues[0].value,
         views: parseInt(r.metricValues[0].value),
@@ -1195,6 +1223,7 @@ async function reportGA4(token) {
     }
 
     result.pageTemplatePerformance = aggregateRowsByTemplate(result.topPages || [], 'ga4');
+    result.pageTemplatePerformanceScope = 'Top50 sample only; users are page-user sums, not distinct template users; duration is weighted by page users. Full pageview coverage is trafficQuality.raw.pageViewsByTemplate.';
     result.keywordInterest = rankKeywordsFromPages(result.topPages || [], { limit: 20 });
     result.articleKeywordInterest = rankKeywordsFromPages(result.topArticlePages || [], {
       limit: 20,
@@ -1209,7 +1238,7 @@ async function reportGA4(token) {
 
     if (!flags.json && result.topPages.length > 0) {
       log('', '');
-      log('📄', 'Top 20 Pagine (GA4):');
+      log('📄', 'Top 50 Pagine (GA4, frontaliereticino.ch, finestra grezza):');
       log('', '  Pagina'.padEnd(55) + 'Views'.padStart(8) + 'Users'.padStart(8) + 'Durata'.padStart(8));
       log('', '  ' + '─'.repeat(75));
       for (const p of result.topPages) {
@@ -1217,7 +1246,7 @@ async function reportGA4(token) {
       }
       if (result.pageTemplatePerformance.length > 0) {
         log('', '');
-        log('🧱', 'Performance GA4 per template pagina:');
+        log('🧱', 'Campione top50 per template; utenti sommati per pagina, durata ponderata:');
         for (const row of result.pageTemplatePerformance.slice(0, 8)) {
           log('', `  ${row.pageTemplate.padEnd(20)} Views ${String(row.views).padStart(7)}  Users ${String(row.users).padStart(6)}  Dur ${String(`${row.avgDuration}s`).padStart(6)}`);
         }
@@ -1743,6 +1772,11 @@ async function reportGA4(token) {
     { parameterName: 'metric_name', displayName: 'Web Vitals Metric Name', description: 'Web Vitals metric name (LCP, INP, CLS)' },
     { parameterName: 'metric_value', displayName: 'Web Vitals Metric Value', description: 'Web Vitals metric value (CLS in thousandths, other metrics in milliseconds)' },
     { parameterName: 'metric_rating', displayName: 'Web Vitals Metric Rating', description: 'Web Vitals metric rating (good, needs-improvement, poor)' },
+    // Employer insights (scripts/build-employer-insights.mjs). The refresh
+    // queries these parameters as customEvent dimensions; emission_id is the
+    // D18 evidence probe that the fail-closed refresh gate requires (#9403).
+    // Already-registered parameters are skipped, so listing them is idempotent.
+    ...EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS,
   ];
 
   try {
@@ -1752,53 +1786,19 @@ async function reportGA4(token) {
       'https://www.googleapis.com/auth/analytics.edit',
       'https://www.googleapis.com/auth/analytics.readonly',
     ], { logInfo: (msg) => log('ℹ️', msg), logError: (msg) => log('⚠️', msg) });
-    const adminHeaders = adminToken
-      ? { Authorization: `Bearer ${adminToken}`, 'Content-Type': 'application/json' }
-      : headers; // fallback to OAuth2 (will fail with 403 if scopes are insufficient)
 
-    // List existing custom dimensions
-    const dimsRes = await fetchRetry(
-      `https://analyticsadmin.googleapis.com/v1beta/${propertyId}/customDimensions?pageSize=200`,
-      { headers: adminHeaders }
-    );
-    const existingDims = new Set();
-    if (dimsRes.ok) {
-      const dimsData = await dimsRes.json();
-      for (const dim of dimsData.customDimensions || []) {
-        existingDims.add(dim.parameterName);
-      }
+    const registration = await ensureGa4CustomDimensions({
+      propertyId,
+      token: adminToken || token,
+      dimensions: REQUIRED_CUSTOM_DIMS,
+      fetchImpl: fetchRetry,
+    });
+    for (const parameterName of registration.registered) {
+      log('✅', `Registered GA4 custom dimension: ${parameterName}`);
     }
-
-    // Register missing dimensions
-    let registered = 0;
-    for (const dim of REQUIRED_CUSTOM_DIMS) {
-      if (existingDims.has(dim.parameterName)) continue;
-      const createRes = await fetchRetry(
-        `https://analyticsadmin.googleapis.com/v1beta/${propertyId}/customDimensions`,
-        {
-          method: 'POST',
-          headers: adminHeaders,
-          body: JSON.stringify({
-            parameterName: dim.parameterName,
-            displayName: dim.displayName,
-            description: dim.description,
-            scope: 'EVENT',
-          }),
-        }
-      );
-      if (createRes.ok) {
-        registered++;
-        log('✅', `Registered GA4 custom dimension: ${dim.parameterName}`);
-      } else {
-        const errText = await createRes.text().catch(() => '');
-        // 409 = already exists (race condition), skip silently
-        if (createRes.status !== 409) {
-          log('⚠️', `Failed to register ${dim.parameterName}: ${createRes.status} ${errText.slice(0, 100)}`);
-        }
-      }
-    }
-    if (registered > 0) {
-      log('ℹ️', `Registered ${registered} new GA4 custom dimensions. Data will appear in the NEXT report.`);
+    for (const failure of registration.failures) log('⚠️', failure);
+    if (registration.registered.length > 0) {
+      log('ℹ️', `Registered ${registration.registered.length} new GA4 custom dimensions. Data will appear in the NEXT report.`);
     }
   } catch (e) {
     log('⚠️', `GA4 custom dimension auto-registration: ${e.message}`);
@@ -1941,42 +1941,6 @@ async function reportGA4(token) {
     // 3h-v: app_error events — rich debugging info (error_type, error_message, stack, component_stack)
     // These are fired by Analytics.trackAppError() from ErrorBoundary.componentDidCatch,
     // window error listener, and unhandled rejection listener.
-    const appErrRes = await fetchRetry(
-      `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
-      {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          ...baseRequest,
-          dimensions: [
-            { name: 'customEvent:error_type' },
-            { name: 'customEvent:error_message' },
-            { name: 'pagePath' },
-          ],
-          metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
-          dimensionFilter: {
-            filter: {
-              fieldName: 'eventName',
-              stringFilter: { value: 'app_error', matchType: 'EXACT' },
-            },
-          },
-          orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
-          limit: 30,
-        }),
-      }
-    );
-
-    if (appErrRes.ok) {
-      const appErrData = await appErrRes.json();
-      errorHealth.appErrors = (appErrData.rows || []).map((r) => ({
-        errorType: r.dimensionValues[0].value,
-        errorMessage: r.dimensionValues[1].value,
-        pagePath: r.dimensionValues[2].value,
-        count: parseInt(r.metricValues[0].value, 10),
-        users: parseInt(r.metricValues[1].value, 10),
-      }));
-    }
-
     // 3h-v-fallback: If app_error custom dimensions aren't registered in GA4,
     // fall back to the standard 'exception' event (always queryable). Reads its
     // OWN error_type/error_message params — the same registered custom
@@ -1995,40 +1959,27 @@ async function reportGA4(token) {
     // scripts/lib/error-issue-sync.mjs matches against — a spurious backlog
     // issue for an already self-healed error (#5063). error_type/error_message
     // don't have this problem: they're stripped/prioritized at the source.
-    if (!errorHealth.appErrors.length) {
-      const excRes = await fetchRetry(
-        `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
-        {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({
-            ...baseRequest,
-            dimensions: [
-              { name: 'customEvent:error_type' },
-              { name: 'customEvent:error_message' },
-              { name: 'pagePath' },
-            ],
-            metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
-            dimensionFilter: {
-              filter: {
-                fieldName: 'eventName',
-                stringFilter: { value: 'exception', matchType: 'EXACT' },
-              },
-            },
-            orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
-            limit: 30,
-          }),
-        }
-      );
-      if (excRes.ok) {
-        const excData = await excRes.json();
-        errorHealth.appErrors = (excData.rows || []).map((r) => ({
-          errorType: r.dimensionValues[0].value || 'exception',
-          errorMessage: r.dimensionValues[1].value,
-          pagePath: r.dimensionValues[2].value,
-          count: parseInt(r.metricValues[0].value, 10),
-          users: parseInt(r.metricValues[1].value, 10),
-        }));
+    // 3h-v-recency: `last7d` e `lastSeen` per ogni voce. La finestra del report
+    // e' mobile (30 giorni): senza questi due campi un picco del giorno 2 resta
+    // «sopra soglia» per altri 28 e il feeder riconferma la issue con gli stessi
+    // numeri (issue 8612: 129 eventi il 09-09, 3 negli ultimi 7 giorni). Se la
+    // query fallisce le voci restano SENZA i campi — non con uno zero finto.
+    // Le tre richieste (principale, fallback, recenza) stanno in
+    // ./lib/app-error-recency.mjs, filtrate sull'host di produzione.
+    const appErrorsResult = await fetchAppErrorsWithRecency({
+      fetchImpl: fetchRetry,
+      url: `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
+      headers,
+      baseRequest,
+    });
+    errorHealth.appErrors = appErrorsResult.appErrors;
+    // Il chiuditore del feeder app-error legge «assente» come «zero» solo se
+    // l'elenco non e' un top-N tagliato.
+    errorHealth.appErrorsComplete = appErrorsResult.complete === true;
+    if (appErrorsResult.recency) {
+      errorHealth.appErrorsRecency = appErrorsResult.recency;
+      if (appErrorsResult.recency.status === 'unavailable') {
+        log('⚠️', 'app_error recency (last7d/lastSeen) unavailable — entries carry no recency fields');
       }
     }
 
@@ -2245,7 +2196,7 @@ async function reportGA4(token) {
         for (const err of errorHealth.appErrors.slice(0, 15)) {
           const typeTag = `[${err.errorType}]`;
           log('', `  ${typeTag.padEnd(24)} ${err.errorMessage.slice(0, 60)}`);
-          log('', `  ${''.padEnd(24)} Page: ${err.pagePath}  (${err.count}x, ${err.users} users)`);
+          log('', `  ${''.padEnd(24)} Page: ${err.pagePath}  (${err.count}x, ${err.users} users${Number.isFinite(err.last7d) ? `, last 7d: ${err.last7d}x, last seen ${err.lastSeen || 'n/a'}` : ''})`);
         }
       }
 
@@ -4821,7 +4772,10 @@ async function main() {
   const { flushScoresBeforeExit } = await import('./lib/ai-models.mjs');
   await flushScoresBeforeExit();
 
-  process.exit(0);
+  // Let Node drain stdout before the process ends. `process.exit(0)` aborts
+  // pending pipe writes, so a large `--json` report can reach its caller as
+  // truncated JSON even though the report itself was built successfully.
+  return;
 }
 
 main();

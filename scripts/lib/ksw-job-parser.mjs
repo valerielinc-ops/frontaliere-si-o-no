@@ -21,8 +21,11 @@
  *   - isTrustedDomain()  — Validate URLs belong to KSW / Solique tenant `ksw`
  *   - KSW_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -268,6 +271,7 @@ export function parseKswDetailPage(html = '') {
   return {
     title: detailTitle,
     description: blocks.join('\n\n'),
+    ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')),
   };
 }
 
@@ -342,7 +346,7 @@ export async function fetchAllKswJobs() {
     html = await fetchPage(LISTING_URL);
   } catch (err) {
     console.error(`❌ Failed to fetch Solique tenant page: ${err?.message}`);
-    return [];
+    throw err;
   }
 
   const listings = parseKswListingPage(html);
@@ -391,11 +395,15 @@ export async function fetchAllKswJobs() {
       descBits.push(`• Pensum: ${pct}`);
     }
     const metaLine = descBits.length ? descBits.join('\n') : '';
-    const fallbackDesc = `${title} — ${KSW_COMPANY_NAME}, Winterthur`;
     const detailText = detailOkHere ? detail.description : '';
-    const descriptionText = detailText
+    // Only the posting's own text (issue 5253): no "<title> — Kantonsspital
+    // Winterthur (KSW), Winterthur" line, with or without the listing fields,
+    // in place of a detail body that was not read. A detail body under the
+    // common 50-word floor gives no description (the shared pipeline's
+    // thin-source path).
+    const descriptionText = meetsSourceBodyFloor(detailText)
       ? (metaLine ? `${detailText}\n\n${metaLine}` : detailText)
-      : (metaLine ? `${fallbackDesc}\n\n${metaLine}` : fallbackDesc);
+      : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} ksw ch`);
@@ -437,7 +445,7 @@ export async function fetchAllKswJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detailOkHere ? detail : {}),
       applyUrl: listing.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

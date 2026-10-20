@@ -1,15 +1,17 @@
 #!/usr/bin/env -S npx tsx
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * monitor-sector-coverage.mjs — Post-deploy check for job-matching coverage
  * gaps across every canton×profession page family, not just Ticino.
  *
- * frontaliere-si-o-no ships job data exclusively via 580+ per-employer
- * crawlers (docs/CRAWLERS.md) — there is no generic multi-employer job
- * board source (job-room.ch/SECO was investigated and is blocked: 401 on
- * its API, no SSR — see #3337). Any profession/sector whose local
- * employers aren't individually onboarded shows 0 real matches, in ANY
- * canton. That is the root cause behind issue #4824
- * ("/cerca-lavoro-ticino/camerieri/" 0 match) — but it was only VISIBLE
+ * frontaliere-si-o-no ships job data via 580+ per-employer crawlers
+ * (docs/CRAWLERS.md). A zero in one canton is not, by itself, proof of a
+ * missing crawler or a matcher defect: this monitor reports only causes
+ * supported by its current corpus evidence and preserves unknown otherwise.
+ * Any profession/sector whose local employers aren't individually onboarded
+ * may show 0 real matches, in ANY canton. That is the root cause behind issue #4824
+ * ("camerieri" TI sector: 0 match) — but it was only VISIBLE
  * for Ticino because only a TI-only monitor existed. Identical gaps in
  * GR/VS/VD/ZH/etc were invisible to CI. This script generalizes detection
  * to every canton×profession page family so the class of bug (not just
@@ -51,7 +53,7 @@
  * dir rather than duplicating the matching logic here.
  *
  * Always exits 0 — non-blocking, alerting only.
- * Usage: npx tsx scripts/monitor-sector-coverage.mjs [--dry-run]
+ * Usage: node --import tsx/esm scripts/monitor-sector-coverage.mjs [--dry-run]
  *        --dry-run: valuta e stampa, ma non scrive l'artefatto e non apre issue.
  */
 import fs from 'node:fs';
@@ -59,7 +61,9 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import { SECTION_LEGACY_TI_PATH } from '../build-plugins/shared/cantonSection.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -71,6 +75,43 @@ const EXPIRED_JOBS_PATH = path.join(REPO_ROOT, 'public/data/expired-jobs.json');
 // below which a profession-canton page falls back to a noindex bridge.
 const MIN_JOBS = 3;
 const DRY_RUN = process.argv.includes('--dry-run');
+const TI_SECTOR_HUB_PATH = SECTION_LEGACY_TI_PATH.it;
+
+/**
+ * Zero TI già verificati come strutturali: il mercato watchmaking è
+ * concentrato fuori dal Ticino e l'audit del corpus non ha trovato una
+ * vacancy genuina di orologeria in TI. Questo è un'eccezione osservabile,
+ * non un'allowlist di silenziamento: resta applicata solo mentre il settore
+ * è davvero nello zero set calcolato qui sotto. Una vacancy TI verificata
+ * lo fa uscire automaticamente da questa classificazione.
+ */
+export const STRUCTURAL_TI_ZERO_EVIDENCE = Object.freeze({
+  orologeria: Object.freeze({
+    reason: 'Mercato watchmaking concentrato fuori TI; nessuna vacancy TI genuina verificata nel corpus.',
+    reclassifyWhen: 'Una vacancy TI verificata entra nel corpus pubblicato.',
+  }),
+});
+
+const STRUCTURAL_TI_ZERO_SECTOR_SET = new Set(Object.keys(STRUCTURAL_TI_ZERO_EVIDENCE));
+
+/**
+ * Separa gli zeri TI già spiegati da quelli che richiedono ancora una
+ * verifica di copertura. `zeroSectors` deriva da offerte reali pubblicate:
+ * non può quindi classificare strutturalmente un settore che abbia già una
+ * vacancy TI verificata.
+ *
+ * @param {Iterable<string>} zeroSectors
+ * @returns {{structuralZeroSectors: string[], actionableZeroSectors: string[]}}
+ */
+export function classifyTiSectorZeros(zeroSectors) {
+  const structuralZeroSectors = [];
+  const actionableZeroSectors = [];
+  for (const sector of zeroSectors) {
+    if (STRUCTURAL_TI_ZERO_SECTOR_SET.has(sector)) structuralZeroSectors.push(sector);
+    else actionableZeroSectors.push(sector);
+  }
+  return { structuralZeroSectors, actionableZeroSectors };
+}
 
 function log(emoji, msg) {
   console.log(`${emoji} ${msg}`);
@@ -258,35 +299,261 @@ function writeGapArtifact(artifact) {
   }
 }
 
+// --- STATO A INSIEME DI ID PER LE FAMIGLIE A E B (issue 5429, issue 9938) ----
+// Le famiglie A (settori TI) e B (professioni TI legacy) chiamavano createIssue
+// a ogni post-deploy senza condizioni: github-issue-creator.mjs trasforma ogni
+// chiamata su una issue aperta in un commento «Recurrence», e la issue 5429 ne
+// ha accumulati 184, 174 dei quali con lo stesso insieme di ruoli del commento
+// precedente. Stesso rimedio della famiglia C qui sopra, in forma generica:
+// lo stato viaggia come marker HTML nel commento, e si commenta solo quando
+// l'insieme cambia — oppure come BATTITO quando l'ultimo commento con lo stato
+// ha piu' di RECURRENCE_HEARTBEAT_DAYS giorni. Il battito serve perche' quando
+// il gap si azzera il ramo esce senza scrivere niente (non puo' registrare la
+// risoluzione): se poi il gap ricompare identico, senza il battito resterebbe
+// muto per sempre.
+//
+// Stesso BIAS della famiglia C: stato illeggibile, issue chiusa o assente,
+// data del commento non interpretabile → nessuna soppressione.
+export const TI_SECTOR_ISSUE_TITLE = 'TI sector coverage: settori a 0 match reali';
+export const TI_SECTOR_STATE_MARKER = 'COVERAGE_TI_SECTOR_STATE_V1';
+export const TI_LEGACY_ISSUE_TITLE = 'TI profession coverage (legacy): ruoli a 0 match reali';
+export const TI_LEGACY_STATE_MARKER = 'COVERAGE_TI_LEGACY_STATE_V1';
+export const RECURRENCE_HEARTBEAT_DAYS = 7;
+const DAY_MS = 86_400_000;
+
+const markerRegex = (marker) =>
+  new RegExp(`<!--\\s*${String(marker).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:\\s*([\\s\\S]*?)\\s*-->`, 'g');
+
+const isStringArray = (v) => Array.isArray(v) && v.every((x) => typeof x === 'string');
+
+/** Stato `{ ids: [...] }` valido: forma minima di ogni stato a insieme di id. Pura. */
+export function isIdSetState(state) {
+  return !!state && typeof state === 'object' && isStringArray(state.ids);
+}
+
+/** Stato della famiglia B: gli id piu' la ripartizione grace window / noindex. Pura. */
+export function isTiLegacyState(state) {
+  if (
+    !isIdSetState(state) ||
+    !isStringArray(state.indexedViaGrace) ||
+    !isStringArray(state.bridgedNoindex) ||
+    !isStringArray(state.crawlerGap) ||
+    !isStringArray(state.matcherGap) ||
+    !isStringArray(state.unknown)
+  ) return false;
+
+  const causeIds = [...state.crawlerGap, ...state.matcherGap, ...state.unknown];
+  const uniqueCauseIds = new Set(causeIds);
+  return uniqueCauseIds.size === causeIds.length && sameMembers(causeIds, state.ids);
+}
+
 /**
- * Stato del giro precedente, letto dall'issue canonica (body + tutti i commenti).
- * null su QUALUNQUE incertezza → il chiamante commenta la baseline.
+ * Classifica uno zero TI solo con evidenza esplicita. `verifiedUnmatchedTiTitleCount`
+ * deve provenire da una fonte indipendente e validata di titoli TI pertinenti:
+ * il monitor attuale non ne ha una e il chiamante passa `null`, quindi non
+ * inferisce mai un matcher-gap da categoria o titolo localizzato. Un match del
+ * matcher professionale negli altri cantoni prova invece il crawler-gap; ogni
+ * evidenza mancante o ambigua resta unknown. Pura.
  */
-function readPreviousGapState() {
+export function classifyTiLegacyZeroCause({
+  tiLiveCount,
+  nonTiLiveCounts,
+  verifiedUnmatchedTiTitleCount = null,
+}) {
+  if (tiLiveCount !== 0) return 'unknown';
+  if (Number.isInteger(verifiedUnmatchedTiTitleCount) && verifiedUnmatchedTiTitleCount > 0) {
+    return 'matcher-gap';
+  }
+  if (Array.isArray(nonTiLiveCounts) && nonTiLiveCounts.some((count) => Number.isFinite(count) && count > 0)) {
+    return 'crawler-gap';
+  }
+  return 'unknown';
+}
+
+/** Rende una riga evidence-based per ciascun id zero, senza omettere unknown. Pura. */
+export function renderTiLegacyZeroCauseLines(zeroIds, classificationById) {
+  return zeroIds.map((id) => {
+    const { cause = 'unknown', matchingCantons = [] } = classificationById.get(id) ?? {};
+    if (cause === 'crawler-gap') {
+      const evidence = matchingCantons.map(({ cantonKey, liveCount }) => `${cantonKey} (${liveCount})`).join(', ');
+      return `- \`${id}\`: \`crawler-gap\` — lo stesso matcher trova offerte in ${evidence}, ma non in TI.`;
+    }
+    if (cause === 'matcher-gap') {
+      return `- \`${id}\`: \`matcher-gap\` — titoli TI pertinenti ma non riconosciuti, verificati da una fonte indipendente.`;
+    }
+    return `- \`${id}\`: \`unknown\` — nessun match cross-canton disponibile e nessuna evidenza indipendente di titoli TI pertinenti non riconosciuti.`;
+  }).join('\n');
+}
+
+/** Marker HTML machine-readable da appendere al corpo del commento. Pura. */
+export function serializeStateMarker(marker, state) {
+  return `<!-- ${marker}: ${JSON.stringify(state)} -->`;
+}
+
+/**
+ * ULTIMO marker `marker` presente nel testo, o null se assente, JSON corrotto
+ * o forma rifiutata da `isValid`. Come parseGapState: un ultimo marker
+ * invalido NON ricade su uno piu' vecchio (sarebbe uno stato superato). Pura.
+ * @param {string} marker
+ * @param {string} text
+ * @param {(state: unknown) => boolean} [isValid]
+ */
+export function parseStateMarker(marker, text, isValid = isIdSetState) {
+  let last = null;
+  for (const m of String(text || '').matchAll(markerRegex(marker))) last = m[1];
+  if (last === null) return null;
+  try {
+    const parsed = JSON.parse(last);
+    return isValid(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+/** `{ ids }` deduplicato e ordinato → confronto stabile. Pura. */
+export function buildIdSetState(ids) {
+  return { ids: [...new Set(ids)].sort() };
+}
+
+const sameMembers = (a, b) => {
+  const left = [...new Set(Array.isArray(a) ? a : [])].sort();
+  const right = [...new Set(Array.isArray(b) ? b : [])].sort();
+  return left.length === right.length && left.every((x, i) => x === right[i]);
+};
+
+/**
+ * Delta fra due stati a insieme di id. `opened`/`closed` riguardano `ids`;
+ * `regrouped` elenca le ALTRE liste dello stato (per B: grace/noindex) la cui
+ * composizione e' cambiata a parita' di id — un ruolo che esce dalla grace
+ * window e passa a noindex e' un cambio vero. `prev` null → `changed: true`,
+ * anche con insieme vuoto: su incertezza non si sopprime. Pura.
+ */
+export function diffIdSets(prev, next) {
+  const nextIds = [...new Set(next.ids)].sort();
+  if (!prev) return { opened: nextIds, closed: [], regrouped: [], changed: true };
+  const prevSet = new Set(prev.ids);
+  const nextSet = new Set(nextIds);
+  const opened = nextIds.filter((x) => !prevSet.has(x));
+  const closed = [...prevSet].filter((x) => !nextSet.has(x)).sort();
+  const listKeys = new Set(
+    [...Object.keys(prev), ...Object.keys(next)].filter(
+      (k) => k !== 'ids' && (Array.isArray(prev[k]) || Array.isArray(next[k])),
+    ),
+  );
+  const regrouped = [...listKeys].filter((k) => !sameMembers(prev[k], next[k])).sort();
+  return { opened, closed, regrouped, changed: opened.length + closed.length + regrouped.length > 0 };
+}
+
+/**
+ * Decisione di soppressione del commento di ricorrenza. true SOLO se esiste
+ * uno stato precedente leggibile, con data interpretabile, identico a `next`
+ * e scritto da meno di `maxAgeDays` giorni. Ogni altro caso → false (si
+ * commenta). Pura.
+ * @param {{previous: {state: object, createdAt: string|null} | null, next: object, now: number|Date, maxAgeDays?: number}} input
+ */
+export function shouldSuppressRecurrence({ previous, next, now, maxAgeDays = RECURRENCE_HEARTBEAT_DAYS }) {
+  if (!previous || !previous.state) return false;
+  const writtenAt = Date.parse(previous.createdAt ?? '');
+  const nowMs = now instanceof Date ? now.getTime() : Number(now);
+  if (!Number.isFinite(writtenAt) || !Number.isFinite(nowMs)) return false;
+  if (nowMs - writtenAt >= maxAgeDays * DAY_MS) return false; // battito
+  return !diffIdSets(previous.state, next).changed;
+}
+
+/**
+ * Stato piu' recente dentro una issue gia' letta (`gh issue view --json
+ * body,createdAt,comments`), con la data del testo che lo conteneva: il body
+ * vale la `createdAt` della issue, ogni commento la propria. Si guarda il
+ * testo PIU' RECENTE che porta il marker e, dentro quello, l'ultimo marker.
+ * Pura.
+ * @returns {{state: object, createdAt: string|null} | null}
+ */
+export function latestStateEntry(issue, marker, isValid = isIdSetState) {
+  const pieces = [
+    { text: issue?.body || '', createdAt: issue?.createdAt ?? null },
+    ...(issue?.comments || []).map((c) => ({ text: c?.body || '', createdAt: c?.createdAt ?? null })),
+  ];
+  for (let i = pieces.length - 1; i >= 0; i -= 1) {
+    if (!markerRegex(marker).test(pieces[i].text)) continue;
+    const state = parseStateMarker(marker, pieces[i].text, isValid);
+    return state ? { state, createdAt: pieces[i].createdAt } : null;
+  }
+  return null;
+}
+
+/**
+ * Sezione `### Delta` del commento per le famiglie A e B. Ogni blocco termina
+ * col proprio separatore (stessa regressione di renderDeltaSection). Gli id
+ * restano nudi, senza path: chi conta i path nella issue vede solo l'insieme
+ * corrente. Pura.
+ * @param {{opened: string[], closed: string[], regrouped: string[]}} delta
+ * @param {{baseline: boolean, noun: string, maxAgeDays?: number}} ctx
+ */
+export function renderIdSetDeltaSection(delta, { baseline, noun, maxAgeDays = RECURRENCE_HEARTBEAT_DAYS }) {
+  const ids = (items) => items.map((id) => `- \`${id}\``).join('\n');
+  const blocks = [];
+  if (baseline) {
+    blocks.push(
+      `Nessuno stato precedente leggibile: questa è la rilevazione di riferimento. I giri successivi commentano solo quando l'insieme cambia, oppure come battito dopo ${maxAgeDays} giorni.`,
+    );
+  } else {
+    if (delta.opened.length > 0) blocks.push(`**${delta.opened.length} ${noun} entrati:**\n\n${ids(delta.opened)}`);
+    if (delta.closed.length > 0) blocks.push(`**${delta.closed.length} ${noun} usciti:**\n\n${ids(delta.closed)}`);
+    if (delta.opened.length === 0 && delta.closed.length === 0) {
+      blocks.push(
+        delta.regrouped.length > 0
+          ? `**Stessi ${noun}, ripartizione cambiata** (${delta.regrouped.map((k) => `\`${k}\``).join(', ')}): vedi gli elenchi sopra.`
+          : `**Insieme invariato.** Commento di battito: l'ultimo stato registrato ha almeno ${maxAgeDays} giorni.`,
+      );
+    } else if (delta.regrouped.length > 0) {
+      blocks.push(`Ripartizione cambiata anche in: ${delta.regrouped.map((k) => `\`${k}\``).join(', ')}.`);
+    }
+  }
+  return `### Delta\n\n${blocks.join('\n\n')}\n`;
+}
+
+/**
+ * Stato del giro precedente, letto dalla issue APERTA con il titolo dato
+ * (body + tutti i commenti), con la data del testo che lo conteneva. Una issue
+ * chiusa vale «nessuno stato». null su QUALUNQUE incertezza, e senza
+ * GITHUB_REPOSITORY (esecuzione locale) non chiama nemmeno `gh`.
+ * @param {{title: string, marker: string, isValid: (state: unknown) => boolean}} input
+ * @returns {{state: object, createdAt: string|null} | null}
+ */
+function readPreviousState({ title, marker, isValid }) {
   const repo = process.env.GITHUB_REPOSITORY;
   if (!repo) return null;
   try {
     const listed = execFileSync(
       'gh',
-      ['issue', 'list', '--repo', repo, '--state', 'open', '--search', `in:title "${GAP_ISSUE_TITLE}"`,
+      ['issue', 'list', '--repo', repo, '--state', 'open', '--search', `in:title "${title}"`,
         '--json', 'number,title', '--limit', '20'],
-      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+      { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'ignore'] },
     );
-    const prefix = GAP_ISSUE_TITLE.slice(0, 60);
+    const prefix = title.slice(0, 60);
     const match = JSON.parse(listed || '[]').find((i) => String(i.title || '').startsWith(prefix));
     if (!match) return null;
     const viewed = execFileSync(
       'gh',
-      ['issue', 'view', String(match.number), '--repo', repo, '--json', 'body,comments'],
-      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+      ['issue', 'view', String(match.number), '--repo', repo, '--json', 'body,createdAt,comments'],
+      { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'ignore'] },
     );
-    const issue = JSON.parse(viewed || '{}');
-    const haystack = [issue.body || '', ...(issue.comments || []).map((c) => c.body || '')].join('\n');
-    return parseGapState(haystack);
+    return latestStateEntry(JSON.parse(viewed || '{}'), marker, isValid);
   } catch (e) {
     log('⚠️', `lettura stato precedente fallita → commento la baseline: ${String(e).slice(0, 120)}`);
     return null;
   }
+}
+
+/** Famiglia C: stesso lettore, stato senza data (la famiglia C non ha battito). */
+function readPreviousGapState() {
+  return (
+    readPreviousState({
+      title: GAP_ISSUE_TITLE,
+      marker: GAP_STATE_MARKER,
+      isValid: (s) => !!s && Array.isArray(s.nationalZero) && Array.isArray(s.pairs),
+    })?.state ?? null
+  );
 }
 
 function createIssue({ title, description, labels }) {
@@ -313,31 +580,69 @@ async function checkTiSectorHubs({ resolveJobCanton, jobs }) {
   const tiJobs = jobs.filter((job) => resolveJobCanton(job) === 'TI');
   const counts = countSectorJobsByLocale(tiJobs);
   const zeroSectors = SECTOR_HUB_KEYS.filter((sector) => (counts.it?.[sector] ?? 0) === 0);
+  const { structuralZeroSectors, actionableZeroSectors } = classifyTiSectorZeros(zeroSectors);
 
   if (zeroSectors.length === 0) {
     log('✅', 'All TI sector-hub pages have >=1 real job match.');
     return;
   }
 
-  log('⚠️', `${zeroSectors.length} TI sector(s) with 0 real job matches: ${zeroSectors.join(', ')}`);
+  if (structuralZeroSectors.length > 0) {
+    const details = structuralZeroSectors
+      .map((sector) => {
+        const evidence = STRUCTURAL_TI_ZERO_EVIDENCE[sector];
+        return `${sector} (${evidence.reason} ${evidence.reclassifyWhen})`;
+      })
+      .join('; ');
+    log('ℹ️', `Known structural TI zero(s), observed but not routed to crawler onboarding: ${details}`);
+  }
+
+  if (actionableZeroSectors.length === 0) {
+    log('✅', 'No unclassified TI sector coverage gaps require crawler onboarding.');
+    return;
+  }
+
+  log('⚠️', `${actionableZeroSectors.length} unclassified TI sector(s) with 0 real job matches: ${actionableZeroSectors.join(', ')}`);
+
+  // Gli strutturali non entrano nello stato: non sono azionabili.
+  const state = buildIdSetState(actionableZeroSectors);
+  const previous = readPreviousState({
+    title: TI_SECTOR_ISSUE_TITLE,
+    marker: TI_SECTOR_STATE_MARKER,
+    isValid: isIdSetState,
+  });
+  if (shouldSuppressRecurrence({ previous, next: state, now: Date.now() })) {
+    log('🔁', `Gap set TI settori invariato (${state.ids.length} settori) — nessun commento su "${TI_SECTOR_ISSUE_TITLE}".`);
+    return;
+  }
+  const deltaSection = renderIdSetDeltaSection(diffIdSets(previous?.state ?? null, state), {
+    baseline: !previous,
+    noun: 'settori',
+  });
 
   const description = `## Sector TI 0 match reali
 
-Le seguenti pagine \`/cerca-lavoro-ticino/{settore}/\` non hanno **nessuna offerta reale** per il canton Ticino in questo deploy. La pagina resta live/indicizzata (decisione owner 2026-07-16: nessuna soglia minima per i settori TI), ma il gap va investigato:
+Le seguenti pagine \`/cerca-lavoro-ticino/{settore}/\` non hanno **nessuna offerta reale** per il canton Ticino in questo deploy. La pagina resta live/indicizzata (decisione owner 2026-07-16: nessuna soglia minima per i settori TI), ma il gap non classificato va investigato:
 
-${zeroSectors.map((s) => `- \`/cerca-lavoro-ticino/${s}/\``).join('\n')}
+${actionableZeroSectors.map((s) => `- \`${TI_SECTOR_HUB_PATH}${s}/\``).join('\n')}
+${structuralZeroSectors.length > 0 ? `
+**Zero osservati ma strutturalmente classificati** (restano monitorati e non vengono instradati a onboarding crawler finché non entra una vacancy TI verificata):
+
+${structuralZeroSectors.map((s) => `- \`${TI_SECTOR_HUB_PATH}${s}/\` — ${STRUCTURAL_TI_ZERO_EVIDENCE[s].reason}`).join('\n')}
+` : ''}
 
 **Possibili cause da verificare:**
-- Gap di copertura crawler per questo settore/vertical (vedi #3337 — backlog aziende svizzere non ancora crawlate)
+- Gap di copertura crawler per questo settore/vertical (ipotesi da verificare sui match e sulle fonti per cantone)
 - Regex \`SECTOR_MATCHERS\` (\`build-plugins/jobSectorLanding.ts\`) troppo stretta rispetto ai titoli/categorie reali del settore
 - Domanda di lavoro genuinamente scarsa in Ticino per questo settore (verificare vs. altri cantoni)
 
 **Run:** ${runUrl()}
 **Totale job TI (raw, canton==TI):** ${tiJobs.length}
 
+${deltaSection}
 ${buildScheda({
   causa: [
-    `(ipotesi, da confermare.) ${zeroSectors.length} settore/i TI non ha/hanno nessun match`,
+    `(ipotesi, da confermare.) ${actionableZeroSectors.length} settore/i TI non ha/hanno nessun match`,
     'reale nel corpus pubblicato. Il conteggio non distingue un crawler mancante da una',
     'categoria che non attraversa i matcher: questa distinzione va verificata sui titoli reali.',
   ],
@@ -345,8 +650,8 @@ ${buildScheda({
     'Dipende dalla causa confermata: onboarding di un crawler o correzione dei matcher del',
     'settore. | **REPO**: sito; non preassegnata qui.',
   ],
-  metrica: `prima=${zeroSectors.length} settori TI a 0 match atteso=0 settori TI a 0 match`,
-  comando: 'npx --no-install tsx scripts/monitor-sector-coverage.mjs --dry-run',
+  metrica: `prima=${actionableZeroSectors.length} zero TI non classificati atteso=0 zero TI non classificati`,
+  comando: 'node --import tsx/esm scripts/monitor-sector-coverage.mjs --dry-run',
   note: [
     'Il comando ripete il controllo sul corpus pubblicato senza scrivere l\'artefatto e senza',
     'coniare issue: la scheda si chiude quando nessun settore TI è più a 0 match reale.',
@@ -357,17 +662,19 @@ ${buildScheda({
     'qui sopra è il criterio con cui chiuderla.',
   ],
   fallimento: '`TI sector coverage: settori a 0 match reali`',
-})}`;
+})}
+
+${serializeStateMarker(TI_SECTOR_STATE_MARKER, state)}`;
 
   createIssue({
-    title: 'TI sector coverage: settori a 0 match reali',
+    title: TI_SECTOR_ISSUE_TITLE,
     description,
     labels: ['bug', 'funnel-seo'],
   });
 }
 
 async function checkTiLegacyProfessions(stagingRoot) {
-  const { aggregateProfessionJobs, aggregateRecentlyExpiredProfessionCounts } = await import(
+  const { aggregateProfessionJobs, aggregateProfessionJobsByCanton, aggregateRecentlyExpiredProfessionCounts } = await import(
     path.join(REPO_ROOT, 'build-plugins/professionJobsAggregate.ts')
   );
   const { PROFESSION_IDS } = await import(
@@ -378,6 +685,7 @@ async function checkTiLegacyProfessions(stagingRoot) {
   );
 
   const snapshots = aggregateProfessionJobs(stagingRoot);
+  const byCanton = aggregateProfessionJobsByCanton(stagingRoot);
   const zeroIds = PROFESSION_IDS.filter((id) => (snapshots[id]?.liveCount ?? 0) === 0);
 
   if (zeroIds.length === 0) {
@@ -397,19 +705,66 @@ async function checkTiLegacyProfessions(stagingRoot) {
   );
   const indexedViaGrace = [];
   const bridgedNoindex = [];
+  const crawlerGap = [];
+  const matcherGap = [];
+  const unknown = [];
+  const classificationById = new Map();
   for (const id of zeroIds) {
     const verdict = meetsJobsFloor({
       liveCount: 0,
       recentlyExpiredCount: recentlyExpired ? recentlyExpired[id] : null,
     });
     (verdict.meetsFloor ? indexedViaGrace : bridgedNoindex).push(id);
+
+    const matchingCantons = Object.entries(byCanton)
+      .filter(([cantonKey, perProfession]) => cantonKey !== 'TI' && (perProfession[id]?.liveCount ?? 0) > 0)
+      .map(([cantonKey, perProfession]) => ({ cantonKey, liveCount: perProfession[id].liveCount }))
+      .sort((a, b) => a.cantonKey.localeCompare(b.cantonKey));
+    const cause = classifyTiLegacyZeroCause({
+      tiLiveCount: snapshots[id]?.liveCount,
+      nonTiLiveCounts: matchingCantons.map(({ liveCount }) => liveCount),
+      // No independent, validated inventory of relevant-but-unmatched TI
+      // titles is available in this monitor. Preserve unknown rather than
+      // inferring a matcher defect from adjacent metadata.
+      verifiedUnmatchedTiTitleCount: null,
+    });
+    classificationById.set(id, { cause, matchingCantons });
+    ({ 'crawler-gap': crawlerGap, 'matcher-gap': matcherGap, unknown })[cause].push(id);
   }
+
+  crawlerGap.sort();
+  matcherGap.sort();
+  unknown.sort();
 
   log(
     '⚠️',
     `${zeroIds.length} TI legacy profession page(s) with 0 real job matches ` +
       `(${indexedViaGrace.length} indexed via grace, ${bridgedNoindex.length} bridged noindex): ${zeroIds.join(', ')}`,
   );
+
+  const state = {
+    ...buildIdSetState(zeroIds),
+    indexedViaGrace: [...indexedViaGrace].sort(),
+    bridgedNoindex: [...bridgedNoindex].sort(),
+    crawlerGap,
+    matcherGap,
+    unknown,
+  };
+  const previous = readPreviousState({
+    title: TI_LEGACY_ISSUE_TITLE,
+    marker: TI_LEGACY_STATE_MARKER,
+    isValid: isTiLegacyState,
+  });
+  if (shouldSuppressRecurrence({ previous, next: state, now: Date.now() })) {
+    log('🔁', `Gap set TI legacy invariato (${state.ids.length} ruoli) — nessun commento su #5429.`);
+    return;
+  }
+  const deltaSection = renderIdSetDeltaSection(diffIdSets(previous?.state ?? null, state), {
+    baseline: !previous,
+    noun: 'ruoli',
+  });
+
+  const zeroCauseLines = renderTiLegacyZeroCauseLines(zeroIds, classificationById);
 
   const description = `## Professioni TI (legacy) a 0 match reali
 
@@ -422,22 +777,28 @@ ${indexedViaGrace.map((id) => `- \`/lavoro-ticino-${id}/\``).join('\n')}
 
 ${bridgedNoindex.map((id) => `- \`/lavoro-ticino-${id}/\``).join('\n')}
 ` : ''}
-**Causa più probabile:** gap di copertura crawler per il ruolo/vertical in Ticino (vedi #3337) — stessa diagnosi di #4824, non un problema di regex/matching.
+**Causa evidence-based per ogni zero** (stesso matcher usato dalle pagine TI):
+
+${zeroCauseLines}
+
+Il monitor non dispone di un inventario indipendente di titoli TI pertinenti ma non riconosciuti; senza tale prova non dichiara \`matcher-gap\` e conserva \`unknown\`.
 
 **Run:** ${runUrl()}
 
+${deltaSection}
 ${buildScheda({
   causa: [
-    `(ipotesi, da confermare.) ${zeroIds.length} ruolo/i TI legacy è/sono a 0 offerte live nel`,
-    'deploy. La grace window separa una pagina ancora indicizzata da una già bridged, ma non',
-    'spiega da sola perché il crawler non abbia portato un annuncio utile.',
+    `${crawlerGap.length} zero/i hanno match dello stesso matcher fuori TI; ${matcherGap.length} hanno`,
+    `titoli TI pertinenti non riconosciuti con prova indipendente; ${unknown.length} restano unknown`,
+    'perché il corpus non offre evidenza sufficiente per attribuire la causa.',
   ],
   fix: [
-    'Dipende dalla causa confermata: onboarding del crawler o verifica del matching del ruolo.',
+    'Per crawler-gap verificare la copertura locale; per matcher-gap serve una prova indipendente',
+    'dei titoli TI pertinenti; unknown non autorizza modifiche a crawler o regex.',
     '| **REPO**: sito; non preassegnata qui.',
   ],
-  metrica: `prima=${zeroIds.length} ruoli TI legacy a 0 match atteso=0 ruoli TI legacy a 0 match`,
-  comando: 'npx --no-install tsx scripts/monitor-sector-coverage.mjs --dry-run',
+  metrica: `prima=0/${zeroIds.length} zeri TI legacy classificati atteso=${zeroIds.length}/${zeroIds.length} classificati`,
+  comando: 'node --import tsx/esm scripts/monitor-sector-coverage.mjs --dry-run',
   note: [
     'Il comando rivaluta anche la grace window e stampa il verdetto senza scrivere l\'artefatto',
     'e senza coniare issue: la scheda si chiude quando non restano ruoli TI a 0 match.',
@@ -448,10 +809,12 @@ ${buildScheda({
     'qui sopra è il criterio con cui chiuderla.',
   ],
   fallimento: '`TI profession coverage (legacy): ruoli a 0 match reali`',
-})}`;
+})}
+
+${serializeStateMarker(TI_LEGACY_STATE_MARKER, state)}`;
 
   createIssue({
-    title: 'TI profession coverage (legacy): ruoli a 0 match reali',
+    title: TI_LEGACY_ISSUE_TITLE,
     description,
     labels: ['bug', 'funnel-seo'],
   });
@@ -553,7 +916,7 @@ ${nationalZero.map((id) => `- \`${id}\``).join('\n')}
 
   const description = `## Copertura professioni per cantone: gap sistemici rilevati
 
-Generalizzazione di #4824 a tutti i cantoni (non solo Ticino) — stessa root cause: 580+ crawler sono tutti **per-azienda**, nessuna fonte generica multi-employer copre tutti i settori/cantoni (job-room.ch/SECO bloccato, vedi #3337). Le pagine \`/lavoro-{cantone}-{ruolo}/\` restano sicure (soglia MIN_JOBS=${MIN_JOBS} + bridge noindex sotto soglia, \`professionCantonLandings.ts\`) — nessun rischio thin-content — ma il gap di dati sottostante resta e va tracciato per priorità crawler-onboarding.
+Generalizzazione di #4824 a tutti i cantoni (non solo Ticino). Le pagine \`/lavoro-{cantone}-{ruolo}/\` restano sicure (soglia MIN_JOBS=${MIN_JOBS} + bridge noindex sotto soglia, \`professionCantonLandings.ts\`) — nessun rischio thin-content. Il tracker corrente è #5323; uno zero locale, da solo, non prova se la causa sia fonte, matching o domanda.
 
 ${deltaSection}
 Elenco **completo** (non troncato) e ordinabile: artefatto \`data/profession-canton-coverage-gaps.json\` prodotto da questo stesso run.
@@ -573,7 +936,7 @@ ${buildScheda({
     'normalizzazione dei titoli. | **REPO**: sito; non preassegnata qui.',
   ],
   metrica: `prima=${nationalZero.length} zero nazionali + ${state.pairs.length} coppie sotto floor atteso=nessun gap di copertura aperto`,
-  comando: 'npx --no-install tsx scripts/monitor-sector-coverage.mjs --dry-run',
+  comando: 'node --import tsx/esm scripts/monitor-sector-coverage.mjs --dry-run',
   note: [
     'Il comando ricalcola il gap set e stampa il delta senza scrivere l\'artefatto e senza',
     'coniare issue: la scheda si chiude quando non restano gap da tracciare.',
@@ -634,7 +997,7 @@ async function main() {
 // (buildGapState, parseGapState, diffGapState, buildGapArtifact) e i test le
 // importano — senza questa guardia l'import farebbe partire il check post-deploy.
 // Stesso pattern di scripts/lib/classify-issue.mjs.
-if (process.argv[1] && process.argv[1].endsWith('monitor-sector-coverage.mjs')) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error('[monitor-sector-coverage] unexpected error (non-blocking):', err);
   });

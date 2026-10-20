@@ -24,6 +24,7 @@
  *   - isTrustedDomain()          — Validate URLs belong to this company
  *   - slugify() / stripHtml()    — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
@@ -289,7 +290,6 @@ export async function fetchAllWeisseArenaJobs() {
     const contractLabel = fields.CONTRACTTYPLABEL || '';
     const jobNumber = fields.jobNumber || '';
     const applicationUrl = fields.applicationUrl || '';
-    const postingTimestamp = fields.DPOSTINGSTART;
 
     // All Weisse Arena jobs are in Laax, GR
     const location = 'Laax';
@@ -314,11 +314,8 @@ export async function fetchAllWeisseArenaJobs() {
     const employmentType = mapContractType(contractLabel);
     const contract = pensum.max < 80 ? 'part-time' : 'full-time';
 
-    // Posted date from timestamp
-    const postedDate = postingTimestamp
-      ? new Date(postingTimestamp).toISOString().split('T')[0]
-      : new Date().toISOString().split('T')[0];
-
+    // DPOSTINGSTART has no corroborated publication mapping for this endpoint.
+    // Neither that generic start value nor the crawl clock establishes a date.
     const description = descriptionText || `${title} — Weisse Arena Gruppe, ${department}`;
 
     const job = {
@@ -352,7 +349,7 @@ export async function fetchAllWeisseArenaJobs() {
       sector: 'Turismo / Sport',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(''),
       applyUrl: applicationUrl || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

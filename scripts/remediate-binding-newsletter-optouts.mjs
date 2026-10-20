@@ -17,9 +17,11 @@
  * idempotent because repaired rows are no longer selected.
  */
 
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { ADDRESS_SUPPRESSED_STATUSES } from '../services/emailSuppression.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const COLLECTION = 'newsletter_subscribers';
 const EVENT_TYPE = 'opt_out_integrity_repaired';
@@ -79,12 +81,8 @@ function previousFlag(value) {
   return value === true ? 'true' : value === false ? 'false' : 'missing';
 }
 
-function initFirebase() {
-  if (admin.apps.length > 0) return;
-  admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
-    projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-  });
+async function initFirebase() {
+  return getFirestoreDb();
 }
 
 async function loadPlans(db) {
@@ -122,7 +120,7 @@ function printPlanSummary(total, plans) {
   if (plans.length > 20) console.log(`  … altri ${plans.length - 20} record`);
 }
 
-export async function applyPlans(db, plans, { fieldValue = admin.firestore.FieldValue } = {}) {
+export async function applyPlans(db, plans, { fieldValue = FieldValue } = {}) {
   let written = 0;
   for (const plan of plans) {
     const applied = await db.runTransaction(async (transaction) => {
@@ -163,8 +161,7 @@ export async function applyPlans(db, plans, { fieldValue = admin.firestore.Field
 }
 
 async function main() {
-  initFirebase();
-  const db = admin.firestore();
+  const db = await initFirebase();
   const { total, plans } = await loadPlans(db);
   printPlanSummary(total, plans);
   if (!APPLY) {
@@ -175,11 +172,7 @@ async function main() {
   console.log(`APPLY — record riparati: ${written}; eventi audit: ${written}.`);
 }
 
-const isInvokedDirectly = process.argv[1]
-  ? import.meta.url === `file://${process.argv[1]}`
-  : false;
-
-if (isInvokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error('remediate-binding-newsletter-optouts failed:', error?.message || error);
     process.exitCode = 1;

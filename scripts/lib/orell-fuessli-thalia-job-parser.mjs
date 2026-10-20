@@ -76,6 +76,7 @@
  * - isTrustedDomain() — Validate URLs belong to this company
  * - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourceCompactOffsetPostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
@@ -320,7 +321,7 @@ async function fetchJobListings() {
     listings.push({
       title,
       city: normalizeSpace(city),
-      postedAt: node.datePosted || null,
+      ...sourceCompactOffsetPostingDateFields(node.datePosted),
       description: buildDescription(html, node.description),
       url,
     });
@@ -370,8 +371,6 @@ export async function fetchAllOrellFuessliThaliaJobs() {
     const jobSlug = slugify(`${title} orell fuessli thalia ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(title);
-    const postedDate = (listing.postedAt && String(listing.postedAt).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -406,7 +405,7 @@ export async function fetchAllOrellFuessliThaliaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       jobReqId: null,
       requirements: [],

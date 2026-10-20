@@ -21,6 +21,7 @@ import { describe, expect, it } from 'vitest';
 import {
   TokenIndex,
   buildClusterContext,
+  isClusterBelowFloor,
 } from '../build-plugins/relatedSearchClustersPlugin';
 import type {
   CandidateEntry,
@@ -92,6 +93,48 @@ describe('OR-fill relevance floor — buildClusterContext derivation', () => {
     const ctx = buildClusterContext(makeCandidate('infermiere Lugano'), index, JOBS);
     expect(ctx).not.toBeNull();
     expect(ids(ctx!.matchingJobs)).toEqual(['infOnly']);
+  });
+});
+
+describe('qualified occupation clusters', () => {
+  const QUALIFIED_JOBS: RawJob[] = [
+    {
+      id: 'exact-facharzt',
+      title: 'Facharzt Anästhesiologie mit Führungsverantwortung',
+      titleByLocale: { it: 'Medico specialista in anestesiologia con responsabilità di leadership' },
+    },
+    {
+      id: 'exact-leitend',
+      title: 'Leitende Oberärztin / Leitender Oberarzt Anästhesiologie',
+      titleByLocale: { it: 'Medico senior in anestesiologia' },
+    },
+    {
+      id: 'exact-chefarzt',
+      title: 'Chefärztin Anästhesiologie',
+      titleByLocale: { it: 'Medico principale di anestesiologia' },
+    },
+    {
+      id: 'semantic-only',
+      title: 'Facharzt Anästhesiologie',
+      titleByLocale: { it: 'Medico specialista in anestesiologia' },
+      description: 'Sarà responsabile della direzione del reparto e del team.',
+    },
+    {
+      id: 'support-secretary',
+      title: 'Chefarztsekretärin Anästhesie',
+      titleByLocale: { it: 'Capo medico Anestesia' },
+    },
+  ];
+
+  it('counts title-qualified physicians before the cap and excludes body-only/support matches', () => {
+    const candidate = makeCandidate('medico anestesista responsabile');
+    const ctx = buildClusterContext(candidate, new TokenIndex(QUALIFIED_JOBS), QUALIFIED_JOBS);
+    expect(ctx?.matchingJobs.map((job) => job.id)).toEqual([
+      'exact-facharzt',
+      'exact-leitend',
+      'exact-chefarzt',
+    ]);
+    expect(isClusterBelowFloor(ctx!, undefined)).toBe(false);
   });
 });
 
@@ -193,3 +236,39 @@ describe('SPA OR-fallback floor↔scoring consistency (#1109)', () => {
     expect(scoreAgainst(queryTokens, 'Responsabile Vendite')).toBe(1);
   });
 });
+
+describe('occupational relevance before the result limit', () => {
+  it('does not fill a customs-salary query with medical specialists', () => {
+    const jobs: RawJob[] = [
+      ...Array.from({ length: 40 }, (_, i) => ({ id: `medical-${i}`, title: 'Specialista medico',
+        description: 'stipendio svizzera dogane formazione specialista', location: 'Lugano', canton: 'TI' })),
+      { id: 'customs', title: 'Specialista dogana e sicurezza dei confini',
+        description: 'stipendio svizzera dogane formazione specialista', location: 'Chiasso', canton: 'TI' },
+    ];
+    const ctx = buildClusterContext(makeCandidate('stipendio Specialista delle Dogane svizzera'), new TokenIndex(jobs), jobs);
+    expect(ctx?.matchingJobs.map(j => j.id)).toEqual(['customs']);
+  });
+
+  it.each(['HR Manager', 'IT Support'])('preserves exact short occupational acronyms: %s', title => {
+    const jobs: RawJob[] = [{ id: title, title, location: 'Lugano', canton: 'TI' }];
+    const ctx = buildClusterContext(makeCandidate(title), new TokenIndex(jobs), jobs);
+    expect(ctx?.matchingJobs.map(j => j.id)).toEqual([title]);
+  });
+});
+
+  it.each([['fr', 'salaire infirmier', 'Infirmier'], ['en', 'nurse salaries', 'Nurse']] as const)('normalizes salary intent from actual %s queries', (locale, query, title) => {
+    const jobs: RawJob[] = [{ id: title, title, description: query, location: 'Lugano', canton: 'TI' }];
+    const candidate = { ...makeCandidate(query), locale };
+    const ctx = buildClusterContext(candidate, new TokenIndex(jobs), jobs);
+    expect(ctx?.matchingJobs.map(j => j.id)).toEqual([title]);
+  });
+
+  it('keeps payroll as the occupation in German salary-related compounds', () => {
+    const jobs: RawJob[] = [
+      { id: 'payroll', title: 'Lohnbuchhalter SAP', description: 'Lohnbuchhalter SAP', canton: 'TI' },
+      { id: 'consultant', title: 'SAP Consultant', description: 'Lohnbuchhalter SAP', canton: 'TI' },
+    ];
+    const candidate = { ...makeCandidate('Lohnbuchhalter SAP'), locale: 'de' as const };
+    const ctx = buildClusterContext(candidate, new TokenIndex(jobs), jobs);
+    expect(ctx?.matchingJobs.map(j => j.id)).toEqual(['payroll']);
+  });

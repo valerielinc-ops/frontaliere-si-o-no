@@ -1,24 +1,29 @@
 {
   "key": "recruitingapp-2649",
   "label": "Alexander von Humboldt-Stiftung Stellen",
-  "generatedAt": "2026-09-24T14:29:19.170Z",
+  "generatedAt": "2026-10-19T21:25:46.404Z",
   "total": 0,
-  "discovered": 4,
+  "discovered": 1,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 0,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6277,
-  "avgDurationMs": 6277,
+  "durationMs": 3402,
+  "avgDurationMs": 3402,
   "durationHistory": [
-    6277
+    3402
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

@@ -1,8 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import {
+  CRAWLER_GROUP_LIVE_LEASE_TRANSIENT_ATTEMPTS,
+  CRAWLER_GROUP_LIVE_LEASE_TRANSIENT_RETRY_MS,
   CRAWLER_GROUP_LIVE_LEASE_TTL_MS,
   CRAWLER_GROUP_LIVE_LEASE_WAIT_MS,
+  LIVE_RUN_QUERY_MAX_BUFFER_BYTES,
   LIVE_RUN_QUERY_TIMEOUT_MS,
   crawlerGroupLeaseDoc,
   crawlerGroupLeaseResourceName,
@@ -71,6 +74,7 @@ describe('cross-entry crawler live-run guard', () => {
         encoding: 'utf8',
         timeout: LIVE_RUN_QUERY_TIMEOUT_MS,
         killSignal: 'SIGTERM',
+        maxBuffer: LIVE_RUN_QUERY_MAX_BUFFER_BYTES,
         env: expect.objectContaining({ GH_TOKEN: 'token-for-test' }),
       }),
     );
@@ -100,6 +104,35 @@ describe('cross-entry crawler live-run guard', () => {
       token: 'token-for-test',
       gh,
     })).toBe(true);
+  });
+
+  // Regressione ENOBUFS: `--paginate --slurp` sull'intero storico di
+  // crawler-group-NN.yml supera il buffer di default di execFileSync (1 MiB) e
+  // ogni run del corpus finiva in `spawnSync gh ENOBUFS` + fail-open. Qui le
+  // opzioni reali passate dal probe vengono usate per uno spawn vero che scrive
+  // ~3 MiB su stdout, con l'unica run live nell'ultima pagina.
+  it('reads a multi-MiB paginated run history through a real child process', async () => {
+    const { execFileSync } = await import('node:child_process');
+    const script = [
+      "const pad = 'x'.repeat(8000);",
+      'const pages = [];',
+      "for (let p = 0; p < 4; p += 1) pages.push({ workflow_runs: Array.from({ length: 100 }, () => ({ status: 'completed', pad })) });",
+      "pages.push({ workflow_runs: [{ status: 'in_progress' }] });",
+      'process.stdout.write(JSON.stringify(pages));',
+    ].join('\n');
+    const warn = vi.fn();
+    const gh = vi.fn((_command: string, _args: string[], options: Record<string, unknown>) => (
+      execFileSync(process.execPath, ['-e', script], options)
+    ));
+
+    expect(hasLiveRun('crawler-group-19.yml', {
+      repo: 'nanakokyobashi-rgb/frontaliere-articles',
+      token: 'token-for-test',
+      gh: gh as any,
+      logger: { warn, log: vi.fn(), error: vi.fn() },
+    })).toBe(true);
+    expect(warn).not.toHaveBeenCalled();
+    expect(LIVE_RUN_QUERY_MAX_BUFFER_BYTES).toBeGreaterThan(3 * 1024 * 1024);
   });
 
   it('proceeds safely when credentials, gh, or JSON data are unavailable', () => {
@@ -215,6 +248,85 @@ describe('cross-entry crawler live-run guard', () => {
     })).resolves.toMatchObject({ proceed: false, reason: 'lease-busy' });
     expect(probe).not.toHaveBeenCalled();
     expect(release).not.toHaveBeenCalled();
+  });
+
+  it('names the lease holder and decision reason when it refuses a run', async () => {
+    const logger = { error: vi.fn(), warn: vi.fn(), log: vi.fn() };
+    const holder = {
+      owner: 'nanakokyobashi-rgb/frontaliere-articles:Crawler Group 19:987654:1',
+      repo: 'nanakokyobashi-rgb/frontaliere-articles',
+      workflow: 'Crawler Group 19',
+      runId: '987654',
+      acquiredAt: '2026-10-09T10:00:00.000Z',
+      expiresAt: new Date(Date.now() + 60 * 60_000).toISOString(),
+    };
+    await expect(runGuard({
+      groupFile: 'crawler-group-19.yml',
+      repo: 'nanakokyobashi-rgb/frontaliere-articles',
+      token: 'token-for-test',
+      acquire: vi.fn(async () => ({ acquired: false, busy: true, reason: 'active_owner', holder })),
+      probe: vi.fn(),
+      release: vi.fn(),
+      sleep: vi.fn(),
+      logger,
+    })).resolves.toMatchObject({ proceed: false, reason: 'lease-busy' });
+    const message = logger.error.mock.calls[0][0];
+    expect(message).toContain('reason=active_owner');
+    expect(message).toContain(`owner=${holder.owner}`);
+    expect(message).toContain('runId=987654');
+    expect(message).toContain('run=https://github.com/nanakokyobashi-rgb/frontaliere-articles/actions/runs/987654');
+    expect(message).toContain(`expiresAt=${holder.expiresAt}`);
+  });
+
+  it('retries a transient Firestore error instead of reporting it as a live lease', async () => {
+    const logger = { error: vi.fn(), warn: vi.fn(), log: vi.fn() };
+    const sleep = vi.fn(async () => {});
+    const acquire = vi.fn()
+      .mockResolvedValueOnce({ acquired: false, busy: true, transientError: true, reason: 'transient_error', error: 'Firestore REST request failed: 503' })
+      .mockResolvedValueOnce({ acquired: true, busy: false });
+    await expect(runGuard({
+      groupFile: 'crawler-group-19.yml',
+      repo: 'nanakokyobashi-rgb/frontaliere-articles',
+      token: 'token-for-test',
+      acquire,
+      probe: vi.fn(async () => false),
+      persist: vi.fn(() => true),
+      release: vi.fn(),
+      sleep,
+      logger,
+    })).resolves.toMatchObject({ proceed: true, reason: 'lease-held', leaseOwned: true });
+    expect(acquire).toHaveBeenCalledTimes(2);
+    expect(sleep).toHaveBeenCalledWith(CRAWLER_GROUP_LIVE_LEASE_TRANSIENT_RETRY_MS);
+    expect(logger.error).not.toHaveBeenCalled();
+    expect(logger.warn).toHaveBeenCalledWith(expect.stringContaining('transient Firestore error on attempt 1/'));
+  });
+
+  it('refuses a persistent Firestore error as lease-error, not as a live lease', async () => {
+    const logger = { error: vi.fn(), warn: vi.fn(), log: vi.fn() };
+    const probe = vi.fn();
+    const acquire = vi.fn(async () => ({
+      acquired: false,
+      busy: true,
+      transientError: true,
+      reason: 'transient_error',
+      error: 'Firestore REST request failed: 503',
+    }));
+    await expect(runGuard({
+      groupFile: 'crawler-group-19.yml',
+      repo: 'nanakokyobashi-rgb/frontaliere-articles',
+      token: 'token-for-test',
+      acquire,
+      probe,
+      release: vi.fn(),
+      sleep: vi.fn(async () => {}),
+      logger,
+    })).resolves.toMatchObject({ proceed: false, reason: 'lease-error' });
+    expect(acquire).toHaveBeenCalledTimes(CRAWLER_GROUP_LIVE_LEASE_TRANSIENT_ATTEMPTS);
+    expect(probe).not.toHaveBeenCalled();
+    const message = logger.error.mock.calls[0][0];
+    expect(message).toContain('reason=transient_error');
+    expect(message).toContain('this is not a lease conflict');
+    expect(message).not.toContain('already protected by a live');
   });
 
   it('writes an ownership marker only for the always-run release step', () => {

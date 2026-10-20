@@ -35,11 +35,13 @@ import {
   isAdvertisingSuppressed,
   matchSubscribersForAd,
 } from '../services/publisherBlastMatch.mjs';
+import { FieldValue } from 'firebase-admin/firestore';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const SEND = process.argv.includes('--send');
 const PER_AD_CAP = 200;   // max recipients per ad
@@ -48,19 +50,11 @@ const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
 const SITE = 'https://frontaliereticino.ch';
 
 async function initDb() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return { admin: a, db: a.firestore() };
+  return { db: await getFirestoreDb() };
 }
 
 async function main() {
-  const { admin, db } = await initDb();
+  const { db } = await initDb();
 
   // Paid (sponsored OR azienda) + not yet blasted. Both paid tiers carry the
   // newsletter-blast perk; azienda would be silently excluded by a bare
@@ -119,7 +113,7 @@ async function main() {
     if (!SEND) continue;
     if (audience.length === 0) {
       await db.collection('publisher_jobs').doc(ad.id).set(
-        { blastSentAt: admin.firestore.FieldValue.serverTimestamp(), blastCount: 0 },
+        { blastSentAt: FieldValue.serverTimestamp(), blastCount: 0 },
         { merge: true },
       );
       continue;
@@ -180,7 +174,7 @@ async function main() {
     // re-sends to everyone (acceptable dup risk) rather than dropping the remainder.
     if (!interrupted) {
       await db.collection('publisher_jobs').doc(ad.id).set(
-        { blastSentAt: admin.firestore.FieldValue.serverTimestamp(), blastCount: adSent },
+        { blastSentAt: FieldValue.serverTimestamp(), blastCount: adSent },
         { merge: true },
       );
     }

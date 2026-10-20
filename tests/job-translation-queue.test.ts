@@ -25,6 +25,7 @@ import {
   QUEUE_STALE_DAYS,
   measureTranslationQueue,
 } from '../scripts/audit-job-description-locale.mjs';
+import { isDescriptionSourceCopy } from '../scripts/lib/job-locale-utils.mjs';
 
 const NOW = Date.parse('2026-08-19T00:00:00Z');
 const daysAgo = (n: number) => new Date(NOW - n * 86_400_000).toISOString();
@@ -130,7 +131,7 @@ describe('measureTranslationQueue', () => {
 
     expect(mentioningWorkflows.sort()).toEqual(matchingWorkflows.sort());
 
-    for (const workflowPath of [...matchingWorkflows, PORTABLE_TRANSLATE_WORKFLOW]) {
+    for (const workflowPath of matchingWorkflows) {
       const concurrency = concurrencyConfig(workflowPath);
       expect(concurrency.group).toBe(JOBS_DATA_PIPELINE_GROUP);
       expect(concurrency['cancel-in-progress']).toBe(false);
@@ -140,6 +141,14 @@ describe('measureTranslationQueue', () => {
       // independently reviewed.
       if (concurrency.queue !== undefined) expect(concurrency.queue).toBe('max');
     }
+
+    const portableTranslateJobs = workflowConfig(PORTABLE_TRANSLATE_WORKFLOW).jobs as Record<string, any>;
+    expect(portableTranslateJobs.translate.concurrency).toMatchObject({
+      group: JOBS_DATA_PIPELINE_GROUP,
+      'cancel-in-progress': false,
+      queue: 'max',
+    });
+    expect(portableTranslateJobs.translate_queue_guard.concurrency).toBeUndefined();
   });
 
   it('counts a queued job whose target slots are byte-identical to the source', () => {
@@ -157,6 +166,13 @@ describe('measureTranslationQueue', () => {
     const q = measure([job({ sourceLang: 'de-CH' })]);
     expect(q.sourceCopyJobs).toBe(1);
     expect(q.samples[0]).toMatchObject({ sourceLang: 'de' });
+  });
+
+  it('treats Unicode punctuation and equivalent HTML entities as the same source copy', () => {
+    expect(isDescriptionSourceCopy(
+      'L’équipe — Qualität… • Team',
+      'L&#8217;équipe &mdash; Qualität&hellip; &bull; Team',
+    )).toBe(true);
   });
 
   it('fails closed for an unsupported sourceLang', () => {

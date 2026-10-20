@@ -7,9 +7,9 @@ import type {
  Timestamp,
  Firestore,
 } from 'firebase/firestore';
-import { SimulationInputs, SimulationResult } from '@/types';
-import { reportCaughtError } from '@/services/errorReporter';
-import { isIndexedDbError } from '@/services/benignErrorPatterns';
+import { SimulationInputs, SimulationResult } from '../types';
+import { reportCaughtError } from './errorReporter';
+import { isIndexedDbError } from './benignErrorPatterns';
 
 // ─── Firestore dynamic lazy-import (keeps firebase/firestore out of the main bundle) ──
 
@@ -33,7 +33,7 @@ export function resetFirestoreConnection(): void {
 async function getDb(): Promise<Firestore> {
  if (!db) {
  const [{ getApp }, { getFirestore }] = await Promise.all([
- import('@/services/firebase'),
+ import('./firebase'),
  fs(),
  ]);
  db = getFirestore(await getApp());

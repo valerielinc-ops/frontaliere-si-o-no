@@ -36,7 +36,7 @@ import {
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
 import { COMPLETE_WORK_GUIDE_HREF } from './shared/pillarGuideHrefs';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
@@ -588,17 +588,16 @@ function renderPage(opts: {
 
   const articleLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: h1,
     description: guardArticleJsonLdDescription(description),
     image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),
@@ -635,7 +634,7 @@ function renderPage(opts: {
         return `<tr${coincClass}><td class="hc">${esc(formatDate(h.dates[String(year)], locale))}</td><td class="hc">${esc(h.name[locale])}</td><td class="hc" style="text-align:center">${checkMark(h.ticino, L.tableHeadTicino)}</td><td class="hc" style="text-align:center">${checkMark(h.italy, L.tableHeadItaly)}</td></tr>`;
       })
       .join('');
-    return `<div class="s-card" style="overflow-x:auto;padding:0;border-radius:14px"><table style="width:100%;border-collapse:collapse"><caption style="text-align:left;padding:12px 14px;font-weight:700">${esc(L.ticino.calendarTitle(year))}</caption><thead><tr><th class="hd">${esc(L.tableHeadDate)}</th><th class="hd">${esc(L.tableHeadHoliday)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadTicino)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadItaly)}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    return `<div class="s-card" style="overflow-x:auto;padding:0;border-radius:14px"><table aria-label="${esc(L.ticino.calendarTitle(year))}" style="width:100%;border-collapse:collapse"><caption style="text-align:left;padding:12px 14px;font-weight:700">${esc(L.ticino.calendarTitle(year))}</caption><thead><tr><th class="hd">${esc(L.tableHeadDate)}</th><th class="hd">${esc(L.tableHeadHoliday)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadTicino)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadItaly)}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
   // Comparison table (ch-vs-it page): all holidays y1 with TI/IT flags.
@@ -649,7 +648,7 @@ function renderPage(opts: {
         return `<tr${rowStyle}><td class="hc">${esc(formatDate(h.dates[String(y1)], locale))}</td><td class="hc">${esc(h.name[locale])}</td><td class="hc" style="text-align:center">${checkMark(h.ticino, L.tableHeadTicino)}</td><td class="hc" style="text-align:center">${checkMark(h.italy, L.tableHeadItaly)}</td></tr>`;
       })
       .join('');
-    return `<div class="s-card" style="overflow-x:auto;padding:0;border-radius:14px"><table style="width:100%;border-collapse:collapse"><thead><tr><th class="hd">${esc(L.tableHeadDate)}</th><th class="hd">${esc(L.tableHeadHoliday)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadTicino)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadItaly)}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    return `<div class="s-card" style="overflow-x:auto;padding:0;border-radius:14px"><table aria-label="${esc(L.chVsIt.h1)}" style="width:100%;border-collapse:collapse"><thead><tr><th class="hd">${esc(L.tableHeadDate)}</th><th class="hd">${esc(L.tableHeadHoliday)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadTicino)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadItaly)}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
   function nonCoincList(items: readonly HolidayRecord[]): string {
@@ -700,7 +699,7 @@ function renderPage(opts: {
       <p style="${LEDE_STYLE}">${esc(lede)}</p>
     </header>
     ${renderSeoHeroImage(hero)}
-    <p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     <div class="s-KZc0LQ"><a href="${esc(calcUrl)}" class="s-cta">${esc(L.ctaCalc)}</a></div>
     <section class="s-KZc0LQ">
@@ -740,7 +739,10 @@ function renderPage(opts: {
       <ul style="list-style:none;padding:0;margin:0">${relatedHtml}</ul>
     </section>`;
 
-  const bodyHtml = `<main class="s-xzWvwM">${body}</main>`;
+  // buildSeoPageHtml supplies the single crawler-facing main landmark. Keep
+  // the page layout class on a neutral wrapper so holiday pages do not nest
+  // a second main inside the shared SEO shell.
+  const bodyHtml = `<div class="s-xzWvwM">${body}</div>`;
   const wordCount = countHtmlBodyWords(body);
 
   const html = buildSeoPageHtml({
@@ -785,7 +787,7 @@ function buildSitemapXml(
           return `    <xhtml:link rel="alternate" hreflang="${lang}" href="${rest.join('|')}" />`;
         })
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;

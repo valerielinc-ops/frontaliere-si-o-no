@@ -29,6 +29,9 @@
  * Polite delay: 250 ms between detail-page fetches.
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, sourcePostingDateCandidatesFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -40,8 +43,9 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
   locateTagByAttribute,
-  extractBalancedTagBlock,
+  extractBalancedTagBlockWithStatus,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const ARSANTE_KEY = 'arsante-clinique-de-carouge';
 export const ARSANTE_COMPANY_NAME = 'Arsanté (Clinique de Carouge)';
@@ -116,13 +120,32 @@ export function extractDetailBody(html) {
   if (jobPostingIdx !== -1) {
     const located = locateTagByAttribute(html.slice(jobPostingIdx), 'itemprop="description"', { skipVoidTags: true });
     if (located) {
-      const inner = extractBalancedTagBlock(located.rest, located.tagName);
-      return normalizeSpace(htmlToText(inner)).slice(0, 6000);
+      // An unclosed description element falls through to <main> instead of
+      // returning a raw window of the page after it (no length cap, issue 5253).
+      const { html: inner, complete } = extractBalancedTagBlockWithStatus(located.rest, located.tagName, located.rest.length);
+      if (complete) return normalizeSpace(htmlToText(inner));
     }
   }
   const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-  if (mainMatch) return normalizeSpace(htmlToText(mainMatch[1])).slice(0, 6000);
+  if (mainMatch) return normalizeSpace(htmlToText(mainMatch[1]));
   return '';
+}
+
+function publicationFromDetail(html) {
+  const dom = new JSDOM(html);
+  try {
+    const element = dom.window.document.querySelector('[itemtype="https://schema.org/JobPosting"] .post__date[itemprop="datePosted"]');
+    const raw = normalizeSpace(element?.textContent || '');
+    const french = /^(\d{1,2}) ([a-zéûô]+) (\d{4})$/i.exec(raw);
+    let normalized = raw;
+    if (french) {
+      const month = Array.from({ length: 12 }, (_, index) => new Intl.DateTimeFormat('fr', { month: 'long', timeZone: 'UTC' }).format(new Date(Date.UTC(2000, index, 1)))).indexOf(french[2].toLowerCase()) + 1;
+      normalized = month ? `${french[3]}-${String(month).padStart(2, '0')}-${french[1].padStart(2, '0')}` : '';
+    }
+    return sourcePostingDateCandidatesFields([extractJobPostingLd(html)?.datePosted, element?.getAttribute('content'), normalized]);
+  } finally {
+    dom.window.close();
+  }
 }
 
 async function fetchDetail(url) {
@@ -131,10 +154,11 @@ async function fetchDetail(url) {
     return {
       entity: extractEntity(html),
       body: extractDetailBody(html),
+      ...publicationFromDetail(html),
     };
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed (${url}): ${err?.message || err}`);
-    return { entity: '', body: '' };
+    return { entity: '', body: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -164,7 +188,7 @@ export async function fetchAllArsanteJobs() {
       html = await fetchHtml(url);
     } catch (err) {
       console.warn(`  ⚠️ Listing page ${page} fetch failed: ${err?.message || err}`);
-      break;
+      throw err;
     }
     const rows = parseListing(html);
     console.log(`  ✓ page ${page}: ${rows.length} jobs`);
@@ -180,7 +204,6 @@ export async function fetchAllArsanteJobs() {
   console.log(`\n  Total unique rows: ${allRows.length}`);
   if (!allRows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < allRows.length; i += 1) {
     const r = allRows[i];
@@ -189,10 +212,12 @@ export async function fetchAllArsanteJobs() {
 
     const entity = detail.entity || 'Arsanté';
     const loc = inferLocality(entity);
-    const fallback = `${r.title} chez ${entity} (groupe Arsanté), ${loc.city} (GE). ${r.teaser || ''}`.trim();
-    const description = detail.body && detail.body.split(/\s+/).length >= 30
-      ? detail.body
-      : [fallback, detail.body].filter(Boolean).join('\n\n');
+    // Only source text (issue 5253): the detail body, else the listing
+    // teaser — never the "<title> chez <entity> (groupe Arsanté), <city>
+    // (GE)." line in front of it. A text under the common 50-word floor gives
+    // no description (the shared pipeline's thin-source path).
+    const sourceText = meetsSourceBodyFloor(detail.body) ? detail.body : normalizeSpace(r.teaser || '');
+    const description = meetsSourceBodyFloor(sourceText) ? sourceText : '';
 
     const sourceLang = detectLang(description || r.title, 'fr');
     const jobSlug = slugify(`${r.title} ${ARSANTE_KEY} ${loc.city}`);
@@ -233,7 +258,7 @@ export async function fetchAllArsanteJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

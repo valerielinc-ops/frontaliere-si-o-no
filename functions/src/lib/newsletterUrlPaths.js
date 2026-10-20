@@ -32,6 +32,8 @@
  */
 
 const BASE_URL = 'https://frontaliereticino.ch';
+export const JOB_BOARD_PATH = '/cerca-lavoro-ticino';
+export const APPLICATION_CONCIERGE_PATH = '/automatizza-ricerca-lavoro-svizzera';
 
 export function nlNormLocale(raw) {
   if (!raw) return 'it';
@@ -47,11 +49,17 @@ export function directUrl(path) {
 // Locale-aware path map. IT is the canonical (no prefix); other locales get
 // the /{lang}/ prefix and translated slugs. Keys are the canonical IT paths.
 export const LOCALE_PATH_MAP = {
-  '/cerca-lavoro-ticino': {
+  [JOB_BOARD_PATH]: {
     it: '/cerca-lavoro-ticino',
     en: '/en/find-jobs-ticino',
     de: '/de/jobs-im-tessin',
     fr: '/fr/trouver-emploi-tessin',
+  },
+  [APPLICATION_CONCIERGE_PATH]: {
+    it: '/automatizza-ricerca-lavoro-svizzera',
+    en: '/en/automate-job-search-switzerland',
+    de: '/de/arbeitssuche-schweiz-automatisieren',
+    fr: '/fr/automatiser-recherche-emploi-suisse',
   },
   // Paid 1:1 consulting. Slugs mirror services/routeSlugs.data.ts `consulting`
   // (router.ts:3366 builds `${prefix}/${table.consulting}`); the drift test in

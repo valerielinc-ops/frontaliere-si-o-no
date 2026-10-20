@@ -163,7 +163,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  officialLinks: [
  {
  label: 'Tariffe imposta alla fonte – Canton Ticino',
- url: 'https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tariffe',
+ url: 'https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/tabelle-di-calcolo-dellimposta-alla-fonte/',
  detail: 'Pagina ufficiale con le tabelle A, B, C e H in vigore, scaricabili in PDF.',
  },
  {
@@ -272,7 +272,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  officialLinks: [
  {
  label: 'Withholding tax tariffs – Canton Ticino',
- url: 'https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tariffe',
+ url: 'https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/tabelle-di-calcolo-dellimposta-alla-fonte/',
  detail: 'Official page with the current A, B, C and H tables, downloadable as PDF.',
  },
  {
@@ -381,7 +381,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  officialLinks: [
  {
  label: 'Quellensteuertarife – Kanton Tessin',
- url: 'https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tariffe',
+ url: 'https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/tabelle-di-calcolo-dellimposta-alla-fonte/',
  detail: 'Offizielle Seite mit den aktuellen Tabellen A, B, C und H als PDF zum Herunterladen.',
  },
  {
@@ -490,7 +490,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  officialLinks: [
  {
  label: 'Baremes impot a la source – Canton du Tessin',
- url: 'https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tariffe',
+ url: 'https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/tabelle-di-calcolo-dellimposta-alla-fonte/',
  detail: 'Page officielle avec les baremes A, B, C et H en vigueur, telechargeables en PDF.',
  },
  {

@@ -49,7 +49,7 @@ on:
 #
 # A limitare la parallelizzazione torna a essere un numero tarabile da un umano:
 # `FOLLOWUP_MAX_INFLIGHT_FIX` in `scripts/ci/followup-drainer.mjs` (default 5),
-# cap bounded anche per il pool remoto; il workflow drainer configura 7 slot,
+# cap bounded anche per il pool remoto; il workflow drainer configura 15 slot,
 # mentre il default resta 5 per esecuzioni manuali/locali.
 # Il drainer conta le run in volo e promuove al massimo N. Il drainer clampa quel numero
 # a `fixQueueDepth()`, che legge il `group:` qui sotto: finché la chiave è
@@ -96,11 +96,12 @@ jobs:
       issues: write
     outputs:
       blocked: ${{ steps.risk.outputs.blocked }}
+      closed: ${{ steps.risk.outputs.closed }}
       vision_approved: ${{ steps.risk.outputs.vision_approved }}
       snapshot_fingerprint: ${{ steps.risk.outputs.snapshot_fingerprint }}
     steps:
       - name: Checkout F1/F7 policy only
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
@@ -109,7 +110,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -126,6 +127,21 @@ jobs:
             (''|*[!0-9]*) echo "::error::numero issue non verificabile"; exit 1 ;;
           esac
           gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,state,title,body,labels,comments > "$issue_file"
+          # Issue gia' chiusa quando arriva la label (run 36272477075: #9934
+          # chiusa da un commit alle 21:16:56, `agent:fix` riapplicata alle
+          # 21:18:23): «niente da fare», non un guasto. E' il gemello del
+          # ramo `closed` dello step issue_snapshot del job `fix` (#10069), che
+          # qui non arrivava: il jq sotto pretende OPEN e usciva 5 (#9285).
+          # closed=true salta il job `fix`; numero e forma restano fail-closed.
+          issue_state=$(jq -r --argjson issue_number "$ISSUE_NUMBER" '
+            if (.number == $issue_number) and ((.state | type) == "string")
+            then .state else "" end
+          ' "$issue_file")
+          if [ -n "$issue_state" ] && [ "$issue_state" != "OPEN" ]; then
+            echo "::notice::issue #${ISSUE_NUMBER} chiusa prima del preflight: niente da fare"
+            echo "closed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           # `agent:vision-approved` resta fuori dal fingerprint: questo job la
           # rimuove quando la policy consente il run, e il verify del job `fix`
           # ricalcola la snapshot dopo. Contarla faceva fallire ogni issue
@@ -317,6 +333,7 @@ jobs:
     if: |
       needs.risk_policy.result == 'success' &&
       needs.risk_policy.outputs.blocked != 'true' &&
+      needs.risk_policy.outputs.closed != 'true' &&
       github.event.label.name == 'agent:fix' &&
       ((github.event.sender.type == 'User' &&
         github.event.sender.login == 'valerielinc-ops') ||
@@ -331,7 +348,7 @@ jobs:
     timeout-minutes: 360
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           # Blobless clone (#4189): con fetch-depth:0 il checkout scaricava TUTTI
@@ -366,7 +383,7 @@ jobs:
         timeout-minutes: 24
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
@@ -390,6 +407,22 @@ jobs:
           fi
           issue_file="${RUNNER_TEMP}/issue-f1-f7-verify.json"
           gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,state,title,body,labels,comments > "$issue_file"
+          # Issue chiusa fra la label e lo snapshot (run 36305990899: #10017
+          # chiusa NOT_PLANNED 67s prima di questo step): non e' un guasto ma
+          # «niente da fare». Solo lo stato puo' divergere; numero, forma e
+          # fingerprint restano fail-closed sotto. verified=false tiene fermi
+          # tutti gli step successivi, quindi il job chiude verde senza Codex
+          # e senza issue «CI Failure: Issue fix» (#9285).
+          issue_state=$(jq -r --argjson issue_number "$ISSUE_NUMBER" '
+            if (.number == $issue_number) and ((.state | type) == "string")
+            then .state else "" end
+          ' "$issue_file")
+          if [ -n "$issue_state" ] && [ "$issue_state" != "OPEN" ]; then
+            echo "::notice::issue #${ISSUE_NUMBER} chiusa prima dello snapshot: niente da fare"
+            echo "closed=true" >> "$GITHUB_OUTPUT"
+            echo "verified=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           snapshot=$(jq -ceS --arg repo "$REPO" --argjson issue_number "$ISSUE_NUMBER" '
             if (.number == $issue_number)
               and (.state == "OPEN")
@@ -411,9 +444,60 @@ jobs:
             end
           ' "$issue_file")
           actual=$(printf '%s' "$snapshot" | sha256sum | cut -d' ' -f1)
+          # Snapshot cambiata fra `risk_policy` e qui (run 36381901150 su
+          # #10085 e 36420326517 su #9876, 2026-09-28): un commento legittimo
+          # arrivato nei 2-5 minuti del checkout. Il deny resta: nessuna
+          # capability su una snapshot che la policy non ha visto. Ma non e'
+          # un guasto, e uscire 1 lasciava `agent:fix` orfana: il RESCUE del
+          # drainer la ri-accodava addebitando un `fu-attempt` a una run che
+          # non ha mai letto la issue. Qui torna in `agent:fix-queued` senza
+          # tentativo; il drainer la ripromuove e un `risk_policy` fresco
+          # giudica la snapshot nuova. Il marker conta i giri: oltre
+          # `stale_requeue_max` nelle 24h lo scrittore e' sistematico e il
+          # deny torna un errore visibile (#9285).
           if [ "$actual" != "$expected" ]; then
-            echo "::error::issue snapshot cambiata o non coerente: deny prima del mint/bridge; nessuna capability remota."
-            exit 1
+            if ! jq -e 'any(.labels[]; .name == "agent:fix")' "$issue_file" >/dev/null; then
+              echo "::notice::issue snapshot cambiata dopo risk_policy e agent:fix già rimossa da un altro attore: nessuna capability remota, niente da ri-accodare."
+              echo "stale=true" >> "$GITHUB_OUTPUT"
+              echo "verified=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            stale_marker='<!-- ISSUE_FIX_SNAPSHOT_STALE -->'
+            stale_requeue_max=3
+            stale_recent=$(jq -r --arg marker "$stale_marker" '
+              ((now | floor) - 86400 | todate) as $since
+              | [.comments[]
+                  | select(((.createdAt // "") | type) == "string" and (.createdAt // "") >= $since)
+                  | select(((.body | type) == "string") and (.body | contains($marker)))]
+              | length
+            ' "$issue_file")
+            if [ "$stale_recent" -ge "$stale_requeue_max" ]; then
+              echo "::error::issue snapshot cambiata o non coerente, già ri-accodata $stale_recent volte in 24h: deny prima del mint/bridge; nessuna capability remota. Qualcosa modifica la issue fra risk_policy e fix a ogni giro."
+              exit 1
+            fi
+            stale_body=$(cat <<'BODY'
+          ♻️ **Issue-fix: issue cambiata prima delle capability, ri-accodata** (zero-Claude).
+
+          Fra il preflight `risk_policy` e il job `fix` la issue ha ricevuto un commento o una label, quindi la snapshot giudicata dalla policy non è più quella attuale. Questa run non ha concesso capability e non ha avviato il fixer.
+
+          La label passa da `agent:fix` a `agent:fix-queued` **senza consumare un `fu-attempt`**: il drainer la ripromuove e un preflight fresco valuta lo stato attuale.
+          BODY
+            )
+            run_url="${GITHUB_SERVER_URL:-https://github.com}/${REPO}/actions/runs/${GITHUB_RUN_ID:-unknown}"
+            if ! gh issue comment "$ISSUE_NUMBER" --repo "$REPO" \
+              --body "$(printf '%s\n%s\n\nRun: %s' "$stale_marker" "$stale_body" "$run_url")" >/dev/null; then
+              echo "::error::issue snapshot cambiata o non coerente e marker di ri-accodamento non postato: deny prima del mint/bridge; nessuna capability remota."
+              exit 1
+            fi
+            if ! gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
+              --add-label "agent:fix-queued" --remove-label "agent:fix" >/dev/null; then
+              echo "::error::issue snapshot cambiata o non coerente e ri-accodamento non applicato: deny prima del mint/bridge; nessuna capability remota."
+              exit 1
+            fi
+            echo "::notice::issue snapshot cambiata dopo risk_policy: nessuna capability remota; #${ISSUE_NUMBER} ri-accodata in agent:fix-queued senza tentativo consumato."
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+            echo "verified=false" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
           ctx_dir="${RUNNER_TEMP}/issue-fix-ctx"
           mkdir -p "$ctx_dir"
@@ -626,6 +710,10 @@ jobs:
       # Non blocca il run: Codex Luna Max è l'unico provider del lane.
       - name: Pre-flight — Codex lane quota telemetry (pre-npm)
         id: quota
+        # Gate sullo snapshot: senza, una issue chiusa prima dello snapshot
+        # acquisirebbe un quota-floor lease che il rilascio (gated su
+        # verified) non restituirebbe mai.
+        if: steps.issue_snapshot.outputs.verified == 'true'
         # Il beacon è best-effort e resta telemetria: un guasto infra non deve
         # sopprimere il run, e la quota Claude non salta Codex.
         continue-on-error: true
@@ -636,7 +724,6 @@ jobs:
           CODEX_FALLBACK_MODE: '1'
           QUOTA_FLOOR_REQUIRED: '1'
           QUOTA_FLOOR_KIND: issue-fix
-          QUOTA_FLOOR_LEDGER_ISSUE: '8306'
           QUOTA_FLOOR_SUBJECT: issue-${{ github.event.issue.number }}
         # STRUCTURAL fix per l'escalation misurata sul tracker #1951 (failure-rate
         # issue-fix acceso da ≥7 report settimanali consecutivi). Scaricando i log
@@ -766,7 +853,7 @@ jobs:
         # FAIL-CLOSED: `mint-app-token.mjs` scrive APP_TOKEN_WORKFLOWS su OGNI cammino di
         # uscita, e una variabile non scritta è comunque `!= 'true'` → il guard gira. Non
         # esiste un modo di arrivare a «capacità concessa» senza che l'API l'abbia detto.
-        if: env.APP_TOKEN_WORKFLOWS != 'true' && steps.preflight.outputs.already_resolved != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && env.APP_TOKEN_WORKFLOWS != 'true' && steps.preflight.outputs.already_resolved != 'true'
         # PROCEED-SAFE, same contract as `preflight` above: the script is total (catches
         # its own throws → emits workflows_blocked=false), continue-on-error is
         # belt-and-suspenders so an infra fault never strands the issue.
@@ -795,7 +882,7 @@ jobs:
 
       - name: Pre-flight — in-progress claim gate (zero-Claude, mutex)
         id: claim
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         # FAIL-CLOSED: the script emits `in_flight=true` on a GitHub/API/parse
         # fault. A runner failure is also allowed to fail this job rather than
         # letting an unreadable mutex reach the fixer.
@@ -820,7 +907,7 @@ jobs:
 
       - name: Determine fix tier
         id: tier
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -1047,7 +1134,7 @@ jobs:
 
       - name: Closing keyword for the PR body (zero-Claude)
         id: closing
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -1119,7 +1206,7 @@ jobs:
 
       - name: Compose PR body contract for the prompt (zero-Claude)
         id: body_contract
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # PERCHÉ QUESTA PROSA NON STA PIÙ NELLO SCALARE `prompt:`. Oltre un
         # certo peso GitHub accetta il file ma lo rende con `jobs: []`: il
         # fixer smette di girare senza un rosso. Il testo qui sotto è
@@ -1177,7 +1264,7 @@ jobs:
 
       - name: Check for resumable WIP branch (zero-Claude)
         id: resume
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Problem A (#4337, confermato via GitHub API + run log): prima di questo
         # fix commit+push+PR accadevano SOLO alla fine del flusso (dopo il gate
         # test) — se `--max-turns` si esauriva PRIMA, il container CI moriva e
@@ -1203,9 +1290,11 @@ jobs:
           fi
 
       - name: Configure git identity
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
-          APP_TOKEN: ${{ env.APP_TOKEN }}
+          # Capacita' di push verificata dal conio (contents+pull_requests),
+          # non la sola presenza del token: vuoto → identita' GITHUB_TOKEN.
+          APP_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
           APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
           REPO: ${{ github.repository }}
         run: |
@@ -1215,11 +1304,16 @@ jobs:
           # il `git push` che fa il fixer userebbe comunque la credenziale piazzata da
           # actions/checkout, cioè GITHUB_TOKEN, che lo scope `workflows` non ce l'ha.
           #
-          # L'unset dell'extraheader NON è ridondante e non va tolto: actions/checkout
-          # scrive `http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>`,
-          # che ha la precedenza sullo `x-access-token:` nell'URL del remote — il push
-          # tornerebbe silenziosamente al token sbagliato. È la trappola già documentata
-          # in pr-redflag-fixer.yml, stessa causa, stesso rimedio.
+          # Lo strip della credenziale di checkout NON è ridondante e non va tolto:
+          # actions/checkout persiste `AUTHORIZATION: basic <GITHUB_TOKEN>` come
+          # extraheader, che ha la precedenza sullo `x-access-token:` nell'URL del
+          # remote — il push tornerebbe silenziosamente al token sbagliato. È la
+          # trappola già documentata in pr-redflag-fixer.yml, stessa causa, stesso
+          # rimedio. Con checkout v6+ (qui v7) l'header sta in un file incluso via
+          # `includeIf.gitdir:…`, che un `git config --unset-all …extraheader` non
+          # vede: lo helper toglie entrambe le forme e fallisce se ne resta una.
+          # Qui l'albero è ancora il checkout di main (prima del lane Codex), quindi
+          # lo helper versionato è codice fidato.
           #
           # L'identità di push resta la App ogni volta che il token esiste: serve a far
           # ri-triggerare i workflow a valle (`<app>[bot]` ≠ `github-actions[bot]`), ed è
@@ -1234,7 +1328,7 @@ jobs:
           # `github_token` alimenta gli helper provider-neutral dell'action: non è una
           # prova che il bridge abbia pushato, né una sostituzione del token App/PAT.
           if [ -n "${APP_TOKEN:-}" ]; then
-            git config --unset-all "http.https://github.com/.extraheader" || true
+            bash scripts/lib/clear-checkout-git-credentials.sh
             git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
             if [ "${APP_TOKEN_WORKFLOWS:-}" = "true" ]; then
               echo "push identity: GitHub App (scope workflows CONFERMATO dalla risposta API)"
@@ -1242,11 +1336,11 @@ jobs:
               echo "push identity: GitHub App (permesso workflows NON concesso sull'installazione — .github/workflows/** resta non pushabile)"
             fi
           else
-            echo "push identity: GITHUB_TOKEN (nessun APP_TOKEN — .github/workflows/** resta non pushabile)"
+            echo "push identity: GITHUB_TOKEN (nessun APP_TOKEN con contents+pull_requests verificati — .github/workflows/** resta non pushabile)"
           fi
 
       - name: Install deterministic PR body gate
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -1326,8 +1420,14 @@ jobs:
         # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
         # (rationale completo: post-merge-followup.yml action-input comment, stesso
         # fix, evita drift tra copie duplicate).
+        # `exec_timeout_minutes` = watchdog interno di Codex: il default 15min
+        # dell'action è tarato sulle review e uccideva i fix reali (run
+        # 36021092053). Sta sotto il `timeout-minutes: 120` dello step per
+        # lasciare WIP e telemetria. Commento fuori da `with:`: il validatore
+        # conta l'intero mapping contro PROMPT_SCALAR_LIMIT (#9742).
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          exec_timeout_minutes: "110"
           github_token: ${{ env.APP_TOKEN }}
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           prompt: |
@@ -1351,7 +1451,7 @@ jobs:
 
             **Pre-condizioni (abort se falliscono):**
             - Se esiste già una PR aperta che cita "#$ISSUE_NUMBER" (`gh pr list --state open --search "$ISSUE_NUMBER in:body" --json number`) → posta commento "PR già in volo: #<n>, skip." e TERMINA. No doppioni.
-            - **Overlap-file** (no race su lavoro in corso): estrai i path target dal body della issue (file citati in `## Suggested action` / `## Item` / blocchi codice). Per ogni PR aperta (`gh pr list --state open --json number,title`) confronta i suoi file (`gh pr diff <n> --name-only`) coi target: se una PR aperta **modifica già** uno dei file target → posta commento "File `<path>` già in volo nella PR #<n> (<title>) — skip per evitare conflitto/duplicazione; riaprire l'auto-fix dopo il merge se ancora pertinente." e TERMINA. Razionale: un'altra PR può riscrivere quel file rendendo il fix moot o conflittuale (es. #934 hardening vs #943 rewrite di `submit-indexnow-batch.yml`). Nel dubbio (issue non file-specifica) → procedi.
+            - **Overlap-file**: estrai i path target dal body (`## Suggested action` / `## Item` / blocchi codice). Per ogni PR aperta (`gh pr list --state open --json number,title,labels`) confronta i file (`gh pr diff <n> --name-only`): se una **modifica già** un target → commenta "File `<path>` già in volo nella PR #<n> (<title>) — skip; riaprire l'auto-fix dopo il merge se ancora pertinente." e TERMINA. Issue non file-specifica → procedi. Non sono overlap: in una issue «riapplicare la PR #N su main» la PR #N non è overlap (la sostituisci); le PR ferme `has-conflicts`/`stale-review`/`needs-human` (`STALLED_PR_LABELS` del drainer), che non mergeranno da sole: aspettarle chiude un cerchio (#10586 su #10555).
             - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** ${{ steps.tier.outputs.capability_guard }} ${{ steps.tier.outputs.secrets_note }}
 
             - **Stati già dichiarati nei residui (leggi PRIMA di implementare):** se la issue nasce da una PR (follow-up, `Addresses`/`da PR #N` nel body, o qualunque PR citata come origine in altra forma), leggi il body di quella PR e classificane i residui. In quest'ordine:
@@ -1364,17 +1464,17 @@ jobs:
 
             **Daily bucket:** se il titolo usa il protocollo daily, lavora SOLO l'item selezionato `${{ steps.tier.outputs.selected_item_id }}` (primo `State: open`); mai `Closes`.
 
-            **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }}:** se `is_aggregate=true` questa issue contiene più item distinti e tentarli TUTTI in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi (osservato #1095/#1101/#1172). **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI (per una issue *sweep/batch* "item" = UN singolo target/file: es. "~30 crawlers" → fixa 1 crawler, deferisci gli altri 29). Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret (NON abortire l'intera issue), (b) scegli il PRIMO item in-capability a massimo valore funnel, (c) implementa SOLO quello, (d) **appena la PR per quell'unico item è aperta → STOP IMMEDIATO, non iniziare un secondo item** (anche se hai turni residui), (e) elenca tutti gli altri item in `## Non implementato (ancora)`, ognuno con lo STATO LETTERALE del passo 9 (per un item deferito a un ciclo successivo: `blocked: <causa>` se sospeso su una causa esterna, altrimenti `PR concatenata #N` quando il numero esiste). **Due errori di stato che non convergono mai, in direzioni opposte:** un item che hai saltato perché uno stato CHIUDENTE della PR d'origine lo copre va ri-elencato con QUELLO stato (`per scelta` / `by construction` / `blocked: decisione del proprietario`) — riscritto come `blocked: <causa tecnica>` viene riaperto da `followup-has-candidates.mjs` a ogni ciclo, per sempre; e viceversa non dare MAI uno stato chiudente a un item che stai solo rimandando, perché lo toglie dalla coda e il ciclo lo perde. → `post-merge-followup` li ri-accoda come nuova follow-up (re-queue esistente; ogni ciclo chiude ≥1 item → converge). Se `is_aggregate=false`: issue singola, comportamento invariato (capability guard whole-issue come sopra). Razionale: il budget di turni basta per 1 item con margine; 2+ item lo bruciano.
+            **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }}:** con `is_aggregate=true`, contiene più item; tentarli tutti in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi. **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI (in una issue *sweep/batch*, item = un singolo target/file: es. "~30 crawlers" → 1 crawler, deferisci gli altri 29). Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret senza abortire l'intera issue; (b) scegli il PRIMO item in-capability a massimo valore funnel; (c) implementa SOLO quello; (d) appena la PR per quell'unico item è aperta → **STOP IMMEDIATO**, non iniziare un secondo item anche con turni residui; (e) elenca TUTTI gli altri item in `## Non implementato (ancora)`, ciascuno con lo STATO LETTERALE del passo 9 (per un item deferito a un ciclo successivo: `blocked: <causa>` se sospeso su una causa esterna, altrimenti `PR concatenata #N` quando il numero esiste). **Stati:** se uno stato CHIUDENTE della PR d'origine copre l'item saltato, ri-elencalo con quello stato (`per scelta` / `by construction` / `blocked: decisione del proprietario`), non come `blocked: <causa tecnica>`: altrimenti `followup-has-candidates.mjs` lo riapre a ogni ciclo; viceversa non usare uno stato chiudente per un rinvio, perché l'item si perde. `post-merge-followup` li ri-accoda come follow-up (re-queue esistente); ogni ciclo chiude ≥1 item. Se `is_aggregate=false`, issue singola e comportamento invariato (capability guard whole-issue). Il budget copre 1 item; 2+ lo bruciano.
 
             **Fix flow (vedi ISSUES.md):**
             1. Branch isolato — **resume-aware** (`resume=${{ steps.resume.outputs.resume }}`): se `resume=false`, `git checkout -b fix/issue-$ISSUE_NUMBER` (fresh, come sempre). Se `resume=true` esiste già un branch `fix/issue-$ISSUE_NUMBER` su origin (lasciato da un run precedente morto per max-turns DOPO il checkpoint WIP, vedi step 4) — fai `git fetch origin fix/issue-$ISSUE_NUMBER && git checkout fix/issue-$ISSUE_NUMBER` invece di ricreare da zero. Ispeziona cosa c'è già (`git log --oneline origin/main..HEAD --stat`): se il diff è pertinente alla issue corrente, CONTINUA da lì (non ridiagnosticare/rifare il lavoro già presente). Se il diff sembra stale/scollegato dal body della issue attuale → `git reset --hard origin/main` e riparti pulito — usa giudizio, non è un automatismo cieco.
-               **Questo container CI è GIÀ un checkout isolato monouso** (step `Checkout` in cima al workflow, `actions/checkout@v5` fresh a ogni run). **NON creare un worktree interno `.claude/worktrees/**` qui**: la regola "worktree-first" di `AGENTS.md`/`CLAUDE.md` esiste per sessioni interattive locali con un `main` condiviso — non si applica in un container CI già isolato, e crearne uno dentro non aggiunge isolamento, brucia solo turni rifacendo la meccanica del checkout (osservato #4263: ~6 turni finali sprecati su un ciclo `git diff` → patch → fetch → `.claude/worktrees/... add` → apply mai completato, 0 PR). Lavora direttamente nella root del checkout.
+               **Questo container CI è GIÀ un checkout isolato monouso** (step `Checkout` in cima al workflow, `actions/checkout@v7` fresh a ogni run). **NON creare un worktree interno `.claude/worktrees/**` qui**: la regola "worktree-first" di `AGENTS.md`/`CLAUDE.md` esiste per sessioni interattive locali con un `main` condiviso — non si applica in un container CI già isolato, e crearne uno dentro non aggiunge isolamento, brucia solo turni rifacendo la meccanica del checkout (osservato #4263: ~6 turni finali sprecati su un ciclo `git diff` → patch → fetch → `.claude/worktrees/... add` → apply mai completato, 0 PR). Lavora direttamente nella root del checkout.
             2. Diagnosi root cause della issue (NON sintomo). **Scorciatoia scheda (issue da decomposizione):** se il body o un commento contiene una sezione `## Scheda` (issue nata dallo stadio `issue-decompose`, tipicamente label `from-decompose`), la scheda È la diagnosi già fatta — verifica la CAUSA in ≤3 turni col COMANDO della METRICA; se regge, salta direttamente al passo 3 e usa la METRICA come criterio di verifica del fix e l'OSSERVATORE come test da aggiungere. Se la verifica smentisce la CAUSA, prosegui con la diagnosi normale e dichiaralo nel commento finale. **Scorciatoia segnali (issue da reporter zero-Claude, ISSUES.md → "Contratto minimo"):** se il body contiene `## Segnali (raccolti automaticamente)`, NON è una diagnosi (nessuna CAUSA) — ma il `Comando di riproduzione` verifica lo stato attuale in un turno invece di ricostruirlo, `Metrica` dà osservato/atteso come criterio di successo, `Evidenza` punta a dove guardare. Usali per saltare la scoperta iniziale, poi diagnostica la CAUSA normalmente. Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l'edit mirato del parser/config citato nel body. **Turn-budget:** se dopo ~15 turni di esplorazione non emerge una root cause chiara, NON continuare a scavare sullo stesso vicolo cieco — restringi lo scope (issue aggregate: scegli un item più semplice, vedi circuit-breaker sopra) o termina pulito con l'outcome `no-root-cause` (già definito in fondo al prompt) invece di bruciare il resto del budget senza convergere.
             3. Applica fix CHIRURGICO alla **CLASSE del bug, NON al singolo file** (AGENTS.md non-negotiable #6): no drive-by refactor / no speculative abstraction, MA per un fix di pattern (regex/replace/guard/floor/threshold/selector/bullet-idiom) `rg`/`grep` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`) per lo STESSO costrutto → sweepa l'intera classe nella STESSA PR, oppure giustifica OGNI sibling non toccato in `## Non implementato`. Toccare i file gemelli con lo stesso antipattern NON è drive-by: è il fix completo. Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (osservato #1083/#1073 il 2026-06-02: PR mono-file → 🔴 sibling → 2 cicli review+fix sprecati sulla quota Max condivisa).
             4. **Checkpoint WIP — commit immediato, push subordinato al diff gate (anti-100%-loss, #4337):** appena il fix del passo 3 è applicato (anche se non ancora testato dal gate del passo 6), committa tutto con `git add -A && git commit -m "wip(issue-$ISSUE_NUMBER): checkpoint pre-test"`. **NON eseguire `git push` né `gh pr create` prima del diff gate deterministico esterno:** lo step `Enforce F1/F7 output diff gate` classifica il diff completo e solo dopo il checkpoint deterministico può pushare. Se il gate nega, termina senza consegna e lascia `automation-deferred`/il job rosso: è un deny tecnico del ciclo, non una nuova domanda al proprietario. **Perché ORA:** prima di questo cambio commit+push+PR accadevano SOLO a fine flusso — un run morto per `--max-turns` prima di arrivarci perdeva il 100% del diff col container (#4337: 71 turni, $6.58, edit reali a `build-plugins/staticPagesPlugin.ts`, branch mai pushato, 404 su GitHub). Il checkpoint locale conserva il lavoro fino alla decisione fail-closed del workflow.
             5. Mai abbassare quality gate/test/validation per "far passare" (non-negotiable #1).
             6. **Gate test pre-PR (anti re-review — OBBLIGATORIO):** gira UNA VOLTA i test che coprono l'area toccata: `npx vitest run <path/glob pertinente al code modificato>` (es. fix a un parser → `npx vitest run tests/<area>`). Verde → procedi al passo 7. Rosso → NON ri-lanciare l'intero file/suite da capo: rigira SOLO il test fallito con `-t <pattern che matcha il nome del test>`, fixa la root cause, ri-verifica scoped, ripeti finché verde. NON girare la suite intera col `npm test` cieco: qui manca `data/jobs.json` (lo assembla la CI `tests`) → sarebbe rossa per infra, non per il tuo fix; se il tuo cambiamento tocca l'assembly dati gira prima `node scripts/assemble-jobs-dataset.mjs`. NON lanciare un `npx tsc --noEmit` full-repo a meno che il fix tocchi davvero type definitions condivise ampiamente (`types/`, interfacce esportate cross-modulo) — per un fix scoped il vitest sull'area toccata basta. **Perché la tightening:** #4263 (aggregate già ristretto a 1 item dal circuit-breaker) ha bruciato il budget 50 turni su ~25 di diagnosi + DUE pass completi di `npx vitest run` sull'intero file + un `npx tsc --noEmit` full-repo + ~6 turni finali di un ciclo patch→worktree mai completato (vedi passo 1) — zero PR consegnata. Test scoping disciplinato = turni per il fix vero, non per ripetere verifiche già fatte. La review Claude ora parte SOLO dopo `tests` verde (gate `pr-review-loop` su `workflow_run[tests]==success`): una PR coi test rossi non riceve review e resta ferma — spreco di un ciclo.
-            7. Commit (SOLO se ci sono cambi oltre il checkpoint WIP del passo 4, es. fix ai test rossi del passo 6): identity canonica già configurata, messaggio conventional, in fondo nessuna email non-canonica. Se dal passo 4 non è cambiato altro, questo passo è un no-op — non serve squashare: una storia wip+fix sul branch va bene.
+            7. Commit (SOLO se ci sono cambi oltre il checkpoint WIP del passo 4, es. fix ai test rossi del passo 6): messaggio conventional e gate PII su diff e messaggio. Se dal passo 4 non è cambiato altro, questo passo è un no-op — non serve squashare: una storia wip+fix sul branch va bene.
             8. Push (aggiorna il branch già pushato al passo 4 col commit più recente, se presente): `git push -u origin fix/issue-$ISSUE_NUMBER`.
             9. Apri PR con `gh pr create --body-file "$BODY_FILE"`, solo dopo exit 0 di `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"`. Body OBBLIGATORIO (REVIEW.md completeness contract). Prepara prima il body completo nel file assoluto `$RUNNER_TEMP/issue-fix-pr-body.md` (imposta `BODY_FILE` a quel path), senza passarlo inline:
                ```
@@ -1395,27 +1495,50 @@ jobs:
             - **CODE vs DATA — no scroll dei blob (ISSUES.md → "CODE vs DATA", mirror #1096 del reviewer):** i file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-articles), `public/**` (asset), `reports/**`, `_newsletter_variants/**` NON sono code da leggere riga-per-riga. Se la root cause è un drift di output dati → fixa il CODE che li genera (parser/crawler/build-plugin), non `cat`/scorrere il blob né editarlo a mano. Campione → `Read` mirato (offset/limit). `rg`/`grep` scopati al code: `rg <pattern> scripts build-plugins components services -g '!data/**' -g '!public/**' -g '!reports/**'` — cercare nei blob dati = token bruciati. Eccezione: un `data/**` config/fixture checked-in editato a mano dal fix.
             - Mai disabilitare AdSense Auto Ads (non-negotiable #7).
             - Mai committare path home assoluti o email personali (Privacy).
-            - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>." con `<!-- FIX_OUTCOME: no-root-cause -->` e `<!-- AUTOMATION_DEFERRED: technical -->`, applica `automation-deferred`, rimuovi il routing `agent:fix*` se ancora presente e TERMINA senza PR. Non chiedere una risposta al proprietario: lo sweep automatico deve prima cambiare input, scheda o osservabilità.
+            - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>." con `<!-- FIX_OUTCOME: no-root-cause -->`. Issue non daily: stesso commento `<!-- AUTOMATION_DEFERRED: technical -->`, applica `automation-deferred`, rimuovi il routing `agent:fix*`. Daily bucket: solo per l'item: niente deferral, routing intatto. TERMINA senza PR. Non chiedere una risposta al proprietario: lo sweep automatico deve prima cambiare input, scheda o osservabilità.
             - Se il fix richiede una credenziale, USALA: Remote Config è caricato in questo run (decisione del 2026-08-24). Termina con `blocked-secrets` solo se la variabile che ti serve è davvero vuota in `process.env`, e nominala.
-            - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
+            - **Telemetria outcome (OBBLIGATORIO):** l'ULTIMO commento sulla issue deve iniziare su riga propria con `<!-- FIX_OUTCOME: <code> -->`; `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. In un daily bucket aggiungi nello STESSO commento `<!-- FOLLOWUP_ITEM: ${{ steps.tier.outputs.selected_item_id }} -->` per il drainer. Se `already-fixed` è provato, aggiungi nello stesso commento `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->` (PR mergiata o commit su main con run verde che li contiene). Se apri una PR (passo 9) senza altri commenti, aggiungi `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega i marker. Commenti sempre con `--body-file` da heredoc `<<'EOF'`: il body inline esegue i backtick.
 
       - name: Enforce F1/F7 output diff gate (before checkpoint/push)
         id: diff_gate
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           REPO: ${{ github.repository }}
           VISION_APPROVED: ${{ needs.risk_policy.outputs.vision_approved }}
+          EVENT_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
-          git fetch --no-tags origin main
+          # Il clone e' blobless: se l'agente ha scritto oggetti locali che
+          # puntano a oggetti mai scaricati, l'index-pack del fetch muore
+          # ripacchettando i «local links» (run 36286839919 e 36286841846:
+          # `could not finish pack-objects to repack local links`, exit 128)
+          # e il lavoro dell'agente non arrivava nemmeno al checkpoint (#9285).
+          # Il fetch fallito non aggiorna i ref. Non si ripiega sul ref locale
+          # `origin/main`, che l'agente puo' riscrivere, ma sul commit
+          # dell'evento, da cui l'agente e' partito: il diff contro quello
+          # contiene tutto il suo lavoro (piu' l'eventuale main integrato, cioe'
+          # al massimo path in piu'). Commit non leggibile → deny.
+          base=origin/main
+          if ! git fetch --no-tags origin main; then
+            if ! [[ "${EVENT_SHA:-}" =~ ^[0-9a-f]{40}$ ]] || ! git cat-file -e "${EVENT_SHA}^{tree}"; then
+              echo "::error::F1/F7 diff gate: fetch di origin/main fallito e commit dell'evento non leggibile: diff non classificabile."
+              exit 1
+            fi
+            base="$EVENT_SHA"
+            echo "::warning::F1/F7 diff gate: fetch di origin/main fallito; classifico contro il commit dell'evento ${base}."
+          fi
           paths_file="$RUNNER_TEMP/f1-f7-output.paths"
           {
-            git diff --name-only origin/main
+            git diff --name-only "$base"
             git ls-files --others --exclude-standard
           } | sort -u > "$paths_file"
+          # Albero pulito = niente da pushare, quindi niente da classificare.
+          # Succede negli esiti legittimi senza codice (`already-fixed`,
+          # `no-root-cause`, …): fallire qui colorava di rosso un run corretto
+          # (36079446155, #8789) e saltava la valutazione della delivery.
           if [ ! -s "$paths_file" ]; then
-            echo "::error::F1/F7 diff gate: nessun diff verificabile da consegnare; deny-by-default."
-            exit 1
+            echo "::notice::F1/F7 diff gate: nessun diff da consegnare; niente da classificare."
+            exit 0
           fi
           node --input-type=module - "$paths_file" <<'NODE'
           import fs from 'node:fs';
@@ -1459,7 +1582,9 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          APP_TOKEN: ${{ env.APP_TOKEN }}
+          # Capacita' di push verificata dal conio (contents+pull_requests),
+          # non la sola presenza del token: vuoto → identita' GITHUB_TOKEN.
+          APP_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1503,9 +1628,22 @@ jobs:
           # Ri-applica l'identità di push: dopo il lane Codex il remote può
           # portare la sua credenziale, e l'extraheader di actions/checkout ha
           # comunque la precedenza sull'URL (stessa trappola documentata in
-          # 'Configure git identity').
+          # 'Configure git identity'). Con checkout v6+ (qui v7) l'header sta in
+          # $RUNNER_TEMP/git-credentials-<uuid>.config, incluso via
+          # `includeIf.gitdir:…`: si staccano anche quelle include, come fa il
+          # post-step di checkout. Stessa logica di
+          # scripts/lib/clear-checkout-git-credentials.sh, qui inline perché
+          # l'albero contiene già le modifiche dell'agente: niente script del
+          # working tree eseguiti col token App.
           if [ -n "${APP_TOKEN:-}" ]; then
             git config --unset-all http."https://github.com/".extraheader 2>/dev/null || true
+            while IFS= read -r inc_key; do
+              while IFS= read -r inc_path; do
+                if [[ "$inc_path" =~ (^|/)git-credentials-[0-9A-Fa-f-]+\.config$ ]]; then
+                  git config --local --fixed-value --unset-all "$inc_key" "$inc_path"
+                fi
+              done < <(git config --local --get-all "$inc_key")
+            done < <({ git config --local --name-only --get-regexp '^includeif\.gitdir:' || true; } | sort -u)
             git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
           fi
 
@@ -1576,6 +1714,7 @@ jobs:
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
+          DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}
         run: |
           set -euo pipefail
           BRANCH="fix/issue-$ISSUE"
@@ -1641,6 +1780,55 @@ jobs:
           gh pr edit "$PR" --repo "$REPO" --add-label agent:autofix
           echo "provenance: PR #$PR marcata agent:autofix."
 
+      - name: Close the PR a conflict hand-off supersedes (zero-Claude)
+        # L'issue di hand-off chiede all'agente di chiudere la PR #N dopo aver
+        # aperto quella nuova, ma il bridge GitHub del fixer Codex rifiuta
+        # `gh pr close` (#10133 e #10140, 27-09): #N restava aperta e in
+        # conflitto finche' il recycle, dopo 24 h, la chiudeva e rimetteva in
+        # coda la sua issue sorgente. La chiude qui il workflow, solo dopo una
+        # delivery verificata la cui PR dichiara `Supersedes #N`.
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.claim.outputs.claim_acquired == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          SNAPSHOT: ${{ runner.temp }}/issue-fix-ctx/issue.json
+        run: |
+          set -uo pipefail
+          title=$(jq -r '.title // ""' "$SNAPSHOT" 2>/dev/null || true)
+          handoff_re='^Conflitto con main( dopo LGTM)?: riapplicare la PR #([1-9][0-9]*) su main$'
+          if [[ ! "$title" =~ $handoff_re ]]; then
+            echo "handoff-close: #$ISSUE non e' un hand-off di conflitto — skip."
+            exit 0
+          fi
+          ORIGIN="${BASH_REMATCH[2]}"
+          evidence_file="${PR_DELIVERY_EVIDENCE_FILE:-}"
+          DELIVERY_STATUS=unavailable
+          if [ -n "$evidence_file" ] && [ -r "$evidence_file" ]; then
+            DELIVERY_STATUS=$(jq -er '.status // "unavailable"' "$evidence_file" 2>/dev/null) || DELIVERY_STATUS=unavailable
+          fi
+          if [ "$DELIVERY_STATUS" != "verified-delivery" ]; then
+            echo "handoff-close: delivery=$DELIVERY_STATUS — #$ORIGIN resta aperta."
+            exit 0
+          fi
+          PR=$(jq -er '.prNumber // empty' "$evidence_file" 2>/dev/null || true)
+          if [[ ! "$PR" =~ ^[1-9][0-9]*$ ]] || [ "$PR" = "$ORIGIN" ]; then
+            echo "handoff-close: PR consegnata non verificabile — #$ORIGIN resta aperta."
+            exit 0
+          fi
+          if ! gh pr view "$PR" --repo "$REPO" --json body --jq .body | grep -Eqi "supersedes[[:space:]]+#${ORIGIN}([^0-9]|$)"; then
+            echo "handoff-close: la PR #$PR non dichiara Supersedes #$ORIGIN — #$ORIGIN resta aperta."
+            exit 0
+          fi
+          STATE=$(gh pr view "$ORIGIN" --repo "$REPO" --json state --jq .state 2>/dev/null || true)
+          if [ "$STATE" != "OPEN" ]; then
+            echo "handoff-close: #$ORIGIN e' ${STATE:-illeggibile} — niente da chiudere."
+            exit 0
+          fi
+          gh pr close "$ORIGIN" --repo "$REPO" --comment "Sostituita dalla PR #$PR, che riapplica questo diff su main (hand-off #$ISSUE). Chiusa dal workflow issue-fix: il bridge del fixer non puo' chiudere PR."
+          echo "handoff-close: PR #$ORIGIN chiusa, sostituita da #$PR."
+
       - name: Emit FIX_OUTCOME telemetry (deterministic backstop)
         # Skip on short-circuit: the pre-flight gate already posted the granular
         # `<!-- FIX_OUTCOME: already-fixed -->` marker (preflight) or
@@ -1660,6 +1848,7 @@ jobs:
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
+          DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}
         run: |
           set -uo pipefail
           action_outcome="${ACTION_OUTCOME:-}"
@@ -1688,6 +1877,20 @@ jobs:
             exit 0
           fi
           if [ "${HAS:-0}" != "0" ]; then
+            if [[ "${DAILY_ITEM_ID:-}" =~ ^FU-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}$ ]]; then
+              if ! ITEM_HAS=$(printf '%s\n' "$COMMENTS" | jq -r --arg started "$RUN_STARTED_AT" --arg item "$DAILY_ITEM_ID" \
+                'if (.comments | type) != "array" then error("comments-shape") else [.comments[] | select((.createdAt // "") >= $started) | select((.body // "") | contains(("<!-- FOLLOWUP_ITEM: " + $item + " -->")))] | length end' \
+                2>/dev/null); then
+                echo "::warning::commenti issue non classificabili: backstop FOLLOWUP_ITEM non emesso."
+                exit 0
+              fi
+              if [ "${ITEM_HAS:-0}" = "0" ]; then
+                echo "FOLLOWUP_ITEM marker missing in this run — adding selected daily item."
+                if ! gh issue comment "$ISSUE" --body "$(printf '<!-- FOLLOWUP_ITEM: %s -->' "$DAILY_ITEM_ID")"; then
+                  echo "::warning::marker FOLLOWUP_ITEM non postato; nessuna garanzia di associazione daily."
+                fi
+              fi
+            fi
             echo "FIX_OUTCOME marker already present in this run — no backstop needed."
             exit 0
           fi
@@ -1701,9 +1904,29 @@ jobs:
               ;;
           esac
           echo "FIX_OUTCOME issue=$ISSUE outcome=$OUT (deterministic backstop)"
-          if ! gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")"; then
+          item_marker=''
+          if [[ "${DAILY_ITEM_ID:-}" =~ ^FU-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}$ ]]; then
+            item_marker="$(printf '\n<!-- FOLLOWUP_ITEM: %s -->' "$DAILY_ITEM_ID")"
+          fi
+          if ! gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._%s' "$OUT" "$item_marker")"; then
             echo "::warning::marker FIX_OUTCOME non postato; nessuna garanzia di telemetria."
           fi
+
+      # #9742: un `already-fixed` emesso dall'agente lasciava `agent:fix` sulla
+      # issue e il ciclo la riprendeva. Con evidenza strutturata
+      # (`FIX_EVIDENCE: pr/commit + run`) verificata via API, lo script toglie
+      # il routing `agent:fix*` e applica `maybe-resolved` + marker; non chiude
+      # mai. Evidenza assente o non verificabile → nessuna mutazione.
+      - name: Route already-fixed to verification (zero-Claude)
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.group.outputs.is_group != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          IS_GROUP: ${{ steps.group.outputs.is_group }}
+          DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}
+        run: node "$GITHUB_WORKSPACE/scripts/ci/route-already-fixed.mjs"
 
       # La classificazione distingue l'esito del workflow dall'evidenza di
       # delivery. La policy condivisa del modulo rifiuta PR storiche, lookup
@@ -1753,7 +1976,6 @@ jobs:
           QUOTA_FLOOR_REQUIRED: '1'
           QUOTA_FLOOR_ACTION: release
           QUOTA_FLOOR_KIND: issue-fix
-          QUOTA_FLOOR_LEDGER_ISSUE: '8306'
           QUOTA_FLOOR_SUBJECT: issue-${{ github.event.issue.number }}
           QUOTA_FLOOR_OWNER: ${{ steps.quota.outputs.quota_floor_lease_owner }}
         run: node scripts/ci/check-quota-backoff.mjs
@@ -1776,19 +1998,20 @@ jobs:
       actions: read
     steps:
       - name: Checkout failure reporter sources
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
             package.json
             scripts/ci/
             scripts/lib/
+            scripts/cathedral-seo-gates-check.mjs
             .github/actions/report-failure/
             .github/workflows/issue-fix.yml
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 

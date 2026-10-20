@@ -18,12 +18,14 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { fetchIdentifiedPostingPublication } from './identified-posting-publication.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -275,9 +277,9 @@ export async function fetchAllRebootMonkeyJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} reboot-monkey ${city || 'ch'}`);
 
-    const postedDate = listing.created_at
-      ? listing.created_at.slice(0, 10)
-      : new Date().toISOString().slice(0, 10);
+    // API creation is not evidence of the vacancy's public release. The
+    // public detail page, however, carries a title-matched JobPosting date.
+    const publication = await fetchIdentifiedPostingPublication(publicUrl, title);
 
     const apiEmploymentType = listing.employment_type || '';
 
@@ -311,7 +313,7 @@ export async function fetchAllRebootMonkeyJobs() {
       sector: 'Tecnologia / Data Center',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(publication),
       applyUrl: listing.careers_apply_url || publicUrl,
       requirements,
       requirementsByLocale: { [sourceLang]: requirements },

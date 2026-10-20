@@ -38,6 +38,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
@@ -56,25 +57,37 @@ const APEX = 'https://frontaliereticino.ch';
 
 const RETIRED_TABLE = EDGE_RETIRED_PATHS as Record<string, string | null>;
 
-const sitemapFiles = fs
-  .readdirSync(PUBLIC_DIR)
-  .filter((f) => f.startsWith('sitemap') && f.endsWith('.xml'))
-  .sort();
+function readSitemaps() {
+  const sitemapFiles = fs
+    .readdirSync(PUBLIC_DIR)
+    .filter((f) => f.startsWith('sitemap') && f.endsWith('.xml'))
+    .sort();
+  return {
+    sitemapFiles,
+    documents: sitemapFiles.map((name) => ({
+      name,
+      xml: fs.readFileSync(path.join(PUBLIC_DIR, name), 'utf-8'),
+    })),
+  };
+}
 
-const documents = sitemapFiles.map((name) => ({
-  name,
-  xml: fs.readFileSync(path.join(PUBLIC_DIR, name), 'utf-8'),
-}));
+function requireCommittedSitemaps() {
+  const snapshot = readSitemaps();
+  expect(snapshot.sitemapFiles.length, 'no sitemap-*.xml under public/').toBeGreaterThanOrEqual(11);
+  return snapshot;
+}
 
 describe('the gate can actually see both sides of the intersection', () => {
-  it('finds the committed sitemaps', () => {
+  it.skipIf(SKIP_LIVE_DATA)('finds the committed sitemaps', () => {
+    const { sitemapFiles } = readSitemaps();
     // 11 on 2026-09-06. A lower bound, not equality: new sub-sitemaps get added
     // and must be covered automatically, but a checkout that materialised none
     // of them must not read as "nothing retired is listed".
     expect(sitemapFiles.length, `no sitemap-*.xml under public/`).toBeGreaterThanOrEqual(11);
   });
 
-  it('reads real <loc>s out of every one of them', () => {
+  it.skipIf(SKIP_LIVE_DATA)('reads real <loc>s out of every one of them', () => {
+    const { documents } = requireCommittedSitemaps();
     const empty = documents.filter(({ xml }) => !/<loc>[^<]+<\/loc>/.test(xml));
     expect(empty.map((d) => d.name), 'sitemap with no parseable <loc>').toEqual([]);
   });
@@ -104,8 +117,9 @@ describe('the gate can actually see both sides of the intersection', () => {
 });
 
 describe('EDGE_RETIRED_PATHS ∩ public/sitemap-*.xml is empty', () => {
-  for (const { name, xml } of documents) {
-    it(`${name} lists no URL the edge answers 301/410`, () => {
+  it.skipIf(SKIP_LIVE_DATA)('every committed sitemap lists no URL the edge answers 301/410', () => {
+    const { documents } = requireCommittedSitemaps();
+    for (const { name, xml } of documents) {
       const listed = retiredLocsIn(xml);
       expect(
         listed,
@@ -116,12 +130,13 @@ describe('EDGE_RETIRED_PATHS ∩ public/sitemap-*.xml is empty', () => {
           + `\n\nFix: run \`npm run sitemap:prune-retired\` and commit the result, in the `
           + `same commit that declares the retirement.`,
       ).toEqual([]);
-    });
-  }
+    }
+  });
 });
 
 describe('the pruner that keeps it that way', () => {
-  it('is a no-op on the committed sitemaps, so the gate above is self-consistent', () => {
+  it.skipIf(SKIP_LIVE_DATA)('is a no-op on the committed sitemaps, so the gate above is self-consistent', () => {
+    const { documents } = requireCommittedSitemaps();
     for (const { name, xml } of documents) {
       const { xml: pruned, dropped } = dropRetiredSitemapUrlBlocks(xml);
       expect(dropped, `${name}: pruner disagrees with the gate`).toEqual([]);
@@ -157,7 +172,13 @@ describe('the pruner that keeps it that way', () => {
   });
 
   it('leaves a sitemap index alone — its <loc>s name files, not pages', () => {
-    const idx = fs.readFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), 'utf-8');
+    const idx = [
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      `  <sitemap><loc>${APEX}/sitemap-blog.xml</loc></sitemap>`,
+      '</sitemapindex>',
+      '',
+    ].join('\n');
     expect(retiredLocsIn(idx)).toEqual([]);
     expect(dropRetiredSitemapUrlBlocks(idx).xml).toBe(idx);
   });

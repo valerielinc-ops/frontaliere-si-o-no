@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-09-24T14:42:50.864Z",
+  "assembledAt": "2026-10-19T21:49:08.078Z",
   "jobs": [
     {
       "id": "mistral-ai-01b2b0d2cc89",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:42:46.731Z",
+      "crawledAt": "2026-10-19T21:49:02.392Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,7 +44,9 @@
       "sector": "Intelligenza Artificiale / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "datePosted": "2026-07-10T14:03:48.234+00:00",
+      "postedDate": "2026-07-10T14:03:48.234+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "requirements": [],
       "requirementsByLocale": {},
@@ -59,16 +61,12 @@
         ],
         "fr": [
           "scientifique-ai-zurich-mistral-ai-zurich"
-        ],
-        "en": [
-          "ai-scientist-mistral-ai-zurich"
         ]
       },
       "previousSlugs": [
         "ai-scientist-zurigo-mistral-ai-zurich",
         "ai-scientist-zurich-mistral-ai-ch",
-        "scientifique-ai-zurich-mistral-ai-zurich",
-        "ai-scientist-mistral-ai-zurich"
+        "scientifique-ai-zurich-mistral-ai-zurich"
       ],
       "firstSeenAt": "2026-07-14T22:36:36.714Z",
       "salaryMin": 73500,
@@ -84,6 +82,7 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8001",
       "addressRegion": "ZH"
     }
   ]

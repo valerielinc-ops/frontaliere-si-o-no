@@ -353,9 +353,12 @@ export function renderNearestComparison<T extends ComparablePlace>(params: {
   ].join('');
 
   const row = (place: T, distanceLabel: string, isCurrent: boolean): string => {
+    // This table has column headers only: a municipality name is a value in
+    // the record, not a row header. Using <td> keeps the "Comune" column
+    // header associated with actual data cells for table accessibility rules.
     const nameCell = isCurrent
-      ? `<th scope="row" class="px-3 py-2 text-left font-semibold text-heading">${esc(place.name)} <span class="font-normal text-muted">(${esc(COPY.thisPlace[locale])})</span></th>`
-      : `<th scope="row" class="px-3 py-2 text-left font-normal"><a class="font-semibold text-accent hover:underline" href="${esc(hrefFor(place))}">${esc(place.name)}</a></th>`;
+      ? `<td class="px-3 py-2 text-left font-semibold text-heading">${esc(place.name)} <span class="font-normal text-muted">(${esc(COPY.thisPlace[locale])})</span></td>`
+      : `<td class="px-3 py-2 text-left font-normal"><a class="font-semibold text-accent hover:underline" href="${esc(hrefFor(place))}">${esc(place.name)}</a></td>`;
     const cells = columns
       .map((column) => `<td class="px-3 py-2 text-right tabular-nums">${esc(column.value(place))}</td>`)
       .join('');

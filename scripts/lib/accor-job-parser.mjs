@@ -11,6 +11,7 @@
  *   - stripHtml()                — Re-exported from crawler-template.mjs
  *   - buildSlug()                — Shared canonical slug base and disambiguator
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
@@ -20,8 +21,12 @@ import {
   extractDetailFields,
   isSufficientVacancyDescription,
 } from './prospector/extract.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
+import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
 import { createSpecUrlPolicy, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -265,7 +270,7 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings({ fetchImpl = fetch } = {}) {
+async function fetchJobListings({ fetchImpl } = {}) {
   const spec = loadSpec(ACCOR_KEY);
   const seedUrl = spec.seedUrls?.[0];
   if (!seedUrl || spec.seedUrls.length !== 1) {
@@ -292,7 +297,10 @@ async function fetchJobListings({ fetchImpl = fetch } = {}) {
     return runSpecInProduction({ ...spec, seedUrls }, {
       headers: ACCOR_REQUEST_HEADERS,
       detailExtractor: extractAccorDetailFields,
-      fetchImpl: createAccorSnapshotFetch(pageSnapshots, fetchImpl),
+      // Detail pages miss the snapshot and go out with the spec policy's
+      // npm-undici dispatcher, which Node's bundled fetch rejects under
+      // undici 8: fall back to the paired fetch, not the global one.
+      fetchImpl: createAccorSnapshotFetch(pageSnapshots, resolveProspectorFetch(fetchImpl)),
     });
   } finally {
     await urlPolicy.dispatcher.close();
@@ -325,9 +333,10 @@ export async function fetchAllAccorJobs(runtime = {}) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    const resolvedGeography = resolveSourceBackedSwissGeography(listing.location);
+    const geography = sourceBackedSwissGeographyFields(listing, resolvedGeography);
     if (!geography) continue;
-    const { location, canton } = geography;
+    const { location, canton, addressLocality, addressRegion, addressCountry } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -366,10 +375,10 @@ export async function fetchAllAccorJobs(runtime = {}) {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
+      addressLocality: normalizeSpace(addressLocality || listing.addressLocality),
+      addressRegion: normalizeSpace(addressRegion || listing.addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || "CH"),
+      country: normalizeSpace(addressCountry || "CH"),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
@@ -379,7 +388,7 @@ export async function fetchAllAccorJobs(runtime = {}) {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

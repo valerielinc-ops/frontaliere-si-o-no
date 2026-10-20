@@ -59,6 +59,8 @@
  * - detectCategory() / detectEmploymentType() / detectExperienceLevel()
  * - BUCHER_SUTER_KEY / BUCHER_SUTER_COMPANY_NAME / BUCHER_SUTER_COMPANY_DOMAIN
  */
+import { wordpressPublicationDateFields } from './wordpress-publication-date.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
@@ -72,7 +74,7 @@ import {
 } from './crawler-template.mjs';
 import { fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferSwissTargetCanton, canonicalSwissCityName, findSwissCityInText } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -284,8 +286,8 @@ export async function fetchAllBucherSuterJobs() {
     // Swiss municipality; never fall back to the raw (possibly foreign)
     // location string.
     const canton = inferSwissTargetCanton(rawLocation) || (/switzerland/i.test(rawLocation) ? HQ.canton : '');
-    const cityToken = findSwissCityInText(rawLocation);
-    const city = cityToken ? canonicalSwissCityName(cityToken) : (/switzerland/i.test(rawLocation) ? HQ.city : '');
+    const city = swissCityFromLocationField(rawLocation)
+      || (/switzerland/i.test(rawLocation) ? HQ.city : '');
     if (!canton || !city) {
       skippedNonSwiss += 1;
       continue;
@@ -293,19 +295,21 @@ export async function fetchAllBucherSuterJobs() {
 
     const articleProseHtml = extractArticleProseHtml(detailHtml);
     const description = normalizeDescriptionSpace(htmlToText(articleProseHtml));
-    const wordCount = description.split(/\s+/).filter(Boolean).length;
-    if (wordCount < 50) continue;
+    if (!meetsSourceBodyFloor(description)) continue;
 
     const postalCode = HQ.postalCode;
     const addressRegion = canton;
     const streetAddress = HQ.city === city ? 'Lindenhofstrasse 1' : city;
     const country = 'CH';
 
-    const postedRaw = listing?.modified || listing?.date || '';
-    const postedDate = postedRaw ? String(postedRaw).split('T')[0] : new Date().toISOString().split('T')[0];
+    const publication = wordpressPublicationDateFields(listing);
 
     const idHash = createHash('sha1').update(`wp-${wpId}`).digest('hex').slice(0, 12);
-    const sourceLang = detectLang(title) === 'de' ? 'de' : 'en';
+    // Language of the published body, not of the title (issue 5253): titles
+    // are loanword soup ("Candidatura spontanea", "Junior Logistics
+    // Specialist", "Guest Experience Specialist") and filed the body under a
+    // foreign source slot. The title is only the fallback when no body exists.
+    const sourceLang = detectLang(description) === 'de' ? 'de' : 'en';
     const jobSlug = slugify(`${title} bucher-suter ${city}`);
     const employmentType = detectEmploymentType(jobTypeLabel);
 
@@ -343,7 +347,7 @@ export async function fetchAllBucherSuterJobs() {
       sector: 'IT / Contact Center Solutions',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: wpLink,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -44,12 +44,21 @@ const parser = createProspectiveChParser({
   defaultCanton: 'BL',
   defaultCity: 'Liestal',
   defaultPostalCode: '4410',
+  // The cantonal administration only employs inside Basel-Landschaft, so a
+  // BL municipality that canton inference leaves unresolved as a cross-canton
+  // homonym (Oberwil, Aesch, Oberdorf, Rickenbach) is BL by construction.
+  // Listings with no location or a foreign one (the "Santiago de Chile"
+  // Swiss-school posting) are still dropped by the shared factory (issue 9844).
+  allSitesInDefaultCanton: true,
   publicCareerUrl: 'https://www.baselland.ch/politik-und-behorden/direktionen/finanz-und-kirchendirektion/personalamt/jobs/offene-stellen',
   defaultSourceLang: 'de',
   extraTrustedHosts: [
     'baselland.ch',
     'jobs.baselland.ch',
   ],
+  // Listing payload = 34 % of the rendered vacancy (audit 2026-09-29):
+  // "Ihre Vorteile" and the office description exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllKantonBaselLandschaftJobs = parser.fetchAllJobs;

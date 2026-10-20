@@ -24,6 +24,9 @@
  *   - isTrustedDomain()       — Validate URLs (msc.com + msccruises.com)
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourceCompactOffsetPostingDateFields, sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingField, extractJobPostingNodes } from './jobposting-jsonld.mjs';
+import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -144,19 +147,7 @@ function detectEmploymentType(text = '') {
  * HTML stays well-formed JSON. We must decode before extracting `<li>`.
  */
 function decodeHtmlEntities(value = '') {
-  return String(value || '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&apos;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#x2F;/g, '/')
-    .replace(/&#13;/g, '\n')
-    .replace(/&#10;/g, '\n')
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)));
+  return decodeHTML(String(value || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 /**
@@ -169,15 +160,15 @@ function decodeHtmlEntities(value = '') {
  * regression on this crawler.
  */
 function htmlBodyToBulletedText(rawHtml = '') {
-  if (!rawHtml) return '';
-  const decoded = decodeHtmlEntities(String(rawHtml || ''));
-  const withBullets = decoded
+  if (typeof rawHtml !== 'string' || !rawHtml) return '';
+  const markup = rawHtml.includes('<') ? rawHtml : decodeHtmlEntities(rawHtml);
+  const withBullets = markup
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<\/?(p|div|ul|ol|h[1-6])[^>]*>/gi, '\n')
     .replace(/<[^>]+>/g, ' ');
-  return withBullets
+  return decodeHtmlEntities(withBullets).replaceAll('\r', '\n')
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
@@ -191,26 +182,8 @@ function htmlBodyToBulletedText(rawHtml = '') {
  */
 function extractDetailDescription(html = '') {
   if (!html) return '';
-  const re = /<script[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    let data;
-    try {
-      data = JSON.parse(m[1]);
-    } catch {
-      continue;
-    }
-    const blocks = Array.isArray(data) ? data : [data];
-    for (const block of blocks) {
-      const type = block?.['@type'];
-      const isJobPosting = type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'));
-      if (!isJobPosting) continue;
-      const desc = block?.description || '';
-      if (!desc) continue;
-      return htmlBodyToBulletedText(desc);
-    }
-  }
-  return '';
+  const desc = extractJobPostingNodes(html).find((posting) => posting?.description)?.description || '';
+  return desc ? htmlBodyToBulletedText(desc) : '';
 }
 
 /* ── Phenom embedded-JSON extraction ───────────────────────── */
@@ -328,7 +301,10 @@ async function fetchAllRawJobs() {
       html = await fetchHtml(url, { timeoutMs: 25000 });
     } catch (err) {
       console.warn(`  Page ${page} fetch failed: ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
 
     const block = extractPhenomEagerLoad(html);
@@ -392,9 +368,11 @@ export async function fetchAllMscCargoJobs() {
     // parser-quality audit's hasStructuredContent gate. Fall back to the
     // teaser when the detail fetch fails or yields nothing.
     let description = teaser;
+    let detailPublication = sourcePostingDateFields('');
     try {
       const detailHtml = await fetchHtml(applyUrl, { timeoutMs: 20000 });
       const detailDesc = extractDetailDescription(detailHtml);
+      detailPublication = sourceCompactOffsetPostingDateFields(extractJobPostingField(detailHtml, 'datePosted'));
       if (detailDesc && detailDesc.length >= 100) {
         description = detailDesc;
       }
@@ -408,13 +386,7 @@ export async function fetchAllMscCargoJobs() {
     const jobSlug = slugify(`${title} msc ${city || 'geneva'}`);
     const urlHash = createHash('sha1').update(applyUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const raw0 = raw?.postedDate || raw?.dateCreated || '';
-      if (!raw0) return new Date().toISOString().slice(0, 10);
-      const d = new Date(raw0);
-      if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-      return d.toISOString().slice(0, 10);
-    })();
+    const publication = mergeSourcePostingDates(sourceCompactOffsetPostingDateFields(raw?.postedDate), detailPublication);
 
     const job = {
       id: `msc-cargo-${urlHash}`,
@@ -445,7 +417,7 @@ export async function fetchAllMscCargoJobs() {
       sector: 'Logistica e crocieristica',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       jobReqId: raw?.reqId || raw?.jobId || null,
       requirements: [],

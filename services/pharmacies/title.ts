@@ -1,11 +1,37 @@
 import type { Pharmacy } from './types';
 
+/**
+ * Keep the public/legal name in the body and schema, but remove only a legal
+ * suffix from the SERP title. An ellipsis in the middle of a pharmacy name
+ * makes the entity harder to identify in search and in AI answer extraction.
+ */
+export function pharmacyNameForSeo(name: string): string {
+  const clean = String(name || '').replace(/\s+/g, ' ').trim();
+  const shortened = clean
+    .replace(/\s+DEL\s+DOTT\.?\s+.*$/i, '')
+    .replace(/\s+DOTT\.?\s+.*$/i, '')
+    .replace(/\s+&\s+C\.?\s+.*$/i, '')
+    .replace(/\s+(?:S\.?A\.?S\.?|S\.?R\.?L\.?|S\.?N\.?C\.?)\s*$/i, '')
+    .trim();
+  return shortened || clean;
+}
+
+function fitNameWithoutEllipsis(value: string, budget: number): string {
+  if (value.length <= budget) return value;
+  const words = value.split(/\s+/);
+  let candidate = '';
+  for (const word of words) {
+    const next = candidate ? `${candidate} ${word}` : word;
+    if (next.length > budget) break;
+    candidate = next;
+  }
+  return candidate || value.slice(0, budget).trim();
+}
+
 function pharmacyTitleBase(pharmacy: Pharmacy, discriminator: string): string {
   const citySuffix = ` — ${pharmacy.city}`;
   const nameBudget = Math.max(1, 52 - citySuffix.length - discriminator.length);
-  const name = pharmacy.name.length > nameBudget
-    ? `${pharmacy.name.slice(0, Math.max(1, nameBudget - 1)).replace(/[\s,:;–—-]+$/, '')}…`
-    : pharmacy.name;
+  const name = fitNameWithoutEllipsis(pharmacyNameForSeo(pharmacy.name), nameBudget);
   return `${name}${citySuffix}${discriminator}`;
 }
 

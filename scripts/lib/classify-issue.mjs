@@ -68,6 +68,9 @@ import {
  *                       l'esclusione dalla promozione esisteva solo nel pool del
  *                       PARKED-RETRY di `followup-drainer.mjs`, cioè per chi era
  *                       già stato parcheggiato — non alla porta d'ingresso.
+ *   `operations-audit-review` review-only L11: l'audit tecnico ha evidenza
+ *                       insufficiente per una coda bounded e attende la
+ *                       prossima verifica, non un run del fixer.
  *
  * Le altre tre label del veto all'auto-close di `reconcile-followups.mjs`
  * (`pinned`, `do-not-close`, `revenue`/`tracker`) NON sono qui, e la differenza
@@ -76,7 +79,7 @@ import {
  * proprietario del 2026-07-05 («Rimuovi tutte le guardie»), e riesumarle qui
  * sarebbe reintrodurre di soppiatto una guardrail di categoria.
  */
-export const FIXER_EXEMPT_LABELS = ['keep-open', 'agent:no-age-out'];
+export const FIXER_EXEMPT_LABELS = ['keep-open', 'agent:no-age-out', 'operations-audit-review'];
 export const AUTOMATION_DEFERRED_LABEL = 'automation-deferred';
 
 /**

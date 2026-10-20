@@ -31,9 +31,11 @@
  * Consistency with the corpus pull — see scripts/lib/articles-sync-pin.mjs. The
  * sitemaps this writes and the slug registry pull-articles-corpus.mjs writes are
  * committed together, so they must describe the SAME upstream state. The two
- * agree on `manifest.json`'s `commit` field; if the surface moves between the two
- * reads, this script skips (exit 0, nothing written) rather than commit a pair
- * that disagrees. `ARTICLES_SYNC_COMMIT` carries the pin between the steps.
+ * agree on `manifest.json`'s `commit` field. The manifest is checked both before
+ * and after the complete staged artifact batch; if the surface moves during
+ * either window, this script skips (exit 0, nothing written) rather than commit
+ * a pair that disagrees. The workflow retries both pulls as one bounded unit.
+ * `ARTICLES_SYNC_COMMIT` carries the pin between the steps.
  *
  * Usage:
  *   node scripts/pull-articles-api.mjs                 # write public/
@@ -48,13 +50,27 @@ import path from 'node:path';
 
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
-import { dropShadowedSitemapUrlBlocks, loadAllShadowedSlugs } from './lib/article-canonical-overrides.mjs';
-import { dropRetiredSitemapUrlBlocks } from './lib/sitemap-retired-urls.mjs';
+import {
+  dropShadowedSitemapUrlBlocks,
+  loadAllShadowedSlugs,
+  loadSectionCanonicalOverrides,
+} from './lib/article-canonical-overrides.mjs';
+import { dropRetiredSitemapUrlBlocks, isRetiredLoc } from './lib/sitemap-retired-urls.mjs';
 import { readSlugRegistryWithRows } from './lib/article-slug-registry.mjs';
+import { isReservedPublishedSlug } from './lib/published-slug-guard.mjs';
+import { validatePublishedBlogImageEvidence } from './lib/published-blog-image-evidence.mjs';
+import {
+  parsePublishedCantonArticles,
+  PUBLISHED_CANTON_ARTICLES_ARTIFACT,
+  PUBLISHED_CANTON_ARTICLES_PATH,
+} from './lib/published-canton-articles.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
 const CHECK_ONLY = process.argv.includes('--check');
+const BLOG_CREDITS_ARTIFACT = 'data/image-credits-blog.json';
+const SLUGS_ARTIFACT = 'slugs.json';
+const BLOG_GENERATED_EVIDENCE_SNAPSHOT = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
 
 /**
  * Sitemaps this site serves verbatim from the articles repo.
@@ -104,6 +120,20 @@ const log = (msg) => console.log(`[pull-articles-api] ${msg}`);
 const fail = (msg) => {
   console.error(`::error::[pull-articles-api] ${msg}`);
   process.exit(1);
+};
+
+const failSnapshotMismatch = (msg) => {
+  const output = process.env.GITHUB_OUTPUT;
+  if (output) {
+    try {
+      // The hint is consumed by the pair wrapper. Keep remote-derived details
+      // out of the workflow command file; the diagnostic remains in stderr.
+      fs.appendFileSync(output, 'retryable-snapshot=true\n');
+    } catch {
+      // The pull still fails closed if the wrapper cannot read this hint.
+    }
+  }
+  fail(msg);
 };
 
 // ── Artifacts the generator migration adds (issue #4974 item 3) ──────
@@ -168,12 +198,32 @@ const IMAGE_MAX_BYTES = 320 * 1024;
 /**
  * Hero-image paths are the one place this script lets a REMOTE document choose a
  * filesystem destination, so the pattern is an allowlist, not a sanitiser: anchored,
- * literal `images/blog/` prefix, a conservative basename charset, `.webp` only. No
+ * literal `images/blog/` or `images/generated/` prefix, a conservative basename
+ * charset, `.webp` only. No
  * `..` can survive it and no absolute path can, which is the property that matters —
  * `path.join(PUBLIC_DIR, x)` with an attacker-chosen `x` is otherwise a write
  * anywhere in the checkout, and this runs in a workflow that commits its output.
  */
-const IMAGE_PATH_RE = /^images\/blog\/[a-z0-9][a-z0-9._-]*\.webp$/;
+const IMAGE_PATH_RE = /^images\/(?:blog|generated)\/[a-z0-9][a-z0-9._-]*\.webp$/;
+
+/**
+ * Validate the cheap invariants that protect the committed hero-image tree.
+ * This is intentionally shared by the existing-file and download paths: a
+ * previously committed file can be truncated or contain a corrupt binary just
+ * as easily as a newly fetched response can be an HTML error page.
+ */
+function isValidHeroImage(bytes, expectedBytes) {
+  if (!bytes || bytes.length > IMAGE_MAX_BYTES) return false;
+  if (bytes.length <= 12) return false;
+  if (bytes.subarray(0, 4).toString('latin1') !== 'RIFF') return false;
+  if (bytes.subarray(8, 12).toString('latin1') !== 'WEBP') return false;
+  // The RIFF size field counts everything after itself. A truncated download or
+  // a binary that went through a text round trip keeps a plausible header but
+  // no longer matches its own length — the state that failed the deploy's
+  // thumbnail step on 2026-10-02 (run 37035643275).
+  if (bytes.readUInt32LE(4) + 8 !== bytes.length) return false;
+  return typeof expectedBytes !== 'number' || expectedBytes === bytes.length;
+}
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -364,6 +414,153 @@ const SECTION_SITEMAPS = {
   },
 };
 
+const PUBLISHED_SLUG_SECTIONS = {
+  'sitemap-blog.xml': 'blog',
+  'sitemap-blog-ch.xml': 'swiss',
+};
+
+// These are the corpus builder's sitemap-retention rules for the dated daily
+// editions. The API does not publish a separate retired-id manifest, but the
+// article ids are the keys of slugs.json and the builder keeps the newest 90.
+const DAILY_EDITION_ID_RE = /^bollettino-frontaliere-\d{4}-\d{2}-\d{2}$/;
+const DAILY_EDITION_SITEMAP_KEEP = 90;
+
+const CANONICAL_SHADOWED_SLUGS_BY_SECTION = {
+  blog: new Set(Object.keys(loadSectionCanonicalOverrides(ROOT, 'frontaliere'))),
+  swiss: new Set(Object.keys(loadSectionCanonicalOverrides(ROOT, 'svizzera'))),
+};
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function isFallbackLocale(slugDocument, sectionName, articleId, locale) {
+  const reasons = slugDocument?.fallbackReasons?.[sectionName]?.[articleId];
+  return Boolean(
+    reasons
+    && typeof reasons === 'object'
+    && Object.prototype.hasOwnProperty.call(reasons, locale),
+  );
+}
+
+function isExplicitlyExcludedRow(slugs) {
+  return slugs.retired === true || slugs.noindex === true || slugs.excluded === true;
+}
+
+function isPublishedLocaleSlug(slugDocument, sectionName, articleId, locale, slug, slugs) {
+  return Boolean(
+    !isExplicitlyExcludedRow(slugs)
+    && typeof slug === 'string'
+    && slug.trim()
+    && !isReservedPublishedSlug(slug)
+    && !isFallbackLocale(slugDocument, sectionName, articleId, locale),
+  );
+}
+
+function retiredDailyEditionSlugs(rows) {
+  const retiredIds = Object.keys(rows)
+    .filter((id) => DAILY_EDITION_ID_RE.test(id))
+    .sort()
+    .reverse()
+    .slice(DAILY_EDITION_SITEMAP_KEEP);
+  return new Set(
+    retiredIds
+      .map((id) => rows[id]?.it)
+      .filter((slug) => typeof slug === 'string' && slug),
+  );
+}
+
+function isExpectedInSitemap(name, row, slugDocument, retiredDailySlugs) {
+  const sectionName = PUBLISHED_SLUG_SECTIONS[name];
+  const itSlug = row.slugs.it;
+  if (!isPublishedLocaleSlug(slugDocument, sectionName, row.id, 'it', itSlug, row.slugs)) {
+    return false;
+  }
+
+  if (CANONICAL_SHADOWED_SLUGS_BY_SECTION[sectionName]?.has(itSlug)) return false;
+  if (retiredDailySlugs.has(itSlug)) return false;
+  return !isRetiredLoc(`${SECTION_SITEMAPS[name].bases.it}${itSlug}/`);
+}
+
+/**
+ * The corpus publishes the slug registry and the sitemaps from one API
+ * release. Validate that relationship before the sitemap enters `public/` so
+ * a stale or independently generated hreflang block cannot overwrite the
+ * site's matching registry on the next sync.
+ */
+function assertSitemapUsesPublishedSlugMap(name, xml, slugDocument) {
+  const sectionName = PUBLISHED_SLUG_SECTIONS[name];
+  if (!sectionName) return;
+
+  const cfg = SECTION_SITEMAPS[name];
+  const rows = slugDocument?.[sectionName];
+  if (!rows || typeof rows !== 'object' || Array.isArray(rows)) {
+    fail(`${SLUGS_ARTIFACT} has no ${sectionName} slug registry — refusing ${name}`);
+  }
+
+  const byItSlug = new Map();
+  for (const [id, slugs] of Object.entries(rows)) {
+    if (!slugs || typeof slugs !== 'object' || typeof slugs.it !== 'string' || !slugs.it) {
+      fail(`${SLUGS_ARTIFACT} has an invalid ${sectionName} row for ${id} — refusing ${name}`);
+    }
+    if (byItSlug.has(slugs.it)) {
+      fail(`${SLUGS_ARTIFACT} has duplicate ${sectionName} IT slug ${slugs.it} — refusing ${name}`);
+    }
+    byItSlug.set(slugs.it, { id, slugs });
+  }
+
+  const itLoc = new RegExp(`^${escapeRegExp(cfg.bases.it)}([^/]+)/$`);
+  const blocks = xml.match(/<url>[\s\S]*?<\/url>/g) ?? [];
+  const seenItSlugs = new Set();
+  const retiredDailySlugs = sectionName === 'blog' ? retiredDailyEditionSlugs(rows) : new Set();
+  for (const block of blocks) {
+    const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1]?.trim();
+    const itMatch = loc?.match(itLoc);
+    if (!itMatch) continue;
+
+    const row = byItSlug.get(itMatch[1]);
+    if (!row) {
+      fail(`${name}: ${loc} is absent from ${SLUGS_ARTIFACT}.${sectionName} — refusing`);
+    }
+    seenItSlugs.add(itMatch[1]);
+
+    const seenLocales = new Set();
+    for (const match of block.matchAll(/hreflang="(it|en|de|fr)"\s+href="([^"]+)"/g)) {
+      const locale = match[1];
+      seenLocales.add(locale);
+      const expectedSlug = row.slugs[locale];
+      if (!isPublishedLocaleSlug(slugDocument, sectionName, row.id, locale, expectedSlug, row.slugs)) {
+        fail(`${name}: ${row.id} has a non-publishable ${locale} hreflang — refusing`);
+      }
+      const expectedUrl = `${cfg.bases[locale]}${expectedSlug}/`;
+      if (match[2] !== expectedUrl) {
+        fail(
+          `${name}: ${row.id} ${locale} hreflang is ${match[2]}, `
+          + `but ${SLUGS_ARTIFACT}.${sectionName}.${row.id}.${locale} is ${expectedUrl} — refusing`,
+        );
+      }
+    }
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      if (
+        isPublishedLocaleSlug(slugDocument, sectionName, row.id, locale, row.slugs[locale], row.slugs)
+        && !seenLocales.has(locale)
+      ) {
+        fail(`${name}: ${row.id} has no ${locale} hreflang in the same release as ${SLUGS_ARTIFACT} — refusing`);
+      }
+    }
+  }
+
+  const missing = [];
+  for (const [itSlug, row] of byItSlug) {
+    if (isExpectedInSitemap(name, row, slugDocument, retiredDailySlugs) && !seenItSlugs.has(itSlug)) {
+      missing.push(`${row.id} (${itSlug})`);
+    }
+  }
+  if (missing.length > 0) {
+    fail(`${name}: ${missing.join(', ')} absent from the sitemap — refusing`);
+  }
+}
+
 /**
  * `{ id: {it,en,de,fr} }` out of a registry .ts, or null when the file is not
  * in this checkout. The shared parser is used because these are TypeScript
@@ -431,7 +628,122 @@ function reinstateLocalArticles(name, xml) {
 const shadowedSitemapSlugs = loadAllShadowedSlugs(ROOT);
 log(`canonical-override shadowed slugs held out of the sitemaps: ${shadowedSitemapSlugs.size}`);
 
+const slugsBytes = manifest.files?.[SLUGS_ARTIFACT];
+if (!Number.isSafeInteger(slugsBytes) || slugsBytes <= 0) {
+  fail(`manifest is missing a valid byte count for ${SLUGS_ARTIFACT} — refusing`);
+}
+
+let slugsRaw;
+try {
+  slugsRaw = await get(SLUGS_ARTIFACT);
+} catch (err) {
+  fail(`${SLUGS_ARTIFACT} unavailable: ${err.message}`);
+}
+if (Buffer.byteLength(slugsRaw, 'utf8') !== slugsBytes) {
+  failSnapshotMismatch(`${SLUGS_ARTIFACT} byte count differs from manifest — refusing`);
+}
+
+let publishedSlugs;
+try {
+  publishedSlugs = JSON.parse(slugsRaw);
+} catch (err) {
+  fail(`${SLUGS_ARTIFACT} is not valid JSON: ${err.message}`);
+}
+if (!publishedSlugs || typeof publishedSlugs !== 'object' || Array.isArray(publishedSlugs)
+  || typeof publishedSlugs.commit !== 'string') {
+  fail(`${SLUGS_ARTIFACT} has an invalid JSON contract — refusing`);
+}
+if (publishedSlugs.commit !== manifest.commit) {
+  failSnapshotMismatch(`${SLUGS_ARTIFACT} does not match manifest commit ${manifest.commit} — refusing`);
+}
+
 const staged = new Map();
+
+// Canton article registries are published as a JSON artifact because their
+// source stays in the corpus/R2 boundary rather than in this checkout. Keep
+// the manifest commit and byte count as the transport contract before the
+// cover-ledger sync consumes the article/image pairs.
+const cantonArticleCount = manifest.counts?.cantonArticles;
+const cantonArticlesBytes = manifest.files?.[PUBLISHED_CANTON_ARTICLES_ARTIFACT];
+if (!Number.isSafeInteger(cantonArticleCount) || cantonArticleCount < 0) {
+  fail(`manifest is missing a valid canton article count for ${PUBLISHED_CANTON_ARTICLES_ARTIFACT} — refusing`);
+}
+if (!Number.isSafeInteger(cantonArticlesBytes) || cantonArticlesBytes <= 0) {
+  fail(`manifest is missing a valid byte count for ${PUBLISHED_CANTON_ARTICLES_ARTIFACT} — refusing`);
+}
+let cantonArticlesRaw;
+try {
+  cantonArticlesRaw = await get(PUBLISHED_CANTON_ARTICLES_ARTIFACT);
+} catch (err) {
+  fail(`${PUBLISHED_CANTON_ARTICLES_ARTIFACT} unavailable: ${err.message}`);
+}
+if (Buffer.byteLength(cantonArticlesRaw, 'utf8') !== cantonArticlesBytes) {
+  failSnapshotMismatch(`${PUBLISHED_CANTON_ARTICLES_ARTIFACT} byte count differs from manifest — refusing`);
+}
+try {
+  parsePublishedCantonArticles(cantonArticlesRaw, {
+    label: PUBLISHED_CANTON_ARTICLES_ARTIFACT,
+    expectedCommit: manifest.commit,
+    expectedCount: cantonArticleCount,
+  });
+} catch (err) {
+  fail(`${err.message}`);
+}
+staged.set(path.join(ROOT, PUBLISHED_CANTON_ARTICLES_PATH), cantonArticlesRaw);
+log(`${PUBLISHED_CANTON_ARTICLES_ARTIFACT}: validated ${cantonArticleCount} articles`);
+
+// The public blog index carries the generated-image registry alongside the
+// reader-facing credit records. Keep that evidence pinned to the same manifest
+// commit and byte count as the article registry; the later cover-ledger sync
+// must never promote an inferred cover from a stale or truncated response.
+const creditsBytes = manifest.files?.[BLOG_CREDITS_ARTIFACT];
+if (!Number.isSafeInteger(creditsBytes) || creditsBytes <= 0) {
+  fail(`manifest is missing a valid byte count for ${BLOG_CREDITS_ARTIFACT} — refusing`);
+}
+
+let creditsRaw;
+try {
+  creditsRaw = await get(BLOG_CREDITS_ARTIFACT);
+} catch (err) {
+  fail(`${BLOG_CREDITS_ARTIFACT} unavailable: ${err.message}`);
+}
+if (Buffer.byteLength(creditsRaw, 'utf8') !== creditsBytes) {
+  failSnapshotMismatch(`${BLOG_CREDITS_ARTIFACT} byte count differs from manifest — refusing`);
+}
+
+let credits;
+try {
+  credits = JSON.parse(creditsRaw);
+} catch (err) {
+  fail(`${BLOG_CREDITS_ARTIFACT} is not valid JSON: ${err.message}`);
+}
+if (!credits || typeof credits !== 'object' || Array.isArray(credits)) {
+  fail(`${BLOG_CREDITS_ARTIFACT} has an invalid JSON contract — refusing`);
+}
+if (typeof credits.commit !== 'string') {
+  fail(`${BLOG_CREDITS_ARTIFACT} has an invalid JSON contract — refusing`);
+}
+if (credits.schema !== 1 || credits.section !== 'blog'
+  || !credits.generated || typeof credits.generated !== 'object' || Array.isArray(credits.generated)) {
+  fail(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
+}
+if (credits.commit !== manifest.commit) {
+  failSnapshotMismatch(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
+}
+for (const [imageUrl, record] of Object.entries(credits.generated)) {
+  const validation = validatePublishedBlogImageEvidence(imageUrl, record);
+  const errors = [...validation.errors];
+  if (errors.length > 0) {
+    fail(`${BLOG_CREDITS_ARTIFACT} has invalid article image evidence for ${imageUrl}: ${errors.join('; ')}`);
+  }
+}
+staged.set(BLOG_GENERATED_EVIDENCE_SNAPSHOT, `${JSON.stringify({
+  schema: 1,
+  commit: credits.commit,
+  generated: credits.generated,
+}, null, 2)}\n`);
+log(`${BLOG_CREDITS_ARTIFACT}: validated ${Object.keys(credits.generated).length} article image evidence records`);
+
 for (const name of SITEMAPS) {
   let xml;
   try {
@@ -439,6 +751,11 @@ for (const name of SITEMAPS) {
   } catch (err) {
     fail(`${name} unavailable: ${err.message}`);
   }
+
+  // The map is the corpus's source of truth for localized URLs. Check the
+  // upstream sitemap against that same release before adding any site-owned
+  // entries or staging the document.
+  assertSitemapUsesPublishedSlugMap(name, xml, publishedSlugs);
 
   // Before the count guards, so the shrink comparison below is made against
   // the document that will actually be written.
@@ -598,10 +915,11 @@ for (const name of FEEDS) {
 
 // ── Hero images (docs/articles-generator-migration.md §3, §5.5) ──────
 //
-// `gitAddAll()` in create-article.mjs stages `public/images/blog/<id>.webp`
-// next to the article it belongs to. Once generation runs in nanako, that file
-// is written there and main has no copy — and unlike the sitemaps, an image is
-// not a document this script can re-derive, so it has to be transferred.
+// `gitAddAll()` in the corpus stages a record-bearing catalog cover under
+// `public/images/blog/<id>.webp`, or a governed generated cover under
+// `public/images/generated/<asset-id>.webp`. Once generation runs in nanako,
+// main has no copy — and unlike the sitemaps, an image is not a document this
+// script can re-derive, so it has to be transferred.
 //
 // The manifest is a plain list, not a diff: nanako republishes the full set on
 // every push and main downloads only what it is missing. That keeps the pull
@@ -633,7 +951,7 @@ for (const name of FEEDS) {
     if (!Array.isArray(images)) fail(`${IMAGE_MANIFEST} has no images[] array — refusing`);
     if (images.length === 0) fail(`${IMAGE_MANIFEST} lists zero images — refusing`);
 
-    const imagesDir = path.join(PUBLIC_DIR, 'images', 'blog');
+    const imagesDir = path.join(PUBLIC_DIR, 'images');
     const seen = new Set();
     let fetched = 0;
     let present = 0;
@@ -647,7 +965,7 @@ for (const name of FEEDS) {
       if (typeof relPath !== 'string' || !IMAGE_PATH_RE.test(relPath)) {
         fail(
           `${IMAGE_MANIFEST}: '${id}' has path ${JSON.stringify(relPath)}, which is not an ` +
-            `images/blog/<name>.webp path — refusing`,
+            `images/blog/<name>.webp or images/generated/<name>.webp path — refusing`,
         );
       }
       if (seen.has(relPath)) fail(`${IMAGE_MANIFEST}: ${relPath} listed twice — refusing`);
@@ -655,14 +973,22 @@ for (const name of FEEDS) {
 
       const dest = path.join(PUBLIC_DIR, relPath);
       // Belt to the regex's braces: whatever the pattern let through, the
-      // resolved destination must still land inside public/images/blog.
+      // resolved destination must still land inside public/images.
       if (path.relative(imagesDir, dest).startsWith('..')) {
-        fail(`${IMAGE_MANIFEST}: ${relPath} resolves outside public/images/blog — refusing`);
+        fail(`${IMAGE_MANIFEST}: ${relPath} resolves outside public/images — refusing`);
       }
 
       if (fs.existsSync(dest)) {
-        present += 1;
-        continue;
+        try {
+          const localBytes = fs.readFileSync(dest);
+          if (isValidHeroImage(localBytes, entry.bytes)) {
+            present += 1;
+            continue;
+          }
+          log(`${relPath}: local file failed validation; refreshing from publisher`);
+        } catch (err) {
+          log(`${relPath}: local file could not be read (${err.message}); refreshing from publisher`);
+        }
       }
 
       let bytes;
@@ -682,11 +1008,9 @@ for (const name of FEEDS) {
       // A WebP is "RIFF" + 4 size bytes + "WEBP". Checking it here rather than
       // trusting the extension is what stops an HTML error page that came back
       // with a 200 from being committed as an article's hero image.
-      const isWebp =
-        bytes.length > 12 &&
-        bytes.subarray(0, 4).toString('latin1') === 'RIFF' &&
-        bytes.subarray(8, 12).toString('latin1') === 'WEBP';
-      if (!isWebp) fail(`${relPath} is not a WebP file (bad RIFF/WEBP header) — refusing`);
+      if (!isValidHeroImage(bytes)) {
+        fail(`${relPath} is not a WebP file (bad RIFF/WEBP header, or a length its header contradicts) — refusing`);
+      }
 
       if (typeof entry.bytes === 'number' && entry.bytes !== bytes.length) {
         fail(
@@ -912,14 +1236,30 @@ for (const name of FEEDS) {
   }
 }
 
+// A static deployment can advance while this script is reading its many HTTP
+// artifacts. Re-read the release token after the entire staged batch has been
+// validated; if it changed, discard the batch so the caller can retry against
+// one coherent manifest. Nothing has been written yet.
+let finalManifest;
+try {
+  finalManifest = JSON.parse(await get('manifest.json'));
+} catch (err) {
+  fail(`final manifest unavailable after artifact fetch, keeping the committed copy: ${err.message}`);
+}
+const finalPin = pinVerdict({ pinned: manifest.commit, manifestCommit: finalManifest.commit });
+if (!finalPin.ok) {
+  emitSkip('pull-articles-api', finalPin.reason);
+  process.exit(0);
+}
+
 if (CHECK_ONLY) {
   log('--check: validated, wrote nothing');
   process.exit(0);
 }
 
 for (const [dest, body] of staged) {
-  // public/images/blog/ is the one destination that may legitimately not exist
-  // yet on a fresh checkout; everything else writes next to a committed file.
+  // The two image trees may legitimately not exist yet on a fresh checkout;
+  // everything else writes next to a committed file.
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.writeFileSync(dest, body);
   log(`wrote ${path.relative(ROOT, dest)}`);

@@ -10,6 +10,7 @@ import {
   CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR as PORTABLE_GENERATION_TOKEN_EXPR,
 } from '../scripts/generate-crawler-group-workflows.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
+import { classifyIssue } from '../scripts/lib/classify-issue.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const orchestratorPath = '.github/workflows/orchestrate-crawlers.yml';
@@ -17,6 +18,14 @@ const observerPath = '.github/corpus-workflows/observers/workflows/crawler-gener
 const uploadArtifactV7Sha = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
 const shadowFinalizeName = 'Finalize translation shadow preflight v2 observation';
 const shadowUploadName = 'Upload translation shadow preflight v2 artifacts';
+const CODEX_BUDGET_RESOLVER = 'Resolve Codex reserve budget';
+const CODEX_MAX_CALLS_REPO_EXPR = '${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}';
+const CODEX_PHASES = [
+  'Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)',
+  'Phase 2b: Translate pending jobs (cascade top-up)',
+  'Phase 2d: Fix untranslated titles (free cascade)',
+  'Phase 2e: Fix untranslated descriptions (free cascade)',
+];
 const shadowCascadeEnv = {
   SHADOW_RUN_ATTEMPT: '${{ github.run_attempt }}',
   SHADOW_RUN_ID: '${{ github.run_id }}',
@@ -75,7 +84,8 @@ function findUniqueStep(steps: any[], name: string) {
 // entrambe. Qui restano il contratto shadow e l'equivalenza step-per-step con
 // la sorgente in albero, che e' il confronto giusto per una PR.
 function expectCurrentShadowContract(currentDocument: any, sourceDocument: any) {
-  expect(currentDocument.concurrency).toEqual({
+  expect(currentDocument.concurrency).toBeUndefined();
+  expect(currentDocument.jobs.translate.concurrency).toEqual({
     group: 'jobs-data-pipeline',
     'cancel-in-progress': false,
     queue: 'max',
@@ -144,11 +154,43 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(currentTranslate.run).toContain('gh workflow run translate-pending.yml');
     const portableTranslate = '.github/corpus-workflows/translate-pending.yml';
     const portableCurrent = YAML.parse(fs.readFileSync(portableTranslate, 'utf8'));
-    expect(portableCurrent.concurrency).toEqual({
+    expect(portableCurrent.concurrency).toBeUndefined();
+    expect(portableCurrent.jobs.translate.concurrency).toEqual({
       group: 'jobs-data-pipeline',
       'cancel-in-progress': false,
       queue: 'max',
     });
+    expect(portableCurrent.jobs.translate).toMatchObject({
+      needs: 'translate_queue_guard',
+      if: "needs.translate_queue_guard.outputs.run == 'true'",
+    });
+    expect(portableCurrent.jobs.translate_queue_guard.concurrency).toBeUndefined();
+    const queueGuard = portableCurrent.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    expect(queueGuard?.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=');
+    expect(queueGuard?.run).toContain('.status == "queued"');
+    expect(queueGuard?.run).toContain('.status == "pending"');
+    expect(queueGuard?.run).toContain('.status == "waiting"');
+    expect(queueGuard?.run).toContain('.status == "requested"');
+    expect(queueGuard?.run).toContain('for run_status in queued pending waiting requested in_progress');
+    expect(queueGuard?.run).toContain('per_page=${status_page_size}&page=${status_page}&status=${run_status}');
+    expect(queueGuard?.run).toContain('if [ "$status_returned_count" -lt "$status_page_size" ]; then break; fi');
+    expect(queueGuard?.run).not.toMatch(/"\$status_total_count" -gt/);
+    expect(queueGuard?.run).toContain('remaining_seconds');
+    expect(queueGuard?.run).toContain('call_timeout_seconds');
+    expect(queueGuard?.run).toContain('timeout --kill-after=0s');
+    expect(queueGuard?.run).toContain('guard_total_timeout_seconds=120');
+    expect(queueGuard?.run).not.toContain('--paginate');
+    expect(queueGuard?.run).toContain('GITHUB_RUN_ID');
+    expect(queueGuard?.run).toContain('current_run_path');
+    expect(queueGuard?.run).toContain('created_at');
+    expect(queueGuard?.run).toContain('oldest_run_id');
+    expect(queueGuard?.run).toContain('sort -k1,1 -k2,2n');
+    expect(queueGuard?.run).toContain('TRANSLATION_MANUAL_OVERRIDE');
+    expect(queueGuard?.run).toContain('run=false');
+    expect(queueGuard?.run).not.toContain('fail_open');
+    expect(queueGuard?.run).toContain('workflow_dispatch');
+    expect(queueGuard?.env?.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
     const sourceTranslate = YAML.parse(fs.readFileSync(
       '.github/workflows/translate-pending-logic.yml',
       'utf8',
@@ -200,7 +242,7 @@ describe('crawler generation PR B workflow wiring', () => {
       });
       expect(crawler['run-name']).toBe(`crawler-generation-${PORTABLE_GENERATION_TOKEN_EXPR}-group-${group}`);
       expect(crawler.on.workflow_dispatch.inputs.generation_token)
-        .toMatchObject({ required: true, type: 'string' });
+        .toMatchObject({ required: false, default: '', type: 'string' });
       const job = Object.values(crawler.jobs)[0] as any;
       expect(job.env.CRAWLER_GENERATION_TOKEN).toBe(PORTABLE_GENERATION_TOKEN_EXPR);
       const siteCheckouts = job.steps.filter((step: any) => step.with?.repository === 'valerielinc-ops/frontaliere-si-o-no');
@@ -242,8 +284,36 @@ describe('crawler generation PR B workflow wiring', () => {
       const mopUp = findUniqueStep(steps, 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
       expect(steps.some((step: any) => step.name === 'Upload thinking A/B rows')).toBe(false);
       expect(mopUp.index).toBeGreaterThan(cascade.index);
-      expect(JSON.stringify(document)).not.toContain('setup-claude-haiku-fallback');
-      expect(JSON.stringify(document)).not.toContain('TRANSLATION_THINKING_AB');
+      // Decisione del proprietario H7 (2026-10-05, DECISIONS.md), che supera
+      // quella del 2026-09-25 («Codex solo dopo Argos»): Codex Luna Max entra
+      // nella cascata 2b come riserva quando le chiavi falliscono, con un tetto
+      // per run. Il broker parte quindi prima della 2b; il resolver comune
+      // propaga il tetto effettivo e la 2b non porta un override per-step.
+      const setupIndex = steps.findIndex((step: any) => step.id === 'setup_claude_haiku_fallback');
+      expect(setupIndex).toBeGreaterThan(-1);
+      expect(setupIndex).toBeLessThan(cascade.index);
+      const resolver = findUniqueStep(steps, CODEX_BUDGET_RESOLVER);
+      expect(resolver.index).toBeLessThan(cascade.index);
+      expect(resolver.step.env?.FREE_TRANSLATE_CODEX_MAX_CALLS_REPO).toBe(CODEX_MAX_CALLS_REPO_EXPR);
+      expect(resolver.step.run).toContain('preserving effective setting');
+      expect(resolver.step.run).toContain('FREE_TRANSLATE_CODEX_MAX_CALLS=350');
+      const cascadeEnv = steps[cascade.index].env ?? {};
+      expect(cascadeEnv.CODEX_AUTH_BROKER_SOCKET).toBeDefined();
+      expect(cascadeEnv.FREE_TRANSLATE_CODEX_MAX_CALLS).toBeUndefined();
+      for (const phaseName of CODEX_PHASES) {
+        const phase = findUniqueStep(steps, phaseName).step;
+        // Descrizioni (2b, 2e): 25 righe per richiesta; titoli (2a.2, 2d): 10.
+        expect(phase.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS, phaseName).toBe(/Phase 2[be]:/.test(phaseName) ? '25' : '10');
+        expect(phase.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS, phaseName).toBe('3000');
+        expect(phase.env?.FREE_TRANSLATE_CODEX_TIER, phaseName).toBeUndefined();
+      }
+      const maxCalls = 30;
+      expect(Number.isInteger(maxCalls) && maxCalls > 0).toBe(true);
+      expect(cascadeEnv.TRANSLATION_THINKING_AB).toBeUndefined();
+      // The experiment is intentionally declared as an opt-in input by the
+      // companyServed observation PR; only an unconditional enablement would
+      // reactivate it on scheduled translation runs.
+      expect(JSON.stringify(document)).not.toMatch(/TRANSLATION_THINKING_AB:\s*["']1["']/);
     }
   });
 
@@ -262,9 +332,17 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(dispatch.if).toBe("steps.generation_preflight.outputs.ready == 'true'");
     expect(dispatch.if).not.toMatch(/reasons|warnings|length/);
     expect(dispatch.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-groups');
+    const runGenerationToken = '${{ github.run_id }}-${{ github.run_attempt }}';
+    for (const step of [dispatch, sentinel, cleanup]) {
+      expect(step.env.GENERATION_TOKEN).toBe(runGenerationToken);
+      expect(step.run).toContain('--generation-token "$GENERATION_TOKEN"');
+    }
+    expect(source).not.toMatch(/GENERATION_TOKEN:\s+\$\{\{\s*inputs\./);
     expect(dispatch.run).toContain('--corpus-code-commit "$CORPUS_CODE_COMMIT"');
     expect(dispatch.env.CORPUS_CODE_COMMIT).toContain('steps.generation_preflight.outputs.corpus_commit');
     expect(dispatch.env.CORPUS_CODE_COMMIT).not.toContain('unavailable');
+    expect(dispatch.env.SITE_CODE_COMMIT).toContain('steps.generation_preflight.outputs.site_code_commit');
+    expect(dispatch.env.SITE_CODE_COMMIT).toContain('github.sha');
     expect(dispatch.env.SHADOW_READY).toBe('${{ steps.generation_preflight.outputs.ready }}');
     expect(sentinel.if).toBe('always()');
     expect(sentinel.id).toBe('generation_sentinel');
@@ -307,6 +385,33 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(failureReporter.run).toContain('scripts/lib/github-issue-creator.mjs');
     expect(failureReporter.run).toContain('--title "Workflow Failure: ${{ github.workflow }}"');
     expect(source).not.toContain('return_run_details');
+    // Issue di CONDIZIONE sul fallback arretrato: aperta e chiusa dallo stesso
+    // step, solo quando il preflight è pronto (un blocco non prova niente).
+    const staleCode = steps.find((step: any) => step.name === 'Report crawler wave pinned to stale site code');
+    expect(staleCode.if).toBe("always() && steps.generation_preflight.outputs.ready == 'true'");
+    expect(staleCode['continue-on-error']).toBe(true);
+    expect(staleCode.env.ISSUE_TITLE).toBe(
+      'Ondata crawler su codice arretrato: fallback di contratto oltre il genitore atteso',
+    );
+    expect(staleCode.env.FALLBACK_STALE).toBe('${{ steps.generation_preflight.outputs.site_code_fallback_stale }}');
+    expect(staleCode.env.FALLBACK_REASON).toBe('${{ steps.generation_preflight.outputs.site_code_fallback_reason }}');
+    expect(staleCode.env.SUPERSEDED_BY).toBe('${{ steps.generation_preflight.outputs.site_code_fallback_superseded_by }}');
+    expect(staleCode.env.COMMITS_BEHIND_MAIN).toBe('${{ steps.generation_preflight.outputs.site_code_commits_behind_main }}');
+    expect(staleCode.run).toContain('if [ "$FALLBACK_STALE" != "true" ]; then');
+    expect(staleCode.run).toContain('scripts/lib/github-issue-creator.mjs --resolve');
+    expect(staleCode.run.match(/--title "\$ISSUE_TITLE"/g)).toHaveLength(2);
+    // Si apre solo se l'ondata è partita: niente issue da un dry-run o da uno
+    // step dell'ondata fallito. La guardia sta DOPO il ramo `--resolve`.
+    expect(staleCode.env.DRY_RUN).toBe("${{ inputs.dry_run || 'false' }}");
+    expect(staleCode.env.GENERATION_WAVE_OUTCOME).toBe("${{ steps.generation_wave.outcome || 'skipped' }}");
+    const launchGuard = 'if [ "$DRY_RUN" = "true" ] || [ "$GENERATION_WAVE_OUTCOME" != "success" ]; then';
+    expect(staleCode.run).toContain(launchGuard);
+    expect(staleCode.run.indexOf(launchGuard)).toBeGreaterThan(staleCode.run.indexOf('--resolve'));
+    expect(staleCode.run.indexOf(launchGuard)).toBeLessThan(staleCode.run.lastIndexOf('--title "$ISSUE_TITLE"'));
+    // Issue di condizione senza fix di codice: `keep-open` la tiene fuori dal
+    // routing del triage, che altrimenti la manda dritta al fixer.
+    expect(staleCode.run).toContain('--label keep-open');
+    expect(classifyIssue(staleCode.env.ISSUE_TITLE, ['priority:high', 'Bug', 'keep-open']).route).toBe('none');
     expect(preflight.env.GENERATION_PREFLIGHT_OUTPUT).toBe('${{ runner.temp }}/crawler-generation-dispatch/preflight.json');
     const translationDispatch = steps.find((step: any) => step.name === 'Dispatch translate-pending (frontaliere-articles)');
     expect(translationDispatch.env.GENERATION_PREFLIGHT_READY).toContain('steps.generation_preflight.outputs.ready');
@@ -326,7 +431,7 @@ describe('crawler generation PR B workflow wiring', () => {
 
   it('materializes the complete dispatcher import closure in the orchestrator sparse checkout', () => {
     const workflow = YAML.parse(fs.readFileSync(orchestratorPath, 'utf8'));
-    const checkout = workflow.jobs.dispatch.steps.find((step: any) => step.uses === 'actions/checkout@v5');
+    const checkout = workflow.jobs.dispatch.steps.find((step: any) => step.uses === 'actions/checkout@v7');
     const sparsePaths = checkout.with['sparse-checkout']
       .split('\n')
       .map((value: string) => value.trim().replace(/^\//, ''))

@@ -163,3 +163,24 @@ export function resolveRunStartMs() {
   }
   return Date.now();
 }
+
+/**
+ * Run-wide deadline of a phase that also owns a window of its own.
+ *
+ * A phase bounded only by a run-wide deadline gets whatever the phases before
+ * it left: on corpus run 36779310211 (2026-10-01) Argos (Phase 2a) used its
+ * full 150 minutes and the cascade (Phase 2b), with a 90-minute run-wide
+ * deadline, stopped before its first company. With a window the phase gets
+ * `windowMs` from the moment it starts, still never past `deadlineMs`, so the
+ * later phases and the commit queue keep the time the workflow reserved for
+ * them.
+ *
+ * @param {{ deadlineMs: number, windowMs?: number, elapsedAtStartMs: number }} args
+ * @returns {number} run-wide deadline in ms; `deadlineMs` when no window is set
+ */
+export function windowedDeadlineMs({ deadlineMs, windowMs = 0, elapsedAtStartMs }) {
+  const window = Number(windowMs);
+  if (!Number.isFinite(window) || window <= 0) return deadlineMs;
+  const elapsed = Number.isFinite(elapsedAtStartMs) ? Math.max(0, elapsedAtStartMs) : 0;
+  return Math.min(deadlineMs, elapsed + window);
+}

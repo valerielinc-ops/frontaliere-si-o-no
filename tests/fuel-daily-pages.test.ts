@@ -14,6 +14,7 @@ import { describe, expect, it } from 'vitest';
 import {
   FUEL_DAILY_LOCALES,
   FUEL_DAILY_ROUTES,
+  FUEL_SITEMAP_FILES,
   FUEL_SECTION_SLUG,
   FUEL_TYPES,
   FUEL_ZONES,
@@ -21,19 +22,24 @@ import {
   buildFuelTodayPath,
   isFuelDailyPath,
   isFuelMonthArchivePath,
+  isFuelSitemapFile,
   listFuelTodayPaths,
 } from '../build-plugins/fuelDailyData';
 import {
   generateFuelArchivePages,
   generateFuelDailyPages,
 } from '../build-plugins/fuelDailyPagesPlugin';
+import { htmlHasIndexableRobots } from '../build-plugins/shared/incrementalHtmlReuse.mjs';
+import { createAuditor as createTextHtmlRatioAuditor } from '../scripts/audit-text-html-ratio.mjs';
+import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
+import { AD_SLOTS } from '../services/adsenseSlots';
 
 // Minimal dataset sufficient for the renderer (nearby Swiss stations in each
 // target zone + enough copy seeds to clear the 250-word gate).
 // Diesel fixtures: all stations carry a real `dieselPriceChf` (TCS Firestore
 // feed exposes per-station DIESEL) — this exercises the primary code path.
-// `c9` intentionally omits diesel to exercise the SP95+offset fallback.
+// `c9` intentionally omits diesel to verify it is excluded from daily diesel aggregates.
 const DATASET = {
   generatedAt: '2026-04-20T06:00:00.000Z',
   municipalities: [
@@ -50,7 +56,7 @@ const DATASET = {
           { id: 'c6', name: 'Coop Lugano', brand: 'COOP', address: 'Via Zurigo 15, 6900 Lugano', sp95PriceChf: 1.86, dieselPriceChf: 2.06, dieselSource: 'api' as const },
           { id: 'c7', name: 'AVIA Bellinzona', brand: 'AVIA', address: 'Viale Portone 3, 6500 Bellinzona', sp95PriceChf: 1.83, dieselPriceChf: 2.02, dieselSource: 'api' as const },
           { id: 'c8', name: 'Shell Bellinzona', brand: 'SHELL', address: 'Via San Gottardo 20, 6500 Bellinzona', sp95PriceChf: 1.85, dieselPriceChf: 2.04, dieselSource: 'api' as const },
-          // c9: no dieselPriceChf — exercises SP95+offset fallback
+          // c9: no dieselPriceChf — excluded from the daily diesel aggregate
           { id: 'c9', name: 'Tamoil Locarno', brand: 'TAMOIL', address: 'Viale Balli 4, 6600 Locarno', sp95PriceChf: 1.87 },
           { id: 'c10', name: 'BP Locarno', brand: 'BP', address: 'Via San Gottardo 80, 6600 Locarno', sp95PriceChf: 1.89, dieselPriceChf: 2.08, dieselSource: 'api' as const },
         ],
@@ -67,6 +73,22 @@ describe('fuelDailyData — slug tables', () => {
 
   it('exposes exactly 5 zones', () => {
     expect(FUEL_ZONES).toEqual(['chiasso', 'mendrisio', 'lugano', 'bellinzona', 'locarno']);
+  });
+
+  it('recognises current fuel sitemaps and legacy numbered shards', () => {
+    expect(FUEL_SITEMAP_FILES).toEqual([
+      'sitemap-fuel-daily.xml',
+      'sitemap-fuel-stations.xml',
+      'sitemap-fuel-italian-cities.xml',
+      'sitemap-fuel-italian-stations.xml',
+      'sitemap-fuel-indexes.xml',
+    ]);
+    for (const filename of FUEL_SITEMAP_FILES) {
+      expect(isFuelSitemapFile(filename)).toBe(true);
+    }
+    expect(isFuelSitemapFile('sitemap-fuel-stations-1.xml')).toBe(true);
+    expect(isFuelSitemapFile('sitemap-fuel-stations-old.xml')).toBe(false);
+    expect(isFuelSitemapFile('sitemap-jobs-1.xml')).toBe(false);
   });
 
   it('uses expected section slugs per locale × fuel', () => {
@@ -167,6 +189,56 @@ describe('fuel-daily page generation — content quality', () => {
     }
   });
 
+  it('places the drive-by unit after the station answer and before the trend history', () => {
+    const html = pages['/prezzi-benzina/oggi/'];
+    const attrPosition = (name: string, value: string) => [
+      html.indexOf(`${name}="${value}"`),
+      html.indexOf(`${name}=${value}`),
+    ].find((position) => position >= 0) ?? -1;
+    const top3 = attrPosition('id', 'top3');
+    const driveby = attrPosition('data-ad-slot', AD_SLOTS.FT_DRIVEBY_ATF_DISPLAY.slot);
+    const trend7 = attrPosition('id', 'trend7');
+
+    expect(top3).toBeGreaterThanOrEqual(0);
+    expect(driveby).toBeGreaterThan(top3);
+    expect(trend7).toBeGreaterThan(driveby);
+  });
+
+  it('keeps history-rich daily pages above the production text/HTML floor', async () => {
+    const history = Array.from({ length: 180 }, (_, index) => {
+      const date = new Date(today.getTime() - (179 - index) * 86_400_000);
+      const zones = Object.fromEntries(FUEL_ZONES.map((zone, zoneIndex) => [
+        zone,
+        {
+          benzina: 1.75 + zoneIndex * 0.01 + index * 0.0005,
+          diesel: 1.9 + zoneIndex * 0.01 + index * 0.0005,
+        },
+      ]));
+      return { date: date.toISOString().slice(0, 10), zones };
+    });
+    const historyPages = generateFuelDailyPages({
+      rootDir: process.cwd(),
+      dataset: DATASET,
+      history,
+      today,
+    });
+    const audit = createTextHtmlRatioAuditor({
+      threshold: 10,
+      featureFilter: 'fuel-daily',
+      failOnOffenders: true,
+    });
+
+    for (const [path, html] of Object.entries(historyPages)) {
+      audit.collect(`${process.cwd()}/dist${path}index.html`, html);
+      expect(html, `${path} duplicated its chart series as a decorative area path`).not.toContain('class="s-cpa"');
+    }
+
+    const result = await audit.report();
+    expect(result.extra.scannedByFeature['fuel-daily']).toBe(48);
+    expect(result.offendersTotal, result.humanSummary).toBe(0);
+    expect(result.passed, result.humanSummary).toBe(true);
+  });
+
   it('every page sets self-referencing canonical', () => {
     for (const [path, html] of Object.entries(pages)) {
       expect(html).toMatch(htmlTagWithAttrs('link', {
@@ -242,14 +314,14 @@ describe('fuel-daily page generation — content quality', () => {
 
   it('includes localized H1 and no dark: color classes', () => {
     const itRegional = pages['/prezzi-diesel/oggi/'];
-    expect(itRegional).toMatch(/<title>Prezzi diesel oggi in Ticino · .*\(\d{2}\.\d{2}\.\d{4}\)<\/title>/i);
-    expect(itRegional).toMatch(/<h1[^>]*>.*Prezzo Diesel Svizzera oggi/i);
+    expect(itRegional).toMatch(/<title>Diesel Ticino: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(itRegional).toMatch(/<h1[^>]*>.*Prezzo Diesel oggi in Ticino: stazioni di servizio/i);
     const itBenzinaRegional = pages['/prezzi-benzina/oggi/'];
     // The CTR-facing title follows the exact regional query, while the
     // visible H1 and WebPage JSON-LD name stay on the existing source label.
-    expect(itBenzinaRegional).toMatch(/<title>Prezzi benzina oggi in Ticino · .*\(\d{2}\.\d{2}\.\d{4}\)<\/title>/i);
-    expect(itBenzinaRegional).toMatch(/<h1[^>]*>.*Prezzo Benzina Svizzera oggi/i);
-    expect(itBenzinaRegional).toContain('"name":"Prezzo Benzina Svizzera oggi — Ticino"');
+    expect(itBenzinaRegional).toMatch(/<title>Benzina Ticino: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(itBenzinaRegional).toMatch(/<h1[^>]*>.*Prezzo Benzina oggi in Ticino: stazioni di servizio/i);
+    expect(itBenzinaRegional).toContain('"name":"Prezzo Benzina oggi in Ticino: stazioni di servizio"');
     for (const [path, html] of Object.entries(pages)) {
       if (path === '/prezzi-benzina/oggi/') continue;
       expect(html, `unexpected regional benzina title on ${path}`).not.toMatch(
@@ -261,16 +333,71 @@ describe('fuel-daily page generation — content quality', () => {
     }
   });
 
-  it('derives the commuter fuel bill from distance and consumption, not four arbitrary tanks', () => {
+  it('uses fuel-specific H1/H2/H3 language on the Italian benzina zone page', () => {
+    const bellinzona = pages['/prezzi-benzina/bellinzona/oggi/'];
+    expect(bellinzona).toMatch(/<h1[^>]*>.*Prezzo Benzina oggi a Bellinzona: stazioni di servizio/i);
+    expect(bellinzona).toContain('Valutazione editoriale del prezzo della benzina a Bellinzona');
+    expect(bellinzona).toContain('Le 3 stazioni più economiche per fare rifornimento di benzina a Bellinzona');
+    expect(bellinzona).toContain('Andamento storico del prezzo della benzina a Bellinzona');
+    expect(bellinzona).toContain('Domande frequenti sul prezzo della benzina a Bellinzona');
+    expect(bellinzona).toContain('Fonte e metodo del confronto sul prezzo della benzina');
+    expect(bellinzona).toContain('Esempio di calcolo del pieno di benzina');
+    expect(bellinzona).toContain('Altre zone: prezzi benzina e diesel');
+  });
+
+  it('labels its fill-up calculation as an example and uses the displayed price', () => {
     const italian = pages['/prezzi-benzina/chiasso/oggi/'];
-    expect(italian).toContain('105.6 litri al mese');
+    expect(italian).toContain('Ipotizzando un rifornimento di 50 litri');
+    expect(italian).toContain('89.75 CHF');
     expect(italian).not.toContain('4 × 50 ×');
     expect(italian).not.toContain('circa 200 litri');
 
     const english = pages['/en/gasoline-price-switzerland/chiasso/today/'];
-    expect(english).toContain('105.6 litres a month');
+    expect(english).toContain('Assuming a 50-litre fill');
+    expect(english).toContain('CHF 89.75');
     expect(english).not.toContain('4 × 50 ×');
     expect(english).not.toContain('about 200 litres');
+  });
+
+  it('uses linked ARIA tabs for the benzina and diesel history charts', () => {
+    const ranges = ['1M', '3M', '6M', '1Y', '5Y'];
+    for (const path of ['/prezzi-benzina/oggi/', '/prezzi-diesel/oggi/']) {
+      const html = pages[path];
+      const tablist = html.match(/<div\b[^>]*class=(?:"s-fhc-r"|s-fhc-r)[^>]*role=(?:"tablist"|tablist)[^>]*>([\s\S]*?)<\/div>/);
+      expect(tablist, `missing fuel history tablist on ${path}`).toBeTruthy();
+      const tabMarkup = tablist?.[1] ?? '';
+      const tabs = [...tabMarkup.matchAll(/<button\b([^>]*)>/g)].map((match) => match[1]);
+      expect(tabs, `tab count on ${path}`).toHaveLength(ranges.length);
+
+      const attr = (markup: string, name: string): string => {
+        const match = markup.match(new RegExp(`${name}=(?:"([^"]*)"|([^\\s>]+))`));
+        return match?.[1] ?? match?.[2] ?? '';
+      };
+
+      const selectedRanges: string[] = [];
+      for (const [index, attrs] of tabs.entries()) {
+        const range = attr(attrs, 'data-range-btn');
+        expect(range, `${path} tab ${index} range`).toBe(ranges[index]);
+        expect(attr(attrs, 'role'), `${path} tab ${range} role`).toBe('tab');
+        const tabId = attr(attrs, 'id');
+        const panelId = attr(attrs, 'aria-controls');
+        expect(tabId, `${path} tab ${range} id`).toBeTruthy();
+        expect(panelId, `${path} tab ${range} panel relation`).toBeTruthy();
+        expect(attrs, `${path} tab ${range} must not use aria-pressed`).not.toMatch(
+          /\baria-pressed=/,
+        );
+        if (attr(attrs, 'aria-selected') === 'true') selectedRanges.push(range);
+
+        const panel = html.match(new RegExp(`<div data-range-content=(?:"${range}"|${range})([^>]*)>`));
+        expect(panel, `${path} panel for ${range}`).toBeTruthy();
+        const panelAttrs = panel?.[1] ?? '';
+        expect(attr(panelAttrs, 'id'), `${path} panel ${range} id`).toBe(panelId);
+        expect(attr(panelAttrs, 'role'), `${path} panel ${range} role`).toBe('tabpanel');
+        expect(attr(panelAttrs, 'aria-labelledby'), `${path} panel ${range} relation`).toBe(tabId);
+        expect(attr(panelAttrs, 'tabindex'), `${path} panel ${range} keyboard target`).toBe('0');
+      }
+      expect(selectedRanges, `selected tab on ${path}`).toEqual(['6M']);
+    }
   });
 
   it('locale coverage — exactly 4 locales × 2 fuels × 6 combos', () => {
@@ -315,7 +442,7 @@ describe('fuel-daily page generation — diesel data sourcing (F6 real diesel)',
     expect(chiassoDiesel).not.toContain('2,000 CHF');
   });
 
-  it('falls back to SP95 + legacy offset when dieselPriceChf is missing', () => {
+  it('does not publish an inferred current diesel price when dieselPriceChf is missing', () => {
     const isolated = {
       generatedAt: '2026-04-20T06:00:00.000Z',
       municipalities: [
@@ -332,8 +459,8 @@ describe('fuel-daily page generation — diesel data sourcing (F6 real diesel)',
     };
     const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-diesel-fallback', dataset: isolated, history: [], today });
     const locarnoDiesel = pages['/prezzi-diesel/locarno/oggi/'];
-    // Fallback: 1.90 + 0.08 = 1.98
-    expect(locarnoDiesel).toContain('1,980');
+    // No source diesel price: the page must not advertise the old 1.90 + 0.08 estimate.
+    expect(locarnoDiesel).not.toContain('1,980');
   });
 
   it('benzina price is unaffected by dieselPriceChf absence', () => {
@@ -380,12 +507,11 @@ describe('fuel-daily page generation — unchanged-delta UX', () => {
     { date: '2026-04-19', zones: { chiasso: { benzina: 1.8 } }, regional: {} },
   ];
 
-  it('IT: zero delta reads grammatically across tile, tagline, paragraph and frontalier context', () => {
+  it('IT: zero delta reads grammatically across tile, tagline and paragraph', () => {
     // @ts-expect-error partial HistorySnapshot shape (single zone) acceptable for this test
     const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-unchanged-it', dataset: isolated, history, today });
     const html = pages['/prezzi-benzina/chiasso/oggi/'];
-    // paragraph (adjective frame) + tagline + frontalier copula frame
-    expect(html).toContain('stabile rispetto a ieri');
+    // Both the compact tagline and the full sentence distinguish zero from missing data.
     expect(html).toContain('stabile vs ieri');
     expect(html).toContain('Il delta rispetto a ieri è stabile');
     // no misleading "0,000 CHF" and no broken "è di stabile" grammar
@@ -393,11 +519,10 @@ describe('fuel-daily page generation — unchanged-delta UX', () => {
     expect(html).not.toContain('è di stabile');
   });
 
-  it('EN: zero delta reads grammatically across tagline, paragraph and frontalier context', () => {
+  it('EN: zero delta reads grammatically across tagline and paragraph', () => {
     // @ts-expect-error partial HistorySnapshot shape (single zone) acceptable for this test
     const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-unchanged-en', dataset: isolated, history, today });
     const html = pages['/en/gasoline-price-switzerland/chiasso/today/'];
-    expect(html).toContain('unchanged compared to yesterday');
     expect(html).toContain('unchanged vs yesterday');
     expect(html).toContain('The day-over-day delta is unchanged');
     expect(html).not.toContain('0.000 CHF compared to yesterday');
@@ -422,7 +547,161 @@ describe('fuel-daily page generation — unchanged-delta UX', () => {
   });
 });
 
+
+describe('fuel-daily page generation — observation date', () => {
+  // The renderer's clock is explicit; advancing a build cannot refresh this sample.
+  const observedAt = new Date('2026-04-20T06:00:00.000Z');
+  const day = 24 * 60 * 60 * 1000;
+  const buildAt = new Date(observedAt.getTime() + 3 * day);
+  const snapshotDate = new Date(observedAt.getTime() - day).toISOString().slice(0, 10);
+  const dataset = {
+    generatedAt: buildAt.toISOString(),
+    municipalities: [{
+      swiss: { nearbyStations: [{
+        id: 'dated', name: 'Dated Station', brand: 'TEST', address: 'Via Test 1, 6830 Chiasso',
+        sp95PriceChf: 1.8, updatedAt: observedAt.toISOString(),
+      }] },
+    }],
+  };
+  const history = [{
+    date: snapshotDate,
+    zones: { chiasso: { benzina: 1.8 }, mendrisio: undefined, lugano: undefined, bellinzona: undefined, locarno: undefined },
+    regional: { benzina: 1.8 },
+  }];
+  const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-dated', dataset, history, today: buildAt });
+
+  it('keeps the acquisition date in metadata, charts and daily comparisons after a rebuild', () => {
+    for (const [locale, path] of [
+      ['it', '/prezzi-benzina/chiasso/oggi/'],
+      ['en', '/en/gasoline-price-switzerland/chiasso/today/'],
+      ['de', '/de/benzinpreis-schweiz/chiasso/heute/'],
+      ['fr', '/fr/prix-essence-suisse/chiasso/aujourd-hui/'],
+    ]) {
+      const html = pages[path];
+      const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+        .map((match) => JSON.parse(match[1])).find((entry) => entry['@type'] === 'WebPage');
+      expect(ld?.dateModified, locale).toBe(observedAt.toISOString());
+      expect(html.match(/<title>([^<]+)<\/title>/)?.[1], locale).toContain('20.04.2026');
+      expect(html.match(/<h1[^>]*>([^<]+)<\/h1>/)?.[1], locale).not.toMatch(/oggi|today|heute|aujourd/);
+      expect(html, locale).toContain('vs 19.04.2026');
+      expect(html, locale).not.toMatch(/stabile vs ieri|unchanged vs yesterday|unverändert vs gestern|stable vs hier/);
+      // History must not fabricate a point for the later build date.
+      const emittedDates = [...html.matchAll(/<td\b[^>]*>(\d{4}-\d{2}-\d{2})<\/td>/g)].map((match) => match[1]);
+      expect(emittedDates, locale).toContain(observedAt.toISOString().slice(0, 10));
+      expect(emittedDates, locale).not.toContain(buildAt.toISOString().slice(0, 10));
+    }
+    expect(pages['/prezzi-benzina/chiasso/oggi/']).toContain('Dato non recente');
+  });
+
+  it('does not turn an absent snapshot into an unchanged price', () => {
+    const withoutHistory = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-no-snapshot', dataset, history: [], today: observedAt });
+    const html = withoutHistory['/prezzi-benzina/chiasso/oggi/'];
+    expect(html).toContain('il confronto richiede almeno due snapshot giornalieri');
+    expect(html).not.toContain('Il delta rispetto a ieri è stabile');
+    expect(html).not.toContain('stabile vs ieri');
+  });
+});
+
+describe('fuel-daily page generation — dated EUR equivalent', () => {
+  const today = new Date('2026-04-20T06:00:00.000Z');
+  const ecbSourceUrl = 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html';
+  const dataset = {
+    ...DATASET,
+    sources: {
+      exchangeRate: {
+        provider: 'ECB',
+        sourceUrl: ecbSourceUrl,
+        rateDate: '2026-04-17',
+        chfPerEur: 0.95,
+        eurPerChf: 1 / 0.95,
+      },
+    },
+  };
+  const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-eur-test', dataset, history: [], today });
+
+  it('shows the CHF-to-EUR equivalent with the dated ECB source on existing URLs in every locale', () => {
+    for (const [locale, path, rate] of [
+      ['it', '/prezzi-benzina/oggi/', '0,9500'],
+      ['en', '/en/gasoline-price-switzerland/today/', '0.9500'],
+      ['de', '/de/benzinpreis-schweiz/heute/', '0.9500'],
+      ['fr', '/fr/prix-essence-suisse/aujourd-hui/', '0,9500'],
+    ]) {
+      const html = pages[path];
+      expect(html, locale).toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+      expect(html, locale).toMatch(htmlAttr('id', 'fuelEuroContext'));
+      expect(html, locale).toContain('17.04.2026');
+      expect(html, locale).toContain(ecbSourceUrl);
+      expect(html, locale).toContain(rate);
+      const descriptionTag = (html.match(/<meta\b[^>]*>/gi) ?? [])
+        .find(tag => /\sname=(?:"description"|'description'|description)(?=[\s>])/i.test(tag));
+      expect(descriptionTag, locale).toBeDefined();
+      const descriptionContent = descriptionTag?.match(/\scontent=(?:"([^"]*)"|'([^']*)'|([^\s>]+))(?=[\s>])/i);
+      expect(descriptionContent?.slice(1).find(value => value !== undefined), locale).toMatch(/EUR\/l/i);
+    }
+
+    // The regional SP95 fixture averages CHF 1.835/l; at 1 EUR = CHF 0.95,
+    // the reciprocal conversion rounds to EUR 1.932/l.
+    expect(pages['/prezzi-benzina/oggi/']).toContain('≈ 1,932 EUR/l');
+  });
+
+  it('hides the conversion when the ECB observation date is invalid', () => {
+    const invalidDataset = {
+      ...dataset,
+      sources: { exchangeRate: { ...dataset.sources.exchangeRate, rateDate: '2026-02-30' } },
+    };
+    const invalidPages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-eur-invalid-date-test', dataset: invalidDataset, history: [], today });
+    const html = invalidPages['/prezzi-benzina/oggi/'];
+
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroContext'));
+  });
+
+  it('keeps the existing CHF-only output when exchange-rate metadata is absent', () => {
+    const withoutRatePages = generateFuelDailyPages({
+      rootDir: '/tmp/frontaliere-fuel-eur-no-rate-test',
+      dataset: DATASET,
+      history: [],
+      today,
+    });
+    const html = withoutRatePages['/prezzi-diesel/oggi/'];
+
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroContext'));
+  });
+});
+
 describe('fuel-daily archive generation', () => {
+  it('links every emitted archive month from its matching daily page', () => {
+    const today = new Date('2026-10-14T06:00:00.000Z');
+    const months = ['2026-03', '2026-04', '2026-05', '2026-06', '2026-07', '2026-08', '2026-09'];
+    const archivePaths = FUEL_DAILY_LOCALES.flatMap((locale) =>
+      FUEL_TYPES.flatMap((fuel) =>
+        FUEL_ZONES.flatMap((zone) => months.map((month) => buildFuelArchivePath(locale, fuel, zone, month))),
+      ),
+    );
+    const pages = generateFuelDailyPages({
+      rootDir: '/tmp/frontaliere-fuel-archive-navigation-test',
+      dataset: DATASET,
+      history: [],
+      archivePaths,
+      today,
+    });
+
+    for (const locale of FUEL_DAILY_LOCALES) {
+      for (const fuel of FUEL_TYPES) {
+        const regionalPage = pages[buildFuelTodayPath(locale, fuel)]!;
+        for (const zone of FUEL_ZONES) {
+          const dailyPage = pages[buildFuelTodayPath(locale, fuel, zone)]!;
+          for (const month of months) {
+            const archivePath = buildFuelArchivePath(locale, fuel, zone, month);
+            expect(dailyPage, `${locale}/${fuel}/${zone} should link ${month}`).toContain(`href="${archivePath}"`);
+            expect(regionalPage, `${locale}/${fuel} should link ${zone}/${month}`).toContain(`href="${archivePath}"`);
+          }
+        }
+      }
+    }
+  });
+
   it('generates archives only for past months', () => {
     const today = new Date('2026-04-20T06:00:00.000Z');
     const history = [
@@ -441,5 +720,59 @@ describe('fuel-daily archive generation', () => {
   it('returns empty object when history is empty', () => {
     const archives = generateFuelArchivePages({ history: [], today: new Date('2026-04-20') });
     expect(archives).toEqual({});
+  });
+
+  it('links durable indexable archives even when their snapshots are outside daily history', () => {
+    const today = new Date('2026-10-20T06:00:00.000Z');
+    const archiveSnapshot = {
+      date: '2026-03-15',
+      diesel: { source: 'api' as const },
+      zones: Object.fromEntries(FUEL_ZONES.map((zone) => [zone, { benzina: 1.8, diesel: 1.9 }])),
+      regional: { benzina: 1.8, diesel: 1.9 },
+    } as Parameters<typeof generateFuelArchivePages>[0]['history'][number];
+    const archives = generateFuelArchivePages({ history: [archiveSnapshot], today });
+    const archivePaths = Object.entries(archives)
+      .filter(([, html]) => htmlHasIndexableRobots(html) && countHtmlBodyWords(html) >= MIN_INDEXABLE_WORDS)
+      .map(([path]) => path);
+    const dailyPages = generateFuelDailyPages({
+      rootDir: '/tmp/frontaliere-durable-fuel-archives',
+      dataset: DATASET,
+      history: [],
+      archivePaths,
+      today,
+    });
+
+    let linkedArchives = 0;
+    for (const locale of FUEL_DAILY_LOCALES) {
+      for (const fuel of FUEL_TYPES) {
+        for (const zone of FUEL_ZONES) {
+          const archivePath = buildFuelArchivePath(locale, fuel, zone, '2026-03');
+          if (!archivePaths.includes(archivePath)) continue;
+          const dailyPath = buildFuelTodayPath(locale, fuel, zone);
+          expect(dailyPages[dailyPath], `${dailyPath} should link ${archivePath}`).toContain(`href="${archivePath}"`);
+          linkedArchives++;
+        }
+      }
+    }
+    expect(linkedArchives).toBe(archivePaths.length);
+  });
+});
+
+
+describe('fuel observation civil day and UTC history', () => {
+  it('shows the Swiss collection day while retaining the original UTC series keys', () => {
+    const observedAt = new Date('2026-09-30T22:30:00.000Z');
+    const today = new Date(observedAt.getTime() + 9.5 * 60 * 60 * 1000);
+    const history = [{ date: '2026-09-29', zones: { chiasso: { benzina: 1.8 }, mendrisio: undefined, lugano: undefined, bellinzona: undefined, locarno: undefined }, regional: { benzina: 1.8 } }];
+    const dataset = { municipalities: [{ swiss: { nearbyStations: [{ name: 'Night sample', brand: 'TEST', address: 'Via Test 1, 6830 Chiasso', sp95PriceChf: 1.8, updatedAt: observedAt.toISOString() }] } }] };
+    const html = generateFuelDailyPages({ rootDir: '/tmp/fuel-civil-day-test', dataset, history, today })['/prezzi-benzina/chiasso/oggi/'];
+    expect(html.match(/<title>([^<]+)<\/title>/)?.[1]).toContain('TCS 01.10.2026');
+    expect(html.match(/<h1[^>]*>([^<]+)<\/h1>/)?.[1]).toContain('oggi a Chiasso');
+    expect(html).toContain('vs 29.09.2026');
+    expect(html).not.toContain('stabile vs ieri');
+    expect(html).toContain(`"dateModified":"${observedAt.toISOString()}"`);
+    const dates = [...html.matchAll(/<td\b[^>]*>(\d{4}-\d{2}-\d{2})<\/td>/g)].map((match) => match[1]);
+    expect(dates).toContain(observedAt.toISOString().slice(0, 10));
+    expect(dates).not.toContain(today.toISOString().slice(0, 10));
   });
 });

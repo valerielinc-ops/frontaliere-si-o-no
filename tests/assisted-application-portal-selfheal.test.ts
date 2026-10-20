@@ -1,0 +1,164 @@
+import { describe, expect, it } from 'vitest';
+import { clickSubmitButton, guardAgentStep, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
+import { labelsAt, learnedButton, normalizeLabel, portalKnowledgeStore, PORTAL_KNOWLEDGE_COLLECTION } from '../scripts/assisted-application/lib/portal/knowledge.mjs';
+import { anonymizePath, pageControls, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { CONFIRM_RE, REFUSED_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { candidateValues, redactStopReport, stopIssue } from '../scripts/assisted-application/lib/portal/stop-report.mjs';
+import { createMemoryFirestore } from './helpers/memoryFirestore';
+
+// Owner decision 2026-10-01: the runner corrects itself the way JOIN's «Conferma e applica» was fixed (#10725).
+describe('portal runner self-correction', () => {
+  it('level 1: the agent may name the last page’s send button; the guard keeps only a real ref', () => {
+    expect(Object.keys(AGENT_SCHEMA.properties)).toContain('submitRef');
+    const turn = (submitRef: string) => ({ status: 'done', reason: '', advanceRef: '', submitRef, actions: [], questions: [] });
+    expect(guardAgentStep(turn('e42'), null).submitRef).toBe('e42');
+    expect(guardAgentStep(turn('button:has-text("Invia")'), null).submitRef).toBe('');
+  });
+
+  it('level 1: re-resolves an agent-named send button after SuccessFactors replaces its ref', async () => {
+    const stale = { click: vi.fn().mockRejectedValue(new Error('locator.click: Timeout while waiting for locator')) };
+    const fresh = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      click: vi.fn().mockResolvedValue(undefined),
+    };
+    const candidates = { count: vi.fn().mockResolvedValue(1), nth: vi.fn().mockReturnValue(fresh) };
+    const page = { getByRole: vi.fn().mockReturnValue(candidates) };
+
+    await expect(clickSubmitButton(page as any, { locator: stale, name: 'Postuler' })).resolves.toBe('role');
+    expect(page.getByRole).toHaveBeenCalledWith('button', { name: 'Postuler', exact: true });
+    expect(fresh.click).toHaveBeenCalledWith({ timeout: 6000 });
+  });
+
+  it('level 1: does not retry a click whose dispatch outcome is ambiguous', async () => {
+    let dispatches = 0;
+    const dispatchedThenRejected = {
+      click: vi.fn(async () => {
+        dispatches += 1;
+        throw new Error('locator.click: Timeout while waiting for navigation');
+      }),
+    };
+    const page = { getByRole: vi.fn() };
+
+    await expect(clickSubmitButton(page as any, { locator: dispatchedThenRejected, name: 'Postuler' })).resolves.toBe('outcome');
+    expect(dispatches).toBe(1);
+    expect(page.getByRole).not.toHaveBeenCalled();
+  });
+
+  it('level 1: stops after the first ambiguous fallback click', async () => {
+    let dispatches = 0;
+    const first = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      click: vi.fn(async () => {
+        dispatches += 1;
+        throw new Error('locator.click: Timeout while waiting for navigation');
+      }),
+    };
+    const second = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      click: vi.fn().mockResolvedValue(undefined),
+    };
+    const candidates = { count: vi.fn().mockResolvedValue(2), nth: vi.fn((index: number) => index === 0 ? first : second) };
+    const page = { getByRole: vi.fn().mockReturnValue(candidates) };
+
+    await expect(clickSubmitButton(page as any, { locator: { click: vi.fn().mockRejectedValue(new Error('waiting for locator')) }, name: 'Postuler' })).resolves.toBe('outcome');
+    expect(dispatches).toBe(1);
+    expect(second.click).not.toHaveBeenCalled();
+  });
+
+  it('level 2: remembers a portal’s buttons with their page after a confirmed submission and recognises them next time', async () => {
+    const { db, read } = createMemoryFirestore();
+    const store = portalKnowledgeStore({ db });
+    expect(await store.load('join.com')).toEqual({ finalButtons: [], nextButtons: [] });
+    const review = '/companies/*/*/apply/review';
+    await store.learn('join.com', { finalButton: { path: review, label: 'Conferma e  applica' }, nextButtons: [{ path: '/companies/*/*/apply', label: 'Salva e prosegui' }] });
+    await store.learn('JOIN.com', { finalButton: { path: review, label: 'Conferma e applica' } });
+    const known = await store.load('join.com');
+    expect(known).toEqual({ finalButtons: [{ path: review, label: 'conferma e applica' }], nextButtons: [{ path: '/companies/*/*/apply', label: 'salva e prosegui' }] });
+    expect(read(`${PORTAL_KNOWLEDGE_COLLECTION}/join.com`)).toMatchObject({ confirmedSubmissions: 2 });
+    // Exact label only, enabled only, on its own page only.
+    const buttons = [{ id: 'b1', text: 'Conferma e applica filtro' }, { id: 'b2', text: ' Conferma e applica ', disabled: true }, { id: 'b3', text: 'Conferma e applica' }];
+    expect(learnedButton(buttons, labelsAt(known.finalButtons, review))).toEqual({ id: 'b3', text: 'Conferma e applica' });
+    expect(labelsAt(known.finalButtons, '/companies/*/*/apply')).toEqual([]);
+    expect(normalizeLabel('  A   b ')).toBe('a b');
+  });
+
+  // Review of #10741: a label learned on the summary page is not a send button elsewhere on the host.
+  it('level 2: a taught send button counts only on its page and never next to a step button', () => {
+    // An unusual name (a usual one, «Conferma e applica» since #10725, is a send button anywhere).
+    const known = { finalButtons: [{ path: '/jobs/*/review', label: 'abschliessen und übermitteln' }], nextButtons: [{ path: '/jobs/*/apply', label: 'salva e prosegui' }] };
+    const send = { id: 's', text: 'Abschliessen und übermitteln' };
+    const step = { id: 'n', text: 'Salva e prosegui' };
+    expect(pageControls([send], known, 'https://portal.example/jobs/123/review')).toEqual({ submit: send, next: null });
+    // Same label on an intermediate page: neither a send nor a step button, left to the page and the agent.
+    expect(pageControls([send], known, 'https://portal.example/jobs/123/apply')).toEqual({ submit: null, next: null });
+    expect(pageControls([send, step], known, 'https://portal.example/jobs/123/apply')).toEqual({ submit: null, next: step });
+    // On its own page, next to a usual step button, still not a send button.
+    const usualNext = { id: 'w', text: 'Weiter' };
+    expect(pageControls([send, usualNext], known, 'https://portal.example/jobs/123/review')).toEqual({ submit: null, next: usualNext });
+    // A usual send name keeps winning everywhere.
+    const usualSend = { id: 'u', text: 'Bewerbung absenden' };
+    expect(pageControls([usualSend, usualNext], known, 'https://portal.example/other')).toEqual({ submit: usualSend, next: usualNext });
+  });
+
+  it('level 3: the stop report names the page without the employer or the posting', () => {
+    expect(anonymizePath('https://join.com/companies/acme-sagl/16772222/apply/review?step=3#x')).toBe('/companies/*/*/apply/review');
+    expect(anonymizePath('https://acme.wd3.myworkdayjobs.com/de-DE/External/job/Lugano/Pflege_R12345/apply')).toBe('/de-DE/External/job/*/*/apply');
+    expect(anonymizePath('not a url')).toBe('');
+    const report = stopReportFrom({
+      url: 'https://join.com/companies/acme/16772222/apply/review',
+      reason: 'portal_needs_candidate',
+      step: 10,
+      seen: { buttons: [{ text: 'Indietro' }, { text: 'Conferma e applica' }, { text: 'Indietro' }], fields: [{ label: 'Note', kind: 'textarea', required: false, value: 'x' }], errors: [] },
+      agent: [{ hint: 'no_form_controls', status: 'done', rounds: [] }],
+    });
+    expect(report).toEqual({
+      host: 'join.com', path: '/companies/*/*/apply/review', reason: 'portal_needs_candidate', step: 10,
+      buttons: ['Indietro', 'Conferma e applica'], fields: [{ label: 'Note', kind: 'textarea', required: false }], errors: [],
+      agent: [{ hint: 'no_form_controls', status: 'done' }],
+    });
+  });
+
+  it('level 3: strikes every value of the candidate out before the public issue', () => {
+    const values = candidateValues([['Maria Rossi', 'maria.rossi@example.com', '1986-09-12'], ['c-abcdefghjk@candidature.example'], ['+41 79 123 45 67']]);
+    const clean = redactStopReport({
+      host: 'jobs.example', path: '/apply', reason: 'portal_needs_candidate', step: 3,
+      buttons: ['Profilo di Maria', 'Invia'],
+      fields: [{ label: 'Rossi, conferma la data 12.09.1986', kind: 'text', required: true }],
+      errors: ['Indirizzo maria.rossi@example.com già usato', 'Chiama +41 79 123 45 67', 'Scrivi a altro@example.org'],
+    }, values);
+    const text = JSON.stringify(clean);
+    for (const value of ['Maria', 'Rossi', 'maria.rossi', '12.09.1986', '123 45 67', 'altro@example.org']) expect(text).not.toContain(value);
+    expect(clean.buttons).toEqual(['Profilo di [dato del candidato]', 'Invia']);
+
+    const issue = stopIssue(clean, 'https://github.com/o/r/actions/runs/1');
+    expect(issue.title).toBe('[portal-stop] jobs.example: pagina non superata su /apply');
+    expect(issue.dedupKey).toBe(issue.title);
+    expect(issue.description).toContain('`Invia`');
+    expect(issue.description).toContain('onBeforeSubmit');
+    expect(issue.description).not.toContain('Maria');
+  });
+
+  // P4: a birth date typed on the review page the Swiss way is struck in its ISO form too, and a written one in both.
+  it('level 3: strikes a birth date in every form the portals and the CV write it', () => {
+    expect(candidateValues([['12.09.1986']])).toEqual(expect.arrayContaining(['12.09.1986', '1986-09-12', '12/09/1986', '12-09-1986']));
+    expect(candidateValues([['14. März 2010']])).toEqual(expect.arrayContaining(['2010-03-14', '14.03.2010']));
+  });
+
+  // JOIN run 36846326334: after «Conferma e applica» the portal said it did not send.
+  it('reads a portal’s own refusal as a refusal, never as a confirmation', () => {
+    for (const text of [
+      'Non siamo riusciti a inviare la tua candidatura. Riprova.',
+      'We couldn’t submit your application',
+      "We couldn't send your application",
+      'Ihre Bewerbung konnte nicht gesendet werden.',
+      "Nous n'avons pas pu envoyer votre candidature.",
+    ]) {
+      expect(REFUSED_RE.test(text)).toBe(true);
+      expect(CONFIRM_RE.test(text)).toBe(false);
+    }
+    expect(REFUSED_RE.test('Grazie per la tua candidatura, è stata inviata.')).toBe(false);
+  });
+});

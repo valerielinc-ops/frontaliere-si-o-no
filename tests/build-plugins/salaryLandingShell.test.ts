@@ -46,18 +46,18 @@ describe('salaryLandingShell · resolver', () => {
   });
 
   it('resolves all 4 net-comparison scenarios in IT (canonical paths)', () => {
-    const cases: Array<{ path: string; eyebrowSubstr: string }> = [
-      { path: '/calcola-stipendio/confronto-netto-2025-2026-entro-20km', eyebrowSubstr: 'Entro 20 km' },
-      { path: '/calcola-stipendio/confronto-netto-2025-2026-oltre-20km', eyebrowSubstr: 'Oltre 20 km' },
-      { path: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km', eyebrowSubstr: 'Permesso G vs B' },
-      { path: '/calcola-stipendio/confronto-permesso-g-vs-b-oltre-20km', eyebrowSubstr: 'Permesso G vs B' },
+    const cases: Array<{ path: string; eyebrowSubstr: string; columns: number; tiles: number }> = [
+      { path: '/calcola-stipendio/confronto-netto-2025-2026-entro-20km', eyebrowSubstr: 'Entro 20 km', columns: 3, tiles: 3 },
+      { path: '/calcola-stipendio/confronto-netto-2025-2026-oltre-20km', eyebrowSubstr: 'Oltre 20 km', columns: 2, tiles: 3 },
+      { path: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km', eyebrowSubstr: 'Permesso G vs B', columns: 4, tiles: 4 },
+      { path: '/calcola-stipendio/confronto-permesso-g-vs-b-oltre-20km', eyebrowSubstr: 'Permesso G vs B', columns: 4, tiles: 4 },
     ];
     for (const c of cases) {
       const r = _internal.resolveScenarioData(c.path);
       expect(r.locale).toBe('it');
       expect(r.data.eyebrow).toContain(c.eyebrowSubstr);
-      expect(r.data.table?.headers.length).toBe(4);
-      expect(r.data.tiles.length).toBe(4);
+      expect(r.data.table?.headers.length).toBe(c.columns);
+      expect(r.data.tiles.length).toBe(c.tiles);
       expect(r.data.faqs?.length).toBe(3);
     }
   });
@@ -69,33 +69,52 @@ describe('salaryLandingShell · resolver', () => {
   // for each — the resolver must keep all 16 mappings in sync with
   // services/router.ts REVERSE_SALARY_SUBTAB_BY_LOCALE.
   it('resolves all 4 net-comparison scenarios across EN, DE, FR', () => {
-    const cases: Array<{ path: string; locale: SalaryLocale }> = [
+    const cases: Array<{ path: string; locale: SalaryLocale; columns: number; tiles: number }> = [
       // confronto-netto-2025-2026-entro-20km
-      { path: '/en/calculate-salary/net-comparison-2025-2026-within-20km', locale: 'en' },
-      { path: '/de/gehalt-berechnen/nettovergleich-2025-2026-bis-20km', locale: 'de' },
-      { path: '/fr/calculer-salaire/comparaison-net-2025-2026-moins-20km', locale: 'fr' },
+      { path: '/en/calculate-salary/net-comparison-2025-2026-within-20km', locale: 'en', columns: 3, tiles: 3 },
+      { path: '/de/gehalt-berechnen/nettovergleich-2025-2026-bis-20km', locale: 'de', columns: 3, tiles: 3 },
+      { path: '/fr/calculer-salaire/comparaison-net-2025-2026-moins-20km', locale: 'fr', columns: 3, tiles: 3 },
       // confronto-netto-2025-2026-oltre-20km
-      { path: '/en/calculate-salary/net-comparison-2025-2026-over-20km', locale: 'en' },
-      { path: '/de/gehalt-berechnen/nettovergleich-2025-2026-ueber-20km', locale: 'de' },
-      { path: '/fr/calculer-salaire/comparaison-net-2025-2026-plus-20km', locale: 'fr' },
+      { path: '/en/calculate-salary/net-comparison-2025-2026-over-20km', locale: 'en', columns: 2, tiles: 3 },
+      { path: '/de/gehalt-berechnen/nettovergleich-2025-2026-ueber-20km', locale: 'de', columns: 2, tiles: 3 },
+      { path: '/fr/calculer-salaire/comparaison-net-2025-2026-plus-20km', locale: 'fr', columns: 2, tiles: 3 },
       // confronto-permesso-g-vs-b-entro-20km
-      { path: '/en/calculate-salary/permit-g-vs-b-comparison-within-20km', locale: 'en' },
-      { path: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-bis-20km', locale: 'de' },
-      { path: '/fr/calculer-salaire/comparaison-permis-g-vs-b-moins-20km', locale: 'fr' },
+      { path: '/en/calculate-salary/permit-g-vs-b-comparison-within-20km', locale: 'en', columns: 4, tiles: 4 },
+      { path: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-bis-20km', locale: 'de', columns: 4, tiles: 4 },
+      { path: '/fr/calculer-salaire/comparaison-permis-g-vs-b-moins-20km', locale: 'fr', columns: 4, tiles: 4 },
       // confronto-permesso-g-vs-b-oltre-20km
-      { path: '/en/calculate-salary/permit-g-vs-b-comparison-over-20km', locale: 'en' },
-      { path: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-ueber-20km', locale: 'de' },
-      { path: '/fr/calculer-salaire/comparaison-permis-g-vs-b-plus-20km', locale: 'fr' },
+      { path: '/en/calculate-salary/permit-g-vs-b-comparison-over-20km', locale: 'en', columns: 4, tiles: 4 },
+      { path: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-ueber-20km', locale: 'de', columns: 4, tiles: 4 },
+      { path: '/fr/calculer-salaire/comparaison-permis-g-vs-b-plus-20km', locale: 'fr', columns: 4, tiles: 4 },
     ];
     for (const c of cases) {
       const r = _internal.resolveScenarioData(c.path);
       expect(r.locale, `wrong locale for ${c.path}`).toBe(c.locale);
-      // The shell must serve the net-comparison template (4-column table
-      // + 4 tiles + 3 FAQs), not the generic default that would otherwise
+      // Rule comparisons use 3 columns within the zone and 2 outside it;
+      // G/B comparisons retain 4 numeric columns. Never use the generic default, which would
       // catch unknown paths under /{locale}/{salary-hub}/anything.
-      expect(r.data.table?.headers.length, `missing comparison table for ${c.path}`).toBe(4);
-      expect(r.data.tiles.length, `wrong tile count for ${c.path}`).toBe(4);
+      expect(r.data.table?.headers.length, `missing comparison table for ${c.path}`).toBe(c.columns);
+      expect(r.data.tiles.length, `wrong tile count for ${c.path}`).toBe(c.tiles);
       expect(r.data.faqs?.length, `wrong FAQ count for ${c.path}`).toBe(3);
+    }
+  });
+
+  it('LAMal/SSN FAQ of the permit G vs B landing cites the federal source and the three-month deadline', () => {
+    const cases: Array<{ path: string; locale: SalaryLocale; deadline: RegExp }> = [
+      { path: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km', locale: 'it', deadline: /tre mesi/ },
+      { path: '/en/calculate-salary/permit-g-vs-b-comparison-within-20km', locale: 'en', deadline: /three months/ },
+      { path: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-bis-20km', locale: 'de', deadline: /drei Monaten/ },
+      { path: '/fr/calculer-salaire/comparaison-permis-g-vs-b-moins-20km', locale: 'fr', deadline: /trois mois/ },
+    ];
+    for (const c of cases) {
+      const r = _internal.resolveScenarioData(c.path);
+      expect(r.locale, `wrong locale for ${c.path}`).toBe(c.locale);
+      const healthFaqs = (r.data.faqs ?? []).filter((faq) => /LAMal/.test(faq.q) && /\bSSN\b/.test(faq.q));
+      expect(healthFaqs.length, `no LAMal/SSN FAQ on ${c.path}`).toBeGreaterThan(0);
+      for (const faq of healthFaqs) {
+        expect(faq.a, `federal source missing on ${c.path}`).toContain('bag.admin.ch');
+        expect(faq.a, `three-month deadline missing on ${c.path}`).toMatch(c.deadline);
+      }
     }
   });
 
@@ -137,6 +156,7 @@ describe('salaryLandingShell · buildSalaryLandingBody', () => {
     expect(html).toContain('Imposta alla fonte CH');
     expect(html).toContain('Consiglio');
     expect(html).toContain('Calcola il tuo netto');
+    expect(html).toContain('min-height:44px');
     expect(html).toContain('<table');
     expect(html).toContain('<details');
     expect(html).toContain('Domande frequenti');
@@ -165,9 +185,11 @@ describe('salaryLandingShell · buildSalaryLandingBody', () => {
     });
     expect(html).toMatch(/80['. \s]?000/);
     // Net is now derived from calculateSimulation (single-A0 base variant,
-    // WITHIN_20KM): CHF 48'156 net / EUR 52'779, matching the over-20km hub.
-    expect(html).toMatch(/48['. \s]?156/);
-    expect(html).toMatch(/52['. \s]?779/);
+    // WITHIN_20KM): CHF 48'557 net / EUR 53'218, matching the over-20km hub.
+    // 2026 IRPEF second bracket at 33% (L. 199/2025): EUR 440 less IRPEF than
+    // with 35% (was CHF 48'156 / EUR 52'779).
+    expect(html).toMatch(/48['. \s]?557/);
+    expect(html).toMatch(/53['. \s]?218/);
   });
 
   it('shipsh bespoke data for the 4 new orphan hubs', () => {
@@ -260,7 +282,7 @@ describe('salaryLandingShell · salary-tier variants derive from calculateSimula
     expect(oldNet).toBeGreaterThan(newNet); // grandfathered keeps more
     // Spot-check the exact calculator-derived figures (guards against drift).
     expect(oldNet).toBe(61840);
-    expect(marriedNet).toBe(53888);
+    expect(marriedNet).toBe(54290); // 53888 with the pre-2026 35% bracket (+EUR 440 / 1.096)
   });
 
   it('table caption is variant-aware (no "single A0" on old/married pages)', () => {

@@ -1,0 +1,575 @@
+{
+  "version": 1,
+  "weeks": [
+    {
+      "version": 1,
+      "weekStart": "2026-09-14",
+      "observations": [
+        {
+          "fetchedAt": "2026-09-15T09:40:29.571Z",
+          "catalogueFetchedAt": "2026-09-15T09:34:10.515Z",
+          "releaseId": "pharmacy-v1-18a6bb441ee3b40321276015e402a6a6d2377778a1d73ad1c8db1ad409cdb276",
+          "snapshots": {
+            "catalogue": "7066e6f29b869b3acd1383fcd597573101c29e1e09d0ffc84998316da8712854",
+            "duties": "b2159cce633fb30f813c549749f203305389a2bf34f7f1d0eb190381dfd9888a"
+          },
+          "entries": [
+            {
+              "duty": {
+                "id": "ti-duty-mendrisiotto-2026-09-12T06-00-00-000Z-ti-amavita-neuroni-riva-san-vitale",
+                "pharmacyId": "ti-amavita-neuroni-riva-san-vitale",
+                "coverageType": "region",
+                "coverageName": "Mendrisiotto",
+                "startsAt": "2026-09-12T06:00:00.000Z",
+                "endsAt": "2026-09-15T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "expired",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-amavita-neuroni-riva-san-vitale",
+                "name": "Farmacia Amavita Neuroni SA",
+                "city": "Riva San Vitale",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-mendrisiotto-2026-09-15T06-00-00-000Z-ti-bernasconi-coldrerio",
+                "pharmacyId": "ti-bernasconi-coldrerio",
+                "coverageType": "region",
+                "coverageName": "Mendrisiotto",
+                "startsAt": "2026-09-15T06:00:00.000Z",
+                "endsAt": "2026-09-19T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-15T09:40:29.571Z",
+                "verifiedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-bernasconi-coldrerio",
+                "name": "Farmacia Bernasconi",
+                "city": "Coldrerio",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-mendrisiotto-2026-09-19T06-00-00-000Z-ti-accademia-mendrisio",
+                "pharmacyId": "ti-accademia-mendrisio",
+                "coverageType": "region",
+                "coverageName": "Mendrisiotto",
+                "startsAt": "2026-09-19T06:00:00.000Z",
+                "endsAt": "2026-09-22T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-15T09:40:29.571Z",
+                "verifiedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-accademia-mendrisio",
+                "name": "Farmacia Accademia SA",
+                "city": "Mendrisio",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-luganese-2026-09-12T06-00-00-000Z-ti-farmacia-nassa-lugano",
+                "pharmacyId": "ti-farmacia-nassa-lugano",
+                "coverageType": "region",
+                "coverageName": "Luganese",
+                "startsAt": "2026-09-12T06:00:00.000Z",
+                "endsAt": "2026-09-19T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/luganese/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-15T09:40:29.571Z",
+                "verifiedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-farmacia-nassa-lugano",
+                "name": "Farmacia Nassa SA",
+                "city": "Lugano",
+                "sourceUrl": "https://www.ofct.ch/luganese/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-luganese-2026-09-19T06-00-00-000Z-ti-farmacia-san-nicolao-lugano",
+                "pharmacyId": "ti-farmacia-san-nicolao-lugano",
+                "coverageType": "region",
+                "coverageName": "Luganese",
+                "startsAt": "2026-09-19T06:00:00.000Z",
+                "endsAt": "2026-09-26T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/luganese/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-15T09:40:29.571Z",
+                "verifiedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-farmacia-san-nicolao-lugano",
+                "name": "Farmacia San Nicolao",
+                "city": "Lugano",
+                "sourceUrl": "https://www.ofct.ch/luganese/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-bellinzonese-2026-09-11T16-30-00-000Z-ti-benu-farmacia-sagittario-bellinzona",
+                "pharmacyId": "ti-benu-farmacia-sagittario-bellinzona",
+                "coverageType": "region",
+                "coverageName": "Bellinzonese",
+                "startsAt": "2026-09-11T16:30:00.000Z",
+                "endsAt": "2026-09-18T16:30:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/bellinzonese/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-15T09:40:29.571Z",
+                "verifiedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-benu-farmacia-sagittario-bellinzona",
+                "name": "Farmacia Benu Giubiasco",
+                "city": "Giubiasco",
+                "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-bellinzonese-2026-09-18T16-30-00-000Z-ti-stazione-bellinzona",
+                "pharmacyId": "ti-stazione-bellinzona",
+                "coverageType": "region",
+                "coverageName": "Bellinzonese",
+                "startsAt": "2026-09-18T16:30:00.000Z",
+                "endsAt": "2026-09-21T16:30:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/bellinzonese/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-15T09:40:29.571Z",
+                "verifiedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-stazione-bellinzona",
+                "name": "Farmacia Stazione",
+                "city": "Bellinzona",
+                "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-biasca-e-valli-2026-09-11T16-00-00-000Z-ti-amavita-biasca-biasca",
+                "pharmacyId": "ti-amavita-biasca-biasca",
+                "coverageType": "region",
+                "coverageName": "Biasca e Valli",
+                "startsAt": "2026-09-11T16:00:00.000Z",
+                "endsAt": "2026-09-18T16:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-15T09:40:29.571Z",
+                "verifiedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-amavita-biasca-biasca",
+                "name": "Farmacia Amavita Biasca",
+                "city": "Biasca",
+                "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-biasca-e-valli-2026-09-18T16-00-00-000Z-ti-rossetti-di-chiara-biasca",
+                "pharmacyId": "ti-rossetti-di-chiara-biasca",
+                "coverageType": "region",
+                "coverageName": "Biasca e Valli",
+                "startsAt": "2026-09-18T16:00:00.000Z",
+                "endsAt": "2026-09-25T16:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-15T09:40:29.571Z",
+                "verifiedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-rossetti-di-chiara-biasca",
+                "name": "Farmacia Rossetti di Chiara",
+                "city": "Biasca",
+                "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-locarnese-2026-09-11T16-30-00-000Z-ti-ofct-6598-farmacia-stella-d-oro-tenero",
+                "pharmacyId": "ti-ofct-6598-farmacia-stella-d-oro-tenero",
+                "coverageType": "region",
+                "coverageName": "Locarnese",
+                "startsAt": "2026-09-11T16:30:00.000Z",
+                "endsAt": "2026-09-14T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "expired",
+                "sourceUrl": "https://www.farmacielocarnese.ch/",
+                "sourceType": "association",
+                "fetchedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-ofct-6598-farmacia-stella-d-oro-tenero",
+                "name": "Farmacia Stella d'Oro",
+                "city": "Tenero",
+                "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-locarnese-2026-09-14T06-00-00-000Z-ti-ofct-6612-farmacia-amavita-centro-ascona-ascona",
+                "pharmacyId": "ti-ofct-6612-farmacia-amavita-centro-ascona-ascona",
+                "coverageType": "region",
+                "coverageName": "Locarnese",
+                "startsAt": "2026-09-14T06:00:00.000Z",
+                "endsAt": "2026-09-18T16:30:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.farmacielocarnese.ch/",
+                "sourceType": "association",
+                "fetchedAt": "2026-09-15T09:40:29.571Z",
+                "verifiedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-ofct-6612-farmacia-amavita-centro-ascona-ascona",
+                "name": "Farmacia Amavita Centro Ascona",
+                "city": "Ascona",
+                "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-locarnese-2026-09-18T16-30-00-000Z-ti-ofct-6600-farmacia-soldati-sa-locarno",
+                "pharmacyId": "ti-ofct-6600-farmacia-soldati-sa-locarno",
+                "coverageType": "region",
+                "coverageName": "Locarnese",
+                "startsAt": "2026-09-18T16:30:00.000Z",
+                "endsAt": "2026-09-21T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.farmacielocarnese.ch/",
+                "sourceType": "association",
+                "fetchedAt": "2026-09-15T09:40:29.571Z",
+                "verifiedAt": "2026-09-15T09:40:29.571Z"
+              },
+              "pharmacy": {
+                "id": "ti-ofct-6600-farmacia-soldati-sa-locarno",
+                "name": "Farmacia Soldati SA",
+                "city": "Locarno",
+                "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf"
+              }
+            }
+          ],
+          "sourceCommit": "e4d1b9e09cd83e9cab91c045789891123405f59c",
+          "sourceBlobs": {
+            "catalogue": "1e4c1edf29177c58009caed200f498b8a12a8655",
+            "duties": "ac21a921331b3b3c7fa5538e1f0741a0d4b5e0d9"
+          }
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "weekStart": "2026-09-28",
+      "observations": [
+        {
+          "fetchedAt": "2026-09-28T02:24:52.486Z",
+          "catalogueFetchedAt": "2026-09-28T02:25:41.431Z",
+          "releaseId": "pharmacy-v1-907b7c2e456e480e2c4e8e678edc9f60f7c43028653fffd2b2280e4956bb2e42",
+          "snapshots": {
+            "catalogue": "6e18aedffda69e2c628ef8a46f8a329649056f0cab3942260be8bf1374ddef3b",
+            "duties": "bff26b8def9a84fc429e8b30204e6a24cd923abaaebf2d0764c3902743721337"
+          },
+          "entries": [
+            {
+              "duty": {
+                "id": "ti-duty-mendrisiotto-2026-09-26T06-00-00-000Z-ti-chiesa-chiasso",
+                "pharmacyId": "ti-chiesa-chiasso",
+                "coverageType": "region",
+                "coverageName": "Mendrisiotto",
+                "startsAt": "2026-09-26T06:00:00.000Z",
+                "endsAt": "2026-09-29T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-chiesa-chiasso",
+                "name": "Farmacia Chiesa SA",
+                "city": "Chiasso",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-mendrisiotto-2026-09-29T06-00-00-000Z-ti-della-montagna-arzo",
+                "pharmacyId": "ti-della-montagna-arzo",
+                "coverageType": "region",
+                "coverageName": "Mendrisiotto",
+                "startsAt": "2026-09-29T06:00:00.000Z",
+                "endsAt": "2026-10-03T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-della-montagna-arzo",
+                "name": "Farmacia della Montagna SA",
+                "city": "Arzo",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-mendrisiotto-2026-10-03T06-00-00-000Z-ti-del-corso-chiasso",
+                "pharmacyId": "ti-del-corso-chiasso",
+                "coverageType": "region",
+                "coverageName": "Mendrisiotto",
+                "startsAt": "2026-10-03T06:00:00.000Z",
+                "endsAt": "2026-10-06T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-del-corso-chiasso",
+                "name": "Farmacia del Corso SA",
+                "city": "Chiasso",
+                "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-luganese-2026-09-26T06-00-00-000Z-ti-farmacia-victoria-lac-lugano",
+                "pharmacyId": "ti-farmacia-victoria-lac-lugano",
+                "coverageType": "region",
+                "coverageName": "Luganese",
+                "startsAt": "2026-09-26T06:00:00.000Z",
+                "endsAt": "2026-10-03T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/luganese/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-farmacia-victoria-lac-lugano",
+                "name": "Farmacia Victoria Lac",
+                "city": "Lugano",
+                "sourceUrl": "https://www.ofct.ch/luganese/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-luganese-2026-10-03T06-00-00-000Z-ti-farmacia-bozzoreda-pregassona",
+                "pharmacyId": "ti-farmacia-bozzoreda-pregassona",
+                "coverageType": "region",
+                "coverageName": "Luganese",
+                "startsAt": "2026-10-03T06:00:00.000Z",
+                "endsAt": "2026-10-10T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/luganese/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-farmacia-bozzoreda-pregassona",
+                "name": "Farmacia Bozzoreda",
+                "city": "Pregassona",
+                "sourceUrl": "https://www.ofct.ch/luganese/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-bellinzonese-2026-09-25T16-30-00-000Z-ti-benu-bellinzona-bellinzona",
+                "pharmacyId": "ti-benu-bellinzona-bellinzona",
+                "coverageType": "region",
+                "coverageName": "Bellinzonese",
+                "startsAt": "2026-09-25T16:30:00.000Z",
+                "endsAt": "2026-10-02T16:30:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/bellinzonese/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-benu-bellinzona-bellinzona",
+                "name": "Farmacia Benu Bellinzona",
+                "city": "Bellinzona",
+                "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-bellinzonese-2026-10-02T16-30-00-000Z-ti-al-ponte-sementina",
+                "pharmacyId": "ti-al-ponte-sementina",
+                "coverageType": "region",
+                "coverageName": "Bellinzonese",
+                "startsAt": "2026-10-02T16:30:00.000Z",
+                "endsAt": "2026-10-05T16:30:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/bellinzonese/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-al-ponte-sementina",
+                "name": "Farmacia Al Ponte",
+                "city": "Sementina",
+                "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-biasca-e-valli-2026-09-25T16-00-00-000Z-ti-rondi-biasca",
+                "pharmacyId": "ti-rondi-biasca",
+                "coverageType": "region",
+                "coverageName": "Biasca e Valli",
+                "startsAt": "2026-09-25T16:00:00.000Z",
+                "endsAt": "2026-10-02T16:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-rondi-biasca",
+                "name": "Farmacia Rondi",
+                "city": "Biasca",
+                "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-biasca-e-valli-2026-10-02T16-00-00-000Z-ti-stazione-biasca",
+                "pharmacyId": "ti-stazione-biasca",
+                "coverageType": "region",
+                "coverageName": "Biasca e Valli",
+                "startsAt": "2026-10-02T16:00:00.000Z",
+                "endsAt": "2026-10-09T16:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
+                "sourceType": "official",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-stazione-biasca",
+                "name": "Farmacia Stazione Biasca SA",
+                "city": "Biasca",
+                "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-locarnese-2026-09-25T16-30-00-000Z-ti-ofct-6600-farmacia-lafranchi-sa-locarno",
+                "pharmacyId": "ti-ofct-6600-farmacia-lafranchi-sa-locarno",
+                "coverageType": "region",
+                "coverageName": "Locarnese",
+                "startsAt": "2026-09-25T16:30:00.000Z",
+                "endsAt": "2026-09-28T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.farmacielocarnese.ch/",
+                "sourceType": "association",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-ofct-6600-farmacia-lafranchi-sa-locarno",
+                "name": "Farmacia Lafranchi SA",
+                "city": "Locarno",
+                "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-locarnese-2026-09-28T06-00-00-000Z-ti-ofct-6612-farmacia-nuova-ascona",
+                "pharmacyId": "ti-ofct-6612-farmacia-nuova-ascona",
+                "coverageType": "region",
+                "coverageName": "Locarnese",
+                "startsAt": "2026-09-28T06:00:00.000Z",
+                "endsAt": "2026-10-02T16:30:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.farmacielocarnese.ch/",
+                "sourceType": "association",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-ofct-6612-farmacia-nuova-ascona",
+                "name": "Farmacia Nuova",
+                "city": "Ascona",
+                "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf"
+              }
+            },
+            {
+              "duty": {
+                "id": "ti-duty-locarnese-2026-10-02T16-30-00-000Z-ti-ofct-6616-farmacia-centro-losone-sa-losone",
+                "pharmacyId": "ti-ofct-6616-farmacia-centro-losone-sa-losone",
+                "coverageType": "region",
+                "coverageName": "Locarnese",
+                "startsAt": "2026-10-02T16:30:00.000Z",
+                "endsAt": "2026-10-05T06:00:00.000Z",
+                "dutyType": "day",
+                "status": "verified",
+                "sourceUrl": "https://www.farmacielocarnese.ch/",
+                "sourceType": "association",
+                "fetchedAt": "2026-09-28T02:24:52.486Z",
+                "verifiedAt": "2026-09-28T02:24:52.486Z"
+              },
+              "pharmacy": {
+                "id": "ti-ofct-6616-farmacia-centro-losone-sa-losone",
+                "name": "Farmacia Centro Losone SA",
+                "city": "Losone",
+                "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf"
+              }
+            }
+          ],
+          "sourceCommit": "39861fb3db3cb34fa305ce4ea3fe3b462e6bfcf5",
+          "sourceBlobs": {
+            "catalogue": "61ce4da16494eded95f330fcb72beddb0d579cfd",
+            "duties": "65ab3ea5cb8c8aedc94c0434da5e9de7ba954909"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -23,10 +23,13 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { dropRepostedListings, selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -223,22 +226,7 @@ function parseListingRows(html) {
 
 /** Extract the JobPosting JSON-LD object from a detail page, or null. */
 function extractJobPostingJsonLd(html) {
-  const RE = /<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = RE.exec(html)) !== null) {
-    const raw = m[1].trim();
-    if (!raw.includes('JobPosting')) continue;
-    try {
-      const data = JSON.parse(raw);
-      const candidates = Array.isArray(data) ? data : data['@graph'] || [data];
-      for (const c of [].concat(candidates)) {
-        if (c && c['@type'] === 'JobPosting') return c;
-      }
-    } catch {
-      /* malformed block — skip */
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**
@@ -265,12 +253,24 @@ async function enrichListing(row) {
   // No country in JSON-LD → fall back to the list-anchor canton inference.
   if (!country && !inferSwissTargetCanton(row.location)) return null;
 
+  // The JSON-LD body is only part of the rendered vacancy (28 % on the audit
+  // sample of 2026-09-29): "Vos perspectives/Deine Perspektiven", the
+  // "Aperçu/Überblick" facts and the BKW benefit block are page-only. The
+  // same page is already in hand, so its vacancy text becomes the
+  // description; the JSON-LD body stays the fallback.
+  const listingText = stripHtml(jp.description || '');
+  const { text: pageDescription } = selectProspectiveDetailDescription(html, {
+    title: row.title,
+    listingText,
+  });
+
   return {
     title: row.title,
     location: addr.addressLocality || row.location,
     workload: row.workload,
     url: row.url,
     description: jp.description || '',
+    pageDescription,
     postedDate: jp.datePosted || '',
     employmentType: jp.employmentType || '',
     addressLocality: addr.addressLocality || '',
@@ -329,6 +329,7 @@ export async function fetchAllBkwJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  const pageDescribed = new Set();
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -336,10 +337,11 @@ export async function fetchAllBkwJobs() {
     const location = normalizeSpace(listing.location || '') || HQ.city;
     const canton = inferSwissTargetCanton(location) || HQ.canton;
     const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
+    const descriptionText = listing.pageDescription || stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
 
-    const sourceLang = detectLang(descriptionText || title, 'de');
+    // Language of the vacancy body (JSON-LD), not of the page template.
+    const sourceLang = detectLang(stripHtml(descriptionHtml) || title, 'de');
     const jobSlug = slugify(`${title} bkw ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -379,15 +381,17 @@ export async function fetchAllBkwJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(listing.postedDate),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };
 
     jobs.push(job);
+    if (listing.pageDescription) pageDescribed.add(job);
   }
 
-  console.log(`\n📋 Total ${BKW_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  const unique = dropRepostedListings(jobs, BKW_COMPANY_NAME, { pageDescribed });
+  console.log(`\n📋 Total ${BKW_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
 }

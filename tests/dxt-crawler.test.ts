@@ -19,6 +19,9 @@ import {
   MIN_DESC_LENGTH,
   MIN_TITLE_OVERLAP,
 } from '@/scripts/lib/dxt-job-parser.mjs';
+import { buildDescription, dxtCrawledAt, dropInventedDxtLocaleText, dxtPanelUrl, dxtMergeKey } from '@/scripts/update-dxt-jobs.mjs';
+
+const OBSERVED_AT = new Date();
 
 // ─── Fixtures ────────────────────────────────────────────────────────────────
 // Mirrors the actual HTML structure served by dxt.com/careers/ on 2026-03-18.
@@ -167,6 +170,18 @@ const FIXTURE_SHORT_DESC = `
 // ─── parseWpsmAccordionPanels — Lugano Junior Legal regression ────────────────
 
 describe('parseWpsmAccordionPanels — Junior Legal regression', () => {
+  it('carries only an explicit successful-fetch observation timestamp', () => {
+    const [observed] = parseWpsmAccordionPanels(FIXTURE_LUGANO_ACCORDION, '20897', OBSERVED_AT);
+    expect(observed.crawledAt).toBe(OBSERVED_AT.toISOString());
+
+    const [withoutObservation] = parseWpsmAccordionPanels(FIXTURE_LUGANO_ACCORDION, '20897');
+    const [invalidObservation] = parseWpsmAccordionPanels(FIXTURE_LUGANO_ACCORDION, '20897', new Date(Number.NaN));
+    expect(withoutObservation).not.toHaveProperty('crawledAt');
+    expect(invalidObservation).not.toHaveProperty('crawledAt');
+    expect(dxtCrawledAt({ ...withoutObservation, datePosted: OBSERVED_AT.toISOString() })).toBeNull();
+    expect(dxtCrawledAt(observed)).toBe(OBSERVED_AT.toISOString());
+  });
+
   it('finds exactly one job', () => {
     const jobs = parseWpsmAccordionPanels(FIXTURE_LUGANO_ACCORDION, '20897');
     expect(jobs).toHaveLength(1);
@@ -365,5 +380,88 @@ describe('htmlToText', () => {
   it('returns empty string for empty input', () => {
     expect(htmlToText('')).toBe('');
     expect(htmlToText(null as any)).toBe('');
+  });
+});
+
+// ─── Published text = panel text only (#5253) ─────────────────────────────
+//
+// Stored shape of dxt-commodities jobs before the fix (panel 20897_2,
+// minimised): `en` = panel text + a company blurb that is not on
+// dxt.com/careers/; `it` = an invented Italian wrapper around the ENGLISH
+// body; `de`/`fr` = translations of the blurb-padded source.
+const PANEL_TEXT =
+  'As part of our continued growth, a new opening has arisen in our Accounting team at our headquarters in Lugano.\n' +
+  'Requirements: Master’s degree in Business Administration, Economics or Management.';
+const INVENTED_BLURB =
+  'DXT Commodities S.A. is an energy and commodity trading company headquartered in Lugano, Switzerland, part of the Duferco Group.';
+const STORED_JOB: any = {
+  url: 'https://dxt.com/careers/?panel=20897_2',
+  sourceLang: 'en',
+  description: `${PANEL_TEXT}\n\n${INVENTED_BLURB}`,
+  descriptionByLocale: {
+    en: `${PANEL_TEXT}\n\n${INVENTED_BLURB}`,
+    it: `Posizione aperta presso DXT Commodities S.A. a Lugano.\nRuolo: Junior Accountant.\n\n${PANEL_TEXT}`,
+    de: 'Als Teil unseres anhaltenden Wachstums … Teil der Duferco-Gruppe.',
+    fr: 'Dans le cadre de notre croissance continue … groupe Duferco.',
+  },
+};
+
+describe('buildDescription — panel text only', () => {
+  it('publishes the accordion panel text without an appended company blurb', () => {
+    expect(buildDescription({ title: 'Junior Accountant', descriptionText: `  ${PANEL_TEXT}  ` })).toBe(PANEL_TEXT);
+    expect(buildDescription({ title: 'Junior Accountant', descriptionText: PANEL_TEXT })).not.toContain('Duferco Group');
+  });
+});
+
+describe('dropInventedDxtLocaleText', () => {
+  it('drops the invented it wrapper and the translations of the blurb-padded source', () => {
+    const merged = [{
+      ...STORED_JOB,
+      description: PANEL_TEXT,
+      descriptionByLocale: { ...STORED_JOB.descriptionByLocale, en: PANEL_TEXT },
+    }];
+    const [job] = dropInventedDxtLocaleText(merged, [STORED_JOB]);
+    expect(job.descriptionByLocale).toEqual({ en: PANEL_TEXT });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('keeps real translations once the source no longer carried invented text', () => {
+    const clean: any = {
+      url: 'https://dxt.com/careers/?panel=20897_2',
+      sourceLang: 'en',
+      description: PANEL_TEXT,
+      descriptionByLocale: { en: PANEL_TEXT, it: 'Nell’ambito della nostra crescita continua, si è aperta una posizione nel team contabile.' },
+    };
+    const [job] = dropInventedDxtLocaleText([{ ...clean }], [clean]);
+    expect(job.descriptionByLocale.it).toContain('team contabile');
+    expect(job.needsRetranslation).toBeUndefined();
+  });
+});
+
+// ─── The published URL leads to the panel (#5253, run 36571839273) ───────
+//
+// dxt.com ignores `?panel=`: every value serves the careers page (canonical
+// https://dxt.com/careers/) with all panels closed. The panel element
+// `offset_GROUPID_N` is on the page, so the fragment takes the reader there;
+// the query stays as the job's identity.
+describe('dxtPanelUrl / dxtMergeKey', () => {
+  it('addresses the panel element and keeps the ?panel= identity', () => {
+    expect(dxtPanelUrl('20897_2')).toBe('https://dxt.com/careers/?panel=20897_2#offset_20897_2');
+    const panels = parseWpsmAccordionPanels(FIXTURE_LUGANO_ACCORDION, '20897');
+    for (const panel of panels) {
+      expect(FIXTURE_LUGANO_ACCORDION).toContain(`id="offset_${panel.panelId}"`);
+    }
+  });
+
+  it('matches a stored ?panel= record with the anchored URL of the same panel', () => {
+    expect(dxtMergeKey({ url: 'https://dxt.com/careers/?panel=20897_2' }))
+      .toBe(dxtMergeKey({ url: dxtPanelUrl('20897_2') }));
+    expect(dxtMergeKey({ url: dxtPanelUrl('20897_1') })).not.toBe(dxtMergeKey({ url: dxtPanelUrl('20897_2') }));
+  });
+
+  it('drops invented locale text of a stored record whose URL had no fragment yet', () => {
+    const merged = [{ ...STORED_JOB, url: dxtPanelUrl('20897_2'), description: PANEL_TEXT, descriptionByLocale: { ...STORED_JOB.descriptionByLocale, en: PANEL_TEXT } }];
+    const [job] = dropInventedDxtLocaleText(merged, [STORED_JOB]);
+    expect(job.descriptionByLocale).toEqual({ en: PANEL_TEXT });
   });
 });

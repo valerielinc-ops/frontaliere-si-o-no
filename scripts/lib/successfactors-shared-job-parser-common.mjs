@@ -36,9 +36,21 @@
  *     a SPA, use `scripts/lib/ats-clients/successfactors-client.mjs`.
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import {
+  detectLang,
+  hqPostalCodeForLocality,
+  isLocationExplicitlyForeign,
+} from './dedicated-crawler-common.mjs';
+import { isChCountry } from './ch-country-guard.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
-import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import {
+  inferSwissTargetCanton,
+  normalizeCantonCode,
+  rescueSwissCityFromText,
+} from './target-swiss-locations.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -174,17 +186,20 @@ export function parseCsbSearchResults(html) {
     let cellMatch;
     while ((cellMatch = cellRe.exec(rowHtml)) !== null) {
       const raw = decodeEntities(normalizeSpace(stripHtml(cellMatch[1])));
+      const className = cellMatch[0].match(/\bclass=["']([^"']*)["']/i)?.[1] || '';
       // Normalize every cell silently first. If the heuristic elects this
       // cell as the location below, strip it again with the warning enabled;
       // title/department/date cells must never produce discarded-office
       // telemetry.
-      cells.push({ raw, text: stripSuccessFactorsMoreLocations(raw, { warn: false }) });
+      cells.push({ raw, text: stripSuccessFactorsMoreLocations(raw, { warn: false }), className });
     }
 
     // Fallback: heuristic — find the cell that looks like a location ("City,
     // CC[,…]"). Cells have already had the marker stripped, so compare them
     // with the equally stripped title to avoid electing a title cell.
-    let postedDate = '';
+    const dateCell = rowHtml.match(/<td[^>]*class=["'][^"']*\b(?:colDate|jobDate)\b[^"']*["'][^>]*>([\s\S]*?)<\/td>/i);
+    // Cell position does not identify publication: it may contain an application deadline.
+    const publication = successFactorsPostingDateFields(dateCell ? decodeEntities(normalizeSpace(stripHtml(dateCell[1]))) : '');
     for (const cell of cells) {
       if (
         !location
@@ -194,25 +209,17 @@ export function parseCsbSearchResults(html) {
         location = stripSuccessFactorsMoreLocations(cell.raw);
         continue;
       }
-      // ISO-ish date in the cell?
-      const dm = cell.text.match(/(\d{4}-\d{2}-\d{2})/) || cell.text.match(/(\d{1,2}[.\/-]\d{1,2}[.\/-]\d{4})/);
-      if (!postedDate && dm) postedDate = parseLooseDate(dm[1]);
+
     }
 
-    out.push({ relUrl, jobId, title, location, postedDate });
+    out.push({ relUrl, jobId, title, location, ...publication });
   }
 
   return out;
 }
 
 function parseLooseDate(raw = '') {
-  const s = String(raw || '').trim();
-  if (!s) return '';
-  let m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (m) return s;
-  m = s.match(/^(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{4})$/);
-  if (m) return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
-  return '';
+  return successFactorsPostingDateFields(raw).postedDate;
 }
 
 /**
@@ -239,7 +246,8 @@ export function extractCsbTotal(html) {
  * propertyid block, the apply button widget, or a layout closer.
  */
 function readPropertyBlock(html, propId) {
-  const re = new RegExp(`data-careersite-propertyid="${propId}"[^>]*>`, 'i');
+  const escapedPropId = String(propId).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`data-careersite-propertyid\\s*=\\s*["']${escapedPropId}["'][^>]*>`, 'i');
   const m = re.exec(html);
   if (!m) return '';
   const start = m.index + m[0].length;
@@ -359,8 +367,8 @@ export function parseSuccessFactorsMicrodataLocation(html) {
 
 /**
  * Parse a SuccessFactors CSB job detail page.
- * Returns `{ title, descriptionHtml, descriptionText, location, applyUrl,
- *            postedDate, rateText, language }`.
+ * Returns `{ title, descriptionHtml, descriptionText, location, country,
+ *            applyUrl, postedDate, rateText, language }`.
  */
 export function parseCsbDetailPage(html) {
   if (!html || typeof html !== 'string') return null;
@@ -415,25 +423,32 @@ export function parseCsbDetailPage(html) {
       if (pm) { postalCode = pm[1]; break; }
     }
   }
+  const propertyCity = decodeEntities(normalizeSpace(stripHtml(readPropertyBlock(html, 'city'))));
+  const propertyCountry = decodeEntities(normalizeSpace(stripHtml(readPropertyBlock(html, 'country'))));
   const microdataLocation = parseSuccessFactorsMicrodataLocation(html);
-  if (!city) city = microdataLocation?.city || '';
+  // Tecan and other CSB tenants expose the authoritative locality in these
+  // property blocks while omitting the generic `location` block. Prefer that
+  // source whenever present, then fall back to microdata/legacy location text.
+  if (propertyCity) city = propertyCity;
+  else if (!city) city = microdataLocation?.city || '';
   if (!region) region = microdataLocation?.region || '';
   if (!postalCode) postalCode = microdataLocation?.postalCode || '';
+  // Some CSB tenants leave the structured city field blank while placing the
+  // source-backed office in the posting body (e.g. "Männedorf, Zürich" or
+  // "in Basel"). Reuse the guarded free-text rescue only as a last resort;
+  // it rejects the common-word municipality collisions documented by the
+  // location module and never replaces an explicit structured location.
+  if (!city) city = rescueSwissCityFromText(descriptionText, { foreignContext: true });
   const locationFirstLine = canonicalLoc
     ? canonicalLoc[0]
-    : (locationRaw.split(/\n/)[0] || microdataLocation?.location || '');
+    : (locationRaw.split(/\n/)[0] || microdataLocation?.location || [city, region].filter(Boolean).join(', '));
 
   // Customfield5 is usually "Workload" on CSB sites (e.g. "100%", "80–100%")
   const rateHtml = readPropertyBlock(html, 'customfield5');
   const rateText = decodeEntities(normalizeSpace(stripHtml(rateHtml)));
 
   // schema.org microdata for date and apply link
-  const postedDate = (() => {
-    const raw = readItemprop(html, 'datePosted');
-    if (!raw) return '';
-    const d = new Date(raw);
-    return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
-  })();
+  const publication = successFactorsPostingDateFields(readItemprop(html, 'datePosted'));
 
   // Apply URL — try the SF "/talentcommunity/apply/{jobId}" pattern.
   const applyMatch = html.match(/href="([^"]*talentcommunity\/apply\/[^"]+)"/i)
@@ -457,8 +472,9 @@ export function parseCsbDetailPage(html) {
     city,
     region,
     postalCode,
+    country: propertyCountry || microdataLocation?.country || '',
     rateText,
-    postedDate,
+    ...publication,
     applyUrl,
     language,
   };
@@ -476,17 +492,13 @@ export function parseCsbDetailPage(html) {
  * @param {string} config.sfCompanyId        SuccessFactors tenant code (e.g. 'ZURZACHCare').
  * @param {string} config.publicCareerUrl    Base URL (e.g. 'https://karriere.zurzachcare.ch').
  * @param {string} config.defaultCanton      ISO canton (e.g. 'AG').
- * @param {string} config.defaultCity        Fallback city.
- * @param {string} config.defaultPostalCode  Fallback postal code (e.g. '5330').
+ * @param {string} config.defaultCity        HQ locality for the postal fallback.
+ * @param {string} config.defaultPostalCode  HQ postal code (e.g. '5330').
  * @param {string} [config.defaultSourceLang='de']
  * @param {string} [config.sourceLabel]      Optional source label override.
  * @param {string} [config.sector]           Job-category sector label (default
  *   `'Sanità / Ospedali'` — this factory originated with hospital tenants; pass
  *   an explicit sector for non-healthcare tenants, e.g. industrial/finance).
- * @param {string} [config.descriptionFallbackTagline] One-sentence company
- *   tagline used only inside the thin-description boilerplate guard (default
- *   `'ist ein etablierter Schweizer Gesundheitsdienstleister'` — override for
- *   non-healthcare tenants so the rare fallback text stays factually correct).
  * @param {string} [config.fallbackCategory] Category label substituted when
  *   `detectHealthcareCategory()` (hospital-tuned, see
  *   `hospital-custom-html-helpers.mjs`) falls through to its generic
@@ -523,16 +535,6 @@ export function parseCsbDetailPage(html) {
  *   the healthcare fallback otherwise mislabels any title that doesn't match
  *   a healthcare keyword (e.g. "Chemist", "Automation Technician") as
  *   healthcare.
- * @param {(title: string, companyName: string, city: string, canton?: string) => string}
- *   [config.boilerplateFallback] Thin-description fallback text builder,
- *   invoked when the detail page's real description has fewer than
- *   `MIN_DESCRIPTION_UNIQUE_WORDS` unique words. Defaults to the shared
- *   German "etablierter Schweizer Gesundheitsdienstleister" (healthcare)
- *   summary. Override for non-healthcare / non-German-primary tenants so the
- *   fallback text isn't wrong-industry and/or wrong-language, or for tenants
- *   whose thin fallback fires on (almost) every job (e.g. Helsana — see
- *   helsana-job-parser.mjs) so the fallback carries real per-job structure
- *   (bulleted, title/location-first) instead of a near-identical paragraph.
  * @returns {{
  *   fetchAllJobs: () => Promise<ParsedJob[]>,
  *   isCompanyJob: (job: any) => boolean,
@@ -552,13 +554,11 @@ export function createSuccessFactorsParser(config) {
     defaultSourceLang = 'de',
     sourceLabel,
     sector = 'Sanità / Ospedali',
-    descriptionFallbackTagline = 'ist ein etablierter Schweizer Gesundheitsdienstleister',
     fallbackCategory = 'Sanità / Ospedali',
     searchParams = null,
     acceptJob = null,
     trustPageLangAttr = true,
     detectCategory = detectCategoryForSf,
-    boilerplateFallback = null,
   } = config;
 
   if (!companyKey || !companyName || !sfCompanyId || !publicCareerUrl || !defaultCanton) {
@@ -669,6 +669,7 @@ export function createSuccessFactorsParser(config) {
 
     // Step 2 — fetch detail pages
     const jobs = [];
+    let withoutBody = 0;
     for (const listing of listings) {
       const fullUrl = `${baseUrl}${listing.relUrl}`;
       let detail = null;
@@ -683,39 +684,107 @@ export function createSuccessFactorsParser(config) {
       if (!title) continue;
 
       // Resolve city: prefer detail.city, then first comma-segment of the
-      // listing location, then defaultCity. Drop country-name fallbacks like
+      // listing location. Drop country-name fallbacks like
       // "Switzerland" / "Schweiz" / "Suisse" that some SF tenants emit when
       // a job has no specific city (e.g. Tecan remote / global roles).
       const COUNTRY_TOKEN = /^(?:switzerland|schweiz|suisse|svizzera|ch)$/i;
-      const detailCity = detail?.city && !COUNTRY_TOKEN.test(detail.city) ? detail.city : '';
+      // `Worblaufen & Homeoffice` / `Dübendorf-Stettbach & Homeoff` (helsana):
+      // il suffisso di lavoro ibrido non è la località. Rimasto attaccato,
+      // impediva di riconoscere il comune (cantone di ripiego ZH per una sede
+      // bernese) e il sanitizer dell'assembler, leggendo «home office» come
+      // prosa, sostituiva la città col nome del cantone (`Zurigo`, `Grigioni`,
+      // `San Gallo`: audit-parser-quality, issue 5253).
+      const HYBRID_WORK_SUFFIX = /\s*[&+\/,]\s*home[\s-]?off(?:ice)?\.?\s*$/i;
+      const stripHybridSuffix = (value) => String(value || '').replace(HYBRID_WORK_SUFFIX, '').trim();
+      const detailCity = detail?.city && !COUNTRY_TOKEN.test(detail.city) ? stripHybridSuffix(detail.city) : '';
       const listingCity = (() => {
         if (!listing.location) return '';
-        const first = listing.location.split(',')[0].trim();
+        const first = stripHybridSuffix(listing.location.split(',')[0]);
         return COUNTRY_TOKEN.test(first) ? '' : first;
       })();
-      const city = detailCity || listingCity || defaultCity;
-      const region = detail?.region || defaultCanton;
-      const canton = inferSwissTargetCanton(city) || normalizeCantonCode(region) || defaultCanton;
-      const postalCode = detail?.postalCode || defaultPostalCode;
+      const listingSegments = String(listing.location || '')
+          .split(',')
+          .slice(1)
+          .map((segment) => segment.trim());
+      const listingHasSwissCountry = isChCountry(listing.location)
+        || listingSegments.some((segment) => isChCountry(segment));
+      // A detail page may omit `addressCountry` while the search row still
+      // exposes an explicit foreign country (e.g. `Zürich, Germany`). Do not
+      // let the Swiss-looking city win that negative evidence and infer a
+      // target canton. Canton-shaped tokens stay ambiguous here: `Epagny, FR`
+      // is a valid Swiss locality when the detail supplies CH evidence.
+      const listingHasExplicitForeignCountry = listingSegments.some((segment) =>
+        !normalizeCantonCode(segment)
+        && !isChCountry(segment)
+        && isLocationExplicitlyForeign(segment),
+      );
+      if (listingHasExplicitForeignCountry) {
+        console.warn(`  ⏭️ Skipping explicitly foreign listing location "${listing.location}": ${listing.title} (${listing.jobId})`);
+        continue;
+      }
+      const sourceCountry = String(detail?.country || '').trim();
+      // The Tecan tenant currently emits the non-standard country token "Sw"
+      // on detail pages, while the listing row says "Switzerland". Accept it
+      // only with that independent listing evidence so a bare ambiguous token
+      // cannot turn a foreign posting into a Swiss one.
+      const detailHasSwissCountry = Boolean(sourceCountry && (
+        isChCountry(sourceCountry)
+        || (normalize(sourceCountry) === 'sw' && listingHasSwissCountry)
+      ));
+      if (sourceCountry && !detailHasSwissCountry) {
+        console.warn(`  ⏭️ Skipping non-CH detail location (${sourceCountry}) for ${listing.title} (${listing.jobId})`);
+        continue;
+      }
+      // A two-segment listing such as "NotARealCity, FR" is not evidence that
+      // FR is a Swiss canton. Normalize listing regions only after a detail or
+      // listing country field explicitly establishes Switzerland.
+      const hasSwissCountryEvidence = detailHasSwissCountry || listingHasSwissCountry;
+      const listingRegion = hasSwissCountryEvidence
+        ? listingSegments.map((segment) => normalizeCantonCode(segment)).find(Boolean) || ''
+        : '';
+      const city = detailCity || listingCity;
+      if (!city) {
+        console.warn(`  ⏭️ Skipping location without a city: ${listing.title} (${listing.jobId})`);
+        continue;
+      }
+      if (isLocationExplicitlyForeign(city)) {
+        console.warn(`  ⏭️ Skipping explicitly foreign city "${city}": ${listing.title} (${listing.jobId})`);
+        continue;
+      }
+      // Keep source-backed Swiss localities that are absent from the BFS
+      // gazetteer (e.g. Epagny and Zollikerberg): their explicit region is
+      // valid evidence. A missing canton remains fail-closed.
+      const region = detail?.region || listingRegion;
+      const inferredCanton = inferSwissTargetCanton(city);
+      const canton = inferredCanton || (
+        hasSwissCountryEvidence
+          ? normalizeCantonCode(region)
+          : ''
+      );
+      if (!canton) {
+        console.warn(`  ⏭️ Skipping location without a Swiss canton: ${city} — ${listing.title} (${listing.jobId})`);
+        continue;
+      }
+      // defaultPostalCode is the HQ CAP: only for a vacancy at the HQ (#9841).
+      const postalCode = detail?.postalCode || hqPostalCodeForLocality(city, defaultCity, defaultPostalCode);
 
       const sourceLang = (trustPageLangAttr && detail?.language && /^(de|fr|it|en)$/.test(detail.language))
         ? detail.language
         : detectLang(detail?.descriptionText || title, defaultSourceLang);
 
-      let description = detail?.descriptionText || '';
-      // Boilerplate guard: require ≥MIN_DESCRIPTION_UNIQUE_WORDS unique words
-      // (same threshold `parseCsbDetailPage` uses to decide whether to fall
-      // back to the microdata `itemprop="description"` read) — otherwise
-      // fall back to a brand summary.
-      if (countUniqueWords(description) < MIN_DESCRIPTION_UNIQUE_WORDS) {
-        description = typeof boilerplateFallback === 'function'
-          ? boilerplateFallback(title, companyName, city || defaultCity, canton)
-          : `${title} bei ${companyName} in ${city || defaultCity}.\n\n${companyName} ${descriptionFallbackTagline}. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
+      const description = detail?.descriptionText || '';
+      // Only the posting's own text is published. Under the shared source
+      // body floor (50 words, `source-body-floor.mjs`) the detail page
+      // carried no vacancy body — a closed or broken page — and the row is
+      // not published: no invented brand summary, no thin page. Measured on
+      // main (2026-09-29): 1 such row over the 14 tenants (helsana 1/54).
+      if (!meetsSourceBodyFloor(description)) {
+        withoutBody += 1;
+        await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+        continue;
       }
 
-      const postedDate = detail?.postedDate
-        || listing.postedDate
-        || new Date().toISOString().slice(0, 10);
+      const publication = mergeSourcePostingDates(listing, detail || {});
 
       const urlHash = createHash('sha1').update(fullUrl).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} ${companyKey} ${city}`);
@@ -760,7 +829,7 @@ export function createSuccessFactorsParser(config) {
         sector,
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...publication,
         applyUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
@@ -788,6 +857,9 @@ export function createSuccessFactorsParser(config) {
       if (seen.has(k)) continue;
       seen.add(k);
       deduped.push(job);
+    }
+    if (withoutBody > 0) {
+      console.log(`  ⏭️  ${withoutBody} listing(s) without a vacancy body on the detail page — not published.`);
     }
     console.log(`\n📋 Total unique ${companyName} jobs: ${deduped.length}`);
     return deduped;

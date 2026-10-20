@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import {
   createMutableFeedPaginationTracker,
+  recordMutableFeedPageWithRetry,
   recordUniquePageProgress,
 } from '../scripts/lib/pagination-identity.mjs';
 
@@ -65,6 +66,38 @@ describe('pagination source identity contract', () => {
     })).toThrow('duplicate source identity "b"');
   });
 
+  it('deduplicates an identical row in a mutable page but rejects changed content', () => {
+    const seen = new Set<string>();
+    const fingerprints = new Map<string, string>();
+    const fingerprint = (item: { id: string, title: string }) => JSON.stringify(item);
+
+    expect(recordUniquePageProgress(seen, [
+      { id: 'a', title: 'same' },
+      { id: 'a', title: 'same' },
+      { id: 'b', title: 'new' },
+    ], {
+      getIdentity: (item) => item.id,
+      getFingerprint: fingerprint,
+      fingerprints,
+      source: 'mutable feed',
+      page: 1,
+      allowPreviouslySeen: true,
+      allowIdenticalDuplicates: true,
+    })).toEqual(['a', 'b']);
+    expect([...seen]).toEqual(['a', 'b']);
+
+    expect(() => recordUniquePageProgress(seen, [{ id: 'a', title: 'changed' }, { id: 'c', title: 'new' }], {
+      getIdentity: (item) => item.id,
+      getFingerprint: fingerprint,
+      fingerprints,
+      source: 'mutable feed',
+      page: 2,
+      allowPreviouslySeen: true,
+      allowIdenticalDuplicates: true,
+    })).toThrow('conflicting content');
+    expect([...seen]).toEqual(['a', 'b']);
+  });
+
   it('counts mutable-feed rows separately from unique identities', () => {
     const tracker = createMutableFeedPaginationTracker({
       getIdentity: (item: { id: string }) => item.id,
@@ -79,21 +112,114 @@ describe('pagination source identity contract', () => {
     expect(tracker.hasReached(5)).toBe(false);
   });
 
-  it('is wired into every Post Group pagination loop', () => {
+  it('deduplicates identical rows while preserving row totals and coverage checks', () => {
+    const tracker = createMutableFeedPaginationTracker({
+      getIdentity: (item: { id: string }) => item.id,
+      getFingerprint: (item: { id: string, title: string }) => JSON.stringify(item),
+      source: 'Confederazione API',
+    });
+
+    tracker.record([{ id: 'a', title: 'same' }, { id: 'a', title: 'same' }, { id: 'b', title: 'new' }], 0);
+    expect(tracker.scannedRows).toBe(3);
+    expect(tracker.uniqueCount).toBe(2);
+    expect(tracker.hasReached(3)).toBe(true);
+    expect(tracker.hasMinimumUniqueCoverage(3, 0.9)).toBe(false);
+    expect(tracker.hasMinimumUniqueCoverage(2, 0.9)).toBe(true);
+  });
+
+  it('accepts an identical identity at a mutable page boundary and rejects a changed one', () => {
+    const tracker = createMutableFeedPaginationTracker({
+      getIdentity: (item: { id: string }) => item.id,
+      getFingerprint: (item: { id: string, title: string }) => JSON.stringify(item),
+      source: 'Confederazione API',
+    });
+
+    tracker.record([{ id: 'a', title: 'same' }], 0);
+    expect(tracker.record([{ id: 'a', title: 'same' }, { id: 'b', title: 'new' }], 1)).toEqual(['a', 'b']);
+    expect(tracker.uniqueCount).toBe(2);
+
+    expect(() => tracker.record([{ id: 'a', title: 'changed' }, { id: 'c', title: 'new' }], 2))
+      .toThrow('conflicting content');
+  });
+
+  it('re-reads a semantic no-progress page with a bounded retry', async () => {
+    const tracker = createMutableFeedPaginationTracker({
+      getIdentity: (item: { id: string }) => item.id,
+      source: 'mutable feed',
+    });
+    tracker.record([{ id: 'a' }, { id: 'b' }], 0);
+    let reloads = 0;
+
+    const result = await recordMutableFeedPageWithRetry({
+      tracker,
+      items: [{ id: 'a' }, { id: 'b' }],
+      page: 1,
+      retryDelayMs: 0,
+      reload: async () => {
+        reloads += 1;
+        return [{ id: 'b' }, { id: 'c' }];
+      },
+    });
+
+    expect(result).toMatchObject({
+      items: [{ id: 'b' }, { id: 'c' }],
+      pageIdentities: ['b', 'c'],
+      retries: 1,
+    });
+    expect(reloads).toBe(1);
+    expect(tracker.scannedRows).toBe(4);
+  });
+
+  it('keeps failing closed after the bounded no-progress retries', async () => {
+    const tracker = createMutableFeedPaginationTracker({
+      getIdentity: (item: { id: string }) => item.id,
+      source: 'mutable feed',
+    });
+    tracker.record([{ id: 'a' }], 0);
+    let reloads = 0;
+
+    await expect(recordMutableFeedPageWithRetry({
+      tracker,
+      items: [{ id: 'a' }],
+      page: 1,
+      retryDelayMs: 0,
+      maxRetries: 2,
+      reload: async () => {
+        reloads += 1;
+        return [{ id: 'a' }];
+      },
+    })).rejects.toMatchObject({
+      code: 'ERR_PAGINATION_NO_UNIQUE_PROGRESS',
+      feedEndpointUnavailable: true,
+    });
+    expect(reloads).toBe(2);
+    expect(tracker.scannedRows).toBe(1);
+  });
+
+  it('is wired into every mutable national pagination loop', () => {
     const postch = readFileSync(new URL('../scripts/update-postch-jobs.mjs', import.meta.url), 'utf8');
     const postauto = readFileSync(new URL('../scripts/lib/postauto-job-parser.mjs', import.meta.url), 'utf8');
     const confederazione = readFileSync(new URL('../scripts/update-confederazione-jobs.mjs', import.meta.url), 'utf8');
 
     expect(postch).toContain('createMutableFeedPaginationTracker({');
+    expect(postch).toContain('recordMutableFeedPageWithRetry({');
     expect(postch).toContain('progress.hasReached(totalJobs)');
     expect(postauto).toContain('createMutableFeedPaginationTracker({');
+    expect(postauto).toContain('recordMutableFeedPageWithRetry({');
     expect(postauto).toContain('progress.hasReached(totalJobs)');
-    expect(confederazione).toContain('recordUniquePageProgress(sourceIdentities, items');
-    expect(confederazione).toContain('sourceIdentities.size >= declaredTotal');
+    expect(confederazione).toContain('createMutableFeedPaginationTracker({');
+    expect(confederazione).toContain('getFingerprint: (job) => JSON.stringify(job)');
+    expect(confederazione).toContain('recordMutableFeedPageWithRetry({');
+    expect(confederazione).toContain('progress.hasReached(declaredTotal)');
+    expect(confederazione).toContain('progress.hasMinimumUniqueCoverage(declaredTotal');
+    expect(confederazione).toContain('progress.scannedRows < declaredTotal');
+    expect(confederazione).not.toContain('recordUniquePageProgress(sourceIdentities, items');
+    expect(confederazione).not.toContain('sourceIdentities.size >= declaredTotal');
     const postfinance = readFileSync(new URL('../scripts/update-postfinance-jobs.mjs', import.meta.url), 'utf8');
     expect(postfinance).toContain('createMutableFeedPaginationTracker({');
+    expect(postfinance).toContain('recordMutableFeedPageWithRetry({');
     expect(postfinance).toContain('progress.hasReached(total)');
-    expect(postfinance).toContain('const pageRecords = entries.map((entry) => entry?.response);');
+    expect(postfinance).toContain('let pageRecords = entries.map((entry) => entry?.response);');
     expect(postfinance).toContain('pageRecords.some((record) => !record)');
     expect(postfinance).toContain('if (!paginationComplete && pageNumber >= RECRUITING_API_MAX_PAGES)');
     expect(postfinance).toContain('if (!page) {');

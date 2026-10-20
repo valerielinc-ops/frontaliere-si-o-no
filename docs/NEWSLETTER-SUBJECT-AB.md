@@ -1,41 +1,45 @@
 # Newsletter subject-line A/B test (per provider)
 
-Optimize newsletter **open rate per sending provider** by testing two
-subject-line styles. Variant assignment is ours (deterministic); measurement has
-two independent readouts: a **free Firestore report** and an optional
-**PostHog funnel**.
+Optimize newsletter **open rate per sending provider** by testing four
+subject-line styles. Variant assignment is ours (deterministic); the primary
+measurement is the **free Firestore report**. The older PostHog funnel remains
+optional historical telemetry, not the assignment or decision system.
 
 ## How it works
 
-1. **Variants** — `services/newsletter-subject-variants.mjs` defines two styles:
+1. **Variants** — `services/newsletter-subject-variants.mjs` defines four styles:
    - `concreto` — number + location + concrete benefit
    - `curioso` — curiosity gap / question hook
+   - `pratico` — action, checklist or immediate utility
+   - `novita` — timely update about what changed this week
 2. **Assignment** — `assignSubjectVariant(email, campaignId)` hashes the email
    (sha256) into a variant. Deterministic: stable within a weekly campaign,
    rotates across campaigns. **Independent of the sending provider** (the cascade
-   picks the provider by quota at send time), so every provider sees a ~50/50
-   variant mix → the provider×variant comparison is unbiased.
+   picks the provider by quota at send time), so every provider sees a 25/25/25/25
+   variant mix while promotion is off → the provider×variant comparison is unbiased.
 3. **Send** — `scripts/send-newsletter.mjs` generates one AI subject per
    `(locale × variant)`, sends each subscriber their assigned variant, tags the
    email (`tags.variant`) and persists `provider`/`variant`/`subject` on the
    send doc.
 4. **Measurement** — opens are recorded by the ESP webhooks. The winner is read
    two ways (below).
-5. **Auto-promotion** — the next send biases toward the recent winner (below).
+5. **Auto-promotion** — disabled for this four-arm test; it can be explicitly
+   enabled only after the owner decides that the evidence is sufficient (below).
 
-## Auto-promotion (on by default)
+## Auto-promotion (explicit opt-in)
 
 `send-newsletter.mjs` resolves a *promoted variant* before assembling a campaign:
 it pools the open rates of the previous `NEWSLETTER_AB_LOOKBACK` campaigns
 (default 2) and, **only** if every arm cleared the sample gate
 (`DEFAULT_WINNER_GATES.minSendsPerArm`, default 200) **and** the best vs runner-up
-is significant (z-test, p<0.05), declares a winner.
+is significant after the multi-arm Bonferroni correction (z-test, adjusted
+p<0.05), declares a winner. If one of the four arms has not appeared in the
+lookback, promotion is refused and the split remains even.
 
 When a winner exists, assignment becomes **epsilon-greedy**: a `1-ε` share
-(ε=`DEFAULT_EPSILON`, 0.2 → 90% for two arms) is sent the winner, the rest still
-explores uniformly so the losing arm keeps getting traffic and the test stays
-live (and can flip if the winner changes). With no significant winner it is a
-pure even split — so "on by default" changes nothing until the data earns it.
+(ε=`DEFAULT_EPSILON`, 0.2 → 85% for four arms) is sent the winner, the rest still
+explores uniformly so every other arm keeps getting traffic. With no significant
+winner it is a pure even split.
 
 Promotion is **per provider**, applied in two stages so it survives the fact
 that the cascade only picks a provider at send time:
@@ -57,13 +61,14 @@ report measures whether the per-provider split actually beats the global one.
 
 | Env | Default | Purpose |
 |-----|---------|---------|
-| `NEWSLETTER_AB_AUTOPROMOTE` | on | set `false` to force an even split (kill switch) |
+| `NEWSLETTER_AB_AUTOPROMOTE` | off | set `true` only to opt into promotion after review |
 | `NEWSLETTER_AB_LOOKBACK` | `2` | how many prior campaigns to pool for the winner |
 
 The persisted `variant` on each send doc is authoritative — once promotion skews
 the split, the variant is no longer a pure function of `(email, campaignId)`, so
-the report and resolver both read the persisted value (recompute is a legacy
-fallback only).
+the report and resolver both read the persisted value. Records without a
+persisted variant use the original two-arm (`concreto`/`curioso`) hash so old
+campaigns are not reclassified into the new arms.
 
 ## Reading the result
 
@@ -75,9 +80,11 @@ node scripts/newsletter-ab-report.mjs --campaign weekly_2026-06-15
 node scripts/newsletter-ab-report.mjs --json
 ```
 
-Cross-tabs open rate by `provider × variant`, flags the per-provider winner and
-runs a two-proportion z-test. Source of truth = Firestore send docs + open
-events; immune to the per-provider webhook doc-id divergence.
+Cross-tabs open rate by `provider × variant`, distinguishes the highest observed
+rate from a statistically promotable winner, and runs the two-proportion
+z-test with a Bonferroni correction for the four-arm comparison. Source of truth
+= Firestore send docs + open events; immune to the per-provider webhook doc-id
+divergence.
 
 ### B. PostHog funnel (optional, richer UI)
 

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ow-1286",
+      "sourceKey": "OW",
+      "sourceRecordId": "1286",
+      "canton": "Obvaldo",
+      "platePrefix": "OW",
+      "plateNumber": "2379",
+      "normalizedPlate": "OW2379",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 300,
+      "startingPriceChf": 300,
+      "bidCount": 1,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-09-21T19:00:00.000Z",
+      "closedAt": "2026-09-21T19:00:00.000Z",
+      "officialAuctionUrl": "https://ecariowprod.ilz.info/ecari-auction/",
+      "officialDetailUrl": "https://ecariowprod.ilz.info/ecari-auction/ui/app/details/app?id=1286",
+      "sourceFetchedAt": "2026-09-21T12:52:57.663Z",
+      "lastVerifiedAt": "2026-09-21T12:52:57.663Z",
+      "firstSeenAt": "2026-09-15T04:53:54.334Z",
+      "lastSeenAt": "2026-09-21T12:52:57.663Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "bb4ff146edf7"
+    }
+  ]
+}

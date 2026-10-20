@@ -27,8 +27,11 @@
  * `https://www.swsieber.ch/jobs/`).
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { withRenderedPersonioPage } from './ats-clients/personio-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const SUNE_EGGE_KEY = 'sune-egge';
 export const SUNE_EGGE_COMPANY_NAME = 'Fachspital Sune-Egge';
@@ -115,22 +118,6 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-async function fetchJson(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': USER_AGENT, Accept: 'application/json,*/*' },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 function buildParsedJob(rec) {
   const title = normalizeSpace(rec.name || '');
   if (!title || title.length < 3) return null;
@@ -145,13 +132,12 @@ function buildParsedJob(rec) {
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${title} sune egge zurich`);
 
-  const fallbackDesc =
-    `${title} — Stelle im Fachspital Sune-Egge in ${DEFAULT_CITY} (${DEFAULT_CANTON}), Schweiz. ` +
-    'Das Fachspital Sune-Egge der Stiftung Sozialwerk Pfarrer Sieber (SWS) betreut suchtmittelabhängige ' +
-    'Menschen mit komplexen Begleiterkrankungen (HIV / HCV) — eine in der Schweiz einzigartige Spezialklinik im Sozialwesen.';
-  const desc = descText.length >= 80 ? descText : fallbackDesc;
+  // Only the posting's own text (issue 5253): no "<title> — Stelle im
+  // Fachspital Sune-Egge …" line and clinic summary in place of a short body. A
+  // body under the common 50-word floor gives no description (the shared
+  // pipeline's thin-source path).
+  const desc = meetsSourceBodyFloor(descText) ? descText : '';
 
-  const postedDate = new Date().toISOString().slice(0, 10);
   const employmentBasis = `${title} ${rec.schedule || ''} ${rec.employment_type || ''}`;
 
   return {
@@ -183,7 +169,7 @@ function buildParsedJob(rec) {
     sector: 'Sanità',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...mergeSourcePostingDates({}, rec),
     applyUrl: publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
@@ -199,10 +185,15 @@ export async function fetchAllSuneEggeJobs() {
 
   let records = [];
   try {
-    records = await fetchJson(PERSONIO_API_URL);
+    records = await fetchJson(PERSONIO_API_URL, {
+      headers: { 'User-Agent': USER_AGENT, Accept: 'application/json,*/*' },
+    });
   } catch (err) {
     console.warn(`⚠️ Personio search.json fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   if (!Array.isArray(records)) {
     console.warn(`⚠️ Personio search.json: expected array, got ${typeof records}`);
@@ -213,8 +204,13 @@ export async function fetchAllSuneEggeJobs() {
   const jobs = [];
   for (const rec of records) {
     try {
-      const job = buildParsedJob(rec);
-      if (job) jobs.push(job);
+      const kept = buildParsedJob(rec);
+      if (!kept) continue;
+      // The listing's `description` omits the company block and is empty for
+      // a position that only exists in another language; the published job
+      // page renders the whole vacancy (see `withRenderedPersonioPage`).
+      const job = buildParsedJob(await withRenderedPersonioPage(rec, kept.url)) || kept;
+      jobs.push(job);
     } catch (err) {
       console.warn(`⚠️ Skipping id=${rec?.id || '<?>'}: ${err?.message || err}`);
     }

@@ -3,6 +3,8 @@ import path from 'node:path';
 import React from 'react';
 import { render, screen, waitFor, fireEvent, cleanup } from '@testing-library/react';
 import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
+import { isAddressSuppressed, isCrossChannelStop } from '../services/emailSuppression.mjs';
+import { hasSubscriptionBasis } from '../services/subscriberConsent.mjs';
 
 // Mock the service module BEFORE importing the component.
 vi.mock('@/services/newsletterSubscribers', () => ({
@@ -59,6 +61,12 @@ describe('SubscriptionPreferencesController — token mode', () => {
  });
 
  afterEach(() => cleanup());
+
+ it('does not fetch subscriber data when the signed token is missing', async () => {
+ render(<SubscriptionPreferencesController mode="token" email="reader@example.com" token="" />);
+ await waitFor(() => expect(screen.getByRole('alert')).toBeTruthy());
+ expect(subs.getFullSubscriptionStatus).not.toHaveBeenCalled();
+ });
 
  it('renders a loading state initially', () => {
  (subs.getFullSubscriptionStatus as any).mockReturnValue(new Promise(() => {})); // never resolves
@@ -563,6 +571,75 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
   expect(src).toMatch(/isAccountDeletedSubscriber/);
   expect(src).toMatch(/!accountDeleted && !optOutBinding/);
   expect(src).toMatch(/authToggleNewsletter\(email, next, userId\)/);
+ });
+
+ // Saving a listing activates a never-decided saved-jobs digest (owner
+ // decision 2026-10-02), so every "off" here must be an explicit, durable stop.
+ it('records an explicit saved-jobs digest stop that a later save respects', () => {
+  const setStart = src.indexOf('async function authSetSavedJobsDigest');
+  const setEnd = src.indexOf('\n}\n', setStart);
+  const setter = src.slice(setStart, setEnd);
+  // Turning it off needs no subscriber record: the check lives in the "on" branch.
+  const enabledBranch = setter.indexOf('if (enabled) {');
+  expect(enabledBranch).toBeGreaterThan(-1);
+  expect(setter.indexOf("throw new Error('subscriber-not-created')")).toBeGreaterThan(enabledBranch);
+  // An existing stop keeps its provenance.
+  expect(setter).toMatch(/savedJobsDigest\?\.optedOut === true\) return;/);
+  expect(setter).toMatch(/optedOut:\s*!enabled/);
+
+  const stopStart = src.indexOf('const handleStopAll');
+  const stopAll = src.slice(stopStart, src.indexOf('authSetSavedJobsDigest(userId, email, false)', stopStart) + 60);
+  // Stop-all writes the off even when the digest was never on yet.
+  expect(stopAll).toMatch(/if \(digestAvailable && userId\) \{\s*try \{\s*await authSetSavedJobsDigest\(userId, email, false\);/);
+  expect(stopAll).not.toMatch(/digestAvailable && userId && digestEnabled/);
+ });
+
+ // Owner decision 2026-10-03: the digest reaches a verified account with no
+ // central row (the sender creates the digest's own record). The switch must
+ // turn it back on for that account without creating a newsletter subscription.
+ it('re-enables the saved-jobs digest without subscribing an account that has no newsletter relationship (no row, digest record, legacy row)', () => {
+  const setStart = src.indexOf('async function authSetSavedJobsDigest');
+  const setEnd = src.indexOf('\n}\n', setStart);
+  const setter = src.slice(setStart, setEnd);
+  // The branch is "no newsletter relationship", not "no document": the
+  // digest's own record and a legacy row with no relationship take it too.
+  const noRowBranch = setter.indexOf('if (!subscriberData || !hasSubscriptionBasis(subscriberData)) {');
+  const elseBranch = setter.indexOf('} else {', noRowBranch);
+  expect(noRowBranch).toBeGreaterThan(-1);
+  expect(elseBranch).toBeGreaterThan(noRowBranch);
+  const noRow = setter.slice(noRowBranch, elseBranch);
+  // A stop on the row still wins; only a missing row with an unverified
+  // address fails; everything else falls through to the account-preference write.
+  expect(noRow).toContain("if (subscriberData && (isAddressSuppressed(subscriberData.status) || isCrossChannelStop(subscriberData))) {");
+  expect(noRow).toContain("throw new Error('email-suppressed');");
+  expect(noRow).toContain("if (!subscriberData && !emailVerified) throw new Error('subscriber-not-created');");
+  expect(noRow).not.toContain('upsertUnifiedEmailSubscriber');
+  // The central writer (a subscription) runs only on an existing row.
+  expect(setter.indexOf('upsertUnifiedEmailSubscriber')).toBeGreaterThan(elseBranch);
+  expect(src).toContain('await authSetSavedJobsDigest(userId, email, next, emailVerified);');
+ });
+
+ // Review acceptance (2026-10-04): a bounced digest record takes the
+ // no-relationship branch and is refused there, before any preference write.
+ it('refuses to re-enable the digest on a suppressed record that has no relationship', () => {
+  const bouncedDigestRecord = { saved_jobs_digest_anchor: { created_at: 1 }, status: 'bounced' };
+  expect(hasSubscriptionBasis(bouncedDigestRecord)).toBe(false);
+  expect(isAddressSuppressed(bouncedDigestRecord.status)).toBe(true);
+  expect(isCrossChannelStop(bouncedDigestRecord)).toBe(true);
+  const setStart = src.indexOf('async function authSetSavedJobsDigest');
+  const setter = src.slice(setStart, src.indexOf('\n}\n', setStart));
+  // The refusal comes before the account-preference write.
+  expect(setter.indexOf("throw new Error('email-suppressed');")).toBeLessThan(setter.indexOf('savedJobsDigest: {'));
+ });
+
+ it('shows the saved-jobs digest as on only when the sender would send it', () => {
+  const loadStart = src.indexOf('async function authLoadSavedJobsDigest');
+  const loadEnd = src.indexOf('\n}\n', loadStart);
+  const loader = src.slice(loadStart, loadEnd);
+  // Same stop predicate as isSavedJobsDigestEligible in
+  // scripts/send-saved-jobs-digest.mjs, not a narrower list of global fields.
+  expect(loader).toContain('!isCrossChannelStop(subscriberData)');
+  expect(loader).toContain('(Boolean(subscriberData) || emailVerified)');
  });
 
  it('source contains the pause/resume toggle wired to both auth and token modes (issue #4298 follow-up fix)', () => {

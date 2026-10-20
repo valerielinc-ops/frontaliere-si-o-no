@@ -133,7 +133,7 @@ describe('mergeEventsIntoSlice', () => {
     expect(byId['guidle:b']).toBeDefined(); // survived, untouched this run
   });
 
-  it('drops ids explicitly marked gone', () => {
+  it('retains ids explicitly marked gone for the permanent SEO archive', () => {
     mergeEventsIntoSlice({
       slicePath,
       sourceKey: 'guidle',
@@ -152,10 +152,10 @@ describe('mergeEventsIntoSlice', () => {
       crawledAt: '2026-07-03T00:00:00.000Z',
     });
 
-    expect(total).toBe(0);
+    expect(total).toBe(1);
   });
 
-  it('prunes events whose last relevant date has already passed', () => {
+  it('retains events whose last relevant date has already passed', () => {
     mergeEventsIntoSlice({
       slicePath,
       sourceKey: 'guidle',
@@ -173,7 +173,7 @@ describe('mergeEventsIntoSlice', () => {
     const ids = written.events.map((e: any) => e.id);
     expect(ids).toContain('guidle:future');
     expect(ids).toContain('guidle:ongoing');
-    expect(ids).not.toContain('guidle:past');
+    expect(ids).toContain('guidle:past');
   });
 
   it('recovers from a corrupt existing slice by starting fresh instead of crashing', () => {
@@ -190,5 +190,70 @@ describe('mergeEventsIntoSlice', () => {
     });
 
     expect(total).toBe(1);
+  });
+
+  it('reuses an exact previous event row for a bounded detail failure', () => {
+    const previousEvents = Array.from({ length: 20 }, (_, index) => ({
+      id: `guidle:${index}`,
+      title: `Previous ${index}`,
+      startDate: '2099-01-01',
+    }));
+    mergeEventsIntoSlice({
+      slicePath,
+      sourceKey: 'guidle',
+      sourceName: 'Guidle',
+      freshEvents: previousEvents,
+      goneIds: [],
+      crawledAt: '2026-07-02T00:00:00.000Z',
+    });
+
+    const freshEvents = previousEvents.map((event) => ({
+      ...event,
+      title: `Fresh ${event.id}`,
+    }));
+    const total = mergeEventsIntoSlice({
+      slicePath,
+      sourceKey: 'guidle',
+      sourceName: 'Guidle',
+      freshEvents,
+      goneIds: [],
+      crawledAt: '2026-07-03T00:00:00.000Z',
+      detailFailureIds: ['guidle:3'],
+      detailAttemptCount: 20,
+    });
+
+    expect(total).toBe(20);
+    const written = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    const failed = written.events.find((event: any) => event.id === 'guidle:3');
+    const fresh = written.events.find((event: any) => event.id === 'guidle:4');
+    expect(failed.title).toBe('Previous 3');
+    expect(fresh.title).toBe('Fresh guidle:4');
+  });
+
+  it('rejects an event slice when detail failures exceed the shared bound', () => {
+    const previousEvents = Array.from({ length: 20 }, (_, index) => ({
+      id: `guidle:${index}`,
+      title: `Previous ${index}`,
+      startDate: '2099-01-01',
+    }));
+    mergeEventsIntoSlice({
+      slicePath,
+      sourceKey: 'guidle',
+      sourceName: 'Guidle',
+      freshEvents: previousEvents,
+      goneIds: [],
+      crawledAt: '2026-07-02T00:00:00.000Z',
+    });
+
+    expect(() => mergeEventsIntoSlice({
+      slicePath,
+      sourceKey: 'guidle',
+      sourceName: 'Guidle',
+      freshEvents: previousEvents,
+      goneIds: [],
+      crawledAt: '2026-07-03T00:00:00.000Z',
+      detailFailureIds: ['guidle:0', 'guidle:1', 'guidle:2', 'guidle:3'],
+      detailAttemptCount: 20,
+    })).toThrow(/detail failure\/reuse policy rejected 4\/20/);
   });
 });

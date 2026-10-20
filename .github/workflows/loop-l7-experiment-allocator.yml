@@ -8,33 +8,29 @@ on:
     paths:
       - 'data/experimental-candidates.json'
       - 'data/experiment-outcomes.json'
+      - 'data/experiments/active-experiments.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/export-l7-experiment-outcomes.mjs'
-      - 'scripts/ci/export-loop-outcomes.mjs'
-      - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/analytics-settled-window.mjs'
-      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/loop-l7-experiment-allocator.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l7-experiment-allocator.yml'
   pull_request:
     paths:
       - 'data/experimental-candidates.json'
       - 'data/experiment-outcomes.json'
+      - 'data/experiments/active-experiments.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/export-l7-experiment-outcomes.mjs'
-      - 'scripts/ci/export-loop-outcomes.mjs'
-      - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/analytics-settled-window.mjs'
-      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/loop-l7-experiment-allocator.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l7-experiment-allocator.yml'
   workflow_dispatch:
     inputs:
@@ -58,28 +54,25 @@ jobs:
     timeout-minutes: 8
     steps:
       - name: Checkout experiment inputs
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
             /data/experimental-candidates.json
             /data/experiment-outcomes.json
+            /data/experiments/active-experiments.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/export-l7-experiment-outcomes.mjs
-            /scripts/ci/export-loop-outcomes.mjs
-            /scripts/lib/ga4-service-account.mjs
-            /scripts/lib/analytics-settled-window.mjs
-            /scripts/lib/posthog-client.mjs
             /scripts/ci/loop-l7-experiment-allocator.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
-            /scripts/lib/posthog-client.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/loop-fleet-issue.mjs
             /.github/workflows/loop-l7-experiment-allocator.yml
           sparse-checkout-cone-mode: false
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Start loop operational telemetry
@@ -90,20 +83,6 @@ jobs:
             echo 'LOOP_FLEET_COLLISIONS=0'
             echo 'LOOP_FLEET_GATE_BYPASS=false'
           } >> "$GITHUB_ENV"
-      - name: Prepare read-only Firebase credentials
-        if: github.event_name != 'pull_request'
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          set -euo pipefail
-          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo '::warning::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set; recording an explicitly unavailable experiment outcome'
-            echo 'LOOP_FLEET_L7_EXPORT_UNAVAILABLE=1' >> "$GITHUB_ENV"
-            exit 0
-          fi
-          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
-          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Export fresh L7 outcomes
         if: always() && github.event_name != 'pull_request'
         env:
@@ -111,16 +90,12 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$(dirname "$OUTCOME_PATH")" "$RUNNER_TEMP/loop-fleet-l7"
-          if [ "${LOOP_FLEET_L7_EXPORT_UNAVAILABLE:-0}" = '1' ]; then
-            node scripts/ci/export-l7-experiment-outcomes.mjs --unavailable --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json
-            exit 0
-          fi
           set +e
-          node scripts/ci/export-l7-experiment-outcomes.mjs --days 8 --json --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json | tee "$RUNNER_TEMP/loop-fleet-l7/export-cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
+          node scripts/ci/export-l7-experiment-outcomes.mjs --json --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json | tee "$RUNNER_TEMP/loop-fleet-l7/export-cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
           export_code=${PIPESTATUS[0]}
           set -e
           if [ "$export_code" -ne 0 ]; then
-            echo '::warning::L7 live outcome export failed; recording an explicitly unavailable outcome so the allocator remains fail-closed'
+            echo '::warning::L7 outcome export failed; recording an explicitly unavailable outcome so the allocator remains fail-closed'
             node scripts/ci/export-l7-experiment-outcomes.mjs --unavailable --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json
           fi
       - name: Prepare unavailable L7 outcomes for pull request
@@ -182,7 +157,7 @@ jobs:
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L7 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L7 observation and actions
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: loop-l7-experiment-allocator-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l7/

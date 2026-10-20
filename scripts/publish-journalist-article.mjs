@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * publish-journalist-article.mjs — Server-side publish pipeline for the
  * journalist dashboard (issue #3174).
@@ -46,6 +47,8 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import {
   registerArticleFiles,
   checkArticleIdExists,
@@ -99,14 +102,13 @@ function slugify(input) {
 }
 
 async function initDb() {
-  const admin = (await import('firebase-admin')).default;
-  if (!admin.apps?.length) {
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  return { db: admin.firestore(), FieldValue: admin.firestore.FieldValue };
+  return { db: getFirestore(), FieldValue };
 }
 
 /** Build the `data` object create-article.mjs's exported functions expect,
@@ -260,7 +262,7 @@ async function resolveHeroImage(data, doc) {
  * pickAuthorForTopic() here is the same pre-existing behavior as before,
  * for a case this incident never actually involved.
  *
- * @returns {{slug: string, name: string, linkedinUrl: string|null}|null}
+ * @returns {{kind: 'real-author', slug: string, name: string, uid: string, linkedinUrl?: string}|null}
  */
 function resolveJournalistAuthor(doc) {
   return (doc?.authorUid ? getAuthorByUid(doc.authorUid) : undefined) || null;
@@ -438,7 +440,7 @@ async function main() {
 
 const invokedDirectly = (() => {
   try {
-    return import.meta.url === pathToFileURL(process.argv[1] || '').href;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

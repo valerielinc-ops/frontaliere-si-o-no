@@ -1,6 +1,7 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   TALLY_WEIJL_KEY,
+  fetchAllTallyWeijlJobs,
   TALLY_WEIJL_COMPANY_NAME,
   isTallyWeijlJob,
   isTrustedDomain,
@@ -129,5 +130,26 @@ describe('TALLY WEiJL crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+
+describe('Tally publication versus application deadline', () => {
+  it('keeps Apply by exclusively as validThrough and reads publication only from JobPosting', async () => {
+    const deadline = new Date(Date.now() + 30 * 86400000);
+    const deadlineIso = deadline.toISOString().slice(0, 10);
+    const month = deadline.toLocaleString('en-US', { month: 'short', timeZone: 'UTC' });
+    const label = `${month}. ${deadline.getUTCDate()}, ${deadline.getUTCFullYear()}`;
+    const publication = new Date(Date.now() - 4 * 86400000).toISOString();
+    const listing = `<div class="js-card list-item" data-href="/jobs/fixture/"><h3 class="js-job-list-opening-name" title="Sales Assistant">Sales Assistant</h3><div class="js-job-list-opening-loc" title="Basel, Basel, Switzerland"></div><span title="Apply by: ${label}"></span></div><footer></footer>`;
+    try {
+      for (const datePosted of [publication, '']) {
+        vi.stubGlobal('fetch', vi.fn(async (url) => new Response(String(url).includes('?country=')
+          ? (String(url).includes('Switzerland') ? listing : '<footer></footer>')
+          : `<div class="jobdesciption">${'Source vacancy responsibilities and experience. '.repeat(15)}</div><section></section><script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', datePosted })}</script>`)));
+        const [job] = await fetchAllTallyWeijlJobs();
+        expect(job).toMatchObject({ validThrough: deadlineIso, datePosted, postedDate: datePosted, postingDateSource: datePosted ? 'reported' : 'unknown' });
+      }
+    } finally { vi.unstubAllGlobals(); }
   });
 });

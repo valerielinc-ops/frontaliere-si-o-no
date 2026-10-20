@@ -15,9 +15,14 @@
  */
 export {
   CONFIRMATION_LINK_PROOF,
+  CONFIRMATION_METHODS,
   hasConfirmationProof,
+  hasSubscriberCreationStamp,
+  hasSubscriptionBasis,
   hasUnifiedEmailConsent,
   isBaseCommunicationsReady,
   isNewsletterConfirmationEvent,
+  isSavedJobsDigestAnchorOnly,
+  SAVED_JOBS_DIGEST_ANCHOR_FIELD,
   UNIFIED_EMAIL_CONSENT_PURPOSE,
 } from '../functions/src/lib/subscriberConsent.js';

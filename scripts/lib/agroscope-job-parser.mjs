@@ -1,3 +1,4 @@
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Agroscope — Prospective.ch JSON API job parser
@@ -32,7 +33,9 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * itself a numeric ID subject to the same kind of silent drift that broke
  * `1083812`.
  *
- * No detail page fetching needed — the API returns full descriptions in `szas.*`.
+ * The API carries the listing fields below; the description is read from the
+ * rendered vacancy page by the runner (`update-agroscope-jobs.mjs`), since the
+ * listing text is only tasks + requirements.
  *   szas.sza_tasks, szas.sza_requirements, szas.sza_benefits, szas.sza_apply_link,
  *   szas.sza_company_profil, szas.sza_contact, szas.sza_location.city, szas.sza_location.region
  *
@@ -43,6 +46,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -205,7 +209,11 @@ export function parseAgroscopeApiResponse(data = {}) {
       description,
       applyUrl: szas.sza_apply_link || '',
       directLink: links.directlink || '',
-      startDate: j.start_date || '',
+      // Federal Prospective medium1000624 start_date is the publication instant:
+      // jobs.admin.ch detail c927355d-e225-479e-9c1b-fa450252ff02 declares
+      // JSON-LD datePosted2026-10-02 alongside API2026-10-01T22:00:00Z;
+      // the employment starts in March2027. Preserve the complete source instant.
+      ...sourcePostingDateFields(j.start_date),
       endDate: j.end_date || '',
       language: j.language || 'it',
       fieldOfActivity: szas.sza_field_of_activity || (attrs.taetigkeitsbereich || [])[0] || '',
@@ -270,17 +278,18 @@ export function buildAgroscopeLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const city = String(job.city || 'Switzerland').trim();
   const description = String(job.description || '').trim();
+  const sourceLang = description ? sourceLangOfBody(description, job.language || 'it') : 'it';
 
   const fallbackDesc = `Agroscope cerca ${title} con sede a ${city}. Centro di competenze della Confederazione per la ricerca nel settore agroalimentare. Candidati online su jobs.admin.ch.`;
 
   return {
+    // The body goes in the slot of the language it is written in, read from
+    // the body (Agroscope (jobs.admin.ch) publishes in German, French and Italian), not copied into all four slots (#5253); the
+    // invented stand-in, when used, is Italian text and goes under `it`.
+    // Title copies stay: translate-pending retranslates source-copy titles.
+    sourceLang,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: {
-      it: description || fallbackDesc,
-      en: description || fallbackDesc,
-      de: description || fallbackDesc,
-      fr: description || fallbackDesc,
-    },
+    descriptionByLocale: { [sourceLang]: description || fallbackDesc },
     slugByLocale: {
       it: slugify(`${title} agroscope ${city}`),
       en: slugify(`${title} agroscope ${city}`),

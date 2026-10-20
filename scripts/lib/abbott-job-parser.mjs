@@ -19,7 +19,9 @@
  *
  * Location text format: `Switzerland - {Canton} - {City}` (Basel, Zurich,
  * Fribourg, Remote, …). We strip the leading "Switzerland - " then use the
- * first remaining segment as the city.
+ * first remaining segment as the city. A work mode ("Remote") is not a city:
+ * without a requisition site that names one, the job is skipped rather than
+ * published as the Basel HQ (same rule as issue 9839 on nvidia-zurich).
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllAbbottJobs() — Fetch and parse all Swiss jobs
@@ -30,17 +32,27 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { normalizeDescriptionBullets, slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
+import {
+  isWorkModeLocationLabel,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDetail,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   normalizeWorkdayLocationCandidate,
   workdayPrimaryLocationState,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import {
+  resolveWorkdayPostalPlace,
+  resolveWorkdayPrimarySwissLocation,
+  resolveWorkdaySwissCanton,
+} from './workday-swiss-job-parser-common.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -80,17 +92,38 @@ function cleanAbbottLocation(raw = '') {
   const trimmed = String(raw || '').trim();
   if (!trimmed) return '';
   if (/\d+\s+location/i.test(trimmed)) return '';
+  // A work mode with no municipality (`Switzerland - Remote`,
+  // `Home Office - Switzerland`, `Switzerland - Télétravail - Vaud`) names no
+  // place: no segment of it may become the locality.
+  if (isWorkModeLocationLabel(trimmed)) return '';
   // Strip leading "Switzerland - " (and language variants)
   const stripped = trimmed.replace(/^\s*(switzerland|schweiz|suisse|svizzera)\s*-\s*/i, '').trim();
   if (!stripped) return '';
-  const parts = stripped.split(/\s*-\s*/).map((p) => p.trim()).filter(Boolean);
+  // A work-mode segment beside a named place (`Switzerland - Zurich - Remote`)
+  // is dropped so the place stays the locality.
+  const parts = stripped.split(/\s*-\s*/)
+    .map((p) => p.trim())
+    .filter((p) => p && !isWorkModeLocationLabel(p));
   // Last segment is usually the city (when present), else the canton/region.
   return parts[parts.length - 1] || '';
 }
 
 export function resolveAbbottLocation(listingLocation = '', requisitionLocation = '') {
   const requisitionText = normalizeWorkdayLocationCandidate(requisitionLocation);
-  if (requisitionText) return swissCityFromLocationField(requisitionText) || '';
+  if (requisitionText) {
+    // A requisition placed in a LOCALITY outside the BFS commune list
+    // (Rotkreuz, Brüttisellen, …) stays its own place when its structured
+    // country is CH and the official directory names one canton — the shared
+    // rule of the Workday parsers (`resolveWorkdaySwissCanton`).
+    const place = normalizeSpace(typeof requisitionLocation === 'object' ? requisitionLocation?.descriptor : requisitionLocation);
+    const structured = { jobRequisitionLocation: requisitionLocation };
+    const city = swissCityFromLocationField(requisitionText);
+    if (city) return city;
+    if (place && resolveWorkdaySwissCanton(place, structured, { log: false })) return place;
+    // An address instead of a place (`Switzerland : Technoparkstrass 1 CH
+    // 8005`): its postal code names the locality, under the same guarantees.
+    return resolveWorkdayPostalPlace(place, structured)?.locality || '';
+  }
   return cleanAbbottLocation(listingLocation);
 }
 
@@ -182,7 +215,7 @@ async function fetchJobListings() {
         title: id.title,
         locationRaw: posting.locationsText || id.location || '',
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -212,11 +245,12 @@ export async function fetchAllAbbottJobs() {
   console.log(`  📋 Swiss listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.locationRaw || 'Basel';
+    const rawLocation = normalizeSpace(listing.locationRaw || '');
     if (isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
       continue;
@@ -231,10 +265,21 @@ export async function fetchAllAbbottJobs() {
       console.log(`  ⏭️  Skipped unresolved requisition location: ${requisitionState.text || '(unreadable)'} — ${title}`);
       continue;
     }
-    const location = cleaned || 'Basel';
-    const canton = inferSwissTargetCanton(location) || 'BS';
+    // An `N Locations` roll-up or an empty listing location carries no site:
+    // only the req's own primary workplace may place it in Switzerland. The
+    // Basel HQ used to fill the gap and published a req worked in Neustadt am
+    // Rübenberge (Germany) as `Basel/BS` (issue 9842).
+    const location = cleaned || resolveWorkdayPrimarySwissLocation(detailInfo);
+    const canton = location && !isWorkModeLocationLabel(location)
+      ? resolveWorkdaySwissCanton(location, detailInfo)
+      : '';
+    if (!location || !canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
+    // The CXS listing row carries no `timeType`; the detail does.
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
 
     // Workday listing endpoint never returns the body — fetch detail.
     const detailDescription = detailInfo.jobDescription
@@ -244,20 +289,20 @@ export async function fetchAllAbbottJobs() {
             .replace(/[ \t]*\n[ \t]*/g, '\n')
             .replace(/\n{3,}/g, '\n\n')
             .trim(),
-        ).slice(0, 4000)
+        )
       : '';
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${ABBOTT_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Employer: Abbott — global healthcare leader (medical devices, diagnostics, established pharmaceuticals, nutrition).',
-      '• Swiss footprint: Basel HQ + sales force across Romandie & DE-CH.',
-      '• Apply: Abbott Workday careers portal.',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} ${ABBOTT_KEY} ch`);
@@ -296,7 +341,7 @@ export async function fetchAllAbbottJobs() {
       sector: 'Sanità / Dispositivi medici / Farmaceutico',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: detailInfo })),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -307,6 +352,9 @@ export async function fetchAllAbbottJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${ABBOTT_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

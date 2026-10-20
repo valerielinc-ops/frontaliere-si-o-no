@@ -8,7 +8,7 @@
  * -----------
  *   Primary: https://www.bfs.admin.ch/ — table "Rents per room by canton,
  *            commune, size class and year" (index: je-d-09.03.01.02).
- *   Portal:  https://www.pxweb.bfs.admin.ch/pxweb/de/  (PX-Web open data)
+ *   Portal:  https://stats.swiss/  (the official successor to the PX-Web portal)
  *
  * The FSO public portal intentionally rate-limits automated probing. This
  * script uses the published CSV export (no auth) when available and falls
@@ -52,7 +52,7 @@ const ROOT = path.resolve(__dirname, '..');
 const OUT_PATH = path.join(ROOT, 'data', 'seo', 'fso-rental-medians.json');
 
 const FSO_TABLE_URL =
-  'https://www.bfs.admin.ch/bfs/en/home/statistics/construction-housing/dwellings/rent.html';
+  'https://www.bfs.admin.ch/bfs/en/home/statistics/construction-housing/dwellings.html';
 const FSO_PX_TABLE_ID = 'je-d-09.03.01.02';
 const FSO_RELEASE = '2024-12 (reference year 2023, published Dec 2024)';
 
@@ -77,7 +77,7 @@ const FSO_SNAPSHOT = {
   citations: [
     {
       label: 'FSO — Loyer par pièce selon le canton, la commune, la classe de taille et l\'année',
-      url: 'https://www.pxweb.bfs.admin.ch/pxweb/fr/px-x-0902030000_101/',
+      url: 'https://stats.swiss/',
     },
     {
       label: 'FSO — Indice des loyers (IPL)',

@@ -133,8 +133,14 @@ describe('createUmantisListingParser — quarantine vs hard-fail', () => {
       </tr>
     </table>`;
 
+  // A posting above the shared 50-word source-body floor: a shorter body is
+  // not published on its own (issue 5253).
   const REAL_DETAIL = (title: string) =>
-    `<html><body><li class="customdatablock" id="customdatablock_1"><ul><li>Aufgaben: ${title} mit vielen Verantwortlichkeiten im Pflegebereich des Spitals</li></ul></li></body></html>`;
+    `<html><body><li class="customdatablock" id="customdatablock_1"><ul><li>Aufgaben: ${title} mit vielen Verantwortlichkeiten im Pflegebereich des Spitals</li>`
+    + '<li>Sie betreuen Patientinnen und Patienten ganzheitlich und planen die Pflege gemeinsam mit dem interprofessionellen Team</li>'
+    + '<li>Sie übernehmen die Tagesverantwortung auf der Station und begleiten Lernende und Studierende in ihrer Ausbildung</li>'
+    + '<li>Sie verfügen über ein Diplom als Pflegefachperson HF oder FH und bringen Freude an der Arbeit im Team mit</li>'
+    + '<li>Wir bieten fortschrittliche Anstellungsbedingungen, Weiterbildung und ein wertschätzendes Arbeitsumfeld</li></ul></li></body></html>';
 
   function makeFactory() {
     return createUmantisListingParser({
@@ -190,7 +196,11 @@ describe('createUmantisListingParser — quarantine vs hard-fail', () => {
     expect(jobs).toEqual([]);
   });
 
-  it('allowBoilerplateOnDeadDetail=true emits jobs with structured boilerplate on dead-detail (kispi-sg / paraplegie mode)', async () => {
+  it('quarantines dead-detail jobs even with the retired allowBoilerplateOnDeadDetail flag (issue 5253)', async () => {
+    // The flag used to emit these jobs with a description the crawler wrote
+    // from the listing metadata. A description the source never published is
+    // not emitted any more: the flag is gone and a stale config passing it
+    // must not bring the synthesised text back.
     const fetchMock = vi.fn(async (url: string) => {
       if (url.includes('/Jobs/All')) return res({ status: 200, body: LISTING_HTML });
       // Both detail URLs are dead (cross-host 302).
@@ -207,16 +217,9 @@ describe('createUmantisListingParser — quarantine vs hard-fail', () => {
       defaultCity: 'Lugano',
       defaultPostalCode: '6900',
       allowBoilerplateOnDeadDetail: true,
-    });
+    } as any);
     const jobs = await fetchAllJobs();
-
-    // Both jobs emitted despite dead detail URLs.
-    expect(jobs).toHaveLength(2);
-    // Each job must have a non-empty structured description (not just a title).
-    for (const j of jobs) {
-      expect(j.description.length).toBeGreaterThan(40);
-      expect(j.title.length).toBeGreaterThan(3);
-    }
+    expect(jobs).toEqual([]);
   });
 
   it('a still-200 tenant is unaffected (both jobs emitted with real content)', async () => {

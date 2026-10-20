@@ -1,4 +1,4 @@
-import admin from 'firebase-admin';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
@@ -6,10 +6,14 @@ import {
  positiveEventRecoveryFields,
  positiveEventStatusFields,
  mergeAccountDeletedSubscriberUpdate,
+ UNKNOWN_RECIPIENT,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { uniqueUnknownFallback } from './lib/deliveryDocId.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { eraseJobEmailAffinityProfile, isAffinityErasingEvent } from './lib/jobEmailAffinityStore.js';
+import { parseAssistedCampaign, recordAssistedEmailEvent } from './assistedApplicationEmailEvents.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
  * Mailjet webhook handler — receives delivery events and stores them in Firestore.
@@ -66,8 +70,23 @@ function extractCampaignId(eventData) {
  return uniqueUnknownFallback(extractMessageId(eventData), eventData.time ? String(eventData.time) : null);
 }
 
+/**
+ * The event's message id: `Message_GUID`, the string counterpart of the Send
+ * API's `MessageUUID` that emailCascade.js now stores as the send's id — which
+ * is what lets a delivery, an open and a click of one message be joined.
+ *
+ * `MessageID` is only a fallback, and only when it is still exact: Mailjet's
+ * numeric ids sit around 1.15e18, past 2^53, and the JSON body has already
+ * rounded them by the time this runs (1152921544112431917 arrives as
+ * …431872). A rounded id is a fabricated one that 255 real messages share,
+ * so it is refused rather than stored, exactly as the sender refuses it.
+ */
 function extractMessageId(eventData) {
- return String(eventData.Message_GUID || eventData.MessageID || '');
+ const guid = typeof eventData.Message_GUID === 'string' ? eventData.Message_GUID.trim() : '';
+ if (guid) return guid;
+ const numeric = eventData.MessageID;
+ if (typeof numeric === 'string') return numeric.trim();
+ return Number.isSafeInteger(numeric) && numeric > 0 ? String(numeric) : '';
 }
 
 // ── Persist a single Mailjet event to Firestore ──────────────
@@ -80,11 +99,21 @@ export async function persistMailjetEvent(db, eventData) {
  const type = mapMailjetEvent(mjEvent);
  if (!type) return { skipped: true, reason: `unknown_event: ${mjEvent}` };
 
+ if (await isDeletedEmailAccount(db, email)) {
+   return { skipped: true, reason: 'account_deleted' };
+ }
+
  const campaignId = extractCampaignId(eventData);
  const messageId = extractMessageId(eventData);
  const timestamp = eventData.time
  ? new Date(eventData.time * 1000).toISOString()
  : new Date().toISOString();
+
+ // Candidate e-mails of an assisted application: recorded on the order, never
+ // as newsletter engagement or a job ranking click.
+ if (parseAssistedCampaign(campaignId)) {
+ return recordAssistedEmailEvent(db, { campaign: campaignId, type, provider: 'mailjet', messageId, occurredAt: timestamp, url: eventData.url });
+ }
 
  if (type === 'click' && eventData.url) {
  await recordJobEmailRankingClick(db, {
@@ -96,13 +125,18 @@ export async function persistMailjetEvent(db, eventData) {
  });
  }
 
+ // Complaint/unsubscribe = stop su ogni canale: il profilo di affinita' degli
+ // annunci va cancellato subito, come promette la privacy policy.
+ if (isAffinityErasingEvent(type)) {
+   await eraseJobEmailAffinityProfile(db, email);
+ }
+
  // Route job-alert events to job_alert_subscribers/{email}
  const customId = eventData.CustomID || eventData.custom_id || '';
  if (customId === 'job-alert' || customId === 'job-alert-retry') {
  return persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId, timestamp, eventData });
  }
 
- const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('newsletter_subscribers').doc(email);
 
  // Update subscriber-level fields (aligned with Resend/Mailgun handlers)
@@ -156,8 +190,10 @@ export async function persistMailjetEvent(db, eventData) {
  // The doc read happens only on these three event types. ('delivered' is
  // unreachable for Mailjet — mapMailjetEvent has no such mapping — but the
  // guard is kept identical across the 5 providers so the class cannot drift.)
- if (Object.keys(subscriberUpdate).length > 1) {
- await mergeAccountDeletedSubscriberUpdate(
+ // Unconditional, like the other four cores: the merge is also where an
+ // unknown recipient is found, and every mapped event type adds a field
+ // (the old `Object.keys(subscriberUpdate).length > 1` guard was always true).
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  subscriberUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -170,7 +206,7 @@ export async function persistMailjetEvent(db, eventData) {
  : null,
  db,
  );
- }
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -187,18 +223,18 @@ export async function persistMailjetEvent(db, eventData) {
  campaign_id: campaignId,
  message_id: messageId,
  provider: 'mailjet',
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
  };
 
- if (type === 'send') deliveryData.sent_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'delivered') deliveryData.delivered_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'open') deliveryData.opened_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'bounce') deliveryData.bounced_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'complaint') deliveryData.complained_at = admin.firestore.FieldValue.serverTimestamp();
+ if (type === 'send') deliveryData.sent_at = FieldValue.serverTimestamp();
+ if (type === 'delivered') deliveryData.delivered_at = FieldValue.serverTimestamp();
+ if (type === 'open') deliveryData.opened_at = FieldValue.serverTimestamp();
+ if (type === 'bounce') deliveryData.bounced_at = FieldValue.serverTimestamp();
+ if (type === 'complaint') deliveryData.complained_at = FieldValue.serverTimestamp();
  if (type === 'click') {
- deliveryData.clicked_at = admin.firestore.FieldValue.serverTimestamp();
+ deliveryData.clicked_at = FieldValue.serverTimestamp();
  deliveryData.last_clicked_url = eventData.url || '';
- deliveryData.clicked_links = admin.firestore.FieldValue.increment(1);
+ deliveryData.clicked_links = FieldValue.increment(1);
  }
 
  const deliveryDocId = `${campaignId}_${email}`.replace(/[/\\]/g, '_').slice(0, 200);
@@ -229,7 +265,7 @@ export async function persistMailjetEvent(db, eventData) {
  // spam-specific
  source: eventData.source || null,
  },
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: timestamp,
  });
 
@@ -248,7 +284,6 @@ export async function persistMailjetEvent(db, eventData) {
 // ── Job alert event handler (mirrors newsletter pattern) ────
 
 async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId, timestamp, eventData }) {
- const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
 
  const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };
@@ -270,7 +305,7 @@ async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId
  // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
  // which would overwrite 'complained' — a human's spam complaint — with a
  // machine's inference, and equally resurrect a proven-permanent hard bounce.
- await mergeAccountDeletedSubscriberUpdate(
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  topUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -283,6 +318,7 @@ async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId
  : null,
  db,
  );
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -330,14 +366,14 @@ export async function handleMailjetWebhookRequest({ body, query, webhookSecret, 
  return { processed: 0, results: [] };
  }
 
- const db = injectedDb || admin.firestore();
+ const db = injectedDb || getFirestore();
  const results = [];
 
  for (const eventData of events) {
  try {
  const result = await persistMailjetEvent(db, eventData);
  results.push(result);
- console.log(`[mailjetWebhook] ${eventData.event} → ${result.type || 'skipped'} for ${eventData.email || '?'}`);
+ console.log(`[mailjetWebhook] ${result.reason || result.type || 'skipped'}`);
  } catch (err) {
  console.error(`[mailjetWebhook] Error processing event: ${err.message}`);
  results.push({ skipped: true, reason: err.message });

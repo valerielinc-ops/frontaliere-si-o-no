@@ -8,6 +8,8 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { withSourceLangRelabelFlags } from './lib/source-lang-relabel.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllFaulhaberJobs,
   isFaulhaberJob,
@@ -23,10 +25,18 @@ runStandardCrawlerPipeline({
   companyKey: FAULHABER_KEY,
   companyLabel: FAULHABER_COMPANY_NAME,
   root: ROOT,
-  fetchJobs: fetchAllFaulhaberJobs,
+  // The parser now reads the language from the body (issue 5253); jobs whose
+  // stored sourceLang changed get their stale non-source slots retranslated.
+  fetchJobs: withSourceLangRelabelFlags(fetchAllFaulhaberJobs, FAULHABER_KEY),
   isCompanyJob: isFaulhaberJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  // A zero is published only when the complete HR4YOU feed lists no Swiss
+  // vacancy (see fetchAllFaulhaberJobs); a failed fetch stays a bare `[]`
+  // that keeps the previous slice.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(FAULHABER_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
 }).catch((err) => {
   console.error(`❌ Faulhaber crawler failed: ${err?.message || err}`);
   process.exit(1);

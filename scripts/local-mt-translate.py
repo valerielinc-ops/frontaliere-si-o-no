@@ -63,8 +63,28 @@ Usage:
   # translate a JSONL stream:
   cat batch.jsonl | python3 scripts/local-mt-translate.py
 Env:
-  LOCAL_MT_WORKERS — thread-pool size for unit translation (default: CPU count,
-                     capped to [1, 8]). Set 1 to force the old sequential path.
+  LOCAL_MT_ENGINE  — `batched` (default) or `legacy`. `legacy` is the per-unit
+                     thread-pool path below; `batched` (see _BatchedEngine) feeds
+                     CTranslate2 whole chunks of units instead of one line per call.
+  LOCAL_MT_WORKERS — thread-pool size of the legacy path (default: CPU count,
+                     capped to [1, 8]). Set 1 to force the sequential path.
+  LOCAL_MT_BATCH_UNITS  — units per batched chunk (default 256): the emit
+                     granularity, so a timeout kill loses at most one chunk.
+  LOCAL_MT_BATCH_MODE — `tokens` (default): CTranslate2 batches filled up to
+                     LOCAL_MT_BATCH_TOKENS (default 4096). `equal-length`: a
+                     batch holds only sentences with the same number of tokens,
+                     up to LOCAL_MT_BATCH_EXAMPLES (default 64); measured
+                     slower and no more stable (see _translate_sentences).
+  LOCAL_MT_STANZA_BULK — `0` (default) calls the sentencizer per paragraph, as
+                     Argos does; `1` segments a chunk's paragraphs with one
+                     Stanza call. Measured (local-mt-bench run 37354644699):
+                     no speed-up and worse output, e.g. a title cut to
+                     "Dipendenti / Dipendenti". Kept only to reproduce that.
+  LOCAL_MT_UNIT_CACHE — optional JSONL file of already-translated units. Loaded at
+                     start (those units are not translated again) and appended
+                     after every chunk, so the work a timeout kill interrupts is
+                     reused by the next pass (Phase 2c, or the next run when the
+                     workflow caches the file) instead of being redone.
 """
 
 import argparse
@@ -106,6 +126,14 @@ def _resolve_workers():
         except ValueError:
             pass
     return max(1, min(8, os.cpu_count() or 2))
+
+
+def _env_int(name, default, low, high):
+    raw = os.environ.get(name, "").strip()
+    try:
+        return max(low, min(high, int(raw))) if raw else default
+    except ValueError:
+        return default
 
 
 def models_ready():
@@ -190,6 +218,246 @@ def _segment(text):
     return segments, units
 
 
+class _BatchedEngine:
+    """Argos' own translation chain, run on whole chunks of units.
+
+    Why. `tr.translate()` turns every unit into its own CTranslate2
+    `translate_batch` call (one or two sentences, max_batch_size=32 tokens),
+    plus one Stanza pass per unit, and a pivot direction (it->de) re-runs the
+    it->en leg once per target locale. On the corpus run 37272320066
+    (2026-10-05) the 4-thread pool resolved ~2.5 units/s: 4169 of 14512
+    requests in 70 minutes, against 134072 unique units queued.
+
+    What stays identical. The same installed packages, the same chain Argos
+    resolves for (from, to) (CachedTranslation / CompositeTranslation unwrapped
+    to its PackageTranslation legs), the same sentencizer, the same
+    tokenizer, the same translate_batch options (beam_size, length_penalty,
+    replace_unknowns, target_prefix, num_hypotheses=1) and the same decode and
+    paragraph joining as argostranslate 1.11 apply_packaged_translation(). What
+    changes: many sentences per forward pass and each leg's output memoised
+    per (package, text), so the it->en leg of it->de and it->fr is computed
+    once. Sentence splitting stays per paragraph.
+
+    Outputs are not byte-identical to the per-unit path (see
+    _translate_sentences): the bench reports their semantic score instead.
+
+    Any exception building the chain or running a leg is raised to the caller,
+    which falls back to the legacy per-unit path for that chunk."""
+
+    def __init__(self, tr, batch_tokens, settings=None):
+        self.tr = tr
+        self.batch_tokens = batch_tokens
+        self._chains = {}
+        self._memo = {}   # (leg key, text) -> translated text
+        self.stanza_bulk = os.environ.get("LOCAL_MT_STANZA_BULK", "0").strip() == "1"
+        mode = os.environ.get("LOCAL_MT_BATCH_MODE", "tokens").strip().lower()
+        self.batch_mode = "equal-length" if mode == "equal-length" else "tokens"
+        self.batch_examples = _env_int("LOCAL_MT_BATCH_EXAMPLES", 64, 1, 1024)
+        for name in ("get_translation_from_codes", "CachedTranslation",
+                     "CompositeTranslation", "IdentityTranslation", "PackageTranslation"):
+            if not hasattr(tr, name):
+                raise AttributeError(f"argostranslate.translate.{name} missing")
+        if settings is None:
+            import argostranslate.settings as settings
+        self.settings = settings
+
+    def _legs(self, translation):
+        tr = self.tr
+        if isinstance(translation, tr.CachedTranslation):
+            return self._legs(translation.underlying)
+        if isinstance(translation, tr.CompositeTranslation):
+            return self._legs(translation.t1) + self._legs(translation.t2)
+        if isinstance(translation, tr.IdentityTranslation):
+            return []
+        if isinstance(translation, tr.PackageTranslation):
+            return [translation]
+        raise TypeError(f"unsupported Argos translation {type(translation).__name__}")
+
+    def chain(self, frm, to):
+        key = (frm, to)
+        if key not in self._chains:
+            translation = self.tr.get_translation_from_codes(frm, to)
+            if translation is None:
+                raise LookupError(f"no Argos translation {frm}->{to}")
+            legs = self._legs(translation)
+            if not legs:
+                raise LookupError(f"empty Argos chain {frm}->{to}")
+            self._chains[key] = legs
+        return self._chains[key]
+
+    def _translator(self, leg):
+        if leg.translator is None:
+            import ctranslate2
+            s = self.settings
+            leg.translator = ctranslate2.Translator(
+                str(leg.pkg.package_path / "model"),
+                device=s.device,
+                inter_threads=s.inter_threads,
+                intra_threads=s.intra_threads,
+                compute_type=s.compute_type,
+            )
+        return leg.translator
+
+    def _split_many(self, leg, paragraphs):
+        """Sentence lists for many paragraphs: the sentencizer per paragraph,
+        exactly as Argos calls it. LOCAL_MT_STANZA_BULK=1 batches the Stanza
+        documents instead (measured worse, see the module docstring)."""
+        sentencizer = leg.sentencizer
+        pipeline = getattr(sentencizer, "lazy_pipeline", None)
+        if pipeline is None or not self.stanza_bulk:
+            return [sentencizer.split_sentences(p) for p in paragraphs]
+        out = [[] for _ in paragraphs]
+        live = [i for i, p in enumerate(paragraphs) if p.strip()]
+        if live:
+            import stanza
+            docs = pipeline()([stanza.Document([], text=paragraphs[i]) for i in live])
+            for i, doc in zip(live, docs):
+                out[i] = [sent.text for sent in doc.sentences]
+        return out
+
+    def _run_leg(self, leg, texts):
+        """Translate distinct texts through one PackageTranslation leg."""
+        pkg = leg.pkg
+        # Argos splits every input on "\n" (CachedTranslation, then
+        # PackageTranslation) and translates each paragraph on its own.
+        paragraphs = []
+        owners = []
+        for t_index, text in enumerate(texts):
+            for paragraph in text.split("\n"):
+                owners.append(t_index)
+                paragraphs.append(paragraph)
+        sentence_lists = self._split_many(leg, paragraphs)
+        flat = []
+        flat_owner = []
+        for p_index, sentences in enumerate(sentence_lists):
+            for sentence in sentences:
+                flat.append(pkg.tokenizer.encode(sentence))
+                flat_owner.append(p_index)
+        tokens_by_paragraph = [[] for _ in paragraphs]
+        if flat:
+            hypotheses = self._translate_sentences(leg, flat)
+            # Sentences keep their order inside a paragraph.
+            for p_index, tokens in zip(flat_owner, hypotheses):
+                tokens_by_paragraph[p_index].extend(tokens)
+        values = []
+        for tokens in tokens_by_paragraph:
+            value = pkg.tokenizer.decode(tokens)
+            if pkg.target_prefix != "" and value.startswith(pkg.target_prefix):
+                value = value[len(pkg.target_prefix):]
+            if len(value) > 0 and value[0] == " ":
+                value = value[1:]
+            values.append(value)
+        joined = [[] for _ in texts]
+        for t_index, value in zip(owners, values):
+            joined[t_index].append(value)
+        return ["\n".join(parts).lstrip("\n") for parts in joined]
+
+    def _translate_sentences(self, leg, sentences):
+        """Token lists for tokenized sentences, in input order.
+
+        A sentence's translation is not a function of the sentence alone: the
+        models are int8 and CTranslate2 quantizes a batch's activations
+        together, so the beam search can settle on another hypothesis when the
+        batch changes. That is already true of Argos, which batches the
+        sentences of one paragraph. Measured on the pipeline's runner
+        (local-mt-bench runs 37354644699, 37362597052, 37365181312): against
+        the per-unit path, `tokens` batches gave 61-93% byte-identical
+        responses depending on the sample; `equal-length` batches (no padding)
+        79.7%, and two runs of it with different chunk sizes agreed on 89.2%,
+        at half the speed. So the mode is chosen on throughput, and quality is
+        judged on the outputs (semantic score in the bench), not on equality
+        with one particular batching."""
+        pkg = leg.pkg
+        translator = self._translator(leg)
+        options = dict(
+            replace_unknowns=True,
+            beam_size=max(1, self.settings.beam_size),
+            num_hypotheses=1,
+            length_penalty=0.2,
+            return_scores=True,
+        )
+
+        def prefix(count):
+            return [[pkg.target_prefix]] * count if pkg.target_prefix != "" else None
+
+        if self.batch_mode == "tokens":
+            results = translator.translate_batch(
+                sentences, target_prefix=prefix(len(sentences)),
+                max_batch_size=self.batch_tokens, batch_type="tokens", **options)
+            return [result.hypotheses[0] for result in results]
+
+        by_length = {}
+        for index, tokens in enumerate(sentences):
+            by_length.setdefault(len(tokens), []).append(index)
+        out = [None] * len(sentences)
+        for indexes in by_length.values():
+            for start in range(0, len(indexes), self.batch_examples):
+                group = indexes[start:start + self.batch_examples]
+                results = translator.translate_batch(
+                    [sentences[i] for i in group], target_prefix=prefix(len(group)),
+                    max_batch_size=len(group), batch_type="examples", **options)
+                for i, result in zip(group, results):
+                    out[i] = result.hypotheses[0]
+        return out
+
+    def translate_keys(self, keys):
+        """keys: [(content, from, to)] -> {key: translated text}."""
+        chains = {key: self.chain(key[1], key[2]) for key in keys}
+        current = {key: key[0] for key in keys}
+        depth = max((len(legs) for legs in chains.values()), default=0)
+        for level in range(depth):
+            pending = {}  # leg -> [text]
+            for key, legs in chains.items():
+                if level >= len(legs):
+                    continue
+                leg = legs[level]
+                memo_key = (id(leg), current[key])
+                if memo_key not in self._memo:
+                    bucket = pending.setdefault(id(leg), (leg, []))[1]
+                    bucket.append(current[key])
+            for leg, texts in pending.values():
+                distinct = list(dict.fromkeys(texts))
+                for text, out in zip(distinct, self._run_leg(leg, distinct)):
+                    self._memo[(id(leg), text)] = out
+            for key, legs in chains.items():
+                if level < len(legs):
+                    current[key] = self._memo[(id(legs[level]), current[key])]
+        return current
+
+
+def _load_unit_cache(path, signature):
+    cache = {}
+    if not path or not os.path.exists(path):
+        return cache
+    try:
+        with open(path, "r", encoding="utf-8") as handle:
+            for line in handle:
+                try:
+                    row = json.loads(line)
+                except Exception:  # noqa: BLE001 — a torn last line after a kill
+                    continue
+                if row.get("s") != signature:
+                    continue
+                key = row.get("k")
+                out = row.get("v")
+                if isinstance(key, list) and len(key) == 3 and isinstance(out, str) and out.strip():
+                    cache[tuple(key)] = out
+    except OSError as e:
+        log(f"⚠️  unit cache unreadable ({e}) — starting empty")
+    return cache
+
+
+def _engine_signature():
+    """Units cached under another engine/model setup are not reused."""
+    try:
+        from importlib.metadata import version
+        argos = version("argostranslate")
+    except Exception:  # noqa: BLE001
+        argos = "unknown"
+    beam = os.environ.get("ARGOS_BEAM_SIZE", "4")
+    return f"argos-{argos}|beam-{beam}"
+
+
 def translate_stream():
     """Read JSONL translation requests from stdin, emit JSONL responses on stdout.
 
@@ -247,22 +515,54 @@ def translate_stream():
             unit_cache.setdefault((u["content"], req["from"], req["to"]), None)
 
     directions = {(frm, to) for (_c, frm, to) in unit_cache}
+    engine = os.environ.get("LOCAL_MT_ENGINE", "batched").strip().lower() or "batched"
     workers = _resolve_workers()
-    log(f"🐍 Argos: {len(requests)} requests · {len(unit_cache)} unique units · "
-        f"{len(directions)} directions · {workers} workers")
 
-    # ── Pre-warm each direction single-threaded ─────────────────────────────
-    # Argos lazily builds the pivot chain (src→en→tgt) on the FIRST translate()
-    # for a direction; doing that concurrently races on shared model-graph
-    # construction state. Warm each direction sequentially here so that by the
-    # time the thread pool starts, all lazy chain construction is complete and
-    # subsequent tr.translate() calls only perform inference — which IS
-    # thread-safe (CTranslate2 Translator: read-only weights, per-call beam state).
-    for frm, to in directions:
+    # Units already translated by an earlier pass (Phase 2a for Phase 2c, or a
+    # previous run when the workflow caches the file): resolved without Argos.
+    cache_path = os.environ.get("LOCAL_MT_UNIT_CACHE", "").strip()
+    signature = _engine_signature()
+    stored = _load_unit_cache(cache_path, signature)
+    reused = 0
+    for key in unit_cache:
+        if key in stored:
+            unit_cache[key] = stored[key]
+            reused += 1
+    if cache_path and os.path.exists(cache_path):
+        # Compact: keep only the rows this queue still needs. A unit whose
+        # slots were written is no longer queued, so the file stays bounded by
+        # the pending work instead of growing run after run.
+        tmp = f"{cache_path}.{os.getpid()}.tmp"
         try:
-            tr.translate("test", frm, to)
-        except Exception as e:  # noqa: BLE001
-            log(f"⚠️  warmup {frm}->{to} failed: {type(e).__name__}: {e}")
+            with open(tmp, "w", encoding="utf-8") as handle:
+                for key, out in unit_cache.items():
+                    if out is not None:
+                        handle.write(json.dumps({"s": signature, "k": list(key), "v": out},
+                                                ensure_ascii=False) + "\n")
+            os.replace(tmp, cache_path)
+        except OSError as e:
+            log(f"⚠️  unit cache not compacted ({e})")
+            try:
+                os.unlink(tmp)
+            except OSError:
+                pass
+    log(f"🐍 Argos: {len(requests)} requests · {len(unit_cache)} unique units · "
+        f"{len(directions)} directions · engine {engine}"
+        + (f" · {workers} workers" if engine == "legacy" else "")
+        + (f" · {reused} units reused from {os.path.basename(cache_path)}" if cache_path else ""))
+
+    def _prewarm():
+        # Argos lazily builds the pivot chain (src→en→tgt) on the FIRST translate()
+        # for a direction; doing that concurrently races on shared model-graph
+        # construction state. Warm each direction sequentially so that by the
+        # time the thread pool starts, all lazy chain construction is complete and
+        # subsequent tr.translate() calls only perform inference — which IS
+        # thread-safe (CTranslate2 Translator: read-only weights, per-call beam state).
+        for frm, to in directions:
+            try:
+                tr.translate("test", frm, to)
+            except Exception as e:  # noqa: BLE001
+                log(f"⚠️  warmup {frm}->{to} failed: {type(e).__name__}: {e}")
 
     # ── Translate unique units (parallel; CTranslate2 releases the GIL) ──────
     # Safe: pre-warm resolved all lazy chain builds; CTranslate2 Translator is
@@ -343,20 +643,98 @@ def translate_stream():
                 pending[id(req)] = None  # guard against a second emit
                 _emit(req)
 
-    keys = list(unit_cache.keys())
-    if workers <= 1 or len(keys) <= 1:
-        for key in keys:
-            _, out = _do(key)
-            _resolve(key, out)
-    else:
-        with ThreadPoolExecutor(max_workers=workers) as pool:
-            for key, out in (f.result() for f in as_completed(
-                    [pool.submit(_do, k) for k in keys])):
-                _resolve(key, out)
+    cache_out = None
+    if cache_path:
+        try:
+            # First run after a cache miss: the directory does not exist yet.
+            os.makedirs(os.path.dirname(os.path.abspath(cache_path)), exist_ok=True)
+            torn = False
+            if os.path.exists(cache_path) and os.path.getsize(cache_path) > 0:
+                with open(cache_path, "rb") as handle:
+                    handle.seek(-1, os.SEEK_END)
+                    torn = handle.read(1) != b"\n"
+            cache_out = open(cache_path, "a", encoding="utf-8")
+            if torn:
+                # A kill mid-write left half a row: start ours on a new line.
+                cache_out.write("\n")
+        except OSError as e:
+            log(f"⚠️  unit cache not writable ({e}) — continuing without it")
 
+    def _store(key, out):
+        if cache_out is None or not out.strip():
+            return
+        cache_out.write(json.dumps({"s": signature, "k": list(key), "v": out},
+                                   ensure_ascii=False) + "\n")
+
+    # Cached units first: their requests emit before any model runs.
+    keys = []
+    for key, out in list(unit_cache.items()):
+        if out is None:
+            keys.append(key)
+        else:
+            _resolve(key, out)
+
+    def _run_legacy(chunk_keys):
+        if workers <= 1 or len(chunk_keys) <= 1:
+            for key in chunk_keys:
+                _, out = _do(key)
+                _store(key, out)
+                _resolve(key, out)
+        else:
+            with ThreadPoolExecutor(max_workers=workers) as pool:
+                for key, out in (f.result() for f in as_completed(
+                        [pool.submit(_do, k) for k in chunk_keys])):
+                    _store(key, out)
+                    _resolve(key, out)
+
+    translated_units = 0
+    batch = None
+    if engine != "legacy":
+        try:
+            batch = _BatchedEngine(tr, _env_int("LOCAL_MT_BATCH_TOKENS", 4096, 1, 65536))
+        except Exception as e:  # noqa: BLE001
+            log(f"⚠️  batched engine unavailable ({type(e).__name__}: {e}) — legacy path")
+    if batch is None:
+        _prewarm()
+        _run_legacy(keys)
+        translated_units = len(keys)
+    else:
+        chunk_units = _env_int("LOCAL_MT_BATCH_UNITS", 256, 1, 100000)
+        fallback_warmed = False
+        last_report = time.time()
+        # Units keep request order (titles first, traffic order inside), so the
+        # chunks finish requests in the order the orchestrator queued them.
+        for start in range(0, len(keys), chunk_units):
+            chunk_keys = keys[start:start + chunk_units]
+            try:
+                outs = batch.translate_keys(chunk_keys)
+            except Exception as e:  # noqa: BLE001
+                log(f"⚠️  batched chunk failed ({type(e).__name__}: {e}) — "
+                    f"legacy path for these {len(chunk_keys)} units")
+                if not fallback_warmed:
+                    _prewarm()
+                    fallback_warmed = True
+                _run_legacy(chunk_keys)
+            else:
+                for key in chunk_keys:
+                    out = outs.get(key) or ""
+                    _store(key, out)
+                    _resolve(key, out)
+            translated_units += len(chunk_keys)
+            if cache_out is not None:
+                cache_out.flush()
+            if time.time() - last_report >= 60:
+                last_report = time.time()
+                rate = translated_units / max(1e-6, time.time() - started)
+                log(f"   … {translated_units}/{len(keys)} units · {ok} requests done · {rate:.1f} units/s")
+
+    if cache_out is not None:
+        cache_out.close()
     elapsed = time.time() - started
     log(f"🏁 Argos translate: {ok} ok, {failed + bad} failed in {elapsed:.1f}s "
-        f"({len(unit_cache)} unique units across {len(requests)} requests)")
+        f"({len(unit_cache)} unique units across {len(requests)} requests; "
+        f"{translated_units} translated, {reused} reused; "
+        f"{translated_units / max(1e-6, elapsed):.1f} units/s)")
 
 
 def main():

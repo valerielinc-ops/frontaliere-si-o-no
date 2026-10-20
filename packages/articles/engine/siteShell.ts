@@ -50,7 +50,13 @@ export interface ArticleImageObjectInput {
   // (`OrganizationCreator | PersonCreator`) structurally — narrow enough for
   // the real function's parameter to satisfy this shape (a plain
   // `Record<string, unknown>` here would NOT typecheck against that union).
-  creator?: { '@type': 'Organization' | 'Person'; name: string; url?: string };
+  creator?: {
+    '@type': 'Organization' | 'NewsMediaOrganization' | 'Person'
+      | readonly ('Organization' | 'NewsMediaOrganization')[];
+    '@id'?: string;
+    name: string;
+    url?: string;
+  };
   copyrightNotice?: string;
   license?: string;
   acquireLicensePage?: string;
@@ -90,6 +96,17 @@ export interface ArticleContextualLinkRule {
   readonly id: string;
 }
 
+/**
+ * Static ad placements that an engine renderer may request from its host.
+ * The host owns the client id and slot registry; keeping only semantic names
+ * here prevents the corpus mirror from importing site-only ad configuration.
+ */
+export type StaticAdSlotKey =
+  | 'canton-hub-top'
+  | 'canton-hub-inline-1'
+  | 'canton-hub-inline-2'
+  | 'canton-hub-end';
+
 export interface SiteShellContract {
   // build-plugins/constants.ts
   baseUrl: string;
@@ -120,6 +137,13 @@ export interface SiteShellContract {
   // build-plugins/shared/railGutters.ts
   railGutters: (enabled: boolean) => { open: string; close: string };
 
+  /**
+   * Optional during a rolling engine/host mirror update. When present, it
+   * returns one reserved raw `<ins class="adsbygoogle">` for a semantic
+   * static-page placement; the engine wraps it in accessible page markup.
+   */
+  staticAdSlotHtml?: (slot: StaticAdSlotKey) => string;
+
   // build-plugins/shared/buildDayStamp.ts — day-granularity build stamp. Must
   // come from the host: `dateModified` has to agree with what the full build
   // emits for the same page, or every fast-published archive page differs from
@@ -140,9 +164,19 @@ export interface SiteShellContract {
     measureLength?: (s: string) => number,
   ) => string;
   truncateHeadline: (headline: string, max: number) => string;
+  /** Truncate against the serialized (HTML-escaped) length of a metadata title. */
+  truncateHeadlineToMeasuredBudget: (
+    headline: string,
+    max: number,
+    measure: (value: string) => number,
+  ) => string;
   titleBrandSuffix: string;
   titleMaxChars: number;
-  clampMetaDescription: (description: string, max?: number) => string;
+  clampMetaDescription: (
+    description: string,
+    max?: number,
+    locale?: 'it' | 'en' | 'de' | 'fr',
+  ) => string;
   metaDescriptionMaxChars: number;
   /**
    * Repair a description/title that arrived ALREADY cut mid-clause from the

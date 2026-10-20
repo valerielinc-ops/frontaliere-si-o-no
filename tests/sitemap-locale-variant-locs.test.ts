@@ -103,6 +103,54 @@ describe('collectLocaleVariantEntries — fixtures', () => {
     expect(skipped.get('not-emitted')).toBe(1);
   });
 
+  it('excludes a quarantined cross-shard variant without dropping its indexable siblings', () => {
+    // An EN shard does not have the DE artifact on disk. The render loop still
+    // records the DE noindex decision before BUILD_LOCALE filters writes, so
+    // sitemap eligibility must use that cross-shard signal rather than local
+    // file existence. The page remains emitted; only its <loc> is withheld.
+    const inspectedPaths: string[] = [];
+    const { entries, skipped } = collectLocaleVariantEntries(
+      [source(GROUP.it, GROUP)],
+      () => true,
+      (pathNoSlash) => {
+        inspectedPaths.push(pathNoSlash);
+        return pathNoSlash !== '/de/gehalt-berechnen';
+      },
+    );
+
+    expect(inspectedPaths).toContain('/de/gehalt-berechnen');
+    expect(entries.map((entry) => entry.url)).toEqual([GROUP.en, GROUP.fr]);
+    expect(skipped.get('not-indexable')).toBe(1);
+  });
+
+  it('applies owner-rendered quarantine decisions per variant across independent groups', () => {
+    const secondGroup = {
+      it: `${BASE}/articoli-svizzera/secondo/`,
+      en: `${BASE}/en/swiss-articles/second/`,
+      de: `${BASE}/de/schweiz-artikel/zweiter/`,
+      fr: `${BASE}/fr/articles-suisse/deuxieme/`,
+    };
+    const quarantinedOwnerPaths = new Set([
+      '/de/gehalt-berechnen',
+      '/fr/articles-suisse/deuxieme',
+    ]);
+    const { entries, skipped } = collectLocaleVariantEntries(
+      [source(GROUP.it, GROUP), source(secondGroup.it, secondGroup)],
+      () => true,
+      (pathNoSlash) => !quarantinedOwnerPaths.has(pathNoSlash),
+    );
+
+    expect(entries.map((entry) => entry.url)).toEqual([
+      secondGroup.de,
+      GROUP.en,
+      secondGroup.en,
+      GROUP.fr,
+    ]);
+    expect(entries.map((entry) => entry.url)).not.toContain(GROUP.de);
+    expect(entries.map((entry) => entry.url)).not.toContain(secondGroup.fr);
+    expect(skipped.get('not-indexable')).toBe(2);
+  });
+
   it('skips a locale URL that already owns a <url> block in a seeded sitemap', () => {
     const sources = [
       source(GROUP.it, GROUP),
@@ -124,22 +172,32 @@ describe('collectLocaleVariantEntries — fixtures', () => {
     expect(skipped.get('missing-trailing-slash')).toBe(1);
   });
 
-  it('drops a locale URL claimed by two different groups rather than trusting either', () => {
+  it('drops both conflicting groups rather than emitting partial cliques', () => {
     const other = {
       it: `${BASE}/altro/`,
       en: GROUP.en, // same EN URL, different group
       de: `${BASE}/de/anderes/`,
       fr: `${BASE}/fr/autre/`,
     };
-    const { entries, skipped } = collectLocaleVariantEntries(
-      [source(GROUP.it, GROUP), source(other.it, other)],
-      () => true,
-    );
-    expect(entries.map((e) => e.url)).not.toContain(GROUP.en);
-    expect(skipped.get('conflicting-group')).toBe(1);
-    // The non-conflicting members of both groups still land.
-    expect(entries.map((e) => e.url)).toContain(GROUP.de);
-    expect(entries.map((e) => e.url)).toContain(other.de);
+    const third = {
+      it: `${BASE}/dritto/`,
+      en: GROUP.en, // same EN URL, a third distinct group
+      de: `${BASE}/de/dritto/`,
+      fr: `${BASE}/fr/droit/`,
+    };
+    const groups = [source(GROUP.it, GROUP), source(other.it, other), source(third.it, third)];
+    const orders = [
+      [0, 1, 2], [0, 2, 1], [1, 0, 2],
+      [1, 2, 0], [2, 0, 1], [2, 1, 0],
+    ];
+    for (const order of orders) {
+      const { entries, skipped } = collectLocaleVariantEntries(
+        order.map((index) => groups[index]),
+        () => true,
+      );
+      expect(entries).toEqual([]);
+      expect(skipped.get('conflicting-group')).toBe(2);
+    }
   });
 
   it('ignores an incomplete group (fewer than 4 locales)', () => {
@@ -258,6 +316,26 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
     expect(slashless).toEqual([]);
   });
 
+  it('keeps the route-specific locale URLs that canton-hub verification consumes', () => {
+    // Five unique URLs cover six failing hub links: the exchange-rate URL is
+    // linked from both the canton carburanti and servizi hubs.
+    const required = new Set([
+      `${BASE}/en/service-comparison/chf-eur-exchange-rate/`,
+      `${BASE}/en/service-comparison/compare-health-insurance/`,
+      `${BASE}/fr/comparaison-services/comparer-caisses-maladie/`,
+      `${BASE}/en/taxes-and-pension/tax-deadlines/`,
+      `${BASE}/en/cross-border-guide/work-permits-guide/`,
+    ]);
+    const listed = new Set(sources.map((s) => s.loc));
+    const sanitized = sanitizeSitemapHreflangReciprocity(seeded);
+    const served = [...seeded].map(({ file, xml }) => sanitized.get(file) ?? xml).join('\n');
+
+    for (const url of required) {
+      expect(listed, `${url} must be a committed <loc>`).toContain(url);
+      expect(served, `${url} must retain its reciprocal hreflang group`).toContain(`<loc>${url}</loc>`);
+    }
+  });
+
   it('WITHOUT the backfill the sanitizer strips sitemap-pages.xml — the reported defect', () => {
     const stripped = sanitizeSitemapHreflangReciprocity(seeded);
     const pages = stripped.get('sitemap-pages.xml');
@@ -280,6 +358,29 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
       ...seeded,
       ...renderLocaleVariantSitemaps(entries),
     ]);
+    const sourceGroupsByAlternate = new Map<string, Map<string, Set<string>>>();
+    for (const s of sources) {
+      const signature = s.annotations
+        .filter((a) => a.lang !== 'x-default')
+        .map((a) => `${a.lang}|${a.href}`)
+        .sort()
+        .join('\0');
+      for (const a of s.annotations) {
+        if (a.href === s.loc) continue;
+        const groups = sourceGroupsByAlternate.get(a.href) ?? new Map<string, Set<string>>();
+        const owners = groups.get(signature) ?? new Set<string>();
+        owners.add(s.loc);
+        groups.set(signature, owners);
+        sourceGroupsByAlternate.set(a.href, groups);
+      }
+    }
+    const conflictingSourceLocs = new Set<string>();
+    for (const groups of sourceGroupsByAlternate.values()) {
+      if (groups.size < 2) continue;
+      for (const owners of groups.values()) {
+        for (const owner of owners) conflictingSourceLocs.add(owner);
+      }
+    }
     const blocksOf = (xml: string) => [...xml.matchAll(/<url>[\s\S]*?<\/url>/g)].map((m) => m[0]);
     const locOf = (block: string) => block.match(/<loc>\s*([^<]+?)\s*<\/loc>/)?.[1] ?? '';
     const hrefsOf = (block: string) =>
@@ -296,6 +397,11 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
         const lost = hrefsOf(before[i]).length - hrefsOf(now[i]).length;
         if (lost === 0) continue;
         const loc = locOf(before[i]);
+        // A duplicated alternate makes the source data itself ambiguous: no
+        // backfill can make both cliques reciprocal. The collector drops both
+        // groups atomically, so this is an expected, diagnosable exception to
+        // the self-referential survival invariant.
+        if (conflictingSourceLocs.has(loc)) continue;
         // Only a group that fails to name itself may lose annotations.
         expect(
           hrefsOf(before[i]).includes(loc),
@@ -305,24 +411,29 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
       }
     }
 
-    // The residue is the known duplicate-IT-alias set: /about/, /contact/ and
-    // /privacy-policy/ are self-canonical 200 pages whose hreflang "it" points
-    // at a DIFFERENT IT URL (/chi-siamo/, /contattaci/, /privacy/). That is a
-    // canonicalisation defect on those three aliases, not an hreflang-listing
-    // one — tracked separately. Asserted as a ceiling so fixing them (or
-    // adding another alias) surfaces here instead of drifting unnoticed.
-    expect(casualties.length).toBeLessThanOrEqual(3);
+    // Retired English utility aliases no longer appear in the canonical sitemap.
+    expect(casualties).toEqual([]);
   });
 
   it('recovers the alternates the defect removed from sitemap-pages.xml', () => {
     const { entries } = collectLocaleVariantEntries(sources, () => true);
     const before = countAnnotations(readSeeded('sitemap-pages.xml'));
-    // 1545: 1525 after the nine Grigioni/Vallese-Italy crossings (9 ×
+    // 895: the previous 890 annotations plus the concierge landing's five
+    // explicit reciprocal annotations. The previous 890 was the previous
+    // 830 annotations plus four explicit reciprocal groups (3 locale-owned
+    // blocks × 5 annotations each). These groups are intentionally listed in
+    // public/sitemap-pages.xml because their pages
+    // are emitted by separate SEO overlays and cannot rely on the generic
+    // static-page backfill to win the closeBundle race.
+    // The previous 830 was the previous 1565 annotations minus 15 retired utility-alias
+    // annotations and 144 retired border-wait URL blocks (144 × 5 = 720).
+    // Previous growth: nine Grigioni/Vallese-Italy crossings (9 ×
     // it/en/de/fr/x-default = 45), plus the four locale entries of the Stabio
-    // petition (4 × 5 = 20). The tripwire is kept as an exact count on purpose
-    // — the committed sitemap is a static file nothing rebuilds, so an
-    // UNEXPLAINED change to it is exactly what this assertion exists to surface.
-    expect(before).toBe(1545);
+    // petition and the four locale entries for employers (4 × 5 = 20 each).
+    // The tripwire is kept as an exact count on purpose — the committed sitemap
+    // is a static file nothing rebuilds, so an UNEXPLAINED change to it is exactly
+    // what this assertion exists to surface.
+    expect(before).toBe(895);
 
     const withoutBackfill = sanitizeSitemapHreflangReciprocity(seeded);
     const withBackfill = sanitizeSitemapHreflangReciprocity([
@@ -334,12 +445,11 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
       const x = m.get('sitemap-pages.xml');
       return x === undefined ? before : countAnnotations(x);
     };
-    // Only the 15 annotations of the three non-self-referential aliases stay
-    // stripped; everything the defect took comes back. Derived from `before`
+    // Retired aliases were removed; every remaining annotation must survive. Derived from `before`
     // rather than restated as 1465: a literal floor silently goes slack when
     // the seeded sitemap grows (it would still pass here at 1525 while letting
     // 60 real annotations disappear), which is the opposite of what it guards.
-    expect(after(withBackfill)).toBeGreaterThanOrEqual(before - 15);
+    expect(after(withBackfill)).toBeGreaterThanOrEqual(before);
     expect(after(withBackfill)).toBeGreaterThan(after(withoutBackfill));
   });
 

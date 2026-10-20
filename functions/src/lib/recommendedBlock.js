@@ -19,7 +19,9 @@
  *   1. NEWSLETTER_SPONSORS — fixed-rate paid sponsors (config-driven, empty by
  *      default; an owner flips `active: true` when a deal is signed). Paid
  *      placements win because they are guaranteed revenue.
- *   2. Affiliate partners — the enabled entries from
+ *   2. First-party service — the assisted-application service for weekly
+ *      newsletter and job-alert campaigns.
+ *   3. Affiliate partners — the enabled entries from
  *      functions/src/lib/affiliatePartnersRegistry.js (single source of the
  *      enable gate; a partner disabled there disappears from email too, no
  *      drift). Each email click routes through the /go/{id}/ redirect page for
@@ -27,7 +29,7 @@
  *
  * Links carry utm + acquisitionSource tracking and a trailing slash. NEVER
  * AdSense / Google Ads in email (AdSense policy) — this block only ever links
- * to our own /go/ redirect or a signed sponsor URL.
+ * to our own service/redirect or a signed sponsor URL.
  */
 
 import {
@@ -38,8 +40,8 @@ import {
   newsletterRecommendedPlacement,
 } from './newsletterPlacements.js';
 import { buildAffiliateHref, safeAffiliateToken } from './affiliateLinks.js';
+import { APPLICATION_CONCIERGE_PATH, directUrl } from './newsletterUrlPaths.js';
 
-const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
 const CARD_BG = '#f8fafc';
@@ -63,10 +65,10 @@ function escapeHtml(str) {
 
 // ── Block chrome i18n (eyebrow + disclosure) ─────────────────────────
 const CHROME_I18N = {
-  it: { eyebrow: '⭐ Consigliato per te', sponsoredLabel: 'Contenuto sponsorizzato', affiliateLabel: 'In collaborazione con un partner · link affiliato' },
-  en: { eyebrow: '⭐ Recommended for you', sponsoredLabel: 'Sponsored content', affiliateLabel: 'In partnership with a partner · affiliate link' },
-  de: { eyebrow: '⭐ Für dich empfohlen', sponsoredLabel: 'Gesponserter Inhalt', affiliateLabel: 'In Zusammenarbeit mit einem Partner · Affiliate-Link' },
-  fr: { eyebrow: '⭐ Recommandé pour toi', sponsoredLabel: 'Contenu sponsorisé', affiliateLabel: 'En partenariat avec un partenaire · lien affilié' },
+  it: { eyebrow: '⭐ Consigliato per te', sponsoredLabel: 'Contenuto sponsorizzato', referralLabel: 'Link con codice di invito o referral · nessun accordo di affiliazione attivo', affiliateLabel: 'In collaborazione con un partner · link affiliato', internalLabel: 'Servizio di Frontaliere Ticino · pagamento unico' },
+  en: { eyebrow: '⭐ Recommended for you', sponsoredLabel: 'Sponsored content', referralLabel: 'Invitation or referral link · no active affiliate agreement', affiliateLabel: 'In partnership with a partner · affiliate link', internalLabel: 'Frontaliere Ticino service · one-off payment' },
+  de: { eyebrow: '⭐ Für dich empfohlen', sponsoredLabel: 'Gesponserter Inhalt', referralLabel: 'Einladungs- oder Empfehlungslink · keine aktive Affiliate-Vereinbarung', affiliateLabel: 'In Zusammenarbeit mit einem Partner · Affiliate-Link', internalLabel: 'Service von Frontaliere Ticino · einmalige Zahlung' },
+  fr: { eyebrow: '⭐ Recommandé pour toi', sponsoredLabel: 'Contenu sponsorisé', referralLabel: 'Lien d’invitation ou de parrainage · aucun accord d’affiliation actif', affiliateLabel: 'En partenariat avec un partenaire · lien affilié', internalLabel: 'Service Frontaliere Ticino · paiement unique' },
 };
 
 function chrome(locale, key) {
@@ -83,6 +85,21 @@ function chrome(locale, key) {
  * @type {Array<{ id: string, name: string, emoji: string, url: string, active: boolean, weight?: number, copy: Record<string,{title:string,body:string,cta:string}> }>}
  */
 export const NEWSLETTER_SPONSORS = [];
+
+const APPLICATION_CONCIERGE_RECOMMENDATION = {
+  kind: 'internal',
+  id: 'application-concierge',
+  name: 'Ricerca lavoro automatizzata',
+  emoji: '🎯',
+  url: directUrl(APPLICATION_CONCIERGE_PATH),
+  interests: ['general', 'utility', 'jobs', 'articles'],
+  copy: {
+    it: { title: 'Automatizza la ricerca di lavoro in Svizzera', body: 'Troviamo posizioni compatibili e prepariamo candidature su misura. Una candidatura mirata può aumentare le probabilità di ottenere un colloquio. 39,99 € una tantum, senza rinnovo.', cta: 'Scopri il servizio →' },
+    en: { title: 'Automate your job search in Switzerland', body: 'We find compatible positions and prepare tailored applications. A targeted application can improve your chances of reaching an interview. One-off €39.99 payment, no renewal.', cta: 'See the service →' },
+    de: { title: 'Automatisiere deine Jobsuche in der Schweiz', body: 'Wir finden passende Stellen und erstellen Bewerbungen nach Mass. Eine gezielte Bewerbung kann deine Chancen auf ein Vorstellungsgespräch verbessern. Einmalig 39,99 €, keine Verlängerung.', cta: 'Service ansehen →' },
+    fr: { title: 'Automatisez votre recherche d’emploi en Suisse', body: 'Nous trouvons les postes compatibles et préparons des candidatures sur mesure. Une candidature ciblée peut augmenter vos chances d’obtenir un entretien. Paiement unique de 39,99 €, sans renouvellement.', cta: 'Découvrir le service →' },
+  },
+};
 
 /**
  * Email presentation config for affiliate partners, keyed by the registry
@@ -152,10 +169,10 @@ export const NEWSLETTER_AFFILIATE_ENTRIES = [
  * Choose the single recommendation for this send, or null when nothing is
  * active (→ the block is not rendered, never an empty box).
  *
- * @param {{ locale?: string, interest?: string }} args
- * @returns {null | { kind: 'sponsor'|'affiliate', id: string, name: string, emoji: string, title: string, body: string, cta: string, disclosure: string, url?: string, goId?: string }}
+ * @param {{ locale?: string, interest?: string, campaign?: string }} args
+ * @returns {null | { kind: 'sponsor'|'affiliate'|'internal', id: string, name: string, emoji: string, title: string, body: string, cta: string, disclosure: string, url?: string, goId?: string }}
  */
-export function pickNewsletterRecommendation({ locale, interest } = {}) {
+export function pickNewsletterRecommendation({ locale, interest, campaign } = {}) {
   const loc = normLocale(locale);
 
   // 1. Paid sponsor wins (guaranteed revenue).
@@ -178,8 +195,24 @@ export function pickNewsletterRecommendation({ locale, interest } = {}) {
     };
   }
 
-  // 2. Best enabled affiliate partner for the subscriber's interest.
+  // 2. The first-party service replaces Wise in weekly newsletters and
+  // job-alert recommendations. Other email surfaces keep their existing
+  // affiliate rotation until they explicitly opt into this campaign.
   const wanted = interest || 'general';
+  const serviceCampaign = campaign === 'jobalert'
+    || /^weekly_\d{4}-\d{2}-\d{2}$/.test(String(campaign || ''));
+  if (serviceCampaign && APPLICATION_CONCIERGE_RECOMMENDATION.interests.includes(wanted)) {
+    const c = APPLICATION_CONCIERGE_RECOMMENDATION.copy[loc];
+    return {
+      ...APPLICATION_CONCIERGE_RECOMMENDATION,
+      title: c.title,
+      body: c.body,
+      cta: c.cta,
+      disclosure: chrome(loc, 'internalLabel'),
+    };
+  }
+
+  // 3. Best enabled affiliate partner for the subscriber's interest.
   const candidates = NEWSLETTER_AFFILIATE_ENTRIES
     .map((entry) => {
       const partner = getEnabledPartner(entry.goId); // null when disabled/unknown
@@ -204,7 +237,7 @@ export function pickNewsletterRecommendation({ locale, interest } = {}) {
     title: c.title,
     body: c.body,
     cta: c.cta,
-    disclosure: chrome(loc, 'affiliateLabel'),
+    disclosure: chrome(loc, partner.commercialActive ? 'affiliateLabel' : 'referralLabel'),
   };
 }
 
@@ -258,6 +291,24 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign, placeme
     });
     return trackedHref;
   }
+
+  if (rec.kind === 'internal') {
+    try {
+      const params = new URLSearchParams();
+      params.set('utm_source', 'newsletter');
+      params.set('utm_medium', 'email');
+      params.set('utm_campaign', campaignId);
+      params.set('utm_content', rec.id);
+      params.set(PLACEMENT_PARAM, placement || `${campaignId}-${rec.id}`);
+      if (safeAcquisitionSource) params.set('as', safeAcquisitionSource);
+      const u = new URL(rec.url);
+      for (const [key, value] of params) u.searchParams.set(key, value);
+      return u.toString();
+    } catch {
+      return rec.url || '#';
+    }
+  }
+
   // Sponsor: append utm to the (external) signed URL without breaking it.
   try {
     const params = new URLSearchParams();
@@ -289,7 +340,7 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign, placeme
  */
 export function renderRecommendedBlock({ locale, interest, acquisitionSource, campaign, placement, slot } = {}) {
   const loc = normLocale(locale);
-  const rec = pickNewsletterRecommendation({ locale: loc, interest });
+  const rec = pickNewsletterRecommendation({ locale: loc, interest, campaign });
   if (!rec) return '';
 
   const href = buildRecommendedHref(rec, { acquisitionSource, campaign, placement, slot });
@@ -298,7 +349,7 @@ export function renderRecommendedBlock({ locale, interest, acquisitionSource, ca
   return `
     <tr><td class="section-pad" style="background:#ffffff;padding:8px 28px 24px;">
       <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 6px;">${eyebrow}</div>
-      <a target="_blank" rel="noopener noreferrer sponsored" href="${escapeHtml(href)}" style="text-decoration:none;display:block;">
+      <a target="_blank" rel="${rec.kind === 'internal' ? 'noopener noreferrer' : 'noopener noreferrer sponsored'}" href="${escapeHtml(href)}" style="text-decoration:none;display:block;">
         <table width="100%" cellpadding="0" cellspacing="0" style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:14px;">
           <tr>
             <td width="56" style="padding:18px 0 18px 18px;vertical-align:top;">

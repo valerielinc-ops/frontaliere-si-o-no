@@ -6,7 +6,9 @@ import {
   isModuleLinkSkewMessage,
   isModuleParseError,
   recoverFromStaleChunk,
+  recoverFromBootFailure,
   bustAssetHttpCache,
+  extractAssetChunkUrl,
   MAX_RELOADS,
   MAX_TOTAL_RELOADS,
 } from '@/services/resilientImport';
@@ -91,6 +93,31 @@ describe('resilientImport', () => {
         'https://cdn.frontaliereticino.ch/assets/seoService.js',
         expect.objectContaining({ cache: 'reload' }),
       );
+    } finally {
+      timingSpy.mockRestore();
+      (globalThis as any).fetch = originalFetch;
+    }
+  });
+
+  it('refetches the failed dynamic-import URL when Resource Timing has no entry', async () => {
+    const originalFetch = (globalThis as any).fetch;
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true });
+    const timingSpy = vi.spyOn(performance, 'getEntriesByType').mockReturnValue([] as unknown as PerformanceEntryList);
+    (globalThis as any).fetch = fetchMock;
+    const failedUrl = 'https://cdn.frontaliereticino.ch/assets/seoService.js';
+    const stale = Object.assign(
+      new Error(`Failed to fetch dynamically imported module: ${failedUrl}`),
+      { name: 'ChunkLoadError' },
+    );
+    const factory = vi
+      .fn()
+      .mockRejectedValueOnce(stale)
+      .mockResolvedValueOnce({ updateMetaTags: vi.fn() });
+
+    try {
+      expect(extractAssetChunkUrl(stale)).toBe(failedUrl);
+      await expect(resilientImport(factory)).resolves.toEqual({ updateMetaTags: expect.any(Function) });
+      expect(fetchMock).toHaveBeenCalledWith(failedUrl, expect.objectContaining({ cache: 'reload' }));
     } finally {
       timingSpy.mockRestore();
       (globalThis as any).fetch = originalFetch;
@@ -192,6 +219,19 @@ describe('isVersionSkewError', () => {
     expect(isVersionSkewError(new TypeError('n is not a function'))).toBe(true);
     expect(isVersionSkewError(new TypeError('Ze is not a constructor'))).toBe(true);
     expect(isVersionSkewError(new TypeError('e is not iterable'))).toBe(true);
+  });
+
+  it('matches stale navigation-wrapper TypeErrors across browsers', () => {
+    // A stale pre-#5606 tracker chunk can invoke `.apply` on a missing
+    // History implementation. The fresh code guards this with
+    // callNativeHistory; the remaining live failure is therefore a mixed
+    // chunk set that must take the same cache-bust/reload recovery path.
+    expect(
+      isVersionSkewError(new TypeError("Cannot read properties of undefined (reading 'apply')")),
+    ).toBe(true);
+    expect(
+      isVersionSkewError(new TypeError("undefined is not an object (evaluating 'originalPushState.apply')")),
+    ).toBe(true);
   });
 
   it('ignores non-TypeError errors with the same message', () => {
@@ -377,6 +417,66 @@ describe('recoverFromStaleChunk', () => {
     const reload = setHostname('localhost');
     const scheduled = await recoverFromStaleChunk('dev');
     expect(scheduled).toBe(false);
+    expect(reload).not.toHaveBeenCalled();
+  });
+});
+
+describe('recoverFromBootFailure (index.tsx bootstrap rejection handling)', () => {
+  const chunkError = () =>
+    new TypeError('error loading dynamically imported module: https://cdn.frontaliereticino.ch/assets/runtimeArticleSections.js');
+  const setHostname = (hostname: string) => {
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { ...window.location, hostname, reload: vi.fn() },
+    });
+    return window.location.reload as unknown as ReturnType<typeof vi.fn>;
+  };
+
+  beforeEach(() => {
+    sessionStorage.clear();
+    (globalThis as any).caches = {
+      keys: vi.fn().mockResolvedValue([]),
+      delete: vi.fn().mockResolvedValue(true),
+    };
+  });
+
+  it('handles a chunk-load failure with one budgeted reload keyed on the error message', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    const err = chunkError();
+    await expect(recoverFromBootFailure(err)).resolves.toBeUndefined();
+    expect(reload).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(sessionStorage.getItem('_swReloadCount') || '{}')).toEqual({ [err.message]: 1 });
+  });
+
+  it('rethrows the chunk error when the reload budget is spent', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    const err = chunkError();
+    sessionStorage.setItem('_swReloadCount', JSON.stringify({ [err.message]: MAX_RELOADS }));
+    await expect(recoverFromBootFailure(err)).rejects.toBe(err);
+    expect(reload).not.toHaveBeenCalled();
+  });
+
+  it('rethrows non-chunk errors without a reload', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    const err = new Error('boom');
+    await expect(recoverFromBootFailure(err)).rejects.toBe(err);
+    expect(reload).not.toHaveBeenCalled();
+  });
+
+  it('routes mount and bootstrap failures through the stale-chunk recovery handler', async () => {
+    const { readFileSync } = await import('node:fs');
+    const { resolve } = await import('node:path');
+    const entry = readFileSync(resolve(__dirname, '..', 'index.tsx'), 'utf-8');
+    expect(entry).toContain('await mountApp();');
+    expect(entry).toContain('void bootstrapApp().catch((error) => {');
+    expect(entry).toContain('recoverFromBootFailure(error);');
+    expect(entry).toContain("void import('./services/resilientImport')");
+  });
+
+  it('rethrows ad-blocker chunk failures without a reload, like the early-boot self-heal', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    const err = new TypeError('Failed to fetch dynamically imported module: https://cdn.frontaliereticino.ch/assets/analytics.js');
+    await expect(recoverFromBootFailure(err)).rejects.toBe(err);
     expect(reload).not.toHaveBeenCalled();
   });
 });

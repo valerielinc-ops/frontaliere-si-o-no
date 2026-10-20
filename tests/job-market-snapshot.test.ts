@@ -7,7 +7,7 @@
  *   • Route enumeration + router predicate
  *   • Page generation: hub ≥300 words, weekly/monthly ≥350 words
  *   • Self-referencing canonical + hreflang alternates for all 4 locales
- *   • JSON-LD: BreadcrumbList + NewsArticle + Dataset + FAQPage
+ *   • JSON-LD: BreadcrumbList + WebPage + Dataset + FAQPage
  *   • Degraded mode (empty / sparse history) still emits all 4 hubs + current week
  *   • Older weekly archives (>12 weeks back) are noindex,follow
  *   • No `dark:` color classes in the generated HTML
@@ -487,14 +487,14 @@ describe('generateJobMarketSnapshotPages — normal mode (rich history)', () => 
     }
   });
 
-  it('weekly and monthly pages embed NewsArticle + Dataset JSON-LD', () => {
+  it('weekly and monthly pages embed WebPage + Dataset JSON-LD', () => {
     for (const [path, html] of Object.entries(out.pages)) {
       const isSnapshot = /\/(settimana|week|woche|semaine)-\d/.test(path)
         || /\/(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre|january|february|march|april|may|june|july|august|september|october|november|december|januar|februar|maerz|mai|juni|juli|oktober|dezember|janvier|fevrier|mars|avril|juin|juillet|aout|octobre|decembre)-\d{4}\//.test(path);
       if (!isSnapshot) continue;
       const ldBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
       const types = ldBlocks.map((ld) => ld['@type']);
-      expect(types, `types for ${path} = ${JSON.stringify(types)}`).toContain('NewsArticle');
+      expect(types, `types for ${path} = ${JSON.stringify(types)}`).toContain('WebPage');
       expect(types).toContain('Dataset');
     }
   });

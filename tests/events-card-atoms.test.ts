@@ -57,6 +57,7 @@ const EVENT = {
   url: 'https://www.guidle.com/e/1',
   sourceKey: 'guidle',
   sourceName: 'Guidle',
+  descriptionRewriteValidated: true,
   description:
     'La stagione sinfonica si apre con un programma dedicato al repertorio romantico, eseguito dall’orchestra della Svizzera italiana con solisti ospiti internazionali e un preludio introduttivo aperto al pubblico.',
 };
@@ -71,7 +72,7 @@ const LONG_DESC =
 const SIBLINGS = [
   EVENT,
   { ...EVENT, id: 'guidle:2', title: 'Mostra fotografica', startTime: undefined, description: 'Una retrospettiva sul reportage alpino del Novecento.' },
-  { ...EVENT, id: 'guidle:3', title: 'Mercato contadino', description: undefined },
+  { ...EVENT, id: 'guidle:3', title: 'Mercato contadino', description: undefined, descriptionRewriteValidated: undefined },
   { ...EVENT, id: 'guidle:4', title: 'Rassegna estiva', description: LONG_DESC },
 ];
 
@@ -245,7 +246,7 @@ describe('event card excerpt', () => {
     expect(html).toContain('Righe spezzate dalla fonte.');
   });
 
-  it('prefers the per-locale description when the source ships translations', () => {
+  it('prefers the per-locale description when the cache ships translations', () => {
     const translated = {
       ...SIBLINGS[1],
       id: 'guidle:8',

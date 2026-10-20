@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { extractArticlesPackage, ARTICLES_PACKAGE_SOURCE_DIR } from '../scripts/extract-articles-package.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
  * Extraction proof — issue #4881 Fase 6, Step 4.
@@ -38,7 +39,7 @@ function countFiles(dir: string): number {
 }
 
 describe('extract-articles-package script (issue #4881 Fase 6, Step 4)', () => {
-  it('copies packages/articles/ into a fresh temp dir with an empty byte-diff', () => {
+  it.skipIf(SKIP_LIVE_DATA)('copies packages/articles/ into a fresh temp dir with an empty byte-diff', () => {
     const parent = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-articles-extract-'));
     // Exercise the "target dir does not exist yet" branch, not just "exists and empty".
     tmpDir = path.join(parent, 'frontaliere-articles');

@@ -9,8 +9,17 @@
  * `collision-risk` ogni futura PR su quei path — contro una controparte che non
  * poteva mergiare mai.
  */
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
-import { selectCollisionCandidates, computeColliders } from '../scripts/ci/pr-collision-detector.mjs';
+import {
+  selectCollisionCandidates,
+  computeColliders,
+  findDuplicateHeadPrs,
+  findMergedTwin,
+  headIdentityKey,
+  isAutonomousCollisionPr,
+  duplicateClosureConfirmed,
+} from '../scripts/ci/pr-collision-detector.mjs';
 
 describe('selectCollisionCandidates', () => {
   it('tiene le open non-draft, scarta le draft', () => {
@@ -79,5 +88,175 @@ describe('computeColliders', () => {
       [2, new Set(['scripts/lib/b.mjs'])],
     ]);
     expect(computeColliders([1, 2], files).size).toBe(0);
+  });
+});
+
+describe('findDuplicateHeadPrs — PR gemelle sullo stesso head ref (#10608/#10609)', () => {
+  const owner = { login: 'valerielinc-ops' };
+  const repo = { name: 'frontaliere-si-o-no' };
+  const SHA = '9c388959fab7017806e820a417ba773e61f00644';
+  const twin = (number: number, extra: Record<string, unknown> = {}) => ({
+    number,
+    headRefName: 'fix/issue-10544',
+    headRefOid: SHA,
+    baseRefName: 'main',
+    headRepositoryOwner: owner,
+    headRepository: repo,
+    labels: [] as { name: string }[],
+    ...extra,
+  });
+
+  it('REGRESSIONE #10609: tiene la più vecchia, chiude le altre e ne riporta le label', () => {
+    expect(findDuplicateHeadPrs([
+      twin(10609, { labels: [{ name: 'agent:autofix' }, { name: 'collision-risk' }] }),
+      twin(10608, { labels: [{ name: 'collision-risk' }] }),
+      twin(10555, { headRefName: 'fix-gh013-data-refresh-triad-20260930', headRefOid: 'a'.repeat(40) }),
+    ])).toEqual([{ number: 10609, keeper: 10608, labels: ['agent:autofix', 'collision-risk'] }]);
+  });
+
+  it('review 5375807051: stesso owner e branch ma repository diversi non sono gemelle', () => {
+    expect(findDuplicateHeadPrs([
+      twin(1, { headRefName: 'fix/x', headRefOid: 'a'.repeat(40), headRepositoryOwner: { login: 'alice' }, headRepository: { nameWithOwner: 'alice/site-a' } }),
+      twin(2, { headRefName: 'fix/x', headRefOid: 'b'.repeat(40), headRepositoryOwner: { login: 'alice' }, headRepository: { nameWithOwner: 'alice/site-b' } }),
+    ])).toEqual([]);
+    // Anche con lo stesso SHA il repository diverso li separa.
+    expect(findDuplicateHeadPrs([
+      twin(1, { headRepository: { nameWithOwner: 'alice/site-a' } }),
+      twin(2, { headRepository: { nameWithOwner: 'alice/site-b' } }),
+    ])).toEqual([]);
+  });
+
+  it('review 5375900587: una draft più vecchia non fa chiudere la gemella pronta', () => {
+    expect(findDuplicateHeadPrs([twin(2, { isDraft: true }), twin(3, { isDraft: false })]))
+      .toEqual([{ number: 2, keeper: 3, labels: [] }]);
+    // Tutte draft: resta la più vecchia.
+    expect(findDuplicateHeadPrs([twin(5, { isDraft: true }), twin(4, { isDraft: true })]))
+      .toEqual([{ number: 5, keeper: 4, labels: [] }]);
+  });
+
+  it('SHA di testa o base diversi non sono gemelle', () => {
+    expect(findDuplicateHeadPrs([twin(1), twin(2, { headRefOid: 'b'.repeat(40) })])).toEqual([]);
+    expect(findDuplicateHeadPrs([twin(1), twin(2, { baseRefName: 'release' })])).toEqual([]);
+  });
+
+  it('stesso nome di branch su owner diversi (fork) non è una gemella', () => {
+    expect(findDuplicateHeadPrs([
+      twin(1),
+      twin(2, { headRepositoryOwner: { login: 'someone-else' } }),
+    ])).toEqual([]);
+  });
+
+  it('identità illeggibile → nessuna chiusura (fail-closed)', () => {
+    expect(findDuplicateHeadPrs([
+      { number: 1, headRefName: 'fix/x' },
+      { number: 2, headRefName: 'fix/x' },
+    ] as never)).toEqual([]);
+    expect(findDuplicateHeadPrs([twin(1, { headRefOid: undefined }), twin(2, { headRefOid: undefined })])).toEqual([]);
+    expect(findDuplicateHeadPrs([twin(1, { headRepository: undefined }), twin(2, { headRepository: undefined })])).toEqual([]);
+    expect(findDuplicateHeadPrs(undefined as never)).toEqual([]);
+  });
+
+  it('main() chiude le duplicate PRIMA del grafo delle collisioni, senza cancellare il branch', () => {
+    const source = readFileSync(new URL('../scripts/ci/pr-collision-detector.mjs', import.meta.url), 'utf8');
+    const main = source.slice(source.indexOf('function main()'));
+    const dedupe = main.indexOf('findDuplicateHeadPrs(prs)');
+    const graph = main.indexOf('computeColliders(nums, funnelFiles)');
+    expect(dedupe).toBeGreaterThan(-1);
+    expect(graph).toBeGreaterThan(dedupe);
+    expect(main).toContain("'--json', 'number,labels,isDraft,author,headRefName,headRefOid,baseRefName,headRepository,headRepositoryOwner,title'");
+    expect(source).toContain("gh(['pr', 'close', String(num), '--repo', REPO]");
+    expect(source).toContain("gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'state']");
+    expect(main).toContain('if (closeDuplicateAndConfirm(dup.number))');
+    expect(main).not.toContain('--delete-branch');
+  });
+});
+
+describe('findMergedTwin — gemella di una PR già mergiata (#10780/#10781)', () => {
+  // Valori reali: #10781 mergiata il 2026-10-01 alle 16:53, #10780 rimasta
+  // aperta sullo stesso branch e sullo stesso commit.
+  const SHA = '8252349d77305960bea59a5f899a67578d5ba3e7';
+  const pr = (number: number, extra: Record<string, unknown> = {}) => ({
+    number,
+    headRefName: 'fix/issue-10752',
+    headRefOid: SHA,
+    baseRefName: 'main',
+    headRepositoryOwner: { login: 'valerielinc-ops' },
+    headRepository: { name: 'frontaliere-si-o-no', nameWithOwner: 'valerielinc-ops/frontaliere-si-o-no' },
+    ...extra,
+  });
+
+  it('REGRESSIONE #10780: stesso head e stesso commit di una PR mergiata → gemella', () => {
+    expect(findMergedTwin(pr(10780), [pr(10781)])).toBe(10781);
+  });
+
+  it('un commit nuovo sulla PR aperta la tiene fuori: porta lavoro non ancora su main', () => {
+    expect(findMergedTwin(pr(10780, { headRefOid: 'c'.repeat(40) }), [pr(10781)])).toBeNull();
+  });
+
+  it('repository, branch o base diversi non sono gemelle', () => {
+    expect(findMergedTwin(pr(1), [pr(2, { headRepository: { nameWithOwner: 'fork/frontaliere-si-o-no' } })])).toBeNull();
+    expect(findMergedTwin(pr(1), [pr(2, { headRefName: 'fix/issue-1' })])).toBeNull();
+    expect(findMergedTwin(pr(1), [pr(2, { baseRefName: 'release' })])).toBeNull();
+  });
+
+  it('fail-closed: lettura delle mergiate fallita o identità illeggibile → nessuna chiusura', () => {
+    expect(findMergedTwin(pr(10780), null)).toBeNull();
+    expect(findMergedTwin(pr(10780), undefined as never)).toBeNull();
+    expect(findMergedTwin(pr(10780, { headRefOid: undefined }), [pr(10781)])).toBeNull();
+    expect(findMergedTwin(pr(10780), [pr(10781, { headRepository: null, headRepositoryOwner: null })])).toBeNull();
+    // La PR stessa non è la propria gemella.
+    expect(findMergedTwin(pr(10780), [pr(10780)])).toBeNull();
+  });
+
+  it('headIdentityKey resta la stessa chiave di findDuplicateHeadPrs', () => {
+    expect(headIdentityKey(pr(1))).toBe(`valerielinc-ops/frontaliere-si-o-no:fix/issue-10752:${SHA}:main`);
+    expect(headIdentityKey(pr(1, { baseRefName: '' }))).toBe('');
+  });
+
+  it('main() cerca le gemelle mergiate per branch prima del grafo e non cancella il branch', () => {
+    const source = readFileSync(new URL('../scripts/ci/pr-collision-detector.mjs', import.meta.url), 'utf8');
+    const main = source.slice(source.indexOf('function main()'));
+    const mergedLookup = main.indexOf("'--state', 'merged', '--head', pr.headRefName");
+    expect(mergedLookup).toBeGreaterThan(main.indexOf('findDuplicateHeadPrs(prs)'));
+    expect(main.indexOf('computeColliders(nums, funnelFiles)')).toBeGreaterThan(mergedLookup);
+    expect(main).toContain('findMergedTwin(pr, merged)');
+    expect(main).toContain('if (closeDuplicateAndConfirm(pr.number))');
+    expect(main).not.toContain('--delete-branch');
+  });
+});
+
+describe('isAutonomousCollisionPr — provenienza del keeper prima della propagazione', () => {
+  it('non considera autonoma una PR umana solo perché è la keeper', () => {
+    expect(isAutonomousCollisionPr({
+      headRefName: 'seo/manual-canonical-review',
+      author: { login: 'valerielinc-ops', type: 'User' },
+      labels: [],
+    })).toBe(false);
+  });
+
+  it('riconosce i segnali autonomi già usati dal ciclo', () => {
+    expect(isAutonomousCollisionPr({ headRefName: 'fix/issue-10544', labels: [] })).toBe(true);
+    expect(isAutonomousCollisionPr({ headRefName: 'manual-review', labels: [{ name: 'agent:autofix' }] })).toBe(true);
+    expect(isAutonomousCollisionPr({ headRefName: 'manual-review', author: { isBot: true }, labels: [] })).toBe(true);
+    expect(isAutonomousCollisionPr({ headRefName: 'fix/issue-10544', labels: [{ name: 'needs-human' }] })).toBe(false);
+  });
+
+  it('fallisce chiuso con una PR illeggibile', () => {
+    expect(isAutonomousCollisionPr(undefined)).toBe(false);
+    expect(isAutonomousCollisionPr({ labels: null })).toBe(false);
+  });
+});
+
+describe('duplicateClosureConfirmed — la duplicata resta nel grafo senza conferma', () => {
+  it('conferma solo CLOSED in produzione e simula la chiusura in dry-run', () => {
+    expect(duplicateClosureConfirmed({ state: 'CLOSED' })).toBe(true);
+    expect(duplicateClosureConfirmed({ state: 'OPEN' })).toBe(false);
+    expect(duplicateClosureConfirmed({ state: 'UNKNOWN' })).toBe(false);
+    expect(duplicateClosureConfirmed({ dryRun: true, state: 'OPEN' })).toBe(true);
+  });
+
+  it('fallisce chiuso con risposta assente o illeggibile', () => {
+    expect(duplicateClosureConfirmed()).toBe(false);
+    expect(duplicateClosureConfirmed({ state: null })).toBe(false);
   });
 });

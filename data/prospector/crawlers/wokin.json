@@ -1,0 +1,23 @@
+{
+  "companyKey": "wokin",
+  "companyName": "WOKIN GmbH",
+  "companyHost": "wokin.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://wokin.ch/stellen/"
+  ],
+  "detailTemplate": [
+    "/stellen/"
+  ],
+  "detailEnrichment": true,
+  "detailFetchWorkers": 1,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Servicemitarbeiter/in 50 – 100 %"
+  ],
+  "canton": "TG",
+  "sourceLang": "de",
+  "logoUrl": "https://wokin.ch/wp-content/uploads/sites/42/2022/03/favicon-wokin.png",
+  "learnedAt": "2026-10-15T00:00:00.000Z"
+}

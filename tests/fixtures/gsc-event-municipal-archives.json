@@ -1,0 +1,621 @@
+{
+  "source": "GSC CAMYDSAC exact municipal URLs, 2026-10-18",
+  "rows": [
+    {
+      "path": "/fr/evenements/thurgovie/uttwil/",
+      "locale": "fr",
+      "ids": [
+        "guidle:AQ8qeTB",
+        "guidle:AW9NNSV",
+        "guidle:AvBbHe9"
+      ]
+    },
+    {
+      "path": "/eventi/svitto/alpthal/",
+      "locale": "it",
+      "ids": [
+        "myswitzerland:9a6ed5165bad4df2b58bce450b41b4c9"
+      ]
+    },
+    {
+      "path": "/fr/evenements/argovie/wurenlos/",
+      "locale": "fr",
+      "ids": [
+        "myswitzerland:8bebbd31578e4ce4bf7b9042ee7df8b0"
+      ]
+    },
+    {
+      "path": "/de/veranstaltungen/aargau/fisibach/",
+      "locale": "de",
+      "ids": [
+        "myswitzerland:05c9b70383c34fc88b8049e376c540e9",
+        "myswitzerland:631eab165cd04a38b89ac1b1109f656a"
+      ]
+    },
+    {
+      "path": "/eventi/berna/evilard/",
+      "locale": "it",
+      "ids": [
+        "myswitzerland:d9eaffdb95bc426b8c20597d95476f20"
+      ]
+    },
+    {
+      "path": "/de/veranstaltungen/bern/kallnach/",
+      "locale": "de",
+      "ids": [
+        "myswitzerland:53b1629cdafe438b80f7889e1a123890"
+      ]
+    },
+    {
+      "path": "/en/events/thurgau/kradolf-schonenberg/",
+      "locale": "en",
+      "ids": [
+        "myswitzerland:e1dd1542a4c044e9b3bf911a543cf3b5"
+      ]
+    },
+    {
+      "path": "/en/events/thurgau/egnach/",
+      "locale": "en",
+      "ids": [
+        "guidle:AtUEucc"
+      ]
+    },
+    {
+      "path": "/de/veranstaltungen/bern/thorigen/",
+      "locale": "de",
+      "ids": [
+        "myswitzerland:96feacb9b4c147d6906485e29f09d5cd"
+      ]
+    },
+    {
+      "path": "/fr/evenements/tessin/mezzovico-vira/",
+      "locale": "fr",
+      "ids": [
+        "myswitzerland:ac8324dcf27744ed978667cfd7351b77"
+      ]
+    },
+    {
+      "path": "/eventi/uri/attinghausen/",
+      "locale": "it",
+      "ids": [
+        "myswitzerland:b64b69ff5b3a4237aa9d7bbd5d9ec377",
+        "myswitzerland:92968aafebc04d53bcbec65436e959a1"
+      ]
+    },
+    {
+      "path": "/eventi/lucerna/beromunster/",
+      "locale": "it",
+      "ids": [
+        "myswitzerland:de8d9bc18f4549628753c10e2e6b9889"
+      ]
+    },
+    {
+      "path": "/en/events/st-gallen/wattwil/",
+      "locale": "en",
+      "ids": [
+        "myswitzerland:a2df12498f374d6d88c502cb85fdfb7e",
+        "myswitzerland:d4f2d16c483d44879bd894aaf4964f08"
+      ]
+    },
+    {
+      "path": "/en/events/schwyz/steinerberg/",
+      "locale": "en",
+      "ids": [
+        "myswitzerland:f951fe9b98f0426fbe32f03615109464"
+      ]
+    },
+    {
+      "path": "/eventi/argovia/beinwil-freiamt/",
+      "locale": "it",
+      "ids": [
+        "myswitzerland:d408d06e814b48ffa6ebcbe4d08256b6"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "id": "guidle:AQ8qeTB",
+      "sourceSnapshot": "e6f8832cf878a7f384848f61a88a50b3d0a3011d",
+      "sourceGeneratedAt": "2026-08-23T06:48:30.957Z",
+      "facts": {
+        "id": "guidle:AQ8qeTB",
+        "title": "Eröffnungskonzert",
+        "titleByLocale": {
+          "it": "Eröffnungskonzert",
+          "en": "Eröffnungskonzert",
+          "de": "Eröffnungskonzert",
+          "fr": "Eröffnungskonzert"
+        },
+        "startDate": "2026-08-23",
+        "endDate": "2026-08-23",
+        "startTime": "17:00",
+        "category": "Musica classica",
+        "venue": "Evang.-ref. Kirche Uttwil",
+        "canton": "TG",
+        "url": "https://www.guidle.com/it/veranstaltungen/klassisch/uttwil/eroeffnungskonzert_AQ8qeTB",
+        "sourceKey": "guidle",
+        "sourceName": "Guidle",
+        "comune": "Uttwil"
+      }
+    },
+    {
+      "id": "guidle:AW9NNSV",
+      "sourceSnapshot": "0b1b197f39485fe8a18a2bef85b43f379ec0d365",
+      "sourceGeneratedAt": "2026-08-29T12:22:11.602Z",
+      "facts": {
+        "id": "guidle:AW9NNSV",
+        "title": "1. Schlusskonzert",
+        "titleByLocale": {
+          "it": "1. Schlusskonzert",
+          "en": "1. Schlusskonzert",
+          "de": "1. Schlusskonzert",
+          "fr": "1. Schlusskonzert"
+        },
+        "startDate": "2026-08-29",
+        "endDate": "2026-08-29",
+        "startTime": "17:00",
+        "category": "Musica classica",
+        "venue": "Evang.-ref. Kirche Uttwil",
+        "canton": "TG",
+        "url": "https://www.guidle.com/it/veranstaltungen/klassisch/uttwil/1-schlusskonzert_AW9NNSV",
+        "sourceKey": "guidle",
+        "sourceName": "Guidle",
+        "comune": "Uttwil"
+      }
+    },
+    {
+      "id": "guidle:AvBbHe9",
+      "sourceSnapshot": "a93c8f124aba3b67e67ee03fbd51bf2b17cfc569",
+      "sourceGeneratedAt": "2026-08-30T11:25:01.309Z",
+      "facts": {
+        "id": "guidle:AvBbHe9",
+        "title": "2. Schlusskonzert",
+        "titleByLocale": {
+          "it": "2. Schlusskonzert",
+          "en": "2. Schlusskonzert",
+          "de": "2. Schlusskonzert",
+          "fr": "2. Schlusskonzert"
+        },
+        "startDate": "2026-08-30",
+        "endDate": "2026-08-30",
+        "startTime": "11:00",
+        "category": "Musica classica",
+        "venue": "Evang.-ref. Kirche Uttwil",
+        "canton": "TG",
+        "url": "https://www.guidle.com/it/veranstaltungen/klassisch/uttwil/2-schlusskonzert_AvBbHe9",
+        "sourceKey": "guidle",
+        "sourceName": "Guidle",
+        "comune": "Uttwil"
+      }
+    },
+    {
+      "id": "myswitzerland:9a6ed5165bad4df2b58bce450b41b4c9",
+      "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+      "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+      "facts": {
+        "id": "myswitzerland:9a6ed5165bad4df2b58bce450b41b4c9",
+        "title": "Natur- und Wandererlebnis Mythenregion",
+        "titleByLocale": {
+          "it": "Natur- und Wandererlebnis Mythenregion",
+          "en": "Natur- und Wandererlebnis Mythenregion",
+          "de": "Natur- und Wandererlebnis Mythenregion",
+          "fr": "Natur- und Wandererlebnis Mythenregion"
+        },
+        "startDate": "2026-09-19",
+        "endDate": "2026-09-20",
+        "startTime": "02:00",
+        "category": "Event",
+        "venue": "Berggasthaus Holzegg",
+        "canton": "SZ",
+        "url": "https://www.myswitzerland.com/en-ch/experiences/events/natur-und-wandererlebnis-mythenregion/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Alpthal"
+      }
+    },
+    {
+      "id": "myswitzerland:8bebbd31578e4ce4bf7b9042ee7df8b0",
+      "sourceSnapshot": "e861ad2ec4f10d064ec176e012f3ed9ad0cb31ca",
+      "sourceGeneratedAt": "2026-09-04T10:50:00.683Z",
+      "facts": {
+        "id": "myswitzerland:8bebbd31578e4ce4bf7b9042ee7df8b0",
+        "title": "Yin Yogakurs",
+        "titleByLocale": {
+          "it": "Yin Yogakurs",
+          "en": "Yin Yogakurs",
+          "de": "Yin Yogakurs",
+          "fr": "Yin Yogakurs"
+        },
+        "startDate": "2026-08-29",
+        "endDate": "2026-09-05",
+        "startTime": "02:00",
+        "category": "Sports",
+        "venue": "Marktgasse 1",
+        "canton": "AG",
+        "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/yin-yogakurs/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Würenlos"
+      }
+    },
+    {
+      "id": "myswitzerland:05c9b70383c34fc88b8049e376c540e9",
+      "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+      "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+      "facts": {
+        "id": "myswitzerland:05c9b70383c34fc88b8049e376c540e9",
+        "title": "Dorfmärt Fisibach",
+        "titleByLocale": {
+          "it": "Dorfmärt Fisibach",
+          "en": "Dorfmärt Fisibach",
+          "de": "Dorfmärt Fisibach",
+          "fr": "Dorfmärt Fisibach"
+        },
+        "startDate": "2026-09-19",
+        "endDate": "2026-09-19",
+        "startTime": "09:00",
+        "category": "Event",
+        "venue": "Fisibach",
+        "canton": "AG",
+        "url": "https://www.myswitzerland.com/it-ch/experiences/events/dorfmaert-fisibach/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Fisibach"
+      }
+    },
+    {
+      "id": "myswitzerland:631eab165cd04a38b89ac1b1109f656a",
+      "sourceSnapshot": "ce95d63798265a857a39631deaa901f73b47f64c",
+      "sourceGeneratedAt": "2026-09-12T10:12:16.748Z",
+      "facts": {
+        "id": "myswitzerland:631eab165cd04a38b89ac1b1109f656a",
+        "title": "Baggerfahren im EBIANUM",
+        "titleByLocale": {
+          "it": "Baggerfahren im EBIANUM",
+          "en": "Baggerfahren im EBIANUM",
+          "de": "Baggerfahren im EBIANUM",
+          "fr": "Baggerfahren im EBIANUM"
+        },
+        "startDate": "2026-06-20",
+        "endDate": "2026-09-12",
+        "startTime": "11:00",
+        "category": "Event",
+        "venue": "Ebianum AG",
+        "canton": "AG",
+        "url": "https://www.myswitzerland.com/en-ch/experiences/events/baggerfahren-im-ebianum/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Fisibach"
+      }
+    },
+    {
+      "id": "myswitzerland:d9eaffdb95bc426b8c20597d95476f20",
+      "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+      "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+      "facts": {
+        "id": "myswitzerland:d9eaffdb95bc426b8c20597d95476f20",
+        "title": "Aromen und Pflanzen des Chasseral",
+        "titleByLocale": {
+          "it": "Aromen und Pflanzen des Chasseral",
+          "en": "Aromen und Pflanzen des Chasseral",
+          "de": "Aromen und Pflanzen des Chasseral",
+          "fr": "Saveurs et plantes du Chasseral"
+        },
+        "startDate": "2026-09-19",
+        "endDate": "2026-09-19",
+        "startTime": "10:35",
+        "category": "Event",
+        "venue": "Evilard",
+        "canton": "BE",
+        "url": "https://www.myswitzerland.com/it-ch/experiences/events/aromen-und-pflanzen-des-chasseral/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Evilard"
+      }
+    },
+    {
+      "id": "myswitzerland:53b1629cdafe438b80f7889e1a123890",
+      "sourceSnapshot": "e861ad2ec4f10d064ec176e012f3ed9ad0cb31ca",
+      "sourceGeneratedAt": "2026-09-04T10:50:00.683Z",
+      "facts": {
+        "id": "myswitzerland:53b1629cdafe438b80f7889e1a123890",
+        "title": "Rock'n'Roll Tanzparty",
+        "titleByLocale": {
+          "it": "Rock'n'Roll Tanzparty",
+          "en": "Rock'n'Roll Tanzparty",
+          "de": "Rock'n'Roll Tanzparty",
+          "fr": "Rock'n'Roll Tanzparty"
+        },
+        "startDate": "2026-09-05",
+        "endDate": "2026-09-05",
+        "startTime": "20:00",
+        "category": "Event",
+        "venue": "Kallnach",
+        "canton": "BE",
+        "url": "https://www.myswitzerland.com/it-ch/experiences/events/rocknroll-tanzparty-2/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Kallnach"
+      }
+    },
+    {
+      "id": "myswitzerland:e1dd1542a4c044e9b3bf911a543cf3b5",
+      "sourceSnapshot": "d615e48e2fb29f0e613e89932d8ab231083b0cae",
+      "sourceGeneratedAt": "2026-09-13T11:19:03.412Z",
+      "facts": {
+        "id": "myswitzerland:e1dd1542a4c044e9b3bf911a543cf3b5",
+        "title": "Kulturanlass",
+        "titleByLocale": {
+          "it": "Kulturanlass",
+          "en": "Kulturanlass",
+          "de": "Kulturanlass",
+          "fr": "Kulturanlass"
+        },
+        "startDate": "2026-09-12",
+        "endDate": "2026-09-13",
+        "startTime": "13:30",
+        "category": "Event",
+        "venue": "Kradolf-Schönenberg",
+        "canton": "TG",
+        "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/kulturanlass/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Kradolf-Schönenberg"
+      }
+    },
+    {
+      "id": "guidle:AtUEucc",
+      "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+      "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+      "facts": {
+        "id": "guidle:AtUEucc",
+        "title": "Festwochenende 125 Jahre Musikgesellschaft Neukirch-Egnach",
+        "titleByLocale": {
+          "it": "Festwochenende 125 Jahre Musikgesellschaft Neukirch-Egnach",
+          "en": "Festwochenende 125 Jahre Musikgesellschaft Neukirch-Egnach",
+          "de": "Festwochenende 125 Jahre Musikgesellschaft Neukirch-Egnach",
+          "fr": "Festwochenende 125 Jahre Musikgesellschaft Neukirch-Egnach"
+        },
+        "startDate": "2026-09-26",
+        "endDate": "2026-09-26",
+        "startTime": "16:00",
+        "category": "Banda di ottoni",
+        "venue": "Mehrzweckhalle Rietzelg",
+        "canton": "TG",
+        "url": "https://www.guidle.com/it/veranstaltungen/musik/neukirch-egnach/festwochenende-125-jahre-musikgesellschaft-neukirch-egnach_AtUEucc",
+        "sourceKey": "guidle",
+        "sourceName": "Guidle",
+        "comune": "Egnach"
+      }
+    },
+    {
+      "id": "myswitzerland:96feacb9b4c147d6906485e29f09d5cd",
+      "sourceSnapshot": "ce95d63798265a857a39631deaa901f73b47f64c",
+      "sourceGeneratedAt": "2026-09-12T10:12:16.748Z",
+      "facts": {
+        "id": "myswitzerland:96feacb9b4c147d6906485e29f09d5cd",
+        "title": "oberaargauer Trail-Run",
+        "titleByLocale": {
+          "it": "oberaargauer Trail-Run",
+          "en": "oberaargauer Trail-Run",
+          "de": "oberaargauer Trail-Run",
+          "fr": "oberaargauer Trail-Run"
+        },
+        "startDate": "2026-09-12",
+        "endDate": "2026-09-12",
+        "startTime": "09:00",
+        "category": "Sports",
+        "venue": "Mehrzweckhalle Thörigen",
+        "canton": "BE",
+        "url": "https://www.myswitzerland.com/en-ch/experiences/events/oberaargauer-trail-run/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Thörigen"
+      }
+    },
+    {
+      "id": "myswitzerland:ac8324dcf27744ed978667cfd7351b77",
+      "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+      "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+      "facts": {
+        "id": "myswitzerland:ac8324dcf27744ed978667cfd7351b77",
+        "title": "DalLa Stala alla tavola",
+        "titleByLocale": {
+          "it": "DalLa Stala alla tavola",
+          "en": "From La Stala to the Table",
+          "de": "Von La Stala auf den Tisch",
+          "fr": "De La Stala à la table"
+        },
+        "startDate": "2026-08-21",
+        "endDate": "2026-09-25",
+        "startTime": "10:30",
+        "category": "Food",
+        "venue": "Azienda Agricola La Stala",
+        "canton": "TI",
+        "url": "https://www.myswitzerland.com/fr-ch/decouvrir/manifestations/de-la-stala-a-la-table/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Mezzovico-Vira"
+      }
+    },
+    {
+      "id": "myswitzerland:b64b69ff5b3a4237aa9d7bbd5d9ec377",
+      "sourceSnapshot": "af756d08881fe2b1914b95e7ae3a2cd7d62866ca",
+      "sourceGeneratedAt": "2026-08-22T06:45:03.335Z",
+      "facts": {
+        "id": "myswitzerland:b64b69ff5b3a4237aa9d7bbd5d9ec377",
+        "title": "43. Surenenwanderung",
+        "titleByLocale": {
+          "it": "43. Surenenwanderung",
+          "en": "43. Surenenwanderung",
+          "de": "43. Surenenwanderung",
+          "fr": "43. Surenenwanderung"
+        },
+        "startDate": "2026-08-22",
+        "endDate": "2026-08-22",
+        "startTime": "06:00",
+        "category": "Sports",
+        "venue": "Attinghausen Tourismus",
+        "canton": "UR",
+        "url": "https://www.myswitzerland.com/it-ch/experiences/events/43-surenenwanderung/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Attinghausen"
+      }
+    },
+    {
+      "id": "myswitzerland:92968aafebc04d53bcbec65436e959a1",
+      "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+      "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+      "facts": {
+        "id": "myswitzerland:92968aafebc04d53bcbec65436e959a1",
+        "title": "Schwingen in der Schwinghalle Attinghausen",
+        "titleByLocale": {
+          "it": "Schwingen in der Schwinghalle Attinghausen",
+          "en": "Schwingen in der Schwinghalle Attinghausen",
+          "de": "Schwingen in der Schwinghalle Attinghausen",
+          "fr": "Schwingen in der Schwinghalle Attinghausen"
+        },
+        "startDate": "2026-09-23",
+        "endDate": "2026-09-23",
+        "startTime": "13:00",
+        "category": "Event",
+        "venue": "Isenthal",
+        "canton": "UR",
+        "url": "https://www.myswitzerland.com/it-ch/experiences/events/schwingen-in-der-schwinghalle-attinghausen/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Attinghausen"
+      }
+    },
+    {
+      "id": "myswitzerland:de8d9bc18f4549628753c10e2e6b9889",
+      "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+      "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+      "facts": {
+        "id": "myswitzerland:de8d9bc18f4549628753c10e2e6b9889",
+        "title": "Flohmärt \"Züg ond Sache\"",
+        "titleByLocale": {
+          "it": "Flohmärt \"Züg ond Sache\"",
+          "en": "Flohmärt \"Züg ond Sache\"",
+          "de": "Flohmärt \"Züg ond Sache\"",
+          "fr": "Flohmärt \"Züg ond Sache\""
+        },
+        "startDate": "2026-09-26",
+        "endDate": "2026-09-26",
+        "startTime": "10:00",
+        "category": "Event",
+        "venue": "Beromünster",
+        "canton": "LU",
+        "url": "https://www.myswitzerland.com/it-ch/experiences/events/flohmaert-zueg-ond-sache/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Beromünster"
+      }
+    },
+    {
+      "id": "myswitzerland:a2df12498f374d6d88c502cb85fdfb7e",
+      "sourceSnapshot": "af756d08881fe2b1914b95e7ae3a2cd7d62866ca",
+      "sourceGeneratedAt": "2026-08-22T06:45:03.335Z",
+      "facts": {
+        "id": "myswitzerland:a2df12498f374d6d88c502cb85fdfb7e",
+        "title": "Performance Day Wattwil",
+        "titleByLocale": {
+          "it": "Performance Day Wattwil",
+          "en": "Performance Day Wattwil",
+          "de": "Performance Day Wattwil",
+          "fr": "Performance Day Wattwil"
+        },
+        "startDate": "2026-08-22",
+        "endDate": "2026-08-22",
+        "startTime": "08:30",
+        "category": "Event",
+        "venue": "Wattwil",
+        "canton": "SG",
+        "url": "https://www.myswitzerland.com/it-ch/experiences/events/performance-day-wattwil/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Wattwil"
+      }
+    },
+    {
+      "id": "myswitzerland:d4f2d16c483d44879bd894aaf4964f08",
+      "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+      "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+      "facts": {
+        "id": "myswitzerland:d4f2d16c483d44879bd894aaf4964f08",
+        "title": "James Webb Space Telescope - seit 5 Jahren im All",
+        "titleByLocale": {
+          "it": "James Webb Space Telescope - seit 5 Jahren im All",
+          "en": "James Webb Space Telescope - seit 5 Jahren im All",
+          "de": "James Webb Space Telescope - seit 5 Jahren im All",
+          "fr": "James Webb Space Telescope - seit 5 Jahren im All"
+        },
+        "startDate": "2026-09-16",
+        "endDate": "2026-09-16",
+        "startTime": "20:00",
+        "category": "Event",
+        "venue": "Wattwil",
+        "canton": "SG",
+        "url": "https://www.myswitzerland.com/it-ch/experiences/events/james-webb-space-telescope-seit-5-jahren-im-all/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Wattwil"
+      }
+    },
+    {
+      "id": "myswitzerland:f951fe9b98f0426fbe32f03615109464",
+      "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+      "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+      "facts": {
+        "id": "myswitzerland:f951fe9b98f0426fbe32f03615109464",
+        "title": "Die Linde und Schätze des Herbstes / Ein Morgen voller Naturwissen und Bewegung",
+        "titleByLocale": {
+          "it": "Die Linde und Schätze des Herbstes / Ein Morgen voller Naturwissen und Bewegung",
+          "en": "Die Linde und Schätze des Herbstes / Ein Morgen voller Naturwissen und Bewegung",
+          "de": "Die Linde und Schätze des Herbstes / Ein Morgen voller Naturwissen und Bewegung",
+          "fr": "Die Linde und Schätze des Herbstes / Ein Morgen voller Naturwissen und Bewegung"
+        },
+        "startDate": "2026-09-18",
+        "endDate": "2026-09-18",
+        "startTime": "09:00",
+        "category": "Event",
+        "venue": "Steinerberg",
+        "canton": "SZ",
+        "url": "https://www.myswitzerland.com/it-ch/experiences/events/die-linde-und-schaetze-des-herbstes-ein-morgen-voller-naturwissen-und-bewegung/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Steinerberg"
+      }
+    },
+    {
+      "id": "myswitzerland:d408d06e814b48ffa6ebcbe4d08256b6",
+      "sourceSnapshot": "e861ad2ec4f10d064ec176e012f3ed9ad0cb31ca",
+      "sourceGeneratedAt": "2026-09-04T10:50:00.683Z",
+      "facts": {
+        "id": "myswitzerland:d408d06e814b48ffa6ebcbe4d08256b6",
+        "title": "Freilichttheater \"Keis Wunder - es Wunder\" Beinwil/Freiamt",
+        "titleByLocale": {
+          "it": "Freilichttheater \"Keis Wunder - es Wunder\" Beinwil/Freiamt",
+          "en": "Freilichttheater \"Keis Wunder - es Wunder\" Beinwil/Freiamt",
+          "de": "Freilichttheater \"Keis Wunder - es Wunder\" Beinwil/Freiamt",
+          "fr": "Freilichttheater \"Keis Wunder - es Wunder\" Beinwil/Freiamt"
+        },
+        "startDate": "2026-08-07",
+        "endDate": "2026-09-05",
+        "startTime": "02:00",
+        "category": "Event",
+        "venue": "Beinwil (Freiamt)",
+        "canton": "AG",
+        "url": "https://www.myswitzerland.com/it-ch/experiences/events/freilichttheater-keis-wunder-es-wunder-beinwilfreiamt/",
+        "sourceKey": "myswitzerland",
+        "sourceName": "MySwitzerland",
+        "comune": "Beinwil (Freiamt)"
+      }
+    }
+  ],
+  "excludedTwins": [
+    "myswitzerland:c84e85eea9684a8986775489ab42d58b",
+    "myswitzerland:3b8751f1cb16404a9e1c2d0ed3632f24"
+  ]
+}

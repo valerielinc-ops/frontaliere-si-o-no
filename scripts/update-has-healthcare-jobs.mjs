@@ -18,9 +18,16 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { JSDOM } from 'jsdom';
+import {
+  exitCrawlerOnError,
+  fetchHtml,
+  isConnectionLevelFetchError,
+  WAF_IP_BLOCK_STATUS,
+} from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   printPublishedJobUrls,
@@ -34,6 +41,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -44,13 +52,32 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergePreserveLocaleData,
-  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import {
+  buildThinSourceHousekeepingProof,
+  collectThinSourceJobsForQuarantine,
+  keepStoredSourceBodiesByKey,
+  sourceBodyForJob,
+} from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { assertSourceRelayReady, fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
+import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
+import { CRAWLER_TRANSPORT_FAILURE_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './lib/authoritative-empty-snapshot.mjs';
+import { ELAVORO_EMPTY_MESSAGE, normalizeElavoroText } from './lib/elavoro-empty-state.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -69,6 +96,11 @@ const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_HOST = 'e-lavoro.ch';
 const CAREERS_URL = 'https://e-lavoro.ch/node/104';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const DETAIL_DELAY_MS = 1_000;
+function jobMatchKey(job) {
+  return extractStableJobId(job?.url)
+    || String(job?.url || '').trim().replace(/\/+$/, '');
+}
 
 // ─────────────────────────────────────────────────────────────
 // Helpers
@@ -145,68 +177,314 @@ function isTrustedDomain(rawUrl = '') {
 // ─────────────────────────────────────────────────────────────
 
 async function fetchPage(url, timeoutMs = 20_000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+    // The shared helper retries transient responses and uses the Jina clean-IP
+    // fallback for connection/WAF failures. The old bespoke fetch swallowed
+    // both classes as `''`, turning a live source into an unexplained `[]`.
+    return await fetchHtml(url, {
+      timeoutMs,
       headers: {
         'User-Agent':
           'Mozilla/5.0 (compatible; FrontaliereBot/1.0; +https://frontaliereticino.ch)',
         Accept: 'text/html,application/xhtml+xml',
       },
     });
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return '';
-    }
-    return await res.text();
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
-    return '';
-  } finally {
-    clearTimeout(timer);
+    // Keep the Firebase relay as a second clean-IP path for the two sources it
+    // allowlists. It is deliberately optional; when unavailable the original
+    // error must reach the discovery boundary instead of becoming an empty
+    // source claim.
+    if (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status)) {
+      const relayed = await fetchSourceViaRelay(url);
+      if (relayed?.status >= 200 && relayed.status < 300) return relayed.text;
+      if (relayed) console.warn(`⚠️ Source relay returned HTTP ${relayed.status} for ${url}`);
+    }
+    throw err;
   }
+}
+
+function fetchOutcomeForError(error) {
+  if (isRetryBudgetExhausted(error)) return 'exhausted_retry';
+  if (WAF_IP_BLOCK_STATUS.has(error?.status)) return 'anti_bot_block';
+  if (isConnectionLevelFetchError(error)) return 'connection_error';
+  return 'feed_endpoint_unavailable';
+}
+
+function abortKindForFetchOutcome(outcome) {
+  return CRAWLER_TRANSPORT_FAILURE_OUTCOMES.has(outcome)
+    ? 'connection-level-fetch'
+    : 'no-jobs-parsed';
+}
+
+/**
+ * Keep the zero-job receipt honest at the fetch/parser boundary. A listing
+ * fetch failure is transport evidence; a fetched listing whose detail pages
+ * produce no source body is selector/parser evidence. Neither is a proven
+ * empty source.
+ */
+export function classifyHasHealthcareDiscovery({
+  listingFetchOutcome = null,
+  discovered = 0,
+  parsed = 0,
+  detailFetchOutcomes = [],
+  authoritativeEmpty = false,
+} = {}) {
+  if (listingFetchOutcome) {
+    return {
+      lastFetchOutcome: listingFetchOutcome,
+      abortKind: abortKindForFetchOutcome(listingFetchOutcome),
+    };
+  }
+
+  // The listing region rendered the portal's own empty state: the fetch
+  // worked and the source says it has nothing, which is not a selector miss.
+  if (authoritativeEmpty && discovered === 0) {
+    return { lastFetchOutcome: 'ok', abortKind: null };
+  }
+
+  const detailOutcomes = Array.isArray(detailFetchOutcomes)
+    ? detailFetchOutcomes.filter(Boolean)
+    : [];
+  const firstTransportFailure = detailOutcomes.find((outcome) =>
+    CRAWLER_TRANSPORT_FAILURE_OUTCOMES.has(outcome)
+  );
+  if (firstTransportFailure) {
+    return {
+      lastFetchOutcome: firstTransportFailure,
+      abortKind: abortKindForFetchOutcome(firstTransportFailure),
+    };
+  }
+
+  if (parsed > 0) return { lastFetchOutcome: 'ok', abortKind: null };
+
+  const firstDetailOutcome = detailOutcomes[0];
+  const allDetailsFailedAtTransport =
+    discovered > 0
+    && detailOutcomes.length === discovered
+    && CRAWLER_TRANSPORT_FAILURE_OUTCOMES.has(firstDetailOutcome)
+    && detailOutcomes.every((outcome) => outcome === firstDetailOutcome);
+
+  if (allDetailsFailedAtTransport) {
+    return {
+      lastFetchOutcome: firstDetailOutcome,
+      abortKind: abortKindForFetchOutcome(firstDetailOutcome),
+    };
+  }
+
+  return { lastFetchOutcome: 'selector_miss', abortKind: 'no-jobs-parsed' };
 }
 
 // ─────────────────────────────────────────────────────────────
 // Job listing parsing
 // ─────────────────────────────────────────────────────────────
 
-function parseListingPage(html) {
+const NON_JOB_NODE_IDS = new Set(['75', '76', '104']);
+
+// The micro-site page template renders the postings view in this Drupal
+// region. Its header menu ("Home" → /has, "Annunci pubblicati" → /node/104,
+// "Login" → /node/103) also links to /node/NNN, and on 2026-10-05 the Login
+// node was taken for a posting titled "Annunci pubblicati" (issue 11083).
+const LISTING_REGION_SELECTOR = '.region-list-microsite';
+// Micro-site chrome, dropped only when the listing region is not found: it
+// carries node links that are navigation, never postings.
+const MICROSITE_CHROME_SELECTOR = [
+  '#main-header',
+  '.wrapper-top-menu-microsite',
+  '.region-pulsanti-top-microsite',
+  '.main-menu-microsite',
+  'footer',
+].join(', ');
+const AUTHORITATIVE_EMPTY_EVIDENCE =
+  'e-lavoro.ch/node/104 rendered the portal no-open-offers message in the listing region (view-empty)';
+
+/**
+ * The part of the page that lists the postings. With the listing region
+ * present, nothing outside it can be a posting. Without it (a template
+ * change) the page minus its known chrome is searched, but the result can
+ * never be a proven zero: `region` is null.
+ */
+function listingScope(document) {
+  const region = document.querySelector(LISTING_REGION_SELECTOR);
+  if (region) return { root: region, region };
+  for (const element of [...document.querySelectorAll(MICROSITE_CHROME_SELECTOR)]) {
+    element.remove();
+  }
+  return { root: document.body || document.documentElement, region: null };
+}
+
+/**
+ * True only when the listing region itself shows the portal's empty state.
+ * The same copy elsewhere on the page, a different `view-empty` text, or a
+ * missing region prove nothing.
+ */
+function listingRegionIsEmpty(region) {
+  if (!region) return false;
+  return [...region.querySelectorAll('.view-empty')].some((element) =>
+    normalizeElavoroText(element.textContent).includes(ELAVORO_EMPTY_MESSAGE),
+  );
+}
+
+function normalizeListingText(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function hasClassToken(element, token) {
+  return String(element?.getAttribute?.('class') || '')
+    .split(/\s+/)
+    .includes(token);
+}
+
+function detailNodeId(anchor) {
+  const rawHref = String(anchor?.getAttribute?.('href') || '').trim();
+  if (!rawHref) return null;
+
+  let url;
+  try {
+    url = new URL(rawHref, CAREERS_URL);
+  } catch {
+    return null;
+  }
+
+  if (!['e-lavoro.ch', 'www.e-lavoro.ch'].includes(url.hostname.toLowerCase())) {
+    return null;
+  }
+
+  const match = url.pathname.match(/^\/node\/(\d+)\/?$/i);
+  if (!match || NON_JOB_NODE_IDS.has(match[1])) return null;
+  return match[1];
+}
+
+function isListingActionLink(anchor) {
+  const text = normalizeListingText(anchor?.textContent);
+  return (
+    hasClassToken(anchor, 'main-list-job-button-view')
+    || /visualizza\s+annuncio/i.test(text)
+    || (hasClassToken(anchor, 'w-100') && hasClassToken(anchor, 'p-3'))
+  );
+}
+
+function isLikelyListingTitle(value, { allowLong = false } = {}) {
+  const text = normalizeListingText(value);
+  if (text.length < 3 || (!allowLong && text.length > 160)) return false;
+  if (/^(?:visualizza\s+annuncio|i nostri annunci|home|login|cookie policy|privacy policy)$/i.test(text)) {
+    return false;
+  }
+  if (/^(?:impiego\b|\d{1,3}%|\d{2}\.\d{2}\.\d{2,4}$)/i.test(text)) return false;
+  return true;
+}
+
+function hasListingTitleMarker(container) {
+  return [...container.querySelectorAll('*')].some((element) =>
+    hasClassToken(element, 'job-title-row')
+    || /(?:^|[-_])job[-_]?title(?:[-_]|$)/i.test(String(element.getAttribute('class') || '')),
+  );
+}
+
+function listingTitleFromContainer(container, actionLink) {
+  const descendants = [...container.querySelectorAll('*')]
+    .filter((element) => element !== actionLink && !actionLink?.contains(element));
+
+  const marked = descendants.filter((element) =>
+    hasClassToken(element, 'job-title-row')
+    || /(?:^|[-_])job[-_]?title(?:[-_]|$)/i.test(String(element.getAttribute('class') || '')),
+  );
+  for (const element of marked) {
+    const text = normalizeListingText(element.textContent);
+    if (isLikelyListingTitle(text, { allowLong: true })) return text;
+  }
+
+  for (const element of descendants.filter((candidate) => /^H[1-6]$/.test(candidate.tagName))) {
+    const text = normalizeListingText(element.textContent);
+    if (isLikelyListingTitle(text)) return text;
+  }
+
+  // The title is the first short leaf in a listing card once the known
+  // metadata/action labels are ignored. This fallback survives a vendor
+  // class rename while remaining bounded to the one-link card.
+  for (const element of descendants.filter((candidate) => candidate.children.length === 0)) {
+    const text = normalizeListingText(element.textContent);
+    if (isLikelyListingTitle(text)) return text;
+  }
+
+  return '';
+}
+
+function listingContainerFor(anchor, detailLinks, preferredLinks) {
+  let current = anchor.parentElement;
+  let best = null;
+
+  for (let depth = 0; current && depth < 10; depth += 1, current = current.parentElement) {
+    const linksInContainer = detailLinks.filter((candidate) => current.contains(candidate));
+    if (linksInContainer.length !== 1) {
+      if (linksInContainer.length > 1 && best) break;
+      continue;
+    }
+
+    const preferred = preferredLinks.find((candidate) => current.contains(candidate)) || anchor;
+    const title = listingTitleFromContainer(current, preferred);
+    if (!title) continue;
+    best = { container: current, title };
+    break;
+  }
+
+  return best || { container: anchor.parentElement, title: '' };
+}
+
+function listingPercentage(container) {
+  const marked = [...container.querySelectorAll('*')]
+    .find((element) => hasClassToken(element, 'main-list-job-percentage'));
+  const markedText = normalizeListingText(marked?.textContent);
+  if (markedText) return markedText;
+
+  const match = normalizeListingText(container.textContent).match(/\b\d{1,3}%/);
+  return match ? match[0] : '';
+}
+
+function listingDate(container) {
+  const time = [...container.querySelectorAll('time')]
+    .find((element) => hasClassToken(element, 'datetime') || element.hasAttribute('datetime'));
+  const displayed = normalizeListingText(time?.textContent).match(/\b\d{2}\.\d{2}\.\d{2,4}\b/);
+  if (displayed) return displayed[0];
+
+  const containerMatch = normalizeListingText(container.textContent).match(/\b\d{2}\.\d{2}\.\d{2,4}\b/);
+  return containerMatch ? containerMatch[0] : normalizeListingText(time?.getAttribute('datetime'));
+}
+
+export function parseListingPage(html) {
+  if (!html || typeof html !== 'string') return [];
+
+  const { document } = new JSDOM(html).window;
+  const { root, region } = listingScope(document);
+  const detailLinks = [...root.querySelectorAll('a[href]')]
+    .filter((anchor) => detailNodeId(anchor));
+
+  // A posting link always wins over the empty-state copy.
+  if (detailLinks.length === 0 && listingRegionIsEmpty(region)) {
+    return markAuthoritativeEmptySnapshot([], AUTHORITATIVE_EMPTY_EVIDENCE);
+  }
+
+  const actionLinks = detailLinks.filter(isListingActionLink);
+  // Prefer the explicit “view posting” links so a card's title/category links
+  // cannot be mistaken for a second listing. If the portal renames that label,
+  // the same node-link and bounded-card title checks still provide a fallback.
+  const preferredLinks = actionLinks.length > 0 ? actionLinks : detailLinks;
+
   const jobs = [];
-  // The Drupal listing has this structure per job card:
-  //   <span class="job-title-row">TITLE</span>  (inside a col div)
-  //   ... sector icon, date, percentage ...
-  //   <a href="/node/NNN" target="_self" class="w-100 p-3">  (sibling col div)
-  //     <span class="... main-list-job-button-view">Visualizza annuncio</span>
-  //   </a>
-  // Title and link are siblings, not nested — collect each separately and zip.
+  const seenNodeIds = new Set();
+  for (const link of detailLinks) {
+    const nodeId = detailNodeId(link);
+    if (!nodeId || seenNodeIds.has(nodeId)) continue;
 
-  const titles = [];
-  const links = [];
-  const percentages = [];
-  const dates = [];
+    const { container, title } = listingContainerFor(link, detailLinks, preferredLinks);
+    if (!title) continue;
 
-  let m;
-  const titleRe = /<span class="job-title-row">(.*?)<\/span>/gi;
-  while ((m = titleRe.exec(html)) !== null) titles.push(m[1].trim());
-
-  const linkRe = /<a\s+href="(\/node\/\d+)"\s+target="_self"\s+class="w-100 p-3">/gi;
-  while ((m = linkRe.exec(html)) !== null) links.push(m[1].trim());
-
-  const pctRe = /<span class="rounded-pill main-list-job-percentage">(.*?)<\/span>/gi;
-  while ((m = pctRe.exec(html)) !== null) percentages.push(m[1].trim());
-
-  const dateRe = /<time[^>]*class="datetime">([\d.]+)<\/time>/gi;
-  while ((m = dateRe.exec(html)) !== null) dates.push(m[1].trim());
-
-  for (let i = 0; i < Math.min(titles.length, links.length); i++) {
+    seenNodeIds.add(nodeId);
     jobs.push({
-      title: titles[i],
-      detailUrl: `https://e-lavoro.ch${links[i]}`,
-      percentage: percentages[i] || '',
-      dateStr: dates[i] || '',
+      title,
+      detailUrl: `https://e-lavoro.ch/node/${nodeId}`,
+      percentage: listingPercentage(container),
+      dateStr: listingDate(container),
     });
   }
 
@@ -226,6 +504,8 @@ function parseDetailPage(html) {
   const searchArea = mainAreaMatch ? mainAreaMatch[1] : html;
 
   const sections = {};
+  // The page's own heading for each section, keyed like `sections`.
+  const headings = {};
 
   // Extract sections by <h2> headers: Info azienda, Competenze richieste,
   // Saranno richiesti i seguenti compiti, Che cosa offriamo
@@ -236,6 +516,7 @@ function parseDetailPage(html) {
     const content = stripHtml(m[2]).trim();
     if (content.length > 20) {
       sections[header.toLowerCase()] = content;
+      headings[header.toLowerCase()] = header;
     }
   }
 
@@ -251,59 +532,55 @@ function parseDetailPage(html) {
   );
   const education = eduMatch ? stripHtml(eduMatch[1]).trim() : '';
 
-  return { sections, language, education };
+  return { sections, headings, language, education };
 }
 
-function buildDescription(title, detail) {
+// Sections of the posting published under the page's own headings.
+const HAS_DESCRIPTION_SECTIONS = [
+  'competenze richieste',
+  'saranno richiesti i seguenti compiti',
+  'che cosa offriamo',
+];
+
+/**
+ * The posting's own text (issue 5253): its sections under the page's
+ * headings, then the "Lingue richieste" / "Titolo di studio" fields the page
+ * shows. No presentation line, emoji labels or "Settore:" / "Sede:" lines of
+ * the crawler's — sector and address stay in their structured fields. A body
+ * under the common 50-word floor (or no section at all) gives ''.
+ */
+export function buildDescription(detail) {
   const parts = [];
+  for (const key of HAS_DESCRIPTION_SECTIONS) {
+    const content = detail.sections?.[key];
+    if (content) parts.push([detail.headings?.[key], content].filter(Boolean).join('\n'));
+  }
+  if (parts.length === 0) return '';
+  if (detail.language) parts.push(`Lingue richieste: ${detail.language}`);
+  if (detail.education) parts.push(`Titolo di studio: ${detail.education}`);
+  const text = parts.join('\n\n').trim();
+  return meetsSourceBodyFloor(text) ? text : '';
+}
 
-  parts.push(
-    `${COMPANY_NAME}, con sede a Biasca (TI), è alla ricerca di: ${title}.`
+// Complete lines only: the old builder's intro, emoji labels, and structured
+// location/sector lines. The section bodies between them are source text.
+export const HAS_FABRICATED_DESCRIPTION_RE = /^(?:HAS Healthcare Advanced Synthesis, con sede a Biasca \(TI\), è alla ricerca di: [^\r\n]+|📋 Competenze richieste:|🎯 Mansioni principali:|🎁 Cosa offriamo:|🗣️ Lingue richieste: [^\r\n]+|🎓 Titolo di studio: [^\r\n]+|Settore: Farmaceutico \/ API \(Active Pharmaceutical Ingredients\)|Sede: Via Industria 24, Biasca \(TI\), Svizzera)[ \t]*\r?$/m;
+const HAS_FABRICATED_LINE_RE = /^(?:HAS Healthcare Advanced Synthesis, con sede a Biasca \(TI\), è alla ricerca di: [^\r\n]+|📋 Competenze richieste:|🎯 Mansioni principali:|🎁 Cosa offriamo:|🗣️ Lingue richieste: [^\r\n]+|🎓 Titolo di studio: [^\r\n]+|Settore: Farmaceutico \/ API \(Active Pharmaceutical Ingredients\)|Sede: Via Industria 24, Biasca \(TI\), Svizzera)[ \t]*\r?\n?/gm;
+
+export function stripHasFabricatedDescription(text = '') {
+  return String(text)
+    .replace(HAS_FABRICATED_LINE_RE, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+function prepareExistingHasJobs(jobs) {
+  return dropFabricatedDescriptions(
+    jobs,
+    HAS_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+    { strip: stripHasFabricatedDescription },
   );
-  parts.push('');
-
-  // Company info (skip — too long and boilerplate)
-  // Add competenze
-  const competenze =
-    detail.sections['competenze richieste'] || '';
-  if (competenze) {
-    parts.push('📋 Competenze richieste:');
-    parts.push(competenze);
-    parts.push('');
-  }
-
-  // Add tasks
-  const compiti =
-    detail.sections['saranno richiesti i seguenti compiti'] || '';
-  if (compiti) {
-    parts.push('🎯 Mansioni principali:');
-    parts.push(compiti);
-    parts.push('');
-  }
-
-  // Add what we offer
-  const offriamo = detail.sections['che cosa offriamo'] || '';
-  if (offriamo) {
-    parts.push('🎁 Cosa offriamo:');
-    parts.push(offriamo);
-    parts.push('');
-  }
-
-  // Language / education
-  if (detail.language) {
-    parts.push(`🗣️ Lingue richieste: ${detail.language}`);
-  }
-  if (detail.education) {
-    parts.push(`🎓 Titolo di studio: ${detail.education}`);
-  }
-
-  parts.push('');
-  parts.push(
-    `Settore: Farmaceutico / API (Active Pharmaceutical Ingredients)`
-  );
-  parts.push(`Sede: Via Industria 24, Biasca (TI), Svizzera`);
-
-  return parts.join('\n').trim();
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -337,12 +614,12 @@ function detectEmploymentType(percentage = '') {
 }
 
 function parseDate(dateStr = '') {
-  // Format: DD.MM.YY
-  const m = dateStr.match(/(\d{2})\.(\d{2})\.(\d{2})/);
-  if (!m) return new Date().toISOString().slice(0, 10);
+  // Source formats: DD.MM.YY or DD.MM.YYYY; never truncate a four-digit year.
+  const m = String(dateStr).trim().match(/^(\d{2})\.(\d{2})\.(\d{4}|\d{2})$/);
+  if (!m) return '';
   const day = m[1];
   const month = m[2];
-  const year = `20${m[3]}`;
+  const year = m[3].length === 4 ? m[3] : `20${m[3]}`;
   return `${year}-${month}-${day}`;
 }
 
@@ -350,28 +627,65 @@ function parseDate(dateStr = '') {
 // Main discovery
 // ─────────────────────────────────────────────────────────────
 
-async function fetchJobs() {
+async function fetchJobs(counts) {
   console.log(`📡 Fetching job listing page: ${CAREERS_URL}`);
-  const listingHtml = await fetchPage(CAREERS_URL);
-  if (!listingHtml) {
+  let listingHtml;
+  try {
+    listingHtml = await fetchPage(CAREERS_URL);
+  } catch (error) {
+    // fetch-failure-empty-ok: the cause is not lost: lastFetchOutcome/abortKind are recorded in counts before the bespoke runner returns []
+    const lastFetchOutcome = fetchOutcomeForError(error);
+    Object.assign(counts, {
+      discovered: 0,
+      parsed: 0,
+      lastFetchOutcome,
+      abortKind: abortKindForFetchOutcome(lastFetchOutcome),
+    });
     console.warn('⚠️ Failed to fetch listing page.');
     return [];
   }
 
   const listings = parseListingPage(listingHtml);
+  counts.discovered = listings.length;
   console.log(`📋 Found ${listings.length} job listing(s) on page.`);
+  if (isAuthoritativeEmptySnapshot(listings)) {
+    Object.assign(counts, {
+      parsed: 0,
+      ...classifyHasHealthcareDiscovery({ discovered: 0, parsed: 0, authoritativeEmpty: true }),
+    });
+    console.log(`ℹ️ ${listings.authoritativeEmptyEvidence}.`);
+    return markAuthoritativeEmptySnapshot([], listings.authoritativeEmptyEvidence);
+  }
 
   const jobs = [];
+  const detailFetchOutcomes = [];
   for (const listing of listings) {
+    // Keep sequential relay fallbacks outside the relay's per-host 1 s window.
+    await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     console.log(`  📄 Fetching detail: ${listing.title} → ${listing.detailUrl}`);
-    const detailHtml = await fetchPage(listing.detailUrl);
+    let detailHtml;
+    try {
+      detailHtml = await fetchPage(listing.detailUrl);
+    } catch (error) {
+      detailFetchOutcomes.push(fetchOutcomeForError(error));
+      console.warn(`  ⚠️ Detail fetch failed for ${listing.detailUrl} — not published in this run.`);
+      continue;
+    }
     const detail = detailHtml
       ? parseDetailPage(detailHtml)
       : { sections: {}, language: '', education: '' };
 
-    const description = buildDescription(listing.title, detail);
+    const description = buildDescription(detail);
+    if (!description) {
+      // No source body: not published in this run (no crawler-written stand-in).
+      console.warn(`  ⚠️ No posting text on ${listing.detailUrl} — not published in this run.`);
+      continue;
+    }
     const slug = slugify(listing.title, COMPANY_KEY);
     const postedDate = parseDate(listing.dateStr);
+    // The language the body is written in, not a fixed `it` key (a title
+    // such as "Production Manager" is not evidence of it).
+    const sourceLang = sourceLangOfBody(description, 'it');
 
     const job = {
       title: listing.title,
@@ -388,21 +702,32 @@ async function fetchJobs() {
       employmentType: detectEmploymentType(listing.percentage),
       experienceLevel: detectExperienceLevel(listing.title),
       source: 'has-healthcare-crawler',
-      sourceLang: detectLang(description || listing.title, 'it'),
-      postedDate,
-      titleByLocale: { it: listing.title },
-      descriptionByLocale: { it: description },
-      slugByLocale: { it: slug },
+      sourceLang,
+      ...sourcePostingDateFields(postedDate),
+      titleByLocale: { [sourceLang]: listing.title },
+      descriptionByLocale: { [sourceLang]: description },
+      slugByLocale: { [sourceLang]: slug },
       // _targetScope tells the base crawler this job is in Ticino,
       // bypassing the non_detail_url exclusion for /node/NNN URLs.
       _targetScope: { canton: HQ.canton, location: HQ.city },
     };
 
     jobs.push(job);
-    // Small delay between detail page fetches
-    await new Promise((r) => setTimeout(r, 500));
   }
 
+  counts.parsed = jobs.length;
+  const discovery = classifyHasHealthcareDiscovery({
+    discovered: listings.length,
+    parsed: jobs.length,
+    detailFetchOutcomes,
+  });
+  Object.assign(counts, discovery);
+  if (discovery.abortKind === 'connection-level-fetch') {
+    console.warn(
+      '⚠️ A detail transport failure made this partial run unsafe to merge; preserving the existing HAS slice.',
+    );
+    return [];
+  }
   return jobs;
 }
 
@@ -424,7 +749,11 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
-  const existingTargetJobs = allJobs.filter(isTargetJob);
+  // Stored jobs of the old builder: their crawler-written description and the
+  // translations of it go before the locale-preserving merge; one left
+  // without any source text is not published (issue 5253).
+  const existingTargetJobs = prepareExistingHasJobs(allJobs.filter(isTargetJob))
+    .filter((job) => String(job.description || '').trim() || Object.values(job.descriptionByLocale || {}).some((text) => String(text || '').trim()));
 
   const existingKeys = new Set(
     existingTargetJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
@@ -441,7 +770,8 @@ async function mergeJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingTargetJobs, discoveredJobs).map((job) => ({
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(discoveredJobs, existingTargetJobs, jobMatchKey);
+  const merged = mergePreserveLocaleData(existingTargetJobs, sourceBodyJobs).map((job) => ({
     ...job,
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
@@ -449,8 +779,19 @@ async function mergeJobs(discoveredJobs) {
     country: 'CH',
     source: 'has-healthcare-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(
+    discoveredJobs,
+    merged,
+    jobMatchKey,
+  );
+  const cleanTargetJobs = merged
+    .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
 
-  const final = [...nonTargetJobs, ...merged];
+  const final = [...nonTargetJobs, ...cleanTargetJobs];
 
   writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
@@ -461,8 +802,34 @@ async function mergeJobs(discoveredJobs) {
   console.log(`  🔄 Updated: ${updated}`);
   console.log(`  🗑️  Removed (stale): ${removed}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
+  if (thinSourceJobs.length > 0) {
+    console.warn(`  ⚠️ HAS Healthcare: quarantining ${thinSourceJobs.length} job(s) without a source body of at least 50 words.`);
+  }
 
-  return { added, updated, removed, total: final.length };
+  return {
+    added,
+    updated,
+    removed,
+    total: final.length,
+    sourceBodyJobs,
+    thinSourceJobs,
+    targetExisting: existingTargetJobs,
+    noPublishableJobs: sourceBodyJobs.length === 0,
+  };
+}
+
+async function rewriteStoredHasJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: prepareExistingHasJobs,
+    storedJobs,
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, {
+      isTargetJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -595,24 +962,84 @@ function validateLocales() {
   });
 }
 
+/**
+ * The listing region proved the source has no open postings: publish the
+ * zero with its evidence (same shape as the Helsinn e-lavoro runner), retire
+ * any stored HAS row to the expired archive, and let the health monitor read
+ * `authoritativeEmptySnapshot` instead of a selector miss.
+ */
+async function publishAuthoritativeEmptySnapshot({ beforeSnapshot, evidence }) {
+  const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+  const emptyDiff = computeCrawlDiff(beforeSnapshot, new Map());
+  const archived = archiveRemovedJobsToSlice(priorJobs, COMPANY_KEY);
+  writeJobsCrawlerSlice(COMPANY_KEY, [], {
+    skipShrinkGuard: true,
+    preserveExistingSlugs: true,
+  });
+  printCrawlChangeSummary(emptyDiff, 'HAS Healthcare');
+  writeCrawlChangeSummaryToGH(emptyDiff, 'HAS Healthcare');
+  const durationMs = getCrawlerElapsedMs();
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: 'HAS Healthcare',
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: 0,
+    parsed: 0,
+    written: 0,
+    lastFetchOutcome: 'ok',
+    abortKind: null,
+    authoritativeEmptySnapshot: true,
+    authoritativeSnapshotVerified: true,
+    authoritativeEmptyEvidence: evidence,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: emptyDiff.removedJobs.length,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: emptyDiff.removedJobs.slice(0, 30),
+    unchangedJobs: [],
+  });
+  await assembleJobsDataset();
+  console.log(`ℹ️ Persisted authoritative HAS Healthcare zero; archived ${archived} expired route(s).`);
+}
+
 // ─────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'HAS Healthcare');
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'HAS Healthcare', counts);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  HAS Healthcare Advanced Synthesis — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
+  // The crawler group marks this member relay-required: a failed Google
+  // ID-token step fails this crawler loudly instead of crawling without the
+  // only path that reaches e-lavoro.ch from CI.
+  assertSourceRelayReady();
 
   // Snapshot before
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob))
 
   // Phase 1: Fetch and parse jobs
-  const discoveredJobs = await fetchJobs();
+  const discoveredJobs = await fetchJobs(counts);
+
+  if (isAuthoritativeEmptySnapshot(discoveredJobs)) {
+    console.log('\nℹ️ HAS Healthcare has no open postings on e-lavoro.ch; publishing an authoritative empty snapshot.');
+    await publishAuthoritativeEmptySnapshot({
+      beforeSnapshot,
+      evidence: discoveredJobs.authoritativeEmptyEvidence,
+    });
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No HAS Healthcare jobs discovered.');
@@ -620,6 +1047,9 @@ async function main() {
       '   The careers page may have changed structure or have no current openings.'
     );
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    await rewriteStoredHasJobsWithoutThinSource(
+      readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
@@ -629,7 +1059,15 @@ async function main() {
   updateAdapterConfig();
 
   // Phase 3: Merge into data/jobs.json
-  await mergeJobs(discoveredJobs);
+  const mergeStats = await mergeJobs(discoveredJobs);
+  if (mergeStats.noPublishableJobs) {
+    counts.abortKind = 'no-jobs-parsed';
+    console.warn(
+      `⚠️ ${COMPANY_NAME}: all ${discoveredJobs.length} source body/bodies are below the 50-word source-body floor; quarantining thin-source rows.`,
+    );
+    await rewriteStoredHasJobsWithoutThinSource(mergeStats.targetExisting);
+    return;
+  }
 
   // Phase 4: Run base crawler for AI localization (DE/FR translations)
   console.log(
@@ -642,7 +1080,9 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
+  crawlDiff = stats.crawlDiff || crawlDiff;
   if (stats.total === 0) {
+    counts.abortKind = 'no-jobs-parsed';
     console.log(
       'ℹ️ No HAS Healthcare jobs found after crawl. No error — exiting OK.'
     );
@@ -657,13 +1097,29 @@ async function main() {
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  const _sliceJobs = Array.isArray(_sliceRaw)
+    ? _sliceRaw.filter(isTargetJob).filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    : [];
+  const removedJobs = crawlDiff.removedJobs || [];
+  const housekeepingProof = buildThinSourceHousekeepingProof(
+    removedJobs,
+    mergeStats.thinSourceJobs,
+    jobMatchKey,
+  );
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    ...(housekeepingProof ? { housekeepingProof } : {}),
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'HAS Healthcare',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: _sliceJobs.length,
+    lastFetchOutcome: counts.lastFetchOutcome || 'ok',
+    abortKind: null,
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,
     removedCount: crawlDiff.removedJobs.length,
@@ -679,4 +1135,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'HAS Healthcare'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'HAS Healthcare'));
+}

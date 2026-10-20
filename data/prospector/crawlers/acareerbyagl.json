@@ -1,0 +1,23 @@
+{
+  "companyKey": "acareerbyagl",
+  "companyName": "AGL transport & logistics",
+  "companyHost": "acareerbyagl.talent-soft.com",
+  "platform": "talent-soft.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://acareerbyagl.talent-soft.com/accueil.aspx?LCID=1036"
+  ],
+  "detailTemplate": "/offre-de-emploi/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 13,
+  "sampleTitles": [
+    "> Flux RSS et autres flux",
+    "OPERATOR, DISPATCHER / OPERATIONS ASSISTANT M/F (Réf. : 2026-10511) - AUTRES",
+    "MANAGER, TRANSIT AND CONSOLIDATION OPERATIONS M/F (Réf. : 2026-10510) - AUTRES",
+    "Operator - Logistics Planning & Documentation (CFAO – GLC) M/F (Réf. : 2026-10152) - EXCELLENCE OPERATIONNELLE FREIGHT FORWARDING",
+    "PRE-DELIVERY TECHNICIAN M/F (Réf. : 2026-10229) - AUTRES"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-16T10:20:10.387Z"
+}

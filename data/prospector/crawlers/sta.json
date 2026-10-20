@@ -8,6 +8,10 @@
     "https://www.sta.jobs/stellen/"
   ],
   "detailTemplate": "/stellen/*/",
+  "pagination": {
+    "maxPages": 150,
+    "declaredTotalPattern": "([\\d'’.,]+)\\s*(?:<[^>]*>\\s*)*Resultate"
+  },
   "sampleVacancyCount": 1739,
   "sampleTitles": [
     "Allrounder/in Ausbaugewerbe für einen 5 Tage Einsatz im Raum Sursee",

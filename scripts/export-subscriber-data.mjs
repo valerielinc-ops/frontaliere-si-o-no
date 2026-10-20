@@ -16,12 +16,19 @@
  *
  * Variabili d'ambiente:
  *   GOOGLE_APPLICATION_CREDENTIALS — service account con accesso a Firestore
+ *   NEWSLETTER_SECRET — chiave dello pseudonimo del profilo job_email_affinity;
+ *     senza, l'estrazione dichiara il profilo «non verificato».
+ *     Caricala con: eval "$(node scripts/load-rc-env.mjs)"
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { buildSubscriberExport } from './lib/subscriberExport.mjs';
+import {
+  JOB_EMAIL_AFFINITY_COLLECTION,
+  affinityDocId,
+} from '../functions/src/lib/jobEmailAffinity.js';
 
 const COLLECTION_NEWSLETTER = 'newsletter_subscribers';
 const COLLECTION_JOB_ALERT = 'job_alert_subscribers';
@@ -105,14 +112,25 @@ async function main() {
   const jobAlert = jaSnap.exists ? jaSnap.data() : null;
   const alerts = jaSnap.exists ? await readSub(jaRef, 'alerts') : [];
 
+  // Profilo di interessi dai clic (privacy policy, «Ordine degli annunci in
+  // base ai clic»): `undefined` quando manca la chiave per trovarlo.
+  let affinity;
+  const affinityId = affinityDocId(email, process.env.NEWSLETTER_SECRET);
+  if (affinityId) {
+    const affinitySnap = await db.collection(JOB_EMAIL_AFFINITY_COLLECTION).doc(affinityId).get();
+    affinity = affinitySnap.exists ? affinitySnap.data() : null;
+  } else {
+    console.error('  (avviso: NEWSLETTER_SECRET assente, profilo di affinità non verificato)');
+  }
+
   if (json) {
-    const payload = { email, subscriber, events, deliveries, jobAlert, alerts };
+    const payload = { email, subscriber, events, deliveries, jobAlert, alerts, affinity: affinity ?? null, affinityChecked: affinity !== undefined };
     const text = JSON.stringify(payload, null, 2);
     if (typeof out === 'string') fs.writeFileSync(out, text);
     else console.log(text);
   } else {
     const markdown = buildSubscriberExport(
-      { email, subscriber, events, deliveries, jobAlert, alerts },
+      { email, subscriber, events, deliveries, jobAlert, alerts, affinity },
       { generatedAt: new Date().toISOString() },
     );
     if (typeof out === 'string') fs.writeFileSync(out, markdown);

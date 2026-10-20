@@ -3,6 +3,7 @@ import { BellRing, Loader2, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
 
@@ -187,6 +188,7 @@ export default function JobDetailAlertPrompt({
               {title}
             </h3>
             <p className="mt-0.5 text-xs text-subtle">{body}</p>
+            {status === 'idle' && <button type="button" className="mt-1 min-h-[44px] text-xs text-accent underline" onClick={() => { onManage(); onClose(); }}>{t('jobAlert.jobDetailPrompt.manageLink', 'Gestisci alert')}</button>}
             <div className="mt-2 flex items-center gap-2">
               {status === 'idle' && (
                 <>
@@ -250,6 +252,13 @@ export default function JobDetailAlertPrompt({
                 </>
               )}
             </div>
+            {status === 'idle' && (
+              <ConsentNotice
+                consentKey="communicationsOptIn"
+                locale={locale}
+                className="mt-2 text-[10px] text-muted leading-tight block"
+              />
+            )}
           </div>
         </div>
       </div>

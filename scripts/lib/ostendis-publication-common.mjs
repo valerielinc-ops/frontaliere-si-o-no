@@ -27,8 +27,11 @@
  *     scraping anchors. Some widget bundles take 4-6 s to inject anchors.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import {
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
@@ -83,10 +86,6 @@ function normalizeSpace(s = '') {
  * @param {string} [config.sourceLabel]        Source string written into
  *                                             ParsedJob.source. Falls back
  *                                             to a sensible default.
- * @param {string} [config.fallbackDescription] Description used when the
- *                                             detail JSON-LD ships less than
- *                                             80 chars. Defaults to a generic
- *                                             company tagline.
  * @param {boolean} [config.waitForWidget=true] Wait for an OJP widget anchor
  *                                             to appear before harvesting.
  *                                             Set false when anchors are
@@ -105,7 +104,6 @@ export function createOstendisPublicationParser(config) {
     defaultSourceLang = 'de',
     sector = 'Sanità / Ospedali',
     sourceLabel,
-    fallbackDescription,
     waitForWidget = true,
     widgetTimeoutMs = WIDGET_WAIT_MS,
   } = config;
@@ -116,10 +114,6 @@ export function createOstendisPublicationParser(config) {
 
   const corporateHost = String(companyDomain).replace(/^www\./, '').toLowerCase();
   const sourceLine = sourceLabel || `${companyName} Dedicated Parser (Ostendis via Playwright)`;
-  const defaultFallback =
-    `${companyName} — Stelle in ${defaultCity}` +
-    (defaultCanton ? ` (${defaultCanton})` : '') +
-    `, Schweiz.`;
 
   function isCompanyJob(job) {
     if (!job) return false;
@@ -223,16 +217,11 @@ export function createOstendisPublicationParser(config) {
       let postedAt = null;
       for (const raw of jsonLdRaw) {
         try {
-          const parsed = JSON.parse(raw);
-          const arr = Array.isArray(parsed) ? parsed : [parsed];
-          for (const node of arr) {
-            if (!node || typeof node !== 'object') continue;
-            const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
-            if (types.includes('JobPosting')) {
-              title = title || String(node.title || '').trim();
-              descriptionHtml = descriptionHtml || String(node.description || '');
-              postedAt = postedAt || node.datePosted || node.validThrough || null;
-            }
+          const postings = extractJobPostingNodesFromJson(JSON.parse(raw));
+          for (const node of postings) {
+            title = title || String(node.title || '').trim();
+            descriptionHtml = descriptionHtml || String(node.description || '');
+            postedAt = postedAt || node.datePosted || null;
           }
         } catch {
           /* malformed JSON-LD — ignore */
@@ -261,17 +250,11 @@ export function createOstendisPublicationParser(config) {
     const jobSlug = slugify(`${cleanTitle} ${companyKey} ${defaultCity}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const desc =
-      descriptionText.length >= 80
-        ? descriptionText
-        : fallbackDescription || defaultFallback;
-
-    const postedDate = (() => {
-      if (!postedAt) return new Date().toISOString().slice(0, 10);
-      const d = new Date(postedAt);
-      if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-      return d.toISOString().slice(0, 10);
-    })();
+    // Only the posting's own text (issue 5253): no "<company> — Stelle in
+    // <city> (<canton>), Schweiz." line nor a per-employer text in place of a
+    // short body. A body under the common 50-word floor gives no description
+    // (the shared pipeline's thin-source path).
+    const desc = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const employmentType = detectHealthcareEmploymentType(cleanTitle);
 
@@ -304,7 +287,7 @@ export function createOstendisPublicationParser(config) {
       sector,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(postedAt),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

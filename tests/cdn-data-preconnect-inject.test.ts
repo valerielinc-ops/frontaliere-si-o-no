@@ -85,6 +85,172 @@ describe('data/image CDN preconnect injection', () => {
     expect(hintAt).toBeLessThan(scriptAt);
   });
 
+  it('keeps the charset declaration before deploy-time head injections', () => {
+    const { html } = runOffload(BASE_HTML);
+    const charsetAt = html.indexOf('<meta charset="utf-8">');
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(charsetAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(charsetAt).toBeLessThan(hintAt);
+  });
+
+  it('keeps an unquoted charset declaration before deploy-time head injections', () => {
+    const unquoted = BASE_HTML.replace('<meta charset="utf-8">', '<meta charset=utf-8>');
+    const { html } = runOffload(unquoted);
+    const charsetAt = html.indexOf('<meta charset=utf-8>');
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(charsetAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(charsetAt).toBeLessThan(hintAt);
+  });
+
+  it('relocates a stale base marker after charset and existing preconnects', () => {
+    const stale =
+      '<!doctype html><html><head>' +
+      `<script>window.__CDN_DATA_BASE__="${CDN_BASE}"</script>` +
+      '<meta charset="utf-8"><meta name="viewport" content="width=device-width">' +
+      `<link rel="preconnect" href="${CDN_ORIGIN}" crossorigin>` +
+      '</head><body></body></html>';
+    const { html } = runOffload(stale);
+    const charsetAt = html.indexOf('<meta charset="utf-8">');
+    const hintAt = html.indexOf('rel="preconnect"');
+    const scriptAt = html.indexOf('window.__CDN_DATA_BASE__');
+    const assignments = html.match(/window\.__CDN_DATA_BASE__\s*=/g) ?? [];
+    expect(assignments).toHaveLength(1);
+    expect(charsetAt).toBeLessThan(hintAt);
+    expect(hintAt).toBeLessThan(scriptAt);
+  });
+
+  it('does not treat marker text in another script as an installed base', () => {
+    const deceptive = BASE_HTML.replace(
+      '<title>t</title>',
+      '<script>const marker = "__CDN_DATA_BASE__";</script><title>t</title>',
+    );
+    const { html } = runOffload(deceptive);
+    const assignments = html.match(/window\.__CDN_DATA_BASE__\s*=/g) ?? [];
+    expect(assignments).toHaveLength(1);
+    expect(html.indexOf('<meta charset="utf-8">')).toBeLessThan(
+      html.indexOf('window.__CDN_DATA_BASE__'),
+    );
+  });
+
+  it('ignores CDN hints inside inactive head nodes', () => {
+    const hiddenHint = `<script>const source = '<link rel="preconnect" href="${CDN_ORIGIN}">';</script>`;
+    const fixture = BASE_HTML.replace('<meta charset="utf-8"><title>', `<meta charset="utf-8">${hiddenHint}<title>`);
+    const { html } = runOffload(fixture);
+    expect(html).toContain(hiddenHint);
+    const activeHead = html.replace(hiddenHint, '');
+    const hint = `<link rel="preconnect" href="${CDN_ORIGIN}`;
+    expect(activeHead.split(hint).length - 1).toBe(1);
+    expect(html.match(/window\.__CDN_DATA_BASE__\s*=/g) ?? []).toHaveLength(1);
+  });
+
+  it('consumes valid attributes after an unquoted charset value', () => {
+    const withAttribute = BASE_HTML.replace(
+      '<meta charset="utf-8">',
+      '<meta charset=utf-8 data-x>',
+    );
+    const { html } = runOffload(withAttribute);
+    const metaAt = html.indexOf('<meta charset=utf-8 data-x>');
+    const metaEnd = html.indexOf('>', metaAt);
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(metaAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(hintAt).toBeGreaterThan(metaEnd);
+  });
+
+  it('handles charset attributes in any order and ignores > inside quoted values', () => {
+    const completeMeta = `<meta data-x=">" charset=utf-8 data-y='>'>`;
+    const withAttributes = BASE_HTML.replace('<meta charset="utf-8">', completeMeta);
+    const { html } = runOffload(withAttributes);
+    const metaAt = html.indexOf(completeMeta);
+    const completeMetaEnd = metaAt + completeMeta.length - 1;
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(metaAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(hintAt).toBeGreaterThan(completeMetaEnd);
+  });
+
+  it('ignores fake meta tags in comments, templates, and raw-text nodes', () => {
+    const actualMeta = '<meta charset=utf-8>';
+    const hidden = [
+      '<!-- <meta charset=utf-8> -->',
+      '<template><meta charset=utf-8></template>',
+      '<script>const fake = "<meta charset=utf-8>";</script>',
+      '<style>/* <meta charset=utf-8> */</style>',
+      '<textarea><meta charset=utf-8></textarea>',
+      '<title><meta charset=utf-8></title>',
+    ].join('');
+    const withHidden = BASE_HTML.replace('<meta charset="utf-8">', hidden + actualMeta);
+    const { html } = runOffload(withHidden);
+    const actualAt = html.lastIndexOf(actualMeta);
+    const actualEnd = actualAt + actualMeta.length - 1;
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(actualAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(hintAt).toBeGreaterThan(actualEnd);
+  });
+
+  it('fails closed on a malformed template scan and preserves CDN-backed trees', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'cdn-preconnect-malformed-'));
+    tmpDirs.push(tmp);
+    const distDir = path.join(tmp, 'dist');
+    const ogDir = path.join(distDir, 'og', 'jobs');
+    const dataDir = path.join(distDir, 'data');
+    fs.mkdirSync(ogDir, { recursive: true });
+    fs.mkdirSync(dataDir, { recursive: true });
+    fs.writeFileSync(path.join(ogDir, 'card.webp'), 'x', 'utf8');
+    fs.writeFileSync(path.join(dataDir, 'payload.json'), '{}', 'utf8');
+
+    const malformed =
+      '<!doctype html><html><head><template><meta charset="utf-8"><title>fake</title>' +
+      '</head><body><h1>x</h1></body></html>';
+    fs.writeFileSync(path.join(distDir, 'malformed.html'), malformed, 'utf8');
+    fs.writeFileSync(path.join(distDir, 'valid.html'), BASE_HTML, 'utf8');
+
+    execFileSync('node', [SCRIPT], {
+      cwd: tmp,
+      env: { ...process.env, CDN_BASE },
+      stdio: 'pipe',
+    });
+
+    expect(fs.readFileSync(path.join(distDir, 'malformed.html'), 'utf8')).toBe(malformed);
+    expect(fs.readFileSync(path.join(distDir, 'malformed.html'), 'utf8')).not.toContain('__CDN_DATA_BASE__');
+    expect(fs.readFileSync(path.join(distDir, 'valid.html'), 'utf8')).toContain('__CDN_DATA_BASE__');
+    expect(fs.existsSync(ogDir)).toBe(true);
+    expect(fs.existsSync(path.join(dataDir, 'payload.json'))).toBe(true);
+  });
+
+  it.each(['textarea', 'title'])('fails closed when a literal </template> appears inside <%s>', (rawName) => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), `cdn-preconnect-malformed-${rawName}-`));
+    tmpDirs.push(tmp);
+    const distDir = path.join(tmp, 'dist');
+    const dataDir = path.join(distDir, 'data');
+    fs.mkdirSync(dataDir, { recursive: true });
+    fs.writeFileSync(path.join(dataDir, 'payload.json'), '{}', 'utf8');
+
+    const malformed =
+      `<!doctype html><html><head><template><${rawName}></template><meta charset="utf-8"></${rawName}></head>` +
+      '<body><h1>x</h1></body></html>';
+    fs.writeFileSync(path.join(distDir, 'malformed.html'), malformed, 'utf8');
+
+    execFileSync('node', [SCRIPT], {
+      cwd: tmp,
+      env: { ...process.env, CDN_BASE },
+      stdio: 'pipe',
+    });
+
+    expect(fs.readFileSync(path.join(distDir, 'malformed.html'), 'utf8')).toBe(malformed);
+    expect(fs.readFileSync(path.join(distDir, 'malformed.html'), 'utf8')).not.toContain('__CDN_DATA_BASE__');
+    expect(fs.existsSync(path.join(dataDir, 'payload.json'))).toBe(true);
+  });
+
+  it('preserves source offsets around non-ASCII text before the charset tag', () => {
+    const actualMeta = '<meta charset=utf-8>';
+    const withUnicode = BASE_HTML.replace('<meta charset="utf-8">', `İ${actualMeta}`);
+    const { html } = runOffload(withUnicode);
+    const metaAt = html.indexOf(actualMeta);
+    const metaEnd = metaAt + actualMeta.length - 1;
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(metaAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(hintAt).toBeGreaterThan(metaEnd);
+  });
+
   it('skips the hint when the page already preconnects to the same origin (#3530)', () => {
     // When the data CDN origin coincides with the asset CDN origin, the build
     // already ships this exact preconnect (asyncCssPlugin / template heads) —

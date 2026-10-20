@@ -1,20 +1,41 @@
 import { existsSync, readFileSync } from 'node:fs';
-import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
+  assessLogoQuality,
   auditCompanyLogos,
   classifyLogoReference,
   loadCanonicalJobs,
+  readImageDimensions,
 } from '../scripts/lib/company-logo-audit.mjs';
 
-const PNG_BYTES = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-function imageResponse(status = 200) {
-  return new Response(PNG_BYTES, {
+function pngBytes(width = 128, height = 128) {
+  const bytes = Buffer.alloc(24);
+  bytes.set([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+  bytes.writeUInt32BE(width, 16);
+  bytes.writeUInt32BE(height, 20);
+  return bytes;
+}
+
+function icoBytes(entries) {
+  const bytes = Buffer.alloc(6 + entries.length * 16);
+  bytes.writeUInt16LE(1, 2);
+  bytes.writeUInt16LE(entries.length, 4);
+  entries.forEach(([width, height], index) => {
+    const offset = 6 + index * 16;
+    bytes[offset] = width === 256 ? 0 : width;
+    bytes[offset + 1] = height === 256 ? 0 : height;
+  });
+  return bytes;
+}
+
+function imageResponse(status = 200, body = pngBytes()) {
+  return new Response(body, {
     status,
     headers: { 'content-type': 'image/png' },
   });
@@ -33,6 +54,22 @@ describe('company-logo-audit', () => {
       reference: 'https://acme.test/logo.svg',
     });
     expect(classifyLogoReference('logo:acme').kind).toBe('invalid');
+  });
+
+  it('flags raster logos that are too small for the rendered logo slots', () => {
+    expect(readImageDimensions(pngBytes(16, 16))).toEqual({
+      width: 16,
+      height: 16,
+      vector: false,
+    });
+    expect(assessLogoQuality({ format: 'png', width: 16, height: 16 })).toEqual(expect.objectContaining({
+      status: 'low-quality',
+      reason: 'intrinsic-dimensions-too-small',
+      maxDimension: 16,
+    }));
+    expect(assessLogoQuality({ format: 'png', width: 128, height: 64 }).status).toBe('good');
+    expect(assessLogoQuality({ format: 'svg' })).toEqual({ status: 'good', reason: 'vector' });
+    expect(readImageDimensions(icoBytes([[16, 16], [128, 64]])).width).toBe(128);
   });
 
   it('fails closed when the canonical dataset is missing or below the floor', async () => {
@@ -84,6 +121,7 @@ describe('company-logo-audit', () => {
     expect(report.partialJobCount).toBe(1);
     expect(report.referenceCount).toBe(3);
     expect(report.validReferenceCount).toBe(2);
+    expect(report.qualityOkReferenceCount).toBe(2);
     expect(report.affectedCompanies.map((company) => company.companyKey)).toEqual([
       'broken',
       'missing',
@@ -114,6 +152,72 @@ describe('company-logo-audit', () => {
     expect(report.references[0]).toEqual(expect.objectContaining({
       status: 'broken',
       reason: 'not-an-image',
+    }));
+  });
+
+  it('reports checkout assets pending CDN deployment without counting coverage as valid', async () => {
+    const root = await mkdtemp(path.join(os.tmpdir(), 'company-logo-pending-'));
+    try {
+      await mkdir(path.join(root, 'public/images/brands'), { recursive: true });
+      await writeFile(path.join(root, 'public/images/brands/pending.png'), pngBytes(128, 128));
+      const jobUrl = 'https://pending.test/job/1';
+      const report = await auditCompanyLogos([
+        { companyKey: 'pending', company: 'Pending AG', url: jobUrl },
+      ], {
+        resolveLogo: () => '/images/brands/pending.png',
+        assetBaseUrl: 'https://cdn.test',
+        localAssetRoot: root,
+        fetchImpl: async () => imageResponse(404),
+      });
+
+      expect(report.withLogo).toBe(0);
+      expect(report.broken).toBe(0);
+      expect(report.pendingDeploy).toBeGreaterThan(0);
+      expect(report.pendingDeployJobCount).toBeGreaterThan(0);
+      expect(report.affectedCompanies[0]).toMatchObject({
+        companyKey: 'pending',
+        status: 'pending-deploy',
+        pendingDeployJobCount: 1,
+        examples: { pendingDeploy: jobUrl },
+      });
+      expect(report.references[0]).toEqual(expect.objectContaining({
+        status: 'pending-deploy',
+        reason: 'asset-present-in-checkout',
+        cdnStatus: 'broken',
+        localPath: '/images/brands/pending.png',
+      }));
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('reports low-quality logos separately from missing and broken coverage', async () => {
+    const jobUrl = 'https://nsn.test/job/1';
+    const report = await auditCompanyLogos([
+      { companyKey: 'nsn-medical', company: 'NSN Medical Group', url: jobUrl },
+    ], {
+      resolveLogo: () => 'https://cdn.test/images/brands/nsn-medical.png',
+      fetchImpl: async () => imageResponse(200, pngBytes(16, 16)),
+      assetBaseUrl: 'https://cdn.test',
+    });
+
+    expect(report.missing).toBe(0);
+    expect(report.broken).toBe(0);
+    expect(report.lowQuality).toBe(1);
+    expect(report.lowQualityJobCount).toBe(1);
+    expect(report.qualityOkReferenceCount).toBe(0);
+    expect(report.affectedCompanies[0]).toMatchObject({
+      companyKey: 'nsn-medical',
+      status: 'low-quality',
+      qualityStatus: 'low-quality',
+      lowQualityJobCount: 1,
+      examples: { lowQuality: jobUrl },
+    });
+    expect(report.references[0]).toEqual(expect.objectContaining({
+      qualityStatus: 'low-quality',
+      qualityReason: 'intrinsic-dimensions-too-small',
+      width: 16,
+      height: 16,
     }));
   });
 
@@ -163,7 +267,11 @@ describe('company-logo-audit', () => {
     const installMarker = 'run: npm ci --ignore-scripts --no-audit --no-fund';
     const assembleMarker = 'run: node scripts/assemble-jobs-dataset.mjs --no-summaries';
     expect(auditWorkflow).toContain('./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs');
-    expect(auditWorkflow).toContain('--regenerate-cmd "./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs; git add data/company-logos-missing.json"');
+    expect(auditWorkflow).toContain('node scripts/download-missing-company-logos.mjs --from-audit');
+    expect(auditWorkflow).toContain('node scripts/verify-company-logo-acquisition.mjs');
+    expect(auditWorkflow).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(auditWorkflow).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(auditWorkflow).not.toMatch(/HEAD:main/);
 
     for (const workflow of [auditWorkflow, verifyWorkflow]) {
       expect(workflow).toContain('cache: npm');

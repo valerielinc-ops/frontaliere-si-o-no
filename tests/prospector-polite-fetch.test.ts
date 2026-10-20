@@ -155,6 +155,29 @@ describe('prospector polite fetch retry cooldown', () => {
     expect(sleeps).toEqual([2_000]);
   });
 
+  it('honours a caller-specific host delay without changing the shared default', async () => {
+    const firstUrl = 'https://slow.example.test/first';
+    const secondUrl = 'https://slow.example.test/second';
+    let now = 100_000;
+    const sleeps: number[] = [];
+    const fetchImpl = vi.fn(async (url: string) => response(url, 200));
+    const options = {
+      fetchImpl,
+      urlPolicy: identityPolicy,
+      ignoreRobots: true,
+      retries: 0,
+      hostDelayMs: 2_500,
+      nowImpl: () => now,
+      sleepImpl: async (ms: number) => { sleeps.push(ms); now += ms; },
+    };
+
+    await politeFetch(firstUrl, options);
+    await politeFetch(secondUrl, options);
+
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(sleeps).toEqual([2_500]);
+  });
+
   it('keeps robots fail-open while applying its 429 cooldown before the target request', async () => {
     const url = 'https://jobs.example.test/openings';
     let now = 100_000;

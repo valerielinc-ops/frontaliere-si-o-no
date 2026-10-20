@@ -70,6 +70,21 @@ describe('border-wait ranking article generator', () => {
     }
   });
 
+  it('rejects translated prompt scaffolding before refreshing any body file', () => {
+    const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, todayIso: '2027-01-01' });
+    const contaminated = {
+      id: article.id,
+      content: {
+        ...article.content,
+        en: { ...article.content.en, body1: 'ARTICLE TITLE: Ticino border-crossing ranking' },
+      },
+    };
+    const root = mkdtempSync(path.join(os.tmpdir(), 'bwr-gen-reject-'));
+    expect(() => refreshBodyFiles(contaminated, root, () => {}))
+      .toThrow(/leaked-prompt-scaffolding/i);
+    expect(existsSync(path.join(root, 'services'))).toBe(false);
+  });
+
   it('buildRankingJson matches the shape services/borderWaitRankingService.ts expects', () => {
     const json = buildRankingJson({ ranking, trend, funFacts, todayIso: '2027-01-01', weekStart, weekEnd, movers });
     expect(json.updatedAt).toBe('2027-01-01');

@@ -11,21 +11,28 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { resolveReportedPostingDate } from './job-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { lookup as dnsLookup } from 'node:dns/promises';
 import { gateLookup, MAX_CONCURRENT_LOOKUPS } from './dns-lookup-gate.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, SNAPSHOT_VALIDATED_PARTIAL } from './crawler-template.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
-import { resolveDetailOrListingSwissGeography } from './prospector/location-evidence.mjs';
+import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
+import {
+  resolveDetailOrListingSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 import {
   createSpecUrlPolicy,
   geographyFieldsForDecision,
   loadSpec,
 } from './prospector/spec-crawler.mjs';
 import { DATA_ROOT } from './prospector/config.mjs';
+import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -140,7 +147,10 @@ function createBoundedRuntime(options, runSignal) {
     min: 0,
     max: 10_000,
   });
-  const fetchImpl = options.fetchImpl || globalThis.fetch;
+  // Every direct request carries the public-DNS policy's npm-undici dispatcher
+  // (politeFetch). Node's bundled fetch rejects that dispatcher under undici 8
+  // ("invalid onRequestStart method"), so default to the paired fetch.
+  const fetchImpl = resolveProspectorFetch(options.fetchImpl);
   // `raceWithSignal` below only stops *waiting* on a timed-out lookup, not the
   // underlying `lookupImpl` call itself (node:dns/promises has no cancellation
   // hook) — gate it so abandoned lookups can't pile up unbounded (#7149 item 3).
@@ -279,6 +289,9 @@ function currentSourceText(job, field) {
 
 function reusableExistingListing(row, existing) {
   if (!existing || normalize(currentSourceText(existing, 'title')) !== normalize(row.title)) return null;
+  // An otherwise reusable cached body with unknown/legacy provenance must be
+  // refreshed: the source detail may now expose a verified JobPosting date.
+  if (existing.postingDateSource !== 'reported') return null;
   const description = currentSourceText(existing, 'description');
   if (!isPublishableFachkraftDescription(description)) return null;
   const existingLocation = normalizeSpace(existing.location || existing.addressLocality || '');
@@ -317,7 +330,8 @@ function reusableExistingListing(row, existing) {
     ...preGeography,
     ...geography,
     description,
-    postedDate: existing.postedDate || existing.datePosted || null,
+    // Cached legacy/crawl dates are not evidence of employer publication.
+    postedDate: resolveReportedPostingDate(existing),
     employmentType: existing.employmentType || existing.contract || '',
     ...(existing.postalCode ? { postalCode: existing.postalCode } : {}),
     ...(existing.streetAddress ? { streetAddress: existing.streetAddress } : {}),
@@ -359,7 +373,25 @@ async function fetchFachkraftPage(url, transport, urlPolicy, signal, label) {
     retryBaseMs: transport.retryBaseMs,
     timeoutMs: transport.requestTimeoutMs,
   });
-  if (result.ok) return result;
+  const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
+  if (result.ok && !directChallenge) return result;
+  if (directChallenge) {
+    const rescued = await fetchHtmlViaJinaWithRetry(url, {
+      timeoutMs: transport.requestTimeoutMs,
+      retries: transport.retries,
+      retryBaseMs: transport.retryBaseMs,
+      fetchImpl: transport.fetchImpl,
+      sleepImpl: transport.sleepImpl,
+    });
+    if (rescued != null && !looksLikeAntiBotChallenge(rescued)) {
+      return { ...result, body: rescued, status: 200, proxiedBy: 'jina' };
+    }
+    const error = new Error(`fachkraft ${label} returned an exhausted anti-bot challenge`);
+    error.status = result.status;
+    error.retryable = false;
+    error.antiBotExhausted = true;
+    throw error;
+  }
   const reason = result.policyBlocked
     ? result.error || 'public URL policy rejected the request'
     : result.blockedByRobots ? 'robots.txt denied the request'
@@ -607,7 +639,16 @@ export function validateFachkraftAuthoritativeSnapshot(jobs) {
   if (!accountingIsComplete || (!stableCountIsVerified && !driftIsAccepted)) {
     throw new Error(`fachkraft authoritative snapshot proof missing or incomplete: ${JSON.stringify(audit || null)}`);
   }
-  return true;
+  if (stableCountIsVerified) return true;
+  // Drift accepted: the max-observed snapshot is published (DECISIONS.md
+  // 2026-09-23), but it is not proof that a stored job is gone. While the
+  // declared total moves, the listing order shifts between page requests: the
+  // same card shows up on two pages and another card on none. Measured on
+  // group 23, 28-09 → 04-10: 98-727 repeated URLs per run, 3307-3487 unique
+  // cards against 3786-3842 declared, and 277-538 live jobs retired per run
+  // that came back one or two runs later. Missing jobs therefore
+  // keep the ordinary miss grace instead of the authoritative retirement.
+  return SNAPSHOT_VALIDATED_PARTIAL;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -743,6 +784,7 @@ export async function fetchAllFachkraftJobs(options = {}) {
       droppedMissingGeography++;
       continue;
     }
+    const structuredGeography = sourceBackedSwissGeographyFields(listing, { location, canton });
     const descriptionText = normalizeSpace(stripHtml(listing.description || ''));
     if (!isPublishableFachkraftDescription(descriptionText)) continue;
     const publicUrl = listing.url || CAREER_URL;
@@ -771,10 +813,10 @@ export async function fetchAllFachkraftJobs(options = {}) {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
+      addressLocality: normalizeSpace(structuredGeography?.addressLocality || listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(structuredGeography?.addressRegion || listing.addressRegion || canton),
+      addressCountry: normalizeSpace(structuredGeography?.addressCountry || listing.addressCountry || "CH"),
+      country: normalizeSpace(structuredGeography?.addressCountry || listing.addressCountry || "CH"),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
@@ -784,7 +826,9 @@ export async function fetchAllFachkraftJobs(options = {}) {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      // Source JSON-LD can advertise a future date. Keep publication unknown
+      // until valid; crawledAt remains the independent collection timestamp.
+      ...sourcePostingDateFields(listing.postedDate),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

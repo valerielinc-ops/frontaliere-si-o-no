@@ -17,13 +17,19 @@
  *      no canton facet, so all 26 cantons are covered in one pass), to
  *      discover every Coop (not-subsidiary) job detail URL, paginating
  *      through the full result set (API returns up to `limit` jobs per page).
+ *      If the server-side filter returns a coherent zero, it retries the
+ *      national feed without that filter and applies the same exact division
+ *      allowlist client-side. This keeps an upstream filter-id drift from
+ *      looking like an empty source while still excluding subsidiaries.
  *   2. Sets those SSR detail URLs as explicit adapter detail seeds.
  *   3. Runs the base crawler which fetches each detail page and parses
  *      the JSON-LD JobPosting structured data embedded in it.
  *
  * API endpoints used:
  *   - Jobs:       https://ohws.prospective.ch/public/v1/medium/1000103/jobs?lang=it&offset=0&limit=500&f=70:<COOP_DIVISION_FILTER_IDS>
- *                 (no `f=30:{cantonId}` filter → all CH cantons)
+ *                 (no `f=30:{cantonId}` filter → all CH cantons; an
+ *                 unfiltered national retry is used only when this scoped
+ *                 query returns a coherent zero)
  *   - Attributes: https://ohws.prospective.ch/public/v1/medium/1000103/attributes?lang=it
  *
  * Per-job canton is inferred from the canton label the API returns in
@@ -37,6 +43,7 @@
  * The detail pages are fully SSR with schema.org/JobPosting JSON-LD,
  * so the base crawler's extractJsonLdBlocks() parses them correctly.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -54,12 +61,13 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasCorrectLocaleCoverage, normalizeSpace, mergeLocaleTextMap, fingerprintJob } from './lib/dedicated-crawler-common.mjs';
 import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import {
-  fetchCoopJsonLd,
+  fetchCoopDetailPage,
+  collapseRepublishedCoopVacancies,
+  composeCoopFamilyDescription,
   coopDescHtmlToMarkdown,
   validateCoopDescription,
   titleOverlap,
   applyCoopJsonLdToJob,
-  buildCoopTranslationCacheEntry,
   resolveCoopCantonCode,
 } from './lib/coop-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
@@ -68,6 +76,7 @@ import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { preferLocationEncodedCanton } from './lib/job-location-display.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -82,19 +91,20 @@ const COOP_LIFECYCLE_DOMAINS = ['jobs.coopjobs.ch'];
 const DATA_JOBS = crawlerScratchPathFor(COOP_KEY);
 
 /**
- * Lightweight translation cache that persists Coop locale data across runs,
- * independently of STRICT validation success.
+ * Translation reuse across runs, including the run after a failed one, needs
+ * no Coop-specific cache. A failed run publishes nothing, so the committed
+ * slice `coop-ticino.json` stays the one of the last successful run. Each run
+ * starts without the scratch dataset (DATA_JOBS lives in the runner's tmpdir),
+ * so the shared crawler loads Coop's existing jobs from that slice
+ * (`readExistingJobsFromSlices` in scripts/lib/shared-jobs-crawler.mjs) and
+ * `mergeAndDeduplicate` keeps translations and previousSlugs of unchanged jobs
+ * through contentReuse.
  *
- * Problem: when all 5 previous runs failed at validateCoopLocaleCoverage(),
- * the slice file was never written → no Coop jobs in data/jobs.json → the
- * shared-jobs-crawler contentReuse mechanism has nothing to reuse → all 177
- * jobs are AI-translated from scratch every run, exhausting free model quotas.
- *
- * Fix: save translations before validation. Next run injects them into
- * data/jobs.json so the merge step can preserve them for unchanged jobs.
+ * The former `coop-ticino-locale-cache.json` sidecar was never committed
+ * (git-commit-data.sh --slice-only stages only the slice), and its injection
+ * returned before doing anything on CI because the scratch file did not exist
+ * yet (issue 9142). Do not write any other file next to the slice.
  */
-// Stored in by-crawler/ so it's automatically committed by git-commit-data.sh --slice-only.
-const COOP_TRANSLATIONS_CACHE = path.resolve(ROOT, 'data', 'jobs', 'by-crawler', 'coop-ticino-locale-cache.json');
 
 /**
  * Prospective.ch Career Center API for Coop.
@@ -196,6 +206,17 @@ const COOP_DIVISION_COMPANY_NAMES = new Set([
 ]);
 
 /**
+ * Keep the zero-result recovery scoped to the same exact division contract as
+ * the server-side filter. The fallback must not use a host or substring match:
+ * the medium also contains Fust, Jumbo and other Coop Group subsidiaries.
+ */
+function isCoopApiDivision(job) {
+  const rawCompany = job?.attributes?.['70'];
+  const company = Array.isArray(rawCompany) ? rawCompany[0] : rawCompany;
+  return COOP_DIVISION_COMPANY_NAMES.has(normalize(company || ''));
+}
+
+/**
  * Match a job object as belonging to the Coop crawl.
  *
  * A present `company` field is authoritative (it comes from the scraped
@@ -224,7 +245,7 @@ export function isCoopJob(job) {
  * exhaustive against every Coop division Prospective.ch exposes; a job stamped
  * with this crawler's companyKey (so it was discovered/scraped as Coop) but
  * whose scraped company text isn't in the allowlist silently drops out of
- * stats/postprocessing/translation-cache with no signal. Callers surface the
+ * stats/postprocessing/slice with no signal. Callers surface the
  * result instead of letting an incomplete allowlist fail closed unnoticed.
  */
 export function findUnrecognizedCoopDivisions(allJobs) {
@@ -299,12 +320,6 @@ function cantonLabel(canton = '') {
   return canton || '';
 }
 
-function dateOnly(raw = '') {
-  const dt = new Date(raw || Date.now());
-  if (Number.isNaN(dt.getTime())) return new Date().toISOString().slice(0, 10);
-  return dt.toISOString().slice(0, 10);
-}
-
 function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
   const attrCanton = resolveCoopCantonCode(attr30, '', fallbackCanton);
@@ -318,20 +333,21 @@ function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   // Prefer the job's explicit workplace over the generic listing location and canton.
   const apiCity = String(job?.location || job?.place || job?.city || job?.address?.city || '').trim();
   const location = workplaceCity || apiCity || attr30 || cantonLabel(attrCanton || fallbackCanton);
-  const canton = preferLocationEncodedCanton(location, attrCanton || fallbackCanton)
-    || attrCanton
-    || fallbackCanton;
+  // The source location is more specific than the feed's attr-30 stamp. Keep
+  // that precedence in the parser helper so regional wrappers such as
+  // "Region Muri AG" cannot enter the shared crawler with a stale canton.
+  const canton = resolveCoopCantonCode(attr30, location, fallbackCanton);
   const company = String(job?.attributes?.['70']?.[0] || job?.company || '').trim();
   const contract = String(job?.attributes?.['40']?.[0] || '').trim();
+  const sourceReference = normalizeSpace(String(job?.szas?.sza_reference_code || '').trim());
   return {
     location,
     canton,
     ...(workplaceCity ? { preferWorkplaceLocation: true } : {}),
     ...(company ? { company } : {}),
     ...(contract ? { contract } : {}),
-    ...(job?.date || job?.datePosted || job?.publishedAt || job?.published_at || job?.createdAt
-      ? { postedDate: dateOnly(job?.date || job?.datePosted || job?.publishedAt || job?.published_at || job?.createdAt) }
-      : {}),
+    ...(sourceReference ? { sourceReference } : {}),
+    ...sourcePostingDateFields(job?.datePosted || job?.publishedAt || job?.published_at || job?.date),
   };
 }
 
@@ -370,10 +386,13 @@ function applyCoopLocationCantonPreference(job) {
 /**
  * Fetch Coop job detail URLs from the Prospective.ch JSON API CH-wide.
  *
- * Uses a single UNFILTERED query (no canton facet) paginated over the full
- * result set. This covers all 26 cantons and all 3 position categories
- * (regular offers, apprenticeships, trials) in one pass. Per-job canton is
- * inferred from the API canton label (attribute 30) by buildSeedMetaFromApiJob.
+ * Uses a server-scoped query (and no canton facet) paginated over the full
+ * result set. If the scoped query reports a coherent zero, the same national
+ * feed is retried without the potentially stale division ids and filtered by
+ * the exact attribute-70 allowlist. This covers all 26 cantons and all 3
+ * position categories (regular offers, apprenticeships, trials) in one pass.
+ * Per-job canton is inferred from the API canton label (attribute 30) by
+ * buildSeedMetaFromApiJob.
  *
  * Returns unique detail URLs + metadata indexed by URL.
  */
@@ -390,10 +409,13 @@ export async function fetchCoopJobDetailUrls(options = {}) {
   let apiTotal = null;
   let fetched = 0;
   let droppedNonCh = 0;
+  let droppedNonCoop = 0;
   let droppedMalformedUrl = 0;
   let droppedDuplicateUrl = 0;
   let droppedDuplicateIdentity = 0;
   const sourceIdentities = new Set();
+  let useCompanyFilter = true;
+  let usedUnfilteredFallback = false;
 
   for (let page = 0; page < API_MAX_PAGES; page += 1) {
     const offset = page * API_LIMIT;
@@ -404,48 +426,89 @@ export async function fetchCoopJobDetailUrls(options = {}) {
     });
     // Company filter: Coop's own divisions only (server-side — see
     // COOP_DIVISION_FILTER_IDS above). Comma-joined ids are OR'd by the API.
-    params.append('f', `70:${COOP_DIVISION_FILTER_IDS}`);
+    if (useCompanyFilter) params.append('f', `70:${COOP_DIVISION_FILTER_IDS}`);
     const apiUrl = `${API_BASE}/jobs?${params}`;
-    console.log(`🔍 Fetching Coop CH-wide page ${page + 1} (offset ${offset})…`);
+    console.log(`🔍 Fetching Coop CH-wide page ${page + 1} (${useCompanyFilter ? 'scoped' : 'unfiltered fallback'}, offset ${offset})…`);
 
     let jobs;
     try {
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      // AbortSignal is advisory for injected/proxy fetch implementations. If
+      // one ignores it, aborting alone leaves this await pending; once the
+      // timer is the last active handle Node exits with code 0 and the summary
+      // guard records an unobserved early exit (null counters). Keep the timer
+      // as a real rejection as well as an abort signal.
+      let rejectTimeout;
+      const timeoutError = new Error(`Coop API request timed out at offset ${offset} after ${timeoutMs}ms.`);
+      timeoutError.name = 'TimeoutError';
+      const timeoutPromise = new Promise((_, reject) => {
+        rejectTimeout = reject;
+      });
+      const timer = setTimeout(() => {
+        controller.abort();
+        rejectTimeout(timeoutError);
+      }, timeoutMs);
 
-      let res;
-      let data;
       try {
-        res = await fetchImpl(apiUrl, {
-          signal: controller.signal,
-          headers: {
-            Accept: 'application/json',
-            'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-          },
-        });
-        if (res.ok) {
-          data = await res.json();
+        const data = await Promise.race([
+          (async () => {
+            const res = await fetchImpl(apiUrl, {
+              signal: controller.signal,
+              headers: {
+                Accept: 'application/json',
+                'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+              },
+            });
+            if (!res?.ok) {
+              const error = new Error(`Coop discovery failed at offset ${offset}: API returned HTTP ${res?.status ?? 'unknown'}.`);
+              if (Number.isFinite(res?.status)) error.status = res.status;
+              throw error;
+            }
+            return res.json();
+          })(),
+          timeoutPromise,
+        ]);
+        jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: `offset:${offset}` });
+        if (typeof data?.total === 'number') {
+          apiTotals.add(data.total);
+          if (apiTotal === null) apiTotal = data.total;
         }
       } finally {
         clearTimeout(timer);
       }
-
-      if (!res.ok) {
-        console.warn(`⚠️ API returned ${res.status} at offset ${offset} — stopping pagination.`);
-        break;
-      }
-
-      jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: `offset:${offset}` });
-      if (typeof data?.total === 'number') {
-        apiTotals.add(data.total);
-        if (apiTotal === null) apiTotal = data.total;
-      }
     } catch (err) {
       console.warn(`⚠️ API fetch failed at offset ${offset}: ${err.message}`);
-      break;
+      // Do not turn an unreadable/unfinished page into an empty discovery.
+      // The caller's crawler-level handler preserves the last valid slice and
+      // records a connection-level abort for transport errors.
+      throw err;
     }
 
     if (jobs.length === 0) {
+      // A zero from the filtered endpoint is ambiguous: the division ids may
+      // have drifted even though the national source still has live jobs.
+      // Retry from offset zero without the server filter, then apply the
+      // exact attribute-70 allowlist below. Do not silently accept a filtered
+      // zero as an authoritative empty source.
+      if (page === 0 && useCompanyFilter && apiTotal === 0) {
+        console.warn('⚠️ Coop division filter returned a coherent zero; retrying the national feed with exact client-side division filtering.');
+        useCompanyFilter = false;
+        usedUnfilteredFallback = true;
+        allUrls.clear();
+        allFingerprints.clear();
+        for (const key of Object.keys(seedMetaByUrl)) delete seedMetaByUrl[key];
+        apiTotals.clear();
+        apiTotal = null;
+        fetched = 0;
+        droppedNonCh = 0;
+        droppedNonCoop = 0;
+        droppedMalformedUrl = 0;
+        droppedDuplicateUrl = 0;
+        droppedDuplicateIdentity = 0;
+        sourceIdentities.clear();
+        page = -1;
+        continue;
+      }
       if (apiTotal !== null && fetched < apiTotal) {
         throw new Error(`Coop discovery incomplete: received ${fetched}/${apiTotal} unique source records before an empty page.`);
       }
@@ -470,6 +533,11 @@ export async function fetchCoopJobDetailUrls(options = {}) {
       sourceIdentities.add(fingerprint);
       fetched = sourceIdentities.size;
       pageNew += 1;
+
+      if (!useCompanyFilter && !isCoopApiDivision(job)) {
+        droppedNonCoop += 1;
+        continue;
+      }
 
       let parsedUrl;
       try {
@@ -535,7 +603,7 @@ export async function fetchCoopJobDetailUrls(options = {}) {
 
   // Summary log
   console.log(`\n📋 Coop API Discovery Summary (CH-wide):`);
-  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · dropped non-CH: ${droppedNonCh} · malformed/off-host: ${droppedMalformedUrl} · duplicate URL: ${droppedDuplicateUrl} · duplicate identity: ${droppedDuplicateIdentity} · unique detail URLs: ${allUrls.size}`);
+  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · dropped non-Coop: ${droppedNonCoop} · dropped non-CH: ${droppedNonCh} · malformed/off-host: ${droppedMalformedUrl} · duplicate URL: ${droppedDuplicateUrl} · duplicate identity: ${droppedDuplicateIdentity} · unique detail URLs: ${allUrls.size}`);
   const sortedCantons = Object.entries(cantonCounts).sort((a, b) => b[1] - a[1]);
   console.log(`  Cantons seen (${sortedCantons.length}): ${sortedCantons.map(([c, n]) => `${c}=${n}`).join(', ')}`);
   if (DISCOVERED_COOP_HOSTS.size > 0) {
@@ -547,11 +615,13 @@ export async function fetchCoopJobDetailUrls(options = {}) {
     seedMetaByUrl,
     apiTotal,
     fetched,
+    droppedNonCoop,
     droppedNonCh,
     droppedMalformedUrl,
     droppedDuplicateUrl,
     droppedDuplicateIdentity,
     apiTotals: [...apiTotals],
+    usedUnfilteredFallback,
   };
 }
 
@@ -602,6 +672,7 @@ export function assertCoopAdapterParity(adapter, seedDetailUrls, seedMetaByUrl =
 export function assertCompleteCoopDiscovery(discovery) {
   const apiTotal = Number(discovery?.apiTotal);
   const fetched = Number(discovery?.fetched);
+  const droppedNonCoop = Number(discovery?.droppedNonCoop || 0);
   const droppedNonCh = Number(discovery?.droppedNonCh);
   const droppedMalformedUrl = Number(discovery?.droppedMalformedUrl || 0);
   const droppedDuplicateUrl = Number(discovery?.droppedDuplicateUrl || 0);
@@ -625,8 +696,8 @@ export function assertCompleteCoopDiscovery(discovery) {
       return false;
     }
   });
-  const droppedCounts = [droppedNonCh, droppedMalformedUrl, droppedDuplicateUrl, droppedDuplicateIdentity];
-  const accountedUnique = urls.length + droppedNonCh + droppedMalformedUrl;
+  const droppedCounts = [droppedNonCoop, droppedNonCh, droppedMalformedUrl, droppedDuplicateUrl, droppedDuplicateIdentity];
+  const accountedUnique = urls.length + droppedNonCoop + droppedNonCh + droppedMalformedUrl;
   if (droppedCounts.some((count) => !Number.isInteger(count) || count < 0)
       || accountedUnique !== fetched
       || apiTotals.length !== 1
@@ -636,7 +707,7 @@ export function assertCompleteCoopDiscovery(discovery) {
       || feedFingerprints.size !== urls.length
       || !trustedHostsOnly) {
     throw new Error(
-      `Coop discovery invariant failed: totals=${apiTotals.join(',')}, fetched=${fetched}, accountedUnique=${accountedUnique}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
+      `Coop discovery invariant failed: totals=${apiTotals.join(',')}, fetched=${fetched}, accountedUnique=${accountedUnique}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-Coop=${droppedNonCoop}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
     );
   }
   return true;
@@ -690,73 +761,6 @@ export function ensureAdapterSeedUrls(
 // Base crawler invocation
 // ──────────────────────────────────────────────────────────────
 
-/**
- * Before the crawler runs, inject Coop jobs from the translation cache into
- * data/jobs.json. This allows shared-jobs-crawler's contentReuse mechanism to
- * preserve existing translations for unchanged jobs, avoiding a full 177/177
- * AI backfill on every run after a failed previous run.
- */
-function injectCachedCoopTranslations() {
-  if (!fs.existsSync(COOP_TRANSLATIONS_CACHE)) return;
-  if (!fs.existsSync(DATA_JOBS)) return;
-
-  let cache;
-  try { cache = JSON.parse(fs.readFileSync(COOP_TRANSLATIONS_CACHE, 'utf-8')); } catch { return; }
-  if (!Array.isArray(cache) || cache.length === 0) return;
-
-  let allJobs;
-  try { allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); } catch { return; }
-  if (!Array.isArray(allJobs)) return;
-
-  const existingCoopCount = allJobs.filter(isCoopJob).length;
-  if (existingCoopCount >= cache.length * 0.5) {
-    // Dataset already has most Coop jobs — contentReuse will handle it naturally.
-    return;
-  }
-
-  const existingUrls = new Set(allJobs.map((j) => j.url).filter(Boolean));
-  const toInject = cache.filter((c) => c.url && !existingUrls.has(c.url));
-  if (toInject.length === 0) return;
-
-  allJobs.push(...toInject);
-  writeJsonAtomic(DATA_JOBS, allJobs);
-  console.log(`♻️  Translation cache: injected ${toInject.length}/${cache.length} Coop jobs into jobs.json for localization reuse`);
-}
-
-/**
- * After the crawler runs (but BEFORE STRICT validation), persist Coop
- * translations to a lightweight cache file. Even if validation fails and the
- * slice is never written, the next run can restore these translations and
- * avoid a full 177/177 AI backfill.
- */
-function saveCoopTranslationsCache() {
-  if (!fs.existsSync(DATA_JOBS)) return;
-  let allJobs;
-  try { allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); } catch { return; }
-  const coopJobs = Array.isArray(allJobs) ? allJobs.filter(isCoopJob) : [];
-  if (coopJobs.length === 0) return;
-
-  // buildCoopTranslationCacheEntry preserves previousSlugs/previousSlugsByLocale
-  // (issue #2962) so re-injected jobs keep their slug-redirect history and the
-  // build plugin can still emit bridge pages for old, sitemap-referenced URLs.
-  // cachedAt is stamped here (kept out of the pure helper) so the helper stays
-  // deterministic + unit-testable.
-  const cachedAt = new Date().toISOString();
-  const cache = coopJobs.map((job) => ({ ...buildCoopTranslationCacheEntry(job), cachedAt }));
-
-  try {
-    // Directory is data/jobs/by-crawler/ which always exists after a crawler run.
-    writeJsonAtomic(COOP_TRANSLATIONS_CACHE, cache);
-    const LOCALES_CHECK = ['it', 'en', 'de', 'fr'];
-    const fullyTranslated = cache.filter((c) =>
-      LOCALES_CHECK.every((l) => (c.titleByLocale[l] || '').length >= 3 && (c.descriptionByLocale[l] || '').length >= 120)
-    ).length;
-    console.log(`💾 Translation cache saved: ${cache.length} Coop jobs (${fullyTranslated} fully translated, ${cache.length - fullyTranslated} partial)`);
-  } catch (err) {
-    console.warn(`⚠️  Failed to save Coop translation cache: ${err?.message || err}`);
-  }
-}
-
 function runBaseCrawler() {
   assertCoopSingleCompanyKeyScope();
   return runDedicatedBaseCrawler({
@@ -783,6 +787,46 @@ function runBaseCrawler() {
 // ──────────────────────────────────────────────────────────────
 
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
+
+/**
+ * The source body of a stored Coop description, without the scaffold this
+ * runner writes around it (`## <title>`, `**<company>** — <place>, Svizzera`,
+ * and the `---` / `**Tipo:**` / `**Sede:**` footer), so the source-body word
+ * floor measures the vacancy text and not our own labels.
+ */
+export function coopStoredBody(description = '') {
+  const lines = String(description || '').split('\n');
+  const footer = lines.lastIndexOf('---');
+  const body = footer >= 0 ? lines.slice(0, footer) : lines;
+  if (/^##\s/.test(body[0] || '')) body.shift();
+  while (body.length > 0 && !body[0].trim()) body.shift();
+  if (/^\*\*[^*]+\*\* — .*Svizzera$/.test(body[0] || '')) body.shift();
+  return body.join('\n').trim();
+}
+
+/**
+ * The source body a Coop-family detail page publishes: the JSON-LD
+ * description plus the page's own facts and sections, exactly as
+ * `repairJobFromJsonLd` composes it (source text only, never our scaffold).
+ */
+export function coopDetailSourceBody(jsonLd, page = null) {
+  const ldDesc = String(jsonLd?.description || '').trim();
+  if (!ldDesc) return '';
+  return composeCoopFamilyDescription(coopDescHtmlToMarkdown(ldDesc), page);
+}
+
+/**
+ * Quarantine decision for one Coop job (issue 5253 review): the 50-word
+ * source floor is applied to the COMPOSED body the job would publish, not to
+ * the bare JSON-LD — a 49-word JSON-LD whose page facts and sections carry the
+ * vacancy past the floor is a publishable posting. Without a publishable
+ * detail body, the stored body (scaffold aside) keeps the job; otherwise it
+ * is quarantined.
+ */
+export function coopDetailNeedsQuarantine(job, jsonLd, page = null) {
+  if (jsonLd && meetsSourceBodyFloor(coopDetailSourceBody(jsonLd, page))) return false;
+  return !meetsSourceBodyFloor(coopStoredBody(job?.description));
+}
 
 async function postProcessCoopJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
@@ -819,21 +863,22 @@ async function postProcessCoopJobs() {
     12,
     Math.max(1, Number(process.env.JOBS_COOP_DETAIL_CONCURRENCY) || 8),
   );
-  async function fetchCoopJsonLdResilient(url) {
+  async function fetchCoopDetailResilient(url) {
     for (let attempt = 0; attempt < 4; attempt += 1) {
-      const ld = await fetchCoopJsonLd(url, timeoutMs);
-      if (ld) return ld; // got JSON-LD (description handled downstream)
+      const detail = await fetchCoopDetailPage(url, timeoutMs);
+      if (detail) return detail; // got JSON-LD (+ page facts; description handled downstream)
       await sleep(400 * (attempt + 1)); // backoff only when the fetch itself failed (e.g. 503 under load)
     }
     return null;
   }
   const quarantineUrls = new Set();
+  const sourceBackedUrls = new Set();
 
   // Pure per-job repair: applies authoritative JSON-LD (location/company/title/
   // description) to a single job object in place. Safe to run from concurrent
   // workers because each call mutates only its own `job` (Node is single-threaded;
   // there is no shared mutable state between jobs here).
-  function repairJobFromJsonLd(job, jsonLd) {
+  function repairJobFromJsonLd(job, jsonLd, page = null) {
     let changed = false;
     // Snapshot BEFORE any mutation below: gates the needsRetranslation flag
     // further down (issue #3442). Coop's detail page is re-fetched every
@@ -888,7 +933,10 @@ async function postProcessCoopJobs() {
     const descLen = (job.description || '').length;
     const ldDesc = (jsonLd.description || '').trim();
     if (ldDesc) {
-      const markdown = coopDescHtmlToMarkdown(ldDesc);
+      // The JSON-LD body plus the vacancy's own facts the page shows around it
+      // (store address, Pensum, Stellenantritt): without them every store of a
+      // city published the same text for the same role.
+      const markdown = composeCoopFamilyDescription(coopDescHtmlToMarkdown(ldDesc), page);
       const validation = validateCoopDescription(markdown, ldDesc.length);
 
       // Replace if: current is shorter than JSON-LD markdown, current is too
@@ -900,16 +948,20 @@ async function postProcessCoopJobs() {
       // needsRetranslation exactly like the bug this guard exists to fix).
       // The incoming markdown still appearing verbatim in the prior stored
       // text means no real drift; anything else means the source changed.
+      // Both floors are the shared source-body word floor: the stored text
+      // (its generated title/company/"Tipo"/"Sede" scaffold aside) and the
+      // fresh body are judged in words, never in characters.
+      const bodyPublishable = meetsSourceBodyFloor(markdown);
       const sourceDrifted =
-        markdown.length > 200 && !normalizeSpace(priorDescriptionText).includes(normalizeSpace(markdown));
-      if (markdown.length > descLen || descLen < 350 || sourceDrifted) {
-        if (markdown.length > 200) {
+        bodyPublishable && !normalizeSpace(priorDescriptionText).includes(normalizeSpace(markdown));
+      if (markdown.length > descLen || !meetsSourceBodyFloor(coopStoredBody(priorDescriptionText)) || sourceDrifted) {
+        if (bodyPublishable) {
           // Build structured description with metadata
           const lines = [`## ${job.title || ldTitle}`, ''];
           // Add company from OG or hiringOrganization
           const company = jsonLd.hiringOrganization?.name || 'Coop';
-          const locality = jsonLd.jobLocation?.address?.addressLocality || job.location || '';
-          const region = jsonLd.jobLocation?.address?.addressRegion || '';
+          const locality = job.location || jsonLd.jobLocation?.address?.addressLocality || '';
+          const region = job.addressRegion || job.canton || jsonLd.jobLocation?.address?.addressRegion || '';
           if (locality) {
             lines.push(`**${company}** — ${locality}${region ? `, ${region}` : ''}, Svizzera`, '');
           }
@@ -985,15 +1037,14 @@ async function postProcessCoopJobs() {
 
   // Fetch + repair one job. Quarantines jobs that resolve no real description.
   async function processOne(job) {
-    const descLen = (job.description || '').length;
-    const jsonLd = await fetchCoopJsonLdResilient(job.url);
-    if (!jsonLd || String(jsonLd.description || '').trim().length < 80) {
-      // No real source description available → quarantine (don't publish a
-      // boilerplate-padded thin page).
-      if (descLen < 250) quarantineUrls.add(job.url);
-      if (!jsonLd) return;
+    const detail = await fetchCoopDetailResilient(job.url);
+    const jsonLd = detail?.jsonLd || null;
+    if (coopDetailNeedsQuarantine(job, jsonLd, detail?.page || null)) quarantineUrls.add(job.url);
+    if (!jsonLd) return;
+    if (meetsSourceBodyFloor(coopDetailSourceBody(jsonLd, detail?.page || null))) {
+      sourceBackedUrls.add(job.url);
     }
-    if (repairJobFromJsonLd(job, jsonLd)) repaired += 1;
+    if (repairJobFromJsonLd(job, jsonLd, detail.page)) repaired += 1;
   }
 
   // Bounded-concurrency pool over the Coop jobs. A shared index cursor feeds
@@ -1029,12 +1080,29 @@ async function postProcessCoopJobs() {
     if (applyCoopLocationCantonPreference(job)) reconciled += 1;
   }
 
-  if (repaired > 0 || dropped > 0 || reconciled > 0) {
+  // The same source-backed ad published under several UUIDs is one vacancy
+  // for the reader: keep the earliest-seen record. The explicit source URL
+  // set permits the no-address case only after a detail page cleared the
+  // source-body gate; listing fallbacks remain conservative.
+  const { collapsed } = collapseRepublishedCoopVacancies(allJobs.filter(isCoopJob), {
+    allowIdenticalSourcePostingsWithoutAddress: true,
+    sourceBackedUrls,
+  });
+  if (collapsed.length > 0) {
+    const collapsedUrls = new Set(collapsed.map(({ url }) => url));
+    const kept = allJobs.filter((j) => !(isCoopJob(j) && collapsedUrls.has(j.url)));
+    allJobs.length = 0;
+    allJobs.push(...kept);
+    for (const { url, keptUrl } of collapsed) console.log(`  ↪️ Republished Coop vacancy ${url} collapsed into ${keptUrl}`);
+  }
+
+  if (repaired > 0 || dropped > 0 || reconciled > 0 || collapsed.length > 0) {
     writeJsonAtomic(DATA_JOBS, allJobs);
     writeJsonAtomic(PUBLIC_JOBS, allJobs);
     console.log(`  ✅ Repaired ${repaired}/${coopJobs.length} Coop jobs`
       + (dropped ? ` · quarantined ${dropped} without a real source description` : '')
-      + (reconciled ? ` · aligned ${reconciled} location/canton stamps` : ''));
+      + (reconciled ? ` · aligned ${reconciled} location/canton stamps` : '')
+      + (collapsed.length ? ` · collapsed ${collapsed.length} republished duplicate(s)` : ''));
   } else {
     console.log(`  ✅ All ${coopJobs.length} Coop jobs passed validation`);
   }
@@ -1056,7 +1124,7 @@ function logCoopJobStats(beforeSnapshot = new Map()) {
   if (unrecognizedDivisions.length > 0) {
     console.warn(
       `⚠️ ${unrecognizedDivisions.length} Coop-scoped job(s) have a company name not in COOP_DIVISION_COMPANY_NAMES ` +
-      `(excluded from Coop stats/postprocessing/translation-cache) — verify the allowlist: ${unrecognizedDivisions.join(', ')}`
+      `(excluded from Coop stats/postprocessing/slice) — verify the allowlist: ${unrecognizedDivisions.join(', ')}`
     );
   }
 
@@ -1103,29 +1171,28 @@ function validateCoopLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime(); // reset wall-clock baseline at actual crawler start
-  registerCrawlerSummaryGuard(COOP_KEY, 'Coop');
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(COOP_KEY, 'Coop', summaryCounts);
   console.log('   Platform: Prospective.ch JobBooster (Career Center 1000103)');
-  console.log('   Scope: CH-wide (all 26 cantons, unfiltered national query)');
+  console.log('   Scope: CH-wide (all 26 cantons, strict Coop division scope)');
   console.log('   Categories: Offerte di lavoro + Posti di apprendistato + Tirocini di prova');
   console.log('');
 
   // Step 1: Fetch job detail URLs from the Prospective.ch JSON API
   const discovery = await fetchCoopJobDetailUrls();
+  summaryCounts.discovered = discovery.fetched;
+  summaryCounts.parsed = discovery.urls.length;
+  summaryCounts.lastFetchOutcome = discovery.urls.length > 0 ? 'ok' : null;
   assertCompleteCoopDiscovery(discovery);
   const detailUrls = discovery.urls;
   if (detailUrls.length === 0) {
-    console.log('ℹ️ Nessun URL di dettaglio Coop trovato dall\'API. Uscita OK.');
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.warn('⚠️ La sorgente Coop è stata letta ma non ha prodotto URL di dettaglio; preservo la slice pubblicata e lascio una diagnosi esplicita.');
     return;
   }
 
   // Step 2: Update the adapter with the discovered URLs as explicit detail seeds
   ensureAdapterSeedUrls(detailUrls, discovery.seedMetaByUrl);
-
-  // Step 2b: Inject cached translations into jobs.json BEFORE the crawler runs.
-  // When previous runs failed at validation, no slice was written → no Coop jobs
-  // in jobs.json → shared-jobs-crawler re-translates all 177 from scratch.
-  // Injecting the cache lets the merge step reuse existing translations via contentReuse.
-  injectCachedCoopTranslations();
 
   // Snapshot company jobs before crawl for diff summary
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COOP_KEY, DATA_JOBS).filter(isCoopJob))
@@ -1137,17 +1204,12 @@ async function main() {
   // Step 3b: Post-process — validate titles and descriptions against JSON-LD
   await postProcessCoopJobs();
 
-  // Step 3c: Persist translations to cache BEFORE STRICT validation.
-  // Even if validateCoopLocaleCoverage() exits with code 1 below, the cache
-  // preserves partial translations. Next run injects them back, reducing the
-  // AI backfill from 177/177 → ~5-15/177 (only new or changed jobs).
-  saveCoopTranslationsCache();
-
   // Step 4: Log stats and validate
   const stats = logCoopJobStats(_beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
-    console.log('ℹ️ Nessun job Coop trovato in questa esecuzione. Nessun errore — uscita OK.');
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.warn('⚠️ La discovery Coop era non vuota, ma il crawl non ha prodotto job pubblicabili; preservo la slice pubblicata.');
     return;
   }
 
@@ -1189,6 +1251,10 @@ async function main() {
       label: 'Coop',
       generatedAt: new Date().toISOString(),
       total: stats.coopJobs.length,
+      discovered: summaryCounts.discovered,
+      parsed: summaryCounts.parsed,
+      written: stats.coopJobs.length,
+      lastFetchOutcome: 'ok',
       newCount: crawlDiff.newJobs.length,
       updatedCount: crawlDiff.updatedJobs.length,
       removedCount: crawlDiff.removedJobs.length,

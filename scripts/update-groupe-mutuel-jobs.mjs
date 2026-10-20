@@ -20,10 +20,12 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateCandidatesFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
-import { fileURLToPath } from 'node:url';
+import { realpathSync } from 'node:fs';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -35,7 +37,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -46,7 +48,6 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergePreserveLocaleData,
-  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { inferAnyCanton, rescueSwissCityFromText } from './lib/target-swiss-locations.mjs';
@@ -55,6 +56,16 @@ import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { groupeMutuelSourceContent, GROUPE_MUTUEL_FABRICATED_DESCRIPTION_RE } from './lib/groupe-mutuel-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import {
+  buildThinSourceHousekeepingProof,
+  collectThinSourceJobsForQuarantine,
+  keepStoredSourceBodiesByKey,
+  sourceBodyForJob,
+} from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -77,6 +88,11 @@ const CSOD_CAREER_URL = 'https://groupemutuel.csod.com/ux/ats/careersite/4/home?
 const CSOD_CAREER_SITE_ID = '4';
 const CSOD_CULTURE_ID = 13; // fr-FR
 const LOCALES = ['it', 'en', 'de', 'fr'];
+
+function jobMatchKey(job) {
+  return extractStableJobId(job?.url)
+    || String(job?.url || '').trim().replace(/\/+$/, '');
+}
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -439,15 +455,6 @@ function detectEmploymentType(rawType = '') {
   return 'FULL_TIME';
 }
 
-function buildDescription(title, descriptionText, location) {
-  const base = descriptionText || `${title} position at Groupe Mutuel in ${location}, Switzerland.`;
-  return `${base}\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.`.trim();
-}
-
-function buildDescriptionFr(title, location) {
-  return `Poste ouvert chez Groupe Mutuel à ${location}.\nRôle : ${title}.\n\nGroupe Mutuel est l'un des principaux groupes d'assurance en Suisse, dont le siège est à Martigny (Valais). L'entreprise propose une large gamme de produits d'assurance et de prévoyance pour les particuliers et les entreprises dans toute la Suisse.`.trim();
-}
-
 function buildPublicUrl(requisitionId) {
   return `https://groupemutuel.csod.com/ux/ats/careersite/${CSOD_CAREER_SITE_ID}/home/requisition/${requisitionId}?c=groupemutuel&lang=fr-FR`;
 }
@@ -458,7 +465,12 @@ function buildPublicUrl(requisitionId) {
  * Parse a raw CSOD job listing into a normalized job object.
  * CSOD response fields vary by instance — handle multiple field names.
  */
-function parseCsodJob(rawJob) {
+export function parseCsodJob(rawJob, observedAt) {
+  const observedDate = observedAt instanceof Date ? observedAt : new Date(observedAt);
+  if (!Number.isFinite(observedDate.getTime())) {
+    throw new TypeError('parseCsodJob: observedAt must be a valid crawl timestamp');
+  }
+
   // New CSOD API uses displayJobTitle; old used title/jobTitle
   const title = normalizeSpace(
     rawJob.displayJobTitle || rawJob.title || rawJob.jobTitle || rawJob.requisitionTitle || rawJob.name || ''
@@ -497,22 +509,20 @@ function parseCsodJob(rawJob) {
     ? buildPublicUrl(requisitionId)
     : rawJob.url || rawJob.applyUrl || rawJob.jobDetailUrl || '';
 
-  const descEn = buildDescription(title, descriptionText, city);
-  const descFr = buildDescriptionFr(title, city);
+  const content = groupeMutuelSourceContent({ title, descriptionText });
+  if (!content) return null;
 
   const slug = slugify(title, 'groupe-mutuel');
   const employmentType = detectEmploymentType(rawJob.employmentType || rawJob.timeType || rawJob.type || '');
 
-  // New API: postingEffectiveDate in DD/MM/YYYY format
-  let datePosted = rawJob.datePosted || rawJob.postingDate || rawJob.createdDate || rawJob.startDate || '';
-  if (!datePosted && rawJob.postingEffectiveDate && rawJob.postingEffectiveDate !== '-') {
-    // Convert DD/MM/YYYY → YYYY-MM-DD
-    const parts = rawJob.postingEffectiveDate.split('/');
-    if (parts.length === 3) {
-      datePosted = `${parts[2]}-${parts[1]}-${parts[0]}`;
-    }
-  }
-  if (!datePosted) datePosted = new Date().toISOString().split('T')[0];
+  // Every source candidate is validated independently; malformed primary values
+  // must not hide a valid publication date from the alternate API format.
+  const effective = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(String(rawJob.postingEffectiveDate || ''));
+  const postingDates = sourcePostingDateCandidatesFields([
+    rawJob.datePosted,
+    rawJob.postingDate,
+    effective ? `${effective[3]}-${effective[2]}-${effective[1]}` : '',
+  ]);
 
   const job = {
     url: publicUrl,
@@ -523,23 +533,19 @@ function parseCsodJob(rawJob) {
     location: city,
     canton,
     country: 'CH',
-    description: descEn,
-    descriptionByLocale: {
-      en: descEn,
-      fr: descFr,
-    },
-    titleByLocale: {
-      fr: title,
-    },
+    description: content.description,
+    descriptionByLocale: content.descriptionByLocale,
+    titleByLocale: content.titleByLocale,
     slug,
     slugByLocale: {
       fr: slug,
       en: slugify(title, 'groupe-mutuel'),
     },
     category: detectCategory(title),
-    datePosted,
+    crawledAt: observedDate.toISOString(),
+    ...postingDates,
     source: 'groupe-mutuel-csod-crawler',
-    sourceLang: detectLang(title, 'fr'),
+    sourceLang: content.sourceLang,
     employmentType,
     experienceLevel: detectExperienceLevel(title),
     sector: 'Assicurazioni / Sanità',
@@ -589,9 +595,10 @@ async function fetchGroupeMutuelJobs() {
   console.log(`\n  📋 Raw job listings from CSOD: ${rawJobs.length}`);
 
   // Step 3: Parse each job
+  const observedAt = new Date();
   const jobs = [];
   for (const rawJob of rawJobs) {
-    const parsed = parseCsodJob(rawJob);
+    const parsed = parseCsodJob(rawJob, observedAt);
     if (parsed) {
       jobs.push(parsed);
     } else {
@@ -619,7 +626,15 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonGmJobs = allJobs.filter((j) => !isGroupeMutuelJob(j));
-  const existingGmJobs = allJobs.filter(isGroupeMutuelJob);
+  // The merge keeps stored locale slots: remove the company paragraph and
+  // the French stub the crawler used to write (and the translations made
+  // from them) from the stored jobs first, so only the advertisement is
+  // retranslated (issue 5253).
+  const existingGmJobs = dropFabricatedDescriptions(
+    allJobs.filter(isGroupeMutuelJob),
+    GROUPE_MUTUEL_FABRICATED_DESCRIPTION_RE,
+    'Groupe Mutuel',
+  );
 
   // Stats only — computed on the same stable key mergePreserveLocaleData
   // matches on (extractStableJobId(url)), NOT the raw URL. Cornerstone's
@@ -639,9 +654,18 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
   // validation are handled independently by
   // postProcessGroupeMutuelJobs() right after this function runs, so no
   // constant-field overrides need to be reapplied here.
-  const mergedGmJobs = mergePreserveLocaleData(existingGmJobs, discoveredJobs);
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(discoveredJobs, existingGmJobs, jobMatchKey);
+  const mergedGmJobs = mergePreserveLocaleData(existingGmJobs, sourceBodyJobs);
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(
+    discoveredJobs,
+    mergedGmJobs,
+    jobMatchKey,
+  );
+  const cleanGmJobs = mergedGmJobs
+    .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    .sort((a, b) => String(b.datePosted || b.postedDate || '').localeCompare(String(a.datePosted || a.postedDate || '')));
 
-  const final = [...nonGmJobs, ...mergedGmJobs];
+  const final = [...nonGmJobs, ...cleanGmJobs];
 
   writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
@@ -652,8 +676,38 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
   console.log(`  🔄 Updated: ${updated}`);
   console.log(`  🗑️  Removed (stale): ${removed}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
+  if (thinSourceJobs.length > 0) {
+    console.warn(`  ⚠️ Groupe Mutuel: quarantining ${thinSourceJobs.length} job(s) without a source body of at least 50 words.`);
+  }
 
-  return { added, updated, removed, total: final.length };
+  return {
+    added,
+    updated,
+    removed,
+    total: final.length,
+    sourceBodyJobs,
+    thinSourceJobs,
+    targetExisting: existingGmJobs,
+    noPublishableJobs: sourceBodyJobs.length === 0,
+  };
+}
+
+async function rewriteStoredGroupeMutuelJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => dropFabricatedDescriptions(
+      jobs,
+      GROUPE_MUTUEL_FABRICATED_DESCRIPTION_RE,
+      'Groupe Mutuel',
+    ),
+    storedJobs,
+    companyKey: GROUPE_MUTUEL_KEY,
+    companyLabel: GROUPE_MUTUEL_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(GROUPE_MUTUEL_KEY, jobs, {
+      isTargetJob: isGroupeMutuelJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
 }
 
 /* ── Adapter management ────────────────────────────────────── */
@@ -796,6 +850,9 @@ async function main() {
     console.log('\n⚠️ No Groupe Mutuel jobs discovered.');
     console.log('   The CSOD API may be unreachable or have no active openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    await rewriteStoredGroupeMutuelJobsWithoutThinSource(
+      readExistingCrawlerJobs(GROUPE_MUTUEL_KEY, DATA_JOBS).filter(isGroupeMutuelJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
@@ -805,7 +862,14 @@ async function main() {
   updateAdapterConfig();
 
   // Phase 3: Merge into data/jobs.json
-  await mergeGroupeMutuelJobs(discoveredJobs);
+  const mergeStats = await mergeGroupeMutuelJobs(discoveredJobs);
+  if (mergeStats.noPublishableJobs) {
+    console.warn(
+      `⚠️ ${GROUPE_MUTUEL_COMPANY_NAME}: all ${discoveredJobs.length} source body/bodies are below the 50-word source-body floor; quarantining thin-source rows.`,
+    );
+    await rewriteStoredGroupeMutuelJobsWithoutThinSource(mergeStats.targetExisting);
+    return;
+  }
 
   // Phase 4: Run base crawler for AI localization (IT/DE translations)
   console.log('\n🌐 Running base crawler for AI localization of Groupe Mutuel jobs...');
@@ -816,6 +880,7 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
+  crawlDiff = stats.crawlDiff || crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ No Groupe Mutuel jobs found after crawl. No error — exiting OK.');
     return;
@@ -829,8 +894,20 @@ async function main() {
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isGroupeMutuelJob) : [];
-  writeJobsCrawlerSlice(GROUPE_MUTUEL_KEY, _sliceJobs);
+  const _sliceJobs = Array.isArray(_sliceRaw)
+    ? _sliceRaw.filter(isGroupeMutuelJob).filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    : [];
+  const removedJobs = crawlDiff.removedJobs || [];
+  const housekeepingProof = buildThinSourceHousekeepingProof(
+    removedJobs,
+    mergeStats.thinSourceJobs,
+    jobMatchKey,
+  );
+  await writeJobsCrawlerSliceVerified(GROUPE_MUTUEL_KEY, _sliceJobs, {
+    isTargetJob: isGroupeMutuelJob,
+    observedJobs: discoveredJobs,
+    ...(housekeepingProof ? { housekeepingProof } : {}),
+  });
   writeSummaryCrawlerSlice({
     key: GROUPE_MUTUEL_KEY,
     label: 'Groupe Mutuel',
@@ -851,4 +928,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Groupe Mutuel'));
+const isDirectRun = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
+if (isDirectRun) {
+  main().catch((err) => exitCrawlerOnError(err, 'Groupe Mutuel'));
+}

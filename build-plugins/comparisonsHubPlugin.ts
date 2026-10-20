@@ -38,7 +38,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedSentence } from './shared/humanDate';
+import { formatUpdatedDate } from './shared/humanDate';
 import {
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
@@ -124,10 +124,10 @@ const RELATED_LINKS: Record<ComparisonsLocale, Array<{ href: string; label: stri
 
 // ── Number formatting (locale-aware, deterministic) ──────────────
 
-function fmtInt(n: number, locale: ComparisonsLocale): string {
+function fmtInt(n: number | null, locale: ComparisonsLocale): string {
   // Use the Swiss-German thousands separator (apostrophe) for CHF and
   // European dot/space for EUR — one common convention across locales.
-  if (!Number.isFinite(n)) return '–';
+  if (n === null || !Number.isFinite(n)) return '–';
   const abs = Math.abs(Math.round(n));
   const s = abs.toString();
   // Thousand separator: apostrophe in IT/DE (Swiss convention), comma in EN,
@@ -136,16 +136,25 @@ function fmtInt(n: number, locale: ComparisonsLocale): string {
   return s.replace(/\B(?=(\d{3})+(?!\d))/g, sep);
 }
 
-function fmtRatio(r: number, locale: ComparisonsLocale): string {
-  if (!Number.isFinite(r) || r <= 0) return '–';
+function fmtRatio(r: number | null, locale: ComparisonsLocale): string {
+  if (r === null || !Number.isFinite(r) || r <= 0) return '–';
   const rounded = Math.round(r * 100) / 100;
   return locale === 'en' ? rounded.toFixed(2) : rounded.toFixed(2).replace('.', ',');
 }
 
 // ── Table renderers ──────────────────────────────────────────────
 
-function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySectorRow[], locale: ComparisonsLocale): string {
-  const tbody = rows.length > 0
+function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySectorRow[] | null, locale: ComparisonsLocale): string {
+  const unavailableRow = `<tr>
+        <td class="s-RgFW0A">${esc(copy.salaryUnavailable)}</td>
+        <td class="s-RgFW0A">—</td>
+        <td class="s-RgFW0A">—</td>
+        <td class="s-RgFW0A">—</td>
+        <td class="s-RgFW0A">—</td>
+      </tr>`;
+  const tbody = rows === null
+    ? unavailableRow
+    : rows.length > 0
     ? rows
         .map(
           (r) =>
@@ -158,18 +167,19 @@ function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySector
             </tr>`,
         )
         .join('')
-    : `<tr><td class="s-RgFW0A" colspan="5">—</td></tr>`;
+    : '';
   return `<figure class="s-KZc0LQ" data-speakable>
   <figcaption class="s-USTxiS">${esc(copy.tSalaryCaption)}</figcaption>
   <div class="s-hrA9tN">
     <table class="s-Tiw3aV">
+      <caption class="sr-only">${esc(copy.tSalaryCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
-          <th class="s-thd" style="text-align:left">${esc(copy.tSalaryColSector)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColObservations)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColCh)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColIt)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColRatio)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tSalaryColSector)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tSalaryColObservations)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tSalaryColCh)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tSalaryColIt)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tSalaryColRatio)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">
@@ -196,12 +206,13 @@ function renderTaxTable(copy: ComparisonsHubCopy): string {
   <figcaption class="s-USTxiS">${esc(copy.tTaxCaption)}</figcaption>
   <div class="s-hrA9tN">
     <table class="s-Tiw3aV">
+      <caption class="sr-only">${esc(copy.tTaxCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
-          <th class="s-thd" style="text-align:left">${esc(copy.tTaxColScenario)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tTaxColChTotal)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tTaxColItTotal)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tTaxColNetDelta)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tTaxColScenario)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tTaxColChTotal)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tTaxColItTotal)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tTaxColNetDelta)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${rows}</tbody>
@@ -212,6 +223,7 @@ function renderTaxTable(copy: ComparisonsHubCopy): string {
 }
 
 function renderHealthTable(copy: ComparisonsHubCopy, rows: readonly LamalCantonRow[], locale: ComparisonsLocale): string {
+  if (!rows.length) return `<p class="s-4s9CFT">${esc(copy.healthUnavailable)}</p><p class="s-4s9CFT">${mdLinks(copy.tHealthContext)}</p>`;
   const tbody = rows
     .map(
       (r) => `<tr>
@@ -225,17 +237,18 @@ function renderHealthTable(copy: ComparisonsHubCopy, rows: readonly LamalCantonR
   <figcaption class="s-USTxiS">${esc(copy.tHealthCaption)}</figcaption>
   <div class="s-hrA9tN">
     <table class="s-8y_5Dt">
+      <caption class="sr-only">${esc(copy.tHealthCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
-          <th class="s-thd" style="text-align:left">${esc(copy.tHealthColCanton)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tHealthColMonthly)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tHealthColAnnual)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tHealthColCanton)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tHealthColMonthly)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tHealthColAnnual)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${tbody}</tbody>
     </table>
   </div>
-  <p class="s-M4R4f8">${mdLinks(copy.tHealthFooter)}</p>
+  <p class="s-M4R4f8">${mdLinks(copy.tHealthFooter)} (${rows[0].year})</p>
   <p class="s-4s9CFT">${mdLinks(copy.tHealthContext)}</p>
 </figure>`;
 }
@@ -254,11 +267,12 @@ function renderBenefitsTable(copy: ComparisonsHubCopy): string {
   <figcaption class="s-USTxiS">${esc(copy.tBenefitsCaption)}</figcaption>
   <div class="s-hrA9tN">
     <table class="s-iPczBT">
+      <caption class="sr-only">${esc(copy.tBenefitsCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
-          <th class="s-thd" style="text-align:left">${esc(copy.tBenefitsColArea)}</th>
-          <th class="s-thd" style="text-align:left">${esc(copy.tBenefitsColCh)}</th>
-          <th class="s-thd" style="text-align:left">${esc(copy.tBenefitsColIt)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tBenefitsColArea)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tBenefitsColCh)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tBenefitsColIt)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${rows}</tbody>
@@ -282,11 +296,12 @@ function renderCostTable(copy: ComparisonsHubCopy): string {
   <figcaption class="s-USTxiS">${esc(copy.tCostCaption)}</figcaption>
   <div class="s-hrA9tN">
     <table class="s-asm5zV">
+      <caption class="sr-only">${esc(copy.tCostCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
-          <th class="s-thd" style="text-align:left">${esc(copy.tCostColItem)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tCostColCh)}</th>
-          <th class="s-thd" style="text-align:right">${esc(copy.tCostColIt)}</th>
+          <th scope="col" class="s-thd" style="text-align:left">${esc(copy.tCostColItem)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tCostColCh)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tCostColIt)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${rows}</tbody>
@@ -328,7 +343,7 @@ interface RenderResult {
 
 function renderPage(opts: {
   locale: ComparisonsLocale;
-  salaryRows: readonly SalarySectorRow[];
+  salaryRows: readonly SalarySectorRow[] | null;
   lamalRows: readonly LamalCantonRow[];
   dateStamp: string;
   distDir?: string;
@@ -395,7 +410,7 @@ function renderPage(opts: {
       <span>${esc(copy.h1)}</span>
     </nav>
     <header class="s-sy52lX">
-      <p class="s-GMBtq0">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+      <p class="s-GMBtq0">${esc({ it: 'Pagina generata', en: 'Page generated', de: 'Seite erstellt', fr: 'Page générée' }[locale])}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
       <!-- Demoted from <h1> to <h2> in Phase 4C: hubChrome's hero already emits
            the page's primary <h1>, and Semrush W6 / Issue 104 flagged the
            comparisons + FAQ hubs for shipping two H1 tags. The longer
@@ -414,7 +429,7 @@ function renderPage(opts: {
     </section>
     <section class="s-KZc0LQ">
       <h2 class="s-UYLzwC">${esc(copy.tTaxCaption)}</h2>
-      <p class="s-KwuhOL">${esc(copy.taxIntro)}</p>
+      <p class="s-KwuhOL">${mdLinks(copy.taxIntro)}</p>
       ${taxTable}
     </section>
     <section class="s-KZc0LQ">
@@ -439,7 +454,9 @@ function renderPage(opts: {
     <p class="s-kddz8N">${esc(copy.disclaimer)}</p>
     ${relatedHtml}`;
 
-  const bodyHtml = `<main class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</main>`;
+  // buildSeoPageHtml already provides the crawler-facing <main> landmark.
+  // Keep this class on a neutral wrapper so the page has one main landmark.
+  const bodyHtml = `<div class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({
@@ -465,17 +482,16 @@ function renderPage(opts: {
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -508,7 +524,7 @@ function renderPage(opts: {
     url: canonicalUrl,
     inLanguage: locale,
     license: 'https://creativecommons.org/licenses/by/4.0/',
-    creator: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    creator: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     distribution: [
       {
         '@type': 'DataDownload',
@@ -554,7 +570,7 @@ function buildSitemapXml(entries: Array<{ canonical: string; alternates: string[
       const alts = alternates
         .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`)
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
@@ -662,7 +678,7 @@ export function comparisonsHubPlugin(rootDir: string): Plugin {
       const t0 = Date.now();
       const written = await collector.flush();
       console.log(
-        `\x1b[36m[comparisons-hub]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s · salary rows: ${salaryRows.length}, LAMal cantons: ${lamalRows.length}`,
+        `\x1b[36m[comparisons-hub]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s · salary rows: ${salaryRows?.length ?? 'unavailable'}, LAMal cantons: ${lamalRows.length}`,
       );
 
       // Always-run: comparisons-hub does NOT write into sitemap.xml index

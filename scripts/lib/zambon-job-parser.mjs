@@ -22,6 +22,8 @@
 
 import { JSDOM } from 'jsdom';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { htmlToText } from './hospital-custom-html-helpers.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 const ZAMBON_BASE_URL = 'https://www.zambon.com';
 
@@ -71,7 +73,11 @@ export function slugify(value = '', suffix = '') {
   return truncateSlugAtWordBoundary(s, 200);
 }
 
-/** Minimum description length to accept. */
+/**
+ * Node-selection heuristic only: the first body block with this many
+ * characters is taken as the vacancy text. Whether that text is published is
+ * decided by the shared 50-word floor (source-body-floor.mjs).
+ */
 export const MIN_DESC_LENGTH = 100;
 
 /**
@@ -91,34 +97,18 @@ export function parseListingPage(html = '') {
   const jobs = [];
   const seen = new Set();
 
-  // Check for "no jobs" message
-  const bodyText = (document.body?.textContent || '').toLowerCase();
-  if (bodyText.includes('currently there are not open positions') ||
-      bodyText.includes('no open positions') ||
-      bodyText.includes('nessuna posizione aperta')) {
-    return [];
-  }
-
   // Strategy 1: Parse JSON-LD structured data
-  const jsonLdScripts = document.querySelectorAll('script[type="application/ld+json"]');
-  for (const script of jsonLdScripts) {
-    try {
-      const data = JSON.parse(script.textContent || '');
-      const items = Array.isArray(data) ? data : [data];
-      for (const item of items) {
-        if (item['@type'] === 'JobPosting' && item.title) {
-          const id = String(item.identifier || item.url || jobs.length + 1);
-          if (seen.has(id)) continue;
-          seen.add(id);
-          jobs.push({
-            id,
-            title: normalizeSpace(item.title),
-            url: item.url || '',
-            location: normalizeSpace(item.jobLocation?.address?.addressLocality || ZAMBON_SWISS_SITE.city),
-          });
-        }
-      }
-    } catch { /* ignore malformed JSON-LD */ }
+  for (const item of extractJobPostingNodes(html)) {
+    if (!item.title) continue;
+    const id = String(item.identifier || item.url || jobs.length + 1);
+    if (seen.has(id)) continue;
+    seen.add(id);
+    jobs.push({
+      id,
+      title: normalizeSpace(item.title),
+      url: item.url || '',
+      location: normalizeSpace(item.jobLocation?.address?.addressLocality || ZAMBON_SWISS_SITE.city),
+    });
   }
   if (jobs.length > 0) return jobs;
 
@@ -240,6 +230,32 @@ export function parseDetailPage(html = '') {
   }
 
   return { title, body, sourceBodyLength: body.length };
+}
+
+/**
+ * The vacancy text of an NcorePlat job page (app.ncoreplat.com/jobposition/…),
+ * issue 5253.
+ *
+ * The careers API that lists Zambon's Swiss positions carries only metadata
+ * (title, job family, contract), and the runner used to publish a description
+ * it wrote itself from those fields and a company paragraph ("<title>:
+ * opportunità professionale presso Zambon Svizzera SA … Zambon è un gruppo
+ * farmaceutico fondato nel 1906 …") — 3/3 jobs. The real ad is server-rendered
+ * on the NcorePlat page in `.singlePosition .pTesto`. Returns that text with
+ * lists as `• ` lines, or '' when the page has no such block.
+ */
+export function extractZambonJobBody(html = '') {
+  if (!html) return '';
+  const sanitized = String(html).replace(/<style\b[\s\S]*?<\/style>/gi, '');
+  const { document } = new JSDOM(sanitized).window;
+  const el = document.querySelector('.singlePosition .pTesto') || document.querySelector('.pTesto');
+  if (!el) return '';
+  return htmlToText(el.innerHTML || '')
+    .split('\n')
+    .map((line) => line.replace(/[ \t]+/g, ' ').trim())
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 }
 
 /**

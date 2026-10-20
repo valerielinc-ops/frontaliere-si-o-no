@@ -36,6 +36,7 @@
  *   - ksuri     (Kantonsspital Uri, served on stellen.ksuri.ch)
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { inferAnyCanton, inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -239,6 +240,8 @@ function readRexxStructuredDescription(posting) {
  *   sourceAddresses:Array<Object>,
  *   authoritativeLocationConflict:boolean,
  *   postedDate:string,
+ *   datePosted:string,
+ *   postingDateSource:string,
  *   employmentType:string,
  * }}
  */
@@ -249,7 +252,7 @@ export function extractRexxDetail(html = '', pageUrl = '') {
       description: '',
       sourceAddresses: [],
       authoritativeLocationConflict: false,
-      postedDate: '',
+      ...mergeSourcePostingDates({}, {}),
       employmentType: '',
     };
   }
@@ -273,7 +276,7 @@ export function extractRexxDetail(html = '', pageUrl = '') {
         description: '',
         locationCandidates: [],
         authoritativeLocationConflict: false,
-        postedDate: '',
+        ...mergeSourcePostingDates({}, {}),
         employmentType: '',
       };
   const authoritativeTitle = title || normalizeSpace(decodeEntities(structuredPosting?.title || ''));
@@ -306,7 +309,7 @@ export function extractRexxDetail(html = '', pageUrl = '') {
     description,
     sourceAddresses: structured.locationCandidates || [],
     authoritativeLocationConflict: Boolean(structured.authoritativeLocationConflict),
-    postedDate: structured.postedDate || '',
+    ...mergeSourcePostingDates({}, structured),
     employmentType: structured.employmentType || '',
   };
 }
@@ -517,7 +520,6 @@ export function createRexxSystemsParser(config) {
     console.log(`  ✓ ${entries.length} jobs in listing`);
     if (!entries.length) return [];
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let detailHits = 0;
     // A record the source proves is not at the configured workplace is an
@@ -536,6 +538,7 @@ export function createRexxSystemsParser(config) {
         detailDescription = detail.description;
         detailTitle = detail.title;
       } catch (err) {
+        // fetch-failure-empty-ok: per-entry detail fetch shared by every rexx tenant: the batch stays atomic fail-closed instead of turning one delisted detail into a Crawler Failure
         console.log(`     ⚠ detail fetch failed for j${entry.id}: ${err.message}`);
         return [];
       } finally {
@@ -609,8 +612,7 @@ export function createRexxSystemsParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate: todayIso,
-        ...(detail.postedDate ? { postedDate: detail.postedDate } : {}),
+        ...mergeSourcePostingDates({}, detail),
         applyUrl: entry.detailUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

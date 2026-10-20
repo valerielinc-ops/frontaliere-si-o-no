@@ -1,3 +1,8 @@
+import { sourceBodyWordCount } from './source-body-floor.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './source-body-failure.mjs';
+import { WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
+import { detectJinaErrorBody, fetchViaJinaWithRetry } from './jina-proxy.mjs';
+
 const PDF_PAGE_NOISE_PATTERNS = [
   /^\d+\s*\/\s*\d+$/,
   /^page\s+\d+\s+of\s+\d+$/i,
@@ -95,8 +100,28 @@ export function buildPdfBackedDescription({
  * and multi-column layout edge cases better.
  */
 const MIN_MERGED_TEXT_LENGTH = 100;
+export const PDF_MULTI_PAGE_MIN_WORDS = 10;
 
-async function defaultExtractTextFromPdfBytes(arrayBuffer) {
+function extractedText(extracted) {
+  return Array.isArray(extracted?.text)
+    ? extracted.text.join('\n\n')
+    : String(extracted?.text || '');
+}
+
+function extractedWordCount(extracted) {
+  return sourceBodyWordCount(extractedText(extracted));
+}
+
+function extractionNeedsFallback(extracted) {
+  const text = extractedText(extracted);
+  const totalPages = Number(extracted?.totalPages || extracted?.total || 0);
+  return !text.trim() || (
+    totalPages > 1
+    && sourceBodyWordCount(text) < PDF_MULTI_PAGE_MIN_WORDS
+  );
+}
+
+async function extractTextWithUnpdf(arrayBuffer) {
   const { extractText, getDocumentProxy } = await import('unpdf');
   const pdf = await getDocumentProxy(new Uint8Array(arrayBuffer));
 
@@ -107,7 +132,7 @@ async function defaultExtractTextFromPdfBytes(arrayBuffer) {
     const totalPages = Number(merged?.totalPages || 0);
 
     if (mergedText.trim().length >= MIN_MERGED_TEXT_LENGTH) {
-      return merged;
+      return { ...merged, extractionMethod: 'unpdf' };
     }
 
     // Fallback: page-by-page extraction.
@@ -122,20 +147,118 @@ async function defaultExtractTextFromPdfBytes(arrayBuffer) {
         const joinedLength = pageTexts.reduce((sum, t) => sum + t.length, 0);
 
         if (joinedLength > mergedText.trim().length) {
-          return { text: pageTexts, totalPages };
+          return { text: pageTexts, totalPages, extractionMethod: 'unpdf' };
         }
       } catch {
         // page-by-page also failed — return whatever merged gave us
       }
     }
 
-    return merged;
+    return { ...merged, extractionMethod: 'unpdf' };
   } finally {
     try {
       await pdf.destroy();
     } catch {
       // noop
     }
+  }
+}
+
+/**
+ * Production dependency fallback for runners where unpdf/PDF.js is absent or
+ * cannot decode a source PDF. `pdf-parse` is already in dependencies (unpdf is
+ * a devDependency), so this works in the sparse corpus checkout too without an
+ * install or a system binary.
+ */
+async function extractTextWithPdfParse(arrayBuffer) {
+  const { PDFParse } = await import('pdf-parse');
+  const parser = new PDFParse({ data: new Uint8Array(arrayBuffer) });
+  try {
+    const result = await parser.getText();
+    return {
+      text: String(result?.text || ''),
+      totalPages: Number(result?.total || 0),
+      extractionMethod: 'pdf-parse',
+    };
+  } finally {
+    try {
+      await parser.destroy();
+    } catch {
+      // noop
+    }
+  }
+}
+
+async function defaultExtractTextFromPdfBytes(arrayBuffer) {
+  let primary;
+  let primaryError;
+
+  try {
+    primary = await extractTextWithUnpdf(arrayBuffer);
+  } catch (error) {
+    primaryError = error;
+  }
+
+  // An exception, an empty result, or a multi-page result with fewer than ten
+  // words is a parser/fetch failure signal, not a thin source. Try the second
+  // already-installed extractor before reporting the PDF as failed.
+  if (!primaryError && !extractionNeedsFallback(primary)) return primary;
+
+  let fallback;
+  let fallbackError;
+  try {
+    fallback = await extractTextWithPdfParse(arrayBuffer);
+  } catch (error) {
+    fallbackError = error;
+  }
+
+  const primaryWords = extractedWordCount(primary);
+  const fallbackWords = extractedWordCount(fallback);
+  if (fallback && fallbackWords > primaryWords) {
+    return {
+      ...fallback,
+      fallbackUsed: true,
+      ...(primaryError ? { primaryError: primaryError.message } : {}),
+    };
+  }
+  if (primary) {
+    return {
+      ...primary,
+      ...(fallbackError ? { fallbackError: fallbackError.message } : {}),
+    };
+  }
+  if (fallback) return { ...fallback, fallbackUsed: true };
+
+  const messages = [
+    primaryError && `unpdf: ${primaryError.message || primaryError}`,
+    fallbackError && `pdf-parse: ${fallbackError.message || fallbackError}`,
+  ].filter(Boolean);
+  throw new Error(
+    `PDF text extraction failed${messages.length > 0 ? ` (${messages.join('; ')})` : ''}`,
+  );
+}
+
+/**
+ * Text of a PDF read through the Jina Reader clean-IP proxy, or '' when the
+ * rescue is exhausted. Jina parses the PDF on its side and returns its text
+ * layer; fetchViaJinaWithRetry rotates egress IPs. On exhaustion it hands back
+ * the last response unchanged, which can be a 200 carrying Jina's own error
+ * envelope, so the body is checked here again before it counts as the
+ * document's text.
+ */
+async function fetchPdfTextViaJina(pdfUrl, { timeoutMs, fetchImpl, retryDelayMs }) {
+  try {
+    const res = await fetchViaJinaWithRetry(pdfUrl, {
+      format: 'text',
+      timeoutMs,
+      fetchImpl,
+      ...(retryDelayMs != null ? { retryDelayMs } : {}),
+    });
+    if (!res?.ok) return '';
+    const text = String(await res.text() || '');
+    return detectJinaErrorBody(text) ? '' : text;
+  } catch {
+    return '';
   }
 }
 
@@ -146,15 +269,21 @@ export async function extractPdfJobContentFromUrl(
     extractTextImpl = defaultExtractTextFromPdfBytes,
     timeoutMs = 30_000,
     headers = {},
+    // Clean-IP rescue for a WAF-class answer (403/406/415/451) keyed on the
+    // datacenter egress IP. Defaults to the same transport as the direct read.
+    jinaFetchImpl = fetchImpl,
+    jinaRetryDelayMs,
   } = {},
 ) {
   if (!pdfUrl) return { text: '', thin: false, totalPages: 0, rawText: '', sourceUrl: '' };
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
+  let response;
+  let proxiedBy;
 
   try {
-    const response = await fetchImpl(pdfUrl, {
+    response = await fetchImpl(pdfUrl, {
       signal: controller.signal,
       headers: {
         Accept: 'application/pdf,*/*;q=0.8',
@@ -165,17 +294,64 @@ export async function extractPdfJobContentFromUrl(
       },
     });
 
+    let extracted;
     if (!response?.ok) {
-      throw new Error(`HTTP ${response?.status || 'unknown'} while fetching PDF`);
+      // The HTML fetch helpers already route the WAF/IP-block class through
+      // Jina (transient-fetch.mjs WAF_IP_BLOCK_STATUS); the PDF read did not,
+      // so a source that answers the GitHub egress with 415 only for its PDFs
+      // failed every posting (klinik-wyssholzli, run corpus 36989251899: five
+      // text PDFs, all HTTP 415 in CI, all 200 from a clean IP).
+      const wafBlocked = WAF_IP_BLOCK_STATUS.has(Number(response?.status));
+      if (wafBlocked) {
+        try { await response?.body?.cancel?.(); } catch { /* already closed */ }
+      }
+      const rescuedText = wafBlocked
+        ? await fetchPdfTextViaJina(pdfUrl, { timeoutMs, fetchImpl: jinaFetchImpl, retryDelayMs: jinaRetryDelayMs })
+        : '';
+      if (!rescuedText) {
+        throw new Error(
+          `HTTP ${response?.status || 'unknown'} while fetching PDF`
+          + (wafBlocked ? ' (clean-IP Jina rescue exhausted)' : ''),
+        );
+      }
+      proxiedBy = 'jina';
+      extracted = { text: rescuedText, totalPages: 0, extractionMethod: 'jina-reader' };
+    } else {
+      const arrayBuffer = await response.arrayBuffer();
+      if (!arrayBuffer || arrayBuffer.byteLength === 0) {
+        throw new Error('PDF response body is empty');
+      }
+      extracted = await extractTextImpl(arrayBuffer);
     }
-
-    const arrayBuffer = await response.arrayBuffer();
-    const extracted = await extractTextImpl(arrayBuffer);
-    const rawText = Array.isArray(extracted?.text)
-      ? extracted.text.join('\n\n')
-      : String(extracted?.text || '');
-    const totalPages = Number(extracted?.totalPages || 0);
+    const rawText = extractedText(extracted);
+    const totalPages = Number(extracted?.totalPages || extracted?.total || 0);
     const normalizedText = normalizePdfJobText(rawText);
+    const wordCount = sourceBodyWordCount(normalizedText);
+    const failure = !normalizedText || (
+      totalPages > 1 && wordCount < PDF_MULTI_PAGE_MIN_WORDS
+    );
+
+    if (failure) {
+      const failureDetail = !normalizedText
+        ? 'no text extracted'
+        : `${wordCount} words extracted from ${totalPages} pages`;
+      return {
+        text: '',
+        thin: false,
+        extractionFailed: true,
+        failureReason: SOURCE_BODY_FAILURE_REASON,
+        error: `PDF extraction failed: ${failureDetail}`,
+        warning: `PDF extraction failed (${failureDetail}); source body was not published`,
+        rawText,
+        bodyWordCount: wordCount,
+        totalPages,
+        sourceUrl: pdfUrl,
+        ...(extracted?.extractionMethod ? { extractionMethod: extracted.extractionMethod } : {}),
+        ...(extracted?.fallbackUsed ? { fallbackUsed: true } : {}),
+        httpStatus: Number(response?.status || 0) || undefined,
+        contentType: response?.headers?.get?.('content-type') || undefined,
+      };
+    }
 
     // Detect image-only PDFs (pages exist but no usable text layer). A thin
     // extraction (1–49 chars: a broken fragment, page number remnant, etc.) is
@@ -202,8 +378,14 @@ export async function extractPdfJobContentFromUrl(
       text: thinContent ? '' : normalizedText,
       thin: thinContent,
       rawText,
+      bodyWordCount: wordCount,
       totalPages,
       sourceUrl: pdfUrl,
+      httpStatus: Number(response?.status || 0) || undefined,
+      contentType: response?.headers?.get?.('content-type') || undefined,
+      ...(extracted?.extractionMethod ? { extractionMethod: extracted.extractionMethod } : {}),
+      ...(extracted?.fallbackUsed ? { fallbackUsed: true } : {}),
+      ...(proxiedBy ? { proxiedBy } : {}),
       ...(warning ? { warning } : {}),
     };
   } catch (error) {
@@ -213,6 +395,10 @@ export async function extractPdfJobContentFromUrl(
       rawText: '',
       totalPages: 0,
       sourceUrl: pdfUrl,
+      extractionFailed: true,
+      failureReason: SOURCE_BODY_FAILURE_REASON,
+      httpStatus: Number(response?.status || 0) || undefined,
+      contentType: response?.headers?.get?.('content-type') || undefined,
       error: error instanceof Error ? error.message : String(error || 'Unknown PDF extraction error'),
     };
   } finally {

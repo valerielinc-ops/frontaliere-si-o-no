@@ -15,6 +15,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
+import fs from 'node:fs';
 
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
@@ -47,6 +48,11 @@ import {
   generateRelatedLinksBlock,
 } from '../build-plugins/shared/relatedLinks';
 import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
+
+const WEEKLY_EMPLOYERS_PLUGIN_SOURCE = fs.readFileSync(
+  new URL('../build-plugins/weeklyEmployersPlugin.ts', import.meta.url),
+  'utf8',
+);
 
 // ── Fixture helpers ─────────────────────────────────────────────
 
@@ -506,6 +512,15 @@ describe('renderCompanyCityPage', () => {
     indexable: true,
   };
 
+  it('keeps both detail-page serializers in anonymous-employer mode', () => {
+    const rendererSource = WEEKLY_EMPLOYERS_PLUGIN_SOURCE.slice(
+      WEEKLY_EMPLOYERS_PLUGIN_SOURCE.indexOf('export function renderCompanyCityPage'),
+      WEEKLY_EMPLOYERS_PLUGIN_SOURCE.indexOf('export function injectSiblingLinks'),
+    );
+
+    expect(rendererSource.match(/WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS/g)).toHaveLength(2);
+  });
+
   it('emits ≥300 body words for the IT sample page', () => {
     const html = renderCompanyCityPage(fixture);
     const words = html
@@ -517,79 +532,31 @@ describe('renderCompanyCityPage', () => {
     expect(words).toBeGreaterThanOrEqual(300);
   });
 
-  it('emits canonical self-ref, ItemList JobPosting JSON-LD + FAQ', () => {
+  it('emits canonical self-ref, ItemList URL JSON-LD + FAQ', () => {
     const html = renderCompanyCityPage(fixture);
     expect(html).toMatch(htmlTagWithAttrs('link', {
       rel: 'canonical',
       href: `https://frontaliereticino.ch${fixture.canonicalPath}`,
     }));
     expect(html).toContain('"@type":"ItemList"');
-    expect(html).toContain('"@type":"JobPosting"');
+    expect(html).not.toContain('"@type":"JobPosting"');
     expect(html).toContain('"@type":"FAQPage"');
     expect(html).toContain('"@type":"BreadcrumbList"');
   });
 
-  // ── CLAUDE.md rule #3: every JobPosting emits all 9 mandatory fields ──
-  it('emits all mandatory JobPosting fields (CLAUDE.md rule #3)', () => {
-    const html = renderCompanyCityPage(fixture);
-    // Extract the ItemList JSON-LD block and locate the first JobPosting item.
-    const itemListMatch = html.match(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema\.org","@type":"ItemList"[^<]+)<\/script>/);
-    expect(itemListMatch).toBeTruthy();
-    const itemList = JSON.parse(itemListMatch![1]);
-    expect(Array.isArray(itemList.itemListElement)).toBe(true);
-    expect(itemList.itemListElement.length).toBeGreaterThan(0);
-    const firstPosting = itemList.itemListElement[0].item;
-    // All 9 mandatory fields must be present AND non-empty.
-    expect(firstPosting['@type']).toBe('JobPosting');
-    expect(firstPosting.title?.length ?? 0).toBeGreaterThan(0);
-    expect(firstPosting.description?.length ?? 0).toBeGreaterThanOrEqual(30);
-    expect(firstPosting.datePosted?.length ?? 0).toBeGreaterThan(0);
-    expect(firstPosting.employmentType?.length ?? 0).toBeGreaterThan(0);
-    expect(firstPosting.hiringOrganization?.name?.length ?? 0).toBeGreaterThan(0);
-    // jobLocation.address with streetAddress + postalCode + addressLocality
-    expect(firstPosting.jobLocation?.address?.streetAddress?.length ?? 0).toBeGreaterThan(0);
-    expect(firstPosting.jobLocation?.address?.postalCode?.length ?? 0).toBeGreaterThan(0);
-    expect(firstPosting.jobLocation?.address?.addressLocality?.length ?? 0).toBeGreaterThan(0);
-    // baseSalary with currency + value.{min,max,unitText}
-    expect(firstPosting.baseSalary?.currency?.length ?? 0).toBeGreaterThan(0);
-    const bsValue = firstPosting.baseSalary?.value;
-    expect(bsValue).toBeTruthy();
-    expect(Number(bsValue.minValue)).toBeGreaterThan(0);
-    expect(Number(bsValue.maxValue)).toBeGreaterThanOrEqual(Number(bsValue.minValue));
-    expect(bsValue.unitText?.length ?? 0).toBeGreaterThan(0);
-  });
-
-  it('fills JobPosting description via editorial fallback when source is missing', () => {
-    // Fixture's activeJobs have no `description` field → fallback kicks in.
-    const html = renderCompanyCityPage(fixture);
-    // Editorial fallback references the employer name + city.
-    expect(html).toContain('EOC - Ente Ospedaliero Cantonale');
-    expect(html).toContain('Lugano');
-  });
-
-  it('uses a locality-coherent fallback when job has no streetAddress/postalCode', () => {
-    // fixture.stats.companySlug === 'eoc-ente-ospedaliero-cantonale' → HQ in
-    // Bellinzona, but this is the LUGANO city page: pairing the HQ street with
-    // a different posting locality is exactly the incoherence #3513 fixed.
-    // Individual activeJobs have no streetAddress/postalCode — the JSON-LD
-    // must fall back to the locality-coherent registry entry, never the
-    // cross-locality HQ street.
-    const withCompanySlug = {
-      ...fixture,
-      stats: {
-        ...fixture.stats,
-        activeJobs: fixture.stats.activeJobs.map((j) => ({
-          ...j,
-          companySlug: 'eoc-ente-ospedaliero-cantonale',
-        })),
-      },
-    };
-    const html = renderCompanyCityPage(withCompanySlug);
-    // Expect the Lugano locality default (CITY_FALLBACK_ADDRESSES), not the
-    // Bellinzona HQ street.
-    expect(html).toContain('Piazza Riforma 1');
-    expect(html).toContain('6900');
-    expect(html).not.toContain('Viale Officina 3');
+  it('uses linked pages for list items, with no single-position markup on the hub', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const html = renderCompanyCityPage({ ...fixture, locale });
+      const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
+      const list = scripts.find((value) => value['@type'] === 'ItemList');
+      expect(list.itemListElement.length).toBeGreaterThan(0);
+      for (const entry of list.itemListElement) {
+        expect(entry.item['@type']).toBe('WebPage');
+        expect(entry.item.name).toBeTruthy();
+        expect(entry.item.url).toMatch(/^https:\/\/frontaliereticino.ch\/.+\/$/);
+      }
+      expect(html).not.toContain('"@type":"JobPosting"');
+    }
   });
 
   it('links each listed job to the canonical detail path', () => {
@@ -603,6 +570,39 @@ describe('renderCompanyCityPage', () => {
     const html = renderCompanyCityPage(fixture);
     // EOC has a curated brand hub at /cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/
     expect(html).toContain('/cerca-lavoro-ticino/azienda-');
+  });
+
+  const renderWithEmployerKey = (employerKey: string, employer: string) =>
+    renderCompanyCityPage({
+      ...fixture,
+      companySlug: employerKey,
+      canonicalPath: buildCompanyCityCurrentPath('it', 'lugano', employerKey),
+      stats: {
+        ...fixture.stats,
+        companySlug: employerKey,
+        employer,
+        employerKey,
+      },
+    });
+
+  it('keeps the Lidl brand link through its explicit employer-key alias', () => {
+    const html = renderWithEmployerKey('lidl-svizzera', 'Lidl Svizzera');
+    expect(html).toContain('href="/cerca-lavoro-ticino/azienda-lidl/"');
+  });
+
+  it('keeps the Manor brand link through its explicit employer-key alias', () => {
+    const html = renderWithEmployerKey('manor', 'Manor AG');
+    expect(html).toContain('href="/cerca-lavoro-ticino/azienda-manor-ag/"');
+  });
+
+  it('does not link the canton-ticino-osc employer to the EOC brand hub', () => {
+    const html = renderWithEmployerKey(
+      'canton-ticino-osc',
+      'Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino',
+    );
+    expect(html).not.toContain(
+      'href="/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/"',
+    );
   });
 
   it('links back to the parent F5 city hub', () => {

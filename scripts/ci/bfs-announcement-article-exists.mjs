@@ -14,21 +14,21 @@
  * one: the run was legitimately newer than the close. The missing condition is
  * about the ARTICLE, not about time.
  *
- * THE KEY. `scripts/create-article.mjs` records every generated article in the
+ * THE KEY. `scripts/create-article.mjs` records generated articles in the
  * corpus' `data/article-source-urls.json` as `<normalized source URL> →
- * <article id>` (`recordSourceUrl`, which skips only `evergreen://`), and for a
- * BFS article the source URL is the synthetic per-quarter dedup key
- * `stats-bfs://<quarter>` — the same string `refresh-bfs-stats.yml` dispatches.
- * `normalizeNewsUrl` lowercases, so the stored key is lowercase. Verified
- * against the corpus on 2026-08-14:
+ * <article id>`. For a BFS article the source URL is the synthetic per-quarter
+ * key `stats-bfs://<quarter>` — the same string the site dispatches. This is
+ * the exact proof when the key is still in the corpus ledger, but the generator
+ * deliberately retains only its last 500 URL entries. An announcement can be
+ * older than that FIFO window while still being published, so a missing key is
+ * NOT proof that the article is absent.
  *
- *     "stats-bfs://2026-q2": "frontaliere-ticino-statistica-2026-q2"
- *
- * That makes the probe EXACT rather than heuristic: no title matching, no date
- * windows, no slug guessing. The published API surface
- * (`articles.json` / `meta-<locale>.json`) carries no `sourceUrl` field, so it
- * cannot answer this question — the ledger in the corpus repo is the only place
- * the mapping exists, which is why this reads the repo and not the CDN.
+ * FALLBACK. When the exact key is missing, read the published manifest and the
+ * complete Italian frontaliere article index over HTTP. A published index entry
+ * is accepted only when the ledger's candidate ID is present in it, or its
+ * title/excerpt jointly identify the requested quarter, BFS and frontalieri.
+ * The manifest count must match the index count and array length; incomplete or
+ * stale data fails open and raises the editorial signal.
  *
  * WHICH REPO. Generation moved to `nanakokyobashi-rgb/frontaliere-articles`
  * with the 2026-08-02 cutover (#4974 item 3), so the ledger that matters is the
@@ -62,10 +62,14 @@
  *   GITHUB_OUTPUT       optional, Actions step output file.
  */
 
-import fs from 'node:fs';
+import fs, { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
+import { ARTICLES_API_BASE } from '../lib/articles-api-base.mjs';
 
 const CORPUS_REPO = 'nanakokyobashi-rgb/frontaliere-articles';
 const LEDGER_PATH = 'data/article-source-urls.json';
+const PUBLISHED_INDEX_PATH = 'data/blog-index-frontaliere-it-full.json';
+const ARTICLES_API = ARTICLES_API_BASE.replace(/\/$/, '');
 const FETCH_TIMEOUT_MS = 15_000;
 
 /**
@@ -94,6 +98,49 @@ export function articleIdFromLedgerEntry(entry) {
     return entry.articleId;
   }
   return undefined;
+}
+
+/** The index is usable only when it proves that the published list is whole. */
+export function isCompletePublishedIndex(index, expectedArticleCount) {
+  return Number.isSafeInteger(expectedArticleCount)
+    && expectedArticleCount > 0
+    && index?.section === 'frontaliere'
+    && index?.locale === 'it'
+    && index.count === expectedArticleCount
+    && index.total === expectedArticleCount
+    && Array.isArray(index.articles)
+    && index.articles.length === expectedArticleCount;
+}
+
+/**
+ * Resolve an announcement only from a complete, public index. An ID from the
+ * exact source ledger is authoritative once it is present in the published
+ * index. If the bounded ledger has evicted the key, use a narrow metadata
+ * fallback: quarter + BFS + frontalieri must all occur in the same entry.
+ */
+export function articleIdFromPublishedIndex(index, quarter, expectedArticleCount, ledgerArticleId = '') {
+  if (!isCompletePublishedIndex(index, expectedArticleCount)) return undefined;
+
+  const match = String(quarter || '').trim().match(/^(\d{4})-Q([1-4])$/i);
+  if (!match) return undefined;
+  const [, year, quarterNumber] = match;
+  const quarterPattern = new RegExp(`\\b${year}\\s*[-–]?\\s*Q${quarterNumber}\\b|\\bQ${quarterNumber}\\s+${year}\\b`, 'i');
+  const ledgerId = String(ledgerArticleId || '').trim();
+  const articles = index.articles;
+
+  if (ledgerId && articles.some((article) => article?.id === ledgerId)) return ledgerId;
+
+  const found = articles.find((article) => {
+    const id = typeof article?.id === 'string' ? article.id.trim() : '';
+    if (!id) return false;
+    const evidence = [article.title, article.excerpt]
+      .filter((value) => typeof value === 'string')
+      .join('\n');
+    return quarterPattern.test(evidence)
+      && /\bBFS\b|ufficio\s+federale\s+di\s+statistica/i.test(evidence)
+      && /\bfrontalier\w*\b/i.test(evidence);
+  });
+  return found?.id?.trim() || undefined;
 }
 
 function setOutput(exists, articleId) {
@@ -129,6 +176,40 @@ async function fetchLedger() {
   return parsed;
 }
 
+async function fetchPublishedIndex() {
+  const headers = { Accept: 'application/json', 'User-Agent': 'frontaliere-bfs-announcement-probe' };
+  const manifestUrl = `${ARTICLES_API}/manifest.json`;
+  const manifestResponse = await fetch(manifestUrl, {
+    headers,
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+  });
+  if (!manifestResponse.ok) throw new Error(`HTTP ${manifestResponse.status} reading published manifest`);
+  const manifest = await manifestResponse.json();
+  const expectedArticleCount = manifest?.counts?.articles;
+  const indexBytes = manifest?.files?.[PUBLISHED_INDEX_PATH];
+  if (!Number.isSafeInteger(expectedArticleCount) || expectedArticleCount < 1) {
+    throw new Error('published manifest has no valid counts.articles');
+  }
+  if (!Number.isSafeInteger(indexBytes) || indexBytes < 1) {
+    throw new Error(`published manifest does not list ${PUBLISHED_INDEX_PATH}`);
+  }
+  if (typeof manifest.commit !== 'string' || !/^[a-f0-9]{40}$/i.test(manifest.commit)) {
+    throw new Error('published manifest has no valid corpus commit');
+  }
+
+  const indexUrl = `${ARTICLES_API}/${PUBLISHED_INDEX_PATH}?commit=${encodeURIComponent(manifest.commit)}`;
+  const indexResponse = await fetch(indexUrl, {
+    headers,
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+  });
+  if (!indexResponse.ok) throw new Error(`HTTP ${indexResponse.status} reading ${PUBLISHED_INDEX_PATH}`);
+  const index = await indexResponse.json();
+  if (!isCompletePublishedIndex(index, expectedArticleCount)) {
+    throw new Error(`${PUBLISHED_INDEX_PATH} is incomplete or disagrees with manifest counts`);
+  }
+  return { index, expectedArticleCount };
+}
+
 async function main() {
   const quarter = String(process.env.NEW_QUARTER || '').trim();
   if (!quarter) {
@@ -137,21 +218,39 @@ async function main() {
     return;
   }
   const key = ledgerKeyForQuarter(quarter);
+  let ledgerArticleId = '';
   try {
     const ledger = await fetchLedger();
-    const articleId = articleIdFromLedgerEntry(ledger[key]);
-    if (typeof articleId === 'string' && articleId.trim()) {
-      console.error(`✅ Articolo di annuncio gia' presente per ${quarter}: ${key} → ${articleId}`);
-      setOutput(true, articleId.trim());
+    ledgerArticleId = articleIdFromLedgerEntry(ledger[key])?.trim() || '';
+  } catch (err) {
+    // The public API below can still prove publication when the ledger is unavailable.
+    console.error(`⚠️  Ledger del corpus non leggibile (${err && err.message}) — verifico comunque l'API pubblicata.`);
+  }
+
+  try {
+    const { index, expectedArticleCount } = await fetchPublishedIndex();
+    const articleId = articleIdFromPublishedIndex(index, quarter, expectedArticleCount, ledgerArticleId);
+    if (articleId) {
+      const proof = ledgerArticleId === articleId ? 'ledger + API pubblicata' : 'API pubblicata';
+      console.error(`✅ Articolo di annuncio gia' pubblicato per ${quarter} (${proof}): ${articleId}`);
+      setOutput(true, articleId);
       return;
     }
-    console.error(`ℹ️  Nessun articolo per ${quarter} (chiave cercata: ${key}) — il segnale editoriale va alzato.`);
+    console.error(`ℹ️  Nessun articolo BFS pubblicato per ${quarter} (chiave ledger: ${key}) — il segnale editoriale va alzato.`);
     setOutput(false);
   } catch (err) {
-    // Fail open: an unreadable ledger must never silence the quarter.
-    console.error(`⚠️  Ledger del corpus non leggibile (${err && err.message}) — fail open, il segnale editoriale viene alzato.`);
+    // Fail open: an incomplete/unavailable public API must never silence the quarter.
+    console.error(`⚠️  API articoli del corpus non leggibile (${err && err.message}) — fail open, il segnale editoriale viene alzato.`);
     setOutput(false);
   }
 }
 
-await main();
+const invokedDirectly = (() => {
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})();
+
+if (invokedDirectly) await main();

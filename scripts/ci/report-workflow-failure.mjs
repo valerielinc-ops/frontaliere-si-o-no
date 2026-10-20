@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * report-workflow-failure.mjs — il reporter diagnostico di #5423, reso
  * invocabile da QUALUNQUE workflow (issue #5437).
@@ -99,6 +101,7 @@ import {
 } from './report-validate-dist-failure.mjs';
 import { TITLE_RE } from './close-recovered-failure-issues.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import { failureSignature, signatureMarker } from './lib/failure-signature.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -212,15 +215,42 @@ export function reproFromRun(runText, pkgScripts = {}) {
   const commands = [];
   const paths = new Set();
 
+  // Direct runners are common in workflow steps (`npx playwright test ...` in
+  // particular), but the reporter must only expose repository paths that a
+  // fixer can actually inspect. Keep the directory allow-list explicit: a
+  // URL, a CLI option, or an absolute runner path must not become a suggested
+  // action by accident.
+  const repoPath = String.raw`(?:scripts|data|tests|build-plugins|services|components|hooks|build|src|infra|server|functions|content)/[A-Za-z0-9._@*?/-]+`;
+  const directPath = new RegExp(String.raw`\b((?:node|bash|tsx)\s+(${repoPath})(?:\s+(--[^\n\\]*))?)`, 'g');
+  const npxTsxPath = new RegExp(String.raw`\b(npx\s+(?:-y\s+)?tsx(?:@\S+)?\s+(${repoPath})(?:\s+(--[^\n\\]*))?)`, 'g');
+  const commandPath = new RegExp(String.raw`(?:^|[\s"'(])(${repoPath})(?=$|[\s"'(),;&|])`, 'g');
+
   for (const m of text.matchAll(/\bnpm run ([A-Za-z0-9:._/-]+)/g)) {
     const name = m[1];
     const { command, paths: p } = gateToRepro(name, pkgScripts);
     commands.push(command ? `npm run ${name}  (→ ${command})` : `npm run ${name}`);
     for (const x of p) paths.add(x);
   }
-  for (const m of text.matchAll(/\b(?:node|bash|npx -y tsx@\d+|tsx)\s+((?:scripts|data)\/[A-Za-z0-9._/-]+)(?:\s+(--[^\n\\]*))?/g)) {
-    commands.push(`node ${m[1]}${m[2] ? ` ${m[2].trim()}` : ''}`.replace(/^node (?=scripts\/lib\/[^\s]+\.sh)/, 'bash '));
-    paths.add(m[1]);
+
+  for (const pattern of [directPath, npxTsxPath]) {
+    for (const m of text.matchAll(pattern)) {
+      commands.push(m[1].trim());
+      paths.add(m[2]);
+    }
+  }
+
+  // `npx playwright test`, `npx vitest run`, and other direct npx runners put
+  // the repository path after the runner name rather than immediately after
+  // the executable. Parse one shell line at a time so the body preserves the
+  // exact command that failed while only accepting the explicit path family
+  // above. tsx is handled separately to avoid duplicate commands.
+  for (const line of text.split(/\r?\n/)) {
+    const command = line.trim().replace(/\s+#.*$/, '').trim();
+    if (!/^npx\s+/.test(command) || /\bnpx\s+(?:-y\s+)?tsx(?:@\S+)?\s+/.test(command)) continue;
+    const linePaths = [...command.matchAll(commandPath)].map((m) => m[1]);
+    if (linePaths.length === 0) continue;
+    commands.push(command);
+    for (const p of linePaths) paths.add(p);
   }
   for (const m of text.matchAll(/(?:scripts|data)\/[A-Za-z0-9._/-]+/g)) paths.add(m[0]);
 
@@ -267,6 +297,7 @@ export function buildFailureBody(input) {
     context = '',
     closer = null,
     jobsApiNote = '',
+    failureSignature: signature = null,
   } = input;
 
   const runUrl = repo && runId ? `https://github.com/${repo}/actions/runs/${runId}` : '';
@@ -332,6 +363,8 @@ export function buildFailureBody(input) {
   } else {
     lines.push('- `scripts/ci/report-workflow-failure.mjs` (non è stato possibile ricavare i path del gate dallo step: il fix parte dal log del run)');
   }
+
+  if (signature) lines.push('', signatureMarker(signature).trim());
 
   // Un punto solo di redazione, applicato sempre: un nome di step o una nota
   // futura potrebbero reintrodurre il path che disinnesca il fixer.
@@ -424,6 +457,10 @@ export function reportMode({ dryRun }) {
   const diagFile = process.env.DIAG_FILE || '';
   const logFromJob = process.env.LOG_FROM_JOB || '';
   const closedBy = process.env.CLOSED_BY || '';
+  // Per i reporter post-deploy lo SHA del run osservatore e quello della build
+  // validata sono diversi. Solo quest'ultimo puo' provare che una ricorrenza
+  // arriva da codice precedente alla fix che aveva chiuso la issue.
+  const buildSha = (process.env.BUILD_SHA || '').trim() || null;
   const priority = intFromEnv('ISSUE_PRIORITY', 2) || 2;
   // REOPEN_WITHIN_HOURS assente/vuoto → `null` → il creator applica
   // DEFAULT_REOPEN_WITHIN_HOURS (720h). Il fallback `|| '6') || 6` che stava
@@ -441,12 +478,16 @@ export function reportMode({ dryRun }) {
     .split(/[\n,]/).map((s) => s.trim()).filter(Boolean);
 
   let failedStep = null;
+  let jobsApiData = null;
+  let targetJob = null;
+  let runSignature = null;
   let jobsApiNote = '';
   let excerpt = '';
   let excerptSource = '';
 
   if (repo && runId) {
     const data = fetchRunJobs(repo, runId);
+    jobsApiData = data;
     if (!data) {
       jobsApiNote = 'jobs API non raggiungibile (manca `actions: read` nei permissions del job?)';
     } else {
@@ -456,6 +497,7 @@ export function reportMode({ dryRun }) {
       const target = logFromJob
         ? (data.jobs || []).find((j) => j.name === logFromJob || String(j.name || '').startsWith(logFromJob))
         : findCurrentBuildJob(data.jobs, jobKey, entity);
+      targetJob = target;
       if (!target) {
         jobsApiNote = `job \`${logFromJob || jobKey}\`${entity ? ` (${entity})` : ''} non trovato nella jobs API del run`;
       } else {
@@ -472,6 +514,21 @@ export function reportMode({ dryRun }) {
         }
       }
     }
+  }
+
+  if (jobsApiData) {
+    // In an in-job reporter the failed step is visible before GitHub marks the
+    // enclosing job red. Normalize that one job before computing the marker so
+    // the writer and the post-run scanner produce the same signature.
+    const signatureJobs = targetJob && failedStep && targetJob.conclusion !== 'failure'
+      ? {
+        ...jobsApiData,
+        jobs: (jobsApiData.jobs || []).map((job) => (
+          job === targetJob ? { ...job, conclusion: 'failure' } : job
+        )),
+      }
+      : jobsApiData;
+    runSignature = failureSignature(signatureJobs);
   }
 
   if (!excerpt && diagFile) {
@@ -494,6 +551,7 @@ export function reportMode({ dryRun }) {
     repo, runId, runAttempt, workflowName, jobName: jobKey, entity,
     eventName, refName, failedStep, stepRun: stepSrc ? stepSrc.run : null,
     repro, excerpt, excerptSource, context, closer, jobsApiNote,
+    failureSignature: runSignature,
   });
 
   if (!title) {
@@ -511,6 +569,7 @@ export function reportMode({ dryRun }) {
     labels,
     workflow: workflowName,
     reopenWithinHours,
+    buildSha,
   });
 }
 
@@ -533,7 +592,7 @@ export function resolveMode({ dryRun }) {
 /* ── CLI ─────────────────────────────────────────────────────────────── */
 
 const isMain = process.argv[1]
-  && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (isMain) {
   const args = process.argv.slice(2);

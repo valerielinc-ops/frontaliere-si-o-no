@@ -1,3 +1,4 @@
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Recency-filtered job landing hubs.
  *
@@ -17,6 +18,7 @@
 import type { JobLandingLocale } from './jobEditorialLanding';
 import { buildRecencyHubTitle } from '../services/seo/job-board-titles';
 import { buildRecencyHubMeta } from '../services/seo/meta-descriptions';
+import { buildCanonicalJobDetailPath, type CanonicalJobDetailJob } from './shared/jobDetailPath';
 
 export type JobRecencyVariant = 'last-3-days' | 'since-yesterday';
 
@@ -26,6 +28,7 @@ export interface RecencyJobLink {
   location: string;
   href: string;
   datePosted?: string;
+  postingDateSource?: string;
   // ── Enrichment fields used by the SPA-style job card renderer
   // (build-plugins/shared/jobCardHtml.ts). All optional to keep the
   // contract permissive for callers that only need the link shape.
@@ -128,21 +131,9 @@ export function otherVariant(variant: JobRecencyVariant): JobRecencyVariant {
 
 type JobLike = Record<string, unknown>;
 
-function parseDate(value: unknown): Date | null {
-  if (!value) return null;
-  const raw = String(value).trim();
-  if (!raw) return null;
-  const d = new Date(raw);
-  return Number.isNaN(d.getTime()) ? null : d;
-}
-
-function getJobFreshnessDate(job: JobLike): Date | null {
-  return (
-    parseDate((job as Record<string, unknown>).postedDate)
-    || parseDate((job as Record<string, unknown>).datePosted)
-    || parseDate((job as Record<string, unknown>).crawledAt)
-    || parseDate((job as Record<string, unknown>).updatedAt)
-  );
+function getJobFreshnessDate(job: JobLike, now: Date): Date | null {
+ const reported = resolveReportedPostingDate(job, now);
+ return reported ? new Date(reported) : null;
 }
 
 /**
@@ -434,10 +425,10 @@ function normalizeSpace(value: unknown): string {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
-function sortByFreshness(jobs: JobLike[]): JobLike[] {
+function sortByFreshness(jobs: JobLike[], now: Date): JobLike[] {
   return [...jobs].sort((a, b) => {
-    const aTime = getJobFreshnessDate(a)?.getTime() || 0;
-    const bTime = getJobFreshnessDate(b)?.getTime() || 0;
+    const aTime = getJobFreshnessDate(a, now)?.getTime() || 0;
+    const bTime = getJobFreshnessDate(b, now)?.getTime() || 0;
     if (bTime !== aTime) return bTime - aTime;
     return normalizeSpace((a as { title?: string }).title).localeCompare(
       normalizeSpace((b as { title?: string }).title),
@@ -457,6 +448,22 @@ function buildRecencyHref(
   return ensureTrailingSlash(
     `${trimmedBase}${`${localePrefix}/${sectionSlug}/${variantSlug}`.replace(/\/+/g, '/')}`,
   );
+}
+
+function buildJobDetailHref(
+  baseUrl: string,
+  locale: JobLandingLocale,
+  job: JobLike,
+  slug: string,
+  legacySectionSlug: string,
+): string {
+  return `${baseUrl.replace(/\/+$/, '')}${buildCanonicalJobDetailPath(
+    locale,
+    job as CanonicalJobDetailJob,
+    slug,
+    undefined,
+    legacySectionSlug,
+  )}`;
 }
 
 // ── Public builder ──────────────────────────────────────────────────
@@ -491,9 +498,9 @@ export function buildJobRecencyLandingModel(options: {
   const maxJobs = options.maxJobs ?? 50;
 
   const matching = options.jobs.filter(
-    (job) => isWithinWindow(getJobFreshnessDate(job as JobLike), now, windowDays),
+    (job) => isWithinWindow(getJobFreshnessDate(job as JobLike, now), now, windowDays),
   );
-  const sorted = sortByFreshness(matching as JobLike[]).slice(0, maxJobs);
+  const sorted = sortByFreshness(matching as JobLike[], now).slice(0, maxJobs);
   const count = matching.length;
 
   const jobs: RecencyJobLink[] = sorted.map((job) => {
@@ -501,8 +508,8 @@ export function buildJobRecencyLandingModel(options: {
     const titleByLocale = (j.titleByLocale as Record<string, unknown> | undefined) || {};
     const localized = String(titleByLocale[locale] || j.title || 'Offerta lavoro');
     const rawSlug = options.localizedSlug(job, locale);
-    const href = buildRecencyHref(baseUrl, options.localePrefix, options.sectionSlug, rawSlug);
-    const posted = getJobFreshnessDate(job as JobLike);
+    const href = buildJobDetailHref(baseUrl, locale, job, rawSlug, options.sectionSlug);
+    const posted = getJobFreshnessDate(job as JobLike, now);
     const titleByLocaleTyped = Object.fromEntries(
       Object.entries(titleByLocale).filter(([, v]) => typeof v === 'string'),
     ) as Partial<Record<JobLandingLocale, string>>;
@@ -512,6 +519,7 @@ export function buildJobRecencyLandingModel(options: {
       location: normalizeSpace(j.location),
       href,
       datePosted: posted ? posted.toISOString() : undefined,
+      postingDateSource: typeof job.postingDateSource === 'string' ? job.postingDateSource : undefined,
       titleByLocale: titleByLocaleTyped,
       companyKey: typeof j.companyKey === 'string' ? j.companyKey : undefined,
       canton: typeof j.canton === 'string' ? j.canton : undefined,

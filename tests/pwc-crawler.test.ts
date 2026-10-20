@@ -6,7 +6,23 @@
  * using mock API response fixtures.
  */
 import { afterEach, describe, it, expect, vi } from 'vitest';
-import { buildPwcJob, fetchAllListings } from '../scripts/update-pwc-jobs.mjs';
+
+const mergeMocks = vi.hoisted(() => ({
+  readExistingCrawlerJobs: vi.fn(),
+  writeJsonAtomic: vi.fn(),
+}));
+
+vi.mock('../scripts/assemble-jobs-dataset.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/assemble-jobs-dataset.mjs')>()),
+  readExistingCrawlerJobs: mergeMocks.readExistingCrawlerJobs,
+}));
+
+vi.mock('../scripts/lib/atomic-write-json.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/lib/atomic-write-json.mjs')>()),
+  writeJsonAtomic: mergeMocks.writeJsonAtomic,
+}));
+
+import { buildPwcJob, fetchAllListings, fetchAllPwcJobs, jobMatchKey, mergeJobs } from '../scripts/update-pwc-jobs.mjs';
 
 import {
   parsePwcJobs,
@@ -396,10 +412,11 @@ describe('source address fields', () => {
 // ─── buildPwcLocalizedContent ─────────────────────────────────────────────
 
 describe('buildPwcLocalizedContent', () => {
-  it('creates locale maps for all 4 locales', () => {
-    const content = buildPwcLocalizedContent({ title: 'Tax Advisor', city: 'Lugano', description: 'A tax role in Lugano.' });
+  it('keeps the body in the source-language slot only; titles and slugs stay in all 4 locales (#5253)', () => {
+    const content = buildPwcLocalizedContent({ title: 'Tax Advisor', city: 'Lugano', description: 'A tax role in Lugano for an experienced advisor who works with our clients.' });
+    expect(content.sourceLang).toBe('en');
     expect(Object.keys(content.titleByLocale)).toEqual(['it', 'en', 'de', 'fr']);
-    expect(Object.keys(content.descriptionByLocale)).toEqual(['it', 'en', 'de', 'fr']);
+    expect(Object.keys(content.descriptionByLocale)).toEqual(['en']);
     expect(Object.keys(content.slugByLocale)).toEqual(['it', 'en', 'de', 'fr']);
   });
 
@@ -410,8 +427,9 @@ describe('buildPwcLocalizedContent', () => {
     expect(content.slugByLocale.it).toContain('lugano');
   });
 
-  it('uses fallback description when description is empty', () => {
+  it('uses fallback description when description is empty (Italian text, under it)', () => {
     const content = buildPwcLocalizedContent({ title: 'Analyst', city: 'Bern', description: '' });
+    expect(content.sourceLang).toBe('it');
     expect(content.descriptionByLocale.it).toContain('PwC Switzerland');
     expect(content.descriptionByLocale.it).toContain('Analyst');
     expect(content.descriptionByLocale.it).toContain('Bern');
@@ -419,6 +437,238 @@ describe('buildPwcLocalizedContent', () => {
 
   it('uses provided description when available', () => {
     const content = buildPwcLocalizedContent({ title: 'Analyst', city: 'Bern', description: 'A detailed job description for the role.' });
-    expect(content.descriptionByLocale.it).toBe('A detailed job description for the role.');
+    expect(content.descriptionByLocale.en).toBe('A detailed job description for the role.');
+    expect(content.descriptionByLocale.it).toBeUndefined();
   });
+});
+
+// ─── Re-posts per city (bucket 10677, item FU-2026-10-01-019) ─────────────
+//
+// One PwC vacancy can be tagged with several offices (attribute 20): the run
+// publishes one record per city. A vacancy the source re-posts under a new id
+// and URL, with the same rendered page at the same office, is one vacancy for
+// a seeker: the run drops the copy (`dropRepostedListings`). Across runs the
+// merge key `jobMatchKey()` is the UUID of the vacancy URL plus the city, so
+// a renamed URL slug updates the stored record instead of adding a new one,
+// and the per-city records of one vacancy never merge into each other.
+
+const daysAgoDate = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString().slice(0, 10);
+
+const PWC_UUID = '3e3dc2f3-629d-4764-a803-82d199746aba';
+const PWC_REPOST_UUID = 'f196cf47-50ab-4981-9717-2d5aadfe62ff';
+const PWC_URL = `https://jobs.pwc.ch/job-vacancies/senior-tax-consultant/${PWC_UUID}`;
+const PWC_REPOST_URL = `https://jobs.pwc.ch/job-vacancies/senior-tax-consultant-1/${PWC_REPOST_UUID}`;
+
+const mergeIdentityJob = ({
+  city,
+  slug,
+  marker,
+  previousSlugs = [],
+}: {
+  city: string;
+  slug: string;
+  marker: string;
+  previousSlugs?: string[];
+}) => ({
+  id: `pwc-${city.toLowerCase()}`,
+  title: `Senior Tax Consultant (${city})`,
+  slug,
+  url: `https://jobs.pwc.ch/job-vacancies/${slug}/${PWC_UUID}`,
+  applyUrl: `https://jobs.pwc.ch/job-vacancies/${slug}/${PWC_UUID}`,
+  company: 'PwC Switzerland',
+  companyKey: 'pwc',
+  location: city,
+  addressLocality: city,
+  addressRegion: city === 'Lugano' ? 'TI' : 'ZH',
+  addressCountry: 'CH',
+  canton: city === 'Lugano' ? 'TI' : 'ZH',
+  country: 'CH',
+  sourceLang: 'en',
+  description: `Source description for ${marker}, with enough detail to represent the vacancy.`,
+  titleByLocale: { en: `Senior Tax Consultant (${city})` },
+  descriptionByLocale: { en: `Source description for ${marker}, with enough detail to represent the vacancy.` },
+  slugByLocale: { it: slug, en: slug, de: slug, fr: slug },
+  previousSlugs,
+});
+
+describe('PwC mergeJobs identity', () => {
+  it('keeps same-UUID records and slug history distinct per city', () => {
+    mergeMocks.readExistingCrawlerJobs.mockReset();
+    mergeMocks.writeJsonAtomic.mockReset();
+    mergeMocks.readExistingCrawlerJobs.mockReturnValue([
+      mergeIdentityJob({
+        city: 'Lugano',
+        slug: 'old-lugano-tax',
+        marker: 'old Lugano',
+        previousSlugs: ['legacy-lugano-tax'],
+      }),
+      mergeIdentityJob({
+        city: 'Zürich',
+        slug: 'old-zurich-tax',
+        marker: 'old Zürich',
+        previousSlugs: ['legacy-zurich-tax'],
+      }),
+    ]);
+
+    const writes: unknown[][] = [];
+    mergeMocks.writeJsonAtomic.mockImplementation((_path: string, jobs: unknown[]) => {
+      writes.push(jobs);
+    });
+
+    const stats = mergeJobs([
+      mergeIdentityJob({ city: 'Lugano', slug: 'fresh-lugano-tax', marker: 'fresh Lugano' }),
+      mergeIdentityJob({ city: 'Zürich', slug: 'fresh-zurich-tax', marker: 'fresh Zürich' }),
+    ]);
+
+    expect(stats).toMatchObject({ total: 2, added: 0, updated: 2 });
+    expect(writes).toHaveLength(2);
+    const merged = writes[0] as Array<Record<string, any>>;
+    expect(merged).toHaveLength(2);
+
+    const byCity = new Map(merged.map((job) => [job.addressLocality, job]));
+    expect(byCity.get('Lugano')?.previousSlugs).toEqual(expect.arrayContaining([
+      'legacy-lugano-tax',
+    ]));
+    expect(byCity.get('Lugano')?.previousSlugs).not.toContain('legacy-zurich-tax');
+    expect(byCity.get('Zürich')?.previousSlugs).toEqual(expect.arrayContaining([
+      'legacy-zurich-tax',
+    ]));
+    expect(byCity.get('Zürich')?.previousSlugs).not.toContain('legacy-lugano-tax');
+  });
+});
+
+const PWC_INTRO = 'Join our Tax and Legal team in Lugano and advise private and corporate clients on Swiss and international tax matters.';
+const PWC_TASKS = ['Advise clients on cross-border tax structures and compliance questions', 'Prepare tax returns, rulings and documentation for our clients'];
+const PWC_REQUIREMENTS = ['University degree in law, economics or finance with a focus on taxation', 'Several years of experience in tax consulting and excellent English'];
+
+function pwcListingRow(id: number, viewkey: string, directlink: string, offices: string[]) {
+  return {
+    id,
+    viewkey,
+    title: 'Senior Tax Consultant',
+    attributes: { '20': offices, '30': ['Tax & Legal'], '40': ['Full-time'] },
+    szas: {
+      sza_introduction: `<p>${PWC_INTRO}</p>`,
+      sza_tasks: `<ul>${PWC_TASKS.map((task) => `<li>${task}</li>`).join('')}</ul>`,
+      sza_requirements: `<ul>${PWC_REQUIREMENTS.map((req) => `<li>${req}</li>`).join('')}</ul>`,
+      sza_location: { city: 'Lugano', zip: '6900', street: 'Via della Posta 7', country: 'CH' },
+    },
+    links: { directlink },
+    start_date: daysAgoDate(3),
+    language: 'en',
+  };
+}
+
+// The vacancy page the tenant renders: the listing text plus the sections the
+// API omits. Both listing ids render the same page.
+const PWC_PAGE = `<!doctype html><html><body><main>
+  <h1>Senior Tax Consultant</h1>
+  <p>${PWC_INTRO}</p>
+  <h2>Your tasks</h2><ul>${PWC_TASKS.map((task) => `<li>${task}</li>`).join('')}</ul>
+  <h2>Your profile</h2><ul>${PWC_REQUIREMENTS.map((req) => `<li>${req}</li>`).join('')}</ul>
+  <h2>Your Team</h2><p>You join a team of twelve tax specialists who work closely with our offices in Zurich and Geneva.</p>
+  <h2>Your Benefits</h2><ul><li>Flexible working hours and hybrid work arrangements</li><li>Paid study leave for professional tax qualifications</li></ul>
+</main></body></html>`;
+
+describe('PwC re-posts per city (FU-2026-10-01-019)', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('keeps one record per office of a multi-city vacancy and drops a re-post of it at the same office', async () => {
+    const listing = {
+      total: 2,
+      jobs: [
+        pwcListingRow(101, 'tax-101', PWC_URL, ['Lugano', 'Zürich']),
+        pwcListingRow(102, 'tax-102', PWC_REPOST_URL, ['Lugano']),
+      ],
+    };
+    const fetchMock = vi.fn(async (url: string) => {
+      const href = String(url);
+      if (href.startsWith('https://ohws.prospective.ch/public/v1/medium/')) {
+        return new Response(JSON.stringify(listing), { status: 200, headers: { 'Content-Type': 'application/json' } });
+      }
+      if (href === PWC_URL || href === PWC_REPOST_URL) {
+        return new Response(PWC_PAGE, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+      }
+      return new Response('', { status: 404 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const jobs: any[] = (await fetchAllPwcJobs())!;
+
+    // The re-post (another id and URL, same page, same office) is gone; the
+    // Zürich record of the original vacancy stays.
+    expect(jobs.map((job) => [job.addressLocality, job.url])).toEqual([
+      ['Lugano', PWC_URL],
+      ['Zürich', PWC_URL],
+    ]);
+    // Both records were described by the rendered page, so the drop compared
+    // full vacancy texts, not listing text.
+    for (const job of jobs) expect(job.description).toContain('twelve tax specialists');
+    // The two offices of one vacancy keep two distinct merge keys.
+    expect(new Set(jobs.map((job) => jobMatchKey(job))).size).toBe(jobs.length);
+    // The shared page is read once per URL.
+    expect(fetchMock.mock.calls.filter(([url]) => url === PWC_URL)).toHaveLength(1);
+    expect(fetchMock.mock.calls.filter(([url]) => url === PWC_REPOST_URL)).toHaveLength(1);
+  }, 20_000);
+});
+
+describe('jobMatchKey (FU-2026-10-01-019)', () => {
+  const row = (directLink: string, city: string) => ({
+    id: 101,
+    viewkey: 'tax-101',
+    title: 'Senior Tax Consultant',
+    description: `${PWC_INTRO}\n\n${PWC_TASKS.join('\n')}`,
+    city: 'Lugano',
+    _explodedCity: city,
+    postalCode: '6900',
+    country: 'CH',
+    directLink,
+    startDate: daysAgoDate(3),
+    language: 'en',
+  });
+
+  it('matches the stored record when PwC rewrites the slug of the vacancy URL', () => {
+    const stored = buildPwcJob(row(`https://jobs.pwc.ch/job-vacancies/stage-de-audit/${PWC_UUID}`, 'Lugano'))!;
+    const renamed = buildPwcJob(row(`https://jobs.pwc.ch/job-vacancies/fy27-asr-audit/${PWC_UUID}`, 'Lugano'))!;
+
+    expect(renamed.url).not.toBe(stored.url);
+    expect(jobMatchKey(renamed)).toBe(jobMatchKey(stored));
+  });
+
+  it('keeps the per-city records of one vacancy apart', () => {
+    const lugano = buildPwcJob(row(PWC_URL, 'Lugano'))!;
+    const zurich = buildPwcJob(row(PWC_URL, 'Zürich'))!;
+
+    expect(jobMatchKey(lugano)).not.toBe(jobMatchKey(zurich));
+  });
+
+  // Records what jobMatchKey does today, not a requirement: a same-run re-post
+  // is dropped by dropRepostedListings; a re-post seen only in a later run is
+  // not caught here, and a future fix for that may change this expectation.
+  it('does not merge a re-post under a new UUID: the run-level re-post drop handles it', () => {
+    const original = buildPwcJob(row(PWC_URL, 'Lugano'))!;
+    const repost = buildPwcJob(row(PWC_REPOST_URL, 'Lugano'))!;
+
+    expect(jobMatchKey(repost)).not.toBe(jobMatchKey(original));
+  });
+
+  it('falls back to the slug when the URL carries no stable id', () => {
+    expect(jobMatchKey({ slug: 'Senior-Tax-Consultant-PwC-Lugano' })).toBe('senior-tax-consultant-pwc-lugano');
+  });
+});
+
+describe('PwC publication provenance', () => {
+  for (const kind of ['unverified-start', 'missing', 'invalid', 'future']) {
+    it(`keeps ${kind} startDate separate from publication`, () => {
+      const year = new Date().getUTCFullYear() - 1;
+      const startDate = kind === 'unverified-start' ? `${year}-06-15T12:00:00+02:00` : kind === 'invalid' ? `${year}-02-30` : kind === 'future' ? new Date(Date.now() + 3600000).toISOString() : '';
+      const job = buildPwcJob({ id: 201, title: 'Consultant', city: 'Lugano', description: 'Consulting responsibilities in Switzerland.', directLink: 'https://www.pwc.ch/careers/consultant/lugano-201', startDate });
+      expect(job).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown', addressLocality: 'Lugano' });
+      expect(job?.crawledAt).toBeTruthy();
+    });
+  }
 });

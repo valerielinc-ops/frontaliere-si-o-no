@@ -2,13 +2,29 @@ import { describe, it, expect, afterEach, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({
   fetchWorkdayJobs: vi.fn(),
-  fetchWorkdayJobDescriptionText: vi.fn(async () => ''),
+  // A real vacancy body: a req without one is not published (issue 5253).
+  fetchWorkdayJobDetailParts: vi.fn(async () => ({
+    text: 'Responsibilities and requirements of the role, described at length by the employer, with the team context and the application steps. You bring relevant experience, good German or English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly team.',
+    info: {},
+  })),
+  // Detail of an `N Locations` roll-up: the req's own primary workplace.
+  fetchWorkdayJobDetail: vi.fn(async (_apiBase: string, externalPath: string) => {
+    const primary: Record<string, string> = {
+      '/job/Basel/Swiss-role_JR10': 'Basel',
+      '/job/Warsaw/Rollup-role_JR11': 'Warsaw',
+    };
+    return primary[externalPath]
+      ? { jobPostingInfo: { location: primary[externalPath] } }
+      : null;
+  }),
 }));
 
-vi.mock('../scripts/lib/ats-clients/workday-client.mjs', () => ({
+vi.mock('../scripts/lib/ats-clients/workday-client.mjs', async (importOriginal) => ({
+  ...await importOriginal<typeof import('../scripts/lib/ats-clients/workday-client.mjs')>(),
   buildWorkdayApiBase: () => 'https://roche.wd3.myworkdayjobs.com/wday/cxs/roche/roche-ext',
   fetchWorkdayJobs: mocks.fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText: mocks.fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetailParts: mocks.fetchWorkdayJobDetailParts,
+  fetchWorkdayJobDetail: mocks.fetchWorkdayJobDetail,
   parseWorkdayPostedDate: () => null,
   extractWorkdayJobIdentity: (posting: any) => ({
     title: posting.title,
@@ -32,7 +48,8 @@ import { slugify } from '../scripts/lib/crawler-template.mjs';
 describe('Roche crawler parser', () => {
   afterEach(() => {
     mocks.fetchWorkdayJobs.mockReset();
-    mocks.fetchWorkdayJobDescriptionText.mockClear();
+    mocks.fetchWorkdayJobDetailParts.mockClear();
+    mocks.fetchWorkdayJobDetail.mockClear();
   });
 
   // ── Constants ──
@@ -67,10 +84,32 @@ describe('Roche crawler parser', () => {
       url: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Swiss-role_JR1',
     });
     expect((jobs as any).missingDetailUrlCount).toBe(1);
-    expect(mocks.fetchWorkdayJobDescriptionText).toHaveBeenCalledTimes(1);
+    expect(mocks.fetchWorkdayJobDetailParts).toHaveBeenCalledTimes(1);
   });
 
-  it('skips explicit foreign locations instead of assigning the Basel fallback', async () => {
+  it('skips a Swiss vacancy whose detail has no body and never emits a Key details stub', async () => {
+    mocks.fetchWorkdayJobs.mockImplementation(async function* fetchMockJobs() {
+      yield {
+        title: 'Clinical Research Associate',
+        location: 'Basel',
+        externalPath: '/job/Basel/Clinical-Research-Associate_JR3',
+        applyUrl: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Clinical-Research-Associate_JR3',
+        jobReqId: 'JR3',
+      };
+    });
+    mocks.fetchWorkdayJobDetailParts.mockResolvedValueOnce({ text: '', info: {} });
+
+    const jobs = await fetchAllRocheJobs();
+
+    expect(jobs).toHaveLength(0);
+    expect(JSON.stringify(jobs)).not.toContain('Key details');
+    expect(mocks.fetchWorkdayJobDetailParts).toHaveBeenCalledTimes(1);
+  });
+
+  // Issue 9842: an empty listing location is an `N Locations` roll-up. The
+  // Basel HQ used to fill it, publishing reqs worked in Warsaw (56 slice rows),
+  // Shanghai or Madrid as `Basel/BS`. Only the req's own primary may place it.
+  it('skips explicit foreign locations and resolves roll-ups by their own primary, never Basel', async () => {
     mocks.fetchWorkdayJobs.mockImplementation(async function* fetchMockJobs() {
       yield {
         title: 'Madrid role should not enter Swiss slice',
@@ -86,6 +125,20 @@ describe('Roche crawler parser', () => {
         applyUrl: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Swiss-role_JR10',
         jobReqId: 'JR10',
       };
+      yield {
+        title: 'Roll-up worked in Warsaw',
+        location: '',
+        externalPath: '/job/Warsaw/Rollup-role_JR11',
+        applyUrl: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Warsaw/Rollup-role_JR11',
+        jobReqId: 'JR11',
+      };
+      yield {
+        title: 'Roll-up whose detail did not load',
+        location: '',
+        externalPath: '/job/Unknown/Rollup-role_JR12',
+        applyUrl: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Unknown/Rollup-role_JR12',
+        jobReqId: 'JR12',
+      };
     });
 
     const jobs = await fetchAllRocheJobs();
@@ -96,7 +149,45 @@ describe('Roche crawler parser', () => {
       location: 'Basel',
       canton: 'BS',
     });
-    expect(mocks.fetchWorkdayJobDescriptionText).toHaveBeenCalledTimes(1);
+    expect(mocks.fetchWorkdayJobDetail).toHaveBeenCalledTimes(3);
+    expect(mocks.fetchWorkdayJobDetailParts).toHaveBeenCalledTimes(1);
+  });
+
+  // #9508 FU-2026-09-22-018: the Workday Swiss country facet does not filter
+  // this tenant, and bare foreign city names ("Hyderabad", "Penzberg") are not
+  // in the foreign blocklist. The published slice carried 540/862 such rows
+  // tagged `BS/CH`, so Swiss membership must be proven, not assumed.
+  it('keeps only listings with positive Swiss evidence', async () => {
+    const postings = [
+      ['Hyderabad', 'JR20'],
+      ['Penzberg', 'JR21'],
+      ['Mannheim', 'JR22'],
+      ['Grenzach', 'JR23'],
+      ['Sant Cugat del Vallès', 'JR24'],
+      ['San Jose, Costa Rica', 'JR25'],
+      ['Basel', 'JR26'],
+      ['Kaiseraugst', 'JR27'],
+      ['Rotkreuz', 'JR28'],
+    ];
+    mocks.fetchWorkdayJobs.mockImplementation(async function* fetchMockJobs() {
+      for (const [location, jobReqId] of postings) {
+        yield {
+          title: `Role in ${location}`,
+          location,
+          externalPath: `/job/${jobReqId}`,
+          applyUrl: `https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/${jobReqId}`,
+          jobReqId,
+        };
+      }
+    });
+
+    const jobs = await fetchAllRocheJobs();
+
+    expect(jobs.map((job: any) => [job.location, job.canton])).toEqual([
+      ['Basel', 'BS'],
+      ['Kaiseraugst', 'AG'],
+      ['Rotkreuz', 'ZG'],
+    ]);
   });
 
   // ── isCompanyJob ──

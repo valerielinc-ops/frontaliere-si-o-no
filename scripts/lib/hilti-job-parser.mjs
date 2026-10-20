@@ -23,9 +23,12 @@
  *   - isTrustedDomain()    — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import {
   resolveDetailOrListingSwissGeography,
   schemaJobLocationCandidates,
@@ -44,6 +47,15 @@ import {
 export const HILTI_KEY = 'hilti';
 export const HILTI_COMPANY_NAME = 'Hilti';
 export const HILTI_COMPANY_DOMAIN = 'hilti.group';
+
+/**
+ * The WHOLE text the parser used to publish INSTEAD of a missing listing
+ * body (issue 5253), and nothing else: "<title> — Hilti". Anchored at both
+ * ends on purpose: only a description made of that single line matches. Only
+ * ever recognised, to remove it from stored jobs before the merge
+ * (`prepareExistingJobs` in update-hilti-jobs.mjs).
+ */
+export const HILTI_FABRICATED_DESCRIPTION_RE = /^\s*[^\n]{1,250}? — Hilti\s*$/;
 
 const ATS_HOST = 'careers.hilti.group';
 const BASE_URL = `https://${ATS_HOST}`;
@@ -167,12 +179,6 @@ function detectEmploymentType(text = '') {
 
 /* ── Date helper ──────────────────────────────────────────── */
 
-/** Normalise an ISO-ish datePosted to "YYYY-MM-DD". Returns '' on failure. */
-function toDateOnly(raw = '') {
-  const m = String(raw || '').trim().match(/(\d{4})-(\d{2})-(\d{2})/);
-  return m ? `${m[1]}-${m[2]}-${m[3]}` : '';
-}
-
 /* ── Schema.org extraction ─────────────────────────────────── */
 
 /**
@@ -183,12 +189,7 @@ function pickJobPosting(ldBlocks = []) {
   for (const raw of ldBlocks) {
     let parsed;
     try { parsed = JSON.parse(raw); } catch { continue; }
-    const candidates = Array.isArray(parsed)
-      ? parsed
-      : Array.isArray(parsed?.['@graph'])
-        ? parsed['@graph']
-        : [parsed];
-    const jp = candidates.find((o) => o && o['@type'] === 'JobPosting');
+    const [jp] = extractJobPostingNodesFromJson(parsed);
     if (jp) return jp;
   }
   return null;
@@ -301,7 +302,7 @@ async function fetchDetailPage(context, url) {
     const description = normalizeDescriptionBullets(stripHtml(jp.description || ''));
 
     return {
-      datePosted: toDateOnly(jp.datePosted || ''),
+      ...sourcePostingDateFields(jp.datePosted),
       employmentType: typeof jp.employmentType === 'string' ? jp.employmentType : '',
       addressLocality: primaryLocation?.addressLocality || '',
       addressRegion: primaryLocation?.addressRegion || '',
@@ -345,7 +346,7 @@ async function fetchJobListings() {
         url: row.url,
         jobReqId: row.jobReqId,
         team: row.team,
-        postedAt: detail?.datePosted || '',
+        ...mergeSourcePostingDates({}, detail || {}),
         description: detail?.description || '',
         employmentType: detail?.employmentType || '',
         addressLocality: detail?.addressLocality || '',
@@ -356,6 +357,7 @@ async function fetchJobListings() {
     }
     return listings;
   } catch (err) {
+    // fetch-failure-empty-ok: Playwright session catch that also covers browser launch, a runner transient the pipeline does not soft-exit
     console.warn(`⚠️ Hilti fetch failed: ${err?.message || err}`);
     return [];
   } finally {
@@ -407,6 +409,10 @@ export async function fetchAllHiltiJobs() {
     const { location, canton } = geography;
     const evidence = decision.candidate;
     const descriptionText = stripHtml(listing.description || '');
+    // Only the posting's own text (issue 5253): no "<title> — Hilti" line in
+    // place of a missing body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
@@ -428,8 +434,8 @@ export async function fetchAllHiltiJobs() {
       companyDomain: HILTI_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — ${HILTI_COMPANY_NAME}`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — ${HILTI_COMPANY_NAME}` },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton,
       url: publicUrl,
@@ -450,7 +456,7 @@ export async function fetchAllHiltiJobs() {
       sector: HILTI_SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

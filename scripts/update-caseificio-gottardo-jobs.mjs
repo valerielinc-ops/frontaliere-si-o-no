@@ -17,7 +17,13 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import { crawledAtFromObservation } from './lib/source-crawl-observation.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -33,6 +39,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -49,6 +56,7 @@ import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-templat
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -251,10 +259,14 @@ function parseListingPage(html) {
 // Detail page fetching
 // ─────────────────────────────────────────────────────────────
 
-async function fetchDetailDescription(url) {
-  const html = await fetchPage(url);
-  if (!html) return '';
-
+/**
+ * Detail-page text: the content block, or the text after the h1, up to the
+ * first end marker (the contact box, `<footer`, a `footer` class). There is no
+ * length cap (issue 5253), so a page without any end marker gives no body
+ * rather than its tail (menus, language switcher, cookie UI): the title-only
+ * line is returned instead.
+ */
+export function extractCaseificioDetailDescription(html = '') {
   // Extract main content — find the area after the title heading
   // The page has the job title as an H1, then content divs with the description
   const titleSource = stripScriptsAndStyles(html);
@@ -271,10 +283,12 @@ async function fetchDetailDescription(url) {
   if (contentMatch) {
     description = stripHtml(contentMatch[1]);
   } else {
-    // Fallback: extract all text after h1 title until footer
+    // Fallback: the text after the h1 up to the contact box or the page
+    // footer (the same end markers as above). Without one there is no
+    // delimited body: safe-fail to the title-only line below.
     const afterTitle = html.split(/<\/h1>/i).slice(1).join('');
-    const beforeFooter = afterTitle.split(/Caseificio dimostrativo del Gottardo SA/i)[0] || afterTitle;
-    description = stripHtml(beforeFooter);
+    const end = afterTitle.search(/Caseificio dimostrativo del Gottardo|<footer|class="[^"]*footer/i);
+    description = end >= 0 ? stripHtml(afterTitle.slice(0, end)) : '';
   }
 
   // Clean up CSS/JS noise that may leak through
@@ -285,38 +299,33 @@ async function fetchDetailDescription(url) {
     .replace(/\s{3,}/g, '\n\n')
     .trim();
 
-  // Limit length
-  if (description.length > 3000) {
-    description = description.slice(0, 3000) + '…';
-  }
-
   return description || `${titleText}\n\nPer maggiori dettagli, consultare la pagina dell'offerta.`;
+}
+
+async function fetchDetailDescription(url) {
+  const html = await fetchPage(url);
+  if (!html) return '';
+  return extractCaseificioDetailDescription(html);
 }
 
 // ─────────────────────────────────────────────────────────────
 // Description building
 // ─────────────────────────────────────────────────────────────
 
-function buildFallbackDescription(title, category, locationInfo) {
-  const parts = [];
+// First words of the description earlier versions wrote themselves when the
+// detail page was thin ("Caseificio dimostrativo del Gottardo SA pubblica il
+// seguente … Per i dettagli completi, consultare la pagina dell'offerta."):
+// text the source never showed. It marks a STORED description as not
+// source-read; mergeJobs removes it (and its translations) before merging.
+export const CASEIFICIO_INVENTED_RE = /Caseificio dimostrativo del Gottardo SA pubblica il seguente /;
 
-  const categoryLabel =
-    /tirocinio/i.test(category) ? 'posto di tirocinio' : 'offerta di impiego';
-
-  parts.push(
-    `Caseificio dimostrativo del Gottardo SA pubblica il seguente ${categoryLabel}: ${title}.`
-  );
-  if (locationInfo) {
-    parts.push(`Sede: ${locationInfo}`);
-  }
-  parts.push('');
-  parts.push('Per i dettagli completi, consultare la pagina dell\'offerta.');
-  parts.push('');
-  parts.push('Settore: Industria lattiero-casearia / Alimentare');
-  parts.push('Sede aziendale: Via Fontana 3, 6780 Airolo (TI), Svizzera');
-  parts.push('Contatto: direzione@cdga.ch | Tel. +41 91 869 11 80');
-
-  return parts.join('\n').trim();
+/**
+ * The detail page's own text when it is over the shared word floor, '' under
+ * it (the job then keeps its stored source body, or is not published this
+ * run): no invented text, no thin page.
+ */
+export function caseificioSourceBody(detailText = '') {
+  return meetsSourceBodyFloor(detailText) ? String(detailText).trim() : '';
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -356,13 +365,16 @@ function detectEmploymentType(title = '', locationInfo = '') {
 // Main discovery
 // ─────────────────────────────────────────────────────────────
 
-async function fetchCaseificioJobs() {
+export async function fetchCaseificioJobs() {
   console.log(`📡 Fetching careers page: ${CAREERS_URL}`);
   const html = await fetchPage(CAREERS_URL);
   if (!html) {
     console.warn('⚠️ Failed to fetch careers page.');
     return [];
   }
+  const observedAt = new Date();
+  const crawledAt = crawledAtFromObservation(observedAt);
+  if (!crawledAt) return [];
 
   const listings = parseListingPage(html);
   console.log(`📋 Found ${listings.length} offerta(e) on page.`);
@@ -388,9 +400,7 @@ async function fetchCaseificioJobs() {
       console.warn(`  ⚠️  Could not fetch detail page: ${err?.message || err}`);
     }
 
-    if (!description || description.length < 50) {
-      description = buildFallbackDescription(listing.title, listing.category, listing.location);
-    }
+    description = caseificioSourceBody(description);
 
     const slug = slugify(listing.title, COMPANY_KEY);
 
@@ -409,7 +419,8 @@ async function fetchCaseificioJobs() {
       employmentType: detectEmploymentType(listing.title, listing.location),
       experienceLevel: detectExperienceLevel(listing.title, listing.category),
       source: 'caseificio-gottardo-crawler',
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...sourcePostingDateFields(''),
+      crawledAt,
       titleByLocale: { it: listing.title },
       descriptionByLocale: { it: description },
       slugByLocale: { it: slug },
@@ -445,7 +456,14 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
-  const existingTargetJobs = allJobs.filter(isTargetJob);
+  const existingTargetJobs = dropFabricatedDescriptions(allJobs.filter(isTargetJob), CASEIFICIO_INVENTED_RE, COMPANY_NAME);
+  // A detail page under the word floor: keep the stored source body, or do not
+  // publish the posting this run (no invented text, no thin page).
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingTargetJobs, (url) => url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingByKey = new Map();
   for (const job of existingTargetJobs) {
@@ -478,6 +496,7 @@ async function mergeJobs(discoveredJobs) {
     if (ex) {
       const updatedJob = {
         ...ex,
+        ...mergeSourcePostingDates(ex, discovered),
         title: discovered.title || ex.title,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
@@ -658,6 +677,20 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, {
+      isTargetJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 // ─────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────
@@ -684,7 +717,10 @@ async function main() {
     console.log(
       '   The careers page may have changed structure or have no current openings.'
     );
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
@@ -723,7 +759,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, { observedJobs: discoveredJobs });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Caseificio del Gottardo',
@@ -744,4 +780,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Caseificio del Gottardo'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Caseificio del Gottardo'));
+}

@@ -20,6 +20,7 @@ import {
   newsletterOptOutMillis,
   toEpochMillis,
 } from './newsletterOptOut.mjs';
+import { hasSubscriptionBasis } from './subscriberConsent.mjs';
 
 /**
  * The purpose-specific field, the legacy hard-deny switch, and the first page
@@ -161,6 +162,9 @@ export function isAdvertisingReactivation(sub) {
  */
 export function isAdvertisingSuppressed(sub) {
   if (!sub || typeof sub !== 'object') return true;
+  // Advertising rides the base relationship (#8754); a profile-only sign-in
+  // document has none, and no advertising reactivation can create one.
+  if (!hasSubscriptionBasis(sub)) return true;
   // Hard address signals can never be lifted by an advertising-only choice,
   // even when the newsletter row also carries an older opt-out stamp.
   if (isAddressSuppressed(sub.status) || isAddressSuppressed(sub.doc?.status)) return true;

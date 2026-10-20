@@ -199,6 +199,49 @@ describe('D18 cumulativo — finestre e due regimi', () => {
     expect(result.partial.ga4).toContain('2026-06-12');
   });
 
+  it('D18-T29 costruisce la matrice dai giorni effettivamente coperti dai due regimi', () => {
+    const requestedWindow = {
+      from: '2026-06-11T00:00:00+02:00',
+      to: '2026-06-16T00:00:00+02:00',
+      timezone: 'Europe/Zurich',
+      inclusive: '[from,to)',
+    };
+    const daily = builder.buildD18DailyCoverage(requestedWindow, {
+      ga4: {
+        status: 'observed',
+        sourceCoverage: {
+          coverageStart: '2026-06-12T00:00:00+02:00',
+          coverageEnd: '2026-06-15T00:00:00+02:00',
+          completeThrough: '2026-06-15T00:00:00+02:00',
+          queried: true,
+          status: 'observed',
+          truncated: false,
+          gaps: ['2026-06-13'],
+        },
+      },
+      posthog: {
+        status: 'observed',
+        sourceCoverage: {
+          coverageStart: requestedWindow.from,
+          coverageEnd: requestedWindow.to,
+          completeThrough: requestedWindow.to,
+          queried: true,
+          status: 'observed',
+          truncated: false,
+          gaps: [],
+        },
+      },
+    });
+    const matrix = contract.buildCoverageMatrix({ requestedWindow, daily });
+
+    expect(matrix.both).toEqual(['2026-06-12', '2026-06-14']);
+    expect(matrix.posthogOnly).toEqual(['2026-06-11', '2026-06-13', '2026-06-15']);
+    expect(matrix.ga4Only).toEqual([]);
+    expect(matrix.unknownDays).toEqual([]);
+    expect(matrix.partial.ga4).toEqual(['2026-06-13']);
+    expect(matrix.status).toBe('parziale');
+  });
+
   it('D18-T05 affianca 612764 e 170273 senza sommarli', async () => {
     const result = await contractCall('buildCompositeMetric', {
       window: WINDOW,

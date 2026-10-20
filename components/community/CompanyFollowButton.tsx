@@ -1,18 +1,22 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import {
   companyAlertKey,
   deleteAlert,
-  findCompanyAlert,
+  type findCompanyAlert,
   subscribeCompanyAlert,
 } from '@/services/jobAlertService';
-import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
+import { recordServerCompanyFollowIntent, savePendingCompanyFollow } from '@/services/companyFollowIntent';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import CompanyFollowPlaceholder from './CompanyFollowPlaceholder';
-import SignupPromptModal from './SignupPromptModal';
+import { lazyRetry } from '@/services/lazyRetry';
+import { findCompanyAlertCached } from '@/services/userAlertsCache';
 import { buildPath } from '@/services/router';
+
+// Registration (including Firestore and newsletter code) is needed only on click.
+const SignupPromptModal = lazyRetry(() => import('./SignupPromptModal'));
 
 export type CompanyFollowButtonStatus =
   | 'idle'
@@ -51,6 +55,8 @@ export interface CompanyFollowButtonProps {
   subscribe?: typeof subscribeCompanyAlert;
   unfollow?: typeof deleteAlert;
   captureEmail?: (email: string, intent: { company: string; companyKey?: string | null }) => Promise<void>;
+  /** Injected for tests; defaults to the server-side intent write. */
+  recordIntent?: typeof recordServerCompanyFollowIntent;
 }
 
 /**
@@ -90,8 +96,8 @@ export interface CompanyFollowButtonProps {
  * correct audit trail — the withdrawal stays on record with its `unsubscribed_at` — and it
  * costs one document, not one query.
  *
- * No new Firestore query: `findCompanyAlert` filters `getUserAlerts()` in
- * memory, reusing the already-deployed (userId, active, createdAt desc)
+ * No new Firestore query: the default cached lookup filters `getUserAlerts()`
+ * in memory, reusing the already-deployed (userId, active, createdAt desc)
  * collectionGroup index. `firestore.indexes.json` is NOT applied by CI, so a
  * surface that needed a new index would ship broken.
  */
@@ -108,13 +114,14 @@ export default function CompanyFollowButton({
   onUnsubscribed,
   onOptInRequested,
   onErrored,
-  lookup = findCompanyAlert,
+  lookup = findCompanyAlertCached,
   subscribe = subscribeCompanyAlert,
   unfollow = deleteAlert,
   captureEmail,
+  recordIntent = recordServerCompanyFollowIntent,
 }: CompanyFollowButtonProps) {
   const { t } = useTranslation();
-  const [status, setStatus] = useState<CompanyFollowButtonStatus>('loading');
+  const [status, setStatus] = useState<CompanyFollowButtonStatus>(userId ? 'loading' : 'idle');
   const [alertId, setAlertId] = useState<string | null>(null);
   const [authPromptOpen, setAuthPromptOpen] = useState(false);
   const authFollowInFlightRef = useRef(false);
@@ -180,18 +187,46 @@ export default function CompanyFollowButton({
    * unified relationship and access-link request; this callback owns only the
    * company-specific replay intent.
    */
-  const handleEmailRequested = useCallback((requestedEmail: string) => {
-    savePendingCompanyFollow({
+  const handleEmailRequested = useCallback(async (requestedEmail: string) => {
+    const followLocale = locale as 'it' | 'en' | 'de' | 'fr';
+    const parked = savePendingCompanyFollow({
       company,
       companyKey: companyKey ?? null,
-      locale: locale as 'it' | 'en' | 'de' | 'fr',
+      locale: followLocale,
       sourceJobSlug: sourceJobSlug ?? null,
       sourceJobUrl: sourceJobUrl ?? null,
       sourceJobTitle: sourceJobTitle ?? null,
       email: requestedEmail,
     });
+    // The server copy is what makes the follow survive a confirmation opened
+    // on another device; the local one is the fallback when this write fails.
+    const recorded = await recordIntent({
+      email: requestedEmail,
+      // `slug` IS the canonical CompanyAlert key: companyAlertKey(company,
+      // companyKey), the value subscribeCompanyAlert pins. The raw crawler
+      // `companyKey` is not — one crawler key can publish several employers
+      // (see companyAlertKey's docblock), so recording it would follow the
+      // wrong one and diverge from the local replay.
+      companyKey: slug,
+      company,
+      locale: followLocale,
+      sourceJobSlug: sourceJobSlug ?? null,
+      sourceJobUrl: sourceJobUrl ?? null,
+      sourceJobTitle: sourceJobTitle ?? null,
+    });
+    // Issue 9575: neither the browser nor the server holds the follow, so the
+    // confirmation link will complete nothing. Stop the flow here:
+    // `onOptInRequested` is the parent's "accept" (email flow continues) and
+    // must not fire for a follow that was never parked. Throwing moves the
+    // shared prompt to its error state instead of the "open the link to follow
+    // {company}" success card, and its catch reports the error once through
+    // `onEmailError` (= `onErrored`).
+    if (!parked && !recorded) {
+      setStatus('error');
+      throw new Error('pending_follow_storage_unavailable');
+    }
     onOptInRequested?.(requestedEmail);
-  }, [company, companyKey, locale, onOptInRequested, sourceJobSlug, sourceJobTitle, sourceJobUrl]);
+  }, [company, companyKey, locale, onOptInRequested, recordIntent, slug, sourceJobSlug, sourceJobTitle, sourceJobUrl]);
 
   // Social sign-in completes in the shared prompt. Once the parent supplies
   // the authenticated identity, close the prompt and perform the same follow
@@ -228,7 +263,7 @@ export default function CompanyFollowButton({
 
   // No employer key means no alert to write: nothing to reserve either.
   if (!slug) return null;
-  // `loading` is the `findCompanyAlert` round trip for a signed-in visitor. It
+  // `loading` waits for the shared alerts read for a signed-in visitor. It
   // used to render nothing, which was free while this CTA lived below the fold
   // and is a layout shift now that the job detail renders it in the header.
   if (status === 'loading') return <CompanyFollowPlaceholder />;
@@ -237,15 +272,17 @@ export default function CompanyFollowButton({
   const following = status === 'following';
 
   const signupPrompt = authPromptOpen ? (
-    <SignupPromptModal
-      locale={locale}
-      intent="follow"
-      company={company}
-      onDismiss={() => setAuthPromptOpen(false)}
-      submitEmail={captureEmail ? (requestedEmail) => captureEmail(requestedEmail, { company, companyKey }) : undefined}
-      onEmailRequested={handleEmailRequested}
-      onEmailError={onErrored}
-    />
+    <Suspense fallback={<span role="status">{t('common.loading')}</span>}>
+      <SignupPromptModal
+        locale={locale}
+        intent="follow"
+        company={company}
+        onDismiss={() => setAuthPromptOpen(false)}
+        submitEmail={captureEmail ? (requestedEmail) => captureEmail(requestedEmail, { company, companyKey }) : undefined}
+        onEmailRequested={handleEmailRequested}
+        onEmailError={onErrored}
+      />
+    </Suspense>
   ) : null;
 
   return (
@@ -283,18 +320,20 @@ export default function CompanyFollowButton({
           ? t('jobAlert.companyFollow.following', 'Stai seguendo questa azienda')
           : t('jobAlert.companyFollow.cta', 'Segui questa azienda')}
       </button>
-      <p className="mt-2 text-[11px] text-muted">
-        {following
-          ? t('jobAlert.companyFollow.followingHint', 'Ti scriviamo quando pubblica un nuovo annuncio. Tocca per smettere di seguirla.')
-          : t('jobAlert.companyFollow.hint', 'Ricevi una email quando questa azienda pubblica nuovi lavori.')}
-      </p>
+      {following && (
+        <p className="mt-2 text-[11px] text-muted">
+          {t('jobAlert.companyFollow.followingHint', 'Ti scriviamo quando pubblica un nuovo annuncio. Tocca per smettere di seguirla.')}
+        </p>
+      )}
       {!following && (
         <EmailConsentCheckbox
           id="company-follow-signed-in-consent"
           locale={locale}
           consentKey="communicationsOptIn"
-          className="mt-2 flex items-start gap-2 cursor-pointer"
-          noticeClassName="text-[10px] text-muted leading-snug"
+          className="mt-2"
+          collapsible
+          summary={t('jobAlert.companyFollow.terms')}
+          noticeClassName="mt-2 block text-[10px] text-muted leading-snug"
         />
       )}
       {following && (

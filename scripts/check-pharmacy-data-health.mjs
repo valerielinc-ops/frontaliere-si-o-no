@@ -1,3 +1,4 @@
+import { realpathSync } from 'node:fs';
 /**
  * check-pharmacy-data-health.mjs — Dashboard interna sulla qualità del dato
  * della verticale farmacie (#6753, item "dashboard interna" di #6400).
@@ -22,10 +23,15 @@
  *   5. PERIMETRO    — le quattro giurisdizioni CH-TI/IT-CO/IT-VA/IT-VB, con
  *                    record, freschezza, record fuori area, collisioni e
  *                    provenance dei campi secondari.
+ *   6. ORIZZONTE IT — per le province required, una release non fresh è un
+ *                    problema; una release fresh deve avere un ultimo turno
+ *                    verificato oltre la soglia minima.
  *
  * NON pubblica nulla e non tocca pagine: è un osservatore interno. I dataset
- * dei turni arrivano da `data/pharmacy-duties-<canton>.json`; un dataset
- * mancante per una fonte `active` o oltre lo SLA è un problema osservabile.
+ * dei turni arrivano da `data/pharmacy-duties-<canton>.json`, oppure dal
+ * `dutiesPath`/`dutiesKey` dichiarato dal registry quando il connettore usa un
+ * contenitore multi-cantone; un dataset mancante per una fonte `active` o
+ * oltre lo SLA è un problema osservabile.
  *
  * Exit code: 0 se sano, 1 se degradato. Il report machine-readable finisce in
  * `data/pharmacy-data-health-report.json` per il workflow che apre l'issue.
@@ -35,6 +41,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { validateBorderSnapshot, validateBorderSources } from './check-pharmacy-border-data.mjs';
+import { PHARMACY_SOURCE_AUDIT_VERDICTS } from '../services/pharmacies/sourceAudit.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -59,6 +66,20 @@ export const DUTIES_SLA_TOLERANCE = 2;
  * stale or truncated Italian snapshot.
  */
 export const BORDER_SLA_TOLERANCE = 2;
+
+/**
+ * Un verdetto di audit di una fonte cantonale (`audit` nel registry, #8705) è
+ * una lettura umana di una pagina che cambia: oltre questa età non dice più
+ * niente sullo stato della fonte e va ripetuto.
+ */
+export const PHARMACY_AUDIT_MAX_AGE_DAYS = 90;
+/**
+ * Un calendario italiano fresco deve conservare almeno questo margine di
+ * turni verificati dopo il fetch. Le settimane vuote sono lecite: osserviamo
+ * l'orizzonte dell'ultimo intervallo, non la continuità settimana per settimana.
+ */
+export const ITALY_REQUIRED_DUTY_HORIZON_DAYS = 28;
+const SWISS_CANTON_DUTY_TIMEZONE = 'Europe/Zurich';
 const BORDER_JURISDICTIONS = Object.freeze([
   { key: 'CH-TI', sourceKey: 'ticino-complete', country: 'CH', canton: 'Ticino' },
   { key: 'IT-CO', sourceKey: 'italy-border', country: 'IT', province: 'CO' },
@@ -127,6 +148,7 @@ export function evaluateCoverage(registry, datasets, duties, knownCantonCount) {
     const pharmacies = Array.isArray(anagrafica?.pharmacies) ? anagrafica.pharmacies : [];
     const dutyDoc = duties?.[key] ?? null;
     const dutyList = Array.isArray(dutyDoc?.duties) ? dutyDoc.duties : [];
+    const audit = entry?.audit && typeof entry.audit === 'object' ? entry.audit : null;
     entries.push({
       key,
       canton: entry?.canton ?? key,
@@ -142,15 +164,27 @@ export function evaluateCoverage(registry, datasets, duties, knownCantonCount) {
       regionsConfigured: Array.isArray(anagrafica?._sourceRegions) ? anagrafica._sourceRegions.length : 0,
       hasDuties: Boolean(dutyDoc),
       dutyCount: dutyList.length,
+      // Esito dell'audit umano della fonte: distingue «mai esaminata» (null) da
+      // «esaminata e non pubblicabile» su una fonte non attiva.
+      // Un verdetto fuori elenco non vale come audit (il validatore del registry
+      // lo boccia già nei test): resta fra le fonti `unaudited`.
+      audit: PHARMACY_SOURCE_AUDIT_VERDICTS.includes(audit?.verdict) ? audit.verdict : null,
+      auditedAt: typeof audit?.auditedAt === 'string' ? audit.auditedAt : null,
     });
   }
   entries.sort((a, b) => a.key.localeCompare(b.key));
+  const auditVerdicts = Object.fromEntries(PHARMACY_SOURCE_AUDIT_VERDICTS.map((verdict) => [verdict, 0]));
+  for (const e of entries) {
+    if (e.audit !== null) auditVerdicts[e.audit] = (auditVerdicts[e.audit] ?? 0) + 1;
+  }
   return {
     knownCantonCount,
     cantonsInRegistry: entries.length,
     cantonsWithAnagrafica: entries.filter((e) => e.hasAnagrafica).length,
     cantonsWithDuties: entries.filter((e) => e.hasDuties).length,
     byStatus,
+    unaudited: entries.filter((e) => e.status !== 'active' && e.audit === null).map((e) => e.key),
+    auditVerdicts,
     entries,
   };
 }
@@ -190,6 +224,231 @@ export function evaluateFreshness(registry, datasets, duties, nowMs, anagraficaM
     push(key, 'turni', duties[key], slaMs === null ? null : (slaMs * DUTIES_SLA_TOLERANCE) / 3600e3);
   }
   return { entries };
+}
+
+const SWISS_CANTON_DATE_FORMATTER = new Intl.DateTimeFormat('en-GB', {
+  timeZone: SWISS_CANTON_DUTY_TIMEZONE,
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hourCycle: 'h23',
+});
+
+function swissCantonDateTimeParts(timestampMs) {
+  const parts = SWISS_CANTON_DATE_FORMATTER.formatToParts(new Date(timestampMs));
+  return Object.fromEntries(parts
+    .filter((part) => part.type !== 'literal')
+    .map((part) => [part.type, Number(part.value)]));
+}
+
+function swissCantonMidnightMs(dateKey) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateKey);
+  if (!match) return NaN;
+  const localAsUtcMs = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+  const localAtCandidate = swissCantonDateTimeParts(localAsUtcMs);
+  const offsetMs = Date.UTC(
+    localAtCandidate.year,
+    localAtCandidate.month - 1,
+    localAtCandidate.day,
+    localAtCandidate.hour,
+    localAtCandidate.minute,
+    localAtCandidate.second,
+  ) - localAsUtcMs;
+  return localAsUtcMs - offsetMs;
+}
+
+function addCalendarDays(dateKey, days) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateKey);
+  if (!match) return null;
+  const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
+}
+
+function swissCantonFetchWeek(timestampMs) {
+  const local = swissCantonDateTimeParts(timestampMs);
+  const date = new Date(Date.UTC(local.year, local.month - 1, local.day));
+  const weekday = date.getUTCDay() || 7;
+  date.setUTCDate(date.getUTCDate() - weekday + 1);
+  const startKey = date.toISOString().slice(0, 10);
+  const endKey = addCalendarDays(startKey, 7);
+  return endKey
+    ? { startKey, endKey, startMs: swissCantonMidnightMs(startKey), endMs: swissCantonMidnightMs(endKey) }
+    : null;
+}
+
+function dutyIntersectsWindow(duty, startMs, endMs) {
+  const dutyStart = typeof duty?.startsAt === 'string' ? Date.parse(duty.startsAt) : NaN;
+  const dutyEnd = typeof duty?.endsAt === 'string' ? Date.parse(duty.endsAt) : NaN;
+  return Number.isFinite(dutyStart)
+    && Number.isFinite(dutyEnd)
+    && dutyEnd > dutyStart
+    && dutyEnd > startMs
+    && dutyStart < endMs;
+}
+
+function snapshotHasCoverageSignal(snapshot) {
+  const release = snapshot?._release;
+  return snapshot?._releaseReady !== true
+    || snapshot?._state !== 'fresh'
+    || release?.state !== 'fresh'
+    || snapshot?._coverage?.coverage !== 'covered'
+    || (Array.isArray(snapshot?._errors) && snapshot._errors.length > 0)
+    || (Array.isArray(snapshot?._unresolvedIdentities) && snapshot._unresolvedIdentities.length > 0);
+}
+
+/**
+ * Observes the week containing each Swiss canton release's own fetch timestamp.
+ * A historical week may naturally contain only `expired` rows after a later
+ * refresh; the observer therefore never anchors to a fixed calendar date.
+ * Fresh, release-ready snapshots without a verified interval in their fetch
+ * week are an unreported coverage gap and must make the health report red.
+ */
+export function observeSwissCantonDutyCoverage(registry, duties) {
+  const entries = [];
+  for (const [key, source] of Object.entries(registry?.sources ?? {})) {
+    if (source?.status !== 'active') continue;
+    const snapshot = duties?.[key];
+    if (!snapshot || typeof snapshot !== 'object' || Array.isArray(snapshot)) continue;
+    if (snapshot?._scope?.country !== 'CH' || typeof snapshot?._scope?.canton !== 'string') continue;
+    const fetchedAt = typeof snapshot._fetchedAt === 'string' ? snapshot._fetchedAt : null;
+    const fetchedAtMs = fetchedAt ? Date.parse(fetchedAt) : NaN;
+    const week = Number.isFinite(fetchedAtMs) ? swissCantonFetchWeek(fetchedAtMs) : null;
+    if (!week || !Number.isFinite(week.startMs) || !Number.isFinite(week.endMs)) continue;
+    const verifiedDutyCount = (Array.isArray(snapshot.duties) ? snapshot.duties : [])
+      .filter((duty) => duty?.status === 'verified' && dutyIntersectsWindow(duty, week.startMs, week.endMs))
+      .length;
+    entries.push({
+      key,
+      canton: snapshot._scope.canton,
+      fetchedAt,
+      weekStart: week.startKey,
+      weekEnd: week.endKey,
+      verifiedDutyCount,
+      covered: verifiedDutyCount > 0,
+      signalled: snapshotHasCoverageSignal(snapshot),
+    });
+  }
+  entries.sort((a, b) => a.key.localeCompare(b.key));
+  return {
+    entries,
+    unreportedGaps: entries.filter((entry) => !entry.covered && !entry.signalled),
+  };
+}
+
+function requiredItalyDutyProvinces(sources) {
+  const rawSources = Array.isArray(sources)
+    ? sources
+    : sources && typeof sources === 'object' && Array.isArray(sources.sources)
+      ? sources.sources
+      : [];
+  const configuredScope = sources && typeof sources === 'object' && Array.isArray(sources.scope?.provinces)
+    ? sources.scope.provinces
+    : [];
+  const normalizeProvince = (province) => {
+    if (typeof province !== 'string') return null;
+    const normalized = province.trim().toUpperCase();
+    return normalized || null;
+  };
+  const normalizedConfiguredScope = configuredScope.map(normalizeProvince);
+  // Uno scope assente, vuoto o con codici non riconosciuti non può restringere
+  // il controllo: il perimetro canonico resta required finché il registry non
+  // dichiara esplicitamente una provincia `best-effort`. Un valore non stringa
+  // non va filtrato via: altrimenti uno scope misto potrebbe perdere le altre
+  // province canoniche ancora prima di valutare il registry delle fonti.
+  const scope = normalizedConfiguredScope.length > 0
+    && normalizedConfiguredScope.every((province) => province && BORDER_ITALY_PROVINCES.has(province))
+    ? [...new Set(normalizedConfiguredScope)]
+    : [...BORDER_ITALY_PROVINCES];
+  const byProvince = new Map();
+  for (const source of rawSources) {
+    const province = normalizeProvince(source?.province);
+    if (!province) continue;
+    const entries = byProvince.get(province) ?? [];
+    entries.push(source);
+    byProvince.set(province, entries);
+  }
+  const registryProblems = [...byProvince.entries()]
+    .filter(([province, entries]) => scope.includes(province) && entries.length > 1)
+    .map(([province]) => `${province}: registro fonti Italia duplicato; la provincia resta required`);
+  return {
+    requiredProvinces: scope.filter((province) => {
+      const entries = byProvince.get(province) ?? [];
+      // Voce assente o publication malformata = required; solo una voce unica
+      // con esenzione esplicita può togliere una provincia dall'orizzonte.
+      return entries.length !== 1 || entries[0].publication !== 'best-effort';
+    }),
+    registryProblems,
+  };
+}
+
+/**
+ * Osserva l'orizzonte del calendario italiano senza confondere i buchi
+ * legittimi fra due turni con un dato scaduto. La classe `required` arriva dal
+ * registry della fonte: una classe assente resta required, come nella logica
+ * di pubblicazione della SPA e dell'importer. Una release non `fresh` genera
+ * un problema per ogni provincia required; una release `fresh` viene poi
+ * verificata anche sull'orizzonte del calendario.
+ */
+export function observeItalyDutyHorizon({ duties, sources, horizonDays = ITALY_REQUIRED_DUTY_HORIZON_DAYS } = {}) {
+  const snapshot = duties && typeof duties === 'object' && !Array.isArray(duties) ? duties : {};
+  const release = snapshot._release && typeof snapshot._release === 'object' && !Array.isArray(snapshot._release)
+    ? snapshot._release
+    : {};
+  const releaseState = typeof release.state === 'string' ? release.state : null;
+  const fetchedAt = typeof snapshot._fetchedAt === 'string' ? snapshot._fetchedAt : null;
+  const fetchedAtMs = fetchedAt ? Date.parse(fetchedAt) : NaN;
+  const thresholdDays = Number.isFinite(horizonDays) && horizonDays > 0
+    ? horizonDays
+    : ITALY_REQUIRED_DUTY_HORIZON_DAYS;
+  const rows = Array.isArray(snapshot.duties) ? snapshot.duties : [];
+  const { requiredProvinces, registryProblems } = requiredItalyDutyProvinces(sources);
+  const entries = requiredProvinces.map((province) => {
+    const verifiedRows = rows.filter((row) => row?.province === province && row?.status === 'verified');
+    const latest = verifiedRows.reduce((candidate, row) => {
+      const endsAt = typeof row?.endsAt === 'string' ? Date.parse(row.endsAt) : NaN;
+      if (!Number.isFinite(endsAt) || (candidate && endsAt <= candidate.endsAtMs)) return candidate;
+      return { endsAt: row.endsAt, endsAtMs: endsAt };
+    }, null);
+    const horizonDaysAfterFetch = Number.isFinite(fetchedAtMs) && latest
+      ? (latest.endsAtMs - fetchedAtMs) / 86400e3
+      : null;
+    const problems = [];
+    if (releaseState !== 'fresh') {
+      problems.push(`${province}: release ${releaseState ?? 'unknown'} non fresca`);
+    } else {
+      if (verifiedRows.length === 0) {
+        problems.push(`${province}: release fresh senza turni verificati`);
+      } else if (!Number.isFinite(fetchedAtMs)) {
+        problems.push(`${province}: _fetchedAt mancante o non parsabile per misurare l'orizzonte`);
+      } else if (!latest) {
+        problems.push(`${province}: nessun turno verificato con endsAt parsabile`);
+      } else if (horizonDaysAfterFetch < thresholdDays) {
+        problems.push(`${province}: ultimo turno verificato ${latest.endsAt} solo ${Math.round(horizonDaysAfterFetch * 10) / 10} giorni dopo il fetch, sotto la soglia di ${thresholdDays} giorni`);
+      }
+    }
+    return {
+      province,
+      releaseState,
+      fetchedAt,
+      verifiedDutyCount: verifiedRows.length,
+      latestVerifiedAt: latest?.endsAt ?? null,
+      horizonDaysAfterFetch: horizonDaysAfterFetch === null ? null : Math.round(horizonDaysAfterFetch * 10) / 10,
+      horizonDays: thresholdDays,
+      healthy: problems.length === 0,
+      problems,
+    };
+  });
+  return {
+    releaseState,
+    fetchedAt,
+    horizonDays: thresholdDays,
+    entries,
+    problems: [...registryProblems, ...entries.flatMap((entry) => entry.problems)],
+  };
 }
 
 /**
@@ -354,7 +613,7 @@ export function findBorderSourceMismatches(records) {
  * `sources`, `ticino`, `italy` and `duties` may be null: malformed/missing
  * snapshots must become a degraded report, not make the observer disappear.
  */
-export function evaluateBorderHealth({ sources, ticino, italy, duties = null, nowMs = Date.now() }) {
+export function evaluateBorderHealth({ sources, ticino, italy, duties = null, italyDuties = null, italySources = null, nowMs = Date.now() }) {
   const sourceMap = borderSourceRegistry(sources);
   const docs = { 'ticino-complete': normalizedBorderDoc(ticino), 'italy-border': normalizedBorderDoc(italy) };
   const records = [
@@ -400,6 +659,7 @@ export function evaluateBorderHealth({ sources, ticino, italy, duties = null, no
   const fetchErrors = ['ticino-complete', 'italy-border'].flatMap((key) => (Array.isArray(docs[key]?._errors) && docs[key]._errors.length
       ? [{ key, count: docs[key]._errors.length, errors: docs[key]._errors.slice(0, 10) }]
       : []));
+  const italyDutyHorizon = observeItalyDutyHorizon({ duties: italyDuties, sources: italySources });
   return {
     jurisdictions,
     totalRecords: jurisdictions.reduce((sum, jurisdiction) => sum + jurisdiction.recordCount, 0),
@@ -409,6 +669,7 @@ export function evaluateBorderHealth({ sources, ticino, italy, duties = null, no
     identityCollisions: detectBorderIdentityCollisions(records),
     missingSecondaryProvenance: detectMissingSecondaryProvenance(records),
     validationErrors,
+    italyDutyHorizon,
   };
 }
 
@@ -462,7 +723,15 @@ export function detectDutyConflicts(key, doc, nowMs) {
       conflicts.push({ key, type: 'duty-conflicting', detail: `turno ${d.id ?? '?'} (${d.coverageName ?? '?'}) in stato conflicting` });
     }
     const endsAt = typeof d?.endsAt === 'string' ? Date.parse(d.endsAt) : NaN;
-    if (d?.status === 'verified' && Number.isFinite(endsAt) && endsAt < nowMs) {
+    // `verified` is the status captured by the source snapshot. A row naturally
+    // becomes historical after that snapshot was fetched; runtime consumers
+    // must apply the clock to decide whether it is still active. The data
+    // conflict is only a row that was already expired when it was fetched (or
+    // a row without a usable fetch timestamp, where the current clock is the
+    // only safe comparison point).
+    const fetchedAt = typeof d?.fetchedAt === 'string' ? Date.parse(d.fetchedAt) : NaN;
+    const comparisonMs = Number.isFinite(fetchedAt) ? fetchedAt : nowMs;
+    if (d?.status === 'verified' && Number.isFinite(endsAt) && endsAt <= comparisonMs) {
       conflicts.push({ key, type: 'duty-expired-but-verified', detail: `turno ${d.id ?? '?'} è "verified" ma endsAt ${d.endsAt} è passato` });
     }
   }
@@ -475,6 +744,7 @@ export function detectDutyConflicts(key, doc, nowMs) {
 export function buildReport({ registry, datasets = {}, duties = {}, knownCantonCount = 0, nowMs = Date.now(), anagraficaMaxAgeHours = DEFAULT_ANAGRAFICA_MAX_AGE_HOURS, border = null }) {
   const coverage = evaluateCoverage(registry, datasets, duties, knownCantonCount);
   const freshness = evaluateFreshness(registry, datasets, duties, nowMs, anagraficaMaxAgeHours);
+  const dutyCoverage = observeSwissCantonDutyCoverage(registry, duties);
   const borderHealth = border ? evaluateBorderHealth({ ...border, nowMs }) : null;
   const fetchErrors = collectFetchErrors(datasets, duties);
   const conflicts = [
@@ -492,6 +762,24 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
     if (e.status === 'active' && !e.hasAnagrafica && !e.hasDuties) {
       problems.push(`fonte ${e.key} è "active" ma non esiste alcun dataset (né anagrafica né turni)`);
     }
+    // Un feed completo già verificato senza connettore è copertura lasciata sul
+    // tavolo. Una fonte non attiva SENZA audit (`coverage.unaudited`) non è un
+    // problema qui: la dashboard la conta, il test sul registry la presidia.
+    if (e.audit === 'complete-feed' && e.status !== 'active') {
+      problems.push(`fonte ${e.key} ha un feed completo verificato il ${e.auditedAt ? e.auditedAt.slice(0, 10) : 'data ignota'} ma nessun connettore: onboarding da aprire`);
+    }
+    if (e.audit !== null) {
+      const auditedMs = e.auditedAt ? Date.parse(e.auditedAt) : NaN;
+      if (!Number.isFinite(auditedMs)) {
+        problems.push(`audit ${e.key} scaduto: auditedAt mancante o non parsabile`);
+      } else if (auditedMs - nowMs > 86400e3) {
+        // Una data nel futuro (refuso sull'anno) darebbe un'età negativa e
+        // terrebbe l'audit «fresco» per mesi oltre la scadenza reale.
+        problems.push(`audit ${e.key} nel futuro: auditedAt ${e.auditedAt.slice(0, 10)} è successivo a oggi — correggere la data`);
+      } else if (nowMs - auditedMs > PHARMACY_AUDIT_MAX_AGE_DAYS * 86400e3) {
+        problems.push(`audit ${e.key} scaduto: eseguito il ${e.auditedAt.slice(0, 10)}, oltre ${PHARMACY_AUDIT_MAX_AGE_DAYS} giorni fa — ripetere la verifica della fonte`);
+      }
+    }
   }
   // Un'anagrafica stale è una violazione REALE dello SLA dichiarato dalla policy,
   // non un falso allarme da sopprimere — ma il percorso di rientro va nominato,
@@ -505,6 +793,9 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
   }
   for (const e of fetchErrors) problems.push(`${e.count} errore/i di fetch nel dataset ${e.kind} ${e.key}`);
   for (const c of conflicts) problems.push(`conflitto ${c.type} (${c.key}): ${c.detail}`);
+  for (const gap of dutyCoverage.unreportedGaps) {
+    problems.push(`release turni ${gap.key} fuori copertura nella settimana del fetch ${gap.weekStart} senza segnale di errore`);
+  }
   if (borderHealth) {
     const staleSources = new Set();
     for (const jurisdiction of borderHealth.jurisdictions) {
@@ -520,6 +811,7 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
       }
     }
     for (const error of borderHealth.fetchErrors) problems.push(`${error.count} errore/i di fetch nel dataset perimetro ${error.key}`);
+    for (const problem of borderHealth.italyDutyHorizon.problems) problems.push(`orizzonte turni Italia: ${problem}`);
     if (borderHealth.outOfScopeRecords.length) problems.push(`${borderHealth.outOfScopeRecords.length} record fuori perimetro nelle snapshot farmacie`);
     if (borderHealth.sourceMismatches.length) problems.push(`${borderHealth.sourceMismatches.length} record nella snapshot della fonte errata`);
     if (borderHealth.identityCollisions.length) problems.push(`${borderHealth.identityCollisions.length} collisioni di identità nelle snapshot farmacie`);
@@ -536,6 +828,7 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
     dutiesPipeline: coverage.cantonsWithDuties > 0
       ? { available: true }
       : { available: false, reason: 'dataset turni non disponibile per la fonte attiva' },
+    dutyCoverage,
     ...(borderHealth ? { border: borderHealth } : {}),
     problems,
     healthy: problems.length === 0,
@@ -553,6 +846,8 @@ export function formatReport(report) {
   const c = report.coverage;
   lines.push(`Copertura: ${c.cantonsInRegistry}/${c.knownCantonCount} cantoni con fonte registrata · ${c.cantonsWithAnagrafica} con anagrafica · ${c.cantonsWithDuties} con turni`);
   lines.push(`Stato fonti: ${Object.entries(c.byStatus).map(([k, v]) => `${k}=${v}`).join(' ') || 'nessuna'}`);
+  lines.push(`Cantoni non attivi senza verdetto di audit: ${c.unaudited.length}`);
+  lines.push(`Verdetti di audit: ${Object.entries(c.auditVerdicts).map(([k, v]) => `${k}=${v}`).join(' ')}`);
   for (const e of c.entries) {
     lines.push(`  • ${e.key} [${e.status}] — ${e.pharmacyCount} farmacie in ${e.cityCount} città (${e.regionsConfigured} regioni configurate), turni: ${e.hasDuties ? e.dutyCount : 'assenti'}`);
   }
@@ -562,6 +857,7 @@ export function formatReport(report) {
   }
   lines.push(`Errori di fetch: ${report.fetchErrors.reduce((n, e) => n + e.count, 0)}`);
   lines.push(`Conflitti: ${report.conflicts.length}`);
+  lines.push(`Copertura release cantonali: ${report.dutyCoverage.entries.length} osservate · gap non segnalati: ${report.dutyCoverage.unreportedGaps.length}`);
   if (!report.dutiesPipeline.available) lines.push(`Turni: ${report.dutiesPipeline.reason}`);
   if (report.border) {
     lines.push(`Perimetro operativo: ${report.border.jurisdictions.length} giurisdizioni · ${report.border.totalRecords} record`);
@@ -570,6 +866,11 @@ export function formatReport(report) {
       lines.push(`  • ${jurisdiction.key} [${jurisdiction.sourceStatus}] — ${jurisdiction.recordCount} record · fetch ${age}${jurisdiction.stale ? ' ⚠️ STALE' : ''}`);
     }
     lines.push(`Errori fetch perimetro: ${report.border.fetchErrors.reduce((n, e) => n + e.count, 0)}`);
+    lines.push(`Orizzonte turni Italia: soglia ${report.border.italyDutyHorizon.horizonDays}g`);
+    for (const entry of report.border.italyDutyHorizon.entries) {
+      const horizon = entry.horizonDaysAfterFetch === null ? '?' : `${entry.horizonDaysAfterFetch}g`;
+      lines.push(`  • IT-${entry.province} [required] — ultimo turno ${entry.latestVerifiedAt || 'nessuno'} · ${horizon}${entry.healthy ? '' : ' ⚠️ PROBLEMA'}`);
+    }
     lines.push(`Record fuori perimetro: ${report.border.outOfScopeRecords.length}`);
     lines.push(`Record nella snapshot della fonte errata: ${report.border.sourceMismatches.length}`);
     lines.push(`Collisioni identità perimetro: ${report.border.identityCollisions.length}`);
@@ -594,7 +895,8 @@ function readJson(relPath) {
  * I dataset per-cantone seguono la convenzione `data/pharmacies-<key>.json` e
  * `data/pharmacy-duties-<key>.json`, con `<key>` la chiave del registry. Se
  * una fonte separa l'anagrafica dai turni, `anagraficaPath` nel registry indica
- * il snapshot canonico e la convenzione resta il fallback di compatibilità.
+ * il snapshot canonico; `dutiesPath` e `dutiesKey` fanno lo stesso per un
+ * contenitore di release condiviso. Le convenzioni restano il fallback.
  */
 export function loadDatasets(registry) {
   const datasets = {};
@@ -603,7 +905,12 @@ export function loadDatasets(registry) {
     const configuredPath = typeof entry?.anagraficaPath === 'string' ? entry.anagraficaPath : null;
     const a = (configuredPath && readJson(configuredPath)) || readJson(`data/pharmacies-${key}.json`);
     if (a) datasets[key] = a;
-    const d = readJson(`data/pharmacy-duties-${key}.json`);
+    const configuredDutiesPath = typeof entry?.dutiesPath === 'string' ? entry.dutiesPath : null;
+    const rawDuties = readJson(configuredDutiesPath || `data/pharmacy-duties-${key}.json`);
+    const configuredDutiesKey = typeof entry?.dutiesKey === 'string' ? entry.dutiesKey : null;
+    const d = configuredDutiesKey && rawDuties?.snapshots && typeof rawDuties.snapshots === 'object'
+      ? rawDuties.snapshots[configuredDutiesKey]
+      : rawDuties;
     if (d) duties[key] = d;
   }
   return { datasets, duties };
@@ -637,6 +944,8 @@ function main() {
     ticino: readJson('data/pharmacies-ticino-complete.json'),
     italy: readJson('data/pharmacies-italy-border.json'),
     duties: readJson('data/pharmacy-duties-ticino.json'),
+    italyDuties: readJson('data/pharmacy-duties-italy.json'),
+    italySources: readJson('data/pharmacy-duties-italy-sources.json'),
   };
 
   const maxAgeEnv = Number(process.env.PHARMACY_ANAGRAFICA_MAX_AGE_HOURS);
@@ -664,5 +973,5 @@ function main() {
   process.exit(1);
 }
 
-const invokedDirectly = import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) main();

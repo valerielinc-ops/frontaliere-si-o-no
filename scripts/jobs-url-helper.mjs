@@ -22,6 +22,8 @@ import {
   buildStableJobIdentity,
   jobsDiffer,
 } from './lib/job-identity.mjs';
+import { ambiguousJobIdentities } from './lib/first-seen-history.mjs';
+import { deduplicateJobsByKey } from './lib/crawler-summary-partition.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -201,19 +203,56 @@ export function writeJobsSummary(jobs, label = '') {
 
 // ─── Crawl diff helpers ─────────────────────────────────────────────────
 
+/** Per-posting key inside a group of jobs that share one stable identity. */
+function snapshotPostingKey(job) {
+  const id = String(job?.id ?? '').trim();
+  if (id) return `id:${id}`;
+  const slug = String(job?.slug ?? '').trim().toLowerCase();
+  return slug ? `slug:${slug}` : '';
+}
+
 /**
  * Take a snapshot of jobs keyed by stable identity.
  * Returns a Map<identity, job> for efficient lookup.
+ *
+ * A stable identity can name a PAGE rather than a posting: Galenica writes
+ * `…/it/jobs/#job.id=<n>` for every role and the identity strips the fragment,
+ * État de Vaud and several clinics write the bare listing URL. Keyed on it
+ * alone, the map kept one posting per page, so a posting that left the source
+ * was never in `removedJobs` and never reached its soft-landing archive. Every
+ * posting is also kept, grouped by identity, in the non-enumerable `groups`
+ * side map: {@link computeCrawlDiff} classifies the identities that name more
+ * than one posting across BOTH snapshots (ambiguousJobIdentities) and compares
+ * those by id (else slug).
+ *
  * @param {Array<{slug?: string; id?: string}>} jobs
  * @returns {Map<string, object>}
  */
 export function snapshotJobSlugs(jobs) {
   const map = new Map();
+  const byIdentity = new Map();
   for (const job of (jobs || [])) {
     const identity = buildStableJobIdentity(job);
-    if (identity) map.set(identity, job);
+    if (!identity) continue;
+    map.set(identity, job);
+    const group = byIdentity.get(identity) || [];
+    group.push(job);
+    byIdentity.set(identity, group);
   }
+  Object.defineProperty(map, 'groups', { value: byIdentity, enumerable: false });
   return map;
+}
+
+function snapshotGroup(snapshot, identity) {
+  const group = snapshot?.groups?.get(identity);
+  if (group) return group;
+  const job = snapshot?.get(identity);
+  return job ? [job] : [];
+}
+
+function snapshotJobs(snapshot) {
+  if (snapshot?.groups) return [...snapshot.groups.values()].flat();
+  return [...(snapshot?.values?.() || [])];
 }
 
 /**
@@ -228,8 +267,40 @@ export function computeCrawlDiff(beforeMap, afterMap) {
   const removedJobs = [];
   const unchangedJobs = [];
 
+  // Identities that name several postings on either side are compared
+  // posting by posting (see snapshotJobSlugs); the rest keep the 1:1 lookup.
+  const collided = ambiguousJobIdentities(snapshotJobs(beforeMap), snapshotJobs(afterMap));
+  // A repeated malformed row has no posting key for ambiguousJobIdentities to
+  // compare, but it must still stay visible to the quality gates. The identity
+  // map keeps only its last row, so route such groups through the full group
+  // path as well.
+  for (const snapshot of [beforeMap, afterMap]) {
+    for (const [identity, group] of snapshot?.groups || []) {
+      if (group.length > 1 && group.some((job) => !snapshotPostingKey(job))) collided.add(identity);
+    }
+  }
+  for (const identity of collided) {
+    // A listing can repeat the same posting row. Compare each posting once,
+    // keeping the first source occurrence; distinct ids/slugs under the same
+    // listing identity remain separate postings.
+    const beforeGroup = deduplicateJobsByKey(snapshotGroup(beforeMap, identity), snapshotPostingKey);
+    const beforeByPosting = new Map(beforeGroup.map((job) => [snapshotPostingKey(job), job]));
+    const afterGroup = deduplicateJobsByKey(snapshotGroup(afterMap, identity), snapshotPostingKey);
+    const afterPostings = new Set(afterGroup.map(snapshotPostingKey));
+    for (const afterJob of afterGroup) {
+      const beforeJob = beforeByPosting.get(snapshotPostingKey(afterJob));
+      if (!beforeJob) newJobs.push(afterJob);
+      else if (jobsDiffer(beforeJob, afterJob)) updatedJobs.push(afterJob);
+      else unchangedJobs.push(afterJob);
+    }
+    for (const [posting, beforeJob] of beforeByPosting) {
+      if (!afterPostings.has(posting)) removedJobs.push(beforeJob);
+    }
+  }
+
   // Find new and updated jobs
   for (const [identity, afterJob] of afterMap) {
+    if (collided.has(identity)) continue;
     const beforeJob = beforeMap.get(identity);
     if (!beforeJob) {
       newJobs.push(afterJob);
@@ -244,6 +315,7 @@ export function computeCrawlDiff(beforeMap, afterMap) {
 
   // Find removed jobs
   for (const [identity, beforeJob] of beforeMap) {
+    if (collided.has(identity)) continue;
     if (!afterMap.has(identity)) {
       removedJobs.push(beforeJob);
     }

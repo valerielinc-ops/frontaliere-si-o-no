@@ -2,7 +2,7 @@
 /**
  * LEITpuls AG job parser — Fetcher and job builder.
  *
- * Source: https://apply.refline.ch/968123/1468/pub/de/index.html
+ * Source: https://apply.refline.ch/968123/1468/pub/5/index.html
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllApplyJobs()  — Fetch and parse all jobs
@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -23,7 +24,7 @@ export const APPLY_KEY = 'apply';
 export const APPLY_COMPANY_NAME = 'LEITpuls AG';
 export const APPLY_COMPANY_DOMAIN = 'apply.refline.ch';
 
-const CAREER_URL = 'https://apply.refline.ch/968123/1468/pub/de/index.html';
+const CAREER_URL = 'https://apply.refline.ch/968123/1468/pub/5/index.html';
 const APPLY_PATH = '/968123/1468';
 
 /* ── Helpers ───────────────────────────────────────────────── */
@@ -205,7 +206,7 @@ export async function fetchAllApplyJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -23,7 +23,7 @@ const recovery = YAML.parse(
   readFileSync(new URL('../.github/workflows/retry-code-check-after-body-edit.yml', import.meta.url), 'utf8'),
 );
 const recoveryScriptStep = recovery.jobs.recover.steps.find(
-  (step: { uses?: string }) => step.uses === 'actions/github-script@v8',
+  (step: { uses?: string }) => step.uses === 'actions/github-script@v9',
 );
 const script = String(recoveryScriptStep?.with?.script);
 

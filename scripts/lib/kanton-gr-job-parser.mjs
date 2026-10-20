@@ -16,10 +16,14 @@
  *   - isTrustedDomain()       -- Validate URLs belong to this company
  *   - slugify() / stripHtml() -- Re-exported from crawler-template.mjs
  */
+import { extractJsonLd as extractPostingRecords } from './prospector/extract.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* -- Constants ------------------------------------------------- */
 
@@ -166,23 +170,14 @@ function detectExperienceLevel(title = '') {
  */
 async function fetchPage(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+  return fetchHtml(url, {
+    timeoutMs,
       headers: {
         Accept: 'text/html,application/xhtml+xml',
         'User-Agent': USER_AGENT,
         'Accept-Language': 'de-CH,de;q=0.9',
       },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  });
 }
 
 /* -- HTML Parsing -- Listing Page ------------------------------ */
@@ -353,6 +348,7 @@ export async function fetchAllKantonGrJobs() {
 
   // Step 2: Fetch detail pages and build jobs
   const jobs = [];
+  let withoutBody = 0;
   const delayMs = Number(process.env.JOBS_CRAWLER_DELAY_MS) || 500;
 
   for (const row of uniqueRows) {
@@ -361,10 +357,20 @@ export async function fetchAllKantonGrJobs() {
 
     // Fetch detail page for description + pensum
     let detail = { description: '', pensumMin: null, pensumMax: null };
+    let publication = sourcePostingDateFields();
     if (row.detailUrl) {
       try {
         const detailHtml = await fetchPage(row.detailUrl);
         detail = parseDetailPage(detailHtml);
+        const posting = extractJobPostingLd(detailHtml);
+        const explicitUrls = [posting?.url, posting?.sameAs].filter(Boolean);
+        let sameUrl = explicitUrls.length === 0 && extractPostingRecords(detailHtml, row.detailUrl).length === 1;
+        if (explicitUrls.length) {
+          try { sameUrl = explicitUrls.every((value) => new URL(value, row.detailUrl).href === new URL(row.detailUrl).href); }
+          catch { sameUrl = false; }
+        }
+        const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === normalizeSpace(title).toLowerCase();
+        publication = sourcePostingDateFields(sameTitle && sameUrl ? posting?.datePosted : '');
         await new Promise((r) => setTimeout(r, delayMs));
       } catch (err) {
         console.warn(`  ⚠️ Failed to fetch detail for "${title}": ${err.message}`);
@@ -377,21 +383,15 @@ export async function fetchAllKantonGrJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} kanton-gr ch`);
 
-    // Build description: prefer detail page content, fall back to listing metadata
-    let descriptionText = detail.description;
-    if (!descriptionText || descriptionText.length < 30) {
-      const parts = [`${title} -- Kantonale Verwaltung Graubünden`];
-      if (row.department) parts.push(`Amt: ${row.department}`);
-      parts.push(`Arbeitsort: ${location} (${canton})`);
-      if (detail.pensumMin != null && detail.pensumMax != null) {
-        if (detail.pensumMin === detail.pensumMax) {
-          parts.push(`Pensum: ${detail.pensumMin}%`);
-        } else {
-          parts.push(`Pensum: ${detail.pensumMin}-${detail.pensumMax}%`);
-        }
-      }
-      if (row.deadline) parts.push(`Anmeldefrist: ${row.deadline}`);
-      descriptionText = parts.join('. ');
+    // Only the posting's own text is published (issue 5253): a detail page
+    // without a body used to be replaced by a stub of listing metadata
+    // ("{title} -- Kantonale Verwaltung Graubünden. Amt: … Arbeitsort: …
+    // Pensum: …"); such a listing is not published any more.
+    const descriptionText = detail.description || '';
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.log(`  ⏭️ No vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      continue;
     }
 
     // Determine employment type from pensum
@@ -443,7 +443,7 @@ export async function fetchAllKantonGrJobs() {
       sector: 'Amministrazione Pubblica',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -473,6 +473,9 @@ export async function fetchAllKantonGrJobs() {
     console.log(`  ✅ ${title.substring(0, 55)} -- ${location} (${row.department || 'N/A'})`);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+  }
   console.log(`\n📋 Total Kantonale Verwaltung Graubünden jobs discovered: ${jobs.length}`);
   return jobs;
 }

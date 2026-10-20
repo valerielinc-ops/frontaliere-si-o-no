@@ -42,6 +42,7 @@
  * │ decision_moment_next_action │ Explicit next useful action after completion │
  * │ job_qualified_session │ One qualified job-detail session │
  * │ job_apply_handoff │ External application destination hand-off │
+ * │ l2_useful_action │ One measurable main-conversion action per session │
  * ├──────────────────────┼──────────────────────────────────────┤
  * │ APP-SPECIFIC — Feature usage │
  * ├──────────────────────┼──────────────────────────────────────┤
@@ -98,19 +99,44 @@
  * 6. Attribution is captured once per session, not on every page_view
  */
 
+import { jobJourneyFields, recordJobJourneyStep, type JobJourneyStep, type JobJourneyIdentity } from './jobApplicationJourney';
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
-import { createAnalyticsEmissionId } from './analyticsEmissionId';
+import { createAnalyticsEmissionId as createAnalyticsEmissionIdSource } from './analyticsEmissionId';
 import {
  isBenignErrorMessage,
  isIndexedDbError,
  isOriginRedactedThirdPartyStack,
+ isGoogleIosAppInjectedStackOverflow,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
-import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
+import { safeAffiliateToken, buildAffiliatePubref, sanitizeAffiliatePubref } from '../functions/src/lib/affiliateLinks.js';
+import { APPLICATION_CONCIERGE_PATH } from '../functions/src/lib/newsletterUrlPaths.js';
 import { readBuildIdForTelemetry } from './buildInfo';
+import { jobGateNewsletterTags } from './jobGateExperiment';
+import { GA4_ERROR_EVENTS, isNonProductionTelemetryHost } from './nonProductionHost';
+
+export interface AffiliateTelemetry {
+ surface?: string;
+ position?: string;
+ campaign?: string;
+ variant?: string;
+ attributionId?: string;
+ commercialActive?: boolean;
+}
+
+function affiliateTelemetry(partnerId: string, context: string, attribution: AffiliateTelemetry) {
+ const partner_id = safeAffiliateToken(partnerId, 'unknown');
+ const surface = safeAffiliateToken(attribution.surface, 'web');
+ const position = safeAffiliateToken(attribution.position, safeAffiliateToken(context, 'unknown'));
+ const campaign = safeAffiliateToken(attribution.campaign, 'affiliate');
+ const variant = safeAffiliateToken(attribution.variant, 'control');
+ const attribution_id = sanitizeAffiliatePubref(attribution.attributionId || buildAffiliatePubref({ partnerId: partner_id, surface, position, campaign, variant }));
+ return { partner_id, context: safeAffiliateToken(context, 'unknown'), surface, position, campaign, variant,
+  attribution_id, commercial_active: attribution.commercialActive === true, content_type: 'affiliate', item_id: attribution_id };
+}
 
 export interface AnalyticsPageViewIdentity {
  jobSlug?: string;
@@ -133,8 +159,9 @@ export const JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session';
 export const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
 export const DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed';
 export const DECISION_MOMENT_NEXT_ACTION_EVENT = 'decision_moment_next_action';
+export const L2_USEFUL_ACTION_EVENT = 'l2_useful_action';
 
-export type JobAuthGateSurface = 'inline' | 'modal' | 'expired' | 'orphan' | 'unknown';
+export type JobAuthGateSurface = 'inline' | 'modal' | 'expired' | 'orphan' | 'bridge' | 'unknown';
 export type JobAuthGateState = 'anonymous' | 'pending_email' | 'registered' | 'unknown';
 
 export interface JobAuthGateTelemetry {
@@ -374,7 +401,7 @@ function _doLog(eventName: string, params?: Record<string, any>) {
  }
 }
 
-function _doSetProps(properties: Record<string, string>) {
+function _doSetProps(properties: Record<string, string | null>) {
  try {
  if (_analytics && _setUserProperties) {
  _setUserProperties(_analytics, properties);
@@ -388,6 +415,10 @@ function _doSetProps(properties: Record<string, string>) {
 }
 
 const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
+ // Error events from the dev server or the Firebase service domains are not
+ // production errors: keep them out of the GA4 property the backlog feeder
+ // reads (see ./nonProductionHost).
+ if (GA4_ERROR_EVENTS.has(eventName) && isNonProductionTelemetryHost()) return;
  if (_firebaseReady) {
   _doLog(eventName, params);
  } else {
@@ -410,8 +441,76 @@ const logPostHogOnly = (eventName: string, params?: Record<string, any>) => {
  posthogCapture(eventName, params);
 };
 
+const L2_USEFUL_ACTION_SESSION_KEY = 'fr_l2_useful_action_v1';
+const L2_USEFUL_ACTION_STEPS = new Set(['calculate', 'compare', 'cta_click']);
+let l2UsefulActionEmitted = false;
+const GA4_MEASUREMENT_ID = import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || 'G-LGJ9LE360F';
+const L5_COMPLETED_GA_SESSION_KEY = 'fr_l5_completed_ga_session_v1';
+
+/**
+ * Read the current GA4 session instead of treating a browser tab as a GA4
+ * session. GA4 can roll a session while a tab remains open, so a tab-scoped
+ * flag alone is not safe for an exact per-session outcome.
+ */
+function readGa4SessionId(): Promise<string | null> {
+ if (typeof window === 'undefined') return Promise.resolve(null);
+ const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+ if (typeof gtag !== 'function') return Promise.resolve(null);
+
+ return new Promise((resolve) => {
+  let settled = false;
+  const finish = (value: unknown) => {
+   if (settled) return;
+   settled = true;
+   resolve(typeof value === 'string' && value.trim() ? value.trim() : null);
+  };
+  const timeout = window.setTimeout(() => finish(null), 250);
+  try {
+   gtag('get', GA4_MEASUREMENT_ID, 'session_id', (value: unknown) => {
+    window.clearTimeout(timeout);
+    finish(value);
+   });
+  } catch {
+   window.clearTimeout(timeout);
+   finish(null);
+  }
+ });
+}
+
+function claimL2UsefulAction(): boolean {
+ if (l2UsefulActionEmitted) return false;
+ try {
+  if (sessionStorage.getItem(L2_USEFUL_ACTION_SESSION_KEY) === '1') return false;
+  sessionStorage.setItem(L2_USEFUL_ACTION_SESSION_KEY, '1');
+ } catch {
+  // Private browsing or blocked storage: the module guard still deduplicates
+  // repeated events during the current page lifetime.
+ }
+ l2UsefulActionEmitted = true;
+ return true;
+}
+
+function isL2UsefulAction(eventName: string, params: Record<string, any>): boolean {
+ if (eventName === 'simulation_complete' || eventName === 'generate_lead') return true;
+ return eventName === 'funnel_step'
+  && params.funnel === 'main_conversion'
+  && typeof params.step === 'string'
+  && L2_USEFUL_ACTION_STEPS.has(params.step);
+}
+
+/**
+ * Emit one low-cardinality Firebase/GA4 event for the L2 useful-action
+ * denominator. It is deliberately Firebase-only: the PostHog quota policy
+ * samples ordinary page/funnel events and cannot be an L2 source of truth.
+ */
+function maybeEmitL2UsefulAction(eventName: string, params: Record<string, any>): void {
+ if (isL2UsefulAction(eventName, params) && claimL2UsefulAction()) {
+  logFirebaseOnly(L2_USEFUL_ACTION_EVENT);
+ }
+}
+
 const log = (eventName: string, params?: Record<string, any>) => {
- const enrichedParams = enrichEventParams(params);
+ const enrichedParams = enrichEventParams(eventName, params);
  // Mirror to PostHog (fire-and-forget, independent of Firebase)
  if (eventName === 'page_view') {
  const pagePath = enrichedParams.page_path || window.location.pathname;
@@ -426,9 +525,87 @@ const log = (eventName: string, params?: Record<string, any>) => {
  }
 
  logFirebaseOnly(eventName, enrichedParams);
+ maybeEmitL2UsefulAction(eventName, enrichedParams);
 };
 
-const setProps = (properties: Record<string, string>) => {
+/** L5 subset rule: a next action reaches GA4 only inside a session that completed. */
+export function shouldSendDecisionMomentToGa4(
+ eventName: string,
+ gaSessionId: string | null,
+ completedGaSessionId: string | null,
+): boolean {
+ if (eventName !== DECISION_MOMENT_NEXT_ACTION_EVENT) return true;
+ return Boolean(gaSessionId) && completedGaSessionId === gaSessionId;
+}
+
+export interface DecisionMomentEmitterDeps {
+ readGaSessionId: () => Promise<string | null>;
+ sendGa4: (eventName: string, params: Record<string, any>) => void;
+ sendPostHog: (eventName: string, params: Record<string, any>) => void;
+ /** Tab storage for the completed GA4 session; may throw or be missing. */
+ storage: () => Pick<Storage, 'getItem' | 'setItem'> | null | undefined;
+}
+
+/**
+ * Single emission point of the two L5 events. GA4 receives a next action only
+ * when the same GA4 session already holds a completion, so the sessions with a
+ * next action are by construction a subset of the sessions with a completion:
+ * the outcome exporter reads GA4's native per-event `sessions` metric and
+ * needs neither a join nor a custom dimension. An unknown GA4 session is
+ * fail-closed. PostHog keeps the ungated historical stream. Calls are
+ * serialised so a next action clicked right after a completion sees it.
+ *
+ * The completed session is remembered in memory and in tab storage, so it
+ * survives a full-page navigation in the same tab. A completion in one tab
+ * followed by a next action in another tab of the same GA4 session is dropped:
+ * an undercount, in the fail-closed direction.
+ */
+export function createDecisionMomentEmitter(deps: DecisionMomentEmitterDeps) {
+ let completedGaSessionId: string | null = null;
+ let queue: Promise<void> = Promise.resolve();
+
+ const remember = (gaSessionId: string): void => {
+  completedGaSessionId = gaSessionId;
+  try {
+   deps.storage()?.setItem(L5_COMPLETED_GA_SESSION_KEY, gaSessionId);
+  } catch {
+   // Private browsing or blocked storage: the closure value still covers the
+   // current page lifetime.
+  }
+ };
+ const readCompleted = (): string | null => {
+  if (completedGaSessionId) return completedGaSessionId;
+  try {
+   return deps.storage()?.getItem(L5_COMPLETED_GA_SESSION_KEY) ?? null;
+  } catch {
+   return null;
+  }
+ };
+
+ return (eventName: string, params: Record<string, any>): Promise<void> => {
+  const emit = async () => {
+   deps.sendPostHog(eventName, params);
+   const gaSessionId = await deps.readGaSessionId();
+   if (eventName === DECISION_MOMENT_COMPLETED_EVENT && gaSessionId) remember(gaSessionId);
+   if (!shouldSendDecisionMomentToGa4(eventName, gaSessionId, readCompleted())) return;
+   deps.sendGa4(eventName, params);
+  };
+  queue = queue.then(emit).catch(() => undefined);
+  return queue;
+ };
+}
+
+const sendGatedDecisionMoment = createDecisionMomentEmitter({
+ readGaSessionId: readGa4SessionId,
+ sendGa4: (eventName, params) => logFirebaseOnly(eventName, params),
+ sendPostHog: (eventName, params) => posthogCapture(eventName, params),
+ storage: () => (typeof sessionStorage === 'undefined' ? null : sessionStorage),
+});
+
+const logDecisionMoment = (eventName: string, params: Record<string, any>): Promise<void> =>
+ sendGatedDecisionMoment(eventName, enrichEventParams(eventName, params));
+
+const setProps = (properties: Record<string, string | null>) => {
  if (_firebaseReady) {
  _doSetProps(properties);
  } else {
@@ -497,6 +674,35 @@ function normalizeAnalyticsPath(input: string): string {
  }
 }
 
+/** Low-cardinality event-section fields used to compare SEO templates and ad
+ * placements in GA4. The static event shell exposes the exact lifecycle
+ * (`active`, `past`, `overflow`) so a past-event bridge can never be confused
+ * with a live detail page. The fallback keeps SPA/SSR transitions observable
+ * even before the static shell has been swapped into the DOM. */
+function eventPageTelemetry(path: string, pageContext: ReturnType<typeof deriveAnalyticsPageContext>): Record<string, string> {
+ if (pageContext.contentGroup !== 'events') return {};
+
+ let pageType = pageContext.pageTemplate;
+ let lifecycle = pageContext.pageTemplate === 'events_overflow'
+  ? 'overflow'
+  : pageContext.pageTemplate === 'event_detail'
+   ? 'unknown'
+   : 'active';
+
+ if (typeof document !== 'undefined') {
+  const targetPath = normalizeAnalyticsPath(path);
+  const markers = document.querySelectorAll<HTMLElement>('[data-events-page][data-events-path]');
+  for (const marker of markers) {
+   if (normalizeAnalyticsPath(marker.dataset.eventsPath || '') !== targetPath) continue;
+   pageType = marker.dataset.eventsPage || pageType;
+   lifecycle = marker.dataset.eventsLifecycle || lifecycle;
+   break;
+  }
+ }
+
+ return { event_page_type: pageType, event_lifecycle: lifecycle };
+}
+
 function readStoredAttribution(): AttributionContext | null {
  try {
   const raw = sessionStorage.getItem(ATTRIBUTION_KEY);
@@ -516,7 +722,7 @@ function readStoredAttribution(): AttributionContext | null {
  * reports joinable even when the event itself is emitted by a nested widget.
  * The explicit event fields still win, so existing callers keep their intent.
  */
-function enrichEventParams(params?: Record<string, any>): Record<string, any> {
+function enrichEventParams(eventName: string, params?: Record<string, any>): Record<string, any> {
  const eventPath = typeof params?.page_path === 'string' && params.page_path
   ? params.page_path
   : currentScreen !== '/' || typeof window === 'undefined' || window.location.pathname === '/'
@@ -527,6 +733,15 @@ function enrichEventParams(params?: Record<string, any>): Record<string, any> {
  const landingPath = sessionLandingPath
   || storedAttribution?.landing_path
   || normalizeAnalyticsPath(typeof window !== 'undefined' ? window.location.pathname : '/');
+ // `chatbot_question` has an explicit privacy contract: its payload is only
+ // the closed question schema plus numeric measurements. Do not add the
+ // otherwise-global opaque event identity to that contract.
+ const { emission_id: explicitEmissionId, ...eventParams } = params || {};
+ const emissionId = eventName === 'chatbot_question'
+  ? undefined
+  : explicitEmissionId === undefined
+   ? createAnalyticsEmissionIdSource()
+   : explicitEmissionId;
 
  return {
   page_path: eventPath,
@@ -535,9 +750,32 @@ function enrichEventParams(params?: Record<string, any>): Record<string, any> {
   site_section: pageContext.siteSection,
   content_locale: pageContext.contentLocale,
   route_family: pageContext.routeFamily,
+  ...eventPageTelemetry(eventPath, pageContext),
   landing_path: landingPath,
-  ...(params || {}),
+  ...eventParams,
+  ...(emissionId === undefined ? {} : { emission_id: emissionId }),
  };
+}
+
+/**
+ * The static gtag bootstrap fires before React hydrates so a fast bounce still
+ * has a page_view. Consume its identity exactly once when the matching SPA
+ * page_view arrives; a route mismatch is discarded instead of joining two
+ * different pages by accident.
+ */
+function consumeStaticGtagPageViewEmissionId(path: string): string | undefined {
+ if (typeof window === 'undefined') return undefined;
+ const w = window as unknown as Record<string, unknown>;
+ const emissionId = typeof w.__GTAG_PAGE_VIEW_EMISSION_ID__ === 'string'
+  ? w.__GTAG_PAGE_VIEW_EMISSION_ID__
+  : undefined;
+ const staticPath = typeof w.__GTAG_PAGE_VIEW_PATH__ === 'string'
+  ? w.__GTAG_PAGE_VIEW_PATH__
+  : undefined;
+ delete w.__GTAG_PAGE_VIEW_EMISSION_ID__;
+ delete w.__GTAG_PAGE_VIEW_PATH__;
+ if (!emissionId || !staticPath) return undefined;
+ return normalizeAnalyticsPath(staticPath) === normalizeAnalyticsPath(path) ? emissionId : undefined;
 }
 
 // ─── Error Tracking Helpers ────────────────────────────────────
@@ -1079,8 +1317,8 @@ export const Analytics = {
  * before React hydrates). Firebase also fires page_view unconditionally so
  * that sessions where gtag.js is blocked (ad blockers, ~30-40% of users)
  * still have a page_view with correct page_location in GA4.
- * This means non-blocked users get a duplicate page_view (gtag + Firebase)
- * on the initial page, which is a minor metric inflation but correct.
+ * When both producers run, they carry one shared emission identity and the
+ * D18 builder can collapse them without suppressing the fallback producer.
  */
  trackPageView: (
  path: string,
@@ -1088,31 +1326,28 @@ export const Analytics = {
  identity?: AnalyticsPageViewIdentity | null,
  // Omitted (`undefined`) means this call is a new act and must coin its own
  // id. `string` is an explicit id for a retry of the same act. `null` means
- // the caller could not determine an id and must remain "dedup non
- // disponibile" — never a guessed value.
+ // the caller could not determine an id, so this boundary coins a fresh one;
+ // a runtime page_view must never be emitted without an identity.
  emissionId?: string | null,
  ) => {
+ const staticPageViewEmissionId = consumeStaticGtagPageViewEmissionId(path);
+ // Both fallback branches below must resolve to one identity for this act.
+ // The local memo keeps the generated fallback stable, while the static
+ // bootstrap identity remains authoritative when it is available.
+ let generatedPageViewEmissionId: string | undefined;
+ const createAnalyticsEmissionId = (): string => {
+  if (staticPageViewEmissionId) return staticPageViewEmissionId;
+  generatedPageViewEmissionId ??= createAnalyticsEmissionIdSource();
+  return generatedPageViewEmissionId;
+ };
  const pageViewEmissionId = emissionId === undefined ? createAnalyticsEmissionId() : emissionId;
+ const requestedPageViewEmissionId = typeof pageViewEmissionId === 'string' && pageViewEmissionId.trim().length > 0
+  ? pageViewEmissionId
+  : undefined;
+ const resolvedPageViewEmissionId = emissionId === undefined
+  ? staticPageViewEmissionId || pageViewEmissionId
+  : requestedPageViewEmissionId || createAnalyticsEmissionId();
  const now = Date.now();
- // NOTE: We intentionally do NOT skip Firebase page_view even when
- // window.__GTAG_PAGE_VIEW_SENT__ is set by static HTML pages.
- //
- // The flag is set synchronously by the inline GTAG_SNIPPET before gtag.js
- // loads (gtag.js is async). When gtag.js is blocked by an ad blocker or
- // privacy browser (~30-40% of users), the flag is set but gtag never fires
- // page_view. Other Firebase events (e.g. funnel_step) still fire, creating
- // a GA4 session with no page_view → landing page = "(not set)".
- //
- // By always firing the Firebase page_view, we ensure every session has a
- // page_view with correct page_location. Non-blocked users get a duplicate
- // page_view (gtag + Firebase), which is a minor metric inflation but far
- // better than 25% of sessions having "(not set)" landing page.
- //
- // The flag is cleared here so it doesn't interfere with any future code.
- const w = window as unknown as Record<string, unknown>;
- if (w.__GTAG_PAGE_VIEW_SENT__) {
- delete w.__GTAG_PAGE_VIEW_SENT__;
- }
  // Calculate time spent on previous page (for pagesPerSession accuracy)
  const timeOnPrevPage = previousScreen ? now - lastTrackedPageAt : 0;
  lastTrackedPageAt = now;
@@ -1121,17 +1356,18 @@ export const Analytics = {
  _maxScrollDepth = 0; // Reset scroll tracking for new page
  const pageContext = deriveAnalyticsPageContext(path);
  log('page_view', {
- page_path: path,
- page_title: title || path,
- page_location: window.location.origin + path,
+  page_path: path,
+  page_title: title || document.title || path,
+  page_location: window.location.origin + path,
  previous_page: previousScreen || '(none)',
  page_template: pageContext.pageTemplate,
  content_group: pageContext.contentGroup,
  site_section: pageContext.siteSection,
- content_locale: pageContext.contentLocale,
- route_family: pageContext.routeFamily,
- engagement_time_msec: timeOnPrevPage > 0 ? Math.min(timeOnPrevPage, 3600000) : undefined,
- emission_id: pageViewEmissionId,
+  content_locale: pageContext.contentLocale,
+  route_family: pageContext.routeFamily,
+  ...eventPageTelemetry(path, pageContext),
+  engagement_time_msec: timeOnPrevPage > 0 ? Math.min(timeOnPrevPage, 3600000) : undefined,
+ emission_id: resolvedPageViewEmissionId,
  ...buildPageViewAttributionParams(path, identity),
  });
  if (pageContext.pageTemplate === 'job_detail') {
@@ -1142,38 +1378,50 @@ export const Analytics = {
  tagClarity('content_group', pageContext.contentGroup);
  // Reset dead-click counter for new page
  _deadClickCount = 0;
- return pageViewEmissionId;
+ return resolvedPageViewEmissionId;
  },
 
- /**
- * Affiliate click — tracks partner clicks with context for revenue attribution
- */
- trackAffiliateClick: (
-  partnerId: string,
-  context: string,
-  attribution?: {
-   surface?: string;
-   position?: string;
-   campaign?: string;
-   variant?: string;
-  },
- ) => {
- const safePartnerId = safeAffiliateToken(partnerId, 'unknown');
- const safeContext = safeAffiliateToken(context, 'unknown');
- const surface = safeAffiliateToken(attribution?.surface, 'web');
- const position = safeAffiliateToken(attribution?.position, safeContext);
- const campaign = safeAffiliateToken(attribution?.campaign, 'affiliate');
- const variant = safeAffiliateToken(attribution?.variant, 'control');
- log('affiliate_click', {
- partner_id: safePartnerId,
- context: safeContext,
- surface,
- position,
- campaign,
- variant,
- content_type: 'affiliate',
- item_id: `${safePartnerId}_${surface}_${position}_${campaign}_${variant}`,
- });
+ /** GA4-only view event for the assisted-application service landing page. */
+ trackApplicationConciergeView: () => {
+  const pagePath = typeof window !== 'undefined'
+   ? `${window.location.pathname}${window.location.search}`
+   : APPLICATION_CONCIERGE_PATH;
+  logFirebaseOnly('application_concierge_view', {
+   page_path: pagePath,
+   page_template: 'application_concierge',
+   content_group: 'jobs',
+   service_duration_days: 30,
+   position_limit: 10,
+   price_eur: 39.99,
+   price_eur_cents: 3999,
+  });
+ },
+
+ /** GA4-only click event for every attempt to open the checkout. */
+ trackApplicationConciergeCheckoutClick: () => {
+  const pagePath = typeof window !== 'undefined'
+   ? `${window.location.pathname}${window.location.search}`
+   : APPLICATION_CONCIERGE_PATH;
+  logFirebaseOnly('application_concierge_checkout_click', {
+   page_path: pagePath,
+   page_template: 'application_concierge',
+   content_group: 'jobs',
+   cta_id: 'application_concierge.start_checkout',
+   service_duration_days: 30,
+   position_limit: 10,
+   price_eur: 39.99,
+   price_eur_cents: 3999,
+  });
+ },
+
+ /** A visible referral CTA; Firebase is the unsampled source of truth. */
+ trackAffiliateImpression: (partnerId: string, context: string, attribution: AffiliateTelemetry = {}) => {
+  logFirebaseOnly('affiliate_impression', affiliateTelemetry(partnerId, context, attribution));
+ },
+
+ /** Affiliate click retains the historical stream and the canonical network reference. */
+ trackAffiliateClick: (partnerId: string, context: string, attribution: AffiliateTelemetry = {}) => {
+  log('affiliate_click', affiliateTelemetry(partnerId, context, attribution));
  },
 
  /** Bounded G4 affiliate experiment exposure; contains only categorical ids. */
@@ -1455,6 +1703,10 @@ export const Analytics = {
  // but are third-party; no fix is possible on our end.
  if (event.filename && BROWSER_EXTENSION_ORIGIN_PATTERN.test(event.filename)) return;
  const errorStack = event.error?.stack || '';
+ // Same for the scripts Chrome for iOS / the Google app inject into the
+ // page: WebKit gives their frames the document URL, so they would read as
+ // a first-party crash (issue #8773 — see isGoogleIosAppInjectedStackOverflow).
+ if (isGoogleIosAppInjectedStackOverflow(msg, `${errorStack}\n${event.filename || ''}`, navigator.userAgent || '')) return;
  // Re-classify errors whose ENTIRE stack had its source URLs redacted by the
  // engine: a cross-origin script we do not control, never our own modules
  // (issue #4173 — see isOriginRedactedThirdPartyStack). Reported as
@@ -1496,6 +1748,8 @@ export const Analytics = {
  // Drop errors from browser extensions — they run in page context but are
  // third-party; no fix is possible on our end.
  if (stack && BROWSER_EXTENSION_ORIGIN_PATTERN.test(stack)) return;
+ // …and from the scripts Chrome for iOS / the Google app inject (#8773).
+ if (isGoogleIosAppInjectedStackOverflow(message, stack, navigator.userAgent || '')) return;
  // Same origin-redaction re-classification as the `error` handler above
  // (issue #4173): a stack with zero resolvable sources cannot come from our
  // own modules, so it is third-party rather than an app rejection.
@@ -1852,19 +2106,20 @@ export const Analytics = {
  },
 
  /**
-  * L5 decision-surface outcome contract. These fields are categorical only:
-  * no user-entered answers, labels or destination URLs are sent. The outcome
-  * exporter joins the two events by PostHog session id.
+ * L5 decision-surface outcome contract. These fields are categorical only:
+ * no user-entered answers, labels or destination URLs are sent. The outcome
+ * exporter counts GA4 sessions per event; `logDecisionMoment` keeps the
+ * next-action sessions inside the completion sessions.
   */
  trackDecisionMomentCompleted: (surface: string, task: string) => {
-  log(DECISION_MOMENT_COMPLETED_EVENT, {
+  void logDecisionMoment(DECISION_MOMENT_COMPLETED_EVENT, {
    decision_surface: truncate(surface, 60),
    task_id: truncate(task, 80),
   });
  },
 
  trackDecisionMomentNextAction: (surface: string, action: string) => {
-  log(DECISION_MOMENT_NEXT_ACTION_EVENT, {
+  void logDecisionMoment(DECISION_MOMENT_NEXT_ACTION_EVENT, {
    decision_surface: truncate(surface, 60),
    action_id: truncate(action, 80),
   });
@@ -1918,13 +2173,19 @@ export const Analytics = {
  * Link esterno cliccato — uses outbound_click (not 'click' which is GA4 reserved)
  */
  trackExternalLink: (url: string, label?: string) => {
- const emissionId = createAnalyticsEmissionId();
+ const emissionId = createAnalyticsEmissionIdSource();
  log('outbound_click', {
   link_url: url,
   link_text: label || url,
   outbound: true,
   emission_id: emissionId,
  });
+ },
+
+ /** Tab-scoped, deduplicated journey stages, emitted to Firebase only. */
+ trackJobApplicationStep: (identity: JobJourneyIdentity, step: JobJourneyStep) => {
+  const event = recordJobJourneyStep(identity, step);
+  if (event) logFirebaseOnly('job_application_journey', event);
  },
 
  /**
@@ -1968,13 +2229,15 @@ export const Analytics = {
  ) => {
   const destinationHost = resolveExternalDestinationHost(destination);
   if (!destinationHost) return false;
+  const identity = { jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined };
+  Analytics.trackJobApplicationStep(identity, 'handoff');
   log(JOB_APPLY_HANDOFF_EVENT, {
    ...buildJobApplyAttributionParams(job),
    is_sponsored: job.featured ? 'sponsored' : 'free',
    destination_host: destinationHost,
    handoff_surface: details.surface || 'job_board_apply',
    application_status: 'redirect_only',
-   emission_id: details.emissionId || createAnalyticsEmissionId(),
+   emission_id: details.emissionId || createAnalyticsEmissionIdSource(),
   });
   return true;
  },
@@ -2114,6 +2377,10 @@ export const Analytics = {
   * sent to this stream.
   */
  trackJobAuthGate: (action: 'view' | 'method_click' | 'success' | 'fail' | 'dismiss', details: JobAuthGateTelemetry = {}) => {
+  if (details.jobSlug) {
+   const steps = { view: 'gate_view', method_click: 'auth_start', success: 'auth_success', fail: 'auth_error', dismiss: 'gate_dismiss' } as const;
+   Analytics.trackJobApplicationStep({ jobSlug: details.jobSlug }, steps[action]);
+  }
   const surface = details.surface || 'unknown';
   const method = details.method || 'unknown';
   const state = details.authState || 'unknown';
@@ -2128,6 +2395,7 @@ export const Analytics = {
   ].join('|');
 
   logFirebaseOnly('ui_interaction', {
+   ...(details.jobSlug ? jobJourneyFields({ jobSlug: details.jobSlug }) : {}),
    page: 'job_auth_gate',
    section: surface,
    component: method,
@@ -2260,6 +2528,9 @@ export const Analytics = {
    action,
    email_domain: emailDomain,
    source_cta: context.sourceCta,
+   // jobgate: the JobBoard gate's subscribe carries the visitor's arm
+   // (empty object for every other CTA or when the experiment is off).
+   ...jobGateNewsletterTags(context.sourceCta),
   });
 
   // `source_channel`/`source_cta` were historically emitted as free-form
@@ -2539,7 +2810,18 @@ export const Analytics = {
  keywords?: string;
  location?: string;
  frequency?: string;
- surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button';
+ // 'post_auth_auto' survives only for a pending intent written before the
+ // replay carried its CTA origin (issue 9576): it is outside the
+ // alert_funnel_conversion allowlist on purpose, because nothing emits a
+ // `job_alert_cta_shown` for it.
+ surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_detail_anonymous' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button';
+ /**
+  * HOW the alert was written, kept apart from the surface (issue 9576):
+  * `post_auth_replay` = a guest submit replayed after the sign-in round-trip,
+  * `direct` = an authenticated user created it on the spot. Diagnostic only —
+  * the funnel attributes on `cta_surface`, never on this field.
+  */
+ authPath?: 'direct' | 'post_auth_replay';
  } = {}) => {
  // Defensive: collapse undefined/empty to clear sentinels rather than null
  // so PostHog HogQL queries never see mixed null/empty values for the same
@@ -2564,6 +2846,7 @@ export const Analytics = {
  // could not be attributed to the surface that produced it. `cta_surface`
  // IS registered; `alert_surface` stays for the PostHog queries that read it.
  cta_surface: surface,
+ alert_auth_path: details.authPath || 'direct',
  });
  },
 
@@ -2605,7 +2888,7 @@ export const Analytics = {
  // services/employerSuggestions.ts, whose entire input is how many ads an
  // employer has open and whether you already follow it — folding it into
  // 'company_follow_button' would leave that criterion unmeasurable.
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_detail_anonymous' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city' | 'company_follow_hub' | 'company_follow_suggestion',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_detail_anonymous' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city' | 'company_follow_hub' | 'company_follow_suggestion',
  action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {
@@ -2630,7 +2913,7 @@ export const Analytics = {
   * intent-only.
   */
  trackJobAlertCtaShown: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill' | 'job_board_filters' | 'job_detail_button' | 'job_detail_anonymous' | 'company_follow_button',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill' | 'job_board_filters' | 'job_detail_button' | 'job_detail_anonymous' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button',
  keyword?: string,
  ) => {
  log('job_alert_cta_shown', {
@@ -2641,14 +2924,31 @@ export const Analytics = {
  },
 
  /**
-  * Diagnostic: the job-detail alert prompt was eligible to evaluate but was
+  * Passive visibility of the inline alert card. The board keeps this utility
+  * available after the first results even when no search intent exists, but
+  * that view must stay outside `alert_funnel_conversion`'s CTA denominator.
+  * It is deliberately a different event from `job_alert_cta_shown`; the
+  * campaign goal allowlist only includes the latter.
+  */
+ trackJobAlertPassiveView: (
+ surface: 'inline_card',
+ keyword?: string,
+ ) => {
+ log('job_alert_card_passive_view', {
+ cta_surface: surface,
+ cta_keyword: redactPersonalData(keyword || '', { inferNamesFromCapitalisation: false }).text.slice(0, 80),
+ });
+ },
+
+  /**
+   * Diagnostic: the job-detail alert prompt was eligible to evaluate but was
   * suppressed before becoming visible, with the reason. Lets us see in GA4
   * exactly which guard drops the prompt (e.g. `no_auth` from a failed
   * newsletter autologin, `get_alerts_failed` from a degraded Firestore read)
   * instead of inferring it from a zero impression count.
   */
  trackJobAlertCtaSkipped: (
- surface: 'job_detail_prompt' | 'job_board_filters' | 'sticky_banner' | 'end_card' | 'job_detail_button',
+ surface: 'job_detail_prompt' | 'job_board_filters' | 'sticky_banner' | 'end_card' | 'job_detail_button' | 'inline_card',
  reason:
  | 'no_auth'
  | 'no_category'

@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { validateJobUrl } from '../scripts/lib/validate-job-url.mjs';
+import { validateJobUrl, validateJobUrls } from '../scripts/lib/validate-job-url.mjs';
 
 const ABB_EXPIRED_URL =
   'https://careers.abb/global/en/job/ABB1GLOBALJR00042364EXTERNALENGLOBAL/Logistics-Operator-IPU-B-S-f-m-d--80-100';
@@ -50,5 +50,124 @@ describe('validateJobUrl ABB closure banner', () => {
       status: 200,
       reason: 'ok',
     });
+  });
+});
+
+describe('validateJobUrl response deadline', () => {
+  it('settles when a response body ignores the abort signal', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        status: 200,
+        url: 'https://jobs.coopjobs.ch/job/hung-body',
+        text: () => new Promise(() => {}),
+      }),
+    );
+
+    await expect(
+      validateJobUrl('https://jobs.coopjobs.ch/job/hung-body', {
+        id: 'hung-body',
+        timeoutMs: 20,
+      }),
+    ).resolves.toMatchObject({
+      id: 'hung-body',
+      valid: true,
+      status: 0,
+      reason: 'network-timeout',
+    });
+  });
+
+  it('does not strand the concurrent batch behind one hung response body', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn((input) => String(input).endsWith('/hung')
+        ? Promise.resolve({
+          status: 200,
+          url: String(input),
+          text: () => new Promise(() => {}),
+        })
+        : Promise.resolve(new Response('<h1>Live job</h1>', { status: 200 }))),
+    );
+
+    await expect(
+      validateJobUrls([
+        { id: 'hung', url: 'https://jobs.coopjobs.ch/job/hung' },
+        { id: 'live', url: 'https://jobs.coopjobs.ch/job/live' },
+      ], { concurrency: 2, timeoutMs: 20 }),
+    ).resolves.toMatchObject([
+      { id: 'hung', valid: true, reason: 'network-timeout' },
+      { id: 'live', valid: true, reason: 'ok' },
+    ]);
+  });
+
+  it('cancels timed-out response bodies across consecutive batches', async () => {
+    let liveProbes = 0;
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async (input) => {
+        liveProbes += 1;
+        return {
+          status: 200,
+          url: String(input),
+          body: {
+            cancel: async () => {
+              liveProbes -= 1;
+            },
+          },
+          text: () => new Promise(() => {}),
+        };
+      }),
+    );
+
+    const jobs = [{ id: 'hung', url: 'https://jobs.coopjobs.ch/job/hung' }];
+    await validateJobUrls(jobs, { concurrency: 1, timeoutMs: 20 });
+    await validateJobUrls(jobs, { concurrency: 1, timeoutMs: 20 });
+
+    expect(liveProbes).toBe(0);
+  });
+
+  it('keeps the timeout verdict when cancellation releases a pending reader', async () => {
+    let releasePendingRead;
+    const closedBanner = new TextEncoder().encode(
+      'This job is no longer available',
+    );
+    const reader = {
+      reads: 0,
+      read: vi.fn(() => {
+        reader.reads += 1;
+        if (reader.reads === 1) {
+          return Promise.resolve({ done: false, value: closedBanner });
+        }
+        return new Promise((resolve) => {
+          releasePendingRead = resolve;
+        });
+      }),
+      cancel: vi.fn(() => {
+        releasePendingRead?.({ done: true });
+        return Promise.resolve();
+      }),
+      releaseLock: vi.fn(),
+    };
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        status: 200,
+        url: 'https://jobs.coopjobs.ch/job/cancelled-reader',
+        body: { getReader: () => reader },
+      }),
+    );
+
+    await expect(
+      validateJobUrl('https://jobs.coopjobs.ch/job/cancelled-reader', {
+        id: 'cancelled-reader',
+        timeoutMs: 20,
+      }),
+    ).resolves.toMatchObject({
+      id: 'cancelled-reader',
+      valid: true,
+      status: 0,
+      reason: 'network-timeout',
+    });
+    expect(reader.cancel).toHaveBeenCalledTimes(1);
   });
 });

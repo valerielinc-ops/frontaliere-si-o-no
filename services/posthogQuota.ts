@@ -13,6 +13,21 @@
  */
 export const POSTHOG_EVENT_SAMPLE_RATE = 0;
 
+/** Hosts used by local development where analytics must never initialize. */
+export const POSTHOG_LOCAL_DEV_HOSTS = [
+  'localhost',
+  '127.0.0.1',
+  '::1',
+  '[::1]',
+] as const;
+
+/** Return true for loopback/local development hostnames only. */
+export function isLocalDevHost(
+  hostname: string = typeof window === 'undefined' ? '' : window.location.hostname,
+): boolean {
+  return POSTHOG_LOCAL_DEV_HOSTS.includes(hostname.trim().toLowerCase() as (typeof POSTHOG_LOCAL_DEV_HOSTS)[number]);
+}
+
 /** Keep one in twenty sessions for Session Replay. */
 export const POSTHOG_SESSION_REPLAY_SAMPLE_RATE = 0.05;
 
@@ -27,9 +42,17 @@ export interface PostHogQuotaEvent {
   [key: string]: unknown;
 }
 
-const POSTHOG_UNSAMPLED_EVENTS = new Set([
+/**
+ * Events that must bypass ordinary product-event sampling on every PostHog
+ * entry point. The static-page initializer imports this list at build time;
+ * keeping it here prevents its plain-JS twin from drifting from the SPA
+ * filter again.
+ *
+ * `$exception` is deliberately handled separately by the static initializer
+ * so its benign-stack filter still runs before the event is accepted.
+ */
+export const POSTHOG_QUOTA_EXEMPT_EVENTS = Object.freeze([
   '$snapshot',
-  '$exception',
   '$identify',
   '$set',
   '$set_once',
@@ -40,6 +63,11 @@ const POSTHOG_UNSAMPLED_EVENTS = new Set([
   // even while ordinary product analytics are hard-stopped at zero.
   'decision_moment_completed',
   'decision_moment_next_action',
+] as const);
+
+const POSTHOG_UNSAMPLED_EVENTS = new Set([
+  ...POSTHOG_QUOTA_EXEMPT_EVENTS,
+  '$exception',
 ]);
 
 function stableHashToUnitInterval(value: string): number {

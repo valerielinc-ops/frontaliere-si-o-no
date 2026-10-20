@@ -218,6 +218,55 @@ describe('corpus retention discipline (#5330)', () => {
     }
   });
 
+  it('releases active-only indexes before company and editorial emission', () => {
+    const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
+    const activeMarker = source.indexOf("logJobsSeoMem('after-active-pages'");
+    const companyPhase = source.indexOf('/* ── Company landing pages', activeMarker);
+    const companyEntries = source.indexOf('const companyEntries =');
+    const companyRelease = source.indexOf('companyMap.clear();', companyEntries);
+    const sitemapAssembly = source.indexOf('const sitemapJobs =', companyEntries);
+
+    expect(activeMarker, 'active-pages checkpoint disappeared').toBeGreaterThan(-1);
+    expect(companyPhase, 'company phase boundary disappeared').toBeGreaterThan(activeMarker);
+    for (const release of [
+      'relatedPoolByJob.clear();',
+      'relatedJobsByCategory.clear();',
+      'relatedJobsByLocation.clear();',
+      'canonicalCleanedCache.clear();',
+    ]) {
+      const releaseAt = source.indexOf(release);
+      expect(releaseAt, `${release} disappeared`).toBeGreaterThan(-1);
+      expect(releaseAt, `${release} moved past the active checkpoint`).toBeLessThan(activeMarker);
+      expect(releaseAt, `${release} moved into the company phase`).toBeLessThan(companyPhase);
+    }
+
+    expect(companyEntries, 'company sitemap assembly disappeared').toBeGreaterThan(-1);
+    expect(companyRelease, 'companyMap is not released').toBeGreaterThan(companyEntries);
+    expect(companyRelease, 'companyMap released after sitemap assembly').toBeLessThan(sitemapAssembly);
+  });
+
+  it('evicts canonical fallback values at their last active reader', () => {
+    const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
+    const memo = source.indexOf('const memoCanonicalCleaned =');
+    const releaseHelper = source.indexOf('const releaseCanonicalCleanedAfterUse =');
+    const memoRelease = source.indexOf('releaseCanonicalCleanedAfterUse(key);', memo);
+    const activeMarker = source.indexOf("logJobsSeoMem('after-active-pages'");
+    const activePhase = source.indexOf('const ACTIVE_HTML_CACHE_CHUNK_SIZE');
+    const activeLoop = source.indexOf('for (const job of validJobs)', activePhase);
+    const useCount = source.indexOf('const canonicalFallbackUsesRemaining =');
+    const useCountClear = source.indexOf('canonicalFallbackUsesRemaining.clear();');
+
+    expect(useCount, 'canonical fallback use counter disappeared').toBeGreaterThan(-1);
+    expect(releaseHelper, 'canonical fallback release helper disappeared').toBeGreaterThan(-1);
+    expect(memo, 'canonical fallback memo disappeared').toBeGreaterThan(releaseHelper);
+    expect(memoRelease, 'memo no longer releases at last use').toBeGreaterThan(memo);
+    expect(source).toContain('canonicalFallbackUsesRemaining.delete(key);');
+    expect(source).toContain('canonicalFallbackUsesRemaining.get(key) || 0) === 0');
+    expect(activeLoop, 'active jobs loop disappeared').toBeGreaterThan(activePhase);
+    expect(useCountClear, 'canonical fallback use counter is not released').toBeGreaterThan(activeLoop);
+    expect(useCountClear, 'canonical fallback use counter released too late').toBeLessThan(activeMarker);
+  });
+
   it('keeps the retention probe opt-in and limited to one candidate', () => {
     const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
 
@@ -293,6 +342,7 @@ describe('corpus retention discipline (#5330)', () => {
       expect(typeof on.gcFreed).toBe('number');
       expect(logs.some((line) =>
         line.includes(`candidate=${named}`) && line.includes('gcFreed='))).toBe(true);
+      expect(logs.some((line) => line.includes(`candidate=${named} gcFreed=`))).toBe(true);
     } finally {
       console.log = originalLog;
     }

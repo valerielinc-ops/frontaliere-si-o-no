@@ -21,6 +21,12 @@
  * `CHALLENGER_HEADLINES` map below is retained as the last round's config for
  * a future round-3 (redefine the arms + reactivate the flag to reuse it).
  *
+ * Rounds 3+ are NOT run through this module: `jobgate-v3` (randomised,
+ * multi-arm, layout + copy, closed) and `jobgate-v4` (visual treatment) live in
+ * services/jobGateExperiment.ts. While a visitor is enrolled there, JobBoard
+ * tags the gate events with that round's id/arm instead of this headline
+ * variant.
+ *
  * Initial render is always control until Remote Config loads. The active arm
  * can be changed without a new deployment from Firebase Remote Config.
  */

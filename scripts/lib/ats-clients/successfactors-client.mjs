@@ -76,6 +76,7 @@ import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
  *   - scripts/lib/sbb-job-parser.mjs              (SSR + JSON-LD)
  */
 
+import { sourcePostingDateFields, sourceRssPostingDateFields, mergeSourcePostingDates, hasPostingDateProvenance } from '../source-posting-date.mjs';
 import { fetchWithRetry } from '../transient-fetch.mjs';
 import { parseDotNetJsonDate } from '../dotnet-json-date.mjs';
 import { stripScriptsAndStyles } from '../crawler-template.mjs';
@@ -125,6 +126,7 @@ const DEFAULT_USER_AGENT = 'FrontaliereTicino-Bot/1.0';
 const DEFAULT_TIMEOUT_MS = 20_000;
 const DEFAULT_MIN_DELAY_MS = 2_000;
 const DEFAULT_PAGE_SIZE = 100;
+const JOBS2WEB_INCOMPLETE_PAGE_RETRIES = 2;
 
 /** Hosts unambiguously belonging to SAP SuccessFactors. */
 const SF_HOSTS = [
@@ -296,50 +298,45 @@ export function buildSuccessFactorsApiUrl(tenant, kind, options = {}) {
 /**
  * Parse a posted-date value that came from any SuccessFactors flavor.
  * Accepts:
- *   - ISO 8601               → returned as-is (truncated to date)
+ *   - ISO 8601               → preserved, including explicit offset
  *   - `'DD.MM.YYYY'`         (German/French career sites — Heineken/SBB-IT)
  *   - `'DD/MM/YYYY'`
  *   - `'/Date(1234567890000)/'` (OData JSON serialization)
  *   - Unix epoch ms / s as number or numeric string
  *
  * @param {string|number} rawDate
- * @returns {string|null} ISO date `YYYY-MM-DD` or `null` on failure.
+ * @returns {string|null} Valid source ISO date/timestamp or `null` on failure.
  */
-export function parseSuccessFactorsPostedDate(rawDate) {
-  if (rawDate == null) return null;
-
-  // Numeric epoch
+export function parseSuccessFactorsPostedDate(rawDate, now = new Date()) {
+  let value = typeof rawDate === 'string' ? rawDate.trim() : '';
+  // CSB microdata also emits Java-style timestamps, e.g. Belimo's
+  // "Tue Jun 23 00:00:00 UTC 2026". Reorder the explicit components;
+  // the shared RSS resolver validates calendar, time, offset and future.
+  const javaDate = /^[A-Za-z]{3} ([A-Za-z]{3}) (\d{1,2}) (\d{2}:\d{2}:\d{2}) (UTC|GMT|Z|[+-]\d{4}) (\d{4})$/.exec(value);
+  if (javaDate) {
+    return sourceRssPostingDateFields(`${javaDate[2]} ${javaDate[1]} ${javaDate[5]} ${javaDate[3]} ${javaDate[4]}`, now).postedDate || null;
+  }
   if (typeof rawDate === 'number' && Number.isFinite(rawDate)) {
-    const ms = rawDate < 1e12 ? rawDate * 1000 : rawDate;
-    const d = new Date(ms);
-    return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+    const date = new Date(rawDate < 1e12 ? rawDate * 1000 : rawDate);
+    value = Number.isFinite(date.getTime()) ? date.toISOString() : '';
+  } else if (/^\d{10,13}$/.test(value)) {
+    const date = new Date(Number(value) * (value.length <= 10 ? 1000 : 1));
+    value = Number.isFinite(date.getTime()) ? date.toISOString() : '';
+  } else if (value.startsWith('/Date(')) {
+    const date = parseDotNetJsonDate(value.endsWith('/') ? value : `${value}/`);
+    value = date ? date.toISOString() : '';
+  } else {
+    const local = /^(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{4})$/.exec(value);
+    if (local) value = `${local[3]}-${local[2].padStart(2, '0')}-${local[1].padStart(2, '0')}`;
+    const english = /^(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) (\d{1,2}), (\d{4})$/i.exec(value);
+    if (english) value = `${english[2]} ${english[1].slice(0, 3)} ${english[3]}`;
   }
+  return sourcePostingDateFields(value, now).postedDate || null;
+}
 
-  const raw = String(rawDate).trim();
-  if (!raw) return null;
-
-  // .NET "/Date(epoch_ms)/", offset opzionale — parser condiviso (PR #4362).
-  // Alcuni payload SF omettono lo slash finale: normalizzato prima del parse.
-  const odata = parseDotNetJsonDate(raw.endsWith('/') ? raw : `${raw}/`);
-  if (odata) return odata.toISOString().slice(0, 10);
-
-  // Numeric string
-  if (/^\d{10,13}$/.test(raw)) {
-    const n = Number(raw);
-    const ms = raw.length <= 10 ? n * 1000 : n;
-    const d = new Date(ms);
-    return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
-  }
-
-  // DD.MM.YYYY or DD/MM/YYYY
-  const dotted = raw.match(/^(\d{1,2})[.\/](\d{1,2})[.\/](\d{4})$/);
-  if (dotted) {
-    return `${dotted[3]}-${dotted[2].padStart(2, '0')}-${dotted[1].padStart(2, '0')}`;
-  }
-
-  // ISO-ish — let Date deal with it
-  const d = new Date(raw);
-  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+/** Use only a value already identified as a publication date by the source parser. */
+export function successFactorsPostingDateFields(rawDate, now = new Date()) {
+  return sourcePostingDateFields(parseSuccessFactorsPostedDate(rawDate, now), now);
 }
 
 /* ── Identity extractor ────────────────────────────────────────────────── */
@@ -351,7 +348,10 @@ export function parseSuccessFactorsPostedDate(rawDate) {
  * @property {string}      title      Whitespace-normalized title.
  * @property {string}      location   First location string available.
  * @property {string}      company    Company display name (passed by caller, fallback to tenant).
- * @property {string|null} postedAt   ISO date or null.
+ * @property {string|null} postedAt   Validated publication timestamp/day alias, or null.
+ * @property {string}      postedDate Validated original publication value, or empty.
+ * @property {string}      datePosted Same publication value as postedDate.
+ * @property {string}      postingDateSource Explicit reported evidence, otherwise unknown.
  * @property {string}      applyUrl   Best-effort apply URL.
  */
 
@@ -372,9 +372,13 @@ function normalizeSpace(value = '') {
 /**
  * Pull the canonical identity fields out of a raw job object (any flavor).
  * Inputs accepted:
- *   - OData entity     ({ jobReqId, jobTitle, location, postingStartDate, applyUrl, … })
- *   - jobs2web row     ({ title, url, jobId, postedDate, location, … })
+ *   - OData entity after source-boundary normalization (jobReqId, jobTitle, location, applyUrl, publication trio)
+ *   - jobs2web row after labeled publication-cell parsing (title, url, jobId, location, publication trio)
  *   - HTML-career parse ({ title, reqId, area, country, applyHref, … })
+ *
+ * Publication aliases postedDate/postedAt alone are not source evidence. Source
+ * adapters validate their original field and attach the publication trio before
+ * this normalization; explicit JSON-LD datePosted is also accepted.
  *
  * @param {object} rawJob
  * @param {object} [options]
@@ -410,15 +414,10 @@ export function extractSuccessFactorsJobIdentity(rawJob = {}, options = {}) {
       ''
   );
 
-  const postedRaw =
-    r.postedAt ||
-    r.postedDate ||
-    r.postingStartDate ||
-    r.datePosted ||
-    r.postedOn ||
-    r.start_date ||
-    null;
-  const postedAt = postedRaw ? parseSuccessFactorsPostedDate(postedRaw) : null;
+  const publication = hasPostingDateProvenance(r)
+    ? mergeSourcePostingDates({}, r)
+    : successFactorsPostingDateFields(r.datePosted);
+  const postedAt = publication.postedDate || null;
 
   const applyUrl =
     r.applyUrl ||
@@ -445,6 +444,7 @@ export function extractSuccessFactorsJobIdentity(rawJob = {}, options = {}) {
     location,
     company,
     postedAt,
+    ...publication,
     applyUrl: String(applyUrl || ''),
     descriptionHtml,
   };
@@ -651,7 +651,13 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
         break;
       }
       for (const raw of items) {
-        const job = extractSuccessFactorsJobIdentity(raw, { company, tenant });
+        // OData's postingStartDate is explicitly a posting date in this
+        // adapter contract, unlike the generic employment start_date alias.
+        const publication = mergeSourcePostingDates(
+          successFactorsPostingDateFields(raw.datePosted),
+          successFactorsPostingDateFields(raw.postingStartDate),
+        );
+        const job = extractSuccessFactorsJobIdentity({ ...raw, ...publication }, { company, tenant });
         if (matchesLocation(job.location)) yield job;
       }
       if (items.length < DEFAULT_PAGE_SIZE) break;
@@ -698,41 +704,111 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
     // SBB v2 detail pages have JSON-LD. The listing index for jobreqcareer
     // is a SPA — we accept a single page and parse what we can.
     const seenJobIds = new Set();
+    let declaredTotal = null;
+    let pageUrl = careerUrl;
     for (let page = 0; page < maxPages; page++) {
-      const pageUrl = buildJobs2WebPageUrl(careerUrl, page);
-      const res = await fetchOnce(pageUrl, {
-        timeoutMs,
-        userAgent,
-        accept: 'text/html,application/xhtml+xml',
-      });
-      // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
-      const html = await rescueHtmlIfChallenged(await res.text(), pageUrl, { timeoutMs });
-      const ldJob = extractJsonLdJobPosting(html);
-      if (ldJob) {
-        const job = extractSuccessFactorsJobIdentity(ldJob, { company });
-        if (matchesLocation(job.location)) yield job;
-        return;
-      }
-      // Classic jobs2web overlay uses <tr>/<td> search rows; the newer CSB
-      // "JobTeaserList" card template (Swiss Re, #3797) has no table at all —
-      // fall back to card scraping when the row parser finds nothing (an
-      // `[]` from either is truthy, so check .length, not the array itself).
-      let rows = parseJobs2WebSearchRows(html, pageUrl);
-      if (rows.length === 0) rows = parseJobTeaserListCards(html, pageUrl);
-      if (rows.length === 0) return;
-      for (const row of rows) {
-        const job = extractSuccessFactorsJobIdentity(row, { company });
-        if (job.jobReqId && seenJobIds.has(job.jobReqId)) continue;
-        if (job.jobReqId) seenJobIds.add(job.jobReqId);
-        if (matchesLocation(job.location)) {
-          yield job;
+      let rows = [];
+      let candidateJobs = [];
+      let nextPageUrl = null;
+      let candidateSeen = new Set(seenJobIds);
+      let incompleteAttempts = 0;
+      while (true) {
+        const res = await fetchOnce(pageUrl, {
+          timeoutMs,
+          userAgent,
+          accept: 'text/html,application/xhtml+xml',
+        });
+        // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
+        const html = await rescueHtmlIfChallenged(await res.text(), pageUrl, { timeoutMs });
+        const effectivePageUrl = res.url || pageUrl;
+        const ldJob = extractJsonLdJobPosting(html);
+        if (ldJob) {
+          const job = extractSuccessFactorsJobIdentity(ldJob, { company });
+          if (matchesLocation(job.location)) yield job;
+          return;
         }
+        if (page === 0) declaredTotal = extractJobs2WebDeclaredTotal(html);
+        // Classic jobs2web overlay uses <tr>/<td> search rows; the newer CSB
+        // "JobTeaserList" card template (Swiss Re, #3797) has no table at all —
+        // fall back to card scraping when the row parser finds nothing (an
+        // `[]` from either is truthy, so check .length, not the array itself).
+        rows = parseJobs2WebSearchRows(html, pageUrl);
+        if (rows.length === 0) rows = parseJobTeaserListCards(html, pageUrl);
+
+        // Stage a page against a copy: an HTTP 200 with a transiently empty,
+        // short, or repeated page must not mutate the accepted snapshot before
+        // completeness against the source's declared total is established.
+        nextPageUrl = extractJobs2WebNextPageUrl(html, effectivePageUrl);
+        candidateSeen = new Set(seenJobIds);
+        candidateJobs = [];
+        for (const row of rows) {
+          const job = extractSuccessFactorsJobIdentity(row, { company });
+          if (!admitJobs2WebRow(job, candidateSeen)) continue;
+          candidateJobs.push(job);
+        }
+        const reachesDeclaredTotal =
+          declaredTotal === null || candidateSeen.size >= declaredTotal;
+        const pageSignalsEnd =
+          rows.length < 10 || (page > 0 && candidateJobs.length === 0) ||
+          (declaredTotal !== null && buildJobs2WebNextStartrow(page) >= declaredTotal);
+        const underfilledDeclaredSnapshot = !reachesDeclaredTotal && pageSignalsEnd;
+        if (!underfilledDeclaredSnapshot) break;
+
+        if (incompleteAttempts >= JOBS2WEB_INCOMPLETE_PAGE_RETRIES) {
+          const startrow = page === 0 ? 0 : buildJobs2WebNextStartrow(page - 1);
+          throw new Error(
+            `[successfactors-client] incomplete jobs2web snapshot for ${careerUrl}: ` +
+              `declared ${declaredTotal} results but parsed ${candidateSeen.size} distinct rows ` +
+              `at startrow=${startrow} after ${incompleteAttempts + 1} attempts`,
+          );
+        }
+        incompleteAttempts += 1;
+        if (minDelayMs > 0) await sleep(minDelayMs);
       }
+
+      if (rows.length === 0) return;
+      for (const identity of candidateSeen) seenJobIds.add(identity);
+      for (const job of candidateJobs) {
+        if (matchesLocation(job.location)) yield job;
+      }
+      if (declaredTotal !== null && seenJobIds.size >= declaredTotal) return;
       if (rows.length < 10) return;
+      // Past the declared total some tenants keep serving a full page of
+      // unrelated results (jobdetails.nestle.com: 110 Swiss results, then the
+      // same Qiryat Gat page at startrow=5000 and 50000). A page that adds no
+      // new requisition, or a next offset past "Results … of N", is the end;
+      // otherwise the loop ran until maxPages (100000 for Nestlé).
+      if (page > 0 && candidateJobs.length === 0) return;
+      if (declaredTotal && buildJobs2WebNextStartrow(page) >= declaredTotal) return;
       if (page < maxPages - 1 && minDelayMs > 0) await sleep(minDelayMs);
+      pageUrl = nextPageUrl || buildJobs2WebPageUrl(careerUrl, page + 1);
+    }
+    if (declaredTotal !== null && seenJobIds.size < declaredTotal) {
+      throw new Error(
+        `[successfactors-client] incomplete jobs2web snapshot for ${careerUrl}: ` +
+          `parsed ${seenJobIds.size} distinct rows but source declared ${declaredTotal} ` +
+          `after maxPages=${maxPages}`,
+      );
     }
     return;
   }
+}
+
+/**
+ * Record a jobs2web search row in `seen` and say whether it is new. The row's
+ * identity is its requisition id, or its URL when the template carries none;
+ * a row without either cannot prove it is new. Counting such rows as new kept
+ * the pagination loop alive on a repeated full page until `maxPages`.
+ *
+ * @param {{ jobReqId?: string, applyUrl?: string, url?: string }} job
+ * @param {Set<string>} seen
+ * @returns {boolean}
+ */
+export function admitJobs2WebRow(job, seen) {
+  const identity = String(job?.jobReqId || job?.applyUrl || job?.url || '').trim();
+  if (!identity || seen.has(identity)) return false;
+  seen.add(identity);
+  return true;
 }
 
 /* ── Internal HTML helpers ─────────────────────────────────────────────── */
@@ -747,15 +823,112 @@ function extractTenantFromHost(url) {
   }
 }
 
+function buildJobs2WebNextStartrow(page) {
+  return (page + 1) * 10;
+}
+
 function buildJobs2WebPageUrl(url, page) {
   if (page <= 0) return url;
   try {
     const parsed = new URL(url);
-    parsed.searchParams.set('startrow', String(page * 10));
+    parsed.searchParams.set('startrow', String(buildJobs2WebNextStartrow(page - 1)));
     return parsed.toString();
   } catch {
     return url;
   }
+}
+
+/**
+ * Follow a pagination URL emitted by the source before synthesising a
+ * `startrow` URL. SuccessFactors tenants normally accept `startrow`, but
+ * Nestlé's legacy search surface exposes canonical `/go/.../<offset>/` links;
+ * synthesising the query parameter there can return an empty page even while
+ * the source declares more results. Only same-origin listing routes with a
+ * strictly larger offset are candidates, so job/detail links and page-one
+ * links cannot become pagination targets.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @returns {string|null}
+ */
+function extractJobs2WebNextPageUrl(html = '', pageUrl = '') {
+  if (!html || !pageUrl) return null;
+  let current;
+  try {
+    current = new URL(pageUrl);
+  } catch {
+    return null;
+  }
+
+  const currentOffset = jobs2WebPageOffset(current);
+  if (currentOffset === null) return null;
+
+  const candidates = [];
+  const anchorRe = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+  let match;
+  while ((match = anchorRe.exec(html)) !== null) {
+    const hrefMatch = match[1].match(/\bhref\s*=\s*["']([^"']+)["']/i);
+    if (!hrefMatch) continue;
+    const href = hrefMatch[1].replace(/&amp;/gi, '&');
+    let candidate;
+    try {
+      candidate = new URL(href, current);
+    } catch {
+      continue;
+    }
+    if (candidate.origin !== current.origin) continue;
+    if (!isJobs2WebListingRoute(candidate.pathname)) continue;
+    const offset = jobs2WebPageOffset(candidate);
+    if (offset === null || offset <= currentOffset) continue;
+    candidates.push({ offset, url: candidate.toString() });
+  }
+
+  candidates.sort((a, b) => a.offset - b.offset);
+  return candidates[0]?.url || null;
+}
+
+function isJobs2WebListingRoute(pathname) {
+  const path = pathname.replace(/\/+$/, '');
+  const isListingPath =
+    JOBS2WEB_GO_LISTING_PATH_RE.test(path) ||
+    /\/(?:search|viewalljobs)(?:\/|$)/i.test(path);
+  return isListingPath;
+}
+
+const JOBS2WEB_GO_LISTING_PATH_RE = /^\/go\/[^/]+\/(?:jobsearch|\d+)(?:\/\d+)?$/i;
+
+function jobs2WebPageOffset(value) {
+  const url = value instanceof URL ? value : new URL(value);
+  const startrow = url.searchParams.get('startrow');
+  if (/^\d+$/.test(startrow || '')) return Number(startrow);
+
+  const path = url.pathname.replace(/\/+$/, '');
+  const viewAllMatch = path.match(/\/viewalljobs\/(\d+)$/i);
+  if (viewAllMatch) return Number(viewAllMatch[1]);
+
+  // Canonical legacy listings use a numeric category id or the explicit
+  // `jobsearch` route. Detail pages use `/go/<...>/job/<offset>/` and must
+  // never be mistaken for pagination targets.
+  const goListingMatch = path.match(/^\/go\/[^/]+\/(?:jobsearch|\d+)(?:\/(\d+))?$/i);
+  if (goListingMatch) return Number(goListingMatch[1] || 0);
+  if (/\/(?:go|search|viewalljobs)$/i.test(path)) return 0;
+  return null;
+}
+
+/**
+ * Total result count a jobs2web search page declares
+ * ("Results <b>1 – 10</b> of <b>110</b>", "Ergebnisse 1 – 25 von 93", …).
+ * null when the page does not state it.
+ *
+ * @param {string} html
+ * @returns {number|null}
+ */
+export function extractJobs2WebDeclaredTotal(html = '') {
+  const flat = String(html || '').replace(/<\/?(?:b|strong|span)[^>]*>/gi, '');
+  const m = flat.match(/(?:Results|Ergebnisse|Résultats|Risultati)\s+\d+\s*[–-]\s*\d+\s+(?:of|von|sur|de|di)\s+([\d'’.,]+)/i);
+  if (!m) return null;
+  const total = Number(m[1].replace(/[^\d]/g, ''));
+  return Number.isFinite(total) && total > 0 ? total : null;
 }
 
 /**
@@ -838,7 +1011,8 @@ function extractJsonLdJobPosting(html = '') {
         title: n.title || n.name || '',
         jobReqId: n.identifier?.value || n.identifier || '',
         location: locName,
-        postedAt: n.datePosted || null,
+        postedAt: parseSuccessFactorsPostedDate(n.datePosted),
+        ...successFactorsPostingDateFields(n.datePosted),
         applyUrl: n.url || n.applyUrl || '',
       };
     }
@@ -882,7 +1056,8 @@ function parseJobs2WebSearchRows(html = '', pageUrl = '') {
     const cellRe = /<td[^>]*>([\s\S]*?)<\/td>/gi;
     let cm;
     while ((cm = cellRe.exec(rowHtml)) !== null) {
-      cells.push(normalizeSpace(stripTags(cm[1])));
+      const className = cm[0].match(/\bclass=["']([^"']*)["']/i)?.[1] || '';
+      cells.push({ text: normalizeSpace(stripTags(cm[1])), className });
     }
     const titleA = rowHtml.match(/<a[^>]+href="[^"]*\/job\/[^"]*"[^>]*>([\s\S]*?)<\/a>/i);
     const title = titleA
@@ -890,14 +1065,18 @@ function parseJobs2WebSearchRows(html = '', pageUrl = '') {
           /^(?:Title|Titre|Bezeichnung|Titolo|Titulo)\s*:\s*/i,
           ''
         )
-      : cells[0] || '';
+      : cells[0]?.text || '';
     if (!title || title.length < 3) continue;
+    const dateCell = rowHtml.match(/<td[^>]*class=["'][^"']*\b(?:colDate|jobDate)\b[^"']*["'][^>]*>([\s\S]*?)<\/td>/i);
+    // Cell position does not identify publication: it may contain an application deadline.
+    const publication = successFactorsPostingDateFields(dateCell ? normalizeSpace(stripTags(dateCell[1])) : '');
     rows.push({
       title,
       url,
       jobId,
-      location: cells[2] || '',
-      postedAt: parseSuccessFactorsPostedDate(cells[3] || ''),
+      location: cells[2]?.text || '',
+      postedAt: publication.postedDate || null,
+      ...publication,
     });
   }
   return rows;

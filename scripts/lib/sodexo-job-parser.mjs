@@ -27,6 +27,8 @@
  *
  * Polite delay: 300 ms between detail fetches.
  */
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { guessCategory } from './dedicated-crawler-common.mjs';
@@ -38,6 +40,7 @@ import {
   htmlToText,
 } from './hospital-custom-html-helpers.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 export const SODEXO_KEY = 'sodexo';
 export const SODEXO_COMPANY_NAME = 'Sodexo (Suisse) SA';
@@ -127,19 +130,7 @@ export function parseSodexoListing(html = '') {
  */
 export function extractJobPostingLd(html = '') {
   if (!html) return null;
-  const scripts = html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi);
-  for (const m of scripts) {
-    const raw = m[1].trim();
-    try {
-      const data = JSON.parse(raw);
-      if (data && (data['@type'] === 'JobPosting' || data['@type']?.includes?.('JobPosting'))) {
-        return data;
-      }
-    } catch {
-      // Ignore malformed blocks and keep scanning.
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 function htmlDescriptionToText(htmlDescription = '') {
@@ -215,7 +206,6 @@ export async function fetchAllSodexoJobs() {
   console.log(`  ✓ ${positions.length} Concludis positions parsed`);
   if (!positions.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < positions.length; i += 1) {
     const p = positions[i];
@@ -251,9 +241,7 @@ export async function fetchAllSodexoJobs() {
       : HQ.streetAddress;
     const canton = pickCanton(city, postalCode);
 
-    const datePosted = (ld?.datePosted && /^\d{4}-\d{2}-\d{2}$/.test(ld.datePosted))
-      ? ld.datePosted
-      : todayIso;
+    const publication = identifiedPostingPublication(html, p.detailUrl, p.title);
 
     const jobSlug = slugify(`${title} ${SODEXO_KEY} ${city}`);
     const urlHash = createHash('sha1').update(p.detailUrl).digest('hex').slice(0, 12);
@@ -296,7 +284,7 @@ export async function fetchAllSodexoJobs() {
       sector: 'Ristorazione collettiva / Facility Management',
       currency: 'CHF',
       featured: false,
-      postedDate: datePosted,
+      ...withLegacyPostingDay(publication),
       applyUrl: p.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

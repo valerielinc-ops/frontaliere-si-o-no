@@ -689,6 +689,7 @@ describe('og:image extract + WebP conversion + Images upload', () => {
       accessToken: 'tok',
       ownerUrn: 'urn:li:person:abc',
       imageUrl: 'https://cdn.example/hero.webp',
+      imageGate: () => ({ valid: true }),
       fetchImpl: fetchImpl as unknown as typeof fetch,
     });
     expect(urn).toBe(imageUrn);
@@ -710,9 +711,25 @@ describe('og:image extract + WebP conversion + Images upload', () => {
       accessToken: 'tok',
       ownerUrn: 'urn:li:person:abc',
       imageUrl: 'https://cdn.example/hero.jpg',
+      imageGate: () => ({ valid: true }),
       fetchImpl: fetchImpl as unknown as typeof fetch,
     });
     expect(urn).toBeNull();
+  });
+
+  it('blocks a third-party og:image before the first image download', async () => {
+    let fetches = 0;
+    const urn = await uploadLinkedInImage({
+      accessToken: 'tok',
+      ownerUrn: 'urn:li:person:abc',
+      imageUrl: 'https://images.example/hero.webp',
+      fetchImpl: async () => {
+        fetches += 1;
+        throw new Error('must not fetch a third-party image');
+      },
+    });
+    expect(urn).toBeNull();
+    expect(fetches).toBe(0);
   });
 });
 

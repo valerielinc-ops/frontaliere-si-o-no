@@ -46,6 +46,8 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  * plus parseListPage()/parseDetailPage() for fixture tests.
  */
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -106,6 +108,9 @@ function htmlToText(html = '') {
     // location parser and requirements splitting.
     .replace(/[ \t]+$/gm, '')
     .replace(/^[ \t]+/gm, '')
+    // `<li><div>text</div></li>` leaves the bullet alone on its line: join it
+    // with the item text it introduces.
+    .replace(/^•\n+(?=[^\n•])/gm, '• ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
@@ -344,19 +349,43 @@ export function parseListPage(html = '') {
 /* ── Detail Page Parser ───────────────────────────────────── */
 
 /**
+ * Index of the `</div>` that closes a div whose opening tag ends at `from`
+ * (nested divs counted). Falls back to the end of the document when the
+ * markup never closes, so a truncated page yields its whole remainder rather
+ * than nothing.
+ */
+function balancedDivEnd(src, from) {
+  const tagPattern = /<\/?div\b[^>]*>/gi;
+  tagPattern.lastIndex = from;
+  let depth = 1;
+  let tag;
+  while ((tag = tagPattern.exec(src)) !== null) {
+    if (tag[0][1] === '/') depth -= 1;
+    else if (!tag[0].endsWith('/>')) depth += 1;
+    if (depth === 0) return tag.index;
+  }
+  return src.length;
+}
+
+/**
  * Parse a job detail page (language-independent CSS hooks).
  */
-export function parseDetailPage(html = '') {
+export function parseDetailPage(html = '', pageUrl = '', expectedTitle = '') {
   const src = String(html || '');
   const sections = {};
 
   // Named field sections: <div class="field f-n-<name> ..."><h2>Heading</h2>content</div>
-  // (field bodies are flat h2/p/ul markup — no nested divs on this portal).
-  const sectionPattern = /<div class="field f-n-((?:field-job-)?[\w-]+?) f-t-[\w-]+">([\s\S]*?)<\/div>/g;
+  // The body is read to its BALANCED closing tag: some vacancies wrap each
+  // list item in `<li><div><span>…</span></div></li>`, and the former
+  // non-greedy `…</div>` stopped at the first inner close — job 33260 kept
+  // one of its seven task bullets (source-detail audit 2026-09-29).
+  const sectionPattern = /<div class="field f-n-((?:field-job-)?[\w-]+?) f-t-[\w-]+">/g;
   let secMatch;
   while ((secMatch = sectionPattern.exec(src)) !== null) {
     const rawName = secMatch[1].replace(/^field-job-/, '');
-    let content = secMatch[2];
+    const contentEnd = balancedDivEnd(src, sectionPattern.lastIndex);
+    let content = src.slice(sectionPattern.lastIndex, contentEnd);
+    sectionPattern.lastIndex = contentEnd;
     const headingMatch = content.match(/<h2[^>]*>([\s\S]*?)<\/h2>/);
     const heading = headingMatch ? normalizeSpace(htmlToText(headingMatch[1])) : '';
     if (headingMatch) content = content.replace(headingMatch[0], '');
@@ -381,7 +410,10 @@ export function parseDetailPage(html = '') {
 
   const isOmegaBrand = src.includes(OMEGA_LOGO_MARKER);
 
-  return { title, sections, locationText, applyUrl, isOmegaBrand };
+  return { title, sections, locationText, applyUrl, isOmegaBrand,
+    ...(!title || title.toLowerCase() === normalizeSpace(expectedTitle).toLowerCase()
+      ? identifiedPostingPublication(src, pageUrl, expectedTitle) : sourcePostingDateFields()),
+  };
 }
 
 /**
@@ -441,16 +473,15 @@ export async function fetchAllOmegaJobs() {
       html = await fetchPage(listUrl(page));
     } catch (err) {
       if (page === 0) {
-        // Nothing collected yet — graceful early exit (prior data preserved).
         console.error(`  ❌ Failed to fetch list page: ${err?.message || err}`);
         console.warn('   The site may be blocking automated requests. Will retry next cycle.');
-        return [];
+        throw err;
       }
       // Mid-crawl failure: publishing a PARTIAL list would expire the jobs on
-      // the unfetched pages, so bail out to the safe 0-job early exit instead.
+      // the unfetched pages, so fail the run and preserve the prior snapshot.
       console.error(`  ❌ Failed to fetch list page ${page + 1}: ${err?.message || err}`);
-      console.warn('   Aborting with no jobs (prior data preserved) — will retry next cycle.');
-      return [];
+      console.warn('   Aborting the crawl with an error (prior data preserved) — will retry next cycle.');
+      throw err instanceof Error ? err : new Error(String(err));
     }
 
     const { listings, cardCount } = parseListPage(html);
@@ -482,7 +513,7 @@ export async function fetchAllOmegaJobs() {
     let detail = { title: '', sections: {}, locationText: '', applyUrl: '', isOmegaBrand: true };
     try {
       const detailHtml = await fetchPage(listing.url);
-      detail = parseDetailPage(detailHtml);
+      detail = parseDetailPage(detailHtml, listing.url, listing.title);
       await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS)); // Rate limiting
     } catch (err) {
       console.warn(`  ⚠️ Failed to fetch detail page for "${listing.title}": ${err?.message || err}`);
@@ -544,7 +575,7 @@ export async function fetchAllOmegaJobs() {
       sector: 'Orologeria di lusso',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       applyUrl,
 
       // ── Requirements ──

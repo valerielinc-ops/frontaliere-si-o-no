@@ -36,4 +36,11 @@ describe('swisscom-job-parser', () => {
       'L\'italiano, la matematica e almeno una lingua nazionale sono tra i tuoi punti di forza',
     ]);
   });
+
+  it('returns no description (not a bare title heading) when Workday has no text', () => {
+    expect(parseSwisscomJobDescription('', 'Apprendistato: Impiegato/a del commercio al dettaglio AFC')).toEqual({
+      description: '',
+      requirements: [],
+    });
+  });
 });

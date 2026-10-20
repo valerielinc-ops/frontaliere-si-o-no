@@ -60,10 +60,11 @@
  * ~14 hours before the issues existed, both zero in every hour since, and both
  * serving 200/HIT when checked. The flat report could not have said so.
  *
- * `--by-hour` adds `detailByHour` to the JSON payload: the same rows keyed by
- * `datetimeHour`, so a consumer can tell "still failing" from "failed once,
- * yesterday". Row count is bounded above by the number of 5xx events in the
- * window (a few hundred here), so the 10k cap cannot bite.
+ * `--by-hour` adds `detailByHour` to the JSON payload: the same URL rows keyed
+ * by `datetimeHour`, `originResponseStatus` and `cacheStatus`, so a consumer can
+ * tell "still failing" from "failed once, yesterday" and keep endpoint evidence
+ * correlated. If the 10k row cap is reached, `detailByHourComplete` is false;
+ * consumers must not infer recency from a truncated result.
  *
  * By default only `requestSource: eyeball` rows (real client requests) are
  * counted. Worker-internal rows are excluded because the locale-router's
@@ -77,7 +78,13 @@
  *             1 = bad config / API error.
  */
 
-import { cfGraphQL, resolveZoneId, MAX_HOURS, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
+import {
+  cfGraphQL,
+  resolveZoneId,
+  MAX_HOURS,
+  CF_ANALYTICS_MAX_ROWS,
+  DEFAULT_ZONE_NAME,
+} from './lib/cf-analytics.mjs';
 
 const ZONE_NAME = process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME;
 
@@ -160,13 +167,13 @@ const HOURLY_DETAIL_QUERY = `
 query($zone:String!,$limit:Int!,$filter:ZoneHttpRequestsAdaptiveGroupsFilter_InputObject){
   viewer{ zones(filter:{zoneTag:$zone}){
     httpRequestsAdaptiveGroups(limit:$limit,filter:$filter,orderBy:[count_DESC]){
-      count dimensions{ datetimeHour edgeResponseStatus clientRequestHTTPHost clientRequestPath }
+      count dimensions{ datetimeHour edgeResponseStatus originResponseStatus cacheStatus clientRequestHTTPHost clientRequestPath }
     }
   }}
 }`;
 
 /** Row cap for the hourly query — the dataset ceiling, never expected to bind. */
-const HOURLY_ROW_LIMIT = 10000;
+const HOURLY_ROW_LIMIT = CF_ANALYTICS_MAX_ROWS;
 
 function classOf(status) {
   if (status >= 500) return '5xx';
@@ -253,7 +260,10 @@ async function main() {
                   url: r.dimensions.clientRequestHTTPHost + r.dimensions.clientRequestPath,
                   hour: r.dimensions.datetimeHour,
                   count: r.count,
+                  originResponseStatus: r.dimensions.originResponseStatus ?? null,
+                  cacheStatus: r.dimensions.cacheStatus ?? null,
                 })),
+                detailByHourComplete: hourlyRows.length < HOURLY_ROW_LIMIT,
               }
             : {}),
         },

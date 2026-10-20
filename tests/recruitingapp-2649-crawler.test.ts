@@ -7,6 +7,7 @@ import {
   assertCompleteRecruitingapp2649Snapshot,
   canonicalRecruitingapp2649Url,
   fetchAllRecruitingapp2649Jobs,
+  isRecruitingapp2649ExpectedDetailFilter,
   isRecruitingapp2649Job,
   isTrustedDomain,
 } from '../scripts/lib/recruitingapp-2649-job-parser.mjs';
@@ -195,6 +196,47 @@ describe('Alexander von Humboldt-Stiftung Stellen crawler parser', () => {
   });
 
   describe('authoritative non-Swiss snapshot', () => {
+    it('does not trip the shared detail-drop guard for a complete large foreign snapshot', async () => {
+      const details = Object.fromEntries(Array.from({ length: 16 }, (_, index) => [
+        String(7000 + index),
+        { body: BONN_DETAIL },
+      ]));
+      const { runtime } = sourceRuntime(details);
+
+      const jobs = await fetchAllRecruitingapp2649Jobs(runtime);
+
+      expect(jobs).toEqual([]);
+      expect(jobs.authoritativeSnapshotProof).toMatchObject({
+        discoveredCount: 16,
+        attemptedDetailCount: 16,
+        detailCount: 16,
+        publishedCount: 0,
+        complete: true,
+      });
+      expect(assertCompleteRecruitingapp2649Snapshot(jobs)).toBe(true);
+    });
+
+    it('only exempts rich, allowlisted foreign geography from the shared guard', () => {
+      const base = {
+        reason: 'geography',
+        decision: { geography: null, explicitlyForeign: true },
+        descriptionSufficient: true,
+      };
+      expect(isRecruitingapp2649ExpectedDetailFilter({
+        ...base,
+        detail: { locationCandidates: [{ addressLocality: '53113 Bonn' }] },
+      })).toBe(true);
+      expect(isRecruitingapp2649ExpectedDetailFilter({
+        ...base,
+        detail: { locationCandidates: [{ addressLocality: 'New City' }] },
+      })).toBe(false);
+      expect(isRecruitingapp2649ExpectedDetailFilter({
+        ...base,
+        descriptionSufficient: false,
+        detail: { locationCandidates: [{ addressLocality: 'Bonn' }] },
+      })).toBe(false);
+    });
+
     it('canonicalizes Umantis query, hash and Description/N variants before identity hashing', () => {
       expect(canonicalRecruitingapp2649Url(
         'https://recruitingapp-2649.umantis.com/Vacancies/9001/Description/4?lang=ger#apply',
@@ -227,6 +269,21 @@ describe('Alexander von Humboldt-Stiftung Stellen crawler parser', () => {
       expect(assertCompleteRecruitingapp2649Snapshot(jobs)).toBe(true);
       expect(requested).toContain('https://recruitingapp-2649.umantis.com/Vacancies/3705/Description/1');
       expect(requested).toContain('https://recruitingapp-2649.umantis.com/Vacancies/4018/Description/1');
+    });
+
+    it('accepts a source postal code attached to the allowlisted foreign locality', async () => {
+      const postalBonnDetail = BONN_DETAIL.replace('Arbeitsort: Bonn', 'Arbeitsort: 53113 Bonn');
+      const { runtime } = sourceRuntime({
+        '3705': { body: postalBonnDetail },
+        '4018': { body: postalBonnDetail },
+      });
+
+      const jobs = await fetchAllRecruitingapp2649Jobs(runtime);
+
+      expect(assertCompleteRecruitingapp2649Snapshot(jobs)).toBe(true);
+      expect(jobs.authoritativeSnapshotProof.details).toEqual(expect.arrayContaining([
+        expect.objectContaining({ locations: ['53113 Bonn'] }),
+      ]));
     });
 
     it('fails the whole batch when one canonical detail request is unavailable', async () => {

@@ -61,6 +61,13 @@ shard_read_counter() {
   printf '%s' "$val"
 }
 
+# The apex records the source build SHA in the shard commit subject. Keep a
+# matching tree marker so a build that emits the same served bytes still has a
+# real, auditable publication event instead of looking stale forever.
+shard_source_stamp() {
+  printf '%s' "${GITHUB_SHA:-local}"
+}
+
 # shard_delta_manifest_sidecar <locale>
 # The build manifest lives outside dist/. Delta mode carries a filtered,
 # per-shard snapshot in the published tree so the next push has an atomic
@@ -1027,6 +1034,27 @@ shard_orphan_init() {
 # world-readable on a runner) and never in a `set -x` trace of the push.
 _SHARD_CRED_HELPER='!f() { test "$1" = get && printf "username=x-access-token\npassword=%s\n" "$SHARD_PUSH_TOKEN"; }; f'
 
+# Normalize the PAT fallback delay before it reaches `sleep` or arithmetic.
+# Bash 3.2 has integer-only arithmetic, while `sleep` accepts fractions; keep
+# the fractional value for the wait and use awk for the bounded doubling.
+shard_pat_retry_delay() {
+  local raw="${SHARD_PAT_RETRY_DELAY:-${SHARD_PUSH_RETRY_DELAY:-5}}"
+  awk -v raw="$raw" 'BEGIN {
+    if (raw !~ /^[0-9]+([.][0-9]+)?$/) { print "5.000"; exit }
+    value = raw + 0
+    if (value > 300) value = 300
+    printf "%.3f\n", value
+  }'
+}
+
+shard_pat_retry_delay_double() {
+  awk -v delay="$1" 'BEGIN {
+    value = (delay + 0) * 2
+    if (value > 300) value = 300
+    printf "%.3f\n", value
+  }'
+}
+
 # shard_https_push_url <shard_repo>
 # Maps a GitHub SSH remote to its HTTPS equivalent (git@github.com:o/r.git →
 # https://github.com/o/r.git; the ssh:// spelling too). An https:// remote is
@@ -1040,6 +1068,44 @@ shard_https_push_url() {
     https://github.com/*)   printf '%s' "$repo" ;;
     *) return 1 ;;
   esac
+}
+
+# shard_github_repo_owner <shard_repo>
+# Extracts the canonical owner already present in a GitHub remote URL. This is
+# deliberately URL-based: the owner map is the source of truth, and probing a
+# repository path or inferring ownership from a redirect is unsafe after a
+# repository transfer.
+shard_github_repo_owner() {
+  local repo="$1" url path
+  url="$(shard_https_push_url "$repo")" || return 1
+  path="${url#https://github.com/}"
+  case "$path" in
+    */*) printf '%s' "${path%%/*}" ;;
+    *) return 1 ;;
+  esac
+}
+
+# shard_push_token_for_repo <shard_repo>
+# Selects the HTTPS fallback credential for the remote's canonical owner.
+# SHARD_PUSH_PAT remains an explicit operator override. Shards transferred to
+# nanakokyobashi-rgb need the owner-specific PAT loaded from Remote Config;
+# using the site's GITHUB_PAT there produces GitHub's "denied to
+# valerielinc-ops" refusal even though the PAT itself is healthy.
+shard_push_token_for_repo() {
+  local repo="$1" owner=''
+  if [ -n "${SHARD_PUSH_PAT:-}" ]; then
+    printf '%s' "$SHARD_PUSH_PAT"
+    return 0
+  fi
+  if owner="$(shard_github_repo_owner "$repo")"; then
+    case "$owner" in
+      nanakokyobashi-rgb)
+        printf '%s' "${GITHUB_PAT_NANAKO:-}"
+        return 0
+        ;;
+    esac
+  fi
+  printf '%s' "${GITHUB_PAT:-}"
 }
 
 # shard_push_error_is_auth <logfile>
@@ -1058,6 +1124,36 @@ shard_push_error_is_auth() {
   grep -qEi 'denied to (deploy key|user)|permission denied \(publickey\)|permission to .+ denied|repository not found|403 forbidden' "$1"
 }
 
+# shard_push_error_is_remote_object_limit <logfile>
+# True when GitHub has rejected the pack or one of its tree/blob objects for a
+# permanent size limit. These strings are GitHub's stable rejection forms:
+# the remote does not expose the tree limit as a machine-readable code, so the
+# exact stderr wording is the evidence we can classify without guessing.
+# One pattern for the classifier and for the remote line quoted in the error
+# below: two copies would drift (AGENTS.md #6).
+SHARD_REMOTE_OBJECT_LIMIT_PATTERN="non-blob object size limit exceeded|exceeds GitHub's file size limit|GH001: Large files detected|pack exceeds maximum allowed size"
+shard_push_error_is_remote_object_limit() {
+  grep -qEi "$SHARD_REMOTE_OBJECT_LIMIT_PATTERN" "$1"
+}
+
+# shard_push_error_is_transport <logfile>
+# True when a push was interrupted by the network/remote transport rather than
+# rejected by the credential. Keep this in one helper because both the SSH
+# retry path and the PAT fallback need the same conservative classification.
+shard_push_error_is_transport() {
+  grep -qEi 'closed by remote host|unexpected disconnect|remote end hung up|early EOF|connection (reset|timed out|refused)|failed to connect|could not resolve host|network is unreachable|sideband packet|HTTP/2 stream [0-9]+ was not closed cleanly' "$1"
+}
+
+# shard_push_error_is_transient <logfile>
+# True only for failures where repeating the same idempotent push can recover:
+# transport interruptions and GitHub's transient HTTP 429/5xx responses. An
+# unclassified or authorization failure stays fail-closed instead of consuming
+# the retry budget on a credential that cannot succeed.
+shard_push_error_is_transient() {
+  shard_push_error_is_transport "$1" \
+    || grep -qEi 'remote: (internal server error|service unavailable|bad gateway|gateway timeout)|returned error: (429|5[0-9][0-9])' "$1"
+}
+
 # shard_push_failure_reason <logfile>
 # Classifies the last SSH push failure for the PAT fallback's warning. Keep
 # this deliberately narrower than shard_push_error_is_auth: a generic git
@@ -1065,26 +1161,126 @@ shard_push_error_is_auth() {
 # must never be reported as a broken deploy key (incident 2026-09-14).
 shard_push_failure_reason() {
   local logfile="$1"
-  if shard_push_error_is_auth "$logfile"; then
+  if shard_push_error_is_remote_object_limit "$logfile"; then
+    printf '%s' 'GitHub remote object/tree size limit'
+  elif shard_push_error_is_auth "$logfile"; then
     printf '%s' 'deploy-key authentication/authorization failure'
-  elif grep -qEi 'closed by remote host|unexpected disconnect|remote end hung up|early EOF|connection (reset|timed out|refused)|failed to connect|could not resolve host|network is unreachable|sideband packet' "$logfile"; then
+  elif shard_push_error_is_transport "$logfile"; then
     printf '%s' 'transient SSH transport failure'
   else
     printf '%s' 'unclassified SSH push failure'
   fi
 }
 
+# Write one already-sanitized, single-line cause for report-shard-push-failure.
+# Callers set this only for a shard in the runner temp directory; no token is
+# ever interpolated into the value written here.
+shard_record_push_failure_reason() {
+  local reason="$1" file="${SHARD_PUSH_FAIL_REASON_FILE:-}"
+  [ -n "$file" ] || return 0
+  printf '%s\n' "$reason" > "$file" 2>/dev/null || true
+}
+
+# shard_report_largest_tree <git_dir> <commit-ish> <label>
+# Reports the largest tree object reachable from the commit that is about to
+# be published. GitHub does not print its remote tree limit, so the first
+# threshold is an inferred 50 MiB advisory reference; the second is the
+# smallest tree size that GitHub has actually rejected (run 37728960699).
+# Both can be overridden for tests or an owner-approved platform change.
+#
+# The traversal intentionally asks Git only for tree names and then sends all
+# OIDs through one cat-file batch. It never opens a blob, which is required for
+# commit-tree plans built with `git write-tree --missing-ok`.
+shard_report_largest_tree() {
+  local dir="$1" commitish="$2" label="${3:-shard}"
+  # 52428800 = 50 MiB, deduced from GitHub's behavior because GitHub does not
+  # publish this tree-object limit; use it only for the percentage/warning.
+  local tree_limit="${SHARD_REMOTE_TREE_LIMIT_BYTES:-52428800}"
+  # 52462972 = smallest rejected tree observed in run 37728960699.
+  local reject_limit="${SHARD_REMOTE_TREE_REJECT_BYTES:-52462972}"
+  local work root_tree tree_records tree_oids tree_sizes largest largest_bytes largest_path pct
+
+  case "$tree_limit" in ''|*[!0-9]*)
+    echo "::error::$label: SHARD_REMOTE_TREE_LIMIT_BYTES must be a non-negative integer" >&2
+    return 1
+    ;;
+  esac
+  case "$reject_limit" in ''|*[!0-9]*)
+    echo "::error::$label: SHARD_REMOTE_TREE_REJECT_BYTES must be a non-negative integer" >&2
+    return 1
+    ;;
+  esac
+
+  work="$(mktemp -d)" || return 1
+  tree_records="$work/tree-records"
+  tree_oids="$work/tree-oids"
+  tree_sizes="$work/tree-sizes"
+  if ! root_tree="$(git -C "$dir" rev-parse "$commitish^{tree}" 2>/dev/null)"; then
+    echo "::error::$label: cannot resolve tree for $commitish" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  if ! git -C "$dir" ls-tree -r -d "$commitish" > "$work/ls-tree" 2>/dev/null; then
+    echo "::error::$label: cannot enumerate trees for $commitish" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  {
+    printf '%s\t%s\n' "$root_tree" .
+    awk -F '\t' '{ split($1, fields, /[[:space:]]+/); if (fields[2] == "tree") print fields[3] "\t" $2 }' "$work/ls-tree"
+  } > "$tree_records"
+  cut -f1 "$tree_records" > "$tree_oids"
+  if ! git -C "$dir" cat-file --batch-check < "$tree_oids" > "$tree_sizes"; then
+    echo "::error::$label: cannot inspect tree object sizes for $commitish" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  largest="$(awk -F '\t' '
+    NR == FNR { paths[FNR] = $2; next }
+    {
+      split($0, fields, /[[:space:]]+/)
+      if (fields[2] != "tree" || fields[3] !~ /^[0-9]+$/) next
+      if (fields[3] + 0 > max) { max = fields[3] + 0; max_path = paths[FNR] }
+    }
+    END { if (max_path != "") printf "%s\t%s", max, max_path }
+  ' "$tree_records" "$tree_sizes")"
+  if [ -z "$largest" ]; then
+    echo "::error::$label: no tree object size was returned for $commitish" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  largest_bytes="${largest%%$'\t'*}"
+  largest_path="${largest#*$'\t'}"
+  pct="$(awk -v bytes="$largest_bytes" -v limit="$tree_limit" 'BEGIN {
+    if (limit == 0) { printf "inf"; exit }
+    printf "%.2f", bytes * 100 / limit
+  }')"
+  printf '%s: largest tree %s bytes at %s (%s%% of the remote tree limit)\n' \
+    "$label" "$largest_bytes" "$largest_path" "$pct"
+  rm -rf "$work"
+
+  if [ "$largest_bytes" -ge "$reject_limit" ]; then
+    local reason="GitHub remote object/tree size limit"
+    shard_record_push_failure_reason "$reason"
+    echo "::error::$label: GitHub remote tree/object size limit is permanent, not transient — refusing push before upload; largest tree $largest_bytes bytes at $largest_path (reject threshold $reject_limit bytes)" >&2
+    return 3
+  fi
+  if awk -v bytes="$largest_bytes" -v limit="$tree_limit" 'BEGIN { exit !(limit > 0 && bytes * 100 >= limit * 90) }'; then
+    echo "::warning::$label: largest tree $largest_bytes bytes at $largest_path is at or above 90% of the remote tree limit" >&2
+  fi
+  return 0
+}
+
 # shard_pat_push <push_dir> <shard_repo> <refspec> [label] [force] [reason]
-# Last-resort force-push over HTTPS authenticated with a PAT
-# ($SHARD_PUSH_PAT, else $GITHUB_PAT — the latter is hydrated from Firebase
-# Remote Config by scripts/load-rc-env.mjs in every deploy job). Exists because
-# a per-shard deploy key is a single point of failure with no operational
-# safety net: there are 90+ of them, each one revocable/read-only/rotatable
-# independently, and each one lives in a secret that can be silently shadowed
-# (repo-level vs `shard-secrets-overflow` environment — see
-# scripts/ci/check-shard-secret-shadowing.mjs). The PAT is account-wide and has
-# write on every shard repo (both owners), so it recovers ALL of those failure
-# modes without touching a single secret. Returns 0 on success, 1 otherwise.
+# Last-resort force-push over HTTPS authenticated with a PAT selected by
+# shard_push_token_for_repo ($SHARD_PUSH_PAT override, then the owner-specific
+# PAT hydrated from Firebase Remote Config by scripts/load-rc-env.mjs). Exists
+# because a per-shard deploy key is a single point of failure with no
+# operational safety net: there are 90+ of them, each one
+# revocable/read-only/rotatable independently, and each one lives in a secret
+# that can be silently shadowed (repo-level vs `shard-secrets-overflow`
+# environment — see scripts/ci/check-shard-secret-shadowing.mjs). Returns 0 on
+# success, 1 otherwise.
 # [force] defaults to 1 (force-push, what every full-replace shard push does).
 # Pass 0 from a caller whose whole concurrency model depends on a non-fast-
 # forward being an ERROR rather than something to overwrite — that is
@@ -1094,15 +1290,17 @@ shard_push_failure_reason() {
 # warning actionable without claiming that every PAT fallback means a broken
 # deploy key.
 shard_pat_push() {
+  shard_refspec_has_source "${3:-}" "${4:-shard}" || return 1
   local dir="$1" repo="$2" refspec="$3" label="${4:-shard}" force="${5:-1}" reason="${6:-unclassified SSH push failure}"
   # A plain string, not an array: `"${arr[@]}"` on an EMPTY array aborts under
   # `set -u` in bash 3.2 (still the default /bin/bash on macOS, where the test
   # suite runs). Unquoted expansion of a fixed, space-free flag is safe here.
-  local url out rc force_flag=''
+  local url out rc force_flag='' pat_delay pat_try
+  pat_delay="$(shard_pat_retry_delay)"
   if [ "$force" = 1 ]; then force_flag='-f'; fi
-  SHARD_PUSH_TOKEN="${SHARD_PUSH_PAT:-${GITHUB_PAT:-}}"
+  SHARD_PUSH_TOKEN="$(shard_push_token_for_repo "$repo")"
   if [ -z "$SHARD_PUSH_TOKEN" ]; then
-    echo "::warning::$label: no SHARD_PUSH_PAT/GITHUB_PAT in the environment — cannot fall back to an HTTPS token push"
+    echo "::warning::$label: no SHARD_PUSH_PAT/GITHUB_PAT in the environment (or GITHUB_PAT_NANAKO for nanakokyobashi-rgb) — cannot fall back to an HTTPS token push"
     return 1
   fi
   if ! url="$(shard_https_push_url "$repo")"; then
@@ -1114,47 +1312,81 @@ shard_pat_push() {
   echo "::add-mask::$SHARD_PUSH_TOKEN"
   export SHARD_PUSH_TOKEN
   echo "$label: retrying over HTTPS with a PAT after $reason"
-  out="$(mktemp)"
-  # stderr (where git writes the whole push transcript) is captured for
-  # scrubbing, then re-emitted on stderr — NOT folded into stdout, so this
-  # function does not change which stream a caller reads the transcript from.
-  # `|| rc=$?` for the same errexit reason as in shard_push_with_retry: this
-  # runs under `set -e` whenever the caller chain is bare.
-  rc=0
-  # shellcheck disable=SC2086  # deliberate: empty $force_flag must vanish
-  git -C "$dir" -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
-    push $force_flag "$url" "$refspec" 2>"$out" || rc=$?
-  sed "s|$SHARD_PUSH_TOKEN|***|g" "$out" >&2
-  rm -f "$out"
+  for pat_try in 1 2 3; do
+    out="$(mktemp)"
+    # stderr (where git writes the whole push transcript) is captured for
+    # scrubbing, then re-emitted on stderr — NOT folded into stdout, so this
+    # function does not change which stream a caller reads the transcript from.
+    # `|| rc=$?` for the same errexit reason as in shard_push_with_retry: this
+    # runs under `set -e` whenever the caller chain is bare.
+    rc=0
+    # shellcheck disable=SC2086  # deliberate: empty $force_flag must vanish
+    git -C "$dir" -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
+      push $force_flag "$url" "$refspec" 2>"$out" || rc=$?
+    sed "s|$SHARD_PUSH_TOKEN|***|g" "$out" >&2
+    if [ "$rc" -eq 0 ]; then
+      rm -f "$out"
+      unset SHARD_PUSH_TOKEN
+      case "$reason" in
+        deploy-key*)
+          echo "::warning::$label: pushed via the PAT fallback after $reason — fix or rotate the deploy key; the fallback is a safety net, not the intended path."
+          ;;
+        transient*)
+          echo "::warning::$label: pushed via the PAT fallback after $reason — the deploy key is not classified as broken; investigate recurring transport failures."
+          ;;
+        *)
+          echo "::warning::$label: pushed via the PAT fallback after $reason — inspect the SSH failure above; the deploy key is not automatically classified as broken."
+          ;;
+      esac
+      return 0
+    fi
+    if [ "$pat_try" -lt 3 ] && shard_push_error_is_transient "$out"; then
+      echo "::warning::$label PAT push attempt $pat_try/3 failed with a transient remote/transport error — retrying in ${pat_delay}s"
+      rm -f "$out"
+      sleep "$pat_delay"
+      pat_delay="$(shard_pat_retry_delay_double "$pat_delay")"
+      continue
+    fi
+    rm -f "$out"
+    unset SHARD_PUSH_TOKEN
+    echo "::warning::$label: PAT fallback push also failed (rc=$rc)"
+    return 1
+  done
   unset SHARD_PUSH_TOKEN
-  if [ "$rc" -eq 0 ]; then
-    case "$reason" in
-      deploy-key*)
-        echo "::warning::$label: pushed via the PAT fallback after $reason — fix or rotate the deploy key; the fallback is a safety net, not the intended path."
-        ;;
-      transient*)
-        echo "::warning::$label: pushed via the PAT fallback after $reason — the deploy key is not classified as broken; investigate recurring transport failures."
-        ;;
-      *)
-        echo "::warning::$label: pushed via the PAT fallback after $reason — inspect the SSH failure above; the deploy key is not automatically classified as broken."
-        ;;
-    esac
-    return 0
-  fi
-  echo "::warning::$label: PAT fallback push also failed (rc=$rc)"
   return 1
+}
+
+# shard_refspec_has_source <refspec> [label]
+# A refspec with an empty source side (":main") asks the remote to DELETE the
+# branch. The pushers build "<commit>:main" from a commit id they have just
+# computed, and they run without errexit: a failed `commit-tree` used to reach
+# `git push -f`, and then the PAT fallback, as ":main". GitHub refuses to
+# delete a default branch, which is the only reason that was harmless.
+# Returns 0 when the refspec names a source, 1 (with an ::error::) otherwise.
+shard_refspec_has_source() {
+  local refspec="${1:-}" label="${2:-shard}"
+  case "$refspec" in
+    ''|:*|+:*)
+      echo "::error::$label: refusing to push refspec '${refspec}' — its source is empty, which would delete the remote branch (the commit to push was never built)" >&2
+      return 1
+      ;;
+  esac
+  return 0
 }
 
 # shard_push_with_retry <push_dir> <shard_repo> <refspec> [label]
 # Force-pushes <refspec> from <push_dir> to <shard_repo>, retrying up to 3
 # attempts with exponential backoff (5s, 10s — $SHARD_PUSH_RETRY_DELAY seeds
 # the first delay). An auth-class failure short-circuits the remaining SSH
-# retries (see shard_push_error_is_auth). Either way the last resort is
-# shard_pat_push. Returns 0 on success, 1 if every credential failed.
+# retries (see shard_push_error_is_auth). A remote object-size rejection is
+# permanent: it returns 3 after the first attempt, without retrying or using
+# the PAT fallback. Otherwise the last resort is shard_pat_push. Returns 0 on
+# success, 1 if every credential failed, 3 for the permanent object limit.
 # [label] is cosmetic only (prefixes the ::warning:: lines).
 shard_push_with_retry() {
+  shard_refspec_has_source "${3:-}" "${4:-shard}" || return 1
   local dir="$1" repo="$2" refspec="$3" label="${4:-shard}"
-  local delay="${SHARD_PUSH_RETRY_DELAY:-5}" try out rc fallback_reason='unclassified SSH push failure'
+  local delay="${SHARD_PUSH_RETRY_DELAY:-5}" try out rc fallback_reason='unclassified SSH push failure' remote_line
   out="$(mktemp)"
   for try in 1 2 3; do
     # Capture stderr to classify the failure, then put it back on stderr — see
@@ -1177,6 +1409,14 @@ shard_push_with_retry() {
     if [ "$rc" -eq 0 ]; then
       rm -f "$out"
       return 0
+    fi
+    if shard_push_error_is_remote_object_limit "$out"; then
+      fallback_reason="$(shard_push_failure_reason "$out")"
+      remote_line="$(grep -Ei "$SHARD_REMOTE_OBJECT_LIMIT_PATTERN" "$out" | head -n 1 || true)"
+      echo "::error::$label: GitHub remote object/tree size limit is permanent, not transient — remote: ${remote_line:-object-size rejection}" >&2
+      shard_record_push_failure_reason "$fallback_reason"
+      rm -f "$out"
+      return 3
     fi
     fallback_reason="$(shard_push_failure_reason "$out")"
     if shard_push_error_is_auth "$out"; then
@@ -1203,7 +1443,7 @@ shard_push_with_retry() {
 # compact-article-shard-history.sh's periodic history compaction — same
 # mechanism, not a second implementation (AGENTS.md #6).
 shard_orphan_flatten_and_push() {
-  local dir="$1" repo="$2" msg="$3" label="${4:-shard}"
+  local dir="$1" repo="$2" msg="$3" label="${4:-shard}" tree_rc
   rm -rf "${dir:?}/.git"
   shard_orphan_init "$dir"
   git -C "$dir" config user.email "valerielinc@gmail.com"
@@ -1211,6 +1451,9 @@ shard_orphan_flatten_and_push() {
   printf '%s' "1" > "$dir/.shard-deploys"
   git -C "$dir" add -A
   git -C "$dir" commit -qm "$msg"
+  tree_rc=0
+  shard_report_largest_tree "$dir" HEAD "$label" || tree_rc=$?
+  [ "$tree_rc" -eq 0 ] || return "$tree_rc"
   shard_push_with_retry "$dir" "$repo" "main" "$label"
 }
 

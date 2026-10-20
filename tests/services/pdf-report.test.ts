@@ -10,6 +10,7 @@ import { describe, it, expect } from 'vitest';
 import {
   computeCalculatorPdfMetrics,
   generateCalculatorPdfReport,
+  generateLamalSsnPdfReport,
   type CalculatorSimulationSnapshot,
 } from '@/services/pdfReport';
 import type { SimulationResult, SimulationInputs } from '@/types';
@@ -144,5 +145,26 @@ describe('generateCalculatorPdfReport', () => {
     // smoke check, not a guarantee for complex encodings, but it confirms we
     // included the identifier the caller wanted the user to see.
     expect(text).toContain('embedded@example.com');
+  });
+});
+
+
+describe('LAMal/SSN PDF capped contribution labels', () => {
+  it('describes lower and upper post-limit estimates, not uncapped percentages', async () => {
+    const pdf = await generateLamalSsnPdfReport({
+      incomeCHF: 50000, age: 35, franchiseCHF: 300,
+      lamalMonthlyCHF: 300, lamalAnnualCHF: 3600, cheapestInsurer: 'Test insurer',
+      ssnMinCHF: 1500, ssnMaxCHF: 2400 / 1.096, breakevenPct: null, verdict: 'ssn',
+    }, 'test@example.com');
+    const text = await new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = () => reject(reader.error);
+      reader.readAsBinaryString(pdf);
+    });
+    expect(text).toContain('Contributo SSN minimo dopo limiti');
+    expect(text).toContain('Contributo SSN massimo dopo limiti');
+    expect(text).not.toContain('Contributo SSN stimato \\(3%\\)');
+    expect(text).not.toContain('Contributo SSN stimato \\(6%\\)');
   });
 });

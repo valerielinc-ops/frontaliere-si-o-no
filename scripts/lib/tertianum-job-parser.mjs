@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 /**
  * Tertianum job parser — SuccessFactors CSB (tile-search variant).
  *
@@ -146,14 +148,10 @@ export function parseTertianumDetailPage(html = '') {
     if (htmlLang) language = htmlLang[1].toLowerCase();
   }
 
-  // Date posted — schema.org itemprop or `data-careersite-propertyid="latestHireDate"`
-  let postedDate = '';
+  // Only explicit schema.org publication; hiring/start dates are not publication.
   const dpTag = readTagByAttr(html, 'itemprop', 'datePosted');
   const dp = dpTag ? readAttr(dpTag, 'content') : '';
-  if (dp) {
-    const d = new Date(dp);
-    if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
-  }
+  const postingDates = successFactorsPostingDateFields(dp);
 
   // Apply URL — SF "Apply Now" widget points at /sfcareer/jobreqcareer or the
   // talentcommunity endpoint. Fall back to canonical URL.
@@ -165,7 +163,7 @@ export function parseTertianumDetailPage(html = '') {
     || hrefs.find((h) => h.includes('talentcommunity/apply'))
     || '';
 
-  return { title, descriptionText, language, postedDate, applyUrl };
+  return { title, descriptionText, language, ...postingDates, applyUrl };
 }
 
 /* ── Factory-style exports ────────────────────────────────── */
@@ -207,19 +205,16 @@ export async function fetchAllTertianumJobs() {
     let canton = SWISS_CANTONS.has(cantonRaw) ? cantonRaw : '';
     if (!canton) canton = inferSwissTargetCanton(city) || 'ZH';
 
-    let description = detail?.descriptionText || '';
-    const uniqueWords = new Set(
-      description.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-    );
-    if (uniqueWords.size < 30) {
-      description = `${title} bei ${TERTIANUM_COMPANY_NAME} in ${city}.\n\n${TERTIANUM_COMPANY_NAME} ist eine der führenden Schweizer Anbieterinnen für Wohnen und Pflege im Alter mit rund 30 Residenzen in der ganzen Schweiz. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
-    }
+    // The posting's own text, whatever its length. Under 30 distinct words the
+    // crawler used to replace it with a paragraph of its own on Tertianum; a
+    // posting without text now gets no description and takes the pipeline's
+    // thin-source path.
+    const description = detail?.descriptionText || '';
 
     const sourceLang = (detail?.language && /^(de|fr|it|en)$/.test(detail.language))
       ? detail.language
       : detectLang(description || title, 'de');
 
-    const postedDate = detail?.postedDate || new Date().toISOString().slice(0, 10);
     const employmentType = detectHealthcareEmploymentType(title);
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} ${TERTIANUM_KEY} ${city}`);
@@ -258,7 +253,7 @@ export async function fetchAllTertianumJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail || {}),
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

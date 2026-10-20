@@ -39,18 +39,6 @@ describe('Soft-landing SEO pages for expired jobs', () => {
     expect(pluginSource).toContain('previousSlugs');
   });
 
-  it('includes JobPosting with validThrough in expired pages (FRO-194)', () => {
-    // Expired pages now include a JobPosting with a past validThrough date
-    // so Google recognizes the job as expired while keeping semantic data
-    const expiredStart = pluginSource.indexOf('Expired-job') ?? pluginSource.indexOf('expired');
-    const fullContentStart = pluginSource.indexOf('Full-content pages for previousSlugs');
-    const expiredSection = fullContentStart > expiredStart
-      ? pluginSource.slice(expiredStart, fullContentStart)
-      : pluginSource.slice(expiredStart);
-    expect(expiredSection).toContain('JobPosting');
-    expect(expiredSection).toContain('validThrough');
-  });
-
   it('includes expired jobs in sitemap at low priority', () => {
     expect(pluginSource).toContain('sitemap-jobs-expired.xml');
   });

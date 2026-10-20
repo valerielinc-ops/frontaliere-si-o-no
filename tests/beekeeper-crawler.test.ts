@@ -1,11 +1,13 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   BEEKEEPER_KEY,
   BEEKEEPER_COMPANY_NAME,
+  fetchAllBeekeeperJobs,
+  resolveBeekeeperSourceAddress,
   isBeekeeperJob,
   isTrustedDomain,
 } from '../scripts/lib/beekeeper-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Beekeeper crawler parser', () => {
   // ── Constants ──
@@ -150,6 +152,149 @@ describe('Beekeeper crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+});
+
+describe('Beekeeper Teamtailor feed freshness', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('bypasses a stale CDN feed before filtering locations for Switzerland', async () => {
+    const url = 'https://job.lumapps.com/jobs/8483000-senior-account-executive-germany';
+    const staleItem = {
+      id: '5fc108a3-d274-433d-9a59-17a2f335b244',
+      title: 'Senior Account Executive – Germany',
+      url,
+      _jobposting: {
+        title: 'Senior Account Executive – Germany',
+        jobLocation: [
+          { address: { addressLocality: 'Hamburg', addressCountry: 'DE' } },
+          { address: { addressLocality: 'Zürich', addressCountry: 'CH' } },
+        ],
+      },
+    };
+    const freshItem = {
+      ...staleItem,
+      _jobposting: {
+        ...staleItem._jobposting,
+        jobLocation: [{ address: { addressLocality: 'Hamburg', addressCountry: 'DE' } }],
+      },
+    };
+    const fetchMock = vi.fn(async (input: string | URL) => {
+      const requestUrl = new URL(String(input));
+      const items = requestUrl.searchParams.has('_') ? [freshItem] : [staleItem];
+      return new Response(JSON.stringify({ items }), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await fetchAllBeekeeperJobs();
+
+    expect(jobs).toEqual([]);
+    expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(true);
+    expect(new URL(String(fetchMock.mock.calls[0][0])).searchParams.get('_')).toMatch(/^\d+$/);
+  });
+
+  it('does not mark an empty feed as a verified zero-job snapshot', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ items: [] }), { status: 200 })));
+
+    const jobs = await fetchAllBeekeeperJobs();
+
+    expect(jobs).toEqual([]);
+    expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it.each([
+    ['non-object feed item', null],
+    ['missing _jobposting', { title: 'Account Executive' }],
+    ['missing jobLocation', { _jobposting: { title: 'Account Executive' } }],
+    ['uninterpretable addressCountry', {
+      _jobposting: {
+        title: 'Account Executive',
+        jobLocation: [{ address: { addressLocality: 'Zürich' } }],
+      },
+    }],
+    ['Swiss posting with unusable title', {
+      _jobposting: {
+        title: '',
+        jobLocation: [{ address: { addressLocality: 'Zürich', addressCountry: 'CH' } }],
+      },
+    }],
+  ])('does not mark a non-empty feed with %s as a verified zero', async (_reason, item) => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ items: [item] }), { status: 200 })));
+
+    const jobs = await fetchAllBeekeeperJobs();
+
+    expect(jobs).toEqual([]);
+    expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('does not stamp a valid foreign row as zero when another Swiss row is uninterpretable', async () => {
+    const items = [
+      {
+        title: 'Account Executive – Germany',
+        _jobposting: {
+          title: 'Account Executive – Germany',
+          jobLocation: [{ address: { addressLocality: 'Hamburg', addressCountry: 'DE' } }],
+        },
+      },
+      {
+        _jobposting: {
+          title: '',
+          jobLocation: [{ address: { addressLocality: 'Zürich', addressCountry: 'CH' } }],
+        },
+      },
+    ];
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ items }), { status: 200 })));
+
+    const jobs = await fetchAllBeekeeperJobs();
+
+    expect(jobs).toEqual([]);
+    expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('recognizes a normalized Swiss country code instead of stamping a false zero', async () => {
+    const item = {
+      title: 'Account Executive',
+      _jobposting: {
+        title: 'Account Executive',
+        jobLocation: [{ address: { addressLocality: 'Zürich', addressCountry: ' ch ' } }],
+      },
+    };
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ items: [item] }), { status: 200 })));
+
+    const jobs = await fetchAllBeekeeperJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].location).toBe('Zürich');
+    expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('rejects a Swiss feed tag when the canonical detail is foreign', () => {
+    expect(resolveBeekeeperSourceAddress({
+      jobLocation: [{ address: { addressLocality: 'Zürich', addressCountry: 'CH' } }],
+    }, {
+      locality: 'Hamburg',
+      postalCode: '20095',
+      streetAddress: '',
+      addressCountry: 'DE',
+    })).toBeNull();
+  });
+
+  it('uses a Swiss canonical detail address when the feed is stale', () => {
+    expect(resolveBeekeeperSourceAddress({
+      jobLocation: [{ address: { addressLocality: 'Zürich', addressCountry: 'CH' } }],
+    }, {
+      locality: 'Zürich',
+      postalCode: '8048',
+      streetAddress: 'Herostrasse 12',
+      addressCountry: 'CH',
+    })).toMatchObject({
+      city: 'Zürich',
+      canton: 'ZH',
+      postalCode: '8048',
+      streetAddress: 'Herostrasse 12',
     });
   });
 });

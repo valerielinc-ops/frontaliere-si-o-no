@@ -1,7 +1,9 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import { lookup } from 'node:dns/promises';
 import { readFile } from 'node:fs/promises';
 import { isIP } from 'node:net';
-import { fileURLToPath } from 'node:url';
+
 import path from 'node:path';
 import { Agent, fetch as undiciFetch } from 'undici';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -310,7 +312,7 @@ export async function run({
   return registry;
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const limitIndex = process.argv.indexOf('--limit');
   const limit = limitIndex === -1 ? 22 : Number(process.argv[limitIndex + 1]);
   if (!Number.isInteger(limit) || limit < 1) throw new Error('--limit must be a positive integer');

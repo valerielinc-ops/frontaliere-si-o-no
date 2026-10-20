@@ -6,10 +6,25 @@
  */
 import { describe, it, expect } from 'vitest';
 import {
+  parseLastminuteListingDiscovery,
   parseSmartRecruitersDetail,
   validateLastminuteDescription,
   extractSrIdFromUrl,
 } from '@/scripts/lib/lastminute-job-parser.mjs';
+
+const LASTMINUTE_HTMX_LISTING = `
+  <div class="uk-text-bold uk-margin-bottom">2 positions found</div>
+  <div class="job-list">
+    <div class="job-row">
+      <a href="/careers/jobs/job?id=744000154626729&#038;jobName=Data+Engineer">Data Engineer</a>
+      <a href="/careers/jobs/job?id=744000154626729&#038;jobName=Data+Engineer" aria-label="Read full details"></a>
+    </div>
+    <div class="job-row">
+      <a href="/careers/jobs/job?id=744000151334039&#038;jobName=Machine+Learning+Scientist">Machine Learning Scientist</a>
+      <a href="/careers/jobs/job?id=744000151334039&#038;jobName=Machine+Learning+Scientist" aria-label="Read full details"></a>
+    </div>
+  </div>
+`;
 
 /* ── Fixtures: SmartRecruiters API responses ── */
 
@@ -82,6 +97,41 @@ const THIN_API = {
 
 /* ── Tests ── */
 
+describe('lastminute parser — source-backed listing discovery', () => {
+  it('supports the source HTMX fragment and proves all declared jobs were discovered', () => {
+    const discovery = parseLastminuteListingDiscovery(LASTMINUTE_HTMX_LISTING);
+
+    expect(discovery).toMatchObject({
+      complete: true,
+      declaredTotal: 2,
+      anchorOccurrences: 4,
+    });
+    expect(discovery.detailUrls).toHaveLength(2);
+    expect(discovery.detailUrls[0]).toContain('id=744000154626729');
+    expect(discovery.detailUrls[0]).toContain('jobName=Data+Engineer');
+  });
+
+  it('fails closed when the source declares more jobs than it exposes', () => {
+    const discovery = parseLastminuteListingDiscovery(
+      LASTMINUTE_HTMX_LISTING.replace('2 positions found', '3 positions found'),
+    );
+
+    expect(discovery.complete).toBe(false);
+    expect(discovery.reason).toBe('discovered 2 unique detail URLs but source declared 3');
+    expect(discovery.detailUrls).toHaveLength(2);
+  });
+
+  it('fails closed instead of accepting an empty source response', () => {
+    const discovery = parseLastminuteListingDiscovery(
+      '<div class="uk-text-bold">0 positions found</div><div class="job-list"></div>',
+    );
+
+    expect(discovery.complete).toBe(false);
+    expect(discovery.reason).toBe('no canonical detail URLs');
+    expect(discovery.detailUrls).toEqual([]);
+  });
+});
+
 describe('lastminute parser — parseSmartRecruitersDetail', () => {
   describe('Head of Data Platform Engineering', () => {
     const detail = parseSmartRecruitersDetail(HEAD_OF_DATA_PLATFORM_API);
@@ -136,7 +186,7 @@ describe('lastminute parser — parseSmartRecruitersDetail', () => {
     });
 
     it('extracts posted date in ISO format', () => {
-      expect(detail.postedDate).toBe('2026-01-15');
+      expect(detail.postedDate).toBe('2026-01-15T10:00:00.000Z');
     });
 
     it('tracks source text length', () => {

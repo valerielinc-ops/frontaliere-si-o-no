@@ -116,6 +116,29 @@ on:
         default: '300'
   push:
     branches: [main]
+    # A path filter only ever sees the files a commit CHANGED. Since the #4881
+    # Fase 6 colocation, `build-plugins/ogPagesPlugin.ts` and
+    # `build-plugins/blogContextualLinksPlugin.ts` are re-export shims and
+    # `build-plugins/shared/articleSectionDescriptors.ts` is a symlink: the
+    # renderer itself lives in `packages/articles/engine/`, and the site values
+    # it renders with (head snippets, chrome, Organization/author LD...) are
+    # handed over by `build-plugins/articlesSiteShellBootstrap.ts`. With only
+    # the shims listed, a renderer or shell change re-rendered nothing and the
+    # live corpus drifted until an unrelated commit touched a listed file:
+    # audit-article-corpus-drift run 36312753890 (2026-09-27) found every
+    # sampled locale still carrying the Offerwall gate that #9996 had replaced
+    # in `build-plugins/constants.ts` seven hours earlier, and #9587, #10684
+    # and #10686 (renderer, authors, Organization identity) triggered no
+    # re-render at all.
+    #
+    # So the filter names the real renderer, the bootstrap, and every module
+    # the bootstrap imports to build the shell — the contract
+    # tests/rerender-article-corpus-trigger-paths.test.ts keeps in sync with
+    # the bootstrap's own import list. The engine glob also covers
+    # articleHubPagesPlugin.ts and topicTaxonomy.ts: ogPagesPlugin.ts imports
+    # them for each article's topic assignment, which makes them article
+    # inputs too. That does not move the HUB re-render here (see the note
+    # above): rerender-article-hubs.yml keeps its own trigger for them.
     paths:
       - 'build-plugins/ogPagesPlugin.ts'
       - 'build-plugins/shared/seoPageShell.ts'
@@ -125,6 +148,41 @@ on:
       - 'build-plugins/hreflangPostprocessPlugin.ts'
       - 'build-plugins/blogImageCdnFinalizePlugin.ts'
       - 'scripts/rerender-article-corpus.mjs'
+      - 'scripts/lib/article-corpus-overlay.mjs'
+      - 'scripts/lib/article-image-postcondition.mjs'
+      - 'scripts/lib/corpus-canton-exclusion.mjs'
+      - 'scripts/lib/corpus-local-preserve.mjs'
+      - 'scripts/lib/install-article-renderer-runtime-deps.sh'
+      # The renderer behind the shims and symlink above.
+      - 'packages/articles/engine/**'
+      - 'packages/articles/articleSections.ts'
+      # The site shell the renderer reads through getSiteShell().
+      - 'build-plugins/articlesSiteShellBootstrap.ts'
+      - 'build-plugins/constants.ts'
+      # Shared markup consumed by the shell and emitted article pages.
+      - 'build-plugins/lib/adSlotHtml.ts'
+      - 'build-plugins/htmlTemplate.ts'
+      - 'build-plugins/batchWrite.ts'
+      - 'build-plugins/spaBundleResolver.ts'
+      - 'build-plugins/seoHubsData.ts'
+      - 'build-plugins/blogContextualLinksData.ts'
+      - 'build-plugins/shared/titleSuffix.ts'
+      - 'build-plugins/shared/safeTruncate.ts'
+      - 'build-plugins/shared/chunkFiles.ts'
+      - 'build-plugins/shared/seoContentTokens.ts'
+      - 'build-plugins/shared/inlineJsonScript.ts'
+      - 'build-plugins/shared/criticalCss.ts'
+      - 'build-plugins/shared/railGutters.ts'
+      - 'build-plugins/shared/buildDayStamp.ts'
+      - 'build-plugins/shared/stripLiteralMarkdown.ts'
+      - 'services/seo/imageObjectLd.ts'
+      - 'services/seo/organizationLd.ts'
+      - 'services/routeSlugs.data.ts'
+      - 'data/authors.ts'
+      # Self-test on change, as rerender-article-hubs.yml does: an edit to this
+      # file runs the whole render + push, so a filter or step change is
+      # verified by a real run rather than by the next renderer commit.
+      - '.github/workflows/rerender-article-corpus.yml'
 
 permissions:
   contents: read
@@ -175,14 +233,40 @@ jobs:
     environment: shard-secrets-overflow
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
+
+      - name: Install article renderer runtime dependencies
+        run: bash scripts/lib/install-article-renderer-runtime-deps.sh
 
       - name: Prepare Firebase credentials
         env:
@@ -198,16 +282,30 @@ jobs:
       # Same provider keys (R2/CDN etc.) the single-article fast-publish path
       # loads before calling the identical post-render plugin functions this
       # driver reuses — see scripts/load-rc-env.mjs's RC_TO_ENV mapping.
-      # Deliberately NO `npm ci`: the driver runs via `npx -y tsx@4`
-      # (on-demand, no repo install), same as publish-article-fast.mjs —
-      # this workflow exists precisely to stay off the full-install/full-build
-      # critical path.
+      # Deliberately NO full `npm ci`: the small workspace runtime dependency
+      # is installed from the root lockfile above; `tsx` stays on-demand so this
+      # workflow remains off the full-install/full-build critical path.
       - name: Load secrets from Remote Config (R2 + indexing)
         run: node scripts/load-rc-env.mjs
+
+      # The static shell scripts (build-plugins/staticScriptsPlugin.ts) reach the
+      # CDN only at the end of a full deploy, hours after the merge this job
+      # publishes within minutes. A file the last deploy did not upload would be
+      # referenced by every page pushed below: on 2026-10-07 that was
+      # gtag-init-<hash>.js, a 404 on every re-rendered article (#12270). This
+      # uploads what the CDN does not have, replaces nothing, and fails the job
+      # when it cannot — scripts/lib/cdn-shell-assets.mjs.
+      - name: Ensure the static shell scripts are on the CDN
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: bash scripts/ci/run-pinned-tsx.sh scripts/ci/ensure-cdn-shell-assets.mjs
 
       - name: Rerender and push ${{ matrix.section }} corpus
         id: render
         env:
+          # A complete corpus rerender previously took 7–11 minutes depending
+          # on the section; keep the shared npm bootstrap short and give this
+          # entrypoint the same bounded 30m budget for both sections.
+          PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS: '1800'
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
@@ -250,7 +348,7 @@ jobs:
           # declares ("tsx": "^4.21.0"), matching publish-article-fast.mjs's
           # own invocation — a future tsx major cannot silently change loader
           # behaviour on this un-installed path.
-          npx -y tsx@4 scripts/rerender-article-corpus.mjs "${ARGS[@]}"
+          bash scripts/ci/run-pinned-tsx.sh scripts/rerender-article-corpus.mjs "${ARGS[@]}"
 
       - name: Report failure to GitHub Issues
         if: failure()

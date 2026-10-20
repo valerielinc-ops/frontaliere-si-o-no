@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated PostFinance crawler runner.
  * Discovers PostFinance positions (CH-wide, all 26 cantons) via the
@@ -14,20 +16,20 @@
  * instead — see #4759), which silently starved the old sitemap-based
  * discovery. Primary discovery flow (fallback flow below it):
  *   1. Paginate the job.post.ch recruiting JSON API
- *      (POST /services/recruiting/v1/jobs) and filter entries whose
- *      `brandUrl` field equals "PostFinance" (the API has no server-side
- *      brand filter param that works — passing brand:"PFCH" returns
- *      totalJobs:0 — so filtering happens client-side on the full result set)
+ *      (POST /services/recruiting/v1/jobs) with the server-side
+ *      `brand: "PostFinance"` filter the site's own PostFinance search sends
+ *      (brand:"PFCH" returns totalJobs:0), falling back to the unfiltered
+ *      scan if the filter yields nothing, and keep entries whose `brandUrl`
+ *      field equals "PostFinance"
  *   2. Build the canonical job URL from each entry's `id`/`urlTitle`
  *      (https://job.post.ch/PostFinance/job/{urlTitle}/{id}/)
  *   3. Resolve canton from the entry's `jobLocationShort` field, falling
  *      back to inferAnyCanton (all 26 cantons); drop jobs that don't
  *      resolve to a Swiss canton (non-CH). Never invent a canton.
- *   4. Best-effort fetch the detail page for a fuller description; since
- *      job.post.ch hydrates the description client-side this is often thin,
- *      so a substantive fallback description is built from listing fields
- *      whenever scraped content is too short (thin-content floor, see
- *      Non-Negotiable #4)
+ *   4. Fetch the detail page for the vacancy body. Only the source's own
+ *      text is published: a vacancy whose body cannot be read keeps the body
+ *      a previous run read from it, or is left out of this run (no text is
+ *      composed from listing fields)
  *   5. Merge into dataset, run AI localization, validate locale coverage
  *   6. Write per-crawler slice and reassemble global dataset
  *
@@ -41,6 +43,8 @@
  *   6. Per-job canton via inferAnyCanton on the city slug (all 26 cantons);
  *      drop jobs whose canton does not resolve to a Swiss canton (non-CH)
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
+import { decodeSitemapLoc } from './lib/sitemap-loc.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -56,8 +60,10 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -68,15 +74,33 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import {
+  carryPostSourceBody,
+  extractRtlTextAlignEligibleSpans,
+  htmlBlockToTextWithBullets,
+  keyPostDescriptionBySourceLocale,
+  keyPostTitleBySourceLocale,
+  parsePostJobDetail,
+  stripPostFallbackSlots,
+} from './lib/postch-job-parser.mjs';
 import {  inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { normalizeCantonCode } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
+import {
+  exitCrawlerOnError,
+  fetchJson,
+  isConnectionLevelFetchError,
+  stripScriptsAndStyles,
+} from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr, readMetaContent } from './lib/html-attr.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { createMutableFeedPaginationTracker } from './lib/pagination-identity.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import {
+  createMutableFeedPaginationTracker,
+  recordMutableFeedPageWithRetry,
+} from './lib/pagination-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -107,6 +131,15 @@ const POSTCH_LISTING_URLS = [
 const RECRUITING_API_URL = 'https://job.post.ch/services/recruiting/v1/jobs';
 const RECRUITING_API_PAGE_SIZE = 10;
 const RECRUITING_API_MAX_PAGES = 60; // safety cap; ~126 total postings today (~13 pages)
+// Server-side brand filter. The job.post.ch search SPA sends exactly this
+// value on the PostFinance site (`initJobSearch()`: brand === 'PFCH' →
+// brandFilter 'PostFinance', read from the live page 2026-09-24); the earlier
+// `brand: "PFCH"` probe (#4759) used the site code, not the filter value, and
+// got totalJobs:0. Unfiltered, the de_DE scan is ~245 rows / 25 pages of an
+// unstably date-sorted feed: 2026-09-21 page 25 came back without
+// `jobSearchResult` and 2026-09-23 the last page repeated only known ids
+// ("page made no unique progress"). Filtered it is ~16 rows / 2 pages.
+const RECRUITING_API_BRAND = 'PostFinance';
 
 // ──────────────────────────────────────────────────────────────
 // Helpers
@@ -189,57 +222,48 @@ async function fetchPage(url, timeoutMs = 15000) {
  * Fetch one page of the job.post.ch recruiting JSON API.
  * Returns the parsed response body, or null on failure.
  */
-async function fetchRecruitingApiPage(pageNumber, { locale = 'de_DE', timeoutMs = 15000 } = {}) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+async function fetchRecruitingApiPage(pageNumber, { locale = 'de_DE', brand = '', timeoutMs = 15000 } = {}) {
   try {
-    const res = await fetch(RECRUITING_API_URL, {
+    return await fetchJson(RECRUITING_API_URL, {
       method: 'POST',
-      signal: controller.signal,
+      timeoutMs,
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
-      body: JSON.stringify({
+      body: {
         locale,
         pageNumber,
         pageSize: RECRUITING_API_PAGE_SIZE,
         sortBy: 'date',
-      }),
+        ...(brand ? { brand } : {}),
+      },
+      label: `PostFinance recruiting API (page ${pageNumber})`,
     });
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for recruiting API page ${pageNumber}`);
-      return null;
-    }
-    return await res.json();
   } catch (err) {
     console.warn(`⚠️ Recruiting API fetch failed (page ${pageNumber}): ${err.message}`);
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 
 /**
- * Paginate the recruiting API and return every Swiss Post Group posting
- * whose `brandUrl` is "PostFinance". There is no working server-side brand
- * filter (passing brand:"PFCH" in the request body returns totalJobs:0),
- * so the full result set is fetched and filtered client-side — see #4759.
+ * One full pagination pass of the recruiting API, optionally narrowed by the
+ * server-side `brand` filter. Returns every unique posting of the pass.
  */
-async function fetchPostFinanceListingsViaRecruitingApi() {
+async function paginateRecruitingApi({ brand = '' } = {}) {
   const resultsById = new Map();
   let total = null;
   let pageNumber = 0;
   const progress = createMutableFeedPaginationTracker({
     getIdentity: (record) => record?.id,
-    source: 'PostFinance API',
+    source: brand ? `PostFinance API (brand=${brand})` : 'PostFinance API',
   });
   let paginationComplete = false;
 
   while (pageNumber < RECRUITING_API_MAX_PAGES) {
-    const page = await fetchRecruitingApiPage(pageNumber);
+    const page = await fetchRecruitingApiPage(pageNumber, { brand });
     if (!page) {
       throw new Error(`PostFinance API pagination failed at page ${pageNumber}: no response received.`);
     }
@@ -252,12 +276,37 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
       const declared = Number(page.totalJobs);
       if (Number.isFinite(declared) && declared > 0) total = declared;
     }
-    const pageRecords = entries.map((entry) => entry?.response);
+    let pageRecords = entries.map((entry) => entry?.response);
     if (entries.length > 0 && pageRecords.some((record) => !record)) {
       throw new Error(`PostFinance API pagination failed at page ${pageNumber}: rows without a response identity.`);
     }
     if (pageRecords.length > 0) {
-      const pageIds = progress.record(pageRecords, pageNumber);
+      const recorded = await recordMutableFeedPageWithRetry({
+        tracker: progress,
+        items: pageRecords,
+        page: pageNumber,
+        reload: async () => {
+          const retryPage = await fetchRecruitingApiPage(pageNumber, { brand });
+          if (!retryPage) {
+            throw new Error(`PostFinance API pagination failed at page ${pageNumber}: no response received on retry.`);
+          }
+          if (!Array.isArray(retryPage.jobSearchResult)) {
+            throw new Error(`PostFinance API pagination failed at page ${pageNumber}: expected jobSearchResult array on retry.`);
+          }
+          const retryEntries = retryPage.jobSearchResult;
+          const retryRecords = retryEntries.map((entry) => entry?.response);
+          if (retryEntries.length > 0 && retryRecords.some((record) => !record)) {
+            throw new Error(`PostFinance API pagination failed at page ${pageNumber}: rows without a response identity on retry.`);
+          }
+          if (total === null) {
+            const declared = Number(retryPage.totalJobs);
+            if (Number.isFinite(declared) && declared > 0) total = declared;
+          }
+          return retryRecords;
+        },
+      });
+      pageRecords = recorded.items;
+      const pageIds = recorded.pageIdentities;
       for (const [index, record] of pageRecords.entries()) {
         const id = pageIds[index];
         if (!resultsById.has(id)) resultsById.set(id, record);
@@ -290,9 +339,25 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
     );
   }
 
-  const results = [...resultsById.values()];
+  return [...resultsById.values()];
+}
+
+/**
+ * Return every Swiss Post Group posting whose `brandUrl` is "PostFinance".
+ * The brand-filtered query is primary; the client-side `brandUrl` check stays
+ * on both paths. If the filter ever stops matching (0 rows), fall back to the
+ * full unfiltered scan instead of reporting an empty board (#4759).
+ */
+async function fetchPostFinanceListingsViaRecruitingApi() {
+  let results = await paginateRecruitingApi({ brand: RECRUITING_API_BRAND });
+  let scope = `brand=${RECRUITING_API_BRAND}`;
+  if (results.length === 0) {
+    console.warn(`  ⚠️ Recruiting API brand filter "${RECRUITING_API_BRAND}" returned 0 postings — falling back to the unfiltered scan.`);
+    results = await paginateRecruitingApi();
+    scope = 'unfiltered';
+  }
   const pfJobs = results.filter((r) => r?.brandUrl === 'PostFinance');
-  console.log(`  🔎 Recruiting API: ${results.length} unique Swiss Post Group postings scanned, ${pfJobs.length} PostFinance-branded.`);
+  console.log(`  🔎 Recruiting API (${scope}): ${results.length} unique Swiss Post Group postings scanned, ${pfJobs.length} PostFinance-branded.`);
   return pfJobs;
 }
 
@@ -308,7 +373,8 @@ function parseSitemapUrls(xml = '') {
   const locRe = /<loc>\s*(.*?)\s*<\/loc>/gi;
   let match;
   while ((match = locRe.exec(xml)) !== null) {
-    const url = match[1].replace(/&amp;/g, '&').trim();
+    // XML text: every predefined entity, not only `&amp;` (decodeSitemapLoc).
+    const url = decodeSitemapLoc(match[1]);
     if (url) urls.push(url);
   }
   return urls;
@@ -423,22 +489,6 @@ function decodeHtmlEntities(text = '') {
 }
 
 /**
- * Strip inner HTML tags, decode entities, and collapse whitespace.
- */
-function htmlToText(fragment = '') {
-  return decodeHtmlEntities(
-    String(fragment)
-      .replace(/<\s*br\s*\/?>/gi, '\n')
-      .replace(/<\/(p|li|ul|ol|div|h[1-6])\s*>/gi, '\n')
-      .replace(/<[^>]+>/g, ''),
-  )
-    .replace(/[ \t]+/g, ' ')
-    .replace(/\n[ \t]+/g, '\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
-}
-
-/**
  * Extract the full job description from a SuccessFactors PostFinance HTML page.
  *
  * The page renders the description inside one of multiple
@@ -450,18 +500,25 @@ function htmlToText(fragment = '') {
  * Strategy: collect all `rtltextaligneligible` spans, score them by the
  * length of their plain-text content, prefer those that contain `<p>` or
  * `<li>` tags (paragraph-style content), and return the longest one.
+ *
+ * Each span is read to its BALANCED closing tag and its list items keep a
+ * line-start "- " marker (shared Post-platform helpers in
+ * `postch-job-parser.mjs`). The former non-greedy `([\s\S]*?)<\/span>` match
+ * stopped the body at its first inline child span — 74128 published only its
+ * opening paragraph — and `</li>` → newline alone turned every list into loose
+ * paragraphs (17/19 vacancies without a single bullet on 2026-09-29).
  */
 export function extractPostFinanceBodyDescription(html = '') {
   if (!html || typeof html !== 'string') return '';
 
-  // Match all rtltextaligneligible spans (multiline, non-greedy).
-  const spanRe = /<span[^>]*class="[^"]*rtltextaligneligible[^"]*"[^>]*>([\s\S]*?)<\/span>/gi;
   const candidates = [];
-  let match;
-  while ((match = spanRe.exec(html)) !== null) {
-    const inner = match[1];
+  for (const inner of extractRtlTextAlignEligibleSpans(html)) {
     const hasParagraph = /<p[\s>]|<li[\s>]|<ul[\s>]|<ol[\s>]/i.test(inner);
-    const text = htmlToText(inner);
+    const text = decodeHtmlEntities(htmlBlockToTextWithBullets(inner))
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
     if (text.length > 0) {
       candidates.push({ text, length: text.length, hasParagraph });
     }
@@ -496,7 +553,12 @@ function parsePostFinanceMetaPage(html, url) {
 
   const bodyDescription = extractPostFinanceBodyDescription(html);
   const metaDescription = ogDesc || metaDesc || '';
-  const description = bodyDescription.length >= 150 ? bodyDescription : metaDescription;
+  // Word floor, not characters (source-body-floor.mjs): a body under 50 words
+  // is a thin page, and the SEO meta snippet (usually just the title) never
+  // becomes the published body unless it clears the same floor itself.
+  const description = meetsSourceBodyFloor(bodyDescription)
+    ? bodyDescription
+    : (meetsSourceBodyFloor(metaDescription) ? metaDescription : '');
 
   return {
     title,
@@ -507,7 +569,7 @@ function parsePostFinanceMetaPage(html, url) {
   };
 }
 
-export { parsePostFinanceMetaPage };
+export { parsePostFinanceMetaPage, fetchPostFinanceListingsViaRecruitingApi };
 
 // ──────────────────────────────────────────────────────────────
 // PostCH listing page scan (for supplementary /v2/ URLs)
@@ -660,29 +722,6 @@ function resolveRecruitingApiLocation(jobLocationShort) {
 }
 
 /**
- * Build a substantive fallback description (well above the 50-word
- * thin-content floor, Non-Negotiable #4) from listing fields.
- *
- * job.post.ch hydrates the job description client-side, so a raw fetch of
- * the detail page frequently returns SPA-shell boilerplate with no usable
- * body text (see #4759). Used both by the recruiting-API path and by the
- * legacy sitemap path whenever the scraped/JSON-LD description is thin.
- */
-function buildPostFinanceFallbackDescription({ title, city, canton, category, workloadMin, workloadMax }) {
-  const workloadText = workloadMin && workloadMax
-    ? (Number(workloadMin) === Number(workloadMax)
-      ? `con un grado di occupazione del ${workloadMin}%`
-      : `con un grado di occupazione flessibile tra il ${workloadMin}% e il ${workloadMax}%`)
-    : 'con grado di occupazione da concordare';
-  const categoryText = category ? ` nell'ambito "${category}"` : '';
-  return [
-    `PostFinance, la sussidiaria di servizi finanziari della Posta Svizzera, ricerca attualmente la figura "${title}" per la sede di ${city} (Cantone ${canton}).`,
-    `La posizione${categoryText} è pubblicata ${workloadText} sul portale ufficiale delle carriere PostFinance/Posta Svizzera e rientra nell'offerta corrente di impieghi disponibili in Svizzera.`,
-    `Per consultare i requisiti completi del profilo ricercato, le condizioni di impiego e candidarsi direttamente, è necessario visitare la pagina dell'annuncio collegata a questo articolo.`,
-  ].join(' ');
-}
-
-/**
  * Build a job record from one recruiting-API listing entry, enriching it
  * with a best-effort scrape of the detail page when possible.
  */
@@ -711,9 +750,9 @@ async function buildJobFromRecruitingApiEntry(entry) {
   // extractPostFinanceBodyDescription/parsePostFinanceMetaPage expect.
   const url = `https://${COMPANY_HOST}/job/${decodeHtmlEntities(urlTitle)}/${id}-de_DE`;
 
-  // Best-effort enrichment — real content is expected here (see URL doc
-  // above), but fall back to buildPostFinanceFallbackDescription below if
-  // the page ever regresses to thin/no content.
+  // The vacancy body comes from this page only (see URL doc above). When it
+  // is thin or missing the job leaves here without a description and
+  // mergePostFinanceJobs() keeps the previous source body or withholds it.
   const html = await fetchPage(url, 15000);
   const scraped = html ? parsePostFinanceMetaPage(html, url) : null;
   await delay(300);
@@ -722,16 +761,12 @@ async function buildJobFromRecruitingApiEntry(entry) {
   const workloadMin = entry.cust_WorkingTimeMin;
   const workloadMax = entry.cust_WorkingTimeMax;
 
-  // 150 chars mirrors parsePostFinanceMetaPage's own bar for "real body
-  // content vs SEO meta-tag snippet" (see its extractPostFinanceBodyDescription
-  // call) — anything shorter is treated as thin and gets the substantive
-  // fallback instead.
-  const scrapedDescription = scraped?.description && scraped.description.length >= 150
+  // The shared 50-word floor (source-body-floor.mjs): anything shorter is not
+  // a vacancy body.
+  const description = meetsSourceBodyFloor(scraped?.description)
     ? scraped.description
     : '';
-  const descriptionIt = scrapedDescription || buildPostFinanceFallbackDescription({
-    title, city, canton, category, workloadMin, workloadMax,
-  });
+  const sourceLang = description ? detectLang(description, 'en') : '';
 
   const slug = slugify(title, 'postfinance');
 
@@ -744,22 +779,27 @@ async function buildJobFromRecruitingApiEntry(entry) {
     location: city,
     canton,
     country: 'CH',
-    description: descriptionIt,
-    descriptionByLocale: { it: descriptionIt },
-    titleByLocale: { it: title },
+    description,
+    // Keyed by the language the body is written in, never hard-wired to `it`:
+    // see keyPostDescriptionBySourceLocale().
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
+    // The page title is in the page's language: keyed there, never forced
+    // into `it` (see keyPostTitleBySourceLocale); the slug too.
+    titleByLocale: sourceLang ? { [sourceLang]: title } : {},
     slug,
-    slugByLocale: { it: slug },
-    sourceLang: detectLang(descriptionIt || title, 'en'),
+    slugByLocale: sourceLang ? { [sourceLang]: slug } : {},
+    sourceLang,
     department: category,
     category: category || 'servizi-finanziari',
-    datePosted: entry.unifiedStandardStart || new Date().toISOString().split('T')[0],
+    // The API scheduling field is not proof of publication; the detail path reads datePosted.
+    ...sourcePostingDateFields(''),
+    crawledAt: new Date().toISOString(),
     validThrough: entry.unifiedStandardEnd || '',
     source: 'postfinance-careers-crawler',
     employmentType: category ? detectEmploymentType({ employmentType: category }) : 'FULL_TIME',
     experienceLevel: '',
     sector: detectSector(title),
     workload: workloadMin && workloadMax ? `${workloadMin}-${workloadMax}%` : '',
-    needsRetranslation: !scrapedDescription,
     _targetScope: { canton, location: city },
   };
 }
@@ -771,7 +811,7 @@ async function fetchPostFinanceJobsViaRecruitingApi() {
     const job = await buildJobFromRecruitingApiEntry(entry);
     if (job) {
       jobs.push(job);
-      console.log(`     ✅ ${job.title} — ${job.location} (${job.canton})${job.needsRetranslation ? ' [needs retranslation]' : ''}`);
+      console.log(`     ✅ ${job.title} — ${job.location} (${job.canton})${job.description ? '' : ' [no readable body]'}`);
     }
   }
   console.log(`\n📋 Total PostFinance CH-wide jobs discovered via recruiting API: ${jobs.length}`);
@@ -855,6 +895,7 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
 
     if (!detail || !detail.title) {
       console.warn(`  ⚠️ No title extracted for ${url}`);
+      await delay(400);
       continue;
     }
 
@@ -867,18 +908,25 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
     const canton = detectCanton(city);
     if (!canton) {
       console.log(`     ↳ Skipping (non-CH / unresolved canton): ${detail.title} — ${city || '?'}`);
+      await delay(400);
       continue;
     }
 
     const title = detail.title;
     const slug = slugify(title, 'postfinance');
 
-    const descriptionIt = detail.description && detail.description.length > 30
+    // Source text only; without it mergePostFinanceJobs() keeps the previous
+    // source body or withholds the vacancy from this run.
+    const description = meetsSourceBodyFloor(detail.description)
       ? detail.description
-      : buildPostFinanceFallbackDescription({ title, city, canton, category: '', workloadMin: null, workloadMax: null });
+      : '';
+    const sourceLang = description ? detectLang(description, 'en') : '';
 
-    // Mark as needsRetranslation if description came from meta tags (thin content)
-    const needsRetranslation = !detail.hasJsonLd || detail.description?.length < 100;
+    // Neither page kind parsed here carries a JobPosting JSON-LD, so this is
+    // true for every vacancy of this path: its translations come from the
+    // retranslation pass. (The former `< 100` characters clause is moot: a body
+    // under the 50-word floor is never published.)
+    const needsRetranslation = !detail.hasJsonLd;
 
     const job = {
       url: sourceUrl,
@@ -889,15 +937,16 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
       location: city,
       canton,
       country: 'CH',
-      description: descriptionIt,
-      descriptionByLocale: { it: descriptionIt },
-      titleByLocale: { it: title },
+      description,
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
+      titleByLocale: sourceLang ? { [sourceLang]: title } : {},
       slug,
-      slugByLocale: { it: slug },
-      sourceLang: detectLang(descriptionIt || title, 'en'),
+      slugByLocale: sourceLang ? { [sourceLang]: slug } : {},
+      sourceLang,
       department: detail.industry || '',
       category: detail.industry || 'servizi-finanziari',
-      datePosted: detail.datePosted || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(detail.datePosted),
+      crawledAt: new Date().toISOString(),
       validThrough: detail.validThrough || '',
       source: 'postfinance-careers-crawler',
       employmentType: detail.employmentType ? detectEmploymentType(detail) : 'FULL_TIME',
@@ -950,6 +999,26 @@ function postFinanceMatchKey(job) {
   );
 }
 
+/**
+ * Title keyed under the source language (never forced into `it`); a stale
+ * non-Italian copy in `it` is dropped and the record flagged for
+ * retranslation. Slugs are left alone.
+ */
+function withSourceLanguageTitle(job, previous = null) {
+  const sourceLang = job.sourceLang || detectLang(job.description || job.title, 'en');
+  const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale(
+    job.titleByLocale,
+    job.title,
+    sourceLang,
+    { previousTitles: previous ? [previous.title, previous.titleByLocale?.[previous.sourceLang]] : [] },
+  );
+  return {
+    ...job,
+    titleByLocale,
+    ...(droppedStaleItalian ? { needsRetranslation: true } : {}),
+  };
+}
+
 async function mergePostFinanceJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
@@ -957,21 +1026,53 @@ async function mergePostFinanceJobs(discoveredJobs) {
   const nonPfJobs = allJobs.filter((j) => !isPostFinanceJob(j));
   const existingPfJobs = allJobs.filter(isPostFinanceJob);
 
+  // Every published vacancy carries text read from the source: a vacancy
+  // whose body was unreadable this run keeps the previous run's source body,
+  // or is withheld (never a composed description).
+  const existingByKey = new Map();
+  for (const job of existingPfJobs) {
+    const key = postFinanceMatchKey(job);
+    if (key) existingByKey.set(key, job);
+  }
+  const publishable = [];
+  let carried = 0;
+  let withheld = 0;
+  for (const job of discoveredJobs) {
+    const resolved = carryPostSourceBody(job, existingByKey.get(postFinanceMatchKey(job)) || null);
+    if (!resolved.job) {
+      withheld++;
+      continue;
+    }
+    if (resolved.carried) carried++;
+    publishable.push(withSourceLanguageTitle(resolved.job, existingByKey.get(postFinanceMatchKey(job)) || null));
+  }
+
   const existingKeys = new Set(existingPfJobs.map(postFinanceMatchKey).filter(Boolean));
-  const discoveredKeys = new Set(discoveredJobs.map(postFinanceMatchKey).filter(Boolean));
+  const discoveredKeys = new Set(publishable.map(postFinanceMatchKey).filter(Boolean));
   const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
   const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
   const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
 
-  const merged = mergePreserveLocaleData(existingPfJobs, discoveredJobs, {
+  const merged = mergePreserveLocaleData(existingPfJobs, publishable, {
     matchKey: postFinanceMatchKey,
   }).map((job) => ({
     ...job,
+    // Before the localization pass, so a legacy source-language copy in the
+    // Italian slot does not make that slot look already translated.
+    descriptionByLocale: keyPostDescriptionBySourceLocale(
+      job.descriptionByLocale,
+      job.description,
+      job.sourceLang || detectLang(job.description || job.title, 'en'),
+      (text) => detectLang(text, ''),
+    ),
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     country: 'CH',
     source: 'postfinance-careers-crawler',
-  }));
+  })).map(stripPostFallbackSlots).filter(Boolean).map((job) => withSourceLanguageTitle(
+    job,
+    existingByKey.get(postFinanceMatchKey(job)) || null,
+  ));
 
   const final = [...nonPfJobs, ...merged];
 
@@ -983,9 +1084,11 @@ async function mergePostFinanceJobs(discoveredJobs) {
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
   console.log(`  🗑️  Removed (stale): ${removed}`);
+  console.log(`  ♻️  Body unreadable, previous source body kept: ${carried}`);
+  console.log(`  ⏸️  Body unreadable, not published this run: ${withheld}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
 
-  return { added, updated, removed, total: final.length };
+  return { added, updated, removed, carried, withheld, total: final.length };
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -1039,9 +1142,11 @@ function runBaseCrawler() {
 // Post-processing
 // ──────────────────────────────────────────────────────────────
 
-function postProcessPostFinanceJobs() {
-  if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+export function postProcessPostFinanceJobs(jobsOverride = null) {
+  if (jobsOverride === null && !fs.existsSync(DATA_JOBS)) return;
+  const raw = jobsOverride === null
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : jobsOverride;
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
 
@@ -1057,16 +1162,33 @@ function postProcessPostFinanceJobs() {
       fixed++;
     }
     job.country = 'CH';
-    if (!job.descriptionByLocale || job.descriptionByLocale.it !== job.description) {
-      job.descriptionByLocale = { ...(job.descriptionByLocale || {}), it: job.description };
+    // Sync the SOURCE-language slot with the scraped body and drop a
+    // mis-keyed copy of it from other slots; forcing `it = description` here
+    // wrote German text into the Italian slot after every localization pass.
+    const sourceLang = job.sourceLang || detectLang(job.description || job.title, 'en');
+    const keyedDescriptions = keyPostDescriptionBySourceLocale(
+      job.descriptionByLocale,
+      job.description,
+      sourceLang,
+      (text) => detectLang(text, ''),
+    );
+    if (JSON.stringify(keyedDescriptions) !== JSON.stringify(job.descriptionByLocale || {})) {
+      job.descriptionByLocale = keyedDescriptions;
       fixed++;
     }
-    if (!job.titleByLocale || job.titleByLocale.it !== job.title) {
-      job.titleByLocale = { ...(job.titleByLocale || {}), it: job.title };
+    const keyedTitles = withSourceLanguageTitle({ ...job, sourceLang });
+    if (JSON.stringify(keyedTitles.titleByLocale) !== JSON.stringify(job.titleByLocale || {})) {
+      job.titleByLocale = keyedTitles.titleByLocale;
+      if (keyedTitles.needsRetranslation) job.needsRetranslation = true;
       fixed++;
     }
-    if (!job.slugByLocale || job.slugByLocale.it !== job.slug) {
-      job.slugByLocale = { ...(job.slugByLocale || {}), it: job.slug };
+    // The slug is filed under the source language like the body and the title
+    // (it used to be forced into `it`, whatever the vacancy's language). A key
+    // A source-language slug is never rewritten. If that slot is missing, add
+    // the existing raw slug there even when a legacy locale already holds it.
+    const slugKeys = job.slugByLocale || {};
+    if (job.slug && sourceLang && !slugKeys[sourceLang]) {
+      job.slugByLocale = { ...slugKeys, [sourceLang]: job.slug };
       fixed++;
     }
     if (!job.canton) {
@@ -1080,11 +1202,12 @@ function postProcessPostFinanceJobs() {
     }
   }
 
-  if (fixed > 0) {
+  if (fixed > 0 && jobsOverride === null) {
     writeJsonAtomic(DATA_JOBS, jobs);
     writeJsonAtomic(PUBLIC_JOBS, jobs);
     console.log(`🔧 Post-processed ${fixed} PostFinance jobs (fixed company/location/canton).`);
   }
+  return jobs;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -1153,6 +1276,20 @@ function validatePostFinanceLocaleCoverage() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, {
+      isTargetJob: isPostFinanceJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 // ──────────────────────────────────────────────────────────────
 // Main
 // ──────────────────────────────────────────────────────────────
@@ -1165,12 +1302,28 @@ async function main() {
   console.log('');
 
   // 1. Fetch and parse job listings from sitemap
-  const discoveredJobs = await fetchPostFinanceJobs();
+  let discoveredJobs;
+  try {
+    discoveredJobs = await fetchPostFinanceJobs();
+  } catch (err) {
+    if (!isConnectionLevelFetchError(err)) throw err;
+    markCrawlerSummaryAbortKind('connection-level-fetch');
+    console.log(
+      `\n⚠️ PostFinance: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isPostFinanceJob),
+    );
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
     console.log('⚠️ No PostFinance CH-wide jobs discovered.');
     console.log('   The sitemap may have no PostFinance positions currently listed.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isPostFinanceJob),
+    );
     logPostFinanceJobStats();
     return;
   }
@@ -1231,7 +1384,7 @@ async function main() {
 
 // Only run the crawler pipeline when invoked directly from the CLI
 // (not when imported by tests or other modules that want helper exports).
-const _isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+const _isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (_isMain) {
   main().catch((err) => exitCrawlerOnError(err, 'PostFinance'));
 }

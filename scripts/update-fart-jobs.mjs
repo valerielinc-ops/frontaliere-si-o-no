@@ -18,6 +18,7 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import fs from 'node:fs';
@@ -34,12 +35,13 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import {
   runDedicatedBaseCrawler,
@@ -48,10 +50,19 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './lib/source-body-failure.mjs';
 import {
-  parseFartListingPage,
+  buildSourceBodyFailureHousekeepingProof,
+  dropFailedSourceJobsWithoutValidBody,
+  keepStoredSourceBodiesByKey,
+} from './lib/stored-source-body.mjs';
+import {
+  parseFartListingState,
   buildFartDescription,
+  FART_FABRICATED_DESCRIPTION_RE,
 } from './lib/fart-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -235,14 +246,21 @@ async function fetchFartJobs() {
   const html = await fetchPage(CAREERS_URL);
   if (!html) {
     console.warn('⚠️ Failed to fetch careers page.');
-    return [];
+    return { jobs: [], authoritativeEmptySnapshot: false };
   }
 
-  const listings = parseFartListingPage(html);
+  const sourceSnapshot = parseFartListingState(html);
+  const listings = sourceSnapshot.jobs;
   console.log(`📋 Found ${listings.length} concorso(i) on page.`);
+  if (sourceSnapshot.state === 'empty') {
+    console.log('✅ FART source explicitly reports no open concorsi.');
+  } else if (sourceSnapshot.state === 'invalid') {
+    console.warn('⚠️ FART careers page exposed neither supported listings nor the known empty form.');
+  }
 
   const seenPdfUrls = new Set();
   const jobs = [];
+  const sourceBodyFailures = [];
 
   for (const listing of listings) {
     // Deduplicate by PDF URL
@@ -262,16 +280,28 @@ async function fetchFartJobs() {
       console.warn(`  ⚠️ PDF extraction failed for "${listing.title}": ${pdfContent.error}`);
     }
 
+    const pdfFailed = Boolean(pdfContent.extractionFailed || pdfContent.error);
+    if (pdfFailed) {
+      sourceBodyFailures.push({
+        title: listing.title,
+        url: listing.pdfUrl,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message: pdfContent.error || pdfContent.warning || 'PDF extraction failed',
+      });
+    }
+
     // Pass rawText so buildFartDescription applies normalizePdfJobText exactly once.
     // Fall back to already-normalized text if rawText is unavailable.
     const { description, warnings } = buildFartDescription(
       listing.title,
-      pdfContent.thin ? '' : (pdfContent.rawText || pdfContent.text || '')
+      pdfFailed || pdfContent.thin ? '' : (pdfContent.rawText || pdfContent.text || '')
     );
     for (const w of warnings) {
       console.warn(`  ⚠️ ${w}`);
     }
     const slug = slugify(listing.title, COMPANY_KEY);
+    // The bando's text is keyed by its own language.
+    const sourceLang = detectLang(description || listing.title, 'it');
 
     const job = {
       title: listing.title,
@@ -288,18 +318,28 @@ async function fetchFartJobs() {
       employmentType: detectEmploymentType(listing.title),
       experienceLevel: detectExperienceLevel(listing.title),
       source: 'fart-crawler',
-      sourceLang: detectLang(description || listing.title, 'it'),
-      postedDate: new Date().toISOString().slice(0, 10),
-      titleByLocale: { it: listing.title },
-      descriptionByLocale: { it: description },
-      slugByLocale: { it: slug },
+      sourceLang,
+      ...sourcePostingDateFields(),
+      titleByLocale: { [sourceLang]: listing.title },
+      descriptionByLocale: { [sourceLang]: description },
+      slugByLocale: { [sourceLang]: slug },
       _targetScope: { canton: HQ.canton, location: 'Locarno' },
+      ...(pdfFailed
+        ? {
+          sourceBodyFailureReason: SOURCE_BODY_FAILURE_REASON,
+          sourceBodyFailureMessage: pdfContent.error || pdfContent.warning || 'PDF extraction failed',
+        }
+        : {}),
     };
 
     jobs.push(job);
   }
 
-  return jobs;
+  return {
+    jobs,
+    authoritativeEmptySnapshot: sourceSnapshot.state === 'empty',
+    sourceBodyFailures,
+  };
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -324,15 +364,38 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
-  const existingTargetJobs = allJobs.filter(isTargetJob);
+  // The merge keeps stored locale slots and only replaces the description
+  // with a LONGER one: remove the former wrapper from stored jobs first.
+  const existingTargetJobs = dropFabricatedDescriptions(
+    allJobs.filter(isTargetJob),
+    FART_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(
+    discoveredJobs,
+    existingTargetJobs,
+    jobMatchKey,
+  );
+  if (sourceBodyJobs.length < discoveredJobs.length) {
+    console.warn(
+      `  ⚠️ FART: skipped ${discoveredJobs.length - sourceBodyJobs.length} row(s) without a `
+      + 'publishable source body; extraction failures are not thin-source quarantine.',
+    );
+  }
+
+  const mergeExistingTargetJobs = dropFailedSourceJobsWithoutValidBody(
+    existingTargetJobs,
+    discoveredJobs,
+    jobMatchKey,
+  );
 
   const existingByKey = new Map();
-  for (const job of existingTargetJobs) {
+  for (const job of mergeExistingTargetJobs) {
     existingByKey.set(jobMatchKey(job), job);
   }
 
   const discoveredByKey = new Map();
-  for (const job of discoveredJobs) {
+  for (const job of sourceBodyJobs) {
     discoveredByKey.set(jobMatchKey(job), job);
   }
 
@@ -341,8 +404,8 @@ async function mergeJobs(discoveredJobs) {
   // Iterate the deduped Map values (last occurrence wins) instead of the
   // raw discovered list.
   const dedupedDiscovered = [...discoveredByKey.values()];
-  if (dedupedDiscovered.length !== discoveredJobs.length) {
-    console.log(`  ↺ Intra-run dedup: ${discoveredJobs.length} discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
+  if (dedupedDiscovered.length !== sourceBodyJobs.length) {
+    console.log(`  ↺ Intra-run dedup: ${sourceBodyJobs.length} source-backed discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
   }
 
   let added = 0;
@@ -357,6 +420,7 @@ async function mergeJobs(discoveredJobs) {
     if (ex) {
       const updatedJob = {
         ...ex,
+        ...mergeSourcePostingDates(ex, discovered),
         title: discovered.title || ex.title,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
@@ -543,7 +607,8 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'FART');
+  const summaryCounts = { sourceBodyFailures: [] };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'FART', summaryCounts);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  FART — Dedicated Crawler');
@@ -553,17 +618,70 @@ async function main() {
   console.log('🔍 Fetching FART jobs...');
 
   // Snapshot before
-  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob))
+  const priorTargetJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(priorTargetJobs);
 
   // Phase 1: Fetch and parse jobs
-  const discoveredJobs = await fetchFartJobs();
+  const {
+    jobs: discoveredJobs,
+    authoritativeEmptySnapshot,
+    sourceBodyFailures = [],
+  } = await fetchFartJobs();
+  summaryCounts.sourceBodyFailures = sourceBodyFailures;
 
   if (discoveredJobs.length === 0) {
+    if (authoritativeEmptySnapshot) {
+      const emptyDiff = computeCrawlDiff(beforeSnapshot, new Map());
+      const archived = archiveRemovedJobsToSlice(priorTargetJobs, COMPANY_KEY);
+      await writeJobsCrawlerSliceVerified(COMPANY_KEY, [], {
+        skipShrinkGuard: true,
+        preserveExistingSlugs: true,
+      });
+      printCrawlChangeSummary(emptyDiff, 'FART');
+      writeCrawlChangeSummaryToGH(emptyDiff, 'FART');
+      writeSummaryCrawlerSlice({
+        key: COMPANY_KEY,
+        label: 'FART',
+        generatedAt: new Date().toISOString(),
+        total: 0,
+        discovered: 0,
+        parsed: 0,
+        written: 0,
+        sourceBodyFailureCount: 0,
+        sourceBodyFailures: [],
+        authoritativeEmptySnapshot: true,
+        authoritativeSnapshotVerified: true,
+        newCount: 0,
+        updatedCount: 0,
+        removedCount: emptyDiff.removedJobs.length,
+        unchangedCount: 0,
+        durationMs: getCrawlerElapsedMs(),
+        avgDurationMs: getCrawlerElapsedMs(),
+        newJobs: [],
+        updatedJobs: [],
+        removedJobs: emptyDiff.removedJobs.slice(0, 30),
+        unchangedJobs: [],
+      });
+      await assembleJobsDataset();
+      console.log(`ℹ️ Persisted authoritative FART zero; archived ${archived} expired route(s).`);
+      return;
+    }
+
     console.log('\n⚠️ No FART jobs discovered.');
     console.log(
       '   The careers page may have changed structure or have no current concorsi.'
     );
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    // The stored jobs are kept, without the text the crawler once wrote
+    // into them (the merge would have removed it).
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => dropFabricatedDescriptions(jobs, FART_FABRICATED_DESCRIPTION_RE, COMPANY_NAME),
+      storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+      companyKey: COMPANY_KEY,
+      companyLabel: COMPANY_NAME,
+      write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+      assemble: () => assembleJobsDataset(),
+    });
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
@@ -586,15 +704,15 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
+  crawlDiff = stats.crawlDiff || crawlDiff;
   if (stats.total === 0) {
     console.log(
-      'ℹ️ No FART jobs found after crawl. No error — exiting OK.'
+      'ℹ️ No FART jobs found after crawl; final slice verification will record any source extraction failures.'
     );
-    return;
+  } else {
+    // Phase 7: Validate locale coverage
+    validateLocales();
   }
-
-  // Phase 7: Validate locale coverage
-  validateLocales();
 
   console.log('\n✅ FART crawler complete.');
 
@@ -602,12 +720,24 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  const sourceFailureHousekeepingProof = buildSourceBodyFailureHousekeepingProof(
+    crawlDiff.removedJobs,
+    discoveredJobs.filter((job) => job?.sourceBodyFailureReason === SOURCE_BODY_FAILURE_REASON),
+    jobMatchKey,
+  );
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    preserveExistingSlugs: true,
+    ...(sourceFailureHousekeepingProof ? { housekeepingProof: sourceFailureHousekeepingProof } : {}),
+    ...(sourceFailureHousekeepingProof ? { verifyUnprovenHousekeeping: true } : {}),
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'FART',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    sourceBodyFailureCount: sourceBodyFailures.length,
+    sourceBodyFailures: sourceBodyFailures.slice(0, 100),
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,
     removedCount: crawlDiff.removedJobs.length,

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Crawler — MySwitzerland (Switzerland Tourism nationwide events, issue #3125).
  *
@@ -17,21 +18,26 @@
  *     enumeration therefore recursively bisects the numeric `updatedTimestamp`
  *     attribute into <=1000-hit buckets (see `enumerateEventsForLocale`).
  *   - the search index gives id/title/description/dates/geo/image/place per
- *     locale, but NOT price/structured address/category — those exist in the
- *     schema.org Event JSON-LD and, for price, the localized detail table on
- *     each event's own page, so we fetch the first usable detail page per
- *     unique event and continue across locale URLs only when optional
- *     metadata is still missing.
+ *     locale, plus source-language attribution copy in `content`; price,
+ *     structured address and category exist in the schema.org Event JSON-LD
+ *     and, for price, the localized detail table on each event's own page.
+ *     We fetch the first usable detail page per unique event and continue
+ *     across locale URLs only when optional metadata is still missing.
  *   - `objectID` is stable across all 4 locale indices for the same event, so
  *     the 4 locale searches are unioned by id to build titleByLocale /
  *     descriptionByLocale (real per-locale translations, not machine ones).
  *
- * Respectful, non-evasive crawling: plain `fetch`, no headless browser, no
- * TLS/header spoofing, a clearly identifying User-Agent (matches the tio-agenda
- * / mirrorEventImage convention), and a politeness delay between requests to
- * both Algolia and the myswitzerland.com origin. Every event image is mirrored
- * once via `mirrorEventImage` (see scripts/lib/events-utils.mjs) — the output
- * slice NEVER references a myswitzerland.com/cloudfront image URL directly.
+ * Respectful crawling: plain `fetch`, no headless browser, no TLS spoofing, a
+ * clearly identifying User-Agent (matches the tio-agenda / mirrorEventImage
+ * convention), and a politeness delay between requests to both Algolia and
+ * the myswitzerland.com origin. ONE owner-approved exception (decision D1,
+ * 2026-10-05, issue #10710): the detail pages only are requested with a fixed
+ * desktop-browser User-Agent, because the CDN refuses identifying clients
+ * with HTTP 406. It lives in lib/myswitzerland-detail-transport.mjs with its
+ * limits and stop rules; do not copy it to any other crawler or request. Image
+ * URLs pass through the shared licence gate and are currently dropped because
+ * MySwitzerland provides no open image licence — the output slice NEVER
+ * references a myswitzerland.com/cloudfront image URL directly.
  *
  * No artificial cap: the full catalog (tens of thousands of records across
  * ~20 Algolia buckets x 4 locales, then one detail-page fetch per unique
@@ -53,6 +59,7 @@
  * Usage:
  *   node scripts/crawl-myswitzerland-events.mjs                # one time-budgeted, checkpointed slice of the catalog
  *   node scripts/crawl-myswitzerland-events.mjs --limit=5      # fast local test (bypasses the checkpoint)
+ *   node scripts/crawl-myswitzerland-events.mjs --ids=<id,id> # revisit selected catalog records with a separate checkpoint
  *   node scripts/crawl-myswitzerland-events.mjs --dry-run      # parse + report, no write
  *
  * Exit code is always 0 unless an unexpected crash occurs, EXCEPT when Algolia
@@ -62,6 +69,8 @@
  */
 
 import path from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import {
   EVENT_SOURCES,
@@ -70,17 +79,49 @@ import {
   resolveComuneNationwide,
   resolveItalianFrontierComuni,
   mirrorEventImage,
+  isEventImageSourceAllowed,
   cleanEventText,
-  parsePriceText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
   enrichEventsWithLocaleFallbackTranslations,
   loadGeocodeCache,
   saveGeocodeCache,
   enrichEventsWithGeoComune,
+  hasConfidentPrice,
+  hasParsedPrice,
+  withEventPriceSource,
 } from './lib/events-utils.mjs';
-import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
-import { firstEventImageUrl, normalizeEventPeople } from './lib/event-metadata.mjs';
+import { CHECKPOINT_DIR, loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { sanitizeEventForPublication, stripDescriptionTranslationCache } from './lib/event-description-policy.mjs';
+import { fetchEventBookingPrice, sameVenue, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
+import { parseJsonLdText } from './lib/json-ld-text.mjs';
+import {
+  createDetailTransportStats,
+  fetchMySwitzerlandDetailPage,
+  INDEX_ONLY_FALLBACK_MODE,
+  recordDetailResponse,
+  reportDetailTransport,
+} from './lib/myswitzerland-detail-transport.mjs';
+import {
+  extractDetailContactName,
+  extractDetailTableValue,
+  extractEventPeopleFromText,
+  extractEventPeopleFromTitle,
+  extractEventOfferMetadata,
+  extractStructuredEventPrice,
+  parseEventPriceText,
+  firstEventImageUrl,
+  firstEventImageUrlFromHtml,
+  fillEventPeopleDefaults,
+  hasCompleteEventPeopleUrls,
+  mergeEventOfferMetadata,
+  mergeEventPeopleUrls,
+  normalizeEventPeople,
+} from './lib/event-metadata.mjs';
+
+// Kept as a crawler export for existing callers/tests; the implementation is
+// shared with contact/image extraction in lib/event-metadata.mjs.
+export { extractDetailTableValue } from './lib/event-metadata.mjs';
 
 const SOURCE = EVENT_SOURCES.myswitzerland;
 
@@ -99,7 +140,11 @@ const SITE_ORIGIN = 'https://www.myswitzerland.com';
 const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const FETCH_TIMEOUT_MS = 20000;
 const ALGOLIA_DELAY_MS = 120; // between Algolia queries (index enumeration)
-const DETAIL_DELAY_MS = 500; // between myswitzerland.com origin detail-page fetches
+// Pause between two requests to www.myswitzerland.com detail pages — between
+// events AND between the locale URLs of one event. robots.txt of
+// www.myswitzerland.com asks `Crawl-delay: 1`, so this must never go below
+// 1000 ms (tests/crawl-myswitzerland-events.test.ts pins the floor).
+export const DETAIL_DELAY_MS = 1000;
 const RUN_BUDGET_MS = Number(process.env.MYSWITZERLAND_CRAWL_BUDGET_MS) || 8 * 60_000; // per-run wall-clock cap
 // Caps the locale-fallback translation pass that runs AFTER the visit loop.
 // RUN_BUDGET_MS never covered it, so the process routinely outlived its stated
@@ -146,19 +191,12 @@ async function algoliaQuery(index, body) {
   }
 }
 
-async function fetchHtml(url) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-  try {
-    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT }, signal: controller.signal });
-    if (!res.ok) return null;
-    return await res.text();
-  } catch {
-    return null;
-  } finally {
-    clearTimeout(timer);
-  }
-}
+// Counters of the detail transport for the whole run (step summary observer).
+// HTTP 406 is how the www.myswitzerland.com CDN refuses a client (2026-10-04
+// wave); a refusal stops the locale walk of the event. A 403/429/challenge
+// stops the whole detail phase; a 406 above the policy threshold selects the
+// explicit source-backed index fallback below.
+const detailStats = createDetailTransportStats();
 
 /**
  * Enumerate ALL "Event"-type records in one locale index via recursive
@@ -320,6 +358,14 @@ function cleanText(value) {
   return cleanEventText(value);
 }
 
+const REPLACEMENT_CHARACTER = '\uFFFD';
+
+/** Keep corrupt source bytes from entering the published event slice. */
+function cleanSourceField(value) {
+  const cleaned = cleanText(value);
+  return cleaned && !cleaned.includes(REPLACEMENT_CHARACTER) ? cleaned : undefined;
+}
+
 function extractGeo(hit) {
   const g = hit?._geoloc;
   if (!g || typeof g.lat !== 'number' || typeof g.lng !== 'number') return undefined;
@@ -335,49 +381,159 @@ export function humanizeCategory(rawType) {
 }
 
 /**
- * Return the text/value of a MySwitzerland key/value table row by label.
- * The detail pages expose price there even when their JSON-LD omits `offers`.
+ * Price from JSON-LD `isAccessibleForFree`/`offers` (structured, reliable), or
+ * else the localized detail table (tariff text, recorded but not reliable).
  */
-export function extractDetailTableValue(html, labels) {
-  if (typeof html !== 'string' || !html || !Array.isArray(labels) || !labels.length) return undefined;
-  const normalizedLabels = new Set(labels.map((label) => cleanText(label).toLowerCase()).filter(Boolean));
-  if (!normalizedLabels.size) return undefined;
-  const rowRe = /<tr\b[\s\S]*?<\/tr>/gi;
-  let rowMatch;
-  while ((rowMatch = rowRe.exec(html))) {
-    const row = rowMatch[0];
-    const labelMatch = /<th\b[^>]*>([\s\S]*?)<\/th>/i.exec(row);
-    const valueMatch = /<td\b[^>]*>([\s\S]*?)<\/td>/i.exec(row);
-    if (!labelMatch || !valueMatch) continue;
-    const label = cleanText(labelMatch[1]).toLowerCase();
-    if (!normalizedLabels.has(label)) continue;
-    return cleanText(valueMatch[1]) || undefined;
-  }
-  const definitionRe = /<dt\b[^>]*>([\s\S]*?)<\/dt>\s*<dd\b[^>]*>([\s\S]*?)<\/dd>/gi;
-  let definitionMatch;
-  while ((definitionMatch = definitionRe.exec(html))) {
-    const label = cleanText(definitionMatch[1]).toLowerCase();
-    if (normalizedLabels.has(label)) return cleanText(definitionMatch[2]) || undefined;
+export function extractPrice(ld, detailHtml, detailUrl) {
+  const structured = extractStructuredEventPrice(ld, detailUrl || SITE_ORIGIN, SOURCE.key);
+  if (structured) return structured;
+  const offerMetadata = extractEventOfferMetadata(ld?.offers, detailUrl || SITE_ORIGIN) || {};
+  const tablePrice = extractDetailTableValue(detailHtml, ['Prezzo', 'Preis', 'Price', 'Prix']);
+  if (tablePrice) {
+    const price = parseEventPriceText(tablePrice);
+    if (hasParsedPrice(price)) return withEventPriceSource({ ...price, ...offerMetadata }, SOURCE.key, 'detail-table');
   }
   return undefined;
 }
 
-/** Price from JSON-LD `offers`, `isAccessibleForFree`, or the detail table. */
-export function extractPrice(ld, detailHtml) {
-  const offersRaw = ld?.offers;
-  const offers = Array.isArray(offersRaw) ? offersRaw : offersRaw ? [offersRaw] : [];
-  const priced = offers
-    .map((o) => (o && o.price !== undefined && o.price !== null ? Number(o.price) : NaN))
-    .filter((n) => Number.isFinite(n));
-  if (priced.length) {
-    const amount = Math.min(...priced);
-    const currency = offers.find((o) => typeof o?.priceCurrency === 'string')?.priceCurrency || 'CHF';
-    return { amount, currency, isFree: amount === 0 };
+/**
+ * The public search index appends some admission tariffs to event content.
+ * Recover a terminal free-admission statement or one explicitly labelled
+ * monetary tariff. Ancillary amounts and conditional ticket prices are not
+ * evidence of the event's general admission price.
+ */
+export function extractIndexedEventPrice(content) {
+  if (typeof content !== 'string') return undefined;
+  const freeTariff = /(?:^|[.!?\n])\s*(?:gratuit[oea]?|kostenlos|gratis|free)\s*[.!]?\s*$/iu.test(content)
+    || /(?:^|[.!?\n,])\s*(?:(?:prices?|preis|prix|prezzo)\s*:\s*)?(?:free\s+(?:admission|entry|entrance)|(?:admission|entry|entrance)(?:\s*:\s*|\s+(?:is\s+)?)free|(?:eintritt|entrée|ingresso|entrata)\s*:?[ \t]*(?:frei|liber[oa]|libre|gratuit[oea]?|kostenlos|gratis))\s*[.!]?\s*$/iu.test(content);
+  if (freeTariff) return withEventPriceSource({ amount: 0, currency: 'CHF', isFree: true }, SOURCE.key, 'index-content');
+
+  // Index content can concatenate adjacent HTML blocks ("buffetPrice:").
+  // Require a field boundary or that exact concatenation, not "parking price".
+  const tariffs = [...content.matchAll(/(?:^\s*|[.!?\n•"“]\s*|(?<=\bbuffet)(?=Price\s*:))(?:(?:prices?|preis|prix|prezzo)\s*:|(?:single\s+admission\s+price|admission|entry|entrance|eintritt|entrée|ingresso)\s*:?)\s*((?:CHF|EUR|€)\s*\d+(?:[.,]\d{1,2})?(?:[.,][-–—]{1,2})?(?!\d|[.,'’]\d)|\d+(?:[.,]\d{1,2})?(?:[.,][-–—]{1,2})?\s*(?:(?:CHF|EUR)\b|€))/giu)];
+  if (tariffs.length !== 1) return undefined;
+  const tariff = tariffs[0];
+  const qualifier = content.slice(tariff.index + tariff[0].length)
+    .replace(/^[\s,;:.!?–—\-"'“”‘’«»\[\]{}]+/u, '')
+    .replace(/^\s*(?:(?:for\s+)?(?:the\s+)?adults?\s+and\s+(?:the\s+)?children|(?:für\s+)?(?:die\s+)?erwachsenen?\s+und\s+(?:die\s+)?kinder|(?:pour\s+)?(?:les\s+)?adultes\s+et\s+(?:les\s+)?enfants|(?:per\s+)?(?:(?:gli|i)\s+)?adulti\s+e\s+(?:i\s+)?bambini)\b/iu, '')
+    .replace(/^\s*(?:per\s+(?:person|persona)|pro\s+Person|par\s+personne|for\s+everyone)\b/iu, '');
+  if (/^\s*(?:[+/%(]|(?:CHF|EUR|€)\s*\d|(?:deposit|supplement|surcharge|anzahlung|zuschlag|acompte|caparra)\b|(?:for|für|pour|per)\s+\p{L}|(?:(?:the|les|le|gli|i|die|den)\s+)?(?:members?|adults?|adult[ei]|adultes?|erwachsenen?|children|kids|students?|kinder|mitglieder|bambini|soci|enfants|membres|famil(?:y|ies|ien|les)|famigli[ae]|reduced|discounted|ermässigt|ridotto|réduit)\b|(?:mit|avec|con)\s+(?:gästekarte|carte|carta)\b)/iu.test(qualifier)) return undefined;
+  const price = parseEventPriceText(tariff[1]);
+  return hasParsedPrice(price)
+    ? withEventPriceSource({ ...price, currency: /EUR|€/iu.test(tariff[1]) ? 'EUR' : 'CHF' }, SOURCE.key, 'index-content')
+    : undefined;
+}
+
+/** Fill existing unknown prices from the index independently of the detail cursor. */
+export function recoverExistingIndexedPrices(existingEvents, records) {
+  const pricesById = new Map(records.map(({ objectID, perLocaleHits }) => [
+    eventStableId(SOURCE.key, objectID),
+    LOCALES.map((locale) => extractIndexedEventPrice(perLocaleHits[locale]?.content)).find(hasParsedPrice),
+  ]));
+  return existingEvents.flatMap((event) => {
+    if (hasParsedPrice(event.price)) return [];
+    const price = pricesById.get(event.id);
+    return price ? [{ ...event, price: { ...event.price, ...price } }] : [];
+  });
+}
+
+/** Retain verified price metadata while a targeted/detail refresh rebuilds selected events. */
+export function recoverExistingKnownPrices(existingEvents, records) {
+  const selectedIds = new Set(records.map(({ objectID }) => eventStableId(SOURCE.key, objectID)));
+  return existingEvents.flatMap((event) => {
+    if (!selectedIds.has(event.id) || !event?.price || typeof event.price !== 'object'
+      || !Object.keys(event.price).length) return [];
+    return [{ ...event, price: { ...event.price } }];
+  });
+}
+
+/** Recover missing prices from retained source booking links, independently of the detail cursor. */
+export async function recoverExistingBookingPrices(existingEvents, records, {
+  deadline = Infinity,
+  fetchFn = fetchEventBookingPrice,
+  venueMatcher,
+} = {}) {
+  const datesById = new Map(records.map(({ objectID, perLocaleHits }) => {
+    const primary = LOCALES.map(locale => perLocaleHits[locale]).find(Boolean);
+    return [eventStableId(SOURCE.key, objectID), extractDateInfo(primary)?.startDate];
+  }));
+  const updates = [];
+  for (const event of existingEvents) {
+    if (hasParsedPrice(event.price) || datesById.get(event.id) !== event.startDate
+      || !event.startDate || !supportedEventBookingUrl(event.price?.url)) continue;
+    if (Date.now() >= deadline) break;
+    try {
+      const price = typeof venueMatcher === 'function'
+        ? await fetchFn(event, event.price.url, { venueMatcher })
+        : await fetchFn(event, event.price.url);
+      // A third-party ticketing page is not a MySwitzerland field: recorded, not reliable.
+      if (hasParsedPrice(price)) {
+        updates.push({ ...event, price: { ...event.price, ...withEventPriceSource(price, SOURCE.key, 'booking-page') } });
+      }
+    } catch { /* Optional enrichment must not abort the primary crawl. */ }
   }
-  if (ld?.isAccessibleForFree === true) return { amount: 0, currency: 'CHF', isFree: true };
-  const tablePrice = extractDetailTableValue(detailHtml, ['Prezzo', 'Preis', 'Price', 'Prix']);
-  if (tablePrice) return parsePriceText(tablePrice);
-  return undefined;
+  return updates;
+}
+
+function normalizeVenueToken(value) {
+  return typeof value === 'string'
+    ? value.split(/\s+[-–—]\s+/)[0].normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+    : '';
+}
+
+/** Match a town-only venue to a specific venue only when the event locality proves the town. */
+function sameBackfillVenue(freshEvent, backfillEvent) {
+  const freshVenue = normalizeVenueToken(freshEvent?.venue);
+  const backfillVenue = normalizeVenueToken(backfillEvent?.venue);
+  const broadVenue = [freshVenue, backfillVenue].find(value => value && !value.includes(' '));
+  const specificVenue = broadVenue
+    && [freshVenue, backfillVenue].find(value => value !== broadVenue && value.includes(' '));
+  const broadVenueMatchesSpecific = Boolean(specificVenue?.split(' ').includes(broadVenue));
+  if (!freshVenue || !backfillVenue
+    || (!sameVenue(freshEvent?.venue, backfillEvent?.venue) && !broadVenueMatchesSpecific)) return false;
+  const freshLocalities = [freshEvent?.comune, freshEvent?.address?.locality]
+    .map(normalizeVenueToken).filter(Boolean);
+  const backfillLocalities = [backfillEvent?.comune, backfillEvent?.address?.locality]
+    .map(normalizeVenueToken).filter(Boolean);
+  const compatibleLocality = freshLocalities.some(freshLocality =>
+    backfillLocalities.some(backfillLocality => sameVenue(freshLocality, backfillLocality)));
+  const localityProof = [...freshLocalities, ...backfillLocalities]
+    .some(locality => broadVenue && sameVenue(locality, broadVenue));
+  if (freshLocalities.length && backfillLocalities.length && !compatibleLocality) return false;
+  if (freshVenue === backfillVenue) return true;
+  if (!broadVenue) return compatibleLocality;
+  return localityProof;
+}
+
+/** Keep verified price metadata when a fresh detail record drops optional fields. */
+export function applyKnownPriceBackfills(freshEvents, ...backfillGroups) {
+  const backfills = new Map(backfillGroups.flat().filter(event => event?.id).map(event => [event.id, event]));
+  return freshEvents.map(event => {
+    const backfill = backfills.get(event?.id);
+    // A fresh price is kept unless it is text and the backfill holds a
+    // structured value: the structured field comes first (owner, 2026-10-04).
+    const freshPriceWins = hasConfidentPrice(event?.price)
+      || (hasParsedPrice(event?.price) && !hasConfidentPrice(backfill?.price));
+    if (!backfill || freshPriceWins || !backfill?.price || typeof backfill.price !== 'object'
+      || !Object.keys(backfill.price).length
+      || !event?.startDate || !backfill.startDate || event.startDate !== backfill.startDate
+      || !sameBackfillVenue(event, backfill)) return event;
+    const freshMetadata = Object.fromEntries(
+      // Provenance belongs to the value it describes: never pair the backfill
+      // amount with the fresh record's priceSource/priceField.
+      Object.entries(event.price || {}).filter(([key, value]) => value != null && !Object.hasOwn(backfill.price, key)
+        && key !== 'priceSource' && key !== 'priceField'),
+    );
+    return { ...event, price: { ...freshMetadata, ...backfill.price } };
+  });
+}
+
+/** Include recovered records that the bounded detail traversal did not visit. */
+export function mergePriceBackfillRecords(freshEvents, ...backfillGroups) {
+  const backfills = new Map(backfillGroups.flat().filter(event => event?.id).map(event => [event.id, event]));
+  const mergedFresh = applyKnownPriceBackfills(freshEvents, ...backfillGroups);
+  const freshIds = new Set(mergedFresh.map(event => event?.id).filter(Boolean));
+  return [...mergedFresh, ...[...backfills.values()].filter(event => !freshIds.has(event.id))];
 }
 
 /**
@@ -390,10 +546,10 @@ export function extractPrice(ld, detailHtml) {
 export function extractAddress(ld) {
   const addr = ld?.location?.address;
   if (!addr || typeof addr !== 'object') return undefined;
-  const street = typeof addr.streetAddress === 'string' && addr.streetAddress.trim() ? addr.streetAddress.trim() : undefined;
-  const postalCode = typeof addr.postalCode === 'string' && addr.postalCode.trim() ? addr.postalCode.trim() : undefined;
-  const locality = typeof addr.addressLocality === 'string' && addr.addressLocality.trim() ? addr.addressLocality.trim() : undefined;
-  const region = typeof addr.addressRegion === 'string' && addr.addressRegion.trim() ? addr.addressRegion.trim() : undefined;
+  const street = cleanSourceField(addr.streetAddress);
+  const postalCode = cleanSourceField(addr.postalCode);
+  const locality = cleanSourceField(addr.addressLocality);
+  const region = cleanSourceField(addr.addressRegion);
   if (!street && !postalCode && !locality && !region) return undefined;
   return { street, postalCode, locality, region };
 }
@@ -428,18 +584,18 @@ function matchesPersonField(name, field) {
 }
 
 function extractVenue(ld, fallbackPlace) {
-  const name = ld?.location?.name;
-  if (typeof name === 'string' && name.trim()) {
-    const trimmed = name.trim();
+  const name = cleanSourceField(ld?.location?.name);
+  const locality = cleanSourceField(ld?.location?.address?.addressLocality);
+  if (name) {
+    const trimmed = name;
     // Reject location.name that matches a performer or organizer name — implausible as a venue
     if (!matchesPersonField(trimmed, ld?.performer) && !matchesPersonField(trimmed, ld?.organizer)) {
       return trimmed;
     }
     // Implausible: fall back to addressLocality as a useful venue label
-    const locality = ld?.location?.address?.addressLocality;
-    if (typeof locality === 'string' && locality.trim()) return locality.trim();
+    if (locality) return locality;
   }
-  return fallbackPlace || undefined;
+  return cleanSourceField(fallbackPlace) || locality;
 }
 
 const LD_JSON_RE = /<script\b[^>]*\btype\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
@@ -463,7 +619,7 @@ export function extractEventJsonLd(html) {
   let match;
   while ((match = LD_JSON_RE.exec(html))) {
     try {
-      const parsed = JSON.parse(match[1].trim().replace(/^<!--\s*|\s*-->$/g, ''));
+      const parsed = parseJsonLdText(match[1]);
       const event = eventJsonLdCandidates(parsed).find((candidate) => isEventJsonLdType(candidate?.['@type']) && candidate.startDate);
       if (event) return event;
     } catch {
@@ -489,10 +645,22 @@ export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SI
     if (image) merged.image = image;
   }
   for (const field of ['organizer', 'performer']) {
-    if (normalizeEventPeople(merged[field], primaryUrl)) continue;
-    const people = normalizeEventPeople(candidateLd[field], candidateUrl);
-    if (people) merged[field] = people;
+    const primaryPeople = normalizeEventPeople(merged[field], primaryUrl);
+    const candidatePeople = normalizeEventPeople(candidateLd[field], candidateUrl);
+    const candidateAddsOrganizerUrl = field === 'organizer'
+      && candidatePeople
+      && hasCompleteEventPeopleUrls(candidatePeople)
+      && !hasCompleteEventPeopleUrls(primaryPeople);
+    if (!primaryPeople || candidateAddsOrganizerUrl) {
+      if (candidatePeople) {
+        merged[field] = field === 'organizer' && primaryPeople
+          ? mergeEventPeopleUrls(primaryPeople, candidatePeople)
+          : candidatePeople;
+      }
+    }
   }
+  const mergedOffers = mergeEventOfferMetadata(merged.offers, candidateLd.offers, primaryUrl, candidateUrl);
+  if (mergedOffers !== undefined) merged.offers = mergedOffers;
   return merged;
 }
 
@@ -508,7 +676,16 @@ export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SI
  * locale hit when the primary locale omits its image.
  */
 export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
-  const { detailLd, detailUrl, detailHtml } = enrichment;
+  const {
+    detailLd,
+    detailUrl,
+    detailHtml,
+    detailAddress,
+    detailContactName,
+    detailImageSourceUrl,
+    detailPrice,
+    detailPeople,
+  } = enrichment;
   const primaryLocale = LOCALES.find((l) => perLocaleHits[l]);
   const primary = primaryLocale ? perLocaleHits[primaryLocale] : undefined;
   if (!primary) return null;
@@ -521,8 +698,9 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
   for (const locale of LOCALES) {
     const hit = perLocaleHits[locale];
     if (!hit) continue;
-    if (typeof hit.title === 'string' && hit.title.trim()) titleByLocale[locale] = hit.title.trim();
-    const desc = cleanText(hit.leadText) || cleanText(hit.content);
+    const title = cleanSourceField(hit.title);
+    if (title) titleByLocale[locale] = title;
+    const desc = cleanSourceField(hit.leadText) || cleanSourceField(hit.content);
     if (desc) descriptionByLocale[locale] = desc;
   }
   const title = titleByLocale.it || titleByLocale.en || titleByLocale.de || titleByLocale.fr;
@@ -531,24 +709,67 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
 
   const rawUrl = detailUrl
     || `${SITE_ORIGIN}/${LOCALE_URL_PREFIX[primaryLocale]}${String(primary.url || '').startsWith('/') ? primary.url : `/${primary.url || ''}`}`;
-  const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN);
-  const performer = normalizeEventPeople(detailLd?.performer, detailUrl || SITE_ORIGIN);
+  const indexedPeople = extractEventPeopleFromText(
+    LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
+  );
+  const indexedTitlePeople = LOCALES
+    .map((locale) => extractEventPeopleFromTitle(perLocaleHits[locale]?.title).performer)
+    .find(Boolean);
+  const detailPeopleFromHtml = extractEventPeopleFromText(detailHtml);
+  const sourcePeople = {
+    organizer: detailPeople?.organizer || detailPeopleFromHtml.organizer || indexedPeople.organizer,
+    performer: detailPeople?.performer || detailPeopleFromHtml.performer || indexedPeople.performer || indexedTitlePeople,
+  };
+  const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN, detailUrl)
+    || normalizeEventPeople(sourcePeople.organizer, SITE_ORIGIN, detailUrl)
+    || (detailContactName
+      ? normalizeEventPeople({ '@type': 'Organization', name: detailContactName }, detailUrl || SITE_ORIGIN, detailUrl)
+      : undefined);
+  const performer = normalizeEventPeople(detailLd?.performer, detailUrl || SITE_ORIGIN)
+    || normalizeEventPeople(sourcePeople.performer, SITE_ORIGIN);
   const ldAddress = extractAddress(detailLd);
   const htmlAddress = extractDetailAddress(detailHtml);
-  const address = ldAddress || htmlAddress
+  const addressSource = ldAddress || htmlAddress || detailAddress;
+  const address = addressSource
     ? {
-        street: ldAddress?.street || htmlAddress?.street,
-        postalCode: ldAddress?.postalCode || htmlAddress?.postalCode,
-        locality: ldAddress?.locality || htmlAddress?.locality,
-        region: ldAddress?.region || htmlAddress?.region,
+        street: cleanSourceField(ldAddress?.street || htmlAddress?.street || detailAddress?.street),
+        postalCode: cleanSourceField(ldAddress?.postalCode || htmlAddress?.postalCode || detailAddress?.postalCode),
+        locality: cleanSourceField(ldAddress?.locality || htmlAddress?.locality || detailAddress?.locality),
+        region: cleanSourceField(ldAddress?.region || htmlAddress?.region || detailAddress?.region),
       }
     : undefined;
   const imageSourceUrl =
     LOCALES.map((locale) => firstEventImageUrl(perLocaleHits[locale]?.image, SITE_ORIGIN)).find(Boolean)
-    || firstEventImageUrl(detailLd?.image, detailUrl || SITE_ORIGIN);
+    || firstEventImageUrl(detailLd?.image, detailUrl || SITE_ORIGIN)
+    || detailImageSourceUrl
+    || firstEventImageUrlFromHtml(detailHtml, detailUrl || SITE_ORIGIN);
+  // A structured JSON-LD price wins over any tariff text, whichever locale
+  // variant published it; text is kept only when no structured value exists.
+  const detailOfferMetadata = extractEventOfferMetadata(detailLd?.offers, detailUrl || SITE_ORIGIN);
+  const priceCandidates = [
+    // extractPrice() and detailPrice already carry the Offer metadata from the
+    // page that produced their value. Keep that pairing intact when a later
+    // locale supplies the structured price.
+    { price: extractPrice(detailLd, detailHtml, detailUrl) },
+    { price: detailPrice },
+    // Indexed/text prices have no Offer of their own, so retain the primary
+    // page's unpriced booking metadata only for those fallback candidates.
+    ...LOCALES.map((locale) => ({
+      price: extractIndexedEventPrice(perLocaleHits[locale]?.content),
+      offerMetadata: detailOfferMetadata,
+    })),
+  ];
+  const selectedPriceCandidate = priceCandidates.find(({ price: candidate }) => hasConfidentPrice(candidate))
+    || priceCandidates.find(({ price: candidate }) => hasParsedPrice(candidate));
+  const selectedPrice = selectedPriceCandidate?.price;
+  const selectedOfferMetadata = selectedPriceCandidate?.offerMetadata
+    || (!selectedPriceCandidate ? detailOfferMetadata : undefined);
+  const price = selectedPrice || selectedOfferMetadata
+    ? { ...selectedOfferMetadata, ...selectedPrice }
+    : undefined;
 
   return {
-    event: {
+    event: fillEventPeopleDefaults({
       id: eventStableId(SOURCE.key, objectID),
       title,
       titleByLocale: Object.keys(titleByLocale).length ? titleByLocale : undefined,
@@ -564,50 +785,136 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       url: rawUrl,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: extractPrice(detailLd, detailHtml),
+      price,
       address,
       geo: extractGeo(primary),
       recurring: dateInfo.recurring,
       ...(organizer ? { organizer } : {}),
       ...(performer ? { performer } : {}),
-    },
+    }, SOURCE),
     imageSourceUrl,
     place: primary.place || undefined,
   };
 }
 
-/** Fetch the first usable detail page and fill optional metadata from later locales when needed. */
-async function fetchDetailEnrichment(perLocaleHits) {
+/**
+ * Fetch the first usable detail page and fill optional metadata from later locales when needed.
+ *
+ * Courtesy towards www.myswitzerland.com (robots.txt `Crawl-delay: 1`): every
+ * locale URL after the first waits `delayMs`, and an HTTP 406 stops the locale
+ * walk for this event — the event falls back to the index-only fields and is
+ * counted as a detail failure by the caller, never as a disappeared event.
+ * A 403, 429 or challenge page (or 406 above the policy threshold) sets
+ * `stats.stopped`: no further detail request is made in this run.
+ */
+export async function fetchDetailEnrichment(perLocaleHits, {
+  fetchPage = fetchMySwitzerlandDetailPage,
+  pause = sleep,
+  delayMs = DETAIL_DELAY_MS,
+  stats = detailStats,
+} = {}) {
   let enrichment = null;
+  let requests = 0;
+  const sourcePeople = extractEventPeopleFromText(
+    LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
+  );
+  const sourceTitlePeople = LOCALES
+    .map((locale) => extractEventPeopleFromTitle(perLocaleHits[locale]?.title).performer)
+    .find(Boolean);
+  if (!sourcePeople.performer && sourceTitlePeople) sourcePeople.performer = sourceTitlePeople;
   for (const locale of LOCALES) {
     const hit = perLocaleHits[locale];
     if (!hit?.url) continue;
     const path_ = String(hit.url).startsWith('/') ? hit.url : `/${hit.url}`;
     const url = `${SITE_ORIGIN}/${LOCALE_URL_PREFIX[locale]}${path_}`;
-    const html = await fetchHtml(url);
-    if (!html) continue;
+    if (stats.stopped) break;
+    if (requests > 0) await pause(delayMs);
+    requests += 1;
+    const { status, html } = await fetchPage(url);
+    const kind = recordDetailResponse(stats, { status, html }, url);
+    if (kind === 'refused' || kind === 'escalation') break;
+    if (kind !== 'ok' || !html) continue;
     const ld = extractEventJsonLd(html);
+    const candidateAddress = extractAddress(ld) || extractDetailAddress(html);
+    const candidatePrice = extractPrice(ld, html, url);
+    const candidateContactName = extractDetailContactName(html);
+    const candidateImageSourceUrl = firstEventImageUrlFromHtml(html, url);
+    const candidatePeople = extractEventPeopleFromText(html);
     const hasHtmlMetadata = Boolean(
-      extractDetailAddress(html) || extractDetailTableValue(html, ['Prezzo', 'Preis', 'Price', 'Prix']),
+      candidateAddress
+      || candidatePrice
+      || candidateContactName
+      || candidateImageSourceUrl
+      || candidatePeople.organizer
+      || candidatePeople.performer
     );
     if (!ld && !hasHtmlMetadata) continue;
     if (!enrichment) {
-      enrichment = { detailLd: ld, detailUrl: url, detailHtml: html };
+      enrichment = {
+        detailLd: ld,
+        detailUrl: url,
+        detailHtml: html,
+        detailAddress: candidateAddress,
+        detailContactName: candidateContactName,
+        detailImageSourceUrl: candidateImageSourceUrl,
+        detailPrice: candidatePrice,
+        detailPeople: candidatePeople,
+      };
     } else if (ld && enrichment.detailLd) {
       enrichment.detailLd = mergeDetailEventMetadata(enrichment.detailLd, ld, enrichment.detailUrl, url);
     } else if (ld) {
       enrichment.detailLd = ld;
     }
 
-    const imageReady = Boolean(firstEventImageUrl(enrichment.detailLd?.image, enrichment.detailUrl));
-    const organizerReady = Boolean(normalizeEventPeople(enrichment.detailLd?.organizer, enrichment.detailUrl));
-    const performerReady = Boolean(normalizeEventPeople(enrichment.detailLd?.performer, enrichment.detailUrl));
-    if (imageReady && organizerReady && performerReady) break;
+    if (!enrichment.detailAddress && candidateAddress) enrichment.detailAddress = candidateAddress;
+    if ((!enrichment.detailPrice || (enrichment.detailPrice.amount === null && candidatePrice?.amount !== null)
+      || (!hasConfidentPrice(enrichment.detailPrice) && hasConfidentPrice(candidatePrice))) && candidatePrice) {
+      enrichment.detailPrice = candidatePrice;
+    }
+    if (!enrichment.detailContactName && candidateContactName) enrichment.detailContactName = candidateContactName;
+    if (!enrichment.detailImageSourceUrl && candidateImageSourceUrl) enrichment.detailImageSourceUrl = candidateImageSourceUrl;
+    if (!enrichment.detailPeople?.organizer && candidatePeople.organizer) {
+      enrichment.detailPeople = { ...enrichment.detailPeople, organizer: candidatePeople.organizer };
+    }
+    if (!enrichment.detailPeople?.performer && candidatePeople.performer) {
+      enrichment.detailPeople = { ...enrichment.detailPeople, performer: candidatePeople.performer };
+    }
+
+    if (detailEnrichmentReady(enrichment, perLocaleHits, sourcePeople)) break;
   }
   return enrichment;
 }
 
-function parseArgs(argv) {
+/**
+ * Stop locale detail-page fetching only after every supported optional field
+ * is resolved. Source attribution and an Algolia image alone are not enough:
+ * address and price can live on a different localized detail page.
+ */
+export function detailEnrichmentReady(enrichment, perLocaleHits = {}, sourcePeople = {}) {
+  const imageReady = Boolean(
+    LOCALES.some((candidateLocale) => firstEventImageUrl(perLocaleHits[candidateLocale]?.image, SITE_ORIGIN))
+    || firstEventImageUrl(enrichment?.detailLd?.image, enrichment?.detailUrl || SITE_ORIGIN)
+    || enrichment?.detailImageSourceUrl,
+  );
+  const organizerEvidence = normalizeEventPeople(enrichment?.detailLd?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
+    || sourcePeople.organizer
+    || normalizeEventPeople(enrichment?.detailPeople?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
+    || enrichment?.detailContactName;
+  const organizerReady = Boolean(
+    hasCompleteEventPeopleUrls(organizerEvidence)
+    || (enrichment?.detailUrl && organizerEvidence)
+  );
+  const performerReady = Boolean(
+    normalizeEventPeople(enrichment?.detailLd?.performer, enrichment?.detailUrl || SITE_ORIGIN)
+    || sourcePeople.performer
+    || normalizeEventPeople(enrichment?.detailPeople?.performer, enrichment?.detailUrl || SITE_ORIGIN),
+  );
+  const addressReady = Boolean(enrichment?.detailAddress);
+  const priceReady = Boolean(enrichment?.detailPrice);
+  return imageReady && organizerReady && performerReady && addressReady && priceReady;
+}
+
+export function parseMySwitzerlandArgs(argv) {
   const dryRun = argv.includes('--dry-run');
   let limit;
   const eqArg = argv.find((a) => a.startsWith('--limit='));
@@ -618,32 +925,156 @@ function parseArgs(argv) {
     if (idx >= 0) limit = Number.parseInt(argv[idx + 1] || '', 10);
   }
   if (!Number.isFinite(limit) || limit <= 0) limit = undefined;
-  return { dryRun, limit };
+  const idsFlags = argv.filter(arg => arg === '--ids' || arg.startsWith('--ids='));
+  if (idsFlags.length > 1) throw new Error('Specify --ids only once');
+  let ids;
+  if (idsFlags.length) {
+    const flag = idsFlags[0];
+    const raw = flag === '--ids' ? argv[argv.indexOf(flag) + 1] : flag.slice('--ids='.length);
+    const tokens = typeof raw === 'string' ? raw.split(',').map(id => id.trim().replace(/^myswitzerland:/i, '').toLowerCase()) : [];
+    if (!tokens.length || tokens.some(id => !/^[a-f0-9]{32}$/.test(id))) {
+      throw new Error('--ids requires comma-separated MySwitzerland object IDs (32 hexadecimal characters)');
+    }
+    ids = [...new Set(tokens)].sort();
+  }
+  return { dryRun, limit, ids };
+}
+
+/** Keep catalog order for normal runs; targeted runs have stable ID order. */
+export function selectMySwitzerlandRecords(records, ids) {
+  if (!ids) return { records, selectionKey: null };
+  const requested = new Set(ids);
+  const selected = records.filter(record => requested.has(record.objectID.toLowerCase()))
+    .sort((left, right) => left.objectID.toLowerCase().localeCompare(right.objectID.toLowerCase()));
+  // Bind the cursor to both requested and currently available IDs. Catalog
+  // removals or reappearances must not shift a persisted position silently.
+  const selectionKey = createHash('sha256')
+    .update(JSON.stringify([ids, selected.map(record => record.objectID.toLowerCase())])).digest('hex');
+  return { records: selected, selectionKey };
+}
+
+export function targetedMySwitzerlandResumeIndex(checkpoint, selectionKey) {
+  return checkpoint?.selectionKey === selectionKey && Number.isInteger(checkpoint.nextIndex) && checkpoint.nextIndex >= 0
+    ? checkpoint.nextIndex : 0;
+}
+
+/**
+ * Write one crawl batch: slice first, cursor second. The shared detail-failure
+ * policy rejects a batch before writing (e.g. the 2026-10-04 HTTP 406 wave,
+ * 52/139 detail failures > 15%), except when the caller explicitly supplies
+ * the MySwitzerland source-backed index fallback. That fallback is permitted
+ * only for fresh rows covering every failed identity; 403/429/challenge never
+ * use it. `goneIds` is always empty: a refused detail page is a detail
+ * failure, never evidence that the event disappeared.
+ */
+export function commitMySwitzerlandBatch({
+  slicePath,
+  freshEvents,
+  crawledAt,
+  detailFailureIds,
+  detailAttemptCount,
+  detailFailureStrategy = 'reuse-or-reject',
+  nextIndex,
+  targeted = null,
+  checkpointDir = CHECKPOINT_DIR,
+}) {
+  const total = mergeEventsIntoSlice({
+    slicePath,
+    sourceKey: SOURCE.key,
+    sourceName: SOURCE.label,
+    freshEvents,
+    goneIds: [],
+    crawledAt,
+    detailFailureIds,
+    detailAttemptCount,
+    detailFailureStrategy,
+  });
+  if (nextIndex !== null && nextIndex !== undefined) {
+    if (targeted) {
+      saveGenericCursor(targeted.checkpointPath, { selectionKey: targeted.selectionKey, nextIndex, updatedAt: crawledAt });
+    } else {
+      saveCursor(SOURCE.key, nextIndex, crawledAt, checkpointDir);
+    }
+  }
+  return total;
 }
 
 async function main() {
-  const { dryRun, limit } = parseArgs(process.argv.slice(2));
+  const { dryRun, limit, ids } = parseMySwitzerlandArgs(process.argv.slice(2));
   const crawledAt = new Date().toISOString();
   const deadline = Date.now() + RUN_BUDGET_MS;
+  const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
+  const existingSlice = existsSync(slicePath)
+    ? JSON.parse(readFileSync(slicePath, 'utf8'))
+    : { events: [] };
+  if (!Array.isArray(existingSlice.events)) throw new Error('Invalid MySwitzerland source slice');
 
   const localeMaps = {};
   for (const locale of LOCALES) {
     const index = LOCALE_INDEX[locale];
-    const map = limit ? await enumerateEventsForLocaleLimited(index, limit) : await enumerateEventsForLocale(index);
+    const map = limit && !ids ? await enumerateEventsForLocaleLimited(index, limit) : await enumerateEventsForLocale(index);
     localeMaps[locale] = map;
     console.log(`[myswitzerland] ${locale} (${index}): ${map.size} Event record(s)`);
   }
 
   let records = groupHitsByObjectId(localeMaps);
   console.log(`[myswitzerland] ${records.length} unique event(s) in catalog across ${LOCALES.length} locales`);
+  const selection = selectMySwitzerlandRecords(records, ids);
+  records = selection.records;
+  if (ids) {
+    console.log(`[myswitzerland] selected ${records.length}/${ids.length} requested event(s); other source records are retained`);
+    if (!records.length) throw new Error('None of the requested MySwitzerland IDs is available in the catalog');
+  }
   if (limit) records = records.slice(0, limit);
+  const knownPriceBackfills = recoverExistingKnownPrices(existingSlice.events, records);
+  console.log(`[myswitzerland] ${knownPriceBackfills.length} existing price metadata record(s) retained for backfill`);
+  const indexedPriceBackfills = recoverExistingIndexedPrices(existingSlice.events, records);
+  console.log(`[myswitzerland] ${indexedPriceBackfills.length} existing unknown price(s) recovered from the public index`);
+  const indexedIds = new Set(indexedPriceBackfills.map(event => event.id));
+  const bookingPriceBackfills = await recoverExistingBookingPrices(
+    existingSlice.events.filter(event => !indexedIds.has(event.id)), records, {
+      deadline,
+      venueMatcher: (sourceVenue, event) => sameBackfillVenue(event, { ...event, venue: sourceVenue }),
+    },
+  );
+  console.log(`[myswitzerland] ${bookingPriceBackfills.length} existing unknown price(s) recovered from official booking pages`);
 
-  const startIndex = limit ? 0 : loadCursor(SOURCE.key) % Math.max(records.length, 1);
+  const targetedCheckpointPath = path.join(CHECKPOINT_DIR, 'myswitzerland-targeted.json');
+  const resumeIndex = ids
+    ? targetedMySwitzerlandResumeIndex(loadGenericCursor(targetedCheckpointPath, null), selection.selectionKey)
+    : loadCursor(SOURCE.key);
+  const startIndex = limit ? 0 : resumeIndex % Math.max(records.length, 1);
   if (!limit && startIndex > 0) {
     console.log(`[myswitzerland] resuming from checkpoint index ${startIndex}/${records.length}`);
   }
 
-  const events = [];
+  const prepareEvent = async (rec, enrichment) => {
+    const mapped = mapEventRecord(rec.objectID, rec.perLocaleHits, enrichment || {});
+    if (!mapped) return null;
+    const { event, imageSourceUrl, place } = mapped;
+    // #3739: myswitzerland's own JSON-LD ships a clean 2-letter canton code
+    // as `location.address.addressRegion` (e.g. "SZ") — pass it as the
+    // high-confidence cantonHint instead of relying solely on venue/title
+    // text-matching against the current BFS comune list, which misses
+    // fused post-2011 comuni (Niederurnen -> Glarus Nord) and non-comune
+    // toponyms (Petersplatz, a square inside Basel).
+    const { comune, canton } = resolveComuneNationwide(
+      { venue: [event.venue, place].filter(Boolean).join(' '), title: event.title, region: undefined },
+      event.address?.region,
+    );
+    event.comune = comune || undefined;
+    event.canton = canton || '';
+    if (isEventImageSourceAllowed(SOURCE.key)) {
+      event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id, SOURCE.key)) || undefined;
+    }
+    const frontier = resolveItalianFrontierComuni(event.geo);
+    if (frontier.length) event.italianFrontierComuni = frontier;
+    return event;
+  };
+
+  let events = [];
+  const visitedRecords = [];
+  const detailFailureIds = [];
   let detailOk = 0;
   let detailFail = 0;
   let visited = 0;
@@ -657,41 +1088,55 @@ async function main() {
       break;
     }
 
+    if (detailStats.stopped) break;
     const rec = records[cursor];
+    visitedRecords.push(rec);
     const enrichment = await fetchDetailEnrichment(rec.perLocaleHits);
     if (enrichment) detailOk += 1;
-    else detailFail += 1;
-
-    const mapped = mapEventRecord(rec.objectID, rec.perLocaleHits, enrichment || {});
-    if (mapped) {
-      const { event, imageSourceUrl, place } = mapped;
-      // #3739: myswitzerland's own JSON-LD ships a clean 2-letter canton code
-      // as `location.address.addressRegion` (e.g. "SZ") — pass it as the
-      // high-confidence cantonHint instead of relying solely on venue/title
-      // text-matching against the current BFS comune list, which misses
-      // fused post-2011 comuni (Niederurnen -> Glarus Nord) and non-comune
-      // toponyms (Petersplatz, a square inside Basel).
-      const { comune, canton } = resolveComuneNationwide(
-        { venue: [event.venue, place].filter(Boolean).join(' '), title: event.title, region: undefined },
-        event.address?.region,
-      );
-      event.comune = comune || undefined;
-      event.canton = canton || '';
-      event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id)) || undefined;
-      const frontier = resolveItalianFrontierComuni(event.geo);
-      if (frontier.length) event.italianFrontierComuni = frontier;
-      events.push(event);
+    else {
+      detailFail += 1;
+      detailFailureIds.push(eventStableId(SOURCE.key, rec.objectID));
     }
+
+    const event = await prepareEvent(rec, enrichment);
+    if (event) events.push(event);
 
     visited += 1;
     cursor = (cursor + 1) % records.length;
     if (visited < records.length) await sleep(DETAIL_DELAY_MS);
   }
 
+  const indexOnlyFallback = detailStats.stopped?.fallbackMode === INDEX_ONLY_FALLBACK_MODE;
+  reportDetailTransport(detailStats);
+  if (detailStats.stopped && !indexOnlyFallback) {
+    // 403/429/challenge remains fail-closed: nothing is written, the cursor
+    // stays put, and the previous slice stays byte-for-byte on disk.
+    throw new Error(`[myswitzerland] detail phase stopped (${detailStats.stopped.reason}); batch not written`);
+  }
+  if (indexOnlyFallback) {
+    // The Algolia rows are independently source-backed. Rebuild every row
+    // visited in this partial batch without any detail enrichment, so a
+    // successful earlier detail page cannot leak detail-only fields into the
+    // explicitly selected fallback mode.
+    console.warn(
+      `[myswitzerland] detail phase stopped (${detailStats.stopped.reason}); `
+      + `rebuilding ${visitedRecords.length} event(s) from Algolia index fields only`,
+    );
+    events = [];
+    for (const rec of visitedRecords) {
+      const event = await prepareEvent(rec, {});
+      if (event) events.push(event);
+    }
+    detailFailureIds.length = 0;
+    detailFailureIds.push(...visitedRecords.map((rec) => eventStableId(SOURCE.key, rec.objectID)));
+    detailOk = 0;
+    detailFail = visitedRecords.length;
+  }
+
   const resolved = events.filter((e) => e.comune).length;
   console.log(
     `[myswitzerland] visited ${visited}/${records.length} event(s) this run — ${events.length} mapped — ` +
-      `detail-page enrichment ${detailOk} ok / ${detailFail} fallback (index-only fields) — comune resolved ${resolved}/${events.length}`,
+      `detail-page enrichment ${detailOk} ok / ${detailFail} fallback (index-only fields; ${detailStats.refused} refused with HTTP 406) — comune resolved ${resolved}/${events.length}`,
   );
 
   // #7328: myswitzerland's own `addressRegion` plus venue/title text-matching
@@ -711,21 +1156,29 @@ async function main() {
   // title/description text across it/en/de/fr (the organizer never
   // translated it) instead of a missing locale — fill those gaps via the
   // free-translate.mjs cascade, same disk cache as crawl-tio-agenda.mjs.
-  const translationCache = loadEventTitleTranslationCache();
-  const translatedEvents = await enrichEventsWithLocaleFallbackTranslations(events, translationCache, {
-    deadline: Date.now() + TRANSLATE_BUDGET_MS,
-  });
+  const translationCache = indexOnlyFallback ? null : loadEventTitleTranslationCache();
+  const translatedEvents = indexOnlyFallback
+    ? events
+    : await enrichEventsWithLocaleFallbackTranslations(events, translationCache, {
+      deadline: Date.now() + TRANSLATE_BUDGET_MS,
+    });
   const titleFilled = translatedEvents.filter((e) => e.titleByLocale && LOCALES.every((l) => e.titleByLocale[l])).length;
   console.log(`[myswitzerland] locale-fallback translation: ${titleFilled}/${translatedEvents.length} event(s) now have title in all ${LOCALES.length} locales`);
+  const priceBackfillGroups = indexOnlyFallback
+    ? [indexedPriceBackfills]
+    : [knownPriceBackfills, indexedPriceBackfills, bookingPriceBackfills];
+  const freshEvents = mergePriceBackfillRecords(translatedEvents, ...priceBackfillGroups);
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
-    console.log(JSON.stringify(translatedEvents.slice(0, 3), null, 2));
+    console.log(JSON.stringify([...indexedPriceBackfills, ...bookingPriceBackfills, ...freshEvents].slice(0, 3).map(sanitizeEventForPublication), null, 2));
     return;
   }
 
-  if (!limit && records.length > 0) saveCursor(SOURCE.key, cursor, crawledAt);
-  saveEventTitleTranslationCache(translationCache);
+  if (translationCache) {
+    stripDescriptionTranslationCache(translationCache);
+    saveEventTitleTranslationCache(translationCache);
+  }
   saveGeocodeCache(geocodeCache);
 
   if (events.length === 0) {
@@ -738,7 +1191,7 @@ async function main() {
     //  - records were actually visited this run and none mapped → likely
     //    index/key/facet drift; exit non-zero so crawl-events.yml opens a
     //    failure issue instead of letting the dataset go silently stale.
-    console.log('[myswitzerland] 0 events mapped this run — leaving existing slice untouched');
+    console.log('[myswitzerland] 0 events mapped by detail traversal this run');
     if (visited === 0) {
       console.log('[myswitzerland] time budget exhausted before any record was visited — transient, soft-exit 0');
     } else if (algoliaFailures > 0) {
@@ -748,25 +1201,27 @@ async function main() {
         `[myswitzerland] ${visited} record(s) visited this run but 0 mapped — check ALGOLIA_APP_ID/ALGOLIA_SEARCH_KEY/LOCALE_INDEX for drift`,
       );
       process.exitCode = 1;
+      return;
     }
-    return;
+    if (indexedPriceBackfills.length === 0 && bookingPriceBackfills.length === 0) return;
   }
 
-  const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
-  const total = mergeEventsIntoSlice({
+  const total = commitMySwitzerlandBatch({
     slicePath,
-    sourceKey: SOURCE.key,
-    sourceName: SOURCE.label,
-    freshEvents: translatedEvents,
-    goneIds: [],
+    freshEvents,
     crawledAt,
+    detailFailureIds,
+    detailAttemptCount: visited,
+    detailFailureStrategy: indexOnlyFallback ? 'source-backed-index' : 'reuse-or-reject',
+    nextIndex: !limit && records.length > 0 ? cursor : null,
+    targeted: ids ? { checkpointPath: targetedCheckpointPath, selectionKey: selection.selectionKey } : null,
   });
-  console.log(`[myswitzerland] merged ${events.length} event(s) → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
+  console.log(`[myswitzerland] merged ${events.length} detail record(s) + ${indexedPriceBackfills.length} indexed / ${bookingPriceBackfills.length} booking price backfill(s) → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-myswitzerland-events.mjs`),
 // so tests can import the pure mapping functions without triggering a live crawl.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[myswitzerland] crawl failed: ${err?.message || err}`);
     process.exit(1);

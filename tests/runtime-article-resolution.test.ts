@@ -21,7 +21,9 @@ import {
   publishedSlugsForIds,
   runtimeArticleRecords,
   staticArticleForSlug,
+  recoverArticleBodyParts,
 } from '@/services/runtimeArticleResolution';
+import { needsArticleBodyRecovery } from '@/services/articleBodyRecovery';
 import {
   cleanupArticleBodySections,
   renderArticleDerivedSectionsHtml,
@@ -35,7 +37,8 @@ import {
   __resetStaticArticleFallback,
 } from '@/services/staticArticleFallback';
 import { tryRenderMdTable } from '@/components/community/BlogArticles';
-import { t } from '@/services/i18n';
+import { renderImageCreditHtml } from '../packages/articles/engine/shared/imageCredits.mjs';
+import { t, mergeArticleMetaOverlay } from '@/services/i18n';
 import { learnRuntimeBlogSlugs, learnRuntimeSwissSlugs, resolveBlogSlug, resolveSwissSlug, buildPath } from '@/services/router';
 
 // ── the published documents, in the shape the corpus actually emits ─────────
@@ -111,6 +114,14 @@ const publishedSlugs = {
     en: { 'how-swiss-federal-votes-work': 'come-funzionano-votazioni-federali-ch' },
     de: {},
     fr: {},
+  },
+  cantons: {
+    'canton-zh': {
+      'mappa-affitti-zurigo-trasloco': {
+        it: 'mappa-affitti-zurigo-trasloco',
+        en: 'zurich-rent-map-moving-guide',
+      },
+    },
   },
 };
 
@@ -327,6 +338,26 @@ describe('articleBodyPartsFromStaticArticle', () => {
     ]);
   });
 
+  it('preserves a deep first heading when static accessibility normalization demotes it', () => {
+    document.body.innerHTML = renderStaticArticle([
+      '### Sotto-sezione\nTesto.',
+    ]);
+
+    expect(articleBodyPartsFromStaticArticle(staticArticle())).toEqual([
+      '### Sotto-sezione\n\nTesto.',
+    ]);
+  });
+
+  it('keeps recovered headings contiguous when ## is followed by ####', () => {
+    document.body.innerHTML = renderStaticArticle([
+      '## Sezione\nTesto.\n\n#### Dettaglio\nAltro testo.',
+    ]);
+
+    expect(articleBodyPartsFromStaticArticle(staticArticle())).toEqual([
+      '## Sezione\n\nTesto.\n\n### Dettaglio\n\nAltro testo.',
+    ]);
+  });
+
   it('keeps the descriptive headings of the SEO fallback sections', () => {
     // Only the three GENERIC positional labels are scaffolding. The fallback
     // sections ogPagesPlugin appends to thin bodies carry real headings.
@@ -347,7 +378,7 @@ describe('articleBodyPartsFromStaticArticle', () => {
     const source = '| Valico | Attesa |\n|---|---|\n| Chiasso | 12 min |\n| Ponte Tresa | 0 min |';
     document.body.innerHTML = renderStaticArticle([source]);
     // Sanity: the production renderer emitted a real table, not a <p> of pipes.
-    expect(document.body.innerHTML).toContain('<table>');
+    expect(document.body.innerHTML).toMatch(/<table(?:\s|>)/);
 
     const [part] = articleBodyPartsFromStaticArticle(staticArticle());
     expect(part).toBe('| Valico | Attesa |\n| --- | --- |\n| Chiasso | 12 min |\n| Ponte Tresa | 0 min |');
@@ -418,6 +449,35 @@ describe('articleBodyPartsFromStaticArticle', () => {
     expect(parts.join('\n')).not.toContain('Domande frequenti');
   });
 
+  it('ignores the cover credit footer emitted between the FAQ and the related articles (P14)', () => {
+    // The real footer, from the module the engine renders it with.
+    const credit = renderImageCreditHtml({
+      schema: 1,
+      cover: '/images/blog/kuhne-nagel-tagli-posti-ticino-2026.webp',
+      source: 'wikimedia-commons',
+      commons: { title: 'Locarno 1.jpg', pageUrl: 'https://commons.wikimedia.org/wiki/File:Locarno_1.jpg' },
+      author: { text: 'Riessdo', name: 'Riessdo', url: 'https://de.wikipedia.org/wiki/User:Riessdo', type: 'Person' },
+      attribution: null,
+      licence: { name: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/', family: 'cc-by-sa', attributionRequired: true },
+      restrictions: [],
+      modified: 'resized',
+      fetchedAt: '2026-10-04',
+      status: 'ok',
+      curation: null,
+    }, 'it');
+    const extras = '<details class="s-x"><summary>Domande frequenti</summary><dl><dt>D?</dt><dd>R.</dd></dl></details>'
+      + credit
+      + '<section class="s-zzuqwx"><h2>Articoli correlati</h2><ul><li><a href="/x/">Altro articolo</a></li></ul></section>';
+    document.body.innerHTML = renderStaticArticle(['## Solo questo\nTesto.'], extras);
+    // Sanity: the footer is a direct child of the article, where body sections live.
+    expect(staticArticle()!.querySelector(':scope > footer.ft-image-credit')).not.toBeNull();
+
+    const parts = articleBodyPartsFromStaticArticle(staticArticle());
+    expect(parts).toHaveLength(1);
+    expect(parts.join('\n')).not.toContain('Immagine di copertina');
+    expect(parts.join('\n')).not.toContain('Riessdo');
+  });
+
   it('returns nothing rather than guessing when there is no static article', () => {
     document.body.innerHTML = '<div id="root"></div>';
     expect(articleBodyPartsFromStaticArticle(staticArticle())).toEqual([]);
@@ -432,6 +492,74 @@ describe('articleBodyPartsFromStaticArticle', () => {
 });
 
 describe('publishRuntimeArticleBody', () => {
+  it('recovers a bundled ellipsis without overwriting valid body, FAQ or metadata', async () => {
+    const id = 'runtime-bundled-placeholder';
+    mergeArticleMetaOverlay('it', {
+      [`blog.article.${id}.body1`]: '...',
+      [`blog.article.${id}.body2`]: 'Testo valido già presente.',
+      [`blog.article.${id}.title`]: 'Titolo originale',
+      [`blog.article.${id}.faq`]: 'FAQ originale',
+    });
+    expect(needsArticleBodyRecovery(['...', 'Testo valido già presente.'])).toBe(true);
+    const path = pathFor(id);
+    visit(path);
+    document.body.innerHTML = renderStaticArticle(['Testo riparato dal corpus.', 'Altro testo dalla rete.']);
+    stashStaticArticleFallback(document.querySelector('main')!, path);
+    document.body.innerHTML = '<div id="root"></div>';
+    const fetch = stubFetch(() => ({ ok: false }));
+    const parts = await recoverArticleBodyParts(path);
+    expect(fetch).not.toHaveBeenCalled();
+    expect(publishRuntimeArticleBody(id, 'it', parts)).toBe(1);
+    expect(t(`blog.article.${id}.body1`)).toContain('Testo riparato dal corpus.');
+    expect(t(`blog.article.${id}.body2`)).toBe('Testo valido già presente.');
+    expect(t(`blog.article.${id}.title`)).toBe('Titolo originale');
+    expect(t(`blog.article.${id}.faq`)).toBe('FAQ originale');
+  });
+
+  it('recovers a client-side destination, never the previous article stash', async () => {
+    const oldPath = pathFor('runtime-old-stash');
+    visit(oldPath);
+    document.body.innerHTML = renderStaticArticle(['CORPO DI UN ALTRO ARTICOLO']);
+    stashStaticArticleFallback(document.querySelector('main')!, oldPath);
+    const path = pathFor('runtime-client-repair');
+    visit(path);
+    const fetch = stubFetch((url) => url === path
+      ? { text: renderStaticArticle(['Corpo della destinazione.']) }
+      : { ok: false });
+    expect((await recoverArticleBodyParts(path)).join(' ')).toContain('Corpo della destinazione.');
+    expect(fetch).toHaveBeenCalledWith(path, expect.any(Object));
+  });
+
+  it('does not assign compacted recovery to different existing body positions', () => {
+    const id = 'runtime-partial-recovery';
+    mergeArticleMetaOverlay('it', { [`blog.article.${id}.body1`]: '...', [`blog.article.${id}.body2`]: 'Secondo paragrafo.' });
+    expect(publishRuntimeArticleBody(id, 'it', ['Solo secondo paragrafo.'])).toBe(0);
+    expect(t(`blog.article.${id}.body1`)).toBe('...');
+    expect(publishRuntimeArticleBody(id, 'it', ['…', 'Secondo dalla rete.'])).toBe(0);
+    expect(t(`blog.article.${id}.body2`)).toBe('Secondo paragrafo.');
+    const gapped = 'runtime-gapped-recovery';
+    mergeArticleMetaOverlay('it', { [`blog.article.${gapped}.body1`]: '...', [`blog.article.${gapped}.body3`]: 'Terzo paragrafo.' });
+    expect(publishRuntimeArticleBody(gapped, 'it', ['Un testo.', 'Un altro testo.'])).toBe(0);
+    expect(t(`blog.article.${gapped}.body1`)).toBe('...');
+    expect(t(`blog.article.${gapped}.body2`)).toBe(`blog.article.${gapped}.body2`);
+  });
+
+  it('does not replace an Italian placeholder with a recovered foreign translation', () => {
+    const id = 'runtime-locale-repair';
+    mergeArticleMetaOverlay('it', { [`blog.article.${id}.body1`]: '...' });
+    mergeArticleMetaOverlay('de', { [`blog.article.${id}.body1`]: '...' });
+    expect(publishRuntimeArticleBody(id, 'de', ['Deutscher reparierter Text.'])).toBe(1);
+    expect(t(`blog.article.${id}.body1`)).toBe('...');
+  });
+
+  it('recognizes only absent or punctuation-only segments as incomplete', () => {
+    expect(needsArticleBodyRecovery([])).toBe(true);
+    for (const placeholder of ['', ' ', '...', ' … ', '. . .']) {
+      expect(needsArticleBodyRecovery([placeholder, 'Un testo valido.'])).toBe(true);
+    }
+    expect(needsArticleBodyRecovery(['Un testo… che continua.', 'Testo valido.'])).toBe(false);
+  });
+
   it('publishes under the same keys the bundled chunks use', () => {
     publishRuntimeArticleBody('articolo-runtime-1', 'it', ['## Uno\nTesto uno.', 'Testo due.']);
     expect(t('blog.article.articolo-runtime-1.body1')).toBe('## Uno\nTesto uno.');
@@ -557,7 +685,8 @@ describe('runtime slug pairs in the router', () => {
 describe('static article fallback across the #root handoff', () => {
   const mountShardPage = (slug = POSTE, body = '## In breve\n- Un punto') => {
     visit(pathFor(slug));
-    document.body.innerHTML = '<div id="root"></div>' + renderStaticArticle([body]);
+    document.body.innerHTML = '<div id="root"></div>' + renderStaticArticle([body])
+      + '<div id="footer-root"><footer>Site footer</footer></div>';
   };
   const runClsHandoff = () => {
     const root = document.getElementById('root')!;
@@ -581,6 +710,19 @@ describe('static article fallback across the #root handoff', () => {
     expect(restored).not.toBeNull();
     expect(document.getElementById('root')!.contains(restored)).toBe(false);
     expect(restored?.querySelector('h1')?.textContent).toBe("Titolo dell'articolo");
+    expect(restored?.nextElementSibling).toBe(document.getElementById('footer-root'));
+    expect(document.getElementById('root')!.nextElementSibling).toBe(restored);
+  });
+
+  it('still restores the article when the page has no footer portal', () => {
+    mountShardPage();
+    document.getElementById('footer-root')!.remove();
+    runClsHandoff();
+    document.getElementById('root')!.innerHTML = '';
+
+    expect(restoreStaticArticleFallback()).toBe(true);
+    expect(document.getElementById('root')!.nextElementSibling)
+      .toBe(document.querySelector('main.seo-static-content'));
   });
 
   it('still yields the body after the handoff, so the article stays adoptable', async () => {
@@ -773,6 +915,17 @@ describe('publishedSlugsForIds — the forward map that keeps a new card clickab
     stubFetch(fullyPublished);
     const pairs = await publishedSlugsForIds('svizzera', ['come-funzionano-votazioni-federali-ch']);
     expect(pairs[0][1].de).toBe('wie-funktionieren-eidgenoessische-abstimmungen');
+  });
+
+  it('reads a nested canton section for a corpus-owned article', async () => {
+    stubFetch(fullyPublished);
+    const pairs = await publishedSlugsForIds('canton-zh', ['mappa-affitti-zurigo-trasloco']);
+    expect(pairs).toEqual([
+      ['mappa-affitti-zurigo-trasloco', {
+        it: 'mappa-affitti-zurigo-trasloco',
+        en: 'zurich-rent-map-moving-guide',
+      }],
+    ]);
   });
 
   it('skips an id the published maps do not know, rather than inventing one', async () => {

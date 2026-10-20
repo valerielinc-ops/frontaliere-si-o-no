@@ -270,6 +270,51 @@ describe('vite.config.ts import graph resolves without Vite aliases', () => {
         `${detail}\n`,
     ).toEqual([]);
   });
+
+  it('does not pull executable scripts/ci modules into the Vite config graph', () => {
+    const offenders = WALK.files.filter((file) => file.startsWith('scripts/ci/'));
+    expect(
+      offenders,
+      'Vite config code may use pure shared contracts, but executable CI scripts must stay out of the bundle.\n' +
+        'A shebang or CLI main guard is no longer valid after esbuild prepends config code.\n',
+    ).toEqual([]);
+  });
+});
+
+/**
+ * Same boundary, second shape. Vite's config bundler prepends
+ * `const __vite_injected_original_import_meta_url = …` (and the dirname /
+ * filename twins) to every module it inlines, so a `#!` that was line 1 on disk
+ * ends up mid-line in the bundle and esbuild stops with `Syntax error "!"`.
+ * #9813 pulled `scripts/ci/claude-codex-fallback.mjs` (shebang + import.meta.url)
+ * into this graph through build-plugins/eventsSeoPagesPlugin.ts →
+ * scripts/lib/events-utils.mjs → free-translate.mjs → ai-models.mjs, and every
+ * build-locale job failed from 2026-09-25 10:47Z (deploys 36136899726,
+ * 36139844551). Only the entry may carry a shebang; nothing here is one.
+ */
+export function startsWithShebang(src: string): boolean {
+  return src.replace(/^﻿/, '').startsWith('#!');
+}
+
+describe('no module reachable from vite.config.ts starts with a shebang', () => {
+  it('has no `#!` line in any inlined module', () => {
+    const offenders = WALK.files.filter(
+      (rel) => rel !== ENTRY && startsWithShebang(fs.readFileSync(path.join(REPO_ROOT, rel), 'utf8')),
+    );
+    expect(
+      offenders,
+      'These modules are inlined into the vite.config.ts bundle, where Vite prepends its\n' +
+        'import.meta/dirname shims above line 1: the shebang stops being first and esbuild fails\n' +
+        'every build-locale job with `Syntax error "!"`. Drop the `#!` line (run the file with\n' +
+        '`node <file>`), or keep the executable out of this graph.\n',
+    ).toEqual([]);
+  });
+
+  it('detects the shape that broke the deploy, BOM included', () => {
+    expect(startsWithShebang('#!/usr/bin/env node\n/** x */')).toBe(true);
+    expect(startsWithShebang('﻿#!/usr/bin/env node\n')).toBe(true);
+    expect(startsWithShebang('/** #!/usr/bin/env node */\n')).toBe(false);
+  });
 });
 
 describe('the detector actually catches the shape that broke main (not vacuous)', () => {

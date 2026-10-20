@@ -15,7 +15,7 @@
  */
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Bell, BellOff, Bookmark, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play, Sunrise, Megaphone } from 'lucide-react';
+import { Bell, BellOff, Bookmark, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play, Sunrise, Megaphone, Target } from 'lucide-react';
 import {
  getFullSubscriptionStatus,
  toggleNewsletterSubscription,
@@ -32,20 +32,22 @@ import {
  DAILY_BRIEF_FREQUENCIES,
  type DailyBriefFrequency,
  type SubscriptionAlertSummary,
+ type JobAlertSummary,
  type JobAlertFrequency,
  type JobAlertPatch,
  type JobAlertCreatePayload,
 } from '@/services/newsletterSubscribers';
 import {
- GLOBAL_EMAIL_OPT_OUT_FIELDS,
  isAddressSuppressed,
  isCrossChannelStop,
 } from '@/services/emailSuppression.mjs';
 import { ADVERTISING_REACTIVATED_AT_FIELD } from '@/services/communicationChannels';
 import { isAdvertisingSuppressed } from '@/services/publisherBlastMatch.mjs';
+import { hasSubscriptionBasis } from '@/services/subscriberConsent.mjs';
 import { getLocale, type Locale } from '@/services/i18n';
 import { resilientImport } from '@/services/resilientImport';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
+import { setApplicationIntentOptOut, syncToFirestore } from '@/services/behaviorTracker';
 
 // ─── Types ──────────────────────────────────────────────────
 
@@ -58,6 +60,12 @@ export interface SubscriptionPreferencesControllerProps {
  token?: string;
  /** Required when mode === 'auth'. Firebase Auth UID. */
  userId?: string;
+ /**
+  * Auth mode: whether Firebase Auth marks the account's address verified. The
+  * saved-jobs digest reaches an account without a central subscriber row only
+  * then (scripts/send-saved-jobs-digest.mjs), so the switch needs it to say so.
+  */
+ emailVerified?: boolean;
  /** Optional locale override. Defaults to current site locale. */
  locale?: Locale;
  /** Optional error reporter — for embedding in profile pages. */
@@ -66,13 +74,30 @@ export interface SubscriptionPreferencesControllerProps {
 
 type LoadStatus = 'loading' | 'ready' | 'error';
 
-function hasExplicitGlobalEmailStop(data: Record<string, any> | null | undefined): boolean {
- return GLOBAL_EMAIL_OPT_OUT_FIELDS.some((field) => (
-  data?.[field] === true
-  || data?.[field] === 1
-  || data?.[field] === 'true'
-  || data?.[field] === '1'
- ));
+function normalizeAlertCreatedAt(value: string | number | null | undefined, fallback: number | null = null): number | null {
+ if (typeof value === 'number' && Number.isFinite(value)) return value;
+ if (typeof value === 'string') {
+ const numeric = Number(value);
+ if (Number.isFinite(numeric)) return numeric;
+ const parsed = Date.parse(value);
+ if (!Number.isNaN(parsed)) return parsed;
+ }
+ return fallback;
+}
+
+function mergeTokenAlert(current: SubscriptionAlertSummary, incoming: JobAlertSummary): SubscriptionAlertSummary {
+ return {
+ ...current,
+ ...incoming,
+ createdAt: normalizeAlertCreatedAt(incoming.createdAt, current.createdAt),
+ };
+}
+
+function tokenAlertToSubscription(alert: JobAlertSummary): SubscriptionAlertSummary {
+ return {
+ ...alert,
+ createdAt: normalizeAlertCreatedAt(alert.createdAt),
+ };
 }
 
 // ─── i18n ───────────────────────────────────────────────────
@@ -157,6 +182,14 @@ interface SectionStrings {
  digestDesc: string;
  digestOn: string;
  digestOff: string;
+ applicationReminderTitle: string;
+ applicationReminderDesc: string;
+ applicationReminderOn: string;
+ applicationReminderOff: string;
+ applicationIntentTitle: string;
+ applicationIntentDesc: string;
+ applicationIntentOn: string;
+ applicationIntentOff: string;
  /**
   * Third-party advertising is included in the base registration. This card
   * records the reader's separate opt-out/restore choice without turning it
@@ -196,13 +229,23 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Ogni interruttore vale solo per il suo canale: spegnerne uno non ferma gli altri. Per non ricevere più nulla, usa «Ferma tutte le email».',
  stopAll: 'Ferma tutte le email',
  stopAllHint:
- 'Disattiva newsletter, bollettino, avvisi lavoro, promemoria dei lavori salvati e annunci di inserzionisti in una volta sola.',
+ 'Disattiva newsletter, bollettino, avvisi lavoro, promemoria dei lavori salvati, promemoria delle candidature e annunci di inserzionisti in una volta sola.',
  stopAllWorking: 'Disattivo tutto…',
  digestTitle: 'Promemoria dei lavori salvati',
  digestDesc:
- 'Ogni settimana ti ricordiamo via email gli annunci che hai salvato, con qualche proposta simile. Vale solo per questo promemoria: newsletter, bollettino e avvisi lavoro restano come sono.',
+ 'Ogni settimana ti ricordiamo via email gli annunci che hai salvato, con qualche proposta simile. Si attiva quando salvi un annuncio; se lo spegni qui, salvarne altri non lo riaccende. Vale solo per questo promemoria: newsletter, bollettino e avvisi lavoro restano come sono.',
  digestOn: 'Attivo',
  digestOff: 'Disattivato',
+ applicationReminderTitle: 'Promemoria delle candidature',
+ applicationReminderDesc:
+ 'Dopo un clic su «Candidati» possiamo inviarti un promemoria una tantum, separato dai lavori salvati. Il clic non dimostra che la candidatura sia stata inviata o completata.',
+ applicationReminderOn: 'Attivo',
+ applicationReminderOff: 'Disattivato',
+ applicationIntentTitle: 'Uso dei segnali di candidatura',
+ applicationIntentDesc:
+ 'Puoi impedire che il sito registri il tuo interesse per una candidatura. È una scelta separata da newsletter, avvisi lavoro e promemoria degli annunci salvati.',
+ applicationIntentOn: 'Consentito',
+ applicationIntentOff: 'Escluso',
  adsTitle: 'Annunci di inserzionisti',
  adsDesc:
  'Messaggi promozionali di aziende terze. È incluso nell’attivazione base ed è attivo in partenza; questo interruttore separato ti permette di disattivarlo senza cambiare newsletter, bollettino o avvisi lavoro.',
@@ -280,13 +323,23 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Each switch covers its own channel only: turning one off does not stop the others. To receive nothing at all, use “Stop all emails”.',
  stopAll: 'Stop all emails',
  stopAllHint:
- 'Turns off the newsletter, the daily brief, your job alerts, the saved-jobs reminder and advertiser announcements in one go.',
+ 'Turns off the newsletter, the daily brief, your job alerts, saved-jobs reminders, application reminders and advertiser announcements in one go.',
  stopAllWorking: 'Turning everything off…',
  digestTitle: 'Saved-jobs reminder',
  digestDesc:
- 'Once a week we email you the jobs you saved, plus a few similar ones. This switch covers that reminder only: the newsletter, the daily brief and your job alerts stay as they are.',
+ 'Once a week we email you the jobs you saved, plus a few similar ones. It turns on when you save a job; if you switch it off here, saving more jobs will not turn it back on. This switch covers that reminder only: the newsletter, the daily brief and your job alerts stay as they are.',
  digestOn: 'On',
  digestOff: 'Off',
+ applicationReminderTitle: 'Application reminders',
+ applicationReminderDesc:
+ 'After an “Apply” click, we may send one reminder, separate from saved jobs. The click does not prove that an application was sent or completed.',
+ applicationReminderOn: 'On',
+ applicationReminderOff: 'Off',
+ applicationIntentTitle: 'Use of application-intent signals',
+ applicationIntentDesc:
+ 'You can stop the site from recording your interest in an application. This choice is separate from newsletters, job alerts and saved-job reminders.',
+ applicationIntentOn: 'Allowed',
+ applicationIntentOff: 'Blocked',
  adsTitle: 'Advertiser announcements',
  adsDesc:
  'Promotional messages from third-party companies. They are included in the base activation and on by default; this separate switch lets you turn them off without changing the newsletter, daily brief or your job alerts.',
@@ -364,13 +417,23 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Jeder Schalter gilt nur für seinen eigenen Kanal: einen abzuschalten stoppt die anderen nicht. Wenn du gar nichts mehr erhalten willst, nutze «Alle E-Mails stoppen».',
  stopAll: 'Alle E-Mails stoppen',
  stopAllHint:
- 'Schaltet Newsletter, Tagesbulletin, Job-Alerts, die Erinnerung an gespeicherte Stellen und Anzeigen von Inserenten auf einmal ab.',
+ 'Schaltet Newsletter, Tagesbulletin, Job-Alerts, Erinnerungen an gespeicherte Stellen, Bewerbungs-Erinnerungen und Anzeigen von Inserenten auf einmal ab.',
  stopAllWorking: 'Alles wird abgeschaltet…',
  digestTitle: 'Erinnerung an gespeicherte Stellen',
  digestDesc:
- 'Einmal pro Woche erinnern wir dich per E-Mail an deine gespeicherten Stellen, samt ähnlicher Vorschläge. Dieser Schalter gilt nur dafür: Newsletter, Tagesbulletin und Job-Alerts bleiben unverändert.',
+ 'Einmal pro Woche erinnern wir dich per E-Mail an deine gespeicherten Stellen, samt ähnlicher Vorschläge. Sie wird aktiv, sobald du eine Stelle speicherst; schaltest du sie hier ab, aktiviert weiteres Speichern sie nicht wieder. Dieser Schalter gilt nur dafür: Newsletter, Tagesbulletin und Job-Alerts bleiben unverändert.',
  digestOn: 'Aktiv',
  digestOff: 'Abgeschaltet',
+ applicationReminderTitle: 'Bewerbungs-Erinnerungen',
+ applicationReminderDesc:
+ 'Nach einem Klick auf „Bewerben“ können wir eine einmalige Erinnerung senden, getrennt von den gespeicherten Stellen. Der Klick beweist nicht, dass eine Bewerbung gesendet oder abgeschlossen wurde.',
+ applicationReminderOn: 'Aktiv',
+ applicationReminderOff: 'Abgeschaltet',
+ applicationIntentTitle: 'Nutzung von Bewerbungssignalen',
+ applicationIntentDesc:
+ 'Du kannst verhindern, dass die Website dein Interesse an einer Bewerbung speichert. Diese Wahl ist unabhängig von Newsletter, Job-Alerts und Erinnerungen an gespeicherte Stellen.',
+ applicationIntentOn: 'Erlaubt',
+ applicationIntentOff: 'Ausgeschlossen',
  adsTitle: 'Anzeigen von Inserenten',
  adsDesc:
  'Werbenachrichten von Drittunternehmen. Sie gehören zur Basisaktivierung und sind zunächst aktiv; mit diesem eigenen Schalter kannst du sie ausschalten, ohne Newsletter, Tagesbulletin oder Job-Alerts zu ändern.',
@@ -448,13 +511,23 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Chaque interrupteur ne vaut que pour son propre canal : en désactiver un n’arrête pas les autres. Pour ne plus rien recevoir, utilise « Arrêter tous les emails ».',
  stopAll: 'Arrêter tous les emails',
  stopAllHint:
- 'Désactive la newsletter, le bulletin quotidien, tes alertes emploi, le rappel des offres enregistrées et les annonces d’annonceurs en une seule fois.',
+ 'Désactive la newsletter, le bulletin quotidien, tes alertes emploi, les rappels des offres enregistrées, les rappels de candidature et les annonces d’annonceurs en une seule fois.',
  stopAllWorking: 'Tout est en cours de désactivation…',
  digestTitle: 'Rappel des offres enregistrées',
  digestDesc:
- 'Chaque semaine nous te rappelons par email les offres que tu as enregistrées, avec quelques suggestions similaires. Cet interrupteur ne concerne que ce rappel : la newsletter, le bulletin et tes alertes emploi restent inchangés.',
+ 'Chaque semaine nous te rappelons par email les offres que tu as enregistrées, avec quelques suggestions similaires. Il s’active dès que tu enregistres une offre ; si tu le désactives ici, enregistrer d’autres offres ne le réactive pas. Cet interrupteur ne concerne que ce rappel : la newsletter, le bulletin et tes alertes emploi restent inchangés.',
  digestOn: 'Actif',
  digestOff: 'Désactivé',
+ applicationReminderTitle: 'Rappels de candidature',
+ applicationReminderDesc:
+ 'Après un clic sur « Postuler », nous pouvons envoyer un rappel unique, séparé des offres enregistrées. Le clic ne prouve pas qu’une candidature a été envoyée ou terminée.',
+ applicationReminderOn: 'Actif',
+ applicationReminderOff: 'Désactivé',
+ applicationIntentTitle: 'Utilisation des signaux de candidature',
+ applicationIntentDesc:
+ 'Vous pouvez empêcher le site d’enregistrer votre intérêt pour une candidature. Ce choix est distinct de la newsletter, des alertes emploi et des rappels des offres enregistrées.',
+ applicationIntentOn: 'Autorisé',
+ applicationIntentOff: 'Exclu',
  adsTitle: 'Annonces d’annonceurs',
  adsDesc:
  'Messages promotionnels d’entreprises tierces. Ils sont inclus dans l’activation de base et actifs par défaut ; cet interrupteur distinct te permet de les désactiver sans modifier la newsletter, le bulletin ni tes alertes emploi.',
@@ -561,8 +634,12 @@ async function authLoadFullStatus(email: string): Promise<{
  const optOutBinding = isNewsletterOptOutBinding(data);
  const isActive = data.isActive === true || data.active === true;
  newsletter = {
+ // A row with no relationship is not a subscription, whatever status a
+ // webhook or the suppression decay wrote on it: the saved-jobs digest
+ // record is the case (functions/src/lib/subscriberConsent.js), and the
+ // newsletter sender skips it by the same predicate.
  subscribed:
- !accountDeleted && !optOutBinding &&
+ !accountDeleted && !optOutBinding && hasSubscriptionBasis(data) &&
  (isActive || status === 'confirmed' || status === 'pending'),
  autologinEnabled: data.autologin_enabled !== false,
  dailyBriefFrequency: DAILY_BRIEF_FREQUENCIES.includes(data.daily_brief_frequency_override)
@@ -785,11 +862,12 @@ function briefTierToOption(days: number): DailyBriefFrequency {
 /**
  * Saved-jobs digest preference (#5684 point 1).
  *
- * The saved-jobs action is a separate channel activation; the explicit
- * preference remains the source of truth for legacy subscribers, and
- * `savedJobsDigest.optedOut` always wins. The link inside the digest remains an
- * independent one-click opt-out. This keeps the channel visible even when the
- * reader deleted the message that contained its unsubscribe link.
+ * Saving a listing activates the channel (services/savedJobsService.ts,
+ * owner decision 2026-10-02) unless the person already turned it off; this
+ * switch turns it on or off explicitly, and `savedJobsDigest.optedOut` always
+ * wins over a later save. The link inside the digest remains an independent
+ * one-click opt-out. This keeps the channel visible even when the reader
+ * deleted the message that contained its unsubscribe link.
  *
  * Auth mode only, and that is sufficient rather than a compromise: the sender
  * iterates `users/{uid}/savedJobs`, so every possible recipient of this channel
@@ -798,7 +876,7 @@ function briefTierToOption(days: number): DailyBriefFrequency {
  * Function, tracked separately. The digest's own "manage" link already points
  * at the profile, so the loop closes there.
  */
-async function authLoadSavedJobsDigest(userId: string, email: string): Promise<boolean> {
+async function authLoadSavedJobsDigest(userId: string, email: string, emailVerified: boolean): Promise<boolean> {
  const { getFirestore, doc, getDoc } = await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -815,16 +893,26 @@ async function authLoadSavedJobsDigest(userId: string, email: string): Promise<b
  ]);
  // A channel opt-out always wins. This channel is activated separately by the
  // saved-jobs action/preference, so the base registration is not enough.
+ // Without a central row the sender creates the digest's own record before
+ // the first send, for a verified address only (owner decision 2026-10-03):
+ // until then the switch must already say what Monday will do. The stop is
+ // the sender's own predicate (isSavedJobsDigestEligible in
+ // scripts/send-saved-jobs-digest.mjs): a newsletter opt-out binding or a
+ // stop status skips the digest too, so the switch must not read «Attivo».
  const digest = snap.exists() ? (snap.data() || {}).savedJobsDigest : null;
  const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
- const hasGlobalStop = hasExplicitGlobalEmailStop(subscriberData);
  return digest?.optedOut !== true
-  && !hasGlobalStop
-  && Boolean(subscriberData)
+  && !isCrossChannelStop(subscriberData)
+  && (Boolean(subscriberData) || emailVerified)
   && digest?.optedIn === true;
 }
 
-async function authSetSavedJobsDigest(userId: string, email: string, enabled: boolean): Promise<void> {
+async function authSetSavedJobsDigest(
+ userId: string,
+ email: string,
+ enabled: boolean,
+ emailVerified = false,
+): Promise<void> {
  const { getFirestore, doc, getDoc, setDoc, serverTimestamp } = await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -835,48 +923,74 @@ async function authSetSavedJobsDigest(userId: string, email: string, enabled: bo
  );
  const app = await getApp();
  const db = getFirestore(app as any);
+ const userRef = doc(db, 'users', userId);
+ if (!enabled) {
+  // Turning the digest off needs no subscriber record, and is idempotent: an
+  // existing explicit stop (the digest's own link, an earlier switch) keeps
+  // its original provenance instead of being restamped.
+  const userSnap = await getDoc(userRef);
+  if (userSnap.exists() && (userSnap.data() || {}).savedJobsDigest?.optedOut === true) return;
+ }
  const subscriberRef = doc(db, 'newsletter_subscribers', email.trim().toLowerCase());
- const subscriberSnap = await getDoc(subscriberRef);
- const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
- if (!subscriberData) throw new Error('subscriber-not-created');
  if (enabled) {
-  // Enabling this digest is an explicit click by the authenticated owner. It
-  // must use the same central writer as follow/job-alert actions so a prior
-  // human stop is reactivated consistently; provider/address suppressions
-  // remain hard blocks.
-  if (isAddressSuppressed(subscriberData.status)) {
-   throw new Error('email-suppressed');
-  }
-  const registration = await upsertUnifiedEmailSubscriber(db as any, {
-   email: email.trim().toLowerCase(),
-   userId,
-   source: 'preference_center',
-   sourceChannel: 'web_app',
-   sourcePage: '/profilo/',
-   sourceCta: 'saved_jobs_digest_toggle',
-   sourceComponent: 'SubscriptionPreferencesController',
-   sourceRouteFamily: 'preferences',
-   locale: getLocale(),
-   registrationMethod: 'authenticated',
-   explicitConsentAction: true,
-  });
-  const refreshed = await getDoc(subscriberRef);
-  const refreshedData = refreshed.exists() ? refreshed.data() || {} : null;
-  if (registration.optedOut || isCrossChannelStop(refreshedData)) {
-   throw new Error('email-suppressed');
+  const subscriberSnap = await getDoc(subscriberRef);
+  const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
+  if (!subscriberData || !hasSubscriptionBasis(subscriberData)) {
+   // No newsletter relationship: no central row, the digest's own record or a
+   // legacy row with no relationship. The digest sender uses such a row as it
+   // is (marking a legacy one) and, for a verified address, creates the
+   // digest's own record when there is none (owner decision 2026-10-03,
+   // scripts/send-saved-jobs-digest.mjs). So only the account preference is
+   // written, as the save path does: the central writer below would turn the
+   // click into a newsletter subscription. A stop recorded on the row still
+   // wins, and an address with no row that Auth does not mark verified is
+   // never reached, so the switch cannot promise it.
+   if (subscriberData && (isAddressSuppressed(subscriberData.status) || isCrossChannelStop(subscriberData))) {
+    throw new Error('email-suppressed');
+   }
+   if (!subscriberData && !emailVerified) throw new Error('subscriber-not-created');
+  } else {
+   // Enabling this digest is an explicit click by the authenticated owner. It
+   // must use the same central writer as follow/job-alert actions so a prior
+   // human stop is reactivated consistently; provider/address suppressions
+   // remain hard blocks.
+   if (isAddressSuppressed(subscriberData.status)) {
+    throw new Error('email-suppressed');
+   }
+   const registration = await upsertUnifiedEmailSubscriber(db as any, {
+    email: email.trim().toLowerCase(),
+    userId,
+    source: 'preference_center',
+    sourceChannel: 'web_app',
+    sourcePage: '/profilo/',
+    sourceCta: 'saved_jobs_digest_toggle',
+    sourceComponent: 'SubscriptionPreferencesController',
+    sourceRouteFamily: 'preferences',
+    locale: getLocale(),
+    registrationMethod: 'authenticated',
+    explicitConsentAction: true,
+   });
+   const refreshed = await getDoc(subscriberRef);
+   const refreshedData = refreshed.exists() ? refreshed.data() || {} : null;
+   if (registration.optedOut || isCrossChannelStop(refreshedData)) {
+    throw new Error('email-suppressed');
+   }
   }
  }
  // Merge, and only under `savedJobsDigest` — services/savedJobsService.ts's
- // ensureUserProfileDoc deliberately never rewrites this key after creation so
- // a server-side unsubscribe cannot be clobbered by a re-login; a shallow
- // overwrite here would reintroduce exactly that.
+ // ensureUserProfileDoc deliberately never writes this key so a server-side
+ // unsubscribe cannot be clobbered by a re-login; a shallow overwrite here
+ // would reintroduce exactly that.
  await setDoc(
- doc(db, 'users', userId),
+ userRef,
  {
  savedJobsDigest: {
  optedIn: enabled,
  optedOut: !enabled,
  optedInAt: enabled ? serverTimestamp() : null,
+ // What turned it on last; the save path writes 'saved_job'
+ // (services/savedJobsDigestActivation.mjs). Left as is when turning off.
+ ...(enabled ? { activationSource: 'preference_center' } : {}),
  // Same provenance fields savedJobsDigestUnsubscribe.js records, so an
  // LPD art. 25 request gets one answer regardless of which surface the
  // reader used.
@@ -885,6 +999,99 @@ async function authSetSavedJobsDigest(userId: string, email: string, enabled: bo
  },
  },
  { merge: true },
+ );
+}
+
+/**
+ * Application intent is a separate purpose from every email channel. The
+ * server predicate consumes users/{uid}.applicationIntent.optedOut; this read
+ * never writes a default, so logging in cannot silently re-enable the signal.
+ */
+async function authLoadApplicationIntentOptOut(userId: string): Promise<boolean> {
+ const { getFirestore, doc, getDoc } = await resilientImport(
+  () => import('firebase/firestore'),
+  (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+  () => import('@/services/firebase'),
+  (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ const profileSnap = await getDoc(doc(db, 'users', userId));
+ const profile = profileSnap.exists() ? profileSnap.data() || {} : {};
+ return profile?.applicationIntent?.optedOut === true;
+}
+
+/**
+ * Explicit owner action for the application-intent purpose. No email-keyed
+ * document is touched, and setting false is only possible through this
+ * deliberate toggle — never through profile load or Auth login.
+ */
+async function authSetApplicationIntentOptOut(userId: string, optedOut: boolean): Promise<void> {
+ const { getFirestore, doc, setDoc, serverTimestamp } = await resilientImport(
+  () => import('firebase/firestore'),
+  (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+  () => import('@/services/firebase'),
+  (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ await setDoc(
+  doc(db, 'users', userId),
+  {
+   applicationIntent: {
+    optedOut,
+    optedOutAt: optedOut ? serverTimestamp() : null,
+    updatedAt: serverTimestamp(),
+   },
+  },
+  { merge: true },
+ );
+}
+
+/** Email-only application reminder preference. It never changes the
+ * application-intent signal or the matching opt-out above. */
+async function authLoadApplicationIntentReminderOptOut(userId: string): Promise<boolean> {
+ const { getFirestore, doc, getDoc } = await resilientImport(
+  () => import('firebase/firestore'),
+  (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+  () => import('@/services/firebase'),
+  (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ const profileSnap = await getDoc(doc(db, 'users', userId));
+ const profile = profileSnap.exists() ? profileSnap.data() || {} : {};
+ return profile?.applicationIntentReminder?.optedOut === true;
+}
+
+async function authSetApplicationIntentReminderOptOut(userId: string, optedOut: boolean): Promise<void> {
+ const { getFirestore, doc, setDoc, serverTimestamp } = await resilientImport(
+  () => import('firebase/firestore'),
+  (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+  () => import('@/services/firebase'),
+  (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ await setDoc(
+  doc(db, 'users', userId),
+  {
+   applicationIntentReminder: {
+    optedIn: !optedOut,
+    optedOut,
+    optedOutAt: optedOut ? serverTimestamp() : null,
+    updatedAt: serverTimestamp(),
+   },
+  },
+  { merge: true },
  );
 }
 
@@ -1635,6 +1842,7 @@ export function SubscriptionPreferencesController({
  // everything off `email` alone. The saved-jobs digest is the first control
  // whose document is keyed by uid, so this is where it starts being read.
  userId,
+ emailVerified = false,
  locale,
  onError,
 }: SubscriptionPreferencesControllerProps) {
@@ -1655,6 +1863,14 @@ export function SubscriptionPreferencesController({
  /** Auth mode only — token mode has no uid to key `users/{uid}` by. See authLoadSavedJobsDigest. */
  const [digestAvailable, setDigestAvailable] = useState<boolean>(false);
  const [savingDigest, setSavingDigest] = useState(false);
+ // Auth mode only. Missing profile data is read as enabled, but is never
+ // written back until the owner explicitly changes this separate purpose.
+ const [applicationIntentOptedOut, setApplicationIntentOptedOut] = useState(false);
+ const [applicationIntentAvailable, setApplicationIntentAvailable] = useState(false);
+ const [savingApplicationIntent, setSavingApplicationIntent] = useState(false);
+ const [applicationReminderOptedOut, setApplicationReminderOptedOut] = useState(false);
+ const [applicationReminderAvailable, setApplicationReminderAvailable] = useState(false);
+ const [savingApplicationReminder, setSavingApplicationReminder] = useState(false);
  // Third-party advertising is included in the base activation; this is the
  // separate preference-centre switch that lets the reader opt out.
  const [adsEnabled, setAdsEnabled] = useState<boolean>(false);
@@ -1726,13 +1942,35 @@ export function SubscriptionPreferencesController({
  // cost the reader the newsletter and job-alert controls that did load.
  if (userId) {
  try {
- const enabled = await authLoadSavedJobsDigest(userId, email);
+ const enabled = await authLoadSavedJobsDigest(userId, email, emailVerified);
  if (!cancelled) {
  setDigestEnabled(enabled);
  setDigestAvailable(true);
  }
  } catch (digestErr: any) {
  console.warn('[SubscriptionPreferencesController] Saved-jobs digest read failed:', digestErr?.message);
+ }
+ try {
+  const optedOut = await authLoadApplicationIntentOptOut(userId);
+  if (!cancelled) {
+   setApplicationIntentOptedOut(optedOut);
+   setApplicationIntentAvailable(true);
+  }
+ } catch (applicationIntentErr: any) {
+  // A failed privacy read hides the control rather than presenting a false
+  // opt-out state. Server-side callers still fail closed on their own read.
+  console.warn('[SubscriptionPreferencesController] Application-intent preference read failed:', applicationIntentErr?.message);
+ }
+ try {
+  const optedOut = await authLoadApplicationIntentReminderOptOut(userId);
+  if (!cancelled) {
+   setApplicationReminderOptedOut(optedOut);
+   setApplicationReminderAvailable(true);
+  }
+ } catch (applicationReminderErr: any) {
+  // The email-only control is hidden on a failed read; the sender still reads
+  // the same preference server-side and fails closed independently.
+  console.warn('[SubscriptionPreferencesController] Application reminder preference read failed:', applicationReminderErr?.message);
  }
  }
  setLoadStatus('ready');
@@ -1748,7 +1986,7 @@ export function SubscriptionPreferencesController({
  cancelled = true;
  };
  // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [mode, email, token, userId]);
+ }, [mode, email, token, userId, emailVerified]);
 
  const flashSaved = (key: string) => {
  setSavedTickKey(key);
@@ -1870,7 +2108,7 @@ export function SubscriptionPreferencesController({
  });
  if (!result.success) throw new Error(result.error || 'write_failed');
  if (result.alert) {
- setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...result.alert! } : a)));
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? mergeTokenAlert(a, result.alert!) : a)));
  }
  } else {
  const fresh = await authUpdateAlert(email, alertId, { frequency: next, frequencyOverride: true });
@@ -1907,7 +2145,7 @@ export function SubscriptionPreferencesController({
  const result = await updateJobAlert(email, token, alertId, { frequencyOverride: false });
  if (!result.success) throw new Error(result.error || 'write_failed');
  if (result.alert) {
- setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...result.alert! } : a)));
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? mergeTokenAlert(a, result.alert!) : a)));
  }
  } else {
  const fresh = await authUpdateAlert(email, alertId, { frequencyOverride: false });
@@ -1932,7 +2170,7 @@ export function SubscriptionPreferencesController({
  setSavingDigest(true);
  setErrorMsg('');
  try {
- await authSetSavedJobsDigest(userId, email, next);
+ await authSetSavedJobsDigest(userId, email, next, emailVerified);
  flashSaved('saved-jobs-digest');
  } catch (err: any) {
  console.warn('[SubscriptionPreferencesController] Toggle saved-jobs digest failed:', err?.message);
@@ -1941,6 +2179,51 @@ export function SubscriptionPreferencesController({
  } finally {
  setSavingDigest(false);
  }
+ };
+
+ const handleToggleApplicationIntent = async () => {
+  if (!applicationIntentAvailable || !userId) return;
+ const nextOptedOut = !applicationIntentOptedOut;
+  setApplicationIntentOptedOut(nextOptedOut);
+  setApplicationIntentOptOut(nextOptedOut, userId);
+  setSavingApplicationIntent(true);
+  setErrorMsg('');
+  try {
+   // When re-enabling, clear the private projection before making the
+   // account preference active again. A failed sync keeps the server-side
+   // preference unchanged and therefore cannot revive stale signals.
+   if (!nextOptedOut && !(await syncToFirestore(email, userId))) {
+    throw new Error('application-intent-sync-failed');
+   }
+   await authSetApplicationIntentOptOut(userId, nextOptedOut);
+   if (nextOptedOut) await syncToFirestore(email, userId);
+   flashSaved('application-intent');
+  } catch (err: any) {
+   console.warn('[SubscriptionPreferencesController] Toggle application-intent privacy failed:', err?.message);
+   setApplicationIntentOptedOut(!nextOptedOut);
+   setApplicationIntentOptOut(!nextOptedOut, userId);
+   reportError(S.saveError);
+  } finally {
+   setSavingApplicationIntent(false);
+  }
+ };
+
+ const handleToggleApplicationReminder = async () => {
+  if (!applicationReminderAvailable || !userId) return;
+  const nextOptedOut = !applicationReminderOptedOut;
+  setApplicationReminderOptedOut(nextOptedOut);
+  setSavingApplicationReminder(true);
+  setErrorMsg('');
+  try {
+   await authSetApplicationIntentReminderOptOut(userId, nextOptedOut);
+   flashSaved('application-intent-reminder');
+  } catch (err: any) {
+   console.warn('[SubscriptionPreferencesController] Toggle application reminder failed:', err?.message);
+   setApplicationReminderOptedOut(!nextOptedOut);
+   reportError(S.saveError);
+  } finally {
+   setSavingApplicationReminder(false);
+  }
  };
 
  /**
@@ -2072,7 +2355,11 @@ export function SubscriptionPreferencesController({
  }
  }
 
- if (digestAvailable && userId && digestEnabled) {
+ // Also when the digest is not on yet: saving a listing activates a digest
+ // nobody decided about, so "stop all" has to record the explicit off that a
+ // later save respects. authSetSavedJobsDigest(false) is a no-op on an
+ // existing stop.
+ if (digestAvailable && userId) {
  try {
  await authSetSavedJobsDigest(userId, email, false);
  setDigestEnabled(false);
@@ -2080,6 +2367,16 @@ export function SubscriptionPreferencesController({
  failed.push('saved-jobs-digest');
  console.warn('[SubscriptionPreferencesController] Stop-all digest failed:', err?.message);
  }
+ }
+
+ if (mode === 'auth' && userId && (!applicationReminderAvailable || !applicationReminderOptedOut)) {
+  try {
+   await authSetApplicationIntentReminderOptOut(userId, true);
+   setApplicationReminderOptedOut(true);
+  } catch (err: any) {
+   failed.push('application-intent-reminder');
+   console.warn('[SubscriptionPreferencesController] Stop-all application reminder failed:', err?.message);
+  }
  }
 
  // #5759 — "stop all emails" has to mean all of them, and advertising is the
@@ -2122,7 +2419,7 @@ export function SubscriptionPreferencesController({
  const result = await updateJobAlert(email, token, alertId, { paused: nextPaused });
  if (!result.success) throw new Error(result.error || 'write_failed');
  if (result.alert) {
- setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...result.alert! } : a)));
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? mergeTokenAlert(a, result.alert!) : a)));
  }
  } else {
  const fresh = await authUpdateAlert(email, alertId, { paused: nextPaused });
@@ -2161,15 +2458,9 @@ export function SubscriptionPreferencesController({
  setAlerts((prev) =>
  prev.map((a) =>
  a.id === alertId
- ? {
- ...a,
- keywords: values.keywords,
- locations: values.locations,
- sectors: values.sectors,
- frequency: values.frequency,
- frequencyOverride: true,
- ...(updated ? updated : {}),
- }
+ ? updated
+ ? mergeTokenAlert({ ...a, keywords: values.keywords, locations: values.locations, sectors: values.sectors, frequency: values.frequency, frequencyOverride: true }, updated)
+ : { ...a, keywords: values.keywords, locations: values.locations, sectors: values.sectors, frequency: values.frequency, frequencyOverride: true }
  : a,
  ),
  );
@@ -2202,17 +2493,7 @@ export function SubscriptionPreferencesController({
  if (!result.success || !result.alert) throw new Error(result.error || 'create_failed');
  const created = result.alert;
  setAlerts((prev) => [
- {
- id: created.id,
- keywords: created.keywords,
- locations: created.locations,
- sectors: created.sectors,
- frequency: typeof created.frequency === 'string' ? created.frequency : 'weekly',
- frequencyOverride: created.frequencyOverride === true,
- active: created.active !== false,
- paused: false,
- createdAt: typeof created.createdAt === 'number' ? created.createdAt : null,
- },
+ tokenAlertToSubscription(created),
  ...prev,
  ]);
  } else {
@@ -2479,6 +2760,75 @@ export function SubscriptionPreferencesController({
  {digestEnabled ? S.digestOn : S.digestOff}
  </span>
  {savedTickKey === 'saved-jobs-digest' && (
+ <span className="ml-2 inline-flex items-center gap-1 text-success">
+ <CheckCircle2 size={14} /> {S.saved}
+ </span>
+ )}
+ </div>
+ </section>
+ )}
+
+ {/* ── Application-intent reminder card ──
+     Separate from both the saved-jobs digest and the application-intent
+     matching/privacy choice. Auth mode only: anonymous clicks never become
+     account-linked reminders. */}
+ {applicationReminderAvailable && userId && (
+ <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
+ <div className="flex items-start justify-between gap-4">
+ <div className="flex-1">
+ <div className="flex items-center gap-2 mb-1">
+ <Mail size={16} className="text-muted" />
+ <h2 className="font-semibold text-heading">{S.applicationReminderTitle}</h2>
+ </div>
+ <p className="text-sm text-muted leading-relaxed">{S.applicationReminderDesc}</p>
+ </div>
+ <Toggle
+ enabled={!applicationReminderOptedOut}
+ saving={savingApplicationReminder}
+ onClick={handleToggleApplicationReminder}
+ ariaLabel={S.applicationReminderTitle}
+ />
+ </div>
+ <div className="mt-3 text-xs text-muted">
+ {S.currentState}{' '}
+ <span className={`font-semibold ${applicationReminderOptedOut ? 'text-muted' : 'text-success'}`}>
+ {applicationReminderOptedOut ? S.applicationReminderOff : S.applicationReminderOn}
+ </span>
+ {savedTickKey === 'application-intent-reminder' && (
+ <span className="ml-2 inline-flex items-center gap-1 text-success">
+ <CheckCircle2 size={14} /> {S.saved}
+ </span>
+ )}
+ </div>
+ </section>
+ )}
+
+ {/* ── Application-intent privacy card ──
+     This is account-scoped and intentionally absent from token mode: an
+     anonymous email address must never be guessed as the owner of a signal. */}
+ {applicationIntentAvailable && userId && (
+ <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
+ <div className="flex items-start justify-between gap-4">
+ <div className="flex-1">
+ <div className="flex items-center gap-2 mb-1">
+ <Target size={16} className="text-muted" />
+ <h2 className="font-semibold text-heading">{S.applicationIntentTitle}</h2>
+ </div>
+ <p className="text-sm text-muted leading-relaxed">{S.applicationIntentDesc}</p>
+ </div>
+ <Toggle
+ enabled={!applicationIntentOptedOut}
+ saving={savingApplicationIntent}
+ onClick={handleToggleApplicationIntent}
+ ariaLabel={S.applicationIntentTitle}
+ />
+ </div>
+ <div className="mt-3 text-xs text-muted">
+ {S.currentState}{' '}
+ <span className={`font-semibold ${applicationIntentOptedOut ? 'text-muted' : 'text-success'}`}>
+ {applicationIntentOptedOut ? S.applicationIntentOff : S.applicationIntentOn}
+ </span>
+ {savedTickKey === 'application-intent' && (
  <span className="ml-2 inline-flex items-center gap-1 text-success">
  <CheckCircle2 size={14} /> {S.saved}
  </span>

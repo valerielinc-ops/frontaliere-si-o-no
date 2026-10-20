@@ -4,8 +4,11 @@
  * gap ranking (#3396). Feeder for generate-keyword-pages-config.mjs (#3393).
  *
  * Demand signals:
- *   A. on-site search — PostHog `search` events, `search_term` property,
+ *   A. on-site search — GA4 `search` events (`search_term`), settled
  *      rolling window (default 60 days). Pure intent, unfiltered by Google.
+ *      PostHog was the source until decision H9 (2026-10-05, «rimpiazza
+ *      PostHog con GA4»): it is under quota by choice, and the GA4 mirror
+ *      was already the branch that ran.
  *   B. crawler job titles — data/jobs.json when present, otherwise the
  *      committed data/jobs/by-crawler/*.json shards. Real market supply.
  *   C. (optional, free) GSC impressions/clicks from the committed
@@ -21,16 +24,18 @@
  *     .github/workflows/profession-keyword-opportunities.yml)
  *   - markdown report on stdout (workflow pipes it into the dedup issue)
  *
- * Zero-Claude by contract: HogQL + parsing + regex only (AGENTS.md quota
- * frugality). Deterministic given the same inputs.
+ * Zero-Claude by contract: GA4 Data API + parsing + regex only (AGENTS.md
+ * quota frugality). Deterministic given the same inputs.
  *
  * Usage:
- *   node scripts/profession-keyword-opportunities.mjs [--skip-posthog]
+ *   node scripts/profession-keyword-opportunities.mjs [--skip-onsite-search]
  *     [--window-days=60] [--markdown-out=path.md]
  *
- * Auth (signal A only): POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID /
- * POSTHOG_HOST via scripts/load-rc-env.mjs. --skip-posthog (or missing
- * creds with SKIP allowed) degrades to signals B+C only.
+ * Auth (signal A only): the GA4 read-only service account
+ * (GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_JSON).
+ * --skip-onsite-search (deprecated alias: --skip-posthog), a missing service
+ * account or a GA4 source that is not alive over the window degrade to
+ * signals B+C only — reported as disabled, never as zero.
  */
 
 import fs from 'node:fs';
@@ -53,9 +58,9 @@ import {
   keywordLandingPath,
   professionKeywordLandingPath,
 } from './lib/keyword-page-paths.mjs';
+import { professionPageIdForJob } from './lib/keyword-page-match.mjs';
 import { extractTsStringArray } from './lib/ts-array-extract.mjs';
-import { fetchOnsiteSearchTerms as fetchOnsiteSearchTermsShared } from './lib/posthog-search-terms.mjs';
-import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
+import { checkGa4Liveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 import {
   fetchGa4SearchTerms,
   GA4_READONLY_SCOPE,
@@ -69,7 +74,7 @@ const BY_CRAWLER_DIR = path.join(ROOT, 'data/jobs/by-crawler');
 const GSC_PATH = path.join(ROOT, 'data/gsc-orphan-queries.json');
 const KEYWORD_CONFIG_PATH = path.join(ROOT, 'data/keyword-pages-config.json');
 const PROFESSION_LANDINGS_PATH = path.join(ROOT, 'build-plugins/professionLandingsData.ts');
-const NURSING_LANDINGS_PATH = path.join(ROOT, 'build-plugins/nursingLandingsData.ts');
+const NURSING_LANDING_IDS_PATH = path.join(ROOT, 'scripts/lib/nursing-landing-path.mjs');
 const OUTPUT_PATH = path.join(ROOT, 'data/profession-keyword-opportunities.json');
 
 // Ranking knobs — documented, deterministic. Double validation (demand AND
@@ -89,13 +94,12 @@ const opt = (name, dflt) => {
   const hit = args.find((a) => a.startsWith(`--${name}=`));
   return hit ? hit.split('=').slice(1).join('=') : dflt;
 };
-const SKIP_POSTHOG = flag('skip-posthog');
+// `--skip-posthog` stays as a deprecated alias for manual invocations.
+const SKIP_ONSITE_SEARCH = flag('skip-onsite-search') || flag('skip-posthog');
 const WINDOW_DAYS = Math.max(1, Number(opt('window-days', '60')) || 60);
 const MARKDOWN_OUT = opt('markdown-out', '');
 
-// ── Signal A: on-site search (PostHog HogQL) ─────────────────────────────
-// Query + auth handling live in scripts/lib/posthog-search-terms.mjs —
-// shared with scripts/mine-search-location-gaps.mjs (issue #4301).
+// ── Signal A: on-site search (GA4 `search`) ──────────────────────────────
 
 export async function fetchGa4ProfessionSearchTerms({
   windowDays = WINDOW_DAYS,
@@ -111,32 +115,38 @@ export async function fetchGa4ProfessionSearchTerms({
   return fetchGa4SearchTerms({ token, startDate, endDate, limit: 1000, fetchImpl });
 }
 
-async function fetchOnsiteSearchTerms() {
-  if (SKIP_POSTHOG) {
-    console.error('[signal A] --skip-posthog: on-site search signal disabled');
+export async function fetchOnsiteSearchTerms({
+  skip = SKIP_ONSITE_SEARCH,
+  windowDays = WINDOW_DAYS,
+  checkLivenessImpl = checkGa4Liveness,
+  fetchTermsImpl = fetchGa4ProfessionSearchTerms,
+} = {}) {
+  if (skip) {
+    console.error('[signal A] --skip-onsite-search: on-site search signal disabled');
     return null;
   }
-  // Vitality guard (scripts/lib/source-liveness.mjs): a dead PostHog returns
-  // an empty term list on an HTTP 200, which reads as "no user searched for
-  // this profession" — the opposite of the truth, and the workflow then opens
-  // a deduped SEO issue built on it. Returning null puts the signal in the
-  // same state as --skip-posthog: reported as disabled, never as zero.
-  const liveness = await checkPostHogLiveness({ windowDays: WINDOW_DAYS });
-  if (!liveness.alive) {
-    try {
-      const ga4Terms = await fetchGa4ProfessionSearchTerms({ windowDays: WINDOW_DAYS });
-      if (ga4Terms?.length) {
-        console.error('[signal A] PostHog non misurabile: uso GA4 `search` come fallback');
-        return ga4Terms;
-      }
-    } catch (error) {
-      declareNotMeasurable('profession-keyword-opportunities', { ...liveness, reason: `${liveness.reason}; GA4 fallback failed: ${error.message}` });
-      return null;
-    }
+  // Vitality guard (scripts/lib/source-liveness.mjs) on the same settled GA4
+  // window the report reads: a dead source returns an empty term list on an
+  // HTTP 200, which reads as "no user searched for this profession" — the
+  // opposite of the truth, and the workflow then opens a deduped SEO issue
+  // built on it. Returning null puts the signal in the same state as
+  // --skip-onsite-search: reported as disabled, never as zero.
+  const liveness = await checkLivenessImpl({ windowDays });
+  if (!liveness?.alive) {
     declareNotMeasurable('profession-keyword-opportunities', liveness);
     return null;
   }
-  return fetchOnsiteSearchTermsShared({ windowDays: WINDOW_DAYS, limit: 1000 });
+  try {
+    const terms = await fetchTermsImpl({ windowDays });
+    if (!Array.isArray(terms)) {
+      declareNotMeasurable('profession-keyword-opportunities', { ...liveness, alive: false, reason: 'GA4 search report unavailable (no service-account token)' });
+      return null;
+    }
+    return terms;
+  } catch (error) {
+    declareNotMeasurable('profession-keyword-opportunities', { ...liveness, alive: false, reason: `GA4 search report failed: ${error.message}` });
+    return null;
+  }
 }
 
 // ── Signal B: crawler job titles ─────────────────────────────────────────
@@ -220,7 +230,7 @@ function loadGscByProfession() {
  * dedicated landing (profession/nursing) or an existing keyword page
  * already targets it.
  */
-function buildCoverage() {
+async function buildCoverage() {
   const covered = new Map(); // professionId -> reason
 
   for (const id of extractTsStringArray(PROFESSION_LANDINGS_PATH, 'PROFESSION_IDS')) {
@@ -239,7 +249,10 @@ function buildCoverage() {
   }
 
   const NURSING_TO_PROFESSION = { nurses: 'infermiere', oss: 'oss' }; // healthcare-ticino is a sector hub, not a profession
-  for (const id of extractTsStringArray(NURSING_LANDINGS_PATH, 'NURSING_LANDING_IDS')) {
+  // The typed build-plugin wrapper imports this array from the shared JS
+  // module; load the canonical export instead of parsing its TS alias wrapper.
+  const { NURSING_LANDING_IDS } = await import(NURSING_LANDING_IDS_PATH);
+  for (const id of NURSING_LANDING_IDS) {
     const mapped = NURSING_TO_PROFESSION[id];
     if (mapped && !covered.has(mapped)) covered.set(mapped, `nursing landing (${id})`);
   }
@@ -270,7 +283,7 @@ function buildCoverage() {
 const onsiteTerms = await fetchOnsiteSearchTerms();
 const jobs = loadJobs();
 const gscByProfession = loadGscByProfession();
-const covered = buildCoverage();
+const covered = await buildCoverage();
 
 // Aggregate signal A per profession + collect locality/unmapped buckets.
 const onsiteByProfession = new Map();
@@ -295,16 +308,28 @@ for (const { term, count } of onsiteTerms || []) {
 // Aggregate signal B per profession (+ canton split = the locality
 // dimension on the supply side, feeds profession × canton pairs).
 //
-// Two distinct counts per profession:
-//  - count: loose multi-lingual alias match on the title — the DEMAND-side
-//    market size, used for ranking/score only.
-//  - feedFilterCount: literal `feedFilter` substring on the same haystack
-//    jobsSeoPagesPlugin filters with (title/description/company/location/
-//    titleByLocale). This is what the emitted page would actually show, so
-//    it — not the loose count — gates doubleValidated: the loose matcher
-//    counts DE/FR/EN ads a `filterKeywords: [feedFilter]` page can never
-//    surface (e.g. "filialleiter" for responsabile-negozio).
+// Counts per profession:
+//  - count: loose multi-lingual alias match on the source title — the
+//    DEMAND-side market size, used for ranking/score.
+//  - feedFilterJobCount (computed in the ranking loop below): the ads the
+//    Italian keyword page will ACTUALLY list. A profession-gap page now
+//    filters with the taxonomy matcher on each locale's own title
+//    (`professionMatch: true`, scripts/lib/keyword-page-match.mjs), and this
+//    number comes from the SAME function the page uses, never a second copy
+//    of the rule. Before #7915 the page filtered with the single Italian
+//    `feedFilter` substring, which missed the German ads ("Kosmetikerin" for
+//    estetista: 0 of 18) and swallowed unrelated ones ("sicurezza": 493 for
+//    36 security guards), so `isPromotable` rejected rows for a gap the
+//    generator itself had created.
+//  - literalCount: the old literal `feedFilter` substring count on
+//    title/description/company/location/titleByLocale. Informational only
+//    (report column), still the listing rule of the pre-#7915 pages.
 const jobsByProfession = new Map();
+// The landing matcher is single-winner, so all Italian page counts can be
+// accumulated while this existing job pass is already in progress. Do not
+// call countProfessionPageJobs() once per taxonomy entry: that would traverse
+// the complete job corpus K times for K professions.
+const professionPageJobCounts = new Map();
 const pluginHaystack = (job) => [
   String(job.title || ''),
   String(job.description || ''),
@@ -313,19 +338,26 @@ const pluginHaystack = (job) => [
   ...Object.values(job.titleByLocale || {}),
 ].join(' ').toLowerCase();
 for (const job of jobs) {
+  const pageProfessionId = professionPageIdForJob(job, 'it');
+  if (pageProfessionId) {
+    professionPageJobCounts.set(
+      pageProfessionId,
+      (professionPageJobCounts.get(pageProfessionId) || 0) + 1,
+    );
+  }
   const id = matchProfession(job.title);
   const haystack = pluginHaystack(job);
   for (const entry of PROFESSION_TAXONOMY) {
     const loose = entry.id === id;
     const literal = haystack.includes(entry.feedFilter);
     if (!loose && !literal) continue;
-    const agg = jobsByProfession.get(entry.id) || { count: 0, feedFilterCount: 0, cantons: new Map() };
+    const agg = jobsByProfession.get(entry.id) || { count: 0, literalCount: 0, cantons: new Map() };
     if (loose) {
       agg.count += 1;
       const canton = typeof job.canton === 'string' && job.canton ? job.canton.toUpperCase() : '??';
       agg.cantons.set(canton, (agg.cantons.get(canton) || 0) + 1);
     }
-    if (literal) agg.feedFilterCount += 1;
+    if (literal) agg.literalCount += 1;
     jobsByProfession.set(entry.id, agg);
   }
 }
@@ -340,7 +372,8 @@ for (const entry of PROFESSION_TAXONOMY) {
   const onsite = onsiteByProfession.get(entry.id) || 0;
   const jobAgg = jobsByProfession.get(entry.id);
   const jobCount = jobAgg ? jobAgg.count : 0;
-  const feedFilterJobCount = jobAgg ? jobAgg.feedFilterCount : 0;
+  const feedFilterJobCount = professionPageJobCounts.get(entry.id) || 0;
+  const literalFilterJobCount = jobAgg ? jobAgg.literalCount : 0;
   const gsc = gscByProfession.get(entry.id);
   if (onsite === 0 && jobCount === 0 && feedFilterJobCount === 0 && !gsc) continue;
   const row = {
@@ -349,10 +382,13 @@ for (const entry of PROFESSION_TAXONOMY) {
     feedFilter: entry.feedFilter,
     onsiteCount: onsite,
     jobCount,
-    // Jobs a fed keyword page would ACTUALLY list (literal feedFilter
-    // substring, same semantics as jobsSeoPagesPlugin). Gates the feed:
+    // Jobs a fed keyword page would ACTUALLY list in Italian — the page's own
+    // matcher (countProfessionPageJobs), not a re-derivation. Gates the feed:
     // below the plugin's ≥3 threshold the page would silently never emit.
     feedFilterJobCount,
+    // Informational: what the single `feedFilter` substring would match. Not
+    // a gate — profession-gap pages no longer list by it.
+    literalFilterJobCount,
     cantons: jobAgg
       ? Object.fromEntries([...jobAgg.cantons.entries()].sort((a, b) => b[1] - a[1]))
       : {},
@@ -438,10 +474,10 @@ md.push('**Promuovibile ✅** = `refresh-keyword-config` genera la pagina al pro
 md.push('');
 md.push(`Le pagine keyword vivono sotto \`${keywordLandingPath('<slug>')}\` — lo slug **non è** un path, e provarlo nudo dà 404. La colonna **Pagina** riporta l'URL che verrà creato; nella tabella "Già coperte" la copertura \`keyword page\` è già l'URL live.`);
 md.push('');
-md.push(`Due qualificazioni, una sola conseguenza. **Domanda**: ≥${DOUBLE_VALIDATED_MIN_ONSITE} ricerche on-site *e* ≥${DOUBLE_VALIDATED_MIN_JOBS} annunci — c'è chi cerca e c'è cosa mostrargli. **Offerta**: ≥${SUPPLY_VALIDATED_MIN_JOBS} annunci *e* ≥${SUPPLY_VALIDATED_MIN_FILTER_JOBS} match filtro — per le professioni che leggono 0 on-site perché il sito non ha ancora una pagina da cui farsi cercare. In entrambi i casi il filtro letterale deve restare specifico quanto la professione, o la pagina elencherebbe lavori diversi da quello nel suo H1.`);
+md.push(`Due qualificazioni, una sola conseguenza. **Domanda**: ≥${DOUBLE_VALIDATED_MIN_ONSITE} ricerche on-site *e* ≥${DOUBLE_VALIDATED_MIN_JOBS} annunci — c'è chi cerca e c'è cosa mostrargli. **Offerta**: ≥${SUPPLY_VALIDATED_MIN_JOBS} annunci *e* ≥${SUPPLY_VALIDATED_MIN_FILTER_JOBS} match filtro — per le professioni che leggono 0 on-site perché il sito non ha ancora una pagina da cui farsi cercare. In entrambi i casi l'elenco della pagina deve restare specifico quanto la professione, o la pagina elencherebbe lavori diversi da quello nel suo H1. **Match filtro** = annunci che la pagina italiana elencherà davvero (stesso matcher della tassonomia che usa la pagina); **Letterali** = annunci che contengono la sottostringa \`feedFilter\`, solo informativo.`);
 md.push('');
-md.push('| # | Professione | On-site (60g) | Annunci | Match filtro | Cantoni top | GSC impr. | Score | Promuovibile | Pagina |');
-md.push('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |');
+md.push('| # | Professione | On-site (60g) | Annunci | Match filtro | Letterali | Cantoni top | GSC impr. | Score | Promuovibile | Pagina |');
+md.push('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |');
 opportunities.slice(0, 20).forEach((o, i) => {
   const cantonTop = Object.entries(o.cantons).slice(0, 3).map(([c, n]) => `${c}:${n}`).join(' ') || '—';
   // Say WHY when the answer is no — a bare dash is what made this report
@@ -449,14 +485,14 @@ opportunities.slice(0, 20).forEach((o, i) => {
   const why = o.promotable
     ? (o.doubleValidated ? '✅ domanda' : '✅ offerta')
     : !o.preciseFilter
-      ? `— filtro largo (${o.feedFilterJobCount} letterali vs ${o.jobCount} professione)`
+      ? `— filtro largo (${o.feedFilterJobCount} in pagina vs ${o.jobCount} professione; ${o.literalFilterJobCount ?? '—'} letterali)`
       : o.jobCount < DOUBLE_VALIDATED_MIN_JOBS
         ? '— nessun annuncio da mostrare'
         : '— sotto entrambe le soglie';
   const page = o.plannedPath ? `\`${o.plannedPath}\`` : '—';
-  md.push(`| ${i + 1} | ${o.label} (\`${o.id}\`) | ${o.onsiteCount} | ${o.jobCount} | ${o.feedFilterJobCount} | ${cantonTop} | ${o.gscImpressions} | ${o.score} | ${why} | ${page} |`);
+  md.push(`| ${i + 1} | ${o.label} (\`${o.id}\`) | ${o.onsiteCount} | ${o.jobCount} | ${o.feedFilterJobCount} | ${o.literalFilterJobCount ?? '—'} | ${cantonTop} | ${o.gscImpressions} | ${o.score} | ${why} | ${page} |`);
 });
-if (opportunities.length === 0) md.push('| — | _nessun gap: tutte le professioni con segnale sono già coperte_ | | | | | | | | |');
+if (opportunities.length === 0) md.push('| — | _nessun gap: tutte le professioni con segnale sono già coperte_ | | | | | | | | | |');
 md.push('');
 md.push(`<details><summary>Già coperte (${coveredRows.length}) — escluse dal ranking</summary>`);
 md.push('');

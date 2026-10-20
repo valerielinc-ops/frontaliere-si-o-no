@@ -1,13 +1,16 @@
+import fs from 'node:fs';
 import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   STADLER_RAIL_KEY,
   STADLER_RAIL_COMPANY_NAME,
+  STADLER_RAIL_FABRICATED_DESCRIPTION_RE,
   fetchAllStadlerRailJobs,
   isStadlerRailJob,
   isTrustedDomain,
 } from '../scripts/lib/stadler-rail-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { __resetJinaBreaker } from '../scripts/lib/jina-proxy.mjs';
+import { dropFabricatedDescriptions } from '../scripts/lib/drop-fabricated-description.mjs';
 
 describe('Stadler Rail crawler parser', () => {
   afterEach(() => {
@@ -162,5 +165,111 @@ describe('Stadler Rail crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// Issue 5253: a detail body under 50 words used to be DISCARDED and replaced
+// by "<title> bei Stadler Rail in <city>." plus a paragraph about Stadler
+// written by the parser. Now a body under the shared 50-word floor
+// (`scripts/lib/source-body-floor.mjs`) is not published either: the job gets
+// no description and takes the thin-source path (quarantine) instead of
+// becoming an indexable thin page. Fixture: the live "Lackierer:in" page
+// (49 words), minimized.
+describe('fetchAllStadlerRailJobs — the detail text only', () => {
+  const DETAIL = fs.readFileSync(new URL('./fixtures/stadler-rail-detail-short-lackierer.html', import.meta.url), 'utf8');
+  const LISTING = '<a class="jobTitle-link" href="/job/Altenrhein-Lackiererin-SG-S-9423/1327192555/">Lackierer:in</a>';
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
+  });
+
+  function stubSite(detailHtml: string) {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubGlobal('fetch', vi.fn(async (input) => new Response(
+      String(input).includes('/search/') ? LISTING : detailHtml,
+      { status: 200, headers: { 'content-type': 'text/html' } },
+    )));
+  }
+
+  it('gives the 49-word body of the live Lackierer:in page no indexable text, not a padded one', async () => {
+    expect(DETAIL).toContain('Carrosserielackierer:in oder Industrielackierer:in');
+    stubSite(DETAIL);
+
+    const jobs = await fetchAllStadlerRailJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe('');
+    expect(jobs[0].descriptionByLocale).toEqual({});
+  });
+
+  it('publishes a body from 50 words up as the source wrote it', async () => {
+    const longer = DETAIL.replace('Vielfältige Tagesaufgaben in unterschiedlichen Gruppe', 'Vielfältige Tagesaufgaben in unterschiedlichen Gruppen der Lackiererei am Standort Altenrhein');
+    stubSite(longer);
+
+    const jobs = await fetchAllStadlerRailJobs();
+
+    expect(jobs).toHaveLength(1);
+    const [job] = jobs;
+    expect(job.description.split(/\s+/).filter(Boolean).length).toBeGreaterThanOrEqual(50);
+    expect(job.description).toMatch(/^PROFIL\n\n- abgeschlossene Ausbildung als Carrosserielackierer:in/);
+    expect(job.descriptionByLocale).toEqual({ de: job.description });
+    expect(job.description).not.toMatch(/bei Stadler Rail in|Stadler ist ein weltweit tätiger/);
+  });
+
+  it('gives a posting without a body no description', async () => {
+    const withoutBody = DETAIL.replace(/<span itemprop="description"[\s\S]*?<\/div>\s*<\/span>/, '');
+    expect(withoutBody).not.toContain('itemprop="description"');
+    stubSite(withoutBody);
+
+    const jobs = await fetchAllStadlerRailJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe('');
+    expect(jobs[0].descriptionByLocale).toEqual({});
+  });
+});
+
+// Issue 5253: stored jobs still carry the paragraph the parser used to publish
+// instead of a short body. The standard pipeline keeps a stored source slot
+// when the fresh one is empty, so the runner drops that text from its stored
+// jobs through the `prepareExistingJobs` hook before the merge. Fixture: the
+// "Lackierer:in" record of the origin/main slice (2026-09-29), all four slots.
+describe('stored fallback paragraph — removed before the merge', () => {
+  const STORED = JSON.parse(fs.readFileSync(new URL('./fixtures/stadler-rail-stored-fallback-lackierer.json', import.meta.url), 'utf8'));
+
+  it('recognises the stored paragraph and removes it with its translations, slugs untouched', () => {
+    expect(STADLER_RAIL_FABRICATED_DESCRIPTION_RE.test(STORED.descriptionByLocale.de)).toBe(true);
+    const jobs = dropFabricatedDescriptions([JSON.parse(JSON.stringify(STORED))], STADLER_RAIL_FABRICATED_DESCRIPTION_RE, 'Stadler Rail');
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe('');
+    expect(jobs[0].descriptionByLocale).toEqual({});
+    expect(jobs[0].needsRetranslation).toBe(true);
+    expect(jobs[0].slug).toBe(STORED.slug);
+    expect(jobs[0].slugByLocale).toEqual(STORED.slugByLocale);
+  });
+
+  it('recognises only the whole legacy template, not a real posting that quotes the company sentence', () => {
+    // Review of PR 10390: a real, long posting with the same company sentence
+    // must keep its body and translations.
+    expect(STADLER_RAIL_FABRICATED_DESCRIPTION_RE.test(STORED.description)).toBe(true);
+    const real = 'Monteur:in Drehgestelle bei Stadler Rail in Bussnang. Stadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang. Reale mansioni: Montage von Drehgestellen, Qualitätskontrolle und Dokumentation.';
+    expect(STADLER_RAIL_FABRICATED_DESCRIPTION_RE.test(real)).toBe(false);
+    expect(STADLER_RAIL_FABRICATED_DESCRIPTION_RE.test(`${STORED.description}\n\nIhre Aufgaben: Montage von Drehgestellen.`)).toBe(false);
+    const job: any = { sourceLang: 'de', description: real, descriptionByLocale: { de: real, it: 'Traduzione reale.' } };
+    dropFabricatedDescriptions([job], STADLER_RAIL_FABRICATED_DESCRIPTION_RE, 'Stadler Rail');
+    expect(job.descriptionByLocale).toEqual({ de: real, it: 'Traduzione reale.' });
+    expect(job.description).toBe(real);
+  });
+
+  it('never matches the text the parser publishes now', () => {
+    const DETAIL = fs.readFileSync(new URL('./fixtures/stadler-rail-detail-short-lackierer.html', import.meta.url), 'utf8');
+    expect(STADLER_RAIL_FABRICATED_DESCRIPTION_RE.test(DETAIL)).toBe(false);
+  });
+
+  it('is wired as prepareExistingJobs in the runner', () => {
+    const runner = fs.readFileSync('scripts/update-stadler-rail-jobs.mjs', 'utf8');
+    expect(runner).toMatch(/prepareExistingJobs: \(jobs\) => dropFabricatedDescriptions\(jobs, STADLER_RAIL_FABRICATED_DESCRIPTION_RE,/);
   });
 });

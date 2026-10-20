@@ -45,10 +45,13 @@
  *   - isTrustedDomain()             — Validate URLs belong to this company
  *   - slugify() / stripHtml()       — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -217,7 +220,7 @@ async function collectAllJobUrls() {
       html = await fetchHtml(listUrl, { headers: { Accept: 'text/html,application/xhtml+xml' } });
     } catch (err) {
       console.warn(`  ⚠️  Listing fetch failed at offset=${offset}: ${err?.message || err}`);
-      break;
+      throw err;
     }
 
     const links = extractListingLinks(html);
@@ -244,20 +247,7 @@ async function collectAllJobUrls() {
  * detail page.
  */
 function parseJobPostingJsonLd(html = '') {
-  const re = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
-  let match;
-  while ((match = re.exec(html)) !== null) {
-    try {
-      const payload = JSON.parse(match[1]);
-      const candidates = Array.isArray(payload) ? payload : [payload];
-      for (const candidate of candidates) {
-        if (candidate && candidate['@type'] === 'JobPosting') return candidate;
-      }
-    } catch {
-      // Malformed JSON-LD block — try the next <script> tag, if any.
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /* ── Main Fetcher ─────────────────────────────────────────── */
@@ -299,22 +289,13 @@ export async function fetchAllCssVersicherungJobs() {
     const address = jsonLd.jobLocation?.address || {};
     const { city, canton, postalCode, streetAddress, region } = resolveAddress(address);
 
-    let descriptionText = stripHtml(jsonLd.description || '');
+    // The JSON-LD text only (issue 5253). Under 50 words it used to get
+    // "<title> — CSS, <city>." and a CSS paragraph we wrote. A posting
+    // without text, or under the shared 50-word floor, now gets no
+    // description and takes the thin-source path (quarantine).
+    const sourceText = stripHtml(jsonLd.description || '');
+    const descriptionText = meetsSourceBodyFloor(sourceText) ? sourceText : '';
     const sourceLang = detectLang(descriptionText || title, 'de');
-
-    // Thin-content guard (Non-Negotiable #4): never index < 50 words —
-    // mirrors the enrichment pattern used by sibling parsers (e.g.
-    // afry-job-parser.mjs) rather than dropping the job outright.
-    const wordCount = descriptionText.split(/\s+/).filter(Boolean).length;
-    if (wordCount < 50) {
-      descriptionText = [
-        descriptionText || `${title} — ${CSS_VERSICHERUNG_COMPANY_NAME}, ${city}.`,
-        'Die CSS ist eine der führenden Kranken- und Sachversicherungen der Schweiz mit rund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen in der ganzen Schweiz und rund 3000 Mitarbeitenden. Seit 1899 begleitet die CSS Menschen in der Schweiz mit Grundversicherung, Zusatzversicherungen und Vorsorgelösungen und bietet ihren Mitarbeitenden flexible Arbeitsmodelle, Weiterbildungsmöglichkeiten und ein dynamisches Arbeitsumfeld.',
-        'Bewirb dich direkt online über jobs.css.ch.',
-      ]
-        .filter(Boolean)
-        .join('\n\n');
-    }
 
     const employmentType =
       String(jsonLd.employmentType || '').toUpperCase().trim() || detectEmploymentType(title);
@@ -322,12 +303,7 @@ export async function fetchAllCssVersicherungJobs() {
     const jobSlug = slugify(`${title} css versicherung ${city}`);
     const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const parsed = new Date(String(jsonLd.datePosted || ''));
-      return Number.isNaN(parsed.getTime())
-        ? new Date().toISOString().slice(0, 10)
-        : parsed.toISOString().slice(0, 10);
-    })();
+    const publication = sourcePostingDateFields(jsonLd.datePosted);
 
     const job = {
       id: `${CSS_VERSICHERUNG_KEY}-${urlHash}`,
@@ -339,7 +315,7 @@ export async function fetchAllCssVersicherungJobs() {
       title,
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
+      descriptionByLocale: descriptionText ? { [sourceLang]: descriptionText } : {},
       location: city,
       canton,
       url: jobUrl,
@@ -360,7 +336,7 @@ export async function fetchAllCssVersicherungJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

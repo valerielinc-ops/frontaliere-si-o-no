@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * scripts/dist-shrink.mjs
  *
@@ -49,7 +50,6 @@
 import { readdir, readFile, writeFile, stat } from 'node:fs/promises';
 import { join, resolve, relative } from 'node:path';
 import { createRequire } from 'node:module';
-import { fileURLToPath } from 'node:url';
 import { cpus } from 'node:os';
 import { spawnSync } from 'node:child_process';
 
@@ -616,7 +616,7 @@ async function main() {
 
 // Run main() only when invoked as a script, not when imported as a
 // module (e.g. by tests/seo/dist-shrink.test.ts).
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => { console.error(err); process.exit(1); });
 }
 

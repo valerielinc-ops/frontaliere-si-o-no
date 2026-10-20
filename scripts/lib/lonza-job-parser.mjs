@@ -8,11 +8,19 @@
  *
  * Source: https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
-import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { firstLocationSegment, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
+import {
+  dropSameSourceReference,
+  identicalAdvertisementKey,
+  keepLowestStableIdPerKey,
+} from './identical-posting-dedupe.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -280,6 +288,14 @@ function detectEmploymentType(timeType = '') {
   return 'FULL_TIME';
 }
 
+/**
+ * Fragment only the crawler's former text wrote: a company sentence appended
+ * to every description, and the whole stand-in of a req without a body
+ * ("{title} position at Lonza in {city}, Switzerland." plus that sentence).
+ */
+export const LONZA_FABRICATED_DESCRIPTION_RE =
+  /Lonza is a global leader in pharma and biotech manufacturing\. The company operates major production facilities in Visp/;
+
 /* ── Main fetch function ───────────────────────────────────── */
 
 /**
@@ -300,6 +316,9 @@ export async function fetchAllLonzaJobs() {
   console.log(`  📋 Swiss job listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
+  // Workday attributes that tell two postings apart, kept out of the record.
+  const advertisementKeys = new Map();
   for (const listing of listings) {
     const externalPath = listing.externalPath;
     if (!externalPath) continue;
@@ -311,6 +330,7 @@ export async function fetchAllLonzaJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) {
       console.log(`  ⏭️  Skipped — empty title`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
@@ -330,6 +350,7 @@ export async function fetchAllLonzaJobs() {
  const primaryLocationText = lonzaPrimaryLocationText(info);
  if (isLocationExplicitlyForeign(primaryLocationText)) {
   console.log(`  ⏭️  Skipped foreign primary location: ${primaryLocationText} — ${title}`);
+  await new Promise((r) => setTimeout(r, 300));
   continue;
  }
 
@@ -338,9 +359,16 @@ export async function fetchAllLonzaJobs() {
  // names Visp in the boilerplate of reqs worked anywhere — the circular
  // corroboration audit-parser-quality.mjs counts as inconclusive, not as
  // evidence.
- const resolvedLocation = resolveLonzaPublishLocation(info);
+ // A primary the commune gazetteer cannot place (a locality, an address)
+ // gets the shared Workday recovery: official directory or postal code, only
+ // on the req's structured Swiss country (workday-swiss-job-parser-common).
+ const publishLocation = resolveLonzaPublishLocation(info);
+ const recovered = publishLocation ? null : recoverWorkdayPrimarySwissPlace(info);
+ const resolvedLocation = publishLocation
+  || (recovered ? { city: recovered.location, canton: recovered.canton } : null);
  if (!resolvedLocation) {
   console.log(`  ⏭️  Skipped (no Swiss primary location): ${primaryLocationText || '(empty)'} — ${title}`);
+  await new Promise((r) => setTimeout(r, 300));
   continue;
  }
  const { city, canton } = resolvedLocation;
@@ -349,10 +377,17 @@ export async function fetchAllLonzaJobs() {
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${LONZA_PUBLIC_BASE}${externalPath}`;
 
-    // Build the source-locale description (EN — Lonza posts primarily in English)
-    const descEn = descriptionText
-      ? `${descriptionText}\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.`.trim()
-      : `${title} position at Lonza in ${city}, Switzerland.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.`.trim();
+    // Only the req's own text is published: no company sentence appended to
+    // it, and no "{title} position at Lonza" stand-in when the detail has no
+    // body — a req under the shared 50-word floor is not published (issue
+    // 5253).
+    const descEn = descriptionText.trim();
+    if (!meetsSourceBodyFloor(descEn)) {
+      console.log(`  ⏭️  Skipped — no vacancy text in the Workday detail: ${title}`);
+      withoutBody += 1;
+      await new Promise((r) => setTimeout(r, 300));
+      continue;
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(title, 'lonza-ch');
@@ -388,7 +423,7 @@ export async function fetchAllLonzaJobs() {
       sector: 'Farmaceutica / Biotecnologia',
       currency: 'CHF',
       featured: false,
-      postedDate: info.startDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(workdayPostingDateFields(listing), workdayPostingDateFields(detail)),
       url: publicUrl,
       applyUrl: publicUrl,
       source: 'Lonza Dedicated Parser (Workday)',
@@ -401,12 +436,40 @@ export async function fetchAllLonzaJobs() {
     // req's own primary workplace, never from the description, so it is never
     // "derived from vacancy text".
 
+    // Everything the Workday posting says about the vacancy: title, primary
+    // and additional locations, time type and text. jobPostingInfo.startDate
+    // and postedOn are the publication dates of the req, not attributes of
+    // the vacancy, so they are not part of it.
+    advertisementKeys.set(job, identicalAdvertisementKey(job, [
+      info.location || primaryLocationText,
+      info.timeType,
+      JSON.stringify(info.additionalLocations || []),
+    ]));
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300));
   }
 
- console.log(`\n📋 Total unique Lonza jobs discovered: ${jobs.length}`);
- return jobs;
+ // One Workday requisition reachable under two URLs is one advertisement.
+ // Lonza also opens a second req with the very same posting: on 2026-09-29
+ // R76184-1/R76397, R76163-1/R76165-1, R78180-1/R79814 and R78157-1/R79043
+ // had the same title (up to the gender marker), locations, time type and
+ // text, and differed only in their publication dates. With no attribute to
+ // tell them apart they are two identical pages to a reader: one page, the
+ // req with the lowest id (already published, so its URL stays).
+ const byRequisition = dropSameSourceReference(jobs, (job) => job.jobReqId);
+ const byAdvertisement = keepLowestStableIdPerKey(byRequisition.jobs, (job) => advertisementKeys.get(job) || '');
+ const unique = byAdvertisement.jobs;
+ const dropped = [...byRequisition.dropped, ...byAdvertisement.dropped];
+ if (dropped.length > 0) {
+  console.log(`  🧹 Dropped ${dropped.length} double publication(s): ${byRequisition.dropped.length} same requisition id under another URL, ${byAdvertisement.dropped.length} identical posting under another req.`);
+ }
+
+ if (withoutBody > 0) {
+  console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+ }
+
+ console.log(`\n📋 Total unique Lonza jobs discovered: ${unique.length}`);
+ return unique;
 }
 
 export const __internals = {

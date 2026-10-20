@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Verify the transitive import closure used by followup-drainer.yml without
  * installing node_modules. Relative imports must resolve inside this checkout;
@@ -20,17 +22,25 @@ export const ENTRYPOINTS = [
   'scripts/ci/mint-app-token.mjs',
   'scripts/ci/alert-pat-down.mjs',
   'scripts/ci/probe-workflow-scope.mjs',
+  // Rilascia i claim morti subito prima della promozione (followup-drainer.yml).
+  'scripts/ci/stale-claim-detector.mjs',
+  // Chiude gli hand-off di conflitto gia' risolti prima del drain (followup-drainer.yml).
+  'scripts/ci/reconcile-conflict-handoffs.mjs',
   // pharmacy-data-health-monitor.yml runs this observer WITHOUT `npm ci`
   // (read-only, no network, checked-in datasets only). Until #8653 its closure
   // reached scripts/lib/crawler-template.mjs for a single `slugify` helper and
   // therefore `undici`, so the monitor died at module load before writing
   // data/pharmacy-data-health-report.json — a blind observer, not a red one.
   'scripts/check-pharmacy-data-health.mjs',
+  // social-robot-confirm.yml writes the Instagram/TikTok ledger WITHOUT
+  // `npm ci`: an npm import here would leave a published post out of the
+  // ledger, and the daily picker could offer it again.
+  'scripts/social-robot/confirm.mjs',
 ];
 
 const BUILTINS = new Set(builtinModules);
 const ALLOWED_PACKAGES = new Map([
-  ['scripts/load-rc-env.mjs', new Set(['firebase-admin'])],
+  ['scripts/load-rc-env.mjs', new Set(['firebase-admin/app', 'firebase-admin/remote-config'])],
 ]);
 
 function regexLiteralEnd(source, start) {
@@ -210,4 +220,4 @@ export function main() {
   }
 }
 
-if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || '')) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

@@ -81,7 +81,7 @@
  *   --apply     perform the writes
  *   --limit <n> cap the number of docs restored in one run (default: no cap)
  */
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 // DECAYABLE_STATUSES is the single declaration of "which statuses are a MACHINE
 // inference about the mailbox" — the only ones any recovery path may propose
 // undoing. Driving the Firestore query off it (rather than a literal array
@@ -97,6 +97,7 @@ import {
 // including the hard-bounce gate below — is importable and unit-testable
 // without this file's Firebase init.
 import { decideRestore } from './lib/mailtrapSuspensionClassify.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const argv = process.argv.slice(2);
 const flag = (n) => argv.includes(`--${n}`);
@@ -105,13 +106,7 @@ const opt = (n, d = null) => { const i = argv.indexOf(`--${n}`); return i >= 0 &
 const APPLY = flag('apply');
 const LIMIT = Number(opt('limit', '0')) || 0;
 
-if (!admin.apps?.length) {
-  admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
-    projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-  });
-}
-const db = admin.firestore();
+const db = await getFirestoreDb();
 
 /**
  * Human-readable label per `decideRestore()` code, so the dry-run report says
@@ -237,20 +232,20 @@ async function main() {
         // `recoveryFields()` writes the same field for the same reason.
         soft_bounce_count: 0,
         previous_suppression_status: previousStatus,
-        suppressed_at: admin.firestore.FieldValue.delete(),
-        restored_at: admin.firestore.FieldValue.serverTimestamp(),
+        suppressed_at: FieldValue.delete(),
+        restored_at: FieldValue.serverTimestamp(),
         restored_reason: 'mailtrap_suspension_mismapped',
-        updated_at: admin.firestore.FieldValue.serverTimestamp(),
+        updated_at: FieldValue.serverTimestamp(),
       };
       // Same audit vocabulary as recoveryFields(): which stamp applies is
       // decided by the status we restored FROM, so a later reader can still
       // tell a decayed bounce from a decayed provider suppression.
       if (previousStatus === 'bounced') {
         fields.previous_bounce_reason = previousReason;
-        fields.bounce_reactivated_at = admin.firestore.FieldValue.serverTimestamp();
+        fields.bounce_reactivated_at = FieldValue.serverTimestamp();
       } else {
-        fields.reactivated_at = admin.firestore.FieldValue.serverTimestamp();
-        fields.mailtrap_suppression_resolved_at = admin.firestore.FieldValue.serverTimestamp();
+        fields.reactivated_at = FieldValue.serverTimestamp();
+        fields.mailtrap_suppression_resolved_at = FieldValue.serverTimestamp();
       }
       batch.set(ref, fields, { merge: true });
     }

@@ -4,9 +4,9 @@
  * Covers:
  *  - Slug tables + path builders for all 4 locales × (root + regional hubs + crossings)
  *  - Route enumeration (BORDER_WAIT_ROUTES = locales × (1 + regions + crossings), derived
- *    from the live registries — see borderWaitData.ts, expanded post-#4889 from 26 to 134, then to the full 143-crossing
- *    dataset by #4545 (Grigioni/Vallese–Italy corridor)
- *    crossings across 17 regions)
+ *    from the live registries — see borderWaitData.ts, expanded to the full
+ *    160-crossing dataset by BORDER2 (Grigioni/Vallese–Italy plus BL/SO/BS/JU
+ *    additions) across 20 regions)
  *  - Page generation: ≥50 words per page (MIN_INDEXABLE_WORDS), JSON-LD
  *    present & parseable, canonical self-referent, webcam section renders
  *    conditionally, related-links block present
@@ -19,6 +19,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
+  BORDER_CROSSING_DISPLAY,
   BORDER_WAIT_CROSSINGS,
   BORDER_WAIT_LOCALES,
   BORDER_WAIT_REGIONS,
@@ -38,11 +39,14 @@ import {
   generateBorderWaitArchives,
   generateBorderWaitPages,
   buildEmbedWidgetSnapshot,
+  buildBorderWaitLeafTitle,
   renderFastestCrossingCard,
   type BorderWaitCurrent,
   type BorderWaitHistoryDay,
 } from '../build-plugins/borderWaitPagesPlugin';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
+import { htmlHasIndexableRobots } from '../build-plugins/shared/incrementalHtmlReuse.mjs';
+import { MAX_HTML_BYTES } from '../scripts/audit-page-weight.mjs';
 
 const BORDER_WAIT_WIDGET_SOURCE = readFileSync(
   new URL('../public/embed/border-wait-widget.html', import.meta.url),
@@ -93,9 +97,9 @@ const MINIMAL_CURRENT: BorderWaitCurrent = {
 // ── Slug / path tests ─────────────────────────────────────────────
 
 describe('borderWaitData — slug tables + path builders', () => {
-  it('exports exactly 143 crossings, all unique (post-#4545: the full dataset)', () => {
-    expect(BORDER_WAIT_CROSSINGS).toHaveLength(143);
-    expect(new Set(BORDER_WAIT_CROSSINGS).size).toBe(143);
+  it('exports exactly 160 crossings, all unique (BORDER2 full dataset)', () => {
+    expect(BORDER_WAIT_CROSSINGS).toHaveLength(160);
+    expect(new Set(BORDER_WAIT_CROSSINGS).size).toBe(160);
   });
 
   it('TOP_5_CROSSINGS is a strict subset of 5 crossings', () => {
@@ -123,10 +127,10 @@ describe('borderWaitData — slug tables + path builders', () => {
     expect(buildOggiPath('fr', 'chiasso-brogeda')).toMatch(/^\/fr\/temps-attente-douane\//);
   });
 
-  it('root + regional + crossing routes total 652 (4 locales × (1 + 19 regions + 143 crossings))', () => {
+  it('root + regional + crossing routes total 724 (4 locales × (1 + 20 regions + 160 crossings))', () => {
     const expected = BORDER_WAIT_LOCALES.length * (1 + BORDER_WAIT_REGIONS.length + BORDER_WAIT_CROSSINGS.length);
     expect(BORDER_WAIT_ROUTES).toHaveLength(expected);
-    expect(expected).toBe(652);
+    expect(expected).toBe(724);
     expect(new Set(BORDER_WAIT_ROUTES).size).toBe(expected);
   });
 
@@ -219,10 +223,95 @@ describe('borderWaitPagesPlugin — page generation', () => {
   const today = new Date('2026-04-21T06:00:00.000Z');
   const pages = generateBorderWaitPages({ current: MINIMAL_CURRENT, history: [], today });
 
+  it('describes Swiss checkpoints without foreign locality or unsupported tourism/coverage claims', () => {
+    let places = 0;
+    for (const html of Object.values(pages)) {
+      const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+      for (const schema of schemas) {
+        if (schema['@type'] !== 'Place') continue;
+        places++;
+        expect(schema.address.addressCountry).toBe('CH');
+        if (schema.address.addressLocality) {
+          expect(schema.address.addressLocality).not.toMatch(
+            /Leymen|Neuwiller|Hégenheim|Biederthal|Kiffis|Saint-Louis|Bourgfelden|Huningue|Courtavon|Taufers/i,
+          );
+        }
+        expect(schema.amenityFeature.some((item: { name: string }) => item.name.includes('BAZG'))).toBe(false);
+      }
+      expect(html).not.toContain('"TouristAttraction"');
+      const text = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]*>/g, ' ');
+      expect(text).not.toMatch(/Firestore|hydration|Hydration|\bREST\b|traffic-scheduler\.yml/);
+    }
+    expect(places).toBeGreaterThan(0);
+  });
+
   it('generates a page for every canonical route', () => {
     for (const route of BORDER_WAIT_ROUTES) {
       expect(pages[route]).toBeDefined();
       expect(pages[route].length).toBeGreaterThan(500);
+    }
+  });
+
+  it('keeps each real road/checkpoint discriminator in leaf titles', () => {
+    for (const locale of BORDER_WAIT_LOCALES) {
+      const allTitles = BORDER_WAIT_CROSSINGS.map((crossing) => (
+        buildBorderWaitLeafTitle(locale, BORDER_CROSSING_DISPLAY[crossing])
+      ));
+      expect(new Set(allTitles).size, `duplicate leaf title(s) for ${locale}`).toBe(
+        BORDER_WAIT_CROSSINGS.length,
+      );
+      for (const title of allTitles) {
+        expect([...title].length, `${locale}: ${title}`).toBeLessThanOrEqual(66);
+      }
+    }
+
+    const roadCrossings = [
+      'basel-weil-am-rhein-autostrada-a2-a5',
+      'basel-weil-am-rhein-freiburgerstrasse',
+      'basel-weil-am-rhein-hiltalingerstrasse',
+    ] as const;
+
+    for (const locale of BORDER_WAIT_LOCALES) {
+      const titles = roadCrossings.map((crossing) => (
+        buildBorderWaitLeafTitle(locale, BORDER_CROSSING_DISPLAY[crossing])
+      ));
+      expect(new Set(titles).size).toBe(roadCrossings.length);
+      for (const title of titles) {
+        expect([...title].length).toBeLessThanOrEqual(66);
+      }
+      expect(titles.join('\n')).toContain('A2/A5');
+      expect(titles.join('\n')).toContain('Freiburgerstrasse');
+      expect(titles.join('\n')).toContain('Hiltalingerstrasse');
+    }
+
+    const oversizedRouteTitle = buildBorderWaitLeafTitle(
+      'it',
+      `Road, ${'R'.repeat(70)}`,
+    );
+    expect([...oversizedRouteTitle].length).toBeLessThanOrEqual(66);
+
+    const alphaCorridorTitle = buildBorderWaitLeafTitle(
+      'en',
+      `Corridor Alpha ${'A'.repeat(70)}, A2`,
+    );
+    const betaCorridorTitle = buildBorderWaitLeafTitle(
+      'en',
+      `Corridor Beta ${'A'.repeat(70)}, A2`,
+    );
+    expect(alphaCorridorTitle).not.toBe(betaCorridorTitle);
+  });
+
+  it('emits one final title per localized crossing leaf', () => {
+    for (const locale of BORDER_WAIT_LOCALES) {
+      const titles = BORDER_WAIT_CROSSINGS.map((crossing) => {
+        const html = pages[buildOggiPath(locale, crossing)];
+        const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
+        expect(title, `${locale}/${crossing}`).not.toBe('');
+        return title;
+      });
+      expect(new Set(titles).size, `duplicate rendered title(s) for ${locale}`).toBe(
+        BORDER_WAIT_CROSSINGS.length,
+      );
     }
   });
 
@@ -268,6 +357,24 @@ describe('borderWaitPagesPlugin — page generation', () => {
     expect(html).toContain('data-webcam-base-url=');
     expect(html).toMatch(/\bwidth=["']?640["']?/);
     expect(html).toMatch(/\bheight=["']?360["']?/);
+  });
+
+  it('link-only webcam is rendered as an external link without an image or refresh script', () => {
+    const html = pages[buildOggiPath('it', 'basel-saint-louis-a35')];
+    expect(html).toContain('Apri la webcam ufficiale esterna');
+    expect(html).toContain('inforoute.alsace.eu');
+    expect(html).not.toContain('data-webcam-refresh=');
+    expect(html).not.toContain('Live webcam — Basel');
+  });
+
+  it('link-only webcam is discoverable from the root and regional hubs', () => {
+    const root = pages[buildRootHubPath('it')];
+    const regional = pages[buildRegionalHubPath('it', 'basilea-francia')];
+    for (const html of [root, regional]) {
+      expect(html).toContain('Apri la webcam ufficiale esterna: A35 – Saint-Louis');
+      expect(html).toContain('https://inforoute.alsace.eu/');
+      expect(html).not.toContain('data-webcam-refresh=');
+    }
   });
 
   it('a crossing WITHOUT configured webcams renders graceful fallback notice (no <figure>)', () => {
@@ -335,6 +442,15 @@ describe('borderWaitPagesPlugin — page generation', () => {
     }
   });
 
+  it('keeps every localized root hub under the page-weight budget', () => {
+    for (const locale of BORDER_WAIT_LOCALES) {
+      const root = pages[buildRootHubPath(locale)];
+      expect(root).toMatch(/<ul\s+class=["']?bw-crossings(?:["'\s>])/);
+      expect(Buffer.byteLength(root, 'utf8'), `${locale} root hub exceeds MAX_HTML_BYTES`)
+        .toBeLessThanOrEqual(MAX_HTML_BYTES);
+    }
+  });
+
   it('a crossing without live data shows the static fallback banner', () => {
     // 'crociale-dei-mulini' is not in MINIMAL_CURRENT.perCrossing
     const html = pages[buildOggiPath('it', 'crociale-dei-mulini')];
@@ -342,7 +458,21 @@ describe('borderWaitPagesPlugin — page generation', () => {
     expect(html).toContain('Tempi di attesa non disponibili');
   });
 
-  it('uses the unavailable branch on root, regional, and leaf surfaces', () => {
+  // The status blocks ship every variant as an inert <template> for the live
+  // hydration, so "the page contains X" no longer says what is SHOWN: read the
+  // build-time variant rendered inside `[data-bw-swap-out]`.
+  const swapOut = (html: string, kind: 'hub' | 'advice'): string => {
+    const host = html.search(new RegExp(`data-bw-swap=["']?${kind}["' >]`));
+    expect(host, `data-bw-swap=${kind} host`).toBeGreaterThan(-1);
+    const start = html.indexOf('data-bw-swap-out', host);
+    return html.slice(start, html.indexOf('<template', start));
+  };
+
+  it('says how many crossings were measured when partial coverage reads all zero', () => {
+    // Only chiasso-brogeda has a reading (0 min). «Non abbiamo una lettura» was
+    // false here — there IS a reading — and «fluido su tutti i valichi» would be
+    // a claim about unmeasured crossings: the banner scopes «fluido» to the
+    // measured ones and says the rest are missing.
     const partialCurrent: BorderWaitCurrent = {
       updatedAt: '2026-04-21T06:00:00.000Z',
       perCrossing: {
@@ -356,11 +486,18 @@ describe('borderWaitPagesPlugin — page generation', () => {
     };
     const partialPages = generateBorderWaitPages({ current: partialCurrent, history: [], today });
 
-    expect(partialPages[buildRootHubPath('it')]).toContain('Tempi di attesa non disponibili');
-    expect(partialPages[buildRegionalHubPath('it', 'ticino-como')]).toContain('Tempi di attesa non disponibili');
-    expect(partialPages[buildOggiPath('it', 'crociale-dei-mulini')]).toContain('Tempi di attesa non disponibili');
-    expect(partialPages[buildRootHubPath('it')]).not.toContain('Traffico fluido su tutti i valichi');
+    for (const hub of [buildRootHubPath('it'), buildRegionalHubPath('it', 'ticino-como')]) {
+      const shown = swapOut(partialPages[hub], 'hub');
+      expect(shown).toContain('Traffico fluido sui valichi misurati');
+      expect(shown).toMatch(/data-bw-slot=["']?measured["']?>1</);
+      expect(shown).not.toContain('Tempi di attesa non disponibili');
+      expect(shown).not.toContain('Traffico fluido su tutti i valichi');
+    }
+    expect(swapOut(partialPages[buildOggiPath('it', 'crociale-dei-mulini')], 'advice')).toContain(
+      'Tempi di attesa non disponibili',
+    );
 
+    // The leaf current card stays on the unknown tone without a reading.
     const leaf = partialPages[buildOggiPath('it', 'crociale-dei-mulini')];
     const currentStatusMarker = 'aria-labelledby=currentStatus';
     const currentCard = leaf.slice(
@@ -369,11 +506,47 @@ describe('borderWaitPagesPlugin — page generation', () => {
     );
     expect(currentCard).toContain('background:var(--color-surface-alt)');
     expect(currentCard).not.toContain('background:var(--color-success-subtle)');
+  }, 30_000);
+
+  it('keeps the unavailable banner for a hub with no reading at all', () => {
+    // MINIMAL_CURRENT only has Ticino readings: the Geneva corridor has none.
+    const shown = swapOut(pages[buildRegionalHubPath('it', 'geneve-francia')], 'hub');
+    expect(shown).toContain('Tempi di attesa non disponibili');
+    expect(shown).not.toContain('Traffico fluido');
+  });
+
+  it('ships every live variant as an inert template that the word gate ignores', () => {
+    const root = pages[buildRootHubPath('it')];
+    for (const state of ['fastest', 'fluid', 'fluid-measured', 'unavailable']) {
+      expect(root).toMatch(new RegExp(`<template data-bw-state=["']?${state}["' >]`));
+    }
+    const leaf = pages[buildOggiPath('it', 'chiasso-brogeda')];
+    for (const state of ['ok', 'warn', 'bad', 'unavailable']) {
+      expect(leaf).toMatch(new RegExp(`<template data-bw-state=["']?${state}["' >]`));
+    }
+    expect(countHtmlBodyWords(root)).toBe(countHtmlBodyWords(root.replace(/<template[\s\S]*?<\/template>/g, '')));
+    expect(countHtmlBodyWords('<p>uno due</p><template><p>tre quattro cinque</p></template>')).toBe(2);
   });
 
   it('leaf pages without history show the "storico in accumulo" notice', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     expect(html).toContain('Storico in accumulo');
+  });
+
+  it('keeps the Italian Gaggiolo leaf concise and keyword-aligned', () => {
+    const html = pages[buildOggiPath('it', 'gaggiolo')];
+    const paragraphCount = (html.match(/<p(?:\s|>)/g) || []).length;
+
+    expect(html).toContain(
+      '>Tempi di attesa dogana Gaggiolo (Cantello-Stabio): coda live oggi</h1>',
+    );
+    expect(html).toContain('coda live');
+    expect(html).toContain('webcam');
+    expect(html).toContain('frontalieri');
+    expect(html).not.toContain('Nuovo Accordo Fiscale Italia–Svizzera');
+    expect((html.match(/<h2(?:\s|>)/g) || []).length).toBeLessThanOrEqual(7);
+    expect((html.match(/<h3(?:\s|>)/g) || []).length).toBeLessThanOrEqual(3);
+    expect(paragraphCount).toBeLessThanOrEqual(30);
   });
 
   it('every locale has a root hub, every regional hub, and every crossing leaf', () => {
@@ -430,5 +603,42 @@ describe('borderWaitPagesPlugin — archives', () => {
     expect(Object.keys(archives).length).toBe(4 * TOP_5_CROSSINGS.length);
     expect(archives['/traffico-dogane/chiasso-brogeda/2026-03/']).toBeDefined();
     expect(archives['/traffico-dogane/chiasso-brogeda/2026-04/']).toBeUndefined();
+  });
+
+  it('links each indexable archive sitemap URL from its matching crossing leaf', () => {
+    const today = new Date('2026-04-21T06:00:00.000Z');
+    const indexableArchiveHtml = `<html><head><meta name="robots" content="index,follow"></head><body>${'archive '.repeat(80)}</body></html>`;
+    const archives = Object.fromEntries(
+      BORDER_WAIT_LOCALES.flatMap((locale) => TOP_5_CROSSINGS.map((crossing) => [
+        buildArchivePath(locale, crossing, '2026-03'),
+        indexableArchiveHtml,
+      ])),
+    );
+    const noindexPath = buildArchivePath('it', 'chiasso-brogeda', '2026-02');
+    const archivePages = {
+      ...archives,
+      [noindexPath]: `<html><head><meta name="robots" content="noindex,follow"></head><body>${'archive '.repeat(80)}</body></html>`,
+    };
+    const pages = generateBorderWaitPages({
+      current: MINIMAL_CURRENT,
+      history: [],
+      archivePages,
+      today,
+    });
+
+    let linkedSitemapArchives = 0;
+    for (const locale of BORDER_WAIT_LOCALES) {
+      for (const crossing of TOP_5_CROSSINGS) {
+        const archivePath = buildArchivePath(locale, crossing, '2026-03');
+        const archiveHtml = archivePages[archivePath];
+        if (!archiveHtml || countHtmlBodyWords(archiveHtml) < MIN_INDEXABLE_WORDS || !htmlHasIndexableRobots(archiveHtml)) {
+          continue;
+        }
+        expect(pages[buildOggiPath(locale, crossing)]).toContain(`href="${archivePath}"`);
+        linkedSitemapArchives++;
+      }
+    }
+    expect(linkedSitemapArchives).toBeGreaterThan(0);
+    expect(pages[buildOggiPath('it', 'chiasso-brogeda')]).not.toContain(noindexPath);
   });
 });

@@ -15,12 +15,56 @@
 
 import { JSDOM } from 'jsdom';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { sourceLocaleDescription } from './source-locale-description.mjs';
 
 const NCORE_HOST = 'app.ncoreplat.com';
 const NCORE_BASE_URL = `https://${NCORE_HOST}`;
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function decodeNcoreMarkup(value = '') {
+  return String(value || '')
+    .replace(/\\u002f/gi, '/')
+    .replace(/\\\//g, '/')
+    .replace(/\\u0026/gi, '&')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;|&#34;|&#x22;/gi, '"')
+    .replace(/&#x2f;|&#47;/gi, '/');
+}
+
+function canonicalNcoreDetailUrl(value = '') {
+  let url;
+  try {
+    url = new URL(decodeNcoreMarkup(value), NCORE_BASE_URL);
+  } catch {
+    return null;
+  }
+  if (url.protocol !== 'https:' || url.hostname.toLowerCase() !== NCORE_HOST) return null;
+  if (!/^\/jobposition\/[1-9]\d*\/[^/?#]+(?:\/[^/?#]+)?\/?$/i.test(url.pathname)) return null;
+  return url.href;
+}
+
+function extractEmbeddedNcoreDetailUrls(html = '') {
+  const source = decodeNcoreMarkup(html);
+  const routePattern = /(?<![A-Za-z0-9._-])(?:https:\/\/app\.ncoreplat\.com)?\/jobposition\/[1-9]\d*\/[^/?#"'<>\\\s,}\]]+(?:\/[^/?#"'<>\\\s,}\]]+)?/gi;
+  const urls = new Set();
+  for (const match of source.matchAll(routePattern)) {
+    const canonical = canonicalNcoreDetailUrl(match[0]);
+    if (canonical) urls.add(canonical);
+  }
+  return [...urls];
+}
+
+function titleFromNcoreDetailUrl(url) {
+  try {
+    const segments = new URL(url).pathname.split('/').filter(Boolean);
+    const slug = decodeURIComponent(segments[2] || '');
+    return normalizeSpace(slug.replace(/[-_]+/g, ' '));
+  } catch {
+    return '';
+  }
 }
 
 function stripTags(html = '') {
@@ -57,6 +101,54 @@ export function slugify(value = '', suffix = '') {
 export const MIN_DESC_LENGTH = 100;
 
 /**
+ * Description fields of one posting: the NCore detail body (the whole ad), or
+ * the listing snippet when the detail page yielded less — in its own language.
+ *
+ * The runner used to prefix the body with a line of its own ("<title> —
+ * Sintetica SA, Mendrisio (TI).") and, when the body was shorter than
+ * MIN_DESC_LENGTH, to publish "<title> — posizione aperta presso Sintetica SA
+ * al sito di … Sintetica SA è un'azienda farmaceutica svizzera …" instead of
+ * the posting; NCore publishes neither. A posting without text gets no
+ * description and takes the pipeline's thin-source path.
+ *
+ * @param {{ detailBody?: string, snippet?: string }} source
+ */
+export function buildSinteticaDescriptionFields({ detailBody = '', snippet = '' } = {}) {
+  const [text = ''] = [detailBody, snippet]
+    .map((value) => String(value || '').trim())
+    .sort((a, b) => b.length - a.length);
+  return sourceLocaleDescription(text, { defaultLang: 'en' });
+}
+
+// Fossils of the former builder in stored jobs: the header line in front of
+// the body, or the substituted company sentence.
+const SINTETICA_HEADER_RE = /^[^\n]{1,300}? — Sintetica SA, [^\n]{1,80}? \([A-Z]{2}\)\.\s*/;
+const SINTETICA_FALLBACK_RE = /— posizione aperta presso Sintetica SA al sito di /;
+
+/**
+ * Remove the former builder's text from a stored job. Every locale slot was
+ * written from (or translated from) the prefixed text, and the merge keeps
+ * non-source slots, so all slots are dropped and rebuilt by the translation
+ * step; the description keeps only the posting body (nothing, when it was the
+ * substituted sentence).
+ *
+ * @returns {boolean} true when the job carried the former text.
+ */
+export function dropSinteticaFabricatedText(job) {
+  if (!job || typeof job !== 'object') return false;
+  const texts = [job.description, ...Object.values(job.descriptionByLocale || {})].map((t) => String(t || '').trim());
+  if (!texts.some((t) => SINTETICA_HEADER_RE.test(t) || SINTETICA_FALLBACK_RE.test(t))) return false;
+  const description = String(job.description || '').trim();
+  const body = SINTETICA_FALLBACK_RE.test(description) ? '' : description.replace(SINTETICA_HEADER_RE, '').trim();
+  const source = sourceLocaleDescription(body, { defaultLang: 'en' });
+  job.description = source.description;
+  job.descriptionByLocale = source.description ? source.descriptionByLocale : {};
+  if (source.description) job.sourceLang = source.sourceLang;
+  job.needsRetranslation = true;
+  return true;
+}
+
+/**
  * Parse the NCore Platform listing page.
  * Returns an array of { id, title, url, snippet } objects.
  *
@@ -71,19 +163,23 @@ export function parseListingPage(html = '') {
   const jobs = [];
   const seen = new Set();
 
+  const addListing = (href, { title = '', snippet = '' } = {}) => {
+    const absoluteUrl = canonicalNcoreDetailUrl(href);
+    if (!absoluteUrl) return;
+    const match = new URL(absoluteUrl).pathname.match(/\/jobposition\/([1-9]\d*)\//i);
+    if (!match || seen.has(match[1])) return;
+
+    const resolvedTitle = normalizeSpace(title) || titleFromNcoreDetailUrl(absoluteUrl);
+    if (!resolvedTitle || /candidati|apply|postuler/i.test(resolvedTitle)) return;
+
+    seen.add(match[1]);
+    jobs.push({ id: match[1], title: resolvedTitle, url: absoluteUrl, snippet: normalizeSpace(snippet) });
+  };
+
   // Find all links to job positions
   const links = document.querySelectorAll('a[href*="/jobposition/"]');
   for (const link of links) {
     const href = link.getAttribute('href') || '';
-    const match = href.match(/\/jobposition\/(\d+)\//);
-    if (!match) continue;
-    const id = match[1];
-    if (seen.has(id)) continue;
-    seen.add(id);
-
-    const absoluteUrl = href.startsWith('http')
-      ? href
-      : `${NCORE_BASE_URL}${href}`;
 
     // Find the title from the nearest h3 or the preceding heading
     let title = '';
@@ -115,11 +211,14 @@ export function parseListingPage(html = '') {
       }
     }
 
-    // Skip if the title is a generic button text
-    if (!title || /candidati|apply|postuler/i.test(title)) continue;
-
-    jobs.push({ id, title, url: absoluteUrl, snippet });
+    addListing(href, { title, snippet });
   }
+
+  // Filter boards can embed the listing state as JSON or data attributes rather
+  // than materialising each position as an <a href>. Recover only validated
+  // NCore detail routes; tenant-specific adapters still apply their own
+  // allowlists before trusting a URL.
+  for (const url of extractEmbeddedNcoreDetailUrls(html)) addListing(url);
 
   return jobs;
 }

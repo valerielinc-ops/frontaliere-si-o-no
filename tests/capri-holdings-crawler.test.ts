@@ -4,6 +4,8 @@
  * Tests parseCapriHoldingsDetailPage(), isCapriHoldingsSwissJob(),
  * isCapriHoldingsJob(), and CAPRI_WORKDAY_HOSTS constants.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { afterEach, describe, it, expect, vi } from 'vitest';
 
 import {
@@ -11,14 +13,18 @@ import {
   isCapriHoldingsSwissJob,
   isCapriHoldingsJob,
   CAPRI_WORKDAY_HOSTS,
+  WORKDAY_SITES,
 } from '@/scripts/lib/capri-holdings-job-parser.mjs';
 import {
+  fetchCapriHoldingsJobs,
   assertWorkdayPage,
   assertUniqueWorkdayPostings,
   listSwissJobs,
   isSwissWorkdayListing,
   resolveWorkdayCity,
   resolveWorkdayLocation,
+  buildCapriDescriptionFields,
+  dropCapriFabricatedText,
 } from '../scripts/update-capri-holdings-jobs.mjs';
 import { resolveSwissStructuredAddress } from '../scripts/lib/swiss-structured-address.mjs';
 
@@ -170,7 +176,7 @@ describe('Capri Workday location resolution', () => {
     })).toThrow(/repeated posting identity/);
   });
 
-  it('fails closed when Workday repeats a full page instead of advancing', async () => {
+  it('fails closed after bounded restarts when Workday repeats a full page', async () => {
     const page = {
       total: 40,
       jobPostings: Array.from({ length: 20 }, (_, index) => ({
@@ -184,7 +190,7 @@ describe('Capri Workday location resolution', () => {
 
     await expect(listSwissJobs('Michael_Kors', 'Michael Kors'))
       .rejects.toThrow(/repeated posting identity/);
-    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledTimes(6);
   });
 
   it('fails closed when Workday changes the total between pages', async () => {
@@ -206,16 +212,102 @@ describe('Capri Workday location resolution', () => {
         })),
       },
     ];
-    let pageIndex = 0;
-    const fetchMock = vi.fn(async () => {
-      const page = pages[Math.min(pageIndex++, pages.length - 1)];
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset } = JSON.parse(options.body);
+      const page = pages[offset === 0 ? 0 : 1];
       return new Response(JSON.stringify(page), { status: 200 });
     });
     vi.stubGlobal('fetch', fetchMock);
 
     await expect(listSwissJobs('Michael_Kors', 'Michael Kors'))
       .rejects.toThrow(/changed its total/);
-    expect(fetchMock).toHaveBeenCalledTimes(4);
+    expect(fetchMock).toHaveBeenCalledTimes(12);
+  });
+
+  it('restarts the whole query when page retries cannot establish one snapshot', async () => {
+    const firstPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/restart-first-${index + 1}`,
+        title: `Restart first role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    const secondPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/restart-second-${index + 1}`,
+        title: `Restart second role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    let queryFirstPages = 0;
+    let offset20Attempts = 0;
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset, searchText } = JSON.parse(options.body);
+      if (searchText !== 'Switzerland') {
+        return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+      }
+      if (offset === 0) {
+        queryFirstPages += 1;
+        return new Response(JSON.stringify(firstPage), { status: 200 });
+      }
+      offset20Attempts += 1;
+      const page = offset20Attempts <= 3
+        ? { total: 41, jobPostings: secondPage.jobPostings }
+        : secondPage;
+      return new Response(JSON.stringify(page), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await listSwissJobs('Michael_Kors', 'Michael Kors');
+
+    expect(jobs).toHaveLength(40);
+    expect(queryFirstPages).toBe(2);
+    expect(offset20Attempts).toBe(4);
+  });
+
+  it('restarts the whole query when a page repeats the prior offset', async () => {
+    const firstPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/repeated-first-${index + 1}`,
+        title: `Repeated first role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    const secondPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/repeated-second-${index + 1}`,
+        title: `Repeated second role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    let queryFirstPages = 0;
+    let offset20Attempts = 0;
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset, searchText } = JSON.parse(options.body);
+      if (searchText !== 'Switzerland') {
+        return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+      }
+      if (offset === 0) {
+        queryFirstPages += 1;
+        return new Response(JSON.stringify(firstPage), { status: 200 });
+      }
+      offset20Attempts += 1;
+      return new Response(
+        JSON.stringify(offset20Attempts === 1 ? firstPage : secondPage),
+        { status: 200 },
+      );
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await listSwissJobs('Michael_Kors', 'Michael Kors');
+
+    expect(jobs).toHaveLength(40);
+    expect(queryFirstPages).toBe(2);
+    expect(offset20Attempts).toBe(2);
   });
 
   it('keeps a non-empty later page when Workday repeats its offset-zero bug', async () => {
@@ -256,6 +348,62 @@ describe('Capri Workday location resolution', () => {
 
     expect(jobs).toHaveLength(40);
     expect(offset20Attempts).toBe(1);
+  });
+});
+
+describe('Capri Workday brand sites', () => {
+  // Versace's site on the capri tenant answers 403 S22 since the 2026-10-01
+  // runs (corpus runs 36842478998, 36928432579) and failed the whole crawler.
+  it('never queries the decommissioned Versace site', async () => {
+    const requested: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      requested.push(String(url));
+      if (String(url).includes('/Versace/')) {
+        return new Response(
+          JSON.stringify({ errorCode: 'S22', httpStatus: 403, message: 'permission denied' }),
+          { status: 403 },
+        );
+      }
+      return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+    }));
+
+    await expect(fetchCapriHoldingsJobs()).resolves.toEqual([]);
+
+    expect(WORKDAY_SITES.map((entry) => entry.site)).toEqual(['Michael_Kors']);
+    expect(requested.length).toBeGreaterThan(0);
+    expect(requested.every((url) => url.includes('/Michael_Kors/'))).toBe(true);
+  });
+
+  it('propagates the successful Workday listing observation time', async () => {
+    const observedAt = new Date('2026-10-13T10:25:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(observedAt);
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Warehouse Operator',
+            externalPath: '/job/Mendrisio/Warehouse-Operator_R1',
+            locationsText: 'Mendrisio, Switzerland',
+            bulletFields: ['Mendrisio'],
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: {
+          title: 'Warehouse Operator',
+          location: 'Mendrisio, Switzerland',
+          country: { alpha2Code: 'CH', descriptor: 'Switzerland' },
+          jobDescription: Array(8).fill('Warehouse operations and stock handling responsibilities in the Swiss logistics centre.').join(' '),
+          timeType: 'Full time',
+        },
+      }), { status: 200 });
+    }));
+
+    const [job] = await fetchCapriHoldingsJobs();
+
+    expect(job.crawledAt).toBe(observedAt.toISOString());
   });
 });
 
@@ -328,6 +476,14 @@ describe('parseCapriHoldingsDetailPage', () => {
     const result = parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML);
     expect(result).not.toBeNull();
     expect(result.title).toBe('Warehouse Operator');
+  });
+
+  it('propagates only an explicit detail-page observation time', () => {
+    const observedAt = new Date('2026-10-13T10:30:00.000Z');
+    expect(parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML, observedAt)?.crawledAt)
+      .toBe(observedAt.toISOString());
+    expect(parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML, observedAt.toISOString()))
+      .not.toHaveProperty('crawledAt');
   });
 
   it('extracts location from JSON-LD', () => {
@@ -424,5 +580,47 @@ describe('CAPRI_WORKDAY_HOSTS', () => {
 
   it('includes capriholdings Workday host', () => {
     expect(CAPRI_WORKDAY_HOSTS).toContain('capriholdings.wd1.myworkdayjobs.com');
+  });
+});
+
+// Fixture: the start of a live Workday `jobDescription` (Michael Kors Landquart, 2026-09-29).
+describe('Capri description fields', () => {
+  const text = fs.readFileSync(path.join(__dirname, 'fixtures', 'capri-holdings', 'workday-description-landquart.txt'), 'utf8').trim();
+
+  it('publishes the Workday text alone, without an Italian company blurb', () => {
+    const fields = buildCapriDescriptionFields('Store Manager, Landquart', text, 'Michael Kors', 'Landquart');
+    expect(fields.description).toBe(text);
+    expect(fields.descriptionByLocale).toEqual({ en: text });
+  });
+
+  it('removes the fabricated Italian blurb from a stored job', () => {
+    const job: any = {
+      sourceLang: 'en',
+      descriptionByLocale: {
+        en: text,
+        it: "Posizione aperta presso Michael Kors (Capri Holdings) a Landquart.\nRuolo: Store Manager, Landquart.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo.",
+        de: 'Michael Kors ist immer daran interessiert …',
+      },
+    };
+    expect(dropCapriFabricatedText(job)).toBe(true);
+    expect(Object.keys(job.descriptionByLocale).sort()).toEqual(['de', 'en']);
+    expect(job.needsRetranslation).toBe(true);
+  });
+});
+
+describe('Capri Holdings: il nome mostrato è il marchio Michael Kors (owner 2026-10-03)', () => {
+  it('pubblica i job come Michael Kors e il vecchio nome porta allo stesso hub', async () => {
+    const { readFileSync } = await import('node:fs');
+    const source = readFileSync('scripts/update-capri-holdings-jobs.mjs', 'utf8');
+    expect(source).toContain("const CAPRI_COMPANY_NAME = 'Michael Kors';");
+
+    const { canonicalCompanyProfileSlug, companyDisplayIdentityKeys } = await import('../build-plugins/shared/companyProfileSlug.mjs');
+    const { isBrandAlias } = await import('../build-plugins/shared/brandCanonicalMap.mjs');
+    expect(canonicalCompanyProfileSlug('Michael Kors', 'capri-holdings')).toBe('michael-kors');
+    // L'hub e il profilo già pubblicati col vecchio nome diventano un ponte,
+    // e chi segue l'azienda col vecchio nome resta sulla stessa identità.
+    expect(isBrandAlias('capri-holdings-michael-kors-versace')).toBe(true);
+    expect(canonicalCompanyProfileSlug('Capri Holdings (Michael Kors / Versace)', 'capri-holdings')).toBe('michael-kors');
+    expect(companyDisplayIdentityKeys('Capri Holdings (Michael Kors / Versace)')).toEqual(['michael-kors']);
   });
 });

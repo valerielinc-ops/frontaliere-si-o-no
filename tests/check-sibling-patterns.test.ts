@@ -25,7 +25,11 @@
  * before a `writeJson`/`writeFileSync` persists it, reimplemented per-script
  * with no shared token (see worked example in the script's registry doc).
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+import { execFileSync } from 'node:child_process';
+import { mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { dirname, join, resolve } from 'node:path';
 import {
   extractTokens,
   extractRemovedExpressions,
@@ -126,6 +130,38 @@ describe('extractRemovedExpressions — verbatim removed-line detection (issue #
     const exprs = extractRemovedExpressions(diff);
     expect(exprs).not.toContain("if (!html || typeof html !== 'string') return ''");
     expect([...exprs].some((e) => e.includes('fetchWorkdayJobDescriptionText'))).toBe(true);
+  });
+
+  it('filters bare declaration headers but keeps complete function behavior', () => {
+    expect(extractRemovedExpressions('-function readDescription(value) {').size).toBe(0);
+    expect(extractRemovedExpressions('-async function readDescription(value) {').size).toBe(0);
+    expect(extractRemovedExpressions('-function readDescription(value) { return value.description; }').size).toBe(1);
+  });
+
+  it.each(['export async function foo() {', 'export default function foo() {', 'export default async function foo() {', 'export default async function() {', 'function readDescription({ title, description }) {', 'async function* readDescriptions<T>(value: T) {'])(
+    'recognizes a declaration header with modifiers: %s', (header) => {
+      expect(isGenericRemovedExpression(header)).toBe(true);
+      expect(extractRemovedExpressions(`-${header}`).size).toBe(0);
+    },
+  );
+
+  it('keeps default-argument behavior and incomplete signatures', () => {
+    expect(isGenericRemovedExpression('function readDescription(value = loadDescription()) {')).toBe(false);
+    expect(isGenericRemovedExpression('function readDescription(value, {')).toBe(false);
+  });
+
+  it('filters identity-return idioms without a variable-name allowlist', () => {
+    expect(extractRemovedExpressions('-if (direct) return direct;\n-if (cachedValue) return cachedValue;')).toEqual(new Set());
+    expect(extractRemovedExpressions('-if (direct) return fallbackValue;').size).toBe(1);
+  });
+
+  it('filters only resolved infrastructure block openers, retaining semantic guards', () => {
+    const externalCalls = new Set(['ts.isCallExpression(node)', 'Buffer.isBuffer(input)']);
+    expect(extractRemovedExpressions('-if (ts.isCallExpression(node)) {', { externalCalls }).size).toBe(0);
+    expect(extractRemovedExpressions('-if (Buffer.isBuffer(input)) {', { externalCalls }).size).toBe(0);
+    expect(extractRemovedExpressions('-if (ts.isCallExpression(node)) {').size).toBe(1);
+    expect(extractRemovedExpressions('-if (Buffer.isBuffer(input) && invalidDomain) {', { externalCalls }).size).toBe(1);
+    expect(extractRemovedExpressions('-if (Buffer.isBuffer(input)) return domainFallback;', { externalCalls }).size).toBe(1);
   });
 
   it('strips trailing comma before storing', () => {
@@ -513,4 +549,125 @@ describe('candidateStrength', () => {
     expect(candidateStrength([])).toBe('debole');
     expect(candidateStrength(undefined as unknown as string[])).toBe('debole');
   });
+});
+
+/**
+ * Snapshot `--head` e symlink (PR #10392). Nel repository 28 symlink delle
+ * CODE_DIRS puntano a `packages/articles/**`, fuori dallo snapshot. Con
+ * `git archive` + `tar` restavano pendenti e non venivano letti; scritti come
+ * file dal trasporto `cat-file`, il loro path entrava nel pass lessicale:
+ * `blog-body-ch` compare in 15 file reali e il symlink `services/locales/
+ * blog-body-ch` lo portava a 16, oltre MAX_FILES, scartando tutti i candidati.
+ * Il fixture riproduce quella forma: un literal kebab condiviso da 15 file e
+ * contenuto nel path di destinazione di un symlink.
+ */
+describe('snapshot --head: un symlink non è codice da cercare', () => {
+  const SCRIPT = resolve(import.meta.dirname, '..', 'scripts/ci/check-sibling-patterns.mjs');
+  const SLUG = 'crowded-shared-slug';
+  const SIBLINGS = 14; // + il file cambiato = 15 = MAX_FILES
+  let repo = '';
+  let result: { candidates: Array<{ file: string; tokens: string[] }> };
+
+  beforeAll(() => {
+    repo = mkdtempSync(join(tmpdir(), 'sibling-patterns-symlink-'));
+    const git = (...args: string[]) => execFileSync('git', args, { cwd: repo, stdio: 'ignore' });
+    const write = (rel: string, body: string) => {
+      mkdirSync(dirname(join(repo, rel)), { recursive: true });
+      writeFileSync(join(repo, rel), body, 'utf8');
+    };
+
+    git('init', '-q', '-b', 'main');
+    git('config', 'user.email', 'test@example.com');
+    git('config', 'user.name', 'test');
+    git('config', 'core.symlinks', 'true');
+    write('scripts/changed.mjs', "export const base = 'base';\n");
+    for (let i = 0; i < SIBLINGS; i++) write(`scripts/crowded-${i}.mjs`, `export const slug = '${SLUG}';\n`);
+    // Come services/locales/blog-body-ch: destinazione fuori dalle CODE_DIRS,
+    // con il literal nel testo del path.
+    symlinkSync(`../packages/${SLUG}/index.mjs`, join(repo, 'scripts/linked-target.mjs'));
+    git('add', '-A');
+    git('commit', '-q', '-m', 'base');
+    git('update-ref', 'refs/remotes/origin/main', 'HEAD');
+
+    git('checkout', '-q', '-b', 'feature');
+    write('scripts/changed.mjs', `export const base = 'base';\nexport const slug = '${SLUG}';\n`);
+    git('add', 'scripts/changed.mjs');
+    git('commit', '-q', '-m', 'feature');
+
+    result = JSON.parse(
+      execFileSync('node', [SCRIPT, '--json', '--head', 'feature'], {
+        cwd: repo,
+        encoding: 'utf8',
+        stdio: ['pipe', 'pipe', 'ignore'],
+        env: { ...process.env, CHECK_SIBLING_PATTERNS_CACHE: '0' },
+      }),
+    );
+  }, 60_000);
+  afterAll(() => {
+    if (repo) rmSync(repo, { recursive: true, force: true });
+  });
+
+  it('un symlink non spinge un token oltre MAX_FILES', () => {
+    const crowded = result.candidates.filter((c) => c.tokens.includes(SLUG));
+    expect(crowded).toHaveLength(SIBLINGS);
+  });
+
+  it('il path di un symlink non diventa un candidato', () => {
+    const files = result.candidates.map((c) => c.file);
+    expect(files).toContain('scripts/crowded-0.mjs');
+    expect(files).not.toContain('scripts/linked-target.mjs');
+  });
+});
+
+
+describe('runtime noise versus project evidence (CLI)', () => {
+  it('rejects API/import/name coincidences and still finds a real unfixed expression', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'sibling-evidence-'));
+    const git = (...args: string[]) => execFileSync('git', args, { cwd: repo, stdio: 'ignore' });
+    const write = (name: string, body: string) => {
+      mkdirSync(dirname(join(repo, name)), { recursive: true });
+      writeFileSync(join(repo, name), body);
+    };
+    try {
+      git('init', '-q', '-b', 'main');
+      git('config', 'user.email', 'test@example.com');
+      git('config', 'user.name', 'test');
+      write('scripts/shared.mjs', 'export function normalizeText(value) { return value; }');
+      write('scripts/provider.mjs', 'export function guardSession() { return false; }');
+      write('scripts/other.mjs', 'export function guardSession() { return false; }');
+      write('scripts/alias-consumer.mjs', "import { guardSession as runGuard } from './provider.mjs'; runGuard();");
+      write('scripts/alias-noise.mjs', "import { guardSession as runGuard } from './other.mjs'; runGuard();");
+      write('scripts/api-noise.mjs', 'const raw = Buffer.isBuffer(input);');
+      const guard = 'function decode(input) {\nif (Buffer.isBuffer(input)) {\nreturn input;\n}\n}';
+      write('scripts/runtime-refactor.mjs', guard);
+      write('scripts/guard-noise.mjs', guard);
+      write('scripts/fallback-noise.mjs', 'function lookup(direct) {\nif (direct) return direct;\n}');
+      write('scripts/import-noise.mjs', "import { normalizeText } from './shared.mjs';");
+      write('scripts/name-noise.mjs', 'export function readZipEntry(input) { return input; }');
+      write('scripts/changed.mjs', 'const result = { description: copy.description };');
+      write('scripts/real-sibling.mjs', 'const result = { description: copy.description };');
+      git('add', '.'); git('commit', '-qm', 'base');
+      git('update-ref', 'refs/remotes/origin/main', 'HEAD');
+      write('scripts/changed.mjs', 'const result = { description: sanitize(copy.description) };');
+      write('scripts/runtime-refactor.mjs', 'function decode(input) { return input; }');
+      write('scripts/provider.mjs', 'export function guardSession() { return true; }');
+      write('scripts/new.mjs', [
+        "import { normalizeText } from './shared.mjs';",
+        'export function readZipEntry(input) { return Buffer.isBuffer(input); }',
+      ].join('\n'));
+      git('add', '.'); git('commit', '-qm', 'feature');
+      const script = resolve(import.meta.dirname, '..', 'scripts/ci/check-sibling-patterns.mjs');
+      for (const args of [[], ['--head', 'HEAD']]) {
+        const result = JSON.parse(execFileSync('node', [script, '--json', ...args], {
+          cwd: repo, encoding: 'utf8', env: { ...process.env, CHECK_SIBLING_PATTERNS_CACHE: '0' },
+        }));
+        expect(result.candidates.map((candidate: { file: string }) => candidate.file))
+          .toEqual(['scripts/alias-consumer.mjs', 'scripts/real-sibling.mjs']);
+        expect(result.candidates[0].tokens).toContain('graph:scripts/provider.mjs#guardSession');
+        expect(result.candidates[1].tokens.some((token: string) => token.startsWith('removed:'))).toBe(true);
+      }
+    } finally {
+      rmSync(repo, { recursive: true, force: true });
+    }
+  }, 60_000);
 });

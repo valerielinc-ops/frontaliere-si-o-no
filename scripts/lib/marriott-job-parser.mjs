@@ -20,11 +20,13 @@
  *
  * Source: https://careers.marriott.com/jobs?country=Switzerland
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -340,6 +342,10 @@ function buildJobFromApi(listing) {
   // structure so the parser-quality audit can detect line-start bullets.
   const descriptionHtml = listing.description || '';
   const descriptionText = normalizeDescriptionBullets(stripHtml(descriptionHtml));
+  // Only the posting's own text is published (issue 5253): a listing without
+  // a description used to go out as "{title} — Marriott International"; no
+  // job is built from it any more.
+  if (!meetsSourceBodyFloor(descriptionText)) return null;
 
   // Job field from custom fields
   const jobField = getCustomField(listing.customFields, 'cf_jobfield') ||
@@ -358,7 +364,7 @@ function buildJobFromApi(listing) {
   const jobSlug = slugify(`${title} ${MARRIOTT_KEY} ${locationForSlug}`);
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-  // Posted date from custom field or fallback to today
+  // Publication deadline is separate from the unverified publication date.
   const publishEndDate = getCustomField(listing.customFields, 'cf_publish_job_end_date') ||
     getCustomField(listing.customFields, 'Publish Job End Date');
 
@@ -372,9 +378,9 @@ function buildJobFromApi(listing) {
     companyDomain: MARRIOTT_COMPANY_DOMAIN,
     title,
     titleByLocale: { [sourceLang]: title },
-    description: descriptionText || `${title} — ${MARRIOTT_COMPANY_NAME}`,
+    description: descriptionText,
     descriptionByLocale: {
-      [sourceLang]: descriptionText || `${title} — ${MARRIOTT_COMPANY_NAME}`,
+      [sourceLang]: descriptionText,
     },
     location,
     canton,
@@ -398,7 +404,8 @@ function buildJobFromApi(listing) {
     sector: 'Hôtellerie / Hospitality',
     currency: 'CHF',
     featured: false,
-    postedDate: new Date().toISOString().split('T')[0],
+    // This Paradox payload has no verified publication contract; creation/start are not substitutes.
+    ...sourcePostingDateFields(),
     applyUrl: isMarriottOracleApplyUrl(listing.applyURL) ? publicUrl : (listing.applyURL || publicUrl),
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
@@ -439,7 +446,7 @@ export async function fetchAllMarriottJobs() {
   for (const listing of listings) {
     const job = buildJobFromApi(listing);
     if (!job) {
-      console.warn(`  ⚠️ Skipping listing — title too short or missing.`);
+      console.warn(`  ⚠️ Skipping listing — title too short or missing, or no vacancy text: ${normalizeSpace(listing.title || '') || '(no title)'}`);
       continue;
     }
     jobs.push(job);

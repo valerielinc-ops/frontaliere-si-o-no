@@ -21,18 +21,21 @@
  * description is fetched from there.
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {
   decodeEntities,
   fetchHtml,
-  htmlToText,
   normalizeSpace,
   detectHealthcareCategory,
   detectHealthcareEmploymentType,
   detectHealthcareExperienceLevel,
 } from './hospital-custom-html-helpers.mjs';
 import { fetchPastaHrWidgetPage, PASTAHR_ENDPOINT } from './pastahr-widget-client.mjs';
+import { extractPublicjobsDetailDescription } from './publicjobs-detail-description.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -128,44 +131,26 @@ async function fetchAllPastaHrJobs() {
   return all;
 }
 
-/* ── Date helper ──────────────────────────────────────────── */
-
-function parseSwissDate(raw = '') {
-  const trimmed = String(raw || '').trim().replace(/^1(\d{2}\.)/, '$1');
-  const m = trimmed.match(/^(\d{1,2})\.(\d{1,2})\.(\d{2,4})$/);
-  if (!m) return null;
-  const dd = m[1].padStart(2, '0');
-  const mm = m[2].padStart(2, '0');
-  const yyyy = m[3].length === 2 ? `20${m[3]}` : m[3];
-  return `${yyyy}-${mm}-${dd}`;
-}
-
 /* ── Detail fetcher ──────────────────────────────────────── */
 
 async function fetchPublicJobsDetail(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return '';
-    const noScripts = String(html)
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '');
-    const candidateBlocks = [];
-    const blockRe = /<(?:article|main|section|div)[^>]*(?:id|class)="[^"]*(?:job|content|main|description|inserat|stellen)[^"]*"[^>]*>([\s\S]*?)<\/(?:article|main|section|div)>/gi;
-    let m;
-    while ((m = blockRe.exec(noScripts)) !== null && candidateBlocks.length < 12) {
-      candidateBlocks.push(m[1]);
-    }
-    candidateBlocks.push(noScripts);
-    let best = '';
-    for (const blk of candidateBlocks) {
-      const text = htmlToText(blk);
-      if (text.length > best.length) best = text;
-      if (best.length > 1200) break;
-    }
-    return normalizeSpace(best).slice(0, 6000);
+    if (!html) return { description: '' };
+    const posting = extractJobPostingLd(html);
+    const identities = [posting?.url, posting?.sameAs].flat().filter((value) => value != null);
+    const sameVacancy = identities.length > 0 && identities.every((value) => {
+      if (typeof value !== 'string' || !value.trim()) return false;
+      try { return new URL(value, detailUrl).href === new URL(detailUrl).href; }
+      catch { return false; }
+    });
+    return {
+      description: extractPublicjobsDetailDescription(html),
+      ...sourcePostingDateFields(sameVacancy ? posting?.datePosted : ''),
+    };
   } catch (err) {
     console.warn(`  ⚠️ IGS Bern detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return '';
+    return { description: '' };
   }
 }
 
@@ -227,14 +212,13 @@ export async function fetchAllIgsBernJobs() {
     const employmentType = detectHealthcareEmploymentType(title);
     const contract = pensum && pensum.max < 80 ? 'part-time' : 'full-time';
 
-    const postedDate = parseSwissDate(row?.job_booking_start || '')
-      || new Date().toISOString().split('T')[0];
-
-    const fallbackDesc = `${title} — ${IGS_BERN_COMPANY_NAME}, ${location}. Sozialpsychiatrische Institution in Bern (Soteria Bern und weitere Angebote).`;
-    const detailDescription = await fetchPublicJobsDetail(detailUrl);
-    const description = detailDescription && detailDescription.split(/\s+/).length >= 30
-      ? detailDescription
-      : fallbackDesc;
+    // Booking-window metadata is not proof of the vacancy's publication date.
+    const detail = await fetchPublicJobsDetail(detailUrl);
+    const detailDescription = detail.description;
+    // Only source text (issue 5253): no "<title> — <company>, <place>." stub
+    // in place of a thin body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detailDescription) ? detailDescription : '';
     if (jobs.length > 0) await new Promise((r) => setTimeout(r, 250));
 
     const job = {
@@ -267,7 +251,7 @@ export async function fetchAllIgsBernJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

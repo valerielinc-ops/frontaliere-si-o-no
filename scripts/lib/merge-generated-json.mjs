@@ -1,7 +1,9 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
-import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
+import { readGitBlob } from './read-git-blob.mjs';
 
 function canonical(value) {
   if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
@@ -45,7 +47,7 @@ export function mergeAppendOnlyDocument(current, incoming, arrayField) {
 }
 
 function gitJson(commit, relativePath) {
-  return JSON.parse(execFileSync('git', ['show', `${commit}:${relativePath}`], { encoding: 'utf8' }));
+  return JSON.parse(readGitBlob(commit, relativePath));
 }
 
 function readCurrent(relativePath, fallback) {
@@ -81,4 +83,4 @@ export function main(argv = process.argv.slice(2)) {
   writeFileSync(path, `${JSON.stringify(merged, null, 2)}\n`, 'utf8');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * LIS – Lugano Istituti Sociali — Arca24 ATS parser
@@ -36,9 +37,11 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { crawledAtFromObservation } from './source-crawl-observation.mjs';
 import { locateTagByAttribute, extractBalancedTagBlock, stripInlineJsCode } from './hospital-custom-html-helpers.mjs';
 import { normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import { readMetaContent } from './html-attr.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 
 const HQ = getCompanyDefaults('lis');
 
@@ -59,7 +62,7 @@ export function normalizeSpace(value = '') {
 }
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -67,22 +70,8 @@ export function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&(sol|comma|ndash|NewLine|colo|times|deg|lpar|rpar);/gi, (_, ent) => {
-      const map = {
-        sol: '/', comma: ',', ndash: '\u2013', newline: '\n', colo: ':',
-        times: '\u00d7', deg: '\u00b0', lpar: '(', rpar: ')',
-      };
-      return map[String(ent || '').toLowerCase()] || _;
-    })
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -99,17 +88,7 @@ export function slugify(value = '') {
 }
 
 function decodeHtmlEntities(html = '') {
-  return String(html || '')
-    .replace(/&(sol|comma|ndash|NewLine|colo|times|deg|amp|lt|gt|quot|apos|lpar|rpar);/gi, (_, ent) => {
-      const map = {
-        sol: '/', comma: ',', ndash: '\u2013', newline: '\n', colo: ':',
-        times: '\u00d7', deg: '\u00b0', amp: '&', lt: '<', gt: '>',
-        quot: '"', apos: "'", lpar: '(', rpar: ')',
-      };
-      return map[String(ent || '').toLowerCase()] || _;
-    })
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+  return decodeHTML(String(html || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 function parseArca24Date(raw = '') {
@@ -264,7 +243,8 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   const role = extractItemprop(html, 'occupationalCategory') || '';
 
   // Dates
-  const datePosted = parseArca24Date(extractItemprop(html, 'datePosted'));
+  const rawPublication = extractItemprop(html, 'datePosted');
+  const publication = sourcePostingDateFields(rawPublication.replace(/^(\d{2})\/(\d{2})\/(\d{4})$/, '$3-$2-$1'));
   const validThrough = parseArca24Date(extractItemprop(html, 'validThrough'));
 
   // Description: extract main body content
@@ -325,7 +305,7 @@ export function parseArca24DetailPage(html, pageUrl = '') {
     region: region || 'Ticino',
     sector,
     role,
-    datePosted,
+    ...publication,
     validThrough,
     description,
     salary,
@@ -423,9 +403,12 @@ export async function fetchLisDetailPage(url, { userAgent = DEFAULT_UA, timeoutM
 
 /**
  * Build a job object compatible with the shared crawler pipeline from parsed data.
+ * @param {Date} observedAt capture time after the successful detail response
  */
-export function buildLisJob(url, parsed) {
+export function buildLisJob(url, parsed, observedAt) {
   if (!parsed || !parsed.title) return null;
+  const crawledAt = crawledAtFromObservation(observedAt);
+  if (!crawledAt) return null;
   const slug = slugify(parsed.title);
   if (!slug || slug.length < 3) return null;
 
@@ -442,7 +425,8 @@ export function buildLisJob(url, parsed) {
     postalCode: parsed.location === 'Pregassona' ? '6963' : '6900',
     streetAddress: parsed.streetAddress || 'Via alla Bozzoreda 15',
     description: parsed.description || '',
-    datePosted: parsed.datePosted || new Date().toISOString().split('T')[0],
+    crawledAt,
+    ...mergeSourcePostingDates({}, parsed),
     validThrough: parsed.validThrough || '',
     sector: parsed.sector || '',
     role: parsed.role || '',

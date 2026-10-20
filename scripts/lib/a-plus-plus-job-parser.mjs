@@ -1,6 +1,12 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { decodeHtmlEntities } from './decode-html-entities.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
+import {
+  isExplicitlyOutsideTarget,
+  isLocationExplicitlyForeign,
+} from './dedicated-crawler-common.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -36,14 +42,14 @@ function htmlFragmentToMarkdown(html = '') {
       if (items.length) parts.push(items.join('\n'));
       continue;
     }
-    const text = normalizeSpace(
+    const text = normalizeSpace(decodeHtmlEntities(
       (node.innerHTML || '')
         .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
         .replace(/<\/(?:p|div|li)>/gi, '\n')
         .replace(/<[^>]+>/g, ' ')
         .replace(/&nbsp;/g, ' ')
-    );
+    ));
     if (text) parts.push(text);
   }
 
@@ -54,20 +60,7 @@ function htmlFragmentToMarkdown(html = '') {
  * Try to extract a JobPosting JSON-LD block from the page HTML.
  */
 function extractJobPostingJsonLd(html = '') {
-  const re = /<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let match;
-  while ((match = re.exec(html)) !== null) {
-    try {
-      const data = JSON.parse(match[1]);
-      const items = Array.isArray(data) ? data : [data];
-      for (const item of items) {
-        if (item?.['@type'] === 'JobPosting') return item;
-      }
-    } catch {
-      // malformed JSON — skip
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**
@@ -109,6 +102,88 @@ export function parseAplusListings(html = '') {
 }
 
 /**
+ * Prove that the A++ InRecruiting page explicitly reports a company-wide
+ * empty board. An empty card selection alone is intentionally not enough:
+ * the same result is produced by selector/markup drift or an interstitial.
+ *
+ * The English tenant currently renders the exact message below in a visible
+ * element when there are no vacancies. Require the message to be a standalone
+ * visible element and require no parsed vacancy rows, so a hidden/template
+ * copy cannot retire the stored slice while live cards are present.
+ */
+export function isAplusEmptyListingPage(html = '', listings = parseAplusListings(html)) {
+  if (!Array.isArray(listings) || listings.length > 0) return false;
+
+  const document = new JSDOM(html).window.document;
+  // The tenant can serve the same source board through the English or Italian
+  // locale (including after a locale redirect). Keep the allowlist exact:
+  // generic zero text is still selector drift, not proof of an empty board.
+  const emptyStateRe = /^(?:no vacancies available|nessun annuncio disponibile)[.!]?$/i;
+  const isHidden = (element) => {
+    if (!element || element.closest('script, style, noscript, template')) return true;
+    for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
+      if (ancestor.hasAttribute('hidden') || ancestor.getAttribute('aria-hidden') === 'true') return true;
+      if (ancestor.classList.contains('hidden')) return true;
+      const inlineStyle = ancestor.getAttribute('style') || '';
+      if (/\bdisplay\s*:\s*none\b|\bvisibility\s*:\s*hidden\b/i.test(inlineStyle)) return true;
+    }
+    return false;
+  };
+  const hasVisibleMarker = (value, element) => !isHidden(element) && emptyStateRe.test(normalizeSpace(value));
+
+  // Aggregate only visible text nodes for each ancestor. Using an ancestor's
+  // textContent would include hidden/template copies and could retire valid
+  // source jobs when the live board is not actually empty.
+  const visibleTextByElement = new Map();
+  const walker = document.body
+    ? document.createTreeWalker(document.body, 4 /* NodeFilter.SHOW_TEXT */)
+    : null;
+  for (let node = walker?.nextNode(); node; node = walker.nextNode()) {
+    const parent = node.parentElement;
+    if (!parent || isHidden(parent)) continue;
+    for (let element = parent; element; element = element.parentElement) {
+      visibleTextByElement.set(
+        element,
+        `${visibleTextByElement.get(element) || ''}${node.nodeValue || ''}`
+      );
+    }
+  }
+  for (const [element, value] of visibleTextByElement) {
+    if (hasVisibleMarker(value, element)) return true;
+  }
+  return false;
+}
+
+/**
+ * Classify a parsed listing snapshot before the Swiss-location filter.
+ *
+ * Zero cards is not evidence that the source is empty: it can also indicate
+ * that the InRecruiting markup drifted. A non-empty card set filtered to zero
+ * Swiss rows is a valid empty result that can be published and monitored.
+ */
+export function classifyAplusListings(listings = [], { sourceEmpty = false } = {}) {
+  const rows = Array.isArray(listings) ? listings : [];
+  const swissListings = rows.filter((row) => isAplusSwissLocation(row.location));
+  const unclassifiedLocationCount = rows.filter(
+    (row) => !isAplusClassifiableLocation(row.location),
+  ).length;
+  const sourceProvenEmpty = rows.length === 0 && sourceEmpty === true;
+  const authoritativeEmptySnapshot = sourceProvenEmpty || (
+    rows.length > 0
+    && swissListings.length === 0
+    && unclassifiedLocationCount === 0
+  );
+  return {
+    listings: swissListings,
+    discovered: rows.length,
+    unclassifiedLocationCount,
+    authoritativeEmptySnapshot,
+    lastFetchOutcome:
+      sourceProvenEmpty ? 'ok' : rows.length === 0 ? null : swissListings.length === 0 ? 'filtered_empty' : 'ok',
+  };
+}
+
+/**
  * Parse an InRecruiting detail page.
  *
  * Prefers JobPosting JSON-LD when present (InRecruiting embeds it on most
@@ -117,6 +192,7 @@ export function parseAplusListings(html = '') {
  */
 export function parseAplusJobDetail(html = '', pageUrl = '') {
   const jsonLd = extractJobPostingJsonLd(html);
+  const htmlDetail = parseAplusHtmlDetail(html, pageUrl);
   if (jsonLd?.title) {
     const rawLocality = normalizeSpace(
       jsonLd.jobLocation?.address?.addressLocality ||
@@ -129,9 +205,18 @@ export function parseAplusJobDetail(html = '', pageUrl = '') {
     const cleaned = rawLocality
       .replace(/\s+(?:svizzera|suisse|schweiz|switzerland|italia|italy|italien|italie)\s*$/i, '').trim();
     const addressLocality = /^\d+$/.test(cleaned) ? '' : cleaned;
-    const description = typeof jsonLd.description === 'string'
+    const jsonLdDescription = typeof jsonLd.description === 'string'
       ? htmlFragmentToMarkdown(jsonLd.description)
       : '';
+    // InRecruiting tenants do not always copy the vacancy body into the
+    // JobPosting JSON-LD: A++ Group's `description` carries only the bolded
+    // title (49 chars) while `#description__body` on the same page holds the
+    // company paragraph, responsibilities, profile and offer. Publish whichever
+    // of the two carries more of the posting, so a title-only JSON-LD never
+    // replaces the visible vacancy body.
+    const description = plainLength(htmlDetail.description) > plainLength(jsonLdDescription)
+      ? htmlDetail.description
+      : jsonLdDescription;
     return {
       title: normalizeSpace(jsonLd.title),
       location: addressLocality,
@@ -140,13 +225,26 @@ export function parseAplusJobDetail(html = '', pageUrl = '') {
     };
   }
 
-  // HTML fallback — same structure used across InRecruiting tenants
+  return htmlDetail;
+}
+
+function plainLength(markdown = '') {
+  return normalizeSpace(String(markdown || '').replace(/^#+\s+/gm, '').replace(/^-\s+/gm, '')).length;
+}
+
+/**
+ * Parse the standard InRecruiting HTML vacancy structure (title, subtitle
+ * spans, `#description__body` heading/text pairs).
+ */
+function parseAplusHtmlDetail(html = '', pageUrl = '') {
   const document = new JSDOM(html).window.document;
   const title = normalizeSpace(document.querySelector('#description__vacancy-title')?.textContent || '');
-  const subtitleInfos = [
-    ...document.querySelectorAll('#description__subtitle .subtitle__informations'),
-  ].map((node) => normalizeSpace(node.textContent || ''));
-  const location = subtitleInfos[0] || '';
+  const subtitleNodes = [...document.querySelectorAll('#description__subtitle .subtitle__informations')];
+  const subtitleInfos = subtitleNodes.map((node) => normalizeSpace(node.textContent || ''));
+  const locationNode = subtitleNodes.find((node) => /^(?:Sede|Location|Localisation|Standort)$/i.test(
+    String(node.getAttribute('title') || '').trim(),
+  ));
+  const location = normalizeSpace(locationNode?.textContent || subtitleInfos[0] || '');
 
   const sections = [];
   const headings = [...document.querySelectorAll('#description__body .body__headings')];
@@ -174,6 +272,8 @@ export function parseAplusJobDetail(html = '', pageUrl = '') {
  * A++ Group is headquartered in Ticino and may have other Swiss positions.
  */
 export function isAplusSwissLocation(raw = '') {
+  if (isLocationExplicitlyForeign(raw)) return false;
+
   const lower = normalizeSpace(raw)
     .toLowerCase()
     .normalize('NFD')
@@ -182,6 +282,19 @@ export function isAplusSwissLocation(raw = '') {
   return /svizzera|suisse|schweiz|switzerland|swiss|ticino|tessin|grigioni|graubunden|grisons|massagno|lugano|chiasso|bellinzona|locarno|mendrisio|ascona|muralto|chur|davos/.test(
     lower,
   );
+}
+
+/**
+ * A location is classifiable when the source gives us positive evidence for
+ * either side of the Swiss filter. Unknown/blank locations stay ambiguous:
+ * they must not turn a zero result into an authoritative filtered snapshot.
+ */
+export function isAplusClassifiableLocation(raw = '') {
+  const location = normalizeSpace(raw);
+  if (!location) return false;
+  return isAplusSwissLocation(location)
+    || isLocationExplicitlyForeign(location)
+    || isExplicitlyOutsideTarget(location);
 }
 
 /**
@@ -199,13 +312,20 @@ export function inferAplusCanton(raw = '') {
  * Build stub localised content from a parsed detail.
  * The AI translation pipeline will fill in the remaining locales.
  */
-export function buildAplusLocalizedContent(detail = {}) {
+export function buildAplusLocalizedContent(detail = {}, sourceLang = 'it') {
   const title = String(detail.title || '').trim();
   const location = String(detail.location || 'Massagno').trim();
   const slug = slugify(`${title} a-plus-plus group ${location}`);
+  // The description is stored under the language it is written in: the
+  // portal is browsed in English but most bodies are Italian, and a body
+  // filed under the wrong locale is what the translation pipeline and the
+  // source-detail audit both read as the source text.
+  const descriptionLocale = ['it', 'en', 'de', 'fr'].includes(sourceLang) ? sourceLang : 'it';
   return {
-    titleByLocale: { it: title },
-    descriptionByLocale: { it: detail.description || '' },
+    // The title follows the body into the source slot (#5253); the slugs keep
+    // their published it/en keys.
+    titleByLocale: { [descriptionLocale]: title },
+    descriptionByLocale: { [descriptionLocale]: detail.description || '' },
     slugByLocale: { it: slug, en: slug },
   };
 }

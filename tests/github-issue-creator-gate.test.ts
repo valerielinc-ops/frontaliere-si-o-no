@@ -433,6 +433,42 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
     expect(searchArg).toContain('workflow-scope-creds'); // bucket key preserved
     expect(searchArg).not.toBe('in:title "escalation(harvester)"'); // not collapsed
   });
+
+  it('does not deduplicate a long escalation bucket onto another bucket', async () => {
+    const longBucketTitle =
+      'escalation(harvester): fix-outcome/fix-outcome:revenue-tracker-manual ricorre nonostante regola';
+    const otherBucketTitle =
+      'escalation(harvester): reviewer-finding/auto-ads ricorre nonostante regola';
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        const state = args[args.indexOf('--state') + 1];
+        return state === 'open'
+          ? JSON.stringify([{ number: 10115, title: otherBucketTitle, url: 'u', state: 'OPEN' }])
+          : '[]';
+      }
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/10119';
+      return '';
+    });
+
+    const result = await createGithubIssue({
+      title: longBucketTitle,
+      description: 'revenue bucket recurs',
+      priority: 2,
+      labels: ['follow-up'],
+    } as any);
+
+    const comments = ghCalls().filter((a) => a[0] === 'issue' && a[1] === 'comment');
+    const creates = ghCalls().filter((a) => a[0] === 'issue' && a[1] === 'create');
+    expect(comments).toHaveLength(0);
+    expect(creates).toHaveLength(1);
+    expect(result?.number).toBe(10119);
+    const searchCall = ghCalls().find(
+      (a) => a[0] === 'issue' && a[1] === 'list' && a.includes('--search'),
+    );
+    const searchArg = searchCall?.[searchCall.indexOf('--search') + 1] ?? '';
+    expect(searchArg).toContain('fix-outcome/fix-outcome:revenue-tracker-manual');
+  });
 });
 
 describe('reopenWithinHours + buildSha deploy-latency guard (#5539)', () => {

@@ -43,11 +43,14 @@
  *   - isAmsteinWalthertJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()              — Validate URLs belong to this company
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -59,8 +62,6 @@ const BASE_URL = 'https://amstein-walthert.ch';
 const LISTING_PATH = '/de/uber-w/w-als-arbeitgeber/offene-stellen/';
 const CAREER_URL = `${BASE_URL}${LISTING_PATH}`;
 const JSON_URL = `${BASE_URL}${LISTING_PATH}json/`;
-
-const MIN_DESC_LENGTH = 80;
 
 const SECTOR = 'Ingegneria / Consulenza tecnica edile';
 
@@ -244,7 +245,7 @@ function parseDetailPage(html = '') {
   const description = parts.join('\n\n');
   const address = parseDetailAddress(document);
 
-  return { description, address };
+  return { description, address, publicationPosting: extractJobPostingLd(html) };
 }
 
 /* ── ParsedJob builder ────────────────────────────────────── */
@@ -271,18 +272,11 @@ function buildParsedJob(listing, detail) {
   const descriptionText = normalizeSpace(detail?.description || '');
   const sourceLang = detectLang(descriptionText || title, 'de');
 
-  // Non-Negotiable #4 (50-word thin-content floor): guaranteed ≥50 words even
-  // when the detail page fetch fails outright or returns none of the
-  // expected `.intro`/`.duty`/`.requirement` sections.
-  const fallbackDesc =
-    `${title} bei ${AMSTEIN_WALTHERT_COMPANY_NAME} in ${city}. ` +
-    'Amstein + Walthert ist ein unabhängiges Schweizer Ingenieurunternehmen mit rund 1100 Mitarbeitenden ' +
-    'und Standorten in der ganzen Schweiz, tätig in Planung, Consulting und Engineering für Gebäude- und ' +
-    'Infrastrukturtechnik über den gesamten Lebenszyklus eines Bauwerks – von der Konzeptstudie über die ' +
-    'Projektierung und Ausführung bis zum Betrieb. Für aktuelle Details zu Aufgaben, Anforderungen und ' +
-    'Anstellungsbedingungen dieser Position konsultieren Sie bitte die offizielle Stellenausschreibung ' +
-    `auf der Karriereseite von ${AMSTEIN_WALTHERT_COMPANY_NAME}.`;
-  const description = descriptionText.length >= MIN_DESC_LENGTH ? descriptionText : fallbackDesc;
+  // Only the posting's own text (issue 5253): no "<title> bei Amstein +
+  // Walthert in <city>." line and company paragraph in place of a missing or
+  // short detail body. A body under the common 50-word floor (Non-Negotiable
+  // #4) gives no description (the shared pipeline's thin-source path).
+  const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
   const disambiguator = normalize(nativeId).replace(/[^a-z0-9]+/g, '');
@@ -322,7 +316,7 @@ function buildParsedJob(listing, detail) {
     sector: SECTOR,
     currency: 'CHF',
     featured: false,
-    postedDate: new Date().toISOString().split('T')[0],
+    ...sourcePostingDateFields(normalizeSpace(detail?.publicationPosting?.title || '').toLowerCase() === title.toLowerCase() ? detail?.publicationPosting?.datePosted : ''),
     applyUrl: publicUrl,
     jobReqId: nativeId || null,
     slugDisambiguator: disambiguator || null,
@@ -349,7 +343,7 @@ export async function fetchAllAmsteinWalthertJobs() {
     listings = await fetchJobListings();
   } catch (err) {
     console.warn(`⚠️ Amstein + Walthert listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
 
   if (!listings || listings.length === 0) {

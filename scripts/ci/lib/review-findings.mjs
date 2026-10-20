@@ -13,9 +13,9 @@
  * `path:Lline`: una riga che si sposta (rebase, merge di main, fix altrove nel
  * file) produce un id nuovo, quindi lo stesso rilievo risulta «nuovo», non si
  * deduplica e non si lascia confermare. Qui l'identità è
- * `(path, simbolo, classe)`, invariante alla numerazione delle righe:
+ * `(paths, simbolo, classe)`, invariante alla numerazione delle righe:
  *
- *   - `path`    — il primo path citato, normalizzato;
+ *   - `paths`   — tutti i path citati, normalizzati e ordinati;
  *   - `simbolo` — il primo identificatore in backtick che non è un path
  *                 (`parseFoo()`, `NONCODE_RE`, `--no-thin`), altrimenti la
  *                 prosa del problema normalizzata;
@@ -32,6 +32,146 @@ import { createHash } from 'node:crypto';
 // #6), che è esattamente ciò che questo modulo esiste per garantire altrove.
 import { stripFencedBlocks } from '../followup-resolution-match.mjs';
 
+export const BODY_CITATION_MAX_LENGTH = 240;
+
+const BODY_CITATION_LINE_RE = /^\s*(?:[-*+]\s*)?Body citation:\s*(.*?)\s*$/iu;
+
+/**
+ * Extract the one machine-readable quote required for a PR-body finding.
+ * The value is a JSON string so quotes and backslashes cannot make the parser
+ * guess where the citation ends. Missing, duplicated, malformed, empty, or
+ * overly long values return null and therefore keep the finding blocking.
+ */
+export function extractBodyCitation(text) {
+  let count = 0;
+  let citation = null;
+  for (const line of String(text || '').split(/\r?\n/u)) {
+    const match = line.match(BODY_CITATION_LINE_RE);
+    if (!match) continue;
+    count += 1;
+    let parsed;
+    try {
+      parsed = JSON.parse(match[1].trim());
+    } catch {
+      return null;
+    }
+    if (typeof parsed !== 'string' || !parsed.trim()
+        || parsed.length > BODY_CITATION_MAX_LENGTH) return null;
+    citation = parsed;
+  }
+  return count === 1 ? citation : null;
+}
+
+/** Remove citation metadata before scanning the finding text for code paths. */
+export function stripBodyCitationLines(text) {
+  return String(text || '')
+    .split(/\r?\n/u)
+    .filter((line) => !BODY_CITATION_LINE_RE.test(line))
+    .join('\n');
+}
+
+function markdownBracketEnd(text, openingIndex) {
+  let depth = 0;
+  for (let index = openingIndex; index < text.length; index += 1) {
+    if (text[index] === '\\') {
+      index += 1;
+      continue;
+    }
+    if (text[index] === '[') depth += 1;
+    if (text[index] !== ']') continue;
+    depth -= 1;
+    if (depth === 0) return index;
+  }
+  return -1;
+}
+
+function markdownDestinationEnd(text, openingIndex) {
+  let depth = 1;
+  for (let index = openingIndex + 1; index < text.length; index += 1) {
+    if (text[index] === '\\') {
+      index += 1;
+      continue;
+    }
+    if (text[index] === '(') {
+      depth += 1;
+      continue;
+    }
+    if (text[index] !== ')') continue;
+    depth -= 1;
+    if (depth === 0) return index;
+  }
+  return -1;
+}
+
+/**
+ * Remove Markdown link/image destinations while retaining their labels.
+ *
+ * A regular expression using `[^)]*` cannot distinguish the closing
+ * parenthesis of a destination from a parenthesis inside that destination.
+ * Scan the label and destination instead, honoring escapes and nesting; an
+ * unterminated or otherwise ambiguous construct is retained verbatim.
+ */
+export function normalizeMarkdownDestination(value) {
+  const source = String(value || '');
+  let normalized = '';
+  for (let index = 0; index < source.length; index += 1) {
+    const isImage = source[index] === '!' && source[index + 1] === '[';
+    const openingIndex = isImage ? index + 1 : index;
+    if (source[openingIndex] !== '[') {
+      normalized += source[index];
+      continue;
+    }
+    const labelEnd = markdownBracketEnd(source, openingIndex);
+    const destinationOpening = labelEnd >= 0 && source[labelEnd + 1] === '('
+      ? labelEnd + 1
+      : -1;
+    if (destinationOpening < 0) {
+      normalized += source[index];
+      continue;
+    }
+    const destinationEnd = markdownDestinationEnd(source, destinationOpening);
+    if (destinationEnd < 0) {
+      normalized += source[index];
+      continue;
+    }
+    normalized += source.slice(openingIndex + 1, labelEnd);
+    index = destinationEnd;
+  }
+  return normalized;
+}
+
+function stripMarkdownEmphasis(text) {
+  let normalized = text;
+  let previous;
+  do {
+    previous = normalized;
+    normalized = normalized
+      // GFM strikethrough and strong emphasis are paired delimiters. A lone
+      // tilde, star, or underscore is content and must remain in the quote.
+      .replace(/(?<!\\)~~(?=\S)([^\n]*?\S)(?<!\\)~~/gu, '$1')
+      .replace(/(?<!\\)\*\*(?=\S)([^\n]*?\S)(?<!\\)\*\*(?!\w)/gu, '$1')
+      .replace(/(?<![\w\\])__(?=\S)([^\n]*?\S)(?<!\\)__(?!\w)/gu, '$1')
+      .replace(/(?<!\\)\*(?=\S)([^\n]*?\S)(?<!\\)\*(?!\w)/gu, '$1')
+      .replace(/(?<![\w\\])_(?=\S)([^\n]*?\S)(?<!\\)_(?!\w)/gu, '$1');
+  } while (normalized !== previous);
+  return normalized;
+}
+
+export function normalizeBodyCitationText(value) {
+  // Compare body text without treating Markdown decoration or whitespace
+  // layout as content. The comparison remains case-sensitive and preserves
+  // words and punctuation, so the quote is still evidence of the exact text.
+  let text = String(value || '').normalize('NFKC').replace(/\r\n?/gu, '\n');
+  text = text
+    .replace(/<!--[\s\S]*?-->/gu, ' ');
+  text = normalizeMarkdownDestination(text)
+    .replace(/```[^\n]*\n?/gu, '')
+    .replace(/`([^`\n]*)`/gu, '$1')
+    .replace(/^\s{0,3}(?:#{1,6}\s+|>\s?|[-*+]\s+|\d+\.\s+)/gmu, '');
+  text = stripMarkdownEmphasis(text);
+  return text.replace(/\s+/gu, ' ').trim();
+}
+
 /** Classi dichiarabili. Solo `regression` ha semantica per il gate. */
 export const FINDING_CLASSES = Object.freeze([
   'regression',
@@ -44,14 +184,27 @@ export const FINDING_CLASSES = Object.freeze([
 
 export const REGRESSION_CLASS = 'regression';
 
-// Il tag sta DOPO i due punti: `IMPORTANT_MARKER_RE` del gate pretende
-// `🔴 Important` seguito subito da `:`/`—`/`-`, quindi un tag infilato prima
-// del separatore rende il finding invisibile al parser.
-const CLASS_TAG_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*\[\s*([a-z-]{3,20})\s*\]/iu;
+// Il tag segue la severita', con o senza separatore. Con il separatore e' la
+// forma storica (`🔴 Important: [classe] ...`). Senza, e' la forma con ancora
+// di posizione che il gate riconosce dalla PR 9339
+// (`path:L<n>: 🔴 Important [classe] ...`): li' il finding esiste, e una classe
+// non letta varrebbe `other`. Per `regression` non e' un dettaglio: e' il tag
+// che impedisce a `unchangedLineImportants` di declassare il finding.
+const CLASS_TAG_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*(?:[:—-]\s*)?\[\s*([a-z-]{3,20})\s*\]/iu;
 const PATH_LIKE_RE = /^(?:\.{1,2}\/)?(?:[A-Za-z0-9_.@-]+\/)+[A-Za-z0-9_.@-]+$/u;
 const EXTENSION_RE = /\.(?:cjs|css|html|js|json|md|mjs|rules|sh|ts|tsx|txt|toml|yaml|yml|jsx)$/u;
 const BACKTICK_RE = /`([^`\n]{1,120})`/gu;
 const MARKER_RE = /(?:🔴|🟡|🟣|❓)[^\n]*/u;
+
+// A reviewer may explicitly dispose of a non-funnel Nit/question with the
+// contract suffix below. Keep this predicate shared by the review gate and
+// the lessons harvester: counting a Nit that the review contract already says
+// is deferred as a recurring rule failure creates a false escalation.
+const NON_FUNNEL_DISPOSITION_RE = /(?:^|[—–])\s*deferred\s*,\s*non\s+funnel-critical\.\s*$/iu;
+
+export function isExplicitNonFunnelDisposition(text) {
+  return NON_FUNNEL_DISPOSITION_RE.test(String(text || ''));
+}
 
 /**
  * Classe dichiarata dal reviewer. Assente o sconosciuta → `other`: una classe
@@ -115,15 +268,38 @@ function primaryPath(finding) {
 }
 
 /**
- * Id stabile di un finding: sha256 di `path\0simbolo\0classe`, 12 esadecimali.
- * NON contiene la riga: è questo che lo rende invariante a un rebase o a un
- * merge di main, i due eventi che producevano i duplicati misurati.
+ * Id stabile di un finding: sha256 di
+ * `paths\0simbolo\0classe\0prosa`, 12 esadecimali. NON contiene le righe:
+ * è questo che lo rende invariante a un rebase o a un merge di main, i due
+ * eventi che producevano i duplicati misurati. Tutti i path citati partecipano
+ * all'identità, così una conferma downstream non può trasformare un finding
+ * multi-file in uno diverso solo perché il primo anchor è rimasto uguale.
  */
-export function stableFindingId(finding) {
-  const path = primaryPath(finding);
+function citedPaths(finding) {
+  const citations = Array.isArray(finding?.citations) ? finding.citations : [];
+  return [...new Set(citations
+    .map((citation) => citation?.path)
+    .filter(Boolean)
+    .map((path) => String(path).replace(/^\.\//u, '')))]
+    .sort();
+}
+
+/** The four normalized inputs consumed by stableFindingId, for diagnostics. */
+export function findingIdentityComponents(finding) {
+  const cited = citedPaths(finding);
+  const fallback = primaryPath(finding);
   const text = String(finding?.text || finding?.line || '');
-  const symbol = findingSymbol(text);
-  const klass = findingDeclaredClass(text);
+  return {
+    paths: cited.length > 0 ? cited : (fallback ? [fallback] : []),
+    symbol: findingSymbol(text),
+    class: findingDeclaredClass(text),
+    prose: normalizeProse(text),
+  };
+}
+
+export function stableFindingId(finding) {
+  const { paths, symbol, class: klass, prose } = findingIdentityComponents(finding);
+  const pathIdentity = paths.join('\u001f');
   // La prosa normalizzata entra SEMPRE nell'id, non solo come ripiego quando
   // manca il simbolo. Con `(path, simbolo, classe)` due rilievi diversi che
   // nominano per primo lo stesso simbolo nello stesso file collidevano, e
@@ -132,7 +308,7 @@ export function stableFindingId(finding) {
   // non contiene il numero di riga (`normalizeProse` toglie gli span in
   // backtick, anchor compreso), quindi l'invarianza al rebase resta.
   return createHash('sha256')
-    .update(`${path}\u0000${symbol}\u0000${klass}\u0000${normalizeProse(text)}`)
+    .update(`${pathIdentity}\u0000${symbol}\u0000${klass}\u0000${prose}`)
     .digest('hex')
     .slice(0, 12);
 }
@@ -305,30 +481,59 @@ export function changedLinesFromPatch(patch) {
  * nel bundle. `open` = ancora da chiudere, `confirmed` = già confermato con
  * `Fix di ...: ok`. Il reviewer riceve gli id stabili, quindi può riportare un
  * rilievo aperto senza riscriverlo e non ha motivo di duplicarne uno chiuso.
+ *
+ * `needs-verification` (#9968, #9965) = ancora aperto per il gate, ma una
+ * review approvante successiva ha scritto `Fix di` sullo stesso path, a una
+ * riga che il gate non ha saputo accoppiare. Presentato come `open`, il
+ * reviewer lo ricopiava senza aprire il file, anche con le guardie gia'
+ * presenti all'HEAD. Lo stato chiede la verifica sul codice attuale; il gate
+ * resta com'e', quindi un rilievo vero non si chiude per silenzio.
+ * `needsVerification` e' facoltativo: chi non lo passa (il corpus, o una
+ * policy pinnata precedente) ottiene esattamente il ledger di prima.
  */
 export const LEDGER_MAX_ENTRIES = 40;
 
-export function renderFindingsLedger({ open = [], confirmed = [] } = {}) {
+export const LEDGER_NEEDS_VERIFICATION = 'needs-verification';
+
+export function renderFindingsLedger({ open = [], confirmed = [], needsVerification = [] } = {}) {
   const lines = [];
-  const uniqueOpen = dedupeFindingsById(open);
+  const uniqueToVerify = dedupeFindingsById(needsVerification);
+  const verifyIds = new Set(uniqueToVerify.map(stableFindingId));
+  const uniqueOpen = dedupeFindingsById(open)
+    .filter((finding) => !verifyIds.has(stableFindingId(finding)));
   const openIds = new Set(uniqueOpen.map(stableFindingId));
   const allConfirmed = dedupeFindingsById(confirmed)
-    .filter((finding) => !openIds.has(stableFindingId(finding)));
-  // Il ledger finisce nel bundle che il reviewer legge: gli `open` non si
-  // tagliano mai (sono lavoro dovuto), i `confirmed` sì, perché servono solo a
-  // non far rialzare un rilievo chiuso e una coda lunga costerebbe contesto
-  // senza cambiare il verdetto.
-  const budget = Math.max(0, LEDGER_MAX_ENTRIES - uniqueOpen.length);
-  const uniqueConfirmed = allConfirmed.slice(-budget);
+    .filter((finding) => !openIds.has(stableFindingId(finding))
+      && !verifyIds.has(stableFindingId(finding)));
+  // Il ledger finisce nel bundle che il reviewer legge: gli `open` e i
+  // `needs-verification` non si tagliano mai (sono lavoro dovuto), i
+  // `confirmed` sì, perché servono solo a non far rialzare un rilievo chiuso
+  // e una coda lunga costerebbe contesto senza cambiare il verdetto. Con il
+  // budget esaurito `slice(-0)` restituirebbe l'intera coda, non zero voci.
+  const budget = Math.max(0, LEDGER_MAX_ENTRIES - uniqueOpen.length - uniqueToVerify.length);
+  const uniqueConfirmed = budget > 0 ? allConfirmed.slice(-budget) : [];
   const dropped = allConfirmed.length - uniqueConfirmed.length;
-  if (uniqueOpen.length === 0 && uniqueConfirmed.length === 0) {
+  if (uniqueOpen.length === 0 && uniqueToVerify.length === 0 && uniqueConfirmed.length === 0) {
     return 'Nessun finding Important storico: questa è la prima review utile.';
   }
-  lines.push('Ogni voce porta il suo id stabile `(path, simbolo, classe)`, invariante alla riga.');
+  lines.push('Ogni voce porta il suo id stabile `(path, simbolo, classe, prosa)`, invariante alla riga.');
   lines.push('Riporta un `open` con lo STESSO id e testo; non rialzare un `confirmed`.');
+  // #9959: senza questa riga il reviewer non sapeva chiudere un `open` senza
+  // file e ne rialzava uno nuovo sul ledger stesso, a ogni giro.
+  // #10025: anche con file citati l'id è la conferma che regge righe spostate
+  // e più 🔴 sullo stesso file; `path:L<n>` si accoppiava solo per conteggio.
+  lines.push('Un `open` risolto si chiude con `` Fix di `<id>`: ok. `` più `` Fix di `path:L<riga attuale>`: ok. `` per ogni file citato (del body: `PR body:L<n>`); mai un 🔴 sul ledger stesso.');
+  if (uniqueToVerify.length > 0) {
+    lines.push(`Un \`${LEDGER_NEEDS_VERIFICATION}\` è aperto per il gate, ma una review approvante successiva ha confermato un fix sullo stesso file: `
+      + 'apri l’anchor all’HEAD e verifica. Se il fix c’è scrivi `` Fix di `<id>`: ok. `` e `` Fix di `path:L<riga attuale>`: ok. `` per ogni file citato; '
+      + 'ripresentalo come 🔴 solo con evidenza dal codice attuale, mai ricopiandolo.');
+  }
   lines.push('');
   for (const finding of uniqueOpen) {
     lines.push(`- \`${stableFindingId(finding)}\` **open** — ${firstLine(finding)}`);
+  }
+  for (const finding of uniqueToVerify) {
+    lines.push(`- \`${stableFindingId(finding)}\` **${LEDGER_NEEDS_VERIFICATION}** — ${firstLine(finding)}`);
   }
   for (const finding of uniqueConfirmed) {
     lines.push(`- \`${stableFindingId(finding)}\` **confirmed-fixed** — ${firstLine(finding)}`);
@@ -341,5 +546,5 @@ function firstLine(finding) {
   return String(finding?.line || finding?.text || '')
     .split(/\r?\n/u)[0]
     .trim()
-    .slice(0, 300);
+    .slice(0, 300) + ' — identity=' + JSON.stringify(findingIdentityComponents(finding));
 }

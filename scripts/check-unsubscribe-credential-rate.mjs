@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-unsubscribe-credential-rate.mjs — the deferred item 3 of #5757
  * (follow-up(#5747): the third item PR #5762/#5763 explicitly left out).
@@ -129,6 +131,7 @@ import {
   classifyUnsubscribeWriter,
 } from './lib/unsubscribeCredentialMetrics.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -165,22 +168,7 @@ export function __setFirestoreAdminForTest(fakeDb) {
 
 async function getFirestoreAdmin() {
   if (_db) return _db;
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) {
-      throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    }
-    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-    if (cred.project_id) {
-      initializeApp({ credential: cert(cred) });
-    } else {
-      const { applicationDefault } = await import('firebase-admin/app');
-      initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
-    }
-  }
-  _db = getFirestore();
+  _db = await getFirestoreDb();
   return _db;
 }
 
@@ -409,8 +397,7 @@ async function main() {
   process.exit(verdict.alert ? 1 : 0);
 }
 
-const invokedDirectly = import.meta.url === `file://${process.argv[1]}` ||
-  process.argv[1]?.endsWith('check-unsubscribe-credential-rate.mjs');
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error(`❌ check-unsubscribe-credential-rate fallito: ${err?.message || err}`);

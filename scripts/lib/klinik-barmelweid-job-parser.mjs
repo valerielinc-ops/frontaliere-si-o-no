@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Klinik Barmelweid job parser.
  *
@@ -36,6 +38,8 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { readClosedElement } from './html-balanced-element.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 // Barmelweid's TYPO3 stack returns HTTP 406 for anything that doesn't look
 // like a real browser User-Agent, so we cannot reuse the shared `fetchHtml`
@@ -151,25 +155,38 @@ export function parseListing(html) {
   return out;
 }
 
+/**
+ * Vacancy text of a Barmelweid TYPO3 detail page: the header subtitles
+ * (intro, Beschäftigungsgrad, Eintritt) and the `jobinfo` block (lead,
+ * "So ticken wir", tasks, profile, "Über uns").
+ *
+ * The parser used to convert the whole `<body>` and cut it at 6000
+ * characters, so every description carried the skip links, the quote slider,
+ * the recruiter card, the share bar, the footer menus and the cookie-consent
+ * dialog; the cap was the only bound on that sweep (issue 5253). The link
+ * buttons inside `jobinfo` ("Lerne uns kennen", "Jetzt bewerben") are dropped.
+ */
+export function extractKlinikBarmelweidDetailDescription(html = '') {
+  const source = String(html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '');
+  const info = readClosedElement(source, 'class="jobinfo"');
+  if (!info) return '';
+  const header = readClosedElement(source, 'class="jobheader"').replace(/<h1\b[\s\S]*?<\/h1>/gi, ' ');
+  const body = info.replace(/<a\b[^>]*\bclass="[^"]*\binternal-link-button\b[^"]*"[^>]*>[\s\S]*?<\/a>/gi, ' ');
+  return [header, body]
+    .map((part) => normalizeSpace(htmlToText(part)))
+    .filter(Boolean)
+    .join('\n\n');
+}
+
 async function fetchDetailDescription(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return '';
-    // Detail pages are TYPO3 — the offer text sits inside the main content
-    // wrapper. We strip scripts/styles/header/footer and take the longest
-    // text block we find.
-    const noScripts = String(html)
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '')
-      .replace(/<header[\s\S]*?<\/header>/gi, '')
-      .replace(/<footer[\s\S]*?<\/footer>/gi, '');
-    const bodyMatch = noScripts.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-    const block = bodyMatch ? bodyMatch[1] : noScripts;
-    const text = htmlToText(block);
-    return normalizeSpace(text).slice(0, 6000);
+    return { description: extractKlinikBarmelweidDetailDescription(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch (err) {
     console.warn(`  ⚠️ Barmelweid detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return '';
+    return { description: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -182,19 +199,19 @@ export async function fetchAllKlinikBarmelweidJobs() {
   console.log(`  ✓ ${rows.length} jobs from listing page`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
-    const detailDescription = await fetchDetailDescription(r.url);
-    const summary = [r.intro, r.pensumLine].filter(Boolean).join('\n\n');
-    const description = detailDescription && detailDescription.split(/\s+/).length >= 30
-      ? detailDescription
-      : [
-        summary,
-        'Klinik Barmelweid — Akutspital für Psychiatrie, Psychosomatik und somatische Rehabilitation in Erlinsbach (AG).',
-      ].filter(Boolean).join('\n\n');
+    const detail = await fetchDetailDescription(r.url);
+    const detailDescription = detail.description;
+    // Only source text (issue 5253): the detail page, else the listing card's
+    // own paragraphs — never the clinic line the crawler used to add. A text
+    // under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const cardText = [r.intro, r.pensumLine].filter(Boolean).join('\n\n');
+    const sourceText = meetsSourceBodyFloor(detailDescription) ? detailDescription : cardText;
+    const description = meetsSourceBodyFloor(sourceText) ? sourceText : '';
 
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${KLINIK_BARMELWEID_KEY} barmelweid`);
@@ -239,7 +256,7 @@ export async function fetchAllKlinikBarmelweidJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

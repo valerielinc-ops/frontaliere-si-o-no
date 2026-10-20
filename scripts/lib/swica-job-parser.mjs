@@ -46,8 +46,11 @@
  * HQ (used only as a last-resort fallback, city-gated — never leaked onto
  * a job in a different canton): Römerstrasse 38, 8401 Winterthur, ZH.
  */
+import { extractJsonLd as extractPostingRecords } from './prospector/extract.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from './jsonld-jobposting.mjs';
@@ -214,7 +217,7 @@ async function collectAllJobUrls() {
       html = await fetchHtml(listUrl, { headers: { Accept: 'text/html,application/xhtml+xml' } });
     } catch (err) {
       console.warn(`  ⚠️  Listing fetch failed at offset=${offset}: ${err?.message || err}`);
-      break;
+      throw err;
     }
 
     const links = extractListingLinks(html);
@@ -275,22 +278,13 @@ export async function fetchAllSwicaJobs() {
     const address = jobPostingAddress(jsonLd);
     const { city, canton, postalCode, streetAddress } = resolveAddress(address);
 
-    let descriptionText = jobPostingDescriptionText(jsonLd.description || '');
+    // The JSON-LD text only (issue 5253). Under 50 words it used to get
+    // "<title> — SWICA, <city>." and a SWICA paragraph we wrote. A posting
+    // without text, or under the shared 50-word floor, now gets no
+    // description and takes the thin-source path (quarantine).
+    const sourceText = jobPostingDescriptionText(jsonLd.description || '');
+    const descriptionText = meetsSourceBodyFloor(sourceText) ? sourceText : '';
     const sourceLang = detectLang(descriptionText || title, 'de');
-
-    // Thin-content guard (Non-Negotiable #4): never index < 50 words —
-    // mirrors the enrichment pattern used by sibling parsers (e.g.
-    // css-versicherung-job-parser.mjs) rather than dropping the job outright.
-    const wordCount = descriptionText.split(/\s+/).filter(Boolean).length;
-    if (wordCount < 50) {
-      descriptionText = [
-        descriptionText || `${title} — ${SWICA_COMPANY_NAME}, ${city}.`,
-        'SWICA ist eine der führenden Kranken- und Unfallversicherungen der Schweiz mit rund 1,7 Millionen Versicherten und einem Netz von Agenturen und Gesundheitszentren in der ganzen Schweiz. Seit über 100 Jahren begleitet SWICA Menschen in der Schweiz mit Grundversicherung, Zusatzversicherungen und Gesundheitsförderung und bietet ihren Mitarbeitenden flexible Arbeitsmodelle, Weiterbildungsmöglichkeiten und ein dynamisches Arbeitsumfeld.',
-        'Bewirb dich direkt online über jobs.swica.ch.',
-      ]
-        .filter(Boolean)
-        .join('\n\n');
-    }
 
     const employmentType =
       String(jsonLd.employmentType || '').toUpperCase().trim() || detectEmploymentType(title);
@@ -298,12 +292,13 @@ export async function fetchAllSwicaJobs() {
     const jobSlug = slugify(`${title} swica ${city}`);
     const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const parsed = new Date(String(jsonLd.datePosted || ''));
-      return Number.isNaN(parsed.getTime())
-        ? new Date().toISOString().slice(0, 10)
-        : parsed.toISOString().slice(0, 10);
-    })();
+    const records = extractPostingRecords(html, jobUrl);
+    const explicitPublicationUrl = jsonLd.url || jsonLd.sameAs;
+    let matchingPublication = !explicitPublicationUrl && records.length === 1;
+    if (explicitPublicationUrl) {
+      try { matchingPublication = new URL(explicitPublicationUrl, jobUrl).href === new URL(jobUrl).href; } catch { matchingPublication = false; }
+    }
+    const publication = sourcePostingDateFields(matchingPublication ? jsonLd.datePosted : '');
 
     const job = {
       id: `${SWICA_KEY}-${urlHash}`,
@@ -315,7 +310,7 @@ export async function fetchAllSwicaJobs() {
       title,
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
+      descriptionByLocale: descriptionText ? { [sourceLang]: descriptionText } : {},
       needsRetranslation: true,
       location: city,
       canton,
@@ -337,7 +332,7 @@ export async function fetchAllSwicaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

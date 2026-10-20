@@ -20,8 +20,8 @@
  *      and the classic SF-CSB robots.txt disallow pattern) — that legacy
  *      portal does NOT surface Switzerland-specific postings at all (only
  *      AT/RO locale links were observed there).
- *   3. The job-shop SPA itself doesn't render markup server-side worth
- *      scraping; it calls a first-party JSON API backed by Typesense:
+ *   3. The job-shop SPA discovers offers through a first-party Typesense
+ *      JSON API. Offer pages also expose JobPosting publication metadata:
  *        a. `GET https://api.my-job-shop.com/api/offer/v1/search/api-key
  *            ?filter=backoffice_vanity:ch` with header `X-Tenant-Id: hornbach`
  *           returns a short-lived, SCOPED (search-only, tenant+vanity+status
@@ -84,10 +84,13 @@
  * (e.g. "Luzern Littau", same canton LU as the Sursee HQ) must NOT inherit
  * the Schellenrain 9 street address.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { fetchJson, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -100,6 +103,8 @@ const API_BASE = 'https://api.my-job-shop.com';
 const API_KEY_URL = `${API_BASE}/api/offer/v1/search/api-key?filter=backoffice_vanity:ch`;
 const MULTI_SEARCH_URL = `${API_BASE}/api/typesense/multi_search`;
 const SEARCH_COLLECTION = 'offers';
+const OFFER_REDIRECT_PATH = '/offer-redirect/';
+const OFFER_RESOLVE_DELAY_MS = 100;
 
 const SECTOR = 'Retail / Bricolage e Giardinaggio';
 
@@ -190,6 +195,61 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
+/**
+ * Whether a public URL is the shared redirect shell returned by the Typesense
+ * feed instead of a vacancy-specific Hornbach offer URL.
+ */
+export function isHornbachOfferRedirectUrl(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl);
+    return url.hostname.toLowerCase() === 'jobs.hornbach.ch'
+      && url.pathname.replace(/\/+$/, '/') === OFFER_REDIRECT_PATH;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Resolve a Typesense redirect to the vacancy-specific public offer page.
+ * Publishing the redirect itself makes several different jobs share one
+ * document, so an unresolved redirect is returned as an empty URL and the
+ * caller drops that offer for this run rather than emitting a misleading URL.
+ */
+export async function resolveHornbachOfferUrl(rawUrl, {
+  fetchImpl = globalThis.fetch,
+  timeoutMs = 15000,
+} = {}) {
+  const sourceUrl = normalizeSpace(rawUrl || '');
+  if (!sourceUrl) return '';
+  if (!isHornbachOfferRedirectUrl(sourceUrl)) return sourceUrl;
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  let response;
+  try {
+    response = await fetchImpl(sourceUrl, {
+      method: 'GET',
+      redirect: 'follow',
+      headers: { 'User-Agent': 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/)' },
+      signal: controller.signal,
+    });
+    if (!response?.ok) return '';
+    const resolved = normalizeSpace(response.url || '');
+    if (!resolved || !isTrustedDomain(resolved) || isHornbachOfferRedirectUrl(resolved)) return '';
+    return resolved;
+  } catch {
+    return '';
+  } finally {
+    clearTimeout(timer);
+    try {
+      if (response?.body && !response.bodyUsed) await response.body.cancel();
+    } catch {
+      // The redirect URL is already known; a mock or a closed response body
+      // must not turn a successful resolution into a crawler failure.
+    }
+  }
+}
+
 /* ── Field extraction (pure, testable) ────────────────────── */
 
 /**
@@ -273,33 +333,35 @@ export function buildHornbachDescription(document = {}) {
     const text = cleanText(document?.[key]);
     if (text && text.length > 3) parts.push(text);
   }
+  // The department facet is metadata, not vacancy text: an offer whose text
+  // sections are all empty has no description (issue 5253).
+  if (parts.length === 0) return '';
   const departments = Array.isArray(document?.department) ? document.department.filter(Boolean) : [];
   if (departments.length) parts.push(`Bereich: ${departments.join(', ')}`);
   return parts.join('\n\n');
 }
 
-/**
- * Resolve the ISO (YYYY-MM-DD) posted date out of a Typesense offer
- * document. Handles both an ISO-ish `create_date` string and a numeric
- * `create_date_timestamp` (seconds or milliseconds — disambiguated by
- * magnitude), falling back to today when neither parses.
- *
- * @param {Record<string, unknown>} document
- * @returns {string}
- */
+/** Return only a publication date verified on the public offer document. */
 export function resolveHornbachPostedDate(document = {}) {
-  const raw = document?.create_date;
-  if (raw) {
-    const d = new Date(String(raw));
-    if (!Number.isNaN(d.getTime())) return d.toISOString().split('T')[0];
+  return sourcePostingDateFields(document.postingDateSource === 'reported' ? document.datePosted : '').datePosted;
+}
+
+/** Typesense creation fields are not publication evidence; use the offer's JobPosting. */
+export async function fetchHornbachPublicationFields(url, { fetchImpl = globalThis.fetch, timeoutMs = 15000 } = {}) {
+  let parsed;
+  try { parsed = new URL(url); } catch { return sourcePostingDateFields(''); }
+  if (parsed.protocol !== 'https:' || parsed.hostname !== 'jobs.hornbach.ch' || !parsed.pathname.startsWith('/offer/')) return sourcePostingDateFields('');
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetchImpl(parsed.href, { signal: controller.signal, redirect: 'error', headers: { Accept: 'text/html' } });
+    if (!response.ok) return sourcePostingDateFields('');
+    return sourcePostingDateFields(extractJobPostingField(await response.text(), 'datePosted'));
+  } catch {
+    return sourcePostingDateFields('');
+  } finally {
+    clearTimeout(timer);
   }
-  const ts = document?.create_date_timestamp;
-  if (typeof ts === 'number' && ts > 0) {
-    const ms = ts > 1e12 ? ts : ts * 1000;
-    const d = new Date(ms);
-    if (!Number.isNaN(d.getTime())) return d.toISOString().split('T')[0];
-  }
-  return new Date().toISOString().split('T')[0];
 }
 
 /**
@@ -360,7 +422,7 @@ export function parseHornbachOffer(document = {}) {
     cantonCode,
     employmentType,
     contract,
-    postedDate: resolveHornbachPostedDate(document),
+    ...sourcePostingDateFields(resolveHornbachPostedDate(document)),
   };
 }
 
@@ -434,6 +496,23 @@ export async function fetchOfferDocumentsWithKeyRetry(apiKey) {
   }
 }
 
+async function resolveHornbachOfferDocuments(documents) {
+  const resolved = new Array(documents.length);
+  let next = 0;
+  const worker = async () => {
+    while (next < documents.length) {
+      const index = next++;
+      const document = documents[index];
+      const url = await resolveHornbachOfferUrl(document?.url);
+      if (url) resolved[index] = { ...document, url, ...await fetchHornbachPublicationFields(url) };
+      await new Promise((resolve) => setTimeout(resolve, OFFER_RESOLVE_DELAY_MS));
+    }
+  };
+  const concurrency = Math.min(4, documents.length);
+  await Promise.all(Array.from({ length: concurrency }, worker));
+  return resolved.filter(Boolean);
+}
+
 /**
  * Fetch all Hornbach jobs (Switzerland only — the scoped API key's
  * `backoffice_vanity:=ch` filter already restricts to the CH tenant, and
@@ -470,10 +549,17 @@ export async function fetchAllHornbachJobs() {
   }
   console.log(`  📋 Switzerland listings found: ${swissDocuments.length}`);
 
+  const documentsWithOwnUrls = await resolveHornbachOfferDocuments(swissDocuments);
+  const unresolvedRedirects = swissDocuments.length - documentsWithOwnUrls.length;
+  if (unresolvedRedirects > 0) {
+    console.warn(`  ⚠️ ${unresolvedRedirects} Hornbach redirect URL(s) did not resolve to a vacancy-specific offer and were withheld.`);
+  }
+
   const jobs = [];
   const seen = new Set();
+  let withoutBody = 0;
 
-  for (const document of swissDocuments) {
+  for (const document of documentsWithOwnUrls) {
     const parsed = parseHornbachOffer(document);
     if (!parsed.title || parsed.title.length < 3) continue;
     if (!parsed.url || seen.has(parsed.url)) continue;
@@ -487,7 +573,15 @@ export async function fetchAllHornbachJobs() {
     const location = parsed.city || city;
     const canton = normalizeCantonCode(parsed.cantonCode) || inferSwissTargetCanton(location) || inferSwissTargetCanton(city) || HQ.canton;
 
-    const description = parsed.description || `${parsed.title} — ${HORNBACH_COMPANY_NAME} (${location}).`;
+    // Only the posting's own text is published (issue 5253): an offer
+    // without text used to go out as "{title} — Hornbach ({city})."; it is
+    // not published any more.
+    const description = parsed.description;
+    if (!meetsSourceBodyFloor(description)) {
+      console.log(`  ⏭️ no vacancy text in the offer, not published: ${parsed.title}`);
+      withoutBody += 1;
+      continue;
+    }
     const sourceLang = detectLang(description || parsed.title, 'de');
     const jobSlug = slugify(`${parsed.title} hornbach ${location}`);
     const urlHash = createHash('sha1').update(parsed.url).digest('hex').slice(0, 12);
@@ -524,7 +618,7 @@ export async function fetchAllHornbachJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: parsed.postedDate,
+      ...sourcePostingDateFields(parsed.datePosted),
       applyUrl: parsed.applyUrl || parsed.url,
       jobReqId: parsed.externalId || null,
       requirements: [],
@@ -534,6 +628,9 @@ export async function fetchAllHornbachJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} offer(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total ${HORNBACH_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

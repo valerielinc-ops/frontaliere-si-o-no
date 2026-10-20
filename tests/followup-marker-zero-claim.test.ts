@@ -16,14 +16,50 @@
  * successiva, quindi qui il discriminante diventa strutturale: sulla riga di
  * claim conta il numero, non la prosa. Il verso fail-closed resta: un claim
  * non-zero senza bucket nominato deve continuare a far fallire il gate.
+ *
+ * Il numero pero' veniva cercato solo IN TESTA alla riga (`Created: 0`). Dal
+ * 2026-09-19 lo zero scritto DOPO il bucket ha reso rosse altre run su marker
+ * giusti: «nessun bucket giornaliero; 0 item.» (35458632823, 35465487702,
+ * 35473751920) e il template canonico di FOLLOWUP.md con N=0 (35947247334).
+ * Ora conta il conteggio ovunque sulla riga. La copia bash dello step di
+ * verifica non esiste piu': lo YAML invoca questo stesso predicato
+ * (`--verify-persistence`), quindi la parita' e' per costruzione.
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
+  hasTriageComment,
+  isZeroClaimLine,
+  latestTriageCommentBody,
   triageMarkerPersistenceExpectation,
+  verifyPersistenceCli,
   verifyTriageMarkerPersistence,
 } from '../scripts/ci/collect-followup-batch.mjs';
+
+// Righe di claim REALI a zero item con lo zero in cifre DOPO il bucket.
+const NUMERIC_ZERO_AFTER_BUCKET_LINES = [
+  // run 35458632823 / 35465487702 / 35473751920, PR #9039 #9045 #9053
+  '- Created/updated: nessun bucket giornaliero; 0 item.',
+  // run 35947247334, PR #9518: il template canonico di FOLLOWUP.md con N=0
+  'Created/updated: daily bucket #9609 `follow-up(daily:2026-09-24)` con 0 item da questa PR.',
+];
+
+// Righe che promettono (o possono promettere) persistenza: restano claim da
+// provare. La prosa senza cifre non e' uno zero (vincolo di #9660).
+const NON_ZERO_CLAIM_LINES = [
+  'Created/updated: daily bucket #42 `follow-up(daily:2026-09-09)` con 1 item',
+  'Created/updated: daily bucket #9609 `follow-up(daily:2026-09-24)` con 10 item:',
+  '- Created: daily bucket #42 con 1 item',
+  'Created/updated: 2 item nel bucket #9102.',
+  'Created/updated: 3 item; bucket non nominato.',
+  'Created: 0.5 item',
+  'Created/updated: daily bucket #9609 con 2 item; bucket #9610 con 0 item',
+  'Created/updated: daily bucket #9609 `follow-up(daily:2026-09-24)`',
+  'Created/updated: nessun item per questa PR.',
+  'Created/updated: nessun nuovo item nel bucket giornaliero.',
+  'Created/updated: nessun item per questa PR; 2 item; bucket giornaliero #9508 non modificato da questa PR.',
+];
 
 // Il marker reale che ha reso rossa la run 35391820039 (PR #8928).
 const REAL_MARKER = `## Post-merge follow-up triage
@@ -73,6 +109,42 @@ describe('claim di persistenza a zero', () => {
     expect(expectation.buckets).toEqual([9102]);
   });
 
+  it('lo zero in cifre DOPO il bucket e un claim a zero (run 35458632823, 35947247334)', () => {
+    for (const line of NUMERIC_ZERO_AFTER_BUCKET_LINES) {
+      expect(isZeroClaimLine(line), line).toBe(true);
+      const body = `## Post-merge follow-up triage\n\n${line}\n\nSkipped: 2 item (stato letterale \`per scelta\`)\n`;
+      expect(triageMarkerPersistenceExpectation(body), line).toEqual({ buckets: [], requiresBucket: false });
+      expect(verifyTriageMarkerPersistence(body, 9518, () => {
+        throw new Error('un claim a zero non deve leggere nessun bucket');
+      }), line).toBe(true);
+    }
+  });
+
+  it('il marker reale di PR #9039: intestazione zero + riga di claim a zero', () => {
+    const body = [
+      '## Post-merge follow-up triage: zero outstanding items.',
+      '',
+      '- Daily key: 2026-09-19 (Europe/Zurich)',
+      '- Created/updated: nessun bucket giornaliero; 0 item.',
+      '- Dropped: 3 item — tutte le domande della review più recente sono marcate “deferred, non funnel-critical”.',
+    ].join('\n');
+    expect(triageMarkerPersistenceExpectation(body)).toEqual({ buckets: [], requiresBucket: false });
+  });
+
+  it('un conteggio diverso da zero sulla stessa riga vince sullo zero', () => {
+    for (const line of NON_ZERO_CLAIM_LINES) {
+      expect(isZeroClaimLine(line), line).toBe(false);
+    }
+    const body = '## Post-merge follow-up triage\n\n'
+      + 'Created/updated: daily bucket #9609 con 2 item; bucket #9610 con 0 item\n';
+    expect(triageMarkerPersistenceExpectation(body)).toEqual({ buckets: [9609, 9610], requiresBucket: true });
+  });
+
+  it('`bucket: #N` vale quanto `bucket #N`', () => {
+    const body = '## Post-merge follow-up triage\n\nCreated/updated: 1 item nel bucket: #9102\n';
+    expect(triageMarkerPersistenceExpectation(body)).toEqual({ buckets: [9102], requiresBucket: true });
+  });
+
   it('un "10" non viene letto come zero', () => {
     const body = '## Post-merge follow-up triage\n\nCreated/updated: 10 item; bucket non nominato.\n';
     expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
@@ -94,6 +166,32 @@ describe('claim di persistenza a zero', () => {
     expect(verifyTriageMarkerPersistence(body, 9435, () => {
       throw new Error('un bucket invariato non va letto');
     })).toBe(true);
+  });
+
+  it('ignora una rettifica come ultimo marker e conserva il summary canonico', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: 0 item.',
+    ].join('\n');
+    const correction = [
+      '## Post-merge follow-up triage — correction',
+      '',
+      'Rettifica del conteggio nel commento precedente: restano Created/updated: 0 item.',
+    ].join('\n');
+    const comments = JSON.stringify({ comments: [{ body: marker }, { body: correction }] });
+    expect(hasTriageComment(comments)).toBe(true);
+    expect(latestTriageCommentBody(comments)).toBe(marker);
+
+    const logs: string[] = [];
+    expect(verifyPersistenceCli(['13593'], {
+      read: () => comments,
+      readIssue: () => {
+        throw new Error('un claim a zero non deve leggere un bucket');
+      },
+      log: (line: string) => logs.push(line),
+    })).toBe(true);
+    expect(logs).toContain('PR #13593: persistenza provata (bucket=[-]).');
   });
 
   it('non allarga il fallback: item senza prova di bucket resta fail-closed', () => {
@@ -178,11 +276,92 @@ describe('i due finding della review', () => {
   });
 });
 
-describe('il gemello bash dello YAML resta allineato', () => {
-  // Regola #6 di AGENTS.md: un valore condiviso ha UNA sorgente, e quando i due
-  // lati non possono importarsi il legame va coperto da un test. Qui il gate
-  // vive due volte — JS nel collector, bash nel verifier — e la copia bash è
-  // quella che decide il merge.
+// #7483 item 2, port del corpus FU-2026-09-24-009 (nanakokyobashi-rgb/frontaliere-articles#1785):
+// uno zero si attesta solo con una riga di esito, fuori da codice recintato e
+// citazioni. Prima bastava la formula in QUALUNQUE punto del corpo, e un
+// marker che la citava in prosa o in un esempio risultava «provato vuoto»: la
+// PR usciva dal batch per sempre senza che il suo triage fosse persistito.
+describe('le attestazioni di zero valgono solo come riga di esito (FU-009)', () => {
+  it('la formula in prosa, senza riga di claim, non prova lo zero', () => {
+    const body = [
+      '## Post-merge follow-up triage',
+      '',
+      'Nota: il template prevede zero outstanding items solo se non ci sono candidati.',
+    ].join('\n');
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+    expect(verifyTriageMarkerPersistence(body, 8928, () => null)).not.toBe(true);
+  });
+
+  it('la formula backfill skipped in prosa non prova lo zero', () => {
+    const body = '## Post-merge follow-up triage\n\nLa run di ieri era backfill skipped per errore.\n';
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+  });
+
+  it('un claim a zero o un\'intestazione dentro un blocco recintato non e\' l\'esito', () => {
+    for (const example of [
+      'Created/updated: 0 item; nessun bucket creato.',
+      '## Post-merge follow-up triage: zero outstanding items.',
+      'Created/updated: nessun item per questa PR; bucket giornaliero #9508 non modificato da questa PR.',
+    ]) {
+      const body = `## Post-merge follow-up triage\n\nEsempio del formato:\n\`\`\`md\n${example}\n\`\`\`\n`;
+      expect(triageMarkerPersistenceExpectation(body).requiresBucket, example).toBe(true);
+    }
+  });
+
+  it('un ``` dentro un recinto di ```` e\' contenuto, non la chiusura (review di #10288)', () => {
+    const body = ['````md', 'example', '```', 'Created/updated: 0 item', '```', '````'].join('\n');
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+    // Il recinto si chiude solo con lo stesso carattere e senza testo dopo.
+    const tilde = ['~~~', 'Created/updated: 0 item', '``` ', '~~~ fine', '~~~'].join('\n');
+    expect(triageMarkerPersistenceExpectation(tilde).requiresBucket).toBe(true);
+  });
+
+  it('l\'intestazione vale fino a fine riga: prosa in coda non e\' l\'esito vuoto (review di #10288)', () => {
+    for (const body of [
+      '## Post-merge follow-up triage: zero outstanding items but 1 item remains',
+      '## Post-merge follow-up triage (backfill skipped) but 1 item remains',
+    ]) {
+      expect(triageMarkerPersistenceExpectation(body).requiresBucket, body).toBe(true);
+    }
+  });
+
+  it('una citazione `>` dell\'intestazione vuota non e\' l\'esito', () => {
+    const body = '## Post-merge follow-up triage\n\n> ## Post-merge follow-up triage: zero outstanding items.\n';
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+  });
+
+  it('restano validi: intestazioni H2, prefisso nudo ripetuto, riga storica «Zero outstanding items.»', () => {
+    for (const body of [
+      '## Post-merge follow-up triage: zero outstanding items.',
+      '## Post-merge follow-up triage (backfill skipped): PR not eligible (not merged or different author)',
+      // il modello ripete il prefisso nudo prima dello zero (corpus #1570)
+      '## Post-merge follow-up triage\n\n## Post-merge follow-up triage: zero outstanding items.',
+      // forma storica del marker reale di #3027: intestazione nuda, poi la riga di esito
+      '## Post-merge follow-up triage\n\nDropped: 2 item\n- "x" — reason: non-funnel\n\nZero outstanding items. ',
+    ]) {
+      expect(triageMarkerPersistenceExpectation(body), body).toEqual({ buckets: [], requiresBucket: false });
+    }
+  });
+
+  it('un claim a zero fuori dal recinto resta valido anche se un esempio recintato lo ripete', () => {
+    const body = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: 0 item; nessun bucket creato.',
+      '',
+      '```md',
+      'Created/updated: 0 item',
+      '```',
+    ].join('\n');
+    expect(triageMarkerPersistenceExpectation(body)).toEqual({ buckets: [], requiresBucket: false });
+  });
+});
+
+describe('lo YAML invoca il predicato unico', () => {
+  // Regola #6 di AGENTS.md: un valore condiviso ha UNA sorgente. La copia bash
+  // dello step di verifica non conosceva la prova del gate per gli item demoti
+  // e restava rossa su triage completi (run 36212700029, 36202115664): ora lo
+  // step invoca il collector, e questo test difende l'unicita' del predicato.
   const yml = readFileSync(
     resolve(__dirname, '../.github/workflows/post-merge-followup.yml'),
     'utf8',
@@ -193,26 +372,20 @@ describe('il gemello bash dello YAML resta allineato', () => {
     expect(yml).not.toMatch(/solo live-verification batchata/);
   });
 
-  it('lo YAML compone la grammatica del claim in UNA variabile condivisa', () => {
-    // La grammatica sta in `claim_head` e viene riusata sia per estrarre le
-    // righe di claim sia per leggerne il conteggio: una sola sorgente dentro il
-    // bash, allineata al gemello JS.
-    expect(yml).toMatch(/claim_head='\^\[\[:space:\]\]\*\(-\[\[:space:\]\]\+\|\\\*\[\[:space:\]\]\+\)\?Created\(\/updated\)\?:'/);
-    expect(yml).toMatch(/grep -Ei "\$claim_head"/);
-    // Case-insensitive su entrambi gli usi (finding L478).
-    expect(yml).toMatch(/grep -Eqvi "\$\{claim_head\}\[\[:space:\]\]\*0\(\[\^0-9\.\]\|\\\$\)"/);
-    expect(yml).toMatch(/grep -Eio 'bucket\[\[:space:\]\]\*:\?\[\[:space:\]\]\*#\[0-9\]\+'/);
-  });
-
-  it('le formule legacy sono ammesse SOLO senza righe di claim (finding L484)', () => {
-    // Il fallback non deve piu' essere cercato nell'intero corpo quando esiste
-    // un claim: nello YAML e' racchiuso in un gruppo con `-z "$claim_lines"`.
-    expect(yml).toMatch(/\[ -z "\$claim_lines" \][\s\S]{0,120}zero outstanding items\|backfill skipped/);
-  });
-
-  it('il fallback bucket invariato richiede che ogni claim line sia esclusivamente zero', () => {
-    expect(yml).toMatch(/unchanged_bucket_zero=false[\s\S]{0,500}unchanged_bucket_zero=true[\s\S]{0,700}grep -Eq/);
-    expect(yml).toContain('nessun[[:space:]]+item[[:space:]]+per[[:space:]]+questa[[:space:]]+PR');
-    expect(yml).toContain('non[[:space:]]+modificat[oa]');
+  it('lo step di verifica chiama --verify-persistence e non riscrive il predicato', () => {
+    expect(yml).toMatch(/node scripts\/ci\/collect-followup-batch\.mjs --verify-persistence "\$csv"/);
+    for (const reimplementation of [
+      /bucket_persisted_for_pr/,
+      /claim_line_is_zero/,
+      /claim_head=/,
+      /zero_claim=/,
+      /bucket_refs=/,
+      /unchanged_bucket_zero=/,
+    ]) {
+      expect(yml, String(reimplementation)).not.toMatch(reimplementation);
+    }
+    // I due repository in cui puo' vivere un bucket devono raggiungere lo script.
+    expect(yml).toContain('FOLLOWUP_SITE_REPO: valerielinc-ops/frontaliere-si-o-no');
+    expect(yml).toContain('FOLLOWUP_CORPUS_REPO: nanakokyobashi-rgb/frontaliere-articles');
   });
 });

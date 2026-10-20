@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Successor guard for the standalone corpus translate workflow.
@@ -16,8 +18,6 @@
  */
 
 import { createHash } from 'node:crypto';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 export const CLAIM_SCHEMA = 'translate-queue-recovery-claim/v1';
 export const CLAIM_ROOT = 'data/translation-queue-recovery/claims/v1';
@@ -119,16 +119,60 @@ function apiBaseUrl(value) {
   return parsed.toString().replace(/\/$/, '');
 }
 
+async function cancelReaderWithDeadline(reader) {
+  let timer;
+  try {
+    await Promise.race([
+      Promise.resolve().then(() => reader.cancel()),
+      new Promise((resolve) => {
+        timer = setTimeout(resolve, 1_000);
+      }),
+    ]);
+  } catch {
+    // The read verdict stays authoritative even when cancellation rejects.
+  } finally {
+    if (timer !== undefined) clearTimeout(timer);
+  }
+}
+
+/**
+ * The cap is applied while the body streams (#9729): `response.text()` and a
+ * size check afterwards would download a chunked response in full first.
+ * Kept inline, not imported from `scripts/lib/bounded-response-body.mjs`,
+ * because this file is a standalone runtime the corpus checks out on its own.
+ */
 async function readJson(response) {
+  const tooLarge = () => new Error('successor_guard_response_too_large');
   const declared = Number(response?.headers?.get?.('content-length'));
   if (Number.isFinite(declared) && declared > MAX_RESPONSE_BYTES) {
-    throw new Error('successor_guard_response_too_large');
+    try { await response.body?.cancel?.(); } catch { /* the size verdict stays authoritative */ }
+    throw tooLarge();
   }
-  const text = await response.text();
-  if (Buffer.byteLength(text, 'utf8') > MAX_RESPONSE_BYTES) {
-    throw new Error('successor_guard_response_too_large');
+  const reader = response?.body?.getReader?.();
+  if (!reader) throw new Error('successor_guard_invalid_json');
+  const chunks = [];
+  let size = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      if (!ArrayBuffer.isView(value)) throw new Error('successor_guard_invalid_json');
+      if (value.byteLength > MAX_RESPONSE_BYTES - size) {
+        throw tooLarge();
+      }
+      // A copy, not a view over `value.buffer`: a reader may hand back the
+      // same buffer on every read (#7483).
+      chunks.push(Buffer.from(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
+      size += value.byteLength;
+    }
+  } catch (error) {
+    await cancelReaderWithDeadline(reader);
+    throw error;
+  } finally {
+    // Cleanup must never replace the verdict: older WHATWG streams throw here.
+    try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }
   }
-  try { return JSON.parse(text); } catch { throw new Error('successor_guard_invalid_json'); }
+  try { return JSON.parse(new TextDecoder().decode(Buffer.concat(chunks, size))); } catch { throw new Error('successor_guard_invalid_json'); }
 }
 
 async function getJson({ apiUrl, token, apiPath, fetchImpl }) {
@@ -235,7 +279,7 @@ export async function verifyRecoverySuccessor({
 }
 
 const isMain = process.argv[1]
-  && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   verifyRecoverySuccessor()
     .then((result) => {

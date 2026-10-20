@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * notify-journalist-article-live.mjs — Sends the "your article is online"
  * email only once the article is actually reachable, not at publish/commit
@@ -30,10 +31,12 @@
  */
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { FieldValue } from 'firebase-admin/firestore';
 import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
 import { checkArticleIdExists } from './create-article.mjs';
 import { slugify } from './publish-journalist-article.mjs';
 import { sendEmailCascade } from './lib/email-cascade.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const LIVE_CHECK_TIMEOUT_MS = 15_000;
 const ARTICLE_LOCALES = ['it', 'en', 'de', 'fr'];
@@ -48,14 +51,7 @@ const ARTICLE_LOCALES = ['it', 'en', 'de', 'fr'];
 const ORPHAN_THRESHOLD_MS = 3 * 60 * 60 * 1000;
 
 async function initDb() {
-  const admin = (await import('firebase-admin')).default;
-  if (!admin.apps?.length) {
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return { db: admin.firestore(), FieldValue: admin.firestore.FieldValue };
+  return { db: await getFirestoreDb(), FieldValue };
 }
 
 /** True only when EVERY locale URL present on the doc is live (checkLink —
@@ -174,7 +170,7 @@ async function main() {
 
 const invokedDirectly = (() => {
   try {
-    return import.meta.url === pathToFileURL(process.argv[1] || '').href;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

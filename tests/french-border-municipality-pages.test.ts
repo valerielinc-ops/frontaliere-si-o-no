@@ -17,12 +17,15 @@
  */
 import { describe, it, expect } from 'vitest';
 
-import { renderAboveFloorPage } from '@/build-plugins/frenchBorderMunicipalityPagesPlugin';
+import { renderAboveFloorPage, renderHubPage } from '@/build-plugins/frenchBorderMunicipalityPagesPlugin';
 import {
   FRENCH_ABOVE_FLOOR,
+  FRENCH_HUB_PATH,
   FRENCH_LOCALES,
   type FrenchBorderMunicipality,
 } from '@/build-plugins/frenchBorderMunicipalityData';
+import { ADSENSE_THIN_WORDS } from '../scripts/adsense-prereview-thresholds.mjs';
+import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
 import { TITLE_MAX_CHARS } from '@/build-plugins/shared/titleSuffix';
 import {
   assertPlausibleMunicipality,
@@ -35,6 +38,21 @@ import { buildDataset as buildFrenchDataset } from '../scripts/build-french-bord
 import { buildDataset as buildFiscalDataset } from '../scripts/build-fiscal-municipalities.mjs';
 
 const DIST = '/tmp/__french_border_dist_does_not_exist__';
+
+describe('French border hub keeps enough content for its static ad slot (#9244)', () => {
+  for (const locale of FRENCH_LOCALES) {
+    it(`[${locale}] stays above the AdSense thin-content threshold without removing ads`, () => {
+      const { html } = renderHubPage({ locale, dateStamp: '2026-09-30', distDir: DIST });
+      const page = auditPage(`https://frontaliereticino.ch${FRENCH_HUB_PATH[locale]}`, '', html);
+
+      expect(page.metrics?.wordCount).toBeGreaterThanOrEqual(ADSENSE_THIN_WORDS);
+      expect(page.metrics?.adInsSlots).toBeGreaterThan(0);
+      expect(page.metrics?.autoAds).toBe(true);
+      expect(page.issues).not.toContain('ads_on_thin_content_page');
+      expect(page.issues.some((issue) => issue.startsWith('ads_below_indexed_content_floor'))).toBe(false);
+    });
+  }
+});
 
 describe('French border municipality title cascade holds for an implausibly long commune name (#4886)', () => {
   const base = FRENCH_ABOVE_FLOOR[0];

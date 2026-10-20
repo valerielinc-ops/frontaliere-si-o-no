@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated Swiss Medical Network crawler runner.
  *
@@ -11,18 +13,21 @@
  * The swissmedical.net careers page is React-rendered and region-filtered, so
  * we read the API directly and infer the canton per-job from the API location.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
+import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { smnPostingsApiUrl, smnPostingDetailApiUrl, normalizeSmnApiPosting, extractSmnApiDescription, extractSmnPostingId, SMN_POSTINGS_API, slugify, normalizeSpace } from './lib/swiss-medical-network-job-parser.mjs';
+import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
+import { smnPostingsApiUrl, smnPostingDetailApiUrl, normalizeSmnApiPosting, extractSmnApiDescription, extractSmnPostingId, SMN_POSTINGS_API, slugify, normalizeSpace, dropSwissMedicalNetworkFabricatedText } from './lib/swiss-medical-network-job-parser.mjs';
 import { matchesCliniqueDeGenolierPosting } from './lib/clinique-de-genolier-job-parser.mjs';
 import { matchesCliniqueDeMontchoisiPosting } from './lib/clinique-de-montchoisi-job-parser.mjs';
 import { matchesCliniqueDeValerePosting } from './lib/clinique-de-valere-job-parser.mjs';
@@ -37,6 +42,7 @@ import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -105,20 +111,6 @@ function detectExperienceLevel(title = '') {
   return 'MID';
 }
 
-async function fetchJson(url) {
-  const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '20000', 10);
-  // clearTimeout in `finally` (after res.json() reads the body) so a stalled
-  // body aborts at timeoutMs instead of hanging (PR #4118 / review sibling).
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, { signal: controller.signal, headers: { 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)', Accept: 'application/json' } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
-    return await res.json();
-  } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
-}
-
 /**
  * Posting ids already owned by a DEDICATED SMN clinic crawler (genolier,
  * montchoisi, valère, beaulieu, ste-anne, bethanien, obach, siloah, moutier, …).
@@ -180,16 +172,17 @@ async function fetchAllApiPostings() {
 }
 
 /**
- * Build a rich fallback description (>50 words) for Swiss Medical Network.
+ * Normalized job for one SmartRecruiters posting. The description is the
+ * posting's own text (`detailDescription`), whatever its length, in the slot
+ * of its own language (the group publishes in French and German).
+ *
+ * The runner used to REPLACE any description under 50 words with a paragraph
+ * of its own ("Open position: <title> at Swiss Medical Network … Switzerland's
+ * leading private healthcare group…", and an Italian twin in the `it` slot),
+ * and to key French and German text as `en`. A posting without text now gets
+ * no description and takes the pipeline's thin-source path.
  */
-function buildFallbackDescription(title, city, locale = 'en') {
-  if (locale === 'it') {
-    return `Posizione aperta: ${title} presso Swiss Medical Network${city ? ` a ${city}` : ''}, Svizzera.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera, fondato nel 2002. Il gruppo gestisce oltre 20 strutture sanitarie tra cui cliniche, centri medici e istituti di riabilitazione in tutta la Svizzera. Offre un ambiente di lavoro stimolante e dinamico, con condizioni di impiego allineate ai contratti collettivi di lavoro. Il gruppo è in costante crescita e offre opportunità di sviluppo professionale, formazione continua e un pacchetto retributivo competitivo con ottime prestazioni sociali. Candidarsi per entrare a far parte di un team appassionato e dedicato alla cura dei pazienti.`;
-  }
-  return `Open position: ${title} at Swiss Medical Network${city ? ` in ${city}` : ''}, Switzerland.\n\nSwiss Medical Network is Switzerland's leading private healthcare group, established in 2002. The group operates over 20 healthcare facilities including clinics, medical centers, and rehabilitation institutes across Switzerland. It offers a stimulating and dynamic working environment, with employment terms aligned with collective bargaining agreements. The group is constantly growing and offers professional development opportunities, continuous training, and a competitive compensation package with excellent social benefits. Apply to become part of a passionate team dedicated to patient care.`;
-}
-
-function buildJobFromApi(posting, detailDescription = '', applyUrl = '', postingUrl = '') {
+export function buildJobFromApi(posting, detailDescription = '', applyUrl = '', postingUrl = '') {
   const slug = slugify(posting.title, 'swiss-medical-network');
   const city = posting.city || '';
   // Real canton from the API location. No fixed-canton default: leave blank when
@@ -197,21 +190,7 @@ function buildJobFromApi(posting, detailDescription = '', applyUrl = '', posting
   // mislabeling a clinic.
   const canton = posting.canton || inferAnyCanton(city) || '';
 
-  let descEn = detailDescription;
-  const hasRealDescription = Boolean(detailDescription) && detailDescription.split(/\s+/).length >= 50;
-  if (!descEn || descEn.split(/\s+/).length < 50) {
-    descEn = buildFallbackDescription(posting.title, city, 'en');
-  }
-  // Reuse the real scraped description (which may contain genuine bullet/list
-  // markup from the SmartRecruiters posting) as the interim 'it' value too.
-  // Previously this always called buildFallbackDescription(..., 'it') even
-  // when a real, structured detailDescription was available — that synthetic
-  // paragraph has zero list markup and, because effectiveDescription() checks
-  // the 'it' locale before 'en', it masked the real content for both the
-  // parser-quality audit and real Italian-locale site visitors. Only fall
-  // back to synthetic boilerplate when no real detail description was
-  // scraped at all.
-  const descIt = hasRealDescription ? descEn : buildFallbackDescription(posting.title, city, 'it');
+  const { description, descriptionByLocale, sourceLang } = sourceLocaleDescription(detailDescription);
 
   return {
     url: postingUrl || applyUrl || `https://www.swissmedical.net/en/career/job-offers`,
@@ -225,18 +204,20 @@ function buildJobFromApi(posting, detailDescription = '', applyUrl = '', posting
     canton,
     country: 'CH',
     ...(posting.postalCode && { postalCode: posting.postalCode }),
-    description: descEn,
-    descriptionByLocale: { en: descEn, it: descIt },
-    titleByLocale: { en: posting.title },
-    slug, slugByLocale: { en: slug, it: slugify(posting.title, 'swiss-medical-network') },
+    description,
+    descriptionByLocale,
+    // Title and slug in the body's source slot, not a fixed `en`/`it`.
+    ...sourceSlotTitleAndSlug(posting.title, slug, sourceLang),
+    slug,
     category: detectCategory(posting.title),
-    datePosted: new Date().toISOString().split('T')[0],
+    ...sourcePostingDateFields(posting.datePosted),
+    crawledAt: new Date().toISOString(),
     source: 'swiss-medical-smartrecruiters-crawler',
     employmentType: posting.employmentType || 'FULL_TIME',
     experienceLevel: detectExperienceLevel(posting.title),
     sector: 'Sanità / Healthcare',
     _targetScope: { canton, location: city },
-    sourceLang: detectLang(descEn || posting.title, 'en'),
+    sourceLang,
   };
 }
 
@@ -245,6 +226,8 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isSwissMedicalJob(j));
   const existingCompanyJobs = allJobs.filter(isSwissMedicalJob);
+  const fabricatedFossils = existingCompanyJobs.filter((job) => dropSwissMedicalNetworkFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Swiss Medical Network job(s); they will be retranslated`);
 
   const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
@@ -263,6 +246,9 @@ async function mergeJobs(discoveredJobs) {
     companyKey: COMPANY_KEY,
     source: 'swiss-medical-smartrecruiters-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -284,6 +270,18 @@ function runBaseCrawler() {
   return runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, localizeOnlyCompanyKeys: COMPANY_KEY, forceLocalizeKeys: COMPANY_KEY, localizeExistingOnly: true, extraEnv: { JOBS_CRAWLER_MAX_JOB_LINKS: '100000', JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '100000' } });
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropSwissMedicalNetworkFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isSwissMedicalJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Swiss Medical Network');
@@ -294,7 +292,7 @@ async function main() {
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isSwissMedicalJob))
 
   const rawPostings = await fetchAllApiPostings();
-  if (!rawPostings.length) { console.log('\n⚠️ Could not fetch Swiss Medical Network postings from the SmartRecruiters API.'); return; }
+  if (!rawPostings.length) { console.log('\n⚠️ Could not fetch Swiss Medical Network postings from the SmartRecruiters API.'); await cleanStoredJobsOnSoftExit(); return; }
 
   // Keep only Swiss postings (the tenant is CH-only, but guard anyway —
   // accept both the ISO code 'ch' and a spelled-out country name).
@@ -318,7 +316,12 @@ async function main() {
     let detailDescription = '';
     let applyUrl = '';
     let postingUrl = '';
-    const detail = await fetchJson(smnPostingDetailApiUrl(p.id));
+    let detail = null;
+    try {
+      detail = await fetchJson(smnPostingDetailApiUrl(p.id));
+    } catch (error) {
+      console.warn(`⚠️ Fetch failed for ${p.id}: ${error?.message || error}`);
+    }
     if (detail) {
       applyUrl = String(detail.applyUrl || '');
       postingUrl = String(detail.postingUrl || '');
@@ -333,7 +336,7 @@ async function main() {
     await new Promise((r) => setTimeout(r, 150));
   }
 
-  if (discoveredJobs.length === 0) { console.log('\n⚠️ No Swiss Medical Network jobs found.'); return; }
+  if (discoveredJobs.length === 0) { console.log('\n⚠️ No Swiss Medical Network jobs found.'); await cleanStoredJobsOnSoftExit(); return; }
 
   updateAdapterConfig();
   await mergeJobs(discoveredJobs);
@@ -368,6 +371,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => exitCrawlerOnError(err, 'Swiss Medical Network'));
 }

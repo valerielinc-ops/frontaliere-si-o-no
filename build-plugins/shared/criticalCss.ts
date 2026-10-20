@@ -111,24 +111,68 @@ import { deriveSeoStaticFirstPaintReserve } from './seoStaticFirstPaintReserve';
  * rails (JobBoard.tsx) keep their own xl/xlw markup and are NOT hooked here:
  * job-detail content is always taller than the 600px rail, so the row never
  * grows when the ad lands, and the live CLS breakdown put it under ~0.01.
+ *
+ * This block is UNLAYERED, so it outranks `index.css`'s `@layer utilities`
+ * permanently, not just until the async sheet lands. A rule here must carry the
+ * FINAL value for its whole media range: the old `.xlc\:max-w-6xl{max-width:72rem}`
+ * at ≥1200px beat the article wrapper's `xlw:max-w-[1440px]` forever, pinning
+ * the 3-column article at 1152px on every desktop (centre column ~520px beside
+ * two 300px rails, ~190px blank margins at 1540px). The article wrapper now
+ * fills its parent from 1200px, so the mirror is `max-width:none`.
  */
 export const RAIL_RESERVE_CSS =
   '.ft-rail-aside{display:none}' +
   '.ft-rail-aside-x{display:none}' +
   '.ft-rail-grid-spa{display:contents}' +
+  '@media(min-width:1200px){' +
+  '.xlc\\:max-w-none{max-width:none}' +
+  '}' +
+  '@media(min-width:1200px) and (max-width:1279.98px){' +
+  '.ft-blog-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-c-l,160px) minmax(0,1fr) var(--ft-rail-w-c-r,160px);gap:1rem}' +
+  '.ft-blog-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
+  '}' +
+  '.ft-static-rail-stack,.ft-static-rail-panel{display:none}' +
+  '@media(min-width:1200px) and (max-width:1399.98px){' +
+  '.ft-rail-grid{display:grid;grid-template-columns:160px minmax(0,1fr) 160px;gap:1rem;margin-inline:auto;max-width:1768px}' +
+  '.ft-rail-grid>.ft-rail-aside{display:flex;flex-direction:column;min-height:600px}' +
+  '.ft-rail-grid.ft-rail-grid-x{display:block;max-width:2400px;margin-inline:auto}' +
+  '.ft-rail-grid.ft-rail-grid-x>.ft-rail-aside-x{display:none}' +
+  '}' +
+  '@media(min-width:1200px){' +
+  '.ft-static-rail-stack{display:flex;flex:1 1 0%;flex-direction:column;min-height:0}' +
+  '.ft-static-rail-panel{display:block}' +
+  '}' +
   '@media(min-width:1280px) and (max-width:1399.98px){' +
-  '.ft-rail-grid-x{display:grid;grid-template-columns:180px 1fr 180px;gap:1rem}' +
+  '.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-m-l,180px) minmax(0,1fr) var(--ft-rail-w-m-r,180px);gap:1rem}' +
+  '.ft-rail-grid.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-m-l,180px) minmax(0,1fr) var(--ft-rail-w-m-r,180px);gap:1rem;max-width:2400px;margin-inline:auto}' +
   '.ft-rail-aside-x{display:block}' +
+  '.ft-rail-grid.ft-rail-grid-x>.ft-rail-aside-x{display:block}' +
+  '.ft-blog-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
   '}' +
   '@media(min-width:1400px){' +
   'main:not(.seo-static-content):not(.cluster-seo-prose){max-width:calc(100vw - 360px)}' +
   '#main-content.plate-auctions-main{max-width:none!important}' +
   '.ft-rail-grid{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:1rem;margin-inline:auto;max-width:1768px}' +
   '.ft-rail-grid-spa{display:grid;grid-template-columns:160px minmax(0,1fr) 160px;gap:1rem}' +
-  '.ft-rail-grid-x{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:1rem}' +
+  '.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-l,300px) minmax(0,1fr) var(--ft-rail-w-r,300px);gap:1rem}' +
+  '.ft-rail-grid.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-l,300px) minmax(0,1fr) var(--ft-rail-w-r,300px);gap:1rem;max-width:2400px;margin-inline:auto}' +
   '.ft-rail-aside,.ft-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
   '}' +
   '@media(min-width:1800px){main:not(.seo-static-content):not(.cluster-seo-prose){max-width:calc(100vw - 420px)}}';
+
+/**
+ * Static manual AdSense slots reserve their height in emitted HTML. The
+ * external static loader adds the marker only after `unfilled` or a script failure, and only offscreen, so a real creative keeps its space. Keep the collapse rule in
+ * the synchronous sheet as well as `index.css`: the loader can answer before
+ * the async sheet swaps in on a cold static page.
+ */
+const STATIC_AD_SELECTOR = 'ins.ads' + 'bygoogle';
+const STATIC_AD_COLLAPSE_SELECTOR =
+  `${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]`;
+
+export const STATIC_AD_COLLAPSE_CSS =
+  `${STATIC_AD_COLLAPSE_SELECTOR}{min-height:0!important;max-height:0!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;display:block!important}` +
+  `:where(div,li,section):has(> ${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]:only-child){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}`;
 
 /**
  * Static SEO landing layout, mirrored from the ASYNC `seo-static.css`
@@ -175,6 +219,33 @@ export const RAIL_RESERVE_CSS =
 export const SEO_STATIC_GRID_RESERVE_CSS =
   'main.seo-static-content{max-width:min(100%,1120px);margin:0 auto;padding:32px clamp(16px,4vw,32px) 56px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}' +
   'main.seo-static-content>*{min-width:0;width:100%}';
+
+/**
+ * First-paint mirror for the active job-detail fallback. The SPA owns the
+ * same 12-column centre grid inside the same 180/300px rail wrapper. Keep
+ * this in the synchronous sheet because the SEO stylesheet is swapped in
+ * asynchronously and the handoff happens before the React detail paints.
+ */
+export const JOB_BOARD_STATIC_HANDOFF_RESERVE_CSS =
+  'main.seo-static-content.static-job-page{display:block;max-width:2400px;margin-inline:auto;width:100%;padding:16px 12px 56px}' +
+  '.job-detail-top-row{display:flex;align-items:center;gap:1rem;min-height:44px;margin-bottom:1.5rem}' +
+  '.job-detail-top-row .bn{margin:0;width:auto}' +
+  '.job-detail-top-banner-reserve{display:none}' +
+  '.static-job-rail-center{min-width:0;width:100%}' +
+  '.static-job-inner-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem}' +
+  '@media(min-width:1024px){main.seo-static-content.static-job-page{padding-top:32px;padding-inline:16px}.job-detail-top-banner-reserve{display:block;flex:1 1 0%;min-width:0;min-height:100px}.static-job-inner-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:1.5rem}.static-job-inner-grid>.proposal{grid-column:span 8/span 8}.static-job-inner-grid>.job-detail-rail{grid-column:span 4/span 4}}';
+
+/**
+ * The bare job-board hub has no SPA sub-navigation. Align its static rail
+ * shell with the padding of `#main-content` so the first grid row starts at
+ * the same y/x coordinates before and after the fallback is adopted.
+ */
+export const JOB_BOARD_HUB_STATIC_HANDOFF_CSS =
+  '.job-board-static-top-stack{margin-top:16px}' +
+  '.job-board-top-banner-reserve{display:none}' +
+  '.job-board-static-rail-shell{margin-top:0;padding-inline:12px;box-sizing:border-box}' +
+  'main.seo-static-content.job-board-static-hub{display:block;max-width:2400px;margin-inline:auto;width:100%;padding:0 0 56px}' +
+  '@media(min-width:1024px){.job-board-static-top-stack{margin-top:32px}.job-board-top-banner-reserve{display:block;min-height:100px}.job-board-static-rail-shell{margin-top:1.5rem;width:calc(100% - 32px);padding-inline:0}}';
 
 /**
  * Static SEO HERO layout, mirrored from the ASYNC `seo-static.css` into this
@@ -270,6 +341,9 @@ export const SEO_STATIC_HERO_RESERVE_CSS =
   '.s-zNiFzy{margin:0 0 8px;font-size:13px;font-weight:700}' +
   '.s-wU5Nrr{margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px}' +
   '.s-rDKEKn{margin:0;line-height:1.7;max-width:860px}' +
+  '.pharmacy-static-header{position:relative;min-height:190px;padding:28px 30px;border:1px solid transparent;border-radius:24px}' +
+  '.pharmacy-static-list{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:12px!important}' +
+  '@media(max-width:639px){.pharmacy-static-header{min-height:220px;padding:22px 20px}}' +
   '@media(max-width:639px){.s-cta{display:flex;width:100%;justify-content:center}}';
 
 /**
@@ -857,10 +931,25 @@ export const SEO_STATIC_SHEET_RESERVE_CSS = deriveSeoStaticFirstPaintReserve(
  * source-order against `seo-static.css`, which is itself entirely
  * unlayered by design.
  */
+const CRITICAL_SEMANTIC_TOKENS_CSS =
+  ':root{--_surface:#fff;--_surface-alt:#f8fafc;--_surface-raised:#f1f5f9;--_muted:#64748b;--_subtle:#475569;--_body:#334155;--_strong:#1e293b;--_heading:#0f172a;--_edge:#e2e8f0;--_link:#533afd;--_accent:#533afd;--_accent-hover:#4529e6;--_success:#059669;--_warning:#d97706;--_danger:#dc2626;--_success-subtle:#ecfdf5;--_warning-subtle:#fffbeb;--_danger-subtle:#fef2f2;--_success-border:#a7f3d0;--_warning-border:#fde68a;--_danger-border:#fecaca;--_accent-subtle:#f5f3ff;--_accent-border:#ddd6fe;--_info:#0d9488;--_info-subtle:#f0fdfa;--_info-border:#99f6e4;--_neutral:#57534e;--_neutral-subtle:#fafaf9;--_neutral-border:#e7e5e4;--_surface-inverted:#1e293b;--_surface-muted:#475569;--_surface-muted-hover:#334155;--_on-accent:#fff;--_accent-strong:#533afd;--_accent-strong-hover:#4529e6;--_success-strong:#059669;--_success-strong-hover:#047857;--_warning-strong:#d97706;--_warning-strong-hover:#b45309;--_danger-strong:#dc2626;--_danger-strong-hover:#b91c1c;--_info-strong:#0d9488;--_info-strong-hover:#0f766e;--_tab-active-bg:#ede9fe;--_tab-active-text:#4529e6;--_tab-active-border:#a78bfa;--_tab-inactive-text:#64748b;--_tab-hover-bg:#f1f5f9;--_segment-active-bg:#fff;--_segment-container-bg:#f1f5f9;--_section-calculator:#533afd;--_section-confronti:#059669;--_section-fisco:#059669;--_section-guida:#533afd;--_section-vita:#d97706;--_section-stats:#533afd;--_chart-grid:#e2e8f0;--_chart-tick:#64748b;--_chart-tooltip-bg:#fff;--_chart-tooltip-text:#1e293b;--_chart-tooltip-border:#e2e8f0;--_chart-line:#4338ca;--_chart-area:#c7d2fe;--_chart-dot:#1e293b;--_chart-label:#475569}' +
+  'html.dark{--_surface:#1e293b;--_surface-alt:#0f172a;--_surface-raised:#334155;--_muted:#94a3b8;--_subtle:#94a3b8;--_body:#cbd5e1;--_strong:#e2e8f0;--_heading:#f1f5f9;--_edge:#334155;--_link:#7a5af8;--_accent:#7a5af8;--_accent-hover:#9b8afb;--_success:#34d399;--_warning:#fbbf24;--_danger:#f87171;--_success-subtle:rgba(5,150,105,.15);--_warning-subtle:rgba(217,119,6,.15);--_danger-subtle:rgba(220,38,38,.15);--_success-border:#065f46;--_warning-border:#92400e;--_danger-border:#991b1b;--_accent-subtle:rgba(46,26,158,.15);--_accent-border:#3b1fc7;--_info:#2dd4bf;--_info-subtle:rgba(13,148,136,.15);--_info-border:#115e59;--_neutral:#a8a29e;--_neutral-subtle:rgba(87,83,78,.15);--_neutral-border:#44403c;--_surface-inverted:#334155;--_surface-muted:#64748b;--_surface-muted-hover:#475569;--_on-accent:#fff;--_accent-strong:#7a5af8;--_accent-strong-hover:#9b8afb;--_success-strong:#34d399;--_success-strong-hover:#6ee7b7;--_warning-strong:#fbbf24;--_warning-strong-hover:#fcd34d;--_danger-strong:#f87171;--_danger-strong-hover:#fca5a5;--_info-strong:#2dd4bf;--_info-strong-hover:#5eead4;--_tab-active-bg:rgba(46,26,158,.3);--_tab-active-text:#c4b5fd;--_tab-active-border:#4529e6;--_tab-inactive-text:#94a3b8;--_tab-hover-bg:#1e293b;--_segment-active-bg:#334155;--_segment-container-bg:#0f172a;--_section-calculator:#a78bfa;--_section-confronti:#34d399;--_section-fisco:#34d399;--_section-guida:#a78bfa;--_section-vita:#fbbf24;--_section-stats:#a78bfa;--_chart-grid:#334155;--_chart-tick:#94a3b8;--_chart-tooltip-bg:#1e293b;--_chart-tooltip-text:#e2e8f0;--_chart-tooltip-border:#334155;--_chart-line:#a78bfa;--_chart-area:rgba(167,139,250,.25);--_chart-dot:#e2e8f0;--_chart-label:#94a3b8}' +
+  ':root{--color-surface:var(--_surface);--color-surface-alt:var(--_surface-alt);--color-surface-raised:var(--_surface-raised);--color-muted:var(--_muted);--color-subtle:var(--_subtle);--color-body:var(--_body);--color-strong:var(--_strong);--color-heading:var(--_heading);--color-edge:var(--_edge);--color-link:var(--_link);--color-accent:var(--_accent);--color-accent-hover:var(--_accent-hover);--color-success:var(--_success);--color-warning:var(--_warning);--color-danger:var(--_danger);--color-success-subtle:var(--_success-subtle);--color-warning-subtle:var(--_warning-subtle);--color-danger-subtle:var(--_danger-subtle);--color-success-border:var(--_success-border);--color-warning-border:var(--_warning-border);--color-danger-border:var(--_danger-border);--color-accent-subtle:var(--_accent-subtle);--color-accent-border:var(--_accent-border);--color-info:var(--_info);--color-info-subtle:var(--_info-subtle);--color-info-border:var(--_info-border);--color-neutral:var(--_neutral);--color-neutral-subtle:var(--_neutral-subtle);--color-neutral-border:var(--_neutral-border);--color-surface-inverted:var(--_surface-inverted);--color-surface-muted:var(--_surface-muted);--color-surface-muted-hover:var(--_surface-muted-hover);--color-on-accent:var(--_on-accent);--color-accent-strong:var(--_accent-strong);--color-accent-strong-hover:var(--_accent-strong-hover);--color-success-strong:var(--_success-strong);--color-success-strong-hover:var(--_success-strong-hover);--color-warning-strong:var(--_warning-strong);--color-warning-strong-hover:var(--_warning-strong-hover);--color-danger-strong:var(--_danger-strong);--color-danger-strong-hover:var(--_danger-strong-hover);--color-info-strong:var(--_info-strong);--color-info-strong-hover:var(--_info-strong-hover);--color-tab-active-bg:var(--_tab-active-bg);--color-tab-active-text:var(--_tab-active-text);--color-tab-active-border:var(--_tab-active-border);--color-tab-inactive-text:var(--_tab-inactive-text);--color-tab-hover-bg:var(--_tab-hover-bg);--color-segment-active-bg:var(--_segment-active-bg);--color-segment-container-bg:var(--_segment-container-bg);--color-section-calculator:var(--_section-calculator);--color-section-confronti:var(--_section-confronti);--color-section-fisco:var(--_section-fisco);--color-section-guida:var(--_section-guida);--color-section-vita:var(--_section-vita);--color-section-stats:var(--_section-stats);--color-chart-grid:var(--_chart-grid);--color-chart-tick:var(--_chart-tick);--color-chart-tooltip-bg:var(--_chart-tooltip-bg);--color-chart-tooltip-text:var(--_chart-tooltip-text);--color-chart-tooltip-border:var(--_chart-tooltip-border);--color-chart-line:var(--_chart-line);--color-chart-area:var(--_chart-area);--color-chart-dot:var(--_chart-dot);--color-chart-label:var(--_chart-label);--surface:var(--_surface);--surface-alt:var(--_surface-alt);--surface-border:var(--_edge);--text-base:var(--_body);--text-muted:var(--_subtle);--link:var(--_link);--accent:var(--_accent);--bg:var(--_surface-alt)}';
+
+const CRITICAL_DARK_MODE_RULES_CSS =
+  '.bg-surface{background-color:var(--color-surface,#fff)}.bg-surface-alt{background-color:var(--color-surface-alt,#f8fafc)}.bg-surface-raised{background-color:var(--color-surface-raised,#f1f5f9)}.text-heading{color:var(--color-heading,#0f172a)}.text-strong{color:var(--color-strong,#1e293b)}.text-body{color:var(--color-body,#334155)}.text-subtle{color:var(--color-subtle,#475569)}.text-muted{color:var(--color-muted,#64748b)}.text-link,.text-accent{color:var(--color-link,#533afd)}.border-edge{border-color:var(--color-edge,#e2e8f0)}' +
+  '.dark .bg-surface{background-color:var(--_surface,#1e293b)}.dark .bg-surface-alt{background-color:var(--_surface-alt,#0f172a)}.dark .bg-surface-raised{background-color:var(--_surface-raised,#334155)}.dark .text-heading{color:var(--_heading,#f1f5f9)}.dark .text-strong{color:var(--_strong,#e2e8f0)}.dark .text-body{color:var(--_body,#cbd5e1)}.dark .text-subtle,.dark .text-muted{color:var(--_subtle,#94a3b8)}.dark .text-link,.dark .text-accent{color:var(--_link,#7a5af8)}.dark .border-edge{border-color:var(--_edge,#334155)}.dark .bg-accent-subtle{background-color:var(--_accent-subtle)}.dark .bg-success-subtle{background-color:var(--_success-subtle)}.dark .bg-warning-subtle{background-color:var(--_warning-subtle)}.dark .bg-danger-subtle{background-color:var(--_danger-subtle)}';
+
+const CRITICAL_DARK_TEXT_CONTRAST_CSS =
+  'html.dark{--_link:#a78bfa}.dark .text-link,.dark .text-accent{color:var(--_link,#a78bfa)}';
+
 export const CRITICAL_CSS =
   `@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(${BASE_URL}/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:optional;src:url(${BASE_URL}/fonts/space-grotesk-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@layer base{*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}h1,h2,h3{font-family:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,sans-serif}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}` +
   RAIL_RESERVE_CSS +
+  STATIC_AD_COLLAPSE_CSS +
   SEO_STATIC_GRID_RESERVE_CSS +
+  JOB_BOARD_STATIC_HANDOFF_RESERVE_CSS +
+  JOB_BOARD_HUB_STATIC_HANDOFF_CSS +
   SEO_STATIC_HERO_RESERVE_CSS +
   SEO_SEARCH_HUB_RESERVE_CSS +
   SEO_ARTICLE_SHELL_RESERVE_CSS +
@@ -874,6 +963,9 @@ export const CRITICAL_CSS =
   // emitted here FIRST so the real sheet wins on equal specificity when it
   // lands. Kept last so it also supersedes the older hand-written `.s-*`
   // reserves above wherever the two describe the same selector.
+  CRITICAL_SEMANTIC_TOKENS_CSS +
+  CRITICAL_DARK_MODE_RULES_CSS +
+  CRITICAL_DARK_TEXT_CONTRAST_CSS +
   SEO_STATIC_SHEET_RESERVE_CSS;
 
 /**

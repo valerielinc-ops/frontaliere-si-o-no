@@ -1,3 +1,4 @@
+import { realpathSync } from 'node:fs';
 /**
  * reap-stale-deploy-build.mjs — release a deploy build lock that outlives its
  * own six-hour job timeout.
@@ -21,6 +22,7 @@
 
 import { pathToFileURL } from 'node:url';
 import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
+import { createdSinceQuery } from './lib/run-listing-window.mjs';
 
 const API = 'https://api.github.com';
 const DEFAULT_STALE_BUILD_MINUTES = 390;
@@ -87,6 +89,8 @@ function authToken() {
   return token;
 }
 
+const REAP_LISTING_WINDOW_DAYS = 35;
+
 async function ghJson(urlPath) {
   const response = await fetch(`${API}${urlPath}`, {
     headers: githubApiHeaders(authToken()),
@@ -126,8 +130,13 @@ async function main() {
 
   let runs;
   try {
+    // Un elenco per `branch` senza finestra `created` puo' tornare fermo a
+    // settimane prima (scripts/ci/lib/run-listing-window.mjs): qui vorrebbe
+    // dire non vedere la run che tiene il lock. 35 giorni e' la vita massima
+    // di una run su GitHub: nessuna run ancora `in_progress` puo' essere
+    // nata prima, quindi la finestra non esclude alcun candidato reale.
     const body = await ghJson(
-      `/repos/${repo}/actions/workflows/${encodeURIComponent(workflow)}/runs?branch=${encodeURIComponent(branch)}&status=in_progress&per_page=50`,
+      `/repos/${repo}/actions/workflows/${encodeURIComponent(workflow)}/runs?branch=${encodeURIComponent(branch)}&status=in_progress&${createdSinceQuery(REAP_LISTING_WINDOW_DAYS)}&per_page=50`,
     );
     runs = Array.isArray(body?.workflow_runs) ? body.workflow_runs : [];
   } catch (error) {
@@ -172,7 +181,7 @@ async function main() {
   return 0;
 }
 
-const invokedDirectly = import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main()
     .then((code) => process.exit(code))

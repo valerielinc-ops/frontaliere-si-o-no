@@ -19,10 +19,34 @@ run-name: "Code checks and review · ${{ github.event.pull_request.number && for
 # costoso: `retry-code-check-after-body-edit.yml` rientra sulla stessa HEAD quando
 # il body cambia, anche se la run precedente era verde. Il guard zero-agent
 # riusa il verdetto solo se porta il digest body corrente; title-only resta fuori.
+#
+# ── Dove va il tempo, e perché i test non sono divisi in shard ────────────
+# Misura del 2026-09-30 su 80 run PR: verdetto del check in 12,2 min di
+# mediana e 33 al p90. Percorso critico: setup fisso ~2,3 min (checkout 107 s,
+# `npm ci` 29 s), assemble 235-276 s quando la sua cache manca, vitest 377 s di
+# mediana e 1.221 al p90, review Codex 249 s quando c'è. Al p90 domina vitest,
+# e sopra i ~400 file selezionati il suo costo cresce col numero di file.
+#
+# Dal 2026-09-30 l'account è su GitHub Pro: 40 job concorrenti invece dei 20
+# del piano Free, che avevano fatto collassare il vecchio fan-out a 4 shard in
+# questo job unico. Il banco della PR #10503 ha però mostrato che la prima
+# leva non erano gli shard: Vitest girava sempre con UN worker perché la
+# variabile `VITEST_MAX_WORKERS` ereditata annullava il `--maxWorkers` scelto
+# dal runner (dettaglio sullo step `vitest related (PR diff)`). Corretto
+# quello, 4 shard da 2 worker toglierebbero ancora ~5 min solo al p90, al
+# prezzo di 4 checkout e `npm ci` in più per run e di un check richiesto
+# spezzato fra più job, mentre la mediana non migliora. La scelta va rifatta
+# sui tempi misurati DOPO la correzione, non su quelli di prima.
 on:
   pull_request:
     branches: [main]
     types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: 'Numero della PR interna da ritestare sulla sua HEAD'
+        required: true
+        type: string
   push:
     branches: [main]
     # Su `main` questo workflow e' un segnale di salute, non il gate di merge:
@@ -147,13 +171,13 @@ jobs:
       automerge: ${{ steps.post_review.outputs.automerge }}
       autorebase: ${{ steps.post_review.outputs.autorebase }}
       pr_number: ${{ steps.post_review.outputs.pr_number }}
-    # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
-    # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
-    # questo file: checkout profilo `contract` 420s + `npm ci` ~60s + detector
-    # collision 449s + body-contract/source-guard ~90s + `tsc` 33s + catena
-    # vitest 950s ≈ 2000s ≈ 33 min. 60 = 1,8x quel caso peggiore, con lo stesso
-    # criterio (≈2x il massimo osservato) usato per i tetti che questo file ha
-    # già ritarato. Un tetto sotto la somma non discrimina un guasto: fabbrica
+    # 360 min, il massimo di GitHub, dal 2026-08-26 (#6571): quando la review è
+    # entrata in questo job il vecchio tetto di 60 min (≈2x la somma dei
+    # massimi di allora, circa 33 min) non copriva più review e suite insieme.
+    # Il tetto del job non è quindi una stima del caso peggiore: i passi lunghi
+    # hanno un `timeout-minutes` proprio (la review Codex 45 min), e il job fa
+    # da rete. Misura del 2026-09-30 su 80 run PR: job 734 s di mediana, 1.882
+    # al p90. Un tetto sotto il caso reale non discrimina un guasto: fabbrica
     # un `cancelled`, che nessun `if: failure()` vede e che `gh pr checks` legge
     # come fail bloccando l'auto-merge di PR sane.
     timeout-minutes: 360
@@ -170,7 +194,7 @@ jobs:
       - name: PR-body completeness + multi-issue Closes (no checkout, pull requests)
         if: ${{ !cancelled() && github.event_name == 'pull_request' }}
         id: body_contract
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const STICKY = '<!-- pr-body-contract -->';
@@ -178,6 +202,85 @@ jobs:
             if (!Number.isSafeInteger(prNumber) || prNumber <= 0) throw new Error('Invalid PR number');
             const { data: currentPr } = await github.rest.pulls.get({ ...context.repo, pull_number: prNumber });
             const body = currentPr.body || '';
+
+            // --- 1a) Trusted performance-claim policy (#11675) --------------------
+            // This step intentionally runs before checkout, so it cannot import the
+            // PR tree: a PR must not be able to rewrite the predicate that decides
+            // whether its own body is admissible. Fetch the helper and its one
+            // relative dependency from the protected base branch, then execute the
+            // same source-of-truth predicate used by the local body gate. Before this
+            // wiring, CI/API-generated PR descriptions bypassed the local pre-tool
+            // hook and recurrently reached Claude with an unvalidated perf claim.
+            let perfClaimViolations = [];
+            let perfClaimWarnings = [];
+            let perfClaimPolicyError = null;
+            if (/^\s{0,3}#{2,3}\s+Implementato\b/im.test(body)) {
+              try {
+                // `actions/github-script` exposes CommonJS `require`, but its
+                // AsyncFunction wrapper has no dynamic-import callback. Run the
+                // downloaded ESM policy in a child Node process instead of making
+                // the trusted gate depend on an action-runner implementation detail.
+                const fs = require('node:fs');
+                const os = require('node:os');
+                const path = require('node:path');
+                const { spawnSync } = require('node:child_process');
+                const policyRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-pr-body-policy-'));
+                const moduleDir = path.join(policyRoot, 'scripts', 'lib');
+                const dependencyDir = path.join(policyRoot, 'scripts', 'ci', 'lib');
+                fs.mkdirSync(moduleDir, { recursive: true });
+                fs.mkdirSync(dependencyDir, { recursive: true });
+                const trustedRef = context.payload.pull_request?.base?.ref || 'main';
+                const downloadTrusted = async (path, destination) => {
+                  const { data } = await github.rest.repos.getContent({
+                    ...context.repo,
+                    path,
+                    ref: trustedRef,
+                  });
+                  if (!data || Array.isArray(data) || typeof data.content !== 'string') {
+                    throw new Error(`trusted policy path is not a file: ${path}`);
+                  }
+                  fs.writeFileSync(destination, Buffer.from(data.content, 'base64'));
+                };
+                await downloadTrusted(
+                  'scripts/lib/pr-body-sections-check.mjs',
+                  path.join(moduleDir, 'pr-body-sections-check.mjs'),
+                );
+                await downloadTrusted(
+                  'scripts/ci/lib/false-positive-declaration.mjs',
+                  path.join(dependencyDir, 'false-positive-declaration.mjs'),
+                );
+                const modulePath = path.join(moduleDir, 'pr-body-sections-check.mjs');
+                const bodyPath = path.join(policyRoot, 'body.json');
+                fs.writeFileSync(bodyPath, JSON.stringify(body));
+                const evaluator = [
+                  "import { readFileSync } from 'node:fs';",
+                  "import { pathToFileURL } from 'node:url';",
+                  "const policy = await import(pathToFileURL(process.env.FRONTALIERE_BODY_POLICY_MODULE).href);",
+                  "if (typeof policy.unvalidatedPerfClaims !== 'function') throw new Error('trusted body policy does not export unvalidatedPerfClaims');",
+                  "const body = JSON.parse(readFileSync(process.env.FRONTALIERE_BODY_POLICY_BODY, 'utf8'));",
+                  "process.stdout.write(JSON.stringify(policy.unvalidatedPerfClaims(body)));",
+                ].join('\n');
+                const child = spawnSync(process.execPath, ['--input-type=module', '-e', evaluator], {
+                  encoding: 'utf8',
+                  maxBuffer: 1024 * 1024,
+                  env: {
+                    ...process.env,
+                    FRONTALIERE_BODY_POLICY_MODULE: modulePath,
+                    FRONTALIERE_BODY_POLICY_BODY: bodyPath,
+                  },
+                });
+                if (child.error || child.status !== 0) {
+                  const reason = child.error?.message || child.stderr || `exit ${child.status}`;
+                  throw new Error(`trusted body policy subprocess failed: ${String(reason).trim()}`);
+                }
+                const claims = JSON.parse(child.stdout);
+                perfClaimViolations = Array.isArray(claims?.blocking) ? claims.blocking : [];
+                perfClaimWarnings = Array.isArray(claims?.advisory) ? claims.advisory : [];
+              } catch (error) {
+                // A missing policy is a gate failure, never a silent bypass.
+                perfClaimPolicyError = error?.message || String(error);
+              }
+            }
 
             // --- 1) Required headers (REVIEW.md completeness contract) ---------------
             // Literal headers required by REVIEW.md. Tolerate trailing text on the
@@ -596,6 +699,15 @@ jobs:
               );
             }
 
+            if (perfClaimWarnings.length) {
+              advisoryParts.push(
+                `⚠️ **Claim di I/O senza misura** (issue #11675, advisory — non blocca) — ` +
+                `${perfClaimWarnings.length} frase limita o evita lavoro di I/O senza evidenza locale al claim. ` +
+                'Se è un claim di prestazione, aggiungi una riga `Misura:`/`Comando:` con valore oppure ' +
+                'un trigger di revert in `## Non implementato (ancora)`.',
+              );
+            }
+
             // Fetch each closed issue; flag the multi-item follow-up aggregates.
             // Proceed-safe: any API error → skip that ref (never block on infra).
             const aggregateCloseViolations = [];
@@ -630,7 +742,7 @@ jobs:
             };
 
             // --- All-clear (violations) — advisories can still be present -----------
-            if (missing.length === 0 && sectionViolations.length === 0 && stateViolations.length === 0 && decisionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
+            if (missing.length === 0 && sectionViolations.length === 0 && stateViolations.length === 0 && decisionViolations.length === 0 && perfClaimPolicyError === null && perfClaimViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
               const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, stati residui dichiarati, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
                 + (advisoryParts.length ? `\n\n${advisoryParts.join('\n\n')}` : '');
               // Solo un prior da aggiornare, oppure un advisory reale da segnalare per
@@ -686,6 +798,27 @@ jobs:
                 `<azione concreta>\`.`,
               );
               fails.push(`decision deferral(s): ${decisionViolations.join('; ')}`);
+            }
+            if (perfClaimPolicyError) {
+              parts.push(
+                `🔴 **Policy dei claim di prestazione non disponibile** — il gate trusted non ha potuto ` +
+                'caricare il modulo da `main`: `' + perfClaimPolicyError + '`. ' +
+                'Il controllo resta fail-closed per evitare che una PR bypassi la verifica.',
+              );
+              fails.push(`performance-claim policy unavailable: ${perfClaimPolicyError}`);
+            }
+            if (perfClaimViolations.length) {
+              parts.push(
+                `🔴 **Claim di prestazione senza prova** (issue #11675) — ` +
+                `${perfClaimViolations.length} frase in \`## Implementato\` dichiara un guadagno di tempo, ` +
+                'memoria, disco o CI senza evidenza associata allo stesso bullet:\n\n' +
+                perfClaimViolations.map((claim) => `- ${claim.slice(0, 240)}`).join('\n') +
+                '\n\nAggiungi una prova: link alla run `/actions/runs/<id>`, una riga ' +
+                '`Misura:` o `Comando:` con output pre/post, una coppia di valori confrontati, ' +
+                'oppure dichiara il claim non validato pre-merge con `blocked: misura post-merge` ' +
+                'e workflow, soglia e trigger di revert in `## Non implementato (ancora)`.',
+              );
+              fails.push(`unvalidated performance claim(s): ${perfClaimViolations.length}`);
             }
             if (closesViolations.length) {
               const lines = closesViolations
@@ -789,6 +922,98 @@ jobs:
           done
           printf 'git_path=%s\n' "$git_bin" >> "$GITHUB_OUTPUT"
 
+      # The merge queue deliberately exposes a queue ref, not the source
+      # branch name. Resolve the source PR/head once from the event payload and
+      # reuse this output below. This is the single recovery predicate for the
+      # policy, history, sibling, below-floor and factuality gates.
+      - name: Resolve recovery source context (PR and merge queue)
+        id: recovery_context
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          RECOVERY_BRANCH: recovery/restore-main-after-da4-20261015
+          RECOVERY_BASE_SHA: 41832779d1d83245431adbba738accb5afda0be8
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('node:fs');
+          const cp = require('node:child_process');
+
+          const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+          const candidates = event.pull_request
+            ? [event.pull_request]
+            : (event.merge_group?.pull_requests || event.pull_requests || []);
+          const recoveryBranch = process.env.RECOVERY_BRANCH;
+          let match = null;
+          const lookupFailures = [];
+
+          for (const candidate of candidates) {
+            const number = Number(candidate.number);
+            let source = {
+              number,
+              head_ref: candidate.head_ref || candidate.head?.ref || '',
+              head_sha: candidate.head_sha || candidate.head?.sha || '',
+            };
+
+            // The event payload is the source-of-truth for merge-group
+            // membership. When a PR number is present, ask the runner-owned
+            // CLI for the canonical source ref/SHA as an extra guard against
+            // treating the queue ref as the PR head.
+            if (Number.isSafeInteger(number) && number > 0) {
+              try {
+                const raw = cp.execFileSync(
+                  process.env.TRUSTED_GH_BIN,
+                  [
+                    'api',
+                    `repos/${process.env.GITHUB_REPOSITORY}/pulls/${number}`,
+                    '--jq',
+                    '{number:.number,head_ref:.head.ref,head_sha:.head.sha}',
+                  ],
+                  { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
+                );
+                const canonical = JSON.parse(raw);
+                source = {
+                  number: canonical.number,
+                  head_ref: canonical.head_ref || '',
+                  head_sha: canonical.head_sha || '',
+                };
+              } catch (error) {
+                // A valid event still contains the source head. Keep it as a
+                // fallback, but make the degraded lookup visible; it cannot
+                // turn a queue ref into a recovery match.
+                lookupFailures.push(String(error?.message || error).split('\n')[0]);
+              }
+            }
+
+            if (
+              source.head_ref === recoveryBranch
+              && /^[0-9a-f]{40}$/.test(source.head_sha)
+            ) {
+              match = source;
+              break;
+            }
+          }
+
+          const isRecovery = Boolean(match);
+          if (lookupFailures.length) {
+            console.log(`Source PR lookup fallback used ${lookupFailures.length} time(s); event payload retained.`);
+          }
+          if (process.env.GITHUB_EVENT_NAME === 'merge_group' && candidates.length === 0) {
+            console.log('No source PRs in merge_group payload; recovery predicate remains false.');
+          }
+          console.log(`Recovery source: ${isRecovery ? `PR #${match.number} @ ${match.head_sha}` : 'none'}`);
+
+          const output = [
+            `is_recovery=${isRecovery}`,
+            `source_pr_number=${match?.number || ''}`,
+            `source_head_ref=${match?.head_ref || ''}`,
+            `source_head_sha=${match?.head_sha || ''}`,
+            `base_sha=${process.env.RECOVERY_BASE_SHA}`,
+          ].join('\n') + '\n';
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, output);
+          NODE
+
       # `base.sha` è il commit di main da cui la PR è partita, non la policy che
       # main applica oggi. Se main ha AGGIUNTO un modulo del gate dopo
       # l'apertura della PR, quel ref non ce l'ha: `contents/<path>?ref=` torna
@@ -806,10 +1031,22 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           FALLBACK_REF: ${{ github.event.pull_request.base.sha }}
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          RECOVERY_BASE_SHA: ${{ steps.recovery_context.outputs.base_sha }}
         run: |
           set -euo pipefail
-          policy_ref="$("$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/commits/main" \
-            --jq '.sha' 2>/dev/null || true)"
+          # The recovery PR is repairing the main tree itself. During that
+          # window the remote main ref contains only the truncation artifact,
+          # so it cannot provide the trusted review-policy files. Pin this
+          # exceptional branch to the exact healthy parent of that artifact;
+          # every other PR keeps resolving the policy from the protected main
+          # tip as before.
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            policy_ref="${RECOVERY_BASE_SHA:?recovery base SHA is required}"
+          else
+            policy_ref="$("$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/commits/main" \
+              --jq '.sha' 2>/dev/null || true)"
+          fi
           if ! grep -qE '^[0-9a-f]{40}$' <<<"$policy_ref"; then
             # Nessun ripiego silenzioso su `base.sha`: sarebbe di nuovo la
             # policy incompleta, e il fallimento tornerebbe a non avere nome.
@@ -860,8 +1097,10 @@ jobs:
           download_main scripts/ci/review-marker-recovery.mjs "$policy_root/scripts/ci/review-marker-recovery.mjs"
           download_main scripts/ci/fetch-pr-files.mjs "$policy_root/scripts/ci/fetch-pr-files.mjs"
           download_main scripts/ci/claude-codex-fallback.mjs "$policy_root/scripts/ci/claude-codex-fallback.mjs"
+          download_main scripts/lib/codex-fallback-contract.mjs "$policy_root/scripts/lib/codex-fallback-contract.mjs"
           download_main scripts/ci/claude-rate-limit.mjs "$policy_root/scripts/ci/claude-rate-limit.mjs"
           download_main scripts/ci/claude-rate-limit-contract.mjs "$policy_root/scripts/ci/claude-rate-limit-contract.mjs"
+          download_main scripts/lib/codex-fallback-contract.mjs "$policy_root/scripts/lib/codex-fallback-contract.mjs"
           download_main scripts/ci/lib/constants.mjs "$policy_root/scripts/ci/lib/constants.mjs"
           download_main scripts/ci/lib/fetchPrFiles.mjs "$policy_root/scripts/ci/lib/fetchPrFiles.mjs"
           download_main scripts/ci/lib/vitestCheck.mjs "$policy_root/scripts/ci/lib/vitestCheck.mjs"
@@ -874,6 +1113,7 @@ jobs:
           download_main scripts/ci/lib/pr-review-admission.mjs "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
           download_main scripts/ci/lib/review-input-revision.mjs "$policy_root/scripts/ci/lib/review-input-revision.mjs"
           download_main scripts/lib/github-issue-creator.mjs "$policy_root/scripts/lib/github-issue-creator.mjs"
+          download_main scripts/lib/is-invoked-directly.mjs "$policy_root/scripts/lib/is-invoked-directly.mjs"
           download_main scripts/lib/loop-fleet-contract.mjs "$policy_root/scripts/lib/loop-fleet-contract.mjs"
           download_main scripts/lib/pr-body-closes-check.mjs "$policy_root/scripts/lib/pr-body-closes-check.mjs"
           download_main scripts/lib/pr-body-sections-check.mjs "$policy_root/scripts/lib/pr-body-sections-check.mjs"
@@ -1149,8 +1389,9 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
 
       # CHECKOUT UNICO per tutte e quattro le famiglie del percorso ordinario;
-      # il ledger-only verificato sopra lo salta deliberatamente. Il perché di questo
-      # profilo esatto — albero pieno + storia profonda + `tree:0` — sta in
+      # anche il ledger-only lo esegue per il guard di storia precedente, ma
+      # continua a saltare npm/test/review costosi. Il perché di questo profilo
+      # esatto — albero pieno + storia profonda + `tree:0` — sta in
       # «Il checkout: uno solo» nella testata. In breve: i source guard del
       # contract diffano a tre punti e senza storia non hanno un merge-base
       # (`resolve-merge-base.mjs` andrebbe in blocking-skip, issue #5195, cioè
@@ -1177,8 +1418,8 @@ jobs:
       # per questo gli step che ne hanno bisogno continuano a fare il fetch
       # esplicito con il refspec di destinazione (issue #6058). Quel fetch ora è
       # quasi gratis: i commit ci sono già, manca solo il NOME.
-      - uses: actions/checkout@v5
-        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
+      - uses: actions/checkout@v7
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
         with:
           # Only the event ref is checked out. Body recovery re-runs an
           # already-created pull_request tests run; it never dispatches this
@@ -1197,12 +1438,20 @@ jobs:
             /hooks/
             /infra/
             /scripts/
+            /scripts/ci/check-below-floor-bridge.mjs
+            /scripts/ci/check-sibling-patterns.mjs
+            /scripts/ci/identical-twin-import-gate.mjs
+            /scripts/ci/sample-mem-during.sh
             /server/
             /services/
             /tests/
             /packages/*/engine/
             /packages/*/src/
             /packages/*/tests/
+            # Related tests read package manifests to verify the renderer's
+            # runtime dependency contract; keep manifests without materializing
+            # the article corpus itself.
+            /packages/*/package.json
             # These are the two symlink targets needed by tsc and the related
             # import graph. Keep them file-scoped: including the parent
             # `packages/articles/content/` would materialize the full article
@@ -1219,8 +1468,19 @@ jobs:
             # bundles change. The services/locales/blog-body symlink is in the
             # checkout, but its corpus target is otherwise excluded.
             /packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts
+            # The prompt-placeholder quarantine tests render this article's
+            # real body in every locale; keep their runtime input in the sparse
+            # checkout instead of silently exercising the generic SEO fallback.
+            /packages/articles/content/blog-body/*/como-fai-giornate-autunno.ts
+            /packages/articles/content/blog-body/de/simulazione-fiscale-frontaliere-2026.ts
+            /packages/articles/content/blog-body/en/simulazione-fiscale-frontaliere-2026.ts
+            /packages/articles/content/blog-body/fr/simulazione-fiscale-frontaliere-2026.ts
+            /packages/articles/content/blog-body/it/simulazione-fiscale-frontaliere-2026.ts
             /packages/articles/content/blog-body-ch/de/naturalizzazione-canton-san-gallo-procedura.ts
             /packages/articles/content/blog-body-ch/de/tassi-interesse-svizzera-bassi.ts
+            # The publication-policy tests exercise one real imageCredits record
+            # without materializing the rest of the article corpus.
+            /packages/articles/content/image-credits/**/*.json
             # Type-only dependency imported by the SEO modules above; keep it
             # file-scoped so the article corpus remains excluded.
             /packages/articles/content/seo/seoMetadataType.ts
@@ -1236,6 +1496,11 @@ jobs:
             !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/evidence-index.json
+            # Global build/runtime inputs: keep both symlink names and the
+            # explicit public fuel snapshot visible to the sparse contract.
+            /data/blog-articles-data.ts
+            /data/swiss-articles-data.ts
+            /data/fuel-prices.json
             # related-search-candidates.json e slug-registry.json restano IN
             # checkout: due test del suite blocking li leggono da filesystem
             # con un path runtime (resolve(__dirname, ...)), invisibile
@@ -1249,6 +1514,7 @@ jobs:
             # questi due file (osservato su PR #6661/#6662, 2026-08-29).
             /public/
             !/public/images/
+            /public/data/fuel-prices.json
             # Stesso punto cieco di related-search-candidates.json/slug-registry.json
             # sopra: send-job-alerts.mjs (usato dal test email di alert lavoro)
             # fa fs.readdirSync('public/images/brands') a module-load per
@@ -1260,6 +1526,12 @@ jobs:
             # Piccolo: 483 file, ~1.2 MB — nulla a che vedere con le decine di GB
             # di public/images/ escluse per il resto.
             /public/images/brands/
+            # tests/authors.test.ts is part of the test-tree lint whenever a PR
+            # changes tests; keep its small runtime photo fixtures materialized.
+            /public/images/authors/
+            # The generated-image registry gate validates the full published
+            # place catalog and its responsive thumbnails as well.
+            /public/images/places/
             /*.cjs
             /*.js
             /*.json
@@ -1270,24 +1542,22 @@ jobs:
             /*.yaml
             /*.yml
             /*.config.*
-            # Stesso punto cieco di related-search-candidates.json sopra: due test
-            # leggono un doc sotto /docs/ (bucket escluso, 108 MB/706 file) con un
-            # path runtime — invisibile a verify-checkout-profiles.mjs. `/*.md`
-            # sopra copre i doc di root (ISSUES.md, REVIEW.md, ecc., osservato
-            # rosso su #6699 2026-08-30: readFileSync ISSUES.md ENOENT), ma
-            # docs/FIX-ISSUE-COMMAND.md resta sotto il bucket escluso senza
-            # questo carve-out puntuale.
-            /docs/FIX-ISSUE-COMMAND.md
-            /docs/preferred-sources-checklist.md
-            # Stesso punto cieco: tests/longform-docs-match-renderer.test.ts
-            # legge questi due doc con `readFileSync(join(process.cwd(), rel))`
-            # — un path runtime, invisibile all'analisi statica degli import.
-            # E' l'invariante doc<->renderer di #7359 (cap/gap/soglia H2 citati
-            # nella prosa devono coincidere con services/articleAdDensity.ts):
-            # senza il carve-out il file muore in import con ENOENT e il job
-            # esce rosso con «no tests» (osservato su #7555, 2026-09-05).
-            /docs/ads-placement-longform.md
-            /docs/editorial-longform-audit.md
+            # Stesso punto cieco di related-search-candidates.json sopra: i test
+            # leggono i doc sotto /docs/ con un path runtime
+            # (`readFileSync(join(process.cwd(), rel))`), invisibile a
+            # verify-checkout-profiles.mjs. `/*.md` sopra copre i doc di root
+            # (ISSUES.md, REVIEW.md, ecc., osservato rosso su #6699 2026-08-30:
+            # readFileSync ISSUES.md ENOENT). Per /docs/ servivano carve-out
+            # puntuali, uno per incidente: FIX-ISSUE-COMMAND.md,
+            # preferred-sources-checklist.md, gli invarianti doc<->renderer di
+            # #7359 (ads-placement-longform.md, editorial-longform-audit.md,
+            # ENOENT in import e «no tests» su #7555, 2026-09-05) e
+            # CF-5XX-TRIAGE.md (ENOENT su #11416, 2026-10-04). Quindi si
+            # materializzano TUTTI i markdown di /docs/: 129 file e 2,5 MB, contro
+            # 142,8 MB dell'intera cartella, di cui 140,3 MB sono gli artefatti
+            # di docs/newsletter-qa che restano esclusi. Un test nuovo che legge
+            # un doc non chiede piu' un carve-out.
+            /docs/**/*.md
             # Runtime `fs.readFileSync(ROOT, 'index.html'/'index.css')` reads in
             # tests/bfs-depth-hub-link-coverage.test.ts and tests/events-card-atoms.test.ts
             # — invisible to verifyCheckoutProfiles' import-graph analysis (it only
@@ -1300,6 +1570,7 @@ jobs:
             /firestore.rules
             /storage.rules
             /.gitignore
+            /.gitattributes
             /.npmrc
             /package-lock.json
             /package.json
@@ -1312,6 +1583,32 @@ jobs:
             /AGENTS.md
           sparse-checkout-cone-mode: false
 
+      - name: Guard — storia precedente alla riscrittura
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
+        env:
+          guard_base_ref: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          RECOVERY_BASE_SHA: ${{ steps.recovery_context.outputs.base_sha }}
+        run: |
+          set -euo pipefail
+          guard_base_ref="${guard_base_ref:?guard_base_ref is required}"
+          # Il checkout è tree:0 e conserva il grafo dei commit. Aggiorniamo il
+          # solo remote-tracking ref del base senza depth: il marker e ogni
+          # antenato necessario alla domanda restano risolvibili, senza scaricare
+          # blob storici.
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            # Keep every later source gate on the complete historical tree.
+            # The public main ref is still the one-file truncation while this
+            # recovery PR is being checked.
+            git update-ref refs/remotes/origin/main "$RECOVERY_BASE_SHA"
+          else
+            git fetch --no-tags --filter=tree:0 origin \
+              "+refs/heads/${guard_base_ref}:refs/remotes/origin/${guard_base_ref}"
+          fi
+          node scripts/lib/old-history-guard.mjs \
+            --head HEAD \
+            --base "refs/remotes/origin/${guard_base_ref}"
+
       # UNA sola invocazione (erano tre) nel percorso ordinario; il ledger-only
       # verificato sopra salta anche questa installazione. Niente `--ignore-scripts`: lo usava il
       # solo job `collision`, che non eseguiva codice del repo; qui la stessa
@@ -1320,10 +1617,14 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         uses: ./.github/actions/ci-npm-setup
 
+      - name: Gate — event descriptions come only from rewrite cache
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
+        run: npm run validate:event-descriptions
+
       - name: Cache Vitest/Vite transform cache
         id: vitest-cache
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: |
             node_modules/.vite-independent
@@ -1341,7 +1642,7 @@ jobs:
         # una misura di performance, non una scorciatoia del gate.
         id: tsc-cache
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/tsc
           key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
@@ -1349,7 +1650,7 @@ jobs:
             tsc-incremental-${{ runner.os }}-
 
       # --- Source guards share the code checkout ----------------------------
-      # Qui stava un secondo `actions/checkout@v5` (`fetch-depth: 0`,
+      # Qui stava un secondo `actions/checkout@v7` (`fetch-depth: 0`,
       # `filter: blob:none`, `ref: head.sha`) tutto per questi guard. È stato
       # RIMOSSO perché il checkout condiviso in testa al job porta già la storia
       # profonda che il diff a tre punti richiede — è lo stesso profilo, promosso
@@ -1373,6 +1674,8 @@ jobs:
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          RECOVERY_BASE_SHA: ${{ steps.recovery_context.outputs.base_sha }}
         run: |
           set -euo pipefail
           # Explicit destination refspec (sibling of issue #6058, tests.yml): a
@@ -1383,8 +1686,20 @@ jobs:
           # below therefore never resolved, and resolve-merge-base.mjs's
           # blocking-skip (issue #5195) fired on every run instead of the
           # sibling analysis actually running.
-          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
-          node scripts/ci/check-sibling-patterns.mjs --base "origin/$BASE_REF" --json > sibling-report.json
+          sibling_base="origin/$BASE_REF"
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            # The recovery branch restores the complete tree from this healthy
+            # parent while origin/main is still the deliberately truncated
+            # ledger tip. Re-fetching the truncated base here needlessly
+            # downloads the damaged history and can leave the advisory step
+            # waiting for minutes before the scanner starts.
+            git update-ref refs/remotes/origin/main "$RECOVERY_BASE_SHA"
+            git update-ref refs/remotes/origin/recovery-main-base "$RECOVERY_BASE_SHA"
+            sibling_base=origin/recovery-main-base
+          else
+            git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
+          fi
+          node scripts/ci/check-sibling-patterns.mjs --base "$sibling_base" --json > sibling-report.json
           node -e "
             const r = JSON.parse(require('fs').readFileSync('sibling-report.json','utf8'));
             console.log('candidates=' + r.candidates.length);
@@ -1407,7 +1722,7 @@ jobs:
         # guasto persistente dell'API deve poter arrossare un gate di merge
         # per un commento consultivo.
         continue-on-error: true
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           retries: 3
           script: |
@@ -1495,6 +1810,8 @@ jobs:
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          RECOVERY_BASE_SHA: ${{ steps.recovery_context.outputs.base_sha }}
         run: |
           set -euo pipefail
           # Explicit destination refspec (sibling of issue #6058, tests.yml): a
@@ -1505,8 +1822,15 @@ jobs:
           # below therefore never resolved, and resolve-merge-base.mjs's
           # blocking-skip (issue #5195) fired on every run instead of the
           # sibling analysis actually running.
-          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
-          node scripts/ci/check-below-floor-bridge.mjs --base "origin/$BASE_REF" --json > below-floor-bridge-report.json
+          below_floor_base="origin/$BASE_REF"
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            git update-ref refs/remotes/origin/main "$RECOVERY_BASE_SHA"
+            git update-ref refs/remotes/origin/recovery-main-base "$RECOVERY_BASE_SHA"
+            below_floor_base=origin/recovery-main-base
+          else
+            git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
+          fi
+          node scripts/ci/check-below-floor-bridge.mjs --base "$below_floor_base" --json > below-floor-bridge-report.json
           node -e "
             const r = JSON.parse(require('fs').readFileSync('below-floor-bridge-report.json','utf8'));
             console.log('gapFiles=' + r.gapsByFile.length);
@@ -1517,7 +1841,7 @@ jobs:
         # advisory, quindi non deve poter far cadere il gate `contract`.
         # Tenerne uno solo protetto lascerebbe la meta' del difetto in piedi.
         continue-on-error: true
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           retries: 3
           script: |
@@ -1621,6 +1945,7 @@ jobs:
           if [ "$RUN_NUMBER_ENV_FALLBACK" = "true" ]; then
             start_gate number-env-fallback node scripts/ci/check-number-env-fallback.mjs
           fi
+          start_gate jobposting-emitter-census node scripts/ci/check-jobposting-emitter-census.mjs
           failures=0
           for i in "${!pids[@]}"; do
             status=0
@@ -1697,24 +2022,27 @@ jobs:
       # la variabile stava sul job. Metterla sul job fuso la imporrebbe anche a
       # vitest, che oggi gira senza — un cambio di comportamento non richiesto.
       #
-      # È IN `background:`, ed è il primo di un gruppo di sei cancelli
-      # deterministici che girano tutti insieme invece che in fila. 67s
-      # misurati su run 32939112340, cioè il 6,3% del job e il terzo costo dopo
-      # il checkout (254s) e i due gruppi vitest (678s). Niente lo trattiene in
-      # un ordine: legge solo i sorgenti, non scrive niente che un altro step
+      # Parte come processo staccato da questo step, il primo di un gruppo di
+      # cancelli deterministici che girano tutti insieme invece che in fila.
+      # Misura del 2026-09-30: ~140 s, sovrapposti all'assemble o all'inizio di
+      # vitest, quindi quasi mai sul percorso critico (l'attesa esposta nel
+      # «Collect» è 0 s di mediana, 63 s al p90). Niente lo trattiene in un
+      # ordine: legge solo i sorgenti, non scrive niente che un altro step
       # consumi, e il suo unico effetto è far fallire il job.
       #
       # NON C'È UN JOIN INTERMEDIO A CHIUDERLO PRIMA DELLA SUITE, ed è una
-      # scelta di principio: un `wait-all` esprime una DIPENDENZA fra task, non
-      # una precauzione. Fra questi sei cancelli e l'assemble non c'è nessuna
+      # scelta di principio: un join esprime una DIPENDENZA fra task, non una
+      # precauzione. Fra questi cancelli e l'assemble non c'è nessuna
       # dipendenza — l'assemble non legge niente che loro producano — quindi un
       # join lì in mezzo direbbe il falso sul grafo e ritarderebbe la suite per
-      # una ragione che non è sua. Vengono rijoinati in fondo, insieme agli
-      # altri background, dal «Wait for background vitest + memory sampler».
+      # una ragione che non è sua. Vengono raccolti in fondo, dopo vitest, da
+      # «Collect independent source gates».
       #
       # La conseguenza va detta, perché è reale e accettata: `tsc` tiene 4,4 GB
-      # di RSS, il runner ne ha 16, e ora quei 4,4 GB stanno accanto ai DUE
-      # pool di vitest invece che da soli. Un campionatore di `MemAvailable`
+      # di RSS, il runner ne ha 16, e quei 4,4 GB stanno accanto ai fork di
+      # vitest (2 da 100 file in su). Nel banco della PR #10503 la MemAvailable
+      # minima con `tsc` e 2-4 worker insieme è stata 5,7-7,4 GB, senza
+      # rossi. Un campionatore di `MemAvailable`
       # era stato aggiunto per rendere quel margine un numero, ed era stato
       # tolto (follow-up #6573): era uno step in background con un timer
       # proprio (350 `sleep 5`, ~29 min), quindi a suite rossa teneva il job
@@ -1736,6 +2064,16 @@ jobs:
           RUN_INPUT_INJECTION: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_LOCALE_SEGMENTS: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_EVERGREEN_TOPICS: ${{ steps.body_contract.outcome != 'failure' }}
+          RUN_GENERATED_SITE_IMAGES: ${{ steps.body_contract.outcome != 'failure' }}
+          # Solo sulle PR e nella merge queue, con la base passata esplicitamente:
+          # `pull_request.base.sha` sulle PR, `merge_group.base_sha` nella coda,
+          # cosi' il confronto copre tutti i commit della PR qualunque sia la
+          # forma del checkout. Un gemello `identical` che acquista un import che
+          # il corpus non ha rompe il trasporto (corpus #1890); su main il
+          # difetto e' gia' entrato e lo segnala il controllo giornaliero
+          # corpus-ahead-check.
+          RUN_TWIN_IMPORTS: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
+          TWIN_GATE_BASE: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha }}
         run: |
           set -euo pipefail
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
@@ -1758,6 +2096,12 @@ jobs:
           fi
           if [ "$RUN_EVERGREEN_TOPICS" = "true" ]; then
             expected_labels+=(evergreen-topics)
+          fi
+          if [ "$RUN_TWIN_IMPORTS" = "true" ]; then
+            expected_labels+=(twin-imports)
+          fi
+          if [ "$RUN_GENERATED_SITE_IMAGES" = "true" ]; then
+            expected_labels+=(generated-site-images)
           fi
           if [ "${#expected_labels[@]}" -eq 0 ]; then
             echo "::error::independent gate roster is empty"
@@ -1811,6 +2155,15 @@ jobs:
           if [ "$RUN_EVERGREEN_TOPICS" = "true" ]; then
             start_gate evergreen-topics 'npm run check:evergreen-comune-topics'
           fi
+          if [ "$RUN_TWIN_IMPORTS" = "true" ]; then
+            # Apici singoli voluti: TWIN_GATE_BASE si espande quando il gate gira
+            # in background, dall'env dello step, non qui.
+            # shellcheck disable=SC2016
+            start_gate twin-imports 'node scripts/ci/identical-twin-import-gate.mjs ${TWIN_GATE_BASE:+--base "$TWIN_GATE_BASE"}'
+          fi
+          if [ "$RUN_GENERATED_SITE_IMAGES" = "true" ]; then
+            start_gate generated-site-images 'npm run validate:generated-images'
+          fi
 
       # ══════════════════════════════════════════════════════════════════════
 # FAMIGLIA 3/4 — vitest related + i lint deterministici che le
@@ -1862,8 +2215,16 @@ jobs:
         # `actions/checkout` does not create it either (it fetches the PR merge
         # ref, not `+refs/heads/*`). The gate below reads
         # `origin/${{ github.base_ref || 'main' }}` BY NAME, so the ref has to
-        # exist. `|| true`: if it fails the gate degrades to a loud no-op rather
-        # than failing the job.
+        # exist. `|| true`: if it fails the normal gate degrades to a loud
+        # no-op rather than failing the job.
+        #
+        # The one recovery branch below is different by construction: its
+        # parent restores the complete tree that existed before the accidental
+        # truncation of main, so comparing it with the one-file main would
+        # classify pre-existing article bodies as newly edited. Keep the same
+        # factuality gate, but scope that recovery diff to the exact healthy
+        # parent of the truncated commit. Every other branch remains on the
+        # base-branch path above.
         #
         # `--depth=50` RIMOSSO con la fusione dei quattro job, e non è un
         # ripulisti cosmetico: il checkout condiviso ora è `fetch-depth: 0`,
@@ -1873,7 +2234,22 @@ jobs:
         # `git merge-base` che gli step più in basso usano come fallback. Senza
         # `--depth` il fetch è quasi gratis: i commit ci sono già dal checkout,
         # qui manca solo il NOME del ref.
-        run: git fetch --no-tags origin "+refs/heads/${{ github.base_ref || 'main' }}:refs/remotes/origin/${{ github.base_ref || 'main' }}" || true
+        env:
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          BASE_REF: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
+        run: |
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            tests_guard_ref="recovery-factuality-base"
+            recovery_base="${{ steps.recovery_context.outputs.base_sha }}"
+            if ! git cat-file -e "${recovery_base}^{commit}"; then
+              echo "::error::recovery factuality baseline is missing: ${recovery_base}"
+              exit 1
+            fi
+            git update-ref "refs/remotes/origin/${tests_guard_ref}" "$recovery_base"
+          else
+            tests_guard_ref="${BASE_REF:?BASE_REF is required}"
+            git fetch --no-tags origin "+refs/heads/${tests_guard_ref}:refs/remotes/origin/${tests_guard_ref}" || true
+          fi
 
       - name: Gate factuality of changed articles
         # Deterministic guard (incident 2026-07-28, article
@@ -1890,7 +2266,16 @@ jobs:
         # Each failure prints the required correction. Fix the content — never
         # loosen a threshold or delete the passage to get the gate green.
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
-        run: node scripts/audit-article-factuality.mjs --changed origin/${{ github.base_ref || 'main' }}
+        env:
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          BASE_REF: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
+        run: |
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            factuality_ref="recovery-factuality-base"
+          else
+            factuality_ref="${BASE_REF:?BASE_REF is required}"
+          fi
+          node scripts/audit-article-factuality.mjs --changed "origin/${factuality_ref}"
 
       - name: Collect changed paths (corpus gates delegated to frontaliere-articles)
         # ─── LO SPLIT CORPUS-WIDE (registro: scripts/ci/corpus-wide-tests.mjs)
@@ -1956,7 +2341,7 @@ jobs:
           # stesura usava `git merge-base HEAD origin/$BASE_REF` e stampava
           # «merge-base non risolta», cioè non escludeva niente.
           #
-          # Perché: allora `actions/checkout@v5` faceva qui un fetch shallow
+          # Perché: allora `actions/checkout@v7` faceva qui un fetch shallow
           # (`fetch-depth: 1`) e NON creava il remote-tracking ref
           # `refs/remotes/origin/main`; due storie shallow possono per giunta
           # non avere una base comune entro la profondità fetchata. L'API non ha
@@ -2043,10 +2428,51 @@ jobs:
           # already in the full-history checkout: use that local diff when the
           # compare API is transiently unavailable instead of promoting a
           # healthy small change to the entire 2,400-test suite.
+          local_sha_diff_complete=false
+          pr_local_diff_complete=false
+          use_local_sha_diff() {
+            local require_nonempty="${1:-false}"
+            local local_diff_file="${RUNNER_TEMP}/changed-paths-local.txt"
+            if git diff --name-only "$compare_base" "$AFTER_SHA" > "$local_diff_file" 2>/dev/null; then
+              if [ "$require_nonempty" = "true" ] && [ ! -s "$local_diff_file" ]; then
+                rm -f "$local_diff_file"
+                return 1
+              fi
+              if ! mv "$local_diff_file" changed-paths.txt 2>/dev/null; then
+                rm -f "$local_diff_file"
+                return 1
+              fi
+              printf '%s\n' complete > changed-paths-status.txt
+              local_sha_diff_complete=true
+              return 0
+            fi
+            rm -f "$local_diff_file"
+            return 1
+          }
+          use_local_pr_diff() {
+            local local_diff_file="${RUNNER_TEMP}/changed-paths-pr-local.txt"
+            local pr_base
+            pr_base="$(git merge-base HEAD "origin/${BASE_REF}" 2>/dev/null || true)"
+            if [ -z "$pr_base" ]; then
+              return 1
+            fi
+            if git diff --name-only "$pr_base" HEAD > "$local_diff_file" 2>/dev/null \
+              && [ -s "$local_diff_file" ]; then
+              if ! mv "$local_diff_file" changed-paths.txt 2>/dev/null; then
+                rm -f "$local_diff_file"
+                return 1
+              fi
+              printf '%s\n' complete > changed-paths-status.txt
+              pr_local_diff_complete=true
+              return 0
+            fi
+            rm -f "$local_diff_file"
+            return 1
+          }
           if [ ! -s changed-paths.txt ] && [ -z "$PR_NUMBER" ] && [ -n "${compare_base:-}" ] && [ -n "$AFTER_SHA" ]; then
             echo "API senza risposta utile → fallback su diff locale degli SHA"
-            if git diff --name-only "$compare_base" "$AFTER_SHA" > changed-paths.txt 2>/dev/null; then
-              printf '%s\n' complete > changed-paths-status.txt
+            if use_local_sha_diff; then
+              :
             else
               : > changed-paths.txt
               printf '%s\n' error > changed-paths-status.txt
@@ -2055,25 +2481,57 @@ jobs:
           count="$(wc -l < changed-paths.txt | tr -d ' ')"
           echo "path toccati: $count"
           if [ "$count" = "0" ]; then
-            echo "elenco vuoto → related-only senza candidati Vitest"
-            exit 0
+            if [ "$(cat changed-paths-status.txt 2>/dev/null || true)" = "complete" ]; then
+              echo "elenco vuoto → related-only senza candidati Vitest"
+              exit 0
+            fi
+            echo "elenco vuoto con misura non completa → selezione conservativa"
+          fi
+          # The compare endpoint returns HTTP 200 with only its first 300
+          # files and no truncation flag. On push/merge_group the checkout has
+          # the two complete SHAs, so prefer the exact local tree diff before
+          # declaring the measurement partial. If the local diff cannot be
+          # computed, keep the conservative full-suite fallback below. Once
+          # materialized, the local diff is exact regardless of its size, so
+          # the compare API cap no longer applies to it.
+          if [ "$count" -ge "$cap" ] && [ -z "$PR_NUMBER" ] && [ -n "${compare_base:-}" ] && [ -n "$AFTER_SHA" ]; then
+            if [ "$local_sha_diff_complete" = "true" ]; then
+              echo "diff locale completo già disponibile: $count path toccati"
+            else
+              echo "elenco al cap dell'API → verifica con diff locale degli SHA"
+              if use_local_sha_diff true; then
+                count="$(wc -l < changed-paths.txt | tr -d ' ')"
+                echo "diff locale completo: $count path toccati"
+              fi
+            fi
+          fi
+          # The pull-request files endpoint is paginated but has a hard cap.
+          # A large article-corpus PR can therefore return a complete-looking
+          # HTTP response with exactly 3000 paths. This checkout has the full
+          # history, so recover the exact PR diff locally before declaring the
+          # measurement partial and blocking related tests.
+          if [ "$count" -ge "$cap" ] && [ -n "$PR_NUMBER" ]; then
+            echo "elenco PR al cap dell'API → verifica con diff locale del base"
+            if use_local_pr_diff; then
+              count="$(wc -l < changed-paths.txt | tr -d ' ')"
+              echo "diff PR locale completo: $count path toccati"
+            fi
           fi
           # Sia `pulls/<n>/files` che `compare` troncano su un diff enorme
           # (rispondono 200 con una lista PARZIALE, non un errore, e senza un
           # campo che dichiari il troncamento) — il fail-safe sul fallimento
           # non lo copre: un path corpus caduto oltre il taglio non entra nella
-          # selezione related. La soglia
-          # è quella del ramo che ha prodotto `changed-paths.txt` ($cap,
-          # impostato sopra): 3000 per `pulls/<n>/files` (verificato, quella
-          # API pagina per davvero), 300 per `compare` (documentato, "Working
-          # with large comparisons": copre solo la prima pagina e non va
-          # oltre). Usare 3000 anche sul ramo `compare` — la versione
-          # precedente di questo step lo faceva — lascerebbe passare
-          # indisturbato un push fra 300 e 2999 file con `changed-paths.txt`
-          # già troncato, cioè esattamente il rischio che questo controllo
-          # esiste per intercettare. Sopra la soglia si rinuncia a decidere e
-          # mantiene comunque il comportamento related-only sul diff disponibile.
-          if [ "$count" -ge "$cap" ]; then
+          # selezione related. La soglia è quella del ramo che ha prodotto
+          # `changed-paths.txt` ($cap, impostato sopra): 3000 per
+          # `pulls/<n>/files` (verificato, quella API pagina per davvero), 300
+          # per `compare` (documentato, "Working with large comparisons":
+          # copre solo la prima pagina e non va oltre). Un diff locale già
+          # materializzato non è troncato dall'API, quindi resta `complete`
+          # anche quando supera la soglia; se non è disponibile, sopra la
+          # soglia si rinuncia a decidere e si mantiene il fallback conservativo.
+          if [ "$count" -ge "$cap" ] \
+            && [ "$local_sha_diff_complete" != "true" ] \
+            && [ "$pr_local_diff_complete" != "true" ]; then
             printf '%s\n' partial > changed-paths-status.txt
             echo "elenco al cap dell'API ($count >= $cap): fallback conservativo alla suite completa"
             exit 0
@@ -2118,12 +2576,14 @@ jobs:
         # content-addressable cache under .cache/assemble-jobs (keyed on a
         # sha256 of every slice file, of the assembler's import closure and aux
         # data inputs, + an internal output-version) that restores
-        # the assembled outputs in ~0.3s instead of re-running the ~52s
-        # assembly. The script's internal version+fingerprint guarantees
+        # the assembled outputs in ~0.3s instead of re-running the assembly
+        # (~52s when this was written; measured 2026-09-30: a miss costs the
+        # "Assemble + migrate" step 235-276 s and hit 30 of 51 PR runs that
+        # needed the dataset). The script's internal version+fingerprint guarantees
         # correctness, so the restore-keys cascade cannot replay a stale
         # jobs.json across slice or assembler changes (cache-miss → full
         # assembly → fresh snapshot).
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
@@ -2190,9 +2650,24 @@ jobs:
         #
         # Il baseline sequenziale contro cui si misura l'overlap è 678s (run
         # 32939112340, verde) per lo span «indipendenti start → dataset end».
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
         run: |
           node scripts/assemble-jobs-dataset.mjs --stats
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      - name: Verify published blog cover ledger
+        if: ${{ steps.body_contract.outcome != 'failure' }}
+        env:
+          # The remote main ref can advance while a push run is still in
+          # flight. Compare against the immutable event/base commit instead
+          # of letting a later declaration manufacture a removal failure.
+          BLOG_COVER_LEDGER_BASE_REF: >-
+            ${{ github.event_name == 'push' && github.event.before
+                || github.event.pull_request.base.sha
+                || github.event.merge_group.base_sha
+                || 'origin/main' }}
+        run: node scripts/ci/verify-blog-cover-ledger.mjs
 
       - name: vitest related (PR diff)
         id: vitest_related
@@ -2207,22 +2682,28 @@ jobs:
         # inatteso interrompe il consumer invece di usare output non assemblati.
         env:
           ASSEMBLE_REQUIRED: ${{ steps.assemble.outputs.required || 'true' }}
-          # Vitest 4's related graph can exceed Node's default 4GB heap in this
-          # repository. Keep the graph bounded to one fork and leave headroom
-          # on the hosted runner; this does not change the related-only scope.
+          # Heap del processo che costruisce il grafo statico degli import in
+          # run-related-tests.mjs; lo ereditano anche i fork di Vitest.
           NODE_OPTIONS: --max-old-space-size=8192
           VITEST_SKIP_LIVE_DATA: 'true'
+          # VITEST_MAX_WORKERS e VITEST_MAX_WORKERS_FALLBACK sono INPUT di
+          # `selectMaxWorkers` (scripts/ci/lib/select-max-workers.mjs), non la
+          # scelta finale: 1 worker sotto i 100 file selezionati, 2 da 100 in
+          # su, 3 quando il runner ricade sulla suite intera (~1900 file
+          # indipendenti: con 1 worker oltre 30 min, PR #6661, 2026-08-30).
+          #
+          # Fino al 2026-09-30 quella scelta non arrivava mai a Vitest: Vitest
+          # legge da sé `VITEST_MAX_WORKERS` e la applica SOPRA `--maxWorkers`,
+          # e il figlio ereditava questo `1`. Misurato sui 76 artifact
+          # `shard-timing-related` di una mattina: concorrenza massima 1 in
+          # tutti, anche nei 38 con 100 o più file. Ora run-related-tests.mjs
+          # avvia Vitest con la variabile allineata al valore scelto
+          # (`vitestChildEnv`). Banco su due selezioni reali, PR #10503:
+          # 948 file da ~1.144 s a 1 worker a ~560 s a 2 worker (421-626 s,
+          # con e senza `tsc` accanto), zero rossi, MemAvailable minima 5,7 GB.
+          # 3 e 4 worker hanno dato un altro 15-20% ma non in modo coerente
+          # fra i giri e con `tsc` accanto rallentato fino a 257 s: resta 2.
           VITEST_MAX_WORKERS: 1
-          # Un file sorgente senza edge di import statico verso nessun test
-          # (script CLI mai `import`-ato, es. scripts/prospect-validate.mjs)
-          # fa scattare in run-related-tests.mjs il fallback "nessun edge →
-          # tutta la suite": ~1900 file invece di pochi. Il cap a 1 worker
-          # sopra era tarato sul caso comune (grafo related piccolo, poche
-          # decine di file); su ~1900 file indipendenti lo stesso cap li
-          # serializza su un solo core (osservato: >30 min, PR #6661,
-          # 2026-08-30). VITEST_MAX_WORKERS_FALLBACK si applica SOLO quando
-          # run-related-tests.mjs segnala di aver usato quel fallback — il
-          # percorso related-only comune resta invariato a 1 worker.
           VITEST_MAX_WORKERS_FALLBACK: 3
           VITEST_POOL: forks
           VITEST_CACHE_DIR: node_modules/.vite-related
@@ -2251,15 +2732,18 @@ jobs:
       - name: Collect independent source gates
         id: collect-independent-gates
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() }}
+        env:
+          SOURCE_GUARDS_OUTCOME: ${{ steps.source-guards.outcome }}
+          INDEPENDENT_GATES_OUTCOME: ${{ steps.independent-gates.outcome }}
         run: |
           set +e
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
           failures=0
-          if [ "${{ steps.source-guards.outcome }}" = "failure" ]; then
+          if [ "$SOURCE_GUARDS_OUTCOME" = "failure" ]; then
             echo "source guards failed"
             failures=1
           fi
-          if [ "${{ steps.independent-gates.outcome }}" != "skipped" ]; then
+          if [ "$INDEPENDENT_GATES_OUTCOME" != "skipped" ]; then
             expected_file="$state_dir/expected-labels"
             if [ ! -s "$expected_file" ]; then
               echo "::error::independent gate expected roster is missing or empty"
@@ -2337,14 +2821,14 @@ jobs:
       # verdetto complessivo del job è già destinato al rosso.
       - name: Save TypeScript incremental state
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.tsc-cache.outputs.cache-hit != 'true') }}
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .cache/tsc
           key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
 
       - name: Save Vitest related graph
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.vitest-cache.outputs.cache-hit != 'true') }}
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: |
             node_modules/.vite-independent
@@ -2672,6 +3156,44 @@ jobs:
           if [ -n "$lastRev" ] && [ "$lastRev" != "$HEAD_SHA" ]; then
             delta_code=$("$TRUSTED_GH_BIN" api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null \
               | grep -Fxf <(echo "$code_files") || true)
+            # Il compare 2-dot vede anche il codice che main ha portato con un
+            # merge di autorebase: su #9968 (review 5327152883) #9947 e #9949
+            # toccavano `services/locales/*-core.ts`, gli stessi file della
+            # PR, quindi `delta_code` usciva non vuoto e il tier diventava
+            # `incremental` senza mai confrontare il contributo, che era
+            # identico riga per riga. Il fingerprint del contributo (3-dot vs
+            # merge-base, righe +/- dei soli file code: la stessa funzione del
+            # review gate) si confronta quindi PRIMA del delta, come fa gia' il
+            # guard del corpus. Identico → il verdetto precedente si riusa:
+            # LGTM → carry-forward senza modello, verdetto non approvante →
+            # minimal che riporta i 🔴 aperti. Fingerprint diverso o non
+            # calcolabile (UNKNOWN, errore) → si prosegue come prima: nel dubbio
+            # si fa la review.
+            fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" 2>/dev/null || echo UNKNOWN)
+            fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" 2>/dev/null || echo UNKNOWN)
+            carry=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
+              | node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-carry-forward.mjs" decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
+                  --fp-head "$fp_head" --fp-prior "$fp_prior" || echo 'carry_tier=full')
+            carry_tier=$(printf '%s\n' "$carry" | sed -n 's/^carry_tier=//p' | tail -n 1)
+            if [ -n "$delta_code" ]; then
+              carry_what="delta-code portato dalla base ($(echo "$delta_code" | grep -c .) file PR nel compare)"
+            else
+              carry_what="nessun delta-code"
+            fi
+            case "$carry_tier" in
+              carry-forward)
+                printf '%s\n' "$carry" | grep -E '^carry_(prior_review|prior_commit|fingerprint)=' >> "$GITHUB_OUTPUT"
+                echo "Contributo CODE identico alla review LGTM su $lastRev ($carry_what) → carry-forward senza modello."
+                set_tier carry-forward none 0
+                exit 0
+                ;;
+              minimal)
+                echo "code_unchanged_since=$lastRev" >> "$GITHUB_OUTPUT"
+                echo "Contributo CODE identico a un verdetto non approvante su $lastRev ($carry_what) → tier minimal (body + 🔴 riportati)."
+                set_tier minimal gpt-5.6-luna 12
+                exit 0
+                ;;
+            esac
             if [ -n "$delta_code" ]; then
               echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
               echo "Incremental re-review: solo il delta dei file PR da $lastRev:"; echo "$delta_code"
@@ -2687,33 +3209,10 @@ jobs:
               fi
               exit 0
             fi
-            # Nessun file code della PR e' cambiato dall'ultima review: merge
-            # di main, commit vuoto o sola metadata. Se anche il fingerprint
-            # del contributo (3-dot vs merge-base, righe +/- dei soli file
-            # code: la stessa funzione del review gate) e' identico, il
-            # verdetto precedente si riusa: LGTM → carry-forward senza modello,
-            # verdetto non approvante → minimal che riporta i 🔴 aperti.
-            # Fingerprint non calcolabile o diverso → review piena, come prima.
-            fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" 2>/dev/null || echo NULL)
-            fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" 2>/dev/null || echo NULL)
-            carry=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
-              | node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-carry-forward.mjs" decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
-                  --fp-head "$fp_head" --fp-prior "$fp_prior" || echo 'carry_tier=full')
-            carry_tier=$(printf '%s\n' "$carry" | sed -n 's/^carry_tier=//p' | tail -n 1)
-            case "$carry_tier" in
-              carry-forward)
-                printf '%s\n' "$carry" | grep -E '^carry_(prior_review|prior_commit|fingerprint)=' >> "$GITHUB_OUTPUT"
-                echo "Nessun delta-code e contributo identico alla review LGTM su $lastRev → carry-forward senza modello."
-                set_tier carry-forward none 0
-                exit 0
-                ;;
-              minimal)
-                echo "code_unchanged_since=$lastRev" >> "$GITHUB_OUTPUT"
-                echo "Nessun delta-code e contributo identico a un verdetto non approvante su $lastRev → tier minimal (body + 🔴 riportati)."
-                set_tier minimal gpt-5.6-luna 12
-                exit 0
-                ;;
-            esac
+            # Nessun file code della PR e' cambiato dall'ultima review (merge
+            # di main, commit vuoto o sola metadata), ma il carry sopra non si
+            # e' applicato: fingerprint non calcolabile o cambiato, oppure
+            # l'ultimo verdetto non e' su $lastRev → review piena, come prima.
             echo "Nessun delta-code nei file PR dall'ultima review, ma contributo non verificabile o cambiato → review piena."
           fi
 
@@ -2814,6 +3313,12 @@ jobs:
               return Array.isArray(flat) ? flat : null;
             });
           const gate = await import(pathToFileURL(`${policyRoot}/scripts/ci/review-gate.mjs`).href);
+          // Classificatore codice/body dei 🔴 aperti: una policy pinnata che
+          // non lo esporta ancora lascia ogni voce come prima (riportata).
+          const carry = await import(pathToFileURL(`${policyRoot}/scripts/ci/lib/review-carry-forward.mjs`).href);
+          const bodyAcceptance = typeof carry.partitionCodeUnchangedFindings === 'function'
+            && typeof carry.bodyAcceptanceLedgerHeader === 'function'
+            && typeof gate.extractFileCitations === 'function';
 
           const pages = JSON.parse(readFileSync(process.argv[2], 'utf8'));
           const reviews = parseReviewPages(pages);
@@ -2836,15 +3341,56 @@ jobs:
           // per scope o per riga non cambiata non è stato confermato da
           // nessuno, e marcarlo chiuso autorizzerebbe il reviewer a
           // sopprimere un rilievo ancora valido.
+          // `needsVerification` (sottoinsieme di `open`): 🔴 ancora aperti per
+          // il gate su cui una review approvante successiva ha scritto `Fix di`
+          // sullo stesso path. Nel bundle non sono `open` da ricopiare
+          // (#9968, review 5327152883) ma rilievi da verificare all'HEAD. Una
+          // policy pinnata che non lo espone ancora lascia tutto `open`.
           if (findings && gate.partitionHistoricalImportantFindings) {
-            const { open, confirmed } = gate.partitionHistoricalImportantFindings(reviews, { includeLatest: true });
-            console.log(findings.renderFindingsLedger({ open, confirmed }));
+            const partition = gate.partitionHistoricalImportantFindings(reviews, { includeLatest: true });
+            const { open, confirmed } = partition;
+            const needsVerification = Array.isArray(partition.needsVerification) ? partition.needsVerification : [];
+            console.log(findings.renderFindingsLedger({ open, confirmed, needsVerification }));
             console.log('');
+            const toVerify = new Set(needsVerification.map((finding) => findings.stableFindingId(finding)));
+            const hints = new Map(needsVerification.map((finding) => [findings.stableFindingId(finding), finding.verificationHint]));
+            const reJudge = new Set(bodyAcceptance
+              ? carry.partitionCodeUnchangedFindings(open, { extractCitations: gate.extractFileCitations }).reJudge
+                .map((finding) => findings.stableFindingId(finding))
+              : []);
             for (const finding of open) {
               const anchors = finding.citations.map((citation) =>
                 `${citation.path}${citation.line ? `:L${citation.line}` : ''}`,
               ).join(', ');
-              console.log(`- Open Important \`${findings.stableFindingId(finding)}\` (${anchors || 'anchor non risolvibile'}):`);
+              const id = findings.stableFindingId(finding);
+              if (toVerify.has(id)) {
+                const hint = hints.get(id) || {};
+                console.log(`- Important da verificare all'HEAD \`${id}\` (${anchors || 'anchor non risolvibile'}; review approvante ${hint.reviewId || '?'} ha confermato un fix su \`${hint.path || '?'}\`; se il fix c'è, Fix di \`${id}\`: ok. più Fix di \`path:L<riga attuale>\`: ok. per ogni file citato):`);
+              } else if (reJudge.has(id)) {
+                // PR 11241: un 🔴 con `Accettazione:` sul body ma ancorato a
+                // codice restava riportato identico dalla review a codice
+                // invariato anche col body corretto alla lettera.
+                const confirmationTarget = typeof gate.unanchoredConfirmationTarget === 'function'
+                  ? gate.unanchoredConfirmationTarget(finding)
+                  : null;
+                console.log(carry.bodyAcceptanceLedgerHeader({ id, anchors, confirmationTarget }));
+              } else {
+                // Senza file la conferma è quella che il gate accetta
+                // (`PR body:L<n>` o l'id): dire «anchor non risolvibile»
+                // invitava il reviewer a rialzare un 🔴 sul ledger stesso
+                // (PR 9959, da 1 a 109 aperti). Una policy pinnata senza
+                // l'helper resta al testo di prima.
+                const target = typeof gate.unanchoredConfirmationTarget === 'function'
+                  ? gate.unanchoredConfirmationTarget(finding)
+                  : null;
+                // Con file citati la conferma resta l'id (#10025): `path:L<n>`
+                // si sposta col fix e, con piu' 🔴 sullo stesso file, le
+                // conferme a riga spostata si accoppiano solo per conteggio.
+                const where = anchors
+                  ? `${anchors}; se risolto, Fix di \`${id}\`: ok. più Fix di \`path:L<riga attuale>\`: ok. per ogni file citato`
+                  : (target ? `senza file: se risolto, Fix di \`${target}\`: ok.` : 'anchor non risolvibile');
+                console.log(`- Open Important \`${id}\` (${where}):`);
+              }
               console.log(finding.text);
               console.log('');
             }
@@ -2906,6 +3452,22 @@ jobs:
             cp "$CTX_DIR/sibling-check.md" "$CTX_DIR/sibling-signal.md" 2>/dev/null \
               || echo "No sibling-check signal available." > "$CTX_DIR/sibling-signal.md"
           fi
+          # >>> fixer-response
+          # La risposta del 🔴-fixer (fixed/disputed/not-fixable per anchor)
+          # all'ULTIMA review del bot: la pubblica `pr-redflag-fixer.yml` come
+          # commento `REDFLAG_RESPONSE` di github-actions. Senza questa sezione
+          # il reviewer non vedeva mai una contestazione e ripeteva lo stesso 🔴
+          # (#9147: quattro review identiche dopo «già risolto alla riga 282»).
+          # Solo una risposta successiva all'ultima review bot: quelle vecchie
+          # sono già state giudicate.
+          last_bot_review_at=$(jq -r '[.[][]? | select(.user.type == "Bot" and ((.user.login // "") | test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$"; "i"))) | .submitted_at // empty] | max // ""' "$CTX_DIR/reviews.json" 2>/dev/null || echo "")
+          "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '.[] | select(.user.type == "Bot" and ((.body // "") | startswith("<!-- REDFLAG_RESPONSE"))) | {created_at, body} | @json' \
+            > "$CTX_DIR/fixer-responses.jsonl" 2>/dev/null || : > "$CTX_DIR/fixer-responses.jsonl"
+          jq -rs --arg since "$last_bot_review_at" \
+            '[.[] | select(.created_at > $since)] | last | .body // empty' \
+            "$CTX_DIR/fixer-responses.jsonl" > "$CTX_DIR/fixer-response.md" 2>/dev/null || : > "$CTX_DIR/fixer-response.md"
+          # <<< fixer-response
           # Unico input Claude: assembla una fotografia deterministica del
           # contesto già raccolto, così il reviewer fa un solo Read iniziale e
           # non ricostruisce il contesto con gh/grep in turni successivi.
@@ -2915,7 +3477,7 @@ jobs:
             echo "## Metadata"
             echo "- PR: #$PR_NUMBER"
             echo "- HEAD: $HEAD_SHA"
-            echo "- Review input revision: ${REVIEW_REVISION:-unavailable}"
+            echo "- Review input revision: host-stamped (opaque to reviewer)"
             echo "- Tier: ${TIER:-unknown}"
             echo "- Incremental base: ${INCREMENTAL_BASE:-none}"
             echo "- Changed file entries: $(wc -l < "$CTX_DIR/files.txt")"
@@ -2928,7 +3490,7 @@ jobs:
             echo
             if [ -n "${CODE_UNCHANGED_SINCE:-}" ]; then
               echo "## Code contribution unchanged"
-              echo "The PR code contribution is identical to the one reviewed at ${CODE_UNCHANGED_SINCE} (same contribution fingerprint, no PR code file changed since). This is a body-only re-review: judge only the PR body, carry every historical code Important below verbatim with its anchor, and never write \`Fix di\` for a code anchor."
+              echo "The PR code contribution is identical to the one reviewed at ${CODE_UNCHANGED_SINCE} (same contribution fingerprint, no PR code file changed since). This is a body-only re-review: judge only the PR body. An open Important the ledger below marks **accettazione sul body** is re-judged against the current body even when its anchor is a code line: if the current body satisfies its \`Accettazione:\` close it as the ledger line says, otherwise carry it verbatim. Carry every other historical code Important marked \`open\` below verbatim with its anchor, and never write \`Fix di\` for a code anchor unless \`## Risposta del 🔴-fixer\` below answers that finding (then judge that answer as REVIEW.md «Re-review convergence» requires) or the ledger marks it \`needs-verification\` (then verify it at HEAD)."
               echo
             fi
             echo "## Deterministic body contract"
@@ -2939,11 +3501,18 @@ jobs:
             fi
             echo
             echo "## Findings ledger (id stabile + stato)"
-            echo "Un id stabile è \`(path, simbolo, classe)\`: NON contiene il numero di riga, quindi sopravvive a un rebase o a un merge di main."
+            echo "Un id stabile è \`(path, simbolo, classe, prosa)\`: NON contiene il numero di riga, quindi sopravvive a un rebase o a un merge di main."
             echo "Un 🔴 NUOVO ancorato solo su righe non toccate dall'ultima review viene declassato dal gate (\`DECLASSIFIED-UNCHANGED-LINE\`): se è davvero una regressione introdotta dopo, scrivilo \`🔴 Important: [regression] <problema>\`."
             echo
             cat "$CTX_DIR/inherited-findings.md"
             echo
+            if [ -s "$CTX_DIR/fixer-response.md" ]; then
+              echo "## Risposta del 🔴-fixer"
+              echo "Risposta all'ultima review, per anchor: giudica ogni voce PRIMA di qualunque finding nuovo, come prescrive REVIEW.md «Re-review convergence» (\`fixed\` → verifica l'Accettazione del 🔴 o, se mancava, l'\`Accettazione proposta\` dal fixer; \`disputed\` → verifica l'evidenza; in entrambi i casi \`Fix di ...: ok\` oppure 🔴 con \`Replica:\`)."
+              echo
+              cat "$CTX_DIR/fixer-response.md"
+              echo
+            fi
             echo "## Changed code-file list"
             cat "$CTX_DIR/review-code-files.txt"
             echo
@@ -3007,7 +3576,8 @@ jobs:
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/constants.mjs \
             scripts/lib/loop-fleet-contract.mjs \
-            scripts/lib/githubApiHeaders.mjs; do
+            scripts/lib/githubApiHeaders.mjs \
+            functions/src/githubApiHeaders.js; do
             download_main "$trusted_path"
           done
           for trusted_file in \
@@ -3022,15 +3592,24 @@ jobs:
       - name: Publish automatic LGTM for a tests-only PR
         id: test_only_review
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'tests-only' }}
+        # A review created with GITHUB_TOKEN is authored by
+        # github-actions[bot] and is suppressed from downstream
+        # pull_request_review consumers. The automatic approval must therefore
+        # use the installation token minted above, just like carry-forward.
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
           REVIEW_POLICY_ROOT: ${{ steps.review_policy_publishers.outputs.root }}
-        run: node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" post
+        run: |
+          set -euo pipefail
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo "::error::Token App assente: la review tests-only non puo' riattivare i consumer pull_request_review."
+            exit 1
+          fi
+          GH_TOKEN="$APP_TOKEN" node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" post
 
       - name: Publish carry-forward LGTM (code contribution unchanged)
         id: carry_forward_review
@@ -3085,11 +3664,11 @@ jobs:
           REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
         with:
           # `github_token` alimenta gli helper provider-neutral della action e
-          # conserva il fallback lifecycle; il bridge host-side della review
-          # può postare una review che riattiva auto-merge e quindi usa solo
-          # App/PAT. Il mint fallisce soft, ma il bridge resta fail-closed.
-          github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # deve usare la stessa identità App/PAT verificata del bridge host-side.
+          # Quando il selettore è vuoto, l'action resta fail-closed prima del
+          # delivery: GITHUB_TOKEN non può diventare un publisher anti-recursivo.
+          github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
+          codex_github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           review_marker: '<!-- CODEX_FALLBACK_REVIEW -->'
           # Per-tier effort from the tier step; `max` when the tier step did
@@ -3123,17 +3702,19 @@ jobs:
 
             The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes PR metadata, historical open Important findings with their path+line anchors, the review-scoped code-file list, code-only diff, incremental delta (when present), and sibling signal. Generated data/static paths are intentionally omitted from the bundle. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
 
-            If `INCREMENTAL_BASE` is set, review only the delta and its interactions, but do not treat the prior Codex review as permission to erase an open Important finding. The bundle's historical section is authoritative: if a cited anchor is unchanged or the delta is only a base alignment, carry that finding into this review with the same path and line and do not append `## LGTM`; if the cited code was actually fixed, write `Fix di \`path:L<line>\`: ok.` for every cited anchor before allowing `Important: 0` and `## LGTM`. For an Important without a file citation, carry it unless it is explicitly resolved with `Fix di \`<normalized finding text>\`: ok.` (omit inner backticks). A merge-only delta can never resolve a prior Important by silence. If the bundle says the code contribution is unchanged, post a short review only when the historical section has no open Important findings.
+            If `INCREMENTAL_BASE` is set, review only the delta and its interactions, but do not treat the prior Codex review as permission to erase an open Important finding. The bundle's historical section is authoritative: when the bundle has `## Risposta del 🔴-fixer`, first judge every answered finding as REVIEW.md «Re-review convergence» requires; otherwise, for a ledger entry marked `open` (unless the ledger marks it **accettazione sul body**: judge that one against the current body even with its anchor unchanged), if a cited anchor is unchanged or the delta is only a base alignment, carry that finding into this review with the same path and line and do not append `## LGTM` (aligning the base never closes a real open Important); if the cited code was actually fixed, write `Fix di \`path:L<line>\`: ok.` for every cited anchor before allowing `Important: 0` and `## LGTM`. A ledger entry marked `needs-verification` is still open for the gate, but a later approving review already confirmed a fix on the same file: do not copy it forward. Open its anchor at HEAD and check the current code; if the fix is there, write `Fix di \`path:L<current line>\`: ok.`; raise it again as `🔴 Important` only with evidence from the current code (the line that still fails), never by copying the historical text. For an Important without a file citation or a `PR body:L<n>` anchor, carry it unless it is explicitly resolved with `Fix di \`<id>\`: ok.`, where `<id>` is the 12-hex ledger id the bundle prints next to it (only the id inside the backticks). Never raise a `🔴 Important` about the ledger or the bundle itself (an entry shown `open` without text or anchor): that is not a defect of the PR, and the gate declassifies any Important whose acceptance is checked only on the bundle or ledger (`DECLASSIFIED-LEDGER`); judge the underlying finding and confirm it by id, or carry it unchanged. A merge-only delta can never resolve a prior Important by silence. If the bundle says the code contribution is unchanged, post a short review only when the historical section has no open Important findings.
 
-            If the bundle has a `## Code contribution unchanged` section, the code has not changed since that review: re-judge only the PR body, carry every historical code Important verbatim with the same path and line, never write `Fix di` for a code anchor, and resolve a PR-body Important only when the current body fixes it.
+            If the bundle has a `## Code contribution unchanged` section, the code has not changed since that review: re-judge only the PR body, carry every historical code Important marked `open` verbatim with the same path and line, never write `Fix di` for a code anchor unless `## Risposta del 🔴-fixer` answers that finding (then judge the answer as REVIEW.md requires) or the ledger marks it `needs-verification` (then verify it at HEAD as described above) or **accettazione sul body** (then judge it against the current body: if satisfied, close it with the confirmations its ledger line prints; if not, carry it verbatim), and resolve a PR-body Important only when the current body fixes it.
 
-            If the bundle identifies a historical Important on the PR body with an anchor `PR body:L<n>`, its resolution MUST be written exactly as `Fix di \`PR body:L<n>\`: ok.` (one line per anchor), before `Important: 0` and `## LGTM`; never replace that metadata anchor with a prose paraphrase. For an Important without a file or PR-body anchor, use the normalized finding text required above, inside the confirmation backticks.
+            If the bundle identifies a historical Important on the PR body with an anchor `PR body:L<n>`, its resolution MUST be written exactly as `Fix di \`PR body:L<n>\`: ok.` (one line per anchor), before `Important: 0` and `## LGTM`; never replace that metadata anchor with a prose paraphrase. For an Important without a file or PR-body anchor, use its ledger id as required above, alone inside the confirmation backticks.
+
+            **Every `🔴 Important` must be closable by an agent that reads only that line.** End it with `Accettazione: <check>` on the same line: a test to add or make pass (file and name), an invariant checkable with a command (`rg`, `node -e`), or an input with its expected output. One remedy only, never «X or Y»; a class finding lists every known site with its `path:L<n>` now, because a site of the same class found only in a later round is a 🟣 Pre-existing unless the delta introduced it. The 🔴-fixer runs that check and answers per anchor (`fixed` / `disputed` / `not-fixable`); in the next review you judge its answer against the same check, not against a new reading of the problem. When the Important carried no check, judge the fix against the `Accettazione proposta` the fixer wrote, unless that check does not exercise the finding: then say what it misses in `Replica:`. Measured on 46 bot PRs (15-25/09): after a fix commit 44% of the Importants repeated and 28% of the transitions added new ones, because the criterion moved between rounds.
 
             Review in one pass with a hard repository-tool budget: read the two contract files and the bundle, then use at most one batched read/search call for direct delta interactions. Never scan the whole repository, enumerate all siblings, or re-fetch the PR through GitHub. Validate the body contract, inspect only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage. Every non-funnel `❓ q:` in that section MUST end with the exact disposition `— deferred, non funnel-critical.`. The words `report-only`, `deferred`, or `non-funnel-critical` inside the question do not dispose it; a funnel-critical question must be promoted to `🔴 Important` instead.
 
-            **PR body: one source of truth.** The deterministic body contract (`scripts/lib/pr-body-sections-check.mjs`, step `PR-body completeness`) already validated sections, bullet states, `Motivo`/`Prossimo passo`, placeholders and `Closes`; its verdict is in the bundle under `## Deterministic body contract`. When it is ✅, do not re-validate those rules and never emit a `🔴 Important` about the body: a doubt about those rules is at most a `🟡 Nit` anchored as `PR body:L<n>`, and the review gate declassifies such a 🔴 on a green contract anyway. REVIEW.md step 7 (a perf claim without a baseline) is not a contract rule and still applies. The states it accepts in `## Non implementato (ancora)` — `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction`, `blocked: decisione del proprietario` (the five `CLOSING_STATES` of `scripts/ci/followup-has-candidates.mjs`) and any other `blocked: <causa>`, which keeps the task open without blocking the PR — are valid, e su quelli **non si emette 🔴**. A `PR concatenata` without `#N` is not a state and the contract already rejects it (non passa). Re-raising a 🔴 on a bullet the contract accepted deadlocks the loop: the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with specific fields **non è un finding**.
+            **PR body: one source of truth.** The deterministic body contract (`scripts/lib/pr-body-sections-check.mjs`, step `PR-body completeness`) already validated sections, bullet states, `Motivo`/`Prossimo passo`, placeholders and `Closes`; its verdict is in the bundle under `## Deterministic body contract`. When it is ✅, do not re-validate those rules. A 🔴 anchored only on `PR body:L<n>` (as the prefix of its first finding line) must include one following line `Body citation: "<JSON string>"` with a short verbatim excerpt (≤240 chars) from the current PR body. The gate declassifies it only when that citation is absent from the current body after whitespace/Markdown normalization; a missing or malformed citation remains blocking. The `NON_CONTRACT_BODY_RE` filter keeps a performance/capacity claim blocking while the current cited body line still contains it; if the citation is absent because the assertion was removed, stale-body declassification applies. The states it accepts in `## Non implementato (ancora)` — `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction`, `blocked: decisione del proprietario` (the five `CLOSING_STATES` of `scripts/ci/followup-has-candidates.mjs`) and any other `blocked: <causa>`, which keeps the task open without blocking the PR — are valid, e su quelli **non si emette 🔴**. A `PR concatenata` without `#N` is not a state and the contract already rejects it (non passa). Re-raising a 🔴 on a bullet the contract accepted deadlocks the loop: the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with specific fields **non è un finding**.
 
-            Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. The review body MUST contain, as its own unchanged line, `<!-- REVIEW_INPUT_REVISION: ${{ steps.review_input.outputs.review_revision }} -->`; this binds the verdict to the trusted body revision supplied by the workflow. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
+            Post exactly one review: first write the markdown body to a file with a quoted-delimiter heredoc (`cat > "$TMPDIR/review.md" <<'REVIEW_EOF'` … `REVIEW_EOF`, real newlines, never a literal `\n`), then, in a separate shell command, run `gh pr review ${PR_NUMBER} --comment --body-file "$TMPDIR/review.md"`. Never pass the body inline with `--body`: inside double quotes the shell runs the markdown backticks as command substitution and keeps `\n` as text, and the review gate then discards the review. Do not add or edit a `REVIEW_INPUT_REVISION` marker: the host-side gh bridge removes any model-supplied marker and stamps exactly one trusted marker on the published review body. The revision is intentionally opaque to the reviewer. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
       # The transient-error classifier invokes the fallback detector after the
       # model step.  Its import cone is also policy, so it must not inherit the
       # mutable bootstrap path after npm/PR code has run.
@@ -3165,8 +3746,10 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/claude-codex-fallback.mjs \
+            scripts/lib/codex-fallback-contract.mjs \
             scripts/ci/claude-rate-limit.mjs \
-            scripts/ci/claude-rate-limit-contract.mjs; do
+            scripts/ci/claude-rate-limit-contract.mjs \
+            scripts/lib/codex-fallback-contract.mjs; do
             download_main "$trusted_path"
           done
           node --check "$policy_root/scripts/ci/claude-codex-fallback.mjs"
@@ -3247,16 +3830,138 @@ jobs:
             echo "::error::Claude review aborted on a 429 (quota/rate-limit) without posting a review — failing so stale-pr-rescuer can re-run the completed run. No shared quota lease blocked this review."
             exit 1
           fi
+          # A provider may wrap the terminal marker in a structured envelope
+          # (or add a nested error record) without changing the action's
+          # compatibility output. Inspect the records before the generic
+          # action-failure branch below: otherwise a retryable 429/5xx marker
+          # is treated as non-retryable and the stale-review recovery path is
+          # never armed. Keep `rate_limit_info.status` authoritative for quota
+          # markers; `overageStatus` alone is not a terminal 429.
+          structured_marker=$(
+            EXEC_FILE="${EXEC_FILE:-}" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const file = process.env.EXEC_FILE || '';
+          if (!file || !fs.existsSync(file)) process.exit(0);
+
+          let raw = '';
+          try {
+            raw = fs.readFileSync(file, 'utf8');
+          } catch {
+            process.exit(0);
+          }
+
+          const records = [];
+          const addRecord = (value) => {
+            if (value && typeof value === 'object') records.push(value);
+          };
+
+          for (const line of raw.split(/\r?\n/u)) {
+            const text = line.trim();
+            if (!text) continue;
+            try {
+              addRecord(JSON.parse(text));
+            } catch {
+              // A truncated NDJSON line is handled by the remaining records and the
+              // legacy grep fallback below.
+            }
+          }
+          if (records.length === 0) {
+            try {
+              addRecord(JSON.parse(raw));
+            } catch {
+              process.exit(0);
+            }
+          }
+
+          const statusKeys = new Set([
+            'status',
+            'statuscode',
+            'httpstatus',
+            'httpstatuscode',
+            'apierrorstatus',
+          ]);
+          const textKeys = new Set([
+            'code',
+            'classification',
+            'detail',
+            'error',
+            'kind',
+            'marker',
+            'message',
+            'reason',
+            'subtype',
+            'type',
+          ]);
+          let rateLimit = false;
+          let retryable5xx = false;
+          const seen = new Set();
+
+          function normalizedKey(key) {
+            return String(key).toLowerCase().replaceAll('_', '').replaceAll('-', '');
+          }
+
+          function visit(value) {
+            if (!value || typeof value !== 'object' || seen.has(value)) return;
+            seen.add(value);
+            if (Array.isArray(value)) {
+              for (const child of value) visit(child);
+              return;
+            }
+
+            const record = /** @type {Record<string, unknown>} */ (value);
+            const info = record.rate_limit_info;
+            if (info && typeof info === 'object' && info.status === 'rejected') {
+              rateLimit = true;
+            }
+
+            for (const [key, child] of Object.entries(record)) {
+              const normalized = normalizedKey(key);
+              if (statusKeys.has(normalized)) {
+                const status = Number(child);
+                if (Number.isInteger(status)) {
+                  if (status === 429) rateLimit = true;
+                  if (status >= 500 && status <= 599) retryable5xx = true;
+                }
+              }
+              if (typeof child === 'string' && textKeys.has(normalized)) {
+                const text = child.toLowerCase();
+                if (text === 'rate_limit' || text === 'rate-limit') rateLimit = true;
+                if (/overloaded|server_error|internal server error|api error:\s*5/u.test(text)) {
+                  retryable5xx = true;
+                }
+              }
+              visit(child);
+            }
+          }
+
+          for (const record of records) visit(record);
+          if (rateLimit) process.stdout.write('rate_limit\n');
+          else if (retryable5xx) process.stdout.write('retryable_5xx\n');
+          NODE
+          )
+          case "${structured_marker:-}" in
+            rate_limit)
+              echo "::error::Claude review aborted on a structured 429/rate-limit marker — failing so stale-pr-rescuer can re-run the completed run."
+              exit 1
+              ;;
+            retryable_5xx)
+              echo "::error::Claude review aborted on a structured transient 5xx marker — failing so stale-pr-rescuer can re-run the completed run."
+              exit 1
+              ;;
+          esac
+          # Preserve the older textual 5xx shape for action versions that did
+          # not emit a parseable JSON record. This must also precede the generic
+          # failure branch, otherwise REVIEW_OUTCOME=failure masks the retry.
+          if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ] \
+             && grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
+             && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*5[0-9][0-9]|overloaded|server_error|internal server error|api error: 5' "${EXEC_FILE}"; then
+            echo "::error::Claude review aborted on a transient 5xx API error without posting a review — re-run this job."
+            exit 1
+          fi
           if [ "${REVIEW_OUTCOME}" = "failure" ]; then
             echo "::error::Codex review action failed (outcome=failure) — re-run this job."
             exit 1
-          fi
-          if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ]; then
-            if grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
-               && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*5[0-9][0-9]|overloaded|server_error|internal server error|api error: 5' "${EXEC_FILE}"; then
-              echo "::error::Codex review aborted on a transient 5xx API error without posting a review — re-run this job."
-              exit 1
-            fi
           fi
           echo "Review step completed without an unrecovered transient API error."
 
@@ -3301,8 +4006,10 @@ jobs:
             scripts/ci/review-marker-recovery.mjs \
             scripts/ci/fetch-pr-files.mjs \
             scripts/ci/claude-codex-fallback.mjs \
+            scripts/lib/codex-fallback-contract.mjs \
             scripts/ci/claude-rate-limit.mjs \
             scripts/ci/claude-rate-limit-contract.mjs \
+            scripts/lib/codex-fallback-contract.mjs \
             scripts/ci/lib/constants.mjs \
             scripts/ci/lib/fetchPrFiles.mjs \
             scripts/ci/lib/vitestCheck.mjs \
@@ -3315,6 +4022,7 @@ jobs:
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/lib/github-issue-creator.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/lib/loop-fleet-contract.mjs \
             scripts/lib/pr-body-closes-check.mjs \
             scripts/lib/pr-body-sections-check.mjs; do
@@ -3393,10 +4101,12 @@ jobs:
         # the provenance marker requested in its prompt (observed on #9346).
         # Repair that formatting defect deterministically; never rerun the
         # model and never copy a stale, red, or ambiguous verdict.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.codex_review.outputs.primary_success == 'true' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.codex_review.outputs.primary_success == 'true' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') && ((env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN != '') || env.GITHUB_PAT != '') }}
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
-          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          # Marker repair is a GitHub mutation: never publish it with the
+          # read-only Actions token when no verified App/PAT identity exists.
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
@@ -3567,8 +4277,10 @@ jobs:
           set -euo pipefail
           automerge=false
           autorebase=false
-          [ "$AUTOMERGE" = "true" ] && [[ "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]] && automerge=true
-          [ "$AUTOREBASE" = "true" ] && autorebase=true
+          automerge_requested="${AUTOMERGE:-false}"
+          autorebase_requested="${AUTOREBASE:-false}"
+          [ "$automerge_requested" = "true" ] && [[ "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]] && automerge=true
+          [ "$autorebase_requested" = "true" ] && autorebase=true
           {
             echo "automerge=$automerge"
             echo "autorebase=$autorebase"
@@ -3647,7 +4359,10 @@ jobs:
   post-review:
     name: post-review (auto-merge opt-in + autorebase)
     needs: vitest
-    if: ${{ always() && (needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true') }}
+    # Il job esiste anche dopo un failure del required job per emettere il
+    # segnale redcheck solo dopo che `vitest` è davvero concluso. Gli step di
+    # autorebase/auto-merge restano gated sui due output sotto.
+    if: always() && (needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true' || ((github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') && needs.vitest.result == 'failure'))
     runs-on: ubuntu-latest
     timeout-minutes: 30
     # Anche ogni step e' `continue-on-error`: il check-run di questo job resta
@@ -3655,10 +4370,164 @@ jobs:
     # per un guasto della PR.
     continue-on-error: true
     steps:
+      # `workflow_run` used to create a redcheck-fixer run for every failed
+      # tests workflow before that workflow could inspect PR eligibility. Keep
+      # the admission after the completed producer job: only an open
+      # autonomous non-draft PR and a code/infra failure may emit this
+      # dispatch. The fixer itself revalidates the same facts from its trusted
+      # main policy.
+      - name: redcheck admission (trusted failure signal)
+        if: always() && (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') && needs.vitest.result == 'failure'
+        uses: actions/github-script@v9
+        continue-on-error: true
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = Number(context.eventName === 'workflow_dispatch'
+              ? context.payload.inputs?.pr
+              : context.payload.pull_request?.number);
+            if (!Number.isSafeInteger(prNumber) || prNumber <= 0) {
+              core.setFailed('Redcheck admission: PR number is missing or invalid.');
+              return;
+            }
+
+            let currentPr;
+            try {
+              ({ data: currentPr } = await github.rest.pulls.get({
+                ...context.repo,
+                pull_number: prNumber,
+              }));
+            } catch (error) {
+              core.setFailed(`Redcheck admission: PR metadata is unreadable (${error.message}).`);
+              return;
+            }
+
+            const headRef = String(currentPr.head?.ref || '');
+            const headSha = String(currentPr.head?.sha || '');
+            const headRepo = String(currentPr.head?.repo?.full_name || '');
+            const repository = `${context.repo.owner}/${context.repo.repo}`;
+            const runHeadSha = String(context.eventName === 'pull_request'
+              ? context.payload.pull_request?.head?.sha
+              : context.sha || '');
+            const autonomous = currentPr.user?.type === 'Bot'
+              || headRef.startsWith('fix/')
+              || headRef.startsWith('automerge-')
+              || (currentPr.labels || []).some((label) => label?.name === 'agent:autofix');
+            if (currentPr.state !== 'open'
+              || currentPr.draft === true
+              || currentPr.base?.ref !== 'main'
+              || headRepo !== repository
+              || !/^[0-9a-f]{40}$/.test(runHeadSha)
+              || headSha !== runHeadSha
+              || !autonomous) {
+              core.notice(`Redcheck admission skipped for PR #${prNumber}: PR is not an open autonomous non-draft PR on this repository at run HEAD ${runHeadSha || 'unknown'}.`);
+              return;
+            }
+
+            let jobs;
+            try {
+              jobs = await github.paginate(github.rest.actions.listJobsForWorkflowRun, {
+                ...context.repo,
+                run_id: context.runId,
+                filter: 'latest',
+                per_page: 100,
+              });
+            } catch (error) {
+              core.setFailed(`Redcheck admission: tests job list is unreadable (${error.message}).`);
+              return;
+            }
+
+            const vitestJobs = jobs.filter((job) => job?.name === 'vitest (unit + integration)');
+            if (vitestJobs.length !== 1) {
+              core.setFailed(`Redcheck admission: expected one completed vitest job, found ${vitestJobs.length}.`);
+              return;
+            }
+            const [vitestJob] = vitestJobs;
+            if (vitestJob.status !== 'completed' || vitestJob.conclusion !== 'failure') {
+              core.setFailed(`Redcheck admission: vitest job is not a completed failure (${vitestJob.status}/${vitestJob.conclusion}).`);
+              return;
+            }
+            if (!Array.isArray(vitestJob.steps)) {
+              core.setFailed('Redcheck admission: vitest job steps are missing or malformed.');
+              return;
+            }
+
+            const failedSteps = vitestJob.steps
+              .filter((step) => step?.conclusion === 'failure')
+              .map((step) => step.name)
+              .filter((name) => typeof name === 'string' && name.length > 0);
+            if (failedSteps.length === 0) {
+              core.setFailed('Redcheck admission: no verifiable failed step was returned.');
+              return;
+            }
+
+            const bodyContractSteps = new Set([
+              'PR-body completeness + multi-issue Closes (no checkout, all events)',
+              'PR-body completeness + multi-issue Closes (no checkout, pull requests)',
+            ]);
+            const reviewSteps = new Set([
+              'Resolve trusted GitHub CLI (before checkout)',
+              'Resolve trusted policy ref (main tip, pinned)',
+              'Bootstrap trusted review policy (no checkout)',
+              'Bootstrap trusted bounded-ledger policy (no checkout)',
+              'Classify bounded loop-fleet ledger path',
+              'Publish bounded ledger-only automatic LGTM',
+              'Resolve PR from pull request',
+              'Resolve review input revision (zero-agent)',
+              'Re-review guard (skip Claude when no code changed since last LGTM)',
+              'Re-review guard (one terminal verdict per HEAD)',
+              'Determine review tier',
+              'Prefetch review context (zero-Claude, saves turns)',
+              'Mint GitHub App token for Codex review',
+              'Refresh trusted review policy before automatic publishers',
+              'Publish automatic LGTM for a tests-only PR',
+              'Publish carry-forward LGTM (code contribution unchanged)',
+              'Run Claude review',
+              'Run Codex Luna Max review',
+              'Refresh trusted review policy before transient-error classifier',
+              'Fail on transient API error (no review posted)',
+              'Refresh trusted review policy before final verdict',
+              'Validate deterministic review input marker',
+              'Require approving Claude review',
+              'Require approving Codex review',
+              'Fail when required review gate is skipped',
+              'Decide post-review follow-up',
+              'Classify cancelled run',
+              'Explain the job verdict in the run summary',
+              'Checkout trusted main for autorebase and token minting',
+              'Mint post-review App token',
+              'Checkout trusted native auto-merge source',
+              'Validate trusted native auto-merge source',
+              'Enable native auto-merge after the required job',
+              'Setup Node.js + npm ci for autorebase',
+              'Rebase near-merge PRs after review or stale rescue',
+            ]);
+            const actionable = failedSteps.some((name) => (
+              !bodyContractSteps.has(name) && !reviewSteps.has(name)
+            ));
+            if (!actionable) {
+              core.notice(`Redcheck admission skipped for PR #${prNumber}: failure was limited to body/review process steps.`);
+              return;
+            }
+
+            try {
+              await github.rest.actions.createWorkflowDispatch({
+                ...context.repo,
+                workflow_id: 'pr-redcheck-fixer.yml',
+                ref: 'main',
+                inputs: { pr: String(prNumber), run_id: String(context.runId) },
+              });
+            } catch (error) {
+              core.setFailed(`Redcheck admission: trusted workflow dispatch failed (${error.message}).`);
+              return;
+            }
+            core.notice(`Redcheck fixer dispatched for eligible PR #${prNumber} from tests run ${context.runId}.`);
+
       # Storia completa dei commit per i merge dell'autorebase, nessun tree
       # storico (stesso profilo `tree:0` del job required).
       - name: Checkout trusted main for autorebase and token minting
-        uses: actions/checkout@v5
+        if: ${{ needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true' }}
+        uses: actions/checkout@v7
         continue-on-error: true
         with:
           ref: main
@@ -3676,14 +4545,80 @@ jobs:
           sparse-checkout-cone-mode: false
 
       # Il token App e' l'identita' primaria; senza, l'opt-in viene saltato e
-      # l'autorebase ripiega su GITHUB_TOKEN (fail-soft, come prima).
+      # ogni mutation resta pending fino a un'identità write-capable.
       - name: Mint post-review App token
+        if: ${{ needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true' }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
           APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
+
+      - name: Resolve post-review write-capable identity
+        id: post_review_write_capability
+        if: ${{ needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true' }}
+        env:
+          APP_TOKEN: ${{ env.APP_TOKEN }}
+          APP_TOKEN_DATA_REFRESH: ${{ env.APP_TOKEN_DATA_REFRESH }}
+          APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
+          GITHUB_PAT: ${{ env.GITHUB_PAT }}
+        run: |
+          set -euo pipefail
+          if [ "${APP_TOKEN_DATA_REFRESH:-}" = 'true' ] && [ -n "${APP_TOKEN:-}" ]; then
+            {
+              echo 'write_capable=true'
+              if [ "${APP_TOKEN_WORKFLOWS:-}" = 'true' ]; then
+                echo 'workflow_write_capable=true'
+              else
+                echo 'workflow_write_capable=false'
+              fi
+              echo 'pending=false'
+              echo 'retry=false'
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ -n "${GITHUB_PAT:-}" ]; then
+            {
+              echo 'write_capable=true'
+              echo 'workflow_write_capable=true'
+              echo 'pending=false'
+              echo 'retry=false'
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          {
+            echo 'write_capable=false'
+            echo 'workflow_write_capable=false'
+            echo 'pending=true'
+            echo 'retry=true'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Report pending post-review mutation
+        if: ${{ (needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true') && (steps.post_review_write_capability.outputs.write_capable != 'true' || (needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable != 'true')) }}
+        env:
+          AUTOREBASE: ${{ needs.vitest.outputs.autorebase }}
+          WRITE_CAPABLE: ${{ steps.post_review_write_capability.outputs.write_capable }}
+          WORKFLOW_WRITE_CAPABLE: ${{ steps.post_review_write_capability.outputs.workflow_write_capable }}
+        run: |
+          set -euo pipefail
+          if [ "${WRITE_CAPABLE:-false}" != 'true' ]; then
+            echo "::warning::Post-review mutation pending: no App token verified with contents:write + pull_requests:write and no PAT is available. No auto-merge opt-in, autorebase, or branch push will run."
+          elif [ "${AUTOREBASE:-false}" = 'true' ] && [ "${WORKFLOW_WRITE_CAPABLE:-false}" != 'true' ]; then
+            echo "::warning::Autorebase pending: the selected write-capable identity has no verified workflows:write capability; pr-autorebase.mjs will not run."
+          fi
+          {
+            echo '### Post-review mutation pending'
+            if [ "${WRITE_CAPABLE:-false}" != 'true' ]; then
+              echo '- Nessun token verificato con contents:write + pull_requests:write: nessun fallback su GITHUB_TOKEN, nessun autorebase e nessun push.'
+              echo '- Native auto-merge: retry-native-automerge.yml ritentera con il PAT caricato da Remote Config.'
+            elif [ "${AUTOREBASE:-false}" = 'true' ] && [ "${WORKFLOW_WRITE_CAPABLE:-false}" != 'true' ]; then
+              echo "- Autorebase: resta pending perché l’identità selezionata non ha \`workflows:write\` verificato; \`pr-autorebase.mjs\` non viene eseguito."
+            fi
+            if [ "${AUTOREBASE:-false}" = 'true' ]; then
+              echo "- Autorebase: verra rivalutato dal prossimo percorso del ciclo con un'identita write-capable e workflow-capable."
+            fi
+          } >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
 
       # ── Opt-in al native auto-merge, dopo il job required ────────────────
       #
@@ -3711,7 +4646,7 @@ jobs:
       - name: Checkout trusted native auto-merge source
         if: ${{ needs.vitest.outputs.automerge == 'true' }}
         continue-on-error: true
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: ${{ github.repository }}
           ref: main
@@ -3728,6 +4663,7 @@ jobs:
             /scripts/ci/lib/constants.mjs
             /scripts/ci/lib/pr-review-admission.mjs
             /scripts/ci/lib/review-input-revision.mjs
+            /scripts/lib/gh-exec-buffer.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /data/loop-fleet/loop-registry.json
           sparse-checkout-cone-mode: false
@@ -3781,19 +4717,20 @@ jobs:
       # `vitest (unit + integration)` sulla HEAD = `success`, step
       # `Require approving Codex review` = `success`), come fa il retry.
       - name: Enable native auto-merge after the required job
-        if: ${{ needs.vitest.outputs.automerge == 'true' }}
+        if: ${{ needs.vitest.outputs.automerge == 'true' && steps.post_review_write_capability.outputs.write_capable == 'true' }}
         continue-on-error: true
         env:
           REPOSITORY: ${{ github.repository }}
           PR_NUMBER: ${{ needs.vitest.outputs.pr_number }}
+          POST_REVIEW_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
           if [ -z "${NATIVE_AUTOMERGE_HELPER_DIR:-}" ] || [ -z "${NATIVE_AUTOMERGE_SOURCE_ROOT:-}" ]; then
             echo "::warning::sorgente native auto-merge da main non validata; nessun opt-in — retry-native-automerge.yml ritenta entro 20 min."
             exit 0
           fi
-          if [ -z "${APP_TOKEN:-}" ]; then
-            echo "::warning::App token assente; nessun opt-in (nessun ripiego su GITHUB_TOKEN, che non risveglierebbe il deploy) — retry-native-automerge.yml ritenta entro 20 min."
+          if [ -z "${POST_REVIEW_TOKEN:-}" ]; then
+            echo "::warning::Identità write-capable non disponibile dopo il guard; nessun opt-in — retry-native-automerge.yml ritenta entro 20 min."
             exit 0
           fi
           cd "$NATIVE_AUTOMERGE_SOURCE_ROOT"
@@ -3813,7 +4750,7 @@ jobs:
           # abbandono tardivo per stato cambiato, e non costa una lettura API
           # in piu' ne' un secondo uso del token.
           set +e
-          GH_TOKEN="$APP_TOKEN" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
+          GH_TOKEN="$POST_REVIEW_TOKEN" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
             "$REPOSITORY" "$PR_NUMBER" 2>&1 | tee "$RUNNER_TEMP/native-automerge-gate.log"
           gate_status=${PIPESTATUS[0]}
           set -e
@@ -3827,17 +4764,17 @@ jobs:
       # serve l'install; `--ignore-scripts` perche' nessun postinstall serve a
       # uno sweeper che fa solo git e API.
       - name: Setup Node.js + npm ci for autorebase
-        if: ${{ needs.vitest.outputs.autorebase == 'true' }}
+        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.write_capable == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable == 'true' }}
         continue-on-error: true
         uses: ./.github/actions/ci-npm-setup
         with:
           npm-ci-args: --ignore-scripts
 
       - name: Rebase near-merge PRs after review or stale rescue
-        if: ${{ needs.vitest.outputs.autorebase == 'true' }}
+        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.write_capable == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable == 'true' }}
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           DRY_RUN: 'false'
         run: node scripts/ci/pr-autorebase.mjs

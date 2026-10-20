@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Fondation Rive-Neuve job parser — Jalios JCMS, server-rendered "card" layout.
  *
@@ -28,7 +30,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -44,18 +46,10 @@ import {
 // by the shared fetchHtml helper). Use a strict "text/html" Accept instead.
 async function fetchRiveneuveHtml(url) {
   const t = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), t);
-  try {
-    const res = await fetch(url, {
+  return fetchHtml(url, {
+    timeoutMs: t,
       headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  });
 }
 
 export const RIVENEUVE_KEY = 'riveneuve';
@@ -112,7 +106,7 @@ async function fetchDetailContent(detailUrl) {
   try {
     html = await fetchRiveneuveHtml(detailUrl);
   } catch {
-    return { title: '', meta: '', description: '' };
+    return { title: '', meta: '', description: '', ...sourcePostingDateFields('') };
   }
 
   let title = '';
@@ -137,7 +131,7 @@ async function fetchDetailContent(detailUrl) {
     const wysiwygMatch = html.match(/<div\s+class="wysiwyg"[^>]*>([\s\S]*?)<\/div>/);
     if (wysiwygMatch) description = htmlToText(wysiwygMatch[1]).trim();
   }
-  return { title, meta, description };
+  return { title, meta, description, ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
 }
 
 export async function fetchAllRiveneuveJobs() {
@@ -149,14 +143,13 @@ export async function fetchAllRiveneuveJobs() {
     listingHtml = await fetchRiveneuveHtml(LISTING_URL);
   } catch (err) {
     console.warn(`  ⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const entries = parseRiveneuveListing(listingHtml);
   console.log(`  ✓ ${entries.length} offerte trovate (incl. spontaneous filter)`);
   if (!entries.length) return [];
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const e of entries) {
@@ -211,7 +204,7 @@ export async function fetchAllRiveneuveJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: e.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

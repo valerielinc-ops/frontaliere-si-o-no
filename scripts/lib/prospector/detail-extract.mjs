@@ -23,7 +23,7 @@ import { extractUmantisDetailFields, umantisDetailFallbackUrl } from './umantis-
  * @param {{ platform?: string }} spec
  * @param {string} html
  * @param {string} url
- * @param {{ detailExtractor?: (html: string, url: string) => any }} [opts]
+ * @param {{ detailExtractor?: (html: string, url: string, opts?: { recordUrl?: string, recordTitle?: string }) => any, recordUrl?: string, recordTitle?: string }} [opts]
  * @returns {any}
  */
 export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
@@ -32,7 +32,10 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
     || (spec?.platform === 'pageexecutive.com'
       ? extractPageExecutiveDetailFields
       : extractDetailFields);
-  const detail = base(html, url);
+  const detail = base(html, url, {
+    recordUrl: opts.recordUrl,
+    recordTitle: opts.recordTitle,
+  });
   if (spec?.platform !== 'umantis.com') return detail;
   // A tenant extractor read the very same page: its output is the whole
   // verdict, EMPTY FIELDS INCLUDED. An empty location means "nothing here
@@ -105,18 +108,27 @@ export function runtimeDetailFallbackUrl(spec, status, url) {
  */
 export function listingEvidenceFields(row = {}, evidence) {
   if (!evidence) return {};
+  const rowHasConcreteLocationEvidence = Boolean(
+    row.location || row.addressLocality || row.locationCandidates?.length,
+  );
+  const projectedEvidence = evidence.sourceTitleAlternatives && rowHasConcreteLocationEvidence ? null : evidence;
+  const evidenceCandidates = projectedEvidence
+    ? Array.isArray(projectedEvidence.locationCandidates)
+      ? projectedEvidence.locationCandidates
+      : [projectedEvidence]
+    : [];
   return {
-    location: row.location || evidence.location || '',
-    addressLocality: row.addressLocality || evidence.addressLocality || '',
-    addressRegion: row.addressRegion || evidence.addressRegion || '',
-    addressCountry: row.addressCountry || evidence.addressCountry || '',
-    postalCode: row.postalCode || evidence.postalCode || '',
-    streetAddress: row.streetAddress || evidence.streetAddress || '',
+    location: row.location || projectedEvidence?.location || '',
+    addressLocality: row.addressLocality || projectedEvidence?.addressLocality || '',
+    addressRegion: row.addressRegion || projectedEvidence?.addressRegion || '',
+    addressCountry: row.addressCountry || projectedEvidence?.addressCountry || '',
+    postalCode: row.postalCode || projectedEvidence?.postalCode || '',
+    streetAddress: row.streetAddress || projectedEvidence?.streetAddress || '',
     // Folding the same evidence twice must not grow the row: the crawler and
     // the synthesiser both apply this function, and a validator run that
     // re-applies it over an already-folded row would otherwise publish the
     // same place twice as separate evidence. Identity is the address, so
     // `f(f(row, e), e)` equals `f(row, e)`.
-    locationCandidates: dedupeLocationCandidates([...(row.locationCandidates || []), evidence]),
+    locationCandidates: dedupeLocationCandidates([...(row.locationCandidates || []), ...evidenceCandidates]),
   };
 }

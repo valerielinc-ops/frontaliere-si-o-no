@@ -49,7 +49,7 @@ import {
 } from './shared/seoHeroImage';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedSentence } from './shared/humanDate';
+import { formatUpdatedDate } from './shared/humanDate';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { WriteCollector } from './batchWrite';
 import {
@@ -79,7 +79,8 @@ interface FaqHubCopy {
   readonly tocTitle: string;
   readonly breadcrumbHome: string;
   readonly breadcrumbHub: string;
-  readonly updatedLabel: string;
+  readonly generatedLabel: string;
+  readonly reviewUnknown: string;
   readonly disclaimer: string;
   readonly relatedTitle: string;
   readonly relatedLinks: ReadonlyArray<{ href: string; label: string }>;
@@ -108,7 +109,8 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
     tocTitle: 'Categorie trattate',
     breadcrumbHome: 'Home',
     breadcrumbHub: 'Guida frontaliere',
-    updatedLabel: 'Aggiornato',
+    generatedLabel: 'Pagina generata',
+    reviewUnknown: 'Data di revisione non documentata',
     disclaimer:
       'Le informazioni contenute in questa pagina hanno valore informativo e non sostituiscono la consulenza personalizzata di un commercialista, un avvocato o un patronato. Le norme fiscali, previdenziali e sui permessi cambiano con frequenza: verifica sempre le fonti ufficiali linkate in ogni risposta.',
     relatedTitle: 'Approfondisci',
@@ -138,7 +140,8 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
     tocTitle: 'Covered categories',
     breadcrumbHome: 'Home',
     breadcrumbHub: 'Cross-border guide',
-    updatedLabel: 'Updated',
+    generatedLabel: 'Page generated',
+    reviewUnknown: 'Review date not documented',
     disclaimer:
       'The information on this page is for guidance only and does not replace personal advice from an accountant, lawyer or union office. Tax, social-security and permit rules change frequently: always verify with the official sources linked in each answer.',
     relatedTitle: 'Go deeper',
@@ -164,9 +167,10 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       'Jede Antwort umfasst 80-180 Wörter, nennt die anwendbare Norm (KVG, AHVG, BVG, OR, AIG, TUIR, GD 230/2021) und verweist auf offizielle Quellen (Fedlex, AFC Tessin, BSV, SEM, Agenzia Entrate, INPS). Inhalte entsprechen dem Stand 2026 (Sätze, Obergrenzen, Prämien, Mindestlöhne).',
     ],
     tocTitle: 'Behandelte Kategorien',
-    breadcrumbHome: 'Start',
+    breadcrumbHome: 'Startseite',
     breadcrumbHub: 'Grenzgängerleitfaden',
-    updatedLabel: 'Aktualisiert',
+    generatedLabel: 'Seite erstellt',
+    reviewUnknown: 'Überprüfungsdatum nicht dokumentiert',
     disclaimer:
       'Die Angaben dienen der Orientierung und ersetzen keine persönliche Beratung durch einen Treuhänder, Anwalt oder eine Gewerkschaft. Steuer-, Sozialversicherungs- und Bewilligungsregeln ändern sich häufig: immer die verlinkten Primärquellen prüfen.',
     relatedTitle: 'Vertiefen',
@@ -194,7 +198,8 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
     tocTitle: 'Catégories traitées',
     breadcrumbHome: 'Accueil',
     breadcrumbHub: 'Guide frontalier',
-    updatedLabel: 'Mis à jour',
+    generatedLabel: 'Page générée',
+    reviewUnknown: 'Date de révision non documentée',
     disclaimer:
       "Les informations de cette page sont indicatives et ne remplacent pas un conseil personnalisé (expert-comptable, avocat, syndicat). Les règles fiscales, de sécurité sociale et de permis changent régulièrement : vérifiez toujours les sources officielles indiquées.",
     relatedTitle: 'Approfondir',
@@ -239,7 +244,7 @@ function mdLinks(s: string): string {
   return esc(s).replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     (_m, label, href) =>
-      `<a class="s-TKxoRL" href="${String(href).replace(/"/g, '&quot;')}" rel="nofollow" target="_blank">${label}</a>`,
+      `<a class="s-TKxoRL" href="${String(href).replace(/"/g, '&quot;')}" rel="nofollow noopener" target="_blank">${label}</a>`,
   );
 }
 
@@ -250,7 +255,7 @@ function mdLinks(s: string): string {
  * zero hyperlinked). First matching rule wins. Mechanical pass — no
  * invented deep paths, only verified real root domains; covers every
  * distinct citation label present in the dataset at authoring time
- * (298/298 unique labels across all 4 locales).
+ * (including the FSIO label used by the English LPP answer).
  */
 const CITATION_FALLBACK_RULES: ReadonlyArray<readonly [RegExp, string]> = [
   [/eur-?lex|reg\.?\s*ue\s*\d|règl\.?\s*ue|eu[\s-]?vo|eu reg\./i, 'https://eur-lex.europa.eu/'],
@@ -268,7 +273,7 @@ const CITATION_FALLBACK_RULES: ReadonlyArray<readonly [RegExp, string]> = [
   [/agcom/i, 'https://www.agcom.it/'],
   [/arcobaleno\.ch/i, 'https://www.arcobaleno.ch/'],
   [/\bffs\b|\bsbb\b|\bcff\b/i, 'https://www.sbb.ch/'],
-  [/\bufas\b|\bbsv\b|ofas/i, 'https://www.bsv.admin.ch/'],
+  [/\b(?:ufas|fsio)\b|\bbsv\b|ofas/i, 'https://www.bsv.admin.ch/'],
   [/\bufsp\b|\bbag\b|\bofsp\b/i, 'https://www.bag.admin.ch/'],
   [/\bufse\b|ufficio federale di statistica|\bbfs\b|\bust\b,|\bofs\b/i, 'https://www.bfs.admin.ch/'],
   [/\bseco\b/i, 'https://www.seco.admin.ch/'],
@@ -474,7 +479,7 @@ function renderPage(
       <span>${esc(copy.h1)}</span>
     </nav>
     <header class="fh-hd">
-      <p class="fh-eyebrow">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+      <p class="fh-eyebrow">${esc(copy.reviewUnknown)} · ${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
       <!-- Demoted from <h1> to <h2> in Phase 4C: hubChrome's hero already emits
            the page's primary <h1>, and Semrush W6 / Issue 104 flagged the
            FAQ + comparisons hubs for shipping two H1 tags. The body heading
@@ -492,7 +497,7 @@ function renderPage(
     ${renderRelatedLinks(copy)}
   `;
 
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({
@@ -528,17 +533,16 @@ function renderPage(
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
     image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -862,9 +866,12 @@ function renderEntryPage(
   const categoryLabel = FAQ_HUB_CATEGORY_LABELS[entry.category][locale];
   // Per-entry hero: the question IS the headline on the card, in the JSON-LD
   // caption and in og:image:alt. `entry.id` keys it, so the 416 entry pages
-  // get 416 distinct cards rather than one shared family image.
+  // get 416 distinct cards rather than one shared family image. The wrapper
+  // class belongs in this one binding too, so the rendered image, JSON-LD and
+  // og:image all consume the same hero options.
   const hero: SeoHeroImageOpts = {
     family: 'faq-hub', key: entry.id, locale, headline: question, eyebrow: categoryLabel, alt: question,
+    className: 'fh-entry-cover',
   };
 
   const urlPath = buildFaqEntryPath(locale, entry.id);
@@ -888,12 +895,20 @@ function renderEntryPage(
 
   const sourcesHtml =
     entry.sources && entry.sources.length > 0
-      ? `<section class="fh-rls"><h2 class="fh-rlh">${esc(ecopy.sourcesHeading)}</h2><ul class="fh-rll">${entry.sources
+      ? `<section id="fh-sources" class="fh-rls fh-entry-panel fh-entry-sources" aria-labelledby="fh-sources-title"><div class="fh-entry-panel-heading"><h2 id="fh-sources-title" class="fh-rlh">${esc(ecopy.sourcesHeading)}</h2><span class="fh-entry-panel-note">${entry.sources.length}</span></div><ul class="fh-rll">${entry.sources
           .map(
             (src) =>
-              `<li class="fh-rli"><a href="${esc(src)}" class="fh-lnk" rel="nofollow noopener" target="_blank">${esc(
+              `<li class="fh-rli"><a href="${esc(src)}" class="fh-lnk fh-source-link" rel="nofollow noopener" target="_blank"><span class="fh-source-domain">${esc(
+                (() => {
+                  try {
+                    return new URL(src).hostname.replace(/^www\./, '');
+                  } catch {
+                    return src.replace(/^https?:\/\//, '').split('/')[0];
+                  }
+                })(),
+              )}</span><span class="fh-source-path">${esc(
                 src.replace(/^https?:\/\//, '').replace(/\/$/, ''),
-              )}</a></li>`,
+              )}</span><span class="fh-source-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7m-8 0h8v8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></span></a></li>`,
           )
           .join('')}</ul></section>`
       : '';
@@ -901,7 +916,7 @@ function renderEntryPage(
   const related = entry.relatedLinks ?? [];
   const relatedHtml =
     related.length > 0
-      ? `<section class="fh-rls"><h2 class="fh-rlh">${esc(ecopy.seeAlsoHeading)}</h2><ul class="fh-rll">${related
+      ? `<section id="fh-related" class="fh-rls fh-entry-panel fh-entry-related" aria-labelledby="fh-related-title"><div class="fh-entry-panel-heading"><h2 id="fh-related-title" class="fh-rlh">${esc(ecopy.seeAlsoHeading)}</h2></div><ul class="fh-rll">${related
           .map(
             (l) =>
               `<li class="fh-rli"><a href="${esc(resolveRelatedHref(l.href, locale))}" class="fh-lnk">${esc(
@@ -921,7 +936,7 @@ function renderEntryPage(
   const siblings = siblingEntries(entry, linkedIds);
   const siblingsHtml =
     siblings.length > 0
-      ? `<section class="fh-rls"><h2 class="fh-rlh">${esc(ecopy.siblingsHeading)}</h2><ul class="fh-rll">${siblings
+      ? `<section id="fh-siblings" class="fh-rls fh-entry-panel fh-entry-siblings" aria-labelledby="fh-siblings-title"><div class="fh-entry-panel-heading"><h2 id="fh-siblings-title" class="fh-rlh">${esc(ecopy.siblingsHeading)}</h2></div><ul class="fh-rll">${siblings
           .map(
             (sib) =>
               `<li class="fh-rli"><a href="${esc(buildFaqEntryPath(locale, sib.id))}" class="fh-lnk">${esc(
@@ -939,25 +954,40 @@ function renderEntryPage(
       <span> / </span>
       <a href="${esc(hubUrl)}" class="fh-lnk">${esc(copy.h1)}</a>
       <span> / </span>
-      <span>${esc(categoryLabel)}</span>
+      <span aria-current="page">${esc(categoryLabel)}</span>
     </nav>
-    <header class="fh-hd">
-      <p class="fh-eyebrow">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+    <header class="fh-hd fh-entry-hd">
+      <div class="fh-entry-meta">
+        <span class="fh-entry-topic">${esc(categoryLabel)}</span>
+        <time class="fh-eyebrow" datetime="${esc(dateStamp)}">${esc(copy.reviewUnknown)} · ${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</time>
+      </div>
     </header>
     ${renderSeoHeroImage(hero)}
-    <section class="fh-q" data-speakable>
-      <h2 class="fh-qt">${esc(ecopy.answerHeading)}</h2>
+    <section class="fh-q fh-entry-answer" data-speakable aria-labelledby="fh-answer-title">
+      <div class="fh-answer-heading">
+        <span class="fh-answer-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Zm0 3.5v5m0 3.25v.25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>
+        </span>
+        <h2 id="fh-answer-title" class="fh-qt">${esc(ecopy.answerHeading)}</h2>
+      </div>
       <p class="fh-qa">${answerHtml}</p>
     </section>
+    <nav class="fh-entry-jump" aria-label="${esc(ecopy.answerHeading)}">
+      ${entry.sources && entry.sources.length > 0 ? `<a href="#fh-sources" class="fh-lnk">${esc(ecopy.sourcesHeading)}</a>` : ''}
+      ${related.length > 0 ? `<a href="#fh-related" class="fh-lnk">${esc(ecopy.seeAlsoHeading)}</a>` : ''}
+      ${siblings.length > 0 ? `<a href="#fh-siblings" class="fh-lnk">${esc(ecopy.siblingsHeading)}</a>` : ''}
+    </nav>
     ${sourcesHtml}
     ${relatedHtml}
     ${siblingsHtml}
-    <p class="fh-disc">${esc(copy.disclaimer)}</p>
-    <p class="fh-back"><a href="${esc(hubUrl)}" class="fh-lnk">${esc(ecopy.backToHub)}</a></p>
+    <footer class="fh-entry-footer">
+      <p class="fh-disc">${esc(copy.disclaimer)}</p>
+      <p class="fh-back"><a href="${esc(hubUrl)}" class="fh-lnk">${esc(ecopy.backToHub)}</a></p>
+    </footer>
   `;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyHtml = `<div class="fh-main fh-entry-main">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
 
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -989,17 +1019,16 @@ function renderEntryPage(
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: question,
     description: guardArticleJsonLdDescription(plainAnswer(entry, locale)),
     image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),
@@ -1083,7 +1112,7 @@ function buildSitemapXml(
             `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`,
         )
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.85</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.85</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;

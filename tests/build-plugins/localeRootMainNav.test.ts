@@ -159,6 +159,24 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     }
   });
 
+  it('keeps the homepage discovery rails together before the long SEO block', () => {
+    const html = injectHomepageSeoContent(SHELL, 'it');
+    const discoveryStart = html.indexOf('id="homepage-discovery"');
+    const seoStart = html.indexOf('id="hp-seo-block"');
+    const discovery = html.match(/<section\b[^>]*\bid="homepage-discovery"[^>]*>[\s\S]*?<\/section>/i)?.[0] ?? '';
+
+    expect(discoveryStart).toBeGreaterThan(-1);
+    expect(discoveryStart).toBeLessThan(seoStart);
+    expect(discovery).toContain('id="hp-lang-switch"');
+    expect(discovery).toContain('id="hp-related-guides"');
+    expect(discovery).toContain('id="hp-directory-hubs"');
+    expect(discovery).toContain('id="hp-canton-nav"');
+    // Il gruppo di hub ha un titolo visibile, come gli altri due rail.
+    expect(discovery).toContain('<h2 class="hp-discovery-heading" id="hpCrossHubsTitle">Lavoro e archivi</h2>');
+    expect(discovery).toContain('<nav class="hp-cross-hub-links" aria-labelledby="hpCrossHubsTitle">');
+    expect(discovery).not.toContain(' style=');
+  });
+
   it('keeps the root rail when the real Vite template has a styled root and visible h1', () => {
     const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
     expect(template).toContain('<div id="root" style="min-height:100vh">');
@@ -167,6 +185,24 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     const html = injectHomepageSeoContent(template, 'it');
     expect(html).toContain('id="hp-directory-hubs"');
     expect(html).toContain(`href="${buildPlateAuctionPath({ locale: 'de', view: 'hub' })}"`);
+  });
+
+  it.each(['it', ...NON_IT_LOCALES] as const)('%s homepage resets its initial heading margin before external CSS loads', (locale) => {
+    const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
+    const html = locale === 'it' ? template : renderLocaleRootShell(template, locale);
+    const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? '';
+    const inlineCss = [...head.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)]
+      .map((match) => match[1]).join('\n').replace(/\/\*[\s\S]*?\*\//g, '');
+    // Body's own margin reset does not stop a descendant H1 margin collapsing
+    // through the unpadded main/root ancestors before Tailwind preflight loads.
+    expect(html).toContain('<h1 id="homepage-static-h1">');
+    expect(inlineCss).toMatch(/#homepage-static-h1\s*\{[^}]*\bmargin\s*:\s*0\s*;?\s*\}/);
+  });
+
+  it('keeps static shell navigation targets at least 44px', () => {
+    const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
+    expect(template.match(/<a[^>]+style="display:block;width:44px;height:44px/g) ?? []).toHaveLength(6);
+    expect(template.match(/<a[^>]+style="display:flex;[^\"]*min-height:44px/g) ?? []).toHaveLength(6);
   });
 
   it.each(NON_IT_LOCALES)('localizes the server-rendered homepage h1 for /%s/', (locale) => {
@@ -240,5 +276,21 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
   it('is a no-op on markup with no </body> to anchor to, like injectHomepageSeoContent', () => {
     const fragment = '<div id="root"></div>';
     expect(injectLocaleMainNav(fragment, 'de')).toBe(fragment);
+  });
+});
+
+
+describe('localized no-JavaScript homepage fallback', () => {
+  it.each(NON_IT_LOCALES)('replaces Italian content on /%s/ and preserves CSS fallback', locale => {
+    const template = fs.readFileSync('index.html', 'utf8');
+    const css = '<noscript><link rel="stylesheet" href="/assets/test.css"></noscript>';
+    const output = renderLocaleRootShell(template.replace('</body>', css + '</body>'), locale);
+    const fallback = output.match(/<noscript id="homepage-nojs">([\s\S]*?)<\/noscript>/)?.[1];
+    expect(fallback).toBeTruthy();
+    expect(fallback).not.toContain('Calcola il tuo');
+    expect(fallback).toContain(`href="/${SITE_MAP_PAGE_DIR[locale]}/"`);
+    expect(output).toContain(css);
+    expect(renderLocaleRootShell(output, locale).match(/<noscript id="homepage-nojs">[\s\S]*?<\/noscript>/)?.[0])
+      .toBe(output.match(/<noscript id="homepage-nojs">[\s\S]*?<\/noscript>/)?.[0]);
   });
 });

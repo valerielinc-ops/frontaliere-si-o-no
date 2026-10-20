@@ -95,6 +95,25 @@ describe('calculateSimulation', () => {
       ssnHealthTaxPercentage: 3,
     }));
 
+    it('personal spending does not reduce the SSN salary base', () => {
+      const inputs = makeInputs({
+        frontierWorkerType: 'OLD', annualIncomeCHF: 50000,
+        enableOldFrontierHealthTax: true, ssnHealthTaxPercentage: 3,
+        customExchangeRate: 1, expensesIT: [],
+      });
+      const withoutRent = calculateSimulation(inputs);
+      const withRent = calculateSimulation({ ...inputs, expensesIT: [
+        { id: 'rent', label: 'Rent', amount: 1000, frequency: 'MONTHLY' },
+      ] });
+      const contribution = (simulation: typeof withoutRent) =>
+        simulation.itResident.breakdown.find(item => item.label === 'calc.ssnHealthTax')!.amountEUR!;
+      // Keep this example away from both caps so a reduced salary base cannot hide at a limit.
+      expect(-contribution(withoutRent)).toBeGreaterThan(360);
+      expect(-contribution(withoutRent)).toBeLessThan(2400);
+      expect(contribution(withRent)).toBe(contribution(withoutRent));
+      expect(withoutRent.itResident.netIncomeAnnual - withRent.itResident.netIncomeAnnual).toBeCloseTo(12000, 2);
+    });
+
     it('taxes are higher when SSN is enabled', () => {
       const resultWithout = calculateSimulation(makeInputs({
         frontierWorkerType: 'OLD',

@@ -1,33 +1,49 @@
+import { resolveAuthorProfileMetadata } from './seo/authorProfileMetadata';
+import { buildCorrezioniSeo } from './seo/seo-correzioni';
+import { METHODOLOGY_COPY } from './editorialMethodology';
+import { localizeArticlePageIdentity } from './seo/article-page-identity';
 /**
  * SEO Service - Dynamic Meta Tags Management
  * Manages SEO metadata for different sections of the app
  */
 
-import { getLocale, setLocale, t, getCantonI18nParams, type Locale } from './i18n';
-import { parsePath, buildPath, buildAllLocalePaths, ensureJobSlugEntriesLoaded, getJobMetaForSlug, type AppRoute } from './router';
+import { getLocale, setLocale, t, getCantonI18nParams, loadLocalePageChunk, loadArticleBody, getLoadedArticleBody, type Locale } from './i18n';
+import { parsePath, buildPath, buildAllLocalePaths, ensureJobSlugEntriesLoaded, getJobMetaForSlug, getApplicationConciergePath, isApplicationConciergePath, type AppRoute } from './router';
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { fetchJobsForCanton } from './jobsService';
-import { JOB_CANTON_MANIFEST_PATH, type CantonShardManifest } from './jobCantonShards';
-import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
+import { JOB_CANTON_MANIFEST_PATH, resolveCantonShardKey, type CantonShardManifest } from './jobCantonShards';
+import { selectJobBoardInventory } from './jobBoardInventory';
+import { buildJobBoardListingMetadata, getRenderedJobBoardCount } from './seo/jobBoardListingMetadata';
+import { resolveCompanyLogoUrlForRenderedOutput, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
 import { clearAssetCaches, isChunkLoadError, isModuleParseError } from './resilientImport';
 import { cdnDataUrl } from './cdnDataBase';
 import { seededJobMatchesSlug } from './seededExpiredJob';
 import { normalizeStructuredData } from './seo/schema-normalizers';
-import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from './seo/glossaryTermDefinitions';
+import {
+ GLOSSARY_HUB_SEO,
+ GLOSSARY_TERM_DEFINITIONS,
+ truncateForMetaDescription,
+ buildLocalizedGlossaryMetaDescription,
+} from './seo/glossaryTermDefinitions';
 import { cdnBlogImage } from './seo/blogImageCdn';
 import { resolveArticleAuthorUrl, loadArticleAuthorRegistry, type ArticleAuthorRegistry } from './seo/articleAuthorUrl';
 import { translateSchema } from './seo/schema-translators';
-import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
+import { buildJobPostingFacts, buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../build-plugins/shared/jobPostingFaq';
 import { resolveJobApplicationUrl } from './jobApplicationDestination';
 import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateHeadline, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
+import { resolveGuideLocaleSeo } from '../build-plugins/shared/guideLocaleSeo';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from '../build-plugins/shared/robotsDirective';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from '../build-plugins/shared/borderCrossingTitle';
+import { buildOggiPath, type BorderCrossingSlug } from '../build-plugins/borderWaitData';
 import { BLOG_SEO_SHARD_IDS, type BlogSeoShardId } from '../build-plugins/shared/blogSeoShards';
+import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
+import { needsArticleBodyRecovery } from './articleBodyRecovery';
+import { collectArticleBodySegments } from './articleBodySegments';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -52,7 +68,7 @@ async function retryImport<T>(factory: () => Promise<T>, label: string): Promise
  // Clear both cache layers and retry once. CacheStorage alone is not enough:
  // the chunk also lives in the HTTP disk cache (stable-named, max-age=600),
  // which a bare retry would re-read (#3097).
- await clearAssetCaches();
+ await clearAssetCaches(err);
  try {
  return await factory();
  } catch (retryErr) {
@@ -104,7 +120,7 @@ const BASE_URL = 'https://frontaliereticino.ch';
 // hide it from non-mocked consumers like services/seo/schema-normalizers.ts.
 export { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
 import { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
-import { ORGANIZATION_LD } from './seo/organizationLd';
+import { EDITORIAL_TEAM_ID, ORGANIZATION_LD } from './seo/organizationLd';
 
 /**
  * E-E-A-T Author & Publisher Schema for YMYL content.
@@ -112,12 +128,12 @@ import { ORGANIZATION_LD } from './seo/organizationLd';
  * Reused across all structured data to ensure consistency.
  *
  * Includes inline E-E-A-T fields (name, description, knowsAbout) alongside
- * the @id reference so that AI crawlers and schema validators see expertise
- * signals even without resolving the referenced #organization entity.
+ * the editorial-team identity so that AI crawlers and schema validators see
+ * expertise signals without merging the team into the publisher entity.
  */
 export const SCHEMA_AUTHOR = {
  "@type": "Organization",
- "@id": `${BASE_URL}/#organization`,
+ "@id": EDITORIAL_TEAM_ID,
  "name": "Redazione Frontaliere Ticino",
  "url": `${BASE_URL}/chi-siamo/`,
  "description": "Team editoriale specializzato in fiscalità, previdenza e vita quotidiana dei lavoratori frontalieri in Ticino",
@@ -140,12 +156,12 @@ export const SCHEMA_PUBLISHER = ORGANIZATION_LD;
  * Organization author for blog articles and editorial content.
  * Uses the same enriched author object as SCHEMA_AUTHOR so that
  * AI systems see E-E-A-T signals (knowsAbout, description) inline,
- * while the @id still links to the standalone Organization in index.html
- * for knowledge graph consistency.
+ * while the @id still links to the editorial team page instead of the
+ * publisher Organization in index.html.
  */
 export const SCHEMA_EXPERT_AUTHOR = {
  "@type": "Organization",
- "@id": `${BASE_URL}/#organization`,
+ "@id": EDITORIAL_TEAM_ID,
  "name": "Redazione Frontaliere Ticino",
  "url": `${BASE_URL}/chi-siamo/`,
  "description": "Team editoriale specializzato in fiscalità, previdenza e vita quotidiana dei lavoratori frontalieri in Ticino",
@@ -198,7 +214,7 @@ let serpExperimentLoadPromise: Promise<void> | null = null;
 let lastSerpExposureContext: { section: string; path: string; variant: SerpExperimentVariant } | null = null;
 const jobsBySlugCacheByLocale: Partial<Record<Locale, Map<string, any>>> = {};
 const jobsBySlugPromiseByLocale: Partial<Record<Locale, Promise<Map<string, any>>>> = {};
-let totalActiveJobCount: number | null = null;
+let jobInventoryManifest: CantonShardManifest | null = null;
 
 function normalizeSeoText(input: string): string {
  return String(input || '').replace(/\s+/g, ' ').trim();
@@ -216,7 +232,7 @@ function compactSeoDescription(input: string, maxChars = 320): string {
 }
 
 function companyLogoFromJob(job: any): string {
- const logo = resolveCompanyLogoUrl({
+ const logo = resolveCompanyLogoUrlForRenderedOutput({
  company: String(job?.company || ''),
  companyKey: String(job?.companyKey || ''),
  companyDomain: String(job?.companyDomain || ''),
@@ -321,7 +337,7 @@ async function loadJobsBySlug(locale: Locale): Promise<Map<string, any>> {
  // the slug→id mapping + listing fields; the SEO meta path (resolveJobSeoBySlug)
  // lazy-fetches `job-detail/{id}.json` for the description + structured-data
  // fields (postalCode/streetAddress/...) it needs per job. The count path
- // (getActiveJobCountLabel) only needs map.size, which the index provides.
+ // also serves the inventory fallback when the shard manifest is unavailable.
  const promise = (async () => {
  const out = new Map<string, any>();
  try {
@@ -365,48 +381,24 @@ async function loadJobDetail(jobId: string | undefined | null): Promise<any | nu
  }
 }
 
-/**
- * Get the total number of unique active jobs from the loaded dataset.
- * Returns a rounded-down label like "1500+" for SEO titles, or null if
- * data hasn't loaded yet (fallback to static title).
- */
-async function getActiveJobCountLabel(locale: Locale): Promise<string | null> {
- if (totalActiveJobCount !== null) {
- const rounded = Math.floor(totalActiveJobCount / 100) * 100;
- return `${rounded}+`;
- }
+/** Same scope as the board; the hydrated count wins over the manifest snapshot. */
+async function getActiveJobCount(locale: Locale, canton: string, pathname: string): Promise<number | null> {
+ const rendered = getRenderedJobBoardCount(pathname);
+ if (rendered !== undefined) return rendered;
  try {
- // Read the count from the 221 B (br) shard manifest instead of downloading a
- // 21k-record index just to call `.size` on it. This runs on EVERY job-board
- // listing page, so before the canton-shard pipeline it pulled the full
- // locale index into every canton SERP on its own — independently of
- // JobBoard's loader. Sharding the board without fixing this would have
- // moved the bytes between modules, not removed them.
- //
- // Count is locale-invariant (same job set, only its strings are localised),
- // so one manifest serves all four locales.
- const res = await fetch(cdnDataUrl(JOB_CANTON_MANIFEST_PATH));
- if (res.ok) {
- const manifest = (await res.json()) as Partial<CantonShardManifest> | null;
- const total = manifest?.total;
- if (typeof total === 'number' && Number.isFinite(total) && total > 0) {
- totalActiveJobCount = total;
- const rounded = Math.floor(total / 100) * 100;
- return rounded > 0 ? `${rounded}+` : null;
- }
- }
- // Manifest missing (pre-shard deploy, CDN propagation lag) → fall back to
- // the index. Costlier but correct: the label keeps working on any deploy
- // where the shard set has not published yet.
- const map = await loadJobsBySlug(locale);
- // Each slug maps to one job object now (per-locale shard has no
- // cross-locale slug aliases). Map.size == active job count.
- totalActiveJobCount = map.size;
- const rounded = Math.floor(totalActiveJobCount / 100) * 100;
- return rounded > 0 ? `${rounded}+` : null;
- } catch {
- return null;
- }
+  if (!jobInventoryManifest) {
+   const res = await fetch(cdnDataUrl(JOB_CANTON_MANIFEST_PATH));
+   if (res.ok) jobInventoryManifest = await res.json() as CantonShardManifest;
+  }
+  // The board may finish while this request is in flight.
+  const latest = getRenderedJobBoardCount(pathname);
+  if (latest !== undefined) return latest;
+  const count = canton === '_AGGREGATE_' ? jobInventoryManifest?.total
+   : jobInventoryManifest?.byCanton?.[resolveCantonShardKey(canton)];
+  if (typeof count === 'number' && Number.isFinite(count) && count >= 0) return count;
+  const jobs = [...(await loadJobsBySlug(locale)).values()];
+  return selectJobBoardInventory(jobs, canton).length;
+ } catch { return null; }
 }
 
 /**
@@ -492,6 +484,8 @@ async function resolveJobSeoBySlug(
  description: String(job?.descriptionByLocale?.[locale] || job?.description || localizedDescription),
  company: job?.company,
  companyKey: job?.companyKey,
+ companySlug: job?.companySlug,
+ companyWebsite: job?.companyWebsite,
  companyDomain: job?.companyDomain,
  companyLogoUrl: logoUrl,
  addressLocality: address.locality,
@@ -499,6 +493,8 @@ async function resolveJobSeoBySlug(
  addressCountry: address.country,
  postalCode: address.postalCode,
  streetAddress: address.streetAddress,
+ postingDateSource: job?.postingDateSource,
+ datePosted: job?.datePosted,
  postedDate: job?.postedDate,
  crawledAt: job?.crawledAt,
  updatedAt: job?.updatedAt,
@@ -542,7 +538,9 @@ async function resolveJobSeoBySlug(
  isTicino,
  isRemote,
  };
- const jobFaqPairs = buildJobPostingFaqPairs(canonicalSchema, faqOpts);
+ const jobFaqPairs = buildJobPostingFaqPairs(buildJobPostingFacts(canonicalInput, locale, {
+ fallbackUrl: canonicalUrl,
+ }), faqOpts);
  const faqPageSchema: Record<string, any> | null = jobFaqPairs.length > 0
  ? {
  '@context': 'https://schema.org',
@@ -564,7 +562,7 @@ async function resolveJobSeoBySlug(
  description: localizedDescription,
  keywords: localizedJobKeywords(locale, localizedTitle, String(job?.company || ''), String(job?.location || '')),
  logoUrl,
- structuredData: faqPageSchema ? [canonicalSchema, faqPageSchema] : canonicalSchema,
+ structuredData: [canonicalSchema, faqPageSchema].filter((schema) => schema !== null),
  };
 }
 
@@ -905,8 +903,7 @@ function buildGlossarySeoMetadata(): Record<string, SEOMetadata> {
 function buildBorderCrossingSeoMetadata(): Record<string, SEOMetadata> {
  return Object.fromEntries(
  ALL_BORDER_CROSSING_IDS.map((crossingId) => {
- const route = { activeTab: 'guida' as const, guidaSubTab: 'border' as const, borderCrossing: crossingId as any };
- const canonicalPath = buildPath(route, 'it');
+  const canonicalPath = buildOggiPath('it', crossingId as BorderCrossingSlug);
  // Label + <title> both come from the shared leaf module (#4828). This file
  // used to carry its own `titleizeBorderCrossingId` plus a literal copy of
  // the `Traffico dogana ${label} | Tempi attesa valico` template — the same
@@ -957,12 +954,12 @@ const BORDER_CROSSING_SEO_OVERRIDES: Record<string, SEOMetadata> = {
    keywords: 'traffico dogana chiasso brogeda, tempi di attesa dogana chiasso, coda dogana chiasso, dogana chiasso centro, valico brogeda tempi, frontaliere ticino, code dogana chiasso',
    ogTitle: 'Traffico Dogana Chiasso Centro e Brogeda | Tempi di Attesa',
    ogDescription: 'Tempi di attesa dogana Chiasso Centro e Brogeda: coda in tempo reale, orari e consigli per frontalieri.',
-   canonicalPath: '/guida-frontaliere/tempi-attesa-dogana/chiasso-centro/',
+   canonicalPath: '/traffico-dogane/chiasso-centro/oggi/',
    structuredData: {
      '@context': 'https://schema.org',
      '@type': 'WebPage',
      name: 'Traffico dogana Chiasso Centro e Brogeda',
-     url: `${BASE_URL}/guida-frontaliere/tempi-attesa-dogana/chiasso-centro/`,
+     url: `${BASE_URL}/traffico-dogane/chiasso-centro/oggi/`,
      description: 'Tempi di attesa dogana Chiasso Centro e Brogeda: coda in tempo reale, orari e consigli per frontalieri.',
    },
  },
@@ -987,7 +984,8 @@ let _landingChunkCache: Record<string, SEOMetadata> | null = null;
 async function loadPagesSeoChunk(): Promise<Record<string, SEOMetadata>> {
  if (_pagesChunkCache) return _pagesChunkCache;
  const { default: entries } = await retryImport(() => import('./seo/seo-pages'), 'pages');
- _pagesChunkCache = withSpeakable(entries);
+ _pagesChunkCache = withSpeakable(Object.fromEntries(Object.entries(entries).map(([key, entry]) =>
+   [key, resolveAuthorProfileMetadata(key, 'it') ?? entry])));
  return _pagesChunkCache;
 }
 
@@ -1221,6 +1219,7 @@ const SEO_SECTION_TITLE_KEY_MAP: Record<string, string> = {
  forum: 'forum.title',
  jobboard: 'jobBoard.seoTitle',
  dashboard: 'profile.title',
+ 'for-employers': 'publisherLanding.metaTitle',
  gamification: 'gamification.title',
  privacy: 'consent.privacyLink',
  petition: 'petition.hero.title',
@@ -1307,6 +1306,7 @@ const SEO_SECTION_DESCRIPTION_KEY_MAP: Record<string, string> = {
  feedback: 'seo.feedback.description',
  forum: 'seo.forum.description',
  dashboard: 'seo.dashboard.description',
+ 'for-employers': 'publisherLanding.metaDescription',
  gamification: 'seo.gamification.description',
  privacy: 'seo.privacy.description',
  petition: 'seo.petition.description',
@@ -1367,12 +1367,44 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  description: string;
  keywords: string;
 } {
+ if (section === 'correzioni') {
+ const page = buildCorrezioniSeo(locale);
+ return { title: page.title, description: page.description, keywords: metadata.keywords };
+ }
+ if (section === 'metodologia') {
+ const copy = METHODOLOGY_COPY[locale];
+ return { title: buildTitleWithBrand(copy.title), description: copy.description, keywords: getLocalizedSeoKeywords(copy.title, locale, metadata.keywords) };
+ }
  if (locale === 'it') {
  return {
  title: metadata.title,
  description: metadata.description,
  keywords: metadata.keywords,
  };
+ }
+
+ // Keep the localized glossary hub head on the same registry as the SSG.
+ // Term pages use resolveLocalizedGlossarySeo below; this branch covers the
+ // corresponding root route instead of letting the generic section fallback
+ // become the source of truth for one of the two renderers.
+ if (section === 'glossario') {
+  const hub = GLOSSARY_HUB_SEO[locale];
+  const title = buildTitleWithBrand(hub.title);
+  return {
+   title,
+   description: hub.description,
+   keywords: getLocalizedSeoKeywords(hub.title, locale, metadata.keywords),
+  };
+ }
+
+ const localizedGuideSeo = resolveGuideLocaleSeo(section, locale);
+ if (localizedGuideSeo) {
+  const title = buildTitleWithBrand(localizedGuideSeo.title);
+  return {
+   title,
+   description: localizedGuideSeo.description,
+   keywords: getLocalizedSeoKeywords(localizedGuideSeo.title, locale, metadata.keywords),
+  };
  }
 
  const titleKey = SEO_SECTION_TITLE_KEY_MAP[section];
@@ -1395,6 +1427,48 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  title,
  description,
  keywords: getLocalizedSeoKeywords(localizedTitle || metadata.title, locale, metadata.keywords),
+ };
+}
+
+const GLOSSARY_LOCALE_QUALIFIER: Record<Exclude<Locale, 'it'>, string> = { en: 'Glossary', de: 'Glossar', fr: 'Glossaire' };
+
+/**
+ * Head of a glossary term on en/de/fr — the same title and description the
+ * static term page ships (staticPagesPlugin `deriveLocaleSeo`).
+ *
+ * Without it a term section (`glossario-<id>`) has no entry in the localized
+ * key maps, so `resolveLocalizedSeoContent` fell to «Page Ainp» and «Page Ainp.
+ * Practical tools, updated data…»: at hydration the SPA overwrote the term's
+ * real head with a generic one. The description is the term's own definition
+ * in the page language, from the SAME strings (`glossary.terms.<id>.title|
+ * desc`, the `stats` locale chunk) through the SAME function
+ * (`buildLocalizedGlossaryMetaDescription`) as the static page; the title keeps
+ * the Italian term with the locale qualifier, as `deriveLocaleSeo` does.
+ *
+ * The chunk's own strings are read, never `t()`: for a key still missing in
+ * the locale `t()` returns the Italian text, and an Italian description on an
+ * English page is the wrong answer. Null → the caller keeps the generic path.
+ */
+export async function resolveLocalizedGlossarySeo(
+ section: string,
+ metadata: Pick<SEOMetadata, 'title' | 'keywords'>,
+ locale: Locale,
+): Promise<{ title: string; description: string; keywords: string } | null> {
+ if (locale === 'it' || !section.startsWith('glossario-')) return null;
+ const termId = section.slice('glossario-'.length);
+ if (!termId) return null;
+ const stats = (await loadLocalePageChunk(locale, 'stats')) as Readonly<Record<string, string>> | null;
+ const termTitle = stats?.[`glossary.terms.${termId}.title`];
+ const termDesc = stats?.[`glossary.terms.${termId}.desc`];
+ if (!termTitle || !termDesc) return null;
+ const italianTerm = metadata.title
+ .replace(/\s*\|\s*(Frontaliere Ticino|Glossario Frontalieri)$/i, '')
+ .replace(/\s*\(Glossario\)\s*$/i, '')
+ .trim();
+ return {
+ title: buildTitleWithBrand(`${italianTerm} (${GLOSSARY_LOCALE_QUALIFIER[locale]})`),
+ description: buildLocalizedGlossaryMetaDescription(termTitle, termDesc),
+ keywords: getLocalizedSeoKeywords(termTitle, locale, metadata.keywords),
  };
 }
 
@@ -1443,7 +1517,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  'comparatori-trasporti': { name: 'Calcolo Trasporti', path: '/vivere-in-ticino/trasporti-frontalieri', parent: 'vita' },
  'comparatori-operatori': { name: 'Operatori Mobili', path: '/compara-servizi/confronta-operatori-mobili', parent: 'comparatori' },
  'comparatori-banche': { name: 'Confronto Banche', path: '/compara-servizi/confronta-banche', parent: 'comparatori' },
- 'comparatori-traffico': { name: 'Traffico Valichi', path: '/statistiche/traffico-dogane', parent: 'comparatori' },
+ 'comparatori-traffico': { name: 'Traffico Valichi', path: '/traffico-dogane', parent: 'comparatori' },
  'comparatori-costo-vita': { name: 'Costo della Vita', path: '/compara-servizi/costo-della-vita', parent: 'comparatori' },
  'comparatori-lavoro': { name: 'Comparatore Lavoro', path: '/compara-servizi/confronta-offerte-lavoro', parent: 'comparatori' },
  'comparatori-spesa': { name: 'Calcolatore Spesa', path: '/compara-servizi/confronta-prezzi-spesa', parent: 'comparatori' },
@@ -1453,7 +1527,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  health: { name: 'Assicurazioni Sanitarie', path: '/compara-servizi/confronta-casse-malati', parent: 'comparatori' },
  banks: { name: 'Banche', path: '/compara-servizi/confronta-banche', parent: 'comparatori' },
  calcolatore: { name: 'Calcolatore', path: '/calcola-stipendio' },
- traffic: { name: 'Traffico Valichi', path: '/statistiche/traffico-dogane', parent: 'stats' },
+ traffic: { name: 'Traffico Valichi', path: '/traffico-dogane', parent: 'stats' },
  jobs: { name: 'Offerte Lavoro', path: '/compara-servizi/confronta-offerte-lavoro', parent: 'comparatori' },
  shopping: { name: 'Spesa Transfrontaliera', path: '/compara-servizi/confronta-prezzi-spesa', parent: 'comparatori' },
  'cost-of-living': { name: 'Costo della Vita', path: '/compara-servizi/costo-della-vita', parent: 'comparatori' },
@@ -1474,7 +1548,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  vita: { name: 'Vita in Ticino', path: '/vivere-in-ticino' },
  livingCH: { name: 'Vivere in Svizzera', path: '/vivere-in-ticino/vivere-in-svizzera', parent: 'vita' },
  livingIT: { name: 'Vivere in Italia', path: '/vivere-in-ticino/vivere-in-italia', parent: 'vita' },
- border: { name: 'Valichi Frontiera', path: '/guida-frontaliere/tempi-attesa-dogana', parent: 'guide' },
+ border: { name: 'Valichi Frontiera', path: '/traffico-dogane', parent: 'guide' },
  calendar: { name: 'Calendario Fiscale', path: '/tasse-e-pensione/scadenze-fiscali', parent: 'fisco' },
  holidays: { name: 'Festività Ticino', path: '/tasse-e-pensione/festivita-ticino', parent: 'fisco' },
  permits: { name: 'Permessi Lavoro', path: '/guida-frontaliere/permessi-di-lavoro', parent: 'guide' },
@@ -1658,6 +1732,37 @@ function isLocaleChunkLoaded(locale: Locale): boolean {
  return !italianFallbacks.has(value);
 }
 
+function buildApplicationConciergeSeoMetadata(locale: Locale): SEOMetadata {
+ const canonicalPath = getApplicationConciergePath(locale);
+ const title = t('jobBoard.concierge.seoTitle');
+ const description = t('jobBoard.concierge.seoDescription');
+ return {
+  title,
+  description,
+  keywords: t('jobBoard.concierge.seoKeywords'),
+  ogTitle: title,
+  ogDescription: description,
+  canonicalPath,
+  structuredData: {
+   '@context': 'https://schema.org',
+   '@type': 'Service',
+   '@id': `${BASE_URL}${canonicalPath}#service`,
+   name: title,
+   description,
+   serviceType: 'Assisted job application service',
+   provider: { '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino' },
+   areaServed: { '@type': 'Country', name: 'Switzerland' },
+   offers: {
+    '@type': 'Offer',
+    url: `${BASE_URL}${canonicalPath}`,
+    price: '39.99',
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+   },
+  },
+ };
+}
+
 /**
  * Updates document meta tags dynamically.
  * Uses the i18n router to build locale-aware canonical and hreflang URLs.
@@ -1672,6 +1777,26 @@ export async function updateMetaTags(section: string): Promise<void> {
  // route-derived, so a soft navigation to an EN/DE/FR pharmacy page must not
  // leave the previous page's head in place while that locale chunk loads.
  const { route, locale: pathLocale } = parsePath(pathnameSnapshot);
+ const searchParams = new URLSearchParams(window.location.search || '');
+ const isApplicationConciergeEntry = (isApplicationConciergePath(pathnameSnapshot)
+  || searchParams.get('application_concierge') === '1')
+  && !searchParams.get('application_concierge_service_id');
+ const isApplicationConciergeService = Boolean(searchParams.get('application_concierge_service_id'));
+
+ // Static-overlay pages ship authoritative title, description, canonical,
+ // hreflang and structured data in the HTML emitted by the build plugins. The
+ // route only carries a generic section (for example `border`), so applying
+ // the SPA section metadata here would replace the page-specific head during
+ // hydration. Preserve the server-rendered head while its SEO content is in
+ // the document; this also covers direct visits to static landings whose
+ // route-specific slug is not represented in AppRoute.
+ if (route.staticOverlay && document.querySelector('main.seo-static-content')) {
+  if (document.documentElement.lang !== pathLocale) {
+   document.documentElement.lang = pathLocale;
+  }
+  return;
+ }
+
  removeStalePharmacyStructuredData();
  let pharmacyMetadata: ReturnType<PharmacyRuntimeSeoModule['resolvePharmacySeoMetadata']> | null = null;
  if (route.pharmacyPath) {
@@ -1686,7 +1811,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  loadSerpExperimentState();
  const sectionKey = section.startsWith('jobboard-') ? 'jobboard' : section;
 
- const metadata = pharmacyMetadata ?? await getSeoEntry(sectionKey);
+ const authorMetadata = resolveAuthorProfileMetadata(sectionKey, pathLocale);
+ const baseMetadata: SEOMetadata = pharmacyMetadata ?? authorMetadata ?? await getSeoEntry(sectionKey);
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  if (getLocale() !== pathLocale) {
   setLocale(pathLocale);
@@ -1700,19 +1826,59 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (typeof document !== 'undefined' && document.documentElement.lang !== locale) {
  document.documentElement.lang = locale;
  }
+ const metadata: SEOMetadata = isApplicationConciergeEntry
+  ? buildApplicationConciergeSeoMetadata(locale)
+  : baseMetadata;
  // For static-overlay routes (recency landings, today landings, fuel-daily,
  // border-wait, etc.) `buildPath(route, locale)` would return the generic
  // tab root (e.g. `/cerca-lavoro-ticino/`) because the route only carries
  // `{ activeTab: 'job-board', staticOverlay: true }` — the specific landing
  // slug is not stored in AppRoute. Use `window.location.pathname` directly
  // so og:url and canonical reflect the actual page URL.
- const localePath = route.staticOverlay
+ const localePath = isApplicationConciergeEntry
+ ? getApplicationConciergePath(locale)
+ : route.staticOverlay
  ? window.location.pathname
  : buildPath(route, locale);
- const canonicalLocalePath = withTrailingSlashPath(localePath);
+ const canonicalLocalePath = isApplicationConciergeEntry
+ ? getApplicationConciergePath(locale)
+ : withTrailingSlashPath(localePath);
  const isJobDetailPage = section.startsWith('jobboard-') && Boolean(route.jobSlug);
  const isBlogArticle = section.startsWith('blog-');
  const blogArticleId = isBlogArticle ? section.slice(5) : '';
+ let articleBodyHasPromptPlaceholder = false;
+ let articleBodyLoadFailed = false;
+ const existingArticleRobots = isBlogArticle
+ ? document.querySelector('meta[name="robots"]')?.getAttribute('content') || ''
+ : '';
+ if (isBlogArticle && blogArticleId) {
+ const articleSection = route.blogSection === 'svizzera' ? 'svizzera' : 'frontaliere';
+ try {
+ // The article component loads the same body promise, so this is a
+ // single-flight read when hydration and SEO update race. Without waiting
+ // here, the runtime pass can overwrite the static noindex head before the
+ // body chunk arrives.
+ await loadArticleBody(blogArticleId, articleSection);
+ } catch {
+ // Keep the static decision if the body chunk is unavailable. A failed
+ // source read must not turn a quarantined article back into indexable copy.
+ articleBodyLoadFailed = true;
+ }
+ if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
+ if (needsArticleBodyRecovery(collectArticleBodySegments(blogArticleId, t))) {
+ try {
+ const { recoverArticleBodyParts, publishRuntimeArticleBody } = await import('./runtimeArticleResolution');
+ const parts = await recoverArticleBodyParts(canonicalLocalePath);
+ if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
+ publishRuntimeArticleBody(blogArticleId, locale, parts);
+ articleBodyLoadFailed = parts.length === 0 || needsArticleBodyRecovery(collectArticleBodySegments(blogArticleId, t));
+ } catch {
+ // Failed recovery leaves the existing placeholder and its noindex gate intact.
+ articleBodyLoadFailed = true;
+ }
+ }
+ articleBodyHasPromptPlaceholder = hasArticleBodyPromptPlaceholder(getLoadedArticleBody(blogArticleId));
+ }
  const jobSeo = isJobDetailPage && route.jobSlug
  ? await resolveJobSeoBySlug(route.jobSlug, locale, canonicalLocalePath)
  : null;
@@ -1762,9 +1928,16 @@ export async function updateMetaTags(section: string): Promise<void> {
  const hasLocalizedImageAlt = isBlogArticle && localizedImageAlt !== `blog.article.${blogArticleId}.imageAlt`;
 
  const isDialectPage = section === 'dialetto';
- const localizedSeoContent = pharmacyMetadata
+ const glossarySeo = pharmacyMetadata ? null : await resolveLocalizedGlossarySeo(sectionKey, metadata, locale);
+ // Legal copy stays in a lazy chunk and is loaded only for these routes.
+ const legalSeo = sectionKey === 'privacy' || sectionKey === 'terms' || sectionKey === 'data-deletion'
+ ? (await import('./legal/documents')).buildLegalSeo(sectionKey, locale) : null;
+ if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
+ const localizedSeoContent = isApplicationConciergeEntry
+ ? { title: metadata.title, description: metadata.description, keywords: metadata.keywords }
+ : pharmacyMetadata
  ? pharmacyMetadata
- : resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
+ : (legalSeo ? { ...legalSeo, keywords: metadata.keywords } : null) ?? authorMetadata ?? glossarySeo ?? resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
  const dialectTitleByLocale: Record<Locale, string> = {
  it: 'Dialetto Ticinese | 64 Espressioni e Proverbi | Frontaliere Ticino',
  en: 'Ticinese Dialect | 64 Expressions and Proverbs | Frontaliere Ticino',
@@ -1778,28 +1951,36 @@ export async function updateMetaTags(section: string): Promise<void> {
  fr: 'Découvrez 64 mots, expressions et proverbes du dialecte tessinois pour la vie quotidienne des frontaliers.',
  };
 
- // Dynamic job count for the main job board listing page title.
- // At runtime, replace the static "Offerte di Lavoro Ticino 2026" with
- // a count like "1500+ Offerte di Lavoro Ticino 2026" when data is available.
- const isJobboardListing = sectionKey === 'jobboard' && !isJobDetailPage;
- let jobCountLabel: string | null = null;
- if (isJobboardListing) {
- try { jobCountLabel = await getActiveJobCountLabel(locale); } catch { /* keep null */ }
- }
+ // Root hub metadata uses the same canton and exact inventory as the list.
+ const isJobboardListing = sectionKey === 'jobboard' && !route.jobSlug;
+ const listingCanton = route.jobBoardCanton || 'TI';
+ const jobCount = isJobboardListing ? await getActiveJobCount(locale, listingCanton, pathnameSnapshot) : null;
+ const listingMeta = jobCount === null ? null : buildJobBoardListingMetadata(locale, listingCanton, jobCount);
+ if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
 
- const baseMetaTitle = jobSeo
+ // The static article renderer falls back from the true blog-meta title to
+ // the social title, never to the generic SEO title. Keep hydration identical.
+ const baseMetaTitle = isApplicationConciergeEntry
+ ? localizedSeoContent.title
+ : jobSeo
  ? jobSeo.title
  : isDialectPage
  ? dialectTitleByLocale[locale]
- : isJobboardListing && jobCountLabel && locale === 'it'
- ? `${jobCountLabel} Offerte di Lavoro Ticino ${new Date().getFullYear()} | Aggiornate Ogni Giorno`
- : (hasLocalizedTitle ? localizedTitle : localizedSeoContent.title);
- const baseMetaDescription = jobSeo
+ : listingMeta
+ ? listingMeta.title
+ : (hasLocalizedTitle
+ ? localizedTitle
+ : isBlogArticle
+ ? (metadata.ogTitle || metadata.title)
+ : localizedSeoContent.title);
+ const baseMetaDescription = isApplicationConciergeEntry
+ ? localizedSeoContent.description
+ : jobSeo
  ? jobSeo.description
  : isDialectPage
  ? dialectDescriptionByLocale[locale]
- : isJobboardListing && jobCountLabel && locale === 'it'
- ? `Offerte di lavoro Ticino: ${jobCountLabel} posti vacanti aggiornati ogni giorno. Cerca lavoro in banche, tech, farmaceutica e sanità da 100+ aziende. Candidatura diretta.`
+ : listingMeta
+ ? listingMeta.description
  : (hasLocalizedExcerpt ? localizedExcerpt : localizedSeoContent.description);
  // Never apply SERP experiment suffixes ("| simulazione | 2026") to individual
  // job detail pages — these have their own structured title pattern:
@@ -1822,7 +2003,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  // runs in the static emit (build-plugins/htmlTemplate.ts) so the JS-rendered
  // DOM and the static HTML expose an identical, non-truncated snippet.
  // Closes SearchAtlas audit 141162 meta_desc_invalid_length (487 SSG pages).
- const clampedMetaDescription = clampMetaDescription(metaDescription);
+ const clampedMetaDescription = clampMetaDescription(metaDescription, undefined, locale);
  const metaOgDescription = clampedMetaDescription;
  const metaKeywords = jobSeo
  ? jobSeo.keywords
@@ -1867,7 +2048,12 @@ export async function updateMetaTags(section: string): Promise<void> {
  return false;
  }
  })();
- const robotsDirective = hasFilterQuery
+ const preserveStaticArticleNoindex = isBlogArticle && articleBodyLoadFailed && /\bnoindex\b/i.test(existingArticleRobots);
+ const robotsDirective = isApplicationConciergeService
+ ? 'noindex, nofollow'
+ : hasFilterQuery || route.activeTab === 'newsletter-preferences'
+ ? 'noindex, follow'
+ : articleBodyHasPromptPlaceholder || preserveStaticArticleNoindex
  ? 'noindex, follow'
  : pharmacyMetadata?.robots ?? ROBOTS_INDEX_ENHANCED_CONTENT;
  updateOrCreateMetaTag('name', 'robots', robotsDirective);
@@ -1961,7 +2147,11 @@ export async function updateMetaTags(section: string): Promise<void> {
  updateCanonicalLink(`${BASE_URL}${canonicalLocalePath}`);
 
  // Update hreflang tags with locale-specific paths
- updateHreflangTags(route);
+ updateHreflangTags(
+  route,
+  '',
+  isApplicationConciergeEntry ? (lang) => getApplicationConciergePath(lang) : undefined,
+ );
 
  // Update structured data if provided, always include breadcrumbs
  const breadcrumbs = buildBreadcrumbs(sectionKey, route, locale, hasLocalizedTitle ? localizedTitle : undefined);
@@ -1999,6 +2189,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  });
  }
  updateStructuredData([...jobStructuredDataItems, breadcrumbs]);
+ } else if (legalSeo) {
+ updateStructuredData([legalSeo.jsonLd, breadcrumbs]);
  } else if (metadata.structuredData) {
  const existingData = Array.isArray(metadata.structuredData)
  ? metadata.structuredData
@@ -2012,11 +2204,12 @@ export async function updateMetaTags(section: string): Promise<void> {
  // produces Semrush/Google structured-data errors.
  const rawType = clone['@type'];
  const type = Array.isArray(rawType) ? rawType[0] : rawType;
+ const isEditorialEntity = (Array.isArray(rawType) ? rawType : [rawType]).some(value => ['Article', 'NewsArticle', 'BlogPosting'].includes(value));
  if (typeof type === 'string' && TYPES_ACCEPT_IN_LANGUAGE.has(type)) {
  clone.inLanguage = locale;
  }
- if (typeof clone.url === 'string' && clone.url.startsWith(BASE_URL)) clone.url = `${BASE_URL}${canonicalLocalePath}`;
- if (typeof clone.mainEntityOfPage === 'string' && clone.mainEntityOfPage.startsWith(BASE_URL)) {
+ if ((!isEditorialEntity || isBlogArticle) && typeof clone.url === 'string' && clone.url.startsWith(BASE_URL)) clone.url = `${BASE_URL}${canonicalLocalePath}`;
+ if ((!isEditorialEntity || isBlogArticle) && typeof clone.mainEntityOfPage === 'string' && clone.mainEntityOfPage.startsWith(BASE_URL)) {
  clone.mainEntityOfPage = `${BASE_URL}${canonicalLocalePath}`;
  }
  if (isBlogArticle) {
@@ -2024,7 +2217,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (hasLocalizedExcerpt && typeof clone.description === 'string') clone.description = metaDescription;
  if (hasLocalizedImageAlt && clone.image && typeof clone.image === 'object') clone.image.caption = localizedImageAlt;
  }
- if (!isBlogArticle) {
+ if (!isBlogArticle && !isEditorialEntity && !authorMetadata) {
  if (typeof clone.name === 'string') clone.name = metaOgTitle.replace(' | Frontaliere Ticino', '');
  if (typeof clone.headline === 'string') clone.headline = metaOgTitle;
  if (typeof clone.description === 'string') clone.description = metaDescription;
@@ -2036,6 +2229,13 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (locale !== 'it') {
  translateSchema(clone, locale as 'en' | 'de' | 'fr');
  }
+ if (!isBlogArticle) localizeArticlePageIdentity(clone, {
+ sourceUrl: `${BASE_URL}${metadata.canonicalPath}`,
+ canonicalUrl: `${BASE_URL}${canonicalLocalePath}`,
+ headline: metaOgTitle,
+ description: metaDescription,
+ locale,
+ });
  }
  return clone;
  });
@@ -2077,7 +2277,11 @@ function getOgLocale(): string {
  * Now uses locale-specific paths from the i18n router
  * instead of ?lang= query parameters.
  */
-function updateHreflangTags(route: import('./router').AppRoute): void {
+function updateHreflangTags(
+ route: import('./router').AppRoute,
+ querySuffix = '',
+ pathResolver?: (locale: Locale) => string,
+): void {
  // Static-overlay landing pages (recency/today landings, fuel-daily,
  // border-wait, salary-stats, profession-canton, publisher ads, …) do NOT
  // carry their specific slug in AppRoute — `buildPath(route, locale)` would
@@ -2098,13 +2302,20 @@ function updateHreflangTags(route: import('./router').AppRoute): void {
  document.querySelectorAll('link[hreflang]').forEach(el => el.remove());
 
  // Get locale-specific paths from the router
- const paths = buildAllLocalePaths(route);
+ const paths = pathResolver
+  ? {
+   it: pathResolver('it'),
+   en: pathResolver('en'),
+   de: pathResolver('de'),
+   fr: pathResolver('fr'),
+  }
+  : buildAllLocalePaths(route);
 
  // Build hreflang entries, filtering out any with empty lang or empty path.
  // Semrush flags empty hreflang codes as conflicts; this guard ensures we
  // never emit one even if `paths` ends up with a missing/empty locale.
  const hreflangEntries = (['it', 'en', 'de', 'fr'] as const)
- .map((lang) => ({ lang, url: paths[lang] ? `${BASE_URL}${withTrailingSlashPath(paths[lang])}` : '' }))
+ .map((lang) => ({ lang, url: paths[lang] ? `${BASE_URL}${withTrailingSlashPath(paths[lang])}${querySuffix}` : '' }))
  .filter((h) => h.lang && h.lang.length > 0 && h.url && h.url.length > 0);
 
  hreflangEntries.forEach(({ lang, url }) => {
@@ -2119,7 +2330,7 @@ function updateHreflangTags(route: import('./router').AppRoute): void {
  const xDefault = document.createElement('link');
  xDefault.rel = 'alternate';
  xDefault.setAttribute('hreflang', 'x-default');
- xDefault.href = `${BASE_URL}${withTrailingSlashPath(paths.it)}`;
+ xDefault.href = `${BASE_URL}${withTrailingSlashPath(paths.it)}${querySuffix}`;
  document.head.appendChild(xDefault);
 }
 

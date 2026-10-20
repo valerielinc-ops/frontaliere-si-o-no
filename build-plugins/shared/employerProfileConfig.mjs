@@ -10,7 +10,7 @@
  */
 
 /** Min active postings for a full, indexable employer profile page. */
-export const MIN_ACTIVE_JOBS = 5;
+export const MIN_ACTIVE_JOBS = 3;
 
 /** Companies with >= this but < MIN_ACTIVE_JOBS get a noindex,follow bridge. */
 export const BRIDGE_FLOOR = 2;

@@ -16,6 +16,7 @@
  * Source: find-your-future.ch (Swissmem industry job portal)
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -33,6 +34,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -52,9 +54,11 @@ import {
   inferAgieCharmillesCanton,
   inferAgieCharmillesCategory,
   buildAgieCharmillesLocalizedContent,
+  dropAgieCharmillesFabricatedText,
 } from './lib/agie-charmilles-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -170,13 +174,13 @@ function buildAgieCharmillesJob(row) {
     category: inferAgieCharmillesCategory(row.title),
     sector: 'Macchine utensili',
     source: 'agie-charmilles-dedicated-crawler',
-    sourceLang: row.language || detectLang(row.title, 'en'),
-    postedDate: new Date().toISOString().slice(0, 10),
+    sourceLang: localized.sourceLang,
+    ...sourcePostingDateFields(''),
     employmentType: row.isTemporary ? 'temporary' : 'full-time',
     contractType: row.isTemporary ? 'temporary' : 'full-time',
     validThrough: '',
     workload: row.workload || '100%',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -191,6 +195,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropAgieCharmillesFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former header line / copied locale slots from ${fossils} stored AGIE Charmilles job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -206,6 +212,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -234,7 +241,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -267,6 +274,18 @@ function validateLocales() {
   });
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropAgieCharmillesFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'AGIE Charmilles');
@@ -278,6 +297,7 @@ async function main() {
   const listings = await fetchAllListings();
   if (listings.length === 0) {
     console.log('⚠️ No CH-wide job listings found — skipping.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

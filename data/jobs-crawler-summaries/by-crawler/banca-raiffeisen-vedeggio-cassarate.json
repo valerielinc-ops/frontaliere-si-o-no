@@ -1,21 +1,25 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-09-23T23:34:35.165Z",
+  "generatedAt": "2026-10-19T21:13:58.025Z",
   "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": null,
-  "abortKind": null,
+  "discovered": 0,
+  "parsed": 0,
   "written": 0,
+  "authoritativeEmptySnapshot": true,
+  "authoritativeSnapshotVerified": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 4181,
+  "avgDurationMs": 4181,
+  "durationHistory": [
+    4181
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

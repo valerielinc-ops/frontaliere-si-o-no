@@ -18,6 +18,8 @@
  *   3. Merges into data/jobs.json.
  *   4. Translates missing locales.
  */
+import { extractJobPostingField } from './lib/jobposting-jsonld.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -48,10 +50,12 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -70,7 +74,6 @@ const COMPANY_DOMAIN = 'kronenhof.com';
 const HQ = getCompanyDefaults(COMPANY_KEY);
 
 const API_BASE = 'https://careers.kronenhof.com/en/vacancies/json';
-const CAREERS_URL = 'https://careers.kronenhof.com/en/vacancies';
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -120,28 +123,6 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-/* ── Fetch API ─────────────────────────────────────────────── */
-async function fetchJson(url) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  // clearTimeout in `finally`, AFTER `res.json()` reads the body — keeping the
-  // abort armed during the body read so a stalled body aborts at TIMEOUT_MS
-  // instead of hanging the crawler (same class as PR #4118 / review sibling).
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': UA,
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 async function fetchText(url) {
   return fetchHtml(url, {
     timeoutMs: TIMEOUT_MS,
@@ -180,7 +161,7 @@ function stripHtml(html = '') {
  *   - Requirements / qualifications
  *   - Benefits / what we offer
  */
-function parseDetailPage(html = '') {
+export function parseDetailPage(html = '') {
   // Extract the main job content area first to avoid contamination from
   // sidebar "other vacancies" sections that share the same page.
   const mainAreaMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
@@ -189,15 +170,33 @@ function parseDetailPage(html = '') {
     || html.match(/<div[^>]*class="[^"]*job[^"]*detail[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
 
   // Restrict search to the main area; fall back to full page only if nothing found.
-  const searchArea = mainAreaMatch ? mainAreaMatch[1] : html;
+  // Call-to-action buttons ("Apply now") are page chrome, not vacancy text.
+  const searchArea = (mainAreaMatch ? mainAreaMatch[1] : html)
+    .replace(/<a\b[^>]*class="[^"]*\bbtn\b[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '');
 
   const sections = [];
+  // The vacancy body (`div.content-page`) opens with the company paragraph
+  // BEFORE its first heading ("People at 1800m above sea level…"): the
+  // heading-driven loop below never saw it.
+  const bodyOpen = /<div[^>]*class="[^"]*\bcontent-page\b[^"]*"[^>]*>/i.exec(searchArea);
+  if (bodyOpen) {
+    const afterOpen = searchArea.slice(bodyOpen.index + bodyOpen[0].length);
+    const firstHeading = afterOpen.search(/<h[2-4][^>]*>/i);
+    const intro = firstHeading > 0 ? stripHtml(afterOpen.slice(0, firstHeading)).trim() : '';
+    if (intro.length >= 20) sections.push(intro);
+  }
   const sectionRegex = /<h[2-4][^>]*>([\s\S]*?)<\/h[2-4]>\s*([\s\S]*?)(?=<h[2-4][^>]*>|<footer|<\/main|<\/article|$)/gi;
   const skipHeadings = /cookie|privacy|navigation|menu|footer|header|breadcrumb|vacancy overview|share this|andere stellen|other positions|weitere stellen|offene stellen|weitere vakanz/i;
+  // The vacancy body ends where the page starts listing OTHER vacancies: the
+  // live /en/vacancies/{id} page closes <main> with a "Similar jobs" section
+  // whose <h3> cards (title + teaser of three other openings) used to be
+  // appended to every description as if they were sections of this role.
+  const otherVacanciesHeading = /^(?:similar jobs|similar vacancies|ähnliche (?:jobs|stellen)|offerte simili|posizioni simili|offres similaires|postes similaires)$/i;
 
   let match;
   while ((match = sectionRegex.exec(searchArea)) !== null) {
     const heading = stripHtml(match[1]).trim();
+    if (otherVacanciesHeading.test(heading)) break;
     if (!heading || heading.length > 100 || skipHeadings.test(heading)) continue;
 
     const content = stripHtml(match[2]).trim();
@@ -206,7 +205,7 @@ function parseDetailPage(html = '') {
     sections.push(`## ${heading}\n${content}`);
   }
 
-  if (sections.length > 0) {
+  if (sections.some((section) => section.startsWith('## '))) {
     return sections.join('\n\n');
   }
 
@@ -230,7 +229,13 @@ async function fetchAllVacancies() {
   do {
     const url = `${API_BASE}?page=${page}`;
     console.log(`  📥 Fetching page ${page}/${lastPage}: ${url}`);
-    const response = await fetchJson(url);
+    const response = await fetchJson(url, {
+      timeoutMs: TIMEOUT_MS,
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': UA,
+      },
+    });
 
     if (response.data && Array.isArray(response.data)) {
       allJobs.push(...response.data);
@@ -268,7 +273,13 @@ function mapContractType(duration = '') {
   }
 }
 
-function buildJob(raw, detailDescription = '') {
+/** Labels of the synthesized facts line, in the language of the ad body. */
+const META_LABELS = {
+  en: { workload: 'Workload', contract: 'Contract', start: 'Start' },
+  de: { workload: 'Pensum', contract: 'Vertrag', start: 'Stellenantritt' },
+};
+
+export function buildJob(raw, detailDescription = '', sourceDatePosted = '') {
   const title = String(raw.title || '').trim();
   const { city, company } = mapLocation(raw.location);
   const { employmentType, contractType } = mapContractType(raw.contract_duration);
@@ -279,10 +290,7 @@ function buildJob(raw, detailDescription = '') {
   // this is defensive against a future parser regression leaking "undefined"/"null".
   const slug = slugify(`${title}-${company}-${safeLocationToken(city, 'Pontresina')}-${raw.id}`);
   const detailUrl = `https://careers.kronenhof.com/en/vacancies/${raw.id}`;
-  const postedDate = raw.contract_starts_at
-    ? raw.contract_starts_at.slice(0, 10)
-    : new Date().toISOString().slice(0, 10);
-  const sourceLang = detectLang(title, 'de');
+
   const workload = raw.workload ? `${raw.workload}%` : '100%';
 
   // Build a description from available data
@@ -293,28 +301,29 @@ function buildJob(raw, detailDescription = '') {
     '6-months': '6-Monats-Stelle / 6-month contract',
   }[raw.contract_duration] || raw.contract_duration || 'Seasonal';
 
+  // Only the detail page's own vacancy body is published (shared word floor). A
+  // thinner or missing body yields NO description here: mergeJobLists keeps
+  // the body stored from an earlier read of the source, or leaves the job
+  // unpublished this run. The old marketing fallback ("Die Kulm Gruppe
+  // betreibt …, Bewerbungen an: …") was text the source never showed.
+  const hasRichDetail = meetsSourceBodyFloor(detailDescription);
+
+  // The language is read from the body we publish, not from the title: the
+  // detail page is the /en/ portal, while titles are brigade terms ("Chef de
+  // Rang", "Commis de Rang", "Zimmerdame") that detected as fr/de and filed a
+  // machine translation as the source text (source-detail overlap 10 %, #5253).
+  const sourceLang = hasRichDetail ? detectLang(detailDescription, 'en') : '';
+  // The facts line is prepended to the body, so its labels speak the body's
+  // language: fixed German labels on an English ad left the source slot mixed
+  // (same fix as the sibling kulm-hotel parser, same Kulm Gruppe portal).
+  const labels = META_LABELS[sourceLang] || META_LABELS.en;
   const metaLine = [
     `${title} — ${company}, ${city} (Engadin, Graubünden).`,
-    `Pensum: ${workload}. Vertrag: ${durationLabel}.`,
-    raw.contract_starts_at ? `Stellenantritt: ${raw.contract_starts_at.slice(0, 10)}.` : '',
+    `${labels.workload}: ${workload}. ${labels.contract}: ${durationLabel}.`,
+    raw.contract_starts_at ? `${labels.start}: ${raw.contract_starts_at.slice(0, 10)}.` : '',
   ].filter(Boolean).join(' ');
 
-  // Prefer detail page description if rich enough (>= 50 words), otherwise use fallback
-  const detailWordCount = detailDescription ? detailDescription.split(/\s+/).length : 0;
-  const hasRichDetail = detailWordCount >= 50;
-
-  const fallbackDescription = [
-    metaLine,
-    `Die Kulm Gruppe betreibt zwei der exklusivsten 5-Sterne-Hotels im Engadin: das Grand Hotel Kronenhof in Pontresina und das Kulm Hotel in St. Moritz.`,
-    `Beide Häuser stehen für Schweizer Luxushotellerie auf höchstem Niveau mit einer langen Tradition, erstklassigem Service und einem engagierten internationalen Team.`,
-    `Als Arbeitgeber bieten wir: Personalunterkunft in der Engadiner Bergwelt, vergünstigte Verpflegung, umfassende Weiterbildungsmöglichkeiten, attraktive Mitarbeitervergünstigungen und ein inspirierendes Arbeitsumfeld in einer der schönsten Regionen der Schweiz.`,
-    `Die Kulm Gruppe beschäftigt rund 500 Mitarbeitende und bietet vielfältige Karrieremöglichkeiten in Gastronomie, Küche, Housekeeping, Front Office, Spa, Events und Administration.`,
-    `Bewerbungen an: people@kulmgroup.com oder über ${CAREERS_URL}`,
-  ].join(' ');
-
-  const description = hasRichDetail
-    ? `${metaLine}\n\n${detailDescription}`
-    : fallbackDescription;
+  const description = hasRichDetail ? `${metaLine}\n\n${detailDescription}` : '';
 
   return {
     title,
@@ -334,34 +343,81 @@ function buildJob(raw, detailDescription = '') {
     sector: 'Hotellerie & Gastronomia',
     source: 'kronenhof-dedicated-crawler',
     sourceLang,
-    postedDate,
+    ...sourcePostingDateFields(sourceDatePosted),
+    jobStartDate: raw.contract_starts_at || '',
     validThrough: '',
     contract: contractType,   // canonical field expected by JobPosting schema + CLAUDE.md validation
     employmentType,
     contractType,
     description,
     titleByLocale: {},
-    descriptionByLocale: {},
+    // The freshly crawled body is the source-locale text: without it the merge
+    // kept whatever the previous run (or the translator) left in that slot.
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {},
     crawledAt: new Date().toISOString(),
   };
 }
 
 /* ── Merge ─────────────────────────────────────────────────── */
-function mergeJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
-  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
-  const targetExisting = existing.filter(isTargetJob);
-  const beforeSnapshot = snapshotJobSlugs(targetExisting);
+
+// First sentence of the marketing fallback earlier versions published when a
+// detail page was thin; its presence marks a stored text as NOT source-read.
+const INVENTED_FALLBACK_RE = /Die Kulm Gruppe betreibt zwei der exklusivsten 5-Sterne-Hotels/;
+
+function sourceTextOf(job) {
+  return String(job?.description || job?.descriptionByLocale?.[job?.sourceLang] || '');
+}
+
+/**
+ * Non-source slots are translations of the source text stored at the time.
+ * They are stale when that text carried content this parser no longer
+ * publishes: the invented fallback, or the "Similar jobs" cards (other
+ * vacancies' teasers) that made the old source 3-5× longer than the vacancy.
+ */
+function translationsAreStale(prev, freshSource) {
+  const prevSource = sourceTextOf(prev);
+  if (INVENTED_FALLBACK_RE.test(prevSource)) return true;
+  return Boolean(freshSource) && prevSource.length > freshSource.length * 1.5;
+}
+
+/**
+ * Reconcile stored and freshly built jobs (pure; no I/O).
+ * - A job built without a body keeps the body stored from an earlier read of
+ *   the source; with none stored (or only the invented fallback) it is not
+ *   published this run.
+ * - Stale translations (see translationsAreStale) and any slot still holding
+ *   the invented fallback are dropped and the job is flagged for
+ *   retranslation, so the translation step refills them from the real body.
+ */
+export function mergeJobLists(targetExisting = [], discoveredJobs = []) {
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
-    const prev = existingByKey.get(jobMatchKey(job));
+  let skipped = 0;
+  const mergedTarget = [];
+  for (const discoveredJob of discoveredJobs) {
+    const prev = existingByKey.get(jobMatchKey(discoveredJob));
+    let job = discoveredJob;
+    if (!job.description) {
+      const storedSource = sourceTextOf(prev);
+      if (!storedSource || INVENTED_FALLBACK_RE.test(storedSource)) {
+        console.log(`  ⏭️  Not publishing ${job.title || job.url}: no vacancy body and none stored from the source`);
+        skipped += 1;
+        continue;
+      }
+      job = {
+        ...job,
+        description: prev.description || storedSource,
+        descriptionByLocale: prev.descriptionByLocale || {},
+        sourceLang: prev.sourceLang,
+      };
+    }
     if (!prev) {
       added += 1;
-      return job;
+      mergedTarget.push(job);
+      continue;
     }
     updated += 1;
     // If the slug changed (e.g., due to ID suffix being added on first re-crawl),
@@ -374,14 +430,35 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       previousSlugs,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    const staleTranslations = translationsAreStale(prev, discoveredJob.description);
+    let dropped = false;
+    for (const [locale, text] of Object.entries(merged.descriptionByLocale || {})) {
+      if (locale === merged.sourceLang) continue;
+      if (staleTranslations || INVENTED_FALLBACK_RE.test(String(text || ''))) {
+        delete merged.descriptionByLocale[locale];
+        dropped = true;
+      }
+    }
+    if (dropped) merged.needsRetranslation = true;
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
-    return merged;
-  });
+    mergedTarget.push(merged);
+  }
+  return { mergedTarget, added, updated, skipped };
+}
+
+function mergeJobs(discoveredJobs) {
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
+  const targetExisting = existing.filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(targetExisting);
+  const { mergedTarget, added, updated, skipped } = mergeJobLists(targetExisting, discoveredJobs);
+  if (skipped) console.log(`  ⏭️  Not published this run (no vacancy body): ${skipped}`);
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
@@ -446,6 +523,7 @@ async function main() {
   // Step 2: Fetch detail pages for rich descriptions
   console.log('\n📄 Fetching detail pages for rich descriptions...');
   const detailDescriptions = new Map();
+  const publicationDates = new Map();
   let enriched = 0;
   let failed = 0;
   for (let i = 0; i < allVacancies.length; i++) {
@@ -454,7 +532,8 @@ async function main() {
     try {
       const html = await fetchText(detailUrl);
       const desc = parseDetailPage(html);
-      if (desc && desc.split(/\s+/).length >= 50) {
+      publicationDates.set(vac.id, extractJobPostingField(html, 'datePosted'));
+      if (desc && meetsSourceBodyFloor(desc)) {
         detailDescriptions.set(vac.id, desc);
         enriched++;
         console.log(`  ✅ ${i + 1}/${allVacancies.length}: ${String(vac.title).trim()}`);
@@ -470,7 +549,7 @@ async function main() {
   console.log(`  📄 Detail pages: ${enriched} enriched, ${failed} failed`);
 
   // Step 3: Build standardized job objects
-  const jobs = allVacancies.map((vac) => buildJob(vac, detailDescriptions.get(vac.id) || ''));
+  const jobs = allVacancies.map((vac) => buildJob(vac, detailDescriptions.get(vac.id) || '', publicationDates.get(vac.id) || ''));
   console.log(`✅ Built ${jobs.length} job objects`);
 
   // Log location breakdown
@@ -522,4 +601,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Kronenhof'));
+// Only run main() when invoked as a script, not when imported by tests.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Kronenhof'));
+}

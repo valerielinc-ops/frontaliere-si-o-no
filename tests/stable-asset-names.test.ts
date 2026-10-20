@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -7,7 +8,11 @@ import {
   BRIDGE_CSS_LINK,
   EARLY_BOOT_FILENAME,
   FUEL_CHART_SCRIPT_FILENAME,
+  GTAG_INIT_CONTENT,
   GTAG_INIT_FILENAME,
+  GTAG_INIT_VERSIONED_FILENAME,
+  GTAG_INIT_URL,
+  GTAG_SNIPPET,
   POSTHOG_INIT_FILENAME,
   SEO_STATIC_CSS_FILENAME,
   SEO_STATIC_CSS_LINK,
@@ -40,6 +45,21 @@ describe('stable asset filenames', () => {
   it('link tags reference the stable /assets/ paths', () => {
     expect(SEO_STATIC_CSS_LINK).toBe('<link rel="stylesheet" href="/assets/seo-static.css">');
     expect(BRIDGE_CSS_LINK).toBe('<link rel="stylesheet" href="/assets/bridge.css">');
+  });
+
+  it('content-addresses the identity-bearing gtag-init reference', () => {
+    const expectedHash = createHash('sha256').update(GTAG_INIT_CONTENT).digest('hex').slice(0, 12);
+
+    expect(GTAG_INIT_VERSIONED_FILENAME).toBe(`gtag-init-${expectedHash}.js`);
+    expect(GTAG_INIT_URL).toBe(`/assets/${GTAG_INIT_VERSIONED_FILENAME}`);
+    expect(GTAG_SNIPPET).toContain(`<script defer src="${GTAG_INIT_URL}"></script>`);
+
+    const staticScriptsSource = fs.readFileSync(
+      path.join(process.cwd(), 'build-plugins', 'staticScriptsPlugin.ts'),
+      'utf-8',
+    );
+    expect(staticScriptsSource).toContain('[GTAG_INIT_VERSIONED_FILENAME, GTAG_INIT_CONTENT]');
+    expect(staticScriptsSource).toContain('[GTAG_INIT_FILENAME, GTAG_INIT_CONTENT]');
   });
 
   it('the stylesheet sources exist in public/assets/ (Vite copies them verbatim to dist)', () => {
@@ -75,6 +95,12 @@ describe('stable asset filenames', () => {
     expect(src).toContain('return buildBlogBodyChunkFileName(safe, m)');
     // All stylesheets stable; only non-CSS bundler assets keep the hash.
     expect(src).toContain("if (n.endsWith('.css')) return 'assets/[name][extname]'");
+  });
+
+  it('does not publish source maps unless a controlled build opts in', () => {
+    const src = fs.readFileSync(path.join(process.cwd(), 'vite.config.ts'), 'utf-8');
+    expect(src).toContain("sourcemap: process.env.PUBLIC_SOURCEMAPS === '1'");
+    expect(src).not.toContain('sourcemap: true');
   });
 });
 

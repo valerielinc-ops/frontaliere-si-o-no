@@ -32,6 +32,9 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://www.claraspital.ch/de/jobs-und-karriere',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.claraspital.ch'],
+  // Listing payload = 32-35 % of the rendered vacancy (audit 2026-09-29):
+  // the benefit cards (Anstellungsbedingungen, Lernen & Entwickeln, …) and "Über das Claraspital" exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllClaraspitalJobs = parser.fetchAllJobs;

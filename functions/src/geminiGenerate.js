@@ -11,14 +11,14 @@
  * quota daily (HTTP 429). When Gemini fails for ANY reason we fall through a
  * chain of free OpenAI-compatible providers whose keys already live in Remote
  * Config (same keys the translation/article AI model chain uses), then a
- * last-resort paid Claude/Haiku call (see claudeHaikuFallback.js — scoped
- * ANTHROPIC_API_KEY exception, issue #4495). The endpoint only surfaces an
+ * last-resort Codex Luna Max call authenticated with the CI's Codex ChatGPT
+ * login (see codexFallback.js — scoped exception, issue #4495). The endpoint only surfaces an
  * error when EVERY provider fails — so a single exhausted quota no longer
  * breaks the feature.
  */
 
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
-import { tryClaudeHaikuFallback } from './claudeHaikuFallback.js';
+import { tryCodexFallback } from './codexFallback.js';
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 // Alias "latest": 'gemini-2.0-flash-lite' e' RITIRATO (verificato il 2026-08-14
@@ -137,21 +137,19 @@ export async function handleGeminiGenerate(req) {
     }
   }
 
-  // 3. Last resort: Claude/Haiku via direct Anthropic API — scoped exception
-  //    to AGENTS.md's ANTHROPIC_API_KEY prohibition (owner-approved
-  //    2026-07-28, issue #4495). Paid, only reached once every free provider
-  //    above has failed.
-  const claudeResult = await tryClaudeHaikuFallback({
+  // 3. Last resort: Codex Luna Max with the Codex ChatGPT login
+  //    (CODEX_AUTH_JSON from Remote Config, never refreshed here) — scoped
+  //    exception in AGENTS.md (issue #4495). Only reached once every free
+  //    provider above has failed.
+  const codexResult = await tryCodexFallback({
     systemPrompt,
     messages: [{ role: 'user', content: userPrompt }],
-    maxTokens,
-    temperature,
   });
-  if (claudeResult.ok) {
-    console.log('[geminiGenerate] served by fallback claude-haiku');
-    return { status: 200, body: { ok: true, text: claudeResult.text, provider: 'claude-haiku' } };
+  if (codexResult.ok) {
+    console.log('[geminiGenerate] served by fallback codex');
+    return { status: 200, body: { ok: true, text: codexResult.text, provider: 'codex' } };
   }
-  failures.push(claudeResult.notConfigured ? 'claude-haiku: not_configured' : `claude-haiku: ${claudeResult.error}`);
+  failures.push(codexResult.notConfigured ? 'codex: not_configured' : `codex: ${codexResult.error}`);
 
   // Every provider failed.
   console.error('[geminiGenerate] all providers failed —', failures.join(' | '));

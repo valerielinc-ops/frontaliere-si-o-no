@@ -1,18 +1,23 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * Export the independent, categorical part of the L8 affiliate outcome.
  *
- * PostHog can prove exposures and clicks, but it cannot prove an approved
+ * Firebase/GA4 proves visible CTA exposures and clicks, but not an approved
  * commission. An authorised network export is therefore joined when one is
  * explicitly present; otherwise the output stays attribution-only and the L8
  * validator keeps approved money unmeasurable. This script is read-only and
  * never changes a partner, price, placement, Auto Ads setting or recipient.
+ * Legacy PostHog helpers remain for historical exports; main uses GA4.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { getAffiliateCommercialConfiguration } from '../../functions/src/lib/affiliatePartnersRegistry.js';
 import { runHogQL } from '../lib/posthog-client.mjs';
+import { getServiceAccountAccessToken } from '../lib/google-service-account-token.mjs';
+import { GA4_READONLY_SCOPE, ga4DateRange, runGa4Report } from '../lib/ga4-service-account.mjs';
 
 export const LOOP_ID = 'L8';
 export const DEFAULT_DAYS = 8;
@@ -146,19 +151,21 @@ export function buildL8AttributionExport({
       : (Array.isArray(suppliedCommercial.rows) ? suppliedCommercial.rows : null))
     : null;
   const commercialRowsPresent = Array.isArray(rows);
+  const evidence = attributionEvidence({
+    telemetryWindow: window,
+    commercial: suppliedCommercial,
+    commercialRowsPresent,
+  });
   return {
     ...(suppliedCommercial || {}),
     schemaVersion: 1,
     loopId: LOOP_ID,
+    commercialConfiguration: getAffiliateCommercialConfiguration(),
     // Keep the network timestamp when a commercial export is present. The
     // current PostHog timestamp must not make an old commission ledger fresh.
     generatedAt: text(suppliedCommercial?.generatedAt) || generated,
     independent: suppliedCommercial?.independent === true && commercialRowsPresent,
-    evidence: attributionEvidence({
-      telemetryWindow: window,
-      commercial: suppliedCommercial,
-      commercialRowsPresent,
-    }),
+    evidence,
     period: suppliedCommercial?.period || periodFromWindow(window),
     clicks: {
       web: webClicks,
@@ -185,29 +192,48 @@ export function buildUnavailableL8AttributionExport({
   generatedAt = new Date(),
   telemetryWindow = completeUtcWindow(generatedAt),
   reason = 'live PostHog attribution export unavailable',
+  commercial = null,
 } = {}) {
   const generated = isoDate(generatedAt, 'L8 unavailable generatedAt');
   const window = {
     start: isoDate(telemetryWindow.start, 'L8 unavailable window start'),
     end: isoDate(telemetryWindow.end, 'L8 unavailable window end'),
   };
-  return {
-    schemaVersion: 1,
-    loopId: LOOP_ID,
-    generatedAt: generated,
-    independent: false,
-    evidence: {
+  const suppliedCommercial = object(commercial) ? commercial : null;
+  const rows = suppliedCommercial
+    ? (Array.isArray(suppliedCommercial.transactions)
+      ? suppliedCommercial.transactions
+      : (Array.isArray(suppliedCommercial.rows) ? suppliedCommercial.rows : null))
+    : null;
+  const commercialRowsPresent = Array.isArray(rows);
+  const evidence = suppliedCommercial
+    ? attributionEvidence({
+      telemetryWindow: window,
+      commercial: suppliedCommercial,
+      commercialRowsPresent,
+    })
+    : {
       source: 'posthog-affiliate-attribution-export',
       sourceRefs: ['posthog.affiliate_experiment_exposure', 'posthog.affiliate_click'],
       status: 'missing',
       commercialLedger: 'missing',
       reason: text(reason) || 'live PostHog attribution export unavailable',
       telemetryWindow: window,
-    },
-    period: periodFromWindow(window),
+    };
+  return {
+    ...(suppliedCommercial || {}),
+    schemaVersion: 1,
+    loopId: LOOP_ID,
+    commercialConfiguration: getAffiliateCommercialConfiguration(),
+    // Keep a valid network timestamp when PostHog is unavailable. The
+    // telemetry timestamp must never make an old commercial ledger fresh.
+    generatedAt: text(suppliedCommercial?.generatedAt) || generated,
+    independent: suppliedCommercial?.independent === true && commercialRowsPresent,
+    evidence,
+    period: suppliedCommercial?.period || periodFromWindow(window),
     clicks: { web: null, email: null, relevant: null, total: null },
-    exposures: { web: null, email: null },
-    transactions: null,
+    exposures: suppliedCommercial?.exposures || { web: null, email: null },
+    transactions: rows,
     attribution: {
       source: 'posthog',
       sourceEvents: null,
@@ -222,8 +248,14 @@ export function buildUnavailableL8AttributionExport({
 }
 
 function readOptionalCommercial(filePath) {
-  if (!text(filePath) || !fs.existsSync(path.resolve(filePath))) return null;
-  return JSON.parse(fs.readFileSync(path.resolve(filePath), 'utf8'));
+  if (!text(filePath)) return null;
+  try {
+    const absolute = path.resolve(filePath);
+    if (!fs.existsSync(absolute)) return null;
+    return JSON.parse(fs.readFileSync(absolute, 'utf8'));
+  } catch {
+    return null;
+  }
 }
 
 function writeJson(outputPath, value) {
@@ -252,6 +284,78 @@ export async function exportL8Attribution({
   return outcome;
 }
 
+/** The sparse L8 runner has no node_modules: reuse the shared dependency-free OAuth signer. */
+async function getGa4AttributionToken() {
+ const raw = process.env.GOOGLE_APPLICATION_CREDENTIALS
+  ? fs.readFileSync(process.env.GOOGLE_APPLICATION_CREDENTIALS, 'utf8')
+  : process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
+ if (!raw) throw new Error('L8 GA4 read-only service-account credentials are unavailable');
+ return getServiceAccountAccessToken(JSON.parse(raw), GA4_READONLY_SCOPE);
+}
+
+/** The live pipeline uses Firebase/GA4; PostHog product events are quota-suppressed. */
+export async function exportL8Ga4Attribution({
+ outputPath = null, now = new Date(), days = DEFAULT_DAYS, commercialPath = null,
+ ga4Runner = runGa4Report, tokenProvider = getGa4AttributionToken,
+} = {}) {
+ if (!text(outputPath)) throw new Error('L8 attribution outputPath is required');
+ const range = ga4DateRange(days, 2, now);
+ const token = await tokenProvider();
+ const report = await ga4Runner({ token, body: {
+  dateRanges: [range], dimensions: [{ name: 'eventName' }, { name: 'customEvent:attribution_id' }], metrics: [{ name: 'eventCount' }],
+  dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: ['affiliate_impression', 'affiliate_click'] } } },
+  limit: '10000',
+ } });
+ if (!object(report) || report.metadata?.subjectToThresholding || report.metadata?.dataLossFromOtherRow || report.metadata?.samplingMetadatas?.length) throw new Error('GA4 affiliate report is missing, thresholded or sampled');
+ const rows = report.rows ?? [];
+ if (!Array.isArray(rows) || Number(report?.rowCount ?? rows.length) !== rows.length) throw new Error('GA4 affiliate report is truncated or invalid');
+ const counts = { affiliate_impression: 0, affiliate_click: 0 };
+ const byPlacement = new Map();
+ for (const row of rows) {
+  const event = row?.dimensionValues?.[0]?.value;
+  if (!Object.hasOwn(counts, event)) throw new Error('GA4 affiliate report contains an unknown event');
+  const count = integer(row?.metricValues?.[0]?.value, event);
+  counts[event] += count;
+  const id = row?.dimensionValues?.[1]?.value;
+  if (typeof id === 'string' && /^[a-z0-9-]{1,48}$/.test(id)) {
+   const placement = byPlacement.get(id) || { attributionId: id, impressions: 0, clicks: 0 };
+   placement[event === 'affiliate_impression' ? 'impressions' : 'clicks'] += count;
+   byPlacement.set(id, placement);
+  }
+ }
+ const telemetryWindow = { start: `${range.startDate}T00:00:00.000Z`, end: new Date(Date.parse(range.endDate) + DAY_MS).toISOString() };
+ const commercial = readOptionalCommercial(commercialPath);
+ const outcome = buildL8AttributionExport({
+  aggregate: { webExposures: counts.affiliate_impression, webClicks: counts.affiliate_click, emailExposures: 0, emailClicks: 0,
+   sourceEvents: counts.affiliate_impression + counts.affiliate_click },
+  generatedAt: now, telemetryWindow, commercial,
+ });
+ // Web CTA events cannot prove email delivery/clicks. Preserve only explicit network data.
+ outcome.exposures.email = commercial?.exposures?.email ?? null;
+ outcome.clicks.email = commercial?.clicks?.email ?? null;
+ outcome.clicks.relevant = outcome.clicks.total = outcome.clicks.email === null ? null : outcome.clicks.web + outcome.clicks.email;
+ outcome.attribution.source = 'ga4';
+ outcome.attribution.byPlacement = [...byPlacement.values()];
+ outcome.exposures.byAttribution = Object.fromEntries([...byPlacement.values()].map(row => [row.attributionId, row.impressions]));
+ outcome.evidence.source = commercial?.evidence?.source || 'ga4-affiliate-attribution-export';
+ if (!commercial) outcome.evidence.commercialLedger = 'not_configured';
+ outcome.evidence.sourceRefs = [...new Set([...(commercial?.evidence?.sourceRefs || []), 'ga4.affiliate_impression', 'ga4.affiliate_click'])];
+ outcome.evidence.eventContract = {
+  exposure: 'affiliate_impression: referral CTA visible at least 10%, once per mounted placement',
+  click: 'affiliate_click: primary, keyboard or middle click on a referral CTA; not proof of an active commercial agreement',
+  attribution: 'attribution_id equals the /go/ pos and network pubref; categorical placement, not person identity',
+  identity: 'no person, email, URL or account fields selected',
+ };
+ // A differently dated ledger must not be divided by this window's CTA counts.
+ if (commercial && (!commercial.period || commercial.period.from !== range.startDate || commercial.period.to !== range.endDate)) {
+  outcome.exposures = commercial.exposures || { web: null, email: null };
+  outcome.clicks = commercial.clicks || { web: null, email: null, relevant: null, total: null };
+  outcome.evidence.telemetryJoin = 'unjoined: commercial and telemetry periods differ';
+ }
+ writeJson(outputPath, outcome);
+ return outcome;
+}
+
 function valueAfter(argv, name, fallback = null) {
   const index = argv.indexOf(name);
   return index === -1 ? fallback : argv[index + 1] || fallback;
@@ -263,24 +367,34 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
   const now = new Date();
   const days = Number(valueAfter(argv, '--days', DEFAULT_DAYS));
   const window = completeUtcWindow(now, days);
+  const commercialPath = valueAfter(argv, '--commercial');
   const outcome = argv.includes('--unavailable')
     ? buildUnavailableL8AttributionExport({
       generatedAt: now,
       telemetryWindow: window,
       reason: valueAfter(argv, '--reason'),
+      commercial: readOptionalCommercial(commercialPath),
     })
-    : await exportL8Attribution({
+    : await exportL8Ga4Attribution({
       outputPath,
       now,
       days,
-      commercialPath: valueAfter(argv, '--commercial'),
+      commercialPath,
     });
-  if (argv.includes('--unavailable')) writeJson(outputPath, outcome);
+  if (argv.includes('--unavailable')) {
+    outcome.attribution.source = 'ga4';
+    if (!readOptionalCommercial(commercialPath)) {
+      outcome.evidence.source = 'ga4-affiliate-attribution-export';
+      outcome.evidence.sourceRefs = ['ga4.affiliate_impression', 'ga4.affiliate_click'];
+      outcome.evidence.reason = valueAfter(argv, '--reason') || 'live GA4 attribution export unavailable';
+    }
+    writeJson(outputPath, outcome);
+  }
   if (argv.includes('--json')) logger.log(JSON.stringify(outcome, null, 2));
   return outcome;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[L8 attribution export] fatal: ${error.message}`);
     process.exitCode = 1;

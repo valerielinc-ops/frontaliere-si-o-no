@@ -4,7 +4,7 @@ import { useChartColors, type ChartChrome } from '@/hooks/useChartColors';
 
 interface ChartWrapperProps {
   /** Height in pixels passed to ResponsiveContainer. Default 300. */
-  height?: number | string;
+  height?: number | `${number}%`;
   /** Extra classes on the outer div. */
   className?: string;
   /** Render prop that receives resolved chart chrome colors. */

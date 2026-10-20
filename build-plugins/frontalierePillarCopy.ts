@@ -97,13 +97,13 @@ const IT: FrontalierePillarCopy = {
     {
       heading: 'Cassa malati: il diritto d\'opzione LAMal',
       paragraphsHtml: [
-        'Entro 3 mesi dall\'assunzione il frontaliere sceglie tra assicurazione svizzera <strong>LAMal</strong> e sistema sanitario italiano (diritto d\'opzione, in linea di massima irrevocabile). I <a href="/premi-cassa-malati/">premi di cassa malati per frontalieri</a> variano molto per assicuratore: il <a href="/compara-servizi/confronta-casse-malati/">comparatore casse malati</a> mette a confronto i premi correnti, mentre la <a href="/guida-frontaliere/lamal-frontalieri/">guida LAMal frontalieri</a> spiega vincoli e eccezioni.',
+        'Entro 3 mesi dall\'assunzione il frontaliere sceglie tra assicurazione svizzera <strong>LAMal</strong> e sistema sanitario italiano (diritto d\'opzione, con eventuale nuovo esercizio da verificare con il Cantone). I <a href="/premi-cassa-malati/">premi di cassa malati per frontalieri</a> variano molto per assicuratore: il <a href="/compara-servizi/confronta-casse-malati/">comparatore casse malati</a> mette a confronto i premi correnti, mentre la <a href="/guida-frontaliere/lamal-frontalieri/">guida LAMal frontalieri</a> spiega vincoli e eccezioni.',
       ],
     },
     {
       heading: 'Vivere al confine: comuni, valichi e tempi di attesa',
       paragraphsHtml: [
-        'Dove abiti cambia il pendolarismo: i <a href="/vivere-in-ticino/comuni-di-frontiera/">comuni di frontiera</a> raccolgono affitti, servizi e distanze dai valichi, la <a href="/guida-frontaliere/mappa-confine/">mappa del confine</a> mostra i valichi principali e i <a href="/guida-frontaliere/tempi-attesa-dogana/">tempi di attesa in dogana</a> sono aggiornati in continuo. Tutte le guide pratiche (primo giorno, disoccupazione, auto) vivono nella <a href="/guida-frontaliere/">guida frontaliere</a>.',
+        'Dove abiti cambia il pendolarismo: i <a href="/vivere-in-ticino/comuni-di-frontiera/">comuni di frontiera</a> raccolgono affitti, servizi e distanze dai valichi, la <a href="/guida-frontaliere/mappa-confine/">mappa del confine</a> mostra i valichi principali e i <a href="/traffico-dogane/">tempi di attesa in dogana</a> sono aggiornati in continuo. Tutte le guide pratiche (primo giorno, disoccupazione, auto) vivono nella <a href="/guida-frontaliere/">guida frontaliere</a>.',
       ],
     },
   ],
@@ -155,7 +155,7 @@ const IT: FrontalierePillarCopy = {
   sourcesLabel: 'Fonti',
   sources: [
     { label: 'UST — Statistica dei frontalieri', url: 'https://www.bfs.admin.ch/it' },
-    { label: 'SEM — Permesso per frontalieri G', url: 'https://www.sem.admin.ch/it' },
+    { label: 'SEM — Permesso per frontalieri G', url: 'https://www.sem.admin.ch/sem/it/home.html' },
     { label: 'AFC — Imposizione dei frontalieri (accordo CH-IT 2023)', url: 'https://www.estv.admin.ch/it' },
     { label: 'UFSP — Assicurazione malattie: frontalieri e diritto d\'opzione', url: 'https://www.bag.admin.ch/it' },
   ],
@@ -200,7 +200,7 @@ const EN: FrontalierePillarCopy = {
     {
       heading: 'Health insurance: the LAMal option right',
       paragraphsHtml: [
-        'Within 3 months of hiring, cross-border workers choose between Swiss <strong>LAMal</strong> insurance and the Italian health system — a choice that is in principle irrevocable. Premiums vary widely by insurer; the site\'s comparator tracks current cross-border premiums.',
+        'Within 3 months of hiring, cross-border workers choose between Swiss <strong>LAMal</strong> insurance and the Italian health system — a choice that requires cantonal confirmation before any new exercise. Premiums vary widely by insurer; the site\'s comparator tracks current cross-border premiums.',
       ],
     },
     {
@@ -257,7 +257,7 @@ const EN: FrontalierePillarCopy = {
   sourcesLabel: 'Sources',
   sources: [
     { label: 'FSO — Cross-border commuter statistics', url: 'https://www.bfs.admin.ch/en' },
-    { label: 'SEM — Cross-border commuter permit G', url: 'https://www.sem.admin.ch/en' },
+    { label: 'SEM — Cross-border commuter permit G', url: 'https://www.sem.admin.ch/sem/en/home.html' },
     { label: 'FTA — Taxation of cross-border commuters (2023 CH-IT agreement)', url: 'https://www.estv.admin.ch/en' },
     { label: 'FOPH — Health insurance for cross-border commuters', url: 'https://www.bag.admin.ch/en' },
   ],
@@ -302,7 +302,7 @@ const DE: FrontalierePillarCopy = {
     {
       heading: 'Krankenkasse: das Optionsrecht (KVG/LAMal)',
       paragraphsHtml: [
-        'Innert 3 Monaten nach Stellenantritt wählen Grenzgänger zwischen Schweizer <strong>KVG-Versicherung</strong> und italienischem Gesundheitssystem — grundsätzlich unwiderruflich. Die Prämien unterscheiden sich stark je nach Versicherer.',
+        'Innert 3 Monaten nach Stellenantritt wählen Grenzgänger zwischen Schweizer <strong>KVG-Versicherung</strong> und italienischem Gesundheitssystem — eine erneute Ausübung ist mit dem Arbeitskanton zu prüfen. Die Prämien unterscheiden sich stark je nach Versicherer.',
       ],
     },
     {
@@ -359,7 +359,7 @@ const DE: FrontalierePillarCopy = {
   sourcesLabel: 'Quellen',
   sources: [
     { label: 'BFS — Grenzgängerstatistik', url: 'https://www.bfs.admin.ch/de' },
-    { label: 'SEM — Grenzgängerbewilligung G', url: 'https://www.sem.admin.ch/de' },
+    { label: 'SEM — Grenzgängerbewilligung G', url: 'https://www.sem.admin.ch/sem/de/home.html' },
     { label: 'ESTV — Besteuerung der Grenzgänger (Abkommen CH-IT 2023)', url: 'https://www.estv.admin.ch/de' },
     { label: 'BAG — Krankenversicherung für Grenzgänger', url: 'https://www.bag.admin.ch/de' },
   ],
@@ -404,7 +404,7 @@ const FR: FrontalierePillarCopy = {
     {
       heading: 'Caisse maladie : le droit d\'option LAMal',
       paragraphsHtml: [
-        'Dans les 3 mois suivant l\'embauche, le frontalier choisit entre l\'assurance suisse <strong>LAMal</strong> et le système de santé italien — un choix en principe irrévocable. Les primes varient fortement selon l\'assureur.',
+        'Dans les 3 mois suivant l\'embauche, le frontalier choisit entre l\'assurance suisse <strong>LAMal</strong> et le système de santé italien — un choix soumis à vérification auprès du canton de travail pour tout nouvel exercice. Les primes varient fortement selon l\'assureur.',
       ],
     },
     {
@@ -461,7 +461,7 @@ const FR: FrontalierePillarCopy = {
   sourcesLabel: 'Sources',
   sources: [
     { label: 'OFS — Statistique des frontaliers', url: 'https://www.bfs.admin.ch/fr' },
-    { label: 'SEM — Autorisation frontalière G', url: 'https://www.sem.admin.ch/fr' },
+    { label: 'SEM — Autorisation frontalière G', url: 'https://www.sem.admin.ch/sem/fr/home.html' },
     { label: 'AFC — Imposition des frontaliers (accord CH-IT 2023)', url: 'https://www.estv.admin.ch/fr' },
     { label: 'OFSP — Assurance-maladie des frontaliers', url: 'https://www.bag.admin.ch/fr' },
   ],

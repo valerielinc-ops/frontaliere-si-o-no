@@ -3,6 +3,7 @@ import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import WhatsNewModal, { WhatsNewBell, RELEASES, STORAGE_KEY, releaseLinkToRoute } from '@/components/community/WhatsNewModal';
 import { buildPath } from '@/services/router';
 import itCore from '@/services/locales/it-core';
+import { ensureLocaleLoaded, setLocale } from '@/services/i18n';
 
 const findReleaseItem = (version: string, titleKey: string) => {
   const release = RELEASES.find((item) => item.version === version);
@@ -49,10 +50,12 @@ describe('WhatsNewBell', () => {
 describe('WhatsNewModal', () => {
   beforeEach(() => {
     localStorage.clear();
+    setLocale('it');
   });
 
   afterEach(() => {
     cleanup();
+    setLocale('it');
   });
 
   const getReleaseLink = (version: string, titleKey: string) => {
@@ -63,6 +66,18 @@ describe('WhatsNewModal', () => {
     return screen.getByRole('link', { name: label });
   };
 
+  it.each([
+    ['it', '/farmacie-di-turno/settimana/2026-09-14/'],
+    ['en', '/en/on-duty-pharmacies/week/2026-09-14/'],
+    ['de', '/de/notdienst-apotheken/woche/2026-09-14/'],
+    ['fr', '/fr/pharmacies-de-garde/semaine/2026-09-14/'],
+  ] as const)('keeps the dated pharmacy archive link in the selected locale (%s)', async (locale, href) => {
+    await ensureLocaleLoaded(locale);
+    setLocale(locale);
+    const { container } = render(<WhatsNewModal open={true} onClose={vi.fn()} />);
+    expect(container.querySelector('a[href*="/2026-09-14/"]')).toHaveAttribute('href', href);
+  });
+
   it('renders nothing when open=false', () => {
     const { container } = render(<WhatsNewModal open={false} onClose={vi.fn()} />);
     expect(container.innerHTML).toBe('');
@@ -71,7 +86,7 @@ describe('WhatsNewModal', () => {
   it('renders modal with release notes when open=true', () => {
     render(<WhatsNewModal open={true} onClose={vi.fn()} />);
     // Should show at least the first release version
-    expect(screen.getByText(new RegExp(RELEASES[0].version))).toBeTruthy();
+    expect(screen.getByText(`v${RELEASES[0].version}`, { exact: true })).toBeTruthy();
   });
 
   it('calls onClose when close button clicked', () => {
@@ -105,9 +120,12 @@ describe('WhatsNewModal', () => {
 
   it('renders all release sections', { timeout: 30000 }, () => {
     render(<WhatsNewModal open={true} onClose={vi.fn()} />);
-    for (const release of RELEASES) {
-      expect(screen.getByText(new RegExp(release.version))).toBeTruthy();
-    }
+    const expectedVersions = RELEASES.map((release) => `v${release.version}`);
+    const versionLabels = new Set(expectedVersions);
+    // Scan the rendered tree once, retaining exact labels, uniqueness and order.
+    const renderedVersions = screen.getAllByText((text) => versionLabels.has(text))
+      .map((element) => element.textContent?.trim());
+    expect(renderedVersions).toEqual(expectedVersions);
   });
 
   it('renders statistics updates with a stats href instead of the job board', () => {

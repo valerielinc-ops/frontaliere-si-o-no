@@ -59,6 +59,8 @@ function assertCantonLandingOrder(rawHtml: string, label: string): void {
   // selector no longer matched.
   const cta = html.search(/<a [^>]*\bdata-primary-cta\b/);
   const listing = html.indexOf('data-listing-grid');
+  const firstH2 = html.search(/<h2\b/i);
+  const firstH3 = html.search(/<h3\b/i);
   // Prose anchor — the buildCantonContextProse section's wrapper, marked
   // with the stable `data-canton-context-prose` attribute (mirrors the
   // data-stat-tile-grid / data-primary-cta / data-listing-grid
@@ -84,6 +86,10 @@ function assertCantonLandingOrder(rawHtml: string, label: string): void {
   // come after the CTA and before the prose.
   if (listing > 0) {
     expect(listing, `${label}: listing grid must come after CTA`).toBeGreaterThan(cta);
+    if (firstH3 > h1) {
+      expect(firstH2, `${label}: an H2 must precede job-card H3 headings`).toBeGreaterThan(h1);
+      expect(firstH2, `${label}: an H2 must precede job-card H3 headings`).toBeLessThan(firstH3);
+    }
     if (prose > 0) {
       expect(prose, `${label}: prose must come after listings`).toBeGreaterThan(listing);
     }
@@ -154,5 +160,26 @@ describe('canton landing mobile-first element order (CLAUDE.md #17)', () => {
     // The fixed assertion, using the stable marker, must pass despite the
     // colliding free text in both the stat tile and the listing grid.
     expect(() => assertCantonLandingOrder(collidingHtml, 'synthetic-fixture')).not.toThrow();
+  });
+
+  it('requires a section heading before job-card H3 headings', () => {
+    const missingHeading = [
+      '<main>',
+      '<h1>Appenzello</h1>',
+      '<section data-stat-tile-grid><div>12</div></section>',
+      '<p><a data-primary-cta href="/lavoro/">Vedi le offerte</a></p>',
+      '<section data-listing-grid><article><h3>Job title</h3></article></section>',
+      '<section data-canton-context-prose><p>Contesto</p></section>',
+      '</main>',
+    ].join('');
+    expect(() => assertCantonLandingOrder(missingHeading, 'missing-listing-heading')).toThrow(
+      /H2 must precede job-card H3 headings/,
+    );
+
+    const fixedHeading = missingHeading.replace(
+      '<section data-listing-grid>',
+      '<h2>Offerte di lavoro in Appenzello</h2><section data-listing-grid>',
+    );
+    expect(() => assertCantonLandingOrder(fixedHeading, 'fixed-listing-heading')).not.toThrow();
   });
 });

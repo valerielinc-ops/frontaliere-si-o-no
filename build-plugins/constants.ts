@@ -32,10 +32,20 @@
  * identical for free, with the same monolith-build fallback behaviour as BUILD_ID.
  */
 
+import { createHash } from 'node:crypto';
 import { execSync } from 'child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { BOT_UA_PATTERNS } from '../services/botPatterns';
+import {
+  AUTOMATION_SCREEN_HEIGHT,
+  AUTOMATION_SCREEN_WIDTH,
+  AUTOMATION_TIME_ZONES,
+  AUTOMATION_LANGUAGE,
+  AUTOMATION_LANGUAGE_CHROME_MAJORS,
+  AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS,
+  AUTOMATION_LANGUAGE_TIME_ZONES,
+  BOT_UA_PATTERNS,
+} from '../services/botPatterns';
 // Single source of truth for the ads-consent storage contract (#5842). Imported
 // rather than re-typed so the inline static loader below and the SPA gate in
 // AdSenseBanner/GptAdSlot cannot drift apart: the emitted loader string is
@@ -43,16 +53,24 @@ import { BOT_UA_PATTERNS } from '../services/botPatterns';
 // access in that module is behind a `typeof window === 'undefined'` guard, so
 // module scope is inert under Node.
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED, ADS_CONSENT_CHANGE_EVENT } from '../services/adsConsent';
-import { AD_SLOT_VIEWPORT_ROOT_MARGIN } from '../services/adsenseSlots';
+import { AD_PAGE_TEMPLATE_INLINE_FN } from '../services/adPageTemplate';
+import { isManualSlot } from '../services/adSlotKinds';
+import { observeManualAd } from '../services/manualAdLifecycle';
+import { AD_FILL_TIMEOUT_MS, AD_SLOT_VIEWPORT_ROOT_MARGIN } from '../services/adsenseSlots';
 import { BENIGN_MESSAGES, THIRD_PARTY_STACK_ORIGINS } from '../services/posthog-error-filter';
 import {
   POSTHOG_EVENT_SAMPLE_RATE,
+  POSTHOG_LOCAL_DEV_HOSTS,
+  POSTHOG_QUOTA_EXEMPT_EVENTS,
   POSTHOG_SESSION_REPLAY_SAMPLE_RATE,
 } from '../services/posthogQuota';
 import {
+  FIRST_PARTY_ASSET_FRAME_PATTERN,
+  GOOGLE_IOS_APP_UA_PATTERN,
   WEBKIT_ORIGIN_REDACTED_FRAME,
   ORIGIN_REDACTED_MIN_FRAMES,
   INDEXED_DB_ERROR_PATTERN,
+  STACK_OVERFLOW_MESSAGE_PATTERN,
 } from '../services/benignErrorPatterns';
 import {
   AD_BLOCKER_TRIGGER_PATTERN_SOURCE,
@@ -60,10 +78,12 @@ import {
   CHUNK_LOAD_ERROR_PATTERN_SOURCE,
   MODULE_LINK_SKEW_PATTERNS,
 } from '../services/resilientImport';
-import { adSlotHtml } from './lib/adSlotHtml';
+import { adSlotHtml, STATIC_AD_UNIQUE_PLACEMENTS } from './lib/adSlotHtml';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from './shared/robotsDirective';
+import { JOB_BOARD_SECTION_PATHNAME_RX } from '../scripts/lib/jobBoardSections.mjs';
+import { AD_PAGE_DIAG_FN } from './shared/adPageDiagInline';
 
 /**
  * Regex-source strings interpolated into SELF_HEAL_SCRIPT_CONTENT below,
@@ -102,6 +122,9 @@ const POSTHOG_THIRD_PARTY_STACK_SOURCE = THIRD_PARTY_STACK_ORIGINS.map((re) => r
  * SPA TypeScript filter cannot drift on the frame pattern.
  */
 const POSTHOG_ORIGIN_REDACTED_FRAME_SOURCE = WEBKIT_ORIGIN_REDACTED_FRAME.source;
+const POSTHOG_GOOGLE_IOS_APP_UA_SOURCE = GOOGLE_IOS_APP_UA_PATTERN.source;
+const POSTHOG_FIRST_PARTY_ASSET_FRAME_SOURCE = FIRST_PARTY_ASSET_FRAME_PATTERN.source;
+const POSTHOG_STACK_OVERFLOW_MESSAGE_SOURCE = STACK_OVERFLOW_MESSAGE_PATTERN.source;
 
 const DEPLOY_BUILD_ID_OVERRIDE = (process.env.DEPLOY_BUILD_ID || '').replace(/\D/g, '');
 export const BUILD_ID = DEPLOY_BUILD_ID_OVERRIDE || String(Date.now());
@@ -330,10 +353,11 @@ export const EARLY_BOOT_SCRIPT = `<script src="/assets/${EARLY_BOOT_FILENAME}"><
  * Self-wires ALL `[data-fuel-history-chart]` blocks on the page (no
  * `currentScript.previousElementSibling` dependency), guarded by a global flag
  * so a duplicate tag (a page with >1 chart) is a no-op. Button visuals follow
- * the `aria-pressed` attribute via seo-static.css; content/stats visibility is
- * toggled with the `.s-on` class.
+ * the `aria-selected` attribute via seo-static.css; roving `tabindex` and
+ * panel `aria-hidden` state stay synchronized with the active range;
+ * content/stats visibility is toggled with the `.s-on` class.
  */
-export const FUEL_CHART_SCRIPT_CONTENT = `(function(){if(window.__fuelChartWired)return;window.__fuelChartWired=1;function wire(root){var btns=root.querySelectorAll('[data-range-btn]');var contents=root.querySelectorAll('[data-range-content]');var statsEls=root.querySelectorAll('[data-range-stats]');function setActive(r){btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-range-btn')===r?'true':'false');});contents.forEach(function(c){c.classList.toggle('s-on',c.getAttribute('data-range-content')===r);});statsEls.forEach(function(s){s.classList.toggle('s-on',s.getAttribute('data-range-stats')===r);});}btns.forEach(function(b){b.addEventListener('click',function(){setActive(b.getAttribute('data-range-btn'));});});}document.querySelectorAll('[data-fuel-history-chart]').forEach(wire);})();`;
+export const FUEL_CHART_SCRIPT_CONTENT = `(function(){if(window.__fuelChartWired)return;window.__fuelChartWired=1;function wire(root){var btns=root.querySelectorAll('[data-range-btn]');var contents=root.querySelectorAll('[data-range-content]');var statsEls=root.querySelectorAll('[data-range-stats]');function setActive(r){btns.forEach(function(b){var active=b.getAttribute('data-range-btn')===r;b.setAttribute('aria-selected',active?'true':'false');b.setAttribute('tabindex',active?'0':'-1');});contents.forEach(function(c){var active=c.getAttribute('data-range-content')===r;c.classList.toggle('s-on',active);c.setAttribute('aria-hidden',active?'false':'true');});statsEls.forEach(function(s){s.classList.toggle('s-on',s.getAttribute('data-range-stats')===r);});}function moveFrom(b,key){var index=Array.prototype.indexOf.call(btns,b);var next=-1;if(key==='ArrowRight')next=(index+1)%btns.length;else if(key==='ArrowLeft')next=(index+btns.length-1)%btns.length;else if(key==='Home')next=0;else if(key==='End')next=btns.length-1;if(next<0)return;var target=btns[next];setActive(target.getAttribute('data-range-btn'));target.focus();}var initial=null;btns.forEach(function(b){if(b.getAttribute('aria-selected')==='true')initial=b.getAttribute('data-range-btn');b.addEventListener('click',function(){setActive(b.getAttribute('data-range-btn'));});b.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'||e.key==='Home'||e.key==='End'){e.preventDefault();moveFrom(b,e.key);}});});if(!initial&&btns.length)initial=btns[0].getAttribute('data-range-btn');if(initial)setActive(initial);}document.querySelectorAll('[data-fuel-history-chart]').forEach(wire);})();`;
 export const FUEL_CHART_SCRIPT_FILENAME = 'fuel-chart.js';
 export const FUEL_CHART_SCRIPT_TAG = `<script src="/assets/${FUEL_CHART_SCRIPT_FILENAME}" defer></script>`;
 
@@ -383,7 +407,7 @@ export function buildCanonicalBridgePage(options: {
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>${title}</title>
- <meta name="description" content="${clampMetaDescription(description)}">
+ <meta name="description" content="${clampMetaDescription(description, undefined, lang)}">
  <meta name="robots" content="${robotsContent}">
  <link rel="canonical" href="${canonicalUrl}">${hreflangHtml}
  ${ANALYTICS_SNIPPET}
@@ -393,7 +417,7 @@ export function buildCanonicalBridgePage(options: {
  <body>
  <main class="card">
  <div class="logo">
- <img src="/assets/logo.svg" width="28" height="28" alt="" loading="eager" decoding="async">
+ <img src="/assets/logo.svg" width="28" height="28" alt="Frontaliere Ticino" loading="eager" decoding="async">
  <span>Frontaliere Ticino</span>
  </div>
  <h1>${title}</h1>
@@ -425,7 +449,7 @@ export function buildFlatRedirect(
  // (e.g. "&am…"). The SERP budget applies to both the <meta description> and the
  // og:description below. This bridge is always noindex, but clamping keeps the
  // emit path consistent with every other generator (the deferred #2230 sibling).
- const desc = og ? esc(clampMetaDescription(og.description)) : 'Apri la versione canonica aggiornata di questa pagina su Frontaliere Ticino.';
+ const desc = og ? esc(clampMetaDescription(og.description, undefined, lang)) : 'Apri la versione canonica aggiornata di questa pagina su Frontaliere Ticino.';
  const ogTags = og
  ? `
  <meta property="og:type" content="article">
@@ -452,7 +476,7 @@ export function buildFlatRedirect(
  <body>
  <main class="card">
  <div class="logo">
- <img src="/assets/logo.svg" width="28" height="28" alt="" loading="eager" decoding="async">
+ <img src="/assets/logo.svg" width="28" height="28" alt="Frontaliere Ticino" loading="eager" decoding="async">
  <span>Frontaliere Ticino</span>
  </div>
  <h1>Versione canonica disponibile</h1>
@@ -492,22 +516,29 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
  * `transport_type: 'beacon'` so it doesn't block page rendering or
  * interfere with SPA hydration.
  *
- * NOTE: We no longer set `window.__GTAG_PAGE_VIEW_SENT__` here.
- * Previously the flag was used by analytics.ts to skip the Firebase
- * page_view and avoid a duplicate. But the flag was set synchronously
- * before gtag.js loaded, so when gtag.js was blocked (ad blockers,
- * ~30-40% of users), Firebase also skipped → sessions had no page_view
- * → GA4 landing page = "(not set)" for ~25% of sessions.
- * Firebase now always fires page_view, accepting a minor duplicate for
- * non-blocked users in exchange for correct landing page in all sessions.
+ * The static page_view carries the same emission identity that the hydrated
+ * React page_view reuses. This keeps the bounce-safe static signal and the
+ * Firebase signal deduplicable without suppressing either producer when the
+ * gtag library is blocked.
  */
 /**
- * Plain JS body for the gtag init — written to dist/assets/gtag-init.js by
+ * Plain JS body for the gtag init — written to both the content-addressed
+ * dist/assets/gtag-init-<hash>.js and the legacy dist/assets/gtag-init.js by
  * staticScriptsPlugin. The googletagmanager loader stays inline (it's already
  * external + async). Saves ~260 B/page across ~200k SEO pages (~52 MB dist).
  */
-export const GTAG_INIT_CONTENT = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon'});`;
+export const ANALYTICS_EMISSION_ID_FACTORY_JS = `function(){try{if(typeof crypto!=='undefined'&&typeof crypto.randomUUID==='function')return crypto.randomUUID();}catch(e){}return Date.now()+'-'+Math.random().toString(36).slice(2);}`;
+export const GTAG_INIT_CONTENT = `(function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();window.__GTAG_PAGE_VIEW_EMISSION_ID__=emissionId;window.__GTAG_PAGE_VIEW_PATH__=location.pathname;gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon',send_page_view:false});gtag('event','page_view',{page_path:location.pathname,page_location:location.href,page_title:document.title,emission_id:emissionId});})();`;
 export const GTAG_INIT_FILENAME = 'gtag-init.js';
+// New HTML references a content-addressed filename so a stale edge copy of
+// this identity-bearing producer cannot satisfy a page that references newer
+// bytes. The stable alias remains emitted for already-published HTML (#9403).
+export const GTAG_INIT_CONTENT_HASH = createHash('sha256')
+  .update(GTAG_INIT_CONTENT)
+  .digest('hex')
+  .slice(0, 12);
+export const GTAG_INIT_VERSIONED_FILENAME = `gtag-init-${GTAG_INIT_CONTENT_HASH}.js`;
+export const GTAG_INIT_URL = `/assets/${GTAG_INIT_VERSIONED_FILENAME}`;
 // gtag-init.js only pushes the GA4 page_view onto window.dataLayer; it does
 // NOT need to run before paint. `defer` takes it off the render-blocking path
 // (it ran synchronously in <head> before) so first paint no longer waits on a
@@ -540,7 +571,7 @@ export const CF_BEACON_SNIPPET = `<script defer src="https://static.cloudflarein
 export const GTAG_LOADER_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>`;
 
 export const GTAG_SNIPPET = `${GTAG_LOADER_SNIPPET}
- <script defer src="/assets/${GTAG_INIT_FILENAME}"></script>
+ <script defer src="${GTAG_INIT_URL}"></script>
  ${CF_BEACON_SNIPPET}`;
 
 /**
@@ -572,10 +603,18 @@ export const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
  * Why a string and not the TS function: these run inside externalised plain-JS
  * assets emitted at build time (no module graph), so the detection must be
  * embedded literally. botPatterns.ts stays the source of truth for the pattern
- * list; only the wrapper logic is necessarily re-expressed here.
+ * list and for the automation screen/language signature constants (interpolated below);
+ * only the wrapper logic is necessarily re-expressed here.
  */
 const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
-export const BOT_GATE_FN = `function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return true;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return true;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return true;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return true;if(navigator.plugins&&navigator.plugins.length===0)return true;if(typeof navigator.permissions==='undefined')return true;}return false;}`;
+const AUTOMATION_TIME_ZONES_LITERAL = JSON.stringify(AUTOMATION_TIME_ZONES);
+const AUTOMATION_LANGUAGE_CHROME_MAJORS_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_CHROME_MAJORS);
+const AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS);
+const AUTOMATION_LANGUAGE_TIME_ZONES_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_TIME_ZONES);
+const POSTHOG_LOCAL_DEV_HOSTS_LITERAL = JSON.stringify(POSTHOG_LOCAL_DEV_HOSTS);
+const POSTHOG_QUOTA_EXEMPT_EVENTS_LITERAL = JSON.stringify(POSTHOG_QUOTA_EXEMPT_EVENTS);
+const POSTHOG_LOCAL_HOST_GATE_FN = `function(){var h=String(window.location&&window.location.hostname||'').toLowerCase();return ${POSTHOG_LOCAL_DEV_HOSTS_LITERAL}.indexOf(h)>=0;}`;
+export const BOT_GATE_FN = `function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return true;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return true;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return true;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return true;if(navigator.plugins&&navigator.plugins.length===0)return true;if(typeof navigator.permissions==='undefined')return true;}var S=window.screen;if(S&&S.width===${AUTOMATION_SCREEN_WIDTH}&&S.height===${AUTOMATION_SCREEN_HEIGHT}&&ua.indexOf('windows nt')>=0&&ua.indexOf('chrome/')>=0&&ua.indexOf('mobile')<0&&String(navigator.language||'').toLowerCase().indexOf('en')===0){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_TIME_ZONES_LITERAL}.indexOf(tz)>=0)return true;}if(String(navigator.language||'').toLowerCase()===${JSON.stringify(AUTOMATION_LANGUAGE)}&&ua.indexOf('chrome/')>=0&&${AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL}.every(function(token){return ua.indexOf(token)<0;})&&ua.indexOf('mobile')<0&&(ua.indexOf('windows nt')>=0||ua.indexOf('macintosh')>=0)&&${AUTOMATION_LANGUAGE_CHROME_MAJORS_LITERAL}.indexOf(parseInt(ua.split('chrome/')[1]||'',10))>=0){var ltz='';try{ltz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_LANGUAGE_TIME_ZONES_LITERAL}.indexOf(ltz)>=0)return true;}return false;}`;
 
 /**
  * Plain JS body for the PostHog snippet — written to dist/assets/posthog-init.js
@@ -597,15 +636,18 @@ export const BOT_GATE_FN = `function(){var ua=(navigator.userAgent||'').toLowerC
  * that drops exceptions whose ENTIRE stack lives in a known third-party
  * script origin (THIRD_PARTY_STACK_ORIGINS). Wrapped in try/catch to fail
  * OPEN — a filter bug must never break PostHog init or hide a real error.
+ * The #8773 Google-iOS injected recursion guard is generated from the same
+ * message, user-agent and first-party-asset patterns as the SPA filter.
  * The quota wrapper below samples complete sessions at the same deterministic
  * rate as services/posthogQuota.ts while exempting replay snapshots,
- * exceptions, and identity events.
+ * identity events, and the low-cardinality L5 decision events. Exceptions
+ * still pass through the benign-stack filter below before they are accepted.
  */
-const POSTHOG_BEFORE_SEND_FN = `function(ev){try{if(!ev||ev.event!=='$exception')return ev||null;var p=ev.properties||{};var rv=p.$exception_values||p.$exception_list;var msgs=[];if(Array.isArray(rv)){for(var i=0;i<rv.length;i++){var v=rv[i];if(typeof v==='string')msgs.push(v);else if(v&&typeof v==='object'&&typeof v.value==='string')msgs.push(v.value);}}var blob=msgs.join(' | ');if(blob&&/${POSTHOG_BENIGN_SOURCE}/i.test(blob))return null;var list=p.$exception_list;var origins=[];if(Array.isArray(list)){for(var j=0;j<list.length;j++){var exc=list[j];var frames=exc&&exc.stacktrace&&exc.stacktrace.frames;if(Array.isArray(frames)){for(var k=0;k<frames.length;k++){var fr=frames[k];var fn=fr&&(fr.filename||(fr.junk_drawer&&fr.junk_drawer.raw_frame&&fr.junk_drawer.raw_frame.filename));if(fn)origins.push(fn);}}}}if(origins.length>0){var allTP=true;for(var m=0;m<origins.length;m++){if(!/${POSTHOG_THIRD_PARTY_STACK_SOURCE}/i.test(origins[m])){allTP=false;break;}}if(allTP)return null;}if(origins.length===0){var key=String(blob||'').replace(/^(?:Uncaught\\s+)?(?:\\w*Error:\\s*)?/,'').replace(/^\\s+|\\s+$/g,'').slice(0,120);var buf=window.__frRawStacks||[];var raw='';for(var q=buf.length-1;q>=0;q--){var ek=String(buf[q][0]||'').replace(/^(?:Uncaught\\s+)?(?:\\w*Error:\\s*)?/,'').replace(/^\\s+|\\s+$/g,'').slice(0,120);if(key&&ek&&(key.indexOf(ek)>=0||ek.indexOf(key)>=0)){raw=buf[q][1];break;}}if(raw){var fr=raw.split('\\n'),cl=[];for(var z=0;z<fr.length;z++){var tl=fr[z].replace(/^\\s+|\\s+$/g,'');if(tl)cl.push(tl);}if(cl.length>=${ORIGIN_REDACTED_MIN_FRAMES}){var allRed=true;for(var y=0;y<cl.length;y++){if(!/${POSTHOG_ORIGIN_REDACTED_FRAME_SOURCE}/.test(cl[y])){allRed=false;break;}}if(allRed)return null;}}}return ev;}catch(e){return ev||null;}}`;
-const POSTHOG_QUOTA_BEFORE_SEND_FN = `function(ev){if(!ev)return null;var e=ev.event;if(e==='$snapshot'||e==='$identify'||e==='$set'||e==='$set_once'||e==='$groupidentify'||e==='$create_alias')return ev;if(e==='$exception')return (${POSTHOG_BEFORE_SEND_FN})(ev);var p=ev.properties||{};var sampleKey=p.$session_id||p.distinct_id||ev.distinct_id;if(!sampleKey&&${POSTHOG_EVENT_SAMPLE_RATE}<=0)return null;if(sampleKey){var sampleText=String(sampleKey),sampleHash=2166136261;for(var i=0;i<sampleText.length;i++){sampleHash^=sampleText.charCodeAt(i);sampleHash=Math.imul(sampleHash,16777619);}if((sampleHash>>>0)/4294967296>=${POSTHOG_EVENT_SAMPLE_RATE})return null;}return (${POSTHOG_BEFORE_SEND_FN})(ev);}`;
-export const POSTHOG_INIT_CONTENT = `if(!(${BOT_GATE_FN})()){window.__frRawStacks=window.__frRawStacks||[];function __frRec(m,st){if(!st)return;window.__frRawStacks.push([String(m||''),String(st)]);if(window.__frRawStacks.length>8)window.__frRawStacks.shift();}window.addEventListener('error',function(e){var er=e&&e.error;if(er&&er.stack)__frRec(er.message||e.message,er.stack);});window.addEventListener('unhandledrejection',function(e){var r=e&&e.reason;if(r&&r.stack)__frRec(r.message,r.stack);});!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage',session_recording:{sampleRate:${POSTHOG_SESSION_REPLAY_SAMPLE_RATE}},before_send:${POSTHOG_QUOTA_BEFORE_SEND_FN}});}`;
+const POSTHOG_BEFORE_SEND_FN = `function(ev){try{if(!ev||ev.event!=='$exception')return ev||null;var p=ev.properties||{};var rv=p.$exception_values||p.$exception_list;var msgs=[];if(Array.isArray(rv)){for(var i=0;i<rv.length;i++){var v=rv[i];if(typeof v==='string')msgs.push(v);else if(v&&typeof v==='object'&&typeof v.value==='string')msgs.push(v.value);}}var blob=msgs.join(' | ');if(blob&&/${POSTHOG_BENIGN_SOURCE}/i.test(blob))return null;var list=p.$exception_list;var origins=[];if(Array.isArray(list)){for(var j=0;j<list.length;j++){var exc=list[j];var frames=exc&&exc.stacktrace&&exc.stacktrace.frames;if(Array.isArray(frames)){for(var k=0;k<frames.length;k++){var fr=frames[k];var fn=fr&&(fr.filename||(fr.junk_drawer&&fr.junk_drawer.raw_frame&&fr.junk_drawer.raw_frame.filename));if(fn)origins.push(fn);}}}}if(origins.length>0){var allTP=true;for(var m=0;m<origins.length;m++){if(!/${POSTHOG_THIRD_PARTY_STACK_SOURCE}/i.test(origins[m])){allTP=false;break;}}if(allTP)return null;}var raw='';if(origins.length===0){var key=String(blob||'').replace(/^(?:Uncaught\\s+)?(?:\\w*Error:\\s*)?/,'').replace(/^\\s+|\\s+$/g,'').slice(0,120);var buf=window.__frRawStacks||[];for(var q=buf.length-1;q>=0;q--){var ek=String(buf[q][0]||'').replace(/^(?:Uncaught\\s+)?(?:\\w*Error:\\s*)?/,'').replace(/^\\s+|\\s+$/g,'').slice(0,120);if(key&&ek&&(key.indexOf(ek)>=0||ek.indexOf(key)>=0)){raw=buf[q][1];break;}}}var stack=origins.length>0?origins.join(' '):raw;if(/${POSTHOG_GOOGLE_IOS_APP_UA_SOURCE}/.test(window.navigator.userAgent||'')&&/${POSTHOG_STACK_OVERFLOW_MESSAGE_SOURCE}/i.test(blob)&&!/${POSTHOG_FIRST_PARTY_ASSET_FRAME_SOURCE}/.test(stack))return null;if(raw){var fr=raw.split('\\n'),cl=[];for(var z=0;z<fr.length;z++){var tl=fr[z].replace(/^\\s+|\\s+$/g,'');if(tl)cl.push(tl);}if(cl.length>=${ORIGIN_REDACTED_MIN_FRAMES}){var allRed=true;for(var y=0;y<cl.length;y++){if(!/${POSTHOG_ORIGIN_REDACTED_FRAME_SOURCE}/.test(cl[y])){allRed=false;break;}}if(allRed)return null;}}return ev;}catch(e){return ev||null;}}`;
+const POSTHOG_QUOTA_BEFORE_SEND_FN = `function(ev){if(!ev)return null;var e=ev.event;if(${POSTHOG_QUOTA_EXEMPT_EVENTS_LITERAL}.indexOf(e)>=0)return ev;if(e==='$exception')return (${POSTHOG_BEFORE_SEND_FN})(ev);var p=ev.properties||{};var sampleKey=p.$session_id||p.distinct_id||ev.distinct_id;if(!sampleKey&&${POSTHOG_EVENT_SAMPLE_RATE}<=0)return null;if(sampleKey){var sampleText=String(sampleKey),sampleHash=2166136261;for(var i=0;i<sampleText.length;i++){sampleHash^=sampleText.charCodeAt(i);sampleHash=Math.imul(sampleHash,16777619);}if((sampleHash>>>0)/4294967296>=${POSTHOG_EVENT_SAMPLE_RATE})return null;}return (${POSTHOG_BEFORE_SEND_FN})(ev);}`;
+export const POSTHOG_INIT_CONTENT = `if(!(${POSTHOG_LOCAL_HOST_GATE_FN})()&&!(${BOT_GATE_FN})()){window.__frRawStacks=window.__frRawStacks||[];function __frRec(m,st){if(!st)return;window.__frRawStacks.push([String(m||''),String(st)]);if(window.__frRawStacks.length>8)window.__frRawStacks.shift();}window.addEventListener('error',function(e){var er=e&&e.error;if(er&&er.stack)__frRec(er.message||e.message,er.stack);});window.addEventListener('unhandledrejection',function(e){var r=e&&e.reason;if(r&&r.stack)__frRec(r.message,r.stack);});!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage',session_recording:{sampleRate:${POSTHOG_SESSION_REPLAY_SAMPLE_RATE}},before_send:${POSTHOG_QUOTA_BEFORE_SEND_FN}});}`;
 export const POSTHOG_INIT_FILENAME = 'posthog-init.js';
-export const POSTHOG_SNIPPET = `<script src="/assets/${POSTHOG_INIT_FILENAME}"></script>`;
+export const POSTHOG_SNIPPET = `<script defer src="/assets/${POSTHOG_INIT_FILENAME}"></script>`;
 
 /**
  * Google AdSense loader snippet. Included in every statically-generated page
@@ -736,20 +778,76 @@ export const FC_CONSENT_BRIDGE_JS = `(function(){if(window.__ftFcConsentBridge)r
 /** Event name the client listens on; shared contract with services/adBlockDetection.ts. */
 export const FC_ADBLOCK_SIGNAL_EVENT = 'frontaliere:adblock-data';
 
+/**
+ * Click-only Offerwall gate (2026-09-24; every job-board section and
+ * off-board suppression since 2026-09-26, owner decision).
+ *
+ * The Offerwall is the AdSense one, the only rewarded demand the site has,
+ * and it must appear only when the visitor clicks "Candidati", never on entry
+ * to a page. AdSense includes the whole site, so the gate decides where it
+ * may open. Funding Choices calls `controlledMessagingFunction` twice per
+ * page view: first with an empty MessageTypeEnum, then with
+ * OFFERWALL/AD_BLOCKING populated. The live enum values are strings
+ * ({OFFERWALL:"offerwall"}, read on the job board 2026-09-27); a number is
+ * accepted too. A number-only check (#9974) read the live enum as missing and
+ * sent `proceed(false)` for every visitor, dropping the Offerwall and the CMP
+ * site-wide. The first enum-less call is a one-shot bootstrap allowance; if
+ * the enum is still missing on a later call, the gate fails closed because a
+ * type-specific Offerwall suppression is not possible. The second call also
+ * carries the GDPR
+ * consent message: holding it for a visitor with no consent decision kept
+ * the CMP off screen until the release (live probe, 24-09). So:
+ *  - off the job-board sections (JOB_BOARD_SECTION_PATHNAME_RX: every canton,
+ *    the Switzerland aggregator, it/en/de/fr) it suppresses only the
+ *    Offerwall (`proceed(false,[OFFERWALL])`; the CMP and the ad-block
+ *    message still show) and marks the gate `off_board`. It never proceeds
+ *    the Offerwall there: "Candidati" does not exist on those pages;
+ *  - on a job-board section the call is HELD only when a decision is stored
+ *    on both sides: `frontaliere_ads_consent` (our bridge) AND a TC string in
+ *    Funding Choices' own `FCCDCF` cookie (before consent its TC slot is null;
+ *    a TCF v2 string always starts with "C"). Our key alone outlives the
+ *    Funding Choices cookie, and a held re-prompt would hide the CMP for the
+ *    whole SPA session. Otherwise it suppresses only the Offerwall (the CMP
+ *    shows at once; no Offerwall on that page view) and marks the gate
+ *    `suppressed` so the click can report why.
+ * A visitor who lands off the board and navigates to a job in the SPA marks
+ * the entry as waiting for a fresh Offerwall callback. When Funding Choices
+ * delivers that destination-route callback, it is held when consent is still
+ * available, so `window.__ftOfferwallGate.release()` can open the Offerwall
+ * on the destination route. Leaving the board still suppresses the held
+ * callback and returns to `off_board`. `release()`
+ * (services/offerwallClickGate.ts, from the rewarded application offer)
+ * proceeds a held call. Live probe on the job board
+ * with consent stored: holding only that call left the TCF signal and the
+ * first AdSense request on schedule (11.9 s vs 7.7-16.5 s in two controls),
+ * while holding the first call pushed the first ad request from 16.5 s to
+ * 32.9 s — so the first call always proceeds. Cost: an ad-block recovery
+ * message on job-board pages also waits for the click.
+ *
+ * Carried by index.html (inline copy), OFFERWALL_FC_SNIPPET,
+ * ADSENSE_LOADER_CONTENT and GPT_LOADER_CONTENT (build-plugins/jobBoardGpt.ts,
+ * deferred but ordered before DOMContentLoaded), so every page that loads
+ * Funding Choices installs it before user interaction. The loader matters most:
+ * most job-board URLs (listing, company, search, sector pages) and every
+ * static page without the snippet load Funding Choices only through it. The
+ * first copy to run installs the gate and the others step aside.
+ * tests/offerwall-click-gate-parity.test.ts executes the copies and pins the
+ * path regex of the inline twin.
+ */
+export const FC_JOBBOARD_OFFERWALL_GATE_JS = `(function(){var g=window.googlefc=window.googlefc||{};if(g.__ftOfferwallGateInstalled)return;var previousControlledMessagingFunction=g.controlledMessagingFunction;function isJobBoardPath(){var p=window.location&&window.location.pathname||'';return /${JOB_BOARD_SECTION_PATHNAME_RX.source}/.test(p);}function hasConsentDecision(){var d=false;try{d=!!window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){}if(d){var c=(window.document&&window.document.cookie||'').match(/(?:^|;\\s*)FCCDCF=([^;]*)/),v='';try{v=c?decodeURIComponent(c[1]):'';}catch(e){}d=/\\x22C[A-Za-z0-9_-]{20,}/.test(v);}return d;}function captureDecision(a,t){return{allow:a!==false,types:Array.isArray(t)?t.slice():undefined};}function appendTypes(t,e){for(var i=0;i<(e||[]).length;i++)if(t.indexOf(e[i])===-1)t.push(e[i]);}function mergeDecisions(p,q){var a=p||{allow:true},b=q||{allow:true};if(a.allow&&b.allow)return{allow:true};if(!a.allow&&(!a.types||!a.types.length))return{allow:false};if(!b.allow&&(!b.types||!b.types.length))return{allow:false};var t=[];appendTypes(t,a.types);appendTypes(t,b.types);return{allow:false,types:t};}function deliver(m,p,q){var d=mergeDecisions(p,q);if(d.allow)m.proceed(true);else if(d.types&&d.types.length)m.proceed(false,d.types);else m.proceed(false);}function hold(w,e,o){w.held=w.held||[];w.held.push(e);w.offerwall=o;w.state='held';w.release=function(){if(w.state!=='held')return false;w.state='released';var h=w.held.splice(0);for(var i=0;i<h.length;i++)try{deliver(h[i].message,h[i].previous,{allow:true});}catch(e){}return true;};}function syncRoute(){var w=window.__ftOfferwallGate;if(!w)return;if(isJobBoardPath()){if(w.state==='off_board'&&w.reacquire){w.reacquire=undefined;w.state=hasConsentDecision()?'idle':'suppressed';w.held=[];w.release=undefined;w.offerwall=undefined;}return;}if(w.state==='held'){var h=w.held.splice(0),o=w.offerwall!==undefined?w.offerwall:(g.MessageTypeEnum||{}).OFFERWALL;for(var i=0;i<h.length;i++)try{deliver(h[i].message,h[i].previous,o===undefined?{allow:false}:{allow:false,types:[o]});}catch(e){}}w.state='off_board';w.held=[];w.release=undefined;w.offerwall=undefined;w.reacquire=undefined;}function watchRoutes(){var h=window.history;if(h)['pushState','replaceState'].forEach(function(k){var original=h[k];if(typeof original!=='function')return;h[k]=function(){var r=original.apply(this,arguments);syncRoute();return r;};});if(typeof window.addEventListener==='function')window.addEventListener('popstate',syncRoute);}function handleControlledMessaging(m,p){var E=g.MessageTypeEnum||{};if(typeof E.OFFERWALL!=='number'&&typeof E.OFFERWALL!=='string'){if(g.__ftOfferwallBootstrapComplete){deliver(m,p,{allow:false});return;}g.__ftOfferwallBootstrapComplete=true;deliver(m,p,{allow:true});return;}syncRoute();if(!isJobBoardPath()){var w=window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'off_board',held:[]};w.reacquire=true;deliver(m,p,{allow:false,types:[E.OFFERWALL]});return;}if(!hasConsentDecision()){window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'suppressed',held:[]};deliver(m,p,{allow:false,types:[E.OFFERWALL]});return;}var w=window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'idle',held:[]};if(w.state==='released'){deliver(m,p,{allow:true});return;}hold(w,{message:m,previous:p},E.OFFERWALL);}g.controlledMessagingFunction=function(m){var self=this,done=false,finish=function(p){if(done)return;done=true;handleControlledMessaging(m,p||{allow:false});};if(typeof previousControlledMessagingFunction!=='function'){finish({allow:true});return;}var delegated=Object.create(m);delegated.proceed=function(a,t){finish(captureDecision(a,t));};var result;try{result=previousControlledMessagingFunction.call(self,delegated);}catch(e){finish({allow:false});return;}if(result&&typeof result.then==='function')result.then(function(){if(!done)finish({allow:false});},function(){finish({allow:false});});};g.__ftOfferwallGateInstalled=true;watchRoutes();})();`;
+
 export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('${FC_ADBLOCK_SIGNAL_EVENT}'));}catch(e){}}catch(e){}}});})();`;
 
 /**
  * Inline lazy-loader injected at the bottom of every static page (and also
  * emitted from index.html). Runs once per page and:
- *  0. Bot gate: `BOT_GATE_FN` (shared with POSTHOG_INIT_CONTENT, the inline-JS
- *     twin of services/botPatterns.ts `isLikelyBot()`) returns true for bots —
- *     the loader then returns immediately. This is the static-HTML counterpart
- *     to `<AdSenseBanner>`'s SKIP_FOR_BOT and extends the bot filter to Auto Ads
- *     (Anchor / In-page / Vignette) which are injected by adsbygoogle.js itself,
- *     bypassing the React component. ~95% of revenue comes from those Auto Ads
- *     formats — without this gate, bots still triggered the script load and
- *     inflated AD_REQUESTS at near-zero RPM. See services/botPatterns.ts for the
- *     shared pattern source.
+ *  -1. Installs FC_JOBBOARD_OFFERWALL_GATE_JS before its deferred Funding
+ *     Choices carrier can load, so on every static page the Offerwall waits for
+ *     "Candidati" (job-board sections) or stays suppressed (every other
+ *     page), not only where OFFERWALL_FC_SNIPPET is injected.
+ *  0.3. Starts the per-page ad diagnosis (AD_PAGE_DIAG_CALL → one GA4
+ *     `ad_page_diag` per page view), before every early return below so a
+ *     page view without ads still reports which gate stopped them.
  *  0.5. Reader no-ads entitlement (#3655, part 2/2 of #2961): if
  *     localStorage `reader_noads_active` is `'true'`, the loader also returns
  *     immediately — the static-HTML counterpart to the same check in
@@ -769,6 +867,15 @@ export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)r
  *     CustomEvent + cross-tab `storage` and arms the ad path the moment the
  *     CMP grants — same-tab, no reload, which is what protects the very first
  *     SEO pageview's revenue.
+ *  0.8. Bot gate: `BOT_GATE_FN` (shared with POSTHOG_INIT_CONTENT, the inline-JS
+ *     twin of services/botPatterns.ts `isLikelyBot()`) runs AFTER the
+ *     consent-only bootstrap above. It still returns before any ad-serving
+ *     script can load, matching `<AdSenseBanner>`'s `SKIP_FOR_BOT` and extending
+ *     the filter to Auto Ads (Anchor / In-page / Vignette), while leaving the CMP
+ *     visible to synthetic visitors and real readers whose ad path is suppressed.
+ *     ~95% of revenue comes from Auto Ads, so the bot gate remains fail-closed
+ *     for ads; Funding Choices is a consent surface, not an ad-serving script.
+ *     See services/botPatterns.ts for the shared pattern source.
  *     (rootMargin 200px) — on first visible slot, loads adsbygoogle.js.
  *  2. Falls back to requestIdleCallback for pages without manual slots so Auto
  *     Ads still serve. Browsers lacking requestIdleCallback (legacy iOS Safari
@@ -791,22 +898,71 @@ export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)r
  *     single responsive `<ins>` per in-feed point (see `infeedAdListItemHtml`),
  *     not by skipping pushes here.
  */
+/** Manual slot state is shared with the SPA. A response deadline marks a
+ * pending request; only explicit no-fill/script failures collapse, offscreen.
+ * The static carrier consumes the same function over HTTP on corpus pages. */
+const STATIC_AD_COLLAPSE_CONTENT = `var observeManualAd=(function(){function __name(fn){return fn;}return ${observeManualAd.toString()};})();
+var staticAdManual=${isManualSlot.toString()};
+var staticAdTemplate=${AD_PAGE_TEMPLATE_INLINE_FN};
+var staticAdPlacements=${JSON.stringify(STATIC_AD_UNIQUE_PLACEMENTS)};
+var staticAdWatches=new Map();
+function staticAdIsTarget(el){return staticAdManual(el)&&!el.closest('[data-ft-ad-state]');}
+function staticAdWatch(el){
+ if(!staticAdIsTarget(el))return null;
+ if(staticAdWatches.has(el))return staticAdWatches.get(el);
+ var path=location.pathname,template=staticAdTemplate(path,document),placement=el.getAttribute('data-ad-placement')||staticAdPlacements[JSON.stringify([el.getAttribute('data-ad-slot'),el.getAttribute('data-ad-format'),el.getAttribute('data-ad-layout')||''])]||el.getAttribute('data-ad-slot');
+ var box=el.closest('.ft-infeed-ad')||el;
+ var state=observeManualAd(el,box,${AD_FILL_TIMEOUT_MS},function(next,reason){
+   el.setAttribute('data-ft-static-ad-state',next);
+   if(next==='collapsed')el.setAttribute('data-ft-static-ad-collapsed','');
+   else if(next==='filled'||next==='loading')el.removeAttribute('data-ft-static-ad-collapsed');
+ },function(event,metrics){
+   if(typeof window.gtag==='function')window.gtag('event',event,Object.assign({slot:el.getAttribute('data-ad-slot'),ad_format:el.getAttribute('data-ad-format'),page_path:path,page_template:template,placement:placement,render_path:'static',network:'adsense'},metrics));
+ });
+ staticAdWatches.set(el,state);return state;
+}
+function staticAdWatchAll(){var slots=document.querySelectorAll('ins.adsbygoogle');for(var i=0;i<slots.length;i++)if(staticAdIsTarget(slots[i]))staticAdWatch(slots[i]);}
+function staticAdArm(){function start(){staticAdWatchAll();new MutationObserver(function(){staticAdWatches.forEach(function(watch,el){if(!el.isConnected){watch.stop();staticAdWatches.delete(el);}});}).observe(document.body,{childList:true,subtree:true});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();}
+function staticAdResolveManualFailure(reason){function resolve(){var slots=document.querySelectorAll('ins.adsbygoogle');for(var i=0;i<slots.length;i++){var watch=staticAdWatch(slots[i]);if(watch)watch.fail(reason);}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',resolve,{once:true});else resolve();}
+var staticScriptFailed=false;function staticAdScriptFailed(){staticScriptFailed=true;staticAdResolveManualFailure('script_failed');}`;
+
+/**
+ * Consent-only part of the static loader. It intentionally runs before the
+ * ad-serving bot gate: Funding Choices is the surface that collects consent,
+ * while the bot gate must continue to suppress every ad-serving script.
+ * `hasAdsDecision()` opens AdSense once the visitor answered, either way, like
+ * `isAdSenseAllowed()` in services/adsConsent.ts: without Purpose 1 consent
+ * Google serves Limited Ads from the same TC string.
+ */
+const FC_CMP_BOOTSTRAP = `${FC_CONSENT_BRIDGE_JS}${FC_ADBLOCK_BRIDGE_JS}function hasAdsDecision(){try{var v=window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');return v==='${ADS_CONSENT_GRANTED}'||v==='${ADS_CONSENT_DENIED}';}catch(e){return false;}}${FC_ENSURE_JS}function scheduleFc(){(window.requestIdleCallback||ricFb)(ensureFc,{timeout:4000});}`;
+
+/**
+ * Per-page ad diagnosis (`ad_page_diag`, services/adPageDiag.ts), started
+ * before the no-ads and bot-gate early returns so those page views report why
+ * no ad ran (`ad_path`). Its bot verdict is BOT_GATE_FN itself, evaluated when
+ * the snapshot is taken. Read-only and fail-open: it never touches the ad path.
+ */
+const AD_PAGE_DIAG_CALL = `(${AD_PAGE_DIAG_FN})(function(){return(${BOT_GATE_FN})();});`;
+
 /**
  * Plain JS body for the AdSense lazy loader — written to dist/assets/adsense-loader.js
  * by staticScriptsPlugin. This was the LARGEST inline script in every static page:
  * ~2 KB minified × ~200k SEO pages = ~400 MB dist. Externalising drops per-page cost
  * from ~2200 B to ~90 B (the <script src=...> tag).
  */
-export const ADSENSE_LOADER_CONTENT = `(function(){if((${BOT_GATE_FN})())return;if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})())return;${FC_CONSENT_BRIDGE_JS}${FC_ADBLOCK_BRIDGE_JS}function hasConsent(){try{return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}')==='${ADS_CONSENT_GRANTED}';}catch(e){return false;}}${FC_ENSURE_JS}var queue=null,cursor=0,slotIo=null;function pushUpTo(idx){for(;cursor<=idx;cursor++){var el=queue[cursor];if(!el||!el.parentNode||el.getAttribute('data-adsbygoogle-status'))continue;try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}if(slotIo&&cursor>=queue.length){slotIo.disconnect();slotIo=null;}}function armSlots(){queue=[].slice.call(document.querySelectorAll('ins.adsbygoogle'));if(!queue.length)return;if(!('IntersectionObserver' in window)){pushUpTo(queue.length-1);return;}slotIo=new IntersectionObserver(function(entries){var max=-1;for(var i=0;i<entries.length;i++){if(!entries[i].isIntersecting)continue;var k=queue.indexOf(entries[i].target);if(k>max)max=k;}if(max>=cursor)pushUpTo(max);},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<queue.length;j++)slotIo.observe(queue[j]);}var loaded=false;function loadScript(){if(loaded)return;loaded=true;if(document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'))return;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=armSlots;document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}function scheduleFc(){(window.requestIdleCallback||ricFb)(ensureFc,{timeout:4000});}if(hasConsent()){ensureFc();startAds();return;}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}var armed=false;function onGate(){if(armed||!hasConsent())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
+const ADSENSE_LOADER_TEMPLATE = `(function(){${FC_JOBBOARD_OFFERWALL_GATE_JS}${STATIC_AD_COLLAPSE_CONTENT}staticAdArm();${AD_PAGE_DIAG_CALL}if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})()){staticAdResolveManualFailure('reader_entitlement');return;}${FC_CMP_BOOTSTRAP}if(hasAdsDecision()){ensureFc();}else if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}if((${BOT_GATE_FN})())return;var queue=null,cursor=0,slotIo=null;function pushUpTo(idx){for(;cursor<=idx;cursor++){var el=queue[cursor];if(!el||!el.parentNode||el.getAttribute('data-adsbygoogle-status'))continue;var watch=staticAdWatch(el);try{(window.adsbygoogle=window.adsbygoogle||[]).push({});if(watch)watch.request();}catch(e){if(watch)watch.fail('push_failed');}}if(slotIo&&cursor>=queue.length){slotIo.disconnect();slotIo=null;}}function armSlots(){queue=[].slice.call(document.querySelectorAll('ins.adsbygoogle')).filter(staticAdIsTarget);for(var q=0;q<queue.length;q++)if(queue[q].hasAttribute('data-ft-static-ad'))staticAdWatch(queue[q]);if(!queue.length)return;if(!('IntersectionObserver' in window)){pushUpTo(queue.length-1);return;}slotIo=new IntersectionObserver(function(entries){var max=-1;for(var i=0;i<entries.length;i++){if(!entries[i].isIntersecting)continue;var k=queue.indexOf(entries[i].target);if(k>max)max=k;}if(max>=cursor)pushUpTo(max);},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<queue.length;j++)slotIo.observe(queue[j]);}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var existing=document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(existing){if(existing.getAttribute('data-loaded')==='1'||(window.adsbygoogle&&window.adsbygoogle.loaded))armSlots();else if(existing.getAttribute('data-failed')==='1')staticAdScriptFailed();else{existing.addEventListener('load',armSlots,{once:true});existing.addEventListener('error',staticAdScriptFailed,{once:true});}return;}var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){s.setAttribute('data-loaded','1');armSlots();};s.onerror=function(){s.setAttribute('data-failed','1');staticAdScriptFailed();};document.head.appendChild(s);}window.addEventListener('online',function(){if(!staticScriptFailed||!hasAdsDecision())return;staticScriptFailed=false;var failed=document.querySelector('script[data-failed="1"][src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(failed)failed.remove();staticAdWatches.forEach(function(watch,el){watch.stop();el.removeAttribute('data-ft-static-ad-collapsed');el.removeAttribute('data-ft-static-ad-state');});staticAdWatches.clear();loaded=false;loadScript();});function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');for(var k=0;k<slots.length;k++)if(slots[k].hasAttribute('data-ft-static-ad'))staticAdWatch(slots[k]);if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}if(hasAdsDecision()){startAds();return;}var armed=false;function onGate(){if(armed||!hasAdsDecision())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
+export const ADSENSE_LOADER_CONTENT = ADSENSE_LOADER_TEMPLATE;
 export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
 /**
- * Funding Choices MESSAGING loader, injected PARSE-TIME into the <head> of
- * in-scope STATIC pages. The custom newsletter choice is disabled globally;
- * on the Italian Ticino job board the native Offerwall is filtered so the
- * direct GPT Rewarded Web flow owns the application handoff, while article
- * and other non-job-board pages keep their configured native Offerwall.
+ * Funding Choices MESSAGING loader, injected into the <head> of in-scope
+ * STATIC pages. The article carrier remains inline; the cacheable job-board
+ * carrier is ordered with `defer` so it runs before DOMContentLoaded without
+ * blocking the parser. The custom newsletter choice is disabled globally;
+ * on every job-board section FC_JOBBOARD_OFFERWALL_GATE_JS holds the native
+ * Offerwall until the visitor clicks "Candidati", and on article and every
+ * other page it suppresses the Offerwall alone (the CMP still shows).
  *
  * WHY THIS EXISTS (2026-06-16): static SSG HTML (article pages and the Italian
  * job-board pages) does not carry index.html's inline Funding Choices block.
@@ -816,12 +972,11 @@ export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_
  * but never instantiates the overlay. The publisher-id
  * MESSAGING loader (`/i/pub-XXX`) — the one index.html uses on SPA roots and the
  * one that actually renders FC messages — is absent. Injecting the pub-id
- * loader at PARSE TIME (before hydration and before adsbygoogle's
- * network-code loader claims the singleton FC instance) brings article pages to
- * parity with index.html's proven render path. (#2312 injected the same loader
+ * loader in the head, before hydration and before adsbygoogle's network-code
+ * loader claims the singleton FC instance, brings article pages to parity with
+ * index.html's proven render path. (#2312 injected the same loader
  * POST-hydration via the React gate and it never rendered, because FC was
- * already singleton-initialised by the network-code loader — parse-time is the
- * differentiator.)
+ * already singleton-initialised by the network-code loader.)
  *
  * MUST stay aligned with index.html's loadFc() on the essentials
  * (same pub-id loader URL, `data-fc-loader` dedup marker, NO crossOrigin — see
@@ -843,7 +998,14 @@ export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_
  * deliberately NOT included here — it is a separate feature, out of scope for
  * the Offerwall render fix.
  */
-export const OFFERWALL_FC_SNIPPET = `<script>(function(){var g=window.googlefc=window.googlefc||{};if(!g.controlledMessagingFunction){g.controlledMessagingFunction=function(message){var E=g.MessageTypeEnum||{};var p=window.location&&window.location.pathname||'';var isItalianJobBoard=/^\\/cerca-lavoro-ticino(?:\\/|$)/.test(p);if(!isItalianJobBoard||E.OFFERWALL===undefined){message.proceed(true);return;}message.proceed(false,[E.OFFERWALL]);};}function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();</script>`;
+/**
+ * Script body shared by the inline article carrier and the cacheable job-board
+ * asset. Keeping the body in one value prevents the two carriers
+ * from drifting while removing several KB from every job-board HTML page.
+ */
+export const OFFERWALL_FC_SCRIPT_CONTENT = `${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();`;
+
+export const OFFERWALL_FC_SNIPPET = `<script>${OFFERWALL_FC_SCRIPT_CONTENT}</script>`;
 
 /**
  * Above-the-fold manual slot for drive-by SEO landings (health premiums,
@@ -865,7 +1027,7 @@ export const OFFERWALL_FC_SNIPPET = `<script>(function(){var g=window.googlefc=w
  * this snippet needs no further change (issue #1911 item 1).
  */
 export const DRIVEBY_AD_SNIPPET = `<div class="my-6">
-    ${adSlotHtml('FT_DRIVEBY_ATF_DISPLAY')}
+    ${adSlotHtml('FT_DRIVEBY_ATF_DISPLAY', { collapseWhenUnfilled: true })}
   </div>`;
 
 export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">
@@ -1013,8 +1175,9 @@ export const FAVICON_LINKS = `<link rel="icon" href="/favicon.ico" sizes="48x48"
  * Used to decide whether a static page has enough content to be indexed (>= 50 words).
  */
 export function countHtmlBodyWords(html: string): number {
- // Strip HTML tags
- const text = html.replace(/<[^>]+>/g, ' ');
+ // Drop inert <template> content (never rendered — e.g. the border-wait live
+ // variants), then strip HTML tags
+ const text = html.replace(/<template[\s\S]*?<\/template>/gi, ' ').replace(/<[^>]+>/g, ' ');
  // Collapse whitespace and split into words
  const words = text.replace(/\s+/g, ' ').trim().split(' ').filter(w => w.length > 0);
  return words.length;

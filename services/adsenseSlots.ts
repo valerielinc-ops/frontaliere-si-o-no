@@ -66,17 +66,10 @@ export const AD_SLOTS = {
   *  the homepage / end-of-article placements proved earns far above display
   *  (in-page multiplex RPM €6.64 vs €0.20 display — see HOMEPAGE_MID_DISPLAY).
   *
-  *  Slot id REUSES ARTICLE_END_MULTIPLEX ('5196931137') — an active autorelaxed
-  *  end-of-content multiplex unit. These SSG family pages never co-render the
-  *  blog end-of-article multiplex, so there is no same-page cannibalization
-  *  (same cross-context reuse pattern as CALCULATOR_POST_RESULT /
-  *  FT_DRIVEBY_ATF_DISPLAY). A dedicated `FT_SSG_END_MULTIPLEX` unit CANNOT be
-  *  created from this automation (AdSense `adunits.create` returns 403 —
-  *  console-only). Owner upgrade for isolated reporting: create a Multiplex
-  *  unit named `FT_SSG_END_MULTIPLEX` in the AdSense console and swap the `slot`
-  *  below — that single edit re-points every SSG family page. */
+  *  Dedicated console unit `FT_SSG_END_MULTIPLEX` (`3285339503`) keeps the SSG
+  *  family report separate from the blog end-of-article multiplex. */
  SSG_END_MULTIPLEX: {
- slot: '5196931137',
+ slot: '3285339503',
  format: 'autorelaxed',
  fullWidthResponsive: false,
  placeholderMinHeight: 400,
@@ -89,14 +82,19 @@ export const AD_SLOTS = {
   *  non si carica" report) at RPM €0.11-0.23. The DISPLAY units fill ~85-92% at
   *  3-6× the RPM, so the ad now actually loads between listings.
   *
-  *  Slot id REUSES FT_JOBDETAIL_SIDEBAR_DESKTOP_DISPLAY ('8164676143', 92% fill)
-  *  — a desktop display unit that renders only in the job-detail sidebar, never
-  *  on a job-LIST page, so no same-page cannibalization. Same console-only-unit
-  *  reuse pattern as JOBDETAIL_TOP_BANNER / FT_DRIVEBY_ATF_DISPLAY (AdSense
-  *  `adunits.create` returns 403). Owner upgrade for isolated reporting: create
-  *  a dedicated `FT_JOBLIST_INLIST_DESKTOP_DISPLAY` unit and swap the slot. */
+  *  Dedicated console unit `FT_JOBLIST_INLIST_DESKTOP_DISPLAY`
+  *  (`4390537615`) keeps list viewability and RPM attributable to this surface. */
  JOBLIST_INFEED_DESKTOP: {
- slot: '8164676143',
+ slot: '4390537615',
+ format: 'auto',
+ fullWidthResponsive: true,
+ placeholderMinHeight: 336,
+ },
+ /** Event listing: one responsive in-feed display unit after the first
+  * value block. Dedicated console unit `FT_EVENTS_INFEED_DISPLAY`
+  * (`2143648225`) keeps event-list reporting separate from job lists. */
+ EVENTS_LIST_INFEED: {
+ slot: '2143648225',
  format: 'auto',
  fullWidthResponsive: true,
  placeholderMinHeight: 336,
@@ -104,12 +102,11 @@ export const AD_SLOTS = {
  /** Job listing: mobile in-feed (responsive DISPLAY).
   *  Switched 2026-06-25 from the FEED native unit (6979586981, ~45% fill, RPM
   *  €0.11) to a responsive DISPLAY unit for the same fill/RPM reason as
-  *  JOBLIST_INFEED_DESKTOP above. Slot id REUSES JOBDETAIL_AUTH_GATE
-  *  ('3205029282', 85% fill) — a display unit shown only to signed-out users on
-  *  job-detail, never co-rendered with a job list. Owner upgrade: dedicated
-  *  `FT_JOBLIST_INLIST_MOBILE_DISPLAY` unit. */
+  *  JOBLIST_INFEED_DESKTOP above. Dedicated console unit
+  *  `FT_JOBLIST_INLIST_MOBILE_DISPLAY` (`7562575998`) keeps mobile list
+  *  attribution separate from job-detail auth-gate traffic. */
  JOBLIST_INFEED_MOBILE: {
- slot: '3205029282',
+ slot: '7562575998',
  format: 'auto',
  fullWidthResponsive: true,
  placeholderMinHeight: 336,
@@ -145,27 +142,15 @@ export const AD_SLOTS = {
  placeholderMinHeight: 1100,
  },
  /** Drive-by SEO landings: above-the-fold display, right after the primary
-  *  data area (health premiums, fuel daily, border wait — DRIVEBY_AD_SNIPPET).
+  *  data area (health premiums, fuel daily, border wait, salary and profession
+  *  landings — DRIVEBY_AD_SNIPPET).
   *
   *  Dedicated unit so the drive-by RPM lift can be measured in isolation
   *  instead of aggregated with the homepage placement (issue #1911 item 1).
-  *
-  *  Slot id currently MIRRORS HOMEPAGE_MID_DISPLAY ('2093992129') — the only
-  *  ACTIVE display unit the build can reference today. A dedicated
-  *  `FT_DRIVEBY_ATF_DISPLAY` ad unit CANNOT be created from this automation:
-  *  AdSense Management API v2 `adClients.adunits.create` returns 403
-  *  PERMISSION_DENIED even with a full `https://www.googleapis.com/auth/adsense`
-  *  write-scope token (verified 2026-06-18 with a valid 300x250/1x3 payload —
-  *  not a scope or format issue; ad-unit creation is console-only for this
-  *  account/OAuth client). Owner action to isolate reporting:
-  *    1. AdSense console → Ads → By ad unit → create a Display unit named
-  *       `FT_DRIVEBY_ATF_DISPLAY` (responsive).
-  *    2. Replace the `slot` below with the new data-ad-slot id — that single
-  *       edit re-points every drive-by landing; nothing else changes.
-  *  Config matches HOMEPAGE_MID_DISPLAY so the rendered <ins> and the
-  *  CLS-reserving min-height stay identical until the swap. */
+  *  Console unit `FT_DRIVEBY_ATF_DISPLAY` is `7200533787`. The rendered
+  *  format and reserve remain unchanged for this ID migration. */
  FT_DRIVEBY_ATF_DISPLAY: {
- slot: '2093992129',
+ slot: '7200533787',
  format: 'autorelaxed',
  fullWidthResponsive: false,
  placeholderMinHeight: 1100,
@@ -182,17 +167,10 @@ export const AD_SLOTS = {
   * (~90px leaderboard) and CLS-safe at a 100px reserve, matching the thin top
   * banner in the desktop mock.
   *
-  * Slot id REUSES JOBDETAIL_AUTH_GATE ('3205029282') — a job-detail-top display
-  * unit that is NEVER co-rendered with the authenticated full detail (the gate
-  * shows only to signed-out users), so there is no same-page cannibalization
-  * (cf. the JOBDETAIL_SIDEBAR_2 prune, 2026-04-26). Same cross-context reuse
-  * pattern as CALCULATOR_POST_RESULT / FT_DRIVEBY_ATF_DISPLAY: ships live ads
-  * now without a new console unit (AdSense `adunits.create` returns 403 — unit
-  * creation is console-only). Owner upgrade path for isolated reporting: create
-  * a dedicated `FT_JOBDETAIL_TOP_BANNER` display unit in the AdSense console and
-  * swap the `slot` id below. */
+  * Dedicated console unit `FT_JOBDETAIL_TOP_BANNER` (`9881792581`) keeps the
+  * above-fold banner attributable separately from the auth gate. */
  JOBDETAIL_TOP_BANNER: {
- slot: '3205029282',
+ slot: '9881792581',
  format: 'horizontal',
  fullWidthResponsive: true,
  placeholderMinHeight: 100,
@@ -248,7 +226,14 @@ export const AD_SLOTS = {
  },
  /** Calculator: in-page multiplex after simulation_complete (high-intent moment) */
  CALCULATOR_POST_RESULT: {
- slot: '5196931137', // reuses ARTICLE_END_MULTIPLEX id (cross-context multiplex)
+ slot: '6082893233',
+ format: 'autorelaxed',
+ fullWidthResponsive: false,
+ placeholderMinHeight: 400,
+ },
+ /** JobBridge redirect page: end-of-gate multiplex after the direct link. */
+ JOBBRIDGE_MULTIPLEX: {
+ slot: '1952076530',
  format: 'autorelaxed',
  fullWidthResponsive: false,
  placeholderMinHeight: 400,
@@ -349,22 +334,11 @@ export function shouldPlaceInfeedAd(
  * reads the same registry entry the build-time emitter does, so the two paths
  * can no longer drift and a slot's reserve is edited in exactly one place.
  *
- * Two registry entries MAY share a triple when they are the same physical ad
- * unit reused in two placements (e.g. JOBLIST_INFEED_MOBILE and
- * JOBDETAIL_AUTH_GATE both key to `3205029282|auto|`). That is allowed and
- * intentional, but it makes their `placeholderMinHeight` values a single value
- * with two spellings: the resolver returns whichever entry is enumerated last,
- * so the two MUST stay numerically equal. `tests/adsense-placeholder-registry
- * .test.ts` turns red the moment they diverge — if you need genuinely different
- * reserves for two placements, give them different slot ids or formats rather
- * than editing one number.
- *
- * Keyed on the (slot, format, layout) TRIPLE, never the slot id alone: slot
- * ids are deliberately reused across placements (see the "Slot id REUSES …"
- * notes above), and `3205029282` is shared by JOBLIST_INFEED_MOBILE (336) and
- * JOBDETAIL_TOP_BANNER (100) — resolving by id alone would silently pick one
- * of the two. The triple is collision-free across the whole registry, pinned
- * by `tests/adsense-placeholder-registry.test.ts`.
+ * Registry entries use distinct console units for each placement context, so
+ * reporting remains attributable and no two entries share a slot id. The
+ * resolver remains keyed on the (slot, format, layout) triple as
+ * defense-in-depth for future migrations; the registry test rejects both
+ * triple collisions and slot-id aliases.
  */
 
 /** How close to the viewport an ad slot must come before it is allowed to spend
@@ -373,11 +347,9 @@ export function shouldPlaceInfeedAd(
  *  An impression served for a unit the visitor never scrolls to is counted by
  *  Active View as a non-viewable impression: it earns ~nothing and drags the
  *  unit's measured viewability (hence its CPM) down for every OTHER placement
- *  of the same ad unit. Ad-unit 3205029282 is the worked example — 22.1%
- *  viewability across 92.7k mobile impressions/30d, against 62.0% on desktop
- *  where its only placement renders above the fold. Same unit, same creatives:
- *  the difference is entirely whether the request was spent on something the
- *  visitor could see.
+ *  of the same ad unit. The registry keeps placement contexts on separate
+ *  console units so this diagnosis remains attributable to the surface that
+ *  requested the impression.
  *
  *  ONE constant for both twins on purpose (AGENTS.md Non-Negotiable #6): the
  *  SPA (`components/shared/AdSenseBanner.tsx`) and the static-shell loader
@@ -402,20 +374,20 @@ export const MULTIPLEX_DESKTOP_MIN_WIDTH = 1280;
  *  mobile/SSR floor is lifted to this on wide viewports. */
 export const MULTIPLEX_DESKTOP_MIN_HEIGHT = 600;
 
-/**
- * How long a reserved ad box may stay unresolved before its space is given
- * back. An ad that has not reported `data-ad-status` by then is not "slow",
- * it is blocked — Privacy Sandbox / Attestation / ad blockers cut AdSense off
- * before it can answer `unfilled`, so the box would hold its reserve forever.
- *
- * 12s is the value measured for our own slots: most genuine fills land under
- * 2s, but Privacy Sandbox auctions can legitimately settle slower, and an 8s
- * cutoff false-collapsed late fills (depressing the measured fill rate). Both
- * consumers — `AdSenseBanner` for the slots we declare and `autoAdCollapse`
- * for the containers Google injects — must use the SAME budget: two different
- * timeouts would collapse two halves of the same page at two different moments.
- */
+/** Response observation budget. Manual slots report waiting_response after
+ * this deadline and keep watching for late fills; only explicit failures are
+ * terminal. Auto-ad recovery retains its separate late-creative restoration. */
 export const AD_FILL_TIMEOUT_MS = 12_000;
+
+/**
+ * Attribute on the `<AdSenseBanner>` wrapper carrying its lifecycle state
+ * (`idle` | `waiting_width` | `loading` | `waiting_response` | `unfilled` | `filled` | `collapsed`). The SPA twin
+ * of the static `data-ft-static-ad-collapsed` marker: the per-page diagnosis
+ * (services/adPageDiag.ts and its inline twin in the AdSense loader) counts a
+ * manual slot inside a `collapsed` wrapper as collapsed. Read-only telemetry
+ * hook; no CSS keys on it.
+ */
+export const AD_BANNER_STATE_ATTR = 'data-ft-ad-state';
 
 function slotReserveKey(
   adSlot: string | undefined,

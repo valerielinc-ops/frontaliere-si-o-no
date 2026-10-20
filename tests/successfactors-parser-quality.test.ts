@@ -1,8 +1,9 @@
 import os from 'node:os';
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
+  createSuccessFactorsParser,
   parseCsbDetailPage,
   parseCsbSearchResults,
   parseSuccessFactorsMicrodataLocation,
@@ -29,6 +30,74 @@ const fixture = (name: string) => fs.readFileSync(
   path.resolve(process.cwd(), 'tests', 'fixtures', 'successfactors-parser-quality', `${name}.html`),
   'utf8',
 );
+
+// A vacancy body of at least 50 words (`source-body-floor.mjs`): the factory
+// publishes only the posting's own text and skips a thinner detail page
+// (issue 5253).
+const factoryDetail = ({ city = '', region = '', postalCode = '', country = 'CH' } = {}) => `
+  <html lang="en"><body>
+    <span data-careersite-propertyid="title">Source-backed vacancy</span>
+    <div data-careersite-propertyid="description">
+      Responsibilities include planning delivery, coordinating stakeholders, documenting decisions,
+      improving processes, supporting customers, and working with the team on reliable outcomes.
+      You bring several years of experience, strong analytical skills, fluent German or French,
+      and enjoy solving practical problems together with colleagues across locations.
+      We offer flexible working hours, further training and a modern workplace close to the station.
+    </div>
+    <div itemscope itemtype="http://schema.org/JobPosting">
+      <span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">
+        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <meta itemprop="addressLocality" content="${city}">
+          <meta itemprop="addressRegion" content="${region}">
+          <meta itemprop="postalCode" content="${postalCode}">
+          <meta itemprop="addressCountry" content="${country}">
+        </span>
+      </span>
+    </div>
+  </body></html>`;
+
+const factoryCsbDetail = ({ city = '', country = 'CH' } = {}) => `
+  <html lang="en"><body>
+    <span data-careersite-propertyid="title">Source-backed vacancy</span>
+    <div data-careersite-propertyid="description">
+      Responsibilities include planning delivery, coordinating stakeholders, documenting decisions,
+      improving processes, supporting customers, and working with the team on reliable outcomes.
+      You bring several years of experience, strong analytical skills, fluent German or French,
+      and enjoy solving practical problems together with colleagues across locations.
+      We offer flexible working hours, further training and a modern workplace close to the station.
+    </div>
+    <span data-careersite-propertyid="city">${city}</span>
+    <span data-careersite-propertyid="country">${country}</span>
+  </body></html>`;
+
+const factoryListing = (id: string, title: string, location = '') => `
+  <tr>
+    <td class="jobTitle-column"><a href="/job/source-${id}/${id}/">${title}</a></td>
+    <td class="colLocation hidden-phone" headers="hdrLocation">${location}</td>
+  </tr>`;
+
+const factoryParser = createSuccessFactorsParser({
+  companyKey: 'successfactors-test',
+  companyName: 'SuccessFactors Test',
+  companyDomain: 'successfactors-test.example',
+  sfCompanyId: 'successfactors-test',
+  publicCareerUrl: 'https://successfactors-test.example',
+  defaultCanton: 'ZH',
+  defaultCity: 'Zürich',
+  defaultPostalCode: '8000',
+  defaultSourceLang: 'en',
+});
+
+function stubFactoryFetch(details: Record<string, string>, listingHtml: string) {
+  vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+    const href = String(url);
+    if (href.includes('/search/')) return new Response(`<table>${listingHtml}</table>`, { status: 200 });
+    const id = href.match(/\/(\d+)\/?$/)?.[1] || '';
+    return new Response(details[id] || '', { status: details[id] ? 200 : 404 });
+  }));
+  vi.spyOn(console, 'log').mockImplementation(() => {});
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
+}
 
 describe('SuccessFactors parser-quality boundary', () => {
   it('keeps the balanced Groupe E body, list structure and microdata location', () => {
@@ -172,6 +241,30 @@ describe('SuccessFactors parser-quality boundary', () => {
     });
   });
 
+  it('carries explicit HTML datePosted evidence through the generic fallback', () => {
+    const sourceDate = new Date(Date.now() - 40 * 86400000).toISOString().slice(0, 10);
+    const sourceInstant = new Date(`${sourceDate}T00:00:00Z`);
+    const weekday = sourceInstant.toLocaleDateString('en-US', { weekday: 'short', timeZone: 'UTC' });
+    const month = sourceInstant.toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' });
+    const rawDate = `${weekday} ${month} ${sourceInstant.getUTCDate()} 00:00:00 UTC ${sourceInstant.getUTCFullYear()}`;
+    const parsed = sharedCrawlerTestables.toJobFromHtmlFallback(
+      fixture('ibsa-grancia').replace('</head>', `<meta itemprop="datePosted" content="${rawDate}"></head>`),
+      'https://career.ibsagroup.com/job/Grancia-IT-Category-Manager-TI-6916/1365742755/',
+      'IBSA Institut Biochimique',
+      'Ticino',
+      {
+        isSeedDetail: true,
+        seedMeta: { location: 'Grancia', canton: 'TI', country: 'CH' },
+      },
+    );
+
+    expect(parsed.job).toMatchObject({
+      datePosted: `${sourceDate}T00:00:00Z`,
+      postedDate: `${sourceDate}T00:00:00Z`,
+      postingDateSource: 'reported',
+    });
+  });
+
   it('still rejects a real Italian address even when the adapter seed is Swiss', () => {
     const parsed = sharedCrawlerTestables.toJobFromHtmlFallback(
       fixture('italia-real'),
@@ -185,6 +278,97 @@ describe('SuccessFactors parser-quality boundary', () => {
     );
 
     expect(parsed).toEqual({ job: null, reason: 'html_location_explicitly_foreign' });
+  });
+});
+
+describe('SuccessFactors factory geography gate', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  it('drops non-CH, explicitly foreign, and unresolved locations instead of using HQ defaults', async () => {
+    const listingHtml = [
+      factoryListing('1001', 'Madrid vacancy', 'Madrid, ES'),
+      factoryListing('1002', 'Wien vacancy', 'Wien, AT'),
+      factoryListing('1003', 'Unknown vacancy', 'Atlantis, ZZ'),
+    ].join('');
+    stubFactoryFetch({
+      1001: factoryDetail({ city: 'Madrid', country: 'ES' }),
+      1002: factoryDetail({ city: 'Wien', country: 'CH' }),
+      1003: factoryDetail({ city: 'Atlantis', country: 'CH' }),
+    }, listingHtml);
+
+    const parsedForeignDetail = parseCsbDetailPage(factoryDetail({ city: 'Madrid', country: 'ES' }));
+    expect(parsedForeignDetail).toMatchObject({ city: 'Madrid', country: 'ES' });
+    await expect(factoryParser.fetchAllJobs()).resolves.toEqual([]);
+  });
+
+  it('publishes Zürich from CH microdata with its source canton and postal code', async () => {
+    stubFactoryFetch(
+      { 1004: factoryDetail({ city: 'Zürich', region: 'ZH', postalCode: '8001', country: 'CH' }) },
+      factoryListing('1004', 'Zürich vacancy', 'Zürich, ZH'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toMatchObject([
+      expect.objectContaining({ location: 'Zürich', canton: 'ZH', postalCode: '8001' }),
+    ]);
+  });
+
+  it('reads city and country from CSB property blocks when microdata is absent', () => {
+    expect(parseCsbDetailPage(factoryCsbDetail({ city: 'Männedorf', country: 'CH' }))).toMatchObject({
+      city: 'Männedorf',
+      country: 'CH',
+    });
+  });
+
+  it('preserves a Swiss factory offer sourced only from CSB city/country blocks', async () => {
+    stubFactoryFetch(
+      { 1008: factoryCsbDetail({ city: 'Männedorf', country: 'CH' }) },
+      factoryListing('1008', 'Männedorf vacancy'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toMatchObject([
+      expect.objectContaining({ location: 'Männedorf', canton: 'ZH', addressCountry: 'CH' }),
+    ]);
+  });
+
+  it('keeps a Swiss locality outside the gazetteer when the source region is a canton', async () => {
+    stubFactoryFetch(
+      { 1006: factoryDetail({ city: 'Epagny', region: 'FR', country: 'CH' }) },
+      factoryListing('1006', 'Epagny vacancy', 'Epagny, FR'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toMatchObject([
+      expect.objectContaining({ location: 'Epagny', canton: 'FR', addressCountry: 'CH' }),
+    ]);
+  });
+
+  it('rejects an explicitly foreign listing country before Swiss city inference', async () => {
+    stubFactoryFetch(
+      { 1009: factoryDetail({ city: 'Zürich', country: '' }) },
+      factoryListing('1009', 'Foreign-country vacancy', 'Zürich, Germany'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toEqual([]);
+  });
+
+  it('does not create a job when the detail has no city', async () => {
+    stubFactoryFetch(
+      { 1005: factoryDetail({ region: 'ZH', country: 'CH' }) },
+      factoryListing('1005', 'No locality vacancy'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toEqual([]);
+  });
+
+  it('does not infer a Swiss canton from an ambiguous two-segment listing location', async () => {
+    stubFactoryFetch(
+      { 1007: factoryDetail({ country: '' }) },
+      factoryListing('1007', 'Foreign-looking vacancy', 'NotARealCity, FR'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toEqual([]);
   });
 });
 
@@ -228,8 +412,24 @@ const J2W_LOCATION_CELL = /colLocation|jobLocation/;
  */
 const J2W_LISTING_ROW = /jobTitle-link|data-row|tbody\s*>?\s*tr/;
 
+/**
+ * The source without its comments. A parser cites the selectors in code (string,
+ * regex, JSDOM selector); a module that only documents them in a comment — the
+ * empty-ok registry recording what a tenant's markup looks like — reads no row.
+ * Only comments that open a line are dropped: a `/*` or `//` after code may sit
+ * inside a string or a regex (`'**\/*.mjs'`, `https://…`), and cutting there
+ * would hide real code. Every miss of this rule keeps text, so it can only
+ * elect a module too many, never hide a parser from the gate.
+ */
+const withoutLineComments = (source: string) => source
+  .replace(/^[ \t]*\/\*[\s\S]*?\*\//gm, '')
+  .replace(/^[ \t]*\/\/.*$/gm, '');
+
 /** Whether a module source reads a location out of a j2w listing row. */
-const isJ2wListingSource = (source: string) => J2W_LOCATION_CELL.test(source) && J2W_LISTING_ROW.test(source);
+const isJ2wListingSource = (source: string) => {
+  const code = withoutLineComments(source);
+  return J2W_LOCATION_CELL.test(code) && J2W_LISTING_ROW.test(code);
+};
 
 const mjsFilesUnder = (dir: string, prefix = ''): string[] => fs.readdirSync(dir, { withFileTypes: true })
   .flatMap((entry) => (entry.isDirectory()
@@ -256,9 +456,6 @@ const discoverJ2wListingModules = (root = path.resolve(process.cwd(), 'scripts',
  * discovered, is what makes a new omission reviewable instead of silent.
  */
 const J2W_LISTING_MODULES_WITHOUT_LOCATION: Record<string, string> = {
-  // Tile listing (`li.job-tile`), and `parseListingTiles()` emits no location
-  // field at all: the marker has nowhere to leak into.
-  'stadt-zuerich-job-parser.mjs': 'listing tiles carry no location field',
   // Not a j2w tenant: its own `#joboffers` table on amag.ch, rows keyed by
   // `#jobTitel`/`#jobStandort` and `-j{id}.html` hrefs. The `jobLocation` token
   // is the JSON-LD field of the detail page, not a listing cell.
@@ -377,5 +574,43 @@ describe('SuccessFactors j2w multi-office listing row', () => {
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
+  });
+
+  it('does not elect a module that cites the selectors only in comments', () => {
+    // The shape of `crawler-empty-ok-registry.mjs` (PR 11308): a registry that
+    // documents a tenant's markup in prose and parses no row. Electing it sent
+    // main red on every PR that touched an import of this test.
+    const documentsOnly = [
+      '/**',
+      ' * The tenant still renders `tbody > tr` rows with a `.jobLocation` cell.',
+      ' */',
+      "  // selectors (`data-row`, `jobTitle-link`, `colLocation`) are unchanged",
+      "export const EMPTY_OK = new Set(['some-tenant']);",
+    ].join('\n');
+    const parsesTheRow = [
+      documentsOnly,
+      "const row = /<tr[^>]*data-row[^>]*>[\\s\\S]*?class=\"jobLocation\"/;",
+    ].join('\n');
+
+    expect(isJ2wListingSource(documentsOnly)).toBe(false);
+    expect(isJ2wListingSource(parsesTheRow)).toBe(true);
+
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'j2w-discovery-'));
+    try {
+      fs.writeFileSync(path.join(root, 'documents-only.mjs'), documentsOnly);
+      fs.writeFileSync(path.join(root, 'parses-the-row.mjs'), parsesTheRow);
+
+      expect(discoverJ2wListingModules(root)).not.toContain('documents-only.mjs');
+      expect(discoverJ2wListingModules(root)).toContain('parses-the-row.mjs');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps a selector that follows `//` inside a string', () => {
+    // Only comments that open a line are dropped: a URL in code is not one.
+    const urlThenSelector = "const base = 'https://jobs.example.ch/search/'; const sel = 'tbody > tr .colLocation';";
+
+    expect(isJ2wListingSource(urlThenSelector)).toBe(true);
   });
 });

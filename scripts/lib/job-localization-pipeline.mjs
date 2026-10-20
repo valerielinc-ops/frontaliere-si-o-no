@@ -10,7 +10,8 @@ import {
 } from './translation-glossary.mjs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { intFromEnv } from './int-from-env.mjs';
-import { MIN_TITLE_CHARS } from './translation-quality.mjs';
+import { hasStructureParity, isModelMetaAnswer, MIN_TITLE_CHARS } from './translation-quality.mjs';
+import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -180,10 +181,6 @@ function hasProviderConfigured() {
   );
 }
 
-function countBullets(text = '') {
-  return (String(text || '').match(/^\s*[-*•]\s+/gm) || []).length;
-}
-
 function countHeadings(text = '') {
   return (String(text || '').match(/^##\s+/gm) || []).length;
 }
@@ -210,6 +207,10 @@ function passesQualityGate({ sourceText, candidate, kind, minChars = 0 }) {
       : minChars;
   if (output.length < effectiveMinChars) return false;
   if (looksLikeCopy(source, output, kind)) return false;
+  // A refusal or a request for the input («I need to see the actual job
+  // title…») is never a translation, of a title least of all: the title branch
+  // below returns before the leak checks of the description branch.
+  if (isModelMetaAnswer(output, source)) return false;
   if (kind === 'title' || kind === 'requirement') {
     // Reject titles that look truncated mid-word: single short word ending with
     // lowercase that is a prefix of a word in the source text
@@ -232,12 +233,15 @@ function passesQualityGate({ sourceText, candidate, kind, minChars = 0 }) {
   if (sourceLen >= 180 && output.length < Math.max(minChars, Math.floor(sourceLen * 0.45))) {
     return false;
   }
-  const sourceBullets = countBullets(source);
-  const outputBullets = countBullets(output);
-  if (sourceBullets >= 3 && outputBullets === 0) return false;
+  if (!hasStructureParity(source, output)) return false;
   const sourceHeadings = countHeadings(source);
   const outputHeadings = countHeadings(output);
   if (sourceHeadings >= 1 && outputHeadings === 0) return false;
+  // Same leak/degeneration invariants as isAcceptableTranslation (the free
+  // cascade's gate): the local engines (NLLB/Ollama) loop too, and this gate
+  // also judges memoized answers, so a stored loop is not replayed.
+  if (detectAiReasoningLeak(output)) return false;
+  if (detectDegenerateRepetition(output, { references: [source] })) return false;
   return true;
 }
 

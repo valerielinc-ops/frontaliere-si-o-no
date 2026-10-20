@@ -470,6 +470,65 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(readFileSync(calls, 'utf8')).toBe('');
   });
 
+  it('names the CAS read failure and its HTTP status line (run 36305192129)', () => {
+    // «senza ETag/body verificabile» fused three failures into one message
+    // with no status: the run log could not say which one had happened.
+    const cases: Array<{ response: string[]; expected: RegExp }> = [
+      {
+        response: ['HTTP/2.0 502 Bad Gateway', 'Content-Type: text/html', '', '<html>bad gateway</html>'],
+        expected: /risposta PR non parsabile come oggetto JSON \(HTTP\/2\.0 502 Bad Gateway; \d+ byte\)/,
+      },
+      {
+        response: ['HTTP/2.0 200 OK', 'Content-Type: application/json', '', JSON.stringify({ body: BOTH_HEADERS })],
+        expected: /risposta PR senza header ETag \(HTTP\/2\.0 200 OK\)/,
+      },
+      {
+        response: ['HTTP/2.0 200 OK', 'Etag: W/"v1"', '', JSON.stringify({ body: 7 })],
+        expected: /risposta PR con body non verificabile \(tipo number; HTTP\/2\.0 200 OK\)/,
+      },
+      {
+        response: [JSON.stringify({ body: BOTH_HEADERS })],
+        expected: /risposta PR non parsabile come oggetto JSON \(riga di stato HTTP assente;/,
+      },
+    ];
+    for (const { response, expected } of cases) {
+      const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+      createdDirs.push(dir);
+      const file = join(dir, 'body.md');
+      const edited = join(dir, 'edited');
+      writeFileSync(file, BOTH_HEADERS, 'utf8');
+      writeFileSync(join(dir, 'response'), response.join('\r\n') + '\n', 'utf8');
+      const fakeGh = join(dir, 'gh');
+      writeFileSync(fakeGh, [
+        '#!/bin/sh',
+        'set -eu',
+        'if [ "$1" = api ] && [ "$2" = --include ]; then',
+        `  /bin/cat '${join(dir, 'response')}'`,
+        '  exit 0',
+        'fi',
+        `: > '${edited}'`,
+      ].join('\n') + '\n', 'utf8');
+      chmodSync(fakeGh, 0o755);
+      const res = spawnSync(process.execPath, [
+        SHIM, 'pr', 'edit', '123', '--repo', 'owner/repo', '--body-file', file,
+      ], {
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          PATH: dir,
+          PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+          PR_NUMBER: '123',
+          REPO: 'owner/repo',
+          PR_BODY_EXPECTED_REVISION: reviewInputRevisionFromBody(BOTH_HEADERS),
+        },
+      });
+      expect(res.status).toBe(EXIT_BLOCK);
+      expect(res.stderr).toMatch(expected);
+      expect(res.stderr).toMatch(/nessuna scrittura CAS/);
+      expect(() => readFileSync(edited)).toThrow();
+    }
+  });
+
   it('accepts an initially null remote body and still performs the CAS PATCH', () => {
     const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
     createdDirs.push(dir);

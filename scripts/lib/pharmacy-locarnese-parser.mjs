@@ -187,12 +187,22 @@ function catalogueCandidates(row, catalogue) {
 }
 
 /**
+ * Builds the fail-closed adapter between the abbreviated Locarnese source
+ * names and the verified Ticino catalogue. The adapter deliberately returns
+ * every candidate: callers may publish only an exactly unique match and must
+ * keep both missing and ambiguous identities unresolved.
+ */
+export function locarneseCatalogueMapping(catalogue = []) {
+  return (row) => catalogueCandidates(row, catalogue);
+}
+
+/**
  * Resolves a source row to one existing Ticino catalogue record.
  * Returns `null` for both no-match and ambiguous-match cases: callers must
  * keep the source row unresolved instead of selecting a plausible record.
  */
 export function resolveLocarnesePharmacyIdentity(row, catalogue) {
-  const candidates = catalogueCandidates(row, catalogue);
+  const candidates = locarneseCatalogueMapping(catalogue)(row);
   return candidates.length === 1 ? candidates[0] : null;
 }
 
@@ -231,6 +241,7 @@ export function buildLocarnesePharmacyDuties(
   const duties = [];
   const unresolved = [];
   const fetchedAtMs = Date.parse(fetchedAt);
+  const catalogueMapping = locarneseCatalogueMapping(catalogue);
 
   if (!Number.isFinite(fetchedAtMs)) {
     warnings.push('invalid fetchedAt; no Locarnese duty intervals emitted');
@@ -238,7 +249,7 @@ export function buildLocarnesePharmacyDuties(
   }
 
   const rowsWithMatches = parsed.rows.map((row) => {
-    const candidates = catalogueCandidates(row, catalogue);
+    const candidates = catalogueMapping(row);
     const pharmacy = candidates.length === 1 ? candidates[0] : null;
     if (!pharmacy) unresolved.push(unresolvedIdentity(row, region, candidates));
     return { row, pharmacy, candidates };

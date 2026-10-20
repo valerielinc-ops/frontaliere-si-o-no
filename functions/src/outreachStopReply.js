@@ -25,7 +25,7 @@
  * (AGENTS.md Non-Negotiable #6) — both are covered by unit tests.
  */
 
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 
 const SUPPRESSION_COLLECTION = 'employer_outreach_suppression';
@@ -108,7 +108,7 @@ export async function handleOutreachStopReply({ from, subject, body, secret, pro
 
   await db.collection(SUPPRESSION_COLLECTION).doc(companyKey).set({
     companyKey,
-    suppressedAt: admin.firestore.FieldValue.serverTimestamp(),
+    suppressedAt: FieldValue.serverTimestamp(),
     source: 'stop-reply',
     suppressedFrom: fromEmail,
   }, { merge: true });

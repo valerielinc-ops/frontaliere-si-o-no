@@ -40,6 +40,14 @@
  *   (41'237 / 41'024 / 41'722 depending on outlet) per the same research —
  *   none of them is per-comune anyway, so there is nothing usable to update
  *   to even if one were trusted.
+ * - areaKm2 / elevationM / populationDensity2020 / region: Amt für Bau und
+ *   Infrastruktur, "Liechtenstein in Zahlen 2022", table "Fläche und
+ *   Höhenlage der Gemeinden" (official survey status 2020), and Amt für
+ *   Statistik, same publication, table "Fläche, Höhenlage und
+ *   Bevölkerungsdichte 2020" — https://archiv.llv.li/files/as/liechtenstein_in_zahlen_2022.pdf.
+ *   `region` follows the official Oberland/Unterland grouping in that table;
+ *   density is explicitly labelled 2020 so it is never mistaken for the
+ *   newer 2023 population figure above.
  * - lat / lng: Wikidata (query.wikidata.org/sparql), SPARQL query for every
  *   item with `wdt:P31 wd:Q203300` ("municipality of Liechtenstein") and its
  *   `wdt:P625` (coordinate location), retrieved 2026-07-29. Returned exactly
@@ -81,18 +89,25 @@ export interface LiechtensteinMunicipalityRaw {
    *  (31.12.2023) is documented in the header above and in the builder's
    *  emitted `source` string — not repeated per-row. */
   populationYear: number;
+  /** Official municipal area, survey status 2020. */
+  areaKm2: number;
+  /** Elevation of the municipal centre/church, survey status 2020. */
+  elevationM: number;
+  /** Official population density observation for 2020. */
+  populationDensity2020: number;
+  region: 'Oberland' | 'Unterland';
 }
 
 export const LIECHTENSTEIN_MUNICIPALITIES: LiechtensteinMunicipalityRaw[] = [
- { name: 'Schaan', wikidataId: 'Q49657', lat: 47.1667, lng: 9.5167, population: 6109, populationYear: 2023 },
- { name: 'Vaduz', wikidataId: 'Q1844', lat: 47.1406, lng: 9.5222, population: 5826, populationYear: 2023 },
- { name: 'Triesen', wikidataId: 'Q49654', lat: 47.1000, lng: 9.5167, population: 5532, populationYear: 2023 },
- { name: 'Balzers', wikidataId: 'Q49663', lat: 47.0667, lng: 9.5000, population: 4747, populationYear: 2023 },
- { name: 'Eschen', wikidataId: 'Q4540', lat: 47.2000, lng: 9.5167, population: 4607, populationYear: 2023 },
- { name: 'Mauren', wikidataId: 'Q49661', lat: 47.2197, lng: 9.5428, population: 4589, populationYear: 2023 },
- { name: 'Triesenberg', wikidataId: 'Q49651', lat: 47.1167, lng: 9.5333, population: 2671, populationYear: 2023 },
- { name: 'Ruggell', wikidataId: 'Q49659', lat: 47.2450, lng: 9.5332, population: 2523, populationYear: 2023 },
- { name: 'Gamprin', wikidataId: 'Q49662', lat: 47.2199, lng: 9.5100, population: 1768, populationYear: 2023 },
- { name: 'Schellenberg', wikidataId: 'Q49655', lat: 47.2283, lng: 9.5395, population: 1155, populationYear: 2023 },
- { name: 'Planken', wikidataId: 'Q49660', lat: 47.1833, lng: 9.5333, population: 488, populationYear: 2023 },
+ { name: 'Schaan', wikidataId: 'Q49657', lat: 47.1667, lng: 9.5167, population: 6109, populationYear: 2023, areaKm2: 26.920, elevationM: 462, populationDensity2020: 224, region: 'Oberland' },
+ { name: 'Vaduz', wikidataId: 'Q1844', lat: 47.1406, lng: 9.5222, population: 5826, populationYear: 2023, areaKm2: 17.315, elevationM: 460, populationDensity2020: 332, region: 'Oberland' },
+ { name: 'Triesen', wikidataId: 'Q49654', lat: 47.1000, lng: 9.5167, population: 5532, populationYear: 2023, areaKm2: 26.484, elevationM: 512, populationDensity2020: 201, region: 'Oberland' },
+ { name: 'Balzers', wikidataId: 'Q49663', lat: 47.0667, lng: 9.5000, population: 4747, populationYear: 2023, areaKm2: 19.731, elevationM: 477, populationDensity2020: 238, region: 'Oberland' },
+ { name: 'Eschen', wikidataId: 'Q4540', lat: 47.2000, lng: 9.5167, population: 4607, populationYear: 2023, areaKm2: 10.381, elevationM: 457, populationDensity2020: 435, region: 'Unterland' },
+ { name: 'Mauren', wikidataId: 'Q49661', lat: 47.2197, lng: 9.5428, population: 4589, populationYear: 2023, areaKm2: 7.491, elevationM: 472, populationDensity2020: 590, region: 'Unterland' },
+ { name: 'Triesenberg', wikidataId: 'Q49651', lat: 47.1167, lng: 9.5333, population: 2671, populationYear: 2023, areaKm2: 29.689, elevationM: 886, populationDensity2020: 89, region: 'Oberland' },
+ { name: 'Ruggell', wikidataId: 'Q49659', lat: 47.2450, lng: 9.5332, population: 2523, populationYear: 2023, areaKm2: 7.378, elevationM: 433, populationDensity2020: 325, region: 'Unterland' },
+ { name: 'Gamprin', wikidataId: 'Q49662', lat: 47.2199, lng: 9.5100, population: 1768, populationYear: 2023, areaKm2: 6.188, elevationM: 468, populationDensity2020: 272, region: 'Unterland' },
+ { name: 'Schellenberg', wikidataId: 'Q49655', lat: 47.2283, lng: 9.5395, population: 1155, populationYear: 2023, areaKm2: 3.559, elevationM: 630, populationDensity2020: 308, region: 'Unterland' },
+ { name: 'Planken', wikidataId: 'Q49660', lat: 47.1833, lng: 9.5333, population: 488, populationYear: 2023, areaKm2: 5.341, elevationM: 786, populationDensity2020: 91, region: 'Oberland' },
 ];

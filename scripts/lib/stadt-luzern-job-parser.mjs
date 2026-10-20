@@ -65,6 +65,9 @@ const parser = createProspectiveChParser({
   extraTrustedHosts: ['job.stadtluzern.ch', 'jobs.stadtluzern.ch'],
   sector: 'Amministrazione Pubblica',
   categoryFn: () => 'Amministrazione Pubblica',
+  // Listing payload = 32-35 % of the rendered vacancy (audit 2026-09-29):
+  // the "Lohn"/"Familienfreundlich" benefit rows and the team paragraph exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllStadtLuzernJobs = parser.fetchAllJobs;

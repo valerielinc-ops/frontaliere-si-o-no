@@ -425,15 +425,16 @@ export function renderLandingHtml(distDir?: string): { html: string; wordCount: 
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: H1,
     description: guardArticleJsonLdDescription(DESCRIPTION),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: 'it',
     url: CANONICAL_URL,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: homeUrl },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: homeUrl },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: homeUrl,
       logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),
@@ -652,7 +653,7 @@ export function selfCertificationFormsPlugin(rootDir: string): Plugin {
       fs.writeFileSync(path.join(distDir, CH_HEALTH_PDF_PATH), chHealthPdf);
       fs.writeFileSync(path.join(distDir, CH_CRIMINAL_RECORD_PDF_PATH), chCriminalRecordPdf);
 
-      const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${CANONICAL_URL}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n</urlset>\n`;
+      const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${CANONICAL_URL}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n</urlset>\n`;
       try {
         fs.writeFileSync(path.join(distDir, 'sitemap-moduli.xml'), sitemapXml, 'utf-8');
       } catch (err) {

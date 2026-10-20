@@ -285,7 +285,7 @@ function stripHtmlTags(html: string): string {
     .trim();
 }
 
-const WISE_BONUS_PROMISE_RE = new RegExp(
+const WISE_BENEFIT_PROMISE_RE = new RegExp(
   [
     'bonus',
     'cashback',
@@ -305,14 +305,25 @@ const WISE_BONUS_PROMISE_RE = new RegExp(
     'voucher',
     'gutschein',
     'omaggio',
-    'referral',
-    'codice invito',
-    'invite code',
   ].join('|'),
   'i',
 );
 
+// Il testo promozionale non deve riesumare neppure il vecchio invito Wise.
+// Una disclosure neutra del referral esistente non promette invece un beneficio.
+const WISE_BONUS_PROMISE_RE = new RegExp(
+  `${WISE_BENEFIT_PROMISE_RE.source}|referral|codice invito|invite code`,
+  'i',
+);
+
 describe('Wise: nessuna promessa di bonus (issue #7529)', () => {
+  it('distingue la disclosure neutra del referral da una promessa di beneficio', () => {
+    const disclosure = 'Link con codice di invito o referral · nessun accordo di affiliazione attivo';
+    expect(WISE_BENEFIT_PROMISE_RE.test(disclosure)).toBe(false);
+    expect(WISE_BONUS_PROMISE_RE.test(disclosure)).toBe(true);
+    expect(WISE_BENEFIT_PROMISE_RE.test(`${disclosure} · bonus CHF 600`)).toBe(true);
+  });
+
   // Il detector deve accendersi sul testo davvero rimosso: senza questo
   // controllo una regex che non matcha nulla renderebbe verdi tutti gli altri.
   it('il detector riconosce la promessa rimossa da #7288', () => {
@@ -398,8 +409,14 @@ describe('Wise: nessuna promessa di bonus (issue #7529)', () => {
           // #7818: il fallback senza match di segmento è osservato nel test registry dedicato.
           expect(html, `blocco Wise (${loc}/${interest}) non renderizzato`).toContain('/go/wise/');
           expect(
-            WISE_BONUS_PROMISE_RE.test(stripHtmlTags(html)),
+            WISE_BENEFIT_PROMISE_RE.test(stripHtmlTags(html)),
             `blocco Wise (${loc}/${interest}) promette un bonus`,
+          ).toBe(false);
+          const linkedCopy = html.match(/<a\b[^>]*>([\s\S]*?)<\/a>/i)?.[1];
+          expect(linkedCopy, `testo promozionale Wise (${loc}/${interest}) assente`).toBeDefined();
+          expect(
+            WISE_BONUS_PROMISE_RE.test(stripHtmlTags(linkedCopy || '')),
+            `testo promozionale Wise (${loc}/${interest}) riesuma un beneficio o invito`,
           ).toBe(false);
         }
       }

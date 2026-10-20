@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from '../scripts/lib/crawler-grace-policy.mjs';
 
 // Regression cover for #5524 (item 1): before the CLI guard, this module ran
 // `main()` at import time (`process.exit(2)` with no argv, or a real `git`
@@ -12,6 +13,82 @@ vi.mock('node:child_process', () => {
 });
 
 const gitCalls = () => execFileSync.mock.calls.map((c) => c[1] as string[]);
+
+const isoDateFromToday = (offsetDays: number) => {
+  const date = new Date();
+  date.setUTCDate(date.getUTCDate() + offsetDays);
+  return date.toISOString().slice(0, 10);
+};
+
+function safeRewriteShards(date: string) {
+  const previousShard = JSON.stringify({ entries: [{
+    date,
+    totalJobs: 10,
+    added: 1,
+    updated: 2,
+    removed: 0,
+    addedKeys: ['url:added'],
+    updatedKeys: [],
+    removedKeys: [],
+    companyStats: [{
+      key: 'company',
+      name: 'Company',
+      addedKeys: ['url:added'],
+      updatedKeys: [],
+      removedKeys: [],
+      updatedCount: 2,
+    }],
+    locationStats: [{
+      key: 'location',
+      name: 'Location',
+      addedKeys: [],
+      updatedKeys: [],
+      removedKeys: [],
+      updatedCount: 2,
+    }],
+    titleStats: [{
+      key: 'raw-title',
+      name: 'Raw title',
+      addedKeys: [],
+      updatedKeys: [],
+      removedKeys: [],
+    }],
+  }] });
+  const nextShard = JSON.stringify({ entries: [{
+    date,
+    totalJobs: 10,
+    added: 1,
+    updated: 2,
+    removed: 0,
+    addedKeys: ['url:added'],
+    updatedKeys: [],
+    removedKeys: [],
+    companyStats: [{
+      key: 'company',
+      name: 'Company',
+      addedKeys: ['url:added'],
+      updatedKeys: [],
+      removedKeys: [],
+      updatedCount: 2,
+    }],
+    locationStats: [{
+      key: 'location',
+      name: 'Location',
+      addedKeys: [],
+      updatedKeys: [],
+      removedKeys: [],
+      updatedCount: 2,
+    }],
+    titleStats: [{
+      key: 'titolo-italiano',
+      name: 'Titolo italiano',
+      addedKeys: [],
+      updatedKeys: [],
+      removedKeys: [],
+    }],
+  }] });
+  return { previousShard, nextShard };
+}
 
 beforeEach(() => {
   execFileSync.mockReset();
@@ -88,5 +165,300 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
     const written = writeSpy.mock.calls.map((c) => c[0]).join('');
     expect(JSON.parse(written)).toEqual([]);
     writeSpy.mockRestore();
+  });
+
+  it('ignores a proven-safe historical job-stats locale rewrite', async () => {
+    const historicalDate = isoDateFromToday(-2);
+    const jobStatsFile = `data/jobs-stats-history/${historicalDate}.json`;
+    const { previousShard, nextShard } = safeRewriteShards(historicalDate);
+
+    process.argv[2] = BEFORE;
+    process.argv[3] = AFTER;
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'merge-base') return '';
+      if (args[0] === 'diff') return `${jobStatsFile}\n`;
+      if (args[0] === 'cat-file' && args[1] === '-s') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? '8451534' : '2086213';
+      }
+      if (args[0] === 'cat-file' && args[1] === 'blob') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? previousShard : nextShard;
+      }
+      return '';
+    });
+    const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    const { main } = await import('../scripts/ci/guard-data-integrity.mjs');
+    main();
+
+    const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+    expect(JSON.parse(written)).toEqual([]);
+    writeSpy.mockRestore();
+  });
+
+  it('flags a proven-safe-looking rewrite of the current job-stats shard', async () => {
+    const currentDate = isoDateFromToday(0);
+    const jobStatsFile = `data/jobs-stats-history/${currentDate}.json`;
+    const { previousShard, nextShard } = safeRewriteShards(currentDate);
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'merge-base') return '';
+      if (args[0] === 'diff') return `${jobStatsFile}\n`;
+      if (args[0] === 'cat-file' && args[1] === '-s') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? '8451534' : '2086213';
+      }
+      if (args[0] === 'cat-file' && args[1] === 'blob') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? previousShard : nextShard;
+      }
+      return '';
+    });
+    const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    const { main } = await import('../scripts/ci/guard-data-integrity.mjs');
+    main();
+
+    const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+    const violations = JSON.parse(written);
+    expect(violations).toHaveLength(1);
+    expect(violations[0].file).toBe(jobStatsFile);
+    writeSpy.mockRestore();
+  });
+
+  it('ignores the proven Swiss Re foreign-listing prune', async () => {
+    const swissReFile = 'data/jobs/by-crawler/swiss-re.json';
+    const previous = JSON.stringify([
+      { url: 'https://jobs.swissre.com/bratislava', companyKey: 'swiss-re', location: 'Bratislava, SK' },
+      { url: 'https://jobs.swissre.com/mexico-city', companyKey: 'swiss-re', location: 'Mexico City, MX' },
+      {
+        url: 'https://jobs.swissre.com/legacy-zurich',
+        companyKey: 'swiss-re',
+        location: 'Zürich',
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES,
+      },
+    ]);
+    const next = JSON.stringify([
+      { url: 'https://jobs.swissre.com/zurich', companyKey: 'swiss-re', location: 'Zurich, CH' },
+    ]);
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'merge-base') return '';
+      if (args[0] === 'diff') return `${swissReFile}\n`;
+      if (args[0] === 'cat-file' && args[1] === '-s') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? '2000000' : '100000';
+      }
+      if (args[0] === 'cat-file' && args[1] === 'blob') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? previous : next;
+      }
+      return '';
+    });
+    const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    const { main } = await import('../scripts/ci/guard-data-integrity.mjs');
+    main();
+
+    const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+    expect(JSON.parse(written)).toEqual([]);
+    writeSpy.mockRestore();
+  });
+
+  it('ignores the proven Bühler source-geography prune', async () => {
+    const buehlerFile = 'data/jobs/by-crawler/buehler.json';
+    const legacySource = 'Bühler Group Dedicated Parser (Prospective medium 1008005)';
+    const previous = JSON.stringify([
+      {
+        url: 'https://jobs.buhlergroup.com/foreign',
+        companyKey: 'buehler',
+        source: legacySource,
+        location: 'Plymouth',
+        canton: 'SG',
+        addressRegion: 'SG',
+        country: 'CH',
+        addressCountry: 'CH',
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES,
+      },
+      {
+        url: 'https://jobs.buhlergroup.com/legacy-uzwil',
+        companyKey: 'buehler',
+        source: legacySource,
+        location: 'Uzwil',
+        canton: 'SG',
+        addressRegion: 'SG',
+        country: 'CH',
+        addressCountry: 'CH',
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES,
+      },
+      {
+        url: 'https://jobs.buhlergroup.com/uzwil',
+        companyKey: 'buehler',
+        source: legacySource,
+        location: 'Uzwil',
+        canton: 'SG',
+        addressRegion: 'SG',
+        country: 'CH',
+        addressCountry: 'CH',
+      },
+    ]);
+    const next = JSON.stringify([{
+      url: 'https://jobs.buhlergroup.com/uzwil',
+      companyKey: 'buehler',
+      source: legacySource,
+      location: 'Uzwil',
+      canton: 'SG',
+      addressRegion: 'SG',
+      country: 'CH',
+      addressCountry: 'CH',
+    }]);
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'merge-base') return '';
+      if (args[0] === 'diff') return `${buehlerFile}\n`;
+      if (args[0] === 'cat-file' && args[1] === '-s') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? '2000000' : '100000';
+      }
+      if (args[0] === 'cat-file' && args[1] === 'blob') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? previous : next;
+      }
+      return '';
+    });
+    const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    const { main } = await import('../scripts/ci/guard-data-integrity.mjs');
+    main();
+
+    const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+    expect(JSON.parse(written)).toEqual([]);
+    writeSpy.mockRestore();
+  });
+
+  it('does not exempt an unsafe Swiss Re slice shrink', async () => {
+    const swissReFile = 'data/jobs/by-crawler/swiss-re.json';
+    const previous = JSON.stringify([
+      { url: 'https://jobs.swissre.com/zurich-1', companyKey: 'swiss-re', location: 'Zurich, CH' },
+      { url: 'https://jobs.swissre.com/zurich-2', companyKey: 'swiss-re', location: 'Zurich, CH' },
+    ]);
+    const next = JSON.stringify([
+      { url: 'https://jobs.swissre.com/zurich-1', companyKey: 'swiss-re', location: 'Zurich, CH' },
+    ]);
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'merge-base') return '';
+      if (args[0] === 'diff') return `${swissReFile}\n`;
+      if (args[0] === 'cat-file' && args[1] === '-s') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? '2000000' : '100000';
+      }
+      if (args[0] === 'cat-file' && args[1] === 'blob') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? previous : next;
+      }
+      return '';
+    });
+    const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    const { main } = await import('../scripts/ci/guard-data-integrity.mjs');
+    main();
+
+    const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+    const violations = JSON.parse(written);
+    expect(violations).toHaveLength(1);
+    expect(violations[0].file).toBe(swissReFile);
+    writeSpy.mockRestore();
+  });
+  describe('housekeeping archive move into the paired expired slice (#9876)', () => {
+    const ACTIVE = 'data/jobs/by-crawler/convit-holding.json';
+    const EXPIRED = 'data/jobs/expired/by-crawler/convit-holding.json';
+    const job = (n: number) => ({
+      url: `https://www.careers-page.com/convit-holding-gmbh/job/${n}`,
+      slug: `consulente-${n}-convit-lugano`,
+      sourceIdentity: `url:https://www.careers-page.com/convit-holding-gmbh/job/${n}`,
+    });
+    const archived = (n: number, extra: Record<string, unknown> = {}) => ({
+      slug: `consulente-${n}-convit-lugano`,
+      expiredAt: '2026-09-28T11:25:24.215Z',
+      ...extra,
+    });
+    const previous = JSON.stringify({ crawlerKey: 'convit-holding', jobs: [job(1), job(2), job(3), job(4)] });
+    const next = JSON.stringify({ crawlerKey: 'convit-holding', jobs: [job(1)] });
+
+    function runGuard(expiredAfter: string | null, nextRaw: string = next) {
+      execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+        if (args[0] === 'merge-base') return '';
+        if (args[0] === 'diff') return `${ACTIVE}\n`;
+        if (args[0] === 'cat-file' && args[1] === '-s') {
+          const ref = args[2].split(':')[0];
+          return ref === BEFORE ? '1620353' : '191884';
+        }
+        if (args[0] === 'cat-file' && args[1] === 'blob') {
+          const [ref, file] = args[2].split(':');
+          if (file === EXPIRED) {
+            if (ref !== AFTER || expiredAfter === null) throw new Error('missing blob');
+            return expiredAfter;
+          }
+          return ref === BEFORE ? previous : nextRaw;
+        }
+        return '';
+      });
+      const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+      return import('../scripts/ci/guard-data-integrity.mjs').then(({ main }) => {
+        main();
+        const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+        writeSpy.mockRestore();
+        return JSON.parse(written) as Array<{ file: string }>;
+      });
+    }
+
+    it('accepts the shrink when every removed job is archived in the same push', async () => {
+      const expired = JSON.stringify([
+        archived(2),
+        // slug displaced by the 3-way merge: still found through previousSlugs
+        archived(9, { slug: 'other-slug', previousSlugs: ['consulente-3-convit-lugano'] }),
+        // no slug match: found through the source identity
+        archived(8, { slug: 'renamed', sourceIdentity: 'url:https://www.careers-page.com/convit-holding-gmbh/job/4' }),
+      ]);
+      expect(await runGuard(expired)).toEqual([]);
+    });
+
+    it('still flags the shrink when one removed job is missing from the archive', async () => {
+      const violations = await runGuard(JSON.stringify([archived(2), archived(3)]));
+      expect(violations.map((v) => v.file)).toEqual([ACTIVE]);
+    });
+
+    it('does not count archive entries without a valid expiredAt', async () => {
+      const expired = JSON.stringify([archived(2), archived(3), archived(4, { expiredAt: 'not-a-date' })]);
+      expect((await runGuard(expired)).map((v) => v.file)).toEqual([ACTIVE]);
+    });
+
+    it('stays closed when the paired expired slice is absent or not an archive', async () => {
+      expect((await runGuard(null)).map((v) => v.file)).toEqual([ACTIVE]);
+      expect((await runGuard('{"jobs":[]}')).map((v) => v.file)).toEqual([ACTIVE]);
+    });
+
+    describe('when the same push also publishes new jobs (crawler run, convit-holding 2026-09-27)', () => {
+      // A crawler archives its dead postings and writes the new ones in the
+      // same commit: the next slice is no longer a subset of the previous one.
+      const withNewJobs = JSON.stringify({ crawlerKey: 'convit-holding', jobs: [job(1), job(10), job(11)] });
+      const fullArchive = JSON.stringify([archived(2), archived(3), archived(4)]);
+
+      it('accepts the shrink when every removed job is archived', async () => {
+        expect(await runGuard(fullArchive, withNewJobs)).toEqual([]);
+      });
+
+      it('still flags it when one removed job is missing from the archive', async () => {
+        const violations = await runGuard(JSON.stringify([archived(2), archived(3)]), withNewJobs);
+        expect(violations.map((v) => v.file)).toEqual([ACTIVE]);
+      });
+
+      it('still flags it when the next slice repeats an identity', async () => {
+        const duplicated = JSON.stringify({ crawlerKey: 'convit-holding', jobs: [job(1), job(10), job(10)] });
+        expect((await runGuard(fullArchive, duplicated)).map((v) => v.file)).toEqual([ACTIVE]);
+      });
+    });
   });
 });

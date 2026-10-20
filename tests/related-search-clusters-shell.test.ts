@@ -2,8 +2,15 @@ import { mkdtempSync, rmSync, writeFileSync, mkdirSync, readFileSync } from 'nod
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
-import { renderClusterPage, isClusterBelowFloor } from '../build-plugins/relatedSearchClustersPlugin';
+import {
+  renderClusterPage,
+  isClusterBelowFloor,
+  selectRelatedClusterLinks,
+  stripHreflangForClusterMirror,
+} from '../build-plugins/relatedSearchClustersPlugin';
+import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { buildFlatBridgeFromSibling } from '../build-plugins/flatHtmlRedirectPlugin';
+import { countHreflangLinks } from '../build-plugins/shared/headLinkPatterns';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from '../build-plugins/shared/spaEntryFilenames';
 import { AD_SLOTS } from '../services/adsenseSlots';
 
@@ -67,6 +74,53 @@ describe('canton-aware cluster URL emission', () => {
     expect(page.urlPath).toBe('/cerca-lavoro-svizzera/ricerca-offerte-lavoro-addetto-a-cucina/');
     expect(page.loc).toBe('https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-offerte-lavoro-addetto-a-cucina/');
     expect(page.html).toMatch(/<link rel=canonical href="https:\/\/frontaliereticino\.ch\/cerca-lavoro-svizzera\/ricerca-offerte-lavoro-addetto-a-cucina\/"/);
+  });
+
+  it('keeps hreflang on the aggregate page and strips it from canonical mirrors', () => {
+    const distDir = makeDist();
+    const slug = 'ricerca-offerte-lavoro-addetto-a-cucina';
+    const slugCore = slug.replace(/^ricerca-/, '');
+    const page = renderClusterPage({
+      distDir,
+      dateStamp: '2026-05-28',
+      ctx: {
+        candidate: {
+          slug,
+          locale: 'it',
+          jobCount: 3,
+          matchingJobCount: 3,
+          sampleTerms: ['offerte lavoro Addetto a cucina'],
+          editorialCollision: null,
+        },
+        keyword: 'addetto a cucina',
+        city: null,
+        matchingJobs: [
+          { id: 'job-it', title: 'Cuoco', company: 'KSGR', location: 'Chur', canton: 'GR', slug: 'cuoco-chur' },
+          { id: 'job-en', title: 'Cook', company: 'KSGR', location: 'Chur', canton: 'GR', slug: 'cook-chur' },
+          { id: 'job-de', title: 'Koch', company: 'KSGR', location: 'Chur', canton: 'GR', slug: 'koch-chur' },
+        ],
+        topCompanies: ['KSGR'],
+        cantonGroup: '_AGGREGATE_',
+        legacyCantonGroup: 'GR',
+      },
+      enriched: undefined,
+      hreflang: [
+        { locale: 'it', url: `https://frontaliereticino.ch/cerca-lavoro-svizzera/${slug}/` },
+        { locale: 'en', url: `https://frontaliereticino.ch/en/find-jobs-switzerland/search-${slugCore}/` },
+        { locale: 'de', url: `https://frontaliereticino.ch/de/jobs-in-schweiz/suche-${slugCore}/` },
+        { locale: 'fr', url: `https://frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-${slugCore}/` },
+      ],
+      related: [],
+    });
+
+    const mirrorHtml = stripHreflangForClusterMirror(page.html);
+    const pageHeadEnd = page.html.indexOf('</head>');
+    const mirrorHeadEnd = mirrorHtml.indexOf('</head>');
+
+    expect(countHreflangLinks(page.html)).toBe(5);
+    expect(countHreflangLinks(mirrorHtml)).toBe(0);
+    expect(mirrorHtml).toContain(`<link rel=canonical href="${page.loc}"`);
+    expect(mirrorHtml.slice(mirrorHeadEnd)).toBe(page.html.slice(pageHeadEnd));
   });
 
   it('pins a Liestal-only cluster under /cerca-lavoro-basilea/ via cantonGroup', () => {
@@ -239,7 +293,7 @@ describe('related search cluster SEO shell', () => {
         locale: 'it',
         keyword: 'data analyst',
         city: 'Lugano',
-        intro: 'Pagina di ricerca per data analyst a Lugano con offerte aggiornate, aziende attive, criteri di candidatura, stipendio in franchi, costi da frontaliere e strumenti per confrontare netto, cambio e copertura sanitaria prima di inviare una candidatura.',
+        intro: 'Pagina di ricerca per data analyst a Lugano con offerte aggiornate, aziende attive, criteri di candidatura, stipendio in franchi, costi da frontaliere e strumenti per confrontare netto, cambio e copertura sanitaria prima di inviare una candidatura. La pagina aiuta a verificare mansioni, datore, località, contratto e percorso di candidatura prima di scegliere un\'offerta.',
         faqs: [],
       },
       hreflang: [
@@ -269,6 +323,47 @@ describe('related search cluster SEO shell', () => {
     expect(page.html).toContain('og:image');
     expect(page.html).toContain('Rel 4');
     expect(page.html).toContain('Rel 5');
+  });
+
+  it('restores the full prose context when the stripped shell would be thin', () => {
+    const page = renderClusterPage({
+      distDir: makeDist(),
+      dateStamp: '2026-10-05',
+      ctx: {
+        candidate: {
+          slug: 'ricerca-sparse-indexable',
+          locale: 'en',
+          jobCount: 3,
+          sampleTerms: ['sparse indexable'],
+          editorialCollision: null,
+        },
+        keyword: 'sparse indexable',
+        city: null,
+        matchingJobs: [
+          { id: 'a', title: 'Job A', company: 'Co', location: 'Lugano', canton: 'TI', slug: 'job-a' },
+          { id: 'b', title: 'Job B', company: 'Co', location: 'Lugano', canton: 'TI', slug: 'job-b' },
+          { id: 'c', title: 'Job C', company: 'Co', location: 'Lugano', canton: 'TI', slug: 'job-c' },
+        ],
+        topCompanies: [],
+      } as any,
+      enriched: {
+        slug: 'ricerca-sparse-indexable',
+        locale: 'en',
+        keyword: 'sparse indexable',
+        city: null,
+        intro: 'Short intro.',
+        faqs: [],
+      },
+      hreflang: [],
+      related: [],
+    });
+    const mainStart = page.html.indexOf('<main');
+    const mainEnd = page.html.indexOf('</main>', mainStart) + '</main>'.length;
+    const main = page.html.slice(mainStart, mainEnd);
+
+    expect(page.html).not.toContain('<!--EJP_STRIPPED-->');
+    expect(countHtmlBodyWords(main)).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    expect(main).toContain('job-board-commuter-context');
   });
 
   it('does not put the manual multiplex slot on an AdSense-thin enriched cluster (#9244)', () => {
@@ -350,9 +445,38 @@ describe('below-floor bridge floor decision (issue #4303 item 4 / run 2963670705
     expect(isClusterBelowFloor(aboveFloorCtx, undefined)).toBe(false);
   });
 
-  it('is false below floor when an AI-enriched intro exempts the cluster', () => {
-    const enriched = { slug: 'ricerca-floor-test', locale: 'it', keyword: 'floor test', city: null, intro: 'Non-empty AI intro.', faqs: [] } as any;
+  it('is false below floor when a substantive AI-enriched intro exempts the cluster', () => {
+    const enriched = {
+      slug: 'ricerca-floor-test',
+      locale: 'it',
+      keyword: 'floor test',
+      city: null,
+      intro: Array.from({ length: 50 }, (_, i) => `parola-${i}`).join(' '),
+      faqs: [],
+    } as any;
     expect(isClusterBelowFloor(belowFloorCtx, enriched)).toBe(false);
+  });
+
+  it('keeps a below-floor cluster bridged when its enriched intro is short', () => {
+    const enriched = {
+      slug: 'ricerca-floor-test',
+      locale: 'it',
+      keyword: 'floor test',
+      city: null,
+      intro: 'Non-empty AI intro.',
+      faqs: [],
+    } as any;
+    const page = renderClusterPage({
+      distDir: makeDist(),
+      dateStamp: '2026-07-18',
+      ctx: belowFloorCtx,
+      enriched,
+      hreflang: [],
+      related: [],
+    });
+
+    expect(page.html).toMatch(/<meta name="?robots"? content="?noindex,follow"?/);
+    expect(page.html).not.toContain('ricerca-floor-test');
   });
 
   it('is true below floor when the enriched intro is present but blank', () => {
@@ -393,6 +517,45 @@ describe('below-floor bridge floor decision (issue #4303 item 4 / run 2963670705
     expect(page.html).toContain('max-image-preview:large');
     expect(page.html).toContain(`<link rel=canonical href="${page.loc}"`);
   });
+
+  it('does not link Ricerche correlate to a below-floor bridge', () => {
+    const primary = {
+      candidate: { slug: 'ricerca-primary', locale: 'it', jobCount: 3, sampleTerms: ['primary'], editorialCollision: null },
+      keyword: 'primary',
+      city: 'Biel/Bienne',
+      matchingJobs: [
+        { id: 'a', title: 'A', company: 'Co', location: 'Biel', canton: 'BE', slug: 'a' },
+        { id: 'b', title: 'B', company: 'Co', location: 'Biel', canton: 'BE', slug: 'b' },
+        { id: 'c', title: 'C', company: 'Co', location: 'Biel', canton: 'BE', slug: 'c' },
+      ],
+      topCompanies: ['Co'],
+      cantonGroup: '_AGGREGATE_',
+      legacyCantonGroup: 'BE',
+    } as any;
+    const belowFloor = {
+      candidate: { slug: 'ricerca-secondary', locale: 'it', jobCount: 1, sampleTerms: ['secondary'], editorialCollision: null },
+      keyword: 'secondary',
+      city: 'Biel/Bienne',
+      matchingJobs: [{ id: 'd', title: 'D', company: 'Co', location: 'Biel', canton: 'BE', slug: 'd' }],
+      topCompanies: ['Co'],
+      cantonGroup: '_AGGREGATE_',
+      legacyCantonGroup: 'BE',
+    } as any;
+
+    expect(selectRelatedClusterLinks(primary, [primary, belowFloor], {})).toEqual([]);
+
+    const enriched = {
+      'it::ricerca-secondary': {
+        slug: 'ricerca-secondary',
+        locale: 'it',
+        keyword: 'secondary',
+        city: 'Biel/Bienne',
+        intro: Array.from({ length: 50 }, (_, i) => `parola-${i}`).join(' '),
+        faqs: [],
+      },
+    } as any;
+    expect(selectRelatedClusterLinks(primary, [primary, belowFloor], enriched)).toHaveLength(1);
+  });
 });
 
 describe('flat redirect bridge payload', () => {
@@ -426,5 +589,17 @@ describe('flat redirect bridge payload', () => {
     expect(src).toContain('collector.add(flatPath, buildFlatBridgeFromSibling(out.html, out.loc));');
     expect(src).not.toContain('renderLeanFlatBridge');
     expect(src).not.toContain('collector.add(flatPath, out.html);');
+  });
+
+  it('writes hreflang only on self-canonical cluster pages, not their mirrors', () => {
+    const src = readFileSync(
+      join(process.cwd(), 'build-plugins/relatedSearchClustersPlugin.ts'),
+      'utf8',
+    );
+
+    expect(src).toContain('const __clMirrorHtml = __clMirrorPaths.size > 0');
+    expect(src).toContain('stripHreflangForClusterMirror(__clHtml)');
+    expect(src).toContain('collector.add(indexPath, __clHtml);');
+    expect(src).toContain('collector.add(mirrorIndexPath, __clMirrorHtml);');
   });
 });

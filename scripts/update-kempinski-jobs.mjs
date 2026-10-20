@@ -23,7 +23,9 @@
  *   4. Merges into data/jobs.json.
  *   5. Translates missing locales.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
+import { decode as decodeHTML } from 'html-entities';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -128,7 +130,7 @@ function detectCanton(city = '') {
 }
 
 function stripHtml(html = '') {
-  return html
+  return decodeHTML(html
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
@@ -138,8 +140,7 @@ function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<\/p>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&[a-z]+;/gi, ' ')
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -217,7 +218,7 @@ function buildJob(posting) {
     const header = posting.benefits_header || 'Benefits';
     descParts.push(`${header}: ${stripHtml(posting.benefits)}`);
   }
-  const description = descParts.join(' | ').slice(0, 3000);
+  const description = descParts.join(' | ');
 
   const sourceLang = detectLang(title + ' ' + description) || 'en';
   const empType = mapEmploymentType(posting.employment_type || '');
@@ -242,7 +243,7 @@ function buildJob(posting) {
     department,
     source: 'kempinski-dedicated-crawler',
     sourceLang,
-    postedDate: posting.deadline_at || new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(),
     validThrough: '',
     employmentType: empType,
     contractType,
@@ -274,6 +275,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),

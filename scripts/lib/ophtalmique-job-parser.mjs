@@ -14,6 +14,7 @@
  * from the `<div id="advert">` block.
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -60,18 +61,17 @@ export async function fetchAllOphtalmiqueJobs() {
     rss = await fetchErecruitRss(RSS_URL);
   } catch (err) {
     console.warn(`  ⚠️ RSS feed fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
-  const items = parseErecruitRss(rss);
+  const items = parseErecruitRss(rss, { includePublication: true });
   console.log(`  ✓ ${items.length} annunci nel feed RSS`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const it of items) {
     const url = normalizeDetailUrl(it.link);
-    const detail = await fetchErecruitDetail(url);
+    const detail = await fetchErecruitDetail(url, { includePublication: true });
     await new Promise((r) => setTimeout(r, 250));
     if (!detail || !detail.title) continue;
     if (detail.description && detail.description.length > 30) detailHits++;
@@ -120,7 +120,7 @@ export async function fetchAllOphtalmiqueJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates(it, detail),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

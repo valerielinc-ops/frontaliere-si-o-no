@@ -15,7 +15,8 @@ import { unlockAchievement } from '@/services/gamificationService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
-import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
+import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY, canShowPromotionalPrompt, markSlotShown } from '@/services/popupQueue';
+import { observeGoogleAdOverlays } from '@/services/modalAdOcclusion';
 import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { resilientImport } from '@/services/resilientImport';
@@ -27,6 +28,9 @@ import {
  getNewsletterPendingEmail,
 } from '@/services/newsletterSubscribers';
 
+/** Last-touch attribution for a login started from this box (see authService). */
+const NEWSLETTER_POPUP_AUTH_ATTRIBUTION = { cta: 'newsletter_popup_social', component: 'NewsletterPopup' } as const;
+
 const POPUP_DISMISSED_KEY = 'newsletter_popup_dismissed';
 // Canonical key shared via services/newsletterCtaState (#3529 dedup).
 const DISMISS_DAYS = 7;
@@ -34,6 +38,10 @@ const MIN_TIME_MS = 20_000; // 20 seconds minimum on site
 const SCROLL_THRESHOLD = 0.3; // 30% scroll depth — long blog articles were firing the popup near the end at 0.5
 const PAGE_VIEW_THRESHOLD = 3; // show after 3+ page views in session
 const PAGE_VIEW_KEY = 'newsletter_pageviews';
+const SESSION_SHOWN_KEY = 'newsletter_popup_shown';
+function hasSessionImpression(): boolean {
+ try { return sessionStorage.getItem(SESSION_SHOWN_KEY) === '1'; } catch { return false; }
+}
 const NEWSLETTER_ONETAP_KEY = 'onetap_prompted_newsletter_popup';
 
 // Timeout wrapper
@@ -65,6 +73,8 @@ const NewsletterPopup: React.FC = () => {
  const nav = useNavigationOptional();
  const [visible, setVisible] = useState(false);
  const [queueActive, setQueueActive] = useState(false);
+ const [googleOverlayActive, setGoogleOverlayActive] = useState(false);
+ const shownRef = useRef(false);
  const [email, setEmail] = useState('');
  const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error' | 'exists'>('idle');
  const [errorMessage, setErrorMessage] = useState('');
@@ -96,34 +106,12 @@ const NewsletterPopup: React.FC = () => {
  }
  }, [user]);
 
- // Try silent sign-in: check if Firebase already has a cached user session
- useEffect(() => {
- const trySilentAuth = async () => {
- try {
- const [{ getAuth }, { getApp }] = await Promise.all([
- resilientImport(() => import('firebase/auth'), (m) => typeof m.getAuth === 'function'),
- resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
- ]);
- const appInstance = await getApp();
- const auth = getAuth(appInstance);
- // onAuthStateChanged fires with cached user if session exists
- const unsub = auth.onAuthStateChanged((u) => {
- if (u?.email && !email) {
- setEmail(u.email);
- }
- unsub();
- });
- } catch {
- // Ad blocker or network issue — silent fail, user can still
- // enter email manually.
- }
- };
- trySilentAuth();
- }, []);
+ // useAuth owns cached-session restoration and deferred anonymous startup.
+ // Its user updates also feed the prefill effect above.
 
  useEffect(() => {
  // Don't show for crawlers / bots (they must see full page content)
- if (isCrawlerVisitor) return;
+ if (isCrawlerVisitor || hasSessionImpression()) return;
 
  // FRO-407: Don't show on profile page — popup z-index blocks Google One Tap login
  if (/^\/(profilo|profile|profil|en\/profile|de\/profil|fr\/profil)\/?$/.test(window.location.pathname)) return;
@@ -131,7 +119,8 @@ const NewsletterPopup: React.FC = () => {
  // FRO-25: Check for pending confirmation (> 1 hour old)
  const pendingInfo = getNewsletterPendingEmail();
  const ONE_HOUR = 60 * 60 * 1000;
- if (pendingInfo && Date.now() - pendingInfo.since > ONE_HOUR) {
+ const isPendingReminder = !!pendingInfo && Date.now() - pendingInfo.since > ONE_HOUR;
+ if (isPendingReminder) {
  // Check dismiss cooldown even for reminders
  const dismissed = localStorage.getItem(POPUP_DISMISSED_KEY);
  if (dismissed) {
@@ -140,10 +129,7 @@ const NewsletterPopup: React.FC = () => {
  }
  setEmail(pendingInfo.email);
  setStatus('pending');
- setVisible(true);
- requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER);
- Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', 'legacy_registration_review');
- return;
+ // A reminder follows the same reading/scroll timing as the signup prompt.
  }
 
  // Don't show if already subscribed
@@ -156,16 +142,14 @@ const NewsletterPopup: React.FC = () => {
  const dismissed = localStorage.getItem(POPUP_DISMISSED_KEY);
  if (dismissed) {
  const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
- if (daysSince < DISMISS_DAYS) return;
+ if (daysSince < (isPendingReminder ? 1 : DISMISS_DAYS)) return;
  }
 
  const checkAndShow = () => {
  if (userRef.current) return;
- if (timeReady.current && scrollReady.current) {
+ if (timeReady.current && scrollReady.current && !shownRef.current && canShowPromotionalPrompt()) {
  if (localStorage.getItem(SUBSCRIBED_KEY) !== 'true') {
  setVisible(true);
- requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER);
- Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', 'smart_trigger');
  }
  }
  };
@@ -176,7 +160,7 @@ const NewsletterPopup: React.FC = () => {
  }, MIN_TIME_MS);
 
  const onScroll = () => {
- if (scrollReady.current) return;
+ if (scrollReady.current) { checkAndShow(); return; }
  const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
  if (scrollPercent >= SCROLL_THRESHOLD) {
  scrollReady.current = true;
@@ -189,13 +173,11 @@ const NewsletterPopup: React.FC = () => {
  const onMouseLeave = (e: MouseEvent) => {
  if (exitIntentFired.current) return;
  if (userRef.current) return;
- if (e.clientY <= 0 && timeReady.current) {
+ if (e.clientY <= 0 && timeReady.current && !shownRef.current && canShowPromotionalPrompt()) {
  exitIntentFired.current = true;
  if (localStorage.getItem(SUBSCRIBED_KEY) !== 'true') {
  setTriggerSource('exit_intent');
  setVisible(true);
- requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER);
- Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', 'exit_intent');
  }
  }
  };
@@ -221,8 +203,6 @@ const NewsletterPopup: React.FC = () => {
  document.documentElement.addEventListener('mouseleave', onMouseLeave);
  }
 
- // Subscribe to popup queue
- const unsub = subscribe(() => setQueueActive(isActive('newsletter-popup')));
 
  return () => {
  clearTimeout(timer);
@@ -233,7 +213,6 @@ const NewsletterPopup: React.FC = () => {
  if ((window as any).__nlPageViewTimer) {
  clearTimeout((window as any).__nlPageViewTimer);
  }
- unsub();
  };
  }, []);
 
@@ -245,50 +224,28 @@ const NewsletterPopup: React.FC = () => {
  }
  }, [user, visible]);
 
- // Hide AdSense auto-ads while the popup is showing (they use z-index 2147483647).
- // CSS selectors in index.css handle most cases, but vignette/overlay ads inject
- // wrapper divs without predictable IDs — force-hide them via JS + MutationObserver.
+ // Promotions yield to Google anchors/vignettes; no ad or page scroll is hidden.
+ useEffect(() => observeGoogleAdOverlays(setGoogleOverlayActive), []);
  useEffect(() => {
- const isOpen = visible && queueActive;
- document.body.classList.toggle('modal-open', isOpen);
- if (!isOpen) return () => { document.body.classList.remove('modal-open'); };
-
- const hideGoogleOverlays = () => {
- // Vignette/overlay wrappers: fixed-positioned parents of aswift iframes
- document.querySelectorAll('iframe[id^="aswift_"]').forEach((iframe) => {
- let el = iframe.parentElement;
- while (el && el !== document.body) {
- const style = getComputedStyle(el);
- if (style.position === 'fixed' || style.position === 'absolute') {
- (el as HTMLElement).style.setProperty('display', 'none', 'important');
- break;
- }
- el = el.parentElement;
- }
- });
- // Google auto-placed containers
- document.querySelectorAll('.google-auto-placed').forEach((el) => {
- (el as HTMLElement).style.setProperty('display', 'none', 'important');
- });
- };
-
- hideGoogleOverlays();
- const observer = new MutationObserver(hideGoogleOverlays);
- observer.observe(document.body, { childList: true, subtree: true });
-
- return () => {
- observer.disconnect();
- document.body.classList.remove('modal-open');
- // Restore — AdSense will re-render on next page interaction
- document.querySelectorAll('.google-auto-placed').forEach((el) => {
- (el as HTMLElement).style.removeProperty('display');
- });
- };
- }, [visible, queueActive]);
+   if (!visible || googleOverlayActive) { setQueueActive(false); return; }
+   const update = () => setQueueActive(isActive('newsletter-popup'));
+   const unsub = subscribe(update);
+   requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER);
+   update();
+   return () => { unsub(); releaseSlot('newsletter-popup'); };
+ }, [visible, googleOverlayActive]);
+ useEffect(() => {
+   if (!visible || !queueActive || googleOverlayActive || shownRef.current) return;
+   if (!canShowPromotionalPrompt()) { setVisible(false); return; }
+   shownRef.current = true;
+   try { sessionStorage.setItem(SESSION_SHOWN_KEY, '1'); } catch { /* in-memory cap still applies */ }
+   markSlotShown('newsletter-popup');
+   Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', triggerSource);
+ }, [visible, queueActive, googleOverlayActive, triggerSource]);
 
  // Google One Tap: prompt when the popup is actually visible (slot active).
  useEffect(() => {
- if (!visible || !queueActive) return;
+ if (!visible || !queueActive || googleOverlayActive) return;
  if (user) return;
  if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return;
  if (sessionStorage.getItem(NEWSLETTER_ONETAP_KEY)) return;
@@ -300,13 +257,13 @@ const NewsletterPopup: React.FC = () => {
  return () => {
  cancelOneTap();
  };
- }, [visible, queueActive, user]);
+ }, [visible, queueActive, googleOverlayActive, user]);
 
  useEffect(() => {
  let cancelled = false;
 
  const mountButton = async () => {
- if (!visible || !queueActive || user) {
+ if (!visible || !queueActive || googleOverlayActive || user) {
  if (googleButtonRef.current) googleButtonRef.current.innerHTML = '';
  setGoogleButtonReady(false);
  return;
@@ -319,6 +276,7 @@ const NewsletterPopup: React.FC = () => {
  text: 'continue_with',
  width: 320,
  locale,
+ attribution: NEWSLETTER_POPUP_AUTH_ATTRIBUTION,
  });
  if (!cancelled) setGoogleButtonReady(ready);
  } catch (error) {
@@ -333,7 +291,7 @@ const NewsletterPopup: React.FC = () => {
  return () => {
  cancelled = true;
  };
- }, [visible, queueActive, user, locale]);
+ }, [visible, queueActive, googleOverlayActive, user, locale]);
 
  const handleDismiss = () => {
  localStorage.setItem(POPUP_DISMISSED_KEY, String(Date.now()));
@@ -407,7 +365,7 @@ const NewsletterPopup: React.FC = () => {
  }
  };
 
- if (!visible || !queueActive) return null;
+ if (!visible || !queueActive || googleOverlayActive || (!shownRef.current && !canShowPromotionalPrompt())) return null;
 
  // Render via portal to escape React root's stacking context.
  // AdSense auto-ads are injected outside #root with z-index: 2147483647,
@@ -509,7 +467,7 @@ const NewsletterPopup: React.FC = () => {
  type="button"
  onClick={async () => {
  try {
- const u = await googleSignIn();
+ const u = await googleSignIn(NEWSLETTER_POPUP_AUTH_ATTRIBUTION);
  if (u?.email) {
  setEmail(u.email);
  Analytics.trackUIInteraction('newsletter_popup', 'button', 'google_signin', 'click');
@@ -529,7 +487,7 @@ const NewsletterPopup: React.FC = () => {
  {linkedInAvailable && (
  <button
  type="button"
- onClick={() => signInWithLinkedIn()}
+ onClick={() => signInWithLinkedIn(undefined, NEWSLETTER_POPUP_AUTH_ATTRIBUTION)}
  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors"
  >
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>

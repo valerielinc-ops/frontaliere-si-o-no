@@ -1,5 +1,9 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { collapseDuplicateRouteEntries } from '../scripts/lib/expired-jobs-archive.mjs';
+import {
+  collapseDuplicateRouteEntries,
+  MAX_COLLAPSE_PASSES,
+} from '../scripts/lib/expired-jobs-archive.mjs';
 import { localeRouteKeys } from '../scripts/reconcile-crawler-company-ownership.mjs';
 import capRefusedFixture from './__fixtures__/expired-collapse-cap-refused-roche.json';
 import multipassFixture from './__fixtures__/expired-collapse-multipass-coop-ticino.json';
@@ -27,9 +31,6 @@ import multipassFixture from './__fixtures__/expired-collapse-multipass-coop-tic
  * il collasso legge. Sono pinnate e non lette dal corpus vivo: il gate deve
  * fallire quando cambia il CODICE, non quando i crawler pubblicano.
  */
-
-/** Tetto oltre il quale l'iterazione e' considerata non convergente. */
-const MAX_COLLAPSE_PASSES = 8;
 
 /**
  * Profilo MISURATO di ogni fixture (2026-09-06), letto come CRICCHETTO: ogni
@@ -152,6 +153,14 @@ describe('collapseDuplicateRouteEntries fixed point', () => {
     expect(again.collapsed).toBe(0);
   });
 
+  it.each(fixtures)('returns a fixed point in one call on %s', (_name, fixture) => {
+    const first = collapseDuplicateRouteEntries(fixture, { source: 'fixed-point-contract' });
+    const second = collapseDuplicateRouteEntries(first.entries, { source: 'fixed-point-contract' });
+
+    expect(JSON.stringify(second.entries)).toBe(JSON.stringify(first.entries));
+    expect(second.collapsed).toBe(0);
+  });
+
   it('keeps every route of the input served at the fixed point', () => {
     for (const [, fixture] of fixtures) {
       const probe = iterateToFixedPoint(fixture);
@@ -159,4 +168,17 @@ describe('collapseDuplicateRouteEntries fixed point', () => {
       for (const route of namespacedRoutes(fixture)) expect(served.has(route), route).toBe(true);
     }
   });
+
+  it('computes convergence signatures without serialising the full archive', () => {
+    const source = readFileSync(
+      new URL('../scripts/lib/expired-jobs-archive.mjs', import.meta.url),
+      'utf8',
+    );
+
+    expect(source).toContain('archiveEntriesSignature(current)');
+    expect(source).toContain('archiveEntriesSignature(result.entries)');
+    expect(source).not.toContain('JSON.stringify(current)');
+    expect(source).not.toContain('JSON.stringify(result.entries)');
+  });
+
 });

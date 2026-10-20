@@ -1,3 +1,5 @@
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { normalizeJobSearchTokens as normalizeTokens, occupationalRoleTokens, tokenMatchesStem } from '../services/jobSearchRelevance';
 /**
  * Orphan-query cluster landing — pure data/path helpers.
  *
@@ -9,25 +11,26 @@
  */
 
 import { firstParsableMs } from './shared/firstParsableDate';
+import {
+  ORPHAN_LANDING_LOCALES as SHARED_ORPHAN_LANDING_LOCALES,
+  ORPHAN_LANDING_SECTION as SHARED_ORPHAN_LANDING_SECTION,
+  ORPHAN_LANDING_LOCALE_PREFIX as SHARED_ORPHAN_LANDING_LOCALE_PREFIX,
+  buildOrphanLandingPath as buildSharedOrphanLandingPath,
+} from '../scripts/lib/orphan-landing-path.mjs';
 
 export type OrphanLandingLocale = 'it' | 'en' | 'de' | 'fr';
 
-export const ORPHAN_LANDING_LOCALES: ReadonlyArray<OrphanLandingLocale> = ['it', 'en', 'de', 'fr'] as const;
+export const ORPHAN_LANDING_LOCALES: ReadonlyArray<OrphanLandingLocale> =
+  SHARED_ORPHAN_LANDING_LOCALES as ReadonlyArray<OrphanLandingLocale>;
 
 /** Section slug per locale for orphan-query landings. */
 export const ORPHAN_LANDING_SECTION: Record<OrphanLandingLocale, string> = {
-  it: 'ricerca',
-  en: 'search',
-  de: 'suche',
-  fr: 'recherche',
+  ...SHARED_ORPHAN_LANDING_SECTION,
 };
 
 /** Locale path prefix (Italian has no prefix, others get /xx). */
 export const ORPHAN_LANDING_LOCALE_PREFIX: Record<OrphanLandingLocale, string> = {
-  it: '',
-  en: '/en',
-  de: '/de',
-  fr: '/fr',
+  ...SHARED_ORPHAN_LANDING_LOCALE_PREFIX,
 };
 
 export const ORPHAN_LANDING_OG_LOCALE: Record<OrphanLandingLocale, string> = {
@@ -73,9 +76,11 @@ export interface OrphanCountableJob {
   sourceLang?: OrphanLandingLocale;
   description?: string;
   descriptionByLocale?: Partial<Record<OrphanLandingLocale, string>>;
+  salarySource?: string;
   salaryMin?: number;
   salaryMax?: number;
   currency?: string;
+  postingDateSource?: string;
   postedDate?: string;
   datePosted?: string;
   url?: string;
@@ -83,9 +88,7 @@ export interface OrphanCountableJob {
 
 /** Build the canonical URL path (always trailing slash) for a cluster. */
 export function buildOrphanLandingPath(locale: OrphanLandingLocale, slug: string): string {
-  const prefix = ORPHAN_LANDING_LOCALE_PREFIX[locale];
-  const section = ORPHAN_LANDING_SECTION[locale];
-  return `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
+  return buildSharedOrphanLandingPath(locale, slug);
 }
 
 /** Parse a URL path and return (locale, slug) if it matches an orphan landing, else null. */
@@ -111,16 +114,6 @@ export function parseOrphanLandingPath(urlPath: string): { locale: OrphanLanding
  * diacritic-free. Token set is intersected with the role + region tokens
  * produced by the clustering script.
  */
-function normalizeTokens(s: string | undefined | null): string[] {
-  if (!s) return [];
-  return String(s)
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9\s-]/g, ' ')
-    .split(/[\s-]+/)
-    .filter((t) => t.length >= 3);
-}
 
 function wordCount(s: string | undefined | null): number {
   if (!s) return 0;
@@ -165,25 +158,6 @@ const BROAD_REGION_TOKENS = new Set<string>([
  * to such a cluster surfaces unrelated jobs (often in the wrong city) and hides
  * the actual openings located in the searched city.
  */
-const GENERIC_ROLE_STEMS = new Set<string>([
-  'lavor', 'lavorar', 'lav', 'job', 'jobs', 'offert', 'offerta', 'offr', 'offre',
-  'emplo', 'employ', 'travail', 'travaill', 'cerc', 'cerco', 'cercas', 'ricerc',
-  'ricerch', 'trovar', 'trov', 'post', 'posizion', 'apert', 'assumon', 'assunzion',
-  'aziend', 'annunc', 'concors', 'vacant', 'recrutement', 'recrut', 'search', 'find',
-  'near', 'nah', 'vicin', 'stellen', 'stellenangebot', 'stelleninserat', 'arbeit',
-  // recency / filler qualifiers from queries like "…da ieri", "3 derniers jours"
-  'noi', 'ier', 'hier', 'ultim', 'giorn', 'settiman', 'tutt', 'letzten', 'tagen',
-  'dernier', 'jour', 'press', 'ent',
-]);
-
-/** Prefix-tolerant token match (min stem length 3), used for role matching. */
-function tokenMatchesStem(tokens: Iterable<string>, stem: string): boolean {
-  if (stem.length < 3) return false;
-  for (const tok of tokens) {
-    if (tok.startsWith(stem) || stem.startsWith(tok.slice(0, Math.max(3, stem.length - 1)))) return true;
-  }
-  return false;
-}
 
 /**
  * Locality (city) gate — unidirectional prefix match: the job's location token
@@ -211,7 +185,7 @@ function localityMatchesCity(locTokens: Iterable<string>, cityTok: string): bool
  *   - The job must be active in the target locale.
  *   - Pure geographic search (named city + only generic role words) → match by
  *     locality alone, skipping the meaningless title-token role filter.
- *   - Otherwise at least 1 role token must appear in the job's
+ *   - Otherwise every non-generic role token must appear in the job's
  *     title/company (stemming-tolerant prefix match, min len 3).
  *   - A named city (specific, non-broad region token) MUST appear in the job's
  *     location/addressLocality. A broad svizzera/ticino token present alongside
@@ -238,14 +212,18 @@ export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryC
 // Hoisting the invariants out of the (clusters x jobs) pair loop
 //
 // `orphanQueryLandingPlugin` calls `filterMatchingJobs(jobs, cluster, 15)` once
-// per cluster — 500 clusters (DEFAULT_MAX_LANDINGS) over ~26k jobs = ~13M
-// (job, cluster) pairs per build, twice (the emission pass and the hub-hreflang
+// per selected cluster — cohortSize × jobCount pair checks per pass, bounded
+// by DEFAULT_MAX_LANDINGS in the owning plugin (not a fixed 1,000-row cohort).
+// Both passes (the emission pass and the hub-hreflang
 // availability pass both go through `renderClusterPage`). Deploy 31065272867
 // measured the `it` leg at wall_s=190.98 cpu_s=197.50 while the plugin's own
 // emit is 0.7 s — i.e. essentially the whole plugin is this pair loop.
 //
 // A local profile over the committed corpus (25,658 jobs x 500 clusters =
-// 12.8M pairs, 222.5 s) split the per-pair body as:
+// 12.8M pairs, 222.5 s) split the per-pair body as below. This is a historical
+// per-pair profile, not a wall-time prediction for the current full cohort.
+// The memoised index keeps expansion linear in the additional cluster count
+// rather than repeating the expensive job derivation:
 //     isJobActiveForLocale -> wordCount(description)   16.39 s   75.0 %
 //     titleTokens Set (3x normalizeTokens)              4.43 s   20.3 %
 //     locTokens   Set (2x normalizeTokens)              0.97 s    4.5 %
@@ -283,8 +261,9 @@ function clusterMatchFacts(cluster: OrphanQueryCluster): ClusterMatchFacts {
   // tokens (svizzera/ticino/ch) only mean site-wide coverage.
   const specificRegions = cluster.regionTokens.filter((r) => !BROAD_REGION_TOKENS.has(r));
   const allRolesGeneric =
-    cluster.roleTokens.length === 0 || cluster.roleTokens.every((r) => GENERIC_ROLE_STEMS.has(r));
-  const facts: ClusterMatchFacts = { roleTokens: cluster.roleTokens, specificRegions, allRolesGeneric };
+    cluster.roleTokens.length === 0 || occupationalRoleTokens(cluster.roleTokens).length === 0;
+  const roleTokens = occupationalRoleTokens(cluster.roleTokens);
+  const facts: ClusterMatchFacts = { roleTokens, specificRegions, allRolesGeneric };
   clusterFactsCache.set(cluster, facts);
   return facts;
 }
@@ -305,8 +284,9 @@ function matchesClusterFacts(
     return facts.specificRegions.some((rtok) => localityMatchesCity(locTokens, rtok));
   }
 
-  // Role: need at least 1 overlap (prefix-tolerant for stems).
-  if (!facts.roleTokens.some((stem) => tokenMatchesStem(titleTokens, stem))) return false;
+  // A compound profession must match every occupational term. Matching only
+  // "specialist" would surface medical roles for customs-specialist searches.
+  if (facts.roleTokens.length === 0 || !facts.roleTokens.every((stem) => tokenMatchesStem(titleTokens, stem))) return false;
 
   // Region: a named city must appear in the job location; broad-only tokens
   // (or no region tokens) leave coverage unconstrained / site-wide.
@@ -321,7 +301,7 @@ function matchesClusterFacts(
 interface JobMatchEntry {
   /** normalizeTokens(location) + normalizeTokens(addressLocality), de-duped. */
   locTokens?: string[];
-  /** firstParsableMs(postedDate, datePosted) — the sort key, locale-invariant. */
+  /** Verified publication timestamp (or zero), locale-invariant. */
   postedMs: number;
   activeByLocale: Partial<Record<OrphanLandingLocale, boolean>>;
   titleTokensByLocale: Partial<Record<OrphanLandingLocale, string[]>>;
@@ -333,7 +313,7 @@ interface JobMatchIndex {
 }
 
 // Keyed on the jobs ARRAY identity: the plugin loads the corpus once and then
-// loops, so one index serves all 500 clusters and both passes. A WeakMap means
+// loops, so one index serves all 1000 clusters and both passes. A WeakMap means
 // the index dies with the array (no build-lifetime leak), and `length` is
 // re-checked so a caller that swaps the corpus can never read a stale index.
 const jobIndexCache = new WeakMap<object, JobMatchIndex>();
@@ -347,7 +327,7 @@ function getJobIndex(jobs: readonly OrphanCountableJob[]): JobMatchIndex {
     const j = jobs[i];
     entries[i] = {
       // Same call, same argument order as the old inline comparator.
-      postedMs: firstParsableMs(j?.postedDate, j?.datePosted),
+      postedMs: firstParsableMs(resolveReportedPostingDate(j)),
       activeByLocale: {},
       titleTokensByLocale: {},
     };
@@ -421,15 +401,9 @@ export function filterMatchingJobs<T extends OrphanCountableJob>(
     matched.push(i);
   }
 
-  // First *parsable* date (not first truthy): a malformed `postedDate`
-  // ("30/05/26") is truthy and sorts lexically above ISO strings, floating a
-  // stale job to the top of the slice and pushing a fresh one out of the
-  // indexed list. See firstParsableMs.
-  //
-  // `postedMs` is precomputed per job, so the comparator sees exactly the
-  // values the old inline `firstParsableMs(...)` calls returned. Array#sort is
-  // stable (V8 TimSort) and the input is in the same order as before, so equal
-  // timestamps keep the same relative order the old `matches.sort` produced.
+  // Only verified publication dates enter the precomputed sort key. Unknown,
+  // unmarked and invalid dates use zero and retain input order under stable sort.
+  // Sort before applying the limit so verified recent jobs are not displaced.
   matched.sort((a, b) => index.entries[b].postedMs - index.entries[a].postedMs);
 
   const out: T[] = [];

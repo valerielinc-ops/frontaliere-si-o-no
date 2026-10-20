@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Rank editorial pages by content-refresh opportunity using Search Console
  * page-level performance (impressions, CTR, avg position).
@@ -104,13 +105,14 @@ function loadWeights(path) {
 const GSC_QUERY_ROW_LIMIT = 25000;
 const GSC_QUERY_MAX_PAGES = 8; // safety cap: 8 * 25000 = 200000 righe
 
-async function fetchPagePerformance(token, days) {
+export async function fetchPagePerformance(token, days) {
   const today = new Date();
   const end = utcDaysBefore(today, 2); // GSC ha un ritardo di 2 giorni
-  const start = utcDaysBefore(end, days);
+  const start = utcDaysBefore(end, days - 1);
 
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`;
   const rows = [];
+  let exhausted = false;
   for (let page = 0; page < GSC_QUERY_MAX_PAGES; page += 1) {
     const startRow = page * GSC_QUERY_ROW_LIMIT;
     const res = await fetch(url, {
@@ -128,8 +130,9 @@ async function fetchPagePerformance(token, days) {
     const data = await res.json();
     const batch = data.rows || [];
     rows.push(...batch);
-    if (batch.length < GSC_QUERY_ROW_LIMIT) break;
+    if (batch.length < GSC_QUERY_ROW_LIMIT) { exhausted = true; break; }
   }
+  if (!exhausted) throw new Error(`GSC response incomplete: safety cap reached at ${rows.length} rows; no opportunity ranking published`);
   return { rows, window: { start: fmt(start), end: fmt(end) } };
 }
 
@@ -189,7 +192,7 @@ async function main() {
   }
 }
 
-main().catch((err) => {
+if (isInvokedDirectly(import.meta.url)) main().catch((err) => {
   console.error(`gsc-content-opportunity-score failed: ${err.message}`);
   process.exit(1);
 });

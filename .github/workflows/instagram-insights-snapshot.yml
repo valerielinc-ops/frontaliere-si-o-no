@@ -1,0 +1,81 @@
+name: Instagram Insights Report
+
+# Collection is owned by the authenticated Chrome profile on the Mac host.
+# This workflow is deliberately report-only: it never asks for an Instagram
+# token and never competes with the local browser collector for data/.
+on:
+  workflow_dispatch:
+    inputs:
+      window_hours:
+        description: 'Target measurement window in hours'
+        required: false
+        default: '72'
+        type: string
+      as_of:
+        description: 'Optional ISO timestamp for a reproducible report'
+        required: false
+        default: ''
+        type: string
+
+concurrency:
+  group: instagram-insights-report
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      WINDOW_HOURS: ${{ github.event.inputs.window_hours || '72' }}
+      AS_OF: ${{ github.event.inputs.as_of || '' }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Print creative scorecard
+        run: |
+          set -euo pipefail
+          if [ -f data/instagram-insights.json ]; then
+            node scripts/instagram-insights-report.mjs \
+              --input data/instagram-insights.json \
+              --ledger data/instagram-posted.json \
+              --window-hours="$WINDOW_HOURS"
+          else
+            echo "No browser Insights snapshot has been committed yet."
+          fi
+
+      - name: Print experiment status
+        run: |
+          set -euo pipefail
+          args=(--ledger data/instagram-posted.json --queue data/instagram-queue.json --insights data/instagram-insights.json --window-hours="$WINDOW_HOURS")
+          if [ -n "$AS_OF" ]; then args+=(--as-of "$AS_OF"); fi
+          node scripts/instagram-experiment-status.mjs "${args[@]}"

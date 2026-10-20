@@ -32,15 +32,18 @@ import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 
 const DEPLOY_YML = readFileSync(resolve('.github/workflows/deploy.yml'), 'utf8');
+const DEPLOY_REQUEST_YML = readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8');
+const DEPLOY_PUBLISH_YML = readFileSync(resolve('.github/workflows/deploy-publish.yml'), 'utf8');
+const DEPLOY_ALL_YML = `${DEPLOY_YML}\n${DEPLOY_PUBLISH_YML}`;
 const PREP_SH = resolve('scripts/lib/deploy-it-pages-prep.sh');
 const GATE_SH = resolve('scripts/lib/wait-cdn-build-id.sh');
 const EARLY_CDN_STEP = 'Push generated assets to CDN (early — ahead of the shard pushes)';
 
 /** Slice one `- name: <title>` step out of the build-locale step list. */
 function step(title: string): string {
-  const idx = DEPLOY_YML.indexOf(`      - name: ${title}`);
-  expect(idx, `step "${title}" not found in deploy.yml`).toBeGreaterThan(-1);
-  const rest = DEPLOY_YML.slice(idx + 1);
+  const idx = DEPLOY_ALL_YML.indexOf(`      - name: ${title}`);
+  expect(idx, `step "${title}" not found in deploy workflows`).toBeGreaterThan(-1);
+  const rest = DEPLOY_ALL_YML.slice(idx + 1);
   const end = rest.indexOf('\n      - name: ');
   return rest.slice(0, end === -1 ? undefined : end);
 }
@@ -72,6 +75,11 @@ describe('deploy.yml — the IT CDN push runs BEFORE anything publishes (#5251)'
     // The marker IS the build id — without it the push writes an empty marker
     // and the gate can never match.
     expect(s, 'early step must pass DEPLOY_BUILD_ID (the marker value)').toMatch(/DEPLOY_BUILD_ID:/);
+  });
+
+  it('the IT section fan-out is admitted only after the early CDN handshake succeeds', () => {
+    const sections = step('Push section shards (IT → frontaliere-<section>-it)');
+    expect(sections).toMatch(/if: matrix\.locale == 'it' && steps\.cdn-push-early\.outcome == 'success'/);
   });
 
   it('the #2569 invariant itself is unchanged: the shard publish is still gated on the marker', () => {
@@ -1046,8 +1054,16 @@ describe('deploy.yml — the #5331 abort is actually wired to the gate step', ()
 // ── scripts/lib/deploy-it-pages-prep.sh — the two phases ─────────────────────
 function runPrep(env: Record<string, string>): { code: number; stdout: string } {
   const dir = mkdtempSync(join(tmpdir(), 'prep-'));
-  mkdirSync(join(dir, 'dist'), { recursive: true });
-  writeFileSync(join(dir, 'dist', 'index.html'), '<!doctype html><title>t</title>');
+  // Since #12150 the CDN push fails closed unless dist carries the GA4
+  // producer pair (stable alias + the one content-addressed file the HTML
+  // names), so the smallest dist that reaches the push section has both.
+  mkdirSync(join(dir, 'dist', 'assets'), { recursive: true });
+  writeFileSync(
+    join(dir, 'dist', 'index.html'),
+    '<!doctype html><title>t</title><script src="/assets/gtag-init-0a1b2c3d.js"></script>',
+  );
+  writeFileSync(join(dir, 'dist', 'assets', 'gtag-init.js'), '');
+  writeFileSync(join(dir, 'dist', 'assets', 'gtag-init-0a1b2c3d.js'), '');
   try {
     const stdout = execFileSync('bash', [PREP_SH], {
       cwd: dir,
@@ -1058,20 +1074,26 @@ function runPrep(env: Record<string, string>): { code: number; stdout: string } 
     });
     return { code: 0, stdout };
   } catch (e: unknown) {
-    const err = e as { status?: number; stdout?: Buffer | string };
-    return { code: err.status ?? 1, stdout: err.stdout?.toString() ?? '' };
+    const err = e as { status?: number; stdout?: Buffer | string; stderr?: Buffer | string };
+    return {
+      code: err.status ?? 1,
+      stdout: [err.stdout, err.stderr]
+        .filter((part) => part !== undefined)
+        .map((part) => part!.toString())
+        .join(''),
+    };
   }
 }
 
 describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and nothing else', () => {
-  it('with the flag: the early phase returns after the CDN push, without touching the rest of the prep', () => {
+  it('with the flag: a missing early CDN payload is a failed handshake, without touching the rest of the prep', () => {
     const r = runPrep({ DEPLOY_CDN_PUSH_ONLY: '1', CDN_TARGET: 'pages' });
-    expect(r.code, 'the early phase must never fail the leg').toBe(0);
-    expect(r.stdout, 'must run the CDN push section').toMatch(/no offloadable assets present|skipping CDN push|CDN payload/);
+    expect(r.code, 'the early phase must expose the missing payload to the section gate').toBe(1);
+    expect(r.stdout, 'must run the CDN push section').toMatch(/early CDN push did not publish|CDN asset stage is missing/);
     // The full prep's terminal marker must NOT appear: the tar pack, the byte
     // audit and url-first-seen all still belong to the later step.
     expect(r.stdout, 'the early phase must not run the whole prep').not.toMatch(/deploy-it-pages-prep complete/);
-    expect(r.stdout).toMatch(/early CDN push/);
+    expect(r.stdout).toMatch(/early CDN push did not publish/);
   });
 
   it('NEGATIVE CASE — without the flag the SAME invocation goes on past the CDN push', () => {
@@ -1097,19 +1119,19 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     // degrades to "pushed at the original position", never to "never pushed".
     const r = runPrep({ CDN_TARGET: 'pages' });
     expect(r.stdout).not.toMatch(/skipping the CDN push/);
-    expect(r.stdout).toMatch(/no offloadable assets present|skipping CDN push, assets stay in dist|CDN payload/);
+    expect(r.stdout).toMatch(/CDN asset stage is missing|no dist\/assets — nothing to offload|no CDN_DEPLOY_KEY secret — skipping CDN push/);
   });
 });
 
-describe('deploy.yml — the paths-ignore denylist keeps its recorded verdict', () => {
-  it('records that paths-ignore does not apply to workflow_dispatch (the #5251 measurement)', () => {
-    // Not decoration: the obvious "fix" for the cancelled-run count is to widen
-    // this denylist, and it would move 0 of the 40/141 dispatch-triggered runs.
-    // If someone deletes the note, the next diagnosis repeats the mistake.
-    const head = DEPLOY_YML.slice(0, DEPLOY_YML.indexOf('paths-ignore:'));
+describe('deploy-request.yml — the paths-ignore denylist keeps its recorded verdict', () => {
+  it('records that paths-ignore is only for the cheap push request (the #5251 measurement)', () => {
+    // The expensive build is now dispatch-only. Keeping the denylist on the
+    // request workflow preserves the old data-freshness boundary without ever
+    // putting a push-triggered build into GitHub's one-pending replacement slot.
+    const head = DEPLOY_REQUEST_YML.slice(0, DEPLOY_REQUEST_YML.indexOf('paths-ignore:'));
+    expect(head).toMatch(/workflow_run/);
     expect(head).toMatch(/workflow_dispatch/);
-    expect(head).toMatch(/trigger-deploy\.sh/);
-    expect(head).toMatch(/#5251/);
+    expect(DEPLOY_REQUEST_YML).toMatch(/Queue latest GitHub Pages deploy|request workflow/i);
   });
 });
 

@@ -1,5 +1,6 @@
 import { JOB_BOARD_SEGMENT_RX } from './jobBoardSections.mjs';
 import { isJobBoardSectorHubPath } from '../../build-plugins/shared/jobSectorSlugs.mjs';
+import { classifyEventsPage } from './eventsSections.mjs';
 
 function normalizePath(input = '') {
   let path = String(input || '').trim();
@@ -61,6 +62,9 @@ export function classifyAnalyticsPath(inputPath = '') {
 
   const articleRoots = ['/articoli-frontaliere', '/cross-border-articles', '/artikel-grenzgaenger', '/articles-frontaliers'];
   const statsRoots = ['/statistiche', '/statistics', '/statistiken', '/statistiques'];
+  const fuelRoots = ['/prezzi-benzina', '/prezzi-diesel', '/fuel-prices', '/diesel-price-switzerland', '/benzinpreise', '/dieselpreise', '/prix-essence', '/prix-diesel'];
+  const healthRoots = ['/premi-cassa-malati', '/health-insurance-premiums', '/krankenkassenpraemien', '/primes-assurance-maladie'];
+  const borderWaitRoots = ['/traffico-dogane', '/border-wait', '/grenzwartezeiten', '/temps-attente-frontiere'];
   const guideRoots = ['/guida-frontaliere', '/cross-border-guide', '/grenzgaenger-guide', '/guide-frontalier'];
   const compareRoots = ['/compara-servizi', '/compare-services', '/services-vergleichen', '/comparer-services'];
   const calculatorRoots = ['/calcola-stipendio', '/salary-calculator', '/lohnrechner', '/calcul-salaire'];
@@ -80,6 +84,21 @@ export function classifyAnalyticsPath(inputPath = '') {
     const isSectorHub = isJobBoardSectorHubPath(normalizedPath);
     const pageTemplate = !tail ? 'jobs_index' : isCompany ? 'jobs_company' : isSearch ? 'jobs_search' : isSectorHub ? 'jobs_sector' : 'job_detail';
     return { contentGroup: 'jobs', pageTemplate, siteSection: 'jobs', contentLocale, routeFamily: pageTemplate };
+  }
+
+  const eventsPageTemplate = classifyEventsPage(localPath);
+  if (eventsPageTemplate) {
+    return { contentGroup: 'events', pageTemplate: eventsPageTemplate, siteSection: 'events', contentLocale, routeFamily: eventsPageTemplate };
+  }
+
+  if (startsWithAny(localPath, fuelRoots)) {
+    return { contentGroup: 'stats', pageTemplate: 'fuel_detail', siteSection: 'stats', contentLocale, routeFamily: 'fuel' };
+  }
+  if (startsWithAny(localPath, healthRoots)) {
+    return { contentGroup: 'stats', pageTemplate: 'health_detail', siteSection: 'stats', contentLocale, routeFamily: 'health' };
+  }
+  if (startsWithAny(localPath, borderWaitRoots)) {
+    return { contentGroup: 'guides', pageTemplate: 'border_wait', siteSection: 'guide', contentLocale, routeFamily: 'border_wait' };
   }
 
   if (startsWithAny(localPath, articleRoots)) {

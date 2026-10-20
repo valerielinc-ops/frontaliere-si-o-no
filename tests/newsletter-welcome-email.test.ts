@@ -9,7 +9,7 @@
  * and the confirm handler's fire-and-forget integration.
  */
 import { afterEach, describe, it, expect, vi, beforeEach } from 'vitest';
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { JOB_ALERT_CONSENT } from './helpers/jobAlertConsent';
 import { stubDefaultNewsletterTokenPolicy } from './helpers/ambientEmailEnv';
 
@@ -30,6 +30,8 @@ const bridgeEmailCascadeCredentialsToEnvMock = vi.fn(async () => {});
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   getRemoteConfigValue: (...args: unknown[]) => getRemoteConfigValueMock(...args),
   getNewsletterSecrets: (...args: unknown[]) => getNewsletterSecretsMock(...args),
+  getNewsletterTokenPolicyConfig: async () => ({}),
+  getNewsletterConfirmationCopyConfig: async () => ({ NEWSLETTER_CONFIRMATION_COPY_ROLLOUT: '0' }),
   bridgeEmailCascadeCredentialsToEnv: (...args: unknown[]) => bridgeEmailCascadeCredentialsToEnvMock(...args),
 }));
 
@@ -50,7 +52,7 @@ vi.mock('../functions/src/emailCascade.js', () => ({
 // two transactions observe an inconsistent interleaving: the loser's
 // tx.get() sees the winner's already-committed tx.set().
 function isDeleteSentinel(value: unknown): boolean {
-  return !!value && admin.firestore.FieldValue.delete().isEqual(value as never);
+  return !!value && FieldValue.delete().isEqual(value as never);
 }
 
 function applyWrite(existing: Record<string, unknown> | undefined, data: Record<string, unknown>, merge: boolean) {
@@ -217,6 +219,8 @@ describe('sendNewsletterWelcomeEmail', () => {
       { name: 'type', value: 'lifecycle' },
       { name: 'locale', value: 'it' },
     ]);
+    expect(call.payload.text).toBeTruthy();
+    expect(call.payload.text).not.toMatch(/<\/?[a-z][^>]*>/i);
     expect(call.payload.headers['List-Unsubscribe-Post']).toBe('List-Unsubscribe=One-Click');
     expect(call.payload.headers['List-Unsubscribe']).toContain('disiscrivi-newsletter');
   });

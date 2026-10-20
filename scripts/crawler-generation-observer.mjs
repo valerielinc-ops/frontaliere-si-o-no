@@ -1,8 +1,10 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { assertSafeRunnerReportOutput } from './lib/crawler-generation-receipt.mjs';
 import {
@@ -33,7 +35,6 @@ import {
 } from './lib/crawler-generation-contract.mjs';
 import { deriveCrawlerGroupIdsFromGroups } from './lib/crawler-generation-group-ids.mjs';
 
-const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const RUN_ID_RE = /^[1-9][0-9]*$/;
 const GIT_TIMEOUT_MS = 30_000;
@@ -755,7 +756,7 @@ export async function runCrawlerGenerationObserverCli(argv = process.argv.slice(
   return report;
 }
 
-if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runCrawlerGenerationObserverCli().then((report) => {
     if (report?.observer?.status === 'infrastructure_error') process.exitCode = 2;
   }).catch((error) => {

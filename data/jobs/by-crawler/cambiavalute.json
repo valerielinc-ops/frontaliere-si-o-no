@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-09-24T00:12:18.119Z",
+  "assembledAt": "2026-10-19T21:56:54.127Z",
   "jobs": [
     {
       "id": "company-a24znt",
@@ -17,7 +17,7 @@
         "📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra."
       ],
       "featured": false,
-      "postedDate": "2026-07-08",
+      "postedDate": "",
       "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -27,8 +27,8 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-24T00:12:14.859Z",
-      "firstSeenAt": "2026-07-08T11:14:55.248Z",
+      "crawledAt": "2026-10-19T21:56:49.551Z",
+      "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
         "en": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-ticino-a24znt",
@@ -93,7 +93,11 @@
         ]
       },
       "salarySource": "estimated",
-      "applyUrl": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/"
+      "applyUrl": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/",
+      "sourceIdentity": "url:https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "postalCode": "6500"
     },
     {
       "id": "company-fooban",
@@ -110,7 +114,7 @@
         "📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra."
       ],
       "featured": false,
-      "postedDate": "2026-07-08",
+      "postedDate": "",
       "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -120,8 +124,8 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-24T00:12:14.859Z",
-      "firstSeenAt": "2026-07-08T11:14:55.248Z",
+      "crawledAt": "2026-10-19T21:56:49.551Z",
+      "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
         "en": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino-fooban",
@@ -182,7 +186,11 @@
         ]
       },
       "salarySource": "estimated",
-      "applyUrl": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/"
+      "applyUrl": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
+      "sourceIdentity": "url:https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "postalCode": "6500"
     }
   ]
 }

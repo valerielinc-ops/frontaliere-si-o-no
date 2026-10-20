@@ -35,6 +35,7 @@ import { WriteCollector } from './batchWrite';
 import {
   buildTitleWithBrand,
   truncateHeadline,
+  truncateHeadlineToMeasuredBudget,
   TITLE_BRAND_SUFFIX,
   TITLE_MAX_CHARS,
   clampMetaDescription,
@@ -53,6 +54,7 @@ import { getAuthorBySlug } from '../data/authors';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
 import { HUB_LOCALES, ARTICLES_PAGE_SIZE, HUB_SLUGS } from './seoHubsData';
 import { railGutters } from './shared/railGutters';
+import { adSlotHtml } from './lib/adSlotHtml';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import {
@@ -64,6 +66,7 @@ import {
   configureSiteShell,
   type SiteShellContract,
   type ArticleLocale,
+  type StaticAdSlotKey,
 } from '../packages/articles/engine/siteShell';
 
 const blogIndexSlugs: Record<ArticleLocale, string> = {
@@ -79,6 +82,16 @@ const swissBlogIndexSlugs: Record<ArticleLocale, string> = {
   de: SLUG_TABLES.de.blogCh,
   fr: SLUG_TABLES.fr.blogCh,
 };
+
+const CANTON_HUB_AD_SLOT: Record<StaticAdSlotKey, Parameters<typeof adSlotHtml>[0]> = {
+  'canton-hub-top': 'JOBDETAIL_TOP_BANNER',
+  'canton-hub-inline-1': 'ARTICLE_INLINE_MOBILE',
+  'canton-hub-inline-2': 'ARTICLE_INLINE_MOBILE_2',
+  'canton-hub-end': 'SSG_END_MULTIPLEX',
+};
+
+const staticAdSlotHtml: NonNullable<SiteShellContract['staticAdSlotHtml']> = (slot: StaticAdSlotKey) =>
+  adSlotHtml(CANTON_HUB_AD_SLOT[slot]);
 
 const contract: SiteShellContract = {
   baseUrl: BASE_URL,
@@ -97,6 +110,7 @@ const contract: SiteShellContract = {
   rootShell,
 
   railGutters,
+  staticAdSlotHtml,
 
   buildDayStampIso,
 
@@ -106,6 +120,7 @@ const contract: SiteShellContract = {
 
   buildTitleWithBrand,
   truncateHeadline,
+  truncateHeadlineToMeasuredBudget,
   titleBrandSuffix: TITLE_BRAND_SUFFIX,
   titleMaxChars: TITLE_MAX_CHARS,
   clampMetaDescription,

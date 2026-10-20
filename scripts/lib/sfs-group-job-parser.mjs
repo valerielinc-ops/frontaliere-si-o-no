@@ -46,10 +46,14 @@
  *   - isTrustedDomain()      — Validate URLs belong to this company
  *   - resolveAddress()       — City-gated HQ-address resolver (exported for tests)
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
+import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -72,18 +76,6 @@ const HQ = {
 };
 
 const SECTOR = 'Industria / Meccanica';
-
-// Safe canton-level postal fallbacks for Swiss cities that appear in job
-// addresses but have no verified SFS office street — never invent a street
-// number we haven't confirmed (Non-Negotiable #3: safe default, not removal,
-// of the postalCode/streetAddress check). Cantons cover the towns actually
-// observed on the live listing: Heerbrugg/Rebstein (SG), Hallau (SH, Tegra
-// Medical), Payerne (VD).
-const CANTON_POSTAL_FALLBACK = {
-  SG: '9000',
-  SH: '8200',
-  VD: '1000',
-};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -248,14 +240,14 @@ export function parseSfsGroupDetail(html = '') {
   const jobReqId = applyMatch ? applyMatch[2] : '';
 
   const introMatch = html.match(INTRO_RX);
-  const intro = introMatch ? stripHtml(decodeEntities(introMatch[1])) : '';
+  const intro = introMatch ? stripHtml(introMatch[1]) : '';
 
   const sections = [];
   HEADED_SECTION_RX.lastIndex = 0;
   let hm;
   while ((hm = HEADED_SECTION_RX.exec(html))) {
-    const heading = stripHtml(decodeEntities(hm[1]));
-    const body = stripHtml(decodeEntities(hm[2]));
+    const heading = stripHtml(hm[1]);
+    const body = stripHtml(hm[2]);
     if (heading && body) sections.push(`${heading}: ${body}`);
   }
 
@@ -292,7 +284,12 @@ export async function fetchAllSfsGroupJobs() {
 
   const jobs = [];
   for (const row of rows) {
-    const location = normalizeSpace(row.rawLocation || '').replace(/,\s*Schweiz$/i, '').trim() || HQ.city;
+    const rawLocation = normalizeSpace(row.rawLocation || '').replace(/,\s*Schweiz$/i, '').trim();
+    const sourcePostalCode = normalizeSpace(
+      row.postalCode || row.zipCode || rawLocation.match(/\b(\d{4})\b/)?.[1] || '',
+    );
+    const sourceStreetAddress = normalizeSpace(row.streetAddress || row.street || '');
+    const location = rawLocation.replace(/^\d{4}\s+/u, '').trim() || HQ.city;
     const legalEntity = normalizeSpace(row.rawCompany || '') || SFS_GROUP_COMPANY_NAME;
     // Strip the trailing percentage token(s) SFS appends to every title
     // (e.g. "Digital Process Manager (m/f/d) 100%" → "Digital Process
@@ -306,9 +303,17 @@ export async function fetchAllSfsGroupJobs() {
     let description = '';
     let applyUrl = publicUrl;
     let jobReqId = '';
+    let publication = mergeSourcePostingDates();
     try {
       const detailHtml = await fetchHtml(publicUrl);
       const parsed = parseSfsGroupDetail(detailHtml);
+      const records = extractJsonLd(detailHtml, publicUrl);
+      const matched = records.find(record => {
+        if (normalizeSpace(record.title || '').toLowerCase() !== title.toLowerCase()) return false;
+        if (!record.urlExplicit) return records.length === 1;
+        try { return new URL(record.url, publicUrl).href === new URL(publicUrl).href; } catch { return false; }
+      });
+      publication = mergeSourcePostingDates({}, matched);
       description = parsed.description;
       applyUrl = parsed.applyUrl || publicUrl;
       jobReqId = parsed.jobReqId;
@@ -318,18 +323,22 @@ export async function fetchAllSfsGroupJobs() {
 
     const canton = inferSwissTargetCanton(location) || HQ.canton;
     const resolvedHq = resolveAddress(location);
-    const postalCode = resolvedHq?.postalCode
-      || (location === HQ.city ? HQ.postalCode : CANTON_POSTAL_FALLBACK[canton])
+    const postalCode = sourcePostalCode
+      || officialLocalityPostalCode(location, canton)
+      || resolvedHq?.postalCode
+      || (location === HQ.city ? HQ.postalCode : getCantonPostalFallback(canton, location))
       || HQ.postalCode;
-    const streetAddress = resolvedHq?.streetAddress
-      || (location === HQ.city ? HQ.streetAddress : undefined);
-    const description_ = description
-      || `${title} bei ${legalEntity} (${SFS_GROUP_COMPANY_NAME}) in ${location}.`;
+    const streetAddress = sourceStreetAddress
+      || resolvedHq?.streetAddress
+      || (location === HQ.city ? HQ.streetAddress : location);
+    // The detail's own text only: without it the job gets no description
+    // (thin-source path) instead of "<Titel> bei <Gesellschaft> (SFS Group) in
+    // <Ort>." written by the crawler.
+    const description_ = description || '';
     const sourceLang = detectLang(description_ || title, 'de');
     const jobSlug = slugify(`${title} sfs group ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(percentageSuffix || row.rawTitle);
-    const postedDate = new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -364,7 +373,7 @@ export async function fetchAllSfsGroupJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       jobReqId: jobReqId || null,
       legalEntity,

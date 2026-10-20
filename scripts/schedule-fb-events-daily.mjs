@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Daily Facebook poster for Swiss events, nationwide (chained feature on
  * issue #2963, generalized to all cantons in #3647 — F5/5 of #3125).
@@ -33,6 +34,7 @@ import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow
 import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE, MONTHS_IT, GRAPH_API } from './lib/social-post-utils.mjs';
 import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_EVENT } from './lib/facebook-links.mjs';
+import { withoutPrivateEvents } from './lib/private-event-sources.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -271,7 +273,10 @@ export async function run(opts = {}) {
 
   log('🗓️', `FB events daily poster — volume=${volume}, dry=${dryRun}`);
 
-  const dataset = loadEventsDataset(path.join(repoRoot, 'data', 'events.json'));
+  // Eventfrog AGB §17(6): its content may only announce the event on our own
+  // page, never feed a social post — even if a record ever reached this file.
+  const loaded = loadEventsDataset(path.join(repoRoot, 'data', 'events.json'));
+  const dataset = { ...loaded, events: withoutPrivateEvents(loaded.events) };
   const todayIso = opts.todayIso || isoDay(new Date());
   const upcoming = upcomingEvents(dataset.events, todayIso);
   if (upcoming.length === 0) {
@@ -436,7 +441,7 @@ export async function run(opts = {}) {
   return { ok: true, posted, dryRun, payloads };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   run()
     .then((r) => process.exit(r.ok ? 0 : 0))
     .catch((err) => {

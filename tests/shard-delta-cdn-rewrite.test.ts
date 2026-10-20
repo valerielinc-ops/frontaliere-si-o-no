@@ -36,7 +36,10 @@ const OFFLOAD = join(ROOT, 'scripts/offload-generated-images-cdn.mjs');
 const PUSH_SECTION = join(ROOT, 'scripts/lib/push-section-shard.sh');
 const CDN_LIB = join(ROOT, 'scripts/lib/shard-cdn-rewrite.sh');
 const CDN_BASE = 'https://cdn.frontaliereticino.ch';
-const SCOPE = 'en/find-jobs-ticino';
+// Ticino deliberately forces full mode because its physical tree is fanned
+// out for GitHub's 50 MiB tree-object limit. Keep this delta test on a sibling
+// section so it continues to exercise the generic delta contract.
+const SCOPE = 'en/find-jobs-switzerland';
 const KINDS = [
   'active-job',
   'expired-soft-landing',
@@ -163,7 +166,13 @@ function writeInputs(scenario: Scenario, pages: Record<string, string>, manifest
     JSON.stringify({ type: 'header', manifestVersion: MANIFEST_VERSION, format: 'jsonl', locale: 'en' }),
     JSON.stringify({ type: 'kind', kind: 'active-job', templateVersion: 'active-job@1', sourceVersion: 'input@1', state: 'live' }),
     ...manifestPages.map((name) => JSON.stringify({ path: `${SCOPE}/${name}/`, hash: hash(pages[name]) })),
-    JSON.stringify({ type: 'footer', counts: { total: manifestPages.length, byKind: counts } }),
+    // Production manifests carry the jobs emitter fingerprint; without it the
+    // delta re-evaluates every page (shard-manifest-delta.mjs, #9788).
+    JSON.stringify({
+      type: 'footer',
+      counts: { total: manifestPages.length, byKind: counts },
+      jobsSeoEmitterFingerprint: { 'active-job': 'active-job-render-v1' },
+    }),
   ];
   writeFileSync(join(scenario.manifestDir, 'en.jsonl'), `${lines.join('\n')}\n`);
 }
@@ -180,7 +189,7 @@ function push(scenario: Scenario, cdnRewrite: string): { output: string; staged:
   try {
     const env: NodeJS.ProcessEnv = {
       ...process.env,
-      SHARD_TICINO_EN_DEPLOY_KEY: 'test-deploy-key',
+      SHARD_SVIZZERA_EN_DEPLOY_KEY: 'test-deploy-key',
       SHARD_REPO_OVERRIDE: scenario.remote,
       SHARD_INCREMENTAL_MANIFEST_DIR: scenario.manifestDir,
       RUNNER_TEMP: runnerTemp,
@@ -192,17 +201,17 @@ function push(scenario: Scenario, cdnRewrite: string): { output: string; staged:
       GIT_TERMINAL_PROMPT: '0',
       SHARD_DELTA_CDN_REWRITE: cdnRewrite,
     };
-    const result = spawnSync('bash', [PUSH_SECTION, 'ticino', 'en', scenario.dist], {
+    const result = spawnSync('bash', [PUSH_SECTION, 'svizzera', 'en', scenario.dist], {
       cwd: ROOT, env, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'],
     });
     const output = `${result.stdout || ''}${result.stderr || ''}`;
     expect(result.status, output).toBe(0);
     waitForBackground(runnerTemp);
-    const ready = spawnSync('bash', ['-c', `source "${CDN_LIB}"; shard_cdn_rewrite_ready "$1" ticino en`, '_', runnerTemp], {
+    const ready = spawnSync('bash', ['-c', `source "${CDN_LIB}"; shard_cdn_rewrite_ready "$1" svizzera en`, '_', runnerTemp], {
       encoding: 'utf8',
     });
     expect(ready.status, ready.stdout).toBe(0);
-    const stagedRoot = join(runnerTemp, 'ticino-src-en', 'dist');
+    const stagedRoot = join(runnerTemp, 'svizzera-src-en', 'dist');
     expect(statSync(stagedRoot).isDirectory()).toBe(true);
     return { output, staged: snapshotTree(stagedRoot) };
   } finally {
@@ -276,7 +285,10 @@ describe('push-section-shard con SHARD_DELTA_CDN_REWRITE', () => {
 
 describe('deploy.yml cabla SHARD_DELTA_CDN_REWRITE', () => {
   it('passa la variabile ai due step di push sezione e mette la barriera nei due pack', () => {
-    const yml = readFileSync(join(ROOT, '.github/workflows/deploy.yml'), 'utf8');
+    const yml = `${readFileSync(join(ROOT, '.github/workflows/deploy.yml'), 'utf8')}\n${readFileSync(
+      join(ROOT, '.github/workflows/deploy-publish.yml'),
+      'utf8',
+    )}`;
     const wire = "SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}";
     expect(yml.split(wire).length - 1).toBe(2);
     expect(yml.split('shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true').length - 1).toBe(2);

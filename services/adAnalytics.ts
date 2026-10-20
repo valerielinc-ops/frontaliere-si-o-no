@@ -2,11 +2,9 @@
  * AdSense telemetry — bot detection + per-page fill-rate events.
  *
  * Why:
- * - AdSense PAGE_URL dimension only reports the URL where Auto Ads classifier
- *   recognized the page. Most explicit slots aren't bucketed there, so the
- *   report shows revenue without per-page granularity. Logging fill state
- *   from the client lets GA4/PostHog correlate revenue proxy (impressions ×
- *   format CPM) with page_path.
+ * - Client events describe request/fill and geometry for manual placements.
+ *   They are not AdSense matched requests, Active View or revenue. Reconcile
+ *   those denominators with network reports; never infer money from fills.
  * - Bot traffic with ~€0.07 RPM (e.g. 1.7k US PVs in last 30d) inflates
  *   ad_requests, lowers coverage %, and pollutes targeting signals. Skipping
  *   the adsbygoogle push for bots cuts request volume without affecting
@@ -29,6 +27,8 @@ export { isLikelyBot } from './botPatterns';
 
 export type AdEvent =
   | 'ad_request'
+  | 'ad_waiting'
+  | 'ad_measurable'
   | 'ad_filled'
   | 'ad_unfilled'
   | 'ad_collapsed'
@@ -61,6 +61,13 @@ export type AdEvent =
   | 'rewarded_ad_unavailable';
 
 export interface AdEventProps {
+  request_id?: string;
+  placement?: string;
+  render_path?: string;
+  reserved_height?: number;
+  creative_height?: number;
+  slot_height?: number;
+  measurement?: string;
   slot: string;
   format: string;
   page_path?: string;
@@ -105,6 +112,13 @@ export function trackAdEvent(event: AdEvent, props: AdEventProps): void {
     const path = props.page_path ?? getPagePath();
     const payload = {
       slot: props.slot,
+      ...(props.request_id ? { request_id: props.request_id } : {}),
+      ...(props.placement ? { placement: props.placement } : {}),
+      ...(props.render_path ? { render_path: props.render_path } : {}),
+      ...(props.reserved_height !== undefined ? { reserved_height: props.reserved_height } : {}),
+      ...(props.slot_height !== undefined ? { slot_height: props.slot_height } : {}),
+      ...(props.creative_height !== undefined ? { creative_height: props.creative_height } : {}),
+      ...(props.measurement ? { measurement: props.measurement } : {}),
       ad_format: props.format,
       page_path: path,
       page_template: props.page_template ?? classifyTemplate(path),

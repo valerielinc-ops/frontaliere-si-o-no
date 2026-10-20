@@ -1,0 +1,31 @@
+{
+  "companyKey": "seniorenzentrum-engelhof",
+  "companyName": "Seniorenzentrum Engelhof",
+  "companyHost": "seniorenzentrum-engelhof.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://seniorenzentrum-engelhof.ch/arbeiten-im-engelhof/freie-stellen",
+    "https://seniorenzentrum-engelhof.employerboard.ch/"
+  ],
+  "allowedDetailOrigins": [
+    "https://seniorenzentrum-engelhof.employerboard.ch/"
+  ],
+  "detailTemplate": "/job/*/*/*",
+  "detailEnrichment": true,
+  "rescueOnEmptyListing": true,
+  "revalidateRejectedWithSourceAdapter": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Lernende/-r Fachfrau / Fachmann Gesundheit EFZ",
+    "Lernende/-r Assistent/-in Gesundheit & Soziales EBA",
+    "Studium Pflegefachperson HF",
+    "Abteilungsleiterin / Abteilungsleiter Pflege 100%",
+    "Pflegefachperson HF oder Fachfrau/Fachmann Gesundheit EFZ 40-100%",
+    "Pflegehelferin / Pflegehelfer SRK 60-100%"
+  ],
+  "canton": "SZ",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-15T00:00:00.000Z"
+}

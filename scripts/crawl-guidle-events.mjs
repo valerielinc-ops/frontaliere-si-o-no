@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Crawler — Guidle (nationwide Switzerland events aggregator, issue #3125).
  *
@@ -59,6 +60,20 @@
  *   - A large fraction of sitemap entries are stale (event already happened)
  *     and 404/410 on fetch — skipped per-locale (and the whole event is
  *     skipped if EVERY locale 404s/410s).
+ *   - Verified live 2026-10-04 (run 37198131294): some organizer descriptions
+ *     are pasted into the JSON-LD string with raw line breaks, which makes the
+ *     block invalid JSON; `parseJsonLdText` repairs exactly that defect.
+ *
+ * Detail-failure accounting (shared fail-closed policy, see
+ * scripts/lib/detail-failure-reuse-policy.mjs): an event whose every locale
+ * answered 404/410 is a confirmed source disappearance, not a parse failure —
+ * it goes to `goneIds` and leaves both numerator and denominator of the ratio.
+ * Likewise an `undated` listing — a catalog entry whose page declares an EMPTY
+ * microdata startDate and carries no Event JSON-LD (the film catalog under
+ * `kino-nach-film/ohne-ortsangabe/…`, sampled 2026-10-04): the source
+ * publishes no schedule, so there is nothing for the parser to read. Real
+ * HTML that did not parse (`drift`) and a detail that never answered
+ * (`unreachable`: network error, WAF, 5xx, rate limit) stay failures.
  *
  * No artificial cap: the full sitemap (119k+ events × up to 4 locale fetches
  * each) is walked across MANY scheduled runs, not one. A single run is
@@ -78,9 +93,10 @@
  * Respectful, non-evasive crawling: plain `fetch`, no headless browser, no
  * bot-identity spoofing, a clearly identifying User-Agent (matches the
  * tio-agenda / myswitzerland / mirrorEventImage convention), and a politeness
- * delay between every request to the guidle.com origin. Every event image is
- * mirrored once via `mirrorEventImage` — the output slice NEVER references a
- * guidle.com/imagekit.io image URL directly.
+ * delay between every request to the guidle.com origin. Image URLs are passed
+ * through the shared licence gate and are currently dropped because Guidle
+ * provides no explicit open image licence — the output slice NEVER references
+ * a guidle.com/imagekit.io image URL directly.
  *
  * Usage:
  *   node scripts/crawl-guidle-events.mjs                # one time-budgeted, checkpointed slice of the catalog
@@ -95,6 +111,7 @@
  */
 
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { gunzipSync } from 'node:zlib';
 import { JSDOM } from 'jsdom';
@@ -104,17 +121,32 @@ import {
   eventStableId,
   resolveComuneNationwide,
   mirrorEventImage,
+  isEventImageSourceAllowed,
   cleanEventText,
-  parsePriceText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
   enrichEventsWithLocaleFallbackTranslations,
   loadGeocodeCache,
   saveGeocodeCache,
   enrichEventsWithGeoComune,
+  hasConfidentPrice,
+  hasParsedPrice,
+  withEventPriceSource,
 } from './lib/events-utils.mjs';
-import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
-import { firstEventImageUrl, normalizeEventPeople } from './lib/event-metadata.mjs';
+import { loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { sanitizeEventForPublication, stripDescriptionTranslationCache } from './lib/event-description-policy.mjs';
+import { fetchEventBookingPrice, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
+import {
+  extractEventOfferMetadata,
+  extractStructuredEventPrice,
+  parseEventPriceText,
+  extractEventPeopleFromText,
+  extractEventPeopleFromTitle,
+  firstEventImageUrl,
+  fillEventPeopleDefaults,
+  normalizeEventPeople,
+} from './lib/event-metadata.mjs';
+import { parseJsonLdText } from './lib/json-ld-text.mjs';
 
 // Re-exported so existing importers (tests/crawl-guidle-events.test.ts) keep
 // working — the parser itself now lives in events-utils.mjs, shared with
@@ -125,6 +157,12 @@ const SOURCE = EVENT_SOURCES.guidle;
 const SITE_ORIGIN = 'https://www.guidle.com';
 const SITEMAP_INDEX_URL = `${SITE_ORIGIN}/sitemapindex.xml`;
 const LOCALES = ['it', 'en', 'de', 'fr'];
+// Guidle's "film by movie" catalog: a film index, not a dated event list.
+// Verified on the whole sitemap 2026-10-04: these two section slugs hold only
+// location-less entries (37.5k of 147.7k codes, under `ohne-ortsangabe`,
+// `sans-indication-de-lieu` and `senza-posizione`), sampled pages carry an
+// empty microdata startDate and no Event JSON-LD.
+const UNDATED_FILM_CATALOG_PATH_RE = /^\/(?:kino-nach-film|cinema-by-movie)\/(?:ohne-ortsangabe|sans-indication-de-lieu|senza-posizione)\//i;
 
 const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const FETCH_TIMEOUT_MS = 20000;
@@ -155,6 +193,21 @@ async function fetchText(url) {
     return await res.text();
   } catch {
     return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/** Like fetchText, but keeps the HTTP status (0 when no response arrived). */
+async function fetchTextWithStatus(url) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT }, signal: controller.signal });
+    if (!res.ok) return { status: res.status, text: null };
+    return { status: res.status, text: await res.text() };
+  } catch {
+    return { status: 0, text: null };
   } finally {
     clearTimeout(timer);
   }
@@ -239,7 +292,7 @@ export function extractEventJsonLdOccurrences(html) {
   while ((match = LD_JSON_RE.exec(html))) {
     let parsed;
     try {
-      parsed = JSON.parse(match[1]);
+      parsed = parseJsonLdText(match[1]);
     } catch {
       continue; // malformed block — keep scanning the rest of the page
     }
@@ -283,8 +336,8 @@ function text(el) {
 /** {street, postalCode} from a JSON-LD `location.address` (PostalAddress), or undefined. */
 export function extractAddress(address) {
   if (!address || typeof address !== 'object') return undefined;
-  const street = typeof address.streetAddress === 'string' && address.streetAddress.trim() ? address.streetAddress.trim() : undefined;
-  const postalCode = typeof address.postalCode === 'string' && address.postalCode.trim() ? address.postalCode.trim() : undefined;
+  const street = cleanText(address.streetAddress) || undefined;
+  const postalCode = cleanText(address.postalCode) || undefined;
   if (!street && !postalCode) return undefined;
   return { street, postalCode };
 }
@@ -312,11 +365,16 @@ export function extractCategory(doc, locale) {
   return value || undefined;
 }
 
-/** Price from the "Preis"/"Prezzo"/… accordion, or undefined when absent. */
+/**
+ * Price from the "Preis"/"Prezzo"/… accordion, or undefined when absent. The
+ * accordion is organizer-written tariff text, so a parsed value is stamped
+ * `priceField: 'price-accordion'`: recorded, never reliable on its own.
+ */
 export function extractPrice(doc, locale) {
   const acc = findAccordion(doc, PRICE_LABELS[locale]);
   if (!acc) return undefined;
-  return parsePriceText(text(acc));
+  const price = parseEventPriceText(text(acc));
+  return hasParsedPrice(price) ? withEventPriceSource(price, SOURCE.key, 'price-accordion') : price;
 }
 
 /**
@@ -341,11 +399,40 @@ export function extractGeoAndCanton(doc) {
 }
 
 /**
+ * True when the verified film-catalog path declares that it has no schedule:
+ * no readable Event JSON-LD, and every microdata `startDate` present is empty.
+ * A page outside that catalog, with no `startDate` declaration at all, or
+ * with a filled one, is NOT excused — that is markup the parser should have
+ * read (drift).
+ * @param {string} html
+ * @param {string} pathSuffix
+ */
+export function isUndatedGuidleListing(html, pathSuffix) {
+  if (typeof html !== 'string' || !html) return false;
+  if (typeof pathSuffix !== 'string' || !UNDATED_FILM_CATALOG_PATH_RE.test(pathSuffix)) return false;
+  if (extractEventJsonLdOccurrences(html).length) return false;
+  if (!/itemprop=["']startDate["']/.test(html)) return false;
+  const declarations = [...new JSDOM(html).window.document.querySelectorAll('[itemprop="startDate"]')];
+  return declarations.length > 0
+    && declarations.every((el) => !String(el.getAttribute('content') ?? el.getAttribute('datetime') ?? el.textContent ?? '').trim());
+}
+
+/**
+ * Decide whether an empty run is a transient fetch failure or parser drift.
+ * Any mapped event, confirmed gone event, or verified undated catalog entry is
+ * a meaningful observation and lets the caller continue to the merge path.
+ */
+export function guidleEmptyRunOutcome({ mappedCount, goneCount, undatedCount, successfulDetailFetches }) {
+  if (mappedCount > 0 || goneCount > 0 || undatedCount > 0) return 'publish';
+  return successfulDetailFetches > 0 ? 'drift' : 'transient';
+}
+
+/**
  * Pure mapping: one fetched detail page (a single locale variant of one
  * event) → a flat data record. Never touches the network. Returns `null`
  * when the page has no usable Event JSON-LD (missing/expired/wrong page).
  */
-export function mapDetailPageToLocaleData(html, locale) {
+export function mapDetailPageToLocaleData(html, locale, baseUrl) {
   const occurrences = extractEventJsonLdOccurrences(html);
   const summary = summarizeOccurrences(occurrences);
   if (!summary) return null;
@@ -353,16 +440,32 @@ export function mapDetailPageToLocaleData(html, locale) {
   const title = cleanText(first.name);
   if (!title) return null;
   const description = cleanText(first.description) || undefined;
+  const doc = new JSDOM(html).window.document;
+  const sourceDescription = cleanText(doc.querySelector('[itemprop="description"]')?.textContent) || undefined;
+  const textPeople = extractEventPeopleFromText([sourceDescription, description].filter(Boolean).join('. '));
+  const titlePeople = extractEventPeopleFromTitle(title);
   const venue = cleanText(first.location?.name) || undefined;
   const address = extractAddress(first.location?.address);
   const addressLocality = cleanText(first.location?.address?.addressLocality) || undefined;
   const imageSourceUrl = occurrences.map((occurrence) => firstEventImageUrl(occurrence.image, SITE_ORIGIN)).find(Boolean);
-  const organizer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.organizer, SITE_ORIGIN)).find(Boolean);
-  const performer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.performer, SITE_ORIGIN)).find(Boolean);
+  const organizer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.organizer, baseUrl || SITE_ORIGIN, baseUrl)).find(Boolean)
+    || normalizeEventPeople(textPeople.organizer, baseUrl || SITE_ORIGIN, baseUrl);
+  const performer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.performer, SITE_ORIGIN)).find(Boolean)
+    || normalizeEventPeople(textPeople.performer, SITE_ORIGIN)
+    || normalizeEventPeople(titlePeople.performer, SITE_ORIGIN);
 
-  const doc = new JSDOM(html).window.document;
   const category = extractCategory(doc, locale);
-  const price = extractPrice(doc, locale);
+  // Guidle's structured field is the Event JSON-LD `offers`/`isAccessibleForFree`
+  // (rarely filled); when present it wins over the accordion text.
+  const structuredPrice = occurrences
+    .map((occurrence) => extractStructuredEventPrice(occurrence, baseUrl || occurrence.url || SITE_ORIGIN, SOURCE.key))
+    .find(Boolean);
+  const price = structuredPrice || extractPrice(doc, locale);
+  const offerMetadata = occurrences
+    .map((occurrence) => extractEventOfferMetadata(occurrence.offers, baseUrl || occurrence.url))
+    .find(Boolean);
+  // A structured price already carries the metadata of the Offer it came from.
+  const enrichedPrice = !structuredPrice && price && offerMetadata ? { ...price, ...offerMetadata } : price;
   const { geo, canton } = extractGeoAndCanton(doc);
 
   return {
@@ -374,7 +477,8 @@ export function mapDetailPageToLocaleData(html, locale) {
     addressLocality,
     imageSourceUrl,
     category,
-    price,
+    price: enrichedPrice,
+    bookingUrl: supportedEventBookingUrl(doc.querySelector('#ticketingUrl')?.getAttribute('href')),
     geo,
     canton,
     ...(organizer ? { organizer } : {}),
@@ -389,7 +493,8 @@ export function mapDetailPageToLocaleData(html, locale) {
  * address) come from the FIRST locale (in it→en→de→fr order) that has data —
  * they don't vary by locale, only the text does. Optional source metadata
  * (image, organizer, performer) can fall back to a later locale variant when
- * the primary variant omitted it.
+ * the primary variant omitted it; the mapper applies the deterministic source
+ * and venue defaults used by the public Event contract when still absent.
  * `titleByLocale`/`descriptionByLocale` collect the REAL text of every locale
  * that resolved, which is honestly identical to the source language for
  * events an organizer never translated (not a bug — see file header).
@@ -400,7 +505,10 @@ export function mapGuidleEvent(code, localeResults) {
   if (!primaryLocale) return null;
   const primary = localeResults[primaryLocale];
   const imageSourceUrl = LOCALES.map((locale) => localeResults[locale]?.imageSourceUrl).find(Boolean);
-  const organizer = LOCALES.map((locale) => localeResults[locale]?.organizer).find(Boolean);
+  const organizerSource = LOCALES.map((locale) => localeResults[locale]?.organizer).find(Boolean);
+  const organizer = organizerSource
+    ? normalizeEventPeople(organizerSource, primary.url || SITE_ORIGIN, primary.url || SITE_ORIGIN)
+    : undefined;
   const performer = LOCALES.map((locale) => localeResults[locale]?.performer).find(Boolean);
 
   const titleByLocale = {};
@@ -413,7 +521,7 @@ export function mapGuidleEvent(code, localeResults) {
   }
 
   return {
-    event: {
+    event: fillEventPeopleDefaults({
       id: eventStableId(SOURCE.key, code),
       title: primary.title,
       titleByLocale: Object.keys(titleByLocale).length ? titleByLocale : undefined,
@@ -429,16 +537,17 @@ export function mapGuidleEvent(code, localeResults) {
       url: primary.url,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: primary.price,
+      price: LOCALES.map((locale) => localeResults[locale]?.price).find(hasConfidentPrice) || primary.price,
       address: primary.address,
       geo: primary.geo,
       recurring: primary.recurring,
       ...(organizer ? { organizer } : {}),
       ...(performer ? { performer } : {}),
-    },
+    }, SOURCE),
     imageSourceUrl,
     addressLocality: primary.addressLocality,
     cantonHint: primary.canton,
+    bookingUrl: LOCALES.map(locale => localeResults[locale]?.bookingUrl).find(Boolean),
   };
 }
 
@@ -486,15 +595,74 @@ async function collectEventUrls(limit) {
  */
 async function fetchLocaleData(pathSuffix, locale) {
   const url = `${SITE_ORIGIN}/${locale}${pathSuffix}`;
-  const html = await fetchText(url);
+  const { status, text: html } = await fetchTextWithStatus(url);
   await sleep(DETAIL_DELAY_MS);
-  if (!html) return { htmlOk: false, data: null };
-  detailFetchesOk += 1; // positive success signal — HTML came back, independent of parse outcome
-  const mapped = mapDetailPageToLocaleData(html, locale);
-  return { htmlOk: true, data: mapped ? { ...mapped, url } : null };
+  if (status >= 200 && status < 300) {
+    // HTTP success is the positive run signal even when the source returns an
+    // empty body: an empty 2xx response is a loaded page with parser drift,
+    // not a transient network failure.
+    detailFetchesOk += 1;
+  }
+  if (!html) return { htmlOk: false, data: null, status, undated: false };
+  const mapped = mapDetailPageToLocaleData(html, locale, url);
+  if (mapped) return { htmlOk: true, data: { ...mapped, url }, status, undated: false };
+  return { htmlOk: true, data: null, status, undated: isUndatedGuidleListing(html, pathSuffix) };
 }
 
-function parseArgs(argv) {
+const GONE_STATUSES = new Set([404, 410]);
+
+/**
+ * Why an event mapped to nothing, from the HTTP status of each locale fetch
+ * (0 = no response) and, per locale, whether the page declared no schedule
+ * (`isUndatedGuidleListing`). HTML that came back is `drift` unless EVERY
+ * locale that answered declared itself undated. `gone` needs a definitive
+ * 404/410 from EVERY locale: a timeout, WAF block, 5xx or 429 says nothing
+ * about the event, so it stays an `unreachable` failure — otherwise an outage
+ * would read as mass disappearance and slip under the fail-closed policy.
+ * @param {number[]} localeStatuses
+ * @param {boolean[]} [localeUndated]
+ * @returns {'drift'|'undated'|'gone'|'unreachable'}
+ */
+export function classifyUnmappedGuidleDetail(localeStatuses, localeUndated = []) {
+  const statuses = Array.isArray(localeStatuses) ? localeStatuses : [];
+  const hasUnreachableLocale = statuses.some((status) => (
+    !(status >= 200 && status < 300) && !GONE_STATUSES.has(status)
+  ));
+  if (hasUnreachableLocale) return 'unreachable';
+  const answered = statuses
+    .map((status, index) => ({ ok: status >= 200 && status < 300, undated: localeUndated?.[index] === true }))
+    .filter(({ ok }) => ok);
+  if (answered.length) return answered.every(({ undated }) => undated) ? 'undated' : 'drift';
+  if (statuses.length && statuses.every((status) => GONE_STATUSES.has(status))) return 'gone';
+  return 'unreachable';
+}
+
+/**
+ * Turn per-event outcomes into the inputs of mergeEventsIntoSlice's
+ * fail-closed detail policy. A confirmed disappearance (`gone`) and a listing
+ * that publishes no schedule (`undated`) are crawl observations, not details
+ * the parser failed to read: they are left out of both the failure numerator
+ * and the attempt denominator, so they can neither trip the threshold nor
+ * dilute real drift below it. Only `gone` is reported in `goneIds`.
+ * @param {Array<{id: string, kind: 'mapped'|'drift'|'undated'|'gone'|'unreachable'}>} outcomes
+ */
+export function guidleDetailFailureAccounting(outcomes) {
+  const list = Array.isArray(outcomes) ? outcomes : [];
+  const byKind = { mapped: [], drift: [], undated: [], gone: [], unreachable: [] };
+  for (const { id, kind } of list) (byKind[kind] || byKind.unreachable).push(id);
+  return {
+    goneIds: byKind.gone,
+    undatedIds: byKind.undated,
+    detailFailureIds: list
+      .filter(({ kind }) => kind !== 'mapped' && kind !== 'gone' && kind !== 'undated')
+      .map(({ id }) => id),
+    detailAttemptCount: list.length - byKind.gone.length - byKind.undated.length,
+    driftIds: byKind.drift,
+    unreachableIds: byKind.unreachable,
+  };
+}
+
+export function parseGuidleArgs(argv) {
   const dryRun = argv.includes('--dry-run');
   let limit;
   const eqArg = argv.find((a) => a.startsWith('--limit='));
@@ -505,31 +673,60 @@ function parseArgs(argv) {
     if (idx >= 0) limit = Number.parseInt(argv[idx + 1] || '', 10);
   }
   if (!Number.isFinite(limit) || limit <= 0) limit = undefined;
-  return { dryRun, limit };
+  const flags = argv.filter(arg => arg === '--ids' || arg.startsWith('--ids='));
+  if (flags.length > 1) throw new Error('Specify --ids only once');
+  let ids;
+  if (flags.length) {
+    const flag = flags[0];
+    const raw = flag === '--ids' ? argv[argv.indexOf(flag) + 1] : flag.slice(6);
+    const tokens = typeof raw === 'string' ? raw.split(',').map(id => id.trim().replace(/^guidle:/i, '')) : [];
+    if (!tokens.length || tokens.some(id => !/^[A-Za-z0-9]{7}$/.test(id))) {
+      throw new Error('--ids requires comma-separated Guidle codes (7 alphanumeric characters)');
+    }
+    ids = [...new Set(tokens)].sort();
+  }
+  return { dryRun, limit, ids };
+}
+
+export function selectGuidleEntries(entries, ids) {
+  if (!ids) return { entries, selectionKey: null };
+  const requested = new Set(ids);
+  const selected = entries.filter(([code]) => requested.has(code)).sort(([left], [right]) => left.localeCompare(right));
+  const selectionKey = createHash('sha256').update(JSON.stringify([ids, selected.map(([code]) => code)])).digest('hex');
+  return { entries: selected, selectionKey };
+}
+
+export function targetedGuidleResumeIndex(checkpoint, selectionKey) {
+  return checkpoint?.selectionKey === selectionKey && Number.isInteger(checkpoint.nextIndex) && checkpoint.nextIndex >= 0
+    ? checkpoint.nextIndex : 0;
 }
 
 async function main() {
-  const { dryRun, limit } = parseArgs(process.argv.slice(2));
+  const { dryRun, limit, ids } = parseGuidleArgs(process.argv.slice(2));
   const crawledAt = new Date().toISOString();
   const deadline = Date.now() + RUN_BUDGET_MS;
 
-  const { entries, shardsOk, shardsFailed } = await collectEventUrls(limit);
+  const { entries: catalog, shardsOk, shardsFailed } = await collectEventUrls(ids ? undefined : limit);
+  const { entries, selectionKey } = selectGuidleEntries(catalog, ids);
+  if (ids && !entries.length) throw new Error('No requested Guidle IDs are available in the sitemap catalog');
+  if (ids) console.log(`[guidle] targeted selection: ${entries.length}/${ids.length} requested ID(s) available; other source events retained`);
   console.log(`[guidle] sitemap: ${shardsOk} shard(s) ok, ${shardsFailed} failed, ${entries.length} unique event(s) in catalog`);
 
-  const startIndex = limit ? 0 : loadCursor(SOURCE.key) % Math.max(entries.length, 1);
+  const targetedCheckpoint = path.join(EVENTS_SLICE_DIR, '..', 'checkpoints', 'guidle-targeted.json');
+  const resumeIndex = ids ? targetedGuidleResumeIndex(loadGenericCursor(targetedCheckpoint, null), selectionKey) : loadCursor(SOURCE.key);
+  const startIndex = limit ? 0 : resumeIndex % Math.max(entries.length, 1);
   if (!limit && startIndex > 0) {
     console.log(`[guidle] resuming from checkpoint index ${startIndex}/${entries.length}`);
   }
 
   const events = [];
-  const goneIds = [];
-  let goneEverywhere = 0;
-  let driftSuspected = 0;
+  const detailOutcomes = [];
   let resolvedComune = 0;
   let visited = 0;
   let cursor = startIndex;
 
   while (visited < entries.length) {
+    if (limit && visited >= limit) break;
     if (!limit && Date.now() >= deadline) {
       console.log(
         `[guidle] time budget (${RUN_BUDGET_MS}ms) reached after ${visited}/${entries.length} event(s) — stopping, will resume next run`,
@@ -539,27 +736,33 @@ async function main() {
 
     const [code, pathSuffix] = entries[cursor];
     const localeResults = {};
-    let anyHtmlOk = false;
+    const localeStatuses = [];
+    const localeUndated = [];
     for (const locale of LOCALES) {
-      const { htmlOk, data } = await fetchLocaleData(pathSuffix, locale);
-      if (htmlOk) anyHtmlOk = true;
+      const { data, status, undated } = await fetchLocaleData(pathSuffix, locale);
+      localeStatuses.push(status);
+      localeUndated.push(undated);
       localeResults[locale] = data;
     }
 
     const mapped = mapGuidleEvent(code, localeResults);
     if (!mapped) {
-      if (anyHtmlOk) {
-        // Real HTML came back for at least one locale but nothing parsed —
-        // a drift signal, not evidence the event is gone. Leave it out of
-        // this run's contribution (neither added nor removed); the
-        // aggregate detailFetchesOk-based guard below surfaces the drift.
-        driftSuspected += 1;
-      } else {
-        goneEverywhere += 1;
-        goneIds.push(eventStableId(SOURCE.key, code));
-      }
+      // Real HTML that did not parse is drift (left untouched in the slice,
+      // never evidence the event is gone) unless the page declared no
+      // schedule; a definitive 404/410 everywhere is a disappearance;
+      // anything else never answered. See the file header.
+      detailOutcomes.push({
+        id: eventStableId(SOURCE.key, code),
+        kind: classifyUnmappedGuidleDetail(localeStatuses, localeUndated),
+      });
     } else {
+      detailOutcomes.push({ id: eventStableId(SOURCE.key, code), kind: 'mapped' });
       const { event, imageSourceUrl, addressLocality, cantonHint } = mapped;
+      if (!Number.isFinite(event.price?.amount) && mapped.bookingUrl) {
+        const bookingPrice = await fetchEventBookingPrice(event, mapped.bookingUrl);
+        // A third-party ticketing page is not a Guidle field: recorded, not reliable.
+        if (bookingPrice) event.price = { ...event.price, ...withEventPriceSource(bookingPrice, SOURCE.key, 'booking-page') };
+      }
       const { comune, canton } = resolveComuneNationwide(
         { venue: [event.venue, addressLocality].filter(Boolean).join(' '), title: event.title, region: undefined },
         cantonHint,
@@ -573,7 +776,9 @@ async function main() {
       // Matches the sibling `crawl-myswitzerland-events.mjs` crawler.
       event.canton = canton || '';
       if (event.comune) resolvedComune += 1;
-      event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id)) || undefined;
+      if (isEventImageSourceAllowed(SOURCE.key)) {
+        event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id, SOURCE.key)) || undefined;
+      }
       events.push(event);
     }
 
@@ -581,14 +786,26 @@ async function main() {
     cursor = (cursor + 1) % entries.length;
   }
 
+  const { goneIds, undatedIds, detailFailureIds, detailAttemptCount, driftIds, unreachableIds } =
+    guidleDetailFailureAccounting(detailOutcomes);
   console.log(
-    `[guidle] visited ${visited}/${entries.length} event(s) this run — ${events.length} mapped (${goneEverywhere} expired/gone, ` +
-      `${driftSuspected} suspected drift) — comune resolved ${resolvedComune}/${events.length}`,
+    `[guidle] visited ${visited}/${entries.length} event(s) this run — ${events.length} mapped (${goneIds.length} expired/gone, ` +
+      `${undatedIds.length} undated listing(s), ${driftIds.length} suspected drift, ${unreachableIds.length} unreachable) — ` +
+      `detail failures ${detailFailureIds.length}/${detailAttemptCount} — comune resolved ${resolvedComune}/${events.length}`,
   );
-  if (driftSuspected > 0) {
+  if (undatedIds.length > 0) {
+    console.log(`[guidle] ${undatedIds.length} catalog entr(y/ies) publish no schedule (empty startDate, no Event JSON-LD) — not events, outside the detail-failure ratio: ${undatedIds.join(', ')}`);
+  }
+  if (driftIds.length > 0) {
     console.warn(
-      `[guidle] ${driftSuspected} event(s) returned real HTML but failed to parse — left untouched in the slice this run, check JSON-LD/DOM selectors for partial drift`,
+      `[guidle] ${driftIds.length} event(s) returned real HTML but failed to parse — left untouched in the slice this run, check JSON-LD/DOM selectors for partial drift: ${driftIds.join(', ')}`,
     );
+  }
+  if (unreachableIds.length > 0) {
+    console.warn(`[guidle] ${unreachableIds.length} event(s) never answered on any locale (network/WAF/5xx): ${unreachableIds.join(', ')}`);
+  }
+  if (goneIds.length > 0) {
+    console.log(`[guidle] ${goneIds.length} event(s) answered 404/410 on every locale — source disappearance, outside the detail-failure ratio: ${goneIds.join(', ')}`);
   }
 
   // #7328: guidle's `CH-XX` canton hint plus venue/title text-matching still
@@ -617,15 +834,21 @@ async function main() {
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
-    console.log(JSON.stringify(translatedEvents.slice(0, 3), null, 2));
+    console.log(JSON.stringify(translatedEvents.slice(0, 3).map(sanitizeEventForPublication), null, 2));
     return;
   }
 
-  if (!limit && entries.length > 0) saveCursor(SOURCE.key, cursor, crawledAt);
+  stripDescriptionTranslationCache(translationCache);
   saveEventTitleTranslationCache(translationCache);
   saveGeocodeCache(geocodeCache);
 
-  if (events.length === 0 && goneIds.length === 0) {
+  const emptyRunOutcome = guidleEmptyRunOutcome({
+    mappedCount: events.length,
+    goneCount: goneIds.length,
+    undatedCount: undatedIds.length,
+    successfulDetailFetches: detailFetchesOk,
+  });
+  if (emptyRunOutcome !== 'publish') {
     // Never overwrite a good slice with an empty run. Distinguish two causes:
     //  - no detail page returned real HTML this run (network/WAF) → transient, soft-exit 0.
     //  - detail pages loaded fine but nothing mapped to a valid event → likely
@@ -636,7 +859,7 @@ async function main() {
     //    cumulative counter is almost always >0 at guidle's real scale even
     //    when everything works, since some per-locale fetches always miss).
     console.log('[guidle] 0 events mapped this run — leaving existing slice untouched');
-    if (detailFetchesOk === 0) {
+    if (emptyRunOutcome === 'transient') {
       console.log('[guidle] no detail pages loaded successfully this run — transient, soft-exit 0');
     } else {
       console.error(`[guidle] ${detailFetchesOk} detail page(s) returned HTML but yielded 0 events — check JSON-LD/DOM selectors for drift`);
@@ -653,16 +876,24 @@ async function main() {
     freshEvents: translatedEvents,
     goneIds,
     crawledAt,
+    detailFailureIds,
+    detailAttemptCount,
   });
+  // Advance the catalog only after the detail-failure policy accepts and
+  // writes this slice. A rejected batch must be retried from the same cursor.
+  if (!limit && entries.length > 0) {
+    if (ids) saveGenericCursor(targetedCheckpoint, { selectionKey, nextIndex: cursor, updatedAt: crawledAt });
+    else saveCursor(SOURCE.key, cursor, crawledAt);
+  }
   console.log(
-    `[guidle] merged ${events.length} event(s) (${goneIds.length} removed) → ${total} total in ${path.relative(process.cwd(), slicePath)}`,
+    `[guidle] merged ${events.length} event(s) (${goneIds.length} source disappearance(s) retained) → ${total} total in ${path.relative(process.cwd(), slicePath)}`,
   );
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-guidle-events.mjs`),
 // so tests can import the pure parsing/mapping functions without triggering a
 // live crawl.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[guidle] crawl failed: ${err?.message || err}`);
     process.exit(1);

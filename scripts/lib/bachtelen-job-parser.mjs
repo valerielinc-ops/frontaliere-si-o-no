@@ -6,22 +6,25 @@
  * young adults in the canton of Solothurn (Kindertagesstätten, Tagesschulen,
  * Wohnangebote, individuelle Förderung, Therapie & Beratung).
  *
- * Public career site: https://www.bachtelen.ch/arbeiten-bei-uns/offene-stellen/
+ * Public career site: https://www.bachtelen.ch/arbeiten-bei-uns/
  *
- * The page uses the WordPress "WP Job Manager" plugin with AJAX rendering.
- * Instead of scraping the rendered HTML we hit the WP REST endpoint directly:
- *   https://www.bachtelen.ch/wp-json/wp/v2/job-listings?per_page=50
+ * The old WP Job Manager endpoint was removed when the site moved its jobs to
+ * the custom `stelle` post type. We use that post type's REST endpoint for
+ * full descriptions and the public career page for the location shown on each
+ * listing card.
  *
- * Each job carries meta:
- *   _job_location, _application (email), _company_name, _featured, _filled
- *   content.rendered (HTML body), title.rendered, link
+ * Each job record carries content.rendered (HTML body), title.rendered, date,
+ * and link. The public page supplies the location card field; published posts
+ * are the active jobs, so no `_filled` filter is needed.
  *
  * Source language is German. Jobs default to Grenchen (SO) — HQ — but we
- * read _job_location when present to derive city + canton via target config.
+ * read the listing-card location when present to derive city + canton via
+ * target config.
  */
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
+import { slugify, warnIfListingAtCap, fetchHtml, fetchJson } from './crawler-template.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -37,8 +40,8 @@ export const BACHTELEN_COMPANY_NAME = 'Stiftung Bachtelen';
 export const BACHTELEN_COMPANY_DOMAIN = 'bachtelen.ch';
 
 const LISTING_PAGE_CAP = 50;
-const API_URL = `https://www.bachtelen.ch/wp-json/wp/v2/job-listings?per_page=${LISTING_PAGE_CAP}`;
-const PUBLIC_CAREER_URL = 'https://www.bachtelen.ch/arbeiten-bei-uns/offene-stellen/';
+const API_URL = `https://www.bachtelen.ch/wp-json/wp/v2/stelle?per_page=${LISTING_PAGE_CAP}&status=publish`;
+const PUBLIC_CAREER_URL = 'https://www.bachtelen.ch/arbeiten-bei-uns/';
 
 const DEFAULT_CITY = 'Grenchen';
 const DEFAULT_CANTON = 'SO';
@@ -73,13 +76,60 @@ export function isTrustedDomain(rawUrl = '') {
 function fetchBachtelenListingJson(url, timeoutMs = 20000) {
   return fetchJson(url, {
     timeoutMs,
-    label: 'Bachtelen wp-json job-listings',
+    label: 'Bachtelen wp-json stelle',
     headers: {
       Accept: 'application/json,text/html;q=0.9,*/*;q=0.5',
       'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
       Referer: PUBLIC_CAREER_URL,
     },
   });
+}
+
+function fetchBachtelenCareerPage(timeoutMs = 20000) {
+  return fetchHtml(PUBLIC_CAREER_URL, {
+    timeoutMs,
+    label: 'Bachtelen public career page',
+    headers: {
+      Accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.5',
+      'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
+    },
+  });
+}
+
+function normalizeBachtelenUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || ''), PUBLIC_CAREER_URL);
+    url.hash = '';
+    url.search = '';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Read the location shown in the current Elementor listing cards.
+ *
+ * The card markup is deliberately scoped to `.job-details`: the page also
+ * contains many unrelated links and headings, and a global link scrape would
+ * accidentally treat navigation or contact links as jobs. The first text
+ * field is the workload; the second is the location.
+ */
+export function parseBachtelenListingPage(html = '') {
+  const locationsByUrl = new Map();
+  const cardRe = /<div\b[^>]*class=["'][^"']*\bjob-details\b[^"']*["'][^>]*>([\s\S]*?)<a\b[^>]*href=["']([^"']+)["'][^>]*>/gi;
+  const fieldRe = /<div\b[^>]*class=["'][^"']*\btext_20\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi;
+
+  for (const match of String(html || '').matchAll(cardRe)) {
+    const fields = [...match[1].matchAll(fieldRe)]
+      .map((field) => normalizeSpace(htmlToText(field[1])))
+      .filter(Boolean);
+    const location = fields[1] || '';
+    const url = normalizeBachtelenUrl(decodeEntities(match[2]));
+    if (url && location) locationsByUrl.set(url, location);
+  }
+
+  return locationsByUrl;
 }
 
 function pickLocationHints(rawLocation = '') {
@@ -93,34 +143,46 @@ function pickLocationHints(rawLocation = '') {
 export async function fetchAllBachtelenJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   console.log(`🏫 Fetching ${BACHTELEN_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${API_URL} (WP REST)\n`);
+  console.log(`   Source: ${API_URL} (WP REST stelle)\n`);
 
   let records;
   try {
     records = await fetchBachtelenListingJson(API_URL, timeoutMs);
   } catch (err) {
-    throw new Error(`Failed to fetch Bachtelen WP REST: ${err?.message || err}`);
+    throw new Error(`Failed to fetch Bachtelen WP REST stelle: ${err?.message || err}`);
   }
   if (!Array.isArray(records)) {
     console.warn('⚠️ Unexpected response shape from Bachtelen WP REST.');
     return [];
   }
 
-  console.log(`  📋 ${records.length} job listings from WP REST\n`);
-  warnIfListingAtCap({ label: 'Bachtelen WP REST listing', count: records.length, cap: LISTING_PAGE_CAP });
-  const todayIso = new Date().toISOString().slice(0, 10);
+  let locationsByUrl = new Map();
+  try {
+    const listingHtml = await fetchBachtelenCareerPage(timeoutMs);
+    locationsByUrl = parseBachtelenListingPage(listingHtml);
+  } catch (err) {
+    // The REST feed still contains the full detail pages. If the presentation
+    // page is temporarily unavailable, retain the jobs with the HQ fallback
+    // rather than turning a layout outage into a crawler-wide failure.
+    console.warn(`⚠️ Could not read Bachtelen listing locations: ${err?.message || err}`);
+  }
+
+  console.log(`  📋 ${records.length} job listings from WP REST stelle\n`);
+  warnIfListingAtCap({ label: 'Bachtelen WP REST stelle listing', count: records.length, cap: LISTING_PAGE_CAP });
   const jobs = [];
 
   for (const rec of records) {
     try {
       const meta = rec?.meta || {};
-      if (Number(meta?._filled) === 1) continue; // skip filled jobs
+      // WordPress date_gmt is publication in UTC; modified_gmt is unrelated.
+      const publishedGmt = typeof rec?.date_gmt === 'string' ? rec.date_gmt.trim() : '';
+      const publication = sourcePostingDateCandidatesFields([publishedGmt, `${publishedGmt}Z`, rec?.date]);
 
       const title = normalizeSpace(decodeEntities(String(rec?.title?.rendered || '').replace(/<[^>]+>/g, '')));
       const url = String(rec?.link || '');
       if (!title || !url) continue;
 
-      const rawLocation = String(meta?._job_location || '').trim();
+      const rawLocation = locationsByUrl.get(normalizeBachtelenUrl(url)) || '';
       const hints = pickLocationHints(rawLocation);
 
       const bodyHtml = String(rec?.content?.rendered || '');
@@ -154,7 +216,7 @@ export async function fetchAllBachtelenJobs() {
         location: hints.city,
         canton: hints.canton,
         url,
-        source: 'Bachtelen Dedicated Parser (WP REST job-listings)',
+        source: 'Bachtelen Dedicated Parser (WP REST stelle)',
         sourceLang,
         crawledAt: new Date().toISOString(),
         addressLocality: hints.city,
@@ -169,7 +231,7 @@ export async function fetchAllBachtelenJobs() {
         sector: 'Sociale / Educazione',
         currency: 'CHF',
         featured: Number(meta?._featured) === 1,
-        postedDate: rec?.date ? String(rec.date).slice(0, 10) : todayIso,
+        ...publication,
         applyUrl: url,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

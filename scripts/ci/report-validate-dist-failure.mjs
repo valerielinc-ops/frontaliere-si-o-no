@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * report-validate-dist-failure.mjs — reporter diagnostico per i fallimenti di
  * validate-dist (issue #5414, Parte B).
@@ -46,6 +48,35 @@
  *   --dry-run                stampa su stdout il JSON dei payload senza
  *                            creare/chiudere nulla (le letture gh restano)
  *
+ * Ciclo di vita per gate (decisione del proprietario, 2026-10-02: «apriamo
+ * solo issue per gli errori riscontrati e poi saranno gli autofixer a
+ * sistemarle»):
+ * - ogni gate fallito riconosciuto ha la sua issue (prima: al massimo 3, poi
+ *   una riassuntiva); `audit:all` è espanso nei sotto-auditor falliti dalla
+ *   riga `audit-all: failed-audits=` del log, come fa già failed_gates;
+ * - il body porta la sezione `## Offender` dal report JSON del gate
+ *   (scripts/ci/lib/gate-issue-offenders.mjs), scaricato dall'artifact del
+ *   run in `VALIDATE_DIST_REPORTS_DIR`;
+ * - priorità dalla modalità del gate (scripts/ci/lib/seo-gate-classes.mjs:
+ *   A=1, B=2, C=3; un gate non classificato resta 1);
+ * - un gate non bloccante che cathedral misura sul corpus intero NON apre una
+ *   seconda issue qui: la sua issue è `SEO gates regression: …`;
+ * - in modalità report chiude, a titolo ESATTO, le issue dei gate che in
+ *   questo run sono passati: una issue si chiude quando il SUO gate rientra,
+ *   non quando l'intero run torna verde.
+ *
+ * Freschezza della build validata (LC-09): la validazione finisce ore dopo la
+ * build, quindi la issue NUOVA di un gate può nascere su una build che precede
+ * la fix già su `main` (misurato: 11117/11118 aperte alle 13:38Z del 2026-10-03
+ * sul build 5121254f5, con le fix su `main` dalle 05:46Z/05:59Z e una build
+ * successiva già riuscita alle 11:35Z). Il reporter misura `main` avanti di
+ * quanto e se esiste una build successiva riuscita, lo scrive nel body
+ * (marker `VALIDATED_BUILD`) e, solo con entrambe le prove, crea la issue
+ * nuova parcheggiata (`fu-parked` + `fu-data-pending`): visibile, ma fuori
+ * dalla coda del fixer fino alla validazione successiva, che la chiude (gate
+ * verde, `resolvePassedGates`) o la sblocca (gate ancora rosso su una build
+ * che contiene il `main` di allora). Misura ignota → instradamento di sempre.
+ *
  * Exit code: SEMPRE 0 in report/resolve (il reporter gira in step
  * `continue-on-error` dopo un rosso vero: mai aggiungere un secondo rosso).
  * Non-zero solo per uso errato dei flag.
@@ -56,6 +87,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
+import { GATES as CATHEDRAL_GATES } from '../cathedral-seo-gates-check.mjs';
+import { MODE_ISSUE_PRIORITY, SEO_GATE_CLASSES, effectiveMode, isPublishBlocking } from './lib/seo-gate-classes.mjs';
+import { renderOffenderSection, reportFileCandidates } from './lib/gate-issue-offenders.mjs';
+import { redactWorkflowPaths } from '../lib/workflow-scope-detect.mjs';
+
+export { redactWorkflowPaths };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -67,8 +104,30 @@ export const LEGACY_TITLE = 'Validation Failure (dist): post-deploy';
 // starci per intero (o essere troncato a token intero da titleForGate).
 export const DEDUP_TITLE_PREFIX_LEN = 60;
 // Oltre questa soglia di gate falliti, una sola issue riassuntiva col titolo
-// legacy: N issue per un rosso sistemico sarebbero rumore, non diagnosi.
-export const MAX_PER_GATE_ISSUES = 3;
+// legacy. Era 3: con 4 gate rossi (run 36922718485: gate:seo-source + tre
+// sotto-auditor di audit:all) nessun gate aveva la sua issue, e un autofixer
+// riceveva un riassunto invece di un difetto. 40 supera il numero di gate
+// esistenti: la riassuntiva resta per il rosso senza gate riconosciuti.
+export const MAX_PER_GATE_ISSUES = 40;
+// Job di cui si scaricano i log (non gate): limite di costo delle chiamate API.
+const MAX_FAILED_JOBS = 3;
+
+/**
+ * Gate non bloccanti misurati anche da cathedral-seo-gates-check sul corpus
+ * intero: la loro issue è `SEO gates regression: <gate> above baseline`, e
+ * una seconda issue qui sullo stesso difetto (misurato su un campione) darebbe
+ * due lavori all'autofixer e due chiusure in conflitto. Dal 2026-10-03 vale
+ * anche per i gate A: resta qui solo un gate che sequestra ancora `publish`.
+ */
+export const CATHEDRAL_OWNED_GATES = Object.freeze(new Set(
+  CATHEDRAL_GATES.map((g) => g.gateKey).filter((key) => !isPublishBlocking(key)),
+));
+
+/** Priorità della issue dalla modalità del gate; 1 per un gate non classificato. */
+export function issuePriorityForGate(gate) {
+  const mode = effectiveMode(gate);
+  return mode ? MODE_ISSUE_PRIORITY[mode] : 1;
+}
 const EXCERPT_LINES = 40;
 const WORKFLOW_DISPLAY_NAME = 'Post-deploy Validate Dist';
 
@@ -89,16 +148,26 @@ export function cleanLogLine(line) {
 // Riga per-gate emessa dai job di post-deploy-validate-dist.yml
 // (`printf '%-40s %7.2f rc=%d'` + prefisso ❌/✅ del summary loop).
 const GATE_FAIL_RE = /^❌ FAIL\s+(\S+)\s+(\d+(?:\.\d+)?)\s+rc=(\d+)\s*$/;
+const GATE_PASS_RE = /^✅ PASS\s+(\S+)\s+(\d+(?:\.\d+)?)\s+rc=(\d+)\s*$/;
+// Marker di scripts/audit-all.mjs: i sotto-auditor rossi del bundle.
+const AUDIT_ALL_MARKER_RE = /^audit-all: failed-audits=(.*)$/;
 const SUMMARY_RE = /^\S.*summary:\s*\d+ passed,\s*\d+ failed\s*$/i;
 
 /**
- * Estrae le righe `❌ FAIL <gate> <sec> rc=<n>` e i footer `N passed, M
- * failed` da un log di job (raw: timestamp/ANSI ammessi).
- * @returns {{ failedGates: {gate:string, seconds:number, rc:number, line:string}[], summaryLines: string[] }}
+ * Estrae dal log di un job (raw: timestamp/ANSI ammessi):
+ * - le righe `❌ FAIL <gate> <sec> rc=<n>`, con `audit:all` espanso nei
+ *   sotto-auditor della riga `audit-all: failed-audits=` quando c'è (senza
+ *   marker resta il nome opaco: fail-closed, come in failed_gates);
+ * - i gate `✅ PASS`, e per `audit:all` i sotto-auditor classificati che
+ *   non compaiono fra i falliti (servono al resolve per gate);
+ * - i footer `N passed, M failed`.
+ * @returns {{ failedGates: {gate:string, seconds:number, rc:number, line:string}[], passedGates: string[], summaryLines: string[] }}
  */
 export function parseGateLines(text) {
   const failedGates = new Map();
+  const passed = new Set();
   const summaryLines = [];
+  let auditAllFailed = null;
   for (const raw of String(text || '').split('\n')) {
     const line = cleanLogLine(raw);
     const m = GATE_FAIL_RE.exec(line);
@@ -111,9 +180,28 @@ export function parseGateLines(text) {
       });
       continue;
     }
+    const p = GATE_PASS_RE.exec(line);
+    if (p) { passed.add(p[1]); continue; }
+    const marker = AUDIT_ALL_MARKER_RE.exec(line);
+    if (marker) {
+      auditAllFailed = marker[1].split(',').map((x) => x.trim()).filter(Boolean);
+      continue;
+    }
     if (SUMMARY_RE.test(line)) summaryLines.push(line);
   }
-  return { failedGates: [...failedGates.values()], summaryLines };
+  const subAuditors = Object.keys(SEO_GATE_CLASSES).filter((k) => k.startsWith('audit:all/'));
+  const bundle = failedGates.get('audit:all');
+  if (bundle && auditAllFailed && auditAllFailed.length > 0) {
+    failedGates.delete('audit:all');
+    for (const sub of auditAllFailed) {
+      const gate = `audit:all/${sub}`;
+      failedGates.set(gate, { ...bundle, gate, line: `${bundle.line}\naudit-all: failed-audits=${auditAllFailed.join(',')}` });
+    }
+    for (const sub of subAuditors) if (!auditAllFailed.includes(sub.slice('audit:all/'.length))) passed.add(sub);
+  } else if (passed.has('audit:all')) {
+    for (const sub of subAuditors) passed.add(sub);
+  }
+  return { failedGates: [...failedGates.values()], passedGates: [...passed], summaryLines };
 }
 
 /**
@@ -129,21 +217,6 @@ export function parseGateLines(text) {
  *   `##[error]` è la coda dello step fallito (verificato sui run
  *   31259344953 e 31247086904).
  */
-// Un body che cita un path `.github/workflows/**` fa terminare issue-fix.yml
-// PRIMA di Claude (scripts/ci/check-workflows-scope.mjs, Mode 1) — zero token,
-// nessuna PR. I log dei job lo contengono davvero: ogni job di un reusable
-// workflow apre con `Uses: <owner>/<repo>/.github/workflows/<file>.yml@<ref>`
-// (misurato nel log del job 93107610821), e quella riga entra nell'estratto
-// ogni volta che il job muore presto — cioè proprio quando la diagnosi serve.
-// Redigiamo tenendo il NOME del workflow, che all'umano serve, e togliendo il
-// prefisso di path, che è l'unica cosa su cui il guard matcha.
-export function redactWorkflowPaths(text) {
-  return String(text ?? '').replace(
-    /\.github\/workflows\/([A-Za-z0-9._/-]+\.ya?ml)/g,
-    (_m, file) => `«workflow ${file}»`,
-  );
-}
-
 export function extractStepExcerpt(text, { maxLines = EXCERPT_LINES } = {}) {
   const kept = [];
   let inGroup = false;
@@ -255,6 +328,114 @@ function runUrl(repo, id) {
   return `https://github.com/${repo}/actions/runs/${id}`;
 }
 
+/* ── freschezza della build validata (LC-09) ─────────────────────────── */
+
+/**
+ * Parcheggio ritentabile che il ciclo ha già: il drain di
+ * scripts/ci/followup-drainer.mjs non promuove una issue `fu-parked`, il suo
+ * PARKED-RETRY la ri-accoda col cooldown lungo di `fu-data-pending`, e
+ * `fu-parked` sta in ROUTING_LABELS di scripts/ci/triage-sweep.mjs. Nessuna
+ * label nuova.
+ */
+export const PARK_LABELS = Object.freeze(['fu-parked', 'fu-data-pending']);
+
+/**
+ * Label della issue NUOVA parcheggiata. Il reporter crea la issue con
+ * GITHUB_TOKEN, quindi `issues:opened` non parte e la issue la instrada il
+ * PRIMO passaggio di triage-sweep (open senza `agent:triaged`), che decide
+ * con il solo classifyIssue e NON guarda ROUTING_LABELS: senza
+ * `agent:triaged` le aggiungerebbe `agent:fix-queued`, e una issue
+ * queued+parked non la riprende nessuno stadio del drainer (né il drain, né
+ * PARKED-RETRY, né age-out). Con `agent:triaged` la issue passa solo dal
+ * secondo passaggio, che rispetta `fu-parked`; tolte le due label di
+ * parcheggio, lo stesso passaggio la instrada come oggi. `agent:triaged` non
+ * si toglie allo sblocco: è lo stato giusto per il secondo passaggio.
+ */
+export const PARK_CREATE_LABELS = Object.freeze(['agent:triaged', ...PARK_LABELS]);
+const VALIDATED_BUILD_RE = /<!-- VALIDATED_BUILD: ([^>]*?) -->/;
+
+function fmtMeasure(v) {
+  return v === null || v === undefined ? 'unknown' : String(v);
+}
+
+/**
+ * Marker macchina della build validata. `main` è lo SHA di `main` al momento
+ * della misura: alla validazione successiva serve a dire se la nuova build lo
+ * contiene (cioè se contiene ogni fix che `main` aveva allora).
+ * @param {string} deployRef
+ * @param {{ mainSha: string|null, mainAhead: number|null, newerBuild: boolean|null }} f
+ */
+export function validatedBuildMarker(deployRef, f) {
+  return `<!-- VALIDATED_BUILD: sha=${deployRef || 'unknown'} main_ahead=${fmtMeasure(f?.mainAhead)} newer_build=${fmtMeasure(f?.newerBuild)} main=${f?.mainSha || 'unknown'} -->`;
+}
+
+/** Il marker dal body di una issue; null se assente. Pura. */
+export function parseValidatedBuildMarker(body) {
+  const m = VALIDATED_BUILD_RE.exec(String(body || ''));
+  if (!m) return null;
+  const fields = Object.fromEntries(
+    m[1].trim().split(/\s+/).map((kv) => kv.split('=')).filter((p) => p.length === 2),
+  );
+  const ahead = /^\d+$/.test(fields.main_ahead || '') ? Number(fields.main_ahead) : null;
+  const newer = fields.newer_build === 'true' ? true : fields.newer_build === 'false' ? false : null;
+  const sha = (v) => (/^[0-9a-f]{7,40}$/i.test(v || '') ? v : null);
+  return { sha: sha(fields.sha), mainAhead: ahead, newerBuild: newer, mainSha: sha(fields.main) };
+}
+
+/**
+ * La issue NUOVA va parcheggiata? Solo con ENTRAMBE le prove misurate: `main`
+ * avanti rispetto alla build validata, e una build successiva già riuscita la
+ * cui validazione arriverà. Qualunque `null` (misura fallita) → false: la
+ * issue resta instradata come prima (fail-closed verso il fixer). Pura.
+ */
+export function shouldParkNewIssue(f) {
+  return Boolean(f) && Number.isInteger(f.mainAhead) && f.mainAhead > 0 && f.newerBuild === true;
+}
+
+/**
+ * Righe del body sotto «Build SHA»: la misura in chiaro + il marker. Pura.
+ * Lessico scelto apposta per NON far scattare DATA_PENDING_RE del drainer su
+ * una issue non parcheggiata.
+ */
+export function freshnessLines(deployRef, f, { repo = '' } = {}) {
+  const ahead = Number.isInteger(f?.mainAhead)
+    ? (f.mainAhead === 0
+      ? '`main` coincide con questa build (0 commit avanti)'
+      : `\`main\` (\`${String(f.mainSha).slice(0, 11)}\`) è avanti di ${f.mainAhead} commit rispetto a questa build`)
+    : 'distanza da `main` non misurabile (lettura API fallita)';
+  const newer = f?.newerBuild === true
+    ? `build successiva già riuscita: sì${f.newerRunId && repo ? ` (${runUrl(repo, f.newerRunId)})` : ''}`
+    : f?.newerBuild === false
+      ? 'build successiva già riuscita: no'
+      : 'build successiva già riuscita: non determinabile';
+  const lines = [`- **Freschezza della build validata:** ${ahead} · ${newer}`];
+  if (shouldParkNewIssue(f)) {
+    lines.push(
+      `- **Instradamento:** issue nuova parcheggiata (\`${PARK_LABELS.join('` + `')}\`): questa build precede \`main\` e una build più recente è già riuscita, quindi il difetto può essere già corretto. La validazione successiva chiude la issue se il gate rientra, oppure toglie il parcheggio se il gate resta rosso su una build che contiene il \`main\` qui sopra.`,
+    );
+  }
+  lines.push(validatedBuildMarker(deployRef, f));
+  return lines;
+}
+
+/**
+ * Sblocco di una issue parcheggiata dal reporter, alla validazione successiva
+ * in cui il suo gate è ancora rosso. Pura.
+ *  - 'skip'    : non è un parcheggio di questo reporter (marker assente o senza
+ *                le due prove): non è affar nostro;
+ *  - 'keep'    : stessa build rivalidata, o build che ancora non contiene il
+ *                `main` di allora → la prova non è cambiata, resta parcheggiata;
+ *  - 'release' : la build contiene il `main` di allora (ricorrenza vera), o il
+ *                contenimento non è misurabile (fail-closed verso il fixer).
+ * @param {{ marker: ReturnType<typeof parseValidatedBuildMarker>, deployRef: string, contains: boolean|null }} input
+ */
+export function parkedReleaseDecision({ marker, deployRef, contains }) {
+  if (!marker || !shouldParkNewIssue(marker)) return 'skip';
+  if (deployRef && marker.sha && deployRef === marker.sha) return 'keep';
+  if (contains === false) return 'keep';
+  return 'release';
+}
+
 function fence(text) {
   return '```text\n' + String(text || '').replace(/```/g, '`​``') + '\n```';
 }
@@ -263,6 +444,8 @@ function fence(text) {
  * Compone i payload issue: uno per gate fallito (max MAX_PER_GATE_ISSUES),
  * altrimenti — zero gate riconosciuti (fallimento infra prima dei gate) o
  * troppi (rosso sistemico) — una sola issue riassuntiva col titolo legacy.
+ * I gate in CATHEDRAL_OWNED_GATES non producono payload (vedi sopra); se
+ * erano gli unici falliti il risultato è vuoto, senza riassuntiva.
  *
  * Funzione PURA: nessuna chiamata gh, testabile con input sintetici.
  *
@@ -274,15 +457,23 @@ function fence(text) {
  *                  gates?: ReturnType<typeof parseGateLines>['failedGates'],
  *                  summaryLines?: string[], excerpt?: string, logNote?: string }[],
  *   pkgScripts?: Record<string, string>,
+ *   reports?: Record<string, { report: Record<string, unknown> | null, source: string }>,
+ *   freshness?: { mainSha: string|null, mainAhead: number|null, newerBuild: boolean|null, newerRunId?: string|null } | null,
  * }} input
- * @returns {{ title: string, labels: string[], body: string }[]}
+ * @returns {{ title: string, labels: string[], body: string, priority: number, gate: string | null }[]}
  */
 export function buildIssuePayloads(input) {
   const {
     repo, runId, runAttempt = '1',
     deployRunId = '', deployRef = '', deployEvent = '',
-    results = {}, failedJobs = [], pkgScripts = {},
+    results = {}, failedJobs = [], pkgScripts = {}, reports = {},
+    freshness = null,
   } = input;
+  // Le label di parcheggio valgono solo alla CREAZIONE: createGithubIssue le
+  // applica in `gh issue create`, mentre una ricorrenza su issue già aperta è
+  // un commento (e una riapertura non tocca le label). Il parcheggio resta
+  // quindi confinato alla issue nuova per costruzione.
+  const parkLabels = shouldParkNewIssue(freshness) ? [...PARK_CREATE_LABELS] : [];
 
   // gate → job che l'ha riportato (primo vince: i gate sono per-job)
   const gateRows = new Map();
@@ -306,6 +497,7 @@ export function buildIssuePayloads(input) {
     deployRef
       ? `- **Build SHA:** \`${deployRef}\` (= \`deploy_ref\` = \`workflow_run.head_sha\`: il commit della BUILD. Per un run innescato da workflow_run \`github.sha\` NON è questo commit — non usarlo.)`
       : '- **Build SHA:** non disponibile (deploy_ref non passato: run legacy o dispatch manuale — NON ripiegare su github.sha, che per workflow_run non è il commit della build)',
+    ...(freshness ? freshnessLines(deployRef, freshness, { repo }) : []),
     deployEvent ? `- **Trigger build:** ${deployEvent}` : null,
     jobResults,
     '',
@@ -366,6 +558,17 @@ export function buildIssuePayloads(input) {
     return lines;
   }
 
+  function offenderLines(gate) {
+    const entry = reports[gate];
+    return [
+      ...renderOffenderSection(entry?.report ?? null, {
+        gate,
+        source: entry?.source || `artifact \`audit-reports*-${runId}-${runAttempt}\``,
+      }),
+      '',
+    ];
+  }
+
   function excerptSections(jobs) {
     const out = [];
     for (const j of jobs) {
@@ -375,7 +578,9 @@ export function buildIssuePayloads(input) {
     return out;
   }
 
-  const allGates = [...gateRows.values()];
+  const recognized = [...gateRows.values()];
+  const allGates = recognized.filter(({ gate }) => !CATHEDRAL_OWNED_GATES.has(gate));
+  if (recognized.length > 0 && allGates.length === 0) return [];
 
   if (allGates.length > 0 && allGates.length <= MAX_PER_GATE_ISSUES) {
     return allGates.map(({ gate, line, job }) => {
@@ -387,6 +592,7 @@ export function buildIssuePayloads(input) {
         '## Gate falliti',
         fence([line, ...(job.summaryLines || [])].join('\n')),
         '',
+        ...offenderLines(gate),
         ...excerptSections([job]),
         ...(notes.length > 0 ? ['## Note', ...notes, ''] : []),
         ...reproSection(gate),
@@ -398,7 +604,13 @@ export function buildIssuePayloads(input) {
       // Redazione anche sul body completo, non solo sull'estratto: un nome di
       // job/step o una nota futura potrebbero reintrodurre il path che
       // disinnesca il fixer. Un punto solo, applicato sempre.
-      return { title: titleForGate(gate), labels: ['Bug', gateLabel(gate)], body: redactWorkflowPaths(body) };
+      return {
+        title: titleForGate(gate),
+        labels: ['Bug', gateLabel(gate), ...parkLabels],
+        body: redactWorkflowPaths(body),
+        priority: issuePriorityForGate(gate),
+        gate,
+      };
     });
   }
 
@@ -415,7 +627,7 @@ export function buildIssuePayloads(input) {
     '## Gate falliti',
     gateBlock,
     '',
-    ...excerptSections(failedJobs.slice(0, MAX_PER_GATE_ISSUES)),
+    ...excerptSections(failedJobs.slice(0, MAX_FAILED_JOBS)),
     ...(notes.length > 0 ? ['## Note', ...notes, ''] : []),
     ...reproSection(primaryGate),
     '',
@@ -423,7 +635,7 @@ export function buildIssuePayloads(input) {
     '',
     ...suggestedAction(primaryGate),
   ].join('\n');
-  return [{ title: LEGACY_TITLE, labels: ['Bug'], body: redactWorkflowPaths(body) }];
+  return [{ title: LEGACY_TITLE, labels: ['Bug', ...parkLabels], body: redactWorkflowPaths(body), priority: 1, gate: null }];
 }
 
 /** Titoli aperti che il resolve deve chiudere: legacy + per-gate, dedup. */
@@ -502,9 +714,122 @@ function firstFailedStep(job) {
   return (job.steps || []).find((s) => s.conclusion === 'failure')?.name || '';
 }
 
+function ghJson(args) {
+  const out = gh(args, { maxBuffer: 32 * 1024 * 1024 });
+  if (out === null) return null;
+  try {
+    return JSON.parse(out);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * `head` contiene `base`? Dal compare: `behind_by` conta i commit di `base`
+ * assenti da `head`. null su lettura fallita, mai un numero inventato.
+ */
+function buildContainsCommit(repo, base, head) {
+  if (!repo || !base || !head) return null;
+  const cmp = ghJson(['api', `repos/${repo}/compare/${base}...${head}`, '--jq', '{status: .status, behind_by: .behind_by}']);
+  return Number.isInteger(cmp?.behind_by) ? cmp.behind_by === 0 : null;
+}
+
+/**
+ * Freschezza della build validata. Tre letture, ognuna best-effort (null su
+ * qualunque errore):
+ *  - `main` risolto a uno SHA (il marker lo conserva per la validazione dopo);
+ *  - `ahead_by` di `compare/<deployRef>...<main>`;
+ *  - build successiva riuscita: dalla STESSA sorgente da cui il reporter
+ *    conosce `deployRunId` (la run di build che ha innescato la validazione):
+ *    si legge il suo workflow e il suo `created_at`, e si cercano run dello
+ *    stesso workflow, su `main`, riuscite, create dopo, a uno SHA diverso.
+ *    Il filtro `created>=` più il ricontrollo locale proteggono dal listato
+ *    `branch=…&status=success` che a volte restituisce run vecchie.
+ * @returns {{ mainSha: string|null, mainAhead: number|null, newerBuild: boolean|null, newerRunId: string|null }}
+ */
+export function measureBuildFreshness({ repo, deployRef, deployRunId }) {
+  const out = { mainSha: null, mainAhead: null, newerBuild: null, newerRunId: null };
+  if (!repo || !deployRef) return out;
+  const main = gh(['api', `repos/${repo}/commits/main`, '--jq', '.sha']);
+  const mainSha = /^[0-9a-f]{40}$/i.test(String(main || '').trim()) ? String(main).trim() : null;
+  if (mainSha) {
+    out.mainSha = mainSha;
+    const cmp = ghJson(['api', `repos/${repo}/compare/${deployRef}...${mainSha}`, '--jq', '{status: .status, ahead_by: .ahead_by}']);
+    if (Number.isInteger(cmp?.ahead_by)) out.mainAhead = cmp.ahead_by;
+  }
+  if (!deployRunId) return out;
+  const run = ghJson(['api', `repos/${repo}/actions/runs/${deployRunId}`, '--jq', '{workflow_id: .workflow_id, created_at: .created_at}']);
+  const createdMs = Date.parse(run?.created_at || '');
+  if (!run?.workflow_id || !Number.isFinite(createdMs)) return out;
+  const created = encodeURIComponent(`>=${run.created_at}`);
+  const list = ghJson(['api',
+    `repos/${repo}/actions/workflows/${run.workflow_id}/runs?branch=main&status=success&created=${created}&per_page=50`,
+    '--jq', '[.workflow_runs[] | {id: .id, head_sha: .head_sha, created_at: .created_at}]']);
+  if (!Array.isArray(list)) return out;
+  const newer = list
+    .filter((r) => String(r.id) !== String(deployRunId)
+      && r.head_sha && r.head_sha !== deployRef
+      && Date.parse(r.created_at || '') > createdMs)
+    .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+  out.newerBuild = newer.length > 0;
+  out.newerRunId = newer[0] ? String(newer[0].id) : null;
+  return out;
+}
+
+/**
+ * Alla validazione successiva: le issue parcheggiate da questo reporter il cui
+ * gate è ANCORA rosso vengono sbloccate se la build corrente contiene il `main`
+ * registrato nel marker (ricorrenza vera → instradamento normale: senza label
+ * di routing la riprende triage-sweep). Gate verde → le chiude
+ * resolvePassedGates, come prima. Best-effort, mai un throw.
+ * @returns {{ number: number, decision: string }[]}
+ */
+export function releaseParkedRecurrences({ repo, runId = '', deployRef, failingTitles }) {
+  const failing = new Set(failingTitles || []);
+  if (failing.size === 0) return [];
+  const repoArgs = repo ? ['--repo', repo] : [];
+  const parked = ghJson(['issue', 'list', '--state', 'open',
+    ...PARK_LABELS.flatMap((l) => ['--label', l]),
+    '--limit', '100', '--json', 'number,title,body', ...repoArgs]);
+  if (!Array.isArray(parked)) return [];
+  const outcomes = [];
+  for (const iss of parked) {
+    if (!failing.has(iss.title)) continue;
+    const marker = parseValidatedBuildMarker(iss.body);
+    const sameBuild = Boolean(marker?.sha && deployRef && marker.sha === deployRef);
+    // Il compare costa una chiamata: solo per i parcheggi di questo reporter
+    // su una build diversa da quella che li ha aperti.
+    const contains = !shouldParkNewIssue(marker) || sameBuild ? null : buildContainsCommit(repo, marker.mainSha, deployRef);
+    const decision = parkedReleaseDecision({ marker, deployRef, contains });
+    outcomes.push({ number: iss.number, decision });
+    if (decision !== 'release') {
+      if (decision === 'keep') {
+        console.log(`[report-validate-dist-failure] #${iss.number} resta parcheggiata: ${sameBuild
+          ? `è di nuovo la build \`${deployRef}\` che l'ha aperta`
+          : `la build \`${deployRef}\` non contiene ancora \`${marker.mainSha}\``}.`);
+      }
+      continue;
+    }
+    const edited = gh(['issue', 'edit', String(iss.number),
+      ...PARK_LABELS.flatMap((l) => ['--remove-label', l]), ...repoArgs]);
+    if (edited === null) {
+      console.error(`[report-validate-dist-failure] sblocco di #${iss.number} fallito (gh issue edit)`);
+      continue;
+    }
+    const why = contains === true
+      ? `la build \`${deployRef}\` contiene \`${marker.mainSha}\`, cioè il \`main\` di quando la issue è stata parcheggiata`
+      : `il contenimento di \`${marker.mainSha}\` nella build \`${deployRef || 'unknown'}\` non è misurabile, quindi si torna all'instradamento normale`;
+    gh(['issue', 'comment', String(iss.number), '--body',
+      `▶️ **Parcheggio tolto** — il gate è ancora rosso${runId && repo ? ` nella validazione ${runUrl(repo, runId)}` : ''} e ${why}: è una ricorrenza vera, la issue torna nella coda del fixer.`,
+      ...repoArgs]);
+    console.log(`[report-validate-dist-failure] #${iss.number} sbloccata (${PARK_LABELS.join(' + ')} tolte).`);
+  }
+  return outcomes;
+}
+
 /* ── modalità ────────────────────────────────────────────────────────── */
 
-function reportDist({ dryRun }) {
+export function reportDist({ dryRun }) {
   const repo = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
   const runId = process.env.RUN_ID || process.env.GITHUB_RUN_ID || '';
   const runAttempt = process.env.RUN_ATTEMPT || process.env.GITHUB_RUN_ATTEMPT || '1';
@@ -521,6 +846,7 @@ function reportDist({ dryRun }) {
       };
 
   const failedJobs = [];
+  const passedGates = new Set();
   if (repo && runId) {
     const data = fetchRunJobs(repo, runId);
     if (data) {
@@ -529,9 +855,10 @@ function reportDist({ dryRun }) {
       const failed = (data.jobs || []).filter(
         (j) => j.conclusion === 'failure' && /validate-dist/.test(j.name || ''),
       );
-      for (const job of failed.slice(0, MAX_PER_GATE_ISSUES)) {
+      for (const job of failed.slice(0, MAX_FAILED_JOBS)) {
         const log = fetchJobLog(repo, job.id);
-        const parsed = log ? parseGateLines(log) : { failedGates: [], summaryLines: [] };
+        const parsed = log ? parseGateLines(log) : { failedGates: [], passedGates: [], summaryLines: [] };
+        for (const g of parsed.passedGates) passedGates.add(g);
         failedJobs.push({
           name: job.name,
           htmlUrl: job.html_url,
@@ -547,33 +874,114 @@ function reportDist({ dryRun }) {
     }
   }
 
-  const payloads = buildIssuePayloads({
+  const failedGateNames = failedJobs.flatMap((j) => (j.gates || []).map((g) => g.gate));
+  const reports = loadGateReports(failedGateNames, process.env.VALIDATE_DIST_REPORTS_DIR || '', `${runId}-${runAttempt}`);
+  const payloadInput = {
     repo, runId, runAttempt, deployRunId, deployRef, deployEvent,
-    results, failedJobs, pkgScripts: readPkgScripts(),
-  });
+    results, failedJobs, pkgScripts: readPkgScripts(), reports,
+  };
+  let payloads = buildIssuePayloads(payloadInput);
+  // La freschezza si misura solo se c'è almeno una issue da scrivere: un run
+  // i cui gate rossi sono tutti di cathedral non spende le letture.
+  const freshness = payloads.length > 0 ? measureBuildFreshness({ repo, deployRef, deployRunId }) : null;
+  if (freshness) {
+    console.log(`[report-validate-dist-failure] ${validatedBuildMarker(deployRef, freshness)}`);
+    payloads = buildIssuePayloads({ ...payloadInput, freshness });
+  }
+  const resolvable = gatesToResolve([...passedGates], failedGateNames);
+  // Il fallback legacy è volutamente lossy: con troppi gate rossi (o senza
+  // gate riconosciuti) `payloads` non contiene i titoli per-gate. Lo sblocco
+  // delle ricorrenze deve comunque valutare ogni gate ancora rosso, oltre al
+  // titolo legacy quando è l'unico payload disponibile.
+  const failingTitles = [...new Set([
+    ...payloads.map((p) => p.title),
+    ...failedGateNames.map(titleForGate),
+  ])];
 
   if (dryRun) {
-    process.stdout.write(JSON.stringify(payloads, null, 2) + '\n');
+    process.stdout.write(JSON.stringify({ payloads, resolvable: resolvable.map(titleForGate), freshness }, null, 2) + '\n');
     return Promise.resolve();
   }
 
-  // Sequenziale: createGithubIssue dedupa per titolo (prefisso 60 char),
-  // reopen entro 6h per il flap rosso→verde→rosso (#928/#931/#937/#941).
-  // deployRef è il commit della BUILD (workflow_run.head_sha), distinto dal
-  // run che la valida — passarlo abilita il guard anti-latenza (#5539): se
-  // predata la fix che ha chiuso la issue, il reopener non la riapre.
+  // Sequenziale: createGithubIssue dedupa per titolo, qui a titolo ESATTO
+  // (`Validation Failure (dist): audit:all` è prefisso di ogni
+  // `…audit:all/<sotto-auditor>`), reopen entro 6h per il flap
+  // rosso→verde→rosso (#928/#931/#937/#941). deployRef è il commit della BUILD
+  // (workflow_run.head_sha), distinto dal run che la valida — passarlo abilita
+  // il guard anti-latenza (#5539): se predata la fix che ha chiuso la issue, il
+  // reopener non la riapre.
   return payloads.reduce(
     (p, payload) => p.then(() => createGithubIssue({
       title: payload.title,
       description: payload.body,
-      priority: 1,
+      priority: payload.priority,
       labels: payload.labels,
       workflow: WORKFLOW_DISPLAY_NAME,
       reopenWithinHours: 6,
       buildSha: deployRef || null,
+      exactTitle: payload.gate !== null,
     })),
     Promise.resolve(),
-  );
+  )
+    .then(() => releaseParkedRecurrences({ repo, runId, deployRef, failingTitles }))
+    .then(() => resolvePassedGates(repo, runId, resolvable));
+}
+
+/**
+ * Report JSON dei gate falliti, letti dalla cartella dove il job di report ha
+ * scaricato l'artifact `audit-reports*` del run. Best-effort: un file assente
+ * o illeggibile dà `report: null`, e il body lo dice.
+ * @returns {Record<string, { report: Record<string, unknown> | null, source: string }>}
+ */
+export function loadGateReports(gates, dir, runTag) {
+  /** @type {Record<string, { report: Record<string, unknown> | null, source: string }>} */
+  const out = {};
+  for (const gate of gates) {
+    let entry = { report: null, source: `artifact \`audit-reports*-${runTag}\`` };
+    if (dir) {
+      for (const name of reportFileCandidates(gate)) {
+        try {
+          const report = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'));
+          entry = { report, source: `\`audit-reports/${name}\` nell'artifact \`audit-reports*-${runTag}\`` };
+          break;
+        } catch { /* prova il candidato successivo */ }
+      }
+    }
+    out[gate] = entry;
+  }
+  return out;
+}
+
+/**
+ * Gate le cui issue si possono chiudere dopo questo run: passati, e non anche
+ * falliti (un gate compare una volta sola per job, ma i job sono più d'uno).
+ * `audit:all` opaco solo se il bundle è passato per intero. Pura.
+ */
+export function gatesToResolve(passedGates, failedGates) {
+  const failed = new Set(failedGates);
+  return [...new Set(passedGates)]
+    .filter((g) => !failed.has(g) && !/\(/.test(g))
+    .filter((g) => g !== 'audit:all' || !failedGates.some((f) => f.startsWith('audit:all')))
+    .sort();
+}
+
+/** Chiude, a titolo esatto, le issue aperte dei gate rientrati. Best-effort. */
+function resolvePassedGates(repo, runId, gates) {
+  if (gates.length === 0) return;
+  const open = new Set(listOpenReporterTitles(repo));
+  for (const gate of gates) {
+    const title = titleForGate(gate);
+    if (!open.has(title)) continue;
+    try {
+      resolveGithubIssue(title, {
+        workflow: WORKFLOW_DISPLAY_NAME,
+        runUrl: repo && runId ? runUrl(repo, runId) : undefined,
+        exactTitle: true,
+      });
+    } catch (err) {
+      console.error(`[report-validate-dist-failure] resolve ${title}: ${err?.message || err}`);
+    }
+  }
 }
 
 function reportBuild({ dryRun }) {
@@ -643,6 +1051,25 @@ function reportBuild({ dryRun }) {
   });
 }
 
+/** Titoli aperti di questo reporter (legacy + per-gate), dalle due query. */
+function listOpenReporterTitles(repo) {
+  const repoArgs = repo ? ['--repo', repo] : [];
+  const readTitles = (args) => {
+    const out = gh(args, { maxBuffer: 32 * 1024 * 1024 });
+    if (out === null) return [];
+    try {
+      return JSON.parse(out).map((i) => i.title);
+    } catch {
+      return [];
+    }
+  };
+  return selectResolvableTitles([
+    ...readTitles(['issue', 'list', '--state', 'open', '--limit', '200', '--json', 'title', ...repoArgs]),
+    ...readTitles(['issue', 'list', '--state', 'open', '--limit', '100', '--json', 'title',
+      '--search', `in:title "${TITLE_PREFIX.trim()}"`, ...repoArgs]),
+  ]);
+}
+
 export function resolveMode({ dryRun }) {
   const repo = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
   const runId = process.env.RUN_ID || process.env.GITHUB_RUN_ID || '';
@@ -654,22 +1081,7 @@ export function resolveMode({ dryRun }) {
   // l'indice di ricerca è eventualmente consistente e può non vedere una
   // issue aperta pochi secondi fa (stessa ragione del fallback in
   // github-issue-creator.mjs). Nessuna delle due da sola basta.
-  const repoArgs = repo ? ['--repo', repo] : [];
-  const readTitles = (args) => {
-    const out = gh(args, { maxBuffer: 32 * 1024 * 1024 });
-    if (out === null) return [];
-    try {
-      return JSON.parse(out).map((i) => i.title);
-    } catch {
-      return [];
-    }
-  };
-  const titles = [
-    ...readTitles(['issue', 'list', '--state', 'open', '--limit', '200', '--json', 'title', ...repoArgs]),
-    ...readTitles(['issue', 'list', '--state', 'open', '--limit', '100', '--json', 'title',
-      '--search', `in:title "${TITLE_PREFIX.trim()}"`, ...repoArgs]),
-  ];
-  const toResolve = selectResolvableTitles(titles);
+  const toResolve = listOpenReporterTitles(repo);
   if (dryRun) {
     process.stdout.write(JSON.stringify(toResolve, null, 2) + '\n');
     return;
@@ -678,10 +1090,13 @@ export function resolveMode({ dryRun }) {
     console.log('[report-validate-dist-failure] resolve: nessuna issue "Validation Failure (dist):" aperta');
     return;
   }
+  // Titolo esatto: i titoli vengono dalle issue aperte, e a prefisso
+  // `…audit:all` chiuderebbe un `…audit:all/<sotto-auditor>` al suo posto.
   for (const title of toResolve) {
     resolveGithubIssue(title, {
       workflow: WORKFLOW_DISPLAY_NAME,
       runUrl: repo && runId ? runUrl(repo, runId) : undefined,
+      exactTitle: true,
     });
   }
 }
@@ -689,7 +1104,7 @@ export function resolveMode({ dryRun }) {
 /* ── CLI ─────────────────────────────────────────────────────────────── */
 
 const isMain = process.argv[1]
-  && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (isMain) {
   const args = process.argv.slice(2);

@@ -6,6 +6,7 @@ import {
   isOkjobJob,
   isTrustedDomain,
 } from '../scripts/lib/okjob-job-parser.mjs';
+import { loadSpec, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('OK Job SA, succursale di Mendrisio crawler parser', () => {
@@ -13,6 +14,31 @@ describe('OK Job SA, succursale di Mendrisio crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(OKJOB_KEY).toBe('okjob');
     expect(OKJOB_COMPANY_NAME).toBe('OK Job SA, succursale di Mendrisio');
+  });
+
+  it('matches the current French, German, and Italian detail URL templates', () => {
+    const spec = loadSpec(OKJOB_KEY);
+    const detailTemplate = templateToRegex(spec.detailTemplate);
+    const paths = [
+      '/offres-demplois/charpentiers-menuisiers-ferblantiers-neuchatel/',
+      '/de/jobangebote/betriebselektriker-in-100-m-w-d-biel/',
+      '/it/offerte-di-lavoro/tecnico-a-industriale-specializzato-a-elettromeccanico-a-mendrisio/',
+    ];
+
+    for (const path of paths) {
+      expect(detailTemplate.test(path), path).toBe(true);
+    }
+  });
+
+  it('filters city landing pages from broad vacancy URL templates', () => {
+    const spec = loadSpec(OKJOB_KEY);
+
+    // The source reuses /offres-demplois/<slug>/ for both vacancy details and
+    // city landing pages. Job links carry the source vacancy reference; city
+    // pages do not. The discriminator keeps the known-template rescue from
+    // turning those landing pages into detail candidates.
+    expect(spec.listingCandidateText).toBe('ref');
+    expect(spec.detailFetchWorkers).toBe(1);
   });
 
   // ── isCompanyJob ──
@@ -68,6 +94,19 @@ describe('OK Job SA, succursale di Mendrisio crawler parser', () => {
         'https://www.okjob.ch/de/jobangebote/leitung-pflege-zuerich/?ref=41880',
       );
       expect(detail.location).toBe('Zurich');
+    });
+
+    it('normalizza l’esonimo francese di Basilea per il gate geografico', () => {
+      const detail = extractOkjobDetailFields(
+        detailPage('Stellenangebote Fachfrau Gesundheit - 4051 Bâle | Okjob'),
+        'https://www.okjob.ch/de/jobangebote/fachfrau-gesundheit-basel/?ref=42458',
+      );
+      expect(detail.location).toBe('4051 Basel');
+      expect(detail.addressLocality).toBe('Basel');
+      expect(detail.locationCandidates?.[0]).toMatchObject({
+        location: '4051 Basel',
+        addressLocality: 'Basel',
+      });
     });
 
     it('non inventa una localita\' senza il suffisso di marca', () => {

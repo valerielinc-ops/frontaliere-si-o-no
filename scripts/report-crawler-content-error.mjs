@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * report-crawler-content-error.mjs — segnalazione MANUALE, in un comando, di un
  * annuncio crawlato che non e' un annuncio di lavoro.
@@ -157,7 +159,7 @@ function usage() {
   );
 }
 
-if (process.argv[1] && process.argv[1].endsWith('report-crawler-content-error.mjs')) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const argv = process.argv.slice(2);
   const flags = argv.filter((a) => a.startsWith('--'));
   const positional = argv.filter((a) => !a.startsWith('--'));

@@ -18,13 +18,22 @@
  * journal-backed helper (addPreviousSlugForLocale), bounded to the flat
  * legacy cap headroom so it can NEVER evict a bridge the slice already had.
  */
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   applyAssembledToSliceJob,
+  buildAssembledJobIndex,
   collectMissingAssembledBridges,
+  diagnoseScatterParity,
+  matchAssembledJob,
+  scatterAssembledIntoSliceEntries,
+  verifyScatterParity,
 } from '../scripts/scatter-jobs-to-slices.mjs';
 import { applyPerLocaleSlugCollisionGuard } from '../scripts/assemble-jobs-dataset.mjs';
-import { LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { LEGACY_PREV_SLUGS_CAP, cleanPreviousSlugsPerLocale, isSelfCanonicalPreviousSlug, stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { decontaminateEntries } from '../scripts/decontaminate-prev-slugs.mjs';
 
 const baseSlice = () => ({
   id: 'company-abc',
@@ -38,6 +47,627 @@ const baseSlice = () => ({
 });
 
 describe('scatter carry-forward of assembled previousSlugs bridges', () => {
+  it('matches an assembly-stamped id-less slice job by URL, not synthetic id', () => {
+    const sliceJob = { ...baseSlice() };
+    delete sliceJob.id;
+    const assembled = { ...sliceJob, id: 'company-synthetic-id' };
+    const index = buildAssembledJobIndex([assembled]);
+
+    expect(matchAssembledJob(sliceJob, index)).toBe(assembled);
+  });
+
+  it('rejects a stable-key collision when the URLs identify different postings', () => {
+    const assembled = { ...baseSlice(), id: 'company-synthetic-id' };
+    const index = buildAssembledJobIndex([assembled]);
+    const sibling = {
+      ...baseSlice(),
+      url: 'https://example.test/another-posting',
+      id: 'company-synthetic-id',
+    };
+
+    expect(matchAssembledJob(sibling, index)).toBeNull();
+  });
+
+  it('does not join the same numeric posting token across different job-board hosts', () => {
+    const assembled = {
+      ...baseSlice(),
+      id: 'sta-dd501421b406',
+      url: 'https://www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-dauerstelle-106683/',
+    };
+    const stellenpartner = {
+      ...baseSlice(),
+      id: 'stellenpartner-0db951531005',
+      url: 'https://www.stellenpartner.ch/stellen/metallbauer-in-stans-dauerstelle-106683/',
+    };
+    const index = buildAssembledJobIndex([assembled]);
+
+    expect(matchAssembledJob(stellenpartner, index)).toBeNull();
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [assembled, stellenpartner] }])).toMatchObject({
+      duplicateAssembledMatches: 0,
+      unmatchedSliceJobs: 1,
+      missingBridges: 0,
+      pendingWrites: 0,
+      passed: true,
+    });
+  });
+
+  it('does not join a stable token when the URL has no parsable host', () => {
+    // Protocol-relative URLs make `new URL()` throw: without a host the
+    // numeric token is not an identity and must not join two job boards.
+    const assembled = {
+      ...baseSlice(),
+      id: 'sta-dd501421b406',
+      url: '//www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-dauerstelle-106683/',
+    };
+    const stellenpartner = {
+      ...baseSlice(),
+      id: 'stellenpartner-0db951531005',
+      url: '//www.stellenpartner.ch/stellen/metallbauer-in-stans-dauerstelle-106683/',
+    };
+
+    expect(matchAssembledJob(stellenpartner, buildAssembledJobIndex([assembled]))).toBeNull();
+  });
+
+  it('persists an ownership move so the claimant slice on disk no longer serves the bridge', () => {
+    // The guarded writer re-captures any slug the on-disk slice still serves.
+    // A claimant that hands a foreign bridge to its owner must therefore be
+    // written by the ownership pass (guard off, owner first), or the bridge
+    // comes back on disk and every later run moves it again.
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'scatter-persist-'));
+    const dir = path.join(root, 'data', 'jobs', 'by-crawler');
+    fs.mkdirSync(dir, { recursive: true });
+    try {
+      const target = {
+        ...baseSlice(),
+        id: 'stellenpartner-0db951531005',
+        url: 'https://www.stellenpartner.ch/stellen/metallbauer-in-stans-dauerstelle-106683/',
+        title: 'Metallbauer/in für mechanische Montage',
+        company: 'Stellenpartner AG',
+        location: 'Stans, Nidwalden',
+        source: 'Stellenpartner AG Dedicated Parser',
+      };
+      const bridge = `old-source-${stableSlugHash(target)}`;
+      const source = {
+        ...baseSlice(),
+        id: 'sta-dd501421b406',
+        url: 'https://www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-dauerstelle-106683/',
+        title: 'Zimmermann/Zimmerin für Servicearbeiten und Innenausbau',
+        company: 'STA Personal AG',
+        location: 'Bremgarten, Aargau',
+        source: 'STA Personal AG Dedicated Parser',
+        previousSlugs: [bridge],
+        previousSlugsByLocale: { it: [bridge] },
+      };
+      const sourcePath = path.join(dir, 'source.json');
+      const targetPath = path.join(dir, 'target.json');
+      fs.writeFileSync(sourcePath, `${JSON.stringify({ jobs: [source] }, null, 2)}\n`);
+      fs.writeFileSync(targetPath, `${JSON.stringify({ jobs: [target] }, null, 2)}\n`);
+      const read = () => [sourcePath, targetPath].map((filePath) => ({
+        file: path.basename(filePath),
+        filePath,
+        slice: JSON.parse(fs.readFileSync(filePath, 'utf8')),
+      }));
+      const assembled = [structuredClone(source)];
+
+      const first = scatterAssembledIntoSliceEntries(assembled, read(), { persist: true });
+      expect(first.ownership.moved).toBeGreaterThan(0);
+      expect(first.changedEntries.map((entry) => path.basename(entry.filePath)).sort()).toEqual(['source.json', 'target.json']);
+
+      const [sourceOnDisk, targetOnDisk] = read();
+      const served = (job: { previousSlugs?: string[]; previousSlugsByLocale?: Record<string, string[]> }) => [
+        ...(job.previousSlugs || []),
+        ...Object.values(job.previousSlugsByLocale || {}).flat(),
+      ];
+      expect(served(sourceOnDisk.slice.jobs[0])).not.toContain(bridge);
+      expect(served(targetOnDisk.slice.jobs[0])).toContain(bridge);
+
+      const second = scatterAssembledIntoSliceEntries(assembled, read(), { persist: true });
+      expect(second.updatedJobs).toBe(0);
+      expect(second.ownership.moved).toBe(0);
+      expect(verifyScatterParity(assembled, read().map(({ file, slice }) => ({ file, jobs: slice.jobs })))).toMatchObject({
+        missingBridges: 0,
+        pendingWrites: 0,
+        passed: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('treats an Aldi bridge already served by its hash owner in another locale as owned', () => {
+    // Reduced from origin/main:data/jobs/by-crawler/aldi-suisse.json at the
+    // 37756583870 input state. Both records deliberately keep the same master
+    // slug; only the URL-derived stable hash identifies the owner of vx06v8.
+    const bridge = 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vx06v8';
+    const claimant = {
+      id: 'aldi-suisse-b678db8da4ef',
+      url: 'https://www.jobs.aldi.ch/job/1421213133',
+      slug: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse',
+      slugByLocale: {
+        it: 'apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-martigny',
+        en: 'retail-apprenticeship-cfc-or-afp-aldi-suisse-martigny',
+        de: 'auszubildende-im-einzelhandel-cfc-oder-afp-aldi-suisse-martigny',
+        fr: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse',
+      },
+      titleByLocale: { it: 'Apprendistato', en: 'Retail Apprenticeship', de: 'Auszubildende', fr: 'Apprenti' },
+      descriptionByLocale: {},
+      previousSlugs: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7'],
+      previousSlugsByLocale: {
+        it: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7'],
+        fr: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwi61l'],
+      },
+    };
+    const owner = {
+      id: 'aldi-suisse-3cf969335f77',
+      url: 'https://www.jobs.aldi.ch/job/1421220833',
+      slug: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse',
+      slugByLocale: {
+        it: 'apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-bussigny',
+        en: 'retail-apprenticeship-cfc-or-afp-aldi-suisse-bussigny',
+        de: 'auszubildende-im-einzelhandel-cfc-oder-afp-aldi-suisse-bussigny',
+        fr: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-bussigny',
+      },
+      titleByLocale: { it: 'Apprendistato', en: 'Retail Apprenticeship', de: 'Auszubildende', fr: 'Apprenti' },
+      descriptionByLocale: {},
+      previousSlugs: [bridge],
+      previousSlugsByLocale: {
+        it: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-5'],
+        de: ['lehrlingsausbildung-im-einzelhandel-cfc-oder-afp-aldi-suisse-bussigny'],
+        fr: [bridge],
+      },
+    };
+    expect(stableSlugHash(claimant)).toBe('vwi61l');
+    expect(stableSlugHash(owner)).toBe('vx06v8');
+
+    // The real decontaminator moves an already-persisted IT claim to the
+    // suffix owner in IT while retaining the owner's existing FR claim. The
+    // scatter edge below is different: A's IT claim exists only in the
+    // assembled duplicate and must not be created on disk again.
+    const contaminatedClaimant = structuredClone(claimant);
+    contaminatedClaimant.previousSlugs = [];
+    contaminatedClaimant.previousSlugsByLocale = { it: [bridge] };
+    const contaminatedOwner = structuredClone(owner);
+    const contaminationEntries = [
+      { filePath: null, slice: { jobs: [contaminatedClaimant] } },
+      { filePath: null, slice: { jobs: [contaminatedOwner] } },
+    ];
+    expect(decontaminateEntries(contaminationEntries, { apply: false })).toMatchObject({ moved: 1 });
+    expect(contaminatedClaimant.previousSlugsByLocale?.it || []).not.toContain(bridge);
+    expect(contaminatedOwner.previousSlugsByLocale.it || []).toContain(bridge);
+    expect(contaminatedOwner.previousSlugsByLocale.fr || []).toContain(bridge);
+
+    const assembledClaimant = structuredClone(claimant);
+    assembledClaimant.previousSlugsByLocale.it.push(bridge);
+    const assembled = [assembledClaimant, structuredClone(owner)];
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'scatter-aldi-ownership-'));
+    const dir = path.join(root, 'data', 'jobs', 'by-crawler');
+    fs.mkdirSync(dir, { recursive: true });
+    try {
+      const filePath = path.join(dir, 'aldi-suisse.json');
+      fs.writeFileSync(filePath, `${JSON.stringify({ jobs: [claimant, owner] }, null, 2)}\n`);
+      const read = () => [{ file: 'aldi-suisse.json', filePath, slice: JSON.parse(fs.readFileSync(filePath, 'utf8')) }];
+      const persistedEntries = () => read().map(({ file, slice }) => ({ file, jobs: slice.jobs }));
+      const first = scatterAssembledIntoSliceEntries(assembled, read(), { persist: true });
+      const afterFirst = read();
+      const firstOwner = afterFirst[0].slice.jobs.find((job) => job.id === owner.id);
+      const firstClaimant = afterFirst[0].slice.jobs.find((job) => job.id === claimant.id);
+
+      // The bridge is already served by its unique hash owner in FR. A's IT
+      // attribution is a duplicate assembled claim, not a missing projection.
+      expect(first.updatedJobs).toBe(0);
+      expect(first.ownership.moved).toBe(0);
+      expect(firstClaimant.previousSlugsByLocale.it || []).not.toContain(bridge);
+      expect(firstOwner.previousSlugsByLocale.fr || []).toContain(bridge);
+      expect(firstOwner.previousSlugsByLocale.it || []).not.toContain(bridge);
+      expect(verifyScatterParity(assembled, persistedEntries())).toMatchObject({
+        missingBridges: 0,
+        pendingWrites: 0,
+        passed: true,
+      });
+
+      const firstDisk = JSON.stringify(afterFirst[0].slice);
+      const second = scatterAssembledIntoSliceEntries(assembled, read(), { persist: true });
+      const afterSecond = read();
+      expect(second.updatedJobs).toBe(0);
+      expect(second.ownership.moved).toBe(0);
+      expect(second.changedEntries).toHaveLength(0);
+      expect(JSON.stringify(afterSecond[0].slice)).toBe(firstDisk);
+      expect(verifyScatterParity(assembled, persistedEntries())).toMatchObject({
+        missingBridges: 0,
+        pendingWrites: 0,
+        passed: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps a genuinely ownerless bridge as a parity failure', () => {
+    const sliceJob = { ...baseSlice(), previousSlugs: [], previousSlugsByLocale: {} };
+    const assembled = {
+      ...sliceJob,
+      previousSlugs: [],
+      previousSlugsByLocale: { it: ['legacy-route-without-owner'] },
+    };
+
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [sliceJob] }])).toMatchObject({
+      missingBridges: 1,
+      pendingWrites: 1,
+      passed: false,
+    });
+  });
+
+  // Reduced from translate-pending run 37723588903 (arxada.json, R53358): the
+  // assembled job attributes to IT a previous slug that is the job's own
+  // master/DE slug. cleanPreviousSlugsPerLocale() drops it on the ownership
+  // pass, so the scatter re-added it on every run and the parity gate counted
+  // 1065 such bridges as missing (1049 pending writes).
+  const arxadaSlice = () => ({
+    id: 'arxada-r53358',
+    url: 'https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Rangierdienst-Spezialist-in_R53358',
+    title: 'Rangierdienst Spezialist/in',
+    company: 'Arxada',
+    location: 'Visp',
+    canton: 'VS',
+    sourceLang: 'de',
+    slug: 'rangierdienst-spezialist-in-arxada-ch',
+    slugByLocale: {
+      it: 'specialista-in-servizio-di-manovra-arxada-visp',
+      en: 'yard-service-specialist-arxada-visp',
+      de: 'rangierdienst-spezialist-in-arxada-ch',
+      fr: 'specialiste-en-service-de-man-uvre-arxada-visp',
+    },
+    titleByLocale: { it: 'a', en: 'b', de: 'c', fr: 'd' },
+    descriptionByLocale: {},
+    previousSlugs: ['rangierdienst-spezialist-in-arxada-visp'],
+    previousSlugsByLocale: { de: ['rangierdienst-spezialist-in-arxada-visp'] },
+  });
+
+  it('does not treat a bridge the cleaner drops (master slug under another locale) as missing', () => {
+    const sliceJob = arxadaSlice();
+    const assembled = arxadaSlice();
+    assembled.previousSlugs.push('rangierdienst-spezialist-in-arxada-ch');
+    assembled.previousSlugsByLocale.it = ['rangierdienst-spezialist-in-arxada-ch'];
+
+    expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([]);
+    expect(applyAssembledToSliceJob(sliceJob, assembled).changed).toBe(false);
+
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'scatter-selfbridge-'));
+    const dir = path.join(root, 'data', 'jobs', 'by-crawler');
+    fs.mkdirSync(dir, { recursive: true });
+    try {
+      const filePath = path.join(dir, 'arxada.json');
+      fs.writeFileSync(filePath, `${JSON.stringify({ jobs: [sliceJob] }, null, 2)}\n`);
+      const read = () => [{ file: 'arxada.json', filePath, slice: JSON.parse(fs.readFileSync(filePath, 'utf8')) }];
+      const run = scatterAssembledIntoSliceEntries([assembled], read(), { persist: true });
+      expect(run.updatedJobs).toBe(0);
+      expect(verifyScatterParity([assembled], read().map(({ file, slice }) => ({ file, jobs: slice.jobs })))).toMatchObject({
+        missingBridges: 0,
+        pendingWrites: 0,
+        passed: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('still carries a locale bridge that equals ANOTHER locale active slug but not the master', () => {
+    const sliceJob = arxadaSlice();
+    const assembled = arxadaSlice();
+    // Old FR slug that today is the EN active slug: the cleaner keeps it.
+    assembled.previousSlugsByLocale.fr = ['yard-service-specialist-arxada-visp'];
+
+    expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([
+      { locale: 'fr', slug: 'yard-service-specialist-arxada-visp' },
+    ]);
+    const { job } = applyAssembledToSliceJob(sliceJob, assembled);
+    cleanPreviousSlugsPerLocale(job);
+    expect(job.previousSlugsByLocale.fr).toContain('yard-service-specialist-arxada-visp');
+  });
+
+  it('isSelfCanonicalPreviousSlug predicts exactly what cleanPreviousSlugsPerLocale drops', () => {
+    const base = arxadaSlice();
+    const candidates: Array<[string | null, string]> = [
+      ['it', base.slug],
+      ['it', base.slugByLocale.it],
+      ['it', base.slugByLocale.en],
+      ['fr', base.slugByLocale.en],
+      ['de', 'some-old-slug'],
+      [null, base.slug],
+      [null, base.slugByLocale.fr],
+      [null, 'some-flat-old-slug'],
+    ];
+    // Keep tuple access explicit: TypeScript 5.8's declaration-visibility
+    // checker crashes on this union when the binding is destructured in a
+    // `for...of` declaration, so it never reaches the real diagnostics.
+    for (const candidate of candidates) {
+      const locale = candidate[0];
+      const slug = candidate[1];
+      const job = arxadaSlice();
+      job.previousSlugs = [slug];
+      job.previousSlugsByLocale = locale ? { [locale]: [slug] } : {};
+      cleanPreviousSlugsPerLocale(job);
+      const survived = locale
+        ? (job.previousSlugsByLocale?.[locale] || []).includes(slug)
+        : (job.previousSlugs || []).includes(slug);
+      expect({ locale, slug, dropped: !survived }).toEqual({
+        locale,
+        slug,
+        dropped: isSelfCanonicalPreviousSlug(base, locale, slug),
+      });
+    }
+  });
+
+  it('allows a cross-crawler duplicate shadowed by the slice that owns the assembled URL', () => {
+    // run 37723588903: the same jobs.admin.ch posting sits in two crawler
+    // slices under two locale paths; assembly keeps the offene-stellen record.
+    const assembled = {
+      ...baseSlice(),
+      id: 'vtg-8c077b4f',
+      url: 'https://jobs.admin.ch/offene-stellen/stellvertretende-r-chefaerztin-arzt-rekrutierungszentrum-aarau/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+    };
+    const owner = { ...assembled };
+    const shadow = {
+      ...baseSlice(),
+      id: 'confederazione-8c077b4f',
+      url: 'https://jobs.admin.ch/posti-vacanti/stellvertretende-r-chefaerztin-arzt-rekrutierungszentrum-aarau/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+    };
+
+    expect(verifyScatterParity([assembled], [
+      { file: 'confederazione-ticino.json', jobs: [shadow] },
+      { file: 'vtg.json', jobs: [owner] },
+    ])).toMatchObject({
+      duplicateAssembledMatches: 0,
+      shadowedSliceMatches: 1,
+      passed: true,
+    });
+    // Two records joined at the same strength stay an ambiguity.
+    const otherShadow = { ...shadow, id: 'third-8c077b4f', url: shadow.url.replace('posti-vacanti', 'postes-vacants') };
+    expect(verifyScatterParity([assembled], [
+      { file: 'a.json', jobs: [shadow] },
+      { file: 'b.json', jobs: [otherShadow] },
+    ])).toMatchObject({ duplicateAssembledMatches: 1, passed: false });
+  });
+
+  it('keeps a stable-token join when only the path changes on the same host', () => {
+    const assembled = {
+      ...baseSlice(),
+      id: 'sta-assembled-id',
+      url: 'https://www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-dauerstelle-106683/',
+    };
+    const renamedSlice = {
+      ...baseSlice(),
+      id: 'sta-slice-id',
+      url: 'https://www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-106683/?source=feed',
+    };
+
+    expect(matchAssembledJob(renamedSlice, buildAssembledJobIndex([assembled]))).toBe(assembled);
+  });
+
+  it('reports job, active-slug, and bridge parity after the URL-first join', () => {
+    const sliceJob = { ...baseSlice() };
+    delete sliceJob.id;
+    const assembled = { ...sliceJob, id: 'company-synthetic-id' };
+
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [sliceJob] }])).toMatchObject({
+      assembledJobs: 1,
+      uniqueAssembledJobs: 1,
+      matchedAssembledJobs: 1,
+      missingAssembledJobs: 0,
+      missingBridges: 0,
+      pendingWrites: 0,
+      activeSlugMismatches: 0,
+      passed: true,
+    });
+  });
+
+  it('accepts a partial assembled locale projection when the slice preserves its value', () => {
+    const assembled = [{
+      url: 'https://example.test/jobs/42',
+      slugByLocale: { it: 'new', en: '' },
+    }];
+    const slices = [{
+      jobs: [{
+        url: 'https://example.test/jobs/42',
+        slugByLocale: { it: 'new', en: 'existing' },
+      }],
+    }];
+
+    expect(verifyScatterParity(assembled, slices)).toMatchObject({
+      pendingWrites: 0,
+      activeSlugMismatches: 0,
+      passed: true,
+    });
+  });
+
+  it('rejects a URL hit when the slice id resolves to another assembled job', () => {
+    const assembled = [
+      { id: 'A', url: 'https://example.test/jobs/42' },
+      { id: 'B', url: 'https://example.test/jobs/43' },
+    ];
+    const index = buildAssembledJobIndex(assembled);
+
+    expect(matchAssembledJob({ id: 'B', url: 'https://example.test/jobs/42' }, index)).toBeNull();
+  });
+
+  it('fails parity when two distinct slices match the same assembled job by URL', () => {
+    const assembled = { id: 'assembled', url: 'https://example.test/jobs/42' };
+    const sliceEntries = [{
+      jobs: [
+        { id: 'slice-a', url: 'https://example.test/jobs/42' },
+        { id: 'slice-b', url: 'https://example.test/jobs/42' },
+      ],
+    }];
+
+    expect(verifyScatterParity([assembled], sliceEntries)).toMatchObject({
+      duplicateAssembledMatches: 1,
+      missingAssembledJobs: 0,
+      passed: false,
+    });
+  });
+
+  it('fails parity when an assembled bridge is absent from the slice', () => {
+    const sliceJob = { ...baseSlice() };
+    const assembled = {
+      ...baseSlice(),
+      previousSlugs: ['bridge-missing-from-slice'],
+      previousSlugsByLocale: { en: ['bridge-missing-from-slice'] },
+    };
+
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [sliceJob] }])).toMatchObject({
+      missingAssembledJobs: 0,
+      missingBridges: 1,
+      pendingWrites: 1,
+      passed: false,
+    });
+  });
+
+  it('bounds failed-parity diagnostics and classifies pending fields and duplicate matches', () => {
+    const sliceJob = { ...baseSlice() };
+    const assembled = {
+      ...baseSlice(),
+      previousSlugs: ['bridge-missing-from-slice'],
+      previousSlugsByLocale: { en: ['bridge-missing-from-slice'] },
+      titleByLocale: { it: 'T', en: 'Translated title' },
+      descriptionByLocale: { it: 'Description' },
+      slugByLocale: { it: 's-it', en: 's-en-new' },
+    };
+    const duplicate = { ...sliceJob, id: 'duplicate-slice-job' };
+    const report = diagnoseScatterParity(
+      [assembled],
+      [{ file: 'fixture.json', jobs: [sliceJob, duplicate] }],
+      { maxExamples: 20 },
+    );
+
+    expect(report.pendingWrites.total).toBe(2);
+    expect(report.pendingWrites.byClass.multiple).toBe(2);
+    expect(report.pendingWrites.examples).toHaveLength(2);
+    expect(report.pendingWrites.examples[0].changes).toMatchObject({
+      title: expect.any(Object),
+      description: expect.any(Object),
+      slug: expect.any(Object),
+      bridge: expect.any(Object),
+    });
+    expect(report.missingBridges).toMatchObject({
+      total: 2,
+      byClass: { stillMissingAfterWrite: 2 },
+      candidateCounts: { stillMissingAfterWrite: 2 },
+    });
+    expect(report.duplicateAssembledMatches).toMatchObject({
+      total: 1,
+      examples: [{ assembledUrl: assembled.url }],
+    });
+    expect(report.pendingWrites.examples.length
+      + report.missingBridges.examples.length
+      + report.duplicateAssembledMatches.examples.length).toBeLessThanOrEqual(20);
+  });
+
+  it('reserves missing-bridge examples for parity failures ahead of cap-suppressed candidates', () => {
+    const cappedPairs = Array.from({ length: 8 }, (_, index) => {
+      const sliceJob = {
+        ...baseSlice(),
+        id: `capped-${index}`,
+        url: `https://example.test/jobs/capped-${index}`,
+        previousSlugs: Array.from(
+          { length: LEGACY_PREV_SLUGS_CAP },
+          (_, slugIndex) => `existing-${index}-${slugIndex}`,
+        ),
+      };
+      return {
+        sliceJob,
+        assembled: { ...sliceJob, previousSlugs: [`above-cap-${index}`] },
+      };
+    });
+    const localeBridge = 'previously-served-in-fr';
+    const sliceJob = {
+      ...baseSlice(),
+      id: 'locale-drift',
+      url: 'https://example.test/jobs/locale-drift',
+      slugByLocale: { it: 'current-it', fr: 'current-fr' },
+      previousSlugs: [localeBridge],
+      previousSlugsByLocale: { fr: [localeBridge] },
+    };
+    const assembled = {
+      ...sliceJob,
+      previousSlugs: [localeBridge],
+      previousSlugsByLocale: { it: [localeBridge], fr: [localeBridge] },
+    };
+
+    const report = diagnoseScatterParity(
+      [...cappedPairs.map(({ assembled: job }) => job), assembled],
+      [
+        ...cappedPairs.map(({ sliceJob: job }, index) => ({ file: `capped-${index}.json`, jobs: [job] })),
+        { file: 'locale-drift.json', jobs: [sliceJob] },
+      ],
+    );
+
+    expect(report.missingBridges).toMatchObject({
+      total: 1,
+      byClass: { differentLocaleAttribution: 1 },
+      candidateCounts: { differentLocaleAttribution: 1 },
+      capSuppressed: 8,
+    });
+    expect(report.missingBridges.examples).toHaveLength(6);
+    expect(report.missingBridges.examples[0]).toMatchObject({
+      file: 'locale-drift.json',
+      locale: 'it',
+      slug: localeBridge,
+      class: 'differentLocaleAttribution',
+      parityMissing: true,
+    });
+    expect(report.missingBridges.examples.filter((example) => example.parityMissing)).toHaveLength(1);
+  });
+
+  it('projects a bridge to its decontamination owner and is idempotent across a second scatter', () => {
+    // Reduced from the real STA/Stellenpartner slice records seen in the
+    // production collision sample: the bridge tail is the target job's
+    // stableSlugHash, while the claimant is the assembled STA record.
+    const source = {
+      ...baseSlice(),
+      id: 'sta-dd501421b406',
+      url: 'https://www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-dauerstelle-106683/',
+      title: 'Zimmermann/Zimmerin für Servicearbeiten und Innenausbau',
+      company: 'STA Personal AG',
+      location: 'Bremgarten, Aargau',
+      source: 'STA Personal AG Dedicated Parser',
+    };
+    const target = {
+      ...baseSlice(),
+      id: 'stellenpartner-0db951531005',
+      url: 'https://www.stellenpartner.ch/stellen/metallbauer-in-stans-dauerstelle-106683/',
+      title: 'Metallbauer/in für mechanische Montage',
+      company: 'Stellenpartner AG',
+      location: 'Stans, Nidwalden',
+      source: 'Stellenpartner AG Dedicated Parser',
+    };
+    const bridge = `old-source-${stableSlugHash(target)}`;
+    const assembled = [{
+      ...source,
+      previousSlugs: [bridge],
+      previousSlugsByLocale: { it: [bridge] },
+    }];
+    const entries = [
+      { filePath: 'source.json', file: 'source.json', slice: { jobs: [source] } },
+      { filePath: 'target.json', file: 'target.json', slice: { jobs: [target] } },
+    ];
+
+    const first = scatterAssembledIntoSliceEntries(assembled, entries);
+    expect(first.updatedJobs).toBe(1);
+    expect(entries[0].slice.jobs[0].previousSlugs || []).not.toContain(bridge);
+    expect(entries[1].slice.jobs[0].previousSlugs || []).toContain(bridge);
+    expect(verifyScatterParity(assembled, entries.map(({ file, slice }) => ({ file, jobs: slice.jobs })))).toMatchObject({
+      missingBridges: 0,
+      pendingWrites: 0,
+      passed: true,
+    });
+
+    const second = scatterAssembledIntoSliceEntries(assembled, entries);
+    expect(second.updatedJobs).toBe(0);
+    expect(second.ownership.moved).toBe(0);
+    expect(second.changedEntries).toHaveLength(0);
+    expect(verifyScatterParity(assembled, entries.map(({ file, slice }) => ({ file, jobs: slice.jobs }))).passed).toBe(true);
+  });
+
   it('does not turn another job canonical into claimant history after collision disambiguation (#6784)', () => {
     const owner = {
       id: 'company-owner',
@@ -109,6 +739,34 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     expect(job.previousSlugsByLocale.en).toContain('legacy-en-bridge');
   });
 
+  it('carries forward an assembled retranslation mark when locale fields are unchanged', () => {
+    const sliceJob = baseSlice();
+    const assembled = {
+      ...baseSlice(),
+      needsRetranslation: true,
+    };
+
+    const first = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(first.changed).toBe(true);
+    expect(first.job.needsRetranslation).toBe(true);
+    expect(sliceJob.needsRetranslation).toBeUndefined();
+
+    // The projection is idempotent once the committed slice carries the mark.
+    expect(applyAssembledToSliceJob(first.job, assembled).changed).toBe(false);
+  });
+
+  it('never clears a retranslation mark already present on the slice', () => {
+    const sliceJob = {
+      ...baseSlice(),
+      needsRetranslation: true,
+    };
+    const assembled = baseSlice();
+
+    const { job, changed } = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(changed).toBe(false);
+    expect(job.needsRetranslation).toBe(true);
+  });
+
   it('is a no-op when the slice already holds every assembled bridge', () => {
     const sliceJob = {
       ...baseSlice(),
@@ -166,6 +824,30 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
       previousSlugsByLocale: { en: ['brand-new-bridge'] },
     };
     expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([]);
+  });
+
+  it('does not rotate a full locale bucket when the flat union still has room', () => {
+    const fullIt = Array.from({ length: 20 }, (_, i) => `it-bridge-${i}`);
+    const sliceJob = {
+      ...baseSlice(),
+      previousSlugs: [...fullIt],
+      previousSlugsByLocale: { it: [...fullIt] },
+    };
+    const assembled = {
+      ...baseSlice(),
+      previousSlugs: [...fullIt, 'it-new-bridge'],
+      previousSlugsByLocale: { it: [...fullIt.slice(1), 'it-new-bridge'] },
+    };
+
+    expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([
+      { locale: null, slug: 'it-new-bridge' },
+    ]);
+    const result = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(result.changed).toBe(true);
+    expect(result.job.previousSlugs).toContain('it-new-bridge');
+    expect(result.job.previousSlugsByLocale.it).toEqual(fullIt);
+    expect(result.job.previousSlugsByLocale.it).not.toContain('it-new-bridge');
+    expect(applyAssembledToSliceJob(result.job, assembled).changed).toBe(false);
   });
 
   // #4208 (post-merge review of #4200): collectMissingAssembledBridges was

@@ -1,0 +1,24 @@
+{
+  "companyKey": "city-work-ch",
+  "companyName": "city-work ag St. Margrethen",
+  "companyHost": "city-work.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://city-work.ch/jobsuche/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Job ansehen",
+    "Job ansehen",
+    "Job ansehen",
+    "Job ansehen",
+    "Job ansehen"
+  ],
+  "canton": "SG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-07T12:17:02.404Z"
+}

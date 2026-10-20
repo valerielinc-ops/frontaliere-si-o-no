@@ -1,3 +1,13 @@
+import { CALC_HREF } from './shared/calcHref';
+import { buildSalaryAnswer, searchSalaryMedian, hasSalaryIntent } from './shared/searchSalaryAnswer';
+import {
+  getJobSearchRoleProfile,
+  getJobSearchRoleTokens,
+  matchesJobSearchRoleProfile,
+  prepareJobOccupationTerms,
+  matchesPreparedJobOccupation,
+  type JobSearchRoleProfile,
+} from '../services/jobSearchRelevance';
 /**
  * Related-search cluster landings — Vite build plugin.
  *
@@ -48,14 +58,30 @@ import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
-import { BASE_URL, buildCanonicalBridgePage, countHtmlBodyWords, replaceRobotsMeta } from './constants';
+import {
+  BASE_URL,
+  buildCanonicalBridgePage,
+  countHtmlBodyWords,
+  MIN_INDEXABLE_WORDS,
+  replaceRobotsMeta,
+} from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { isSafeDistPath } from './shared/distPathSafety';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
+import { HREFLANG_LINK_RX } from './shared/headLinkPatterns';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
-import { buildTitleWithBrand, escapeForBudget, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import {
+  buildTitleWithBrand,
+  escapeForBudget,
+  META_DESCRIPTION_MAX_CHARS,
+  META_DESCRIPTION_MIN_CHARS,
+  TITLE_MAX_CHARS,
+  truncateHeadline,
+  truncateHeadlineToMeasuredBudget,
+} from './shared/titleSuffix';
 import {
   getTrafficEvidenceFilter,
   type FilterDecision,
@@ -90,6 +116,7 @@ import {
   resolveJobCanton,
   type CantonLocale,
 } from './shared/cantonSection';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import type { Locale } from '../services/i18n';
 import {
   COPY,
@@ -104,8 +131,14 @@ import {
   type LocaleCopy,
   type RawJob,
 } from './relatedSearchClustersData';
-import { jobsSeoPagesFlushed } from './shared/buildSignals';
+import {
+  getActiveJobSitemapLocs,
+  jobsSeoPagesFlushed,
+  setActiveJobSitemapLocs,
+} from './shared/buildSignals';
+import { parseAnnotatedSitemapUrls } from './shared/localeVariantSitemap';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
+import { isJobSitemapShardFilename, isJobSitemapFilename } from '../scripts/lib/sitemap-shard.mjs';
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
 import {
   normalizeRelatedSearchClusterPath,
@@ -211,6 +244,7 @@ const MIN_JOBS_FOR_INDEXABLE_CLUSTER = 3;
 // (e.g. for an A/B test of organic CTR vs. SERP impressions).
 const STRIP_CLUSTER_SEO_PROSE = (process.env.STRIP_CLUSTER_SEO_PROSE ?? '1') !== '0';
 // EJP_STRIPPED_MARKER imported from ./shared/ejpMarker (single source of truth).
+const CLUSTER_MIRROR_HREFLANG_LINK_RX = new RegExp(HREFLANG_LINK_RX.source, HREFLANG_LINK_RX.flags);
 
 // ── Utilities ───────────────────────────────────────────────────────────
 
@@ -345,6 +379,17 @@ const CACHE_KEY_INPUTS = [
   'scripts/lib/related-search-cluster-path.mjs',
   'build-plugins/relatedSearchClustersPlugin.ts',
   'build-plugins/relatedSearchClustersData.ts',
+  'build-plugins/orphanQueryData.ts',
+  'scripts/lib/query-tokenizer.mjs',
+  'services/jobSearchIntent.ts',
+  'services/jobSearchRelevance.ts',
+  'services/professionSynonyms.ts',
+  'services/professionSynonymsCore.mjs',
+  'scripts/lib/profession-taxonomy.mjs',
+  'build-plugins/shared/searchSalaryAnswer.ts',
+  'build-plugins/shared/realSalaryMedian.ts',
+  'build-plugins/shared/calcHref.ts',
+  'services/crossBorderEmploymentFacts.ts',
   'build-plugins/shared/seoPageShell.ts',
   'build-plugins/shared/seoContentTokens.ts',
   'build-plugins/shared/titleSuffix.ts',
@@ -451,7 +496,9 @@ const CACHE_KEY_INPUTS = [
 // until issue #4943: it no longer builds at all — it audits the live site over
 // HTTP — because the monolith build it ran to produce dist/ was OOM-killed by
 // the host on every run since 2026-07-07.)
-const CACHE_VERSION = 'v11';
+// v13: aggregate sitemap URLs have no build-clock lastmod. Reject older
+// manifests before restoring any files; a current cache hit needs no rewriting.
+const CACHE_VERSION = 'v13';
 
 // `SITEMAP_SHARD_CAP` and `padShardIndex` are imported from
 // scripts/lib/sitemap-limits.mjs — see that module for why 39,000 and not
@@ -459,6 +506,16 @@ const CACHE_VERSION = 'v11';
 // `DEFAULT_CAP_PER_SHARD`/`padIndex`) in scripts/lib/sitemap-shard.mjs, each
 // comment naming the other as a sibling to keep in lockstep by hand.
 const SITEMAP_SHARD_PREFIX = 'sitemap-search-clusters';
+const CLUSTER_SITEMAP_FILE_RE = /^sitemap-search-clusters(?:-\d+)?\.xml$/;
+
+// The alias plugin runs after this plugin's closeBundle hook. Publish the
+// completed mirror set through the module boundary so the final dist-truth
+// pass can preserve the producer's explicit mirror exclusion contract.
+let finalSitemapMirrorLocs: string[] = [];
+
+export function getFinalSitemapMirrorLocs(): ReadonlyArray<string> {
+  return finalSitemapMirrorLocs.slice();
+}
 
 function shardFilename(index: number): string {
   return `${SITEMAP_SHARD_PREFIX}-${padShardIndex(index)}.xml`;
@@ -472,9 +529,8 @@ function shardFilename(index: number): string {
 function clearStaleClusterSitemaps(distDir: string): string[] {
   const removed: string[] = [];
   if (!fs.existsSync(distDir)) return removed;
-  const re = new RegExp(`^${SITEMAP_SHARD_PREFIX}(?:-\\d+)?\\.xml$`);
   for (const file of fs.readdirSync(distDir)) {
-    if (!re.test(file)) continue;
+    if (!CLUSTER_SITEMAP_FILE_RE.test(file)) continue;
     try {
       fs.unlinkSync(path.join(distDir, file));
       removed.push(file);
@@ -639,26 +695,6 @@ export async function tryRestoreFromCache(
     return null;
   }
 
-  // Each shard carries a `<lastmod>` per URL; refresh today's date on every
-  // restored sitemap-search-clusters*.xml so the master sitemap signals
-  // freshness even when the body is unchanged. Walks the actual restored
-  // shard set (legacy single-file caches will surface as a single match;
-  // post-sharding caches have N matches — both handled uniformly).
-  const today = new Date().toISOString().slice(0, 10);
-  if (fs.existsSync(distDir)) {
-    const shardRe = new RegExp(`^${SITEMAP_SHARD_PREFIX}(?:-\\d+)?\\.xml$`);
-    for (const file of fs.readdirSync(distDir)) {
-      if (!shardRe.test(file)) continue;
-      const p = path.join(distDir, file);
-      try {
-        const xml = fs.readFileSync(p, 'utf-8')
-          .replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
-        fs.writeFileSync(p, xml, 'utf-8');
-      } catch {
-        // best-effort refresh
-      }
-    }
-  }
   return { ...manifest, emittedCount: restored };
 }
 
@@ -974,6 +1010,8 @@ interface ClusterContext {
   candidate: CandidateEntry;
   keyword: string;
   city: string | null;
+  /** Match-result count retained by the context (capped at maxJobs) if rows are dropped. */
+  matchingJobCount: number;
   matchingJobs: RawJob[];
   topCompanies: string[];
   /**
@@ -1000,6 +1038,22 @@ interface ClusterContext {
    * over time while indexed legacy URLs stay 200 OK in the interim.
    */
   legacyCantonGroup: string;
+}
+
+function clusterMatchingJobCount(ctx: ClusterContext): number {
+  const count = ctx.matchingJobCount;
+  return typeof count === 'number' && Number.isFinite(count)
+    ? count
+    : ctx.matchingJobs.length;
+}
+
+export interface ClusterContextBuildOptions {
+  /** Maximum jobs to retain for this context. */
+  readonly maxJobs?: number;
+  /** Stop matching once this many valid jobs are proven. */
+  readonly stopWhenAtLeast?: number;
+  /** Keep the matching rows for rendering; false is for metadata-only shard contexts. */
+  readonly retainMatchingJobs?: boolean;
 }
 
 interface RelatedJobFingerprint {
@@ -1121,6 +1175,7 @@ export function buildRelatedSitemapManifestInput(input: {
 // per-candidate scan applied via queryMatchScore. Stemming is intentionally
 // skipped (matches plurals/feminines via substring, like the SPA filter).
 export class TokenIndex {
+  private occupationTermsByLocale = new Map<Locale, WeakMap<RawJob, readonly string[]>>();
   private haystacksByLocale = new Map<Locale, string[]>();
   private postingsByLocale = new Map<Locale, Map<string, number[]>>();
   private gramPostingsByLocale = new Map<Locale, Map<string, number[]>>();
@@ -1186,33 +1241,118 @@ export class TokenIndex {
    * corpus-order tie breaks. The page only renders MAX_JOBS_PER_PAGE jobs, so
    * avoid materializing/sorting the full match universe for every candidate.
    */
-  matchingJobs(locale: Locale, tokens: readonly string[], maxJobs: number, minOrScore = 1): RawJob[] {
+  matchingJobs(
+    locale: Locale,
+    tokens: readonly string[],
+    maxJobs: number,
+    minOrScore = 1,
+    accept: (job: RawJob) => boolean = () => true,
+    options: { readonly stopWhenAtLeast?: number } = {},
+  ): RawJob[] {
     const __tPostings = profileStart();
     const lists = tokens.map((tok) => this.postings(locale, tok));
     profileRecord('bc:mj-postings-batch', __tPostings);
     if (lists.length === 0) return [];
 
+    // The probe is deliberately capped at the same floor used by the page
+    // emission predicate. Once it reaches that floor the caller rebuilds the
+    // full result; below it, the complete result has already been enumerated.
+    const resultLimit = options.stopWhenAtLeast === undefined
+      ? maxJobs
+      : Math.min(maxJobs, options.stopWhenAtLeast);
+
     if (lists.length === 1) {
       const __tSingle = profileStart();
-      const out = lists[0].slice(0, maxJobs).map((idx) => this.jobs[idx]);
+      const out: RawJob[] = [];
+      for (const idx of lists[0]) {
+        if (accept(this.jobs[idx])) out.push(this.jobs[idx]);
+        if (out.length >= resultLimit) break;
+      }
       profileRecord('bc:mj-single', __tSingle);
       return out;
     }
 
     const __tAnd = profileStart();
-    const matchingIdx = this.firstAndMatches(lists, maxJobs);
+    const matchingIdx = this.firstAndMatches(lists, resultLimit, accept);
     profileRecord('bc:mj-and', __tAnd);
-    if (matchingIdx.length < maxJobs) {
+    if (matchingIdx.length < resultLimit) {
       const __tOr = profileStart();
-      this.fillOrMatches(lists, tokens.length, matchingIdx, maxJobs, minOrScore);
+      this.fillOrMatches(
+        lists,
+        tokens.length,
+        matchingIdx,
+        resultLimit,
+        minOrScore,
+        accept,
+        options.stopWhenAtLeast,
+      );
       profileRecord('bc:mj-or', __tOr);
     }
 
     return matchingIdx.map((idx) => this.jobs[idx]);
   }
 
+  /** Keep occupational filtering before the result cap, without retokenizing each job per query. */
+  matchingOccupationJobs(
+    locale: Locale,
+    tokens: readonly string[],
+    maxJobs: number,
+    minOrScore: number,
+    roles: readonly string[],
+    options: { readonly stopWhenAtLeast?: number } = {},
+  ): RawJob[] {
+    if (roles.length === 0) return this.matchingJobs(locale, tokens, maxJobs, minOrScore, undefined, options);
+    let prepared = this.occupationTermsByLocale.get(locale);
+    if (!prepared) {
+      prepared = new WeakMap<RawJob, readonly string[]>();
+      this.occupationTermsByLocale.set(locale, prepared);
+    }
+    const termsByJob = prepared;
+    return this.matchingJobs(locale, tokens, maxJobs, minOrScore, (job) => {
+      let terms = termsByJob.get(job);
+      if (!terms) {
+        terms = prepareJobOccupationTerms(job, locale);
+        termsByJob.set(job, terms);
+      }
+      return matchesPreparedJobOccupation(terms, roles);
+    }, options);
+  }
+
+  /**
+   * Match a qualifier-bearing intent against title/core evidence before the
+   * result cap. The qualifier token itself is removed from the posting probe:
+   * its localized equivalent may be present only in a German/French/English
+   * title (e.g. `Führungsverantwortung` for Italian `responsabile`). The
+   * profile predicate remains the authority for title evidence. Semantic
+   * description evidence is deliberately not indexable: it is retained by
+   * the classifier for diagnostics and future UI use, but generic job-body
+   * prose must never clear the cluster floor.
+   */
+  matchingSearchIntentJobs(
+    locale: Locale,
+    tokens: readonly string[],
+    maxJobs: number,
+    minOrScore: number,
+    profile: JobSearchRoleProfile,
+    options: { readonly stopWhenAtLeast?: number } = {},
+  ): RawJob[] {
+    const qualifierTokens = new Set(profile.qualifierTokens);
+    const probeTokens = tokens.filter((token) => !qualifierTokens.has(token));
+    if (probeTokens.length === 0) return [];
+    const adjustedFloor = Math.min(minOrScore, probeTokens.length);
+    return this.matchingJobs(
+      locale,
+      probeTokens,
+      maxJobs,
+      adjustedFloor,
+      (job) => matchesJobSearchRoleProfile(job, locale, profile, { allowSemantic: false }),
+      options,
+    );
+  }
+
   /** Free the haystack + postings cache once index queries are complete. */
   clear(): void {
+    this.occupationTermsByLocale.clear();
     this.haystacksByLocale.clear();
     this.postingsByLocale.clear();
     this.gramPostingsByLocale.clear();
@@ -1290,7 +1430,7 @@ export class TokenIndex {
     return rarest ?? [];
   }
 
-  private firstAndMatches(lists: ReadonlyArray<readonly number[]>, maxJobs: number): number[] {
+  private firstAndMatches(lists: ReadonlyArray<readonly number[]>, maxJobs: number, accept: (job: RawJob) => boolean): number[] {
     if (lists.some((list) => list.length === 0)) return [];
 
     let shortestIdx = 0;
@@ -1306,6 +1446,7 @@ export class TokenIndex {
         if (i === shortestIdx) continue;
         if (!binaryIncludes(lists[i], idx)) continue outer;
       }
+      if (!accept(this.jobs[idx])) continue;
       out.push(idx);
       if (out.length >= maxJobs) break;
     }
@@ -1318,25 +1459,81 @@ export class TokenIndex {
     out: number[],
     maxJobs: number,
     minScore: number,
+    accept: (job: RawJob) => boolean,
+    stopWhenAtLeast?: number,
   ): void {
     const scores = this.scratchScores;
     const touched = this.touchedIdx;
     touched.length = 0;
 
-    for (const list of lists) {
-      for (const idx of list) {
-        if (scores[idx] === 0) touched.push(idx);
-        scores[idx]++;
+    // With no possible OR score, do not even walk the posting lists. This is
+    // the common two-content-token case (fullScore=2, floor=2) and is the
+    // largest avoidable part of the per-candidate cost in the production
+    // profile.
+    const scoreLevels = fullScore - minScore;
+    if (scoreLevels <= 0) return;
+
+    const clearScratch = () => {
+      for (const idx of touched) scores[idx] = 0;
+      touched.length = 0;
+    };
+
+    // A floor probe only needs to prove that enough distinct OR matches
+    // exist. Keep speculative matches out of `out` until the cap is reached;
+    // otherwise a probe that finishes below the cap would duplicate them in
+    // the exact score-ordered pass below.
+    if (stopWhenAtLeast !== undefined) {
+      const selected = new Set(out);
+      const probeMatches: number[] = [];
+      let probeCount = out.length;
+      for (const list of lists) {
+        for (const idx of list) {
+          const previous = scores[idx];
+          if (previous === 0) touched.push(idx);
+          const score = previous + 1;
+          scores[idx] = score;
+          if (
+            score >= minScore
+            && score < fullScore
+            && !selected.has(idx)
+            && accept(this.jobs[idx])
+          ) {
+            selected.add(idx);
+            probeMatches.push(idx);
+            probeCount++;
+            if (probeCount >= stopWhenAtLeast) {
+              out.push(...probeMatches);
+              clearScratch();
+              return;
+            }
+          }
+        }
       }
     }
 
-    // Full Uint8Array scan was empirically faster than a sort+touched
-    // iteration: V8's Array.prototype.sort with a comparator costs more
-    // than a sequential typed-array walk for the typical small touched
-    // sizes (~100 entries), and the run 26467347040 measurement showed
-    // the sort variant added +11s across 161,542 OR-merge calls vs the
-    // straight scan. Keep the scan; the scratchScores typed array is
-    // cache-friendly and bounded by jobs.length (5819).
+    if (stopWhenAtLeast === undefined) {
+      for (const list of lists) {
+        for (const idx of list) {
+          if (scores[idx] === 0) touched.push(idx);
+          scores[idx]++;
+        }
+      }
+    }
+
+    if (touched.length === 0) return;
+
+    // The old full Uint8Array scan was faster when an OR merge touched most
+    // of the corpus, but it made every sparse merge O(jobs.length): the new
+    // occupation predicate leaves many candidates below the AND cap, so a
+    // 349k-candidate build could scan the whole corpus several times per
+    // candidate. Keep corpus-order output by sorting the touched indexes only
+    // when that is cheaper than scanning every job; retain the dense scan for
+    // genuinely dense merges. The score buckets and accept predicate are
+    // unchanged, so this is an execution-plan fix, not a ranking change.
+    const touchedSortCost = touched.length > 1 ? Math.ceil(Math.log2(touched.length)) : 0;
+    const useTouchedOrder =
+      touched.length * (scoreLevels + touchedSortCost) < scores.length * scoreLevels;
+    const orderedTouched = useTouchedOrder ? touched.sort((a, b) => a - b) : null;
     // `minScore` is the relevance floor: OR-fill only appends jobs matching at
     // least this many query tokens. For multi-token *content* queries it is 2,
     // so a job matching only the generic role word ("responsabile") but not the
@@ -1345,13 +1542,19 @@ export class TokenIndex {
     // / Vendite listings. For single-content-token queries (e.g. "koch davos",
     // where the city token is droppable) it stays 1 to preserve recovery.
     for (let score = fullScore - 1; score >= minScore && out.length < maxJobs; score--) {
-      for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
-        if (scores[idx] === score) out.push(idx);
+      if (orderedTouched) {
+        for (const idx of orderedTouched) {
+          if (out.length >= maxJobs) break;
+          if (scores[idx] === score && accept(this.jobs[idx])) out.push(idx);
+        }
+      } else {
+        for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
+          if (scores[idx] === score && accept(this.jobs[idx])) out.push(idx);
+        }
       }
     }
 
-    for (const idx of touched) scores[idx] = 0;
-    touched.length = 0;
+    clearScratch();
   }
 }
 
@@ -1426,6 +1629,7 @@ export function buildClusterContext(
   candidate: CandidateEntry,
   index: TokenIndex,
   jobs: ReadonlyArray<RawJob>,
+  options: ClusterContextBuildOptions = {},
 ): ClusterContext | null {
   const __tTokenize = profileStart();
   const sampleTerm = (candidate.sampleTerms || [])[0] || '';
@@ -1498,7 +1702,25 @@ export function buildClusterContext(
   const minOrScore = keywordTokenCount >= 2 ? 2 : 1;
 
   const __tMatch = profileStart();
-  const matching = index.matchingJobs(candidate.locale, tokens, MAX_JOBS_PER_PAGE, minOrScore);
+  const roles = getJobSearchRoleTokens(keyword);
+  const roleProfile = getJobSearchRoleProfile(keyword);
+  const matching = roleProfile.qualifierTokens.length > 0
+    ? index.matchingSearchIntentJobs(
+      candidate.locale,
+      tokens,
+      options.maxJobs ?? MAX_JOBS_PER_PAGE,
+      minOrScore,
+      roleProfile,
+      { stopWhenAtLeast: options.stopWhenAtLeast },
+    )
+    : index.matchingOccupationJobs(
+      candidate.locale,
+      tokens,
+      options.maxJobs ?? MAX_JOBS_PER_PAGE,
+      minOrScore,
+      roles,
+      { stopWhenAtLeast: options.stopWhenAtLeast },
+    );
   profileRecord('bc:match', __tMatch);
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
@@ -1514,18 +1736,23 @@ export function buildClusterContext(
   // constant stays the single source of truth — flip it back to ≥1 here
   // by raising MIN_MATCHING_JOBS, not by editing the predicate.
 
-  const __tTop = profileStart();
-  const counts = new Map<string, number>();
-  for (const j of matching) {
-    const c = (j.company || '').trim();
-    if (!c) continue;
-    counts.set(c, (counts.get(c) || 0) + 1);
+  const matchingJobCount = matching.length;
+  const retainMatchingJobs = options.retainMatchingJobs !== false;
+  let topCompanies: string[] = [];
+  if (retainMatchingJobs) {
+    const __tTop = profileStart();
+    const counts = new Map<string, number>();
+    for (const j of matching) {
+      const c = (j.company || '').trim();
+      if (!c) continue;
+      counts.set(c, (counts.get(c) || 0) + 1);
+    }
+    topCompanies = Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3)
+      .map(([name]) => name);
+    profileRecord('bc:top-companies', __tTop);
   }
-  const topCompanies = Array.from(counts.entries())
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 3)
-    .map(([name]) => name);
-  profileRecord('bc:top-companies', __tTop);
 
   // Canonical URL is now the Switzerland-wide aggregate so the cluster page
   // surfaces cross-canton jobs (the SPA's canton filter is disabled on
@@ -1544,7 +1771,16 @@ export function buildClusterContext(
   const legacyCantonGroup = matching.length > 0 ? resolveJobCanton(matching[0]) : 'TI';
   const cantonGroup = AGGREGATE_KEY;
 
-  return { candidate, keyword: keyword.trim(), city, matchingJobs: matching, topCompanies, cantonGroup, legacyCantonGroup };
+  return {
+    candidate,
+    keyword: keyword.trim(),
+    city,
+    matchingJobCount,
+    matchingJobs: retainMatchingJobs ? matching : [],
+    topCompanies,
+    cantonGroup,
+    legacyCantonGroup,
+  };
 }
 
 // ── Page emission ───────────────────────────────────────────────────────
@@ -1614,12 +1850,35 @@ const BELOW_FLOOR_BRIDGE_COPY: Record<Locale, {
  * see CACHE_VERSION v8 history for the incident this de-duplication fixes.
  */
 export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry | undefined): boolean {
-  return !hasUsableEnrichedIntro(enriched) && ctx.matchingJobs.length < MIN_JOBS_FOR_INDEXABLE_CLUSTER;
+  return (hasSalaryIntent(ctx.keyword) || !hasUsableEnrichedIntro(enriched))
+    && clusterMatchingJobCount(ctx) < MIN_JOBS_FOR_INDEXABLE_CLUSTER;
 }
 
 /**
- * True when an AI-enriched entry carries a real intro — i.e. one that can stand
- * in for matching jobs as the cluster's claim to being worth indexing.
+ * Select the "Ricerche correlate" anchors without linking to a below-floor
+ * cluster that this same build will emit as a noindex bridge. The floor check
+ * deliberately goes through isClusterBelowFloor: the link selector and the
+ * renderer must share the exact exemption for substantive enrichment.
+ */
+export function selectRelatedClusterLinks(
+  ctx: ClusterContext,
+  sameCityList: ReadonlyArray<ClusterContext>,
+  enriched: Readonly<Record<string, EnrichedEntry | undefined>>,
+): Array<{ keyword: string; url: string }> {
+  return sameCityList
+    .filter((other) => other.candidate.slug !== ctx.candidate.slug)
+    .filter((other) => !isClusterBelowFloor(other, enriched[`${other.candidate.locale}::${other.candidate.slug}`]))
+    .slice(0, 8)
+    .map((other) => ({
+      keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
+      url: `${BASE_URL}${buildClusterPath(other.candidate.locale, other.candidate.slug, other.cantonGroup)}`,
+    }));
+}
+
+/**
+ * True when an AI-enriched entry carries a substantive intro — i.e. one that
+ * can stand in for matching jobs as the cluster's claim to being worth
+ * indexing and clears the shared content-quality floor.
  *
  * Why this is not just `Boolean(intro.trim())`
  * --------------------------------------------
@@ -1644,10 +1903,11 @@ export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry
  * 31 words, live, listed in `sitemap-search-clusters-001.xml`, and the single
  * `thin content (<50 words)` BLOCKING error on run 31077435060.
  *
- * Scope is deliberately narrow: this rejects values that are provably fill-in
- * slots, NOT short-but-real prose. "This intro is too short to be good" is a
- * quality judgement for the enrichment pipeline; "this intro is the prompt" is
- * a defect, and only the defect is decided here.
+ * A short-but-real intro is still useful enrichment, but it cannot by itself
+ * turn a below-floor cluster into an indexable page. The same 50-word floor
+ * used by the dist validator must apply at this exemption boundary too;
+ * otherwise the renderer can emit an indexable page whose stripped body is
+ * thin while the sitemap decision still treats the intro as sufficient.
  *
  * The placeholder shape itself is defined once, in
  * `scripts/lib/prompt-placeholder.mjs`, and shared with the generator that
@@ -1657,7 +1917,7 @@ export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry
 export function hasUsableEnrichedIntro(enriched: EnrichedEntry | undefined): boolean {
   const intro = enriched?.intro?.trim();
   if (!intro) return false;
-  return !isPromptPlaceholder(intro);
+  return !isPromptPlaceholder(intro) && countHtmlBodyWords(intro) >= MIN_INDEXABLE_WORDS;
 }
 
 /** Minimal structural view of TrafficEvidenceFilter — keeps this decidable in tests. */
@@ -1703,12 +1963,14 @@ export interface ClusterEmissionDecision {
  *     still contributes that locale's `<loc>`s so the it/main shard ships a
  *     COMPLETE cross-locale sitemap.
  *
- * The skip path cannot be backstopped after the fact. `dropOverwrittenLocs`
- * re-reads each loc's HTML in dist/ and drops the noindex ones, but for a
- * non-owned locale there IS no HTML on this shard by design, so its cross-shard
- * branch keeps those locs unconditionally (see `tests/sitemap-clusters-shard-
- * keep.test.ts` — that KEEP is correct, and removing it would truncate the
- * sitemap to IT-only). Whatever the skip path pushes, ships.
+ * The initial dist-truth pass cannot validate a non-owned locale: there IS no
+ * HTML for it on this shard by design, so its cross-shard branch keeps those
+ * locs unconditionally (see `tests/sitemap-clusters-shard-keep.test.ts` — that
+ * KEEP is correct, and removing it would truncate the sitemap to IT-only).
+ * The final serialized sitemap-alias pass can re-check every URL owned by the
+ * current shard after later emitters finish, but it must retain this same
+ * cross-shard rule. The skip producer therefore still has to use the shared
+ * decision rather than relying on a filesystem backstop.
  *
  * Divergence #1 (run 29636707053, CACHE_VERSION v8): the skip path pushed every
  * cross-locale loc without applying MIN_JOBS_FOR_INDEXABLE_CLUSTER → 31,624
@@ -1855,7 +2117,7 @@ export function renderClusterBelowFloorBridge(
   // `hreflang` stays in the signature because the caller has it and the
   // decision belongs here, next to the canonical it has to agree with.
   void hreflang;
-  const html = buildCanonicalBridgePage({
+  let html = buildCanonicalBridgePage({
     canonicalUrl: hubUrl,
     pathLabel: hubPath,
     title: copy.title,
@@ -1868,6 +2130,9 @@ export function renderClusterBelowFloorBridge(
     '</head>',
     ` <script type="application/ld+json">${buildClusterBreadcrumbLd(locale)}</script>\n </head>`,
   );
+  if (hasSalaryIntent(keyword)) {
+    html = html.replace('</main>', `<p>${esc(buildSalaryAnswer(locale, ''))}</p><p><a href="${CALC_HREF[locale]}">${esc(COPY[locale].ctaCalculator)}</a></p></main>`);
+  }
   return { urlPath, html, loc: canonicalUrl };
 }
 
@@ -2270,10 +2535,9 @@ function normalizeJunkRetirementPath(retiredPath: string): string | null {
   if (/^[a-z][a-z\d+.-]*:/i.test(raw) || raw.startsWith('//')) return null;
 
   const stem = raw.replace(/^\/+/, '').replace(/\/+$/, '');
-  // A leading dot in the final segment creates a dotfile, including the
+  // A dot-prefixed segment creates a hidden dist path, including the
   // `foo/.bar.html` case the flat bridge must never manufacture.
-  if (stem === '' || path.basename(stem).startsWith('.')) return null;
-  if (stem.split('/').some((segment) => segment === '.' || segment === '..')) return null;
+  if (stem === '' || !isSafeDistPath(stem)) return null;
 
   const normalized = `/${stem}/`.replace(/\/+/g, '/');
   // Keep the write inside the cluster URL namespace and use the same path
@@ -2369,15 +2633,8 @@ function reapplyRetiredManifestFiles(
  * resolution mirrors the emit side.
  */
 function jobLocalizedUrl(job: RawJob, locale: Locale): string {
-  const prefix = LOCALE_PREFIX[locale];
-  const jobCantonGroup = resolveJobCanton(job);
-  const section = resolveCantonSection(locale as CantonLocale, jobCantonGroup);
   const slug = job.slugByLocale?.[locale] || job.slug || '';
-  // Collapse only the path portion — a naive replace on the whole URL
-  // would turn `https://` into `https:/` (the original prior-to-call bug
-  // was masked because no caller exercised this helper).
-  const collapsedPath = `${prefix}/${section}/${slug ? `${slug}/` : ''}`.replace(/\/+/g, '/');
-  return `${BASE_URL}${collapsedPath}`;
+  return `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;
 }
 
 // Locale-specific preposition used to join keyword + city ("Globus a
@@ -2501,14 +2758,162 @@ const EMPTY_TAGLINE: Record<Locale, (kw: string, city: string | null) => string>
     : `Alerte quotidienne pour "${kw}" au Tessin — soyez prévenu·e dès qu'une offre est publiée.`,
 };
 
-/** Build the meta description (120-160 chars). */
+/**
+ * Job-intent framing for the cluster `<title>` (issue 11198).
+ *
+ * The title used to be the bare headline — keyword + city, e.g.
+ * "Fielmann a Genève | Frontaliere Ticino" or "Driver Truck | Frontaliere
+ * Ticino" — so nothing in the SERP said the page lists JOBS. Every sibling job
+ * template already carries that signal (`buildRoleHubTitle`,
+ * `buildCityHubTitle`, `buildEmployerHubTitle`, the keyword landings in
+ * jobsSeoPagesPlugin). Measured on the family 2026-09-20/10-04: CTR 7,44 %
+ * against a 9,53 % curve target at position 10.
+ *
+ * No live count in the title on purpose: the H1 already carries it ("— 30
+ * offerte aperte"), which keeps title ≠ H1 for `audit:h1-title-duplicates`.
+ */
+const TITLE_JOB_FRAMING: Record<Locale, (headline: string, hasCity: boolean) => string> = {
+  it: (h, hasCity) => (hasCity ? `${h}: offerte di lavoro` : `${h}: offerte di lavoro in Svizzera`),
+  en: (h, hasCity) => (hasCity ? `${h}: open jobs` : `${h}: jobs in Switzerland`),
+  de: (h, hasCity) => (hasCity ? `${h}: offene Stellen` : `${h}: Jobs in der Schweiz`),
+  fr: (h, hasCity) => (hasCity ? `${h} : offres d’emploi` : `${h} : offres d’emploi en Suisse`),
+};
+
+/**
+ * A keyword that already names the job intent ("offerte lavoro Operatore",
+ * "Stellen Pflege", "offres d'emploi …") keeps its bare headline: framing it
+ * again would stack two job phrases in a 66-char budget.
+ */
+const KEYWORD_JOB_INTENT_RE = /(^|[^\p{L}])(lavor[oi]|offert[ae]|impieg[oh]i?|jobs?|stellen\w*|emplois?|offres?|careers?|karriere|vacanc\w*)(?=$|[^\p{L}])/iu;
+const GERMAN_KEYWORD_JOB_INTENT_RE = /(^|[^\p{L}])stelle(?=$|[^\p{L}])/iu;
+
+function keywordHasJobIntent(keyword: string, locale: Locale): boolean {
+  return KEYWORD_JOB_INTENT_RE.test(keyword)
+    || (locale === 'de' && GERMAN_KEYWORD_JOB_INTENT_RE.test(keyword));
+}
+
+/**
+ * The cluster `<title>`, shared by the page render and the incremental
+ * manifest so the two can never disagree. Ladder: job-framed headline (with
+ * or without brand, via `buildTitleWithBrand`) when its ESCAPED length fits
+ * `TITLE_MAX_CHARS`; otherwise the historical bare headline capped by
+ * {@link capForTitle}.
+ */
+export function buildClusterTitle(keyword: string, city: string | null, locale: Locale): string {
+  const measure = (s: string) => escapeForBudget(s).length;
+  const headline = buildHeadline(keyword, city, locale);
+  if (String(keyword || '').trim() && !keywordHasJobIntent(keyword, locale)) {
+    // Suffix, not prefix: the title keeps starting with the same localized
+    // headline as the H1 (tests/related-search-clusters-shell.test.ts).
+    const framed = TITLE_JOB_FRAMING[locale](headline, Boolean(city));
+    if (measure(framed) <= TITLE_MAX_CHARS) {
+      return buildTitleWithBrand(framed, undefined, TITLE_MAX_CHARS, measure);
+    }
+  }
+  return buildTitleWithBrand(
+    truncateHeadlineToMeasuredBudget(
+      capForTitle(headline, TITLE_MAX_CHARS),
+      TITLE_MAX_CHARS,
+      measure,
+    ),
+    undefined,
+    TITLE_MAX_CHARS,
+    measure,
+  );
+}
+
+/**
+ * Complete, job-specific sentences that bring a short cluster description up
+ * to the SERP floor (issue 11198). Without them a ~70-110 char tagline reached
+ * `clampMetaDescription`, which pads short copy with the evergreen SITE blurb
+ * and stops wherever the budget runs out — production shipped "… Fielmann
+ * Group. Scopri guide pratiche, dati aggiornati" and "… Explore practical
+ * guides, current data and useful". Appended whole, in order, only while the
+ * description is under {@link META_DESCRIPTION_MIN_CHARS}.
+ */
+const DESCRIPTION_CLOSINGS: Record<Locale, { apply: string; calculator: string; audience: string }> = {
+  it: {
+    apply: 'Candidatura diretta sul sito del datore di lavoro.',
+    calculator: 'Calcola anche lo stipendio netto da frontaliere.',
+    audience: 'Per frontalieri e residenti in Svizzera.',
+  },
+  en: {
+    apply: 'Apply directly on the employer’s website.',
+    calculator: 'Estimate your cross-border net salary too.',
+    audience: 'For cross-border commuters and Swiss residents.',
+  },
+  de: {
+    apply: 'Direkt beim Arbeitgeber bewerben.',
+    calculator: 'Nettolohn für Grenzgänger gratis berechnen.',
+    audience: 'Für Grenzgänger und Einwohner der Schweiz.',
+  },
+  fr: {
+    apply: 'Postulez directement sur le site de l’employeur.',
+    calculator: 'Calculez aussi votre salaire net de frontalier.',
+    audience: 'Pour frontaliers et résidents en Suisse.',
+  },
+};
+
+/**
+ * Build the meta description (120-160 chars), from whole parts only: the
+ * tagline, then as many top employers as fit (2 → 1 → 0, never a name cut
+ * mid-word — production shipped "Universitäre Psych…"), then whole closing
+ * sentences until the {@link META_DESCRIPTION_MIN_CHARS} floor.
+ */
+export function buildClusterDescription(
+  input: { keyword: string; city: string | null; jobCount: number; topCompanies: ReadonlyArray<string> },
+  locale: Locale,
+): string {
+  const max = META_DESCRIPTION_MAX_CHARS;
+  const tagline = input.jobCount === 0
+    ? EMPTY_TAGLINE[locale](input.keyword, input.city)
+    : COPY[locale].taglineSingular(input.jobCount, input.keyword, input.city);
+  let out = tagline.trim();
+  // A tagline alone over budget is a keyword-length data problem: cut it
+  // word-aware with the shared helper, never mid-word.
+  if (out.length > max) return truncateHeadline(out, max);
+
+  const closings = DESCRIPTION_CLOSINGS[locale];
+  // Keep enough room for at least the shortest complete closing sentence. A
+  // tagline at 118–119 chars otherwise leaves every whole closing over the
+  // 160-char cap, making the result violate the 120-char floor.
+  const ordered = input.jobCount === 0
+    ? [closings.calculator, closings.audience]
+    : [closings.apply, closings.calculator, closings.audience];
+  const shortestClosingLength = Math.min(...ordered.map((sentence) => sentence.length));
+  const maxTaglineWithClosing = max - shortestClosingLength - 1;
+  if (out.length < META_DESCRIPTION_MIN_CHARS && out.length > maxTaglineWithClosing) {
+    out = truncateHeadline(out, maxTaglineWithClosing);
+  }
+
+  const companies = input.topCompanies
+    .map((c) => String(c || '').trim().replace(/\.+$/, ''))
+    .filter(Boolean);
+  for (let k = Math.min(2, companies.length); k > 0; k--) {
+    const candidate = `${out} ${companies.slice(0, k).join(', ')}.`;
+    const leavesClosingRoom = candidate.length + shortestClosingLength + 1 <= max;
+    if (candidate.length <= max && (candidate.length >= META_DESCRIPTION_MIN_CHARS || leavesClosingRoom)) {
+      out = candidate;
+      break;
+    }
+  }
+
+  // "Apply directly" promises a listing to apply to: not on the zero-job copy.
+  for (const sentence of ordered) {
+    if (out.length >= META_DESCRIPTION_MIN_CHARS) break;
+    const candidate = `${out} ${sentence}`;
+    if (candidate.length <= max) out = candidate;
+  }
+  return out;
+}
+
 function buildDescription(ctx: ClusterContext, locale: Locale): string {
-  const tagline = ctx.matchingJobs.length === 0
-    ? EMPTY_TAGLINE[locale](ctx.keyword, ctx.city)
-    : COPY[locale].taglineSingular(ctx.matchingJobs.length, ctx.keyword, ctx.city);
-  const head = ctx.topCompanies.length > 0 ? ` ${ctx.topCompanies.slice(0, 2).join(', ')}.` : '';
-  const out = `${tagline}${head}`.trim();
-  return out.length > 158 ? `${out.slice(0, 157)}…` : out;
+  return buildClusterDescription({
+    keyword: ctx.keyword,
+    city: ctx.city,
+    jobCount: clusterMatchingJobCount(ctx),
+    topCompanies: ctx.topCompanies,
+  }, locale);
 }
 
 /**
@@ -2673,8 +3078,17 @@ function buildJsonLd(opts: {
   locale: Locale;
   commuterLocation: string;
   sectorLabel: string | null;
+  stripSeoProse: boolean;
 }): string[] {
-  const { ctx, canonicalUrl, enriched, locale, commuterLocation, sectorLabel } = opts;
+  const {
+    ctx,
+    canonicalUrl,
+    enriched,
+    locale,
+    commuterLocation,
+    sectorLabel,
+    stripSeoProse,
+  } = opts;
   const headline = buildHeadline(ctx.keyword, ctx.city, locale);
 
   // ItemList JSON-LD intentionally NOT emitted: the static body no longer
@@ -2701,7 +3115,7 @@ function buildJsonLd(opts: {
     location: commuterLocation,
     sectorOrType: sectorLabel,
   });
-  // When STRIP_CLUSTER_SEO_PROSE is ON, the commuter-context block in the
+  // When the stripped body is selected, the commuter-context block in the
   // <body> is dropped — so its FAQPage JSON-LD must go too (otherwise
   // Google reports "Field 'mainEntity' references missing content" for
   // questions whose visible answers no longer exist on the page). The AI
@@ -2709,7 +3123,7 @@ function buildJsonLd(opts: {
   // dropped). Net per cluster: -~1.5 KB raw JSON-LD on top of the
   // ~5 KB raw HTML strip, for ~6.5 KB raw total = ~150 MB gzip on the
   // github-pages artifact across the 102,827-page cluster surface.
-  const faqMainEntity = STRIP_CLUSTER_SEO_PROSE
+  const faqMainEntity = stripSeoProse
     ? []
     : [...aiFaqItems, ...commuterFaqItems];
   if (faqMainEntity.length > 0) {
@@ -2741,6 +3155,21 @@ function renderHreflang(
     hrefFor: (locale) => byLocale.get(locale)!,
     indent: '    ',
   });
+}
+
+/**
+ * Legacy cluster mirrors canonicalize to the aggregate locale page. Keep the
+ * hreflang cluster on those canonical pages by removing alternate links from
+ * the mirror copy while preserving its canonical and page content.
+ */
+export function stripHreflangForClusterMirror(html: string): string {
+  const headEnd = html.indexOf('</head>');
+  if (headEnd < 0) {
+    throw new Error('Cannot prepare a cluster mirror without a closing </head> tag');
+  }
+
+  const head = html.slice(0, headEnd);
+  return `${head.replace(CLUSTER_MIRROR_HREFLANG_LINK_RX, '')}${html.slice(headEnd)}`;
 }
 
 // Memoize renderJobBoardCommuterContext: pure function, ~52k calls per build
@@ -2783,16 +3212,13 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // the rich-content build below — see MIN_JOBS_FOR_INDEXABLE_CLUSTER
   // docstring for why this is distinct from MIN_MATCHING_JOBS=0.
   //
-  // Exempt AI-enriched clusters (`enriched.intro` present) from the floor:
-  // a past reviewer explicitly rejected suppressing n=0 clusters that carry
-  // unique AI-authored content ("flagged 🔴 in PR review... those pages no
-  // longer list off-topic jobs, not that they vanish from the index" — see
-  // buildDescription's n=0 handling below and
-  // tests/related-search-clusters-shell.test.ts's "keeps the full SEO
-  // shell" test). Only 6,538 of 349,579 unique cluster slugs have an
-  // enriched entry (data/related-search-enriched.json), so this exemption
-  // is narrow — it doesn't blunt the consolidation for the bulk of
-  // generic, non-enriched below-floor clusters the issue targets.
+  // Exempt only substantive AI-enriched clusters from the floor: a past
+  // reviewer explicitly rejected suppressing n=0 clusters that carry unique
+  // AI-authored content, but the exemption must still clear the shared
+  // MIN_INDEXABLE_WORDS floor or it would turn a short intro into an
+  // indexability bypass. Only 6,538 of 349,579 unique cluster slugs have an
+  // enriched entry (data/related-search-enriched.json), so this remains narrow
+  // and does not blunt consolidation for generic clusters.
   if (isClusterBelowFloor(ctx, enriched)) {
     return renderClusterBelowFloorBridge(locale, urlPath, canonicalUrl, ctx.keyword, hreflang);
   }
@@ -2808,7 +3234,6 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   const commuterLocation = ctx.city || chrome.regionFallback;
   const sectorLabel = detectSectorLabel(ctx.keyword, locale);
 
-  const jsonLdScripts = buildJsonLd({ ctx, canonicalUrl, enriched, locale, commuterLocation, sectorLabel });
   const hreflangHtml = renderHreflang(hreflang, canonicalUrl);
 
   // ── Strategy: SPA renders the interactive UI for users; static page
@@ -2830,9 +3255,9 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // quotidiano") instead of "0 offerte" — same goal (differ from title)
   // without the negative-signal in serp/static-body H1.
   const regionPart = ctx.city ? '' : ` ${chrome.regionH1Suffix}`;
-  const headlineH1 = ctx.matchingJobs.length === 0
+  const headlineH1 = clusterMatchingJobCount(ctx) === 0
     ? `${headline}${regionPart} — ${copy.alertCta}`
-    : `${headline} — ${ctx.matchingJobs.length} ${copy.jobsHeading.toLowerCase()}${regionPart}`;
+    : `${headline} — ${clusterMatchingJobCount(ctx)} ${copy.jobsHeading.toLowerCase()}${regionPart}`;
 
   // Top companies / cities for the search-query intro paragraph (used by
   // `renderSearchQueryIntro` to vary opening framing per page).
@@ -2851,12 +3276,18 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // template and the commuter-context block — combined ~5-7 KB of
   // unique prose per page (varies by query/city/sector hash so 1,400
   // pages don't share boilerplate).
-  const aiIntroHtml = enriched?.intro
+  const salaryIntent = hasSalaryIntent(ctx.keyword);
+  const salaryMedian = salaryIntent ? searchSalaryMedian(ctx.matchingJobs.map((job) => ({
+    salaryMin: Number(job.salaryMin), salaryMax: Number(job.salaryMax), salarySource: job.salarySource, currency: job.currency,
+  }))) : 0;
+  const salaryAnswerHtml = salaryIntent
+    ? `<p>${esc(buildSalaryAnswer(locale, salaryMedian > 0 ? `CHF ${salaryMedian.toLocaleString('de-CH')}` : ''))}</p>` : '';
+  const aiIntroHtml = !salaryIntent && enriched?.intro
     ? `<p class="s-XHYGOJ">${esc(enriched.intro)}</p>`
     : renderSearchQueryIntro(
         locale as 'it' | 'en' | 'de' | 'fr',
         ctx.keyword,
-        ctx.matchingJobs.length,
+        clusterMatchingJobCount(ctx),
         ctx.topCompanies,
         topCities,
         // City clusters are TI cities (Lugano, Mendrisio, …) → keep "in Ticino";
@@ -2916,15 +3347,12 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // cluster page regardless of locale) is dropped entirely — per user
   // review the IT-only text on EN/DE/FR pages was both a wire-bloat
   // (~250 B × 180k pages × 4 locales = ~45 MB) and a "mixed-language
-  // content" SEO smell. The audit:content-quality 50-word floor stays
-  // covered by the cluster's own `aiIntroHtml` (per-cluster unique prose,
-  // typically 30-60 words) plus the `relatedHtml` cross-link list and
-  // the visible job count in the H1; any cluster that falls under the
-  // floor would have failed before this commit too. Re-enable by
-  // restoring this paragraph if validate-dist starts blocking
-  // sparse-aiIntro clusters at the 50-word mark.
-  const seoContextBlock = STRIP_CLUSTER_SEO_PROSE
-    ? `${EJP_STRIPPED_MARKER}<details class="cluster-seo-context s-mxdIN0">
+  // content" SEO smell. The stripped shell is retained only while it clears
+  // the shared 50-word floor. Sparse indexable clusters keep the existing
+  // localized commuter/query prose instead of shipping a thin body; this
+  // bounds the heavier payload to pages that need it and keeps the producer's
+  // output aligned with validate:content-quality.
+  const strippedSeoContextBlock = `${EJP_STRIPPED_MARKER}<details class="cluster-seo-context s-mxdIN0">
     <summary class="s-1yn7b_">${esc(chrome.contextSummary)}</summary>
     <div class="s-yZU6bn">
       <section class="s-p_RJwm">
@@ -2932,8 +3360,8 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
       </section>
       ${relatedHtml}
     </div>
-  </details>`
-    : `<details class="cluster-seo-context s-mxdIN0">
+  </details>`;
+  const fullSeoContextBlock = `<details class="cluster-seo-context s-mxdIN0">
     <summary class="s-1yn7b_">${esc(chrome.contextSummary)}</summary>
     <div class="s-yZU6bn">
       <section class="s-p_RJwm">
@@ -2970,7 +3398,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // are emitted elsewhere by `buildSeoPageHtml` and remain absolute.
   // Trimming `https://frontaliereticino.ch` (28 B) × ~30 jobs/page × 180k
   // pages ≈ ~150 MB on the dist artifact.
-  const jobLinksHtml = ctx.matchingJobs.length > 0
+  const jobLinksHtml = clusterMatchingJobCount(ctx) > 0
     ? `<ul class="cluster-seo-jobs">${ctx.matchingJobs.map((job) => {
         const jobTitle = sanitizeJobTitleForDisplay(String(job.titleByLocale?.[locale] ?? job.title ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
         const company = String(job.company || '').trim();
@@ -2987,36 +3415,45 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // ~132 B × 180k cluster pages = ~24 MB on the dist artifact. The class
   // is loaded by the shared `seoStaticCssLink` that every cluster page
   // already imports — no extra request.
-  const bodyContentHtml = `<div class="related-search-cluster">
+  const renderBodyContent = (seoContextBlock: string): string => `<div class="related-search-cluster">
     <h1>${esc(headlineH1)}</h1>
+    ${salaryAnswerHtml}
+    <p><a href="${CALC_HREF[locale]}">${esc(copy.ctaCalculator)}</a></p>
     ${jobLinksHtml}
     ${seoContextBlock}
   `;
+  const strippedBodyContentHtml = renderBodyContent(strippedSeoContextBlock);
+  const useStrippedSeoProse = STRIP_CLUSTER_SEO_PROSE
+    && countHtmlBodyWords(strippedBodyContentHtml) >= MIN_INDEXABLE_WORDS;
+  const bodyContentHtml = useStrippedSeoProse
+    ? strippedBodyContentHtml
+    : renderBodyContent(fullSeoContextBlock);
+
+  // Keep FAQ structured data aligned with the prose actually present in the
+  // body. Sparse pages fall back to the full context above, so their existing
+  // commuter/AI FAQ markup is visible again and can be represented honestly.
+  const jsonLdScripts = buildJsonLd({
+    ctx,
+    canonicalUrl,
+    enriched,
+    locale,
+    commuterLocation,
+    sectorLabel,
+    stripSeoProse: useStrippedSeoProse,
+  });
   // The live AdSense audit classifies pages below ADSENSE_THIN_WORDS as thin.
   // Do not add the manual multiplex slot to that class: Auto Ads still load
   // through the shared page shell, while the static slot is the policy failure
   // reproduced by issue #9244 on short, enriched cluster pages.
   const bodyHtml = `${bodyContentHtml}
-    ${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(bodyContentHtml) >= ADSENSE_THIN_WORDS })}
+    ${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(bodyContentHtml) >= ADSENSE_THIN_WORDS, contentHtml: bodyContentHtml })}
   </div>`;
 
-  // Cluster keywords can exceed 60+ chars when the candidate slug is a long
-  // compound query (e.g. "addetto al commercio al dettaglio efz creare
-  // esperienze di acquisto"). buildTitleWithBrand returns the headline
-  // verbatim past the 66-char cap (no `…` per titleSuffix policy), so we
-  // must shorten the headline at source before composing. Word-aware cut
-  // on a whitespace boundary, no ellipsis — preserves SERP CTR while
-  // keeping the title within the audit:title-length ratchet.
-  const titleHeadline = capForTitle(headline, TITLE_MAX_CHARS);
-  // Same escaped budget as capForTitle above: the brand-drop decision must be
-  // taken on the string that ships, or a headline that just fits raw acquires
-  // " | Frontaliere Ticino" and lands over cap once escaped.
-  const title = buildTitleWithBrand(
-    titleHeadline,
-    undefined,
-    TITLE_MAX_CHARS,
-    (s) => escapeForBudget(s).length,
-  );
+  // Job-framed when it fits, otherwise the bare headline capped at source
+  // (long compound keywords such as "addetto al commercio al dettaglio efz
+  // creare esperienze di acquisto"): see buildClusterTitle / capForTitle.
+  // The incremental manifest calls the same helper.
+  const title = buildClusterTitle(ctx.keyword, ctx.city, locale);
 
   // Hand the SPA the job set this build just computed, so hydration STOPS
   // recomputing a smaller one. The two sides read different corpora — this
@@ -3035,7 +3472,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // In the head, not in bodyHtml: that <main> is moved into #root and replaced
   // by React at hydration, and the seed must be readable before that.
   const seedQuery = parseSearchSlugFilter(candidate.slug) ?? '';
-  const seedScript = ctx.matchingJobs.length > 0 && seedQuery
+  const seedScript = clusterMatchingJobCount(ctx) > 0 && seedQuery
     ? `<script>window.${CLUSTER_SEARCH_SEED_GLOBAL}=${inlineScriptJson(
         buildClusterSearchSeed(urlPath, seedQuery, ctx.matchingJobs as unknown as ReadonlyArray<Record<string, unknown>>, locale),
       )};</script>`
@@ -3163,12 +3600,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     url: canonicalUrl,
     description: copy.hubDescription,
     inLanguage: locale,
-    // Day-granularity (matches the visible `dateStamp` rendered on the page),
-    // NOT a full build timestamp: a sub-second `new Date().toISOString()` here
-    // made every search-cluster/listing page churn on every deploy. Stable
-    // within the UTC day → same-day deploys no longer rewrite these pages from
-    // dateModified alone. See build-plugins/shared/buildDayStamp.ts.
-    dateModified: `${dateStamp}T00:00:00.000Z`,
+    // Rebuilding the same collection does not establish a content update.
     mainEntity: {
       '@type': 'ItemList',
       // numberOfItems reports the full list size; itemListElement is a sample.
@@ -3232,6 +3664,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
   const bodyHtml = `${hubBodyContentHtml}
     ${endOfContentMultiplexHtml({
       indexable: countHtmlBodyWords(hubBodyContentHtml) >= ADSENSE_THIN_WORDS,
+      contentHtml: hubBodyContentHtml,
     })}
   </article>`;
 
@@ -3540,8 +3973,33 @@ function listEmittedHubPagePaths(distDir: string, locale: Locale): string[] {
 // Attribute-order-independent (two lookaheads, #3060): content-before-name on the
 // robots meta must not slip past and leak a noindex page into a cluster.
 const NOINDEX_RE = /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i;
-const CANONICAL_HREF_RE = /<link\b[^>]*rel\s*=\s*["']?canonical["']?[^>]*href\s*=\s*["']([^"']+)["']/i;
-const CANONICAL_HREF_REVERSED_RE = /<link\b[^>]*href\s*=\s*["']([^"']+)["'][^>]*rel\s*=\s*["']?canonical["']?/i;
+// Redirect/bridge pages emitted by legacyRedirectsPlugin use a meta refresh.
+// It is deliberately attribute-order independent and quote-flexible, matching
+// the same minified HTML shapes accepted by NOINDEX_RE.
+const META_REFRESH_RE = /<meta\b(?=[^>]*\bhttp-equiv\s*=\s*(?:["']refresh["']|refresh(?=\s|\/?\s*>)))(?=[^>]*\bcontent\s*=)[^>]*>/i;
+const LINK_TAG_RE = /<link\b[^>]*>/gi;
+
+function readHtmlAttribute(tag: string, attributeName: string): string | null {
+  const wanted = attributeName.toLowerCase();
+  for (const match of tag.matchAll(/([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/g)) {
+    if (match[1].toLowerCase() !== wanted) continue;
+    return (match[2] ?? match[3] ?? match[4] ?? '').trim();
+  }
+  return null;
+}
+
+/** Extract canonical only from a validated `<link>` element. */
+function extractCanonicalHref(html: string): string | null {
+  for (const match of html.matchAll(LINK_TAG_RE)) {
+    const tag = match[0];
+    const rel = readHtmlAttribute(tag, 'rel');
+    if (!rel || !rel.split(/\s+/).some((token) => token.toLowerCase() === 'canonical')) continue;
+    const href = readHtmlAttribute(tag, 'href');
+    if (href) return href;
+  }
+  return null;
+}
+
 function normalizeLocForCanonicalCmp(u: string): string {
   try {
     const parsed = new URL(u, BASE_URL);
@@ -3589,11 +4047,14 @@ function normalizeLocForCanonicalCmp(u: string): string {
 export async function dropOverwrittenLocs(
   distDir: string,
   locs: ReadonlyArray<string>,
+  options: { inspectForeignPresent?: boolean } = {},
 ): Promise<string[]> {
   const KEEP = 1;
   const DROP_NOINDEX = 2;
   const DROP_NONCANON = 3;
   const DROP_MISSING = 4;
+  const DROP_REDIRECT = 5;
+  const DROP_MISSING_CANONICAL = 6;
   const flags = new Uint8Array(locs.length);
 
   // Concurrency cap for in-flight async readFile attempts. Bumped 32 → 64
@@ -3617,10 +4078,7 @@ export async function dropOverwrittenLocs(
       // owning locale this shard does not emit has no HTML on disk by design —
       // keep it so the it/main shard's sitemap stays complete. Skipped entirely
       // in the default build (EMIT_ALL_LOCALES) so behaviour is byte-identical.
-      if (!EMIT_ALL_LOCALES && !shouldEmitLocale(localeOfDistPath(urlPath, ''))) {
-        flags[i] = KEEP;
-        continue;
-      }
+      const foreignLocale = !EMIT_ALL_LOCALES && !shouldEmitLocale(localeOfDistPath(urlPath, ''));
       const indexPath = path.join(distDir, urlPath, 'index.html');
       const flatPath = path.join(distDir, urlPath + '.html');
       let html: string | null = null;
@@ -3630,22 +4088,40 @@ export async function dropOverwrittenLocs(
         try {
           html = await fs.promises.readFile(flatPath, 'utf-8');
         } catch {
+          // A foreign-locale URL is normally absent from this shard by
+          // design. Job sitemaps opt into checking a foreign file when it is
+          // present (typically a bridge written by a direct-fs emitter), but
+          // still retain a genuinely absent URL for the locale shard that
+          // owns its HTML. This keeps the shared IT sitemap complete without
+          // allowing an on-disk noindex/canonical bridge to leak through.
+          if (foreignLocale) {
+            flags[i] = KEEP;
+            continue;
+          }
           flags[i] = DROP_MISSING;
           continue;
         }
+      }
+      if (foreignLocale && !options.inspectForeignPresent) {
+        flags[i] = KEEP;
+        continue;
       }
       if (NOINDEX_RE.test(html)) {
         flags[i] = DROP_NOINDEX;
         continue;
       }
-      const canonMatch =
-        html.match(CANONICAL_HREF_RE) || html.match(CANONICAL_HREF_REVERSED_RE);
-      if (canonMatch && canonMatch[1]) {
-        const canonHref = canonMatch[1].trim();
-        if (normalizeLocForCanonicalCmp(canonHref) !== normalizeLocForCanonicalCmp(loc)) {
-          flags[i] = DROP_NONCANON;
-          continue;
-        }
+      if (META_REFRESH_RE.test(html)) {
+        flags[i] = DROP_REDIRECT;
+        continue;
+      }
+      const canonHref = extractCanonicalHref(html);
+      if (!canonHref) {
+        flags[i] = DROP_MISSING_CANONICAL;
+        continue;
+      }
+      if (normalizeLocForCanonicalCmp(canonHref) !== normalizeLocForCanonicalCmp(loc)) {
+        flags[i] = DROP_NONCANON;
+        continue;
       }
       flags[i] = KEEP;
     }
@@ -3658,15 +4134,19 @@ export async function dropOverwrittenLocs(
   const out: string[] = [];
   let droppedNoindex = 0;
   let droppedNonCanonical = 0;
+  let droppedRedirect = 0;
+  let droppedMissingCanonical = 0;
   for (let i = 0; i < locs.length; i++) {
     const f = flags[i];
     if (f === KEEP) out.push(locs[i]);
     else if (f === DROP_NOINDEX) droppedNoindex++;
     else if (f === DROP_NONCANON) droppedNonCanonical++;
+    else if (f === DROP_REDIRECT) droppedRedirect++;
+    else if (f === DROP_MISSING_CANONICAL) droppedMissingCanonical++;
   }
-  if (droppedNoindex > 0 || droppedNonCanonical > 0) {
+  if (droppedNoindex > 0 || droppedNonCanonical > 0 || droppedRedirect > 0 || droppedMissingCanonical > 0) {
     console.log(
-      `\x1b[33m[related-search-clusters]\x1b[0m dropped ${droppedNoindex} noindex + ${droppedNonCanonical} non-self-canonical URL(s) from sitemap (cross-plugin overwrite races)`,
+      `\x1b[33m[related-search-clusters]\x1b[0m dropped ${droppedNoindex} noindex + ${droppedNonCanonical} non-self-canonical + ${droppedRedirect} redirect + ${droppedMissingCanonical} missing-canonical URL(s) from sitemap (cross-plugin overwrite races)`,
     );
   }
   return out;
@@ -3688,9 +4168,9 @@ export async function dropOverwrittenLocs(
  *
  * Safe ordering: sitemap-jobs.xml is written in the `default` phase, fully
  * flushed before any `post`-phase plugin runs (and we additionally await
- * `jobsSeoPagesFlushed` at both call sites). sitemapAliasPlugin only regenerates
- * the master `sitemap.xml` INDEX from a directory scan; it never rewrites this
- * file's URL body, so our patch survives.
+ * `jobsSeoPagesFlushed` at both call sites). The final `sitemapAliasPlugin`
+ * pass also rechecks the cluster URL bodies after every later emitter has
+ * finished; this earlier patch remains scoped to the jobs sitemap.
  */
 /**
  * Pure core of the sitemap-jobs.xml patch: remove every `<url>...</url>` block
@@ -3730,13 +4210,140 @@ export function extractSitemapLocs(xml: string): string[] {
 }
 
 /**
- * Reconcile `sitemap-jobs.xml` against what actually shipped in dist/.
+ * Recover the jobs producer's active URL set when a cache-hit path reaches
+ * reconciliation with the shared registry still unset. `sitemap-jobs.xml` is
+ * the producer's persisted decision: its `<loc>` entries and their hreflang
+ * annotations are emitted from the same active, self-canonical job set. Keep
+ * this fallback scoped to the site's own origin so an unexpected annotation
+ * cannot become an allowlist entry.
+ */
+function deriveActiveJobSitemapLocs(
+  files: ReadonlyArray<{ file: string; xml: string }>,
+): ReadonlySet<string> {
+  const legacySitemap = files.find(({ file }) => file === 'sitemap-jobs.xml')?.xml;
+  const active = new Set<string>();
+  if (!legacySitemap) return active;
+
+  const siteOrigin = new URL(BASE_URL).origin;
+  const addSiteUrl = (value: string): void => {
+    const candidate = value.trim();
+    try {
+      if (new URL(candidate).origin === siteOrigin) active.add(candidate);
+    } catch {
+      // Ignore malformed source markup; it cannot safely identify a live URL.
+    }
+  };
+
+  for (const entry of parseAnnotatedSitemapUrls(legacySitemap)) {
+    addSiteUrl(entry.loc);
+    for (const annotation of entry.annotations) addSiteUrl(annotation.href);
+  }
+  return active;
+}
+
+function ensureActiveJobSitemapLocs(
+  files: ReadonlyArray<{ file: string; xml: string }>,
+): ReadonlySet<string> {
+  const active = getActiveJobSitemapLocs();
+  if (active !== null) return active;
+  const recovered = deriveActiveJobSitemapLocs(files);
+  setActiveJobSitemapLocs(recovered);
+  return recovered;
+}
+
+/**
+ * Sharded job files contain only job-detail URLs and canton roots. Once the
+ * jobs producer has published its source allowlist, a priority-0.6 detail
+ * entry that is absent from that allowlist is stale even when its foreign
+ * locale HTML is not present in this build tree. Keep the filter scoped to
+ * shard files: the legacy sitemap also contains category pages with the same
+ * priority, so applying the source allowlist to `sitemap-jobs.xml` would
+ * misclassify valid landing URLs.
+ */
+function staleJobShardLocs(
+  files: ReadonlyArray<{ file: string; xml: string }>,
+  activeLocs: ReadonlySet<string> | null,
+): string[] {
+  // The source-stale predicate is meaningful only when the producer's exact
+  // source sitemap is present. A shard-only dist (for example a locale leg
+  // that emitted `sitemap-jobs-ti.xml` without `sitemap-jobs.xml`) has no
+  // authoritative allowlist to compare against; treating the recovered empty
+  // set as authoritative would delete every priority-0.6 detail URL.
+  if (activeLocs === null || !files.some(({ file }) => file === 'sitemap-jobs.xml')) return [];
+  const active = new Set([...activeLocs].map(normalizeLocForCanonicalCmp));
+  const stale: string[] = [];
+  const urlBlockRe = /[ \t]*<url>[\s\S]*?<\/url>\n?/g;
+  const locRe = /<loc>([^<]+)<\/loc>/;
+  const detailPriorityRe = /<priority>\s*0\.6\s*<\/priority>/i;
+  for (const { file, xml } of files) {
+    if (!isJobSitemapShardFilename(file)) continue;
+    for (const block of xml.matchAll(urlBlockRe)) {
+      if (!detailPriorityRe.test(block[0])) continue;
+      const loc = block[0].match(locRe)?.[1];
+      if (!loc || active.has(normalizeLocForCanonicalCmp(loc))) continue;
+      stale.push(loc);
+    }
+  }
+  return stale;
+}
+
+/**
+ * Reconcile every cluster sitemap shard against the final bytes in dist/.
+ *
+ * `relatedSearchClustersPlugin` writes its sitemap before the serialized
+ * post-phase hooks. Those later emitters normally avoid collisions, but a
+ * collision on one cluster path can still replace an indexable page with a
+ * noindex or non-self-canonical document after the first
+ * `dropOverwrittenLocs` pass. `sitemapAliasPlugin` is the final sitemap hook;
+ * it calls this function after all page emitters and before regenerating the
+ * sitemap index. Reuse the same predicate so the source producer and the
+ * final dist truth check cannot drift.
+ *
+ * Only `sitemap-search-clusters*.xml` is touched. Other sitemap families have
+ * different ownership contracts and must not be filtered by the cluster
+ * locale-shard rule.
+ */
+export async function reconcileSitemapSearchClustersWithDist(distDir: string): Promise<number> {
+  if (!fs.existsSync(distDir)) return 0;
+  const files = fs
+    .readdirSync(distDir)
+    .filter((file) => CLUSTER_SITEMAP_FILE_RE.test(file))
+    .map((file) => ({ file, xml: fs.readFileSync(path.join(distDir, file), 'utf-8') }));
+  if (files.length === 0) return 0;
+
+  const advertised = files.flatMap(({ xml }) => extractSitemapLocs(xml));
+  if (advertised.length === 0) return 0;
+  const kept = new Set(
+    (await dropOverwrittenLocs(distDir, advertised)).map(normalizeLocForCanonicalCmp),
+  );
+  const droppedLocs = advertised.filter((loc) => !kept.has(normalizeLocForCanonicalCmp(loc)));
+  if (droppedLocs.length === 0) return 0;
+
+  let droppedBlocks = 0;
+  for (const { file, xml } of files) {
+    const result = dropUrlBlocksByLoc(xml, droppedLocs);
+    if (result.xml === xml) continue;
+    fs.writeFileSync(path.join(distDir, file), result.xml, 'utf-8');
+    droppedBlocks += result.dropped;
+  }
+  if (droppedBlocks > 0) {
+    console.log(
+      `\x1b[36m[sitemap-alias]\x1b[0m final dist-truth reconciliation removed ` +
+      `${droppedBlocks} cluster sitemap URL(s) whose final HTML was missing, noindex, or non-self-canonical`,
+    );
+  }
+  return droppedBlocks;
+}
+
+/**
+ * Reconcile every `sitemap-jobs*.xml` file against what actually shipped in
+ * dist/.
  *
  * Why this is a dist-truth pass and not a membership test
  * -------------------------------------------------------
  * This used to drop exactly the URLs in `mirrorLocs` — the cross-section
  * mirrors this plugin knowingly overwrites (issue #911). That closes one
- * divergence and leaves every other one open, because sitemap-jobs.xml is
+ * divergence and leaves every other one open, because the job sitemap family is
  * written by ANOTHER plugin (jobsSeoPagesPlugin, `default` phase) which
  * advertises keyword/search landings it does not itself emit. Whenever the
  * advertised set and the emitted set drift for any reason this list does not
@@ -3759,36 +4366,92 @@ export function extractSitemapLocs(xml: string): string[] {
  * unioned in as a guaranteed-drop seed so a transient read failure cannot
  * resurrect a known mirror.
  *
+ * This pass edits sitemap XML only. It never deletes or prunes `dist/` HTML:
+ * historical pages remain available even when their URL is intentionally
+ * removed from the indexable sitemap because it is a bridge or noindex page.
+ *
  * Exported for unit testing (tests/sitemap-jobs-dist-truth.test.ts).
  */
 export async function reconcileSitemapJobsWithDist(
   distDir: string,
   mirrorLocs: ReadonlyArray<string>,
 ): Promise<void> {
-  const sitemapPath = path.join(distDir, 'sitemap-jobs.xml');
-  let xml: string;
-  try {
-    xml = await fs.promises.readFile(sitemapPath, 'utf-8');
-  } catch {
-    return; // sitemap-jobs.xml not emitted this build — nothing to patch.
+  if (!fs.existsSync(distDir)) return;
+  const files = fs
+    .readdirSync(distDir)
+    .filter((file) => isJobSitemapFilename(file));
+  if (files.length === 0) return;
+
+  const sitemapFiles: Array<{ file: string; xml: string }> = [];
+  for (const file of files) {
+    try {
+      sitemapFiles.push({
+        file,
+        xml: await fs.promises.readFile(path.join(distDir, file), 'utf-8'),
+      });
+    } catch {
+      // A concurrent cleanup can remove a stale shard between readdir and
+      // readFile. It is already gone from the discoverable output; continue
+      // with the files that still exist.
+    }
   }
 
-  const locs = extractSitemapLocs(xml);
+  // A zero-entry shard is never a valid output of writeShardsToDist(). Remove
+  // it here as well because a stale shard may have come from an earlier
+  // artifact or may have become empty after the dist-truth filter. Leaving it
+  // on disk lets sitemapAliasPlugin rediscover and publish the stale filename.
+  for (const { file, xml } of sitemapFiles) {
+    if (!isJobSitemapShardFilename(file) || extractSitemapLocs(xml).length > 0) continue;
+    try {
+      await fs.promises.unlink(path.join(distDir, file));
+    } catch (error: any) {
+      if (error?.code !== 'ENOENT') throw error;
+    }
+  }
+
+  const locs = sitemapFiles.flatMap(({ xml }) => extractSitemapLocs(xml));
   if (locs.length === 0 && mirrorLocs.length === 0) return;
 
+  // Unlike cluster sitemaps, the job sitemap family is written by the IT
+  // build and deliberately contains URLs owned by the other locale shards.
+  // `inspectForeignPresent` checks those URLs when a bridge file is present,
+  // while preserving a missing foreign file as cross-shard output.
   const kept = new Set(
-    (await dropOverwrittenLocs(distDir, locs)).map(normalizeLocForCanonicalCmp),
+    (await dropOverwrittenLocs(distDir, locs, { inspectForeignPresent: true }))
+      .map(normalizeLocForCanonicalCmp),
   );
   const unserved = locs.filter((l) => !kept.has(normalizeLocForCanonicalCmp(l)));
-  const dropLocs = [...new Set([...unserved, ...mirrorLocs])];
+  // A cache HIT can reach this reconciler after the jobs producer's normal
+  // allowlist population was skipped. Recover the current decision before
+  // filtering historical shards; a null registry must never disable this
+  // stale-detail guard.
+  const sourceStale = staleJobShardLocs(sitemapFiles, ensureActiveJobSitemapLocs(sitemapFiles));
+  const dropLocs = [...new Set([...unserved, ...mirrorLocs, ...sourceStale])];
   if (dropLocs.length === 0) return;
 
-  const { xml: patched, dropped } = dropUrlBlocksByLoc(xml, dropLocs);
+  let dropped = 0;
+  const changedFiles: string[] = [];
+  for (const { file, xml } of sitemapFiles) {
+    const result = dropUrlBlocksByLoc(xml, dropLocs);
+    if (result.xml === xml || result.dropped === 0) continue;
+    if (isJobSitemapShardFilename(file) && extractSitemapLocs(result.xml).length === 0) {
+      try {
+        await fs.promises.unlink(path.join(distDir, file));
+      } catch (error: any) {
+        if (error?.code !== 'ENOENT') throw error;
+      }
+      changedFiles.push(`${file} (removed-empty)`);
+    } else {
+      await fs.promises.writeFile(path.join(distDir, file), result.xml, 'utf-8');
+      changedFiles.push(file);
+    }
+    dropped += result.dropped;
+  }
   if (dropped > 0) {
-    await fs.promises.writeFile(sitemapPath, patched, 'utf-8');
     console.log(
-      `\x1b[33m[related-search-clusters]\x1b[0m sitemap-jobs.xml: dropped ${dropped} URL(s) not served self-canonical by dist/ ` +
-      `(${unserved.length} failed the dist-truth check, ${mirrorLocs.length} known cross-section mirror(s), issue #911)`,
+      `\x1b[33m[related-search-clusters]\x1b[0m sitemap-jobs*.xml: dropped ${dropped} URL(s) not served self-canonical by dist/ ` +
+      `(${unserved.length} failed the dist-truth check, ${sourceStale.length} stale source URL(s), ${mirrorLocs.length} known cross-section mirror(s), ` +
+      `files=${changedFiles.join(', ')}, issue #911)`,
     );
   }
 }
@@ -3830,7 +4493,7 @@ async function writeSitemap(
       const __tSerialize = profileStart();
       const slice = locs.slice(i * SITEMAP_SHARD_CAP, (i + 1) * SITEMAP_SHARD_CAP);
       const entries = slice.map((loc) =>
-        `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+        `  <url>\n    <loc>${loc}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
       ).join('\n');
       const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
       profileRecord('sw:serialize-xml', __tSerialize);
@@ -3908,6 +4571,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
     // every build.
     enforce: 'post',
     async closeBundle() {
+      finalSitemapMirrorLocs = [];
       if (process.env.SKIP_RELATED_SEARCH_CLUSTERS === '1') {
         console.log('\x1b[36m[related-search-clusters]\x1b[0m skipped via SKIP_RELATED_SEARCH_CLUSTERS');
         return;
@@ -4060,6 +4724,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           registerRetiredKeywordLandingPaths(
             cacheHitRetiredLandingPaths(junkRetirements, restored.retiredFiles ?? []),
           );
+          finalSitemapMirrorLocs = [...(restored.crossSectionMirrorLocs ?? [])];
           await jobsSeoPagesFlushed;
           await reconcileSitemapJobsWithDist(distDir, restored.crossSectionMirrorLocs ?? []);
           profileRecord('cache-hit-patches', __tCacheHitPatch);
@@ -4239,9 +4904,32 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
 
       const contexts: ClusterContext[] = [];
       const __tContextBuild = profileStart();
+      const contextStartedAt = Date.now();
+      let processedContexts = 0;
       for (const cand of candidates) {
-        const ctx = buildClusterContext(cand, tokenIndex, jobs);
+        // Single pass, on purpose. #11971 probed each candidate up to the
+        // indexability floor and rebuilt the ones that reached it, assuming
+        // most stay below. In production the phase doubled instead: on the FR
+        // shard, 349,397 contexts took 3,969 s in run 37543459577 (before) and
+        // were at 7,771 s with 29k still to go in run 37623979411 (after), same
+        // corpus and heap. A candidate above the floor is matched twice, and
+        // the probe runs the occupation filter on every OR hit rather than on
+        // the top-scored ones. The probe API stays (covered by
+        // tests/related-search-cluster-probe-equivalence.test.ts) for whoever
+        // re-measures it against a full shard before wiring it back.
+        // Every locale still needs context metadata for cross-locale links,
+        // path planning, sitemap decisions and the locale hubs. Only this
+        // shard's locale is rendered here, so retain matching RawJob rows and
+        // top-company data only for contexts the shard owns. Keeping those
+        // other locale contexts still support link/sitemap metadata, but
+        // their rows are not rendered by this shard and need not stay live.
+        const ctx = buildClusterContext(cand, tokenIndex, jobs, {
+          retainMatchingJobs: shouldEmitLocale(cand.locale),
+        });
         if (ctx) contexts.push(ctx);
+        if (++processedContexts % 10_000 === 0) {
+          console.log(`[related-search-clusters] contexts ${processedContexts}/${candidates.length} elapsed_ms=${Date.now() - contextStartedAt} heap_mb=${Math.round(process.memoryUsage().heapUsed / 1048576)}`);
+        }
       }
       profileRecord('build-contexts', __tContextBuild);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${contexts.length} clusters survived match-≥${MIN_MATCHING_JOBS} filter`);
@@ -4311,6 +4999,16 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         'related-search-clusters',
         retirementGuardInputs.normalizedPlannedPaths,
       );
+      const plannedPathCount = plannedPaths.length;
+      // The authoritative registry copied these paths into its Set. Drop the
+      // staging arrays before building cross-locale maps and emitting pages;
+      // the normalized/guard projections duplicate up to a million paths.
+      plannedPaths.length = 0;
+      retirementGuardInputs.normalizedPlannedPaths.length = 0;
+      retirementGuardInputs.guardPlannedPaths.length = 0;
+      // Reclaim the raw path strings before rendering thousands of pages; the
+      // registry owns its own normalized Set and no longer needs these arrays.
+      forceGc();
       // Withdrawals are EMITTED, just never advertised: declaring them keeps
       // the hreflang gate from reading "unplanned" as "written nowhere" and
       // stripping the whole block off every live sibling (issue #7756). All
@@ -4322,7 +5020,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       ]);
       profileRecord('register-landing-plan', __tPlan);
       console.log(
-        `\x1b[36m[related-search-clusters]\x1b[0m registered ${plannedPaths.length} planned keyword-landing path(s) (plan total ${keywordLandingPlanSize()})`,
+        `\x1b[36m[related-search-clusters]\x1b[0m registered ${plannedPathCount} planned keyword-landing path(s) (plan total ${keywordLandingPlanSize()})`,
       );
 
       // Group by (normalized keyword + city) for cross-locale hreflang lookup.
@@ -4529,13 +5227,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
 
         const cityIdx = byLocaleCity.get(locale);
         const sameCityList = (ctx.city && cityIdx?.get(ctx.city)) || [];
-        const related = sameCityList
-          .filter((other) => other.candidate.slug !== ctx.candidate.slug)
-          .slice(0, 8)
-          .map((other) => ({
-            keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
-            url: `${BASE_URL}${buildClusterPath(locale, other.candidate.slug, other.cantonGroup)}`,
-          }));
+        const related = selectRelatedClusterLinks(ctx, sameCityList, enriched);
 
         const enrichedKey = `${locale}::${ctx.candidate.slug}`;
         const out = renderClusterPage({
@@ -4547,10 +5239,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           dateStamp,
         });
 
-        // Tiered emission decision per cluster context. The same html
-        // payload is reused for the canonical + the flat-bridge source
-        // + every legacy-canton mirror, so we decide once and apply
-        // uniformly. PR #743 fix: the mirror set is computed BEFORE the
+        // Tiered emission decision per cluster context. The canonical HTML
+        // feeds the canonical page and flat bridge; mirrors use a copy with
+        // hreflang removed because their canonical points to the aggregate
+        // locale page. We decide indexability once and apply it uniformly.
+        // PR #743 fix: the mirror set is computed BEFORE the
         // decision and every candidate path goes through `decideMulti` —
         // GSC + GA4 attribute traffic to the legacy mirror (typically
         // `/cerca-lavoro-ticino/ricerca-X/`), not the freshly-promoted
@@ -4607,6 +5300,9 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const __clHtml = __clNoindex
           ? replaceRobotsMeta(__clThinned, 'noindex,follow')
           : __clThinned;
+        const __clMirrorHtml = __clMirrorPaths.size > 0
+          ? stripHreflangForClusterMirror(__clHtml)
+          : __clHtml;
         profileRecord('cluster-thin', __tClThin);
         const __clDelta = __clAction === 'thin' ? out.html.length - __clHtml.length : 0;
         if (__clAction === 'thin') clusterThinCount++; else clusterFullCount++;
@@ -4615,12 +5311,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         if (incrementalManifests) {
           const clusterManifestInput = buildRelatedClusterManifestInput({
             slug: ctx.candidate.slug,
-            title: buildTitleWithBrand(
-              capForTitle(buildHeadline(ctx.keyword, ctx.city, locale), TITLE_MAX_CHARS),
-              undefined,
-              TITLE_MAX_CHARS,
-              (s) => escapeForBudget(s).length,
-            ),
+            title: buildClusterTitle(ctx.keyword, ctx.city, locale),
             locale,
             canton: ctx.cantonGroup,
             matchingJobs: ctx.matchingJobs,
@@ -4667,11 +5358,10 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         if (__clEmission.sitemapEligible) sitemapLocs.push(out.loc);
 
         // ── Legacy mirrors ──────────────────────────────────────────────
-        // Emit byte-identical copies of the canonical (Svizzera) HTML at the
-        // legacy per-canton paths that this cluster previously occupied. The
-        // mirror's `<link rel="canonical">` already points to Svizzera (it's
-        // baked into the rendered HTML), so search engines fold the mirror
-        // into the canonical instead of treating it as a duplicate.
+        // Emit copies of the canonical (Svizzera) page at the legacy
+        // per-canton paths that this cluster previously occupied. The mirror
+        // canonical points to Svizzera, and its hreflang is removed so the
+        // locale cluster stays on the self-canonical aggregate pages.
         //
         // Three mirror sources are merged into a single Set of absolute
         // paths (deduped + collision-guarded against the canonical):
@@ -4713,7 +5403,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           // via flat bridges would add hundreds of thousands of files for a
           // negligible UX gain.
           const mirrorIndexPath = path.join(distDir, mirrorPath, 'index.html');
-          collector.add(mirrorIndexPath, __clHtml);
+          collector.add(mirrorIndexPath, __clMirrorHtml);
           clusterBytesSaved += __clDelta;
           emittedFiles.push(path.relative(distDir, mirrorIndexPath));
           // The mirror's HTML canonicalizes to Svizzera (out.loc), so this TI
@@ -4738,11 +5428,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         });
         const totalPages = Math.max(1, Math.ceil(items.length / HUB_PAGE_SIZE));
 
-        // Top-N by matchingJobs.length for the Svizzera section-landing
-        // bridge (issue #4400). `list` (not yet cleared) still carries
-        // matchingJobs at this point in the loop.
+        // Top-N by retained match count for the Svizzera section-landing bridge
+        // (issue #4400). Foreign-locale contexts retain this count while
+        // releasing their matching-job rows in locale-sharded builds.
         const svizzeraLinks = [...list]
-          .sort((a, b) => b.matchingJobs.length - a.matchingJobs.length)
+          .sort((a, b) => clusterMatchingJobCount(b) - clusterMatchingJobCount(a))
           .slice(0, SVIZZERA_HUB_BRIDGE_LINK_COUNT)
           .map((ctx) => ({
             label: ctx.city ? `${capitalize(ctx.keyword)} — ${ctx.city}` : capitalize(ctx.keyword),
@@ -4800,6 +5490,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // issue #911: reconcile sitemap-jobs.xml against dist/. writeSitemap
       // already awaited jobsSeoPagesFlushed, so the file is final.
       const __tDropJobsMirrors = profileStart();
+      finalSitemapMirrorLocs = crossSectionMirrorLocs.slice();
       await reconcileSitemapJobsWithDist(distDir, crossSectionMirrorLocs);
       profileRecord('drop-jobs-mirrors', __tDropJobsMirrors);
 

@@ -11,9 +11,12 @@
 import { describe, it, expect } from 'vitest';
 import {
   dedupeFuzzy,
+  dedupeOrganizerAgainstTio,
+  distinctiveTitleWords,
   eventRichnessScore,
   pickRichestEvent,
   attachItalianFrontierComuni,
+  stripUnauthorizedEventImage,
 } from '../scripts/assemble-events-dataset.mjs';
 
 function ev(overrides: Record<string, any> = {}): Record<string, any> {
@@ -26,6 +29,17 @@ function ev(overrides: Record<string, any> = {}): Record<string, any> {
     ...overrides,
   };
 }
+
+describe('organizer vs tio dedup title signals', () => {
+  it('does not treat the generic festival label as a match', () => {
+    expect(distinctiveTitleWords('Festival')).not.toContain('festival');
+    const events = [
+      { id: 'tio-agenda:t', sourceKey: 'tio-agenda', title: 'Festival', startDate: '2026-10-07', comune: 'Ascona' },
+      { id: 'classicascona:c', sourceKey: 'classicascona', title: 'Festival', url: 'https://classicascona.ch/concerti/festival/', startDate: '2026-10-07', comune: 'Ascona' },
+    ];
+    expect(dedupeOrganizerAgainstTio(events).mergedAway).toBe(0);
+  });
+});
 
 describe('eventRichnessScore', () => {
   it('counts populated optional fields only', () => {
@@ -43,6 +57,38 @@ describe('eventRichnessScore', () => {
 
   it('a populated price object counts as one populated field', () => {
     expect(eventRichnessScore(ev({ price: { amount: 10, currency: 'CHF', isFree: false } }))).toBe(1);
+  });
+});
+
+describe('event image licence policy', () => {
+  it('strips stale image references from sources outside the allowlist', () => {
+    const stale = ev({
+      sourceKey: 'myswitzerland',
+      imageUrl: '/images/events/myswitzerland-old.webp',
+      imageCredit: 'MySwitzerland',
+    });
+    expect(stripUnauthorizedEventImage(stale)).not.toHaveProperty('imageUrl');
+    expect(stripUnauthorizedEventImage(stale)).not.toHaveProperty('imageCredit');
+  });
+
+  it('keeps an image from the explicit open-licence source', () => {
+    const licensed = ev({
+      sourceKey: 'openagenda',
+      imageUrl: '/images/events/openagenda-event.webp',
+      imageCredit: 'OpenAgenda',
+      imageLicense: 'Licence Ouverte 2.0',
+      imageLicenseUrl: 'https://doc.openagenda.com/fr/article/conditions-generales-dutilisation-xq325m/',
+    });
+    expect(stripUnauthorizedEventImage(licensed)).toEqual(licensed);
+  });
+
+  it('strips an OpenAgenda mirror when the per-image licence fields are absent', () => {
+    const incomplete = ev({
+      sourceKey: 'openagenda',
+      imageUrl: '/images/events/openagenda-event.webp',
+      imageCredit: 'OpenAgenda',
+    });
+    expect(stripUnauthorizedEventImage(incomplete)).not.toHaveProperty('imageUrl');
   });
 });
 
@@ -73,6 +119,66 @@ describe('pickRichestEvent', () => {
     const a = ev({ id: 'guidle:aaa', sourceKey: 'guidle' });
     const b = ev({ id: 'guidle:bbb', sourceKey: 'guidle' });
     expect(pickRichestEvent([b, a])).toBe(a);
+  });
+
+  it('keeps the richer record and recovers its missing tariff from a duplicate', () => {
+    const winner = ev({
+      id: 'tio-agenda:62425', title: 'Orbita Chopin', startDate: '2026-10-04', comune: 'Ascona',
+      description: 'Concerto ad Ascona.', imageUrl: 'https://tio.example/concert.jpg',
+      url: 'https://tio.example/concert', previousRoutes: [{ canton: 'TI', comune: 'Ascona', slug: 'old-concert' }],
+      price: { url: 'https://tickets.example/tio', availability: 'https://schema.org/InStock' },
+    });
+    const donor = ev({
+      id: 'guidle:A2L45W7', sourceKey: 'guidle', title: 'Orbita Chopin',
+      startDate: '2026-10-04', comune: 'Ascona',
+      price: { amount: 40, currency: 'CHF', isFree: false, url: 'https://tickets.example/guidle' },
+    });
+    const before = JSON.stringify([winner, donor]);
+    const result = dedupeFuzzy([winner, donor]);
+    expect(result.mergedAway).toBe(1);
+    expect(result.events).toEqual([{ ...winner, price: { ...winner.price, amount: 40, currency: 'CHF', isFree: false } }]);
+    expect(dedupeFuzzy([donor, winner]).events).toEqual(result.events);
+    expect(JSON.stringify([winner, donor])).toBe(before);
+  });
+
+  it('preserves an already known price on the winner even when another source disagrees', () => {
+    const winner = ev({ description: 'Full description.', price: { amount: 45, currency: 'CHF', isFree: false } });
+    const donor = ev({ id: 'guidle:1', sourceKey: 'guidle', price: { amount: 40, currency: 'CHF', isFree: false } });
+    expect(pickRichestEvent([winner, donor])).toBe(winner);
+  });
+
+  it.each([
+    [{ amount: 40, currency: 'CHF' }, { amount: 45, currency: 'CHF' }],
+    [{ amount: 40, currency: 'CHF' }, { amount: 40, currency: 'EUR' }],
+    [{ isFree: true, currency: 'CHF' }, { amount: 40, currency: 'CHF' }],
+  ])('leaves conflicting duplicate prices unresolved (%j, %j)', (firstPrice, secondPrice) => {
+    const winner = ev({ description: 'Full description.', imageUrl: 'https://tio.example/photo.jpg' });
+    const first = ev({ id: 'guidle:1', sourceKey: 'guidle', price: firstPrice });
+    const second = ev({ id: 'myswitzerland:1', sourceKey: 'myswitzerland', price: secondPrice });
+    expect(pickRichestEvent([winner, first, second])).toBe(winner);
+  });
+
+  it('recovers explicit free admission and ignores empty or invalid monetary values', () => {
+    const winner = ev({ description: 'Full description.', imageUrl: 'https://tio.example/photo.jpg' });
+    const free = ev({ id: 'guidle:1', sourceKey: 'guidle', price: { isFree: true, currency: 'CHF' } });
+    expect(pickRichestEvent([winner, free]).price).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    for (const amount of [undefined, null, '', '40', NaN, Infinity, -1]) {
+      const invalid = ev({ id: 'guidle:2', sourceKey: 'guidle', price: { amount, currency: 'CHF' } });
+      expect(pickRichestEvent([winner, invalid])).toBe(winner);
+    }
+  });
+
+  it('accepts agreeing tariffs from several sources without importing their booking metadata', () => {
+    const winner = ev({ description: 'Full description.', imageUrl: 'https://tio.example/photo.jpg' });
+    const first = ev({ id: 'guidle:1', sourceKey: 'guidle', price: { amount: 40, currency: 'CHF', url: 'https://tickets.example/one' } });
+    const second = ev({ id: 'myswitzerland:1', sourceKey: 'myswitzerland', price: { amount: 40, currency: 'CHF', url: 'https://tickets.example/two' } });
+    expect(pickRichestEvent([winner, first, second]).price).toEqual({ amount: 40, currency: 'CHF', isFree: false });
+  });
+
+  it('does not transfer tariffs between same-source collisions that the deduper keeps separate', () => {
+    const first = ev({ id: 'myswitzerland:1', sourceKey: 'myswitzerland' });
+    const second = ev({ id: 'myswitzerland:2', sourceKey: 'myswitzerland', price: { amount: 40, currency: 'CHF' } });
+    expect(dedupeFuzzy([first, second]).events).toEqual([first, second]);
   });
 });
 

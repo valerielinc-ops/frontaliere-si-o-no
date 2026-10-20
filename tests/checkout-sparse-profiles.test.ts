@@ -16,13 +16,35 @@
  * una scelta prudente scritta a mano), escludere DI PIU' no.
  */
 import { describe, it, expect } from 'vitest';
+import { builtinModules } from 'node:module';
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
-import { verifyCheckoutProfiles, literalPathsIn, isExcludedBy, importedDataOrPublicPathsIn } from '../scripts/ci/verify-checkout-profiles.mjs';
-import { BUCKETS, BASELINE_MB, TREE_MB, CROSSOVER_MB, analyzeAll } from '../scripts/ci/checkout-profile-analyzer.mjs';
+import {
+  verifyCheckoutProfiles,
+  literalPathsIn,
+  isExcludedBy,
+  importedDataOrPublicPathsIn,
+  pathsOutsideSparseRules,
+  uncoveredAllowListCode,
+  uncoveredAllowListOpenedFiles,
+  openedByNameIn,
+} from '../scripts/ci/verify-checkout-profiles.mjs';
+import {
+  BUCKETS,
+  BASELINE_MB,
+  TREE_MB,
+  CROSSOVER_MB,
+  checkoutEntryPoints,
+  analyzeAll,
+  inlineModuleEntryPoints,
+  transitiveClosure,
+} from '../scripts/ci/checkout-profile-analyzer.mjs';
+import { importSpecifiers } from '../scripts/ci/check-dependency-free-import-closure.mjs';
 import {
   computeProfiledText,
+  GLOBAL_TESTS_REQUIRED_SPARSE_PATHS,
+  missingGlobalTestsSparsePaths,
   missingTypecheckSparsePaths,
   TYPECHECK_REQUIRED_SPARSE_PATHS,
 } from '../scripts/ci/apply-checkout-profiles.mjs';
@@ -31,17 +53,39 @@ const WF_DIR = path.join(process.cwd(), '.github/workflows');
 const workflowFiles = fs.readdirSync(WF_DIR).filter((f) => /\.ya?ml$/.test(f)).sort();
 
 /**
- * L'analisi attraversa 204 workflow e segue la chiusura transitiva degli import:
- * ~6s a freddo. Il default di vitest (5s) lo farebbe fallire come se fosse un
- * difetto invece che per lentezza — lo stesso inganno gia' visto con
- * `packages-articles-confinement.test.ts`.
+ * L'analisi attraversa 204 workflow e segue la chiusura transitiva degli import.
+ * Sul worktree sparse il costo misurato supera il minuto; un timeout esplicito
+ * evita che il limite di Vitest (5s) o il vecchio cap locale interrompa la
+ * verifica prima del risultato.
  */
-const TIMEOUT = 60_000;
+const TIMEOUT = 180_000;
 
 describe('profili di sparse-checkout', () => {
+  it('non interpreta un suffisso .sh dell allow-list come comando shell', () => {
+    expect(checkoutEntryPoints([
+      '/scripts/ci/overlay-durable-loop-fleet-ledger.sh',
+      '/scripts/ci/loop-fleet-ledger-reconcile.mjs',
+    ].join('\n'), {})).toEqual([]);
+  });
+
   it('sono coerenti col codice che i job eseguono', () => {
     const { problems } = verifyCheckoutProfiles();
     expect(problems).toEqual([]);
+  }, TIMEOUT);
+
+  it('i monitor che committano solo extra espliciti non trascinano i bucket dati', () => {
+    for (const file of [
+      'auth-signup-subscriber-monitor.yml',
+      'unsubscribe-credential-monitor.yml',
+      'autologin-refusal-monitor.yml',
+    ]) {
+      const workflow = analyzeAll().find((w) => w.file === file);
+      const job = workflow?.jobs.find((j) => j.jobId === 'check');
+      expect(job, file).toBeDefined();
+      expect(job!.needs, file).toContain('docs/');
+      expect(job!.needs, file).not.toContain('data/jobs/');
+      expect(job!.aboveCrossover, file).toBe(false);
+    }
   }, TIMEOUT);
 
   it('usano la modalita non-cone: i pattern di negazione la richiedono', () => {
@@ -67,6 +111,23 @@ describe('profili di sparse-checkout', () => {
     const { problems } = verifyCheckoutProfiles();
     expect(problems.filter((p) => p.includes('escluderebbe il codice'))).toEqual([]);
   }, TIMEOUT);
+
+  it('il checkout allow-list di L3 include il helper importato dal runner', () => {
+    const workflow = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'loop-l3-job-quality.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const checkout = workflow?.jobs?.audit?.steps?.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const sparsePaths = String(checkout?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry) => entry.trim());
+    const runner = fs.readFileSync(path.join(process.cwd(), 'scripts/ci/loop-l3-job-quality.mjs'), 'utf8');
+
+    expect(runner).toMatch(/from ['"]\.\.\/lib\/https-url\.mjs['"]/);
+    expect(sparsePaths).toContain('/scripts/lib/https-url.mjs');
+  });
 
   it('estrae solo import veri verso data/public, non stringhe letterali generiche (issue #6149)', () => {
     // `tsc` risolve gli specificatori di import sul disco, non le stringhe
@@ -99,20 +160,46 @@ describe('profili di sparse-checkout', () => {
     expect(missingTypecheckSparsePaths(source, 'tests.yml')).toEqual([]);
     expect(TYPECHECK_REQUIRED_SPARSE_PATHS).toEqual([
       '/data/blog-articles-data.ts',
+      '/data/blogImageCdnMirror.ts',
       '/packages/articles/content/blog-articles-data.ts',
+      '/packages/articles/content/blogImageCdnMirror.ts',
     ]);
+    expect(fs.lstatSync(path.join(process.cwd(), 'data/blogImageCdnMirror.ts')).isSymbolicLink()).toBe(true);
+    expect(fs.existsSync(path.join(process.cwd(), 'data/blogImageCdnMirror.ts'))).toBe(true);
+    expect(fs.readlinkSync(path.join(process.cwd(), 'data/blogImageCdnMirror.ts'))).toBe(
+      '../packages/articles/content/blogImageCdnMirror.ts',
+    );
+  });
+
+  it('il profilo globale materializza tutti gli input runtime del build', () => {
+    const source = fs.readFileSync(path.join(WF_DIR, 'tests.yml'), 'utf8');
+    expect(missingGlobalTestsSparsePaths(source, 'tests.yml')).toEqual([]);
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/data/fuel-prices.json');
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/public/data/fuel-prices.json');
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/data/blogImageCdnMirror.ts');
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/data/swiss-articles-data.ts');
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/packages/articles/content/blogImageCdnMirror.ts');
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/packages/articles/content/seo/seo-blog-7.ts');
+  });
+
+  it('se il profilo globale perde un artefatto, il verifier lo segnala', () => {
+    const source = `jobs:\n  vitest:\n    steps:\n      - uses: actions/checkout@v7\n        with:\n          sparse-checkout: |\n            /scripts/\n            /data/\n            /packages/articles/content/blog-articles-data.ts\n            /packages/articles/content/swiss-articles-data.ts\n            /packages/articles/content/blogArticleIds.ts\n            /packages/articles/content/routerBlogData.ts\n            /packages/articles/content/routerSwissData.ts\n            /packages/articles/content/blogImageCdnMirror.ts\n            /packages/articles/content/blog-meta-*.ts\n            /packages/articles/content/seo/seo-blog*.ts\n            /packages/articles/content/seo/seoMetadataType.ts\n          sparse-checkout-cone-mode: false\n`;
+    const missing = missingGlobalTestsSparsePaths(source, 'synthetic.yml');
+    expect(missing).toContain('synthetic.yml:vitest:/public/data/fuel-prices.json');
   });
 
   it('se un profilo typecheck esclude il target, --check lo segnala esplicitamente', () => {
-    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v5\n        with:\n          sparse-checkout: |\n            /scripts/\n            !/data/\n            !/packages/articles/content/\n      - run: npm run typecheck:gate\n`;
+    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v7\n        with:\n          sparse-checkout: |\n            /scripts/\n            !/data/\n            !/packages/articles/content/\n      - run: npm run typecheck:gate\n`;
     expect(missingTypecheckSparsePaths(source, 'synthetic.yml')).toEqual([
       'synthetic.yml:typecheck:/data/blog-articles-data.ts',
+      'synthetic.yml:typecheck:/data/blogImageCdnMirror.ts',
       'synthetic.yml:typecheck:/packages/articles/content/blog-articles-data.ts',
+      'synthetic.yml:typecheck:/packages/articles/content/blogImageCdnMirror.ts',
     ]);
   });
 
   it('ignora un checkout secondario in una sottodirectory: tsc non gira li', () => {
-    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v5\n        with:\n          sparse-checkout: |\n            /data/\n            /packages/articles/content/blog-articles-data.ts\n      - run: npm run typecheck:gate\n      - uses: actions/checkout@v5\n        with:\n          path: trusted-main\n          sparse-checkout: |\n            /scripts/ci/x.mjs\n`;
+    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v7\n        with:\n          sparse-checkout: |\n            /data/\n            /packages/articles/content/blog-articles-data.ts\n            /packages/articles/content/blogImageCdnMirror.ts\n      - run: npm run typecheck:gate\n      - uses: actions/checkout@v7\n        with:\n          path: trusted-main\n          sparse-checkout: |\n            /scripts/ci/x.mjs\n`;
     expect(missingTypecheckSparsePaths(source, 'synthetic.yml')).toEqual([]);
   });
 
@@ -155,6 +242,23 @@ describe('profili di sparse-checkout', () => {
       }
     }
     expect(bad).toEqual([]);
+  }, TIMEOUT);
+
+  it('porta a checkout pieno i profili nella fascia misurata come lenta con lazy blob', () => {
+    const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
+    for (const file of [
+      'update-exchange-history.yml',
+      'update-fuel-prices.yml',
+      'quality-alerts.yml',
+    ]) {
+      const workflow = analyzeAll().find((w) => w.file === file);
+      const job = workflow?.jobs.find((j) => j.hasCheckout);
+      expect(job, file).toBeDefined();
+      expect(job!.checkoutMb, file).toBeGreaterThan(CROSSOVER_MB);
+
+      const generated = computeProfiledText(path.join(WF_DIR, file), pkg.scripts);
+      expect(generated.text, file).not.toContain('# checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs');
+    }
   }, TIMEOUT);
 
   it('un job opaco (build/test) non esclude nulla', () => {
@@ -204,4 +308,164 @@ describe('profili di sparse-checkout', () => {
       'profili sparse in ritardo — rigenerali con `node scripts/ci/apply-checkout-profiles.mjs` e rileggi il diff',
     ).toEqual([]);
   }, TIMEOUT);
+});
+
+describe('dipendenze runtime dei job workflow', () => {
+  it('installa prima degli script ogni pacchetto importato dal job sync', () => {
+    const workflow = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'sync-articles-sitemaps.yml'), 'utf8'), {
+      logLevel: 'silent',
+    });
+    const job = workflow.jobs.sync;
+    const steps = job.steps as Array<Record<string, unknown>>;
+    const packageJson = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
+    const packageLock = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package-lock.json'), 'utf8'));
+    const stepEntries = steps.map((step) => checkoutEntryPoints(JSON.stringify(step), packageJson.scripts));
+    const firstRuntimeStep = stepEntries.findIndex((entries) => entries.length > 0);
+    const installStep = steps.findIndex((step) => typeof step.run === 'string'
+      && /(?:^|\n)\s*npm\s+(?:ci|install)(?:\s|$)/.test(step.run));
+    const entries = [...new Set(stepEntries.flat())];
+    const packageImports = new Map<string, string>();
+    for (const { rel, src } of transitiveClosure(entries)) {
+      for (const specifier of importSpecifiers(src)) {
+        if (specifier.startsWith('.') || specifier.startsWith('/')
+          || specifier.startsWith('node:') || builtinModules.includes(specifier)) continue;
+        if (!packageImports.has(specifier)) packageImports.set(specifier, rel);
+      }
+    }
+    const declared = new Set([
+      ...Object.keys(packageJson.dependencies ?? {}),
+      ...Object.keys(packageJson.devDependencies ?? {}),
+      ...Object.keys(packageJson.optionalDependencies ?? {}),
+    ]);
+    const packageName = (specifier: string) => specifier.startsWith('@')
+      ? specifier.split('/').slice(0, 2).join('/')
+      : specifier.split('/')[0];
+    const missing = [...packageImports.keys()].filter((specifier) => !declared.has(packageName(specifier)));
+    const unlocked = [...packageImports.keys()].filter((specifier) => {
+      const name = packageName(specifier);
+      return !packageLock.packages?.[`node_modules/${name}`]?.version;
+    });
+
+    expect(firstRuntimeStep).toBeGreaterThanOrEqual(0);
+    expect(installStep).toBeGreaterThanOrEqual(0);
+    expect(installStep).toBeLessThan(firstRuntimeStep);
+    expect([...packageImports.keys()]).toContain('typescript');
+    expect(missing).toEqual([]);
+    expect(unlocked).toEqual([]);
+  }, TIMEOUT);
+});
+
+/**
+ * Allow-list sparse (issue di #9835). Fino al 2026-09-25 `verifyCheckoutProfiles`
+ * saltava ogni sparse che non comincia con `/*` («non li si giudica qui»), e
+ * l'analizzatore seguiva i symlink solo se il bersaglio era materializzato,
+ * risolvendone gli import dalla cartella del LINK. #9835 e' cosi' arrivata su
+ * main con un watchdog che importava `build-plugins/shared/articleSectionCore.mjs`
+ * — symlink verso `packages/articles/engine/shared/` — senza il bersaglio nella
+ * sua allow-list: ERR_MODULE_NOT_FOUND alla prima run (36128534394) con la CI
+ * verde. Questi casi falliscono senza il fix.
+ */
+describe('allow-list sparse: il codice caricato deve essere materializzato', () => {
+  const OLD_WATCHDOG_LIST = [
+    'scripts/runtime-reliability-watch.mjs',
+    'scripts/',
+    'scripts/load-rc-env.mjs',
+    'scripts/lib/**',
+    'infra/cloudflare-worker/**',
+    'build-plugins/shared/cantonResolvers.mjs',
+    'build-plugins/shared/articleSectionCore.mjs',
+  ];
+  const WATCHDOG_ENTRIES = ['scripts/runtime-reliability-watch.mjs', 'scripts/load-rc-env.mjs', 'scripts/lib/github-issue-creator.mjs'];
+
+  it('la chiusura contiene il symlink E il suo bersaglio', () => {
+    // La verita' del link e' git, non il filesystem: il caso vale anche dove il
+    // bersaglio non e' materializzato.
+    const closure = transitiveClosure(['scripts/ci/cdn-chunk-graph.mjs'], { staticOnly: true }).map((r) => r.rel);
+    expect(closure).toContain('build-plugins/shared/articleSectionCore.mjs');
+    expect(closure).toContain('packages/articles/engine/shared/articleSectionCore.mjs');
+  });
+
+  it('boccia la allow-list del watchdog arrivata su main con #9835, e accetta quella corretta', () => {
+    // The core now also imports its generated sibling (canton sections), which
+    // the #9835 list misses for the same reason: both targets are reported.
+    expect(uncoveredAllowListCode(OLD_WATCHDOG_LIST, WATCHDOG_ENTRIES, { cone: false }))
+      .toEqual([
+        'packages/articles/engine/shared/articleSectionCore.mjs',
+        'packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs',
+      ]);
+    const doc = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'runtime-reliability-watch.yml'), 'utf8'));
+    const checkout = doc.jobs.watch.steps.find((st: any) => String(st?.uses).startsWith('actions/checkout@'));
+    const lines = String(checkout.with['sparse-checkout']).split('\n').map((l: string) => l.trim()).filter(Boolean);
+    expect(uncoveredAllowListCode(lines, WATCHDOG_ENTRIES, { cone: false })).toEqual([]);
+  }, TIMEOUT);
+
+  it('riconosce un file aperto per nome dalla radice, non una stringa qualsiasi', () => {
+    // `PROJECT_ROOT` e non `ROOT`: lo scanner dei dati vivi legge `join(ROOT`
+    // in un test come una lettura dal checkout, anche dentro una stringa, e
+    // con il `data/jobs/` nominato piu' sopra segnalava questo file.
+    const source = [
+      "const workflow = resolve(process.cwd(), '.github/workflows/deploy-request.yml');",
+      "const ledger = path.join(PROJECT_ROOT, 'data/blog-cover-ledger.json');",
+      "const policy = fs.readFileSync('./scripts/ci/policy.json', 'utf8');",
+      "console.log('rigenera con scripts/ci/apply-checkout-profiles.mjs');",
+      "const output = path.join(outDir, 'report.json');",
+    ].join('\n');
+    expect([...openedByNameIn(source)].sort()).toEqual([
+      '.github/workflows/deploy-request.yml',
+      'data/blog-cover-ledger.json',
+      'scripts/ci/policy.json',
+    ]);
+  });
+
+  it('boccia la allow-list di deploy-request arrivata su main con la PR 12277, e accetta quella corretta', () => {
+    // Il dispatcher legge il paths-ignore del proprio workflow dalla cartella
+    // di lavoro: non e' un import, e la lista conteneva solo il codice. A ogni
+    // fine deploy il confronto dei path falliva con ENOENT (issue 12344).
+    const OLD_DISPATCHER_LIST = [
+      '/scripts/ci/request-latest-deploy.mjs',
+      '/scripts/check-pages-publish-lag.mjs',
+      '/scripts/ci/lib/run-listing-window.mjs',
+      '/scripts/lib/is-invoked-directly.mjs',
+      '/scripts/ci/mint-app-token.mjs',
+      '/scripts/lib/githubApiHeaders.mjs',
+      '/scripts/lib/int-from-env.mjs',
+      '/functions/src/githubApiHeaders.js',
+    ];
+    const DISPATCHER_ENTRIES = ['scripts/ci/mint-app-token.mjs', 'scripts/ci/request-latest-deploy.mjs'];
+    expect(uncoveredAllowListCode(OLD_DISPATCHER_LIST, DISPATCHER_ENTRIES, { cone: false })).toEqual([]);
+    expect(uncoveredAllowListOpenedFiles(OLD_DISPATCHER_LIST, DISPATCHER_ENTRIES, { cone: false }))
+      .toEqual(['.github/workflows/deploy-request.yml']);
+    const doc = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'deploy-request.yml'), 'utf8'));
+    const checkout = doc.jobs.request.steps.find((st: any) => String(st?.uses).startsWith('actions/checkout@'));
+    const lines = String(checkout.with['sparse-checkout']).split('\n').map((l: string) => l.trim()).filter(Boolean);
+    expect(uncoveredAllowListOpenedFiles(lines, DISPATCHER_ENTRIES, { cone: false })).toEqual([]);
+  }, TIMEOUT);
+
+  it('verifica davvero le allow-list, non le salta', () => {
+    // Pavimento sul numero, non uguaglianza: se lo scanner smette di
+    // riconoscerle, l'insieme dei problemi resta vuoto e il guard sopra passa
+    // VERDE su un repo rotto — il modo in cui questo controllo era gia' morto.
+    const { allowListsVerified } = verifyCheckoutProfiles();
+    expect(allowListsVerified).toBeGreaterThanOrEqual(30);
+  }, TIMEOUT);
+
+  it('decide la corrispondenza con git, sintassi non-cone e cone', () => {
+    const paths = ['scripts/x.mjs', 'scripts/ci/y.mjs', 'nested/scripts/z.mjs', 'build-plugins/a.mjs', 'root.json'];
+    // non-cone: `scripts/` vale a ogni profondita', una negazione ancorata toglie.
+    expect(pathsOutsideSparseRules(['scripts/', '!/scripts/ci/'], paths, { cone: false }))
+      .toEqual(['scripts/ci/y.mjs', 'build-plugins/a.mjs', 'root.json']);
+    // cone: directory intere, i file della radice sempre inclusi.
+    expect(pathsOutsideSparseRules(['scripts'], paths, { cone: true }))
+      .toEqual(['nested/scripts/z.mjs', 'build-plugins/a.mjs']);
+  });
+
+  it('segue gli import statici di heredoc e `node -e`, non quelli dinamici', () => {
+    const text = [
+      "node --input-type=module <<'NODE'",
+      "import { probeRuntime } from './scripts/runtime-reliability-watch.mjs';",
+      'NODE',
+      'node -e "import(\'./scripts/lazy-only.mjs\')"',
+    ].join('\n');
+    expect(inlineModuleEntryPoints(text)).toEqual(['scripts/runtime-reliability-watch.mjs']);
+  });
 });

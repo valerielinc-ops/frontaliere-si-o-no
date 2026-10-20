@@ -49,23 +49,16 @@ import {
   sleep,
   MIN_API_CALL_INTERVAL_MS,
 } from './lib/mailtrapSuppressionsApi.mjs';
-import { isRetryable, MAX_REACTIVATIONS_PER_RUN } from './lib/mailtrapSuppressionRetry.mjs';
+import { isRetryable, MAX_REACTIVATIONS_PER_RUN, reactivationActivityFields } from './lib/mailtrapSuppressionRetry.mjs';
 import { classifySuppressionDecay } from './lib/suppressionDecay.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const APPLY = process.argv.includes('--apply');
 
 let db;
 
 async function initFirebase() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  db = a.firestore();
+  db = await getFirestoreDb();
 }
 
 async function main() {
@@ -174,8 +167,7 @@ async function main() {
   const writeReactivation = (batch, it) => {
     batch.set(it.ref, {
       status: 'pending',
-      isActive: true,
-      active: true,
+      ...reactivationActivityFields(it.data),
       reactivated_at: FieldValue.serverTimestamp(),
       mailtrap_suppression_resolved_at: FieldValue.serverTimestamp(),
       mailtrap_suppression_type: it.record?.type || null,
@@ -203,7 +195,7 @@ async function main() {
       }
     }
     reactivated.push({ ref: s.ref, record });
-    pendingCommit.push({ ref: s.ref, record });
+    pendingCommit.push({ ref: s.ref, record, data: s.data });
     if (pendingCommit.length >= COMMIT_CHUNK_SIZE) await flushPending();
   }
 

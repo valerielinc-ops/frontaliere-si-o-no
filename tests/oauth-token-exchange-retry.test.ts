@@ -1,10 +1,21 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   exchangeAssertionForToken,
+  extractOAuthErrorReason,
+  isRetryableTokenExchangeStatus,
   TOKEN_EXCHANGE_TIMEOUT_MS,
   GOOGLE_TOKEN_URL,
 } from '../scripts/lib/google-service-account-token.mjs';
-import { RC_FETCH_ATTEMPTS, RC_FETCH_TIMEOUT_MS, isRetryableRcFetchStatus, rcFetchBackoffMs } from '../scripts/load-rc-env.mjs';
+import {
+  RC_FETCH_ATTEMPTS,
+  RC_FETCH_TIMEOUT_MS,
+  extractGoogleErrorReason,
+  isRetryableRcFetchStatus,
+  rcFetchBackoffMs,
+} from '../scripts/load-rc-env.mjs';
+
+const RC_SOURCE = readFileSync(new URL('../scripts/load-rc-env.mjs', import.meta.url), 'utf8');
 
 /**
  * Lo scambio OAuth e' il primo anello della catena delle credenziali di
@@ -32,7 +43,7 @@ import { RC_FETCH_ATTEMPTS, RC_FETCH_TIMEOUT_MS, isRetryableRcFetchStatus, rcFet
 const OK = { access_token: 'ya29.test' };
 
 const okResponse = () => ({ ok: true, status: 200, json: async () => OK });
-const errResponse = (status: number) => ({ ok: false, status, text: async () => `boom ${status}` });
+const errResponse = (status: number, body = `boom ${status}`) => ({ ok: false, status, text: async () => body });
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -46,7 +57,7 @@ afterEach(() => {
  * il modo classico di ottenere un test che passa anche col loop rotto. Due
  * secondi in tutta la suite sono un prezzo onesto per esercitarlo davvero.
  */
-describe('exchangeAssertionForToken: 429/5xx ritentati, 4xx no', () => {
+describe('exchangeAssertionForToken: errori transitori ritentati, credenziali no', () => {
   it('un 429 seguito da un 200 restituisce il token invece di lanciare', async () => {
     // Il caso misurato di #45/#54/#171: un solo 429 non ritentato che si
     // presentava come "credenziale rotta" e fermava l'intero ciclo agentico.
@@ -69,6 +80,51 @@ describe('exchangeAssertionForToken: 429/5xx ritentati, 4xx no', () => {
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
+  it('un TypeError di rete seguito da un 200 consuma il retry disponibile', async () => {
+    const networkErr = Object.assign(new Error('fetch failed'), { name: 'TypeError' });
+    const fetchMock = vi.fn().mockRejectedValueOnce(networkErr).mockResolvedValueOnce(okResponse());
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(exchangeAssertionForToken('jwt')).resolves.toBe('ya29.test');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('un AbortError durante il body JSON 2xx ritenta l\'intera richiesta', async () => {
+    const bodyErr = Object.assign(new Error('body stream aborted'), { name: 'AbortError' });
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => { throw bodyErr; } })
+      .mockResolvedValueOnce(okResponse());
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(exchangeAssertionForToken('jwt')).resolves.toBe('ya29.test');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('un AbortError durante il body 5xx ritenta l\'intera richiesta', async () => {
+    const bodyErr = Object.assign(new Error('body stream aborted'), { name: 'AbortError' });
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce({ ok: false, status: 503, text: async () => { throw bodyErr; } })
+      .mockResolvedValueOnce(okResponse());
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(exchangeAssertionForToken('jwt')).resolves.toBe('ya29.test');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('un 403 di quota OAuth viene ritentato, ma solo col codice riconosciuto', async () => {
+    const quotaBody = JSON.stringify({ error: 'quota_exceeded', error_description: 'retry later' });
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(errResponse(403, quotaBody))
+      .mockResolvedValueOnce(okResponse());
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(exchangeAssertionForToken('jwt')).resolves.toBe('ya29.test');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
   it('un 401 lancia SUBITO: un JWT sbagliato non si risolve ritentando', async () => {
     // Il rovescio, e vale quanto il retry: ritentare sette volte un 401 brucia
     // ~63s di budget per arrivare allo stesso errore, e maschera la diagnosi.
@@ -76,6 +132,15 @@ describe('exchangeAssertionForToken: 429/5xx ritentati, 4xx no', () => {
     vi.stubGlobal('fetch', fetchMock);
 
     await expect(exchangeAssertionForToken('jwt')).rejects.toThrow(/401/);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('invalid_grant lancia subito senza consumare il budget di retry', async () => {
+    const body = JSON.stringify({ error: 'invalid_grant', error_description: 'Invalid JWT Signature.' });
+    const fetchMock = vi.fn().mockResolvedValue(errResponse(400, body));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(exchangeAssertionForToken('jwt')).rejects.toThrow(/invalid_grant/);
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
@@ -108,12 +173,27 @@ describe('exchangeAssertionForToken: 429/5xx ritentati, 4xx no', () => {
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
-  it('un errore non-abort (es. DNS/TLS) lancia subito, senza consumare il budget di retry', async () => {
-    const dnsErr = Object.assign(new Error('getaddrinfo ENOTFOUND oauth2.googleapis.com'), { name: 'TypeError' });
-    const fetchMock = vi.fn().mockRejectedValue(dnsErr);
+  it('un errore lanciato non riconosciuto resta terminale', async () => {
+    const unexpectedErr = Object.assign(new Error('unexpected local failure'), { name: 'Error' });
+    const fetchMock = vi.fn().mockRejectedValue(unexpectedErr);
     vi.stubGlobal('fetch', fetchMock);
-    await expect(exchangeAssertionForToken('jwt')).rejects.toThrow(/ENOTFOUND/);
+    await expect(exchangeAssertionForToken('jwt')).rejects.toThrow(/unexpected local failure/);
     expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('classificazione degli errori OAuth', () => {
+  it('legge solo il codice stringa RFC 6749', () => {
+    expect(extractOAuthErrorReason('{"error":"rate_limit_exceeded"}')).toBe('rate_limit_exceeded');
+    expect(extractOAuthErrorReason('{"error":{"status":"RESOURCE_EXHAUSTED"}}')).toBeNull();
+    expect(extractOAuthErrorReason('not json')).toBeNull();
+  });
+
+  it('un 403 sconosciuto o di credenziale non diventa retryable', () => {
+    expect(isRetryableTokenExchangeStatus(403, 'quota_exceeded')).toBe(true);
+    expect(isRetryableTokenExchangeStatus(403, 'rate_limit_exceeded')).toBe(true);
+    expect(isRetryableTokenExchangeStatus(403, 'invalid_grant')).toBe(false);
+    expect(isRetryableTokenExchangeStatus(403, null)).toBe(false);
   });
 });
 
@@ -134,6 +214,39 @@ describe('load-rc-env: il salto a valle ha lo stesso budget del salto a monte', 
     expect(isRetryableRcFetchStatus(503)).toBe(true);
     expect(isRetryableRcFetchStatus(401)).toBe(false);
     expect(isRetryableRcFetchStatus(404)).toBe(false);
+  });
+
+  it('un 403 con reason di quota e\' retryable, uno sconosciuto resta terminale', () => {
+    for (const reason of [
+      'rateLimitExceeded',
+      'userRateLimitExceeded',
+      'dailyLimitExceeded',
+      'dailyLimitExceededUnreg',
+      'quotaExceeded',
+      'RESOURCE_EXHAUSTED',
+    ]) {
+      expect(isRetryableRcFetchStatus(403, reason)).toBe(true);
+    }
+    expect(isRetryableRcFetchStatus(403, 'invalidApiKey')).toBe(false);
+    expect(isRetryableRcFetchStatus(403, 'PERMISSION_DENIED')).toBe(false);
+    expect(isRetryableRcFetchStatus(403, null)).toBe(false);
+  });
+
+  it('estrae la reason quota dalla risposta REST di Remote Config', () => {
+    expect(extractGoogleErrorReason('{"error":{"errors":[{"reason":"quotaExceeded"}]}}')).toBe('quotaExceeded');
+    expect(extractGoogleErrorReason('{"error":{"status":"RESOURCE_EXHAUSTED"}}')).toBe('RESOURCE_EXHAUSTED');
+    expect(extractGoogleErrorReason('not json')).toBeNull();
+  });
+
+  it('il fetch RC ritenta anche un errore di rete nudo e legge il body dei 403', () => {
+    const fnStart = RC_SOURCE.indexOf('async function fetchTemplateViaRest');
+    expect(fnStart).toBeGreaterThanOrEqual(0);
+    const fnBody = RC_SOURCE.slice(fnStart, RC_SOURCE.indexOf('\n// ─── Main', fnStart));
+    expect(fnBody).not.toMatch(/if\s*\(err\?\.name\s*!==\s*'AbortError'\s*&&\s*err\?\.name\s*!==\s*'TimeoutError'\)\s*throw err;/);
+    expect(fnBody).toMatch(/lastErr\s*=\s*err\?\.name\s*===\s*'AbortError'[\s\S]*:\s*err;/);
+    expect(fnBody).toMatch(/const bodyText\s*=\s*await rcRes\.text\(\)\.catch\(\(\)\s*=>\s*''\)/);
+    expect(fnBody).toMatch(/extractGoogleErrorReason\(bodyText\)/);
+    expect(fnBody).toMatch(/isRetryableRcFetchStatus\(rcRes\.status,\s*reason\)/);
   });
 
   it('stesso tetto di clock del salto OAuth: un solo numero, non due', () => {

@@ -39,6 +39,29 @@ describe('deriveAnalyticsPageContext', () => {
     });
   });
 
+  it('classifies the assisted-application landing and private service URLs', () => {
+    expect(deriveAnalyticsPageContext('/automatizza-ricerca-lavoro-svizzera/')).toMatchObject({
+      contentGroup: 'jobs',
+      pageTemplate: 'application_concierge',
+      siteSection: 'jobs',
+      routeFamily: 'application_concierge',
+      contentLocale: 'it',
+    });
+
+    expect(deriveAnalyticsPageContext('/cerca-lavoro-ticino/?application_concierge=1')).toMatchObject({
+      contentGroup: 'jobs',
+      pageTemplate: 'application_concierge',
+      siteSection: 'jobs',
+      routeFamily: 'application_concierge',
+    });
+
+    expect(deriveAnalyticsPageContext('/en/find-jobs-ticino/?application_concierge_service_id=svc_123')).toMatchObject({
+      contentGroup: 'jobs',
+      pageTemplate: 'application_concierge',
+      contentLocale: 'en',
+    });
+  });
+
   it('keeps sector hubs out of the job-detail template', () => {
     expect(
       deriveAnalyticsPageContext('/cerca-lavoro-ticino/infermieri/'),
@@ -94,6 +117,60 @@ describe('deriveAnalyticsPageContext', () => {
       siteSection: 'guide',
       routeFamily: 'border_wait',
       contentLocale: 'fr',
+    });
+  });
+
+  it('classifies published data directories as directory page families', () => {
+    const cases = [
+      ['/aziende/medacta-international/', 'directory_employer_profile'],
+      ['/en/companies-hiring/lugano/current-week/', 'directory_employer_weekly'],
+      ['/farmacie-di-turno/ticino/', 'directory_pharmacy'],
+      ['/de/gesundheitseinrichtungen/ospedale-regionale-lugano/', 'directory_health_facility'],
+      ['/vivere-in-ticino/comuni-di-frontiera/maslianico/', 'directory_border_municipality'],
+      ['/fr/impots-frontaliers-commune/maslianico/', 'directory_fiscal_municipality'],
+      ['/aste-targhe-svizzera/ticino/', 'directory_plate_auction'],
+    ] as const;
+
+    for (const [path, pageTemplate] of cases) {
+      expect(deriveAnalyticsPageContext(path), path).toMatchObject({
+        contentGroup: 'directory',
+        pageTemplate,
+        siteSection: 'directory',
+        routeFamily: pageTemplate,
+      });
+    }
+  });
+
+  it('classifies the events section by template and locale', () => {
+    expect(deriveAnalyticsPageContext('/eventi/')).toMatchObject({
+      contentGroup: 'events',
+      pageTemplate: 'events_index',
+      siteSection: 'events',
+      routeFamily: 'events_index',
+      contentLocale: 'it',
+    });
+
+    expect(deriveAnalyticsPageContext('/de/veranstaltungen/tessin/diese-woche/')).toMatchObject({
+      contentGroup: 'events',
+      pageTemplate: 'events_digest',
+      contentLocale: 'de',
+    });
+
+    expect(deriveAnalyticsPageContext('/fr/evenements/tessin/autres-evenements/')).toMatchObject({
+      pageTemplate: 'events_other',
+      routeFamily: 'events_other',
+      contentLocale: 'fr',
+    });
+
+    expect(deriveAnalyticsPageContext('/en/events/ticino/lugano/concerto-2026-07-04/')).toMatchObject({
+      pageTemplate: 'event_detail',
+      routeFamily: 'event_detail',
+      contentLocale: 'en',
+    });
+
+    expect(deriveAnalyticsPageContext('/eventi/ticino/lugano/page-2/')).toMatchObject({
+      pageTemplate: 'events_overflow',
+      routeFamily: 'events_overflow',
     });
   });
 });

@@ -18,6 +18,7 @@ const SOURCE_SHA = 'a'.repeat(40);
 const OBSERVER_SHA = 'b'.repeat(40);
 const MERGE_SHA = 'c'.repeat(40);
 const NOW = new Date('2026-09-13T12:00:00.000Z');
+const HISTORICAL_L2_AT = '2026-09-16T12:00:00.000Z';
 
 function candidate() {
   const policy = registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L0');
@@ -69,6 +70,38 @@ function recorderEvent(
       loopId: 'L0',
       repository: 'example/frontaliere',
       workflow: 'Loop L0 data truth',
+      runId: String(runId),
+      sha: SOURCE_SHA,
+    },
+  };
+}
+
+function l2Event(
+  eventType: string,
+  candidateId: string,
+  occurredAt: string,
+  runId: number,
+  sourceRefs: string[],
+) {
+  const policy = registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L2');
+  return {
+    ...buildLifecycleEvent({
+      eventType,
+      loopId: 'L2',
+      candidateId,
+      owner: policy.owner,
+      sourceRecordId: candidateId,
+      sourceRefs,
+      lifecycle: policy.lifecycle,
+      occurredAt,
+      artifactOrPr: eventType === 'pr_opened' ? 'https://example.test/pull/123' : null,
+      recordedAt: occurredAt,
+    }),
+    recordId: `lf-lifecycle-${candidateId}-${eventType}-${runId}`,
+    execution: {
+      loopId: 'L2',
+      repository: 'example/frontaliere',
+      workflow: 'Loop L2 demand to utility',
       runId: String(runId),
       sha: SOURCE_SHA,
     },
@@ -423,7 +456,7 @@ describe('loop-fleet independent lifecycle observer', () => {
     expect(result.matches[0].autoInconclusive).toBe(false);
   });
 
-  it('persists observed events idempotently and rejects recorder-owned events', () => {
+  it('persists observed events in a bounded shard and rejects recorder-owned events', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-lifecycle-observer-'));
     const eventsFile = path.join(root, 'events.jsonl');
     const ledgerDir = path.join(root, 'ledger');
@@ -459,11 +492,13 @@ describe('loop-fleet independent lifecycle observer', () => {
       eventsFile,
       ledgerDir,
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+      shardId: 'observer-999',
     })).toMatchObject({ inputRecords: 5, appended: 5, skipped: 0 });
     expect(appendLoopFleetLifecycle({
       eventsFile,
       ledgerDir,
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+      shardId: 'observer-999',
     })).toMatchObject({ inputRecords: 5, appended: 0, skipped: 5 });
 
     const retried = observed.events.map((event: Record<string, unknown>) => ({
@@ -482,6 +517,7 @@ describe('loop-fleet independent lifecycle observer', () => {
       eventsFile,
       ledgerDir,
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+      shardId: 'observer-999',
     })).toMatchObject({ inputRecords: 5, appended: 0, skipped: 5 });
 
     const conflicting = { ...retried[0], artifactOrPr: 'https://github.com/example/frontaliere/pull/1000' };
@@ -490,6 +526,7 @@ describe('loop-fleet independent lifecycle observer', () => {
       eventsFile,
       ledgerDir,
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+      shardId: 'observer-999',
     })).toThrow('conflicting duplicate');
 
     const recorderOwnedEvent = { ...candidate(), eventType: 'candidate' };
@@ -800,6 +837,32 @@ describe('loop-fleet independent lifecycle observer', () => {
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
     })).toMatchObject({ inputRecords: 1, appended: 0, skipped: 1 });
     expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
+  });
+
+  it('keeps declared historical source refs readable while requiring current refs for new events', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-lifecycle-historical-source-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-historical-source-ref-migration';
+    const historicalSourceRefs = ['gsc', 'posthog-landing-path'];
+    seedLedger(ledgerDir, [
+      l2Event('candidate', candidateId, HISTORICAL_L2_AT, 22_400, historicalSourceRefs),
+      l2Event('owner_assigned', candidateId, HISTORICAL_L2_AT, 22_401, historicalSourceRefs),
+    ]);
+    writeJsonl(eventsFile, [l2Event(
+      'pr_opened',
+      candidateId,
+      '2026-09-16T13:00:00.000Z',
+      22_402,
+      registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L2').sourceRefs,
+    )]);
+
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 1, appended: 1, skipped: 0 });
   });
 
   it('rejects an isolated rolled_back event before writing the ledger', () => {

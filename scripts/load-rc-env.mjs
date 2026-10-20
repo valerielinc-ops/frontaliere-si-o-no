@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
+
+
 /**
  * Load secrets from Firebase Remote Config → environment variables
  *
@@ -25,8 +29,6 @@
  *     so workflows that don't have Firebase configured still work.
  */
 
-import { pathToFileURL } from 'node:url';
-
 // ─── RC Param → Env Var Mapping ──────────────────────────────────────────
 // Maps Remote Config parameter names to the environment variable names
 // that scripts expect.  One RC param may map to multiple env vars.
@@ -43,6 +45,7 @@ export const RC_TO_ENV = {
   BING_API_KEY:                   ['BING_API_KEY'],
   PAGESPEED_API_KEY:              ['PAGESPEED_API_KEY'],
   FB_PAGE_ID:                     ['FB_PAGE_ID'],
+  PHARMACY_FACEBOOK_PAGE_ID:      ['PHARMACY_FACEBOOK_PAGE_ID'],
   GITHUB_PAT:                     ['GITHUB_PAT', 'GH_MODELS_PAT'],
   // Provisioned in Remote Config for the nanako-side pushes but never mapped
   // here, which made it inert: this file is the ONLY Remote Config → env
@@ -66,6 +69,10 @@ export const RC_TO_ENV = {
   // tooling, never written as a source or static HTML literal.
   FIREBASE_API_KEY:               ['FIREBASE_API_KEY', 'VITE_FIREBASE_API_KEY'],
   GOOGLE_MAPS_API_KEY:            ['GOOGLE_MAPS_API_KEY'],
+  // Optional German fuel overlay. Keep unset until the owner obtains a key
+  // through Tankerkönig's manual registration and confirms redistribution
+  // terms; the adapter is fail-closed without it.
+  TANKERKOENIG_API_KEY:           ['TANKERKOENIG_API_KEY'],
   // Google Routes is the current API surface. Keep the legacy Distance Matrix
   // key separately available so the mesh can fall back when Routes is disabled
   // in the project; the value itself is never exposed to the client here.
@@ -117,6 +124,20 @@ export const RC_TO_ENV = {
   TWELVEDATA_API_KEY:             ['TWELVEDATA_API_KEY'],
   GOOGLE_OAUTH_CLIENT_ID:         ['GOOGLE_OAUTH_CLIENT_ID', 'GSC_CLIENT_ID'],
   RESEND_API_KEY:                 ['RESEND_API_KEY'],
+  // AES-256-GCM key (base64, 32 bytes) of the assisted-application agent's
+  // encrypted evidence (scripts/assisted-application/lib/secure-run.mjs).
+  ASSISTED_APPLICATION_RUN_KEY:   ['ASSISTED_APPLICATION_RUN_KEY'],
+  // Stable key for the short-lived encrypted event-description artifact. It
+  // must not be CODEX_AUTH_JSON: that login is rotated independently of the
+  // crawl/rewrite hand-off.
+  EVENT_DESCRIPTION_ARTIFACT_KEY:  ['EVENT_DESCRIPTION_ARTIFACT_KEY'],
+  // "legacy" switches the assisted application's PDFs back to the standard-font writer (default: typst).
+  ASSISTED_APPLICATION_PDF_RENDERER: ['ASSISTED_APPLICATION_PDF_RENDERER'],
+  // Off on purpose: the verified sources do not support one PDF as the default (docs/assisted-application/decisioni.md §5); the posting's own instruction wins either way (lib/dossier.mjs).
+  // "single" merges letter, CV and documents for qualified and first-job e-mails (default: separate).
+  ASSISTED_APPLICATION_DOSSIER_MODE: ['ASSISTED_APPLICATION_DOSSIER_MODE'],
+  // "on" writes the adapted lines into the candidate's own DOCX as a third CV choice (default: off).
+  ASSISTED_APPLICATION_DOCX_INPLACE: ['ASSISTED_APPLICATION_DOCX_INPLACE'],
   NEWSLETTER_SECRET:              ['NEWSLETTER_SECRET'],
   NEWSLETTER_FROM:                ['NEWSLETTER_FROM'],
   // `ac` autologin credential policy (#5685). The MINTING half of the switch —
@@ -171,6 +192,7 @@ export const RC_TO_ENV = {
 
   // Server-only keys (stored with SERVER_ prefix in RC)
   SERVER_FB_PAGE_ACCESS_TOKEN:    ['FB_PAGE_ACCESS_TOKEN'],
+  SERVER_PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN: ['PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN'],
   SERVER_GA4_PROPERTY_ID:         ['GA4_PROPERTY_ID'],
   SERVER_GSC_CLIENT_SECRET:       ['GSC_CLIENT_SECRET'],
   SERVER_GSC_REFRESH_TOKEN:       ['GSC_REFRESH_TOKEN'],
@@ -191,6 +213,15 @@ export const RC_TO_ENV = {
   SERVER_POSTHOG_PERSONAL_API_KEY: ['POSTHOG_PERSONAL_API_KEY'],
   SERVER_POSTHOG_PROJECT_ID:       ['POSTHOG_PROJECT_ID'],
   SERVER_POSTHOG_HOST:             ['POSTHOG_HOST'],
+
+  // Authorised affiliate-network export consumed by the read-only L8
+  // reconciliation runner. The URL may be a signed endpoint; otherwise the
+  // bearer token or complete Authorization header is supplied separately.
+  AFFILIATE_REVENUE_EXPORT_URL:          ['AFFILIATE_REVENUE_EXPORT_URL'],
+  AFFILIATE_REVENUE_EXPORT_TOKEN:        ['AFFILIATE_REVENUE_EXPORT_TOKEN'],
+  AFFILIATE_REVENUE_EXPORT_AUTH_HEADER:  ['AFFILIATE_REVENUE_EXPORT_AUTH_HEADER'],
+  AFFILIATE_REVENUE_EXPORT_SOURCE:       ['AFFILIATE_REVENUE_EXPORT_SOURCE'],
+  AFFILIATE_REVENUE_AMOUNT_FORMAT:       ['AFFILIATE_REVENUE_AMOUNT_FORMAT'],
 
   // LinkedIn auto-posting (Company Page articles)
   LINKEDIN_POST_CLIENT_ID:        ['LINKEDIN_POST_CLIENT_ID'],
@@ -252,6 +283,9 @@ export const RC_TO_ENV = {
   INSTAGRAM_USERNAME:                  ['INSTAGRAM_USERNAME'],
   INSTAGRAM_BUSINESS_ACCOUNT_ID:       ['INSTAGRAM_BUSINESS_ACCOUNT_ID'],
   SERVER_INSTAGRAM_ACCESS_TOKEN:       ['INSTAGRAM_ACCESS_TOKEN'],
+  // Insights source: browser uses the authenticated Chrome Professional
+  // Dashboard on the Mac host; graph remains an explicit compatibility path.
+  SOCIAL_ROBOT_INSIGHTS_SOURCE:        ['SOCIAL_ROBOT_INSIGHTS_SOURCE'],
 
   // TikTok auto-posting (carousel — scripts/post-to-tiktok.mjs). Account
   // created 2026-08-24. _CLIENT_KEY/_CLIENT_SECRET are the PRODUCTION app;
@@ -264,12 +298,42 @@ export const RC_TO_ENV = {
   // _REFRESH_TOKEN + the client pair are mapped even though nothing else in
   // this file needs a client id/secret pair just to make one API call.
   TIKTOK_USERNAME:                     ['TIKTOK_USERNAME'],
+  // Native TikTok sound experiment: `off` (safe default) or `trend`; the
+  // rollout percentage is interpreted deterministically per queue id by the
+  // browser robot, so retries stay in the same control/treatment arm.
+  TIKTOK_MUSIC_MODE:                   ['TIKTOK_MUSIC_MODE'],
+  TIKTOK_MUSIC_ROLLOUT_PERCENT:        ['TIKTOK_MUSIC_ROLLOUT_PERCENT'],
+  // TikTok video creative experiment: `off` keeps the existing slide video;
+  // `motion` assigns a stable percentage of queue ids to the animated
+  // motion-graphic renderer.
+  TIKTOK_VIDEO_CREATIVE_MODE:           ['TIKTOK_VIDEO_CREATIVE_MODE'],
+  TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: ['TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT'],
   SERVER_TIKTOK_CLIENT_KEY:            ['TIKTOK_CLIENT_KEY'],
   SERVER_TIKTOK_CLIENT_SECRET:         ['TIKTOK_CLIENT_SECRET'],
   SERVER_TIKTOK_ACCESS_TOKEN:          ['TIKTOK_ACCESS_TOKEN'],
   SERVER_TIKTOK_REFRESH_TOKEN:         ['TIKTOK_REFRESH_TOKEN'],
   SERVER_TIKTOK_SANDBOX_CLIENT_KEY:    ['TIKTOK_SANDBOX_CLIENT_KEY'],
   SERVER_TIKTOK_SANDBOX_CLIENT_SECRET: ['TIKTOK_SANDBOX_CLIENT_SECRET'],
+
+  // Instagram/TikTok transport switch: off | dry | live (absent or unknown =
+  // dry). Read by the two posters above, which either call the API or queue
+  // the post, and by the Playwright robot on the agents' Mac host
+  // (scripts/social-robot/), which presses the publish button only on `live`.
+  // See scripts/lib/social-publish-queue.mjs. Every value is shorter than six
+  // characters, so isTrivialSecret() never masks it in CI logs.
+  SOCIAL_ROBOT_MODE:                   ['SOCIAL_ROBOT_MODE'],
+
+  // CODEX_AUTH_JSON lives in Remote Config but is deliberately NOT mapped,
+  // the one exception to "every secret in RC is mapped here" (DECISIONS.md
+  // 2026-09-24). The RC copy exists only for functions/src/codexFallback.js
+  // and is written by codex-auth-rotate.yml WITHOUT refresh_token. CI jobs get
+  // the GitHub secret only as a step-level env/action input, so this script's
+  // own step never has it set and would NOT skip it: it would append
+  // CODEX_AUTH_JSON to $GITHUB_ENV, exposing the login to every later step of
+  // the job (the broker design forbids exactly that: setup-claude-haiku-fallback
+  // /action.yml, generate-crawler-group-workflows.mjs), and any step without
+  // the step-level secret would read the refresh-token-less copy. The GitHub
+  // secret stays the only CI source. Pinned by tests/codex-auth-rotate.test.ts.
 
   // LLM providers (AI model chain for articles + crawlers)
   GROQ_API_KEY:                   ['GROQ_API_KEY'],
@@ -307,24 +371,41 @@ export const RC_TO_ENV = {
   // Image generation providers
   TOGETHER_API_KEY:               ['TOGETHER_API_KEY'],
   FAL_KEY:                        ['FAL_KEY'],
+  POLLINATIONS_API_KEY:            ['POLLINATIONS_API_KEY'],
   PEXELS_API_KEY:                 ['PEXELS_API_KEY'],
+
+  // Events crawler (scripts/crawl-openagenda-events.mjs, crawl-events.yml):
+  // OpenAgenda public read key (`oa_pk_…`), created by the owner at
+  // openagenda.com/settings/apiKey. Absent → the crawl step is a no-op notice.
+  OPENAGENDA_PUBLIC_KEY:          ['OPENAGENDA_PUBLIC_KEY'],
 
   // Resend webhook (newsletter delivery tracking)
   RESEND_WEBHOOK_SECRET:          ['RESEND_WEBHOOK_SECRET'],
 
   // Feature flags
   ENABLE_JOB_ALERTS:              ['ENABLE_JOB_ALERTS'],
-  // Job-email ranking (#7922). Keep the complete tuning surface in Remote
-  // Config so the experiment can be reduced or disabled without a deploy.
+  // Site-owned static employer-profile ad test. Absent/control keeps the
+  // extra unit off; the owner opts into the EOC treatment with `eoc_mid`.
+  EMPLOYER_PROFILE_MID_AD_TEST_VARIANT: ['EMPLOYER_PROFILE_MID_AD_TEST_VARIANT'],
+  // Eventfrog Public API, Ticino ephemeral event pages (owner decision D5,
+  // 2026-10-05). EVENTFROG_ENABLED is the switch of the whole source — the
+  // daily sync (crawl-events.yml), the snapshot download (deploy.yml) and the
+  // page emission; absent or anything but `true` keeps it off. The key and its
+  // expiry date (YYYY-MM-DD, for the renewal warning) are created by the owner
+  // on eventfrog.ch. Site-only on purpose: the corpus must never be able to
+  // read Eventfrog data (AGB §17(3)/(6)), so its loader does not map them.
+  EVENTFROG_ENABLED:              ['EVENTFROG_ENABLED'],
+  EVENTFROG_PUBLIC_API_KEY:       ['EVENTFROG_PUBLIC_API_KEY'],
+  EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT: ['EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT'],
+  // Exact-job application-intent ranking (#9934); absent/false stays control.
+  APPLICATION_INTENT_RANKING_ENABLED: ['APPLICATION_INTENT_RANKING_ENABLED'],
+  // Job-email ranking (#7922): kill switch, treatment share, treatment name,
+  // and the legacy affinity weight (functions/src/lib/jobEmailRanking.js).
+  // Absent = code defaults.
   JOB_EMAIL_RANKING_ENABLED:      ['JOB_EMAIL_RANKING_ENABLED'],
   JOB_EMAIL_RANKING_ROLLOUT:      ['JOB_EMAIL_RANKING_ROLLOUT'],
-  JOB_EMAIL_RANKING_ALPHA:        ['JOB_EMAIL_RANKING_ALPHA'],
-  JOB_EMAIL_RANKING_EPSILON:      ['JOB_EMAIL_RANKING_EPSILON'],
-  JOB_EMAIL_RANKING_WINDOW_DAYS:  ['JOB_EMAIL_RANKING_WINDOW_DAYS'],
-  JOB_EMAIL_RANKING_SHRINK_K:     ['JOB_EMAIL_RANKING_SHRINK_K'],
-  JOB_EMAIL_RANKING_MIN_IMPRESSIONS: ['JOB_EMAIL_RANKING_MIN_IMPRESSIONS'],
-  JOB_EMAIL_RANKING_NEW_JOB_BOOST:   ['JOB_EMAIL_RANKING_NEW_JOB_BOOST'],
-  JOB_EMAIL_RANKING_MAX_CONSECUTIVE_EXPOSURES: ['JOB_EMAIL_RANKING_MAX_CONSECUTIVE_EXPOSURES'],
+  JOB_EMAIL_RANKING_AFFINITY_WEIGHT: ['JOB_EMAIL_RANKING_AFFINITY_WEIGHT'],
+  JOB_EMAIL_RANKING_TREATMENT:    ['JOB_EMAIL_RANKING_TREATMENT'],
   // Per-user send-time personalization kill switch (issue #3798). Unset in RC
   // by default — send-schedule.mjs treats absent as 'on'. Set to 'off' in RC
   // to roll back to immediate sends without touching code or workflows (env
@@ -335,15 +416,18 @@ export const RC_TO_ENV = {
   // by default — code falls back to the built-in 0.86 baseline. Lets a single
   // test window relax the threshold without a code change or redeploy.
   NEAR_DUP_COSINE:                ['NEAR_DUP_COSINE'],
-  // Opt-in article-generation fallback via the `claude` CLI (see
-  // AI_MODELS.CLAUDE_CLI_HAIKU). Since 2026-07-29 (AI_COMPETING_TIERS default
-  // in ai-models.mjs) this tier is tier-0 BY DEFAULT — it competes on real
-  // score against every model in DEFAULT_CHAIN, it is NOT reached only after
-  // every other model (including local/fallback) has failed anymore; set
-  // AI_COMPETING_TIERS='' to restore that old behavior. Unset in RC by
-  // default (OFF) — code requires this AND CLAUDE_CODE_OAUTH_TOKEN before
-  // offering the model at all (see isClaudeCliFallbackEnabled/hasClaudeCodeOauthToken).
+  // Historical gate of the article CLI lane. Since 2026-09-24 it has NO
+  // effect: the owner disabled the Haiku lane in code ("only Codex"),
+  // isClaudeCliFallbackEnabled() in ai-models.mjs is hard-wired to false, and
+  // the Codex lane has its own switch (ENABLE_CODEX_ARTICLE_FALLBACK below).
+  // Still mapped so an existing RC value keeps loading without a warning.
   ENABLE_HAIKU_ARTICLE_FALLBACK:  ['ENABLE_HAIKU_ARTICLE_FALLBACK'],
+  // The Codex Luna Max article lane's own switch (setup-claude-haiku-fallback
+  // action + isCodexCliPrimaryEnabled in ai-models.mjs). Unset = ON; only an
+  // explicit 0/false/no/off turns the lane off. Since 2026-09-24 it replaces
+  // ENABLE_HAIKU_ARTICLE_FALLBACK as the Codex gate, so turning Haiku off can
+  // no longer turn Codex off.
+  ENABLE_CODEX_ARTICLE_FALLBACK:  ['ENABLE_CODEX_ARTICLE_FALLBACK'],
 
   // JSON array of {provider, name, apiKey} — decrypted OmniRoute provider
   // connections synced from a local ~/.omniroute/storage.sqlite via
@@ -433,16 +517,67 @@ export function isTrivialSecret(value) {
 }
 
 /**
+ * RC keys whose value is, by contract, a plain word and never a secret: the
+ * switches of the assisted application (the words each one accepts are in
+ * scripts/assisted-application/rc-switches.mjs, the tool that sets them).
+ *
+ * Their value is never masked, whatever its length: "legacy" and "single" are
+ * six characters long, so the length rule of isTrivialSecret would register
+ * them, and from then on every "legacy" or "single" in the job's logs reads
+ * `***` and GitHub withholds any job output that contains the word.
+ *
+ * Only for a key whose every possible value may be read in a log: a key that
+ * can ever hold a credential stays out of this set.
+ */
+export const PLAIN_WORD_RC_KEYS = new Set([
+  'ASSISTED_APPLICATION_PDF_RENDERER',
+  'ASSISTED_APPLICATION_DOSSIER_MODE',
+  'ASSISTED_APPLICATION_DOCX_INPLACE',
+  'TIKTOK_VIDEO_CREATIVE_MODE',
+]);
+
+/**
+ * Whether an RC value is registered as a log mask in CI: never for a key of
+ * PLAIN_WORD_RC_KEYS, by length (isTrivialSecret) for every other key.
+ *
+ * @param {string|null} value
+ * @param {string} rcKey
+ */
+export function shouldMaskRcValue(value, rcKey) {
+  return !PLAIN_WORD_RC_KEYS.has(rcKey) && !isTrivialSecret(value);
+}
+
+/**
  * Whether an HTTP status from the Remote Config REST fetch is worth retrying.
  *
  * 429 and 5xx are transient — the exact failure mode behind issues #45, #54
  * and #171 ("Agent loop down: GITHUB_PAT failed to load"), all three of which
  * turned out NOT to be a real credential problem but a single unretried 429
- * or 503 from this endpoint. A 4xx other than 429 (bad JWT, wrong project)
- * will not resolve itself on retry.
+ * or 503 from this endpoint. Google also returns quota exhaustion as a 403;
+ * only the documented quota reasons are retryable, while a bad JWT or wrong
+ * project remains terminal.
  */
-export function isRetryableRcFetchStatus(status) {
-  return status === 429 || status >= 500;
+const QUOTA_RC_FETCH_REASONS = new Set([
+  'rateLimitExceeded',
+  'userRateLimitExceeded',
+  'dailyLimitExceeded',
+  'dailyLimitExceededUnreg',
+  'quotaExceeded',
+  'RESOURCE_EXHAUSTED',
+]);
+
+export function isRetryableRcFetchStatus(status, reason = null) {
+  return status === 429 || status >= 500 || (status === 403 && QUOTA_RC_FETCH_REASONS.has(reason));
+}
+
+/** Extract the Google API quota reason from a non-2xx response body. */
+export function extractGoogleErrorReason(bodyText) {
+  try {
+    const body = JSON.parse(bodyText);
+    return body?.error?.errors?.[0]?.reason ?? body?.error?.status ?? null;
+  } catch {
+    return null;
+  }
 }
 
 /** Exponential backoff in ms for retry attempt N (1-based), same shape as
@@ -475,7 +610,7 @@ export const RC_FETCH_TIMEOUT_MS = 30_000;
  * and a service-account-signed JWT (same technique as scripts/lib/indexing-api.mjs,
  * which is likewise dependency-free by design).
  *
- * Why this exists (issue #4837): `await import('firebase-admin')` needs an
+ * Why this exists (issue #4837): `await import('firebase-admin/app')` needs an
  * installed node_modules. The fast-publish path deliberately runs with NO
  * `npm ci` — a full dependency install is precisely the cost that workflow
  * exists to avoid — so on that path the admin import throws and, before this
@@ -518,16 +653,19 @@ async function fetchTemplateViaRest() {
       // AbortSignal.timeout() rejects the fetch instead of resolving a status,
       // so without this catch a slow-but-never-erroring endpoint would fail on
       // the FIRST timeout instead of spending the RC_FETCH_ATTEMPTS/~63s budget.
-      if (err?.name !== 'AbortError' && err?.name !== 'TimeoutError') throw err;
-      lastErr = new Error(`Remote Config REST fetch timed out after ${RC_FETCH_TIMEOUT_MS}ms`);
+      lastErr = err?.name === 'AbortError' || err?.name === 'TimeoutError'
+        ? new Error(`Remote Config REST fetch timed out after ${RC_FETCH_TIMEOUT_MS}ms`)
+        : err;
       if (attempt < RC_FETCH_ATTEMPTS) {
         await new Promise((r) => setTimeout(r, rcFetchBackoffMs(attempt)));
       }
       continue;
     }
     if (rcRes.ok) return rcRes.json();
-    lastErr = new Error(`Remote Config REST fetch failed: ${rcRes.status}`);
-    if (!isRetryableRcFetchStatus(rcRes.status)) throw lastErr;
+    const bodyText = await rcRes.text().catch(() => '');
+    const reason = extractGoogleErrorReason(bodyText);
+    lastErr = new Error(`Remote Config REST fetch failed: ${rcRes.status}${reason ? ` (${reason})` : ''}`);
+    if (!isRetryableRcFetchStatus(rcRes.status, reason)) throw lastErr;
     if (attempt < RC_FETCH_ATTEMPTS) {
       await new Promise((r) => setTimeout(r, rcFetchBackoffMs(attempt)));
     }
@@ -550,11 +688,12 @@ async function main() {
   // 2. Init Firebase Admin (absent on no-install fast paths — see step 3)
   let admin = null;
   try {
-    const adminMod = await import('firebase-admin');
-    admin = adminMod.default || adminMod;
-    if (!admin.apps.length) {
-      admin.initializeApp({ credential: admin.credential.applicationDefault() });
+    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+    const { getRemoteConfig } = await import('firebase-admin/remote-config');
+    if (!getApps().length) {
+      initializeApp({ credential: applicationDefault() });
     }
+    admin = { remoteConfig: getRemoteConfig };
   } catch (err) {
     console.warn(`ℹ️  Firebase Admin unavailable (${err.message}) — using the dependency-free REST path.`);
     admin = null;
@@ -618,8 +757,11 @@ async function main() {
       // For local: output as export statement
       if (isCI) {
         // Mask the value so GitHub Actions redacts it from all logs, but skip
-        // trivial values that would poison unrelated output (see isTrivialSecret).
-        if (!isTrivialSecret(value)) {
+        // trivial values that would poison unrelated output (see isTrivialSecret)
+        // and the plain-word switches: their value is an ordinary word such as
+        // "legacy", which a mask would redact from every later log line and job
+        // output (see PLAIN_WORD_RC_KEYS).
+        if (shouldMaskRcValue(value, rcKey)) {
           process.stdout.write(`::add-mask::${value}\n`);
         }
         // Use delimiter syntax for multi-line safety
@@ -649,7 +791,16 @@ async function main() {
 }
 
 // Only run when executed directly (not when imported by tests).
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+const directInvocation = (() => {
+  if (!process.argv[1]) return false;
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})();
+
+if (directInvocation) {
   main().catch((err) => {
     console.warn(`⚠️  load-rc-env failed: ${err?.message || 'Unknown error'}`);
     console.warn('   Falling back to environment variables / GH Secrets.');

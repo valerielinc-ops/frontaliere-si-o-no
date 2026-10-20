@@ -7,6 +7,7 @@ import {
   validateExperimentAllocator,
   validateCandidateRegistry,
 } from '../scripts/ci/loop-l7-experiment-allocator.mjs';
+import { buildIdleL7ExperimentOutcome } from '../scripts/ci/export-l7-experiment-outcomes.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 const GUARDRAILS = ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'];
@@ -40,11 +41,15 @@ function registry(overrides: Record<string, unknown> = {}) {
 
 function outcomes(overrides: Record<string, unknown> = {}) {
   return {
+    status: 'observed',
+    quality: 'observed',
     generatedAt: NOW.toISOString(),
     independent: true,
+    activeExperiments: 1,
     evidence: {
       source: 'experiment-assignment-exposure-ledger',
       sourceRefs: ['experiment-assignment-exposure-outcome'],
+      status: 'verified',
     },
     preRegistration: {
       outcomeId: 'registered-experiment-outcome',
@@ -117,6 +122,66 @@ describe('L7 Experiment Allocator', () => {
     }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict.ok).toBe(false);
     expect(verdict.issues.join(' ')).toContain('independent must be explicitly true');
+  });
+
+  it('rejects PostHog and unregistered sources, expired registration, and incomplete persistence claims', () => {
+    const check = (overrides: Record<string, unknown>) => validateExperimentAllocator({
+      registry: registry(),
+      outcomes: outcomes(overrides),
+    }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
+
+    const posthog = check({ evidence: { ...outcomes().evidence, source: 'PostHog HogQL session export' } });
+    expect(posthog.ok).toBe(false);
+    expect(posthog.issues.join(' ')).toContain('PostHog is not an approved');
+
+    const unregistered = check({ evidence: { ...outcomes().evidence, sourceRefs: ['unregistered-ledger'] } });
+    expect(unregistered.ok).toBe(false);
+    expect(unregistered.issues.join(' ')).toContain('must exactly match the L7 registry');
+
+    const unverified = check({ evidence: { ...outcomes().evidence, status: 'unavailable' } });
+    expect(unverified.ok).toBe(false);
+    expect(unverified.issues.join(' ')).toContain('status must be explicitly verified');
+
+    const expired = check({ preRegistration: { ...outcomes().preRegistration, expiresAt: NOW.toISOString() } });
+    expect(expired.ok).toBe(false);
+    expect(expired.issues.join(' ')).toContain('expiresAt is expired');
+
+    const nonPersistent = check({ persistentAssignments: 299 });
+    expect(nonPersistent.ok).toBe(false);
+    expect(nonPersistent.issues.join(' ')).toContain('persistentAssignments must match outcomes.assignments');
+
+    const unregisteredMethod = check({ assignmentLedger: { ...outcomes().assignmentLedger, method: 'sessionStorage' } });
+    expect(unregisteredMethod.ok).toBe(false);
+    expect(unregisteredMethod.issues.join(' ')).toContain('assignmentLedger.method must be stable-sha256');
+
+    const wrongOutcome = check({ preRegistration: { ...outcomes().preRegistration, outcomeId: 'unregistered-outcome' } });
+    expect(wrongOutcome.ok).toBe(false);
+    expect(wrongOutcome.issues.join(' ')).toContain('preRegistration.outcomeId must be registered-experiment-outcome');
+  });
+
+  it('keeps traffic and canary mutation disabled for an unapproved outcome source', async () => {
+    const files = tempFiles(registry(), outcomes({
+      evidence: { ...outcomes().evidence, source: 'PostHog HogQL session export' },
+    }));
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      apply: true,
+      logger: { log() {} },
+    });
+
+    expect(result.verdict.ok).toBe(false);
+    expect(result.outcome).toMatchObject({
+      safeToAct: false,
+      appliesToTraffic: false,
+      trafficMutationAllowed: false,
+      priceMutationAllowed: false,
+      allocationPlan: { boundedCanary: { enabled: false, maxExposure: 0 } },
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l7-actions.json'), 'utf8')))
+      .toMatchObject({ appliesToTraffic: false, noAutomaticPriceChange: true });
   });
 
   it('does not expose metadata from an untrustworthy ledger as persistent support', async () => {
@@ -375,6 +440,28 @@ describe('L7 Experiment Allocator', () => {
       });
   });
 
+  it('fails closed on malformed outcome JSON and writes no traffic authority', async () => {
+    const files = tempFiles(registry(), null);
+    fs.writeFileSync(files.outcomePath, '{"activeExperiments":1,');
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      apply: true,
+      logger: { log() {} },
+    });
+
+    expect(result.verdict).toMatchObject({ ok: false, quality: 'unmeasurable' });
+    expect(result.outcome).toMatchObject({
+      safeToAct: false,
+      appliesToTraffic: false,
+      trafficMutationAllowed: false,
+      priceMutationAllowed: false,
+      allocationPlan: { persistent: false, boundedCanary: { enabled: false, maxExposure: 0 } },
+    });
+  });
+
   it('does not claim persistent ledger support without direct outcome provenance', async () => {
     const files = tempFiles(registry(), outcomes());
     const result = await runL7({
@@ -480,5 +567,176 @@ describe('L7 Experiment Allocator', () => {
       logger: { log() {} },
     })).rejects.toThrow('issue API unavailable');
     expect(fs.existsSync(path.join(files.reportDir, 'l7-result.json'))).toBe(false);
+  });
+
+  describe('declared idle state (no active experiment)', () => {
+    function idleExport(overrides: Record<string, unknown> = {}) {
+      return {
+        schemaVersion: 1,
+        loopId: 'L7',
+        status: 'idle',
+        quality: 'zero',
+        generatedAt: NOW.toISOString(),
+        independent: true,
+        activeExperiments: 0,
+        eligibleCohort: null,
+        assignments: null,
+        exposures: null,
+        primaryOutcomes: null,
+        guardrailBreaches: null,
+        persistentAssignments: null,
+        contaminatedAssignments: null,
+        durationDays: null,
+        evidence: {
+          source: 'data/experiments/active-experiments.json declares no active experiment; no telemetry source was queried',
+          sourceRefs: ['experiment-assignment-exposure-outcome'],
+          status: 'idle',
+        },
+        reason: 'no experiment is registered as active (data/experiments/active-experiments.json)',
+        ...overrides,
+      };
+    }
+
+    it('reports nothing to allocate, keeps allocation disabled and opens no issue', async () => {
+      const files = tempFiles(registry(), idleExport());
+      let issues = 0;
+      let resolved = 0;
+      const result = await runL7({
+        now: NOW,
+        candidatesPath: files.candidatesPath,
+        outcomePath: files.outcomePath,
+        reportDir: files.reportDir,
+        issue: true,
+        apply: true,
+        createIssueImpl: async () => { issues += 1; return { persisted: true }; },
+        resolveIssueImpl: async () => { resolved += 1; return null; },
+        logger: { log() {} },
+      });
+      expect(result.verdict).toMatchObject({ ok: true, quality: 'zero', reason: 'no active experiment: nothing to allocate' });
+      expect(result.decision).toMatchObject({ decision: 'observing', actionClass: 'observe' });
+      expect(result.issued).toBe(false);
+      expect(issues).toBe(0);
+      expect(resolved).toBe(1);
+      expect(result.outcome).toMatchObject({ safeToAct: false, independent: false, ledger: { persistent: false } });
+      expect(result.allocationPlan).toMatchObject({ persistent: false, boundedCanary: { enabled: false } });
+      expect(result.observation.numerator).toBeNull();
+      expect(result.verdict.candidates.length).toBe(registry().candidates.length);
+    });
+
+    it('accepts the idle export exactly as the exporter builds it', () => {
+      const verdict = validateExperimentAllocator({
+        registry: registry(),
+        outcomes: buildIdleL7ExperimentOutcome({ now: NOW }),
+      }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY, declaredActiveExperiments: 0 });
+      expect(verdict).toMatchObject({ ok: true, quality: 'zero', reason: 'no active experiment: nothing to allocate' });
+    });
+
+    it('rejects an idle export that contradicts the active-experiments declaration', async () => {
+      const files = tempFiles(registry(), idleExport());
+      const declarationPath = path.join(path.dirname(files.outcomePath), 'active-experiments.json');
+      fs.writeFileSync(declarationPath, JSON.stringify({
+        schemaVersion: 1,
+        experiments: [{
+          experimentId: 'g4-affiliate-contextual',
+          exposureEvent: 'affiliate_experiment_exposure',
+          outcomeEvent: 'affiliate_click',
+          variants: ['control', 'benefit'],
+          rcParam: 'AFFILIATE_G4_VARIANT',
+          startedAt: NOW.toISOString(),
+        }],
+      }));
+      let issues = 0;
+      const result = await runL7({
+        now: NOW,
+        candidatesPath: files.candidatesPath,
+        outcomePath: files.outcomePath,
+        activeExperimentsPath: declarationPath,
+        reportDir: files.reportDir,
+        issue: true,
+        createIssueImpl: async () => { issues += 1; return { persisted: true }; },
+        logger: { log() {} },
+      });
+      expect(result.verdict.ok).toBe(false);
+      expect(result.verdict.issues.join(' ')).toContain('1 experiment(s) are registered as active');
+      expect(issues).toBe(1);
+
+      const missing = await runL7({
+        now: NOW,
+        candidatesPath: files.candidatesPath,
+        outcomePath: files.outcomePath,
+        activeExperimentsPath: path.join(path.dirname(files.outcomePath), 'missing.json'),
+        reportDir: files.reportDir,
+        logger: { log() {} },
+      });
+      expect(missing.verdict).toMatchObject({ ok: false, quality: 'unmeasurable' });
+    });
+
+    it('rejects a malformed idle declaration without resolving the issue', async () => {
+      const files = tempFiles(registry(), idleExport());
+      const declarationPath = path.join(path.dirname(files.outcomePath), 'active-experiments.json');
+      fs.writeFileSync(declarationPath, JSON.stringify({ schemaVersion: 2, experiments: [] }));
+      let resolved = 0;
+      const result = await runL7({
+        now: NOW,
+        candidatesPath: files.candidatesPath,
+        outcomePath: files.outcomePath,
+        activeExperimentsPath: declarationPath,
+        reportDir: files.reportDir,
+        issue: true,
+        createIssueImpl: async () => ({ persisted: true }),
+        resolveIssueImpl: async () => { resolved += 1; return null; },
+        logger: { log() {} },
+      });
+      expect(result.verdict).toMatchObject({ ok: false, quality: 'unmeasurable' });
+      expect(resolved).toBe(0);
+    });
+
+    it('still fails on candidate defects while idle', () => {
+      const verdict = validateExperimentAllocator({
+        registry: registry({ candidates: [candidate({ sources: [] })] }),
+        outcomes: idleExport(),
+      }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.issues.join(' ')).toContain('sources must be');
+    });
+
+    it('does not accept a stale, unsourced or participating idle declaration', () => {
+      const check = (overrides: Record<string, unknown>) => validateExperimentAllocator({
+        registry: registry(),
+        outcomes: idleExport(overrides),
+      }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
+      expect(check({ generatedAt: '2026-09-01T00:00:00.000Z' })).toMatchObject({ ok: false, quality: 'stale' });
+      expect(check({ evidence: null })).toMatchObject({ ok: false, quality: 'partial' });
+      expect(check({ independent: false })).toMatchObject({ ok: false, quality: 'partial' });
+      const participating = check({ assignments: 12 });
+      expect(participating.ok).toBe(false);
+      expect(participating.issues.join(' ')).toContain('activeExperiments is 0 but outcomes.assignments reports 12');
+    });
+
+    it('keeps a registered experiment that measures zero as a blind ledger with an issue', async () => {
+      const files = tempFiles(registry(), outcomes({
+        activeExperiments: 1,
+        eligibleCohort: 0,
+        assignments: 0,
+        exposures: 0,
+        primaryOutcomes: 0,
+        persistentAssignments: 0,
+      }));
+      let issues = 0;
+      const result = await runL7({
+        now: NOW,
+        candidatesPath: files.candidatesPath,
+        outcomePath: files.outcomePath,
+        reportDir: files.reportDir,
+        issue: true,
+        createIssueImpl: async () => { issues += 1; return { persisted: true }; },
+        logger: { log() {} },
+      });
+      expect(result.verdict).toMatchObject({ ok: false, quality: 'zero' });
+      expect(result.issued).toBe(true);
+      expect(issues).toBe(1);
+      expect(result.outcome.safeToAct).toBe(false);
+      expect(result.allocationPlan.boundedCanary.enabled).toBe(false);
+    });
   });
 });

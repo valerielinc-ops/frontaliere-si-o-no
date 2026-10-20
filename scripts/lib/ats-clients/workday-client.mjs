@@ -21,6 +21,7 @@
  *   - Tenant URL:       https://{tenant}.{datacenter}.myworkdayjobs.com/{lang}/{site}
  */
 
+import { sourcePostingDateFields } from '../source-posting-date.mjs';
 import { isSwissLocationText } from '../target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
@@ -248,6 +249,19 @@ async function fetchJsonWithRetry(url, options = {}) {
  * @property {string} [userAgent] Override User-Agent header.
  * @property {number} [minDelayMs] Polite delay between paginated calls (default 2000ms).
  * @property {number} [timeoutMs] Per-request timeout (default 20000ms).
+ * @property {WorkdayFetchStats} [stats] Optional mutable object the iterator
+ *   fills with how pagination ended. Read-only signal: passing it never changes
+ *   what is fetched or yielded.
+ */
+
+/**
+ * @typedef {Object} WorkdayFetchStats
+ * @property {number|null} firstPageTotal `total` reported by page 0, or null
+ *   when page 0 did not carry a finite number.
+ * @property {number} yielded Postings yielded so far.
+ * @property {'empty-page'|'total-reached'|'short-page'|'max-pages'|'page-error'|null} endReason
+ *   Why pagination stopped. `page-error` is the silent partial board: a page
+ *   after page 0 failed and the iterator returned what it had.
  */
 
 /**
@@ -300,6 +314,15 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
   let offset = 0;
   let yielded = 0;
   let total = Infinity;
+  const stats = options.stats && typeof options.stats === 'object' ? options.stats : null;
+  if (stats) {
+    stats.firstPageTotal = null;
+    stats.yielded = 0;
+    stats.endReason = null;
+  }
+  const end = (reason) => {
+    if (stats) stats.endReason = reason;
+  };
 
   for (let page = 0; page < maxPages; page += 1) {
     const body = JSON.stringify({
@@ -324,6 +347,7 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
       // gracefully (we already returned partial results).
       if (err instanceof WorkdayAuthError) throw err;
       if (page === 0) throw err;
+      end('page-error');
       return;
     }
 
@@ -336,17 +360,28 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
     // pagination so a degenerate total:0 never short-circuits after page 1.
     if (page === 0 && typeof data?.total === 'number' && Number.isFinite(data.total)) {
       total = data.total;
+      if (stats) stats.firstPageTotal = data.total;
     }
 
-    if (postings.length === 0) return;
+    if (postings.length === 0) {
+      end('empty-page');
+      return;
+    }
 
     for (const posting of postings) {
       yield posting;
       yielded += 1;
+      if (stats) stats.yielded = yielded;
     }
 
-    if (total > 0 && yielded >= total) return;
-    if (postings.length < pageSize) return;
+    if (total > 0 && yielded >= total) {
+      end('total-reached');
+      return;
+    }
+    if (postings.length < pageSize) {
+      end('short-page');
+      return;
+    }
 
     offset += pageSize;
 
@@ -355,6 +390,86 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
       await new Promise((r) => setTimeout(r, minDelayMs));
     }
   }
+  end('max-pages');
+}
+
+/* ── Board summary (total + facets) ───────────────────────────────────── */
+
+/**
+ * @typedef {Object} WorkdayBoardSummary
+ * @property {number|null} total `total` stated by page 0, or null when absent
+ *   or not a finite number.
+ * @property {number} postingCount postings shipped on page 0.
+ * @property {Array<{ facetParameter?: string, values?: unknown[] }>} facets the
+ *   `facets` array of page 0 (`[]` when absent).
+ */
+
+/**
+ * Read page 0 of a career site for what it says about the WHOLE board: its
+ * `total` and its `facets` (the tenant's own per-value counts, e.g. postings by
+ * country). The listing iterator never exposes the facets, and they are the
+ * only place a tenant states which countries it currently posts in.
+ *
+ * Fails loudly like the iterator: 401/403 → `WorkdayAuthError`, other HTTP
+ * errors (404 for a renamed or retired site) → `WorkdayApiError`.
+ *
+ * @param {string} apiBase Output of `buildWorkdayApiBase`.
+ * @param {{ appliedFacets?: Record<string, string[]>, userAgent?: string, timeoutMs?: number }} [options]
+ * @returns {Promise<WorkdayBoardSummary>}
+ */
+export async function fetchWorkdayBoardSummary(apiBase, options = {}) {
+  if (!apiBase) throw new TypeError('fetchWorkdayBoardSummary: apiBase is required');
+  const {
+    appliedFacets = {},
+    userAgent = DEFAULT_USER_AGENT,
+    timeoutMs = DEFAULT_TIMEOUT_MS,
+  } = options;
+  const endpoint = `${apiBase.replace(/\/+$/, '')}/jobs`;
+  const data = await fetchJsonWithRetry(endpoint, {
+    method: 'POST',
+    body: JSON.stringify({ appliedFacets, limit: DEFAULT_PAGE_SIZE, offset: 0, searchText: '' }),
+    userAgent,
+    timeoutMs,
+    retries: 1,
+  });
+  const postings = assertJsonListShape(data, { key: 'jobPostings', source: `workday:${apiBase}` });
+  return {
+    total: typeof data?.total === 'number' && Number.isFinite(data.total) ? data.total : null,
+    postingCount: postings.length,
+    facets: Array.isArray(data?.facets) ? data.facets : [],
+  };
+}
+
+/**
+ * The leaf values of one facet, flattened: `[{ id, descriptor, count }]`.
+ * Workday nests some facets (`locationMainGroup` → `Locations` → sites), so
+ * groups are walked and only leaves are returned. `null` when the facet is not
+ * on the page at all — which is not the same statement as "no values".
+ *
+ * @param {WorkdayBoardSummary['facets']} facets
+ * @param {string} facetParameter e.g. `Country`, `locationCountry`
+ * @returns {Array<{ id: string, descriptor: string, count: number|null }>|null}
+ */
+export function workdayFacetLeafValues(facets, facetParameter) {
+  const facet = (Array.isArray(facets) ? facets : []).find((f) => f?.facetParameter === facetParameter);
+  if (!facet || !Array.isArray(facet.values)) return null;
+  const leaves = [];
+  const walk = (values) => {
+    for (const value of values) {
+      if (!value || typeof value !== 'object') continue;
+      if (Array.isArray(value.values)) {
+        walk(value.values);
+        continue;
+      }
+      leaves.push({
+        id: String(value.id ?? ''),
+        descriptor: String(value.descriptor ?? ''),
+        count: typeof value.count === 'number' && Number.isFinite(value.count) ? value.count : null,
+      });
+    }
+  };
+  walk(facet.values);
+  return leaves;
 }
 
 /* ── Detail fetch ──────────────────────────────────────────────────────── */
@@ -454,11 +569,16 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
  *
  * Pipeline:
  *   GET {apiBase}{externalPath} → jobPostingInfo.jobDescription (HTML)
- *   → stripHtml (caller-supplied) → newline-preserving compaction → 4000-char cap
+ *   → stripHtml (caller-supplied) → newline-preserving compaction
  *
  * The caller passes `stripHtml` (typically from `crawler-template.mjs`) so this
- * client module has no dependency on the project's stripper. The 4000-char cap
- * keeps downstream AI translation costs predictable.
+ * client module has no dependency on the project's stripper.
+ *
+ * No default length cap: the body is the vacancy, and a cut one is an
+ * incomplete one. The former 4000-character default chopped the tail
+ * (profile, benefits, application notes) of every long Workday posting — the
+ * parser-quality audit reads that as a published description shorter than its
+ * source (issue 5253). A caller that really needs a bound passes `maxChars`.
  *
  * @param {string} apiBase
  * @param {string} externalPath
@@ -466,7 +586,7 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
  * @param {Object} [options]
  * @param {number} [options.timeoutMs]
  * @param {string} [options.userAgent]
- * @param {number} [options.maxChars] Hard cap on returned text. Default 4000.
+ * @param {number} [options.maxChars] Optional hard cap on returned text (no cap by default).
  * @returns {Promise<string>} Plain-text description, or '' on failure.
  */
 export async function fetchWorkdayJobDescriptionText(
@@ -478,11 +598,34 @@ export async function fetchWorkdayJobDescriptionText(
   if (typeof stripHtml !== 'function') {
     throw new TypeError('fetchWorkdayJobDescriptionText: stripHtml function is required');
   }
-  const { maxChars = 4000, ...fetchOptions } = options;
+  return (await fetchWorkdayJobDetailParts(apiBase, externalPath, stripHtml, options)).text;
+}
+
+/**
+ * One detail request, both halves a dedicated parser needs: the body as
+ * plain text (exactly what `fetchWorkdayJobDescriptionText` returns) and the
+ * `jobPostingInfo` itself — the structured primary location, country and
+ * `timeType`, none of which the CXS listing row carries (a listing-row
+ * `timeType` is always empty, so every part-time req was typed from its title
+ * alone).
+ *
+ * @param {string} apiBase
+ * @param {string} externalPath
+ * @param {(html: string) => string} stripHtml
+ * @param {Object} [options] same as `fetchWorkdayJobDescriptionText`
+ * @returns {Promise<{ text: string, info: Record<string, any> }>} `info` is
+ *   `{}` when the detail could not be read.
+ */
+export async function fetchWorkdayJobDetailParts(apiBase, externalPath, stripHtml, options = {}) {
+  if (typeof stripHtml !== 'function') {
+    throw new TypeError('fetchWorkdayJobDetailParts: stripHtml function is required');
+  }
+  const { maxChars = Infinity, ...fetchOptions } = options;
 
   const detail = await fetchWorkdayJobDetail(apiBase, externalPath, fetchOptions);
-  const html = String(detail?.jobPostingInfo?.jobDescription || '').trim();
-  if (!html) return '';
+  const info = detail?.jobPostingInfo && typeof detail.jobPostingInfo === 'object' ? detail.jobPostingInfo : {};
+  const html = String(info.jobDescription || '').trim();
+  if (!html) return { text: '', info };
 
   const text = stripHtml(html);
   const normalized = normalizeDescriptionBullets(String(text || '')
@@ -490,14 +633,67 @@ export async function fetchWorkdayJobDescriptionText(
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim());
-  return normalized.slice(0, maxChars);
+  return { text: Number.isFinite(maxChars) ? normalized.slice(0, maxChars) : normalized, info };
+}
+
+const workdaySidebarCache = new Map();
+
+/**
+ * Fetch the career site's sidebar text blocks (`GET {apiBase}/sidebar`), e.g.
+ * KSB's "About us" panel. Workday renders them next to every posting on the
+ * site and folds them into each posting's JSON-LD `description`, so they are
+ * part of what the source publishes for a vacancy — but the CXS job payload
+ * (`jobPostingInfo.jobDescription`) never carries them.
+ *
+ * Returned as plain text, one "Title\n\nbody" block per TEXT/IMAGE sidebar
+ * entry with a non-empty body (video captions are skipped); '' on any failure
+ * (the posting body alone is still valid).
+ * Cached per `apiBase` for the process lifetime: the sidebar is site-level,
+ * one request per run is enough.
+ *
+ * @param {string} apiBase Output of `buildWorkdayApiBase`.
+ * @param {(html: string) => string} stripHtml HTML→text stripper.
+ * @param {Object} [options] Same fetch options as `fetchWorkdayJobDetail`.
+ * @returns {Promise<string>}
+ */
+export function fetchWorkdaySidebarText(apiBase, stripHtml, options = {}) {
+  if (!apiBase || typeof stripHtml !== 'function') return Promise.resolve('');
+  const key = String(apiBase).replace(/\/+$/, '');
+  if (!workdaySidebarCache.has(key)) {
+    workdaySidebarCache.set(key, fetchWorkdayJobDetail(key, '/sidebar', options)
+      .then((entries) => formatWorkdaySidebarText(entries, stripHtml))
+      .catch(() => ''));
+  }
+  return workdaySidebarCache.get(key);
+}
+
+/**
+ * Pure formatter for the `/sidebar` payload (exported for tests).
+ *
+ * @param {unknown} entries
+ * @param {(html: string) => string} stripHtml
+ * @returns {string}
+ */
+export function formatWorkdaySidebarText(entries, stripHtml) {
+  if (!Array.isArray(entries)) return '';
+  const blocks = [];
+  for (const entry of entries) {
+    // A VIDEO entry's text is the caption of a player we cannot carry
+    // ("Willkommen auf der Karriereseite …"), not employer content.
+    if (String(entry?.type || '').toUpperCase() === 'VIDEO') continue;
+    const body = String(stripHtml(String(entry?.text || '')) || '')
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    if (!body) continue;
+    const title = normalizeSpace(entry?.title || '');
+    blocks.push(title ? `${title}\n\n${body}` : body);
+  }
+  return blocks.join('\n\n');
 }
 
 /* ── Date parsing ──────────────────────────────────────────────────────── */
-
-function dateOnlyIso(ms) {
-  return new Date(ms).toISOString().split('T')[0];
-}
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
@@ -616,57 +812,25 @@ export function getWorkdayLocationCandidates(info = {}, listingLocation = '') {
   return rawCandidates.map(normalizeWorkdayLocationCandidate).filter(Boolean);
 }
 
-/**
- * Parse Workday's `postedOn` field into an ISO `YYYY-MM-DD` string.
- *
- * Handles the relative phrases Workday emits across locales:
- *   - "Posted Today" / "Oggi" / "Aujourd'hui" → today
- *   - "Posted Yesterday" / "Ieri" / "Hier" → today − 1
- *   - "Posted N Days Ago" / "N+ Days Ago" / "N giorni fa" / "N jours" → today − N
- *   - "Posted N Weeks Ago" / "N settimane fa" / "N semaines" → today − 7N
- *   - Absolute ISO/Date strings (passed through if parsable)
- *
- * Falls back to today's date when no pattern matches and input is empty.
- * Returns `null` for unparseable non-empty strings so the caller can decide
- * whether to use a fallback.
- *
- * @param {string} postedOnRaw
- * @returns {string|null} `YYYY-MM-DD` ISO date, or null if unparseable.
+/** Only explicit source dates are precise enough to persist as publication dates.
+ * Relative listing labels (including today and 30+ days) carry no source timezone
+ * or exact instant, so they remain unknown until the detail supplies a date.
  */
-export function parseWorkdayPostedDate(postedOnRaw) {
-  const raw = normalizeSpace(postedOnRaw).toLowerCase();
-  if (!raw) return dateOnlyIso(Date.now());
+export function parseWorkdayPostedDate(postedOnRaw, now = new Date()) {
+  return sourcePostingDateFields(normalizeSpace(postedOnRaw), now).postedDate || null;
+}
 
-  if (raw.includes('today') || raw.includes('oggi') || raw.includes('aujourd') || raw.includes('heute')) {
-    return dateOnlyIso(Date.now());
+/** CXS detail startDate is the publication date exposed as datePosted by Workday's
+ * public JobPosting JSON-LD; it is distinct from an arbitrary top-level startDate.
+ * Prefer detail evidence over lossy relative listing labels.
+ */
+export function workdayPostingDateFields(posting, now = new Date()) {
+  const info = posting?.jobPostingInfo || {};
+  for (const value of [info.datePosted, info.startDate, posting?.datePosted, info.postedOn, posting?.postedOn]) {
+    const fields = sourcePostingDateFields(value, now);
+    if (fields.postingDateSource === 'reported') return fields;
   }
-  if (raw.includes('yesterday') || raw.includes('ieri') || raw.includes('hier') || raw.includes('gestern')) {
-    return dateOnlyIso(Date.now() - 86400000);
-  }
-
-  const days = Number(
-    raw.match(/(\d+)\+?\s*day/)?.[1] ||
-      raw.match(/(\d+)\+?\s*giorn/)?.[1] ||
-      raw.match(/(\d+)\+?\s*jour/)?.[1] ||
-      raw.match(/(\d+)\+?\s*tag/)?.[1] ||
-      0,
-  );
-  if (Number.isFinite(days) && days > 0) return dateOnlyIso(Date.now() - days * 86400000);
-
-  const weeks = Number(
-    raw.match(/(\d+)\+?\s*week/)?.[1] ||
-      raw.match(/(\d+)\+?\s*settiman/)?.[1] ||
-      raw.match(/(\d+)\+?\s*semain/)?.[1] ||
-      raw.match(/(\d+)\+?\s*woch/)?.[1] ||
-      0,
-  );
-  if (Number.isFinite(weeks) && weeks > 0) return dateOnlyIso(Date.now() - weeks * 7 * 86400000);
-
-  // Absolute date attempt (ISO / RFC2822 etc.)
-  const absolute = Date.parse(postedOnRaw);
-  if (Number.isFinite(absolute)) return dateOnlyIso(absolute);
-
-  return null;
+  return sourcePostingDateFields('', now);
 }
 
 /* ── Job identity normalization ────────────────────────────────────────── */
@@ -678,7 +842,10 @@ export function parseWorkdayPostedDate(postedOnRaw) {
  * @property {string} title Cleaned job title
  * @property {string} location First location segment (e.g. "Visp" from "Visp - VS, Switzerland")
  * @property {string} company Resolved company display name (from options.company)
- * @property {string|null} postedAt ISO `YYYY-MM-DD` or null
+ * @property {string|null} postedAt Explicit ISO source publication date or null
+ * @property {string} postingDateSource reported or unknown
+ * @property {string} datePosted Validated publication date or empty
+ * @property {string} postedDate Validated publication date or empty
  * @property {string} applyUrl Public-facing URL (Workday `en/{site}{externalPath}` format)
  * @property {string} externalPath Raw Workday externalPath (use to fetch detail)
  */
@@ -810,9 +977,8 @@ export function extractWorkdayJobIdentity(posting, options = {}) {
     (Array.isArray(safe.bulletFields) ? safe.bulletFields[0] : '') ||
     '';
 
-  const postedRaw = safe.postedOn || safe?.jobPostingInfo?.postedOn || '';
-  const startDate = safe?.jobPostingInfo?.startDate || '';
-  const postedAt = postedRaw ? parseWorkdayPostedDate(postedRaw) : startDate || null;
+  const publication = workdayPostingDateFields(safe);
+  const postedAt = publication.postedDate || null;
 
   // Build the public apply URL.
   // CXS API base: https://{host}/wday/cxs/{tenant}/{site}
@@ -838,6 +1004,7 @@ export function extractWorkdayJobIdentity(posting, options = {}) {
     location,
     company,
     postedAt,
+    ...publication,
     applyUrl,
     externalPath,
   };

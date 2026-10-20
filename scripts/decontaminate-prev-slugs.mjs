@@ -39,7 +39,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
-import { pruneEmptyPreviousSlugLocaleBuckets } from './lib/dedicated-crawler-common.mjs';
+import { cleanPreviousSlugsPerLocale, pruneEmptyPreviousSlugLocaleBuckets } from './lib/dedicated-crawler-common.mjs';
 import { addPreviousSlugForLocale, promotePreviousSlugToLegacy } from './lib/dedicated-crawler-common.mjs';
 import { resolveRecoveryTarget } from './backfill-prev-slugs-from-loss-events.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -61,7 +61,56 @@ export function listCrawlerSlicePaths(directories = CRAWLER_SLICE_DIRS) {
   return directories.flatMap((dir) => listSliceFilePaths(dir)).sort();
 }
 
+function normalizedSlug(value) {
+  return String(value ?? '').trim();
+}
+
+function targetAlreadyServesSlug(job, locale, slug) {
+  const normalized = normalizedSlug(slug);
+  if (!normalized || !job || typeof job !== 'object') return false;
+
+  // The master slug is the live Italian route even when the redirect was
+  // recorded under a different locale. Adding it back as history would create
+  // a self-canonical bridge on the next SEO emit.
+  if (normalized === normalizedSlug(job.slug)) return true;
+
+  if (locale !== null) {
+    return normalized === normalizedSlug(job.slugByLocale?.[locale]);
+  }
+
+  return Object.values(job.slugByLocale || {})
+    .some((activeSlug) => normalized === normalizedSlug(activeSlug));
+}
+
+function hasSelfCanonicalBridge(job) {
+  if (!job || typeof job !== 'object') return false;
+  const masterSlug = normalizedSlug(job.slug);
+  const activeByLocale = job.slugByLocale && typeof job.slugByLocale === 'object'
+    ? job.slugByLocale
+    : {};
+  const activeAnyLocale = new Set(
+    Object.values(activeByLocale).map(normalizedSlug).filter(Boolean),
+  );
+
+  for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale || {})) {
+    if (!Array.isArray(slugs)) continue;
+    const activeLocale = normalizedSlug(activeByLocale[locale]);
+    if (slugs.some((slug) => {
+      const normalized = normalizedSlug(slug);
+      return normalized === activeLocale || normalized === masterSlug;
+    })) return true;
+  }
+
+  return Array.isArray(job.previousSlugs)
+    && job.previousSlugs.some((slug) => {
+      const normalized = normalizedSlug(slug);
+      return normalized === masterSlug || activeAnyLocale.has(normalized);
+    });
+}
+
 function applyAddition(action) {
+  if (targetAlreadyServesSlug(action.targetJob, action.locale, action.slug)) return false;
+
   if (action.locale !== null) {
     addPreviousSlugForLocale(
       action.targetJob,
@@ -70,19 +119,20 @@ function applyAddition(action) {
       Number.MAX_SAFE_INTEGER,
       'decontaminate-prev-slugs',
     );
-    return;
+    return true;
   }
   // A locale-aware action already synchronized this slug to the legacy flat
   // union. Only promote genuinely flat-only history; promotePreviousSlugToLegacy
   // intentionally removes locale provenance and must not erase a locale move.
   if (Array.isArray(action.targetJob.previousSlugs)
-      && action.targetJob.previousSlugs.includes(action.slug)) return;
+      && action.targetJob.previousSlugs.includes(action.slug)) return false;
   promotePreviousSlugToLegacy(
     action.targetJob,
     action.slug,
     Number.MAX_SAFE_INTEGER,
     'decontaminate-prev-slugs',
   );
+  return true;
 }
 
 function removePlannedSlugs(job, plans) {
@@ -146,17 +196,33 @@ function collectRedirectPlans(jobs, owners, { sourceEntry = null, ownerEntry = n
  *
  * `entries` supplies every slice used to resolve a hash tail; `sourceEntries`
  * selects the slices whose previous-slug claims are scanned and removed. The
- * writer uses one fresh source entry plus the existing fleet, which closes the
- * cross-file regrowth gap without rewriting unrelated claimants in each crawl.
+ * direct writer passes the fresh entry plus the existing fleet as sources; only
+ * entries with a confirmed redirect or empty-bucket cleanup are written, which
+ * closes cross-file regrowth without rewriting unrelated claimants.
  * Cross-file targets are persisted before source removal, so a failed target
  * write leaves the old route recoverable for a retry.
  *
+ * `ownedEntries` names the slices this caller is the writer of. A fleet pass
+ * (CLI, scatter) runs alone and owns everything it scans, which is the
+ * default. A crawler's slice writer owns exactly one file and runs next to
+ * its group siblings in one checkout (issue 12467): for the files of the
+ * others it may only carry out a redirect that involves its own slice. It
+ * must not tidy them on its own account, because between reading a sibling's
+ * file and writing it back the sibling may have published its final slice,
+ * and what was read can be the sibling's seed (raw parser slugs), which has
+ * the self-canonical shape by construction.
+ *
+ * `writeSlice` may return `false` to say it did not write (a file that is not
+ * the caller's changed since it was read). A redirect whose target was not
+ * written is dropped before the claimant loses the route.
+ *
  * @param {{filePath:string|null, slice:{jobs:object[]}}[]} entries complete owner namespace
- * @param {{sourceEntries?:object[], apply?:boolean, writeSlice?:Function}} [options]
- * @returns {{moved:number, emptyLocaleBucketsPruned:number, affected:object[]}}
+ * @param {{sourceEntries?:object[], ownedEntries?:object[]|null, apply?:boolean, writeSlice?:Function}} [options]
+ * @returns {{moved:number, emptyLocaleBucketsPruned:number, affected:object[], skipped:string[]}}
  */
 export function decontaminateEntries(entries, {
   sourceEntries = entries,
+  ownedEntries = null,
   apply = APPLY,
   writeSlice = (filePath, slice) => writeJsonAtomic(filePath, slice),
 } = {}) {
@@ -167,6 +233,9 @@ export function decontaminateEntries(entries, {
     (Array.isArray(sourceEntries) ? sourceEntries : validEntries)
       .filter((entry) => validSet.has(entry)),
   );
+  const ownedSet = Array.isArray(ownedEntries)
+    ? new Set(ownedEntries.filter((entry) => validSet.has(entry)))
+    : sourceSet;
   const ownerEntry = new WeakMap();
   const globalOwners = new Map();
 
@@ -190,18 +259,33 @@ export function decontaminateEntries(entries, {
   for (const entry of validEntries) {
     if (!sourceSet.has(entry)) continue;
     const owners = new Map(globallyUnique);
+    const sameSliceOwners = new Map();
+    const sameSliceAmbiguous = new Set();
     for (const job of entry.slice.jobs) {
       if (!job || typeof job !== 'object') continue;
       const hash = stableSlugHash(job);
-      if (hash && !owners.has(hash)) owners.set(hash, job);
-      // A same-slice owner is stronger than a unique global fallback.
-      if (hash && ownerEntry.get(owners.get(hash)) !== entry) owners.set(hash, job);
+      if (!hash || sameSliceAmbiguous.has(hash)) continue;
+      if (sameSliceOwners.has(hash)) {
+        sameSliceOwners.delete(hash);
+        sameSliceAmbiguous.add(hash);
+        continue;
+      }
+      sameSliceOwners.set(hash, job);
+    }
+    // A same-slice owner is stronger than a unique global fallback, but only
+    // when that hash occurs once in the slice. The old first-owner fallback
+    // made a same-hash pair depend on array order and could redirect a route
+    // to either sibling; ambiguity is evidence for no move, not a guess.
+    for (const [hash, job] of sameSliceOwners) {
+      owners.set(hash, job);
     }
 
     const entryPlans = collectRedirectPlans(entry.slice.jobs, owners, { sourceEntry: entry, ownerEntry });
     for (const plan of entryPlans) {
+      // A redirect between two slices the caller does not own is not its to
+      // carry out: the next fleet pass, or either owner's writer, does it.
+      if (!ownedSet.has(plan.sourceEntry) && !ownedSet.has(plan.targetEntry)) continue;
       plans.push(plan);
-      stats.get(entry).moved++;
     }
   }
 
@@ -210,22 +294,58 @@ export function decontaminateEntries(entries, {
 
   // Persist cross-file targets first. A failure here cannot remove a claimant
   // route; a retry merely deduplicates additions that were already written.
+  const skippedEntries = new Set();
   if (apply) {
     const targets = [...new Set(crossFilePlans.map((plan) => plan.targetEntry))]
       .sort((a, b) => a.filePath.localeCompare(b.filePath));
-    for (const entry of targets) writeSlice(entry.filePath, entry.slice, { phase: 'cross-file-target' });
+    for (const entry of targets) {
+      const written = writeSlice(entry.filePath, entry.slice, { phase: 'cross-file-target', owned: ownedSet.has(entry) });
+      if (written === false) skippedEntries.add(entry);
+    }
   }
 
+  // The route never reached a target that was not written: the claimant keeps it.
+  const keptPlans = plans.filter((plan) => !skippedEntries.has(plan.targetEntry));
+  for (const plan of keptPlans) stats.get(plan.sourceEntry).moved++;
+
   const plansByJob = new Map();
-  for (const plan of plans) {
+  for (const plan of keptPlans) {
     if (!plansByJob.has(plan.sourceJob)) plansByJob.set(plan.sourceJob, []);
     plansByJob.get(plan.sourceJob).push(plan);
     if (plan.sourceEntry === plan.targetEntry) applyAddition(plan);
   }
   for (const [job, jobPlans] of plansByJob) removePlannedSlugs(job, jobPlans);
 
+  // Ownership moves can add a slug that is already the target's active route.
+  // Clean after additions/removals as well as before a direct writer's pass so
+  // the final persisted slice cannot emit a self-canonical bridge. Keep the
+  // cleanup scoped to the source entries the caller owns: a slice used only
+  // for lookup, or scanned for claims on behalf of another writer, is not
+  // rewritten merely because it could be tidier (issue 12467).
+  const cleanupChangedEntries = new Set();
+  for (const entry of validEntries) {
+    if (!sourceSet.has(entry) || !ownedSet.has(entry)) continue;
+    for (const job of entry.slice.jobs) {
+      if (!job || typeof job !== 'object') continue;
+      if (!hasSelfCanonicalBridge(job)) continue;
+      const before = JSON.stringify({
+        previousSlugs: job.previousSlugs,
+        previousSlugsByLocale: job.previousSlugsByLocale,
+      });
+      cleanPreviousSlugsPerLocale(job);
+      const after = JSON.stringify({
+        previousSlugs: job.previousSlugs,
+        previousSlugsByLocale: job.previousSlugsByLocale,
+      });
+      if (before !== after) cleanupChangedEntries.add(entry);
+    }
+  }
+
   for (const entry of validEntries) {
     if (!sourceSet.has(entry)) continue;
+    // A claimant the caller does not own is pruned only when it is being
+    // rewritten anyway for a redirect that left one of its buckets empty.
+    if (!ownedSet.has(entry) && stats.get(entry).moved === 0) continue;
     for (const job of entry.slice.jobs) {
       if (!job || typeof job !== 'object') continue;
       stats.get(entry).emptyLocaleBucketsPruned += pruneEmptyPreviousSlugLocaleBuckets(job);
@@ -234,36 +354,104 @@ export function decontaminateEntries(entries, {
 
   const sourceChangedEntries = validEntries.filter((entry) => (
     sourceSet.has(entry)
-    && (stats.get(entry).moved > 0 || stats.get(entry).emptyLocaleBucketsPruned > 0)
-  ));
-  const crossFileTargets = new Set(crossFilePlans.map((plan) => plan.targetEntry));
-  const changedEntries = validEntries.filter((entry) => (
-    sourceChangedEntries.includes(entry) || crossFileTargets.has(entry)
+    && !skippedEntries.has(entry)
+    && (
+      stats.get(entry).moved > 0
+      || stats.get(entry).emptyLocaleBucketsPruned > 0
+      || cleanupChangedEntries.has(entry)
+    )
   ));
   if (apply) {
     // This pass intentionally drops claimant entries. Disable the preservation
     // guard only for final source writes; target-first additions remain
     // protected by the normal writer and are already persisted above.
     for (const entry of sourceChangedEntries.sort((a, b) => String(a.filePath).localeCompare(String(b.filePath)))) {
-      withGuardOff(() => writeSlice(entry.filePath, entry.slice, { phase: 'final' }));
+      const written = withGuardOff(() => writeSlice(entry.filePath, entry.slice, { phase: 'final', owned: ownedSet.has(entry) }));
+      // The claimant keeps the route in its file; the target already has it.
+      // Both copies are redirected again by the next pass that reads them.
+      if (written === false) skippedEntries.add(entry);
     }
   }
+  const crossFileTargets = new Set(keptPlans
+    .filter((plan) => plan.sourceEntry !== plan.targetEntry)
+    .map((plan) => plan.targetEntry));
+  const changedEntries = validEntries.filter((entry) => (
+    !skippedEntries.has(entry)
+    && (sourceChangedEntries.includes(entry) || crossFileTargets.has(entry))
+  ));
 
   const affected = changedEntries.map((entry) => ({ filePath: entry.filePath, ...stats.get(entry) }));
   return {
-    moved: plans.length,
+    moved: keptPlans.length,
     emptyLocaleBucketsPruned: affected.reduce((sum, entry) => sum + entry.emptyLocaleBucketsPruned, 0),
     affected,
+    skipped: [...skippedEntries].map((entry) => entry.filePath),
   };
+}
+
+/**
+ * The cheap identity of a file on disk, for a writer that has to tell whether
+ * somebody else replaced it. Every slice writer here goes through a temp file
+ * and a rename, so a rewrite always changes the inode.
+ */
+function sliceFileStamp(filePath) {
+  try {
+    const stat = fs.statSync(filePath);
+    return `${stat.ino}:${stat.size}:${stat.mtimeMs}`;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Read the slices of a fleet for a writer that owns only `ownPath`, and build
+ * the `writeSlice` that goes with them.
+ *
+ * Crawlers of one group run side by side in one checkout. A sibling's file
+ * read here can be replaced a moment later by its owner; writing back what
+ * was read would silently revert it (issue 12467: 2.835 master slugs back to
+ * the raw parser form). The stamp is taken before the read, so a file that
+ * changes while it is being read is treated as changed. On a mismatch the
+ * write is refused and `decontaminateEntries` keeps the redirect for a later
+ * pass.
+ *
+ * @param {string[]} filePaths slices of the other crawlers
+ * @param {{ownPath:string, readSlice:Function, write:Function}} options
+ * @returns {{entries:{filePath:string, slice:object}[], writeSlice:Function, refused:string[]}}
+ */
+export function readFleetForSingleOwner(filePaths, { ownPath, readSlice, write }) {
+  const stamps = new Map();
+  const refused = [];
+  const entries = [];
+  for (const filePath of filePaths) {
+    if (filePath === ownPath) continue;
+    const stamp = sliceFileStamp(filePath);
+    const slice = readSlice(filePath);
+    if (!Array.isArray(slice?.jobs)) continue;
+    stamps.set(filePath, stamp);
+    entries.push({ filePath, slice });
+  }
+  const writeSlice = (filePath, slice) => {
+    if (filePath === ownPath) return write(filePath, slice);
+    if (stamps.get(filePath) === null || sliceFileStamp(filePath) !== stamps.get(filePath)) {
+      refused.push(filePath);
+      return false;
+    }
+    const written = write(filePath, slice);
+    stamps.set(filePath, sliceFileStamp(filePath));
+    return written;
+  };
+  return { entries, writeSlice, refused };
 }
 
 /**
  * Decontaminate one crawler slice already held in memory.
  *
- * This is the write-side form of the fleet pass below. It keeps the same
- * first-owner semantics used for jobs sharing a slice, and only redirects a
- * previous slug when its hash tail positively identifies another current job.
- * Unknown tails stay untouched because they are not evidence of contamination.
+ * This is the write-side form of the fleet pass below. It only redirects a
+ * previous slug when its hash tail positively identifies one current job; a
+ * hash shared by multiple jobs stays untouched instead of depending on array
+ * order. Unknown tails stay untouched because they are not evidence of
+ * contamination.
  *
  * @param {object[]} jobs jobs about to be persisted in one crawler slice
  * @returns {{moved: number, emptyLocaleBucketsPruned: number}}
@@ -286,7 +474,7 @@ export function decontaminateJobs(jobs) {
  * the claimant and a retry can safely finish the move; successful earlier
  * files are already idempotent. Hashes with more than one global record are
  * deliberately not used for cross-file routing, while same-file resolution
- * retains the historical first-owner behavior.
+ * uses a unique owner only and leaves ambiguous hashes untouched.
  */
 export function processFiles(filePaths, options = {}) {
   const payloadKinds = new Map();

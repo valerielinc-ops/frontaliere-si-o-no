@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -13,6 +15,7 @@ import {
   italyDutyPublicationMismatches,
   sourceCoverageModel,
   sourcePublicationClass,
+  vcoMirrorUrlError,
   verifyItalyReleaseSnapshots,
 } from './lib/pharmacy-italy-duty-parser.mjs';
 
@@ -86,6 +89,8 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
     if (!sameHttpsHost(source?.officialSourceUrl, source?.rawUrl)) {
       errors.push(`source ${source?.key || '<unknown>'}: rawUrl host must match the official source host`);
     }
+    const mirrorError = vcoMirrorUrlError(source);
+    if (mirrorError) errors.push(`source ${source?.key || '<unknown>'}: ${mirrorError}`);
     // Il minimo in giorni-calendario vale solo per una fonte `full-calendar`.
     // Una fonte `corrections-only` pubblica i soli cambi turno, quindi non puo'
     // dichiarare 300 giorni senza mentire: pretenderlo la marcava invalida.
@@ -244,4 +249,4 @@ async function main() {
   console.log(`[check-pharmacy-duties-italy] OK release=${duties._release.releaseId} duties=${duties.duties.length}`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) await main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) await main();

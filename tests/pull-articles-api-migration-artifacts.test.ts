@@ -14,7 +14,7 @@
  * (this ships BEFORE nanako emits either), a malformed one is refused, and a
  * refusal writes NOTHING — the committed copy keeps serving.
  */
-import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import http from 'node:http';
@@ -75,6 +75,9 @@ const blogSitemap = urlset([
   `  <url>
     <loc>https://frontaliereticino.ch/articoli-frontaliere/a/</loc>
     <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/a/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/a-en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-artikel/a-de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/a-fr/" />
   </url>`,
 ]);
 
@@ -108,6 +111,174 @@ const archiveSitemap = urlset([
 ]);
 
 const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-articles-archive.xml'];
+const API_COMMIT = 'deadbeefcafe1234567890abcdef1234567890ab';
+const BLOG_CREDITS_PATH = 'data/image-credits-blog.json';
+const SLUGS_PATH = 'slugs.json';
+const CANTON_ARTICLES_PATH = 'canton-articles.json';
+const CANTON_ARTICLES = JSON.stringify([{
+  id: 'disoccupazione-berna-settembre-2026-stabile',
+  category: 'pratico',
+  date: '2026-10-07T19:58:52.255Z',
+  image: '/images/blog/article-disoccupazione-berna-settembre-2026-stabile.webp',
+  authorSlug: 'redazione',
+  commit: API_COMMIT,
+  section: 'canton-be',
+}]);
+const GENERATED_SNAPSHOT_PATH = 'data/published-blog-generated-image-evidence.json';
+const publishedSlugs = (blog: Record<string, Record<string, string>>, swiss = {}) => JSON.stringify({
+  commit: API_COMMIT,
+  blog,
+  swiss,
+});
+const PUBLISHED_SLUGS = publishedSlugs({
+  a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+});
+const PUBLISHED_SLUGS_A_B = publishedSlugs({
+  a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+  b: { it: 'b', en: 'b-en', de: 'b-de', fr: 'b-fr' },
+});
+const validGeneratedCover = () => {
+  const now = Date.now();
+  return {
+    schema: 1,
+    assetId: 'test-generated-cover',
+    kind: 'generated',
+    provider: 'openai-codex',
+    model: 'gpt-image-2.5',
+    executorModel: 'gpt-5.6-luna',
+    promptVersion: 'frontaliereticino.generated-image-policy.v1',
+    promptHash: 'a'.repeat(64),
+    license: 'generated-provider',
+    licenseUrl: 'https://openai.com/policies/terms-of-use/',
+    credit: 'frontaliereticino.ch',
+    sha256: 'b'.repeat(64),
+    bytes: 64,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    generatedAt: new Date(now - 10 * 60_000).toISOString(),
+    verifiedAt: new Date(now - 5 * 60_000).toISOString(),
+    restrictions: [
+      'illustrative-only',
+      'no-real-recognizable-foreground-person',
+      'no-public-figure-face',
+      'no-logo-brand-or-text',
+      'no-specific-real-event-photojournalism',
+    ],
+    scope: 'article-hero',
+    imageUrl: '/images/blog/test-generated-cover.webp',
+    category: 'blog',
+    area: 'Swiss Italian border region',
+    season: 'all seasons',
+    variant: 'pull-api-regression-test',
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      looks_like_specific_real_event: false,
+      is_photograph: false,
+      notes: 'Safe generic illustration for the API pull regression test.',
+    },
+  };
+};
+
+/** The real governed static fallback published by the corpus blog index. */
+const validLuganoPlaceFallback = () => ({
+  schema: 1,
+  assetId: 'lugano-view',
+  provider: 'openai-codex',
+  model: 'gpt-image-2.5',
+  executorModel: 'gpt-5.6-luna',
+  promptVersion: 'frontaliereticino.generated-image-policy.v1',
+  promptHash: 'a552b810810cf3e04267e7c17af799c7a182a0cda5732e97212ee0b1d9e0cecb',
+  license: 'generated-provider',
+  licenseUrl: 'https://openai.com/policies/terms-of-use/',
+  credit: 'frontaliereticino.ch',
+  sha256: 'feb0ec2c59872a3d1ccb23dba22a436ca1d747d5e909b142cd4a593c550b6a96',
+  bytes: 169332,
+  width: 1200,
+  height: 675,
+  format: 'webp',
+  generatedAt: '2026-10-06T19:26:04.084Z',
+  verifiedAt: '2026-10-06T19:26:14.671Z',
+  restrictions: [
+    'illustrative-only',
+    'no-real-recognizable-foreground-person',
+    'no-public-figure-face',
+    'no-logo-brand-or-text',
+    'no-specific-real-event-photojournalism',
+  ],
+  scope: 'place',
+  imageUrl: '/images/places/lugano-view.webp',
+  area: 'Canton Ticino e regione di confine',
+  season: 'luce diurna equilibrata',
+  variant: 'place-hero',
+  vision: {
+    ok: true,
+    contains_text: false,
+    contains_logo: false,
+    contains_recognizable_face: false,
+    looks_like_specific_real_event: false,
+    notes: 'Original generic illustrated landscape; no readable text, logos, signatures, recognizable faces, or specific real event.',
+  },
+});
+
+const validPrivateGrantCover = () => ({
+  schema: 1,
+  assetId: 'test-private-grant-cover',
+  provider: 'site-owned',
+  note: 'Site-owned cover with documented publication rights.',
+  license: 'private-grant',
+  credit: 'frontaliereticino.ch',
+  sha256: 'c'.repeat(64),
+  bytes: 64,
+  width: 1200,
+  height: 675,
+  format: 'webp',
+  scope: 'article-hero',
+  imageUrl: '/images/blog/test-private-grant-cover.webp',
+});
+
+const validPexelsCover = () => {
+  const now = new Date().toISOString();
+  return {
+    schema: 1,
+    assetId: 'test-licensed-cover',
+    kind: 'photo',
+    provider: 'pexels',
+    license: 'Pexels License',
+    licenseUrl: 'https://www.pexels.com/license/',
+    sourcePageUrl: 'https://www.pexels.com/photo/test-photo-1234567/',
+    author: { name: 'Test Photographer', url: 'https://www.pexels.com/@test-photographer' },
+    credit: 'Test Photographer / Pexels',
+    copyrightNotice: 'Photograph by Test Photographer via Pexels',
+    acquireLicensePage: 'https://www.pexels.com/license/',
+    sourceWidth: 1920,
+    sourceHeight: 1080,
+    generatedAt: now,
+    verifiedAt: now,
+    restrictions: ['licensed-source', 'no-recognizable-foreground-person', 'no-logo-brand-or-trademark'],
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
+      looks_like_specific_real_event: false,
+      is_photograph: true,
+      is_topic_relevant: true,
+      notes: 'Safe generic licensed editorial photo for the API pull regression test.',
+    },
+    sha256: 'd'.repeat(64),
+    bytes: 64,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    scope: 'article-hero',
+    imageUrl: '/images/blog/test-licensed-cover.webp',
+  };
+};
 const FEEDS = [
   'rss.xml',
   'rss-it.xml',
@@ -127,8 +298,11 @@ type Routes = Record<string, string | Buffer | undefined>;
 let server: http.Server;
 let baseUrl: string;
 let routes: Routes = {};
+let manifestSequence: string[] | null = null;
+let manifestSequenceIndex = 0;
 
-function baseRoutes(): Routes {
+function baseRoutes(slugs = PUBLISHED_SLUGS): Routes {
+  const credits = JSON.stringify({ schema: 1, section: 'blog', commit: API_COMMIT, generated: {} });
   const r: Routes = {
     // A FULL sha, as nanako's build-api.mjs actually emits (checked against the
     // live manifest: c6897c287da4a97b40135713a217aef6579486c9). The fixture used
@@ -137,9 +311,17 @@ function baseRoutes(): Routes {
     // resolves nothing abbreviated, so an abbreviated commit now skips the sync
     // (issue #5298, scripts/lib/articles-sync-pin.mjs).
     'manifest.json': JSON.stringify({
-      commit: 'deadbeefcafe1234567890abcdef1234567890ab',
-      counts: { articles: 500 },
+      commit: API_COMMIT,
+      counts: { articles: 500, cantonArticles: 1 },
+      files: {
+        [BLOG_CREDITS_PATH]: Buffer.byteLength(credits),
+        [SLUGS_PATH]: Buffer.byteLength(slugs),
+        [CANTON_ARTICLES_PATH]: Buffer.byteLength(CANTON_ARTICLES),
+      },
     }),
+    [BLOG_CREDITS_PATH]: credits,
+    [SLUGS_PATH]: slugs,
+    [CANTON_ARTICLES_PATH]: CANTON_ARTICLES,
     'news-ticker-live.json': ticker,
   };
   for (const s of SITEMAPS) {
@@ -149,10 +331,21 @@ function baseRoutes(): Routes {
   return r;
 }
 
+function routesWithCredits(credits: string): Routes {
+  const result = baseRoutes();
+  const manifest = JSON.parse(result['manifest.json'] as string);
+  manifest.files[BLOG_CREDITS_PATH] = Buffer.byteLength(credits);
+  result['manifest.json'] = JSON.stringify(manifest);
+  result[BLOG_CREDITS_PATH] = credits;
+  return result;
+}
+
 beforeAll(async () => {
   server = http.createServer((req, res) => {
     const name = decodeURIComponent((req.url ?? '/').replace(/^\//, ''));
-    const body = routes[name];
+    const body = name === 'manifest.json' && manifestSequence
+      ? manifestSequence[Math.min(manifestSequenceIndex++, manifestSequence.length - 1)]
+      : routes[name];
     if (body === undefined) {
       res.writeHead(404).end('not found');
       return;
@@ -164,12 +357,21 @@ beforeAll(async () => {
   baseUrl = `http://127.0.0.1:${addr.port}`;
 });
 
+beforeEach(() => {
+  manifestSequence = null;
+  manifestSequenceIndex = 0;
+});
+
 afterAll(async () => {
   await new Promise<void>((resolve) => server.close(() => resolve()));
 });
 
 /** A throwaway checkout carrying the files the script expects to already serve. */
-function makeCheckout(opts: { newsEntries?: string[]; windowHours?: number | null } = {}) {
+function makeCheckout(opts: {
+  newsEntries?: string[];
+  windowHours?: number | null;
+  frontaliereShadowedSlugs?: string[];
+} = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'pull-articles-'));
   const pub = path.join(dir, 'public');
   fs.mkdirSync(pub, { recursive: true });
@@ -182,7 +384,27 @@ function makeCheckout(opts: { newsEntries?: string[]; windowHours?: number | nul
       `export const NEWS_SITEMAP_WINDOW_HOURS = ${opts.windowHours ?? 48};\n`,
     );
   }
-  for (const s of SITEMAPS) fs.writeFileSync(path.join(pub, s), blogSitemap);
+  if (opts.frontaliereShadowedSlugs?.length) {
+    const overridesDir = path.join(dir, 'packages', 'articles', 'engine', 'shared');
+    fs.mkdirSync(overridesDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(overridesDir, 'frontaliere-article-canonical-overrides.json'),
+      JSON.stringify({
+        overrides: Object.fromEntries(
+          opts.frontaliereShadowedSlugs.map((slug) => [
+            slug,
+            'https://frontaliereticino.ch/articoli-frontaliere/a/',
+          ]),
+        ),
+      }),
+    );
+  }
+  for (const s of SITEMAPS) {
+    fs.writeFileSync(
+      path.join(pub, s),
+      s === 'sitemap-articles-archive.xml' ? archiveSitemap : blogSitemap,
+    );
+  }
   for (const f of FEEDS) fs.writeFileSync(path.join(pub, f), feed);
   fs.writeFileSync(path.join(pub, 'news-ticker-live.json'), ticker);
   fs.writeFileSync(path.join(pub, 'sitemap-news.xml'), urlset(opts.newsEntries ?? []));
@@ -206,7 +428,11 @@ function makeCheckout(opts: { newsEntries?: string[]; windowHours?: number | nul
  * hang forever waiting for a server that cannot answer. That deadlock is silent
  * — it looks exactly like a slow test — so it is worth the comment.
  */
-function run(cwd: string, args: string[] = []): Promise<{ code: number | null; out: string }> {
+function run(
+  cwd: string,
+  args: string[] = [],
+  extraEnv: Record<string, string> = {},
+): Promise<{ code: number | null; out: string }> {
   return new Promise((resolve) => {
     const child = spawn(process.execPath, [SCRIPT, ...args], {
       cwd,
@@ -216,6 +442,7 @@ function run(cwd: string, args: string[] = []): Promise<{ code: number | null; o
         // The sandbox exports a proxy; the fixture server is loopback.
         NO_PROXY: '127.0.0.1,localhost',
         no_proxy: '127.0.0.1,localhost',
+        ...extraEnv,
       },
     });
     let out = '';
@@ -228,8 +455,51 @@ function run(cwd: string, args: string[] = []): Promise<{ code: number | null; o
 const readPub = (dir: string, rel: string) =>
   fs.readFileSync(path.join(dir, 'public', rel), 'utf-8');
 
+describe('pull-articles-api: sitemap/slug-map source parity', () => {
+  it('refuses a hreflang slug that disagrees with the same release slug map', async () => {
+    routes = {
+      ...baseRoutes(),
+      'sitemap-blog.xml': urlset([
+        `  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/a/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/a/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/wrong/" />
+  </url>`,
+      ]),
+    };
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('sitemap-blog.xml: a en hreflang');
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('refuses a sitemap that omits a publishable Italian slug', async () => {
+    routes = baseRoutes(PUBLISHED_SLUGS_A_B);
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('b (b) absent from the sitemap');
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('allows a slug omitted by the corpus canonical-override rule', async () => {
+    routes = baseRoutes(PUBLISHED_SLUGS_A_B);
+    const dir = makeCheckout({ frontaliereShadowedSlugs: ['b'] });
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).toBe(0);
+    expect(result.out).not.toContain('absent from the sitemap');
+  });
+});
+
 describe('pull-articles-api: hero-image manifest', () => {
-  it('skips both artifacts when nanako does not publish them yet, and still pulls the rest', async () => {
+  it('skips optional image and news artifacts when nanako does not publish them yet', async () => {
     routes = baseRoutes();
     const dir = makeCheckout();
 
@@ -240,6 +510,59 @@ describe('pull-articles-api: hero-image manifest', () => {
     expect(out).toContain('sitemap-news-candidates.xml: not published yet');
     // The pre-existing pulls are untouched by the new code.
     expect(out).toContain('rss.xml: 12 items');
+  });
+
+  it('refuses a manifest without the canton article count', async () => {
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    delete manifest.counts.cantonArticles;
+    routes['manifest.json'] = JSON.stringify(manifest);
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).not.toBe(0);
+    expect(out).toContain('canton-articles.json');
+    expect(out).toContain('canton article count');
+  });
+
+  it('refuses a manifest without the canton article byte count', async () => {
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    delete manifest.files[CANTON_ARTICLES_PATH];
+    routes['manifest.json'] = JSON.stringify(manifest);
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).not.toBe(0);
+    expect(out).toContain('canton-articles.json');
+    expect(out).toContain('byte count');
+  });
+
+  it('pulls the manifest-pinned canton article registry into public', async () => {
+    const cantonArticles = JSON.stringify([{
+      id: 'disoccupazione-berna-settembre-2026-stabile',
+      category: 'pratico',
+      date: '2026-10-07T19:58:52.255Z',
+      image: '/images/blog/article-disoccupazione-berna-settembre-2026-stabile.webp',
+      authorSlug: 'redazione',
+      commit: API_COMMIT,
+      section: 'canton-be',
+    }]);
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    manifest.counts.cantonArticles = 1;
+    manifest.files[CANTON_ARTICLES_PATH] = Buffer.byteLength(cantonArticles);
+    routes['manifest.json'] = JSON.stringify(manifest);
+    routes[CANTON_ARTICLES_PATH] = cantonArticles;
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('canton-articles.json: validated 1 articles');
+    expect(readPub(dir, CANTON_ARTICLES_PATH)).toBe(cantonArticles);
   });
 
   // The two artifacts have OPPOSITE absence semantics under --require-new, and
@@ -342,6 +665,24 @@ describe('pull-articles-api: hero-image manifest', () => {
     expect(written).toHaveLength(64);
   });
 
+  it('downloads a governed generated image and preserves its generated path', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'article-generated-x', path: 'images/generated/article-generated-x.webp', bytes: 64 }],
+      }),
+      'images/generated/article-generated-x.webp': webp(64),
+    };
+    const dir = makeCheckout();
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    const written = fs.readFileSync(path.join(dir, 'public', 'images', 'generated', 'article-generated-x.webp'));
+    expect(written.subarray(0, 4).toString('latin1')).toBe('RIFF');
+    expect(written).toHaveLength(64);
+  });
+
   it('does not re-download an image it already has', async () => {
     routes = {
       ...baseRoutes(),
@@ -361,6 +702,27 @@ describe('pull-articles-api: hero-image manifest', () => {
     expect(out).toContain('1 already local, 0 to fetch');
   });
 
+  it('repairs an existing image that fails validation', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp', bytes: 64 }],
+      }),
+      'images/blog/blog-x.webp': webp(64),
+    };
+    const dir = makeCheckout();
+    const dest = path.join(dir, 'public', 'images', 'blog');
+    fs.mkdirSync(dest, { recursive: true });
+    fs.writeFileSync(path.join(dest, 'blog-x.webp'), Buffer.from('corrupt-webp'));
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('local file failed validation; refreshing from publisher');
+    expect(out).toContain('0 already local, 1 to fetch');
+    expect(fs.readFileSync(path.join(dest, 'blog-x.webp'))).toEqual(webp(64));
+  });
+
   it('refuses a path that escapes public/images/blog', async () => {
     routes = {
       ...baseRoutes(),
@@ -373,7 +735,7 @@ describe('pull-articles-api: hero-image manifest', () => {
     const { code, out } = await run(dir);
 
     expect(code).toBe(1);
-    expect(out).toContain('is not an images/blog/<name>.webp path');
+    expect(out).toContain('is not an images/blog/<name>.webp or images/generated/<name>.webp path');
     expect(fs.existsSync(path.join(dir, 'public', 'images'))).toBe(false);
   });
 
@@ -391,6 +753,25 @@ describe('pull-articles-api: hero-image manifest', () => {
 
     expect(code).toBe(1);
     expect(out).toContain('not a WebP file');
+    expect(fs.existsSync(path.join(dir, 'public', 'images', 'blog', 'blog-x.webp'))).toBe(false);
+  });
+
+  // Deploy run 37035643275: a hero with a plausible RIFF/WEBP header but bytes
+  // that no longer match it reached main and failed the thumbnail step.
+  it('refuses a WebP whose length contradicts its RIFF header', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp' }],
+      }),
+      'images/blog/blog-x.webp': webp(64).subarray(0, 40),
+    };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('images/blog/blog-x.webp is not a WebP file');
     expect(fs.existsSync(path.join(dir, 'public', 'images', 'blog', 'blog-x.webp'))).toBe(false);
   });
 
@@ -434,6 +815,216 @@ describe('pull-articles-api: hero-image manifest', () => {
 
     expect(code).toBe(1);
     expect(out).toContain('lists zero images');
+  });
+});
+
+describe('pull-articles-api: generated cover evidence', () => {
+  it('stages generated records from the manifest-pinned HTTP blog index', async () => {
+    const generated = validGeneratedCover();
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [generated.imageUrl]: generated },
+    }));
+    const dir = makeCheckout();
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8'))).toEqual({
+      schema: 1,
+      commit: API_COMMIT,
+      generated: { [generated.imageUrl]: generated },
+    });
+  });
+
+  it('accepts schema-valid generated evidence when the publisher omits optional kind', async () => {
+    const generated = validGeneratedCover();
+    Reflect.deleteProperty(generated, 'kind');
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [generated.imageUrl]: generated },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated 1 article image evidence records');
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8')).generated)
+      .toEqual({ [generated.imageUrl]: generated });
+  });
+
+  it('accepts the published governed place fallback as blog image evidence', async () => {
+    const record = validLuganoPlaceFallback();
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [record.imageUrl]: record },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated 1 article image evidence records');
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8')).generated)
+      .toEqual({ [record.imageUrl]: record });
+  });
+
+  it.each([
+    ['private-grant', validPrivateGrantCover],
+    ['licensed Pexels photo', validPexelsCover],
+  ])('accepts schema-valid %s article-hero evidence', async (_label, makeRecord) => {
+    const record = makeRecord();
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [record.imageUrl]: record },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated 1 article image evidence records');
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8')).generated)
+      .toEqual({ [record.imageUrl]: record });
+  });
+
+  it('still refuses a generated record whose image URL differs from its HTTP map key', async () => {
+    const generated = validGeneratedCover();
+    const wrongKey = '/images/blog/not-the-record.webp';
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [wrongKey]: generated },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('imageUrl does not match the record key');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('still refuses schema-valid evidence outside the published blog scopes', async () => {
+    const record = validGeneratedCover();
+    record.scope = 'event-library';
+    record.imageUrl = '/images/events/library/test-generated-cover.webp';
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [record.imageUrl]: record },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('scope is not article-hero or place');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('refuses a blog index whose bytes disagree with the pinned manifest before writing artifacts', async () => {
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    manifest.files[BLOG_CREDITS_PATH] += 1;
+    routes['manifest.json'] = JSON.stringify(manifest);
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} byte count differs from manifest`);
+    const outputs = fs.readFileSync(outputFile, 'utf8');
+    expect(outputs).toContain('retryable-snapshot=true\n');
+    expect(outputs).not.toContain('retry-reason=');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('does not retry a structurally invalid blog index as a snapshot race', async () => {
+    routes = routesWithCredits(JSON.stringify({ schema: 2, section: 'blog', commit: API_COMMIT, generated: {} }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} does not match the pinned blog-index contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).not.toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('does not retry a blog index whose commit pin is missing', async () => {
+    routes = routesWithCredits(JSON.stringify({ schema: 1, section: 'blog', generated: {} }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} has an invalid JSON contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).not.toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('does not retry a stale commit pin when the rest of the blog contract is invalid', async () => {
+    routes = routesWithCredits(JSON.stringify({ commit: 'other' }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} does not match the pinned blog-index contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).not.toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('marks a valid blog index pinned to another commit as a retryable snapshot mismatch', async () => {
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: 'f'.repeat(40),
+      generated: {},
+    }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} does not match the pinned blog-index contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('skips the complete staged batch when the release moves before the final manifest check', async () => {
+    routes = baseRoutes();
+    const originalManifest = routes['manifest.json'] as string;
+    const movedManifest = JSON.parse(originalManifest);
+    movedManifest.commit = 'f'.repeat(40);
+    manifestSequence = [originalManifest, JSON.stringify(movedManifest)];
+    const dir = makeCheckout();
+    const before = readPub(dir, 'sitemap-blog.xml');
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain(`published API moved from ${API_COMMIT} to ${'f'.repeat(40)}`);
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(before);
   });
 });
 

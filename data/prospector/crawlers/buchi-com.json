@@ -1,0 +1,21 @@
+{
+  "companyKey": "buchi-com",
+  "companyName": "Büchi AG",
+  "companyHost": "buchi.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://buchi.com/it/buchi-world/carriere"
+  ],
+  "detailTemplate": "/en/buchi-world/careers/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "What to expect when joining us We are looking for highly motivated and dedicated employees who thrive in a fast-paced environment. <source data-srcset=\"https://",
+    "Meet our awesome staff Each of our team members is on board to follow our credo \"Quality in your hands\". <source data-srcset=\"https://assets.buchi.com/image/upl"
+  ],
+  "canton": "ZH",
+  "sourceLang": "it",
+  "learnedAt": "2026-09-30T13:46:08.513Z"
+}

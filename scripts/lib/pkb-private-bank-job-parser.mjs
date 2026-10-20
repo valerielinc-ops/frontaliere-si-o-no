@@ -1,3 +1,5 @@
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * PKB Private Bank — Arca24 ATS parser
@@ -39,6 +41,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { locateTagByAttribute, extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { readMetaContent } from './html-attr.mjs';
+import { sourceLocaleDescription } from './source-locale-description.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 export const PKB_KEY = 'pkb-private-bank';
 export const COMPANY_NAME = 'PKB Private Bank SA';
@@ -65,7 +69,7 @@ export const HQ = {
 /* ── Text helpers ─────────────────────────────────────────────── */
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -73,15 +77,8 @@ export function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;|&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -221,7 +218,10 @@ export function parsePkbDetailPage(html, pageUrl = '') {
   const sector = extractItemprop(html, 'industry') || '';
   const role = extractItemprop(html, 'occupationalCategory') || '';
 
-  const datePosted = parseArca24Date(extractItemprop(html, 'datePosted'));
+  const rawPublication = extractItemprop(stripScriptsAndStyles(html), 'datePosted');
+  const localPublication = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(rawPublication);
+  const publication = sourcePostingDateFields(localPublication
+    ? `${localPublication[3]}-${localPublication[2]}-${localPublication[1]}` : rawPublication);
   const validThrough = parseArca24Date(extractItemprop(html, 'validThrough'));
 
   let description = '';
@@ -256,7 +256,7 @@ export function parsePkbDetailPage(html, pageUrl = '') {
     region: region || 'Ticino',
     sector,
     role,
-    datePosted,
+    ...publication,
     validThrough,
     description,
     url: pageUrl,
@@ -347,8 +347,11 @@ export function buildPkbJob(url, parsed) {
   const slug = slugify(`${parsed.title}-pkb-private-bank-${parsed.location || HQ.city}`);
   if (!slug || slug.length < 3) return null;
 
-  const description = parsed.description
-    || `Posizione aperta presso PKB Private Bank SA a ${parsed.location || HQ.city} (TI). PKB è una banca privata svizzera indipendente fondata nel 1958, specializzata in gestione patrimoniale e private banking. Candidati tramite il portale ufficiale.`;
+  // The Arca24 detail text, in its own language slot. Without it there is no
+  // description: this used to publish "Posizione aperta presso PKB Private
+  // Bank SA a … PKB è una banca privata svizzera indipendente fondata nel
+  // 1958 …" instead, a paragraph PKB never published.
+  const { description, descriptionByLocale, sourceLang } = sourceLocaleDescription(parsed.description, { defaultLang: 'it' });
 
   return {
     title: parsed.title,
@@ -363,10 +366,7 @@ export function buildPkbJob(url, parsed) {
     postalCode: HQ.postalCode,
     streetAddress: parsed.streetAddress || HQ.streetAddress,
     description,
-    // Canonical pipeline field is `postedDate` (the Arca24 microdata itemprop
-    // is `datePosted`, but every downstream consumer — JobBoard, sitemap,
-    // newsletter, assemble-jobs-dataset churn guard — reads `postedDate`).
-    postedDate: parsed.datePosted || new Date().toISOString().split('T')[0],
+    ...withLegacyPostingDay(mergeSourcePostingDates({}, parsed)),
     validThrough: parsed.validThrough || '',
     sector: parsed.sector || '',
     role: parsed.role || '',
@@ -374,7 +374,8 @@ export function buildPkbJob(url, parsed) {
     source: 'PKB Dedicated Parser (Arca24)',
     titleByLocale: { it: parsed.title },
     slugByLocale: { it: slug },
-    descriptionByLocale: { it: description },
+    descriptionByLocale,
+    sourceLang,
   };
 }
 
@@ -392,4 +393,19 @@ export async function fetchPkbJobs({ userAgent = DEFAULT_UA, timeoutMs = 15000 }
     if (job) results.push(job);
   }
   return results;
+}
+
+// The text this crawler used to write itself: the paragraph the builder wrote without a posting text ("Posizione aperta presso PKB Private Bank SA a … fondata nel 1958…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const PKB_FABRICATED_RE = /Posizione aperta presso PKB Private Bank SA a /;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropPkbFabricatedText(job) {
+  return dropFabricatedDescription(job, PKB_FABRICATED_RE);
 }

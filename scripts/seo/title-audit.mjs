@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * title-audit.mjs — Workstream D.4
  *
@@ -215,8 +217,7 @@ function main() {
   console.log(`[title-audit] ${files.length} pages → duplicates=${Object.keys(duplicates).length} tooShort=${tooShort} tooLong=${tooLong} missingKw=${missingKeyword}`);
 }
 
-const invokedDirectly = import.meta.url === `file://${process.argv[1]}` ||
-  process.argv[1]?.endsWith('title-audit.mjs');
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   try {
     main();

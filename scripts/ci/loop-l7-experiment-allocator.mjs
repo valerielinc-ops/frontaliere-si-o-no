@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /** L7 — Experiment Allocator. */
 import crypto from 'node:crypto';
@@ -6,7 +7,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import {
   actionClassForPolicy,
   buildDecision,
@@ -16,11 +17,15 @@ import {
   loadLoopPolicyForRun,
 } from '../lib/loop-fleet-contract.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
+import { readL7ActiveExperiments } from './export-l7-experiment-outcomes.mjs';
 
 export const LOOP_ID = 'L7';
+const ISSUE_TITLE = 'L7 Experiment Allocator: outcome or guardrail ledger is not trustworthy';
+const ISSUE_WORKFLOW = 'Loop L7 Experiment Allocator';
 export const DEFAULT_CANDIDATES_PATH = path.join('data', 'experimental-candidates.json');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'experiment-outcomes.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
+export const DEFAULT_ACTIVE_EXPERIMENTS_PATH = path.join('data', 'experiments', 'active-experiments.json');
 export const DEFAULT_MAX_AGE_HOURS = 192;
 export const MAX_CANDIDATES = 50;
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
@@ -214,14 +219,97 @@ export function validateCandidateRegistry(registry, {
   };
 }
 
+const OUTCOME_COUNT_FIELDS = Object.freeze([
+  'eligibleCohort',
+  'assignments',
+  'exposures',
+  'primaryOutcomes',
+  'guardrailBreaches',
+  'persistentAssignments',
+  'contaminatedAssignments',
+]);
+
+/**
+ * An export that declares `activeExperiments: 0` says there is nothing to
+ * allocate. It is accepted as the `zero` idle state only when it is fresh,
+ * explicitly independent, sourced, and reports no participation; anything
+ * else is a finding like any other ledger defect.
+ */
+function validateIdleOutcomes(outcomes, { now, maxAgeHours, sourcePath, declaredActiveExperiments }) {
+  const issues = [];
+  // Defense in depth: the export's own idle claim must agree with the
+  // declaration it was derived from, or a blind ledger would read as idle.
+  if (integer(declaredActiveExperiments) && declaredActiveExperiments > 0) {
+    issues.push(`outcomes.activeExperiments is 0 but ${declaredActiveExperiments} experiment(s) are registered as active`);
+  }
+  const evidence = outcomes.evidence || outcomes.provenance;
+  if (outcomes.independent !== true) {
+    issues.push('outcomes.independent must be explicitly true for a declared idle state');
+  }
+  if (!object(evidence) || !text(evidence.source)) {
+    issues.push('outcomes.evidence.source is missing for a declared idle state');
+  }
+  for (const name of OUTCOME_COUNT_FIELDS) {
+    const value = outcomes[name] ?? outcomes.metrics?.[name];
+    if (integer(value) && value > 0) {
+      issues.push(`outcomes.activeExperiments is 0 but outcomes.${name} reports ${value}`);
+    }
+  }
+  const generatedAt = finiteDate(outcomes.generatedAt || outcomes._meta?.generatedAt);
+  let ageHours = null;
+  if (!generatedAt) {
+    issues.push('outcomes.generatedAt is missing or invalid');
+  } else {
+    ageHours = hoursBetween(now, generatedAt);
+    if (ageHours < -0.0834) issues.push('outcomes.generatedAt is in the future');
+    if (ageHours > maxAgeHours) issues.push(`experiment outcomes are ${ageHours.toFixed(1)}h old (max ${maxAgeHours}h)`);
+  }
+  let quality = 'zero';
+  if (!generatedAt) quality = 'partial';
+  else if (ageHours < -0.0834 || ageHours > maxAgeHours) quality = 'stale';
+  else if (issues.length) quality = 'partial';
+  return {
+    quality,
+    idle: true,
+    issues,
+    snapshot: {
+      path: sourcePath,
+      missing: false,
+      idle: true,
+      activeExperiments: 0,
+      independent: outcomes.independent === true,
+      evidence: object(evidence)
+        ? {
+          source: text(evidence.source) ? evidence.source.trim() : null,
+          sourceRefs: Array.isArray(evidence.sourceRefs) ? evidence.sourceRefs.filter(text).map((sourceRef) => sourceRef.trim()) : [],
+        }
+        : null,
+      preRegistration: null,
+      assignmentLedger: null,
+      contaminationPolicy: null,
+      generatedAt: generatedAt?.toISOString() || null,
+      ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
+      ...Object.fromEntries(OUTCOME_COUNT_FIELDS.map((name) => [name, null])),
+      durationDays: null,
+      quality,
+    },
+  };
+}
+
 function validateOutcomes(outcomes, {
   now,
   maxAgeHours,
   sourcePath,
   minimumSample,
   primaryMetric,
+  outcomeId,
   guardrails,
   candidateTtlHours,
+  assignmentMethod,
+  assignmentKey,
+  contaminationKey,
+  sourceRefs,
+  declaredActiveExperiments,
 } = {}) {
   if (!object(outcomes)) {
     return {
@@ -248,7 +336,17 @@ function validateOutcomes(outcomes, {
       },
     };
   }
+  if (outcomes.activeExperiments === 0) {
+    return validateIdleOutcomes(outcomes, { now, maxAgeHours, sourcePath, declaredActiveExperiments });
+  }
   const issues = [];
+  if (!integer(outcomes.activeExperiments) || outcomes.activeExperiments < 1) {
+    issues.push('outcomes.activeExperiments must be a positive integer for a measured experiment');
+  } else if (integer(declaredActiveExperiments) && outcomes.activeExperiments !== declaredActiveExperiments) {
+    issues.push(`outcomes.activeExperiments (${outcomes.activeExperiments}) does not match the ${declaredActiveExperiments} registered active experiment(s)`);
+  }
+  if (outcomes.status !== 'observed') issues.push('outcomes.status must be observed for a measured experiment');
+  if (outcomes.quality !== 'observed') issues.push('outcomes.quality must be observed for a measured experiment');
   const evidence = outcomes.evidence || outcomes.provenance;
   if (outcomes.independent !== true) {
     issues.push('outcomes.independent must be explicitly true for an independent experiment ledger');
@@ -257,14 +355,23 @@ function validateOutcomes(outcomes, {
     issues.push('outcomes.evidence is missing or not an object');
   } else {
     if (!text(evidence.source)) issues.push('outcomes.evidence.source is missing');
+    else if (/posthog/i.test(evidence.source)) issues.push('PostHog is not an approved L7 experiment evidence source');
+    if (evidence.status !== 'verified') issues.push('outcomes.evidence.status must be explicitly verified');
     if (!Array.isArray(evidence.sourceRefs) || evidence.sourceRefs.length === 0 || evidence.sourceRefs.some((sourceRef) => !text(sourceRef))) {
       issues.push('outcomes.evidence.sourceRefs must be a non-empty array of text');
+    } else if (!Array.isArray(sourceRefs)
+        || evidence.sourceRefs.length !== sourceRefs.length
+        || !sourceRefs.every((sourceRef) => evidence.sourceRefs.includes(sourceRef))) {
+      issues.push('outcomes.evidence.sourceRefs must exactly match the L7 registry');
     }
   }
   const preRegistration = outcomes.preRegistration || outcomes.preregistration;
   if (!object(preRegistration)) {
     issues.push('outcomes.preRegistration is missing or not an object');
   } else {
+    if (preRegistration.outcomeId !== outcomeId) {
+      issues.push(`outcomes.preRegistration.outcomeId must be ${outcomeId}`);
+    }
     if (preRegistration.primaryMetric !== primaryMetric) {
       issues.push(`outcomes.preRegistration.primaryMetric must be ${primaryMetric}`);
     }
@@ -283,6 +390,7 @@ function validateOutcomes(outcomes, {
     }
     const expiresAt = finiteDate(preRegistration.expiresAt);
     if (!expiresAt) issues.push('outcomes.preRegistration.expiresAt is missing or invalid');
+    else if (expiresAt.getTime() <= now.getTime()) issues.push('outcomes.preRegistration.expiresAt is expired');
     else if (expiresAt.getTime() > now.getTime() + candidateTtlHours * 3_600_000) {
       issues.push(`outcomes.preRegistration.expiresAt exceeds candidate TTL of ${candidateTtlHours} hours`);
     }
@@ -293,7 +401,9 @@ function validateOutcomes(outcomes, {
   } else {
     if (assignmentLedger.persistent !== true) issues.push('outcomes.assignmentLedger.persistent must be explicitly true');
     if (!text(assignmentLedger.method)) issues.push('outcomes.assignmentLedger.method is missing');
+    else if (assignmentLedger.method !== assignmentMethod) issues.push(`outcomes.assignmentLedger.method must be ${assignmentMethod}`);
     if (!text(assignmentLedger.key)) issues.push('outcomes.assignmentLedger.key is missing');
+    else if (assignmentLedger.key !== assignmentKey) issues.push(`outcomes.assignmentLedger.key must be ${assignmentKey}`);
   }
   const contaminationPolicy = outcomes.contaminationPolicy || outcomes.contamination;
   if (!object(contaminationPolicy)) {
@@ -301,6 +411,7 @@ function validateOutcomes(outcomes, {
   } else {
     if (contaminationPolicy.controlled !== true) issues.push('outcomes.contaminationPolicy.controlled must be explicitly true');
     if (!text(contaminationPolicy.key)) issues.push('outcomes.contaminationPolicy.key is missing');
+    else if (contaminationPolicy.key !== contaminationKey) issues.push(`outcomes.contaminationPolicy.key must be ${contaminationKey}`);
   }
   const generatedAt = finiteDate(outcomes.generatedAt || outcomes._meta?.generatedAt);
   const values = {
@@ -320,6 +431,9 @@ function validateOutcomes(outcomes, {
   if (integer(values.primaryOutcomes) && integer(values.exposures) && values.primaryOutcomes > values.exposures) issues.push('outcomes.primaryOutcomes exceeds outcomes.exposures');
   if (integer(values.guardrailBreaches) && integer(values.exposures) && values.guardrailBreaches > values.exposures) issues.push('outcomes.guardrailBreaches exceeds outcomes.exposures');
   if (integer(values.persistentAssignments) && integer(values.assignments) && values.persistentAssignments > values.assignments) issues.push('outcomes.persistentAssignments exceeds outcomes.assignments');
+  if (integer(values.persistentAssignments) && integer(values.assignments) && values.persistentAssignments !== values.assignments) {
+    issues.push('outcomes.persistentAssignments must match outcomes.assignments for a persistent assignment ledger');
+  }
   if (integer(values.contaminatedAssignments) && integer(values.assignments) && values.contaminatedAssignments > values.assignments) issues.push('outcomes.contaminatedAssignments exceeds outcomes.assignments');
   if (integer(values.guardrailBreaches) && values.guardrailBreaches > 0) issues.push('outcomes.guardrailBreaches is non-zero; the canary is not safe to continue');
   if (integer(values.contaminatedAssignments) && values.contaminatedAssignments > 0) issues.push('outcomes.contaminatedAssignments is non-zero; the assignment ledger is not clean');
@@ -395,6 +509,9 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   outcomePath = DEFAULT_OUTCOME_PATH,
   minimumSample,
   loopRegistry,
+  // Number of experiments in the active-experiments declaration, when the
+  // caller read it; an idle export is rejected if it disagrees.
+  declaredActiveExperiments,
 } = {}) {
   const { registry: validatedLoopRegistry, policy: loopPolicy } = requireL7Policy(loopRegistry);
   const effectiveMinimumSample = minimumSample === undefined
@@ -413,8 +530,14 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
     sourcePath: outcomePath,
     minimumSample: effectiveMinimumSample,
     primaryMetric: loopPolicy.primaryMetric,
+    outcomeId: loopPolicy.outcome.outcomeId,
     guardrails: loopPolicy.guardrails,
     candidateTtlHours: loopPolicy.lifecycle.candidateTtlHours,
+    assignmentMethod: loopPolicy.allocationPolicy.assignmentMethod,
+    assignmentKey: loopPolicy.allocationPolicy.assignmentKey,
+    contaminationKey: loopPolicy.allocationPolicy.contaminationPolicy.key,
+    sourceRefs: loopPolicy.outcome.sourceRefs,
+    declaredActiveExperiments,
   });
   const issues = [...candidateVerdict.issues, ...outcomeVerdict.issues];
   const warnings = [...candidateVerdict.warnings];
@@ -444,15 +567,21 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   else if (issues.length) quality = 'partial';
   else if (outcomeVerdict.quality === 'zero') quality = 'zero';
   else if (outcomeVerdict.quality !== 'observed') quality = 'partial';
-  const ok = quality === 'observed' && issues.length === 0;
+  // A declared idle state (no active experiment) is a true zero, not a
+  // defective ledger: nothing is allocated, so there is nothing to report.
+  // A registered experiment that measures zero still fails below.
+  const idle = outcomeVerdict.idle === true && quality === 'zero' && issues.length === 0;
+  const ok = (quality === 'observed' || idle) && issues.length === 0;
   return baseVerdict({
     sourcePath,
     now,
     quality,
     ok,
-    reason: ok
-      ? 'candidate provenance and independent experiment outcomes are fresh and coherent'
-      : summarizeIssues(issues, quality),
+    reason: idle
+      ? 'no active experiment: nothing to allocate'
+      : (ok
+        ? 'candidate provenance and independent experiment outcomes are fresh and coherent'
+        : summarizeIssues(issues, quality)),
     issues,
     warnings,
     snapshot,
@@ -464,6 +593,15 @@ function readJson(filePath, label) {
   const absolute = path.resolve(filePath);
   if (!fs.existsSync(absolute)) throw new Error(`${label} is missing: ${filePath}`);
   return JSON.parse(fs.readFileSync(absolute, 'utf8'));
+}
+
+/**
+ * Count the experiments declared active. The same strict reader-contract
+ * validation used by the exporter runs here, so a missing or malformed
+ * declaration is never accepted as an idle source of truth.
+ */
+export function readDeclaredActiveExperimentCount(filePath = DEFAULT_ACTIVE_EXPERIMENTS_PATH) {
+  return readL7ActiveExperiments(filePath).length;
 }
 
 function readOptionalJson(filePath) {
@@ -529,7 +667,9 @@ function buildExperimentOutcome({ source, verdict, policy, registry, plan, now }
     observedAt: generatedAt?.toISOString() || null,
     reason: measured
       ? 'explicit independent experiment ledger with persistent assignment, guardrails and expiry'
-      : `experiment outcome is ${status}; no traffic or price change is authorized`,
+      : (outcomeSnapshot.idle === true
+        ? 'no experiment is registered as active; nothing is allocated and no traffic or price change is authorized'
+        : `experiment outcome is ${status}; no traffic or price change is authorized`),
     now,
   });
   return {
@@ -651,6 +791,7 @@ export async function runL7({
   candidatesPath = DEFAULT_CANDIDATES_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
+  activeExperimentsPath = DEFAULT_ACTIVE_EXPERIMENTS_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   // Undefined lets the validated registry set the floor; an explicit value
   // is treated by loadLoopPolicyForRun as a strengthening override only.
@@ -658,7 +799,8 @@ export async function runL7({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -672,6 +814,9 @@ export async function runL7({
   try {
     sourceRegistry = readJson(candidatesPath, 'experimental candidates');
     sourceOutcomes = readOptionalJson(outcomePath);
+    const declaredActiveExperiments = object(sourceOutcomes) && sourceOutcomes.activeExperiments === 0
+      ? readDeclaredActiveExperimentCount(activeExperimentsPath)
+      : undefined;
     verdict = validateExperimentAllocator({
       registry: sourceRegistry,
       outcomes: sourceOutcomes,
@@ -682,6 +827,7 @@ export async function runL7({
       outcomePath,
       minimumSample: policyMinimumSample,
       loopRegistry,
+      declaredActiveExperiments,
     });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: candidatesPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
@@ -760,16 +906,21 @@ export async function runL7({
   let issued = false;
   if (issue && !verdict.ok) {
     const issueResult = await createIssueImpl({
-      title: 'L7 Experiment Allocator: outcome or guardrail ledger is not trustworthy',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'experiments', 'loop-l7'],
-      workflow: 'Loop L7 Experiment Allocator',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     if (!issueResult || issueResult.persisted !== true) {
-      throw new Error('L7 issue persistence failed: createGithubIssue did not confirm persisted=true');
+      throw new Error('L7 issue persistence failed: reportLoopIssue did not confirm persisted=true');
     }
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);
@@ -800,6 +951,7 @@ function parseArgs(argv) {
     candidatesPath: valueAfter('--candidates', DEFAULT_CANDIDATES_PATH),
     outcomePath: valueAfter('--outcomes', DEFAULT_OUTCOME_PATH),
     registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
+    activeExperimentsPath: valueAfter('--active-experiments', DEFAULT_ACTIVE_EXPERIMENTS_PATH),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP ? path.join(process.env.RUNNER_TEMP, 'loop-fleet-l7') : path.join(os.tmpdir(), 'loop-fleet-l7')),
@@ -823,7 +975,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[L7] fatal: ${error.message}`);
     process.exitCode = 1;

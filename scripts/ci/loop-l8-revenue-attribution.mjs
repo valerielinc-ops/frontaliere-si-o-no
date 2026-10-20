@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * L8 — Revenue & Attribution Reconciliation.
@@ -13,7 +14,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { getAffiliateCommercialConfiguration } from '../../functions/src/lib/affiliatePartnersRegistry.js';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
@@ -28,6 +30,8 @@ import {
 } from '../lib/affiliateRevenue.mjs';
 
 export const LOOP_ID = 'L8';
+const ISSUE_TITLE = 'L8 Revenue Attribution: approved money is not reconciled';
+const ISSUE_WORKFLOW = 'Loop L8 Revenue and Attribution Reconciliation';
 export const DEFAULT_HISTORY_PATH = path.join('data', 'revenue-monitor-history.jsonl');
 export const DEFAULT_AFFILIATE_EXPORT_PATH = path.join('data', 'revenue-authorized-export.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -140,6 +144,8 @@ function validateHistory(history, { now, maxAgeHours, sourcePath }) {
     const stamp = finiteDate(row.date || row.generatedAt || row._meta?.generatedAt);
     if (!stamp) issues.push(`${prefix}.date is missing or invalid`);
     if (stamp && hoursBetween(stamp, now) > CLOCK_SKEW_HOURS) issues.push(`${prefix}.date is in the future`);
+    const staleMetrics = stamp && hoursBetween(now, stamp) > maxAgeHours;
+    const missingCanBeWarning = (value) => staleMetrics && (value === null || value === undefined);
     const day = stamp?.toISOString().slice(0, 10) || null;
     if (day && seenDates.has(day)) issues.push(`${prefix}.date duplicates ${day}`);
     if (day) seenDates.add(day);
@@ -151,26 +157,32 @@ function validateHistory(history, { now, maxAgeHours, sourcePath }) {
     const adsense = row.adsense;
     const gsc = row.gsc;
     const posthog = row.posthog;
-    if (!adsense || typeof adsense !== 'object' || Array.isArray(adsense)) {
+    if ((!adsense || typeof adsense !== 'object' || Array.isArray(adsense)) && !missingCanBeWarning(adsense)) {
       issues.push(`${prefix}.adsense is missing or not an object`);
     }
-    if (!gsc || typeof gsc !== 'object' || Array.isArray(gsc)) {
+    if ((!gsc || typeof gsc !== 'object' || Array.isArray(gsc)) && !missingCanBeWarning(gsc)) {
       issues.push(`${prefix}.gsc is missing or not an object`);
     }
-    if (!posthog || typeof posthog !== 'object' || Array.isArray(posthog)) {
+    if ((!posthog || typeof posthog !== 'object' || Array.isArray(posthog)) && !missingCanBeWarning(posthog)) {
       issues.push(`${prefix}.posthog is missing or not an object`);
     }
     for (const [section, key] of REQUIRED_HISTORY_METRICS) {
       const value = row[section]?.[key];
-    checkMetric(value, `${prefix}.${section}.${key}`, issues, {
-      integer: key.endsWith('Impressions7d'),
-      max: key.startsWith('clsP75') ? 1 : null,
-      nullable: false,
-    });
+      const label = `${prefix}.${section}.${key}`;
+      if (missingCanBeWarning(value)) {
+        warnings.push(`${label} is missing from a history row older than ${maxAgeHours}h`);
+      } else {
+        checkMetric(value, label, issues, {
+          integer: key.endsWith('Impressions7d'),
+          max: key.startsWith('clsP75') ? 1 : null,
+          nullable: false,
+        });
+      }
     }
     const ctr = gsc?.ctrByBucket;
     if (!ctr || typeof ctr !== 'object' || Array.isArray(ctr)) {
-      issues.push(`${prefix}.gsc.ctrByBucket is missing or not an object`);
+      if (missingCanBeWarning(ctr)) warnings.push(`${prefix}.gsc.ctrByBucket is missing from a history row older than ${maxAgeHours}h`);
+      else issues.push(`${prefix}.gsc.ctrByBucket is missing or not an object`);
     } else {
       for (const [bucket, value] of Object.entries(ctr)) {
         checkMetric(value, `${prefix}.gsc.ctrByBucket.${bucket}`, issues, { max: 100 });
@@ -271,6 +283,20 @@ function statusCountsFromCurrency(byCurrency) {
 }
 
 function validateAffiliateExport(raw, { now, maxAgeHours, sourcePath, minimumSample }) {
+  const configuration = getAffiliateCommercialConfiguration();
+  const declared = raw?.commercialConfiguration;
+  if (configuration.status === 'inactive' && declared?.source === configuration.source
+    && declared.status === 'inactive' && Array.isArray(declared.activePartnerIds) && declared.activePartnerIds.length === 0
+    && raw.independent !== true && !Array.isArray(raw.transactions) && !Array.isArray(raw.rows)) {
+    return {
+      quality: 'unmeasurable', applicable: false, issues: [], warnings: [],
+      snapshot: { ...emptyAffiliateSnapshot(sourcePath), missing: false,
+        applicable: false, applicability: 'not_applicable', quality: 'unmeasurable',
+        commercialConfiguration: configuration,
+        evidence: { source: configuration.source, sourceRefs: ['explicit-inactive-commercial-configuration'], status: 'not_applicable' },
+      },
+    };
+  }
   if (raw === null || raw === undefined) {
     return {
       quality: 'unmeasurable',
@@ -408,7 +434,7 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
   const issues = [...historyVerdict.issues, ...affiliateVerdict.issues];
   const warnings = [...historyVerdict.warnings, ...affiliateVerdict.warnings];
   const candidates = [];
-  if (affiliateVerdict.quality === 'unmeasurable') {
+  if (affiliateVerdict.applicable !== false && affiliateVerdict.quality === 'unmeasurable') {
     candidates.push({
       ...(candidateActionClasses?.recommend ? { actionClass: candidateActionClasses.recommend } : {}),
       action: 'request or attach a fresh authorised affiliate/commercial export with exposure denominators',
@@ -440,11 +466,12 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
     history: historyVerdict.snapshot,
     commercial: affiliateVerdict.snapshot,
   };
+  const affiliateQuality = affiliateVerdict.applicable === false ? 'observed' : affiliateVerdict.quality;
   let quality = 'observed';
-  if (historyVerdict.quality === 'unmeasurable' || affiliateVerdict.quality === 'unmeasurable') quality = 'unmeasurable';
-  else if (historyVerdict.quality === 'stale' || affiliateVerdict.quality === 'stale') quality = 'stale';
-  else if (historyVerdict.quality === 'zero' || affiliateVerdict.quality === 'zero') quality = 'zero';
-  else if (issues.length || historyVerdict.quality !== 'observed' || affiliateVerdict.quality !== 'observed') quality = 'partial';
+  if (historyVerdict.quality === 'unmeasurable' || affiliateQuality === 'unmeasurable') quality = 'unmeasurable';
+  else if (historyVerdict.quality === 'stale' || affiliateQuality === 'stale') quality = 'stale';
+  else if (historyVerdict.quality === 'zero' || affiliateQuality === 'zero') quality = 'zero';
+  else if (issues.length || historyVerdict.quality !== 'observed' || affiliateQuality !== 'observed') quality = 'partial';
   const ok = quality === 'observed' && issues.length === 0;
   return baseVerdict({
     sourcePath: historyPath,
@@ -452,7 +479,9 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
     quality,
     ok,
     reason: ok
-      ? 'revenue snapshot, approved-money export and exposure attribution are fresh and coherent'
+      ? affiliateVerdict.applicable === false
+        ? 'revenue history is coherent; affiliate revenue is not applicable because commercial programs are explicitly inactive'
+        : 'revenue snapshot, approved-money export and exposure attribution are fresh and coherent'
       : summarizeIssues(issues, quality),
     issues,
     warnings,
@@ -475,6 +504,7 @@ function reportMarkdown(verdict, observation, decision) {
     '',
     `- Quality: **${verdict.quality}**`,
     `- History: ${history.path || '—'} (${history.rowCount ?? 'unmeasurable'} rows, latest ${history.generatedAt || 'unmeasurable'})`,
+    `- Commercial applicability: ${commercial.applicability || 'applicable'}`,
     `- Commercial export: ${commercial.path || '—'} (${commercial.generatedAt || 'unmeasurable'})`,
     `- Approved CHF: ${commercial.approvedNetChf ?? 'unmeasurable'}`,
     `- Pending CHF: ${commercial.pendingChf ?? 'unmeasurable'}`,
@@ -530,13 +560,17 @@ function buildRevenueOutcome({ source, verdict, policy, registry, now }) {
     observedAt: generatedAt?.toISOString() || null,
     reason: measurable
       ? 'explicit independent authorized export with pending, approved and reversed states reconciled separately; monitor click telemetry remains separate'
-      : `revenue attribution outcome is ${status}; no commercial amount is inferred from monitor clicks or missing exports`,
+      : commercial.applicable === false
+        ? 'affiliate revenue is not applicable: no active commercial programs are configured; monetary outcomes remain unavailable'
+        : `revenue attribution outcome is ${status}; no commercial amount is inferred from monitor clicks or missing exports`,
     now,
   });
   return {
     ...outcome,
     loopId: LOOP_ID,
     generatedAt: generatedAt?.toISOString() || null,
+    commercialApplicability: commercial.applicability || 'applicable',
+    commercialConfiguration: commercial.commercialConfiguration || null,
     clicks: commercial.clicks || { web: null, email: null, relevant: null, total: null },
     monitorClicksPerDay,
     pendingChf: commercial.pendingChf,
@@ -641,6 +675,7 @@ function issueBody(verdict, decision) {
     'L8 non può dichiarare contributo economico netto senza una snapshot fresca e un export commerciale autorizzato riconciliato.',
     '',
     `- Source history: ${verdict.sourcePath}`,
+    `- Commercial applicability: ${commercial.applicability || 'applicable'}`,
     `- Commercial export: ${commercial.path || 'missing'}`,
     `- Quality: ${verdict.quality}`,
     `- Reason: ${verdict.reason}`,
@@ -662,7 +697,8 @@ export async function runL8({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -737,7 +773,7 @@ export async function runL8({
   };
   const outcome = buildRevenueOutcome({ source: sourceAffiliate, verdict, policy: loopPolicy, registry: loopRegistry, now });
   const commercial = verdict.snapshot?.commercial;
-  const measurable = verdict.quality === 'observed' && verdict.ok;
+  const measurable = verdict.quality === 'observed' && verdict.ok && commercial?.applicable !== false;
   const candidateStarts = [
     finiteDate(verdict.snapshot?.history?.generatedAt),
     finiteDate(commercial?.generatedAt),
@@ -764,10 +800,11 @@ export async function runL8({
     guardrails: loopPolicy.guardrails,
     minimumSample: policyMinimumSample,
     actionClass: effectiveActionClass,
-    quality: verdict.quality,
+    quality: commercial?.applicable === false ? 'unmeasurable' : verdict.quality,
     allowNumeratorExceedDenominator: true,
     recordedAt: now.toISOString(),
   });
+  observation.commercialApplicability = commercial?.applicability || 'applicable';
   observation.outcome = outcome;
   const decision = buildDecision({
     loopId: LOOP_ID,
@@ -795,13 +832,18 @@ export async function runL8({
   let issued = false;
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L8 Revenue Attribution: approved money is not reconciled',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'revenue', 'loop-l8'],
-      workflow: 'Loop L8 Revenue and Attribution Reconciliation',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);
@@ -854,7 +896,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[L8] fatal: ${error.message}`);
     process.exitCode = 1;

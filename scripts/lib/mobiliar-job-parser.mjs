@@ -10,9 +10,12 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -129,9 +132,11 @@ async function fetchAllSwissJobUrls() {
   console.log(`  📄 Fetching sitemap: ${SITEMAP_URL}`);
   const xml = await fetchHtml(SITEMAP_URL, { headers: { Accept: 'application/xml,text/xml,*/*' } });
 
-  // Extract all <loc> URLs that point at job detail pages.
+  // Extract all <loc> URLs that point at job detail pages. <loc> is XML
+  // text: an `&` in a slug arrives as `&amp;` and must be decoded, or the
+  // published URL differs from the page's own (same fix as belimo).
   const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)]
-    .map((m) => m[1].trim())
+    .map((m) => decodeEntities(m[1].trim()))
     .filter((url) => url.includes('/job/'));
 
   console.log(`  📦 Total Swiss job URLs in sitemap: ${allUrls.length}`);
@@ -278,6 +283,13 @@ export async function fetchAllMobiliarJobs() {
       const location = parsed.contactCity || urlLocation || 'Bern';
       const canton = inferAnyCanton(location) || '';
       const descriptionText = parsed.description || `${parsed.title} — die Mobiliar`;
+      const records = extractJsonLd(html, jobUrl);
+      const matched = records.find(record => {
+        if (normalizeSpace(record.title || '').toLowerCase() !== parsed.title.toLowerCase()) return false;
+        if (!record.urlExplicit) return records.length === 1;
+        try { return new URL(record.url, jobUrl).href === new URL(jobUrl).href; } catch { return false; }
+      });
+      const publication = sourcePostingDateFields(matched?.datePosted);
 
       const sourceLang = detectLang(descriptionText || parsed.title, 'de');
       const jobSlug = slugify(`${parsed.title} mobiliar ch`);
@@ -314,7 +326,7 @@ export async function fetchAllMobiliarJobs() {
         sector: 'Assicurazioni',
         currency: 'CHF',
         featured: false,
-        postedDate: new Date().toISOString().split('T')[0],
+        ...publication,
         applyUrl: jobUrl,
         ...(parsed.pensum ? { pensum: parsed.pensum } : {}),
         requirements: parsed.requirements,

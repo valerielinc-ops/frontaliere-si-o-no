@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { parseLwphrOpenJobs, inferLwphrLocation, buildLwphrLocalizedPayload } from '../scripts/lib/lwphr-job-parser.mjs';
+import {
+  parseLwphrOpenJobs,
+  inferLwphrLocation,
+  buildLwphrLocalizedPayload,
+  isUsableLwphrPdf,
+  LWPHR_FABRICATED_DESCRIPTION_RE,
+} from '../scripts/lib/lwphr-job-parser.mjs';
 
 const HTML = `
 <div class="accordion__item">
@@ -17,11 +23,39 @@ const HTML = `
 </div>
 `;
 
+const CURRENT_SITE_HTML = `
+<section class="opportunities">
+  <h2>POsizioni aperte</h2>
+  <div class="open-list">
+    <a href="/uploads/1/4/6/5/146598773/planner.pdf">PLANNER</a>
+    <a href="/uploads/1/4/6/5/146598773/sales_e_marketing_manager.pdf">SALES E MARKETING MANAGER</a>
+  </div>
+  <h2>POSIZIONI ARCHIVIATE</h2>
+  <div class="archive-list">
+    <a href="/uploads/1/4/6/5/146598773/software_engineer.pdf">SOFTWARE ENGINEER</a>
+  </div>
+</section>
+`;
+
 describe('lwphr-job-parser', () => {
   it('extracts only open pdf jobs from the current accordion', () => {
     const jobs = parseLwphrOpenJobs(HTML);
     expect(jobs).toHaveLength(2);
     expect(jobs[0].pdfUrl).toContain('lwphr.ch/uploads/');
+  });
+
+  it('extracts open PDF jobs when the site no longer uses accordion markup', () => {
+    const jobs = parseLwphrOpenJobs(CURRENT_SITE_HTML);
+    expect(jobs.map((job) => job.title)).toEqual([
+      'PLANNER',
+      'SALES E MARKETING MANAGER',
+    ]);
+  });
+
+  it('rejects failed, thin, and empty PDF extractions before merge', () => {
+    expect(isUsableLwphrPdf({ error: 'HTTP 404 while fetching PDF' })).toBe(false);
+    expect(isUsableLwphrPdf({ thin: true, text: '' })).toBe(false);
+    expect(isUsableLwphrPdf({ text: 'Role description and requirements.' })).toBe(true);
   });
 
   it('infers Swiss locations from PDF text without inventing a city', () => {
@@ -30,16 +64,24 @@ describe('lwphr-job-parser', () => {
     expect(inferLwphrLocation('Marketing Manager', 'Sede di lavoro Zürich, Switzerland')).toBe('Zürich');
   });
 
-  it('rejects ordinary aliases and builds localized wrappers', () => {
+  it('rejects ordinary aliases and builds titles and slugs, no description of its own', () => {
     expect(inferLwphrLocation('Consulente', 'Per importante società finanziaria nel Luganese')).toBe('');
     const localized = buildLwphrLocalizedPayload({
       title: 'HR SPECIALIST',
       location: 'Lugano',
-      pdfUrl: 'https://www.lwphr.ch/uploads/hr_specialist.pdf',
-      pdfText: 'HR Specialist Main Duties: Manage employee documentation.',
     });
-    expect(localized.descriptions.it).toContain('PDF ufficiale');
-    expect(localized.descriptions.en).toContain('official PDF');
+    expect(localized.titles.it).toBe('HR SPECIALIST');
+    expect(localized.slugs.it).toBe(localized.slugs.en);
+    expect(localized.slugs.it).toContain('lugano');
+    // The PDF text is published alone by the runner, in its own language: the
+    // payload no longer wraps it in four intros and a "PDF ufficiale" line.
+    expect(localized).not.toHaveProperty('descriptions');
+  });
+
+  it('recognises the former wrappers in stored jobs', () => {
+    expect(LWPHR_FABRICATED_DESCRIPTION_RE.test('LWP Ledermann Wieting & Partners pubblica questa opportunita sul proprio portale per il mercato svizzero.')).toBe(true);
+    expect(LWPHR_FABRICATED_DESCRIPTION_RE.test('LWP Ledermann Wieting & Partners lists this role on its Swiss opportunities portal.')).toBe(true);
+    expect(LWPHR_FABRICATED_DESCRIPTION_RE.test('HR Specialist\n\nMain Duties: Manage employee documentation.')).toBe(false);
   });
 
   it('recovers an explicit narrative workplace from LWP PDFs', () => {

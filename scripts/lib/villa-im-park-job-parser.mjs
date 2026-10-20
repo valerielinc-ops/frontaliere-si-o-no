@@ -28,10 +28,13 @@
  * `swissmedical.net/de/spitaeler/villa-im-park` with the brand-scoped
  * SmartRecruiters search above.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { smartRecruitersPostingUrls } from './ats-clients/smartrecruiters-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const VILLA_IM_PARK_KEY = 'villa-im-park';
 export const VILLA_IM_PARK_COMPANY_NAME = 'Privatklinik Villa im Park';
@@ -162,26 +165,20 @@ function buildParsedJob(posting, detail) {
 
   if (country !== 'CH') return null;
 
-  // Canonical apply URL on jobs.smartrecruiters.com
-  const publicUrl =
-    detail?.applyUrl
-    || detail?.postingUrl
-    || `https://jobs.smartrecruiters.com/${SMARTRECRUITERS_COMPANY}/${posting.id}`;
+  // The ad page on jobs.smartrecruiters.com, not the `?oga=true` apply flow
+  // (see smartRecruitersPostingUrls).
+  const srUrls = smartRecruitersPostingUrls({ ...posting, ...(detail || {}) }, SMARTRECRUITERS_COMPANY);
+  const publicUrl = srUrls.pageUrl;
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${title} villa im park rothrist`);
 
-  const fallbackDesc =
-    `${title} — Stelle in der Privatklinik Villa im Park in ${city} (${canton}), Schweiz. ` +
-    'Die Privatklinik Villa im Park gehört zum Swiss Medical Network und bietet ein breites Spektrum an chirurgischen, orthopädischen und konservativen Behandlungen für Halb- und Privatpatientinnen und -patienten an.';
-  const desc = descText.length >= 80 ? descText : fallbackDesc;
+  // Only the posting's own text (issue 5253): no "<title> — Stelle in der
+  // Privatklinik Villa im Park …" line and clinic summary in place of a short
+  // body. A body under the common 50-word floor gives no description (the
+  // shared pipeline's thin-source path).
+  const desc = meetsSourceBodyFloor(descText) ? descText : '';
 
-  const postedDate = (() => {
-    const raw = posting.releasedDate || detail?.releasedDate;
-    if (!raw) return new Date().toISOString().slice(0, 10);
-    const d = new Date(raw);
-    if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  })();
+
 
   const srType = posting?.typeOfEmployment?.label || posting?.typeOfEmployment?.id || '';
 
@@ -215,8 +212,8 @@ function buildParsedJob(posting, detail) {
     sector: 'Sanità',
     currency: 'CHF',
     featured: false,
-    postedDate,
-    applyUrl: publicUrl,
+    ...sourcePostingDateFields(posting.releasedDate || detail?.releasedDate),
+    applyUrl: srUrls.applyUrl || publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
     needsRetranslation: true,
@@ -241,7 +238,10 @@ export async function fetchAllVillaImParkJobs() {
       });
     } catch (err) {
       console.warn(`⚠️ SmartRecruiters list fetch failed (offset=${offset}): ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
     totalFound = Number(data?.totalFound) || 0;
     const content = assertJsonListShape(data, { key: 'content', source: 'villa-im-park' });

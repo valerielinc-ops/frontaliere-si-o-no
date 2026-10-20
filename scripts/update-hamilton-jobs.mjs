@@ -24,7 +24,9 @@
  *   4. Merges into data/jobs.json.
  *   5. Translates missing locales.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
+import { decode as decodeHTML } from 'html-entities';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
@@ -257,7 +259,7 @@ function buildJob(listing, detail) {
 
   // Detail page data
   const info = detail?.jobPostingInfo || {};
-  const postedDate = info.startDate || new Date().toISOString().slice(0, 10);
+  const postingDates = sourcePostingDateFields(info.startDate);
   const endDate = info.endDate || '';
   const timeType = info.timeType || 'Full time';
   const rawDescription = info.jobDescription || '';
@@ -267,26 +269,18 @@ function buildJob(listing, detail) {
   // stripping the rest, so the audit's "^\s*[-•*]\s/m" detector can see the
   // bullet structure. Replacing \s+ → ' ' here flattened the markers and
   // tripped the no-structured-content ratchet. Preserve \n explicitly.
-  const description = rawDescription
+  const description = decodeHTML(rawDescription
     .replace(/<\/p>/gi, '\n')
     .replace(/<\/h[1-6]>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;/gi, "'")
-    .replace(/&[a-z]+;/gi, ' ')
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n[^\S\n]+/g, '\n')
     .replace(/[^\S\n]+\n/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
-    .trim()
-    .slice(0, 3000);
+    .trim();
 
   const sourceLang = detectLang(title + ' ' + description) || 'de';
   const workload = parseWorkload(title);
@@ -338,7 +332,7 @@ function buildJob(listing, detail) {
     department: department || '',
     source: 'hamilton-dedicated-crawler',
     sourceLang,
-    postedDate,
+    ...postingDates,
     validThrough: endDate,
     employmentType,
     contractType,
@@ -371,6 +365,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),

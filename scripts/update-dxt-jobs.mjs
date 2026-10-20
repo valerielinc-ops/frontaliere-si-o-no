@@ -17,12 +17,14 @@
  *   1. Fetch https://dxt.com/careers/ (server-side rendered HTML)
  *   2. Locate the Lugano/Switzerland accordion section(s)
  *   3. Parse each accordion panel: title from <h4> heading, description from panel body
- *   4. Build job objects with synthetic descriptions
+ *   4. Build job objects from the panel text only (no invented wrapper/blurb)
  *   5. Merge into data/jobs.json (add new, update existing, prune stale)
  *   6. Run the base crawler for AI localization of descriptions (4 locales)
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
+import { isCrawlObservationTimestamp } from './lib/source-crawl-observation.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -30,6 +32,7 @@ import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -38,6 +41,7 @@ import {
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   normalizeSpace,
@@ -50,6 +54,8 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -133,6 +139,29 @@ function panelStableId(rawId = '') {
   return m ? `${m[1]}-${m[2]}` : rawId;
 }
 
+/**
+ * Public URL of one accordion panel. The `?panel=` query is the job's identity
+ * since issue #3699 (merge keys, slug registry), but dxt.com ignores it: every
+ * `?panel=…` serves the careers page, canonical `https://dxt.com/careers/`,
+ * with all panels closed, so the link led to the top of a page listing every
+ * opening (parser-quality run 36571839273). The fragment names the panel's
+ * own element, `id="offset_GROUPID_N"` (heading and body), so the browser
+ * lands on the vacancy; the query stays and keeps the identity.
+ */
+export function dxtPanelUrl(panelId) {
+  return `${DXT_CAREERS_URL}?panel=${panelId}#offset_${panelId}`;
+}
+
+/**
+ * Merge identity of a DXT job: the stable id of its URL without the fragment,
+ * so the stored `?panel=N` records and the `?panel=N#offset_N` ones are the
+ * same posting (translations, first-seen date and slugs carry over).
+ */
+export function dxtMergeKey(job) {
+  const url = String(job?.url || '').split('#')[0];
+  return extractStableJobId(url) || url;
+}
+
 // ─────────────────────────────────────────────────────────────
 // HTML fetching
 // ─────────────────────────────────────────────────────────────
@@ -192,7 +221,7 @@ async function fetchPage(url, timeoutMs = 20000) {
 /**
  * Fetch and parse all Lugano-based DXT jobs from the careers page.
  */
-async function fetchDxtJobs() {
+export async function fetchDxtJobs() {
   console.log(`🔍 Fetching DXT Commodities jobs from ${DXT_CAREERS_URL}`);
 
   const html = await fetchPage(DXT_CAREERS_URL, 25000);
@@ -200,6 +229,7 @@ async function fetchDxtJobs() {
     console.error('❌ Failed to fetch DXT careers page.');
     return [];
   }
+  const observedAt = new Date();
 
   console.log(`  📄 Page fetched (${html.length} chars)`);
 
@@ -216,7 +246,7 @@ async function fetchDxtJobs() {
   // Parse jobs from each Lugano accordion group
   const parsedJobs = [];
   for (const groupId of luganoGroupIds) {
-    const panelJobs = parseWpsmAccordionPanels(html, groupId);
+    const panelJobs = parseWpsmAccordionPanels(html, groupId, observedAt);
     console.log(`  📋 Group ${groupId}: ${panelJobs.length} job panels found`);
     parsedJobs.push(...panelJobs);
   }
@@ -229,12 +259,19 @@ async function fetchDxtJobs() {
   // Build job objects
   const jobs = [];
   for (const parsed of parsedJobs) {
-    const slug = slugify(parsed.title, 'dxt');
-    const canonicalUrl = `${DXT_CAREERS_URL}?panel=${parsed.panelId}`;
+    const crawledAt = dxtCrawledAt(parsed);
+    if (!crawledAt) {
+      console.warn(`  ⏭️  Skipping ${parsed.title}: missing source crawl observation timestamp.`);
+      continue;
+    }
 
-    // Build a rich description combining the extracted text with company context
-    const descIt = buildDescription(parsed, 'it');
-    const descEn = buildDescription(parsed, 'en');
+    const slug = slugify(parsed.title, 'dxt');
+    const canonicalUrl = dxtPanelUrl(parsed.panelId);
+
+    // The panel text is the whole vacancy and it is written in English; the
+    // other locales come from the translation pass, never from a template.
+    const descEn = buildDescription(parsed);
+    const sourceLang = detectLang(descEn || parsed.title, 'en');
 
     const job = {
       url: canonicalUrl,
@@ -247,21 +284,16 @@ async function fetchDxtJobs() {
       country: 'CH',
       description: descEn, // original content is in English
       descriptionByLocale: {
-        en: descEn,
-        it: descIt,
+        [sourceLang]: descEn,
       },
-      titleByLocale: {
-        en: parsed.title,
-      },
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(parsed.title, slug, sourceLang),
       slug,
-      slugByLocale: {
-        en: slug,
-        it: slugify(parsed.title, 'dxt'),
-      },
       category: detectCategory(parsed.title),
-      datePosted: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(),
+      crawledAt,
       source: 'dxt-careers-crawler',
-      sourceLang: detectLang(descEn || parsed.title, 'en'),
+      sourceLang,
       employmentType: 'FULL_TIME',
       experienceLevel: detectExperienceLevel(parsed.title),
       sector: 'Energia / Trading materie prime',
@@ -273,6 +305,10 @@ async function fetchDxtJobs() {
 
   console.log(`\n📋 Total unique DXT Lugano jobs discovered: ${jobs.length}`);
   return jobs;
+}
+
+export function dxtCrawledAt(parsed) {
+  return isCrawlObservationTimestamp(parsed?.crawledAt) ? parsed.crawledAt : null;
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -296,21 +332,48 @@ function detectExperienceLevel(title = '') {
   return 'MID';
 }
 
-function buildDescription(parsed, locale = 'en') {
-  // The DXT page content is in English — use the raw extracted text as base
-  const rawDesc = parsed.descriptionText || '';
+/**
+ * The published description is the accordion panel text, verbatim.
+ *
+ * Earlier versions appended a company blurb ("DXT Commodities S.A. is an
+ * energy and commodity trading company…") that is not on dxt.com/careers/, and
+ * filled `it` with an invented wrapper ("Posizione aperta presso … Ruolo: X.")
+ * around the ENGLISH body — a filled slot the translation pass never replaced.
+ */
+export function buildDescription(parsed) {
+  return String(parsed?.descriptionText || '').trim();
+}
 
-  if (locale === 'en') {
-    // Append company context
-    return `${rawDesc}\n\nDXT Commodities S.A. is an energy and commodity trading company headquartered in Lugano, Switzerland, part of the Duferco Group. The company operates globally with offices in London, Singapore, and Stamford (USA).`.trim();
-  }
+// Markers of the text earlier versions invented (see buildDescription).
+const INVENTED_IT_WRAPPER_RE = /^\s*Posizione aperta presso DXT Commodities/i;
+const INVENTED_EN_BLURB = 'DXT Commodities S.A. is an energy and commodity trading company';
 
-  if (locale === 'it') {
-    // Build an Italian summary — the AI localization will produce a proper translation later
-    return `Posizione aperta presso DXT Commodities S.A. a Lugano.\nRuolo: ${parsed.title}.\n\n${rawDesc}\n\nDXT Commodities S.A. è una società di trading di energia e materie prime con sede a Lugano, Svizzera, parte del Gruppo Duferco. L'azienda opera a livello globale con uffici a Londra, Singapore e Stamford (USA).`.trim();
-  }
-
-  return rawDesc;
+/**
+ * `mergePreserveLocaleData` keeps every stored non-source slot. Drop the ones
+ * built from invented text — the `it` wrapper, and any translation made from a
+ * source that still carried the blurb — so the localization pass fills them
+ * from the real panel text, and flag the job for retranslation.
+ */
+export function dropInventedDxtLocaleText(mergedJobs, existingJobs = []) {
+  const keyOf = dxtMergeKey;
+  const previousByKey = new Map(existingJobs.map((job) => [keyOf(job), job]));
+  return mergedJobs.map((job) => {
+    const sourceLang = job?.sourceLang || 'en';
+    const previous = previousByKey.get(keyOf(job));
+    const previousSource = String(previous?.descriptionByLocale?.[previous?.sourceLang || 'en'] || previous?.description || '');
+    const translatedFromInventedSource = previousSource.includes(INVENTED_EN_BLURB);
+    const byLocale = { ...(job?.descriptionByLocale || {}) };
+    let dropped = false;
+    for (const [locale, text] of Object.entries(byLocale)) {
+      if (locale === sourceLang) continue;
+      const value = String(text || '');
+      if (translatedFromInventedSource || INVENTED_IT_WRAPPER_RE.test(value) || value.includes(INVENTED_EN_BLURB)) {
+        delete byLocale[locale];
+        dropped = true;
+      }
+    }
+    return dropped ? { ...job, descriptionByLocale: byLocale, needsRetranslation: true } : job;
+  });
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -333,12 +396,8 @@ async function mergeDxtJobs(discoveredJobs) {
   const nonDxtJobs = allJobs.filter((j) => !isDxtJob(j));
   const existingDxtJobs = allJobs.filter(isDxtJob);
 
-  const existingKeys = new Set(
-    existingDxtJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
-  );
-  const discoveredKeys = new Set(
-    discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
-  );
+  const existingKeys = new Set(existingDxtJobs.map(dxtMergeKey).filter(Boolean));
+  const discoveredKeys = new Set(discoveredJobs.map(dxtMergeKey).filter(Boolean));
   const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
   const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
   const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
@@ -348,7 +407,10 @@ async function mergeDxtJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingDxtJobs, discoveredJobs).map((job) => ({
+  const merged = dropInventedDxtLocaleText(
+    mergePreserveLocaleData(existingDxtJobs, discoveredJobs, { matchKey: dxtMergeKey }),
+    existingDxtJobs,
+  ).map((job) => ({
     ...job,
     company: DXT_COMPANY_NAME,
     companyKey: DXT_KEY,
@@ -356,6 +418,9 @@ async function mergeDxtJobs(discoveredJobs) {
     country: 'CH',
     source: 'dxt-careers-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   // Combine non-DXT jobs with merged DXT jobs
   const final = [...nonDxtJobs, ...merged];
@@ -499,6 +564,20 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: DXT_KEY,
+    companyLabel: DXT_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(DXT_KEY, jobs, {
+      isTargetJob: isDxtJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 // ─────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────
@@ -521,7 +600,10 @@ async function main() {
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No DXT Lugano jobs discovered.');
     console.log('   The careers page may have changed structure or have no current openings.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(DXT_KEY, DATA_JOBS).filter(isDxtJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
@@ -556,7 +638,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isDxtJob) : [];
-  writeJobsCrawlerSlice(DXT_KEY, _sliceJobs);
+  writeJobsCrawlerSlice(DXT_KEY, _sliceJobs, { observedJobs: discoveredJobs });
   writeSummaryCrawlerSlice({
     key: DXT_KEY,
     label: 'DXT Commodities',
@@ -577,4 +659,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'DXT Commodities'));
+// Only run main() when invoked as a script, not when imported by tests.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'DXT Commodities'));
+}

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * newsletter-confirmed-status-backfill.mjs — repair the STATUS WORD on the
  * documents a retired script overwrote, and repair nothing else (#5692).
@@ -127,6 +128,7 @@ import {
 } from '../services/subscriberConsent.mjs';
 import { isNewsletterOptOutBinding } from '../functions/src/lib/newsletterOptOut.js';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const COLLECTION = 'newsletter_subscribers';
 const EVENTS_SUBCOLLECTION = 'events';
@@ -393,15 +395,7 @@ async function fetchConfirmEvents(docs, { concurrency = 16 } = {}) {
 }
 
 async function initFirebase() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return a.firestore();
+  return getFirestoreDb();
 }
 
 async function main() {
@@ -503,7 +497,7 @@ async function main() {
 // Guarded, never called at module scope: the sibling runner documents why
 // (importing scripts/newsletter-sunset.mjs RUNS it), and every exported symbol
 // above is imported by tests/newsletter-confirmation-followup.test.ts.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error('[confirmed-status-backfill] failed:', err);
     process.exit(1);

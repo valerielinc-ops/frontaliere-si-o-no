@@ -13,7 +13,8 @@
  * higher featured caps). This CF only sets the flag; consumers decide policy.
  */
 
-import admin from 'firebase-admin';
+import { getAuth } from 'firebase-admin/auth';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { promises as dns } from 'node:dns';
 import { randomBytes } from 'node:crypto';
 
@@ -21,7 +22,7 @@ const TXT_HOST_PREFIX = '_frontaliereticino';
 const TXT_VALUE_PREFIX = 'frontaliereticino-verify=';
 
 function db() {
-  return admin.firestore();
+  return getFirestore();
 }
 
 async function verifyCaller(req) {
@@ -29,7 +30,7 @@ async function verifyCaller(req) {
   const m = header.match(/^Bearer\s+(.+)$/i);
   if (!m) return null;
   try {
-    return await admin.auth().verifyIdToken(m[1]);
+    return await getAuth().verifyIdToken(m[1]);
   } catch {
     return null;
   }
@@ -63,7 +64,7 @@ export async function handleVerifyPublisherDomain(req) {
   let token = pub.domainVerifyToken;
   if (!token) {
     token = randomBytes(16).toString('hex');
-    await pubRef.set({ domainVerifyToken: token, updatedAt: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
+    await pubRef.set({ domainVerifyToken: token, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   }
 
   const recordName = `${TXT_HOST_PREFIX}.${domain}`;
@@ -80,7 +81,7 @@ export async function handleVerifyPublisherDomain(req) {
 
   if (verified) {
     await pubRef.set(
-      { domainVerified: true, verification: 'verified', updatedAt: admin.firestore.FieldValue.serverTimestamp() },
+      { domainVerified: true, verification: 'verified', updatedAt: FieldValue.serverTimestamp() },
       { merge: true },
     );
   }

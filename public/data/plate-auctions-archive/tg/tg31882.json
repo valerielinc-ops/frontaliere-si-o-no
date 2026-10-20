@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109809",
+      "sourceKey": "TG",
+      "sourceRecordId": "109809",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "31882",
+      "normalizedPlate": "TG31882",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-10-14T17:00:00.000Z",
+      "closedAt": "2026-10-14T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109809",
+      "sourceFetchedAt": "2026-10-14T11:57:55.542Z",
+      "lastVerifiedAt": "2026-10-14T11:57:55.542Z",
+      "firstSeenAt": "2026-10-07T23:09:51.093Z",
+      "lastSeenAt": "2026-10-14T11:57:55.542Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "0a8c6e76947a"
+    }
+  ]
+}

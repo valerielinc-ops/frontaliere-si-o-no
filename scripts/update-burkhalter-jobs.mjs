@@ -18,6 +18,7 @@
  *   4. Builds standardized job objects and merges into data/jobs.json.
  *   5. Translates missing locales.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -56,6 +57,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { repairBurkhalterBoundarySlugs } from './lib/burkhalter-slug-boundary-repair.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import { extractBurkhalterDetailFields, mergeBurkhalterRecord } from './lib/burkhalter-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -77,6 +79,14 @@ const UA =
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 const CONCURRENCY = positiveIntFromEnv('JOBS_CRAWLER_CONCURRENCY', 4);
+// burkhalter.ch answers HTTP 429 after ~17 requests in a burst and keeps the
+// window closed for ~10 s (measured 2026-09-29: 3 workers without a pause →
+// 429 from request 18; one request every 2.5 s → 226/226 × 200). The detail
+// pages are therefore spaced globally, whatever the pool size, so the shared
+// 3-retry backoff (~7 s) is no longer the only thing between a job and the
+// title-only placeholder.
+const DETAIL_MIN_INTERVAL_MS = positiveIntFromEnv('BURKHALTER_DETAIL_MIN_INTERVAL_MS', 2000);
+const DETAIL_RETRY_COOLDOWN_MS = 20000;
 
 // Burkhalter spans all 26 Swiss cantons — accept any target canton. Canton scope
 // is governed by TARGET_CANTONS in scripts/lib/crawler-location-config.mjs.
@@ -141,51 +151,24 @@ function extractJobsJson(html) {
 }
 
 /**
- * Scrape a job detail page for description text.
+ * Scrape a job detail page for description text: the page's JSON-LD
+ * `JobPosting.description` (structured, no breadcrumb/contact chrome), with
+ * the visible content block as fallback — see burkhalter-job-parser.mjs.
  */
+let nextDetailSlotMs = 0;
+async function paceDetailFetch() {
+  const now = Date.now();
+  const slot = Math.max(now, nextDetailSlotMs);
+  nextDetailSlotMs = slot + DETAIL_MIN_INTERVAL_MS;
+  if (slot > now) await new Promise((resolve) => setTimeout(resolve, slot - now));
+}
+
 async function scrapeDetailPage(relativeUrl) {
   const url = relativeUrl.startsWith('http') ? relativeUrl : `${BASE_URL}${relativeUrl}`;
+  await paceDetailFetch();
   try {
     const html = await fetchPage(url);
-    // Extract main content — detail pages have structured sections
-    // Remove HTML tags but preserve paragraph breaks
-    const contentMatch = html.match(/<div class="content">([\s\S]*?)<footer/i)
-      || html.match(/<div data-addsearch="include">([\s\S]*?)<footer/i);
-    if (!contentMatch) return '';
-
-    let text = contentMatch[1]
-      // Strip script/style content entirely — tag-only stripping below leaves JSON-LD
-      // payload visible as raw text (the Burkhalter pages embed schema.org JobPosting
-      // JSON-LD inside the content div, which was leaking into descriptionByLocale).
-      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-      .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
-      .replace(/<br\s*\/?>/gi, '\n')
-      .replace(/<\/p>/gi, '\n\n')
-      // Open each <li> as a line-start bullet so list structure survives the strip (#2476).
-      .replace(/<li[^>]*>/gi, '\n• ')
-      .replace(/<\/li>/gi, '\n')
-      .replace(/<\/h[1-6]>/gi, '\n\n')
-      .replace(/<[^>]+>/g, '') // strip remaining HTML tags
-      .replace(/&amp;/g, '&')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&quot;/g, '"')
-      .replace(/&#039;/g, "'")
-      .replace(/&nbsp;/g, ' ')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim();
-
-    // Remove breadcrumb and header noise
-    const lines = text.split('\n').filter(l => l.trim().length > 0);
-    const contentStart = lines.findIndex(l =>
-      l.includes('Ihr Profil') || l.includes('Your Profile') ||
-      l.includes('Votre profil') || l.includes('Il tuo profilo') ||
-      l.includes('Unser Angebot') || l.includes('suchen wir') ||
-      l.includes('looking for') || l.includes('recherchons') ||
-      lines.indexOf(l) > 3
-    );
-    const relevantLines = contentStart > 0 ? lines.slice(Math.max(0, contentStart - 2)) : lines.slice(3);
-    return relevantLines.join('\n').trim().slice(0, 3000);
+    return extractBurkhalterDetailFields(html, url);
   } catch (err) {
     console.warn(`   ⚠️ Could not scrape detail: ${url} — ${err.message}`);
     return '';
@@ -193,18 +176,24 @@ async function scrapeDetailPage(relativeUrl) {
 }
 
 /* ── Build Job Objects ─────────────────────────────────────── */
-function buildJob(raw, description = '') {
+function buildJob(raw, detailOrDescription = '') {
   const title = String(raw.job || '').trim();
   const company = String(raw.company || COMPANY_NAME).trim();
-  const city = String(raw.city || '').trim();
+  const detail = typeof detailOrDescription === 'string'
+    ? { description: detailOrDescription }
+    : (detailOrDescription || {});
+  const description = String(detail.description || '').trim();
+  const rawCity = String(raw.city || '').trim();
+  const sourceLocality = String(detail.addressLocality || '').trim();
+  const city = sourceLocality || rawCity;
   const canton = mapCanton(raw.canton, city);
-  const slug = slugify(`${title}-${company}-${safeLocationToken(city, 'Switzerland')}`);
+  const slug = slugify(`${title}-${company}-${safeLocationToken(rawCity || city, 'Switzerland')}`);
   const detailUrl = raw.url
     ? (raw.url.startsWith('http') ? raw.url : `${BASE_URL}${raw.url}`)
     : `${BASE_URL}/en/jobs-and-careers/vacancies`;
-  const postedDate = raw.issueDate
-    ? new Date(raw.issueDate * 1000).toISOString().slice(0, 10)
-    : new Date().toISOString().slice(0, 10);
+  // issueDate has no verified publication contract. The detail page's own
+  // JobPosting date is source evidence; creation/operational dates are not.
+  const publication = sourcePostingDateFields(detail.postedDate);
   const sourceLang = detectLang(`${title} ${description}`, 'de');
 
   // Determine employment type from title
@@ -242,18 +231,25 @@ function buildJob(raw, description = '') {
     addressLocality: city,
     addressRegion: canton,
     addressCountry: 'CH',
+    // These fields come only from the detail page's JobPosting address. Empty
+    // means the source did not expose that part of the workplace.
+    postalCode: String(detail.postalCode || '').trim(),
+    streetAddress: String(detail.streetAddress || '').trim(),
     canton,
     country: 'CH',
     category,
     sector: 'Impiantistica & Tecnologia Edilizia',
     source: 'burkhalter-dedicated-crawler',
     sourceLang,
-    postedDate,
+    ...publication,
     employmentType,
     contractType: employmentType,
-    description: description || `${title} presso ${company}, ${city}`,
+    // Only text read from the source: '' when the detail page could not be
+    // read (mergeBurkhalterRecord then keeps the stored source text, or the
+    // job is not published this run).
+    description,
     titleByLocale: {},
-    descriptionByLocale: {},
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {},
     crawledAt: new Date().toISOString(),
   };
@@ -277,24 +273,38 @@ function mergeJobs(discoveredJobs) {
   let added = 0;
   let updated = 0;
   let repairedSlugs = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
-    const prev = existingByKey.get(jobMatchKey(job));
+  const unpublished = [];
+  const mergeLocales = (prev, job) => ({
+    ...prev,
+    ...job,
+    ...mergeSourcePostingDates(prev, job),
+    titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+    descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
+    slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
+  });
+  const mergedTarget = [];
+  for (const job of discoveredJobs) {
+    const prev = existingByKey.get(jobMatchKey(job)) || null;
+    // Source text only: no body this run → the stored source text, or the
+    // job is not published this run (never a `<title> presso …` stub).
+    const merged = mergeBurkhalterRecord(prev, job, mergeLocales);
+    if (!merged) {
+      unpublished.push(job);
+      continue;
+    }
     if (!prev) {
       added += 1;
-      return job;
+      mergedTarget.push(merged);
+      continue;
     }
     updated += 1;
-    const merged = {
-      ...prev,
-      ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
-      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
-    };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     repairedSlugs += repairBurkhalterBoundarySlugs(merged);
-    return merged;
-  });
+    mergedTarget.push(merged);
+  }
+  if (unpublished.length > 0) {
+    console.warn(`   ⚠️ ${unpublished.length} job(s) not published this run: detail page unreadable and no stored source text (${unpublished.map((j) => j.url).join(', ')})`);
+  }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
@@ -390,9 +400,27 @@ async function main() {
     CONCURRENCY,
   );
 
+  // Step 4b: one sequential, paced retry for the pages the pool could not
+  // read (rate limit / transient egress failure). Without it those jobs were
+  // published with the title-only placeholder, which is also too short for
+  // the translation step (9/245 thin, 6/245 missing locales).
+  const hasSourceBody = (detail) => typeof detail === 'string'
+    ? Boolean(detail.trim())
+    : Boolean(String(detail?.description || '').trim());
+  const failedIndexes = relevantJobs
+    .map((raw, i) => (raw.url && !hasSourceBody(descriptions[i]) ? i : -1))
+    .filter((i) => i >= 0);
+  if (failedIndexes.length > 0) {
+    console.log(`🔁 Retrying ${failedIndexes.length} detail page(s) sequentially after a ${DETAIL_RETRY_COOLDOWN_MS / 1000}s cool-down...`);
+    await new Promise((resolve) => setTimeout(resolve, DETAIL_RETRY_COOLDOWN_MS));
+    for (const i of failedIndexes) {
+      descriptions[i] = await scrapeDetailPage(relevantJobs[i].url);
+    }
+  }
+
   // Step 5: Build standardized job objects
   const jobs = relevantJobs.map((raw, i) => buildJob(raw, descriptions[i]));
-  console.log(`✅ Built ${jobs.length} job objects`);
+  console.log(`✅ Built ${jobs.length} job objects (${jobs.filter((job) => !job.description).length} without a readable detail page)`);
 
   // Step 6: Merge into jobs.json
   const { total, added, updated, repairedSlugs, diff} = mergeJobs(jobs);

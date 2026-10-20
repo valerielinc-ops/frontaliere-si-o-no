@@ -19,6 +19,22 @@ export const VITEST_CHECK_NAME = 'vitest (unit + integration)';
 export const VITEST_EXECUTION_JOB_NAME = VITEST_CHECK_NAME;
 
 /**
+ * Keep squash commits descriptive even when the PR has only one checkpoint
+ * commit. GitHub's repository setting may fall back to the commit subject;
+ * every automated merge path therefore supplies this explicit headline.
+ */
+export function formatSquashCommitSubject({ prNumber, title } = {}) {
+  const normalizedPrNumber = String(prNumber ?? '').trim();
+  if (!/^\d+$/.test(normalizedPrNumber)) {
+    throw new Error('numero PR mancante o non valido per il titolo dello squash');
+  }
+  if (typeof title !== 'string' || title.trim() === '' || /[\r\n]/u.test(title)) {
+    throw new Error('titolo PR mancante o non valido per il titolo dello squash');
+  }
+  return `${title.trim()} (#${normalizedPrNumber})`;
+}
+
+/**
  * Matcha il nome dei check-run dei singoli SHARD vitest in `tests.yml`
  * (`name: vitest shard ${{ matrix.shard }}/4` → `vitest shard 1/4`, …). Distinto
  * da `VITEST_CHECK_NAME`, che è il job AGGREGATORE: l'aggregatore collassa
@@ -58,64 +74,31 @@ export const VITEST_SHARD_NAME_RE = /^vitest shard \d+\/\d+$/;
  * form is the output contract documented in REVIEW.md and must remain valid
  * even when the reviewer omits punctuation after the severity prefix.
  *
- * POSIZIONE, non solo forma (2026-09-05). Il delimitatore da solo non basta: la
- * TERZA variante della stessa classe e' arrivata su
- * `nanakokyobashi-rgb/frontaliere-articles#909`, dove la review CITAVA un marker
- * dentro il testo di un proprio nit — «... 🟡 Nit: ... Verificato: «🔴 Important: il
- * path non gestito raggiunge `parsePath` e il router.» → stripped ...» — con
- * `## Findings (Important: 0, Nit: 3)` e `## LGTM` regolari. Il marker citato porta
- * i due punti esattamente come quello vero, quindi il rimedio di #3330 (pretendere
- * la punteggiatura dopo "Important") non lo vede: il review gate di `tests.yml`
- * rendeva ROSSA una PR approvata — `review-gate: l'ultima review del bot non e'
- * approvante`.
+ * EVOLUZIONE source-backed dal corpus, non una copia dell'intero file adapted:
+ * `frontaliere-articles/generator/tests/redflag-important-marker.test.mjs`
+ * verifica #977/#1106/#1120/#2350. Il marker resta rosso se e' un finding vero
+ * anche quando la location label e' incollata al glifo, dopo un altro finding
+ * sulla stessa riga, con una label aperta o dopo una citazione chiusa. Restano
+ * verdi invece le citazioni dentro code span/guillemets, compreso un marker che
+ * contiene a sua volta 🟡; un numero dispari di backtick non deve nascondere un
+ * finding successivo. Le ancore di posizione accettano prefissi di lista,
+ * elenchi numerati e piu' path/righe, anche senza punteggiatura dopo Important,
+ * ma solo se il testo del finding segue sulla stessa riga.
  *
- * Cio' che distingue un marker da una citazione non e' il vocabolario ma la
- * POSIZIONE NELLA STRUTTURA: il marker APRE la riga del proprio finding (al piu'
- * preceduto da una location label — `- `, `` `path.mjs:L12`: ``), mentre una
- * citazione sta DENTRO una riga che ha gia' aperto un ALTRO finding, oppure dentro
- * un code span. Da qui le due clausole, entrambe strutturali e non lessicali:
+ * Il conteggio dichiarato `## Findings (Important: N)` NON e' un ingresso del
+ * gate: non e' sempre presente e potrebbe solo spostare un verdetto da rosso a
+ * verde, spegnendo un finding vero. Resta un oracolo indipendente nei test.
+ * Un secondo finding sulla stessa riga richiede un confine di frase esplicito:
+ * punteggiatura seguita da spazio. Senza, una citazione plain-text dentro un Nit
+ * sarebbe indistinguibile da un nuovo marker.
  *
- *   1. `^[^\n🟡🟢]*` — sulla stessa riga, prima del marker, nessun glifo di
- *      severita' PIU' BASSA: se la riga ha gia' aperto un 🟡/🟢, il 🔴 che segue
- *      e' testo riportato, non il verdetto della riga. Fuori dalla classe negata
- *      restano DUE glifi, per la stessa ragione: `🔴`, perche' uno decorativo non
- *      deve poter nascondere il marker che segue; e `❓`, perche' REVIEW.md
- *      («Verification → escalation») prescrive di PROMUOVERE un ❓ a 🔴 Important
- *      quando l'item e' funnel-critical, e quella promozione si scrive spesso
- *      sulla stessa riga del dubbio — `❓ …: dubbio. 🔴 Important: bug reale`.
- *      Trattare ❓ come un lead che cita spegnerebbe il gate proprio sulla forma
- *      che il processo incoraggia. Sulle 172 review misurate escludere ❓ o no non
- *      cambia un solo verdetto, quindi il costo e' zero e la scelta si fa sulla
- *      direzione dell'errore: dove la regola e' incerta si sbaglia in ROSSO.
- *   2. `(?<!\`)` — un marker incollato a un backtick sta dentro un code span, cioe'
- *      e' testo citato. Le location label reali chiudono con `` `: `` o `: `, mai
- *      con un backtick attaccato al glifo (verificato sui 66 marker reali del
- *      campione).
- *
- * Il conteggio dichiarato `## Findings (Important: N)` NON e' un ingresso del gate,
- * di proposito. Misurato su 172 review bot reali (le ultime 60 PR mergiate per
- * ciascuno dei due repo): l'intestazione col conteggio c'e' su 170/172 — manca su
- * una review di sole `content/` e su una re-review incrementale con `## Findings`
- * nudo — quindi non e' una fonte sempre presente. Soprattutto e' una fonte che puo'
- * solo spostare il verdetto da rosso a VERDE: un reviewer che scrive `Important: 0`
- * e poi un 🔴 vero spegnerebbe il gate, cioe' esattamente il fallimento che questa
- * fix non deve introdurre. Il conteggio resta l'ORACOLO INDIPENDENTE del test
- * (`tests/redflag-important-marker.test.ts`), non un ingresso della decisione.
- *
- * Misura del cambio, sulle stesse 172 review: il verdetto cambia su UNA sola —
- * corpus#909, l'unica con `Important: 0` + `## LGTM` + marker citato. Gli altri 54
- * corpi con un marker vero restano rossi, e nessun corpo passa da verde a rosso.
- *
- * NB: il preflight di `pr-redflag-fixer.yml` e la Classe B di
- * `stale-pr-rescuer.yml` grepano la STESSA forma in bash — un `if:`/`run:` YAML non
- * puo' importare questa regex. `grep` e' gia' orientato alla riga, quindi il pattern
- * bash e' questa `.source` senza il primo `\n` nella classe negata:
- * `grep -qP '(*UTF)^(?:[^🟡🟢]*(?<!\`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:[-*+>][ \t]*)?(?:`[^`\n]*:L?\d+(?:[-–]\d+)?`?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?):[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=\s+\S))'`.
- * Le tre copie non possono piu' divergere in silenzio: il guard `mirror bash` di
- * `tests/redflag-important-marker.test.ts` deriva il pattern atteso da questa
- * `.source` e lo pretende, verbatim, in entrambi i workflow.
+ * Il preflight di `pr-redflag-fixer.yml` e la Classe B di
+ * `stale-pr-rescuer.yml` usano la stessa forma PCRE: grep lavora una riga per
+ * volta, quindi le classi negate non devono escludere `\n`. Il test di parita'
+ * deriva il pattern dalla source, ne pinna il valore e verifica entrambe le copie
+ * dei workflow.
  */
-export const REDFLAG_IMPORTANT_RE = /^(?:[^\n🟡🟢]*(?<!\x60)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:[-*+>][ \t]*)?(?:\x60[^\x60\n]*:L?\d+(?:[-–]\d+)?\x60?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?):[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=\s+\S))/mu;
+export const REDFLAG_IMPORTANT_RE = /^(?!(?=(?:[^\n\x60]*\x60[^\n\x60]*\x60)*[^\n\x60]*$)(?:[^\n\x60«🟡🟢❓]|\x60[^\n\x60]*\x60|«[^\n»]*»|«(?![^\n»]*»))*[🟡🟢❓](?:(?![.!?;][ \t])(?:[^\n\x60«]|\x60[^\n\x60]*\x60|«[^\n»]*»|«(?![^\n»]*»)))*🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-])(?:(?:(?=(?:[^\n`]*`[^\n`]*`)*[^\n`]*`[^\n`]*$)(?:(?:[^\n«🟡🟢❓]|«[^\n»]*»|«(?![^\n»]*»))*|(?:[^\n«]|«[^\n»]*»|«(?![^\n»]*»))*[🟡🟢❓](?:[^\n«]|«[^\n»]*»|«(?![^\n»]*»))*|(?:[^\n`«🟡🟢❓]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»))*)|(?:(?:[^\n«🟡🟢❓]|«[^\n»]*»|«(?![^\n»]*»))*|(?:[^\n`«]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»)|`(?![^\n`]*`))*[🟡🟢❓](?:[^\n`«]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»)|`(?![^\n`]*`))*|(?:[^\n`«🟡🟢❓]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»))*)(?<!\s`)(?<!^`))🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:(?:[-*+>]|\d+[.)])[ \t]*){0,3}(?:`[^\n`]*:L?\d+(?:[-–]\d+)?`?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?)(?:[ \t]*[,;][ \t]*(?:`[^\n`]*:L?\d+(?:[-–]\d+)?`?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?))*:[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=[ \t]+[^\n \t\r]))/mu;
 
 /**
  * Identità che possono pubblicare la review Claude. Con il token GitHub App

@@ -1,3 +1,4 @@
+import { LEGACY_LUGANO_COMPETITION_REDIRECTS } from './shared/legacyLuganoCompetitionRedirects';
 /**
  * Generate static redirect pages for high-traffic legacy paths.
  * This prevents avoidable 404s and consolidates crawl signals to canonicals.
@@ -7,6 +8,7 @@ import path from 'path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
+import { WEBSITE_ID } from '../services/seo/organizationLd';
 import {
  resolveSearchConsoleCompatTarget,
  JOB_BOARD_PAGINATION_PATTERN,
@@ -26,6 +28,45 @@ import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import { BORDER_WAIT_LEGACY_REDIRECTS } from './shared/borderWaitLegacyRedirects';
+import { isSafeDistPath } from './shared/distPathSafety';
+import { shouldEmitPath } from './shared/localeEmitFilter';
+
+// These legacy URLs are intercepted by the apex Worker with a real 301. Keep
+// their static fallback free of a second, weaker redirect mechanism: the
+// origin may still serve the canonical bridge, but must not advertise a
+// meta-refresh for a route whose HTTP contract is already server-side.
+const EDGE_HTTP_REDIRECT_PATHS = new Set([
+ '/cookie/',
+ '/nav:health/',
+ '/nav:pension/',
+ '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/',
+ '/job-board/',
+ '/calcola-stipendio/confronta-permesso-g-vs-b/',
+ '/guida-frontaliere/comuni-di-frontiera/',
+ '/vivere-in-ticino/vivere-in-svizzera/',
+ '/statistiche/traffico-dogane/',
+ '/guida-frontaliere/tempi-attesa-dogana/',
+ '/guida-frontaliere/diritto-lavoro-frontalieri/',
+ '/tfr-calculator/',
+ '/calcolatore/',
+ '/guida-frontaliere/diritto-opzione-lamal/',
+ '/statistiche/confronta-premi/',
+ '/stipendi-frontalieri-ticino/',
+ '/tredicesima-svizzera/',
+ '/comparatori/cambio-valuta/',
+ '/costo-della-vita/',
+ '/guida-frontaliere/nuova-legge-frontalieri-2024/',
+ '/fisco-frontalieri/',
+]);
+
+function addLegacyBridgeHead(html: string, from: string, to: string, extraHead = ''): string {
+ const normalizedFrom = from === '/' ? from : `${from.replace(/\/+$/, '')}/`;
+ const refresh = EDGE_HTTP_REDIRECT_PATHS.has(normalizedFrom)
+   ? ''
+   : ` <meta http-equiv="refresh" content="0; url=${BASE_URL}${to}">\n`;
+ return html.replace('</head>', `${refresh}${extraHead}\n </head>`);
+}
 
 /** Hreflang entry extracted from sitemap XML. */
 interface HreflangEntry {
@@ -91,11 +132,30 @@ function hreflangLinksHtml(entries: HreflangEntry[]): string {
  .join('\n');
 }
 
+function pruneRedirectedPageSitemap(sitemapPath: string, redirectedPaths: Set<string>): number {
+ if (!fs.existsSync(sitemapPath)) return 0;
+ const xml = fs.readFileSync(sitemapPath, 'utf-8');
+ let dropped = 0;
+ const pruned = xml.replace(/[ \t]*<url>[\s\S]*?<\/url>\n?/g, (block) => {
+   const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1]?.trim();
+   if (!loc) return block;
+   let pathname = loc;
+   try { pathname = new URL(loc).pathname; } catch { /* root-relative loc */ }
+   const normalized = `${pathname.replace(/\/+$/, '')}/`;
+   if (!redirectedPaths.has(normalized)) return block;
+   dropped += 1;
+   return '';
+ });
+ if (pruned !== xml) fs.writeFileSync(sitemapPath, pruned, 'utf-8');
+ return dropped;
+}
+
 export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // The hand-authored redirect map. `data/article-redirects.json` is merged into
  // it at closeBundle time (issue #5352) — a `from` declared here wins, and
  // tests/article-rename-redirects.test.ts fails on any key declared twice.
  const redirects: Record<string, string> = {
+ ...LEGACY_LUGANO_COMPETITION_REDIRECTS,
  '/guida-frontalieri/': '/guida-frontaliere/',
  '/guida-frontalieri/calendario-fiscale/': '/tasse-e-pensione/scadenze-fiscali/',
  '/pianificatore-pensione/': '/tasse-e-pensione/calcola-previdenza/',
@@ -109,9 +169,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // primo canonical su una pagina noindex. Misurato in produzione prima della
  // fix: /comparatori/traffico-valichi/ → 200 noindex,follow canonical
  // /statistiche/traffico-dogane/ → 200 noindex,follow canonical
- // /guida-frontaliere/tempi-attesa-dogana/ (200 index,follow, la pagina vera).
+ // /traffico-dogane/ is the current indexable data-driven page.
  // Stessa destinazione di /guida-frontaliere/traffico-valichi/ piu' sotto.
- '/comparatori/traffico-valichi/': '/guida-frontaliere/tempi-attesa-dogana/',
+ '/comparatori/traffico-valichi/': '/traffico-dogane/',
  '/comparatori/banche/': '/compara-servizi/confronta-banche/',
  '/comparatori/operatori-mobili/': '/compara-servizi/confronta-operatori-mobili/',
  '/comparatori/mappa-comuni/': '/guida-frontaliere/mappa-confine/',
@@ -124,6 +184,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // Older slug /naspi-disoccupazione-frontalieri/ redirects to the
  // canonical /naspi-ex-frontalieri-2026/ hub.
  '/articoli-frontaliere/naspi-disoccupazione-frontalieri/': '/articoli-frontaliere/naspi-ex-frontalieri-2026/',
+ '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/': '/fr/articles-frontalier/naspi-anciens-frontaliers-2026/',
  '/articoli-frontaliere/elezioni-comunali-ticino-2026/': '/articoli-frontaliere/elezioni-comunali-ticino/',
  '/en/cross-border-articles/ticino-elections-2026/': '/en/cross-border-articles/municipal-elections-ticino/',
  '/de/grenzgaenger-artikel/gemeindewahlen-tessin-2026/': '/de/grenzgaenger-artikel/gemeindewahlen-tessin/',
@@ -217,6 +278,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/articoli-svizzera/autostrada-riapertura-ticino/': '/articoli-frontaliere/autostrada-a2-mezzovico-interrogazione/',
  '/en/swiss-articles/a2-highway-riopening-ticino/': '/en/cross-border-articles/a2-motorway-mezzovico-interpellation/',
  '/de/schweiz-artikel/a2-autobahn-wiedereroffnung-tessin/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
+ '/de/schweiz-artikel/autostrada-riapertura-ticino/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
  '/fr/articles-suisse/autoroute-a2-ouverture-again-tessin/': '/fr/articles-frontalier/autoroute-a2-mezzovico-interpellation/',
  '/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/': '/articoli-frontaliere/fallimenti-aziende-svizzera-1994/',
  '/en/swiss-articles/domino-effect-failed-companies-switzerland/': '/en/cross-border-articles/business-bankruptcies-switzerland-1994/',
@@ -235,8 +297,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // Slugs are the ones `pull-articles-corpus.mjs` printed when it refused both
  // removals as unledgered (run 33992697946, 2026-09-05T21:21Z); they also live in
  // the corpus's data/retired-articles.json, the only source that survives the
- // deletion. Every target was confirmed present in the published slugs.json at
- // manifest commit 6dfde254 before being written here, so no 301 lands on a 404.
+ // deletion. Locale target slugs can be renamed independently, so keep every
+ // target aligned with the current BLOG_SLUGS registry; the edge-retirement
+ // regression test checks the build and Worker maps against those locale rows.
  // Adding them here is what unblocks the sync: scripts/lib/corpus-removal-guard.mjs
  // refuses to let pull-articles-corpus.mjs prune the bodies and the registries
  // until the retirement is declared in this table — which is why the site half of
@@ -245,13 +308,34 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // serving-path half: the article shard is append-only and keeps answering 200
  // without it.
  '/articoli-frontaliere/courmayeur-lavora-vallese-frontaliere/': '/articoli-frontaliere/vivere-courmayeur-e-lavorare-vallese-da-frontaliere/',
- '/en/cross-border-articles/courmayeur-work-vallese-frontalier/': '/en/cross-border-articles/living-in-courmayeur-and-working-in-vallese-as-a-cross-border-worker/',
- '/de/grenzgaenger-artikel/courmayeur-arbeitet-vallese-frontalier/': '/de/grenzgaenger-artikel/wohnen-in-courmayeur-und-arbeiten-in-vallese-as-grenzganger/',
- '/fr/articles-frontalier/courmayeur-travaille-vallese-frontalier/': '/fr/articles-frontalier/vivre-a-courmayeur-et-travailler-a-vallese-en-tant-que-travailleur-frontalier/',
+ '/en/cross-border-articles/courmayeur-work-vallese-frontalier/': '/en/cross-border-articles/living-in-courmayeur-and-working-in-valais-as-a-cross-border-worker/',
+ '/de/grenzgaenger-artikel/courmayeur-arbeitet-vallese-frontalier/': '/de/grenzgaenger-artikel/wohnen-in-courmayeur-und-arbeiten-in-wallis-as-grenzganger/',
+ '/fr/articles-frontalier/courmayeur-travaille-vallese-frontalier/': '/fr/articles-frontalier/vivre-a-courmayeur-et-travailler-a-valais-en-tant-que-travailleur-frontalier/',
  '/articoli-frontaliere/vivere-tovo-lavorare-grigioni/': '/articoli-frontaliere/vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere/',
- '/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/': '/en/cross-border-articles/living-in-tovo-di-sant-agata-and-working-in-grigioni-as-a-border-worker/',
- '/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/': '/de/grenzgaenger-artikel/leben-in-tovo-di-sant-agata-und-arbeiten-in-grigioni-als-grenzarbeiter/',
- '/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/': '/fr/articles-frontalier/vivre-a-tovo-di-sant-agata-et-travailler-a-grigioni-comme-travailleur-frontalier/',
+ '/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/': '/en/cross-border-articles/living-in-tovo-di-sant-agata-and-working-in-graubunden-as-a-border-worker/',
+ '/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/': '/de/grenzgaenger-artikel/leben-in-tovo-di-sant-agata-und-arbeiten-in-graubunden-als-grenzarbeiter/',
+ '/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/': '/fr/articles-frontalier/vivre-a-tovo-di-sant-agata-et-travailler-a-grisons-comme-travailleur-frontalier/',
+ // ── Upstream-aborted articles (2026-10-07) — three records, 12 URLs ──
+ // The corpus removed these explicit abort records after rejecting their
+ // topics: Pré-Saint-Didier is outside the relevant cross-border area,
+ // Saint-Nicolas is not a valid daily-frontier-worker case, and the Trump
+ // health story has no Swiss relevance. None has a surviving article to
+ // receive a redirect, so the section-root targets below are paired with
+ // EDGE_RETIRED_PATHS 410s. Keeping the bridges here is what lets
+ // pull-articles-corpus.mjs distinguish a declared retirement from an
+ // undeclared upstream data loss.
+ '/articoli-frontaliere/abort-topical-relevance-pre-saint-didier/': '/articoli-frontaliere/',
+ '/en/cross-border-articles/living-pre-saint-didier-working-valais/': '/en/cross-border-articles/',
+ '/de/grenzgaenger-artikel/leben-pre-saint-didier-arbeiten-wallis/': '/de/grenzgaenger-artikel/',
+ '/fr/articles-frontalier/vivre-pre-saint-didier-travailler-valais/': '/fr/articles-frontalier/',
+ '/articoli-frontaliere/abort-saint-nicolas-non-frontaliero/': '/articoli-frontaliere/',
+ '/en/cross-border-articles/moving-to-saint-nicolas-as-a-cross-border-worker-pros-and-cons/': '/en/cross-border-articles/',
+ '/de/grenzgaenger-artikel/umzug-nach-saint-nicolas-als-grenzgaenger-vor-und-nachteile/': '/de/grenzgaenger-artikel/',
+ '/fr/articles-frontalier/demenager-a-saint-nicolas-en-tant-que-frontalier-avantages-et-inconvenients/': '/fr/articles-frontalier/',
+ '/articoli-svizzera/abort-topical-relevance-trump-health/': '/articoli-svizzera/',
+ '/en/swiss-articles/news-not-relevant/': '/en/swiss-articles/',
+ '/de/schweiz-artikel/nicht-zutreffende-nachrichten/': '/de/schweiz-artikel/',
+ '/fr/articles-suisse/information-non-pertinente/': '/fr/articles-suisse/',
  // ── Bing blocked URLs (2026-03-27) — old slugs → current canonical ──
  // IT: category or slug renames
  '/compara-servizi/cambio-valuta/': '/compara-servizi/cambio-franco-euro/',
@@ -287,7 +371,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // entries that previously resolved via SECTION_FALLBACKS to section roots. Each now
  // redirects to its active equivalent with a proper "Pagina spostata" bridge page.
  '/vivere-in-ticino/vivere-in-svizzera/': '/vivere-in-ticino/',
- '/statistiche/traffico-dogane/': '/guida-frontaliere/tempi-attesa-dogana/',
+ '/statistiche/traffico-dogane/': '/traffico-dogane/',
  '/guida-frontaliere/comuni-di-frontiera/': '/vivere-in-ticino/comuni-di-frontiera/',
  '/calcola-stipendio/confronta-permesso-g-vs-b/': '/guida-frontaliere/confronta-permesso-g-vs-b/',
  // EN: old slugs
@@ -340,7 +424,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/guida-frontaliere/permesso-g/': '/guida-frontaliere/permessi-di-lavoro/',
  '/guida-frontaliere/permessi-lavoro/': '/guida-frontaliere/permessi-di-lavoro/',
  '/guida-frontaliere/trasferimento-auto/': '/guida-frontaliere/trasferire-auto-svizzera/',
- '/guida-frontaliere/traffico-valichi/': '/guida-frontaliere/tempi-attesa-dogana/',
+ '/guida-frontaliere/traffico-valichi/': '/traffico-dogane/',
  '/guida-frontaliere/assegni-familiari-frontalieri/': '/guida-frontaliere/',
  // DE old/missing slugs → current DE canonicals
  '/de/dienste-vergleichen': '/de/service-vergleich/',
@@ -378,15 +462,13 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // ── Cloudflare-confirmed feature-page 404s (2026-06-17 edge sweep) ──
  // Real-traffic 404s on renamed/section-root non-job pages. Destinations
  // verified 200 live. Only the OBSERVED paths are mapped (not the full
- // crossing list) — /tempi-attesa-confine/ and bare /traffico-dogane/.../oggi/
- // were never our own emitted paths, so enumerating all 26 crossings would be
- // speculative (AGENTS.md #6). Border-wait pages were renamed to
- // /guida-frontaliere/tempi-attesa-dogana/<crossing>/ (cf. the section redirect
- // at /statistiche/traffico-dogane/ above); the old slugs also dropped the
- // d-hyphen (ditalia → d-italia, dintelvi → d-intelvi), normalized here.
- '/tempi-attesa-confine/chiasso-brogeda/': '/guida-frontaliere/tempi-attesa-dogana/chiasso-brogeda/',
- '/traffico-dogane/campione-ditalia-bissone/oggi/': '/guida-frontaliere/tempi-attesa-dogana/campione-d-italia-bissone/',
- '/traffico-dogane/lanzo-dintelvi-arogno/oggi/': '/guida-frontaliere/tempi-attesa-dogana/lanzo-d-intelvi-arogno/',
+ // crossing list) — these are compatibility observations outside the four
+ // published guide roots. All sitemap-backed legacy routes are generated from
+ // the crossing registry above; the old slugs also dropped the d-hyphen
+ // (ditalia → d-italia, dintelvi → d-intelvi), normalized here.
+ '/tempi-attesa-confine/chiasso-brogeda/': '/traffico-dogane/chiasso-brogeda/oggi/',
+ '/traffico-dogane/campione-ditalia-bissone/oggi/': '/traffico-dogane/campione-d-italia-bissone/oggi/',
+ '/traffico-dogane/lanzo-dintelvi-arogno/oggi/': '/traffico-dogane/lanzo-d-intelvi-arogno/oggi/',
  // Fuel section-root (no index) → that fuel's localized "today" landing,
  // keeping benzina↔benzina / diesel↔diesel (never cross fuels).
  '/prezzi-benzina/': '/prezzi-benzina/oggi/',
@@ -412,6 +494,18 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/de/partner-dienste/': '/de/',
  '/fr/services-partenaires/': '/fr/',
  // Press kit → the about page (same org-info class).
+ // Consolidate duplicate English utility pages and the superseded FAQ family.
+ '/about/': '/en/about-us/',
+ '/contact/': '/en/contact-us/',
+ '/privacy-policy/': '/en/privacy/',
+ // Historical Italian cookie-policy entry; the notice lives in the privacy page.
+ '/cookie/': '/privacy/',
+ // Exact legacy internal markers, using the same destinations as the apex Worker.
+ '/nav:health/': '/compara-servizi/confronta-casse-malati/',
+ '/nav:pension/': '/tasse-e-pensione/calcola-previdenza/',
+ '/en/cross-border-faq/': '/en/frequently-asked-questions/',
+ '/de/grenzgaenger-faq/': '/de/haeufige-fragen/',
+ '/fr/faq-frontaliers/': '/fr/questions-frequentes/',
  '/stampa/': '/chi-siamo/',
  '/en/press-kit/': '/en/about-us/',
  '/de/pressekit/': '/de/ueber-uns/',
@@ -423,10 +517,17 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // job-alert email (?email=&token=). Redirecting them to the morning landing
  // broke the entire "manage newsletter / job alerts" funnel (issue #2973): users
  // clicking "Gestisci alert" hit a "Pagina spostata" page instead of their
- // alerts. Like the sibling /email-confirmed/ route, the SPA boots from 404.html
- // and renders the page; it is noindex-by-nature (no public inbound links), so a
- // soft-404 status for cold crawler hits is acceptable.
+ // alerts. newsletterPreferencesPagesPlugin emits a public noindex shell at
+ // each localized path, so cold visits return 200 and retain the signed query.
+ // The SPA and API still enforce the token before accessing preferences.
  };
+
+ // Border-wait pages moved from the evergreen guide to the data-driven
+ // `/traffico-dogane/` vertical. Add the generated compatibility map before
+ // chain validation so every old source is checked and bridged consistently.
+ for (const [from, to] of BORDER_WAIT_LEGACY_REDIRECTS) {
+   if (!redirects[from]) redirects[from] = to;
+ }
 
  const normalize = (p: string): string => {
  if (!p.startsWith('/')) return `/${p.replace(/^\/+/, '')}`;
@@ -480,6 +581,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // exactly the kind of drift the derived-from-SECTION_ROUTES set avoids.
  const unshippablePrefixes = unshippableSectionPrefixes();
  let skippedUnshippable = 0;
+ let skippedUnsafeDistPaths = 0;
  // `/cerca-lavoro-ticino/azienda-{slug}/` (and per-locale equivalents) is the
  // RESERVED company-hub namespace (see isCompanyHubNamespaceSlug). A job whose
  // OWN slug happens to start with that prefix must not get a cathedral bridge
@@ -574,12 +676,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  return '\n' + hreflangLinksHtml(entries);
  };
 
- // Auto-redirect users to the canonical target (issue #2996, owner decision):
- // a 0-second meta-refresh lands the visitor on the live page without a manual
- // click, and — combined with the canonical link + noindex already on the page —
- // is treated as a 301-equivalent by crawlers. Same pattern already used by
- // cantonOrphanRedirectsPlugin and cfHot404BridgePlugin (cluster redirects).
- const buildCompatHtml = (from: string, to: string, kind: string) => buildCanonicalBridgePage({
+ // Static fallback for aliases that do not have an edge-owned HTTP redirect.
+ // The 0-second meta-refresh helps a browser reach the canonical page, but it
+ // is intentionally weaker than a server-side 301; the 16 audited aliases
+ // handled by the apex Worker are excluded by addLegacyBridgeHead().
+ const buildCompatHtml = (from: string, to: string, kind: string) => addLegacyBridgeHead(buildCanonicalBridgePage({
  canonicalUrl: `${BASE_URL}${to}`,
  pathLabel: to,
  title: 'Pagina archiviata | Frontaliere Ticino',
@@ -588,12 +689,23 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  ctaLabel: 'Apri la pagina corretta',
  noindex: true,
  hreflangEntries: hreflangMap.get(`${BASE_URL}${to}`),
- }).replace('</head>', ` <meta http-equiv="refresh" content="0; url=${BASE_URL}${to}">\n </head>`);
+ }), from, to);
 
  for (const [fromRaw, toRaw] of Object.entries(redirects)) {
  const from = withSlash(fromRaw);
  const to = withSlash(toRaw);
  if (from === to || from === '/') continue;
+
+ // Search Console and other compatibility inputs can contain dot-prefixed
+ // segments. Reject them before any filesystem path is derived: a trailing
+ // slash path such as `/foo/.env.bak/` would otherwise create the forbidden
+ // `dist/foo/.env.bak.html` flat twin (and a hidden directory beside it).
+ if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
+
+ // A foreign locale's missing HTML is expected on a shard, not a vacancy.
+ // Do not create a noindex bridge that the shared sitemap would mistake for
+ // the owning shard's real page. Gate both the directory and flat twin.
+ if (!shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) continue;
 
  // Do not emit a bridge onto a prefix this build cannot ship: the file
  // would be written, deleted by the shard rehydrate, and never served.
@@ -603,8 +715,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
 
  const outDir = path.join(distDir, from.slice(1));
  fs.mkdirSync(outDir, { recursive: true });
- // Skip if a higher-priority plugin already generated this page (e.g. active job or soft-landing)
- if (fs.existsSync(path.join(outDir, 'index.html'))) continue;
+ // Normal redirects preserve already emitted pages. These four historical
+ // directory headings were never vacancies and must replace their stale detail HTML.
+ if (fs.existsSync(path.join(outDir, 'index.html')) && !LEGACY_LUGANO_COMPETITION_REDIRECTS[from] && !BORDER_WAIT_LEGACY_REDIRECTS.has(from)) continue;
  const fromUrl = `${BASE_URL}${from}`;
  const toUrl = `${BASE_URL}${to}`;
  const hreflangTags = getHreflangHtml(to);
@@ -613,12 +726,12 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '@type': 'WebPage',
  name: `Redirect ${from} → ${to}`,
  url: fromUrl,
- isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+ isPartOf: { '@type': 'WebSite', '@id': WEBSITE_ID, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
  mainEntityOfPage: toUrl,
  description: `Pagina legacy reindirizzata verso ${to}`,
  inLanguage: 'it',
  });
- const html = buildCanonicalBridgePage({
+ const html = addLegacyBridgeHead(buildCanonicalBridgePage({
  canonicalUrl: redirectCanonicalOverride.get(fromRaw) ?? `${BASE_URL}${to}`,
  pathLabel: to,
  title: 'Pagina spostata',
@@ -627,16 +740,16 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  ctaLabel: 'Apri la pagina corretta',
  noindex: true,
  hreflangEntries: hreflangMap.get(`${BASE_URL}${to}`),
- // Auto-redirect users to the canonical (issue #2996, owner decision): a
- // 0-second meta-refresh is a 301-equivalent for crawlers (with the canonical
- // link + noindex) and an instant redirect for users — no dead-end click.
- // Same pattern as cantonOrphanRedirectsPlugin / cfHot404BridgePlugin.
- }).replace('</head>', ` <meta http-equiv="refresh" content="0; url=${BASE_URL}${to}">\n <script type="application/ld+json">${redirectLd}</script>\n </head>`);
+ // Keep a browser fallback for aliases that are not intercepted by the edge.
+ // It is not a substitute for an HTTP 301; edge-owned aliases are emitted
+ // without this tag by addLegacyBridgeHead().
+ }), from, to, ` <script type="application/ld+json">${redirectLd}</script>`);
 
  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
  // Also write a flat .html twin so GitHub Pages serves it for the extension-less
  // URL too. The SPA auth-action script is stripped from the flat file, but the
- // meta-refresh above is intentionally KEPT so the flat twin redirects as well.
+ // meta-refresh is intentionally kept for bridges that still need the static
+ // fallback; edge-owned aliases are already real 301s before this HTML runs.
  const flatPath = from.replace(/\/+$/, '');
  if (flatPath) {
  const flatFile = path.join(distDir, flatPath.slice(1) + '.html');
@@ -685,9 +798,12 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  {
  const compatPaths = readCompatPaths(rootDir).paths;
  for (const compatPathRaw of compatPaths) {
+ const from = normalize(String(compatPathRaw || ''));
+ if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
+ // Apply the same ownership guard before any target-existence/fallback probe.
+ if (!shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) continue;
  const resolution = resolveSearchConsoleCompatTarget(String(compatPathRaw || ''));
  if (!resolution) continue;
- const from = normalize(String(compatPathRaw || ''));
  // Target-existence gap-fill (PR #4252 review): a self-mapped target is not always
  // unconditionally emitted (e.g. an events canton hub only exists when that canton
  // has an upcoming event THIS build — see fallbackPath doc in searchConsoleCompat.ts).
@@ -751,6 +867,14 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  }
  }
 
+ const prunedBorderSitemapUrls = pruneRedirectedPageSitemap(
+   path.join(distDir, 'sitemap-pages.xml'),
+   new Set(BORDER_WAIT_LEGACY_REDIRECTS.keys()),
+ );
+ if (prunedBorderSitemapUrls > 0) {
+   console.log(`\x1b[36m[legacy-redirects]\x1b[0m Removed ${prunedBorderSitemapUrls} legacy border-wait URL(s) from sitemap-pages.xml`);
+ }
+
  if (count > 0) {
  console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${count} legacy redirect pages${cathedralCount > 0 ? ` (incl. ${cathedralCount} cathedral migration entries: TI-legacy URL → canton URL for jobs whose canton !== 'TI')` : ''}${articleRenameCount > 0 ? ` (incl. ${articleRenameCount} article rename bridges from ${ARTICLE_REDIRECTS_FILE})` : ''}`);
  }
@@ -763,6 +887,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  if (skippedUnshippable > 0) {
  console.log(
  `\x1b[33m[legacy-redirects]\x1b[0m Skipped ${skippedUnshippable} bridge page(s) under BUILD_EMIT_SKIP section prefixes (${unshippablePrefixes.join(', ')}) — this build does not push those shards, so an emitted bridge there is never served. The table entries stay; only the emission is skipped.`,
+ );
+ }
+ if (skippedUnsafeDistPaths > 0) {
+ console.log(
+ `\x1b[33m[legacy-redirects]\x1b[0m Skipped ${skippedUnsafeDistPaths} bridge page(s) with dot-prefixed URL path segments before dist emission.`,
  );
  }
    },

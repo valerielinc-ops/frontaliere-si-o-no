@@ -5,7 +5,9 @@
 # retry then dies on "Pulling is not possible because you have unmerged files"
 # until the job is canceled (run 27976954013: dist-size-history.jsonl conflict
 # wedged the IT deploy shard). `merge=union` keeps both sides' new lines so the
-# conflict cannot occur by construction.
+# conflict cannot occur by construction. The dist-size writer compacts its
+# recent window below 40 MiB; a stale concurrent checkout may temporarily
+# resurrect an old line during the union, and the next append compacts it again.
 data/dist-size-history.jsonl       merge=union
 data/quality-alerts-history.jsonl  merge=union
 data/quota-history.jsonl           merge=union
@@ -15,10 +17,11 @@ data/thin-page-promotions.jsonl    merge=union
 # commit di stato). Senza `merge=union` le due code collidono e wedgiano
 # esattamente il merge che deve avvenire da solo.
 data/prospector/ledger.jsonl       merge=union
-# data/build-history/memory-peaks.jsonl: one row per build-locale matrix leg
-# (it/en/de/fr, deploy.yml "Append build memory history row"), so up to 4
-# concurrent producers on the SAME run alone — same wedge risk as
-# dist-size-history.jsonl above, union keeps every leg's row.
+# data/build-history/memory-peaks.jsonl: rows from every build-locale matrix
+# leg (it/en/de/fr). Since #9247 the legs only stage them and deploy.yml's
+# build-history-commit job appends them in ONE commit per run; union still
+# keeps both sides when that commit is rebased over another append, and
+# scripts/lib/commit-build-history-rows.sh regenerates the append if not.
 data/build-history/memory-peaks.jsonl merge=union
 
 # data/article-defect-history.jsonl is the article pipeline's rejection ledger
@@ -91,7 +94,13 @@ data/all-known-job-slugs/part-*.json merge=known-slugs-shard
 # scripts/lib/git-push-with-retry.sh and scripts/lib/git-commit-data.sh.
 data/orphan-enriched-data/part-*.json merge=orphan-enriched-shard
 
-# data/jobs-stats-history/YYYY-MM.json are monthly rewrites of the logical job
-# history. Merge concurrent writers by date/action-key union rather than by
-# lines, which would keep two full sorted JSON rewrites or conflict.
+# data/jobs-stats-history/YYYY-MM-DD.json (daily, #9654) and the legacy
+# YYYY-MM.json monthly shards are rewrites of the logical job history. Merge
+# concurrent writers by date/action-key union rather than by lines, which would
+# keep two full sorted JSON rewrites or conflict.
+data/jobs-stats-history/????-??-??.json merge=job-stats-history-shard
 data/jobs-stats-history/????-??.json merge=job-stats-history-shard
+
+# Synthetic PDF fixtures are binary test artifacts; preserve their exact byte
+# offsets and keep Git whitespace checks from parsing xref rows as source text.
+tests/fixtures/pdf/*.pdf binary

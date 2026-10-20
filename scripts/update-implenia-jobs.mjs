@@ -14,6 +14,7 @@ import {
   isTrustedDomain,
   IMPLENIA_KEY,
   IMPLENIA_COMPANY_NAME,
+  dedupeImpleniaJobsByStableId,
 } from './lib/implenia-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -26,6 +27,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllImpleniaJobs,
   isCompanyJob: isImpleniaJob,
   isTrustedDomain,
+  prepareExistingJobs: (jobs) => dedupeImpleniaJobsByStableId(jobs, { normalizeUrls: true }),
   defaultSourceLang: 'de',
 }).catch((err) => {
   console.error(`❌ Implenia crawler failed: ${err?.message || err}`);

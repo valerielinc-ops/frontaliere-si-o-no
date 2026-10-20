@@ -49,6 +49,42 @@ describe('isAggregate — aggregate follow-ups bypass the already-resolved short
       '',
     )).toBe(false);
   });
+  it('does not read the field bullets of ONE record as enumerated items (FU-2026-09-12-006)', () => {
+    const sheet = [
+      '## Scheda',
+      '- **CAUSA:** il parser salta la riga diagnostica',
+      '- **FIX:** leggere il record riga per riga',
+      '- **METRICA**: 3 -> 0',
+      '- **OSSERVATORE:** `tests/parser.test.ts`',
+    ].join('\n');
+    expect(isAggregate('fix(ci): parser execution', sheet)).toBe(false);
+    // Shape of a `Workflow Failure` issue header (observed on #9453).
+    const failure = [
+      'The `live-data gates` workflow failed on `main`.',
+      '',
+      '- **Run:** https://github.com/o/r/actions/runs/1',
+      '- **Job:** `live-data`',
+      '- **Trigger:** schedule',
+      '- **Ref:** main',
+    ].join('\n');
+    expect(isAggregate('Workflow Failure: live-data gates', failure)).toBe(false);
+    // Shape of the failure-observer header (observed on #9608).
+    const observer = [
+      '**Workflow:** Deploy to GitHub Pages',
+      '- **Fallito in:** job `build-locale (de)`, step 4 `Checkout`',
+      '- **Esito della run:** `failure`',
+      '- **Run:** https://github.com/o/r/actions/runs/2',
+      '- **Run consecutive fallite:** **1**',
+    ].join('\n');
+    expect(isAggregate('Workflow Failure: Deploy to GitHub Pages', observer)).toBe(false);
+  });
+  it('still counts real bold-lead enumerations and headed items next to field bullets', () => {
+    expect(isAggregate('Shard push failed', '1. **Auth**: denied\n2. **Shrink guard**: would shrink')).toBe(true);
+    expect(isAggregate('cleanup', '- **Primo item.** a\n- **Secondo item.** b')).toBe(true);
+    expect(isAggregate('cleanup', '### 1. Primo\n- **CAUSA:** a\n### 2. Secondo\n- **CAUSA:** b')).toBe(true);
+    // A field label WITHOUT a colon is not a record field: keep it as a bold lead.
+    expect(isAggregate('cleanup', '- **Run** the first job\n- **Job** runner second')).toBe(true);
+  });
   it('still flags a genuine count-less sweep even when it would also match the "N items" regex loosely (no regression on #1826)', () => {
     expect(isAggregate('Sweep: ~30 crawlers need shared fetchHtml', '')).toBe(true);
   });

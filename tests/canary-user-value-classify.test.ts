@@ -4,6 +4,8 @@ import {
   latestClosedIndex,
   DEFAULT_REVENUE_FLOOR,
 } from '../scripts/lib/arpuCanaryClassify.mjs';
+import { buildDailyArpuRequest } from '../scripts/canary-user-value.mjs';
+import { buildTargetMarketCountryFilter, TARGET_MARKET_COUNTRIES } from '../scripts/lib/ga4-target-market.mjs';
 
 interface Row {
   date: string;
@@ -51,6 +53,15 @@ describe('latestClosedIndex — never measure the still-open current UTC day', (
       mk('2026-06-15', 0.0070, 8.0, 1143),
     ];
     expect(latestClosedIndex(settled, '2026-06-16')).toBe(2); // → 2026-06-15 is closed
+  });
+});
+
+describe('canary GA4 request scope', () => {
+  it('filters revenue and active users to the shared target market', () => {
+    const request = buildDailyArpuRequest(17);
+    expect(request.dimensionFilter).toEqual(buildTargetMarketCountryFilter());
+    expect(request.dimensionFilter.filter.inListFilter.values).toEqual(TARGET_MARKET_COUNTRIES);
+    expect(request.metrics).toEqual([{ name: 'totalAdRevenue' }, { name: 'activeUsers' }]);
   });
 });
 

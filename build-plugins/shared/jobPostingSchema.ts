@@ -1,3 +1,4 @@
+import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Canonical `JobPosting` structured-data builder.
  *
@@ -47,6 +48,8 @@
  */
 
 import {
+  CANTON_CAPITAL_ADDRESSES,
+  CITY_FALLBACK_ADDRESSES,
   COMPANY_HQ_ADDRESSES,
   deriveCantonFromCity,
   localityMatchesHq,
@@ -59,12 +62,14 @@ import {
   normalizeCantonCode,
 } from '../../scripts/lib/target-swiss-locations.mjs';
 import {
-  DEFAULT_POSTAL_CODE,
+  CANTON_CAPITAL_POSTAL,
   isPostalCodeCoherentWithCity,
   isValidPostalCode,
-  resolvePostalCode,
+  normalizePostalCityKey,
+  resolveLocalityPostalCode,
 } from './postalCodes';
 import { sameOrg } from '../../scripts/lib/prospector/registrable.mjs';
+import { CANTON_LOCATION_FALLBACK } from '../../scripts/lib/canton-postal-fallback.mjs';
 import {
   resolveSalaryBand,
   TICINO_MIN_ANNUAL_CHF,
@@ -72,6 +77,11 @@ import {
 } from './salaryDefaults';
 import { truncateCodeUnits } from './safeTruncate';
 import { sanitizeBrowserJobTitle } from './literalMarkdown';
+import {
+  buildEmployerProfilePath,
+  canonicalCompanyProfileSlug,
+} from './companyProfileSlug.mjs';
+export { MANDATORY_JOBPOSTING_FIELDS } from '../../scripts/lib/jobposting-mandatory-fields.mjs';
 
 // ── Types ───────────────────────────────────────────────────────────────────
 
@@ -108,6 +118,7 @@ export interface JobInput {
   readonly streetAddress?: string | null;
   readonly address?: string | null;
 
+  readonly postingDateSource?: string | null;
   readonly postedDate?: string | null;
   readonly datePosted?: string | null;
   readonly crawledAt?: string | null;
@@ -147,6 +158,11 @@ export interface BuildJobPostingOptions {
    */
   readonly baseUrl?: string;
   /**
+   * Canonical employer-profile slugs emitted by this build. A slug outside
+   * this set must never be turned into a guessed `/aziende/<slug>/` URL.
+   */
+  readonly knownSlugs?: ReadonlySet<string>;
+  /**
    * Optional build clock for deterministic SSG output. Callers that omit it
    * retain the historical wall-clock fallback (notably the runtime SPA).
    */
@@ -184,7 +200,11 @@ export interface BaseSalarySchema {
 /** Strict schema.org `Organization` shape emitted by the builder. */
 export interface HiringOrganizationSchema {
   readonly '@type': 'Organization';
+  /** Stable first-party identity shared by every locale and employer surface. */
+  readonly '@id'?: string;
   readonly name: string;
+  /** Canonical employer profile URL when the build knows that route exists. */
+  readonly url?: string;
   readonly sameAs?: string;
   readonly logo?: string;
 }
@@ -383,11 +403,6 @@ function toIsoDate(raw: string | null | undefined): string | null {
   return d.toISOString();
 }
 
-/** Return today's ISO 8601 date (UTC, date-only). */
-function todayIso(now?: Date): string {
-  return (now || new Date()).toISOString();
-}
-
 /** Floor a derived `validThrough` to at least now+30d (#3505): derived windows
  * (crawledAt+60d / datePosted+90d) feed ACTIVE emissions — a stale timestamp
  * would emit an already-past validThrough on a live page, which Google treats
@@ -509,6 +524,67 @@ function resolveCompanyName(job: JobInput, locale: string): string {
   }
 }
 
+export interface BuildCompanyOrganizationOptions {
+  /** Locale is used only for the localized confidential-employer fallback. */
+  readonly locale: string;
+  /** First-party origin used to build the canonical employer profile URL. */
+  readonly baseUrl?: string;
+  /** Real page URL used when the source does not carry a company identity. */
+  readonly fallbackUrl?: string;
+  /** Canonical employer-profile slugs emitted by this build. */
+  readonly knownSlugs?: ReadonlySet<string>;
+}
+
+/**
+ * Build one stable Organization identity for every job/company emitter.
+ *
+ * Employer pages exist under `/aziende/<canonical-slug>/` for full profiles
+ * and below-floor bridges. The profile URL is used only when its slug is in
+ * the build's emitted-profile registry; source records often contain an
+ * employer that has no profile page, and inventing that URL creates a broken
+ * entity identity. Such callers can provide their real canonical page as
+ * `fallbackUrl`. The source website remains `sameAs` so the schema keeps its
+ * external provenance without making a locale-specific page URL the identity
+ * of the company.
+ */
+export function buildCompanyOrganization(
+  job: JobInput,
+  opts: BuildCompanyOrganizationOptions,
+): HiringOrganizationSchema {
+  if (!opts?.locale) throw new Error('buildCompanyOrganization: opts.locale is required');
+
+  const baseUrl = String(opts.baseUrl || CANONICAL_ORIGIN).replace(/\/+$/, '');
+  const companyName = resolveCompanyName(job, opts.locale);
+  const rawCompany = String(job.company || job.companySlug || job.companyKey || '').trim();
+  const companySlug = rawCompany
+    ? canonicalCompanyProfileSlug(String(job.company || job.companySlug || rawCompany), String(job.companyKey || ''))
+    : '';
+  const profileUrl = companySlug && opts.knownSlugs?.has(companySlug)
+    ? `${baseUrl}${buildEmployerProfilePath('it', companySlug)}`
+    : '';
+  const fallbackUrl = String(opts.fallbackUrl || '').trim();
+  const identityUrl = profileUrl || (fallbackUrl ? (fallbackUrl.endsWith('/') ? fallbackUrl : `${fallbackUrl}/`) : '');
+
+  const rawWebsite = String(job.companyWebsite || job.companyDomain || '').trim();
+  const sameAs = rawWebsite
+    ? (/^https?:\/\//i.test(rawWebsite) ? rawWebsite : `https://${rawWebsite}`)
+    : undefined;
+  const rawLogo = job.companyLogoUrl && String(job.companyLogoUrl).trim().length > 0
+    ? String(job.companyLogoUrl).trim()
+    : undefined;
+  const logo = rawLogo && rawLogo.startsWith('/') && !rawLogo.startsWith('//')
+    ? `${baseUrl}${rawLogo}`
+    : rawLogo;
+
+  return {
+    '@type': 'Organization',
+    name: companyName,
+    ...(identityUrl ? { '@id': `${identityUrl}#organization`, url: identityUrl } : {}),
+    ...(sameAs ? { sameAs } : {}),
+    ...(logo ? { logo } : {}),
+  };
+}
+
 /** Derive the schema.org canton code for the job. */
 function resolveCanton(job: JobInput): string {
   const explicit = normalizeCantonCode(String(job.addressRegion || job.canton || ''));
@@ -584,29 +660,60 @@ function resolveAddress(
     String(hqEntry.addressRegion || '').toUpperCase() === String(region || '').toUpperCase() &&
     localityMatchesHq(cityRaw, hqEntry);
 
+  // The fallback tuple is the complete address of ONE locality: the curated HQ
+  // (same city only), the city table, or, as a last resort, the canton
+  // capital. Its street and CAP may complete this address only when they
+  // describe the same locality. The capital's street/CAP next to another real
+  // locality is the incoherent tuple of issue 9852 (Pully + Place de la
+  // Palud 2 + 1003, which are Lausanne's).
+  const fallbackDescribesLocality = cityRaw.length === 0
+    || fallback === hqEntry
+    || fallback === CITY_FALLBACK_ADDRESSES[cityRaw.toLowerCase()]
+    || normalizePostalCityKey(fallback.addressLocality) === normalizePostalCityKey(cityRaw);
+
   // Precedence: coherent explicit source value → company HQ (only when same
-  // city, or no city signal) → city lookup → canton-capital fallback. A source
-  // CAP can be formally valid and still belong to another known locality (for
-  // example 6500 on a Lugano posting). Treat that pair as unusable by
-  // construction so every JobPosting consumer shares the same guard.
+  // city, or no city signal) → the locality's own CAP (curated tables, then
+  // the official directory) → the fallback tuple when it is this locality. A
+  // source CAP can be formally valid and still belong to another known
+  // locality (for example 6500 on a Lugano posting). Treat that pair as
+  // unusable by construction so every JobPosting consumer shares the same guard.
   const sourcePostalCode = isValidPostalCode(job.postalCode)
     ? String(job.postalCode).trim()
     : '';
+  const localityPostalCode = resolveLocalityPostalCode(addressLocality, region);
+  // Crawler fallbacks stamp a canton-level default CAP on jobs of other
+  // localities: the capital's (Arisdorf BL with Liestal's 4410, Grand-Lancy
+  // with Genève's 1204) or the representative one of canton-postal-fallback
+  // (Brütten ZH with Zürich's 8000). isPostalCodeCoherentWithCity() does not
+  // know those CAPs, so the pair would pass as coherent: reject it unless the
+  // locality is the place that default stands for, or the CAP is its own.
+  const sourcePostalIsCantonFallback = sourcePostalCode.length > 0
+    && sourcePostalCode !== localityPostalCode
+    && cantonFallbackPostalTuples(region).some(({ postalCode, locality }) => (
+      postalCode === sourcePostalCode
+      && normalizePostalCityKey(locality) !== normalizePostalCityKey(addressLocality)
+    ));
   const sourcePostalIsCoherent = sourcePostalCode.length === 0
-    || isPostalCodeCoherentWithCity(addressLocality, sourcePostalCode);
+    || (isPostalCodeCoherentWithCity(addressLocality, sourcePostalCode) && !sourcePostalIsCantonFallback);
   const postalCode = sourcePostalIsCoherent && sourcePostalCode.length > 0
     ? sourcePostalCode
     : (hqUsable && hqEntry.postalCode && isValidPostalCode(hqEntry.postalCode) ? hqEntry.postalCode : '') ||
-      resolvePostalCode(addressLocality, region) ||
-      fallback.postalCode ||
-      DEFAULT_POSTAL_CODE;
+      localityPostalCode ||
+      // Non-Negotiable #3 safe default. When the fallback tuple is this
+      // locality, that is its own CAP. Otherwise the locality is known but no
+      // postal table lists it (a city quarter such as "Oerlikon", a region
+      // alias): no official CAP exists, postalCode is mandatory, and the
+      // locality must stay the one the page shows. Only this canton-level CAP
+      // is borrowed; the street below stays the locality's own "<city> centro",
+      // never the capital's.
+      fallback.postalCode;
 
   const streetAddressRaw = String(job.streetAddress || job.address || '').trim();
   const streetAddress =
     sourcePostalIsCoherent && streetAddressRaw.length > 0
       ? streetAddressRaw
       : (hqUsable && hqEntry.streetAddress && hqEntry.streetAddress.length > 0 ? hqEntry.streetAddress : '') ||
-        fallback.streetAddress ||
+        (fallbackDescribesLocality ? fallback.streetAddress : '') ||
         localisedCentro(addressLocality, locale);
 
   // Final guard — if anything is still empty, throw. Should never happen:
@@ -626,6 +733,24 @@ function resolveAddress(
     addressRegion: region,
     addressCountry: 'CH',
   };
+}
+
+/**
+ * Canton-level default CAPs with the locality each one belongs to: the
+ * capital tuple, the capital CAP table and the crawler-side representative
+ * location. A job carrying one of them next to another locality carries a
+ * stamped default, not its own CAP.
+ */
+function cantonFallbackPostalTuples(region: string): Array<{ postalCode: string; locality: string }> {
+  const capital = CANTON_CAPITAL_ADDRESSES[region];
+  const crawlerFallback = (CANTON_LOCATION_FALLBACK as Record<string, { city: string; postalCode: string }>)[region];
+  return [
+    ...(capital ? [
+      { postalCode: capital.postalCode, locality: capital.addressLocality },
+      { postalCode: CANTON_CAPITAL_POSTAL[region] || '', locality: capital.addressLocality },
+    ] : []),
+    ...(crawlerFallback ? [{ postalCode: crawlerFallback.postalCode, locality: crawlerFallback.city }] : []),
+  ].filter(({ postalCode }) => postalCode.length > 0);
 }
 
 /** Localised "<city> centro" fallback for streetAddress. */
@@ -685,34 +810,62 @@ function resolveBaseSalary(job: JobInput): BaseSalarySchema {
   };
 }
 
-/** Resolve datePosted to an ISO-8601 string (never empty). */
-function resolveDatePosted(job: JobInput, now?: Date): string {
-  return (
-    toIsoDate(job.datePosted) ||
-    toIsoDate(job.postedDate) ||
-    toIsoDate(job.scrapedAt) ||
-    toIsoDate(job.crawledAt) ||
-    todayIso(now)
-  );
-}
-
 // ── Public API ──────────────────────────────────────────────────────────────
 
 /**
- * Build a fully populated `JobPosting` schema with every mandatory field
- * present and non-empty. Throws if the input is unusable (e.g. neither a
- * city nor a canton could be derived).
- *
- * The throw is defensive — every default above is realistic, so in
- * practice the function always returns a valid schema.
+ * The JobPosting `PostalAddress` alone, with the same locality sanitizer and
+ * coherence rules as `buildJobPostingSchema`. For emitters that assemble their
+ * own JobPosting (the SPA JobBoard) and must not pair a locality with another
+ * place's street or CAP (issue 9852).
+ */
+export function resolveJobPostingAddress(job: JobInput, locale: string): PostalAddressSchema {
+  return resolveAddress(job, resolveCompanyName(job, locale), locale);
+}
+
+/** Facts used by visible FAQ content independently of rich-result eligibility. */
+export type JobPostingFacts = Pick<JobPostingSchema, 'baseSalary' | 'employmentType' | 'hiringOrganization' | 'jobLocation'>;
+
+export interface BuildJobPostingFactsOptions {
+  readonly baseUrl?: string;
+  readonly fallbackUrl?: string;
+  readonly knownSlugs?: ReadonlySet<string>;
+}
+
+export function buildJobPostingFacts(
+  job: JobInput,
+  locale: string,
+  opts: BuildJobPostingFactsOptions = {},
+): JobPostingFacts {
+  const companyName = resolveCompanyName(job, locale);
+  return {
+    baseSalary: resolveBaseSalary(job),
+    employmentType: normaliseEmploymentType(job.employmentType || job.contractType || job.contract),
+    hiringOrganization: buildCompanyOrganization(job, {
+      locale,
+      baseUrl: opts.baseUrl || CANONICAL_ORIGIN,
+      fallbackUrl: opts.fallbackUrl,
+      knownSlugs: opts.knownSlugs,
+    }),
+    jobLocation: { '@type': 'Place', address: resolveAddress(job, companyName, locale) },
+  };
+}
+
+/**
+ * Build a JobPosting only when publication provenance is verified, except for
+ * the six exact canonical URLs tracked by issue #12937. Their mandatory
+ * datePosted uses the stable schema-only sentinel without changing provenance.
  */
 export function buildJobPostingSchema(
   job: JobInput,
   opts: BuildJobPostingOptions,
-): JobPostingSchema {
+): JobPostingSchema | null {
   if (!opts || !opts.locale || !opts.url) {
     throw new Error('buildJobPostingSchema: opts.locale and opts.url are required');
   }
+
+  const resolvedDate = resolveRolloutSchemaPostingDate(job, opts.now, opts.url);
+  if (!resolvedDate) return null;
+  const { value: datePosted } = resolvedDate;
 
   const companyName = resolveCompanyName(job, opts.locale);
   const title = resolveTitle(job, opts.locale);
@@ -724,7 +877,6 @@ export function buildJobPostingSchema(
     address.addressLocality,
     opts.locale,
   );
-  const datePosted = resolveDatePosted(job, opts.now);
   const validThrough = computeValidThrough(
     job.validThrough,
     job.crawledAt || job.scrapedAt || null,
@@ -739,33 +891,12 @@ export function buildJobPostingSchema(
   const occupationalCategory = resolveOccupationalCategory(job);
   const applicantLocationRequirements = resolveApplicantLocationRequirements(job);
 
-  const rawLogo = job.companyLogoUrl && String(job.companyLogoUrl).trim().length > 0
-    ? String(job.companyLogoUrl).trim()
-    : undefined;
-  // Schema.org `logo` is URL-typed: Google's job rich-result pipeline expects a
-  // fully-qualified absolute URL and can ignore a root-relative path like the
-  // curated `/images/brands/<key>.png` assets (issue #3473). Absolutize
-  // same-origin root-relative paths against the caller's canonical base (in
-  // prod those paths 301 to the image CDN, so the URL is always fetchable);
-  // already-absolute URLs pass through verbatim. `//`-prefixed values are
-  // protocol-relative, not root-relative — never prefix those.
-  const logo = rawLogo && rawLogo.startsWith('/') && !rawLogo.startsWith('//')
-    ? `${(opts.baseUrl || CANONICAL_ORIGIN).replace(/\/+$/, '')}${rawLogo}`
-    : rawLogo;
-  // Keep the dedicated website for job-page callers, while preserving the
-  // legacy sameAs signal for other consumers that only provide companyDomain.
-  // Ownership proof remains isolated in isEmployerOwnedApplyUrl().
-  const companyWebsite = String(job.companyWebsite || job.companyDomain || '').trim();
-  const sameAs = companyWebsite
-    ? (/^https?:\/\//i.test(companyWebsite) ? companyWebsite : `https://${companyWebsite}`)
-    : undefined;
-
-  const hiringOrganization: HiringOrganizationSchema = {
-    '@type': 'Organization',
-    name: companyName,
-    ...(sameAs ? { sameAs } : {}),
-    ...(logo ? { logo } : {}),
-  };
+  const hiringOrganization = buildCompanyOrganization(job, {
+    locale: opts.locale,
+    baseUrl: opts.baseUrl,
+    fallbackUrl: opts.url,
+    knownSlugs: opts.knownSlugs,
+  });
 
   const schema: JobPostingSchema = {
     '@context': 'https://schema.org',
@@ -840,19 +971,3 @@ function assertMandatoryFieldsComplete(schema: JobPostingSchema): void {
     );
   }
 }
-
-/**
- * Ordered list of all 9 mandatory JobPosting field paths. Exposed for
- * use by external validators (e.g. `scripts/validate-jobposting-schema.mjs`).
- */
-export const MANDATORY_JOBPOSTING_FIELDS: readonly string[] = [
-  'title',
-  'description',
-  'datePosted',
-  'employmentType',
-  'hiringOrganization.name',
-  'jobLocation',
-  'jobLocation.address.postalCode',
-  'jobLocation.address.streetAddress',
-  'baseSalary',
-];

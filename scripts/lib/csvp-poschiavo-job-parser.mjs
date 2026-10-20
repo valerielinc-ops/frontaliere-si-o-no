@@ -8,8 +8,11 @@
  * intro paragraph with employment %/start date + PDF download link.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { extractPdfJobContentFromUrl, buildPdfBackedDescription } from './pdf-job-content.mjs';
 import {
   fetchHtml,
@@ -27,6 +30,30 @@ export const CSVP_POSCHIAVO_COMPANY_DOMAIN = 'csvp.ch';
 
 const LISTING_URL = 'https://www.csvp.ch/it/lavora-con-noi/cerchiamo';
 const BASE_URL = 'https://www.csvp.ch';
+
+// Joomla renders this explicit message when the configured "Cerchiamo"
+// category has no published articles. A bare parser zero is deliberately not
+// enough: it could also mean that the page changed or a challenge was served.
+export const CSVP_POSCHIAVO_EMPTY_CATEGORY_RE = /Non ci sono articoli in questa categoria\./i;
+
+const CSVP_POSCHIAVO_CATEGORY_CONTAINER_SELECTOR =
+  '.com-content-category-blog, .blog, [itemtype*="schema.org/Blog"]';
+// The live site runs the YOOtheme Warp / UIkit 2 template: the category blog
+// renders straight into `main#tm-content` with no `.blog` wrapper, and Warp
+// marks the blog view with `tm-isblog` on <body>. That pair identifies the
+// category component as precisely as `.com-content-category-blog` does.
+const CSVP_POSCHIAVO_WARP_BLOG_CONTENT_SELECTOR = 'body.tm-isblog #tm-content';
+const CSVP_POSCHIAVO_CONTENT_ROOT_SELECTOR =
+  'main, [role="main"], #sp-main-body, #sp-component, .sp-component';
+const CSVP_POSCHIAVO_NON_CONTENT_ANCESTOR_SELECTOR =
+  'header, footer, nav, aside, [role="banner"], [role="navigation"], [role="complementary"], [role="contentinfo"]';
+const CSVP_POSCHIAVO_CATEGORY_TITLE_RE = /^Cerchiamo$/i;
+const CSVP_POSCHIAVO_EMPTY_STATE_SELECTOR = '.alert, .uk-alert, [role="alert"], p';
+const CSVP_POSCHIAVO_ALERT_SELECTOR = '.alert, .uk-alert, [role="alert"]';
+const CSVP_POSCHIAVO_HIDDEN_CLASS_RE =
+  /(?:^|\s)(?:d-none|hidden|invisible|visually-hidden|sr-only)(?:\s|$)/i;
+const CSVP_POSCHIAVO_HIDDEN_STYLE_RE =
+  /(?:^|;)\s*(?:display\s*:\s*none|visibility\s*:\s*hidden)\b/i;
 
 export function isCsvpPoschiavoJob(job) {
   const url = String(job?.url || '').toLowerCase();
@@ -71,15 +98,126 @@ export function parseCsvpListing(html) {
   return out;
 }
 
+export function isCsvpPoschiavoAuthoritativeEmptyPage(html = '') {
+  const dom = new JSDOM(String(html || ''));
+  try {
+    const { document } = dom.window;
+    // Joomla/YOOtheme renders the category component inside a layout wrapper
+    // rather than a semantic <main> on the live CSVP page. Keep the scope at
+    // the category component itself and exclude navigation/footer modules so
+    // an identical phrase outside the listing cannot prove an empty source.
+    const categoryContainers = [...document.querySelectorAll(
+      `${CSVP_POSCHIAVO_CATEGORY_CONTAINER_SELECTOR}, ${CSVP_POSCHIAVO_WARP_BLOG_CONTENT_SELECTOR}`,
+    )]
+      .filter(isCsvpPoschiavoListingRoot);
+
+    for (const category of categoryContainers) {
+      if (!isVisibleCsvpNode(category)) continue;
+
+      const titles = [...category.querySelectorAll('h1, h2, h3, [itemprop="name"]')]
+        .filter(isVisibleCsvpNode)
+        .map((node) => normalizeSpace(node.textContent || ''))
+        .filter(Boolean);
+      // Joomla can hide the category heading in this layout, but when it is
+      // rendered it must identify the requested "Cerchiamo" category.
+      if (titles.length && !titles.some((title) => CSVP_POSCHIAVO_CATEGORY_TITLE_RE.test(title))) {
+        continue;
+      }
+
+      const emptyState = [...category.querySelectorAll(CSVP_POSCHIAVO_EMPTY_STATE_SELECTOR)]
+        .find((node) => {
+          const parent = node.parentElement;
+          const isDirectCategoryState = parent === category
+            || parent?.matches(CSVP_POSCHIAVO_ALERT_SELECTOR);
+          return isDirectCategoryState
+            && isVisibleCsvpNode(node)
+            && CSVP_POSCHIAVO_EMPTY_CATEGORY_RE.test(normalizeSpace(node.textContent || ''));
+        });
+      if (!emptyState) continue;
+
+      // The empty message is authoritative only while no visible article is
+      // live in the response. This also rejects pages where the phrase came
+      // from a footer/error fragment while the category still has an offer.
+      const hasLiveArticle = [...document.querySelectorAll('article')]
+        .some((article) => isLiveCsvpArticle(article, emptyState));
+      if (hasLiveArticle) continue;
+
+      return true;
+    }
+    return false;
+  } finally {
+    dom.window.close();
+  }
+}
+
+function isCsvpPoschiavoListingRoot(node) {
+  if (node.closest(CSVP_POSCHIAVO_NON_CONTENT_ANCESTOR_SELECTOR)) return false;
+
+  // Joomla's concrete category-blog class is the authoritative component
+  // marker, even when the template omits a semantic main/content wrapper.
+  if (node.matches('.com-content-category-blog')) return true;
+  if (node.matches(CSVP_POSCHIAVO_WARP_BLOG_CONTENT_SELECTOR)) return true;
+
+  // The generic Joomla/YOOtheme markers are valid only inside a known content
+  // root; otherwise a layout module can mimic the same `.blog` markup.
+  return Boolean(node.closest(CSVP_POSCHIAVO_CONTENT_ROOT_SELECTOR));
+}
+
+function isVisibleCsvpNode(node) {
+  for (let current = node; current; current = current.parentElement) {
+    if (
+      current.hasAttribute('hidden')
+      || current.getAttribute('aria-hidden') === 'true'
+      || CSVP_POSCHIAVO_HIDDEN_CLASS_RE.test(String(current.getAttribute('class') || ''))
+      || CSVP_POSCHIAVO_HIDDEN_STYLE_RE.test(String(current.getAttribute('style') || ''))
+    ) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function isLiveCsvpArticle(article, emptyState) {
+  if (!isVisibleCsvpNode(article)) return false;
+
+  if (article === emptyState || article.contains(emptyState)) {
+    const residualText = normalizeSpace(
+      String(article.textContent || '')
+        .replace(CSVP_POSCHIAVO_EMPTY_CATEGORY_RE, '')
+        .replace(/Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli\./i, '')
+        .replace(CSVP_POSCHIAVO_CATEGORY_TITLE_RE, ''),
+    );
+    return Boolean(residualText);
+  }
+
+  return Boolean(normalizeSpace(article.textContent || ''));
+}
+
+/** Fragments only the crawler's former footer wrote. */
+export const CSVP_POSCHIAVO_FABRICATED_DESCRIPTION_RE =
+  /(?:^|\n)Dettagli \(PDF\): https?:|Centro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo \(GR\)\./;
+
 export async function fetchAllCsvpPoschiavoJobs() {
   console.log(`🏥 Fetching ${CSVP_POSCHIAVO_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL}\n`);
   const html = await fetchHtml(LISTING_URL);
   const items = parseCsvpListing(html);
   console.log(`  ✓ ${items.length} offerte trovate`);
-  if (!items.length) return [];
+  if (!items.length) {
+    if (isCsvpPoschiavoAuthoritativeEmptyPage(html)) {
+      const evidence = `${LISTING_URL} rendered Joomla's explicit empty-category message`;
+      console.log(`  🧩 Source-proven zero: ${evidence}`);
+      return markAuthoritativeEmptySnapshot([], evidence);
+    }
+    // Keep selector drift and an unrecognised/error page fail-closed. The
+    // standard pipeline preserves the previous slice and crawler-health stays
+    // unhealthy until the parser is repaired. Name what was served, so the
+    // failure log tells markup drift from a challenge or error page.
+    const servedTitle = normalizeSpace(decodeEntities((String(html || '').match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1] || ''));
+    console.warn(`  ⚠️ No offer and no empty-category proof: served "${servedTitle || '(no title)'}", ${String(html || '').length} chars`);
+    return [];
+  }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of items) {
     const title = it.title;
@@ -89,7 +227,9 @@ export async function fetchAllCsvpPoschiavoJobs() {
     // postings happened to carry a richer inline intro, but IT/admin roles put
     // everything in the PDF and would otherwise trip the boilerplate guard
     // (#1393-class: 1/1 jobs boilerplate-only). Falls back to the thin intro if
-    // the PDF is unreachable/image-only.
+    // the PDF is unreachable/image-only. Only the source's own text is
+    // published: the crawler no longer adds "Dettagli (PDF): …" or a line on
+    // the hospital (`CSVP_POSCHIAVO_FABRICATED_DESCRIPTION_RE`).
     let pdfText = '';
     if (it.pdfUrl) {
       try {
@@ -99,20 +239,10 @@ export async function fetchAllCsvpPoschiavoJobs() {
         console.warn(`   ⚠️ PDF extraction failed for ${it.pdfUrl}: ${err?.message || err}`);
       }
     }
-    const description = buildPdfBackedDescription({
-      introLines: [it.intro],
-      pdfText,
-      fallbackText: it.intro,
-      footerLines: [
-        it.pdfUrl ? `Dettagli (PDF): ${it.pdfUrl}` : '',
-        'Centro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo (GR).',
-      ].filter(Boolean),
-    });
-    // Detect the source locale from the stable Italian listing fields (title +
-    // intro), NOT the now-PDF-backed description: a German-leaning PDF could
-    // otherwise flip sourceLang to 'de' and route the text to descriptionByLocale.de
-    // while the boilerplate guard reads descriptionByLocale.it.
-    const sourceLang = detectLang(`${title} ${it.intro || ''}`.trim() || description, 'it');
+    const description = buildPdfBackedDescription({ pdfText, fallbackText: it.intro });
+    // The description is keyed by its own language (a German PDF goes to `de`);
+    // without any text, by the language of the Italian listing fields.
+    const sourceLang = detectLang(description || `${title} ${it.intro || ''}`.trim(), 'it');
     const jobSlug = slugify(`${title} ${CSVP_POSCHIAVO_KEY} poschiavo`);
     const urlHash = createHash('sha1').update(it.url).digest('hex').slice(0, 12);
     jobs.push({
@@ -150,7 +280,8 @@ export async function fetchAllCsvpPoschiavoJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // No verified publication field for this PDF vacancy; ignore page/file edits.
+      ...sourcePostingDateFields(''),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

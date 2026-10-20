@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * audit-information-gain.mjs — issue #5002.
  *
@@ -46,7 +47,6 @@
 
 import { readFile, stat } from 'node:fs/promises';
 import { relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import {
@@ -60,6 +60,12 @@ import {
 import { isJobBoardContentPath } from './lib/jobBoardSections.mjs';
 import { isPlateAuctionSectionPath } from './lib/plateAuctionSections.mjs';
 import { isPharmacySectionPath } from './lib/pharmacySections.mjs';
+import { isWeeklyJobMarketSnapshotPath } from './lib/weeklyJobMarketSections.mjs';
+import { isFuelSectionPath } from './lib/fuelSections.mjs';
+import { isEventsSectionPath } from './lib/eventsSections.mjs';
+import { isHealthPremiumsPath } from './lib/healthPremiumSections.mjs';
+import { isBorderWaitPath } from './lib/borderWaitSections.mjs';
+import { isSalaryProfessionCantonPath } from './lib/salaryProfessionSections.mjs';
 
 /**
  * Median share of page-specific prose a gated cohort must clear.
@@ -306,6 +312,11 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // the information-gain metric masks those numeric fields by design.
       // Keep this vertical out of the editorial near-duplicate gate rather
       // than adding each newly emitted canton/plate cohort to its inventory.
+      // Weekly job-market snapshots have a structured, period/canton-specific
+      // payload. The canton form also sits below a job-board section, but the
+      // dedicated matcher keeps this vertical's boundary explicit and covers
+      // the legacy TI weekly roots that the broad job-board matcher cannot.
+      if (isWeeklyJobMarketSnapshotPath(relPath)) return;
       if (isJobBoardContentPath(relPath)) return;
       if (isPlateAuctionSectionPath(relPath)) return;
       // Pharmacy pages are structured directory and duty records sourced from
@@ -317,6 +328,37 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // The route matcher covers both the directory and duty bases in all
       // four locales, including the Italian-border subtrees.
       if (isPharmacySectionPath(relPath)) return;
+      // Fuel-daily pages are structured price/station records. Their
+      // page-specific payload is numeric and therefore intentionally masked by
+      // informationGain; scoring the surrounding template prose would turn
+      // every locale × fuel section into an editorial false positive.
+      if (isFuelSectionPath(relPath)) return;
+      // Border-wait pages are structured live/archived crossing records. The
+      // minutes are masked by informationGain, so the shared template prose
+      // must not create editorial near-duplicate cohorts. The matcher covers
+      // the current root/region/crossing/today/archive routes and the legacy
+      // localized guide aliases emitted in historical dist snapshots.
+      if (isBorderWaitPath(relPath)) return;
+      // Events pages are structured records with event cards, Event JSON-LD,
+      // dates and map/location payloads. Those fields are masked by
+      // informationGain, so scoring the shared agenda prose would classify
+      // recurring event pages as editorial near-duplicates. The shared
+      // matcher covers the national index, every canton, digests and detail
+      // pages across all locales.
+      if (isEventsSectionPath(relPath)) return;
+      // Health-premium pages are structured insurer/canton/age records. Their
+      // differentiating premiums are numeric and intentionally masked by
+      // informationGain, so the shared methodology prose must not turn the
+      // canonical root, canton hubs, or age leaves into editorial cohorts.
+      // The matcher is backed by the same 732-route table as the TS router.
+      if (isHealthPremiumsPath(relPath)) return;
+      // Salary-intent profession×canton pages are structured salary/job
+      // records. Their differentiating median, net estimate and job payload
+      // are numeric or entity fields that informationGain intentionally masks;
+      // comparing the shared methodology prose would turn this data vertical
+      // into a false editorial near-duplicate cohort. Use the exact generated
+      // route set so a similarly shaped editorial slug remains in scope.
+      if (isSalaryProfessionCantonPath(relPath)) return;
       fingerprints.push(fingerprintPage(relPath, html));
     },
     report() {
@@ -500,7 +542,7 @@ async function standalone() {
 export const factory = createAuditor;
 export const auditor = factory();
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isInvokedDirectly(import.meta.url)) {
   standalone().catch((err) => {
     console.error('[audit-information-gain] fatal', err);
     process.exit(1);

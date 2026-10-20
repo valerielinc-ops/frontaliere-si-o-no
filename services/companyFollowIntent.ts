@@ -39,17 +39,22 @@
  * visitor who does not check their inbox immediately — a silent no-op with the
  * UI still saying "controlla la posta".
  *
- * localStorage, not a Firestore `pending_follows` collection: a new collection
- * means a new query shape means a new composite index, and
- * `firestore.indexes.json` is NOT applied by CI (see `subscribeCompanyAlert`'s
- * docblock). A confirmation opened on a DIFFERENT device cannot carry this
- * local payload. The confirmation endpoint therefore returns an explicit
- * follow-up marker and App.tsx shows an action to return to the company page.
- * The local queue is an optimisation, never the only recovery path.
+ * A confirmation opened on a DIFFERENT device cannot carry this local payload,
+ * so since 2026-10-05 the same intent is also appended server-side
+ * (`recordServerCompanyFollowIntent`, subcollection
+ * `newsletter_subscribers/{email}/company_follow_intents`, read only by the
+ * Admin SDK with a single-field equality — no composite index, which matters
+ * because `firestore.indexes.json` is NOT applied by CI). The confirmation
+ * endpoint creates the alert from it; this local queue stays as the fallback
+ * for a server write that failed, and its replay converges on the same
+ * deterministic alert document instead of a duplicate. When neither path
+ * completes, the endpoint still returns the follow-up marker and App.tsx shows
+ * an action to return to the company page.
  */
 
 import type { JobAlert } from './jobAlertService';
 import { clearIntent, peekIntent, saveIntent } from './pendingIntentStore';
+import { invalidateUserAlertsCache } from './userAlertsCache';
 
 const KEY = 'company_follow_pending';
 
@@ -108,15 +113,72 @@ export function pruneExpired(
   );
 }
 
-/** Park a follow until the visitor confirms their address. */
-export function savePendingCompanyFollow(intent: Omit<PendingCompanyFollow, 'savedAt'>): void {
+/**
+ * Park a follow until the visitor confirms their address. Returns whether it is
+ * actually parked (issue 9575, same class as pendingJobAlert.ts): `false` means
+ * nothing will replay after the confirmation link, so the caller must say so.
+ */
+export function savePendingCompanyFollow(intent: Omit<PendingCompanyFollow, 'savedAt'>): boolean {
   const now = Date.now();
   const email = String(intent.email || '').trim().toLowerCase();
-  if (!email || !intent.company) return;
+  if (!email || !intent.company) return false;
   const existing = pruneExpired(readRaw(), now)
     // De-dup on (email, company): tapping twice must not create two alerts.
     .filter((e) => !(e.email === email && e.company === intent.company));
-  writeRaw([...existing, { ...intent, email, savedAt: now }].slice(-MAX_PENDING));
+  return writeRaw([...existing, { ...intent, email, savedAt: now }].slice(-MAX_PENDING));
+}
+
+/**
+ * Server-side copy of a parked follow (2026-10-05): the localStorage entry
+ * cannot cross devices, so a confirmation opened in a mail app or on a phone
+ * created nothing and the visitor had to return to the company page. The
+ * intent is appended to `newsletter_subscribers/{email}/company_follow_intents`
+ * (create-only, fixed shape — firestore.rules) and the confirmation endpoint
+ * turns it into the CompanyAlert on the link click
+ * (functions/src/companyFollowIntents.js), with the same deterministic alert
+ * id the browser replay below would use, so both paths converge on ONE alert.
+ *
+ * Returns whether the server accepted it; never throws.
+ */
+export interface ServerCompanyFollowIntent {
+  email: string;
+  /** Canonical CompanyAlert key (`companyAlertKey(company, companyKey)`). */
+  companyKey: string;
+  company: string;
+  locale: 'it' | 'en' | 'de' | 'fr';
+  sourceJobSlug?: string | null;
+  sourceJobUrl?: string | null;
+  sourceJobTitle?: string | null;
+}
+
+const clip = (value: string | null | undefined, max: number): string | null => {
+  const raw = typeof value === 'string' ? value.trim() : '';
+  return raw ? raw.slice(0, max) : null;
+};
+
+export async function recordServerCompanyFollowIntent(intent: ServerCompanyFollowIntent): Promise<boolean> {
+  const email = String(intent.email || '').trim().toLowerCase();
+  const companyKey = clip(intent.companyKey, 160);
+  if (!email || !companyKey) return false;
+  try {
+    const { getFirestore, collection, addDoc, serverTimestamp } = await import('firebase/firestore');
+    const { getApp } = await import('./firebase');
+    const db = getFirestore(await getApp());
+    await addDoc(collection(db, 'newsletter_subscribers', email, 'company_follow_intents'), {
+      company_key: companyKey,
+      company: clip(intent.company, 200),
+      locale: intent.locale,
+      source_job_slug: clip(intent.sourceJobSlug, 300),
+      source_job_url: clip(intent.sourceJobUrl, 500),
+      source_job_title: clip(intent.sourceJobTitle, 300),
+      source_page: typeof window !== 'undefined' ? clip(window.location.pathname, 500) : null,
+      status: 'pending',
+      created_at: serverTimestamp(),
+    });
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 /** Non-expired parked follows. */
@@ -198,6 +260,8 @@ export async function flushPendingCompanyFollows(
       if (!alert || typeof alert.id !== 'string' || !alert.id.trim()) {
         throw new Error('subscribeCompanyAlert: response did not contain an accepted alert');
       }
+      // Access-link replay writes outside CompanyFollowCta's success callback.
+      invalidateUserAlertsCache();
       created.push(alert);
       remaining = remaining.filter((candidate) => candidate !== intent);
       writeRaw(remaining);

@@ -72,11 +72,9 @@ const istatData = JSON.parse(
 const FSO_CITIES = fsoData.cities;
 const ISTAT_PROVINCES = istatData.provinces;
 
-const FSO_URL =
-  'https://www.pxweb.bfs.admin.ch/pxweb/fr/px-x-0902030000_101/';
+const FSO_URL = 'https://stats.swiss/';
 const FSO_LABEL = 'FSO rent survey 2023';
-const ISTAT_URL =
-  'https://www.istat.it/it/dati-analisi-e-prodotti/banche-dati/indice-prezzi-consumo';
+const ISTAT_URL = 'https://www.istat.it/statistiche-per-temi/economia/prezzi/';
 const OMI_URL =
   'https://wwwt.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm';
 
@@ -293,14 +291,14 @@ const LS: Record<ColLocale, LocaleStrings> = {
       { href: '/compara-servizi/confronta-prezzi-spesa/', label: 'Confronto prezzi spesa CH vs IT' },
       { href: '/calcola-stipendio/', label: 'Simulatore stipendio frontaliere' },
       { href: '/statistiche/confronta-stipendi/', label: 'Confronto stipendi CH vs IT' },
-      { href: '/guida-frontaliere/tempi-attesa-dogana/', label: 'Tempi di attesa alla dogana' },
+      { href: '/traffico-dogane/', label: 'Tempi di attesa alla dogana' },
     ],
     eyebrow: (city) => `Costo della vita · ${city} · 2026`,
     denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
       liveJobs > 0
         ? `Bilocale a ${city} CHF ${rentMedianChf.toLocaleString('it-CH')}/mese (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} offerte aperte.`
         : `Bilocale a ${city} CHF ${rentMedianChf.toLocaleString('it-CH')}/mese · -${pairedDeltaPct}% vs ${pairedProvince}.`,
-    statTileSalaryLabel: 'Stipendio mediano',
+    statTileSalaryLabel: 'Mediana delle fasce dichiarate',
     statTileRentLabel: 'Affitto bilocale (mediana)',
     statTileLiveJobsLabel: 'Offerte aperte',
     statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('it-CH')}/anno` : 'CHF — dati in arrivo'),
@@ -371,14 +369,14 @@ const LS: Record<ColLocale, LocaleStrings> = {
       },
       { href: '/en/calculate-salary/', label: 'Cross-border salary simulator' },
       { href: '/en/statistics/compare-salaries/', label: 'CH vs IT salary comparison' },
-      { href: '/en/cross-border-guide/border-waiting-times/', label: 'Border waiting times' },
+      { href: '/en/border-wait/', label: 'Border waiting times' },
     ],
     eyebrow: (city) => `Cost of living · ${city} · 2026`,
     denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
       liveJobs > 0
         ? `2.5-room flat in ${city} CHF ${rentMedianChf.toLocaleString('en-CH')}/month (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} open jobs.`
         : `2.5-room flat in ${city} CHF ${rentMedianChf.toLocaleString('en-CH')}/month · -${pairedDeltaPct}% vs ${pairedProvince}.`,
-    statTileSalaryLabel: 'Median salary',
+    statTileSalaryLabel: 'Median of reported ranges',
     statTileRentLabel: '2.5-room rent (median)',
     statTileLiveJobsLabel: 'Open positions',
     statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('en-CH')}/year` : 'CHF — data pending'),
@@ -449,14 +447,14 @@ const LS: Record<ColLocale, LocaleStrings> = {
       },
       { href: '/de/gehalt-berechnen/', label: 'Grenzgänger-Gehaltsrechner' },
       { href: '/de/statistiken/gehaelter-vergleichen/', label: 'Lohnvergleich CH vs IT' },
-      { href: '/de/grenzgaenger-ratgeber/wartezeiten-grenze/', label: 'Grenzwartezeiten' },
+      { href: '/de/wartezeit-grenze/', label: 'Grenzwartezeiten' },
     ],
     eyebrow: (city) => `Lebenshaltungskosten · ${city} · 2026`,
     denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
       liveJobs > 0
         ? `2,5-Zi-Wohnung in ${city} CHF ${rentMedianChf.toLocaleString('de-CH')}/Monat (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} offene Stellen.`
         : `2,5-Zi-Wohnung in ${city} CHF ${rentMedianChf.toLocaleString('de-CH')}/Monat · -${pairedDeltaPct}% vs ${pairedProvince}.`,
-    statTileSalaryLabel: 'Medianlohn',
+    statTileSalaryLabel: 'Median gemeldeter Lohnspannen',
     statTileRentLabel: '2,5-Zi-Miete (Median)',
     statTileLiveJobsLabel: 'Offene Stellen',
     statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('de-CH')}/Jahr` : 'CHF — Daten folgen'),
@@ -527,14 +525,14 @@ const LS: Record<ColLocale, LocaleStrings> = {
       },
       { href: '/fr/calculer-salaire/', label: 'Simulateur salaire frontalier' },
       { href: '/fr/statistiques/comparer-salaires/', label: 'Comparaison des salaires CH vs IT' },
-      { href: '/fr/guide-frontalier/temps-attente-douane/', label: "Temps d'attente aux douanes" },
+      { href: '/fr/temps-attente-douane/', label: "Temps d'attente aux douanes" },
     ],
     eyebrow: (city) => `Coût de la vie · ${city} · 2026`,
     denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
       liveJobs > 0
         ? `2,5 pièces à ${city} CHF ${rentMedianChf.toLocaleString('fr-CH')}/mois (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} offres ouvertes.`
         : `2,5 pièces à ${city} CHF ${rentMedianChf.toLocaleString('fr-CH')}/mois · -${pairedDeltaPct}% vs ${pairedProvince}.`,
-    statTileSalaryLabel: 'Salaire médian',
+    statTileSalaryLabel: 'Médiane des fourchettes déclarées',
     statTileRentLabel: 'Loyer 2,5 pièces (médian)',
     statTileLiveJobsLabel: 'Offres ouvertes',
     statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('fr-CH')}/an` : 'CHF — données à venir'),
@@ -592,11 +590,12 @@ export function buildCitySections(
   ] as const;
   const rentTableHtml = `
     <table class="seo-table s-JN75g4">
+      <caption class="sr-only">${L.rentTableTitle(cityName)}</caption>
       <thead><tr>
         ${L.rentTableHeaders
           .map(
             (h) =>
-              `<th class="t-h">${h}</th>`,
+              `<th scope="col" class="t-h">${h}</th>`,
           )
           .join('')}
       </tr></thead>
@@ -632,11 +631,12 @@ export function buildCitySections(
   ] as const;
   const basketTableHtml = `
     <table class="seo-table s-JN75g4">
+      <caption class="sr-only">${L.basketTableTitle(province)}</caption>
       <thead><tr>
         ${L.basketTableHeaders
           .map(
             (h) =>
-              `<th class="t-h">${h}</th>`,
+              `<th scope="col" class="t-h">${h}</th>`,
           )
           .join('')}
       </tr></thead>
@@ -695,11 +695,12 @@ export function buildCitySections(
     );
     return `
       <table class="seo-table s-JN75g4">
+        <caption class="sr-only">${L.comparisonTitle(cityName, province)}</caption>
         <thead><tr>
-          <th class="t-h">${r.voice}</th>
-          <th class="t-h">${r.ch}</th>
-          <th class="t-h">${r.it}</th>
-          <th class="t-h">${r.delta}</th>
+          <th scope="col" class="t-h">${r.voice}</th>
+          <th scope="col" class="t-h">${r.ch}</th>
+          <th scope="col" class="t-h">${r.it}</th>
+          <th scope="col" class="t-h">${r.delta}</th>
         </tr></thead>
         <tbody>
           <tr>

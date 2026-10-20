@@ -34,6 +34,8 @@
  * The Umantis tenant (`recruitingapp-2748.umantis.com`) only exposes
  * placeholder Initiativbewerbung entries — DO NOT scrape that endpoint.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -54,6 +56,11 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 const MAX_PAGES = 20; // safety cap
+
+// Match a complete whitespace-separated class token inside a quoted class
+// attribute. A word boundary is insufficient because CSS class names often
+// contain hyphens (for example, `foo-col-12` is not `col-12`).
+const classToken = (pattern) => `(?:[^"]*\\s)?(?:${pattern})(?:\\s[^"]*)?`;
 
 const NAMED_ENTITIES = {
   amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
@@ -118,7 +125,16 @@ async function fetchHtml(url) {
  */
 export function parseKsblPage(html) {
   const out = [];
-  const cardRx = /<div class="col-12 col-sm-6 col-lg-4 mb-gap mt-gap">([\s\S]*?<h3 class="card-title">[\s\S]*?)<\/div>\s*<\/div>\s*<\/div>/g;
+  // KSBL changed the listing from the old responsive grid cards to one
+  // `col-12 mb-3` card per row. Match both known wrappers while leaving
+  // unrelated `col-12` layout containers out of the parser.
+  const cardRx = new RegExp(
+    `<div\\b(?=[^>]*class="${classToken('col-12')}")`
+      + `(?=[^>]*class="${classToken('mb-gap|mb-3')}")[^>]*>`
+      + `([\\s\\S]*?<h3\\b[^>]*class="${classToken('card-title')}"[^>]*>`
+      + `[\\s\\S]*?)<\\/div>\\s*<\\/div>\\s*<\\/div>`,
+    'g',
+  );
   const seen = new Set();
   let m;
   while ((m = cardRx.exec(html))) {
@@ -134,18 +150,40 @@ export function parseKsblPage(html) {
     seen.add(uuid);
 
     // Title
-    const titleMatch = cardHtml.match(/<h3 class="card-title">([\s\S]*?)<\/h3>/);
+    const titleMatch = cardHtml.match(new RegExp(
+      `<h3\\b[^>]*class="${classToken('card-title')}"[^>]*>([\\s\\S]*?)<\\/h3>`,
+      'i',
+    ));
     if (!titleMatch) continue;
     const title = normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, '')));
     if (!title || title.length < 3) continue;
 
     // Category (Pflege, Ärztliches Personal, Therapien, etc.)
-    const catMatch = cardHtml.match(/<span class="optional-label">([\s\S]*?)<\/span>/);
-    const category = catMatch ? normalizeSpace(decodeEntities(catMatch[1].replace(/<[^>]+>/g, ''))) : '';
+    // Old cards use a span; the current page uses a div with
+    // `list-optional-label`.
+    const catMatch = cardHtml.match(new RegExp(
+      `<(span|div)\\b[^>]*class="${classToken('optional-label|list-optional-label')}"`
+        + `[^>]*>([\\s\\S]*?)<\\/\\1>`,
+      'i',
+    ));
+    const category = catMatch ? normalizeSpace(decodeEntities(catMatch[2].replace(/<[^>]+>/g, ''))) : '';
 
-    // Occupation percentage (e.g. "80%", "60-100%")
-    const pctMatch = cardHtml.match(/<span class="lead font-weight-normal">([\s\S]*?)<\/span>/);
-    const occupation = pctMatch ? normalizeSpace(pctMatch[1].replace(/<[^>]+>/g, '')) : '';
+    // Occupation percentage (e.g. "80%", "60-100%"). The current listing
+    // moved it from a span into the first `jobs-text-gray` list item.
+    const oldPctMatch = cardHtml.match(new RegExp(
+      `<span\\b(?=[^>]*class="${classToken('lead')}")`
+        + `(?=[^>]*class="${classToken('font-weight-normal')}")`
+        + `[^>]*>([\\s\\S]*?)<\\/span>`,
+      'i',
+    ));
+    const newPctMatch = cardHtml.match(new RegExp(
+      `<li\\b(?=[^>]*class="${classToken('jobs-text-gray')}")`
+        + `[^>]*>\\s*((?:\\d{2,3}\\s*[-–]\\s*)?\\d{2,3}\\s*%)\\s*<\\/li>`,
+      'i',
+    ));
+    const occupation = oldPctMatch
+      ? normalizeSpace(oldPctMatch[1].replace(/<[^>]+>/g, ''))
+      : newPctMatch ? normalizeSpace(newPctMatch[1]) : '';
 
     out.push({ uuid, slug, detailUrl, title, category, occupation });
   }
@@ -271,16 +309,17 @@ export async function fetchAllKsblJobs() {
   console.log(`\n  ✓ ${collected.length} unique KSBL job cards across pages`);
   console.log(`  📄 Fetching detail pages for rich descriptions...\n`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailCount = 0;
   for (const e of collected) {
     const title = e.title;
     // Fetch detail page for rich description
     let detailContent = '';
+    let postingDates = sourcePostingDateFields('');
     try {
       const detailHtml = await fetchHtml(e.detailUrl);
       detailContent = extractKsblDetailContent(detailHtml, e);
+      postingDates = sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted'));
       detailCount++;
     } catch (err) {
       console.warn(`  ⚠️  failed detail fetch ${e.detailUrl}: ${err.message}`);
@@ -336,7 +375,7 @@ export async function fetchAllKsblJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...postingDates,
       applyUrl: e.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -1,9 +1,16 @@
-import { readFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import {
   CARRY_FORWARD_MARKER,
+  bodyAcceptanceLedgerHeader,
   decideNoCodeDeltaTier,
+  findingAcceptanceScope,
+  partitionCodeUnchangedFindings,
   postCarryForward,
   renderCarryForwardBody,
   verifyCarryForwardReview,
@@ -14,7 +21,7 @@ import {
   shouldAdmitBodyReReview,
 } from '../scripts/ci/lib/pr-review-admission.mjs';
 import { reviewInputRevisionFromBody } from '../scripts/ci/lib/review-input-revision.mjs';
-import { runReviewGate } from '../scripts/ci/review-gate.mjs';
+import { extractFileCitations, partitionHistoricalImportantFindings, runReviewGate } from '../scripts/ci/review-gate.mjs';
 
 const HEAD = 'a'.repeat(40);
 const PRIOR = 'b'.repeat(40);
@@ -53,8 +60,9 @@ describe('decideNoCodeDeltaTier', () => {
 
   it.each([
     ['fingerprint differs', { fpHead: FP, fpPrior: OTHER_FP }],
-    ['head fingerprint unknown', { fpHead: 'NULL', fpPrior: FP }],
-    ['prior fingerprint unknown', { fpHead: FP, fpPrior: '' }],
+    ['head fingerprint unknown', { fpHead: 'UNKNOWN', fpPrior: FP }],
+    ['prior fingerprint unknown', { fpHead: FP, fpPrior: 'UNKNOWN' }],
+    ['legacy NULL fingerprint', { fpHead: 'NULL', fpPrior: FP }],
   ])('falls back to a full review when the %s', (_label, fps) => {
     expect(decideNoCodeDeltaTier({ reviews: [lgtm], headSha: HEAD, priorCommit: PRIOR, ...fps }).tier).toBe('full');
   });
@@ -229,6 +237,12 @@ describe('tests.yml wiring', () => {
     expect(tier).toContain('BODY_REREVIEW');
   });
 
+  it('uses UNKNOWN when fingerprint calculation fails', () => {
+    const tier = byId('tier')?.run || '';
+    expect(tier).toContain('|| echo UNKNOWN');
+    expect(tier).not.toContain('|| echo NULL');
+  });
+
   it('publishes the carry without a model and keeps the model off that tier', () => {
     const carry = byId('carry_forward_review');
     expect(carry?.if).toContain("steps.tier.outputs.tier == 'carry-forward'");
@@ -243,5 +257,350 @@ describe('tests.yml wiring', () => {
   it('feeds the guard with the body edit time', () => {
     expect(byId('guard')?.run).toContain('lastEditedAt');
     expect(byId('guard')?.run).toContain('--body-edited-at');
+  });
+});
+
+describe('pr-contribution-fingerprint CLI', () => {
+  const script = fileURLToPath(new URL('../scripts/ci/pr-contribution-fingerprint.mjs', import.meta.url));
+
+  it('prints UNKNOWN when the contribution cannot be calculated', () => {
+    const result = spawnSync(process.execPath, [script, HEAD], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        GITHUB_REPOSITORY: 'valerielinc-ops/frontaliere-si-o-no',
+        TRUSTED_GH_BIN: '/usr/bin/false',
+      },
+    });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toBe('UNKNOWN\n');
+  });
+});
+
+// Replay del tier step di `tests.yml` con il suo bash vero: fetch, compare e
+// fingerprint sono stub, `review-carry-forward.mjs decide` e i filtri jq sono
+// quelli reali. Caso #9968 (review 5327152883 sull'head 3b348916): un merge di
+// autorebase porta #9947/#9949, che toccano `services/locales/*-core.ts`, gli
+// stessi file della PR. Il compare dall'ultima review vede quindi 4 file code
+// della PR, ma il contributo è identico: il tier deve riusare il verdetto.
+describe('tier step: fingerprint before the code delta (#9968)', () => {
+  const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8'));
+  const job = workflow.jobs.vitest as { env: Record<string, string>; steps: Array<{ id?: string; run?: string }> };
+  const tierRun = job.steps.find((step) => step.id === 'tier')?.run || '';
+  const libDir = fileURLToPath(new URL('../scripts/ci/lib', import.meta.url));
+  const pages = JSON.parse(readFileSync(new URL('./fixtures/review-replay/pr-9968-reviews.json', import.meta.url), 'utf8')) as Array<Array<{ id: number; commit_id: string; submitted_at: string }>>;
+  const HEAD_9968 = '3b348916e69d99a4c7d3b04e630a1eac0a4614de';
+  const PRIOR_9968 = 'ed4e4abe62331a754663be9bb8a9fd491e317316';
+  const PR_FILES = [
+    'components/community/JobBoard.tsx',
+    'components/community/RewardedApplicationOffer.tsx',
+    'services/assistedApplicationExperiment.ts',
+    'services/locales/de-core.ts',
+    'services/locales/en-core.ts',
+    'services/locales/fr-core.ts',
+    'services/locales/it-core.ts',
+    'services/offerwallClickGate.ts',
+    'services/rewardedApplicationAccess.ts',
+  ];
+  // Il compare 2-dot dopo il merge di main: i 4 locale della PR (toccati
+  // anche da #9947/#9949) più file che la PR non tocca.
+  const COMPARE_FILES = [
+    'services/locales/de-core.ts',
+    'services/locales/en-core.ts',
+    'services/locales/fr-core.ts',
+    'services/locales/it-core.ts',
+    'services/jobAlertsDigest.ts',
+    'data/jobs-stats-history.json',
+  ];
+
+  function runTier({ reviewPages, fps }: { reviewPages: unknown; fps: Record<string, string> }) {
+    const dir = mkdtempSync(join(tmpdir(), 'tier-replay-'));
+    try {
+      const ci = join(dir, 'policy', 'scripts', 'ci');
+      mkdirSync(ci, { recursive: true });
+      symlinkSync(libDir, join(ci, 'lib'));
+      writeFileSync(join(dir, 'reviews.json'), JSON.stringify(reviewPages));
+      writeFileSync(join(dir, 'compare.json'), JSON.stringify({ files: COMPARE_FILES.map((filename) => ({ filename })) }));
+      writeFileSync(join(ci, 'fps.json'), JSON.stringify(fps));
+      writeFileSync(join(ci, 'fetch-pr-files.mjs'), `process.stdout.write(JSON.stringify(${JSON.stringify({
+        files: PR_FILES, count: PR_FILES.length, expected: PR_FILES.length, complete: true,
+      })}));\n`);
+      writeFileSync(join(ci, 'review-test-policy.mjs'), [
+        "import { readFileSync } from 'node:fs';",
+        "if (process.argv[2] === 'filter') process.stdout.write(readFileSync(0, 'utf8'));",
+        'else process.exitCode = 1;',
+        '',
+      ].join('\n'));
+      writeFileSync(join(ci, 'pr-contribution-fingerprint.mjs'), [
+        "import { readFileSync } from 'node:fs';",
+        "const fps = JSON.parse(readFileSync(new URL('./fps.json', import.meta.url), 'utf8'));",
+        "process.stdout.write(`${fps[process.argv[2]] ?? 'UNKNOWN'}\\n`);",
+        '',
+      ].join('\n'));
+      writeFileSync(join(dir, 'gh.cjs'), [
+        "const { readFileSync } = require('node:fs');",
+        "const { execFileSync } = require('node:child_process');",
+        'const args = process.argv.slice(2);',
+        "const path = args[1] || '';",
+        "const jqAt = args.indexOf('--jq');",
+        'const jq = jqAt >= 0 ? args[jqAt + 1] : null;',
+        "const runJq = (value) => execFileSync('jq', ['-r', jq], { input: JSON.stringify(value), encoding: 'utf8' });",
+        'if (/\\/compare\\//.test(path)) {',
+        "  const compare = JSON.parse(readFileSync(`${__dirname}/compare.json`, 'utf8'));",
+        '  process.stdout.write(jq ? runJq(compare) : JSON.stringify(compare));',
+        '} else if (/\\/pulls\\/\\d+\\/reviews$/.test(path)) {',
+        "  const reviewPages = JSON.parse(readFileSync(`${__dirname}/reviews.json`, 'utf8'));",
+        "  if (args.includes('--slurp')) process.stdout.write(JSON.stringify(reviewPages));",
+        "  else process.stdout.write(reviewPages.map(runJq).join(''));",
+        '} else {',
+        '  process.exitCode = 1;',
+        '}',
+        '',
+      ].join('\n'));
+      const gh = join(dir, 'gh');
+      writeFileSync(gh, `#!/usr/bin/env bash\nexec node "${join(dir, 'gh.cjs')}" "$@"\n`);
+      chmodSync(gh, 0o755);
+      const output = join(dir, 'github-output');
+      writeFileSync(output, '');
+      const result = spawnSync('bash', ['-c', tierRun], {
+        encoding: 'utf8',
+        env: {
+          PATH: process.env.PATH,
+          HOME: process.env.HOME,
+          GITHUB_OUTPUT: output,
+          REVIEW_POLICY_ROOT: join(dir, 'policy'),
+          TRUSTED_GH_BIN: gh,
+          PR_NUMBER: '9968',
+          HEAD_SHA: HEAD_9968,
+          REPO: 'valerielinc-ops/frontaliere-si-o-no',
+          BODY_REREVIEW: '',
+          NONCODE_RE: job.env.NONCODE_RE,
+        },
+      });
+      const outputs: Record<string, string> = Object.fromEntries(readFileSync(output, 'utf8').split('\n').filter(Boolean)
+        .map((line) => [line.slice(0, line.indexOf('=')), line.slice(line.indexOf('=') + 1)]));
+      return { status: result.status, stdout: result.stdout, stderr: result.stderr, outputs };
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+
+  const before = (at: string) => pages.map((page) => page.filter((entry) => entry.submitted_at < at));
+  const reviewsOneToFour = before('2026-09-26T19:30:00Z');
+  const SAME = 'a'.repeat(64);
+
+  it('replays #9968: 4 PR locale files in the compare, identical fingerprints, reviews 1-4 → carry-forward', () => {
+    const run = runTier({ reviewPages: reviewsOneToFour, fps: { [HEAD_9968]: SAME, [PRIOR_9968]: SAME } });
+    expect(run.status, run.stderr).toBe(0);
+    expect(run.outputs.tier).toBe('carry-forward');
+    expect(run.outputs.carry_prior_review).toBe('5327040158');
+    expect(run.outputs.carry_prior_commit).toBe(PRIOR_9968);
+    expect(run.outputs.incremental_base).toBeUndefined();
+    expect(run.stdout).toContain('delta-code portato dalla base (4 file PR nel compare)');
+  });
+
+  it('keeps the incremental review when the contribution fingerprint changed', () => {
+    const run = runTier({ reviewPages: reviewsOneToFour, fps: { [HEAD_9968]: SAME, [PRIOR_9968]: 'b'.repeat(64) } });
+    expect(run.status, run.stderr).toBe(0);
+    expect(run.outputs.tier).toBe('incremental');
+    expect(run.outputs.incremental_base).toBe(PRIOR_9968);
+    expect(run.outputs.carry_prior_review).toBeUndefined();
+  });
+
+  it.each([
+    ['the HEAD fingerprint is UNKNOWN', { [PRIOR_9968]: SAME }],
+    ['both fingerprints are UNKNOWN', {}],
+  ])('keeps the incremental review when %s', (_label, fps: Record<string, string>) => {
+    const run = runTier({ reviewPages: reviewsOneToFour, fps });
+    expect(run.status, run.stderr).toBe(0);
+    expect(run.outputs.tier).toBe('incremental');
+    expect(run.outputs.incremental_base).toBe(PRIOR_9968);
+  });
+
+  it('turns an identical contribution after a non-approving verdict into minimal, not incremental', () => {
+    const reviewsOneToTwo = before('2026-09-26T18:45:00Z');
+    const prior = reviewsOneToTwo.flat().at(-1)!.commit_id;
+    const run = runTier({ reviewPages: reviewsOneToTwo, fps: { [HEAD_9968]: SAME, [prior]: SAME } });
+    expect(run.status, run.stderr).toBe(0);
+    expect(run.outputs.tier).toBe('minimal');
+    expect(run.outputs.code_unchanged_since).toBe(prior);
+    expect(run.outputs.incremental_base).toBeUndefined();
+  });
+});
+
+// PR 11241, review 5402530184 (20:10Z): ancorato a codice, accettazione sul
+// body. La review `minimal` 5403591492 (00:27Z) aveva il body corretto alla
+// lettera e lo riportava identico («only the historical open Important is
+// carried»).
+const BODY_ACCEPTANCE_IMPORTANT = [
+  '## Findings (Important: 1, Nit: 0)',
+  'scripts/cleanup-jobs.mjs:L1014: 🔴 Important: [contract] The PR claims 1.3–1.7 s and about 2 GB RSS for the added reparse, but gives no pre-merge before/after baseline for the actual deploy-prep path; an OOM or RSS regression can therefore reach the deploy gate without a pre-merge acceptance threshold. Update the residual memory item to explicitly say “not validated pre-merge” and use `blocked: misura post-merge` with one named workflow, numeric RSS threshold, and revert action. Accettazione: PR-body input→output — the memory item is `blocked: misura post-merge`, states “not validated pre-merge”, names the workflow and numeric threshold, and specifies the revert action.',
+  '',
+].join('\n');
+
+function finding(text: string, citations = [{ path: 'scripts/lib/foo.mjs', line: 12 }]) {
+  return { text, line: text.split('\n')[0], citations };
+}
+
+// Lo stesso estrattore che il ledger del bundle passa al classificatore.
+const WITH_GATE = { extractCitations: extractFileCitations };
+
+describe('findingAcceptanceScope', () => {
+  it('classifies the PR 11241 Important as body although it is anchored to code', () => {
+    const [open] = partitionHistoricalImportantFindings(
+      [review(1, BODY_ACCEPTANCE_IMPORTANT, PRIOR, '2026-10-03T20:10:25Z')],
+      { includeLatest: true },
+    ).open;
+    expect(open.citations.map((citation: { path: string }) => citation.path)).toEqual(['scripts/cleanup-jobs.mjs']);
+    expect(findingAcceptanceScope(open, WITH_GATE)).toBe('body');
+  });
+
+  it('is conservative without the gate citation extractor', () => {
+    expect(findingAcceptanceScope(finding('x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names it.'))).toBe('code');
+  });
+
+  it.each([
+    'Accettazione: PR body names the workflow and the revert action.',
+    'Accettazione: the PR body states “not validated pre-merge”.',
+    'Accettazione: sul body, il bullet `blocked: misura post-merge` nomina workflow e soglia.',
+    'Accettazione: `PR-body` input→output — the bullet carries the threshold.',
+    'Acceptance: pull request description lists the revert trigger.',
+    'Accettazione: body della PR con soglia numerica.',
+    'Accettazione: PR body names `.github/workflows/deploy.yml` as the post-merge measurement and the revert action.',
+  ])('body acceptance form: %s', (clause) => {
+    expect(findingAcceptanceScope(finding(`x.mjs:L1: 🔴 Important: claim. ${clause}`), WITH_GATE)).toBe('body');
+  });
+
+  it.each([
+    'Accettazione: `npx vitest run tests/foo.test.ts` passes.',
+    'Accettazione: body of `parseRow()` returns null for an empty cell.',
+    'Accettazione: input `[]` → output `0`.',
+    'Accettazione: PR body names the threshold and `node scripts/check.mjs` exits 0.',
+    'nessuna accettazione',
+    // Clausole miste: la metà body non basta a chiudere un 🔴 di codice.
+    'Accettazione: PR body cita la soglia; `scripts/x.mjs` restituisce 0 su input vuoto.',
+    'Accettazione: PR body states X and `parseRow()` returns null for an empty cell.',
+    'Accettazione: the PR body mentions it, and the test in tests/foo.test.ts asserts 0.',
+  ])('code acceptance form stays code: %s', (clause) => {
+    expect(findingAcceptanceScope(finding(`x.mjs:L1: 🔴 Important: claim. ${clause}`), WITH_GATE)).toBe('code');
+  });
+
+  it('stays code when only one of several clauses is on the body', () => {
+    const text = 'x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names it.\nAccettazione: `rg foo x.mjs` finds nothing.';
+    expect(findingAcceptanceScope(finding(text), WITH_GATE)).toBe('code');
+  });
+
+  it('checks the complete multiline acceptance before classifying a finding as body', () => {
+    const text = [
+      'scripts/x.mjs:L1: 🔴 Important: claim.',
+      'Accettazione: PR body is correct',
+      'run node scripts/x.mjs',
+    ].join('\n');
+    expect(findingAcceptanceScope(finding(text), WITH_GATE)).toBe('code');
+  });
+
+  it('treats a `PR body:L<n>` anchored Important as body', () => {
+    expect(findingAcceptanceScope(finding('`PR body:L4`: 🔴 Important: bullet senza stato.', []), WITH_GATE)).toBe('body');
+  });
+
+  // Review 11321 (0fa9644fb9): la clausola finiva al primo a capo, quindi la
+  // continuazione con un file del repository non veniva mai letta.
+  it('reads a multiline acceptance through the end of the finding: a cited file keeps it code', () => {
+    const cited = ['x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names the threshold', 'and scripts/lib/foo.mjs returns 0.'].join('\n');
+    expect(findingAcceptanceScope(finding(cited), WITH_GATE)).toBe('code');
+  });
+
+  it('replays the review acceptance command: multiline continuation with a command is code', () => {
+    const scope = findingAcceptanceScope(
+      { line: 'scripts/x.mjs:L1', text: ['Accettazione: PR body is correct', 'run node scripts/x.mjs'].join('\n') },
+      { extractCitations: () => [] },
+    );
+    expect(scope).toBe('code');
+  });
+
+  it('keeps a multiline acceptance about the body only as body', () => {
+    const text = ['x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names the workflow', 'and the numeric RSS threshold, plus the revert action.'].join('\n');
+    expect(findingAcceptanceScope(finding(text), WITH_GATE)).toBe('body');
+  });
+
+  it.each([
+    ['an acceptance marker the parser does not recognise', 'x.mjs:L1: 🔴 Important: claim. **Acceptance**: `npm test` passes. Accettazione: PR body names it.'],
+    ['a truncated acceptance', 'x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names the threshold and `scripts/x…'],
+    ['an acceptance ending in an ellipsis', 'x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names the threshold and…'],
+    ['an empty acceptance', 'x.mjs:L1: 🔴 Important: claim. Accettazione:'],
+  ])('unrecognised format stays code: %s', (_label, text) => {
+    expect(findingAcceptanceScope(finding(text), WITH_GATE)).toBe('code');
+  });
+
+  it('stays code when the review parser was uncertain about the finding boundary', () => {
+    const uncertain = { ...finding('x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names it.'), parserUncertain: true };
+    expect(findingAcceptanceScope(uncertain, WITH_GATE)).toBe('code');
+  });
+
+  it('keeps a `PR body:L<n>` Important code when its acceptance runs repository code', () => {
+    const text = ['`PR body:L4`: 🔴 Important: bullet senza stato. Accettazione: the bullet carries a state', 'and `node scripts/lib/pr-body-sections-check.mjs` exits 0.'].join('\n');
+    expect(findingAcceptanceScope(finding(text, []), WITH_GATE)).toBe('code');
+  });
+});
+
+describe('minimal tier: body-acceptance Importants are re-judged, code ones carried', () => {
+  const history = [
+    review(1, BODY_ACCEPTANCE_IMPORTANT, PRIOR, '2026-10-03T20:10:25Z'),
+    review(2, IMPORTANT, PRIOR, '2026-10-03T20:11:00Z'),
+  ];
+
+  it('replays PR 11241: the body Important becomes re-judgeable, the code one stays carried', () => {
+    const { open } = partitionHistoricalImportantFindings(history, { includeLatest: true });
+    expect(open.length).toBeGreaterThan(0);
+    const { reJudge, carried } = partitionCodeUnchangedFindings(open, WITH_GATE);
+    expect(reJudge.map((item: { text: string }) => item.text)).toEqual([
+      expect.stringContaining('Accettazione: PR-body input→output'),
+    ]);
+    expect(carried.map((item: { text: string }) => item.text)).toEqual([
+      expect.stringContaining('pagination is incomplete'),
+    ]);
+  });
+
+  it('never puts a code Important among the re-judged ones', () => {
+    const { open } = partitionHistoricalImportantFindings([review(2, IMPORTANT, PRIOR, '2026-10-03T20:11:00Z')], { includeLatest: true });
+    expect(partitionCodeUnchangedFindings(open, WITH_GATE).reJudge).toEqual([]);
+    expect(partitionCodeUnchangedFindings(open, WITH_GATE).carried).toHaveLength(open.length);
+  });
+
+  it('prints the confirmations the gate accepts on the ledger header', () => {
+    const header = bodyAcceptanceLedgerHeader({ id: 'abcdefabcdef', anchors: 'scripts/cleanup-jobs.mjs:L1014' });
+    expect(header).toContain('**accettazione sul body**');
+    expect(header).toContain('Fix di `abcdefabcdef`: ok.');
+    expect(header).toContain('Fix di `path:L<riga attuale>`: ok.');
+    expect(header).toContain('altrimenti riportala identica');
+    expect(bodyAcceptanceLedgerHeader({ id: 'abcdefabcdef', confirmationTarget: 'PR body:L4' })).toContain('Fix di `PR body:L4`: ok.');
+  });
+
+  it('renders the bundle ledger from tests.yml with the body mark only on the body Important', () => {
+    const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8'));
+    const prefetch = (workflow.jobs.vitest.steps as Array<{ id?: string; run?: string }>).find((step) => step.id === 'prefetch');
+    const run = prefetch?.run || '';
+    const script = run.slice(run.indexOf("<<'NODE'\n") + "<<'NODE'\n".length, run.indexOf('\nNODE\n'));
+    expect(script).toContain('partitionCodeUnchangedFindings');
+    expect(run).toContain('**accettazione sul body**');
+    const dir = mkdtempSync(join(tmpdir(), 'carry-body-ledger-'));
+    try {
+      writeFileSync(join(dir, 'render.mjs'), script);
+      writeFileSync(join(dir, 'reviews.json'), JSON.stringify([history]));
+      const result = spawnSync(process.execPath, [join(dir, 'render.mjs'), join(dir, 'reviews.json')], {
+        encoding: 'utf8',
+        env: { ...process.env, REVIEW_POLICY_ROOT: fileURLToPath(new URL('..', import.meta.url)).replace(/\/$/u, '') },
+      });
+      expect(result.stderr).toBe('');
+      expect(result.status).toBe(0);
+      const headers = result.stdout.split('\n').filter((line) => line.startsWith('- Open Important'));
+      expect(headers).toEqual([
+        expect.stringMatching(/scripts\/cleanup-jobs\.mjs:L1014; \*\*accettazione sul body\*\*/u),
+        expect.not.stringContaining('accettazione sul body'),
+      ]);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 });

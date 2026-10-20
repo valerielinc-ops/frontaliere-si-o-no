@@ -22,7 +22,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
  * (none here — this is pure string/env-var/tier-rank logic).
  */
 const aiModels = await import('../../scripts/lib/ai-models.mjs');
-const { AI_MODELS, DEFAULT_CHAIN, getPreferredModel, resetState } = aiModels;
+const { AI_MODELS, DEFAULT_CHAIN, __enableClaudeCliLaneForTests, getPreferredModel, resetState } = aiModels;
 
 describe('ai-models AI_COMPETING_TIERS kill-switch', () => {
   const ENV_KEYS = [
@@ -39,6 +39,9 @@ describe('ai-models AI_COMPETING_TIERS kill-switch', () => {
     for (const k of ENV_KEYS) saved[k] = process.env[k];
     for (const k of ENV_KEYS) delete process.env[k];
     resetState();
+    // Haiku e' spento nel codice (2026-09-24): questi test esercitano la
+    // macchina claude-cli rimasta, quindi la riaccendono col seam di test.
+    __enableClaudeCliLaneForTests();
     warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
   });
 

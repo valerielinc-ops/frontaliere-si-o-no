@@ -113,12 +113,20 @@ describe('sourceLang hold guard', () => {
   });
 
   it('relocalize-pending-jobs imports the shared source-language threshold', () => {
-    const source = fs.readFileSync(
+    // isIncomplete() — the only consumer of the threshold in translate-pending —
+    // lives in lib/translation-incomplete.mjs and is re-exported by the script.
+    const predicate = fs.readFileSync(
+      new URL('../scripts/lib/translation-incomplete.mjs', import.meta.url),
+      'utf8',
+    );
+    expect(predicate).toContain('SOURCE_LANG_HOLD_CONFIDENCE');
+    expect(predicate).not.toMatch(/detected\.confidence\s*>=\s*0\.65/);
+    const script = fs.readFileSync(
       new URL('../scripts/relocalize-pending-jobs.mjs', import.meta.url),
       'utf8',
     );
-    expect(source).toContain('SOURCE_LANG_HOLD_CONFIDENCE');
-    expect(source).not.toMatch(/detected\.confidence\s*>=\s*0\.65/);
+    expect(script).toContain("import { isIncomplete } from './lib/translation-incomplete.mjs';");
+    expect(script).not.toMatch(/detected\.confidence\s*>=\s*0\.65/);
   });
 
   it('Coop detail repair uses the shared hold for source locale writes', () => {

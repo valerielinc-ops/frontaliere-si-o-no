@@ -3,6 +3,8 @@ import {
   ADS_CONSENT_GRANTED,
   ADS_CONSENT_STORAGE_KEY,
 } from '../services/adsConsent';
+import { FC_JOBBOARD_OFFERWALL_GATE_JS } from './constants';
+import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
 
 /** The GPT library required by Google Ad Manager Offerwall. */
 export const GPT_SCRIPT_SRC = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
@@ -10,12 +12,19 @@ export const GPT_SCRIPT_SRC = 'https://securepubads.g.doubleclick.net/tag/js/gpt
 /** Stable, cacheable bootstrap emitted only on job-board pages. */
 export const GPT_LOADER_FILENAME = 'gpt-loader.js';
 
-/** Synchronous bootstrap: it queues GPT before Funding Choices evaluates Offerwall. */
-export const GPT_BOOTSTRAP_TAG = `<script src="/assets/${GPT_LOADER_FILENAME}"></script>`;
+/** Stable, cacheable Funding Choices carrier for job-board pages. */
+export const JOB_BOARD_FC_LOADER_FILENAME = 'job-board-fc-loader.js';
+export const JOB_BOARD_FC_LOADER_TAG = `<script defer src="/assets/${JOB_BOARD_FC_LOADER_FILENAME}"></script>`;
 
-const JOB_BOARD_PATH_RX = /^(?:\/cerca-lavoro-[^/]+|\/(?:en\/find-jobs|de\/jobs-(?:im|in)|fr\/trouver-emploi)-[^/]+)(?:\/|$)/;
+/** Deferred bootstrap: it queues GPT before DOMContentLoaded without blocking parsing. */
+export const GPT_BOOTSTRAP_TAG = `<script defer src="/assets/${GPT_LOADER_FILENAME}"></script>`;
 
-/** Whether a URL belongs to one of the four localized job-board sections. */
+/**
+ * Whether a URL belongs to a job-board section (every canton, the Switzerland
+ * aggregator, every locale). Same shared matcher as the click-only Offerwall
+ * gate and JobBoard's rewarded surface, so GPT is bootstrapped on exactly the
+ * pages where "Candidati" runs the rewarded flow.
+ */
 export function isJobBoardPageUrl(value: string): boolean {
   let pathname = value;
   try {
@@ -23,7 +32,23 @@ export function isJobBoardPageUrl(value: string): boolean {
   } catch {
     pathname = value.split(/[?#]/, 1)[0] ?? value;
   }
-  return JOB_BOARD_PATH_RX.test(pathname);
+  return isJobBoardSectionPathname(pathname);
+}
+
+/** The two ordered, deferred tags required by every statically emitted job-board page. */
+export const JOB_BOARD_HEAD_TAGS = `\n ${GPT_BOOTSTRAP_TAG}\n ${JOB_BOARD_FC_LOADER_TAG}`;
+
+/**
+ * Head contract for every statically emitted job-board page.
+ *
+ * Keep the GPT bootstrap and Funding Choices loader together: both are
+ * required by the rewarded "Candidati" flow, and emitting only one of them
+ * creates a page that looks healthy while the live consent probe reports
+ * `fc_not_requested`.
+ */
+export function jobBoardHeadTags(value: string): string {
+  if (!isJobBoardPageUrl(value)) return '';
+  return JOB_BOARD_HEAD_TAGS;
 }
 
 const scriptSrc = JSON.stringify(GPT_SCRIPT_SRC);
@@ -38,8 +63,14 @@ const consentGranted = JSON.stringify(ADS_CONSENT_GRANTED);
  * explicit ads-consent decision and enables the shared framework so Offerwall
  * can detect GPT on first entry. The React slot components remain responsible
  * for lazy slot display.
+ *
+ * It starts with FC_JOBBOARD_OFFERWALL_GATE_JS. The external carrier is
+ * deferred, so the parser can continue while the page is being built; once
+ * executed it still installs the gate before DOMContentLoaded and before any
+ * user can click the rewarded flow. The gate is idempotent: the first copy on
+ * the page installs it.
  */
-export const GPT_LOADER_CONTENT = `(function(){
+export const GPT_LOADER_CONTENT = `${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){
   var SCRIPT_SRC=${scriptSrc};
   var CONSENT_EVENT=${consentEvent};
   var CONSENT_KEY=${consentKey};

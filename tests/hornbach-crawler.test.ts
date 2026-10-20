@@ -11,10 +11,14 @@ import {
   parseHornbachLocation,
   buildHornbachDescription,
   resolveHornbachPostedDate,
+  fetchHornbachPublicationFields,
   resolveHornbachEmploymentType,
   parseHornbachOffer,
+  isHornbachOfferRedirectUrl,
+  resolveHornbachOfferUrl,
   fetchHornbachSearchApiKey,
   fetchOfferDocumentsWithKeyRetry,
+  fetchAllHornbachJobs,
 } from '../scripts/lib/hornbach-job-parser.mjs';
 
 describe('Hornbach crawler parser', () => {
@@ -76,6 +80,34 @@ describe('Hornbach crawler parser', () => {
     it('handles malformed URLs gracefully', () => {
       expect(isTrustedDomain('not-a-url')).toBe(false);
       expect(isTrustedDomain('')).toBe(false);
+    });
+  });
+
+  describe('offer URL resolution', () => {
+    it('identifies the shared redirect shell', () => {
+      expect(isHornbachOfferRedirectUrl('https://jobs.hornbach.ch/offer-redirect/?offerApiId=abc')).toBe(true);
+      expect(isHornbachOfferRedirectUrl('https://jobs.hornbach.ch/offer/verkauf/uuid')).toBe(false);
+    });
+
+    it('returns the vacancy-specific URL after following the redirect', async () => {
+      const fetchImpl = vi.fn(async () => ({
+        ok: true,
+        status: 200,
+        url: 'https://jobs.hornbach.ch/offer/verkauf/offer-uuid?showApplicationForm=false',
+        body: null,
+      }));
+      await expect(resolveHornbachOfferUrl(
+        'https://jobs.hornbach.ch/offer-redirect/?offerApiId=abc',
+        { fetchImpl },
+      )).resolves.toBe('https://jobs.hornbach.ch/offer/verkauf/offer-uuid?showApplicationForm=false');
+      expect(fetchImpl).toHaveBeenCalledOnce();
+    });
+
+    it('withholds a redirect that does not resolve to its own offer page', async () => {
+      await expect(resolveHornbachOfferUrl(
+        'https://jobs.hornbach.ch/offer-redirect/?offerApiId=abc',
+        { fetchImpl: async () => ({ ok: false, status: 404, url: '', body: null }) },
+      )).resolves.toBe('');
     });
   });
 
@@ -223,29 +255,29 @@ describe('Hornbach crawler parser', () => {
           about: '', additional: '', benefits: '', contact_text: '',
         }),
       ).toBe('');
+      // The department facet alone is metadata, not vacancy text (issue 5253).
+      expect(buildHornbachDescription({ introduction: '', department: ['Verkauf'] })).toBe('');
     });
   });
 
   // ── resolveHornbachPostedDate ──
   describe('resolveHornbachPostedDate', () => {
-    it('parses a valid create_date string', () => {
-      expect(resolveHornbachPostedDate({ create_date: '2026-06-15T08:00:00Z' })).toBe('2026-06-15');
+    it('never promotes Typesense creation fields or collection time to publication', () => {
+      for (const doc of [{}, { create_date: new Date(Date.now() - 86400000).toISOString() }, { create_date_timestamp: Date.now() - 86400000 }, { create_date: 'not-a-date' }]) {
+        expect(resolveHornbachPostedDate(doc)).toBe('');
+      }
     });
 
-    it('parses a millisecond create_date_timestamp when create_date is absent', () => {
-      const ms = Date.UTC(2026, 5, 20);
-      expect(resolveHornbachPostedDate({ create_date_timestamp: ms })).toBe('2026-06-20');
-    });
-
-    it('parses a second-based create_date_timestamp when create_date is absent', () => {
-      const seconds = Date.UTC(2026, 5, 20) / 1000;
-      expect(resolveHornbachPostedDate({ create_date_timestamp: seconds })).toBe('2026-06-20');
-    });
-
-    it('falls back to today when neither field parses', () => {
-      const today = new Date().toISOString().split('T')[0];
-      expect(resolveHornbachPostedDate({})).toBe(today);
-      expect(resolveHornbachPostedDate({ create_date: 'not-a-date', create_date_timestamp: -1 })).toBe(today);
+    it('uses the public offer JSON-LD instead of ambiguous Typesense dates', async () => {
+      const date = new Date(Date.now() - 10 * 86400000).toISOString();
+      const url = 'https://jobs.hornbach.ch/offer/fixture/uuid';
+      const fields = await fetchHornbachPublicationFields(url, {
+        fetchImpl: async () => new Response(`<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', datePosted: date })}</script>`),
+      });
+      expect(fields).toEqual({ datePosted: date, postedDate: date, postingDateSource: 'reported' });
+      expect(resolveHornbachPostedDate({ create_date: '08.12.2099', ...fields })).toBe(date);
+      const missing = await fetchHornbachPublicationFields(url, { fetchImpl: async () => new Response('<h1>No date</h1>') });
+      expect(missing).toEqual({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
     });
   });
 
@@ -314,7 +346,8 @@ describe('Hornbach crawler parser', () => {
       expect(parsed.streetAddress).toBe('Schellenrain 9');
       expect(parsed.cantonCode).toBe('LU');
       expect(parsed.employmentType).toBe('FULL_TIME');
-      expect(parsed.postedDate).toBe('2026-06-01');
+      expect(parsed.postingDateSource).toBe('unknown');
+      expect(parsed.postedDate).toBe('');
     });
 
     it('handles a real negative-control document (Luzern Littau, canton LU, NOT the Sursee HQ)', () => {
@@ -365,7 +398,8 @@ describe('Hornbach crawler parser', () => {
       expect(parsed.streetAddress).toBe('');
       expect(parsed.applyUrl).toBe('https://jobs.hornbach.ch/offer-redirect/?offerApiId=999999');
       expect(parsed.employmentType).toBe('FULL_TIME');
-      expect(parsed.postedDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(parsed.postedDate).toBe('');
+      expect(parsed.postingDateSource).toBe('unknown');
     });
 
     it('handles a completely empty document without throwing', () => {
@@ -512,4 +546,45 @@ describe('Hornbach crawler parser', () => {
       expect(calls).toBe(2);
     });
   });
+});
+
+// Only the posting's own text is published (issue 5253): an offer without text
+// used to go out as "{title} — Hornbach ({city})." (or as its department line
+// alone). Shapes of the job-shop Typesense API (api-key + multi_search).
+describe('fetchAllHornbachJobs — offer without vacancy text', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the offer with text and skips the one without, never inventing text', async () => {
+    const doc = (id: string, title: string, introduction: string) => ({
+      title, offer_uuid: `uuid-${id}`, external_id: id, title_slug: id,
+      url: `https://jobs.hornbach.ch/offer-redirect/?offerApiId=${id}`,
+      introduction, description: '', expectation: '', offering: '', about: '', additional: '', benefits: '', contact_text: '',
+      full_address: ['Schellenrain 9, 6210 Sursee'], location: ['Sursee'],
+      location_objects: [{ city: 'Sursee', street: 'Schellenrain 9', zip: '6210', country: 'CH' }],
+      department: ['Verkauf'], schedule: ['Vollzeit'], schema_values: { working_time_types: ['FULL_TIME'] },
+      custom_filter_4: ['Luzern (LU)'], country: ['Switzerland'], create_date: '2026-09-01T00:00:00Z', status: 'ACTIVE',
+    });
+    const json = (payload: unknown) => new Response(JSON.stringify(payload), { status: 200, headers: { 'content-type': 'application/json' } });
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('/api-key')) return json({ key: 'k' });
+      if (u.includes('/multi_search')) {
+        return json({ results: [{ hits: [
+          { document: doc('148901', 'Verkäufer:in Bau &amp; Garten', '<p>Du berätst unsere Kundschaft in der Abteilung Bau und Garten. Du arbeitest eng mit Kolleginnen und Kollegen aus mehreren Abteilungen zusammen, dokumentierst deine Arbeit sorgfältig und hilfst uns, unsere Abläufe zu verbessern. Wir bieten einen modernen Arbeitsplatz, flexible Arbeitszeiten, Weiterbildungen und eine offene Teamkultur. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden dein Profil ab.</p>') },
+          { document: doc('148902', 'Kassierer:in', '') },
+        ] }] });
+      }
+      if (u.includes('/offer-redirect/')) {
+        const id = new URL(u).searchParams.get('offerApiId') || 'unknown';
+        return { ok: true, status: 200, url: `https://jobs.hornbach.ch/offer/offer-${id}/uuid-${id}`, body: null };
+      }
+      return new Response('', { status: 404 });
+    }));
+
+    const jobs = await fetchAllHornbachJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Verkäufer:in Bau & Garten']);
+    expect(jobs[0].description).toContain('Du berätst unsere Kundschaft');
+  }, 20_000);
 });

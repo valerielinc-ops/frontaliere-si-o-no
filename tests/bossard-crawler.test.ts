@@ -1,11 +1,67 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   BOSSARD_KEY,
   BOSSARD_COMPANY_NAME,
+  fetchAllBossardJobs,
   isBossardJob,
   isTrustedDomain,
 } from '../scripts/lib/bossard-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const VALID_WORKDAY_BODY = `
+  <h2>Aufgaben</h2>
+  <p>Sie betreuen internationale Kunden und koordinieren technische Projekte von
+  der ersten Anfrage bis zur erfolgreichen Auslieferung. Dabei analysieren Sie
+  Anforderungen, erstellen belastbare Angebote, arbeiten eng mit Entwicklung,
+  Einkauf und Produktion zusammen und dokumentieren die vereinbarten Lösungen.
+  Sie pflegen bestehende Kundenbeziehungen, beobachten den Markt und bringen
+  Verbesserungsvorschläge in interdisziplinäre Teams ein. Für diese Aufgabe
+  erwarten wir eine technische oder kaufmännische Ausbildung, Erfahrung im
+  industriellen Umfeld, sehr gute Kommunikationsfähigkeiten und eine
+  zuverlässige, selbstständige Arbeitsweise. Gute Deutsch- und
+  Englischkenntnisse sowie die Bereitschaft zu gelegentlichen Dienstreisen
+  runden Ihr Profil ab. Wir bieten moderne Arbeitsplätze, flexible Arbeitszeit,
+  Weiterbildung und eine sorgfältige Einarbeitung am Standort Zug.</p>
+`;
+
+const WORKDAY_LISTING = {
+  title: 'Technical Project Manager',
+  locationsText: 'Zug, Switzerland',
+  externalPath: '/job/Zug/Technical_Project_Manager-12345',
+  bulletFields: ['12345'],
+};
+
+function stubBossardWorkday(detailHtml: string) {
+  const fetchMock = vi.fn(async (url: string) => {
+    const requestUrl = String(url);
+    if (requestUrl.endsWith('/jobs')) {
+      return {
+        ok: true,
+        status: 200,
+        text: async () => JSON.stringify({ total: 1, jobPostings: [WORKDAY_LISTING] }),
+      } as unknown as Response;
+    }
+    if (requestUrl.includes('/job/')) {
+      return {
+        ok: true,
+        status: 200,
+        text: async () => JSON.stringify({
+          jobPostingInfo: {
+            jobDescription: detailHtml,
+            timeType: 'Full time',
+          },
+        }),
+      } as unknown as Response;
+    }
+    throw new Error(`Unexpected Workday URL: ${requestUrl}`);
+  });
+  vi.stubGlobal('fetch', fetchMock);
+  return fetchMock;
+}
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 describe('Bossard crawler parser', () => {
   // ── Constants ──
@@ -64,6 +120,31 @@ describe('Bossard crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('fetchAllBossardJobs', () => {
+    it('publishes the Workday detail body instead of a Key details stub', async () => {
+      const fetchMock = stubBossardWorkday(VALID_WORKDAY_BODY);
+      const jobs = await fetchAllBossardJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].description).toContain('internationale Kunden');
+      expect(jobs[0].description).not.toContain('Key details');
+      expect(jobs[0].description.split(/\s+/).filter(Boolean).length).toBeGreaterThanOrEqual(50);
+      expect(fetchMock.mock.calls.some(([url]) => String(url).includes('/job/Zug/'))).toBe(true);
+    });
+
+    it.each([
+      ['empty', ''],
+      ['below the source floor', '<p>Key details: Zug, Bossard Group, apply online.</p>'],
+    ])('does not publish a listing with %s Workday text', async (_label, detailHtml) => {
+      const fetchMock = stubBossardWorkday(detailHtml);
+      const jobs = await fetchAllBossardJobs();
+
+      expect(jobs).toEqual([]);
+      expect(jobs.some((job) => job.description.includes('Key details'))).toBe(false);
+      expect(fetchMock.mock.calls.some(([url]) => String(url).includes('/job/Zug/'))).toBe(true);
     });
   });
 

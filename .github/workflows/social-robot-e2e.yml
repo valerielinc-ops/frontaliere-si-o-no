@@ -1,0 +1,66 @@
+name: Social robot e2e
+
+# The Instagram/TikTok web flows of the social robot (scripts/social-robot/) on
+# LOCAL look-alike pages: dry run up to the publish button, publish only with
+# the platform's confirmation, login wall, challenge, a press without
+# confirmation, and one whole robot run through a persistent profile. No
+# account, no network, no secret. vitest cannot cover it: tests.yml has no
+# browser (same split as assisted-application-portal-e2e.yml).
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/social-robot/**'
+      - 'scripts/lib/social-publish-queue.mjs'
+      - '.github/workflows/social-robot-e2e.yml'
+
+concurrency:
+  group: social-robot-e2e-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      # Node 22 + npm ci; the npm cache is only read on a PR ref, saved on main
+      # (tests/npm-cache-save-main-only.test.ts).
+      - name: Setup Node.js + npm ci
+        uses: ./.github/actions/ci-npm-setup
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Robot flows on the look-alike pages
+        run: node scripts/social-robot/robot-e2e.mjs

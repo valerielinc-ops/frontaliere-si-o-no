@@ -264,6 +264,33 @@ describe('Solique listing parsers (consolidated solique-common)', () => {
     // close, dropping the perks bullet after it.
     expect(text).toContain('• Attraktive Anstellungsbedingungen');
   });
+
+  it("keeps OTTO'S introduction and extracts the current sibling wrapper lists", () => {
+    const detail = `<div class="introduction">Sie schätzen den täglichen Kontakt mit Menschen und übernehmen gerne Verantwortung.</div>
+<div class="tasks-benefits-wrapper">
+  <div class="tasks-wrapper"><h3 class="subtitle">Wirkungsbereich</h3>
+    <ul><li>Abwechslungsreiche Warenpräsentation im Verkaufsraum.</li></ul></div>
+</div>
+<div class="profile-gallery-wrapper">
+  <div class="profile-wrapper"><h3 class="subtitle">Profil</h3>
+    <ul><li>Erste Erfahrung in den Bereichen Food oder Non-Food.</li></ul></div>
+</div>`;
+
+    const text = extractSoliqueDetailContent(detail);
+
+    expect(text).toContain('Sie schätzen den täglichen Kontakt');
+    expect(text).toMatch(/Wirkungsbereich\s+• Abwechslungsreiche Warenpräsentation/);
+    expect(text).toMatch(/Profil\s+• Erste Erfahrung/);
+    expect(text.split('Sie schätzen den täglichen Kontakt')).toHaveLength(2);
+  });
+
+  it("does not accept OTTO'S wrapper class prefixes as job content", () => {
+    const detail = `<div class="tasks-benefits-wrapper-shell">
+  <h3 class="subtitle">Noise</h3><ul><li>not job content</li></ul>
+</div>`;
+
+    expect(extractSoliqueDetailContent(detail)).toBe('');
+  });
 });
 
 // ─── JS-error-string sanitizer (issues #1682 / #1741) ────────────────────────

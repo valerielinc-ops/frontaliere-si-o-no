@@ -7,7 +7,7 @@ import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vite
 const spawnMock = vi.fn();
 vi.mock('node:child_process', () => ({ spawn: (...args: unknown[]) => spawnMock(...args) }));
 
-import { AI_MODELS, __installScoreStoreForTests, callLLM, getPreferredModel, resetState } from '../../scripts/lib/ai-models.mjs';
+import { AI_MODELS, __enableClaudeCliLaneForTests, __installScoreStoreForTests, callLLM, getPreferredModel, resetState } from '../../scripts/lib/ai-models.mjs';
 
 /**
  * Il minimo del timeout CLI e' una TARATURA (120s → 180s il 2026-08-18, quando
@@ -52,6 +52,9 @@ describe('ai-models Claude CLI Haiku fallback', () => {
 
   beforeEach(() => {
     resetState();
+    // Haiku e' spento nel codice (2026-09-24): questi test esercitano la
+    // macchina claude-cli rimasta, quindi la riaccendono col seam di test.
+    __enableClaudeCliLaneForTests();
     spawnMock.mockReset();
     for (const k of ENV_KEYS) saved[k] = process.env[k];
     delete process.env.ENABLE_HAIKU_ARTICLE_FALLBACK;
@@ -81,9 +84,14 @@ describe('ai-models Claude CLI Haiku fallback', () => {
     expect(getPreferredModel({ chain: [AI_MODELS.CLAUDE_CLI_HAIKU] })).toBeNull();
   });
 
-  it('becomes available once both the RC flag and OAuth token are set', () => {
+  it('stays unavailable with both the RC flag and OAuth token set: the owner disabled the lane (2026-09-24)', () => {
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
     process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
+    __enableClaudeCliLaneForTests(false);
+    expect(getPreferredModel({ chain: [AI_MODELS.CLAUDE_CLI_HAIKU] })).toBeNull();
+    // Solo il seam di test (mai env ne' Remote Config) riaccende la macchina
+    // che i test qui sotto esercitano.
+    __enableClaudeCliLaneForTests();
     expect(getPreferredModel({ chain: [AI_MODELS.CLAUDE_CLI_HAIKU] })).toBe(AI_MODELS.CLAUDE_CLI_HAIKU);
   });
 

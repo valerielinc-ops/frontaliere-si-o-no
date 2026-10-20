@@ -3,7 +3,7 @@
  * Extracted to avoid duplication. Mirrors the SPA `companyLogoUrl` chain in
  * components/community/JobBoard.tsx and services/logoService.ts.
  */
-import { resolveCompanyLogoUrl } from '../../services/jobDataNormalization';
+import { resolveCompanyLogoUrlForRenderedOutput } from '../../services/jobDataNormalization';
 import { COMPANY_LOGO_PLACEHOLDER, generateInitialsLogo } from '../../services/logoService';
 
 export const LOGO_FALLBACK_SRC = '/images/company-logo-fallback.svg';
@@ -52,7 +52,7 @@ export function resolveJobLogoSrc(job: LogoLookupShape): string {
   if (job.logo && typeof job.logo === 'string' && job.logo.trim().length > 0) {
     return job.logo;
   }
-  const resolved = resolveCompanyLogoUrl(job);
+  const resolved = resolveCompanyLogoUrlForRenderedOutput(job);
   if (resolved && resolved.length > 0) return resolved;
   if (job.company && String(job.company).trim().length > 0) {
     return generateInitialsLogo(String(job.company));

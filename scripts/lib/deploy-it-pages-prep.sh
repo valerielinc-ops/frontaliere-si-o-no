@@ -74,8 +74,28 @@ set -uo pipefail
 # push-section-shard.sh / push-locale-shard.sh, used by the CDN assets push
 # below instead of a second copy of the retry loop (AGENTS.md #6).
 source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/r2-image-lease-process.sh"
 
 RUNNER_TEMP="${RUNNER_TEMP:-/tmp}"
+
+# R2 wall-clock limit (seconds) read from the environment. `timeout 0` means NO
+# limit in GNU coreutils, and a non-number makes `timeout` fail before the call
+# runs, so only a whole number from 1 to 9999 is taken; anything else (0, empty,
+# "-5", "2m", "inf") falls back to the default with a warning. Kept
+# byte-identical in upload-cdn-file.sh and deploy-it-pages-prep.sh:
+# tests/r2-calls-bounded.test.ts compares the two copies.
+_r2_timeout_s() {
+  local name="$1" fallback="$2" value
+  value="${!name-}"
+  if [[ "$value" =~ ^[1-9][0-9]{0,3}$ ]]; then
+    printf '%s\n' "$value"
+    return 0
+  fi
+  if [ -n "$value" ]; then
+    echo "::warning::[r2] $name='$value' is not a whole number of seconds from 1 to 9999 — using ${fallback}s" >&2
+  fi
+  printf '%s\n' "$fallback"
+}
 
 # Export a key=value INTO THE CURRENT PROCESS (so later sections of THIS script
 # see it) AND to $GITHUB_ENV (so later YAML steps see it) AND echo it. The
@@ -164,7 +184,7 @@ _publish_cdn_r2() {
     # anyway (>= 2 are the real errors), so gating the install on rc == 0
     # threw away a working binary and skipped the whole R2 sync. The binary on
     # disk is the contract, not unzip's exit code.
-    if curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors \
+    if curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors --connect-timeout 15 --max-time 120 \
          https://downloads.rclone.org/rclone-current-linux-amd64.zip -o "$rtmp/rclone.zip"; then
       unzip_rc=0
       unzip -q -o -j "$rtmp/rclone.zip" '*/rclone' -d "$rtmp/rclone-bin" || unzip_rc=$?
@@ -175,7 +195,7 @@ _publish_cdn_r2() {
       fi
       if [ "$unzip_rc" -lt 2 ] && [ -s "$rtmp/rclone-bin/rclone" ] \
          && chmod +x "$rtmp/rclone-bin/rclone" 2>/dev/null \
-         && "$rtmp/rclone-bin/rclone" version >/dev/null 2>&1; then
+         && timeout -k 5 30 "$rtmp/rclone-bin/rclone" version >/dev/null 2>&1; then
         export PATH="$rtmp/rclone-bin:$PATH"
       fi
     fi
@@ -184,6 +204,8 @@ _publish_cdn_r2() {
   # On-the-fly S3 remote (no config file). --checksum = content-hash compare;
   # --no-update-modtime avoids rewriting metadata on skipped files;
   # --s3-no-check-bucket skips a HeadBucket (1 fewer op, no CreateBucket perm).
+  # --contimeout/--timeout: connect and IO-idle limits of each request, so a
+  # silent connection errors out and is retried instead of hanging.
   local RC=(rclone
     --s3-provider=Cloudflare
     --s3-access-key-id="$R2_ACCESS_KEY_ID"
@@ -191,27 +213,191 @@ _publish_cdn_r2() {
     --s3-endpoint="$R2_S3_ENDPOINT"
     --s3-region=auto
     --s3-no-check-bucket
+    --contimeout=15s --timeout=60s
     --checksum --no-update-modtime --transfers=24 --checkers=48 --fast-list)
+  # WALL-CLOCK LIMIT ON EVERY R2 CALL (NX-SKEW-2b). The IO-idle limit above does
+  # not bound a call that keeps making slow progress, or that retries forever:
+  # #11318 added an `rclone lsjson -R --hash` of the whole assets/ prefix with no
+  # limit of any kind, and runs 37178543559 / 37198287938 sat in this step until
+  # the 6 h job timeout while `pages-build-run` (cancel-in-progress: false) held
+  # every later deploy behind them (03-10 16:59Z → 04-10). The listing was not
+  # the slow part: lsjson prints a MimeType per entry, and on S3/R2 the
+  # Content-Type is not in the LIST page, so rclone sent one HEAD per object,
+  # one after the other. Measured on the production bucket on 05-10 (54,399
+  # objects under assets/, every ETag a plain MD5): without --no-mimetype,
+  # 6 LIST + 5,986 HEAD in 9 min, still running; with --no-mimetype, 26 s,
+  # 55 LIST + 1 HEAD. Any lsjson here needs --no-mimetype (the test checks it).
+  # So every rclone/aws call in this file runs under coreutils `timeout`
+  # (present on the runner); tests/r2-calls-bounded.test.ts fails on one that
+  # does not. Budgets are ~3x the slowest measured duration (deploys
+  # 36088944074 and 37138892066), except data/:
+  #   copy assets 66-135 s → 420 · og 61-83 s → 300 · images 16-26 s → 120
+  #   copy data 153-201 s, 1,622 s on a backlog → 1800 · job-canon 4-6 s → 120
+  #   one object (index.html, marker, ledger) ~1 s → 60
+  # No R2 listing runs on this path: a missing purge ledger starts empty (see
+  # below), so the only listing left is the janitor's dry-run scan.
+  # data/ is sized on the backlog, not on a routine deploy: run 37237201212,
+  # the first green deploy after 30 h of hung runs, rewrote 31,627 changed
+  # files of data/ (152,729 objects, mostly data/job-detail/) at ~1,250 PUT/min.
+  # With 600 s both this step and the full prep's retry would stop it at
+  # ~12,500 files each: no marker, CDN_BASE unset, and step_drop_assets fails
+  # the deploy, so recovering from an outage would cost one more 3.5 h run per
+  # missing 25k files. The copy is additive, so a cut one still resumes.
+  # A call that runs out fails like any other failed call: a sync sets ok=0
+  # (marker withheld, the full prep retries the push), a ledger read falls back
+  # to the log-only purge. The step itself has `timeout-minutes` in deploy.yml
+  # as the last backstop.
+  local _t_obj _t_purge
+  _t_obj="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 60)"
+  _t_purge="$(_r2_timeout_s R2_TIMEOUT_PURGE_S 300)"
   local bkt=":s3:$R2_BUCKET" ok=1
   echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
-  _r2_sync() { # <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
-    [ -d "$1" ] || return 0
-    if [ -n "${4:-}" ]; then
+  _r2_release_owned_image_namespace_lease() {
+    [ "${_image_lease_owned:-0}" = 1 ] || return 0
+    # Do not retry a release from EXIT if this request itself is interrupted.
+    _image_lease_owned=0
+    if ! node "$_lease_cli" release --context "$_image_lease_context"; then
+      echo "::error::[r2] image namespace lease release failed; refusing to mark the R2 payload complete"
+      return 1
+    fi
+    return 0
+  }
+  _r2_restore_image_lease_context() {
+    if [ "$_prior_context_set" = x ]; then
+      export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$_prior_context"
+    else
+      unset FRONTALIERE_R2_IMAGE_LEASE_CONTEXT
+    fi
+  }
+  _r2_image_namespace_lease_exit_cleanup() {
+    local exit_status=$?
+    trap '' EXIT INT TERM
+    if [ "${_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED:-1}" = 1 ] && ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+    fi
+    if [ "${_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED:-1}" = 1 ]; then
+      _r2_release_owned_image_namespace_lease || {
+        [ "$exit_status" = 0 ] && exit_status=1
+      }
+    fi
+    _r2_restore_image_lease_context
+    exit "$exit_status"
+  }
+  _r2_image_namespace_lease_signal() {
+    local exit_status="$1"
+    trap '' INT TERM
+    if ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+    fi
+    exit "$exit_status"
+  }
+  _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
+    [ -d "$2" ] || return 0
+    local sync_status=0
+    if [ -n "${5:-}" ]; then
       # Capture WHICH objects actually moved so the caller can purge exactly
       # those at the edge (see the assets/ call below). --log-file swallows
       # rclone's stderr, so the log is echoed back to the deploy output after
       # the run — a sync error must stay visible in the job log.
-      "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 \
-        -v --use-json-log --log-file="$4" || ok=0
+      if ! _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0 \
+        -v --use-json-log --log-file="$5"; then
+        ok=0
+        sync_status=1
+      fi
       # `if`, not `[ -s … ] && cat`: an EMPTY log (nothing changed — the common
-      # case) would make that the last command and return non-zero from this
-      # function. Harmless today (this file deliberately runs without `set -e`,
-      # see its note near the step runners) but a trap for whoever adds it.
-      if [ -s "$4" ]; then cat "$4"; fi
+      # case) is normal and must not alter the sync result returned below.
+      if [ -s "$5" ]; then cat "$5"; fi
     else
-      "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 || ok=0
+      if ! _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0; then
+        ok=0
+        sync_status=1
+      fi
     fi
+    if [ "$sync_status" != 0 ]; then
+      echo "::warning::[r2] sync of $3/ failed or exceeded its ${1}s limit"
+    fi
+    return "$sync_status"
   }
+  _r2_with_image_namespace_leases() { # <namespace-list> <command> <argv...> — run the image batch under all present namespace leases
+    local _image_lease_namespaces="$1"
+    shift
+    local _image_lease_context _image_lease_owned=0 _command_status=0 _release_status=0
+    local _image_lease_namespace
+    local -a _image_lease_namespace_list=()
+    local _prior_context_set="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT+x}"
+    local _prior_context="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT-}"
+    local _lease_cli="scripts/lib/r2-image-namespace-lock.mjs"
+    local _R2_IMAGE_LEASE_ACTIVE=1 _R2_IMAGE_LEASE_TIMEOUT_PID=
+    local _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=1
+    local _R2_IMAGE_LEASE_SIGNAL_HANDLER=_r2_image_namespace_lease_signal
+    local _prior_exit_trap _prior_int_trap _prior_term_trap
+
+    if [ -n "$_prior_context" ]; then
+      _image_lease_context="$_prior_context"
+      IFS=',' read -r -a _image_lease_namespace_list <<< "$_image_lease_namespaces"
+      for _image_lease_namespace in "${_image_lease_namespace_list[@]}"; do
+        if ! node "$_lease_cli" verify --namespace "$_image_lease_namespace" --context "$_image_lease_context"; then
+          echo "::error::[r2] existing image lease does not cover the requested namespaces or is no longer valid; skipping images/ sync"
+          return 1
+        fi
+      done
+    else
+      if ! _image_lease_context="$(node "$_lease_cli" acquire --namespace "$_image_lease_namespaces")" || [ -z "$_image_lease_context" ]; then
+        echo "::error::[r2] could not acquire the image namespace lease; skipping images/ sync"
+        return 1
+      fi
+      _image_lease_owned=1
+    fi
+
+    _prior_exit_trap="$(trap -p EXIT)"
+    _prior_int_trap="$(trap -p INT)"
+    _prior_term_trap="$(trap -p TERM)"
+    trap '_r2_image_namespace_lease_exit_cleanup' EXIT
+    trap '_r2_image_namespace_lease_signal 130' INT
+    trap '_r2_image_namespace_lease_signal 143' TERM
+
+    export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$_image_lease_context"
+    if "$@"; then
+      _command_status=0
+    else
+      _command_status=$?
+    fi
+
+    if ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+      _release_status=1
+    fi
+    if [ "$_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED" = 1 ] \
+      && ! _r2_release_owned_image_namespace_lease; then
+      _release_status=1
+    fi
+    _r2_restore_image_lease_context
+    trap - EXIT INT TERM
+    [ -n "$_prior_exit_trap" ] && eval "$_prior_exit_trap"
+    [ -n "$_prior_int_trap" ] && eval "$_prior_int_trap"
+    [ -n "$_prior_term_trap" ] && eval "$_prior_term_trap"
+    [ "$_command_status" = 0 ] || return "$_command_status"
+    return "$_release_status"
+  }
+  # Publish-window handshake for the runtime watchdog. Stable asset names are
+  # overwritten one by one, so cdn-build-id.txt deliberately stays on the last
+  # complete generation until the payload is whole. Without a separate start
+  # marker, a concurrent watchdog cannot distinguish that partial origin from a
+  # missed edge purge and may spread the half-uploaded generation to the edge.
+  #
+  # The token is the upload start epoch (not DEPLOY_BUILD_ID, which is minted
+  # hours earlier at matrix setup). The matching completion marker is written
+  # only after the authoritative build marker succeeds. A killed/failed upload
+  # therefore remains explicitly incomplete instead of looking purgeable.
+  local _publish_token _publish_marker_file
+  _publish_token="$(date +%s%3N)"
+  _publish_marker_file="${RUNNER_TEMP:-/tmp}/cdn-publish-$$_${_publish_token}.txt"
+  printf '%s' "$_publish_token" > "$_publish_marker_file"
+  if ! timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-start-id.txt" \
+       --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
+    echo "::warning::R2 publish-start marker PUT failed — refusing to mutate the CDN origin without a visible upload window"
+    return 0
+  fi
   # assets/ Cache-Control — read this before changing it.
   #
   # Bundle filenames here are STABLE, never content-hashed
@@ -275,29 +461,192 @@ _publish_cdn_r2() {
   # at most a week". Do NOT raise this back to a year, and do NOT re-add
   # `immutable`.
   local _assets_log="$(mktemp -t r2-assets-XXXXXX.jsonl 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-assets.jsonl")"
-  _r2_sync "$stage/assets"    assets    "public,max-age=604800" "$_assets_log"
-  _r2_sync "$stage/og"        og        "public,max-age=86400"
-  _r2_sync "$stage/images"    images    "public,max-age=86400"
-  _r2_sync "$stage/data"      data      "public,max-age=600"
-  _r2_sync "$stage/job-canon" job-canon "public,max-age=600"
-  "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
+  local assets_sync_ok=0 assets_sync_status=0
+  # ── Purge ledger, read BEFORE the assets sync (NX-SKEW-2b, Refs #9465/#8612)
+  # The purge below diffs this build's assets against purge-ledger/assets.json
+  # (per key, the MD5 the edge was last purged for), so a key a dead run
+  # uploaded without purging is still purged by the next run even though its
+  # rclone log no longer names it. See purge-changed-cdn-assets.mjs's header.
+  # Every step here is fail-open: a missing, invalid or unreadable ledger
+  # starts empty, so all current stage keys stay dirty until purged. If the
+  # stage itself is unavailable, the purge falls back to this run's upload log.
+  local _pdir _ledger_key="purge-ledger/assets.json" _ledger_state=unreadable _rrc=0
+  _pdir="$(mktemp -d "${RUNNER_TEMP:-/tmp}/r2-purge.XXXXXX" 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-purge.$$")"
+  mkdir -p "$_pdir"
+  if [ -d "$stage/assets" ]; then
+    # rclone exits 0 and writes NOTHING when the object does not exist
+    # (measured 2026-10-04 on this bucket, rclone v1.74.3) — the exit codes 3/4
+    # #11318 relied on never occur here. Non-zero is a real read failure.
+    timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$bkt/$_ledger_key" "$_pdir/ledger-in.json" --retries=1 \
+      2> "$_pdir/ledger.err" || _rrc=$?
+    if [ "$_rrc" -ne 0 ]; then
+      echo "::warning::[r2] purge ledger read failed or exceeded ${_t_obj}s (exit $_rrc) — starting from an empty ledger: $(tail -c 300 "$_pdir/ledger.err" 2>/dev/null)"
+      _ledger_state=absent
+    elif [ ! -s "$_pdir/ledger-in.json" ]; then
+      _ledger_state=absent
+    elif node scripts/ci/purge-changed-cdn-assets.mjs --check-ledger --ledger-in="$_pdir/ledger-in.json"; then
+      _ledger_state=present
+    else
+      echo "::warning::[r2] stored purge ledger is not a readable v1 ledger — starting from an empty one"
+      _ledger_state=absent
+    fi
+  fi
+  if [ "$_ledger_state" = absent ]; then
+    # First run (or a ledger nobody can read): start from an EMPTY ledger, so
+    # every key of this build's stage is dirty and takes its fingerprint only
+    # when its own purge batch succeeds (review of #11508). A baseline taken
+    # from R2 — even one listed before the sync — would mark clean a key an
+    # earlier run uploaded but never purged: R2 already holds the new bytes,
+    # the edge still serves the old ones, and this run's upload log is empty.
+    # The price is a purge of the whole bundle the first time, and no R2 listing
+    # at all on the push path. Measured on deploy 37271618085: 27,177 keys, of
+    # which 12,570 fit in the 300 s purge limit (419 batches of 30, ~0.7 s
+    # each). The purge therefore runs under a budget below that limit and
+    # always writes the ledger with the keys it did purge: the bundle converges
+    # over two or three deploys instead of starting from zero on each one.
+    printf '{"version":1,"keys":{}}\n' > "$_pdir/ledger-in.json"
+    _ledger_state=present
+    echo "::notice::[r2] no usable purge ledger — starting from an empty one: every assets/ key of this build is purged once and recorded as its batch succeeds"
+  fi
+  _r2_sync 420 "$stage/assets"    assets    "public,max-age=604800" "$_assets_log"
+  assets_sync_status=$?
+  if [ "$assets_sync_status" -eq 0 ]; then
+    assets_sync_ok=1
+  fi
+  _r2_sync 300 "$stage/og"        og        "public,max-age=86400"
+  local _image_namespaces=''
+  if [ -d "$stage/images/blog" ]; then
+    _image_namespaces=blog
+  fi
+  if [ -d "$stage/images/places" ]; then
+    if [ -n "$_image_namespaces" ]; then
+      _image_namespaces="${_image_namespaces},places"
+    else
+      _image_namespaces=places
+    fi
+  fi
+  if [ -n "$_image_namespaces" ]; then
+    if ! _r2_with_image_namespace_leases "$_image_namespaces" _r2_sync 120 "$stage/images" images "public,max-age=86400"; then
+      # An unleased or partially published image generation must not receive a
+      # completion marker. Keep the other R2 prefixes additive and retryable.
+      ok=0
+    fi
+  else
+    _r2_sync 120 "$stage/images" images "public,max-age=86400"
+  fi
+  _r2_sync 1800 "$stage/data"     data      "public,max-age=600"
+  _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
+  timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
+  # A purge is safe only for a complete, self-consistent R2 generation. This
+  # is deliberately a fresh read for every purge branch: the error path below
+  # can run after assets/ was copied but before the completion marker, and the
+  # marker PUT itself can fail after the payload has been written.
+  _r2_revalidate_publish_window() {
+    local _build_file="$_pdir/purge-build-id.txt"
+    local _start_file="$_pdir/purge-start-id.txt"
+    local _complete_file="$_pdir/purge-complete-id.txt"
+    local _marker _dest _build _start _complete _markers_valid=1
+    for _marker in cdn-build-id.txt cdn-publish-start-id.txt cdn-publish-complete-id.txt; do
+      case "$_marker" in
+        cdn-build-id.txt) _dest="$_build_file" ;;
+        cdn-publish-start-id.txt) _dest="$_start_file" ;;
+        cdn-publish-complete-id.txt) _dest="$_complete_file" ;;
+      esac
+      rm -f "$_dest" 2>/dev/null || true
+      if ! timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$bkt/$_marker" "$_dest" --retries=1; then
+        echo "::warning::[r2] skipping targeted CDN purge: could not revalidate build/start/complete markers immediately before purge"
+        return 1
+      fi
+      if [ ! -s "$_dest" ]; then
+        echo "::warning::[r2] skipping targeted CDN purge: R2 marker $bkt/$_marker is missing or empty"
+        return 1
+      fi
+    done
+    _build="$(tr -d '[:space:]' < "$_build_file")"
+    _start="$(tr -d '[:space:]' < "$_start_file")"
+    _complete="$(tr -d '[:space:]' < "$_complete_file")"
+    case "$_start" in ''|*[!0-9]*) _markers_valid=0 ;; esac
+    case "$_complete" in ''|*[!0-9]*) _markers_valid=0 ;; esac
+    if [ "$_markers_valid" != 1 ] || [ -z "${DEPLOY_BUILD_ID:-}" ] || [ "$_build" != "$DEPLOY_BUILD_ID" ] \
+      || [ "$_start" != "$_complete" ]; then
+      echo "::warning::[r2] skipping targeted CDN purge: publish window is not coherent (build=${_build:-<empty>} expected=${DEPLOY_BUILD_ID:-<empty>}, start=${_start:-<empty>}, complete=${_complete:-<empty>})"
+      return 1
+    fi
+    echo "::notice::[r2] CDN purge revalidated build/start/complete (build=$_build, publish-window=$_start)"
+    return 0
+  }
+  _purge_r2_changed_assets() {
+    local _prc=0
+    if [ "$assets_sync_ok" = 1 ] && [ "$_ledger_state" = present ]; then
+      # Stateful: --stage-dir is valid R2 state only because the assets sync
+      # exited 0 (see the script's header). The log still goes in (union).
+      # The script's own budget ends 45 s before `timeout`, so it stops
+      # starting batches and still writes the ledger; the kill is the backstop.
+      if _r2_revalidate_publish_window; then
+        CDN_PURGE_BUDGET_MS="$(( (_t_purge > 90 ? _t_purge - 45 : _t_purge / 2) * 1000 ))" \
+          timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+          --stage-dir="$stage/assets" --ledger-in="$_pdir/ledger-in.json" \
+          --ledger-out="$_pdir/ledger-out.json" --build-id="${DEPLOY_BUILD_ID:-}" || _prc=$?
+        if [ "$_prc" -ne 0 ]; then
+          echo "::error::[r2] targeted CDN asset purge exited $_prc (124 = over ${_t_purge}s) — ledger not updated, the next deploy re-diffs and retries"
+          rm -f "$_pdir/ledger-out.json" 2>/dev/null || true
+        fi
+        # Written only AFTER the purge, and only with what the script recorded:
+        # a key takes its new MD5 only if its own batch succeeded. no-store so a
+        # read of it is never an edge copy.
+        if [ -s "$_pdir/ledger-out.json" ]; then
+          timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_pdir/ledger-out.json" "$bkt/$_ledger_key" \
+            --header-upload "Content-Type: application/json; charset=utf-8" \
+            --header-upload "Cache-Control: no-store, max-age=0" \
+            || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
+        fi
+      fi
+    elif [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
+      # Fallback (stage unavailable): this run's uploads only. No budget here:
+      # without a ledger, a key the budget left untried would be forgotten
+      # (review of #11641); the script ignores CDN_PURGE_BUDGET_MS in this mode.
+      if _r2_revalidate_publish_window; then
+        timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+          || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
+      fi
+    elif [ "$assets_sync_ok" != 1 ]; then
+      echo "⚠️ [r2] assets/ sync failed — no edge purge this run; with a ledger, what it did upload stays dirty for the next deploy"
+    fi
+    rm -f "$_assets_log" 2>/dev/null || true
+    rm -rf "$_pdir" 2>/dev/null || true
+  }
   if [ "$ok" != 1 ]; then
     echo "⚠️ R2 payload sync had errors — NOT writing marker (shard gate keeps last good live)"
+    # A later prefix can fail after the assets sync has overwritten stable bundle
+    # URLs. Purge those changed assets before returning, but keep the marker
+    # withheld so other shards continue to gate on the last complete payload.
+    _purge_r2_changed_assets
     return 0
   fi
-  # Marker LAST (atomicity #2569): only now is this build's full payload on R2.
+  # Generation marker last (atomicity #2569): only now is this build's full
+  # payload on R2. Then close the publish window with the exact token written
+  # before the first payload mutation; watchdog observations are authoritative
+  # only while start == complete.
   printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
-  if "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
+  if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
        --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
-    export_env CDN_BASE "https://cdn.frontaliereticino.ch"
-    echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}"
+    if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-complete-id.txt" \
+         --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
+      export_env CDN_BASE "https://cdn.frontaliereticino.ch"
+      echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}; publish-window=$_publish_token"
+    else
+      echo "⚠️ R2 publish-complete marker PUT failed — offload stays unacknowledged and the full prep will retry"
+    fi
   else
     echo "⚠️ R2 marker PUT failed — offload skipped, og/data stay in dist"
   fi
-  # Invalidate the edge for EXACTLY the assets/ keys whose bytes just changed.
-  # Runs only past the `ok != 1` guard above, so the full payload is already on
-  # R2. Targeted (`--files=`, batches of 30) and never `purge_everything`: this
+  # Invalidate the edge for EXACTLY the assets/ keys whose bytes changed since
+  # the edge was last purged for them (ledger diff ∪ this run's uploads; the
+  # log alone when the ledger is unavailable). In this success path it runs
+  # after the marker, so the shard gate never waits on it; the `ok != 1` branch
+  # above runs it too, because a later prefix failing does not un-upload
+  # assets/. Targeted (`--files=`, batches of 30) and never `purge_everything`: this
   # host serves ~634k eyeball requests/day at a ~93% edge hit ratio, and
   # dropping all of that at once produces the cold-fill stampede against R2
   # whose edge→origin failures (`originResponseStatus: 0`) Cloudflare returns to
@@ -313,11 +662,7 @@ _publish_cdn_r2() {
   # Cache-Control comment for the queue jam that caused it. The jam is fixed;
   # the decoupling stays, because the failure mode it protects against is
   # "the publish chain stopped running", not "this particular bug existed".
-  if [ -s "$_assets_log" ]; then
-    node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-      || echo "::warning::targeted CDN asset purge failed — edge falls back to the 7d max-age"
-  fi
-  rm -f "$_assets_log" 2>/dev/null || true
+  _purge_r2_changed_assets
   # GC visibility scan (Refs #2886, follow-up of #2883's "GC storage R2
   # (janitor): skippato" deferral). DRY-RUN ONLY at this automatic call site —
   # see _janitor_cdn_r2's header comment for why. This just makes bucket growth
@@ -398,16 +743,21 @@ _janitor_cdn_r2() {
   cutoff_epoch=$(( $(date -u +%s) - grace_days * 86400 ))
 
   local aws_env=(env "AWS_ACCESS_KEY_ID=$R2_ACCESS_KEY_ID" "AWS_SECRET_ACCESS_KEY=$R2_SECRET_ACCESS_KEY" "AWS_DEFAULT_REGION=auto")
-  local AWS=("${aws_env[@]}" aws --endpoint-url "$R2_S3_ENDPOINT")
+  local AWS=("${aws_env[@]}" aws --endpoint-url "$R2_S3_ENDPOINT" --cli-connect-timeout 15 --cli-read-timeout 60)
+  # Wall-clock limits (NX-SKEW-2b, see _publish_cdn_r2): this scan runs inside
+  # the deploy's CDN push step on every deploy. Its listing measured 42-53 s.
+  local t_list t_obj
+  t_list="$(_r2_timeout_s R2_TIMEOUT_LIST_S 180)"
+  t_obj="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 60)"
 
   local active_list; active_list="$(mktemp)"
   ( cd "$stage/assets" && ls -1 ) > "$active_list" 2>/dev/null || true
 
   local listing; listing="$(mktemp)"
-  if ! "${AWS[@]}" s3api list-objects-v2 --bucket "$R2_BUCKET" --prefix "assets/" \
+  if ! timeout -k 10 "$t_list" "${AWS[@]}" s3api list-objects-v2 --bucket "$R2_BUCKET" --prefix "assets/" \
        --query 'Contents[].{Key:Key,Size:Size,LastModified:LastModified,ETag:ETag}' \
        --output json > "$listing" 2>/tmp/r2-janitor-list.err; then
-    echo "::warning::[r2-janitor] list-objects-v2 failed — $(cat /tmp/r2-janitor-list.err 2>/dev/null)"
+    echo "::warning::[r2-janitor] list-objects-v2 failed or exceeded ${t_list}s — $(cat /tmp/r2-janitor-list.err 2>/dev/null)"
     rm -f "$active_list" "$listing"
     return 0
   fi
@@ -460,14 +810,14 @@ _janitor_cdn_r2() {
     # Anti-clobber re-check (see header comment) — trust nothing older than
     # "right now".
     local live_etag
-    live_etag="$("${AWS[@]}" s3api head-object --bucket "$R2_BUCKET" --key "$key" \
+    live_etag="$(timeout -k 10 "$t_obj" "${AWS[@]}" s3api head-object --bucket "$R2_BUCKET" --key "$key" \
       --query 'ETag' --output text 2>/dev/null || true)"
     if [ -z "$live_etag" ] || [ "$live_etag" != "$etag" ]; then
       echo "[r2-janitor] skip (changed/vanished since scan): $key"
       skipped_changed=$((skipped_changed + 1))
       continue
     fi
-    if "${AWS[@]}" s3 rm "s3://$R2_BUCKET/$key" >/dev/null 2>&1; then
+    if timeout -k 10 "$t_obj" "${AWS[@]}" s3 rm "s3://$R2_BUCKET/$key" >/dev/null 2>&1; then
       deleted=$((deleted + 1))
     else
       echo "::warning::[r2-janitor] delete failed: $key"
@@ -492,7 +842,7 @@ step_push_cdn() {
   # applied inside each branch below (fail-closed): r2 → R2_* creds, pages →
   # CDN_DEPLOY_KEY.
   local cdn_target="${CDN_TARGET:-pages}"
-  stage=/tmp/cdn-stage
+  local stage="${CDN_STAGE_DIR:-${RUNNER_TEMP}/cdn-stage}"
   # Same leaked-staging-dir class fixed for push-locale-shard.sh /
   # push-section-shard.sh (issue #4734): $stage holds up to ~950 MB
   # (og+data+assets+images) and is never read again after this function
@@ -517,6 +867,35 @@ step_push_cdn() {
   [ -d dist/og ]           && cp -r dist/og           "$stage/og"
   [ -d dist/data ]         && cp -r dist/data         "$stage/data"
   [ -d dist/assets ]       && cp -r dist/assets       "$stage/assets"
+  # The GA4 static page_view producer is identity-bearing. New HTML points at
+  # a content-addressed gtag-init-<hash>.js, while the stable alias keeps old
+  # HTML alive during cache convergence. Fail closed if either side is absent:
+  # publishing only a legacy or only an unversioned producer can recreate the
+  # D18 untagged page_view gap.
+  if [ ! -d "$stage/assets" ]; then
+    echo "::error::CDN asset stage is missing dist/assets and cannot publish the GA4 producer" >&2
+    return 1
+  fi
+  local gtag_html_references html_scan_status gtag_reference_count gtag_versioned_filename
+  gtag_html_references="$(grep -RhoE --include='*.html' 'gtag-init-[0-9a-f]+\.js' dist | sort -u)"
+  html_scan_status=$?
+  if [ "$html_scan_status" -gt 1 ]; then
+    echo "::error::could not read generated HTML to resolve the current GA4 producer filename" >&2
+    return 1
+  fi
+  gtag_reference_count=0
+  if [ -n "$gtag_html_references" ]; then
+    gtag_reference_count="$(printf '%s\n' "$gtag_html_references" | wc -l | tr -d '[:space:]')"
+  fi
+  if [ "$gtag_reference_count" -ne 1 ]; then
+    echo "::error::generated HTML must reference exactly one content-addressed GA4 producer (found ${gtag_reference_count})" >&2
+    return 1
+  fi
+  gtag_versioned_filename="$gtag_html_references"
+  if [ ! -f "$stage/assets/gtag-init.js" ] || [ ! -f "$stage/assets/$gtag_versioned_filename" ]; then
+    echo "::error::CDN asset stage must contain gtag-init.js and the current HTML producer $gtag_versioned_filename" >&2
+    return 1
+  fi
   # Canton-drift 404-recovery shard map (jobCanonRedirectMapPlugin, ~29 MB /
   # 400 shards): runtime-fetch only (public/404.html + the Worker), no static
   # HTML ref to rewrite, so the offload script just deletes dist/job-canon
@@ -539,6 +918,9 @@ step_push_cdn() {
   # it mirrors, in the same run, via scripts/lib/upload-cdn-file.sh. Do not add
   # it back: a deploy has no source to push from, and re-adding it would make
   # this loop's silence look like coverage.
+  # The generated event library follows the same rule: its WebP bytes never
+  # enter dist or git; scripts/upload-event-image-library-cdn.mjs publishes
+  # images/events/library/<assetId>.webp directly to R2 before its data PR.
   #
   # Nothing is lost at the edge by dropping it: the R2 publish path
   # (_publish_cdn_r2, CDN_TARGET=r2) is `rclone copy` — additive, never
@@ -911,9 +1293,11 @@ main() {
     if [ -n "${CDN_BASE:-}" ]; then
       echo "✅ early CDN push complete — CDN_BASE exported, the full prep will skip its own push"
     else
-      # NOT an error: the full prep below still performs the push at its
-      # original position, exactly as before this phase existed.
-      echo "::warning::[deploy-it-pages-prep] early CDN push did not publish (CDN_BASE unset) — the full prep will retry it at its original position"
+      # The full prep still retries at its original position, but the caller
+      # must see a non-zero outcome so section shards do not publish HTML that
+      # points at this build's not-yet-published global assets in the gap.
+      echo "::error::[deploy-it-pages-prep] early CDN push did not publish (CDN_BASE unset) — section shard publication must wait for the full retry"
+      return 1
     fi
     return 0
   fi
@@ -941,4 +1325,10 @@ main() {
   echo "✅ deploy-it-pages-prep complete"
 }
 
-main "$@"
+# Run only when executed (`bash deploy-it-pages-prep.sh`, as deploy.yml does).
+# Sourced, it only defines the functions: that is how the janitor's manual
+# `. deploy-it-pages-prep.sh; _janitor_cdn_r2 <stage> apply` recipe above and
+# tests/r2-calls-bounded.test.ts call one function without the whole prep.
+if [ "${BASH_SOURCE[0]}" = "$0" ]; then
+  main "$@"
+fi

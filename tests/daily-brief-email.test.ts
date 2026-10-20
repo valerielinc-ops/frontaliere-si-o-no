@@ -158,6 +158,60 @@ describe('the four data blocks', () => {
     expect(build({ locale: 'it' }).html).toContain('1,528');
     expect(build({ locale: 'en' }).html).toContain('1.528');
   });
+
+  it('keeps the jobs topic and CTA with an active total when the daily count is unavailable', () => {
+    const localeSettings = {
+      it: { numberLocale: 'it-IT', activeTitle: 'Annunci attivi in Svizzera', cta: 'Cerca lavoro in Ticino e in Svizzera' },
+      en: { numberLocale: 'en-GB', activeTitle: 'Active Swiss job listings', cta: 'Search jobs in Ticino and Switzerland' },
+      de: { numberLocale: 'de-DE', activeTitle: 'Aktive Stellenanzeigen in der Schweiz', cta: 'Stellen im Tessin und in der Schweiz suchen' },
+      fr: { numberLocale: 'fr-FR', activeTitle: 'Offres actives en Suisse', cta: 'Chercher un emploi au Tessin et en Suisse' },
+    } as const;
+    const fallbackBrief = {
+      ...BRIEF,
+      blocks: {
+        ...BRIEF.blocks,
+        jobs: { available: true, activeJobs: 22645, activeCompanies: null, yesterdayAdded: null, last7dAdded: 4869 },
+      },
+    };
+    const validZeroBrief = {
+      ...BRIEF,
+      blocks: { ...BRIEF.blocks, jobs: { ...BRIEF.blocks.jobs, activeCompanies: null, yesterdayAdded: 0 } },
+    };
+
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const settings = localeSettings[locale];
+      const sections = briefSections(fallbackBrief, locale);
+      const jobs = sections.find((section) => section.key === 'jobs');
+      const validZero = briefSections(validZeroBrief, locale).find((section) => section.key === 'jobs');
+      const expectedActive = new Intl.NumberFormat(settings.numberLocale).format(22645);
+
+      expect(sections.map((section) => section.key)).toEqual(['borderWait', 'fuel', 'exchange', 'jobs']);
+      expect(jobs).toBeDefined();
+      expect(jobs?.title).toBe(settings.activeTitle);
+      expect(jobs?.headline).toBe(expectedActive);
+      expect(jobs?.support).toBe('');
+      expect(jobs?.text).toContain(expectedActive);
+      expect(jobs?.text).toContain(settings.activeTitle);
+      expect(jobs?.text).not.toMatch(/0 (?:aziende|companies|Unternehmen|entreprises)/i);
+      expect(jobs?.move).toBeUndefined();
+      expect(jobs?.ctaLabel).toBe(settings.cta);
+      expect(jobs?.ctaUrl).toBe(validZero?.ctaUrl);
+
+      // A numeric zero is still an attested daily count. Null alone selects the
+      // active-total fallback and must not reinterpret zero as missing.
+      expect(validZero?.title).toBe(locale === 'it' ? 'Lavoro' : locale === 'en' ? 'Jobs' : locale === 'de' ? 'Stellen' : 'Emploi');
+      expect(validZero?.headline).toBe('+0');
+    }
+  });
+
+  it('does not turn a missing active total into zero when there is no daily count either', () => {
+    const thin = {
+      ...BRIEF,
+      blocks: { ...BRIEF.blocks, jobs: { available: true, activeJobs: null, activeCompanies: null, yesterdayAdded: null } },
+    };
+    expect(briefSections(thin, 'it').map((section) => section.key)).toEqual(['borderWait', 'fuel', 'exchange']);
+    expect(build({ brief: thin }).html).not.toContain('0 annunci attivi');
+  });
 });
 
 describe('the cadence disclosure', () => {

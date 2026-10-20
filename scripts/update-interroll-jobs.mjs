@@ -6,18 +6,23 @@
  *   https://www.interroll.com/company/careers/jobs/
  * Detail pages at: /company/careers/jobs/job-detail/{slug}
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, isConnectionLevelFetchError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
+import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseListingPage, isSwissLocation, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/interroll-job-parser.mjs';
+import { parseListingPage, classifyInterrollListings, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, extractInterrollJobBody } from './lib/interroll-job-parser.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -72,47 +77,129 @@ function isCompanyJob(job) {
 function isTrustedDomain(rawUrl = '') { try { return new URL(rawUrl).hostname.toLowerCase().includes('interroll.com'); } catch { return false; } }
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'en,it-CH;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.text();
-  } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'Accept-Language': 'en,it-CH;q=0.9',
+      'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    },
+  });
 }
 
-async function fetchJobs() {
+const DETAIL_DELAY_MS = 1000;
+
+/**
+ * Build one Interroll job from its listing row, its site and the vacancy text
+ * of its detail page (issue 5253). The crawler used to be listing-only and
+ * published an invented English sentence ("X position at Interroll Group in
+ * …, Interroll is a global technology company …") as the whole description.
+ * Only the source text is published now; without at least 50 words of it the
+ * job is not published (returns null) — the merge keeps a stored record.
+ */
+export function buildInterrollJob(raw, site, body = '') {
+  const description = String(body || '').trim();
+  if (!meetsSourceBodyFloor(description)) return null;
+  const slug = slugify(raw.title, 'interroll');
+  const sourceLang = detectLang(description, 'en');
+  return {
+    url: raw.url, applyUrl: raw.url, title: raw.title,
+    company: COMPANY_NAME, companyKey: COMPANY_KEY,
+    location: site.location, canton: site.canton, country: 'CH',
+    addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
+    postalCode: site.postalCode, streetAddress: site.streetAddress,
+    description,
+    ...sourceSlotTitleAndSlug(raw.title, slug, sourceLang),
+    descriptionByLocale: { [sourceLang]: description },
+    slug,
+    category: detectCategory(raw.title),
+    ...sourcePostingDateFields(),
+    source: 'interroll-careers-crawler', employmentType: inferEmploymentType(raw.title, description),
+    sourceLang,
+    experienceLevel: detectExperienceLevel(raw.title),
+    sector: 'Industria / Logistica',
+  };
+}
+
+async function fetchJobs(summaryCounts = null) {
   console.log(`🔍 Fetching Interroll jobs from ${CAREERS_URL}`);
-  const html = await fetchPage(CAREERS_URL, 25000);
-  if (!html) { console.error('❌ Failed to fetch Interroll careers page.'); return []; }
+  let html;
+  try {
+    html = await fetchPage(CAREERS_URL, 25000);
+  } catch (err) {
+    // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
+    if (summaryCounts) {
+      summaryCounts.discovered = 0;
+      summaryCounts.parsed = 0;
+      summaryCounts.lastFetchOutcome = isConnectionLevelFetchError(err)
+        ? 'connection_error'
+        : 'feed_endpoint_unavailable';
+      summaryCounts.abortKind = isConnectionLevelFetchError(err)
+        ? 'connection-level-fetch'
+        : 'no-jobs-parsed';
+      summaryCounts.authoritativeEmptySnapshot = false;
+    }
+    console.error(`❌ Failed to fetch Interroll careers page: ${err.message}`);
+    return [];
+  }
+
+  if (!html) {
+    if (summaryCounts) {
+      summaryCounts.discovered = 0;
+      summaryCounts.parsed = 0;
+      summaryCounts.lastFetchOutcome = 'selector_miss';
+      summaryCounts.abortKind = 'no-jobs-parsed';
+      summaryCounts.authoritativeEmptySnapshot = false;
+    }
+    console.error('❌ Interroll careers page returned no HTML.');
+    return [];
+  }
+
   const listings = parseListingPage(html);
-  console.log(`  📋 Total jobs: ${listings.length}`);
-  const swissJobs = listings.filter((j) => isSwissLocation(j.location));
+  const classification = classifyInterrollListings(listings);
+  if (summaryCounts) {
+    summaryCounts.discovered = classification.discovered;
+    summaryCounts.lastFetchOutcome = classification.lastFetchOutcome;
+    summaryCounts.authoritativeEmptySnapshot = classification.authoritativeEmptySnapshot;
+  }
+  console.log(`  📋 Total jobs: ${classification.discovered}`);
+  const swissJobs = classification.listings;
   console.log(`  🇨🇭 Swiss jobs: ${swissJobs.length}`);
 
   const mapped = [];
-  for (const raw of swissJobs) {
+  for (const [index, raw] of swissJobs.entries()) {
     const site = resolveInterrollSiteAddress(raw.location);
     if (!site) {
       console.log(`  ⏭️ Skipping job at unknown Interroll Swiss site: "${raw.title}" (${raw.location})`);
       continue;
     }
-    const slug = slugify(raw.title, 'interroll');
-    mapped.push({
-      url: raw.url, applyUrl: raw.url, title: raw.title,
-      company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: site.location, canton: site.canton, country: 'CH',
-      addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
-      postalCode: site.postalCode, streetAddress: site.streetAddress,
-      description: `${raw.title} position at Interroll Group in ${site.location}, ${site.canton}. Interroll is a global technology company providing material handling solutions.`,
-      titleByLocale: { en: raw.title }, descriptionByLocale: {},
-      slug, slugByLocale: { en: slug, it: slug },
-      category: detectCategory(raw.title),
-      datePosted: new Date().toISOString().split('T')[0],
-      source: 'interroll-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
-      sourceLang: detectLang(raw.title, 'en'),
-      experienceLevel: detectExperienceLevel(raw.title),
-      sector: 'Industria / Logistica',
-    });
+    if (index > 0) await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+    let detailHtml = '';
+    try {
+      detailHtml = await fetchPage(raw.url);
+    } catch (err) {
+      console.warn(`⚠️ Fetch failed for ${raw.url}: ${err.message}`);
+    }
+    const job = buildInterrollJob(raw, site, extractInterrollJobBody(detailHtml));
+    if (!job) {
+      console.log(`  ⏭️ ${raw.title}: no readable vacancy text on the detail page — not published this run`);
+      continue;
+    }
+    mapped.push(job);
+  }
+
+  if (summaryCounts) {
+    summaryCounts.parsed = mapped.length;
+    summaryCounts.lastFetchOutcome = mapped.length > 0
+      ? 'ok'
+      : classification.lastFetchOutcome === 'filtered_empty'
+        ? 'filtered_empty'
+        : 'selector_miss';
+    summaryCounts.authoritativeEmptySnapshot = mapped.length === 0
+      && classification.authoritativeEmptySnapshot;
+    summaryCounts.abortKind = summaryCounts.lastFetchOutcome === 'filtered_empty' || mapped.length > 0
+      ? null
+      : 'no-jobs-parsed';
   }
   return mapped;
 }
@@ -132,7 +219,10 @@ async function mergeJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs).map((job) => {
+    dropStaleLocaleDescriptions(job);
+    return job;
+  });
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -149,15 +239,86 @@ function updateAdapterConfig(seedUrls) {
   fs.writeFileSync(p, JSON.stringify(a, null, 2) + '\n');
 }
 
+function writeInterrollSummary({ counts, sliceJobs = [], diff = null }) {
+  const summaryDiff = diff || {
+    newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [], unchangedCount: 0,
+  };
+  const durationMs = getCrawlerElapsedMs();
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: COMPANY_NAME,
+    generatedAt: new Date().toISOString(),
+    total: sliceJobs.length,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: sliceJobs.length,
+    lastFetchOutcome: counts.lastFetchOutcome,
+    abortKind: counts.abortKind,
+    authoritativeEmptySnapshot: counts.authoritativeEmptySnapshot === true && sliceJobs.length === 0,
+    newCount: summaryDiff.newJobs.length,
+    updatedCount: summaryDiff.updatedJobs.length,
+    removedCount: summaryDiff.removedJobs.length,
+    unchangedCount: summaryDiff.unchangedCount,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: summaryDiff.newJobs.slice(0, 30),
+    updatedJobs: summaryDiff.updatedJobs.slice(0, 30),
+    removedJobs: summaryDiff.removedJobs.slice(0, 30),
+    unchangedJobs: (summaryDiff.unchangedJobs || []).slice(0, 30),
+  });
+}
+
+async function publishAuthoritativeEmptySnapshot(beforeSnapshot, counts) {
+  const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob);
+  const diff = computeCrawlDiff(beforeSnapshot, snapshotJobSlugs([]));
+  const archived = archiveRemovedJobsToSlice(priorJobs, COMPANY_KEY);
+  if (archived > 0) {
+    console.log(`📦 Archived ${archived} expired Interroll job(s) → data/jobs/expired/by-crawler/${COMPANY_KEY}.json`);
+  }
+
+  // The source read proved that the complete global board has no Swiss card.
+  // Accept the deliberate N→0 shrink and publish the proof with the summary;
+  // an unproven/partial zero stays on the preserving heartbeat path below.
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, [], {
+    isTargetJob: isCompanyJob,
+    skipShrinkGuard: true,
+  });
+  writeInterrollSummary({ counts, sliceJobs: [], diff });
+  await assembleJobsDataset();
+}
+
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    authoritativeEmptySnapshot: false,
+  };
+  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME, summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Interroll Group — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
-    const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
-  const discovered = await fetchJobs();
-  if (!discovered.length) { console.log('⚠️ No Interroll Swiss jobs discovered.'); return; }
+  const beforeSnapshot = snapshotJobSlugs(
+    readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+  );
+  const discovered = await fetchJobs(summaryCounts);
+  if (!discovered.length) {
+    if (summaryCounts.lastFetchOutcome === 'filtered_empty') {
+      if (summaryCounts.authoritativeEmptySnapshot) {
+        console.log('✅ Interroll global board was read with no Swiss listings; publishing the verified empty snapshot.');
+        await publishAuthoritativeEmptySnapshot(beforeSnapshot, summaryCounts);
+      } else {
+        console.log('⚠️ No Interroll Swiss jobs found after filtering; publishing a filtered-empty heartbeat and preserving the existing slice.');
+        writeInterrollSummary({ counts: summaryCounts });
+      }
+    } else {
+      console.log('⚠️ No Interroll Swiss jobs discovered; preserving the existing slice.');
+    }
+    return;
+  }
   updateAdapterConfig(discovered.map((j) => j.url));
   await mergeJobs(discovered);
   console.log('\n🌐 Running base crawler for AI localization...');
@@ -166,12 +327,15 @@ async function main() {
   const afterSnapshot = snapshotJobSlugs((readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob));
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(diff, COMPANY_NAME); writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
-  const _dur = getCrawlerElapsedMs();
   const _sliceJobs = (readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob);
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
+  writeInterrollSummary({ counts: summaryCounts, sliceJobs: _sliceJobs, diff });
   await assembleJobsDataset();
   console.log('\n✅ Interroll crawler complete.');
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Interroll'));
+// Guarded so tests can import the helpers without running a live crawl that
+// writes the slice and the summary under data/.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Interroll'));
+}

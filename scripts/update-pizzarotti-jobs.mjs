@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,12 +29,16 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import {
   parsePizzarottiListings,
   parsePizzarottiPageCount,
-  isPizzarottiSwissLocation,
+  classifyPizzarottiListings,
+  isPizzarottiClassifiableLocation,
+  resolvePizzarottiDetailUrl,
   inferPizzarottiCanton,
   parsePizzarottiJobDetail,
+  resolvePizzarottiLocation,
   buildPizzarottiLocalizedContent,
 } from './lib/pizzarotti-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -87,6 +92,31 @@ async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
   });
 }
 
+async function resolveUnclassifiedPizzarottiListing(listing) {
+  if (isPizzarottiClassifiableLocation(listing.location)) return listing;
+
+  try {
+    const detailUrl = resolvePizzarottiDetailUrl(listing.href, LISTING_BASE_URL);
+    const detailHtml = await fetchText(detailUrl);
+    const detail = parsePizzarottiJobDetail(detailHtml);
+    const location = resolvePizzarottiLocation(listing, detail);
+    if (!location || location === listing.location) return listing;
+    console.log(`  🔎 Resolved ${listing.title} location from detail page: ${location}`);
+    return { ...listing, location, detailHtml };
+  } catch (error) {
+    console.warn(`⚠️  Could not resolve ${listing.title} location from detail page: ${error.message}`);
+    return listing;
+  }
+}
+
+async function resolveUnclassifiedPizzarottiListings(listings) {
+  const resolved = [];
+  for (const listing of listings) {
+    resolved.push(await resolveUnclassifiedPizzarottiListing(listing));
+  }
+  return resolved;
+}
+
 function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
@@ -117,7 +147,7 @@ function inferCategory(detail = {}) {
   return 'construction';
 }
 
-async function fetchPizzarottiListings() {
+async function fetchPizzarottiListings(summaryCounts = null) {
   console.log('🔍 Fetching Pizzarotti jobs from InRecruiting listing...');
   const firstPageHtml = await fetchText(LISTING_BASE_URL);
   const totalPages = parsePizzarottiPageCount(firstPageHtml);
@@ -140,30 +170,55 @@ async function fetchPizzarottiListings() {
     return true;
   });
 
-  // Filter for Swiss locations only
-  const target = allListings.filter((row) => isPizzarottiSwissLocation(row.location));
-  console.log(`📋 Total unique listing rows: ${allListings.length}`);
-  console.log(`📋 Swiss-located rows: ${target.length}`);
-  for (const row of target) {
+  allListings = await resolveUnclassifiedPizzarottiListings(allListings);
+  const discovery = classifyPizzarottiListings(allListings);
+  if (summaryCounts) {
+    summaryCounts.discovered = discovery.discovered;
+    summaryCounts.parsed = discovery.listings.length;
+    summaryCounts.lastFetchOutcome = discovery.lastFetchOutcome;
+  }
+  console.log(`📋 Total unique listing rows: ${discovery.discovered}`);
+  console.log(`📋 Swiss-located rows: ${discovery.listings.length}`);
+  for (const row of discovery.listings) {
     console.log(`  📄 ${row.title} (${row.location})`);
   }
-  if (target.length < 1) {
-    console.warn(`⚠️  No Swiss-located Pizzarotti jobs found. Current listings are all in Italy.`);
-    return [];
+  if (discovery.discovered === 0) {
+    if (summaryCounts) {
+      summaryCounts.parsed = 0;
+      summaryCounts.lastFetchOutcome = 'selector_miss';
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
+    throw new Error('Pizzarotti listing page produced no vacancy cards; refusing to publish an empty snapshot.');
   }
-  return target;
+  if (discovery.listings.length === 0 && discovery.unclassifiedLocationCount > 0) {
+    if (summaryCounts) {
+      summaryCounts.parsed = 0;
+      summaryCounts.lastFetchOutcome = 'selector_miss';
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
+    throw new Error(
+      `Pizzarotti listing page left ${discovery.unclassifiedLocationCount}/${discovery.discovered} vacancy location(s) unclassified; refusing to publish a filtered-empty snapshot.`,
+    );
+  }
+  if (discovery.listings.length < 1) {
+    console.warn(`⚠️  No Swiss-located Pizzarotti jobs found. Current listings are all in Italy.`);
+  }
+  return discovery;
 }
 
 async function buildPizzarottiJob(listing) {
-  const html = await fetchText(listing.href);
+  const detailUrl = resolvePizzarottiDetailUrl(listing.href, LISTING_BASE_URL);
+  const html = listing.detailHtml || await fetchText(detailUrl);
   const detail = parsePizzarottiJobDetail(html);
-  const canton = inferPizzarottiCanton(`${detail.location} ${listing.location}`);
-  const localized = buildPizzarottiLocalizedContent(detail, COMPANY_NAME);
-  const sourceUrl = detail.shareUrl || listing.href;
+  const location = resolvePizzarottiLocation(listing, detail);
+  const canton = inferPizzarottiCanton(location);
+  const sourceLang = sourceLangOfBody(detail.description || listing.teaser || '', 'it');
+  const localized = buildPizzarottiLocalizedContent(detail, COMPANY_NAME, sourceLang);
+  const sourceUrl = resolvePizzarottiDetailUrl(detail.shareUrl || listing.href, LISTING_BASE_URL);
   const canonicalTitle = detail.title || listing.title;
   const canonicalSlug =
-    localized.slugByLocale.it ||
-    normalizeKey(`${canonicalTitle} ${COMPANY_NAME} ${detail.location || listing.location}`);
+    localized.slug ||
+    normalizeKey(`${canonicalTitle} ${COMPANY_NAME} ${location}`);
   return {
     title: canonicalTitle,
     slug: canonicalSlug,
@@ -172,8 +227,8 @@ async function buildPizzarottiJob(listing) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: detail.location || listing.location,
-    addressLocality: detail.location || listing.location,
+    location,
+    addressLocality: location,
     addressRegion: canton,
     addressCountry: 'CH',
     canton,
@@ -181,8 +236,9 @@ async function buildPizzarottiJob(listing) {
     category: inferCategory(detail),
     sector: 'Costruzioni & Infrastrutture',
     source: 'pizzarotti-dedicated-crawler',
-    sourceLang: detectLang(detail.description || listing.teaser || '', 'it'),
-    postedDate: new Date().toISOString().slice(0, 10),
+    sourceLang,
+    ...sourcePostingDateFields(''),
+    crawledAt: new Date().toISOString(),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
@@ -216,10 +272,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, job),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
@@ -244,7 +303,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -278,19 +337,18 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'pizzarotti');
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'pizzarotti', summaryCounts);
   console.log('═══════════════════════════════════════════════════');
   console.log('  Impresa Pizzarotti & C. S.p.A. — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const listings = await fetchPizzarottiListings();
-  if (listings.length === 0) {
-    console.log('\nℹ️  No Swiss-located jobs found. Skipping merge & translation.');
-    updateAdapterConfig([]);
-    console.log('✅ Pizzarotti crawler complete (0 Swiss jobs).');
-    return;
-  }
+  const discovery = await fetchPizzarottiListings(summaryCounts);
+  const listings = discovery.listings;
+  summaryCounts.discovered = discovery.discovered;
+  summaryCounts.parsed = listings.length;
+  summaryCounts.lastFetchOutcome = discovery.lastFetchOutcome;
 
   const jobs = [];
   for (const listing of listings) {
@@ -302,10 +360,12 @@ async function main() {
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Pizzarotti jobs...');
-  await translateMissingJobLocales({
-    dataJobsPath: DATA_JOBS,
-    isTargetJob,
-  });
+  if (jobs.length > 0) {
+    await translateMissingJobLocales({
+      dataJobsPath: DATA_JOBS,
+      isTargetJob,
+    });
+  }
 
   validateLocales();
   console.log(`\n✅ Pizzarotti crawler complete (${result.total} Swiss job(s)).`);
@@ -314,12 +374,24 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  // A non-empty source filtered to zero Swiss rows is a verified geography
+  // result, not a degraded fetch. Allow that explicit empty snapshot through
+  // the generic shrink guard; zero parsed cards still fails in
+  // fetchPizzarottiListings() above.
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, {
+    skipShrinkGuard: discovery.lastFetchOutcome === 'filtered_empty',
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'pizzarotti',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: summaryCounts.discovered,
+    parsed: summaryCounts.parsed,
+    written: _sliceJobs.length,
+    lastFetchOutcome: summaryCounts.lastFetchOutcome,
+    authoritativeEmptySnapshot: discovery.authoritativeEmptySnapshot === true,
+    authoritativeSnapshotVerified: discovery.authoritativeEmptySnapshot === true,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

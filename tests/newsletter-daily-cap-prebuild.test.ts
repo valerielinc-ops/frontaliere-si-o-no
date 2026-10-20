@@ -49,12 +49,12 @@ describe('capSubscribersToDailyLimit', () => {
 });
 
 describe('send pipeline order', () => {
-  it('applies the daily cap before Phase 1 (job matching) and Phase 2 (AI briefings)', () => {
+  it('applies the daily cap before Phase 1 (job matching) and Phase 2 (combined AI content)', () => {
     const src = readFileSync(resolve(__dirname, '../scripts/send-newsletter.mjs'), 'utf8');
     const main = src.slice(src.indexOf('async function main()'));
     const cap = main.indexOf('capSubscribersToDailyLimit(subscribers, DAILY_SEND_LIMIT)');
     const phase1 = main.indexOf('Phase 1: Job matching');
-    const phase2 = main.indexOf('Phase 2: AI briefings');
+    const phase2 = main.indexOf('Phase 2: combined AI content');
     expect(cap).toBeGreaterThan(-1);
     expect(cap).toBeLessThan(phase1);
     expect(cap).toBeLessThan(phase2);

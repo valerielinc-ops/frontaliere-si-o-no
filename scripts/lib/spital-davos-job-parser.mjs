@@ -28,8 +28,10 @@
  *   - isTrustedDomain()          — Validate URLs belong to this company
  *   - slugify() / stripHtml()    — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
@@ -282,7 +284,7 @@ function extractElementText(rowHtml, elementId) {
   const regex = new RegExp(`tableaslist_element_${elementId}"[^>]*>([\\s\\S]*?)(?:<\\/p\\s*>|<\\/h3\\s*>|<\\/li\\s*>)`);
   const match = rowHtml.match(regex);
   if (!match) return '';
-  return normalizeSpace(decodeEntities(stripHtml(match[1])));
+  return normalizeSpace(stripHtml(match[1]));
 }
 
 /**
@@ -320,7 +322,7 @@ export function parseSpitalDavosDetailPage(html = '', fallbackTitle = '') {
   // Intro text from #einleitung_text
   const introMatch = html.match(/<div\s+id="einleitung_text"[^>]*>([\s\S]*?)<\/div>/);
   if (introMatch) {
-    const introText = normalizeSpace(stripHtml(decodeEntities(introMatch[1])));
+    const introText = normalizeSpace(stripHtml(introMatch[1]));
     if (introText.length > 20) blocks.push(introText);
   }
 
@@ -331,7 +333,7 @@ export function parseSpitalDavosDetailPage(html = '', fallbackTitle = '') {
 
   while ((contentMatch = contentRegex.exec(html)) !== null) {
     const rawContent = contentMatch[1];
-    const cleaned = normalizeSpace(stripHtml(decodeEntities(rawContent)));
+    const cleaned = normalizeSpace(stripHtml(rawContent));
     // Skip very short blocks (metadata, empty sections) and CTA/apply blocks
     if (cleaned.length > 20 && !/^(Sind Sie bereit|Online bewerben|Die Rekrutierung erfolgt)/.test(cleaned)) {
       blocks.push(cleaned);
@@ -435,7 +437,10 @@ export async function fetchAllSpitalDavosJobs() {
     const location = 'Davos';
     const canton = 'GR';
 
-    const fallbackDesc = `${title} — Spital Davos, Davos`;
+    // Only the posting's own text (issue 5253): no "<title> — Spital Davos, <place>"
+    // line in place of a missing body. A body under the common 50-word floor
+    // gives no description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} spital-davos ch`);
@@ -458,8 +463,8 @@ export async function fetchAllSpitalDavosJobs() {
       companyDomain: SPITAL_DAVOS_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton,
       url: listing.detailUrl,
@@ -479,7 +484,7 @@ export async function fetchAllSpitalDavosJobs() {
       sector: 'Sanità / Assistenza',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(''),
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

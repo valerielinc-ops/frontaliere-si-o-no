@@ -18,8 +18,10 @@
  * "Spontanbewerbung" which we skip.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { textFragmentUrl } from './text-fragment-url.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -158,6 +160,20 @@ export function parseKlinikSeeschauListing(html = '') {
   return out;
 }
 
+/**
+ * Merge key of a Klinik Seeschau record: its id (digest of the title), not
+ * its URL. The stored records carry `#job-<hash>` URLs and #10334 publishes
+ * the same postings under text fragments of their headings; keyed by URL the
+ * next crawl would retire both and publish them again as new jobs, without
+ * their translations and slugs.
+ *
+ * @param {{ id?: string, url?: string }} job
+ * @returns {string}
+ */
+export function klinikSeeschauMatchKey(job = {}) {
+  return String(job?.id || job?.url || '');
+}
+
 export async function fetchAllKlinikSeeschauJobs() {
   console.log(`🏥 Fetching ${KLINIK_SEESCHAU_COMPANY_NAME} jobs`);
   console.log(`   Careers: ${KLINIK_SEESCHAU_CAREERS_URL}\n`);
@@ -166,7 +182,6 @@ export async function fetchAllKlinikSeeschauJobs() {
   console.log(`  ✓ ${items.length} job entries parsed (skipping Spontanbewerbung)`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of items) {
     const baseText = it.descriptionText || it.title;
@@ -184,7 +199,10 @@ export async function fetchAllKlinikSeeschauJobs() {
       .update(`${KLINIK_SEESCHAU_KEY}:${it.title.toLowerCase()}`)
       .digest('hex')
       .slice(0, 12);
-    const jobUrl = `${KLINIK_SEESCHAU_CAREERS_URL}#job-${stableId}`;
+    // The listing IS the detail and has no per-ad id: the ad is addressed by
+    // its heading (text fragment), not by an invented `#job-<hash>` anchor
+    // the page does not have (issue 5253).
+    const jobUrl = textFragmentUrl(KLINIK_SEESCHAU_CAREERS_URL, it.title);
 
     jobs.push({
       id: `${KLINIK_SEESCHAU_KEY}-${stableId}`,
@@ -216,7 +234,8 @@ export async function fetchAllKlinikSeeschauJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // The parsed vacancy record carries no verified publication date.
+      ...sourcePostingDateFields(''),
       applyUrl: KLINIK_SEESCHAU_CAREERS_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

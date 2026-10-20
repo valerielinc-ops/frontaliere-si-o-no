@@ -274,6 +274,22 @@ function markRetryBudgetExhaustedResponse(response) {
 }
 
 /**
+ * Whether a fetch failure or response exhausted the bounded transient retry
+ * budget. Callers use this marker to preserve their last valid snapshot while
+ * still recording the failed refresh for the health monitor.
+ */
+export function isRetryBudgetExhausted(value) {
+  const seen = new Set();
+  for (let current = value; current && (typeof current === 'object' || typeof current === 'function') && !seen.has(current); current = current.cause) {
+    seen.add(current);
+    if (current.retryBudgetExhausted === true || current.retryExhausted === true) return true;
+    const response = current.response;
+    if (response?.retryBudgetExhausted === true || response?.retryExhausted === true) return true;
+  }
+  return false;
+}
+
+/**
  * Run an async fetch operation with exponential backoff + jitter on transient
  * failures (429/5xx, network errors, timeouts). 4xx and other persistent
  * errors fail fast. Defaults: 3 retries → backoff 1s/2s/4s (+ jitter).

@@ -37,6 +37,8 @@ export * from './engine/shared/articleSectionDescriptors';
 export * from './engine/shared/faqQuestionPrefixes';
 export * from './engine/shared/stripMarkdownPlain';
 export * from './engine/shared/swissArticleCanonicalOverrides';
+export * from './engine/shared/generatedImageRegistry.mjs';
+export * from './engine/shared/eventImageLibrary.mjs';
 
 // ── Article content + slug/id registries ────────────────────────────────
 // content/blog-articles-data.ts declares `Article`; swiss-articles-data.ts

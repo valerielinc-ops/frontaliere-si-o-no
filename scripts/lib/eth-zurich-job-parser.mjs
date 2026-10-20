@@ -21,10 +21,14 @@
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -50,15 +54,7 @@ function normalizeSpace(s = '') {
 }
 
 function decodeHtmlEntities(s = '') {
-  return String(s)
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)));
+  return decodeHTML(String(s || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 async function fetchText(url) {
@@ -230,21 +226,45 @@ function parseListings(html) {
 /**
  * Pure HTML→text extraction for ETH Zürich detail pages. Exported so
  * fixture-based tests can exercise selector changes without hitting the
- * network. ETH refreshed their jobs site (2026-05) to use a single
- * `<section class="description">` wrapping the whole posting body, with
- * named child blocks like `<div class="paragraph description__paragraph">`.
- * The legacy `<div class="job-ad-text">` selector still works on some
- * older pages, so we keep it as a fallback.
+ * network. ETH refreshed their jobs site (2026-05): the posting body is a
+ * `<section class="description">` (heading, workload line, paragraph blocks),
+ * followed by `<section class="application">` («Curious? So are we.»: the
+ * documents to send and the deadline) and a second `section.description`
+ * holding the «About ETH Zürich» employer paragraph. All three are part of the
+ * ad and are read in page order; the print link, the apply button and the
+ * embedded video/map are not. The legacy `<div class="job-ad-text">` selector
+ * still works on some older pages, so we keep it as a fallback.
+ *
+ * No length cap: a `.slice(0, 4000)` here cut long doctoral postings in the
+ * middle of their task list (issue 5253).
  */
 export function extractEthZurichDetailDescription(html = '') {
   if (!html) return '';
-  const blockMatch =
-    html.match(/<section[^>]*\bclass="[^"]*\bdescription\b[^"]*"[^>]*>([\s\S]*?)<\/section>/i) ||
-    html.match(/<div[^>]*class="[^"]*\bjob-ad-text\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
-    html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
-    html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-  if (!blockMatch) return '';
-  const text = stripHtml(decodeHtmlEntities(blockMatch[1]));
+  const page = String(html)
+    .replace(/<script\b[\s\S]*?<\/script\s*>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style\s*>/gi, ' ');
+  const sections = [...page.matchAll(/<section\b[^>]*\bclass="([^"]*)"[^>]*>([\s\S]*?)<\/section>/gi)]
+    .filter((m) => /\b(?:description|application)\b/.test(m[1]))
+    .map((m) => m[2]);
+  let body = sections.join('\n');
+  if (!body) {
+    const legacy =
+      page.match(/<div[^>]*class="[^"]*\bjob-ad-text\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
+      page.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
+      page.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+    body = legacy ? legacy[1] : '';
+  }
+  if (!body) return '';
+  body = body
+    // Page furniture inside the sections: print link, «Workplace» map blocks
+    // (screen and print copies), outbound link buttons, apply button, embeds.
+    .replace(/<div\b[^>]*class="[^"]*\bdescription__print_section\b[^"]*"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+    .replace(/<h2\b[^>]*>[^<]*<\/h2>\s*<div\b[^>]*class="[^"]*\bmedia__wrapper_map\b[^"]*"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+    .replace(/<a\b[^>]*class="[^"]*\bsubscription__link__wrapper\b[^"]*"[^>]*>[\s\S]*?<\/a\s*>/gi, ' ')
+    .replace(/<div\b[^>]*class="[^"]*\bapplication__button\b[^"]*"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+    .replace(/<iframe\b[\s\S]*?<\/iframe\s*>/gi, ' ');
+  // Strip actual markup before decoding the source text once.
+  const text = stripHtml(body);
   // crawler-template.stripHtml converts <li> → "\n• " so list structure
   // survives; preserve newlines (only collapse intra-line whitespace), then
   // restore bullet markers for any inline `•` that slipped through.
@@ -252,16 +272,20 @@ export function extractEthZurichDetailDescription(html = '') {
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
+    .replace(/\n{2,}(?=• )/g, '\n')
     .trim();
-  return normalizeDescriptionBullets(compact).slice(0, 4000);
+  return normalizeDescriptionBullets(compact);
 }
 
-async function fetchDetailDescription(url) {
+async function fetchDetailFields(url, title) {
   try {
     const html = await fetchText(url);
-    return extractEthZurichDetailDescription(html);
+    const records = extractJsonLd(html, url);
+    const record = records.find((candidate) => normalizeSpace(candidate.title).toLowerCase() === title.toLowerCase()
+      && (candidate.urlExplicit ? candidate.url === url : records.length === 1));
+    return { description: extractEthZurichDetailDescription(html), ...mergeSourcePostingDates({}, record || {}) };
   } catch {
-    return '';
+    return { description: '', ...mergeSourcePostingDates({}, {}) };
   }
 }
 
@@ -293,6 +317,7 @@ export async function fetchAllEthZurichJobs() {
 
   const jobs = [];
   let detailFetches = 0;
+  let withoutBody = 0;
 
   for (const listing of listings) {
     const title = listing.title;
@@ -309,25 +334,26 @@ export async function fetchAllEthZurichJobs() {
     const publicUrl = listing.url;
 
     let descriptionText = '';
+    let publication = mergeSourcePostingDates({}, {});
     if (detailFetches < MAX_DETAIL_FETCHES) {
-      descriptionText = await fetchDetailDescription(publicUrl);
+      const detail = await fetchDetailFields(publicUrl, title);
+      descriptionText = detail.description;
+      publication = mergeSourcePostingDates({}, detail);
       detailFetches += 1;
       await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
     }
-    if (!descriptionText) {
-      const fallbackBits = [
-        `${title} — ETH Zürich (${location}).`,
-        '',
-        'Eckdaten der Stelle:',
-        `• Standort: ${location}${canton ? `, Kanton ${canton}` : ''}`,
-        `• Pensum/Vertrag: ${listing.ariaLabel || 'siehe Stellenbeschrieb'}`,
-        '• Arbeitgeber: ETH Zürich — Eidgenössische Technische Hochschule',
-        '• Bewerbungsplattform: jobs.ethz.ch',
-      ];
-      descriptionText = fallbackBits.join('\n');
+    // Only the source's own text is published (issue 5253). A page that was
+    // not read (fetch error, or past MAX_DETAIL_FETCHES) or holds no body is
+    // not described from the listing's aria-label: the job stays out of this
+    // run, so the standard pipeline keeps the body stored from the source
+    // under its miss grace, and a job never read is not published.
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      withoutBody += 1;
+      console.log(`  ⏭️ ${title}: no source body (${sourceBodyWordCount(descriptionText)} words) — not published in this run`);
+      continue;
     }
 
-    const sourceLang = detectLang(descriptionText || title, 'de');
+    const sourceLang = detectLang(descriptionText, 'de');
     const jobSlug = slugify(`${title} eth-zurich ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -361,7 +387,7 @@ export async function fetchAllEthZurichJobs() {
       sector: 'Università / Ricerca',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -372,5 +398,6 @@ export async function fetchAllEthZurichJobs() {
 
   console.log(`\n📋 Total ETH Zürich jobs discovered: ${jobs.length}`);
   console.log(`   Detail-page fetches: ${detailFetches}/${listings.length}`);
+  if (withoutBody > 0) console.log(`   Without a source body: ${withoutBody}/${listings.length}`);
   return jobs;
 }

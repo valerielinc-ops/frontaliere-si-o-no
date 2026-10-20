@@ -2,7 +2,7 @@
  * Profession landings (AE-3) — Vite build plugin, template B.
  *
  * Emits 40 static HTML pages (10 professions × 4 locales). The 2026-05 redesign
- * inverts the previous layout: live signal first (stat tiles + featured live
+ * inverts the previous layout: live signal first (stat tiles + live
  * jobs + employer grid), long-form SEO prose at the bottom under an
  * "Approfondisci" heading. Designed mobile-first per CLAUDE.md regola #17 —
  * 75 % of traffic is mobile and the meaty content (offerte, stipendio) must
@@ -18,7 +18,7 @@
  *   2. header (eyebrow · H1 · dense lede with 3 numbers)
  *   3. 3 stat tiles (open positions · median salary · fresh in 30 days)
  *   4. primary CTA → salary calculator (the killer-hook conversion path)
- *   5. featured live jobs (3 cards) + "see all" CTA
+ *   5. complete live jobs inventory (in-feed ads every 3 cards) + CTA
  *   6. employer grid (top 6, compact 2-col)
  *   7. ─── "Approfondisci" divider ───
  *   8. long-form prose H2 sections (existing 7 blocks)
@@ -54,7 +54,7 @@ import {
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderLandingHero } from './shared/landingHeroPersonality';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import {
@@ -96,6 +96,8 @@ import {
   renderEmployerCardListHtml,
   type EmployerCardEmployer,
 } from './shared/employerCardHtml';
+import { renderProfessionJobsLocationSummary } from './shared/professionJobsLocationSummary';
+import { renderProfessionJobOfferInsights } from './shared/professionJobOfferInsights';
 import {
   buildSectorHubPath,
   type SectorHubKey,
@@ -229,7 +231,11 @@ function renderFeaturedJobs(
   snapshot: ProfessionJobsSnapshot,
   copy: CopyView,
 ): string {
-  const items = snapshot.featured.map((j) => ({
+  // The legacy snapshot used to expose only the three JSON-LD projections.
+  // Keep that fallback for test fixtures and older callers, while production
+  // aggregateProfessionJobs supplies the complete live inventory.
+  const visibleJobs = snapshot.jobs ?? snapshot.featured;
+  const items = visibleJobs.map((j) => ({
     job: {
       title: j.title,
       titleByLocale: j.titleByLocale,
@@ -241,6 +247,10 @@ function renderFeaturedJobs(
       contract: j.contract ?? undefined,
       salaryMin: j.salaryMin,
       salaryMax: j.salaryMax,
+      salarySource: j.salarySource,
+      currency: j.currency,
+      postingDateSource: j.postingDateSource,
+      datePosted: j.datePosted ?? undefined,
       postedDate: j.postedDate,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
@@ -250,6 +260,7 @@ function renderFeaturedJobs(
   const listHtml = renderJobCardListHtml(items, {
     locale,
     emptyStateHtml: emptyHtml,
+    interleaveInfeedAds: true,
   });
   // Link the "see all N offers" CTA to the profession's sector hub
   // (e.g. /cerca-lavoro-ticino/autisti/) so the visitor lands on a job-board
@@ -260,13 +271,13 @@ function renderFeaturedJobs(
   // (tests/no-internal-nofollow.test.tsx). Falls back to root when the
   // profession has no mapped sector.
   const ctaHref = buildProfessionAllJobsUrl(id, locale);
-  const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
+  const ctaLabel = visibleJobs.length > 0 && snapshot.liveCount > 0
     ? pickCtaAllJobs(id, locale, snapshot.liveCount)
     : (copy.featuredJobsCtaAllLabel ?? 'Vedi tutti gli annunci →');
   return `<section class="s-KZc0LQ">
     <h2 class="s-8dKmAe">${esc(copy.featuredJobsTitle)}</h2>
     ${listHtml}
-    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
+    ${visibleJobs.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-flex;align-items:center;min-height:44px;padding:8px 0;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
   </section>`;
 }
 
@@ -501,17 +512,16 @@ function renderPage(opts: {
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -523,9 +533,10 @@ function renderPage(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   });
 
-  // ItemList of the featured live openings (each with an absolute URL) —
-  // richer than the previous curated-employer list and coherent with the
-  // visible "Offerte in evidenza" section. Omitted entirely when empty.
+  // ItemList of the leading live openings (each with an absolute URL) —
+  // richer than the previous curated-employer list. Keep this bounded
+  // projection separate from the complete HTML inventory to avoid inflating
+  // structured data with every card. Omitted entirely when empty.
   const featuredForLd = snapshot.featured.slice(0, 3);
   const itemListLd = featuredForLd.length > 0
     ? inlineScriptJson({
@@ -562,6 +573,15 @@ function renderPage(opts: {
 
   const featuredHtml = renderFeaturedJobs(id, locale, snapshot, copyView);
   const employerGridHtml = renderEmployerGrid(snapshot, id, copyView, locale);
+  const locationSummaryHtml = renderProfessionJobsLocationSummary(
+    locale,
+    snapshot.jobs ?? snapshot.featured,
+  );
+  const offerInsightsHtml = renderProfessionJobOfferInsights(
+    locale,
+    snapshot.jobs ?? snapshot.featured,
+    snapshot.liveCount,
+  );
   const dividerHtml = renderApprofondisciDivider(copy.approfondisciHeading);
 
   const sectionsHtml = sections.map((s) => renderSection(s.title, s.paragraphs)).join('');
@@ -586,16 +606,15 @@ function renderPage(opts: {
     </nav>
     ${renderLandingHero(id, locale, {
       openings: snapshot.liveCount,
-      // Same curated source as the salary stat tile (statSalaryValue), so the
-      // hero lede and the tile agree by construction — the live aggregate
-      // median is polluted by default-estimated salaries.
-      medianSalary: facts.medianSalaryChf,
+      // The editorial estimate is labelled in the tile and prose below.
     }, copy.h1, copy.denseLede)}
-    <p class="text-sm font-medium text-accent mt-1">${esc(copy.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}
     ${employerGridHtml}
+    ${locationSummaryHtml}
+    ${offerInsightsHtml}
     ${dividerHtml}
     ${sectionsHtml}
     ${employersTable}
@@ -614,7 +633,10 @@ function renderPage(opts: {
     </section>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-it71Rt">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  // buildSeoPageHtml supplies the single crawler-facing main landmark. Keep
+  // the template layout class on a neutral wrapper so profession landings do
+  // not nest a second main inside the shared SEO shell.
+  const bodyHtml = `<div class="s-it71Rt">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,
@@ -648,7 +670,7 @@ function buildSitemapXml(
             `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`,
         )
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;

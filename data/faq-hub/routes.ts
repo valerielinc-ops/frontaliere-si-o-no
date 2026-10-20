@@ -9,6 +9,7 @@
 
 import type { FaqHubLocale } from './types';
 import { FAQ_HUB_LOCALES } from './types';
+import { SLUG_TABLES } from '../../services/routeSlugs.data';
 
 export const FAQ_HUB_LOCALE_PREFIX: Record<FaqHubLocale, string> = {
   it: '',
@@ -18,10 +19,10 @@ export const FAQ_HUB_LOCALE_PREFIX: Record<FaqHubLocale, string> = {
 };
 
 export const FAQ_HUB_SLUG: Record<FaqHubLocale, string> = {
-  it: 'domande-frequenti-frontalieri',
-  en: 'frequently-asked-questions',
-  de: 'haeufige-fragen',
-  fr: 'questions-frequentes',
+  it: SLUG_TABLES.it.faq,
+  en: SLUG_TABLES.en.faq,
+  de: SLUG_TABLES.de.faq,
+  fr: SLUG_TABLES.fr.faq,
 };
 
 export function buildFaqHubPath(locale: FaqHubLocale): string {

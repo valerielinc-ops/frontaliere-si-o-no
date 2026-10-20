@@ -19,9 +19,12 @@ import type { Plugin } from 'vite';
 import { WEATHER_CITIES, type WeatherCity } from '../data/weatherCities';
 import { parseWeatherSnapshot, type CityWeather, type WeatherSnapshot } from '../services/weather/types';
 import { wmoText, type Locale } from '../services/weather/wmoCodes';
+import { WEBSITE_ID } from '../services/seo/organizationLd';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { newsletterMountPlaceholder } from './shared/newsletterMountPlaceholder';
 import { cdnDataHydrationUrlExpr } from './shared/cdnDataHydrationUrl';
+import { buildOggiPath } from './borderWaitData';
+import { NEAREST_WEATHER_CROSSINGS } from '../scripts/lib/weather-border-links.mjs';
 import {
   colorForWmo,
   iconSprite,
@@ -31,23 +34,6 @@ import {
   useSunset,
   useWind,
 } from './weatherIconsHelper';
-
-/**
- * Closest border crossings (valichi) by city — frontalieri context: the page
- * exists for commute decisions, so under the hero we show the nearest valico
- * page so the user can jump from "weather Lugano" to "wait time Brogeda" in
- * one click. Slugs match the F8 production routes (chiasso-brogeda, etc.).
- */
-const NEAREST_VALICHI: Record<string, Array<{ slug: string; name: string }>> = {
-  lugano: [{ slug: 'chiasso-brogeda', name: 'Chiasso-Brogeda' }, { slug: 'oria-gandria', name: 'Gandria' }],
-  bellinzona: [{ slug: 'chiasso-brogeda', name: 'Chiasso-Brogeda' }],
-  mendrisio: [{ slug: 'rodero-stabio', name: 'Stabio' }, { slug: 'gaggiolo', name: 'Gaggiolo' }],
-  locarno: [{ slug: 'ponte-tresa', name: 'Ponte Tresa' }],
-  chiasso: [{ slug: 'chiasso-brogeda', name: 'Brogeda' }],
-  como: [{ slug: 'chiasso-brogeda', name: 'Brogeda' }, { slug: 'gaggiolo', name: 'Gaggiolo' }],
-  varese: [{ slug: 'rodero-stabio', name: 'Stabio' }, { slug: 'gaggiolo', name: 'Gaggiolo' }],
-  lecco: [{ slug: 'oria-gandria', name: 'Gandria' }],
-};
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -170,7 +156,7 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string
     ? `Jeden Morgen dasselbe Pendlerszenario: Wie ist das Wetter an der Grenze? Wo sind Warnungen aktiv? Welche Übergänge sind frei? Diese Seite sammelt aktuelle Wetterbedingungen für die ${WEATHER_CITIES.length} Städte am Grenzcluster. Aktualisierung alle 4 Stunden.`
     : `Chaque matin, le même scénario de trajet: quel est le temps à la frontière, où sont les alertes, quels passages sont fluides. Cette page rassemble les conditions météo actuelles pour les ${WEATHER_CITIES.length} villes du cluster frontalier. Mise à jour toutes les 4 heures.`;
   const localePathHub = locale === 'it' ? '' : `/${locale}`;
-  const homeNameHub = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const homeNameHub = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : 'Accueil';
   // Per-locale hub URLs for hreflang
   const hubHreflangs: Record<Locale, string> = {
     it: `https://frontaliereticino.ch/${HUB_SLUG.it}/`,
@@ -277,7 +263,7 @@ function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefin
   const attributionHtml = attributionBlock(locale, generatedAt);
 
   const localePathCity = locale === 'it' ? '' : `/${locale}`;
-  const homeNameCity = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const homeNameCity = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : 'Accueil';
   const hubUrlCity = `https://frontaliereticino.ch${localePathCity}/${HUB_SLUG[locale]}/`;
   const cityHreflangs: Record<Locale, string> = {
     it: `https://frontaliereticino.ch/${HUB_SLUG.it}/${city.slug.it}/`,
@@ -345,7 +331,7 @@ function attributionBlock(locale: Locale, generatedAt?: string): string {
 
 function renderBreadcrumb(locale: Locale, city: WeatherCity): string {
   const localePath = locale === 'it' ? '' : `/${locale}`;
-  const homeText = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const homeText = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : 'Accueil';
   return `<nav aria-label="Breadcrumb" class="max-w-3xl mx-auto py-3 text-sm"><ol class="flex flex-wrap items-center gap-1 text-muted"><li><a href="${localePath}/" class="hover:text-link">${homeText}</a></li><li class="text-muted">›</li><li><a href="${localePath}/${HUB_SLUG[locale]}/" class="hover:text-link">${escapeHtml(HUB_TITLE[locale])}</a></li><li class="text-muted">›</li><li class="text-heading font-medium" aria-current="page">${escapeHtml(city.name)}</li></ol></nav>`;
 }
 
@@ -399,13 +385,11 @@ ${statsHtml}
 }
 
 function renderValichiRow(locale: Locale, cityId: string): string {
-  const list = NEAREST_VALICHI[cityId];
+  const list = NEAREST_WEATHER_CROSSINGS[cityId];
   if (!list || list.length === 0) return '';
-  const localePath = locale === 'it' ? '' : `/${locale}`;
-  const valicoSlug = locale === 'it' ? 'traffico-dogane' : locale === 'en' ? 'border-traffic' : locale === 'de' ? 'grenze-verkehr' : 'trafic-frontalier';
   const label = locale === 'it' ? 'Valichi vicini' : locale === 'en' ? 'Nearby crossings' : locale === 'de' ? 'Nahe Übergänge' : 'Passages proches';
   const items = list.map((v) => {
-    const url = `${localePath}/${valicoSlug}/${v.slug}/oggi/`;
+    const url = buildOggiPath(locale, v.slug);
     return `<a href="${url}" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium text-strong bg-white hover:bg-surface-alt border border-edge hover:border-edge transition-colors">${escapeHtml(v.name)}<span class="text-muted" aria-hidden="true">→</span></a>`;
   }).join('');
   return `<div class="max-w-4xl mx-auto -mt-2 mb-6 px-1 flex items-center gap-2 flex-wrap"><span class="text-xs uppercase tracking-wider text-subtle font-medium">${escapeHtml(label)}</span>${items}</div>`;
@@ -684,14 +668,15 @@ function jsonLd(locale: Locale, title: string, description: string, canonical: s
     name: title,
     description,
     url: canonical,
-    dateModified: generatedAt ?? new Date().toISOString(),
     isPartOf: {
       '@type': 'WebSite',
+      '@id': WEBSITE_ID,
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',
     },
     publisher: {
       '@type': 'Organization',
+      '@id': 'https://frontaliereticino.ch/#organization',
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',
     },
@@ -727,13 +712,12 @@ function copySnapshotToDist(rootDir: string, distDir: string): void {
 function writeSitemap(rootDir: string, generatedAt?: string): void {
   const distDir = resolve(rootDir, 'dist');
   const sitemapFile = resolve(distDir, 'sitemap-weather.xml');
-  const ts = generatedAt ?? new Date().toISOString();
   const urls: string[] = [];
   for (const locale of LOCALES) {
     const localePath = locale === 'it' ? '' : `/${locale}`;
-    urls.push(`<url><loc>https://frontaliereticino.ch${localePath}/${HUB_SLUG[locale]}/</loc><lastmod>${ts}</lastmod></url>`);
+    urls.push(`<url><loc>https://frontaliereticino.ch${localePath}/${HUB_SLUG[locale]}/</loc></url>`);
     for (const c of WEATHER_CITIES) {
-      urls.push(`<url><loc>https://frontaliereticino.ch${localePath}/${HUB_SLUG[locale]}/${c.slug[locale]}/</loc><lastmod>${ts}</lastmod></url>`);
+      urls.push(`<url><loc>https://frontaliereticino.ch${localePath}/${HUB_SLUG[locale]}/${c.slug[locale]}/</loc></url>`);
     }
   }
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`;

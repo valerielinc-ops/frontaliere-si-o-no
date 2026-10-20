@@ -24,13 +24,16 @@ import {
 import { nearestComparablePlaces, formatDistanceKm } from './shared/nearestMunicipalityComparison';
 import {
   H2_STYLE,
-  H3_STYLE,
   LINK_ACCENT_STYLE,
   TABLE_CELL_CLASS,
   TABLE_CLASS,
   TABLE_HEAD_CLASS,
 } from './shared/seoContentTokens';
 import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
+import {
+  DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
+  DECISION_MOMENT_SURFACE_ATTRIBUTE,
+} from '../services/decisionMomentTelemetry';
 
 export interface BorderWaitComparisonEntry {
   waitTimeMinutes?: number | null;
@@ -291,6 +294,7 @@ export function renderBorderWaitComparison(params: {
     formatValue: (value) => `${Math.round(value)} min`,
     higherIsBetter: false,
     sourceNote: rankingCopy.sourceNote,
+    maxProseSentences: 2,
   });
   const rows: Array<{ slug: BorderCrossingSlug; crossing: BorderCrossing; distanceKm: number; entry: BorderWaitComparisonEntry | undefined; isCurrent: boolean }> = [
     {
@@ -310,9 +314,12 @@ export function renderBorderWaitComparison(params: {
   const liveRows = rows.map(({ slug, entry, isCurrent }) => {
     const wait = effectiveWait(entry);
     const rowStyle = isCurrent ? ' style="background:var(--color-surface-alt)"' : '';
+    const actionAttributes = isCurrent
+      ? ''
+      : ` ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="compare_crossing"`;
     return `<tr data-bw-crossing="${escapeHtml(slug)}" data-bw-comparison-current="${isCurrent ? 'true' : 'false'}"${rowStyle}>
       <td class="${TABLE_CELL_CLASS}">
-        <a href="${buildOggiPath(locale, slug)}" style="${LINK_ACCENT_STYLE};font-weight:600;text-decoration:underline;text-underline-offset:2px">${escapeHtml(BORDER_CROSSING_DISPLAY[slug])}</a>
+        <a href="${buildOggiPath(locale, slug)}"${actionAttributes} style="${LINK_ACCENT_STYLE};font-weight:600;text-decoration:underline;text-underline-offset:2px">${escapeHtml(BORDER_CROSSING_DISPLAY[slug])}</a>
         ${isCurrent ? `<span style="margin-left:8px;font-size:12px;font-weight:600;color:var(--color-subtle)">${escapeHtml(copy.current)}</span>` : ''}
       </td>
       <td class="${TABLE_CELL_CLASS}" style="text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap">
@@ -324,8 +331,8 @@ export function renderBorderWaitComparison(params: {
     </tr>`;
   }).join('\n');
 
-  const historyRows = rows.map(({ slug, crossing, distanceKm }) => `<tr>
-    <td class="${TABLE_CELL_CLASS}"><a href="${buildOggiPath(locale, slug)}" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">${escapeHtml(BORDER_CROSSING_DISPLAY[slug])}</a></td>
+  const historyRows = rows.map(({ slug, crossing, distanceKm, isCurrent }) => `<tr>
+    <td class="${TABLE_CELL_CLASS}"><a href="${buildOggiPath(locale, slug)}"${isCurrent ? '' : ` ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="compare_crossing"`} style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">${escapeHtml(BORDER_CROSSING_DISPLAY[slug])}</a></td>
     <td class="${TABLE_CELL_CLASS}" style="text-align:right;font-variant-numeric:tabular-nums">${escapeHtml(historicalValue(crossing.avgWaitMorning, locale))}</td>
     <td class="${TABLE_CELL_CLASS}" style="text-align:right;font-variant-numeric:tabular-nums">${escapeHtml(historicalValue(crossing.avgWaitEvening, locale))}</td>
     <td class="${TABLE_CELL_CLASS}" style="text-align:right;color:var(--color-subtle);font-variant-numeric:tabular-nums">${escapeHtml(formatDistanceKm(distanceKm, locale))}</td>
@@ -340,24 +347,24 @@ export function renderBorderWaitComparison(params: {
       <table class="${TABLE_CLASS}" style="font-size:14px;min-width:680px" data-bw-comparison-table>
         <caption class="s-li0wom">${escapeHtml(copy.heading)}</caption>
         <thead><tr>
-          <th class="${TABLE_HEAD_CLASS}">${locale === 'it' ? 'Valico' : locale === 'de' ? 'Übergang' : locale === 'fr' ? 'Passage' : 'Crossing'}</th>
-          <th class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.observed)}</th>
-          <th class="${TABLE_HEAD_CLASS}">${escapeHtml(copy.updated)}</th>
-          <th class="${TABLE_HEAD_CLASS}">${escapeHtml(copy.source)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}">${locale === 'it' ? 'Valico' : locale === 'de' ? 'Übergang' : locale === 'fr' ? 'Passage' : 'Crossing'}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.observed)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}">${escapeHtml(copy.updated)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}">${escapeHtml(copy.source)}</th>
         </tr></thead>
         <tbody>${liveRows}</tbody>
       </table>
     </div>
     <p class="s-gu2hlZ">${escapeHtml(copy.note)}</p>
-    <h3 style="${H3_STYLE}">${escapeHtml(copy.historyHeading)}</h3>
     <p class="s-sau7he">${escapeHtml(copy.historyLead)}</p>
     <div class="s-card" style="overflow-x:auto;padding:0">
       <table class="${TABLE_CLASS}" style="font-size:14px;min-width:520px">
+        <caption class="s-li0wom">${escapeHtml(copy.historyHeading)}</caption>
         <thead><tr>
-          <th class="${TABLE_HEAD_CLASS}">${locale === 'it' ? 'Valico' : locale === 'de' ? 'Übergang' : locale === 'fr' ? 'Passage' : 'Crossing'}</th>
-          <th class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.morning)}</th>
-          <th class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.evening)}</th>
-          <th class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.distance)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}">${locale === 'it' ? 'Valico' : locale === 'de' ? 'Übergang' : locale === 'fr' ? 'Passage' : 'Crossing'}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.morning)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.evening)}</th>
+          <th scope="col" class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.distance)}</th>
         </tr></thead>
         <tbody>${historyRows}</tbody>
       </table>
@@ -382,8 +389,8 @@ export function renderBorderWaitPicker(params: {
     ? crossings.map((slug) => `<option value="${buildOggiPath(locale, slug)}">${escapeHtml(BORDER_CROSSING_DISPLAY[slug])}</option>`).join('')
     : BORDER_WAIT_REGIONS.map((candidate) => `<option value="${buildRegionalHubPath(locale, candidate)}">${escapeHtml(BORDER_REGION_DISPLAY[candidate])}</option>`).join('');
   const links = region
-    ? crossings.map((slug) => `<li><a href="${buildOggiPath(locale, slug)}" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">${escapeHtml(BORDER_CROSSING_DISPLAY[slug])}</a></li>`).join('')
-    : BORDER_WAIT_REGIONS.map((candidate) => `<li><a href="${buildRegionalHubPath(locale, candidate)}" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">${escapeHtml(BORDER_REGION_DISPLAY[candidate])}</a></li>`).join('');
+    ? crossings.map((slug) => `<li><a href="${buildOggiPath(locale, slug)}" ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="choose_crossing" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">${escapeHtml(BORDER_CROSSING_DISPLAY[slug])}</a></li>`).join('')
+    : BORDER_WAIT_REGIONS.map((candidate) => `<li><a href="${buildRegionalHubPath(locale, candidate)}" ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="choose_crossing" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">${escapeHtml(BORDER_REGION_DISPLAY[candidate])}</a></li>`).join('');
 
   return `<section class="s-ziawP1" aria-labelledby="${pickerId}-heading" data-bw-picker="true">
     <h2 id="${pickerId}-heading" style="${H2_STYLE}">${escapeHtml(copy.heading)}</h2>
@@ -394,7 +401,7 @@ export function renderBorderWaitPicker(params: {
           ${options}
         </select>
       </div>
-      <button type="button" style="min-height:44px;border:0;border-radius:10px;background:var(--color-accent);padding:8px 16px;font-weight:600;color:var(--color-on-accent)" data-bw-picker-go>${escapeHtml(copy.go)}</button>
+      <button type="button" style="min-height:44px;border:0;border-radius:10px;background:var(--color-accent);padding:8px 16px;font-weight:600;color:var(--color-on-accent)" data-bw-picker-go ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="choose_crossing">${escapeHtml(copy.go)}</button>
     </div>
     <details class="s-card" style="margin-top:12px">
       <summary style="cursor:pointer;font-size:14px;font-weight:600;color:var(--color-link);text-decoration:underline;text-underline-offset:2px">${escapeHtml(copy.fallback)}</summary>

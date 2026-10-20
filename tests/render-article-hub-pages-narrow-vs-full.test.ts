@@ -72,6 +72,23 @@ describe('renderArticleHubPages — narrow fast-publish render equals full emitS
     fs.rmSync(fullDir, { recursive: true, force: true });
   });
 
+  it('does not present the rebuild clock as a content update in hub headers or statistic tiles', () => {
+    const htmlFiles = fs.readdirSync(fullDir, { recursive: true }).filter((file) => String(file).endsWith('.html'));
+    expect(htmlFiles.length).toBeGreaterThan(0);
+    let inspectedFragments = 0;
+    for (const file of htmlFiles) {
+      const html = fs.readFileSync(path.join(fullDir, String(file)), 'utf-8');
+      const updateLabel = /Aggiornato|Updated|Aktualisiert|Mis à jour/;
+      const summaries = html.match(/<p\b[^>]*class=(?:"s-Sn0UIv"|s-Sn0UIv)[^>]*>[\s\S]*?<\/p>/g) || [];
+      const tileLabels = html.match(/<div\b[^>]*class=(?:"s-tlbl"|s-tlbl)[^>]*>[\s\S]*?<\/div>/g) || [];
+      inspectedFragments += summaries.length + tileLabels.length;
+      for (const fragment of [...summaries, ...tileLabels]) {
+        expect(fragment, String(file)).not.toMatch(updateLabel);
+      }
+    }
+    expect(inspectedFragments).toBeGreaterThan(0);
+  });
+
   it.each(['frontaliere', 'svizzera'] as const)(
     'emits byte-identical %s hub HTML to the full-build emitter',
     async (section: ArticleSection) => {

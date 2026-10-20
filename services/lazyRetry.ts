@@ -102,7 +102,7 @@ export function lazyRetry<T extends React.ComponentType<any>>(
  };
 
  // Retry 1: clear caches and retry immediately
- return clearAssetCaches()
+ return clearAssetCaches(err)
  .then(() => load())
  .then(result => { trackRetry('success', err?.message || ''); return result; })
  .catch(() =>
@@ -137,7 +137,7 @@ export function lazyRetry<T extends React.ComponentType<any>>(
  // (SPA-fallback HTML for a .js, or a cached module the retries kept
  // re-linking) would otherwise be re-served from the disk cache and this one
  // reload wasted (#3097).
- void clearAssetCaches().finally(() => window.location.reload());
+ void clearAssetCaches(err).finally(() => window.location.reload());
  // Reject to satisfy the type, though reload will prevent this from running
  reject(err);
  });

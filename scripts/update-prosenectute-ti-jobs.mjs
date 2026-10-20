@@ -8,7 +8,9 @@ import {
   isTrustedDomain,
   PROSENECTUTE_TI_KEY,
   PROSENECTUTE_TI_COMPANY_NAME,
+  PROSENECTUTE_TI_FABRICATED_DESCRIPTION_RE,
 } from './lib/prosenectute-ti-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 runStandardCrawlerPipeline({
@@ -19,4 +21,5 @@ runStandardCrawlerPipeline({
   isCompanyJob: isProSenectuteTiJob,
   isTrustedDomain,
   defaultSourceLang: 'it',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, PROSENECTUTE_TI_FABRICATED_DESCRIPTION_RE, PROSENECTUTE_TI_COMPANY_NAME),
 }).catch((err) => { console.error(`❌ Pro Senectute TI crawler failed: ${err?.message || err}`); process.exit(1); });

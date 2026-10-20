@@ -71,6 +71,7 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
+import { injectNursingFacilityLinks } from './shared/nursingFacilityLinks';
 import { injectBlockAfterMain } from './shared/injectAfterMain';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
@@ -103,6 +104,7 @@ import { FACILITY_INDEX_BLOCK, NEAR_YOU_BLOCK } from './healthFacilitiesCopy';
 // HTML) is skipped. Within one build the producer always re-renders the
 // landing fresh, so the marker can only be absent when this injector runs.
 const MARKER = 'data-health-facility-links';
+
 /**
  * Marker of the complete index on the HTML sitemap page. Distinct from
  * {@link MARKER} on purpose — the two blocks live on different pages, and
@@ -261,7 +263,7 @@ export function healthFacilitiesLinksPlugin(rootDir: string): Plugin {
           }
           const html = fs.readFileSync(indexPath, 'utf-8');
           const block = renderBlock(locale as HealthFacilityLocale, facilities);
-          const { html: patched, outcome } = injectBlockAfterMain(html, block, MARKER);
+          const { html: patched, outcome } = injectNursingFacilityLinks(html, block, MARKER);
           if (outcome === 'inserted') {
             fs.writeFileSync(indexPath, patched, 'utf-8');
             injected++;

@@ -24,8 +24,10 @@
  * Modelled on `scripts/lib/uroviva-job-parser.mjs`.
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, classAttrRx } from './crawler-template.mjs';
+import { slugify } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -34,6 +36,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { fetchDualooDetail } from './dualoo-detail.mjs';
 
 export const CERENEO_KEY = 'cereneo';
 export const CERENEO_COMPANY_NAME = 'Cereneo';
@@ -132,34 +135,6 @@ export function parseDualooPortal(html) {
   return out;
 }
 
-async function fetchDualooDetail(detailUrl) {
-  try {
-    const html = await fetchHtml(detailUrl);
-    const sections = [];
-    const grab = (cls, label) => {
-      const rx = new RegExp(`${classAttrRx(cls)}[^>]*>([\\s\\S]*?)</div>`, 'i');
-      const mm = html.match(rx);
-      if (!mm) return;
-      const text = mm[1]
-        .replace(/<li[^>]*>/gi, '\n• ')
-        .replace(/<\/li>/gi, '')
-        .replace(/<br\s*\/?>/gi, '\n')
-        .replace(/<[^>]+>/g, ' ')
-        .replace(/&nbsp;/gi, ' ')
-        .replace(/\s+\n/g, '\n')
-        .replace(/\s{2,}/g, ' ')
-        .trim();
-      if (text) sections.push(`${label}\n${text}`);
-    };
-    grab('advertisementResponsibilitiesText', 'Aufgaben:');
-    grab('advertisementRequirementsText', 'Anforderungen:');
-    grab('advertisementBenefitsText', 'Wir bieten:');
-    return sections.join('\n\n');
-  } catch {
-    return '';
-  }
-}
-
 /**
  * Parse a "entity - city" location string. Cereneo formats it as
  *   "cereneo Schweiz AG - Weggis"
@@ -206,13 +181,19 @@ export async function fetchAllCereneoJobs() {
 
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (let i = 0; i < chItems.length; i += 1) {
     const it = chItems[i];
     if (i > 0) await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
-    const detailContent = await fetchDualooDetail(it.url);
+    let publication = sourcePostingDateFields('');
+    const detailContent = await fetchDualooDetail(it.url, {
+      fetchPage: async (url) => {
+        const html = await fetchHtml(url);
+        publication = sourcePostingDateFields(extractJobPostingLd(html)?.datePosted);
+        return html;
+      },
+    });
     if (detailContent) detailHits += 1;
 
     const loc = parseLocation(it.location);
@@ -266,7 +247,7 @@ export async function fetchAllCereneoJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

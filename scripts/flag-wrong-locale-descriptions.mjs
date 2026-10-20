@@ -20,7 +20,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
-import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
+import {
+  isDescriptionSourceCopy,
+  normalizeJobLocale,
+  sourceLocaleTextCandidates,
+} from './lib/job-locale-utils.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
@@ -34,22 +38,18 @@ const DETECTION_CONFIDENCE = 0.55;
 
 function hasWrongLocaleDescription(job) {
   const dbl = job.descriptionByLocale || {};
-  const baseDesc = String(job.description || '').trim();
-  const sourceDesc = baseDesc.toLowerCase();
-  const sourceLang = job.sourceLang || 'it';
+  const sourceLang = normalizeJobLocale(job.sourceLang) || 'it';
+  const sourceDescriptions = sourceLocaleTextCandidates(job, 'description');
 
   for (const locale of LOCALES) {
     const desc = String(dbl[locale] || '').trim();
     if (desc.length < MIN_DESC_CHARS) continue;
     if (locale === sourceLang) continue;
 
-    // Exact match against source
-    if (desc.toLowerCase() === sourceDesc) return true;
-
-    // Whitespace-normalized match against source
-    const normDesc = normalizeForLengthComparison(desc).toLowerCase();
-    const normSource = normalizeForLengthComparison(baseDesc).toLowerCase();
-    if (normSource.length >= MIN_DESC_CHARS && normDesc === normSource) return true;
+    // A copy in either source representation is a wrong-locale description;
+    // the shared predicate also handles line wrapping and HTML entities.
+    if (sourceDescriptions.some((source) =>
+      source.length >= MIN_DESC_CHARS && isDescriptionSourceCopy(desc, source))) return true;
 
     // Language detection mismatch
     const detected = detectLanguageWithConfidence(desc, locale);

@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Pre-merge validation for workflow files changed by the current PR.
  *
@@ -14,6 +16,7 @@
 import { appendFileSync, existsSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
+import { lineAt } from './line-at.mjs';
 
 export const PROMPT_SCALAR_LIMIT = 20_000;
 
@@ -108,7 +111,7 @@ function removeYamlComments(source) {
 }
 
 function lineFor(source, index) {
-  return source.slice(0, index).split('\n').length;
+  return lineAt(source, index);
 }
 
 // ── Contratto «push su main senza filtro di path» ────────────────────────────
@@ -553,4 +556,4 @@ function main() {
     : 'Nessun workflow modificato nella diff della PR.');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

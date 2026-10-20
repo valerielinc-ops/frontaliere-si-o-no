@@ -20,6 +20,7 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { buildSequence, bodyToHtml, OUTREACH_METRIC_LABELS } from './coldEmailSequence.js';
+import { OUTREACH_OPTOUT_EMAIL } from './outreachIdentity.js';
 import { buildInsightsUrl } from './employerInsights.js';
 import { buildUnsubUrl } from './outreachUnsubscribe.js';
 
@@ -101,6 +102,7 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
     periodLabel,
     contactName: contact.contactName || '',
     topRole: contact.topRole || '',
+    optOutEmail: OUTREACH_OPTOUT_EMAIL,
   });
   const message = sequence.find((m) => m.touch === touchNum);
   if (!message) return { status: 500, body: { ok: false, error: 'touch_not_built' } };

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Bellevue Parkhotel & Spa job parser — Fetcher and job builder.
+ * Teo Jakob AG job parser — Fetcher and job builder.
  *
- * Source: https://my.jobalino.ch/de/jobpreview/18921
+ * Source: https://my.jobalino.ch/public/job/de/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllMyJobs()  — Fetch and parse all jobs
@@ -14,16 +14,20 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const MY_KEY = 'my';
-export const MY_COMPANY_NAME = 'Bellevue Parkhotel & Spa';
+export const MY_COMPANY_NAME = 'Teo Jakob AG';
 export const MY_COMPANY_DOMAIN = 'my.jobalino.ch';
 
-const CAREER_URL = 'https://my.jobalino.ch/de/jobpreview/18921';
+const CAREER_URL = 'https://my.jobalino.ch/public/job/de/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -38,7 +42,7 @@ function normalizeSpace(s = '') {
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
- * Check if a job belongs to Bellevue Parkhotel & Spa.
+ * Check if a job belongs to Teo Jakob AG.
  * Used by the template to filter this company's jobs from the global dataset.
  */
 export function isMyJob(job) {
@@ -53,13 +57,13 @@ export function isMyJob(job) {
   return (
     key === MY_KEY ||
     key.startsWith('my-') ||
-    company.includes('bellevue parkhotel & spa') ||
+    company.includes('teo jakob ag') ||
     url.includes('my.jobalino.ch')
   );
 }
 
 /**
- * Validate that a URL belongs to Bellevue Parkhotel & Spa's domain.
+ * Validate that a URL belongs to Teo Jakob AG's domain.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
@@ -114,14 +118,14 @@ async function fetchJobListings() {
 }
 
 /**
- * Fetch all Bellevue Parkhotel & Spa jobs.
+ * Fetch all Teo Jakob AG jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllMyJobs() {
-  console.log(`🔍 Fetching Bellevue Parkhotel & Spa jobs`);
+  console.log(`🔍 Fetching Teo Jakob AG jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
   const listings = await fetchJobListings();
@@ -139,11 +143,30 @@ export async function fetchAllMyJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing);
+    const sourceGeographyEvidence = {
+      location: listing.location,
+      addressLocality: listing.addressLocality,
+      addressRegion: listing.addressRegion,
+      addressCountry: listing.addressCountry,
+      country: listing.country,
+      postalCode: listing.postalCode,
+      streetAddress: listing.streetAddress,
+    };
+    const resolvedGeography = resolveSourceBackedSwissGeography(listing);
+    const geography = resolvedGeography
+      && sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
-    const { location, canton } = geography;
+    const {
+      location,
+      canton,
+      addressLocality,
+      addressRegion,
+      addressCountry,
+      postalCode,
+      streetAddress,
+    } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -172,19 +195,19 @@ export async function fetchAllMyJobs() {
       location,
       canton,
       url: publicUrl,
-      source: 'Bellevue Parkhotel & Spa Dedicated Parser',
+      source: 'Teo Jakob AG Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
-      country: normalizeSpace(listing.addressCountry || 'CH'),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+      addressLocality: normalizeSpace(addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || 'CH'),
+      country: normalizeSpace(addressCountry || 'CH'),
+      ...(postalCode ? { postalCode: normalizeSpace(postalCode) } : {}),
+      ...(streetAddress ? { streetAddress: normalizeSpace(streetAddress) } : {}),
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME'
         ? 'part-time'
@@ -194,9 +217,8 @@ export async function fetchAllMyJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      // Preserve the source date; the shared merge assigns a stable first-seen
-      // date when the source does not publish one.
-      postedDate: listing.postedAt || null,
+      // Keep publication evidence separate from observation/creation aliases.
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -205,6 +227,6 @@ export async function fetchAllMyJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total Bellevue Parkhotel & Spa jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total Teo Jakob AG jobs discovered: ${jobs.length}`);
   return jobs;
 }

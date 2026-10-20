@@ -1,11 +1,12 @@
 /**
  * Worker for postWalkCoordinatorPlugin (perf optimization 2026-04-29).
  *
- * Receives a chunk of dist/ HTML file paths and applies the same 3-step
+ * Receives a chunk of dist/ HTML file paths and applies the same 4-step
  * transform pipeline the coordinator runs in single-threaded mode:
  *   1. flat-html-redirect (bridges)
  *   2. blog-contextual-links (blog-article index files only)
  *   3. hreflang-postprocess (strip broken hreflang)
+ *   4. asset-integrity (SRI for first-party CDN assets)
  *
  * Why a worker: the single-threaded coordinator measured 121s wall vs 65s
  * CPU on CI (sequential profile run #25075153538). 56s of wall is pure I/O
@@ -19,7 +20,7 @@
  * removed by tsx 4.x ("tsx must be loaded with --import instead of --loader").
  *
  * Byte-identical output: this worker MUST produce the same dist/ HTML as
- * the single-threaded coordinator. The 3 transforms are pure functions
+ * the single-threaded coordinator. The transforms are pure functions
  * that operate per-file with the same shared inputs (HTML existence on disk,
  * blogIndexHtmlByPath). The only divergence point is write ordering, which
  * does not affect the final on-disk content because each file is written
@@ -42,6 +43,7 @@ const { injectContextualLinksWith } = await import(
   '../packages/articles/engine/shared/contextualLinkInjector.ts'
 );
 const { transformHreflang } = await import('./hreflangPostprocessPlugin.ts');
+const { addIntegrityToHtml } = await import('./shared/assetIntegrity.ts');
 // Plain ESM leaf (it + infra/cloudflare-worker/locale-router.js), so this
 // resolves inside the worker thread without the tsx loader.
 const { allowExternallyServedTargets } = await import(
@@ -66,6 +68,7 @@ const {
   assignedFiles,
   htmlPathIndex: serializedHtmlPathIndex,
   keywordLandingPlan,
+  assetIntegrityEntries,
 } = workerData;
 
 // The coordinator already walked the same dist tree. A shared, exact byte
@@ -73,6 +76,7 @@ const {
 // filesystem stat per lookup. The index is immutable and collision-safe.
 const htmlPathIndex = createSharedHtmlPathIndexView(serializedHtmlPathIndex);
 const blogIndexHtmlByPath = new Map(blogIndexEntries);
+const assetIntegrityRegistry = new Map(assetIntegrityEntries);
 
 // `transformFlatRedirect` requires a SYNC sibling-existence + body reader
 // (it short-circuits when the sibling index.html is missing or empty). We
@@ -239,6 +243,12 @@ async function processFile(filePath) {
       hreflangLinksKept += hreflangResult.kept;
       hreflangLinksDropped += hreflangResult.dropped;
     }
+  }
+
+  const integrityPatched = addIntegrityToHtml(html, assetIntegrityRegistry);
+  if (integrityPatched !== html) {
+    html = integrityPatched;
+    mutated = true;
   }
 
   if (mutated && html !== original) {

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vs-941",
+      "sourceKey": "VS",
+      "sourceRecordId": "941",
+      "canton": "Vallese",
+      "platePrefix": "VS",
+      "plateNumber": "482222",
+      "normalizedPlate": "VS482222",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 400,
+      "startingPriceChf": 100,
+      "bidCount": 4,
+      "minimumIncrementChf": 100,
+      "endsAt": "2026-10-15T13:00:00.000Z",
+      "closedAt": "2026-10-15T13:00:00.000Z",
+      "officialAuctionUrl": "https://ecari.vs.ch/ecari-auction/",
+      "officialDetailUrl": "https://ecari.vs.ch/ecari-auction/ui/app/details/app?id=941",
+      "sourceFetchedAt": "2026-10-15T11:35:30.556Z",
+      "lastVerifiedAt": "2026-10-15T11:35:30.556Z",
+      "firstSeenAt": "2026-09-19T11:05:29.592Z",
+      "lastSeenAt": "2026-10-15T11:35:30.556Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "4e60c8e66072"
+    }
+  ]
+}

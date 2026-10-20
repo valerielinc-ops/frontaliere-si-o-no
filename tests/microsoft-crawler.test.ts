@@ -1,9 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   MICROSOFT_KEY,
   MICROSOFT_COMPANY_NAME,
   isMicrosoftJob,
   isTrustedDomain,
+  fetchAllMicrosoftJobs,
 } from '../scripts/lib/microsoft-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -126,4 +127,36 @@ describe('Microsoft crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
+});
+
+// Only the posting's own text is published (issue 5253): a position without a
+// description used to go out as "{title} — Microsoft". Shapes of the Eightfold
+// PCS endpoints of apply.careers.microsoft.com (session, search,
+// position_details).
+describe('fetchAllMicrosoftJobs — position without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the position with a description and skips the one without, never inventing text', async () => {
+    const pos = (id: string, name: string) => ({ id, name, displayJobId: `2000${id}`, standardizedLocations: ['Zürich, ZH, CH'], postedTs: 1790000000 });
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('/careers?domain=')) return new Response('<html></html>', { status: 200, headers: { 'x-csrf-token': 'csrf', 'set-cookie': 'a=b; Path=/' } });
+      if (u.includes('/api/pcsx/search')) {
+        const first = u.includes('location=Switzerland&') && u.includes('start=0');
+        return new Response(JSON.stringify({ data: { count: first ? 2 : 0, positions: first ? [pos('1', 'Cloud Solution Architect'), pos('2', 'Account Executive')] : [] } }), { status: 200 });
+      }
+      if (u.includes('position_details') && u.includes('position_id=1')) {
+        return new Response(JSON.stringify({ data: { jobDescription: '<p>Design and deliver Azure solutions with our enterprise customers in Switzerland. You work closely with colleagues from several departments, document your work carefully and help us improve our processes. We offer a modern workplace, flexible working hours, further training and an open team culture in a growing international company. Good English skills and a structured way of working complete your profile.</p>' } }), { status: 200 });
+      }
+      if (u.includes('position_details')) return new Response(JSON.stringify({ data: { jobDescription: '' } }), { status: 200 });
+      return new Response('', { status: 404 });
+    }));
+
+    const jobs = await fetchAllMicrosoftJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Cloud Solution Architect']);
+    expect(jobs[0].description).toContain('Azure solutions');
+    for (const job of jobs) expect(job.description).not.toMatch(/— Microsoft$/);
+  }, 30_000);
 });

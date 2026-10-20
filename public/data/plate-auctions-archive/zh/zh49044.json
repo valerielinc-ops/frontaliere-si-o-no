@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43599",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43599",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "49044",
+      "normalizedPlate": "ZH49044",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1230,
+      "bidCount": 23,
+      "endsAt": "2026-10-14T17:00:00.000Z",
+      "closedAt": "2026-10-14T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43599",
+      "sourceFetchedAt": "2026-10-14T11:58:08.114Z",
+      "lastVerifiedAt": "2026-10-14T11:58:08.114Z",
+      "firstSeenAt": "2026-10-08T06:11:46.094Z",
+      "lastSeenAt": "2026-10-14T11:58:08.114Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "2c25d4b7186a"
+    }
+  ]
+}

@@ -35,6 +35,9 @@ import {
   firstFailure,
   consecutiveFailureStreak,
   buildAlarmDescription,
+  buildRunHistoryArgs,
+  mergeRunHistoryRuns,
+  RUN_HISTORY_STATUS_FILTERS,
 } from '../scripts/ci/report-deploy-run-failure.mjs';
 import { coverageOf, parseWorkflow, observedWorkflowNames, isFailureGated } from '../scripts/ci/failure-issue-inventory.mjs';
 
@@ -162,6 +165,26 @@ describe('«da quante run consecutive», non «il deploy è rosso»', () => {
   });
 });
 
+describe('lo storico dell allarme non viene troncato dalle cancellate', () => {
+  it('costruisce una lettura server-filtered per ogni conclusione che può decidere', () => {
+    expect(RUN_HISTORY_STATUS_FILTERS).toEqual(['success', 'failure', 'timed_out', 'startup_failure']);
+    const args = buildRunHistoryArgs(OBSERVED, 'success', Date.parse('2026-10-06T00:00:00Z'));
+    expect(args).toContain('--status');
+    expect(args).toContain('success');
+    expect(args).toContain('-b');
+    expect(args).toContain('main');
+  });
+
+  it('riunisce le pagine e mantiene la serie newest-first', () => {
+    const runs = mergeRunHistoryRuns([
+      [{ databaseId: 2, status: 'completed', conclusion: 'success', createdAt: '2026-10-06T00:02:00Z' }],
+      [{ databaseId: 1, status: 'completed', conclusion: 'failure', createdAt: '2026-10-06T00:01:00Z' }],
+      [{ databaseId: 2, status: 'completed', conclusion: 'success', createdAt: '2026-10-06T00:02:00Z' }],
+    ]);
+    expect(runs.map((run) => run.databaseId)).toEqual([2, 1]);
+  });
+});
+
 describe('il testo dell allarme', () => {
   const body = buildAlarmDescription({
     workflowName: OBSERVED,
@@ -271,6 +294,25 @@ describe('il workflow osservatore: forma pinnata', () => {
 
   it('il job di chiusura scatta solo sul verde', () => {
     expect(String(WF.jobs.resolve.if)).toBe("github.event.workflow_run.conclusion == 'success'");
+  });
+});
+
+describe('il reporter esterno sopravvive al checkout fallito', () => {
+  const steps = WF.jobs.alarm.steps as Array<Record<string, any>>;
+  const opener = steps.find((step) => step.name === 'Open or update the deploy alarm issue');
+  const fallback = steps.find((step) => step.name === 'Open or update deploy alarm without the checkout (fallback)');
+
+  it('ha un fallback API che apre la stessa issue canonica', () => {
+    expect(opener?.id).toBe('open');
+    expect(fallback, 'il reporter senza checkout deve esistere').toBeDefined();
+    expect(String(fallback?.if)).toContain('always()');
+    expect(String(fallback?.if)).toContain("steps.open.outcome != 'success'");
+    expect(String(fallback?.if)).toContain("github.event.workflow_run.conclusion == 'failure'");
+    expect(fallback?.['continue-on-error']).toBe(true);
+    expect(fallback?.env?.ALARM_SHA).toBe('${{ github.sha }}');
+    expect(String(fallback?.run)).toContain('gh api');
+    expect(String(fallback?.run)).toContain('scripts/lib/github-issue-creator.mjs');
+    expect(String(fallback?.run)).toContain('--title "Workflow Failure: Deploy to GitHub Pages"');
   });
 });
 

@@ -8,6 +8,11 @@ import {
   decisionDeferralsAreSpecific,
 } from '../../scripts/lib/pr-body-sections-check.mjs';
 import { checkClosesLines } from '../../scripts/lib/pr-body-closes-check.mjs';
+import { validatePrBody } from '../../scripts/ci/pr-body-check-gate.mjs';
+import {
+  extractNonImplementedItems,
+  isCandidateItem,
+} from '../../scripts/ci/followup-has-candidates.mjs';
 
 /**
  * The code half of the two-repo cycle must have a transport, and that transport
@@ -28,10 +33,10 @@ import { checkClosesLines } from '../../scripts/lib/pr-body-closes-check.mjs';
  * absent — measured on production, and the reason audit:footer-root-presence
  * went from 23 offenders to 3608.
  *
- * mirror-articles-engine.yml restores the direction by carrying `engine/` alone.
- * That split is the entire safety argument, so it is the thing tested here: the
+ * mirror-articles-engine.yml restores the direction by carrying `engine/` plus
+ * the action-owned image-lane patch. That split is the entire safety argument, so it is the thing tested here: the
  * old mirror's destructive behaviour was all about `content/`, and an
- * engine-only mirror that cannot name `content/` is safe to fire on `push` —
+ * engine/image-lane mirror that cannot name `content/` is safe to fire on `push` —
  * which is what makes it automatic, which is what makes the drift stop being
  * invisible.
  *
@@ -112,7 +117,7 @@ describe('the articles engine has an automatic transport to the corpus (#4974)',
     ).toBe(false);
   });
 
-  it('fails closed on any staged path outside the engine', () => {
+  it('fails closed on any staged path outside the engine/image-broker allowlist', () => {
     // A guard that only warns is a guard that ships the bad diff. The run must
     // stop, so assert both the allowlist and a non-zero exit next to it.
     expect(
@@ -121,8 +126,8 @@ describe('the articles engine has an automatic transport to the corpus (#4974)',
     ).toBe(true);
 
     expect(
-      /grep -vE '\^\(engine\//.test(live),
-      'the staged-path allowlist must be anchored on engine/',
+      /grep -vE '\^\(\\\.github\/actions\/setup-claude-haiku-fallback\/codex-auth-broker\\\.mjs\|engine\//.test(live),
+      'the staged-path allowlist must include the action-owned image broker and engine/',
     ).toBe(true);
 
     // Scope to the allowlist branch itself. Slicing a fixed window from the
@@ -178,6 +183,25 @@ describe('the articles engine has an automatic transport to the corpus (#4974)',
     }
   });
 
+  it('watches and applies the adapted action-owned image broker', () => {
+    const paths: string[] = on.push.paths ?? [];
+    const broker = '.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs';
+    const patcher = 'scripts/ci/apply-corpus-image-broker-patch.mjs';
+
+    expect(paths, 'the broker is consumed but no push path watches it').toContain(broker);
+    expect(paths, 'the patcher is consumed but no push path watches it').toContain(patcher);
+    expect(src, 'the sparse checkout must materialise the broker').toContain(`/${broker}`);
+    expect(src, 'the sparse checkout must materialise the patcher').toContain(`/${patcher}`);
+    expect(
+      live,
+      'the mirror must apply the patcher to the corpus broker',
+    ).toContain(`node "$GITHUB_WORKSPACE/${patcher}"`);
+    expect(
+      live,
+      'the mirror must attest the adapted broker after patching',
+    ).toContain('broker_target_sha="$(sha256sum "$broker_target" | cut -d\' \' -f1)"');
+  });
+
   it('checks the sparse checkout actually produced an engine', () => {
     // A sparse pattern that selects nothing yields an empty folder, an empty
     // diff, and a green "already in sync" run while the repos drift. Same
@@ -186,8 +210,10 @@ describe('the articles engine has an automatic transport to the corpus (#4974)',
       /sparse-checkout/.test(live),
       'the checkout must stay sparse — a full one materialises the 14k-file corpus',
     ).toBe(true);
+    // The existence test itself, not the bare path: the PR body also names
+    // engine/siteShell.ts, and would satisfy a bare match with the check gone.
     expect(
-      /engine\/siteShell\.ts/.test(live),
+      /\[ ! -f packages\/articles\/engine\/siteShell\.ts \]/.test(live),
       'the run must verify the engine materialised before mirroring it',
     ).toBe(true);
   });
@@ -322,9 +348,12 @@ describe('the lockstep PR body satisfies the contract nanako gates on', () => {
 
   it('non usa deroghe decisionali nude nel corpo generato', () => {
     // The strict gate rejects `by construction` unless the same bullet carries
-    // concrete Motivo/Prossimo passo fields. These residual mirror effects are
-    // ordinary work deferred until merge, so `in questa PR` is the honest state
-    // and keeps the generated body accepted by the gate.
+    // concrete Motivo/Prossimo passo fields. FULL_ENV touches
+    // engine/siteShell.ts, so its body has no `by construction` bullet: the two
+    // residual mirror effects are ordinary work deferred until merge
+    // (`in questa PR`) and the host/ boundary stays `blocked:`. A lockstep that
+    // leaves the contract alone legitimately emits one `by construction` bullet
+    // with Motivo and Prossimo passo: the FU-010 describe below covers it.
     const body = renderPrBody(FULL_ENV);
     expect(decisionDeferralsAreSpecific(body)).toBe(true);
     expect(body).not.toMatch(/^\s*- by construction:/m);
@@ -381,6 +410,78 @@ describe('the lockstep PR body satisfies the contract nanako gates on', () => {
     // rest stay open in silence.
     const body = renderPrBody(FULL_ENV);
     expect(checkClosesLines(body).violations).toEqual([]);
+  });
+});
+
+/**
+ * The `host/` boundary bullet states what THIS diff leaves undone, not a
+ * permanent property of the two repos.
+ *
+ * It used to be a fixed `blocked:` line on every lockstep PR. `bulletState`
+ * reads that as `blocked-technical`, `isCandidateItem` keeps it, and the
+ * post-merge triage minted it as a follow-up item each time — measured on the
+ * corpus lockstep PRs 1736, 1948, 2010, 2025, 2038 and 2068: one candidate
+ * each, and none of those diffs touched `engine/siteShell.ts`. The item
+ * (FU-010 of issue 10677) was then "resolved" only because
+ * `configureSiteShell(contract)` already exists: no work, just a re-minted
+ * condition. The bullet now follows the diff; the workflow already knows it
+ * (`changed_paths`).
+ */
+describe('the host/ boundary bullet follows the diff (FU-010)', () => {
+  const candidates = (body: string) => extractNonImplementedItems(body).filter(isCandidateItem);
+  const NO_SHELL_ENV = {
+    ...FULL_ENV,
+    changed_paths: ['engine/ogPagesPlugin.ts', 'engine/siteShellNotes.ts', 'index.ts'].join('\n'),
+  };
+
+  it('closes the bullet when the diff does not touch engine/siteShell.ts', () => {
+    const body = renderPrBody(NO_SHELL_ENV);
+    expect(
+      candidates(body),
+      'a lockstep that leaves SiteShellContract alone has no host/ half to carry; ' +
+        'a candidate here is minted by the triage as a follow-up nobody can act on',
+    ).toEqual([]);
+    expect(body, 'the bullet must still say why there is nothing to carry').toMatch(
+      /^- by construction:.*\*\*Motivo:\*\*.*engine\/siteShell\.ts.*\*\*Prossimo passo:\*\*/m,
+    );
+  });
+
+  it('keeps one actionable blocked item when the diff touches engine/siteShell.ts', () => {
+    for (const changed_paths of [
+      FULL_ENV.changed_paths,
+      ['engine/siteShell.ts', 'engine/ogPagesPlugin.ts'].join('\n'),
+      'engine/siteShell.ts',
+    ]) {
+      const items = candidates(renderPrBody({ ...FULL_ENV, changed_paths }));
+      expect(items, `paths: ${JSON.stringify(changed_paths)}`).toHaveLength(1);
+      const [item] = items;
+      expect(item).toMatch(/^blocked: /);
+      expect(item, 'the item must name the host/ file to align').toMatch(/`host\/[\w./-]+\.ts`/);
+      expect(item, 'the item must carry a falsifiable verification command').toMatch(
+        /`[^`]*shell-contract-coverage\.mjs[^`]*`/,
+      );
+      expect(item).toMatch(/`[^`]*host\/tests\/\*\.test\.mjs[^`]*`/);
+    }
+  });
+
+  it('stays blocked when the path list is empty: no evidence, no closing state', () => {
+    // `changed_paths` comes from the commit just made, so empty should not
+    // happen — but "nothing listed" is not proof that the contract is intact.
+    expect(candidates(renderPrBody(DEGRADED_ENV))).toHaveLength(1);
+  });
+
+  it.each([
+    ['touching the contract', FULL_ENV],
+    ['not touching the contract', NO_SHELL_ENV],
+    ['with empty lookups', DEGRADED_ENV],
+  ])('passes the same body gate the workflow runs, %s', (_label, env) => {
+    const body = renderPrBody(env);
+    const result = validatePrBody(body);
+    expect(
+      result.violations.map((v: { message?: string; type?: string }) => v.message ?? v.type),
+    ).toEqual([]);
+    expect(result.ok).toBe(true);
+    expect(decisionDeferralsAreSpecific(body)).toBe(true);
   });
 });
 

@@ -46,8 +46,17 @@
       "medacta.com": [
         "https://www.medacta.com/EN/careers"
       ],
+      "mediamarkt.ch": [
+        "https://careers.mediamarktsaturn.com/MediaMarktCH/?locale=de_CH&currentPage=1&pageSize=100&addresses%2Fcountry=CHE&orderBy=datePosted&isDesc=true"
+      ],
       "cler.ch": [
         "https://www.cler.ch/it/banca-cler/jobs-und-karriere/cercare-candidatura/offene-stellen"
+      ],
+      "protectas.com": [
+        "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/"
+      ],
+      "zaugg.swiss": [
+        "https://www.zaugg.swiss/stellen"
       ]
     },
     "byName": {}
@@ -63,6 +72,13 @@
       "generic_ats",
       "html",
       "jsonld"
+    ],
+    "protectas": [
+      "html",
+      "jsonld"
+    ],
+    "zaugg": [
+      "html"
     ]
   },
   "minQualityScore": 4,

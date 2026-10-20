@@ -13,6 +13,8 @@ export interface WeatherCity {
   slug: { it: string; en: string; de: string; fr: string };
   /** Province / canton for breadcrumb context. */
   region: { it: string; en: string; de: string; fr: string };
+  /** Codice del cantone per le citta' svizzere, scritto nello snapshot (P9f). */
+  canton?: string;
 }
 
 export const WEATHER_CITIES: readonly WeatherCity[] = Object.freeze([
@@ -25,6 +27,7 @@ export const WEATHER_CITIES: readonly WeatherCity[] = Object.freeze([
     lng: 8.9511,
     slug: { it: 'lugano', en: 'lugano', de: 'lugano', fr: 'lugano' },
     region: { it: 'Canton Ticino', en: 'Canton Ticino', de: 'Kanton Tessin', fr: 'Canton Tessin' },
+    canton: 'TI',
   },
   {
     id: 'bellinzona',
@@ -34,6 +37,7 @@ export const WEATHER_CITIES: readonly WeatherCity[] = Object.freeze([
     lng: 9.0227,
     slug: { it: 'bellinzona', en: 'bellinzona', de: 'bellenz', fr: 'bellinzone' },
     region: { it: 'Canton Ticino', en: 'Canton Ticino', de: 'Kanton Tessin', fr: 'Canton Tessin' },
+    canton: 'TI',
   },
   {
     id: 'mendrisio',
@@ -43,6 +47,7 @@ export const WEATHER_CITIES: readonly WeatherCity[] = Object.freeze([
     lng: 8.9842,
     slug: { it: 'mendrisio', en: 'mendrisio', de: 'mendrisio', fr: 'mendrisio' },
     region: { it: 'Canton Ticino', en: 'Canton Ticino', de: 'Kanton Tessin', fr: 'Canton Tessin' },
+    canton: 'TI',
   },
   {
     id: 'locarno',
@@ -52,6 +57,7 @@ export const WEATHER_CITIES: readonly WeatherCity[] = Object.freeze([
     lng: 8.7943,
     slug: { it: 'locarno', en: 'locarno', de: 'locarno', fr: 'locarno' },
     region: { it: 'Canton Ticino', en: 'Canton Ticino', de: 'Kanton Tessin', fr: 'Canton Tessin' },
+    canton: 'TI',
   },
   {
     id: 'chiasso',
@@ -61,6 +67,7 @@ export const WEATHER_CITIES: readonly WeatherCity[] = Object.freeze([
     lng: 9.0307,
     slug: { it: 'chiasso', en: 'chiasso', de: 'chiasso', fr: 'chiasso' },
     region: { it: 'Canton Ticino', en: 'Canton Ticino', de: 'Kanton Tessin', fr: 'Canton Tessin' },
+    canton: 'TI',
   },
   // IT-side cluster (frontaliere residence cities)
   {

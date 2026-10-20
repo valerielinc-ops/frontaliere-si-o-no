@@ -154,13 +154,15 @@ export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
  * Empty `#root` for SPA-shell SEO pages, with a first-paint header-height
  * reservation spacer.
  *
- * The crawler-facing SEO content lives in a `<main class="seo-static-content">`
+ * Most crawler-facing SEO content lives in a `<main class="seo-static-content">`
  * body-sibling OUTSIDE `#root`; React mounts the SPA chrome (the sticky nav
  * header, `h-14 md:h-20` = 56/80px) INTO `#root`, which — starting empty — would
  * shove that sibling content down by the header height on mount (live: ~0.08
  * desktop CLS on `/cerca-lavoro-*`). The `.ft-hdr-reserve` spacer (height pinned
  * in `shared/criticalCss.ts`'s `ROOT_HEADER_RESERVE_CSS`) holds the header height
- * from first paint so nothing jumps. `createRoot().render()` REPLACES #root's
+ * from first paint so nothing jumps. The job-board hub is the deliberate
+ * exception: its static main is passed as `innerHtml` so content and reserve
+ * share one root before React mounts. `createRoot().render()` REPLACES #root's
  * children (client render, not hydration), so the spacer leaves no residue and
  * the real same-height header takes its place shift-free.
  *
@@ -178,10 +180,10 @@ export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
  * sit as a PERMANENT 56/80px empty band above the indexed SEO content
  * instead of degrading to a plain empty `#root` (0px, content at top).
  */
-export function rootShell(hasSpaBundle: boolean): string {
+export function rootShell(hasSpaBundle: boolean, innerHtml = ''): string {
   return hasSpaBundle
-    ? '<div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div></div>'
-    : '<div id="root"></div>';
+    ? `<div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div>${innerHtml}</div>`
+    : `<div id="root">${innerHtml}</div>`;
 }
 
 /** HTML escape for attribute values and text content. */
@@ -262,9 +264,10 @@ export interface SimplePageOpts {
   * `main.seo-static-content` in the DOM at boot time) that it should render
   * a "lite shell" with header + footer only, and skip the main router area.
   *
-  * Implies {@link skipMainWrap} (the caller's bodyHtml must already contain
-  * its own `<main>` element semantics — but we still wrap it in
-  * `<main class="seo-static-content">` for the lite-shell detection hook).
+  * If the caller already starts with a `<main>`, that element is promoted to
+  * the static shell and receives the configured class. This keeps the
+  * caller's layout classes while avoiding nested main landmarks. Plain inner
+  * HTML is still wrapped in a new `<main>`.
   *
   * Default: false (legacy behavior — content stays inside `#root`).
   */
@@ -303,6 +306,173 @@ export interface SimplePageOpts {
  seoMainClass?: string;
 }
 
+interface LeadingMainTag {
+ prefix: string;
+ openingTag: string;
+ openingEnd: number;
+}
+
+interface MainClosingTag {
+ index: number;
+ tag: string;
+}
+
+interface MainClassAttribute {
+ start: number;
+ end: number;
+ value: string;
+}
+
+/** Find an HTML tag terminator without treating `>` inside quotes as a close. */
+function findHtmlTagEnd(source: string, start: number): number {
+ let quote: '"' | "'" | null = null;
+ for (let index = start; index < source.length; index++) {
+   const char = source[index];
+   if (quote) {
+     if (char === quote) quote = null;
+     continue;
+   }
+   if (char === '"' || char === "'") {
+     quote = char;
+     continue;
+   }
+   if (char === '>') return index;
+ }
+ return -1;
+}
+
+/** Locate a complete leading `<main>` opening tag, including quoted attrs. */
+function findLeadingMainTag(bodyHtml: string): LeadingMainTag | null {
+ const prefixMatch = bodyHtml.match(/^(\s*(?:<!--[\s\S]*?-->\s*)*)<main\b/i);
+ if (!prefixMatch) return null;
+ const mainStart = prefixMatch[1].length;
+ const tagEnd = findHtmlTagEnd(bodyHtml, mainStart);
+ if (tagEnd < 0) return null;
+ return {
+   prefix: bodyHtml.slice(0, mainStart),
+   openingTag: bodyHtml.slice(mainStart, tagEnd + 1),
+   openingEnd: tagEnd + 1,
+ };
+}
+
+/**
+ * Find the closing tag belonging to the leading main. Raw-text elements and
+ * comments are skipped so a literal `</main>` in an ad script cannot become a
+ * false boundary while trailing siblings are moved into the promoted main.
+ */
+function findLeadingMainClosingTag(source: string, openingEnd: number): MainClosingTag | null {
+ let depth = 0;
+ let cursor = openingEnd;
+ while (cursor < source.length) {
+   const tagStart = source.indexOf('<', cursor);
+   if (tagStart < 0) return null;
+
+   if (source.startsWith('<!--', tagStart)) {
+     const commentEnd = source.indexOf('-->', tagStart + 4);
+     if (commentEnd < 0) return null;
+     cursor = commentEnd + 3;
+     continue;
+   }
+
+   const rawTextMatch = source.slice(tagStart).match(/^<(script|style)\b/i);
+   if (rawTextMatch) {
+     const openingTagEnd = findHtmlTagEnd(source, tagStart);
+     if (openingTagEnd < 0) return null;
+     const closingPattern = new RegExp(`</${rawTextMatch[1]}\\s*>`, 'ig');
+     closingPattern.lastIndex = openingTagEnd + 1;
+     const rawTextClose = closingPattern.exec(source);
+     if (!rawTextClose) return null;
+     cursor = rawTextClose.index + rawTextClose[0].length;
+     continue;
+   }
+
+   const mainOpenMatch = source.slice(tagStart).match(/^<main\b/i);
+   if (mainOpenMatch) {
+     const openingTagEnd = findHtmlTagEnd(source, tagStart);
+     if (openingTagEnd < 0) return null;
+     const openingTag = source.slice(tagStart, openingTagEnd + 1);
+     if (!/\/\s*>$/.test(openingTag)) depth++;
+     cursor = openingTagEnd + 1;
+     continue;
+   }
+
+   const mainCloseMatch = source.slice(tagStart).match(/^<\/main\s*>/i);
+   if (mainCloseMatch) {
+     const closingTag = mainCloseMatch[0];
+     if (depth === 0) return { index: tagStart, tag: closingTag };
+     depth--;
+     cursor = tagStart + closingTag.length;
+     continue;
+   }
+
+   // Skip complete ordinary tags so `<main>` text inside a quoted attribute
+   // cannot be mistaken for a nested landmark.
+   const genericTagEnd = findHtmlTagEnd(source, tagStart);
+   cursor = genericTagEnd >= 0 ? genericTagEnd + 1 : tagStart + 1;
+ }
+ return null;
+}
+
+/** Parse the actual class attribute, excluding data-class and quoted values. */
+function findMainClassAttribute(openingTag: string): MainClassAttribute | null {
+ const mainPrefix = openingTag.match(/^<main\b/i)?.[0];
+ if (!mainPrefix) return null;
+ const tagEnd = openingTag.length - 1;
+ let cursor = mainPrefix.length;
+
+ while (cursor < tagEnd) {
+   while (cursor < tagEnd && /\s/.test(openingTag[cursor])) cursor++;
+   if (cursor >= tagEnd || openingTag[cursor] === '/') break;
+
+   const attrStart = cursor;
+   while (cursor < tagEnd && !/[\s=/>]/.test(openingTag[cursor])) cursor++;
+   const attrName = openingTag.slice(attrStart, cursor);
+   while (cursor < tagEnd && /\s/.test(openingTag[cursor])) cursor++;
+   if (openingTag[cursor] !== '=') continue;
+   cursor++;
+   while (cursor < tagEnd && /\s/.test(openingTag[cursor])) cursor++;
+
+   let value = '';
+   if (openingTag[cursor] === '"' || openingTag[cursor] === "'") {
+     const quote = openingTag[cursor];
+     const valueStart = ++cursor;
+     while (cursor < tagEnd && openingTag[cursor] !== quote) cursor++;
+     value = openingTag.slice(valueStart, cursor);
+     if (cursor < tagEnd) cursor++;
+   } else {
+     const valueStart = cursor;
+     while (cursor < tagEnd && !/\s/.test(openingTag[cursor])) cursor++;
+     value = openingTag.slice(valueStart, cursor);
+   }
+
+   if (attrName.toLowerCase() === 'class') {
+     return { start: attrStart, end: cursor, value };
+   }
+ }
+ return null;
+}
+
+function promoteMainClasses(openingTag: string, seoMainClass: string): string {
+ const requestedClasses = seoMainClass.split(/\s+/).filter(Boolean);
+ if (requestedClasses.length === 0) return openingTag;
+
+ const classAttribute = findMainClassAttribute(openingTag);
+ const existingClasses = classAttribute?.value.split(/\s+/).filter(Boolean) ?? [];
+ const mergedClasses = [...existingClasses];
+ for (const className of requestedClasses) {
+   if (!mergedClasses.includes(className)) mergedClasses.push(className);
+ }
+ const classValue = mergedClasses.join(' ');
+
+ if (classAttribute) {
+   return `${openingTag.slice(0, classAttribute.start)}class="${classValue}"${openingTag.slice(classAttribute.end)}`;
+ }
+
+ const tagEnd = openingTag.lastIndexOf('>');
+ const beforeTagEnd = openingTag.slice(0, tagEnd).replace(/\s+$/, '');
+ return `${beforeTagEnd} class="${classValue}"${openingTag.slice(tagEnd)}`;
+}
+
 export function buildSimplePage(opts: SimplePageOpts): string {
  const {
  locale,
@@ -330,12 +500,40 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  seoMainClass = 'seo-static-content',
  } = opts;
 
+ /**
+  * Reuse a caller-owned leading <main> as the static shell landmark.
+  *
+  * Several SEO emitters build their body as a complete `<main>` because they
+  * also use that markup in hand-rolled/static-only paths. Wrapping that body
+  * in another `<main>` when `seoContentOutsideRoot` is enabled produces two
+  * main landmarks and invalid landmark navigation. A leading complete main is
+  * promoted here, with any trailing siblings moved inside it so the rail grid
+  * still has exactly one center-column child. Embedded mains remain ordinary
+  * page content and raw inner HTML continues through the canonical wrapper.
+  */
+ const staticBody = seoContentOutsideRoot ? (() => {
+   const leadingMain = findLeadingMainTag(bodyHtml);
+   if (!leadingMain) return `<main class="${seoMainClass}">\n${bodyHtml}\n</main>`;
+
+   const promotedOpening = promoteMainClasses(leadingMain.openingTag, seoMainClass);
+   const closingMain = findLeadingMainClosingTag(bodyHtml, leadingMain.openingEnd);
+   if (!closingMain) {
+     // A malformed caller-owned main is repaired in place so the fallback
+     // still emits one well-formed landmark instead of nesting a wrapper.
+     return `${leadingMain.prefix}${promotedOpening}${bodyHtml.slice(leadingMain.openingEnd)}</main>`;
+   }
+
+   const mainInnerHtml = bodyHtml.slice(leadingMain.openingEnd, closingMain.index);
+   const trailingHtml = bodyHtml.slice(closingMain.index + closingMain.tag.length);
+   return `${leadingMain.prefix}${promotedOpening}${mainInnerHtml}${trailingHtml}${closingMain.tag}`;
+ })() : '';
+
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_CH';
  // Clamp the <meta name="description"> / og:description to the SERP snippet
  // budget (word-aware, ≤160 char). JSON-LD `description` in jsonLdScripts is
  // untouched. Mirrors the runtime clamp in services/seoService.ts so the
  // static HTML and the JS-rendered DOM expose the same complete snippet.
- const metaDescription = clampMetaDescription(description);
+ const metaDescription = clampMetaDescription(description, undefined, locale);
  const extraHead = extraHeadHtml ? `\n${extraHeadHtml}` : '';
  // Escape `<` in each (already-serialized) JSON-LD string so a "</script>" in
  // arbitrary content (titles, names) can't break out of the inline tag and
@@ -377,10 +575,12 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  //
  // 1. seoContentOutsideRoot=true (NEW, used by 6 SEO feature plugins):
  //    `<div id="root">` is empty. Static SEO content is emitted as a
- //    `<main class="seo-static-content">` SIBLING element so the React SPA
- //    hydrating into `#root` cannot visually replace it. App.tsx detects
- //    `main.seo-static-content` at boot and renders only header+footer
- //    chrome (lite shell), leaving the static content untouched.
+ //    a single `main.seo-static-content` SIBLING element so the React SPA
+ //    hydrating into `#root` cannot visually replace it. A caller-owned
+ //    leading `<main>` is promoted into that landmark; plain content receives
+ //    the wrapper here. App.tsx detects `main.seo-static-content` at boot and
+ //    renders only header+footer chrome (lite shell), leaving static content
+ //    untouched.
  //
  // 2. skipMainWrap=true (existing — used by SEO feature plugins until now):
  //    Caller's bodyHtml lives inside `<div id="root">` directly. Kept for
@@ -417,9 +617,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  const bodySection = seoContentOutsideRoot
    ? ` ${rootShell(!!entryJs)}${preMainSection}
 ${railGridOpen}
- <main class="${seoMainClass}">
-${bodyHtml}
- </main>${railGridClose}
+${staticBody}${railGridClose}
  <div id="footer-root"></div>`
    : ` <div id="root">
 ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </main>`}

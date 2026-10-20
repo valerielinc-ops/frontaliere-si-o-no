@@ -2,12 +2,9 @@
 /**
  * BLS AG job parser — Fetcher and job builder.
  *
- * Listing source: https://www.bls.ch/api/JobPortal/JobsInit (JSON — see
- *   JOBS_API_URL below). The corporate page itself
- *   (https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen)
- *   migrated to a JS-hydrated widget that reads this endpoint client-side;
- *   parseListingPage() (HTML anchor scrape) is kept as a fallback only
- *   (2026-07, #4523).
+ * Listing source: the JobsSearch endpoint advertised by the corporate page's
+ * JavaScript-hydrated widget. parseListingPage() remains as a fallback for
+ * cached or older HTML that still contains job anchors.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBlsJobs()  — Fetch and parse all jobs
@@ -15,10 +12,12 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { fetchHtml as sharedFetchHtml, slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -36,6 +35,28 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function canonicalPostingUrl(rawUrl = '', baseUrl = '') {
+  try {
+    const parsed = new URL(rawUrl, baseUrl || undefined);
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
+
+function firstApiString(record, keys) {
+  for (const key of keys) {
+    const value = record?.[key];
+    if (typeof value === 'string' && normalizeSpace(value)) return value;
+    if (value && typeof value === 'object') {
+      const nested = firstApiString(value, ['href', 'Href', 'url', 'Url', 'URL', 'value']);
+      if (nested) return nested;
+    }
+  }
+  return '';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -111,36 +132,96 @@ function detectEmploymentType(text = '') {
 
 const LISTING_URL = 'https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen';
 const JOBS_BASE = 'https://jobs.bls.ch';
-// The corporate listing page migrated from server-rendered `<a href>` anchors
-// to a JS-hydrated widget (`data-init="jobs"`) that reads this JSON endpoint
-// client-side — the initial HTML no longer contains any job links, so
-// parseListingPage() below matched 0 entries (2026-07, #4523). This endpoint
-// is what the widget itself calls and returns the full job list as JSON.
-const JOBS_API_URL = 'https://www.bls.ch/api/JobPortal/JobsInit?sc_lang=en';
+// The listing widget publishes its current POST endpoint in the page markup.
+const API_RESPONSE_KEYS = ['', 'data', 'Data', 'result', 'Result', 'd', 'payload'];
+const API_JOB_ARRAY_KEYS = [
+  'Jobs', 'jobs',
+  'JobListings', 'jobListings',
+  'Items', 'items',
+  'Results', 'results',
+  'Vacancies', 'vacancies',
+  'Offers', 'offers',
+  'Records', 'records',
+];
+const API_JOB_URL_KEYS = [
+  'URL', 'Url', 'url',
+  'JobUrl', 'JobURL', 'jobUrl', 'jobURL',
+  'JobDetailUrl', 'JobDetailURL', 'jobDetailUrl', 'jobDetailURL',
+  'DetailUrl', 'DetailURL', 'detailUrl', 'detailURL',
+  'Link', 'link', 'Href', 'href', 'Path', 'path',
+];
+const JOBS_SEARCH_URL = 'https://www.bls.ch/api/JobPortal/JobsSearch?sc_lang=en';
+const JOBS_INIT_URL = 'https://www.bls.ch/api/JobPortal/JobsInit?sc_lang=en';
+
+function extractJobsSearchUrl(html = '') {
+  const match = String(html).match(/\bdata-api-url-jobs-search\s*=\s*["']([^"']+)["']/i);
+  if (!match) return '';
+
+  try {
+    const url = new URL(match[1].replace(/&amp;/gi, '&'), LISTING_URL);
+    // The widget may publish the API on the jobs.bls.ch host instead of the
+    // corporate www host. Keep the trust boundary at BLS-owned subdomains,
+    // rather than rejecting a valid cross-origin JobsPortal endpoint.
+    if (!isTrustedDomain(url.href)) return '';
+    return url.href;
+  } catch {
+    return '';
+  }
+}
+
+function extractApiJobRecords(json) {
+  for (const responseKey of API_RESPONSE_KEYS) {
+    const rawContainer = responseKey ? json?.[responseKey] : json;
+    const container = typeof rawContainer === 'string'
+      ? parseEmbeddedJson(rawContainer)
+      : rawContainer;
+    if (Array.isArray(container)) return container;
+
+    for (const jobKey of API_JOB_ARRAY_KEYS) {
+      const rawJobs = container?.[jobKey];
+      const jobs = typeof rawJobs === 'string' ? parseEmbeddedJson(rawJobs) : rawJobs;
+      if (Array.isArray(jobs)) return jobs;
+    }
+  }
+  return [];
+}
+
+function parseEmbeddedJson(value) {
+  try {
+    const parsed = JSON.parse(value);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+function normalizeApiJobUrl(rawUrl = '') {
+  const value = normalizeSpace(rawUrl);
+  if (!value) return '';
+
+  try {
+    const parsed = new URL(value, JOBS_BASE);
+    if (!isTrustedDomain(parsed.href)) return '';
+    if (!/^\/offene-stellen\/[^/]+\/[^/?#]+$/i.test(parsed.pathname)) return '';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
 
 /**
  * Fetch a URL and return HTML text with timeout handling.
  */
 async function fetchHtml(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,*/*',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return sharedFetchHtml(url, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml,*/*',
+      'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    },
+  });
 }
 
 /**
@@ -214,25 +295,28 @@ export function parseListingPage(html = '') {
 }
 
 /**
- * Parse the `/api/JobPortal/JobsInit` JSON response (see JOBS_API_URL above)
- * into the same entry shape as parseListingPage(): { url, slug, uuid, title,
- * locationRaw, pensum }. Each `Jobs[]` item's `Lead` field packs
+ * Parse the JobsSearch JSON response into the same entry shape as
+ * parseListingPage(): { url, slug, uuid, title,
+ * locationRaw, pensum }. The endpoint has returned `Jobs[]` and equivalent
+ * lower-case/nested variants over time; each item's `Lead` field packs
  * "<location>, <pensum>%" (e.g. "Frutigen, 80-100%").
  */
 export function parseJobsApiResponse(json) {
-  const rawJobs = Array.isArray(json?.Jobs) ? json.Jobs : [];
+  const rawJobs = extractApiJobRecords(json);
   const entries = [];
 
   for (const j of rawJobs) {
-    const url = String(j?.URL || '');
-    const match = url.match(/\/offene-stellen\/([^/]+)\/([^/?#]+)/);
+    const url = normalizeApiJobUrl(firstApiString(j, API_JOB_URL_KEYS));
+    // Keep extraction aligned with normalizeApiJobUrl(): the BLS route
+    // validator intentionally accepts case variants from the API.
+    const match = url.match(/\/offene-stellen\/([^/]+)\/([^/?#]+)/i);
     if (!match) continue;
 
     const slug = decodeURIComponent(match[1]);
     const uuid = match[2];
-    const title = normalizeSpace(stripHtml(j?.Title || '')) || slug.replace(/-/g, ' ');
+    const title = normalizeSpace(stripHtml(firstApiString(j, ['Title', 'title', 'Name', 'name']))) || slug.replace(/-/g, ' ');
 
-    const lead = normalizeSpace(j?.Lead || '');
+    const lead = normalizeSpace(firstApiString(j, ['Lead', 'lead']));
     const pctMatch = lead.match(/(\d{1,3})\s*(?:[-–]\s*(\d{1,3}))?\s*%/);
     const pensum = pctMatch
       ? pctMatch[2]
@@ -240,7 +324,7 @@ export function parseJobsApiResponse(json) {
         : `${pctMatch[1]}%`
       : '';
     const locationRaw = normalizeSpace(lead.replace(/,?\s*\d{1,3}\s*(?:[-–]\s*\d{1,3})?\s*%\s*$/, ''))
-      || normalizeSpace(j?.Region || '');
+      || normalizeSpace(firstApiString(j, ['Region', 'region', 'Location', 'location']));
 
     entries.push({ url, slug, uuid, title, locationRaw, pensum });
   }
@@ -261,7 +345,8 @@ function extractJsonLd(html = '') {
   for (const block of blocks) {
     try {
       const parsed = JSON.parse(block[1]);
-      if (parsed?.['@type'] === 'JobPosting') return parsed;
+      const [posting] = extractJobPostingNodesFromJson(parsed);
+      if (posting) return posting;
     } catch {
       // ignore malformed JSON-LD
     }
@@ -341,7 +426,7 @@ function detectBlsEmploymentType(jsonLdType = '', pensum = '') {
 /**
  * Fetch all BLS AG jobs in Switzerland.
  * Strategy:
- *   1. Fetch the BLS listing page (inline HTML with job links)
+ *   1. Fetch the BLS listing page and its advertised JobsSearch endpoint
  *   2. Filter for Swiss locations
  *   3. Fetch each detail page at jobs.bls.ch for JSON-LD data
  *   4. Build ParsedJob objects
@@ -352,17 +437,32 @@ function detectBlsEmploymentType(jsonLdType = '', pensum = '') {
  * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllBlsJobs() {
-  console.log(`🔍 Fetching BLS AG jobs`);
-  console.log(`   Jobs API: ${JOBS_API_URL}`);
-  console.log(`   Detail:   ${JOBS_BASE}/offene-stellen/{slug}/{uuid}`);
-  console.log(`   Strategy: JobsInit API → filter Switzerland → detail JSON-LD\n`);
+  console.log('🔍 Fetching BLS AG jobs');
+  console.log('   Listing:  ' + LISTING_URL);
+  console.log('   Detail:   ' + JOBS_BASE + '/offene-stellen/{slug}/{uuid}');
+  console.log('   Strategy: listing widget/API fallback → filter Switzerland → detail JSON-LD');
 
+  const listingHtml = await fetchHtml(LISTING_URL);
+  const jobsSearchUrl = extractJobsSearchUrl(listingHtml);
   let allEntries = [];
-  try {
-    const apiJson = await fetchJson(JOBS_API_URL);
-    allEntries = parseJobsApiResponse(apiJson);
-  } catch (err) {
-    console.warn(`  ⚠️ JobsInit API fetch failed: ${err?.message || err}`);
+  const apiUrls = [...new Set([jobsSearchUrl, JOBS_SEARCH_URL, JOBS_INIT_URL].filter(Boolean))];
+  for (const apiUrl of apiUrls) {
+    try {
+      const isJobsInit = /\/JobsInit(?:[/?]|$)/i.test(apiUrl);
+      const apiJson = await fetchJson(apiUrl, {
+        ...(isJobsInit ? {} : { method: 'POST' }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Referer: LISTING_URL,
+        },
+        ...(isJobsInit ? {} : { body: '' }),
+      });
+      allEntries = parseJobsApiResponse(apiJson);
+      if (allEntries.length > 0) break;
+      console.warn(`  ⚠️ BLS API returned no parseable jobs: ${apiUrl}`);
+    } catch (err) {
+      console.warn(`  ⚠️ BLS API fetch failed (${apiUrl}): ${err?.message || err}`);
+    }
   }
 
   if (allEntries.length === 0) {
@@ -370,7 +470,6 @@ export async function fetchAllBlsJobs() {
     // the anchors (pre-migration cache, CDN edge case) — try that too before
     // giving up.
     console.warn('  ⚠️ Falling back to listing-page HTML scrape');
-    const listingHtml = await fetchHtml(LISTING_URL);
     allEntries = parseListingPage(listingHtml);
   }
   console.log(`  📋 Total jobs found: ${allEntries.length}`);
@@ -409,8 +508,12 @@ export async function fetchAllBlsJobs() {
       const jobSlug = slugify(`${title} bls ch`);
       const urlHash = createHash('sha1').update(entry.url).digest('hex').slice(0, 12);
 
-      const postedDate = normalizeSpace(jsonLd.datePosted || '').slice(0, 10)
-        || new Date().toISOString().split('T')[0];
+      const sameTitle = normalizeSpace(jsonLd.title).toLowerCase() === normalizeSpace(entry.title).toLowerCase();
+      let sameUrl = !jsonLd.url;
+      if (jsonLd.url) {
+        sameUrl = canonicalPostingUrl(jsonLd.url, entry.url) === canonicalPostingUrl(entry.url, entry.url);
+      }
+      const publication = sourcePostingDateFields(sameTitle && sameUrl ? jsonLd.datePosted : '');
       const validThrough = normalizeSpace(jsonLd.validThrough || '').slice(0, 10);
       const employmentType = detectBlsEmploymentType(
         jsonLd.employmentType || '',
@@ -457,7 +560,7 @@ export async function fetchAllBlsJobs() {
         sector: 'Trasporti / Ferrovia',
         currency: salaryCurrency,
         featured: false,
-        postedDate,
+        ...publication,
         ...(validThrough ? { validThrough } : {}),
         ...(entry.pensum ? { pensum: entry.pensum } : {}),
         ...(salary ? { salary: String(salary) } : {}),

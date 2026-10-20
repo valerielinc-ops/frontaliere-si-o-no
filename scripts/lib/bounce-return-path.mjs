@@ -24,4 +24,4 @@ export const BOUNCE_LOCAL_PART = 'bounce';
 export const BOUNCE_ADDRESS = `${BOUNCE_LOCAL_PART}@${MAIL_DOMAIN}`;
 
 /** The Email Routing worker every bound address is routed to. */
-export const EMAIL_WORKER_NAME = 'frontaliere-stop-reply-handler';
+export { EMAIL_WORKER_NAME } from '../../functions/src/emailWorkerName.js';

@@ -4,8 +4,10 @@ import {
   HUG_COMPANY_NAME,
   isHugJob,
   isTrustedDomain,
+  extractPostingDescription,
+  hugPostingUrls,
 } from '../scripts/lib/hug-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { slugify, stripHtml } from '../scripts/lib/crawler-template.mjs';
 
 describe('HUG (Hôpitaux Universitaires de Genève) crawler parser', () => {
   // ── Constants ──
@@ -152,5 +154,57 @@ describe('HUG (Hôpitaux Universitaires de Genève) crawler parser', () => {
     it('default canton is GE for HUG (Geneva HQ)', () => {
       expect(validJob.canton).toBe('GE');
     });
+  });
+});
+
+// ── #5253: first section only, and a job URL that 302s to the apply flow ──
+describe('extractPostingDescription', () => {
+  // Shape of the SmartRecruiters posting detail for
+  // 744000103028970-medecin-interne-en-radiologie-100- (texts shortened).
+  const posting = {
+    jobAd: {
+      sections: {
+        companyDescription: { title: "Description de l'entreprise", text: '<p>Avec plus de 13\'000 collaborateurs, les HUG sont un établissement de référence.</p>' },
+        jobDescription: { title: 'Description du poste', text: '<p>Vous assurez les activités pratiques et cliniques.</p>' },
+        qualifications: { title: 'Qualifications', text: '<ul><li>Diplôme fédéral de médecin</li><li>Français niveau C1</li></ul>' },
+        additionalInformation: { title: 'Informations complémentaires', text: '<p>Taux d\'activité : 100%. Contrat : CDD de 12 mois.</p>' },
+      },
+    },
+  };
+  const text = stripHtml(extractPostingDescription(posting));
+
+  it('publishes every section of the ad, in page order, under its own heading', () => {
+    const order = ["Description de l'entreprise", 'Description du poste', 'Qualifications', 'Informations complémentaires']
+      .map((heading) => text.indexOf(heading));
+    expect(order.every((index) => index >= 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(text).toContain('établissement de référence');
+    expect(text).toContain('Contrat : CDD de 12 mois.');
+  });
+
+  it('keeps the qualification list as bullets (the published ads were 34/42 flat)', () => {
+    expect(text).toMatch(/^\s*• Diplôme fédéral de médecin/m);
+  });
+
+  it('skips empty sections and tolerates a posting without jobAd', () => {
+    expect(stripHtml(extractPostingDescription({ jobAd: { sections: { jobDescription: { title: 'X', text: '  ' } } } }))).toBe('');
+    expect(extractPostingDescription({})).toBe('');
+  });
+});
+
+describe('hugPostingUrls', () => {
+  it('uses the public posting page as the job URL and keeps the apply flow as applyUrl', () => {
+    const urls = hugPostingUrls({
+      id: '744000103028970',
+      postingUrl: 'https://jobs.smartrecruiters.com/HUG/744000103028970-medecin-interne-en-radiologie-100-',
+      applyUrl: 'https://jobs.smartrecruiters.com/HUG/744000103028970-medecin-interne-en-radiologie-100-?oga=true',
+    });
+    expect(urls.publicUrl).toBe('https://jobs.smartrecruiters.com/HUG/744000103028970-medecin-interne-en-radiologie-100-');
+    expect(urls.applyUrl).toMatch(/\?oga=true$/);
+  });
+
+  it('falls back to the id-based posting page when postingUrl is missing', () => {
+    expect(hugPostingUrls({ id: '744000103028970', applyUrl: 'https://x.test/apply?oga=true' }).publicUrl)
+      .toBe('https://jobs.smartrecruiters.com/HUG/744000103028970');
   });
 });

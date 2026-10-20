@@ -23,24 +23,20 @@ name: Lighthouse CI
 # DEPLOYED site, so it only makes sense to run it AFTER a deploy has propagated
 # — never on a PR (the PR build is never live; a pre-merge run just re-measures
 # already-deployed prod). Triggers:
-#   - workflow_run on "Publish to GitHub Pages (deploy + validate)" completed →
-#     runs only when that publish concluded `success` (its validate-live job
-#     waits for the new build-id to go live, so prod reflects this deploy). The
-#     build/publish split moved deploy+validate out of "Deploy to GitHub Pages"
-#     (now build-only) into deploy-publish.yml, so we key on the publish run —
-#     keying on the build run would audit prod BEFORE the new dist went live.
-#   - schedule (daily 04:17 UTC) → the SAFETY NET, and the reason this workflow
-#     produces numbers at all. The workflow_run trigger above is necessary but
-#     NOT sufficient: it fires only when deploy-publish concludes `success`, and
-#     measured 2026-08-07 that has not happened in its last 40 runs (23
-#     cancelled, 3 failure, 14 skipped). Upstream, deploy.yml is cancelled 50 of
-#     its last 60 runs — by design, since `pages-build-run` uses GitHub's
-#     1-running + 1-pending cap and a deploy burst drops the superseded middle.
-#     Net effect: the audit's own last run was 2026-06-22 and every one of its
-#     last 6 runs concluded `skipped`. A post-deploy gate chained behind a
-#     workflow that never concludes `success` is a gate that never measures
-#     anything. The cron decouples the signal from that chain — prod is prod
-#     whether or not a deploy landed, so a daily audit is always meaningful.
+#   - schedule (daily 04:17 UTC) → the trigger that actually produces numbers.
+#     Prod is prod whether or not a deploy landed, so a daily audit is always
+#     meaningful.
+#   - NO `workflow_run` on "Publish to GitHub Pages (deploy + validate)" any
+#     more (removed 2026-09-25). It was meant to audit right after each publish,
+#     but GitHub never delivered it: deploy-publish.yml is itself started by
+#     `workflow_run`, and the next hop of that chain does not fire. Measured:
+#     last `workflow_run` run of this workflow 2026-06-22, while deploy-publish
+#     concluded `success` four times on 2026-09-24 alone; the runtime watchdog's
+#     identical trigger scored 0 of its last 100 runs. (The earlier diagnosis
+#     here — "deploy-publish never concludes success" — was true in August but
+#     is not the reason.) A post-publish audit, if wanted, has to be an
+#     explicit `gh workflow run lighthouse-ci.yml` from deploy-publish.yml, the
+#     way its `runtime-watchdog` job dispatches runtime-reliability-watch.yml.
 #   - workflow_dispatch for manual re-runs.
 #
 # Outcome handling (the audit stays NON-blocking — there is nothing to block
@@ -52,9 +48,6 @@ name: Lighthouse CI
 #     (no issue, no red), same self-healing behavior as before.
 
 on:
-  workflow_run:
-    workflows: ["Publish to GitHub Pages (deploy + validate)"]
-    types: [completed]
   schedule:
     # Daily 04:17 UTC — off the busy 07:xx monitor cron band, and low-traffic so
     # the Cloudflare edge is least likely to 429 the runner IP.
@@ -97,8 +90,7 @@ jobs:
     timeout-minutes: 20
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      github.event_name == 'schedule' ||
-      github.event.workflow_run.conclusion == 'success'
+      github.event_name == 'schedule'
     outputs:
       run_audit: ${{ steps.probe.outputs.run_audit }}
       urls: ${{ steps.probe.outputs.urls }}
@@ -197,15 +189,11 @@ jobs:
     # `cancelled`, indistinguishable at a glance from the concurrency
     # cancellations upstream — two independent faults were hiding each other.)
     timeout-minutes: 100
-    # Only audit after a SUCCESSFUL deploy (prod now reflects the new build), or
-    # on the daily cron / a manual dispatch. A failed/cancelled deploy left prod
-    # on the old build — auditing it via workflow_run would measure something
-    # this run did not produce; the cron measures prod-as-it-is, which is always
-    # a valid question to ask.
+    # Daily cron or manual dispatch only: both measure prod-as-it-is, which is
+    # always a valid question to ask (see the trigger notes in the header).
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      github.event_name == 'schedule' ||
-      github.event.workflow_run.conclusion == 'success'
+      github.event_name == 'schedule'
 
     # Mobile and desktop are separate legs with separate configs and separate
     # tracked issues. fail-fast: false — a mobile regression must not cancel the
@@ -225,7 +213,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -253,7 +241,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: 'npm'
@@ -265,7 +253,7 @@ jobs:
         # decay into noise. The job stays green; the issue is the durable signal.
         continue-on-error: true
         if: needs.probe.outputs.run_audit == 'true'
-        uses: treosh/lighthouse-ci-action@v12
+        uses: treosh/lighthouse-ci-action@12.6.2
         with:
           # URLs come from the reachability probe above: only paths that returned
           # 200 are audited (Lighthouse aborts the whole run on any 404/redirect
@@ -282,6 +270,67 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
 
+      # Runner-class observer (ADVISORY, issue 11666). The mobile FCP/LCP of the
+      # SPA pages (/ and /cerca-lavoro-ticino/) is bimodal and the mode follows
+      # the GitHub runner, not the code: benchmarkIndex ~3,400 on 2026-10-04 →
+      # every page painted before DOMContentLoaded; ~2,400 on 02/03/05-10 → the
+      # SPA pages painted only after the app started, simulated FCP 8-13 s
+      # instead of 4.6 s. This prints benchmarkIndex, observed first paint, DCL
+      # and mode per run, so a regression issue says whether it came with a
+      # slower runner. It changes no threshold and cannot fail the job.
+      #
+      # It MUST run here, right after the first attempt: the first attempt
+      # dumps its LHRs to .lighthouseci/, and a retry's `lhci collect` empties
+      # that directory (on 2026-10-05 the upload step after the third attempt
+      # found nothing there).
+      - name: Record Lighthouse runner class (advisory)
+        id: runner-class
+        if: needs.probe.outputs.run_audit == 'true'
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          out="$RUNNER_TEMP/lighthouse-runner-class.md"
+          node scripts/ci/lighthouse-runner-class.mjs --dir .lighthouseci --out "$out"
+          {
+            echo "### Lighthouse runner class (${{ matrix.form_factor }}, first attempt)"
+            echo
+            cat "$out"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Surface a missing runner-class record
+        if: needs.probe.outputs.run_audit == 'true' && steps.runner-class.outcome == 'failure'
+        run: echo "::warning title=Lighthouse runner class::the observer could not read .lighthouseci/ after the first attempt; the regression issue will not say which runner class measured it."
+
+      # First-paint order on /cerca-lavoro-ticino/ (ADVISORY until the
+      # paint-gated handoff is live, issue 11666). index.tsx marks
+      # `ft:static-handoff-hide` right before it fades the static HTML out; the
+      # observed first contentful paint must come before that mark on EVERY
+      # run, which the best-of-3 budget assertions cannot see. Same placement
+      # constraint as the runner-class step: before a retry empties
+      # .lighthouseci/. Before the deploy it fails by construction (no mark).
+      - name: Check first-paint order (advisory)
+        id: first-paint-order
+        if: needs.probe.outputs.run_audit == 'true'
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          out="$RUNNER_TEMP/first-paint-order.txt"
+          node scripts/ci/lighthouse-first-paint-order.mjs --dir .lighthouseci > "$out" 2>&1
+          status=$?
+          cat "$out"
+          {
+            echo "### First-paint order on /cerca-lavoro-ticino/ (${{ matrix.form_factor }}, first attempt)"
+            echo
+            echo '```'
+            cat "$out"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+      - name: Surface a first-paint order failure
+        if: needs.probe.outputs.run_audit == 'true' && steps.first-paint-order.outcome == 'failure'
+        run: echo "::warning title=First-paint order::on /cerca-lavoro-ticino/ the static HTML was hidden before it painted (or the ft:static-handoff-hide mark is missing). Advisory until the paint-gated handoff is in production; see the step summary."
+
       # One retry when the FIRST attempt fails — not a genuine-vs-crash
       # distinction (the action gives us no way to tell them apart from YAML),
       # but a legitimate flaky-collection mitigation: the thresholds evaluated
@@ -295,11 +344,16 @@ jobs:
         id: lhci-retry
         continue-on-error: true
         if: needs.probe.outputs.run_audit == 'true' && steps.lhci.outcome == 'failure'
-        uses: treosh/lighthouse-ci-action@v12
+        uses: treosh/lighthouse-ci-action@12.6.2
         with:
           urls: ${{ needs.probe.outputs.urls }}
           configPath: ${{ matrix.config }}
-          uploadArtifacts: true
+          # The action uses the fixed GitHub artifact name `lighthouse-results`.
+          # Retries run in the same workflow and upload-artifact rejects the
+          # duplicate name with HTTP 409, masking a green Lighthouse retry.
+          # Keep temporary public storage for the reports; the final regression
+          # step owns the GitHub artifact when every attempt really fails.
+          uploadArtifacts: false
           temporaryPublicStorage: true
 
       # Second retry when BOTH prior attempts fail — #6084: the first attempt
@@ -316,11 +370,13 @@ jobs:
           needs.probe.outputs.run_audit == 'true' &&
           steps.lhci.outcome == 'failure' &&
           steps.lhci-retry.outcome == 'failure'
-        uses: treosh/lighthouse-ci-action@v12
+        uses: treosh/lighthouse-ci-action@12.6.2
         with:
           urls: ${{ needs.probe.outputs.urls }}
           configPath: ${{ matrix.config }}
-          uploadArtifacts: true
+          # See the first retry: a second action upload would collide with the
+          # same fixed artifact name in this workflow run.
+          uploadArtifacts: false
           temporaryPublicStorage: true
 
       # Combined verdict for the steps below: success if ANY attempt
@@ -354,7 +410,7 @@ jobs:
       # strategic — owner/agent triages it manually (AGENTS.md: only crawler /
       # follow-up are auto-routable). Labelled funnel-monetization (CLS gates
       # AdSense RPM) + funnel-seo (category SEO score gates indexability).
-      # --reopen-within-hours 6: prod CWV are noisy and every deploy re-audits,
+      # --reopen-within-hours 6: prod CWV are noisy and every run re-audits,
       # so the gate flaps (fail → recovery closes → fail again). Without it the
       # second fail finds no OPEN issue and coins a duplicate; 6h lets it reopen
       # the canonical issue instead (matches the other post-deploy reporters in
@@ -374,6 +430,11 @@ jobs:
             schedule)     TRIGGER="scheduled daily audit (cron 17 4 * * *) — no triggering deploy" ;;
             *)            TRIGGER="manual dispatch — no triggering deploy" ;;
           esac
+          # Runner class of the first attempt (advisory observer above): a
+          # regression measured on a slower runner reads differently from one
+          # measured on the usual class (issue 11666).
+          RUNNER_CLASS="$(cat "$RUNNER_TEMP/lighthouse-runner-class.md" 2>/dev/null || true)"
+          [ -n "$RUNNER_CLASS" ] || RUNNER_CLASS="_not recorded: the runner-class observer had no Lighthouse result to read after the first attempt._"
           node scripts/lib/github-issue-creator.mjs \
             --title "Lighthouse regression on production (${{ matrix.form_factor }})" \
             --priority 2 \
@@ -391,6 +452,10 @@ jobs:
 
           **Audit run:** $RUN_URL (Lighthouse reports artifact attached to the run; public HTML report linked in the LHCI step log).
           **Triggered by:** ${TRIGGER}
+
+          **Runner class (first attempt):** mode \`slow\` = observed first paint after DOMContentLoaded. On / and /cerca-lavoro-ticino/ slow mode came with runners of benchmarkIndex ~2,400 and fast mode with ~3,400 (issue 11666): check this table before blaming a deploy.
+
+          ${RUNNER_CLASS}
 
           **Next step:** open the run, read the per-URL assertion failures (which template + which metric), reproduce locally / via audit replay, fix the root cause. This issue auto-closes when a later post-deploy audit passes again."
 

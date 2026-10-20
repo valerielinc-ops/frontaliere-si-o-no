@@ -17,7 +17,7 @@
 // cantieri-traffico-a9-ticino, iniziativa-salari-ticino (all now repaired —
 // see services/locales/blog-meta-{it,en,de,fr}.ts).
 //
-// Uses ARTICLE_SECTION_CORE_LIST (build-plugins/shared/articleSectionCore.mjs)
+// Uses SITE_RENDERED_ARTICLE_SECTIONS (build-plugins/shared/articleSectionCore.mjs)
 // as the single source of truth for the section → registryFile/metaPrefix
 // tuple, instead of re-hardcoding those paths a 7th time (see that module's
 // docstring for the six pre-existing copies it already collapsed).
@@ -26,12 +26,13 @@
 // Exit 0 = every registry id has complete IT meta. Exit 1 = orphan(s) found.
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { ARTICLE_SECTION_CORE_LIST } from '../../build-plugins/shared/articleSectionCore.mjs';
+import { SITE_RENDERED_ARTICLE_SECTIONS } from '../../build-plugins/shared/articleSectionCore.mjs';
 
 // cwd-relative (not __dirname-relative) so a test fixture can point this at
 // an isolated temp tree via `{ cwd }` — same convention as
-// scripts/ci/validate-article-append-integrity.mjs. The ARTICLE_SECTION_CORE_LIST
-// import itself always resolves against this script's own real location
+// scripts/ci/validate-article-append-integrity.mjs. The
+// SITE_RENDERED_ARTICLE_SECTIONS import itself always resolves against this
+// script's own real location
 // (module imports are never cwd-relative); that's fine, it's static config,
 // not something a fixture needs to fake.
 const root = process.cwd();
@@ -58,7 +59,7 @@ let exitCode = 0;
 // nobody inspected.
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-for (const { section, registryFile, metaPrefix } of ARTICLE_SECTION_CORE_LIST) {
+for (const { section, registryFile, metaPrefix } of SITE_RENDERED_ARTICLE_SECTIONS) {
   const ids = idsOf(registryFile);
   const orphansByLocale = new Map();
   for (const locale of LOCALES) {

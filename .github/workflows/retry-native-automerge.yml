@@ -1,4 +1,8 @@
 name: Retry native auto-merge opt-in
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Retry native auto-merge opt-in [loop-clock {0}]', inputs.loop_clock) || 'Retry native auto-merge opt-in' }}
 
 # This is a bounded recovery loop for a transient GitHub API failure while
 # opting a PR into native auto-merge. Native auto-merge still owns the wait and
@@ -7,6 +11,12 @@ on:
   schedule:
     - cron: '*/20 * * * *'
   workflow_dispatch:
+    inputs:
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -26,7 +36,7 @@ jobs:
       # runtime file before any gate code is imported. A missing helper fails
       # this run closed and the next scheduled tick retries automatically.
       - name: Checkout trusted native auto-merge source
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: ${{ github.repository }}
           ref: main
@@ -45,6 +55,7 @@ jobs:
             /scripts/ci/lib/constants.mjs
             /scripts/ci/lib/pr-review-admission.mjs
             /scripts/ci/lib/review-input-revision.mjs
+            /scripts/lib/gh-exec-buffer.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /data/loop-fleet/loop-registry.json
           sparse-checkout-cone-mode: false
@@ -53,9 +64,13 @@ jobs:
       - name: Validate trusted native auto-merge source
         env:
           NATIVE_AUTOMERGE_SOURCE_ROOT: ${{ github.workspace }}/native-automerge-main
-        run: node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/ci/native-automerge-source.mjs"
+        run: |
+          set -euo pipefail
+          node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/ci/native-automerge-source.mjs"
+          echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=true" >> "$GITHUB_ENV"
 
       - name: Prepare Firebase credentials
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -67,9 +82,11 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load PAT from Remote Config
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         run: node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/load-rc-env.mjs"
 
       - name: Retry bounded native auto-merge opt-in
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
           REPOSITORY: ${{ github.repository }}
           MAX_PR_SCAN: '100'

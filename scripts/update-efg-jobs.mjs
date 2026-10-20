@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated EFG International AG crawler runner.
  * Runs only EFG jobs from their Oracle HCM Cloud careers portal and
@@ -16,6 +18,7 @@
  *  5. Post-process: fix company name, location, canton, clean descriptions
  *  6. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateCandidatesFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -30,6 +33,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import { parseEfgOracleDescription } from './lib/efg-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { isTargetCanton } from './lib/crawler-location-config.mjs';
@@ -398,7 +402,7 @@ async function fetchDetailDescriptions(requisitions) {
         category: detailPayload.Category || null,
         requisitionType: detailPayload.RequisitionType || null,
         postedDate: detailPayload.ExternalPostedStartDate
-          ? String(detailPayload.ExternalPostedStartDate).split('T')[0]
+          ? String(detailPayload.ExternalPostedStartDate)
           : null,
         corporateDescription: String(detailPayload.CorporateDescriptionStr || '').trim() || null,
       });
@@ -527,6 +531,9 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
     const rawDesc = descriptions.get(String(req.Id)) || req.ShortDescriptionStr || '';
     const parsedContent = parseEfgOracleDescription(rawDesc);
     const description = parsedContent.description || cleanEfgDescription(rawDesc);
+    // Every locale-keyed field follows the language the ad is written in
+    // (read from the body), not a fixed `en` (#5253).
+    const srcLang = sourceLangOfBody(description || req.ShortDescriptionStr || '', 'en');
     const title = String(req.Title || '').trim();
     if (!title) continue;
 
@@ -534,7 +541,7 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
     const meta = metadata.get(String(req.Id)) || {};
     const category = mapOracleCategory(meta.category);
     const contract = mapOracleRequisitionType(meta.requisitionType);
-    const postedDate = meta.postedDate || req.PostedDate || new Date().toISOString().split('T')[0];
+    const postingDates = sourcePostingDateCandidatesFields([meta.postedDate, req.PostedDate]);
 
     const slug = `${title}-efg-${city}`
       .toLowerCase()
@@ -559,17 +566,17 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
       description: description || req.ShortDescriptionStr || '',
       requirements: parsedContent.requirements || [],
       featured: false,
-      postedDate,
+      ...postingDates,
       url,
       applyUrl: buildEfgApplicationUrl(),
       source: 'Oracle HCM API',
-      sourceLang: detectLang(description || title),
+      sourceLang: srcLang,
       companyKey: EFG_KEY,
       companyDomain: EFG_OFFICIAL_HOST,
-      titleByLocale: { en: title },
-      descriptionByLocale: description ? { en: description } : {},
-      requirementsByLocale: parsedContent.requirements?.length ? { en: parsedContent.requirements } : {},
-      canonicalContent: parsedContent.canonical ? { byLocale: { en: parsedContent.canonical } } : undefined,
+      titleByLocale: { [srcLang]: title },
+      descriptionByLocale: description ? { [srcLang]: description } : {},
+      requirementsByLocale: parsedContent.requirements?.length ? { [srcLang]: parsedContent.requirements } : {},
+      canonicalContent: parsedContent.canonical ? { byLocale: { [srcLang]: parsedContent.canonical } } : undefined,
       crawledAt: new Date().toISOString(),
       slugByLocale: {},
       addressLocality: city || '',
@@ -598,30 +605,32 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
       existing.applyUrl = buildEfgApplicationUrl();
       existing.category = jobEntry.category || existing.category;
       existing.contract = jobEntry.contract || existing.contract;
-      existing.postedDate = jobEntry.postedDate || existing.postedDate;
+      Object.assign(existing, mergeSourcePostingDates(existing, jobEntry));
       existing.crawledAt = jobEntry.crawledAt;
+      existing.sourceLang = srcLang;
       existing.titleByLocale = {
         ...(existing.titleByLocale || {}),
-        en: title,
+        [srcLang]: title,
       };
       if (jobEntry.description) {
         existing.descriptionByLocale = {
           ...(existing.descriptionByLocale || {}),
-          en: jobEntry.description,
+          [srcLang]: jobEntry.description,
         };
       }
+      dropStaleLocaleDescriptions(existing);
       if (Array.isArray(jobEntry.requirements) && jobEntry.requirements.length > 0) {
         existing.requirementsByLocale = {
           ...(existing.requirementsByLocale || {}),
-          en: jobEntry.requirements,
+          [srcLang]: jobEntry.requirements,
         };
       }
-      if (jobEntry.canonicalContent?.byLocale?.en) {
+      if (jobEntry.canonicalContent?.byLocale?.[srcLang]) {
         existing.canonicalContent = {
           ...(existing.canonicalContent || {}),
           byLocale: {
             ...((existing.canonicalContent && existing.canonicalContent.byLocale) || {}),
-            en: jobEntry.canonicalContent.byLocale.en,
+            [srcLang]: jobEntry.canonicalContent.byLocale[srcLang],
           },
         };
       }
@@ -866,9 +875,7 @@ function postProcessEfgJobs(requisitions = [], descriptions = new Map(), metadat
         fixed++;
       }
     }
-    if (meta?.postedDate && !job.postedDate) {
-      job.postedDate = meta.postedDate;
-    }
+    Object.assign(job, mergeSourcePostingDates(job, sourcePostingDateCandidatesFields([meta?.postedDate, apiData?.PostedDate])));
 
     // Fix location from Oracle HCM API data (more reliable than scraping)
     if (apiData?.PrimaryLocation) {
@@ -882,11 +889,6 @@ function postProcessEfgJobs(requisitions = [], descriptions = new Map(), metadat
     const canton = detectCanton(job.location || '');
     if (canton) {
       job.canton = canton;
-    }
-
-    // Fix posted date from API (ISO format)
-    if (apiData?.PostedDate && !job.datePosted) {
-      job.datePosted = apiData.PostedDate;
     }
 
     // Rebuild from dedicated API payload when existing text is thin or boilerplate-only.
@@ -1136,6 +1138,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => exitCrawlerOnError(err, 'EFG'));
 }

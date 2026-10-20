@@ -21,7 +21,7 @@ jobs:
     # 45 = 10 (snapshot+delta+pairs) + 30 (AI enrichment cap) + 5 buffer
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
@@ -40,7 +40,7 @@ jobs:
         # `failure` diagnosticabile.
         timeout-minutes: 20
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
@@ -99,6 +99,19 @@ jobs:
         run: node scripts/load-rc-env.mjs
         continue-on-error: true
 
+      - name: Discover sector-hub expansion candidates
+        # Rebuild the candidate queue from the same assembled ads snapshot as
+        # the weekly employer report. GA4/GSC are read-only; the evidence copy
+        # stays in RUNNER_TEMP so a push-rebase can reuse it without another
+        # Analytics API sweep or committing raw search queries.
+        run: |
+          if [ ! -s data/jobs.json ]; then
+            echo "::warning::Skipping sector-hub discovery: assembled data/jobs.json is missing."
+            exit 0
+          fi
+          npm run data:sector-hub-candidates -- \
+            --traffic-output "$RUNNER_TEMP/sector-hub-traffic.json"
+
       # ── OmniRoute (ON by default, RC kill-switch ENABLE_OMNIROUTE_FALLBACK='0')
       # Self-hosted local AI gateway, offered in ai-models.mjs's DEFAULT_CHAIN
       # as AI_MODELS.OMNIROUTE_AUTO. See
@@ -123,8 +136,15 @@ jobs:
           # always pass: ai-models.mjs only opens the broker when its gate is
           # enabled.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
-        run: node scripts/enrich-related-search-clusters.mjs --verbose
+          # No global AI_MODELS_PREFER: the backlog is ~22k clusters × up to 2
+          # calls, and the Codex broker runs one request at a time. With Codex
+          # preferred, every call queued behind it first (run 36420178268:
+          # 449 Codex attempts, 0 successes, the whole 30-minute step).
+          # See tests/scripts/codex-prefer-volume-scope.test.ts.
+        # --budget-minutes stops STARTING clusters 6 minutes before the step
+        # timeout, so in-flight calls finish, the cache is saved and stale
+        # entries are pruned; the rest resumes next week from the cache.
+        run: node scripts/enrich-related-search-clusters.mjs --verbose --budget-minutes=24
         continue-on-error: true
         timeout-minutes: 30
 
@@ -146,7 +166,7 @@ jobs:
             echo "No changes to snapshot — nothing to commit."
             exit 0
           fi
-          git commit -m "chore(seo): refresh weekly-employers snapshot + related-search clusters
+          git commit -m "chore(seo): refresh weekly snapshots, related-search clusters and sector-hub candidates
 
           Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
 
@@ -154,7 +174,18 @@ jobs:
           # other scheduled workflows. On rebase conflict, regenerate the
           # snapshot + delta + footer pairs + cluster data on top of the new base.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; bash scripts/lib/stage-weekly-snapshot-files.sh"
+            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; if [ -s data/jobs.json ]; then npm run data:sector-hub-candidates -- --traffic-input '$RUNNER_TEMP/sector-hub-traffic.json'; fi; bash scripts/lib/stage-weekly-snapshot-files.sh"
+
+      - name: Refresh deploy token from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Deploy weekly inventory and automatically promoted sector hubs
+        run: |
+          if [ -z "${GITHUB_PAT:-${GH_TOKEN:-}}" ]; then
+            echo "::error::Weekly snapshot deployment requires a GitHub workflow token from Remote Config."
+            exit 1
+          fi
+          EXPECTED_SHA="$(git rev-parse HEAD)" bash scripts/lib/trigger-deploy.sh
 
       - name: Cleanup Codex auth broker
         if: always()

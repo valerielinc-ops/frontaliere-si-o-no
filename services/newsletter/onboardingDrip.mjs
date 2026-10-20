@@ -60,6 +60,15 @@ function ensureTrailingSlash(url) {
   return url.endsWith('/') ? url : `${url}/`;
 }
 
+function withDripAttribution(rawUrl, content) {
+  const url = new URL(rawUrl, BASE_URL);
+  url.searchParams.set('utm_source', 'newsletter');
+  url.searchParams.set('utm_medium', 'email');
+  url.searchParams.set('utm_campaign', 'drip');
+  url.searchParams.set('utm_content', content);
+  return url.toString();
+}
+
 // ── Content cards (per-locale) ───────────────────────────────────────
 // `path` is a canonical IT path present in newsletter-template's
 // LOCALE_PATH_MAP so localizedUrl() resolves the correct localized, trailing-
@@ -200,16 +209,26 @@ export function dripStepDueAtMs(startedAtMs, step) {
 }
 
 /**
+ * Minimum days between two drip sends to the same subscriber. The on-time
+ * schedule never hits it (its gaps are 3/4/7 days); it only spaces out a
+ * subscriber who fell behind, who would otherwise get steps 1, 2 and 3 on
+ * three consecutive days (13,5% of consecutive pairs were < 36h in Sep 2026).
+ */
+export const DRIP_MIN_SPACING_DAYS = 2;
+
+/**
  * The next drip step to send, or null when none is due yet or the sequence is
  * complete. Pure — the runner layers unsubscribe/enrollment gating on top.
- * @param {{ startedAtMs: number, lastStep?: number, nowMs: number }} args
+ * `lastSentAtMs` (optional) enforces DRIP_MIN_SPACING_DAYS after the last send.
+ * @param {{ startedAtMs: number, lastStep?: number, nowMs: number, lastSentAtMs?: number|null }} args
  * @returns {number|null}
  */
-export function computeNextStep({ startedAtMs, lastStep = -1, nowMs }) {
+export function computeNextStep({ startedAtMs, lastStep = -1, nowMs, lastSentAtMs = null }) {
   const prev = Number.isInteger(lastStep) ? lastStep : -1;
   const next = prev + 1;
   if (next >= DRIP_STEP_COUNT) return null;
   if (nowMs < dripStepDueAtMs(startedAtMs, next)) return null;
+  if (Number.isFinite(lastSentAtMs) && nowMs < lastSentAtMs + DRIP_MIN_SPACING_DAYS * 86400000) return null;
   return next;
 }
 
@@ -231,7 +250,11 @@ export function buildDripEmail({ step, locale, interest, acquisitionSource, unsu
   if (!cardId) throw new Error(`invalid drip step: ${step}`);
   const card = CARDS[cardId];
   const copy = card[loc] || card.it;
-  const ctaUrl = ensureTrailingSlash(localizedUrl(card.path, loc));
+  const ctaUrl = withDripAttribution(
+    ensureTrailingSlash(localizedUrl(card.path, loc)),
+    `onboarding_step_${step + 1}_cta`,
+  );
+  const footerHomeUrl = withDripAttribution(BASE_URL, 'onboarding_footer_home');
 
   const recommended = renderRecommendedBlock({
     locale: loc,
@@ -282,7 +305,7 @@ export function buildDripEmail({ step, locale, interest, acquisitionSource, unsu
         <tr><td class="section-pad" style="padding:12px 28px;"><div style="border-top:1px solid ${BORDER_COLOR};"></div></td></tr>
         ${recommended}
         <tr><td class="section-pad" style="background:${BRAND_DARK};padding:24px 28px;text-align:center;">
-          <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">Frontaliere Ticino · <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
+          <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">Frontaliere Ticino · <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(footerHomeUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
           <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(unsub)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${loc === 'it' ? 'Disiscriviti' : loc === 'de' ? 'Abmelden' : loc === 'fr' ? 'Se désinscrire' : 'Unsubscribe'}</a></div>
           ${prefs ? `<div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(prefs)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${PREFS_LABEL[loc] || PREFS_LABEL.it}</a></div>` : ''}
           <div style="font-size:11px;color:#475569;margin-top:8px;">${escapeHtml(dataControllerFooterLine(loc))}</div>

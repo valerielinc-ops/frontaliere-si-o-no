@@ -114,8 +114,9 @@ describe('affiliate revenue reconciliation', () => {
     expect(report.deduplicatedTransactions).toBe(2);
     expect(report.byCurrency.CHF.pending).toBe(0);
     expect(report.byCurrency.CHF.approved).toBe(2);
-    expect(report.byCurrency.CHF.approvedPer1000Exposures.web).toBe(2);
-    expect(report.byCurrency.CHF.approvedPer1000Exposures.email).toBe(4);
+    expect(report.byCurrency.CHF.approvedPer1000Exposures.web).toBeNull();
+    expect(report.byCurrency.CHF.approvedPer1000Exposures.email).toBeNull();
+    expect(report.byCurrency.CHF.approvedBySurface.unattributed).toBe(2);
     expect(report.byCurrency.EUR.reversed).toBe(5);
     expect(report.byCurrency.EUR.approved).toBe(0);
   });

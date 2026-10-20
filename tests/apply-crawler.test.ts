@@ -6,12 +6,24 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/apply-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 describe('LEITpuls AG crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(APPLY_KEY).toBe('apply');
     expect(APPLY_COMPANY_NAME).toBe('LEITpuls AG');
+  });
+
+  // Legge la spec VIVA in data/prospector/crawlers/ (loadSpec), che il bot
+  // prospector riscrive: fuori dal gate delle PR, nel monitor post-merge
+  // (replay del 2026-09-30: l'esito cambia con i dati di 7 e 14 giorni fa).
+  it.skipIf(SKIP_LIVE_DATA)('keeps the shared runtime spec bound to the LEITpuls tenant', () => {
+    const spec = loadSpec(APPLY_KEY);
+    expect(spec.companyName).toBe(APPLY_COMPANY_NAME);
+    expect(spec.seedUrls).toContain('https://apply.refline.ch/968123/1468/pub/5/index.html');
+    expect(spec.detailTemplate).toBe('/968123/1468/pub/*/index.html');
   });
 
   // ── isCompanyJob ──

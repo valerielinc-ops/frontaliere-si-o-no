@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ar-1784",
+      "sourceKey": "AR",
+      "sourceRecordId": "1784",
+      "canton": "Appenzello Esterno",
+      "platePrefix": "AR",
+      "plateNumber": "4790",
+      "normalizedPlate": "AR4790",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 800,
+      "startingPriceChf": 750,
+      "bidCount": 2,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-10-18T16:00:00.000Z",
+      "closedAt": "2026-10-18T16:00:00.000Z",
+      "officialAuctionUrl": "https://eauktion.ar.ch/ecari-auction/ui/app/init",
+      "officialDetailUrl": "https://eauktion.ar.ch/ecari-auction/ui/app/details/app?id=1784",
+      "sourceFetchedAt": "2026-10-18T15:52:59.119Z",
+      "lastVerifiedAt": "2026-10-18T15:52:59.119Z",
+      "firstSeenAt": "2026-10-04T21:29:22.686Z",
+      "lastSeenAt": "2026-10-18T15:52:59.119Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "aad50f40fd8b"
+    }
+  ]
+}

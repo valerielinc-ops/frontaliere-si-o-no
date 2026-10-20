@@ -110,11 +110,16 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
     const sitemapRegion = src.slice(anchorIdx, endIdx);
 
     // (1) The psRelPath builder (or its functional equivalent under another
-    // local name) must call buildCantonAwareSection with the job-derived
-    // canton variable as the second argument.
-    expect(sitemapRegion).toMatch(
-      /\w*Path\s*=\s*`\$\{localePrefix\[locale\]\}\/\$\{buildCantonAwareSection\(\s*locale\s*,\s*\w*[Jj]obCanton\w*\s*\)\}\/\$\{[^`]+`/,
-    );
+    // local name) must resolve the job-derived canton. The shared detail-path
+    // helper is equivalent to the inline buildCantonAwareSection template and
+    // is now preferred because it keeps job-detail path construction in one
+    // place for the sitemap and the emitted HTML.
+    const usesInlineCantonSection = /buildCantonAwareSection\(\s*locale\s*,\s*\w*[Jj]obCanton\w*\s*\)/.test(sitemapRegion);
+    const usesSharedCantonDetailPath = /buildCanonicalJobDetailPath\(\s*locale\s*,\s*job\s*,\s*ps\s*,\s*\w*[Jj]obCanton\w*\s*\)/.test(sitemapRegion);
+    expect(
+      usesInlineCantonSection || usesSharedCantonDetailPath,
+      'previousSlugs path builder must resolve the job canton via the shared canton section or detail-path helper',
+    ).toBe(true);
     // (2) Defence-in-depth: no occurrence of sectionByLocale[locale] inside
     // the sitemap previousSlugs region — that's the legacy TI-hardcode the
     // canton-aware refactor replaced.
@@ -159,7 +164,8 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
         if (!canonicalSlug || !html.includes(canonicalSlug)) continue;
         // Bridge IS for this job. Its <link rel="canonical"> must point to the
         // canton-aware URL — not to /cerca-lavoro-ticino/ — so Google folds
-        // equity into the new canton section.
+        // equity into the new canton section. The old URL itself must remain
+        // noindex: only the current canonical detail competes in search.
         // Use the DOM parser provided by vitest's jsdom environment so the
         // assertion survives every flavour of HTML-minify output (stripped
         // quotes, reordered attributes). The previous regex variant
@@ -180,6 +186,15 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
         if (/\/cerca-lavoro-ticino\//.test(canonicalHref)) {
           mismatches.push(
             `non-TI job ${canonicalSlug} (canton=${job.canton}) legacy TI bridge canonicalises to TI: ${canonicalHref}`,
+          );
+        }
+        const robots = new DOMParser()
+          .parseFromString(html, 'text/html')
+          .querySelector('meta[name="robots"]')
+          ?.getAttribute('content') ?? '';
+        if (!/noindex/i.test(robots)) {
+          mismatches.push(
+            `non-TI job ${canonicalSlug} (canton=${job.canton}) previous-slug bridge is indexable: cerca-lavoro-ticino/${oldSlug}/`,
           );
         }
       }

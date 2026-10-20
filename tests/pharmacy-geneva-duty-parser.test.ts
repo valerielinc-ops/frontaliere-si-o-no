@@ -20,6 +20,7 @@ import {
 const FETCHED_AT = '2026-09-15T12:00:00.000Z';
 const SOURCE_HTML = readFileSync(new URL('./fixtures/pharmacy-duties/geneva/source.html', import.meta.url), 'utf8');
 const CATALOGUE = [
+  { id: 'ge-pharma24', country: 'CH', canton: 'Geneva' },
   { id: 'ge-pharmacie-du-museum', country: 'CH', canton: 'Geneva' },
   { id: 'ge-pharmacie-plaza', country: 'CH', canton: 'Geneva' },
 ];
@@ -44,7 +45,9 @@ function cloneSourceConfig() {
 }
 
 describe('Geneva pharmacy duty source parser', () => {
-  it('separates the permanent 24/7 card and refuses partial operational publication', () => {
+  it('expands the explicit permanent 24/7 card while refusing a degraded source', () => {
+    const degradedSources = cloneSourceConfig();
+    degradedSources.sources[0].status = 'degraded';
     const cards = parseGenevaDutyCards(SOURCE_HTML).cards;
     expect(cards.map((card) => [card.sourceLabel, card.kind])).toEqual([
       ['pharma24', 'permanent'],
@@ -52,23 +55,26 @@ describe('Geneva pharmacy duty source parser', () => {
       ['Pharmacie Plaza', 'dated'],
     ]);
 
-    const parsed = parseGenevaDutySource(SOURCE_HTML, sourceConfig, {
+    const parsed = parseGenevaDutySource(SOURCE_HTML, degradedSources, {
       fetchedAt: FETCHED_AT,
       asOf: FETCHED_AT,
       catalogue: CATALOGUE,
     });
 
     expect(parsed.coverage).toBe('partial');
-    expect(parsed.observedCalendarDays).toBe(14);
-    expect(parsed.uncoveredCalendarDays).toBe(351);
-    expect(parsed.observedDuties).toHaveLength(14);
+    expect(parsed.observedCalendarDays).toBe(365);
+    expect(parsed.uncoveredCalendarDays).toBe(0);
+    expect(parsed.observedDuties).toHaveLength(379);
     expect(parsed.duties).toEqual([]);
-    expect(parsed.errors).toEqual(expect.arrayContaining([
-      'official calendar coverage is incomplete: 14/365 distinct calendar days',
-      'official calendar has uncovered days in the declared 2026 window',
-    ]));
-    expect(parsed.warnings).toContain('permanent 24/7 cards are retained as observations only; no dated duty interval is inferred');
-    expect(parsed.observedDuties.map((duty) => [duty.pharmacyId, duty.startsAt, duty.endsAt])).toEqual([
+    expect(parsed.errors).toContain('Geneva duty source is not release-ready (status: degraded)');
+    expect(parsed.warnings).toContain('permanent 24/7 cards are expanded into explicit daily 24h duty intervals');
+    expect(parsed.observedDuties.filter((duty) => duty.pharmacyId === 'ge-pharma24')).toHaveLength(365);
+    expect(parsed.observedDuties.filter((duty) => duty.pharmacyId === 'ge-pharma24')[0]).toMatchObject({
+      dutyType: '24h',
+      startsAt: '2025-12-31T23:00:00.000Z',
+      endsAt: '2026-01-01T23:00:00.000Z',
+    });
+    expect(parsed.observedDuties.filter((duty) => duty.pharmacyId !== 'ge-pharma24').map((duty) => [duty.pharmacyId, duty.startsAt, duty.endsAt])).toEqual([
       ['ge-pharmacie-du-museum', '2026-10-31T07:00:00.000Z', '2026-10-31T22:00:00.000Z'],
       ['ge-pharmacie-du-museum', '2026-11-01T07:00:00.000Z', '2026-11-01T22:00:00.000Z'],
       ['ge-pharmacie-du-museum', '2026-11-02T07:00:00.000Z', '2026-11-02T22:00:00.000Z'],
@@ -112,6 +118,7 @@ describe('Geneva pharmacy duty source parser', () => {
     expect(parsed.observedDuties).toEqual([]);
     expect(parsed.duties).toEqual([]);
     expect(parsed.unresolvedIdentities).toEqual([
+      'ge-pharma24',
       'ge-pharmacie-du-museum',
       'ge-pharmacie-plaza',
     ]);
@@ -177,7 +184,7 @@ describe('Geneva pharmacy duty source parser', () => {
       _releaseReady: true,
       _state: 'fresh',
       _errors: [],
-      _warnings: ['permanent 24/7 cards are retained as observations only'],
+      _warnings: ['permanent 24/7 cards are expanded into explicit daily 24h duty intervals'],
     };
     const atomic = buildAtomicGenevaDutySnapshots({
       duties: { ...metadata, duties: [COMPLETE_DUTY] },
@@ -208,6 +215,7 @@ describe('Geneva pharmacy duty source parser', () => {
 
   it('keeps even a complete-looking release closed while the source is degraded', () => {
     const degradedSources = cloneSourceConfig();
+    degradedSources.sources[0].status = 'degraded';
     const metadata = {
       _source: 'https://pharmageneve.swiss/pharmacie-de-garde/',
       _sourceKey: 'pharmageneve-garde-2026',
@@ -254,7 +262,7 @@ describe('Geneva pharmacy duty source parser', () => {
     expect(evaluation.reasons).toContain('Geneva source status is degraded');
   });
 
-  it('builds paired not_published snapshots with explicit release readiness', () => {
+  it('builds paired fresh snapshots with explicit release readiness', () => {
     const atomic = buildGenevaDutyDatasets({
       sourceData: sourceConfig,
       html: SOURCE_HTML,
@@ -262,11 +270,11 @@ describe('Geneva pharmacy duty source parser', () => {
       catalogue: CATALOGUE,
     });
 
-    expect(atomic.release.state).toBe('not_published');
-    expect(atomic.duties.duties).toEqual([]);
-    expect(atomic.duties._releaseReady).toBe(false);
-    expect(atomic.status._releaseReady).toBe(false);
-    expect(atomic.status._state).toBe('not_published');
+    expect(atomic.release.state).toBe('fresh');
+    expect(atomic.duties.duties).toHaveLength(379);
+    expect(atomic.duties._releaseReady).toBe(true);
+    expect(atomic.status._releaseReady).toBe(true);
+    expect(atomic.status._state).toBe('fresh');
     expect(verifyGenevaDutyRelease({
       duties: atomic.duties,
       status: atomic.status,

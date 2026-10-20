@@ -9,8 +9,8 @@ import { describe, it, expect } from 'vitest';
 import {
   parseListingPage,
   parseDetailPage,
-  buildJob,
-  buildFallbackDescription,
+  buildJob as buildFerroviaJob,
+  RHB_INVENTED_FALLBACK_RE,
   getLocationAddress,
   isGrigioniItalianoJob,
   inferLocation,
@@ -20,6 +20,11 @@ import {
 } from '@/scripts/lib/ferrovia-retica-job-parser.mjs';
 import { mergeDiscoveredJobWithPrev } from '@/scripts/update-ferrovia-retica-jobs.mjs';
 import { repairRelabeledSourceLocale } from '@/scripts/lib/dedicated-crawler-common.mjs';
+import { dropFabricatedDescription } from '@/scripts/lib/drop-fabricated-description.mjs';
+
+const OBSERVED_AT = new Date();
+const RECENT_POSTED_DATE = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+const buildJob = (raw: any) => buildFerroviaJob({ ...raw, crawlObservedAt: OBSERVED_AT });
 
 // ─── Fixture: Career listing page ──────────────────────────
 const LISTING_HTML = `
@@ -95,6 +100,13 @@ describe('parseListingPage', () => {
     expect(titles[1]).toContain('Gleisbauarbeiter');
   });
 
+  it('decodes umlauts before generating the published title and slug', () => {
+    const [listing] = parseListingPage('<div class="job-card vacancy"><a href="/de/arbeitgeber/stellen/lokfuehrer-poschiavo">Lokf&uuml;hrer/in &mdash; Poschiavo</a></div>');
+    const job = buildJob(listing);
+    expect(job!.title).toBe('Lokführer/in — Poschiavo');
+    expect(job!.slug).toBe('lokfuhrer-in-poschiavo-ferrovia-retica-rhb-poschiavo');
+  });
+
   it('generates valid URLs', () => {
     const jobs = parseListingPage(LISTING_HTML);
     for (const job of jobs) {
@@ -121,6 +133,11 @@ describe('parseDetailPage', () => {
     const result = parseDetailPage(DETAIL_HTML);
     expect(result).not.toBeNull();
     expect(result!.title).toContain('Lokführer');
+  });
+
+  it('decodes named and numeric entities in the detail title without interpreting encoded markup', () => {
+    const result = parseDetailPage('<main><h1>Lokf&uuml;hrer/in &lt;Personenverkehr&gt; &#128646;</h1></main>');
+    expect(result!.title).toBe('Lokführer/in <Personenverkehr> 🚆');
   });
 
   it('extracts requirements', () => {
@@ -194,6 +211,16 @@ describe('inferLocation', () => {
 // ═══════════════════════════════════════════════════════════════
 
 describe('buildJob', () => {
+  it('requires an explicit crawl observation and never substitutes the posting date', () => {
+    const raw = { title: 'Lokführer/in', datePosted: RECENT_POSTED_DATE };
+    expect(buildFerroviaJob(raw)).toBeNull();
+    expect(buildFerroviaJob({ ...raw, crawlObservedAt: new Date(Number.NaN) })).toBeNull();
+
+    const job = buildFerroviaJob({ ...raw, crawlObservedAt: OBSERVED_AT });
+    expect(job!.crawledAt).toBe(OBSERVED_AT.toISOString());
+    expect(job!.crawledAt).not.toBe(job!.datePosted);
+  });
+
   it('builds complete job object', () => {
     const job = buildJob({
       title: 'Lokführer/in',
@@ -241,10 +268,12 @@ describe('buildJob', () => {
     expect(partTime!.employmentType).toBe('PART_TIME');
   });
 
-  it('generates description with >=50 words (fallback)', () => {
-    const job = buildJob({ title: 'Lokführer/in', location: 'Poschiavo' });
-    const wordCount = job!.description.split(/\s+/).length;
-    expect(wordCount).toBeGreaterThanOrEqual(50);
+  it('publishes no invented text when the detail body is missing or under the word floor', () => {
+    const missing = buildJob({ title: 'Lokführer/in', location: 'Poschiavo' });
+    expect(missing!.description).toBe('');
+    expect(missing!.descriptionByLocale).toEqual({});
+    const thin = buildJob({ title: 'Lokführer/in', location: 'Poschiavo', description: Array(49).fill('Wort').join(' ') });
+    expect(thin!.description).toBe('');
   });
 
   it('uses detail description when provided and >50 words', () => {
@@ -263,6 +292,49 @@ describe('buildJob', () => {
 
     const frJob = buildJob({ title: 'Poste de test', location: 'Chur', url: 'https://www.rhb.ch/fr/job/poste-de-test_2026-0003/' });
     expect(frJob!.sourceLang).toBe('fr');
+  });
+
+  // #5253: RhB's /it/job/ pages wrap German-written postings in Italian
+  // headings. Text from https://www.rhb.ch/it/job/quereinsteiger-in-zugbegleitung-100-samedan_2026-2260/
+  const GERMAN_BODY_ON_IT_PAGE = [
+    'Cosa puoi fare',
+    '• Begleitung unserer Reisezüge und Betreuung der einheimischen und internationalen Kunden während der Fahrt',
+    '• Erteilen von Bahnauskünften und touristischen Informationen',
+    '• Kontrolle und Verkauf von Fahrausweisen und weiteren Zusatzdienstleistungen im Zug',
+    'Ecco perché sei la persona giusta',
+    '• Souveränes, sehr gepflegtes Auftreten sowie kundenorientiertes Denken und Handeln',
+    '• Kommunikative Persönlichkeit mit sehr guten Deutschkenntnissen und mindestens einer Fremdsprache',
+    '• Bereitschaft zu unregelmässigen Diensten und Wochenendeinsätzen',
+    'Cosa ti offriamo',
+    '• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland',
+    '• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen',
+  ].join('\n');
+
+  it('labels a German detail body served on an /it/ page as de and fills the source slot', () => {
+    const job = buildJob({
+      title: 'Quereinsteiger/in Zugbegleitung (100%) Samedan',
+      location: 'Samedan',
+      description: GERMAN_BODY_ON_IT_PAGE,
+      url: 'https://www.rhb.ch/it/job/quereinsteiger-in-zugbegleitung-100-samedan_2026-2260/',
+    });
+    expect(job!.description).toBe(GERMAN_BODY_ON_IT_PAGE);
+    expect(job!.sourceLang).toBe('de');
+    expect(job!.descriptionByLocale).toEqual({ de: GERMAN_BODY_ON_IT_PAGE });
+    expect(job!.titleByLocale).toEqual({ de: 'Quereinsteiger/in Zugbegleitung (100%) Samedan' });
+  });
+
+  it('keeps it for an Italian detail body and always fills the source description slot', () => {
+    const italianBody = Array(8).fill(
+      'La Ferrovia Retica cerca un responsabile officina per la sede di Poschiavo con esperienza nella manutenzione.',
+    ).join(' ');
+    const job = buildJob({
+      title: 'Responsabile officina (80-100%)',
+      location: 'Poschiavo',
+      description: italianBody,
+      url: 'https://www.rhb.ch/it/job/responsabile-officina-80-100_2026-0042/',
+    });
+    expect(job!.sourceLang).toBe('it');
+    expect(job!.descriptionByLocale).toEqual({ it: italianBody });
   });
 
   it('falls back to sourceLang de when the URL carries no locale segment', () => {
@@ -310,20 +382,46 @@ describe('getLocationAddress', () => {
 });
 
 // ═══════════════════════════════════════════════════════════════
-// buildFallbackDescription
+// The removed invented fallback: stored fossils are dropped before the merge
 // ═══════════════════════════════════════════════════════════════
 
-describe('buildFallbackDescription', () => {
-  it('generates description with >=50 words', () => {
-    const desc = buildFallbackDescription('Lokführer/in', 'Poschiavo', '80-100%');
-    const wordCount = desc.split(/\s+/).length;
-    expect(wordCount).toBeGreaterThanOrEqual(50);
+describe('invented fallback fossils', () => {
+  // Text the former buildFallbackDescription() published for a thin detail page.
+  const FOSSIL = 'Lokführer/in presso la Ferrovia Retica (RhB) a Poschiavo, Cantone dei Grigioni, Svizzera.\n\n'
+    + 'La Ferrovia Retica è la più grande azienda di trasporti del Cantone dei Grigioni con circa 1400 collaboratori.';
+
+  it('recognises the former fallback paragraph and removes it with its translations', () => {
+    expect(RHB_INVENTED_FALLBACK_RE.test(FOSSIL)).toBe(true);
+    const job: any = {
+      sourceLang: 'it',
+      description: FOSSIL,
+      descriptionByLocale: { it: FOSSIL, de: 'Lokführer/in bei der Rhätischen Bahn in Poschiavo …' },
+    };
+    expect(dropFabricatedDescription(job, RHB_INVENTED_FALLBACK_RE)).toBe(true);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale.it).toBeUndefined();
+    expect(job.descriptionByLocale.de).toBeUndefined();
+    expect(job.needsRetranslation).toBe(true);
   });
 
-  it('includes job title and location', () => {
-    const desc = buildFallbackDescription('Macchinista', 'Poschiavo', '');
-    expect(desc).toContain('Macchinista');
-    expect(desc).toContain('Poschiavo');
+  it('leaves a source-read body alone', () => {
+    expect(RHB_INVENTED_FALLBACK_RE.test('Begleitung unserer Reisezüge und Betreuung der Kunden während der Fahrt')).toBe(false);
+  });
+});
+
+describe('mergeDiscoveredJobWithPrev without a fresh body', () => {
+  it('keeps the body stored from an earlier read of the source', () => {
+    const stored = Array(60).fill('Begleitung').join(' ');
+    const fresh = buildJob({ title: 'Zugbegleiter/in', location: 'Chur', url: 'https://www.rhb.ch/de/job/zugbegleiter_2026-0100/' });
+    const merged = mergeDiscoveredJobWithPrev(fresh, {
+      title: 'Zugbegleiter/in',
+      url: 'https://www.rhb.ch/de/job/zugbegleiter_2026-0100/',
+      sourceLang: 'de',
+      description: stored,
+      descriptionByLocale: { de: stored },
+    });
+    expect(merged.description).toBe(stored);
+    expect(merged.descriptionByLocale.de).toBe(stored);
   });
 });
 

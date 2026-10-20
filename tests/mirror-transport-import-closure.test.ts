@@ -127,6 +127,18 @@ describe('il manifest del transport e\' chiuso per import', () => {
     ).toContain('scripts/lib/unescape-ts-string.mjs');
   });
 
+  it('il guard di storia e la sua closure viaggiano insieme', () => {
+    const guardClosure = [
+      'scripts/lib/old-history-guard.mjs',
+      'scripts/lib/git-fetch-target.mjs',
+      'scripts/lib/single-flight-lock.mjs',
+    ];
+    expect(
+      delivered,
+      'il guard usato dai writer del corpus e i suoi helper devono restare nel transport',
+    ).toEqual(expect.arrayContaining(guardClosure));
+  });
+
   it('ogni `!rewired` porta una ragione, e riguarda un file che esiste', () => {
     // Una direttiva senza ragione e' la prosa di prima con una sintassi in piu';
     // una che nomina un file inesistente e' una scusa scaduta che nessuno nota.

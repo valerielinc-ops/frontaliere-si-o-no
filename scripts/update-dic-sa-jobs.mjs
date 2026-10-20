@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllDicSaJobs,
   isDicSaJob,
@@ -26,6 +27,12 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllDicSaJobs,
   isCompanyJob: isDicSaJob,
   isTrustedDomain,
+  // The REST feed may be empty or temporarily unavailable. Publish a zero
+  // only when the employer's visible careers page proves it has no offers;
+  // an unproven zero remains fail-closed and keeps the old slice.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(DIC_SA_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   defaultSourceLang: 'fr',
 }).catch((err) => {
   console.error(`❌ DIC SA crawler failed: ${err?.message || err}`);

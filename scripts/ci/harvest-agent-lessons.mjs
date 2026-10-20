@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 // Lessons harvester — DETERMINISTIC aggregator (zero Claude).
 //
 // Scans recent reviewer findings, recurring issue classes and issue-fix
@@ -13,7 +15,10 @@
 //   - prints a human summary to stdout
 //   - appends `has_novel=<bool>` and `novel_count=<n>` to $GITHUB_OUTPUT
 //
-// Env knobs: WINDOW_DAYS (14), THRESHOLD (3), MAX_PRS (40), MAX_ISSUES (120).
+// Env knobs: WINDOW_DAYS (14), THRESHOLD (3), MAX_PRS (0), MAX_ISSUES (0).
+// MAX_PRS / MAX_ISSUES a 0 = nessun tetto: la finestra si legge INTERA (vedi
+// `collectWindow`). Un tetto esplicito resta possibile, ma viene dichiarato
+// come vista parziale, mai applicato in silenzio.
 //
 // Pure helpers (detectSeverity / tallyFindings / bucketFinding / issueClass /
 // severityLabelForCount / parseEscalationKey) are exported and unit-tested; the
@@ -26,22 +31,45 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import { REVIEWER_BOT_LOGIN_RE } from './lib/constants.mjs';
+import { isExplicitNonFunnelDisposition, isMalformedReviewBody } from './lib/review-findings.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import { ACCEPTANCE_CONDITION, hasEnumeratedItems } from './followup-resolution-match.mjs';
 import { isAggregate, isAggregateForAnalytics } from './check-issue-already-resolved.mjs';
 
 export { hasEnumeratedItems };
 
-const WINDOW_DAYS = intFromEnv('WINDOW_DAYS', 14);
-const THRESHOLD = intFromEnv('THRESHOLD', 3);
-const MAX_PRS = intFromEnv('MAX_PRS', 40);
-const MAX_ISSUES = intFromEnv('MAX_ISSUES', 120);
+// I default sono la misura CANONICA: il self-heal chiude solo su quella (vedi
+// selfHealDecision), mai su una finestra accorciata o una soglia alzata a mano.
+export const DEFAULT_WINDOW_DAYS = 14;
+export const DEFAULT_THRESHOLD = 3;
+export const DEFAULT_EFFICACY_FACTOR = 2;
+const WINDOW_DAYS = intFromEnv('WINDOW_DAYS', DEFAULT_WINDOW_DAYS);
+const THRESHOLD = intFromEnv('THRESHOLD', DEFAULT_THRESHOLD);
+// Default 0 = nessun tetto. Fino al 2026-09-27 erano 40 e 120, e la «finestra
+// di 14 giorni» era una finzione: il sito mergia 70-120 PR al giorno (999 PR
+// dal 13 al 27-09), quindi `--limit 40` leggeva le review delle ultime ~12 ore;
+// le issue `agent:triaged` aggiornate nella finestra erano 664 e ne entravano
+// 120. Misurato sulla stessa finestra: capped 0 NOVEL / 0 ESCALATE per 30+ run
+// di fila, finestra intera 1 NOVEL + 2 ESCALATE. Il corpus (126 PR, 182 issue
+// in 14 giorni) ne leggeva abbastanza da produrre lezioni, e per questo il
+// difetto sembrava del solo sito.
+const MAX_PRS = intFromEnv('MAX_PRS', 0);
+const MAX_ISSUES = intFromEnv('MAX_ISSUES', 0);
+// La search API di GitHub restituisce al massimo 1000 risultati per query:
+// oltre, `gh ... --limit N` si ferma senza errore. Per questo la finestra si
+// legge un giorno alla volta (`collectWindow`) e un giorno che tocca il tetto
+// viene dichiarato troncato.
+export const SEARCH_RESULT_CAP = 1000;
+// `gh pr list --json reviews` / `gh issue list --json comments` leggono al
+// massimo 100 nodi annidati per elemento: chi li raggiunge viene riletto con
+// `gh pr view` / `gh issue view`, che paginano.
+export const NESTED_PAGE_CAP = 100;
 const OUT = process.env.HARVEST_OUT || 'harvest-clusters.json';
 const NO_AUTOCLOSE = process.env.FOLLOWUP_NO_AUTOCLOSE === '1' || process.env.NO_AUTOCLOSE === '1';
 // EFFICACY_FACTOR: a documented pattern that STILL recurs at ≥ THRESHOLD×factor
 // is evidence the prose rule isn't preventing the mistake → escalate to a
 // structural fix instead of writing another line nobody follows.
-const EFFICACY_FACTOR = intFromEnv('EFFICACY_FACTOR', 2);
+const EFFICACY_FACTOR = intFromEnv('EFFICACY_FACTOR', DEFAULT_EFFICACY_FACTOR);
 
 const sinceMs = Date.now() - WINDOW_DAYS * 86_400_000;
 const sinceDay = new Date(sinceMs).toISOString().slice(0, 10);
@@ -60,6 +88,116 @@ function ghJson(args) {
   try { return JSON.parse(raw); } catch { return null; }
 }
 
+// Le liste della finestra portano body e commenti: una pagina GraphQL da 100
+// issue puo' rispondere 504 (misurato il 2026-09-27 su `updated:2026-09-27`).
+// Un 504 e' transitorio, quindi si ritenta prima di dichiarare il giorno fallito.
+function ghJsonRetry(args, attempts = 3) {
+  for (let i = 1; i <= attempts; i++) {
+    const out = ghJson(args);
+    if (out !== null) return out;
+    if (i < attempts) Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 3000 * i);
+  }
+  return null;
+}
+
+// ---- Window coverage (pure → unit-tested) ----------------------------------
+/**
+ * I giorni UTC `YYYY-MM-DD` da `sinceDay` a `todayDay` inclusi.
+ * @param {string} sinceDay
+ * @param {string} todayDay
+ * @returns {string[]}
+ */
+export function windowDays(sinceDay, todayDay) {
+  const days = [];
+  const end = Date.parse(`${todayDay}T00:00:00Z`);
+  for (let t = Date.parse(`${sinceDay}T00:00:00Z`); Number.isFinite(t) && t <= end; t += 86_400_000) {
+    days.push(new Date(t).toISOString().slice(0, 10));
+  }
+  return days;
+}
+
+/**
+ * Legge la finestra un giorno alla volta e unisce per `number`. `fetchDay`
+ * restituisce le righe del giorno, oppure `null` se la lettura e' fallita.
+ * Un giorno che raggiunge `cap` righe e' TRONCATO dalla search API; un giorno
+ * fallito e' un BUCO: entrambi finiscono nel risultato, perche' una finestra
+ * letta a meta' che si dichiara intera e' esattamente il guasto che ha tenuto
+ * l'harvester del sito a zero lezioni per settimane.
+ * @param {string[]} days
+ * @param {(day: string) => Array<{number: number}> | null} fetchDay
+ * @param {{cap?: number}} [opts]
+ */
+export function collectWindow(days, fetchDay, { cap = SEARCH_RESULT_CAP } = {}) {
+  const byNumber = new Map();
+  const truncatedDays = [];
+  const failedDays = [];
+  for (const day of days) {
+    const rows = fetchDay(day);
+    if (!Array.isArray(rows)) { failedDays.push(day); continue; }
+    if (rows.length >= cap) truncatedDays.push(day);
+    for (const r of rows) {
+      if (r && r.number != null && !byNumber.has(r.number)) byNumber.set(r.number, r);
+    }
+  }
+  const items = [...byNumber.values()].sort((a, b) => b.number - a.number);
+  return { items, truncatedDays, failedDays };
+}
+
+/**
+ * Un giorno della finestra con ripiego: prima la lista completa (una query);
+ * se fallisce, la lista leggera idratata elemento per elemento. `null` solo se
+ * falliscono entrambe, e allora `collectWindow` dichiara il giorno mancante.
+ * @template T
+ * @param {() => T[] | null} fetchFull
+ * @param {() => T[] | null} fetchLight
+ * @param {(item: T) => T} hydrate
+ * @returns {T[] | null}
+ */
+export function fetchDayWithFallback(fetchFull, fetchLight, hydrate) {
+  const full = fetchFull();
+  if (Array.isArray(full)) return full;
+  const light = fetchLight();
+  if (!Array.isArray(light)) return null;
+  return light.map(hydrate);
+}
+
+/**
+ * Tetto opzionale: `max` 0 = nessun tetto. Restituisce anche se ha tagliato,
+ * cosi' il chiamante lo dichiara invece di tacerlo.
+ * @template T
+ * @param {T[]} items
+ * @param {number} max
+ * @returns {{items: T[], cut: number}}
+ */
+export function applyCap(items, max) {
+  if (!max || items.length <= max) return { items, cut: 0 };
+  return { items: items.slice(0, max), cut: items.length - max };
+}
+
+/**
+ * Le righe `::warning::` di copertura: vuote quando la finestra e' stata
+ * letta per intero.
+ * @param {string} label
+ * @param {{truncatedDays: string[], failedDays: string[]}} window
+ * @param {number} cut
+ * @param {number[]} [unreadItems] elementi letti senza i loro nodi annidati
+ * @returns {string[]}
+ */
+export function coverageWarnings(label, { truncatedDays, failedDays }, cut, unreadItems = [], unreadNoun = 'commenti') {
+  const out = [];
+  if (truncatedDays.length) {
+    out.push(`::warning::${label}: giorni al tetto della search API (${SEARCH_RESULT_CAP}), vista PARZIALE: ${truncatedDays.join(', ')}`);
+  }
+  if (failedDays.length) {
+    out.push(`::warning::${label}: lettura fallita, giorni MANCANTI dalla finestra: ${failedDays.join(', ')}`);
+  }
+  if (cut) out.push(`::warning::${label}: tetto esplicito, ${cut} elementi della finestra esclusi (vista PARZIALE)`);
+  if (unreadItems.length) {
+    out.push(`::warning::${label}: ${unreadNoun} illeggibili per ${unreadItems.length} elementi, vista PARZIALE: ${unreadItems.map((n) => `#${n}`).join(', ')}`);
+  }
+  return out;
+}
+
 // ---- Reviewer-finding taxonomy: stable buckets via regex on finding text. ----
 // Each finding (a 🔴/🟡/❓ line in a reviewer review body) maps to ONE bucket so
 // recurrence is countable without fuzzy NLP. `docKeys` are substrings searched
@@ -67,7 +205,9 @@ function ghJson(args) {
 //
 // Two finding FAMILIES live here:
 //   - TOPIC buckets (structured-data, cls, auto-ads, …): "agent shipped wrong
-//     code about <domain>". Adding a NEW doc rule fixes these.
+//     code about <domain>". Adding a NEW doc rule fixes these. Since decision
+//     I3 (2026-10-05) a pure lexicon bucket is report-only and never escalates;
+//     see the `escalation` field of each entry below.
 //   - PROCESS-failure-mode buckets (pr-body-contract, sibling-class-fix,
 //     unvalidated-claim, stale-comment): "agent repeats a meta-mistake". These
 //     are usually ALREADY documented, so they never surface as `novel`. They
@@ -75,34 +215,169 @@ function ghJson(args) {
 //     `recurringDespiteRule` → the prose rule isn't working → escalate to a
 //     STRUCTURAL fix (template / CI gate / shared module), not another line.
 //     (These 4 buckets were the harvester's blind spot until 2026-06-04.)
-const TAXONOMY = [
-  { key: 'structured-data', re: /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i, docKeys: ['structured data', 'json-ld', 'basesalary'] },
-  { key: 'missing-test-funnel', re: /missing test|test mancant|no test|senza test|test coverage/i, docKeys: ['test coverage', 'test mancant', 'senza test'] },
-  { key: 'time-bomb-hardcoded', re: /hardcoded|time-?bomb|absolute date|aged? out|invecchia|date assolut/i, docKeys: ['date assolut', 'time-bomb', 'daysago'] },
-  { key: 'cls-layout', re: /\bcls\b|layout shift|reflow|reserve space|min-h-|aspect-ratio/i, docKeys: ['cls', 'reserve space', 'layout shift'] },
-  { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
+const ADSENSE_BOT_GATE_AD_SURFACE = String.raw`(?:\badsense\b|\badsbygoogle\b|\bauto[- ]?ads?\b|\bads?\b|\badvertising\b|\badvertisements?\b|\bcta\b)`;
+const ADSENSE_BOT_GATE_SIGNAL = String.raw`(?:\b(?:bot|bots)\b|\banti[- ]?bot\b|\bautomation(?:[- ]?(?:gate|classifier|detector|signature))?\b|\bscreen\s+signature\b|\bfalse\s+positive\b|\b(?:real|legitimate)\s+(?:session|user)\b)`;
+const ADSENSE_BOT_GATE_RE = new RegExp(
+  String.raw`(?:${ADSENSE_BOT_GATE_AD_SURFACE}[\s\S]{0,180}${ADSENSE_BOT_GATE_SIGNAL}|${ADSENSE_BOT_GATE_SIGNAL}[\s\S]{0,180}${ADSENSE_BOT_GATE_AD_SURFACE})`,
+  'i',
+);
+// A generic `credential`/`secret` can describe an application account, and
+// file locations can contain those words even when the finding is unrelated
+// (for example #10637's checkout-time measurement finding in
+// `unsubscribe-credential-monitor.yml`). Keep the topic tied to GitHub Actions
+// authentication or capability evidence.
+const WORKFLOW_SCOPE_CREDS_RE = /workflows? scope|github_pat|github[_ .-]?token|gh[_ .-]?token|\bpat\b|app[_ .-]?token|persist-credentials|branch protection|token\s+(?:scope|permission|capabilit)|(?:\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b[\s\S]{0,100}\b(?:credential|credentials|secret|token)\b|\b(?:credential|credentials|secret|token)\b[\s\S]{0,100}\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b)/i;
+
+// Candidate: a canonical (canonicalPath, canonical URL) and a trailing slash in
+// the same finding line, in either order and in either review language. The
+// semantic guard below also requires an explicit missing-slash signal.
+const CANONICAL_TRAILING_SLASH_RE = /\bcanonical\w*\b[^\n]{0,200}?(?:\btrailing[- ]slash|\bslash finale|\bbarra finale)|(?:\btrailing[- ]slash|\bslash finale|\bbarra finale)[^\n]{0,200}?\bcanonical\w*\b/i;
+const CANONICAL_MISSING_SLASH_RE = /\b(?:without|missing|omit\w*|remove\w*|lack\w*|absent|fail\w*\s+to|(?:do|does|did)\s+not|(?:does|did)n['’]?t|senza|manc\w*|omett\w*|rimuov\w*|assent\w*)\b/i;
+const CANONICAL_NO_TRAILING_SLASH_RE = /\bno\b[^\n]{0,32}\b(?:trailing[- ]slash|slash finale|barra finale)\b/i;
+
+function isMissingCanonicalTrailingSlash(text) {
+  const s = String(text || '');
+  if (!CANONICAL_TRAILING_SLASH_RE.test(s)) return false;
+  return [...s.matchAll(/\b(?:trailing[- ]slash|slash finale|barra finale)\b/gi)].some((match) => {
+    const context = sentenceAround(s, match.index, match.index + match[0].length);
+    return /\bcanonical\w*\b/i.test(context) &&
+      (CANONICAL_MISSING_SLASH_RE.test(context) || CANONICAL_NO_TRAILING_SLASH_RE.test(context));
+  });
+}
+
+// `structured-data` is a lexicon, and the same words name two classes with two
+// different structural fixes (issue 9108, reopened 2026-10-04 with 11 findings
+// after the cutoff): the site EMITTERS that write JSON-LD (build-plugins,
+// services/seo: #11328, #10992, #10753, #11021) and the crawler PARSERS that
+// READ a source's JSON-LD/JobPosting or fill the fields it is built from
+// (scripts/update-*-jobs.mjs, scripts/lib/*-job-parser.mjs: #11406, #11303,
+// #11297, #11281, #11206, #11126). One bucket summed them, so an emitter gate
+// could never bring the count down and the escalation re-fired on parser work.
+// Split by WHERE the finding is located, threshold unchanged: a finding whose
+// located paths are ALL crawler parsers counts in `structured-data-parser`;
+// anything else (emitter paths, mixed, or no path) stays `structured-data`.
+const STRUCTURED_DATA_RE = /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i;
+
+// I18N-naming is a precise failure class, not a translation-area lexicon.
+// Keep broad context separate: when it appears only in a file path or in the
+// acceptance fixture, the finding belongs in a fingerprint based on the actual
+// reviewer statement, not in this escalation bucket.
+const I18N_NAMING_CONTEXT_RE = /locale|i18n|translat|canton|brand/i;
+const I18N_NAMING_RE = /(?:\blocale[- ](?:url[- ]?)?(?:segment|prefix)\b|\bcanton[- ]aware\s+(?:slug|naming|url)\b|\b(?:mis|un)?translated\s+brand(?:\s+name)?\b|\bbrand(?:\s+name)?\s+(?:is\s+)?(?:mis|un)?translated\b|\b(?:missing|untranslated)\s+(?:translation\s+)?key\b|\btranslation\s+key\b)/i;
+
+// ---- Regola o argomento: chi puo' aprire un'escalation ----------------------
+// Decisione del proprietario I3 del 2026-10-05: i bucket «di argomento» restano
+// SOLO nel report; l'escalation (`escalation(harvester): …`) scatta solo per le
+// voci legate a una regola violata. Soglie invariate. Caso guida: issue 10112,
+// dove `canonical-sitemap` (un lessico) sommava 9 finding di argomento mentre la
+// sua sottoclasse vera, `canonical-trailing-slash`, aveva gia' gate e bucket.
+// Ogni voce dichiara `escalation` e il motivo in `why`:
+//   - 'rule': un predicato su una violazione precisa (un guard, un sottotipo
+//     strutturale, o un'espressione le cui alternative nominano tutte la
+//     violazione). Sopra soglia escala.
+//   - 'topic': un lessico di un'area del codice. Contato nel tally e nel report,
+//     non apre e non tiene aperta un'escalation (il self-heal la chiude).
+//   - 'ambiguous': non classificabile senza perdere un segnale; resta
+//     nell'escalation come una 'rule' e lo dichiara.
+// I bucket fuori tassonomia (fingerprint `fp:*`, codici `fix-outcome`) non sono
+// toccati da questa decisione: decide isEscalationDriver come prima.
+export const TAXONOMY_ESCALATION_KINDS = Object.freeze(['rule', 'topic', 'ambiguous']);
+
+// Il checker/gate sibling e' un'area del codice, non la classe di processo che
+// misura i gemelli lasciati indietro. Le forme qui sotto descrivono il soggetto
+// dello strumento (cache/revisione del checker, filtro del gate o misura del
+// hook), non un semplice path citato nell'acceptance del finding.
+const SIBLING_TOOLING_RE =
+  /\bsibling\s+checker\b|\bchecker\s+(?:cache|contents?|extracted|invocation|revision)\b|\bfunction-header\s+filter\b|\bgeneric\s+sibling\s+expression\b|\bgate\s+candidate\b|\bhook\b[^.\n]{0,40}\bcomplete\b[^.\n]{0,40}\b(?:large|partial)\s+clones?\b|\b(?:large|partial)\s+clones?\b[^.\n]{0,120}\b(?:pre\/?post|measurement|benchmark)\b/i;
+const UNVALIDATED_CLAIM_RE =
+  /claim.*(non validat|unvalidated|speculativ)|non validat.*pre-?merge|atteso\s+green|revert-?trigger|sufficienza speculativa/i;
+
+export const TAXONOMY = [
+  { key: 'structured-data-parser', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'jobposting'],
+    escalation: 'rule', why: "predicato sulla posizione: tutti i path del finding sono parser del crawler (isCrawlerParserFinding), cioe' la classe che il gate dei parser misura" },
+  { key: 'structured-data', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'basesalary'],
+    escalation: 'ambiguous', why: "resto lessicale dopo lo split dei parser, ma i suoi termini (basesalary, postalcode, hiringorganization) sono i campi obbligatori del Non-Negotiable 3: non si puo' dire che sia solo argomento, resta nell'escalation" },
+  { key: 'missing-test-funnel', re: /missing test|test mancant|no test|senza test|test coverage/i, docKeys: ['test coverage', 'test mancant', 'senza test'],
+    escalation: 'ambiguous', why: "quattro alternative nominano la violazione (test mancante), la quinta 'test coverage' e' argomento e nessun guard le separa: resta nell'escalation" },
+  { key: 'time-bomb-hardcoded', re: /hardcoded|time-?bomb|absolute date|aged? out|invecchia|date assolut/i, docKeys: ['date assolut', 'time-bomb', 'daysago'],
+    escalation: 'rule', why: "ogni alternativa nomina la violazione della regola 'mai date assolute' (AGENTS.md, Test fixture), non un'area del codice" },
+  // AdSense findings need a structural subtype before the generic topic bucket.
+  // The old flat regex grouped unrelated reviewer findings from #10030, #10028,
+  // #9836, #9835 and #9492 into `auto-ads`, so the harvester escalated a topic
+  // even though no single antipattern recurred. Keep the threshold unchanged;
+  // improve the measurement by preserving the failure mode in the bucket key.
+  //
+  // `noindex`/`indexable` alone are deliberately NOT thin-content evidence:
+  // SEO parser and audit findings mention both routinely, while `ad` alone also
+  // appears in ordinary prose such as "metadata"/"head". Require an explicit
+  // content-floor signal and an explicit ad-unit surface in the same finding.
+  // This keeps a real "thin page still carries AdSense" finding countable while
+  // leaving unrelated noindex, missing-ad and generic SEO findings to their own
+  // bucket/fingerprint (measured on #10177, #10037 and #9910).
+  { key: 'adsense-thin-content', re: new RegExp(
+    String.raw`(?:(?:thin(?:[- ]content)?|word[- ]?count|below[- ]floor|mfa)[\s\S]{0,220}(?:adsense|adsbygoogle|auto[- ]?ads|manual\s+(?:ad|adsense)|multiplex|<ins\b|(?:ad|ads)\s+(?:unit|slot|block|snippet|placement)|(?:unit|slot|block|snippet|placement)\s+(?:ad|ads))|(?:adsense|adsbygoogle|auto[- ]?ads|manual\s+(?:ad|adsense)|multiplex|<ins\b|(?:ad|ads)\s+(?:unit|slot|block|snippet|placement)|(?:unit|slot|block|snippet|placement)\s+(?:ad|ads))[\s\S]{0,220}(?:thin(?:[- ]content)?|word[- ]?count|below[- ]floor|mfa))`,
+    'i',
+  ), docKeys: ['auto ads', 'adsense'],
+    escalation: 'rule', why: "sottotipo strutturale: soglia di contenuto e unita' AdSense nella stessa riga, violazione del Non-Negotiable 4 (thin content con annunci)" },
+  { key: 'adsense-slot-lifecycle', re: /(?:(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>)[\s\S]{0,180}(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)|(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)[\s\S]{0,180}(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>))/i, docKeys: ['auto ads', 'adsense'],
+    escalation: 'rule', why: "sottotipo strutturale: ciclo di vita dello slot statico (collapse, timeout, consenso, unfilled), un modo di guasto preciso" },
+  // Keep both sides explicit and word-bounded. The previous `ads?`/`bot`
+  // fragments matched the tail of ordinary words (`load` + `automation`,
+  // `advertised` + `antiBotChallenge`, `ad` + `both`, `instead` +
+  // `antiBotExhausted`) and turned unrelated funnel findings into this bucket
+  // (#10209). A bot-gate finding must mention an ad surface and a genuine
+  // bot/automation signal; short substrings are not evidence.
+  { key: 'adsense-bot-gate', re: ADSENSE_BOT_GATE_RE, docKeys: ['auto ads', 'adsense'],
+    escalation: 'rule', why: "sottotipo strutturale: superficie annunci e segnale bot/automazione entrambi richiesti, word-bounded (issue 10209)" },
+  { key: 'adsense-loader-contract', re: /(?:(?:adsense|adsbygoogle|auto ?ads)[\s\S]{0,220}(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)|(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)[\s\S]{0,220}(?:adsense|adsbygoogle|auto ?ads))/i, docKeys: ['auto ads', 'adsense'],
+    escalation: 'rule', why: "sottotipo strutturale: contratto del loader AdSense (script, chunk, cdn, offload) mancante o rotto" },
+  { key: 'cls-layout', re: /\bcls\b|layout shift|reflow|reserve space|min-h-|aspect-ratio/i, docKeys: ['cls', 'reserve space', 'layout shift'],
+    escalation: 'topic', why: "lessico dell'area layout (cls, reflow, min-h-, aspect-ratio): nomina anche il rimedio, non una violazione precisa" },
+  { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'],
+    escalation: 'topic', why: "lessico generico AdSense rimasto dopo i sottotipi adsense-*: raccoglie qualunque finding che nomini gli annunci" },
+  // Split out of `canonical-sitemap` by the RULE it violates, not by its words
+  // (issue 10112, triage of the 11 findings after the 2026-09-27 cutoff): an
+  // article canonicalPath written without the trailing slash the site's URL
+  // contract requires (AGENTS.md, "Trailing slash obbligatorio"). Two of the
+  // eleven (#11114, #10987) were this one rule, both on the SEO entries the
+  // corpus article generator writes; that generator now refuses a no-slash
+  // canonicalPath in its post-write validation, so this bucket measures that
+  // gate alone. The other nine stay in the topic bucket below: they share
+  // vocabulary, not a rule. Threshold unchanged.
+  { key: 'canonical-trailing-slash', re: CANONICAL_TRAILING_SLASH_RE, docKeys: ['trailing slash obbligatorio', 'trailing slash'],
+    escalation: 'rule', why: "predicato sulla violazione: canonical senza lo slash finale obbligatorio (isMissingCanonicalTrailingSlash), con gate nel generatore del corpus" },
   // Precedence is intentional: when a finding mentions both surfaces, the
   // topic bucket wins before the sibling-sweep process bucket below.
-  { key: 'canonical-sitemap', re: /canonical|sitemap|noindex|cross-section/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
-  { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|\bpat\b|credential|secret|branch protection|push.*workflow/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
-  // i18n-NAMING: genuine naming/i18n defects only — locale URL segments, translated
-  // brand names, canton-aware slug naming, missing/untranslated keys. The old regex
-  // `/locale|i18n|translat|canton-?aware|naming|brand/i` was far too loose: the bare
-  // `translat` swallowed the ENTIRE translate pipeline (a high-volume active area),
-  // `naming` matched any "naming" (e.g. ad-container naming), `brand` matched
-  // "branded"/"branding" — so heterogeneous, unrelated findings false-clustered here
-  // and tripped a phantom `recurringDespiteRule` escalation (issue #2122, 15 hits / 0
-  // real naming defects). Deliberately NO replacement topic-bucket for the translate
-  // pipeline: those findings are genuine process-failures (unvalidated-claim,
-  // sibling-class-fix, pr-body-contract) and now route to THOSE buckets, or fall to
-  // the fingerprint safety-net — which clusters only on truly-repeated lead-phrases.
-  { key: 'i18n-naming', re: /locale segment|locale-?prefix|canton-?aware (slug|naming|url)|translated? brand|brand.*translat|translation key|missing (locale|translation)|untranslated/i, docKeys: ['locale', 'i18n', 'canton-aware'] },
-  { key: 'router-nav', re: /router|parsepath|staticoverlay|window\.location/i, docKeys: ['router', 'staticoverlay', 'parsepath'] },
+  { key: 'canonical-sitemap', re: /\b(?:canonical|sitemaps?|noindex|cross-section)\b/i, docKeys: ['canonical', 'sitemap', 'noindex'],
+    escalation: 'topic', why: "lessico SEO (canonical, sitemap, noindex, cross-section): il guard toglie gli usi non SEO ma lascia insieme difetti diversi, nessuna regola comune (issue 10112)" },
+  // Keep this bucket about authentication/capability mistakes. The former
+  // `push.*workflow` alternative matched any workflow finding whose prose
+  // mentioned a push and later said "workflow" (#9566/#9326/#9218), merging
+  // trigger/retry correctness with credential scope and repeatedly re-firing
+  // this escalation. Those findings still go through the fingerprint safety
+  // net; they must not inflate the credential bucket.
+  { key: 'workflow-scope-creds', re: WORKFLOW_SCOPE_CREDS_RE, docKeys: ['workflows`', 'capability-guard', 'github_pat'],
+    escalation: 'rule', why: "autenticazione e capability dei workflow, con la guardia che legge solo il testo dopo il marcatore di severita'" },
+  // i18n-naming matches explicit naming/key defects only. In #12407 the old
+  // line-wide regex counted unrelated translation failures because `untranslated`
+  // appeared in code paths and acceptance fixtures (for example an untranslated
+  // test field on a Codex-circuit finding). Broad translation work stays visible
+  // through the fingerprint safety net, keyed from the reviewer statement below.
+  { key: 'i18n-naming', re: I18N_NAMING_RE, docKeys: ['locale', 'i18n', 'canton-aware'],
+    escalation: 'rule', why: "ogni alternativa richiede un difetto esplicito: segmento/prefisso locale, slug canton-aware, brand tradotto o chiave di traduzione" },
+  { key: 'router-nav', re: /router|parsepath|staticoverlay|window\.location/i, docKeys: ['router', 'staticoverlay', 'parsepath'],
+    escalation: 'topic', why: "lessico dei nomi del router (router, parsePath, staticOverlay): un modulo, non una violazione" },
   // PROCESS-failure-mode buckets (see family note above):
-  { key: 'pr-body-contract', re: /implementato|non implementato|completeness contract|sezioni? (obbligatori|mancant)|## fix\b|## verify\b/i, docKeys: ['completeness contract', 'non implementato'] },
-  { key: 'sibling-class-fix', re: /stesso anti-?pattern|file gemello|stesso costrutto|sibling|non toccat|class-complete/i, docKeys: ['file gemello', 'stesso anti', 'class-complete'] },
-  { key: 'unvalidated-claim', re: /claim.*(non validat|unvalidated|speculativ)|non validat.*pre-?merge|atteso\s+green|revert-?trigger|sufficienza speculativa/i, docKeys: ['non validat', 'revert-trigger', 'speculativ'] },
-  { key: 'stale-comment', re: /stale (comment|doc)|comment(o|i)? stale|docblock stale|descrive ancora|title.*(contraddice|stale)|commento.*vecchio/i, docKeys: ['stale comment', 'docblock', 'descrive ancora'] },
+  { key: 'pr-body-contract', re: /implementato|non implementato|completeness contract|sezioni? (obbligatori|mancant)|## fix\b|## verify\b/i, docKeys: ['completeness contract', 'non implementato'],
+    escalation: 'rule', why: "contratto del body PR, con il filtro dei falsi positivi isGenuinePrBodyContractViolation" },
+  { key: 'sibling-tooling', re: SIBLING_TOOLING_RE, docKeys: ['sibling checker', 'sibling-check', 'check-sibling-patterns'],
+    escalation: 'topic', why: "soggetto sul checker o gate sibling: resta nel report come argomento, ma non misura la recidiva del processo di sweep" },
+  { key: 'sibling-class-fix', re: /stesso anti-?pattern|file gemello|stesso costrutto|sibling|non toccat|class-complete/i, docKeys: ['file gemello', 'stesso anti', 'class-complete'],
+    escalation: 'rule', why: "Non-Negotiable 6, con il filtro isGenuineSiblingClassViolation che esige una relazione di classe" },
+  { key: 'unvalidated-claim', re: UNVALIDATED_CLAIM_RE, docKeys: ['non validat', 'revert-trigger', 'speculativ'],
+    escalation: 'rule', why: "ogni alternativa nomina la violazione: claim non validato pre-merge senza revert-trigger (AGENTS.md, Build And Test)" },
+  { key: 'stale-comment', re: /stale (comment|doc)|comment(o|i)? stale|docblock stale|descrive ancora|title.*(contraddice|stale)|commento.*vecchio/i, docKeys: ['stale comment', 'docblock', 'descrive ancora'],
+    escalation: 'rule', why: "ogni alternativa nomina la violazione (commento o docblock stale), con lo scarto delle disposizioni esplicite nel tally" },
 ];
 
 // Catch-all fingerprint: when a finding matches NO taxonomy bucket, don't drop
@@ -115,6 +390,22 @@ const TAXONOMY = [
 const STOPWORDS = new Set(['the', 'a', 'an', 'di', 'la', 'il', 'le', 'lo', 'un', 'una',
   'e', 'ed', 'o', 'in', 'su', 'per', 'con', 'da', 'del', 'della', 'dei', 'delle', 'al',
   'non', 'che', 'è', 'this', 'is', 'to', 'of', 'and', 'or', 'no', 'nel', 'nella']);
+
+// Identity fallback used only when an i18n word occurs outside an explicit
+// naming defect. A reviewer line may start with file locations and append an
+// `Accettazione:` fixture; neither is the defect being classified. Keep the
+// ordinary fingerprint path unchanged so this narrow fix does not churn the
+// existing fingerprint registry.
+function reviewerFindingStatement(text) {
+  const raw = String(text ?? '');
+  const marker = /[🔴🟡❓]/u.exec(raw);
+  let statement = marker ? raw.slice(marker.index + marker[0].length) : raw;
+  statement = statement.replace(/^\s*\*{0,2}\s*(?:important|nit|q)\b\*{0,2}\s*[:—-]?\s*/iu, '');
+  statement = statement.replace(/^\s*\[[^\]\r\n]{1,48}\]\s*/u, '');
+  statement = statement.replace(/\b(?:accettazione|acceptance)(?:\s+criteria)?\s*:[\s\S]*$/iu, '');
+  return statement.trim();
+}
+
 function fingerprintFinding(text) {
   const words = text
     .toLowerCase()
@@ -247,20 +538,53 @@ export function isGenuinePrBodyContractViolation(text) {
 // Pure → unit-tested, mirrors isGenuinePrBodyContractViolation's structure.
 const SIBLING_CLASS_AFFIRM_RE =
   /nessun\w*\s*(?:[\u{1F534}\u{1F7E1}]\s*\/?\s*)*(?:da propagare|altro finding|bug replicat\w*|antipattern replicat\w*)|nessun\s+sibling\s+resid\w*|no inconsistenc\w*|not a candidate for|correctly mirrors? the sibling|coerente\s+(?:col|con il)\s+sibling|match(?:es)?\s+the sibling'?s?\s+(?:proven\s+)?(?:pattern|guard)/iu;
+// A bare `sibling` is not evidence of an AGENTS.md #6 violation. Reviewer
+// findings also use it for semantic neighbours (`same-level sibling` in a DOM
+// parser), for scope prose (`consumer sibling`), or for a checker feature that
+// is merely being described. Those lines must not inflate this process bucket.
+// Keep the positive side explicit: a class finding needs an actionable relation
+// between the sibling and the repeated construct/sweep. Ambiguous lines fall
+// through to the fingerprint safety net in `bucketFinding`, so this guard does
+// not discard the reviewer finding; it only refuses to call it a sibling-class
+// recurrence without evidence.
+// A semantic neighbour that is merely non-first or changes route (for example
+// an event slug collision) is still countable through the fingerprint safety
+// net, but is not evidence of an unswept cross-file class.
+const SIBLING_CLASS_EVIDENCE_RE =
+  /(?:\b(?:stesso|same)\s+(?:anti-?pattern|costrutto|construct|pattern|bug|guard|logic|class)\b|\b(?:file|script|workflow|consumer|ramo|branch)\s+gemell\w*\b|\b(?:sibling|gemell\w*)\b[^.\n]{0,120}\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|sweep\w*|check\w*|guard\w*|pattern\w*|bug\w*|fix\w*|modif\w*|address\w*|propagat\w*)\b|\b(?:still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|diverg\w*|different|unlike)\b[^.\n]{0,120}\b(?:sibling|gemell\w*)\b)/iu;
+
+export function isGenuineSiblingToolingFinding(text) {
+  const s = stripFindingLocationLabel(text).replace(/`[^`]*`/g, ' ');
+  if (FALSE_POSITIVE_DECLARATION_RE.test(s)) return false;
+  if (SIBLING_CLASS_AFFIRM_RE.test(s)) return false;
+  // Se il reviewer dice esplicitamente che un gemello porta ancora lo stesso
+  // costrutto, il path del checker e' il soggetto del gemello, non del tool.
+  if (/\b(?:stesso|same)\s+(?:anti-?pattern|costrutto|construct|pattern|bug|guard|logic|class)\b/i.test(s)) return false;
+  return SIBLING_TOOLING_RE.test(s);
+}
+
 // Negation-aware false-positive-declaration matcher, shared with
 // sibling-check-gate.mjs's isDeclaredFalsePositive (issue #3367 — the two
 // copies drifted when kept in sync by docstring promise only).
 export function isGenuineSiblingClassViolation(text) {
-  const s = String(text || '');
+  const s = stripFindingLocationLabel(text).replace(/`[^`]*`/g, ' ');
   // (c) explicit false-positive declaration wins first — a reviewer can declare
   //     lexical-vs-semantic mismatch even inside an otherwise alarming sentence.
   if (FALSE_POSITIVE_DECLARATION_RE.test(s)) return false;
   // (b) the line AFFIRMS the sweep is complete / nothing to propagate → not a
   //     defect, even if it contains 🔴/🟡 glyphs as prose rather than a marker.
   if (SIBLING_CLASS_AFFIRM_RE.test(s)) return false;
-  // Default: no affirmation, no declared false positive → conservative: keep as
-  // a genuine (possibly deferred-but-real) sibling-class finding.
-  return true;
+  // A finding about the checker/gate itself belongs to the topic bucket below;
+  // it is not evidence that a sibling implementation was left unswept.
+  if (isGenuineSiblingToolingFinding(text)) return false;
+  // A class relation is required before this process bucket can claim the line.
+  // Scope-only and semantic-neighbour mentions remain available to the generic
+  // fingerprint path instead of being mistaken for an unswept sibling.
+  return SIBLING_CLASS_EVIDENCE_RE.test(s);
+}
+
+export function isGenuineUnvalidatedClaimFinding(text) {
+  return UNVALIDATED_CLAIM_RE.test(stripFindingLocationLabel(text));
 }
 
 // ---- NEGATED-IMPACT recap clauses (DETERMINISTIC, cross-bucket) ------------
@@ -372,15 +696,172 @@ export function stripNegatedImpactClauses(text) {
       SWEEP_ASSERTION_RE.test(sentenceAround(whole, offset, offset + match.length)) ? match : prefix + ' ');
 }
 
+// ---- `canonical-sitemap` false-positive guard -----------------------------
+// The topic regex is intentionally broad enough to catch every SEO surface,
+// but `canonical` is also a common application-domain adjective: canonical
+// vacancy links, canonical replacements, archive canonicalizers, and canonical
+// route URLs are not sitemap/canonical SEO findings. Once the negated-impact
+// recap is stripped, require an explicit SEO defect/surface signal before
+// assigning the topic bucket. Unmatched lines still reach fingerprintFinding()
+// below, so narrowing this bucket cannot silently discard a real recurrence.
+const NON_SEO_CANONICAL_MENTION_RE =
+  /\bcanonical(?:izer)?\b\s+(?:vacancy|job|listing|replacement|record|row|entry|entries|id|key|data(?:set)?|fallback|route|routes|slug|component|hub|duty|history|source|snapshot|payload|stats?|archive|document)\b/i;
+
+const CANONICAL_SEO_DEFECT_RE =
+  /\b(?:canonical[- ](?:missing|mismatch|drift)|self[- ]canonical|non[- ]canonical|rel\s*=\s*["']?canonical\b|canonical\s+(?:href|tag|markup|link)\b|(?:empty|missing|invalid|wrong|incorrect|broken|drift|mismatch|unset|unresolved|manca\w*|mancante|non\s+(?:emette|emesso|aggiorna|aggiornato|punta|include)|does\s+not\s+(?:emit|set|include|point)|fails?\s+to\s+(?:emit|set|include|point))[^.\n]{0,70}\bcanonical(?:s)?\b|\bcanonical(?:s)?\b[^.\n]{0,70}\b(?:mismatch|drift|missing|invalid|wrong|incorrect|broken|unresolved|consolidat\w*|redirect\w*|self[- ]canonical)\b|(?:tocca|touch(?:es)?|affect(?:s)?|impatt\w*)[^.\n]{0,45}\bcanonical(?:s)?\b)/i;
+
+const SITEMAP_SEO_DEFECT_RE =
+  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*|noindex|non[- ]canonical|canonical|loc|inventory|coverage|redirect\w*|unreachable|include(?:s|d)?|listed)\b|\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*|noindex|non[- ]canonical|canonical|loc|inventory|coverage|redirect\w*|unreachable|include(?:s|d)?|listed)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
+
+// These words can describe a correct sitemap just as easily as a broken one.
+// They only count as a finding when the same sentence also states an explicit
+// defect; otherwise a positive line like "sitemap includes every URL" must
+// remain in the fingerprint safety net instead of inflating this topic bucket.
+const SITEMAP_NEUTRAL_ACTIVITY_RE =
+  /\b(?:coverage|include(?:s|d)?|listed|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*)\b/i;
+// `coverage` alone is neutral, but a report that claims sitemap-only coverage
+// while a discovered frontier was never crawled states an explicit defect.
+const SITEMAP_EXPLICIT_DEFECT_RE =
+  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|incomplete|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|failed|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+(?:crawled|published)|not\s+crawled|mai\s+crawled)\b|\b(?:missing|empty|incomplete|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|failed|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+(?:crawled|published)|not\s+crawled|mai\s+crawled)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
+
+export function isGenuineCanonicalSitemapFinding(text) {
+  const s = String(text || '');
+  if (!s) return false;
+  if (/\bsitemaps?\b/i.test(s) && SITEMAP_NEUTRAL_ACTIVITY_RE.test(s) && !SITEMAP_EXPLICIT_DEFECT_RE.test(s)) return false;
+  // noindex is an SEO indexing directive by definition; the negated-impact
+  // strip has already removed the "not touched" recap when this is called from
+  // bucketFinding().
+  if (/\bnoindex\b/i.test(s)) return true;
+  if (/\bsitemaps?\b/i.test(s)) return SITEMAP_SEO_DEFECT_RE.test(s);
+  if (/\bcross-section\b/i.test(s)) {
+    return /\b(?:canonical|indexable|hreflang|robots?|google|seo)\b/i.test(s) &&
+      /\b(?:mismatch|drift|missing|wrong|incorrect|broken|non[- ]canonical|self[- ]canonical|not|fails?|cross-section)\b/i.test(s);
+  }
+  if (NON_SEO_CANONICAL_MENTION_RE.test(s)) return false;
+  return CANONICAL_SEO_DEFECT_RE.test(s);
+}
+
+// Crawler-side code: the per-source crawlers and the parsers/feeds/ATS clients
+// they share. Anchored on the repo-relative path, so a site emitter (the jobs
+// SEO pages build plugin, the SEO service modules) never matches. Emitter
+// paths are named in words on purpose: checkout-profile-analyzer.mjs reads
+// this file as text, and a quoted `services/<dir>` alias here would add the
+// articles bucket to the lessons-harvester.yml sparse profile.
+const CRAWLER_PARSER_PATH_RE = /^scripts\/(?:update-[\w-]+-jobs\.mjs|lib\/(?:ats-clients\/[\w./-]+|[\w-]*(?:parser|crawler|feed)[\w-]*\.mjs|federal-job-[\w-]+\.mjs))$/;
+const LOCATED_PATH_RE = /(?:^|[\s`(,;'"])((?:[\w.-]+\/)+[\w.-]+\.(?:mjs|cjs|js|tsx?|json|ya?ml))(?=[:\s`),;'"]|$)/g;
+
+/**
+ * The repo paths a review line is LOCATED at: the ones before its severity
+ * marker (`path:Lnn[, path:Lnn…]: 🔴 Important: …`). Paths named in the
+ * finding's prose are not its location.
+ * @param {string} text
+ * @returns {string[]}
+ */
+export function findingLocationPaths(text) {
+  const s = String(text || '');
+  const severity = /🔴|🟡|❓/u.exec(s);
+  const lead = severity ? s.slice(0, severity.index) : '';
+  return [...lead.matchAll(LOCATED_PATH_RE)].map((m) => m[1]);
+}
+
+/** True when every located path of the finding is crawler parser code. */
+export function isCrawlerParserFinding(text) {
+  const paths = findingLocationPaths(text);
+  return paths.length > 0 && paths.every((p) => CRAWLER_PARSER_PATH_RE.test(p));
+}
+
+// `postalCode` e `baseSalary` sono campi del JobPosting, ma sono anche nomi
+// comuni di campi e funzioni fuori dallo schema: il CAP letto da un CV nella
+// candidatura assistita (#12555 `explicitPostalCode()`), i campi d'indirizzo
+// con cui si riconosce un annuncio ripubblicato (#12207), l'evidenza di
+// localita' del prospector (#12033). Nella riapertura di 12816 del 2026-10-14
+// quei tre facevano meta' dei sei finding dopo il cutoff. Un termine di campo
+// conta nel bucket solo se la frase del finding nomina anche lo schema, o se il
+// finding e' localizzato su un emettitore del sito. I segmenti degli emettitori
+// sono scritti come parole per lo stesso motivo di CRAWLER_PARSER_PATH_RE.
+const STRUCTURED_DATA_SCHEMA_CONTEXT_RE = /structured\s?data|json-?ld|jobposting|hiringorganization|schema\.org|@type|microdata|rich\s+(?:result|snippet)s?/i;
+const STRUCTURED_DATA_FIELD_TERM_RE = /basesalary|postalcode/i;
+
+function isSiteEmitterPath(p) {
+  const segments = String(p).split('/');
+  return segments[0] === 'build-plugins' || segments.includes('seo');
+}
+
+/**
+ * True when a `STRUCTURED_DATA_RE` match is about structured data: the finding
+ * statement names the schema, or a bare field term sits on a site emitter.
+ * @param {string} text
+ */
+export function isStructuredDataFinding(text) {
+  const statement = stripFindingLocationLabel(text);
+  if (STRUCTURED_DATA_SCHEMA_CONTEXT_RE.test(statement)) return true;
+  return STRUCTURED_DATA_FIELD_TERM_RE.test(statement)
+    && findingLocationPaths(text).some(isSiteEmitterPath);
+}
+
+/**
+ * Removes only the leading review location (`path:L<n>:` or `PR body:L<n>:`).
+ * The location is an address, not reviewer prose, so process-bucket guards can
+ * ignore it. Topic buckets and the fingerprint keep the original text.
+ * @param {unknown} text
+ * @returns {string}
+ */
+export function stripFindingLocationLabel(text) {
+  const s = String(text || '');
+  const marker = /[🔴🟡❓]/u.exec(s);
+  if (!marker || marker.index === 0) return s;
+  const prefix = s.slice(0, marker.index).trim();
+  if (/^PR body\s*:\s*L\d+\s*:\s*$/i.test(prefix) || findingLocationPaths(s).length > 0) {
+    return s.slice(marker.index);
+  }
+  return s;
+}
+
 export function bucketFinding(text) {
   // I bucket si scelgono sul testo SENZA le ricognizioni negate: una sitemap
   // nominata solo per dire che non e' stata toccata non e' un finding su di lei.
-  // I guard per-bucket sotto ricevono invece il testo INTERO, perche' la loro
-  // discriminante e' la frase completa (affermazioni, location label, falsi
-  // positivi dichiarati), non il solo vocabolario del topic.
+  // Come su origin/main, anche i bucket di argomento e la rete fingerprint
+  // ricevono il testo originale. Solo i guard dei bucket di processo rimuovono
+  // la location label prima della loro discriminante.
   const scannable = stripNegatedImpactClauses(text);
+  const i18nFinding = reviewerFindingStatement(scannable);
+  let i18nContextOnly = false;
+  // Reviews sometimes name sitemap concepts only inside camelCase identifiers
+  // (for example `discoverGeSitemapListDocuments` and `sitemapError`). Split
+  // those boundaries for this topic so genuine sitemap failures still reach
+  // its explicit-defect guard. Only identifiers that contain "sitemap" are
+  // split: splitting every identifier turned `coverageOk` into a neutral
+  // "coverage" activity word and dropped a real coverage finding (#10819).
+  const canonicalSitemapScannable = scannable.replace(
+    /\b\w*[Ss]itemap\w*\b/g,
+    (id) => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2'),
+  );
   for (const t of TAXONOMY) {
-    if (!t.re.test(scannable)) continue;
+    const candidate = t.key === 'canonical-sitemap'
+      ? canonicalSitemapScannable
+      : t.key === 'i18n-naming'
+        ? i18nFinding
+        : scannable;
+    if (!t.re.test(candidate)) {
+      if (t.key === 'i18n-naming' && I18N_NAMING_CONTEXT_RE.test(scannable)) i18nContextOnly = true;
+      continue;
+    }
+    if (t.key === 'canonical-trailing-slash' && !isMissingCanonicalTrailingSlash(scannable)) continue;
+    if (t.key === 'structured-data-parser' && !isCrawlerParserFinding(text)) continue;
+    if (t.key === 'structured-data' && !isStructuredDataFinding(text)) continue;
+    // A review line starts with one or more file locations before its severity
+    // marker. Do not let a path such as `unsubscribe-credential-monitor.yml`
+    // provide the workflow/auth context for an unrelated finding.
+    if (t.key === 'workflow-scope-creds') {
+      // Separatore e grassetto facoltativi: la forma con ancora di posizione
+      // (`path:L<n>: 🔴 Important testo`) non porta i due punti, e senza
+      // riconoscerla la riga intera, path compresi, tornava a fare da contesto.
+      const severity = /(?:🔴\s*\*{0,2}\s*Important|🟡\s*\*{0,2}\s*Nit)\s*\*{0,2}\s*[:—-]?/iu.exec(scannable);
+      const finding = severity
+        ? scannable.slice(severity.index + severity[0].length)
+        : scannable;
+      if (!WORKFLOW_SCOPE_CREDS_RE.test(finding)) continue;
+    }
     // pr-body-contract: drop affirmations / location-label false positives so the
     // bucket counts only genuine contract violations (the deterministic gate
     // pr-body-contract.yml already blocks missing sections). Falls through to the
@@ -390,10 +871,17 @@ export function bucketFinding(text) {
     // sibling-class-fix: same treatment (issue #3325) — drop affirmations /
     // declared false positives so the bucket counts only genuine unswept-sibling
     // findings, mirroring pr-body-contract's filter above.
+    if (t.key === 'sibling-tooling' && !isGenuineSiblingToolingFinding(text)) continue;
     if (t.key === 'sibling-class-fix' && !isGenuineSiblingClassViolation(text)) continue;
+    if (t.key === 'unvalidated-claim' && !isGenuineUnvalidatedClaimFinding(text)) continue;
+    // `canonical` is overloaded outside SEO (canonical vacancy links, archive
+    // canonicalizers, canonical replacements, route URLs). Keep those lines in
+    // the fingerprint safety-net instead of inflating the canonical-sitemap
+    // topic with unrelated reviewer findings.
+    if (t.key === 'canonical-sitemap' && !isGenuineCanonicalSitemapFinding(candidate)) continue;
     return t.key;
   }
-  // La rete fingerprint riceve il testo INTERO, non quello strippato. Lo strip e'
+  // La rete fingerprint ordinaria riceve il testo INTERO, non quello strippato. Lo strip e'
   // un'euristica sul CONFINE della clausola negata, e su una riga in cui la
   // negazione porta su un participio o su un verbo di impatto usato in senso
   // comportamentale — «il redirect non raggiunge `/lavoro/ticino`, il canonical
@@ -403,12 +891,15 @@ export function bucketFinding(text) {
   // direzione opposta a quella che questo modulo chiude (il falso positivo
   // GONFIA un bucket; questo lo SVUOTA in silenzio) ed e' la piu' pericolosa,
   // perche' invisibile. Passando `text` la riga perde al piu' il bucket topic,
-  // ma resta contata e puo' ancora escalare.
+  // ma resta contata e puo' ancora escalare. Eccezione stretta: se il solo
+  // contesto i18n è in path/acceptance, il fingerprint usa la frase del reviewer
+  // per non ricreare lo stesso cluster generico sotto `fp:scripts-*`.
   // Misurato su 651 righe con glifo di 172 review reali dei due repo: cambiano 6
   // righe, NESSUN bucket topic si muove (5 cambiano solo la lead-phrase del
   // fingerprint, 1 rientra nella rete da `null`), quindi il rimedio a #901 resta
   // intatto e i due controesempi smettono di sparire.
-  return fingerprintFinding(text); // unbucketed → fingerprint safety net (or null)
+  return fingerprintFinding(i18nContextOnly ? reviewerFindingStatement(text) : text);
+  // unbucketed → fingerprint safety net (or null)
 }
 
 // Severities that count as a CONFIRMED recurring mistake. `❓` is an
@@ -449,6 +940,26 @@ export function detectSeverity(line) {
 // the same way it already filters fix-outcome ones (#5516: without this stamp
 // a bucket re-fires on the SAME pre-fix occurrences forever, indistinguishable
 // from a rule that never worked).
+/**
+ * Le righe di un body di review. Un body malformato (`isMalformedReviewBody`:
+ * tutto su una riga con `\n` LETTERALI, difetto del reviewer del 13-19/09
+ * spento da #9781) si divide solo dopo aver riportato quei `\n` ad a-capo veri:
+ * altrimenti l'intero body e' UNA riga, `detectSeverity` ci trova il primo glifo
+ * di qualunque finding, e la rete fingerprint la battezza con le prime parole
+ * del body (`<!-- CODEX_FALLBACK_REVIEW -->\n\n## Scope ...`). Sulla finestra
+ * 14-28/09 del sito queste review generavano il cluster fantasma
+ * `fp:codex-fallback-review-scope` (×18) — riproposto ogni giorno alla proposta
+ * Codex e scartato ogni giorno (#10153, #10212). Un body sano non viene toccato:
+ * un `\n` letterale citato in prosa resta testo.
+ * @param {unknown} body
+ * @returns {string[]}
+ */
+export function reviewBodyLines(body) {
+  const raw = String(body ?? '');
+  const text = isMalformedReviewBody(raw) ? raw.replace(/\\n/gu, '\n') : raw;
+  return text.split('\n');
+}
+
 export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
   const counts = {};
   const examples = {};
@@ -458,11 +969,19 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
       // GraphQL exposes bot logins without the REST [bot] suffix.
       const reviewerLogin = String(r.author?.login || '').replace(/\[bot\]$/i, '') + '[bot]';
       if (!REVIEWER_BOT_LOGIN_RE.test(reviewerLogin)) continue;
-      for (const line of String(r.body || '').split('\n')) {
+      for (const line of reviewBodyLines(r.body)) {
         const sev = detectSeverity(line);
         if (!sev || !COUNTABLE_SEVERITIES.has(sev)) continue;
         const bucket = bucketOf(line);
         if (!bucket) continue;
+        // REVIEW.md makes an explicitly disposed non-funnel Nit advisory and
+        // FOLLOWUP.md drops it. It is therefore not evidence that a documented
+        // stale-comment rule failed; counting it here made that bucket recur
+        // forever even when every example was marked `deferred, non funnel-critical`.
+        // Keep other process buckets (for example pr-body-contract) unchanged:
+        // their deterministic contracts still make a recurring Nit actionable.
+        // Keep 🔴 fail-closed: a red finding cannot self-dispose this way.
+        if (bucket === 'stale-comment' && sev === '🟡' && isExplicitNonFunnelDisposition(line)) continue;
         if (seenBuckets.has(bucket)) continue;
         seenBuckets.add(bucket);
         counts[bucket] = (counts[bucket] || 0) + 1;
@@ -725,6 +1244,10 @@ export function isAvoidableOverlapSkip(title, labels, hasDeliveredPr = false) {
 // e context nel summary del harvest restano visibili); smette solo di poter
 // aprire una PR di regole. Il segnale di capacità ha già la sua sede giusta: il
 // failure-rate di `issue-fix.yml` nel tracker #1951 (loop-health-report).
+// `blocked-secrets` (site #13396, instradata dal corpus #2765): il marker copre
+// blocchi esterni diagnosticati correttamente — credenziali/provider o scrittura
+// Remote Config. Non descrive una violazione prevenibile con una regola agentica;
+// resta nel volume del report, ma non puo' aprire una falsa escalation.
 // `skip-duplicate-diagnosis` (2026-08-08, #5288): emesso SOLO dal Mode 2 di
 // check-workflows-scope.mjs, cioè quando una issue con titolo identico a una
 // precedente già diagnosticata viene short-circuitata PRIMA di spendere un turno
@@ -753,10 +1276,38 @@ export function isEscalationDriver(source, key) {
   const bareKey = key.startsWith(`${source}:`) ? key.slice(source.length + 1) : key;
   if (source === 'fix-outcome' && bareKey === 'no-root-cause') return false;
   if (source === 'fix-outcome' && bareKey === 'rate-limited') return false;
+  if (source === 'fix-outcome' && bareKey === 'blocked-secrets') return false;
   if (source === 'fix-outcome' && bareKey === 'skip-duplicate-diagnosis') return false;
   if (source === 'fix-outcome' && bareKey === 'overlap-skip') return false;
   if (source === 'fix-outcome' && bareKey === 'pr-already-open') return false;
+  // revenue-tracker-manual is an intentional terminal handoff, not a
+  // repeatable agent mistake: its diagnosis may depend on an external provider,
+  // a production-only measurement, or a credential/dispatch owned outside the
+  // repository. Keep the marker in the volume summary, but do not let the
+  // heterogeneous manual cases manufacture a false "rule is not working"
+  // escalation.
+  if (source === 'fix-outcome' && bareKey === 'revenue-tracker-manual') return false;
   return true;
+}
+
+/**
+ * Classe di escalation di un bucket (decisione I3 del 2026-10-05, vedi la nota
+ * sopra TAXONOMY): 'rule' | 'topic' | 'ambiguous' per le voci della tassonomia
+ * dei finding, null per tutto il resto (fingerprint, fix-outcome, issue-class).
+ * Accetta la chiave nuda o quella `<source>/<key>` del titolo. Puro → testabile.
+ * @param {string} source
+ * @param {string} key
+ * @returns {'rule'|'topic'|'ambiguous'|null}
+ */
+export function bucketEscalationKind(source, key) {
+  if (source !== 'reviewer-finding') return null;
+  const bare = String(key || '').replace(/^reviewer-finding[/:]/, '');
+  return TAXONOMY.find((t) => t.key === bare)?.escalation ?? null;
+}
+
+/** True solo per un bucket di argomento: contato nel report, mai escalato. */
+export function isTopicOnlyBucket(source, key) {
+  return bucketEscalationKind(source, key) === 'topic';
 }
 
 // ---- Recoverable work left on the fixer's branch ---------------------------
@@ -882,6 +1433,82 @@ export function lastEscalationClosedAt(fullKey, closedIssues) {
   return latest;
 }
 
+// ---- Il cutoff di un'escalation RIAPERTA sta negli eventi, non in `closedAt` ----
+// `createGithubIssue` riapre il gemello chiuso invece di aprirne uno nuovo. Da
+// quel momento l'issue non e' piu' fra le chiuse e GitHub le azzera `closedAt`
+// (misurato su 10112 e 10114: `state: OPEN`, `closedAt: null`, evento `closed`
+// del 27-09 seguito da `reopened` dell'01-10). Il cutoff tornava `null` e
+// l'escalation si ricontava da sola sull'intera finestra, cioe' sugli esempi
+// PRECEDENTI alla fix. Leggere la lista con `--state all` non basta: la data
+// della chiusura di una issue aperta esiste solo nei suoi eventi.
+
+// Una riga per evento, `<event> <created_at>`: testo semplice e non JSON,
+// perche' `gh --jq` stampa il JSON compatto o indentato a seconda del
+// terminale, e con `--paginate` emette un documento per pagina.
+export const ISSUE_EVENTS_JQ = '.[] | "\\(.event) \\(.created_at)"';
+
+/**
+ * Output di `gh api .../events --paginate --jq ISSUE_EVENTS_JQ` → elenco di
+ * eventi, oppure `null` se e' vuoto o contiene una riga malformata. `null`
+ * significa «non so», e chi chiama lo tratta come nessun cutoff: l'allarme
+ * resta, non si spegne. Puro → testabile.
+ * @param {string} raw
+ * @returns {Array<{event: string, created_at: string}> | null}
+ */
+export function parseIssueEventLines(raw) {
+  const lines = String(raw ?? '').split('\n').map((l) => l.trim()).filter(Boolean);
+  if (!lines.length) return null;
+  const events = [];
+  for (const line of lines) {
+    const m = /^([a-z0-9_]+) (\S+)$/u.exec(line);
+    if (!m) return null;
+    events.push({ event: m[1], created_at: m[2] });
+  }
+  return events;
+}
+
+/**
+ * Istante ISO dell'ULTIMO evento `closed`, o `null` (mai chiusa, eventi
+ * illeggibili, date non valide). Puro → testabile.
+ * @param {Array<{event?: string, created_at?: string}> | null | undefined} events
+ * @returns {string | null}
+ */
+export function lastClosedEventAt(events) {
+  if (!Array.isArray(events)) return null;
+  let latest = null;
+  let latestMs = null;
+  for (const e of events) {
+    if (e?.event !== 'closed') continue;
+    const t = Date.parse(e?.created_at);
+    if (Number.isNaN(t) || (latestMs !== null && t <= latestMs)) continue;
+    latestMs = t;
+    latest = e.created_at;
+  }
+  return latest;
+}
+
+/**
+ * Le chiusure passate delle escalation oggi APERTE, nella stessa forma delle
+ * issue chiuse (`{title, closedAt}`), cosi' `lastEscalationClosedAt` riceve
+ * l'unione. `readEvents(number)` restituisce gli eventi o `null`; i numeri
+ * illeggibili finiscono in `unreadable` e NON producono un cutoff. Puro (la
+ * lettura e' iniettata) → testabile.
+ * @param {Array<{number: number, title?: string}>} openIssues
+ * @param {(number: number) => Array<{event?: string, created_at?: string}> | null} readEvents
+ */
+export function reopenedEscalationClosures(openIssues, readEvents) {
+  const closures = [];
+  const unreadable = [];
+  for (const iss of openIssues || []) {
+    if (!parseEscalationKey(iss?.title)) continue;
+    const events = readEvents(iss.number);
+    if (!Array.isArray(events)) { unreadable.push(iss.number); continue; }
+    const closedAt = lastClosedEventAt(events);
+    if (closedAt) closures.push({ number: iss.number, title: iss.title, closedAt });
+  }
+  return { closures, unreadable };
+}
+
 /**
  * Examples occurring strictly AFTER `cutoffMs` (the bucket's last shipped fix).
  * `cutoffMs === null` means no prior fix ever shipped for this bucket → return
@@ -900,6 +1527,226 @@ export function examplesSinceFix(examples, cutoffMs) {
   });
 }
 
+// Sorgenti i cui esempi portano un `at`: fix-outcome (createdAt del commento
+// FIX_OUTCOME) e reviewer-finding (mergedAt della PR, #5516). Solo queste si
+// possono contare «dopo il cutoff»; issue-class non e' un driver.
+const TIMESTAMPED_SOURCES = new Set(['fix-outcome', 'reviewer-finding']);
+// Tetto degli esempi post-cutoff riportati nel corpo dell'escalation.
+export const ESCALATION_EVIDENCE_CAP = 30;
+
+/**
+ * La misura di un bucket: da quando si conta e quanto resta. Il criterio di
+ * escalation NON cambia (`effectiveCount >= soglia × fattore`): questa funzione
+ * lo isola per poterlo provare su una escalation riaperta. Puro → testabile.
+ * @param {{source: string, count: number, examples?: Array<{at?: string}>,
+ *   escalationCutoff?: number|null, ruleCutoff?: number|null,
+ *   threshold?: number, factor?: number}} input
+ */
+export function measureBucket({ source, count, examples = [], escalationCutoff = null, ruleCutoff = null,
+  threshold = THRESHOLD, factor = EFFICACY_FACTOR }) {
+  const timestamped = TIMESTAMPED_SOURCES.has(source);
+  const esc = timestamped ? escalationCutoff ?? null : null;
+  const rule = timestamped ? ruleCutoff ?? null : null;
+  const cutoff = esc === null ? rule : rule === null ? esc : Math.max(esc, rule);
+  const liveExamples = timestamped ? examplesSinceFix(examples, cutoff) : examples || [];
+  const effectiveCount = timestamped ? liveExamples.length : count;
+  return { cutoff, liveExamples, effectiveCount, limit: threshold * factor,
+    aboveLimit: effectiveCount >= threshold * factor };
+}
+
+// ---- Self-heal: chi NON si chiude, e con quale misura ----------------------
+// Label che vietano la chiusura automatica. Unione di `FIXER_EXEMPT_LABELS`
+// (`scripts/lib/classify-issue.mjs`) e del veto `KEEP_OPEN_LABELS` di
+// `reconcile-followups.mjs`: tenuta qui e non importata perche' questo file
+// scende `identical` nel corpus, e la parita' la verifica un test.
+export const SELF_HEAL_PIN_LABELS = Object.freeze(['keep-open', 'agent:no-age-out', 'operations-audit-review', 'pinned', 'tracker',
+  'do-not-close', 'revenue']);
+// Claim del fixer: una issue in lavorazione non si chiude sotto i suoi piedi.
+export const SELF_HEAL_CLAIM_LABEL = 'agent:in-progress';
+
+/**
+ * Sorgente di un bucket `<source>/<key>` → la vista della finestra da cui
+ * dipende la sua misura. Puro → testabile.
+ * @param {string} fullKey
+ */
+export function bucketSource(fullKey) {
+  const source = String(fullKey || '').split('/')[0];
+  return TIMESTAMPED_SOURCES.has(source) || source === 'issue-class' ? source : null;
+}
+
+/**
+ * Decide il self-heal di UNA escalation aperta il cui bucket non e' piu' fra
+ * quelli attivi. Chiude solo con: nessun pin ne' claim, vista completa della
+ * finestra per la sorgente del bucket, misura sotto la soglia di escalation.
+ * Eccezione (decisione I3 del 2026-10-05): un bucket di argomento si chiude,
+ * pin e claim a parte, a qualunque misura, perche' non puo' piu' escalare.
+ * Il commento riporta la misura, non un'interpretazione. Puro → testabile.
+ * @param {{key: string, labels?: Array<string|{name?: string}>,
+ *   measure?: {effectiveCount: number, cutoffMs: number|null} | null,
+ *   cutoffMs?: number|null, partialSources?: Set<string>, windowDays?: number,
+ *   sinceDay?: string, threshold?: number, factor?: number}} input
+ * @returns {{action: 'close'|'skip', reason: string, comment?: string}}
+ */
+export function selfHealDecision({ key, labels = [], measure = null, cutoffMs = null,
+  partialSources = new Set(), windowDays: days = WINDOW_DAYS, sinceDay: since = sinceDay,
+  threshold = THRESHOLD, factor = EFFICACY_FACTOR }) {
+  const names = new Set((labels || []).map((l) => String(typeof l === 'string' ? l : l?.name ?? '').toLowerCase()));
+  const pin = SELF_HEAL_PIN_LABELS.find((l) => names.has(l));
+  if (pin) return { action: 'skip', reason: `pin ${pin}` };
+  if (names.has(SELF_HEAL_CLAIM_LABEL)) return { action: 'skip', reason: `claim ${SELF_HEAL_CLAIM_LABEL}` };
+  const source = bucketSource(key);
+  if (!source) return { action: 'skip', reason: 'sorgente del bucket sconosciuta' };
+  // Un bucket di argomento non tiene aperta un'escalation (decisione I3 del
+  // 2026-10-05): la chiusura dipende dalla classe della voce, non dalla misura,
+  // quindi qui non contano ne' la soglia ne' la completezza della finestra.
+  if (isTopicOnlyBucket(source, key.slice(source.length + 1))) {
+    const count = measure ? measure.effectiveCount : 0;
+    const comment = `🌱 Self-heal: il bucket \`${key}\` e' classificato «argomento» nella tassonomia del harvester ` +
+      `(un lessico, non una regola violata). Per la decisione del proprietario I3 del 2026-10-05 i bucket di ` +
+      `argomento restano solo nel report e non aprono ne' tengono aperta un'escalation; soglie invariate. ` +
+      `Misura corrente: ${count} su soglia ${threshold * factor} (${threshold}×${factor}), ancora visibile nel report ` +
+      'e nella tally. Le sottoclassi legate a una regola hanno un bucket proprio e la loro escalation. ' +
+      'Chiusa dal lessons-harvester.';
+    return { action: 'close', reason: `bucket di argomento (decisione I3), ${count} su ${threshold * factor}`, comment };
+  }
+  if (partialSources.has(source)) return { action: 'skip', reason: `vista PARZIALE della finestra per ${source}` };
+  const limit = threshold * factor;
+  // Una run manuale con finestra piu' corta o soglia piu' alta misura meno di
+  // quanto conta l'allarme: chiudere li' sposterebbe il cutoff alla data della
+  // chiusura e zittirebbe il bucket finche' non tornano `limit` casi nuovi.
+  const canonicalLimit = DEFAULT_THRESHOLD * DEFAULT_EFFICACY_FACTOR;
+  if (days < DEFAULT_WINDOW_DAYS || limit > canonicalLimit) {
+    return { action: 'skip', reason: `misura NON canonica (finestra ${days}gg, soglia ${limit}; ` +
+      `il self-heal chiude solo con finestra >= ${DEFAULT_WINDOW_DAYS}gg e soglia <= ${canonicalLimit})` };
+  }
+  // Bucket assente dalla finestra: zero occorrenze, ma il cutoff e' comunque
+  // quello della sua ultima chiusura.
+  const effectiveCount = measure ? measure.effectiveCount : 0;
+  const cut = measure ? measure.cutoffMs : cutoffMs;
+  if (effectiveCount >= limit) {
+    // Sopra soglia ma non attivo (non piu' driver o non piu' documentato):
+    // «non supera la soglia» sarebbe falso, quindi non si chiude.
+    return { action: 'skip', reason: `sopra soglia (${effectiveCount} su ${limit}) ma non attivo` };
+  }
+  const from = cut === null || cut === undefined
+    ? `nessun cutoff, intera finestra dal ${since}`
+    : `ultimo cutoff ${new Date(cut).toISOString()}`;
+  const comment = `🌱 Self-heal: il bucket \`${key}\` non supera la soglia nella finestra di ${days} giorni ` +
+    `dopo l'ultimo cutoff (${from}): ${effectiveCount} su soglia ${limit} (${threshold}×${factor}). ` +
+    'Vista della finestra completa per la sorgente del bucket, nessun pin. Chiusa dal lessons-harvester; ' +
+    'si riapre in automatico se il bucket torna sopra soglia.';
+  return { action: 'close', reason: `${effectiveCount} < ${limit}`, comment };
+}
+
+// ---- Registro versionato delle decisioni sui cluster -----------------------
+// `alreadyDocumented` riconosce un bucket della tassonomia dai suoi `docKeys`,
+// ma per un cluster `fp:<...>` (rete fingerprint) o per un codice `fix-outcome`
+// cerca la FRASE DEL FINGERPRINT nei doc, che una regola scritta in italiano
+// non contiene quasi mai. Risultato misurato: ogni giorno la proposta Codex
+// (10-16 min a run) ridecideva gli stessi cluster. `fp:scripts-funnel-treats-every`
+// e' tornato NOVEL il 28-09, il giorno dopo la regola di #10153;
+// `fp:body-not-closing-state` e' stato scartato il 27-09 (#10153) e accettato
+// il 28-09 (#10212) sugli stessi tre esempi.
+//
+// Il registro e' la memoria di quelle decisioni: una voce per cluster
+// (`<source>/<key>`, la stessa forma del titolo di escalation), con l'esito
+// (`added` = regola scritta, `declined` = scartato per scelta), l'istante e il
+// riferimento. Lo scrive la proposta Codex nella stessa PR in cui decide. Un
+// cluster registrato torna NOVEL solo se DOPO la decisione raccoglie di nuovo
+// ≥ soglia esempi (stesso filtro di `examplesSinceFix`); un `added` vale come
+// documentato, quindi puo' ancora escalare se la regola non funziona.
+export const LESSONS_REGISTRY_PATH = 'scripts/ci/lessons-harvester-registry.json';
+export const REGISTRY_OUTCOMES = Object.freeze(['added', 'declined']);
+const REGISTRY_KEY_RE = /^(?:reviewer-finding|fix-outcome|issue-class)\/\S+$/u;
+
+/** Chiave di registro di un cluster: `<source>/<key>`, come `escalationTitle`. */
+export function registryKey(source, key) {
+  return `${source}/${key}`;
+}
+
+/**
+ * Istante della decisione in epoch ms, o null. Una data sola (`YYYY-MM-DD`)
+ * vale fine giornata UTC: gli esempi dello stesso giorno li aveva gia' visti
+ * chi ha deciso, quindi non devono farlo riemergere.
+ * @param {unknown} decidedAt
+ */
+export function registryDecidedAtMs(decidedAt) {
+  const s = String(decidedAt ?? '').trim();
+  if (/^\d{4}-\d{2}-\d{2}$/u.test(s)) return Date.parse(`${s}T23:59:59.999Z`);
+  if (!/^\d{4}-\d{2}-\d{2}T/u.test(s)) return null;
+  const t = Date.parse(s);
+  return Number.isNaN(t) ? null : t;
+}
+
+/**
+ * Valida e indicizza il registro. Una voce non valida NON sopprime niente (il
+ * cluster torna a essere valutato come prima) e finisce in `errors`, che il
+ * main stampa come `::warning::` e il test sul file versionato fa fallire.
+ * Due voci con la stessa chiave: vince la decisione piu' recente.
+ * @param {string | object} raw
+ * @returns {{entries: Map<string, {key: string, outcome: string, decidedAt: string, decidedAtMs: number, ref: string, reason: string}>, errors: string[]}}
+ */
+export function parseLessonsRegistry(raw) {
+  const entries = new Map();
+  const errors = [];
+  let data;
+  try {
+    data = typeof raw === 'string' ? JSON.parse(raw) : raw;
+  } catch (err) {
+    return { entries, errors: [`JSON non valido: ${err.message}`] };
+  }
+  if (!Array.isArray(data?.entries)) return { entries, errors: ['manca l\'array `entries`'] };
+  data.entries.forEach((e, i) => {
+    const where = `entries[${i}]`;
+    const key = String(e?.key ?? '');
+    if (!REGISTRY_KEY_RE.test(key)) { errors.push(`${where}: key "${key}" non e' <source>/<key>`); return; }
+    if (!REGISTRY_OUTCOMES.includes(e?.outcome)) {
+      errors.push(`${where} (${key}): outcome "${e?.outcome}" non in ${REGISTRY_OUTCOMES.join('|')}`);
+      return;
+    }
+    const decidedAtMs = registryDecidedAtMs(e?.decidedAt);
+    if (decidedAtMs === null) { errors.push(`${where} (${key}): decidedAt "${e?.decidedAt}" non e' una data ISO`); return; }
+    const reason = String(e?.reason ?? '').trim();
+    if (!reason) { errors.push(`${where} (${key}): reason vuota`); return; }
+    const prev = entries.get(key);
+    if (prev && prev.decidedAtMs > decidedAtMs) return;
+    entries.set(key, { key, outcome: e.outcome, decidedAt: String(e.decidedAt), decidedAtMs,
+      ref: String(e?.ref ?? ''), reason });
+  });
+  return { entries, errors };
+}
+
+/**
+ * Legge il registro. File assente = registro vuoto (il corpus riceve questo
+ * script per mirror prima di avere un registro suo): nessuna soppressione.
+ * @param {string} [path]
+ * @param {(p: string, enc: string) => string} [readFile]
+ */
+export function loadLessonsRegistry(path = LESSONS_REGISTRY_PATH, readFile = fs.readFileSync) {
+  let raw;
+  try {
+    raw = readFile(path, 'utf-8');
+  } catch (err) {
+    if (err?.code === 'ENOENT') return { entries: new Map(), errors: [], missing: true };
+    return { entries: new Map(), errors: [`registro illeggibile: ${err.message}`] };
+  }
+  return parseLessonsRegistry(raw);
+}
+
+/**
+ * Stato di un cluster rispetto al registro. Senza voce: nessun effetto. Con
+ * voce: contano solo gli esempi successivi alla decisione, e il cluster
+ * «riemerge» solo se sono di nuovo ≥ soglia. Puro → testabile.
+ * @param {{decidedAtMs: number} | null | undefined} entry
+ * @param {Array<{at?: string}>} examples
+ * @param {number} [threshold]
+ */
+export function registryVerdict(entry, examples, threshold = THRESHOLD) {
+  if (!entry) return { registered: false, resurfaced: true, examplesSinceDecision: examples || [] };
+  const since = examplesSinceFix(examples, entry.decidedAtMs);
+  return { registered: true, resurfaced: since.length >= threshold, examplesSinceDecision: since };
+}
+
 function formatExamples(c) {
   return (c.examples || [])
     .map((e) => [e?.pr, e?.issue].find((value) => value !== null && value !== undefined && value !== ''))
@@ -912,25 +1759,59 @@ export function buildEscalationSignals(c) {
   return {
     cosa: `bucket ${c.source}/${c.key}: pattern documentato che ricorre nonostante la regola`,
     metrica: {
-      osservato: c.count,
-      atteso: `< ${THRESHOLD}×${EFFICACY_FACTOR} occorrenze nella finestra`,
+      osservato: c.effectiveCount ?? c.count,
+      atteso: `< ${THRESHOLD}×${EFFICACY_FACTOR} occorrenze dopo il cutoff (intera finestra se non c'è)`,
     },
     comando: 'node scripts/ci/harvest-agent-lessons.mjs --dry-run',
     evidenza: [
       `bucket=${c.source}/${c.key}`,
       `finestra=${WINDOW_DAYS}gg dal ${sinceDay}`,
+      `in-finestra=${c.count}`,
+      `cutoff=${c.cutoffAt || 'nessuno'}`,
       `esempi=${formatExamples(c)}`,
     ],
   };
 }
 
-function escalationBody(c) {
+// Lo snippet e' testo di un reviewer: va in un blocco recintato, dove non
+// menziona nessuno, non crea riferimenti incrociati e non semina token-codice
+// nel corpo di una issue `follow-up` (`followup-resolution-match.mjs` ignora le
+// righe recintate, altrimenti le leggerebbe come prescrizioni da cercare).
+function evidenceLine(e) {
+  const present = (v) => v !== null && v !== undefined && v !== '';
+  const ref = present(e?.pr) ? `PR ${e.pr}` : present(e?.issue) ? `issue ${e.issue}` : '—';
+  const day = /^\d{4}-\d{2}-\d{2}/u.exec(String(e?.at ?? ''))?.[0];
+  const snippet = String(e?.snippet ?? '').replace(/`/gu, "'").replace(/\s+/gu, ' ').trim();
+  return `${ref}${day ? ` (${day})` : ''}${snippet ? `: ${snippet}` : ''}`;
+}
+
+/**
+ * Corpo (e commento di ricorrenza) dell'escalation: la misura su cui si fonda
+ * — occorrenze DOPO il cutoff, non la finestra intera — la data del cutoff e
+ * gli esempi che contano, col loro testo. Puro → testabile.
+ */
+export function escalationBody(c) {
+  const effective = c.effectiveCount ?? c.count;
+  const evidence = c.postCutoffExamples || c.examples || [];
+  const shown = evidence.slice(0, ESCALATION_EVIDENCE_CAP);
   return [
     '## Bucket',
-    `\`${c.source}/${c.key}\` — count **${c.count}** su finestra ${WINDOW_DAYS}gg (dal ${sinceDay})`,
+    `\`${c.source}/${c.key}\` — **${effective}** occorrenze dopo il cutoff ` +
+      `(soglia di escalation ${THRESHOLD}×${EFFICACY_FACTOR}) · in finestra ${WINDOW_DAYS}gg (dal ${sinceDay}): ${c.count}`,
     '',
-    '## Esempi PR/issue',
-    formatExamples(c),
+    c.cutoffAt
+      ? `Cutoff: **${c.cutoffAt}** (ultima chiusura dell'escalation di questo bucket, o regola registrata): gli esempi precedenti non contano.`
+      : 'Cutoff: nessuno (nessuna escalation chiusa né regola registrata per questo bucket): conta l\'intera finestra.',
+    '',
+    '## Esempi dopo il cutoff',
+    // I numeri delle PR stanno nel blocco recintato: fuori ne restano al piu' 5,
+    // per non seminare 30 riferimenti incrociati a ogni ricorrenza.
+    `Numeri: ${formatExamples({ examples: shown.slice(0, 5) })}${shown.length > 5 ? ', …' : ''}`,
+    '',
+    '```text',
+    ...(shown.length ? shown.map(evidenceLine) : ['—']),
+    ...(effective > shown.length ? [`… altri ${effective - shown.length} non riportati`] : []),
+    '```',
     '',
     '## Perché escalare',
     `Pattern GIÀ documentato ma che ricorre ≥ soglia×fattore-efficacia ` +
@@ -943,25 +1824,117 @@ function escalationBody(c) {
   ].join('\n');
 }
 
+/**
+ * I cluster di UNA sorgente: misura ogni bucket, registra la misura in
+ * `bucketMeasures` (anche sotto soglia, per il self-heal) e restituisce quelli
+ * a soglia con il loro verdetto. Puro a parte `bucketMeasures` → testabile.
+ * Un bucket di argomento (isTopicOnlyBucket, decisione I3 del 2026-10-05) resta
+ * nel report con la sua misura e `topicAboveLimit`, ma `recurringDespiteRule`
+ * e' sempre false: non apre e non tiene aperta un'escalation. Soglie invariate.
+ * @param {{source: string, counts: Record<string, number>,
+ *   examples: Record<string, Array<object>>, corpus?: string,
+ *   registry?: {entries: Map<string, object>}, escalationClosures?: Array<object>,
+ *   bucketMeasures?: Map<string, object>, threshold?: number}} input
+ */
+export function considerBuckets({ source, counts, examples = {}, corpus = '', registry = { entries: new Map() },
+  escalationClosures = [], bucketMeasures = new Map(), threshold = THRESHOLD }) {
+  const out = [];
+  for (const [key, count] of Object.entries(counts)) {
+    const driver = isEscalationDriver(source, key);
+    const kind = bucketEscalationKind(source, key);
+    const regKey = registryKey(source, key);
+    const reg = registry.entries.get(regKey) || null;
+    const allExamples = examples[key] || [];
+    // A bucket whose last escalation was already closed via a shipped fix
+    // shouldn't re-fire on the SAME pre-fix occurrences still sitting in the
+    // trailing window — only count what happened AFTER that fix landed.
+    // Stesso ragionamento per una regola `added` dal registro: la sua
+    // efficacia si misura sugli esempi successivi alla regola.
+    const { cutoff, liveExamples, effectiveCount, aboveLimit } = measureBucket({
+      source, count, examples: allExamples,
+      escalationCutoff: lastEscalationClosedAt(regKey, escalationClosures),
+      ruleCutoff: reg?.outcome === 'added' ? reg.decidedAtMs : null,
+    });
+    bucketMeasures.set(regKey, { windowCount: count, effectiveCount, cutoffMs: cutoff, driver });
+    if (count < threshold) continue;
+    // Una regola registrata come `added` vale come documentata anche quando
+    // la sua prosa non contiene la frase del fingerprint.
+    const documented = alreadyDocumented(key, corpus) || reg?.outcome === 'added';
+    const decision = registryVerdict(reg, allExamples);
+    const topicOnly = kind === 'topic';
+    // Documented + still recurring hard (post-fix) = the rule exists but isn't
+    // working. Un argomento non e' una regola: sopra soglia resta nel report.
+    const recurringDespiteRule = driver && !topicOnly && documented && aboveLimit;
+    // Un cluster gia' deciso torna NOVEL solo con ≥ soglia esempi nuovi.
+    const novel = driver && !documented && decision.resurfaced;
+    const shown = reg && decision.examplesSinceDecision.length ? decision.examplesSinceDecision
+      : liveExamples.length ? liveExamples : allExamples;
+    out.push({ source, key, registryKey: regKey, count, effectiveCount,
+      cutoffAt: cutoff === null ? null : new Date(cutoff).toISOString(), driver, novel,
+      recurringDespiteRule, alreadyDocumented: documented,
+      escalationKind: kind, topicAboveLimit: topicOnly && driver && documented && aboveLimit,
+      // Gli esempi su cui l'escalation si fonda, col loro testo: finiscono
+      // nel corpo della issue (escalationBody).
+      ...(recurringDespiteRule ? { postCutoffExamples: liveExamples.slice(0, ESCALATION_EVIDENCE_CAP) } : {}),
+      registry: reg ? { outcome: reg.outcome, decidedAt: reg.decidedAt, ref: reg.ref,
+        examplesSinceDecision: decision.examplesSinceDecision.length } : null,
+      examples: shown.slice(0, 5) });
+  }
+  return out;
+}
+
+/** Etichetta di un cluster nel riepilogo umano. Puro → testabile. */
+export function clusterReportTag(c) {
+  if (c.novel) return 'NOVEL';
+  if (c.recurringDespiteRule) return 'ESCALATE';
+  if (c.topicAboveLimit) return 'TOPIC-REPORT-ONLY';
+  return c.registry ? `registered:${c.registry.outcome}` : 'documented';
+}
+
 async function main() {
   // ---- 1. Reviewer findings on recently-merged PRs ----
   // `mergedAt` fetched here (not from `pr view`) so tallyFindings can stamp each
   // example with it — needed so the post-fix re-escalation guard below can filter
   // reviewer-finding examples the same way it already filters fix-outcome ones.
-  const mergedPrs = ghJson(['pr', 'list', '--state', 'merged', '--search', `merged:>=${sinceDay}`,
-    '--limit', String(MAX_PRS), '--json', 'number,mergedAt']) || [];
+  // Reviews e commenti arrivano nella stessa lista (una query per giorno), non
+  // con un `view` per elemento: con la finestra intera il sito ha ~1000 PR e
+  // ~650 issue, e un `view` ciascuna costerebbe ~10 minuti di chiamate seriali.
+  const days = windowDays(sinceDay, new Date().toISOString().slice(0, 10));
+  const coverage = [];
+  const prWindow = collectWindow(days, (day) => ghJsonRetry(['pr', 'list', '--state', 'merged',
+    '--search', `merged:${day}`, '--limit', String(SEARCH_RESULT_CAP), '--json', 'number,mergedAt,reviews']));
+  const prCap = applyCap(prWindow.items, MAX_PRS);
+  const mergedPrs = prCap.items;
   const prReviews = [];
-  for (const { number, mergedAt } of mergedPrs) {
-    const data = ghJson(['pr', 'view', String(number), '--json', 'reviews']);
-    prReviews.push({ number, reviews: data?.reviews || [], mergedAt });
+  // PR con review troncate a NESTED_PAGE_CAP e non rilette: vista parziale.
+  const unreadPrReviews = [];
+  for (const { number, mergedAt, reviews } of mergedPrs) {
+    let all = reviews || [];
+    if (all.length >= NESTED_PAGE_CAP) {
+      const data = ghJson(['pr', 'view', String(number), '--json', 'reviews']);
+      if (data?.reviews) all = data.reviews;
+      else unreadPrReviews.push(number);
+    }
+    prReviews.push({ number, reviews: all, mergedAt });
   }
+  // Sorgenti la cui vista della finestra e' incompleta: il self-heal non
+  // chiude un'escalation misurata su una vista parziale.
+  const partialSources = new Set();
+  const prCoverage = coverageWarnings('merged PRs', prWindow, prCap.cut, unreadPrReviews, 'review');
+  if (prCoverage.length) partialSources.add('reviewer-finding');
+  coverage.push(...prCoverage);
   const { counts: findingCounts, examples: findingExamples } = tallyFindings(prReviews);
 
   // ---- 2. Recurring issue classes (created in window) ----
   const issueCounts = {};
   const issueExamples = {};
-  const allIssues = ghJson(['issue', 'list', '--state', 'all', '--search', `created:>=${sinceDay}`,
-    '--limit', String(MAX_ISSUES), '--json', 'number,title,labels']) || [];
+  const issueWindow = collectWindow(days, (day) => ghJsonRetry(['issue', 'list', '--state', 'all',
+    '--search', `created:${day}`, '--limit', String(SEARCH_RESULT_CAP), '--json', 'number,title,labels']));
+  const issueCap = applyCap(issueWindow.items, MAX_ISSUES);
+  const issueCoverage = coverageWarnings('issues', issueWindow, issueCap.cut);
+  if (issueCoverage.length) partialSources.add('issue-class');
+  coverage.push(...issueCoverage);
+  const allIssues = issueCap.items;
   for (const it of allIssues) {
     const cls = issueClass(it.title, it.labels);
     if (!cls) continue;
@@ -979,13 +1952,41 @@ async function main() {
   // land, not noise. Surfaced in the harvest output (and in $GITHUB_OUTPUT) so it is
   // visible without reading 31 run logs by hand.
   const recoverableMaxTurns = [];
-  const fixIssues = ghJson(['issue', 'list', '--search', `label:agent:triaged updated:>=${sinceDay}`,
-    '--state', 'all', '--limit', String(MAX_ISSUES), '--json', 'number,title,labels']) || [];
-  for (const issue of fixIssues.slice(0, MAX_ISSUES)) {
+  // `body` entra nella lista perche' i classificatori `isAvoidable*` lo leggono
+  // (`issue.body`): prima la lista chiedeva solo number,title,labels e il body
+  // arrivava sempre vuoto.
+  // Il giorno corrente porta le issue piu' attive, cioe' quelle coi thread piu'
+  // lunghi: la pagina con `comments` risponde 504 anche dopo i retry (run
+  // 36333749234, `updated:2026-09-27`, 3 tentativi su 3). Li' si ricade sulla
+  // lista leggera e sui commenti per issue, invece di perdere il giorno.
+  const fixListArgs = (day, fields) => ['issue', 'list', '--state', 'all',
+    '--search', `label:agent:triaged updated:${day}`, '--limit', String(SEARCH_RESULT_CAP), '--json', fields];
+  // Un `view` fallito nel ripiego NON diventa `comments: []` in silenzio: la
+  // issue finisce in `unreadItems` e la finestra si dichiara PARTIAL (review
+  // di #10118), perche' i suoi marker FIX_OUTCOME mancano dal conteggio.
+  const unreadFixIssues = [];
+  const fixWindow = collectWindow(days, (day) => fetchDayWithFallback(
+    () => ghJsonRetry(fixListArgs(day, 'number,title,labels,body,comments')),
+    () => ghJsonRetry(fixListArgs(day, 'number,title,labels,body')),
+    (it) => {
+      const view = ghJsonRetry(['issue', 'view', String(it.number), '--json', 'comments']);
+      if (!Array.isArray(view?.comments)) unreadFixIssues.push(it.number);
+      return { ...it, comments: view?.comments || [] };
+    },
+  ));
+  const fixCap = applyCap(fixWindow.items, MAX_ISSUES);
+  const fixCoverage = coverageWarnings('fix-issues', fixWindow, fixCap.cut, unreadFixIssues);
+  if (fixCoverage.length) partialSources.add('fix-outcome');
+  coverage.push(...fixCoverage);
+  const fixIssues = fixCap.items;
+  for (const issue of fixIssues) {
     const { number } = issue;
     const labelNames = (issue.labels || []).map((l) => l.name);
-    const data = ghJson(['issue', 'view', String(number), '--json', 'comments']);
-    const comments = data?.comments || [];
+    let comments = issue.comments || [];
+    if (comments.length >= NESTED_PAGE_CAP) {
+      const data = ghJson(['issue', 'view', String(number), '--json', 'comments']);
+      if (data?.comments) comments = data.comments;
+    }
     // Dedup PER-ISSUE: una stessa issue ri-accodata dal followup-drainer (rescue
     // a 3 tentativi) può postare lo STESSO marker N volte. Contarli tutti gonfia
     // il bucket (3 run di UNA issue → conta 3) e fa scattare l'escalation su una
@@ -1088,10 +2089,33 @@ async function main() {
   // indistinguishable from a shipped fix that never worked). issue-class isn't
   // an escalation driver at all (isEscalationDriver), so it's excluded here too.
   // Fetched once, reused per bucket key inside consider().
-  const TIMESTAMPED_SOURCES = new Set(['fix-outcome', 'reviewer-finding']);
   const closedEscalations = ghJson(['issue', 'list', '--state', 'closed',
     '--search', 'ricorre nonostante regola in:title',
     '--json', 'number,title,closedAt', '--limit', '100']) || [];
+  // Le escalation riaperte non sono fra le chiuse: la loro ultima chiusura si
+  // legge dagli eventi (vedi reopenedEscalationClosures). Lettura fallita →
+  // nessun cutoff per quel bucket, cioe' il conteggio pieno di prima.
+  const openEscalationsRead = ghJson(['issue', 'list', '--state', 'open',
+    '--search', 'ricorre nonostante regola in:title',
+    '--json', 'number,title', '--limit', '100']);
+  if (!Array.isArray(openEscalationsRead)) {
+    console.log('::warning::escalation aperte illeggibili: cutoff delle riaperte non determinabile → conteggio sull\'intera finestra');
+  }
+  const openEscalationsAtStart = openEscalationsRead || [];
+  const reopened = reopenedEscalationClosures(openEscalationsAtStart, (number) => parseIssueEventLines(
+    gh(['api', `repos/{owner}/{repo}/issues/${number}/events?per_page=100`, '--paginate',
+      '--jq', ISSUE_EVENTS_JQ])));
+  for (const n of reopened.unreadable) {
+    console.log(`::warning::escalation #${n}: eventi illeggibili, cutoff non determinabile → conteggio sull'intera finestra`);
+  }
+  const escalationClosures = [...closedEscalations, ...reopened.closures];
+  // La misura di ogni bucket visto nella finestra, anche sotto soglia: il
+  // self-heal la riporta nel commento di chiusura.
+  const bucketMeasures = new Map();
+
+  // ---- Registro delle decisioni (vedi parseLessonsRegistry) ----
+  const registryPath = process.env.HARVEST_REGISTRY || LESSONS_REGISTRY_PATH;
+  const registry = loadLessonsRegistry(registryPath);
 
   // ---- Assemble clusters above threshold + novel ----
   const clusters = [];
@@ -1101,27 +2125,8 @@ async function main() {
   // proposal driver (novel stays false for them). Per-key, not blanket per-source
   // (see isEscalationDriver, #4750): `fix-outcome:no-root-cause` is carved out the
   // same way even though its source is otherwise driver-eligible.
-  function consider(source, counts, examples) {
-    for (const [key, count] of Object.entries(counts)) {
-      if (count < THRESHOLD) continue;
-      const driver = isEscalationDriver(source, key);
-      const documented = alreadyDocumented(key, corpus);
-      const allExamples = examples[key] || [];
-      // A bucket whose last escalation was already closed via a shipped fix
-      // shouldn't re-fire on the SAME pre-fix occurrences still sitting in the
-      // trailing window — only count what happened AFTER that fix landed.
-      const cutoff = TIMESTAMPED_SOURCES.has(source)
-        ? lastEscalationClosedAt(`${source}/${key}`, closedEscalations)
-        : null;
-      const liveExamples = TIMESTAMPED_SOURCES.has(source) ? examplesSinceFix(allExamples, cutoff) : allExamples;
-      const effectiveCount = TIMESTAMPED_SOURCES.has(source) ? liveExamples.length : count;
-      // Documented + still recurring hard (post-fix) = the rule exists but isn't working.
-      const recurringDespiteRule = driver && documented && effectiveCount >= THRESHOLD * EFFICACY_FACTOR;
-      clusters.push({ source, key, count, driver, novel: driver && !documented,
-        recurringDespiteRule, alreadyDocumented: documented,
-        examples: (liveExamples.length ? liveExamples : allExamples).slice(0, 5) });
-    }
-  }
+  const consider = (source, counts, examples) => clusters.push(...considerBuckets({
+    source, counts, examples, corpus, registry, escalationClosures, bucketMeasures }));
   consider('reviewer-finding', findingCounts, findingExamples);
   consider('fix-outcome', outcomeCounts, outcomeExamples);
   consider('issue-class', issueCounts, issueExamples);
@@ -1129,23 +2134,39 @@ async function main() {
   clusters.sort((a, b) => b.count - a.count);
   const novel = clusters.filter((c) => c.novel);
   const escalations = clusters.filter((c) => c.recurringDespiteRule);
+  // Bucket di argomento sopra soglia: solo report (decisione I3 del 2026-10-05).
+  const topicReportOnly = clusters.filter((c) => c.topicAboveLimit);
 
   const result = { generatedForWindowDays: WINDOW_DAYS, threshold: THRESHOLD,
     efficacyFactor: EFFICACY_FACTOR, since: sinceDay, totalClusters: clusters.length,
-    novelClusters: novel.length, escalationClusters: escalations.length, clusters,
-    recoverableMaxTurns };
+    novelClusters: novel.length, escalationClusters: escalations.length,
+    topicReportOnlyClusters: topicReportOnly.length, clusters,
+    recoverableMaxTurns,
+    registry: { path: registryPath, entries: registry.entries.size, missing: Boolean(registry.missing),
+      errors: registry.errors },
+    coverage: { days: days.length, mergedPrs: mergedPrs.length, issues: allIssues.length,
+      fixIssues: fixIssues.length, partial: coverage.length > 0, warnings: coverage } };
   fs.writeFileSync(OUT, JSON.stringify(result, null, 2));
 
   // ---- Human summary ----
   console.log(`Lessons harvest — window ${WINDOW_DAYS}d (since ${sinceDay}), threshold ≥${THRESHOLD}`);
-  console.log(`Merged PRs scanned: ${mergedPrs.length} · issues scanned: ${allIssues.length} · fix-issues: ${fixIssues.length}`);
+  console.log(`Registro decisioni: ${registry.entries.size} voci (${registryPath}${registry.missing ? ', assente' : ''})`);
+  for (const e of registry.errors) console.log(`::warning::registro ${registryPath}: ${e}`);
+  console.log(`Merged PRs scanned: ${mergedPrs.length} · issues scanned: ${allIssues.length} · fix-issues: ${fixIssues.length}` +
+    ` · window: ${days.length} days, ${coverage.length ? 'PARTIAL' : 'complete'}`);
+  for (const w of coverage) console.log(w);
   if (!clusters.length) console.log('No recurring clusters above threshold.');
   for (const c of clusters) {
-    const tag = c.novel ? 'NOVEL' : c.recurringDespiteRule ? 'ESCALATE' : 'documented';
-    console.log(`  [${tag}] ${c.source}/${c.key} ×${c.count}` +
+    const tag = clusterReportTag(c);
+    const reg = c.registry
+      ? ` [registro ${c.registry.outcome} ${c.registry.decidedAt} ${c.registry.ref}, +${c.registry.examplesSinceDecision} dopo]`
+      : '';
+    const sinceCutoff = c.cutoffAt ? ` · dopo il cutoff ${c.cutoffAt}: ${c.effectiveCount}` : '';
+    console.log(`  [${tag}] ${c.source}/${c.key} ×${c.count}${sinceCutoff}${reg}` +
       (c.examples?.length ? `  e.g. ${c.examples.map((e) => '#' + (e.pr || e.issue)).join(',')}` : ''));
   }
-  console.log(`\n→ novel recurring clusters: ${novel.length} · escalations (documented-but-recurring): ${escalations.length}`);
+  console.log(`\n→ novel recurring clusters: ${novel.length} · escalations (documented-but-recurring): ${escalations.length}` +
+    ` · argomenti sopra soglia, solo report: ${topicReportOnly.length}`);
   if (recoverableMaxTurns.length) {
     console.log(`\n♻️  max-turns con lavoro RECUPERABILE sul branch (commit avanti a main, nessuna PR): ${recoverableMaxTurns.length}`);
     for (const r of recoverableMaxTurns) {
@@ -1217,7 +2238,7 @@ async function main() {
         });
         const num = res?.number;
         if (num) {
-          const sev = severityLabelForCount(c.count);
+          const sev = severityLabelForCount(c.effectiveCount ?? c.count);
           const drop = sev === 'severity:high' ? 'severity:medium' : 'severity:high';
           try {
             gh(['label', 'create', sev, '--color', sev === 'severity:high' ? 'B60205' : 'D93F0B', '-f']);
@@ -1232,14 +2253,15 @@ async function main() {
     }
 
     // 2. SELF-HEAL CLOSE: un'escalation aperta il cui bucket NON è più tra quelli
-    //    attivi (sceso sotto soglia per un'intera finestra) → il pattern si è
-    //    fermato: chiudila (drena il ratchet; riapribile, riemerge se ricorre).
+    //    attivi → chiudila con la misura (drena il ratchet; si riapre se
+    //    ricorre). Mai con un pin o un claim, mai su una vista parziale della
+    //    finestra, mai sopra soglia (vedi selfHealDecision).
     //    Search via la frase senza parentesi (le `(` rompono gh search → era il
     //    blind-spot del monitoring) e filtro per titolo esatto.
     const liveKeys = new Set(escalations.map((c) => `${c.source}/${c.key}`));
     const openEsc = (ghJson([
       'issue', 'list', '--state', 'open', '--search', 'ricorre nonostante regola in:title',
-      '--json', 'number,title', '--limit', '100',
+      '--json', 'number,title,labels', '--limit', '100',
     ]) || []).filter((i) => parseEscalationKey(i.title));
     for (const iss of openEsc) {
       const key = parseEscalationKey(iss.title);
@@ -1248,11 +2270,16 @@ async function main() {
         console.log(`SELF-HEAL close skipped #${iss.number} — no-autoclose`);
         continue;
       }
+      const decision = selfHealDecision({ key, labels: iss.labels, measure: bucketMeasures.get(key) || null,
+        cutoffMs: lastEscalationClosedAt(key, escalationClosures), partialSources });
+      if (decision.action !== 'close') {
+        console.log(`SELF-HEAL close skipped #${iss.number} — ${decision.reason}`);
+        continue;
+      }
       try {
-        gh(['issue', 'comment', String(iss.number), '--body',
-          `🌱 Self-heal: il bucket \`${key}\` non ricorre più sopra soglia nella finestra ${WINDOW_DAYS}gg (dal ${sinceDay}) → il pattern si è fermato. Chiusa dal lessons-harvester. Riemergerà in automatico se torna a ricorrere.`]);
+        gh(['issue', 'comment', String(iss.number), '--body', decision.comment]);
         gh(['issue', 'close', String(iss.number), '--reason', 'completed']);
-        console.log(`SELF-HEAL close #${iss.number} — bucket ${key} quiet`);
+        console.log(`SELF-HEAL close #${iss.number} — bucket ${key}: ${decision.reason}`);
       } catch (e) {
         process.stderr.write(`self-heal close #${iss.number} fallito: ${e.message}\n`);
       }
@@ -1263,6 +2290,6 @@ async function main() {
 // Run only as a script, never on import (lets the test import the pure helpers
 // above without firing gh / writing files). Same guard convention as
 // auto-merge-eval.mjs.
-if (process.argv[1]?.endsWith('harvest-agent-lessons.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   await main();
 }

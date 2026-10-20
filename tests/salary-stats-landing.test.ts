@@ -9,6 +9,7 @@ import {
   SALARY_STATS_ROUTES,
   SALARY_STATS_CANTON_KEYS,
   SALARY_STATS_CANTON_SLUGS,
+  SALARY_STATS_COMPARISON_CANTON_KEYS,
   SALARY_STATS_LOCALES,
   parseSalaryStatsPath,
   isSalaryStatsPath,
@@ -16,6 +17,8 @@ import {
 } from '../build-plugins/salaryStatsData';
 import { renderSalaryStatsPage } from '../build-plugins/salaryStatsChCantonPages';
 import { parsePath } from '../services/router';
+import { AD_SLOTS } from '../services/adsenseSlots';
+import { fingerprintPage, scoreCohorts } from '@/scripts/lib/informationGain.mjs';
 
 describe('salaryStatsData — path enumeration', () => {
   it('emits one path per locale × canton (24 cantons × 4 = 96)', () => {
@@ -57,6 +60,14 @@ describe('salaryStatsData — slug parity with canton-url-slugs.json', () => {
       }
     }
   });
+
+  it('assigns every canton a distinct editorial comparison peer', () => {
+    const peers = SALARY_STATS_CANTON_KEYS.map((key) => SALARY_STATS_COMPARISON_CANTON_KEYS[key]);
+    expect(peers.every(Boolean)).toBe(true);
+    expect(peers.every((peer, index) => peer !== SALARY_STATS_CANTON_KEYS[index])).toBe(true);
+    expect(new Set(peers).size).toBe(SALARY_STATS_CANTON_KEYS.length);
+    expect([...peers].sort()).toEqual([...SALARY_STATS_CANTON_KEYS].sort());
+  });
 });
 
 describe('salaryStats — router integration', () => {
@@ -90,6 +101,26 @@ describe('salaryStats — page render', () => {
       }
     }
     expect(rendered).toBe(96);
+  });
+
+  it('renders the top, inline and end ad slots in page order', () => {
+    const { html } = renderSalaryStatsPage({
+      locale: 'it',
+      cantonKey: 'TI',
+      cantonSlug: SALARY_STATS_CANTON_SLUGS.TI.it,
+      distDir: '',
+    });
+    const slotPosition = (slot: string) => html.search(new RegExp(`data-ad-slot=["']?${slot}`));
+
+    expect(html.match(/<ins\b[^>]*class=["']?adsbygoogle/g)).toHaveLength(3);
+    const positions = [
+      slotPosition(AD_SLOTS.FT_DRIVEBY_ATF_DISPLAY.slot),
+      slotPosition(AD_SLOTS.ARTICLE_INLINE_MOBILE.slot),
+      slotPosition(AD_SLOTS.SSG_END_MULTIPLEX.slot),
+    ];
+    expect(positions.every((position) => position >= 0)).toBe(true);
+    expect(positions[0]).toBeLessThan(positions[1]);
+    expect(positions[1]).toBeLessThan(positions[2]);
   });
 
   it('Dataset JSON-LD uses Google-valid field types (regression: GSC spatialCoverage/creator/license)', () => {
@@ -141,5 +172,33 @@ describe('salaryStats — page render', () => {
         expect(title, `${key}/${locale} title !== h1`).not.toBe(h1);
       }
     }
+  });
+
+  it('keeps every salary-stats locale cohort above the information-gain floor', () => {
+    const fingerprints = [];
+    for (const locale of SALARY_STATS_LOCALES) {
+      for (const key of SALARY_STATS_CANTON_KEYS) {
+        const slug = SALARY_STATS_CANTON_SLUGS[key][locale];
+        const { html } = renderSalaryStatsPage({ locale, cantonKey: key, cantonSlug: slug, distDir: '' });
+        fingerprints.push(
+          fingerprintPage(
+            `${buildSalaryStatsPath(locale, slug).replace(/^\//, '')}index.html`,
+            html,
+          ),
+        );
+      }
+    }
+
+    const scored = scoreCohorts(fingerprints, { minCohortPages: 2, includePageScores: true });
+    const belowFloor = scored.cohorts
+      .filter((cohort) => cohort.medianIgs < 5)
+      .map((cohort) => `${cohort.label}: ${cohort.medianIgs.toFixed(2)}%`);
+    const zeroGain = scored.cohorts
+      .filter((cohort) => cohort.zeroGainPages > 0)
+      .map((cohort) => `${cohort.label}: ${cohort.zeroGainPages}/${cohort.pages}`);
+
+    expect(scored.cohorts.map((cohort) => cohort.locale).sort()).toEqual([...SALARY_STATS_LOCALES].sort());
+    expect(belowFloor).toEqual([]);
+    expect(zeroGain).toEqual([]);
   });
 });

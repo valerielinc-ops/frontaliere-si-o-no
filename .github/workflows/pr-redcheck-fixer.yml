@@ -19,33 +19,30 @@ name: PR ❌ check fixer (bounded, red required check on bot PRs)
 # NON agisce mai su PR scritte da umani, ne' su un rosso che non e' piu' quello
 # della HEAD corrente (un rosso stantio non e' un difetto da fixare).
 #
+# L'ammissione automatica non usa `workflow_run`: GitHub crea comunque una run
+# di questo workflow prima che il preflight possa scartare una PR draft, umana
+# o con un failure di processo. `tests.yml` emette invece un dispatch trusted
+# solo dopo aver verificato la PR e il job fallito; il dispatch manuale resta
+# disponibile per il recupero esplicito di una PR.
+#
 # ANTI-LOOP: marker `<!-- REDCHECK_FIX_ROUND: N HEAD: <sha> -->`, cap 2 → `needs-human` e
 # STOP senza Claude, identico al gemello e per la stessa ragione: non ripetere
 # tentativi sullo stesso rosso quando il branch non sta avanzando.
 
 on:
-  workflow_run:
-    workflows: ['tests']
-    types: [completed]
-    # `tests` gira anche su ogni push su main: senza questo filtro ogni sua
-    # run creava una run di questo workflow poi `skipped` dal gate del job
-    # (86 run in 4 ore, 64 skipped, misura del 2026-09-19). Su main non c'e'
-    # nessuna PR da riparare. Il filtro e' sul branch, NON sull'evento: le
-    # head rebasate arrivano da `workflow_dispatch` di `tests` sul branch
-    # della PR e devono restare dentro.
-    branches-ignore: [main]
   workflow_dispatch:
     inputs:
       pr:
-        description: 'Numero PR da riparare (bypassa il gate workflow_run)'
+        description: 'Numero PR da riparare (manuale o segnale trusted da tests)'
         required: true
+      run_id:
+        description: 'Run tests esatta emessa dal producer trusted (vuoto nel recupero manuale)'
+        required: false
 
-# Serializzato per branch/PR: nel contesto `workflow_run` il numero non e'
-# affidabile (`pull_requests` e' vuoto in diversi casi), mentre `head_branch`
-# c'e' sempre. La cancellazione evita due writer body concorrenti; il wrapper
-# esegue comunque il CAS body+post-read prima di una scrittura.
+# Serializzato per PR. La cancellazione evita due writer body concorrenti; il
+# wrapper esegue comunque il CAS body+post-read prima di una scrittura.
 concurrency:
-  group: body-revision-${{ github.event.workflow_run.head_branch || github.event.inputs.pr }}
+  group: body-revision-${{ github.event.inputs.pr }}
   cancel-in-progress: true
 
 permissions:
@@ -56,21 +53,11 @@ permissions:
   id-token: write
 
 jobs:
-  # Preflight (no checkout, solo gh): risolve la PR dal `workflow_run` e applica
-  # OGNI gate prima di spendere un checkout. actionable=false → skip verde,
-  # nessun round consumato. Stessa forma del gemello.
+  # Preflight (no checkout, solo gh): risolve la PR dal dispatch e applica OGNI
+  # gate prima di spendere un checkout. actionable=false → skip verde, nessun
+  # round consumato. Stessa forma del gemello.
   preflight:
-    # `tests` gira su PR, ma anche via `workflow_dispatch` — e' cosi' che
-    # `pr-autorebase.yml` ri-testa una head appena rebasata, perche' un push con
-    # PAT su un branch di PR non ri-triggera affidabilmente i workflow
-    # `pull_request`. Gatare sul solo `pull_request` lascerebbe quindi fuori
-    # proprio i rossi delle head rebasate, che sono fra i piu' probabili.
-    # Escluso invece `push`: su main non c'e' nessuna PR da riparare (e il
-    # preflight lo confermerebbe comunque, non trovando PR aperte per il ramo).
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      (github.event.workflow_run.conclusion == 'failure' &&
-       github.event.workflow_run.event != 'push')
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
@@ -87,38 +74,32 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
-          EVENT_NAME: ${{ github.event_name }}
           DISPATCH_PR: ${{ github.event.inputs.pr }}
-          RUN_ID: ${{ github.event.workflow_run.id }}
-          RUN_SHA: ${{ github.event.workflow_run.head_sha }}
-          RUN_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          DISPATCH_RUN_ID: ${{ github.event.inputs.run_id }}
         run: |
           set -uo pipefail
+          # GitHub API calls are part of the bounded preflight contract. A
+          # transient API/DNS stall must become a fail-closed result before the
+          # five-minute job cap, never consume the whole job silently.
+          GH_CALL_TIMEOUT_SECONDS=30
+          GH_CALL_KILL_AFTER_SECONDS=5
+          gh_bounded() {
+            timeout --kill-after="${GH_CALL_KILL_AFTER_SECONDS}s" "$GH_CALL_TIMEOUT_SECONDS" "$@"
+          }
           skip() { echo "$1"; echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0; }
 
-          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
-            PR="$DISPATCH_PR"
-            HEAD_SHA=$(gh api "repos/$REPO/pulls/$PR" --jq ".head.sha" 2>/dev/null || echo "")
-            RUN_ID=$(gh run list --repo "$REPO" --workflow=tests.yml --limit 20 \
-              --json databaseId,headSha,conclusion \
-              --jq "[.[] | select(.headSha==\"$HEAD_SHA\" and .conclusion==\"failure\")][0].databaseId" 2>/dev/null || echo "")
-            if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
-              skip "Nessuna run tests fallita sulla HEAD di #$PR → niente da riparare (no-op)."
-            fi
-          else
-            # `pull_requests` del workflow_run e' spesso vuoto: la via robusta e'
-            # cercare la PR aperta con questo head branch.
-            PR=$(gh api "repos/$REPO/pulls?state=open&per_page=100" \
-              --paginate --slurp \
-              --jq "[.[].[] | select(.head.ref==\"$RUN_BRANCH\")][0].number // empty" 2>/dev/null || echo "")
-            if [ -z "$PR" ] || [ "$PR" = "null" ]; then
-              skip "Nessuna PR aperta per il branch '$RUN_BRANCH' → skip (no-op)."
-            fi
+          PR="$DISPATCH_PR"
+          if ! [[ "$PR" =~ ^[1-9][0-9]*$ ]]; then
+            echo "::error::Numero PR non valido: '$PR'; stop fail-closed."
+            exit 1
           fi
-
-          pr=$(gh api "repos/$REPO/pulls/$PR" 2>/dev/null || echo "")
+          if ! pr=$(gh_bounded gh api "repos/$REPO/pulls/$PR" 2>/dev/null); then
+            echo "::error::PR #$PR non leggibile: impossibile legare la run alla HEAD corrente."
+            exit 1
+          fi
           if [ -z "$pr" ]; then
-            skip "PR #$PR non leggibile → skip (no-op)."
+            echo "::error::PR #$PR ha restituito metadati vuoti: stop fail-closed."
+            exit 1
           fi
 
           state=$(printf '%s' "$pr" | jq -r '.state')
@@ -127,7 +108,7 @@ jobs:
           author=$(printf '%s' "$pr" | jq -r '.user.login')
           head_ref=$(printf '%s' "$pr" | jq -r '.head.ref')
           head_sha=$(printf '%s' "$pr" | jq -r '.head.sha')
-          review_revision=$(printf '%s' "$pr" | node -e 'const crypto=require("node:crypto");let s="";process.stdin.on("data",c=>s+=c).on("end",()=>{const body=JSON.parse(s).body ?? "";process.stdout.write("body:"+crypto.createHash("sha256").update(body,"utf8").digest("hex"));});')
+          review_revision=$(printf '%s' "$pr" | node -e 'const crypto=require("node:crypto");let s="";process.stdin.on("data",c=>s+=c).on("end",()=>{const body=JSON.parse(s).body ?? "";process.stdout.write("body:"+crypto.createHash("sha256").update(body+"\n","utf8").digest("hex"));});')
           has_autofix=$(printf '%s' "$pr" | jq -r 'any(.labels[]?.name; . == "agent:autofix")')
 
           if [ "$state" != "open" ]; then
@@ -155,17 +136,48 @@ jobs:
             skip "PR #$PR e' di un umano ($author, head '$head_ref') senza label agent:autofix → fuori scope per design, skip (no-op)."
           fi
 
-          # Il rosso deve essere quello della HEAD CORRENTE. Un rosso su un SHA
-          # superato e' gia' stato risolto da un push successivo, e "fixarlo"
-          # significherebbe lavorare su una diagnosi vecchia — la trappola che
-          # `frontaliere-gate-giudica-build-vecchia` descrive.
-          if [ "$EVENT_NAME" != "workflow_dispatch" ] && [ "$RUN_SHA" != "$head_sha" ]; then
-            skip "Il rosso e' del commit $RUN_SHA ma la HEAD e' $head_sha → rosso stantio, gia' superato da un push. Skip (no-op)."
+          RUN_ID="${DISPATCH_RUN_ID:-}"
+          if [ -n "$RUN_ID" ]; then
+            if ! [[ "$RUN_ID" =~ ^[1-9][0-9]*$ ]]; then
+              echo "::error::Run tests non valida: '$RUN_ID'; stop fail-closed."
+              exit 1
+            fi
+          else
+            # Il recupero manuale senza run_id conserva il comportamento
+            # storico, ma limita la selezione alla HEAD corrente. Il producer
+            # automatico passa sempre l'ID esatto e non entra in questo ramo.
+            if ! RUN_ID=$(gh_bounded gh api "repos/$REPO/actions/workflows/tests.yml/runs?head_sha=$head_sha&status=failure&per_page=1" \
+              --jq '.workflow_runs[0].id // empty'); then
+              echo "::error::Run di tests.yml sulla HEAD di #$PR illeggibili: non le tratto come «nessuna run fallita»."
+              exit 1
+            fi
+            if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+              skip "Nessuna run tests fallita sulla HEAD di #$PR → niente da riparare (no-op)."
+            fi
           fi
 
+          if ! run=$(gh_bounded gh api "repos/$REPO/actions/runs/$RUN_ID" 2>/dev/null); then
+            echo "::error::Run tests $RUN_ID illeggibile: stop fail-closed."
+            exit 1
+          fi
+          run_path=$(printf '%s' "$run" | jq -r '.path // empty')
+          run_head_sha=$(printf '%s' "$run" | jq -r '.head_sha // empty')
+          run_status=$(printf '%s' "$run" | jq -r '.status // empty')
+          run_conclusion=$(printf '%s' "$run" | jq -r '.conclusion // empty')
+          if [ "$run_path" != ".github/workflows/tests.yml" ] \
+            || [ "$run_head_sha" != "$head_sha" ] \
+            || [ "$run_status" != "completed" ] \
+            || [ "$run_conclusion" != "failure" ]; then
+            echo "::error::Run $RUN_ID non e' un failure tests completato sulla HEAD corrente di #$PR ($run_path $run_head_sha $run_status/$run_conclusion)."
+            exit 1
+          fi
+
+          # La run esatta deve appartenere alla HEAD corrente risolta dalla PR:
+          # un rosso su uno SHA superato non puo' essere riusato dal dispatch,
+          # e due failure sullo stesso SHA non possono essere confusi fra loro.
           # La CI corrente deve essere DAVVERO rossa adesso: fra il trigger e qui
           # un re-run puo' aver rimesso verde, e allora non c'e' niente da fixare.
-          if ! rollup=$(gh api "repos/$REPO/commits/$head_sha/check-runs?per_page=100" \
+          if ! rollup=$(gh_bounded gh api "repos/$REPO/commits/$head_sha/check-runs?per_page=100" \
             --jq '[.check_runs[] | select(.conclusion=="failure") | .name] | sort | @json' 2>/dev/null); then
             echo "::error::Check-runs HEAD illeggibili: impossibile verificare quale rosso redcheck dovrebbe riparare."
             exit 1
@@ -189,7 +201,7 @@ jobs:
           # job consolidato, senza steps o senza uno step failure verificabile
           # non autorizza il fixer. Un falso skip lascia il required check
           # visibile; un falso `actionable=true` spende Claude e può pushare.
-          if ! jobs_json=$(gh api "repos/$REPO/actions/runs/$RUN_ID/jobs?filter=latest&per_page=100" \
+          if ! jobs_json=$(gh_bounded gh api "repos/$REPO/actions/runs/$RUN_ID/jobs?filter=latest&per_page=100" \
             --paginate --slurp 2>/dev/null); then
             echo "::error::Jobs API della run tests illeggibile: impossibile distinguere body/review da test failure. Stop fail-closed."
             exit 1
@@ -320,8 +332,21 @@ jobs:
 
           # Non correre sopra il gemello: se il 🔴-fixer sta girando su questo
           # branch, il suo push arriverebbe sopra il nostro (o viceversa).
-          busy=$(gh run list --repo "$REPO" --workflow=pr-redflag-fixer.yml --branch "$head_ref" \
-            --json status --jq '[.[] | select(.status=="in_progress" or .status=="queued")] | length' 2>/dev/null || echo 0)
+          # `--created`: un elenco per `--branch` senza finestra puo' tornare
+          # fermo a settimane prima (scripts/ci/lib/run-listing-window.mjs) e
+          # nascondere proprio la run in corso. 35 giorni: vita massima di una
+          # run, e un ri-lancio conserva il `created_at` originale.
+          busy_since="$(jq -rn 'now - (35 * 86400) | strftime("%Y-%m-%d")')"
+          if ! busy=$(gh_bounded gh run list --repo "$REPO" --workflow=pr-redflag-fixer.yml --branch "$head_ref" \
+            --created ">=$busy_since" \
+            --json status --jq '[.[] | select(.status=="in_progress" or .status=="queued")] | length' 2>/dev/null); then
+            echo "::error::Stato del 🔴-fixer illeggibile o scaduto: stop fail-closed per evitare una push race."
+            exit 1
+          fi
+          if ! [[ "$busy" =~ ^[0-9]+$ ]]; then
+            echo "::error::Stato del 🔴-fixer non interpretabile: '$busy'"
+            exit 1
+          fi
           if [ "${busy:-0}" -gt 0 ]; then
             skip "Il 🔴-fixer sta gia' girando su '$head_ref' → skip per evitare una push race (no-op, si rivaluta al prossimo rosso)."
           fi
@@ -395,16 +420,16 @@ jobs:
           printf 'git_path=%s\n' "$git_bin" >> "$GITHUB_OUTPUT"
 
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           ref: ${{ needs.preflight.outputs.head_ref }}
           # Checkout 769-1379s su 3 run: il massimo è il 57% di un cap da 40min,
           # e il lavoro qui è un run Claude (costoso da buttare). Blobless partial
           # clone come issue-fix #4189, che è l'altro job Claude-driven con la
-          # stessa forma. Sicuro: il fixer legge/scrive file dell'head e fa
-          # `git merge origin/main` — servono i blob dei file toccati, non la
-          # storia dei blob.
+          # stessa forma. Sicuro: il fixer legge/scrive file dell'head e verifica
+          # solo il workflow di review contro main — servono i blob dei file
+          # toccati, non la storia dei blob.
           filter: blob:none
         # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
         timeout-minutes: 15
@@ -440,15 +465,21 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
+            scripts/lib/is-invoked-directly.mjs \
+            scripts/ci/prefetch-review-diff.mjs \
+            scripts/ci/review-test-policy.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/constants.mjs \
             scripts/ci/fetch-pr-files.mjs \
             scripts/ci/lib/fetchPrFiles.mjs \
-            scripts/lib/int-from-env.mjs; do
+            scripts/lib/int-from-env.mjs \
+            scripts/lib/loop-fleet-contract.mjs; do
             download_main "$trusted_path"
           done
           node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/prefetch-review-diff.mjs"
+          node --check "$policy_root/scripts/ci/review-test-policy.mjs"
           node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
           node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
           printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
@@ -472,14 +503,17 @@ jobs:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
 
+      # `continue-on-error` sul claim serve solo a lasciare eseguire questo
+      # guard esplicito. Un import error avviene prima degli output: in quel
+      # caso l'outcome dello step, non un output mancante, è la prova di errore.
       - name: Fail closed when redcheck claim is unreadable
-        if: steps.claim.outputs.claim_error == 'true'
+        if: steps.claim.outcome != 'success' || (steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_allowed != 'false') || steps.claim.outputs.claim_error != 'false'
         run: |
-          echo "::error::Claim redcheck PR+HEAD+failed-check illeggibile o non verificabile → nessun fixer Claude."
+          echo "::error::Claim redcheck PR+HEAD+failed-check illeggibile, con output invalido o bootstrap fallito → nessun fixer Claude."
           exit 1
 
       - name: Skip already-consumed redcheck failure (zero-Claude)
-        if: steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_error != 'true'
+        if: steps.claim.outcome == 'success' && steps.claim.outputs.claim_allowed == 'false' && steps.claim.outputs.claim_error == 'false'
         run: echo "Rosso già acquisito per questa PR+HEAD+failed-check → nessun secondo round Claude."
 
       # Profilassi workflow-validation drift (anti-401): la GitHub App del reviewer
@@ -488,44 +522,39 @@ jobs:
       # re-review (ri-triggerata dal push del fix sotto) fallirebbe `401 Workflow
       # validation failed`, review vuota, niente `## LGTM`, niente auto-merge — e il
       # 🔴-fix risulterebbe RED senza colpa propria (osservato 2× nel campione 7gg).
-      # Allineare i workflow PRIMA: `merge origin/main` no-op se già fresh; il merge
-      # viaggia poi sul push del fix dell'agent. Su conflitto → abort + warning
-      # (nessuna regressione: il branch resta com'era, comportamento pre-fix).
-      - name: Align review workflows (merge origin/main, anti-401 drift)
+      # Verificare il workflow PRIMA senza riscrivere la branch: il push del fix
+      # viaggia solo sulla HEAD originale della PR. Drift, fetch fallito o
+      # confronto non leggibile sono errori bloccanti, perché il push altrimenti
+      # riattiverebbe una review invalida (401) o consumerebbe un round su una
+      # baseline non verificata.
+      - name: Check review workflows (anti-401 drift, no local merge)
         id: align
         if: steps.claim.outputs.claim_allowed == 'true'
         run: |
-          set -uo pipefail
+          set -euo pipefail
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
-          git fetch origin "+refs/heads/main:refs/remotes/origin/main" -q || true
-          # Il merge locale sottostante è intenzionale per allineare i workflow,
-          # ma non è un push del fixer. Conserva la baseline del branch remoto
-          # prima del merge per non classificarla poi come writer esterno.
           echo "start_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-          if git merge --no-edit -m "$(printf 'Merge origin/main into the PR branch (redcheck-fixer align)\n\nFixer: redcheck-align')" origin/main; then
-            echo "✓ branch allineato a origin/main (workflow-validation drift evitato)."
-          else
-            echo "::warning::merge origin/main in conflitto → abort, branch invariato (no regressione; eventuale 401 drift resta possibile su questo branch)."
-            git merge --abort || true
-            # Prima del fix del refspec (#6074) `origin/main` non si risolveva mai
-            # ("unknown revision"), quindi questo `--abort` era sempre un no-op su un
-            # merge mai iniziato: il path di un conflitto GENUINO (MERGE_HEAD reale,
-            # marker di conflitto nel worktree) non è mai stato esercitato in
-            # produzione (#6089). `git merge --abort` è affidabile, ma qui non ci
-            # affidiamo alla sua riuscita silenziosa: verifichiamo esplicitamente che
-            # il worktree sia tornato pulito prima che gli step successivi (npm ci,
-            # l'agent Claude) lo usino, e forziamo il reset se non lo è.
-            if [ -n "$(git status --porcelain)" ]; then
-              echo "::warning::worktree non pulito dopo merge --abort, forzo reset a HEAD."
-              git reset --hard HEAD
-              git clean -fd
-            fi
+          if ! git fetch --no-tags origin "+refs/heads/main:refs/remotes/origin/main" -q; then
+            echo "::error::fetch di origin/main fallito: anti-drift del workflow di review non verificabile → stop fail-closed."
+            exit 1
           fi
+          diff_status=0
+          git diff --quiet origin/main -- .github/workflows/pr-review-loop.yml || diff_status=$?
+          if [ "$diff_status" -ne 0 ]; then
+            if [ "$diff_status" -eq 1 ]; then
+              echo "::error::workflow-validation drift: .github/workflows/pr-review-loop.yml diverge da origin/main → nessun fixer e nessuna mutazione della PR."
+              git diff --name-status origin/main -- .github/workflows/pr-review-loop.yml
+            else
+              echo "::error::confronto di .github/workflows/pr-review-loop.yml con origin/main illeggibile (git diff=$diff_status) → stop fail-closed."
+            fi
+            exit 1
+          fi
+          echo "✓ .github/workflows/pr-review-loop.yml è byte-identico a origin/main; branch invariato."
 
       - name: Setup Node.js
         if: steps.claim.outputs.claim_allowed == 'true'
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
@@ -543,7 +572,7 @@ jobs:
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           else
-            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; il push del fix userà GITHUB_TOKEN (non ri-triggera la re-review automatica)."
+            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; il fixer resterà pending se l'App token non verifica la capacità di scrittura."
           fi
 
       - name: Load secrets from Remote Config (GITHUB_PAT)
@@ -568,10 +597,11 @@ jobs:
       # cascade, coda congelata, routing/re-queue inerti). Alert inline
       # deterministico, dedup sul titolo canonico del monitor daily
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
-      # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT (e' la cosa rotta). Scatta solo se
-      # NESSUN token usabile (né App né PAT).
+      # GH_TOKEN = GITHUB_TOKEN solo per l'alert locale. Scatta quando non c'è
+      # nessun token write-capable (App verificata o PAT), non quando manca solo
+      # la stringa APP_TOKEN.
       - name: Alert token-down (dedup, zero-Claude)
-        if: steps.claim.outputs.claim_allowed == 'true' && env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        if: steps.claim.outputs.claim_allowed == 'true' && env.APP_TOKEN_DATA_REFRESH != 'true' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -581,21 +611,19 @@ jobs:
       # ── Round cap + capability guard (deterministico, prima di Claude) ────
       # Conta i marker `<!-- REDCHECK_FIX_ROUND: N -->` già sulla PR. A N>=2 →
       # escalation a needs-human, STOP senza Claude. Altrimenti incrementa.
-      # Capability guard: se la PR tocca .github/workflows/** e non c'è nessun token
-      # capace, il push verrebbe rifiutato (scope workflows) → skip senza bruciare
-      # un turno.
+      # Capability guard comune: senza `contents:write` + `pull_requests:write`
+      # il fixer non può creare il push che riattiva `synchronize`; la guardia
+      # workflows-specifica sotto conserva inoltre il controllo su
+      # `workflows:write` per le PR che toccano workflow.
       #
-      # HAS_PAT accetta ORA anche APP_TOKEN. Fino al 2026-08-06 era legato al solo
+      # La guardia workflows-specifica accetta ora anche l'App quando il conio
+      # verifica `workflows:write`. Fino al 2026-08-06 era legata al solo
       # GITHUB_PAT, e il commento lo giustificava con "la App installation token NON
       # ha lo scope workflows": era vero, ha smesso di esserlo quando alla App
       # `frontaliere-automation` è stato concesso `workflows: write`. Lasciarlo com'era
       # avrebbe fatto continuare a saltare i fix su .github/workflows/** con la
       # motivazione "serve un PAT abilitato" mentre il push sarebbe passato — cioè la
       # stessa capability sbloccata in un posto e ancora rifiutata nel gemello.
-      #
-      # Allineato al push step più sotto, che era già token-aware
-      # (`env.APP_TOKEN || env.GITHUB_PAT`): erano i due lati della stessa decisione,
-      # tenuti in disaccordo.
       #
       # 2026-08-08 (#5288): si legge la CAPACITÀ, non la presenza. Il conio riesce
       # (201, token valido) anche quando `workflows` è stato richiesto ma mai approvato
@@ -616,10 +644,31 @@ jobs:
           PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
           HEAD_SHA: ${{ needs.preflight.outputs.head_sha }}
           EXPECTED_REVIEW_REVISION: ${{ needs.preflight.outputs.review_revision }}
-          HAS_PAT: ${{ env.APP_TOKEN_WORKFLOWS == 'true' || env.GITHUB_PAT != '' }}
+          HAS_WRITE_CAPABLE_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN != '' || env.GITHUB_PAT != '' }}
+          HAS_WORKFLOW_WRITE_TOKEN: ${{ env.APP_TOKEN_WORKFLOWS == 'true' || env.GITHUB_PAT != '' }}
         run: |
           set -uo pipefail
           MAX_ROUNDS=2
+
+          # Nessun round costoso e nessun marker prima della guardia di
+          # capacità: senza App verificata o PAT il fixer resta pending e il
+          # retry può riprovare quando torna un'identità write-capable.
+          if [ "${HAS_WRITE_CAPABLE_TOKEN:-false}" != 'true' ]; then
+            echo "::warning::❌-fixer pending: nessun token App verificato con contents:write + pull_requests:write e GITHUB_PAT assente; nessun Claude, push o marker di round. Retry quando torna un'identita write-capable."
+            {
+              echo 'write_capable=false'
+              echo 'pending=true'
+              echo 'retry=true'
+              echo 'proceed=false'
+            } >> "$GITHUB_OUTPUT"
+            {
+              echo '### ❌-fixer pending'
+              echo '- Nessun token write-capable: il token App viene ignorato se APP_TOKEN_DATA_REFRESH non vale true; il PAT, se presente, sarebbe il fallback.'
+              echo '- Nessun marker REDCHECK_FIX_ROUND e nessuna mutation/autorebase/push sono stati avviati.'
+              echo '- Retry: rieseguire il percorso quando App/PAT con capacità di scrittura è disponibile.'
+            } >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 0
+          fi
 
           # GITHUB_TOKEN è un installation token di Actions, non un token utente:
           # `gh api user` non può identificarlo e fallisce anche se le API della
@@ -732,7 +781,7 @@ jobs:
           # deve pesare come «si'»: il costo di sbagliare in questa direzione e'
           # uno skip con commento, quello opposto e' un turno Claude bruciato e
           # un push che fallisce alla fine.
-          if { [ -n "$touches_wf" ] || [ "$files_complete" != "1" ]; } && [ "$HAS_PAT" != "true" ]; then
+          if { [ -n "$touches_wf" ] || [ "$files_complete" != "1" ]; } && [ "$HAS_WORKFLOW_WRITE_TOKEN" != "true" ]; then
             # Il commento deve dire QUALE dei due operandi ha fatto scattare lo
             # skip: affermare «la PR tocca i workflow» quando lo scatto viene
             # dall'elenco incompleto manda chi legge a cercare una modifica che
@@ -866,13 +915,12 @@ jobs:
           git config user.email "valerielinc@gmail.com"
 
       # Push via App token (primario) / PAT (fallback) — ri-attiva pr-review-loop
-      # = re-review. Senza nessuno dei due il push userebbe GITHUB_TOKEN e la
-      # re-review non partirebbe (anti-ricorsione); il fix verrebbe comunque
-      # committato. Esposto come remote authenticato.
+      # = re-review. Il remote riceve solo l'identità verificata dal guard;
+      # GITHUB_TOKEN non è un fallback di push.
       - name: Configure push remote (App token / PAT)
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '')
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && (env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN != '' || env.GITHUB_PAT != '')
         env:
-          PUSH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          PUSH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
         # Stessa classe del bug di pr-autorebase: `actions/checkout` persiste
         # `http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>`,
@@ -882,9 +930,23 @@ jobs:
         # dell'App token/PAT.
         run: |
           git config --unset-all "http.https://github.com/.extraheader" || true
+          # actions/checkout v6+ (qui v7, da fe85af95) non scrive più l'header in
+          # .git/config ma in $RUNNER_TEMP/git-credentials-<uuid>.config, incluso via
+          # `includeIf.gitdir:…`: l'unset sopra non lo vede e il push resterebbe
+          # github-actions[bot]. Si staccano le include che puntano a quel file, come
+          # fa il post-step di checkout. Stessa logica di
+          # scripts/lib/clear-checkout-git-credentials.sh, qui inline perché questo
+          # albero è la head della PR, non codice fidato da eseguire col token.
+          while IFS= read -r inc_key; do
+            while IFS= read -r inc_path; do
+              if [[ "$inc_path" =~ (^|/)git-credentials-[0-9A-Fa-f-]+\.config$ ]]; then
+                git config --local --fixed-value --unset-all "$inc_key" "$inc_path"
+              fi
+            done < <(git config --local --get-all "$inc_key")
+          done < <({ git config --local --name-only --get-regexp '^includeif\.gitdir:' || true; } | sort -u)
           git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${REPO}.git"
 
-      # SHA di partenza (post-merge origin/main, pre-Codex): il classify finale lo
+      # SHA di partenza (HEAD della PR, pre-Codex): il classify finale lo
       # confronta con la HEAD remota dopo Claude per capire se il round ha davvero
       # pushato un fix → un round che pusha un fix è SUCCESS anche se la run Claude
       # è poi morta `error_max_turns` in cleanup (false-failure: 28% dei fail nel
@@ -904,7 +966,11 @@ jobs:
           # guard): serve al classify sotto per distinguere "Claude ha lasciato
           # una spiegazione" da "Claude non ha fatto/detto nulla" quando esce
           # 'success' senza push (issue #5534).
-          n=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo 0)
+          # `--paginate --jq 'length'` stampava un numero per pagina (oltre 30
+          # commenti `n` diventava multilinea). `--slurp` resta senza `--jq`: il
+          # gh reale rifiuta la combinazione e il fallback darebbe sempre 0.
+          comment_pages=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp 2>/dev/null) \
+            && n=$(printf '%s' "$comment_pages" | jq 'map(length) | add // 0' 2>/dev/null) || n=0
           echo "comments=${n:-0}" >> "$GITHUB_OUTPUT"
 
       # Contesto del rosso, deterministico e BOUNDED, prima di spendere un turno
@@ -948,6 +1014,20 @@ jobs:
               grep -n -m1 -E '(^|[[:space:]])FAIL ' "$OUT/clean.log" | cut -d: -f1 | while read -r n; do
                 sed -n "$((n)),$((n+120))p" "$OUT/clean.log"
               done
+              # Il preflight dichiara azionabili anche i rossi di tsc, lint e
+              # source guard, che nello stesso job non producono righe `FAIL `:
+              # senza questa sezione il fixer riceveva «64 passed» e nessun
+              # errore (#9695: TS2345 in services/professionSynonyms.ts).
+              # «Collect independent source gates» stampa `[gate] exit=N` e
+              # subito dopo il log di quel gate.
+              echo
+              echo "### Gate sorgente falliti (\`[gate] exit=N\` con N≠0: tsc, lint, source guard)"
+              grep -E '\[[A-Za-z0-9_.:-]+\] exit=[1-9][0-9]*' "$OUT/clean.log" | sed 's/^[^\t]*\t[^\t]*\t[0-9T:.Z-]*//' | sort -u | head -20
+              echo
+              echo "### Estratto attorno al primo gate sorgente fallito"
+              grep -n -m1 -E '\[[A-Za-z0-9_.:-]+\] exit=[1-9][0-9]*' "$OUT/clean.log" | cut -d: -f1 | while read -r n; do
+                sed -n "$((n)),$((n+60))p" "$OUT/clean.log"
+              done
             } > "$OUT/failing.txt" 2>/dev/null || true
           fi
 
@@ -955,8 +1035,46 @@ jobs:
           # di turni che questo step esiste per evitare.
           head -c 24000 "$OUT/failing.txt" > "$OUT/failing.trim" 2>/dev/null || : > "$OUT/failing.trim"
           mv "$OUT/failing.trim" "$OUT/failing.txt"
-          echo "contesto raccolto: $(wc -c < "$OUT/failing.txt") byte, $(grep -c 'FAIL ' "$OUT/failing.txt" 2>/dev/null || echo 0) righe FAIL."
+          echo "contesto raccolto: $(wc -c < "$OUT/failing.txt") byte, $(grep -c 'FAIL ' "$OUT/failing.txt" 2>/dev/null || echo 0) righe FAIL, $(grep -cE '\] exit=[1-9]' "$OUT/failing.txt" 2>/dev/null || true) righe di gate sorgente falliti."
           sed -n '1,25p' "$OUT/failing.txt"
+
+      # Il checkout è blobless: il modello non deve ricostruire il diff con
+      # `git diff origin/main...HEAD` dentro il sandbox. Quella lettura attiva
+      # lazy-fetch dei blob storici e, se il bridge incontra una finestra DNS,
+      # consuma il round senza lasciare né commit né diagnosi (issue #7310,
+      # run 36350181177). Il patch completo viene quindi materializzato prima
+      # dell'action dalla copia dell'helper scaricata da main; i test restano
+      # inclusi perché qui il bersaglio è un check rosso, non una review code.
+      - name: Prepare redcheck PR diff (zero-Claude)
+        id: diff_context
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success'
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          HEAD_SHA: ${{ needs.preflight.outputs.head_sha }}
+          CTX_DIR: ${{ runner.temp }}/redcheck
+          REVIEW_DIFF_EXCLUSIONS: data,public,reports,_newsletter_variants,docs
+          INCLUDE_TESTS: 'true'
+        run: |
+          set -uo pipefail
+          prefetch_ok=false
+          for attempt in 1 2 3; do
+            if GIT_TERMINAL_PROMPT=0 timeout 120 node "$TRUSTED_POLICY_ROOT/scripts/ci/prefetch-review-diff.mjs"; then
+              prefetch_ok=true
+              break
+            fi
+            echo "::warning::prefetch del diff redcheck fallito al tentativo $attempt/3; retry bounded prima di fermare il fixer."
+            if [ "$attempt" -lt 3 ]; then sleep $((attempt * 3)); fi
+          done
+          if [ "$prefetch_ok" != 'true' ] || [ ! -f "$CTX_DIR/diff.patch" ]; then
+            echo "::error::diff redcheck non preparabile dalla copia fidata di main: il modello non parte senza superficie verificabile."
+            exit 1
+          fi
+          echo "diff redcheck pronto: $(wc -c < "$CTX_DIR/diff.patch") byte."
 
       - name: Install deterministic PR body gate
         id: body_gate
@@ -1002,7 +1120,10 @@ jobs:
               # Hasha il body in streaming: jq -r + command substitution
               # eliminerebbero i newline finali e farebbero divergere la
               # revisione dalla preflight per un body valido.
-              snapshot_revision=$(printf '%s' "$snapshot" | jq -j '.body // ""' | shasum -a 256 | awk '{print "body:" $1}')
+              # Stessa serializzazione `jq-newline` di review-input-revision.mjs
+              # (sha256(body + "\n")), che gh-pr-body-check usa per il CAS del
+              # body: la preflight sopra la emette allo stesso modo.
+              snapshot_revision=$({ printf '%s' "$snapshot" | jq -j '.body // ""'; printf '\n'; } | shasum -a 256 | awk '{print "body:" $1}')
               if [ "$snapshot_state" != 'open' ] || [ "$snapshot_draft" != 'false' ] \
                 || [ "$snapshot_head" != "$EXPECTED_HEAD_SHA" ] \
                 || [ "$snapshot_revision" != "$EXPECTED_REVIEW_REVISION" ]; then
@@ -1019,16 +1140,38 @@ jobs:
           done
           if [ -n "$reason" ]; then
             echo "::error::$reason dopo il preflight e prima di Codex: nessun fixer Claude."
-            echo 'CLAIM_STATUS=released' >> "$GITHUB_ENV"
-            if [[ "$MARKER_ID" =~ ^[1-9][0-9]*$ ]]; then
-              if "$TRUSTED_GH_BIN" api --method DELETE \
-                "repos/$REPO/issues/comments/$MARKER_ID" >/dev/null 2>&1; then
-                echo "Marker REDCHECK_FIX_ROUND $MARKER_ID cancellato: round rimborsato."
-              else
-                echo "::warning::Impossibile cancellare marker REDCHECK_FIX_ROUND $MARKER_ID; claim rilasciato ma il round potrebbe restare contato."
-              fi
+            # Il refund è sicuro solo se la PR e la sua head virtuale sono
+            # ancora osservabili. Se il branch sparisce o GitHub è in una
+            # finestra incoerente, conserviamo il marker e lasciamo il claim
+            # retryable: cancellarlo qui perderebbe il solo wake-up utile.
+            refund_state=''
+            refund_ref_available='false'
+            refund_snapshot=''
+            if refund_snapshot=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null) \
+               && printf '%s' "$refund_snapshot" | jq -e 'type == "object" and (.state | type) == "string" and (.head.sha | type) == "string"' >/dev/null 2>&1; then
+              refund_state=$(printf '%s' "$refund_snapshot" | jq -r '.state')
+            fi
+            if timeout 30 git ls-remote --exit-code origin "refs/pull/$PR_NUMBER/head" >/dev/null 2>&1; then
+              refund_ref_available='true'
+            fi
+            if [ "$refund_state" = 'closed' ]; then
+              echo 'CLAIM_STATUS=failed-terminal' >> "$GITHUB_ENV"
+              echo "::error::REMOTE_HEAD_CLOSED: PR #$PR_NUMBER è stata chiusa durante il refund del marker; nessun rimborso ambiguo e nessun fixer Claude."
+            elif [ "$refund_state" != 'open' ] || [ "$refund_ref_available" != 'true' ]; then
+              echo 'CLAIM_STATUS=failed-transient' >> "$GITHUB_ENV"
+              echo "::error::REMOTE_HEAD_UNVERIFIED: impossibile verificare la head della PR durante il refund (state=${refund_state:-<vuoto>} ref=$refund_ref_available); marker REDCHECK_FIX_ROUND conservato per il retry."
             else
-              echo "::warning::Marker REDCHECK_FIX_ROUND non identificato; claim rilasciato senza rimborso verificabile."
+              echo 'CLAIM_STATUS=released' >> "$GITHUB_ENV"
+              if [[ "$MARKER_ID" =~ ^[1-9][0-9]*$ ]]; then
+                if "$TRUSTED_GH_BIN" api --method DELETE \
+                  "repos/$REPO/issues/comments/$MARKER_ID" >/dev/null 2>&1; then
+                  echo "Marker REDCHECK_FIX_ROUND $MARKER_ID cancellato: round rimborsato."
+                else
+                  echo "::warning::Impossibile cancellare marker REDCHECK_FIX_ROUND $MARKER_ID; claim rilasciato ma il round potrebbe restare contato."
+                fi
+              else
+                echo "::warning::Marker REDCHECK_FIX_ROUND non identificato; claim rilasciato senza rimborso verificabile."
+              fi
             fi
             echo 'snapshot_valid=false' >> "$GITHUB_OUTPUT"
             exit 1
@@ -1037,7 +1180,7 @@ jobs:
 
       - name: Run Codex Luna Max ❌-check-fix
         id: codex_fix
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.snapshot_final.outputs.snapshot_valid == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && steps.diff_context.outcome == 'success' && steps.snapshot_final.outputs.snapshot_valid == 'true'
         # Tetto sullo step, stessa ragione del Checkout qui sopra: senza, l'unico
         # limite era il cap del job e la run moriva `cancelled`, che NON fa
         # scattare nessun `if: failure()` e si vede solo dallo scan periodico
@@ -1066,16 +1209,25 @@ jobs:
           PR_BODY_EXPECTED_REVISION: ${{ needs.preflight.outputs.review_revision }}
           FIX_TIER: ${{ steps.guard.outputs.tier }}
           FIX_ROUND: ${{ steps.guard.outputs.round }}
+        # `exec_timeout_minutes` = watchdog interno di Codex: stesso step da
+        # 30min e stessa ragione di pr-redflag-fixer.yml — il default 15min
+        # dell'action e' tarato sulle review e taglia un fix ancora al lavoro.
+        # Commento fuori da `with:`: il validatore conta l'intero mapping (#9742).
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          exec_timeout_minutes: "25"
+          # Il modello deve consegnare anche le diagnosi terminali senza push:
+          # lo step zero-Claude le pubblica prima del classificatore, così un
+          # rosso ereditato non diventa un falso "non-progress silenzioso".
+          response_artifact: redcheck-response.md
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           # `github_token` alimenta gli helper provider-neutral di quota/delivery;
-          # resta allineato alla catena App/PAT del push, ma non è il bridge Codex.
-          github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # usa la stessa identità write-capable del push, ma non è il bridge Codex.
+          github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           # Il bridge host-side `gh`/Git può eseguire anche operazioni mutanti: passa solo
           # l'identità operativa App/PAT. L'action esistente fa fail-closed prima di
           # `codex exec` se l'input è vuoto; il token resta fuori dall'ambiente del modello.
-          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          codex_github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           # Le review/PR autonome sono di claude[bot] / github-actions[bot] /
           # frontaliere-automation[bot] (App): le PR aggiornate via App token
           # triggerano con actor = l'App → senza whitelist la action aborta
@@ -1096,6 +1248,8 @@ jobs:
 
             **Il contesto del fallimento è GIÀ stato raccolto** (zero-Claude) in `$RUNNER_TEMP/redcheck/failing.txt`: nomi dei test falliti, riepilogo vitest, ed estratto attorno al primo fallimento. **Leggilo con `Read` come PRIMA cosa.** Non rieseguire `gh run view --log`: è lo stesso output, pesa decine di MB, e scaricarlo è il primo consumatore di turni misurato in questo repo.
 
+            **Anche il diff della PR è GIÀ stato preparato** (zero-Claude) in `$RUNNER_TEMP/redcheck/diff.patch`: è il patch completo della superficie code/test della PR, filtrato solo dagli alberi generati. **Leggilo subito dopo `failing.txt`.** Il checkout usa `blob:none`: non ricostruire il contesto con `git diff origin/main...HEAD`, `git log` storico o `gh pr diff`, perché quelle chiamate riattivano lazy-fetch dentro il sandbox e un errore transitorio di rete trasformerebbe il round in uscita silenziosa senza commit. Dopo aver capito il difetto puoi usare Git normalmente per la verifica mirata del fix.
+
             **REGOLA #0, che viene prima di ogni altra: non si fa passare un test indebolendolo.**
             È il modo ovvio e sbagliato di chiudere questo task, ed è vietato da AGENTS.md non-negotiable #1. Concretamente, NON puoi:
             - cancellare, rinominare, o mettere `.skip`/`.todo` su un test o un `it`/`describe`;
@@ -1115,6 +1269,12 @@ jobs:
             - CODE vs DATA: non scorrere i blob `data/**`/`public/**`; fixa il CODE che li genera.
             - Rilancia il test dopo il fix, e verifica che sia verde, prima di committare.
 
+            **Risposta del round (obbligatoria, anche senza commit):** prima del push, oppure prima di terminare senza commit, scrivi `$RUNNER_TEMP/redcheck-response.md` con una spiegazione concisa del risultato. Usa una riga per il check rosso:
+            - `inherited: <prova che lo stesso failure è su main e perché la PR non è la causa>` se il rosso è ereditato;
+            - `fixed: <cosa hai cambiato>. Verifica: <test/comando> → <esito>` se hai preparato un fix;
+            - `not-fixable: <motivo concreto>` se non è riparabile con confidenza.
+            Lo step deterministico successivo pubblica quel file come commento sulla PR; non affidarti a un commento scritto direttamente dal modello per consegnare questa risposta al classificatore.
+
             **Chiusura:**
             - Commit con l'identity già configurata (Valerie Linc <valerielinc@gmail.com>), messaggio conventional.
             - Ogni commit porta il trailer `Fixer: redcheck-round-${{ steps.guard.outputs.round }}` (`git commit -m "<messaggio>" --trailer "Fixer: redcheck-round-${{ steps.guard.outputs.round }}"`): l'identity e' la stessa degli agenti locali e il trailer e' l'unico modo di distinguere i tuoi push.
@@ -1123,14 +1283,57 @@ jobs:
 
             **Constraint:**
             - SOLO il check rosso. Non rifare la PR, non drive-by, non "già che ci sono".
-            - Se non è fixabile con confidenza (root cause non chiara, serve giudizio umano, o l'unica via sarebbe indebolire un gate) → commenta «❌ check non auto-fixabile: <motivo>» e TERMINA senza commit. Il round cap porta a `needs-human` da solo: è l'esito giusto, non una sconfitta.
+            - Se non è fixabile con confidenza (root cause non chiara, serve giudizio umano, o l'unica via sarebbe indebolire un gate) → scrivi `not-fixable: <motivo>` nella risposta per il round e TERMINA senza commit. Il round cap porta a `needs-human` da solo: è l'esito giusto, non una sconfitta.
             - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
             - Una sola passata: diagnostica, fixa, valida, committa, pusha, aggiorna il body, STOP.
       - name: Cleanup Firebase credentials
         if: always()
         run: rm -f /tmp/firebase-sa.json
 
+      # La risposta del modello viene esportata dalla action in un file
+      # dichiarato e pubblicata qui con il trusted gh. Il classificatore sotto
+      # richiede una nuova traccia quando non c'è un push: senza questo handoff
+      # un verdetto corretto (per esempio "rosso ereditato") appare come
+      # "non-progress silenzioso" e mantiene il job rosso.
+      - name: Publish the redcheck response (zero-Claude)
+        id: response
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && steps.diff_context.outcome == 'success' && steps.snapshot_final.outputs.snapshot_valid == 'true'
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          FIX_ROUND: ${{ steps.guard.outputs.round }}
+          FAILED_RUN_ID: ${{ needs.preflight.outputs.failed_run_id }}
+        run: |
+          set -uo pipefail
+          response="$RUNNER_TEMP/redcheck-response.md"
+          if [ ! -s "$response" ]; then
+            echo "Nessuna risposta del round scritta dal fixer."
+            echo "published=none" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          head_now=$(git rev-parse HEAD 2>/dev/null || echo "")
+          comment="$RUNNER_TEMP/redcheck-response-comment.md"
+          {
+            printf '<!-- REDCHECK_RESPONSE round=%s run=%s head=%s -->\n' "${FIX_ROUND:-?}" "${FAILED_RUN_ID:-?}" "${head_now:0:12}"
+            printf '## Risposta del ❌-check-fixer (round %s)\n\n' "${FIX_ROUND:-?}"
+            # Sotto il limite di 65.536 caratteri di un commento GitHub.
+            head -c 60000 "$response"
+            printf '\n'
+          } > "$comment"
+          if ! "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body-file "$comment"; then
+            echo "::error::Risposta del fixer non pubblicata: il classificatore non vedrà la diagnosi."
+            echo "published=failed" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          echo "published=yes" >> "$GITHUB_OUTPUT"
+
       # Colore del job = LAVORO reale del round, non l'exit della CLI Claude.
+      #  • head remota non verificabile (fetch fallito o head cambiata fra le
+      #    due letture, dopo i retry) → RED esplicito PRIMA di ogni verdetto:
+      #    niente SUCCESS/SUPERSEDED su una fotografia stantia o intermedia;
+      #    claim failed-transient (retryable), marker di round conservato.
       #  • commit pushato sul branch della PR  → round SUCCESS (la re-review girerà;
       #    se 🔴 di nuovo, il round successivo o il round-cap → needs-human). Vale
       #    anche se Claude è morto error_max_turns DOPO il push (false-failure).
@@ -1166,8 +1369,94 @@ jobs:
         run: |
           set -uo pipefail
           HEAD_NOW=$(git rev-parse HEAD 2>/dev/null || echo "")
-          git fetch origin "$HEAD_REF" -q 2>/dev/null || true
-          REMOTE_SHA=$(git rev-parse "origin/$HEAD_REF" 2>/dev/null || echo "")
+          # Head remota verificata prima di classificare (#9730, come corpus
+          # #1771). Il ref della branch locale non basta: una PR da fork non
+          # espone necessariamente refs/heads/$HEAD_REF su origin. Il ref
+          # virtuale refs/pull/$PR_NUMBER/head è invece il confine GitHub
+          # verificabile per entrambe le origini.
+          #
+          # Un fetch fallito, una head che avanza fra le letture o una PR chiusa
+          # durante il recheck non devono diventare SUCCESS/SUPERSEDED su una
+          # fotografia stantia. Le prime due classi restano failed-transient
+          # (retryable); la chiusura confermata è failed-terminal, perché non
+          # esiste più un fixer da ritentare. Prima di ogni ramo che scrive
+          # stato si richiedono anche una seconda lettura del ref remoto e uno
+          # snapshot PR coerente con quello SHA.
+          REMOTE_SHA=""
+          REMOTE_REF="refs/pull/$PR_NUMBER/head"
+          REMOTE_TRACKING_REF="refs/remotes/origin/pr/$PR_NUMBER/head"
+          remote_head_attempts=3
+          remote_head_attempt=1
+          while [ "$remote_head_attempt" -le "$remote_head_attempts" ]; do
+            fetched_sha=""
+            reread_sha=""
+            if timeout 60 git fetch --no-tags -q origin "+$REMOTE_REF:$REMOTE_TRACKING_REF"; then
+              fetched_sha=$(git rev-parse --verify --quiet "$REMOTE_TRACKING_REF^{commit}" 2>/dev/null) || fetched_sha=""
+              # Una rilettura che esce non-zero conta come fallita anche se ha
+              # stampato una riga: si usa l'output solo con exit 0.
+              if ls_remote_out=$(timeout 30 git ls-remote --exit-code origin "$REMOTE_REF" 2>/dev/null); then
+                reread_sha=$(printf '%s\n' "$ls_remote_out" | awk 'NR == 1 { print $1 }')
+              fi
+              if [ -n "$fetched_sha" ] && [ "$fetched_sha" = "$reread_sha" ]; then
+                REMOTE_SHA="$fetched_sha"
+                break
+              fi
+              echo "::warning::head remota di $REMOTE_REF non stabile (tentativo $remote_head_attempt/$remote_head_attempts): fetch=${fetched_sha:-<vuoto>} rilettura=${reread_sha:-<vuoto>}"
+            else
+              echo "::warning::git fetch di $REMOTE_REF fallito (tentativo $remote_head_attempt/$remote_head_attempts)"
+            fi
+            if [ "$remote_head_attempt" -lt "$remote_head_attempts" ]; then
+              sleep $((remote_head_attempt * 5))
+            fi
+            remote_head_attempt=$((remote_head_attempt + 1))
+          done
+          if [ -z "$REMOTE_SHA" ]; then
+            pr_state=''
+            if pr_state=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '.state' 2>/dev/null) \
+               && [ "$pr_state" = 'closed' ]; then
+              CLAIM_STATUS=failed-terminal
+              export CLAIM_STATUS
+              if [ -n "${GITHUB_ENV:-}" ]; then echo 'CLAIM_STATUS=failed-terminal' >> "$GITHUB_ENV"; fi
+              echo "::error::REMOTE_HEAD_CLOSED: PR #$PR_NUMBER è chiusa e la sua head non è più verificabile → classificazione terminale, nessun SUCCESS/SUPERSEDED."
+            else
+              CLAIM_STATUS=failed-transient
+              export CLAIM_STATUS
+              if [ -n "${GITHUB_ENV:-}" ]; then echo 'CLAIM_STATUS=failed-transient' >> "$GITHUB_ENV"; fi
+              echo "::error::REMOTE_HEAD_UNVERIFIED: head remota di $REMOTE_REF non determinabile dopo $remote_head_attempts tentativi (fetch fallito o head cambiata fra le letture) → classificazione BLOCCANTE, job ROSSO. Nessun SUCCESS, nessun SUPERSEDED: il marker di round resta contato; claim failed-transient (retryable)."
+            fi
+            exit 1
+          fi
+          # L'ultimo fetch+ls-remote prova la stabilità del ref, ma non
+          # certifica che la PR sia ancora aperta né che GitHub non l'abbia
+          # avanzata subito dopo. Prima di SUCCESS/SUPERSEDED rileggi entrambe
+          # le superfici; ogni divergenza resta retryable (o terminale se la PR
+          # è ormai chiusa), senza rimborsare un round su dati vecchi.
+          final_remote_sha=''
+          final_pr_state=''
+          final_pr_head=''
+          if final_ls_remote_out=$(timeout 30 git ls-remote --exit-code origin "$REMOTE_REF" 2>/dev/null); then
+            final_remote_sha=$(printf '%s\n' "$final_ls_remote_out" | awk 'NR == 1 { print $1 }')
+          fi
+          final_pr_snapshot=''
+          if final_pr_snapshot=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null) \
+             && printf '%s' "$final_pr_snapshot" | jq -e 'type == "object" and (.state | type) == "string" and (.head.sha | type) == "string"' >/dev/null 2>&1; then
+            final_pr_state=$(printf '%s' "$final_pr_snapshot" | jq -r '.state')
+            final_pr_head=$(printf '%s' "$final_pr_snapshot" | jq -r '.head.sha')
+          fi
+          if [ "$final_pr_state" != 'open' ] || [ -z "$final_remote_sha" ] || [ "$final_remote_sha" != "$REMOTE_SHA" ] || [ "$final_pr_head" != "$final_remote_sha" ]; then
+            if [ "$final_pr_state" = 'closed' ]; then
+              CLAIM_STATUS=failed-terminal
+              export CLAIM_STATUS
+              if [ -n "${GITHUB_ENV:-}" ]; then echo 'CLAIM_STATUS=failed-terminal' >> "$GITHUB_ENV"; fi
+              echo "::error::REMOTE_HEAD_CLOSED: PR #$PR_NUMBER è stata chiusa durante il recheck finale → nessun SUCCESS/SUPERSEDED; claim terminale."
+            else
+              CLAIM_STATUS=failed-transient
+              export CLAIM_STATUS
+              if [ -n "${GITHUB_ENV:-}" ]; then echo 'CLAIM_STATUS=failed-transient' >> "$GITHUB_ENV"; fi
+              echo "::error::REMOTE_HEAD_UNVERIFIED: la head è cambiata o non è verificabile nel recheck finale (remote=${final_remote_sha:-<vuoto>} iniziale=$REMOTE_SHA pr=${final_pr_head:-<vuoto>} state=${final_pr_state:-<vuoto>}) → nessun SUCCESS/SUPERSEDED, claim retryable."
+            fi
+            exit 1
+          fi
           echo "start=$START_SHA base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA action=$ACTION_OUTCOME"
           if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ "$HEAD_NOW" != "$BASE_SHA" ] && [ "$REMOTE_SHA" = "$HEAD_NOW" ]; then
             # Osservatore del trailer: gli hook sono disattivati per costruzione
@@ -1193,7 +1482,9 @@ jobs:
             echo "::error::❌-check-fix: nessun commit pushato e l'azione è fallita ('$ACTION_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
           fi
-          NOW_COMMENTS=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
+          comment_pages=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp 2>/dev/null) \
+            && NOW_COMMENTS=$(printf '%s' "$comment_pages" | jq 'map(length) | add // 0' 2>/dev/null) \
+            || NOW_COMMENTS="${BASE_COMMENTS:-0}"
           if [ "${NOW_COMMENTS:-0}" -le "${BASE_COMMENTS:-0}" ]; then
             echo "::error::❌-check-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
@@ -1232,6 +1523,7 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/constants.mjs \

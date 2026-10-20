@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllVereinaklostersJobs,
   isVereinaklostersJob,
@@ -25,6 +26,12 @@ runStandardCrawlerPipeline({
   root: ROOT,
   fetchJobs: fetchAllVereinaklostersJobs,
   isCompanyJob: isVereinaklostersJob,
+  // Publish a zero only when the Hotelcareer employer page itself states it
+  // has no vacancy (see fetchPrimaryJobListings). A blocked or unrecognised
+  // page stays a bare `[]` that keeps the previous slice.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(VEREINAKLOSTERS_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   isTrustedDomain,
   defaultSourceLang: 'de',
 }).catch((err) => {

@@ -58,17 +58,24 @@ export function getKeyFactsHeading(locale) {
 
 /**
  * Detects whether a body1 string already contains the AI-search optimization
- * blocks. Used by the backfill script to skip already-processed articles.
+ * blocks. When a locale is supplied, both markers must belong to that locale;
+ * this prevents an Italian block left by a translation fallback from making
+ * an EN/DE/FR article look complete to the locale-specific backfill. Omitting
+ * the locale keeps the helper useful for cross-locale audits.
  * @param {string} body1
+ * @param {'it'|'en'|'de'|'fr'} [locale]
  */
-export function hasAiSearchOptimization(body1) {
+export function hasAiSearchOptimization(body1, locale) {
   if (!body1 || typeof body1 !== 'string') return false;
-  // Accept any locale variant of the heading
-  const allTldr = Object.values(TLDR_MARKERS_BY_LOCALE);
-  const allKeyFacts = Object.values(KEY_FACTS_MARKERS_BY_LOCALE);
-  const hasTldr = allTldr.some((m) => body1.includes(m));
-  const hasKeyFacts = allKeyFacts.some((m) => body1.includes(m));
-  return hasTldr && hasKeyFacts;
+  if (locale && TLDR_MARKERS_BY_LOCALE[locale] && KEY_FACTS_MARKERS_BY_LOCALE[locale]) {
+    return body1.includes(TLDR_MARKERS_BY_LOCALE[locale])
+      && body1.includes(KEY_FACTS_MARKERS_BY_LOCALE[locale]);
+  }
+  // No locale: accept any complete locale pair for generic audits.
+  return Object.keys(TLDR_MARKERS_BY_LOCALE).some((candidate) => (
+    body1.includes(TLDR_MARKERS_BY_LOCALE[candidate])
+      && body1.includes(KEY_FACTS_MARKERS_BY_LOCALE[candidate])
+  ));
 }
 
 /**
@@ -102,8 +109,9 @@ export function buildAiSearchMarkdown({ tldr, keyFacts, locale = 'it' }) {
  * @param {{ tldr: string[], keyFacts: Array<{term:string,value:string}>, locale?: 'it'|'en'|'de'|'fr' }} params
  */
 export function prependAiSearchToBody1(body1, params) {
-  if (hasAiSearchOptimization(body1)) return body1;
-  const block = buildAiSearchMarkdown(params);
+  const locale = params?.locale ?? 'it';
+  if (hasAiSearchOptimization(body1, locale)) return body1;
+  const block = buildAiSearchMarkdown({ ...params, locale });
   return `${block}${body1}`;
 }
 

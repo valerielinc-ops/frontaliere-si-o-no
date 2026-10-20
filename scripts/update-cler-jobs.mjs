@@ -5,6 +5,7 @@
  * resolves each Swiss workplace across all 26 cantons, and runs AI localization
  * for SEO-critical fields.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -20,8 +21,10 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -33,20 +36,28 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   htmlToMarkdown,
   validateClerDescription,
   extractJobMeta,
   dedupeClerJobsByStableId,
+  collapseClerDuplicateRequisitions,
+  resolveClerJobBody,
+  clearClerPlaceholderSlots,
   parseClerApiResponse,
 } from './lib/cler-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { getCantonPostalFallback } from './lib/canton-postal-fallback.mjs';
+import { officialLocalityPostalCode } from './lib/swiss-locality-directory.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, isConnectionLevelFetchError } from './lib/crawler-template.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -100,15 +111,6 @@ const CLER_BRANCHES = {
   'zuerich':       { canton: 'ZH', postalCode: '8001', street: 'Uraniastrasse 6' },
 };
 
-// Canton-capital postal fallbacks for branches we don't have a street for.
-const CANTON_FALLBACK_POSTAL = {
-  AG: '5000', AI: '9050', AR: '9100', BE: '3001', BL: '4410', BS: '4002',
-  FR: '1700', GE: '1204', GL: '8750', GR: '7000', JU: '2800', LU: '6003',
-  NE: '2000', NW: '6370', OW: '6060', SG: '9001', SH: '8200', SO: '4500',
-  SZ: '6430', TG: '8500', TI: '6500', UR: '6460', VD: '1003', VS: '1950',
-  ZG: '6300', ZH: '8001',
-};
-
 function normCity(raw = '') {
   return String(raw || '')
     .toLowerCase()
@@ -127,11 +129,14 @@ function normCity(raw = '') {
  * several (e.g. "Basel/Bern") — JobPosting needs a single jobLocation, and
  * downstream we still emit the canton-quorum hub.
  */
-function resolveBranchAddress(arbeitsort) {
+export function resolveBranchAddress(arbeitsort, sourceStreetAddress = '') {
   const raw = String(arbeitsort || '').trim();
   if (!raw) return null;
+  const sourcePostalCode = raw.match(/\b(\d{4})\b/)?.[1] || '';
+  const sourceStreet = String(sourceStreetAddress || '').trim();
+  const locationText = raw.replace(/\b\d{4}\b/g, ' ').replace(/\s+/g, ' ').trim();
   // Split on common separators, prefer the first usable token.
-  const candidates = raw.split(/[\/,;|]| und | et | e | and /i).map((s) => s.trim()).filter(Boolean);
+  const candidates = locationText.split(/[\/,;|]| und | et | e | and /i).map((s) => s.trim()).filter(Boolean);
   for (const candidate of candidates) {
     const key = normCity(candidate);
     if (!key) continue;
@@ -140,8 +145,11 @@ function resolveBranchAddress(arbeitsort) {
       return {
         city: candidate.trim(),
         canton: branch.canton,
-        postalCode: branch.postalCode,
-        street: branch.street,
+        postalCode: sourcePostalCode
+          || officialLocalityPostalCode(candidate, branch.canton)
+          || branch.postalCode
+          || getCantonPostalFallback(branch.canton, candidate),
+        street: sourceStreet || candidate.trim(),
       };
     }
     if (isTargetSwissLocation(candidate, { includeAllCantons: true, includeBorderProximity: false })) {
@@ -150,8 +158,10 @@ function resolveBranchAddress(arbeitsort) {
       return {
         city: candidate.trim(),
         canton,
-        postalCode: CANTON_FALLBACK_POSTAL[canton] || '',
-        street: `Filiale ${candidate.trim()}`,
+        postalCode: sourcePostalCode
+          || officialLocalityPostalCode(candidate, canton)
+          || getCantonPostalFallback(canton, candidate),
+        street: sourceStreet || candidate.trim(),
       };
     }
   }
@@ -208,10 +218,6 @@ function isTargetJob(job) {
 
 function jobMatchKey(job) {
   return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
-}
-
-function todayIso() {
-  return new Date().toISOString().slice(0, 10);
 }
 
 function isTrustedDomain(rawUrl = '') {
@@ -362,17 +368,17 @@ async function fetchDetailPage(relativeUrl) {
   }
 }
 
-function buildDescription(title, html) {
-  if (!html) {
-    // Fallback: minimal description from title only
-    return `## ${title}\n\nBanca Cler — per i dettagli consultare la pagina dell'offerta.`;
-  }
-
+/**
+ * The posting's own text, or '' when the detail page gave none (no HTML, or
+ * fewer than MIN_SOURCE_BODY_WORDS words — measured in words, not characters:
+ * a 49-word body padded with long compounds is still thin). No stand-in
+ * text: mergeJobs keeps the stored source text of the requisition, or does
+ * not publish the job.
+ */
+export function buildDescription(title, html) {
+  if (!html) return '';
   const markdown = htmlToMarkdown(html);
-  if (markdown && markdown.length >= 200) return markdown;
-
-  // Fallback if parser returned too little
-  return `## ${title}\n\nBanca Cler — per i dettagli consultare la pagina dell'offerta.`;
+  return markdown && meetsSourceBodyFloor(markdown) ? markdown : '';
 }
 
 async function fetchClerJobs() {
@@ -441,7 +447,7 @@ async function fetchClerJobs() {
     const empType = inferEmploymentType(title, workload);
 
     // Parse posted date (DD.MM.YYYY → YYYY-MM-DD)
-    let postedDate = todayIso();
+    let postedDate = '';
     if (/^\d{2}\.\d{2}\.\d{4}$/.test(date)) {
       const [d, m, y] = date.split('.');
       postedDate = `${y}-${m}-${d}`;
@@ -450,7 +456,7 @@ async function fetchClerJobs() {
     // Resolve the real Arbeitsort. A missing or unrecognised workplace must
     // not be stamped with the Basel HQ: that would turn a national listing
     // into a false fixed-location posting.
-    const branch = resolveBranchAddress(detailMeta.arbeitsort);
+    const branch = resolveBranchAddress(detailMeta.arbeitsort, detailMeta.street);
     if (!branch) {
       skipped.unresolvedWorkplace++;
       console.warn(`    ⚠️ no resolvable Swiss Arbeitsort; skipping ${title}`);
@@ -478,14 +484,16 @@ async function fetchClerJobs() {
       department: field,
       source: 'cler-dedicated-crawler',
       sourceLang,
-      postedDate,
+      ...sourcePostingDateFields(postedDate),
       validThrough: '',
       employmentType: empType,
       contractType: empType === 'internship' ? 'stage' : 'permanent',
       description,
-      titleByLocale: { de: title },
-      descriptionByLocale: { de: description },
-      slugByLocale: { de: slugify(title) },
+      // Title and slug in the body's language slot (a fixed `de` filed the
+      // French Romandie postings as German).
+      titleByLocale: { [sourceLang]: title },
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
+      slugByLocale: { [sourceLang]: slugify(title) },
       crawledAt: new Date().toISOString(),
     };
 
@@ -531,11 +539,20 @@ function mergeJobs(discoveredJobs) {
   let removed = 0;
   const merged = [];
 
-  for (const discovered of dedupedDiscovered) {
-    const key = jobMatchKey(discovered);
+  const unpublished = [];
+  for (const candidate of dedupedDiscovered) {
+    const key = jobMatchKey(candidate);
     const prev = existingByKey.get(key);
+    // Source text only: without a body this run, the stored source text of
+    // the requisition, or the job is not published this run.
+    const discovered = resolveClerJobBody(candidate, prev);
+    if (!discovered) {
+      unpublished.push(candidate.url);
+      continue;
+    }
     if (!prev) {
       added++;
+      clearClerPlaceholderSlots(discovered);
       merged.push(discovered);
       continue;
     }
@@ -544,7 +561,8 @@ function mergeJobs(discoveredJobs) {
     const mergedJob = {
       ...prev,
       ...discovered,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, discovered.titleByLocale, 3),
+      ...mergeSourcePostingDates(prev, discovered),
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, discovered.titleByLocale, 3, discovered.sourceLang),
       // Issue #3453-class: never reset descriptionByLocale to a source-only
       // map on a large content delta — mergeLocaleTextMap's sourceLocale-aware
       // merge already refreshes the source locale while preserving translated
@@ -553,7 +571,12 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, discovered.slugByLocale, 3),
     };
     captureLostSlugs(mergedJob, prev.slugByLocale, prev.slug, 20);
+    clearClerPlaceholderSlots(mergedJob);
+    dropStaleLocaleDescriptions(mergedJob);
     merged.push(mergedJob);
+  }
+  if (unpublished.length > 0) {
+    console.warn(`  ⚠️ ${unpublished.length} Cler job(s) not published this run: no body on the detail page and no stored source text (${unpublished.join(', ')})`);
   }
 
   // Count removed (existing jobs not in new crawl)
@@ -584,6 +607,29 @@ function mergeJobs(discoveredJobs) {
 // ─────────────────────────────────────────────────────────────
 // Post-processing
 // ─────────────────────────────────────────────────────────────
+
+/**
+ * The shared base crawler re-adds requisitions that mergeJobs() had already
+ * collapsed (same id under another locale / career-section path — see
+ * collapseClerDuplicateRequisitions). Collapse them again after it ran, and
+ * keep the dropped record's slugs as redirects of the survivor.
+ */
+function collapseDuplicateRequisitionsInSlice(preferredUrls) {
+  const all = readJson(DATA_JOBS, []);
+  if (!Array.isArray(all)) return 0;
+  const target = all.filter(isTargetJob);
+  const { jobs: survivors, dropped } = collapseClerDuplicateRequisitions(target, preferredUrls);
+  if (dropped.length === 0) return 0;
+  for (const { dropped: gone, kept } of dropped) {
+    captureLostSlugs(kept, gone.slugByLocale || {}, gone.slug || '', 20);
+  }
+  const survivorSet = new Set(survivors);
+  const next = all.filter((job) => !isTargetJob(job) || survivorSet.has(job));
+  writeJson(DATA_JOBS, next);
+  if (fs.existsSync(path.dirname(PUBLIC_JOBS))) writeJson(PUBLIC_JOBS, next);
+  console.log(`  ↺ Post-base-crawler dedup: ${target.length} → ${survivors.length} Cler records (same requisition under another path)`);
+  return dropped.length;
+}
 
 function runBaseCrawler() {
   return runDedicatedBaseCrawler({
@@ -618,6 +664,20 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, {
+      isTargetJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 // ─────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────
@@ -636,11 +696,27 @@ async function main() {
 
   // Phase 1: Fetch and parse jobs
   console.log('🔍 Phase 1: Fetch Cler jobs...');
-  const discoveredJobs = await fetchClerJobs();
+  let discoveredJobs;
+  try {
+    discoveredJobs = await fetchClerJobs();
+  } catch (err) {
+    if (!isConnectionLevelFetchError(err)) throw err;
+    markCrawlerSummaryAbortKind('connection-level-fetch');
+    console.log(
+      `\n⚠️ Cler: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    );
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
     console.log('\nℹ️ Cler API returned no usable jobs; no job-count gate is applied.');
-    console.log('   Keeping existing jobs unchanged.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    );
     return;
   }
 
@@ -652,6 +728,7 @@ async function main() {
   // Phase 3: Run base crawler for AI localization
   console.log('\n🌐 Phase 3: AI localization...');
   await runBaseCrawler();
+  collapseDuplicateRequisitionsInSlice(new Set(discoveredJobs.map((job) => job.url)));
 
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,

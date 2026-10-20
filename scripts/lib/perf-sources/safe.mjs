@@ -1,3 +1,5 @@
+import { settledWindow } from '../analytics-settled-window.mjs';
+
 // safe(fn) — guarantees source helpers never throw. Returns
 // { ok: true, ...result } or { ok: false, reason }.
 
@@ -17,11 +19,7 @@ export function fmtDate(d) {
 }
 
 export function windowDates(daysBack) {
-  const end = new Date();
-  end.setUTCDate(end.getUTCDate() - 2); // 2-day lag for late-arriving data
-  const start = new Date(end);
-  start.setUTCDate(start.getUTCDate() - daysBack);
-  return { start: fmtDate(start), end: fmtDate(end) };
+  return settledWindow({ days: daysBack });
 }
 
 export function pathnameFromUrl(url) {

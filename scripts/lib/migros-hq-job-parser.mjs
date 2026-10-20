@@ -29,6 +29,7 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import {
@@ -39,6 +40,8 @@ import {
 } from './target-swiss-locations.mjs';
 import { extractMigrosStructuredData } from './migros-job-parser.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -164,7 +167,8 @@ async function fetchHqJobUrls({ fetchPage = fetchHtml } = {}) {
   console.log(`  📄 Fetching sitemap: ${SITEMAP_URL}`);
   const xml = await fetchPage(SITEMAP_URL, { headers: { Accept: 'application/xml,text/xml,*/*' } });
 
-  const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((m) => m[1].trim());
+  // <loc> is XML text: decode `&amp;` so the stored URL is the page's own.
+  const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((m) => decodeEntities(m[1].trim()));
   const jobUrls = [...new Set(allUrls.filter((url) => url.includes(COMPANY_PATH_SEGMENT) && JOB_URL_RE.test(url)))];
 
   console.log(`  📦 Migros HQ (migros-genossenschafts-bund) job URLs in sitemap: ${jobUrls.length}`);
@@ -173,21 +177,7 @@ async function fetchHqJobUrls({ fetchPage = fetchHtml } = {}) {
 
 /** Parse the first JobPosting JSON-LD block from a detail page's HTML. */
 function extractJobPosting(html = '') {
-  const re = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    let data;
-    try {
-      data = JSON.parse(m[1]);
-    } catch {
-      continue;
-    }
-    const items = Array.isArray(data) ? data : data?.['@graph'] || [data];
-    for (const item of items) {
-      if (item?.['@type'] === 'JobPosting') return item;
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 async function fetchJobListings(jobUrls, {
@@ -377,7 +367,11 @@ export async function fetchAllMigrosHqJobs({
       sector: 'Retail',
       currency: 'CHF',
       featured: false,
-      postedDate: (listing.postedAt || new Date().toISOString()).slice(0, 10),
+      // Migros JSON-LD uses ISO basic offsets (+0200); preserve the instant
+      // while normalizing the offset separator for the shared date validator.
+      ...sourcePostingDateFields(typeof listing.postedAt === 'string'
+        ? listing.postedAt.replace(/([+-]\d{2})(\d{2})$/, '$1:$2')
+        : ''),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -13,15 +13,18 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, isSwissLocationText } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
-  parseWorkdayPostedDate,
+  fetchWorkdayJobDetailParts,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -36,7 +39,17 @@ const CAREER_URL = `https://${WORKDAY_TENANT_HOST}/${WORKDAY_SITE_PATH}`;
 const WORKDAY_API_BASE = buildWorkdayApiBase(WORKDAY_TENANT_HOST, WORKDAY_SITE_PATH);
 
 // Switzerland country facet — standard Workday country UUID used across most tenants.
+// It is NOT enforced by the Roche tenant: the published slice carried 540/862
+// rows from Hyderabad, Penzberg, Mannheim… (#9508 FU-2026-09-22-018), so every
+// listing must also prove Swiss membership below.
 const SWISS_LOCATION_IDS = ['187134fccb084a0ea9b4b95f23890dbe'];
+
+// Roche Swiss sites that Workday names by locality rather than by BFS
+// municipality: Rotkreuz is a village of Risch (ZG), so the generic Swiss
+// resolver cannot recognise the bare name.
+const ROCHE_SWISS_LOCALITY_CANTONS = new Map([
+  ['rotkreuz', 'ZG'],
+]);
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -87,6 +100,22 @@ export function isTrustedDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+/**
+ * Canton of a Roche Workday location with positive Swiss evidence, or '' when
+ * the location cannot be proven Swiss. An empty location, or a Swiss one that
+ * resolves to no canton, is '' too: the Basel HQ is never a substitute (issue
+ * 9842 — an `N Locations` roll-up has an empty listing location, and the old
+ * Basel default published reqs worked in Warsaw, Shanghai or Madrid as `BS`).
+ */
+export function rocheSwissCanton(rawLocation = '') {
+  const location = normalizeSpace(rawLocation);
+  if (!location) return '';
+  const localityCanton = ROCHE_SWISS_LOCALITY_CANTONS.get(normalize(location));
+  if (localityCanton) return localityCanton;
+  if (isLocationExplicitlyForeign(location) || !isSwissLocationText(location)) return '';
+  return inferSwissTargetCanton(location) || '';
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -142,7 +171,7 @@ async function fetchJobListings() {
         title: id.title,
         location: id.location,
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
       });
@@ -177,6 +206,7 @@ export async function fetchAllRocheJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   let missingDetailUrlCount = 0;
   for (const listing of listings) {
     // TODO: Extract fields from each listing.
@@ -185,14 +215,18 @@ export async function fetchAllRocheJobs() {
     if (!title || title.length < 3) continue;
 
     const rawLocation = String(listing.location || '').trim();
-    if (rawLocation && isLocationExplicitlyForeign(rawLocation)) {
-      console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
+    // An empty listing location is an `N Locations` roll-up (or a req with no
+    // location text): only the req's own primary workplace, read from the
+    // detail, may place it in Switzerland.
+    const location = rawLocation
+      || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = rocheSwissCanton(location)
+      || await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location);
+    if (!canton) {
+      console.log(`  ⏭️  Skipped non-Swiss location: ${rawLocation || '(roll-up without Swiss primary)'} — ${title}`);
       continue;
     }
 
-    // Roche HQ is Basel (BS); fall back there if Workday omits the location.
-    const location = rawLocation || 'Basel';
-    const canton = inferSwissTargetCanton(location) || 'BS';
     const publicUrl = String(listing.url || '').trim();
     if (!publicUrl) {
       missingDetailUrlCount += 1;
@@ -204,22 +238,26 @@ export async function fetchAllRocheJobs() {
     // from the per-job detail endpoint (jobPostingInfo.jobDescription). The
     // shared helper handles timeout + 4xx and returns '' on failure so we can
     // fall back to a structured stub built from listing metadata.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
+    // One detail request: the body, and the `timeType` the CXS listing row
+    // never carries.
+    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
     );
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || title);
     await new Promise((r) => setTimeout(r, 400)); // Polite rate limit between detail calls
 
-    const fallbackDescription = [
-      `${title} — ${ROCHE_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, ${canton} canton` : ''}, Switzerland`,
-      '• Employer: Roche — global pharma and diagnostics leader',
-      '• Apply on: Roche careers portal',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'it');
     const jobSlug = slugify(`${title} roche ch`);
@@ -249,13 +287,13 @@ export async function fetchAllRocheJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Farmaceutico',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: detailInfo })),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -264,6 +302,9 @@ export async function fetchAllRocheJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total Roche jobs discovered: ${jobs.length}`);
   jobs.missingDetailUrlCount = missingDetailUrlCount;
   return jobs;

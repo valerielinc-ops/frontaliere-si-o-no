@@ -78,6 +78,18 @@ describe('listCrawlerSlugs', () => {
     const slugs = await listCrawlerSlugs();
     expect(slugs).toEqual(['omega']);
   });
+
+  it('does not rediscover historical slices for retired crawlers', async () => {
+    readdir.mockImplementation(async (dir: string) => {
+      if (isSummaryDir(dir)) return ['bally.json', 'omega.json'];
+      if (isByCrawlerDir(dir)) return ['bally.json'];
+      throw enoent();
+    });
+
+    const slugs = await listCrawlerSlugs({ retiredSlugs: new Set(['bally']) });
+
+    expect(slugs).toEqual(['omega']);
+  });
 });
 
 describe('missing crawler carry-forward', () => {
@@ -137,6 +149,25 @@ describe('inspectCrawler', () => {
     const observation = await inspectCrawler('ocst');
 
     expect(observation.authoritativeEmpty).toBe(true);
+  });
+
+  it('keeps legacy custom-runner empty proof readable during field migration', async () => {
+    readFile.mockImplementation(async (file: string) => {
+      if (isSummaryDir(file)) {
+        return JSON.stringify({
+          generatedAt: '2026-09-05T12:58:06.161Z',
+          total: 0,
+          discovered: 0,
+          written: 0,
+          sourceProvenEmpty: true,
+        });
+      }
+      throw enoent();
+    });
+    stat.mockRejectedValue(enoent());
+
+    await expect(inspectCrawler('linnea')).resolves.toMatchObject({ authoritativeEmpty: true });
+    await expect(inspectCrawler('omega')).resolves.toMatchObject({ authoritativeEmpty: false });
   });
 
   it('leaves the proof false for a summary slice that does not claim it', async () => {

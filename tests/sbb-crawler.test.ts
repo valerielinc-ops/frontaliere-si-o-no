@@ -356,6 +356,35 @@ describe('parseSbbDetailPage — body location override', () => {
 
     expect(parseSbbDetailPage(fixture).location).toBe('Bern');
   });
+
+  it('uses the vacancy-specific social summary before generic JSON-LD headquarters', () => {
+    const fixture = `<!DOCTYPE html>
+      <html lang="it"><head>
+        <meta content="Bellinzona, 01.02.2027, 60-100%" name="twitter:description">
+        <script type="application/ld+json">{"@type":"JobPosting","title":"Tecnico industriale specializzato",
+          "jobLocation":{"address":{"addressLocality":"Bern","addressRegion":"Bern"}}}</script>
+      </head><body><h1>Tecnico industriale specializzato</h1><h2>Il tuo compito</h2>
+        <p>Una descrizione dettagliata del lavoro presso le officine ferroviarie.</p>
+      </body></html>`;
+
+    expect(extractSbbBodyLocation(fixture)).toBe('Bellinzona');
+    expect(parseSbbDetailPage(fixture).location).toBe('Bellinzona');
+  });
+
+  it('rejects an employer name as a summary locality and falls back to JSON-LD', () => {
+    const fixture = `<!doctype html><html lang="de"><head>
+      <meta name="twitter:description" content="SBB, 100%">
+      <script type="application/ld+json">{"@type":"JobPosting","title":"Techniker",
+        "jobLocation":{"address":{"addressLocality":"Bern"}}}</script>
+      </head><body><h1>Techniker</h1><p>Arbeiten bei der SBB.</p></body></html>`;
+
+    expect(extractSbbBodyLocation(fixture)).toBe('');
+    expect(parseSbbDetailPage(fixture).location).toBe('Bern');
+  });
+
+  it('rejects a generic employer/percentage intro instead of treating it as a city', () => {
+    expect(extractSbbBodyLocation('<html><body><p>SBB, 100%</p></body></html>')).toBe('');
+  });
 });
 
 // ─── parseSbbDetailPage — guards ──────────────────────────────────────────────

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Gate: a workflow input must never be interpolated into a `run:` block.
  *
@@ -211,7 +213,7 @@ export function scanWorkflows(dir) {
   return violations;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const dir = process.argv[2] || path.join(ROOT, '.github', 'workflows');
   const violations = scanWorkflows(dir);
   if (violations.length === 0) {

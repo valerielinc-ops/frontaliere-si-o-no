@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * collect-followup-batch.mjs — produce the FINAL batch of merged PRs to triage in
  * ONE scheduled Claude session (zero-Claude, deterministico).
@@ -8,7 +10,7 @@
  * `followup-has-candidates.mjs` arrivavano dopo aver già speso una run, oppure il
  * triage girava a vuoto). Sulla quota Max OAuth CONDIVISA con la sessione interattiva
  * owner (AGENTS.md § frugalità) è il #2 consumatore. Questo script converte il modello
- * a SCHEDULED-BATCH: una sola sessione ogni ~3h triagia tutte le PR mergiate dalla
+ * a SCHEDULED-BATCH: una sola sessione ogni ~2h (era ~3h) triagia tutte le PR mergiate dalla
  * finestra precedente.
  *
  * SICUREZZA > VELOCITÀ — mai perdere un follow-up:
@@ -50,8 +52,10 @@
  * Output (GITHUB_OUTPUT): `collection_ok=true|false` (le SORGENTI erano
  *   leggibili — non «la finestra è stata drenata»), `batch_prs=<csv di numeri>`,
  *   `batch_count=<n>`, `deferred_count=<n>` (PR rimaste fuori dal cap di
- *   sessione), `max_turns=<n>` e `daily_key=YYYY-MM-DD` (giorno di triage
- *   riuscito in Zurich).
+ *   sessione), `max_turns=<n>`, `daily_key=YYYY-MM-DD` (giorno di triage
+ *   riuscito in Zurich) e `quarantined_prs=<csv>`/`quarantined_count=<n>`
+ *   (PR tolte dal batch da `markerIdempotencyDecision`: marker con verdetto
+ *   `false` da oltre 6h, dichiarate anche in `::warning::`, summary e issue).
  *
  * Uso:  node scripts/ci/collect-followup-batch.mjs
  * Env:  GH_REPO|GITHUB_REPOSITORY, GITHUB_OUTPUT/GITHUB_STEP_SUMMARY (opz),
@@ -67,6 +71,11 @@ import { dailyBucketInfo, dailyKeyZurich } from './followup-resolution-match.mjs
 
 const WORKFLOW = 'post-merge-followup.yml';
 const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
+// A correction is a secondary note, not a new idempotency marker. Keeping it
+// in the marker stream can hide the canonical summary immediately before it;
+// the correction's prose then fails the structural claim parser and makes the
+// verifier report a false missing-bucket failure.
+const TRIAGE_CORRECTION_HEADING_RE = /^\s*##\s+Post-merge follow-up triage\s*(?:[-—:]\s*)(?:correction|rettifica)\b/i;
 const FALLBACK_HOURS = Number(process.env.FALLBACK_HOURS) || 6;
 // Tetto duro della finestra di raccolta. Non è un'ottimizzazione: è ciò che
 // impedisce al watermark «ultima run di SUCCESSO» di diventare un ratchet
@@ -87,9 +96,35 @@ export function positiveHours(raw, fallback) {
   return Number.isFinite(n) && n > 0 ? n : fallback;
 }
 const SEARCH_PAGE_SIZE = 100;
-// Capacity evidence: run 34602892494 reached the provider's 32-minute ceiling
-// while processing a 36-PR window. Four is therefore a conservative operational
-// cap, not a promise of measured per-PR capacity.
+// Search API responses can be transiently incomplete while GitHub refreshes
+// the index or serves one of the paginated pages. Retry the whole snapshot,
+// never a single page: mixing pages from different attempts would make the
+// total_count/duplicate checks meaningless. A response that remains
+// unverifiable after the bounded retry budget still fails closed.
+export const MERGED_PR_SEARCH_ATTEMPTS = 3;
+export const MERGED_PR_SEARCH_RETRY_DELAYS_MS = Object.freeze([250, 1000]);
+// Capacità della sessione provider: 14 PR (era 4, 2026-09-27), con cron ogni
+// 2h (era 3h). Il 4 nasceva dalla run 34602892494, arrivata al tetto provider di
+// allora (32 minuti) su una finestra di 36 PR. Con 4 la coda non si smaltiva:
+// cadenza reale ~5,1 run/giorno sul cron da 3h (gap mediano 4,9h: GitHub ne
+// esegue ~62% del nominale) = ~20 PR/giorno, contro 33-124 merge/giorno qui
+// (~72% passa i gate) e rinvii di 65-146 PR a OGNI run
+// (36112598869..36325938055); ciò che resta oltre il lookback di 48h esce dalla
+// finestra non triagiato.
+// Il cap NON è dimensionato dal run 36009410204: 4 PR furono uccise dal
+// watchdog a 1803 s, quindi >=451 s/PR è una misura CENSURATA e non un upper
+// bound. La base è una sessione production-equivalent COMPLETATA della stessa
+// taglia del cap: gemello corpus, run 36352293610 (2026-09-27, primo giro col
+// cap 14), batch_count=14, sessione Codex 1.502.814 ms, triage_complete=true con
+// 14/14 PR verificate, job 29 min. È un envelope di SESSIONE INTERA (bootstrap
+// incluso), non una media per PR: 22% del watchdog Codex da 114 min (6840 s).
+// Supporto, non base: corpus 34602892494 commentò 21 PR in 1.792.000 ms prima
+// del tetto di allora (batch 36, sessione NON completata). Anche watchdog +
+// setup/kill grace/coda (300 s) = 7140 s resta sotto lo step da 120 min.
+// La capacità mancante la dà la cadenza: 12 cron/giorno x 62% = ~7,4 run reali
+// x 14 = ~104 PR/giorno, oltre il picco di ~80 candidati/giorno. Il tipico è
+// molto più basso: qui 32-259 s/PR con 4 PR e ~58 s/PR sul batch da 19 di
+// 34602590662. Il gemello corpus è `adapted`: stesso cap, watchdog e cadenza.
 //
 // Una finestra più larga del cap NON è un errore di raccolta: è un rinvio
 // PIANIFICATO. Il troncamento viene dichiarato in `deferred_count`, mentre
@@ -99,7 +134,9 @@ const SEARCH_PAGE_SIZE = 100;
 // deve tenere il watermark indietro, un rinvio pianificato deve lasciarlo
 // avanzare, altrimenti il residuo non si drena mai. Confuse, producevano il
 // ratchet documentato sopra (35 run rosse consecutive, 161,6 h).
-export const FOLLOWUP_SESSION_BATCH_LIMIT = 4;
+export const FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_DURATION_MS = 1_502_814;
+export const FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_PR_COUNT = 14;
+export const FOLLOWUP_SESSION_BATCH_LIMIT = 14;
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -107,12 +144,44 @@ const repoArgs = REPO
   ? ['--repo', REPO]
   : [];
 
-function gh(args) {
+/**
+ * I repository in cui puo' vivere un bucket giornaliero: un item del sito con
+ * target un file del corpus conia NEL CORPUS (FOLLOWUP.md § Routing
+ * cross-repository), quindi la prova di persistenza deve poter leggere
+ * entrambi. Prima lo faceva solo la copia bash dello step `Verify complete
+ * follow-up triage`; ora c'e' un solo predicato, questo.
+ */
+const BUCKET_REPOS = [...new Set([
+  REPO,
+  process.env.FOLLOWUP_SITE_REPO || 'valerielinc-ops/frontaliere-si-o-no',
+  process.env.FOLLOWUP_CORPUS_REPO || 'nanakokyobashi-rgb/frontaliere-articles',
+].filter(Boolean))];
+
+function gh(args, token = '') {
   try {
-    return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
+    const env = token ? { ...process.env, GH_TOKEN: token } : process.env;
+    return execFileSync('gh', args, {
+      encoding: 'utf-8',
+      maxBuffer: 32 * 1024 * 1024,
+      env,
+    });
   } catch {
     return null;
   }
+}
+
+/**
+ * Credenziale esplicita per repository. Lo step `Collect follow-up batch` gira
+ * PRIMA di «Load cross-repo follow-up credentials» e degrada sul token del job:
+ * entrambi i repository sono pubblici, e una lettura di sola issue riesce
+ * comunque. Lo step di verifica gira dopo e ha i PAT.
+ */
+export function bucketRepoToken(repo, env = process.env) {
+  const site = env.FOLLOWUP_SITE_REPO || 'valerielinc-ops/frontaliere-si-o-no';
+  const corpus = env.FOLLOWUP_CORPUS_REPO || 'nanakokyobashi-rgb/frontaliere-articles';
+  if (repo === site) return env.GITHUB_PAT_SITE || env.GITHUB_PAT || env.GH_TOKEN || '';
+  if (repo === corpus) return env.GITHUB_PAT_NANAKO || env.GITHUB_PAT || env.GH_TOKEN || '';
+  return env.GH_TOKEN || env.GITHUB_PAT || '';
 }
 
 /**
@@ -148,11 +217,9 @@ export function manualDispatchPR(raw) {
  * model reads authors via `gh pr list --json author`, whose GraphQL form prefixes
  * apps with `app/` and drops `[bot]` (e.g. `app/frontaliere-automation`). We
  * canonicalise both forms to a bare login so the allowlist matches regardless of
- * source — same author SCOPE as the original trigger, no expansion.
- */
-/**
- * Keep the site accounts as the default, while allowing the adapted workflow
- * and isolated tests to provide the eligible accounts explicitly.
+ * source — same author SCOPE as the original trigger, no expansion. The adapted
+ * workflow and isolated tests may replace the site defaults through
+ * `FOLLOWUP_ELIGIBLE_AUTHORS` before module load.
  */
 const ELIGIBLE_AUTHORS = new Set(
   (process.env.FOLLOWUP_ELIGIBLE_AUTHORS || 'valerielinc-ops,frontaliere-automation')
@@ -160,6 +227,20 @@ const ELIGIBLE_AUTHORS = new Set(
     .map((login) => canonicalLogin(login))
     .filter(Boolean),
 );
+
+/**
+ * True for a primary triage marker, excluding a correction/retification note
+ * that repeats the marker prefix without being the marker itself.
+ *
+ * @param {unknown} body
+ * @param {string} prefix
+ * @returns {boolean}
+ */
+function isPrimaryTriageMarker(body, prefix = TRIAGE_COMMENT_PREFIX) {
+  const text = typeof body === 'string' ? body : '';
+  const trimmed = text.trimStart();
+  return trimmed.startsWith(prefix) && !TRIAGE_CORRECTION_HEADING_RE.test(trimmed);
+}
 
 /** Strip the `app/` prefix (gh GraphQL bot form) and `[bot]` suffix (REST form). */
 export function canonicalLogin(login) {
@@ -258,6 +339,55 @@ export function parseCompleteMergedPRSearch(searchPagesJson) {
 }
 
 /**
+ * Wait synchronously for the small, bounded retry delay used by the scheduled
+ * collector. The retry is deliberately outside the parser so the parser keeps
+ * its strict fail-closed contract and remains a pure validator.
+ */
+function waitForMergedPRSearchRetry(delayMs) {
+  if (!Number.isFinite(delayMs) || delayMs <= 0) return;
+  const signal = new Int32Array(new SharedArrayBuffer(4));
+  Atomics.wait(signal, 0, 0, delayMs);
+}
+
+/**
+ * Read and validate one complete merged-PR search snapshot. A transient
+ * provider/indexing inconsistency is retried as a fresh paginated request;
+ * malformed, incomplete, or persistently truncated responses remain fatal.
+ *
+ * @param {() => string|null} read
+ * @param {{attempts?: number, retryDelaysMs?: number[], sleep?: (ms:number)=>void, log?: (line:string)=>void}} [options]
+ * @returns {Array<{number:number,title?:string,author?:{login:string},mergedAt?:string,headRefName?:string}>}
+ */
+export function readCompleteMergedPRSearch(read, {
+  attempts = MERGED_PR_SEARCH_ATTEMPTS,
+  retryDelaysMs = MERGED_PR_SEARCH_RETRY_DELAYS_MS,
+  sleep = waitForMergedPRSearchRetry,
+  log = () => {},
+} = {}) {
+  if (typeof read !== 'function') throw new TypeError('lettura Search API mancante');
+  const maxAttempts = Number.isInteger(attempts) && attempts > 0 ? attempts : MERGED_PR_SEARCH_ATTEMPTS;
+  let lastError = new Error('gh api search PR non riuscita: elenco incompleto');
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
+      const raw = read();
+      if (raw === null || raw === undefined) {
+        throw new Error('gh api search PR non riuscita: elenco incompleto');
+      }
+      return parseCompleteMergedPRSearch(raw);
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
+      if (attempt >= maxAttempts) break;
+      const delayMs = Number(retryDelaysMs[attempt - 1]) || 0;
+      log(`Search API PR non verificabile (tentativo ${attempt}/${maxAttempts}): ${lastError.message}; nuovo snapshot tra ${delayMs} ms.`);
+      sleep(delayMs);
+    }
+  }
+
+  throw lastError;
+}
+
+/**
  * Parse a legacy `gh pr list --json number,title,author,mergedAt,headRefName` payload
  * and keep only eligible-author PRs. This pure compatibility helper remains lenient;
  * the CLI uses `parseMergedPRPages()` above and fails closed before calling it.
@@ -292,7 +422,7 @@ export function hasTriageComment(commentsJson, prefix = TRIAGE_COMMENT_PREFIX) {
     return false;
   }
   const comments = Array.isArray(data) ? data : data && Array.isArray(data.comments) ? data.comments : [];
-  return comments.some((c) => typeof c?.body === 'string' && c.body.trimStart().startsWith(prefix));
+  return comments.some((c) => isPrimaryTriageMarker(c?.body, prefix));
 }
 
 /** Return the latest follow-up marker body, or null when comments are unreadable. */
@@ -309,8 +439,214 @@ export function latestTriageCommentBody(commentsJson, prefix = TRIAGE_COMMENT_PR
   if (!comments) return null;
   const bodies = comments
     .map((comment) => typeof comment?.body === 'string' ? comment.body : '')
-    .filter((body) => body.trimStart().startsWith(prefix));
+    .filter((body) => isPrimaryTriageMarker(body, prefix));
   return bodies.length ? bodies[bodies.length - 1] : null;
+}
+
+/**
+ * L'istante di un commento `gh pr view --json comments`, in millisecondi, o
+ * `NaN` quando `createdAt` manca o non e' una data leggibile.
+ */
+function commentInstant(createdAt) {
+  return Date.parse(typeof createdAt === 'string' ? createdAt : '');
+}
+
+/**
+ * Come `latestTriageCommentBody` (stessa scelta del marker), ma restituisce
+ * anche il suo istante: `{ body, at }`, con `at` in millisecondi o `NaN`.
+ * Serve a `gatePreservedFollowupMatches`, che accetta solo una prova del gate
+ * POSTERIORE al marker corrente.
+ */
+export function latestTriageComment(commentsJson, prefix = TRIAGE_COMMENT_PREFIX) {
+  let data;
+  try {
+    data = JSON.parse(commentsJson || '');
+  } catch {
+    return null;
+  }
+  const comments = Array.isArray(data)
+    ? data
+    : data && Array.isArray(data.comments) ? data.comments : null;
+  if (!comments) return null;
+  const markers = comments
+    .filter((comment) => isPrimaryTriageMarker(comment?.body, prefix));
+  if (!markers.length) return null;
+  const latest = markers[markers.length - 1];
+  return { body: latest.body, at: commentInstant(latest.createdAt) };
+}
+
+// Un conteggio e' il NUMERO davanti a `item`/`issue`/`element…`, ovunque stia
+// sulla riga di claim: il template canonico di FOLLOWUP.md lo mette DOPO il
+// bucket («Created/updated: daily bucket #<id> ... con N item»). `#N`, date e
+// decimali non sono conteggi a zero (`0.5 item` resta non-zero).
+const CLAIM_COUNT_RE = /(?<![0-9.,#])([0-9]+(?:[.,][0-9]+)?)\s+(?:item|issue|element)/gi;
+const CLAIM_LEADING_ZERO_RE = /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*0(?![0-9.])/i;
+
+/**
+ * Una riga di claim dichiara ZERO item quando nessun conteggio e' diverso da
+ * zero E lo zero e' scritto in cifre: un conteggio `0` ovunque sulla riga,
+ * oppure `Created: 0` in testa. Unica copia: lo step «Verify complete
+ * follow-up triage» di post-merge-followup.yml invoca questo modulo
+ * (`--verify-persistence`) invece di riscriverlo in bash.
+ */
+export function isZeroClaimLine(line) {
+  const text = String(line || '');
+  const counts = [...text.matchAll(CLAIM_COUNT_RE)].map((match) => match[1]);
+  if (counts.some((count) => count !== '0')) return false;
+  return counts.length > 0 || CLAIM_LEADING_ZERO_RE.test(text);
+}
+
+/**
+ * Le righe che possono ATTESTARE un esito vuoto: fuori dai blocchi di codice
+ * recintati e dalle citazioni `>`. Una frase riportata come esempio non e'
+ * l'esito di questo triage (corpus FU-2026-09-24-009, portato con #7483).
+ * Restringe solo le attestazioni di zero: i bucket si contano su ogni riga di
+ * claim, perche' un claim in piu' chiede una prova in piu' e non puo' mai far
+ * saltare una PR.
+ */
+function attestationLines(lines) {
+  const out = [];
+  let fence = null;
+  for (const line of lines) {
+    if (fence !== null) {
+      // CommonMark: chiude solo un delimitatore dello STESSO carattere, lungo almeno
+      // quanto l'apertura e senza altro testo dopo. Un ``` dentro un recinto di ````
+      // e' contenuto, non la fine dell'esempio.
+      const closer = /^\s{0,3}(`{3,}|~{3,})\s*$/.exec(line);
+      if (closer && closer[1][0] === fence.char && closer[1].length >= fence.length) fence = null;
+      continue;
+    }
+    const opener = /^\s{0,3}(`{3,}|~{3,})/.exec(line);
+    if (opener) {
+      fence = { char: opener[1][0], length: opener[1].length };
+      continue;
+    }
+    if (/^\s{0,3}>/.test(line)) continue;
+    out.push(line);
+  }
+  return out;
+}
+
+const TRIAGE_CLAIM_LINE_RE = /^\s*(?:[-*]\s+)?Created(?:\/updated)?:/i;
+const CLAIM_BULLET_LINE_RE = /^\s*[-*+]\s+\S/;
+
+/**
+ * Le righe di claim: ogni riga `Created/updated:` PIU' la lista di bullet che
+ * la segue immediatamente. Il triage su due repository scrive il conteggio in
+ * testa e un bucket per bullet (marker reali di #10015 e #10050, run
+ * 36461728260):
+ *
+ *   Created/updated: 2 item.
+ *   - Corpus #1957 `follow-up(daily:2026-09-28)` — `FU-2026-09-28-009` (...)
+ *   - Site #10171 `follow-up(daily:2026-09-28)` — `FU-2026-09-28-033` (...)
+ *
+ * Leggendo la sola riga di testa il claim non nominava nessun bucket: verifica
+ * rossa a ogni run, PR rimessa nel batch e saltata da Codex per il marker gia'
+ * presente, retry che non converge. La lista finisce alla prima riga che non e'
+ * un bullet (riga vuota inclusa): la prosa successiva, per esempio la nota su
+ * un bucket storico sealed, resta fuori dal claim come prima.
+ */
+function claimLinesWithBullets(lines) {
+  const out = [];
+  let inClaimList = false;
+  for (const line of lines) {
+    if (TRIAGE_CLAIM_LINE_RE.test(line)) {
+      out.push(line);
+      inClaimList = true;
+      continue;
+    }
+    if (inClaimList && CLAIM_BULLET_LINE_RE.test(line)) {
+      out.push(line);
+      continue;
+    }
+    inClaimList = false;
+  }
+  return out;
+}
+
+// Un `#N` e' un bucket in due forme: una riga che nomina il bucket, oppure
+// `parent #N` per un bucket gia' esistente che il triage aggiorna senza creare
+// una figlia. La forma col parent e' il marker emesso quando il bucket ha gia'
+// item aperti (PR #13825); senza di essa la verifica vede il triage ma non la
+// sua persistenza e lascia la run rossa.
+// seguito sulla stessa riga dal tag `follow-up(daily:YYYY-MM-DD)` che il
+// template impone (FOLLOWUP.md § Closing comment), senza un altro `#` in mezzo:
+// il tag si lega al numero piu' vicino, non a una PR citata prima sulla riga.
+// Un `#N` preceduto da `PR`, `pull request` o `pull-request` non e' mai un bucket.
+const BUCKET_WORD_REF_RE = /\bbucket\b[^\n#]*?(?<!\b(?:PR|pull[-\s]+request)\s*)#([1-9]\d*)\b/gi;
+const PARENT_BUCKET_REF_RE = /\bparent(?:\s+issue)?\s+#([1-9]\d*)\b/gi;
+const BUCKET_TAG_REF_RE = /(?<!\b(?:PR|pull[-\s]+request)\s*)#([1-9]\d*)\b[^#\n]*?`follow-up\(daily:\d{4}-\d{2}-\d{2}\)`/gi;
+// Una riga di claim puo' riportare anche il bucket esaminato ma invariato.
+// Quel numero e' contesto di audit, non prova di persistenza: va escluso
+// anche quando sulla stessa riga esiste una seconda claim positiva.
+const NON_PERSISTED_BUCKET_TAIL_RE = /\b(?:non\s+(?:modificat[oa]|aggiornat[oa])|invariat[oa]|not\s+(?:modified|updated)|unchanged)\b/i;
+
+function isNonPersistedBucketReference(text, match) {
+  const matchStart = Number.isInteger(match.index) ? match.index : -1;
+  if (matchStart < 0) return false;
+  const numberToken = `#${match[1]}`;
+  const numberOffset = match[0].indexOf(numberToken);
+  if (numberOffset < 0) return false;
+  const numberEnd = matchStart + numberOffset + numberToken.length;
+  const lineEnd = text.indexOf('\n', numberEnd);
+  const nextReference = text.indexOf('#', numberEnd);
+  const boundary = [lineEnd, nextReference]
+    .filter((position) => position >= 0)
+    .sort((left, right) => left - right)[0] ?? text.length;
+  return NON_PERSISTED_BUCKET_TAIL_RE.test(text.slice(numberEnd, boundary));
+}
+
+function persistedBucketReferenceMatches(text, pattern) {
+  return [...text.matchAll(pattern)]
+    .filter((match) => !isNonPersistedBucketReference(text, match));
+}
+
+/** I `#N` legati al tag `follow-up(daily:YYYY-MM-DD)` in un testo. */
+export function dailyTagBucketReferences(text) {
+  return [...String(text || '').matchAll(BUCKET_TAG_REF_RE)].map((match) => Number(match[1]));
+}
+
+/**
+ * I `#N` col tag daily che il marker PROMETTE: solo dentro la finestra di claim
+ * (`claimLinesWithBullets`), la stessa che legge `triageMarkerPersistenceExpectation`.
+ * Unica copia della regola: la usa anche `triageMarkerCitesBucket` di
+ * gate-minted-followups.mjs per qualificare il repository della PR sorgente.
+ * Una citazione storica dopo la lista (`Historical #10171 `follow-up(daily:…)``)
+ * non e' un claim, e non deve qualificare un bucket che il marker non ha promesso.
+ */
+export function claimDailyTagBucketReferences(markerBody) {
+  return dailyTagBucketReferences(claimLinesWithBullets(String(markerBody || '').split(/\r?\n/)).join('\n'));
+}
+
+/**
+ * I bucket citati dal claim. Il repository dichiarato nel bullet
+ * («Corpus #1957», «Site #10171») e' informativo, come per `bucket #N`, che un
+ * repository non l'ha mai portato: `readBucketIssue` legge ogni numero in TUTTI
+ * i `BUCKET_REPOS` e il predicato accetta solo il candidato che contiene
+ * l'item della PR, quindi un numero omonimo nell'altro repository non puo'
+ * provare nulla.
+ */
+export function claimBucketReferences(claim) {
+  return [
+    ...persistedBucketReferenceMatches(claim, BUCKET_WORD_REF_RE),
+    ...persistedBucketReferenceMatches(claim, PARENT_BUCKET_REF_RE),
+    ...persistedBucketReferenceMatches(claim, BUCKET_TAG_REF_RE),
+  ]
+    // Ordine di lettura del marker, per un log `bucket=[...]` leggibile.
+    .sort((left, right) => left.index - right.index)
+    .map((match) => Number(match[1]));
+}
+
+/**
+ * I bucket che un marker promette nella sua finestra di claim.
+ *
+ * Il gate sul conio usa questa stessa grammatica per qualificare il repository
+ * della PR sorgente; le citazioni dopo la lista restano contesto storico e non
+ * possono qualificare un bucket nuovo.
+ */
+export function triageMarkerBucketReferences(markerBody) {
+  const lines = String(markerBody || '').split(/\r?\n/);
+  return claimBucketReferences(claimLinesWithBullets(lines).join('\n'));
 }
 
 /**
@@ -321,14 +657,24 @@ export function latestTriageCommentBody(commentsJson, prefix = TRIAGE_COMMENT_PR
  */
 export function triageMarkerPersistenceExpectation(markerBody) {
   const body = String(markerBody || '');
+  const lines = body.split(/\r?\n/);
   // Only the explicit creation/update line is a persistence claim. Later
   // prose may mention a sealed historical bucket for audit context; treating
   // that reference as another claim makes a valid marker fail verification.
-  const claim = body.split(/\r?\n/)
-    .filter((line) => /^\s*(?:[-*]\s+)?Created(?:\/updated)?:/i.test(line))
+  const claim = lines
+    .filter((line) => TRIAGE_CLAIM_LINE_RE.test(line))
     .join('\n');
-  const buckets = [...claim.matchAll(/\bbucket\s+#([1-9]\d*)\b/gi)]
-    .map((match) => Number(match[1]));
+  // I bucket si leggono anche dai bullet subito sotto la riga di claim (vedi
+  // `claimLinesWithBullets`). Il NUMERO dichiarato, cioe' lo zero, resta invece
+  // quello della sola riga `Created/updated:`: un bullet descrive un item, non
+  // un conteggio, e non puo' trasformare un claim a zero in una promessa.
+  const bucketClaim = claimLinesWithBullets(lines).join('\n');
+  // Uno zero si attesta solo fuori da codice recintato e citazioni: un
+  // `Created/updated: 0 item` dentro un esempio recintato non e' l'esito.
+  const attesting = attestationLines(lines);
+  const attestingClaimCount = attesting.filter((line) => TRIAGE_CLAIM_LINE_RE.test(line)).length;
+  // `bucket: #N` vale quanto `bucket #N`; `#N` + tag daily vale quanto entrambi.
+  const buckets = claimBucketReferences(bucketClaim);
   const uniqueBuckets = [...new Set(buckets)];
   // Il discriminante e' STRUTTURALE: sulla riga di claim gia' isolata sopra
   // conta il NUMERO dichiarato, non la prosa che lo segue. La versione
@@ -339,16 +685,31 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   // aveva mai nominato: `persistence_ok=false` e run rossa su un marker giusto.
   // Un claim a zero non promette nulla da verificare, qualunque parola usi.
   const claimLines = claim.split(/\r?\n/).filter((line) => line.trim());
-  // `0(?![0-9.])`: un `Created: 0.5 item` non e' un claim a zero.
-  const zeroClaim = claimLines.length > 0
-    && claimLines.every((line) => /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*0(?![0-9.])/i.test(line));
+  // Il NUMERO conta ovunque sulla riga, non solo in testa: dal 2026-09-19 lo
+  // zero scritto DOPO il bucket ha reso rosse run su marker giusti —
+  // «nessun bucket giornaliero; 0 item.» (PR #9039/#9045/#9053) e il template
+  // canonico con N=0, «daily bucket #9609 ... con 0 item da questa PR.»
+  // (run 35947247334, PR #9518). La prosa senza cifre resta fail-closed.
+  const zeroClaim = attestingClaimCount > 0 && claimLines.every((line) => isZeroClaimLine(line));
   // Le formule d'intestazione valgono SOLO in assenza di una riga di claim.
   // Cercarle nell'intero corpo anche quando un claim NON-zero esiste lasciava a
   // una prosa successiva la possibilita' di scavalcare la verifica del bucket
   // per una persistenza reale: il gate diceva «vuoto» su un marker che prometteva
   // item. E' il secondo finding 🔴 della review su questa PR.
+  // E valgono solo come riga di ESITO, non come prosa: l'intestazione H2 che
+  // il prompt impone (post-merge-followup.yml, esito vuoto e backfill), o una
+  // riga che contiene soltanto «Zero outstanding items.» (forma storica, marker
+  // reale di #3027). Le stesse parole dentro una frase, in un esempio recintato
+  // o in una citazione facevano del marker un «provato vuoto» e la PR usciva
+  // dal batch per sempre. Qualunque riga H2 conta, perche' il modello a volte
+  // ripete il prefisso nudo prima dello zero (marker reale di
+  // nanakokyobashi-rgb/frontaliere-articles#1570). L'intestazione vale fino a fine
+  // riga: «zero outstanding items but 1 item remains» non e' l'esito vuoto, e il
+  // backfill ammette solo la ragione prescritta dal prompt (`: PR not eligible …`).
   const legacyEmptyHeader = claimLines.length === 0
-    && /zero outstanding items|backfill skipped/i.test(body);
+    && attesting.some((line) =>
+      /^\s*##\s+Post-merge follow-up triage\s*(?::\s*zero outstanding items\.?|\(backfill skipped\)(?:\s*:\s*PR not eligible\b.*)?)\s*$/i.test(line)
+      || /^\s*zero outstanding items\.?\s*$/i.test(line));
   // La variante osservata su #9286 usa prosa invece di `0`: dichiara nello
   // stesso claim che non esiste alcun item per la PR e che il bucket numerato
   // non è stato modificato. Il numero è contesto di audit, non una promessa
@@ -358,7 +719,7 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   // match keeps a second claim, a positive count, or an "updated" bucket from
   // being hidden behind one harmless-looking line.
   const unchangedBucketZeroLine = /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*nessun\s+item\s+per\s+questa\s+PR\s*;\s*bucket(?:\s+giornaliero)?\s+#[1-9]\d*\s+non\s+modificat[oa]\s+da\s+questa\s+PR\s*\.?\s*$/i;
-  const unchangedBucketZero = claimLines.length > 0
+  const unchangedBucketZero = attestingClaimCount > 0
     && claimLines.every((line) => unchangedBucketZeroLine.test(line));
   const noBucketExpected = zeroClaim || unchangedBucketZero || legacyEmptyHeader;
   return {
@@ -369,41 +730,320 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   };
 }
 
-/** Prove one persisted daily bucket contains a live item sourced by this PR. */
-export function persistedBucketIssueMatches(issue, prNumber) {
+/**
+ * Prove the deterministic mint gate preserved this PR's dropped item.
+ *
+ * `gate-minted-followups.mjs` toglie dal bucket gli item senza condizione di
+ * accettazione falsificabile e li conserva INTEGRALMENTE in un commento sulla
+ * PR sorgente. Dopo la demozione il bucket non contiene piu' `Sources: PR #N`,
+ * ma il triage e' durevole: senza questa prova la PR rientrava nel batch a ogni
+ * run, Codex la saltava perche' il marker c'era gia', e la verifica restava
+ * rossa finche' la PR non usciva dalla finestra di 48h (run 36212700029 e
+ * 36202115664: FU-2026-09-25-011 di PR #9633 demoto 3 minuti dopo il marker).
+ *
+ * Il numero del bucket da solo NON lega la prova al marker corrente: vale solo
+ * un commento del gate con `createdAt` leggibile e >= `markerCreatedAt`
+ * (l'istante del marker corrente, ISO string o millisecondi). Nel workflow il
+ * gate posta sempre DOPO il marker che certifica. Istante mancante o
+ * illeggibile: la prova non vale e la PR resta nel batch.
+ */
+export function gatePreservedFollowupMatches(commentsJson, bucketNumber, prNumber, markerCreatedAt) {
+  const markerAt = typeof markerCreatedAt === 'number' ? markerCreatedAt : commentInstant(markerCreatedAt);
+  if (!Number.isFinite(markerAt)) return false;
+  let data;
+  try {
+    data = JSON.parse(commentsJson || '');
+  } catch {
+    return false;
+  }
+  const comments = Array.isArray(data)
+    ? data
+    : data && Array.isArray(data.comments) ? data.comments : [];
+  const bucket = String(Number(bucketNumber));
+  const pr = String(Number(prNumber));
+  const bucketPattern = new RegExp('(?:^|\\n).*\\bIssue\\s+#' + bucket + '\\b', 'i');
+  const sourcePattern = new RegExp('^\\s*-\\s+Sources?\\s*:[^\\n]*\\bPR\\s+#' + pr + '\\b', 'im');
+  return comments.some((comment) => {
+    const body = typeof comment?.body === 'string' ? comment.body : '';
+    const at = commentInstant(comment?.createdAt);
+    return body.includes('<!-- followup-mint-gate -->')
+      && Number.isFinite(at)
+      && at >= markerAt
+      && bucketPattern.test(body)
+      && sourcePattern.test(body);
+  });
+}
+
+/**
+ * Prove one persisted follow-up container contains a live item sourced by this PR,
+ * or that the mint gate preserved it AFTER the current marker
+ * (`markerCreatedAt`, vedi `gatePreservedFollowupMatches`).
+ */
+export function persistedBucketIssueMatches(issue, prNumber, prComments = '', markerCreatedAt = undefined) {
   const info = dailyBucketInfo(issue?.title || '');
   const body = String(issue?.body || '');
   const pr = String(Number(prNumber));
-  return !!info
-    && /^###\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\b/m.test(body)
-    && new RegExp(`^\\s*-\\s+Sources?:[^\\n]*\\bPR\\s+#${pr}\\b`, 'im').test(body);
+  // A daily bucket owns its source bullet through the preceding stable item
+  // heading. A decomposed parent is not titled like a daily bucket; its source
+  // ledger keeps the item id and Sources: PR #N on the same bullet. Keeping the
+  // two grammars separate prevents an ordinary issue's unrelated Sources bullet
+  // from being mistaken for persisted follow-up evidence.
+  const directEvidence = info
+    ? new RegExp(
+      `^\\s*###\\s+FU-\\d{4}-\\d{2}-\\d{2}-\\d{3}\\b[^\\n]*$(?:(?!^\\s*#{2,3}\\s+)[\\s\\S])*?^\\s*-\\s+Sources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`,
+      'im',
+    ).test(body)
+    : new RegExp(
+      `^\\s*-\\s+FU-\\d{4}-\\d{2}-\\d{2}-\\d{3}\\b[^\\n]*\\bSources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`,
+      'im',
+    ).test(body);
+  if (directEvidence) return true;
+  if (!info) return false;
+  return gatePreservedFollowupMatches(prComments, issue.number, prNumber, markerCreatedAt);
+}
+
+/**
+ * Il NOT_FOUND con cui GitHub risponde a `gh issue view <n>` quando il
+ * repository e' leggibile ma quel numero non e' una issue. Un repository
+ * illeggibile o inesistente ha un altro messaggio («Could not resolve to a
+ * Repository»), e resta una lettura indisponibile.
+ */
+export const ISSUE_NUMBER_NOT_FOUND_RE = /Could not resolve to an? (?:issue|Issue)(?: or pull request)? with the number of \d+/u;
+
+/**
+ * `gh` per la lettura di un bucket: stdout, `false` quando il repository ha
+ * risposto che quel numero non esiste, `null` per ogni altro errore.
+ */
+export function ghBucketRead(args, token = '', exec = execFileSync) {
+  try {
+    const env = token ? { ...process.env, GH_TOKEN: token } : process.env;
+    return exec('gh', args, {
+      encoding: 'utf-8',
+      maxBuffer: 32 * 1024 * 1024,
+      env,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+  } catch (error) {
+    const stderr = Buffer.isBuffer(error?.stderr) ? error.stderr.toString('utf8') : String(error?.stderr ?? '');
+    return ISSUE_NUMBER_NOT_FOUND_RE.test(stderr) ? false : null;
+  }
+}
+
+/**
+ * Read EVERY follow-up persistence candidate numbered `bucket` across the repositories
+ * that can hold it. I due repository numerano le issue in modo INDIPENDENTE:
+ * la scansione non si ferma al primo JSON valido, e il chiamante applica il
+ * predicato bucket/PR a ogni candidato. `unreadable` dice se almeno una
+ * lettura era indisponibile; un numero che il repository dichiara inesistente
+ * (`run` -> `false`) e' una risposta definitiva, non un guasto.
+ *
+ * Prima ogni errore di `gh` contava come illeggibile, compreso il 404 atteso
+ * nel repository che non ha quel numero: il bucket del sito #10433 non esiste
+ * nel corpus, quindi una PR il cui item era sparito dal bucket restava «non
+ * leggibile» (`null`) invece che «non persistita» (`false`), e il collector la
+ * rimetteva nel batch a ogni run invece di metterla in quarantena con
+ * l'allarme (run 36799206433, PR #10332, #10327, #10311, #10328).
+ */
+export function readBucketIssue(bucket, run = ghBucketRead, repos = BUCKET_REPOS) {
+  let unreadable = false;
+  const candidates = [];
+  for (const repo of repos) {
+    const raw = run(
+      ['issue', 'view', String(bucket), '--repo', repo, '--json', 'number,title,body'],
+      bucketRepoToken(repo),
+    );
+    if (raw === false) continue;
+    if (raw === null || raw === undefined) { unreadable = true; continue; }
+    let issue;
+    try { issue = JSON.parse(raw); } catch { unreadable = true; continue; }
+    if (issue && typeof issue === 'object' && !Array.isArray(issue)
+      && Number(issue.number) === Number(bucket)
+      && (dailyBucketInfo(issue.title || '')
+        || /\bFU-\d{4}-\d{2}-\d{2}-\d{3}\b/.test(String(issue.body || '')))) {
+      candidates.push({ ...issue, repo });
+    }
+  }
+  return { candidates, unreadable };
+}
+
+/**
+ * Normalizza l'esito di `readIssue` per un bucket: la forma di
+ * `readBucketIssue` (`{candidates, unreadable}`), un array di candidati, una
+ * singola issue, `false` (nessun repository ha quel numero) o `null`/`undefined`
+ * (lettura indisponibile).
+ */
+function bucketReadResult(result) {
+  if (result === null || result === undefined) return { candidates: [], unreadable: true };
+  if (result === false) return { candidates: [], unreadable: false };
+  if (Array.isArray(result)) return { candidates: result, unreadable: false };
+  if (typeof result === 'object' && Array.isArray(result.candidates)) {
+    return { candidates: result.candidates, unreadable: result.unreadable === true };
+  }
+  if (typeof result === 'object') return { candidates: [result], unreadable: false };
+  return { candidates: [], unreadable: true };
+}
+
+/**
+ * Eta' oltre la quale un marker con verdetto DEFINITIVO `false` esce dal
+ * batch. Sei ore coprono il caso legittimo: il commento di conservazione del
+ * gate sul conio arriva DOPO la verifica, quindi subito dopo il marker un
+ * `false` puo' ancora diventare `true` (run 36212700029, 36202115664).
+ */
+export const MARKER_QUARANTINE_AFTER_MS = 6 * 3600_000;
+
+/**
+ * Cosa fare di una PR che ha gia' il marker, dato il verdetto di
+ * `verifyTriageMarkerPersistence` e l'istante del marker corrente
+ * (`latestTriageComment(...).at`).
+ *
+ * - `skip`: persistenza provata, idempotenza normale.
+ * - `quarantine`: verdetto `false` (tutte le letture definitive) su un marker
+ *   piu' vecchio di `MARKER_QUARANTINE_AFTER_MS`. Rimetterla nel batch non
+ *   converge: Codex la salta perche' il marker c'e' gia', la verifica resta
+ *   rossa e ogni run spreca una sessione (#10015 e #10050, run 36461728260,
+ *   36495756021, 36520419253). Esce dal batch ma resta VISIBILE: il chiamante
+ *   la dichiara con warning, summary, output e issue d'allarme, perche' un
+ *   marker non provato puo' anche essere un triage davvero perso.
+ * - `retry`: tutto il resto. Un verdetto `null` (lettura indisponibile) non
+ *   prova nulla; un marker recente puo' ancora ricevere la prova del gate; un
+ *   istante illeggibile non permette di misurarne l'eta'.
+ */
+export function markerIdempotencyDecision(persistence, markerAt, nowMs = Date.now(), quarantineAfterMs = MARKER_QUARANTINE_AFTER_MS) {
+  if (persistence === true) return 'skip';
+  if (persistence === false && Number.isFinite(markerAt) && nowMs - markerAt > quarantineAfterMs) {
+    return 'quarantine';
+  }
+  return 'retry';
+}
+
+/** Il motivo leggibile di una quarantena, per warning, summary e allarme. */
+export function quarantineReason(markerBody) {
+  const { buckets } = triageMarkerPersistenceExpectation(markerBody);
+  const age = `marker di oltre ${MARKER_QUARANTINE_AFTER_MS / 3600_000}h`;
+  return buckets.length
+    ? `${age} senza item/Source persistito né prova del gate (bucket=[${buckets.join(',')}])`
+    : `${age} senza riferimento a un bucket persistito`;
+}
+
+// Titolo FISSO e senza numeri: il dedup di github-issue-creator guarda il
+// prefisso, e una misura nel titolo aprirebbe una issue nuova a ogni run.
+export const QUARANTINE_ALARM_TITLE = 'Post-merge follow-up: marker di triage in quarantena';
+
+/**
+ * Le PR in quarantena non ancora segnalate. Una PR gia' citata (`PR #N`) nel
+ * corpo o in un commento di una issue d'allarme con questo titolo, aperta O
+ * chiusa, e' gia' stata riportata: la stessa PR resta nella finestra di 48h
+ * per ~7 run e deve produrre UN commento, non uno a run, e una issue chiusa
+ * dal fixer non va riaperta per un caso gia' visto. `null` quando l'elenco
+ * delle issue non e' leggibile.
+ */
+export function unreportedQuarantine(quarantined, issuesJson, title = QUARANTINE_ALARM_TITLE) {
+  let issues;
+  try { issues = JSON.parse(issuesJson || ''); } catch { return null; }
+  if (!Array.isArray(issues)) return null;
+  const texts = issues
+    .filter((issue) => typeof issue?.title === 'string' && issue.title.startsWith(title))
+    .flatMap((issue) => [
+      typeof issue.body === 'string' ? issue.body : '',
+      ...(Array.isArray(issue.comments) ? issue.comments : [])
+        .map((comment) => (typeof comment?.body === 'string' ? comment.body : '')),
+    ]);
+  return (Array.isArray(quarantined) ? quarantined : []).filter(({ number }) => {
+    const mention = new RegExp(`\\bPR\\s+#${Number(number)}\\b`);
+    return !texts.some((text) => mention.test(text));
+  });
+}
+
+/**
+ * Canale d'allarme per le PR in quarantena: la issue di
+ * `scripts/lib/github-issue-creator.mjs`, lo stesso helper dei monitor del
+ * repo, con titolo fisso (commenta la gemella aperta invece di duplicarla).
+ * Idempotente per PR tramite `unreportedQuarantine`. Best-effort: warning,
+ * summary e output restano la traccia anche se la issue non si scrive.
+ */
+export async function reportQuarantinedMarkers(quarantined, {
+  listIssues = () => gh([
+    'issue', 'list', ...repoArgs, '--state', 'all', '--limit', '50',
+    '--search', `"${QUARANTINE_ALARM_TITLE}" in:title`,
+    '--json', 'number,title,body,comments',
+  ]),
+  createIssue = async (options) => (await import('../lib/github-issue-creator.mjs')).createGithubIssue(options),
+  log = console.log,
+} = {}) {
+  if (!Array.isArray(quarantined) || !quarantined.length) return { reported: [] };
+  const fresh = unreportedQuarantine(quarantined, listIssues());
+  if (fresh === null) {
+    log('::warning::Allarme quarantena non verificabile: elenco issue illeggibile, nessuna issue scritta (warning, summary e output restano la traccia).');
+    return { reported: [], unverifiable: true };
+  }
+  if (!fresh.length) {
+    log(`Quarantena gia' segnalata per ${quarantined.map(({ number }) => `PR #${number}`).join(', ')}: nessun nuovo commento.`);
+    return { reported: [] };
+  }
+  const result = await createIssue({
+    title: QUARANTINE_ALARM_TITLE,
+    description: [
+      'Il collector di `post-merge-followup.yml` ha tolto dal batch queste PR: hanno il marker `## Post-merge follow-up triage`, ma la verifica di persistenza dà un verdetto definitivo `false` su un marker di oltre 6 ore. Rimetterle nel batch non converge: Codex le salta per il marker già presente e la verifica resta rossa.',
+      '',
+      ...fresh.map(({ number, reason }) => `- PR #${number}: ${reason}.`),
+      '',
+      "Ipotesi da confermare o scartare: il marker usa una forma che `triageMarkerPersistenceExpectation` non legge (bug del parser), oppure l'item non è mai stato scritto nel bucket (triage perso).",
+      'Comando: `GH_REPO=<owner>/<repo> node scripts/ci/collect-followup-batch.mjs --verify-persistence <pr>`.',
+    ].join('\n'),
+    priority: 3,
+    labels: ['automation'],
+    workflow: 'Post-merge follow-up triage',
+  });
+  if (!result || result.persisted === false) {
+    log('::warning::Allarme quarantena non scritto: la issue non risulta persistita (warning, summary e output restano la traccia).');
+    return { reported: [] };
+  }
+  return { reported: fresh.map(({ number }) => number) };
 }
 
 /**
  * Check marker idempotency against durable bucket/item evidence.
- * `readIssue` returns an issue object, `null` for an unavailable read, and may be
- * injected in tests. Unknown is deliberately returned as `null`, so a transient
- * API failure keeps the PR in the next batch instead of skipping it forever.
+ *
+ * Esiti: `true` quando il marker non promette persistenza o quando OGNI bucket
+ * dichiarato e' provato (item vivo con `Sources: PR #N`, oppure commento di
+ * conservazione del gate POSTERIORE al marker corrente); `false` quando manca
+ * una prova e tutte le letture erano definitive; `null` quando una prova manca
+ * e almeno una lettura era indisponibile, cosi' un guasto API tiene la PR nel
+ * batch invece di dichiararla non persistita.
+ *
+ * L'istante del marker si legge da `prComments`: vale solo se `markerBody` e'
+ * proprio il marker corrente di quei commenti (`latestTriageComment`),
+ * altrimenti la prova del gate non vale.
  */
-export function verifyTriageMarkerPersistence(markerBody, prNumber, readIssue) {
+export function verifyTriageMarkerPersistence(markerBody, prNumber, readIssue, prComments = '') {
   const expectation = triageMarkerPersistenceExpectation(markerBody);
   if (!expectation.requiresBucket) return true;
   if (!expectation.buckets.length || typeof readIssue !== 'function') return false;
+  const current = latestTriageComment(prComments);
+  const markerAt = current && current.body === markerBody ? current.at : Number.NaN;
+  let unreadable = false;
+  let disproved = false;
   for (const number of expectation.buckets) {
-    const issue = readIssue(number);
-    if (issue === null || issue === undefined) return null;
-    if (Number(issue.number) !== number || !persistedBucketIssueMatches(issue, prNumber)) return false;
+    const read = bucketReadResult(readIssue(number));
+    const proved = read.candidates.some((issue) => Number(issue?.number) === number
+      && persistedBucketIssueMatches(issue, prNumber, prComments, markerAt));
+    if (proved) continue;
+    if (read.unreadable) unreadable = true;
+    else disproved = true;
   }
-  return true;
+  if (disproved) return false;
+  return unreadable ? null : true;
 }
 
 /**
- * Turni Claude proporzionati al batch: min(26 + 8*n, 80), floor 26 (mai abbassare).
- * Era min(20+6n,60) — bump fleet-wide 2026-07-17 (owner) di tutti i cap max-turns
- * Claude dopo l'ennesimo error_max_turns (cap = anti-runaway, non budget di lavoro).
+ * Turni provider proporzionati al batch: min(26 + 8*n, 240), floor 26
+ * (mai abbassare). La misura del gemello corpus ha osservato 113 turni per una
+ * finestra da 11 PR: la formula richiede 114 e il ceiling 240 lascia headroom
+ * per i batch più larghi senza rendere illimitata la sessione. Il cap è un
+ * anti-runaway, non un budget per nascondere PR rinviate.
  */
 export function maxTurnsFor(batchCount) {
-  return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 80);
+  return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 240);
 }
 
 /**
@@ -497,8 +1137,10 @@ function runGate(scriptName, prNumber, outputKey) {
   return gateBoolean(runGateOutput(scriptName, prNumber), outputKey);
 }
 
-function emit(batch, dailyKey = triageDailyKey(), { collectionOk = true, deferred = 0 } = {}) {
+function emit(batch, dailyKey = triageDailyKey(), { collectionOk = true, deferred = 0, quarantined = [] } = {}) {
   const csv = batch.join(',');
+  const quarantinedList = Array.isArray(quarantined) ? quarantined : [];
+  const quarantinedCsv = quarantinedList.map(({ number }) => number).join(',');
   const count = batch.length;
   const ok = collectionOk === true;
   const deferredN = Math.max(0, Number(deferred) || 0);
@@ -509,11 +1151,17 @@ function emit(batch, dailyKey = triageDailyKey(), { collectionOk = true, deferre
   console.log(`deferred_count=${deferredN}`);
   console.log(`max_turns=${maxTurns}`);
   console.log(`daily_key=${dailyKey}`);
+  console.log(`quarantined_prs=${quarantinedCsv}`);
+  for (const { number, reason } of quarantinedList) {
+    // Una PR in quarantena esce dal batch ma non dal log della run.
+    console.log(`::warning title=Follow-up marker in quarantena::PR #${number}: ${reason} — tolta dal batch, verificare a mano.`);
+  }
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(
       process.env.GITHUB_OUTPUT,
       `collection_ok=${ok}\nbatch_prs=${csv}\nbatch_count=${count}\n`
-      + `deferred_count=${deferredN}\nmax_turns=${maxTurns}\ndaily_key=${dailyKey}\n`,
+      + `deferred_count=${deferredN}\nmax_turns=${maxTurns}\ndaily_key=${dailyKey}\n`
+      + `quarantined_prs=${quarantinedCsv}\nquarantined_count=${quarantinedList.length}\n`,
     );
   }
   if (process.env.GITHUB_STEP_SUMMARY) {
@@ -523,7 +1171,10 @@ function emit(batch, dailyKey = triageDailyKey(), { collectionOk = true, deferre
       (count ? `PR: ${csv} — max-turns ${maxTurns}.\n` : `Nessuna PR da triagiare in questa finestra.\n`) +
       (deferredN
         ? `Rinviate al prossimo giro: ${deferredN} PR (cap di sessione ${FOLLOWUP_SESSION_BATCH_LIMIT}).\n`
-        : ''),
+        : '') +
+      quarantinedList
+        .map(({ number, reason }) => `Quarantena: PR #${number} — ${reason}; tolta dal batch (issue «${QUARANTINE_ALARM_TITLE}»).\n`)
+        .join(''),
     );
   }
 }
@@ -536,7 +1187,7 @@ export function main({ eventName = process.env.GITHUB_EVENT_NAME || '', inputPRN
     const prNumber = manualDispatchPR(inputPRNumber);
     console.log(`Backfill manuale per PR #${prNumber}: nessuna ricerca schedulata/watermark viene eseguita.`);
     emit([prNumber], triageDailyKey(), { collectionOk: true, deferred: 0 });
-    return;
+    return { batch: [prNumber], quarantined: [] };
   }
 
   const dailyKey = triageDailyKey();
@@ -551,12 +1202,14 @@ export function main({ eventName = process.env.GITHUB_EVENT_NAME || '', inputPRN
   // Search API pagination has an explicit total_count, unlike `gh pr list --limit`
   // which silently truncated the batch at 100 results and advanced the watermark.
   const query = `repo:${REPO} is:pr is:merged merged:>=${watermark}`;
-  const prListRaw = gh([
+  const searchArgs = [
     'api', `search/issues?q=${encodeURIComponent(query)}&per_page=${SEARCH_PAGE_SIZE}`,
     '--paginate', '--slurp',
-  ]);
-  if (prListRaw === null) throw new Error('gh api search PR non riuscita: elenco incompleto');
-  const scheduledCandidates = parseCompleteMergedPRSearch(prListRaw);
+  ];
+  const scheduledCandidates = readCompleteMergedPRSearch(
+    () => gh(searchArgs),
+    { log: console.log },
+  );
   // FIFO: i piu' VECCHI per primi. Il cap di sessione taglia la coda, quindi
   // l'ordine decide CHI viene rinviato. Prendendo i piu' recenti (l'ordine in
   // cui la Search API li restituisce) la coda vecchia veniva servita per
@@ -566,6 +1219,8 @@ export function main({ eventName = process.env.GITHUB_EVENT_NAME || '', inputPRN
   console.log(`Merged PRs nella finestra (autori eleggibili, dal piu' vecchio): ${candidates.length}`);
 
   const batch = [];
+  const quarantined = [];
+  const nowMs = Date.now();
   for (const pr of candidates) {
     const n = pr.number;
 
@@ -580,18 +1235,16 @@ export function main({ eventName = process.env.GITHUB_EVENT_NAME || '', inputPRN
     }
     if (hasTriageComment(commentsRaw)) {
       const markerBody = latestTriageCommentBody(commentsRaw);
-      const persistence = verifyTriageMarkerPersistence(markerBody, n, (bucket) => {
-        const bucketRaw = gh(['issue', 'view', String(bucket), ...repoArgs, '--json', 'number,title,body']);
-        if (bucketRaw === null) return null;
-        try {
-          const issue = JSON.parse(bucketRaw);
-          return issue && typeof issue === 'object' && !Array.isArray(issue) ? issue : false;
-        } catch {
-          return false;
-        }
-      });
-      if (persistence === true) {
+      const persistence = verifyTriageMarkerPersistence(markerBody, n, readBucketIssue, commentsRaw);
+      const decision = markerIdempotencyDecision(persistence, latestTriageComment(commentsRaw)?.at, nowMs);
+      if (decision === 'skip') {
         console.log(`PR #${n}: already has '${TRIAGE_COMMENT_PREFIX}' plus persisted bucket/item evidence → skip (idempotent).`);
+        continue;
+      }
+      if (decision === 'quarantine') {
+        const reason = quarantineReason(markerBody);
+        quarantined.push({ number: n, reason });
+        console.log(`PR #${n}: ${reason} → QUARANTENA, fuori dal batch (il retry non converge).`);
         continue;
       }
       console.log(`PR #${n}: marker presente ma bucket/item non provato (${persistence === null ? 'lettura indisponibile' : 'evidenza assente/invalida'}) → resta nel batch per retry.`);
@@ -634,20 +1287,86 @@ export function main({ eventName = process.env.GITHUB_EVENT_NAME || '', inputPRN
     // effettivamente consegnato; il residuo rientra nella finestra successiva.
     console.log(`Sessione limitata a ${sessionBatch.length} PR; ${deferred} PR rinviate alla prossima finestra. collection_ok resta true: il troncamento è un rinvio pianificato, non un errore di raccolta.`);
   }
-  emit(sessionBatch, dailyKey, { collectionOk: true, deferred });
+  emit(sessionBatch, dailyKey, { collectionOk: true, deferred, quarantined });
+  return { batch: sessionBatch, quarantined };
+}
+
+/**
+ * `--verify-persistence <pr>...` — la STESSA verifica usata per l'idempotenza,
+ * esposta allo step `Verify complete follow-up triage` del workflow.
+ *
+ * Lo step aveva una RISCRITTURA in bash dello stesso predicato, che leggeva il
+ * bucket cross-repo ma non conosceva la prova del gate per gli item demoti:
+ * dopo una demozione il bucket non citava piu' la PR, e la verifica restava
+ * rossa a ogni run finche' la PR non usciva dalla finestra (run 36212700029,
+ * 36202115664, 35947247334). Un solo predicato, un solo chiamante: la
+ * divergenza non e' piu' esprimibile. Stesso contratto del gemello corpus.
+ *
+ * `read` e `readIssue` sono iniettabili per i test; il default usa `gh`.
+ */
+export function verifyPersistenceCli(prNumbers, {
+  read = (pr) => gh(['pr', 'view', String(pr), ...repoArgs, '--json', 'comments']),
+  readIssue = readBucketIssue,
+  log = console.log,
+} = {}) {
+  let incomplete = false;
+  for (const raw of prNumbers) {
+    const pr = Number(raw);
+    if (!Number.isInteger(pr) || pr <= 0) {
+      log(`triage incompleta: PR '${raw}' non numerica`);
+      incomplete = true;
+      continue;
+    }
+    const comments = read(pr);
+    if (comments === null || !hasTriageComment(comments)) {
+      log(`triage incompleta: PR #${pr} senza marker di triage leggibile`);
+      incomplete = true;
+      continue;
+    }
+    const marker = latestTriageCommentBody(comments);
+    const verdict = verifyTriageMarkerPersistence(marker, pr, readIssue, comments);
+    const expectation = triageMarkerPersistenceExpectation(marker);
+    const buckets = expectation.buckets.join(',') || '-';
+    if (verdict === true) {
+      log(`PR #${pr}: persistenza provata (bucket=[${buckets}]).`);
+      continue;
+    }
+    if (!expectation.buckets.length) {
+      log(`triage incompleta: marker PR #${pr} senza riferimento a un bucket persistito`);
+    } else {
+      log(`triage incompleta: PR #${pr} ${verdict === null ? 'bucket non leggibile' : 'senza item/Source persistito né prova del gate'} (bucket=[${buckets}]).`);
+    }
+    incomplete = true;
+  }
+  return !incomplete;
 }
 
 // CLI entrypoint only (importing for tests must not invoke gh). Proceed-safe: any
 // An uncaught collection error emits an explicit failed output and exits nonzero;
 // the workflow verifier then fails the job, so the success watermark cannot advance.
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  try {
-    main();
-  } catch (e) {
-    console.error(`collect-followup-batch: unexpected error (${e?.message || e}) — collection_ok=false, watermark invariato.`);
-    try { emit([], triageDailyKey(), { collectionOk: false }); } catch (emitError) {
-      console.error(`collect-followup-batch: impossibile scrivere gli output di errore (${emitError?.message || emitError}).`);
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
+  if (process.argv[2] === '--verify-persistence') {
+    const prs = process.argv.slice(3).flatMap((arg) => arg.split(',')).map((s) => s.trim()).filter(Boolean);
+    process.exitCode = verifyPersistenceCli(prs) ? 0 : 1;
+  } else {
+    let collected = null;
+    try {
+      collected = main();
+    } catch (e) {
+      console.error(`collect-followup-batch: unexpected error (${e?.message || e}) — collection_ok=false, watermark invariato.`);
+      try { emit([], triageDailyKey(), { collectionOk: false }); } catch (emitError) {
+        console.error(`collect-followup-batch: impossibile scrivere gli output di errore (${emitError?.message || emitError}).`);
+      }
+      process.exitCode = 1;
     }
-    process.exitCode = 1;
+    if (collected?.quarantined?.length) {
+      // L'allarme e' best-effort e non cambia l'esito della raccolta: le PR in
+      // quarantena sono gia' dichiarate in warning, summary e output.
+      try {
+        await reportQuarantinedMarkers(collected.quarantined);
+      } catch (alarmError) {
+        console.log(`::warning::Allarme quarantena non scritto (${alarmError?.message || alarmError}).`);
+      }
+    }
   }
 }

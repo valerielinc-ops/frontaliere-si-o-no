@@ -240,7 +240,7 @@ describe('tests.yml wiring of the post-review opt-in', () => {
   const decision = vitestSteps.find((step) => step.id === 'post_review');
 
   it('runs the gate from a validated main checkout, never from the PR tree', () => {
-    expect(trustedCheckout?.uses).toBe('actions/checkout@v5');
+    expect(trustedCheckout?.uses).toBe('actions/checkout@v7');
     expect(trustedCheckout?.with).toMatchObject({
       repository: '${{ github.repository }}',
       ref: 'main',
@@ -271,7 +271,7 @@ describe('tests.yml wiring of the post-review opt-in', () => {
     expect(names.indexOf('Validate trusted native auto-merge source'))
       .toBeLessThan(names.indexOf('Enable native auto-merge after the required job'));
     // Token and sweeper come from main, not from the PR tree.
-    const rootCheckout = steps.find((step) => step.uses === 'actions/checkout@v5' && !step.with?.path);
+    const rootCheckout = steps.find((step) => step.uses === 'actions/checkout@v7' && !step.with?.path);
     expect(rootCheckout?.with?.ref).toBe('main');
   });
 
@@ -302,11 +302,11 @@ describe('tests.yml wiring of the post-review opt-in', () => {
     expect(optIn?.['continue-on-error']).toBe(true);
     expect(trustedCheckout?.['continue-on-error']).toBe(true);
     expect(validation?.['continue-on-error']).toBe(true);
-    expect(String(optIn?.run ?? '')).toContain('GH_TOKEN="$APP_TOKEN"');
-    expect(String(optIn?.run ?? '')).not.toMatch(/GH_TOKEN=(?!"\$APP_TOKEN")/u);
+    expect(String(optIn?.run ?? '')).toMatch(/GH_TOKEN="\$POST_REVIEW_TOKEN"/u);
+    expect(String(optIn?.run ?? '')).not.toMatch(/GH_TOKEN="\$APP_TOKEN"/u);
     expect(String(optIn?.run ?? '')).not.toContain('secrets.GITHUB_TOKEN');
     expect(optIn?.env?.GH_TOKEN).toBeUndefined();
-    expect(String(optIn?.run ?? '')).toMatch(/APP_TOKEN[\s\S]*exit 0/u);
+    expect(String(optIn?.run ?? '')).toMatch(/POST_REVIEW_TOKEN[\s\S]*exit 0/u);
     expect(testsWorkflow).not.toContain('load-rc-env.mjs');
   });
 
@@ -330,7 +330,7 @@ describe('tests.yml wiring of the post-review opt-in', () => {
     expect(run).toContain('"$RUNNER_TEMP/native-automerge-gate.log"');
     expect(run).not.toMatch(/tee\s+\/tmp\//u);
     // Nessun secondo uso del token per una lettura di conferma.
-    expect(run.match(/GH_TOKEN="\$APP_TOKEN"/gu) ?? []).toHaveLength(1);
+    expect(run.match(/GH_TOKEN="\$POST_REVIEW_TOKEN"/gu) ?? []).toHaveLength(1);
   });
 
   it('leaves the verdict-summary step last in the required job, with the decision before it', () => {
@@ -362,7 +362,7 @@ describe('body edits revoke native auto-merge before a fresh review', () => {
     expect(parsed.on?.pull_request_target).toEqual({ types: ['edited'] });
     expect(parsed.permissions?.['pull-requests']).toBe('write');
     expect(parsed.jobs?.recover?.if).toContain('changes.body');
-    const script = parsed.jobs?.recover?.steps?.find((step) => step.uses === 'actions/github-script@v8')?.with?.script as string;
+    const script = parsed.jobs?.recover?.steps?.find((step) => step.uses === 'actions/github-script@v9')?.with?.script as string;
     expect(script).toContain('disablePullRequestAutoMerge');
     expect(script).toContain('revokeNativeAutoMerge');
     expect(script).toContain('github.graphql');

@@ -4,11 +4,13 @@ import { describe, it, expect } from 'vitest';
 import {
   BENTELER_KEY,
   BENTELER_COMPANY_NAME,
+  buildListingUrl,
   isBentelerJob,
   isTrustedDomain,
   isSwissLocation,
   parseSearchPage,
   parseJobDetailHtml,
+  hasExplicitCountryCode,
 } from '../scripts/lib/benteler-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -113,6 +115,32 @@ describe('Benteler crawler parser', () => {
 
     it('rejects empty input', () => {
       expect(isSwissLocation('')).toBe(false);
+    });
+  });
+
+  describe('hasExplicitCountryCode', () => {
+    it('accepts a validated non-Swiss ISO country code', () => {
+      expect(hasExplicitCountryCode('Paderborn, NW, DE')).toBe(true);
+    });
+
+    it('does not treat an unknown suffix as evidence for an authoritative empty snapshot', () => {
+      expect(hasExplicitCountryCode('Unknown, ZZ')).toBe(false);
+      expect(hasExplicitCountryCode('Unknown, NW')).toBe(false);
+      expect(hasExplicitCountryCode('Zürich, ZH, CH')).toBe(false);
+    });
+  });
+
+  describe('buildListingUrl', () => {
+    it('uses the server-rendered Benteler board on the first page', () => {
+      expect(buildListingUrl()).toBe(
+        'https://career.benteler.jobs/go/All-Jobs/3197201/?q=&sortColumn=referencedate&sortDirection=desc',
+      );
+    });
+
+    it('uses the path-segment offset for later pages', () => {
+      expect(buildListingUrl(25)).toBe(
+        'https://career.benteler.jobs/go/All-Jobs/3197201/25/?q=&sortColumn=referencedate&sortDirection=desc',
+      );
     });
   });
 

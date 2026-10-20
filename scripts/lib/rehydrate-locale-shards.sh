@@ -27,7 +27,9 @@ set -uo pipefail
 # Requires GH_TOKEN, DEPLOY_RUN_ID, LOCALE_SHARDS_LIVE (set via `env:` on
 # the calling workflow step — this script inherits them as normal process
 # env, same as rehydrate-section-shards.sh already relies on for its own
-# vars).
+# vars). `SHARD_ARTIFACT_RUN_ID` optionally points at the run that produced
+# the post-build locale artifacts; it defaults to DEPLOY_RUN_ID for the
+# original same-run path.
 #
 # SAME REPLACE SEMANTICS AS THE SECTION SIBLING (issue #5327). Verified, not
 # assumed: every `rm -rf "dist/$loc"` below is followed by a full copy, so this
@@ -55,6 +57,7 @@ set -uo pipefail
 
 rehydrate_locale() {
   set -euo pipefail
+  local artifact_run_id="${SHARD_ARTIFACT_RUN_ID:-$DEPLOY_RUN_ID}"
   for loc in en de fr; do
     # Skip rehydrate only when BOTH the locale dir AND its homepage
     # `dist/$loc.html` (= `/{loc}`) are present. Checking just the dir
@@ -75,7 +78,7 @@ rehydrate_locale() {
     dl_ok=1
     for attempt in 1 2; do
       rm -rf "$dl"; mkdir -p "$dl"
-      if timeout 180 gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
+      if timeout 180 gh run download "$artifact_run_id" --name "locale-dist-$loc-$artifact_run_id" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
         dl_ok=0
         break
       fi
@@ -175,8 +178,11 @@ rehydrate_locale() {
     # THE reachable replace this script's half of #5327 is about: the guard
     # above lets a dir-present/homepage-stripped trunk arrive here.
     trunk_replace_begin "locale-$loc" "$loc"
-    cp -r "$tmp/$loc" "dist/$loc"
-    if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
+    # A rename, not `cp -r`: $tmp is deleted below anyway and shares the
+    # runner filesystem with dist/, so the copy only held the shard on disk
+    # twice for its duration (same fix as rehydrate-section-shards.sh).
+    mv "$tmp/$loc" "dist/$loc"
+    if [ -f "$tmp/$loc.html" ]; then mv "$tmp/$loc.html" "dist/$loc.html"; fi
     echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
     trunk_replace_end "locale-$loc"
     if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ]; then
@@ -191,7 +197,10 @@ rehydrate_locale() {
   # Cheap disk-pressure readout instead of `du -sh dist` (a ~70s full
   # stat-walk of ~1.27M files just for a log line). df is instant and is
   # the metric that actually matters after rehydrating ~27G into dist/.
+  # Inodes too: one directory per job page doubles the inode count of the
+  # file count, and running out of either reads "No space left on device".
   df -h / | tail -1
+  df -i / | tail -1
 }
 
 if [ "${LOCALE_SHARDS_LIVE:-}" != "true" ]; then

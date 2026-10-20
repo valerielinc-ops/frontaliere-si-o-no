@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * explain-job-verdict.mjs — scrive nello Step Summary della run DI CHE COSA è
  * fatto il rosso del check richiesto.
@@ -35,6 +37,7 @@
  */
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 
 import {
   VITEST_CHECK_NAME,
@@ -108,7 +111,7 @@ function currentJobSteps() {
       '--slurp',
       `repos/${repo}/actions/runs/${runId}/attempts/${attempt}/jobs?per_page=100`,
     ],
-    { encoding: 'utf8', timeout: 60_000, stdio: ['ignore', 'pipe', 'inherit'] },
+    { encoding: 'utf8', timeout: 60_000, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] },
   );
   const payload = JSON.parse(raw);
   const jobs = (Array.isArray(payload) ? payload : [payload])
@@ -145,7 +148,7 @@ export function main() {
   if (summary) fs.appendFileSync(summary, `${formatJobFailureSummary(verdict, VITEST_CHECK_NAME)}\n`);
 }
 
-if (process.argv[1]?.endsWith('explain-job-verdict.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
+  admitJobs2WebRow,
   detectSuccessFactorsKind,
+  extractJobs2WebDeclaredTotal,
   fetchSuccessFactorsJobs,
 } from '../scripts/lib/ats-clients/successfactors-client.mjs';
 
@@ -55,6 +57,209 @@ describe('SuccessFactors client', () => {
     ]);
     expect(fetchMock).toHaveBeenNthCalledWith(1, 'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland', expect.any(Object));
     expect(fetchMock).toHaveBeenNthCalledWith(2, 'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland&startrow=10', expect.any(Object));
+  });
+
+  it('follows the source canonical pagination link before synthesizing startrow', async () => {
+    const firstPage = `<span class="paginationLabel">Results <b>1 – 10</b> of <b>20</b></span><a href="/go/Switzerland/4715801/10/">2</a>${fullSearchPage(1101)}`;
+    const secondPage = `<span class="paginationLabel">Results <b>11 – 20</b> of <b>20</b></span>${fullSearchPage(1111)}`;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(firstPage, { status: 200 }))
+      .mockResolvedValueOnce(new Response(secondPage, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+      { maxPages: 2, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs).toHaveLength(20);
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      2,
+      'https://jobdetails.nestle.com/go/Switzerland/4715801/10/',
+      expect.any(Object),
+    );
+  });
+
+  it('ignores detail links when selecting a canonical jobs2web listing page', async () => {
+    const firstPage =
+      '<span class="paginationLabel">Results <b>1 – 10</b> of <b>20</b></span>' +
+      '<a href="/go/Switzerland/job/10/">detail</a>' +
+      '<a href="/go/Switzerland/job/10/?startrow=20">detail with offset</a>' +
+      '<a href="/go/Switzerland/jobsearch/10/">2</a>' +
+      fullSearchPage(1201);
+    const secondPage = `<span class="paginationLabel">Results <b>11 – 20</b> of <b>20</b></span>${fullSearchPage(1211)}`;
+    const response = (html: string, url: string) => ({
+      ok: true,
+      status: 200,
+      url,
+      text: async () => html,
+    });
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(response(firstPage, 'https://jobdetails.nestle.com/go/Switzerland/jobsearch/0/'))
+      .mockResolvedValueOnce(response(secondPage, 'https://jobdetails.nestle.com/go/Switzerland/jobsearch/10/'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/',
+      { maxPages: 2, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs).toHaveLength(20);
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      2,
+      'https://jobdetails.nestle.com/go/Switzerland/jobsearch/10/',
+      expect.any(Object),
+    );
+  });
+
+  // jobdetails.nestle.com (2026-09-29): "Results 1 – 10 of 110" for the Swiss
+  // search, but startrow=5000 and startrow=50000 still return the same full
+  // page of unrelated results. The loop only stopped on a short page, so with
+  // `maxPages: 100000` a Nestlé crawl never finished.
+  it('stops when a page adds no new requisition', async () => {
+    const repeated = fullSearchPage(9001);
+    const fetchMock = vi.fn(async () => new Response(repeated, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+      { maxPages: 100000, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs).toHaveLength(10);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('stops once the next offset passes the declared result total', async () => {
+    const withTotal = (startId: number) => `<span class="paginationLabel">Results <b>${startId - 1000} – ${startId - 991}</b> of <b>20</b></span>${fullSearchPage(startId)}`;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(withTotal(1001), { status: 200 }))
+      .mockResolvedValueOnce(new Response(withTotal(1011), { status: 200 }))
+      .mockResolvedValue(new Response(fullSearchPage(5001), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+      { maxPages: 100000, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs.map((job) => job.jobReqId)).toHaveLength(20);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('retries a transient empty page until all declared jobs are parsed', async () => {
+    const withTotal = (rows: string) =>
+      `<span class="paginationLabel">Results <b>1 – 10</b> of <b>20</b></span>${rows}`;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(withTotal(fullSearchPage(2001)), { status: 200 }))
+      .mockResolvedValueOnce(new Response('<main>temporarily no rows</main>', { status: 200 }))
+      .mockResolvedValueOnce(new Response(withTotal(fullSearchPage(2011)), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+      { maxPages: 3, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs.map((job) => job.jobReqId)).toEqual([
+      '2001', '2002', '2003', '2004', '2005',
+      '2006', '2007', '2008', '2009', '2010',
+      '2011', '2012', '2013', '2014', '2015',
+      '2016', '2017', '2018', '2019', '2020',
+    ]);
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(fetchMock.mock.calls[1][0]).toContain('startrow=10');
+    expect(fetchMock.mock.calls[2][0]).toContain('startrow=10');
+  });
+
+  it('fails closed when retries cannot fill the declared result total', async () => {
+    const withTotal = (rows: string) =>
+      `<span class="paginationLabel">Results <b>1 – 10</b> of <b>20</b></span>${rows}`;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(withTotal(fullSearchPage(3001)), { status: 200 }))
+      .mockImplementation(async () => new Response('<main>temporarily no rows</main>', { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const collect = async () => {
+      const jobs = [];
+      for await (const job of fetchSuccessFactorsJobs(
+        'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+        { maxPages: 3, minDelayMs: 0, company: 'Nestlé' },
+      )) {
+        jobs.push(job);
+      }
+      return jobs;
+    };
+
+    await expect(collect()).rejects.toThrow(
+      'incomplete jobs2web snapshot for https://jobdetails.nestle.com/search/',
+    );
+    expect(fetchMock).toHaveBeenCalledTimes(4);
+    expect(fetchMock.mock.calls.slice(1).map(([url]) => url)).toEqual([
+      expect.stringContaining('startrow=10'),
+      expect.stringContaining('startrow=10'),
+      expect.stringContaining('startrow=10'),
+    ]);
+  });
+
+  // A search row without a requisition id is identified by its URL. Before,
+  // every such row counted as new, so a repeated full page of them never
+  // reached "no new requisition" and the loop ran until maxPages.
+  it('identifies a row without a requisition id by its URL', () => {
+    const seen = new Set<string>();
+    const page = Array.from({ length: 10 }, (_, index) => ({
+      jobReqId: '',
+      applyUrl: `https://www.swissre.com/careers/job/role-${index}`,
+    }));
+    expect(page.filter((row) => admitJobs2WebRow(row, seen))).toHaveLength(10);
+    // The same page again adds nothing, so the loop stops after fetching it.
+    expect(page.filter((row) => admitJobs2WebRow(row, seen))).toHaveLength(0);
+    // A row with neither id nor URL cannot prove it is new.
+    expect(admitJobs2WebRow({ jobReqId: '', applyUrl: '' }, seen)).toBe(false);
+  });
+
+  it('stops after a repeated full page of cards whose links carry no numeric id', async () => {
+    const card = (slug: string) => `
+      <li class="JobTeaserList--item">
+        <a class="JobTeaser--link" href="/careers/job/${slug}">
+          <div class="JobTeaser--title">Role ${slug}</div>
+        </a>
+      </li>`;
+    const repeated = `<ul>${Array.from({ length: 10 }, (_, index) => card(`underwriter-${index}`)).join('')}</ul>`;
+    const fetchMock = vi.fn(async () => new Response(repeated, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://www.swissre.com/careers/jobSearch.html',
+      { maxPages: 100000, minDelayMs: 0, company: 'Swiss Re' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs).toHaveLength(10);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('reads the declared total in the tenant languages', () => {
+    expect(extractJobs2WebDeclaredTotal('Results <b>1 – 10</b> of <b>110</b>')).toBe(110);
+    expect(extractJobs2WebDeclaredTotal('Ergebnisse <b>1 – 25</b> von <b>1,093</b>')).toBe(1093);
+    expect(extractJobs2WebDeclaredTotal('<p>no counter</p>')).toBeNull();
   });
 
   it('classifies the Swiss Re CSB "JobTeaserList" career page as html-jobreq (#3797)', () => {

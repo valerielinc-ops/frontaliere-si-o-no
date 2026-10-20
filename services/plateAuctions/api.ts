@@ -7,6 +7,9 @@ import type {
   PlateAuctionSourceStatus,
 } from './types';
 import { validatePlateAuction } from './types';
+import { parsePlateAuctionPath } from './paths';
+import { isRecoveredPlateObservation } from '../../scripts/lib/plateAuctionSections.mjs';
+export { PLATE_AUCTION_DETAIL_SEED_ID } from '../../scripts/lib/plateAuctionSections.mjs';
 
 export const PLATE_AUCTION_API_SCHEMA = 1;
 
@@ -259,21 +262,82 @@ export function parsePlateAuctionApiSnapshot(value: unknown): PlateAuctionApiSna
   return { schema: PLATE_AUCTION_API_SCHEMA, complete: true, generatedAt: value.generatedAt, sources, auctions, ...(history ? { history } : {}), counts };
 }
 
-export async function fetchPlateAuctionSnapshot(): Promise<PlateAuctionApiSnapshot> {
-  const urls = [
-    `${FUNCTIONS_BASE}/getPlateAuctions`,
-    cdnDataUrl('/data/plate-auctions.json'),
-  ];
-  let lastError: unknown;
-  for (const url of urls) {
-    try {
-      const response = await fetch(url, { cache: 'no-store' });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return parsePlateAuctionApiSnapshot(await response.json());
-    } catch (error) {
-      lastError = error;
-    }
+/** Reuse only this URL's validated historical SSR record when it left the feed. */
+export function withStaticPlateAuctionDetail(snapshot: PlateAuctionApiSnapshot, pathname: string, serialized: string | null): PlateAuctionApiSnapshot {
+  if (!serialized) return snapshot;
+  let seed: unknown;
+  try { seed = JSON.parse(serialized); } catch { return snapshot; }
+  if (!isRecord(seed) || seed.schema !== 1 || seed.path !== pathname.replace(/\/+$/, '') + '/') return snapshot;
+  const row = sanitizePublicPlateAuction(seed.row);
+  const route = parsePlateAuctionPath(pathname);
+  if (!row || row.dataConfidence === 'conflicting' || (!['closed', 'sold', 'unsold'].includes(row.auctionStatus) && !isRecoveredPlateObservation(row)) || route?.view !== 'detail') return snapshot;
+  const code = row.sourceKey || row.platePrefix;
+  if (route.canton !== code || route.plate?.toLowerCase() !== row.normalizedPlate.toLowerCase() || (route.vehicleType || 'car') !== row.vehicleType) return snapshot;
+  if (!Object.values(snapshot.sources).some((source) => source.plateCode === code && source.status === 'active')) return snapshot;
+  const samePlate = (candidate: PlateAuction) => (candidate.sourceKey || candidate.platePrefix) === code
+    && candidate.normalizedPlate === row.normalizedPlate && candidate.vehicleType === row.vehicleType;
+  if (snapshot.auctions.some(samePlate)) return snapshot;
+  if (isRecoveredPlateObservation(row)) {
+    const seedDate = Date.parse(row.sourceFetchedAt);
+    const newerHistory = (snapshot.history || []).some(candidate => samePlate(candidate)
+      && (Date.parse(candidate.sourceFetchedAt) > seedDate
+        || (Date.parse(candidate.sourceFetchedAt) === seedDate && !['active', 'upcoming'].includes(candidate.auctionStatus))));
+    if (newerHistory) return snapshot;
+    // An old observation labelled active described its own timestamp, not
+    // today's inventory. Keep the observations, but do not let that label
+    // hide the explicit unknown-availability detail at the same timestamp.
+    return { ...snapshot, history: [row, ...(snapshot.history || [])] };
   }
+  if ((snapshot.history || []).some(samePlate)) return snapshot;
+  return { ...snapshot, history: [...(snapshot.history || []), row] };
+}
+
+/**
+ * Age past which the static snapshot means a stopped refresh, not a slow one.
+ * Measured 2026-09-27..10-01: refresh-plate-auctions.yml committed every
+ * 6.5-9.7 h, and the snapshot generated at 05:58 reached the CDN at 09:58
+ * (the 13:19 one was still unpublished at 18:00), so a healthy pipeline
+ * serves files up to ~15 h old. A tighter bound would send most page views
+ * back to the function every day.
+ */
+export const PLATE_AUCTION_STATIC_MAX_AGE_MS = 24 * 60 * 60 * 1000;
+
+async function fetchSnapshotFrom(url: string): Promise<PlateAuctionApiSnapshot> {
+  const response = await fetch(url, { cache: 'no-store' });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return parsePlateAuctionApiSnapshot(await response.json());
+}
+
+/**
+ * The static snapshot comes first and the CDN serves it at no Firestore or
+ * Cloud Run egress cost. The function is the fallback when the static file
+ * fails or is older than PLATE_AUCTION_STATIC_MAX_AGE_MS: one uncached build
+ * there is ~22'700 billed reads plus ~17 MB of egress, and calling it first on
+ * every plate page cost 75-90 M reads a day once a crawler walked those pages
+ * (2026-09-30). A stale static snapshot still beats no data when the function
+ * fails too. Expired deadlines are re-checked at render time
+ * (`isPlateAuctionLive` in ranking.ts), so an older snapshot never shows a
+ * closed auction as open.
+ */
+export async function fetchPlateAuctionSnapshot(now: number = Date.now()): Promise<PlateAuctionApiSnapshot> {
+  let staleStatic: PlateAuctionApiSnapshot | null = null;
+  let lastError: unknown;
+  try {
+    const snapshot = await fetchSnapshotFrom(cdnDataUrl('/data/plate-auctions.json'));
+    const generatedMs = Date.parse(snapshot.generatedAt);
+    // A generatedAt in the future proves nothing about freshness: such a file
+    // goes to the function like an old one (corpus review on nanako 2037).
+    if (Number.isFinite(generatedMs) && generatedMs <= now && now - generatedMs <= PLATE_AUCTION_STATIC_MAX_AGE_MS) return snapshot;
+    staleStatic = snapshot;
+  } catch (error) {
+    lastError = error;
+  }
+  try {
+    return await fetchSnapshotFrom(`${FUNCTIONS_BASE}/getPlateAuctions`);
+  } catch (error) {
+    lastError = error;
+  }
+  if (staleStatic) return staleStatic;
   throw new Error(`Plate-auction data unavailable: ${lastError instanceof Error ? lastError.message : 'unknown error'}`);
 }
 

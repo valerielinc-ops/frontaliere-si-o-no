@@ -93,9 +93,10 @@ successiva si stringe su un dato.
 
 ### Perché il floor è 5 % e non il 40 % della issue
 
-La issue chiedeva IGS > 40 % sulle pagine chiave. Nessuna famiglia del sito ci
-arriva oggi, e una soglia che nessuno rispetta è una soglia che viene abbassata,
-non raggiunta. Il 40 % resta **riportato** per coorte
+La issue chiedeva IGS > 40 % sulle pagine chiave. Il 40 % resta un obiettivo
+informativo per le coorti che non lo hanno ancora raggiunto, non una soglia da
+abbassare per assorbire un risultato debole. Quando una fix lo raggiunge, il
+valore resta **riportato** per coorte
 (`cohortsBelowIssueTarget40`), il gate morde a 5 %: «la pagina mediana ha almeno
 una frase su venti che le sorelle non hanno».
 
@@ -314,6 +315,164 @@ dataset dà popolazione, distanza su strada e valico più vicino, e il blocco de
 confronto le espone già tutte e tre. Alzare quella coorte vuol dire trovare un
 fatto per-comune che oggi non abbiamo, non riscrivere quello che c'è.
 
+## #11432 — Fiscale: il profilo relazionale del comune
+
+La coorte italiana `it:/tasse-frontalieri-comune/~79b3fa` partiva da circa
+**9,0 %**: la tabella mostrava aliquota, distanza, affitto e popolazione, ma la
+maschera dei numeri trasformava quei valori in `#` e il testo normativo era
+condiviso. La causa era quindi la stessa classe di mail-merge rilevata da
+#5002, non un problema del dataset o del calcolo fiscale.
+
+La pagina mantiene il confronto geografico locale e ora aggiunge fatti
+relazionali calcolati sui dati già pubblicati: posizione tra tutti i comuni
+above-floor per popolazione, distanza dal confine e affitto indicativo,
+posizione sull'addizionale solo per i comuni che la applicano, e i comuni della
+stessa provincia con popolazione più vicina. I pari merito non vengono ordinati
+come se fossero diversi: `rankPeerRows` usa il confronto stretto e lo slug solo
+come tie-break deterministico. Il regime senza addizionale della Valle d'Aosta
+resta escluso dalla classifica fiscale, come già richiede
+`services/irpefAddizionaleRegime.ts`.
+
+La misura pre-merge sul renderer italiano, con tutte le 69 pagine above-floor,
+porta la coorte target a **42,37 % su 47 pagine**, con **0 pagine a gain zero**.
+Le altre due coorti strutturali misurano 41,23 % su 16 pagine e 46,37 % su 4
+pagine. L'osservatore in `tests/information-gain-families-floor.test.ts` pinna
+il target della issue a 40 % senza modificare il floor generale del gate. Il
+comando live ufficiale resta
+`node scripts/ci/information-gain-live-scan.mjs --per-family=12` e va
+ricontrollato dopo il deploy.
+
+## #6444 — Francia: il confronto numerico diventa prosa nominata
+
+La ricorrenza di `it:/vivere-in-francia-lavorare-in-svizzera/` partiva da una
+mediana del **5,6 %**: la tabella mostrava dati utili, ma la maschera dell'audit
+trasforma le cifre in `#` e lascia soprattutto il guscio condiviso. La prima
+fix manteneva la tabella geografica e aggiungeva, usando
+`shared/peerCohortComparison.ts`, posizione tra i sei vicini sul canone
+indicativo e sulla popolazione; la coorte si era fermata al **22,1 %**.
+
+La fix completa mantiene quel blocco e aggiunge relazioni calcolate sui dati
+già pubblicati: ranking sull'intero corridoio per popolazione, distanza
+stradale e canone; gli stessi tre ranking nel dipartimento; comuni serviti dallo
+stesso valico; e l'insieme dei valichi raggiunti dai sei vicini. I comuni sono
+nominati nelle frasi, mentre le cifre restano dati e continuano a essere
+mascherate dalla metrica. Il collegamento dipartimento–cantone–valico viene
+esplicitato come fatto geografico, senza trasformarlo in una determinazione
+del regime fiscale, che resta legata al cantone di lavoro.
+
+Il replay pre-merge del 2026-10-07, su tutte le 20 pagine above-floor emesse dal
+plugin, porta la coorte italiana più grande a **40,6 %** (da 22,1 %) e lascia
+**0 pagine a gain zero**. Le coorti strutturali più piccole restano osservabili
+separatamente e non vengono unite artificialmente. Il test osservatore è
+`tests/information-gain-families-floor.test.ts`; il comando live resta quello
+ufficiale `node scripts/ci/information-gain-live-scan.mjs --per-family=12` e va
+ricontrollato dopo il deploy. Il floor generale del gate non cambia.
+
+## #11039 — Germania: il profilo relazionale del comune
+
+La coorte italiana `it:/vivere-in-germania-lavorare-in-svizzera/~bfc05f` partiva
+da **8,9 %** su 22 pagine. Il leaf ripeteva invece gli stessi blocchi su
+tassazione, giorni di non rientro, assicurazione e FAQ: numeri e nome del
+comune non bastavano dopo le due maschere. La fix mantiene il confronto
+geografico di `nearestMunicipalityComparison`, ma aggiunge prosa calcolata dal
+dataset: rango per popolazione e distanza stradale con valore e vicini nominati,
+gli altri comuni dello stesso Landkreis, gli altri comuni serviti dallo stesso
+valico e l'insieme dei valichi coperti dai sei vicini più prossimi. Le posizioni
+considerano solo valori strettamente davanti, quindi i pari merito non ricevono
+un ordine inventato; i sort restano deterministici sullo slug.
+
+Il contesto normativo comune è stato spostato sull'hub (con la nota sulla fonte)
+e il leaf mantiene il fatto operativo sul telelavoro, il payload comunale, la
+CTA e il confronto locale. La misura pre-merge del 2026-10-03, sul renderer
+italiano e su tutte le 22 pagine above-floor della coorte, porta la mediana a
+**40,0 %** e lascia **0 pagine a gain zero**. Le altre coorti emesse dallo
+stesso renderer restano a 40,0 %, 41,2 % e 42,3 % nel medesimo replay.
+
+L'osservatore è `tests/information-gain-families-floor.test.ts`, con soglia
+40 %, e la copertura del renderer è in
+`tests/german-border-municipality-pages.test.ts`. Il comando live ufficiale
+resta `node scripts/ci/information-gain-live-scan.mjs --per-family=12` e va
+ricontrollato dopo il deploy.
+
+## #11873 — Italia: il profilo relazionale del comune di frontiera
+
+La coorte italiana `it:/vivere-in-ticino/comuni-di-frontiera/` è stata la
+peggiore fra quelle sane nella misura live del 2026-10-06: **18,8 % su 11
+pagine**, contro l'obiettivo informativo del 40 %. Il renderer aveva già i sei
+vicini geografici, ma la prosa nominava soltanto il raggio e l'estremo
+dell'addizionale; affitto, distanza e popolazione restavano soprattutto celle
+numeriche, che la maschera trasforma in `#`.
+
+La fix mantiene quel vicinato e aggiunge classifiche nominate sui sette comuni
+confrontati (pagina corrente più sei vicini) per addizionale, affitto indicativo,
+popolazione e distanza dal confine. Aggiunge anche la posizione nella coorte
+completa del corridoio e i due comuni della stessa provincia con popolazione più
+simile. Sono relazioni calcolate dai campi già pubblicati: l'affitto resta
+esplicitamente indicativo perché il dataset è una stima per fascia, non una
+misura di mercato per comune.
+
+Il replay pre-merge del 2026-10-06, su tutte le 27 pagine della coorte maggiore,
+porta la mediana a **40,35 %** e lascia **0 pagine a gain zero**. Le altre
+coorti strutturali del renderer misurano 41,36 %, 48,33 % e 41,36 %. Il test
+osservatore è `tests/information-gain-families-floor.test.ts`, con soglia 40 %;
+la verifica live resta `node scripts/ci/information-gain-live-scan.mjs
+--per-family=12` dopo il deploy.
+
+## #11678 — Professione × città: le offerte vere, non i conteggi
+
+La coorte `it:/lavoro-` del live scan non è `/lavoro-ticino-` (le landing per
+cantone) ma la famiglia professione × città di `professionCityLandings.ts`
+(`sitemap-profession-cities.xml`, 91 pagine italiane il 2026-10-05). Live scan
+del 2026-10-05: **14,5 %** su 11 pagine campionate, 8 segmenti propri su 61 per
+pagina. Il resto della pagina era il contesto frontaliere di
+`renderCantonSeoProse` (slot `city-landing`, lo stesso dell'hub città che la
+pagina linka come CTA): circa 45 segmenti identici su tutte le pagine. Il
+payload proprio era numerico (offerte, recenti, benchmark) e i datori stavano
+solo in pillole sotto i 25 caratteri.
+
+`build-plugins/professionCityInsights.ts` aggiunge, dal corpus di annunci del
+build: i titoli reali delle offerte della coppia con il datore (al massimo 12),
+la stessa professione nelle altre città della famiglia e le altre professioni
+della città, in ordine di offerte attive e solo sopra il floor. In più la lista
+dei datori ha una frase di testa, come le landing per cantone. Le frasi sono
+testo semplice in un solo elemento, perché un `<a>` in mezzo alla frase la
+spezzerebbe sotto la soglia di segmento; i link stanno in un elenco a parte.
+
+Misura pre-merge: replay del renderer sul `data/jobs.json` reale disponibile in
+locale (snapshot del 2026-07-22, 22.516 annunci), tutte le coppie sopra il floor:
+
+| coorte più grande | pagine | prima | dopo | pagine a gain zero |
+|---|---|---|---|---|
+| `it:/lavoro-` | 68 | 14,5 % | **27,6 %** | 0 → 0 |
+| `en:/en/jobs-` | 65 | 3,3 % | **22,8 %** | 9 → **0** |
+| `de:/de/arbeit-` | 74 | 1,6 % | **20,3 %** | 17 → **0** |
+| `fr:/fr/travail-` | 63 | 14,3 % | **26,3 %** | 0 → 0 |
+
+Il «prima» italiano coincide con il live scan, quindi il replay è fedele. Il
+40 % non è raggiunto e la soglia non si sposta. Il limite è il contesto
+condiviso: nello stesso replay, togliendo dalla pagina anche il blocco
+`renderCantonSeoProse` la coorte italiana sale al 54,2 % (en 59,1 %, de 59,1 %,
+fr 52,2 %). Togliere quel contesto, insieme alle sue FAQ JSON-LD, è una scelta
+editoriale e SEO che resta aperta. Non è stato fatto qui.
+
+Il seguito della stessa issue completa quella leva: il contesto `city-landing`
+non viene più copiato sulla leaf professione × città. È già disponibile sul
+city hub canonico verso cui la leaf porta con la CTA, mentre la leaf conserva
+offerte reali, datori, confronto tra città/professioni, benchmark, CTA e
+breadcrumb. Di conseguenza la leaf non emette più il `FAQPage` generico del
+hub. Il replay sullo stesso corpus porta la coorte italiana a **54,2 %** (en
+59,1 %, de 59,1 %, fr 52,2 %), sopra il target senza spostare alcuna soglia;
+il test `tests/profession-city-insights.test.ts` misura la relazione con/senza
+payload. Il live scan ufficiale resta il controllo post-deploy:
+`node scripts/ci/information-gain-live-scan.mjs --per-family=12`.
+
+L'osservatore è `tests/profession-city-insights.test.ts`: due sorelle con dati
+diversi producono blocchi diversi, una pagina senza dati non produce il blocco,
+la leaf non duplica il contesto/FAQ del hub, i link puntano solo a coppie sopra
+il floor e la coorte con il payload supera il 40 % mentre il controllo senza
+payload resta sotto. Il corpus sintetico vale per la relazione con/senza
+blocco, non per l'assoluto: `data/jobs.json` lo assembla la CI.
+
 ## I calcolatori di stipendio: le leve, non le cifre (#7385)
 
 La più grande delle cinque famiglie qui sopra — 22 coorti su 37 — è stata
@@ -452,6 +611,51 @@ diverse a due sorelle della stessa settimana, ed è deterministico (emette link
 interni: un ordinamento instabile rimescolerebbe il link graph a ogni build, e
 i pareggi fra città con lo stesso numero di annunci sono la norma).
 
+## Il residuo del 2026-10-02: cinque famiglie, venti coorti
+
+Run 36977215802 di `audit-dist-from-run.yml` (deploy 36949104680, dist
+completo, `sampleRate` 1): 328 coorti gated, **20 sotto il floor**, nessuna in
+inventario. Il report strutturato (`dist/audit-reports/information-gain.json`
+dell'artifact) le scompone in cinque famiglie di template; ognuna aveva già nel
+repo il dato che la distingue, e il renderer non lo leggeva.
+
+| famiglia | coorti | prima | dopo | cosa entra nella pagina |
+|---|---|---|---|---|
+| scheda valico `/guida-frontaliere/tempi-attesa-dogana/<id>/` (+ en/de/fr) | 7 | 0 % | 23,1-33,3 % | registro del valico (`data/borderCrossings.ts`), suggerimento tradotto (`border.tips.*`), i tre valichi più vicini dello stesso tratto — `shared/borderCrossingGuideDetail.ts` |
+| archivio mensile `/traffico-dogane/<id>/<YYYY-MM>/` (+ en/de/fr) | 4 | 4,2-4,6 % | 25,0-29,0 % | giorni della settimana ordinati, giorno peggiore e migliore, confronto col mese prima, gli altri valichi dello stesso mese — `borderWaitArchiveInsights.ts` |
+| hub cantonale `/premi-cassa-malati/<cantone>/` (+ en/de/fr) | 4 | 2,3-2,6 % | 12,2-13,1 % | la mediana adulti e l'aumento sull'anno prima fra i 26 cantoni, con i vicini nominati; le tre casse più economiche e più care — `renderCantonNationalComparison` |
+| glossario localizzato `/{en,de,fr}/…/<termine>/` | 3 | 0 % | 27-29 % | definizione, esempio e nomi del termine nelle altre lingue, dalle stringhe del glossario SPA (`glossary.terms.*`) — `shared/glossaryTermDetail.ts` |
+| professione × San Gallo `/de/arbeit-st-gallen-*`, `/en/jobs-st-gallen-*` | 2 | 4,3-4,8 % | +4,5 punti | lo stesso mestiere negli altri cantoni, i datori con più annunci in prosa — `professionCantonLandings.ts` |
+
+Come sono misurati i «dopo». Premi e archivio: rendendo la famiglia intera dal
+dataset reale del repo (`data/health-premiums/`, `data/border-wait-history/`)
+e passandola al motore — la stessa misura del gate, prima del deploy. Scheda
+valico e glossario escono da `buildPage()` di `staticPagesPlugin.ts`, che non è
+richiamabile da solo: sono misurati innestando il blocco nel corpo delle pagine
+LIVE del 2026-10-02 (una pagina per locale, rietichettata su ogni valico o
+termine), e la tecnica riproduce esattamente gli `skeletonHash` della run
+(`~4c9404`, `~dec86c`, `~5c23ce`, …) e il loro 0 % prima del blocco.
+Professione × San Gallo: corpus sintetico, perché `data/jobs.json` lo assembla
+la CI; vale il delta, non l'assoluto.
+
+L'osservatore pre-merge è `tests/information-gain-remainder-families.test.ts`:
+per ogni famiglia la mediana resta sopra la soglia pinnata (misurato meno un
+punto) E la stessa composizione senza il blocco resta sotto il floor, così
+svuotare il blocco fa diventare rosso il test.
+
+Due note per chi rifà la misura:
+
+- Le quattro coorti in inventario `it:~1fd95f`, `en:~bdfe66`, `de:~4c9404`,
+  `fr:~9706c6` («tempi di attesa alla dogana») sono lo stesso template delle
+  schede valico qui sopra, non `/traffico-dogane/`: dopo il deploy
+  `recoveredCohorts` le segnalerà, e le righe vanno tolte su un replay
+  full-dist che lo confermi.
+- San Gallo fa coorte a sé per due proprietà del motore, non del contenuto: il
+  token `st` sta sotto i 3 caratteri e non viene mascherato (l'`<h1>` cambia
+  scheletro), e lo split di frase a `(?<=[.!?])\s+` spezza «Kanton St. Gallen»
+  in due segmenti. Non è stato toccato niente del motore: la coorte è stata
+  alzata dando alle pagine un contenuto che le distingue.
+
 ## La catena automatica
 
 Il gate su `dist/` risponde a «l'emissione si è rotta?» e blocca. Non risponde
@@ -462,8 +666,8 @@ Per quelle c'è `information-gain-scan.yml`, cron giornaliero alle 05:25 UTC.
 ```
 information-gain-scan.yml  (cron 05:25 UTC + workflow_dispatch)
   │  scripts/ci/information-gain-live-scan.mjs
-  │    campiona 12 URL per famiglia dalle sitemap LIVE, un locale solo,
-  │    equispaziati; nessun build, nessun dist, nessun npm ci (~150 GET, ~30 s)
+  │    misura per intero le sitemap fino a 40 URL; sulle famiglie più grandi
+  │    campiona 12 URL LIVE, un locale solo, equispaziati; nessun build/dist/npm ci
   ↓
   │  scripts/ci/information-gain-loop-issues.mjs
   │    tre bucket → tre issue diverse, con la misura DENTRO
@@ -539,6 +743,14 @@ hub singoli, feed e archivi, dove «questa pagina ripete le sorelle?» non è un
 domanda con una risposta — e campionarle tutte sarebbe ~700 richieste al giorno
 per non misurare niente.
 
+La soglia di 40 URL per la copertura completa è un limite di carico, non una
+soglia editoriale. È necessaria perché la quota di segmenti page-specific non è
+invariante al sotto-campionamento: sulla stessa emissione live del 2026-10-14 la
+coorte Germania misurava 36,0 % sul vecchio slice (7 leaf coortizzate su 12 URL)
+e 40,0 % sulle 22 leaf della popolazione completa. Con l'inventario di quel
+giorno la regola aggiunge 40 GET totali (124 → 164); le famiglie da 70-538 URL
+restano campionate.
+
 Provarlo senza toccare niente:
 
 ```bash
@@ -612,3 +824,8 @@ aggiungere una sezione uguale su tutte le pagine.
 - **Esperienze dirette, interviste, commenti di esperti.** La issue le chiede e
   restano da raccogliere: non sono generabili, e generarle sarebbe fabbricare
   testimonianze. Nessuno script in questo repo può chiuderle.
+pagine. L'osservatore in `tests/information-gain-families-floor.test.ts` pinna
+il target della issue a 40 % senza modificare il floor generale del gate. Il
+comando live ufficiale resta
+`node scripts/ci/information-gain-live-scan.mjs --per-family=12` e va
+ricontrollato dopo il deploy.

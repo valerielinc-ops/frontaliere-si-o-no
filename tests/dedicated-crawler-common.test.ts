@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, isActiveJobPastRetirement, ACTIVE_JOB_RETIREMENT_DAYS, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { getCompanyBoilerplateIT, hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, eocContinuityKey, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCompleteLocaleTextCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, isActiveJobPastRetirement, ACTIVE_JOB_RETIREMENT_DAYS, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const daysAgoIso = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
 import { canonicalizeCompanyDefinition, legacyTruncatedCompanyKey, normalizeCompanyKey } from '../scripts/lib/company-key.mjs';
@@ -170,6 +170,87 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[0].needsRetranslation).toBe(true);
   });
 
+  it('keeps an unsupported Romansh source out of the four published text slots', () => {
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-rm-locale-hardening-'));
+    const jobsPath = path.join(tempDir, 'jobs.json');
+    const romansh = 'Ils candidats vegnan a lavurar cun nossa equipa e porschan '
+      + 'in servetsch precis a las persunas interessadas. '.repeat(8);
+    const jobs = [{
+      slug: 'fufragnadi-srg-ssr-cuira',
+      title: 'Fufragnadi',
+      description: romansh,
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      titleByLocale: { rm: 'Fufragnadi' },
+      descriptionByLocale: { rm: romansh },
+      slugByLocale: { rm: 'fufragnadi-srg-ssr-cuira' },
+      needsRetranslation: true,
+    }];
+    fs.writeFileSync(jobsPath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+
+    hardenJobLocaleFields({ dataJobsPath: jobsPath });
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'))[0];
+
+    expect(after.sourceLang).toBe('rm');
+    expect(after.titleByLocale).toEqual({
+      rm: 'Fufragnadi',
+      it: 'Posizione',
+      en: 'Job opening',
+      de: 'Stellenangebot',
+      fr: "Offre d'emploi",
+    });
+    expect(['it', 'en', 'de', 'fr'].every((locale) => after.titleByLocale[locale].length >= 3)).toBe(true);
+    expect(after.descriptionByLocale).toEqual({ rm: romansh.trim() });
+    expect(after.needsRetranslation).toBe(true);
+  });
+
+  it('fills known unsupported-source role titles without copying Romansh', () => {
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-rm-title-fallback-'));
+    const jobsPath = path.join(tempDir, 'jobs.json');
+    const romansh = 'La redacziun coordinescha ils cussegls editorials e publitgescha '
+      + 'cuntegn per la Svizra rumantscha. '.repeat(8);
+    const jobs = [{
+      slug: 'redactura-redactur-surselva-srg-ssr-zurich',
+      title: 'Redactura / Redactur Surselva',
+      description: romansh,
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      titleByLocale: { rm: 'Redactura / Redactur Surselva' },
+      descriptionByLocale: { rm: romansh },
+      slugByLocale: { rm: 'redactura-redactur-surselva-srg-ssr-zurich' },
+      needsRetranslation: true,
+    }];
+    fs.writeFileSync(jobsPath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+
+    hardenJobLocaleFields({ dataJobsPath: jobsPath });
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'))[0];
+
+    expect(after.sourceLang).toBe('rm');
+    expect(after.titleByLocale).toMatchObject({
+      rm: 'Redactura / Redactur Surselva',
+      it: 'Redattrice / Redattore Surselva',
+      en: 'Editor Surselva',
+      de: 'Redaktorin / Redaktor Surselva',
+      fr: 'Rédactrice / Rédacteur Surselva',
+    });
+    expect(after.needsRetranslation).toBe(true);
+  });
+
+  it('preserves an unsupported source slot during locale-aware merges', () => {
+    const existing = {
+      rm: 'Ils candidats vegnan a lavurar cun nossa equipa e porschan in servetsch precis.',
+      it: 'Descrizione italiana tradotta e completa.',
+    };
+    const fresh = {
+      rm: 'Ils candidats vegnan a lavurar cun nossa equipa e porschan in servetsch precis oz.',
+      it: 'Copia italiana dalla fonte.',
+    };
+    const merged = mergeLocaleTextMap(existing, fresh, 3, 'rm');
+
+    expect(merged.rm).toBe(fresh.rm);
+    expect(merged.it).toBe(existing.it);
+  });
+
   it('rehomes real titles stored under the wrong locale instead of keeping fake copies', () => {
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-locale-hardening-'));
     const jobsPath = path.join(tempDir, 'jobs.json');
@@ -295,11 +376,18 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[1].slug).toBe('venditrice-venditore-landi-contratto-a-termine-da-aprile-ad-agosto-2026-m-w-d-landi-rhone-lavaux-sa-saxon');
   });
 
-  it('enriches thin italian descriptions with company boilerplate for recurring crawler outputs', () => {
+  // Issue 5253: this case used to assert that hardening padded the thin
+  // Italian slot to >= 300 characters with the AGIE company paragraph of
+  // COMPANY_BOILERPLATE_IT — text the source never published. Hardening now
+  // adds nothing, and removes that paragraph (with its "## title / **company**
+  // — place" header) from a slot stored before the change.
+  it('adds no company paragraph to a thin italian description and removes a stored one', () => {
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-locale-hardening-'));
     const jobsPath = path.join(tempDir, 'jobs.json');
-    const jobs = [{
-      slug: 'mechanical-simulation-engineer-agie-losone',
+    const thinIt = 'AGIE Charmilles SA cerca Mechanical Simulation Engineer a Losone.';
+    const paragraph = getCompanyBoilerplateIT('AGIE Charmilles SA');
+    expect(paragraph).toContain('Georg Fischer');
+    const base = {
       title: 'Mechanical Simulation Engineer',
       company: 'AGIE Charmilles SA',
       location: 'Losone',
@@ -308,22 +396,34 @@ describe('dedicated-crawler-common locale hardening', () => {
         en: 'Mechanical Simulation Engineer',
         it: 'Ingegnere di simulazione meccanica',
       },
-      descriptionByLocale: {
-        it: 'AGIE Charmilles SA cerca Mechanical Simulation Engineer a Losone.',
+    };
+    const jobs = [
+      {
+        ...base,
+        slug: 'mechanical-simulation-engineer-agie-losone',
+        url: 'https://example.test/agie/1/',
+        descriptionByLocale: { it: thinIt },
+        slugByLocale: { it: 'ingegnere-di-simulazione-meccanica-agie-charmilles-sa-losone' },
       },
-      slugByLocale: {
-        it: 'ingegnere-di-simulazione-meccanica-agie-charmilles-sa-losone',
+      {
+        ...base,
+        slug: 'mechanical-simulation-engineer-agie-losone-2',
+        url: 'https://example.test/agie/2/',
+        descriptionByLocale: {
+          it: `## Ingegnere di simulazione meccanica\n\n**AGIE Charmilles SA** — Losone (TI)\n\n${thinIt}\n\n${paragraph}`,
+        },
+        slugByLocale: { it: 'ingegnere-di-simulazione-meccanica-agie-charmilles-sa-losone-2' },
       },
-    }];
+    ];
     fs.writeFileSync(jobsPath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
 
     hardenJobLocaleFields({ dataJobsPath: jobsPath });
     const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
-    const itDescription = after[0].descriptionByLocale.it;
 
-    expect(itDescription.length).toBeGreaterThanOrEqual(300);
-    expect(itDescription).toContain('AGIE Charmilles SA');
-    expect(itDescription).toContain('Georg Fischer');
+    for (const job of after) {
+      expect(job.descriptionByLocale.it).toBe(thinIt);
+      expect(job.descriptionByLocale.it).not.toContain('Georg Fischer');
+    }
   });
 
   it('repairs remaining german and french italian slugs from recurring live regressions', () => {
@@ -454,38 +554,50 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[4].slug).toBe('venditrice-venditore-m-w-d-volg-vissoie');
   });
 
-  it('enriches thin italian descriptions and localizes german real-estate roles for ticino premium properties', () => {
+  // Issue 5253: this case also asserted that the thin Italian slot was padded
+  // to >= 300 characters with the Ticino Premium Properties paragraph of
+  // COMPANY_BOILERPLATE_IT. The localization of the German title and slug
+  // stays; the padding is gone, and a stored one is removed.
+  it('localizes german real-estate roles for ticino premium properties without padding the italian description', () => {
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-locale-hardening-'));
     const jobsPath = path.join(tempDir, 'jobs.json');
-    const jobs = [{
-      slug: 'engel-volkers-immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona',
+    const thinIt = 'Engel & Völkers cerca una figura commerciale ad Ascona.';
+    const paragraph = getCompanyBoilerplateIT('Ticino Premium Properties SA');
+    expect(paragraph).toContain('Engel & Völkers attiva nel mercato immobiliare di pregio');
+    const deDescription = 'Deutschsprachige Immobilienbeschreibung mit ausreichend Text, damit die italienische Lokalisierung aus der Heuristik erfolgt und gleichzeitig die dünne Beschreibung mit Boilerplate ergänzt wird.';
+    const jobs = [false, true].map((stored) => ({
+      slug: `engel-volkers-immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona${stored ? '-2' : ''}`,
+      url: `https://example.test/tpp/${stored ? 2 : 1}/`,
       title: 'Engel & Völkers | Immobilienberater/in 100 % | Ascona',
       company: 'Ticino Premium Properties SA',
       location: 'Ascona',
-      description: 'Deutschsprachige Immobilienbeschreibung mit ausreichend Text, damit die italienische Lokalisierung aus der Heuristik erfolgt und gleichzeitig die dünne Beschreibung mit Boilerplate ergänzt wird.',
+      description: deDescription,
       titleByLocale: {
         de: 'Engel & Völkers | Immobilienberater/in 100 % | Ascona',
         it: 'Engel & Völkers | Immobilienberater/in 100 % | Ascona',
       },
       descriptionByLocale: {
-        de: 'Deutschsprachige Immobilienbeschreibung mit ausreichend Text, damit die italienische Lokalisierung aus der Heuristik erfolgt und gleichzeitig die dünne Beschreibung mit Boilerplate ergänzt wird.',
-        it: 'Engel & Völkers cerca una figura commerciale ad Ascona.',
+        de: deDescription,
+        it: stored
+          ? `## Engel & Völkers | Consulente immobiliare 100 % | Ascona\n\n**Ticino Premium Properties SA** — Ascona (TI)\n\n${thinIt}\n\n${paragraph}`
+          : thinIt,
       },
       slugByLocale: {
         de: 'engel-volkers-immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona',
         it: 'engel-volkers-immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona',
       },
-    }];
+    }));
     fs.writeFileSync(jobsPath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
 
     hardenJobLocaleFields({ dataJobsPath: jobsPath });
     const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
-    const itDescription = after[0].descriptionByLocale.it;
 
-    expect(after[0].titleByLocale.it).toBe('Engel & Völkers | Consulente immobiliare 100 % | Ascona');
-    expect(after[0].slugByLocale.it).toBe('engel-volkers-consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona');
-    expect(itDescription.length).toBeGreaterThanOrEqual(300);
-    expect(itDescription).toContain('Ticino Premium Properties SA');
+    for (const job of after) {
+      expect(job.titleByLocale.it).toBe('Engel & Völkers | Consulente immobiliare 100 % | Ascona');
+      expect(job.slugByLocale.it).toBe('engel-volkers-consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona');
+      expect(job.descriptionByLocale.it).toBe(thinIt);
+      expect(job.descriptionByLocale.de).toBe(deDescription);
+    }
   });
 
   it('repairs recurring VTG and Hamilton italian slug regressions from localized titles', () => {
@@ -748,6 +860,136 @@ describe('mergePreserveLocaleData URL matching', () => {
   });
 });
 
+describe('EOC Umantis source continuity across vacancy-ID rotation', () => {
+  const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+  let previousRegistryOverride;
+
+  beforeEach(() => {
+    previousRegistryOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = path.join(
+      fs.mkdtempSync(path.join(os.tmpdir(), 'ft-eoc-continuity-registry-')),
+      'slug-registry.json',
+    );
+  });
+
+  afterEach(() => {
+    if (previousRegistryOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
+  });
+
+  const baseJob = (overrides: Record<string, unknown> = {}) => ({
+    title: 'Medico Perito SAM con specializzazione in medicina interna generale',
+    company: 'EOC – Ente Ospedaliero Cantonale',
+    companyKey: 'eoc-ente-ospedaliero-cantonale',
+    location: 'Bellinzona',
+    canton: 'TI',
+    slug: 'medico-perito-sam-con-specializzazione-in-medicina-interna-generale-eoc-ente-ospedaliero-cantonale-bellinzona',
+    slugByLocale: {
+      it: 'medico-perito-sam-con-specializzazione-in-medicina-interna-generale-eoc-ente-ospedaliero-cantonale-bellinzona',
+    },
+    description: 'D'.repeat(140),
+    sourceLang: 'it',
+    ...overrides,
+  });
+
+  it('carries id, firstSeenAt, and URL lineage across a rotated vacancy number', () => {
+    const oldIdentity = 'url:https://recruitingapp-2761.umantis.com/vacancies/2670/description/4';
+    const existing = [baseJob({
+      id: 'eoc-old-id',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2670/Description/4',
+      sourceIdentity: oldIdentity,
+      firstSeenAt: '2026-05-26T22:48:33.043Z',
+    })];
+    const fresh = [baseJob({
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2696/Description/4',
+      firstSeenAt: '2026-09-23T23:53:42.243Z',
+    })];
+
+    const result = mergeAndDeduplicate(existing, fresh, cfg, { continuityKey: eocContinuityKey });
+
+    expect(result.merged).toHaveLength(1);
+    expect(result.merged[0]).toMatchObject({
+      id: 'eoc-old-id',
+      url: fresh[0].url,
+      firstSeenAt: '2026-05-26T22:48:33.043Z',
+      sourceIdentity: 'url:https://recruitingapp-2761.umantis.com/vacancies/2696/description/4',
+    });
+    expect(result.merged[0].sourceIdentityHistory).toContainEqual({
+      sourceIdentity: oldIdentity,
+      firstSeenAt: '2026-05-26T22:48:33.043Z',
+      title: existing[0].title,
+    });
+  });
+
+  it('requires both the EOC company key and the EOC Umantis host', () => {
+    const existing = [baseJob({
+      id: 'eoc-old-id',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2670/Description/4',
+      firstSeenAt: '2026-05-26T22:48:33.043Z',
+    })];
+
+    const otherHost = [baseJob({
+      url: 'https://jobs.example.test/Vacancies/2696/Description/4',
+      firstSeenAt: '2026-09-23T23:53:42.243Z',
+    })];
+    const otherCompany = [baseJob({
+      companyKey: 'other-company',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2696/Description/4',
+      firstSeenAt: '2026-09-23T23:53:42.243Z',
+    })];
+
+    expect(mergeAndDeduplicate(existing, otherHost, cfg, { continuityKey: eocContinuityKey }).merged)
+      .toHaveLength(2);
+    expect(mergeAndDeduplicate(existing, otherCompany, cfg, { continuityKey: eocContinuityKey }).merged)
+      .toHaveLength(2);
+  });
+
+  it('does not bridge a same-title record whose location differs', () => {
+    const existing = [baseJob({
+      id: 'eoc-bellinzona',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2670/Description/4',
+      firstSeenAt: '2026-05-26T22:48:33.043Z',
+    })];
+    const fresh = [baseJob({
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2696/Description/4',
+      location: 'Lugano',
+      firstSeenAt: '2026-09-23T23:53:42.243Z',
+    })];
+
+    const result = mergeAndDeduplicate(existing, fresh, cfg, { continuityKey: eocContinuityKey });
+
+    expect(result.merged).toHaveLength(2);
+    expect(result.merged.some((job) => job.id === 'eoc-bellinzona')).toBe(true);
+    expect(result.merged.some((job) => job.url === fresh[0].url && job.id !== 'eoc-bellinzona')).toBe(true);
+  });
+
+  it('does not bridge when the semantic key is non-injective', () => {
+    const existing = [
+      baseJob({
+        id: 'eoc-old-a',
+        url: 'https://recruitingapp-2761.umantis.com/Vacancies/2670/Description/4',
+        firstSeenAt: '2026-05-26T22:48:33.043Z',
+      }),
+      baseJob({
+        id: 'eoc-old-b',
+        url: 'https://recruitingapp-2761.umantis.com/Vacancies/2671/Description/4',
+        firstSeenAt: '2026-05-27T22:48:33.043Z',
+      }),
+    ];
+    const fresh = [baseJob({
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2696/Description/4',
+      firstSeenAt: '2026-09-23T23:53:42.243Z',
+    })];
+
+    const result = mergeAndDeduplicate(existing, fresh, cfg, { continuityKey: eocContinuityKey });
+
+    expect(result.merged).toHaveLength(3);
+    expect(result.merged.some((job) => job.id === 'eoc-old-a')).toBe(true);
+    expect(result.merged.some((job) => job.id === 'eoc-old-b')).toBe(true);
+    expect(result.merged.some((job) => job.url === fresh[0].url && !['eoc-old-a', 'eoc-old-b'].includes(job.id))).toBe(true);
+  });
+});
+
 describe('mergeLocaleTextMap / mergePreserveLocaleData — source-locale drift guard (#4569)', () => {
   it('mergeLocaleTextMap drops non-source-locale translations when the source text is unrelated', () => {
     // Reproduces the EOC/Umantis bug: a vacancy URL got reused for a totally
@@ -767,6 +1009,49 @@ describe('mergeLocaleTextMap / mergePreserveLocaleData — source-locale drift g
     expect(merged.en).toBeUndefined();
     expect(merged.de).toBeUndefined();
     expect(merged.fr).toBeUndefined();
+  });
+
+  // Staffing agencies (sta.jobs, Stellentreff, Stellenpartner) serve the same
+  // paragraphs in a different order on every visit. The drift guard compared
+  // only the first 140 slug characters, so the reorder looked like a different
+  // job and the translations were dropped (2026-10-13, group-10 crawl: 596 of
+  // 773 reordered Stellentreff descriptions).
+  const AGENCY_PARAGRAPHS = [
+    'Die Arbeit umfasst das Bedienen und Überwachen von Maschinen in einem modernen Hobelwerk.',
+    'Es erwartet dich ein kollegiales Umfeld mit langfristiger Perspektive und fairen Arbeitszeiten.',
+    'Tätigkeiten\n- Plattenzuschnitte an der Plattensäge herstellen\n- Bauteile aus Brandschutzmaterial anfertigen',
+    'Profil\n- Abgeschlossene Lehre als Zimmermann EFZ\n- Führerausweis Kategorie B von Vorteil',
+  ];
+
+  it('mergeLocaleTextMap keeps translations when a long description only changes paragraph order', () => {
+    const before = AGENCY_PARAGRAPHS.join('\n');
+    const reordered = [AGENCY_PARAGRAPHS[2], AGENCY_PARAGRAPHS[0], AGENCY_PARAGRAPHS[3], AGENCY_PARAGRAPHS[1]].join('\n');
+    const old = {
+      de: before,
+      it: 'Il lavoro comprende la conduzione e la sorveglianza di macchine in una moderna piallatrice. '.repeat(3),
+      en: 'The work includes operating and monitoring machines in a modern planing mill. '.repeat(3),
+      fr: 'Le travail comprend la conduite et la surveillance de machines dans une raboterie moderne. '.repeat(3),
+    };
+    const merged = mergeLocaleTextMap(old, { de: reordered }, 30, 'de');
+    expect(merged.de).toBe(reordered);
+    expect(merged.it).toBe(old.it.trim());
+    expect(merged.en).toBe(old.en.trim());
+    expect(merged.fr).toBe(old.fr.trim());
+  });
+
+  it('mergeLocaleTextMap still drops translations when a long description is a different posting', () => {
+    const old = {
+      de: AGENCY_PARAGRAPHS.join('\n'),
+      it: 'Il lavoro comprende la conduzione e la sorveglianza di macchine in una moderna piallatrice. '.repeat(3),
+    };
+    const other = [
+      'Als Pflegefachperson HF betreust du Patientinnen und Patienten auf der chirurgischen Station.',
+      'Du arbeitest im Schichtbetrieb mit einem interdisziplinären Team aus Ärzten und Therapeuten.',
+      'Voraussetzung ist ein Diplom in Pflege sowie Freude an der Arbeit mit Menschen jeden Alters.',
+    ].join('\n');
+    const merged = mergeLocaleTextMap(old, { de: other }, 30, 'de');
+    expect(merged.de).toBe(other);
+    expect(merged.it).toBeUndefined();
   });
 
   it('mergeLocaleTextMap still preserves translations for ordinary wording edits to the same job', () => {
@@ -984,6 +1269,57 @@ describe('mergeAndDeduplicate — crawledAt older than 60 days leaves the active
   });
 });
 
+describe('mergeAndDeduplicate — regional source locale protects copied descriptions', () => {
+  const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+  let registryOverridePath: string;
+  let previousRegistryOverride: string | undefined;
+
+  beforeEach(() => {
+    previousRegistryOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    registryOverridePath = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ft-regional-source-registry-')), 'slug-registry.json');
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = registryOverridePath;
+  });
+
+  afterEach(() => {
+    if (previousRegistryOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
+  });
+
+  it('keeps an existing real translation when an it-CH source copy is longer', () => {
+    const sourceMapText = 'Descrizione italiana della posizione con responsabilità e requisiti specifici. '.repeat(8);
+    const flatSourceText = 'Descrizione raccolta dal campo legacy, distinta dal testo della mappa locale. '.repeat(5);
+    const existingTranslation = 'The established English translation describes the position, the team, and its responsibilities. '.repeat(3);
+    expect(sourceMapText.length).toBeGreaterThan(existingTranslation.length);
+    expect(sourceMapText).not.toBe(flatSourceText);
+
+    const common = {
+      title: 'Tecnico di laboratorio',
+      company: 'Example Company',
+      location: 'Lugano, Ticino',
+      url: 'https://example.com/jobs/regional-source-language',
+      slug: 'tecnico-laboratorio-example-company-lugano',
+      sourceLang: 'it-CH',
+      description: flatSourceText,
+    };
+    const existing = {
+      ...common,
+      id: 'regional-source-language-job',
+      crawledAt: daysAgoIso(2),
+      descriptionByLocale: { it: sourceMapText, en: existingTranslation },
+    };
+    const incoming = {
+      ...common,
+      descriptionByLocale: { it: sourceMapText, en: sourceMapText },
+    };
+
+    const { merged } = mergeAndDeduplicate([existing], [incoming], cfg);
+
+    expect(merged).toHaveLength(1);
+    expect(merged[0].descriptionByLocale.it).toBe(sourceMapText.trim());
+    expect(merged[0].descriptionByLocale.en).toBe(existingTranslation.trim());
+  });
+});
+
 describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)', () => {
   it('isTargetSwissLocation: bare common words that collide with tiny communes are not Swiss', async () => {
     const { isTargetSwissLocation } = await import('../scripts/lib/target-swiss-locations.mjs');
@@ -1015,6 +1351,30 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     expect(isLocationExplicitlyForeign('IT, Support in Lugano')).toBe(false);
     expect(isLocationExplicitlyForeign('Brussels, BE')).toBe(true);
     expect(isLocationExplicitlyForeign('Athens, GR')).toBe(true);
+    expect(isLocationExplicitlyForeign('Jefferson City, MO')).toBe(true);
+    expect(isLocationExplicitlyForeign('Windeck')).toBe(true);
+    // Pizzarotti's InRecruiting board returns these Italian localities without
+    // a country suffix; they must still be positive foreign evidence for the
+    // filtered-empty health proof.
+    for (const locality of ['Parma', 'Ponte Taro', 'Baragiano', 'Campomorone']) {
+      expect(isExplicitlyOutsideTarget(locality)).toBe(true);
+      expect(isLocationExplicitlyForeign(locality)).toBe(true);
+    }
+    // Overseas territory labels are explicit foreign evidence even when the
+    // source omits the parent country. This is the live Pizzarotti detail
+    // shape that previously remained unclassified.
+    for (const locality of [
+      'Saint-Laurent-du-Maroni (Guyane française)',
+      'Saint-Laurent-du-Maroni (French Guiana)',
+      'Cayenne, French Guiana',
+    ]) {
+      expect(isExplicitlyOutsideTarget(locality)).toBe(true);
+      expect(isLocationExplicitlyForeign(locality)).toBe(true);
+    }
+    expect(isLocationExplicitlyForeign('Saint-Laurent-du-Maroni')).toBe(true);
+    // AR is both a US state and a Swiss canton; the location resolver must
+    // keep the ambiguous suffix conservative when the locality is Swiss.
+    expect(isLocationExplicitlyForeign('Appenzell, AR')).toBe(false);
 
     // Mid-field country code. An end-of-field anchor could not see it, and the
     // three tenants below each reached production with a wrong published city
@@ -1567,7 +1927,7 @@ describe('mergeAndDeduplicate — previousSlugs history preserved across duplica
   });
 });
 
-describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted instead of fabricating today (#3843 item 3)', () => {
+describe('mergeAndDeduplicate — publication dates require explicit source evidence', () => {
   const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
   let registryOverridePath;
   let prevOverride;
@@ -1594,9 +1954,9 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
     ...over,
   });
 
-  it('uses next.datePosted when neither side carries postedDate (legacy crawler emits only datePosted)', () => {
+  it('preserves a reported datePosted alias when neither side carries postedDate', () => {
     const prev = baseJob({ datePosted: '2026-06-15', crawledAt: '2026-06-20T00:00:00.000Z' });
-    const next = baseJob({ datePosted: '2026-06-15' });
+    const next = baseJob({ datePosted: '2026-06-15', postingDateSource: 'reported' });
     const { merged } = mergeAndDeduplicate([prev], [next], cfg);
     expect(merged).toHaveLength(1);
     // Before the fix this fabricated today's nowIsoDate.
@@ -1605,9 +1965,9 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
 
   it('keeps the older real source date when prev.postedDate was fabricated by an earlier merge run', () => {
     // prev.postedDate = nowIsoDate stamped by a pre-fix merge; the incoming
-    // legacy job still carries the true (older) source posting date.
+    // refreshed job explicitly carries verified employer publication evidence.
     const prev = baseJob({ postedDate: '2026-07-01', crawledAt: '2026-07-01T00:00:00.000Z' });
-    const next = baseJob({ datePosted: '2026-06-10' });
+    const next = baseJob({ datePosted: '2026-06-10', postingDateSource: 'reported' });
     const { merged } = mergeAndDeduplicate([prev], [next], cfg);
     expect(merged).toHaveLength(1);
     expect(merged[0].postedDate).toBe('2026-06-10');
@@ -1615,7 +1975,7 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
 
   it('does not let a crawler that stamps datePosted=today churn an established older postedDate forward (preserveOlder semantics)', () => {
     const today = new Date().toISOString().split('T')[0];
-    const prev = baseJob({ postedDate: '2026-06-01', crawledAt: '2026-06-01T00:00:00.000Z' });
+    const prev = baseJob({ postedDate: '2026-06-01', postingDateSource: 'reported', crawledAt: '2026-06-01T00:00:00.000Z' });
     const next = baseJob({ datePosted: today });
     const { merged } = mergeAndDeduplicate([prev], [next], cfg);
     expect(merged).toHaveLength(1);
@@ -1624,7 +1984,7 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
 
   it('existing-vs-existing collapse (mergeDuplicateJobPreservingSlugHistory path) keeps the older datePosted-only date instead of the winner\'s fabricated one', () => {
     const winner = baseJob({ postedDate: '2026-07-05', crawledAt: daysAgoIso(3), featured: true });
-    const loser = baseJob({ datePosted: '2026-05-20', crawledAt: daysAgoIso(3), featured: false });
+    const loser = baseJob({ datePosted: '2026-05-20', postingDateSource: 'reported', crawledAt: daysAgoIso(3), featured: false });
     const { merged } = mergeAndDeduplicate([winner, loser], [], cfg);
     expect(merged).toHaveLength(1);
     expect(merged[0].postedDate).toBe('2026-05-20');
@@ -1632,12 +1992,12 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
 
   it('pickMergedPostedDate: lets next win when it is actually older, prefers real dates over unparseable ones, and returns empty when both sides are blank', () => {
     expect(pickMergedPostedDate(
-      { postedDate: '2026-07-01' },
-      { postedDate: '2026-06-01' },
+      { postedDate: '2026-07-01', postingDateSource: 'reported' },
+      { postedDate: '2026-06-01', postingDateSource: 'reported' },
     )).toBe('2026-06-01');
     expect(pickMergedPostedDate(
       { postedDate: 'not-a-date' },
-      { datePosted: '2026-06-01' },
+      { datePosted: '2026-06-01', postingDateSource: 'reported' },
     )).toBe('2026-06-01');
     expect(pickMergedPostedDate({}, {})).toBe('');
   });
@@ -1687,6 +2047,7 @@ describe('mergeAndDeduplicate — crawledAt is last-seen-live, refreshed on ever
       crawledAt: STALE_CRAWLED_AT,
       firstSeenAt: '2026-05-20T08:00:00.000Z',
       postedDate: '2026-05-18',
+      postingDateSource: 'reported',
     });
     const next = baseJob({}); // incoming re-crawl; merge stamps crawledAt=now
     const { merged } = mergeAndDeduplicate([prev], [next], cfg);
@@ -1866,6 +2227,45 @@ describe('hasFullLocaleCoverage — post-merge needsRetranslation guard (#3442)'
   });
 });
 
+describe('hasCompleteLocaleTextCoverage — queue guard for partial translations', () => {
+  const sourceTitle = 'Facharzt Allgemeine Innere Medizin';
+  const sourceDescription = 'Beschreibung der Stelle mit ausreichend langem Inhalt. '.repeat(6);
+  const completeJob = {
+    sourceLang: 'de',
+    titleByLocale: {
+      de: sourceTitle,
+      it: 'Medico specialista in medicina interna',
+      en: 'Specialist in general internal medicine',
+      fr: 'Médecin spécialiste en médecine interne générale',
+    },
+    descriptionByLocale: {
+      de: sourceDescription,
+      it: 'Descrizione italiana della posizione con dettagli operativi. '.repeat(6),
+      en: 'English description of the position with operational details. '.repeat(6),
+      fr: 'Description française du poste avec des détails opérationnels. '.repeat(6),
+    },
+  };
+
+  it('requires all four title/description pairs', () => {
+    expect(hasCompleteLocaleTextCoverage(completeJob)).toBe(true);
+    expect(hasCompleteLocaleTextCoverage({
+      ...completeJob,
+      descriptionByLocale: { ...completeJob.descriptionByLocale, fr: '' },
+    })).toBe(false);
+  });
+
+  it('does not treat source-language copies as completed translations', () => {
+    expect(hasCompleteLocaleTextCoverage({
+      ...completeJob,
+      titleByLocale: { ...completeJob.titleByLocale, it: sourceTitle },
+    })).toBe(false);
+    expect(hasCompleteLocaleTextCoverage({
+      ...completeJob,
+      descriptionByLocale: { ...completeJob.descriptionByLocale, en: sourceDescription },
+    })).toBe(false);
+  });
+});
+
 describe('hasCorrectLocaleCoverage — rejects locale-mislabeled titles (#4788)', () => {
   // hasFullLocaleCoverage only checks presence: a job with a DE title stuck
   // in the IT slot still passes it (4/4 non-empty), which let the merge-time
@@ -1919,7 +2319,10 @@ describe('mergePreserveLocaleData — translation stability lock respects locale
   const baseTitles = { it: 'Venditore', en: 'Salesperson', de: 'Verkaufer', fr: 'Vendeur' };
   const baseSlugs = { it: 'venditore-x', en: 'salesperson-x', de: 'verkaufer-x', fr: 'vendeur-x' };
   const baseDescriptions = {
-    it: 'x'.repeat(150), en: 'x'.repeat(150), de: 'x'.repeat(150), fr: 'x'.repeat(150),
+    it: 'Descrizione italiana della posizione con dettagli operativi. '.repeat(4),
+    en: 'English description of the position with operational details. '.repeat(4),
+    de: 'Deutsche Beschreibung der Stelle mit operativen Details. '.repeat(4),
+    fr: 'Description française du poste avec des détails opérationnels. '.repeat(4),
   };
 
   it('keeps needsRetranslation=true when the previous record has a locale-mislabeled title', () => {
@@ -1967,6 +2370,19 @@ describe('mergePreserveLocaleData — translation stability lock respects locale
     };
     const [merged] = mergePreserveLocaleData([old], [fresh]);
     expect(merged.needsRetranslation).toBe(false);
+  });
+
+  it('marks a newly merged partial record instead of relying on a later audit', () => {
+    const [merged] = mergePreserveLocaleData([], [{
+      url: 'https://example.com/job/partial-new',
+      sourceLang: 'de',
+      title: 'Facharzt Allgemeine Innere Medizin',
+      description: 'Beschreibung der Stelle mit ausreichend langem Inhalt. '.repeat(6),
+      titleByLocale: { de: 'Facharzt Allgemeine Innere Medizin' },
+      descriptionByLocale: { de: 'Beschreibung der Stelle mit ausreichend langem Inhalt. '.repeat(6) },
+    }]);
+
+    expect(merged.needsRetranslation).toBe(true);
   });
 });
 

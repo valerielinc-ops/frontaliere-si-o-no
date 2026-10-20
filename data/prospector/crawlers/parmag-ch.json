@@ -1,0 +1,24 @@
+{
+  "companyKey": "parmag-ch",
+  "companyName": "ParMag AG",
+  "companyHost": "parmag.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://parmag.ch/stellen"
+  ],
+  "detailTemplate": "/stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "in Basel-Stadt, Basellandschaft",
+    "in Biel, Neuenburg & Freiburg",
+    "in Bern",
+    "in Bern",
+    "in Stadt Zürich"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-17T09:08:53.755Z"
+}

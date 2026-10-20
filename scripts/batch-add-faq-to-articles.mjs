@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * batch-add-faq-to-articles.mjs — Add AI-generated FAQ to existing blog articles.
  *
@@ -21,7 +23,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
 import { resolve, basename, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { execSync } from 'child_process';
+import { execFileSync, execSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -29,10 +31,11 @@ const ROOT = resolve(__dirname, '..');
 import { resolveGitAddPath } from './lib/resolve-git-add-path.mjs';
 import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, flushScoresBeforeExit, resetExhaustedModel, printRunSummary } from './lib/ai-models.mjs';
 import { freeTranslateWithRetry, isSourcePassthrough, logCascadeSummary } from './lib/free-translate.mjs';
-import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
+import { repairLlmJsonArray, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
 import { wrongLocalePair } from './fix-faq-locales.mjs';
 import { unescapeTsString } from './lib/unescape-ts-string.mjs';
 import { cleanFaqPairs } from './lib/prompt-placeholder-guard.mjs';
+import { assertOldHistorySafe, isOldHistoryBlockedError } from './lib/old-history-guard.mjs';
 
 // ── CLI argument parsing ─────────────────────────────────────
 const args = process.argv.slice(2);
@@ -135,31 +138,6 @@ function escapeForSingleQuoteTS(s) {
   return String(s || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '');
 }
 
-/** Strip markdown fences and extract JSON array from LLM output.
- *  Bracket-balanced extraction + string repair live in ./lib/llm-json-repair.mjs
- *  (shared with create-article.mjs's repairLlmJson — same LLM-JSON quirks). */
-function repairJsonArray(s) {
-  let c = stripCodeFences(s);
-  // Bracket-balanced extraction so trailing prose (LLM "Note: ..." after the
-  // array) does not pull in a foreign ']' via lastIndexOf.
-  const arrStart = c.indexOf('[');
-  if (arrStart !== -1) {
-    const arrEnd = findMatchingClose(c, arrStart);
-    if (arrEnd !== -1) c = c.slice(arrStart, arrEnd + 1);
-    else {
-      const lastClose = c.lastIndexOf(']');
-      if (lastClose > arrStart) c = c.slice(arrStart, lastClose + 1);
-    }
-  } else {
-    const objStart = c.indexOf('{');
-    if (objStart !== -1) {
-      const objEnd = findMatchingClose(c, objStart);
-      if (objEnd !== -1) c = c.slice(objStart, objEnd + 1);
-    }
-  }
-  return fixJsonStringBody(c);
-}
-
 /** Extract FAQ array from various LLM response shapes:
  *  - direct array: [...]
  *  - wrapped object: {"faq": [...]} or {"faqs": [...]} or {"questions": [...]}
@@ -224,8 +202,12 @@ function saveProgress(progress) {
 /** Incremental git commit — saves work so CI timeout doesn't lose progress */
 let _lastCommitStep = 0;
 const COMMIT_EVERY = 25;
+const MAIN_PUSH_HELPER = resolve(ROOT, 'scripts/lib/git-push-with-retry.sh');
 
 function gitCommitAndPush(label) {
+  // Check before staging or committing: this checkpoint must never turn an old
+  // local history into a new main push, and it must never pull/rebase that history.
+  assertOldHistorySafe({ cwd: ROOT, refreshBase: true });
   try {
     const bodyDirGitPath = resolveGitAddPath(ROOT, `services/locales/${SECTION_BODY_DIR}/`);
     execSync(
@@ -233,25 +215,19 @@ function gitCommitAndPush(label) {
       `git diff --cached --quiet || git commit -m "❓ FAQ batch checkpoint (${label})"`,
       { cwd: ROOT, stdio: 'pipe', timeout: 30000 }
     );
-    // Push using default GITHUB_TOKEN (permissions: contents: write)
+    // Use the same authenticated/retry path as every other direct main writer;
+    // it repeats the non-destructive history guard before any retry rebase.
     try {
-      execSync('git push origin main', { cwd: ROOT, stdio: 'pipe', timeout: 60000 });
+      execFileSync('bash', [MAIN_PUSH_HELPER, '--max-attempts', '3'], {
+        cwd: ROOT, stdio: 'pipe', timeout: 120000,
+      });
       console.error(`💾 Checkpoint pushed: ${label}`);
     } catch (pushErr) {
-      // Rebase and retry once (handles concurrent pushes)
-      try {
-        execSync('git pull --rebase origin main', { cwd: ROOT, stdio: 'pipe', timeout: 30000 });
-        execSync('git push origin main', { cwd: ROOT, stdio: 'pipe', timeout: 60000 });
-        console.error(`💾 Checkpoint pushed (after rebase): ${label}`);
-      } catch {
-        // A conflicting rebase leaves an in-progress rebase state that wedges every
-        // subsequent run on the same runner; abort it so the loop can't stay stuck
-        // (mirrors the `git rebase --abort` recovery added to the bash loops in #2721).
-        try { execSync('git rebase --abort', { cwd: ROOT, stdio: 'pipe', timeout: 30000 }); } catch { /* no rebase in progress */ }
-        console.error(`⚠️  Checkpoint committed but push failed: ${pushErr.message?.slice(0, 100)}`);
-      }
+      if (isOldHistoryBlockedError(pushErr)) throw pushErr;
+      console.error(`⚠️  Checkpoint committed but push failed: ${pushErr.message?.slice(0, 100)}`);
     }
   } catch (err) {
+    if (isOldHistoryBlockedError(err)) throw err;
     console.error(`⚠️  Checkpoint failed: ${err.message?.slice(0, 100)}`);
   }
 }
@@ -671,7 +647,7 @@ async function _generateFaqITAttempt(bodyText, maxTokens) {
     { temperature: 0.5, maxTokens, jsonMode: true },
   );
 
-  const repaired = repairJsonArray(raw);
+  const repaired = repairLlmJsonArray(raw);
   let parsed;
   try {
     parsed = JSON.parse(repaired);
@@ -745,7 +721,7 @@ async function _generateTopUpFaqITAttempt(bodyText, existingFaq, maxTokens) {
     { temperature: 0.5, maxTokens, jsonMode: true },
   );
 
-  const repaired = repairJsonArray(raw);
+  const repaired = repairLlmJsonArray(raw);
   let parsed;
   try {
     parsed = JSON.parse(repaired);
@@ -1370,7 +1346,7 @@ async function main() {
 // batch-add-faq-to-articles.mjs`) — NOT when it's imported elsewhere just to
 // reuse `generateFaqIT` (e.g. publish-journalist-article.mjs), which would
 // otherwise trigger the entire batch scan as an import side effect.
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   installSigtermCheckpoint();
   main().catch(async (err) => {
     // Il flush allo step 6 di main() copre solo il ramo riuscito: qui

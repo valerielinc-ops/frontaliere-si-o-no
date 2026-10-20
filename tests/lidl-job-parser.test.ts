@@ -23,9 +23,11 @@ import {
   getLidlSearchPageCount,
   extractLidlSearchLanguagePartitions,
   extractLidlApiHitFields,
+  restoreLidlSourceLocaleStructure,
 } from '../scripts/lib/lidl-job-parser.mjs';
 import {
   assertLidlAdapterParity,
+  applyLidlDetailDescriptions,
   ensureAdapterSeedUrls,
   fetchLidlJobDetailUrls,
   inferLidlCanton,
@@ -189,6 +191,32 @@ describe('parseLidlDetailPage / store assistant (Verkäufer/in)', () => {
 
   it('body does NOT contain raw HTML tags', () => {
     expect(result.body).not.toMatch(/<[a-zA-Z]/);
+  });
+});
+
+describe('parseLidlDetailPage / current LiCa rendered modules', () => {
+  const html = `<!DOCTYPE html><html><body>
+    <div class="outer_header"><ul>${Array.from({ length: 20 }, (_, i) => `<li>Navigation ${i}</li>`).join('')}</ul></div>
+    <div class="lica-job-detail-page">
+      <section class="lica-module-container">
+        <div class="lica-rich-text"><p>Der Verkauf ist deine Passion und du möchtest täglich das beste Einkaufserlebnis bieten.</p>
+          <h2>Deine Aufgaben</h2><ul>${Array.from({ length: 4 }, (_, i) => `<li>Aufgabe ${i} mit Verantwortung für Kundschaft und Team.</li>`).join('')}</ul>
+          <h2>Dein Profil</h2><ul>${Array.from({ length: 3 }, (_, i) => `<li>Profilanforderung ${i} mit Zuverlässigkeit und Flexibilität.</li>`).join('')}</ul>
+        </div>
+      </section>
+      <section class="lica-module-container lica-benefits-module">
+        <h2>Benefits</h2><div>Wir bieten Vorsorge, faire Arbeitsbedingungen und Entwicklungsmöglichkeiten.</div>
+      </section>
+    </div>
+  </body></html>`;
+  const result = parseLidlDetailPage(html);
+
+  it('combines the vacancy prose and benefits modules, not the larger navigation list', () => {
+    expect(result.body).toContain('Der Verkauf ist deine Passion');
+    expect(result.body).toContain('Benefits');
+    expect(result.body).not.toContain('Navigation 0');
+    expect(result.hasLists).toBe(true);
+    expect(result.meetsMinLength).toBe(true);
   });
 });
 
@@ -492,10 +520,21 @@ describe('extractLidlApiHitFields', () => {
   });
 });
 
+// Minimised from the live LiCa body of team.lidl.ch/it/jobs/…-riazzino-748675
+// (2026-09-29). Discovery only seeds a vacancy whose body clears the shared
+// 50-word floor (source-body-floor.mjs), so the default hit carries a real one.
+const LICA_IT_BODY_TEXT = 'La vendita è la tua passione? Desideri fare del tuo meglio ogni giorno per offrire alla nostra clientela la migliore esperienza di acquisto possibile? Vuoi fare parte di un team indispensabile? Allora sei venuto proprio nel posto giusto. Ti aspettano interessanti e svariate possibilità di crescita professionale nel dinamico ambiente del commercio al dettaglio. Responsabilità del turno di lavoro secondo la pianificazione. Garantire la soddisfazione della clientela e gli standard di distribuzione nelle nostre filiali. Gestione ordini e presentazione delle merci.';
+const LICA_IT_BODY_HTML = '<div><div><h2><u>Introduzione</u></h2></div><div><p>La vendita è la tua passione? Desideri fare del tuo meglio ogni giorno per offrire alla nostra clientela la migliore esperienza di acquisto possibile? Vuoi fare parte di un team indispensabile? Allora sei venuto proprio nel posto giusto. Ti aspettano interessanti e svariate possibilità di crescita professionale nel dinamico ambiente del commercio al dettaglio.</p></div><div><h2><u>La posizione</u></h2></div><div><ul><li>Responsabilità del turno di lavoro secondo la pianificazione</li><li>Garantire la soddisfazione della clientela e gli standard di distribuzione nelle nostre filiali</li><li>Gestione ordini e presentazione delle merci</li><li>Attività di cassa</li></ul></div></div>';
+
+function firstWords(count: number) {
+  // Counted like sourceBodyWordCount(): tokens carrying a letter or a digit.
+  return LICA_IT_BODY_TEXT.split(/\s+/).filter((token) => /[\p{L}\p{N}]/u.test(token)).slice(0, count).join(' ');
+}
+
 function licaHit(id: number, overrides: Record<string, unknown> = {}) {
   return {
     title: `Collaboratore vendita ${id}`,
-    descResponsibilities: '<ul><li>Consulenza alla clientela e gestione accurata della merce.</li><li>Collaborazione quotidiana con il team della filiale.</li></ul>',
+    descResponsibilities: LICA_IT_BODY_HTML,
     language: 'it',
     requisitionId: String(id),
     jobDetailUrl: `https://team.lidl.ch/it/jobs/collaboratore-vendita-lugano-${id}`,
@@ -536,6 +575,9 @@ const LIDL_VERIFIED_LOCATIONS = [
   ['Bevaix', '2022', 'NE'],
   ['Niederuzwil', '9244', 'SG'],
   ['Romont', '1680', 'FR'],
+  ['Lüchingen', '9450', 'SG'],
+  ['Châtelaine', '1219', 'GE'],
+  ['Brunnen', '6440', 'SZ'],
 ] as const;
 
 function licaEnvelope(
@@ -560,6 +602,18 @@ describe('Lidl authoritative LiCa discovery', () => {
     expect(inferLidlCanton({ city: 'Sâles', country: 'CH' })).toBe('FR');
     expect(inferLidlCanton({ city: 'Bulle', country: 'FR' })).toBe('');
     expect(inferLidlCanton({ city: 'Unknown place', country: 'CH' })).toBe('');
+  });
+
+  it('rejects when the discovery fetch ignores AbortSignal instead of exiting cleanly', async () => {
+    let observedSignal: AbortSignal | undefined;
+    await expect(fetchLidlJobDetailUrls({
+      fetchImpl: async (_url, options) => {
+        observedSignal = options?.signal;
+        return new Promise(() => {});
+      },
+      timeoutMs: 10,
+    })).rejects.toMatchObject({ name: 'TimeoutError' });
+    expect(observedSignal?.aborted).toBe(true);
   });
 
   it.each(LIDL_VERIFIED_LOCATIONS)(
@@ -598,6 +652,27 @@ describe('Lidl authoritative LiCa discovery', () => {
     expect(result.urls).toHaveLength(21);
     expect(result.jobsFromApi).toHaveLength(21);
     expect(Object.keys(result.seedMetaByUrl)).toHaveLength(21);
+  });
+
+  it('withholds a vacancy whose body is under 50 words even when it is longer than the old 50-character gate', async () => {
+    // 49 words (~300 characters) cleared the former `body.length < 50` check and
+    // would have been published as a thin page; 50 words is the floor.
+    const thin = licaHit(74000, { descResponsibilities: `<p>${firstWords(49)}</p>` });
+    const atFloor = licaHit(74001, { descResponsibilities: `<p>${firstWords(50)}</p>` });
+    expect(firstWords(49).length).toBeGreaterThan(50);
+    const fetchImpl = async (input: string | URL | Request) => {
+      const { language } = lidlRequest(input);
+      const jobs = [thin, atFloor];
+      return new Response(JSON.stringify(licaEnvelope(jobs, {
+        totalCount: jobs.length,
+        filters: language ? undefined : languageFilters({ it: jobs.length }),
+      })), { status: 200 });
+    };
+    const result = await fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 });
+    expect(result).toMatchObject({ rawFetched: 2, withheldThinBody: 1, droppedMalformed: 0 });
+    expect(result.urls).toEqual([expect.stringMatching(/74001$/)]);
+    expect(result.jobsFromApi).toEqual([expect.objectContaining({ url: expect.stringMatching(/74001$/) })]);
+    expect(Object.keys(result.seedMetaByUrl)).toEqual([expect.stringMatching(/74001$/)]);
   });
 
   it('fails closed on partial pagination, total drift, malformed URLs, and HTTP failure', async () => {
@@ -800,5 +875,59 @@ describe('Lidl adapter persistence', () => {
     } finally {
       fs.rmSync(dir, { recursive: true, force: true });
     }
+  });
+});
+
+describe('restoreLidlSourceLocaleStructure', () => {
+  // Minimised from team.lidl.ch/fr/jobs/…-collombey-muraz-709685 (2026-09-29):
+  // the LiCa API body keeps one item per line, the stored `fr` slot had the
+  // list collapsed into prose after the base crawler.
+  const apiBody = [
+    'Introduction',
+    'Tu es passionné par la vente ?',
+    'Ta mission',
+    '',
+    '- Responsable d\'équipe selon la planification',
+    '',
+    '- Assurer la satisfaction des clients et les standards de la vente dans nos magasins',
+    '',
+    '- Encaissement',
+    'Notre offre',
+    'Chez Lidl Suisse, il y a de la place pour les ambitions et les innovations.',
+  ].join('\n');
+  const collapsed = 'Introduction\nTu es passionné par la vente ? Ta mission\n- Responsable d\'équipe selon la planification - Assurer la satisfaction des clients et les standards de la vente dans nos magasins - Encaissement Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations.';
+  const apiJob = { sourceLang: 'fr', description: apiBody };
+
+  it('puts the structured API body back into its own language slot', () => {
+    const job = { descriptionByLocale: { fr: collapsed, it: 'Introduzione\n- Responsabile di squadra\n- Cassa' } };
+    expect(restoreLidlSourceLocaleStructure(job, apiJob)).toBe(true);
+    expect(job.descriptionByLocale.fr).toBe(apiBody);
+    expect(job.descriptionByLocale.it).toBe('Introduzione\n- Responsabile di squadra\n- Cassa');
+  });
+
+  it('leaves a slot that already carries the list, and an API body without one', () => {
+    const structured = { descriptionByLocale: { fr: apiBody } };
+    expect(restoreLidlSourceLocaleStructure(structured, apiJob)).toBe(false);
+    const flatApi = { descriptionByLocale: { fr: collapsed } };
+    expect(restoreLidlSourceLocaleStructure(flatApi, { sourceLang: 'fr', description: 'Texte sans liste.' })).toBe(false);
+    expect(flatApi.descriptionByLocale.fr).toBe(collapsed);
+  });
+});
+
+describe('applyLidlDetailDescriptions', () => {
+  it('writes a complete rendered body into the top-level and source-locale fields', () => {
+    const detailUrl = 'https://team.lidl.ch/de/jobs/allrounder-verkauf-702654';
+    const fullBody = `Introduction\n\n${Array.from({ length: 70 }, (_, i) => `- Vollständige Aufgabe ${i} mit Kundennähe`).join('\n')}`;
+    const jobs = [{
+      companyKey: 'lidl-svizzera',
+      url: detailUrl,
+      sourceLang: 'de',
+      description: 'Kurzfassung',
+      descriptionByLocale: { de: 'Kurzfassung', it: 'Traduzione esistente' },
+    }];
+
+    expect(applyLidlDetailDescriptions(jobs, new Map([[detailUrl, fullBody]]))).toBe(1);
+    expect(jobs[0].description).toBe(fullBody);
+    expect(jobs[0].descriptionByLocale).toEqual({ de: fullBody, it: 'Traduzione esistente' });
   });
 });

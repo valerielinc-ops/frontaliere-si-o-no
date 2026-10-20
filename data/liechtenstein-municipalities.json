@@ -1,5 +1,5 @@
 {
-  "source": "Amt für Statistik Liechtenstein, \"Statistisches Jahrbuch Liechtensteins 2025\", tab. T_2.1_01 \"Bevölkerung nach Wohngemeinde, 1960-2023\", p. 75 (dato 31.12.2023) + Wikidata (wdt:P31 wd:Q203300, wdt:P625) per le coordinate; vedi data/liechtensteinMunicipalities.ts per dettaglio fonte-per-fonte.",
+  "source": "Amt für Statistik Liechtenstein, \"Statistisches Jahrbuch Liechtensteins 2025\", tab. T_2.1_01 \"Bevölkerung nach Wohngemeinde, 1960-2023\", p. 75 (dato 31.12.2023); Amt für Bau und Infrastruktur/Amt für Statistik, \"Liechtenstein in Zahlen 2022\", tavole comunali con area, quota e densità 2020; Wikidata (wdt:P31 wd:Q203300, wdt:P625) per le coordinate. Vedi data/liechtensteinMunicipalities.ts per dettaglio fonte-per-fonte.",
   "year": 2023,
   "nationalPopulation": {
     "value": 40015,
@@ -27,7 +27,11 @@
       "lat": 47.1667,
       "lng": 9.5167,
       "population": 6109,
-      "populationYear": 2023
+      "populationYear": 2023,
+      "areaKm2": 26.92,
+      "elevationM": 462,
+      "populationDensity2020": 224,
+      "region": "Oberland"
     },
     {
       "name": "Vaduz",
@@ -36,7 +40,11 @@
       "lat": 47.1406,
       "lng": 9.5222,
       "population": 5826,
-      "populationYear": 2023
+      "populationYear": 2023,
+      "areaKm2": 17.315,
+      "elevationM": 460,
+      "populationDensity2020": 332,
+      "region": "Oberland"
     },
     {
       "name": "Triesen",
@@ -45,7 +53,11 @@
       "lat": 47.1,
       "lng": 9.5167,
       "population": 5532,
-      "populationYear": 2023
+      "populationYear": 2023,
+      "areaKm2": 26.484,
+      "elevationM": 512,
+      "populationDensity2020": 201,
+      "region": "Oberland"
     },
     {
       "name": "Balzers",
@@ -54,7 +66,11 @@
       "lat": 47.0667,
       "lng": 9.5,
       "population": 4747,
-      "populationYear": 2023
+      "populationYear": 2023,
+      "areaKm2": 19.731,
+      "elevationM": 477,
+      "populationDensity2020": 238,
+      "region": "Oberland"
     },
     {
       "name": "Eschen",
@@ -63,7 +79,11 @@
       "lat": 47.2,
       "lng": 9.5167,
       "population": 4607,
-      "populationYear": 2023
+      "populationYear": 2023,
+      "areaKm2": 10.381,
+      "elevationM": 457,
+      "populationDensity2020": 435,
+      "region": "Unterland"
     },
     {
       "name": "Mauren",
@@ -72,7 +92,11 @@
       "lat": 47.2197,
       "lng": 9.5428,
       "population": 4589,
-      "populationYear": 2023
+      "populationYear": 2023,
+      "areaKm2": 7.491,
+      "elevationM": 472,
+      "populationDensity2020": 590,
+      "region": "Unterland"
     },
     {
       "name": "Triesenberg",
@@ -81,7 +105,11 @@
       "lat": 47.1167,
       "lng": 9.5333,
       "population": 2671,
-      "populationYear": 2023
+      "populationYear": 2023,
+      "areaKm2": 29.689,
+      "elevationM": 886,
+      "populationDensity2020": 89,
+      "region": "Oberland"
     },
     {
       "name": "Ruggell",
@@ -90,7 +118,11 @@
       "lat": 47.245,
       "lng": 9.5332,
       "population": 2523,
-      "populationYear": 2023
+      "populationYear": 2023,
+      "areaKm2": 7.378,
+      "elevationM": 433,
+      "populationDensity2020": 325,
+      "region": "Unterland"
     }
   ],
   "belowFloor": [
@@ -101,7 +133,11 @@
       "lat": 47.2199,
       "lng": 9.51,
       "population": 1768,
-      "populationYear": 2023
+      "populationYear": 2023,
+      "areaKm2": 6.188,
+      "elevationM": 468,
+      "populationDensity2020": 272,
+      "region": "Unterland"
     },
     {
       "name": "Schellenberg",
@@ -110,7 +146,11 @@
       "lat": 47.2283,
       "lng": 9.5395,
       "population": 1155,
-      "populationYear": 2023
+      "populationYear": 2023,
+      "areaKm2": 3.559,
+      "elevationM": 630,
+      "populationDensity2020": 308,
+      "region": "Unterland"
     },
     {
       "name": "Planken",
@@ -119,7 +159,11 @@
       "lat": 47.1833,
       "lng": 9.5333,
       "population": 488,
-      "populationYear": 2023
+      "populationYear": 2023,
+      "areaKm2": 5.341,
+      "elevationM": 786,
+      "populationDensity2020": 91,
+      "region": "Oberland"
     }
   ]
 }

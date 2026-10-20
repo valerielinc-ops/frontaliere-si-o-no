@@ -16,6 +16,8 @@ on:
 
 permissions:
   contents: read
+  # The freshness observer opens/closes its stable-title issue.
+  issues: write
 
 concurrency:
   group: employer-insights-refresh
@@ -29,29 +31,13 @@ jobs:
       INSIGHTS_SOURCE: ${{ inputs.source || 'ga4' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
-          # The builder needs the complete job identity catalog. Keep the
-          # heavy unrelated trees out, but deliberately retain data/jobs/.
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/orphan-enriched-data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
+          # checkout profile: intentionally full
+          # The builder needs the complete job identity catalog and the
+          # measured residual is above the lazy-blob crossover: full checkout
+          # is faster and safer than excluding unrelated trees here.
 
       - name: Validate selected source
         run: |
@@ -66,7 +52,7 @@ jobs:
           echo "Selected employer-insights source: $INSIGHTS_SOURCE"
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
@@ -101,6 +87,10 @@ jobs:
               ;;
           esac
 
+      - name: Provision Employer Insights GA4 dimensions
+        if: env.INSIGHTS_SOURCE == 'ga4'
+        run: node scripts/provision-employer-insights-ga4-dimensions.mjs
+
       - name: Count current employer snapshots
         run: |
           set -euo pipefail
@@ -133,16 +123,8 @@ jobs:
             | tee /tmp/employer-insights-builder.log
           test -s /tmp/employer-insights-dry-run.json
           test -s /tmp/employer-insights-d18.json
-
-      - name: Validate D18 cumulative artifact
-        run: |
-          set -euo pipefail
-          node scripts/ci/validate-employer-insights-d18-payload.mjs \
-            --payload /tmp/employer-insights-d18.json
-
-      - name: Require first live GA4 evidence
-        run: |
-          set -euo pipefail
+          # A blocked live-evidence artifact is not writable: report the
+          # validator's ::error annotations before any Firestore mutation.
           node scripts/ci/validate-employer-insights-d18-payload.mjs \
             --payload /tmp/employer-insights-d18.json \
             --require-live-ga4
@@ -247,6 +229,18 @@ jobs:
             throw error;
           }
           NODE
+
+      # Freshness observer: whatever stopped the write (this run or the ones
+      # before it), a dashboard that reads data older than the threshold opens
+      # a stable-title issue; the first fresh reading closes it. always(), like
+      # upload and cleanup: a job that times out before the write is a stale
+      # case too, and `!cancelled()` would skip the only step that measures it.
+      - name: Alert when the last successful write is stale
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/ci/check-employer-insights-freshness.mjs
 
       - name: Upload D18 bounded artifact
         if: always()

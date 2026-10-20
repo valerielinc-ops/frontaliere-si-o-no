@@ -19,6 +19,9 @@ import { DEFAULT_EXCHANGE_RATE } from '@/constants';
 
 const CACHE_KEY = 'exchange_rate_cache';
 const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
+const EXCHANGE_RATE_FETCH_TIMEOUT_MS = 6000;
+const EXCHANGE_RATE_FETCH_MAX_ATTEMPTS = 2;
+const EXCHANGE_RATE_FETCH_RETRY_DELAY_MS = 200;
 /**
  * Fallback rate, in the SAME direction every live source of this module
  * produces: CHF→EUR, i.e. 1 CHF = DEFAULT_RATE EUR, a number just above 1.
@@ -51,6 +54,7 @@ const IS_TEST_ENV = typeof process !== 'undefined' && (process.env.NODE_ENV === 
 let firestoreRateCalls = 0;
 let twelveDataCalls = 0;
 let firestoreHistoryCalls = 0;
+let fetchImplementationForTests: typeof fetch | null = null;
 
 /** Which source provided the current rate */
 export type RateSource = 'twelvedata' | 'firestore' | 'cache' | 'fallback';
@@ -183,23 +187,42 @@ const EXCHANGE_RATE_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfun
 
 async function fetchFromTwelveData(): Promise<number | null> {
  twelveDataCalls++;
- if (IS_TEST_ENV) return null;
- const controller = new AbortController();
- const timeoutId = setTimeout(() => controller.abort(), 6000);
- try {
- const res = await fetch(EXCHANGE_RATE_ENDPOINT, { signal: controller.signal });
- if (!res.ok) return null;
- const data = await res.json();
- return data?.ok && typeof data.rate === 'number' ? data.rate : null;
- } catch (e) {
- const isAbort = (e instanceof Error && e.name === 'AbortError') || (e instanceof DOMException && e.name === 'AbortError');
- if (!isAbort) {
- reportCaughtError(e, 'exchangeRate.cfFetch', { apiEndpoint: EXCHANGE_RATE_ENDPOINT });
+ if (IS_TEST_ENV && !fetchImplementationForTests) return null;
+
+ // A single retry recovers short transport blips while keeping the total request
+ // budget bounded. Exhausted non-abort failures use the existing reporter;
+ // aborts retain their silent fallback path in fetchExchangeRate() below.
+ let lastError: unknown;
+ for (let attempt = 1; attempt <= EXCHANGE_RATE_FETCH_MAX_ATTEMPTS; attempt++) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), EXCHANGE_RATE_FETCH_TIMEOUT_MS);
+  try {
+   const fetcher = fetchImplementationForTests ?? fetch;
+   const res = await fetcher(EXCHANGE_RATE_ENDPOINT, { signal: controller.signal });
+   if (!res.ok) return null;
+   const data = await res.json();
+   return data?.ok && typeof data.rate === 'number' ? data.rate : null;
+  } catch (error) {
+   lastError = error;
+   const isAbort = (error instanceof Error && error.name === 'AbortError')
+    || (typeof DOMException !== 'undefined' && error instanceof DOMException && error.name === 'AbortError');
+   // Preserve the existing timeout contract: aborts fall back silently and
+   // aren't retried or reported as a second app_error source.
+   if (isAbort) return null;
+  } finally {
+   clearTimeout(timeoutId);
+  }
+
+  if (attempt < EXCHANGE_RATE_FETCH_MAX_ATTEMPTS) {
+   await new Promise<void>((resolve) => setTimeout(resolve, EXCHANGE_RATE_FETCH_RETRY_DELAY_MS));
+  }
  }
+
+ reportCaughtError(lastError, 'exchangeRate.cfFetch', {
+  apiEndpoint: EXCHANGE_RATE_ENDPOINT,
+  apiMethod: 'GET',
+ });
  return null;
- } finally {
- clearTimeout(timeoutId);
- }
 }
 
 // ─── Main fetch function ─────────────────────────────────────
@@ -574,4 +597,5 @@ export const __testing = {
  get firestoreRateCalls(): number { return firestoreRateCalls; },
  get twelveDataCalls(): number { return twelveDataCalls; },
  get firestoreHistoryCalls(): number { return firestoreHistoryCalls; },
+ setFetchImplementation(fetcher: typeof fetch | null): void { fetchImplementationForTests = fetcher; },
 };

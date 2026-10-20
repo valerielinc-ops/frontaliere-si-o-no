@@ -10,10 +10,14 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, hasExplicitForeignCountrySignal } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  isAllowlistedAuthoritativeNonSwissLocation,
+  resolveSourceBackedSwissGeography,
+} from './prospector/location-evidence.mjs';
 import {
   fetchGreenhouseJobs,
   extractGreenhouseBoardToken,
@@ -121,6 +125,86 @@ function detectEmploymentType(text = '') {
 const GREENHOUSE_BOARD_TOKEN =
   extractGreenhouseBoardToken(CAREER_URL) || PROTON_KEY;
 const GREENHOUSE_LOCATION_CONTAINS = ['Geneva', 'Genève', 'Switzerland'];
+const GREENHOUSE_LOCATION_PART_SPLIT_RE = /\s*(?:[,;|/])\s*/;
+const SWISS_COUNTRY_PART_RE = /^(?:ch|switzerland|schweiz|suisse|svizzera|svizra)$/i;
+// Greenhouse's Proton board publishes these exact office names as individual
+// entries in `location.name`, often without country labels (for example,
+// "Geneva; Taipei; Skopje"). Keep the exception source-specific and exact:
+// unknown entries and unqualified locations remain rejected below.
+const PROTON_FOREIGN_OFFICE_ALLOWLIST = new Set([
+  'barcelona',
+  'london',
+  'paris',
+  'skopje',
+  'taipei',
+  'vilnius',
+]);
+
+function stripSwissCountryPart(value = '') {
+  const parts = normalizeSpace(value).split(/\s+/).filter(Boolean);
+  if (SWISS_COUNTRY_PART_RE.test(parts.at(-1) || '')) parts.pop();
+  return parts.join(' ');
+}
+
+/**
+ * Greenhouse's `location.name` is an office list for some Proton postings,
+ * not one address. The shared resolver deliberately preserves that source
+ * string, but this parser must publish only one Swiss office: the feed is
+ * filtered for Geneva/Switzerland and can otherwise attach a foreign office
+ * to the Swiss canton returned by the same row.
+ *
+ * Reduce the value only when the source contains exactly one independently
+ * resolvable Swiss part and every other part is explicitly foreign or is an
+ * exact Proton office name reviewed from Greenhouse's `location.name` list.
+ * Unknown or multiply-Swiss values stay rejected; this avoids choosing a
+ * first match from an ambiguous multi-office listing.
+ */
+function resolveProtonSourceGeography(rawLocation = '') {
+  const location = normalizeSpace(rawLocation);
+  const parts = location.split(GREENHOUSE_LOCATION_PART_SPLIT_RE).filter(Boolean);
+  const direct = resolveSourceBackedSwissGeography(location);
+  if (parts.length < 2) return direct;
+
+  const swissCandidates = [];
+  let hasForeignOffice = false;
+
+  for (let index = 0; index < parts.length; index += 1) {
+    const part = parts[index];
+    const nextPart = parts[index + 1] || '';
+    const hasSwissCountryContext = SWISS_COUNTRY_PART_RE.test(nextPart);
+    const hasForeignCountryContext = hasExplicitForeignCountrySignal(nextPart);
+    const sourcePart = hasSwissCountryContext || hasForeignCountryContext
+      ? `${part}, ${nextPart}`
+      : part;
+    const geography = resolveSourceBackedSwissGeography(sourcePart);
+
+    if (geography) {
+      const locality = stripSwissCountryPart(part);
+      if (!locality) return null;
+      swissCandidates.push({ location: locality, canton: geography.canton });
+      if (hasSwissCountryContext) index += 1;
+      continue;
+    }
+
+    // An unqualified component is accepted only when the exact Proton office
+    // allowlist proves it is a source-listed office; generic city inference
+    // is deliberately insufficient for unknown tokens.
+    const partHasForeignCountry = hasExplicitForeignCountrySignal(part);
+    const nextPartHasForeignCountry = hasExplicitForeignCountrySignal(nextPart);
+    const partIsReviewedForeignOffice = isAllowlistedAuthoritativeNonSwissLocation(
+      part,
+      PROTON_FOREIGN_OFFICE_ALLOWLIST,
+    );
+    if (!partHasForeignCountry && !nextPartHasForeignCountry && !partIsReviewedForeignOffice) {
+      return null;
+    }
+    hasForeignOffice = true;
+    if (!partHasForeignCountry && nextPartHasForeignCountry) index += 1;
+  }
+
+  if (swissCandidates.length !== 1) return null;
+  return !hasForeignOffice && direct ? direct : swissCandidates[0];
+}
 
 async function fetchJobListings() {
   const jobs = await fetchGreenhouseJobs(GREENHOUSE_BOARD_TOKEN, {
@@ -132,7 +216,7 @@ async function fetchJobListings() {
     title: j.title,
     location: j.location,
     url: j.applyUrl,
-    postedAt: j.postedAt,
+    ...mergeSourcePostingDates({}, j),
     description: j.descriptionHtml || '',
     jobReqId: j.jobReqId,
   }));
@@ -164,7 +248,7 @@ export async function fetchAllProtonJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    const geography = resolveProtonSourceGeography(listing.location);
     if (!geography) continue;
     const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
@@ -205,7 +289,7 @@ export async function fetchAllProtonJobs() {
       sector: 'IT & Tecnologia',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

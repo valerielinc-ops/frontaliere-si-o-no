@@ -60,6 +60,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 
 /**
  * How many times a single slice write may be rebuilt on fresher bytes before
@@ -142,7 +143,8 @@ export function carryForwardMarks(winner, loser) {
 /**
  * Collapse duplicate job records to one per identity — newest `assembledAt`
  * wins, as before — WITHOUT letting the winner's silence delete a mark the
- * losing copy carried.
+ * losing copy carried. Publication evidence is likewise merged only within
+ * the same identity; unverified dates cannot survive as a legacy schema fallback.
  *
  * This is `assemble-jobs-dataset.mjs`'s own dedup rule, lifted into a pure
  * function so the mark-preserving half is testable without importing the
@@ -163,19 +165,24 @@ export function dedupeByIdentityPreservingMarks(tagged, identityOf) {
     const identity = identityOf(entry.job);
     if (!identity) continue;
     const assembledAt = entry.assembledAt || '';
+    const job = { ...entry.job, ...mergeSourcePostingDates({}, entry.job) };
     const existing = byIdentity.get(identity);
     if (!existing) {
-      byIdentity.set(identity, { job: entry.job, assembledAt });
+      byIdentity.set(identity, { job, assembledAt });
       continue;
     }
     collapsed += 1;
+    // Identity equality, not a shared slug alone, permits carrying employer evidence.
+    const publication = mergeSourcePostingDates(existing.job, job);
     // `>=` (not `>`) preserves the pre-existing last-write-wins tie-break: with
     // equal timestamps the later slice in iteration order still wins.
     if (assembledAt >= existing.assembledAt) {
-      marksCarried += carryForwardMarks(entry.job, existing.job);
-      byIdentity.set(identity, { job: entry.job, assembledAt });
+      Object.assign(job, publication);
+      marksCarried += carryForwardMarks(job, existing.job);
+      byIdentity.set(identity, { job, assembledAt });
     } else {
-      marksCarried += carryForwardMarks(existing.job, entry.job);
+      Object.assign(existing.job, publication);
+      marksCarried += carryForwardMarks(existing.job, job);
     }
   }
 
@@ -365,4 +372,23 @@ export function persistMarksToSlices(slugs, { root, dryRun = false } = {}) {
     racesResolved,
     racesLost,
   };
+}
+
+/** Preserve slice precedence while carrying publication only across equal identities. */
+export function mergeBaselinePublicationEvidence(baseline, sliceJobs, identityOf) {
+  const sourceByIdentity = new Map();
+  const normalizedBaseline = baseline.map((job) => {
+    const normalized = { ...job, ...mergeSourcePostingDates({}, job) };
+    const identity = identityOf(job);
+    sourceByIdentity.set(identity, mergeSourcePostingDates(sourceByIdentity.get(identity) || {}, normalized));
+    return normalized;
+  });
+  const sliceIdentities = new Set(sliceJobs.map(identityOf));
+  return [
+    ...normalizedBaseline.filter((job) => !sliceIdentities.has(identityOf(job))),
+    ...sliceJobs.map((job) => ({
+      ...job,
+      ...mergeSourcePostingDates(sourceByIdentity.get(identityOf(job)) || {}, job),
+    })),
+  ];
 }

@@ -9,6 +9,14 @@
  *
  * Swiss-scoped via the shared Workday factory (country facet + foreign guard).
  * Canton VD, postal 1162 (Chemin de la Ligne 7, Saint-Prex).
+ *
+ * The tenant names its country facet `Location_Country`: `locationCountry`
+ * and `Country` answer HTTP 400, which used to drop every run onto the
+ * unfiltered global board (one detail request per posting) and end in a bare
+ * zero the monitor could only allowlist. Verified live 2026-10-02: the
+ * Swiss-faceted query answers `total: 0`, and the live board (54 postings,
+ * 20 countries — the site ferring.com/join-us/your-career-at-ferring links
+ * to) lists no Switzerland, so the zero is proven every run.
  */
 import { createWorkdaySwissParser } from './workday-swiss-job-parser-common.mjs';
 
@@ -28,6 +36,8 @@ const parser = createWorkdaySwissParser({
   defaultPostalCode: '1162',
   sector: 'Farmaceutica',
   defaultSourceLang: 'en',
+  countryFacetParameter: 'Location_Country',
+  proveSwissAbsentFromLiveBoard: true,
 });
 
 export const fetchAllFerringJobs = parser.fetchAllJobs;

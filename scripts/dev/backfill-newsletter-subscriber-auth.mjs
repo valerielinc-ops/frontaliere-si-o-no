@@ -16,7 +16,7 @@
  *   GOOGLE_APPLICATION_CREDENTIALS=… node scripts/dev/backfill-newsletter-subscriber-auth.mjs --apply
  *
  * Default is dry-run — prints the planned Auth-user creations and a summary.
- * Pass `--apply` to actually call admin.auth().createUser(...).
+ * Pass `--apply` to actually call the Admin Auth `createUser(...)` method.
  *
  * Note: this intentionally duplicates the small amount of Admin SDK logic from
  * functions/src/newsletterSubscriberAuthSync.js rather than importing it —
@@ -31,15 +31,17 @@
  * orphans. Safe to re-run any time (idempotent no-op once the gap is
  * closed); left in place for any future one-off catch-up need.
  */
-import admin from 'firebase-admin';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { getAuth } from 'firebase-admin/auth';
+import { getFirestore } from 'firebase-admin/firestore';
 
 const APPLY = process.argv.includes('--apply');
 
-if (!admin.apps?.length) {
-  admin.initializeApp({ credential: admin.credential.applicationDefault() });
+if (!getApps().length) {
+  initializeApp({ credential: applicationDefault() });
 }
-const db = admin.firestore();
-const auth = admin.auth();
+const db = getFirestore();
+const auth = getAuth();
 
 console.log(APPLY ? '🟢 APPLY mode — will create Auth users' : '🟡 DRY RUN — no writes (pass --apply to commit)');
 

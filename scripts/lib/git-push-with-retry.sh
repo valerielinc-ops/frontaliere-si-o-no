@@ -22,6 +22,12 @@
 #     with linear backoff (capped at 12s) + random jitter added after the cap
 #     (min(attempt * 2, 12) + random[0..attempt] s) to desynchronise
 #     concurrent retrying workflows (thundering-herd guard).
+#   - A push declined by a repository ruleset or protected branch (GH013 /
+#     GH006, see scripts/lib/git-push-rejection.sh) is not retried: exit 1 at
+#     once, also under --soft-fail-exhausted.
+#   - Uses an explicit non-thin pack with delta search disabled. GitHub Actions
+#     checkouts are shallow by default, so the default thin-pack delta search
+#     can spend most of the job looking for unavailable history (#10319).
 #   - Before each rebase, the working tree must be clean or rebase refuses to
 #     start ("cannot rebase: You have unstaged changes"). Default: discard any
 #     leftover dirty/untracked state with `git reset --hard HEAD` (safe when
@@ -69,6 +75,23 @@
 #     insufficient retry budget).
 
 set -euo pipefail
+
+BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
+MAIN_PUSH_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/main-push-guard.mjs"
+
+# The 300-second fetch ceiling is supported by issue 12175's 61.6, 62.6,
+# 83.0 and 95.1-second commit-graph measurements. The 180-second push ceiling
+# is the refresh policy already in use; this helper has no separate measurement
+# for either operation. These GIT_PUSH_WITH_RETRY_* overrides are only for the
+# test bench; production keeps the declared defaults.
+GIT_PUSH_WITH_RETRY_FETCH_TIMEOUT_SECONDS="${GIT_PUSH_WITH_RETRY_FETCH_TIMEOUT_SECONDS:-300}"
+GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS="${GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS:-180}"
+
+run_bounded() {
+  local seconds="$1" label="$2"
+  shift 2
+  node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
+}
 
 # Register the seo-404 compat-shard merge driver (.gitattributes
 # `merge=compat-shard`) so concurrent rebases of data/seo-404-compat/part-*.json
@@ -149,6 +172,24 @@ done
 # github-actions[bot]. Fail closed instead. Origin URLs that are not
 # github.com (local helper tests) are left alone by the configure script.
 bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
+
+# shellcheck source=scripts/lib/git-push-rejection.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/git-push-rejection.sh"
+
+old_history_guard_main() {
+  [ "$BRANCH" = "main" ] || return 0
+  node "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/old-history-guard.mjs" \
+    --head HEAD \
+    --base refs/remotes/origin/main \
+    --refresh-base \
+    --remote origin \
+    --branch main
+}
+
+# Guard non distruttivo prima di qualsiasi reset, rebase o push. Se il checkout
+# conserva la storia precedente ma origin/main è già riscritto, il job termina
+# qui e non prova a ripubblicarla.
+old_history_guard_main
 
 run_regenerate_with_retry() {
   local regenerate_attempt=1
@@ -328,7 +369,81 @@ apply_stashed_wip_for_resolver() {
 # than the interval between concurrent crawler commits to main, so even an
 # exit-0 hook would turn every push into a guaranteed-loss race.
 attempt=1
-until git push --no-verify origin "HEAD:${BRANCH}"; do
+# Actions checkouts are shallow. A complete pack with no delta-window search
+# keeps generated-data pushes bounded instead of making Git walk history that
+# is not present locally (issue #10319).
+#
+# git's stderr (the push transcript) is kept in a file so a declined push can
+# be classified, then re-emitted on stderr: callers keep reading it from the
+# same stream as before.
+PUSH_STDERR_FILE="$(mktemp)"
+trap 'rm -f -- "$PUSH_STDERR_FILE"' EXIT
+PUSH_GUARD_FAILED=0
+push_head() {
+  local status=0
+  local lease_base_sha=""
+  PUSH_GUARD_FAILED=0
+
+  if [ "$BRANCH" = "main" ]; then
+    if ! lease_base_sha="$(git rev-parse --verify "refs/remotes/origin/${BRANCH}^{commit}")"; then
+      echo "❌ main push guard: cannot resolve refs/remotes/origin/${BRANCH} for the push lease" >"$PUSH_STDERR_FILE"
+      PUSH_GUARD_FAILED=1
+      cat -- "$PUSH_STDERR_FILE" >&2
+      return 1
+    fi
+    local candidate_sha=""
+    if ! candidate_sha="$(git rev-parse --verify HEAD^{commit})"; then
+      echo "❌ main push guard: cannot resolve HEAD for the guarded candidate" >"$PUSH_STDERR_FILE"
+      PUSH_GUARD_FAILED=1
+      cat -- "$PUSH_STDERR_FILE" >&2
+      return 1
+    fi
+    run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" \
+      "guarded git push --no-thin origin <commit>:refs/heads/${BRANCH}" \
+      node "$MAIN_PUSH_GUARD_SCRIPT" \
+      --repo "$PWD" \
+      --base "$lease_base_sha" \
+      --candidate "$candidate_sha" \
+      --branch "$BRANCH" \
+      --timeout-seconds "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" \
+      --push \
+      2>"$PUSH_STDERR_FILE" || status=$?
+    # A candidate that is no longer a descendant of the refreshed local
+    # origin/main is a normal stale-base race: old_history_guard_main has
+    # already checked that this is not the retired-history rewrite, so the
+    # retry loop must fetch/rebase instead of treating the race as a
+    # destructive candidate. Keep actual integrity/proof failures fatal.
+    if [ "$status" -ne 0 ] && grep -qiE \
+      'candidate tree collapse|cannot resolve commit|cannot inspect tree|cannot prove ancestry' \
+      "$PUSH_STDERR_FILE"; then
+      PUSH_GUARD_FAILED=1
+    fi
+    cat -- "$PUSH_STDERR_FILE" >&2
+    return "$status"
+  fi
+  run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" "git push --no-thin origin HEAD:${BRANCH}" \
+    git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify \
+    origin "HEAD:${BRANCH}" 2>"$PUSH_STDERR_FILE" || status=$?
+  cat -- "$PUSH_STDERR_FILE" >&2
+  if [ "$status" -ne 0 ] && grep -q 'MAIN_TREE_GUARD_FATAL:' "$PUSH_STDERR_FILE"; then
+    echo '::error::Guarded main push failed on an integrity or permanent remote error; refusing to retry or soft-fail.'
+    exit 1
+  fi
+  return "$status"
+}
+until push_head; do
+  if [ "$PUSH_GUARD_FAILED" -eq 1 ]; then
+    echo "::error::Main push guard rejected the candidate; refusing to retry a potentially destructive write"
+    exit 1
+  fi
+  # A ruleset / protected-branch decline is not a ref race: the rebase below
+  # cannot change the verdict, and --soft-fail-exhausted does not apply (it
+  # covers a lost race whose delta the next run recaptures, while a declined
+  # identity is declined on every run).
+  if git_push_rejection_is_permanent "$(cat -- "$PUSH_STDERR_FILE")"; then
+    echo "::error::Push to ${BRANCH} declined by a repository rule (GH013/GH006): not a ref race, rebasing cannot change the verdict. Check the pushing identity (scripts/lib/configure-main-push-auth.sh) or the ruleset."
+    exit 1
+  fi
   if [ "$attempt" -ge "$MAX_ATTEMPTS" ]; then
     if [ -n "$SOFT_FAIL_EXHAUSTED" ]; then
       echo "::warning::Failed to push after $MAX_ATTEMPTS attempts (soft-fail: this run's delta will be recaptured by the next invocation)"
@@ -338,7 +453,9 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
     exit 1
   fi
   echo "Push rejected (attempt $attempt/$MAX_ATTEMPTS); rebasing onto origin/${BRANCH}..."
-  git fetch origin "$BRANCH"
+  run_bounded "$GIT_PUSH_WITH_RETRY_FETCH_TIMEOUT_SECONDS" "git fetch origin ${BRANCH}" \
+    git fetch origin "$BRANCH"
+  old_history_guard_main
   stashed=0
   if [ -n "$STASH_DIRTY" ]; then
     # Preserve leftover dirty/untracked state instead of discarding it — a

@@ -6,20 +6,24 @@
  *   https://app.ncoreplat.com/jobboard/1255/sintetica
  * Detail pages at: /jobposition/{id}/{slug}/sintetica
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
+import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, MIN_DESC_LENGTH } from './lib/sintetica-job-parser.mjs';
+import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, buildSinteticaDescriptionFields, dropSinteticaFabricatedText } from './lib/sintetica-job-parser.mjs';
 import { normalizeAnyCantonCode, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -84,15 +88,19 @@ function isTrustedDomain(rawUrl = '') { try { const h = new URL(rawUrl).hostname
 const SINTETICA_DEFAULT_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'en-US,en;q=0.9,it-CH;q=0.8', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || SINTETICA_DEFAULT_UA } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.text();
+    return await fetchHtml(url, {
+      timeoutMs,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'en-US,en;q=0.9,it-CH;q=0.8',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || SINTETICA_DEFAULT_UA,
+      },
+    });
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
 }
 
-async function fetchJobs() {
+export async function fetchJobs() {
   console.log(`🔍 Fetching Sintetica SA jobs from ${CAREERS_URL}`);
   const html = await fetchPage(CAREERS_URL, 25000);
   if (!html) { console.error('❌ Failed to fetch Sintetica careers page.'); return []; }
@@ -125,10 +133,9 @@ async function fetchJobs() {
     }
 
     const slug = slugify(raw.title, 'sintetica');
-    const fallbackDesc = `${raw.title} — posizione aperta presso Sintetica SA al sito di ${site.location} (${site.canton}), Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.`;
 
     // Fetch detail page for full job description
-    let description = raw.snippet || '';
+    let detailBody = '';
     let detailClosed = false;
     if (raw.url) {
       console.log(`    🔗 Fetching detail page: ${raw.url}`);
@@ -140,20 +147,16 @@ async function fetchJobs() {
           // a stub. The listing-page link is stale; the live job is gone.
           console.log(`    🚫 Detail page reports position closed: "${raw.title}"`);
           detailClosed = true;
-        } else if (detail.body && detail.body.length >= MIN_DESC_LENGTH) {
-          description = `${raw.title} — Sintetica SA, ${site.location} (${site.canton}).\n\n${detail.body}`;
-          console.log(`    ✅ Detail description: ${detail.body.length} chars`);
         } else {
-          console.log(`    ⚠️ Detail page description too short (${(detail.body || '').length} chars), using fallback`);
+          detailBody = detail.body || '';
+          console.log(`    ✅ Detail description: ${detailBody.length} chars`);
         }
       } else {
-        console.log(`    ⚠️ Could not fetch detail page, using fallback`);
+        console.log(`    ⚠️ Could not fetch detail page, keeping the listing snippet`);
       }
     }
     if (detailClosed) continue;
-    if (!description || description.length < MIN_DESC_LENGTH) {
-      description = fallbackDesc;
-    }
+    const { description, descriptionByLocale, sourceLang } = buildSinteticaDescriptionFields({ detailBody, snippet: raw.snippet });
 
     jobs.push({
       url: raw.url, applyUrl: raw.url, title: raw.title,
@@ -162,15 +165,18 @@ async function fetchJobs() {
       addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
       postalCode: site.postalCode, streetAddress: site.streetAddress,
       description,
-      titleByLocale: { en: raw.title }, descriptionByLocale: {},
-      slug, slugByLocale: { en: slug, it: slug },
+      descriptionByLocale,
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(raw.title, slug, sourceLang),
+      slug,
       category: detectCategory(raw.title),
-      datePosted: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(''),
+      crawledAt: new Date().toISOString(),
       source: 'sintetica-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',
       _targetScope: { canton: site.canton, location: site.location },
-      sourceLang: detectLang(description || raw.title, 'en'),
+      sourceLang,
     });
   }
   return jobs;
@@ -180,6 +186,8 @@ async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonCompanyJobs = (Array.isArray(existing) ? existing : []).filter((j) => !isCompanyJob(j));
   const existingCompanyJobs = (Array.isArray(existing) ? existing : []).filter(isCompanyJob);
+  const fossils = existingCompanyJobs.filter((job) => dropSinteticaFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former description header/fallback from ${fossils} stored Sintetica job(s); they will be retranslated`);
 
   const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
@@ -192,6 +200,9 @@ async function mergeJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -208,6 +219,18 @@ function updateAdapterConfig(seedUrls) {
   fs.writeFileSync(p, JSON.stringify(a, null, 2) + '\n');
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropSinteticaFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
@@ -216,7 +239,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════\n');
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
   const discovered = await fetchJobs();
-  if (!discovered.length) { console.log('⚠️ No Sintetica jobs discovered.'); return; }
+  if (!discovered.length) { console.log('⚠️ No Sintetica jobs discovered.'); await cleanStoredJobsOnSoftExit(); return; }
   updateAdapterConfig(discovered.map((j) => j.url));
   await mergeJobs(discovered);
   console.log('\n🌐 Running base crawler for AI localization...');
@@ -232,9 +255,11 @@ async function main() {
   const _afterMerge = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = (Array.isArray(_afterMerge) ? _afterMerge : []).filter(isCompanyJob);
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
   console.log('\n✅ Sintetica SA crawler complete.');
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Sintetica'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Sintetica'));
+}

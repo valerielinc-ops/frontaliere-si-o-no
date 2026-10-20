@@ -11,7 +11,7 @@
  *
  * Dal 2026-09-04 il tetto è `FOLLOWUP_MAX_INFLIGHT_FIX` e il drain riempie gli
  * slot liberi invece di promuovere sempre uno solo. Il default locale è 5: è il
- * massimo misurato come stabile dalla flotta locale; il workflow remoto usa 7.
+ * massimo misurato come stabile dalla flotta locale; il workflow remoto usa 15.
  * `=3` resta un override più prudente.
  *
  * Quel tetto è rimasto nominale fino al 2026-09-05: `issue-fix.yml` serializzava
@@ -58,6 +58,7 @@ function queuedIssue(n: number) {
 /** `queuedRuns` run in volo simulate, `candidates` issue pronte in coda. */
 function makeDispatch(queuedRuns: number, candidates: number) {
   const issues = Array.from({ length: candidates }, (_, i) => queuedIssue(9001 + i));
+  let nextLeaseCommentId = 12_604_000;
   return function ghDispatch(_cmd: string, args: string[]): string {
     const a = args || [];
     if (a[0] === 'run' && a[1] === 'list') {
@@ -78,6 +79,15 @@ function makeDispatch(queuedRuns: number, candidates: number) {
       const label = labelMatch ? decodeURIComponent(labelMatch[1]) : null;
       if (label === 'agent:fix-queued') return JSON.stringify(issues);
       return '[]';
+    }
+    if (a[0] === 'api' && a[1] === '--method' && a[2] === 'POST'
+      && typeof a[3] === 'string' && a[3].includes('/issues/12604/comments')) {
+      nextLeaseCommentId += 1;
+      return JSON.stringify({ id: nextLeaseCommentId });
+    }
+    if (a[0] === 'api' && a[1] === '--method' && a[2] === 'DELETE'
+      && typeof a[3] === 'string' && a[3].includes('/issues/comments/')) {
+      return '';
     }
     if (a[0] === 'issue' && a[1] === 'view') {
       if (a.includes('comments')) return JSON.stringify({ comments: [] });
@@ -113,9 +123,9 @@ beforeEach(() => {
 });
 
 describe('cap delle run issue-fix in volo', () => {
-  it('il workflow remoto configura sette slot e lascia 5 solo come fallback locale', () => {
+  it('il workflow remoto configura quindici slot e lascia 5 solo come fallback locale', () => {
     const workflow = readFileSync(DRAINER_WORKFLOW, 'utf8');
-    expect(workflow).toMatch(/FOLLOWUP_MAX_INFLIGHT_FIX:\s*'7'/);
+    expect(workflow).toMatch(/FOLLOWUP_MAX_INFLIGHT_FIX:\s*'15'/);
   });
 
   it('col default promuove fino a 5 quando gli slot sono vuoti e la coda è lunga', async () => {

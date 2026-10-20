@@ -21,52 +21,84 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
+import YAML from 'yaml';
 
 const WF = path.resolve(__dirname, '..', '.github', 'workflows', 'pr-redcheck-fixer.yml');
 const src = readFileSync(WF, 'utf-8');
 const TWIN = readFileSync(
   path.resolve(__dirname, '..', '.github', 'workflows', 'pr-redflag-fixer.yml'), 'utf-8');
+const TESTS = readFileSync(
+  path.resolve(__dirname, '..', '.github', 'workflows', 'tests.yml'), 'utf-8');
+const parsedTests = YAML.parse(TESTS) as any;
+const redcheckProducer = parsedTests.jobs['post-review'].steps.find(
+  (step: { name?: string }) => step.name === 'redcheck admission (trusted failure signal)',
+);
+const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 
 describe('trigger — parte solo su un rosso vero, di una PR vera', () => {
-  it('si attiva sul completamento di `tests`, non su ogni evento', () => {
-    expect(src).toMatch(/workflow_run:\s*\n\s*workflows: \['tests'\]/);
-    expect(src).toMatch(/types: \[completed\]/);
+  it('ammette solo il dispatch esplicito o il segnale trusted del produttore', () => {
+    expect(src).toMatch(/on:\s*\n\s*workflow_dispatch:/);
+    expect(src).not.toMatch(/^\s*workflow_run:/m);
+    expect(src).toContain('manuale o segnale trusted da tests');
+    expect(TESTS).toContain('name: redcheck admission (trusted failure signal)');
+    expect(TESTS).toContain("needs.vitest.result == 'failure'");
+    expect(TESTS).toContain("github.event_name == 'pull_request'");
+    expect(TESTS).toContain("github.event_name == 'workflow_dispatch'");
+    expect(TESTS).toContain("workflow_id: 'pr-redcheck-fixer.yml'");
+    expect(TESTS).toContain("ref: 'main'");
   });
 
-  it('il gate richiede conclusion=failure, ed esclude i push su main', () => {
-    // Senza il secondo termine il workflow partirebbe anche sui fallimenti di
-    // `tests` su main — dove non c'è nessuna PR da riparare e il fixer
-    // girerebbe a vuoto bruciando quota.
-    expect(src).toContain("github.event.workflow_run.conclusion == 'failure'");
-    expect(src).toContain("github.event.workflow_run.event != 'push'");
+  it('un workflow_dispatch eleggibile passa al fixer la run tests esatta', async () => {
+    const headSha = '0123456789abcdef0123456789abcdef01234567';
+    const dispatches: Array<Record<string, unknown>> = [];
+    const currentPr = {
+      state: 'open', draft: false, base: { ref: 'main' },
+      head: { ref: 'fix/redcheck-test', sha: headSha, repo: { full_name: 'owner/repo' } },
+      user: { type: 'Bot' }, labels: [],
+    };
+    const github = {
+      paginate: async (fn: (args: unknown) => Promise<unknown>, args: unknown) => fn(args),
+      rest: {
+        pulls: { get: async () => ({ data: currentPr }) },
+        actions: {
+          listJobsForWorkflowRun: async () => [{
+            name: 'vitest (unit + integration)', status: 'completed', conclusion: 'failure',
+            steps: [{ name: 'vitest related (PR diff)', conclusion: 'failure' }],
+          }],
+          createWorkflowDispatch: async (input: Record<string, unknown>) => { dispatches.push(input); },
+        },
+      },
+    };
+    const failures: string[] = [];
+    const core = { setFailed: (message: string) => failures.push(message), notice: () => undefined };
+    const context = {
+      eventName: 'workflow_dispatch', runId: 456, sha: headSha,
+      payload: { inputs: { pr: '42' } }, repo: { owner: 'owner', repo: 'repo' },
+    };
+
+    await new AsyncFunction('github', 'context', 'core', redcheckProducer.with.script)(github, context, core);
+
+    expect(failures).toEqual([]);
+    expect(dispatches).toHaveLength(1);
+    expect(dispatches[0]).toMatchObject({
+      workflow_id: 'pr-redcheck-fixer.yml', ref: 'main',
+      inputs: { pr: '42', run_id: '456' },
+    });
   });
 
-  it('non crea run sui `tests` di main: filtro sul branch nel trigger', () => {
-    // Il gate del job le rendeva `skipped`, ma la run nasceva comunque:
-    // 64 run skipped su 86 in 4 ore il 2026-09-19.
-    const trigger = src.match(/\n  workflow_run:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
-    expect(trigger).toMatch(/^    branches-ignore: \[main\]$/mu);
-    expect(trigger).not.toMatch(/^    branches:/mu);
+  it('il produttore esclude i failure di body/review e tratta API illeggibili come errore', () => {
+    expect(TESTS).toContain('bodyContractSteps');
+    expect(TESTS).toContain('reviewSteps');
+    expect(TESTS).toContain('core.setFailed');
+    expect(TESTS).toContain('failure was limited to body/review process steps');
+    expect(TESTS).toContain('headRepo !== repository');
+    expect(TESTS).toContain("headRef.startsWith('fix/')");
+    expect(TESTS).toContain("headRef.startsWith('automerge-')");
+    expect(TESTS).toContain("label?.name === 'agent:autofix'");
   });
 
-  it('pagine tutte le PR aperte prima di cercare la head del workflow run', () => {
-    const discovery = src.slice(src.indexOf('PR=$(gh api'));
-    expect(discovery).toContain('--paginate');
-    expect(discovery).toContain('--slurp');
-  });
-
-  it('NON si restringe a `pull_request`: le head rebasate arrivano da dispatch', () => {
-    // `pr-autorebase.yml` ri-testa una head rebasata con un `workflow_dispatch`
-    // di `tests`, perché un push con PAT non ri-triggera affidabilmente i
-    // workflow `pull_request`. Gatare sul solo `pull_request` lascerebbe fuori
-    // proprio quei rossi. Il preflight resta la guardia vera: cerca una PR
-    // APERTA con quel head branch, e su main non ne trova nessuna.
-    expect(src).not.toContain("workflow_run.event == 'pull_request'");
-    expect(src).toContain('Nessuna PR aperta per il branch');
-  });
-
-  it('serializza i body writer e cancella il precedente prima del nuovo CAS', () => {
-    expect(src).toMatch(/group: body-revision-\$\{\{ github\.event\.workflow_run\.head_branch/);
+  it('serializza i body writer per PR e cancella il precedente prima del nuovo CAS', () => {
+    expect(src).toMatch(/group: body-revision-\$\{\{ github\.event\.inputs\.pr \}\}/);
     expect(src).toMatch(/cancel-in-progress: true/);
   });
 });
@@ -83,11 +115,11 @@ describe('scope — non tocca ciò che non è suo', () => {
     expect(src).toMatch(/\[ "\$draft" = "true" \]/);
   });
 
-  it('salta un rosso STANTIO: il fallimento deve essere della HEAD corrente', () => {
-    // Un rosso su uno SHA superato è già stato risolto da un push successivo.
-    // Fixarlo significherebbe lavorare su una diagnosi vecchia.
-    expect(src).toContain('rosso stantio');
-    expect(src).toMatch(/\[ "\$RUN_SHA" != "\$head_sha" \]/);
+  it('lega la run esatta alla HEAD corrente prima del preflight', () => {
+    expect(src).toContain('DISPATCH_RUN_ID: ${{ github.event.inputs.run_id }}');
+    expect(src).toContain('repos/$REPO/actions/runs/$RUN_ID');
+    expect(src).toContain('run_head_sha');
+    expect(src).toContain('[ "$run_head_sha" != "$head_sha" ]');
   });
 
   it('ri-verifica che la CI sia rossa ADESSO, non solo al trigger', () => {
@@ -173,6 +205,30 @@ describe('REGOLA #0 — il modo ovvio e sbagliato di far tornare verde un test',
     expect(prompt).toContain('npx vitest run');
     expect(prompt).toContain('non è un fix');
   });
+
+  it('fa leggere al modello il patch preparato senza lazy-fetch del contesto', () => {
+    expect(prompt).toContain('$RUNNER_TEMP/redcheck/diff.patch');
+    expect(prompt).toContain('non ricostruire il contesto con `git diff origin/main...HEAD`');
+  });
+
+  it('consegna le diagnosi senza push al classificatore tramite un artifact pubblicato da zero-Claude', () => {
+    expect(src).toContain('response_artifact: redcheck-response.md');
+    expect(prompt).toContain('$RUNNER_TEMP/redcheck-response.md');
+    expect(prompt).toContain('inherited:');
+    expect(prompt).toContain('Lo step deterministico successivo pubblica quel file come commento sulla PR');
+
+    const action = src.indexOf('response_artifact: redcheck-response.md');
+    const publisher = src.indexOf('name: Publish the redcheck response (zero-Claude)');
+    const classifier = src.indexOf('name: Classify outcome (work-done, not CLI exit)');
+    expect(action).toBeGreaterThan(0);
+    expect(publisher).toBeGreaterThan(action);
+    expect(publisher).toBeLessThan(classifier);
+
+    const publisherBlock = src.slice(publisher, classifier);
+    expect(publisherBlock).toContain('REDCHECK_RESPONSE');
+    expect(publisherBlock).toContain('pr comment "$PR_NUMBER" --repo "$REPO" --body-file "$comment"');
+    expect(publisherBlock).toContain('steps.snapshot_final.outputs.snapshot_valid');
+  });
 });
 
 describe('costo — il contesto è raccolto senza Claude', () => {
@@ -190,13 +246,23 @@ describe('costo — il contesto è raccolto senza Claude', () => {
     expect(src).toMatch(/FAIL /);
     expect(src).toContain('escape ANSI come TESTO');
   });
+
+  it('prepara il diff dalla policy fidata prima del sandbox blobless', () => {
+    expect(src).toContain('Prepare redcheck PR diff (zero-Claude)');
+    expect(src).toContain('scripts/ci/prefetch-review-diff.mjs');
+    expect(src).toContain('scripts/lib/loop-fleet-contract.mjs');
+    expect(src).toContain('TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}');
+    expect(src).toContain("INCLUDE_TESTS: 'true'");
+    expect(src).toContain('timeout 120 node "$TRUSTED_POLICY_ROOT/scripts/ci/prefetch-review-diff.mjs"');
+    expect(src).toContain('$RUNNER_TEMP/redcheck/diff.patch');
+  });
 });
 
 describe('parità col gemello — ciò che è stato ereditato deve restare intatto', () => {
   it('passa alla action lo stesso token con cui ha autenticato il remote', () => {
     // L'invariante di classe di issue-fix-app-token-wiring: senza, la action
     // conia un token proprio e riscrive il remote appena configurato.
-    expect(src).toContain('github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+    expect(src).toMatch(/github_token:\s*\$\{\{\s*env\.APP_TOKEN_DATA_REFRESH\s*==\s*'true'\s*&&\s*env\.APP_TOKEN\s*\|\|\s*env\.GITHUB_PAT\s*\}\}/);
   });
 
   it('classifica l\'esito sul LAVORO fatto, non sull\'exit della CLI', () => {

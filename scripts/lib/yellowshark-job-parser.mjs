@@ -11,11 +11,16 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
+import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -33,6 +38,32 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+export function resolveYellowsharkListingAdmission(listing = {}) {
+  const countryEvidence = [
+    listing.addressCountry,
+    listing.country,
+    listing.countryCode,
+    listing.country_code,
+  ].map(coerceCountryField).filter(Boolean);
+
+  if (!countryEvidence.length) {
+    return { accepted: false, reason: 'explicit source country is missing', countryEvidence };
+  }
+  if (!countryEvidence.every(isChCountry)) {
+    return { accepted: false, reason: 'source country is foreign or conflicting', countryEvidence };
+  }
+
+  const sourceGeographyEvidence = { ...listing, addressCountry: 'CH' };
+  const resolvedGeography = resolveSourceBackedSwissGeography(sourceGeographyEvidence);
+  const geography = resolvedGeography
+    && sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography);
+  if (!geography) {
+    return { accepted: false, reason: 'source location is foreign or unresolved', countryEvidence };
+  }
+
+  return { accepted: true, country: 'CH', geography, countryEvidence };
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -110,7 +141,7 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(YELLOWSHARK_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, { requireExplicitCountryEvidence: true });
 }
 
 /**
@@ -139,11 +170,24 @@ export async function fetchAllYellowsharkJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing);
-    // Required structured-data geography must come from the vacancy source.
-    // Missing, foreign or non-specific values are not replaced with an HQ.
-    if (!geography) continue;
-    const { location, canton } = geography;
+    const admission = resolveYellowsharkListingAdmission(listing);
+    if (!admission.accepted) {
+      const sourceId = listing.id || listing.jobId || listing.url || title;
+      const country = admission.countryEvidence.join(', ') || '<missing>';
+      const location = normalizeSpace(listing.location || listing.addressLocality || '') || '<missing>';
+      console.log('  ⏭️  Quarantined source listing ' + sourceId + ': ' + admission.reason
+        + '; country=' + country + '; location=' + location);
+      continue;
+    }
+    const { geography } = admission;
+    const {
+      location,
+      canton,
+      addressLocality,
+      addressRegion,
+      postalCode,
+      streetAddress,
+    } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -179,12 +223,12 @@ export async function fetchAllYellowsharkJobs() {
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
-      country: normalizeSpace(listing.addressCountry || 'CH'),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+      addressLocality: normalizeSpace(addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(addressRegion || canton),
+      addressCountry: admission.country,
+      country: admission.country,
+      ...(postalCode ? { postalCode: normalizeSpace(postalCode) } : {}),
+      ...(streetAddress ? { streetAddress: normalizeSpace(streetAddress) } : {}),
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME'
         ? 'part-time'
@@ -194,9 +238,8 @@ export async function fetchAllYellowsharkJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      // Preserve the source date; the shared merge assigns a stable first-seen
-      // date when the source does not publish one.
-      postedDate: listing.postedAt || null,
+      // Publication evidence is distinct from the collection timestamp.
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

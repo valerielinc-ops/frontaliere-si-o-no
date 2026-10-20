@@ -6,9 +6,19 @@
  * *always* present in the output, even when the caller passes a sparse input.
  */
 import { describe, expect, it } from 'vitest';
-import { imageObjectLd, imageObjectLdDocument, SITE_LICENSE_PAGE } from '@/services/seo/imageObjectLd';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import {
+  imageObjectLd,
+  imageObjectLdDocument,
+  resolveHttpUrl,
+  SITE_LICENSE_PAGE,
+  type ImageCreator,
+} from '@/services/seo/imageObjectLd';
+import type { ArticleImageObjectInput } from '@/packages/articles/engine/siteShell';
 
 const REQUIRED = ['acquireLicensePage', 'copyrightNotice', 'license', 'creator', 'creditText'] as const;
+const CANONICAL_SITE_ORGANIZATION_ID = 'https://frontaliereticino.ch/#organization';
 
 describe('imageObjectLd — GSC licensable-image quintet', () => {
   it('emits @type ImageObject with all 5 required fields when called with only contentUrl', () => {
@@ -27,13 +37,115 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
     expect(() => imageObjectLd({} as never)).toThrow(/contentUrl/);
   });
 
-  it('defaults creator to the site Organization', () => {
+  it('defaults creator to the canonical site Organization', () => {
     const ld = imageObjectLd({ contentUrl: 'https://example.com/x.png' });
     expect(ld.creator).toEqual({
       '@type': 'Organization',
+      '@id': 'https://frontaliereticino.ch/#organization',
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',
     });
+  });
+
+  it('keeps every site creator of a static SEO blog image on the canonical organization', () => {
+    const source = readFileSync(resolve(__dirname, '../../services/seo/seo-pages.ts'), 'utf8');
+    const imageLines = source
+      .split('\n')
+      .filter((line) => line.includes('"@type": "ImageObject"') && line.includes('`${BASE_URL}/images/blog/'));
+    expect(imageLines.length).toBeGreaterThan(0);
+    // A cover with a credit record carries none of the rights fields in its
+    // literal: the record supplies creator and licence, and a site creator
+    // there would claim a photo the site did not take
+    // (tests/static-pages-image-credit.test.ts). Only the literals that name
+    // a creator are judged here.
+    const siteClaims = imageLines.filter((line) => line.includes('"creator"'));
+    expect(siteClaims.length).toBeGreaterThan(0);
+    for (const imageLine of siteClaims) {
+      expect(imageLine).toContain(`"@id": "${CANONICAL_SITE_ORGANIZATION_ID}"`);
+    }
+  });
+
+  it.each([
+    'NewsMediaOrganization' as const,
+    ['NewsMediaOrganization', 'Organization'] as const,
+    ['Organization', 'NewsMediaOrganization'] as const,
+  ].map((type) => ({ type })))('emits a supported creator type for legacy news-organization input $type', ({ type }) => {
+    const creator = { '@type': type, '@id': 'https://example.com/#newsroom', name: 'External newsroom', url: 'https://example.com/' };
+    expect(imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator }).creator)
+      .toEqual({ ...creator, '@type': 'Organization' });
+    expect(creator['@type']).toEqual(type);
+  });
+
+  it('keeps a site creator with array types attached to the canonical organization', () => {
+    const input: ArticleImageObjectInput = {
+      contentUrl: 'https://example.com/image.jpg',
+      creator: {
+        '@type': ['NewsMediaOrganization', 'Organization'],
+        name: 'Frontaliere Ticino',
+        url: 'https://frontaliereticino.ch/',
+      },
+    };
+    const creator = input.creator!;
+    expect(imageObjectLd(input).creator)
+      .toEqual({ ...creator, '@type': 'Organization', '@id': 'https://frontaliereticino.ch/#organization' });
+    expect(creator['@type']).toEqual(['NewsMediaOrganization', 'Organization']);
+  });
+
+  it('rejects an empty creator @type array before emitting the ImageObject', () => {
+    const creator = {
+      '@type': [],
+      name: 'Invalid creator',
+    } as unknown as ImageCreator;
+    expect(() => imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator }))
+      .toThrow('imageObjectLd: creator.@type must contain at least one type');
+  });
+
+  it.each([
+    'Organization' as const,
+    'NewsMediaOrganization' as const,
+    ['NewsMediaOrganization', 'Organization'] as const,
+  ].map((type) => ({ type })))('replaces a stale site creator id without mutating input $type', ({ type }) => {
+    const creator = Object.freeze({
+      '@type': type,
+      '@id': 'https://example.com/#stale-organization',
+      name: 'Frontaliere Ticino',
+      url: 'https://frontaliereticino.ch/',
+    });
+    expect(imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator }).creator)
+      .toEqual({ ...creator, '@type': 'Organization', '@id': 'https://frontaliereticino.ch/#organization' });
+    expect(creator['@id']).toBe('https://example.com/#stale-organization');
+  });
+
+  it.each([
+    { '@id': 'https://example.com/#newsroom' },
+    { '@id': 'https://example.com/#newsroom', url: 'https://example.com/' },
+    {},
+  ])('does not infer site identity from a shared name: %j', (identity) => {
+    const creator = Object.freeze({ '@type': 'NewsMediaOrganization' as const, name: 'Frontaliere Ticino', ...identity });
+    expect(imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator }).creator)
+      .toEqual({ ...creator, '@type': 'Organization' });
+  });
+
+  it('recognizes the canonical organization id without a URL', () => {
+    const creator = { '@type': 'NewsMediaOrganization' as const, name: 'Frontaliere Ticino', '@id': 'https://frontaliereticino.ch/#organization' };
+    expect(imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator }).creator)
+      .toEqual({ ...creator, '@type': 'Organization' });
+  });
+
+  it('canonicalizes a stale name on a site creator and its default credit', () => {
+    const creator = Object.freeze({
+      '@type': 'Organization' as const,
+      '@id': CANONICAL_SITE_ORGANIZATION_ID,
+      name: 'frontaliereticino.ch',
+    });
+    const image = imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator });
+
+    expect(image.creator).toEqual({
+      ...creator,
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+    });
+    expect(image.creditText).toBe('Frontaliere Ticino');
   });
 
   it('points license + acquireLicensePage to the site terms anchor by default', () => {
@@ -66,11 +178,56 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
     });
     expect(ld.creator).toEqual({
       '@type': 'Organization',
+      '@id': 'https://frontaliereticino.ch/#organization',
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',
     });
     expect(ld.license).toBe(SITE_LICENSE_PAGE);
     expect(ld.acquireLicensePage).toBe(SITE_LICENSE_PAGE);
+  });
+
+  it('rejects a non-URL license override', () => {
+    expect(() =>
+      imageObjectLd({
+        contentUrl: 'https://example.com/x.png',
+        license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
+      }),
+    ).toThrow(/license must be an absolute http\(s\) URL/);
+  });
+
+  it('rejects a non-URL acquireLicensePage override', () => {
+    expect(() =>
+      imageObjectLd({
+        contentUrl: 'https://example.com/x.png',
+        acquireLicensePage: 'Come ottenere la licenza',
+      }),
+    ).toThrow(/acquireLicensePage must be an absolute http\(s\) URL/);
+  });
+
+  it('normalizes whitespace around an explicit URL', () => {
+    const ld = imageObjectLd({
+      contentUrl: 'https://example.com/x.png',
+      license: '  https://example.com/license  ',
+    });
+    expect(ld.license).toBe('https://example.com/license');
+  });
+
+  it('rejects non-string URL overrides before reading URL properties', () => {
+    expect(() => imageObjectLd({
+      contentUrl: 'https://example.com/x.png',
+      license: 42 as never,
+    })).toThrow(/license must be an absolute http\(s\) URL/);
+    expect(() => imageObjectLd({
+      contentUrl: 'https://example.com/x.png',
+      acquireLicensePage: { href: 'https://example.com' } as never,
+    })).toThrow(/acquireLicensePage must be an absolute http\(s\) URL/);
+  });
+
+  it('validates the fallback through the same URL resolver', () => {
+    expect(() => resolveHttpUrl(undefined, 'ftp://example.com/license', 'license'))
+      .toThrow(/license must be an absolute http\(s\) URL/);
+    expect(() => resolveHttpUrl(undefined, 42, 'license'))
+      .toThrow(/license must be an absolute http\(s\) URL/);
   });
 
   it('preserves optional fields when present', () => {

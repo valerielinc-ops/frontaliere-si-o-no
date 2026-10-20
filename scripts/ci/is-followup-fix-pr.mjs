@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * is-followup-fix-pr.mjs — grandchild-suppression gate (zero-Claude, deterministico).
  *
@@ -43,8 +45,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
+
 import {
   closedIssueRefs,
   dailyBucketInfo,
@@ -277,7 +278,7 @@ export function main() {
 
 // CLI entrypoint only (importing for tests must not invoke gh). Proceed-safe: any
 // uncaught error → emit false (run triage), never strand a real follow-up.
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (e) {

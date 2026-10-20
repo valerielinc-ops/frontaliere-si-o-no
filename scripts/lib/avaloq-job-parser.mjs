@@ -6,8 +6,10 @@ import {
   isTargetSwissLocation,
 } from './target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 import {
   fetchSmartRecruitersJobs,
+  provesSmartRecruitersFilteredEmpty,
   SmartRecruitersApiError,
 } from './ats-clients/smartrecruiters-client.mjs';
 import { classifyCountryValue } from './prospector/country-inventory.mjs';
@@ -193,6 +195,13 @@ export async function fetchAvaloqJobsFromApi(timeoutMs = 20000, locationFilter =
         && (!Number.isFinite(sourceRead.totalFound) || sourceRead.recordsSeen >= sourceRead.totalFound),
       enumerable: false,
     },
+    // A tenant-wide zero is also what SmartRecruiters answers for an unknown
+    // or renamed company identifier: only a read that saw live postings can
+    // certify an empty Ticino/Grigioni target.
+    avaloqSourceProvesFilteredEmpty: {
+      value: provesSmartRecruitersFilteredEmpty(sourceRead),
+      enumerable: false,
+    },
     avaloqSourceTerminationProven: { value: sourceRead.terminationProven === true, enumerable: false },
     avaloqSourcePaginationIntegrityProven: { value: sourceRead.paginationIntegrityProven === true, enumerable: false },
     avaloqSourceTotalFound: { value: sourceRead.totalFound, enumerable: false },
@@ -244,6 +253,13 @@ export function assertCompleteAvaloqSnapshot(details) {
       + 'the complete source read and location classification are not proven',
     );
   }
+  if (details.length === 0 && Reflect.get(details, 'avaloqSourceProvesFilteredEmpty') !== true) {
+    throw new Error(
+      'Avaloq result is not an authoritative source snapshot: '
+      + `the SmartRecruiters tenant declared no postings at all (totalFound=${totalFound}), `
+      + 'which an unknown or renamed tenant also returns',
+    );
+  }
   return true;
 }
 
@@ -256,9 +272,14 @@ function buildDetailFromPosting(posting) {
       .join(', '),
   );
   const sections = [];
+  // The company paragraph opens every Avaloq ad on its public posting page
+  // ("Founded and headquartered in Switzerland, Avaloq …"), so it belongs to
+  // the published body like the three role sections that follow it.
+  const companyDesc = (posting.jobAd?.sections?.companyDescription?.text || '').trim();
   const jobDesc = (posting.jobAd?.sections?.jobDescription?.text || '').trim();
   const qualif = (posting.jobAd?.sections?.qualifications?.text || '').trim();
   const addInfo = (posting.jobAd?.sections?.additionalInformation?.text || '').trim();
+  if (companyDesc) sections.push(htmlToMarkdown(companyDesc));
   if (jobDesc) sections.push(htmlToMarkdown(jobDesc));
   if (qualif) sections.push(`## Qualifiche\n\n${htmlToMarkdown(qualif)}`);
   if (addInfo) sections.push(`## Informazioni aggiuntive\n\n${htmlToMarkdown(addInfo)}`);
@@ -266,7 +287,15 @@ function buildDetailFromPosting(posting) {
   const detail = {
     title: normalizeSpace(posting.name || ''),
     description,
-    canonicalUrl: `https://www.avaloq.com/careers/job-openings/${posting.id}`,
+    // The public posting page. `www.avaloq.com/careers/job-openings/<id>`
+    // stopped being one: it answers `303 → /careers/job-openings` (the
+    // generic listing) for every id (measured 2026-09-29), so every published
+    // link and every source-detail check landed on the careers landing page.
+    // SmartRecruiters' `postingUrl` is the page the listing now links to; the
+    // numeric posting id stays in the path, so `extractStableJobId` keeps
+    // matching the records published under the old URL.
+    canonicalUrl: normalizeSpace(posting.postingUrl || '')
+      || `https://jobs.smartrecruiters.com/${SR_TENANT}/${posting.id}`,
     applyUrl: posting.applyUrl || `https://jobs.smartrecruiters.com/Avaloq1/${posting.id}`,
     location: city,
     postalCode: normalizeSpace(loc.postalCode || ''),
@@ -338,13 +367,38 @@ export function inferAvaloqCanton(raw = '') {
   return inferAnyCanton(raw) || '';
 }
 
+/**
+ * Source-locale fields of one Avaloq posting.
+ *
+ * The text goes in the slot of the language it is WRITTEN in, read from the
+ * body (a title such as "Solution Manager - Architect" says nothing about
+ * it). This builder used to key everything under `it`: every Avaloq posting
+ * is in English (34/34 on 2026-09-29), so a new job started with English in
+ * the Italian slot — the Italian page showed English and the translation
+ * pipeline saw nothing to translate — while existing jobs never refreshed
+ * their `en` slot, because the locale-preserving merge only lets the
+ * SOURCE slot (`en`) take fresh text.
+ *
+ * The slug keeps its formula (title + company + location), so the value is
+ * the one already published under `slugByLocale.it/en` for existing jobs.
+ *
+ * @param {{ title?: string, location?: string, description?: string }} detail
+ * @param {string} [companyName]
+ * @returns {{ sourceLang: string, slug: string, titleByLocale: object, descriptionByLocale: object, slugByLocale: object }}
+ */
 export function buildAvaloqLocalizedContent(detail = {}, companyName = 'Avaloq') {
   const title = String(detail.title || '').trim();
   const location = String(detail.location || '').trim() || 'Bioggio';
   const description = String(detail.description || '').trim();
+  const sourceLang = sourceLangOfBody(description, 'en');
+  const slug = slugify(`${title} ${companyName} ${location}`);
   return {
-    titleByLocale: { it: title },
-    descriptionByLocale: { it: description },
-    slugByLocale: { it: slugify(`${title} ${companyName} ${location}`) },
+    sourceLang,
+    slug,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: description },
+    slugByLocale: { [sourceLang]: slug },
   };
 }
+
+export { dropStaleLocaleDescriptions } from './source-locale-slots.mjs';

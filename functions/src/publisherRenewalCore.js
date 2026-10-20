@@ -13,7 +13,7 @@
  * renew together).
  */
 
-import admin from 'firebase-admin';
+import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 
@@ -22,7 +22,7 @@ const DASHBOARD_URL = 'https://frontaliereticino.ch/i-miei-annunci';
 const REMINDER_WINDOW_DAYS = 3;
 
 function db() {
-  return admin.firestore();
+  return getFirestore();
 }
 
 /**
@@ -31,8 +31,8 @@ function db() {
  * @param {number} [nowMs]  injectable for tests
  */
 export async function sendRenewalReminders(nowMs = Date.now()) {
-  const now = admin.firestore.Timestamp.fromMillis(nowMs);
-  const soon = admin.firestore.Timestamp.fromMillis(nowMs + REMINDER_WINDOW_DAYS * 86400000);
+  const now = Timestamp.fromMillis(nowMs);
+  const soon = Timestamp.fromMillis(nowMs + REMINDER_WINDOW_DAYS * 86400000);
 
   // Jobs renewing in (now, now + 3 days]. Composite index: status ASC, renewsAt ASC.
   const snap = await db()
@@ -123,7 +123,7 @@ export async function sendRenewalReminders(nowMs = Date.now()) {
       // Stamp idempotency on every reminded job.
       const batch = db().batch();
       for (const ref of entry.jobRefs) {
-        batch.set(ref, { renewalReminderSentAt: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
+        batch.set(ref, { renewalReminderSentAt: FieldValue.serverTimestamp() }, { merge: true });
       }
       await batch.commit();
       sent += 1;

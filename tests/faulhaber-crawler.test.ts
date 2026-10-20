@@ -9,6 +9,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/faulhaber-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
 const LISTING_DATA_URL = 'https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/Joboffers/GetJoboffersData';
 const DETAIL_URL = 'https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura';
@@ -34,6 +35,8 @@ const DETAIL_HTML = `
       <div class="annonce-row">
         Per il nostro team Quality Management cerchiamo un tecnico di misura con esperienza nella metrologia,
         nel controllo qualità e nella documentazione dei risultati. La posizione collabora con produzione e ingegneria.
+        Pianifichi le misure sui micromotori, programmi le macchine di misura a coordinate, analizzi le deviazioni
+        con i reparti coinvolti e proponi azioni correttive documentate secondo le norme ISO in vigore nello stabilimento.
       </div>
     </div>
   </div>`;
@@ -100,6 +103,84 @@ describe('Faulhaber crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('source language (issue 5253)', () => {
+    it('files the Italian detail body under it even when the listing title is English', async () => {
+      // Real case in the 2026-09-29 slice: "JUNIOR LOGISTICS SPECIALIST" and
+      // "Candidatura spontanea" were labelled from the title and filed the
+      // body under a foreign source slot (4/4 jobs).
+      const englishListing = LISTING_JSON.replace('"JobofferName":"Tecnico di misura"', '"JobofferName":"Junior Logistics Specialist"');
+      const listingBody = JINA_LISTING_BODY.replace(LISTING_JSON, englishListing);
+      const fetchHtmlImpl = vi.fn(async () => { throw httpError(500); });
+      const fetchJinaImpl = vi.fn(async (url: string) => url === LISTING_DATA_URL ? listingBody : DETAIL_HTML);
+
+      const [job] = await fetchAllFaulhaberJobs({ fetchHtmlImpl, fetchJinaImpl });
+
+      expect(job.title).toBe('Junior Logistics Specialist');
+      expect(job.sourceLang).toBe('it');
+      expect(Object.keys(job.descriptionByLocale)).toEqual(['it']);
+      expect(Object.keys(job.titleByLocale)).toEqual(['it']);
+    });
+  });
+
+  describe('spontaneous-application entry (corpus run 36790878741)', () => {
+    // Live feed 2026-10-01: 19 offers, the only `CH - Croglio` row is the
+    // standing "Candidatura spontanea" (IsUnsolicitedApps=false), whose short
+    // body failed the run as "no detail page with a source body of 50 words".
+    const spontaneousListing = JSON.stringify({
+      JoboffersCount: 2,
+      Joboffers: [
+        {
+          Id: 23370,
+          JobofferName: 'Candidatura spontanea',
+          LocationName: 'CH - Croglio',
+          IsUnsolicitedApps: false,
+          JobofferUrl: '/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea',
+        },
+        {
+          Id: 57001,
+          JobofferName: 'Area Sales Manager (m/w/d)',
+          LocationName: 'DE - Schönaich',
+          IsUnsolicitedApps: false,
+          JobofferUrl: '/HPv3.Jobs/faulhaber/stellenangebot/57001/Area-Sales-Manager',
+        },
+      ],
+    });
+
+    it('publishes the complete feed without a Swiss vacancy as a proven zero', async () => {
+      const fetchHtmlImpl = vi.fn(async (url: string) => {
+        if (url === LISTING_DATA_URL) return spontaneousListing;
+        throw new Error(`Unexpected detail fetch ${url}`);
+      });
+
+      const jobs = await fetchAllFaulhaberJobs({ fetchHtmlImpl, fetchJinaImpl: vi.fn() });
+
+      expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+      expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toContain('2 offer(s)');
+      expect(fetchHtmlImpl).toHaveBeenCalledTimes(1);
+    });
+
+    it('keeps a failed listing fetch unproven instead of claiming a zero', async () => {
+      const fetchHtmlImpl = vi.fn(async () => { throw httpError(500); });
+      const fetchJinaImpl = vi.fn(async () => null);
+
+      await expect(fetchAllFaulhaberJobs({ fetchHtmlImpl, fetchJinaImpl })).rejects.toThrow(/listing data/);
+    });
+
+    it('still publishes a real Croglio vacancy next to the spontaneous entry', async () => {
+      const mixed = JSON.stringify({
+        JoboffersCount: 2,
+        Joboffers: [JSON.parse(spontaneousListing).Joboffers[0], JSON.parse(LISTING_JSON).Joboffers[0]],
+      });
+      const fetchHtmlImpl = vi.fn(async (url: string) => (url === LISTING_DATA_URL ? mixed : DETAIL_HTML));
+
+      const jobs = await fetchAllFaulhaberJobs({ fetchHtmlImpl, fetchJinaImpl: vi.fn() });
+
+      expect(jobs.map((job: { title: string }) => job.title)).toEqual(['Tecnico di misura']);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
     });
   });
 
@@ -220,7 +301,7 @@ describe('Faulhaber crawler parser', () => {
       await expect(fetchAllFaulhaberJobs({
         fetchHtmlImpl,
         fetchJinaImpl: vi.fn(async (url: string) => url === LISTING_DATA_URL ? JINA_LISTING_BODY : DETAIL_HTML),
-      })).rejects.toThrow(/description below 100 characters/);
+      })).rejects.toThrow(/no detail page with a source body of 50 words/);
     });
   });
 

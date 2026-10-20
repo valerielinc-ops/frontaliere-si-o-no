@@ -23,9 +23,11 @@ import {
   checkInlineArithmetic,
   checkTaxPlausibility,
   checkCrossSectionNumericConflicts,
+  collectInstitutionAcronyms,
   checkFabricatedInstitutionAcronyms,
   checkFabricatedNormAcronyms,
   FABRICATED_NORM_ACRONYMS,
+  benignNormEntityBoundary,
   checkContradictoryNormDates,
   checkSourceFreshness,
   extractSourceAnchors,
@@ -527,6 +529,12 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     )).toEqual([]);
   });
 
+  it('accepts the real Joint Research Centre acronym', () => {
+    expect(checkFabricatedInstitutionAcronyms(
+      'La Commissione Europea (JRC) ha pubblicato lo studio sulle città verdi.',
+    )).toEqual([]);
+  });
+
   // ── 2026-07-29 corpus triage ──
   it('accepts the non-Italian acronym of an office already listed', () => {
     // Swiss federal offices publish under three or four acronyms and the writer
@@ -587,6 +595,99 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     expect(codes(issues)).toContain('unknown-institution');
     expect(issues[0].severity).toBe('major');
   });
+
+  it('does not treat a politician affiliation as the institution acronym', () => {
+    const text = 'Nel corso della conferenza stampa, il direttore del Dipartimento '
+      + 'grigionese delle finanze e dei comuni Martin Bühler (PLR) ha precisato.';
+
+    expect(checkFabricatedInstitutionAcronyms(text)).toEqual([]);
+    expect(collectInstitutionAcronyms(text)).toEqual([]);
+  });
+
+  it('keeps a title-cased institution tail as an institution candidate', () => {
+    for (const [text, acronym, name] of [
+      ['Il direttore del Dipartimento Politiche Sociali (PLR).', 'PLR', 'Dipartimento Politiche Sociali'],
+      ['Il direttore del Dipartimento cantonale Politiche Sociali (MPS).', 'MPS', 'Dipartimento cantonale Politiche Sociali'],
+    ] as const) {
+      const issues = checkFabricatedInstitutionAcronyms(text);
+
+      expect(codes(issues)).toEqual(['unknown-institution']);
+      expect(collectInstitutionAcronyms(text, { sourceText: '' }))
+        .toEqual([{ acronym, name, support: 'unknown' }]);
+    }
+  });
+
+  it('keeps a comma-separated institution tail reportable', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il direttore del Dipartimento, Politiche Sociali (MPS).',
+    );
+
+    expect(codes(issues)).toEqual(['unknown-institution']);
+  });
+
+  it('does not treat a lowercase institutional tail as a comma-delimited person name', () => {
+    const text = 'Il direttore del Dipartimento delle finanze, Politiche Sociali (MPS).';
+
+    expect(codes(checkFabricatedInstitutionAcronyms(text))).toEqual(['unknown-institution']);
+    expect(collectInstitutionAcronyms(text, { sourceText: '' })).toEqual([{
+      acronym: 'MPS',
+      name: 'Dipartimento delle finanze, Politiche Sociali',
+      support: 'unknown',
+    }]);
+  });
+
+  it('still recognizes a comma-delimited person appositive after a lexical boundary', () => {
+    const text = 'Il direttore del Dipartimento grigionese delle finanze, Martin Bühler (PLR).';
+
+    expect(checkFabricatedInstitutionAcronyms(text)).toEqual([]);
+  });
+
+  it('recognizes a dataset-backed person after the conjunction without hiding an institution tail', () => {
+    const person = 'Il direttore del Dipartimento grigionese delle finanze e dei comuni e Martin Bühler (PLR).';
+    const institution = 'Il direttore del Dipartimento grigionese delle finanze e dei comuni e Politiche Sociali (PLR).';
+
+    expect(checkFabricatedInstitutionAcronyms(person)).toEqual([]);
+    expect(collectInstitutionAcronyms(person, { sourceText: '' })).toEqual([]);
+    expect(codes(checkFabricatedInstitutionAcronyms(institution))).toEqual(['unknown-institution']);
+    expect(collectInstitutionAcronyms(institution, { sourceText: '' })).toEqual([{
+      acronym: 'PLR',
+      name: 'Dipartimento grigionese delle finanze e dei comuni e Politiche Sociali',
+      support: 'unknown',
+    }]);
+  });
+
+  it('keeps denylisted political acronyms blocking', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il direttore del Dipartimento grigionese delle finanze e dei comuni Mario Rossi (PLR).',
+      { learnedDenylist: new Set(['PLR']) },
+    );
+
+    expect(issues).toHaveLength(1);
+    expect(issues[0].code).toBe('fabricated-institution');
+    expect(issues[0].severity).toBe('critical');
+  });
+
+  it('ignores the Ticino MPS affiliation after a person name', () => {
+    const text = 'Il direttore del Dipartimento grigionese delle finanze e dei comuni Mario Rossi (MPS).';
+
+    expect(collectInstitutionAcronyms(text, { sourceText: '' })).toEqual([]);
+  });
+
+  it('still reports an unknown acronym attached directly to an institution', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il Dipartimento grigionese delle finanze e dei comuni (DFG) ha pubblicato il preventivo.',
+    );
+
+    expect(codes(issues)).toContain('unknown-institution');
+  });
+
+  it('does not let a person-affiliation guard hide a fabricated institution', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il direttore del Dipartimento delle finanze Mario Bühler (UFI) ha parlato.',
+    );
+
+    expect(codes(issues)).toContain('fabricated-institution');
+  });
 });
 
 describe('checkFabricatedNormAcronyms', () => {
@@ -620,6 +721,44 @@ describe('checkFabricatedNormAcronyms', () => {
     expect(checkFabricatedNormAcronyms(
       'La app LPS aiuta i frontalieri a calcolare lo stipendio netto in Svizzera.',
     )).toEqual([]);
+  });
+
+  it('validates entity boundaries against the original text at truncated context edges', () => {
+    const texts = [
+      `xgroup «${' '.repeat(73)}LFW`,
+      `LFW${' '.repeat(30)}AGX`,
+    ];
+    expect(benignNormEntityBoundary(texts[0], 'LFW', texts[0].indexOf('LFW'), 3, 80)).toBe(false);
+    expect(benignNormEntityBoundary(texts[1], 'LFW', 0, 3, 80)).toBe(false);
+    expect(texts.map((text) => checkFabricatedNormAcronyms(text).length)).toEqual([1, 1]);
+  });
+
+  // Le forme societarie valgono in ogni locale del corpus: «la société LFW» e
+  // «die Gesellschaft LPS» sono la stessa entita' di «il gruppo LFW».
+  it.each([
+    ['fr', 'La société LFW a ouvert un guichet pour les frontaliers près de la frontière.'],
+    ['fr', 'La societe LCO recrute des frontaliers au Tessin.'],
+    ['de', 'Die Gesellschaft LPS hat eine neue Filiale für Grenzgänger eröffnet.'],
+    ['de', 'Die Firma LFW sucht Grenzgänger im Tessin.'],
+    ['en', 'The firm LCO hired cross-border commuters in Ticino.'],
+  ])('leaves a %s company name using the sigla alone', (_locale, text) => {
+    expect(checkFabricatedNormAcronyms(text)).toEqual([]);
+  });
+
+  it.each([
+    ['it quoted', 'Il gruppo «LFW», AG ha aperto una filiale per i frontalieri.'],
+    ['de suffix', 'LPS GmbH sucht Grenzgängerinnen und Grenzgänger im Tessin.'],
+    ['fr suffix', 'LCO S.A. recrute des frontaliers près de la frontière.'],
+    ['fr accented suffix', 'LMA Sàrl conseille les travailleurs frontaliers.'],
+    ['en suffix', 'LRF Ltd. provides payroll services to cross-border workers.'],
+  ])('leaves a real company name with a %s boundary alone', (_case, text) => {
+    expect(checkFabricatedNormAcronyms(text)).toEqual([]);
+  });
+
+  it('does not treat legal punctuation as a corporate suffix', () => {
+    expect(codes(checkFabricatedNormAcronyms(
+      'Secondo la LFW, art. 2, il datore di lavoro deve registrare ogni ora supplementare.',
+    ))).toContain('fabricated-norm-acronym');
   });
 
   it('keeps blocking unambiguous norm uses even without legge/art./RS nearby', () => {
@@ -920,6 +1059,190 @@ describe('checkFabricatedNormAcronyms', () => {
     expect(codes(res.blocking)).toContain('fabricated-norm-acronym');
   });
 
+  // `LTF` ha un omonimo VERO (Legge sul Tribunale federale, RS 173.110). Le
+  // frasi sotto sono le forme reali del corpus, anonimizzate: leggi fiscali,
+  // sui frontalieri, sul lavoro e sul tirocinio che non esistono, arrivate
+  // anche nelle traduzioni en/de/fr.
+  it('flags LTF cited as a tax, cross-border or labour law, in every locale', () => {
+    const frasiInventate = [
+      'Potrai beneficiare della franchigia di 10\'000 CHF, come stabilito dalla legge federale del 1982 sulla tassazione dei redditi dei frontalieri (LTF).',
+      'La legge federale sul lavoro transfrontaliero (LTF) stabilisce che i frontalieri devono avere un contratto di lavoro scritto e firmato.',
+      'La legge sul tirocinio del 15 giugno 2011 (LTF) stabilisce che il contratto di tirocinio debba essere firmato entro tre giorni (art. 1, § 2 LTF).',
+      'La legge ticinese sulla tassazione dei redditi da lavoro (LTF-TI) consente una franchigia di 10.000 euro.',
+      'La normativa che regola i lavoratori frontalieri in Ticino è la legge federale sul lavoro (LTF) del 3 ottobre 1947.',
+      'You will have to declare your income in both countries, as required by the 1992 Federal Act on the Taxation of Cross-Border Workers\' Income (LTF).',
+      'Nach dem Bundesgesetz von 1982 über die Besteuerung der Einkommen der Grenzgänger (LTF) gilt ein Freibetrag.',
+      'La Loi fédérale du travail (LTF) du 13 mars 1946 consacre les droits des travailleurs en Suisse.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+  });
+
+  it('leaves the real LTF (Federal Supreme Court Act) alone, even in a tax judgment', () => {
+    const frasiVere = [
+      'In materia di assistenza amministrativa fiscale, non ricorre una questione di diritto di importanza fondamentale ai sensi dell\'art. 84a LTF quando il contribuente contesta soltanto lo scambio di informazioni.',
+      'Im Bereich der steuerlichen Amtshilfe ist eine Rechtsfrage von grundlegender Bedeutung im Sinne von Art. 84a LTF nicht gegeben.',
+      'Il ricorso contro la decisione fiscale dell\'AFC è disciplinato dagli art. 82 segg. LTF.',
+      'La Legge sul Tribunale federale (LTF) disciplina anche i ricorsi in materia fiscale.',
+      'Il contribuente frontaliere può impugnare la tassazione davanti al Tribunale federale secondo la LTF.',
+    ];
+    for (const frase of frasiVere) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  it('accepts a spelled-out article citation before a traffic sentence', () => {
+    expect(checkFabricatedNormAcronyms(
+      'Secondo l\'articolo 84a della LTF. La circolazione stradale è regolata dalla LCStr.',
+    )).toEqual([]);
+  });
+
+  // Il `veto` del Tribunale federale assolve solo la SUA finestra: una legge
+  // fiscale inventata piu' in basso nello stesso testo resta rilevata.
+  it('still flags a fabricated LTF that follows a judicial mention outside its window', () => {
+    const issues = checkFabricatedNormAcronyms(
+      'Il Tribunale federale ha dichiarato inammissibile il ricorso ai sensi dell\'art. 84a LTF. '
+      + 'La decisione riguardava lo scambio di informazioni con l\'Italia e non cambia nulla per chi lavora '
+      + 'in Svizzera e vive oltre confine. Un altro paragrafo sostiene invece che la legge federale '
+      + 'sulla tassazione dei redditi dei frontalieri (LTF) preveda una franchigia.',
+    );
+    expect(codes(issues)).toContain('fabricated-norm-acronym');
+  });
+
+  it('does not let a judicial sentence veto a later fabricated LTF', () => {
+    const issues = checkFabricatedNormAcronyms(
+      'Il Tribunale federale ha deciso il ricorso. '
+      + 'La legge federale sul lavoro transfrontaliero (LTF) stabilisce i requisiti.',
+    );
+    expect(issues).toHaveLength(1);
+    expect(issues[0].code).toBe('fabricated-norm-acronym');
+  });
+
+  // `SENTENCE_BREAK_RE` taglia al `;` solo davanti a una maiuscola: il veto
+  // del Tribunale federale deve fermarsi comunque alla clausola (`;`, a capo)
+  // che contiene l'occorrenza, non assolvere la clausola successiva.
+  it('does not let a judicial clause veto a fabricated LTF after a semicolon or line break', () => {
+    const frasiInventate = [
+      'Il Tribunale federale ha respinto il ricorso del conducente; la legge federale sul traffico (LTF) prevede invece un casco obbligatorio per i ciclisti.',
+      'Il Tribunale federale ha respinto il ricorso del conducente\nla legge federale sul traffico (LTF) prevede un casco obbligatorio per i ciclisti.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+    const frasiVere = [
+      'Il Tribunale federale ha respinto il ricorso; secondo l\'art. 84a LTF la questione non era di importanza fondamentale.',
+      'Il Tribunale federale ha respinto il ricorso del conducente contro la revoca della licenza di condurre (art. 82 segg. LTF).',
+      'Il contribuente frontaliere può impugnare la tassazione davanti al Tribunale federale secondo la LTF.',
+    ];
+    for (const frase of frasiVere) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  it('flags the invented LMA, LRF and OT citations and leaves their homonyms alone', () => {
+    const frasiInventate = [
+      'Secondo la legge federale sulla migrazione (LMA), il permesso di dimora B può essere concesso dopo due anni.',
+      'La legge federale sulla migrazione e sull\'asilo (LMA) stabilisce un reddito minimo di 3\'000 CHF al mese.',
+      'Normative: Legge federale sul reddito (LRF) del 8 ottobre 1952.',
+      'Secondo la legge federale sulla tassazione dei redditi (LRF) del 22 marzo 1925, i redditi sono tassati in base al loro ammontare.',
+      'Ordinanza sulla tassazione del reddito (OT): 1993.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+    const omonimi = [
+      'La crescente convergenza tra IT e OT (Operational Technology) rende vulnerabili gli impianti industriali.',
+      'Identificare i punti deboli nei sistemi IT e OT prima di un audit.',
+      'La legge federale sugli stranieri e la loro integrazione (LStrI) regola il permesso di dimora B.',
+    ];
+    for (const frase of omonimi) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  // ED-FAB-3. La seconda famiglia di `LTF` inventate: la «legge federale sul
+  // traffico (LTF)» al posto della LCStr (RS 741.01), con le varianti
+  // ferroviaria e aerea, nelle forme reali del corpus anonimizzate. Nessuna di
+  // queste frasi ha un cue fiscale o del lavoro: la guardia della ED-FAB-2 le
+  // lasciava passare tutte.
+  it('flags LTF cited as a road, rail or air traffic law, in every locale', () => {
+    const frasiInventate = [
+      'Secondo la legge federale sul traffico (LTF), i ciclisti devono indossare un casco in caso di incidente.',
+      'La legge federale sul traffico stradale (LTF) stabilisce che la velocità massima sulle autostrade è di 120 km/h.',
+      'Riferimenti: la legge federale sul trasporto ferroviario del 20 ottobre 2005 (LTF).',
+      'Le normative sui biglietti sono cambiate quando è entrata in vigore la legge federale sul traffico aereo (LTF).',
+      'Il progetto è stato approvato in base alla Legge federale sul traffico (LTF) del 1958.',
+      'References: The Federal Rail Transport Act of 20 October 2005 (LTF).',
+      'What is the speed limit on motorways in Switzerland according to the LTF?',
+      'Die Bestimmungen haben sich geändert, als das Bundesgesetz über den Luftverkehr (LTF) in Kraft trat.',
+      'Selon la loi fédérale sur la circulation (LTF), les voitures de plus de 15 ans ne peuvent pas circuler en Suisse.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+  });
+
+  it('leaves the real LTF alone in a road traffic judgment', () => {
+    const frasiVere = [
+      'Il Tribunale federale ha respinto il ricorso del conducente contro la revoca della licenza di condurre (art. 82 segg. LTF).',
+      'Secondo la LTF, il Tribunale federale giudica i ricorsi in materia di circolazione stradale.',
+      'Das Bundesgericht trat auf die Beschwerde des Autofahrers nach Art. 42 Abs. 2 LTF nicht ein.',
+    ];
+    for (const frase of frasiVere) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  // ED-FAB-3. Leggi federali inventate con un'altra sigla: `LFA` (apprendistato,
+  // stranieri, frontalieri), `LSM` (salario minimo federale, che in Svizzera non
+  // esiste), `LCE` (commercio estero). Ognuna ha un contesto, perche' la sigla
+  // da sola ha omonimi leciti: un'azienda, la legge ticinese sul salario
+  // minimo, la legge belga sulle comunicazioni elettroniche.
+  it('flags the invented federal LFA, LSM and LCE citations and leaves their homonyms alone', () => {
+    const frasiInventate = [
+      'Secondo la legge federale sull\'apprendistato (LFA) del 24 marzo 2017, l\'apprendistato deve durare almeno tre anni.',
+      'The short-term L permit is regulated by article 14 of the Federal Law on Foreigners (LFA) of 16 December 2008.',
+      'Das Bundesgesetz über die Lehre (LFA) von 2019 legt die Vorschriften für die Lehre fest.',
+      'Secondo la legge federale sul salario minimo (LSM) del 17 giugno 2015, la retribuzione minima di un apprendista è di 2.500 franchi.',
+      'According to the Federal Minimum Wage Act (LSM) of 17 June 2015, the minimum wage for an apprentice is CHF 2,500.',
+      'La legge federale sul commercio estero (LCE) del 10 ottobre 1977 regola le importazioni e le esportazioni in Svizzera.',
+      'La Loi fédérale sur le commerce extérieur (LCE) du 10 octobre 1977 réglemente les importations.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+    const omonimi = [
+      'Il gruppo LFA ha aperto una nuova sede a Lugano.',
+      'La LFA Engineering di Mendrisio ha assunto venti apprendisti.',
+      'In Ticino il salario minimo è fissato dalla legge cantonale (Lsm) e varia per settore.',
+      'La loi belge relative aux communications électroniques (LCE) encadre les opérateurs.',
+      'La legge federale sulla formazione professionale (LFPr) disciplina il tirocinio.',
+    ];
+    for (const frase of omonimi) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  it('does not combine allOf cues across separate sentences', () => {
+    expect(checkFabricatedNormAcronyms(
+      'IT e OT sono usati nella sicurezza. La nuova ordinanza sulla tassazione è stata pubblicata.',
+    )).toEqual([]);
+    expect(checkFabricatedNormAcronyms(
+      'La nuova ordinanza sulla tassazione è stata pubblicata. La legge cantonale sul turismo (LRF) è contestata.',
+    )).toEqual([]);
+  });
+
+  it('matches the new normative acronym guards case-insensitively', () => {
+    const frasi = [
+      'La legge federale sul lavoro transfrontaliero (ltf)',
+      'La legge federale sulla migrazione (lma)',
+      'La legge federale sul reddito (lrf)',
+      'Ordinanza sulla tassazione del reddito (ot)',
+    ];
+    expect(frasi.map((frase) => checkFabricatedNormAcronyms(frase).length)).toEqual([1, 1, 1, 1]);
+  });
+
   // Le regex della tabella sono module-level e condivise fra le chiamate: con
   // il flag `g` porterebbero `lastIndex` da una chiamata all'altra e il gate
   // salterebbe un articolo si' e uno no. Difetto invisibile a un test a
@@ -1197,7 +1520,7 @@ describe('runFactualityGates', () => {
     expect(result.passed).toBe(true);
   });
 
-  it('does not let learned institution memory block or learn without a usable source', () => {
+  it('keeps the confirmed denylist but neither suspects nor learns without a usable source', () => {
     const sections = {
       body1: 'Il Dipartimento federale delle cose (XYZ) ha pubblicato una comunicazione.',
     };
@@ -1207,9 +1530,17 @@ describe('runFactualityGates', () => {
       degraded: null,
     };
     const withoutSource = runFactualityGates({ sections, memory, sourceText: '' });
-    expect(codes(withoutSource.issues)).not.toContain('fabricated-institution');
-    expect(codes(withoutSource.issues)).not.toContain('suspected-institution');
+    expect(codes(withoutSource.blocking)).toContain('fabricated-institution');
     expect(withoutSource.observations).toEqual([]);
+
+    const suspectOnly = runFactualityGates({
+      sections,
+      memory: { denylist: new Set(), suspects: new Set(['XYZ']), degraded: null },
+      sourceText: '',
+    });
+    expect(codes(suspectOnly.issues)).not.toContain('suspected-institution');
+    expect(codes(suspectOnly.issues)).not.toContain('fabricated-institution');
+    expect(suspectOnly.observations).toEqual([]);
 
     const withSource = runFactualityGates({
       sections,
@@ -1391,6 +1722,22 @@ describe('detectLeakedScaffolding', () => {
       .toContain('leaked-prompt-scaffolding');
   });
 
+  // The expansion prompt of create-article.mjs hands the model two input labels
+  // — the title reference and the current text with its word count. The corpus
+  // copy of this module learned them (corpus #1678) while this one did not:
+  // reconciling the both-moved twin brings them back here, so the copy that
+  // descends to the corpus keeps catching them.
+  it.each([
+    ['title reference label', 'RIFERIMENTO DEL TITOLO (SOLO INPUT, NON RIPETERE): lavoro transfrontaliero\n\nTesto valido.'],
+    ['current-text label with its word count', 'TESTO ATTUALE (42 parole): testo interno del prompt\n\nTesto valido.'],
+  ])('flags the expansion prompt %s', (_label, body) => {
+    expect(codes(detectLeakedScaffolding(body))).toContain('leaked-prompt-scaffolding');
+  });
+
+  it('does not flag prose that merely mentions the current text', () => {
+    expect(detectLeakedScaffolding('Il testo attuale della legge (42 articoli) resta in vigore.')).toEqual([]);
+  });
+
   it('tells the writer to delete it, not to rephrase it', () => {
     const fix = detectLeakedScaffolding('## TITOLO ARTICOLO: prova')[0]?.fix || '';
     expect(fix).toMatch(/non deve esserci affatto/i);
@@ -1408,5 +1755,102 @@ describe('detectLeakedScaffolding', () => {
   it('does not flag a normal heading or a quoted phrase', () => {
     expect(detectLeakedScaffolding('## Requisiti\n\nServe il "permesso G" e nulla più.')).toEqual([]);
     expect(detectLeakedScaffolding('Il datore di lavoro non può MAI trattenere il documento.')).toEqual([]);
+  });
+
+  // Scaffolding del prompt: marcatore titolo tradotto pubblicato senza rilevazione.
+  //
+  // en/de/fr are translations of the Italian body, so a leaked "TITOLO
+  // ARTICOLO:" arrives there TRANSLATED. Measured on the corpus on 2026-10-03:
+  // 64 translated bodies carried one of the forms below and the detector, which
+  // only knew the Italian token, flagged none of them. Every fixture is a shape
+  // read from a published body, not an invented one.
+  describe('translated title marker', () => {
+    const LOCALIZED_AT_LINE_START: Array<[string, string]> = [
+      ['en', 'Coming soon.\n\nARTICLE TITLE: Decline in purchasing power and LAMal'],
+      ['de, one word', 'Ohne Bewilligung.\n\nARTIKELTITEL: Arbeiten als Grenzgänger im Tessin'],
+      ['de, hyphenated', 'Der Franken legt zu.\n\nARTIKEL-TITEL: Schweizer Franken auf Rekordhoch'],
+      ['de, genitive', 'Die Prämien steigen.\n\nTITEL DES ARTIKELS: Gesundheitssteuer für Grenzgänger'],
+      ['fr, short', 'Avant de commencer.\n\nTITRE ARTICLE : Petits boulots d\'été au Tessin'],
+      ['fr, straight apostrophe', 'Le pouvoir d\'achat recule.\n\nTITRE DE L\'ARTICLE : Baisse du pouvoir d\'achat'],
+      ['fr, typographic apostrophe', 'Les navetteurs.\n\nTITRE DE L’ARTICLE : Les navetteurs du Tessin'],
+      ['fr, no space before the colon', 'Les soins.\n\nTITRE DE L\'ARTICLE: Hantavirus, deux cas'],
+    ];
+
+    it.each(LOCALIZED_AT_LINE_START)('flags the marker at a line start (%s)', (_label, text) => {
+      expect(codes(detectLeakedScaffolding(text))).toEqual(['leaked-prompt-scaffolding']);
+    });
+
+    // 4 in 10 of the corpus hits: the translator flattened the paragraph break
+    // and the marker now trails the previous sentence on the same line.
+    it.each([
+      ['en', 'They "see no way out." ARTICLE TITLE: CEO of Kägi on export difficulties'],
+      ['de', 'damit sie wachsen und gedeihen können.» ARTIKEL-TITEL: CEO von Kägi'],
+      ['de, genitive', 'die keine anderen Optionen haben. TITEL DES ARTIKELS: «Bereit, alles zu tun»'],
+      ['fr', 'les difficultés actuelles ». TITRE ARTICLE : CEO de Kägi'],
+      ['fr, typographic apostrophe', 'affecter vos finances. TITRE DE L’ARTICLE : Taxe santé'],
+      ['it marker left untranslated', 'garantir une vieillesse sereine. TITOLO ARTICOLO: Suisses choisissent capital'],
+    ])('flags the marker when it trails a sentence (%s)', (_label, text) => {
+      expect(codes(detectLeakedScaffolding(text))).toEqual(['leaked-prompt-scaffolding']);
+    });
+
+    it('flags the marker used as a bare heading, without a colon', () => {
+      expect(codes(detectLeakedScaffolding('Amount: Not specified.\n\n### ARTICLE TITLE\nCost of living in Lugano')))
+        .toEqual(['leaked-prompt-scaffolding']);
+      expect(codes(detectLeakedScaffolding('Betrag: noch nicht angegeben\n\n## ARTIKELTITEL\nArbeiten als Grenzgänger')))
+        .toEqual(['leaked-prompt-scaffolding']);
+      expect(codes(detectLeakedScaffolding('Montant : Non précisé.\n\n### TITRE ARTICLE\nCoût de la vie à Lugano')))
+        .toEqual(['leaked-prompt-scaffolding']);
+    });
+
+    it('flags the marker after paragraph breaks stored as a literal backslash-n', () => {
+      expect(codes(detectLeakedScaffolding('les consommateurs internationaux.\\n\\nTITRE ARTICLE : Kägi : Exportations')))
+        .toEqual(['leaked-prompt-scaffolding']);
+    });
+
+    it('reports one issue per body for the Italian marker, at a line start as before', () => {
+      expect(detectLeakedScaffolding('Testo.\n\nTITOLO ARTICOLO: Svizzeri scelgono capitale')).toHaveLength(1);
+    });
+
+    it('is wired into the translation gate as a blocking finding', () => {
+      const { blocking } = runFactualityGates({
+        locale: 'en',
+        sections: { body1: 'The canton confirmed the measure on Monday.\n\nARTICLE TITLE: Child tax deduction in Ticino' },
+      });
+      expect(codes(blocking)).toContain('leaked-prompt-scaffolding');
+    });
+
+    // Prose may talk ABOUT an article's title. Only the shouted token is the
+    // prompt leaking; lower- and title-case mentions must stay clean.
+    it.each([
+      ['en, lower case', 'The article title: "Working across the border" sums up the reform.'],
+      ['en, sentence start', 'Article title aside, the measure changes little for cross-border workers.'],
+      ['de', 'Der Artikeltitel lautet «Grenzgänger im Tessin» und fasst die Reform zusammen.'],
+      ['de, genitive', 'Der Titel des Artikels 15 des Abkommens regelt die Besteuerung.'],
+      ['fr', 'Selon le titre de l\'article 15 de l\'accord, le titre de l’article est sans ambiguïté.'],
+      ['it', 'Il titolo dell\'articolo: «Frontalieri, cosa cambia» riassume la riforma.'],
+      ['all caps, no colon, mid-sentence', 'The form has an ARTICLE TITLE field that editors fill in.'],
+      ['all caps, inside a longer word', 'The PARTICLE TITLE: a physics column unrelated to this one.'],
+    ])('does not flag prose that mentions an article title (%s)', (_label, text) => {
+      expect(detectLeakedScaffolding(text)).toEqual([]);
+    });
+
+    // The label shape refuses a token that continues a word, and "word" means
+    // any Unicode letter or digit. That reading of `\p{L}`/`\p{N}` exists only
+    // under the `u` flag: drop it and every row below is reported as a leak
+    // (the lookbehind then tests for the literal characters "p", "{", "L"…).
+    // The non-ASCII row also fails an ASCII-only `[A-Za-z0-9]` boundary.
+    it.each([
+      ['ASCII letter', 'PREARTICLE TITLE: testo'],
+      ['ASCII letter, Italian token', 'SOTTOTITOLO ARTICOLO: testo'],
+      ['non-ASCII letter', 'MENÜARTIKELTITEL: Preise im Tessin'],
+      ['digit', 'Formular 2ARTICLE TITLE: a field code, not a heading'],
+    ])('does not flag the token when it continues a word (%s)', (_label, text) => {
+      expect(detectLeakedScaffolding(text)).toEqual([]);
+    });
+
+    it('still flags the same token once it stands on its own', () => {
+      expect(detectLeakedScaffolding('ARTICLE TITLE: testo')).toHaveLength(1);
+      expect(detectLeakedScaffolding('Menü. ARTIKELTITEL: Preise im Tessin')).toHaveLength(1);
+    });
   });
 });

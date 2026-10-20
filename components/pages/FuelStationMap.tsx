@@ -31,12 +31,13 @@ export interface FuelMapStation {
   lng: number;
   benzinaPriceChf: number | null;
   dieselPriceChf: number | null;
+  collectedAt?: string | null;
 }
 
 export interface FuelStationMapPayload {
   locale: FuelDailyLocale;
   fuel: FuelType;
-  updatedAt: string;
+  updatedAt: string | null;
   stations: FuelMapStation[];
 }
 
@@ -56,6 +57,8 @@ interface MapCopy {
   readonly mapHint: string;
   readonly highPrice: string;
   readonly fuelUnit: string;
+  readonly collectionLabel: string;
+  readonly unknownCollection: string;
 }
 
 const COPY: Record<FuelDailyLocale, MapCopy> = {
@@ -67,14 +70,16 @@ const COPY: Record<FuelDailyLocale, MapCopy> = {
     listTitle: 'Stazioni sulla mappa',
     openDetail: 'Apri pagina prezzo',
     directions: 'Indicazioni',
-    source: 'TCS · aggiornamento automatico',
-    live: 'Dati aggiornati',
-    loading: 'Aggiorno i prezzi del giorno…',
-    fallback: 'Snapshot del giorno',
+    source: 'TCS · prezzi segnalati dagli utenti',
+    live: 'Campione disponibile',
+    loading: 'Carico il campione disponibile…',
+    fallback: 'Campione salvato',
     noResults: 'Nessuna stazione corrisponde ai filtri.',
     mapHint: 'Seleziona una stazione per evidenziarla sulla mappa.',
     highPrice: 'Prezzo più alto',
     fuelUnit: 'CHF/L',
+    collectionLabel: 'Ultima acquisizione nel campione',
+    unknownCollection: 'Data di acquisizione non disponibile',
   },
   en: {
     search: 'Search station or place',
@@ -84,14 +89,16 @@ const COPY: Record<FuelDailyLocale, MapCopy> = {
     listTitle: 'Stations on the map',
     openDetail: 'Open price page',
     directions: 'Directions',
-    source: 'TCS · automatic refresh',
-    live: 'Prices refreshed',
-    loading: 'Refreshing today’s prices…',
-    fallback: 'Daily snapshot',
+    source: 'TCS · user-reported prices',
+    live: 'Available observations',
+    loading: 'Loading available observations…',
+    fallback: 'Saved sample',
     noResults: 'No station matches these filters.',
     mapHint: 'Select a station to highlight it on the map.',
     highPrice: 'Higher price',
     fuelUnit: 'CHF/L',
+    collectionLabel: 'Latest collection in the sample',
+    unknownCollection: 'Collection time unavailable',
   },
   de: {
     search: 'Tankstelle oder Ort suchen',
@@ -101,14 +108,16 @@ const COPY: Record<FuelDailyLocale, MapCopy> = {
     listTitle: 'Tankstellen auf der Karte',
     openDetail: 'Preisseite öffnen',
     directions: 'Route',
-    source: 'TCS · automatische Aktualisierung',
-    live: 'Preise aktualisiert',
-    loading: 'Preise des Tages werden aktualisiert…',
-    fallback: 'Statischer Tagesstand',
+    source: 'TCS · Preisangaben von Nutzern',
+    live: 'Verfügbare Preisdaten',
+    loading: 'Verfügbare Preisdaten werden geladen…',
+    fallback: 'Gespeicherte Stichprobe',
     noResults: 'Keine Tankstelle passt zu den Filtern.',
     mapHint: 'Wähle eine Tankstelle aus, um sie auf der Karte hervorzuheben.',
     highPrice: 'Höherer Preis',
     fuelUnit: 'CHF/L',
+    collectionLabel: 'Letzter Abruf in der Stichprobe',
+    unknownCollection: 'Abrufzeit nicht verfügbar',
   },
   fr: {
     search: 'Rechercher une station ou un lieu',
@@ -118,14 +127,16 @@ const COPY: Record<FuelDailyLocale, MapCopy> = {
     listTitle: 'Stations sur la carte',
     openDetail: 'Ouvrir la page prix',
     directions: 'Itinéraire',
-    source: 'TCS · mise à jour automatique',
-    live: 'Prix actualisés',
-    loading: 'Actualisation des prix du jour…',
-    fallback: 'Snapshot du jour',
+    source: 'TCS · prix signalés par les utilisateurs',
+    live: 'Relevés disponibles',
+    loading: 'Chargement des relevés disponibles…',
+    fallback: 'Échantillon enregistré',
     noResults: 'Aucune station ne correspond aux filtres.',
     mapHint: 'Sélectionnez une station pour la mettre en évidence sur la carte.',
     highPrice: 'Prix plus élevé',
     fuelUnit: 'CHF/L',
+    collectionLabel: 'Dernière acquisition dans l’échantillon',
+    unknownCollection: 'Date d’acquisition indisponible',
   },
 };
 
@@ -146,17 +157,13 @@ function stationKey(station: Pick<FuelMapStation, 'brand' | 'name' | 'address'>)
 
 function priceForFuel(station: FuelStationSwitzerland, fuel: FuelType): number | null {
   if (fuel === 'benzina') {
-    return typeof station.sp95PriceChf === 'number' && Number.isFinite(station.sp95PriceChf)
+    return typeof station.sp95PriceChf === 'number' && Number.isFinite(station.sp95PriceChf) && station.sp95PriceChf > 0
       ? station.sp95PriceChf
       : null;
   }
   const dieselPrice = station.dieselPriceChf;
-  if (typeof dieselPrice === 'number' && Number.isFinite(dieselPrice)) return dieselPrice;
-  // Keep the runtime fallback aligned with the build-time fuel pipeline for
-  // older snapshots that only carry the SP95 value.
-  return typeof station.sp95PriceChf === 'number' && Number.isFinite(station.sp95PriceChf)
-    ? Number((station.sp95PriceChf + 0.08).toFixed(3))
-    : null;
+  if (station.dieselSource === 'derived' || station.dieselSource === 'monthly_average') return null;
+  return typeof dieselPrice === 'number' && Number.isFinite(dieselPrice) && dieselPrice > 0 ? dieselPrice : null;
 }
 
 function fuelZoneFromAddress(address: string | null | undefined): FuelZone | null {
@@ -176,19 +183,22 @@ function formatPrice(price: number | null, locale: FuelDailyLocale, unit: string
 }
 
 function formatDate(dateStamp: string, locale: FuelDailyLocale): string {
-  const date = new Date(`${dateStamp.slice(0, 10)}T12:00:00Z`);
+  const date = new Date(dateStamp);
   if (Number.isNaN(date.getTime())) return dateStamp;
   return new Intl.DateTimeFormat(LOCALE_FOR_FORMAT[locale], {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
-    timeZone: 'UTC',
+    timeZone: 'Europe/Zurich',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZoneName: 'short',
   }).format(date);
 }
 
 function normaliseInitialStations(payload: FuelStationMapPayload): FuelMapStation[] {
   return payload.stations.filter((station) =>
-    Number.isFinite(station.lat) && Number.isFinite(station.lng) && priceForMap(station, payload.fuel) != null,
+    Number.isFinite(station.lat) && Number.isFinite(station.lng) && (priceForMap(station, payload.fuel) ?? 0) > 0,
   );
 }
 
@@ -224,6 +234,7 @@ function normaliseLiveStations(
         lat: station.lat,
         lng: station.lng,
         benzinaPriceChf: payload.fuel === 'benzina' ? price : (fallback?.benzinaPriceChf ?? null),
+        collectedAt: payload.fuel === 'diesel' ? station.dieselUpdatedAt ?? station.updatedAt : station.updatedAt,
         dieselPriceChf: payload.fuel === 'diesel' ? price : (fallback?.dieselPriceChf ?? null),
       });
     }
@@ -269,7 +280,10 @@ export default function FuelStationMap({ payload }: { payload: FuelStationMapPay
   const [focusedId, setFocusedId] = useState<string | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [refreshFailed, setRefreshFailed] = useState(false);
-  const [updatedAt, setUpdatedAt] = useState(payload.updatedAt);
+  const updatedAt = useMemo(() => {
+    const times = stations.map((station) => station.collectedAt ? Date.parse(station.collectedAt) : NaN);
+    return times.length && times.every(Number.isFinite) ? new Date(Math.max(...times)).toISOString() : null;
+  }, [stations]);
 
   useEffect(() => {
     let cancelled = false;
@@ -286,6 +300,7 @@ export default function FuelStationMap({ payload }: { payload: FuelStationMapPay
             if (!live) return snapshot;
             return {
               ...snapshot,
+              collectedAt: live.collectedAt ?? null,
               lat: live.lat,
               lng: live.lng,
               benzinaPriceChf: live.benzinaPriceChf ?? snapshot.benzinaPriceChf,
@@ -293,7 +308,6 @@ export default function FuelStationMap({ payload }: { payload: FuelStationMapPay
             };
           }));
         }
-        if (dataset.generatedAt) setUpdatedAt(dataset.generatedAt.slice(0, 10));
       })
       .catch(() => {
         // The SSG payload is the deliberate offline fallback: the map stays
@@ -433,7 +447,7 @@ export default function FuelStationMap({ payload }: { payload: FuelStationMapPay
           </div>
           <div className="fuel-map-list-meta">
             <span>{visibleStations.length} {copy.stations}</span>
-            <time dateTime={updatedAt}>{formatDate(updatedAt, payload.locale)}</time>
+            <span>{updatedAt ? <time dateTime={updatedAt}>{copy.collectionLabel}: {formatDate(updatedAt, payload.locale)}</time> : copy.unknownCollection}</span>
           </div>
           {visibleStations.length === 0 ? (
             <p className="fuel-map-empty">{copy.noResults}</p>

@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * mint-app-token.mjs — mint a short-lived GitHub App installation token (zero-dep).
  *
@@ -14,7 +16,11 @@
  *
  * Scopes the token to THIS repo only. On success: masks it and appends
  * `APP_TOKEN=<token>` to $GITHUB_ENV. Missing/invalid App creds → warn + exit 0
- * (no APP_TOKEN written) so callers fall back to GITHUB_PAT/GITHUB_TOKEN.
+ * (no APP_TOKEN written); each caller must then fail closed or use its explicitly
+ * declared PAT policy. This helper never authorizes a silent GITHUB_TOKEN fallback.
+ * `APP_TOKEN_DATA_REFRESH=true` is written only when the token response verifies
+ * both `contents: write` and `pull_requests: write`; data-refresh PR publishers
+ * use that capability flag before selecting APP_TOKEN.
  *
  * ─── `APP_TOKEN_WORKFLOWS`: capability VERIFIED, not asserted (issue #5288) ──────────
  *
@@ -116,9 +122,49 @@ function setWorkflowsCapability(granted) {
   if (out) appendFileSync(out, `APP_TOKEN_WORKFLOWS=${granted ? 'true' : 'false'}\n`);
 }
 
+/**
+ * Does this installation token grant `actions: write`, i.e. may it dispatch or
+ * re-run workflows? Same fail-closed rule as `hasWorkflowsWrite`: only the
+ * literal `'write'` counts. A caller that dispatches (deploy.yml re-arm) must
+ * not prefer an APP_TOKEN that cannot: the dispatch would 403 in a
+ * `continue-on-error` step and the recovered build would stay unpublished.
+ *
+ * @param {Record<string, string>|null|undefined} permissions `tok.body.permissions`
+ * @returns {boolean}
+ */
+export function hasActionsWrite(permissions) {
+  return permissions?.actions === 'write';
+}
+
+/** `APP_TOKEN_ACTIONS=true|false`, written on every exit path like APP_TOKEN_WORKFLOWS. */
+function setActionsCapability(granted) {
+  const out = process.env.GITHUB_ENV;
+  if (out) appendFileSync(out, `APP_TOKEN_ACTIONS=${granted ? 'true' : 'false'}\n`);
+}
+
+/**
+ * Does this installation token have the two permissions required by the shared
+ * open-data refresh PR publisher? A token that can write contents but cannot
+ * create/update pull requests must not win over the long-lived PAT fallback.
+ *
+ * @param {Record<string, string>|null|undefined} permissions `tok.body.permissions`
+ * @returns {boolean}
+ */
+export function hasDataRefreshWrite(permissions) {
+  return permissions?.contents === 'write' && permissions?.pull_requests === 'write';
+}
+
+/** `APP_TOKEN_DATA_REFRESH=true|false`, written on every exit path. */
+function setDataRefreshCapability(granted) {
+  const out = process.env.GITHUB_ENV;
+  if (out) appendFileSync(out, `APP_TOKEN_DATA_REFRESH=${granted ? 'true' : 'false'}\n`);
+}
+
 function warnExit(msg) {
-  console.log(`::warning::mint-app-token: ${msg} — APP_TOKEN not set, callers fall back to GITHUB_PAT/GITHUB_TOKEN.`);
+  console.log(`::warning::mint-app-token: ${msg} — APP_TOKEN not set; callers must fail closed or use an explicitly declared PAT.`);
   setWorkflowsCapability(false);
+  setActionsCapability(false);
+  setDataRefreshCapability(false);
   process.exit(0);
 }
 
@@ -163,22 +209,34 @@ async function main() {
   // see the module docstring (#5288). Never infer it from the mint having succeeded.
   const workflowsWrite = hasWorkflowsWrite(tok.body.permissions);
   setWorkflowsCapability(workflowsWrite);
+  const actionsWrite = hasActionsWrite(tok.body.permissions);
+  setActionsCapability(actionsWrite);
+  const dataRefreshWrite = hasDataRefreshWrite(tok.body.permissions);
+  setDataRefreshCapability(dataRefreshWrite);
   if (!workflowsWrite) {
     console.log(
       '::warning::mint-app-token: the installation token does NOT carry `workflows: write` ' +
         `(granted: ${Object.keys(tok.body.permissions || {}).sort().join(', ') || 'none'}). ` +
         'Pushes touching .github/workflows/** WILL be rejected. Approve the pending permission ' +
         'request for this App installation at github.com/settings/installations. ' +
-        'APP_TOKEN_WORKFLOWS=false — capability-gated steps degrade automatically.',
+      'APP_TOKEN_WORKFLOWS=false — capability-gated steps degrade automatically.',
+    );
+  }
+  if (!dataRefreshWrite) {
+    console.log(
+      '::warning::mint-app-token: the installation token does NOT carry both `contents: write` ' +
+        'and `pull_requests: write`; data-refresh PR publishers will fall back to GITHUB_PAT ' +
+        'when available (APP_TOKEN_DATA_REFRESH=false).',
     );
   }
   console.log(
     `mint-app-token: minted installation token for ${repo} (expires ${tok.body.expires_at}; ` +
-      `workflows=${workflowsWrite ? 'write' : 'not granted'}).`,
+      `workflows=${workflowsWrite ? 'write' : 'not granted'}; actions=${actionsWrite ? 'write' : 'not granted'}; ` +
+      `data-refresh=${dataRefreshWrite ? 'write' : 'not granted'}).`,
   );
 }
 
 // CLI-only (so buildAppJwt stays unit-testable in isolation).
-if (process.argv[1] && process.argv[1].endsWith('mint-app-token.mjs')) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((e) => warnExit(`unexpected error (${String(e?.message || e).slice(0, 80)})`));
 }

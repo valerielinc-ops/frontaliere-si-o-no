@@ -31,7 +31,15 @@
  * `nanakokyobashi-rgb/frontaliere-articles` (node:test), stessi casi.
  */
 import { describe, it, expect } from 'vitest';
-import { bucketFinding, stripNegatedImpactClauses, tallyFindings, isGenuinePrBodyContractViolation } from '../scripts/ci/harvest-agent-lessons.mjs';
+import {
+  bucketEscalationKind,
+  bucketFinding,
+  stripNegatedImpactClauses,
+  tallyFindings,
+  isGenuinePrBodyContractViolation,
+  isGenuineCanonicalSitemapFinding,
+  findingLocationPaths,
+} from '../scripts/ci/harvest-agent-lessons.mjs';
 
 // Verbatim dalle review claude delle PR citate in #901.
 const RICOGNIZIONI_NEGATE: Array<[string, string]> = [
@@ -122,6 +130,98 @@ describe('bucketFinding — la ricognizione negata non fa punteggio', () => {
     }));
     const { counts } = tallyFindings(prs);
     expect(counts['canonical-sitemap'] ?? 0).toBe(0);
+  });
+});
+
+// Verbatim-style reviewer lines behind the recurring #12407 i18n-naming
+// escalation. The old classifier matched `untranslated` in a path or in the
+// acceptance fixture, even when the finding itself described another defect.
+const I18N_NAMING_FALSE_POSITIVES: Array<[string, string]> = [
+  ['#12463', 'scripts/lib/untranslated-title-repair.mjs:L41; scripts/fix-untranslated-titles.mjs:L375: 🔴 Important: [funnel] `titleRepairDetectorVerdict()` admits a handoff using `job.titleByLocale[sourceLang]`, but the Codex discovery still exits on an empty `job.title`. Accettazione: an allowlisted untranslated `de` title makes the Codex discovery emit that locale.'],
+  ['#12179', 'scripts/fix-untranslated-titles.mjs:L7: 🟡 Nit The module header still describes the free-translate cascade as “DeepL → MyMemory → etc.” although this workflow now puts Codex first; update the parenthetical to match production order.'],
+  ['#11905', 'scripts/lib/ai-models.mjs:L7278; scripts/lib/free-translate.mjs:L2244: 🔴 Important: [funnel] `callSingleModel()` trips the run-local Codex circuit on a direct failure but still invokes `_callModel` on later direct translation calls. Accettazione: after the first failure, a second untranslated field uses DeepL/Azure with exactly one Codex request.'],
+  ['#11898', 'scripts/fix-untranslated-titles.mjs:L31: 🔴 Important: [regression] Removing `titleContainsLlmReasoning` from this import leaves the existing guard as an unbound identifier; the batch throws `ReferenceError` before persisting repaired titles.'],
+  ['#11411', 'scripts/lib/translation-publication-hold.mjs:L382: 🔴 Important: [funnel] A previously held job is released when either the current or prior copy has publishable titles; this can publish untranslated content when the current copy lost a locale.'],
+  ['#10480', 'scripts/lib/free-translate.mjs:L1669: 🔴 Important: [correctness] `fromServiceAccount` is inferred from a mutable token cache, so a rejected service-account request skips the OAuth fallback and leaves that field untranslated. Accettazione: neither concurrent call returns an untranslated field.'],
+  ['#10265', 'scripts/crawl-tio-agenda.mjs:L440: 🔴 Important: [funnel] The deadline is checked only before the title enters the `missing` loop, so later sequential translation calls can exceed the budget. Accettazione: input with two missing locales crosses the deadline during the first call.'],
+];
+
+describe('bucketFinding — #12407 keeps i18n context separate from finding identity', () => {
+  it('does not group the seven heterogeneous #12407 examples as i18n naming or lose them', () => {
+    const buckets = I18N_NAMING_FALSE_POSITIVES.map(([pr, line]) => {
+      const bucket = bucketFinding(line);
+      expect(bucket, pr).toMatch(/^fp:/);
+      return bucket;
+    });
+    expect(new Set(buckets).size).toBe(I18N_NAMING_FALSE_POSITIVES.length);
+
+    const prs = I18N_NAMING_FALSE_POSITIVES.map(([pr, body]) => ({
+      number: Number(pr.slice(1)),
+      mergedAt: '2026-10-10T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body }],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['i18n-naming']).toBeUndefined();
+    expect(Object.values(counts).reduce((sum, count) => sum + count, 0)).toBe(7);
+  });
+
+  it.each([
+    '🔴 Important: the localized route is emitted without its locale segment.',
+    '🔴 Important: the translated brand name is emitted unchanged in the German locale.',
+    '🔴 Important: the missing translation key `jobs.title.de` falls back to Italian.',
+  ])('continues to classify an explicit naming/key defect: %s', (line) => {
+    expect(bucketFinding(line)).toBe('i18n-naming');
+  });
+
+  it('keeps the precise naming bucket actionable at the unchanged threshold', () => {
+    expect(bucketEscalationKind('reviewer-finding', 'i18n-naming')).toBe('rule');
+  });
+});
+
+describe('bucketFinding — canonical-sitemap richiede un segnale SEO, non il solo token canonical', () => {
+  const NON_SEO_CANONICAL_MENTIONS: Array<[string, string]> = [
+    ['#10097', 'Build listedKeys from every canonical vacancy link independently of title extraction before using it as shrink evidence.'],
+    ['#10088', 'Il nuovo canonicalizer runs only in the manual conflict loop, so clean semantic merges can still publish duplicate historical routes.'],
+    ['#9890', 'readShardDocument drops invalid date records that are absent from the canonical history before the deletion guard runs.'],
+    ['#9890', 'isControlledHistoricalRewrite trusts the canonical replacement but never proves that the compaction payload survives.'],
+    ['#9895', 'Il cap limita il canonical-fallback-pre-pass a un worker, ma manca una misura post-change di performance.'],
+    ['#9482', 'The canonical Italian duty URL is parsed as italy-duty-hub, but the static emitter and SPA render different components.'],
+  ];
+
+  for (const [pr, line] of NON_SEO_CANONICAL_MENTIONS) {
+    it(`${pr}: ${line.slice(0, 54)}… resta fuori dal topic SEO`, () => {
+      expect(isGenuineCanonicalSitemapFinding(line)).toBe(false);
+      expect(bucketFinding(`🔴 Important: ${line}`)).not.toBe('canonical-sitemap');
+    });
+  }
+
+  it('affermazioni positive sulla copertura sitemap non sono finding', () => {
+    const claims = [
+      'sitemap includes every URL',
+      'sitemap coverage is complete and every URL is listed',
+      'the sitemap was updated and published with every route',
+    ];
+    for (const claim of claims) {
+      expect(isGenuineCanonicalSitemapFinding(claim), claim).toBe(false);
+      expect(bucketFinding(`🟡 Nit: ${claim}`), claim).not.toBe('canonical-sitemap');
+    }
+  });
+
+  it('mantiene i difetti SEO espliciti anche quando il testo contiene canonical', () => {
+    const findings = [
+      '🔴 Important: an empty canonical href is accepted as self-canonical; report canonical-missing instead.',
+      '🔴 Important: the sitemap inventory accepts an empty root and silently reports a clean crawl.',
+      '🔴 Important: sitemap coverage is incomplete.',
+      '🔴 Important: the sitemap was never published.',
+      '🔴 Important: the sitemap update failed.',
+      '🔴 Important: the page does not emit the canonical when the locale is missing.',
+      '🔴 Important: a sitemap URL has noindex and must be removed from the published sitemap.',
+      '🔴 Important: the workflow does not republish the sitemap after a canonical slug changes.',
+    ];
+    for (const line of findings) {
+      expect(isGenuineCanonicalSitemapFinding(line), line).toBe(true);
+      expect(bucketFinding(line), line).toBe('canonical-sitemap');
+    }
   });
 });
 
@@ -295,5 +395,297 @@ describe('bucketFinding — pr-body-contract conta solo missing/empty/false-clai
     };
     const { counts } = tallyFindings([...perSceltaPrs, falseClaimPr]);
     expect(counts['pr-body-contract'] ?? 0).toBe(1);
+  });
+});
+
+// --- Round workflow-scope-creds: non confondere push/retry con credenziali ---
+// La regex storica includeva `push.*workflow`, quindi un finding su un retry o
+// su un trigger YAML finiva nel bucket delle capability anche senza nominare
+// token, secret o scope. Questi sono finding reali ma di un'altra classe: il
+// safety-net fingerprint deve conservarli senza farli alimentare questa
+// escalation (#10114).
+describe('bucketFinding — workflow-scope-creds conta capability, non ogni push di workflow (#10114)', () => {
+  const NON_CREDENTIAL_FINDINGS = [
+    '#9566 — il delivery branch viene pushato ma il workflow deve fallire se `gh pr create` non apre la PR',
+    '#9326 — il filtro del trigger `push` verso `main` non riconosce tutte le forme YAML del workflow',
+    '#9218 — la rigenerazione dopo un push-retry lascia il workflow verde con uno snapshot degradato',
+  ];
+
+  for (const finding of NON_CREDENTIAL_FINDINGS) {
+    it(`${finding.slice(0, 5)} non entra nel bucket credentialale`, () => {
+      expect(bucketFinding(`🔴 Important: ${finding}`)).not.toBe('workflow-scope-creds');
+    });
+  }
+
+  it('#10637: una parola nei path citati non classifica un finding sul checkout', () => {
+    const line = 'PR body:L2; .github/workflows/auth-signup-subscriber-monitor.yml:L53; '
+      + '.github/workflows/autologin-refusal-monitor.yml:L68; '
+      + ' .github/workflows/unsubscribe-credential-monitor.yml:L69: '
+      + '🔴 Important: [contract] La PR dichiara che fetch-depth 50 elimina il timeout, '
+      + 'ma non fornisce una baseline pre/post misurata del checkout.';
+    expect(bucketFinding(line)).not.toBe('workflow-scope-creds');
+  });
+
+  it('#10637 senza i due punti dopo la severità: i path citati restano fuori dal contesto', () => {
+    // Forma con ancora di posizione che il gate riconosce dalla PR 9339. Se il
+    // marker non viene trovato, la riga intera (path compresi) fa da contesto.
+    for (const marker of ['🔴 Important', '🔴 **Important**']) {
+      const line = 'PR body:L2; .github/workflows/auth-signup-subscriber-monitor.yml:L53; '
+        + ' .github/workflows/unsubscribe-credential-monitor.yml:L69: '
+        + `${marker} [contract] La PR dichiara che fetch-depth 50 elimina il timeout, `
+        + 'ma non fornisce una baseline pre/post misurata del checkout.';
+      expect(bucketFinding(line), marker).not.toBe('workflow-scope-creds');
+    }
+    // Il finding autentico resta nel bucket anche in questa forma.
+    expect(bucketFinding(
+      '.github/workflows/deploy.yml:L10: 🔴 Important il workflow usa `${{ github.token }}` per creare issue, ma serve un App/PAT con la capability richiesta.',
+    )).toBe('workflow-scope-creds');
+  });
+
+  it('#10540: la credenziale account di un’app non è una credenziale GitHub Actions', () => {
+    const line = 'scripts/assisted-application/lib/portal/portal.mjs:L250: '
+      + '🔴 Important: The credential is persisted before registration is submitted '
+      + 'and must be invalidated when account creation fails.';
+    expect(bucketFinding(line)).not.toBe('workflow-scope-creds');
+  });
+
+  it('conserva i finding autentici su PAT/GitHub token e capability', () => {
+    expect(bucketFinding(
+      '🔴 Important: il workflow usa `${{ github.token }}` per creare issue, ma serve un App/PAT con la capability richiesta.',
+    )).toBe('workflow-scope-creds');
+    expect(bucketFinding(
+      '🔴 Important: la guardia verifica solo che `PAT` sia non vuoto, non che il token sia autorizzato alla branch protection.',
+    )).toBe('workflow-scope-creds');
+    expect(bucketFinding(
+      '🔴 Important: il workflow richiede una credential segreta prima della prima mutazione.',
+    )).toBe('workflow-scope-creds');
+    expect(bucketFinding(
+      '🔴 Important: persist-credentials:false lascia il token nel remote del workflow.',
+    )).toBe('workflow-scope-creds');
+  });
+});
+
+// Verbatim dalle review che hanno alimentato l'escalation #10210. Il bucket
+// deve misurare il difetto di classe "contenuto sotto floor + unità AdSense",
+// non ogni finding che nomina noindex/indexable o una pubblicità mancante.
+const ADSENSE_THIN_CONTENT_FINDINGS: Array<[string, string]> = [
+  ['#10030', 'The new `DRIVEBY_AD_SNIPPET` and `ARTICLE_INLINE_MOBILE` units are emitted unconditionally before the `wordCount`-based robots decision, so a thin render can be `noindex,follow` while still carrying manual AdSense units; gate both new interpolations on the same indexable value used by `robots` and `endOfContentMultiplexHtml`.'],
+  ['#9492', 'the second related-search renderer still calls `endOfContentMultiplexHtml({ indexable: true })`, so thin cluster pages emitted through that path continue to receive the manual multiplex slot this PR is intended to suppress.'],
+];
+
+const NON_ADSENSE_THIN_CONTENT_FINDINGS: Array<[string, string]> = [
+  ['#10177', 'The new unquoted branch searches the entire raw attribute string instead of tokenizing attribute names, so valid `data-name=robots data-content=noindex`, data="name=robots content=noindex", and data-href=/fake are misread as real SEO attributes or links; replace the global lookup with a sequential attribute tokenizer that consumes one attribute at a time before matching name.'],
+  ['#10037', 'The indexable overflow template still renders its card list through `renderOverflowIndex(...)` without the new in-feed marker, so an overflow page with more than 12 cards misses the promised events-list ad while the other indexable lists receive it.'],
+  ['#9910', '`NOINDEX_META_RE` recognizes a false meta robots content=noindex inside a comment or script, so these two audits can classify a page indexable as historical and stop blocking its target hreflang missing.'],
+];
+
+describe('bucketFinding — adsense-thin-content richiede entrambi i segnali (#10210)', () => {
+  for (const [pr, line] of ADSENSE_THIN_CONTENT_FINDINGS) {
+    it(`${pr}: contenuto sotto floor con unità AdSense resta nel bucket`, () => {
+      expect(bucketFinding(`🔴 Important: ${line}`)).toBe('adsense-thin-content');
+    });
+  }
+
+  for (const [pr, line] of NON_ADSENSE_THIN_CONTENT_FINDINGS) {
+    it(`${pr}: noindex/indexable o ad mancante non è thin-content AdSense`, () => {
+      const bucket = bucketFinding(`🔴 Important: ${line}`);
+      expect(bucket).not.toBe('adsense-thin-content');
+      expect(bucket?.startsWith('adsense-') ?? false).toBe(false);
+    });
+  }
+
+  it('la tally per PR non riapre il bucket sui tre falsi positivi della finestra', () => {
+    const prs = [
+      ...ADSENSE_THIN_CONTENT_FINDINGS,
+      ...NON_ADSENSE_THIN_CONTENT_FINDINGS,
+    ].map(([number, line], i) => ({
+      number: Number(number.slice(1)) || 10000 + i,
+      mergedAt: '2026-09-28T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body: `## Findings\n🔴 Important: ${line}\n` }],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['adsense-thin-content']).toBe(2);
+  });
+});
+
+// Verbatim (troncate dopo il token del bucket) dalle review degli esempi della
+// riapertura di 9108 del 2026-10-04: 11 finding dopo il cutoff, di cui sei sono
+// parser crawler che LEGGONO il JSON-LD della sorgente o riempiono i campi del
+// JobPosting, e gli altri difetti degli emettitori del sito. Un solo bucket le
+// sommava, quindi nessun gate sugli emettitori poteva farlo scendere.
+const STRUCTURED_DATA_PARSER_FINDINGS: Array<[string, string]> = [
+  ['#11406', "scripts/lib/oerlikon-job-parser.mjs:L28: 🟡 Nit The module comment still says the date comes from the search API, while the new detail path intentionally accepts publication dates only from JSON-LD/microdata; update the"],
+  ['#11303', "scripts/lib/cnp-job-parser.mjs:L39; scripts/lib/jobup-ch-feed-common.mjs:L592; scripts/lib/fachkraft-job-parser.mjs:L819; scripts/lib/fondation-soins-lausanne-job-parser.mjs:L316: 🔴 Important: [funnel] I nuovi call site di `sourcePostingDateFields(...)` emettono `datePosted`/`postedDate` vuoti con `postingDateSource: 'unknown'` per date sorgente mancanti o future; `resolveReportedPostingDate` restituisce quindi `null`, e i consumer JSON-LD JobPosting esistenti"],
+  ['#11297', "scripts/update-fust-jobs.mjs:L273, scripts/lib/sophia-genetics-job-parser.mjs:L303, scripts/update-guess-jobs.mjs:L237, scripts/update-groupe-mutuel-jobs.mjs:L513, scripts/update-efg-jobs.mjs:L542, scripts/update-efg-jobs.mjs:L876: 🔴 Important: [correctness] Each `||` chain selects a non-empty but invalid primary source value before `sourcePostingDateFields`, so a valid fallback publication date is discarded and the emitted JobPosting gets `datePosted`/`postedDate`"],
+  ['#11281', "- scripts/update-agroscope-jobs.mjs:L223, scripts/update-confederazione-jobs.mjs:L536, scripts/update-bracco-jobs.mjs:L473, scripts/update-capri-holdings-jobs.mjs:L673: 🔴 Important: [funnel] Passing `startDate` directly to `sourcePostingDateFields` records a start/employment or posting-window date as verified publication, contradicting the PR contract and producing incorrect JobPosting `datePosted`. Route"],
+  ['#11206', "- scripts/lib/holmes-place-job-parser.mjs:L405: 🔴 Important: [funnel] I fallback generici `article` e `main` non sono container vacancy-scoped: quando i selettori specifici non fanno match, una pagina careers/redirect con oltre 50 parole di chrome passa `meetsSourceBodyFloor` e viene pubblicata come descrizione della vacancy. Limita l'estrazione a un container vacancy-scoped rimuovendo i fallback generici. Accettazione: input HTML senza `JobPosting`, con testo vacancy"],
+  ['#11126', "scripts/lib/croix-rouge-fribourgeoise-job-parser.mjs:L369: 🔴 Important: [funnel] `extractJobupDescription` returns any non-empty JSON-LD `description` and discards"],
+];
+
+const STRUCTURED_DATA_EMITTER_FINDINGS: Array<[string, string]> = [
+  ['#11328', "build-plugins/staticPagesPlugin.ts:L2986: 🔴 Important: [funnel] The localized static methodology branch returns `italianSeo.sd`, so `/en/methodology/`, `/de/methodik/`, and `/fr/methodologie/` keep the Italian AboutPage JSON-LD (`name`, `description`"],
+  ['#10992', "build-plugins/staticPagesPlugin.ts:L3010 e build-plugins/staticPagesPlugin.ts:L3043: 🔴 Important: [funnel] i due rami SSG per hub e leaf del glossario localizzano `title`/`desc` ma continuano a restituire `sd: italianSeo.sd`, quindi il JSON-LD delle route tradotte"],
+  ['#11021', "services/seo/imageObjectLd.ts:L158-L160; services/seo/schema-normalizers.ts:L102-L108: 🔴 Important: [correctness] `imageObjectLd()` and `normalizeSchemaObject()` only rewrite a scalar `@type`; a valid JSON-LD value such as `['NewsMediaOrganization'"],
+  ['#10753', "build-plugins/jobsSeoPagesPlugin.ts:L13835: 🔴 Important: [funnel] The expired-job emitter now replaces the real expired posting’s complete JobPosting JSON-LD with WebPage"],
+];
+
+describe('bucketFinding — structured-data separa emettitori del sito e parser crawler per path (9108)', () => {
+  for (const [pr, line] of STRUCTURED_DATA_PARSER_FINDINGS) {
+    it(`${pr}: un finding localizzato solo su parser crawler va in structured-data-parser`, () => {
+      expect(bucketFinding(line)).toBe('structured-data-parser');
+    });
+  }
+
+  for (const [pr, line] of STRUCTURED_DATA_EMITTER_FINDINGS) {
+    it(`${pr}: un finding su un emettitore del sito resta structured-data`, () => {
+      expect(bucketFinding(line)).toBe('structured-data');
+    });
+  }
+
+  it('un path misto (parser + emettitore) o nessun path resta structured-data', () => {
+    expect(bucketFinding('scripts/lib/cnp-job-parser.mjs:L39, build-plugins/jobsSeoPagesPlugin.ts:L10: 🔴 Important: il JobPosting perde `baseSalary`.')).toBe('structured-data');
+    expect(bucketFinding('🔴 Important: il JSON-LD emette `baseSalary` senza valuta.')).toBe('structured-data');
+  });
+
+  it('un path citato nella prosa non è la posizione del finding', () => {
+    const line = 'build-plugins/staticPagesPlugin.ts:L3043: 🔴 Important: il JSON-LD diverge da quello che legge scripts/lib/cnp-job-parser.mjs.';
+    expect(findingLocationPaths(line)).toEqual(['build-plugins/staticPagesPlugin.ts']);
+    expect(bucketFinding(line)).toBe('structured-data');
+  });
+
+  it('la tally conta le due classi separate, senza perdere un finding', () => {
+    const all = [...STRUCTURED_DATA_PARSER_FINDINGS, ...STRUCTURED_DATA_EMITTER_FINDINGS];
+    const prs = all.map(([number, line]) => ({
+      number: Number(number.slice(1)),
+      mergedAt: '2026-10-04T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body: `## Findings\n${line}\n` }],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['structured-data-parser']).toBe(STRUCTURED_DATA_PARSER_FINDINGS.length);
+    expect(counts['structured-data']).toBe(STRUCTURED_DATA_EMITTER_FINDINGS.length);
+  });
+});
+
+// Verbatim (troncate poco dopo il token del bucket) dalle review dei sei esempi
+// della riapertura di 12816 del 2026-10-14. Tre nominano lo schema; gli altri
+// tre entravano nel bucket solo per un campo `postalCode` fuori dallo schema:
+// il CAP di un CV, l'identita' di un annuncio ripubblicato, l'evidenza di
+// localita' del prospector.
+const STRUCTURED_DATA_SCHEMA_FINDINGS: Array<[string, string]> = [
+  ['#12351', "packages/articles/content/blog-meta-ch-it.ts:L7905, packages/articles/content/seo/seo-blog-ch.ts:L99599: 🔴 Important: [funnel] L'excerpt del nuovo articolo e le descrizioni SEO/OG/NewsArticle sono salvate come Markdown (`## In breve - ... - ...`), quindi card, meta description, Open Graph e structured data espongono marcatori di formattazione in"],
+  ['#12204', "build-plugins/weeklyEmployersPlugin.ts:L3697: 🔴 Important: [correctness] The weekly-employer detail renderer still calls `inlineScriptJson` with the default name-only fallback around `jobToJsonLd(job, employer, ...)`, and its `buildSeo"],
+  ['#12617', "build-plugins/shared/seoPageShell.ts:L176: 🔴 Important: [correctness] `canonicalizeSiteOrganizationCreator(record)` repairs a site Organization and then the generic `stableOrganizationId` branch at L198 still runs. Accettazione: input JSON-LD `{\"@type\":\"Organization\"`"],
+];
+
+const STRUCTURED_DATA_FIELD_NAME_ONLY_FINDINGS: Array<[string, string]> = [
+  ['#12555', "scripts/assisted-application/lib/portal/residence-address.mjs:L99: 🔴 Important: [correctness] `explicitPostalCode()` accepts any single five-digit number"],
+  ['#12207', "scripts/backfill-prev-slugs-from-loss-events.mjs:L182: 🔴 Important: [funnel] `jobsShareRepublishedIdentity()` treats same-host records with equal company/title/body/address fields as the same source posting even when they are distinct vacancies. Accettazione: two same-host records with identical `title`, `description`, `location`, `postalCode`, and `streetAddress` but different sta"],
+  ['#12033', "scripts/lib/prospector/location-evidence.mjs:L236: 🔴 Important: [regression] `localityIsRelevant` still bypasses the target-canton `isCantonRelevant(...)` guard for postal-backed unique registry hits through `isKnownSwissMunicipalityInCanton(...)`; `{location: 'Zürich', postalCode: '8000'}` is therefore accepted as geog"],
+];
+
+describe('bucketFinding — un campo del JobPosting fuori dallo schema non è structured-data (12816)', () => {
+  for (const [pr, line] of STRUCTURED_DATA_SCHEMA_FINDINGS) {
+    it(`${pr}: un finding che nomina lo schema resta structured-data`, () => {
+      expect(bucketFinding(line)).toBe('structured-data');
+    });
+  }
+
+  for (const [pr, line] of STRUCTURED_DATA_FIELD_NAME_ONLY_FINDINGS) {
+    it(`${pr}: \`postalCode\` senza schema né emettitore esce dal bucket`, () => {
+      expect(bucketFinding(line)).not.toMatch(/^structured-data/);
+    });
+  }
+
+  it('un termine di campo su un emettitore del sito conta anche senza la parola «schema»', () => {
+    expect(bucketFinding('build-plugins/jobsSeoPagesPlugin.ts:L10: 🔴 Important: `baseSalary` perde la valuta.')).toBe('structured-data');
+    expect(bucketFinding('services/seo/jobPostingLd.ts:L4: 🔴 Important: `postalCode` resta vuoto.')).toBe('structured-data');
+  });
+
+  it('il path non presta il contesto di schema alla frase del finding', () => {
+    // `seo-` nel nome del file non è un segmento `seo`, e la posizione non è prosa.
+    expect(bucketFinding('scripts/lib/structured-data-audit.mjs:L3: 🔴 Important: `explicitPostalCode()` accetta cinque cifre qualsiasi.')).not.toMatch(/^structured-data/);
+  });
+
+  it('i campi del parser crawler restano nel loro bucket', () => {
+    expect(bucketFinding('scripts/lib/cnp-job-parser.mjs:L39: 🔴 Important: `postalCode` resta vuoto.')).toBe('structured-data-parser');
+  });
+
+  it('la tally conta tre finding su sei, con la soglia invariata', () => {
+    const all = [...STRUCTURED_DATA_SCHEMA_FINDINGS, ...STRUCTURED_DATA_FIELD_NAME_ONLY_FINDINGS];
+    const prs = all.map(([number, line]) => ({
+      number: Number(number.slice(1)),
+      mergedAt: '2026-10-11T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body: `## Findings\n${line}\n` }],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['structured-data']).toBe(STRUCTURED_DATA_SCHEMA_FINDINGS.length);
+  });
+});
+
+// Verbatim (troncate dopo i token che decidono il bucket) dalle review di 11 PR
+// dopo il cutoff della riapertura di 10112 del 2026-10-04. Due PR su
+// undici violano UNA regola, lo slash finale del canonicalPath che il generatore
+// di articoli del corpus scrive nelle voci SEO; le altre nove condividono solo il
+// lessico (sitemap, noindex, canonical) e restano nel bucket di argomento.
+const CANONICAL_TRAILING_SLASH_FINDINGS: Array<[string, string]> = [
+  ['#11114', "packages/articles/content/seo/seo-blog-5.ts:L98206, packages/articles/content/seo/seo-blog-5.ts:L98245, packages/articles/content/seo/seo-blog-5.ts:L98284: 🔴 Important: [regression] These 11 existing article `canonicalPath` values remove the required trailing slash, so the generated canonical URLs no longer match the slash-terminated URL contract and can create non-canonical duplicate variants."],
+  ['#11114', "packages/articles/content/seo/seo-blog-5.ts:L98635: 🔴 Important: [regression] The newly added `a2-coldrerio-incidente-camion` article also sets `canonicalPath` without the required trailing slash, so its generated canonical URL points at the non-canonical no-slash variant."],
+  ['#10987', "packages/articles/content/seo/seo-blog-5.ts:L98206: 🔴 Important: [funnel] Il `canonicalPath` del nuovo articolo S50 omette lo slash finale obbligatorio, mentre `mainEntityOfPage` e l’URL della rotta usano la forma con slash; il metadato può quindi pubblicare un canonical non canonico."],
+  ['#10987', "packages/articles/content/seo/seo-blog-5.ts:L98284: 🔴 Important: [funnel] Il nuovo articolo `tetto-italiano-carburanti` omette lo slash finale obbligatorio nel `canonicalPath`; la stessa classe è presente anche in `packages/articles/content/seo/seo-blog-5.ts:L98206`."],
+];
+
+const CANONICAL_SITEMAP_TOPIC_FINDINGS: Array<[string, string]> = [
+  ['#11002', "scripts/audit-404-risk.mjs:L957: 🔴 Important: [correctness] The new absence check consumes an incomplete `deployedSitemapPaths`: a child-sitemap fetch error is swallowed at `scripts/audit-404-risk.mjs:L908`, so a served hub can be classified as a 404 from a partial inventory and open a false issue. Make sitemap inventory completeness a fail-closed prerequisite"],
+  ['#10861', "scripts/ci/harvest-agent-lessons.mjs:L592: 🟡 Nit: il guard scarta una finding quando contiene un verbo di attività neutro ma non uno dei pochi difetti espliciti elencati, quindi formulazioni genuine come `sitemap coverage is incomplete`"],
+  ['#10819', "- .github/workflows/bing-seo-loop.yml:L493; .github/workflows/bing-seo-loop.yml:L588: 🔴 Important: [funnel] `tree-report` è gated solo su `tree-inventory` e aggiunge gli argomenti supplemental solo se il manifest della frontiera esiste; se `tree-discovered-inventory` fallisce prima dell’upload, il report può terminare `coverageOk=true` sul solo sitemap e dichiarare implicitamente verificata una frontiera mai crawled."],
+  ['#10721', "sync-articles-sitemaps.yml:L659, L779, L790, L826: 🔴 Important: [funnel] Quando l'helper crea o aggiorna la PR, `published-via-pr=true` salta la pubblicazione dei client chunks, della sitemap news, di tutti i feed RSS e del ticker; il run termina e il merge successivo non riavvia questi quattro publisher"],
+  ['#10595', "scripts/seo/bing-site-explorer-report.mjs:L273: 🟡 Nit La sezione `Conteggio per codice` stampa ancora `canonical-expected`, perché itera l’intero `summary.codeCounts` anche se il body dichiara che questi finding non entrano nel corpo dell’issue; filtrare la tabella con `ACTIONABLE_CODES`. Accettazione: un summary con soli `canonical-expected` non emette la riga `canonical-expected` in `Conteggio per codice`."],
+  ['#10531', "build-plugins/orphanQueryLandingPlugin.ts:L935: 🔴 Important: [funnel] The nursing alias bridge is appended to `routes`, the route collection used for orphan hub/sitemap publication, so `noindex` does not keep this historical URL out of indexable navigation and the PR's claimed exclusion is false."],
+  ['#10452', "scripts/plate-auctions/discover-sources.mjs:L337: 🔴 Important: [correctness] When `discoverGeSitemapListDocuments()` fails, the catch stores `sitemapError` but `classifyCantonDiscovery()` ignores it, so the probe still reports `blocked-until-official-list` and omits `ge` from `readyKeys`"],
+  ['#10412', "- scripts/lib/sitemap-loc.mjs:L12: 🔴 Important: [funnel] The shared decoder leaves valid numeric XML references for `&`, `<`, and `>` untouched even though its contract claims numeric references are supported, so a sitemap URL can be fetched with entity text and the vacancy is missed."],
+  ['#10177', "scripts/seo/bing-site-explorer-crawl.mjs:L260: 🔴 Important: [regression] The new unquoted branch searches the entire raw attribute string instead of tokenizing attribute names, so valid `data-name=robots data-content=noindex`, `data=\"name=robots content=noindex\"`, and `data-href=/fake` are misread as real SEO attributes or links"],
+];
+
+describe('bucketFinding — canonical-sitemap separa la regola dello slash finale dal lessico (10112)', () => {
+  for (const [pr, line] of CANONICAL_TRAILING_SLASH_FINDINGS) {
+    it(`${pr}: un canonicalPath senza slash finale va in canonical-trailing-slash`, () => {
+      expect(bucketFinding(line)).toBe('canonical-trailing-slash');
+    });
+  }
+
+  for (const [pr, line] of CANONICAL_SITEMAP_TOPIC_FINDINGS) {
+    it(`${pr}: un finding che condivide solo il lessico resta canonical-sitemap`, () => {
+      expect(bucketFinding(line)).toBe('canonical-sitemap');
+    });
+  }
+
+  it('la regola non scatta su uno slash finale senza canonical, né su un canonical senza slash', () => {
+    expect(bucketFinding('🔴 Important: il link della newsletter omette lo slash finale e finisce su un 301.')).not.toBe('canonical-trailing-slash');
+    expect(bucketFinding('🔴 Important: il canonical della pagina punta alla variante sbagliata (canonical mismatch).')).toBe('canonical-sitemap');
+    expect(bucketFinding('🔴 Important: `canonicalPath` includes the required trailing slash and matches the route URL.')).not.toBe('canonical-trailing-slash');
+    expect(bucketFinding('🔴 Important: `canonicalPath` is stable. The newsletter link omits the trailing slash.')).not.toBe('canonical-trailing-slash');
+  });
+
+  it('la tally separa le classi e conta una sola occorrenza per PR', () => {
+    const all = [...CANONICAL_TRAILING_SLASH_FINDINGS, ...CANONICAL_SITEMAP_TOPIC_FINDINGS];
+    const byPr = new Map<number, { number: number; mergedAt: string; body: string }>();
+    for (const [pr, line] of all) {
+      const number = Number(pr.slice(1));
+      const existing = byPr.get(number);
+      if (existing) existing.body += `\n${line}`;
+      else byPr.set(number, {
+        number,
+        mergedAt: '2026-10-04T00:00:00Z',
+        body: `## Findings\n${line}`,
+      });
+    }
+    const prs = [...byPr.values()].map(({ number, mergedAt, body }) => ({
+      number,
+      mergedAt,
+      reviews: [{ author: { login: 'claude' }, body }],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['canonical-trailing-slash']).toBe(2);
+    expect(counts['canonical-sitemap']).toBe(9);
   });
 });

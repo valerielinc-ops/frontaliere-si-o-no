@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * guard-data-integrity.mjs — catch-all contro il troncamento catastrofico dei
  * file-dati accumulatori committati su main (zero-Claude, deterministico).
@@ -24,13 +26,27 @@
  * raramente l'80% di un accumulatore da centinaia di migliaia di righe.
  */
 import { execFileSync } from 'node:child_process';
-
-const MIN_BYTES = 1_000_000; // solo accumulatori grandi (>1MB)
-const SHRINK_PCT = 70; // crollo > 70% = sospetto troncamento
+import {
+  ACCUMULATOR_MAX_SHRINK_PCT,
+  ACCUMULATOR_SANITY_FLOOR_BYTES,
+  accumulatorShrinkPct,
+  isCatastrophicAccumulatorShrink,
+} from '../lib/accumulator-byte-floor-guard.mjs';
+import {
+  isJobStatsHistoryDailyShardPath,
+  isSafeJobStatsHistoryShardRewrite,
+} from '../lib/job-stats-history-store.mjs';
+import {
+  isProvenArchiveMovePrune,
+  isSafeSourceGeographyPrune,
+  pairedExpiredSlicePath,
+} from '../lib/crawler-slice-integrity.mjs';
 
 // Path-glob dei file-dati protetti. I file che cambiano size legittimamente
 // (snapshot rigenerati, cache volatili) restano coperti: la soglia size+pct li
-// salva dai falsi positivi; un crollo >70% di un file >1MB non è mai "normale".
+// salva dai falsi positivi. L'unica eccezione semantica è la migrazione di uno
+// shard storico job-stats: viene ammessa solo dopo la stessa prova di
+// contatori/payload usata dal writer.
 const DATA_PREFIXES = ['data/', 'public/data/'];
 
 function git(args) {
@@ -49,6 +65,48 @@ function sizeAt(ref, file) {
   } catch {
     return null; // path assente a quel ref (file nuovo / cancellato)
   }
+}
+
+function blobAt(ref, file) {
+  try {
+    return execFileSync('git', ['cat-file', 'blob', `${ref}:${file}`], {
+      encoding: 'utf8',
+      maxBuffer: 256 * 1024 * 1024,
+    });
+  } catch {
+    return null;
+  }
+}
+
+function isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDate) {
+  if (!isJobStatsHistoryDailyShardPath(file)) return false;
+  const shardName = String(file).replace(/\\/g, '/').split('/').at(-1) || '';
+  const shardDate = shardName.slice(0, -'.json'.length);
+  if (shardDate >= currentDate) return false;
+  const previousRaw = blobAt(beforeSha, file);
+  const nextRaw = blobAt(afterSha, file);
+  return previousRaw !== null
+    && nextRaw !== null
+    && isSafeJobStatsHistoryShardRewrite(previousRaw, nextRaw);
+}
+
+function isSafeCrawlerSliceRewriteAtRefs(beforeSha, afterSha, file) {
+  const expiredFile = pairedExpiredSlicePath(file);
+  if (!expiredFile) return false;
+  const previousRaw = blobAt(beforeSha, file);
+  const nextRaw = blobAt(afterSha, file);
+  if (previousRaw === null || nextRaw === null) return false;
+  if (
+    /^data\/jobs\/by-crawler\/(?:swiss-re|buehler)\.json$/u.test(file)
+    && isSafeSourceGeographyPrune(file, previousRaw, nextRaw)
+  ) return true;
+  // Housekeeping archives removed jobs into the paired expired slice of the
+  // same push. Its URL proof stays in the writer's runner, but the move itself
+  // is visible here: reverting only the active half re-creates duplicates
+  // that break assembly (#9876). Anything not archived stays a violation.
+  const expiredAfterRaw = blobAt(afterSha, expiredFile);
+  return expiredAfterRaw !== null
+    && isProvenArchiveMovePrune(file, previousRaw, nextRaw, expiredAfterRaw);
 }
 
 export function main() {
@@ -91,14 +149,26 @@ export function main() {
     return;
   }
 
+  const currentDate = new Date().toISOString().slice(0, 10);
   const violations = [];
   for (const file of changed) {
     const prevBytes = sizeAt(beforeSha, file);
     const newBytes = sizeAt(afterSha, file);
     if (prevBytes == null || newBytes == null) continue; // creato/cancellato: non è un troncamento
-    if (prevBytes < MIN_BYTES) continue; // non era un accumulatore grande
-    const shrinkPct = ((prevBytes - newBytes) / prevBytes) * 100;
-    if (shrinkPct > SHRINK_PCT) {
+    if (isCatastrophicAccumulatorShrink(prevBytes, newBytes, {
+      floorBytes: ACCUMULATOR_SANITY_FLOOR_BYTES,
+      maxShrinkPct: ACCUMULATOR_MAX_SHRINK_PCT,
+    })) {
+      // The writer intentionally compacts/re-keys historical title descriptors
+      // only after proving that all counters and action-bearing payload survive.
+      // Keep the generic byte guard fail-closed for every other data path.
+      if (isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDate)) continue;
+      // A source-geography migration can legitimately remove legacy foreign
+      // jobs after the filter is applied, and housekeeping can archive dead
+      // listings into the paired expired slice. Both proofs are exact and
+      // closed-world; all other slice shrinks remain errors.
+      if (isSafeCrawlerSliceRewriteAtRefs(beforeSha, afterSha, file)) continue;
+      const shrinkPct = accumulatorShrinkPct(prevBytes, newBytes);
       violations.push({
         file,
         prevBytes,
@@ -112,6 +182,6 @@ export function main() {
 }
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare git).
-if (process.argv[1]?.endsWith('guard-data-integrity.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

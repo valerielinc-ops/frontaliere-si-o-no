@@ -1,6 +1,10 @@
 import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
+import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
+import { buildFailureBody } from '../scripts/ci/report-workflow-failure.mjs';
+import { failureSignature } from '../scripts/ci/lib/failure-signature.mjs';
 
 const root = new URL('..', import.meta.url);
 const read = (file: string) => readFileSync(new URL(file, root), 'utf8');
@@ -11,11 +15,45 @@ function reporterSteps(job: any) {
 }
 
 describe('workflow failure reporting stays coupled to the central scanner contract', () => {
+  it('persists the canonical job/step signature for the central scanner', () => {
+    const jobs = {
+      total_count: 1,
+      jobs: [{
+        name: 'live-data gates (post-merge)',
+        conclusion: 'failure',
+        steps: [{ name: 'vitest run (solo i test su dati vivi)', conclusion: 'failure' }],
+      }],
+    };
+    const signature = failureSignature(jobs);
+    const body = buildFailureBody({
+      repo: 'o/r', runId: '1', workflowName: 'live-data gates', jobName: 'live-data gates',
+      failedStep: { name: 'vitest run (solo i test su dati vivi)' },
+      repro: { commands: [], paths: [] },
+      failureSignature: signature,
+    });
+
+    expect(body).toContain(`<!-- failure-signature: ${signature} -->`);
+  });
+
+  it.each(['deploy-publish', 'issue-fix'])('%s checks out the complete reporter import graph', (workflow) => {
+    const source = parse(`.github/workflows/${workflow}.yml`);
+    const checkout = source.jobs['report-failure'].steps.find(
+      (step: any) => step.uses?.startsWith('actions/checkout@'),
+    );
+    const paths = checkout.with['sparse-checkout'].split('\n').map((line: string) => line.trim()).filter(Boolean);
+    const closure = collectRelativeImportClosure(fileURLToPath(root), 'scripts/ci/report-workflow-failure.mjs');
+    expect(closure).toContain('scripts/cathedral-seo-gates-check.mjs');
+    for (const dependency of closure) {
+      expect(paths.some((entry: string) => entry.endsWith('/') ? dependency.startsWith(entry) : dependency === entry),
+        `${workflow}: missing reporter dependency ${dependency}`).toBe(true);
+    }
+  });
+
   it('reports both issue-fix failure jobs after their logs are complete', () => {
     const source = parse('.github/workflows/issue-fix.yml');
     const job = source.jobs['report-failure'];
     const steps = reporterSteps(job);
-    const byJob = new Map(steps.map((step: any) => [step.with['log-from-job'], step]));
+    const byJob = new Map<string, any>(steps.map((step: any) => [step.with['log-from-job'], step]));
 
     expect(job.needs).toEqual(['risk_policy', 'fix']);
     expect(String(job.if)).toContain("needs.risk_policy.result == 'failure'");
@@ -29,12 +67,24 @@ describe('workflow failure reporting stays coupled to the central scanner contra
     const source = parse('.github/workflows/deploy-publish.yml');
     const job = source.jobs['report-failure'];
     const steps = reporterSteps(job);
-    const byJob = new Map(steps.map((step: any) => [step.with['log-from-job'], step]));
+    const byJob = new Map<string, any>(steps.map((step: any) => [step.with['log-from-job'], step]));
 
-    expect(job.needs).toEqual(['deploy', 'validate-dist', 'validate-live', 'publish', 'runtime-watchdog']);
+    expect(job.needs).toEqual([
+      'deploy',
+      'publish-nonit-shards',
+      'resolve-nonit-publish',
+      'validate-dist',
+      'validate-live',
+      'publish',
+      'runtime-watchdog',
+    ]);
     expect(byJob.get('deploy')?.with['workflow-file']).toBe('.github/workflows/deploy-publish.yml');
+    expect(byJob.get('publish-nonit-shards')?.with['workflow-file']).toBe('.github/workflows/deploy-publish.yml');
+    expect(byJob.get('resolve-nonit-publish')?.with['workflow-file']).toBe('.github/workflows/deploy-publish.yml');
     expect(byJob.get('validate-dist / validate-dist-postbuild')?.with['workflow-file'])
       .toBe('.github/workflows/post-deploy-validate-dist.yml');
+    expect(byJob.get('validate-dist / validate-dist-postbuild')?.with['build-sha'])
+      .toBe('${{ github.event.workflow_run.head_sha }}');
     expect(byJob.get('validate-live / validate-live')?.with['workflow-file'])
       .toBe('.github/workflows/post-deploy-validate-live.yml');
     expect(byJob.get('publish / publish')?.with['workflow-file'])

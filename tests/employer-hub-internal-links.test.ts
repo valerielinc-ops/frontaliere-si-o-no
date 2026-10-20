@@ -278,15 +278,15 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
     expect(src).not.toContain('href={companyHref}');
   });
 
-  it('the ACTIVE ad carries the CTA in BOTH of its layouts, gated and not', () => {
-    // JobBoard returns early for `!hasAccess`, so the auth-gate layout is a
-    // different subtree from the unlocked detail. The hub is the only useful
-    // destination a logged-out reader can reach from the gate WITHOUT signing
-    // in, so a single render site would have hidden it from exactly the visitor
-    // who arrived from the SERP query the hub is trying to win.
+  it('links both active-ad layouts and the company listing to the canonical hub', () => {
+    // Public and authenticated details retain their selected-job hub link.
+    // The company-filter listing also exposes its employer profile (C3).
     const src = readRepoFile('components/community/JobBoard.tsx');
-    const renders = src.split('<EmployerHubCta').length - 1;
-    expect(renders, 'JobBoard must render the hub CTA in the gate AND the detail').toBe(2);
+    expect(src.match(/<EmployerHubCta company=\{selectedJob\.company\} companyKey=\{selectedJob\.companyKey\}/g),
+      'both detail layouts link the viewed employer').toHaveLength(2);
+    expect(src.match(/<EmployerHubCta company=\{companyDisplayName\} companyKey=\{companyFollowJob\?\.companyKey \?\? null\}/g),
+      'the company-filter listing links its canonical employer profile').toHaveLength(1);
+    expect(src.split('<EmployerHubCta').length - 1, 'exactly these three runtime surfaces').toBe(3);
   });
 
   it('the active detail company link stays scoped to the viewed canton', () => {
@@ -307,8 +307,34 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
     expect(plugin).toContain('const jobListHtml = jobCardListBody(listedCompanyJobs, locale);');
     expect(plugin).toContain('const openRolesListHtml = jobCardListBody(listedCompanyJobs, locale);');
     expect(plugin).toContain('const listHtml = jobCardListBody(cappedJobs, locale);');
-    expect(plugin).toContain('value: companyJobs.length,');
+    // Open-offer totals belong to ItemList/page copy, not Organization's
+    // employee-count property (which would publish a false, volatile fact).
+    expect(plugin).not.toContain('numberOfEmployees');
+    expect(plugin).not.toContain('value: companyJobs.length,');
+    expect(plugin).not.toContain('value: ccJobs.length,');
     expect(plugin).not.toContain('COMPANY_CANTON_ITEMLIST_JOB_CAP');
+    expect(plugin).toContain('const jobCardListBody = (jobs: ReadonlyArray<any>, locale:');
+    expect(plugin).toContain('shouldPlaceInfeedAd(i + 1)');
+  });
+
+  it('the active detail company link stays scoped to the viewed canton', () => {
+    const board = readRepoFile('components/community/JobBoard.tsx');
+
+    expect(board).not.toContain("from '@/components/community/EmployerCompanyLink'");
+    expect(board).toContain('jobBoardCanton: gateJobCanton, jobSlug: gateCompanySlug');
+    expect(board).toContain('jobBoardCanton: detailJobCanton, jobSlug: companySearchSlug');
+    expect(board).toContain('onClickCapture={openGateCompanyFilter}');
+    expect(board).toContain('onClickCapture={openCompanyFilter}');
+  });
+
+  it('canton company pages keep visible cards and ItemList on the shared bounded set', () => {
+    const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
+
+    expect(plugin).toContain('const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);');
+    expect(plugin).not.toContain('COMPANY_CANTON_JOB_CAP');
+    expect(plugin).toContain('numberOfItems: cappedJobs.length,');
+    expect(plugin).toContain('itemListElement: cappedJobs.map((job: any, i: number) =>');
+    expect(plugin).toContain('const listHtml = jobCardListBody(cappedJobs, locale);');
     expect(plugin).toContain('const jobCardListBody = (jobs: ReadonlyArray<any>, locale:');
     expect(plugin).toContain('shouldPlaceInfeedAd(i + 1)');
   });

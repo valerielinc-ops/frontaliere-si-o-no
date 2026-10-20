@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 // Incremental embedding builder.
 //
 // Output:
@@ -339,7 +341,7 @@ async function main() {
 // Only run the builder when executed directly (`node build-article-embeddings.mjs`),
 // not when imported — tests import `articleText` and must not trigger main().
 const invokedDirectly = process.argv[1]
-  && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('EMBEDDINGS_BUILD_UNCAUGHT', err);

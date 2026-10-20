@@ -58,6 +58,13 @@ describe('isCandidateItem', () => {
     expect(isCandidateItem('Estendere il fix ai crawler sibling update-*.mjs')).toBe(true);
     expect(isCandidateItem('Backfill dei salari per-cantone non ancora eseguito')).toBe(true);
   });
+
+  it('keeps vague decision deferrals in the follow-up graph until they are auditable', () => {
+    expect(isCandidateItem('per scelta')).toBe(true);
+    expect(isCandidateItem(
+      'per scelta. Motivo: il gate dipende dal flusso. Prossimo passo: nessun lavoro aggiuntivo.',
+    )).toBe(false);
+  });
 });
 
 describe('reviewerMarkerLines', () => {

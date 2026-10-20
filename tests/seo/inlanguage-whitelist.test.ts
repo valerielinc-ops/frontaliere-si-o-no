@@ -140,4 +140,31 @@ describe('seoService — inLanguage whitelist', () => {
 
   expect(empty.map((l) => ({ lang: l.getAttribute('hreflang'), href: l.getAttribute('href') }))).toEqual([]);
  });
+
+ it('emits dedicated metadata, canonical and hreflang URLs for the concierge landing', async () => {
+  const route: AppRoute = { activeTab: 'job-board' };
+  const section = getSeoSection(route);
+  const path = `${buildPath(route, 'it')}?application_concierge=1`;
+
+  await loadAllLocaleChunks('it');
+  setLocale('it');
+  window.history.replaceState({}, '', path);
+  await updateMetaTags(section);
+
+  expect(document.title).toContain('Automatizza la ricerca di lavoro in Svizzera');
+  expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toContain('Automatizza la ricerca di lavoro in Svizzera');
+  expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href'))
+   .toBe('https://frontaliereticino.ch/automatizza-ricerca-lavoro-svizzera/');
+
+  const schemas = flatten(readEmittedSchemas());
+  expect(schemas.some((schema) => typeOf(schema) === 'Service')).toBe(true);
+  const hreflangHrefs = Array.from(document.querySelectorAll('link[hreflang]')).map((link) => link.href);
+  expect(hreflangHrefs.every((href) => !href.includes('application_concierge'))).toBe(true);
+  expect(hreflangHrefs).toEqual(expect.arrayContaining([
+   'https://frontaliereticino.ch/automatizza-ricerca-lavoro-svizzera/',
+   'https://frontaliereticino.ch/en/automate-job-search-switzerland/',
+   'https://frontaliereticino.ch/de/arbeitssuche-schweiz-automatisieren/',
+   'https://frontaliereticino.ch/fr/automatiser-recherche-emploi-suisse/',
+  ]));
+ });
 });

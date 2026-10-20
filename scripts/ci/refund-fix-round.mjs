@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Refund a PR-fixer round when Claude stopped before doing any work because of
  * a rate limit. The round marker is removed only after a verified DELETE; the
@@ -190,4 +192,4 @@ function main() {
   }
 }
 
-if (process.argv[1]?.endsWith('refund-fix-round.mjs')) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

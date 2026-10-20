@@ -14,7 +14,9 @@ import {
   isTrustedDomain,
   PDGR_KEY,
   PDGR_COMPANY_NAME,
+  PDGR_FABRICATED_DESCRIPTION_RE,
 } from './lib/pdgr-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +29,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isPdgrJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, PDGR_FABRICATED_DESCRIPTION_RE, PDGR_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Psychiatrische Dienste Graubünden crawler failed: ${err?.message || err}`);
   process.exit(1);

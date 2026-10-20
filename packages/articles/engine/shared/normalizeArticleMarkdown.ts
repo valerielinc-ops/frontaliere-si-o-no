@@ -25,6 +25,26 @@ const NON_HEADING_BLOCK_RE = /^\s{0,3}(?:[-*+]\s+|\d+[.)]\s+|>\s?)/;
 // start of a paragraph.
 const HEADING_BODY_START_RE = /\s+(?=(?:For|The|This|These|In|On|According|After|During|When|Passengers|All|Per|Il|La|Le|Nel|Nella|Dopo|Secondo|Inoltre|Für|Bei|Nach|Während|Wenn|Zusätzlich|Selon|Pour|Les|Après|Lorsque|Tous)\s+[\p{L}'’-]+\s+[\p{Ll}][\p{L}'’-]*)/gu;
 
+// A handful of archived article bodies used HTML disclosure tags inside the
+// Markdown field. The SPA treats those tags as literal text and the static
+// renderer escapes them, so `<summary>`/`</summary>` became visible copy. The
+// content is editorial prose rather than an HTML code sample: preserve the
+// summary label as a Markdown heading and discard only the disclosure tags.
+// Fenced code is handled before this normalizer and therefore remains byte
+// unchanged.
+const LEGACY_DETAILS_OPEN_RE = /<details\b[^>]*>/gi;
+const LEGACY_DETAILS_CLOSE_RE = /<\/details\s*>/gi;
+const LEGACY_SUMMARY_PAIR_RE = /<summary\b[^>]*>\s*([\s\S]*?)\s*<\/summary\s*>/gi;
+const LEGACY_SUMMARY_OPEN_RE = /<summary\b[^>]*>/gi;
+const LEGACY_SUMMARY_CLOSE_RE = /<\/summary\s*>/gi;
+
+function normalizeLegacyDisclosureMarkup(line: string): string {
+ let normalized = line.replace(LEGACY_DETAILS_OPEN_RE, '').replace(LEGACY_DETAILS_CLOSE_RE, '');
+ normalized = normalized.replace(LEGACY_SUMMARY_PAIR_RE, (_whole, label: string) => `\n## ${label.trim()}\n\n`);
+ normalized = normalized.replace(LEGACY_SUMMARY_OPEN_RE, '## ').replace(LEGACY_SUMMARY_CLOSE_RE, '');
+ return normalized;
+}
+
 function listifyInlineDashes(value: string): string {
  const matches = value.match(/\s+-\s+/g) ?? [];
  return matches.length >= 1 ? `- ${value.replace(/\s+-\s+/g, '\n- ')}` : value;
@@ -164,7 +184,11 @@ export function normalizeArticleMarkdown(text: string): string {
    continue;
   }
 
-  normalized.push(isProtectedBlockLine(line) ? line : normalizeLine(line));
+  // A summary replacement may introduce block boundaries in a flattened
+  // source line, so process each resulting line independently.
+  for (const disclosureLine of normalizeLegacyDisclosureMarkup(line).split('\n')) {
+   normalized.push(isProtectedBlockLine(disclosureLine) ? disclosureLine : normalizeLine(disclosureLine));
+  }
  }
 
  return normalized.join('\n');

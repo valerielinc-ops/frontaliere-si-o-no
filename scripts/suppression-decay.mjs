@@ -62,6 +62,7 @@ import {
   REPROBE_BATCH_SIZE,
   SUPPRESSION_COLLECTIONS,
 } from './lib/suppressionDecay.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const REPORT_PATH = 'data/suppression-decay-report.json';
 
@@ -119,16 +120,9 @@ let db;
 let FieldValue;
 
 async function initFirebase() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  db = a.firestore();
-  ({ FieldValue } = await import('firebase-admin/firestore'));
+  const { FieldValue: AdminFieldValue } = await import('firebase-admin/firestore');
+  db = await getFirestoreDb();
+  FieldValue = AdminFieldValue;
 }
 
 /**

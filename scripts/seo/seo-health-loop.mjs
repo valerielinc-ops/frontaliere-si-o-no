@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * seo-health-loop.mjs — one closed-loop check for the five SEO workstreams.
  *
@@ -26,7 +27,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import {
   SITE_ORIGIN,
   SITE_HOST,
@@ -75,17 +76,22 @@ const DEFAULT_GSC_STATE_MAX_AGE_DAYS = 10;
 export const DEFAULT_MAX_FETCHES = 640;
 export const DEFAULT_CYCLE_BUDGET_MS = 25 * 60 * 1000;
 export const SEO_CONCURRENCY_GROUP = 'seo-health-loop';
+/**
+ * Title of the issue that owns the workflow's actionable-finding verdict: the
+ * same literal is created and resolved below, and its prefix is the `owner` of
+ * the `VERDICT_STEPS` entry in scripts/ci/close-recovered-failure-issues.mjs.
+ */
+export const SEO_HEALTH_ISSUE_TITLE = 'SEO health loop: repeated production findings';
 const MAX_ISSUE_FINDINGS = 50;
 const MAX_HISTORY_LINES = 400;
 const OBSERVATION_ONLY_FINDING_CODES = new Set([
   'cloudflare-5xx-unverified',
+  'jobposting-withheld-unverified-date',
 ]);
 
 export function isSeoIssueActionable(finding) {
   return !OBSERVATION_ONLY_FINDING_CODES.has(String(finding?.code || ''));
 }
-
-const JOB_DETAIL_RX = /^\/(?:cerca-lavoro-[^/]+|en\/find-jobs-[^/]+|de\/jobs-(?:im|in|in-der)-[^/]+|fr\/trouver-emploi-[^/]+)\/[^/]+\/?$/i;
 
 function parseArgs(argv) {
   const out = {
@@ -461,7 +467,7 @@ async function probePages(entries, {
   const allPageUrls = entries
     .map((entry) => entry.url)
     .filter((url) => isSameSiteUrl(url, origin) && !isAssetUrl(url));
-  const jobUrls = allPageUrls.filter((url) => isJobDetailPath(url) || JOB_DETAIL_RX.test(urlPath(url) || ''));
+  const jobUrls = allPageUrls.filter((url) => isJobDetailPath(url));
   const selected = [...new Set([
     ...deterministicSample(allPageUrls, sample),
     ...deterministicSample(jobUrls, jobSample),
@@ -764,7 +770,7 @@ async function reportIssueIfNeeded(report) {
       );
       if (!canResolve) return { attempted: false, persisted: false };
       const result = resolveGithubIssue(
-        'SEO health loop: repeated production findings',
+        SEO_HEALTH_ISSUE_TITLE,
         {
           workflow: process.env.GITHUB_WORKFLOW || 'SEO closed-loop health and recovery',
           runUrl: process.env.GITHUB_SERVER_URL && process.env.GITHUB_REPOSITORY && process.env.GITHUB_RUN_ID
@@ -775,14 +781,14 @@ async function reportIssueIfNeeded(report) {
       return { attempted: true, persisted: Boolean(result), resolved: Boolean(result) };
     }
     const result = await createGithubIssue({
-      title: 'SEO health loop: repeated production findings',
+      title: SEO_HEALTH_ISSUE_TITLE,
       description: buildIssueBody(report),
       priority: 2,
       labels: ['seo', 'monitoring', 'automation'],
       workflow: process.env.GITHUB_WORKFLOW || 'SEO closed-loop health and recovery',
       dedupKey: 'SEO health loop:',
     });
-    return { attempted: true, persisted: Boolean(result?.persisted !== false) };
+    return { attempted: true, persisted: result?.persisted === true };
   } catch (error) {
     console.error(`[seo-health-loop] issue reporter failed: ${safeError(error)}`);
     return { attempted: true, persisted: false, error: safeError(error) };
@@ -896,7 +902,7 @@ export async function runSeoHealthLoop({
     phases: {
       phase1_crawlability: phaseStatus(allFindings, ['robots-unavailable', 'sitemap-fetch-error', 'sitemap-graph-truncated', 'sitemap-external-host', 'sitemap-no-trailing-slash', 'source-unavailable'], actionableKeys, (finding) => finding.code !== 'source-unavailable' || finding.url === 'source:live-sitemap'),
       phase2_indexing: phaseStatus(allFindings, ['http-client-error', 'http-server-error', 'network-error', 'sitemap-redirect', 'sitemap-followed-redirect', 'canonical-missing', 'canonical-mismatch', 'sitemap-noindex', 'source-unavailable'], actionableKeys, (finding) => finding.code !== 'source-unavailable' || finding.url === 'source:live-page-sample'),
-      phase3_job_quality: phaseStatus(allFindings, ['jobposting-missing'], actionableKeys),
+      phase3_job_quality: phaseStatus(allFindings, ['jobposting-missing', 'jobposting-withheld-unverified-date'], actionableKeys),
       phase4_demand: demandPhase,
       phase5_resilience: resiliencePhase,
     },
@@ -1006,6 +1012,36 @@ export async function runSeoHealthLoop({
   return report;
 }
 
+/**
+ * The run's verdict for `.github/workflows/seo-health-loop.yml`.
+ *
+ *   - `ok`: no actionable finding (exit 0).
+ *   - `finding`: actionable findings AND their issue (`SEO health loop: repeated
+ *     production findings`) was written in this run. The workflow's verdict step
+ *     keeps the run red, and the generic `Workflow Failure:` reporter stays quiet:
+ *     the finding already has its owner.
+ *   - `error`: anything else that exits 1 — an actionable finding whose issue
+ *     could not be written, or a crash. The workflow reports it as a failure.
+ *
+ * @param {{ findings?: { actionable?: unknown[] }, issue?: { persisted?: boolean } }|null} report
+ * @returns {'ok'|'finding'|'error'}
+ */
+export function healthVerdict(report) {
+  if (!report || !Array.isArray(report.findings?.actionable)) return 'error';
+  if (report.findings.actionable.length === 0) return 'ok';
+  return report.issue?.persisted === true ? 'finding' : 'error';
+}
+
+function writeVerdictOutput(verdict) {
+  if (!process.env.GITHUB_OUTPUT) return;
+  try {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `verdict=${verdict}\n`, 'utf8');
+  } catch (error) {
+    // No output reads as "not a finding" in the workflow: a crash, reported as one.
+    console.error(`[seo-health-loop] could not write the verdict output: ${safeError(error)}`);
+  }
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   options.sample = finitePositive(options.sample, DEFAULT_SAMPLE);
@@ -1023,16 +1059,20 @@ async function main() {
   console.log(`  phases: ${Object.entries(report.phases).map(([name, phase]) => `${name}=${phase.status}`).join(', ')}`);
   console.log(`  findings: ${report.findings.observed.length} observed, ${report.findings.actionable.length} actionable after ${report.findings.threshold} runs`);
   console.log(`  report: ${report.reportPath}`);
+  const verdict = healthVerdict(report);
+  console.log(`  verdict: ${verdict}`);
+  writeVerdictOutput(verdict);
   if (report.findings.actionable.length) {
     for (const finding of report.findings.actionable.slice(0, 20)) console.log(`  ❌ ${finding.code} ${finding.url} (${finding.consecutiveRuns} run)`);
     process.exitCode = 1;
   }
 }
 
-const invokedDirectly = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+const invokedDirectly = isInvokedDirectly(import.meta.url);
 if (invokedDirectly) {
   main().catch((error) => {
     console.error(`[seo-health-loop] fatal: ${safeError(error)}`);
+    writeVerdictOutput('error');
     process.exitCode = 1;
   });
 }

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Gruppo Ospedaliero Moncucco job parser — Fetcher and job builder.
  *
@@ -234,24 +236,23 @@ export async function fetchAllMoncuccoJobs() {
   const jobs = [];
   for (const listing of listings) {
     let description = '';
+    let publication = sourcePostingDateFields('');
     if (listing.url) {
       try {
         const detailHtml = await fetchHtml(listing.url, { timeoutMs: 15000 });
         description = parseDetailPage(detailHtml);
+        publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
       } catch (err) {
         console.warn(`  Detail fetch failed for ${listing.url}: ${err.message}`);
       }
     }
 
-    // Build a snippet from listing metadata if description is thin
-    if (!description || description.length < MIN_DESC_LENGTH) {
-      const parts = [listing.title, '— Gruppo Ospedaliero Moncucco, Lugano'];
-      if (listing.percentage) parts.push(listing.percentage);
-      if (listing.availability) parts.push(listing.availability);
-      description = parts.join(' ');
-    }
-
-    const sourceLang = detectLang(listing.title, 'it');
+    // The detail page's text is published whatever its length. Below
+    // MIN_DESC_LENGTH the crawler used to replace it with the listing metadata
+    // ("<titolo> — Gruppo Ospedaliero Moncucco, Lugano <percentuale>
+    // <disponibilità>"); a detail without text now gives no description and
+    // the job takes the pipeline's thin-source path.
+    const sourceLang = detectLang(description || listing.title, 'it');
     const jobSlug = buildJobSlug(`${listing.title} Lugano`, 'moncucco');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, listing.percentage);
@@ -280,7 +281,7 @@ export async function fetchAllMoncuccoJobs() {
       employmentType: empType,
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...publication,
       url: listing.url,
       applyUrl: listing.url,
       source: 'Gruppo Ospedaliero Moncucco Dedicated Parser',
@@ -292,3 +293,6 @@ export async function fetchAllMoncuccoJobs() {
   console.log(`  Total Moncucco jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+/** Fragment only the crawler's former metadata description wrote. */
+export const MONCUCCO_FABRICATED_DESCRIPTION_RE = /— Gruppo Ospedaliero Moncucco, Lugano/;

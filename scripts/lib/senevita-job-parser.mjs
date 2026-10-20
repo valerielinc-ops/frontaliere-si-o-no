@@ -37,10 +37,12 @@
  *
  * Implements the 4 exports required by the standard crawler template.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -219,9 +221,8 @@ export function extractJobPostingJsonLd(html) {
     const raw = m[1].trim();
     try {
       const obj = JSON.parse(decodeJsonLdString(raw));
-      if (obj && (obj['@type'] === 'JobPosting' || (Array.isArray(obj) && obj.find((o) => o['@type'] === 'JobPosting')))) {
-        return Array.isArray(obj) ? obj.find((o) => o['@type'] === 'JobPosting') : obj;
-      }
+      const [posting] = extractJobPostingNodesFromJson(obj);
+      if (posting) return posting;
     } catch {
       // continue to next script block
     }
@@ -340,23 +341,14 @@ export async function fetchAllSenevitaJobs() {
     if (posting?.responsibilities) descParts.push(`Aufgaben\n${htmlToText(posting.responsibilities)}`);
     if (posting?.qualifications) descParts.push(`Anforderungen\n${htmlToText(posting.qualifications)}`);
     if (posting?.jobBenefits) descParts.push(`Wir bieten\n${htmlToText(posting.jobBenefits)}`);
-    let description = descParts.filter(Boolean).join('\n\n').trim();
-
-    // Boilerplate guard
-    const uniqueWords = new Set(
-      description.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-    );
-    if (uniqueWords.size < 30) {
-      description = `${title} bei ${SENEVITA_COMPANY_NAME} in ${city}.\n\n${SENEVITA_COMPANY_NAME} ist einer der grössten Schweizer Anbieter von betreutem Wohnen und Langzeitpflege mit rund 30 Standorten. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
-    }
+    // The posting's own text, whatever its length. Under 30 distinct words the
+    // crawler used to replace it with a paragraph of its own on Senevita; a
+    // posting without text now gets no description and takes the pipeline's
+    // thin-source path.
+    const description = descParts.filter(Boolean).join('\n\n').trim();
 
     const sourceLang = detectLang(description || title, 'de');
-    const postedDate = (() => {
-      const raw = posting?.datePosted || '';
-      if (!raw) return new Date().toISOString().slice(0, 10);
-      const d = new Date(raw);
-      return Number.isNaN(d.getTime()) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
-    })();
+
     const validThrough = (() => {
       const raw = posting?.validThrough || '';
       if (!raw) return '';
@@ -406,7 +398,7 @@ export async function fetchAllSenevitaJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(posting?.datePosted),
       ...(validThrough ? { validThrough } : {}),
       applyUrl: listing.url,
       requirements: [],

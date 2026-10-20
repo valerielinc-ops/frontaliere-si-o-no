@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * Observe the downstream lifecycle of loop-fleet candidates.
@@ -17,11 +18,13 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { createdSinceFilter } from './lib/run-listing-window.mjs';
 import {
   buildLifecycleEvent,
-  validateLifecycleEvent,
+  validateHistoricalLifecycleEvent,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
+import { listLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 const DEFAULT_LEDGER_DIR = path.join('data', 'loop-fleet', 'ledger');
@@ -93,6 +96,8 @@ function validPastTimestamp(value, now) {
 function repositoryName() {
   return process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 }
+
+const POST_MERGE_RUN_WINDOW_DAYS = 90;
 
 function ghJson(args) {
   const fullArgs = [...args, ...(repositoryName() ? ['--repo', repositoryName()] : [])];
@@ -299,7 +304,7 @@ function candidateRecords(registry, lifecycleEvents) {
       }
       continue;
     }
-    validateLifecycleEvent(registry, event.loopId, event);
+    validateHistoricalLifecycleEvent(registry, event.loopId, event);
     if (!object(event.execution)
         || !text(event.execution.runId)
         || !SHA_RE.test(String(event.execution.sha || ''))) {
@@ -364,18 +369,20 @@ function observedRecordId(eventType, candidateId, pr, evidence) {
   return `lf-lifecycle-${crypto.createHash('sha256').update(basis).digest('hex').slice(0, 24)}`;
 }
 
-function buildObservedEvent({ candidate, eventType, pr, evidence, execution, now }) {
+function buildObservedEvent({ candidate, eventType, pr, evidence, execution, now, registry }) {
   if (!OBSERVED_EVENT_TYPES.includes(eventType) && !EXPLICIT_TERMINAL_EVENT_TYPES.includes(eventType)) {
     throw new Error(`unsupported observed event ${eventType}`);
   }
   if (!text(evidence?.artifactOrPr) || !validPastTimestamp(evidence.occurredAt, now)) return null;
+  const policy = registry.loops.find((loop) => loop.loopId === candidate.loopId);
+  if (!policy) throw new Error(`candidate ${candidate.candidateId} belongs to an unknown loop ${candidate.loopId}`);
   const event = buildLifecycleEvent({
     eventType,
     loopId: candidate.loopId,
     candidateId: candidate.candidateId,
     owner: candidate.owner,
     sourceRecordId: candidate.sourceRecordId,
-    sourceRefs: candidate.sourceRefs,
+    sourceRefs: policy.sourceRefs,
     lifecycle: candidate.lifecycle,
     occurredAt: new Date(evidence.occurredAt).toISOString(),
     artifactOrPr: evidence.artifactOrPr,
@@ -486,6 +493,7 @@ export function observeLifecycle({
         evidence,
         execution,
         now,
+        registry: validatedRegistry,
       });
       if (!event) continue;
       events.push(event);
@@ -506,6 +514,7 @@ export function observeLifecycle({
           evidence: automaticInconclusive,
           execution,
           now,
+          registry: validatedRegistry,
         });
         if (event) {
           events.push(event);
@@ -559,8 +568,13 @@ export function collectGitHubEvidence() {
     ]));
   const workflows = ['loop-fleet-status.yml', 'loop-fleet-ledger-audit.yml'];
   const postMergeRuns = workflows.flatMap((workflow) => {
+    // Finestra `created` contro l'elenco fermo che l'API puo' restituire per
+    // `branch` (scripts/ci/lib/run-listing-window.mjs). 90 giorni contengono
+    // le 100 righe richieste (i due workflow girano almeno una volta al
+    // giorno); `postMergeEvidence` ordina gia' in locale su `updatedAt`.
     const value = ghJson([
-      'run', 'list', '--workflow', workflow, '--branch', 'main', '--limit', '100',
+      'run', 'list', '--workflow', workflow, '--branch', 'main',
+      '--created', createdSinceFilter(POST_MERGE_RUN_WINDOW_DAYS), '--limit', '100',
       '--json', 'databaseId,status,conclusion,headSha,createdAt,updatedAt,url,workflowName,name',
     ]);
     return Array.isArray(value) ? value : [];
@@ -582,7 +596,8 @@ export function main({ argv = process.argv.slice(2), logger = console } = {}) {
   const ledgerDir = valueAfter(argv, '--ledger-dir', DEFAULT_LEDGER_DIR);
   fs.mkdirSync(outDir, { recursive: true });
   const registry = readJson(registryPath, 'loop registry');
-  const lifecycleEvents = readJsonl(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'durable lifecycle ledger');
+  const lifecycleEvents = listLoopFleetLedgerFiles(ledgerDir, 'lifecycle-events.jsonl')
+    .flatMap((file) => readJsonl(file, `ledger ${path.basename(file)}`));
   const github = collectGitHubEvidence();
   const now = new Date();
   const result = observeLifecycle({
@@ -613,7 +628,7 @@ export function main({ argv = process.argv.slice(2), logger = console } = {}) {
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

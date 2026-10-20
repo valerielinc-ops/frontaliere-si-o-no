@@ -44,7 +44,7 @@ describe('loop-fleet-ledger-audit', () => {
     fs.mkdirSync(ledgerDir);
     writeJsonl(ledgerDir, 'loop-observations.jsonl', [seedRecord('observation'), seedRecord('observation', '101'), seedRecord('observation', '102', 'L1')]);
     writeJsonl(ledgerDir, 'loop-decisions.jsonl', [seedRecord('decision')]);
-    writeJsonl(ledgerDir, 'loop-health-history.jsonl', [seedRecord('health')]);
+    writeJsonl(ledgerDir, 'loop-health-history-run-100.jsonl', [seedRecord('health')]);
     const audit = auditLedger({ ledgerDir, registry, now: NOW });
     expect(audit.errors).toEqual([]);
     expect(audit.summary).toMatchObject({ loopCount: 12, completeLoopCount: 1, coverageRate: 1 / 12 });

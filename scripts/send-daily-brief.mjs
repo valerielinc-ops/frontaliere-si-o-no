@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * send-daily-brief.mjs — the daily "Bollettino del Frontaliere" email: the
  * SAME payload the corpus publishes as the day's edition
@@ -13,6 +15,10 @@
  *   - newsletter side: every registered row not excluded by its status or a
  *     recorded opt-out. Registration terms, not a second checkbox, establish
  *     the base relationship; no confirmation proof is required for delivery.
+ *     A row with no relationship at all (profile-only sign-in document: no
+ *     status, terms, consent or confirmation — hasSubscriptionBasis) is not
+ *     on the newsletter side; an eligible job-alert membership remains its
+ *     own basis on the other side.
  *   - job-alert side: root docs not excluded by isJobAlertExcluded().
  *   - anyone whose newsletter document records an explicit unsubscribe, hard
  *     address suppression or legacy global stop-all flag is OUT even if they
@@ -58,6 +64,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isCrossChannelStop, isNewsletterExcluded, isJobAlertExcluded } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
+import { hasSubscriptionBasis } from '../services/subscriberConsent.mjs';
 import { sanitizeFirstName, nlNormLocale } from '../services/newsletter-template.mjs';
 import { buildDailyBriefEmail, briefSections } from '../services/daily-brief-template.mjs';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
@@ -75,6 +82,7 @@ import {
 import { resolveEffectivePreferredHour, computeScheduledSendAt, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -83,6 +91,8 @@ const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
 const QUOTA_BUFFER_RATIO = 0.1; // same 10% headroom as send-job-alerts.mjs
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const DAILY_BRIEF_CAMPAIGN_PREFIX = 'daily-brief-';
+const DAILY_BRIEF_CAMPAIGN_END = 'daily-brief.';
 
 /** Localized blog hub paths — the same table pull-articles-api.mjs pins. */
 const BLOG_HUB = {
@@ -102,22 +112,7 @@ export function __setFirestoreAdminForTest(fakeDb) {
 }
 async function getFirestoreAdmin() {
   if (_db) return _db;
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) {
-      throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    }
-    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-    if (cred.project_id) {
-      initializeApp({ credential: cert(cred) });
-    } else {
-      const { applicationDefault } = await import('firebase-admin/app');
-      initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
-    }
-  }
-  _db = getFirestore();
+  _db = await getFirestoreDb();
   return _db;
 }
 
@@ -200,6 +195,7 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
     jobAlertSeen: jobAlertRows.length,
     newsletterRegistered: 0,
     newsletterExcluded: 0,
+    excludedNoBasis: 0,
     jobAlertEligible: 0,
     jobAlertExcluded: 0,
     optOutWins: 0,
@@ -219,6 +215,10 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
     const status = String(row.status || '').trim().toLowerCase();
     if (isNewsletterExcluded(status) || isNewsletterOptOutBinding(row.doc || row)) {
       stats.newsletterExcluded++;
+      continue;
+    }
+    if (!hasSubscriptionBasis(row)) {
+      stats.excludedNoBasis++;
       continue;
     }
     stats.newsletterRegistered++;
@@ -494,20 +494,22 @@ export function applyCadence(recipients, { brief, todayIso, nowMs, briefClickAtB
  * `daily-brief-`. Without that filter, a click on the weekly newsletter would
  * promote someone's BRIEF cadence.
  *
- * A collection-group query on `clicked_at` needs an index that may not exist in
- * this project. Rather than fail the send over telemetry, this degrades to the
- * subscriber-level `last_click_at` and says so — the sender prints which mode it
- * ran in, and the index to create if the precise one is wanted.
+ * A collection-group composite query on `campaign_id` + `clicked_at` needs an
+ * index that may not exist in this project. Rather than fail the send over
+ * telemetry, this degrades to the subscriber-level `last_click_at` and says so
+ * — the sender prints which mode it ran in.
  */
-async function fetchBriefClicks(db, sinceMs) {
+export async function fetchBriefClicks(db, sinceMs) {
   try {
     const snap = await db.collectionGroup('campaign_deliveries')
       .where('clicked_at', '>=', new Date(sinceMs))
+      .where('campaign_id', '>=', DAILY_BRIEF_CAMPAIGN_PREFIX)
+      .where('campaign_id', '<', DAILY_BRIEF_CAMPAIGN_END)
       .get();
     const byEmail = new Map();
     for (const doc of snap.docs) {
       const data = doc.data() || {};
-      if (!String(data.campaign_id || '').startsWith('daily-brief-')) continue;
+      if (!String(data.campaign_id || '').startsWith(DAILY_BRIEF_CAMPAIGN_PREFIX)) continue;
       const email = String(data.email || '').toLowerCase();
       const clickedAt = data.clicked_at?.toMillis?.() ?? new Date(data.clicked_at).getTime();
       if (!email || !Number.isFinite(clickedAt)) continue;
@@ -526,7 +528,7 @@ async function fetchBriefClicks(db, sinceMs) {
     console.warn(
       `⚠️ brief click attribution unavailable (${error?.message}) — falling back to subscriber-level last_click_at.\n`
       + '   A click on the weekly will therefore count as engagement with the brief.\n'
-      + '   To get the precise signal, add a collection-group index on campaign_deliveries.clicked_at.',
+      + '   To get the precise signal, add a collection-group composite index on campaign_deliveries.campaign_id + clicked_at.',
     );
     return { byEmail: null, mode: 'subscriber-level' };
   }
@@ -544,10 +546,29 @@ async function persistCadence(db, { email, state, engaged, opened, provider, sen
   }
 }
 
+export function sentCountFromResult(result) {
+  return Array.isArray(result?.sent) ? result.sent.length : 0;
+}
+
+export function writeSentOutput(sent, outputPath = process.env.GITHUB_OUTPUT) {
+  if (!outputPath) return;
+  const count = Number.isInteger(sent) && sent >= 0 ? sent : 0;
+  fs.appendFileSync(outputPath, `sent=${count}\n`, 'utf8');
+}
+
 
 // ── Main ───────────────────────────────────────────────────────────────────
 
 async function main() {
+  const runState = { sent: 0 };
+  try {
+    return await runMain(runState);
+  } finally {
+    writeSentOutput(runState.sent);
+  }
+}
+
+async function runMain(runState) {
   if (!DRY_RUN && process.env.ENABLE_DAILY_BRIEF !== 'true') {
     console.log('🚫 ENABLE_DAILY_BRIEF is not "true" — refusing a real send (dry-run works without it).');
     return;
@@ -576,7 +597,7 @@ async function main() {
   const { newsletterRows, jobAlertRows } = await fetchRecipients(db);
   const { recipients, stats } = dedupeRecipients(newsletterRows, jobAlertRows);
   console.log(
-    `👥 dedup: newsletter ${stats.newsletterSeen} (registered ${stats.newsletterRegistered}) ∪ job-alert ${stats.jobAlertSeen} (eligible ${stats.jobAlertEligible})` +
+    `👥 dedup: newsletter ${stats.newsletterSeen} (registered ${stats.newsletterRegistered}, excludedNoBasis ${stats.excludedNoBasis}) ∪ job-alert ${stats.jobAlertSeen} (eligible ${stats.jobAlertEligible})` +
     ` → UNION ${stats.union} (overlap ${stats.overlap}, opt-out wins ${stats.optOutWins})`,
   );
 
@@ -685,17 +706,19 @@ async function main() {
   const result = await sendEmailCascade(emails, {
     concurrency: 3,
     onSent: async (item, sendResult) => {
-      const { email, state, engaged, opened, scheduledAt } = item.recipient;
+      runState.sent += 1;
+      const { email, state: recipientState, engaged, opened, scheduledAt } = item.recipient;
       await persistDelivery(db, { email, campaignId }, sendResult);
-      await persistCadence(db, { email, state, engaged, opened, provider: sendResult?.provider || null, sentAtIso, scheduledFor: scheduledAt });
+      await persistCadence(db, { email, state: recipientState, engaged, opened, provider: sendResult?.provider || null, sentAtIso, scheduledFor: scheduledAt });
       await resume.record(email);
     },
   });
+  runState.sent = sentCountFromResult(result);
   await resume.flush();
   console.log(`\n📊 Done — sent ${result.sent.length}, failed ${result.failed.length}, resume-marked ${resume.count()}.`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error('❌ send-daily-brief.mjs failed:', error);
     process.exitCode = 1;

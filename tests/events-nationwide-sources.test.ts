@@ -20,7 +20,7 @@ import {
   resolveComuneNationwide,
   haversineKm,
   resolveItalianFrontierComuni,
-  mirrorEventImage,
+  mirrorEventImage as mirrorEventImageImpl,
   resetEventImageManifestCache,
   localesNeedingTranslation,
   enrichEventsWithLocaleFallbackTranslations,
@@ -29,7 +29,11 @@ import {
   reverseGeocodeComune,
   enrichEventsWithGeoComune,
   EVENT_IMAGE_MAX_BYTES,
+  isEventImageSourceAllowed,
+  isEventImageSafeIdAllowed,
 } from '../scripts/lib/events-utils.mjs';
+
+const mirrorEventImage = (sourceUrl: string, stableId: string) => mirrorEventImageImpl(sourceUrl, stableId, 'openagenda');
 
 // Sanity-check margin for the noise fixtures below: derived from the real
 // mirrorEventImage reject cutoff (EVENT_IMAGE_MAX_BYTES) rather than a bare
@@ -45,6 +49,16 @@ describe('EVENT_SOURCES nationwide registry', () => {
     expect(EVENT_SOURCES.guidle.canton).toBeNull();
     expect(EVENT_SOURCES.myswitzerland.canton).toBeNull();
     expect(EVENT_SOURCES['tio-agenda'].canton).toBe('TI');
+  });
+});
+
+describe('event image licence allowlist', () => {
+  it('admits only the explicitly verified source and its mirrored filenames', () => {
+    expect(isEventImageSourceAllowed('openagenda')).toBe(true);
+    expect(isEventImageSourceAllowed('myswitzerland')).toBe(false);
+    expect(isEventImageSafeIdAllowed('openagenda-abc123')).toBe(true);
+    expect(isEventImageSafeIdAllowed('myswitzerland-abc123')).toBe(false);
+    expect(isEventImageSafeIdAllowed('openagendaabc123')).toBe(false);
   });
 });
 
@@ -367,7 +381,10 @@ describe('resolveItalianFrontierComuni', () => {
 });
 
 describe('mirrorEventImage', () => {
-  const testImagesDir = path.join(process.cwd(), 'public', 'images', 'events');
+  // The mirrored images go to a tmpdir via EVENTS_IMAGE_DIR, not to
+  // public/images/events/ in the checkout, where every other test and the build
+  // would see them while the run is in flight.
+  let testImagesDir: string;
   // data/events-image-manifest.json is TRACKED (5'568 entries, 294KB) and
   // mirrorEventImage writes to it on every successful download. Without this
   // redirection each run of this suite would commit `test-mirror-fixture` into
@@ -382,23 +399,18 @@ describe('mirrorEventImage', () => {
     manifestFile = path.join(manifestDir, 'events-image-manifest.json');
     writeFileSync(manifestFile, '{}\n');
     process.env.EVENTS_IMAGE_MANIFEST_PATH = manifestFile;
+    testImagesDir = path.join(manifestDir, 'images');
+    process.env.EVENTS_IMAGE_DIR = testImagesDir;
     resetEventImageManifestCache();
   });
 
   afterEach(() => {
     vi.unstubAllGlobals();
     delete process.env.EVENTS_IMAGE_MANIFEST_PATH;
+    delete process.env.EVENTS_IMAGE_DIR;
     resetEventImageManifestCache();
+    // The images live under manifestDir, so this removes them too.
     rmSync(manifestDir, { recursive: true, force: true });
-    // Clean up any file this test wrote so repeated runs stay idempotent and
-    // don't leak fixture images into the tracked public/ directory.
-    for (const ext of ['jpg', 'webp']) {
-      try {
-        rmSync(path.join(testImagesDir, `test-mirror-fixture.${ext}`), { force: true });
-      } catch {
-        /* noop */
-      }
-    }
   });
 
   it('returns null for a missing or non-http url', async () => {
@@ -411,16 +423,21 @@ describe('mirrorEventImage', () => {
     expect(await mirrorEventImage('https://example.com/x.jpg', '')).toBeNull();
   });
 
+  it('denies an unlicensed source before reading its manifest or fetching', async () => {
+    vi.stubGlobal('fetch', vi.fn());
+    expect(await mirrorEventImageImpl('https://example.com/photo.jpg', 'guidle:stale', 'guidle')).toBeNull();
+    expect(fetch).not.toHaveBeenCalled();
+    expect(existsSync(path.join(testImagesDir, 'guidle-stale.jpg'))).toBe(false);
+  });
+
   // The 4-byte body below is deliberately NOT a decodable image, so this case
   // also pins encodeEventImage's fallback: sharp throws, and the original bytes
   // are stored under the content-type extension rather than the image being lost.
   it('downloads and writes the image once, returning the site-relative path', async () => {
     const bytes = new Uint8Array([1, 2, 3, 4]);
-    const fetchMock = vi.fn().mockResolvedValue({
-      ok: true,
-      headers: { get: () => 'image/jpeg' },
-      arrayBuffer: async () => bytes.buffer,
-    });
+    const fetchMock = vi.fn().mockResolvedValue(new Response(bytes.buffer, {
+      headers: { 'content-type': 'image/jpeg' },
+    }));
     vi.stubGlobal('fetch', fetchMock);
 
     const result = await mirrorEventImage('https://example.com/photo.jpg', 'test:mirror-fixture');
@@ -453,11 +470,9 @@ describe('mirrorEventImage', () => {
 
     vi.stubGlobal(
       'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        headers: { get: () => 'image/jpeg' },
-        arrayBuffer: async () => source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength),
-      }),
+      vi.fn().mockResolvedValue(new Response(source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength), {
+        headers: { 'content-type': 'image/jpeg' },
+      })),
     );
 
     const result = await mirrorEventImage('https://example.com/big.jpg', 'test:mirror-fixture');
@@ -483,11 +498,9 @@ describe('mirrorEventImage', () => {
 
     vi.stubGlobal(
       'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        headers: { get: () => 'image/jpeg' },
-        arrayBuffer: async () => source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength),
-      }),
+      vi.fn().mockResolvedValue(new Response(source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength), {
+        headers: { 'content-type': 'image/jpeg' },
+      })),
     );
 
     const result = await mirrorEventImage('https://example.com/tall.jpg', 'test:mirror-fixture');
@@ -549,11 +562,9 @@ describe('mirrorEventImage', () => {
     resetEventImageManifestCache();
     vi.stubGlobal(
       'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        headers: { get: () => 'image/jpeg' },
-        arrayBuffer: async () => new Uint8Array([1, 2, 3, 4]).buffer,
-      }),
+      vi.fn().mockResolvedValue(new Response(new Uint8Array([1, 2, 3, 4]).buffer, {
+        headers: { 'content-type': 'image/jpeg' },
+      })),
     );
 
     expect(await mirrorEventImage('https://example.com/photo.jpg', 'test:mirror-fixture')).toBe(
@@ -576,11 +587,9 @@ describe('mirrorEventImage', () => {
     resetEventImageManifestCache();
     vi.stubGlobal(
       'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        headers: { get: () => 'image/jpeg' },
-        arrayBuffer: async () => new Uint8Array([1, 2, 3, 4]).buffer,
-      }),
+      vi.fn().mockResolvedValue(new Response(new Uint8Array([1, 2, 3, 4]).buffer, {
+        headers: { 'content-type': 'image/jpeg' },
+      })),
     );
 
     // The download still happens — the run must not stop because an index is

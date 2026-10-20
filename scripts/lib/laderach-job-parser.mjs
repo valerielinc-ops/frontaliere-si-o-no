@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Läderach (Schweiz) AG job parser — Softgarden career platform (Next.js).
@@ -9,6 +10,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 const CAREERS_URL = 'https://laderach.career.softgarden.de/jobs/';
 const CAREERS_BASE = 'https://laderach.career.softgarden.de';
@@ -30,7 +32,7 @@ export function normalizeLaderachJobUrl(rawUrl = '') {
 // ── shared utilities ──────────────────────────────────────────────────
 
 export function stripHtml(html = '') {
-  const out = String(html || '')
+  const out = decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -39,10 +41,8 @@ export function stripHtml(html = '') {
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ');
   // Preserve newlines introduced by <li>, <br>, <p>, <h*> markers — the audit
   // detects structured content via "^\\s*[-•*]\\s/m". Collapsing \s+ → ' ' would
   // flatten every bullet into one line and trip the no-structured-content gate.
@@ -207,15 +207,8 @@ export function parseLaderachDetailHtml(html) {
 
   // Extract description from JSON-LD JobPosting
   let description = '';
-  const ldMatch = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (ldMatch) {
-    try {
-      const ld = JSON.parse(ldMatch[1]);
-      if (ld['@type'] === 'JobPosting' && ld.description) {
-        description = stripHtml(ld.description);
-      }
-    } catch { /* ignore parse errors */ }
-  }
+  const ld = extractJobPostingNodes(html)[0];
+  if (ld?.description) description = stripHtml(ld.description);
 
   // Fallback: extract from HTML body
   if (!description || description.length < 30) {
@@ -244,11 +237,13 @@ export async function fetchLaderachJobUrls(timeoutMs = 15_000) {
       headers: { 'User-Agent': UA },
       signal: controller.signal,
     });
-    if (!res.ok) return [];
+    if (!res.ok) {
+      const error = new Error(`HTTP ${res.status} for ${CAREERS_URL}`);
+      error.status = res.status;
+      throw error;
+    }
     const html = await res.text();
     return parseLaderachListingHtml(html);
-  } catch {
-    return [];
   } finally {
     clearTimeout(timeout);
   }

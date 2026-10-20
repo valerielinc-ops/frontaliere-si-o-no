@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "gl-1582",
+      "sourceKey": "GL",
+      "sourceRecordId": "1582",
+      "canton": "Glarona",
+      "platePrefix": "GL",
+      "plateNumber": "814",
+      "normalizedPlate": "GL814",
+      "listingType": "fixed-price",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "startingPriceChf": 200,
+      "closedAt": "2026-09-27T21:24:18.671Z",
+      "officialAuctionUrl": "https://www.gl.ch/verwaltung/sicherheit-und-justiz/justiz/strassenverkehrsamt/strassenverkehr/kontrollschilder/wunschkontrollschilder.html/450",
+      "officialDetailUrl": "https://eschild.gl.ch/api/v1/plate",
+      "sourceFetchedAt": "2026-09-27T21:24:18.671Z",
+      "lastVerifiedAt": "2026-09-27T21:24:18.671Z",
+      "firstSeenAt": "2026-09-15T06:51:09.808Z",
+      "lastSeenAt": "2026-09-27T21:24:18.671Z",
+      "sourceCategory": "fixed-price-api",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "c2c6990229b8"
+    }
+  ]
+}

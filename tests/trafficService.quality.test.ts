@@ -2,7 +2,7 @@
  * Quality tests for trafficService mock-detection logic.
  *
  * These tests guard against the "fake data shown as real" regression:
- * the weekend cron was disabled → Firestore data went stale → SPA fell back
+ * the weekend cron was disabled → public data went stale → SPA fell back
  * to getMockTrafficForCrossing() which generates random wait times → users
  * saw numbers like "47 min" with no visible warning.
  *
@@ -70,17 +70,43 @@ describe('hasLiveTrafficData', () => {
 
 // ─── Mock fallback returns source === 'mock' ──────────────────────
 
-vi.mock('firebase/firestore', () => ({
-  getFirestore: vi.fn(() => ({})),
-  collection: vi.fn(() => ({})),
-  getDocs: vi.fn(),
-}));
+const mockFetch = vi.fn();
 
 import { trafficService } from '@/services/trafficService';
-import * as firestoreModule from 'firebase/firestore';
+
+function encodePublicValue(value: unknown): Record<string, unknown> | null {
+  if (value && typeof (value as { toDate?: unknown }).toDate === 'function') {
+    const date = (value as { toDate: () => Date }).toDate();
+    return { timestampValue: date.toISOString() };
+  }
+  if (value instanceof Date) return { timestampValue: value.toISOString() };
+  if (typeof value === 'string') return { stringValue: value };
+  if (typeof value === 'number') return Number.isInteger(value)
+    ? { integerValue: String(value) }
+    : { doubleValue: value };
+  if (typeof value === 'boolean') return { booleanValue: value };
+  return null;
+}
+
+function publicTrafficResponse(docs: Array<{ id: string; data: () => Record<string, unknown> }>) {
+  return {
+    ok: true,
+    json: async () => ({
+      documents: docs.map(doc => {
+        const fields: Record<string, unknown> = {};
+        for (const [key, value] of Object.entries(doc.data())) {
+          const encoded = encodePublicValue(value);
+          if (encoded) fields[key] = encoded;
+        }
+        return { name: doc.id, fields };
+      }),
+    }),
+  };
+}
 
 beforeEach(() => {
   vi.clearAllMocks();
+  vi.stubGlobal('fetch', mockFetch);
   vi.spyOn(console, 'warn').mockImplementation(() => {});
   trafficService.clearCache();
 });
@@ -112,11 +138,8 @@ describe('trafficService mock fallback', () => {
     expect(effectiveTrafficWaitMinutes(split)).toBe(17);
   });
 
-  it('returns source === "mock" when Firestore is empty', async () => {
-    vi.mocked(firestoreModule.getDocs).mockResolvedValueOnce({
-      empty: true,
-      forEach: vi.fn(),
-    } as unknown as Awaited<ReturnType<typeof firestoreModule.getDocs>>);
+  it('returns source === "mock" when the public endpoint is empty', async () => {
+    mockFetch.mockResolvedValueOnce(publicTrafficResponse([]));
 
     const data = await trafficService.getTrafficData();
     expect(data.length).toBeGreaterThan(0);
@@ -127,16 +150,13 @@ describe('trafficService mock fallback', () => {
   });
 
   it('mock items are detected as non-live by hasLiveTrafficData', async () => {
-    vi.mocked(firestoreModule.getDocs).mockResolvedValueOnce({
-      empty: true,
-      forEach: vi.fn(),
-    } as unknown as Awaited<ReturnType<typeof firestoreModule.getDocs>>);
+    mockFetch.mockResolvedValueOnce(publicTrafficResponse([]));
 
     const data = await trafficService.getTrafficData();
     expect(hasLiveTrafficData(data)).toBe(false);
   });
 
-  it('returns source === "mock" when Firestore data is stale (>2 h old)', async () => {
+  it('returns source === "mock" when public data is stale (>2 h old)', async () => {
     const threeHoursAgo = new Date(Date.now() - 3 * 60 * 60 * 1000);
     const staleDocs = [
       {
@@ -154,10 +174,7 @@ describe('trafficService mock fallback', () => {
       },
     ];
 
-    vi.mocked(firestoreModule.getDocs).mockResolvedValueOnce({
-      empty: false,
-      forEach: (cb: (doc: (typeof staleDocs)[0]) => void) => staleDocs.forEach(cb),
-    } as unknown as Awaited<ReturnType<typeof firestoreModule.getDocs>>);
+    mockFetch.mockResolvedValueOnce(publicTrafficResponse(staleDocs));
 
     const data = await trafficService.getTrafficData();
     expect(data.length).toBeGreaterThan(0);

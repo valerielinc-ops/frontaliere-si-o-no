@@ -79,7 +79,7 @@ jobs:
       # script legge i file tracciati ma non materializzati con `git show`, cosi'
       # una lista sparse sbagliata non puo' degradare in un falso "nessun
       # gemello" — il difetto silenzioso che questo workflow esiste per togliere.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
@@ -87,9 +87,9 @@ jobs:
             !/public/
           sparse-checkout-cone-mode: false
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '22'
 
       # Nessun `npm ci`: lo script usa solo builtin Node piu' `fetch`. Aggiungere
       # una install da ~1,4 GB a un controllo di sola lettura lo renderebbe il

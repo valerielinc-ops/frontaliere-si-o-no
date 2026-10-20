@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * SEO SERP Autopilot
@@ -477,8 +479,7 @@ async function main() {
 // decideVariant() would run the whole autopilot — hitting GSC and GA4 and
 // publishing Remote Config as a side effect of a unit test. Same guard as
 // scripts/check-unsubscribe-credential-rate.mjs.
-const invokedDirectly = import.meta.url === `file://${process.argv[1]}` ||
-  process.argv[1]?.endsWith('seo-serp-autopilot.mjs');
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('❌ SEO SERP Autopilot failed:', err?.message || err);

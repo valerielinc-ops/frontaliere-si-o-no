@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * send-newsletter.mjs — v2 (AI-powered personalized newsletter)
@@ -32,33 +34,48 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
-import { matchJobsForSubscriber, prepareNewsletterJobContext, validateJobUrls, buildBriefingPrompt, buildBriefingBatchPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
+import { matchJobsForSubscriber, prepareNewsletterJobContext, validateJobUrls, buildLocaleBriefingPrompt, buildLocaleNewsletterContentPrompt, buildSubjectVariantsPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
-import { describeSegment, inferInterest, selectArticleCandidates, CONTENT_STRATEGIES, INTERESTS } from '../services/newsletter-segments.mjs';
-import { getSeasonalUtilityContent } from '../services/newsletter-seasonal.mjs';
+import { inferInterest } from '../services/newsletter-segments.mjs';
 import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
 import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-stats.mjs';
-import { loadCampaignVariantTotals, previousCampaignIds, weeklyCampaignId } from './lib/newsletter-ab-data.mjs';
+import { previousCampaignIds, weeklyCampaignId } from './lib/newsletter-ab-data.mjs';
+import {
+  attachApplicationIntentPersonalization,
+  loadJobAlertsForSubscribers,
+  loadPooledCampaignVariantTotals,
+} from './lib/newsletter-send-inputs.mjs';
+import {
+  JOB_ALERT_COOLDOWN_MS as JOB_ALERT_COOLDOWN_DEFAULT_MS,
+  JOB_ALERT_COOLDOWN_MAX_DEFER_DAYS,
+  jobAlertCooldownApplies,
+} from './lib/newsletterJobAlertCooldown.mjs';
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import {
   assignJobRankingVariant,
   buildJobEmailDeliveryId,
   rankEmailJobs,
+  rankingNeedsAffinityProfile,
+  rankingReorders,
   readJobEmailRankingConfig,
   stableJobId,
 } from '../functions/src/lib/jobEmailRanking.js';
 import { appendJobRankingParams, NEWSLETTER_JOB_LIMIT } from '../functions/src/lib/jobEmailRankingLinks.js';
 import {
-  loadNewsletterRankingStats,
+  buildRankingJobsManifest,
   recordJobEmailImpressions,
 } from '../functions/src/lib/jobEmailRankingStore.js';
+import { affinityRankingContext } from '../functions/src/lib/jobEmailAffinity.js';
+import { loadJobEmailAffinityProfiles } from '../functions/src/lib/jobEmailAffinityStore.js';
 import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES, isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
+import { hasSubscriptionBasis } from '../services/subscriberConsent.mjs';
 import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode, makePreferencesUrl, makeAuthenticatedUrl, isOwnRewritableHref } from '../services/newsletterUrls.mjs';
 import { auditEmailLinksStatic } from './lib/email-link-audit.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
@@ -71,8 +88,10 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPre
 // localePathPrefix aliased to the `localePrefix` name this script has always
 // used for its locale-aware URL construction (tests/newsletter-locale-urls.test.ts
 // guards its presence here) — the implementation is the canonical shared helper.
-import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
+import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle } from './lib/articleContent.mjs';
+import { resolveNewsletterArticle } from './lib/newsletter-article-selection.mjs';
 import { readSliceDirectory } from './lib/crawler-slice-files.mjs';
+import { excludeHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
@@ -87,18 +106,13 @@ const FROM_EMAIL = process.env.NEWSLETTER_FROM || DEFAULT_FROM_EMAIL;
 const EXPERIMENTAL_MODE = process.env.NEWSLETTER_EXPERIMENTAL_MODE !== 'false';
 const SEND_ENABLED = process.env.NEWSLETTER_ENABLE_SEND === 'true';
 const AI_CONCURRENCY = 5; // Max parallel AI calls
-// How many cohort briefings to request in a single AI call (same locale only,
-// see buildBriefingBatchPrompt). Keeps total request volume comfortably under
-// the tightest top-of-chain free-tier daily cap (Gemini flash: 1500/day) even
-// on high-subscriber days, so most batches succeed on the first model instead
-// of cascading through the whole chain toward the bottom-of-array tiers
-// (omniroute/claude-cli — see NEWSLETTER_AI_CHAIN comment below for their
-// current tier-0/last-resort status).
-// Kept at 3 (not higher) so the batch's combined maxTokens request stays
-// comfortably under smaller free-tier models' per-request output caps —
-// a bigger batch cuts request volume further but risks silent truncation
-// on the weaker links in the chain.
-const AI_BRIEFING_BATCH_SIZE = 3;
+// Wall-clock budget for each AI phase (briefings, then subjects). The send
+// happens only after both phases, so an unbounded AI phase can take the whole
+// campaign down with it (run 36407582573: 2016 cohorts, still in Phase 2 when
+// the 6h job timeout cancelled it, nothing sent). Past the deadline callLLM
+// stops walking the chain and the Codex broker drops the queued request; the
+// caller falls back to the static template, which the send then uses.
+export const AI_PHASE_BUDGET_MS = 30 * 60_000;
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
@@ -139,8 +153,16 @@ const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
 
 export { NEWSLETTER_JOB_LIMIT };
 
-export function getNewsletterCandidateLimit(rankingVariant) {
-  return rankingVariant === 'treatment' ? 12 : NEWSLETTER_JOB_LIMIT;
+// A treatment that actually reorders picks its four cards among the same twelve
+// relevant candidates the retired CTR treatment had; control keeps the
+// historical top four. An affinity recipient without a valid profile, who
+// opposed personalization, or with weight 0 gets the control pool.
+export const NEWSLETTER_AFFINITY_CANDIDATE_LIMIT = 12;
+
+export function getNewsletterCandidateLimit(rankingVariant, { affinityScorer = null, config = JOB_EMAIL_RANKING_CONFIG } = {}) {
+  return rankingReorders({ variant: rankingVariant, affinityScorer, config })
+    ? NEWSLETTER_AFFINITY_CANDIDATE_LIMIT
+    : NEWSLETTER_JOB_LIMIT;
 }
 
 export function rankNewsletterJobs(jobs, options = {}) {
@@ -201,19 +223,12 @@ function slugifyHeaderValue(value) {
 // ─── Firebase Admin ─────────────────────────────────────────
 
 let db;
-let adminSdk;
+let firestoreFieldValue;
 
 async function initFirebase() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  adminSdk = a;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  db = a.firestore();
+  const { FieldValue } = await import('firebase-admin/firestore');
+  firestoreFieldValue = FieldValue;
+  db = await getFirestoreDb();
 }
 
 // ─── AI Model Chain ─────────────────────────────────────────
@@ -239,7 +254,7 @@ async function initAI() {
 
 // Focused AI chain for newsletter: top-scoring models across multiple providers.
 // Avoids the 115+ model shotgun that causes cascading 429s and slow fallbacks.
-// ~150 cohort briefings + 4 subjects = ~155 calls — well within free tier limits.
+// One briefing per locale + one call for both subjects of a locale = ≤8 calls per run.
 // Models are still sorted by score at runtime, so the best performer leads.
 // IMPORTANT: keep these strings in sync with the canonical IDs in scripts/lib/ai-models.mjs
 // (AI_MODELS.*). When Google renames a model on the Gemini API, fix it there first.
@@ -251,7 +266,8 @@ const NEWSLETTER_AI_CHAIN = [
   'gemini-2.5-flash-lite',      // Google — 3000 req/day free, lightweight
   'gemma-4-31b-it',             // Google — 14,400 req/day free
   'gemma-4-26b-a4b-it',         // Google — 14,400 req/day free (Gemma 4 MoE — exact API id)
-  'mistral/mistral-small-latest', // Mistral — 1B tokens/month free
+  // 'mistral/mistral-small-latest' tolto: Mistral e' in RETIRED_FREE_PROVIDERS
+  // (HTTP 402 permanente dal 2026-09, vedi scripts/lib/ai-models.mjs).
   'gemini-2.5-pro',             // Google — 500 req/day free, highest quality fallback
   // Self-hosted local AI gateway (OmniRoute), same AI_MODELS.OMNIROUTE_AUTO
   // used by create-article.mjs's DEFAULT_CHAIN. Since 2026-07-29
@@ -270,76 +286,209 @@ const NEWSLETTER_AI_CHAIN = [
   'codex-cli/gpt-5.6-luna',
 ];
 
-async function generateAIBriefing(ctx) {
-  if (!callLLM) return null;
-  try {
-    const { system, user } = buildBriefingPrompt(ctx);
-    const result = await callLLM([
-      { role: 'system', content: system },
-      { role: 'user', content: user },
-    ], { temperature: 0.7, maxTokens: 800, chain: NEWSLETTER_AI_CHAIN });
-    let html = sanitizeAIBriefingHtml(result);
-    return html;
-  } catch (e) {
-    console.warn('\u26a0\ufe0f AI briefing failed:', e.message?.slice(0, 200));
-    return null;
-  }
-}
-
 /**
- * Split a batch AI response on "===BRIEFING <id>===" markers into a
- * Map<id, rawHtml>. Missing/unmatched ids simply aren't in the returned map \u2014
- * the caller treats that exactly like a single-item AI failure (null \u2192
- * template fallback), so a partially-truncated batch degrades gracefully
- * instead of losing the whole batch.
+ * The ONE AI briefing a locale's readers share (see buildLocaleBriefingPrompt).
+ * One retry: a single short or garbled answer would otherwise put the whole
+ * locale on the static template. Both attempts share the caller's deadline.
+ * `llm` defaults to the chain loaded by initAI; the benchmark injects its own.
  */
-function parseBriefingBatchResponse(raw) {
-  const map = new Map();
-  const text = String(raw || '');
-  // Tolerant of minor formatting drift models are prone to (extra/missing
-  // spaces around the marker, e.g. "== BRIEFING 0 ==" instead of the exact
-  // "===BRIEFING 0===" requested) — a strict marker match would silently
-  // drop an otherwise-good item to the template fallback over whitespace.
-  const marker = /={2,}\s*BRIEFING\s+(\S+?)\s*={2,}/g;
-  const matches = [...text.matchAll(marker)];
-  for (let i = 0; i < matches.length; i++) {
-    const id = matches[i][1];
-    const start = matches[i].index + matches[i][0].length;
-    const end = i + 1 < matches.length ? matches[i + 1].index : text.length;
-    const content = text.slice(start, end).trim();
-    if (content) map.set(id, content);
-  }
-  return map;
-}
-
-/**
- * Generate up to AI_BRIEFING_BATCH_SIZE cohort briefings in a single AI call.
- * All items MUST share the same locale (see buildBriefingBatchPrompt). Falls
- * back to an empty map (\u2192 every item gets the template fallback downstream)
- * on total failure; individual items that fail the same quality gate as the
- * single-call path (sanitizeAIBriefingHtml) are dropped the same way too.
- */
-async function generateAIBriefingsBatch(items) {
-  if (!callLLM || items.length === 0) return new Map();
-  try {
-    const { system, user } = buildBriefingBatchPrompt(items);
-    const result = await callLLM([
-      { role: 'system', content: system },
-      { role: 'user', content: user },
-    ], { temperature: 0.7, maxTokens: 800 * items.length + 200, chain: NEWSLETTER_AI_CHAIN });
-    const parsed = parseBriefingBatchResponse(result);
-    const out = new Map();
-    for (const item of items) {
-      const block = parsed.get(item.id);
-      if (!block) continue;
-      const html = sanitizeAIBriefingHtml(block);
-      if (html) out.set(item.id, html);
+export async function generateLocaleBriefing(ctx, { deadlineMs, llm = callLLM } = {}) {
+  if (!llm) return null;
+  const { system, user } = buildLocaleBriefingPrompt(ctx);
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    if (deadlineMs && Date.now() >= deadlineMs) break;
+    try {
+      const result = await llm([
+        { role: 'system', content: system },
+        { role: 'user', content: user },
+      ], { temperature: 0.7, maxTokens: 800, chain: NEWSLETTER_AI_CHAIN, deadlineMs });
+      const html = sanitizeAIBriefingHtml(result);
+      if (html) return html;
+    } catch (e) {
+      console.warn(`\u26a0\ufe0f AI briefing (${ctx.locale}) failed:`, e.message?.slice(0, 200));
     }
-    return out;
-  } catch (e) {
-    console.warn('\u26a0\ufe0f AI briefing batch failed:', e.message?.slice(0, 200));
-    return new Map();
   }
+  return null;
+}
+
+/**
+ * Generate the shared locale briefing and every A/B subject template in one
+ * AI call. The subject templates are rendered against each cohort's own jobs
+ * during assembly, so this keeps the locale-level call budget while making a
+ * job named in a subject come from the same data as the recipient's body.
+ * One retry: a malformed structured answer or a short briefing must not put
+ * the whole locale on partially generated content.
+ */
+export async function generateLocaleNewsletterContent(ctx, { deadlineMs, llm = callLLM, variants = listVariantIds() } = {}) {
+  const emptySubjects = Object.fromEntries(variants.map((variant) => [variant, null]));
+  if (!llm || variants.length === 0) return null;
+  const { system, user, jsonSchema } = buildLocaleNewsletterContentPrompt({ ...ctx, variants });
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    if (deadlineMs && Date.now() >= deadlineMs) break;
+    try {
+      const result = await llm([
+        { role: 'system', content: system },
+        { role: 'user', content: user },
+      ], {
+        temperature: 0.7,
+        maxTokens: 900 + 80 * variants.length,
+        jsonSchema,
+        chain: NEWSLETTER_AI_CHAIN,
+        deadlineMs,
+      });
+      const answer = parseSubjectsAnswer(result);
+      if (!answer || typeof answer.briefing !== 'string') {
+        throw new Error(`no newsletter content object in the answer: ${String(result).slice(0, 120)}`);
+      }
+      const briefing = sanitizeAIBriefingHtml(answer.briefing);
+      if (!briefing) throw new Error('combined newsletter briefing failed quality gate');
+      const subjects = Object.fromEntries(variants.map((variant) => [
+        variant,
+        acceptAISubjectTemplate(answer.subjects?.[variant]),
+      ]));
+      return { briefing, subjects };
+    } catch (e) {
+      console.warn(`⚠️ AI newsletter content (${ctx.locale}) failed:`, e.message?.slice(0, 200));
+    }
+  }
+  return { briefing: null, subjects: emptySubjects };
+}
+
+/**
+ * Phase 2 composition: one AI locale-content response per locale
+ * (`generate(locale)` → HTML/string or `{ briefing, subjects }`), then each
+ * cohort's own jobs prepended by injectJobAndCompanyLinks. A locale without an
+ * AI briefing uses the static template for its cohorts. AI calls therefore
+ * scale with locales, never with cohorts.
+ */
+export async function composeCohortBriefings(cohorts, { locales, generate, exchangeRate }) {
+  const localeBriefings = new Map();
+  const localeContents = new Map();
+  if (generate) {
+    await pMap(locales, async (loc) => {
+      const content = await generate(loc);
+      const html = typeof content === 'string' ? content : content?.briefing;
+      if (content && typeof content === 'object') {
+        localeContents.set(loc, {
+          briefing: html || null,
+          subjects: content.subjects || {},
+        });
+      }
+      if (html) {
+        localeBriefings.set(loc, html);
+      }
+    }, Math.min(locales.length, AI_CONCURRENCY));
+  }
+  const briefingMap = new Map();
+  let aiCohorts = 0;
+  let fallbackCohorts = 0;
+  for (const [key, cohort] of cohorts) {
+    const localeHtml = localeBriefings.get(cohort.locale);
+    if (localeHtml) aiCohorts++;
+    else fallbackCohorts++;
+    briefingMap.set(key, cohortBriefingHtml(localeHtml, cohort, exchangeRate));
+  }
+  return { briefingMap, localeBriefings, localeContents, aiCohorts, fallbackCohorts };
+}
+
+/**
+ * The briefing one cohort receives: the locale's AI text (or the static
+ * template), its own jobs linked and first, then the tool links. Job links are
+ * injected for both AI and fallback briefings.
+ */
+function cohortBriefingHtml(localeHtml, cohort, exchangeRate) {
+  const html = localeHtml || getFallbackBriefing(cohort.locale, exchangeRate);
+  return injectToolLinks(injectJobAndCompanyLinks(html, cohort.matchedJobs, cohort.locale), cohort.locale);
+}
+
+/** Characters of the cohort briefing a subject receives as its "Theme". */
+export const SUBJECT_THEME_CHARS = 100;
+
+const stripTags = (html) => String(html || '').replace(/<[^>]+>/g, '');
+
+/**
+ * The fixed openings of the jobs paragraph ("Se cerchi qualcosa di concreto,
+ * questa settimana ci sono "), the same words in every email of a locale.
+ */
+function jobsIntroOpenings(locale) {
+  const i18n = JOB_FALLBACK_I18N[locale] || JOB_FALLBACK_I18N.it;
+  const mark = '\u0000';
+  return [i18n.introMulti(mark, mark), i18n.introSingle(mark)].map((s) => s.split(mark)[0]);
+}
+
+/**
+ * The Theme text of a cohort briefing: its first SUBJECT_THEME_CHARS
+ * characters without the jobs paragraph's fixed opening. With the opening,
+ * most of the Theme was those same words every week, and the model copied
+ * them into the subjects of both A/B arms ("💼 Suchst du etwas Konkretes in
+ * Bellinzona?" in the curioso arm).
+ */
+function subjectThemeText(html, locale) {
+  const text = stripTags(html);
+  const opening = jobsIntroOpenings(locale).find((o) => text.startsWith(o));
+  return (opening ? text.slice(opening.length) : text).slice(0, SUBJECT_THEME_CHARS);
+}
+
+/**
+ * The Theme of a locale's subjects: the start of its largest cohort's
+ * briefing (subjectThemeText). With `briefingMap` it is read from the finished
+ * Phase 2. With `briefingFor(locale)` (a promise of the locale's AI text or
+ * null) Phase 3 runs next to Phase 2 and waits for that text only when the
+ * Theme depends on it: injectJobAndCompanyLinks puts the cohort's jobs
+ * paragraph first when the model does not name the jobs, which the briefing
+ * prompt forbids, and when that paragraph alone covers the Theme the briefing
+ * cannot change it.
+ */
+async function localeSubjectTheme(rep, { briefingMap, briefingFor, exchangeRate }) {
+  if (!rep) return '';
+  if (briefingMap) return subjectThemeText(briefingMap.get(rep.key), rep.locale);
+  const jobsTheme = subjectThemeText(injectJobAndCompanyLinks('', rep.matchedJobs, rep.locale), rep.locale);
+  if (jobsTheme.length >= SUBJECT_THEME_CHARS) return jobsTheme;
+  const localeHtml = briefingFor ? await briefingFor(rep.locale) : null;
+  return subjectThemeText(cohortBriefingHtml(localeHtml, rep, exchangeRate), rep.locale);
+}
+
+/** Key of the subject for one (locale, A/B variant) pair. */
+export function newsletterSubjectKey(loc, variant) {
+  return `${loc}::${variant}`;
+}
+
+/**
+ * Phase 3 composition: the subjects of every A/B variant of a locale from ONE
+ * AI call. The largest cohort supplies the shared briefing context, but
+ * `sharedAcrossLocale` tells the prompt builder to exclude its personalized
+ * jobs and subscriber hints. `generate(ctx)` with `ctx.variants` returns
+ * `{ [variant]: subject | null }`, with a null or missing subject falling back
+ * to the variant's static subject. One call per locale.
+ * Pass `briefingMap` (finished Phase 2) or `briefingFor` (Phase 2 running
+ * alongside, see localeSubjectTheme).
+ */
+export async function composeLocaleSubjects(cohorts, { locales, variantIds, briefingMap = null, briefingFor = null, exchangeRate, generate }) {
+  const localeRepresentatives = new Map();
+  for (const [key, cohort] of cohorts) {
+    const loc = cohort.locale;
+    const existing = localeRepresentatives.get(loc);
+    if (!existing || cohort.members.length > existing.members.length) {
+      localeRepresentatives.set(loc, { ...cohort, key });
+    }
+  }
+
+  const subjectMap = new Map();
+  await pMap(locales, async (loc) => {
+    const rep = localeRepresentatives.get(loc);
+    const subjects = await generate({
+      subscriber: rep?.subscriber || { locale: loc },
+      exchangeRate,
+      matchedJobs: rep?.matchedJobs || [],
+      briefingSummary: await localeSubjectTheme(rep, { briefingMap, briefingFor, exchangeRate }),
+      sharedAcrossLocale: true,
+      variants: variantIds,
+    });
+    for (const variant of variantIds) {
+      subjectMap.set(newsletterSubjectKey(loc, variant), subjects?.[variant] || getVariantFallback(variant, loc));
+    }
+  }, Math.min(locales.length, AI_CONCURRENCY)); // bounded parallel AI calls
+  return subjectMap;
 }
 
 /**
@@ -657,33 +806,103 @@ function sanitizeAIBriefingHtml(raw) {
   return html;
 }
 
-async function generateAISubject(ctx) {
-  if (!callLLM) return null;
+const NEWSLETTER_SUBJECT_TEMPLATE_TOKEN = /\{\{(job_count|job_title|company|location)\}\}/g;
+
+/** An AI subject line as sent, or null when it is unusable. */
+export function acceptAISubject(text) {
+  if (typeof text !== 'string') return null;
+  const raw = text.trim().replace(/^["']|["']$/g, '');
+  // Reject degenerate AI output (empty, too short, emoji-only) so the caller
+  // can fall back to the variant's static subject. Without this guard a 1-char
+  // emoji subject like "💼" sneaks past `subject || getVariantFallback(...)`
+  // (truthy) and trips the inlineQaCheck `length < 10` gate, aborting the
+  // entire send. Require at least 10 chars AND a 3+ letter run to ensure real text.
+  if (raw.length < 10 || !/[\p{L}]{3,}/u.test(raw)) return null;
+  // Ensure subject is a complete sentence — never truncate. A word-boundary
+  // cut still risks lopping off the sentence's final word (e.g. "...il ruolo
+  // più" with "cliccato" chopped off) since it only checks for *a* space,
+  // not whether the cut lands after a complete clause. Safer to discard an
+  // over-limit AI subject and let the caller fall back to the static subject
+  // than to ship a grammatically broken one.
+  if (raw.length > 55) return null;
+  return raw;
+}
+
+/**
+ * An AI subject template, or null when the model returned unsupported
+ * placeholders/markup. The final 10..55 character gate runs after the
+ * recipient's job values have been substituted by renderNewsletterSubject.
+ */
+export function acceptAISubjectTemplate(text) {
+  if (typeof text !== 'string') return null;
+  const raw = text.trim().replace(/^["']|["']$/g, '');
+  if (raw.length < 10 || raw.length > 120 || /[\r\n<>]/.test(raw)) return null;
+  const withoutAllowedTokens = raw.replace(NEWSLETTER_SUBJECT_TEMPLATE_TOKEN, 'dato');
+  if (/\{\{|\}\}|[{}]/.test(withoutAllowedTokens)) return null;
+  if (!/[\p{L}]{3,}/u.test(withoutAllowedTokens)) return null;
+  return raw;
+}
+
+/**
+ * Fill a locale subject template with the exact jobs that will be rendered in
+ * the recipient's body. A malformed/overlong personalized result degrades to
+ * the existing static variant fallback rather than truncating a sentence.
+ */
+export function renderNewsletterSubject(template, { matchedJobs = [], locale = 'it', variant } = {}) {
+  const fallback = getVariantFallback(variant, locale);
+  if (typeof template !== 'string') return fallback;
+  const jobs = Array.isArray(matchedJobs) ? matchedJobs : [];
+  const job = jobs[0] || {};
+  let missingValue = false;
+  const values = {
+    job_count: jobs.length ? String(Math.min(jobs.length, NEWSLETTER_JOB_LIMIT)) : '',
+    job_title: job.title,
+    company: job.company,
+    location: job.location,
+  };
+  const rendered = template.replace(NEWSLETTER_SUBJECT_TEMPLATE_TOKEN, (_, token) => {
+    const value = String(values[token] || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    if (!value) missingValue = true;
+    return value;
+  });
+  if (missingValue) return fallback;
+  return acceptAISubject(rendered) || fallback;
+}
+
+/** The JSON object of a subjects answer: a string (fenced or not) or an already-parsed object. */
+function parseSubjectsAnswer(result) {
+  if (result && typeof result === 'object') return result;
+  const text = String(result ?? '').trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
+  const start = text.indexOf('{');
+  const end = text.lastIndexOf('}');
+  if (start < 0 || end <= start) return null;
+  const parsed = JSON.parse(text.slice(start, end + 1));
+  return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : null;
+}
+
+/**
+ * Every A/B subject of a locale from ONE AI call (buildSubjectVariantsPrompt):
+ * `{ [variant]: subject | null }` for `ctx.variants`. A variant is null when
+ * its subject is missing or fails acceptAISubject, and every variant is null
+ * when the call fails; the caller falls back to each variant's static subject.
+ */
+export async function generateAISubjects(ctx, { deadlineMs, llm = callLLM } = {}) {
+  const variants = ctx.variants || [];
+  const subjects = Object.fromEntries(variants.map((v) => [v, null]));
+  if (!llm || variants.length === 0) return subjects;
   try {
-    const { system, user } = buildSubjectPrompt(ctx);
-    const result = await callLLM([
+    const { system, user, jsonSchema } = buildSubjectVariantsPrompt(ctx);
+    const result = await llm([
       { role: 'system', content: system },
       { role: 'user', content: user },
-    ], { temperature: 0.8, maxTokens: 80, chain: NEWSLETTER_AI_CHAIN });
-    const raw = result.trim().replace(/^["']|["']$/g, '');
-    // Reject degenerate AI output (empty, too short, emoji-only) so the caller
-    // can fall back to FALLBACK_SUBJECT. Without this guard a 1-char emoji
-    // subject like "💼" sneaks past `subject || FALLBACK_SUBJECT[loc]` (truthy)
-    // and trips the inlineQaCheck `length < 10` gate, aborting the entire send.
-    // Require at least 10 chars AND a 3+ letter run to ensure real text.
-    if (raw.length < 10 || !/[\p{L}]{3,}/u.test(raw)) return null;
-    // Ensure subject is a complete sentence — never truncate. A word-boundary
-    // cut still risks lopping off the sentence's final word (e.g. "...il ruolo
-    // più" with "cliccato" chopped off) since it only checks for *a* space,
-    // not whether the cut lands after a complete clause. Safer to discard an
-    // over-limit AI subject and let the caller fall back to FALLBACK_SUBJECT
-    // than to ship a grammatically broken one.
-    if (raw.length > 55) return null;
-    return raw;
+    ], { temperature: 0.8, maxTokens: 80 * variants.length, jsonSchema, chain: NEWSLETTER_AI_CHAIN, deadlineMs });
+    const answer = parseSubjectsAnswer(result);
+    if (!answer) throw new Error(`no JSON object in the answer: ${String(result).slice(0, 120)}`);
+    for (const v of variants) subjects[v] = acceptAISubject(answer[v]);
   } catch (e) {
-    console.warn('\u26a0\ufe0f AI subject failed:', e.message?.slice(0, 200));
-    return null;
+    console.warn(`⚠️ AI subjects (${ctx.subscriber?.locale || 'it'}) failed:`, e.message?.slice(0, 200));
   }
+  return subjects;
 }
 
 // ─── Unsubscribe / Auth URLs ────────────────────────────────
@@ -782,8 +1001,6 @@ function personalizeHtmlWithToken(email, html, autologinCode, rankingContext = n
           newsletterId: rankingContext.newsletterId,
           rankingScore: job.ranking?.rankingScore,
           relevanceScore: job.ranking?.relevanceScore,
-          ctrShrink: job.ranking?.ctrShrink,
-          randomBoost: job.ranking?.randomBoost,
         });
       }
     }
@@ -1015,8 +1232,8 @@ function buildPublishedAtLookup() {
   return (id) => map.get(id) || null;
 }
 
-// getBlogSlug / loadBlogMeta / localizeArticle / localePathPrefix /
-// loadArticlePerformanceWinners live in ./lib/articleContent.mjs (shared with
+// getBlogSlug / loadBlogMeta / localizeArticle / localePathPrefix live in
+// ./lib/articleContent.mjs (shared with
 // the dormant-tier win-back runner, scripts/newsletter-winback-campaign.mjs,
 // so the slug/meta-file parsing logic can't drift between the two senders).
 
@@ -1109,31 +1326,6 @@ async function saveRecentlyFeaturedJobs(slugs) {
 // \u2500\u2500\u2500 Job alert matching \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 
 /**
- * Load all active job alerts, keyed by email.
- * Uses a collectionGroup query to avoid N+1 reads.
- * @returns {Promise<Map<string, object[]>>}
- */
-async function fetchAllJobAlerts() {
-  if (!db) return new Map();
-  try {
-    const snap = await db.collectionGroup('alerts').where('active', '==', true).get();
-    const map = new Map();
-    snap.forEach((doc) => {
-      const data = doc.data();
-      const email = (data.email || '').toLowerCase();
-      if (!email) return;
-      if (!map.has(email)) map.set(email, []);
-      map.get(email).push(data);
-    });
-    console.log(`\ud83d\udd14 Job alerts loaded: ${map.size} subscribers with active alerts`);
-    return map;
-  } catch (e) {
-    console.warn('\u26a0\ufe0f Load job alerts failed:', e.message);
-    return new Map();
-  }
-}
-
-/**
  * Returns true if the job matches any of the subscriber's active alerts.
  * Within each filter type: OR logic (any match is enough).
  * Across filter types: AND logic (all non-empty filters must match).
@@ -1213,65 +1405,6 @@ async function pickFeaturedArticle() {
   getArticle.articleId = bestId;
   getArticle.persistRotation = () => saveRecentlyFeaturedArticle(bestId);
   return getArticle;
-}
-
-// loadArticlePerformanceWinners lives in ./lib/articleContent.mjs (imported above).
-
-/**
- * Resolve per-subscriber article content for the newsletter body:
- *   - hot/warm         → a single novelty pick matched to the subscriber's
- *     inferred interest (jobs / articles / utility), from real winners.
- *   - cool/cold/dormant → the single best-ranked winner from the flat
- *     (non-cluster-preferred) candidate list, same for dormant since the
- *     win-back sequence is a SEPARATE additional send
- *     (scripts/newsletter-winback-campaign.mjs), not a substitute for this
- *     regular weekly one.
- * The live template (services/newsletter-template.mjs, NOT the dead/unimported
- * scripts/newsletter-template.mjs) only renders a single `data.article`
- * object — there is no multi-article digest section — so every strategy
- * resolves to one article; `selectArticleCandidates`'s 'digest' mode still
- * differentiates cool/cold from hot/warm (flat vs cluster-preferred ranking),
- * we just take its top candidate instead of a multi-item list.
- * Falls back to the single globally-rotated `featuredArticleFn` whenever no
- * performance-ranked winner localizes for the subscriber's locale (missing
- * blog meta, etc.) — so the section is never left broken/empty.
- *
- * @param {Record<string, any>} subscriber
- * @param {string} locale
- * @param {(locale: string) => object|null} featuredArticleFn
- * @returns {{ segment: string, article: object|null }}
- */
-function resolveArticleContent(subscriber, locale, featuredArticleFn) {
-  const segmentInfo = describeSegment(subscriber);
-  const winners = loadArticlePerformanceWinners();
-  // Content strategy: dormant gets the same candidate ranking as cool/cold for
-  // THIS regular send (segment id stays 'dormant' for tagging/reporting).
-  const contentInfo = segmentInfo.strategy === CONTENT_STRATEGIES.WINBACK
-    ? { strategy: CONTENT_STRATEGIES.DIGEST, interest: null }
-    : segmentInfo;
-
-  // (#4299) hot_utility/warm_utility subscribers get genuinely
-  // time-of-year-relevant content (TFR calculator in Jan, Italian tax
-  // return in spring, 3a pillar deadline in autumn, ...) FIRST — a real
-  // seasonal pick beats the generic fiscale/pratico-clustered winner
-  // article the ranking below would otherwise pick.
-  if (contentInfo.interest === INTERESTS.UTILITY) {
-    const seasonal = getSeasonalUtilityContent(new Date(), locale);
-    if (seasonal) return { segment: segmentInfo.segmentId, article: seasonal };
-  }
-
-  const selection = selectArticleCandidates(contentInfo, winners);
-
-  let article = null;
-  if (selection.mode !== 'none') {
-    for (const slug of selection.slugs) {
-      const localized = localizeArticle(slug, locale);
-      if (localized) { article = localized; break; }
-    }
-  }
-  if (!article) article = featuredArticleFn(locale);
-
-  return { segment: segmentInfo.segmentId, article };
 }
 
 /**
@@ -1373,7 +1506,9 @@ function loadLocalJobsData() {
       } else {
         for (const file of sliceFiles) {
           const slice = JSON.parse(fs.readFileSync(new URL(file, slicesDir), 'utf8'));
-          if (Array.isArray(slice.jobs)) jobs.push(...slice.jobs);
+          // The slices also hold agency jobs held out of publication until their
+          // titles are translated; the assembled data/jobs.json never does.
+          if (Array.isArray(slice.jobs)) jobs.push(...excludeHeldFromPublication(slice.jobs));
         }
         if (jobs.length > 0) {
           console.warn(`⚠️  data/jobs.json missing — loaded ${jobs.length} jobs from ${sliceFiles.length} crawler slices`);
@@ -1497,6 +1632,10 @@ async function fetchTargetSubscriber(email) {
   //
   // This is orthogonal to the registration basis: it answers "did they leave?".
   if (isNewsletterOptOutBinding(rowForSend)) return { subscriber: null, refusal: 'unsubscribed' };
+  // A profile-only document (a sign-in, no status/terms/consent) exists but is
+  // not a subscription: refuse it rather than fall back to the synthetic
+  // profile, which would mail exactly the row the bulk path excludes.
+  if (!hasSubscriptionBasis(rowForSend)) return { subscriber: null, refusal: 'no subscription basis (profile-only document)' };
   return { subscriber: subscriberFromFirestoreRow(rowForSend), refusal: null };
 }
 
@@ -1507,10 +1646,12 @@ async function fetchSubscribers() {
   // preferredSendSampleCount, but computeGlobalPreferredHour reads the
   // Firestore field names directly off the row, so keep the rows around too.
   const rawRows = [];
+  let excludedNoBasis = 0;
   try {
     // Every non-excluded subscriber is eligible here, including pending rows
-    // and rows without a confirmation proof. The only delivery stops are the
-    // newsletter opt-out/status, cross-channel hard stop and malformed address.
+    // and rows without a confirmation proof. The delivery stops are the
+    // newsletter opt-out/status, cross-channel hard stop, malformed address
+    // and a row with no subscription basis at all (hasSubscriptionBasis).
     const snap = await db.collection('newsletter_subscribers').get();
     snap.docs.forEach((d) => {
       if (d.id === '_meta_') return;
@@ -1529,6 +1670,10 @@ async function fetchSubscribers() {
       // fetchTargetSubscriber above — a stamp superseded by a strictly later
       // explicit re-opt-in is not binding (#5711).
       if (isNewsletterOptOutBinding(rowForSend)) return;
+      // Profile-only rows written by a generic sign-in since #8341 carry no
+      // status, terms, consent or confirmation: no relationship, no mail. The
+      // #8754 policy (terms, no proof) is unchanged for every other row.
+      if (!hasSubscriptionBasis(rowForSend)) { excludedNoBasis++; return; }
       rawRows.push(rowForSend);
       // Pass the RAW row.email so subscriberFromFirestoreRow can harvest a
       // "Name <addr>" display name; it strips the wrapper internally and
@@ -1539,6 +1684,8 @@ async function fetchSubscribers() {
   } catch (e) {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
   }
+
+  console.log(`\ud83d\udc65 Subscribers eligible: ${subscribers.size} (excludedNoBasis ${excludedNoBasis})`);
 
   // user_profiles collection removed — all subscriber data is in newsletter_subscribers
 
@@ -1659,11 +1806,12 @@ export function capSubscribersToDailyLimit(subscribers, limit) {
 }
 
 // ─── Subject A/B auto-promotion ─────────────────────────────
-// On by default (kill switch: NEWSLETTER_AB_AUTOPROMOTE=false). Safe: a no-op
-// until a recent campaign has a statistically significant winner with enough
-// sample (pickWinner gates), in which case the assignment biases toward it
-// epsilon-greedily while still exploring the other arm.
-const AB_AUTOPROMOTE = process.env.NEWSLETTER_AB_AUTOPROMOTE !== 'false';
+// The four-arm experiment must remain a clean 25/25/25/25 split while it is
+// collecting evidence. Promotion is therefore explicit opt-in
+// (NEWSLETTER_AB_AUTOPROMOTE=true), not an implicit side effect of a send.
+// When enabled, pickWinner still requires enough data and corrected
+// significance before the epsilon-greedy bias can start.
+const AB_AUTOPROMOTE = process.env.NEWSLETTER_AB_AUTOPROMOTE === 'true';
 const AB_PROMOTE_LOOKBACK = Math.max(1, intFromEnv('NEWSLETTER_AB_LOOKBACK', 2));
 
 /**
@@ -1674,28 +1822,24 @@ const AB_PROMOTE_LOOKBACK = Math.max(1, intFromEnv('NEWSLETTER_AB_LOOKBACK', 2))
  *
  * @returns {Promise<{byProvider:Record<string,string|null>, global:string|null}>}
  */
-async function resolveWinnersForCampaign(database, campaignId) {
+async function resolveWinnersForCampaign(database, campaignId, { persist = false } = {}) {
   if (!AB_AUTOPROMOTE || !database) return { byProvider: {}, global: null };
   try {
     const ids = previousCampaignIds(campaignId, AB_PROMOTE_LOOKBACK);
-    const pooledCells = {};
-    for (const cid of ids) {
-      const { cells } = await loadCampaignVariantTotals(database, cid);
-      for (const [provider, variants] of Object.entries(cells)) {
-        pooledCells[provider] ??= {};
-        for (const [v, c] of Object.entries(variants)) {
-          pooledCells[provider][v] ??= { sends: 0, opens: 0 };
-          pooledCells[provider][v].sends += c.sends;
-          pooledCells[provider][v].opens += c.opens;
-        }
-      }
+    const { pooledCells, source } = await loadPooledCampaignVariantTotals(database, campaignId, ids, { persist });
+    const configuredVariants = listVariantIds();
+    const observedVariants = new Set(Object.values(pooledCells).flatMap((variants) => Object.keys(variants || {})));
+    const missingVariants = configuredVariants.filter((variant) => !observedVariants.has(variant));
+    if (missingVariants.length) {
+      console.log(`⚖️  Auto-promote: even split (new arm set not fully observed; missing ${missingVariants.join(', ')}; source: ${source})`);
+      return { byProvider: {}, global: null };
     }
     const { byProvider, global } = resolveWinnersByProvider(pooledCells);
     const perProvider = Object.entries(byProvider).filter(([, w]) => w).map(([p, w]) => `${p}:${w}`);
     if (global || perProvider.length) {
-      console.log(`🏆 Auto-promote (ε=${DEFAULT_EPSILON}) from last ${ids.length} campaign(s): global=${global || 'none'}${perProvider.length ? `, per-provider=${perProvider.join(',')}` : ''}`);
+      console.log(`🏆 Auto-promote (ε=${DEFAULT_EPSILON}) from last ${ids.length} campaign(s): global=${global || 'none'}${perProvider.length ? `, per-provider=${perProvider.join(',')}` : ''} (source: ${source})`);
     } else {
-      console.log('⚖️  Auto-promote: even split (no significant winner yet)');
+      console.log(`⚖️  Auto-promote: even split (no significant winner yet; source: ${source})`);
     }
     return { byProvider, global };
   } catch (e) {
@@ -1708,7 +1852,7 @@ async function resolveWinnersForCampaign(database, campaignId) {
 
 async function persistDelivery(recipient, messageId, meta) {
   if (!db) return;
-  const FieldValue = adminSdk?.firestore?.FieldValue;
+  const FieldValue = firestoreFieldValue;
   try {
     const email = normalizeEmail(recipient.email);
     const locale = nlNormLocale(recipient.locale);
@@ -1745,7 +1889,9 @@ async function persistDelivery(recipient, messageId, meta) {
       is_operator_verification: meta.isOperatorVerification ?? false,
       ranking_delivery_id: meta.rankingDeliveryId || null,
       ranking_variant: meta.rankingVariant || null,
-      ranking_jobs: meta.rankingJobs || [],
+      // Lean manifest only: the full job objects stay in memory on
+      // meta.rankingJobs for recordJobEmailImpressions.
+      ranking_jobs: buildRankingJobsManifest(meta.rankingJobs),
       sent_at: new Date(),
     }, { merge: true });
     // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
@@ -2125,11 +2271,9 @@ async function main() {
   const { jobs } = loadLocalJobsData();
   const jobContextIndex = buildJobContextIndex(jobs);
 
-  // Load job rotation history and subscriber alerts (parallel, non-blocking)
-  const [recentlyFeaturedJobs, allJobAlerts] = await Promise.all([
-    fetchRecentlyFeaturedJobs(),
-    fetchAllJobAlerts(),
-  ]);
+  // Load job rotation history; subscriber alerts are loaded after the final
+  // recipient filters, immediately before Phase 1.
+  const recentlyFeaturedJobs = await fetchRecentlyFeaturedJobs();
   if (recentlyFeaturedJobs.length) {
     console.log(`🔄 Job rotation: excluding ${recentlyFeaturedJobs.length} recently featured slugs`);
   }
@@ -2166,10 +2310,9 @@ async function main() {
     );
     let briefing = noAI
       ? getFallbackBriefing(locale, exchangeRate)
-      : (await generateAIBriefing({
-          subscriber: { locale, preferences: { jobs: true, taxUpdates: true } },
-          exchangeRate, exchangeInsight, matchedJobs: previewJobs, weeklyFact: getWeeklyFact(locale), featuredTool: previewFeaturedTool,
-        })) || getFallbackBriefing(locale, exchangeRate);
+      : (await generateLocaleBriefing({
+          locale, exchangeRate, exchangeInsight, weeklyFact: getWeeklyFact(locale), featuredTool: previewFeaturedTool,
+        }, { deadlineMs: Date.now() + AI_PHASE_BUDGET_MS })) || getFallbackBriefing(locale, exchangeRate);
     // Always inject job links — applies to both AI and fallback briefings
     briefing = injectJobAndCompanyLinks(briefing, previewJobs, locale);
     briefing = injectToolLinks(briefing, locale);
@@ -2177,7 +2320,12 @@ async function main() {
     const previewSubscriber = segmentOverride
       ? synthesizeSubscriberForSegment(segmentOverride)
       : { engagementLevel: 'hot' }; // legacy default profile when --segment is omitted
-    const articleContent = resolveArticleContent(previewSubscriber, locale, featuredArticle);
+    const articleContent = resolveNewsletterArticle({
+      subscriber: previewSubscriber,
+      locale,
+      campaignId,
+      featuredArticleFn: featuredArticle,
+    });
     if (segmentOverride) console.error(`🎯 Preview segment: ${articleContent.segment}`);
 
     const html = buildNewsletter({
@@ -2210,6 +2358,7 @@ async function main() {
   // Unsent audience of this campaign before the daily cap trims it (send mode
   // only); null elsewhere, where every built email is the whole audience.
   let unsentBeforeDailyCap = null;
+  let allJobAlerts = new Map();
   if (mode === 'test') {
     const target = targetEmail
       ? await fetchTargetSubscriber(targetEmail)
@@ -2270,7 +2419,14 @@ async function main() {
     // emails within the same ~1.5-day window. Reads job_alert_subscribers/
     // {email}.last_sent_at, written by send-job-alerts.mjs after each send.
     // SKIP_JOB_ALERT_COOLDOWN=1 bypasses this (manual/test sends).
-    const JOB_ALERT_COOLDOWN_MS = process.env.SKIP_JOB_ALERT_COOLDOWN === '1' ? 0 : 36 * 60 * 60 * 1000;
+    // Bounded deferral: after the first days of the campaign week the cooldown
+    // is lifted, or daily job-alert recipients would never get the issue
+    // (scripts/lib/newsletterJobAlertCooldown.mjs).
+    const cooldownApplies = jobAlertCooldownApplies({ campaignId, nowMs: Date.now() });
+    if (!cooldownApplies) {
+      console.log(`\ud83d\udce8 Job-alert cooldown lifted: ${campaignId} is past its ${JOB_ALERT_COOLDOWN_MAX_DEFER_DAYS}-day deferral window`);
+    }
+    const JOB_ALERT_COOLDOWN_MS = process.env.SKIP_JOB_ALERT_COOLDOWN === '1' || !cooldownApplies ? 0 : JOB_ALERT_COOLDOWN_DEFAULT_MS;
     if (JOB_ALERT_COOLDOWN_MS > 0 && db) {
       const nowMs = Date.now();
       const cooldownSet = new Set();
@@ -2344,12 +2500,19 @@ async function main() {
     }
   }
 
+  const alertLoad = await loadJobAlertsForSubscribers(
+    db,
+    subscribers.map((subscriber) => subscriber.email),
+  );
+  allJobAlerts = alertLoad.alertsByEmail;
+  if (mode === 'send') {
+    const personalization = await attachApplicationIntentPersonalization(db, subscribers);
+    subscribers = personalization.subscribers;
+  }
+
   subscribers = subscribers.map((subscriber) => enrichSubscriberJobContext(subscriber, jobContextIndex));
 
   // ── Build personalized emails (optimized pipeline) ──
-  let aiSuccessCount = 0;
-  let aiFallbackCount = 0;
-
   // Build valid slug index for URL validation in final HTML
   const validJobSlugs = fullNewsletterJobContext.validSlugs;
 
@@ -2360,12 +2523,24 @@ async function main() {
   // displace a real job from the top-4). The owner still sees them.
   const jobsNoCanary = jobs.filter((j) => !isCanaryJob(j));
   const publicNewsletterJobContext = prepareNewsletterJobContext(jobsNoCanary, recentlyFeaturedJobs);
-  let newsletterRankingStats = new Map();
-  if (db && JOB_EMAIL_RANKING_CONFIG.enabled) {
-    const since = new Date(Date.now() - JOB_EMAIL_RANKING_CONFIG.windowDays * 86_400_000)
-      .toISOString().slice(0, 10);
-    newsletterRankingStats = await loadNewsletterRankingStats(db, { sinceDay: since });
-  }
+  // Affinity profiles are needed only by the affinity treatment. The newness
+  // treatment is independent of personal profiles, so its run does not pay
+  // those Firestore reads. Without Firestore (preview) or on a failed read
+  // everybody gets the standard order — never a blocked send.
+  const affinityNow = new Date();
+  const needsAffinityProfiles = rankingNeedsAffinityProfile({ config: JOB_EMAIL_RANKING_CONFIG });
+  const { profiles: affinityProfiles, stats: affinityLoadStats } = needsAffinityProfiles
+    ? await loadJobEmailAffinityProfiles(
+      db,
+      subscribers.map((subscriber) => ({
+        email: normalizeEmail(subscriber.email),
+        optOut: subscriber.rankingPersonalizationOptOut === true,
+      })),
+    )
+    : {
+      profiles: new Map(),
+      stats: { recipients: 0, opted_out: 0, read: 0, found: 0, failed: 0, skipped_reason: 'not_required' },
+    };
   const subscriberData = subscribers.map((subscriber) => {
     const locale = nlNormLocale(subscriber.locale);
     const subscriberAlerts = allJobAlerts.get((subscriber.email || '').toLowerCase()) || [];
@@ -2374,30 +2549,41 @@ async function main() {
       : publicNewsletterJobContext;
     const rankingVariant = assignJobRankingVariant({
       subjectId: subscriber.email,
-      surface: 'newsletter',
-      campaignId,
       config: JOB_EMAIL_RANKING_CONFIG,
     });
-    // Treatment gets a wider candidate pool so exploration can surface a
-    // relevant low-impression job; control keeps the historical top-four pool.
-    const candidateLimit = getNewsletterCandidateLimit(rankingVariant);
+    const { affinityProfile, affinityScorer } = affinityRankingContext(
+      affinityProfiles.get(normalizeEmail(subscriber.email)) ?? null,
+      affinityNow,
+    );
+    // An active ranking treatment chooses among a wider relevant pool (the
+    // same twelve the retired CTR treatment had); control keeps the historical
+    // top four.
+    const candidateLimit = getNewsletterCandidateLimit(rankingVariant, {
+      affinityScorer,
+      config: JOB_EMAIL_RANKING_CONFIG,
+    });
     const rawMatched = matchJobsForSubscriber(subscriber, eligibleJobContext, candidateLimit, locale);
     const validatedJobs = validateJobUrls(rawMatched, fullNewsletterJobContext).map((job) => ({
       ...job,
       alertMatch: jobMatchesAlerts(job, subscriberAlerts),
     }));
     const matchedJobs = rankNewsletterJobs(validatedJobs, {
-      statsByJob: newsletterRankingStats,
       variant: rankingVariant,
-      surface: 'newsletter',
-      surfaceId: 'newsletter_weekly',
-      campaignId,
-      randomSeed: subscriber.email,
+      affinityScorer,
       config: JOB_EMAIL_RANKING_CONFIG,
     });
     const cohortKey = `${locale}:${jobSetHash(matchedJobs)}`;
-    return { subscriber, locale, matchedJobs, cohortKey, rankingVariant };
+    return { subscriber, locale, matchedJobs, cohortKey, rankingVariant, rankingAffinityProfile: affinityProfile };
   });
+  {
+    const variantCounts = {};
+    let withProfile = 0;
+    for (const entry of subscriberData) {
+      variantCounts[entry.rankingVariant] = (variantCounts[entry.rankingVariant] || 0) + 1;
+      if (entry.rankingAffinityProfile) withProfile++;
+    }
+    console.log(`  🎯 Job-email ranking: ${JSON.stringify(variantCounts)} subscribers; ${withProfile} with a valid affinity profile (profiles ${JSON.stringify(affinityLoadStats)})`);
+  }
 
   // Group by cohort (same locale + same job set = same AI briefing)
   const cohorts = new Map();
@@ -2414,103 +2600,49 @@ async function main() {
   }
   console.log(`  ${subscribers.length} subscribers → ${cohorts.size} cohorts`);
 
-  // ── Phase 2: Generate AI briefings, batched per locale (parallel) ──
-  console.log(`🧠 Phase 2: AI briefings (batches of ≤${AI_BRIEFING_BATCH_SIZE} cohorts, same locale, parallel)...`);
-  const cohortEntries = [...cohorts.entries()];
-  let briefingResults;
-  if (noAI) {
-    briefingResults = cohortEntries.map(([key, c]) => [key, getFallbackBriefing(c.locale, exchangeRate)]);
-  } else {
-    // Never mix locales in one batch (see buildBriefingBatchPrompt) — group
-    // by locale first, then chunk each locale's cohorts into fixed-size batches.
-    const byLocale = new Map();
-    for (const entry of cohortEntries) {
-      const loc = entry[1].locale;
-      if (!byLocale.has(loc)) byLocale.set(loc, []);
-      byLocale.get(loc).push(entry);
-    }
-    const batches = [];
-    for (const entries of byLocale.values()) {
-      for (let i = 0; i < entries.length; i += AI_BRIEFING_BATCH_SIZE) {
-        batches.push(entries.slice(i, i + AI_BRIEFING_BATCH_SIZE));
-      }
-    }
-    const batchResults = await pMap(batches, async (batch) => {
-      const items = batch.map(([, cohort], idx) => ({
-        id: String(idx),
-        ctx: {
-          subscriber: cohort.subscriber,
-          exchangeRate, exchangeInsight,
-          matchedJobs: cohort.matchedJobs,
-          weeklyFact: getWeeklyFact(cohort.locale),
-          featuredTool: getFeaturedToolForLocale(cohort.locale),
-        },
-      }));
-      const resultMap = await generateAIBriefingsBatch(items);
-      return batch.map(([key], idx) => [key, resultMap.get(String(idx)) || null]);
-    }, AI_CONCURRENCY);
-    briefingResults = batchResults.flat();
-  }
+  // ── Phase 2: ONE combined AI content response per locale ──
+  // The model writes the shared editorial briefing and all A/B subject
+  // templates together. injectJobAndCompanyLinks then prepends each cohort's
+  // own jobs, and Phase 5 fills the subject templates from those exact jobs.
+  // This keeps the locale-level call budget even though job sets are
+  // personalised (255 → 217, 109 → 96), instead of returning to the old
+  // per-cohort AI calls that took 73 calls / 2h21 for 255 recipients and ~700
+  // calls for a 2119-cohort Monday campaign.
+  const locales = [...new Set([...cohorts.values()].map((c) => c.locale))];
 
-  const briefingMap = new Map();
-  for (const [key, briefing] of briefingResults) {
-    const cohort = cohorts.get(key);
-    let finalBriefing;
-    if (briefing) {
-      finalBriefing = briefing;
-      aiSuccessCount++;
-    } else {
-      finalBriefing = getFallbackBriefing(cohort.locale, exchangeRate);
-      aiFallbackCount++;
-    }
-    // Always inject job links — applies to both AI and fallback briefings
-    finalBriefing = injectJobAndCompanyLinks(finalBriefing, cohort.matchedJobs, cohort.locale);
-    finalBriefing = injectToolLinks(finalBriefing, cohort.locale);
-    briefingMap.set(key, finalBriefing);
-  }
-  console.log(`  ✓ ${aiSuccessCount} AI briefings, ${aiFallbackCount} fallbacks`);
-
-  // ── Phase 3: Generate 1 AI subject per locale × A/B variant ──
-  // Subject-line A/B test: one subject per (locale, variant) so each subscriber
-  // gets the subject for their deterministically-assigned variant (Phase 5).
-  // Still cohort-cheap: at most locales × variants AI calls (≤8), not per-sub.
   const variantIds = listVariantIds();
-  const subjectKey = (loc, variant) => `${loc}::${variant}`;
-  console.log(`✏️  Phase 3: AI subjects (${variantIds.length} variants/locale: ${variantIds.join(', ')})...`);
-  const locales = [...new Set(subscriberData.map(d => d.locale))];
-  const subjectMap = new Map();
-
-  if (subjectOverride) {
-    for (const loc of locales) for (const v of variantIds) subjectMap.set(subjectKey(loc, v), subjectOverride);
-  } else if (noAI) {
-    for (const loc of locales) for (const v of variantIds) subjectMap.set(subjectKey(loc, v), getVariantFallback(v, loc));
-  } else {
-    // Pick a representative cohort per locale (the one with most members)
-    const localeRepresentatives = new Map();
-    for (const [key, cohort] of cohorts) {
-      const loc = cohort.locale;
-      const existing = localeRepresentatives.get(loc);
-      if (!existing || cohort.members.length > existing.members.length) {
-        localeRepresentatives.set(loc, { ...cohort, briefing: briefingMap.get(key) });
-      }
+  const subjectKey = newsletterSubjectKey;
+  console.log(`🧠 Phase 2: combined AI content (1 call per locale: ${locales.join(', ')}; ${variantIds.length} subject templates/locale)...`);
+  const briefingDeadlineMs = Date.now() + AI_PHASE_BUDGET_MS;
+  const localeContentCalls = new Map();
+  const contentFor = noAI ? null : (loc) => {
+    if (!localeContentCalls.has(loc)) {
+      localeContentCalls.set(loc, generateLocaleNewsletterContent({
+        locale: loc,
+        exchangeRate, exchangeInsight,
+        weeklyFact: getWeeklyFact(loc),
+        featuredTool: getFeaturedToolForLocale(loc),
+      }, { deadlineMs: briefingDeadlineMs, variants: variantIds }));
     }
-
-    const localeVariantPairs = [];
-    for (const loc of locales) for (const variant of variantIds) localeVariantPairs.push({ loc, variant });
-    await pMap(localeVariantPairs, async ({ loc, variant }) => {
-      const rep = localeRepresentatives.get(loc);
-      const briefingText = rep?.briefing?.replace(/<[^>]+>/g, '').slice(0, 100) || '';
-      const subject = await generateAISubject({
-        subscriber: rep?.subscriber || { locale: loc },
-        exchangeRate,
-        matchedJobs: rep?.matchedJobs || [],
-        briefingSummary: briefingText,
-        variant,
-      });
-      subjectMap.set(subjectKey(loc, variant), subject || getVariantFallback(variant, loc));
-    }, Math.min(localeVariantPairs.length, AI_CONCURRENCY)); // bounded parallel AI calls
+    return localeContentCalls.get(loc);
+  };
+  const { briefingMap, localeBriefings, localeContents, aiCohorts, fallbackCohorts } = await composeCohortBriefings(cohorts, {
+    locales,
+    exchangeRate,
+    generate: contentFor,
+  });
+  const subjectMap = new Map();
+  for (const loc of locales) {
+    for (const variant of variantIds) {
+      const template = localeContents.get(loc)?.subjects?.[variant];
+      subjectMap.set(subjectKey(loc, variant), template || getVariantFallback(variant, loc));
+    }
   }
-  console.log(`  ✓ ${subjectMap.size} subjects: ${[...subjectMap.entries()].map(([k, s]) => `${k}="${s}"`).join(', ')}`);
+  if (subjectOverride) {
+    for (const loc of locales) for (const variant of variantIds) subjectMap.set(subjectKey(loc, variant), subjectOverride);
+  }
+  console.log(`  ✓ ${localeBriefings.size}/${locales.length} locale AI briefings (${aiCohorts} cohorts on AI, ${fallbackCohorts} on the fallback template)`);
+  console.log(`  ✓ ${subjectMap.size} subject templates: ${[...subjectMap.entries()].map(([k, s]) => `${k}="${s}"`).join(', ')}`);
 
   // ── Phase 4: Generate autologin codes (deterministic HMAC, no async needed) ──
   console.log('🔑 Phase 4: Autologin codes (HMAC)...');
@@ -2535,30 +2667,49 @@ async function main() {
   // default; null/empty = even split until a significant winner exists). The
   // global winner is the assembly-time default; the per-provider winner is
   // applied at send time once the provider is known (finalizeForProvider below).
-  const winners = await resolveWinnersForCampaign(db, campaignId);
+  const winners = await resolveWinnersForCampaign(db, campaignId, { persist: mode === 'send' });
   const promotedVariant = winners.global;
 
   // Per-user send-time (#3798): tally so the dry-run/preview table + the
   // post-send log can report immediate vs scheduled, broken down by source.
   const scheduleTally = { immediate: 0, personal: 0, global: 0 };
+  // Provider-level winner promotion happens after assembly. Keep the already
+  // rendered subject variants by recipient so a promoted variant still uses
+  // that recipient's own jobs, without putting internal data on provider
+  // payloads.
+  const subjectVariantsByEmail = new Map();
 
-  for (const { subscriber, locale, matchedJobs, cohortKey, rankingVariant } of subscriberData) {
+  for (const { subscriber, locale, matchedJobs, cohortKey, rankingVariant, rankingAffinityProfile } of subscriberData) {
     const briefing = briefingMap.get(cohortKey);
     // A/B test: deterministic per-subscriber variant (stable for this campaign),
     // epsilon-greedy when a winner is promoted. Fall back to the first variant's
     // subject, then the variant fallback, so a missing (locale,variant) entry
     // can never leave subject undefined.
     const variant = assignSubjectVariant(subscriber.email, campaignId, { promotedVariant, epsilon: DEFAULT_EPSILON });
-    const subject = subjectMap.get(subjectKey(locale, variant))
-      || subjectMap.get(subjectKey(locale, variantIds[0]))
+    const renderedSubjects = Object.fromEntries(variantIds.map((subjectVariant) => [
+      subjectVariant,
+      renderNewsletterSubject(subjectMap.get(subjectKey(locale, subjectVariant)), {
+        matchedJobs,
+        locale,
+        variant: subjectVariant,
+      }),
+    ]));
+    subjectVariantsByEmail.set(normalizeEmail(subscriber.email), renderedSubjects);
+    const subject = renderedSubjects[variant]
+      || renderedSubjects[variantIds[0]]
       || getVariantFallback(variant, locale);
 
     // Segment content assembly (#4299): engagement level x inferred interest
-    // picks the best-ranked article from real article-performance winners —
+    // picks a campaign-rotated article from real article-performance winners —
     // cluster-preferred for hot/warm, flat-ranked for cool/cold/dormant —
     // falling back to the globally-rotated featuredArticle when nothing
     // localizes.
-    const articleContent = resolveArticleContent(subscriber, locale, featuredArticle);
+    const articleContent = resolveNewsletterArticle({
+      subscriber,
+      locale,
+      campaignId,
+      featuredArticleFn: featuredArticle,
+    });
     const rankingDeliveryId = buildJobEmailDeliveryId({
       surface: 'newsletter',
       surfaceId: 'newsletter_weekly',
@@ -2671,6 +2822,7 @@ async function main() {
         isOperatorVerification: mode === 'test',
         rankingDeliveryId,
         rankingVariant: rankingVariant || 'control',
+        rankingAffinityProfile: rankingAffinityProfile === true,
         rankingJobs: matchedJobs,
       },
       payload: {
@@ -2697,8 +2849,7 @@ async function main() {
 
   console.log(`📅 Per-user send-time: ${scheduleTally.personal + scheduleTally.global} scheduled (personal=${scheduleTally.personal}, global=${scheduleTally.global}), ${scheduleTally.immediate} immediate`);
 
-  console.log(`\n🧠 AI stats: ${aiSuccessCount} cohort briefings (${cohorts.size} cohorts), ${aiFallbackCount} fallbacks, ${subjectMap.size} subjects`);
-  console.log(`📊 Savings: ${subscribers.length * 2} AI calls → ${aiSuccessCount + aiFallbackCount + subjectMap.size} (${Math.round((1 - (aiSuccessCount + aiFallbackCount + subjectMap.size) / (subscribers.length * 2)) * 100)}% reduction)`);
+  console.log(`\n🧠 AI stats: ${localeBriefings.size}/${locales.length} combined locale responses for ${cohorts.size} cohorts (${fallbackCohorts} on the fallback template), ${subjectMap.size} subject templates`);
 
   // ── Inline QA check on first email ──
   if (emails.length > 0) {
@@ -2770,8 +2921,15 @@ async function main() {
       if (!promoted) return; // nothing significant for this provider → keep default
       const loc = payload.tags?.find((t) => t.name === 'subscriber_locale')?.value || 'it';
       const variant = assignSubjectVariant(email, campaignId, { promotedVariant: promoted, epsilon: DEFAULT_EPSILON });
-      payload.subject = subjectMap.get(subjectKey(loc, variant))
-        || subjectMap.get(subjectKey(loc, variantIds[0]))
+      const renderedSubjects = subjectVariantsByEmail.get(normalizeEmail(email));
+      const fallbackTemplateSubject = renderNewsletterSubject(subjectMap.get(subjectKey(loc, variant)), {
+        locale: loc,
+        variant,
+        matchedJobs: [],
+      });
+      payload.subject = renderedSubjects?.[variant]
+        || renderedSubjects?.[variantIds[0]]
+        || fallbackTemplateSubject
         || getVariantFallback(variant, loc);
       const vtag = payload.tags?.find((t) => t.name === 'variant');
       if (vtag) vtag.value = variant;
@@ -2802,6 +2960,7 @@ async function main() {
         newsletterId: item.meta.campaignId,
         email: item.recipient?.email,
         variant: item.meta.rankingVariant || 'control',
+        affinityProfile: item.meta.rankingAffinityProfile === true,
         jobs: item.meta.rankingJobs,
         sentAt: new Date(),
       }));
@@ -2868,7 +3027,7 @@ async function main() {
 }
 
 // Only run main() when executed directly — allows import for tests / dry-run.
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch(async (e) => {
     // `process.exit()` salta `beforeExit`: senza questa attesa il ramo di
     // errore butta via gli esiti dei modelli accumulati dalla run \u2014 per lo

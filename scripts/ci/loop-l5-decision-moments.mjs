@@ -1,11 +1,12 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /** L5 — Decision Moments. */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import {
   AUTONOMY_ORDER,
   actionClassForPolicy,
@@ -19,6 +20,8 @@ import {
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 
 export const LOOP_ID = 'L5';
+const ISSUE_TITLE = 'L5 Decision Moments: surface freshness or next action is not measurable';
+const ISSUE_WORKFLOW = 'Loop L5 Decision Moments';
 export const DEFAULT_FUEL_PATH = path.join('data', 'fuel-prices.json');
 export const DEFAULT_BORDER_PATH = path.join('data', 'border-wait-current.json');
 export const DEFAULT_PHARMACY_PATH = path.join('data', 'pharmacies-ticino-complete.json');
@@ -28,11 +31,15 @@ export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-regis
 export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 100;
 
+// These are the lifecycle states emitted by services/pharmacies/types.ts and
+// pharmacy-ticino-duty-parser.mjs. Only unknown states are malformed here;
+// release readiness still decides whether pending/conflicting rows are usable.
+const VALID_DUTY_STATUSES = new Set(['verified', 'pending_review', 'expired', 'conflicting']);
 
 const SURFACES = [
   { key: 'calculator', path: '/calcola-stipendio/', label: 'calcolatore stipendio' },
   { key: 'fuel', path: '/prezzi-diesel/oggi/', label: 'confronto carburante' },
-  { key: 'border', path: '/guida-frontaliere/tempi-attesa-dogana/', label: 'tempi alle dogane' },
+  { key: 'border', path: '/traffico-dogane/', label: 'tempi alle dogane' },
   { key: 'pharmacy', path: '/farmacie-di-turno/', label: 'farmacie di turno' },
 ];
 
@@ -277,8 +284,9 @@ function validateDuties(duties, { now, maxAgeHours, issues }) {
     if (!starts || !ends) issues.push(`${prefix}: startsAt or endsAt is invalid`);
     else if (ends.getTime() <= starts.getTime()) issues.push(`${prefix}: endsAt does not follow startsAt`);
     if (!httpsUrl(duty?.sourceUrl)) issues.push(`${prefix}: sourceUrl is not HTTPS`);
-    if (duty?.status !== 'verified' && duty?.status !== 'expired') issues.push(`${prefix}: status is invalid`);
-    if (starts && ends && ends.getTime() > starts.getTime() && httpsUrl(duty?.sourceUrl)) valid += 1;
+    const statusValid = VALID_DUTY_STATUSES.has(duty?.status);
+    if (!statusValid) issues.push(`${prefix}: status is invalid`);
+    if (starts && ends && ends.getTime() > starts.getTime() && httpsUrl(duty?.sourceUrl) && statusValid) valid += 1;
   }
   return {
     present: true,
@@ -598,7 +606,8 @@ export async function runL5({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -692,16 +701,21 @@ export async function runL5({
   let issued = false;
   if (issue && !verdict.ok) {
     const issueResult = await createIssueImpl({
-      title: 'L5 Decision Moments: surface freshness or next action is not measurable',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 3,
       labels: ['monitoring', 'ux', 'loop-l5'],
-      workflow: 'Loop L5 Decision Moments',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     if (!issueResult || issueResult.persisted !== true) {
-      throw new Error('L5 issue persistence failed: createGithubIssue did not confirm persisted=true');
+      throw new Error('L5 issue persistence failed: reportLoopIssue did not confirm persisted=true');
     }
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);
@@ -750,7 +764,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[L5] fatal: ${error.message}`);
     process.exitCode = 1;

@@ -42,9 +42,24 @@ export const CRON_MANAGED_GLOBS = Object.freeze([
   'public/data/health-premiums.json',
   'data/health-premiums/*',
   'public/data/health-premiums/*',
+  'data/health-premiums-eu/*',
+  'public/data/health-premiums-eu/*',
+  'data/canton-tax/*',
+  'public/data/canton-tax/*',
+  'data/pension-parameters/*',
+  'public/data/pension-parameters/*',
   'data/border-wait-current.json',
   'data/border-wait-history/*',
+  'data/border-wait-archive/*',
+  'data/fuel-prices-archive/*',
   'public/data/switzerland-unemployment-rate.json',
+  'public/data/plate-auctions-archive/*',
+  // Avvisi ufficiali cantonali (crawl-canton-notices.yml, 3 giri al giorno) e
+  // riassunto dei turni farmacia per il corpus (sync-pharmacies-border.yml).
+  'data/canton-notices.json',
+  'public/data/canton-notices.json',
+  'public/data/pharmacy-duty-cantons.json',
+  'data/pharmacy-duty-week-history/*',
 
   // Weekly aggregates
   'data/weekly-employers-delta.json',

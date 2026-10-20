@@ -1,0 +1,24 @@
+{
+  "companyKey": "jura-ch",
+  "companyName": "Administration cantonale, Office de l'environnement",
+  "companyHost": "publicjobs.ch",
+  "platform": "publicjobs.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://publicjobs.ch/fr"
+  ],
+  "detailTemplate": "/fr/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 14,
+  "sampleTitles": [
+    "Emplois architecture et construction 84 emplois",
+    "Emplois droit, justice et autorités d'exécution 89 emplois",
+    "Emplois entretien, artisanat et avant-postes 130 emplois",
+    "Emplois Etat-major et soutien à la hiérarchie 7 emplois",
+    "Emplois formation et enseignement 202 emplois"
+  ],
+  "canton": "JU",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-20T06:24:22.088Z"
+}

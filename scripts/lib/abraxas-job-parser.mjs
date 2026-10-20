@@ -45,6 +45,8 @@
  * - isTrustedDomain()     — Validate URLs belong to abraxas.ch / Refline
  * - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -288,27 +290,29 @@ export async function fetchAllAbraxasJobs() {
     listingHtml = await fetchHtml(CAREER_URL, { timeoutMs });
   } catch (err) {
     console.warn(`⚠️ Abraxas listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
 
   const listings = parseAbraxasListing(listingHtml);
   console.log(`   📋 Found ${listings.length} positions on Abraxas listing\n`);
   if (!listings.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (const listing of listings) {
     let detail = { title: '', location: '', pensum: '', employmentTypeRaw: '', description: '', applyUrl: '', posId: '' };
     try {
       const detailHtml = await fetchHtml(listing.url, { timeoutMs });
-      detail = parseAbraxasDetail(detailHtml);
+      detail = { ...parseAbraxasDetail(detailHtml), ...sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted')) };
     } catch (err) {
       console.warn(`   ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
     }
 
     const title = detail.title || listing.title;
-    if (!title || title.length < 3) continue;
+    if (!title || title.length < 3) {
+      await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+      continue;
+    }
 
     const locationText = detail.location || listing.location || '';
     const addr = resolveAddress(locationText);
@@ -359,7 +363,7 @@ export async function fetchAllAbraxasJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: detail.applyUrl || listing.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -1,95 +1,63 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-09-24T14:18:11.913Z",
-  "total": 2,
+  "generatedAt": "2026-10-19T21:13:53.965Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 1971,
-  "avgDurationMs": 1971,
+  "unchangedCount": 3,
+  "durationMs": 2461,
+  "avgDurationMs": 2461,
   "durationHistory": [
-    1971
+    2461
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "url": "https://recruit.casale.ch/o/expediter-1",
-      "applyUrl": "https://recruit.casale.ch/o/expediter-1/c/new",
-      "title": "Expediter",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "expediter-casale-lugano",
-      "category": "logistics",
-      "datePosted": "2026-01-27",
-      "source": "casale-careers-crawler",
-      "sourceLang": "en",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "casale-da760cf6afeb",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 15
-      }
-    },
-    {
-      "url": "https://recruit.casale.ch/o/home-office-construction-engineer",
-      "applyUrl": "https://recruit.casale.ch/o/home-office-construction-engineer/c/new",
-      "title": "Home Office Construction Engineer",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "home-office-construction-engineer-casale-lugano",
-      "category": "engineering",
-      "datePosted": "2025-04-11",
-      "source": "casale-careers-crawler",
-      "sourceLang": "en",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "casale-8e2b66d8ba74",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 15
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
+      "url": "https://recruit.casale.ch/o/senior-estimating-engineer",
+      "applyUrl": "https://recruit.casale.ch/o/senior-estimating-engineer/c/new",
+      "title": "Senior Estimating Engineer",
+      "company": "Casale SA",
+      "companyKey": "casale",
+      "location": "Lugano, Ticino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giulio Pocobelli 6",
+      "slug": "senior-estimating-engineer-casale-lugano",
+      "category": "engineering",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "casale-careers-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Ingegneria / Chimica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "firstSeenAt": "2026-10-09T09:16:20.980Z",
+      "salaryMin": 79500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
       "url": "https://recruit.casale.ch/o/expediter-1",
       "applyUrl": "https://recruit.casale.ch/o/expediter-1/c/new",
       "title": "Expediter",
@@ -105,7 +73,9 @@
       "streetAddress": "Via Giulio Pocobelli 6",
       "slug": "expediter-casale-lugano",
       "category": "logistics",
-      "datePosted": "2026-01-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "source": "casale-careers-crawler",
       "sourceLang": "en",
       "employmentType": "FULL_TIME",
@@ -117,12 +87,16 @@
       },
       "id": "casale-da760cf6afeb",
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "_qualityScore": 87,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -141,7 +115,9 @@
       "streetAddress": "Via Giulio Pocobelli 6",
       "slug": "home-office-construction-engineer-casale-lugano",
       "category": "engineering",
-      "datePosted": "2025-04-11",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "source": "casale-careers-crawler",
       "sourceLang": "en",
       "employmentType": "FULL_TIME",
@@ -153,13 +129,18 @@
       },
       "id": "casale-8e2b66d8ba74",
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "_qualityScore": 89,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 15
+        "completeness": 20
       }
     }
-  ]
+  ],
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

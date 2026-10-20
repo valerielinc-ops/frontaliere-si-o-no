@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * meta-translation-audit.mjs — Workstream G.3
  *
@@ -179,8 +181,7 @@ function main() {
   console.log(`[meta-translation-audit] titleIdentical=${findings.titleIdentical.length} titleNear=${findings.titleNearIdentical.length} descIdentical=${findings.descIdentical.length} descPrefix=${findings.descPrefixMatch.length}`);
 }
 
-const invokedDirectly = import.meta.url === `file://${process.argv[1]}` ||
-  process.argv[1]?.endsWith('meta-translation-audit.mjs');
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   try {
     main();

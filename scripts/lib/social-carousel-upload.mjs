@@ -7,6 +7,8 @@
  * uploader (see push-mirrored-event-images-cdn.mjs for the same pattern) —
  * rather than a fresh S3 client, so R2 credential handling and Content-Type
  * detection live in exactly one place.
+ * This caller writes only `images/social/` keys; its result is determined by
+ * the uploader exit status and success marker, not the blog/places lease.
  */
 
 import { spawnSync } from 'node:child_process';
@@ -15,10 +17,17 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import {
+  isAllowedImageUrl,
+  isAllowedVideoUrl,
+  SOCIAL_IMAGE_ORIGIN,
+} from './social-publish-queue.mjs';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
 const UPLOADER = path.join(ROOT, 'scripts', 'lib', 'upload-cdn-file.sh');
-const CDN_BASE = 'https://cdn.frontaliereticino.ch';
+// The robot accepts slides only from this origin (isAllowedImageUrl): one constant for both.
+const CDN_BASE = SOCIAL_IMAGE_ORIGIN;
 // Slides are per-post content, not evergreen — a short cache is enough and
 // keeps a same-day re-render (e.g. a retried run) from serving a stale card.
 const CACHE_CONTROL = 'public, max-age=3600';
@@ -50,11 +59,52 @@ export function uploadCarouselSlides(buffers, { channel, keyPrefix }) {
       // upload-cdn-file.sh always exits 0 by design; success is detected by
       // its own documented stdout marker, same as push-mirrored-event-images-cdn.mjs.
       if (res.status === 0 && out.includes('✅ uploaded')) {
-        return `${CDN_BASE}/${cdnKey}`;
+        const publicUrl = `${CDN_BASE}/${cdnKey}`;
+        if (!isAllowedImageUrl(publicUrl)) {
+          console.warn(`⚠️  refusing non-social carousel URL for ${fileName}`);
+          return null;
+        }
+        return publicUrl;
       }
       console.warn(`⚠️  slide upload failed for ${fileName}: ${out.trim().split('\n').slice(-1)[0] || 'no output'}`);
       return null;
     });
+  } finally {
+    rmSync(tmpDir, { recursive: true, force: true });
+  }
+}
+
+/**
+ * Upload the generated TikTok MP4 next to the slide JPEGs. The extension is
+ * intentional: upload-cdn-file.sh maps `.mp4` to `video/mp4` explicitly.
+ *
+ * @param {Buffer} buffer
+ * @param {{ channel: string, keyPrefix: string }} opts
+ * @returns {string|null}
+ */
+export function uploadCarouselVideo(buffer, { channel, keyPrefix }) {
+  const tmpDir = mkdtempSync(path.join(os.tmpdir(), 'social-carousel-video-upload-'));
+  const fileName = `${keyPrefix}.mp4`;
+  const localPath = path.join(tmpDir, fileName);
+  try {
+    writeFileSync(localPath, buffer);
+    const cdnKey = `images/social/${channel}/${fileName}`;
+    const res = spawnSync('bash', [UPLOADER, localPath, cdnKey, CACHE_CONTROL], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      env: process.env,
+    });
+    const out = `${res.stdout || ''}${res.stderr || ''}`;
+    if (res.status === 0 && out.includes('✅ uploaded')) {
+      const publicUrl = `${CDN_BASE}/${cdnKey}`;
+      if (!isAllowedVideoUrl(publicUrl)) {
+        console.warn(`⚠️  refusing non-social carousel video URL for ${fileName}`);
+        return null;
+      }
+      return publicUrl;
+    }
+    console.warn(`⚠️  video upload failed for ${fileName}: ${out.trim().split('\n').slice(-1)[0] || 'no output'}`);
+    return null;
   } finally {
     rmSync(tmpDir, { recursive: true, force: true });
   }

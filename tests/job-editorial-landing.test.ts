@@ -24,6 +24,7 @@ function job(overrides: Record<string, unknown> = {}) {
     company: String(overrides.company || 'Swisscom'),
     location: String(overrides.location || 'Lugano'),
     contract: String(overrides.contract || 'Full time'),
+    postingDateSource: 'reported',
     postedDate: String(overrides.postedDate || '2026-03-09'),
     crawledAt: String(overrides.crawledAt || '2026-03-09T08:00:00.000+01:00'),
     ...overrides,

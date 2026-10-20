@@ -1,11 +1,18 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   CONSTELLIUM_KEY,
   CONSTELLIUM_COMPANY_NAME,
+  fetchAllConstelliumJobs,
   isConstelliumJob,
   isTrustedDomain,
 } from '../scripts/lib/constellium-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+afterEach(() => {
+  vi.useRealTimers();
+  vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+});
 
 describe('Constellium Valais crawler parser', () => {
   // ── Constants ──
@@ -125,5 +132,39 @@ describe('Constellium Valais crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+
+  it('waits after a skipped detail before fetching the next listing', async () => {
+    vi.useFakeTimers();
+    const detailFetchStarts: number[] = [];
+    const validDetail = `
+      <meta itemprop="addressLocality" content="Sierre">
+      <meta itemprop="addressRegion" content="VS">
+      <meta itemprop="postalCode" content="3960">
+      <meta itemprop="addressCountry" content="CH">
+      <span class="jobdescription">Source detail body</span>
+      <p class="job-location"></p>`;
+    const listingPage = `
+      Results 1 to 2 of 2
+      <table>
+        <tr class="data-row"><td><a href="/job/stale/1/" class="jobTitle-link">Stale opening</a><span class="jobLocation">Sierre, CH</span><span class="jobFacility">Switzerland</span></td></tr>
+        <tr class="data-row"><td><a href="/job/Sierre-Engineer/12345/" class="jobTitle-link">Valid opening</a><span class="jobLocation">Sierre, CH</span><span class="jobFacility">Switzerland</span></td></tr>
+      </table>`;
+
+    vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
+      const url = String(input);
+      if (url.includes('/search/')) return new Response(listingPage, { status: 200 });
+      detailFetchStarts.push(Date.now());
+      if (url.includes('/job/stale/')) return new Response('', { status: 404 });
+      return new Response(validDetail, { status: 200 });
+    }));
+
+    const resultPromise = fetchAllConstelliumJobs();
+    await vi.runAllTimersAsync();
+    const result = await resultPromise;
+
+    expect(result).toHaveLength(1);
+    expect(detailFetchStarts).toHaveLength(2);
+    expect(detailFetchStarts[1] - detailFetchStarts[0]).toBeGreaterThanOrEqual(300);
   });
 });

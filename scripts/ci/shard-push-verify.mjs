@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 import fs from 'node:fs';
 
@@ -100,7 +102,7 @@ function main(argv) {
   console.log(JSON.stringify(summary));
 }
 
-if (process.argv[1] && process.argv[1].endsWith('/shard-push-verify.mjs')) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main(process.argv.slice(2));
   } catch (error) {

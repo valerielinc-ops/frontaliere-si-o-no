@@ -1,12 +1,16 @@
 import { createHash } from 'node:crypto';
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { parseJobRankingClick } from './jobEmailRankingLinks.js';
 import {
+  MANIFEST_ATTRIBUTE_MAX_LENGTH,
   buildEmbeddedRankingUpdate,
+  jobRankingAttributes,
   pseudonymousUserId,
   rankingDay,
   stableJobId,
 } from './jobEmailRanking.js';
+
+export { MANIFEST_ATTRIBUTE_MAX_LENGTH };
 
 export const JOB_EMAIL_RANKING_STATS_COLLECTION = 'job_email_ranking_stats';
 export const JOB_EMAIL_RANKING_EVENTS_COLLECTION = 'job_email_ranking_events';
@@ -54,19 +58,46 @@ export function rankingDeliveryDocumentId(deliveryId) {
 }
 
 function incrementField(data, path, amount) {
-  if (amount > 0) data[path] = admin.firestore.FieldValue.increment(amount);
+  if (amount > 0) data[path] = FieldValue.increment(amount);
 }
 
-function jobManifestEntry(job, index) {
+function finiteOrNull(value) {
+  if (value === null || value === undefined || value === '') return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+/**
+ * One job of the delivery manifest. The four listing attributes come from
+ * jobRankingAttributes (./jobEmailRanking.js), the same extraction the
+ * affinity ranking scores at send time. `affinity_score` is the recipient's
+ * affinity with the job in [0, 1] when the person had a valid profile at send
+ * time (all ranking variants may record it; only `affinity` orders by it), else
+ * null. `newness_score` is the [0, 1] freshness score when the
+ * `control_plus_newness` treatment calculated one, else null.
+ */
+export function jobManifestEntry(job, index) {
   const ranking = job?.ranking || {};
   return {
     job_id: String(job?.jobId || stableJobId(job)),
     position: Math.max(1, Math.trunc(Number(ranking.position || index + 1))),
-    ranking_score: Number.isFinite(Number(ranking.rankingScore)) ? Number(ranking.rankingScore) : null,
-    relevance_score: Number.isFinite(Number(ranking.relevanceScore)) ? Number(ranking.relevanceScore) : null,
-    ctr_shrink: Number.isFinite(Number(ranking.ctrShrink)) ? Number(ranking.ctrShrink) : null,
-    random_boost: Number.isFinite(Number(ranking.randomBoost)) ? Number(ranking.randomBoost) : null,
+    ranking_score: finiteOrNull(ranking.rankingScore),
+    relevance_score: finiteOrNull(ranking.relevanceScore),
+    newness_score: finiteOrNull(ranking.newnessScore),
+    affinity_score: finiteOrNull(ranking.affinityScore),
+    ...jobRankingAttributes(job),
   };
+}
+
+/**
+ * Lean ranked manifest for a list of sent jobs: the same per-job shape that
+ * recordJobEmailImpressions stores in job_email_ranking_deliveries. Senders use
+ * it for every other Firestore copy of the ranked list, so a delivery record
+ * never carries the full job objects (description + descriptionByLocale are
+ * 21-24 KB per job, ~200 KB per ten-job delivery document).
+ */
+export function buildRankingJobsManifest(jobs) {
+  return Array.isArray(jobs) ? jobs.map(jobManifestEntry) : [];
 }
 
 /**
@@ -89,6 +120,10 @@ export async function recordJobEmailImpressions(db, records) {
     const variant = variantKey(record.variant);
     const userId = record.userId || pseudonymousUserId(record.email);
     const manifest = record.jobs.map(jobManifestEntry);
+    // Whether the person had a valid affinity profile when the email was
+    // built. Newness runs do not need a profile. null only for a record that
+    // predates the field (a job-alert retry queued before it existed).
+    const affinityProfile = typeof record.affinityProfile === 'boolean' ? record.affinityProfile : null;
     deliveries.set(String(record.deliveryId), {
       delivery_id: String(record.deliveryId),
       user_id: userId,
@@ -97,6 +132,7 @@ export async function recordJobEmailImpressions(db, records) {
       alert_id: record.alertId || null,
       newsletter_id: record.newsletterId || null,
       ranking_variant: record.variant || 'unknown',
+      affinity_profile: affinityProfile,
       jobs: manifest,
       sent_at: sentAt,
       expires_at: retentionDate(sentAt),
@@ -139,8 +175,7 @@ export async function recordJobEmailImpressions(db, records) {
         ranking_variant: record.variant || 'unknown',
         ranking_score: manifestJob.ranking_score,
         relevance_score: manifestJob.relevance_score,
-        ctr_shrink: manifestJob.ctr_shrink,
-        random_boost: manifestJob.random_boost,
+        affinity_profile: affinityProfile,
         user_id: userId,
         occurred_at: sentAt,
         expires_at: retentionDate(sentAt),
@@ -158,7 +193,7 @@ export async function recordJobEmailImpressions(db, records) {
       newsletter_id: row.newsletter_id || null,
       job_id: row.job_id,
       date: row.date,
-      clicks: admin.firestore.FieldValue.increment(0),
+      clicks: FieldValue.increment(0),
       expires_at: retentionDate(),
     };
     incrementField(data, 'impressions', row.impressions);
@@ -166,7 +201,7 @@ export async function recordJobEmailImpressions(db, records) {
     for (const [variant, count] of row.variants) {
       data.impressions_by_variant = {
         ...(data.impressions_by_variant || {}),
-        [variantKey(variant)]: admin.firestore.FieldValue.increment(count),
+        [variantKey(variant)]: FieldValue.increment(count),
       };
     }
     operations.push({ type: 'set', ref: row.ref, data });
@@ -243,7 +278,6 @@ export async function recordJobEmailRankingClick(db, {
     ? db.collection('job_alert_subscribers').doc(String(email).trim().toLowerCase())
       .collection('alerts').doc(String(click.alertId))
     : null;
-  const FieldValue = admin.firestore.FieldValue;
   const userId = pseudonymousUserId(email);
   const eventData = {
     event_type: click.surface === 'job_alert' ? 'job_alert_click' : 'newsletter_job_click',
@@ -257,6 +291,8 @@ export async function recordJobEmailRankingClick(db, {
     ranking_variant: click.variant || 'unknown',
     ranking_score: click.rankingScore,
     relevance_score: click.relevanceScore,
+    // Only links in emails sent during the CTR experiment (until 2026-10)
+    // still carry these two; newer links leave them null.
     ctr_shrink: click.ctrShrink,
     random_boost: click.randomBoost,
     user_id: userId,
@@ -330,34 +366,4 @@ export async function recordJobEmailRankingClick(db, {
     return { skipped: true, reason: 'persist_failed' };
   }
   return { recorded, click };
-}
-
-/** Load global newsletter daily rows for the configured ranking window. */
-export async function loadNewsletterRankingStats(db, { sinceDay = null } = {}) {
-  const result = new Map();
-  if (!db) return result;
-  try {
-    let query = db.collection(JOB_EMAIL_RANKING_STATS_COLLECTION)
-      .where('surface', '==', 'newsletter')
-      .where('surface_id', '==', 'newsletter_weekly');
-    if (sinceDay) query = query.where('date', '>=', String(sinceDay));
-    const snapshot = await query.get();
-    for (const doc of snapshot.docs) {
-      const row = doc.data() || {};
-      const jobId = String(row.job_id || '');
-      if (!jobId) continue;
-      const entry = result.get(jobId) || { days: {} };
-      const day = String(row.date || '');
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) continue;
-      const dayRow = entry.days[day] || { impressions: 0, clicks: 0, position_sum: 0 };
-      dayRow.impressions += Number(row.impressions) || 0;
-      dayRow.clicks += Number(row.clicks) || 0;
-      dayRow.position_sum += Number(row.position_sum) || 0;
-      entry.days[day] = dayRow;
-      result.set(jobId, entry);
-    }
-  } catch (error) {
-    console.warn('⚠️ Newsletter job-ranking stats unavailable:', error?.message || error);
-  }
-  return result;
 }

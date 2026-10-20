@@ -100,6 +100,25 @@ describe('weekly-employers — archive list block keeps BFS depth ≤ 3', () => 
     ).not.toContain('/aziende-che-assumono/lugano/settimana-16-2026/');
   });
 
+  it('keeps an old archive noindex while preserving its historical links', () => {
+    const html = renderWeeklyEmployersPage({
+      ...baseInputs('archive', 16, 2026),
+      indexable: false,
+      availableArchives: archives,
+    });
+
+    expect(html).toContain('WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX');
+    expect(html).toContain('noindex,follow');
+    const blockMatch = html.match(
+      /<section[^>]*aria-labelledby=["']?weArchives["']?[\s\S]*?<\/section>/,
+    );
+    expect(blockMatch, 'old archive must keep its historical link block').not.toBeNull();
+    const block = blockMatch![0];
+    expect(block).toContain('/aziende-che-assumono/lugano/settimana-17-2026/');
+    expect(block).toContain('/aziende-che-assumono/lugano/settimana-15-2026/');
+    expect(block).not.toContain('/aziende-che-assumono/lugano/settimana-16-2026/');
+  });
+
   it('omitting availableArchives produces no archive list block', () => {
     const html = renderWeeklyEmployersPage(baseInputs('current', 18, 2026));
     expect(html).not.toContain('id="weArchives"');

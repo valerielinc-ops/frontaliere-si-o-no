@@ -65,7 +65,7 @@ import {
   readArticleSlugs,
   readBlogUrlSlugs,
 } from './shared/articleReaders';
-import { ARTICLE_SECTION_CORE } from '../packages/articles/engine/shared/articleSectionCore.mjs';
+import { SITE_RENDERED_ARTICLE_SECTIONS } from '../packages/articles/engine/shared/articleSectionCore.mjs';
 import { assignArticlesToTopics } from '../packages/articles/engine/topicClusters';
 import {
   TOPIC_CLUSTERS,
@@ -249,13 +249,9 @@ interface ArticleRow {
 }
 
 function sectionCfg(section: TopicHubSection) {
-  return (ARTICLE_SECTION_CORE as Record<string, {
-    indexSlug: Record<string, string>;
-    metaPrefix: string;
-    registryFile: string;
-    slugDataFile: string;
-    slugConst: string;
-  }>)[section];
+  const entry = SITE_RENDERED_ARTICLE_SECTIONS.find((candidate) => candidate.section === section);
+  if (!entry) throw new Error(`topicClusterHubsPlugin: sezione non resa dal sito "${section}"`);
+  return entry;
 }
 
 /**
@@ -530,7 +526,7 @@ function renderHubPage(opts: {
   const tiles = renderStatGrid([
     { label: c.tileArticles, value: String(members.length), tone: 'accent' },
     { label: c.tileTopics, value: String(eligible.size) },
-    { label: c.tileUpdated, value: newest || dateStamp },
+    ...(newest ? [{ label: c.tileUpdated, value: newest }] : []),
   ]);
 
   // No `<main>` here: `buildSeoPageHtml` runs in `seoContentOutsideRoot` mode
@@ -551,7 +547,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
   // never carry an ad unit.
   const wordCount = countHtmlBodyWords(body);
   const bodyHtml = `<div class="mx-auto w-full max-w-3xl px-4 py-8">${body}${endOfContentMultiplexHtml(
-    { indexable: wordCount >= MIN_INDEXABLE_WORDS },
+    { indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body },
   )}</div>`;
 
   const breadcrumbLd = {
@@ -592,7 +588,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
   const html = buildSeoPageHtml({
     locale,
     title: `${label} — ${SECTION_LABEL[section][locale]}`,
-    description: clampMetaDescription(topic.intro[locale]),
+    description: clampMetaDescription(topic.intro[locale], undefined, locale),
     canonicalUrl,
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: buildLocaleAlternateBlock({
@@ -650,7 +646,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
   const html = buildSeoPageHtml({
     locale,
     title: `${label} — ${SECTION_LABEL[section][locale]}`,
-    description: clampMetaDescription(topic.intro[locale]),
+    description: clampMetaDescription(topic.intro[locale], undefined, locale),
     canonicalUrl: `${BASE_URL}${urlPath}`,
     ogLocale: LOCALE_OG[locale],
     robots: 'noindex,follow',
@@ -726,7 +722,7 @@ function renderTopicIndexPage(opts: {
   const tiles = renderStatGrid([
     { label: c.tileTopics, value: String(listed.length), tone: 'accent' },
     { label: c.tileArticles, value: String(totalArticles) },
-    { label: c.tileUpdated, value: newest || dateStamp },
+    ...(newest ? [{ label: c.tileUpdated, value: newest }] : []),
   ]);
 
   const body = `${renderBreadcrumb(locale, section, null)}
@@ -745,7 +741,7 @@ ${tiles}
   const wordCount = countHtmlBodyWords(body);
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
   const bodyHtml = `<div class="mx-auto w-full max-w-3xl px-4 py-8">${body}${endOfContentMultiplexHtml(
-    { indexable },
+    { indexable, contentHtml: body },
   )}</div>`;
 
   const breadcrumbLd = {
@@ -775,7 +771,7 @@ ${tiles}
   const html = buildSeoPageHtml({
     locale,
     title: `${TOPIC_INDEX_TITLE[locale]} — ${SECTION_LABEL[section][locale]}`,
-    description: clampMetaDescription(c.indexLede(listed.length, totalArticles)),
+    description: clampMetaDescription(c.indexLede(listed.length, totalArticles), undefined, locale),
     canonicalUrl,
     ogLocale: LOCALE_OG[locale],
     ...(indexable ? {} : { robots: 'noindex,follow' }),
@@ -803,7 +799,7 @@ function buildSitemapXml(
           return `    <xhtml:link rel="alternate" hreflang="${lang}" href="${rest.join('|')}" />`;
         })
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
@@ -1375,6 +1371,7 @@ export function topicClusterHubsPlugin(rootDir: string): Plugin {
 // Test-only exports.
 export {
   renderHubPage as __renderTopicHubPageForTest,
+  renderTopicIndexPage as __renderTopicIndexPageForTest,
   renderBridgePage as __renderTopicBridgeForTest,
   renderPagination as __renderTopicPaginationForTest,
 };

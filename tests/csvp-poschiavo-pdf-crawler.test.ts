@@ -7,6 +7,8 @@
  * a boilerplate-only description and tripped the boilerplate guard (1/1 jobs).
  * This test pins that the parser now extracts the PDF text into the description.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const { fetchHtml, extractPdfJobContentFromUrl } = vi.hoisted(() => ({
@@ -23,7 +25,11 @@ vi.mock('@/scripts/lib/pdf-job-content.mjs', async (importOriginal) => {
   return { ...actual, extractPdfJobContentFromUrl };
 });
 
-import { fetchAllCsvpPoschiavoJobs } from '@/scripts/lib/csvp-poschiavo-job-parser.mjs';
+import {
+  fetchAllCsvpPoschiavoJobs,
+  isCsvpPoschiavoAuthoritativeEmptyPage,
+} from '@/scripts/lib/csvp-poschiavo-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 const LISTING_HTML = `
   <article>
@@ -36,6 +42,55 @@ const PDF_TEXT = `Il Centro sanitario Valposchiavo cerca un Responsabile informa
 Compiti principali: Gestione del software clinico e delle relative interfacce. Supporto di primo livello (1st Level Support).
 Collaborazione con i fornitori di servizi IT esterni. Supporto e sviluppo della digitalizzazione interna.
 Profilo richiesto: formazione informatica, esperienza nella gestione di progetti, ottime conoscenze di italiano e tedesco.`;
+
+const EMPTY_CATEGORY_HTML = `
+  <main>
+    <div class="com-content-category-blog blog">
+      <div class="page-header"><h2 itemprop="name">Cerchiamo</h2></div>
+      <p>Non ci sono articoli in questa categoria. Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli.</p>
+    </div>
+  </main>`;
+
+const NON_LISTING_MESSAGE_WITH_LIVE_ARTICLE_HTML = `
+  <main>
+    <div class="notice">
+      <p>Non ci sono articoli in questa categoria. Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli.</p>
+    </div>
+    <div class="com-content-category-blog blog">
+      <div class="page-header"><h2 itemprop="name">Cerchiamo</h2></div>
+      <article>
+        <h1><a href="/it/lavora-con-noi/cerchiamo/906-infermiere">Infermiere</a></h1>
+        <p>80% a tempo indeterminato</p>
+      </article>
+    </div>
+  </main>`;
+
+const EMPTY_CATEGORY_WITH_COMPONENT_WRAPPER_HTML = `
+  <div id="sp-main-body">
+    <div class="sp-column">
+      <div class="com-content-category-blog blog">
+        <div class="alert alert-info">
+          <p>Non ci sono articoli in questa categoria. Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli.</p>
+        </div>
+      </div>
+    </div>
+  </div>`;
+
+const EMPTY_CATEGORY_IN_NAVIGATION_MODULE_HTML = `
+  <div role="navigation">
+    <div class="blog">
+      <p>Non ci sono articoli in questa categoria.</p>
+    </div>
+  </div>`;
+
+// Skeleton of the live listing (YOOtheme Warp / UIkit 2): Joomla's empty
+// message is a `.uk-alert` directly inside `main#tm-content`, the body carries
+// Warp's `tm-isblog` view marker, and no `.com-content-category-blog`/`.blog`
+// wrapper exists. The three runs of 2026-10-03/04 rejected exactly this page.
+const LIVE_WARP_EMPTY_CATEGORY_HTML = fs.readFileSync(
+  path.join(__dirname, 'fixtures', 'csvp-poschiavo', 'empty-category-warp-uikit.html'),
+  'utf8',
+);
 
 describe('CSVP crawler — PDF-backed description', () => {
   afterEach(() => {
@@ -69,5 +124,81 @@ describe('CSVP crawler — PDF-backed description', () => {
     expect(jobs).toHaveLength(1);
     const desc = jobs[0].descriptionByLocale?.it || jobs[0].description || '';
     expect(desc).toContain('80 - 100% (m/f)');
+  });
+
+  it('marks Joomla’s explicit empty category as an authoritative zero', async () => {
+    fetchHtml.mockResolvedValue(EMPTY_CATEGORY_HTML);
+
+    const jobs = await fetchAllCsvpPoschiavoJobs();
+
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(EMPTY_CATEGORY_HTML)).toBe(true);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(jobs).toEqual([]);
+    expect(jobs).toHaveProperty('authoritativeEmptyEvidence', expect.stringContaining('empty-category'));
+  });
+
+  it('proves the empty category when Joomla omits a semantic main wrapper', () => {
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(EMPTY_CATEGORY_WITH_COMPONENT_WRAPPER_HTML)).toBe(true);
+  });
+
+  it('does not prove an identical message in a navigation module', () => {
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(EMPTY_CATEGORY_IN_NAVIGATION_MODULE_HTML)).toBe(false);
+  });
+
+  it('proves the live Warp/UIkit empty category as an authoritative zero', async () => {
+    fetchHtml.mockResolvedValue(LIVE_WARP_EMPTY_CATEGORY_HTML);
+
+    const jobs = await fetchAllCsvpPoschiavoJobs();
+
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(LIVE_WARP_EMPTY_CATEGORY_HTML)).toBe(true);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(jobs).toEqual([]);
+  });
+
+  it('does not prove the Warp alert outside a blog view', () => {
+    const notBlogView = LIVE_WARP_EMPTY_CATEGORY_HTML.replace('tm-isblog', 'tm-isarticle');
+    expect(notBlogView).not.toBe(LIVE_WARP_EMPTY_CATEGORY_HTML);
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(notBlogView)).toBe(false);
+  });
+
+  it('does not prove the Warp alert when a different category heading is visible', () => {
+    const otherCategory = LIVE_WARP_EMPTY_CATEGORY_HTML.replace(
+      '<main id="tm-content" class="tm-content">',
+      '<main id="tm-content" class="tm-content"><h2>Posti di tirocinio</h2>',
+    );
+    expect(otherCategory).not.toBe(LIVE_WARP_EMPTY_CATEGORY_HTML);
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(otherCategory)).toBe(false);
+  });
+
+  it('does not prove the Warp alert when it sits in a sidebar instead of #tm-content', () => {
+    const alert = '<div class="uk-alert">Non ci sono articoli in questa categoria. Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli.</div>';
+    const inSidebar = LIVE_WARP_EMPTY_CATEGORY_HTML
+      .replace(alert, '')
+      .replace('<aside class="tm-sidebar-a', `<aside class="tm-sidebar-x">${alert}</aside><aside class="tm-sidebar-a`);
+    expect(inSidebar).not.toBe(LIVE_WARP_EMPTY_CATEGORY_HTML);
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(inSidebar)).toBe(false);
+  });
+
+  it('does not prove the Warp alert when an offer is live in #tm-content', () => {
+    const withOffer = LIVE_WARP_EMPTY_CATEGORY_HTML.replace(
+      '<div id="system-message-container">',
+      '<article class="uk-article"><h1><a href="/it/lavora-con-noi/cerchiamo/906-infermiere">Infermiere</a></h1><p>80%</p></article><div id="system-message-container">',
+    );
+    expect(withOffer).not.toBe(LIVE_WARP_EMPTY_CATEGORY_HTML);
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(withOffer)).toBe(false);
+  });
+
+  it('keeps an unrecognised zero unproven so selector drift stays fail-closed', async () => {
+    fetchHtml.mockResolvedValue('<html><head><title>Temporary error</title></head><body></body></html>');
+
+    const jobs = await fetchAllCsvpPoschiavoJobs();
+
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage('<html><body></body></html>')).toBe(false);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(jobs).toEqual([]);
+  });
+
+  it('does not prove empty when the message is outside the listing and an article is live', () => {
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(NON_LISTING_MESSAGE_WITH_LIVE_ARTICLE_HTML)).toBe(false);
   });
 });

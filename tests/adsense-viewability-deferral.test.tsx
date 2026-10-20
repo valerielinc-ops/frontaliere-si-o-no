@@ -17,11 +17,9 @@
  * Measured live on /cerca-lavoro-ticino/ at 412×915 (real Chrome, consent
  * granted, no interaction at all): 5 units requested together at t≈2.6s with
  * the visitor still at scrollY=0, sitting 270px, 1162px, 2044px and 2761px
- * below the fold. Zero were viewable. AdSense reports the consequence on the
- * unit those in-feed slots share (3205029282): 22.1% viewability over 92.7k
- * mobile impressions/30d, against 62.0% on desktop — where the same unit's only
- * placement renders at y=133. Same unit, same creatives; the only difference is
- * whether the request was spent on something the visitor could see.
+ * below the fold. Zero were viewable. That evidence motivated the per-slot
+ * deferral; listing and detail contexts now have separate console units, so
+ * later viewability reports remain attributable to the surface.
  *
  * ── What these tests pin ──────────────────────────────────────────────
  *
@@ -42,7 +40,7 @@ import { render, cleanup, act } from '@testing-library/react';
 
 import { ADSENSE_LOADER_CONTENT } from '@/build-plugins/constants';
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED } from '@/services/adsConsent';
-import { AD_SLOT_VIEWPORT_ROOT_MARGIN } from '@/services/adsenseSlots';
+import { AD_SLOT_VIEWPORT_ROOT_MARGIN, AD_SLOTS } from '@/services/adsenseSlots';
 
 /** A real iPhone Safari UA. jsdom's default trips the bot gate in both paths,
  *  which would suppress every push for the WRONG reason — a green test with no
@@ -233,7 +231,7 @@ describe('static shell loader — source contract', () => {
     // Behavioural tests above cover the outcome; this pins the specific line
     // that regressed, so a refactor reintroducing "push once per <ins> on load"
     // fails here with an unambiguous message rather than through a count.
-    expect(ADSENSE_LOADER_CONTENT).toContain('s.onload=armSlots;');
+    expect(ADSENSE_LOADER_CONTENT).toContain("s.onload=function(){s.setAttribute('data-loaded','1');armSlots();}");
     expect(ADSENSE_LOADER_CONTENT).not.toContain(
       "querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])')",
     );
@@ -246,7 +244,7 @@ describe('static shell loader — source contract', () => {
 
 async function renderBanner() {
   const { default: AdSenseBanner } = await import('@/components/shared/AdSenseBanner');
-  render(<AdSenseBanner adSlot="3205029282" adFormat="auto" />);
+  render(<AdSenseBanner adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot} adFormat="auto" />);
 }
 
 /** The observer AdSenseBanner attaches to its own wrapper. */
@@ -276,7 +274,7 @@ describe('SPA <AdSenseBanner> — per-slot request deferral', () => {
     await act(async () => { intersect(io, io.targets); });
     const ins = document.querySelector('ins.adsbygoogle');
     expect(ins).not.toBeNull();
-    expect(ins!.getAttribute('data-ad-slot')).toBe('3205029282');
+    expect(ins!.getAttribute('data-ad-slot')).toBe(AD_SLOTS.JOBLIST_INFEED_MOBILE.slot);
   });
 
   it('is NOT armed by the script already being on the page', async () => {

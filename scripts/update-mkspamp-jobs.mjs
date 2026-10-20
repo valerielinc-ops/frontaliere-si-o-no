@@ -10,6 +10,7 @@
  * 5. Updates adapter config
  */
 
+import { sourcePostingDateFields, sourceRssPostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -42,6 +43,9 @@ import {
   fetchMksPampDetailLocation,
   isMksPampSwissRelevant,
   buildMksPampLocalizedContent,
+  resolveMksPampJobBody,
+  clearMksPampInventedSlots,
+  clearMksPampSourceCopies,
 } from './lib/mkspamp-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -144,14 +148,8 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-function parseDate(pubDate = '') {
-  try {
-    const d = new Date(pubDate);
-    if (isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  } catch {
-    return new Date().toISOString().slice(0, 10);
-  }
+function parseDate(pubDate = '', now = new Date()) {
+  return sourceRssPostingDateFields(pubDate, now).datePosted;
 }
 
 function buildMksPampJob(rssItem, location) {
@@ -180,12 +178,15 @@ function buildMksPampJob(rssItem, location) {
     category: inferCategory(rssItem.title),
     sector: 'Metalli preziosi',
     source: 'mkspamp-dedicated-crawler',
-    sourceLang: detectLang(rssItem.title, 'it'),
-    postedDate: parseDate(rssItem.pubDate),
+    // The language of the posting body, not of its title: English titles such
+    // as "Precious Metal Control Manager" were detected as `fr`.
+    sourceLang: localized.sourceLang || detectLang(rssItem.title, 'it'),
+    ...sourcePostingDateFields(parseDate(rssItem.pubDate)),
+    crawledAt: new Date().toISOString(),
     employmentType: 'full-time',
     contractType: 'permanent',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -205,23 +206,41 @@ function mergeJobs(discoveredJobs) {
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
-    const prev = existingByKey.get(jobMatchKey(job));
+  const unpublished = [];
+  const mergedTarget = [];
+  for (const candidate of discoveredJobs) {
+    const prev = existingByKey.get(jobMatchKey(candidate));
+    // Source text only: without a body this run, the stored source text of
+    // the posting, or the job is not published this run.
+    const job = resolveMksPampJobBody(candidate, prev);
+    if (!job) {
+      unpublished.push(candidate.url);
+      continue;
+    }
     if (!prev) {
       added += 1;
-      return job;
+      mergedTarget.push(job);
+      continue;
     }
     updated += 1;
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
-    return merged;
-  });
+    clearMksPampInventedSlots(merged);
+    // Older runs copied the source into all four slots: drop those copies so
+    // the translation step fills the other locales for real.
+    if (clearMksPampSourceCopies(merged) > 0) merged.needsRetranslation = true;
+    mergedTarget.push(merged);
+  }
+  if (unpublished.length > 0) {
+    console.warn(`⚠️ ${unpublished.length} MKS PAMP job(s) not published this run: no posting text and none stored (${unpublished.join(', ')})`);
+  }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
@@ -243,7 +262,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {

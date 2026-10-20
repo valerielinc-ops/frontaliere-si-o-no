@@ -32,7 +32,10 @@
 import { describe, it, expect } from 'vitest';
 
 import {
+  buildHealthScheda,
+  corpusObservationFromPayloads,
   nextCrawlerState,
+  selectNewestCrawlerObservation,
   TRANSPORT_ABORT_STALE_FLOOR_DAYS,
 } from '../../scripts/check-crawler-health.mjs';
 
@@ -234,13 +237,12 @@ describe('nextCrawlerState', () => {
     expect(state.consecutiveEmptyRuns).toBe(0);
   });
 
-  it('clears broken status for axa-svizzera (national insurer, empty-ok hiring lull) on a fresh zero-job run (#3564)', () => {
-    // Reproduces the #3564 state: the AXA Svizzera dedicated crawler's
-    // national listing (Prospective.ch Career Center 2193) currently renders
-    // its own "no-results" template with zero job anchors — verified via a
-    // direct fetch and the production crawl log, not a selector/parser break
-    // (detail pages still 410 normally, proving the ATS backend is live).
-    // It must not stay flagged broken once added to EMPTY_OK_CRAWLERS.
+  it('keeps axa-svizzera broken on repeated zero-job runs: the #3564 "hiring lull" was the move to careers.axa.com', () => {
+    // #3564 read the empty Prospective listing of jobs.axa.ch as a hiring lull
+    // and put the crawler on the empty-ok list. The portal had moved: jobs.axa.ch
+    // answers 301 to careers.axa.com, which listed 158 Swiss openings on
+    // 2026-09-29 while the crawler kept 3 dead postings for three months. The
+    // crawler reads the new portal now, so an empty run is a failure again.
     const prev = {
       lastSuccessfulRunAt: '2026-07-01T21:46:57.421Z',
       lastNonZeroJobs: 5,
@@ -251,7 +253,7 @@ describe('nextCrawlerState', () => {
       _lastObservedJobs: 0,
       _lastObservedAssembledAt: new Date(NOW_MS - DAY_MS).toISOString(),
     };
-    const { status, state, reason } = nextCrawlerState(
+    const { status } = nextCrawlerState(
       prev,
       {
         slug: 'axa-svizzera',
@@ -264,9 +266,7 @@ describe('nextCrawlerState', () => {
       NOW_ISO,
       NOW_MS,
     );
-    expect(status).toBe('healthy');
-    expect(reason).toBeNull();
-    expect(state.consecutiveEmptyRuns).toBe(0);
+    expect(status).not.toBe('healthy');
   });
 
   it('clears broken status for has-healthcare (Drupal micro-site, empty-ok) on a fresh zero-job run (#3565, #3819)', () => {
@@ -348,28 +348,14 @@ describe('nextCrawlerState', () => {
   // The whole `broken` cohort of the 2026-08-04 monitor snapshot, all five
   // verified live as "source healthy, zero qualifying openings" rather than
   // parser breaks (evidence per crawler in the EMPTY_OK_CRAWLERS comments in
-  // scripts/check-crawler-health.mjs). Table-driven so the class is covered
+  // scripts/lib/crawler-empty-ok-registry.mjs). Table-driven so the class is covered
   // in one place instead of five copy-pasted blocks.
   const emptyOkCohort: Array<{ slug: string; issue: string; why: string; priorNonZero: number; emptyStreak: number }> = [
-    {
-      slug: 'temenos',
-      issue: '#4844',
-      why: 'Workday tenant rejects the locationCountry facet (HTTP 400); the strict-CH fallback walks the whole 16-posting board and finds no Swiss role',
-      priorNonZero: 1,
-      emptyStreak: 19,
-    },
     {
       slug: 'veeam',
       issue: '#5060',
       why: 'Greenhouse board veeamsoftware returns 235 live postings, none matching the parser SWISS_LOCATION_RE; careers.veeam.com itself reports 0 jobs for Switzerland',
       priorNonZero: 2,
-      emptyStreak: 4,
-    },
-    {
-      slug: 'gavi',
-      issue: '#5059',
-      why: 'fRecruit portal listing renders its unchanged page block with "Page 1 of 0" / "None found" and zero vacancyNo links',
-      priorNonZero: 1,
       emptyStreak: 4,
     },
     {
@@ -1020,6 +1006,62 @@ describe('nextCrawlerState — discovered/written auto-classification (#5945)', 
     expect(state._lastObservedDiscoveredCount).toBe(12);
     expect(state._lastObservedWrittenCount).toBe(5);
   });
+
+  it('does not raise the long-run advisory while a filtered-empty run proves the source is alive (#12429)', () => {
+    const previous = {
+      lastSuccessfulRunAt: new Date(NOW_MS - 40 * DAY_MS).toISOString(),
+      lastNonZeroJobs: 7,
+      consecutiveEmptyRuns: 0,
+      consecutiveEmptyOkRuns: 40,
+      advisory: true,
+      advisoryReason: '40 consecutive empty-ok runs (>= 30) — verify the source is still alive, not just "legitimately quiet"',
+      lastFailureReason: null,
+      status: 'healthy',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedEmptyOk: true,
+    };
+    const { status, state } = nextCrawlerState(
+      previous,
+      { ...obsWithCounts(0, 7, 0), parsed: 0 },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(status).toBe('healthy');
+    expect(state._autoFilteredEmpty).toBe(true);
+    expect(state.consecutiveEmptyOkRuns).toBe(41);
+    expect(state.advisory).toBe(false);
+    expect(state.advisoryReason).toBeNull();
+  });
+
+  it('raises the liveness advisory immediately when filtered-empty proof disappears (#12429)', () => {
+    const previous = {
+      consecutiveEmptyRuns: 0,
+      consecutiveEmptyOkRuns: 30,
+      _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedEmptyOk: true,
+      _autoFilteredEmpty: true,
+    };
+    const { state } = nextCrawlerState(
+      previous,
+      {
+        slug: 'not-on-any-allowlist',
+        jobCount: 0,
+        freshnessAt: NOW_ISO,
+        freshnessSource: 'summary',
+        generatedAt: NOW_ISO,
+        assembledAt: NOW_ISO,
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(state.advisory).toBe(true);
+    expect(state.advisoryReason).toMatch(/31 consecutive empty-ok runs/);
+  });
 });
 
 describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () => {
@@ -1069,6 +1111,56 @@ describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () =
     expect(state._authoritativeEmptySnapshot).toBe(true);
   });
 
+  it('uses Mendrisio per-run proof instead of the empty-ok registry', () => {
+    const mendrisioSummaryObservation = {
+      slug: 'citta-di-mendrisio',
+      jobCount: 0,
+      freshnessAt: NOW_ISO,
+      freshnessSource: 'summary' as const,
+      generatedAt: NOW_ISO,
+      assembledAt: null,
+      discovered: 0,
+      written: 0,
+    };
+
+    const proven = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...mendrisioSummaryObservation, authoritativeEmptySnapshot: true },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(proven.status).toBe('healthy');
+    expect(proven.state._authoritativeEmptySnapshot).toBe(true);
+
+    const unproven = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...mendrisioSummaryObservation, authoritativeEmptySnapshot: false },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(unproven.status).toBe('broken');
+    expect(unproven.state._authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('keeps the Locarno empty-source allowance only for a complete, source-proven zero', () => {
+    const { status, reason, state } = nextCrawlerState(
+      brokenEligiblePrev,
+      {
+        ...obsWithProof(0, true),
+        slug: 'citta-di-locarno',
+        earlyExit: false,
+        exitCode: null,
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state.consecutiveEmptyRuns).toBe(0);
+    expect(state._lastObservedEmptyOk).toBe(true);
+    expect(state._authoritativeEmptySnapshot).toBe(true);
+  });
+
   it('still flags broken when the same zero run carries no proof', () => {
     const { status, state } = nextCrawlerState(
       brokenEligiblePrev,
@@ -1080,9 +1172,11 @@ describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () =
     expect(state._authoritativeEmptySnapshot).toBe(false);
   });
 
-  it('keeps the empty-ok advisory net armed instead of masking a dead source forever', () => {
-    // Unlike an EMPTY_OK_CRAWLERS entry the proof does not silence the
-    // long-run counter: it keeps climbing and raises the #6496 advisory.
+  it('does not raise the empty-ok advisory when the current run proves the source empty', () => {
+    // A current authoritative proof is stronger than an EMPTY_OK_CRAWLERS
+    // allowlist entry: it proves that the source was reached and explicitly
+    // reported no openings. If that proof disappears, the ordinary broken
+    // streak still catches the crawler.
     const { status, state } = nextCrawlerState(
       {
         ...brokenEligiblePrev,
@@ -1094,7 +1188,7 @@ describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () =
       NOW_MS,
     );
     expect(status).toBe('healthy');
-    expect(state.advisory).toBe(true);
+    expect(state.advisory).toBe(false);
     expect(state.consecutiveEmptyOkRuns).toBe(41);
   });
 
@@ -1159,6 +1253,34 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
     );
     expect(status).toBe('broken');
     expect(state._abortedRun).toBe(true);
+  });
+
+  it('does not let the Locarno empty-source allowance bless an empty abort receipt', () => {
+    const { status, state } = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...abortedObs(0), slug: 'citta-di-locarno' },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(state.consecutiveEmptyRuns).toBe(3);
+    expect(state._lastObservedEmptyOk).toBe(false);
+    expect(state._abortedRun).toBe(true);
+  });
+
+  it('prioritizes parser-positive evidence in a truncated allowlisted receipt', () => {
+    const { status, reason, state } = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...abortedObs(0), slug: 'citta-di-locarno', parsed: 5 },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(state.consecutiveEmptyRuns).toBe(3);
+    expect(state._lastObservedEmptyOk).toBe(false);
+    expect(state._pipelineDroppedAll).toBe(true);
+    expect(reason).toContain('post-parser pipeline drop or truncated receipt');
+    expect(reason).toContain('the source was observed');
   });
 
   it('does not claim the source returned 0 jobs when the run never published', () => {
@@ -1544,5 +1666,62 @@ describe('nextCrawlerState — self-reported fetch outcome (#7897)', () => {
     expect(withUndefined.status).toBe(withoutField.status);
     expect(withUndefined.reason).toBe(withoutField.reason);
     expect(withoutField.state._lastObservedFetchOutcome).toBeNull();
+  });
+});
+
+describe('codice che ha prodotto l osservazione (`codeCommit`)', () => {
+  // Le ondate lanciate dal fallback di contratto giravano su un commit del
+  // sito arretrato (run corpus 37112857893) e il monitor riapriva issue gia'
+  // corrette: senza il commit dell'osservazione «la fix non funziona» e «la
+  // fix non ha ancora girato» sono indistinguibili.
+  const COMMIT = '4b0f33de92ce81c41c849e195e5500afd4002cb1';
+  const fresh = new Date(NOW_MS - DAY_MS).toISOString();
+
+  it('conserva in `_lastObservedCodeCommit` il commit dichiarato dalla summary', () => {
+    const { state } = nextCrawlerState(undefined, { ...obs(fresh, 4), codeCommit: COMMIT }, NOW_ISO, NOW_MS);
+    expect(state._lastObservedCodeCommit).toBe(COMMIT);
+  });
+
+  it.each([
+    ['assente (summary precedente al campo)', undefined],
+    ['null', null],
+    ['uno sha abbreviato', '4b0f33d'],
+    ['un nome di ramo', 'main'],
+  ])('lascia null quando il commit e\' %s, senza dedurlo', (_label, codeCommit) => {
+    const { state } = nextCrawlerState(undefined, { ...obs(fresh, 4), codeCommit }, NOW_ISO, NOW_MS);
+    expect(state._lastObservedCodeCommit).toBeNull();
+  });
+
+  it('non cambia stato ne\' motivo: il commit e\' solo tracciabilita\'', () => {
+    const without = nextCrawlerState(undefined, obs(fresh, 0), NOW_ISO, NOW_MS);
+    const withCommit = nextCrawlerState(undefined, { ...obs(fresh, 0), codeCommit: COMMIT }, NOW_ISO, NOW_MS);
+    expect(withCommit.status).toBe(without.status);
+    expect(withCommit.reason).toBe(without.reason);
+  });
+
+  it('legge il commit dalla summary ripubblicata dal corpus', () => {
+    const summary = { key: 'acme', generatedAt: fresh, total: 2, codeCommit: COMMIT };
+    expect(corpusObservationFromPayloads('acme', { jobs: [{}, {}] }, summary)).toMatchObject({ codeCommit: COMMIT });
+    expect(corpusObservationFromPayloads('acme', { jobs: [{}, {}] }, { key: 'acme', generatedAt: fresh, total: 2 }))
+      .toMatchObject({ codeCommit: null });
+  });
+
+  it('non attribuisce all osservazione vincente il commit di quella scartata', () => {
+    const older = new Date(NOW_MS - 2 * DAY_MS).toISOString();
+    const site = { ...obs(older, 3), codeCommit: COMMIT, exitCode: 0 };
+    const corpus = { ...obs(fresh, 3, { freshnessSource: 'summary' }), codeCommit: null };
+    const winner = selectNewestCrawlerObservation(site, corpus, NOW_MS);
+    expect(winner.freshnessAt).toBe(fresh);
+    expect(winner.codeCommit).toBeNull();
+  });
+
+  it('scrive il commit osservato nella scheda della issue, e dichiara quando manca', () => {
+    const issue = { slug: 'acme', status: 'broken', reason: 'run returned 0 jobs' };
+    const withCommit = buildHealthScheda({ ...issue, codeCommit: COMMIT });
+    expect(withCommit).toContain(COMMIT);
+    expect(withCommit).toContain('git merge-base --is-ancestor');
+    const without = buildHealthScheda(issue);
+    expect(without).toContain("non dichiara `codeCommit`");
+    expect(without).not.toMatch(/[0-9a-f]{40}/);
   });
 });

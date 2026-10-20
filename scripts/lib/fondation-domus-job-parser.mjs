@@ -10,12 +10,20 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { FeedEndpointUnavailableError } from './feed-endpoint-guard.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
+import {
+  filterJobupCardsByEmployer,
+  parseJobupSearchCards,
+} from './jobup-ch-feed-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -24,6 +32,7 @@ export const FONDATION_DOMUS_COMPANY_NAME = 'Fondation Domus';
 export const FONDATION_DOMUS_COMPANY_DOMAIN = 'fondation-domus.ch';
 
 const CAREER_URL = 'https://www.fondation-domus.ch/emploi-formation/offres-d-emploi';
+const JOBUP_SEARCH_URL = 'https://www.jobup.ch/fr/emplois/?term=Fondation%20Domus';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -127,6 +136,8 @@ const DOMUS_POSTAL_CODES = {
 
 function inferPostalCode(location = '') {
   const loc = String(location || '').toLowerCase();
+  const explicit = loc.match(/\b(\d{4})\b/);
+  if (explicit) return explicit[1];
   for (const [city, code] of Object.entries(DOMUS_POSTAL_CODES)) {
     if (loc.includes(city)) return code;
   }
@@ -197,23 +208,26 @@ function parseFrenchDate(raw = '') {
  */
 async function fetchCareerPage() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  return fetchHtml(CAREER_URL, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': USER_AGENT,
+      'Accept-Language': 'fr-CH,fr;q=0.9',
+    },
+  });
+}
 
-  try {
-    const res = await fetch(CAREER_URL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': USER_AGENT,
-        'Accept-Language': 'fr-CH,fr;q=0.9',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from career page`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+async function fetchJobupSearchPage() {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 40_000;
+  return fetchHtml(JOBUP_SEARCH_URL, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': USER_AGENT,
+      'Accept-Language': 'fr-CH,fr;q=0.9',
+    },
+  });
 }
 
 /**
@@ -315,10 +329,9 @@ export function parseJobsFromHtml(html = '') {
       || block.match(/contrat\s*:?\s*<\/[^>]+>\s*([^<]+)/i);
     if (contratMatch) contractType = normalizeSpace(stripHtml(contratMatch[1]));
 
-    // Extract date
+    // Only an explicit publication label has publication semantics.
     let dateStr = '';
-    const dateMatch = block.match(/date\s*(?:de\s+(?:d[ée]but|publication))?\s*:?\s*<\/h[45]>\s*([\s\S]*?)(?:<h[45]|<a\s)/i)
-      || block.match(/(\d{1,2}\s+\w+\s+\d{4})/);
+    const dateMatch = block.match(/date\s+de\s+publication\s*:?\s*<\/h[45]>\s*([\s\S]*?)(?:<h[45]|<a\s)/i);
     if (dateMatch) dateStr = normalizeSpace(stripHtml(dateMatch[1]));
 
     // Extract apply URL (JobUp or fondation-domus.ch link)
@@ -335,25 +348,50 @@ export function parseJobsFromHtml(html = '') {
 }
 
 /**
+ * Parse the JobUp employer search used when the Domus vacancy module is
+ * unavailable or no longer carries the actual openings.
+ *
+ * Search results are relevance-ranked and may contain nearby employers, so the
+ * exact employer filter is mandatory. A matching spontaneous-application card
+ * is source evidence for an empty vacancy set; no matching card is deliberately
+ * left unproven so a SERP/parser drift cannot retire indexed jobs.
+ */
+function parseJobupFallbackListings(html = '') {
+  const allCards = parseJobupSearchCards(html);
+  const employerCards = filterJobupCardsByEmployer(allCards, FONDATION_DOMUS_COMPANY_NAME);
+  const vacancyCards = employerCards.filter((card) => !isNonVacancyHeading(card.title));
+  return {
+    allCards,
+    employerCards,
+    vacancyCards,
+    listings: vacancyCards.map((card) => ({
+      title: card.title,
+      location: card.location,
+      percentage: card.workRate,
+      contractType: card.contract,
+      dateStr: '',
+      applyUrl: card.url,
+      source: 'jobup-search',
+    })),
+  };
+}
+
+/**
  * Fetch the JobUp.ch detail page and extract the description from
  * JSON-LD JobPosting schema or HTML fallback.
  */
-async function fetchJobUpDescription(jobUpUrl) {
+async function fetchJobUpDescription(jobUpUrl, title) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const res = await fetch(jobUpUrl, {
-      signal: controller.signal,
+    const html = await fetchHtml(jobUpUrl, {
+      timeoutMs,
       headers: {
         Accept: 'text/html,application/xhtml+xml',
         'User-Agent': USER_AGENT,
         'Accept-Language': 'fr-CH,fr;q=0.9',
       },
     });
-    if (!res.ok) return null;
-    const html = await res.text();
 
     // Try JSON-LD JobPosting first (most reliable).
     // JobUp wraps JSON-LD in an array: [{...}]
@@ -363,10 +401,15 @@ async function fetchJobUpDescription(jobUpUrl) {
         const jsonStr = block.replace(/<\/?script[^>]*>/gi, '').trim();
         try {
           const raw = JSON.parse(jsonStr);
-          const items = Array.isArray(raw) ? raw : [raw];
-          for (const ld of items) {
-            if (ld['@type'] === 'JobPosting' && ld.description) {
-              return stripHtml(ld.description).trim();
+          for (const ld of extractJobPostingNodesFromJson(raw)) {
+            if (ld.description) {
+              let sameUrl = !ld.url;
+              if (ld.url) {
+                try { sameUrl = new URL(ld.url, jobUpUrl).href === new URL(jobUpUrl).href; }
+                catch { sameUrl = false; }
+              }
+              const sameTitle = normalizeSpace(ld.title || '').toLowerCase() === normalizeSpace(title).toLowerCase();
+              return { description: stripHtml(ld.description).trim(), ...sourcePostingDateFields(sameTitle && sameUrl ? ld.datePosted : '') };
             }
           }
         } catch { /* not valid JSON-LD, skip */ }
@@ -375,13 +418,11 @@ async function fetchJobUpDescription(jobUpUrl) {
 
     // HTML fallback: C_PBODYHTML container
     const bodyMatch = html.match(/<div[^>]*class="[^"]*C_PBODYHTML[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-    if (bodyMatch) return stripHtml(bodyMatch[1]).trim();
+    if (bodyMatch) return { description: stripHtml(bodyMatch[1]).trim(), ...sourcePostingDateFields() };
 
     return null;
   } catch {
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 
@@ -395,15 +436,62 @@ async function fetchJobUpDescription(jobUpUrl) {
  *   3. For each listing with a JobUp URL, fetch the detail description
  *   4. Build ParsedJob objects
  */
-export async function fetchAllFondationDomusJobs({ fetchPage = fetchCareerPage } = {}) {
+export async function fetchAllFondationDomusJobs({
+  fetchPage = fetchCareerPage,
+  fetchJobupPage = null,
+  fetchJobupDetail = fetchJobUpDescription,
+} = {}) {
   console.log(`🔍 Fetching Fondation Domus jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const html = await fetchPage();
-  const listings = parseJobsFromHtml(html);
+  let html = '';
+  let careerPageError = null;
+  try {
+    html = await fetchPage();
+  } catch (err) {
+    careerPageError = err;
+    console.warn(`⚠️ Fondation Domus career page fetch failed: ${err?.message || err}`);
+  }
+
+  let listings = html ? parseJobsFromHtml(html) : [];
+  const canUseJobupFallback = fetchPage === fetchCareerPage || typeof fetchJobupPage === 'function';
+  if (!listings.length && canUseJobupFallback) {
+    let jobupHtml = '';
+    try {
+      jobupHtml = await (fetchJobupPage || fetchJobupSearchPage)();
+    } catch (err) {
+      console.warn(`⚠️ Fondation Domus JobUp fallback failed: ${err?.message || err}`);
+    }
+
+    if (jobupHtml) {
+      const fallback = parseJobupFallbackListings(jobupHtml);
+      console.log(
+        `  ✓ JobUp fallback: ${fallback.allCards.length} card(s) parsed → `
+          + `${fallback.employerCards.length} exact Fondation Domus card(s) `
+          + `→ ${fallback.vacancyCards.length} vacancy card(s)`,
+      );
+      if (fallback.listings.length) {
+        listings = fallback.listings;
+        console.log(`  📋 Listings recovered from JobUp search: ${listings.length}`);
+      } else if (fallback.employerCards.length > 0) {
+        console.log(
+          `  🧩 JobUp source-proven zero: only non-vacancy Fondation Domus card(s) `
+            + `(${fallback.employerCards.map((card) => card.title).join(' | ')})`,
+        );
+        return markAuthoritativeEmptySnapshot(
+          [],
+          `fondation-domus JobUp search rendered no vacancy card (only: ${fallback.employerCards.map((card) => card.title).join(' | ')})`,
+        );
+      }
+    }
+  }
 
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings found on career page.');
+    // If the corporate page was unreachable and the independent JobUp source
+    // did not recover a listing, keep the original transport failure visible to
+    // crawler-health instead of converting it into an unproven empty snapshot.
+    if (careerPageError) throw careerPageError;
     const { boardRendered, cardTitles } = parseVacancyBoardEvidence(html);
     // A rendered board with zero cards is NOT proof: a dead XML feed loader
     // renders the same empty container. The standing spontaneous-application
@@ -411,6 +499,18 @@ export async function fetchAllFondationDomusJobs({ fetchPage = fetchCareerPage }
     const provenEmpty = boardRendered
       && cardTitles.length > 0
       && cardTitles.every((title) => isNonVacancyHeading(title));
+    // Board container rendered but the XML loader filled it with nothing, not
+    // even the standing spontaneous-application card: the vendor feed behind
+    // the module did not come through (2026-09-23 23:5x: `cards=0`; the same
+    // page served the card before and after). That is the feed-unavailable
+    // class, not a source verdict: soft-exit and keep the slice, and let the
+    // crawler-health streak surface it if it persists. Still never a zero.
+    if (boardRendered && cardTitles.length === 0) {
+      throw new FeedEndpointUnavailableError(
+        '[Fondation Domus] vacancy board rendered with no card at all (not even the standing '
+          + 'spontaneous-application card) — the XML feed loader is unavailable, keeping the indexed slice',
+      );
+    }
     if (!provenEmpty) {
       console.warn(
         `  ⚠️ Vacancy board did not prove an empty state`
@@ -431,11 +531,12 @@ export async function fetchAllFondationDomusJobs({ fetchPage = fetchCareerPage }
   for (const listing of listings) {
     const title = listing.title;
     if (!title || title.length < 3) continue;
+    const isJobupSearchListing = listing.source === 'jobup-search';
 
     const city = inferCity(listing.location);
     const canton = inferAnyCanton(city) || 'VS';
     const pct = parseEmploymentPct(listing.percentage || title);
-    const postedDate = parseFrenchDate(listing.dateStr);
+    let publication = sourcePostingDateFields(parseFrenchDate(listing.dateStr));
 
     // Use the career page URL as primary; applyUrl for application link
     const publicUrl = listing.applyUrl || CAREER_URL;
@@ -446,12 +547,22 @@ export async function fetchAllFondationDomusJobs({ fetchPage = fetchCareerPage }
     let descriptionText = '';
     if (listing.applyUrl && listing.applyUrl.includes('jobup.ch')) {
       console.log(`  📄 Fetching detail from JobUp: ${listing.applyUrl.substring(0, 60)}...`);
-      descriptionText = await fetchJobUpDescription(listing.applyUrl) || '';
+      const detail = await fetchJobupDetail(listing.applyUrl, title);
+      descriptionText = detail?.description || '';
+      if (detail?.postingDateSource === 'reported') publication = sourcePostingDateFields(detail.datePosted);
       await new Promise((r) => setTimeout(r, 300));
     }
 
-    // Fallback to metadata-based description if detail fetch failed
-    if (!descriptionText || descriptionText.length < 50) {
+    // JobUp search rows must never be padded with parser-authored metadata: the
+    // source body floor is the only safe basis for an indexable posting. Keep
+    // the historical metadata fallback for the corporate-page parser, whose
+    // existing contract predates the shared thin-source gate.
+    if (isJobupSearchListing) {
+      if (!meetsSourceBodyFloor(descriptionText)) {
+        console.warn(`  ⚠️ JobUp detail body rejected for ${title}: missing or thin source description`);
+        descriptionText = '';
+      }
+    } else if (!descriptionText || descriptionText.length < 50) {
       const descParts = [`${title} — Fondation Domus`];
       if (city) descParts.push(`Lieu: ${city} (VS)`);
       if (pct.formatted) descParts.push(`Taux d'activité: ${pct.formatted}`);
@@ -477,7 +588,9 @@ export async function fetchAllFondationDomusJobs({ fetchPage = fetchCareerPage }
       location: city,
       canton,
       url: publicUrl,
-      source: 'Fondation Domus Dedicated Parser',
+      source: isJobupSearchListing
+        ? 'Fondation Domus Dedicated Parser (jobup.ch search SERP + exact employer filter)'
+        : 'Fondation Domus Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
@@ -493,8 +606,9 @@ export async function fetchAllFondationDomusJobs({ fetchPage = fetchCareerPage }
       sector: 'Social / Fondation',
       currency: 'CHF',
       featured: false,
-      postedDate: postedDate || new Date().toISOString().split('T')[0],
+      ...publication,
       applyUrl: listing.applyUrl || CAREER_URL,
+      ...(isJobupSearchListing ? { careerSiteUrl: JOBUP_SEARCH_URL } : {}),
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };

@@ -48,13 +48,70 @@ describe('git-commit-data.sh GitHub auth hardening', () => {
   });
 
   it('refreshes git auth before every network operation in the retry loop', () => {
-    const networkOps = [...GIT_COMMIT_DATA.matchAll(/^\s*git (fetch|pull|push)\b/gm)];
-    expect(networkOps.length).toBeGreaterThan(0);
-
-    for (const match of networkOps) {
-      const before = GIT_COMMIT_DATA.slice(Math.max(0, match.index - 160), match.index);
-      expect(before, `missing ensure_git_auth before: ${match[0]}`).toMatch(/ensure_git_auth\s*$/m);
+    // Every network command runs through run_bounded. Comments and blank
+    // lines between the refresh and the command do not count: what matters is
+    // the code that runs in between.
+    const code = GIT_COMMIT_DATA.split('\n')
+      .map((text, index) => ({ text, number: index + 1 }))
+      .filter(({ text }) => text.trim() !== '' && !text.trim().startsWith('#'));
+    const boundedOps = code.filter(({ text }) =>
+      /\brun_bounded "(?:\$GIT_COMMIT_DATA_[A-Z_]+_TIMEOUT_SECONDS|\$push_timeout|\$PUSH_TIMEOUT)"/.test(text));
+    const localArchiveOps = boundedOps.filter(({ text }) => text.includes('GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS'));
+    const networkOps = boundedOps.filter(({ text }) => !text.includes('GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS'));
+    expect(localArchiveOps.map(({ text }) => /"git archive ([^"]+)"/.exec(text)?.[1])).toEqual([
+      'remote crawler ownership view',
+      'changed crawler ownership slices',
+    ]);
+    for (const operation of localArchiveOps) {
+      const index = code.findIndex(({ number }) => number === operation.number);
+      const command = code.slice(index, index + 2).map(({ text }) => text).join('\n');
+      expect(command).toContain('git archive --format=tar');
+      expect(command).not.toMatch(/--remote|https?:\/\/|ssh:\/\//u);
     }
+    // the history API lookup, the fetch of the retry loop, three pulls, two pushes.
+    expect(networkOps.map(({ text }) =>
+      /TIMEOUT_SECONDS" "gh (\w+)/.exec(text)?.[1]
+      ?? /TIMEOUT_SECONDS" (?:\\$|"git (\w+))/.exec(text)?.[1]
+      ?? 'push')).toEqual([
+      'api', 'fetch', 'push', 'pull', 'pull', 'pull', 'push',
+    ]);
+
+    const refreshedJustBefore = (line: { number: number }) => {
+      const at = code.findIndex(({ number }) => number === line.number);
+      return code.slice(Math.max(0, at - 4), at).some(({ text }) => text.trim() === 'ensure_git_auth');
+    };
+    const bodyOf = (name: string) => {
+      const start = code.findIndex(({ text }) => text === `${name}() {`);
+      expect(start, `${name}() not found`).toBeGreaterThan(-1);
+      const end = code.findIndex(({ text }, index) => index > start && text === '}');
+      return code.slice(start, end + 1);
+    };
+    const inBody = (body: Array<{ number: number }>, line: { number: number }) =>
+      body.some(({ number }) => number === line.number);
+
+    // Two commands live in a function, and it is the caller that refreshes.
+    const fetchLoop = bodyOf('git_fetch_retry');
+    const historyLookup = bodyOf('lookup_remote_path_history');
+    const direct = networkOps.filter((op) => !inBody(fetchLoop, op) && !inBody(historyLookup, op));
+    expect(direct).toHaveLength(5);
+    for (const op of direct) {
+      expect(refreshedJustBefore(op), `missing ensure_git_auth before line ${op.number}: ${op.text.trim()}`).toBe(true);
+    }
+
+    const fetchLoopCalls = code.filter(({ text }) => /^\s*git_fetch_retry(?: \|\| return 1)?$/.test(text));
+    expect(fetchLoopCalls).toHaveLength(4);
+    for (const call of fetchLoopCalls) {
+      expect(refreshedJustBefore(call), `missing ensure_git_auth before the fetch loop at line ${call.number}`).toBe(true);
+    }
+
+    // The history lookup runs inside an isolated attempt, which begins with a
+    // refresh and a fetch before it looks at any file.
+    const isolated = bodyOf('commit_isolated_from_worktree');
+    const firstRefresh = isolated.find(({ text }) => text.trim() === 'ensure_git_auth');
+    const historyLookupCalls = isolated.filter(({ text }) => /\blookup_remote_path_history\b/.test(text));
+    expect(historyLookupCalls).toHaveLength(1);
+    expect(firstRefresh?.number ?? Infinity).toBeLessThan(historyLookupCalls[0].number);
+    expect(code.filter(({ text }) => /\blookup_remote_path_history\b/.test(text) && !/\(\) \{$/.test(text))).toHaveLength(1);
   });
 });
 

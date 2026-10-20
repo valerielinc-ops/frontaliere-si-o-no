@@ -2,7 +2,7 @@
 /**
  * Schweizerhof job parser — Fetcher and job builder.
  *
- * Source: https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933
+ * Source: https://romantikhotels.hcm4all.de/list/?l=de
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllSchweizerhofFlimsJobs()  — Fetch and parse all jobs
@@ -10,21 +10,32 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { extractRuntimeDetailFields } from './prospector/detail-extract.mjs';
+import {
+  fetchHtmlViaBrowser,
+  loadSpec,
+  runSpecInProduction,
+} from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
+import { readAttr, scanStartTags } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const SCHWEIZERHOF_FLIMS_KEY = 'schweizerhof-flims';
 export const SCHWEIZERHOF_FLIMS_COMPANY_NAME = 'Schweizerhof';
-export const SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN = 'hotelcareer.ch';
+export const SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN = 'romantikhotels.hcm4all.de';
 
-const CAREER_URL = 'https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933';
+const CAREER_URL = 'https://romantikhotels.hcm4all.de/list/?l=de';
+const LEGACY_SOURCE_DOMAIN = 'hotelcareer.ch';
+const LEGACY_ROMANTIK_SOURCE_DOMAIN = 'romantikhotels.com';
 const SCHWEIZERHOF_FLIMS_PATH = '/jobs/romantik-hotel-schweizerhof-11933';
+const HCM4ALL_DETAIL_PATH = '/list/';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -41,8 +52,14 @@ function isSchweizerhofFlimsListingUrl(rawUrl = '') {
     const url = new URL(rawUrl);
     const host = url.hostname.toLowerCase();
     const path = url.pathname.toLowerCase();
-    return (host === SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN || host.endsWith(`.${SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN}`))
+    const isLegacyListing = (host === LEGACY_SOURCE_DOMAIN || host.endsWith(`.${LEGACY_SOURCE_DOMAIN}`))
       && (path === SCHWEIZERHOF_FLIMS_PATH || path.startsWith(`${SCHWEIZERHOF_FLIMS_PATH}/`));
+    const isHcm4allDetail = (host === SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN
+      || host.endsWith(`.${SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN}`))
+      && path.startsWith(HCM4ALL_DETAIL_PATH)
+      && path.length > HCM4ALL_DETAIL_PATH.length;
+
+    return isLegacyListing || isHcm4allDetail;
   } catch {
     return false;
   }
@@ -77,7 +94,14 @@ export function isSchweizerhofFlimsJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'hotelcareer.ch' || host.endsWith('.hotelcareer.ch');
+    return (
+      host === LEGACY_SOURCE_DOMAIN
+      || host.endsWith(`.${LEGACY_SOURCE_DOMAIN}`)
+      || host === LEGACY_ROMANTIK_SOURCE_DOMAIN
+      || host.endsWith(`.${LEGACY_ROMANTIK_SOURCE_DOMAIN}`)
+      || host === SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN
+      || host.endsWith(`.${SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN}`)
+    );
   } catch {
     return false;
   }
@@ -117,13 +141,136 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+function removeSchweizerhofExcludedMarkup(html = '') {
+  return String(html || '')
+    .replace(/<footer\b[^>]*>[\s\S]*?<\/footer>/gi, '')
+    .replace(/<([a-z][\w:-]*)\b[^>]*\bitemprop\s*=\s*(['"])(?:email|telephone)\2[^>]*>[\s\S]*?<\/\1>/gi, '')
+    .replace(/<([a-z][\w:-]*)\b[^>]*\bhref\s*=\s*(['"])(?:mailto:|tel:)[^>]*>[\s\S]*?<\/\1>/gi, '');
+}
+
+function extractSchweizerhofJobMain(html = '') {
+  const source = String(html || '');
+  const jobBody = scanStartTags(source, 'div').find(({ raw }) =>
+    /\bjob-ad-body\b/i.test(readAttr(raw, 'class')),
+  );
+  if (!jobBody) return '';
+
+  const body = extractBalancedTagBlock(source.slice(jobBody.end), 'div');
+  return removeSchweizerhofExcludedMarkup(
+    /<main\b[^>]*>([\s\S]*?)<\/main>/i.exec(body)?.[1] || '',
+  ).replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, '');
+}
+
+function normalizeSchweizerhofEvidence(value = '') {
+  return stripHtml(String(value || ''))
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function hasSchweizerhofFlimsLocation(detail = {}) {
+  const candidates = [
+    detail.location,
+    detail.addressLocality,
+    detail.postalCode,
+    ...(Array.isArray(detail.locationCandidates)
+      ? detail.locationCandidates.flatMap((candidate) => [
+        candidate?.location,
+        candidate?.addressLocality,
+        candidate?.postalCode,
+      ])
+      : []),
+  ];
+  return candidates.some((value) => {
+    const normalized = normalizeSchweizerhofEvidence(value);
+    return /\bflims(?:\s+(?:waldhaus|dorf))?\b/u.test(normalized)
+      || /\b701[78]\b/u.test(normalized);
+  });
+}
+
+function hasSchweizerhofFlimsIdentity(html, detail) {
+  const tenantHeading = normalizeSchweizerhofEvidence(extractSchweizerhofTenantHeading(html));
+  return /\bschweizerhof\b/u.test(tenantHeading)
+    && hasSchweizerhofFlimsLocation(detail);
+}
+
+/**
+ * Read the source-owned tenant heading from the HCM4all job body.
+ *
+ * The current portal places the native tenant heading in the vacancy benefits
+ * section (section.offers[itemprop="jobBenefits"] > h2), while other sections
+ * contain unrelated headings. Use the first native h2 in that source-owned
+ * container. A Schweizerhof tenant is exposed as Schweizerhof Flims only with
+ * source-backed Flims locality/address evidence. Never use email, phone,
+ * footer or body prose as tenant evidence.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+function extractSchweizerhofTenantHeading(html = '') {
+  const main = extractSchweizerhofJobMain(html);
+  const tenantSection = scanStartTags(main, 'section').find(({ raw }) => {
+    const classes = readAttr(raw, 'class').toLowerCase().split(/\s+/u).filter(Boolean);
+    const properties = readAttr(raw, 'itemprop').toLowerCase().split(/\s+/u).filter(Boolean);
+    return classes.includes('offers') || properties.includes('jobbenefits');
+  });
+  if (!tenantSection) return '';
+  const tenantSource = extractBalancedTagBlock(
+    main.slice(tenantSection.end),
+    tenantSection.name,
+  );
+  const match = /<h2\b[^>]*>([\s\S]*?)<\/h2>/i.exec(tenantSource);
+  return stripHtml(match?.[1] || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Add the source-scoped tenant heading to the shared detail evidence.
+ *
+ * @param {string} html
+ * @param {string} url
+ * @param {{ recordUrl?: string, recordTitle?: string }} [opts]
+ * @returns {Record<string, any>}
+ */
+export function extractSchweizerhofFlimsDetailFields(html = '', url = '', opts = {}) {
+  const detail = extractRuntimeDetailFields(
+    {},
+    removeSchweizerhofExcludedMarkup(html),
+    url,
+    { recordUrl: opts.recordUrl, recordTitle: opts.recordTitle },
+  );
+  const heading = extractSchweizerhofTenantHeading(html);
+  const hasSchweizerhofTenantHeading = /\bschweizerhof\b/i.test(heading);
+  const tenantHeading = hasSchweizerhofFlimsIdentity(html, detail)
+    ? 'Schweizerhof Flims'
+    : heading;
+  const workplaceLabels = [
+    ...(detail.workplaceLabels || []),
+    ...(hasSchweizerhofTenantHeading ? [heading] : []),
+    ...(hasSchweizerhofFlimsIdentity(html, detail) ? ['Schweizerhof Flims'] : []),
+  ].filter((label, index, labels) => labels.indexOf(label) === index);
+  return {
+    ...detail,
+    tenantHeading,
+    ...(workplaceLabels.length ? { workplaceLabels } : {}),
+  };
+}
+
 /* ── Fetcher guidato dalla spec ───────────────────────────────
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
 async function fetchJobListings() {
   const spec = loadSpec(SCHWEIZERHOF_FLIMS_KEY);
-  return runSpecInProduction(spec);
+  // HCM4all can return the listing shell without rendered vacancy links to the
+  // CI egress. Keep the shared direct/Jina path first, then let the browser
+  // rescue render the same public index before the detail tenant filter runs.
+  return runSpecInProduction(spec, {
+    browserFetchImpl: fetchHtmlViaBrowser,
+    detailExtractor: extractSchweizerhofFlimsDetailFields,
+  });
 }
 
 /**
@@ -205,7 +352,7 @@ export async function fetchAllSchweizerhofFlimsJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

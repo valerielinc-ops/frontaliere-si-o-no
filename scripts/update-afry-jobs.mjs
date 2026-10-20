@@ -13,6 +13,7 @@
  * across every Swiss canton (no regional restriction).
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -30,6 +31,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -50,11 +52,13 @@ import {
   inferAfryCanton,
   inferAfryCategory,
   buildAfryLocalizedContent,
+  dropAfryFabricatedText,
 } from './lib/afry-job-parser.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -98,24 +102,6 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 async function fetchText(url, timeoutMs = TIMEOUT_MS) {
   return fetchHtml(url, {
     timeoutMs,
@@ -157,7 +143,7 @@ async function fetchAllListings() {
   console.log('🔍 Fetching AFRY job listings via API...');
   console.log(`  📡 ${API_URL}`);
 
-  const data = await fetchJson(API_URL);
+  const data = await fetchJson(API_URL, { timeoutMs: TIMEOUT_MS });
   const { items, totalGlobal, totalSwiss } = parseAfryApiResponse(data);
 
   console.log(`📋 API returned ${totalGlobal} global jobs, ${totalSwiss} in Switzerland`);
@@ -225,7 +211,8 @@ async function enrichWithDetails(listings) {
 }
 
 function buildAfryJob(row) {
-  const localized = buildAfryLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, row.language || 'it');
+  const localized = buildAfryLocalizedContent({ ...row, sourceLang });
   const canton = inferAfryCanton(row);
   return {
     title: localized.titleByLocale.it,
@@ -244,12 +231,12 @@ function buildAfryJob(row) {
     category: inferAfryCategory(row.competenceArea, row.title),
     sector: 'Ingegneria & Consulenza',
     source: 'afry-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, row.language || 'it'),
-    postedDate: new Date().toISOString().slice(0, 10),
+    sourceLang,
+    ...sourcePostingDateFields(''),
     validThrough: row.lastApplyDate || '',
     employmentType: 'full-time',
     contractType: 'full-time',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -264,6 +251,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropAfryFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former header line / copied locale slots from ${fossils} stored AFRY job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -279,6 +268,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -307,7 +297,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -340,6 +330,18 @@ function validateLocales() {
   });
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropAfryFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'AFRY');
@@ -351,6 +353,7 @@ async function main() {
   const listings = await fetchAllListings();
   if (listings.length === 0) {
     console.log('⚠️ No Swiss AFRY jobs found — skipping.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

@@ -1,75 +1,11 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-    # paths-ignore è una DENYLIST applicata solo se TUTTI i file del push
-    # matchano (un push misto docs+codice deploya comunque). Sicuro per
-    # definizione: un path dimenticato deploya, non viene saltato.
-    # Obiettivo: non bruciare un build SEO da ~25min su merge che NON cambiano
-    # il dist deployato (deploy-starvation: build lungo vs merge ~5min via
-    # auto-merge PAT). I path sotto non sono letti dalla build del dist:
-    #   - docs/markdown, file CI/workflow, test, config agent: nessun output dist.
-    #   - telemetry/evidence-only data elencati più sotto: nessun import in
-    #     vite.config.ts o nei build-plugins; i commit misti con contenuto
-    #     restano deploy-bound.
-    # NON ignorati (toccano il dist): build-plugins/, services/, components/,
-    # scripts/ (assemble-jobs gira a build-time), data/jobs*, vite/index/package.
-    # NB: usiamo `*.md` (root) + `docs/**`, NON `**/*.md`: `public/**/*.md`
-    # (es. press-kit) è copiato verbatim da Vite (publicDir) nel dist → resta
-    # dist-bound e deve poter deployare.
-    #
-    # ⚠️ NON allargare questa lista con dati che possono alimentare il dist per
-    # curare la "deploy starvation" — è la leva sbagliata, misurato il
-    # 2026-08-06 sulle ultime 48h (#5251):
-    #   - 141 run di deploy: 121 cancellati, 10 success, 8 failure, 2 attivi.
-    #   - `paths-ignore` NON si applica a `workflow_dispatch`, e 40 dei 141 run
-    #     (28%) arrivano proprio da lì: 15 workflow di dati chiamano
-    #     scripts/lib/trigger-deploy.sh dopo aver committato (i push fatti con
-    #     GITHUB_TOKEN non innescano workflow, quindi dispatchano a mano).
-    #     Publisher jobs sync, Auto-translate, prezzi carburante, newsletter QA,
-    #     ALTEN, 404 sweep — sono TUTTI di quella famiglia. Allargare la
-    #     denylist ne intercetta zero.
-    #   - Dei 101 run da `push`, solo 2 hanno un commit di dati automatico:
-    #     su quel canale questa lista sta già facendo il suo lavoro.
-    #   - E i 121 run cancellati sono GRATIS: verificati uno per uno via REST,
-    #     121 su 121 avevano zero job avviati (cancellati mentre erano ancora
-    #     `pending`). Zero minuti-runner, e newest-wins garantisce che il build
-    #     successivo contenga comunque ogni commit superato.
-    # Il limite vero è la durata del build: mediana 130 min, e mediana del
-    # divario fra due build che PARTONO 128 min — la coda è satura, non affamata.
-    paths-ignore:
-      - 'data/border-wait-current.json'
-      # Browser-servable copy of the same file (services/borderWaitCurrentService.ts,
-      # issue #4892), written in the SAME commit/call as data/border-wait-current.json
-      # by scripts/snapshot-border-wait-history.mjs. Ignored for the same reason as
-      # the line above: traffic-scheduler.yml commits it up to every 30 min, and a
-      # full SEO deploy per commit would be a deploy-storm. Accepted tradeoff:
-      # freshness = as fresh as the next deploy triggered by something else (same
-      # contract already accepted for data/border-wait-current.json's SSG usage).
-      - 'public/data/border-wait-current.json'
-      - 'data/border-wait-history/**'
-      - 'data/build-history/**'
-      # The SEO health loop persists evidence/state with an App-token push,
-      # but those files are not part of the dist.  Keep recovery state from
-      # consuming a full Pages build slot; a compat-shard change still stays
-      # deploy-bound through its own path.
-      - 'data/seo-health-state.json'
-      - 'data/seo-health/**'
-      - 'data/border-wait-averages.json'
-      - 'data/weather-snapshot.json'
-      # Telemetria/evidence-only: se lo stesso push contiene anche data/jobs,
-      # articoli o altri input della build, GitHub non applica paths-ignore.
-      - 'data/loop-fleet/**'
-      - 'data/translation-observability-history.json'
-      - 'data/translation-observability-state.json'
-      - 'data/translation-stats-history.json'
-      - '*.md'
-      - 'docs/**'
-      - '.github/**'
-      - 'tests/**'
-      - '.claude/**'
+  # Pushes are admitted by deploy-request.yml, a short control-plane workflow
+  # that coalesces requests without occupying the build lock. Keeping this
+  # workflow dispatch-only is the important invariant: a push can never enter
+  # GitHub's one-running/one-pending replacement queue and cancel a production
+  # build before its first job starts.
   workflow_dispatch:
     inputs:
       article_id:
@@ -127,10 +63,11 @@ permissions:
   issues: write     # for github-issue-creator on build/deploy failure
 
 # Workflow-level serialisation of the BUILD block (matrix-setup → prep →
-# build-locale ×4). Exactly one build run is active at a time; newer pushes
-# queue as pending and, on the 1-running-+-1-pending cap, the superseded middle
-# run is dropped (newest-wins — correct for a cumulative cron-driven site where
-# the latest build already contains the intermediate commits).
+# build-locale ×4). Exactly one build run is active at a time. Normal push
+# admission happens in deploy-request.yml, which coalesces a continuous stream
+# before it reaches this expensive workflow; if multiple explicit dispatches
+# race, GitHub may still retain one pending run and replace only that pending
+# member. The in-progress build is never cancelled.
 #
 # Crucially, this run now ENDS at the build: deploy / validate / publish moved to
 # the separate `deploy-publish.yml` workflow (triggered by this run's success via
@@ -159,8 +96,23 @@ jobs:
     permissions:
       contents: read
     steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
       - name: Checkout promotion gate
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           sparse-checkout: |
             /scripts/ci/production-promotion-gate.mjs
@@ -218,15 +170,30 @@ jobs:
     needs: matrix-setup
     runs-on: ubuntu-latest
     steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -260,7 +227,7 @@ jobs:
           args: --stats
       - name: Cache assemble-jobs output
         if: steps.assemble_cache_key.outputs.key != ''
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
@@ -386,6 +353,13 @@ jobs:
       POST_WALK_WORKERS: '2'
       SEQUENTIAL_PROFILE: ${{ fromJSON('["1",""]')[github.event_name == 'workflow_dispatch' && github.event.inputs.parallel_plugins == 'true' && 1 || 0] }}
       JOBS_SEO_PROFILE_PHASES: '1'
+      # The canonical-fallback pre-pass is the peak RSS hotspot on the 16 GiB
+      # runner: run 36148322951 reached ~12.9 GiB with the detected 4-worker
+      # pool and then stopped emitting logs while the host was swapping. The
+      # inline path has the same deterministic output and avoids cloning the
+      # ~20k tuple corpus into worker threads. Raise this only after an Actions
+      # run demonstrates a safe RSS margin.
+      JOBS_SEO_FALLBACK_WORKERS: '1'
       WEEKLY_EMPLOYERS_PROFILE: ''
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
       RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
@@ -474,8 +448,26 @@ jobs:
           df -h /
           echo "::endgroup::"
 
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # A hosted runner intermittently reached actions/checkout with no
+          # libcurl CAfile (run 35913755610: "CAfile: none"). Rebuild the
+          # standard bundle only when it is missing, then make the trust paths
+          # explicit for the checkout action. Never disable certificate checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
+
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       # I build-locale morivano exit 134 sul muro V8 (12288 MB) con l'host
       # ancora largo (~2 GB MemAvailable, ~3 GB SwapFree — run 32319344037):
@@ -494,13 +486,13 @@ jobs:
         run: bash scripts/ci/grow-build-swap.sh
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -528,10 +520,38 @@ jobs:
           test -f scripts/load-rc-env.mjs
           node scripts/load-rc-env.mjs
 
+      # The employer-profile ad experiment is consumed by the static
+      # generator, so freeze its build input after Remote Config hydration and
+      # before the `npm run build:ci` SSG step below. Unknown/missing values
+      # stay on the safe control arm; changing RC after this build cannot alter
+      # already-emitted HTML and must be followed by another deploy.
+      - name: Freeze employer-profile ad input before SSG
+        shell: bash
+        run: |
+          employer_profile_mid_ad_variant="${EMPLOYER_PROFILE_MID_AD_TEST_VARIANT:-control}"
+          case "$employer_profile_mid_ad_variant" in
+            control|eoc_mid) ;;
+            *)
+              echo "::warning::Unknown EMPLOYER_PROFILE_MID_AD_TEST_VARIANT; using control."
+              employer_profile_mid_ad_variant=control
+              ;;
+          esac
+          echo "EMPLOYER_PROFILE_MID_AD_TEST_VARIANT=$employer_profile_mid_ad_variant" >> "$GITHUB_ENV"
+          echo "Employer-profile ad SSG input: $employer_profile_mid_ad_variant"
+
+      # Eventfrog ephemeral pages (owner decision D5, AGB §17): copy the PRIVATE
+      # snapshot to the git-ignored .cache/private-events/ for the events page
+      # builder. Never an artifact (public-repo artifacts are downloadable) and
+      # never under data/ or public/. Always exits 0: with EVENTFROG_ENABLED
+      # off, no snapshot or any error it removes the local copy and the build
+      # emits no Eventfrog page. Prints counts only.
+      - name: Fetch private event snapshot (Eventfrog, ephemeral pages)
+        run: node scripts/fetch-private-event-snapshots.mjs
+
       # Consume the shared atomic snapshot from the prep job instead of
       # re-running assemble/cleanup/mine/migrate/thumbnails per shard.
       - name: Download prepared snapshot
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: prepared-snapshot
           path: /tmp/snapshot
@@ -548,7 +568,7 @@ jobs:
 
       - name: Cache per-job OG images
         if: matrix.locale == 'it'
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .cache/og-jobs
           # Run 34956104680 rendered 16726 cards with 10434/27160 hits (38%),
@@ -575,7 +595,7 @@ jobs:
       # also opt-in through the repository variable JOBS_SEO_REUSE=1.
       - name: Restore previous incremental manifest
         id: incremental-manifest-cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-manifest
           key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
@@ -588,7 +608,7 @@ jobs:
       - name: Restore previous jobs SEO HTML cache
         if: env.JOBS_SEO_REUSE == '1'
         id: jobs-seo-html-cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-html
           # Exact key only (review #8940): a prefix fallback could restore
@@ -642,7 +662,7 @@ jobs:
       # shard is the one that runs deploy-it-pages-prep.sh).
       - name: Restore previous deploy content manifest
         if: matrix.locale == 'it'
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: content-manifest.tsv
           key: deploy-content-manifest-${{ github.run_id }}
@@ -816,6 +836,38 @@ jobs:
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # Advisory phase observer (#9247): the build-profile history already
+      # contains the same-locale baselines. Keep the table and the +30% alarm
+      # outside the publish path; a missing history row must never stop deploy.
+      - name: Observe phase timing per locale
+        id: phase_timing
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          PHASE_TIMING_LOG: /tmp/build.log
+          PHASE_TIMING_HISTORY: data/build-history/memory-peaks.jsonl
+          PHASE_TIMING_LOCALE: ${{ matrix.locale }}
+          PHASE_TIMING_ALERT_FILE: ${{ runner.temp }}/phase-timing-alert.md
+        run: node scripts/ci/phase-timing-observer.mjs | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Report build phase timing regression to GitHub Issues
+        if: always() && steps.phase_timing.outputs.alert == 'true'
+        continue-on-error: true
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Build phase timing regression (+30% median)'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '3'
+          labels: Bug
+          entity: ${{ matrix.locale }}
+          diag-file: ${{ runner.temp }}/phase-timing-alert.md
+          context: |
+            - Il deploy resta non bloccante: questa è una misura advisory della gamba `${{ matrix.locale }}`.
+            - L'allarme scatta solo quando una fase supera del 30% la mediana della stessa lingua con almeno tre campioni.
+            - La tabella completa è nel riepilogo della gamba e la riga misurata viene conservata nello storico build-profile.
+
       - name: Incremental manifest shadow report
         if: always()
         continue-on-error: true
@@ -846,6 +898,71 @@ jobs:
         if: matrix.locale == 'it'
         run: node scripts/validate-build-profile-markers.mjs /tmp/build.log
 
+      # Il build IT di produzione E' la misura full-corpus (#9618): questo step
+      # certifica che la MISURA sia completa (marker, bridge, righe di profilo,
+      # rilascio del corpus). Non certifica il sito, e per questo NON e' un
+      # gate del deploy: `continue-on-error` lascia proseguire la pubblicazione
+      # e un FAIL apre la issue dedicata "la misura full-corpus del build jobs
+      # SEO non e' verificabile" (coppia report/resolve in fondo al job).
+      #
+      # Perche'. Da #9754 lo step era fail-closed, e un'invariante sbagliata
+      # (`previousSlugEntries > 0`, mentre il plugin tiene i previous-slug
+      # fuori dalla sitemap di proposito: in produzione vale sempre 0) ha
+      # fatto fallire ogni deploy che ha completato la build: run 36065965021
+      # (24-09 22:11Z) e 36077807468 (25-09 00:29Z), con build sane, finche'
+      # #9773 non ha corretto l'invariante. `deploy-publish.yml` pubblica solo
+      # se QUESTA run e' `success`, quindi qualunque rosso di questo job, anche
+      # a valle della build, spegne la produzione: una misura non puo' avere
+      # quel potere. #9618 chiedeva di impedire una chiusura verde della issue
+      # di misura, non il deploy.
+      #
+      # Cosa resta bloccante, e dove. Una build campionata o troncata non puo'
+      # arrivare qui PER COSTRUZIONE: il campionamento jobs SEO lancia su
+      # refs/heads/main (build-plugins/shared/jobsSeoSample.ts) e le variabili
+      # di campionamento e di arresto anticipato non compaiono in questo file
+      # (lo pinna tests/jobs-seo-build-metrics-workflow.test.ts). Le invarianti del
+      # validatore passano sui marker REALI di produzione in
+      # tests/fixtures/jobs-seo-full-corpus-markers/ (replay in
+      # tests/report-jobs-seo-build-metrics.test.ts): un'invariante nuova che
+      # la produzione non soddisfa diventa rossa sulla PR, non sul deploy.
+      #
+      # Lo stderr del validatore contiene SOLO le righe `FAIL:` (validazione o
+      # crash dello script): finisce nel diag-file, che e' l'unico estratto che
+      # il reporter puo' allegare da dentro un job ancora in corso.
+      - name: Validate full-corpus jobs SEO evidence
+        id: jobs_seo_evidence
+        if: always() && matrix.locale == 'it'
+        continue-on-error: true
+        shell: bash
+        env:
+          JOBS_SEO_BUILD_LOG: /tmp/build.log
+          JOBS_SEO_MARKERS_OUT: ${{ runner.temp }}/jobs-seo-markers.txt
+          JOBS_SEO_EVIDENCE_DIAG: ${{ runner.temp }}/jobs-seo-evidence-diag.txt
+          JOBS_SEO_WALL_SECONDS: ${{ steps.build_step.outputs.wall_seconds }}
+        run: |
+          set +e
+          node scripts/ci/report-jobs-seo-build-metrics.mjs "$JOBS_SEO_BUILD_LOG" \
+            --require-full-corpus \
+            --markers-out="$JOBS_SEO_MARKERS_OUT" \
+            --summary-label="production/${{ matrix.locale }}" \
+            --wall-seconds="${JOBS_SEO_WALL_SECONDS:-?}" \
+            2> "$JOBS_SEO_EVIDENCE_DIAG"
+          status=$?
+          cat "$JOBS_SEO_EVIDENCE_DIAG" >&2
+          if [ "$status" -ne 0 ]; then
+            echo "::warning title=jobs SEO full-corpus evidence::misura incompleta, il deploy prosegue; vedi la issue dedicata e il summary"
+          fi
+          exit "$status"
+
+      - name: Upload full-corpus jobs SEO markers
+        if: always() && matrix.locale == 'it'
+        uses: actions/upload-artifact@v7
+        with:
+          name: jobs-seo-full-corpus-markers-${{ github.run_id }}
+          path: ${{ runner.temp }}/jobs-seo-markers.txt
+          retention-days: 14
+          if-no-files-found: warn
+
       # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
       # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
       # write every locale. This removes the non-owned locale output the same
@@ -854,7 +971,45 @@ jobs:
         run: node scripts/ci/prune-locale-shard.mjs dist
 
       - name: Validate locale shard output
+        id: validate-locale-shard
         run: node scripts/ci/validate-locale-shard-build.mjs dist
+
+      # The build runner hands the non-IT tail to deploy-publish.yml as one
+      # compact, immutable source artifact. It contains the already validated
+      # locale subtree, before section stripping/offload/push work begins;
+      # keeping this handoff here releases the six-hour build budget instead
+      # of making every non-IT leg carry its own transfer tail.
+      - name: Pack non-IT locale shard source artifact
+        if: matrix.locale != 'it'
+        id: pack-locale-source
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
+          printf '%s\n' "${DEPLOY_BUILD_ID}" > dist/build-id.txt
+          members=("${{ matrix.locale }}" build-id.txt)
+          if [ -f "dist/${{ matrix.locale }}.html" ]; then
+            members+=("${{ matrix.locale }}.html")
+          fi
+          if [ -f dist/404.html ]; then
+            members+=(404.html)
+          fi
+          tar -C dist -cf "$RUNNER_TEMP/locale-shard-source-${{ matrix.locale }}.tar" "${members[@]}"
+          tar -tf "$RUNNER_TEMP/locale-shard-source-${{ matrix.locale }}.tar" > "$RUNNER_TEMP/locale-shard-source-${{ matrix.locale }}.members"
+          test -s "$RUNNER_TEMP/locale-shard-source-${{ matrix.locale }}.tar"
+          grep -qx "${{ matrix.locale }}/" "$RUNNER_TEMP/locale-shard-source-${{ matrix.locale }}.members"
+
+      - name: Upload non-IT locale shard source artifact
+        if: matrix.locale != 'it'
+        id: upload-locale-source
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: locale-shard-source-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/locale-shard-source-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 2
+          if-no-files-found: error
 
       # ── CDN payload FIRST, before anything publishes (#2569 margin) ───────
       # This is ONLY the "Push generated assets to CDN repo" phase of
@@ -892,17 +1047,33 @@ jobs:
       # by the next step used to go live BEFORE this build's CDN payload
       # existed (they run the same CDN offload on their staged copy — see
       # CDN_BASE_FIXED in push-section-shard.sh — but were never gated). After
-      # the hoist they publish after it.
+      # the hoist they publish only when this step's CDN_BASE handshake
+      # succeeded; a failed early push leaves the prior shard live while the
+      # full prep retries the payload at its historical position.
       #
       # continue-on-error + the CDN_BASE handshake: on success the script
       # exports CDN_BASE into $GITHUB_ENV, and "Deploy prep" then SKIPS its own
       # CDN push. If this fails, CDN_BASE stays unset and "Deploy prep" runs
       # the push exactly where it always did — so the failure path is
       # byte-identical to the pre-hoist behaviour, plus one free retry.
+      #
+      # timeout-minutes (NX-SKEW-2b): runs 37178543559 and 37198287938 sat in
+      # this step until the 6 h job timeout on an unbounded rclone listing, and
+      # `pages-build-run` (cancel-in-progress: false) held every later deploy
+      # behind them. Every R2 call in the script now has its own wall-clock
+      # limit (tests/r2-calls-bounded.test.ts); this is the backstop for
+      # anything else. Measured: 449 s (37138892066), 531 s (36088944074, a
+      # 3945-key code deploy) and 33 min (37237201212, the first deploy after
+      # two days of hung runs, with that whole backlog of changed assets) →
+      # 45 min keeps a backlog push whole while still cutting a hang ~8x
+      # sooner than the 6 h job timeout. On expiry the step fails,
+      # continue-on-error keeps the leg going, and "Deploy prep" below
+      # retries the push as it does for any failed early push.
       - name: Push generated assets to CDN (early — ahead of the shard pushes)
         id: cdn-push-early
         if: matrix.locale == 'it'
         continue-on-error: true
+        timeout-minutes: 45
         env:
           CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
@@ -915,25 +1086,22 @@ jobs:
       # senza questo, il referto letto da "Read build memory report" e'
       # ephemeral (/tmp, sparisce a fine job) e non esiste storia su cui
       # calibrare il detector automatico dei revert-trigger a tempo (oggi
-      # manuali, vedi "Grow swap" sopra) — vedi follow-up #6174 item 1. Riusa
-      # lo STESSO pattern gia' in produzione per data/dist-size-history.jsonl
-      # (append JSONL + merge=union in .gitattributes + retry-con-rebase):
-      # coi 4 leg del matrix che scrivono in concorrenza, un push diretto
-      # senza rebase-retry wedgerebbe come gia' successo prima che quel
-      # pattern esistesse.
+      # manuali, vedi "Grow swap" sopra) — vedi follow-up #6174 item 1.
       #
-      # Deliberatamente DOPO "Push generated assets to CDN (early…)" sopra,
-      # non subito dopo "Read build memory report": il gate #2569 sull'IT leg
-      # ha gia' margine zero (de leg atteso 2714s su budget 2700s, run
-      # 31076991699, un run RIUSCITO — vedi commento sopra). Uno step con
-      # fino a 5 retry a backoff 5/10/15/25/40s (~95s worst-case) PRIMA della
-      # CDN push avrebbe eroso quel margine; qui non ritarda piu' nulla che
-      # gli altri leg stiano aspettando.
+      # La riga va solo in STAGING ($HISTORY_STAGE_DIR): nessun git dentro la
+      # gamba. Fino a #9247 ogni gamba committava e pushava qui (tre
+      # produttori x quattro gambe = dodici push concorrenti su main per
+      # run); il push respinto rebasava il checkout grande nel percorso
+      # critico: 37,8 min sulla gamba it della run 37107091990, con quattro
+      # righe perse dietro il continue-on-error. Le righe salgono come
+      # artifact ("Upload build-history rows") e il job build-history-commit
+      # fa UN commit per run dopo tutte le gambe.
       - name: Append build memory history row
         if: always()
         continue-on-error: true
         shell: bash
         env:
+          HISTORY_STAGE_DIR: ${{ runner.temp }}/build-history-rows
           ROW_LOCALE: ${{ matrix.locale }}
           ROW_RUN_ID: ${{ github.run_id }}
           ROW_SHA: ${{ github.sha }}
@@ -950,10 +1118,9 @@ jobs:
             echo "[build-history] nessun referto memguard (host-kill o guard mai armato), niente da appendere"
             exit 0
           fi
-          # Append + commit + push-con-rebase stanno in uno script condiviso
-          # da quando "Append post-build phase timings row" (in fondo al job,
-          # #7301) e' diventato il secondo produttore di righe; il manifest
-          # shadow e' il terzo. Il retry ha un solo posto in cui cambiare.
+          # Lo staging sta in uno script condiviso dai tre produttori di righe
+          # (memoria, "Append post-build phase timings row" #7301, manifest
+          # shadow): la validazione della riga ha un solo posto in cui cambiare.
           node -e '
             const num = (v) => (v === undefined || v === "" ? null : Number(v));
             const row = {
@@ -971,7 +1138,6 @@ jobs:
             };
             process.stdout.write(JSON.stringify(row));
           ' | HISTORY_LABEL=build-history \
-              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} leg run ${ROW_RUN_ID}" \
               bash scripts/lib/append-build-history-row.sh
 
       # ── Section shards (keep the IT apex under the 10 GB Pages cap) ────────
@@ -983,15 +1149,16 @@ jobs:
       # section would itself exceed the cap. Runs BEFORE the IT offload
       # (inside deploy-it-pages-prep) so each push-section-shard.sh invocation
       # offloads its own staged copy exactly once. Push gates on the deploy
-      # key; strip additionally gates on <SECTION>_SHARD_LIVE + the push
-      # ok-marker (populate-then-strip) → a full no-op until the owner
-      # provisions + flips a given section's split. See
+      # key (with the Remote-Config PAT as a safety-net when a key is missing);
+      # strip additionally gates on <SECTION>_SHARD_LIVE + the push ok-marker
+      # (populate-then-strip) → a full no-op until the owner flips a given
+      # section's split. See
       # docs/TICINO-SHARD-RUNBOOK.md for the mechanism (written for the first
       # section, ticino; svizzera/zurigo reuse it via
       # scripts/lib/section-shard-slugs.json).
       - name: Push section shards (IT → frontaliere-<section>-it)
         id: push-section-shards-it
-        if: matrix.locale == 'it'
+        if: matrix.locale == 'it' && steps.cdn-push-early.outcome == 'success'
         # A push failure must never block the apex publish: the strip then no-ops
         # (no ok-marker) so that section stays in the apex (>10 GB, deploy fails —
         # but never UNSERVED). The shard otherwise keeps serving its previous build.
@@ -1593,6 +1760,7 @@ jobs:
       # pack tar (exports TAR_BYTES), audit bytes, file delta, refresh
       # url-first-seen. It does NOT commit dist-history (that stays YAML below).
       - name: Deploy prep (IT → Pages + CDN)
+        id: deploy-prep-it
         if: matrix.locale == 'it'
         env:
           CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
@@ -1750,7 +1918,9 @@ jobs:
           if-no-files-found: ignore
 
       - name: Upload write-collisions analysis
+        id: write_collisions_analysis
         if: always() && matrix.locale == 'it'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: write-collisions-analysis-${{ github.run_id }}
@@ -1760,6 +1930,19 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
           include-hidden-files: true
+
+      - name: Retry write-collisions analysis upload
+        if: always() && matrix.locale == 'it' && steps.write_collisions_analysis.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: write-collisions-analysis-${{ github.run_id }}
+          path: |
+            dist/.write-collisions.json
+            dist/.write-collisions-data/
+          retention-days: 7
+          if-no-files-found: ignore
+          include-hidden-files: true
+          overwrite: true
 
       - name: Detect previous-slug winners changes
         if: matrix.locale == 'it'
@@ -1798,8 +1981,26 @@ jobs:
           # rebase below auto-resolves instead of aborting.
           git config merge.json-first-seen.driver \
             'node scripts/ci/merge-json-first-seen.mjs %O %A %B'
-          git add data/dist-size-history.jsonl data/url-first-seen.json
-          git commit -m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})"
+          for accumulator in data/dist-size-history.jsonl data/url-first-seen.json; do
+            node scripts/ci/assert-accumulator-write.mjs "$accumulator"
+          done
+          git add -- data/dist-size-history.jsonl data/url-first-seen.json
+          unexpected_paths="$(git diff --cached --name-only | while IFS= read -r path; do
+            case "$path" in
+              data/dist-size-history.jsonl|data/url-first-seen.json) ;;
+              *) printf '%s\n' "$path" ;;
+            esac
+          done)"
+          if [ -n "$unexpected_paths" ]; then
+            echo "::error::dist-history refusing to commit staged paths outside its accumulator allowlist"
+            printf '%s\n' "$unexpected_paths" | sed 's/^/  unexpected: /'
+            exit 1
+          fi
+          # The build snapshot remains dirty in this checkout. Commit only the
+          # two history paths so those generated bytes cannot hitchhike here.
+          git commit --only \
+            -m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})" \
+            -- data/dist-size-history.jsonl data/url-first-seen.json
           bash scripts/lib/configure-main-push-auth.sh
           # The build job leaves dist/ and other generated files dirty
           # in the working tree. `git pull --rebase` refuses to run
@@ -1841,1009 +2042,10 @@ jobs:
           # cannot disappear behind a green deploy.
           bash scripts/lib/git-push-with-retry.sh --max-attempts 5 --stash-dirty
 
-      # ── Section shards (non-IT) → frontaliere-<section>-<loc> shard repos ──
-      # Section shard push FIRST (before the offload below) so
-      # push-section-shard.sh stages the RAW subtree and offloads its own
-      # copy exactly once; then strip it so the locale shard drops below the
-      # 10 GB Pages cap. One repo PER (section, locale) (frontaliere-<section>-<loc>).
-      # Push gates on the deploy key; strip on <SECTION>_SHARD_LIVE + the push
-      # ok-marker.
-      - name: Push section shards (non-IT → frontaliere-<section>-<loc>)
-        id: push-section-shards-nonit
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        env:
-          SHARD_TICINO_IT_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_IT_DEPLOY_KEY }}
-          SHARD_TICINO_EN_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_EN_DEPLOY_KEY }}
-          SHARD_TICINO_DE_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DE_DEPLOY_KEY }}
-          SHARD_TICINO_FR_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_FR_DEPLOY_KEY }}
-          SHARD_SVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_IT_DEPLOY_KEY }}
-          SHARD_SVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_EN_DEPLOY_KEY }}
-          SHARD_SVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_DE_DEPLOY_KEY }}
-          SHARD_SVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_FR_DEPLOY_KEY }}
-          SHARD_ZURIGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_IT_DEPLOY_KEY }}
-          SHARD_ZURIGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_EN_DEPLOY_KEY }}
-          SHARD_ZURIGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_DE_DEPLOY_KEY }}
-          SHARD_ZURIGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_FR_DEPLOY_KEY }}
-          SHARD_ARGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_IT_DEPLOY_KEY }}
-          SHARD_ARGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_EN_DEPLOY_KEY }}
-          SHARD_ARGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_DE_DEPLOY_KEY }}
-          SHARD_ARGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_FR_DEPLOY_KEY }}
-          SHARD_APPENZELLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_IT_DEPLOY_KEY }}
-          SHARD_APPENZELLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_EN_DEPLOY_KEY }}
-          SHARD_APPENZELLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_DE_DEPLOY_KEY }}
-          SHARD_APPENZELLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_FR_DEPLOY_KEY }}
-          SHARD_BASILEA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_IT_DEPLOY_KEY }}
-          SHARD_BASILEA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_EN_DEPLOY_KEY }}
-          SHARD_BASILEA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_DE_DEPLOY_KEY }}
-          SHARD_BASILEA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_FR_DEPLOY_KEY }}
-          SHARD_BERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_IT_DEPLOY_KEY }}
-          SHARD_BERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_EN_DEPLOY_KEY }}
-          SHARD_BERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_DE_DEPLOY_KEY }}
-          SHARD_BERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_FR_DEPLOY_KEY }}
-          SHARD_FRIBURGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_IT_DEPLOY_KEY }}
-          SHARD_FRIBURGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_EN_DEPLOY_KEY }}
-          SHARD_FRIBURGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_DE_DEPLOY_KEY }}
-          SHARD_FRIBURGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_FR_DEPLOY_KEY }}
-          SHARD_GINEVRA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_IT_DEPLOY_KEY }}
-          SHARD_GINEVRA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_EN_DEPLOY_KEY }}
-          SHARD_GINEVRA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_DE_DEPLOY_KEY }}
-          SHARD_GINEVRA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_FR_DEPLOY_KEY }}
-          SHARD_GLARONA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_IT_DEPLOY_KEY }}
-          SHARD_GLARONA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_EN_DEPLOY_KEY }}
-          SHARD_GLARONA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_DE_DEPLOY_KEY }}
-          SHARD_GLARONA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_FR_DEPLOY_KEY }}
-          SHARD_GRIGIONI_IT_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_IT_DEPLOY_KEY }}
-          SHARD_GRIGIONI_EN_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_EN_DEPLOY_KEY }}
-          SHARD_GRIGIONI_DE_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_DE_DEPLOY_KEY }}
-          SHARD_GRIGIONI_FR_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_FR_DEPLOY_KEY }}
-          SHARD_GIURA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_IT_DEPLOY_KEY }}
-          SHARD_GIURA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_EN_DEPLOY_KEY }}
-          SHARD_GIURA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_DE_DEPLOY_KEY }}
-          SHARD_GIURA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_FR_DEPLOY_KEY }}
-          SHARD_LUCERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_IT_DEPLOY_KEY }}
-          SHARD_LUCERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_EN_DEPLOY_KEY }}
-          SHARD_LUCERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_DE_DEPLOY_KEY }}
-          SHARD_LUCERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_FR_DEPLOY_KEY }}
-          SHARD_NEUCHATEL_IT_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_IT_DEPLOY_KEY }}
-          SHARD_NEUCHATEL_EN_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_EN_DEPLOY_KEY }}
-          SHARD_NEUCHATEL_DE_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_DE_DEPLOY_KEY }}
-          SHARD_NEUCHATEL_FR_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_FR_DEPLOY_KEY }}
-          SHARD_NIDVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_IT_DEPLOY_KEY }}
-          SHARD_NIDVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_EN_DEPLOY_KEY }}
-          SHARD_NIDVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_DE_DEPLOY_KEY }}
-          SHARD_NIDVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_FR_DEPLOY_KEY }}
-          SHARD_OBVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_IT_DEPLOY_KEY }}
-          SHARD_OBVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_EN_DEPLOY_KEY }}
-          SHARD_OBVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_DE_DEPLOY_KEY }}
-          SHARD_OBVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_FR_DEPLOY_KEY }}
-          SHARD_SCIAFFUSA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_IT_DEPLOY_KEY }}
-          SHARD_SCIAFFUSA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_EN_DEPLOY_KEY }}
-          SHARD_SCIAFFUSA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_DE_DEPLOY_KEY }}
-          SHARD_SCIAFFUSA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_FR_DEPLOY_KEY }}
-          SHARD_SOLETTA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_IT_DEPLOY_KEY }}
-          SHARD_SOLETTA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_EN_DEPLOY_KEY }}
-          SHARD_SOLETTA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_DE_DEPLOY_KEY }}
-          SHARD_SOLETTA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_FR_DEPLOY_KEY }}
-          SHARD_SVITTO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_IT_DEPLOY_KEY }}
-          SHARD_SVITTO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_EN_DEPLOY_KEY }}
-          SHARD_SVITTO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_DE_DEPLOY_KEY }}
-          SHARD_SVITTO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_FR_DEPLOY_KEY }}
-          SHARD_TURGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_IT_DEPLOY_KEY }}
-          SHARD_TURGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_EN_DEPLOY_KEY }}
-          SHARD_TURGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_DE_DEPLOY_KEY }}
-          SHARD_TURGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_FR_DEPLOY_KEY }}
-          SHARD_URI_IT_DEPLOY_KEY: ${{ secrets.SHARD_URI_IT_DEPLOY_KEY }}
-          SHARD_URI_EN_DEPLOY_KEY: ${{ secrets.SHARD_URI_EN_DEPLOY_KEY }}
-          SHARD_URI_DE_DEPLOY_KEY: ${{ secrets.SHARD_URI_DE_DEPLOY_KEY }}
-          SHARD_URI_FR_DEPLOY_KEY: ${{ secrets.SHARD_URI_FR_DEPLOY_KEY }}
-          SHARD_VAUD_IT_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_IT_DEPLOY_KEY }}
-          SHARD_VAUD_EN_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_EN_DEPLOY_KEY }}
-          SHARD_VAUD_DE_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_DE_DEPLOY_KEY }}
-          SHARD_VAUD_FR_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_FR_DEPLOY_KEY }}
-          SHARD_VALLESE_IT_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_IT_DEPLOY_KEY }}
-          SHARD_VALLESE_EN_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_EN_DEPLOY_KEY }}
-          SHARD_VALLESE_DE_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_DE_DEPLOY_KEY }}
-          SHARD_VALLESE_FR_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_FR_DEPLOY_KEY }}
-          SHARD_ZUGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_IT_DEPLOY_KEY }}
-          SHARD_ZUGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_EN_DEPLOY_KEY }}
-          SHARD_ZUGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_DE_DEPLOY_KEY }}
-          SHARD_ZUGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_FR_DEPLOY_KEY }}
-          SHARD_SANGALLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_IT_DEPLOY_KEY }}
-          SHARD_SANGALLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_EN_DEPLOY_KEY }}
-          SHARD_SANGALLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_DE_DEPLOY_KEY }}
-          SHARD_SANGALLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_FR_DEPLOY_KEY }}
-          SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
-          SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
-          SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
-          SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY }}
-          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
-          SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
-          SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
-          SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
-          SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
-          # Off unless the repo variable is exactly `changed` (delta mode only):
-          # CDN-rewrite only the files the delta push reads — see
-          # scripts/lib/shard-cdn-rewrite.sh. Off = byte-identical to before.
-          SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}
-          SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
-          GITHUB_SHA: ${{ github.sha }}
-          GITHUB_RUN_ID: ${{ github.run_id }}
-          # Consumed by scripts/ci/report-shard-push-failure.mjs (gh CLI) when a
-          # shard push stays unpublished. The job already grants `issues: write`.
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          # Issue #4881 Fase 5 — see ogPagesPlugin.ts's closeBundle docblock
-          # and the IT-leg push step above for the full contract.
-          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
-          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
-        run: |
-          set -uo pipefail
-          # Wall-time della fase (#7301): `SECONDS` riparte da 0 a ogni step (ogni
-          # `run:` e' una bash nuova) e il trap EXIT lo emette su OGNI uscita —
-          # inclusa quella fatale sull'ordering qui sotto — cosi' la storia non
-          # perde la fase proprio quando e' andata storta. Stesso pattern dello
-          # step `Build` (`wall_seconds`), letto da "Append post-build phase
-          # timings row" in fondo al job.
-          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
-          loc="${{ matrix.locale }}"
-          # Each section pushes to its OWN shard repo — one section's push
-          # failure (e.g. a corrupted remote clone) must never skip the
-          # others. bp_run_bounded records each failing section instead of
-          # aborting the fan-out; the step still ends non-zero (red in the
-          # Actions UI) when any section genuinely failed. Incident
-          # 2026-07-24 (run 30057726623): svizzera-it's push failure silently
-          # aborted the old loop before zurigo-it was even attempted.
-          # Bounded-parallel, not unbounded: push-section-shard.sh's own
-          # header documents issue #4734 — concurrent `stage` clones (up to
-          # several GB each for ticino/svizzera/zurigo) piling up unfreed
-          # exhausted runner disk even under the OLD sequential loop. The cap
-          # is UNCHANGED at 4 and bp_run_bounded enforces it as a hard ceiling
-          # on IN-FLIGHT pushes, so peak `stage` usage is what it was.
-          # Sliding window + longest-first ordering (issue #5130) — see the
-          # IT-leg push step above and scripts/lib/bounded-parallel.sh.
-          source scripts/lib/bounded-parallel.sh
-
-          # bounded-parallel.sh invokes the worker by name.
-          # shellcheck disable=SC2329
-          push_one() {
-            local section="$1" skip_var
-            # #4881 Fase 5: same exclusion as the IT-leg push step above —
-            # build no longer emitted this section, so a full-replace push
-            # here would force-push a near-empty dist/ tree over the shard.
-            skip_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_BUILD_EMIT_SKIP"
-            if [ "${!skip_var:-}" = "true" ]; then
-              echo "$section-$loc: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
-              return 0
-            fi
-            if bash scripts/lib/push-section-shard.sh "$section" "$loc" dist; then
-              return 0
-            fi
-            echo "::warning::$section-$loc shard push step failed — continuing to the next section"
-            return 1
-          }
-
-          # Fatal on an ordering failure — see the IT-leg push step above.
-          order="$(bp_section_order dist "$loc")" || {
-            echo "::error::could not order the section list — refusing to push a partial set of shards"
-            exit 1
-          }
-          echo "section push order (longest-first): $(echo "$order" | tr '\n' ' ')"
-
-          export BP_FAILED_FILE="$RUNNER_TEMP/shard-push-failed-$loc.txt"
-          fail=0
-          mapfile -t ordered_sections <<< "$order"
-          bp_run_bounded 4 push_one "${ordered_sections[@]}" || fail=1
-          # Same visibility contract as the IT leg above — see that comment.
-          if [ -s "$BP_FAILED_FILE" ]; then
-            node scripts/ci/report-shard-push-failure.mjs \
-              --locale "$loc" --shards "$(paste -sd, "$BP_FAILED_FILE")" || true
-          fi
-          exit "$fail"
-
-      # ── Purge the sections just pushed (apex AND origin), batched (#5513) ──
-      # Same gap and same fix as the IT leg above — see that step's comment
-      # for the full rationale (ok-marker gate, not outcome, batched calls).
-      - name: Purge edge for pushed section shards (apex AND origin)
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        env:
-          LOCALE: ${{ matrix.locale }}
-        run: |
-          set -uo pipefail
-          if [ -z "${CF_API_TOKEN:-}" ]; then
-            echo "::warning::CF_API_TOKEN missing after the Remote Config load — section shards are updated, but the edge keeps serving cached copies until ORIGIN_CACHE_TTL (7200s) expires"
-            exit 0
-          fi
-          sections=()
-          for marker in "$RUNNER_TEMP"/shard-ok-*-"$LOCALE"; do
-            [ -e "$marker" ] || continue
-            name="$(basename "$marker")"
-            sections+=("${name#shard-ok-}")
-          done
-          sections=("${sections[@]%-"$LOCALE"}")
-          if [ "${#sections[@]}" -eq 0 ]; then
-            echo "no section shard-ok markers for $LOCALE — nothing to purge"
-            exit 0
-          fi
-          fail=0
-          while IFS= read -r batch_urls; do
-            [ -z "$batch_urls" ] && continue
-            node scripts/cf-purge-cache.mjs "--files=$batch_urls" || {
-              echo "::warning::a section purge batch failed — those URLs keep serving the previous build until the TTL expires"
-              fail=1
-            }
-          done < <(node scripts/ci/section-shard-purge-urls.mjs "$LOCALE" "${sections[@]}")
-          exit "$fail"
-
-      # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
-      # fast path — see the IT leg's "Pack section shard dist" step above for
-      # the full rationale (git-clone fallback was ~12min wall across the 4
-      # legs combined, run 28564001685). Per-section LIVE gate lives INSIDE
-      # the loop (not the step `if:`) since each section has its own repo
-      # variable.
-      - name: Pack section shard dist (tar) for post-deploy validation
-        if: matrix.locale != 'it'
-        id: pack-section-shards-nonit
-        continue-on-error: true
-        env:
-          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
-          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
-          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
-          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
-          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
-          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
-          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
-          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
-          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
-          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
-          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
-          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
-          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
-          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
-          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
-          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
-          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
-          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
-          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
-          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
-          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
-          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
-          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
-          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
-          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
-          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
-          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-        run: |
-          set -uo pipefail
-          # Wall-time della fase (#7301) — vedi lo step di push sopra per il
-          # perche' del trap EXIT invece di un echo finale.
-          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
-          loc="${{ matrix.locale }}"
-          # Bounded-parallel (cap 4) — see the IT leg's "Pack section shard
-          # dist" step above for the full rationale. Same shared
-          # sliding-window driver and same longest-first order (memoised by
-          # the push step, so no second walk of dist).
-          source scripts/lib/bounded-parallel.sh
-          # SHARD_DELTA_CDN_REWRITE=changed: the push rewrote only the files it
-          # read and completes each staged copy in background. Barrier FIRST,
-          # before any live gate — the staged files are hardlinked to
-          # dist/<sub>, which later steps read for non-stripped sections. It
-          # waits for every pass and re-runs a failed one synchronously; a
-          # section still failing is not packed (see shard-cdn-rewrite.sh for
-          # why its dist/<sub> stays safe). With the variable off there is no
-          # partial marker: both calls are no-ops.
-          source scripts/lib/shard-cdn-rewrite.sh
-          shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true
-          pack_section() {
-            local section="$1"
-            local live_var
-            live_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_SHARD_LIVE"
-            if [ "${!live_var:-}" != "true" ]; then
-              return 0
-            fi
-            # Gate on the push ok-marker — see the IT leg's "Pack section
-            # shard dist" step above (issue #4881 Fase 5 audit finding) for
-            # the full rationale.
-            if [ ! -f "$RUNNER_TEMP/shard-ok-$section-$loc" ]; then
-              echo "no push ok-marker for $section-$loc (push skipped/failed this run) — validate-dist will fall back to git clone"
-              return 0
-            fi
-            # Never pack a staged copy the deferred CDN rewrite did not complete.
-            shard_cdn_rewrite_ready "$RUNNER_TEMP" "$section" "$loc" || return 0
-            local slug sub src packed_n persisted_src_n live_src_n
-            slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
-            sub="$loc/$slug"
-            src="$RUNNER_TEMP/${section}-src-$loc/dist"
-            if [ ! -d "$src/$sub" ]; then
-              echo "no staged $section-$loc subtree (push skipped/failed) — validate-dist will fall back to git clone"
-              return 0
-            fi
-            live_src_n=$(find "$src/$sub" -type f | wc -l)
-            # Independent shrink guard (issue #6283) — see the IT leg's "Pack
-            # section shard dist" step above for the full rationale: compare
-            # the LIVE count against the baseline push-section-shard.sh
-            # persisted right after staging, independent of the secondary
-            # tar-vs-source comparison below.
-            if [ -f "$RUNNER_TEMP/shard-srcn-$section-$loc" ]; then
-              persisted_src_n="$(cat "$RUNNER_TEMP/shard-srcn-$section-$loc")"
-              if [ "$live_src_n" -ne "$persisted_src_n" ]; then
-                echo "::warning::$section-$loc subtree shrank between push and pack (persisted src_n=$persisted_src_n, live=$live_src_n) — skipping pack, validate-dist will fall back to git-clone"
-                return 0
-              fi
-            fi
-            if ! packed_n=$(tar -C "$src" -cvf "$RUNNER_TEMP/$section-dist-$loc.tar" "$sub" | awk '!/\/$/ { n++ } END { print n + 0 }'); then
-              echo "::warning::$section-dist-$loc.tar creation failed — discarding tar, validate-dist will fall back to git-clone"
-              rm -f "$RUNNER_TEMP/$section-dist-$loc.tar"
-              return 0
-            fi
-            ls -lh "$RUNNER_TEMP/$section-dist-$loc.tar"
-            # Byte-identity guard (#2761 item 1) — see the IT leg's "Pack section
-            # shard dist" step above for the full rationale: this tar and
-            # push-section-shard.sh's own push both read the SAME already-offloaded
-            # "$src/$sub" staged copy, nothing mutates it in between, so a count
-            # mismatch here can only mean a tar bug — discard rather than upload a
-            # tar validate-dist could trust incorrectly. SECONDARY guard now: the
-            # independent shrink check above is the primary defence against a
-            # between-steps shrink.
-            if [ "$packed_n" -ne "$live_src_n" ]; then
-              echo "::warning::$section-dist-$loc.tar file count mismatch (packed=$packed_n src=$live_src_n) — discarding tar, validate-dist will fall back to git-clone"
-              rm -f "$RUNNER_TEMP/$section-dist-$loc.tar"
-            fi
-            rm -rf "$src"
-          }
-          # Degrade to the plain list rather than pack nothing — see the IT
-          # leg's "Pack section shard dist" step above.
-          order="$(bp_section_order dist "$loc")" || {
-            echo "::warning::could not order the section list — packing in list order"
-            order="$(bash scripts/lib/deploy-shard-sections.sh)"
-          }
-          mapfile -t ordered_sections <<< "$order"
-          bp_run_bounded 4 pack_section "${ordered_sections[@]}" || true
-      - name: Upload shard batch 1 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-1-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/appenzello-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/argovia-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/articolifrontaliere-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/articolisvizzera-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/basilea-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 2 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-2-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/berna-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/friburgo-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/ginevra-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/giura-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/glarona-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 3 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-3-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/grigioni-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/lucerna-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/neuchatel-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/nidvaldo-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/obvaldo-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 4 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-4-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/sangallo-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/sciaffusa-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/soletta-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/svitto-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/svizzera-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 5 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-5-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/ticino-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/turgovia-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/uri-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/vallese-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/vaud-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 6 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-6-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/zugo-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/zurigo-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-
-      - name: Strip section subtrees (non-IT)
-        if: matrix.locale != 'it'
-        env:
-          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
-          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
-          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
-          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
-          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
-          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
-          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
-          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
-          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
-          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
-          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
-          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
-          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
-          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
-          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
-          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
-          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
-          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
-          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
-          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
-          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
-          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
-          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
-          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
-          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
-          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
-          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-          # Issue #4881 Fase 5: same exclusion as the IT-leg strip step —
-          # see that step's comment for the rationale.
-          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
-          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
-        run: |
-          set -uo pipefail
-          # Bounded-parallel, identical to the IT-leg strip step above — see that
-          # step's comment for why concurrent strips are output-identical and why
-          # they raise no ceiling the push step's cap protects.
-          source scripts/lib/bounded-parallel.sh
-
-          LOC='${{ matrix.locale }}'
-          strip_one() {
-            local section="$1" skip_var
-            skip_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_BUILD_EMIT_SKIP"
-            if [ "${!skip_var:-}" = "true" ]; then
-              echo "$section-$LOC: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
-              return 0
-            fi
-            bash scripts/lib/strip-section-subtree.sh "$section" "$LOC" dist
-          }
-
-          order="$(bp_section_order dist "$LOC")" || {
-            echo "::warning::could not order the section list — stripping in list order"
-            order="$(bash scripts/lib/deploy-shard-sections.sh)"
-          }
-          # Same exit-status contract as the IT-leg step: unchanged, visibility only.
-          export BP_FAILED_FILE="$RUNNER_TEMP/shard-strip-failed-$LOC.txt"
-          mapfile -t ordered_sections <<< "$order"
-          bp_run_bounded 4 strip_one "${ordered_sections[@]}" || true
-          if [ -s "$BP_FAILED_FILE" ]; then
-            echo "::warning::section strip failed for: $(paste -sd, "$BP_FAILED_FILE") — those subtrees stay in the $LOC shard (artifact may exceed the 10 GB Pages cap)"
-          fi
-          echo "[strip] stripped $(bash scripts/lib/tally-stripped-sections.sh "$LOC") file(s) across the $LOC section shards"
-
-      - name: Offload shard refs to CDN
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        # offload-generated-images-cdn.mjs rewrites HTML asset/data refs to the CDN
-        # and injects window.__CDN_DATA_BASE__. It reads CDN_BASE from the env and
-        # NO-OPs when unset. In the monolith a single offload runs after the CDN
-        # push (which exports CDN_BASE) and rewrites every locale; here en/de/fr run
-        # on separate runners that never push the CDN, so CDN_BASE must be supplied
-        # explicitly (it's the fixed CDN-repo Pages origin, == ASSET_CDN). Without
-        # it the shard HTML would keep same-origin /data refs → 404 live (the shard
-        # repos don't host /data; it's CDN-offloaded). The actual CDN content is
-        # pushed by the IT shard's deploy-it-pages-prep, which runs in parallel and
-        # completes before validate-dist/validate-live.
-        env:
-          CDN_BASE: 'https://cdn.frontaliereticino.ch'
-        run: node scripts/offload-generated-images-cdn.mjs
-
-      # Same-run shard-dist artifact for post-deploy-validate-dist rehydrate.
-      # validate-dist previously rehydrated each en/de/fr subtree by
-      # `git clone --depth 1` of the shard repo (~14min wall, serial). The pruned
-      # dist here — dist/<locale> + dist/<locale>.html — is byte-for-byte what
-      # push-locale-shard.sh force-pushes next, so uploading it lets validate-dist
-      # fetch it via `gh run download` (same-run, no API lag) instead of cloning.
-      # Uploaded AFTER "Offload shard refs to CDN" so the HTML carries the same
-      # CDN-rewritten /data refs the pushed shard serves (the clone-rehydrate it
-      # replaces consumed post-offload content) — keeps the rehydrated dist
-      # byte-identical to the git-clone path. validate-dist still falls back to the
-      # git clone when this artifact is missing (e.g. a failed shard push/upload),
-      # so a locale is NEVER silently un-validated. IT/main shard untouched
-      # (`matrix.locale != 'it'`) → matrix-equivalence sha256 intact.
-      #
-      # PACK INTO ONE TAR FIRST. The previous version uploaded the raw
-      # `dist/<loc>` tree (~410k loose files) directly. actions/upload-artifact@v7
-      # enumerates every file before upload and STACK-OVERFLOWED on that count —
-      # "##[error]Maximum call stack size exceeded" — so the upload silently
-      # failed (continue-on-error → step shows green, no artifact produced). The
-      # fast path was therefore DEAD on every deploy: validate-dist's rehydrate
-      # always fell through to the ~675s git-clone fallback. Packing the subtree
-      # into a single artifact.tar (exactly how the github-pages artifact is
-      # shipped) makes upload enumerate ONE file → no stack overflow, and the
-      # validate-dist side untars it straight into dist/ (no extra cp copy).
-      - name: Pack locale shard dist (tar) for post-deploy validation
-        if: matrix.locale != 'it'
-        id: pack-locale-shard
-        # continue-on-error for the same reason as the upload+push steps: a pack
-        # failure must degrade to validate-dist's git-clone fallback, never flip
-        # build-locale.result→failure (which would block the Pages publish).
-        continue-on-error: true
-        run: |
-          set -euo pipefail
-          # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
-          # per il perche' del trap EXIT invece di un echo finale.
-          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
-          members=( "${{ matrix.locale }}" )
-          # dist/<loc>.html (= the /{loc} homepage) is normally present; guard so
-          # a future strip that drops it can't make tar exit non-zero. NB: use a
-          # full `if` — `[ -f ] && members+=()` would itself exit non-zero (and
-          # abort the step under set -e) when the homepage is absent.
-          if [ -f "dist/${{ matrix.locale }}.html" ]; then
-            members+=( "${{ matrix.locale }}.html" )
-          fi
-          if ! packed_n=$(tar -C dist -cvf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" "${members[@]}" | awk '!/\/$/ { n++ } END { print n + 0 }'); then
-            echo "::warning::locale-dist-${{ matrix.locale }}.tar creation failed — discarding tar, validate-dist will fall back to git-clone"
-            rm -f "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
-            exit 0
-          fi
-          ls -lh "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
-          # Byte-identity guard (#2761 item 1): this tar and push-locale-shard.sh's
-          # `cp -al "$dist_dir/$loc" "$stage/$loc"` both read the SAME dist/<loc>
-          # (+ <loc>.html) — this step runs BEFORE "Push locale shard" below and
-          # nothing mutates dist/<loc> in between, so the two paths are guaranteed
-          # to agree; validate-dist's git-clone fallback also only ever restores
-          # this identical <loc>/ + <loc>.html pair. This count check makes that
-          # guarantee self-verifying: if it ever drifts, discard the tar so
-          # validate-dist safely falls back to git-clone instead of silently
-          # validating a partial/mismatched tree.
-          prefixed_members=()
-          for m in "${members[@]}"; do prefixed_members+=( "dist/$m" ); done
-          src_n=$(find "${prefixed_members[@]}" -type f 2>/dev/null | wc -l)
-          if [ "$packed_n" -ne "$src_n" ]; then
-            echo "::warning::locale-dist-${{ matrix.locale }}.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
-            rm -f "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
-          fi
-      - name: Upload locale shard dist for post-deploy validation
-        if: matrix.locale != 'it'
-        # MUST stay continue-on-error: this is a non-essential speedup artifact.
-        # deploy + validate-dist gate on `needs.build-locale.result == 'success'`
-        # (in matrix mode `build` is skipped), and build-locale has
-        # fail-fast: false, so a single leg failing here would make
-        # build-locale.result == failure → deploy blocked = no Pages publish.
-        # A transient artifact-service error or an empty dist/<loc> must instead
-        # degrade gracefully: validate-dist's git-clone fallback then rehydrates
-        # the locale (the documented resilience path). Mirrors the adjacent
-        # `Push locale shard` step, which is continue-on-error for the same reason.
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: locale-dist-${{ matrix.locale }}-${{ github.run_id }}
-          # Single tar (see "Pack locale shard dist" above) — NOT the ~410k-file
-          # tree, which overflows the action's file enumerator.
-          path: ${{ runner.temp }}/locale-dist-${{ matrix.locale }}.tar
-          # compression-level 1: the tar is mostly HTML (very compressible) and
-          # this step gates the Pages publish, so favour a fast upload over a few
-          # extra MB. validate-dist downloads it over GitHub's internal network.
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: error
-
-      # ── Cross-shard CDN-push ordering guard (#2569 atomicity) ────────────
-      # The non-IT shard HTML was rewritten to reference cdn.frontaliereticino.ch
-      # for /data + /assets (the "Offload shard refs to CDN" step above). The IT
-      # shard pushes THIS build's CDN payload (data/assets) from a SEPARATE
-      # parallel matrix runner with no ordering vs this leg. Publishing this
-      # shard BEFORE the IT CDN push lands this build's payload would put the
-      # live locale ahead of the CDN (refs 404 / serve a prior build's data).
-      # deploy-it-pages-prep.sh stamps DEPLOY_BUILD_ID into the CDN's
-      # cdn-build-id.txt in the SAME force-push as the payload, so this gate —
-      # polling that marker until it equals THIS build's id — only unblocks once
-      # the IT CDN push has atomically published this build. continue-on-error so
-      # a timeout never flips build-locale.result→failure (that would block the
-      # whole Pages publish); instead the gate's outcome gates the publish step
-      # below, so a stuck/failed IT CDN push leaves this shard UNPUBLISHED
-      # (stale, surfaced by the #2658 path) rather than published-ahead.
-      - name: Wait for IT CDN push (cross-shard ordering guard)
-        id: cdn-gate
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        env:
-          DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
-          # HISTORY, because the number looks arbitrary otherwise. 2700s was set
-          # for #2872, when CDN_TARGET was still 'pages' and the marker lagged
-          # the IT force-push by ~22min of GitHub Pages publish latency on a
-          # >1 GB CDN repo (the prior 1800s budget expired 68s short of the
-          # marker and timed out all three non-IT shards). That is NOT the
-          # binding delay anymore: the repo variable CDN_TARGET is 'r2', and on
-          # R2 the marker is a `no-store` PUT that the cache-busted poll sees in
-          # seconds. Verified on run 31076991699 — "Deploy prep (IT → Pages +
-          # CDN)" started 08:34:38 and the marker was live by 08:38:12, i.e.
-          # BEFORE that step had even finished.
-          #
-          # What the gate actually waits for now is the IT leg's POSITION in its
-          # own job: the CDN push used to sit behind 31min of section-shard
-          # pushes + 5min of packing + 4min of strip. On that same green run the
-          # de leg burned 2714s of the 2700s budget and matched on the LAST of
-          # its 181 polls — zero margin, recorded as a plain success. The
-          # "Push generated assets to CDN (early …)" step above now hoists that
-          # push ahead of the section fan-out, which is what buys the margin
-          # back; this budget is the backstop, and the near-miss warning below
-          # is what makes a shrinking margin visible before it becomes a
-          # timeout. The gate still exits the instant the marker matches, so the
-          # budget is a ceiling, not a fixed wait.
-          #
-          # #7049 — this budget starts ONLY when the IT leg reaches the exact
-          # early-CDN step above. Run 33520063656 proved why the two clocks must
-          # be separate: IT legitimately spent ~2h22 in Build, while the three
-          # non-IT legs reached this guard after ~65–69m and exhausted all 2700s
-          # before IT was ready to publish the marker. Phase 1 observes the IT
-          # step with its own bounded deadline; phase 2 then receives this full,
-          # unchanged marker budget. Neither deadline permits a shard push.
-          CDN_WAIT_TIMEOUT_S: 2700
-          # Matching inside this many seconds of the budget still publishes the
-          # shard (exit 0) but emits a ::warning:: + a job-summary row. Without
-          # it, "matched with 0s to spare" and "matched in 20s" are the same
-          # green check — which is exactly how run 31076991699 was read as
-          # healthy one deploy before 31062047677 timed out all three legs.
-          CDN_WAIT_MARGIN_WARN_S: 600
-          # When CDN_TARGET=r2 the marker is published to R2 (no-store); the gate
-          # then cache-busts each poll so it sees R2's strong read-after-write id
-          # immediately — the 2700s budget becomes a near-no-op (match in seconds).
-          CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
-          # #5331 — the budget above is a ceiling for a leg that is still ALIVE.
-          # When the IT leg is already over and failed there is nothing left in
-          # this run that could ever stamp the marker, and every remaining
-          # second is spent waiting for an impossible event. Measured on run
-          # 31202386246: `build-locale (it)` ended in failure at 18:07:04 while
-          # the fr gate polled on until 18:50:17 — 43 minutes, then a "timeout"
-          # whose triage pointed at the fr shard repo instead of the IT leg.
-          #
-          # This name is the job's DISPLAY name (job key + matrix value), which
-          # is what the jobs API returns; tests/deploy-cdn-ordering-gate.test.ts
-          # pins it against the actual `build-locale` matrix so a rename cannot
-          # quietly disarm the abort. And a wrong name only ever disarms it: the
-          # gate then waits the full budget exactly as it does today.
-          CDN_IT_JOB_NAME: build-locale (it)
-          # Exact step title, pinned by the observer to the real IT-only step.
-          # Seeing it in_progress/completed is the only event that starts the
-          # 2700s marker clock. API uncertainty, job death or this deadline all
-          # fail closed before marker polling and therefore before shard push.
-          CDN_IT_READY_STEP_NAME: Push generated assets to CDN (early — ahead of the shard pushes)
-          CDN_IT_READY_TIMEOUT_S: 10800
-          CDN_IT_READY_INTERVAL_S: 30
-          # Read-only jobs API call, sampled every 4th poll (~60s) so the whole
-          # matrix costs ~135 calls per run rather than ~540.
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # #7106 — job-deadline safety margin (full rationale: "WHY A THIRD
-          # CLOCK" in wait-cdn-build-id.sh). timeout-minutes: 360 above is
-          # already at GitHub's hard per-job ceiling for hosted runners (6h,
-          # fixed platform-wide — it cannot be raised further, so "is it big
-          # enough" has to be answered by shrinking THIS gate, not by growing
-          # the job). Keep the hard platform ceiling and the post-gate reserve
-          # separate: 21600 = 360 * 60, and 180s is the measured finish window
-          # for the critical locale-shard push/purge/report path. The end-to-end
-          # post-gate measurement in run 34956104680
-          # (https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/34956104680)
-          # recorded 114s (de), 113s (en), and 109s (fr) from gate success to
-          # job finish, including each shard push, purge, cleanup, and report;
-          # the maximum is below the 180s reserve. The earlier 119-push sample
-          # maxed at 83s, and is retained as a historical cross-check. The
-          # previous effective 19800s deadline reserved 30min from the job
-          # start and stopped a still-healthy IT build before its early CDN
-          # step on slow runs.
-          # Anchored to CDN_JOB_START_EPOCH (set by the very first step of this
-          # job), so it absorbs however long Build+shard-push actually took on
-          # THIS run before shrinking either phase's budget.
-          CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
-          CDN_JOB_DEADLINE_S: 21600
-          CDN_JOB_FINISH_RESERVE_S: 180
-        run: bash scripts/lib/wait-cdn-build-id.sh "${DEPLOY_BUILD_ID}"
-
-      - name: Push locale shard
-        id: push-shard
-        # Only publish once the ordering guard confirmed the IT CDN push landed
-        # THIS build (steps.cdn-gate.outcome == 'success'). On a gate timeout the
-        # shard is skipped (NOT pushed ahead of the CDN); the stale-shard
-        # surfacing step below fires on skip|failure so the unpublished locale is
-        # never shipped silently. (cdn-gate is itself a no-op exit-0 when
-        # DEPLOY_BUILD_ID is unset, so non-matrix/local paths are unaffected.)
-        if: matrix.locale != 'it' && steps.cdn-gate.outcome == 'success'
-        # Stays continue-on-error (transient shard-repo/network errors must NOT
-        # block the whole Pages publish — build-locale has fail-fast:false, a
-        # hard failure here would flip build-locale.result→failure→no publish).
-        # The PREVIOUS gap (#2658): a failed push then shipped a STALE live
-        # locale SILENTLY (deploy green, no signal). The surfacing step below
-        # closes that — keeps the resilience, removes the silence.
-        continue-on-error: true
-        env:
-          SHARD_EN_DEPLOY_KEY: ${{ secrets.SHARD_EN_DEPLOY_KEY }}
-          SHARD_DE_DEPLOY_KEY: ${{ secrets.SHARD_DE_DEPLOY_KEY }}
-          SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
-          SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
-          SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
-        run: |
-          # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
-          # per il perche' del trap EXIT. Il trap non altera l'exit code dello
-          # script, che resta quello dello step.
-          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
-          bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
-
-      - name: Upload advisory shard push verification report
-        if: always() && vars.SHARD_PUSH_VERIFY == '1'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-push-verify-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/shard-push-verify
-          if-no-files-found: ignore
-          retention-days: 1
-
-      # ── Purge the ORIGIN key, because that is where the bytes just changed ─
-      #
-      # This step is the one that was MISSING (#5483). The job above force-pushes
-      # the locale shard and, until now, purged nothing at all — verified on main:
-      #
-      #   git show origin/main:.github/workflows/deploy.yml | grep -c cf-purge-cache  →  0
-      #
-      # so the locale home kept serving the PREVIOUS build for up to the Worker's
-      # ORIGIN_CACHE_TTL (7200s). Measured on /de/: 9 internal links against the
-      # 45 the freshly-pushed origin carried.
-      #
-      # And purging the apex alone would not have helped. locale-router.js's
-      # serveShard() rewrites the upstream Host and fetches with
-      # `cacheEverything`, so the entry that serves the user is keyed on
-      # `origin-<loc>.frontaliereticino.ch/<path>`; an apex-only purge answers
-      # 200 and changes nothing. The proof is arithmetic rather than "it stayed
-      # HIT" (a purge followed by an immediate refill looks identical to a blind
-      # one): cf-locale-failover-setup.mjs pins the apex rule to 300s and
-      # /cerca-lavoro-ticino/ was measured at age 6333 — 21× that TTL, under the
-      # Worker's 7200s. rerender-article-hubs.yml already does this, for the
-      # article hubs only; this is the same shape for the locale shards.
-      #
-      # BOUNDED on purpose, same reasoning as that workflow: the free-plan cap is
-      # 30 URLs and a shard is hundreds of thousands of pages. Deep pages are
-      # MISS right after a push and heal themselves; what earns a slot is the set
-      # hot enough to hold an entry AND carrying the internal-link graph. The
-      # selection lives in scripts/ci/locale-shard-purge-urls.mjs, so a test can
-      # assert it against the Worker's own route table instead of trusting this
-      # YAML: 18 URLs (9 paths × apex+origin) against the 30 cap, 40% headroom.
-      #
-      # Gated on the ok-marker, not on the step outcome: push-locale-shard.sh
-      # exits 0 when it SKIPS (no deploy key, no dist subtree), and purging after
-      # a skip would spend the call on bytes that never moved.
-      - name: Purge the edge for the pushed locale shard (apex AND origin)
-        if: matrix.locale != 'it' && steps.push-shard.outcome == 'success'
-        continue-on-error: true
-        env:
-          LOCALE: ${{ matrix.locale }}
-        run: |
-          set -uo pipefail
-          if [ ! -f "$RUNNER_TEMP/shard-ok-$LOCALE" ]; then
-            echo "no shard-ok marker for $LOCALE — the push skipped, nothing to purge"
-            exit 0
-          fi
-          if [ -z "${CF_API_TOKEN:-}" ]; then
-            echo "::warning::CF_API_TOKEN missing after the Remote Config load — the $LOCALE shard is updated, but the edge keeps serving its cached copy until ORIGIN_CACHE_TTL (7200s) expires"
-            exit 0
-          fi
-          PURGE_URLS="$(node scripts/ci/locale-shard-purge-urls.mjs "$LOCALE" dist)"
-          if [ -z "$PURGE_URLS" ]; then
-            echo "::warning::no purge URLs resolved for $LOCALE (landings absent from dist/$LOCALE, or the list was over the 30-URL cap — see the generator's stderr above) — the shard is live but the edge keeps its cached copy until the TTL expires"
-            exit 0
-          fi
-          node scripts/cf-purge-cache.mjs "--files=$PURGE_URLS" || echo "::warning::the $LOCALE edge purge failed — those URLs keep serving the previous build until the TTL expires"
-
-      # ── The two ways this locale can end up unpublished, told APART ───────
-      # Both leave the live locale STALE behind a green deploy, and until now
-      # both were reported by ONE step with ONE issue title whose body read
-      # "Probabili cause: errore transiente di rete, conflitto di push, deploy
-      # key shard scaduta". For a gate timeout that diagnosis is simply wrong,
-      # and it has already cost real triage: on 2026-08-06 run 31062047677 the
-      # IT leg's BUILD failed, so the CDN marker never turned and all three
-      # non-IT gates burned their full 2700s — and issues #5224 (fr), #5225
-      # (en) and #5227 (de) were filed blaming the shard deploy keys. The keys
-      # were fine. Nothing in the issue pointed at the IT leg.
-      #
-      # So: two steps, two titles, two bodies, mutually exclusive `if:`s
-      # (cdn-gate failure ⟹ push-shard SKIPPED, never 'failure').
-      - name: Surface an unpublished locale shard (#2569 CDN ordering gate timed out)
-        # The gate ran out of budget waiting for the IT leg's CDN push, so the
-        # shard was deliberately not published ahead of the CDN. Loud, but NOT
-        # fatal: aborting here would take down the other 26 shards for one
-        # locale's ordering problem, which is exactly the tolerance the
-        # continue-on-error posture exists to preserve.
-        if: matrix.locale != 'it' && steps.cdn-gate.outcome == 'failure'
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Via env, never interpolated into the `run:` text: CDN_LAST_SEEN is
-          # the body of a file fetched over the network.
-          LOCALE: ${{ matrix.locale }}
-          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          BRANCH: ${{ github.ref_name }}
-          WORKFLOW: ${{ github.workflow }}
-          CDN_WAITED_S: ${{ steps.cdn-gate.outputs.cdn_waited_s }}
-          CDN_TIMEOUT_S: ${{ steps.cdn-gate.outputs.cdn_timeout_s }}
-          CDN_EXPECTED: ${{ steps.cdn-gate.outputs.cdn_expected }}
-          CDN_LAST_SEEN: ${{ steps.cdn-gate.outputs.cdn_last_seen }}
-          # #5331 — which of the gate's TWO failure shapes fired. `timeout` is
-          # the historical one (budget spent, IT leg's fate unknown);
-          # `it_leg_failed` is the new early abort and carries a fact, not an
-          # inference: the jobs API reported the IT leg completed+failed, so the
-          # marker was never going to be written. Everything below leads with
-          # that fact when it exists, because a reader who sees only "gate
-          # failed" reliably starts at the shard's deploy key — that is exactly
-          # how #5224/#5225/#5227 were misfiled.
-          CDN_WAIT_RESULT: ${{ steps.cdn-gate.outputs.cdn_wait_result }}
-          CDN_IT_CONCLUSION: ${{ steps.cdn-gate.outputs.cdn_it_conclusion }}
-          CDN_READY_RESULT: ${{ steps.cdn-gate.outputs.cdn_ready_result }}
-          CDN_READY_WAITED_S: ${{ steps.cdn-gate.outputs.cdn_ready_waited_s }}
-          CDN_READY_TIMEOUT_S: ${{ steps.cdn-gate.outputs.cdn_ready_timeout_s }}
-          CDN_READY_API_FAILURES: ${{ steps.cdn-gate.outputs.cdn_ready_api_failures }}
-        run: |
-          if [ -n "${CDN_IT_CONCLUSION:-}" ]; then
-            CAUSE_LINE="the IT leg (\`build-locale (it)\`) of this run ended **${CDN_IT_CONCLUSION}**, so CDN build id \`${CDN_EXPECTED}\` was never published and never could be. The gate stopped after \`${CDN_WAITED_S}s\` instead of spending the whole \`${CDN_TIMEOUT_S}s\` budget."
-            ANNOT="The ${LOCALE} shard was NOT pushed: the IT leg of this run ended ${CDN_IT_CONCLUSION}, so CDN build id ${CDN_EXPECTED} was never published (gate aborted after ${CDN_WAITED_S}s rather than waiting out the ${CDN_TIMEOUT_S}s budget). Fix the IT leg — this is NOT a ${LOCALE} shard-repo or deploy-key problem."
-          elif [ -n "${CDN_READY_RESULT:-}" ] && [ "${CDN_READY_RESULT}" != 'ready' ]; then
-            CAUSE_LINE="the #7049 readiness phase ended **${CDN_READY_RESULT}** after \`${CDN_READY_WAITED_S}s\` of its separate \`${CDN_READY_TIMEOUT_S}s\` budget (jobs API failures: \`${CDN_READY_API_FAILURES:-0}\`). The IT early-CDN step was not authoritatively ready, so the \`${CDN_TIMEOUT_S}s\` marker budget was never started."
-            ANNOT="The ${LOCALE} shard was NOT pushed: the #7049 readiness phase ended ${CDN_READY_RESULT} after ${CDN_READY_WAITED_S}s/${CDN_READY_TIMEOUT_S}s (jobs API failures ${CDN_READY_API_FAILURES:-0}). The IT early-CDN step was not authoritatively ready; marker polling never started. Fix the IT leg or jobs-API observability — this is NOT a ${LOCALE} shard-repo or deploy-key problem."
-          else
-            CAUSE_LINE="the gate spent its full \`${CDN_TIMEOUT_S}s\` budget waiting for the IT leg to publish CDN build id \`${CDN_EXPECTED}\` (last seen \`${CDN_LAST_SEEN:-<nessuno>}\`), and the IT leg's own conclusion could not be read."
-            ANNOT="The ${LOCALE} shard was NOT pushed: the #2569 CDN ordering gate timed out after ${CDN_WAITED_S}s of a ${CDN_TIMEOUT_S}s budget waiting for the IT leg to publish CDN build id ${CDN_EXPECTED} (last seen '${CDN_LAST_SEEN}'). Live ${LOCALE} pages serve STALE content until the next deploy. Look at the IT leg of this run, not at the ${LOCALE} shard repo."
-          fi
-          echo "::error title=Locale shard NOT published (#2569 gate: ${CDN_WAIT_RESULT:-failure})::${ANNOT}"
-          {
-            echo "🛑 **${LOCALE} shard NOT published — #2569 CDN ordering gate (\`${CDN_WAIT_RESULT:-failure}\`)**"
-            echo ""
-            echo "- cause: ${CAUSE_LINE}"
-            echo "- waited: \`${CDN_WAITED_S}s\` of \`${CDN_TIMEOUT_S}s\`"
-            echo "- IT readiness: \`${CDN_READY_RESULT:-legacy}\` after \`${CDN_READY_WAITED_S:-0}s\` of \`${CDN_READY_TIMEOUT_S:-0}s\` (API failures: \`${CDN_READY_API_FAILURES:-0}\`)"
-            echo "- expected CDN build id: \`${CDN_EXPECTED}\`"
-            echo "- last seen on the CDN: \`${CDN_LAST_SEEN:-<none>}\`"
-            echo "- the live \`${LOCALE}\` pages stay STALE until the next successful deploy"
-          } >> "$GITHUB_STEP_SUMMARY"
-          node scripts/lib/github-issue-creator.mjs \
-            --title "Deploy: guard di ordinamento CDN #2569 scaduto (${{ matrix.locale }}) — shard non pubblicato" \
-            --description "## Guard di ordinamento CDN (#2569) scaduto — shard \`${LOCALE}\` NON pubblicato
-
-          Lo shard \`${LOCALE}\` **non è stato pushato**. Non è un errore dello shard repo: il guard di ordinamento aspettava che il leg **IT** pubblicasse il payload CDN di questa build, quindi lo shard è stato volutamente tenuto indietro invece di andare live davanti alla CDN.
-
-          **Causa:** ${CAUSE_LINE}
-
-          | | |
-          |---|---|
-          | esito del guard | \`${CDN_WAIT_RESULT:-failure}\` |
-          | readiness IT | \`${CDN_READY_RESULT:-legacy}\` dopo \`${CDN_READY_WAITED_S:-0}s\` / \`${CDN_READY_TIMEOUT_S:-0}s\` (API failures: \`${CDN_READY_API_FAILURES:-0}\`) |
-          | conclusione del leg IT | \`${CDN_IT_CONCLUSION:-non letta}\` |
-          | atteso | \`${CDN_WAITED_S}s\` su un budget di \`${CDN_TIMEOUT_S}s\` |
-          | build id CDN atteso | \`${CDN_EXPECTED}\` |
-          | ultimo id visto sulla CDN | \`${CDN_LAST_SEEN:-<nessuno>}\` |
-          | locale | \`${LOCALE}\` |
-          | branch | \`${BRANCH}\` |
-
-          **Run:** ${RUN_URL}
-
-          **Dove guardare — il leg IT di questo run, non lo shard \`${LOCALE}\`:**
-          1. il leg \`build-locale (it)\` è fallito o è stato lento? Se il suo Build fallisce, il marker non viene mai scritto e tutti e tre i leg non-IT scadono (successo esatto: run 31062047677).
-          2. lo step \`Push generated assets to CDN (early …)\` del leg IT ha pubblicato? Se ha loggato \`CDN_BASE unset\` la push è fallita.
-          3. \`curl -s https://cdn.frontaliereticino.ch/cdn-build-id.txt\` corrisponde a \`${CDN_EXPECTED}\`?
-
-          Il deploy resta verde per design: un solo shard indietro non deve abortire gli altri 26." \
-            --priority 1 \
-            --label Bug \
-            --workflow "${WORKFLOW}"
-          # NESSUN --reopen-within-hours: si eredita il default del creator
-          # (DEFAULT_REOPEN_WITHIN_HOURS, 720h). Qui c'era `6`, e quel 6
-          # contraddiceva la sua stessa intenzione dichiarata allo step
-          # "Resolve …" qui sotto — «close↔reopen on ONE issue per cause».
-          # Con 6h la riapertura funziona solo se il rosso torna entro 6h dal
-          # verde che ha chiuso; a cadenza giornaliera non torna mai. Misura
-          # 2026-08-14: le gemelle #5771/#5772/#5773 sono state chiuse
-          # 2026-08-13T08:51Z, il guard è riscaduto 27,7h dopo, e i tre leg
-          # hanno coniato #5868/#5869/#5872 invece di riaprirle. Il contrasto
-          # che lo prova: #5864, chiusa 12:32:46Z e riaperta 13:35:37Z (1,05h,
-          # dentro i 6h). Il 6h resta giusto SOLO per i validatori post-deploy,
-          # che collassano un flap rosso→verde→rosso dentro UN ciclo di deploy.
-
-      - name: Surface a stale-locale shard push failure (#2658)
-        # The gate passed and the push itself failed — THIS is the shard-repo /
-        # deploy-key / transient-network case. A push failure leaves the live
-        # ${{ matrix.locale }} shard serving STALE content while the deploy
-        # still goes green. Don't fail the deploy (the continue-on-error
-        # resilience is deliberate) — but make it LOUD: annotation + a deduped
-        # tracking issue so the stale locale is never shipped silently.
-        # Self-resolves on the next green push (reopen-within).
-        if: matrix.locale != 'it' && steps.push-shard.outcome == 'failure'
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Bound here, not interpolated into the `run:` text, so the issue
-          # TITLE below is a literal string identical to the one the resolve
-          # step closes. Title drift between the two is the failure mode that
-          # leaves a permanently-open issue — tests/deploy-cdn-ordering-gate
-          # compares them character for character.
-          LOCALE: ${{ matrix.locale }}
-          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          BRANCH: ${{ github.ref_name }}
-          WORKFLOW: ${{ github.workflow }}
-        run: |
-          echo "::error title=Stale locale shard::Push of the ${LOCALE} shard FAILED (the #2569 CDN ordering gate passed — this is a shard-repo/deploy-key/network failure) — the live ${LOCALE} pages serve STALE content until the next successful deploy. Deploy stays green by design (transient-tolerant)."
-          {
-            echo "🛑 **${LOCALE} shard push FAILED** — the #2569 ordering gate passed, so this is a shard-repo / deploy-key / network failure. Live \`${LOCALE}\` pages stay STALE."
-          } >> "$GITHUB_STEP_SUMMARY"
-          node scripts/lib/github-issue-creator.mjs \
-            --title "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
-            --description "## Push locale shard fallito — locale live STALE
-          Il push dello shard \`${LOCALE}\` è fallito: le pagine live di quel locale servono contenuto **stale** finché un deploy successivo non ripush con successo. Il deploy resta verde per design (resilienza a errori transienti dello shard-repo), ma la mancata propagazione è ora segnalata.
-          **Run:** ${RUN_URL}
-          **Locale:** ${LOCALE}
-          **Branch:** ${BRANCH}
-          Il guard di ordinamento CDN (#2569) è PASSATO in questo run — la causa non è la CDN. Probabili cause: errore transiente di rete/artifact-service, conflitto di push, deploy key shard scaduta." \
-            --priority 1 \
-            --label Bug \
-            --workflow "${WORKFLOW}"
-          # NESSUN --reopen-within-hours: default 720h del creator. Vedi la nota
-          # allo step gemello sopra — stessa coppia surface↔resolve, stessa
-          # cadenza, stesso motivo per cui `6` non teneva la issue canonica.
-
-      - name: Resolve stale-locale shard issues on successful push (#2658)
-        # Mirror of BOTH surfacing steps: a green push closes whichever of the
-        # two canonical issues is open (close↔reopen on ONE issue per cause, no
-        # per-run storm). Both titles must be resolved here — a shard that was
-        # held back by a gate timeout last run and pushes fine this run has an
-        # open "#2569 scaduto" issue, and only this step can close it.
-        if: matrix.locale != 'it' && steps.push-shard.outcome == 'success'
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LOCALE: ${{ matrix.locale }}
-          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          WORKFLOW: ${{ github.workflow }}
-        run: |
-          for title in \
-            "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
-            "Deploy: guard di ordinamento CDN #2569 scaduto (${{ matrix.locale }}) — shard non pubblicato"
-          do
-            node scripts/lib/github-issue-creator.mjs \
-              --resolve \
-              --title "$title" \
-              --workflow "${WORKFLOW}" \
-              --run-url "${RUN_URL}"
-          done
-
+      # Non-IT shard transfer, packing, and publication run in
+      # deploy-publish.yml after this build releases its six-hour budget.
+      # IT keeps the in-build section path because it owns Pages and the CDN
+      # payload admission gate.
       - name: Report failure to GitHub Issues (build)
         if: failure()
         continue-on-error: true
@@ -2874,9 +2076,12 @@ jobs:
       # test. La condizione su `steps.memguard.outputs.breach` e' cio' che
       # tiene il titolo onesto: senza, ogni build rossa aprirebbe questa issue.
       #
-      # CHI CHIUDE: lo step gemello "Resolve build memory issue on green" qui
-      # sotto, con `mode: resolve` e il TITOLO IDENTICO — e' il modello
-      # `sibling-resolve-step`. Il reconciler centrale NON copre questo titolo
+      # CHI CHIUDE: lo step gemello "Resolve build memory issue on green" del
+      # job `resolve-build-alarm` in fondo al file, con `mode: resolve` e il
+      # TITOLO IDENTICO — e' il modello `sibling-resolve-step`. Sta li' e non in
+      # questa gamba perche' il titolo e' lo stesso per le quattro gambe: uno
+      # step `if: success()` di una gamba verde chiudeva la issue aperta da una
+      # gamba rossa della stessa run. Il reconciler centrale NON copre questo titolo
       # (non matcha il suo `TITLE_RE`, `Workflow|Crawler|CI Failure: `), quindi
       # quella meta' locale e' l'unica che c'e'. Cambiare il titolo qui senza
       # cambiarlo la' lascia la issue aperta per sempre: e' il guasto di #5470,
@@ -2922,35 +2127,72 @@ jobs:
               issue è aperta, la strada è ridurre la retention (vedi i checkpoint
               `[mem]` di jobsSeoPagesPlugin), non allargare le soglie.
 
-      - name: Resolve build memory issue on green
-        if: success()
+      # ── La misura full-corpus del build jobs SEO (#9618) ─────────────────
+      #
+      # L'allarme dello step "Validate full-corpus jobs SEO evidence", che NON
+      # blocca il deploy (il perche' e' nel commento di quello step). Senza
+      # questa coppia il `continue-on-error` renderebbe muto un FAIL: il run
+      # resterebbe verde e la misura incompleta non la vedrebbe nessuno.
+      #
+      # `steps.build_step.outcome == 'success'` tiene il titolo onesto: su una
+      # build rossa i marker mancano per forza, e quel guasto lo apre gia'
+      # "CI Failure (build)". Qui arriva solo il caso "sito pubblicato, misura
+      # non verificabile".
+      #
+      # CHI CHIUDE: lo step gemello qui sotto, col TITOLO IDENTICO, appena una
+      # run IT ha la misura completa (`sibling-resolve-step`; il test
+      # tests/failure-issue-closers.test.ts verifica l'accoppiamento).
+      #
+      # `continue-on-error` anche qui: l'action esce 0 per contratto, ma se il
+      # reporting stesso si rompesse (API, checkout parziale) il job diventerebbe
+      # rosso e `deploy-publish.yml` non pubblicherebbe, cioe' il blocco che lo
+      # step di misura ha appena smesso di causare.
+      - name: Report jobs SEO full-corpus evidence gap to GitHub Issues
+        if: always() && matrix.locale == 'it' && steps.build_step.outcome == 'success' && steps.jobs_seo_evidence.outcome == 'failure'
+        continue-on-error: true
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'la misura full-corpus del build jobs SEO non è verificabile'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '3'
+          labels: Bug
+          entity: ${{ matrix.locale }}
+          diag-file: ${{ runner.temp }}/jobs-seo-evidence-diag.txt
+          context: |
+            - **Il deploy NON è stato bloccato**: la build è verde e il sito è
+              proseguito verso la pubblicazione. A fallire è la verifica della
+              MISURA (`scripts/ci/report-jobs-seo-build-metrics.mjs
+              --require-full-corpus`), cioè i marker `[mem] jobsSeoPages` e
+              `[jobs-seo-profile]` che #9618 usa come prova.
+            - L'estratto qui sotto elenca le invarianti fallite. Il summary del
+              job e l'artifact `jobs-seo-full-corpus-markers-<run_id>` hanno i
+              marker completi.
+            - **Prima di correggere il produttore**, chiediti se è l'invariante
+              a essere sbagliata: #9754 pretendeva `previousSlugEntries > 0`,
+              che in produzione vale 0 per scelta (#9773). Riproduci in locale
+              con `node scripts/ci/report-jobs-seo-build-metrics.mjs
+              <jobs-seo-markers.txt> --require-full-corpus`.
+            - Se la produzione ha ragione, aggiungi l'artifact di questa run a
+              `tests/fixtures/jobs-seo-full-corpus-markers/` insieme alla
+              correzione del validatore: è il replay che impedisce all'errore
+              di tornare.
+
+      - name: Resolve jobs SEO full-corpus evidence issue on pass
+        if: always() && matrix.locale == 'it' && steps.jobs_seo_evidence.outcome == 'success'
         continue-on-error: true
         uses: ./.github/actions/report-failure
         with:
           mode: resolve
-          title: 'il picco di memoria della build risale sopra la soglia'
+          title: 'la misura full-corpus del build jobs SEO non è verificabile'
           closed-by: sibling-resolve-step
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Resolve build GitHub Issue on success
-        if: success()
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Build succeeded → close the canonical "CI Failure (build)" issue if
-          # open. Paired with the reopen window of the reporter above so the
-          # close↔reopen cycle stays on ONE canonical issue (no per-run storm,
-          # no stale issue while green). Idempotent no-op when nothing is open.
-          # Quel reporter (report-validate-dist-failure.mjs, reportBuild) NON
-          # nomina più `reopenWithinHours: 6`: eredita i 720h di default, ed è
-          # ciò che rende vera questa riga — con 6h la coppia si spezzava a ogni
-          # ricaduta oltre le 6h dal verde, e le issue canoniche erano 22.
-          node scripts/lib/github-issue-creator.mjs \
-            --resolve \
-            --title "CI Failure (build): ${{ github.workflow }}" \
-            --workflow "${{ github.workflow }}" \
-            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+      # La chiusura di "CI Failure (build)" NON sta più qui: la fa il job
+      # `resolve-build-alarm` in fondo al file, solo quando TUTTE le gambe
+      # della run sono verdi. Uno step `if: success()` di una gamba vede solo la
+      # propria gamba: il 2026-09-25 la gamba fr della run 36077807468 ha chiuso
+      # #9179 alle 04:53 mentre la gamba it della STESSA run era rossa.
 
       # Marker del profilo + wall-time delle fasi POST-build del leg (#7301).
       # I marker finiscono nella stessa riga bounded del JSONL per permettere
@@ -2963,10 +2205,9 @@ jobs:
       # soggetta a retention e ai run cancellati, quindi nessuna ottimizzazione
       # del leg IT ha una misura prima/dopo verificabile dal repo.
       #
-      # ULTIMO step del job, non subito dopo il tar: e' strumentazione, e uno
-      # step con fino a ~95s di backoff non deve mai stare sul percorso critico
-      # del publish (stessa ragione per cui la riga di memoria sta dopo la CDN
-      # push, vedi il commento di quello step).
+      # In fondo al job, non subito dopo il tar: e' strumentazione. Come la
+      # riga di memoria, va solo in staging; il commit lo fa
+      # build-history-commit, fuori dal percorso critico della gamba (#9247).
       #
       # Riga SEPARATA nello stesso JSONL, non uno schema unico: le due righe
       # hanno produttori e momenti diversi, e le 294 righe gia' committate non
@@ -2978,24 +2219,17 @@ jobs:
         continue-on-error: true
         shell: bash
         env:
+          HISTORY_STAGE_DIR: ${{ runner.temp }}/build-history-rows
           ROW_LOCALE: ${{ matrix.locale }}
           ROW_RUN_ID: ${{ github.run_id }}
           ROW_SHA: ${{ github.sha }}
-          # Le due coppie IT / non-IT sono step distinti con `if:` opposti:
-          # in un dato leg esattamente una delle due e' valorizzata. Passarle
-          # entrambe ed effettuare la scelta in node evita il ternario
-          # `A && B || C` di GitHub Actions, che su A vuoto cade sul ramo
-          # sbagliato invece di restare vuoto.
+          ROW_BUILD_STATUS: ${{ job.status }}
+          # IT keeps its section timing in this job. The non-IT section tail
+          # now runs in deploy-publish.yml; only its compact source handoff is
+          # measured here.
           ROW_PUSH_SHARDS_IT: ${{ steps.push-section-shards-it.outputs.wall_seconds }}
-          ROW_PUSH_SHARDS_NONIT: ${{ steps.push-section-shards-nonit.outputs.wall_seconds }}
           ROW_PACK_TAR_IT: ${{ steps.pack-section-shards-it.outputs.wall_seconds }}
-          ROW_PACK_TAR_NONIT: ${{ steps.pack-section-shards-nonit.outputs.wall_seconds }}
-          # Le due fasi post-build dello shard di LOCALE: girano solo sui leg
-          # non-IT (l'apex IT pubblica via Pages), quindi sono chiavi proprie e
-          # non un `pick` sopra le due di sezione. Stessa classe di buco —
-          # fase post-build senza wall-time committato — quindi stesso fix.
-          ROW_PUSH_LOCALE_SHARD: ${{ steps.push-shard.outputs.wall_seconds }}
-          ROW_PACK_LOCALE_TAR: ${{ steps.pack-locale-shard.outputs.wall_seconds }}
+          ROW_PACK_LOCALE_SOURCE: ${{ steps.pack-locale-source.outputs.wall_seconds }}
         run: |
           set -o pipefail
           marker_json='{"profile":[],"phases":[]}'
@@ -3008,10 +2242,9 @@ jobs:
               return v === undefined ? null : Number(v);
             };
             const postBuild = {
-              push_shards_seconds: pick("ROW_PUSH_SHARDS_IT", "ROW_PUSH_SHARDS_NONIT"),
-              pack_tar_seconds: pick("ROW_PACK_TAR_IT", "ROW_PACK_TAR_NONIT"),
-              push_locale_shard_seconds: pick("ROW_PUSH_LOCALE_SHARD"),
-              pack_locale_tar_seconds: pick("ROW_PACK_LOCALE_TAR"),
+              push_shards_seconds: pick("ROW_PUSH_SHARDS_IT"),
+              pack_tar_seconds: pick("ROW_PACK_TAR_IT"),
+              pack_locale_source_seconds: pick("ROW_PACK_LOCALE_SOURCE"),
             };
             const markers = JSON.parse(process.env.ROW_MARKERS || "{}");
             const profile = Array.isArray(markers.profile) ? markers.profile : [];
@@ -3026,13 +2259,13 @@ jobs:
               locale: process.env.ROW_LOCALE,
               run_id: process.env.ROW_RUN_ID,
               sha: process.env.ROW_SHA,
+              build_status: process.env.ROW_BUILD_STATUS || null,
               kind: "build-profile",
               profile,
               phases,
               ...postBuild,
             }));
           ' | HISTORY_LABEL=build-history-profile \
-              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} build profile run ${ROW_RUN_ID}" \
               bash scripts/lib/append-build-history-row.sh
 
       - name: Append incremental manifest history row
@@ -3040,6 +2273,7 @@ jobs:
         continue-on-error: true
         shell: bash
         env:
+          HISTORY_STAGE_DIR: ${{ runner.temp }}/build-history-rows
           ROW_LOCALE: ${{ matrix.locale }}
           ROW_RUN_ID: ${{ github.run_id }}
           ROW_SHA: ${{ github.sha }}
@@ -3117,8 +2351,22 @@ jobs:
               file_size_bytes: fs.statSync(currentPath).size,
             }));
           ' | HISTORY_LABEL=build-history-manifest \
-              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} incremental manifest run ${ROW_RUN_ID}" \
               bash scripts/lib/append-build-history-row.sh
+
+      # Le righe in staging dei tre produttori sopra lasciano la gamba come
+      # artifact; le committa UNA volta per run il job build-history-commit
+      # (#9247). Il nome porta run_attempt: il rerun di una gamba non collide
+      # con l'artifact del tentativo precedente, e le righe gia' committate
+      # le scarta il dedup del job di commit.
+      - name: Upload build-history rows
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-history-rows-${{ matrix.locale }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/build-history-rows/
+          if-no-files-found: ignore
+          retention-days: 3
 
       - name: Check jobs SEO HTML cache contents
         if: success() && env.JOBS_SEO_REUSE == '1'
@@ -3136,20 +2384,198 @@ jobs:
       # run. A failed/incomplete build must never become the reusable source.
       - name: Save jobs SEO HTML cache
         if: success() && env.JOBS_SEO_REUSE == '1' && steps.jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .cache/incremental-html
           key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
 
+      # Small, immutable receipt consumed by deploy-publish.yml. It is written
+      # after every leg (including failed legs) and uploaded independently of
+      # the large payload artifacts. A missing/invalid receipt is fail-closed
+      # in the admission plan, while a failed non-IT leg remains on its
+      # last-known-good shard and is explicitly reported as stale.
+      - name: Write locale publish provenance
+        if: always()
+        env:
+          PROVENANCE_BUILD_OUTCOME: ${{ steps.build_step.outcome }}
+          PROVENANCE_VALIDATE_OUTCOME: ${{ steps.validate-locale-shard.outcome }}
+          PROVENANCE_IT_PREP_OUTCOME: ${{ steps.deploy-prep-it.outcome }}
+          PROVENANCE_PAGES_ARTIFACT_OUTCOME: ${{ steps.upload-pages-artifact.outcome }}
+          PROVENANCE_SOURCE_ARTIFACT_OUTCOME: ${{ matrix.locale == 'it' && 'deferred' || (steps.pack-locale-source.outcome == 'success' && steps.upload-locale-source.outcome == 'success' && 'success' || 'failure') }}
+          PROVENANCE_OFFLOAD_OUTCOME: ${{ matrix.locale == 'it' && steps.deploy-prep-it.outcome || 'deferred' }}
+          PROVENANCE_SECTION_PUSH_OUTCOME: ${{ matrix.locale == 'it' && steps.push-section-shards-it.outcome || 'deferred' }}
+          PROVENANCE_CDN_GATE_OUTCOME: deferred
+          PROVENANCE_LOCALE_PUSH_OUTCOME: deferred
+          PROVENANCE_LOCALE_PACK_OUTCOME: deferred
+          PROVENANCE_LOCALE_ARTIFACT_OUTCOME: deferred
+        run: |
+          node scripts/ci/locale-publish-provenance.mjs \
+            --output "$RUNNER_TEMP/locale-publish-provenance/${BUILD_LOCALE}.json" \
+            --dist-dir dist
+
+      - name: Upload locale publish provenance
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: locale-publish-provenance-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/locale-publish-provenance/${{ matrix.locale }}.json
+          retention-days: 8
+          if-no-files-found: error
+
       # Save the current shadow snapshot only after the report and history row:
       # the run-specific key is unique, while restore-keys above picks the
-      # newest prior snapshot on the next run for this locale.
+      # newest prior snapshot on the next run for this locale. Keep this as the
+      # final step in the job: provenance has already captured every
+      # publish-critical outcome, while this cache is only a later-run hint.
       - name: Save incremental manifest cache
         if: always() && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .cache/incremental-manifest
           key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
+
+  # ───────────────────────────────────────────────────────────────────────
+  # build-history-commit: l'UNICO scrittore di
+  # data/build-history/memory-peaks.jsonl per run (#9247).
+  #
+  # Le gambe di build-locale mettono le righe in staging e le caricano come
+  # artifact build-history-rows-<locale>-<attempt>; questo job, dopo TUTTE le
+  # gambe, fa un solo commit e un solo push. Prima erano dodici push per run
+  # dentro le gambe, in gara fra loro: fino a 37,8 min di rebase sul percorso
+  # critico (run 37107091990) e righe perse in silenzio.
+  #
+  # Telemetria, mai un gate: continue-on-error, nessun job lo mette in
+  # `needs` (non entra nel percorso di publish), timeout corto. Una run
+  # cancellata a meta' committa le righe che ha; il log del commit elenca le
+  # righe per file, quindi una gamba mancante si vede.
+  # ───────────────────────────────────────────────────────────────────────
+  build-history-commit:
+    needs: [build-locale]
+    # always(): anche con gambe fallite o una run cancellata ci sono righe da
+    # salvare. Ma se build-locale e' stato saltato (run non ammessa, prep
+    # fallito) non esiste nessuna riga: niente runner ne' segreti caricati.
+    if: ${{ always() && needs.build-locale.result != 'skipped' }}
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 10
+    permissions:
+      # Il push usa GITHUB_PAT/APP_TOKEN da Remote Config
+      # (configure-main-push-auth.sh): il GITHUB_TOKEN serve solo a leggere
+      # il repo e gli artifact della run.
+      contents: read
+      actions: read
+      issues: write
+    steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
+      - name: Checkout build-history writer
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /.gitattributes
+            /data/build-history/
+            /scripts/lib/
+            /scripts/ci/assert-accumulator-write.mjs
+            /scripts/ci/phase-timing-observer.mjs
+            /scripts/load-rc-env.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      # Nessun npm ci: load-rc-env.mjs ripiega sul percorso REST senza
+      # dipendenze (#4837) e carica GITHUB_PAT per il push su main.
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — Remote Config secrets will not be loaded."
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      # Senza merge-multiple: ogni artifact nella sua sottocartella, cosi' i
+      # file omonimi di due tentativi della stessa gamba non si sovrascrivono.
+      # continue-on-error: se nessuna gamba ha caricato righe (prep rossa, run
+      # cancellata presto) lo step di commit lo dichiara da se'.
+      - name: Download build-history rows
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: build-history-rows-*
+          path: ${{ runner.temp }}/build-history-rows
+
+      - name: Commit build-history rows (one commit per run)
+        env:
+          HISTORY_ROWS_DIR: ${{ runner.temp }}/build-history-rows
+          HISTORY_COMMIT_MSG: 'chore(build-history): append rows run ${{ github.run_id }}'
+        run: bash scripts/lib/commit-build-history-rows.sh
+
+      # The matrix legs may observe independently; resolve only after every
+      # locale is green AND three consecutive deploy runs have complete phase
+      # measurements below the +30% boundary. The Actions run list is needed
+      # because a cancelled run can stop before writing a history row.
+      - name: Resolve build phase timing regression issue on green
+        if: always() && needs.build-locale.result == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          WORKFLOW_NAME: ${{ github.workflow }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          PHASE_TIMING_HISTORY: data/build-history/memory-peaks.jsonl
+          PHASE_TIMING_RUNS_FILE: ${{ runner.temp }}/phase-timing-runs.json
+          PHASE_TIMING_RUN_ID: ${{ github.run_id }}
+          PHASE_TIMING_REQUIRED_LOCALES: it,en,de,fr
+          PHASE_TIMING_RECOVERY_RUNS: '3'
+        run: |
+          set -euo pipefail
+          # A `--branch` run listing without `--created` can come back frozen
+          # weeks in the past (scripts/ci/lib/run-listing-window.mjs): the
+          # recovery check would then not find the current run and never
+          # close. Seven days cover the three consecutive deploys it needs
+          # with a wide margin; the observer orders the runs by id itself.
+          CREATED_SINCE="$(jq -rn 'now - (7 * 86400) | strftime("%Y-%m-%d")')"
+          gh run list \
+            --repo "$GH_REPO" \
+            --workflow deploy.yml \
+            --branch main \
+            --created ">=$CREATED_SINCE" \
+            --limit 20 \
+            --json databaseId,status,conclusion \
+            > "$PHASE_TIMING_RUNS_FILE"
+          recovery=$(node scripts/ci/phase-timing-observer.mjs --recovery-ready)
+          echo "[phase-timing] recovery-ready=$recovery (runs=$PHASE_TIMING_RECOVERY_RUNS)"
+          if [ "$recovery" != 'true' ]; then
+            exit 0
+          fi
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Build phase timing regression (+30% median)" \
+            --resolve \
+            --workflow "$WORKFLOW_NAME" \
+            --run-url "$RUN_URL"
 
   # ───────────────────────────────────────────────────────────────────────
   # rearm: make "every HEAD eventually gets a successful build" an invariant
@@ -3158,7 +2584,7 @@ jobs:
   # THE HOLE. `pages-build-run` keeps 1 running + 1 pending and drops the
   # superseded middle. That is newest-wins and it is correct — on a linear
   # `main` the newer build already contains what it superseded, and the
-  # paths-ignore comment at the top of this file records that those
+  # paths-ignore comment in deploy-request.yml records that those
   # cancellations start zero jobs and cost nothing. But nothing in the design
   # restarts the pipeline when it reaches a terminal state with NOTHING queued
   # behind it. Measured across the 100 runs from 2026-08-06T12:37Z to
@@ -3196,8 +2622,23 @@ jobs:
       contents: read
       actions: write   # read this workflow's run list + POST /dispatches
     steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -3224,16 +2665,333 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
+      # A run dispatched with GITHUB_TOKEN (actor github-actions[bot]) never
+      # fires `workflow_run` downstream, so deploy-publish.yml was never started
+      # for a re-armed build: it went green and its artifact was never deployed
+      # (e.g. runs 35896695642, 35956754182). Dispatch with the App token so the
+      # re-armed build is published like any push build. The App token is used
+      # only when its installation grants `actions: write` (APP_TOKEN_ACTIONS,
+      # read from the minted token's own permissions): a token that can mint
+      # but not dispatch would 403 here and silently leave the build unpublished.
+      - name: Mint GitHub App token (so the re-armed run triggers deploy-publish)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Re-arm the build pipeline if it has stopped with work outstanding
         # Never fail the deploy over this. A red job here would be a second
         # failure stacked on the one that stopped the pipeline, and
         # pages-publish-lag-watchdog.yml remains the backstop either way.
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           # At most this many build attempts per commit. The caller's own run
           # counts, so the default of 2 means exactly ONE automatic retry: a
           # commit whose build is genuinely broken is retried once and then left
           # to the "CI Failure (build)" issue this workflow already files.
           REARM_MAX_BUILDS_PER_SHA: '2'
+          # A confirmed host-loss/timeout in one matrix leg gets exactly one
+          # job-level rerun. The rerun reuses this run's SHA and prepared
+          # snapshot artifact; it must never fan out into a second full matrix.
+          REARM_MAX_LOCALE_RECOVERY_ATTEMPTS: '1'
         run: node scripts/ci/rearm-deploy-build.mjs
+
+  # ───────────────────────────────────────────────────────────────────────
+  # resolve-build-alarm: gli allarmi di build con un titolo UNICO per tutte le
+  # gambe ("CI Failure (build)" e il gate di memoria) si chiudono solo a run
+  # TUTTA verde. Quelli per-locale (shard, guard CDN) restano nella gamba: il
+  # locale è nel titolo, quindi ogni gamba chiude solo il proprio.
+  #
+  # Prima la chiusura era uno step `if: success()` dentro ogni gamba di
+  # `build-locale`, e uno step vede solo la propria gamba. Il 2026-09-25 la
+  # gamba it della run 36077807468 ha riaperto #9179 e alle 04:53 una gamba
+  # verde della STESSA run l'ha chiusa come «tornata verde»: la produzione era
+  # rossa e l'allarme spento. `needs.build-locale.result` è l'esito aggregato
+  # della matrice, cioè `success` solo se le quattro gambe lo sono.
+  #
+  # NON può rendere rossa una run verde: `continue-on-error` a livello di job.
+  # Una run rossa per colpa di questo job non avvierebbe la pubblicazione
+  # (`workflow_run` con conclusion success), e un guasto del reporter non deve
+  # mai costare un deploy. Gira in parallelo a `rearm`, quindi non allunga la
+  # tenuta del lock di concorrenza del build.
+  # ───────────────────────────────────────────────────────────────────────
+  resolve-build-alarm:
+    name: close the build alarm when every leg is green
+    needs: [build-locale]
+    if: needs.build-locale.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Resolve build GitHub Issue on success
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Tutte le gambe verdi → chiude la issue canonica "CI Failure (build)"
+          # se è aperta. Il reporter di ogni gamba la riapre entro 720h invece
+          # di coniarne una nuova: la coppia riapri↔chiudi resta su UNA issue
+          # canonica. No-op se non c'è niente di aperto. Il TITOLO deve restare
+          # identico a quello del reporter.
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "CI Failure (build): ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+      # Stesso difetto, stesso rimedio: il titolo del gate di memoria è unico
+      # per le quattro gambe (l'`entity` va nel body, non nel titolo), quindi
+      # lo chiude solo una run in cui nessuna gamba è rossa.
+      - name: Resolve build memory issue on green
+        continue-on-error: true
+        uses: ./.github/actions/report-failure
+        with:
+          mode: resolve
+          title: 'il picco di memoria della build risale sopra la soglia'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ───────────────────────────────────────────────────────────────────────
+  # in-run-alarm: la seconda rete dell'allarme di deploy, per le run che
+  # l'osservatore esterno non può vedere.
+  #
+  # IL BUCO. `deploy-failure-alarm.yml` parte su `workflow_run: completed` di
+  # questo workflow, e GitHub NON emette quell'evento per una run avviata con il
+  # GITHUB_TOKEN (actor `github-actions[bot]`): è la regola anti-ricorsione già
+  # descritta nel job `rearm` qui sopra. La run 36065965021 del 2026-09-24,
+  # dispatchata da `rearm` col token interno, è fallita nel leg it e
+  # l'osservatore esterno non è mai partito. #9715 fa dispatchare `rearm` col
+  # token dell'App, ma il ripiego sul GITHUB_TOKEN resta quando l'App non dà un
+  # token con `actions: write`: dal 2026-09-18 ci sono state 15 run così.
+  #
+  # PERCHÉ SOLO QUELLE RUN. Una run avviata da un utente, da un PAT o dall'App
+  # emette `workflow_run`, e l'osservatore esterno la vede a run CONCLUSA, con
+  # la conclusion vera. Accendere anche questo job per quelle run non aggiunge
+  # copertura: aggiunge un secondo commento 🔁 sulla stessa issue per ogni
+  # guasto. Con il filtro sull'actor ogni run rossa è vista da UN osservatore.
+  # `triggering_actor` copre un re-run lanciato col GITHUB_TOKEN; `actor` il
+  # dispatch originale. Se capitassero tutti e due (un re-run manuale di una
+  # run del bot), il titolo è IDENTICO a quello dell'osservatore esterno e il
+  # dedup del creator li collassa sulla stessa issue: al peggio un commento in
+  # più, mai una issue doppia.
+  #
+  # PERCHÉ `!cancelled()` E NON `always()`. Serve partire anche quando i job
+  # osservati sono falliti, ma non su una run cancellata: le cancellazioni
+  # newest-wins avvengono in coda e non avviano nessun job, una cancellazione a
+  # metà run è un'azione deliberata, e l'osservatore esterno tace sulle
+  # `cancelled` per la stessa ragione. `contains(..., 'failure')` esclude anche
+  # i job `cancelled` e `skipped`.
+  #
+  # NON è un gate: gira dopo il verdetto dei job osservati, il suo esito non
+  # conta per la run (`continue-on-error`), e scrive solo una issue.
+  # ───────────────────────────────────────────────────────────────────────
+  in-run-alarm:
+    name: in-run deploy alarm (run without workflow_run)
+    needs: [validate-promotion-trigger, matrix-setup, prep, build-locale]
+    if: >-
+      ${{ !cancelled() && github.ref == 'refs/heads/main' &&
+          (github.actor == 'github-actions[bot]' || github.triggering_actor == 'github-actions[bot]') &&
+          contains(needs.*.result, 'failure') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    permissions:
+      contents: read
+      issues: write
+      # Senza questa riga la Jobs API risponde 403 e il body degrada a «job non
+      # attribuito» in silenzio: un blocco `permissions:` esplicito azzera gli
+      # scope non elencati.
+      actions: read
+    steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Digest the failing deploy run
+        id: digest
+        # Lo script esce 0 per contratto; `continue-on-error` copre il crash
+        # imprevisto, perché lo step successivo deve partire comunque: senza
+        # body usa il testo di ripiego invece di tacere.
+        continue-on-error: true
+        env:
+          # Tutti gli input passano da env, mai come testo di script.
+          ALARM_WORKFLOW_NAME: ${{ github.workflow }}
+          ALARM_REPO: ${{ github.repository }}
+          ALARM_RUN_ID: ${{ github.run_id }}
+          ALARM_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          # La run è ancora in corso, quindi non ha una conclusion da leggere:
+          # il `failure` l'ha già provato l'`if:` del job su `needs.*.result`.
+          ALARM_RUN_CONCLUSION: failure
+          ALARM_OBSERVER: in-run
+          ALARM_DESCRIPTION_FILE: alarm-description.md
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/report-deploy-run-failure.mjs --mode report
+      - name: Open or update the deploy alarm issue
+        id: open
+        # Ogni job di `needs:` è elencato per esteso: è la forma che
+        # `isFailureGated` (scripts/ci/failure-issue-inventory.mjs) riconosce,
+        # così il gate di accoppiamento verifica che qualcuno chiuda questo
+        # titolo. `tests/deploy-in-run-alarm.test.ts` pretende che l'elenco
+        # copra tutti i `needs:` del job.
+        if: >-
+          needs.validate-promotion-trigger.result == 'failure' ||
+          needs.matrix-setup.result == 'failure' ||
+          needs.prep.result == 'failure' ||
+          needs.build-locale.result == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ALARM_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          # Se il digest non ha potuto scrivere il body (Jobs API 403, rete),
+          # l'allarme suona lo stesso con meno dettaglio.
+          if [ ! -s alarm-description.md ]; then
+            cat > alarm-description.md <<'FALLBACK'
+          Il deploy e' rosso su main in una run avviata dal token interno di
+          GitHub Actions, che l'osservatore esterno non vede, e il digest della
+          run non e' stato leggibile. Il guasto resta: apri la run e leggi il
+          primo job rosso.
+          FALLBACK
+          fi
+          # Titolo IDENTICO a quello dell'osservatore esterno: una sola issue
+          # canonica per il deploy rosso, chiusa al primo verde dall'osservatore
+          # esterno o dal reconciler orario.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description-file alarm-description.md \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}" \
+            --run-url "${ALARM_RUN_URL}"
+      - name: Open the deploy alarm without the checkout (fallback)
+        # Lo step sopra ha il `success()` implicito: se il checkout o il setup di
+        # Node falliscono, salta, e per una run del bot non c'è un osservatore
+        # esterno che rimedi. Questo parte comunque (`always()`), tranne su
+        # una run cancellata, che non allarma come nel resto del job,
+        # solo quando lo step sopra non ha scritto. Il creator non ha dipendenze
+        # oltre ai moduli di Node: se il checkout manca lo scarica con `gh`
+        # allo SHA della run e lo esegue col Node di sistema del runner, quindi
+        # dedup, riapertura e titolo restano quelli canonici.
+        if: >-
+          always() && !cancelled() && steps.open.outcome != 'success' &&
+          (needs.validate-promotion-trigger.result == 'failure' ||
+           needs.matrix-setup.result == 'failure' ||
+           needs.prep.result == 'failure' ||
+           needs.build-locale.result == 'failure')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Senza checkout la cwd non è un repo git: `gh` deve sapere dove scrivere.
+          GH_REPO: ${{ github.repository }}
+          ALARM_SHA: ${{ github.sha }}
+          ALARM_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          creator=scripts/lib/github-issue-creator.mjs
+          if [ ! -s "$creator" ]; then
+            creator="$RUNNER_TEMP/github-issue-creator.mjs"
+            gh api -H 'Accept: application/vnd.github.raw' \
+              "repos/${GH_REPO}/contents/scripts/lib/github-issue-creator.mjs?ref=${ALARM_SHA}" \
+              > "$creator" || true
+          fi
+          if [ ! -s "$creator" ]; then
+            echo "::error title=Deploy alarm not written::il creator delle issue non è leggibile né dal checkout né via API; apri a mano ${ALARM_RUN_URL}"
+            exit 0
+          fi
+          node "$creator" \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "Il deploy e' rosso su main in una run avviata dal token interno di GitHub Actions, che l'osservatore esterno non vede. Il job di allarme interno non ha potuto preparare il digest (checkout o setup falliti): apri la run e leggi il primo job rosso." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}" \
+            --run-url "${ALARM_RUN_URL}" \
+            || echo "::error title=Deploy alarm not written::il creator è uscito non-zero; apri a mano ${ALARM_RUN_URL}"

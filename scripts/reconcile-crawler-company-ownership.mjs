@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * One-time, idempotent reconciliation for issues #6759 and #6797.
  *
@@ -646,7 +648,7 @@ function reconcile({ apply = false } = {}) {
     const ownerPredicate = item.broad === 'migros-ticino'
       ? (job) => dedicatedMigrosOwner(job) === item.dedicated
       : item.broad === 'posta-svizzera-centro-regionale'
-        ? (job) => dedicatedPostOwner(job.company) === item.dedicated
+        ? (job) => dedicatedPostOwner(job) === item.dedicated
         : item.broad === 'etat-de-fribourg'
           ? (job) => dedicatedFribourgOwner(job) === item.dedicated
           : item.broad === 'amministrazione-cantonale-ti'
@@ -737,6 +739,6 @@ function main() {
   }, null, 2));
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

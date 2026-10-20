@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -24,6 +25,27 @@ export const MUELLER_STEINMAUR_COMPANY_NAME = 'mueller-steinmaur';
 export const MUELLER_STEINMAUR_COMPANY_DOMAIN = 'mueller-steinmaur.ch';
 
 const CAREER_URL = 'https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/';
+
+/** Return canonical CH geography only when the source carries country evidence. */
+export function resolveMuellerSteinmaurGeography(listing = {}) {
+  const countries = [listing.addressCountry, listing.country]
+    .map((value) => String(value || '').trim())
+    .filter(Boolean);
+  if (countries.length === 0) return null;
+
+  const resolved = [];
+  for (const addressCountry of countries) {
+    const geography = resolveSourceBackedSwissGeography({ ...listing, addressCountry });
+    if (!geography) return null;
+    resolved.push(geography);
+  }
+
+  return {
+    ...resolved[0],
+    addressCountry: 'CH',
+    country: 'CH',
+  };
+}
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -139,7 +161,7 @@ export async function fetchAllMuellerSteinmaurJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    const geography = resolveMuellerSteinmaurGeography(listing);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
@@ -180,9 +202,9 @@ export async function fetchAllMuellerSteinmaurJobs() {
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
       addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
-      country: normalizeSpace(listing.addressCountry || 'CH'),
+      addressRegion: canton,
+      addressCountry: geography.addressCountry,
+      country: geography.country,
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
@@ -192,7 +214,7 @@ export async function fetchAllMuellerSteinmaurJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

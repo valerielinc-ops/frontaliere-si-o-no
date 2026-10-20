@@ -76,7 +76,7 @@ import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { CITY_HUB_KEYS } from './cityJobsHub';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
-import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
+import { CRAWLED_COMPANY_LOGOS, logoUrlForRenderedOutput } from '../services/jobDataNormalization';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { JOB_RECENCY_LANDING_SLUGS } from './jobRecencyLanding';
 import { adSlotHtml } from './lib/adSlotHtml';
@@ -1324,7 +1324,7 @@ function renderTopList(
     .map((item, idx) => {
       const logoSlug = isEmployerList ? slugifyEmployer(item.name) : '';
       const logoUrl = isEmployerList
-        ? ((CRAWLED_COMPANY_LOGOS[logoSlug] as string | undefined) ??
+        ? logoUrlForRenderedOutput((CRAWLED_COMPANY_LOGOS[logoSlug] as string | undefined) ??
             (rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null))
         : null;
       const card = renderEntityCard({
@@ -1631,23 +1631,26 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
+    '@type': 'WebPage',
     headline: h1,
     description: truncateAtWordBoundary(intro, 220),
     image: `${BASE_URL}/og-image.png`,
-    datePublished: stats.endDate.toISOString(),
-    dateModified: `${todayIso}T00:00:00.000Z`,
     author: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
-        url: `${BASE_URL}/logo-512.png`,
+        // Keep the snapshot publisher on the same canonical logo as every
+        // other site Organization node. The former /logo-512.png variant is
+        // not a tracked asset and split the shared @id into two logo values.
+        url: `${BASE_URL}/icons/icon-512x512.png`,
       }),
     },
     mainEntityOfPage: canonicalUrl,
@@ -1665,16 +1668,16 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
-    dateModified: `${todayIso}T00:00:00.000Z`,
-    datePublished: stats.endDate.toISOString(),
     temporalCoverage: `${stats.startDate.toISOString().slice(0, 10)}/${stats.endDate.toISOString().slice(0, 10)}`,
     spatialCoverage: {
       '@type': 'Place',
@@ -1749,7 +1752,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
         : locale === 'de' ? `Tessiner Arbeitsmarkt ${monthLabel.monthName} ${monthLabel.year} — Statistik`
         : `Marché travail Tessin ${monthLabel.monthName} ${monthLabel.year} — tendances`)
       : JOB_MARKET_HUB_NAME[locale];
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   const description = truncateAtWordBoundary(intro, 180);
 
   const robots = noindex ? 'noindex,follow' : 'index,follow';
@@ -1930,7 +1933,6 @@ function renderHubPage(inp: HubPageInputs): string {
     description: copy.hubIntro,
     url: canonicalUrl,
     inLanguage: locale,
-    dateModified: `${todayIso}T00:00:00.000Z`,
     isPartOf: {
       '@type': 'WebSite',
       name: 'Frontaliere Ticino',
@@ -1949,15 +1951,16 @@ function renderHubPage(inp: HubPageInputs): string {
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
-    dateModified: `${todayIso}T00:00:00.000Z`,
     spatialCoverage: {
       '@type': 'Place',
       name: 'Canton Ticino',
@@ -2012,7 +2015,7 @@ function renderHubPage(inp: HubPageInputs): string {
   // report"); add a year stamp + brand suffix so SEO <title> stays
   // distinct even after the test's stripBrand normalisation (Semrush W3).
   const titleBase = `${h1} ${new Date().getFullYear()}`;
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   const description = truncateAtWordBoundary(copy.hubIntro, 180);
 
   // Above-the-fold tagline (≤120 chars) — replaces the long hubIntro
@@ -2834,7 +2837,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     : locale === 'en' ? `${sectorLabel} job market in Ticino`
     : locale === 'de' ? `Arbeitsmarkt ${sectorLabel} Tessin`
     : `Marché travail ${sectorLabel} Tessin`;
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   const metaDesc = copy.metaDesc(sectorLabel, stats.activeJobs);
 
   const statTiles = `<section class="s-VOrae_" aria-label="${esc(copy.kicker)}">
@@ -2926,7 +2929,6 @@ function renderSectorPage(inp: SectorPageInputs): string {
     description: metaDesc,
     url: canonicalUrl,
     inLanguage: locale,
-    dateModified: `${todayIso}T00:00:00.000Z`,
     isPartOf: {
       '@type': 'WebSite',
       name: 'Frontaliere Ticino',
@@ -2945,15 +2947,16 @@ function renderSectorPage(inp: SectorPageInputs): string {
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
       '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
-    dateModified: `${todayIso}T00:00:00.000Z`,
     spatialCoverage: {
       '@type': 'Place',
       name: 'Canton Ticino',
@@ -3368,7 +3371,7 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
             (loc) => `    <xhtml:link rel="alternate" hreflang="${loc}" href="${BASE_URL}${alt[loc]}" />`,
           ).join('\n');
           sitemapEntries.push(
-            `  <url>\n    <loc>${BASE_URL}${path}</loc>\n${alternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${alt.it}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+            `  <url>\n    <loc>${BASE_URL}${path}</loc>\n${alternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${alt.it}" />\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
           );
         }
       }

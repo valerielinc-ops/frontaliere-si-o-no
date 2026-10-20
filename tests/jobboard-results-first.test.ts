@@ -14,11 +14,14 @@ describe('JobBoard category pages — results-first ordering', () => {
     const loadingBlock = source.slice(loadingStart, loadingEnd);
     const resolvingStart = source.indexOf('const resultsResolving =');
 
+    expect(loadingStart).toBeGreaterThanOrEqual(0);
+    expect(loadingEnd).toBeGreaterThan(loadingStart);
     expect(loadingBlock).not.toContain('if (!companySlugFilter) {');
+    expect(loadingBlock).not.toContain('<JobBoardResultsLoader');
     expect(loadingBlock).toContain('if (companySlugFilter) {');
     expect(loadingBlock).toContain('<JobBoardRailShell isDesktopLg={isDesktopLg}>');
-    expect(source.slice(resolvingStart, resolvingStart + 160)).toMatch(
-      /const resultsResolving =\s*jobsLoading\s*\|\|/,
+    expect(source.slice(resolvingStart, resolvingStart + 180)).toMatch(
+      /const resultsResolving =\s*\(jobsLoading\s*\|\|/,
     );
   });
 

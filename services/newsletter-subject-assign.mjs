@@ -29,7 +29,8 @@ import { SUBJECT_VARIANTS, normalizeEmail, DEFAULT_EPSILON } from './newsletter-
  * Without a `promotedVariant` the split is uniform (the pure A/B baseline). With
  * one, it is epsilon-greedy: a deterministic (1-epsilon) share is sent the
  * winner, the rest explores uniformly — so auto-promotion biases toward the
- * winner while still measuring every arm.
+ * winner while still measuring every arm (or every non-winning arm in a
+ * multi-arm test).
  *
  * @param {string} email
  * @param {string} campaignId

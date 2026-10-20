@@ -9,9 +9,61 @@ import {
   isKnownSwissMunicipalityInCanton,
   isTargetSwissLocation,
   isTicinoRelevant,
+  isWorkModeLocationLabel,
+  normalizeSwissCantonCode,
+  swissCityFromLocationField,
   TICINO_MUNICIPALITIES,
 } from '../scripts/lib/target-swiss-locations.mjs';
 import { ALL_CANTON_CODES, TARGET_CANTONS } from '../scripts/lib/crawler-location-config.mjs';
+
+describe('isWorkModeLocationLabel', () => {
+  it('flags a work mode written where a city would go (issue 9839)', () => {
+    for (const label of ['Remote', ' remote ', 'Home Office', 'HomeOffice', 'Hybrid']) {
+      expect(isWorkModeLocationLabel(label), label).toBe(true);
+    }
+  });
+
+  // A work mode decorated with a country, a region or a canton, in EN/DE/FR/IT,
+  // still names no municipality.
+  it.each([
+    'Remote, Switzerland',
+    'Switzerland - Remote',
+    'Home Office - Switzerland',
+    'Home-Office, Schweiz',
+    'Homeoffice',
+    'Hybrid (CH)',
+    'Hybrid (ZH)',
+    'Télétravail',
+    'Télétravail, Suisse',
+    'Teletravail (VD)',
+    'Telelavoro',
+    'Telelavoro - Ticino',
+    'Switzerland - Télétravail - Vaud',
+    'Remote Position (USA)',
+  ])('flags %s, a work mode without a municipality', (label) => {
+    expect(isWorkModeLocationLabel(label)).toBe(true);
+  });
+
+  // A work mode next to a municipality is a place: `Remote - Zurich` names Zürich.
+  it.each([
+    'Remote - Zurich',
+    'Remote - Zurich, Switzerland',
+    'Switzerland - Zurich - Remote',
+    'Zürich Hybrid',
+    'Zürich-Hybrid',
+    'Basel (City)',
+    'Rotkreuz (Office-Based)',
+    'Zürich',
+    'Hybridge',
+    '',
+  ])('does not flag %s', (label) => {
+    expect(isWorkModeLocationLabel(label)).toBe(false);
+  });
+
+  it('does not flag a missing label', () => {
+    expect(isWorkModeLocationLabel(undefined as unknown as string)).toBe(false);
+  });
+});
 
 describe('target swiss locations', () => {
   it('recognizes extended Ticino municipalities like Bedano', () => {
@@ -35,6 +87,34 @@ describe('target swiss locations', () => {
   it('keeps legacy locality aliases used by job boards after municipal mergers', () => {
     expect(isTicinoRelevant('Giubiasco, CH')).toBe(true);
     expect(inferSwissTargetCanton('Coira, Switzerland')).toBe('GR');
+  });
+
+  it('resolves Swiss city exonyms and structured canton-country pairs centrally', () => {
+    for (const [city, canton] of [
+      ['Geneva', 'GE'],
+      ['Zurich', 'ZH'],
+      ['Lucerne', 'LU'],
+      ['Berne', 'BE'],
+      ['Basle', 'BS'],
+    ]) {
+      expect(isKnownSwissMunicipalityInCanton(city, canton), `${city}/${canton}`).toBe(true);
+    }
+    expect(normalizeSwissCantonCode('ZH,CH')).toBe('ZH');
+    expect(normalizeSwissCantonCode('CH-ZH')).toBe('ZH');
+    expect(normalizeSwissCantonCode('ZH,US')).toBe('');
+    expect(normalizeSwissCantonCode('NY,US')).toBe('');
+    expect(normalizeSwissCantonCode('Buchs')).toBe('');
+  });
+
+  it('rejects an English exonym paired with a different canton code', () => {
+    expect(swissCityFromLocationField('Geneva, NE')).toBe('');
+    expect(swissCityFromLocationField('Geneva, GE')).toBe('Geneva');
+    expect(swissCityFromLocationField('Zurich, NE')).toBe('');
+    expect(swissCityFromLocationField('Zurich, ZH')).toBe('Zürich');
+  });
+
+  it('does not select an English exonym from an unqualified multi-site field', () => {
+    expect(swissCityFromLocationField('Paris, Geneva, London')).toBe('');
   });
 
   it('canonicalizes Davos sub-localities to their BFS municipality parent', () => {

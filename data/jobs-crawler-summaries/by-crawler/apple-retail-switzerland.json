@@ -1,11 +1,13 @@
 {
   "key": "apple-retail-switzerland",
   "label": "Apple Retail Switzerland",
-  "generatedAt": "2026-09-23T23:44:12.133Z",
+  "generatedAt": "2026-10-19T21:16:05.550Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "abortKind": "no-jobs-parsed",
   "written": 0,
   "newCount": 0,
@@ -17,5 +19,6 @@
   "removedJobs": [],
   "unchangedJobs": [],
   "earlyExit": true,
-  "exitCode": 0
+  "exitCode": 0,
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

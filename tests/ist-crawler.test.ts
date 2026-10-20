@@ -1,5 +1,21 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { isIstDetailJob, parseCountryCode } from '@/scripts/update-ist-jobs.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+import {
+  buildIstDescriptionFields,
+  classifyIstDetailWalk,
+  classifyIstDetailPage,
+  dropIstFabricatedText,
+  extractIstMicrodata,
+  hasCompleteIstDetailEvidence,
+  hasIstSitemapPositiveHint,
+  isIstDetailJob,
+  markIstFacilityFacetEmptySnapshot,
+  parseIstFacilityFacetResponse,
+  parseCountryCode,
+  parseIstSitemapJobUrls,
+} from '@/scripts/update-ist-jobs.mjs';
 
 describe('IST country-code parsing', () => {
   it('keeps Swiss canton codes Swiss when they are the final location component', () => {
@@ -10,6 +26,443 @@ describe('IST country-code parsing', () => {
   it('retains a genuinely foreign final country code', () => {
     expect(parseCountryCode('Como, IT')).toBe('IT');
     expect(parseCountryCode('Zurich, FR')).toBe('FR');
+    expect(parseCountryCode('CR')).toBe('CR');
+  });
+});
+
+describe('IST sitemap discovery', () => {
+  it('treats an empty flat sitemap as an authoritative empty snapshot', () => {
+    expect(parseIstSitemapJobUrls('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>'))
+      .toEqual({ urls: [], authoritativeEmptySnapshot: true });
+  });
+
+  it('rejects a reachable sitemap whose URL shape no longer matches the parser', () => {
+    expect(() => parseIstSitemapJobUrls(
+      '<urlset><url><loc>https://jobs.inspirededu.com/careers/teacher</loc></url></urlset>',
+    )).toThrow(/contains URL entries but no \/job\//);
+  });
+
+  it('extracts job URLs and does not confuse foreign listings with an empty feed', () => {
+    expect(parseIstSitemapJobUrls(
+      '<urlset>'
+      + '<url><loc>https://jobs.inspirededu.com/job/Lugano-Teacher/12345/</loc></url>'
+      + '<url><loc>https://jobs.inspirededu.com/job/Milan-Teacher/67890/</loc></url>'
+      + '</urlset>',
+    )).toEqual({
+      urls: [
+        'https://jobs.inspirededu.com/job/Lugano-Teacher/12345/',
+        'https://jobs.inspirededu.com/job/Milan-Teacher/67890/',
+      ],
+      authoritativeEmptySnapshot: false,
+    });
+  });
+
+  it('decodes XML entities in live sitemap job URLs', () => {
+    const xml = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'ist', 'inspired-sitemap-xml.xml'),
+      'utf8',
+    );
+
+    expect(parseIstSitemapJobUrls(xml)).toEqual({
+      urls: [
+        'https://jobs.inspirededu.com/job/Primary-Teacher-&-Science/12345/',
+        "https://jobs.inspirededu.com/job/Head's-PA/67890/",
+      ],
+      authoritativeEmptySnapshot: false,
+    });
+  });
+
+  it('recognizes positive IST and Ticino tokens in sitemap paths only', () => {
+    expect(hasIstSitemapPositiveHint([
+      'https://jobs.inspirededu.com/job/international-school-of-ticino/12345/',
+      'https://jobs.inspirededu.com/job/Milan-Teacher/67890/',
+    ])).toBe(true);
+    expect(hasIstSitemapPositiveHint([
+      'https://jobs.inspirededu.com/job/Lugano-Teacher/12345/',
+      'https://jobs.inspirededu.com/job/cadempino-admin/67890/',
+      'https://jobs.inspirededu.com/job/ist-library/99999/',
+    ])).toBe(true);
+    expect(hasIstSitemapPositiveHint([
+      'https://jobs.inspirededu.com/job/Milan-Teacher/67890/',
+      'https://jobs.inspirededu.com/job/listener/99999/',
+    ])).toBe(false);
+  });
+});
+
+describe('IST native facility facet empty proof', () => {
+  const noIstPayload = {
+    complete: true,
+    facets: {
+      map: {
+        facility: [
+          { name: 'International School of Como', count: 1 },
+          { name: 'Head Office', count: 32 },
+        ],
+        location: [
+          { name: 'London, GB', count: 32 },
+          { name: 'Milan, IT', count: 1 },
+        ],
+      },
+    },
+  };
+
+  it('stamps an empty snapshot only when the complete native facet omits IST', () => {
+    const parsed = parseIstFacilityFacetResponse(noIstPayload);
+
+    expect(parsed).toMatchObject({
+      complete: true,
+      facilityCount: 2,
+      activeListingCount: 33,
+      locationCount: 2,
+      hasIstFacility: false,
+      hasTicinoLocation: false,
+    });
+
+    const snapshot = markIstFacilityFacetEmptySnapshot(noIstPayload);
+    expect(isAuthoritativeEmptySnapshot(snapshot)).toBe(true);
+    expect(snapshot.authoritativeEmptyEvidence).toContain('School Name facet');
+    expect(snapshot.authoritativeEmptyEvidence).toContain('no International School of Ticino entry');
+  });
+
+  it('fails closed when nonempty facet maps lack endpoint completeness proof', () => {
+    const payloadWithoutCoverageProof = { facets: noIstPayload.facets };
+
+    expect(parseIstFacilityFacetResponse(payloadWithoutCoverageProof)).toMatchObject({ complete: false });
+    expect(markIstFacilityFacetEmptySnapshot(payloadWithoutCoverageProof)).toBeNull();
+  });
+
+  it('does not stamp zero when the native facet contains IST', () => {
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: {
+        map: {
+          facility: [{ name: 'International School of Ticino', count: 1 }],
+          location: [{ name: 'Lugano, CH', count: 1 }],
+        },
+      },
+    })).toBeNull();
+  });
+
+  it('does not stamp zero for renamed IST facility names', () => {
+    for (const name of [
+      'IST Lugano',
+      'Inspired Ticino',
+      'International School of Ticino - Cadempino',
+      'Scuola Internazionale del Ticino',
+    ]) {
+      expect(markIstFacilityFacetEmptySnapshot({
+        facets: {
+          map: {
+            facility: [{ name, count: 1 }],
+            location: [{ name: 'London, GB', count: 1 }],
+          },
+        },
+      }), name).toBeNull();
+    }
+  });
+
+  it('does not stamp zero when a neutral facility has a Ticino location', () => {
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: {
+        map: {
+          facility: [{ name: 'Head Office', count: 1 }],
+          location: [{ name: 'Lugano, Ticino', count: 1 }],
+        },
+      },
+    })).toBeNull();
+  });
+
+  it('keeps a missing location facet fail-closed', () => {
+    const payload = {
+      facets: {
+        map: {
+          facility: [{ name: 'Head Office', count: 1 }],
+        },
+      },
+    };
+
+    expect(parseIstFacilityFacetResponse(payload)).toMatchObject({ complete: false });
+    expect(markIstFacilityFacetEmptySnapshot(payload)).toBeNull();
+  });
+
+  it('does not authorize a later facet page even when its rows are valid', () => {
+    const payload = {
+      page: 2,
+      total: 89,
+      facets: {
+        map: {
+          facility: [{ name: 'Other', count: 1 }],
+          location: [{ name: 'Zurich', count: 1 }],
+        },
+      },
+    };
+
+    expect(parseIstFacilityFacetResponse(payload)).toMatchObject({ complete: false });
+    expect(markIstFacilityFacetEmptySnapshot(payload)).toBeNull();
+  });
+
+  it('keeps malformed or empty facet responses fail-closed', () => {
+    expect(markIstFacilityFacetEmptySnapshot({ facets: { map: {} } })).toBeNull();
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: { map: { facility: [{ name: 'Head Office' }] } },
+    })).toBeNull();
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: { map: { facility: [] } },
+    })).toBeNull();
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: {
+        map: {
+          facility: [{ name: 'Head Office', count: 1 }],
+          location: [{ name: 'London, GB' }],
+        },
+      },
+    })).toBeNull();
+  });
+});
+
+describe('IST detail extraction', () => {
+  it('accepts reordered and single-quoted SuccessFactors attributes', () => {
+    const html = `
+      <meta content="2026-09-25" itemprop='datePosted'>
+      <meta content='Inspired Education' itemprop = "hiringOrganization">
+      <span data-careersite-propertyid = 'title'>Primary Teacher</span>
+      <div data-careersite-propertyid='location'><span>Lugano, CH</span></div>
+      <div data-careersite-propertyid='description'><p>Teach a primary class.</p><p>Work with families.</p></div>
+    `;
+
+    expect(extractIstMicrodata(html)).toEqual(expect.objectContaining({
+      title: 'Primary Teacher',
+      location: 'Lugano, CH',
+      datePosted: '2026-09-25',
+      hiringOrganization: 'Inspired Education',
+      description: 'Teach a primary class.\nWork with families.',
+    }));
+  });
+
+  it('uses the detail heading when a portal skin omits structured title fields', () => {
+    const html = `
+      <meta property='og:title' content='Receptionist Job Details | Inspired Education'>
+      <h1><span>Receptionist</span></h1>
+      <span itemprop='streetAddress'>London, GB</span>
+      <meta itemprop='hiringOrganization' content='Inspired Education'>
+    `;
+
+    expect(extractIstMicrodata(html)).toEqual(expect.objectContaining({
+      title: 'Receptionist',
+      location: 'London, GB',
+      hiringOrganization: 'Inspired Education',
+    }));
+  });
+
+  it('composes the native locality when location contains only the country marker', () => {
+    const html = `
+      <h1 data-job-field="title">Primary Teacher</h1>
+      <div data-job-field="location">CH</div>
+      <div data-job-field="city">Lugano</div>
+      <div data-job-field="country">CH</div>
+      <div data-job-field="hiringOrganization">Inspired Education</div>
+      <div data-job-field="facility">International School of Ticino</div>
+    `;
+
+    expect(extractIstMicrodata(html)).toEqual(expect.objectContaining({
+      title: 'Primary Teacher',
+      location: 'Lugano, CH',
+    }));
+
+    expect(classifyIstDetailPage({
+      sourceUrl: 'https://jobs.inspirededu.com/job/Lugano-Teacher/12345/',
+      status: 200,
+      html,
+    })).toMatchObject({
+      outcome: 'classified',
+      isIst: true,
+      detail: { location: 'Lugano, CH' },
+    });
+  });
+});
+
+describe('IST empty-source proof', () => {
+  it('accepts a complete global detail walk with no IST jobs as authoritative empty', () => {
+    expect(hasCompleteIstDetailEvidence({
+      title: 'Teacher',
+      location: 'London, GB',
+      hiringOrganization: 'Inspired Education',
+    })).toBe(true);
+    expect(classifyIstDetailWalk({
+      discoveredCount: 301,
+      parsedCount: 0,
+      completeDetailCount: 301,
+    })).toEqual({ authoritativeEmptySnapshot: true, lastFetchOutcome: 'filtered_empty' });
+  });
+
+  it('does not certify an empty source when a Swiss detail lacks tenant evidence', () => {
+    expect(hasCompleteIstDetailEvidence({
+      title: 'Teacher',
+      location: 'Lugano, CH',
+      hiringOrganization: 'Inspired Education',
+    })).toBe(false);
+    expect(classifyIstDetailWalk({
+      discoveredCount: 301,
+      parsedCount: 0,
+      completeDetailCount: 300,
+    })).toEqual({ authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' });
+  });
+
+  it('does not certify a Swiss country-only detail without a resolved canton', () => {
+    expect(hasCompleteIstDetailEvidence({
+      title: 'Teacher',
+      location: 'Switzerland',
+      company: 'International School of Ticino',
+      tenant: 'International School of Ticino',
+    })).toBe(false);
+  });
+
+  it('does not certify a foreign detail when tenant identity fields are missing', () => {
+    expect(hasCompleteIstDetailEvidence({
+      title: 'Teacher',
+      location: 'Milan, IT',
+    })).toBe(false);
+  });
+
+  it('keeps an unrecognized country-like suffix fail-closed', () => {
+    expect(hasCompleteIstDetailEvidence({
+      title: 'Teacher',
+      location: 'Lugano, ZZ',
+      company: 'International School of Ticino',
+      tenant: 'International School of Ticino',
+    })).toBe(false);
+  });
+
+  it('keeps a partially classified detail walk fail-closed even with parsed jobs', () => {
+    expect(classifyIstDetailWalk({
+      discoveredCount: 2,
+      parsedCount: 1,
+      completeDetailCount: 1,
+    })).toEqual({ authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' });
+  });
+});
+
+describe('IST detail response classification', () => {
+  const detailUrl = 'https://jobs.inspirededu.com/job/Teacher/12345/';
+
+  it('treats HTTP 410 as proof that the sitemap entry is no longer active', () => {
+    expect(classifyIstDetailPage({ sourceUrl: detailUrl, status: 410 }))
+      .toMatchObject({ outcome: 'removed', evidence: 'http-410' });
+  });
+
+  it('treats HTTP 404 as proof that the sitemap entry is no longer active', () => {
+    expect(classifyIstDetailPage({ sourceUrl: detailUrl, status: 404 }))
+      .toMatchObject({ outcome: 'removed', evidence: 'http-404' });
+  });
+
+  it('classifies an active detail after a redirect to a careers path', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      finalUrl: 'https://jobs.inspirededu.com/careers/teacher/1',
+      redirects: [{ status: 302, to: 'https://jobs.inspirededu.com/careers/teacher/1' }],
+      html: `
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">International School of Ticino</div>
+          <div data-job-field="facility">International School of Ticino</div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({ outcome: 'classified', isIst: true });
+  });
+
+  it('treats the native filled-position message as a removed entry', () => {
+    expect(classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: `
+        <div class="jobDisplayShell" itemscope="itemscope">
+          <div class="jobDisplay">
+            <div class="content">
+              <div class="jobTitle"></div>
+              <div class="job"><p><strong>Sorry, this position has been filled.</strong></p></div>
+            </div>
+          </div>
+        </div>
+      `,
+    })).toMatchObject({ outcome: 'removed', evidence: 'native-filled-message' });
+  });
+
+  it('does not treat an unrelated filled-position aside as removal', () => {
+    expect(classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: `
+        <aside class="job-help"><p>This position has been filled.</p></aside>
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">International School of Ticino</div>
+          <div data-job-field="facility">International School of Ticino</div>
+        </article>
+      `,
+    })).toMatchObject({ outcome: 'classified', isIst: true });
+  });
+
+  it('reads native markers from an alternate template for an IST detail', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">International School of Ticino</div>
+          <div data-job-field="facility">International School of Ticino</div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({
+      outcome: 'classified',
+      isIst: true,
+      detail: {
+        title: 'Primary Teacher',
+        location: 'Lugano, CH',
+        hiringOrganization: 'International School of Ticino',
+        facility: 'International School of Ticino',
+      },
+    });
+  });
+
+  it('reads native markers from an alternate template for another tenant', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">London, GB</div>
+          <div data-job-field="hiringOrganization">Inspired Education</div>
+          <div data-job-field="company">Sevenoaks School</div>
+          <div data-job-field="facility">Sevenoaks School</div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({ outcome: 'classified', isIst: false });
+  });
+
+  it('keeps a 5xx response and an unknown template incomplete', () => {
+    expect(classifyIstDetailPage({ sourceUrl: detailUrl, status: 503 }))
+      .toMatchObject({ outcome: 'incomplete', evidence: 'http-503' });
+    expect(classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: '<html><h1>Primary Teacher</h1></html>',
+    })).toMatchObject({ outcome: 'incomplete', evidence: 'unknown-template' });
+    expect(classifyIstDetailWalk({
+      discoveredCount: 1,
+      parsedCount: 0,
+      completeDetailCount: 0,
+    })).toEqual({ authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' });
   });
 });
 
@@ -73,5 +526,30 @@ describe('IST detail tenant identity', () => {
       description: 'An opportunity to work with the International School of Ticino team.',
       location: 'Zürich, CH',
     })).toBe(false);
+  });
+});
+
+// Fixture: the start of a live jobs.inspirededu.com posting text (2026-09-29).
+describe('IST description fields', () => {
+  const text = fs.readFileSync(path.join(__dirname, 'fixtures', 'ist', 'inspired-description-cover-teacher.txt'), 'utf8').trim();
+
+  it('publishes the posting text alone, keyed by its language', () => {
+    const fields = buildIstDescriptionFields('Primary Cover Teacher', text, 'Lugano', 'TI');
+    expect(fields.description).toBe(text);
+    expect(fields.descriptionByLocale).toEqual({ en: text });
+    expect(fields.description).not.toContain('The International School of Ticino (IST) is part of the Inspired Education Group');
+  });
+
+  it('removes the Italian blurb and the translations of the blurb-appended source from a stored job', () => {
+    const job: any = {
+      sourceLang: 'en',
+      descriptionByLocale: {
+        en: `${text}\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups.`,
+        it: 'Posizione aperta presso la International School of Ticino a Lugano.\nRuolo: Primary Cover Teacher.\n\nLa International School of Ticino (IST) fa parte di Inspired Education Group.',
+      },
+    };
+    expect(dropIstFabricatedText(job)).toBe(true);
+    expect(Object.keys(job.descriptionByLocale)).toEqual(['en']);
+    expect(job.needsRetranslation).toBe(true);
   });
 });

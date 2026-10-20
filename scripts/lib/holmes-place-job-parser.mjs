@@ -56,29 +56,21 @@
  *          (Allianz erasure request, 2026-06-05), so it is reused here
  *          rather than re-implemented.
  *
- *   Live DOM selectors: this parser was built without a working local
- *   headless-Chromium binary (network installer timed out repeatedly in
- *   this environment) and without ever getting past the CF challenge with a
- *   plain HTTP client, so the exact row/cell structure inside
- *   `.c-careerTable__table` was NOT directly observed at build time — only
- *   the outer CSS class names (from the 2024 Wayback JS/CSS bundle) are
- *   verified. The DOM scrape below therefore uses the same defensive
- *   selector-cascade + graceful-empty-on-no-match pattern already used by
- *   `stadtspital-zuerich-job-parser.mjs` for the same reason (geo/anti-bot
- *   blocked build-time environment): try the known class names first, fall
- *   back to a generic "career-ish anchor/row" probe, and self-heal to `[]`
- *   (existing jobs preserved by the pipeline) rather than throwing, so the
- *   FIRST live `workflow_dispatch` run is what actually validates/refines
- *   the selectors — this is documented rather than overclaimed as verified.
+ *   Live DOM selectors: the current main page was verified as job cards with
+ *   same-domain `/jobs/{slug}` links, and the companion CareerTable markup
+ *   was verified through its current rendered table. The nested class names
+ *   can still drift, so the scrape is anchored to semantic detail URLs,
+ *   table rows, and location metadata rather than treating every career-page
+ *   anchor as a job title. An unrecognised/blocked page returns `[]` with a
+ *   fetch outcome, allowing the existing slice guard to preserve the last
+ *   good data instead of silently replacing it.
  *
- * Holmes Place has NO separate per-job detail URL — the whole listing
- * (title, club/location, category) plus an inline apply form render on the
- * SAME `/de/karriere` page (confirmed by the Wayback bundle's inline
- * submit/success/error states), so `url`/`applyUrl` point at the career
- * page itself for every job, and the stable per-job id/slug is hashed off
- * `${CAREER_URL}#${title}|${location}` instead of a distinct URL (same
- * pattern as `mabetex-job-parser.mjs`, another single-page/no-detail-URL
- * career site).
+ * The current Swiss career page exposes a real `/jobs/{slug}` detail URL for
+ * each card, while the companion `checkout.holmesplace.ch` CareerTable uses a
+ * tabular listing. The parser keeps those detail URLs as the job identity and
+ * enriches each row from its own detail page before publishing. The CareerTable
+ * remains a source fallback when the main page is blocked or its card layout
+ * changes.
  *
  * HQ / per-branch addresses — Holmes Place Switzerland runs MULTIPLE
  * physical gym branches, not one office, so a single canton-wide HQ
@@ -113,9 +105,13 @@
  *   - normalizeHolmesPlaceListing() — raw DOM-scrape row -> clean listing
  *   - detectCategory() / detectEmploymentType()
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeSpace } from './crawler-template.mjs';
+import { bodyTextOf, extractJsonLd } from './prospector/extract.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -135,7 +131,9 @@ export const HOLMES_PLACE_KEY = 'holmes-place';
 export const HOLMES_PLACE_COMPANY_NAME = 'Holmes Place';
 export const HOLMES_PLACE_COMPANY_DOMAIN = 'holmesplace.ch';
 
-const CAREER_URL = 'https://www.holmesplace.ch/de/karriere';
+const CAREER_URL = 'https://www.holmesplace.ch/karriere/';
+const CAREER_FALLBACK_URL = 'https://checkout.holmesplace.ch/fr/homepage/carrieres/';
+const CAREER_URLS = [CAREER_URL, CAREER_FALLBACK_URL];
 const SECTOR = 'Fitness / Wellness';
 
 /**
@@ -367,153 +365,498 @@ export function detectEmploymentType(text = '') {
  * no network/Playwright involved — so it is unit-testable with fixture rows
  * without spinning up a browser.
  *
- * @param {{ title?: string, location?: string, category?: string }} raw
- * @returns {{ title: string, location: string, category: string } | null}
+ * @param {{ title?: string, location?: string, category?: string, url?: string, description?: string, postedDate?: string, datePosted?: string, postingDateSource?: string }} raw
+ * @returns {{ title: string, location: string, category: string, description?: string, url?: string, postedDate?: string, datePosted?: string, postingDateSource?: string } | null}
  */
 export function normalizeHolmesPlaceListing(raw = {}) {
   const title = normalizeSpace(raw.title || '');
   if (!title || title.length < 3) return null;
-  return {
+  const listing = {
     title,
     location: normalizeSpace(raw.location || ''),
     category: normalizeSpace(raw.category || ''),
+    ...(raw.postingDateSource ? mergeSourcePostingDates({}, raw) : {}),
   };
+  const url = normalizeSpace(raw.url || '');
+  if (url) listing.url = url;
+  const description = String(raw.description || '').trim();
+  if (description) listing.description = description;
+  return listing;
 }
 
-/**
- * Build a safe-default description when the site does not expose separate
- * per-job detail copy (the whole listing is title + club + category, per
- * the header docblock's inline-apply-form finding). Kept >= a few sentences
- * so the AI-localization pipeline step (which runs after this parser,
- * `runStandardCrawlerPipeline` step 5) has real signal to enrich against
- * rather than a single bare sentence.
- *
- * @param {{ title: string, location: string, category: string }} listing
- * @returns {string}
- */
-export function buildDescription(listing) {
-  const { city } = resolveAddress({ title: listing.title, location: listing.location });
-  const clubLine = city
-    ? `Sede: ${HOLMES_PLACE_COMPANY_NAME} ${city}.`
-    : `Sede: ${HOLMES_PLACE_COMPANY_NAME}, Svizzera.`;
-  const categoryLine = listing.category ? `Area: ${listing.category}.` : '';
-  return [
-    `${listing.title} presso ${HOLMES_PLACE_COMPANY_NAME}.`,
-    clubLine,
-    categoryLine,
-    `${HOLMES_PLACE_COMPANY_NAME} è una catena internazionale di club fitness e wellness ` +
-      `con più sedi in Svizzera. Candidati per unirti al nostro team.`,
-  ]
-    .filter(Boolean)
-    .join(' ');
-}
+/* ── Fetch (Playwright, semantic DOM scrape) ─────────────────── */
 
-/* ── Fetch (Playwright, best-effort DOM scrape) ──────────────── */
-
-/**
- * Defensive selector cascade tried on the rendered DOM. First non-empty
- * match wins. `.c-careerTable*` classes are verified (2024 Wayback bundle);
- * the generic anchor fallback covers a live-markup drift that a rebuild may
- * have introduced since — see header docblock caveat.
- */
-const PROBE_SELECTORS = [
-  '.c-careerTable__row, .c-careerTable tr',
-  '[data-job-id], [data-career-id]',
-  'a[href*="/karriere"], a[href*="/career"], a[href*="/jobs"]',
+const JOB_DETAIL_PATH_RE = /\/jobs\/[^/?#]+/i;
+const JOB_DETAIL_SLUG_RE = /\/jobs\/([^/?#]+)\/?$/i;
+const GENERIC_CTA_RE = /^(?:mehr erfahren|sich bewerben|see more|apply(?: now)?|postuler|en savoir plus|learn more|go to club|career(?:s)?|karriere|carri[eè]res?|jobs?|stellenangebote?|offres? d['’]?emploi)[.!?]*$/i;
+const BRANCH_LOCATION_RE = /\b(?:oberrieden|zürich|zurich|geneva|gen[eè]ve|genf|lausanne|crowne\s+plaza|jelmoli)\b/i;
+const CAREER_MARKER_RE = /(?:karriere|carri[eè]re|career|stellen(?:angebote)?|postes|offres? d['’]?emploi|jobangebote?|bewerb|candidatur|online[- ]tool|travaill(?:ez|er)\s+(?:bei|chez)|work(?:ing)?\s+(?:at|for))/i;
+const CAREER_TABLE_CONTAINER_SELECTOR = '.c-careerTable, .c-careerTable__table, .cvHolder';
+const CAREER_TABLE_ROW_SELECTOR = 'tr, .c-careerTable__row, [data-job-id], [data-career-id]';
+const CAREER_CONTEXT_SELECTOR = '.section-two-text-wrapper, .beginnen-paragraph';
+const DETAIL_BODY_SELECTORS = [
+  '[data-job-description]',
+  '[data-description]',
+  '.job-detail__description',
+  '.job-description',
+  '.career-detail__content',
+  '.career-detail',
+  '.job-detail',
+  '.job-content',
+  '.career-content',
 ];
+const DETAIL_NOISE_SELECTOR = [
+  'script',
+  'style',
+  'noscript',
+  'nav',
+  'header',
+  'footer',
+  'aside',
+  'form',
+  'button',
+  '[role="navigation"]',
+  '[class*="apply"]',
+  '[class*="related"]',
+  '[class*="share"]',
+  '[class*="cookie"]',
+  '[class*="consent"]',
+].join(', ');
+const PER_DETAIL_DELAY_MS = 1_500;
+const DETAIL_WAIT_NETWORK_IDLE_MS = 10_000;
+
+function annotateListings(listings, fetchOutcome, fetchDetail = '') {
+  Object.defineProperties(listings, {
+    discoveredCount: { value: listings.length, enumerable: false },
+    fetchOutcome: { value: fetchOutcome, enumerable: false },
+    fetchDetail: { value: fetchDetail, enumerable: false },
+  });
+  return listings;
+}
+
+function nodeText(node) {
+  return normalizeSpace(node?.textContent || '');
+}
+
+function nodeMetadata(node) {
+  if (!node) return '';
+  return normalizeSpace(
+    `${node.getAttribute?.('class') || ''} ${node.getAttribute?.('id') || ''} ${node.getAttribute?.('aria-label') || ''}`,
+  );
+}
+
+function isMeaningfulTitle(value) {
+  const title = normalizeSpace(value);
+  return title.length >= 3 && !GENERIC_CTA_RE.test(title);
+}
+
+function isJobDetailHref(rawHref, baseUrl = CAREER_URL) {
+  try {
+    const url = new URL(rawHref, baseUrl);
+    return isTrustedDomain(url.href) && JOB_DETAIL_PATH_RE.test(url.pathname);
+  } catch {
+    return false;
+  }
+}
+
+function normalizeHolmesPlaceJobUrl(rawHref, baseUrl = CAREER_URL) {
+  if (!rawHref) return '';
+  try {
+    const url = new URL(rawHref, baseUrl);
+    if (!isTrustedDomain(url.href) || !JOB_DETAIL_PATH_RE.test(url.pathname)) return '';
+    if (!url.pathname.endsWith('/')) url.pathname += '/';
+    url.hash = '';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
+
+function extractHolmesPlaceDetailSlug(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl, CAREER_URL);
+    const rawSlug = url.pathname.match(JOB_DETAIL_SLUG_RE)?.[1] || '';
+    try {
+      return decodeURIComponent(rawSlug);
+    } catch {
+      return rawSlug;
+    }
+  } catch {
+    return '';
+  }
+}
+
+function buildHolmesPlaceJobSlug(title, city, jobUrl, urlHash = '') {
+  const detailSlug = extractHolmesPlaceDetailSlug(jobUrl);
+  const disambiguator = detailSlug || urlHash || createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
+  return slugify(`${title} holmes-place ${city} ${disambiguator}`);
+}
+
+function metadataText(root, pattern) {
+  const elements = [root, ...(root?.querySelectorAll?.('*') || [])];
+  return elements
+    .filter((element) => pattern.test(nodeMetadata(element)))
+    .map(nodeText)
+    .find(Boolean) || '';
+}
+
+function branchLocationFromText(value) {
+  const match = String(value || '').match(BRANCH_LOCATION_RE);
+  return match ? normalizeSpace(match[0]) : '';
+}
+
+function directCells(row) {
+  return [...row.querySelectorAll('th, td')].filter((cell) => cell.parentElement === row);
+}
+
+function findMeaningfulHeading(root) {
+  return [...root.querySelectorAll('h2, h3, h4, [role="heading"]')]
+    .find((heading) => isMeaningfulTitle(nodeText(heading))) || null;
+}
+
+function findJobCard(link) {
+  let ancestor = link.parentElement;
+  let fallback = null;
+  for (let depth = 0; ancestor && depth < 10; depth += 1, ancestor = ancestor.parentElement) {
+    const heading = findMeaningfulHeading(ancestor);
+    if (!heading) continue;
+    const detailLinks = [...ancestor.querySelectorAll('a[href]')]
+      .filter((candidate) => isJobDetailHref(candidate.getAttribute('href') || ''));
+    if (detailLinks.length > 4) continue;
+
+    const candidate = {
+      root: ancestor,
+      heading,
+      location: metadataText(ancestor, /location|club|standort|lieu|city/i),
+      category: metadataText(ancestor, /category|department|bereich|secteur/i),
+    };
+    if (candidate.location || detailLinks.length <= 1 || /career|job|vacan|position|offer/i.test(nodeMetadata(ancestor))) {
+      return candidate;
+    }
+    fallback ||= candidate;
+  }
+  return fallback;
+}
+
+function collectCareerTableRows(document) {
+  const rows = new Set();
+  for (const container of document.querySelectorAll(CAREER_TABLE_CONTAINER_SELECTOR)) {
+    for (const row of container.querySelectorAll(CAREER_TABLE_ROW_SELECTOR)) rows.add(row);
+  }
+  return [...rows];
+}
+
+function extractHolmesPlaceCareerContext(document) {
+  return [...document.querySelectorAll(CAREER_CONTEXT_SELECTOR)]
+    .map((node) => bodyTextOf(node.innerHTML))
+    .filter((text) => CAREER_MARKER_RE.test(text) && /holmes\s+place|team/i.test(text))
+    .sort((left, right) => right.length - left.length)[0] || '';
+}
+
+function sourceBackedDescription(...parts) {
+  const description = parts.map((part) => normalizeSpace(part)).filter(Boolean).join('\n\n');
+  return meetsSourceBodyFloor(description) ? description : '';
+}
+
+/**
+ * Parse the rendered career document without treating CTA anchors as jobs.
+ * The live page has appeared both as cards with `/jobs/...` links and as the
+ * `CareerTable` table, so rows are parsed first and cards second. The helper
+ * is deliberately DOM-based and exported through `__testables` for fixtures.
+ */
+export function extractHolmesPlaceListingsFromDocument(document, baseUrl = CAREER_URL) {
+  const listings = [];
+  const seen = new Set();
+  const careerContext = extractHolmesPlaceCareerContext(document);
+
+  const pushListing = (raw, { allowMissingUrl = false } = {}) => {
+    const listing = normalizeHolmesPlaceListing(raw);
+    if (!listing) return;
+
+    let detailUrl = normalizeHolmesPlaceJobUrl(raw.url || raw.href, baseUrl);
+    if (!detailUrl && raw.jobId) {
+      try {
+        const fallbackUrl = new URL(baseUrl);
+        fallbackUrl.hash = `job-${encodeURIComponent(String(raw.jobId))}`;
+        detailUrl = fallbackUrl.toString();
+      } catch {
+        detailUrl = '';
+      }
+    }
+    if (!detailUrl && allowMissingUrl) {
+      try {
+        const fallbackUrl = new URL(baseUrl);
+        fallbackUrl.hash = `job-${slugify(`${listing.title}-${listing.location}`)}`;
+        detailUrl = fallbackUrl.toString();
+      } catch {
+        detailUrl = '';
+      }
+    }
+    if (!detailUrl && !allowMissingUrl) return;
+    if (detailUrl) listing.url = detailUrl;
+
+    const key = `${listing.title.toLowerCase()}|${listing.location.toLowerCase()}|${detailUrl}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    listings.push(listing);
+  };
+
+  const rows = collectCareerTableRows(document);
+  for (const row of rows) {
+    const cells = directCells(row);
+    const anchors = [...row.querySelectorAll('a[href]')];
+    const titleLink = anchors.find((link) => isMeaningfulTitle(nodeText(link)));
+    const detailLink = anchors.find((link) => isJobDetailHref(link.getAttribute('href') || ''));
+    const heading = findMeaningfulHeading(row);
+    const firstCell = cells[0];
+    const titleNode = heading || titleLink || firstCell;
+    if (!titleNode || (firstCell?.tagName === 'TH' && !heading && !titleLink)) continue;
+    if (!isMeaningfulTitle(nodeText(titleNode))) continue;
+
+    const location =
+      metadataText(row, /location|club|standort|lieu|city/i) ||
+      nodeText(cells[1]) ||
+      branchLocationFromText(nodeText(row));
+    const category = metadataText(row, /category|department|bereich|secteur/i);
+    const summary = [...row.querySelectorAll('p')].map(nodeText).find(Boolean) || '';
+    pushListing(
+      {
+        title: nodeText(titleNode),
+        location,
+        category,
+        description: sourceBackedDescription(summary, careerContext),
+        href: detailLink?.getAttribute('href') || titleLink?.getAttribute('href') || '',
+        jobId: row.getAttribute('data-job-id') || row.getAttribute('data-career-id') || '',
+      },
+      { allowMissingUrl: Boolean(row.closest(CAREER_TABLE_CONTAINER_SELECTOR)) },
+    );
+  }
+
+  const detailLinks = [...document.querySelectorAll('a[href]')]
+    .filter((link) => isJobDetailHref(link.getAttribute('href') || ''));
+  for (const link of detailLinks) {
+    const card = findJobCard(link);
+    if (!card) continue;
+    pushListing({
+      title: nodeText(card.heading),
+      location: card.location || branchLocationFromText(nodeText(card.root)),
+      category: card.category,
+      description: sourceBackedDescription(
+        [...card.root.querySelectorAll('p')].map(nodeText).find(Boolean) || '',
+        careerContext,
+      ),
+      href: link.getAttribute('href') || '',
+    });
+  }
+
+  return listings;
+}
+
+export function extractHolmesPlaceListingsFromHtml(html = '', baseUrl = CAREER_URL) {
+  const dom = new JSDOM(String(html || ''), { url: baseUrl });
+  try {
+    return extractHolmesPlaceListingsFromDocument(dom.window.document, baseUrl);
+  } finally {
+    dom.window.close();
+  }
+}
+
+export function hasHolmesPlaceCareerMarkup(html = '', baseUrl = CAREER_URL) {
+  const dom = new JSDOM(String(html || ''), { url: baseUrl });
+  try {
+    const document = dom.window.document;
+    const visibleText = nodeText(document.body);
+    const tableHeader = /(?:berufsbezeichnung|intitul[eé] du poste|job title|standort|lieu)/i.test(visibleText);
+    const knownContainer = Boolean(document.querySelector(CAREER_TABLE_CONTAINER_SELECTOR));
+    return tableHeader || knownContainer || CAREER_MARKER_RE.test(visibleText);
+  } finally {
+    dom.window.close();
+  }
+}
+
+function extractJsonLdJobDescription(document) {
+  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+    let parsed;
+    try {
+      parsed = JSON.parse(script.textContent || '');
+    } catch {
+      continue;
+    }
+    const candidates = [
+      ...(Array.isArray(parsed) ? parsed : [parsed]),
+      ...(Array.isArray(parsed?.['@graph']) ? parsed['@graph'] : []),
+    ];
+    const jobPosting = candidates.find((candidate) => {
+      const type = candidate?.['@type'];
+      return type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'));
+    });
+    const description = bodyTextOf(jobPosting?.description || '');
+    if (meetsSourceBodyFloor(description)) return description;
+  }
+  return '';
+}
+
+function sourceBodyFromDetailElement(element) {
+  const clone = element.cloneNode(true);
+  clone.querySelectorAll(DETAIL_NOISE_SELECTOR).forEach((node) => node.remove());
+  return bodyTextOf(clone.innerHTML || '');
+}
+
+/**
+ * Extract only the vacancy body from a rendered Holmes Place detail page.
+ * Generic page chrome is removed before the shared source-body floor is
+ * applied; a short page therefore cannot become publishable by accident.
+ */
+export function extractHolmesPlaceDetailDescriptionFromHtml(html = '', baseUrl = CAREER_URL) {
+  const dom = new JSDOM(String(html || ''), { url: baseUrl });
+  try {
+    const structuredDescription = extractJsonLdJobDescription(dom.window.document);
+    if (structuredDescription) return structuredDescription;
+
+    for (const selector of DETAIL_BODY_SELECTORS) {
+      for (const element of dom.window.document.querySelectorAll(selector)) {
+        const description = sourceBodyFromDetailElement(element);
+        if (meetsSourceBodyFloor(description)) return description;
+      }
+    }
+    return '';
+  } finally {
+    dom.window.close();
+  }
+}
+
+async function fetchHolmesPlaceDetailFields(context, detailUrl, title) {
+  const empty = { description: '', ...mergeSourcePostingDates({}, {}) };
+  if (!isJobDetailHref(detailUrl)) return empty;
+  let page = null;
+  try {
+    page = await fetchWithRateLimit(context, detailUrl, { minDelayMs: PER_DETAIL_DELAY_MS });
+    try {
+      await page.waitForLoadState('networkidle', { timeout: DETAIL_WAIT_NETWORK_IDLE_MS });
+    } catch {
+      /* networkidle is best-effort; inspect the rendered DOM regardless */
+    }
+    const html = await page.content();
+    const description = extractHolmesPlaceDetailDescriptionFromHtml(html, page.url() || detailUrl);
+    const records = extractJsonLd(html, detailUrl);
+    const record = records.find((candidate) => normalizeSpace(candidate.title).toLowerCase() === title.toLowerCase()
+      && (candidate.urlExplicit ? candidate.url === detailUrl : records.length === 1));
+    if (!description) {
+      console.warn(`   ⚠️ Holmes Place detail page has no source body: ${detailUrl}`);
+    }
+    return { description, ...mergeSourcePostingDates({}, record || {}) };
+  } catch (err) {
+    console.warn(`   ⚠️ Holmes Place detail fetch failed for ${detailUrl}: ${err?.message || err}`);
+    return empty;
+  } finally {
+    await page?.close().catch(() => undefined);
+  }
+}
+
+async function enrichHolmesPlaceListings(context, listings) {
+  const enriched = [];
+  for (const listing of listings) {
+    let description = listing.description || '';
+    let publication = mergeSourcePostingDates({}, listing);
+    if (listing.url) {
+      const detail = await fetchHolmesPlaceDetailFields(context, listing.url, listing.title);
+      publication = mergeSourcePostingDates(publication, detail);
+      if (meetsSourceBodyFloor(detail.description)) description = detail.description;
+    }
+    enriched.push({ ...listing, ...(description ? { description } : {}), ...publication });
+  }
+  return enriched;
+}
+
+function annotateNormalizedJobs(jobs, rawListings, fallbackOutcome = 'selector_miss') {
+  const rawOutcome = rawListings?.fetchOutcome;
+  Object.defineProperties(jobs, {
+    discoveredCount: {
+      value: Number.isFinite(rawListings?.discoveredCount)
+        ? rawListings.discoveredCount
+        : Array.isArray(rawListings)
+          ? rawListings.length
+          : 0,
+      enumerable: false,
+    },
+    fetchOutcome: {
+      value: jobs.length > 0 ? 'ok' : rawOutcome || fallbackOutcome,
+      enumerable: false,
+    },
+  });
+  return jobs;
+}
 
 async function fetchJobListings() {
-  console.log(`   Fetching from: ${CAREER_URL}`);
-
   let browser = null;
   try {
     browser = await createBrowser();
   } catch (err) {
     if (err instanceof BrowserLaunchError) {
       console.warn(`   ⚠️ chromium launch failed (${err.message}); returning [].`);
-      return [];
+      return annotateListings([], 'connection_error', 'browser_launch');
     }
     throw err;
   }
 
   try {
     const context = await createPoliteContext(browser);
-    let page;
-    try {
-      page = await fetchWithRateLimit(context, CAREER_URL);
-    } catch (err) {
-      if (err instanceof NavigationTimeout) {
-        console.warn(`   ⚠️ Holmes Place navigation timed out; returning [].`);
-        return [];
-      }
-      if (err instanceof AntiBotBlockError) {
-        console.warn(
-          `   ⚠️ Holmes Place returned an anti-bot block ` +
-            `(status=${err.status ?? 'n/a'}, title=${JSON.stringify(err.title ?? '')}); returning [].`,
-        );
-        return [];
-      }
-      throw err;
-    }
+    let sawRecognizedPage = false;
+    let sawPage = false;
+    let sawAntiBotBlock = false;
+    let sawConnectionError = false;
 
-    // Give the inline React career-table a beat to render.
-    try {
-      await page.waitForLoadState('networkidle', { timeout: 10_000 });
-    } catch {
-      /* networkidle is best-effort; carry on with whatever rendered */
-    }
+    for (const sourceUrl of CAREER_URLS) {
+      console.log(`   Fetching from: ${sourceUrl}`);
+      let page = null;
+      try {
+        page = await fetchWithRateLimit(context, sourceUrl);
+        sawPage = true;
+        try {
+          await page.waitForLoadState('networkidle', { timeout: 10_000 });
+        } catch {
+          /* networkidle is best-effort; carry on with the rendered DOM */
+        }
 
-    const raw = await page.evaluate((selectorList) => {
-      const seen = new Set();
-      const items = [];
-
-      const pushItem = (titleText, locationText, categoryText) => {
-        const t = (titleText || '').replace(/\s+/g, ' ').trim();
-        if (!t || t.length < 3) return;
-        const key = `${t}|${locationText || ''}`;
-        if (seen.has(key)) return;
-        seen.add(key);
-        items.push({
-          title: t,
-          location: (locationText || '').replace(/\s+/g, ' ').trim(),
-          category: (categoryText || '').replace(/\s+/g, ' ').trim(),
-        });
-      };
-
-      for (const sel of selectorList) {
-        const nodes = document.querySelectorAll(sel);
-        if (!nodes || nodes.length === 0) continue;
-        nodes.forEach((node) => {
-          if (node.tagName === 'A') {
-            pushItem(node.textContent || node.getAttribute('aria-label') || '', '', '');
-            return;
-          }
-          const titleNode = node.querySelector('[class*="title"], [class*="position"], h3, h4, td');
-          const locNode = node.querySelector('[class*="location"], [class*="club"], [class*="standort"]');
-          const catNode = node.querySelector('[class*="category"], [class*="department"], [class*="bereich"]');
-          pushItem(
-            titleNode ? titleNode.textContent : node.textContent,
-            locNode ? locNode.textContent : '',
-            catNode ? catNode.textContent : '',
+        const html = await page.content();
+        const listings = extractHolmesPlaceListingsFromHtml(html, page.url() || sourceUrl);
+        if (hasHolmesPlaceCareerMarkup(html, page.url() || sourceUrl)) sawRecognizedPage = true;
+        if (listings.length > 0) {
+          const enrichedListings = await enrichHolmesPlaceListings(context, listings);
+          return annotateListings(
+            enrichedListings,
+            'ok',
+            `${sourceUrl} listings=${listings.length} detailEnriched=${enrichedListings.filter((listing) => listing.description).length}`,
           );
-        });
-        if (items.length > 0) break; // first matching selector wins
+        }
+        console.warn(`   ⚠️ Holmes Place career page rendered but exposed no validated job rows: ${sourceUrl}`);
+      } catch (err) {
+        if (err instanceof AntiBotBlockError) {
+          sawAntiBotBlock = true;
+          console.warn(
+            `   ⚠️ Holmes Place returned an anti-bot block ` +
+              `(status=${err.status ?? 'n/a'}, title=${JSON.stringify(err.title ?? '')}); trying the fallback source.`,
+          );
+        } else if (err instanceof NavigationTimeout) {
+          sawConnectionError = true;
+          console.warn(`   ⚠️ Holmes Place navigation timed out for ${sourceUrl}; trying the fallback source.`);
+        } else {
+          sawConnectionError = true;
+          console.warn(`   ⚠️ Holmes Place scrape failed for ${sourceUrl}: ${err?.message || err}`);
+        }
+      } finally {
+        await page?.close().catch(() => undefined);
       }
-      return items;
-    }, PROBE_SELECTORS);
-
-    if (!raw || raw.length === 0) {
-      console.warn(
-        `   ⚠️ Holmes Place page rendered but no known listing pattern matched. ` +
-          `Re-probe live markup and refine PROBE_SELECTORS.`,
-      );
-      return [];
     }
 
-    return raw;
-  } catch (err) {
-    console.warn(`   ⚠️ Holmes Place scrape failed unexpectedly: ${err && err.message ? err.message : err}; returning [].`);
-    return [];
+    const outcome = sawRecognizedPage
+      ? 'selector_miss'
+      : sawAntiBotBlock && !sawPage
+        ? 'anti_bot_block'
+        : sawConnectionError && !sawPage
+          ? 'connection_error'
+          : 'selector_miss';
+    return annotateListings([], outcome, `sources=${CAREER_URLS.length}`);
   } finally {
     await closeAll(browser);
   }
@@ -533,7 +876,7 @@ export async function fetchAllHolmesPlaceJobs() {
   const rawListings = await fetchJobListings();
   if (!rawListings || rawListings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return annotateNormalizedJobs([], rawListings, 'selector_miss');
   }
 
   const listings = rawListings.map(normalizeHolmesPlaceListing).filter(Boolean);
@@ -548,15 +891,16 @@ export async function fetchAllHolmesPlaceJobs() {
     });
     const location = normalizeSpace(listing.location || city);
 
-    const rawDescription = buildDescription(listing);
-    const description = stripContactPII(rawDescription);
+    const description = stripContactPII(listing.description || '');
+    if (!meetsSourceBodyFloor(description)) continue;
 
     const sourceLang = detectLang(`${title} ${listing.location}`, 'de');
-    const jobSlug = slugify(`${title} holmes-place ${city}`);
+    const jobUrl = listing.url || CAREER_URL;
     const urlHash = createHash('sha1')
-      .update(`${CAREER_URL}#${title}|${listing.location}`)
+      .update(jobUrl)
       .digest('hex')
       .slice(0, 12);
+    const jobSlug = buildHolmesPlaceJobSlug(title, city, jobUrl, urlHash);
     const employmentType = detectEmploymentType(`${title} ${listing.category}`);
 
     const job = {
@@ -575,7 +919,7 @@ export async function fetchAllHolmesPlaceJobs() {
       // Matched by postalCode (unique per branch — city alone is ambiguous
       // for the 2 Zürich branches) rather than re-deriving from resolveAddress.
       canton: resolveCantonFallback(postalCode, city, location),
-      url: CAREER_URL,
+      url: jobUrl,
       source: 'Holmes Place Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
@@ -593,8 +937,8 @@ export async function fetchAllHolmesPlaceJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
-      applyUrl: CAREER_URL,
+      ...mergeSourcePostingDates({}, listing),
+      applyUrl: jobUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };
@@ -603,5 +947,16 @@ export async function fetchAllHolmesPlaceJobs() {
   }
 
   console.log(`\n📋 Total ${HOLMES_PLACE_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  return annotateNormalizedJobs(jobs, rawListings, listings.length > 0 ? 'ok' : 'selector_miss');
 }
+
+export const __testables = {
+  CAREER_URL,
+  CAREER_FALLBACK_URL,
+  CAREER_URLS,
+  extractHolmesPlaceListingsFromDocument,
+  extractHolmesPlaceListingsFromHtml,
+  hasHolmesPlaceCareerMarkup,
+  extractHolmesPlaceDetailDescriptionFromHtml,
+  buildHolmesPlaceJobSlug,
+};

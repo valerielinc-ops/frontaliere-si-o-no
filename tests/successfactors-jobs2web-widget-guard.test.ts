@@ -11,6 +11,7 @@ import {
   successFactorsMoreLocationsTail,
 } from '../scripts/lib/successfactors-jobs2web-widget-guard.mjs';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
+import { resolveSuccessFactorsTemplateTokens } from '../scripts/lib/successfactors-jobs2web-widget-guard.mjs';
 
 /**
  * Guard against SAP SuccessFactors jobs2web page chrome being scraped as job
@@ -472,5 +473,44 @@ describe('SuccessFactors jobs2web widget guard', () => {
       }
       expect(checked).toBeGreaterThan(1000);
     });
+  });
+});
+
+// An unrendered career-site token INSIDE a posting body is scaffolding, not
+// chrome. Wiping the whole field for it replaced Schindler SBB_AS bodies with
+// a generic blurb and left 4/171 Rolex postings thin ("… [[custLinkedIn]]" at
+// the end of the body) — audit run 36528331656.
+describe('template tokens inside a posting body', () => {
+  const body = [
+    'Description',
+    'Motivé∙e par un apprentissage de Polisseur∙euse ? Prêt∙e à devenir une référence dans votre métier grâce à une formation de qualité.',
+    '• Lettre de motivation',
+    '• Curriculum vitae',
+    '[[custLinkedIn]]',
+  ].join('\n');
+
+  it('keeps the body and drops the token', () => {
+    const out = sanitizeSuccessFactorsField(body);
+    expect(out).toContain('Motivé∙e par un apprentissage');
+    expect(out).toContain('• Curriculum vitae');
+    expect(out).not.toContain('[[');
+  });
+
+  it('still wipes a title-sized value that is a token', () => {
+    expect(sanitizeSuccessFactorsField('[[Title]] à Le Mont-sur-Lausanne')).toBe('');
+  });
+
+  it('still wipes a body that carries real widget chrome besides the token', () => {
+    expect(sanitizeSuccessFactorsField(`${body}\nManager für Cookie-Einwilligungen`)).toBe('');
+  });
+
+  it('renders a title token with the known title and drops other tokens', () => {
+    expect(resolveSuccessFactorsTemplateTokens('nous t’offrons une: [[Title]] à Le Mont', { title: 'Apprentissage X' }))
+      .toBe('nous t’offrons une: Apprentissage X à Le Mont');
+    expect(resolveSuccessFactorsTemplateTokens('Contact [[cust_secondRecruiterPhone]].', { title: 'X' }))
+      .toBe('Contact.');
+    // A chrome "title" is never spliced into a body.
+    expect(resolveSuccessFactorsTemplateTokens('une: [[Title]] à Bulle', { title: 'Manager für Cookie-Einwilligungen' }))
+      .toBe('une: à Bulle');
   });
 });

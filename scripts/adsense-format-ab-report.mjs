@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * AdSense in-feed format A/B reports
  *
@@ -78,12 +80,13 @@
  * engagement/CWV fields are best-effort and recorded as `null` when missing.
  */
 
+import { requireCompleteAdsenseReport } from './lib/adsense-report-coverage.mjs';
 import { writeFileSync, mkdirSync, existsSync, appendFileSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { AD_CLIENT } from '../services/adsenseSlots.ts';
-import { isInfeedAdExperimentSurface } from '../services/adExperiment.ts';
+import { ACTIVE_EXPERIMENT_IDS, PAUSED_REASON } from './lib/adsense-format-ab-plan.mjs';
 import { getAdSenseToken, last7Days } from './revenue-monitor.mjs';
 import { getServiceAccountToken, fetchRetry, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import { engagementConsistency, fetchDailyEngagementVerdict } from './lib/ga4-engagement-reliability.mjs';
@@ -162,12 +165,13 @@ export const CANTON_PAGE_PATHS = Object.freeze({
 
 /**
  * Runtime source of truth for whether the historical pair is still active.
- * Keeping this derived from `services/adExperiment.ts` makes a rollback stop
- * both rendering and scheduled measurement; an empty set is a deliberate
+ * Keeping this derived from `services/adExperiment.ts` (through the plan
+ * module, which the weekly workflow also uses as its gate) makes a rollback
+ * stop both rendering and scheduled measurement; an empty set is a deliberate
  * paused state, not a fabricated zero-data report.
  */
 export const ACTIVE_EXPERIMENTS = Object.freeze(
-  isInfeedAdExperimentSurface('TI') ? [DEFAULT_EXPERIMENT] : [],
+  EXPERIMENTS.filter((experiment) => ACTIVE_EXPERIMENT_IDS.includes(experiment.id)),
 );
 
 export function findExperiment(id) {
@@ -249,6 +253,7 @@ export async function fetchChannelReport(token, experiment = DEFAULT_EXPERIMENT)
   const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
   if (!res.ok) throw new Error(`adsense reports:generate ${res.status}: ${await res.text()}`);
   const data = await res.json();
+  requireCompleteAdsenseReport(data, 'AdSense comparison report');
   const rows = data.rows || [];
 
   const norm = (s) => String(s || '').trim().toLowerCase().replace(/\/$/, '');
@@ -907,7 +912,7 @@ async function main() {
   };
 
   if (ACTIVE_EXPERIMENTS.length === 0) {
-    const reason = 'nessun esperimento in-feed attivo: il trattamento TI è stato ritirato dopo la regressione CLS del 2026-09-16';
+    const reason = PAUSED_REASON;
     if (flags.json) {
       console.log(JSON.stringify({ measurementStatus: 'paused', reason }, null, 2));
     } else if (flags.markdown) {
@@ -1058,7 +1063,7 @@ async function main() {
 }
 
 // Only run main() when invoked directly (not when imported by tests).
-const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((e) => {
     console.error('adsense-format-ab-report failed:', e.message);

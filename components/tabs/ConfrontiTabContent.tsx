@@ -17,7 +17,7 @@ const RenovationCalculator = lazyRetry(() => import('@/components/comparators/Re
 
 export default function ConfrontiTabContent() {
  const { confrontiSubTab } = useNavigation();
- const { result, inputs, userProfile } = useTabContent();
+ const { result, inputs, userProfile, authUser } = useTabContent();
 
  return (
  <div className="max-w-7xl mx-auto min-h-[60vh] space-y-8">
@@ -37,7 +37,7 @@ export default function ConfrontiTabContent() {
  ) : confrontiSubTab === 'cost-of-living' ? (
  <CostOfLiving />
  ) : confrontiSubTab === 'jobs' ? (
- <JobComparator userProfile={userProfile} />
+ <JobComparator key={authUser?.uid ?? 'anonymous'} userProfile={userProfile} />
  ) : confrontiSubTab === 'renovation' ? (
  <RenovationCalculator simulationResult={result ?? undefined} simulationInputs={inputs} />
  ) : null}

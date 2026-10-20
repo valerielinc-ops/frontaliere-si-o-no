@@ -31,7 +31,17 @@ import {
   recentlyEndedEvents,
   groupByComune,
   loadCantonComuni,
+  OTHER_EVENTS_COMUNE_KEY,
+  UNRESOLVED_CANTON_KEY,
 } from '../scripts/lib/events-utils.mjs';
+import {
+  allEndedEvents,
+  mergeEventHistory,
+  preserveEventHistory,
+  publishedEventRoutes,
+} from '../scripts/lib/events-retention.mjs';
+import { mergeEventsIntoSlice } from '../scripts/lib/crawl-checkpoint.mjs';
+import { eventDateIssues, isValidEventIsoDate } from '../scripts/lib/events-date-quality.mjs';
 import { pruneFailedImageRefs } from '../scripts/push-mirrored-event-images-cdn.mjs';
 import { eventLd, zurichOffset } from '../build-plugins/eventsSeoPagesPlugin';
 import { CANTON_CODES } from '../services/cantonList';
@@ -224,6 +234,16 @@ describe('events-utils helpers', () => {
     expect(eventStableId('tio-agenda', '62100')).toBe('tio-agenda:62100');
   });
 
+  it('rejects impossible, inverted and implausibly distant event dates', () => {
+    expect(isValidEventIsoDate('2024-02-29')).toBe(true);
+    expect(isValidEventIsoDate('2026-02-29')).toBe(false);
+    expect(isValidEventIsoDate('2026-13-01')).toBe(false);
+
+    expect(eventDateIssues({ startDate: '2926-01-22' })).toContain('start_date_too_far_future');
+    expect(eventDateIssues({ startDate: '2999-10-10', endDate: '2999-10-09' })).toContain('end_before_start');
+    expect(eventDateIssues({ startDate: '2026-02-29' })).toContain('invalid_start_date');
+  });
+
   it('upcomingEvents prunes past and sorts ascending', () => {
     const sample = [
       { startDate: '2026-07-10', title: 'B', comune: 'Lugano' },
@@ -276,6 +296,121 @@ describe('events-utils helpers', () => {
     expect(recentlyEndedEvents(events, '2026-07-01').map((e: { id: string }) => e.id)).toEqual(['newer', 'older']);
   });
 
+  it('allEndedEvents keeps the permanent archive partition, including old events', () => {
+    const events = [
+      { id: 'old', startDate: '2025-01-01', endDate: '2025-01-01', title: 'Old', comune: 'Lugano' },
+      { id: 'recent', startDate: '2026-06-30', endDate: '2026-06-30', title: 'Recent', comune: 'Lugano' },
+      { id: 'live', startDate: '2026-07-01', endDate: '2026-07-02', title: 'Live', comune: 'Lugano' },
+    ];
+    expect(allEndedEvents(events, '2026-07-01').map((e: { id: string }) => e.id)).toEqual(['recent', 'old']);
+  });
+
+  it('preserves a published route when an event date changes', () => {
+    const previous = {
+      id: 'ge-agenda:event',
+      title: 'Mostra',
+      startDate: '2026-09-26',
+      comune: 'Genève',
+      canton: 'GE',
+    };
+    const current = { ...previous, startDate: '2026-09-27' };
+    const merged = mergeEventHistory(previous, current);
+    expect(merged.previousRoutes).toEqual([
+      { canton: 'GE', comune: 'Genève', slug: 'mostra-2026-09-26' },
+    ]);
+    expect(preserveEventHistory(merged, [previous]).previousRoutes).toHaveLength(1);
+  });
+
+  it('persists the resolved historical bucket when an event moves from unresolved/other to a real route', () => {
+    const previous = {
+      id: 'myswitzerland:unresolved-move',
+      title: 'Mostra senza comune',
+      startDate: '2026-09-26',
+      canton: '',
+      comune: '',
+    };
+    const current = { ...previous, startDate: '2026-09-27', canton: 'TI', comune: 'Lugano' };
+    expect(mergeEventHistory(previous, current).previousRoutes?.[0]).toEqual({
+      canton: UNRESOLVED_CANTON_KEY,
+      comune: OTHER_EVENTS_COMUNE_KEY,
+      slug: 'mostra-senza-comune-2026-09-26',
+    });
+  });
+
+  it('uses the collision-resolved published slug when a sibling event changes date', () => {
+    const first = { id: 'guidle:first', title: 'Titolo uguale', startDate: '2026-09-26', canton: 'TI', comune: 'Lugano' };
+    const second = { id: 'guidle:second', title: 'Titolo uguale', startDate: '2026-09-26', canton: 'TI', comune: 'Lugano' };
+    const priorRoutes = publishedEventRoutes([first, second], '2026-09-26');
+    const current = { ...second, startDate: '2026-09-27' };
+    const merged = preserveEventHistory(current, [{ ...second, __historySlug: priorRoutes.get(second.id).slug }]);
+    expect(priorRoutes.get(second.id).slug).toBe('titolo-uguale-2026-09-26-2');
+    expect(merged.previousRoutes?.[0]).toEqual({
+      canton: 'TI',
+      comune: 'Lugano',
+      slug: 'titolo-uguale-2026-09-26-2',
+    });
+  });
+
+  it('preserves the collision-resolved slug at the source checkpoint boundary', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'events-retention-collision-'));
+    const slicePath = path.join(dir, 'source.json');
+    const first = { id: 'guidle:first', title: 'Titolo uguale', startDate: '2026-09-26', canton: 'TI', comune: 'Lugano' };
+    const second = { id: 'guidle:second', title: 'Titolo uguale', startDate: '2026-09-26', canton: 'TI', comune: 'Lugano' };
+    try {
+      mergeEventsIntoSlice({
+        slicePath,
+        sourceKey: 'guidle',
+        sourceName: 'Guidle',
+        freshEvents: [first, second],
+        goneIds: [],
+        crawledAt: '2026-09-28T00:00:00.000Z',
+      });
+      mergeEventsIntoSlice({
+        slicePath,
+        sourceKey: 'guidle',
+        sourceName: 'Guidle',
+        freshEvents: [{ ...second, startDate: '2026-09-27' }],
+        goneIds: [],
+        crawledAt: '2026-09-28T00:00:00.000Z',
+      });
+      const changed = JSON.parse(readFileSync(slicePath, 'utf8')).events.find((event: { id: string }) => event.id === second.id);
+      expect(changed.previousRoutes?.[0]).toMatchObject({
+        canton: 'TI',
+        comune: 'Lugano',
+        slug: 'titolo-uguale-2026-09-26-2',
+      });
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('retains expired and gone records in an event slice', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'events-retention-'));
+    const slicePath = path.join(dir, 'source.json');
+    writeFileSync(
+      slicePath,
+      JSON.stringify({
+        schemaVersion: 1,
+        sourceKey: 'fixture',
+        events: [{ id: 'old', title: 'Old', startDate: '2025-01-01', endDate: '2025-01-01', comune: 'Lugano', canton: 'TI' }],
+      }),
+    );
+    try {
+      const total = mergeEventsIntoSlice({
+        slicePath,
+        sourceKey: 'fixture',
+        sourceName: 'Fixture',
+        freshEvents: [{ id: 'new', title: 'New', startDate: '2026-10-01', comune: 'Lugano', canton: 'TI' }],
+        goneIds: ['old'],
+        crawledAt: '2026-09-28T00:00:00.000Z',
+      });
+      expect(total).toBe(2);
+      expect(JSON.parse(readFileSync(slicePath, 'utf8')).events.map((e: { id: string }) => e.id)).toEqual(['old', 'new']);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('groupByComune drops events without a comune', () => {
     const g = groupByComune([
       { comune: 'Lugano', title: 'x' },
@@ -303,15 +438,19 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.eventStatus).toBe('https://schema.org/EventScheduled');
     expect(ld.eventAttendanceMode).toBe('https://schema.org/OfflineEventAttendanceMode');
     expect(ld.location?.address?.addressLocality).toBeTruthy();
-    expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
-    // Event.image, organizer and performer are optional: this normalized
-    // fixture has no event-specific image or participant data, so the builder
-    // must omit them rather than inventing values.
-    expect(ld.image).toBeUndefined();
-    expect(ld.organizer).toBeUndefined();
-    expect(ld.performer).toBeUndefined();
-    // offers is intentionally OMITTED (price unknown → no false "free" claim).
-    expect(ld.offers).toBeUndefined();
+    if (ld.description !== undefined) expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
+    expect(ld.image).toMatchObject({
+      '@type': 'ImageObject',
+      contentUrl: expect.stringContaining('/images/events/catalog/'),
+    });
+    expect(ld.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Tio.ch Agenda',
+      url: 'https://www.tio.ch/agenda',
+    });
+    expect(ld.performer).toMatchObject({ '@type': 'Organization', name: expect.any(String) });
+    expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
+    expect(ld.isAccessibleForFree).toBeUndefined();
     // endDate must never precede startDate (Google Rich Results validity).
     expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
   };
@@ -335,6 +474,28 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         'it',
       ),
     );
+  });
+
+  it('keeps Event JSON-LD factual before its rewrite-cache hit', () => {
+    const ld = eventLd(
+      {
+        id: 'guidle:pending-description',
+        title: 'Mostra civica',
+        startDate: '2026-10-12',
+        sourceDescriptionHash: 'd'.repeat(64),
+        canton: 'TI',
+        comune: 'Lugano',
+        venue: 'Museo civico',
+        url: 'https://example.test/events/1',
+        sourceKey: 'guidle',
+        sourceName: 'Guidle',
+      },
+      'it',
+    ) as Record<string, any>;
+    expect(String(ld.description)).toContain('Mostra civica');
+    expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
+    expect(ld.name).toBe('Mostra civica');
+    expect(ld.location.address.addressLocality).toBe('Lugano');
   });
 
   it('prefers a verified source address locality over a regional fallback', () => {
@@ -464,29 +625,73 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     sourceName: 'Tio.ch Agenda',
   };
 
+  // A tio-agenda winner publishes a price only when the assembler gave it a
+  // structured MySwitzerland/Guidle tariff of the same event.
+  const STRUCTURED = { priceSource: 'myswitzerland', priceField: 'offers.price' };
+
   it('emits offers with a real price when event.price has a confident amount', () => {
     const ld = eventLd(
-      { ...baseEvent, price: { amount: 19, currency: 'CHF', isFree: false } },
+      { ...baseEvent, price: { amount: 19, currency: 'CHF', isFree: false, ...STRUCTURED } },
       'it',
       'https://frontaliereticino.ch/eventi/ticino/melide/',
     ) as Record<string, any>;
     expect(ld.offers).toEqual({
       '@type': 'Offer',
-      price: '19',
+      price: 19,
       priceCurrency: 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: '2026-07-04',
+      url: 'https://frontaliereticino.ch/eventi/ticino/melide/',
     });
   });
 
-  it('emits offers with price "0" when event.price is confidently free', () => {
-    const ld = eventLd({ ...baseEvent, price: { amount: 0, currency: 'CHF', isFree: true } }, 'it') as Record<string, any>;
-    expect(ld.offers?.price).toBe('0');
+  it('emits source-published optional Offer metadata when the crawler captured it', () => {
+    const ld = eventLd({
+      ...baseEvent,
+      price: {
+        amount: 19,
+        currency: 'CHF',
+        isFree: false,
+        availability: 'https://schema.org/InStock',
+        validFrom: '2026-06-01T09:00:00+02:00',
+        url: 'https://tickets.example.test/event/19',
+        ...STRUCTURED,
+      },
+    }, 'it') as Record<string, any>;
+    expect(ld.offers).toEqual({
+      '@type': 'Offer',
+      price: 19,
+      priceCurrency: 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: '2026-06-01T09:00:00+02:00',
+      url: 'https://tickets.example.test/event/19',
+    });
   });
 
-  it('omits offers (never fabricates "0") when price is present but not machine-parseable', () => {
+  it('emits numeric price 0 and isAccessibleForFree when event.price is confidently free', () => {
+    const ld = eventLd({ ...baseEvent, price: { amount: 0, currency: 'CHF', isFree: true, priceSource: 'guidle', priceField: 'isAccessibleForFree' } }, 'it') as Record<string, any>;
+    expect(ld.offers?.price).toBe(0);
+    expect(ld.isAccessibleForFree).toBe(true);
+    expect(ld.offers?.availability).toBe('https://schema.org/InStock');
+    expect(ld.offers?.validFrom).toBe(baseEvent.startDate);
+    expect(ld.offers?.url).toBe(baseEvent.url);
+  });
+
+  it('emits the zero-price Offer when price is present but not machine-parseable', () => {
     // e.g. tio.ch "Prezzo:" label says "su richiesta" / "CHF" with no digits —
     // parsePriceText returns amount: null, isFree: false for this bucket.
     const ld = eventLd({ ...baseEvent, price: { amount: null, currency: 'CHF', isFree: false } }, 'it') as Record<string, any>;
-    expect(ld.offers).toBeUndefined();
+    expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
+    expect(ld.isAccessibleForFree).toBeUndefined();
+  });
+
+  it('emits the zero-price Offer when the detail page has no verifiable amount', () => {
+    const ld = eventLd({
+      ...baseEvent,
+      price: { amount: null, currency: 'CHF', isFree: false },
+    }, 'it') as Record<string, any>;
+    expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
+    expect(ld.isAccessibleForFree).toBeUndefined();
   });
 });
 
@@ -506,6 +711,17 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
     expect(extractTioPrice('')).toBeUndefined();
   });
 
+  it('keeps looking for a confident tariff after an unknown inline value', () => {
+    const html = '<p><strong>Prezzo:</strong> Kategorie 1</p><p>Prezzo: CHF 20</p>';
+    expect(extractTioPrice(html)).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+  });
+
+  it('keeps looking past unknown labelled paragraphs', () => {
+    const html = '<p>Prezzo: Kategorie 1</p><p>Prezzo: CHF 20</p>';
+    expect(extractTioPrice(html)).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(extractTioPrice('<p>Prezzo: Kategorie 1</p>')).toBeUndefined();
+  });
+
   it('extracts source description, address, venue and explicit free admission', () => {
     const html = '<div class="col-12 col-xl-8"><h1>E tu chi sei?</h1><p>E TU CHI SEI? Uno spettacolo di e con Isabella Giampaolo.</p><p>Con curiosità, empatia e un pizzico di salvifica ironia, lo spettacolo racconta una storia.</p><p>Entrata libera con prenotazione gradita.</p></div><div class="address"><p>Indirizzo</p><p>Tertianum Cornaredo</p><p>Via Chiosso 9</p><p>6948, Porza</p></div>';
     expect(extractTioDetailMetadata(html)).toEqual({
@@ -513,7 +729,28 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
       address: { street: 'Via Chiosso 9', postalCode: '6948', locality: 'Porza' },
       venue: 'Tertianum Cornaredo',
       price: { amount: 0, currency: 'CHF', isFree: true },
+      performer: { name: 'Isabella Giampaolo' },
     });
+  });
+
+  it('extracts a named performer from the Tio detail title/description', () => {
+    const html = '<div class="col-12 col-xl-8"><h1>Serata con Maxi B</h1><p>Musica dal vivo con Maxi B.</p></div>';
+    expect(extractTioDetailMetadata(html).performer).toEqual({ name: 'Maxi B' });
+  });
+
+  it('does not promote generic detail prose to a Tio performer', () => {
+    const html = '<div class="col-12 col-xl-8"><h1>Test</h1><p>Veranstaltung mit Freude.</p></div>';
+    expect(extractTioDetailMetadata(html).performer).toBeUndefined();
+  });
+
+  it('does not promote ordinary two-token detail prose to a Tio performer', () => {
+    const html = '<div class="col-12 col-xl-8"><h1>Test</h1><p>Un evento con Belle Giornate.</p></div>';
+    expect(extractTioDetailMetadata(html).performer).toBeUndefined();
+  });
+
+  it('keeps an explicitly labelled Tio contributor', () => {
+    const html = '<div class="col-12 col-xl-8"><h1>Test</h1><p>Mitwirkende: Freude.</p></div>';
+    expect(extractTioDetailMetadata(html).performer).toEqual({ name: 'Freude' });
   });
 
   it('enrichEventsWithPrice attaches price from the injected fetch, never mutates the source array', async () => {
@@ -525,7 +762,18 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
       url.endsWith('63071') ? '<strong>Prezzo:</strong> 19 CHF' : '<span class="d-none"><strong>Prezzo:</strong></span>';
     const out = await enrichEventsWithPrice(events, fakeFetch);
     expect(out[0].price).toEqual({ amount: 19, currency: 'CHF', isFree: false });
+    expect(out[0].organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Tio.ch Agenda',
+      url: 'https://www.tio.ch/agenda',
+    });
+    expect(out[0].performer).toEqual({ '@type': 'Organization', name: 'Tio.ch Agenda' });
     expect(out[1].price).toBeUndefined();
+    expect(out[1].organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Tio.ch Agenda',
+      url: 'https://www.tio.ch/agenda',
+    });
     expect(events[0].price).toBeUndefined(); // non-mutating
   });
 
@@ -554,6 +802,8 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
     const failingFetch = async () => null;
     const out = await enrichEventsWithPrice(events, failingFetch);
     expect(out[0].price).toBeUndefined();
+    expect((out as any).detailFailureIds).toEqual(['tio-agenda:1']);
+    expect((out as any).detailAttemptCount).toBe(1);
   });
 });
 
@@ -561,14 +811,84 @@ describe('enrichEventsWithTranslations — partial cache re-validation (#3427)',
   const events = [{ title: 'Concerto sinfonico', id: 'tio-agenda:1' }];
   const fakeTranslate = async ({ targetLang }: { targetLang: string }) => `Translated-${targetLang}`;
 
-  it('re-translates a partial cache entry that is missing locales (the #3427 bug)', async () => {
+  it('fills the locales a partial cache entry is missing (the #3427 bug), keeping the cached one', async () => {
     // Pre-existing entry has only 'en' — 'de' and 'fr' are absent (partial).
     const cache: Record<string, Record<string, string>> = { 'concerto sinfonico': { en: 'Old-en' } };
-    const out = await enrichEventsWithTranslations(events, cache, fakeTranslate);
-    // Must contain all three locales after re-translation.
-    expect(out[0].titleByLocale).toMatchObject({ it: 'Concerto sinfonico', en: 'Translated-en', de: 'Translated-de', fr: 'Translated-fr' });
+    const translateFn = vi.fn(fakeTranslate);
+    const out = await enrichEventsWithTranslations(events, cache, translateFn);
+    // Must contain all three locales; the cached `en` is usable text, so it is not asked again.
+    expect(out[0].titleByLocale).toMatchObject({ it: 'Concerto sinfonico', en: 'Old-en', de: 'Translated-de', fr: 'Translated-fr' });
+    expect(translateFn.mock.calls.map(([args]) => args.targetLang)).toEqual(['de', 'fr']);
     // Cache entry must be updated with the full set.
     expect(Object.keys(cache['concerto sinfonico'])).toHaveLength(3);
+  });
+
+  // 2026-09-28: 17 of 237 titles had one or two locales translated and one
+  // failing; the entry was never cached, so every run re-paid all three.
+  it('caches a partial entry so the next run asks only the locale that failed', async () => {
+    const cache: Record<string, Record<string, string | null>> = {};
+    const failingEn = vi.fn(async ({ targetLang }: { targetLang: string }) =>
+      targetLang === 'en' ? '' : `Translated-${targetLang}`,
+    );
+    const first = await enrichEventsWithTranslations(events, cache, failingEn);
+    expect(first[0].titleByLocale).toEqual({ it: 'Concerto sinfonico', de: 'Translated-de', fr: 'Translated-fr' });
+    expect(cache['concerto sinfonico']).toEqual({ de: 'Translated-de', fr: 'Translated-fr' });
+
+    const secondRun = vi.fn(fakeTranslate);
+    const second = await enrichEventsWithTranslations(events, cache, secondRun);
+    expect(secondRun.mock.calls.map(([args]) => args.targetLang)).toEqual(['en']);
+    expect(second[0].titleByLocale).toMatchObject({ en: 'Translated-en', de: 'Translated-de', fr: 'Translated-fr' });
+  });
+
+  it('past the deadline keeps the Italian title for uncached locales and still uses the cache', async () => {
+    const cache: Record<string, Record<string, string>> = {
+      'concerto sinfonico': { en: 'Good-en', de: 'Good-de', fr: 'Good-fr' },
+    };
+    const mixed = [
+      { title: 'Concerto sinfonico', id: 'tio-agenda:1' },
+      { title: 'Mercatino di Natale', id: 'tio-agenda:3' },
+    ];
+    const translateFn = vi.fn(fakeTranslate);
+    const out = await enrichEventsWithTranslations(mixed, cache, translateFn, { deadline: Date.now() - 1 });
+    expect(translateFn).not.toHaveBeenCalled();
+    expect(out[0].titleByLocale?.en).toBe('Good-en');
+    expect(out[1].titleByLocale).toBeUndefined();
+    expect(cache['mercatino di natale']).toBeUndefined();
+  });
+
+  // Review 5344081136: the deadline must stop the NEXT locale of a title whose
+  // first call crossed it, not only the next title.
+  it('stops before the next locale when a call crosses the deadline', async () => {
+    let now = 1_000;
+    const clock = vi.spyOn(Date, 'now').mockImplementation(() => now);
+    try {
+      const cache: Record<string, Record<string, string>> = { 'concerto sinfonico': { en: 'Old-en' } };
+      const translateFn = vi.fn(async ({ targetLang }: { targetLang: string }) => {
+        now = 5_000; // this call ends past the deadline
+        return `Translated-${targetLang}`;
+      });
+      const out = await enrichEventsWithTranslations(events, cache, translateFn, { deadline: 2_000 });
+      expect(translateFn).toHaveBeenCalledTimes(1);
+      expect(translateFn.mock.calls[0][0].targetLang).toBe('de');
+      expect(out[0].titleByLocale).toEqual({ it: 'Concerto sinfonico', en: 'Old-en', de: 'Translated-de' });
+      expect(cache['concerto sinfonico']).toEqual({ en: 'Old-en', de: 'Translated-de' });
+    } finally {
+      clock.mockRestore();
+    }
+  });
+
+  it('treats a whitespace-only cached locale as missing, in the output too', async () => {
+    const cache: Record<string, Record<string, string>> = {
+      'concerto sinfonico': { en: '   ', de: 'Good-de', fr: 'Good-fr' },
+    };
+    const translateFn = vi.fn(fakeTranslate);
+    const deferredOut = await enrichEventsWithTranslations(events, cache, translateFn, { deadline: Date.now() - 1 });
+    expect(translateFn).not.toHaveBeenCalled();
+    expect(deferredOut[0].titleByLocale).toEqual({ it: 'Concerto sinfonico', de: 'Good-de', fr: 'Good-fr' });
+
+    await enrichEventsWithTranslations(events, cache, translateFn);
+    expect(translateFn.mock.calls.map(([args]) => args.targetLang)).toEqual(['en']);
+    expect(cache['concerto sinfonico'].en).toBe('Translated-en');
   });
 
   // #7771: un titolo gia' identico in una lingua (un festival, un toponimo)

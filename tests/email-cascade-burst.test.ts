@@ -3,6 +3,7 @@ import {
   isRateLimitedError,
   sendEmailCascade,
   fetchMailtrapDailyUsage,
+  fetchMailerooCycleUsage,
   fetchResendDailyUsage,
   fetchCloudflareUsage,
   fetchCloudflareDeliveryStats,
@@ -152,6 +153,45 @@ describe('fetchResendDailyUsage', () => {
   it('returns 0 on a failed request', async () => {
     globalThis.fetch = (async () => ({ ok: false, json: async () => ({}) }));
     expect(await fetchResendDailyUsage()).toBe(0);
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/*  Maileroo Account API must never receive the sending key            */
+/* ------------------------------------------------------------------ */
+
+describe('fetchMailerooCycleUsage credential separation', () => {
+  const realFetch = globalThis.fetch;
+
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    delete process.env.MAILEROO_API_KEY;
+    delete process.env.MAILEROO_ACCOUNT_API_KEY;
+  });
+
+  it('uses the safe static fallback without a dedicated Account API key', async () => {
+    process.env.MAILEROO_API_KEY = 'sending-key-only';
+    let calls = 0;
+    globalThis.fetch = (async () => {
+      calls += 1;
+      return { ok: true, json: async () => ({ data: { aggregate: { delivered: 4, bounced: 2 } } }) } as any;
+    }) as any;
+
+    await expect(fetchMailerooCycleUsage()).resolves.toEqual({ count: 0, verified: false });
+    expect(calls).toBe(0);
+  });
+
+  it('uses only the dedicated Account API key for statistics', async () => {
+    process.env.MAILEROO_API_KEY = 'sending-key';
+    process.env.MAILEROO_ACCOUNT_API_KEY = 'account-key';
+    let authorization = '';
+    globalThis.fetch = (async (_url, options) => {
+      authorization = options.headers.Authorization;
+      return { ok: true, json: async () => ({ data: { aggregate: { delivered: 4, bounced: 2 } } }) } as any;
+    }) as any;
+
+    await expect(fetchMailerooCycleUsage()).resolves.toEqual({ count: 6, verified: true });
+    expect(authorization).toBe('Bearer account-key');
   });
 });
 

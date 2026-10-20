@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * audit-canton-url-drift.mjs — how many already-indexed job URLs changed their
  * canton section since a point in the past, and in which direction.
@@ -532,7 +534,16 @@ async function main() {
   }
 }
 
-// Fail-soft: a monitor must never be the thing that breaks the branch.
-main().catch((e) => {
-  console.log(`⚠️  audit-canton-url-drift non ha potuto misurare: ${e?.message || e}`);
-});
+// Solo come CLI. I test importano le funzioni pure (`buildAlertBody`, …): prima
+// di questa guardia ogni import eseguiva l'audit vero — storia git, dati vivi —
+// e aggiungeva una riga a data/canton-url-drift-history.jsonl nel checkout
+// (tests/canton-url-drift-audit.test.ts e tests/monitor-scheda-openers.test.ts,
+// misurato il 2026-09-30).
+const invokedAsCli = Boolean(process.argv[1])
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
+if (invokedAsCli) {
+  // Fail-soft: a monitor must never be the thing that breaks the branch.
+  main().catch((e) => {
+    console.log(`⚠️  audit-canton-url-drift non ha potuto misurare: ${e?.message || e}`);
+  });
+}

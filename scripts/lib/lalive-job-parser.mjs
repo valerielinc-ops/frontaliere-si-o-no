@@ -26,8 +26,11 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { withRenderedPersonioPage } from './ats-clients/personio-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -148,22 +151,6 @@ function buildDetailUrl(id) {
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-async function fetchJson(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': USER_AGENT, Accept: 'application/json,*/*' },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 function buildParsedJob(rec) {
   const title = normalizeSpace(rec?.name || '');
   if (!title || title.length < 3) return null;
@@ -178,10 +165,11 @@ function buildParsedJob(rec) {
   const jobSlug = slugify(`${title} lalive ${loc.city}`);
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-  const fallbackDesc = `${title} — Offerta di lavoro presso LALIVE a ${loc.city} (${loc.canton}), Svizzera. `
-    + 'LALIVE è uno studio legale internazionale specializzato in arbitrato internazionale '
-    + 'e risoluzione di controversie, con uffici a Ginevra, Zurigo e Londra.';
-  const desc = descriptionText.length >= 80 ? descriptionText : fallbackDesc;
+  // Only the posting's own text (issue 5253): no Italian "<title> — Offerta di
+  // lavoro presso LALIVE …" line and firm summary in place of a short body. A
+  // body under the common 50-word floor gives no description (the shared
+  // pipeline's thin-source path).
+  const desc = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
   const employmentBasis = `${rec?.schedule || ''} ${rec?.employment_type || ''}`;
 
@@ -217,7 +205,7 @@ function buildParsedJob(rec) {
     sector: 'Legale',
     currency: 'CHF',
     featured: false,
-    postedDate: new Date().toISOString().split('T')[0],
+    ...mergeSourcePostingDates({}, rec),
     applyUrl: publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
@@ -238,10 +226,15 @@ export async function fetchAllLaliveJobs() {
 
   let records = [];
   try {
-    records = await fetchJson(PERSONIO_API_URL);
+    records = await fetchJson(PERSONIO_API_URL, {
+      headers: { 'User-Agent': USER_AGENT, Accept: 'application/json,*/*' },
+    });
   } catch (err) {
     console.warn(`⚠️ Personio search.json fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   if (!Array.isArray(records)) {
     console.warn(`⚠️ Personio search.json: expected array, got ${typeof records}`);
@@ -252,8 +245,13 @@ export async function fetchAllLaliveJobs() {
   const jobs = [];
   for (const rec of records) {
     try {
-      const job = buildParsedJob(rec);
-      if (job) jobs.push(job);
+      const kept = buildParsedJob(rec);
+      if (!kept) continue;
+      // The listing's `description` omits the company block and is empty for
+      // a position that only exists in another language; the published job
+      // page renders the whole vacancy (see `withRenderedPersonioPage`).
+      const job = buildParsedJob(await withRenderedPersonioPage(rec, kept.url)) || kept;
+      jobs.push(job);
     } catch (err) {
       console.warn(`⚠️ Skipping id=${rec?.id || '<?>'}: ${err?.message || err}`);
     }

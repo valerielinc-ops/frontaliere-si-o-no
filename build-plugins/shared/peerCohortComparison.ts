@@ -340,8 +340,20 @@ export function renderPeerComparison(params: {
   windowSize?: number;
   /** Extra provenance line for family-specific figures. */
   sourceNote?: string;
+  /** Keep a data-driven comparison scannable when the host page is already long. */
+  maxProseSentences?: number;
 }): string {
-  const { locale, currentKey, rows, labels, formatValue, higherIsBetter = true, windowSize = 2, sourceNote } = params;
+  const {
+    locale,
+    currentKey,
+    rows,
+    labels,
+    formatValue,
+    higherIsBetter = true,
+    windowSize = 2,
+    sourceNote,
+    maxProseSentences,
+  } = params;
   // Validate at the public boundary, before a short/missing cohort can return
   // an empty string and silently skip the German dative contract.
   assertPeerNounContract(locale, labels.peerNoun);
@@ -349,18 +361,25 @@ export function renderPeerComparison(params: {
   if (ranked.length < 3 || !ranked.some((row) => row.key === currentKey)) return '';
 
   const sentences = buildPeerProse({ locale, ranked, currentKey, labels, formatValue, higherIsBetter, windowSize });
-  if (sentences.length === 0) return '';
-  const prose = sentences.map((s) => `<p class="mt-2 text-sm text-body">${esc(s)}</p>`).join('\n        ');
+  const visibleSentences = typeof maxProseSentences === 'number'
+    ? sentences.slice(0, Math.max(0, Math.floor(maxProseSentences)))
+    : sentences;
+  if (visibleSentences.length === 0) return '';
+  const prose = visibleSentences.map((s) => `<p class="mt-2 text-sm text-body">${esc(s)}</p>`).join('\n        ');
 
   const tableRows = peerWindow(ranked, currentKey, windowSize)
     .map((row) => {
       const isCurrent = row.key === currentKey;
+      // The first column is a value under the table's "peer" column header,
+      // so it must stay a data cell. Using row-header <th> cells here leaves
+      // that column without any associated <td> values for automated and
+      // assistive-table checks (a11y/th-has-data-cells).
       const nameCell = isCurrent
-        ? `<th scope="row" class="px-3 py-2 text-left font-semibold text-heading">${esc(row.name)} <span class="font-normal text-muted">(${esc(COPY.thisPage[locale])})</span></th>`
+        ? `<td class="px-3 py-2 text-left font-semibold text-heading">${esc(row.name)} <span class="font-normal text-muted">(${esc(COPY.thisPage[locale])})</span></td>`
         : row.href
-          ? `<th scope="row" class="px-3 py-2 text-left font-normal"><a class="font-semibold text-accent hover:underline" href="${esc(row.href)}">${esc(row.name)}</a></th>`
-          : `<th scope="row" class="px-3 py-2 text-left font-normal">${esc(row.name)}</th>`;
-      return `<tr class="${isCurrent ? 'bg-surface-raised' : ''}">${nameCell}<td class="px-3 py-2 text-right tabular-nums">${esc(String(row.rank))}</td><td class="px-3 py-2 text-right tabular-nums">${esc(formatValue(row.value, locale))}</td></tr>`;
+          ? `<td class="px-3 py-2 text-left font-normal"><a class="font-semibold text-accent hover:underline" href="${esc(row.href)}">${esc(row.name)}</a></td>`
+          : `<td class="px-3 py-2 text-left font-normal">${esc(row.name)}</td>`;
+      return `<tr role="row" class="${isCurrent ? 'bg-surface-raised' : ''}">${nameCell}<td role="cell" class="px-3 py-2 text-right tabular-nums">${esc(String(row.rank))}</td><td role="cell" class="px-3 py-2 text-right tabular-nums">${esc(formatValue(row.value, locale))}</td></tr>`;
     })
     .join('\n            ');
 
@@ -371,11 +390,12 @@ export function renderPeerComparison(params: {
         <h2 class="text-xl font-bold text-heading">${esc(labels.heading)}</h2>
         ${prose}
         <div class="mt-4 overflow-x-auto">
-          <table class="w-full min-w-[28rem] border-collapse text-sm">
-            <thead class="border-b border-edge text-muted">
-              <tr><th scope="col" class="px-3 py-2 text-left font-semibold">${esc(COPY.colPeer[locale])}</th><th scope="col" class="px-3 py-2 text-right font-semibold">${esc(COPY.colRank[locale])}</th><th scope="col" class="px-3 py-2 text-right font-semibold">${esc(labels.metricLabel)}</th></tr>
+          <table role="table" class="w-full min-w-[28rem] border-collapse text-sm">
+            <caption class="sr-only">${esc(labels.heading)}</caption>
+            <thead role="rowgroup" class="border-b border-edge text-muted">
+              <tr role="row"><th scope="col" role="columnheader" class="px-3 py-2 text-left font-semibold">${esc(COPY.colPeer[locale])}</th><th scope="col" role="columnheader" class="px-3 py-2 text-right font-semibold">${esc(COPY.colRank[locale])}</th><th scope="col" role="columnheader" class="px-3 py-2 text-right font-semibold">${esc(labels.metricLabel)}</th></tr>
             </thead>
-            <tbody class="divide-y divide-edge text-body">
+            <tbody role="rowgroup" class="divide-y divide-edge text-body">
             ${tableRows}
             </tbody>
           </table>

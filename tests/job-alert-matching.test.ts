@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildAlertProfile,
+  createJobFeatureCache,
   scoreJobForAlert,
   partitionByGeoPreference,
   freshnessBoost,
@@ -38,6 +39,88 @@ describe('jobAlertMatching — explicit keyword contract (legacy preserved)', ()
 
   it('returns 0 when typed keywords match nothing (hard filter)', () => {
     expect(score(job(), { keywords: ['idraulico'] })).toBe(0);
+  });
+
+  it.each([
+    ['Tecnologia', 'IT', 'Software'],
+    ['Technology', 'IT', 'Software'],
+    ['Gesundheit', 'Healthcare', 'Medical'],
+    ['Santé', 'Healthcare', 'Medical'],
+  ])('matches the persisted %s board label against structured job taxonomy', (label, sector, category) => {
+    const categorizedJob = job({
+      title: 'Project Manager',
+      description: 'Ruolo di coordinamento e pianificazione.',
+      sector,
+      category,
+    });
+    const unrelatedJob = job({
+      title: 'Project Manager',
+      description: 'Ruolo di coordinamento e pianificazione.',
+      sector: 'Fashion',
+      category: 'Retail',
+    });
+
+    expect(score(categorizedJob, { keywords: [label] })).toBeGreaterThan(0);
+    expect(score(unrelatedJob, { keywords: [label] })).toBe(0);
+  });
+
+  it('matches a raw board sector label against structured taxonomy without text broadening', () => {
+    const alert = { keywords: ['Banking / Wealth Management'], cantonFilter: ['TI'] };
+    const profile = buildAlertProfile(alert);
+    const matchingJob = job({
+      title: 'Project Manager',
+      description: 'Coordinate client operations and reporting.',
+      sector: 'Banking / Wealth Management',
+      category: 'Corporate Services',
+    });
+    const unrelatedJob = job({
+      title: 'Project Manager',
+      description: 'Coordinate client operations and reporting.',
+      sector: 'Retail',
+      category: 'Consumer Services',
+    });
+    const matchingJobOutsideCanton = job({
+      ...matchingJob,
+      location: 'Geneva',
+      addressLocality: 'Geneva',
+      addressRegion: 'GE',
+      canton: 'GE',
+    });
+
+    expect(profile.hardTaxonomyValues).toContain('banking wealth management');
+    expect(scoreJobForAlert(matchingJob, profile)).toBeGreaterThan(0);
+    expect(scoreJobForAlert(matchingJob, profile, undefined, createJobFeatureCache())).toBeGreaterThan(0);
+    expect(scoreJobForAlert(unrelatedJob, profile)).toBe(0);
+    expect(scoreJobForAlert(matchingJobOutsideCanton, profile)).toBe(0);
+  });
+
+  it('matches a profession keyword across the shared cross-locale taxonomy', () => {
+    const italianNurse = job({
+      title: 'Infermiere',
+      titleByLocale: { it: 'Infermiere', en: 'Nurse' },
+      description: 'Assistenza infermieristica in reparto ospedaliero.',
+      sector: 'Sanità',
+      category: 'Cura',
+    });
+    expect(score(italianNurse, { keywords: ['nurse'] }, null)).toBeGreaterThan(0);
+  });
+
+  it('does not let a generic token from a multi-word alias satisfy the hard filter', () => {
+    const genericTokenOnly = job({
+      title: 'Office Assistant',
+      description: 'Administrative support role for the health team.',
+      sector: 'Administration',
+      category: 'Office',
+    });
+    const phraseMatch = job({
+      title: 'Health Care Assistant',
+      description: 'Patient support role in a care team.',
+      sector: 'Sanità',
+      category: 'Cura',
+    });
+
+    expect(score(genericTokenOnly, { keywords: ['oss'] }, null)).toBe(0);
+    expect(score(phraseMatch, { keywords: ['oss'] }, null)).toBeGreaterThan(0);
   });
 
   it('ranks a job matching MORE keyword tokens higher (tokenized bonus)', () => {
@@ -79,6 +162,102 @@ describe('jobAlertMatching — explicit keyword contract (legacy preserved)', ()
     const profile = buildAlertProfile(alert, subscriber);
     expect(scoreJobForAlert(unrelated, profile, 'it')).toBe(0);
     expect(scoreJobForAlert(relevant, profile, 'it')).toBeGreaterThan(0);
+  });
+
+  it('treats a recovered source-job title as soft intent, including on legacy alerts', () => {
+    const subscriber = {
+      job_search_query: 'Senior Fisioterapista',
+      job_category: 'health',
+      job_context_backfill_source: 'active_job_exact',
+    };
+    const alert = {
+      backfilled_from: 'newsletter_subscribers:job_gate',
+      keywords: ['Senior Fisioterapista'],
+      locations: ['Lugano'],
+      sourceJobSlug: 'senior-fisioterapista-lugano',
+    };
+    const profile = buildAlertProfile(alert, subscriber);
+    const related = job({
+      title: 'Fisioterapista',
+      description: 'Ruolo sanitario in riabilitazione.',
+      location: 'Lugano',
+      addressLocality: 'Lugano',
+      sector: 'Sanità',
+      category: 'Fisioterapia',
+    });
+
+    expect(profile.hardKeywords.size).toBe(0);
+    expect(scoreJobForAlert(related, profile, 'it')).toBeGreaterThan(0);
+  });
+
+  it('treats an untouched legacy source-job location as soft intent at read time', () => {
+    const subscriber = {
+      job_location: 'Lugano',
+      job_category: 'health',
+      source_channel: 'job_gate',
+    };
+    const alert = {
+      backfilled_from: 'newsletter_subscribers:job_gate',
+      keywords: [],
+      locations: ['Lugano'],
+    };
+    const profile = buildAlertProfile(alert, subscriber);
+    const related = job({
+      title: 'Fisioterapista',
+      description: 'Ruolo sanitario in riabilitazione.',
+      location: 'Zurich',
+      addressLocality: 'Zurich',
+      addressRegion: 'ZH',
+      canton: 'ZH',
+      sector: 'health',
+      category: 'Healthcare',
+    });
+
+    expect(profile.alertLocations).toEqual([]);
+    expect(scoreJobForAlert(related, profile, 'it')).toBeGreaterThan(0);
+  });
+
+  it('keeps a legacy location hard when the user changed the generated array', () => {
+    const profile = buildAlertProfile(
+      {
+        backfilled_from: 'newsletter_subscribers:job_gate',
+        keywords: [],
+        locations: ['Lugano', 'Bellinzona'],
+      },
+      { job_location: 'Lugano', job_category: 'health' },
+    );
+
+    expect(profile.alertLocations).toEqual(['lugano', 'bellinzona']);
+  });
+
+  it('keeps a legacy location hard when only casing or whitespace changed', () => {
+    const profile = buildAlertProfile(
+      {
+        backfilled_from: 'newsletter_subscribers:job_gate',
+        keywords: [],
+        locations: [' Lugano '],
+      },
+      { job_location: 'Lugano' },
+    );
+
+    expect(profile.alertLocations).toEqual([' lugano ']);
+  });
+
+  it('keeps an edited backfill keyword array hard', () => {
+    const profile = buildAlertProfile(
+      {
+        backfilled_from: 'newsletter_subscribers:job_gate',
+        keywords: ['Senior Fisioterapista', 'riabilitazione'],
+        sourceJobTitle: 'Senior Fisioterapista',
+      },
+      {
+        job_search_query: 'Senior Fisioterapista',
+        job_category: 'health',
+        job_context_backfill_source: 'active_job_exact',
+      },
+    );
+
+    expect(profile.hardKeywords.has('riabilitazione')).toBe(true);
   });
 });
 
@@ -222,6 +401,20 @@ describe('jobAlertMatching — explicit location/canton is a HARD filter', () =>
     expect(score(luganoParadiso, { keywords: ['engineer'], locations: ['Lugano'] })).toBeGreaterThan(0);
   });
 
+  it('treats Coira and Chur as the same explicit location across locale labels', () => {
+    const churJob = job({
+      title: 'Software Engineer',
+      location: 'Chur', addressLocality: 'Chur', addressRegion: 'GR', canton: 'GR',
+    });
+    const coiraJob = job({
+      title: 'Software Engineer',
+      location: 'Coira', addressLocality: 'Coira', addressRegion: 'GR', canton: 'GR',
+    });
+
+    expect(score(churJob, { keywords: ['engineer'], locations: ['Coira'] })).toBeGreaterThan(0);
+    expect(score(coiraJob, { keywords: ['engineer'], locations: ['Chur'] })).toBeGreaterThan(0);
+  });
+
   it('a matching canton satisfies the geo filter when alert locations are empty', () => {
     expect(score(job(), { keywords: ['engineer'], cantonFilter: ['TI'] })).toBeGreaterThan(0);
   });
@@ -232,6 +425,37 @@ describe('jobAlertMatching — explicit location/canton is a HARD filter', () =>
     const sub = { preferences: { lugano: true } };
     const zurichJob = job({ location: 'Zurich', addressLocality: 'Zurich', addressRegion: 'ZH', canton: 'ZH' });
     expect(score(zurichJob, { keywords: ['engineer'] }, sub)).toBeGreaterThan(0);
+  });
+
+  it('backfilled source-job location stays soft and does not hard-filter related jobs', () => {
+    const subscriber = {
+      job_location: 'Lugano',
+      job_category: 'health',
+      source_channel: 'job_gate',
+    };
+    const alert = buildAlertPayload(
+      'a@b.ch',
+      {
+        job_search_query: 'fisioterapista',
+        job_category: 'health',
+        job_location: 'Lugano',
+        source_channel: 'job_gate',
+      },
+      null,
+    );
+    const relatedJobOutsideSourceCity = job({
+      title: 'Fisioterapista',
+      description: 'Cerchiamo un fisioterapista a Zurich.',
+      location: 'Zurich',
+      addressLocality: 'Zurich',
+      addressRegion: 'ZH',
+      canton: 'ZH',
+      sector: 'Sanità',
+      category: 'Cura',
+    });
+
+    expect(alert.locations).toEqual([]);
+    expect(score(relatedJobOutsideSourceCity, alert, subscriber)).toBeGreaterThan(0);
   });
 });
 

@@ -14,7 +14,15 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 // scan-job-timeouts-dedup.test.ts.
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
+  const mock = {
+    execFileSync: (cmd: string, args: string[], ...rest: unknown[]) => {
+      if (cmd === 'gh' && args[0] === 'api'
+        && String(args[1]).includes('/runs?status=success&event=schedule')) {
+        return JSON.stringify({ workflow_runs: [] });
+      }
+      return execFileSync(cmd, args, ...rest);
+    },
+  };
   return { ...mock, default: mock };
 });
 
@@ -65,7 +73,7 @@ describe('scan-job-timeouts — annotazioni non-array', () => {
         if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [RUN] });
         if (path.includes(`actions/runs/${RUN.id}/jobs`)) return JSON.stringify({ jobs: JOBS });
         // Il primo check-run risponde con l'oggetto d'errore, non con la lista.
-        if (path === 'https://api.github.com/repos/o/r/check-runs/1/annotations') {
+        if (path === 'repos/o/r/check-runs/1/annotations') {
           return JSON.stringify([{ message: 'Not Found', documentation_url: 'https://docs.github.com/rest' }]);
         }
         if (path.endsWith('/annotations')) {

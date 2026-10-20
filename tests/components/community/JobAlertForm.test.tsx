@@ -17,26 +17,58 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent, cleanup, within } from '@testing-library/react';
+import { render, screen, fireEvent, cleanup, within, waitFor, act } from '@testing-library/react';
 import JobAlertForm from '@/components/community/JobAlertForm';
+import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
+const ALERT_CTA_SURFACES = ['inline_card'];
+
+const {
+  createAlertMock,
+  deleteAlertMock,
+  getUserAlertsMock,
+  getJobAlertEligibilityMock,
+  invalidateUserAlertsCacheMock,
+} = vi.hoisted(() => ({
+  createAlertMock: vi.fn(async () => ({ id: 'x' })),
+  deleteAlertMock: vi.fn(async () => undefined),
+  getUserAlertsMock: vi.fn(async () => []),
+  getJobAlertEligibilityMock: vi.fn(async () => ({ eligible: true, reason: null })),
+  invalidateUserAlertsCacheMock: vi.fn(),
+}));
 
 // Mock the service so the form can dynamic-import it without trying to talk
-// to a real Firestore (we don't assert on this — see the service-level tests
-// for the payload contract).
+// to a real Firestore (the canton tests don't assert on this — see the
+// service-level tests for the payload contract; the funnel tests below do,
+// which works because the form shares ONE import promise across its callers).
 vi.mock('@/services/jobAlertService', () => ({
-  createAlert: vi.fn(async () => ({ id: 'x' })),
-  getUserAlerts: vi.fn(async () => []),
-  deleteAlert: vi.fn(async () => undefined),
+  createAlert: createAlertMock,
+  getUserAlerts: getUserAlertsMock,
+  deleteAlert: deleteAlertMock,
   updateAlert: vi.fn(async () => undefined),
 }));
 
-vi.mock('@/services/analytics', () => ({
-  Analytics: {
+vi.mock('@/services/jobAlertEligibility', () => ({
+  getJobAlertEligibility: getJobAlertEligibilityMock,
+}));
+
+vi.mock('@/services/userAlertsCache', () => ({
+  invalidateUserAlertsCache: invalidateUserAlertsCacheMock,
+}));
+
+const { analyticsMock } = vi.hoisted(() => ({
+  analyticsMock: {
     trackJobAlertCtaClick: vi.fn(),
     trackJobAlertCtaShown: vi.fn(),
+    trackJobAlertCtaSkipped: vi.fn(),
+    trackJobAlertPassiveView: vi.fn(),
     trackJobAlertCreated: vi.fn(),
     trackJobAlertDeleted: vi.fn(),
   },
+}));
+vi.mock('@/services/analytics', () => ({ Analytics: analyticsMock }));
+
+vi.mock('@/services/profileFirestore', () => ({
+  loadEnrichmentProfileFields: vi.fn(async () => ({})),
 }));
 
 const authUser = { uid: 'user-1', email: 'foo@example.com' };
@@ -86,7 +118,13 @@ function getFieldset(): HTMLFieldSetElement {
 }
 
 beforeEach(() => {
-  // nothing to set up beyond the per-file mocks
+  getUserAlertsMock.mockReset();
+  getUserAlertsMock.mockResolvedValue([]);
+  getJobAlertEligibilityMock.mockReset();
+  getJobAlertEligibilityMock.mockResolvedValue({ eligible: true, reason: null });
+  createAlertMock.mockClear();
+  deleteAlertMock.mockClear();
+  invalidateUserAlertsCacheMock.mockClear();
 });
 
 afterEach(() => {
@@ -256,5 +294,355 @@ describe('JobAlertForm — initialCantonCode prefill (issue #4298)', () => {
     // re-seed the canton the user just cleared.
     rerender(<JobAlertForm authUser={authUser} initialKeyword="Sviluppo" initialCantonCode="TI" />);
     expect(getCantonChip(/Ticino/).getAttribute('aria-pressed')).toBe('false');
+  });
+});
+
+// ── alert_funnel: guest submit, post-auth replay, inline impression chain ──
+
+const PENDING_KEY = 'pending_job_alert';
+
+/** Controllable IntersectionObserver stand-in (same shape as the #5039 pin). */
+class FakeIO {
+  static instances: FakeIO[] = [];
+  callback: IntersectionObserverCallback;
+  observed: Element[] = [];
+  constructor(cb: IntersectionObserverCallback) {
+    this.callback = cb;
+    FakeIO.instances.push(this);
+  }
+  observe(el: Element) { this.observed.push(el); }
+  unobserve() { /* noop */ }
+  disconnect() { /* noop */ }
+  takeRecords() { return []; }
+  enter() {
+    act(() => {
+      this.callback(
+        this.observed.map((target) => ({ isIntersecting: true, target })) as unknown as IntersectionObserverEntry[],
+        this as unknown as IntersectionObserver,
+      );
+    });
+  }
+}
+
+function typeKeywordAndSubmit(value: string) {
+  fireEvent.change(document.getElementById('job-alert-keyword') as HTMLInputElement, { target: { value } });
+  const submit = Array.from(document.querySelectorAll<HTMLButtonElement>('#job-alert-form button')).find(
+    (b) => !b.hasAttribute('aria-controls') && !b.hasAttribute('aria-pressed'),
+  );
+  if (!submit) throw new Error('submit button not found');
+  fireEvent.click(submit);
+}
+
+function ctaActions(): string[] {
+  return analyticsMock.trackJobAlertCtaClick.mock.calls.map((c) => `${c[0]}:${c[1]}`);
+}
+
+describe('JobAlertForm — guest submit persists the intent or says it cannot (issue 9575)', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    Object.values(analyticsMock).forEach((m) => m.mockClear());
+    createAlertMock.mockClear();
+  });
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('stores the intent with its CTA origin, then hands off to sign-in', async () => {
+    const onRequireAuth = vi.fn();
+    render(<JobAlertForm authUser={null} onRequireAuth={onRequireAuth} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    typeKeywordAndSubmit('infermiere');
+
+    expect(onRequireAuth).toHaveBeenCalledTimes(1);
+    const stored = JSON.parse(localStorage.getItem(PENDING_KEY) || 'null');
+    expect(stored.value.origin).toBe('inline_card');
+    expect(stored.value.config.keywords).toEqual(['infermiere']);
+    expect(screen.queryByTestId('job-alert-pending-storage-failed')).toBeNull();
+    await waitFor(() => expect(ctaActions()).toContain('inline_card:accept'));
+    expect(ctaActions()).not.toContain('inline_card:error');
+  });
+
+  it('does NOT start the auth round-trip when the intent cannot be stored — it surfaces the failure instead', async () => {
+    vi.spyOn(window.localStorage, 'setItem').mockImplementation(() => {
+      throw new DOMException('QuotaExceededError', 'QuotaExceededError');
+    });
+    const onRequireAuth = vi.fn();
+    render(<JobAlertForm authUser={null} onRequireAuth={onRequireAuth} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    typeKeywordAndSubmit('infermiere');
+
+    // Pre-fix: onRequireAuth fired anyway and the replay found nothing.
+    expect(onRequireAuth).not.toHaveBeenCalled();
+    const notice = screen.getByTestId('job-alert-pending-storage-failed');
+    expect(notice.getAttribute('role')).toBe('alert');
+    // The typed criteria stay on screen for the manual retry after sign-in.
+    expect((document.getElementById('job-alert-keyword') as HTMLInputElement).value).toBe('infermiere');
+    await waitFor(() => expect(ctaActions()).toEqual(expect.arrayContaining(['inline_card:accept', 'inline_card:error'])));
+
+    // Signing in stays possible, as an explicit choice without a promised replay.
+    fireEvent.click(within(notice).getByRole('button'));
+    expect(onRequireAuth).toHaveBeenCalledTimes(1);
+  });
+
+  it('an empty guest submit neither stores an intent nor sends the user to sign-in', () => {
+    const onRequireAuth = vi.fn();
+    render(<JobAlertForm authUser={null} onRequireAuth={onRequireAuth} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    typeKeywordAndSubmit('   ');
+    expect(onRequireAuth).not.toHaveBeenCalled();
+    expect(localStorage.getItem(PENDING_KEY)).toBeNull();
+  });
+
+  it('keeps an advanced-only criterion instead of treating it as an empty alert', () => {
+    const onRequireAuth = vi.fn();
+    render(<JobAlertForm authUser={null} onRequireAuth={onRequireAuth} />);
+    expandForm();
+    openCantonPicker();
+    fireEvent.click(getCantonChip(/Ticino/));
+    typeKeywordAndSubmit('   ');
+
+    expect(onRequireAuth).toHaveBeenCalledTimes(1);
+    const stored = JSON.parse(localStorage.getItem(PENDING_KEY) || 'null');
+    expect(stored.value.config.keywords).toEqual([]);
+    expect(stored.value.config.cantonFilter).toEqual(['TI']);
+  });
+});
+
+describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (issue 9576)', () => {
+  beforeEach(async () => {
+    localStorage.clear();
+    Object.values(analyticsMock).forEach((m) => m.mockClear());
+    createAlertMock.mockClear();
+  });
+
+  it('attributes the replayed job_alert_created to inline_card, with the auth hop as a separate field', async () => {
+    // Written by the guest submit above, read back after sign-in.
+    const onRequireAuth = vi.fn();
+    const { unmount } = render(<JobAlertForm authUser={null} onRequireAuth={onRequireAuth} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    typeKeywordAndSubmit('infermiere');
+    expect(onRequireAuth).toHaveBeenCalledTimes(1);
+    unmount();
+
+    render(<JobAlertForm authUser={authUser} />);
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1));
+    expect(createAlertMock).toHaveBeenCalledWith(
+      'user-1',
+      'foo@example.com',
+      expect.objectContaining({ keywords: ['infermiere'] }),
+    );
+    await waitFor(() => expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1));
+    const created = analyticsMock.trackJobAlertCreated.mock.calls[0][0];
+    expect(created).toMatchObject({ surface: 'inline_card', authPath: 'post_auth_replay' });
+    // The surface is one the goal's allowlist counts on BOTH sides of the ratio.
+    expect(ALERT_CTA_SURFACES).toContain(created.surface);
+    await waitFor(() => expect(ctaActions()).toContain('inline_card:success'));
+    expect(localStorage.getItem(PENDING_KEY)).toBeNull();
+  });
+
+  it('keeps a job-detail handoff origin on a signed-in form create', async () => {
+    requestJobAlertOpen('infermiere', 'job_detail_button');
+    render(<JobAlertForm authUser={authUser} />);
+
+    await waitFor(() => expect(document.getElementById('job-alert-form')).not.toBeNull());
+    typeKeywordAndSubmit('infermiere');
+
+    await waitFor(() => expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertCreated.mock.calls[0][0]).toMatchObject({
+      surface: 'job_detail_button',
+      authPath: 'direct',
+    });
+    await waitFor(() => expect(ctaActions()).toContain('job_detail_button:accept'));
+    expect(ctaActions()).toContain('job_detail_button:success');
+  });
+
+  it('uses the queued origin when a mounted-form event omits its origin detail', async () => {
+    render(<JobAlertForm authUser={authUser} />);
+    requestJobAlertOpen('infermiere', 'job_detail_anonymous');
+    fireEvent(window, new CustomEvent('openJobAlert', { detail: { keyword: 'infermiere' } }));
+
+    await waitFor(() => expect(document.getElementById('job-alert-form')).not.toBeNull());
+    typeKeywordAndSubmit('infermiere');
+
+    await waitFor(() => expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertCreated.mock.calls[0][0]).toMatchObject({
+      surface: 'job_detail_anonymous',
+      authPath: 'direct',
+    });
+    await waitFor(() => expect(ctaActions()).toContain('job_detail_anonymous:success'));
+  });
+
+  it('keeps the anonymous detail origin through prefill, auth replay, and created attribution', async () => {
+    localStorage.clear();
+    const onRequireAuth = vi.fn();
+    requestJobAlertOpen('infermiere', 'job_detail_anonymous');
+    const { unmount } = render(<JobAlertForm authUser={null} onRequireAuth={onRequireAuth} />);
+
+    await waitFor(() => expect(document.getElementById('job-alert-form')).not.toBeNull());
+    typeKeywordAndSubmit('infermiere');
+    expect(onRequireAuth).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(localStorage.getItem(PENDING_KEY) || 'null').value).toMatchObject({
+      config: expect.objectContaining({ keywords: ['infermiere'] }),
+      origin: 'job_detail_anonymous',
+    });
+    unmount();
+
+    render(<JobAlertForm authUser={authUser} />);
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1));
+    const created = analyticsMock.trackJobAlertCreated.mock.calls[0][0];
+    expect(created).toMatchObject({ surface: 'job_detail_anonymous', authPath: 'post_auth_replay' });
+    expect(ALERT_CTA_SURFACES).not.toContain(created.surface);
+    await waitFor(() => expect(ctaActions()).toContain('job_detail_anonymous:success'));
+    expect(localStorage.getItem(PENDING_KEY)).toBeNull();
+  });
+
+  it('a legacy intent without origin stays on the diagnostic post_auth_auto surface', async () => {
+    localStorage.setItem(
+      PENDING_KEY,
+      JSON.stringify({
+        value: { keywords: ['cuoco'], locations: [], contractTypes: [], sectors: [], cantonFilter: null, frequency: 'daily', locale: 'it' },
+        savedAt: Date.now(),
+      }),
+    );
+    render(<JobAlertForm authUser={authUser} />);
+    await waitFor(() => expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1));
+    const created = analyticsMock.trackJobAlertCreated.mock.calls[0][0];
+    expect(created).toMatchObject({ surface: 'post_auth_auto', authPath: 'post_auth_replay' });
+    expect(ALERT_CTA_SURFACES).not.toContain(created.surface);
+  });
+
+  it('a direct signed-in create reports authPath direct and the accept→success chain', async () => {
+    render(<JobAlertForm authUser={authUser} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    typeKeywordAndSubmit('contabile');
+    await waitFor(() => expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertCreated.mock.calls[0][0]).toMatchObject({ surface: 'inline_card', authPath: 'direct' });
+    await waitFor(() => expect(ctaActions()).toEqual(['inline_card:open', 'inline_card:accept', 'inline_card:success']));
+  });
+
+  it('invalidates shared eligibility after a successful direct create', async () => {
+    render(<JobAlertForm authUser={authUser} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    typeKeywordAndSubmit('contabile');
+
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1));
+    expect(invalidateUserAlertsCacheMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('invalidates shared eligibility after a successful delete', async () => {
+    getUserAlertsMock.mockResolvedValueOnce([{
+      id: 'existing-alert',
+      userId: 'user-1',
+      email: 'foo@example.com',
+      keywords: ['contabile'],
+      locations: [],
+      contractTypes: [],
+      sectors: [],
+      cantonFilter: null,
+      frequency: 'daily',
+      frequencyOverride: false,
+      locale: 'it',
+      specificJobId: null,
+      specificCompanyKey: null,
+      active: true,
+      createdAt: new Date(),
+      lastMatchedAt: null,
+      matchCount: 0,
+    }]);
+    render(<JobAlertForm authUser={authUser} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+
+    const deleteButton = await screen.findByTitle('Elimina');
+    fireEvent.click(deleteButton);
+
+    await waitFor(() => expect(deleteAlertMock).toHaveBeenCalledWith('foo@example.com', 'existing-alert'));
+    expect(invalidateUserAlertsCacheMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('a failed signed-in create reports accept→error', async () => {
+    createAlertMock.mockRejectedValueOnce(new Error('quota'));
+    render(<JobAlertForm authUser={authUser} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    typeKeywordAndSubmit('contabile');
+    await waitFor(() => expect(ctaActions()).toEqual(['inline_card:open', 'inline_card:accept', 'inline_card:error']));
+    expect(analyticsMock.trackJobAlertCreated).not.toHaveBeenCalled();
+  });
+});
+
+describe('JobAlertForm — inline_card impression fires once, on visibility (issue 9577)', () => {
+  beforeEach(() => {
+    FakeIO.instances = [];
+    vi.stubGlobal('IntersectionObserver', FakeIO as unknown as typeof IntersectionObserver);
+    Object.values(analyticsMock).forEach((m) => m.mockClear());
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('is not emitted on mount nor on the two-search auto-expand, only when the card is seen', async () => {
+    vi.useFakeTimers();
+    const { rerender } = render(<JobAlertForm authUser={null} initialKeyword="infermiere" />);
+    act(() => { vi.advanceTimersByTime(900); });
+    rerender(<JobAlertForm authUser={null} initialKeyword="cuoco" />);
+    act(() => { vi.advanceTimersByTime(900); });
+    vi.useRealTimers();
+    // Auto-expand happened…
+    expect(document.getElementById('job-alert-form')).not.toBeNull();
+    await new Promise((r) => setTimeout(r, 20));
+    // …but pre-fix it was the ONLY place an inline_card impression came from.
+    expect(analyticsMock.trackJobAlertCtaShown).not.toHaveBeenCalled();
+
+    const io = FakeIO.instances.at(-1)!;
+    io.enter();
+    io.enter();
+    await waitFor(() => expect(analyticsMock.trackJobAlertCtaShown).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertCtaShown).toHaveBeenCalledWith('inline_card', 'cuoco');
+  });
+
+  it('keeps an unfiltered utility-card view out of the funnel and measures it separately', async () => {
+    render(<JobAlertForm authUser={null} />);
+    await waitFor(() => expect(FakeIO.instances.length).toBeGreaterThan(0));
+    FakeIO.instances.at(-1)!.enter();
+    await waitFor(() => expect(analyticsMock.trackJobAlertPassiveView).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertPassiveView).toHaveBeenCalledWith('inline_card');
+    expect(analyticsMock.trackJobAlertCtaShown).not.toHaveBeenCalled();
+  });
+
+  it('waits for a signed-in user\'s alerts before arming the passive view', async () => {
+    render(<JobAlertForm authUser={authUser} />);
+    await waitFor(() => expect(FakeIO.instances.length).toBeGreaterThan(0));
+    FakeIO.instances.at(-1)!.enter();
+    await waitFor(() => expect(analyticsMock.trackJobAlertPassiveView).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertCtaShown).not.toHaveBeenCalled();
+  });
+
+  it('records a full category quota without hiding alert management', async () => {
+    getUserAlertsMock.mockResolvedValue(Array.from({ length: 10 }, (_, index) => ({
+      id: `alert-${index}`,
+      userId: authUser.uid,
+      email: authUser.email,
+      keywords: [`keyword-${index}`],
+      locations: [],
+      contractTypes: [],
+      sectors: [],
+      cantonFilter: null,
+      frequency: 'daily',
+      frequencyOverride: false,
+      specificCompanyKey: null,
+      active: true,
+    })));
+    getJobAlertEligibilityMock.mockResolvedValue({ eligible: false, reason: 'quota_full' });
+
+    render(<JobAlertForm authUser={authUser} initialKeyword="infermiere" />);
+
+    await waitFor(() => expect(analyticsMock.trackJobAlertCtaSkipped)
+      .toHaveBeenCalledWith('inline_card', 'quota_full'));
+    expect(analyticsMock.trackJobAlertCtaShown).not.toHaveBeenCalled();
+    expect(FakeIO.instances).toHaveLength(0);
+
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    expect(document.getElementById('job-alert-form')).not.toBeNull();
+    expect(screen.getAllByTitle(/Elimina|delete/i).length).toBeGreaterThan(0);
   });
 });

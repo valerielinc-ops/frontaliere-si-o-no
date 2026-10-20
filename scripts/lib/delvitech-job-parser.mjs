@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 const HQ = getCompanyDefaults('delvitech');
@@ -98,6 +99,28 @@ export function parseDelvitechJobDetail(html = '', url = '') {
   const email = String(root.querySelector('a[href^="mailto:"]')?.getAttribute('href') || '')
     .replace(/^mailto:/i, '')
     .trim();
+  let datePublished = '';
+  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+    try {
+      const value = JSON.parse(script.textContent || '{}');
+      const nodes = Array.isArray(value) ? value : (Array.isArray(value?.['@graph']) ? value['@graph'] : [value]);
+      const pages = nodes.filter((node) => {
+        const types = Array.isArray(node?.['@type']) ? node['@type'] : [node?.['@type']];
+        if (!types.includes('WebPage')) return false;
+        try {
+          const source = new URL(node.url || node['@id']);
+          const detail = new URL(url);
+          return source.origin === detail.origin
+            && source.pathname.replace(/\/+$/, '') === detail.pathname.replace(/\/+$/, '');
+        } catch {
+          return false;
+        }
+      });
+      if (pages.length === 1) datePublished = String(pages[0].datePublished || '').trim();
+    } catch {
+      // Ignore unrelated malformed JSON-LD blocks; page identity remains required.
+    }
+  }
 
   const mainContainer = root.querySelector('.fusion-fullwidth') || root;
   const textBlocks = [...mainContainer.querySelectorAll('.fusion-text')];
@@ -146,6 +169,7 @@ export function parseDelvitechJobDetail(html = '', url = '') {
     location,
     description,
     email,
+    datePublished,
   };
 }
 
@@ -168,21 +192,28 @@ export function inferDelvitechCategory(title = '', description = '') {
   return 'other';
 }
 
+/**
+ * Title, body and slug of a posting in the SOURCE slot only: the language the
+ * body is written in (English for today's postings), never a fixed `en` key.
+ * The other slots belong to the translation pipeline. The slug keeps its
+ * formula (title + company + location), so existing jobs keep the value they
+ * already publish.
+ *
+ * @param {{ title?: string, location?: string, description?: string }} detail
+ * @returns {{ sourceLang: string, slug: string, titleByLocale: object, descriptionByLocale: object, slugByLocale: object }}
+ */
 export function buildDelvitechLocalizedContent(detail = {}) {
   const sourceTitle = normalizeSpace(detail.title || '');
   const sourceDesc = String(detail.description || '').trim();
   const location = detail.location || 'Mendrisio';
   const baseSlug = slugify(`${sourceTitle} Delvitech ${location}`);
+  const sourceLang = sourceLangOfBody(sourceDesc, 'en');
   return {
-    titleByLocale: {
-      en: sourceTitle,
-    },
-    descriptionByLocale: {
-      en: sourceDesc,
-    },
-    slugByLocale: {
-      en: baseSlug,
-    },
+    sourceLang,
+    slug: baseSlug,
+    titleByLocale: { [sourceLang]: sourceTitle },
+    descriptionByLocale: { [sourceLang]: sourceDesc },
+    slugByLocale: { [sourceLang]: baseSlug },
   };
 }
 

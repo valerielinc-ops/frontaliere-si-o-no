@@ -93,6 +93,7 @@ import {
 } from '../scripts/send-company-alerts.mjs';
 import { mergeSentJobs } from '../scripts/lib/alert-sent-jobs.mjs';
 import { FIRESTORE_BATCH_SIZE } from '../scripts/lib/firestore-batch.mjs';
+import { fetchUserAlertsCached, invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import {
   flushPendingCompanyFollows,
   pruneExpired,
@@ -167,7 +168,9 @@ describe('one company-slug normalisation (#5012, Non-Negotiable #6)', () => {
       'services/employerBrands.ts',
       'build-plugins/weeklyEmployersData.ts',
       'scripts/refresh-weekly-employers-top-pairs.mjs',
-      'services/jobAlertMatching.mjs',
+      // `jobAlertMatching.mjs` normalizes category labels (e.g. "sales marketing"),
+      // not company identities; its company path delegates to the shared helper
+      // below. The identical regex there is therefore a semantic false positive.
     ]) {
       expect(readRepoFile(rel).includes(literal), `${rel} still re-implements the slugify`).toBe(false);
     }
@@ -370,6 +373,16 @@ describe('pinned-company match survives a brand alias whose canonical is not a s
     const profile = alertFor(canonicalCompanyProfileSlug('Guess Ticino'));
     expect(scoreJobForAlert({ id: 'x', title: 'Sales Assistant', company: 'Medacta International SA', canton: 'TI' }, profile)).toBe(0);
   });
+
+  // Measured on Firestore 2026-10-05: active alerts pinned to a label the
+  // crawler no longer emits, with zero matching jobs. The fold keeps them alive.
+  it.each([
+    ['usi', 'USI – Università della Svizzera italiana'],
+    ['ospedale-malcantonese-oscam-fondazione-giuseppe-rossi', 'OSCAM – Ospedale e Casa Anziani Malcantonese'],
+    ['zurich-insurance-sede-ticino', 'Zurich Insurance'],
+  ])('an alert stored as %s still matches the label "%s"', (storedKey, company) => {
+    expect(scoreJobForAlert({ id: 'j', title: 'Collaboratore', company, canton: 'TI' }, alertFor(storedKey))).toBeGreaterThan(0);
+  });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -552,6 +565,35 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
     expect(addDocMock).not.toHaveBeenCalled();
   });
 
+  it('a follow group keeps one follow: following Coop returns the existing Coop Genossenschaft alert', async () => {
+    // Owner decision 2026-10-05: «chi segue coop segue entrambi». A second pin
+    // on the other member would mail the same jobs from two alerts.
+    const legacy = {
+      userId: 'user-1',
+      email: 'foo@example.com',
+      specificCompanyKey: 'coop-genossenschaft',
+      frequency: 'immediate',
+      locale: 'it',
+      active: true,
+      createdAt: new Date(),
+    };
+    getDocsMock.mockResolvedValue({
+      size: 1,
+      docs: [{ id: 'legacy-coop-genossenschaft', data: () => legacy }],
+    });
+
+    const alert = await subscribeCompanyAlert('user-1', 'foo@example.com', { name: 'Coop' }, 'it', undefined, TEST_EMAIL_CONSENT);
+
+    expect(alert.id).toBe('legacy-coop-genossenschaft');
+    expect(alert.specificCompanyKey).toBe('coop-genossenschaft');
+    const coopWrites = setDocMock.mock.calls.filter((call) => {
+      const data = call[1] as Record<string, unknown> | undefined;
+      return typeof data?.specificCompanyKey === 'string';
+    });
+    expect(coopWrites).toHaveLength(0);
+    expect(addDocMock).not.toHaveBeenCalled();
+  });
+
   it('clears the server follow-up marker only after the alert write resolves', async () => {
     getDocMock
       .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
@@ -571,6 +613,24 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
       expect.anything(),
       { company_follow_followup_pending: false },
     );
+  });
+
+  it('does not rewrite an already-cleared server follow-up marker', async () => {
+    getDocMock
+      .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
+      .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
+      .mockResolvedValueOnce({ exists: () => true, data: () => ({ company_follow_followup_pending: false }) });
+
+    await subscribeCompanyAlert(
+      'user-1',
+      'foo@example.com',
+      { name: 'Already Cleared SA', companyKey: 'already-cleared' },
+      'it',
+      undefined,
+      TEST_EMAIL_CONSENT,
+    );
+
+    expect(updateDocMock).not.toHaveBeenCalled();
   });
 });
 
@@ -960,6 +1020,7 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
 
   beforeEach(() => {
     clearPendingCompanyFollows();
+    invalidateUserAlertsCache();
     addDocMock.mockClear();
     getDocsMock.mockResolvedValue({ size: 0, docs: [] });
   });
@@ -976,6 +1037,18 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     savePendingCompanyFollow(intent);
     savePendingCompanyFollow(intent);
     expect(readPendingCompanyFollows()).toHaveLength(1);
+  });
+
+  it('refreshes cached eligibility after an access-link replay creates the follow', async () => {
+    const read = vi.fn(async () => [] as never[]);
+    await fetchUserAlertsCached('uid-1', read);
+    savePendingCompanyFollow(intent);
+    const alert = { id: 'created-1', specificCompanyKey: companyAlertKey(intent.company) };
+    const subscribe = vi.fn(async () => alert);
+    await flushPendingCompanyFollows('uid-1', 'anon@example.com', subscribe as never);
+    read.mockResolvedValue([alert as never]);
+    await expect(fetchUserAlertsCached('uid-1', read)).resolves.toEqual([alert]);
+    expect(read).toHaveBeenCalledTimes(2);
   });
 
   it('replays the parked follow once the address is confirmed', async () => {
@@ -1391,6 +1464,8 @@ describe('the CTA reaches every job-detail surface (#5012)', () => {
     expect(cache).toContain('export function invalidateUserAlertsCache');
     expect(cache).toContain('export function fetchUserAlertsCached');
     expect(readRepoFile('components/community/CompanyFollowCta.tsx'))
+      .toContain("import { invalidateUserAlertsCache } from '@/services/userAlertsCache'");
+    expect(readRepoFile('components/pages/FollowedCompaniesPage.tsx'))
       .toContain("import { invalidateUserAlertsCache } from '@/services/userAlertsCache'");
     const board = readRepoFile('components/community/JobBoard.tsx');
     expect(board).toContain("from '@/services/userAlertsCache'");

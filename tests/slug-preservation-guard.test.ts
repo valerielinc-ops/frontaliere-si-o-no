@@ -8,6 +8,7 @@ import {
   isGuardedSlicePath,
   GUARD_PER_LOCALE_CAP,
   _resetDenylistCache,
+  _resetGscIndexedSlugsCache,
 } from '../scripts/lib/slug-preservation-guard.mjs';
 import { clear, getEvents } from '../scripts/lib/slug-history-journal.mjs';
 import { restoreLocaleSlug, mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
@@ -82,6 +83,7 @@ describe('slug-preservation-guard (issue #5157)', () => {
   beforeEach(() => {
     clear();
     _resetDenylistCache();
+    _resetGscIndexedSlugsCache();
     delete process.env.SLUG_PRESERVATION_GUARD;
   });
 
@@ -161,6 +163,28 @@ describe('slug-preservation-guard (issue #5157)', () => {
     expect(next.jobs[0].previousSlugsByLocale.en).toContain('old-en');
   });
 
+  it('recaptures an active slug when the same text moves to another locale', () => {
+    const previousValue = {
+      jobs: [{ id: 'j1', slugByLocale: { en: 'shared-slug' } }],
+    };
+    const next = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { it: 'shared-slug' },
+        previousSlugsByLocale: { en: [] as string[] },
+      }],
+    };
+
+    const result = preserveSlugHistory(SLICE, next, {
+      previousValue,
+      denylist: new Set(),
+    });
+
+    expect(next.jobs[0].previousSlugsByLocale.en).toContain('shared-slug');
+    expect(result.restored).toBe(1);
+    expect(result.capTrimmed).toBe(0);
+  });
+
   it('never resurrects slugs on the decontamination denylist (#4055/#4056)', () => {
     const poison = 'individual-customer-advisor-lugano-f-m-80-100-banca-cler-8440-iva-che';
     const next = bancaClerAfterUnguarded();
@@ -174,22 +198,337 @@ describe('slug-preservation-guard (issue #5157)', () => {
   });
 
   it('respects the per-locale cap instead of fighting documented LRU eviction', () => {
-    const full = Array.from({ length: GUARD_PER_LOCALE_CAP }, (_, i) => `banked-${i}`);
+    const full = ['historical-to-drop', ...Array.from({ length: GUARD_PER_LOCALE_CAP - 1 }, (_, i) => `banked-${i}`)];
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-empty-gsc-'));
+    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    fs.writeFileSync(path.join(root, 'data', 'gsc-job-urls.json'), '[]');
+    fs.writeFileSync(path.join(root, 'data', 'gsc-orphan-job-slugs.json'), '[]');
     const previousValue = {
-      jobs: [{ id: 'j1', slugByLocale: { en: 'about-to-be-dropped' }, previousSlugsByLocale: { en: [...full] } }],
+      jobs: [{ id: 'j1', slugByLocale: { en: 'still-active' }, previousSlugsByLocale: { en: [...full] } }],
     };
     const next = {
-      jobs: [{ id: 'j1', slugByLocale: { en: 'brand-new' }, previousSlugsByLocale: { en: [...full] } }],
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: 'still-active' },
+        previousSlugsByLocale: { en: [...full.slice(1), 'new-unindexed'] },
+      }],
     };
 
-    const result = preserveSlugHistory(SLICE, next, { previousValue, denylist: new Set() });
+    try {
+      const result = preserveSlugHistory(SLICE, next, { previousValue, denylist: new Set(), root });
 
-    // The bucket is legitimately full: eviction of the oldest is the documented
-    // capSlugArray behaviour, and scan-prev-slug-losses.mjs classifies it as
-    // cap-explained rather than a regression. Do not exceed the cap to "win".
-    expect(next.jobs[0].previousSlugsByLocale.en).toHaveLength(GUARD_PER_LOCALE_CAP);
-    expect(result.restored).toBe(0);
-    expect(result.capTrimmed).toBe(1);
+      // With complete evidence showing no GSC presence, an old historical
+      // alias remains an ordinary LRU eviction. Do not exceed the cap to "win".
+      expect(next.jobs[0].previousSlugsByLocale.en).not.toContain('historical-to-drop');
+      expect(next.jobs[0].previousSlugsByLocale.en).toHaveLength(GUARD_PER_LOCALE_CAP);
+      expect(result.restored).toBe(0);
+      expect(result.capTrimmed).toBe(1);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      _resetGscIndexedSlugsCache();
+    }
+  });
+
+  it('preserves a previously active route when history is full, even without current GSC evidence', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-active-full-history-'));
+    const dataDir = path.join(root, 'data');
+    fs.mkdirSync(dataDir, { recursive: true });
+    fs.writeFileSync(path.join(dataDir, 'gsc-job-urls.json'), '[]');
+    fs.writeFileSync(path.join(dataDir, 'gsc-orphan-job-slugs.json'), '[]');
+    const history = Array.from({ length: GUARD_PER_LOCALE_CAP }, (_, i) => `history-${i}`);
+    const previousValue = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: 'active-before-write' },
+        previousSlugsByLocale: { en: history },
+      }],
+    };
+    const next = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: 'active-after-write' },
+        previousSlugsByLocale: { en: [...history] },
+      }],
+    };
+
+    try {
+      const result = preserveSlugHistory(SLICE, next, {
+        previousValue,
+        denylist: new Set(),
+        root,
+      });
+
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain('active-before-write');
+      expect(next.jobs[0].previousSlugsByLocale.en).not.toContain('history-0');
+      expect(next.jobs[0].previousSlugsByLocale.en).toHaveLength(GUARD_PER_LOCALE_CAP);
+      expect(next.jobs[0].previousSlugs).toContain('active-before-write');
+      expect(result.restored).toBe(1);
+      expect(result.capTrimmed).toBe(0);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      _resetGscIndexedSlugsCache();
+    }
+  });
+
+  it('does not evict a restored active route while recapturing later GSC history', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-active-before-gsc-history-'));
+    const dataDir = path.join(root, 'data');
+    fs.mkdirSync(dataDir, { recursive: true });
+    const activeSlug = 'active-before-later-gsc-history';
+    const indexedHistorySlug = 'indexed-history-captured-later';
+    const priorHistory = [indexedHistorySlug, ...Array.from(
+      { length: GUARD_PER_LOCALE_CAP - 1 }, (_, i) => `prior-history-${i}`,
+    )];
+    const nextHistory = [...priorHistory.slice(1), 'new-history-entry'];
+    fs.writeFileSync(path.join(dataDir, 'gsc-job-urls.json'), '[]');
+    fs.writeFileSync(path.join(dataDir, 'gsc-orphan-job-slugs.json'), JSON.stringify([indexedHistorySlug]));
+    const previousValue = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: activeSlug },
+        previousSlugsByLocale: { en: priorHistory },
+      }],
+    };
+    const next = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: 'replacement-route' },
+        previousSlugsByLocale: { en: nextHistory },
+      }],
+    };
+
+    try {
+      const result = preserveSlugHistory(SLICE, next, {
+        previousValue,
+        denylist: new Set(),
+        root,
+      });
+
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain(activeSlug);
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain(indexedHistorySlug);
+      expect(next.jobs[0].previousSlugsByLocale.en).toHaveLength(GUARD_PER_LOCALE_CAP);
+      expect(result.restored).toBe(2);
+      expect(result.capTrimmed).toBe(0);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      _resetGscIndexedSlugsCache();
+    }
+  });
+
+  it('does not evict an active route already moved into history while recapturing GSC history', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-historic-active-before-gsc-'));
+    const dataDir = path.join(root, 'data');
+    fs.mkdirSync(dataDir, { recursive: true });
+    const activeSlug = 'active-route-moved-to-history';
+    const indexedHistory = Array.from({ length: GUARD_PER_LOCALE_CAP - 1 }, (_, i) => `indexed-history-${i}`);
+    const missingIndexedSlug = 'indexed-history-to-recapture';
+    const previousHistory = [missingIndexedSlug, ...indexedHistory];
+    const nextHistory = [activeSlug, ...indexedHistory];
+    fs.writeFileSync(path.join(dataDir, 'gsc-job-urls.json'), '[]');
+    fs.writeFileSync(
+      path.join(dataDir, 'gsc-orphan-job-slugs.json'),
+      JSON.stringify([missingIndexedSlug, ...indexedHistory]),
+    );
+    const previousValue = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: activeSlug },
+        previousSlugsByLocale: { en: previousHistory },
+      }],
+    };
+    const next = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: 'replacement-route' },
+        previousSlugsByLocale: { en: nextHistory },
+      }],
+    };
+
+    try {
+      const result = preserveSlugHistory(SLICE, next, {
+        previousValue,
+        denylist: new Set(),
+        root,
+      });
+
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain(activeSlug);
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain(missingIndexedSlug);
+      expect(next.jobs[0].previousSlugsByLocale.en).toHaveLength(GUARD_PER_LOCALE_CAP + 1);
+      expect(result.restored).toBe(1);
+      expect(result.capTrimmed).toBe(0);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      _resetGscIndexedSlugsCache();
+    }
+  });
+
+  it('overflows rather than dropping an active route when every history slot is GSC-protected', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-active-protected-history-'));
+    const dataDir = path.join(root, 'data');
+    fs.mkdirSync(dataDir, { recursive: true });
+    const protectedHistory = Array.from({ length: GUARD_PER_LOCALE_CAP }, (_, i) => `indexed-history-${i}`);
+    fs.writeFileSync(path.join(dataDir, 'gsc-job-urls.json'), '[]');
+    fs.writeFileSync(path.join(dataDir, 'gsc-orphan-job-slugs.json'), JSON.stringify(protectedHistory));
+    const previousValue = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: 'active-before-write' },
+        previousSlugsByLocale: { en: protectedHistory },
+      }],
+    };
+    const next = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: 'active-after-write' },
+        previousSlugsByLocale: { en: [...protectedHistory] },
+      }],
+    };
+
+    try {
+      const result = preserveSlugHistory(SLICE, next, {
+        previousValue,
+        denylist: new Set(),
+        root,
+      });
+
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain('active-before-write');
+      expect(next.jobs[0].previousSlugsByLocale.en).toHaveLength(GUARD_PER_LOCALE_CAP + 1);
+      expect(result.restored).toBe(1);
+      expect(result.capTrimmed).toBe(0);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      _resetGscIndexedSlugsCache();
+    }
+  });
+
+  it('keeps a GSC-indexed alias when the full history cap would otherwise prune it', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-gsc-'));
+    const dataDir = path.join(root, 'data');
+    fs.mkdirSync(dataDir, { recursive: true });
+    const indexedSlug = 'conseiller-protégé';
+    const orphanSlug = 'assistant-orphan-gsc';
+    fs.writeFileSync(
+      path.join(dataDir, 'gsc-job-urls.json'),
+      JSON.stringify([`https://frontaliereticino.ch/fr/trouver-emploi-tessin/${encodeURIComponent(indexedSlug)}/`]),
+    );
+    fs.writeFileSync(path.join(dataDir, 'gsc-orphan-job-slugs.json'), JSON.stringify([orphanSlug]));
+
+    try {
+      const full = [indexedSlug, orphanSlug, ...Array.from({ length: GUARD_PER_LOCALE_CAP - 2 }, (_, i) => `banked-${i}`)];
+      const previousValue = {
+        jobs: [{
+          id: 'j1',
+          slugByLocale: { fr: 'active-fr' },
+          previousSlugs: [...full],
+          previousSlugsByLocale: { fr: [...full] },
+        }],
+      };
+      const next = {
+        jobs: [{
+          id: 'j1',
+          slugByLocale: { fr: 'active-fr' },
+          previousSlugs: [...full.slice(2), 'new-unindexed-1', 'new-unindexed-2'],
+          previousSlugsByLocale: { fr: [...full.slice(2), 'new-unindexed-1', 'new-unindexed-2'] },
+        }],
+      };
+
+      const result = preserveSlugHistory(SLICE, next, {
+        previousValue,
+        denylist: new Set(),
+        root,
+      });
+
+      expect(next.jobs[0].previousSlugsByLocale.fr).toContain(indexedSlug);
+      expect(next.jobs[0].previousSlugsByLocale.fr).toContain(orphanSlug);
+      expect(next.jobs[0].previousSlugsByLocale.fr).not.toContain('banked-0');
+      expect(next.jobs[0].previousSlugsByLocale.fr).not.toContain('banked-1');
+      expect(next.jobs[0].previousSlugsByLocale.fr).toHaveLength(GUARD_PER_LOCALE_CAP);
+      expect(next.jobs[0].previousSlugs).toContain(indexedSlug);
+      expect(next.jobs[0].previousSlugs).toContain(orphanSlug);
+      expect(result.restored).toBe(2);
+      expect(result.capTrimmed).toBe(0);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      _resetGscIndexedSlugsCache();
+    }
+  });
+
+  it('overflows the soft cap when every existing alias and the rescued URL are GSC-protected', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-all-gsc-'));
+    const dataDir = path.join(root, 'data');
+    fs.mkdirSync(dataDir, { recursive: true });
+    const indexedActiveSlug = 'indexed-active-route';
+    const protectedHistory = Array.from({ length: GUARD_PER_LOCALE_CAP }, (_, i) => `indexed-history-${i}`);
+    fs.writeFileSync(
+      path.join(dataDir, 'gsc-job-urls.json'),
+      JSON.stringify([`https://frontaliereticino.ch/en/trouver-emploi-tessin/${indexedActiveSlug}/`]),
+    );
+    fs.writeFileSync(path.join(dataDir, 'gsc-orphan-job-slugs.json'), JSON.stringify(protectedHistory));
+
+    try {
+      const previousValue = {
+        jobs: [{
+          id: 'j1',
+          slugByLocale: { en: indexedActiveSlug },
+          previousSlugsByLocale: { en: protectedHistory },
+        }],
+      };
+      const next = {
+        jobs: [{
+          id: 'j1',
+          slugByLocale: { en: 'replacement-route' },
+          previousSlugsByLocale: { en: [...protectedHistory] },
+        }],
+      };
+
+      const result = preserveSlugHistory(SLICE, next, {
+        previousValue,
+        denylist: new Set(),
+        root,
+      });
+
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain(indexedActiveSlug);
+      expect(next.jobs[0].previousSlugsByLocale.en).toHaveLength(GUARD_PER_LOCALE_CAP + 1);
+      expect(result.restored).toBe(1);
+      expect(result.capTrimmed).toBe(0);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      _resetGscIndexedSlugsCache();
+    }
+  });
+
+  it('fails closed and does not prune history when GSC snapshots are unavailable', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-missing-gsc-'));
+    try {
+      const full = Array.from({ length: GUARD_PER_LOCALE_CAP }, (_, i) => `banked-${i}`);
+      const previousValue = {
+        jobs: [{
+          id: 'j1',
+          slugByLocale: { en: 'active-en' },
+          previousSlugsByLocale: { en: ['possibly-indexed', ...full.slice(1)] },
+        }],
+      };
+      const next = {
+        jobs: [{
+          id: 'j1',
+          slugByLocale: { en: 'active-en' },
+          previousSlugsByLocale: { en: [...full.slice(1), 'new-unindexed'] },
+        }],
+      };
+
+      const result = preserveSlugHistory(SLICE, next, {
+        previousValue,
+        denylist: new Set(),
+        root,
+      });
+
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain('possibly-indexed');
+      expect(next.jobs[0].previousSlugsByLocale.en.length).toBeGreaterThan(GUARD_PER_LOCALE_CAP);
+      expect(result.restored).toBe(1);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      _resetGscIndexedSlugsCache();
+    }
   });
 
   it('ignores brand-new jobs, non-slice paths, and first writes', () => {

@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -11,7 +12,13 @@ import { fileURLToPath } from 'node:url';
 export function isInvokedDirectly(entryFileUrl, argvPath = process.argv[1]) {
   if (!argvPath) return false;
   try {
-    return fileURLToPath(entryFileUrl) === path.resolve(argvPath);
+    const entryPath = fileURLToPath(entryFileUrl);
+    const resolvedArgvPath = path.resolve(argvPath);
+    try {
+      return fs.realpathSync(entryPath) === fs.realpathSync(resolvedArgvPath);
+    } catch {
+      return entryPath === resolvedArgvPath;
+    }
   } catch {
     return false;
   }

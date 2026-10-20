@@ -1,0 +1,368 @@
+import { describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+
+const ROOT = path.resolve(__dirname, '..');
+const read = (file: string) => fs.readFileSync(path.join(ROOT, file), 'utf8');
+
+describe('protected data refreshes publish through pull requests', () => {
+  const refreshes = [
+    '.github/workflows/refresh-job-popularity.yml',
+    '.github/workflows/refresh-article-trending.yml',
+    '.github/workflows/build-evidence-and-tune.yml',
+    '.github/workflows/monitor-telegram-member-count.yml',
+    '.github/workflows/newsletter-qa.yml',
+    '.github/workflows/update-fuel-prices.yml',
+    '.github/workflows/telegram-channel-broadcast.yml',
+    '.github/workflows/update-exchange-history.yml',
+    '.github/workflows/cf-5xx-monitor.yml',
+    '.github/workflows/cwv-monitor.yml',
+    '.github/workflows/cron-dispatch-canary.yml',
+    '.github/workflows/update-weather.yml',
+    '.github/workflows/crawl-events.yml',
+    '.github/workflows/recover-prev-slugs.yml',
+  ];
+
+  it.each(refreshes)('%s uses the shared PR publisher', (workflowPath) => {
+    const workflow = read(workflowPath);
+    expect(workflow).toContain('pull-requests: write');
+    expect(workflow).toContain('load-rc-env.mjs');
+    expect(workflow).toContain('mint-app-token.mjs');
+    expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(workflow).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(workflow).not.toMatch(/git\s+push\b/);
+  });
+
+  it('publishes Newsletter QA artifacts through its stable report PR', () => {
+    const workflow = read('.github/workflows/newsletter-qa.yml');
+    expect(workflow).toContain('persist-credentials: false');
+    expect(workflow).toContain('--path docs/newsletter-qa/');
+    expect(workflow).toContain('--branch chore/refresh-newsletter-qa');
+    expect(workflow).not.toContain('scripts/lib/git-commit-data.sh');
+  });
+
+  it('routes article corpus and hub sitemap writers through stable PRs', () => {
+    const sync = read('.github/workflows/sync-articles-sitemaps.yml');
+    const rerender = read('.github/workflows/rerender-article-hubs.yml');
+    const fastPublish = read('.github/workflows/fast-publish-article.yml');
+
+    for (const [workflowPath, workflow] of [
+      ['.github/workflows/sync-articles-sitemaps.yml', sync],
+      ['.github/workflows/rerender-article-hubs.yml', rerender],
+      ['.github/workflows/fast-publish-article.yml', fastPublish],
+    ] as const) {
+      expect(workflow, workflowPath).toContain('scripts/lib/open-data-refresh-pr.sh');
+      expect(workflow, workflowPath).toContain('pull-requests: write');
+      expect(workflow, workflowPath).not.toContain('scripts/lib/git-push-with-retry.sh');
+    }
+
+    expect(sync).toContain('--branch chore/sync-articles-sitemaps');
+    expect(rerender).toContain('--branch "chore/rerender-article-hub-sitemap-$INPUT_SECTION"');
+    expect(rerender).toContain('--path "public/$REL"');
+    expect(fastPublish).toContain('--branch "chore/fast-publish-article-sitemap-${{ inputs.section }}"');
+    expect(fastPublish).toContain('--path "public/$dist_path"');
+    expect(rerender).toContain("- 'packages/articles/content/**'");
+    expect(rerender).not.toContain('workflow_run:');
+  });
+
+  it('keeps the shared publisher on the PR path, never main', () => {
+    const helper = read('scripts/lib/open-data-refresh-pr.sh');
+    expect(helper).toContain('gh pr create');
+    expect(helper).toContain('--base main');
+    expect(helper).toContain('HEAD:${BRANCH}');
+    expect(helper).toContain('--force-with-lease');
+    expect(helper).toContain('PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"');
+    expect(helper).toContain('git ls-remote "$PUSH_URL"');
+    expect(helper).toContain('if [ "$RECONCILE_COMPAT" = true ]; then');
+    expect(helper).toContain(
+      'git fetch --no-tags --depth=1 "$PUSH_URL" \\\n      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
+    );
+    expect(helper).toContain(
+      'git fetch --no-tags --filter=tree:0 "$PUSH_URL" \\\n      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
+    );
+    expect(helper).toContain('git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs"');
+    expect(helper).toContain('mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"');
+    expect(helper).toContain('git show "${REFRESH_BASE}:scripts/lib/resolve-git-add-path.mjs"');
+    expect(helper).toContain('git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs"');
+    expect(helper).toContain('MERGE_REFRESH_SCRIPT_DIR="$(mktemp -d)"\nmkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"');
+    expect(helper).toContain('node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs"');
+    expect(helper).toContain("trap 'cleanup_refresh_checkout || exit 1' EXIT");
+    expect(helper).toContain('git -C "$REFRESH_SOURCE_ROOT" checkout --detach --force "$restore_ref"');
+    expect(helper).toContain('git worktree add --detach --no-checkout "$REFRESH_PUBLISH_WORKTREE" "$REMOTE_HEAD"');
+    expect(helper).toContain('local_article_image_credit_path="${local_article_content_path}/image-credits"');
+    expect(helper.match(/REFRESH_COMMIT="\$\(git rev-parse HEAD\)"/g)).toHaveLength(1);
+    expect(helper).toContain('scripts/ci/merge-open-data-refresh.mjs');
+    expect(helper).toContain('--resolve-symlinks');
+    expect(helper).toContain('git-add-resolved.mjs');
+    expect(helper).not.toMatch(/HEAD:main/);
+  });
+
+  it('carries stable refresh files without turning stale branch absence into deletions', () => {
+    const helper = read('scripts/lib/restore-stable-refresh-files.sh');
+    expect(helper).toContain('git ls-tree -r --name-only -z');
+    expect(helper).toContain('git restore --source="$SOURCE_REF"');
+
+    for (const workflowPath of [
+      '.github/workflows/recover-prev-slugs.yml',
+      '.github/workflows/crawl-events.yml',
+    ]) {
+      const workflow = read(workflowPath);
+      expect(workflow, workflowPath).toContain('scripts/lib/restore-stable-refresh-files.sh');
+      expect(workflow, workflowPath).not.toContain(
+        'git restore --source="refs/remotes/origin/${branch}" -- "$path"',
+      );
+    }
+
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'stable-refresh-carry-'));
+    const gitEnv = {
+      ...process.env,
+      GIT_AUTHOR_NAME: 'refresh-test',
+      GIT_AUTHOR_EMAIL: 'refresh-test@example.invalid',
+      GIT_COMMITTER_NAME: 'refresh-test',
+      GIT_COMMITTER_EMAIL: 'refresh-test@example.invalid',
+    };
+    const git = (args: string[]) => execFileSync('git', args, {
+      cwd: repo,
+      env: gitEnv,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    const write = (file: string, content: string) => {
+      const target = path.join(repo, file);
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, content);
+    };
+
+    try {
+      git(['init', '-q', '-b', 'main']);
+      write('data/jobs/by-crawler/shared.json', 'main\n');
+      git(['add', '-A']);
+      git(['commit', '-q', '-m', 'base']);
+      git(['checkout', '-q', '-b', 'stable']);
+      write('data/jobs/by-crawler/shared.json', 'pending\n');
+      git(['add', '-A']);
+      git(['commit', '-q', '-m', 'pending refresh']);
+      git(['checkout', '-q', 'main']);
+      write('data/jobs/by-crawler/current-main-only.json', 'new main data\n');
+      git(['add', '-A']);
+      git(['commit', '-q', '-m', 'current main data']);
+
+      execFileSync('bash', [
+        path.join(ROOT, 'scripts/lib/restore-stable-refresh-files.sh'),
+        'refs/heads/stable',
+        'data/jobs/by-crawler/',
+      ], { cwd: repo, env: gitEnv, encoding: 'utf8' });
+
+      expect(fs.readFileSync(path.join(repo, 'data/jobs/by-crawler/shared.json'), 'utf8')).toBe('pending\n');
+      expect(fs.readFileSync(path.join(repo, 'data/jobs/by-crawler/current-main-only.json'), 'utf8'))
+        .toBe('new main data\n');
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
+  });
+
+  it('passes the evidence PR branch from the build job into quota tuning', () => {
+    const workflow = read('.github/workflows/build-evidence-and-tune.yml');
+    const branchCheckout = workflow.indexOf('git checkout -B "$DATA_REFRESH_BRANCH" FETCH_HEAD');
+    const tune = workflow.indexOf('node scripts/tune-discovery-quota.mjs');
+    const publishers = workflow.match(/scripts\/lib\/open-data-refresh-pr\.sh/g) ?? [];
+    const branchPublishers = workflow.match(/--branch "\$DATA_REFRESH_BRANCH"/g) ?? [];
+
+    expect(workflow).toContain('git ls-remote --heads origin');
+    expect(branchCheckout).toBeGreaterThan(-1);
+    expect(tune).toBeGreaterThan(branchCheckout);
+    expect(publishers).toHaveLength(2);
+    expect(branchPublishers).toHaveLength(2);
+    expect(workflow).toContain('DATA_REFRESH_BRANCH: chore/build-evidence-and-tune');
+  });
+
+  it('uses the App token only when it has data-refresh write capability', () => {
+    const workflow = read('.github/workflows/build-evidence-and-tune.yml');
+    const guardedToken =
+      "GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}";
+
+    expect(workflow.split(guardedToken).length - 1).toBe(2);
+    expect(workflow).not.toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+
+  });
+
+  it('reconciles the newest stable branch tip after a concurrent push loses its lease', () => {
+    const helper = read('scripts/lib/open-data-refresh-pr.sh');
+    expect(helper).toContain('MAX_PUSH_ATTEMPTS=3');
+    expect(helper).toContain('stable refresh branch moved during push attempt');
+    expect(helper).toContain('git ls-remote "$PUSH_URL" "refs/heads/$BRANCH"');
+    expect(helper).toContain('refs/remotes/refresh/${BRANCH}');
+    expect(helper).toContain('merge-open-data-refresh.mjs');
+    expect(helper.match(/node "\$MERGE_REFRESH_SCRIPT_DIR\/scripts\/ci\/merge-open-data-refresh\.mjs"/g)).toHaveLength(2);
+    expect(helper).not.toContain('node scripts/ci/merge-open-data-refresh.mjs');
+    expect(helper).toContain('push_attempt=$((push_attempt + 1))');
+  });
+
+  it('passes the evidence PR branch from the build job into quota tuning', () => {
+    const workflow = read('.github/workflows/build-evidence-and-tune.yml');
+    const branchCheckout = workflow.indexOf('git checkout -B "$DATA_REFRESH_BRANCH" FETCH_HEAD');
+    const tune = workflow.indexOf('node scripts/tune-discovery-quota.mjs');
+    const publishers = workflow.match(/scripts\/lib\/open-data-refresh-pr\.sh/g) ?? [];
+    const branchPublishers = workflow.match(/--branch "\$DATA_REFRESH_BRANCH"/g) ?? [];
+
+    expect(workflow).toContain('git ls-remote --heads origin');
+    expect(branchCheckout).toBeGreaterThan(-1);
+    expect(tune).toBeGreaterThan(branchCheckout);
+    expect(publishers).toHaveLength(2);
+    expect(branchPublishers).toHaveLength(2);
+    expect(workflow).toContain('DATA_REFRESH_BRANCH: chore/build-evidence-and-tune');
+  });
+
+  it('uses the App token only when it has data-refresh write capability', () => {
+    const workflow = read('.github/workflows/build-evidence-and-tune.yml');
+    const guardedToken =
+      "GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}";
+
+    expect(workflow.split(guardedToken).length - 1).toBe(2);
+    expect(workflow).not.toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+  });
+
+  it('passes named three-way merge arguments without treating a value as a flag', () => {
+    const output = execFileSync(
+      process.execPath,
+      [
+        'scripts/ci/merge-open-data-refresh.mjs',
+        '--base', 'HEAD',
+        '--remote', 'HEAD',
+        '--refresh', 'HEAD',
+        // Path fittizi fuori da LIVE_DATA_ROOTS: con base e refresh uguali il
+        // diff è vuoto e lo script non legge nessun file, quindi qui conta solo
+        // il parsing. Un path di dato vivo faceva fallire live-data-test-guard.
+        '--path', 'tests/__fixtures__/refresh-merge/stable.json',
+        '--path', 'tests/__fixtures__/refresh-merge/published.json',
+      ],
+      { cwd: ROOT, encoding: 'utf8' },
+    );
+    expect(output).toContain('[merge-open-data-refresh] preserved stable tree');
+  });
+
+  it('keeps the current reconciler import tree runnable after a stable-branch checkout', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'refresh-reconciler-'));
+    try {
+      const copied = [
+        ['scripts/ci/merge-open-data-refresh.mjs', 'scripts/ci/merge-open-data-refresh.mjs'],
+        ['scripts/ci/open-data-refresh-merge.mjs', 'scripts/ci/open-data-refresh-merge.mjs'],
+        ['scripts/lib/resolve-git-add-path.mjs', 'scripts/lib/resolve-git-add-path.mjs'],
+        ['scripts/lib/read-git-blob.mjs', 'scripts/lib/read-git-blob.mjs'],
+      ];
+      for (const [source, target] of copied) {
+        const targetPath = path.join(temp, target);
+        fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+        fs.copyFileSync(path.join(ROOT, source), targetPath);
+      }
+
+      const output = execFileSync(
+        process.execPath,
+        [
+          path.join(temp, 'scripts/ci/merge-open-data-refresh.mjs'),
+          '--base', 'HEAD',
+          '--remote', 'HEAD',
+          '--refresh', 'HEAD',
+          '--path', 'tests/__fixtures__/refresh-merge/stable.json',
+        ],
+        { cwd: ROOT, encoding: 'utf8' },
+      );
+      expect(output).toContain('[merge-open-data-refresh] preserved stable tree');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    '.github/workflows/cf-5xx-monitor.yml',
+    '.github/workflows/cwv-monitor.yml',
+    '.github/workflows/cron-dispatch-canary.yml',
+    '.github/workflows/telegram-channel-broadcast.yml',
+    '.github/workflows/update-exchange-history.yml',
+    '.github/workflows/update-weather.yml',
+  ])('%s writes Markdown bodies with a literal heredoc', (workflowPath) => {
+    const workflow = read(workflowPath);
+    expect(workflow).toContain("cat <<'EOF'");
+    expect(workflow).toContain('run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"');
+    expect(workflow).not.toContain('cat > "$body" <<EOF');
+  });
+
+  it('preserves pending append-only Telegram history before publishing the stable branch', () => {
+    const workflow = read('.github/workflows/monitor-telegram-member-count.yml');
+    expect(workflow).toContain("branch='chore/telegram-member-count-history'");
+    expect(workflow).toContain(
+      'refs/remotes/origin/${branch}:${history_path}',
+    );
+    expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(workflow).toContain('--branch chore/telegram-member-count-history');
+  });
+
+  it('publishes the weekly CWV snapshot through its stable PR branch', () => {
+    const workflow = read('.github/workflows/cwv-monitor.yml');
+    const carry = workflow.indexOf('- name: Carry forward pending CWV snapshot PR');
+    const measure = workflow.indexOf('node scripts/cwv-monitor-check.mjs');
+    const publish = workflow.indexOf('- name: Open PR with snapshot');
+
+    expect(workflow).toContain('persist-credentials: false');
+    expect(workflow).toContain('--path data/cwv-monitor-history.json');
+    expect(workflow).toContain('--branch chore/cwv-monitor-history');
+    // The monitor reruns PostHog queries; the stable branch makes a per-retry
+    // regeneration unnecessary, and the helper has no such option.
+    expect(workflow).not.toContain('--regenerate-cmd');
+    // Two consecutive recorded weeks coin a regression. A snapshot PR still
+    // open at the next run must reach both the monitor and the publisher,
+    // whose same-file rule otherwise keeps only the newest JSON snapshot.
+    expect(carry).toBeGreaterThan(-1);
+    expect(measure).toBeGreaterThan(carry);
+    expect(publish).toBeGreaterThan(measure);
+    expect(workflow).toContain(
+      'git restore --source="refs/remotes/origin/${branch}" -- "$history_path"',
+    );
+    expect(workflow).toContain('git ls-remote "$remote_url" "refs/heads/${branch}"');
+    expect(workflow.slice(publish)).toContain(
+      "if: always() && steps.measure.outcome != 'cancelled'",
+    );
+  });
+
+  it('uses the data-refresh capability fallback and ignores closed CWV branches', () => {
+    const workflow = read('.github/workflows/cwv-monitor.yml');
+    const guardedToken =
+      "GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}";
+    const probe = workflow.indexOf('git ls-remote "$remote_url" "refs/heads/${branch}"');
+    const openPr = workflow.indexOf('gh pr list \\\n            --repo "$GITHUB_REPOSITORY"');
+    const fetch = workflow.indexOf('git fetch --no-tags --depth=1 "$remote_url"');
+    const restore = workflow.indexOf('git restore --source="refs/remotes/origin/${branch}"');
+
+    expect(workflow.split(guardedToken).length - 1).toBe(2);
+    expect(workflow).not.toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+    expect(workflow).toContain('--base main');
+    expect(workflow).toContain('--head "$branch"');
+    expect(workflow).toContain('--state open');
+    expect(workflow).toContain('if [ -z "$open_pr" ]; then');
+    expect(workflow).toContain('ignoring stale branch');
+    expect(openPr).toBeGreaterThan(probe);
+    expect(openPr).toBeLessThan(fetch);
+    expect(restore).toBeGreaterThan(openPr);
+  });
+
+  it('fails closed when the crawler cannot authenticate its stable refresh branch probe', () => {
+    const workflow = read('.github/workflows/crawl-events.yml');
+    expect(workflow).toContain(
+      "GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}",
+    );
+    expect(workflow).not.toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+    expect(workflow).toContain(
+      'remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"',
+    );
+    expect(workflow).toContain('git ls-remote "$remote_url" refs/heads/main "refs/heads/${branch}"');
+    expect(workflow).toContain('select-crawl-events-refresh-branch.mjs');
+    expect(workflow).toContain('gh pr list --repo "$GITHUB_REPOSITORY" --base main --state all --limit 1000');
+    expect(workflow.match(/--branch "\$EVENTS_REFRESH_BRANCH"/gu)).toHaveLength(3);
+    expect(workflow).toContain('EVENTS_REFRESH_REQUIRE_NEW_BRANCH=${require_new_branch}');
+    expect(workflow).toContain('[ -n "$remote_main" ] || {');
+    expect(workflow).toContain('git fetch --no-tags --depth=1 "$remote_url"');
+    expect(workflow).not.toContain('git fetch --no-tags origin');
+  });
+});

@@ -1,3 +1,4 @@
+import { buildJobPostingSchema, buildJobPostingFacts } from '../build-plugins/shared/jobPostingSchema';
 import { beforeEach, describe, it, expect } from 'vitest';
 import {
   FACHKRAFT_KEY,
@@ -11,7 +12,11 @@ import {
   parseFachkraftListingPage,
   validateFachkraftAuthoritativeSnapshot,
 } from '../scripts/lib/fachkraft-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  evaluateAuthoritativeSnapshot,
+  slugify,
+  SNAPSHOT_VALIDATED_PARTIAL,
+} from '../scripts/lib/crawler-template.mjs';
 import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
 
@@ -58,16 +63,19 @@ const detailHtml = ({
   description,
   location = 'Luzern',
   canton = 'LU',
+  datePosted,
 }: {
   title: string;
   description: string;
   location?: string;
   canton?: string;
+  datePosted?: string;
 }) => `<html><head><script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'JobPosting',
   title,
   description,
+  ...(datePosted ? { datePosted } : {}),
   jobLocation: {
       '@type': 'Place',
       address: {
@@ -401,7 +409,93 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         discovered: 2,
         detailCompleted: 2,
       });
-      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+      // Published, but not proof that a stored job is gone.
+      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(SNAPSHOT_VALIDATED_PARTIAL);
+    });
+
+    it('does not retire stored jobs that a drifting max-observed listing skipped', async () => {
+      // Anonymised shape of group-23 run 01-10: the declared total moves while
+      // the listing is paged (3842/3804/3797/…), cards shift between requests,
+      // 394 URLs repeat on a later page and as many are never served. Here:
+      // 3 pages × 4 cards, page 2 repeats two cards of page 1, so the two
+      // cards that shifted past the page boundary are never seen.
+      const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
+      const stored = Array.from({ length: 12 }, (_, index) => ({
+        title: `Fachkraft Rolle ${index + 1}`,
+        path: `fachkraft-rolle-${index + 1}-in-luzern-temporaer-${300100 + index}`,
+      }));
+      const existingJobs = stored.map(({ title, path }) => ({
+        id: `fachkraft-${path}`,
+        slug: slugify(`${title} luzern fachkraft ch`),
+        url: `https://www.fachkraft.ch/stellen/${path}/`,
+        title,
+        sourceLang: 'de',
+        description: words(60, 'stored'),
+        location: 'Luzern',
+        canton: 'LU',
+        companyKey: 'fachkraft',
+        crawledAt: daysAgo(1),
+        postedDate: daysAgo(2),
+        postingDateSource: 'reported',
+      }));
+      const card = (index: number) => listingCard(stored[index]);
+      const pages: Record<string, string> = {
+        'https://www.fachkraft.ch/stellen/': paginatedListingHtml(12, '/stellen/page/2/', card(0), card(1), card(2), card(3)),
+        // The order shifted between requests: 2-3 are served again, 4-5 never.
+        'https://www.fachkraft.ch/stellen/page/2/': paginatedListingHtml(13, '/stellen/page/3/', card(2), card(3), card(6), card(7)),
+        'https://www.fachkraft.ch/stellen/page/3/': paginatedListingHtml(12, null, card(8), card(9), card(10), card(11)),
+      };
+      const fetchImpl = async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (pages[target]) return new Response(pages[target], { status: 200 });
+        throw new Error(`cached description should not require a detail request: ${target}`);
+      };
+
+      const jobs = await fetchAllFachkraftJobs({ ...runtimeOptions, fetchImpl, existingJobs });
+      expect(jobs).toHaveLength(10);
+      expect(jobs.fachkraftSnapshot).toMatchObject({
+        coverage: 'max-observed',
+        duplicateListingUrls: 2,
+        listingDeclaredCountMax: 13,
+        discovered: 10,
+      });
+
+      const { authoritativeSnapshotVerified } = evaluateAuthoritativeSnapshot(jobs, {
+        validateAuthoritativeSnapshot: validateFachkraftAuthoritativeSnapshot,
+        allowAuthoritativeEmptySnapshot: true,
+        companyLabel: 'fachkraft.ch GmbH',
+      });
+      // Same merge options the standard pipeline derives from the verdict.
+      const merged = mergePreserveLocaleData(
+        existingJobs,
+        jobs,
+        authoritativeSnapshotVerified ? { retainMissingJobs: false } : {},
+      );
+      const mergedUrls = new Set(merged.map((job: { url: string }) => job.url));
+      const expired = existingJobs.filter((job) => !mergedUrls.has(job.url));
+      expect(expired).toEqual([]);
+      const skipped = merged.filter((job: { crawlerMissStreak?: number }) => job.crawlerMissStreak === 1);
+      expect(skipped.map((job: { url: string }) => job.url).sort()).toEqual(
+        [existingJobs[4].url, existingJobs[5].url].sort(),
+      );
+    });
+
+    it('keeps a stable, fully paged listing authoritative', () => {
+      const jobs = Object.assign([{}], {
+        fachkraftSnapshot: {
+          complete: true,
+          coverage: 'complete',
+          listingDeclaredCount: 1,
+          listingCountDrift: false,
+          discovered: 1,
+          fetchFailures: 0,
+          detailCompleted: 0,
+          detailRequested: 0,
+          accounted: 1,
+          published: 1,
+        },
+      });
+      expect(validateFachkraftAuthoritativeSnapshot(jobs)).toBe(true);
     });
 
     it('fails closed when the initial listing omits the source-declared total', async () => {
@@ -461,6 +555,8 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         location: 'Luzern, Luzern',
         addressLocality: 'Luzern',
         canton: 'LU',
+        postedDate: new Date(Date.now() - 2 * 86_400_000).toISOString(),
+        postingDateSource: 'reported',
       }];
 
       const snapshot = await fetchFachkraftSnapshot({
@@ -480,6 +576,40 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         fetchFailures: 0,
       });
       expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+    });
+
+    it('rescues an Akamai challenge served as HTTP 200 through the shared Jina retry path', async () => {
+      const title = 'Polymechaniker/in';
+      const url = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
+      const challenge = '<html><head><title>Challenge Validation</title></head>'
+        + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+        + `${' blocked'.repeat(30)}</body></html>`;
+      const sourceListing = listingHtml(listingCard({ title, path: 'polymechaniker-in-luzern-123' }));
+      let jinaAttempts = 0;
+      const fetchImpl = vi.fn(async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') return new Response(challenge, { status: 200 });
+        if (target.startsWith('https://r.jina.ai/')) {
+          jinaAttempts++;
+          return new Response(jinaAttempts === 1 ? challenge : sourceListing, { status: 200 });
+        }
+        return new Response(detailHtml({ title, description: words(55) }), { status: 200 });
+      });
+
+      const snapshot = await fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs: [],
+        detailWorkers: 1,
+      });
+
+      expect(snapshot).toHaveLength(1);
+      expect(jinaAttempts).toBe(2);
+      expect(snapshot.fachkraftSnapshot).toMatchObject({
+        discovered: 1,
+        detailCompleted: 1,
+        fetchFailures: 0,
+      });
     });
 
     it('recovers a rate-limited detail without losing the authoritative snapshot', async () => {
@@ -547,6 +677,22 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       expect(attempts).toBeGreaterThanOrEqual(2); // robots (fail-open) + listing
       expect(attempts).toBeLessThanOrEqual(3); // at most two bounded listing attempts
       expect(Date.now() - startedAt).toBeLessThan(500);
+    });
+
+    it('sends the default transport through the fetch paired with the policy dispatcher', async () => {
+      // No fetchImpl: the production transport. Only a fetch that accepts the
+      // policy's npm-undici dispatcher reaches its connection-time DNS guard,
+      // which refuses the loopback answer before any socket is opened. Node's
+      // bundled fetch rejects that dispatcher under undici 8 and showed up
+      // here as "transport other" on every request.
+      await expect(fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        requestTimeoutMs: 5_000,
+        runTimeoutMs: 10_000,
+        retries: 0,
+        lookupImpl: async () => [{ address: '127.0.0.1', family: 4 }],
+        existingJobs: [],
+      })).rejects.toThrow(/unsafe prospector DNS target/);
     });
 
     it('enforces the whole-run deadline even when the per-request budget is longer', async () => {
@@ -686,6 +832,8 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         addressCountry: 'CH',
         country: 'CH',
         url: 'https://www.fachkraft.ch/stellen/pflegefachfrau-mann-relocated-321/',
+        postedDate: new Date(Date.now() - 2 * 86_400_000).toISOString(),
+        postingDateSource: 'reported',
       }];
 
       const jobs = await fetchAllFachkraftJobs({
@@ -732,6 +880,8 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         addressCountry: 'CH',
         country: 'CH',
         url: 'https://www.fachkraft.ch/stellen/elektroinstallateur-in-format-drift-654/',
+        postedDate: new Date(Date.now() - 2 * 86_400_000).toISOString(),
+        postingDateSource: 'reported',
       }];
 
       const jobs = await fetchAllFachkraftJobs({
@@ -794,5 +944,68 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       ]);
       expect([...beforeRoutes].filter((route) => !afterRoutes.has(route))).toEqual([]);
     });
+  });
+});
+
+
+describe('Fachkraft publication provenance', () => {
+  beforeEach(() => clearPoliteFetchStateForTests());
+  it.each(['past', 'future', 'missing'])('keeps the listing while normalizing %s publication evidence', async (kind) => {
+    const title = 'Polymechaniker/in';
+    const sourceDate = kind === 'missing' ? undefined
+      : new Date(Date.now() + (kind === 'future' ? 7 : -7) * 86400000).toISOString();
+    const cards = listingHtml(listingCard({ title, path: 'polymechaniker-in-luzern-123' }));
+    const fetchImpl = async (target: string) => {
+      if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+      return new Response(target === 'https://www.fachkraft.ch/stellen/' ? cards
+        : detailHtml({ title, description: words(60), datePosted: sourceDate }), { status: 200 });
+    };
+    const jobs = await fetchAllFachkraftJobs({ ...runtimeOptions, fetchImpl, existingJobs: [] });
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].postingDateSource).toBe(kind === 'past' ? 'reported' : 'unknown');
+    expect(jobs[0].postedDate).toBe(kind === 'past' ? sourceDate : '');
+    expect(jobs[0].datePosted).toBe(jobs[0].postedDate);
+      // Unknown provenance preserves the vacancy/FAQ, not invented JobPosting data.
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const schema = buildJobPostingSchema(jobs[0], { locale, url: jobs[0].url });
+        if (kind === 'past') {
+          expect(schema).not.toBeNull();
+          expect(schema?.hiringOrganization.name).toBeTruthy();
+          expect(schema?.datePosted).toBe(jobs[0].datePosted);
+        } else {
+          expect(schema).toBeNull();
+        }
+        expect(buildJobPostingFacts(jobs[0], locale).hiringOrganization.name).toBeTruthy();
+      }
+      expect(jobs[0].url).toMatch(/^https:\/\//);
+      expect(jobs[0].description).toBeTruthy();
+    expect(Number.isFinite(Date.parse(jobs[0].crawledAt))).toBe(true);
+    expect(validateFachkraftAuthoritativeSnapshot(jobs)).toBe(true);
+  });
+});
+
+
+describe('Fachkraft cached publication evidence', () => {
+  beforeEach(() => clearPoliteFetchStateForTests());
+  it.each(['reported', 'unknown', 'legacy'])('uses only reported source evidence for %s cached records', async (marker) => {
+    const title = 'Polymechaniker/in';
+    const url = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
+    const date = new Date(Date.now() - 7 * 86400000).toISOString();
+    const fetchImpl = async (target: string) => {
+      if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+      if (target === 'https://www.fachkraft.ch/stellen/') return new Response(listingHtml(listingCard({ title, path: 'polymechaniker-in-luzern-123' })), { status: 200 });
+      if (marker !== 'reported' && target === url) return new Response(detailHtml({ title, description: words(60), datePosted: date }), { status: 200 });
+      throw new Error('Cached description should not require a detail request');
+    };
+    const jobs = await fetchAllFachkraftJobs({ ...runtimeOptions, fetchImpl, existingJobs: [{
+      url, title, sourceLang: 'de', description: words(60), location: 'Luzern', canton: 'LU',
+      postedDate: date,
+      ...(marker === 'legacy' ? {} : { postingDateSource: marker }),
+      ...(marker === 'unknown' ? { crawledAt: new Date().toISOString() } : {}),
+    }] });
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].postedDate).toBe(date);
+    expect(jobs[0].postingDateSource).toBe('reported');
+    expect(jobs.fachkraftSnapshot.reused).toBe(marker === 'reported' ? 1 : 0);
   });
 });

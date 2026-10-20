@@ -14,7 +14,9 @@ import {
   isTrustedDomain,
   PRIVATKLINIK_HOHENEGG_KEY,
   PRIVATKLINIK_HOHENEGG_COMPANY_NAME,
+  PRIVATKLINIK_HOHENEGG_FABRICATED_DESCRIPTION_RE,
 } from './lib/privatklinik-hohenegg-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +29,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isPrivatklinikHoheneggJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, PRIVATKLINIK_HOHENEGG_FABRICATED_DESCRIPTION_RE, PRIVATKLINIK_HOHENEGG_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Privatklinik Hohenegg crawler failed: ${err?.message || err}`);
   process.exit(1);
